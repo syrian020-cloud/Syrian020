@@ -306,6 +306,42 @@
 
     .sentences-section { margin-top: 1rem; }
     .sentences-section h3 { margin: 0 0 0.6rem; font-size: 1.1rem; color: var(--text-primary); }
+    .words-section {
+      margin-top: 1rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.7rem;
+    }
+    .words-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; }
+    .words-header h3 { margin: 0; font-size: 1.1rem; color: var(--text-primary); }
+    #words-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .word-card {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.5rem 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .word-text { font-size: var(--font-size); color: var(--text-primary); }
+    .word-actions { display: flex; gap: 0.3rem; }
+    .word-actions button {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .word-actions button:hover { background: var(--accent); color: #fff; }
+    .word-actions button.active { background: var(--success); color: #1a1a1a; }
     .sentence-card {
       background: var(--bg-secondary);
       border: 1px solid var(--border);
@@ -517,6 +553,13 @@
           <a href="#" id="download-vtt" download="lesson.vtt">تحميل VTT</a>
           <a href="#" id="download-txt" download="lesson.txt">تحميل كنص</a>
         </div>
+        <div class="words-section hidden" id="words-section">
+          <div class="words-header">
+            <h3 data-i18n="words">كلمات</h3>
+            <button class="btn-secondary" onclick="closeWordsSection()" data-i18n="close">إغلاق</button>
+          </div>
+          <div id="words-list"></div>
+        </div>
         <div class="sentences-section hidden" id="sentences-section">
           <h3 data-i18n="sentencesSection">الجمل والتصحيح</h3>
           <div id="sentences-list"></div>
@@ -603,6 +646,7 @@
         confirmDelete: "هل تريد حذف هذا الدرس؟",
         play: "تشغيل", pause: "إيقاف", edit: "تعديل", delete: "حذف", repeat: "تكرار العبارة",
         words: "كلمات", sentencesSection: "الجمل والتصحيح", saveCue: "حفظ",
+        close: "إغلاق", listen: "استماع", repeatWord: "تكرار",
         downloadSrt: "تحميل SRT", downloadVtt: "تحميل VTT", downloadText: "تحميل كنص",
         lesson: "درس", of: "من",
         installed: "يمكن تشغيل التطبيق من الشاشة الرئيسية",
@@ -632,6 +676,7 @@
         confirmDelete: "Supprimer cette leçon ?",
         play: "Lire", pause: "Pause", edit: "Modifier", delete: "Supprimer", repeat: "Répéter la phrase",
         words: "Mots", sentencesSection: "Phrases et correction", saveCue: "Enregistrer",
+        close: "Fermer", listen: "Écouter", repeatWord: "Répéter",
         downloadSrt: "Télécharger SRT", downloadVtt: "Télécharger VTT", downloadText: "Télécharger texte",
         lesson: "Leçon", of: "sur",
         installed: "L'application est installable depuis l'écran d'accueil",
@@ -661,6 +706,7 @@
         confirmDelete: "Delete this lesson?",
         play: "Play", pause: "Pause", edit: "Edit", delete: "Delete", repeat: "Repeat phrase",
         words: "Words", sentencesSection: "Sentences & correction", saveCue: "Save",
+        close: "Close", listen: "Listen", repeatWord: "Repeat",
         downloadSrt: "Download SRT", downloadVtt: "Download VTT", downloadText: "Download text",
         lesson: "Lesson", of: "of",
         installed: "The app can be launched from the home screen",
@@ -679,7 +725,8 @@
       subtitleType: 'srt',
       editingId: null,
       currentCues: [],
-      loopCue: null
+      loopCue: null,
+      loopWord: null
     };
 
     const DB_NAME = 'videoSubtitleDB';
@@ -1209,8 +1256,96 @@
     function showCueWords(i) {
       const cue = state.currentCues[i];
       if (!cue) return;
-      const words = cue.text.split(/\s+/).filter(w => w);
-      showToast(`${t('words')}: ${words.join(' / ')}`);
+      const section = document.getElementById('words-section');
+      const list = document.getElementById('words-list');
+      if (!section || !list) return;
+      const lines = cue.text.split('\n').map(l => l.trim()).filter(l => l);
+      const primary = lines[0] || '';
+      const words = primary.split(/\s+/).filter(w => w.replace(/[^\w\u00C0-\u024F\u0600-\u06FF]/g,''));
+      list.innerHTML = words.map((w, idx) => `
+        <div class="word-card">
+          <span class="word-text">${escapeHtml(w)}</span>
+          <div class="word-actions">
+            <button onclick="speakWord(${i}, ${idx})" title="${t('listen')}">🔊</button>
+            <button id="word-loop-${i}-${idx}" class="loop-word" onclick="toggleWordLoop(${i}, ${idx})" title="${t('repeatWord')}">🔂</button>
+          </div>
+        </div>
+      `).join('');
+      section.classList.remove('hidden');
+      section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function closeWordsSection() {
+      stopWordLoop();
+      const section = document.getElementById('words-section');
+      if (section) section.classList.add('hidden');
+    }
+
+    function getWordLang(word) {
+      if (/[\u0600-\u06FF]/.test(word)) return 'ar';
+      if (/[\u00C0-\u024F]/.test(word)) return 'fr';
+      return state.lang || 'en';
+    }
+
+    function speakWord(i, idx) {
+      const cue = state.currentCues[i];
+      if (!cue || !('speechSynthesis' in window)) return;
+      stopWordLoop();
+      const lines = cue.text.split('\n').map(l => l.trim()).filter(l => l);
+      const primary = lines[0] || '';
+      const words = primary.split(/\s+/).filter(w => w);
+      const word = words[idx];
+      if (!word) return;
+      const u = new SpeechSynthesisUtterance(word);
+      u.lang = getWordLang(word);
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(u);
+    }
+
+    function toggleWordLoop(i, idx) {
+      if (state.loopWord && state.loopWord.i === i && state.loopWord.idx === idx) {
+        stopWordLoop();
+        return;
+      }
+      stopWordLoop();
+      state.loopWord = { i, idx };
+      const cue = state.currentCues[i];
+      const lines = cue.text.split('\n').map(l => l.trim()).filter(l => l);
+      const primary = lines[0] || '';
+      const words = primary.split(/\s+/).filter(w => w);
+      const word = words[idx];
+      if (!word) return;
+      const speakAgain = () => {
+        if (!state.loopWord || state.loopWord.i !== i || state.loopWord.idx !== idx) return;
+        const u2 = new SpeechSynthesisUtterance(word);
+        u2.lang = getWordLang(word);
+        u2.onend = () => setTimeout(speakAgain, 300);
+        window.speechSynthesis.speak(u2);
+      };
+      const u = new SpeechSynthesisUtterance(word);
+      u.lang = getWordLang(word);
+      u.onend = () => setTimeout(speakAgain, 300);
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(u);
+      updateWordLoopButtons();
+    }
+
+    function stopWordLoop() {
+      state.loopWord = null;
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      updateWordLoopButtons();
+    }
+
+    function updateWordLoopButtons() {
+      document.querySelectorAll('.loop-word').forEach(btn => {
+        const match = btn.id.match(/word-loop-(\d+)-(\d+)/);
+        if (!match) return;
+        const i = parseInt(match[1], 10);
+        const idx = parseInt(match[2], 10);
+        const isLoop = state.loopWord && state.loopWord.i === i && state.loopWord.idx === idx;
+        btn.classList.toggle('active', isLoop);
+        btn.textContent = isLoop ? '🔁' : '🔂';
+      });
     }
 
     function updateDownloadLinks() {
