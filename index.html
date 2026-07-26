@@ -383,6 +383,40 @@
     }
     .sentence-actions button:hover { background: var(--accent); color: #fff; }
     .sentence-actions button.active { background: var(--success); color: #1a1a1a; }
+    .cue-words { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
+    .word-chip {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.15rem 0.4rem 0.15rem 0.6rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .word-chip:hover { background: var(--accent); color: #fff; }
+    .word-chip.active { background: var(--success); color: #1a1a1a; }
+    .word-chip .word-loop {
+      background: transparent;
+      border: none;
+      color: inherit;
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 0 0.15rem;
+      border-radius: 50%;
+    }
+    .word-chip .word-loop:hover { background: rgba(255,255,255,0.2); }
+    .lesson-words {
+      margin-top: 1rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.7rem;
+    }
+    .lesson-words h3 { margin: 0 0 0.6rem; font-size: 1.1rem; color: var(--text-primary); }
 
     .cue-list {
       background: var(--bg-secondary);
@@ -560,6 +594,10 @@
           </div>
           <div id="words-list"></div>
         </div>
+        <div class="lesson-words hidden" id="lesson-words">
+          <h3 data-i18n="lessonWords">كلمات الدرس</h3>
+          <div id="lesson-words-list"></div>
+        </div>
         <div class="sentences-section hidden" id="sentences-section">
           <h3 data-i18n="sentencesSection">الجمل والتصحيح</h3>
           <div id="sentences-list"></div>
@@ -645,7 +683,7 @@
         invalidTime: "تنسيق الوقت غير صحيح",
         confirmDelete: "هل تريد حذف هذا الدرس؟",
         play: "تشغيل", pause: "إيقاف", edit: "تعديل", delete: "حذف", repeat: "تكرار العبارة",
-        words: "كلمات", sentencesSection: "الجمل والتصحيح", saveCue: "حفظ",
+        words: "كلمات", lessonWords: "كلمات الدرس", sentencesSection: "الجمل والتصحيح", saveCue: "حفظ",
         close: "إغلاق", listen: "استماع", repeatWord: "تكرار",
         downloadSrt: "تحميل SRT", downloadVtt: "تحميل VTT", downloadText: "تحميل كنص",
         lesson: "درس", of: "من",
@@ -675,7 +713,7 @@
         invalidTime: "Format de temps invalide",
         confirmDelete: "Supprimer cette leçon ?",
         play: "Lire", pause: "Pause", edit: "Modifier", delete: "Supprimer", repeat: "Répéter la phrase",
-        words: "Mots", sentencesSection: "Phrases et correction", saveCue: "Enregistrer",
+        words: "Mots", lessonWords: "Mots de la leçon", sentencesSection: "Phrases et correction", saveCue: "Enregistrer",
         close: "Fermer", listen: "Écouter", repeatWord: "Répéter",
         downloadSrt: "Télécharger SRT", downloadVtt: "Télécharger VTT", downloadText: "Télécharger texte",
         lesson: "Leçon", of: "sur",
@@ -705,7 +743,7 @@
         invalidTime: "Invalid time format",
         confirmDelete: "Delete this lesson?",
         play: "Play", pause: "Pause", edit: "Edit", delete: "Delete", repeat: "Repeat phrase",
-        words: "Words", sentencesSection: "Sentences & correction", saveCue: "Save",
+        words: "Words", lessonWords: "Lesson words", sentencesSection: "Sentences & correction", saveCue: "Save",
         close: "Close", listen: "Listen", repeatWord: "Repeat",
         downloadSrt: "Download SRT", downloadVtt: "Download VTT", downloadText: "Download text",
         lesson: "Lesson", of: "of",
@@ -1049,6 +1087,7 @@
       document.getElementById('playback-controls').classList.add('hidden');
       document.getElementById('download-links').classList.add('hidden');
       document.getElementById('sentences-section').classList.add('hidden');
+      document.getElementById('lesson-words').classList.add('hidden');
       document.getElementById('cue-list').classList.add('hidden');
       const video = document.getElementById('lesson-video');
       detachSubtitleListeners(video);
@@ -1104,12 +1143,14 @@
       document.getElementById('playback-controls').classList.remove('hidden');
       document.getElementById('download-links').classList.remove('hidden');
       document.getElementById('sentences-section').classList.remove('hidden');
+      document.getElementById('lesson-words').classList.remove('hidden');
       document.getElementById('cue-list').classList.remove('hidden');
       attachSubtitleListeners(video);
       video.load();
       updateSubtitleOverlay();
       renderCueList();
       renderSentences();
+      renderLessonWords();
       updateDownloadLinks();
       showToast(t('preview'));
     }
@@ -1169,6 +1210,46 @@
       });
     }
 
+    function getCueWords(cue) {
+      const lines = (cue && cue.text ? cue.text : '').split('\n').map(l => l.trim()).filter(l => l);
+      const primary = lines[0] || '';
+      return primary.split(/\s+/).filter(w => w.replace(/[^\w\u00C0-\u024F\u0600-\u06FF]/g, ''));
+    }
+
+    function renderCueWords(cue, i) {
+      const words = getCueWords(cue);
+      if (!words.length) return '';
+      return `
+        <div class="cue-words">
+          ${words.map((w, idx) => `
+            <span class="word-chip" id="word-chip-${i}-${idx}" data-i="${i}" data-idx="${idx}">
+              <span onclick="event.stopPropagation(); speakWord(${i}, ${idx})">${escapeHtml(w)}</span>
+              <button class="word-loop" onclick="event.stopPropagation(); toggleWordLoop(${i}, ${idx})" title="${t('repeatWord')}">🔂</button>
+            </span>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function renderLessonWords() {
+      const container = document.getElementById('lesson-words-list');
+      if (!container) return;
+      const allWords = [];
+      state.currentCues.forEach((cue, i) => {
+        getCueWords(cue).forEach((w, idx) => {
+          allWords.push({ w, i, idx });
+        });
+      });
+      if (!allWords.length) { container.innerHTML = ''; return; }
+      container.innerHTML = allWords.map(({ w, i, idx }) => `
+        <span class="word-chip" id="lesson-word-${i}-${idx}" data-i="${i}" data-idx="${idx}">
+          <span onclick="event.stopPropagation(); speakWord(${i}, ${idx})">${escapeHtml(w)}</span>
+          <button class="word-loop" onclick="event.stopPropagation(); toggleWordLoop(${i}, ${idx})" title="${t('repeatWord')}">🔂</button>
+        </span>
+      `).join('');
+      updateWordLoopButtons();
+    }
+
     function renderSentences() {
       const container = document.getElementById('sentences-list');
       if (!container) return;
@@ -1176,8 +1257,8 @@
         <div class="sentence-card" data-index="${i}">
           <div class="sentence-time">${formatDuration(cue.start)} - ${formatDuration(cue.end)}</div>
           <textarea data-index="${i}" onchange="updateCueText(${i}, this.value)">${escapeHtml(cue.text)}</textarea>
+          ${renderCueWords(cue, i)}
           <div class="sentence-actions">
-            <button onclick="showCueWords(${i})">${t('words')}</button>
             <button class="loop-btn" data-start="${cue.start}" data-end="${cue.end}" onclick="toggleLoopCue(${cue.start}, ${cue.end})">${t('repeat')}</button>
             <button onclick="jumpToCue(${i})">${formatDuration(cue.start)}</button>
           </div>
@@ -1291,9 +1372,7 @@
       const cue = state.currentCues[i];
       if (!cue || !('speechSynthesis' in window)) return;
       stopWordLoop();
-      const lines = cue.text.split('\n').map(l => l.trim()).filter(l => l);
-      const primary = lines[0] || '';
-      const words = primary.split(/\s+/).filter(w => w);
+      const words = getCueWords(cue);
       const word = words[idx];
       if (!word) return;
       const u = new SpeechSynthesisUtterance(word);
@@ -1310,9 +1389,7 @@
       stopWordLoop();
       state.loopWord = { i, idx };
       const cue = state.currentCues[i];
-      const lines = cue.text.split('\n').map(l => l.trim()).filter(l => l);
-      const primary = lines[0] || '';
-      const words = primary.split(/\s+/).filter(w => w);
+      const words = getCueWords(cue);
       const word = words[idx];
       if (!word) return;
       const speakAgain = () => {
@@ -1337,14 +1414,15 @@
     }
 
     function updateWordLoopButtons() {
-      document.querySelectorAll('.loop-word').forEach(btn => {
-        const match = btn.id.match(/word-loop-(\d+)-(\d+)/);
-        if (!match) return;
-        const i = parseInt(match[1], 10);
-        const idx = parseInt(match[2], 10);
+      document.querySelectorAll('.word-loop').forEach(btn => {
+        const chip = btn.closest('.word-chip');
+        const i = chip ? parseInt(chip.dataset.i, 10) : null;
+        const idx = chip ? parseInt(chip.dataset.idx, 10) : null;
+        if (i === null || idx === null) return;
         const isLoop = state.loopWord && state.loopWord.i === i && state.loopWord.idx === idx;
         btn.classList.toggle('active', isLoop);
         btn.textContent = isLoop ? '🔁' : '🔂';
+        chip.classList.toggle('active', isLoop);
       });
     }
 
@@ -1523,12 +1601,14 @@
       document.getElementById('playback-controls').classList.remove('hidden');
       document.getElementById('download-links').classList.remove('hidden');
       document.getElementById('sentences-section').classList.remove('hidden');
+      document.getElementById('lesson-words').classList.remove('hidden');
       document.getElementById('cue-list').classList.remove('hidden');
       attachSubtitleListeners(video);
       video.load();
       updateSubtitleOverlay();
       renderCueList();
       renderSentences();
+      renderLessonWords();
       updateDownloadLinks();
       showPage('editor');
     }
