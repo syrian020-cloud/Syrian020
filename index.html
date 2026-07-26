@@ -250,7 +250,29 @@
       color: var(--text-primary);
       font-size: calc(var(--font-size) + 2px);
       line-height: 1.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
     }
+    .subtitle-display .cue-text { flex: 1; }
+    .subtitle-display .cue-loop {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .subtitle-display .cue-loop:hover { background: var(--accent-hover); }
+    .subtitle-display .cue-loop.active { background: var(--success); color: #1a1a1a; }
 
     .settings-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
     .settings-row label { margin: 0; flex: 1; }
@@ -441,7 +463,7 @@
         addSubtitle: "أضف ملف SRT أو نص موقوت",
         invalidTime: "تنسيق الوقت غير صحيح",
         confirmDelete: "هل تريد حذف هذا الدرس؟",
-        play: "تشغيل", pause: "إيقاف", edit: "تعديل", delete: "حذف",
+        play: "تشغيل", pause: "إيقاف", edit: "تعديل", delete: "حذف", repeat: "تكرار العبارة",
         lesson: "درس", of: "من",
         installed: "يمكن تشغيل التطبيق من الشاشة الرئيسية",
         notInstallable: "التثبيت غير متاح في هذا المتصفح"
@@ -468,7 +490,7 @@
         addSubtitle: "Ajoutez un fichier SRT ou du texte synchronisé",
         invalidTime: "Format de temps invalide",
         confirmDelete: "Supprimer cette leçon ?",
-        play: "Lire", pause: "Pause", edit: "Modifier", delete: "Supprimer",
+        play: "Lire", pause: "Pause", edit: "Modifier", delete: "Supprimer", repeat: "Répéter la phrase",
         lesson: "Leçon", of: "sur",
         installed: "L'application est installable depuis l'écran d'accueil",
         notInstallable: "Installation non supportée par ce navigateur"
@@ -495,7 +517,7 @@
         addSubtitle: "Add an SRT file or timed text",
         invalidTime: "Invalid time format",
         confirmDelete: "Delete this lesson?",
-        play: "Play", pause: "Pause", edit: "Edit", delete: "Delete",
+        play: "Play", pause: "Pause", edit: "Edit", delete: "Delete", repeat: "Repeat phrase",
         lesson: "Lesson", of: "of",
         installed: "The app can be launched from the home screen",
         notInstallable: "Installation not supported by this browser"
@@ -512,7 +534,8 @@
       subtitleText: '',
       subtitleType: 'srt',
       editingId: null,
-      currentCues: []
+      currentCues: [],
+      loopCue: null
     };
 
     const DB_NAME = 'videoSubtitleDB';
@@ -839,9 +862,10 @@
 
       const cues = state.subtitleType === 'srt' ? parseSrt(text) : parseTimedText(text);
       state.currentCues = cues;
+      state.loopCue = null;
 
       const video = document.getElementById('lesson-video');
-      video.removeEventListener('timeupdate', updateSubtitleOverlay);
+      detachSubtitleListeners(video);
       video.src = URL.createObjectURL(state.videoFile);
       const track = document.createElement('track');
       track.kind = 'subtitles';
@@ -855,8 +879,9 @@
       document.getElementById('preview-wrap').classList.remove('hidden');
       document.getElementById('subtitle-overlay').classList.remove('hidden');
       document.getElementById('subtitle-display').classList.remove('hidden');
-      video.addEventListener('timeupdate', updateSubtitleOverlay);
+      attachSubtitleListeners(video);
       video.load();
+      updateSubtitleOverlay();
       showToast(t('preview'));
     }
 
@@ -864,18 +889,54 @@
       const video = document.getElementById('lesson-video');
       const overlay = document.getElementById('subtitle-overlay');
       const display = document.getElementById('subtitle-display');
-      const t = video.currentTime;
-      const cue = state.currentCues.find(c => t >= c.start && t < c.end);
+      const currentTime = video.currentTime;
+      const cue = state.currentCues.find(c => currentTime >= c.start && currentTime < c.end);
+
+      if (state.loopCue && currentTime >= state.loopCue.end) {
+        video.currentTime = state.loopCue.start;
+        return;
+      }
+
       if (cue) {
         const html = cue.text.replace(/\n/g, '<br>');
         overlay.querySelector('span').innerHTML = html;
         overlay.classList.remove('hidden');
-        display.innerHTML = html;
+        const isLoop = state.loopCue && state.loopCue.start === cue.start && state.loopCue.end === cue.end;
+        display.innerHTML = `
+          <span class="cue-text">${html}</span>
+          <button class="cue-loop ${isLoop ? 'active' : ''}" title="${t('repeat')}" onclick="toggleLoopCue(${cue.start}, ${cue.end})">${isLoop ? '🔁' : '🔂'}</button>
+        `;
       } else {
         overlay.classList.add('hidden');
         display.innerHTML = '';
       }
     }
+
+    function attachSubtitleListeners(video) {
+      video.addEventListener('timeupdate', updateSubtitleOverlay);
+      video.addEventListener('seeked', updateSubtitleOverlay);
+      video.addEventListener('play', updateSubtitleOverlay);
+      video.addEventListener('pause', updateSubtitleOverlay);
+    }
+
+    function detachSubtitleListeners(video) {
+      video.removeEventListener('timeupdate', updateSubtitleOverlay);
+      video.removeEventListener('seeked', updateSubtitleOverlay);
+      video.removeEventListener('play', updateSubtitleOverlay);
+      video.removeEventListener('pause', updateSubtitleOverlay);
+    }
+
+    window.toggleLoopCue = function(start, end) {
+      const video = document.getElementById('lesson-video');
+      if (state.loopCue && state.loopCue.start === start && state.loopCue.end === end) {
+        state.loopCue = null;
+      } else {
+        state.loopCue = { start, end };
+        video.currentTime = start;
+        if (video.paused) video.play();
+      }
+      updateSubtitleOverlay();
+    };
 
     async function saveLesson() {
       const title = document.getElementById('lesson-title').value.trim();
@@ -929,9 +990,10 @@
       }
 
       state.currentCues = state.subtitleType === 'srt' ? parseSrt(lesson.subtitleText) : parseTimedText(lesson.subtitleText);
+      state.loopCue = null;
 
       const video = document.getElementById('lesson-video');
-      video.removeEventListener('timeupdate', updateSubtitleOverlay);
+      detachSubtitleListeners(video);
       video.src = URL.createObjectURL(lesson.videoFile);
       const track = document.createElement('track');
       track.kind = 'subtitles';
@@ -945,8 +1007,9 @@
       document.getElementById('preview-wrap').classList.remove('hidden');
       document.getElementById('subtitle-overlay').classList.remove('hidden');
       document.getElementById('subtitle-display').classList.remove('hidden');
-      video.addEventListener('timeupdate', updateSubtitleOverlay);
+      attachSubtitleListeners(video);
       video.load();
+      updateSubtitleOverlay();
       showPage('editor');
     }
 
