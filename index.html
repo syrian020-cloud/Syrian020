@@ -274,6 +274,48 @@
     .subtitle-display .cue-loop:hover { background: var(--accent-hover); }
     .subtitle-display .cue-loop.active { background: var(--success); color: #1a1a1a; }
 
+    .cue-list {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.6rem;
+      margin-top: 0.6rem;
+      max-height: 260px;
+      overflow-y: auto;
+    }
+    .cue-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      padding: 0.55rem 0.6rem;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.15s;
+      font-size: calc(var(--font-size) - 1px);
+    }
+    .cue-item:last-child { border-bottom: none; }
+    .cue-item:hover { background: var(--bg-tertiary); }
+    .cue-item.active { background: rgba(74,158,255,0.12); border-inline-start: 3px solid var(--accent); }
+    .cue-time { color: var(--text-secondary); font-size: 0.8rem; white-space: nowrap; }
+    .cue-text { flex: 1; text-align: start; line-height: 1.4; }
+    .cue-item .cue-loop {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cue-item .cue-loop:hover { background: var(--accent); color: #fff; }
+    .cue-item .cue-loop.active { background: var(--success); color: #1a1a1a; border-color: var(--success); }
+
     .settings-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
     .settings-row label { margin: 0; flex: 1; }
     .range-wrap { display: flex; align-items: center; gap: 0.5rem; }
@@ -384,6 +426,7 @@
           <div class="video-subtitle-overlay hidden" id="subtitle-overlay"><span></span></div>
         </div>
         <div class="subtitle-display hidden" id="subtitle-display"></div>
+        <div class="cue-list hidden" id="cue-list"></div>
 
         <div class="form-actions">
           <button id="btn-preview" data-i18n="preview">معاينة</button>
@@ -831,6 +874,7 @@
       document.getElementById('preview-wrap').classList.add('hidden');
       document.getElementById('subtitle-overlay').classList.add('hidden');
       document.getElementById('subtitle-display').classList.add('hidden');
+      document.getElementById('cue-list').classList.add('hidden');
       const video = document.getElementById('lesson-video');
       video.removeEventListener('timeupdate', updateSubtitleOverlay);
       video.pause();
@@ -879,9 +923,11 @@
       document.getElementById('preview-wrap').classList.remove('hidden');
       document.getElementById('subtitle-overlay').classList.remove('hidden');
       document.getElementById('subtitle-display').classList.remove('hidden');
+      document.getElementById('cue-list').classList.remove('hidden');
       attachSubtitleListeners(video);
       video.load();
       updateSubtitleOverlay();
+      renderCueList();
       showToast(t('preview'));
     }
 
@@ -910,6 +956,57 @@
         overlay.classList.add('hidden');
         display.innerHTML = '';
       }
+      highlightActiveCue(cue);
+    }
+
+    function renderCueList() {
+      const list = document.getElementById('cue-list');
+      if (!state.currentCues.length) { list.innerHTML = ''; return; }
+      list.innerHTML = state.currentCues.map((cue, i) => {
+        const isLoop = state.loopCue && state.loopCue.start === cue.start && state.loopCue.end === cue.end;
+        return `
+          <div class="cue-item" data-index="${i}" data-start="${cue.start}" data-end="${cue.end}">
+            <div class="cue-text">${escapeHtml(cue.text).replace(/\n/g, '<br>')}</div>
+            <div class="cue-time">${formatDuration(cue.start)} - ${formatDuration(cue.end)}</div>
+            <button class="cue-loop ${isLoop ? 'active' : ''}" data-index="${i}" title="${t('repeat')}">${isLoop ? '🔁' : '🔂'}</button>
+          </div>
+        `;
+      }).join('');
+      list.addEventListener('click', handleCueListClick);
+    }
+
+    function handleCueListClick(e) {
+      const item = e.target.closest('.cue-item');
+      const loopBtn = e.target.closest('.cue-loop');
+      if (!item) return;
+      const start = parseFloat(item.dataset.start);
+      const end = parseFloat(item.dataset.end);
+      if (loopBtn) {
+        toggleLoopCue(start, end);
+      } else {
+        const video = document.getElementById('lesson-video');
+        video.currentTime = start;
+        if (video.paused) video.play();
+      }
+    }
+
+    function highlightActiveCue(activeCue) {
+      const video = document.getElementById('lesson-video');
+      const currentTime = video ? video.currentTime : 0;
+      const cue = activeCue || state.currentCues.find(c => currentTime >= c.start && currentTime < c.end);
+      const list = document.getElementById('cue-list');
+      if (!list) return;
+      list.querySelectorAll('.cue-item').forEach((el, i) => {
+        const c = state.currentCues[i];
+        if (!c) return;
+        el.classList.toggle('active', cue && cue.start === c.start && cue.end === c.end);
+        const btn = el.querySelector('.cue-loop');
+        if (btn) {
+          const isLoop = state.loopCue && state.loopCue.start === c.start && state.loopCue.end === c.end;
+          btn.classList.toggle('active', isLoop);
+          btn.textContent = isLoop ? '🔁' : '🔂';
+        }
+      });
     }
 
     function attachSubtitleListeners(video) {
@@ -1007,9 +1104,11 @@
       document.getElementById('preview-wrap').classList.remove('hidden');
       document.getElementById('subtitle-overlay').classList.remove('hidden');
       document.getElementById('subtitle-display').classList.remove('hidden');
+      document.getElementById('cue-list').classList.remove('hidden');
       attachSubtitleListeners(video);
       video.load();
       updateSubtitleOverlay();
+      renderCueList();
       showPage('editor');
     }
 
