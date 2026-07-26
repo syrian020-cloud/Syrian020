@@ -1,0 +1,287 @@
+/* فهرس المراحل والدروس — يُحمَّل أولاً، ثم تُحمّل عبارات كل مرحلة عند فتحها */
+window.FR_STAGES = [
+  {
+    id: 1,
+    title: { ar: "الوصول إلى فرنسا", fr: "L'arrivée en France", en: "Arriving in France" },
+    lessonTitles: [
+      { id: 1, ar: "المطار", fr: "L'aéroport", en: "The airport" },
+      { id: 2, ar: "مراقبة الحدود", fr: "Le contrôle des frontières", en: "Border control" },
+      { id: 3, ar: "استلام الحقائب", fr: "Le retrait des bagages", en: "Baggage claim" },
+      { id: 4, ar: "الجمارك", fr: "La douane", en: "Customs" },
+      { id: 5, ar: "شراء شريحة هاتف", fr: "Acheter une carte SIM", en: "Buying a SIM card" },
+      { id: 6, ar: "صرف العملات", fr: "Le bureau de change", en: "Currency exchange" },
+      { id: 7, ar: "شراء تذكرة القطار أو الباص", fr: "Acheter un billet de train ou de bus", en: "Buying a train or bus ticket" },
+      { id: 8, ar: "طلب سيارة أجرة", fr: "Prendre un taxi", en: "Taking a taxi" },
+      { id: 9, ar: "الوصول إلى السكن المؤقت", fr: "Arriver au logement temporaire", en: "Arriving at temporary housing" }
+    ]
+  },
+  {
+    id: 2,
+    title: { ar: "اللجوء والاستقبال", fr: "L'asile et l'accueil", en: "Asylum and reception" },
+    lessonTitles: [
+      { id: 10, ar: "الصليب الأحمر", fr: "La Croix-Rouge", en: "The Red Cross" },
+      { id: 11, ar: "منصة الاستقبال SPADA", fr: "La plateforme d'accueil (SPADA)", en: "The reception platform (SPADA)" },
+      { id: 12, ar: "طلب اللجوء", fr: "La demande d'asile", en: "The asylum application" },
+      { id: 13, ar: "OFII", fr: "L'OFII", en: "OFII (immigration office)" },
+      { id: 14, ar: "OFPRA", fr: "L'OFPRA", en: "OFPRA (asylum office)" },
+      { id: 15, ar: "الاستئناف CNDA", fr: "Le recours à la CNDA", en: "Appeal at the CNDA" },
+      { id: 16, ar: "المحافظة", fr: "La préfecture", en: "The prefecture" },
+      { id: 17, ar: "استلام الوثائق", fr: "Retirer les documents", en: "Collecting documents" },
+      { id: 18, ar: "تجديد الوثائق", fr: "Renouveler les documents", en: "Renewing documents" }
+    ]
+  },
+  {
+    id: 3,
+    title: { ar: "السكن", fr: "Le logement", en: "Housing" },
+    lessonTitles: [
+      { id: 19, ar: "السكن المؤقت", fr: "L'hébergement temporaire", en: "Temporary accommodation" },
+      { id: 20, ar: "البحث عن شقة", fr: "Chercher un appartement", en: "Looking for an apartment" },
+      { id: 21, ar: "زيارة الشقة", fr: "La visite de l'appartement", en: "Viewing the apartment" },
+      { id: 22, ar: "توقيع عقد الإيجار", fr: "Signer le bail", en: "Signing the lease" },
+      { id: 23, ar: "الضمان", fr: "La caution et le garant", en: "Deposit and guarantor" },
+      { id: 24, ar: "التأمين المنزلي", fr: "L'assurance habitation", en: "Home insurance" },
+      { id: 25, ar: "الكهرباء", fr: "L'électricité", en: "Electricity" },
+      { id: 26, ar: "الغاز", fr: "Le gaz", en: "Gas" },
+      { id: 27, ar: "الماء", fr: "L'eau", en: "Water" },
+      { id: 28, ar: "الإنترنت", fr: "Internet", en: "Internet" },
+      { id: 29, ar: "البريد", fr: "Le courrier", en: "Mail" },
+      { id: 30, ar: "إصلاح الأعطال", fr: "Les réparations", en: "Repairs" }
+    ]
+  },
+  {
+    id: 4,
+    title: { ar: "الأوراق والإدارة", fr: "Les papiers et l'administration", en: "Paperwork and administration" },
+    lessonTitles: [
+      { id: 31, ar: "فتح حساب بنكي", fr: "Ouvrir un compte bancaire", en: "Opening a bank account" },
+      { id: 32, ar: "الضمان الاجتماعي", fr: "La sécurité sociale", en: "Social security" },
+      { id: 33, ar: "البطاقة الصحية", fr: "La carte Vitale", en: "The health card" },
+      { id: 34, ar: "صندوق الإعانات CAF", fr: "La CAF", en: "Family benefits office (CAF)" },
+      { id: 35, ar: "France Travail", fr: "France Travail", en: "France Travail (job center)" },
+      { id: 36, ar: "الضرائب", fr: "Les impôts", en: "Taxes" },
+      { id: 37, ar: "البلدية", fr: "La mairie", en: "The town hall" },
+      { id: 38, ar: "مكتب البريد", fr: "La Poste", en: "The post office" },
+      { id: 39, ar: "تغيير العنوان", fr: "Le changement d'adresse", en: "Changing address" },
+      { id: 40, ar: "إنشاء الحسابات الحكومية", fr: "Créer les comptes en ligne", en: "Creating government online accounts" }
+    ]
+  },
+  {
+    id: 5,
+    title: { ar: "تعلم اللغة", fr: "Apprendre la langue", en: "Learning the language" },
+    lessonTitles: [
+      { id: 41, ar: "التسجيل في دورة لغة", fr: "S'inscrire à un cours de français", en: "Enrolling in a French course" },
+      { id: 42, ar: "المدرسة أو الجامعة", fr: "L'école et l'université", en: "School and university" },
+      { id: 43, ar: "الامتحانات", fr: "Les examens", en: "Exams" },
+      { id: 44, ar: "المكتبة", fr: "La bibliothèque", en: "The library" },
+      { id: 45, ar: "الدراسة الذاتية", fr: "L'auto-apprentissage", en: "Self-study" }
+    ]
+  },
+  {
+    id: 6,
+    title: { ar: "البحث عن عمل", fr: "La recherche d'emploi", en: "Job hunting" },
+    lessonTitles: [
+      { id: 46, ar: "كتابة السيرة الذاتية", fr: "Rédiger un CV", en: "Writing a CV" },
+      { id: 47, ar: "رسالة التحفيز", fr: "La lettre de motivation", en: "The cover letter" },
+      { id: 48, ar: "البحث عن الوظائف", fr: "Chercher des offres d'emploi", en: "Searching job offers" },
+      { id: 49, ar: "مقابلة العمل", fr: "L'entretien d'embauche", en: "The job interview" },
+      { id: 50, ar: "توقيع العقد", fr: "Signer le contrat", en: "Signing the contract" },
+      { id: 51, ar: "أول يوم عمل", fr: "Le premier jour de travail", en: "The first day at work" },
+      { id: 52, ar: "الراتب", fr: "Le salaire", en: "Salary" },
+      { id: 53, ar: "الإجازات", fr: "Les congés", en: "Time off" },
+      { id: 54, ar: "المرض", fr: "L'arrêt maladie", en: "Sick leave" },
+      { id: 55, ar: "الاستقالة", fr: "La démission", en: "Resigning" }
+    ]
+  },
+  {
+    id: 7,
+    title: { ar: "الحياة اليومية والتسوّق", fr: "La vie quotidienne et les courses", en: "Daily life and shopping" },
+    lessonTitles: [
+      { id: 56, ar: "السوبرماركت", fr: "Le supermarché", en: "The supermarket" },
+      { id: 57, ar: "المخبز", fr: "La boulangerie", en: "The bakery" },
+      { id: 58, ar: "محل الجزارة", fr: "La boucherie", en: "The butcher's" },
+      { id: 59, ar: "محل الخضار", fr: "Chez le primeur", en: "The greengrocer" },
+      { id: 60, ar: "متجر الملابس", fr: "Le magasin de vêtements", en: "The clothes shop" },
+      { id: 61, ar: "متجر الأحذية", fr: "Le magasin de chaussures", en: "The shoe shop" },
+      { id: 62, ar: "متجر الأدوات المنزلية", fr: "Le magasin d'articles ménagers", en: "The homeware shop" },
+      { id: 63, ar: "متجر الإلكترونيات", fr: "Le magasin d'électronique", en: "The electronics shop" },
+      { id: 64, ar: "الصيدلية", fr: "La pharmacie", en: "The pharmacy" },
+      { id: 65, ar: "السوق الأسبوعي", fr: "Le marché hebdomadaire", en: "The weekly market" }
+    ]
+  },
+  {
+    id: 8,
+    title: { ar: "الصحة", fr: "La santé", en: "Health" },
+    lessonTitles: [
+      { id: 66, ar: "الطبيب العام", fr: "Le médecin généraliste", en: "The GP" },
+      { id: 67, ar: "الطبيب المختص", fr: "Le médecin spécialiste", en: "The specialist" },
+      { id: 68, ar: "المستشفى", fr: "L'hôpital", en: "The hospital" },
+      { id: 69, ar: "الطوارئ", fr: "Les urgences", en: "Emergency room" },
+      { id: 70, ar: "المختبر", fr: "Le laboratoire d'analyses", en: "The medical lab" },
+      { id: 71, ar: "الأشعة", fr: "La radiologie", en: "Radiology" },
+      { id: 72, ar: "طبيب الأسنان", fr: "Le dentiste", en: "The dentist" },
+      { id: 73, ar: "طبيب العيون", fr: "L'ophtalmologue", en: "The eye doctor" },
+      { id: 74, ar: "العلاج الطبيعي", fr: "Le kinésithérapeute", en: "Physiotherapy" },
+      { id: 75, ar: "الصيدلية والدواء", fr: "La pharmacie et les médicaments", en: "Pharmacy and medication" }
+    ]
+  },
+  {
+    id: 9,
+    title: { ar: "المواصلات", fr: "Les transports", en: "Transport" },
+    lessonTitles: [
+      { id: 76, ar: "الباص", fr: "Le bus", en: "The bus" },
+      { id: 77, ar: "الترام", fr: "Le tramway", en: "The tram" },
+      { id: 78, ar: "القطار", fr: "Le train", en: "The train" },
+      { id: 79, ar: "المترو", fr: "Le métro", en: "The metro" },
+      { id: 80, ar: "الدراجة", fr: "Le vélo", en: "The bicycle" },
+      { id: 81, ar: "السيارة", fr: "La voiture", en: "The car" },
+      { id: 82, ar: "التاكسي", fr: "Le taxi", en: "The taxi" },
+      { id: 83, ar: "شراء الاشتراك", fr: "Acheter un abonnement", en: "Buying a travel pass" },
+      { id: 84, ar: "تجديد الاشتراك", fr: "Renouveler l'abonnement", en: "Renewing the pass" }
+    ]
+  },
+  {
+    id: 10,
+    title: { ar: "الرياضة والنوادي", fr: "Le sport et la salle de sport", en: "Sport and the gym" },
+    lessonTitles: [
+      { id: 85, ar: "أشهر النوادي الرياضية", fr: "Les salles de sport connues", en: "Well-known gym chains" },
+      { id: 86, ar: "مقارنة الأسعار", fr: "Comparer les prix", en: "Comparing prices" },
+      { id: 87, ar: "الاشتراكات", fr: "Les abonnements", en: "Memberships" },
+      { id: 88, ar: "التسجيل", fr: "L'inscription", en: "Signing up" },
+      { id: 89, ar: "العقد", fr: "Le contrat", en: "The contract" },
+      { id: 90, ar: "فسخ العقد", fr: "La résiliation", en: "Cancelling the contract" },
+      { id: 91, ar: "الإحماء", fr: "L'échauffement", en: "Warm-up" },
+      { id: 92, ar: "الكارديو", fr: "Le cardio", en: "Cardio" },
+      { id: 93, ar: "أجهزة المقاومة", fr: "Les machines de musculation", en: "Resistance machines" },
+      { id: 94, ar: "الأوزان الحرة", fr: "Les poids libres", en: "Free weights" },
+      { id: 95, ar: "الحصص الجماعية", fr: "Les cours collectifs", en: "Group classes" },
+      { id: 96, ar: "المدرب الشخصي", fr: "Le coach personnel", en: "The personal trainer" },
+      { id: 97, ar: "التغذية الرياضية", fr: "La nutrition sportive", en: "Sports nutrition" }
+    ]
+  },
+  {
+    id: 11,
+    title: { ar: "المطاعم والمقاهي", fr: "Les restaurants et les cafés", en: "Restaurants and cafés" },
+    lessonTitles: [
+      { id: 98, ar: "الحجز", fr: "La réservation", en: "Booking a table" },
+      { id: 99, ar: "قراءة القائمة", fr: "Lire la carte", en: "Reading the menu" },
+      { id: 100, ar: "الطلب", fr: "Commander", en: "Ordering" },
+      { id: 101, ar: "الحساسية الغذائية", fr: "Les allergies alimentaires", en: "Food allergies" },
+      { id: 102, ar: "الدفع", fr: "Payer l'addition", en: "Paying the bill" },
+      { id: 103, ar: "البقشيش", fr: "Le pourboire", en: "Tipping" }
+    ]
+  },
+  {
+    id: 12,
+    title: { ar: "الخدمات والفواتير", fr: "Les services et les factures", en: "Services and bills" },
+    lessonTitles: [
+      { id: 104, ar: "شركة الهاتف", fr: "L'opérateur téléphonique", en: "The phone operator" },
+      { id: 105, ar: "الإنترنت", fr: "Le fournisseur d'internet", en: "The internet provider" },
+      { id: 106, ar: "الكهرباء", fr: "Le fournisseur d'électricité", en: "The electricity provider" },
+      { id: 107, ar: "الغاز", fr: "Le fournisseur de gaz", en: "The gas provider" },
+      { id: 108, ar: "التأمين", fr: "L'assurance", en: "Insurance" },
+      { id: 109, ar: "شركة المياه", fr: "Le service des eaux", en: "The water company" }
+    ]
+  },
+  {
+    id: 13,
+    title: { ar: "القيادة والسيارة", fr: "La conduite et la voiture", en: "Driving and the car" },
+    lessonTitles: [
+      { id: 110, ar: "رخصة القيادة", fr: "Le permis de conduire", en: "The driving licence" },
+      { id: 111, ar: "شراء سيارة", fr: "Acheter une voiture", en: "Buying a car" },
+      { id: 112, ar: "تأمين السيارة", fr: "L'assurance auto", en: "Car insurance" },
+      { id: 113, ar: "محطة الوقود", fr: "La station-service", en: "The petrol station" },
+      { id: 114, ar: "الصيانة", fr: "L'entretien et le garage", en: "Maintenance and the garage" },
+      { id: 115, ar: "المخالفات", fr: "Les amendes", en: "Fines" },
+      { id: 116, ar: "الفحص الفني", fr: "Le contrôle technique", en: "The technical inspection" }
+    ]
+  },
+  {
+    id: 14,
+    title: { ar: "المال والبنك", fr: "L'argent et la banque", en: "Money and banking" },
+    lessonTitles: [
+      { id: 117, ar: "الحساب البنكي", fr: "Le compte bancaire", en: "The bank account" },
+      { id: 118, ar: "البطاقة البنكية", fr: "La carte bancaire", en: "The bank card" },
+      { id: 119, ar: "التحويلات", fr: "Les virements", en: "Transfers" },
+      { id: 120, ar: "الادخار", fr: "L'épargne", en: "Savings" },
+      { id: 121, ar: "القروض", fr: "Les crédits", en: "Loans" },
+      { id: 122, ar: "الضرائب", fr: "Les impôts", en: "Taxes" }
+    ]
+  },
+  {
+    id: 15,
+    title: { ar: "إنشاء مشروع", fr: "Créer son activité", en: "Starting a business" },
+    lessonTitles: [
+      { id: 123, ar: "المشروع الصغير", fr: "La micro-entreprise", en: "The micro-enterprise" },
+      { id: 124, ar: "رقم SIRET", fr: "Le numéro SIRET", en: "The SIRET number" },
+      { id: 125, ar: "URSSAF", fr: "L'URSSAF", en: "URSSAF (social contributions)" },
+      { id: 126, ar: "الفواتير", fr: "Les factures", en: "Invoices" },
+      { id: 127, ar: "الضرائب", fr: "La fiscalité", en: "Business taxes" },
+      { id: 128, ar: "الزبائن", fr: "Les clients", en: "Clients" },
+      { id: 129, ar: "التسويق", fr: "Le marketing", en: "Marketing" },
+      { id: 130, ar: "المحاسبة", fr: "La comptabilité", en: "Accounting" }
+    ]
+  },
+  {
+    id: 16,
+    title: { ar: "العمل الحر والتوصيل", fr: "Le travail indépendant et la livraison", en: "Freelancing and delivery work" },
+    lessonTitles: [
+      { id: 131, ar: "Uber Eats", fr: "Uber Eats", en: "Uber Eats" },
+      { id: 132, ar: "Deliveroo", fr: "Deliveroo", en: "Deliveroo" },
+      { id: 133, ar: "Stuart", fr: "Stuart", en: "Stuart" },
+      { id: 134, ar: "قبول الطلبات", fr: "Accepter les commandes", en: "Accepting orders" },
+      { id: 135, ar: "استلام الطلب", fr: "Récupérer la commande", en: "Picking up the order" },
+      { id: 136, ar: "التواصل مع العميل", fr: "Contacter le client", en: "Contacting the customer" },
+      { id: 137, ar: "مشاكل العنوان", fr: "Les problèmes d'adresse", en: "Address problems" },
+      { id: 138, ar: "المطاعم", fr: "Les restaurants", en: "Restaurants" },
+      { id: 139, ar: "الدعم الفني", fr: "Le support", en: "Support" },
+      { id: 140, ar: "الأرباح", fr: "Les revenus", en: "Earnings" }
+    ]
+  },
+  {
+    id: 17,
+    title: { ar: "العلاقات الاجتماعية", fr: "Les relations sociales", en: "Social relationships" },
+    lessonTitles: [
+      { id: 141, ar: "التعارف", fr: "Faire connaissance", en: "Getting to know people" },
+      { id: 142, ar: "الأصدقاء", fr: "Les amis", en: "Friends" },
+      { id: 143, ar: "الجيران", fr: "Les voisins", en: "Neighbours" },
+      { id: 144, ar: "الزملاء", fr: "Les collègues", en: "Colleagues" },
+      { id: 145, ar: "الدعوات", fr: "Les invitations", en: "Invitations" },
+      { id: 146, ar: "المناسبات", fr: "Les fêtes et les occasions", en: "Celebrations" },
+      { id: 147, ar: "أعياد الميلاد", fr: "Les anniversaires", en: "Birthdays" }
+    ]
+  },
+  {
+    id: 18,
+    title: { ar: "الترفيه والسفر", fr: "Les loisirs et les voyages", en: "Leisure and travel" },
+    lessonTitles: [
+      { id: 148, ar: "السينما", fr: "Le cinéma", en: "The cinema" },
+      { id: 149, ar: "الحديقة", fr: "Le parc", en: "The park" },
+      { id: 150, ar: "المتحف", fr: "Le musée", en: "The museum" },
+      { id: 151, ar: "السفر داخل فرنسا", fr: "Voyager en France", en: "Travelling within France" },
+      { id: 152, ar: "الفندق", fr: "L'hôtel", en: "The hotel" },
+      { id: 153, ar: "حجز الطيران", fr: "Réserver un vol", en: "Booking a flight" }
+    ]
+  },
+  {
+    id: 19,
+    title: { ar: "الطوارئ", fr: "Les urgences", en: "Emergencies" },
+    lessonTitles: [
+      { id: 154, ar: "الشرطة", fr: "La police", en: "The police" },
+      { id: 155, ar: "الإسعاف", fr: "L'ambulance (le SAMU)", en: "The ambulance" },
+      { id: 156, ar: "الإطفاء", fr: "Les pompiers", en: "The fire brigade" },
+      { id: 157, ar: "فقدان الوثائق", fr: "La perte des documents", en: "Losing documents" },
+      { id: 158, ar: "السرقة", fr: "Le vol", en: "Theft" },
+      { id: 159, ar: "الحوادث", fr: "Les accidents", en: "Accidents" }
+    ]
+  },
+  {
+    id: 20,
+    title: { ar: "العائلة", fr: "La famille", en: "Family" },
+    lessonTitles: [
+      { id: 160, ar: "الزواج", fr: "Le mariage", en: "Marriage" },
+      { id: 161, ar: "الأطفال", fr: "Les enfants", en: "Children" },
+      { id: 162, ar: "المدرسة", fr: "L'école", en: "School" },
+      { id: 163, ar: "الحضانة", fr: "La crèche", en: "Daycare" },
+      { id: 164, ar: "الإجازات العائلية", fr: "Les congés familiaux", en: "Family leave" }
+    ]
+  }
+];
