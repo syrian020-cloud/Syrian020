@@ -240,39 +240,134 @@
     [data-theme="light"] .video-subtitle-overlay span { background: rgba(255,255,255,0.85); color: #222; }
 
     .subtitle-display {
-      background: var(--bg-tertiary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 0.8rem;
-      margin-top: 0.6rem;
-      min-height: 3rem;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 0;
+      padding: 0.9rem 1rem;
+      margin-top: 0;
+      min-height: 3.2rem;
       text-align: center;
-      color: var(--text-primary);
-      font-size: calc(var(--font-size) + 2px);
+      color: #ffe066;
+      font-size: calc(var(--font-size) + 3px);
       line-height: 1.5;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6rem;
+      gap: 0.7rem;
       flex-wrap: wrap;
     }
-    .subtitle-display .cue-text { flex: 1; }
+    .subtitle-display .subtitle-current { flex: 1; }
     .subtitle-display .cue-loop {
-      background: var(--accent);
-      color: #fff;
-      border: none;
+      background: #333;
+      color: #ffe066;
+      border: 1px solid #555;
       border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      font-size: 1.1rem;
+      width: 38px;
+      height: 38px;
+      font-size: 1.15rem;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
-    .subtitle-display .cue-loop:hover { background: var(--accent-hover); }
-    .subtitle-display .cue-loop.active { background: var(--success); color: #1a1a1a; }
+    .subtitle-display .cue-loop:hover { background: #444; }
+    .subtitle-display .cue-loop.active { background: var(--success); color: #1a1a1a; border-color: var(--success); }
+
+    .playback-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      margin-top: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .speed-buttons { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .speed-buttons button {
+      background: var(--bg-tertiary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.35rem 0.7rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .speed-buttons button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn-reload {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-reload:hover { background: var(--accent); color: #fff; }
+
+    .download-links {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+      flex-wrap: wrap;
+    }
+    .download-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.35rem 0.7rem;
+      background: var(--bg-tertiary);
+    }
+    .download-links a:hover { background: var(--accent); color: #fff; }
+
+    .sentences-section { margin-top: 1rem; }
+    .sentences-section h3 { margin: 0 0 0.6rem; font-size: 1.1rem; color: var(--text-primary); }
+    .sentence-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.7rem;
+      margin-bottom: 0.6rem;
+    }
+    .sentence-card.active { border-inline-start: 3px solid var(--accent); background: rgba(74,158,255,0.1); }
+    .sentence-time {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      margin-bottom: 0.35rem;
+    }
+    .sentence-card textarea {
+      width: 100%;
+      min-height: 3.2rem;
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.5rem;
+      font-size: var(--font-size);
+      resize: vertical;
+    }
+    .sentence-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .sentence-actions button {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.4rem 0.7rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .sentence-actions button:hover { background: var(--accent); color: #fff; }
+    .sentence-actions button.active { background: var(--success); color: #1a1a1a; }
 
     .cue-list {
       background: var(--bg-secondary);
@@ -425,7 +520,29 @@
           <video id="lesson-video" controls crossorigin="anonymous"></video>
           <div class="video-subtitle-overlay hidden" id="subtitle-overlay"><span></span></div>
         </div>
-        <div class="subtitle-display hidden" id="subtitle-display"></div>
+        <div class="subtitle-display hidden" id="subtitle-display">
+          <span class="subtitle-current" id="subtitle-current"></span>
+          <button class="cue-loop" id="current-loop" title="تكرار" onclick="toggleCurrentLoop()">🔂</button>
+        </div>
+        <div class="playback-controls hidden" id="playback-controls">
+          <div class="speed-buttons">
+            <button data-speed="0.5" onclick="setPlaybackSpeed(0.5)">0.5x</button>
+            <button data-speed="0.75" onclick="setPlaybackSpeed(0.75)">0.75x</button>
+            <button data-speed="1" class="active" onclick="setPlaybackSpeed(1)">1x</button>
+            <button data-speed="1.25" onclick="setPlaybackSpeed(1.25)">1.25x</button>
+            <button data-speed="1.5" onclick="setPlaybackSpeed(1.5)">1.5x</button>
+          </div>
+          <button class="btn-reload" id="btn-replay" onclick="replayCurrentCue()" title="إعادة">🔃</button>
+        </div>
+        <div class="download-links hidden" id="download-links">
+          <a href="#" id="download-srt" download="lesson.srt">تحميل SRT</a>
+          <a href="#" id="download-vtt" download="lesson.vtt">تحميل VTT</a>
+          <a href="#" id="download-txt" download="lesson.txt">تحميل كنص</a>
+        </div>
+        <div class="sentences-section hidden" id="sentences-section">
+          <h3 data-i18n="sentencesSection">الجمل والتصحيح</h3>
+          <div id="sentences-list"></div>
+        </div>
         <div class="cue-list hidden" id="cue-list"></div>
 
         <div class="form-actions">
@@ -507,6 +624,8 @@
         invalidTime: "تنسيق الوقت غير صحيح",
         confirmDelete: "هل تريد حذف هذا الدرس؟",
         play: "تشغيل", pause: "إيقاف", edit: "تعديل", delete: "حذف", repeat: "تكرار العبارة",
+        words: "كلمات", sentencesSection: "الجمل والتصحيح", saveCue: "حفظ",
+        downloadSrt: "تحميل SRT", downloadVtt: "تحميل VTT", downloadText: "تحميل كنص",
         lesson: "درس", of: "من",
         installed: "يمكن تشغيل التطبيق من الشاشة الرئيسية",
         notInstallable: "التثبيت غير متاح في هذا المتصفح"
@@ -534,6 +653,8 @@
         invalidTime: "Format de temps invalide",
         confirmDelete: "Supprimer cette leçon ?",
         play: "Lire", pause: "Pause", edit: "Modifier", delete: "Supprimer", repeat: "Répéter la phrase",
+        words: "Mots", sentencesSection: "Phrases et correction", saveCue: "Enregistrer",
+        downloadSrt: "Télécharger SRT", downloadVtt: "Télécharger VTT", downloadText: "Télécharger texte",
         lesson: "Leçon", of: "sur",
         installed: "L'application est installable depuis l'écran d'accueil",
         notInstallable: "Installation non supportée par ce navigateur"
@@ -561,6 +682,8 @@
         invalidTime: "Invalid time format",
         confirmDelete: "Delete this lesson?",
         play: "Play", pause: "Pause", edit: "Edit", delete: "Delete", repeat: "Repeat phrase",
+        words: "Words", sentencesSection: "Sentences & correction", saveCue: "Save",
+        downloadSrt: "Download SRT", downloadVtt: "Download VTT", downloadText: "Download text",
         lesson: "Lesson", of: "of",
         installed: "The app can be launched from the home screen",
         notInstallable: "Installation not supported by this browser"
@@ -883,6 +1006,7 @@
       state.subtitleType = 'srt';
       state.editingId = null;
       state.currentCues = [];
+      state.loopCue = null;
       document.getElementById('lesson-title').value = '';
       document.getElementById('video-file').value = '';
       document.getElementById('srt-file').value = '';
@@ -892,12 +1016,17 @@
       document.getElementById('preview-wrap').classList.add('hidden');
       document.getElementById('subtitle-overlay').classList.add('hidden');
       document.getElementById('subtitle-display').classList.add('hidden');
+      document.getElementById('playback-controls').classList.add('hidden');
+      document.getElementById('download-links').classList.add('hidden');
+      document.getElementById('sentences-section').classList.add('hidden');
       document.getElementById('cue-list').classList.add('hidden');
       const video = document.getElementById('lesson-video');
-      video.removeEventListener('timeupdate', updateSubtitleOverlay);
+      detachSubtitleListeners(video);
       video.pause();
       video.src = '';
       video.removeAttribute('src');
+      video.playbackRate = 1;
+      document.querySelectorAll('.speed-buttons button').forEach(b => b.classList.toggle('active', parseFloat(b.dataset.speed) === 1));
       const track = video.querySelector('track');
       if (track) track.remove();
       selectSubtab('srt');
@@ -941,18 +1070,24 @@
       document.getElementById('preview-wrap').classList.remove('hidden');
       document.getElementById('subtitle-overlay').classList.remove('hidden');
       document.getElementById('subtitle-display').classList.remove('hidden');
+      document.getElementById('playback-controls').classList.remove('hidden');
+      document.getElementById('download-links').classList.remove('hidden');
+      document.getElementById('sentences-section').classList.remove('hidden');
       document.getElementById('cue-list').classList.remove('hidden');
       attachSubtitleListeners(video);
       video.load();
       updateSubtitleOverlay();
       renderCueList();
+      renderSentences();
+      updateDownloadLinks();
       showToast(t('preview'));
     }
 
     function updateSubtitleOverlay() {
       const video = document.getElementById('lesson-video');
       const overlay = document.getElementById('subtitle-overlay');
-      const display = document.getElementById('subtitle-display');
+      const current = document.getElementById('subtitle-current');
+      const loopBtn = document.getElementById('current-loop');
       const currentTime = video.currentTime;
       const cue = state.currentCues.find(c => currentTime >= c.start && currentTime < c.end);
 
@@ -965,32 +1100,90 @@
         const html = cue.text.replace(/\n/g, '<br>');
         overlay.querySelector('span').innerHTML = html;
         overlay.classList.remove('hidden');
+        current.innerHTML = html;
         const isLoop = state.loopCue && state.loopCue.start === cue.start && state.loopCue.end === cue.end;
-        display.innerHTML = `
-          <span class="cue-text">${html}</span>
-          <button class="cue-loop ${isLoop ? 'active' : ''}" title="${t('repeat')}" onclick="toggleLoopCue(${cue.start}, ${cue.end})">${isLoop ? '🔁' : '🔂'}</button>
-        `;
+        loopBtn.classList.toggle('active', isLoop);
+        loopBtn.textContent = isLoop ? '🔁' : '🔂';
       } else {
         overlay.classList.add('hidden');
-        display.innerHTML = '';
+        current.innerHTML = '';
+        loopBtn.classList.remove('active');
+        loopBtn.textContent = '🔂';
       }
       highlightActiveCue(cue);
+      highlightActiveSentence(cue);
+      updateSentenceLoopStates();
     }
 
     function renderCueList() {
       const list = document.getElementById('cue-list');
       if (!state.currentCues.length) { list.innerHTML = ''; return; }
-      list.innerHTML = state.currentCues.map((cue, i) => {
-        const isLoop = state.loopCue && state.loopCue.start === cue.start && state.loopCue.end === cue.end;
-        return `
-          <div class="cue-item" data-index="${i}" data-start="${cue.start}" data-end="${cue.end}">
-            <div class="cue-text">${escapeHtml(cue.text).replace(/\n/g, '<br>')}</div>
-            <div class="cue-time">${formatDuration(cue.start)} - ${formatDuration(cue.end)}</div>
-            <button class="cue-loop ${isLoop ? 'active' : ''}" data-index="${i}" title="${t('repeat')}">${isLoop ? '🔁' : '🔂'}</button>
+      list.innerHTML = state.currentCues.map((cue, i) => `
+        <div class="cue-item" data-index="${i}" data-start="${cue.start}" data-end="${cue.end}">
+          <div class="cue-text">${escapeHtml(cue.text).replace(/\n/g, '<br>')}</div>
+          <div class="cue-time">${formatDuration(cue.start)} - ${formatDuration(cue.end)}</div>
+          <button class="cue-loop" data-start="${cue.start}" data-end="${cue.end}" title="${t('repeat')}">${t('repeat')}</button>
+        </div>
+      `).join('');
+      list.onclick = handleCueListClick;
+      updateCueListLoopStates();
+      highlightActiveCue();
+    }
+
+    function updateCueListLoopStates() {
+      const list = document.getElementById('cue-list');
+      if (!list) return;
+      list.querySelectorAll('.cue-loop').forEach(btn => {
+        const start = parseFloat(btn.dataset.start);
+        const end = parseFloat(btn.dataset.end);
+        const isLoop = state.loopCue && state.loopCue.start === start && state.loopCue.end === end;
+        btn.classList.toggle('active', isLoop);
+        btn.innerHTML = isLoop ? '🔁' : '🔂';
+      });
+    }
+
+    function renderSentences() {
+      const container = document.getElementById('sentences-list');
+      if (!container) return;
+      container.innerHTML = state.currentCues.map((cue, i) => `
+        <div class="sentence-card" data-index="${i}">
+          <div class="sentence-time">${formatDuration(cue.start)} - ${formatDuration(cue.end)}</div>
+          <textarea data-index="${i}" onchange="updateCueText(${i}, this.value)">${escapeHtml(cue.text)}</textarea>
+          <div class="sentence-actions">
+            <button onclick="showCueWords(${i})">${t('words')}</button>
+            <button class="loop-btn" data-start="${cue.start}" data-end="${cue.end}" onclick="toggleLoopCue(${cue.start}, ${cue.end})">${t('repeat')}</button>
+            <button onclick="jumpToCue(${i})">${formatDuration(cue.start)}</button>
           </div>
-        `;
-      }).join('');
-      list.addEventListener('click', handleCueListClick);
+        </div>
+      `).join('');
+      container.onclick = handleSentenceClick;
+      highlightActiveSentence();
+      updateSentenceLoopStates();
+    }
+
+    function highlightActiveSentence(activeCue) {
+      const video = document.getElementById('lesson-video');
+      const currentTime = video ? video.currentTime : 0;
+      const cue = activeCue || state.currentCues.find(c => currentTime >= c.start && currentTime < c.end);
+      const container = document.getElementById('sentences-list');
+      if (!container) return;
+      container.querySelectorAll('.sentence-card').forEach((el, i) => {
+        const c = state.currentCues[i];
+        if (!c) return;
+        el.classList.toggle('active', cue && cue.start === c.start && cue.end === c.end);
+      });
+    }
+
+    function updateSentenceLoopStates() {
+      const container = document.getElementById('sentences-list');
+      if (!container) return;
+      container.querySelectorAll('.loop-btn').forEach(btn => {
+        const start = parseFloat(btn.dataset.start);
+        const end = parseFloat(btn.dataset.end);
+        const isLoop = state.loopCue && state.loopCue.start === start && state.loopCue.end === end;
+        btn.classList.toggle('active', isLoop);
+        btn.innerHTML = (isLoop ? '🔁' : '🔂') + ' ' + t('repeat');
+      });
     }
 
     function handleCueListClick(e) {
@@ -1008,23 +1201,82 @@
       }
     }
 
+    function handleSentenceClick(e) {
+      const card = e.target.closest('.sentence-card');
+      if (!card) return;
+      if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'BUTTON') return;
+      const idx = parseInt(card.dataset.index, 10);
+      jumpToCue(idx);
+    }
+
+    function jumpToCue(i) {
+      const cue = state.currentCues[i];
+      if (!cue) return;
+      const video = document.getElementById('lesson-video');
+      video.currentTime = cue.start;
+      if (video.paused) video.play();
+    }
+
+    function updateCueText(i, value) {
+      const cue = state.currentCues[i];
+      if (!cue) return;
+      cue.text = value;
+      const video = document.getElementById('lesson-video');
+      updateSubtitleOverlay();
+      updateDownloadLinks();
+    }
+
+    function showCueWords(i) {
+      const cue = state.currentCues[i];
+      if (!cue) return;
+      const words = cue.text.split(/\s+/).filter(w => w);
+      showToast(`${t('words')}: ${words.join(' / ')}`);
+    }
+
+    function updateDownloadLinks() {
+      if (!state.currentCues.length) return;
+      const vtt = cuesToVtt(state.currentCues);
+      const srt = cuesToSrt(state.currentCues);
+      const txt = state.currentCues.map(c => `${formatDuration(c.start)} - ${formatDuration(c.end)}\n${c.text}`).join('\n\n');
+      document.getElementById('download-vtt').href = URL.createObjectURL(new Blob([vtt], { type: 'text/vtt' }));
+      document.getElementById('download-srt').href = URL.createObjectURL(new Blob([srt], { type: 'text/plain' }));
+      document.getElementById('download-txt').href = URL.createObjectURL(new Blob([txt], { type: 'text/plain' }));
+    }
+
+    function cuesToSrt(cues) {
+      return cues.map((cue, i) => {
+        const start = formatTimeSrt(cue.start);
+        const end = formatTimeSrt(cue.end);
+        return `${i+1}\n${start} --> ${end}\n${cue.text}\n`;
+      }).join('\n');
+    }
+
+    function formatTimeSrt(sec) {
+      const h = Math.floor(sec/3600);
+      const m = Math.floor((sec%3600)/60);
+      const s = Math.floor(sec%60);
+      const ms = Math.round((sec%1)*1000).toString().padStart(3,'0');
+      return `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')},${ms}`;
+    }
+
     function highlightActiveCue(activeCue) {
       const video = document.getElementById('lesson-video');
       const currentTime = video ? video.currentTime : 0;
       const cue = activeCue || state.currentCues.find(c => currentTime >= c.start && currentTime < c.end);
       const list = document.getElementById('cue-list');
-      if (!list) return;
-      list.querySelectorAll('.cue-item').forEach((el, i) => {
-        const c = state.currentCues[i];
-        if (!c) return;
-        el.classList.toggle('active', cue && cue.start === c.start && cue.end === c.end);
-        const btn = el.querySelector('.cue-loop');
-        if (btn) {
-          const isLoop = state.loopCue && state.loopCue.start === c.start && state.loopCue.end === c.end;
-          btn.classList.toggle('active', isLoop);
-          btn.textContent = isLoop ? '🔁' : '🔂';
-        }
-      });
+      if (list) {
+        list.querySelectorAll('.cue-item').forEach((el, i) => {
+          const c = state.currentCues[i];
+          if (!c) return;
+          el.classList.toggle('active', cue && cue.start === c.start && cue.end === c.end);
+          const btn = el.querySelector('.cue-loop');
+          if (btn) {
+            const isLoop = state.loopCue && state.loopCue.start === c.start && state.loopCue.end === c.end;
+            btn.classList.toggle('active', isLoop);
+            btn.textContent = isLoop ? '🔁' : '🔂';
+          }
+        });
+      }
     }
 
     function attachSubtitleListeners(video) {
@@ -1051,6 +1303,36 @@
         if (video.paused) video.play();
       }
       updateSubtitleOverlay();
+      updateCueListLoopStates();
+      updateSentenceLoopStates();
+    };
+
+    window.toggleCurrentLoop = function() {
+      const video = document.getElementById('lesson-video');
+      const cue = state.currentCues.find(c => video.currentTime >= c.start && video.currentTime < c.end);
+      if (!cue) return;
+      toggleLoopCue(cue.start, cue.end);
+    };
+
+    window.setPlaybackSpeed = function(rate) {
+      const video = document.getElementById('lesson-video');
+      video.playbackRate = rate;
+      document.querySelectorAll('.speed-buttons button').forEach(b => {
+        b.classList.toggle('active', Math.abs(parseFloat(b.dataset.speed) - rate) < 0.01);
+      });
+    };
+
+    window.replayCurrentCue = function() {
+      const video = document.getElementById('lesson-video');
+      const cue = state.currentCues.find(c => video.currentTime >= c.start && video.currentTime < c.end);
+      if (cue) {
+        video.currentTime = cue.start;
+      } else if (state.loopCue) {
+        video.currentTime = state.loopCue.start;
+      } else {
+        video.currentTime = 0;
+      }
+      if (video.paused) video.play();
     };
 
     async function saveLesson() {
@@ -1122,11 +1404,16 @@
       document.getElementById('preview-wrap').classList.remove('hidden');
       document.getElementById('subtitle-overlay').classList.remove('hidden');
       document.getElementById('subtitle-display').classList.remove('hidden');
+      document.getElementById('playback-controls').classList.remove('hidden');
+      document.getElementById('download-links').classList.remove('hidden');
+      document.getElementById('sentences-section').classList.remove('hidden');
       document.getElementById('cue-list').classList.remove('hidden');
       attachSubtitleListeners(video);
       video.load();
       updateSubtitleOverlay();
       renderCueList();
+      renderSentences();
+      updateDownloadLinks();
       showPage('editor');
     }
 
