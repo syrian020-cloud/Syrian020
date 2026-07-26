@@ -416,8 +416,8 @@
         <div id="subtab-text" class="subtab-content hidden">
           <div class="form-group">
             <label for="timed-text" data-i18n="timedTextLabel">أدخل النص مع التوقيت الزمني</label>
-            <p class="subtitle-help" data-i18n="timedTextHelp">اكتب كل جملة في سطر بصيغة: [00:01:05.200] النص هنا. أو استخدم صيغة SRT الكاملة.</p>
-            <textarea id="timed-text" data-i18n-placeholder="timedTextPlaceholder" placeholder="[00:00:01.000] مرحباً بك&#10;[00:00:04.000] هذا درس جديد"></textarea>
+            <p class="subtitle-help" data-i18n="timedTextHelp">اكتب كل جملة في سطر بصيغة: 00:01 النص أو [00:01:05.200] النص. اكتب الترجمة في السطر التالي. أو استخدم صيغة SRT الكاملة.</p>
+            <textarea id="timed-text" data-i18n-placeholder="timedTextPlaceholder" placeholder="00:00 مرحباً&#10;Hello&#10;00:04 درس جديد&#10;New lesson"></textarea>
           </div>
         </div>
 
@@ -493,8 +493,8 @@
         uploadSrt: "رفع SRT", timedText: "نص موقوت",
         srtFile: "ملف الترجمة (.srt)", chooseSrt: "اضغط لاختيار ملف SRT",
         timedTextLabel: "أدخل النص مع التوقيت الزمني",
-        timedTextHelp: "اكتب كل جملة في سطر بصيغة: [00:01:05.200] النص هنا. أو استخدم صيغة SRT الكاملة.",
-        timedTextPlaceholder: "[00:00:01.000] مرحباً بك\n[00:00:04.000] هذا درس جديد",
+        timedTextHelp: "اكتب كل جملة في سطر بصيغة: 00:01 النص أو [00:01:05.200] النص. اكتب الترجمة في السطر التالي. أو استخدم صيغة SRT الكاملة.",
+        timedTextPlaceholder: "00:00 مرحباً\nHello\n00:04 درس جديد\nNew lesson",
         preview: "معاينة", saveLesson: "حفظ الدرس", cancel: "إلغاء",
         language: "اللغة", theme: "الوضع", fontSize: "حجم الخط",
         dark: "داكن (مريح للعين)", light: "فاتح",
@@ -520,8 +520,8 @@
         uploadSrt: "Importer SRT", timedText: "Texte synchronisé",
         srtFile: "Fichier de sous-titres (.srt)", chooseSrt: "Appuyez pour choisir un fichier SRT",
         timedTextLabel: "Saisissez le texte avec horodatage",
-        timedTextHelp: "Écrivez chaque phrase sur une ligne au format [00:01:05.200] texte. Ou utilisez le format SRT complet.",
-        timedTextPlaceholder: "[00:00:01.000] Bienvenue\n[00:00:04.000] Nouvelle leçon",
+        timedTextHelp: "Écrivez chaque phrase sur une ligne au format 00:01 texte ou [00:01:05.200] texte. Écrivez la traduction à la ligne suivante. Ou utilisez le format SRT complet.",
+        timedTextPlaceholder: "00:00 Bienvenue\nWelcome\n00:04 Nouvelle leçon\nNew lesson",
         preview: "Aperçu", saveLesson: "Enregistrer", cancel: "Annuler",
         language: "Langue", theme: "Thème", fontSize: "Taille de police",
         dark: "Sombre (repos pour les yeux)", light: "Clair",
@@ -547,8 +547,8 @@
         uploadSrt: "Upload SRT", timedText: "Timed text",
         srtFile: "Subtitle file (.srt)", chooseSrt: "Tap to choose an SRT file",
         timedTextLabel: "Enter timed text",
-        timedTextHelp: "Write each line as [00:01:05.200] text. Or use full SRT format.",
-        timedTextPlaceholder: "[00:00:01.000] Welcome\n[00:00:04.000] New lesson",
+        timedTextHelp: "Write each line as 00:01 text or [00:01:05.200] text. Write translation on the next line. Or use full SRT format.",
+        timedTextPlaceholder: "00:00 Welcome\nترحيب\n00:04 New lesson\nدرس جديد",
         preview: "Preview", saveLesson: "Save lesson", cancel: "Cancel",
         language: "Language", theme: "Theme", fontSize: "Font size",
         dark: "Dark (eye-friendly)", light: "Light",
@@ -743,49 +743,67 @@
 
     function parseTimedText(text) {
       const cues = [];
-      const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
-      let pendingEnd = null;
-      let prevStart = null;
+      const rawLines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+      // Normalize time formats and collect continuation lines
+      const timedLines = [];
+      let currentEntry = null;
 
-      for (const raw of lines) {
-        const line = raw.trim();
-        if (!line) continue;
-
-        // Format: [00:00:01.000] Text here
+      function parseLineTime(line) {
+        // [00:00:01.000] or [0:01.5] text
         let m = line.match(/^\[(?:(\d{1,2}):)?(?:(\d{1,2}):)?(\d{1,2})(?:[.,](\d{1,3}))?\]\s*(.*)$/);
         if (m) {
           const timeStr = (m[1] || '') + (m[2] || '') + m[3] + (m[4] ? '.' + m[4] : '');
-          const start = parseTime(timeStr);
-          const txt = m[5].trim();
-          if (pendingEnd && prevStart !== null) {
-            cues[cues.length - 1].end = start;
-          }
-          cues.push({ start, end: start + 4, text: txt });
-          pendingEnd = cues[cues.length - 1];
-          prevStart = start;
-          continue;
+          return { start: parseTime(timeStr), text: m[5].trim() };
         }
-
-        // Format: 00:00:01.000 --> 00:00:04.000 Text
+        // 00:00:01.000 --> 00:00:04.000 Text
         m = line.match(/^((?:\d{1,2}:)?(?:\d{1,2}:)?\d{1,2}(?:[.,]\d{1,3})?)\s*-->?\s*((?:\d{1,2}:)?(?:\d{1,2}:)?\d{1,2}(?:[.,]\d{1,3})?)\s*(.*)$/);
         if (m) {
-          const start = parseTime(m[1]);
-          const end = parseTime(m[2]);
-          const txt = m[3].trim();
-          cues.push({ start, end, text: txt });
-          continue;
+          return { start: parseTime(m[1]), end: parseTime(m[2]), text: m[3].trim() };
         }
-
-        // SRT-like full block may span multiple lines; if we are inside a cue, append text
-        if (cues.length) {
-          cues[cues.length - 1].text += '\n' + line;
+        // MM:SS text or MM:SS,mmm text (e.g. 00:00 Hello  or 01:13,500 text)
+        m = line.match(/^(\d{1,2}):(\d{2})(?:[.,](\d{1,3}))?\s+(.+)$/);
+        if (m) {
+          const start = parseInt(m[1],10)*60 + parseInt(m[2],10) + (m[3] ? parseFloat('0.' + m[3].padEnd(3,'0')) : 0);
+          return { start, text: m[4].trim() };
         }
+        return null;
       }
 
-      // Adjust last cues end to next start where default 4s may be too long
+      for (const raw of rawLines) {
+        const line = raw.trim();
+        if (!line) continue;
+        const parsed = parseLineTime(line);
+        if (parsed) {
+          if (currentEntry) timedLines.push(currentEntry);
+          currentEntry = { start: parsed.start, end: parsed.end, text: parsed.text };
+        } else if (currentEntry) {
+          currentEntry.text += '\n' + line;
+        }
+      }
+      if (currentEntry) timedLines.push(currentEntry);
+
+      // Build cues, deriving end times from next start
+      for (let i = 0; i < timedLines.length; i++) {
+        const entry = timedLines[i];
+        let end = entry.end;
+        if (end === undefined || isNaN(end)) {
+          const nextStart = timedLines[i+1] ? timedLines[i+1].start : null;
+          if (nextStart && nextStart > entry.start) {
+            end = nextStart;
+          } else {
+            end = entry.start + 4;
+          }
+        }
+        cues.push({ start: entry.start, end, text: entry.text });
+      }
+
+      // Ensure no cue exceeds the next start (for overlapping identical starts, keep minimal duration)
       for (let i = 0; i < cues.length - 1; i++) {
         if (cues[i].end > cues[i+1].start) {
           cues[i].end = cues[i+1].start;
+        }
+        if (cues[i].end <= cues[i].start) {
+          cues[i].end = cues[i].start + 1.5;
         }
       }
       return cues;
