@@ -217,27 +217,6 @@
 
     .subtitle-help { font-size: 0.85rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1rem; }
     .video-wrap { position: relative; }
-    .video-subtitle-overlay {
-      position: absolute;
-      bottom: 12%;
-      left: 5%;
-      right: 5%;
-      text-align: center;
-      pointer-events: none;
-      z-index: 10;
-    }
-    .video-subtitle-overlay span {
-      display: inline-block;
-      background: rgba(0,0,0,0.78);
-      color: #fff;
-      padding: 0.45rem 0.9rem;
-      border-radius: 8px;
-      font-size: calc(var(--font-size) + 3px);
-      font-weight: 500;
-      line-height: 1.4;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.6);
-    }
-    [data-theme="light"] .video-subtitle-overlay span { background: rgba(255,255,255,0.85); color: #222; }
 
     .subtitle-display {
       background: #1a1a1a;
@@ -518,7 +497,6 @@
 
         <div class="video-wrap hidden" id="preview-wrap">
           <video id="lesson-video" controls crossorigin="anonymous"></video>
-          <div class="video-subtitle-overlay hidden" id="subtitle-overlay"><span></span></div>
         </div>
         <div class="subtitle-display hidden" id="subtitle-display">
           <span class="subtitle-current" id="subtitle-current"></span>
@@ -1020,7 +998,6 @@
       document.getElementById('video-name').textContent = '';
       document.getElementById('srt-name').textContent = '';
       document.getElementById('preview-wrap').classList.add('hidden');
-      document.getElementById('subtitle-overlay').classList.add('hidden');
       document.getElementById('subtitle-display').classList.add('hidden');
       document.getElementById('playback-controls').classList.add('hidden');
       document.getElementById('download-links').classList.add('hidden');
@@ -1070,11 +1047,12 @@
       track.srclang = state.lang;
       track.src = URL.createObjectURL(new Blob([vtt], { type: 'text/vtt' }));
       track.default = true;
+      track.mode = 'hidden';
       const old = video.querySelector('track');
       if (old) old.remove();
       video.appendChild(track);
       document.getElementById('preview-wrap').classList.remove('hidden');
-      document.getElementById('subtitle-overlay').classList.remove('hidden');
+
       document.getElementById('subtitle-display').classList.remove('hidden');
       document.getElementById('playback-controls').classList.remove('hidden');
       document.getElementById('download-links').classList.remove('hidden');
@@ -1091,7 +1069,6 @@
 
     function updateSubtitleOverlay() {
       const video = document.getElementById('lesson-video');
-      const overlay = document.getElementById('subtitle-overlay');
       const current = document.getElementById('subtitle-current');
       const loopBtn = document.getElementById('current-loop');
       const currentTime = video.currentTime;
@@ -1104,14 +1081,11 @@
 
       if (cue) {
         const html = cue.text.replace(/\n/g, '<br>');
-        overlay.querySelector('span').innerHTML = html;
-        overlay.classList.remove('hidden');
         current.innerHTML = html;
         const isLoop = state.loopCue && state.loopCue.start === cue.start && state.loopCue.end === cue.end;
         loopBtn.classList.toggle('active', isLoop);
         loopBtn.textContent = isLoop ? '🔁' : '🔂';
       } else {
-        overlay.classList.add('hidden');
         current.innerHTML = '';
         loopBtn.classList.remove('active');
         loopBtn.textContent = '🔂';
@@ -1404,11 +1378,12 @@
       track.srclang = lesson.lang || 'ar';
       track.src = URL.createObjectURL(lesson.vttBlob);
       track.default = true;
+      track.mode = 'hidden';
       const old = video.querySelector('track');
       if (old) old.remove();
       video.appendChild(track);
       document.getElementById('preview-wrap').classList.remove('hidden');
-      document.getElementById('subtitle-overlay').classList.remove('hidden');
+
       document.getElementById('subtitle-display').classList.remove('hidden');
       document.getElementById('playback-controls').classList.remove('hidden');
       document.getElementById('download-links').classList.remove('hidden');
