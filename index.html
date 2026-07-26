@@ -417,6 +417,21 @@
       padding: 0.7rem;
     }
     .lesson-words h3 { margin: 0 0 0.6rem; font-size: 1.1rem; color: var(--text-primary); }
+    .lesson-words-list { max-height: 320px; overflow-y: auto; }
+    .word-table { width: 100%; border-collapse: collapse; }
+    .word-table th, .word-table td {
+      text-align: start; padding: 0.45rem 0.35rem; border-bottom: 1px solid var(--border); font-size: var(--font-size);
+    }
+    .word-table th { color: var(--text-secondary); font-weight: normal; font-size: 0.85rem; }
+    .word-table td { color: var(--text-primary); }
+    .word-table .word-cell { font-size: calc(var(--font-size) + 1px); }
+    .word-table .word-actions { display: flex; gap: 0.4rem; justify-content: flex-end; }
+    .word-table .word-actions button {
+      background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 50%;
+      width: 30px; height: 30px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+    }
+    .word-table .word-actions button:hover { background: var(--accent); color: #fff; }
+    .word-table .word-actions button.active { background: var(--success); color: #1a1a1a; }
 
     .cue-list {
       background: var(--bg-secondary);
@@ -571,6 +586,7 @@
         <div class="subtitle-display hidden" id="subtitle-display">
           <span class="subtitle-current" id="subtitle-current"></span>
           <button class="cue-loop" id="current-loop" title="تكرار" onclick="toggleCurrentLoop()">🔂</button>
+          <button class="cue-loop" id="btn-lesson-words" data-i18n-title="words" title="الكلمات" onclick="toggleLessonWords()">🔠</button>
         </div>
         <div class="playback-controls hidden" id="playback-controls">
           <div class="speed-buttons">
@@ -596,7 +612,7 @@
         </div>
         <div class="lesson-words hidden" id="lesson-words">
           <h3 data-i18n="lessonWords">كلمات الدرس</h3>
-          <div id="lesson-words-list"></div>
+          <div id="lesson-words-list" class="lesson-words-list"></div>
         </div>
         <div class="sentences-section hidden" id="sentences-section">
           <h3 data-i18n="sentencesSection">الجمل والتصحيح</h3>
@@ -683,7 +699,7 @@
         invalidTime: "تنسيق الوقت غير صحيح",
         confirmDelete: "هل تريد حذف هذا الدرس؟",
         play: "تشغيل", pause: "إيقاف", edit: "تعديل", delete: "حذف", repeat: "تكرار العبارة",
-        words: "كلمات", lessonWords: "كلمات الدرس", sentencesSection: "الجمل والتصحيح", saveCue: "حفظ",
+        words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "الجمل والتصحيح", saveCue: "حفظ",
         close: "إغلاق", listen: "استماع", repeatWord: "تكرار",
         downloadSrt: "تحميل SRT", downloadVtt: "تحميل VTT", downloadText: "تحميل كنص",
         lesson: "درس", of: "من",
@@ -713,7 +729,7 @@
         invalidTime: "Format de temps invalide",
         confirmDelete: "Supprimer cette leçon ?",
         play: "Lire", pause: "Pause", edit: "Modifier", delete: "Supprimer", repeat: "Répéter la phrase",
-        words: "Mots", lessonWords: "Mots de la leçon", sentencesSection: "Phrases et correction", saveCue: "Enregistrer",
+        words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Phrases et correction", saveCue: "Enregistrer",
         close: "Fermer", listen: "Écouter", repeatWord: "Répéter",
         downloadSrt: "Télécharger SRT", downloadVtt: "Télécharger VTT", downloadText: "Télécharger texte",
         lesson: "Leçon", of: "sur",
@@ -743,7 +759,7 @@
         invalidTime: "Invalid time format",
         confirmDelete: "Delete this lesson?",
         play: "Play", pause: "Pause", edit: "Edit", delete: "Delete", repeat: "Repeat phrase",
-        words: "Words", lessonWords: "Lesson words", sentencesSection: "Sentences & correction", saveCue: "Save",
+        words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "Sentences & correction", saveCue: "Save",
         close: "Close", listen: "Listen", repeatWord: "Repeat",
         downloadSrt: "Download SRT", downloadVtt: "Download VTT", downloadText: "Download text",
         lesson: "Lesson", of: "of",
@@ -839,6 +855,10 @@
       document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.dataset.i18nPlaceholder;
         if (i18n[lang][key]) el.placeholder = i18n[lang][key];
+      });
+      document.querySelectorAll('[data-i18n-title]').forEach(el => {
+        const key = el.dataset.i18nTitle;
+        if (i18n[lang][key]) el.title = i18n[lang][key];
       });
       document.getElementById('btn-lang').textContent = lang.toUpperCase();
       document.getElementById('app-name').textContent = lang === 'ar' ? 'دروسي المرئية' : (lang === 'fr' ? 'Mes Vidéos' : 'Video Lessons');
@@ -1149,7 +1169,6 @@
       document.getElementById('playback-controls').classList.remove('hidden');
       document.getElementById('download-links').classList.remove('hidden');
       document.getElementById('sentences-section').classList.remove('hidden');
-      document.getElementById('lesson-words').classList.remove('hidden');
       document.getElementById('cue-list').classList.remove('hidden');
       attachSubtitleListeners(video);
       video.load();
@@ -1250,13 +1269,34 @@
         });
       });
       if (!allWords.length) { container.innerHTML = ''; return; }
-      container.innerHTML = allWords.map(({ w, i, idx }) => `
-        <span class="word-chip" id="lesson-word-${i}-${idx}" data-i="${i}" data-idx="${idx}">
-          <span onclick="event.stopPropagation(); speakWord(${i}, ${idx})">${escapeHtml(w)}</span>
-          <button class="word-loop" onclick="event.stopPropagation(); toggleWordLoop(${i}, ${idx})" title="${t('repeatWord')}">🔂</button>
-        </span>
-      `).join('');
+      container.innerHTML = `
+        <table class="word-table">
+          <thead><tr><th>${t('word') || 'الكلمة'}</th><th>${t('listen')}</th><th>${t('repeatWord')}</th></tr></thead>
+          <tbody>
+            ${allWords.map(({ w, i, idx }) => `
+              <tr>
+                <td class="word-cell" onclick="speakWord(${i}, ${idx})">${escapeHtml(w)}</td>
+                <td class="word-actions"><button onclick="speakWord(${i}, ${idx})" title="${t('listen')}">🔊</button></td>
+                <td class="word-actions"><button class="word-loop" data-i="${i}" data-idx="${idx}" onclick="toggleWordLoop(${i}, ${idx})" title="${t('repeatWord')}">🔂</button></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>`;
       updateWordLoopButtons();
+    }
+
+    function toggleLessonWords() {
+      const section = document.getElementById('lesson-words');
+      if (!section) return;
+      const isHidden = section.classList.contains('hidden');
+      if (isHidden) {
+        renderLessonWords();
+        section.classList.remove('hidden');
+        section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        section.classList.add('hidden');
+        stopWordLoop();
+      }
     }
 
     function renderSentences() {
@@ -1266,7 +1306,6 @@
         <div class="sentence-card" data-index="${i}">
           <div class="sentence-time">${formatDuration(cue.start)} - ${formatDuration(cue.end)}</div>
           <textarea data-index="${i}" onchange="updateCueText(${i}, this.value)">${escapeHtml(cue.text)}</textarea>
-          ${renderCueWords(cue, i)}
           <div class="sentence-actions">
             <button class="loop-btn" data-start="${cue.start}" data-end="${cue.end}" onclick="toggleLoopCue(${cue.start}, ${cue.end})">${t('repeat')}</button>
             <button onclick="jumpToCue(${i})">${formatDuration(cue.start)}</button>
@@ -1424,14 +1463,14 @@
 
     function updateWordLoopButtons() {
       document.querySelectorAll('.word-loop').forEach(btn => {
-        const chip = btn.closest('.word-chip');
-        const i = chip ? parseInt(chip.dataset.i, 10) : null;
-        const idx = chip ? parseInt(chip.dataset.idx, 10) : null;
-        if (i === null || idx === null) return;
+        const i = parseInt(btn.dataset.i, 10);
+        const idx = parseInt(btn.dataset.idx, 10);
+        if (isNaN(i) || isNaN(idx)) return;
         const isLoop = state.loopWord && state.loopWord.i === i && state.loopWord.idx === idx;
         btn.classList.toggle('active', isLoop);
         btn.textContent = isLoop ? '🔁' : '🔂';
-        chip.classList.toggle('active', isLoop);
+        const chip = btn.closest('.word-chip');
+        if (chip) chip.classList.toggle('active', isLoop);
       });
     }
 
@@ -1611,7 +1650,6 @@
       document.getElementById('playback-controls').classList.remove('hidden');
       document.getElementById('download-links').classList.remove('hidden');
       document.getElementById('sentences-section').classList.remove('hidden');
-      document.getElementById('lesson-words').classList.remove('hidden');
       document.getElementById('cue-list').classList.remove('hidden');
       attachSubtitleListeners(video);
       video.load();
