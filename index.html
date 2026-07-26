@@ -883,6 +883,12 @@
         if (m) {
           return { start: parseTime(m[1]), end: parseTime(m[2]), text: m[3].trim() };
         }
+        // HH:MM:SS.mmm text or HH:MM:SS,mmm text
+        m = line.match(/^(\d{1,2}):(\d{2}):(\d{2})(?:[.,](\d{1,3}))?\s+(.+)$/);
+        if (m) {
+          const start = parseInt(m[1],10)*3600 + parseInt(m[2],10)*60 + parseInt(m[3],10) + (m[4] ? parseFloat('0.' + m[4].padEnd(3,'0')) : 0);
+          return { start, text: m[5].trim() };
+        }
         // MM:SS text or MM:SS,mmm text (e.g. 00:00 Hello  or 01:13,500 text)
         m = line.match(/^(\d{1,2}):(\d{2})(?:[.,](\d{1,3}))?\s+(.+)$/);
         if (m) {
