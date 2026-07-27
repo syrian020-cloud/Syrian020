@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1a1a1a">
+<title>تعلم الفرنسية — فرنسي / عربي / إنجليزي</title>
+<link rel="manifest" href="manifest.json">
+<style>
+  :root {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #252525;
+    --bg-tertiary: #333333;
+    --text-primary: #e8e6e3;
+    --text-secondary: #b8b5b0;
+    --accent: #4a9eff;
+    --accent-hover: #3a8eef;
+    --danger: #ff6b6b;
+    --success: #6bcb77;
+    --gold: #ffc857;
+    --border: #3d3d3d;
+    --radius: 12px;
+    --shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  [data-theme="light"] {
+    --bg-primary: #f5f2eb;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #e8e5de;
+    --text-primary: #2c2c2c;
+    --text-secondary: #5c5c5c;
+    --border: #d4d0c8;
+    --shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding-bottom: 3rem;
+  }
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .header-inner {
+    max-width: 900px; margin: 0 auto; padding: 0.6rem 1rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .logo { font-weight: 700; color: var(--accent); font-size: 1.05rem; white-space: nowrap; }
+  .spacer { flex: 1; }
+  .icon-btn {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 0.4rem 0.7rem; font-size: 1rem; cursor: pointer;
+  }
+  .icon-btn:hover { border-color: var(--accent); }
+  main { max-width: 900px; margin: 0 auto; padding: 1rem; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+  #search {
+    flex: 1; min-width: 200px;
+    background: var(--bg-secondary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 0.6rem 0.8rem; font-size: 1rem;
+  }
+  select.ctl {
+    background: var(--bg-secondary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 0.6rem 0.5rem; font-size: 0.9rem;
+  }
+  .breadcrumb {
+    display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+    color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.8rem;
+  }
+  .breadcrumb button {
+    background: none; border: none; color: var(--accent);
+    cursor: pointer; padding: 0; font-size: 0.9rem;
+  }
+  .stage-card, .lesson-card {
+    background: var(--bg-secondary); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 0.9rem 1rem; margin-bottom: 0.6rem;
+    cursor: pointer; display: flex; align-items: center; gap: 0.8rem;
+    transition: border-color 0.2s, transform 0.1s;
+  }
+  .stage-card:hover, .lesson-card:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .num {
+    min-width: 2.2rem; height: 2.2rem; border-radius: 50%;
+    background: var(--bg-tertiary); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
+  }
+  .card-body { flex: 1; min-width: 0; }
+  .card-title { font-weight: 700; }
+  .card-sub { color: var(--text-secondary); font-size: 0.85rem; }
+  .chev { color: var(--text-secondary); }
+  .phrase {
+    background: var(--bg-secondary); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 0.9rem; margin-bottom: 0.7rem;
+  }
+  .phrase.playing { border-color: var(--success); box-shadow: 0 0 0 1px var(--success); }
+  .phrase-top { display: flex; gap: 0.6rem; align-items: flex-start; }
+  .lines { flex: 1; min-width: 0; }
+  .fr {
+    direction: ltr; text-align: left; font-size: 1.15rem; font-weight: 700;
+    color: var(--accent); word-wrap: break-word;
+  }
+  .fr .spk { color: var(--text-secondary); font-weight: 400; font-size: 0.85rem; }
+  .ar { direction: rtl; text-align: right; font-size: 1.05rem; }
+  .en { direction: ltr; text-align: left; color: var(--text-secondary); font-size: 0.95rem; }
+  .line.active { background: rgba(107,203,119,0.14); border-radius: 6px; }
+  .btns { display: flex; flex-direction: column; gap: 0.35rem; flex-shrink: 0; }
+  .btns button {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 8px;
+    width: 2.4rem; height: 2.2rem; font-size: 1rem; cursor: pointer;
+  }
+  .btns button:hover { border-color: var(--accent); }
+  .btns button.active { background: var(--success); color: #1a1a1a; border-color: var(--success); }
+  .btns button.fav-on { color: var(--gold); border-color: var(--gold); }
+  .lesson-head { margin-bottom: 1rem; }
+  .lesson-head h2 { margin: 0 0 0.2rem; font-size: 1.25rem; }
+  .lesson-head .sub { color: var(--text-secondary); font-size: 0.95rem; direction: ltr; text-align: initial; }
+  .lesson-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.8rem 0; }
+  .btn {
+    background: var(--accent); color: #fff; border: none;
+    border-radius: var(--radius); padding: 0.55rem 0.9rem;
+    font-size: 0.95rem; cursor: pointer;
+  }
+  .btn.ghost { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); }
+  .btn:hover { filter: brightness(1.08); }
+  .empty { color: var(--text-secondary); text-align: center; padding: 2rem 1rem; }
+  .hint {
+    background: var(--bg-tertiary); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 0.7rem 0.9rem;
+    font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;
+  }
+  .pill {
+    display: inline-block; background: var(--bg-tertiary); border: 1px solid var(--border);
+    border-radius: 999px; padding: 0.1rem 0.6rem; font-size: 0.75rem; color: var(--text-secondary);
+  }
+  .searchmeta { color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.4rem; }
+  footer { text-align: center; color: var(--text-secondary); font-size: 0.8rem; padding: 1.5rem 1rem; }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <span class="logo">🇫🇷 تعلم الفرنسية</span>
+    <span class="spacer"></span>
+    <button class="icon-btn" id="btn-fav" title="المحفوظات">⭐</button>
+    <button class="icon-btn" id="btn-theme" title="الوضع الليلي/النهاري">🌙</button>
+    <button class="icon-btn" id="btn-stop" title="إيقاف الصوت">⏹</button>
+  </div>
+</header>
+
+<main>
+  <div class="toolbar">
+    <input id="search" type="search" placeholder="ابحث بالعربية أو الفرنسية أو الإنجليزية…">
+    <select class="ctl" id="rate" title="سرعة النطق">
+      <option value="0.6">0.6×</option>
+      <option value="0.8">0.8×</option>
+      <option value="1" selected>1×</option>
+      <option value="1.2">1.2×</option>
+    </select>
+    <select class="ctl" id="loopmode" title="محتوى التكرار">
+      <option value="fr,ar,en" selected>🔁 فرنسي + عربي + إنجليزي</option>
+      <option value="fr,ar">🔁 فرنسي + عربي</option>
+      <option value="fr">🔁 فرنسي فقط</option>
+    </select>
+  </div>
+  <div id="view"></div>
+</main>
+
+<footer>
+  تطبيق عبارات الحياة اليومية في فرنسا · <a href="index.html">دروسي المرئية</a>
+</footer>
+
+<script src="data/manifest.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var STAGES = window.FR_STAGES || [];
+  var loaded = {};          // stageId -> true when its phrases are loaded
+  var loading = {};         // stageId -> Promise
+  var view = document.getElementById('view');
+
+  var state = {
+    route: { name: 'stages' },
+    loop: null,             // { key: string, langs: [] }
+    favs: JSON.parse(localStorage.getItem('fr_favs') || '[]'),
+    rate: 1,
+    langs: ['fr', 'ar', 'en']
+  };
+
+  /* ---------------- data loading ---------------- */
+
+  function loadStage(id) {
+    if (loaded[id]) return Promise.resolve();
+    if (loading[id]) return loading[id];
+    loading[id] = new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = 'data/stage' + (id < 10 ? '0' + id : id) + '.js';
+      s.onload = function () { loaded[id] = true; resolve(); };
+      s.onerror = function () { reject(new Error('failed to load stage ' + id)); };
+      document.head.appendChild(s);
+    });
+    return loading[id];
+  }
+
+  function loadAll() {
+    return Promise.all(STAGES.map(function (st) { return loadStage(st.id); }));
+  }
+
+  window.registerStage = function (data) {
+    var stage = STAGES.filter(function (s) { return s.id === data.id; })[0];
+    if (!stage) { STAGES.push(data); return; }
+    stage.lessons = data.lessons;
+  };
+
+  function findStage(id) {
+    return STAGES.filter(function (s) { return s.id === id; })[0];
+  }
+  function findLesson(stageId, lessonId) {
+    var st = findStage(stageId);
+    if (!st || !st.lessons) return null;
+    return st.lessons.filter(function (l) { return l.id === lessonId; })[0];
+  }
+
+  /* ---------------- speech ---------------- */
+
+  var VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
+  var speechRun = 0;         // bumped on every new pass and on stop
+
+  function speakSupported() { return 'speechSynthesis' in window; }
+
+  function pickVoice(lang) {
+    if (!speakSupported()) return null;
+    var voices = window.speechSynthesis.getVoices() || [];
+    var code = VOICE_LANG[lang];
+    var exact = voices.filter(function (v) { return v.lang && v.lang.replace('_', '-') === code; })[0];
+    if (exact) return exact;
+    var prefix = code.split('-')[0];
+    return voices.filter(function (v) { return v.lang && v.lang.toLowerCase().indexOf(prefix) === 0; })[0] || null;
+  }
+
+  function utter(text, lang) {
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = VOICE_LANG[lang];
+    u.rate = lang === 'fr' ? state.rate * 0.95 : state.rate;
+    var v = pickVoice(lang);
+    if (v) u.voice = v;
+    return u;
+  }
+
+  function stopSpeech() {
+    state.loop = null;
+    speechRun++;
+    if (speakSupported()) window.speechSynthesis.cancel();
+    highlight(null, null);
+    refreshButtons();
+  }
+
+  // Speaks one pass: French, then Arabic, then English (per selected mode).
+  // Every pass carries a run id; stopSpeech() bumps it so pending steps abort.
+  function speakOnce(phrase, langs, key, onDone) {
+    if (!speakSupported()) return;
+    window.speechSynthesis.cancel();
+    var run = ++speechRun;
+    var seq = langs.filter(function (l) { return phrase[l]; });
+    var i = 0;
+    (function next() {
+      if (run !== speechRun) return;
+      if (i >= seq.length) { highlight(null, null); if (onDone) onDone(); return; }
+      var lang = seq[i++];
+      var u = utter(phrase[lang], lang);
+      highlight(key, lang);
+      u.onend = function () {
+        if (run !== speechRun) return;
+        setTimeout(next, 250);
+      };
+      u.onerror = function () {
+        if (run !== speechRun) return;
+        setTimeout(next, 250);
+      };
+      window.speechSynthesis.speak(u);
+    })();
+  }
+
+  function toggleLoop(phrase, key) {
+    if (state.loop && state.loop.key === key) { stopSpeech(); return; }
+    state.loop = { key: key };
+    refreshButtons();
+    (function cycle() {
+      if (!state.loop || state.loop.key !== key) return;
+      speakOnce(phrase, state.langs, key, function () {
+        if (!state.loop || state.loop.key !== key) return;
+        setTimeout(cycle, 600);
+      });
+    })();
+  }
+
+  function highlight(key, lang) {
+    document.querySelectorAll('.phrase').forEach(function (el) {
+      var on = key && el.dataset.key === key;
+      el.classList.toggle('playing', !!on);
+      el.querySelectorAll('.line').forEach(function (line) {
+        line.classList.toggle('active', !!on && line.dataset.lang === lang);
+      });
+    });
+  }
+
+  function refreshButtons() {
+    document.querySelectorAll('.phrase').forEach(function (el) {
+      var btn = el.querySelector('.loop-btn');
+      if (!btn) return;
+      var on = state.loop && state.loop.key === el.dataset.key;
+      btn.classList.toggle('active', !!on);
+      btn.textContent = on ? '⏸' : '🔁';
+    });
+  }
+
+  /* ---------------- favourites ---------------- */
+
+  function isFav(key) { return state.favs.indexOf(key) !== -1; }
+  function toggleFav(key) {
+    var i = state.favs.indexOf(key);
+    if (i === -1) state.favs.push(key); else state.favs.splice(i, 1);
+    localStorage.setItem('fr_favs', JSON.stringify(state.favs));
+  }
+
+  /* ---------------- rendering ---------------- */
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function phraseKey(stageId, lessonId, idx) { return stageId + '.' + lessonId + '.' + idx; }
+
+  function phraseHTML(p, key) {
+    return '<div class="phrase" data-key="' + key + '">' +
+      '<div class="phrase-top">' +
+        '<div class="lines">' +
+          '<div class="line fr" data-lang="fr">' + esc(p.fr) +
+            (p.tr ? ' <span class="spk">[' + esc(p.tr) + ']</span>' : '') + '</div>' +
+          '<div class="line ar" data-lang="ar">' + esc(p.ar) + '</div>' +
+          '<div class="line en" data-lang="en">' + esc(p.en) + '</div>' +
+        '</div>' +
+        '<div class="btns">' +
+          '<button class="speak-btn" title="نطق مرة واحدة">🔊</button>' +
+          '<button class="loop-btn" title="تكرار: فرنسي ← عربي ← إنجليزي">🔁</button>' +
+          '<button class="fav-btn ' + (isFav(key) ? 'fav-on' : '') + '" title="حفظ">' +
+            (isFav(key) ? '★' : '☆') + '</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function renderStages() {
+    var html = '<div class="hint">اختر المرحلة ← ثم الدرس. كل عبارة فيها زر 🔊 للنطق وزر 🔁 لتكرار النطق (فرنسي ← عربي ← إنجليزي) حتى توقفه.</div>';
+    html += STAGES.map(function (st) {
+      return '<div class="stage-card" data-stage="' + st.id + '">' +
+        '<div class="num">' + st.id + '</div>' +
+        '<div class="card-body">' +
+          '<div class="card-title">' + esc(st.title.ar) + '</div>' +
+          '<div class="card-sub" dir="ltr">' + esc(st.title.fr) + ' · ' + esc(st.title.en) + '</div>' +
+          '<div class="card-sub">' + st.lessonTitles.length + ' دروس</div>' +
+        '</div>' +
+        '<div class="chev">‹</div>' +
+      '</div>';
+    }).join('');
+    view.innerHTML = html;
+  }
+
+  function renderLessons(stageId) {
+    var st = findStage(stageId);
+    if (!st) { renderStages(); return; }
+    var html = crumbs([{ label: 'المراحل', route: { name: 'stages' } }, { label: st.title.ar }]);
+    html += '<div class="lesson-head"><h2>' + st.id + '. ' + esc(st.title.ar) + '</h2>' +
+      '<div class="sub" dir="ltr">' + esc(st.title.fr) + ' · ' + esc(st.title.en) + '</div></div>';
+    html += st.lessonTitles.map(function (l) {
+      return '<div class="lesson-card" data-stage="' + st.id + '" data-lesson="' + l.id + '">' +
+        '<div class="num">' + l.id + '</div>' +
+        '<div class="card-body">' +
+          '<div class="card-title">' + esc(l.ar) + '</div>' +
+          '<div class="card-sub" dir="ltr">' + esc(l.fr) + ' · ' + esc(l.en) + '</div>' +
+        '</div>' +
+        '<div class="chev">‹</div>' +
+      '</div>';
+    }).join('');
+    view.innerHTML = html;
+  }
+
+  function renderLesson(stageId, lessonId) {
+    var st = findStage(stageId);
+    view.innerHTML = '<div class="empty">…جاري التحميل</div>';
+    loadStage(stageId).then(function () {
+      var lesson = findLesson(stageId, lessonId);
+      if (!lesson) { view.innerHTML = '<div class="empty">الدرس غير متوفر</div>'; return; }
+      var html = crumbs([
+        { label: 'المراحل', route: { name: 'stages' } },
+        { label: st.title.ar, route: { name: 'lessons', stage: stageId } },
+        { label: lesson.title.ar }
+      ]);
+      html += '<div class="lesson-head"><h2>الدرس ' + lesson.id + ': ' + esc(lesson.title.ar) + '</h2>' +
+        '<div class="sub" dir="ltr">' + esc(lesson.title.fr) + ' · ' + esc(lesson.title.en) + '</div></div>';
+      html += '<div class="lesson-actions">' +
+        '<button class="btn" id="play-all">▶ تشغيل كل الدرس</button>' +
+        '<button class="btn ghost" id="stop-all">⏹ إيقاف</button>' +
+        '<span class="pill">' + lesson.phrases.length + ' عبارة</span>' +
+      '</div>';
+      html += lesson.phrases.map(function (p, i) {
+        return phraseHTML(p, phraseKey(stageId, lessonId, i));
+      }).join('');
+      view.innerHTML = html;
+
+      document.getElementById('play-all').onclick = function () { playLesson(lesson, stageId, lessonId); };
+      document.getElementById('stop-all').onclick = stopSpeech;
+    }).catch(function () {
+      view.innerHTML = '<div class="empty">تعذر تحميل بيانات هذه المرحلة</div>';
+    });
+  }
+
+  function playLesson(lesson, stageId, lessonId) {
+    stopSpeech();
+    var i = 0;
+    var runKey = 'lesson:' + stageId + '.' + lessonId;
+    state.loop = { key: runKey };
+    (function next() {
+      if (!state.loop || state.loop.key !== runKey) return;
+      if (i >= lesson.phrases.length) { stopSpeech(); return; }
+      var p = lesson.phrases[i];
+      var key = phraseKey(stageId, lessonId, i);
+      i++;
+      var el = document.querySelector('.phrase[data-key="' + key + '"]');
+      if (el) el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      speakOnce(p, state.langs, null, function () {
+        if (!state.loop || state.loop.key !== runKey) return;
+        setTimeout(next, 400);
+      });
+      highlight(key, 'fr');
+    })();
+  }
+
+  function renderFavs() {
+    view.innerHTML = '<div class="empty">…جاري التحميل</div>';
+    loadAll().then(function () {
+      var items = [];
+      state.favs.forEach(function (key) {
+        var parts = key.split('.');
+        var lesson = findLesson(+parts[0], +parts[1]);
+        if (!lesson) return;
+        var p = lesson.phrases[+parts[2]];
+        if (p) items.push({ p: p, key: key, lesson: lesson });
+      });
+      var html = crumbs([{ label: 'المراحل', route: { name: 'stages' } }, { label: 'المحفوظات' }]);
+      html += '<div class="lesson-head"><h2>⭐ العبارات المحفوظة</h2></div>';
+      html += items.length
+        ? items.map(function (it) {
+            return '<div class="pill">' + esc(it.lesson.title.ar) + '</div>' + phraseHTML(it.p, it.key);
+          }).join('')
+        : '<div class="empty">لا توجد عبارات محفوظة بعد. اضغط ☆ بجانب أي عبارة لحفظها.</div>';
+      view.innerHTML = html;
+    });
+  }
+
+  function renderSearch(q) {
+    view.innerHTML = '<div class="empty">…جاري البحث</div>';
+    loadAll().then(function () {
+      var needle = q.trim().toLowerCase();
+      var results = [];
+      STAGES.forEach(function (st) {
+        (st.lessons || []).forEach(function (l) {
+          l.phrases.forEach(function (p, i) {
+            var hay = (p.fr + ' ' + p.ar + ' ' + p.en).toLowerCase();
+            if (hay.indexOf(needle) !== -1) {
+              results.push({ p: p, key: phraseKey(st.id, l.id, i), stage: st, lesson: l });
+            }
+            if (results.length > 300) return;
+          });
+        });
+      });
+      var html = '<div class="lesson-head"><h2>نتائج البحث: ' + esc(q) + '</h2>' +
+        '<div class="sub">' + results.length + ' عبارة</div></div>';
+      html += results.length
+        ? results.map(function (r) {
+            return phraseHTML(r.p, r.key) +
+              '<div class="searchmeta">المرحلة ' + r.stage.id + ' · الدرس ' + r.lesson.id + ' — ' + esc(r.lesson.title.ar) + '</div>';
+          }).join('')
+        : '<div class="empty">لا نتائج</div>';
+      view.innerHTML = html;
+    });
+  }
+
+  function crumbs(items) {
+    return '<div class="breadcrumb">' + items.map(function (it, i) {
+      var sep = i ? '<span>›</span>' : '';
+      if (it.route) {
+        return sep + '<button data-route=\'' + JSON.stringify(it.route) + '\'>' + esc(it.label) + '</button>';
+      }
+      return sep + '<span>' + esc(it.label) + '</span>';
+    }).join('') + '</div>';
+  }
+
+  /* ---------------- routing ---------------- */
+
+  function go(route, push) {
+    stopSpeech();
+    state.route = route;
+    if (push !== false) {
+      var hash = route.name === 'stages' ? '#/'
+        : route.name === 'lessons' ? '#/stage/' + route.stage
+        : route.name === 'lesson' ? '#/stage/' + route.stage + '/lesson/' + route.lesson
+        : route.name === 'favs' ? '#/favs' : '#/';
+      if (location.hash !== hash) location.hash = hash;
+    }
+    if (route.name === 'stages') renderStages();
+    else if (route.name === 'lessons') renderLessons(route.stage);
+    else if (route.name === 'lesson') renderLesson(route.stage, route.lesson);
+    else if (route.name === 'favs') renderFavs();
+    else if (route.name === 'search') renderSearch(route.q);
+    window.scrollTo(0, 0);
+  }
+
+  function routeFromHash() {
+    var h = location.hash.replace(/^#\/?/, '');
+    var m;
+    if ((m = h.match(/^stage\/(\d+)\/lesson\/(\d+)$/))) return { name: 'lesson', stage: +m[1], lesson: +m[2] };
+    if ((m = h.match(/^stage\/(\d+)$/))) return { name: 'lessons', stage: +m[1] };
+    if (h === 'favs') return { name: 'favs' };
+    return { name: 'stages' };
+  }
+
+  window.addEventListener('hashchange', function () { go(routeFromHash(), false); });
+
+  /* ---------------- events ---------------- */
+
+  document.addEventListener('click', function (e) {
+    var routeBtn = e.target.closest('[data-route]');
+    if (routeBtn) { go(JSON.parse(routeBtn.dataset.route)); return; }
+
+    var lessonCard = e.target.closest('.lesson-card');
+    if (lessonCard) {
+      go({ name: 'lesson', stage: +lessonCard.dataset.stage, lesson: +lessonCard.dataset.lesson });
+      return;
+    }
+    var stageCard = e.target.closest('.stage-card');
+    if (stageCard) { go({ name: 'lessons', stage: +stageCard.dataset.stage }); return; }
+
+    var phraseEl = e.target.closest('.phrase');
+    if (!phraseEl) return;
+    var key = phraseEl.dataset.key;
+    var parts = key.split('.');
+    var lesson = findLesson(+parts[0], +parts[1]);
+    var p = lesson && lesson.phrases[+parts[2]];
+    if (!p) return;
+
+    if (e.target.closest('.speak-btn')) { stopSpeech(); speakOnce(p, state.langs, null); return; }
+    if (e.target.closest('.loop-btn')) { toggleLoop(p, key); return; }
+    if (e.target.closest('.fav-btn')) {
+      toggleFav(key);
+      var btn = e.target.closest('.fav-btn');
+      btn.classList.toggle('fav-on', isFav(key));
+      btn.textContent = isFav(key) ? '★' : '☆';
+    }
+  });
+
+  var searchInput = document.getElementById('search');
+  var searchTimer;
+  searchInput.addEventListener('input', function () {
+    clearTimeout(searchTimer);
+    var q = searchInput.value;
+    searchTimer = setTimeout(function () {
+      if (q.trim().length >= 2) { state.route = { name: 'search', q: q }; renderSearch(q); }
+      else go(routeFromHash(), false);
+    }, 350);
+  });
+
+  document.getElementById('rate').addEventListener('change', function (e) {
+    state.rate = parseFloat(e.target.value);
+    localStorage.setItem('fr_rate', e.target.value);
+  });
+  document.getElementById('loopmode').addEventListener('change', function (e) {
+    state.langs = e.target.value.split(',');
+    localStorage.setItem('fr_langs', e.target.value);
+  });
+  document.getElementById('btn-stop').addEventListener('click', stopSpeech);
+  document.getElementById('btn-fav').addEventListener('click', function () { go({ name: 'favs' }); });
+  document.getElementById('btn-theme').addEventListener('click', function () {
+    var next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('fr_theme', next);
+  });
+
+  /* ---------------- init ---------------- */
+
+  document.documentElement.dataset.theme = localStorage.getItem('fr_theme') || 'dark';
+  var savedRate = localStorage.getItem('fr_rate');
+  if (savedRate) { state.rate = parseFloat(savedRate); document.getElementById('rate').value = savedRate; }
+  var savedLangs = localStorage.getItem('fr_langs');
+  if (savedLangs) { state.langs = savedLangs.split(','); document.getElementById('loopmode').value = savedLangs; }
+
+  if (speakSupported()) window.speechSynthesis.getVoices();
+  window.addEventListener('beforeunload', function () { if (speakSupported()) window.speechSynthesis.cancel(); });
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  }
+
+  go(routeFromHash(), false);
+})();
+</script>
+</body>
+</html>
