@@ -283,5 +283,119 @@ window.FR_STAGES = [
       { id: 163, ar: "الحضانة", fr: "La crèche", en: "Daycare" },
       { id: 164, ar: "الإجازات العائلية", fr: "Les congés familiaux", en: "Family leave" }
     ]
+  },
+  {
+    id: 21,
+    title: { ar: "الأساسيات اللغوية", fr: "Les bases de la langue", en: "Language basics" },
+    lessonTitles: [
+      { id: 165, ar: "التحيّات والتعريف بالنفس", fr: "Les salutations", en: "Greetings" },
+      { id: 166, ar: "الأرقام", fr: "Les nombres", en: "Numbers" },
+      { id: 167, ar: "الوقت والساعة", fr: "L'heure", en: "Telling the time" },
+      { id: 168, ar: "الأيام والشهور والتواريخ", fr: "Les jours, les mois et les dates", en: "Days, months and dates" },
+      { id: 169, ar: "الألوان والأحجام", fr: "Les couleurs et les tailles", en: "Colours and sizes" },
+      { id: 170, ar: "أفراد العائلة", fr: "Les membres de la famille", en: "Family members" },
+      { id: 171, ar: "الطقس", fr: "La météo", en: "The weather" },
+      { id: 172, ar: "الاتجاهات والأماكن", fr: "Les directions et les lieux", en: "Directions and places" }
+    ]
+  },
+  {
+    id: 22,
+    title: { ar: "عبارات الإنقاذ", fr: "Les phrases de secours", en: "Survival phrases" },
+    lessonTitles: [
+      { id: 173, ar: "لم أفهم", fr: "Je n'ai pas compris", en: "I didn't understand" },
+      { id: 174, ar: "اطلب التكرار والإبطاء", fr: "Demander de répéter", en: "Asking to repeat" },
+      { id: 175, ar: "السؤال عن الكلمات", fr: "Demander un mot", en: "Asking about words" },
+      { id: 176, ar: "التعريف بمستواك في اللغة", fr: "Expliquer son niveau", en: "Explaining your level" },
+      { id: 177, ar: "الاعتذار والاستئذان", fr: "S'excuser et demander la permission", en: "Apologising and asking permission" }
+    ]
+  },
+  {
+    id: 23,
+    title: { ar: "الهاتف والمواعيد", fr: "Le téléphone et les rendez-vous", en: "Phone calls and appointments" },
+    lessonTitles: [
+      { id: 178, ar: "مكالمة لحجز موعد", fr: "Appeler pour un rendez-vous", en: "Calling for an appointment" },
+      { id: 179, ar: "ترك رسالة صوتية", fr: "Laisser un message", en: "Leaving a message" },
+      { id: 180, ar: "تأكيد أو تأجيل موعد", fr: "Confirmer ou reporter", en: "Confirming or postponing" },
+      { id: 181, ar: "الرد على مكالمة رسمية", fr: "Répondre à un appel officiel", en: "Answering an official call" },
+      { id: 182, ar: "مكالمات الإدارات والانتظار", fr: "Les serveurs vocaux", en: "Phone menus and waiting" }
+    ]
+  },
+  {
+    id: 24,
+    title: { ar: "المكاتبات والاستمارات", fr: "Les courriers et les formulaires", en: "Letters and forms" },
+    lessonTitles: [
+      { id: 183, ar: "بريد إلكتروني رسمي", fr: "Un courriel formel", en: "A formal email" },
+      { id: 184, ar: "رسالة إلى المالك", fr: "Une lettre au propriétaire", en: "A letter to the landlord" },
+      { id: 185, ar: "رسالة إلى المدرسة", fr: "Un mot à l'école", en: "A note to the school" },
+      { id: 186, ar: "تعبئة استمارة", fr: "Remplir un formulaire", en: "Filling in a form" },
+      { id: 187, ar: "البريد المسجل والملفات", fr: "La lettre recommandée", en: "Registered post and files" }
+    ]
+  },
+  {
+    id: 25,
+    title: { ar: "الجمعيات والمساعدة الاجتماعية", fr: "Les associations et l'aide sociale", en: "Charities and social aid" },
+    lessonTitles: [
+      { id: 188, ar: "المساعِدة الاجتماعية", fr: "L'assistante sociale", en: "The social worker" },
+      { id: 189, ar: "الجمعيات والمساعدات", fr: "Les associations", en: "Charities" },
+      { id: 190, ar: "بنك الطعام والمساعدة الغذائية", fr: "L'aide alimentaire", en: "Food aid" },
+      { id: 191, ar: "المساعدة القانونية", fr: "L'aide juridique", en: "Legal aid" },
+      { id: 192, ar: "السكن الطارئ (115)", fr: "L'hébergement d'urgence (115)", en: "Emergency housing (115)" }
+    ]
+  },
+  {
+    id: 26,
+    title: { ar: "الإقامة والجنسية", fr: "Le séjour et la nationalité", en: "Residency and nationality" },
+    lessonTitles: [
+      { id: 193, ar: "بطاقة الإقامة متعددة السنوات", fr: "La carte pluriannuelle", en: "The multi-year permit" },
+      { id: 194, ar: "بطاقة المقيم عشر سنوات", fr: "La carte de résident", en: "The ten-year resident card" },
+      { id: 195, ar: "طلب الجنسية", fr: "La demande de naturalisation", en: "Applying for citizenship" },
+      { id: 196, ar: "مقابلة المحافظة", fr: "L'entretien en préfecture", en: "The prefecture interview" },
+      { id: 197, ar: "امتحان اللغة والشهادات", fr: "L'examen de langue", en: "The language exam" },
+      { id: 198, ar: "التجمّع العائلي", fr: "Le regroupement familial", en: "Family reunification" }
+    ]
+  },
+  {
+    id: 27,
+    title: { ar: "الدين والطعام الحلال", fr: "La religion et le halal", en: "Religion and halal food" },
+    lessonTitles: [
+      { id: 199, ar: "المسجد وأوقات الصلاة", fr: "La mosquée et les prières", en: "The mosque and prayers" },
+      { id: 200, ar: "الطعام الحلال", fr: "La nourriture halal", en: "Halal food" },
+      { id: 201, ar: "السؤال عن المكوّنات", fr: "Demander les ingrédients", en: "Asking about ingredients" },
+      { id: 202, ar: "رمضان في العمل", fr: "Le Ramadan au travail", en: "Ramadan at work" },
+      { id: 203, ar: "الأعياد الدينية", fr: "Les fêtes religieuses", en: "Religious holidays" }
+    ]
+  },
+  {
+    id: 28,
+    title: { ar: "الخدمات الشخصية", fr: "Les services du quotidien", en: "Personal services" },
+    lessonTitles: [
+      { id: 204, ar: "الحلاق", fr: "Le coiffeur", en: "The barber" },
+      { id: 205, ar: "المغسلة", fr: "Le pressing et la laverie", en: "The laundry" },
+      { id: 206, ar: "الخيّاط وتعديل الملابس", fr: "La retouche", en: "Clothing alterations" },
+      { id: 207, ar: "تصليح الهاتف", fr: "La réparation de téléphone", en: "Phone repair" },
+      { id: 208, ar: "المفاتيح والأحذية", fr: "La cordonnerie et les clés", en: "Shoe repair and keys" }
+    ]
+  },
+  {
+    id: 29,
+    title: { ar: "البريد والحيوانات والتنقل", fr: "Colis, animaux et mobilité", en: "Parcels, pets and mobility" },
+    lessonTitles: [
+      { id: 209, ar: "إرسال واستلام الطرود", fr: "Envoyer et recevoir un colis", en: "Sending and receiving parcels" },
+      { id: 210, ar: "الحيوانات المنزلية والبيطري", fr: "Les animaux et le vétérinaire", en: "Pets and the vet" },
+      { id: 211, ar: "الدراجة الكهربائية والسكوتر", fr: "Le vélo électrique et la trottinette", en: "E-bikes and scooters" },
+      { id: 212, ar: "الشراء أونلاين والإرجاع", fr: "Les achats en ligne et les retours", en: "Online shopping and returns" },
+      { id: 213, ar: "القمامة وإعادة التدوير", fr: "Les poubelles et le tri", en: "Bins and recycling" }
+    ]
+  },
+  {
+    id: 30,
+    title: { ar: "المحادثات الصغيرة", fr: "La conversation légère", en: "Small talk" },
+    lessonTitles: [
+      { id: 214, ar: "بدء الحديث", fr: "Commencer une conversation", en: "Starting a conversation" },
+      { id: 215, ar: "مواضيع مقبولة", fr: "Les sujets qui marchent", en: "Safe topics" },
+      { id: 216, ar: "التعبير عن الرأي", fr: "Donner son avis", en: "Giving your opinion" },
+      { id: 217, ar: "الأدب والاعتذار", fr: "La politesse", en: "Politeness" },
+      { id: 218, ar: "إنهاء الحديث", fr: "Terminer une conversation", en: "Ending a conversation" }
+    ]
   }
 ];

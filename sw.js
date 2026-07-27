@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dross-v5';
+const CACHE_NAME = 'dross-v6';
 const FILES_TO_CACHE = [
   './',
   './index.html',
@@ -24,7 +24,17 @@ const FILES_TO_CACHE = [
   './data/stage17.js',
   './data/stage18.js',
   './data/stage19.js',
-  './data/stage20.js'
+  './data/stage20.js',
+  './data/stage21.js',
+  './data/stage22.js',
+  './data/stage23.js',
+  './data/stage24.js',
+  './data/stage25.js',
+  './data/stage26.js',
+  './data/stage27.js',
+  './data/stage28.js',
+  './data/stage29.js',
+  './data/stage30.js'
 ];
 
 self.addEventListener('install', (event) => {
