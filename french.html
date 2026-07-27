@@ -234,6 +234,7 @@
   /* ---------------- speech ---------------- */
 
   var VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
+  var speechRun = 0;         // bumped on every new pass and on stop
 
   function speakSupported() { return 'speechSynthesis' in window; }
 
@@ -258,27 +259,34 @@
 
   function stopSpeech() {
     state.loop = null;
+    speechRun++;
     if (speakSupported()) window.speechSynthesis.cancel();
     highlight(null, null);
     refreshButtons();
   }
 
   // Speaks one pass: French, then Arabic, then English (per selected mode).
+  // Every pass carries a run id; stopSpeech() bumps it so pending steps abort.
   function speakOnce(phrase, langs, key, onDone) {
     if (!speakSupported()) return;
     window.speechSynthesis.cancel();
+    var run = ++speechRun;
     var seq = langs.filter(function (l) { return phrase[l]; });
     var i = 0;
     (function next() {
+      if (run !== speechRun) return;
       if (i >= seq.length) { highlight(null, null); if (onDone) onDone(); return; }
       var lang = seq[i++];
       var u = utter(phrase[lang], lang);
       highlight(key, lang);
       u.onend = function () {
-        if (key && state.loop && state.loop.key !== key) return;
+        if (run !== speechRun) return;
         setTimeout(next, 250);
       };
-      u.onerror = function () { setTimeout(next, 250); };
+      u.onerror = function () {
+        if (run !== speechRun) return;
+        setTimeout(next, 250);
+      };
       window.speechSynthesis.speak(u);
     })();
   }
