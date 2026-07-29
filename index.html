@@ -396,46 +396,87 @@
     .word-actions button:hover { background: var(--accent); color: #fff; }
     .word-actions button.active { background: var(--success); color: #1a1a1a; }
     .sentence-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 0.7rem;
+      background: #fff5e6;
+      border: 1px solid #f5d08a;
+      border-radius: 16px;
+      padding: 1rem;
+      margin-bottom: 0.8rem;
+      color: #2c3e50;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .sentence-card.active { border-inline-start: 4px solid #d35400; background: #fff0d4; }
+    .sentence-time {
+      color: #8c8c8c;
+      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+      text-align: center;
+    }
+    .sentence-text {
+      text-align: center;
+      line-height: 1.6;
+      font-size: calc(var(--font-size) + 1px);
       margin-bottom: 0.6rem;
     }
-    .sentence-card.active { border-inline-start: 3px solid var(--accent); background: rgba(74,158,255,0.1); }
-    .sentence-time {
-      color: var(--text-secondary);
-      font-size: 0.85rem;
+    .sentence-text .subtitle-line { padding: 0.15rem 0; }
+    .sentence-text .subtitle-line.fr { color: #d35400; font-weight: 700; font-size: 1.15em; }
+    .sentence-text .subtitle-line.ar { color: #2c3e50; }
+    .sentence-text .subtitle-line.en { color: #34495e; }
+    .sentence-words {
+      margin-top: 0.6rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid #f5d08a;
+    }
+    .sentence-words .words-label {
+      font-size: 0.9rem;
+      color: #d35400;
       margin-bottom: 0.35rem;
+      font-weight: 600;
+      text-align: center;
     }
-    .sentence-card textarea {
+    .sentence-edit-wrap { margin-top: 0.6rem; }
+    .sentence-edit {
       width: 100%;
-      min-height: 3.2rem;
-      background: var(--bg-tertiary);
-      color: var(--text-primary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 0.5rem;
-      font-size: var(--font-size);
-      resize: vertical;
+      min-height: 6rem;
+      background: #fff;
+      color: #2c3e50;
+      border: 1px solid #f5d08a;
+      border-radius: 10px;
+      padding: 0.7rem;
+      font-size: 1rem;
+      font-family: inherit;
+      -webkit-user-select: text;
+      user-select: text;
+      pointer-events: auto;
+      touch-action: auto;
     }
+    .sentence-edit-actions { display: flex; gap: 0.5rem; margin-top: 0.4rem; flex-wrap: wrap; }
+    .sentence-edit-actions .btn-save { background: #28a745; color: #fff; border: none; }
+    .sentence-edit-actions .btn-cancel { background: #6c757d; color: #fff; border: none; }
     .sentence-actions {
       display: flex;
+      align-items: center;
+      justify-content: center;
       gap: 0.5rem;
-      margin-top: 0.5rem;
+      margin-top: 0.6rem;
       flex-wrap: wrap;
     }
     .sentence-actions button {
-      background: var(--bg-tertiary);
-      color: var(--text-primary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
       padding: 0.4rem 0.7rem;
       font-size: 0.85rem;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
     }
-    .sentence-actions button:hover { background: var(--accent); color: #fff; }
+    .sentence-actions button:hover { background: #555; }
     .sentence-actions button.active { background: var(--success); color: #1a1a1a; }
+    .sentence-actions .lang-btn { background: #28a745; color: #fff; }
+    .sentence-actions .lang-btn:hover { background: #218838; }
+    .sentence-actions .loop-btn { background: #333; }
     .cue-words { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
     .word-chip {
       background: rgba(255, 159, 67, 0.12);
@@ -463,13 +504,7 @@
       border-radius: 50%;
     }
     .word-chip .word-loop:hover { background: rgba(255,255,255,0.2); }
-    .lesson-words {
-      margin-top: 1rem;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 0.7rem;
-    }
+    .lesson-words, #btn-lesson-words, #cue-list { display: none !important; }
     .lesson-words h3 { margin: 0 0 0.6rem; font-size: 1.1rem; color: var(--text-primary); }
     .lesson-words-list { max-height: 320px; overflow-y: auto; }
     .word-table { width: 100%; border-collapse: collapse; }
@@ -1290,7 +1325,7 @@
       if (!lines.length) return '';
       return lines.map((line, i) => {
         const lang = detectLineLang(line, i, lines.length);
-        const label = lang === 'en' ? '<span class="lang-label">EN</span>' : '';
+        const label = lang === 'en' ? '<span class="lang-label">EN</span>&nbsp;' : '';
         const escaped = escapeHtml(line);
         return `<div class="subtitle-line ${lang}">${label}${escaped}</div>`;
       }).join('');
@@ -1346,7 +1381,7 @@
       const allWords = [];
       lines.forEach((line, i) => {
         if (detectLineLang(line, i, lines.length) !== 'fr') return;
-        const words = line.split(/\s+/).filter(w => w.replace(/[^\w\u00C0-\u024F]/g, ''));
+        const words = line.split(/\s+/).map(w => w.replace(/[^\w\u00C0-\u024F']/g, '')).filter(Boolean);
         allWords.push(...words);
       });
       return allWords;
@@ -1407,16 +1442,65 @@
       }
     }
 
+    function renderFrenchWords(cue, i) {
+      const words = getCueWords(cue);
+      if (!words.length) return '';
+      return `<div class="sentence-words"><div class="words-label">الكلمات الفرنسية</div><div class="cue-words">${words.map((w, idx) => `<span class="word-chip" id="word-chip-${i}-${idx}" data-i="${i}" data-idx="${idx}"><span onclick="event.stopPropagation(); speakWord(${i}, ${idx})">${escapeHtml(w)}</span><button class="word-loop" onclick="event.stopPropagation(); toggleWordLoop(${i}, ${idx})" title="${t('repeatWord')}">🔂</button></span>`).join('')}</div></div>`;
+    }
+
+    function speakCueLineByIndex(i, lang) {
+      const cue = state.currentCues[i];
+      if (!cue) return;
+      const text = getCueLineByLang(cue, lang);
+      if (!text) return;
+      ttsSpeak({ text });
+    }
+
+    function toggleSentenceEdit(i) {
+      const wrap = document.getElementById(`sentence-edit-wrap-${i}`);
+      const text = document.getElementById(`sentence-text-${i}`);
+      if (!wrap || !text) return;
+      const isHidden = wrap.classList.contains('hidden');
+      if (isHidden) {
+        wrap.classList.remove('hidden');
+        text.classList.add('hidden');
+        const ta = document.getElementById(`sentence-edit-${i}`);
+        if (ta) { ta.value = state.currentCues[i].text; ta.focus(); }
+      } else {
+        wrap.classList.add('hidden');
+        text.classList.remove('hidden');
+      }
+    }
+
+    function saveSentenceEdit(i) {
+      const ta = document.getElementById(`sentence-edit-${i}`);
+      if (!ta) return;
+      updateCueText(i, ta.value);
+      toggleSentenceEdit(i);
+    }
+
     function renderSentences() {
       const container = document.getElementById('sentences-list');
       if (!container) return;
       container.innerHTML = state.currentCues.map((cue, i) => `
         <div class="sentence-card" data-index="${i}">
           <div class="sentence-time">${formatDuration(cue.start)} - ${formatDuration(cue.end)}</div>
-          <textarea data-index="${i}" onchange="updateCueText(${i}, this.value)">${escapeHtml(cue.text)}</textarea>
+          <div class="sentence-text" id="sentence-text-${i}">${formatCueLines(cue)}</div>
+          <div class="sentence-edit-wrap hidden" id="sentence-edit-wrap-${i}">
+            <textarea class="sentence-edit" id="sentence-edit-${i}">${escapeHtml(cue.text)}</textarea>
+            <div class="sentence-edit-actions">
+              <button class="btn-save" onclick="event.stopPropagation(); saveSentenceEdit(${i})">${t('save') === 'save' ? 'حفظ' : t('save')}</button>
+              <button class="btn-cancel" onclick="event.stopPropagation(); toggleSentenceEdit(${i})">${t('cancel') === 'cancel' ? 'إلغاء' : t('cancel')}</button>
+            </div>
+          </div>
+          ${renderFrenchWords(cue, i)}
           <div class="sentence-actions">
-            <button class="loop-btn" data-start="${cue.start}" data-end="${cue.end}" onclick="toggleLoopCue(${cue.start}, ${cue.end})">${t('repeat')}</button>
-            <button onclick="jumpToCue(${i})">${formatDuration(cue.start)}</button>
+            <button class="lang-btn" onclick="event.stopPropagation(); speakCueLineByIndex(${i}, 'fr')">FR ↻</button>
+            <button class="lang-btn" onclick="event.stopPropagation(); speakCueLineByIndex(${i}, 'ar')">AR ↻</button>
+            <button class="lang-btn" onclick="event.stopPropagation(); speakCueLineByIndex(${i}, 'en')">EN ↻</button>
+            <button class="loop-btn" data-start="${cue.start}" data-end="${cue.end}" onclick="event.stopPropagation(); toggleLoopCue(${cue.start}, ${cue.end})">${t('repeat')}</button>
+            <button onclick="event.stopPropagation(); toggleSentenceEdit(${i})" title="تعديل">✏️</button>
+            <button onclick="event.stopPropagation(); jumpToCue(${i})">${formatDuration(cue.start)}</button>
           </div>
         </div>
       `).join('');
@@ -1487,6 +1571,7 @@
       cue.text = value;
       const video = document.getElementById('lesson-video');
       updateSubtitleOverlay();
+      renderSentences();
       updateDownloadLinks();
     }
 
