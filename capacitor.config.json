@@ -7,6 +7,6 @@
   },
   "android": {
     "allowMixedContent": true,
-    "captureInput": true
+    "captureInput": false
   }
 }
