@@ -362,17 +362,23 @@
     }
     .words-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; }
     .words-header h3 { margin: 0; font-size: 1.1rem; color: var(--text-primary); }
-    #words-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    #words-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
     .word-card {
       background: var(--bg-tertiary);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 0.5rem 0.7rem;
-      display: flex;
+      border-radius: 12px;
+      padding: 0.6rem 1rem;
+      display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.6rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
     }
-    .word-text { font-size: var(--font-size); color: var(--text-primary); }
+    .word-text {
+      font-size: calc(var(--font-size) + 3px);
+      color: #ff9f43;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
     .word-actions { display: flex; gap: 0.3rem; }
     .word-actions button {
       background: var(--bg-secondary);
@@ -432,19 +438,20 @@
     .sentence-actions button.active { background: var(--success); color: #1a1a1a; }
     .cue-words { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
     .word-chip {
-      background: var(--bg-tertiary);
-      color: var(--text-primary);
-      border: 1px solid var(--border);
+      background: rgba(255, 159, 67, 0.12);
+      color: #ff9f43;
+      border: 1px solid rgba(255, 159, 67, 0.5);
       border-radius: 999px;
-      padding: 0.15rem 0.4rem 0.15rem 0.6rem;
-      font-size: 0.85rem;
+      padding: 0.2rem 0.5rem 0.2rem 0.7rem;
+      font-size: calc(var(--font-size) + 1px);
+      font-weight: 600;
       cursor: pointer;
       user-select: none;
       display: inline-flex;
       align-items: center;
-      gap: 0.2rem;
+      gap: 0.25rem;
     }
-    .word-chip:hover { background: var(--accent); color: #fff; }
+    .word-chip:hover { background: rgba(255, 159, 67, 0.25); color: #ff9f43; }
     .word-chip.active { background: var(--success); color: #1a1a1a; }
     .word-chip .word-loop {
       background: transparent;
@@ -471,7 +478,7 @@
     }
     .word-table th { color: var(--text-secondary); font-weight: normal; font-size: 0.85rem; }
     .word-table td { color: var(--text-primary); }
-    .word-table .word-cell { font-size: calc(var(--font-size) + 1px); }
+    .word-table .word-cell { font-size: calc(var(--font-size) + 3px); color: #ff9f43; font-weight: 600; }
     .word-table .word-actions { display: flex; gap: 0.4rem; justify-content: flex-end; }
     .word-table .word-actions button {
       background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 50%;
@@ -1337,8 +1344,9 @@
     function getCueWords(cue) {
       const lines = (cue && cue.text ? cue.text : '').split('\n').map(l => l.trim()).filter(l => l);
       const allWords = [];
-      lines.forEach(line => {
-        const words = line.split(/\s+/).filter(w => w.replace(/[^\w\u00C0-\u024F\u0600-\u06FF]/g, ''));
+      lines.forEach((line, i) => {
+        if (detectLineLang(line, i, lines.length) !== 'fr') return;
+        const words = line.split(/\s+/).filter(w => w.replace(/[^\w\u00C0-\u024F]/g, ''));
         allWords.push(...words);
       });
       return allWords;
@@ -1488,9 +1496,7 @@
       const section = document.getElementById('words-section');
       const list = document.getElementById('words-list');
       if (!section || !list) return;
-      const lines = cue.text.split('\n').map(l => l.trim()).filter(l => l);
-      const primary = lines[0] || '';
-      const words = primary.split(/\s+/).filter(w => w.replace(/[^\w\u00C0-\u024F\u0600-\u06FF]/g,''));
+      const words = getCueWords(cue);
       list.innerHTML = words.map((w, idx) => `
         <div class="word-card">
           <span class="word-text">${escapeHtml(w)}</span>
