@@ -247,7 +247,7 @@
       align-items: center;
     }
     .subtitle-line { width: 100%; padding: 0.15rem 0; }
-    .subtitle-line.fr { color: #d35400; font-weight: 700; font-size: 1.15em; }
+    .subtitle-line.primary { color: #d35400; font-weight: 700; font-size: 1.15em; }
     .subtitle-line.ar { color: #2c3e50; }
     .subtitle-line.en { color: #34495e; }
     .subtitle-line .lang-label {
@@ -418,7 +418,7 @@
       margin-bottom: 0.6rem;
     }
     .sentence-text .subtitle-line { padding: 0.15rem 0; }
-    .sentence-text .subtitle-line.fr { color: #d35400; font-weight: 700; font-size: 1.15em; }
+    .sentence-text .subtitle-line.primary { color: #d35400; font-weight: 700; font-size: 1.15em; }
     .sentence-text .subtitle-line.ar { color: #2c3e50; }
     .sentence-text .subtitle-line.en { color: #34495e; }
     .sentence-words {
@@ -751,6 +751,18 @@
         </div>
 
         <div class="settings-row">
+          <label data-i18n="langOrder">ترتيب اللغات في الجمل</label>
+          <select id="settings-lang-order">
+            <option value="fr,ar,en">Français - العربية - English</option>
+            <option value="en,ar,fr">English - العربية - Français</option>
+            <option value="ar,en,fr">العربية - English - Français</option>
+            <option value="fr,en,ar">Français - English - العربية</option>
+            <option value="ar,fr,en">العربية - Français - English</option>
+            <option value="en,fr,ar">English - Français - العربية</option>
+          </select>
+        </div>
+
+        <div class="settings-row">
           <label data-i18n="storage">مساحة التخزين</label>
           <button id="btn-clear-data" class="btn-danger" data-i18n="clearData">مسح جميع الدروس</button>
         </div>
@@ -780,7 +792,7 @@
         timedTextHelp: "اكتب كل جملة في سطر بصيغة: 00:01 النص أو [00:01:05.200] النص. اكتب الترجمة في السطر التالي. أو استخدم صيغة SRT الكاملة.",
         timedTextPlaceholder: "00:00 مرحباً\nHello\n00:04 درس جديد\nNew lesson",
         preview: "معاينة", saveLesson: "حفظ الدرس", cancel: "إلغاء",
-        language: "اللغة", theme: "الوضع", fontSize: "حجم الخط",
+        language: "اللغة", theme: "الوضع", fontSize: "حجم الخط", langOrder: "ترتيب اللغات في الجمل",
         dark: "داكن (مريح للعين)", light: "فاتح",
         storage: "مساحة التخزين", clearData: "مسح جميع الدروس",
         offline: "تشغيل بدون إنترنت", installApp: "تثبيت التطبيق",
@@ -810,7 +822,7 @@
         timedTextHelp: "Écrivez chaque phrase sur une ligne au format 00:01 texte ou [00:01:05.200] texte. Écrivez la traduction à la ligne suivante. Ou utilisez le format SRT complet.",
         timedTextPlaceholder: "00:00 Bienvenue\nWelcome\n00:04 Nouvelle leçon\nNew lesson",
         preview: "Aperçu", saveLesson: "Enregistrer", cancel: "Annuler",
-        language: "Langue", theme: "Thème", fontSize: "Taille de police",
+        language: "Langue", theme: "Thème", fontSize: "Taille de police", langOrder: "Ordre des langues dans les phrases",
         dark: "Sombre (repos pour les yeux)", light: "Clair",
         storage: "Stockage", clearData: "Supprimer toutes les leçons",
         offline: "Hors connexion", installApp: "Installer l'application",
@@ -840,7 +852,7 @@
         timedTextHelp: "Write each line as 00:01 text or [00:01:05.200] text. Write translation on the next line. Or use full SRT format.",
         timedTextPlaceholder: "00:00 Welcome\nترحيب\n00:04 New lesson\nدرس جديد",
         preview: "Preview", saveLesson: "Save lesson", cancel: "Cancel",
-        language: "Language", theme: "Theme", fontSize: "Font size",
+        language: "Language", theme: "Theme", fontSize: "Font size", langOrder: "Language order in sentences",
         dark: "Dark (eye-friendly)", light: "Light",
         storage: "Storage", clearData: "Delete all lessons",
         offline: "Offline use", installApp: "Install app",
@@ -864,6 +876,14 @@
       lang: localStorage.getItem('vs_lang') || 'ar',
       theme: localStorage.getItem('vs_theme') || 'dark',
       fontSize: parseInt(localStorage.getItem('vs_font_size') || '16', 10),
+      langOrder: (() => {
+        const saved = localStorage.getItem('vs_lang_order');
+        if (saved) {
+          const arr = saved.split(',').filter(x => ['fr','ar','en'].includes(x));
+          if (arr.length === 3) return arr;
+        }
+        return ['fr','ar','en'];
+      })(),
       db: null,
       currentLesson: null,
       videoFile: null,
@@ -976,6 +996,18 @@
       localStorage.setItem('vs_font_size', size);
       document.getElementById('settings-font-size').value = size;
       document.getElementById('font-size-value').textContent = size + 'px';
+    }
+
+    function setLangOrder(order) {
+      if (!Array.isArray(order) || order.length !== 3) return;
+      state.langOrder = order;
+      localStorage.setItem('vs_lang_order', order.join(','));
+      const select = document.getElementById('settings-lang-order');
+      if (select) select.value = order.join(',');
+      if (state.currentCues.length) {
+        updateSubtitleOverlay();
+        renderSentences();
+      }
     }
 
     // --- Utilities ---
@@ -1301,42 +1333,50 @@
       updateSentenceLoopStates();
     }
 
-    function detectLineLang(line, index, total) {
-      if (/[\u0600-\u06FF]/.test(line)) return 'ar';
-      const lower = line.toLowerCase();
-      const frenchMarkers = /\b(je|tu|il|elle|nous|vous|ils|elles|le|la|les|l'|un|une|des|du|de|et|est|suis|es|sont|sommes|pour|dans|sur|avec|sans|que|qui|ce|cette|ces|mon|ton|son|nos|vos|leur|ma|ta|sa|mes|tes|ses|au|aux|j'|t'|s'|qu'|d'|c'|y|en|pas|plus|moins|très|bien|comme|oui|non|mais|ou|donc|car|ni)\b/;
-      const englishMarkers = /\b(i|you|he|she|it|we|they|my|your|his|her|its|our|their|the|a|an|and|is|are|was|were|am|be|been|have|has|had|do|does|did|will|would|could|should|may|might|can|this|that|these|those|here|there|now|then|before|after)\b/;
-      const hasFrenchAccent = /[éèêëàâäôöûüïîç]/i.test(line);
-      if (hasFrenchAccent || frenchMarkers.test(lower)) return 'fr';
-      if (englishMarkers.test(lower)) return 'en';
-      if (index === 0) return 'fr';
-      if (index === total - 1 && total > 2) return 'en';
-      return 'fr';
+    function getCueLangs(cue) {
+      let order = (state.langOrder || ['fr', 'ar', 'en']).filter((v, i, a) => a.indexOf(v) === i);
+      if (order.length < 3) order = ['fr', 'ar', 'en'];
+      if (!cue || !cue.text) return [];
+      const lines = cue.text.split('\n').map(l => l.trim()).filter(Boolean);
+      const arLines = lines.filter(l => /[\u0600-\u06FF]/.test(l));
+      const nonArLines = lines.filter(l => !/[\u0600-\u06FF]/.test(l));
+      const result = [];
+      let nonArIdx = 0;
+      order.forEach(lang => {
+        if (lang === 'ar') {
+          if (arLines.length) result.push({ lang: 'ar', text: arLines.shift() });
+        } else if (nonArIdx < nonArLines.length) {
+          result.push({ lang, text: nonArLines[nonArIdx++] });
+        }
+      });
+      arLines.forEach(text => result.push({ lang: 'ar', text }));
+      nonArLines.slice(nonArIdx).forEach((text, i) => {
+        const remaining = order.filter(l => l !== 'ar' && !result.some(r => r.lang === l));
+        result.push({ lang: remaining[i] || 'fr', text });
+      });
+      return result;
     }
 
     function getCueLineByLang(cue, lang) {
-      const lines = cue.text.split('\n').map(l => l.trim()).filter(Boolean);
-      const mapped = lines.map((l, i) => ({ lang: detectLineLang(l, i, lines.length), text: l }));
-      return mapped.find(x => x.lang === lang)?.text || lines[0] || '';
+      return getCueLangs(cue).find(x => x.lang === lang)?.text || '';
     }
 
     function formatCueLines(cue) {
-      const lines = cue.text.split('\n').map(l => l.trim()).filter(Boolean);
-      if (!lines.length) return '';
-      return lines.map((line, i) => {
-        const lang = detectLineLang(line, i, lines.length);
-        const label = lang === 'en' ? '<span class="lang-label">EN</span>&nbsp;' : '';
-        const escaped = escapeHtml(line);
-        return `<div class="subtitle-line ${lang}">${label}${escaped}</div>`;
+      const entries = getCueLangs(cue);
+      if (!entries.length) return '';
+      return entries.map((entry, i) => {
+        const label = entry.lang === 'en' ? '<span class="lang-label">EN</span>&nbsp;' : '';
+        const primaryClass = i === 0 ? ' primary' : '';
+        return `<div class="subtitle-line ${entry.lang}${primaryClass}">${label}${escapeHtml(entry.text)}</div>`;
       }).join('');
     }
 
     function renderSubtitleLangButtons(cue) {
       const wrap = document.getElementById('subtitle-lang-buttons');
       if (!wrap) return;
-      const langs = ['fr', 'ar', 'en'];
+      const order = state.langOrder || ['fr', 'ar', 'en'];
       const labels = { fr: 'FR', ar: 'AR', en: 'EN' };
-      const present = langs.filter(l => getCueLineByLang(cue, l));
+      const present = order.filter(l => getCueLineByLang(cue, l));
       wrap.innerHTML = present.map(l => `<button class="lang-btn" onclick="speakCueLine('${l}')">${labels[l]} <span class="loop-icon">↻</span></button>`).join('');
     }
 
@@ -1377,14 +1417,9 @@
     }
 
     function getCueWords(cue) {
-      const lines = (cue && cue.text ? cue.text : '').split('\n').map(l => l.trim()).filter(l => l);
-      const allWords = [];
-      lines.forEach((line, i) => {
-        if (detectLineLang(line, i, lines.length) !== 'fr') return;
-        const words = line.split(/\s+/).map(w => w.replace(/[^\w\u00C0-\u024F']/g, '')).filter(Boolean);
-        allWords.push(...words);
-      });
-      return allWords;
+      const entry = getCueLangs(cue).find(x => x.lang === 'fr');
+      if (!entry) return [];
+      return entry.text.split(/\s+/).map(w => w.replace(/[^\w\u00C0-\u024F'\-]/g, '')).filter(Boolean);
     }
 
     function renderCueWords(cue, i) {
@@ -1495,9 +1530,10 @@
           </div>
           ${renderFrenchWords(cue, i)}
           <div class="sentence-actions">
-            <button class="lang-btn" onclick="event.stopPropagation(); speakCueLineByIndex(${i}, 'fr')">FR ↻</button>
-            <button class="lang-btn" onclick="event.stopPropagation(); speakCueLineByIndex(${i}, 'ar')">AR ↻</button>
-            <button class="lang-btn" onclick="event.stopPropagation(); speakCueLineByIndex(${i}, 'en')">EN ↻</button>
+            ${(state.langOrder || ['fr','ar','en']).map(l => {
+              const labels = { fr: 'FR', ar: 'AR', en: 'EN' };
+              return `<button class="lang-btn" onclick="event.stopPropagation(); speakCueLineByIndex(${i}, '${l}')">${labels[l]} ↻</button>`;
+            }).join('')}
             <button class="loop-btn" data-start="${cue.start}" data-end="${cue.end}" onclick="event.stopPropagation(); toggleLoopCue(${cue.start}, ${cue.end})">${t('repeat')}</button>
             <button onclick="event.stopPropagation(); toggleSentenceEdit(${i})" title="تعديل">✏️</button>
             <button onclick="event.stopPropagation(); jumpToCue(${i})">${formatDuration(cue.start)}</button>
@@ -1890,6 +1926,7 @@
       setLang(state.lang);
       setTheme(state.theme);
       setFontSize(state.fontSize);
+      setLangOrder(state.langOrder);
 
       // Header nav
       document.querySelectorAll('nav button, .lesson-card').forEach(btn => {
@@ -1949,6 +1986,7 @@
       document.getElementById('settings-language').addEventListener('change', (e) => setLang(e.target.value));
       document.getElementById('settings-theme').addEventListener('change', (e) => setTheme(e.target.value));
       document.getElementById('settings-font-size').addEventListener('input', (e) => setFontSize(parseInt(e.target.value, 10)));
+      document.getElementById('settings-lang-order').addEventListener('change', (e) => setLangOrder(e.target.value.split(',')));
 
       document.getElementById('btn-clear-data').addEventListener('click', async () => {
         const lessons = await getLessonsFromDB();
