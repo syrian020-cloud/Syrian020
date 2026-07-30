@@ -1128,6 +1128,7 @@
       loopCue: null,
       loopWord: null,
       cueLineLoop: null,
+      sentenceLineLoop: null,
       videoLoop: false,
       captionsVisible: true,
       captionScale: parseFloat(localStorage.getItem('vs_caption_scale') || '1'),
@@ -1581,6 +1582,7 @@
     // --- Editor logic ---
     function resetEditor() {
       stopCueLineLoop();
+      stopSentenceLineLoop();
       state.videoFile = null;
       state.audioFile = null;
       state.subtitleText = '';
@@ -1888,13 +1890,47 @@
       return `<div class="sentence-words hidden" id="sentence-words-${i}-${lang}"><div class="words-label">${escapeHtml(title)}</div><div class="cue-words">${words.map((w, idx) => `<span class="word-chip" id="word-chip-${i}-${idx}-${lang}" data-i="${i}" data-idx="${idx}" data-lang="${lang}"><span onclick="event.stopPropagation(); speakWord(${i}, ${idx}, '${lang}')">${escapeHtml(w)}</span><button class="word-loop" data-i="${i}" data-idx="${idx}" data-lang="${lang}" onclick="event.stopPropagation(); toggleWordLoop(${i}, ${idx}, '${lang}')" title="${t('repeatWord')}">🔂</button></span>`).join('')}</div></div>`;
     }
 
-    function speakCueLineByIndex(i, lang) {
-      const cue = state.currentCues[i];
-      if (!cue) return;
-      const text = getCueLineByLang(cue, lang);
-      if (!text) return;
+    function stopSentenceLineLoop() {
+      state.sentenceLineLoop = null;
+      ttsStop();
+      updateSentenceLineLoopButtons();
+    }
+
+    window.toggleSentenceLineLoop = function(i, lang) {
+      if (state.sentenceLineLoop && state.sentenceLineLoop.i === i && state.sentenceLineLoop.lang === lang) {
+        stopSentenceLineLoop();
+        return;
+      }
+      stopSentenceLineLoop();
+      state.sentenceLineLoop = { i, lang };
+      updateSentenceLineLoopButtons();
       const ttsLang = lang === 'fr' ? 'fr-FR' : (lang === 'ar' ? 'ar-SA' : 'en-US');
-      ttsSpeak({ text, lang: ttsLang });
+      const speakNext = () => {
+        if (!state.sentenceLineLoop || state.sentenceLineLoop.i !== i || state.sentenceLineLoop.lang !== lang) return;
+        const cue = state.currentCues[i];
+        if (!cue) { stopSentenceLineLoop(); return; }
+        const text = getCueLineByLang(cue, lang);
+        if (!text) { stopSentenceLineLoop(); return; }
+        ttsSpeak({ text, lang: ttsLang, onend: () => setTimeout(speakNext, 300) });
+      };
+      speakNext();
+    };
+
+    function updateSentenceLineLoopButtons() {
+      const container = document.getElementById('sentences-list');
+      if (!container) return;
+      container.querySelectorAll('.sentence-actions .lang-btn').forEach(btn => {
+        const i = parseInt(btn.dataset.i, 10);
+        const lang = btn.dataset.lang;
+        const active = state.sentenceLineLoop && state.sentenceLineLoop.i === i && state.sentenceLineLoop.lang === lang;
+        btn.classList.toggle('active', active);
+        const icon = active ? '🔁' : '↻';
+        if (btn.querySelector('.loop-icon')) {
+          btn.querySelector('.loop-icon').textContent = icon;
+        } else {
+          btn.textContent = `${btn.dataset.label || lang.toUpperCase()} ${icon}`;
+        }
+      });
     }
 
     function toggleSentenceEdit(i) {
@@ -1958,7 +1994,9 @@
           <div class="sentence-actions">
             ${(state.langOrder || ['fr','ar','en']).map(l => {
               const labels = { fr: 'FR', ar: 'AR', en: 'EN' };
-              return `<button class="lang-btn" onclick="event.stopPropagation(); speakCueLineByIndex(${i}, '${l}')">${labels[l]} ↻</button>`;
+              const active = state.sentenceLineLoop && state.sentenceLineLoop.i === i && state.sentenceLineLoop.lang === l;
+              const icon = active ? '🔁' : '↻';
+              return `<button class="lang-btn ${active ? 'active' : ''}" id="btn-sentence-lang-${i}-${l}" data-i="${i}" data-lang="${l}" data-label="${labels[l]}" onclick="event.stopPropagation(); toggleSentenceLineLoop(${i}, '${l}')">${labels[l]} <span class="loop-icon">${icon}</span></button>`;
             }).join('')}
             <button class="loop-btn" data-start="${cue.start}" data-end="${cue.end}" onclick="event.stopPropagation(); toggleLoopCue(${cue.start}, ${cue.end})">${t('repeat')}</button>
             <button class="btn-edit-sentence" onclick="event.stopPropagation(); toggleSentenceEdit(${i})" title="تعديل">✏️</button>
