@@ -25,13 +25,15 @@
     }
 
     [data-theme="light"] {
-      --bg-primary: #f5f2eb;
+      --bg-primary: #f2f2f7;
       --bg-secondary: #ffffff;
-      --bg-tertiary: #e8e5de;
-      --text-primary: #2c2c2c;
-      --text-secondary: #5c5c5c;
-      --border: #d4d0c8;
-      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --bg-tertiary: #e5e5ea;
+      --text-primary: #1c1c1e;
+      --text-secondary: #6c6c70;
+      --accent: #007aff;
+      --accent-hover: #0063d1;
+      --border: #e5e5ea;
+      --shadow: 0 4px 16px rgba(0,0,0,0.08);
     }
 
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -69,21 +71,34 @@
       gap: 0.5rem;
     }
     .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); white-space: nowrap; }
-    nav { display: flex; gap: 0.3rem; }
+    nav {
+      display: flex;
+      gap: 0.2rem;
+      background: var(--bg-tertiary);
+      border-radius: 999px;
+      padding: 0.25rem;
+    }
     nav button {
       background: transparent;
       border: none;
       color: var(--text-secondary);
-      padding: 0.5rem 0.8rem;
-      border-radius: var(--radius);
-      font-size: 0.95rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
       cursor: pointer;
       transition: all 0.2s;
+      font-weight: 500;
     }
-    nav button.active, nav button:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+    nav button:hover { color: var(--text-primary); }
+    nav button.active {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
     .header-controls { display: flex; align-items: center; gap: 0.4rem; }
     .btn-icon {
-      background: var(--bg-tertiary);
+      background: var(--bg-secondary);
       border: 1px solid var(--border);
       color: var(--text-primary);
       width: 38px;
@@ -94,6 +109,7 @@
       justify-content: center;
       cursor: pointer;
       font-size: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     }
     .btn-icon:hover { background: var(--accent); color: white; }
 
@@ -181,42 +197,53 @@
       display: block;
     }
 
-    .lesson-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+    .lesson-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; max-width: 800px; margin: 0 auto; }
     .lesson-card {
       background: var(--bg-secondary);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1rem;
+      border-radius: 16px;
+      padding: 0.85rem;
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
       position: relative;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
     .lesson-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
     .lesson-card .cover-thumb {
-      width: calc(100% + 2rem);
-      height: 120px;
+      width: calc(100% + 1.7rem);
+      height: 110px;
+      max-height: 110px;
       object-fit: cover;
-      margin: -1rem -1rem 0.5rem -1rem;
+      object-position: center;
+      margin: -0.85rem -0.85rem 0.6rem -0.85rem;
       display: block;
-      border-radius: var(--radius) var(--radius) 0 0;
+      border-radius: 16px 16px 0 0;
       background: var(--bg-tertiary);
     }
-    .lesson-card h3 { margin: 0 0 0.4rem; font-size: 1rem; }
-    .lesson-card small { color: var(--text-secondary); }
+    .lesson-card h3 { margin: 0 0 0.25rem; font-size: 1.05rem; font-weight: 700; }
+    .lesson-card small { color: var(--text-secondary); font-size: 0.8rem; }
     .lesson-card .lesson-menu {
       position: absolute;
-      top: 0.4rem;
+      top: 0.35rem;
     }
-    [dir="rtl"] .lesson-card .lesson-menu { left: 0.4rem; }
-    [dir="ltr"] .lesson-card .lesson-menu { right: 0.4rem; }
+    [dir="rtl"] .lesson-card .lesson-menu { left: 0.35rem; }
+    [dir="ltr"] .lesson-card .lesson-menu { right: 0.35rem; }
     .lesson-card .btn-menu {
-      background: transparent;
+      background: rgba(0,0,0,0.35);
       border: none;
-      color: var(--text-secondary);
-      font-size: 1.4rem;
-      padding: 0.2rem 0.5rem;
+      color: #fff;
+      font-size: 1.2rem;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
+      line-height: 1;
+      padding: 0;
     }
+    .lesson-card .btn-menu:hover { background: rgba(0,0,0,0.5); }
     .lesson-card .lesson-dropdown {
       position: absolute;
       top: 2rem;
@@ -708,7 +735,7 @@
     @media (max-width: 500px) {
       .header-inner { flex-wrap: wrap; }
       nav { order: 3; width: 100%; justify-content: center; }
-      main { padding-top: 6.5rem; }
+      main { padding-top: 8.5rem; }
       .logo { font-size: 1rem; }
     }
   </style>
