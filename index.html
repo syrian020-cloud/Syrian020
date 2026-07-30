@@ -190,7 +190,6 @@
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
       position: relative;
-      overflow: hidden;
     }
     .lesson-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
     .lesson-card .cover-thumb {
@@ -223,12 +222,14 @@
       top: 2rem;
       background: var(--bg-secondary);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border-radius: 12px;
       box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
-      min-width: 140px;
+      min-width: 170px;
+      padding: 0.4rem;
       z-index: 100;
+      gap: 0.1rem;
     }
     [dir="rtl"] .lesson-card .lesson-dropdown { left: 0; }
     [dir="ltr"] .lesson-card .lesson-dropdown { right: 0; }
@@ -239,10 +240,18 @@
       padding: 0.6rem 0.8rem;
       text-align: start;
       cursor: pointer;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: background 0.15s;
     }
     .lesson-card .lesson-dropdown button:hover { background: var(--bg-tertiary); }
+    .lesson-card .lesson-dropdown .btn-play { color: var(--success); }
+    .lesson-card .lesson-dropdown .btn-edit { color: var(--accent); }
     .lesson-card .lesson-dropdown .btn-delete { color: var(--danger); }
+    .lesson-card .lesson-dropdown .menu-icon { font-size: 1rem; width: 1.3rem; text-align: center; }
 
     .empty-state { text-align: center; padding: 3rem 1rem; }
     .empty-state svg { width: 80px; height: 80px; margin-bottom: 1rem; opacity: 0.4; }
@@ -609,6 +618,51 @@
     .contact-links, .backup-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     .contact-links a { text-decoration: none; }
 
+    .action-sheet {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .action-sheet-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    .action-sheet-content {
+      position: relative;
+      background: var(--bg-secondary);
+      border-radius: 16px 16px 0 0;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+      animation: slideUp 0.25s ease;
+    }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    .action-sheet-item {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: none;
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      cursor: pointer;
+      text-align: start;
+    }
+    .action-sheet-item:hover { background: #4a4a4a; }
+    .action-sheet-item .as-icon { font-size: 1.1rem; width: 1.5rem; text-align: center; }
+    .action-sheet-item.action-play { color: var(--success); }
+    .action-sheet-item.action-edit { color: var(--accent); }
+    .action-sheet-item.action-delete { color: var(--danger); }
+    .action-sheet-item.action-cancel { justify-content: center; color: var(--text-secondary); margin-top: 0.3rem; }
+
     .toast {
       position: fixed;
       bottom: 1rem;
@@ -838,6 +892,18 @@
   </main>
 
   <input type="file" id="lesson-image-file" accept="image/*" class="hidden">
+
+  <div id="lesson-actions" class="action-sheet hidden">
+    <div class="action-sheet-backdrop" onclick="closeLessonActions()"></div>
+    <div class="action-sheet-content">
+      <button class="action-sheet-item action-play" data-action="play"><span class="as-icon">▶️</span> <span data-i18n="play">تشغيل</span></button>
+      <button class="action-sheet-item action-edit" data-action="edit"><span class="as-icon">✏️</span> <span data-i18n="edit">تعديل</span></button>
+      <button class="action-sheet-item action-image" data-action="image"><span class="as-icon">🖼️</span> <span data-i18n="setImage">وضع صورة للدرس</span></button>
+      <button class="action-sheet-item action-delete" data-action="delete"><span class="as-icon">🗑️</span> <span data-i18n="delete">حذف</span></button>
+      <button class="action-sheet-item action-cancel" data-action="cancel" onclick="closeLessonActions()" data-i18n="cancel">إلغاء</button>
+    </div>
+  </div>
+
   <div id="toast" class="toast"></div>
 
   <script>
@@ -966,7 +1032,8 @@
       currentCues: [],
       loopCue: null,
       loopWord: null,
-      imageLessonId: null
+      imageLessonId: null,
+      actionLessonId: null
     };
 
     const DB_NAME = 'videoSubtitleDB';
@@ -1270,11 +1337,6 @@
           ${cover}
           <div class="lesson-menu" data-id="${lesson.id}">
             <button class="btn-menu" data-id="${lesson.id}" data-action="menu">⋮</button>
-            <div class="lesson-dropdown hidden" data-id="${lesson.id}">
-              <button class="btn-edit" data-id="${lesson.id}">${t('edit')}</button>
-              <button class="btn-set-image" data-id="${lesson.id}">${t('setImage')}</button>
-              <button class="btn-delete" data-id="${lesson.id}">${t('delete')}</button>
-            </div>
           </div>
           <h3>${escapeHtml(lesson.title || t('lesson'))}</h3>
           <small>${date} · ${formatDuration(lesson.duration || 0)}</small>
@@ -1328,6 +1390,16 @@
     function setLessonImage(id) {
       state.imageLessonId = id;
       document.getElementById('lesson-image-file').click();
+    }
+
+    function openLessonActions(id) {
+      state.actionLessonId = id;
+      document.getElementById('lesson-actions').classList.remove('hidden');
+    }
+
+    function closeLessonActions() {
+      state.actionLessonId = null;
+      document.getElementById('lesson-actions').classList.add('hidden');
     }
 
     async function exportLessons() {
@@ -2143,34 +2215,28 @@
         const id = idEl ? parseInt(idEl.dataset.id, 10) : null;
         if (e.target.closest('.btn-menu') || e.target.closest('[data-action="menu"]')) {
           e.stopPropagation();
-          const dropdown = card.querySelector('.lesson-dropdown');
-          const wasHidden = dropdown.classList.contains('hidden');
-          document.querySelectorAll('.lesson-dropdown').forEach(d => d.classList.add('hidden'));
-          if (wasHidden) dropdown.classList.remove('hidden');
-          return;
-        }
-        if (e.target.closest('.lesson-dropdown')) {
-          e.stopPropagation();
-          if (!id) return;
-          if (e.target.closest('.btn-delete')) {
-            if (confirm(t('confirmDelete'))) {
-              await deleteLessonFromDB(id);
-              showToast(t('deleted'));
-              renderLessons();
-            }
-          } else if (e.target.closest('.btn-edit')) {
-            await loadLessonForEdit(id);
-          } else if (e.target.closest('.btn-set-image')) {
-            setLessonImage(id);
-          }
+          if (id) openLessonActions(id);
           return;
         }
         if (id) await loadLessonForPlay(id);
       });
 
-      document.addEventListener('click', (e) => {
-        if (!e.target.closest('.lesson-menu')) {
-          document.querySelectorAll('.lesson-dropdown').forEach(d => d.classList.add('hidden'));
+      document.getElementById('lesson-actions').addEventListener('click', async (e) => {
+        const btn = e.target.closest('[data-action]');
+        if (!btn) return;
+        const action = btn.dataset.action;
+        const id = state.actionLessonId;
+        closeLessonActions();
+        if (!id) return;
+        if (action === 'play') await loadLessonForPlay(id);
+        else if (action === 'edit') await loadLessonForEdit(id);
+        else if (action === 'image') setLessonImage(id);
+        else if (action === 'delete') {
+          if (confirm(t('confirmDelete'))) {
+            await deleteLessonFromDB(id);
+            showToast(t('deleted'));
+            renderLessons();
+          }
         }
       });
 
