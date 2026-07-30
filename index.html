@@ -645,6 +645,15 @@
           <div id="video-name" class="muted"></div>
         </div>
 
+        <div class="form-group">
+          <label for="audio-file" data-i18n="audioFile">ملف صوتي</label>
+          <label for="audio-file" class="file-label" id="audio-label">
+            <span data-i18n="chooseAudio">اختر ملف صوتي من الهاتف</span>
+          </label>
+          <input type="file" id="audio-file" accept="audio/*">
+          <div id="audio-name" class="muted"></div>
+        </div>
+
         <div class="tabs">
           <button class="tab active" data-subtab="srt" data-i18n="uploadSrt">رفع SRT</button>
           <button class="tab" data-subtab="text" data-i18n="timedText">نص موقوت</button>
@@ -786,6 +795,7 @@
         newLesson: "درس جديد", lessonTitle: "عنوان الدرس",
         lessonTitlePlaceholder: "مثال: درس اللغة الفرنسية 1",
         videoFile: "ملف الفيديو", chooseVideo: "اضغط لاختيار فيديو من الهاتف",
+        audioFile: "ملف صوتي", chooseAudio: "اضغط لاختيار ملف صوتي من الهاتف",
         uploadSrt: "رفع SRT", timedText: "نص موقوت",
         srtFile: "ملف الترجمة (.srt)", chooseSrt: "اضغط لاختيار ملف SRT",
         timedTextLabel: "أدخل النص مع التوقيت الزمني",
@@ -798,7 +808,7 @@
         offline: "تشغيل بدون إنترنت", installApp: "تثبيت التطبيق",
         noLessons: "لا يوجد دروس بعد. اضغط \"درس جديد\" للبدء.",
         saved: "تم حفظ الدرس", deleted: "تم حذف الدرس",
-        enterTitle: "أدخل عنوان الدرس", chooseVideoFile: "اختر ملف الفيديو أولاً",
+        enterTitle: "أدخل عنوان الدرس", chooseVideoFile: "اختر ملف الفيديو أو الصوت أولاً",
         addSubtitle: "أضف ملف SRT أو نص موقوت",
         invalidTime: "تنسيق الوقت غير صحيح",
         confirmDelete: "هل تريد حذف هذا الدرس؟",
@@ -816,6 +826,7 @@
         newLesson: "Nouvelle leçon", lessonTitle: "Titre de la leçon",
         lessonTitlePlaceholder: "Ex: Cours de français 1",
         videoFile: "Fichier vidéo", chooseVideo: "Appuyez pour choisir une vidéo",
+        audioFile: "Fichier audio", chooseAudio: "Appuyez pour choisir un fichier audio",
         uploadSrt: "Importer SRT", timedText: "Texte synchronisé",
         srtFile: "Fichier de sous-titres (.srt)", chooseSrt: "Appuyez pour choisir un fichier SRT",
         timedTextLabel: "Saisissez le texte avec horodatage",
@@ -828,7 +839,7 @@
         offline: "Hors connexion", installApp: "Installer l'application",
         noLessons: "Aucune leçon. Appuyez sur \"Nouvelle leçon\" pour commencer.",
         saved: "Leçon enregistrée", deleted: "Leçon supprimée",
-        enterTitle: "Entrez le titre", chooseVideoFile: "Choisissez d'abord une vidéo",
+        enterTitle: "Entrez le titre", chooseVideoFile: "Choisissez d'abord une vidéo ou un audio",
         addSubtitle: "Ajoutez un fichier SRT ou du texte synchronisé",
         invalidTime: "Format de temps invalide",
         confirmDelete: "Supprimer cette leçon ?",
@@ -846,6 +857,7 @@
         newLesson: "New lesson", lessonTitle: "Lesson title",
         lessonTitlePlaceholder: "E.g. French lesson 1",
         videoFile: "Video file", chooseVideo: "Tap to choose a video",
+        audioFile: "Audio file", chooseAudio: "Tap to choose an audio file",
         uploadSrt: "Upload SRT", timedText: "Timed text",
         srtFile: "Subtitle file (.srt)", chooseSrt: "Tap to choose an SRT file",
         timedTextLabel: "Enter timed text",
@@ -858,7 +870,7 @@
         offline: "Offline use", installApp: "Install app",
         noLessons: "No lessons yet. Tap \"New lesson\" to start.",
         saved: "Lesson saved", deleted: "Lesson deleted",
-        enterTitle: "Enter a title", chooseVideoFile: "Choose a video first",
+        enterTitle: "Enter a title", chooseVideoFile: "Choose a video or audio file first",
         addSubtitle: "Add an SRT file or timed text",
         invalidTime: "Invalid time format",
         confirmDelete: "Delete this lesson?",
@@ -887,6 +899,7 @@
       db: null,
       currentLesson: null,
       videoFile: null,
+      audioFile: null,
       subtitleText: '',
       subtitleType: 'srt',
       editingId: null,
@@ -1220,6 +1233,7 @@
     // --- Editor logic ---
     function resetEditor() {
       state.videoFile = null;
+      state.audioFile = null;
       state.subtitleText = '';
       state.subtitleType = 'srt';
       state.editingId = null;
@@ -1227,9 +1241,11 @@
       state.loopCue = null;
       document.getElementById('lesson-title').value = '';
       document.getElementById('video-file').value = '';
+      document.getElementById('audio-file').value = '';
       document.getElementById('srt-file').value = '';
       document.getElementById('timed-text').value = '';
       document.getElementById('video-name').textContent = '';
+      document.getElementById('audio-name').textContent = '';
       document.getElementById('srt-name').textContent = '';
       document.getElementById('preview-wrap').classList.add('hidden');
       document.getElementById('subtitle-display').classList.add('hidden');
@@ -1261,7 +1277,8 @@
     async function previewLesson() {
       const title = document.getElementById('lesson-title').value.trim();
       if (!title) { showToast(t('enterTitle')); return; }
-      if (!state.videoFile) { showToast(t('chooseVideoFile')); return; }
+      if (!state.videoFile && !state.audioFile) { showToast(t('chooseVideoFile')); return; }
+      const mediaFile = state.videoFile || state.audioFile;
 
       const text = state.subtitleType === 'srt' ? state.subtitleText : document.getElementById('timed-text').value;
       if (!text.trim()) { showToast(t('addSubtitle')); return; }
@@ -1276,7 +1293,7 @@
 
       const video = document.getElementById('lesson-video');
       detachSubtitleListeners(video);
-      video.src = URL.createObjectURL(state.videoFile);
+      video.src = URL.createObjectURL(mediaFile);
       const track = document.createElement('track');
       track.kind = 'subtitles';
       track.label = 'Subtitles';
@@ -1833,7 +1850,8 @@
     async function saveLesson() {
       const title = document.getElementById('lesson-title').value.trim();
       if (!title) { showToast(t('enterTitle')); return; }
-      if (!state.videoFile) { showToast(t('chooseVideoFile')); return; }
+      if (!state.videoFile && !state.audioFile) { showToast(t('chooseVideoFile')); return; }
+      const mediaFile = state.videoFile || state.audioFile;
 
       const text = state.subtitleType === 'srt' ? state.subtitleText : document.getElementById('timed-text').value;
       if (!text.trim()) { showToast(t('addSubtitle')); return; }
@@ -1848,9 +1866,9 @@
         id: state.editingId || Date.now(),
         title,
         lang: state.lang,
-        videoName: state.videoFile.name,
-        videoType: state.videoFile.type,
-        videoFile: state.videoFile,
+        videoName: mediaFile.name,
+        videoType: mediaFile.type,
+        videoFile: mediaFile,
         subtitleType: state.subtitleType,
         subtitleText: text,
         vttBlob: new Blob([vtt], { type: 'text/vtt' }),
@@ -1942,7 +1960,11 @@
       // File inputs
       document.getElementById('video-file').addEventListener('change', (e) => {
         const f = e.target.files[0];
-        if (f) { state.videoFile = f; document.getElementById('video-name').textContent = f.name; }
+        if (f) { state.videoFile = f; state.audioFile = null; document.getElementById('video-name').textContent = f.name; document.getElementById('audio-name').textContent = ''; document.getElementById('audio-file').value = ''; }
+      });
+      document.getElementById('audio-file').addEventListener('change', (e) => {
+        const f = e.target.files[0];
+        if (f) { state.audioFile = f; state.videoFile = null; document.getElementById('audio-name').textContent = f.name; document.getElementById('video-name').textContent = ''; document.getElementById('video-file').value = ''; }
       });
       document.getElementById('srt-file').addEventListener('change', (e) => {
         const f = e.target.files[0];
