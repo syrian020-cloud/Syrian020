@@ -567,6 +567,9 @@
     .settings-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
     .settings-row label { margin: 0; flex: 1; }
     .range-wrap { display: flex; align-items: center; gap: 0.5rem; }
+    .contact-row { align-items: flex-start; }
+    .contact-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .contact-links a { text-decoration: none; }
 
     .toast {
       position: fixed;
@@ -776,9 +779,12 @@
           <button id="btn-clear-data" class="btn-danger" data-i18n="clearData">مسح جميع الدروس</button>
         </div>
 
-        <div class="settings-row">
-          <label data-i18n="offline">تشغيل بدون إنترنت</label>
-          <button id="btn-install" class="btn-secondary" data-i18n="installApp">تثبيت التطبيق</button>
+        <div class="settings-row contact-row">
+          <label data-i18n="contact">تواصل معنا</label>
+          <div class="contact-links">
+            <a href="https://wa.me/33775813643" target="_blank" rel="noopener" class="btn-secondary">WhatsApp +337 75 81 36 43</a>
+            <a href="mailto:Syriano20@gmail.com" class="btn-secondary">Syriano20@gmail.com</a>
+          </div>
         </div>
       </div>
     </section>
@@ -805,9 +811,9 @@
         language: "اللغة", theme: "الوضع", fontSize: "حجم الخط", langOrder: "ترتيب اللغات في الجمل",
         dark: "داكن (مريح للعين)", light: "فاتح",
         storage: "مساحة التخزين", clearData: "مسح جميع الدروس",
-        offline: "تشغيل بدون إنترنت", installApp: "تثبيت التطبيق",
         noLessons: "لا يوجد دروس بعد. اضغط \"درس جديد\" للبدء.",
         saved: "تم حفظ الدرس", deleted: "تم حذف الدرس",
+        contact: "تواصل معنا",
         enterTitle: "أدخل عنوان الدرس", chooseVideoFile: "اختر ملف الفيديو أو الصوت أولاً",
         addSubtitle: "أضف ملف SRT أو نص موقوت",
         invalidTime: "تنسيق الوقت غير صحيح",
@@ -816,9 +822,7 @@
         words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "الجمل والتصحيح", saveCue: "حفظ",
         close: "إغلاق", listen: "استماع", repeatWord: "تكرار",
         downloadSrt: "تحميل SRT", downloadVtt: "تحميل VTT", downloadText: "تحميل كنص",
-        lesson: "درس", of: "من",
-        installed: "يمكن تشغيل التطبيق من الشاشة الرئيسية",
-        notInstallable: "التثبيت غير متاح في هذا المتصفح"
+        lesson: "درس", of: "من"
       },
       fr: {
         lessons: "Leçons", editor: "Éditeur", settings: "Paramètres",
@@ -836,9 +840,9 @@
         language: "Langue", theme: "Thème", fontSize: "Taille de police", langOrder: "Ordre des langues dans les phrases",
         dark: "Sombre (repos pour les yeux)", light: "Clair",
         storage: "Stockage", clearData: "Supprimer toutes les leçons",
-        offline: "Hors connexion", installApp: "Installer l'application",
         noLessons: "Aucune leçon. Appuyez sur \"Nouvelle leçon\" pour commencer.",
         saved: "Leçon enregistrée", deleted: "Leçon supprimée",
+        contact: "Contactez-nous",
         enterTitle: "Entrez le titre", chooseVideoFile: "Choisissez d'abord une vidéo ou un audio",
         addSubtitle: "Ajoutez un fichier SRT ou du texte synchronisé",
         invalidTime: "Format de temps invalide",
@@ -847,9 +851,7 @@
         words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Phrases et correction", saveCue: "Enregistrer",
         close: "Fermer", listen: "Écouter", repeatWord: "Répéter",
         downloadSrt: "Télécharger SRT", downloadVtt: "Télécharger VTT", downloadText: "Télécharger texte",
-        lesson: "Leçon", of: "sur",
-        installed: "L'application est installable depuis l'écran d'accueil",
-        notInstallable: "Installation non supportée par ce navigateur"
+        lesson: "Leçon", of: "sur"
       },
       en: {
         lessons: "Lessons", editor: "Editor", settings: "Settings",
@@ -867,9 +869,9 @@
         language: "Language", theme: "Theme", fontSize: "Font size", langOrder: "Language order in sentences",
         dark: "Dark (eye-friendly)", light: "Light",
         storage: "Storage", clearData: "Delete all lessons",
-        offline: "Offline use", installApp: "Install app",
         noLessons: "No lessons yet. Tap \"New lesson\" to start.",
         saved: "Lesson saved", deleted: "Lesson deleted",
+        contact: "Contact us",
         enterTitle: "Enter a title", chooseVideoFile: "Choose a video or audio file first",
         addSubtitle: "Add an SRT file or timed text",
         invalidTime: "Invalid time format",
@@ -878,9 +880,7 @@
         words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "Sentences & correction", saveCue: "Save",
         close: "Close", listen: "Listen", repeatWord: "Repeat",
         downloadSrt: "Download SRT", downloadVtt: "Download VTT", downloadText: "Download text",
-        lesson: "Lesson", of: "of",
-        installed: "The app can be launched from the home screen",
-        notInstallable: "Installation not supported by this browser"
+        lesson: "Lesson", of: "of"
       }
     };
 
@@ -2026,22 +2026,6 @@
 
       document.getElementById('btn-theme').addEventListener('click', () => {
         setTheme(state.theme === 'dark' ? 'light' : 'dark');
-      });
-
-      document.getElementById('btn-install').addEventListener('click', async () => {
-        if (window.deferredPrompt) {
-          window.deferredPrompt.prompt();
-          await window.deferredPrompt.userChoice;
-          window.deferredPrompt = null;
-          showToast(t('installed'));
-        } else {
-          showToast(t('notInstallable'));
-        }
-      });
-
-      window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        window.deferredPrompt = e;
       });
 
       // Service worker registration
