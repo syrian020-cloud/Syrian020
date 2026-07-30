@@ -568,6 +568,21 @@
     .sentence-actions .lang-btn { background: #28a745; color: #fff; }
     .sentence-actions .lang-btn:hover { background: #218838; }
     .sentence-actions .loop-btn { background: #333; }
+    .sentence-words-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-top: 0.6rem; }
+    .btn-words-toggle {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .btn-words-toggle:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .sentence-words.hidden { display: none; }
     .cue-words { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
     .word-chip {
       background: rgba(255, 159, 67, 0.12);
@@ -998,6 +1013,7 @@
         play: "تشغيل", pause: "إيقاف", edit: "تعديل", delete: "حذف", repeat: "تكرار العبارة",
         words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "الجمل والتصحيح", saveCue: "حفظ",
         close: "إغلاق", listen: "استماع", repeatWord: "تكرار",
+        frenchWords: "كلمات فرنسية", englishWords: "كلمات إنجليزية", arabicWords: "كلمات عربية",
         downloadSrt: "تحميل SRT", downloadVtt: "تحميل VTT", downloadText: "تحميل كنص",
         lesson: "درس", of: "من",
         back: "رجوع",
@@ -1032,6 +1048,7 @@
         play: "Lire", pause: "Pause", edit: "Modifier", delete: "Supprimer", repeat: "Répéter la phrase",
         words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Phrases et correction", saveCue: "Enregistrer",
         close: "Fermer", listen: "Écouter", repeatWord: "Répéter",
+        frenchWords: "Mots français", englishWords: "Mots anglais", arabicWords: "Mots arabes",
         downloadSrt: "Télécharger SRT", downloadVtt: "Télécharger VTT", downloadText: "Télécharger texte",
         lesson: "Leçon", of: "sur",
         back: "Retour",
@@ -1066,6 +1083,7 @@
         play: "Play", pause: "Pause", edit: "Edit", delete: "Delete", repeat: "Repeat phrase",
         words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "Sentences & correction", saveCue: "Save",
         close: "Close", listen: "Listen", repeatWord: "Repeat",
+        frenchWords: "French words", englishWords: "English words", arabicWords: "Arabic words",
         downloadSrt: "Download SRT", downloadVtt: "Download VTT", downloadText: "Download text",
         lesson: "Lesson", of: "of",
         back: "Back",
@@ -1784,21 +1802,23 @@
       });
     }
 
-    function getCueWords(cue) {
-      const entry = getCueLangs(cue).find(x => x.lang === 'fr');
+    function getCueWordsByLang(cue, lang) {
+      const entry = getCueLangs(cue).find(x => x.lang === lang);
       if (!entry) return [];
-      return entry.text.split(/\s+/).map(w => w.replace(/[^\w\u00C0-\u024F'\-]/g, '')).filter(Boolean);
+      return entry.text.split(/\s+/).map(w => w.replace(/[^\w\u00C0-\u024F\u0400-\u04FF\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF'\-]/g, '')).filter(Boolean);
     }
 
-    function renderCueWords(cue, i) {
-      const words = getCueWords(cue);
+    function getCueWords(cue) { return getCueWordsByLang(cue, 'fr'); }
+
+    function renderCueWords(cue, i, lang) {
+      const words = getCueWordsByLang(cue, lang || 'fr');
       if (!words.length) return '';
       return `
         <div class="cue-words">
           ${words.map((w, idx) => `
-            <span class="word-chip" id="word-chip-${i}-${idx}" data-i="${i}" data-idx="${idx}">
-              <span onclick="event.stopPropagation(); speakWord(${i}, ${idx})">${escapeHtml(w)}</span>
-              <button class="word-loop" onclick="event.stopPropagation(); toggleWordLoop(${i}, ${idx})" title="${t('repeatWord')}">🔂</button>
+            <span class="word-chip" id="word-chip-${i}-${idx}-${lang || 'fr'}" data-i="${i}" data-idx="${idx}" data-lang="${lang || 'fr'}">
+              <span onclick="event.stopPropagation(); speakWord(${i}, ${idx}, '${lang || 'fr'}')">${escapeHtml(w)}</span>
+              <button class="word-loop" data-i="${i}" data-idx="${idx}" data-lang="${lang || 'fr'}" onclick="event.stopPropagation(); toggleWordLoop(${i}, ${idx}, '${lang || 'fr'}')" title="${t('repeatWord')}">🔂</button>
             </span>
           `).join('')}
         </div>
@@ -1821,9 +1841,9 @@
           <tbody>
             ${allWords.map(({ w, i, idx }) => `
               <tr>
-                <td class="word-cell" onclick="speakWord(${i}, ${idx})">${escapeHtml(w)}</td>
-                <td class="word-actions"><button onclick="speakWord(${i}, ${idx})" title="${t('listen')}">🔊</button></td>
-                <td class="word-actions"><button class="word-loop" data-i="${i}" data-idx="${idx}" onclick="toggleWordLoop(${i}, ${idx})" title="${t('repeatWord')}">🔂</button></td>
+                <td class="word-cell" onclick="speakWord(${i}, ${idx}, 'fr')">${escapeHtml(w)}</td>
+                <td class="word-actions"><button onclick="speakWord(${i}, ${idx}, 'fr')" title="${t('listen')}">🔊</button></td>
+                <td class="word-actions"><button class="word-loop" data-i="${i}" data-idx="${idx}" data-lang="fr" onclick="toggleWordLoop(${i}, ${idx}, 'fr')" title="${t('repeatWord')}">🔂</button></td>
               </tr>
             `).join('')}
           </tbody>
@@ -1845,10 +1865,11 @@
       }
     }
 
-    function renderFrenchWords(cue, i) {
-      const words = getCueWords(cue);
+    function renderCueWordsByLang(cue, i, lang) {
+      const words = getCueWordsByLang(cue, lang);
       if (!words.length) return '';
-      return `<div class="sentence-words"><div class="words-label">الكلمات الفرنسية</div><div class="cue-words">${words.map((w, idx) => `<span class="word-chip" id="word-chip-${i}-${idx}" data-i="${i}" data-idx="${idx}"><span onclick="event.stopPropagation(); speakWord(${i}, ${idx})">${escapeHtml(w)}</span><button class="word-loop" onclick="event.stopPropagation(); toggleWordLoop(${i}, ${idx})" title="${t('repeatWord')}">🔂</button></span>`).join('')}</div></div>`;
+      const title = { fr: t('frenchWords') || 'كلمات فرنسية', en: t('englishWords') || 'كلمات إنجليزية', ar: t('arabicWords') || 'كلمات عربية' }[lang] || lang;
+      return `<div class="sentence-words hidden" id="sentence-words-${i}-${lang}"><div class="words-label">${escapeHtml(title)}</div><div class="cue-words">${words.map((w, idx) => `<span class="word-chip" id="word-chip-${i}-${idx}-${lang}" data-i="${i}" data-idx="${idx}" data-lang="${lang}"><span onclick="event.stopPropagation(); speakWord(${i}, ${idx}, '${lang}')">${escapeHtml(w)}</span><button class="word-loop" data-i="${i}" data-idx="${idx}" data-lang="${lang}" onclick="event.stopPropagation(); toggleWordLoop(${i}, ${idx}, '${lang}')" title="${t('repeatWord')}">🔂</button></span>`).join('')}</div></div>`;
     }
 
     function speakCueLineByIndex(i, lang) {
@@ -1883,10 +1904,27 @@
       toggleSentenceEdit(i);
     }
 
+    window.toggleSentenceWords = function(i, lang) {
+      const section = document.getElementById(`sentence-words-${i}-${lang}`);
+      const btn = document.getElementById(`btn-toggle-words-${i}-${lang}`);
+      if (!section || !btn) return;
+      const isHidden = section.classList.toggle('hidden');
+      const title = { fr: t('frenchWords') || 'كلمات فرنسية', en: t('englishWords') || 'كلمات إنجليزية', ar: t('arabicWords') || 'كلمات عربية' }[lang] || lang;
+      btn.textContent = `${title} ${isHidden ? '▾' : '▴'}`;
+    };
+
     function renderSentences() {
       const container = document.getElementById('sentences-list');
       if (!container) return;
-      container.innerHTML = state.currentCues.map((cue, i) => `
+      container.innerHTML = state.currentCues.map((cue, i) => {
+        const hasFr = getCueWordsByLang(cue, 'fr').length;
+        const hasEn = getCueWordsByLang(cue, 'en').length;
+        const frTitle = t('frenchWords') || 'كلمات فرنسية';
+        const enTitle = t('englishWords') || 'كلمات إنجليزية';
+        const wordToggles = [];
+        if (hasFr) wordToggles.push(`<button class="btn-words-toggle" id="btn-toggle-words-${i}-fr" onclick="event.stopPropagation(); toggleSentenceWords(${i}, 'fr')">${escapeHtml(frTitle)} ▾</button>`);
+        if (hasEn) wordToggles.push(`<button class="btn-words-toggle" id="btn-toggle-words-${i}-en" onclick="event.stopPropagation(); toggleSentenceWords(${i}, 'en')">${escapeHtml(enTitle)} ▾</button>`);
+        return `
         <div class="sentence-card" data-index="${i}">
           <div class="sentence-time">${formatDuration(cue.start)} - ${formatDuration(cue.end)}</div>
           <div class="sentence-text" id="sentence-text-${i}">${formatCueLines(cue)}</div>
@@ -1897,7 +1935,9 @@
               <button class="btn-cancel" onclick="event.stopPropagation(); toggleSentenceEdit(${i})">${t('cancel') === 'cancel' ? 'إلغاء' : t('cancel')}</button>
             </div>
           </div>
-          ${renderFrenchWords(cue, i)}
+          <div class="sentence-words-actions">${wordToggles.join('')}</div>
+          ${renderCueWordsByLang(cue, i, 'fr')}
+          ${renderCueWordsByLang(cue, i, 'en')}
           <div class="sentence-actions">
             ${(state.langOrder || ['fr','ar','en']).map(l => {
               const labels = { fr: 'FR', ar: 'AR', en: 'EN' };
@@ -1908,7 +1948,7 @@
             <button onclick="event.stopPropagation(); jumpToCue(${i})">${formatDuration(cue.start)}</button>
           </div>
         </div>
-      `).join('');
+      `;}).join('');
       container.onclick = handleSentenceClick;
       highlightActiveSentence();
       updateSentenceLoopStates();
@@ -1991,8 +2031,8 @@
         <div class="word-card">
           <span class="word-text">${escapeHtml(w)}</span>
           <div class="word-actions">
-            <button onclick="speakWord(${i}, ${idx})" title="${t('listen')}">🔊</button>
-            <button id="word-loop-${i}-${idx}" class="loop-word" onclick="toggleWordLoop(${i}, ${idx})" title="${t('repeatWord')}">🔂</button>
+            <button onclick="speakWord(${i}, ${idx}, 'fr')" title="${t('listen')}">🔊</button>
+            <button id="word-loop-${i}-${idx}-fr" class="loop-word" data-i="${i}" data-idx="${idx}" data-lang="fr" onclick="toggleWordLoop(${i}, ${idx}, 'fr')" title="${t('repeatWord')}">🔂</button>
           </div>
         </div>
       `).join('');
@@ -2050,37 +2090,37 @@
       }
     }
 
-    function speakWord(i, idx, overrideLang) {
+    function ttsLangForCode(lang) {
+      if (lang === 'fr') return 'fr-FR';
+      if (lang === 'ar') return 'ar-SA';
+      return 'en-US';
+    }
+
+    function speakWord(i, idx, lang) {
       const cue = state.currentCues[i];
       if (!cue) return;
       stopWordLoop();
-      const words = getCueWords(cue);
+      const words = getCueWordsByLang(cue, lang || 'fr');
       const word = words[idx];
       if (!word) return;
-      const lang = overrideLang || getTTSLangForCue(cue);
-      ttsSpeak({ text: word, lang });
+      ttsSpeak({ text: word, lang: ttsLangForCode(lang || 'fr') });
     }
 
-    function getTTSLangForCue(cue) {
-      const fr = getCueLangs(cue).find(x => x.lang === 'fr');
-      return fr ? 'fr-FR' : (state.lang === 'ar' ? 'ar-SA' : 'en-US');
-    }
-
-    function toggleWordLoop(i, idx) {
-      if (state.loopWord && state.loopWord.i === i && state.loopWord.idx === idx) {
+    function toggleWordLoop(i, idx, lang) {
+      if (state.loopWord && state.loopWord.i === i && state.loopWord.idx === idx && state.loopWord.lang === lang) {
         stopWordLoop();
         return;
       }
       stopWordLoop();
-      state.loopWord = { i, idx };
+      state.loopWord = { i, idx, lang: lang || 'fr' };
       const cue = state.currentCues[i];
-      const words = getCueWords(cue);
+      const words = getCueWordsByLang(cue, lang || 'fr');
       const word = words[idx];
       if (!word) return;
-      const lang = getTTSLangForCue(cue);
+      const ttsLang = ttsLangForCode(lang || 'fr');
       const speakLoop = () => {
-        if (!state.loopWord || state.loopWord.i !== i || state.loopWord.idx !== idx) return;
-        ttsSpeak({ text: word, lang, onend: () => setTimeout(speakLoop, 300) });
+        if (!state.loopWord || state.loopWord.i !== i || state.loopWord.idx !== idx || state.loopWord.lang !== lang) return;
+        ttsSpeak({ text: word, lang: ttsLang, onend: () => setTimeout(speakLoop, 300) });
       };
       speakLoop();
       updateWordLoopButtons();
@@ -2096,8 +2136,9 @@
       document.querySelectorAll('.word-loop').forEach(btn => {
         const i = parseInt(btn.dataset.i, 10);
         const idx = parseInt(btn.dataset.idx, 10);
+        const lang = btn.dataset.lang || 'fr';
         if (isNaN(i) || isNaN(idx)) return;
-        const isLoop = state.loopWord && state.loopWord.i === i && state.loopWord.idx === idx;
+        const isLoop = state.loopWord && state.loopWord.i === i && state.loopWord.idx === idx && state.loopWord.lang === lang;
         btn.classList.toggle('active', isLoop);
         btn.textContent = isLoop ? '🔁' : '🔂';
         const chip = btn.closest('.word-chip');
