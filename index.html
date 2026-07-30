@@ -270,52 +270,64 @@
     .video-wrap { position: relative; }
 
     .subtitle-display {
-      background: #fff5e6;
-      border: 1px solid #f5d08a;
-      border-radius: 16px;
-      padding: 1rem;
-      margin-top: 0.6rem;
-      min-height: 5rem;
-      text-align: center;
-      color: #2c3e50;
-      font-size: calc(var(--font-size) + 2px);
-      line-height: 1.5;
+      position: absolute;
+      bottom: 54px;
+      left: 10px;
+      right: 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.7rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      gap: 0.4rem;
+      pointer-events: none;
+      z-index: 5;
     }
     .subtitle-display .subtitle-current {
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
       align-items: center;
+      gap: 0.35rem;
     }
-    .subtitle-line { width: 100%; padding: 0.15rem 0; }
-    .subtitle-line.primary { color: #d35400; font-weight: 700; font-size: 1.15em; }
-    .subtitle-line.ar { color: #2c3e50; }
-    .subtitle-line.en { color: #34495e; }
+    .subtitle-line {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      font-size: calc(var(--font-size) + 2px);
+      font-weight: 600;
+      line-height: 1.4;
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      max-width: 100%;
+    }
+    .subtitle-display .subtitle-line { display: inline-flex; width: auto; }
+    .subtitle-line.primary { font-size: 1.2em; }
+    .subtitle-line.fr { background: linear-gradient(90deg, #ff9f43, #ff7f50); }
+    .subtitle-line.ar { background: linear-gradient(90deg, #1dd1a1, #10ac84); }
+    .subtitle-line.en { background: linear-gradient(90deg, #54a0ff, #2e86de); }
     .subtitle-line .lang-label {
-      display: inline-block;
-      background: #333;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.2);
       color: #fff;
       border-radius: 4px;
-      padding: 0.05em 0.35em;
-      font-size: 0.7em;
-      margin-inline-end: 0.35em;
+      padding: 0.1em 0.4em;
+      font-size: 0.65em;
       font-weight: 700;
-      vertical-align: middle;
+      line-height: 1;
     }
-    .subtitle-actions {
+    .subtitle-toolbar {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
       flex-wrap: wrap;
+      margin-top: 0.6rem;
     }
-    .subtitle-display .cue-loop {
+    .subtitle-toolbar .cue-loop {
       background: #333;
       color: #fff;
       border: 1px solid #555;
@@ -329,8 +341,8 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    .subtitle-display .cue-loop:hover { background: #555; }
-    .subtitle-display .cue-loop.active { background: var(--success); color: #1a1a1a; border-color: var(--success); }
+    .subtitle-toolbar .cue-loop:hover { background: #555; }
+    .subtitle-toolbar .cue-loop.active { background: var(--success); color: #1a1a1a; border-color: var(--success); }
     .lang-btn {
       background: #28a745;
       color: #fff;
@@ -790,14 +802,14 @@
 
         <div class="video-wrap hidden" id="preview-wrap">
           <video id="lesson-video" controls crossorigin="anonymous"></video>
-        </div>
-        <div class="subtitle-display hidden" id="subtitle-display">
-          <div class="subtitle-current" id="subtitle-current"></div>
-          <div class="subtitle-actions">
-            <button class="cue-loop" id="current-loop" title="تكرار" onclick="toggleCurrentLoop()">🔂</button>
-            <button class="cue-loop" id="btn-lesson-words" data-i18n-title="words" title="الكلمات" onclick="toggleLessonWords()">🔠</button>
-            <span id="subtitle-lang-buttons"></span>
+          <div class="subtitle-display hidden" id="subtitle-display">
+            <div class="subtitle-current" id="subtitle-current"></div>
           </div>
+        </div>
+        <div class="subtitle-toolbar hidden" id="subtitle-toolbar">
+          <button class="cue-loop" id="current-loop" title="تكرار" onclick="toggleCurrentLoop()">🔂</button>
+          <button class="cue-loop" id="btn-lesson-words" data-i18n-title="words" title="الكلمات" onclick="toggleLessonWords()">🔠</button>
+          <span id="subtitle-lang-buttons"></span>
         </div>
         <div class="playback-controls hidden" id="playback-controls">
           <div class="speed-buttons">
@@ -810,6 +822,7 @@
           <button class="btn-reload" id="btn-replay" onclick="replayCurrentCue()" title="إعادة">🔃</button>
         </div>
         <div class="download-links hidden" id="download-links">
+          <a href="#" id="download-video" download="lesson.mp4">تحميل الفيديو</a>
           <a href="#" id="download-srt" download="lesson.srt">تحميل SRT</a>
           <a href="#" id="download-vtt" download="lesson.vtt">تحميل VTT</a>
           <a href="#" id="download-txt" download="lesson.txt">تحميل كنص</a>
@@ -1505,6 +1518,7 @@
       document.getElementById('srt-name').textContent = '';
       document.getElementById('preview-wrap').classList.add('hidden');
       document.getElementById('subtitle-display').classList.add('hidden');
+      document.getElementById('subtitle-toolbar').classList.add('hidden');
       document.getElementById('playback-controls').classList.add('hidden');
       document.getElementById('download-links').classList.add('hidden');
       document.getElementById('sentences-section').classList.add('hidden');
@@ -1564,6 +1578,7 @@
       document.getElementById('preview-wrap').classList.remove('hidden');
 
       document.getElementById('subtitle-display').classList.remove('hidden');
+      document.getElementById('subtitle-toolbar').classList.remove('hidden');
       document.getElementById('playback-controls').classList.remove('hidden');
       document.getElementById('download-links').classList.remove('hidden');
       document.getElementById('sentences-section').classList.remove('hidden');
@@ -1638,10 +1653,12 @@
     function formatCueLines(cue) {
       const entries = getCueLangs(cue);
       if (!entries.length) return '';
+      const labels = { fr: 'FR', ar: 'AR', en: 'EN' };
       return entries.map((entry, i) => {
-        const label = entry.lang === 'en' ? '<span class="lang-label">EN</span>&nbsp;' : '';
+        const dir = entry.lang === 'ar' ? 'rtl' : 'ltr';
+        const label = `<span class="lang-label">${labels[entry.lang] || ''}</span>`;
         const primaryClass = i === 0 ? ' primary' : '';
-        return `<div class="subtitle-line ${entry.lang}${primaryClass}">${label}${escapeHtml(entry.text)}</div>`;
+        return `<div class="subtitle-line ${entry.lang}${primaryClass}" dir="${dir}">${label} ${escapeHtml(entry.text)}</div>`;
       }).join('');
     }
 
@@ -2052,6 +2069,15 @@
       document.getElementById('download-vtt').href = URL.createObjectURL(new Blob([vtt], { type: 'text/vtt' }));
       document.getElementById('download-srt').href = URL.createObjectURL(new Blob([srt], { type: 'text/plain' }));
       document.getElementById('download-txt').href = URL.createObjectURL(new Blob([txt], { type: 'text/plain' }));
+      const mediaFile = state.videoFile || state.audioFile;
+      const videoLink = document.getElementById('download-video');
+      if (mediaFile && videoLink) {
+        videoLink.href = URL.createObjectURL(mediaFile);
+        const ext = mediaFile.type && mediaFile.type.includes('audio') ? 'm4a' : (mediaFile.name.split('.').pop() || 'mp4');
+        const base = (mediaFile.name || 'lesson').replace(/\.[^.]+$/, '');
+        videoLink.download = `${base}.${ext}`;
+        videoLink.textContent = mediaFile.type && mediaFile.type.includes('audio') ? 'تحميل الصوت' : 'تحميل الفيديو';
+      }
     }
 
     function cuesToSrt(cues) {
@@ -2220,6 +2246,7 @@
       document.getElementById('preview-wrap').classList.remove('hidden');
 
       document.getElementById('subtitle-display').classList.remove('hidden');
+      document.getElementById('subtitle-toolbar').classList.remove('hidden');
       document.getElementById('playback-controls').classList.remove('hidden');
       document.getElementById('download-links').classList.remove('hidden');
       document.getElementById('sentences-section').classList.remove('hidden');
