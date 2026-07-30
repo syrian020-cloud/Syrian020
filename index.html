@@ -197,42 +197,46 @@
       display: block;
     }
 
-    .lesson-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; max-width: 800px; margin: 0 auto; }
+    .lesson-grid { display: grid; grid-template-columns: 1fr; gap: 0.8rem; max-width: 800px; margin: 0 auto; }
     .lesson-card {
       background: var(--bg-secondary);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 0.85rem;
+      padding: 0.7rem 0.9rem;
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
       position: relative;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
     .lesson-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-    .lesson-card .cover-thumb {
-      width: 100%;
-      height: 110px;
-      object-fit: contain;
-      margin: 0 auto 0.6rem;
-      display: block;
+    .lesson-card-body { display: flex; align-items: center; gap: 0.8rem; }
+    .thumb-wrap { position: relative; flex: 0 0 auto; width: 80px; height: 80px; }
+    .cover-thumb {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
       border-radius: 12px;
       background: var(--bg-tertiary);
+      display: block;
     }
-    .lesson-card h3 { margin: 0 0 0.25rem; font-size: 1.05rem; font-weight: 700; }
-    .lesson-card small { color: var(--text-secondary); font-size: 0.8rem; }
-    .lesson-card .lesson-menu {
+    .cover-thumb.placeholder { background: var(--bg-tertiary); }
+    .lesson-info { flex: 1; min-width: 0; }
+    .lesson-info h3 { margin: 0 0 0.25rem; font-size: 1.05rem; font-weight: 700; }
+    .lesson-info small { color: var(--text-secondary); font-size: 0.8rem; }
+    .lesson-menu {
       position: absolute;
-      top: 0.35rem;
+      top: -0.35rem;
+      right: -0.35rem;
     }
-    [dir="rtl"] .lesson-card .lesson-menu { left: 0.35rem; }
-    [dir="ltr"] .lesson-card .lesson-menu { right: 0.35rem; }
+    [dir="rtl"] .lesson-menu { right: -0.35rem; left: auto; }
+    [dir="ltr"] .lesson-menu { right: -0.35rem; left: auto; }
     .lesson-card .btn-menu {
       background: rgba(0,0,0,0.35);
       border: none;
       color: #fff;
-      font-size: 1.2rem;
-      width: 30px;
-      height: 30px;
+      font-size: 1rem;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -833,8 +837,8 @@
           </div>
         </div>
         <div class="subtitle-toolbar hidden" id="subtitle-toolbar">
-          <button class="cue-loop" id="video-loop" title="تكرار الفيديو" onclick="toggleVideoLoop()">🔂</button>
-          <button class="cue-loop" id="current-loop" title="تكرار" onclick="toggleCurrentLoop()">🔂</button>
+          <button class="cue-loop" id="video-loop" title="تكرار الفيديو" onclick="toggleVideoLoop()">🔁</button>
+          <button class="cue-loop" id="current-loop" title="تكرار الجملة" onclick="toggleCurrentLoop()">🔂</button>
           <button class="cue-loop" id="btn-lesson-words" data-i18n-title="words" title="الكلمات" onclick="toggleLessonWords()">🔠</button>
           <span id="subtitle-lang-buttons"></span>
         </div>
@@ -1393,14 +1397,22 @@
         const card = document.createElement('div');
         card.className = 'lesson-card';
         const date = new Date(lesson.createdAt).toLocaleDateString(state.lang === 'ar' ? 'ar-EG' : (state.lang === 'fr' ? 'fr-FR' : 'en-US'));
-        const cover = lesson.coverImage ? `<img class="cover-thumb" src="${URL.createObjectURL(lesson.coverImage)}" alt="">` : '';
+        const cover = lesson.coverImage
+          ? `<img class="cover-thumb" src="${URL.createObjectURL(lesson.coverImage)}" alt="">`
+          : '<div class="cover-thumb placeholder"></div>';
         card.innerHTML = `
-          ${cover}
-          <div class="lesson-menu" data-id="${lesson.id}">
-            <button class="btn-menu" data-id="${lesson.id}" data-action="menu">⋮</button>
+          <div class="lesson-card-body">
+            <div class="thumb-wrap">
+              ${cover}
+              <div class="lesson-menu" data-id="${lesson.id}">
+                <button class="btn-menu" data-id="${lesson.id}" data-action="menu">⋮</button>
+              </div>
+            </div>
+            <div class="lesson-info">
+              <h3>${escapeHtml(lesson.title || t('lesson'))}</h3>
+              <small>${date} · ${formatDuration(lesson.duration || 0)}</small>
+            </div>
           </div>
-          <h3>${escapeHtml(lesson.title || t('lesson'))}</h3>
-          <small>${date} · ${formatDuration(lesson.duration || 0)}</small>
         `;
         list.appendChild(card);
       });
@@ -1637,12 +1649,10 @@
         renderSubtitleLangButtons(cue);
         const isLoop = state.loopCue && state.loopCue.start === cue.start && state.loopCue.end === cue.end;
         loopBtn.classList.toggle('active', isLoop);
-        loopBtn.textContent = isLoop ? '🔁' : '🔂';
       } else {
         current.innerHTML = '';
         document.getElementById('subtitle-lang-buttons').innerHTML = '';
         loopBtn.classList.remove('active');
-        loopBtn.textContent = '🔂';
       }
       highlightActiveCue(cue);
       highlightActiveSentence(cue);
@@ -2217,10 +2227,7 @@
     window.toggleVideoLoop = function() {
       state.videoLoop = !state.videoLoop;
       const btn = document.getElementById('video-loop');
-      if (btn) {
-        btn.classList.toggle('active', state.videoLoop);
-        btn.textContent = state.videoLoop ? '🔁' : '🔂';
-      }
+      if (btn) btn.classList.toggle('active', state.videoLoop);
     };
 
     async function saveLesson() {
