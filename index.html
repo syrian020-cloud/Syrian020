@@ -1542,7 +1542,7 @@
       }
       const json = JSON.stringify(exported);
       const blob = new Blob([json], { type: 'application/json' });
-      downloadFile(blob, 'dross-backup.json');
+      await shareOrDownload({ filename: 'dross-backup.json', blob, contentType: 'application/json' });
       showToast(t('exportSuccess'));
     }
 
