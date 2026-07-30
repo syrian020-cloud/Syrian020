@@ -710,6 +710,7 @@
         <button id="nav-settings" data-page="settings" data-i18n="settings">الإعدادات</button>
       </nav>
       <div class="header-controls">
+        <button class="btn-icon" id="btn-mute" title="Stop sounds">🔇</button>
         <button class="btn-icon" id="btn-lang" title="Language">AR</button>
         <button class="btn-icon" id="btn-theme" title="Toggle theme">🌙</button>
       </div>
@@ -1656,7 +1657,8 @@
       if (!cue) return;
       const text = getCueLineByLang(cue, lang);
       if (!text) return;
-      ttsSpeak({ text });
+      const ttsLang = lang === 'fr' ? 'fr-FR' : (lang === 'ar' ? 'ar-SA' : 'en-US');
+      ttsSpeak({ text, lang: ttsLang });
     }
 
     function renderCueList() {
@@ -1758,7 +1760,8 @@
       if (!cue) return;
       const text = getCueLineByLang(cue, lang);
       if (!text) return;
-      ttsSpeak({ text });
+      const ttsLang = lang === 'fr' ? 'fr-FR' : (lang === 'ar' ? 'ar-SA' : 'en-US');
+      ttsSpeak({ text, lang: ttsLang });
     }
 
     function toggleSentenceEdit(i) {
@@ -1934,30 +1937,37 @@
     }
 
     function ttsSpeak({ text, lang, onend }) {
+      const ttsLang = lang || getTTSLang(text);
       if (isCapacitor()) {
         const plugin = window.Capacitor.Plugins.TextToSpeech;
         if (!plugin) return;
         plugin.stop().catch(() => {})
-          .then(() => plugin.speak({ text, lang: getTTSLang(text), rate: 1.0, pitch: 1.0, volume: 1.0, category: 'playback' }))
+          .then(() => plugin.speak({ text, lang: ttsLang, rate: 1.0, pitch: 1.0, volume: 1.0, category: 'playback' }))
           .then(() => { if (onend) onend(); })
           .catch(() => { if (onend) onend(); });
       } else if ('speechSynthesis' in window) {
         const u = new SpeechSynthesisUtterance(text);
-        u.lang = lang || getWordLang(text);
+        u.lang = ttsLang;
         if (onend) u.onend = onend;
         window.speechSynthesis.cancel();
         window.speechSynthesis.speak(u);
       }
     }
 
-    function speakWord(i, idx) {
+    function speakWord(i, idx, overrideLang) {
       const cue = state.currentCues[i];
       if (!cue) return;
       stopWordLoop();
       const words = getCueWords(cue);
       const word = words[idx];
       if (!word) return;
-      ttsSpeak({ text: word });
+      const lang = overrideLang || getTTSLangForCue(cue);
+      ttsSpeak({ text: word, lang });
+    }
+
+    function getTTSLangForCue(cue) {
+      const fr = getCueLangs(cue).find(x => x.lang === 'fr');
+      return fr ? 'fr-FR' : (state.lang === 'ar' ? 'ar-SA' : 'en-US');
     }
 
     function toggleWordLoop(i, idx) {
@@ -1971,9 +1981,10 @@
       const words = getCueWords(cue);
       const word = words[idx];
       if (!word) return;
+      const lang = getTTSLangForCue(cue);
       const speakLoop = () => {
         if (!state.loopWord || state.loopWord.i !== i || state.loopWord.idx !== idx) return;
-        ttsSpeak({ text: word, onend: () => setTimeout(speakLoop, 300) });
+        ttsSpeak({ text: word, lang, onend: () => setTimeout(speakLoop, 300) });
       };
       speakLoop();
       updateWordLoopButtons();
@@ -2319,6 +2330,12 @@
 
       document.getElementById('btn-theme').addEventListener('click', () => {
         setTheme(state.theme === 'dark' ? 'light' : 'dark');
+      });
+
+      document.getElementById('btn-mute').addEventListener('click', () => {
+        ttsStop();
+        const video = document.getElementById('lesson-video');
+        if (video) video.pause();
       });
 
       // Service worker registration
