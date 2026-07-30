@@ -1101,7 +1101,7 @@
       cueLineLoop: null,
       videoLoop: false,
       captionsVisible: true,
-      captionScale: 1,
+      captionScale: parseFloat(localStorage.getItem('vs_caption_scale') || '1'),
       imageLessonId: null,
       actionLessonId: null,
       playerMode: false
@@ -2248,6 +2248,7 @@
 
     window.changeCaptionSize = function(delta) {
       state.captionScale = Math.max(0.5, Math.min(2.0, state.captionScale + delta));
+      localStorage.setItem('vs_caption_scale', state.captionScale);
       const display = document.getElementById('subtitle-display');
       if (display) display.style.setProperty('--caption-scale', state.captionScale);
     };
