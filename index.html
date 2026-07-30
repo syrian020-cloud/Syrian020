@@ -909,11 +909,11 @@
 <body>
   <header>
     <div class="header-inner">
-      <div class="logo" id="app-name">Dross</div>
+      <div class="logo" id="app-name">VidCap</div>
       <nav>
-        <button id="nav-lessons" data-page="lessons" class="active" data-i18n="lessons">الدروس</button>
-        <button id="nav-editor" data-page="editor" data-i18n="editor">محرر</button>
-        <button id="nav-settings" data-page="settings" data-i18n="settings">الإعدادات</button>
+        <button id="nav-lessons" data-page="lessons" class="active" data-i18n="lessons">Lessons</button>
+        <button id="nav-editor" data-page="editor" data-i18n="editor">New lesson</button>
+        <button id="nav-settings" data-page="settings" data-i18n="settings">Settings</button>
       </nav>
       <div class="header-controls">
         <button class="btn-icon" id="btn-mute" title="Stop sounds">🔇</button>
@@ -926,15 +926,10 @@
   <main>
     <!-- Lessons Page -->
     <section id="page-lessons" class="page active">
-      <div class="card">
-        <h2 data-i18n="myLessons">دروسي</h2>
-        <p data-i18n="lessonsDesc">اختر درسًا لعرضه، أو ابدأ بإضافة درس جديد.</p>
-        <button id="btn-new-lesson" data-i18n="newLesson">درس جديد</button>
-      </div>
       <div id="lessons-list" class="lesson-grid"></div>
       <div id="lessons-empty" class="empty-state hidden">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M10 12l4 3V9l-4 3z"/></svg>
-        <p data-i18n="noLessons">لا يوجد دروس بعد. اضغط "درس جديد" للبدء.</p>
+        <p data-i18n="noLessons">No lessons yet. Tap the "New lesson" tab to start.</p>
       </div>
     </section>
 
@@ -1166,7 +1161,7 @@
         cardStyle: "ستايل البطاقات", cardClassic: "كلاسيكي", cardModern: "عصري داكن", cardPastel: "باستيل", cardElegant: "أنيق", cardPlayful: "نشرة أخبار",
         dark: "داكن (مريح للعين)", light: "فاتح", themeOcean: "محيط", themeForest: "غابة", themeBerry: "توت", themeSunset: "غروب", themeMidnight: "منتصف الليل",
         storage: "مساحة التخزين", clearData: "مسح جميع الدروس",
-        noLessons: "لا يوجد دروس بعد. اضغط \"درس جديد\" للبدء.",
+        noLessons: "No lessons yet. Tap the \"New lesson\" tab to start.",
         saved: "تم حفظ الدرس", deleted: "تم حذف الدرس",
         contact: "تواصل معنا",
         enterTitle: "أدخل عنوان الدرس", chooseVideoFile: "اختر ملف الفيديو أو الصوت أولاً",
@@ -1203,7 +1198,7 @@
         cardStyle: "Style des cartes", cardClassic: "Classique", cardModern: "Moderne foncé", cardPastel: "Pastel", cardElegant: "Élégant", cardPlayful: "Journal",
         dark: "Sombre (repos pour les yeux)", light: "Clair", themeOcean: "Océan", themeForest: "Forêt", themeBerry: "Baie", themeSunset: "Coucher de soleil", themeMidnight: "Minuit",
         storage: "Stockage", clearData: "Supprimer toutes les leçons",
-        noLessons: "Aucune leçon. Appuyez sur \"Nouvelle leçon\" pour commencer.",
+        noLessons: "No lessons yet. Tap the \"New lesson\" tab to start.",
         saved: "Leçon enregistrée", deleted: "Leçon supprimée",
         contact: "Contactez-nous",
         enterTitle: "Entrez le titre", chooseVideoFile: "Choisissez d'abord une vidéo ou un audio",
@@ -1224,7 +1219,7 @@
         invalidBackup: "Fichier de sauvegarde invalide"
       },
       en: {
-        lessons: "Lessons", editor: "Editor", settings: "Settings",
+        lessons: "Lessons", editor: "New lesson", settings: "Settings",
         myLessons: "My lessons", lessonsDesc: "Choose a lesson to watch, or create a new one.",
         newLesson: "New lesson", lessonTitle: "Lesson title",
         lessonTitlePlaceholder: "E.g. French lesson 1",
@@ -2700,8 +2695,8 @@
         if (btn.dataset.page) btn.addEventListener('click', () => showPage(btn.dataset.page));
       });
 
-      // New lesson
-      document.getElementById('btn-new-lesson').addEventListener('click', () => {
+      // New lesson nav
+      document.getElementById('nav-editor').addEventListener('click', () => {
         resetEditor();
         showPage('editor');
       });
