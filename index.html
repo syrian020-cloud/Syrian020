@@ -210,14 +210,12 @@
     }
     .lesson-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
     .lesson-card .cover-thumb {
-      width: calc(100% + 1.7rem);
+      width: 100%;
       height: 110px;
-      max-height: 110px;
-      object-fit: cover;
-      object-position: center;
-      margin: -0.85rem -0.85rem 0.6rem -0.85rem;
+      object-fit: contain;
+      margin: 0 auto 0.6rem;
       display: block;
-      border-radius: 16px 16px 0 0;
+      border-radius: 12px;
       background: var(--bg-tertiary);
     }
     .lesson-card h3 { margin: 0 0 0.25rem; font-size: 1.05rem; font-weight: 700; }
@@ -835,6 +833,7 @@
           </div>
         </div>
         <div class="subtitle-toolbar hidden" id="subtitle-toolbar">
+          <button class="cue-loop" id="video-loop" title="تكرار الفيديو" onclick="toggleVideoLoop()">🔂</button>
           <button class="cue-loop" id="current-loop" title="تكرار" onclick="toggleCurrentLoop()">🔂</button>
           <button class="cue-loop" id="btn-lesson-words" data-i18n-title="words" title="الكلمات" onclick="toggleLessonWords()">🔠</button>
           <span id="subtitle-lang-buttons"></span>
@@ -1092,6 +1091,7 @@
       loopCue: null,
       loopWord: null,
       cueLineLoop: null,
+      videoLoop: false,
       imageLessonId: null,
       actionLessonId: null,
       playerMode: false
@@ -2148,6 +2148,7 @@
       video.addEventListener('seeked', updateSubtitleOverlay);
       video.addEventListener('play', updateSubtitleOverlay);
       video.addEventListener('pause', updateSubtitleOverlay);
+      video.addEventListener('ended', handleVideoEnded);
       try { Array.from(video.textTracks).forEach(t => t.mode = 'hidden'); } catch (e) {}
     }
 
@@ -2156,6 +2157,19 @@
       video.removeEventListener('seeked', updateSubtitleOverlay);
       video.removeEventListener('play', updateSubtitleOverlay);
       video.removeEventListener('pause', updateSubtitleOverlay);
+      video.removeEventListener('ended', handleVideoEnded);
+    }
+
+    function handleVideoEnded() {
+      const video = document.getElementById('lesson-video');
+      if (!video) return;
+      if (state.videoLoop) {
+        video.currentTime = 0;
+        video.play();
+      } else if (state.loopCue) {
+        video.currentTime = state.loopCue.start;
+        video.play();
+      }
     }
 
     window.toggleLoopCue = function(start, end) {
@@ -2198,6 +2212,15 @@
         video.currentTime = 0;
       }
       if (video.paused) video.play();
+    };
+
+    window.toggleVideoLoop = function() {
+      state.videoLoop = !state.videoLoop;
+      const btn = document.getElementById('video-loop');
+      if (btn) {
+        btn.classList.toggle('active', state.videoLoop);
+        btn.textContent = state.videoLoop ? '🔁' : '🔂';
+      }
     };
 
     async function saveLesson() {
