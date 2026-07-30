@@ -686,7 +686,6 @@
     .player-mode .form-group, .player-mode .tabs, .player-mode .subtab-content, .player-mode .form-actions { display: none !important; }
     .card.player-mode > h2:first-child { display: none; }
     .card.player-mode #player-header { display: flex !important; }
-    .card.player-mode .download-links,
     .card.player-mode .btn-edit-sentence,
     .card.player-mode .sentence-edit-wrap { display: none !important; }
 
@@ -1018,6 +1017,7 @@
         words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "الجمل والتصحيح", saveCue: "حفظ",
         close: "إغلاق", listen: "استماع", repeatWord: "تكرار",
         frenchWords: "كلمات فرنسية", englishWords: "كلمات إنجليزية", arabicWords: "كلمات عربية",
+        downloadVideo: "تحميل الفيديو", downloadAudio: "تحميل الصوت",
         downloadSrt: "تحميل SRT", downloadVtt: "تحميل VTT", downloadText: "تحميل كنص",
         lesson: "درس", of: "من",
         back: "رجوع",
@@ -1053,6 +1053,7 @@
         words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Phrases et correction", saveCue: "Enregistrer",
         close: "Fermer", listen: "Écouter", repeatWord: "Répéter",
         frenchWords: "Mots français", englishWords: "Mots anglais", arabicWords: "Mots arabes",
+        downloadVideo: "Télécharger la vidéo", downloadAudio: "Télécharger l'audio",
         downloadSrt: "Télécharger SRT", downloadVtt: "Télécharger VTT", downloadText: "Télécharger texte",
         lesson: "Leçon", of: "sur",
         back: "Retour",
@@ -1088,6 +1089,7 @@
         words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "Sentences & correction", saveCue: "Save",
         close: "Close", listen: "Listen", repeatWord: "Repeat",
         frenchWords: "French words", englishWords: "English words", arabicWords: "Arabic words",
+        downloadVideo: "Download video", downloadAudio: "Download audio",
         downloadSrt: "Download SRT", downloadVtt: "Download VTT", downloadText: "Download text",
         lesson: "Lesson", of: "of",
         back: "Back",
@@ -1210,6 +1212,11 @@
       document.getElementById('app-name').textContent = lang === 'ar' ? 'دروسي المرئية' : (lang === 'fr' ? 'Mes Vidéos' : 'Video Lessons');
       document.title = lang === 'ar' ? 'دروسي المرئية' : (lang === 'fr' ? 'Mes Vidéos' : 'Video Lessons');
       document.getElementById('settings-language').value = lang;
+      updateDownloadLinks();
+      if (state.currentCues.length) {
+        renderSentences();
+        updateSubtitleOverlay();
+      }
     }
 
     function t(key) { return i18n[state.lang][key] || key; }
@@ -1914,7 +1921,8 @@
       if (!section || !btn) return;
       const isHidden = section.classList.toggle('hidden');
       const title = { fr: t('frenchWords') || 'كلمات فرنسية', en: t('englishWords') || 'كلمات إنجليزية', ar: t('arabicWords') || 'كلمات عربية' }[lang] || lang;
-      btn.textContent = `${title} ${isHidden ? '▾' : '▴'}`;
+      const icon = isHidden ? '🔽' : '🔼';
+      btn.textContent = `${title} ${icon}`;
     };
 
     function renderSentences() {
@@ -1926,8 +1934,8 @@
         const frTitle = t('frenchWords') || 'كلمات فرنسية';
         const enTitle = t('englishWords') || 'كلمات إنجليزية';
         const wordToggles = [];
-        if (hasFr) wordToggles.push(`<button class="btn-words-toggle" id="btn-toggle-words-${i}-fr" onclick="event.stopPropagation(); toggleSentenceWords(${i}, 'fr')">${escapeHtml(frTitle)} ▾</button>`);
-        if (hasEn) wordToggles.push(`<button class="btn-words-toggle" id="btn-toggle-words-${i}-en" onclick="event.stopPropagation(); toggleSentenceWords(${i}, 'en')">${escapeHtml(enTitle)} ▾</button>`);
+        if (hasFr) wordToggles.push(`<button class="btn-words-toggle" id="btn-toggle-words-${i}-fr" onclick="event.stopPropagation(); toggleSentenceWords(${i}, 'fr')">${escapeHtml(frTitle)} 🔽</button>`);
+        if (hasEn) wordToggles.push(`<button class="btn-words-toggle" id="btn-toggle-words-${i}-en" onclick="event.stopPropagation(); toggleSentenceWords(${i}, 'en')">${escapeHtml(enTitle)} 🔽</button>`);
         return `
         <div class="sentence-card" data-index="${i}">
           <div class="sentence-time">${formatDuration(cue.start)} - ${formatDuration(cue.end)}</div>
@@ -2217,9 +2225,19 @@
     function updateDownloadLinks() {
       const mediaFile = state.videoFile || state.audioFile;
       const videoBtn = document.getElementById('btn-download-video');
-      if (videoBtn && mediaFile) {
-        videoBtn.textContent = mediaFile.type && mediaFile.type.includes('audio') ? 'تحميل الصوت' : 'تحميل الفيديو';
+      if (videoBtn) {
+        if (mediaFile) {
+          videoBtn.textContent = (mediaFile.type && mediaFile.type.includes('audio') ? t('downloadAudio') : t('downloadVideo')) || 'تحميل الفيديو';
+        } else {
+          videoBtn.textContent = t('downloadVideo') || 'تحميل الفيديو';
+        }
       }
+      const srtBtn = document.getElementById('btn-download-srt');
+      if (srtBtn) srtBtn.textContent = t('downloadSrt') || 'تحميل SRT';
+      const vttBtn = document.getElementById('btn-download-vtt');
+      if (vttBtn) vttBtn.textContent = t('downloadVtt') || 'تحميل VTT';
+      const txtBtn = document.getElementById('btn-download-txt');
+      if (txtBtn) txtBtn.textContent = t('downloadText') || 'تحميل كنص';
     }
 
     function cuesToSrt(cues) {
