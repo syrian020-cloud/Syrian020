@@ -434,16 +434,20 @@
       margin-top: 0.8rem;
       flex-wrap: wrap;
     }
-    .download-links a {
+    .download-links button, .btn-download {
       color: var(--accent);
       text-decoration: none;
       font-size: 0.9rem;
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 0.35rem 0.7rem;
+      padding: 0.5rem 1rem;
       background: var(--bg-tertiary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
     }
-    .download-links a:hover { background: var(--accent); color: #fff; }
+    .download-links button:hover, .btn-download:hover { background: var(--accent); color: #fff; }
 
     .sentences-section { margin-top: 1rem; }
     .sentences-section h3 { margin: 0 0 0.6rem; font-size: 1.1rem; color: var(--text-primary); }
@@ -872,10 +876,10 @@
           <button class="btn-reload" id="btn-replay" onclick="replayCurrentCue()" title="إعادة">🔃</button>
         </div>
         <div class="download-links hidden" id="download-links">
-          <a href="#" id="download-video" download="lesson.mp4">تحميل الفيديو</a>
-          <a href="#" id="download-srt" download="lesson.srt">تحميل SRT</a>
-          <a href="#" id="download-vtt" download="lesson.vtt">تحميل VTT</a>
-          <a href="#" id="download-txt" download="lesson.txt">تحميل كنص</a>
+          <button class="btn-download" id="btn-download-video" onclick="downloadMedia('video')">تحميل الفيديو</button>
+          <button class="btn-download" id="btn-download-srt" onclick="downloadMedia('srt')">تحميل SRT</button>
+          <button class="btn-download" id="btn-download-vtt" onclick="downloadMedia('vtt')">تحميل VTT</button>
+          <button class="btn-download" id="btn-download-txt" onclick="downloadMedia('txt')">تحميل كنص</button>
         </div>
         <div class="words-section hidden" id="words-section">
           <div class="words-header">
@@ -2146,22 +2150,75 @@
       });
     }
 
+    function blobToBase64(blob) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+    }
+
+    async function shareOrDownload({ filename, blob, contentType }) {
+      try {
+        if (isCapacitor() && window.Capacitor.Plugins.Filesystem && window.Capacitor.Plugins.Share) {
+          const base64 = await blobToBase64(blob);
+          const { uri } = await window.Capacitor.Plugins.Filesystem.writeFile({
+            path: filename,
+            data: base64,
+            directory: 'CACHE'
+          });
+          await window.Capacitor.Plugins.Share.share({
+            title: filename,
+            files: [uri],
+            dialogTitle: filename
+          });
+          return;
+        }
+      } catch (e) { console.error('share failed', e); }
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    window.downloadMedia = async function(type) {
+      let filename, blob, contentType;
+      if (type === 'video') {
+        const mediaFile = state.videoFile || state.audioFile;
+        if (!mediaFile) { showToast(t('chooseVideoFile')); return; }
+        filename = mediaFile.name || (mediaFile.type && mediaFile.type.includes('audio') ? 'lesson.m4a' : 'lesson.mp4');
+        blob = mediaFile;
+        contentType = mediaFile.type || 'video/mp4';
+      } else if (type === 'srt') {
+        if (!state.currentCues.length) { showToast(t('addSubtitle')); return; }
+        filename = (state.currentLesson && state.currentLesson.title ? state.currentLesson.title : 'lesson') + '.srt';
+        blob = new Blob([cuesToSrt(state.currentCues)], { type: 'text/plain' });
+        contentType = 'text/plain';
+      } else if (type === 'vtt') {
+        if (!state.currentCues.length) { showToast(t('addSubtitle')); return; }
+        filename = (state.currentLesson && state.currentLesson.title ? state.currentLesson.title : 'lesson') + '.vtt';
+        blob = new Blob([cuesToVtt(state.currentCues)], { type: 'text/vtt' });
+        contentType = 'text/vtt';
+      } else if (type === 'txt') {
+        if (!state.currentCues.length) { showToast(t('addSubtitle')); return; }
+        filename = (state.currentLesson && state.currentLesson.title ? state.currentLesson.title : 'lesson') + '.txt';
+        const txt = state.currentCues.map(c => `${formatDuration(c.start)} - ${formatDuration(c.end)}\n${c.text}`).join('\n\n');
+        blob = new Blob([txt], { type: 'text/plain' });
+        contentType = 'text/plain';
+      } else { return; }
+      await shareOrDownload({ filename, blob, contentType });
+    };
+
     function updateDownloadLinks() {
-      if (!state.currentCues.length) return;
-      const vtt = cuesToVtt(state.currentCues);
-      const srt = cuesToSrt(state.currentCues);
-      const txt = state.currentCues.map(c => `${formatDuration(c.start)} - ${formatDuration(c.end)}\n${c.text}`).join('\n\n');
-      document.getElementById('download-vtt').href = URL.createObjectURL(new Blob([vtt], { type: 'text/vtt' }));
-      document.getElementById('download-srt').href = URL.createObjectURL(new Blob([srt], { type: 'text/plain' }));
-      document.getElementById('download-txt').href = URL.createObjectURL(new Blob([txt], { type: 'text/plain' }));
       const mediaFile = state.videoFile || state.audioFile;
-      const videoLink = document.getElementById('download-video');
-      if (mediaFile && videoLink) {
-        videoLink.href = URL.createObjectURL(mediaFile);
-        const ext = mediaFile.type && mediaFile.type.includes('audio') ? 'm4a' : (mediaFile.name.split('.').pop() || 'mp4');
-        const base = (mediaFile.name || 'lesson').replace(/\.[^.]+$/, '');
-        videoLink.download = `${base}.${ext}`;
-        videoLink.textContent = mediaFile.type && mediaFile.type.includes('audio') ? 'تحميل الصوت' : 'تحميل الفيديو';
+      const videoBtn = document.getElementById('btn-download-video');
+      if (videoBtn && mediaFile) {
+        videoBtn.textContent = mediaFile.type && mediaFile.type.includes('audio') ? 'تحميل الصوت' : 'تحميل الفيديو';
       }
     }
 
