@@ -295,6 +295,7 @@
 
     .subtitle-help { font-size: 0.85rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1rem; }
     .video-wrap { position: relative; }
+    video::cue { opacity: 0 !important; visibility: hidden !important; background: transparent !important; color: transparent !important; }
 
     .subtitle-display {
       position: absolute;
@@ -1597,11 +1598,10 @@
       track.label = 'Subtitles';
       track.srclang = state.lang;
       track.src = URL.createObjectURL(new Blob([vtt], { type: 'text/vtt' }));
-      track.default = true;
-      track.mode = 'hidden';
       const old = video.querySelector('track');
       if (old) old.remove();
       video.appendChild(track);
+      track.mode = 'hidden';
       document.getElementById('preview-wrap').classList.remove('hidden');
 
       document.getElementById('subtitle-display').classList.remove('hidden');
@@ -2148,6 +2148,7 @@
       video.addEventListener('seeked', updateSubtitleOverlay);
       video.addEventListener('play', updateSubtitleOverlay);
       video.addEventListener('pause', updateSubtitleOverlay);
+      try { Array.from(video.textTracks).forEach(t => t.mode = 'hidden'); } catch (e) {}
     }
 
     function detachSubtitleListeners(video) {
@@ -2265,11 +2266,10 @@
       track.label = 'Subtitles';
       track.srclang = lesson.lang || 'ar';
       track.src = URL.createObjectURL(lesson.vttBlob);
-      track.default = true;
-      track.mode = 'hidden';
       const old = video.querySelector('track');
       if (old) old.remove();
       video.appendChild(track);
+      track.mode = 'hidden';
       document.getElementById('preview-wrap').classList.remove('hidden');
 
       document.getElementById('subtitle-display').classList.remove('hidden');
