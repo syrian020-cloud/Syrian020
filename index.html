@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#1a1a1a">
-  <title id="app-title">دروسي المرئية</title>
+  <title id="app-title">VidCap</title>
   <link rel="manifest" href="manifest.json">
   <style>
     :root {
@@ -1035,7 +1035,7 @@
           <div id="lesson-words-list" class="lesson-words-list"></div>
         </div>
         <div class="sentences-section hidden" id="sentences-section">
-          <h3 data-i18n="sentencesSection">الجمل والتصحيح</h3>
+          <h3 data-i18n="sentencesSection">العبارات</h3>
           <div id="sentences-list"></div>
         </div>
         <div class="cue-list hidden" id="cue-list"></div>
@@ -1150,9 +1150,9 @@
     // --- Translations ---
     const i18n = {
       ar: {
-        lessons: "الدروس", editor: "محرر", settings: "الإعدادات",
-        myLessons: "دروسي", lessonsDesc: "اختر درسًا لعرضه، أو ابدأ بإضافة درس جديد.",
-        newLesson: "درس جديد", lessonTitle: "عنوان الدرس",
+        lessons: "Lessons", editor: "New lesson", settings: "Settings",
+        myLessons: "My lessons", lessonsDesc: "Choose a lesson to watch, or create a new one.",
+        newLesson: "New lesson", lessonTitle: "Lesson title",
         lessonTitlePlaceholder: "مثال: درس اللغة الفرنسية 1",
         videoFile: "ملف الفيديو", chooseVideo: "اضغط لاختيار فيديو من الهاتف",
         audioFile: "ملف صوتي", chooseAudio: "اضغط لاختيار ملف صوتي من الهاتف",
@@ -1174,7 +1174,7 @@
         invalidTime: "تنسيق الوقت غير صحيح",
         confirmDelete: "هل تريد حذف هذا الدرس؟",
         play: "تشغيل", pause: "إيقاف", edit: "تعديل", delete: "حذف", repeat: "تكرار العبارة",
-        words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "الجمل والتصحيح", saveCue: "حفظ",
+        words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "العبارات", saveCue: "حفظ",
         close: "إغلاق", listen: "استماع", repeatWord: "تكرار",
         frenchWords: "كلمات فرنسية", englishWords: "كلمات إنجليزية", arabicWords: "كلمات عربية",
         downloadVideo: "تحميل الفيديو", downloadAudio: "تحميل الصوت",
@@ -1187,9 +1187,9 @@
         invalidBackup: "ملف النسخة الاحتياطية غير صالح"
       },
       fr: {
-        lessons: "Leçons", editor: "Éditeur", settings: "Paramètres",
-        myLessons: "Mes leçons", lessonsDesc: "Choisissez une leçon ou créez-en une nouvelle.",
-        newLesson: "Nouvelle leçon", lessonTitle: "Titre de la leçon",
+        lessons: "Lessons", editor: "New lesson", settings: "Settings",
+        myLessons: "My lessons", lessonsDesc: "Choose a lesson to watch, or create a new one.",
+        newLesson: "New lesson", lessonTitle: "Lesson title",
         lessonTitlePlaceholder: "Ex: Cours de français 1",
         videoFile: "Fichier vidéo", chooseVideo: "Appuyez pour choisir une vidéo",
         audioFile: "Fichier audio", chooseAudio: "Appuyez pour choisir un fichier audio",
@@ -1211,7 +1211,7 @@
         invalidTime: "Format de temps invalide",
         confirmDelete: "Supprimer cette leçon ?",
         play: "Lire", pause: "Pause", edit: "Modifier", delete: "Supprimer", repeat: "Répéter la phrase",
-        words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Phrases et correction", saveCue: "Enregistrer",
+        words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Les phrases", saveCue: "Enregistrer",
         close: "Fermer", listen: "Écouter", repeatWord: "Répéter",
         frenchWords: "Mots français", englishWords: "Mots anglais", arabicWords: "Mots arabes",
         downloadVideo: "Télécharger la vidéo", downloadAudio: "Télécharger l'audio",
@@ -1248,7 +1248,7 @@
         invalidTime: "Invalid time format",
         confirmDelete: "Delete this lesson?",
         play: "Play", pause: "Pause", edit: "Edit", delete: "Delete", repeat: "Repeat phrase",
-        words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "Sentences & correction", saveCue: "Save",
+        words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "The Phrases", saveCue: "Save",
         close: "Close", listen: "Listen", repeatWord: "Repeat",
         frenchWords: "French words", englishWords: "English words", arabicWords: "Arabic words",
         downloadVideo: "Download video", downloadAudio: "Download audio",
@@ -1373,8 +1373,8 @@
         if (i18n[lang][key]) el.title = i18n[lang][key];
       });
       document.getElementById('btn-lang').textContent = lang.toUpperCase();
-      document.getElementById('app-name').textContent = lang === 'ar' ? 'دروسي المرئية' : (lang === 'fr' ? 'Mes Vidéos' : 'Video Lessons');
-      document.title = lang === 'ar' ? 'دروسي المرئية' : (lang === 'fr' ? 'Mes Vidéos' : 'Video Lessons');
+      document.getElementById('app-name').textContent = 'VidCap';
+      document.title = 'VidCap';
       document.getElementById('settings-language').value = lang;
       updateDownloadLinks();
       if (state.currentCues.length) {
@@ -2241,7 +2241,12 @@
       const cue = state.currentCues[i];
       if (!cue) return;
       cue.text = value;
-      const video = document.getElementById('lesson-video');
+      // Sync subtitle source with edited cues so video overlay, downloads, and save use the same text
+      state.subtitleText = cuesToSrt(state.currentCues);
+      state.subtitleType = 'srt';
+      const vtt = cuesToVtt(state.currentCues);
+      const track = document.querySelector('#lesson-video track');
+      if (track) track.src = URL.createObjectURL(new Blob([vtt], { type: 'text/vtt' }));
       updateSubtitleOverlay();
       renderSentences();
       updateDownloadLinks();

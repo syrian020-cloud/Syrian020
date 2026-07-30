@@ -1,10 +1,10 @@
 {
-  "name": "Video Subtitle Lessons",
-  "short_name": "Dross",
+  "name": "VidCap",
+  "short_name": "VidCap",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#1a1a1a",
-  "theme_color": "#1a1a1a",
+  "background_color": "#1a3a52",
+  "theme_color": "#1a3a52",
   "orientation": "portrait-primary",
   "icons": [
     {
