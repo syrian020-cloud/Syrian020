@@ -345,6 +345,7 @@
       font-weight: 600;
     }
     .lang-btn:hover { background: #218838; }
+    .lang-btn.active { background: #f4a261; color: #1a1a1a; }
     .lang-btn .loop-icon { font-size: 0.9em; }
 
     .playback-controls {
@@ -1049,6 +1050,7 @@
       currentCues: [],
       loopCue: null,
       loopWord: null,
+      cueLineLoop: null,
       imageLessonId: null,
       actionLessonId: null,
       playerMode: false
@@ -1485,6 +1487,7 @@
 
     // --- Editor logic ---
     function resetEditor() {
+      stopCueLineLoop();
       state.videoFile = null;
       state.audioFile = null;
       state.subtitleText = '';
@@ -1648,17 +1651,49 @@
       const order = state.langOrder || ['fr', 'ar', 'en'];
       const labels = { fr: 'FR', ar: 'AR', en: 'EN' };
       const present = order.filter(l => getCueLineByLang(cue, l));
-      wrap.innerHTML = present.map(l => `<button class="lang-btn" onclick="speakCueLine('${l}')">${labels[l]} <span class="loop-icon">↻</span></button>`).join('');
+      wrap.innerHTML = present.map(l => {
+        const active = state.cueLineLoop && state.cueLineLoop.lang === l;
+        const icon = active ? '🔁' : '↻';
+        return `<button class="lang-btn ${active ? 'active' : ''}" data-lang="${l}" onclick="toggleCueLineLoop('${l}')">${labels[l]} <span class="loop-icon">${icon}</span></button>`;
+      }).join('');
     }
 
-    function speakCueLine(lang) {
-      const video = document.getElementById('lesson-video');
-      const cue = state.currentCues.find(c => video.currentTime >= c.start && video.currentTime < c.end);
-      if (!cue) return;
-      const text = getCueLineByLang(cue, lang);
-      if (!text) return;
+    function toggleCueLineLoop(lang) {
+      if (state.cueLineLoop && state.cueLineLoop.lang === lang) {
+        stopCueLineLoop();
+        return;
+      }
+      stopCueLineLoop();
+      state.cueLineLoop = { lang };
+      updateCueLineLoopButtons();
       const ttsLang = lang === 'fr' ? 'fr-FR' : (lang === 'ar' ? 'ar-SA' : 'en-US');
-      ttsSpeak({ text, lang: ttsLang });
+      const speakNext = () => {
+        if (!state.cueLineLoop || state.cueLineLoop.lang !== lang) return;
+        const video = document.getElementById('lesson-video');
+        const cue = state.currentCues.find(c => video.currentTime >= c.start && video.currentTime < c.end);
+        if (!cue) { setTimeout(speakNext, 400); return; }
+        const text = getCueLineByLang(cue, lang);
+        if (!text) { setTimeout(speakNext, 400); return; }
+        ttsSpeak({ text, lang: ttsLang, onend: () => setTimeout(speakNext, 300) });
+      };
+      speakNext();
+    }
+
+    function stopCueLineLoop() {
+      state.cueLineLoop = null;
+      ttsStop();
+      updateCueLineLoopButtons();
+    }
+
+    function updateCueLineLoopButtons() {
+      const wrap = document.getElementById('subtitle-lang-buttons');
+      if (!wrap) return;
+      wrap.querySelectorAll('.lang-btn').forEach(btn => {
+        const l = btn.dataset.lang;
+        const active = state.cueLineLoop && state.cueLineLoop.lang === l;
+        btn.classList.toggle('active', active);
+        btn.querySelector('.loop-icon').textContent = active ? '🔁' : '↻';
+      });
     }
 
     function renderCueList() {
