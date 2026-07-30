@@ -618,6 +618,15 @@
     .contact-links, .backup-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     .contact-links a { text-decoration: none; }
 
+    .player-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
+    .player-header h2 { margin: 0; flex: 1; font-size: 1.1rem; }
+    .player-mode .form-group, .player-mode .tabs, .player-mode .subtab-content, .player-mode .form-actions { display: none !important; }
+    .card.player-mode > h2:first-child { display: none; }
+    .card.player-mode #player-header { display: flex !important; }
+    .card.player-mode .download-links,
+    .card.player-mode .btn-edit-sentence,
+    .card.player-mode .sentence-edit-wrap { display: none !important; }
+
     .action-sheet {
       position: fixed;
       inset: 0;
@@ -724,8 +733,12 @@
 
     <!-- Editor Page -->
     <section id="page-editor" class="page">
-      <div class="card">
+      <div class="card" id="editor-card">
         <h2 data-i18n="newLesson">درس جديد</h2>
+        <div class="player-header hidden" id="player-header">
+          <button class="btn-secondary" id="btn-back" data-i18n="back">رجوع</button>
+          <h2 id="player-title"></h2>
+        </div>
         <div class="form-group">
           <label for="lesson-title" data-i18n="lessonTitle">عنوان الدرس</label>
           <input type="text" id="lesson-title" data-i18n-placeholder="lessonTitlePlaceholder" placeholder="مثال: درس اللغة الفرنسية 1">
@@ -937,6 +950,7 @@
         close: "إغلاق", listen: "استماع", repeatWord: "تكرار",
         downloadSrt: "تحميل SRT", downloadVtt: "تحميل VTT", downloadText: "تحميل كنص",
         lesson: "درس", of: "من",
+        back: "رجوع",
         confirmClearAll: "هل تريد مسح جميع الدروس؟ لا يمكن التراجع عن هذا الإجراء.",
         exportBackup: "تصدير نسخة احتياطية ☁️", importBackup: "استيراد نسخة احتياطية 📥",
         setImage: "وضع صورة للدرس", exportSuccess: "تم تصدير النسخة الاحتياطية", importSuccess: "تم استيراد النسخة الاحتياطية",
@@ -970,6 +984,7 @@
         close: "Fermer", listen: "Écouter", repeatWord: "Répéter",
         downloadSrt: "Télécharger SRT", downloadVtt: "Télécharger VTT", downloadText: "Télécharger texte",
         lesson: "Leçon", of: "sur",
+        back: "Retour",
         confirmClearAll: "Supprimer toutes les leçons ? Cette action est irréversible.",
         exportBackup: "Exporter une sauvegarde ☁️", importBackup: "Importer une sauvegarde 📥",
         setImage: "Définir l'image de la leçon", exportSuccess: "Sauvegarde exportée", importSuccess: "Sauvegarde importée",
@@ -1003,6 +1018,7 @@
         close: "Close", listen: "Listen", repeatWord: "Repeat",
         downloadSrt: "Download SRT", downloadVtt: "Download VTT", downloadText: "Download text",
         lesson: "Lesson", of: "of",
+        back: "Back",
         confirmClearAll: "Delete all lessons? This cannot be undone.",
         exportBackup: "Export backup ☁️", importBackup: "Import backup 📥",
         setImage: "Set lesson image", exportSuccess: "Backup exported", importSuccess: "Backup imported",
@@ -1033,7 +1049,8 @@
       loopCue: null,
       loopWord: null,
       imageLessonId: null,
-      actionLessonId: null
+      actionLessonId: null,
+      playerMode: false
     };
 
     const DB_NAME = 'videoSubtitleDB';
@@ -1392,6 +1409,21 @@
       document.getElementById('lesson-image-file').click();
     }
 
+    function setPlayerMode(active, title) {
+      state.playerMode = active;
+      const card = document.getElementById('editor-card');
+      const header = document.getElementById('player-header');
+      if (active) {
+        card.classList.add('player-mode');
+        header.classList.remove('hidden');
+        document.getElementById('player-title').textContent = title || '';
+      } else {
+        card.classList.remove('player-mode');
+        header.classList.add('hidden');
+        document.getElementById('player-title').textContent = '';
+      }
+    }
+
     function openLessonActions(id) {
       state.actionLessonId = id;
       document.getElementById('lesson-actions').classList.remove('hidden');
@@ -1484,6 +1516,7 @@
       const track = video.querySelector('track');
       if (track) track.remove();
       selectSubtab('srt');
+      setPlayerMode(false);
     }
 
     function selectSubtab(tab) {
@@ -1772,7 +1805,7 @@
               return `<button class="lang-btn" onclick="event.stopPropagation(); speakCueLineByIndex(${i}, '${l}')">${labels[l]} ↻</button>`;
             }).join('')}
             <button class="loop-btn" data-start="${cue.start}" data-end="${cue.end}" onclick="event.stopPropagation(); toggleLoopCue(${cue.start}, ${cue.end})">${t('repeat')}</button>
-            <button onclick="event.stopPropagation(); toggleSentenceEdit(${i})" title="تعديل">✏️</button>
+            <button class="btn-edit-sentence" onclick="event.stopPropagation(); toggleSentenceEdit(${i})" title="تعديل">✏️</button>
             <button onclick="event.stopPropagation(); jumpToCue(${i})">${formatDuration(cue.start)}</button>
           </div>
         </div>
@@ -2152,12 +2185,14 @@
       renderSentences();
       renderLessonWords();
       updateDownloadLinks();
+      setPlayerMode(true, lesson.title);
       showPage('editor');
     }
 
     async function loadLessonForEdit(id) {
       await loadLessonForPlay(id);
       state.editingId = id;
+      setPlayerMode(false);
     }
 
     // --- Event listeners ---
@@ -2206,13 +2241,14 @@
       document.getElementById('btn-preview').addEventListener('click', previewLesson);
       document.getElementById('btn-save-lesson').addEventListener('click', saveLesson);
       document.getElementById('btn-cancel-edit').addEventListener('click', () => { resetEditor(); showPage('lessons'); });
+      document.getElementById('btn-back').addEventListener('click', () => { resetEditor(); showPage('lessons'); });
 
       // Lesson list interactions (delegation)
       document.getElementById('lessons-list').addEventListener('click', async (e) => {
         const card = e.target.closest('.lesson-card');
         if (!card) return;
-        const idEl = e.target.closest('[data-id]');
-        const id = idEl ? parseInt(idEl.dataset.id, 10) : null;
+        const menu = card.querySelector('.lesson-menu');
+        const id = menu ? parseInt(menu.dataset.id, 10) : null;
         if (e.target.closest('.btn-menu') || e.target.closest('[data-action="menu"]')) {
           e.stopPropagation();
           if (id) openLessonActions(id);
