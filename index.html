@@ -190,21 +190,59 @@
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
       position: relative;
+      overflow: hidden;
     }
     .lesson-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .lesson-card .cover-thumb {
+      width: calc(100% + 2rem);
+      height: 120px;
+      object-fit: cover;
+      margin: -1rem -1rem 0.5rem -1rem;
+      display: block;
+      border-radius: var(--radius) var(--radius) 0 0;
+      background: var(--bg-tertiary);
+    }
     .lesson-card h3 { margin: 0 0 0.4rem; font-size: 1rem; }
     .lesson-card small { color: var(--text-secondary); }
-    .lesson-card .actions {
+    .lesson-card .lesson-menu {
       position: absolute;
-      top: 0.6rem;
+      top: 0.4rem;
     }
-    [dir="rtl"] .lesson-card .actions { left: 0.6rem; }
-    [dir="ltr"] .lesson-card .actions { right: 0.6rem; }
-    .lesson-card .actions button {
-      padding: 0.3rem 0.5rem;
-      font-size: 0.8rem;
-      margin-inline-start: 0.3rem;
+    [dir="rtl"] .lesson-card .lesson-menu { left: 0.4rem; }
+    [dir="ltr"] .lesson-card .lesson-menu { right: 0.4rem; }
+    .lesson-card .btn-menu {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 1.4rem;
+      padding: 0.2rem 0.5rem;
+      cursor: pointer;
     }
+    .lesson-card .lesson-dropdown {
+      position: absolute;
+      top: 2rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      min-width: 140px;
+      z-index: 100;
+    }
+    [dir="rtl"] .lesson-card .lesson-dropdown { left: 0; }
+    [dir="ltr"] .lesson-card .lesson-dropdown { right: 0; }
+    .lesson-card .lesson-dropdown button {
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      padding: 0.6rem 0.8rem;
+      text-align: start;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .lesson-card .lesson-dropdown button:hover { background: var(--bg-tertiary); }
+    .lesson-card .lesson-dropdown .btn-delete { color: var(--danger); }
 
     .empty-state { text-align: center; padding: 3rem 1rem; }
     .empty-state svg { width: 80px; height: 80px; margin-bottom: 1rem; opacity: 0.4; }
@@ -567,8 +605,8 @@
     .settings-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
     .settings-row label { margin: 0; flex: 1; }
     .range-wrap { display: flex; align-items: center; gap: 0.5rem; }
-    .contact-row { align-items: flex-start; }
-    .contact-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .contact-row, .backup-row { align-items: flex-start; }
+    .contact-links, .backup-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     .contact-links a { text-decoration: none; }
 
     .toast {
@@ -779,6 +817,15 @@
           <button id="btn-clear-data" class="btn-danger" data-i18n="clearData">مسح جميع الدروس</button>
         </div>
 
+        <div class="settings-row backup-row">
+          <label>Google Drive</label>
+          <div class="backup-buttons">
+            <button id="btn-export" class="btn-secondary" data-i18n="exportBackup">تصدير نسخة احتياطية ☁️</button>
+            <button id="btn-import" class="btn-secondary" data-i18n="importBackup">استيراد نسخة احتياطية 📥</button>
+          </div>
+          <input type="file" id="backup-import-file" accept=".json" class="hidden">
+        </div>
+
         <div class="settings-row contact-row">
           <label data-i18n="contact">تواصل معنا</label>
           <div class="contact-links">
@@ -790,6 +837,7 @@
     </section>
   </main>
 
+  <input type="file" id="lesson-image-file" accept="image/*" class="hidden">
   <div id="toast" class="toast"></div>
 
   <script>
@@ -822,7 +870,11 @@
         words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "الجمل والتصحيح", saveCue: "حفظ",
         close: "إغلاق", listen: "استماع", repeatWord: "تكرار",
         downloadSrt: "تحميل SRT", downloadVtt: "تحميل VTT", downloadText: "تحميل كنص",
-        lesson: "درس", of: "من"
+        lesson: "درس", of: "من",
+        confirmClearAll: "هل تريد مسح جميع الدروس؟ لا يمكن التراجع عن هذا الإجراء.",
+        exportBackup: "تصدير نسخة احتياطية ☁️", importBackup: "استيراد نسخة احتياطية 📥",
+        setImage: "وضع صورة للدرس", exportSuccess: "تم تصدير النسخة الاحتياطية", importSuccess: "تم استيراد النسخة الاحتياطية",
+        invalidBackup: "ملف النسخة الاحتياطية غير صالح"
       },
       fr: {
         lessons: "Leçons", editor: "Éditeur", settings: "Paramètres",
@@ -851,7 +903,11 @@
         words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Phrases et correction", saveCue: "Enregistrer",
         close: "Fermer", listen: "Écouter", repeatWord: "Répéter",
         downloadSrt: "Télécharger SRT", downloadVtt: "Télécharger VTT", downloadText: "Télécharger texte",
-        lesson: "Leçon", of: "sur"
+        lesson: "Leçon", of: "sur",
+        confirmClearAll: "Supprimer toutes les leçons ? Cette action est irréversible.",
+        exportBackup: "Exporter une sauvegarde ☁️", importBackup: "Importer une sauvegarde 📥",
+        setImage: "Définir l'image de la leçon", exportSuccess: "Sauvegarde exportée", importSuccess: "Sauvegarde importée",
+        invalidBackup: "Fichier de sauvegarde invalide"
       },
       en: {
         lessons: "Lessons", editor: "Editor", settings: "Settings",
@@ -880,7 +936,11 @@
         words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "Sentences & correction", saveCue: "Save",
         close: "Close", listen: "Listen", repeatWord: "Repeat",
         downloadSrt: "Download SRT", downloadVtt: "Download VTT", downloadText: "Download text",
-        lesson: "Lesson", of: "of"
+        lesson: "Lesson", of: "of",
+        confirmClearAll: "Delete all lessons? This cannot be undone.",
+        exportBackup: "Export backup ☁️", importBackup: "Import backup 📥",
+        setImage: "Set lesson image", exportSuccess: "Backup exported", importSuccess: "Backup imported",
+        invalidBackup: "Invalid backup file"
       }
     };
 
@@ -905,7 +965,8 @@
       editingId: null,
       currentCues: [],
       loopCue: null,
-      loopWord: null
+      loopWord: null,
+      imageLessonId: null
     };
 
     const DB_NAME = 'videoSubtitleDB';
@@ -1204,14 +1265,19 @@
         const card = document.createElement('div');
         card.className = 'lesson-card';
         const date = new Date(lesson.createdAt).toLocaleDateString(state.lang === 'ar' ? 'ar-EG' : (state.lang === 'fr' ? 'fr-FR' : 'en-US'));
+        const cover = lesson.coverImage ? `<img class="cover-thumb" src="${URL.createObjectURL(lesson.coverImage)}" alt="">` : '';
         card.innerHTML = `
+          ${cover}
+          <div class="lesson-menu" data-id="${lesson.id}">
+            <button class="btn-menu" data-id="${lesson.id}" data-action="menu">⋮</button>
+            <div class="lesson-dropdown hidden" data-id="${lesson.id}">
+              <button class="btn-edit" data-id="${lesson.id}">${t('edit')}</button>
+              <button class="btn-set-image" data-id="${lesson.id}">${t('setImage')}</button>
+              <button class="btn-delete" data-id="${lesson.id}">${t('delete')}</button>
+            </div>
+          </div>
           <h3>${escapeHtml(lesson.title || t('lesson'))}</h3>
           <small>${date} · ${formatDuration(lesson.duration || 0)}</small>
-          <div class="actions">
-            <button class="btn-play" data-id="${lesson.id}">${t('play')}</button>
-            <button class="btn-edit btn-secondary" data-id="${lesson.id}">${t('edit')}</button>
-            <button class="btn-delete btn-danger" data-id="${lesson.id}">${t('delete')}</button>
-          </div>
         `;
         list.appendChild(card);
       });
@@ -1228,6 +1294,88 @@
       const div = document.createElement('div');
       div.textContent = text;
       return div.innerHTML;
+    }
+
+    function blobToDataURL(blob) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.readAsDataURL(blob);
+      });
+    }
+
+    function dataURLtoBlob(dataUrl) {
+      const arr = dataUrl.split(',');
+      const mime = arr[0].match(/:(.*?);/)[1];
+      const bstr = atob(arr[1]);
+      const n = bstr.length;
+      const u8arr = new Uint8Array(n);
+      for (let i = 0; i < n; i++) u8arr[i] = bstr.charCodeAt(i);
+      return new Blob([u8arr], { type: mime });
+    }
+
+    function downloadFile(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+    }
+
+    function setLessonImage(id) {
+      state.imageLessonId = id;
+      document.getElementById('lesson-image-file').click();
+    }
+
+    async function exportLessons() {
+      const lessons = await getLessonsFromDB();
+      const exported = [];
+      for (const l of lessons) {
+        const obj = { ...l };
+        if (l.videoFile && l.videoFile instanceof Blob) obj.videoFile = await blobToDataURL(l.videoFile);
+        if (l.vttBlob && l.vttBlob instanceof Blob) obj.vttBlob = await blobToDataURL(l.vttBlob);
+        if (l.coverImage && l.coverImage instanceof Blob) obj.coverImage = await blobToDataURL(l.coverImage);
+        exported.push(obj);
+      }
+      const json = JSON.stringify(exported);
+      const blob = new Blob([json], { type: 'application/json' });
+      downloadFile(blob, 'dross-backup.json');
+      showToast(t('exportSuccess'));
+    }
+
+    async function importLessons(file) {
+      try {
+        const text = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsText(file);
+        });
+        const arr = JSON.parse(text);
+        if (!Array.isArray(arr)) throw new Error('invalid');
+        for (const l of arr) {
+          const lesson = { ...l };
+          if (l.videoFile && typeof l.videoFile === 'string' && l.videoFile.startsWith('data:')) {
+            lesson.videoFile = dataURLtoBlob(l.videoFile);
+            lesson.videoType = lesson.videoFile.type;
+          }
+          if (l.vttBlob && typeof l.vttBlob === 'string' && l.vttBlob.startsWith('data:')) {
+            lesson.vttBlob = dataURLtoBlob(l.vttBlob);
+          }
+          if (l.coverImage && typeof l.coverImage === 'string' && l.coverImage.startsWith('data:')) {
+            lesson.coverImage = dataURLtoBlob(l.coverImage);
+          }
+          if (!lesson.id) lesson.id = Date.now() + Math.random();
+          await saveLessonToDB(lesson);
+        }
+        showToast(t('importSuccess'));
+        renderLessons();
+      } catch (err) {
+        showToast(t('invalidBackup'));
+      }
     }
 
     // --- Editor logic ---
@@ -1862,6 +2010,7 @@
       const video = document.getElementById('lesson-video');
       const duration = video.duration || 0;
 
+      const existing = state.currentLesson;
       const lesson = {
         id: state.editingId || Date.now(),
         title,
@@ -1873,7 +2022,8 @@
         subtitleText: text,
         vttBlob: new Blob([vtt], { type: 'text/vtt' }),
         duration,
-        createdAt: Date.now()
+        coverImage: existing && existing.coverImage ? existing.coverImage : null,
+        createdAt: existing && existing.createdAt ? existing.createdAt : Date.now()
       };
 
       await saveLessonToDB(lesson);
@@ -1987,20 +2137,40 @@
 
       // Lesson list interactions (delegation)
       document.getElementById('lessons-list').addEventListener('click', async (e) => {
-        const target = e.target.closest('[data-id]');
-        if (!target) return;
-        const id = parseInt(target.dataset.id, 10);
-        if (!id) return;
-        if (e.target.closest('.btn-delete')) {
-          if (confirm(t('confirmDelete'))) {
-            await deleteLessonFromDB(id);
-            showToast(t('deleted'));
-            renderLessons();
+        const card = e.target.closest('.lesson-card');
+        if (!card) return;
+        const idEl = e.target.closest('[data-id]');
+        const id = idEl ? parseInt(idEl.dataset.id, 10) : null;
+        if (e.target.closest('.btn-menu') || e.target.closest('[data-action="menu"]')) {
+          e.stopPropagation();
+          const dropdown = card.querySelector('.lesson-dropdown');
+          const wasHidden = dropdown.classList.contains('hidden');
+          document.querySelectorAll('.lesson-dropdown').forEach(d => d.classList.add('hidden'));
+          if (wasHidden) dropdown.classList.remove('hidden');
+          return;
+        }
+        if (e.target.closest('.lesson-dropdown')) {
+          e.stopPropagation();
+          if (!id) return;
+          if (e.target.closest('.btn-delete')) {
+            if (confirm(t('confirmDelete'))) {
+              await deleteLessonFromDB(id);
+              showToast(t('deleted'));
+              renderLessons();
+            }
+          } else if (e.target.closest('.btn-edit')) {
+            await loadLessonForEdit(id);
+          } else if (e.target.closest('.btn-set-image')) {
+            setLessonImage(id);
           }
-        } else if (e.target.closest('.btn-edit')) {
-          await loadLessonForEdit(id);
-        } else {
-          await loadLessonForPlay(id);
+          return;
+        }
+        if (id) await loadLessonForPlay(id);
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.lesson-menu')) {
+          document.querySelectorAll('.lesson-dropdown').forEach(d => d.classList.add('hidden'));
         }
       });
 
@@ -2011,9 +2181,30 @@
       document.getElementById('settings-lang-order').addEventListener('change', (e) => setLangOrder(e.target.value.split(',')));
 
       document.getElementById('btn-clear-data').addEventListener('click', async () => {
+        if (!confirm(t('confirmClearAll'))) return;
         const lessons = await getLessonsFromDB();
         for (const l of lessons) await deleteLessonFromDB(l.id);
         showToast(t('deleted'));
+        renderLessons();
+      });
+
+      document.getElementById('btn-export').addEventListener('click', exportLessons);
+      document.getElementById('btn-import').addEventListener('click', () => document.getElementById('backup-import-file').click());
+      document.getElementById('backup-import-file').addEventListener('change', (e) => {
+        const f = e.target.files[0];
+        if (f) importLessons(f);
+      });
+
+      document.getElementById('lesson-image-file').addEventListener('change', async (e) => {
+        const f = e.target.files[0];
+        const id = state.imageLessonId;
+        state.imageLessonId = null;
+        if (!f || !id) return;
+        const lesson = await getLessonById(id);
+        if (!lesson) return;
+        lesson.coverImage = f;
+        await saveLessonToDB(lesson);
+        showToast(t('saved'));
         renderLessons();
       });
 
