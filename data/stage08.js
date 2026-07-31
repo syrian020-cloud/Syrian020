@@ -663,6 +663,40 @@ window.registerStage({
       { fr: "Merci Docteur.", ar: "شكرًا دكتور.", en: "Thank you Doctor." },
       { fr: "Avec plaisir, à bientôt.", ar: "على الرحب والسعة، إلى اللقاء.", en: "You're welcome, see you soon." }
     ]
+  },
+  {
+    id: 258,
+    title: { ar: "Endoscopie - محادثة ومفردات", fr: "Endoscopie - Dialogue et vocabulaire", en: "Endoscopy - Dialogue and vocabulary" },
+    phrases: [
+      { fr: "Je vous propose de faire une endoscopie digestive haute.", ar: "أقترح أن تقوم بتنظير الجهاز الهضمي العلوي.", en: "I suggest doing an upper gastrointestinal endoscopy." },
+      { fr: "Pourquoi dois-je faire une endoscopie ?", ar: "لماذا يجب أن أعمل تنظيرًا؟", en: "Why do I need an endoscopy?" },
+      { fr: "Pour examiner votre œsophage, votre estomac et le duodénum.", ar: "لفحص المريء والمعدة والاثني عشر.", en: "To examine your esophagus, stomach and duodenum." },
+      { fr: "Est-ce que l'endoscopie peut détecter une gastrite ?", ar: "هل يمكن للتنظير كشف التهاب المعدة؟", en: "Can endoscopy detect gastritis?" },
+      { fr: "Oui, elle permet de voir une inflammation de la muqueuse de l'estomac.", ar: "نعم، تسمح برؤية التهاب بطانة المعدة.", en: "Yes, it can show inflammation of the stomach lining." },
+      { fr: "Est-ce que vous pouvez voir un ulcère ?", ar: "هل يمكنكم رؤية قرحة؟", en: "Can you see an ulcer?" },
+      { fr: "Oui, l'endoscopie permet de rechercher un ulcère gastrique ou duodénal.", ar: "نعم، التنظير يكشف قرحة المعدة أو الاثني عشر.", en: "Yes, endoscopy can detect gastric or duodenal ulcers." },
+      { fr: "Vous allez rechercher Helicobacter pylori ?", ar: "هل ستبحثون عن جرثومة المعدة؟", en: "Will you look for Helicobacter pylori?" },
+      { fr: "Oui, on peut faire des biopsies pendant l'examen.", ar: "نعم، يمكن أخذ عينات أثناء الفحص.", en: "Yes, we can take biopsies during the examination." },
+      { fr: "Est-ce que l'endoscopie fait mal ?", ar: "هل التنظير مؤلم؟", en: "Is endoscopy painful?" },
+      { fr: "Avec une sédation, vous serez plus confortable et vous ne ressentirez presque rien.", ar: "مع المهدئ ستكون مرتاحًا ولن تشعر تقريبًا بشيء.", en: "With sedation, you will be comfortable and feel almost nothing." },
+      { fr: "Combien de temps dure l'endoscopie ?", ar: "كم يستغرق التنظير؟", en: "How long does the endoscopy take?" },
+      { fr: "L'examen dure généralement quelques minutes.", ar: "الفحص يستغرق عادة عدة دقائق.", en: "The examination usually takes a few minutes." },
+      { fr: "Dois-je être à jeun ?", ar: "هل يجب أن أكون صائمًا؟", en: "Do I need to fast?" },
+      { fr: "Oui, il faut être à jeun avant l'examen.", ar: "نعم، يجب أن تكون صائمًا قبل الفحص.", en: "Yes, you need to fast before the examination." },
+      { fr: "Quand est-ce que j'aurai le compte rendu ?", ar: "متى أحصل على التقرير؟", en: "When will I get the report?" },
+      { fr: "Le médecin vous donnera un premier résultat après l'examen, les biopsies prennent plus de temps.", ar: "سيعطيك الطبيب نتيجة أولية بعد الفحص، أما الخزعات فتحتاج وقتًا أطول.", en: "The doctor will give you an initial result after the exam; biopsies take longer." },
+      { fr: "La muqueuse gastrique", ar: "بطانة المعدة.", en: "Stomach lining." },
+      { fr: "Une inflammation", ar: "التهاب.", en: "Inflammation." },
+      { fr: "Une gastrite", ar: "التهاب المعدة.", en: "Gastritis." },
+      { fr: "Un ulcère gastrique", ar: "قرحة المعدة.", en: "Gastric ulcer." },
+      { fr: "Un ulcère duodénal", ar: "قرحة الاثني عشر.", en: "Duodenal ulcer." },
+      { fr: "Une biopsie", ar: "خزعة / أخذ عينة.", en: "Biopsy." },
+      { fr: "Un prélèvement", ar: "أخذ عينة.", en: "Sample collection." },
+      { fr: "Une anesthésie locale", ar: "تخدير موضعي.", en: "Local anesthesia." },
+      { fr: "Une sédation", ar: "تهدئة/مهدئ.", en: "Sedation." },
+      { fr: "Un compte rendu d'endoscopie", ar: "تقرير التنظير.", en: "Endoscopy report." },
+      { fr: "La préparation de l'examen", ar: "التحضير للفحص.", en: "Preparation for the examination." }
+    ]
   }
   ]
 });

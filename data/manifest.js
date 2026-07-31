@@ -140,7 +140,8 @@ window.FR_STAGES = [
       { id: 254, ar: "Hépatite B chronique - Foie et traitement", fr: "Hépatite B chronique - Foie et traitement", en: "Chronic hepatitis B - Liver and treatment" },
       { id: 255, ar: "Hépatite B chronique - Dialogue avec le médecin", fr: "Hépatite B chronique - Dialogue avec le médecin", en: "Chronic hepatitis B - Dialogue with the doctor" },
       { id: 256, ar: "Hépatite B chronique - Questions complémentaires", fr: "Hépatite B chronique - Questions complémentaires", en: "Chronic hepatitis B - Additional questions" },
-      { id: 257, ar: "Hépatite B chronique - Consultation chez l'hépatologue", fr: "Hépatite B chronique - Consultation chez l'hépatologue", en: "Chronic hepatitis B - Consultation with the hepatologist" }
+      { id: 257, ar: "Hépatite B chronique - Consultation chez l'hépatologue", fr: "Hépatite B chronique - Consultation chez l'hépatologue", en: "Chronic hepatitis B - Consultation with the hepatologist" },
+      { id: 258, ar: "Endoscopie - محادثة ومفردات", fr: "Endoscopie - Dialogue et vocabulaire", en: "Endoscopy - Dialogue and vocabulary" }
     ]
   },
   {
