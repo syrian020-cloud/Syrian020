@@ -133,7 +133,8 @@ window.FR_STAGES = [
       { id: 247, ar: "محادثات في الصيدلية", fr: "Dialogues à la pharmacie", en: "Pharmacy dialogues" },
       { id: 248, ar: "Clinutren / Fresubin", fr: "Clinutren / Fresubin", en: "Clinutren / Fresubin" },
       { id: 249, ar: "Pantoprazole 40 mg", fr: "Pantoprazole 40 mg", en: "Pantoprazole 40 mg" },
-      { id: 250, ar: "GavisconPro", fr: "GavisconPro", en: "GavisconPro" }
+      { id: 250, ar: "GavisconPro", fr: "GavisconPro", en: "GavisconPro" },
+      { id: 251, ar: "Ténofovir Disoproxil 245 mg", fr: "Ténofovir Disoproxil 245 mg", en: "Ténofovir Disoproxil 245 mg" }
     ]
   },
   {
