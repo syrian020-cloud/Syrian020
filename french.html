@@ -246,7 +246,8 @@
     lessonLabel: { en: 'Lesson', ar: 'الدرس', fr: 'Leçon' },
     footerText: { en: 'Everyday phrases in France app · ', ar: 'تطبيق عبارات الحياة اليومية في فرنسا · ', fr: 'Application de phrases quotidiennes en France · ' },
     footerLink: { en: 'My video lessons', ar: 'دروسي المرئية', fr: 'Mes cours vidéo' },
-    uiLangLabel: { en: 'Language', ar: 'اللغة', fr: 'Langue' }
+    uiLangLabel: { en: 'Language', ar: 'اللغة', fr: 'Langue' },
+    exitConfirm: { en: 'Do you want to exit the app?', ar: 'هل تريد الخروج من التطبيق؟', fr: 'Voulez-vous quitter l\'application ?' }
   };
 
   function t(key) {
@@ -664,6 +665,16 @@
 
   window.addEventListener('hashchange', function () { go(routeFromHash(), false); });
 
+  function goBack() {
+    if (state.route.name === 'lesson') go({ name: 'lessons', stage: state.route.stage });
+    else if (state.route.name === 'lessons') go({ name: 'stages' });
+    else if (state.route.name === 'search' || state.route.name === 'favs') go({ name: 'stages' });
+    else {
+      var app = (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) || null;
+      if (window.confirm(t('exitConfirm')) && app && app.exitApp) app.exitApp();
+    }
+  }
+
   /* ---------------- events ---------------- */
 
   document.addEventListener('click', function (e) {
@@ -740,6 +751,11 @@
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').catch(function () {});
+  }
+
+  var AppPlugin = (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) || null;
+  if (AppPlugin && AppPlugin.addListener) {
+    AppPlugin.addListener('backButton', function () { goBack(); });
   }
 
   state.route = routeFromHash();
