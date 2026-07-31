@@ -786,6 +786,51 @@ window.registerStage({
       { fr: "Quand dois-je refaire un contrôle ?", ar: "متى يجب أن أعيد الفحص؟", en: "When should I have a follow-up check?" },
       { fr: "Avec mon hépatite B chronique, quelle surveillance du foie dois-je faire ?", ar: "مع التهاب الكبد B المزمن، ما المتابعة المطلوبة للكبد؟", en: "With my chronic hepatitis B, what liver monitoring should I do?" }
     ]
+  },
+  {
+    id: 261,
+    title: { ar: "Reflux gastro-œsophagien - محادثة ومفردات", fr: "Reflux gastro-œsophagien - Dialogue et vocabulaire", en: "Gastroesophageal reflux and bad breath - Dialogue and vocabulary" },
+    phrases: [
+      { fr: "Bonjour Docteur, j'ai des problèmes de reflux et de mauvaise haleine.", ar: "مرحبًا دكتور، لدي مشاكل ارتجاع ورائحة فم كريهة.", en: "Hello Doctor, I have reflux problems and bad breath." },
+      { fr: "Depuis quand avez-vous ces symptômes ?", ar: "منذ متى لديك هذه الأعراض؟", en: "How long have you had these symptoms?" },
+      { fr: "Depuis plusieurs mois.", ar: "منذ عدة أشهر.", en: "For several months." },
+      { fr: "Quels sont vos symptômes de reflux ?", ar: "ما هي أعراض الارتجاع لديك؟", en: "What are your reflux symptoms?" },
+      { fr: "J'ai des remontées acides, surtout après les repas et la nuit.", ar: "لدي صعود حمض، خاصة بعد الطعام وفي الليل.", en: "I have acid reflux, especially after meals and at night." },
+      { fr: "Vous avez des brûlures d'estomac ?", ar: "هل لديك حرقة معدة؟", en: "Do you have heartburn?" },
+      { fr: "Oui, j'ai une sensation de brûlure qui monte dans la poitrine et la gorge.", ar: "نعم، أشعر بحرقة تصعد إلى الصدر والحلق.", en: "Yes, I feel burning rising to my chest and throat." },
+      { fr: "Le reflux arrive surtout quand vous êtes allongé ?", ar: "هل يحدث الارتجاع خصوصًا عندما تستلقي؟", en: "Does reflux happen especially when you lie down?" },
+      { fr: "Oui, surtout la nuit.", ar: "نعم، خاصة في الليل.", en: "Yes, especially at night." },
+      { fr: "Vous avez une sensation de liquide acide dans la bouche ?", ar: "هل تشعر بسائل حمضي في الفم؟", en: "Do you feel acidic liquid in your mouth?" },
+      { fr: "Oui, parfois j'ai un goût amer ou acide.", ar: "نعم، أحيانًا يكون لدي طعم مر أو حامض.", en: "Yes, sometimes I have a bitter or acidic taste." },
+      { fr: "Depuis quand avez-vous une mauvaise haleine ?", ar: "منذ متى لديك رائحة فم؟", en: "Since when have you had bad breath?" },
+      { fr: "Depuis longtemps, surtout le matin.", ar: "منذ فترة طويلة، خاصة في الصباح.", en: "For a long time, especially in the morning." },
+      { fr: "La mauvaise haleine est-elle présente toute la journée ?", ar: "هل الرائحة موجودة طوال اليوم؟", en: "Is the bad breath present all day?" },
+      { fr: "Oui, parfois même après le brossage des dents.", ar: "نعم، أحيانًا حتى بعد تنظيف الأسنان.", en: "Yes, sometimes even after brushing my teeth." },
+      { fr: "Avez-vous des problèmes dentaires ou des problèmes de gencives ?", ar: "هل لديك مشاكل في الأسنان أو اللثة؟", en: "Do you have dental or gum problems?" },
+      { fr: "Non, mon dentiste m'a dit que tout va bien.", ar: "لا، طبيب الأسنان قال إن كل شيء جيد.", en: "No, my dentist said everything is fine." },
+      { fr: "Est-ce que le reflux peut provoquer une mauvaise haleine ?", ar: "هل يمكن أن يسبب الارتجاع رائحة فم؟", en: "Can reflux cause bad breath?" },
+      { fr: "Oui, le reflux peut parfois favoriser une mauvaise haleine à cause des remontées acides.", ar: "نعم، الارتجاع يمكن أن يساهم أحيانًا في رائحة الفم بسبب صعود الأحماض.", en: "Yes, reflux can sometimes contribute to bad breath due to acid reflux." },
+      { fr: "Est-ce que l'acidité de l'estomac arrive jusqu'à la bouche ?", ar: "هل تصل حموضة المعدة إلى الفم؟", en: "Can stomach acid reach the mouth?" },
+      { fr: "Oui, surtout en cas de reflux important ou nocturne.", ar: "نعم، خصوصًا إذا كان الارتجاع قويًا أو ليليًا.", en: "Yes, especially with significant or nighttime reflux." },
+      { fr: "Vous prenez un traitement pour le reflux ?", ar: "هل تأخذ علاجًا للارتجاع؟", en: "Are you taking treatment for reflux?" },
+      { fr: "Oui, je suis sous Pantoprazole 40 mg.", ar: "نعم، أنا على بانتوبرازول 40 ملغ.", en: "Yes, I am on Pantoprazole 40 mg." },
+      { fr: "Est-ce que le Pantoprazole améliore vos symptômes ?", ar: "هل يحسن البانتوبرازول الأعراض؟", en: "Does Pantoprazole improve your symptoms?" },
+      { fr: "Oui, mais j'ai encore parfois des remontées et une mauvaise haleine.", ar: "نعم، لكن ما زال لدي أحيانًا صعود حمض ورائحة فم.", en: "Yes, but I still sometimes have reflux and bad breath." },
+      { fr: "On peut faire une gastroscopie pour vérifier l'œsophage et l'estomac.", ar: "يمكن إجراء تنظير المعدة لفحص المريء والمعدة.", en: "We can do a gastroscopy to check the esophagus and stomach." },
+      { fr: "Pourquoi une gastroscopie ?", ar: "لماذا تنظير المعدة؟", en: "Why a gastroscopy?" },
+      { fr: "Pour rechercher une œsophagite, une gastrite ou un ulcère.", ar: "للبحث عن التهاب المريء أو التهاب المعدة أو القرحة.", en: "To look for esophagitis, gastritis or ulcer." },
+      { fr: "Est-ce qu'il faut rechercher Helicobacter pylori ?", ar: "هل يجب البحث عن جرثومة المعدة؟", en: "Should we test for Helicobacter pylori?" },
+      { fr: "Oui, selon vos symptômes et vos antécédents.", ar: "نعم، حسب الأعراض والتاريخ المرضي.", en: "Yes, depending on your symptoms and history." },
+      { fr: "Évitez de manger juste avant de dormir.", ar: "تجنب الأكل قبل النوم مباشرة.", en: "Avoid eating just before sleeping." },
+      { fr: "Surélevez la tête du lit si le reflux est nocturne.", ar: "ارفع رأس السرير إذا كان الارتجاع ليليًا.", en: "Raise the head of the bed if reflux occurs at night." },
+      { fr: "Évitez les aliments qui déclenchent vos symptômes.", ar: "تجنب الأطعمة التي تسبب الأعراض.", en: "Avoid foods that trigger your symptoms." },
+      { fr: "Est-ce que ma mauvaise haleine peut venir de mon reflux ?", ar: "هل يمكن أن تكون رائحة الفم بسبب الارتجاع؟", en: "Can my bad breath come from my reflux?" },
+      { fr: "Est-ce que j'ai une œsophagite ?", ar: "هل لدي التهاب في المريء؟", en: "Do I have esophagitis?" },
+      { fr: "Est-ce que je dois continuer le Pantoprazole ?", ar: "هل يجب أن أستمر بالبانتوبرازول؟", en: "Do I need to continue Pantoprazole?" },
+      { fr: "Combien de temps dois-je prendre le traitement ?", ar: "كم مدة أخذ العلاج؟", en: "How long should I take the treatment?" },
+      { fr: "Est-ce qu'une gastroscopie est nécessaire dans mon cas ?", ar: "هل تنظير المعدة ضروري في حالتي؟", en: "Is a gastroscopy necessary in my case?" },
+      { fr: "Est-ce que mon estomac peut être responsable de la mauvaise haleine ?", ar: "هل يمكن أن تكون المعدة سبب رائحة الفم؟", en: "Can my stomach be responsible for the bad breath?" }
+    ]
   }
   ]
 });
