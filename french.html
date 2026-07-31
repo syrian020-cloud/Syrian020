@@ -58,6 +58,15 @@
     padding: 0.4rem 0.7rem; font-size: 1rem; cursor: pointer;
   }
   .icon-btn:hover { border-color: var(--accent); }
+  .lang-switch { display: flex; gap: 0.25rem; }
+  .lang-btn {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 0.35rem 0.55rem; font-size: 0.78rem; font-weight: 700;
+    cursor: pointer; min-width: 2.2rem;
+  }
+  .lang-btn:hover { border-color: var(--accent); }
+  .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
   main { max-width: 900px; margin: 0 auto; padding: 1rem; }
   .toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
   #search {
@@ -151,11 +160,11 @@
   <div class="header-inner">
     <span class="logo">🇫🇷 <span data-t="appName">Learn French</span></span>
     <span class="spacer"></span>
-    <select class="ctl" id="uilang" data-t-title="uiLangLabel" title="Language" style="min-width: 4.5rem">
-      <option value="en" selected>English</option>
-      <option value="ar">العربية</option>
-      <option value="fr">Français</option>
-    </select>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="ar">AR</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
     <button class="icon-btn" id="btn-fav" data-t-title="favourites" title="Favourites">⭐</button>
     <button class="icon-btn" id="btn-theme" data-t-title="themeMode" title="Dark / light mode">🌙</button>
     <button class="icon-btn" id="btn-stop" data-t-title="stopAudio" title="Stop audio">⏹</button>
@@ -272,7 +281,7 @@
     localStorage.setItem('fr_ui_lang', lang);
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    document.getElementById('uilang').value = lang;
+    document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
     applyTranslations();
     go(state.route, false);
   }
@@ -721,8 +730,10 @@
   if (savedRate) { state.rate = parseFloat(savedRate); document.getElementById('rate').value = savedRate; }
   var savedLangs = localStorage.getItem('fr_langs');
   if (savedLangs) { state.langs = savedLangs.split(','); document.getElementById('loopmode').value = savedLangs; }
-  document.getElementById('uilang').value = state.uiLang;
-  document.getElementById('uilang').addEventListener('change', function (e) { setUILang(e.target.value); });
+  document.querySelector('.lang-switch').addEventListener('click', function (e) {
+    var btn = e.target.closest('.lang-btn');
+    if (btn) setUILang(btn.dataset.lang);
+  });
 
   if (!nativeTTS() && 'speechSynthesis' in window) window.speechSynthesis.getVoices();
   window.addEventListener('beforeunload', function () { if (speakSupported()) window.speechSynthesis.cancel(); });
