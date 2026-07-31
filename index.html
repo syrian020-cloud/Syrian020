@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#1a1a1a">
-  <title id="app-title">دروسي المرئية</title>
+  <title id="app-title">VidCap</title>
   <link rel="manifest" href="manifest.json">
   <style>
     :root {
@@ -25,13 +25,85 @@
     }
 
     [data-theme="light"] {
-      --bg-primary: #f5f2eb;
+      --bg-primary: #f2f2f7;
       --bg-secondary: #ffffff;
-      --bg-tertiary: #e8e5de;
-      --text-primary: #2c2c2c;
-      --text-secondary: #5c5c5c;
-      --border: #d4d0c8;
-      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --bg-tertiary: #e5e5ea;
+      --text-primary: #1c1c1e;
+      --text-secondary: #6c6c70;
+      --accent: #007aff;
+      --accent-hover: #0063d1;
+      --border: #e5e5ea;
+      --shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    [data-theme="ocean"] {
+      --bg-primary: #0f2439;
+      --bg-secondary: #1a3a52;
+      --bg-tertiary: #264d66;
+      --text-primary: #e8f4ff;
+      --text-secondary: #a8c9e8;
+      --accent: #4facfe;
+      --accent-hover: #00c6fb;
+      --danger: #ff6b6b;
+      --success: #3ddc84;
+      --border: #2a5a7a;
+      --shadow: 0 4px 16px rgba(0,0,0,0.35);
+    }
+
+    [data-theme="forest"] {
+      --bg-primary: #1a2f23;
+      --bg-secondary: #243b2e;
+      --bg-tertiary: #355244;
+      --text-primary: #e8f5e9;
+      --text-secondary: #a8c6a8;
+      --accent: #81c784;
+      --accent-hover: #66bb6a;
+      --danger: #ff8a80;
+      --success: #4caf50;
+      --border: #3e6b52;
+      --shadow: 0 4px 16px rgba(0,0,0,0.35);
+    }
+
+    [data-theme="berry"] {
+      --bg-primary: #2d1b36;
+      --bg-secondary: #3f244d;
+      --bg-tertiary: #5c356e;
+      --text-primary: #f3e5f5;
+      --text-secondary: #d1aee3;
+      --accent: #ba68c8;
+      --accent-hover: #ab47bc;
+      --danger: #ff8a80;
+      --success: #69f0ae;
+      --border: #6a3e7d;
+      --shadow: 0 4px 16px rgba(0,0,0,0.35);
+    }
+
+    [data-theme="sunset"] {
+      --bg-primary: #2a1d1d;
+      --bg-secondary: #3e2828;
+      --bg-tertiary: #5a3b3b;
+      --text-primary: #fff0f0;
+      --text-secondary: #e8b4b4;
+      --accent: #ff8c61;
+      --accent-hover: #ff7043;
+      --danger: #ff5252;
+      --success: #69f0ae;
+      --border: #6e4a4a;
+      --shadow: 0 4px 16px rgba(0,0,0,0.35);
+    }
+
+    [data-theme="midnight"] {
+      --bg-primary: #12142b;
+      --bg-secondary: #1d1f3d;
+      --bg-tertiary: #2a2d55;
+      --text-primary: #eceffc;
+      --text-secondary: #9fa2c7;
+      --accent: #7b79ff;
+      --accent-hover: #5c5bdb;
+      --danger: #ff6b81;
+      --success: #00e676;
+      --border: #3a3d6e;
+      --shadow: 0 4px 16px rgba(0,0,0,0.4);
     }
 
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -69,21 +141,34 @@
       gap: 0.5rem;
     }
     .logo { font-size: 1.1rem; font-weight: 700; color: var(--accent); white-space: nowrap; }
-    nav { display: flex; gap: 0.3rem; }
+    nav {
+      display: flex;
+      gap: 0.2rem;
+      background: var(--bg-tertiary);
+      border-radius: 999px;
+      padding: 0.25rem;
+    }
     nav button {
       background: transparent;
       border: none;
       color: var(--text-secondary);
-      padding: 0.5rem 0.8rem;
-      border-radius: var(--radius);
-      font-size: 0.95rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
       cursor: pointer;
       transition: all 0.2s;
+      font-weight: 500;
     }
-    nav button.active, nav button:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+    nav button:hover { color: var(--text-primary); }
+    nav button.active {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
     .header-controls { display: flex; align-items: center; gap: 0.4rem; }
     .btn-icon {
-      background: var(--bg-tertiary);
+      background: var(--bg-secondary);
       border: 1px solid var(--border);
       color: var(--text-primary);
       width: 38px;
@@ -94,8 +179,7 @@
       justify-content: center;
       cursor: pointer;
       font-size: 1rem;
-      flex-shrink: 0;
-      text-decoration: none;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
     }
     .btn-icon:hover { background: var(--accent); color: white; }
 
@@ -164,6 +248,10 @@
       font-size: 1rem;
       margin-bottom: 1rem;
       font-family: inherit;
+      -webkit-user-select: text;
+      user-select: text;
+      pointer-events: auto;
+      touch-action: auto;
     }
     textarea { min-height: 140px; resize: vertical; }
     label { display: block; margin-bottom: 0.4rem; color: var(--text-secondary); font-size: 0.95rem; }
@@ -179,30 +267,91 @@
       display: block;
     }
 
-    .lesson-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+    .lesson-grid { display: grid; grid-template-columns: 1fr; gap: 0.8rem; max-width: 800px; margin: 0 auto; }
     .lesson-card {
       background: var(--bg-secondary);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1rem;
+      border-radius: 16px;
+      padding: 0.7rem 0.9rem;
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
       position: relative;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
     .lesson-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-    .lesson-card h3 { margin: 0 0 0.4rem; font-size: 1rem; }
-    .lesson-card small { color: var(--text-secondary); }
-    .lesson-card .actions {
+    .lesson-card-body { display: flex; align-items: center; gap: 0.8rem; }
+    .thumb-wrap { position: relative; flex: 0 0 auto; width: 80px; height: 80px; }
+    .cover-thumb {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 12px;
+      background: var(--bg-tertiary);
+      display: block;
+    }
+    .cover-thumb.placeholder { background: var(--bg-tertiary); }
+    .lesson-info { flex: 1; min-width: 0; }
+    .lesson-info h3 { margin: 0 0 0.25rem; font-size: 1.05rem; font-weight: 700; }
+    .lesson-info small { color: var(--text-secondary); font-size: 0.8rem; }
+    .lesson-menu {
       position: absolute;
-      top: 0.6rem;
+      top: 0.5rem;
+      right: 0.5rem;
+      z-index: 10;
     }
-    [dir="rtl"] .lesson-card .actions { left: 0.6rem; }
-    [dir="ltr"] .lesson-card .actions { right: 0.6rem; }
-    .lesson-card .actions button {
-      padding: 0.3rem 0.5rem;
-      font-size: 0.8rem;
-      margin-inline-start: 0.3rem;
+    [dir="rtl"] .lesson-menu { left: 0.5rem; right: auto; }
+    [dir="ltr"] .lesson-menu { right: 0.5rem; left: auto; }
+    .lesson-card .btn-menu {
+      background: rgba(0,0,0,0.35);
+      border: none;
+      color: #fff;
+      font-size: 1rem;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0;
     }
+    .lesson-card .btn-menu:hover { background: rgba(0,0,0,0.5); }
+    .lesson-card .lesson-dropdown {
+      position: absolute;
+      top: 2rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      min-width: 170px;
+      padding: 0.4rem;
+      z-index: 100;
+      gap: 0.1rem;
+    }
+    [dir="rtl"] .lesson-card .lesson-dropdown { left: 0; right: auto; }
+    [dir="ltr"] .lesson-card .lesson-dropdown { right: 0; left: auto; }
+    .lesson-card .lesson-dropdown button {
+      background: transparent;
+      border: none;
+      color: var(--text-primary);
+      padding: 0.6rem 0.8rem;
+      text-align: start;
+      cursor: pointer;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: background 0.15s;
+    }
+    .lesson-card .lesson-dropdown button:hover { background: var(--bg-tertiary); }
+    .lesson-card .lesson-dropdown .btn-play { color: var(--success); }
+    .lesson-card .lesson-dropdown .btn-edit { color: var(--accent); }
+    .lesson-card .lesson-dropdown .btn-delete { color: var(--danger); }
+    .lesson-card .lesson-dropdown .menu-icon { font-size: 1rem; width: 1.3rem; text-align: center; }
 
     .empty-state { text-align: center; padding: 3rem 1rem; }
     .empty-state svg { width: 80px; height: 80px; margin-bottom: 1rem; opacity: 0.4; }
@@ -219,28 +368,73 @@
 
     .subtitle-help { font-size: 0.85rem; color: var(--text-secondary); margin-top: -0.5rem; margin-bottom: 1rem; }
     .video-wrap { position: relative; }
+    video::cue { opacity: 0 !important; visibility: hidden !important; background: transparent !important; color: transparent !important; }
 
     .subtitle-display {
-      background: #1a1a1a;
-      border: 1px solid #333;
-      border-radius: 0;
-      padding: 0.9rem 1rem;
-      margin-top: 0;
-      min-height: 3.2rem;
-      text-align: center;
-      color: #ffe066;
-      font-size: calc(var(--font-size) + 3px);
-      line-height: 1.5;
+      --caption-scale: 1;
+      position: absolute;
+      bottom: 54px;
+      left: 10px;
+      right: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      pointer-events: none;
+      z-index: 5;
+      transition: opacity 0.2s;
+    }
+    .subtitle-display.hidden { opacity: 0; pointer-events: none; }
+    .subtitle-display .subtitle-current {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .subtitle-line {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      font-size: calc((var(--font-size) + 4px) * var(--caption-scale, 1));
+      font-weight: 700;
+      line-height: 1.45;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+      max-width: 100%;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .subtitle-display .subtitle-line { display: inline-flex; width: auto; }
+    .subtitle-line.primary { font-size: calc((var(--font-size) + 7px) * var(--caption-scale, 1)); }
+    .subtitle-line.fr { background: linear-gradient(135deg, #ff9f43, #ff7f50); color: #ffffff; }
+    .subtitle-line.ar { background: linear-gradient(135deg, #2dd4bf, #14b8a6); color: #ffffff; }
+    .subtitle-line.en { background: linear-gradient(135deg, #60a5fa, #3b82f6); color: #ffffff; }
+    .subtitle-line .line-text { display: block; flex: 1 1 auto; text-align: center; }
+    .subtitle-line .lang-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.25);
+      color: #ffffff;
+      border-radius: 6px;
+      padding: 0.15em 0.5em;
+      font-size: 0.6em;
+      font-weight: 800;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .subtitle-toolbar {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.7rem;
+      gap: 0.5rem;
       flex-wrap: wrap;
+      margin-top: 0.6rem;
     }
-    .subtitle-display .subtitle-current { flex: 1; white-space: pre-line; }
-    .subtitle-display .cue-loop {
+    .subtitle-toolbar .cue-loop {
       background: #333;
-      color: #ffe066;
+      color: #fff;
       border: 1px solid #555;
       border-radius: 50%;
       width: 38px;
@@ -252,8 +446,24 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    .subtitle-display .cue-loop:hover { background: #444; }
-    .subtitle-display .cue-loop.active { background: var(--success); color: #1a1a1a; border-color: var(--success); }
+    .subtitle-toolbar .cue-loop:hover { background: #555; }
+    .subtitle-toolbar .cue-loop.active { background: var(--success); color: #1a1a1a; border-color: var(--success); }
+    .lang-btn {
+      background: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-weight: 600;
+    }
+    .lang-btn:hover { background: #218838; }
+    .lang-btn.active { background: #f4a261; color: #1a1a1a; }
+    .lang-btn .loop-icon { font-size: 0.9em; }
 
     .playback-controls {
       display: flex;
@@ -291,20 +501,30 @@
 
     .download-links {
       display: flex;
-      gap: 0.8rem;
+      gap: 0.5rem;
       margin-top: 0.8rem;
       flex-wrap: wrap;
+      justify-content: center;
     }
-    .download-links a {
-      color: var(--accent);
+    .download-links button, .btn-download {
+      color: #fff;
       text-decoration: none;
-      font-size: 0.9rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 0.35rem 0.7rem;
-      background: var(--bg-tertiary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 999px;
+      padding: 0.45rem 1rem;
+      background: linear-gradient(135deg, #4facfe 0%, #00c6fb 100%);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: 0 2px 8px rgba(79, 172, 254, 0.3);
+      transition: transform 0.12s, box-shadow 0.12s;
+      direction: ltr;
+      unicode-bidi: embed;
     }
-    .download-links a:hover { background: var(--accent); color: #fff; }
+    .download-links button:hover, .btn-download:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(79, 172, 254, 0.45); }
 
     .sentences-section { margin-top: 1rem; }
     .sentences-section h3 { margin: 0 0 0.6rem; font-size: 1.1rem; color: var(--text-primary); }
@@ -317,17 +537,23 @@
     }
     .words-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; }
     .words-header h3 { margin: 0; font-size: 1.1rem; color: var(--text-primary); }
-    #words-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    #words-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
     .word-card {
       background: var(--bg-tertiary);
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 0.5rem 0.7rem;
-      display: flex;
+      border-radius: 12px;
+      padding: 0.6rem 1rem;
+      display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.6rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
     }
-    .word-text { font-size: var(--font-size); color: var(--text-primary); }
+    .word-text {
+      font-size: calc(var(--font-size) + 3px);
+      color: #ff9f43;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
     .word-actions { display: flex; gap: 0.3rem; }
     .word-actions button {
       background: var(--bg-secondary);
@@ -345,61 +571,206 @@
     .word-actions button:hover { background: var(--accent); color: #fff; }
     .word-actions button.active { background: var(--success); color: #1a1a1a; }
     .sentence-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 0.7rem;
+      background: #fff5e6;
+      border: 1px solid #f5d08a;
+      border-radius: 16px;
+      padding: 1rem;
+      margin-bottom: 0.8rem;
+      color: #2c3e50;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .sentence-card.active { border-inline-start: 4px solid #d35400; background: #fff0d4; }
+    .sentence-time {
+      color: #8c8c8c;
+      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+      text-align: center;
+    }
+    .sentence-text {
+      line-height: 1.6;
+      font-size: calc(var(--font-size) + 1px);
       margin-bottom: 0.6rem;
     }
-    .sentence-card.active { border-inline-start: 3px solid var(--accent); background: rgba(74,158,255,0.1); }
-    .sentence-time {
-      color: var(--text-secondary);
-      font-size: 0.85rem;
+    .sentence-text .subtitle-line { margin-bottom: 0.4rem; }
+    .sentence-text .subtitle-line:last-child { margin-bottom: 0; }
+    .sentence-words {
+      margin-top: 0.6rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid #f5d08a;
+    }
+    .sentence-words .words-label {
+      font-size: 0.9rem;
+      color: #d35400;
       margin-bottom: 0.35rem;
+      font-weight: 600;
+      text-align: center;
     }
-    .sentence-card textarea {
+    .sentence-edit-wrap { margin-top: 0.6rem; }
+    .sentence-edit {
       width: 100%;
-      min-height: 3.2rem;
-      background: var(--bg-tertiary);
-      color: var(--text-primary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 0.5rem;
-      font-size: var(--font-size);
-      resize: vertical;
+      min-height: 6rem;
+      background: #fff;
+      color: #2c3e50;
+      border: 1px solid #f5d08a;
+      border-radius: 10px;
+      padding: 0.7rem;
+      font-size: 1rem;
+      font-family: inherit;
+      -webkit-user-select: text;
+      user-select: text;
+      pointer-events: auto;
+      touch-action: auto;
     }
+    .sentence-edit-actions { display: flex; gap: 0.5rem; margin-top: 0.4rem; flex-wrap: wrap; }
+    .sentence-edit-actions .btn-save { background: #28a745; color: #fff; border: none; }
+    .sentence-edit-actions .btn-cancel { background: #6c757d; color: #fff; border: none; }
     .sentence-actions {
       display: flex;
+      align-items: center;
+      justify-content: center;
       gap: 0.5rem;
-      margin-top: 0.5rem;
+      margin-top: 0.6rem;
       flex-wrap: wrap;
     }
     .sentence-actions button {
-      background: var(--bg-tertiary);
-      color: var(--text-primary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
       padding: 0.4rem 0.7rem;
       font-size: 0.85rem;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
     }
-    .sentence-actions button:hover { background: var(--accent); color: #fff; }
+    .sentence-actions button:hover { background: #555; }
     .sentence-actions button.active { background: var(--success); color: #1a1a1a; }
-    .cue-words { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
-    .word-chip {
+    .sentence-actions .lang-btn { background: #28a745; color: #fff; }
+    .sentence-actions .lang-btn:hover { background: #218838; }
+    .sentence-actions .loop-btn { background: #333; }
+
+    /* Card styles */
+    #sentences-list.card-style-modern .sentence-card { background: linear-gradient(145deg, #2c3e50, #1a252f); color: #fff; border: 1px solid #34495e; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    #sentences-list.card-style-modern .sentence-card.active { border-inline-start-color: #f4a261; background: linear-gradient(145deg, #34495e, #22313f); }
+    #sentences-list.card-style-modern .sentence-time { color: #bdc3c7; }
+    #sentences-list.card-style-modern .sentence-words { border-top-color: #34495e; }
+    #sentences-list.card-style-modern .words-label { color: #f4a261; }
+    #sentences-list.card-style-modern .sentence-edit { background: #1a252f; color: #fff; border-color: #34495e; }
+    #sentences-list.card-style-modern .btn-words-toggle { background: #34495e; color: #fff; border-color: #465a6e; }
+    #sentences-list.card-style-modern .word-chip { background: rgba(255,159,67,0.15); color: #ff9f43; border-color: rgba(255,159,67,0.5); }
+    #sentences-list.card-style-modern .sentence-actions button { background: #465a6e; color: #fff; }
+    #sentences-list.card-style-modern .sentence-actions .lang-btn { background: #27ae60; color: #fff; }
+    #sentences-list.card-style-modern .sentence-actions .loop-btn { background: #465a6e; }
+
+    #sentences-list.card-style-pastel .sentence-card { background: #fdf6f0; color: #4a4a4a; border: 1px solid #f3e5d8; box-shadow: 0 2px 8px rgba(211,84,0,0.08); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    #sentences-list.card-style-pastel .sentence-card.active { border-inline-start-color: #d35400; background: #fff0e6; }
+    #sentences-list.card-style-pastel .sentence-time { color: #8c8c8c; }
+    #sentences-list.card-style-pastel .sentence-words { border-top-color: #f3e5d8; }
+    #sentences-list.card-style-pastel .words-label { color: #d35400; }
+    #sentences-list.card-style-pastel .sentence-edit { background: #fff; color: #4a4a4a; border-color: #f3e5d8; }
+    #sentences-list.card-style-pastel .btn-words-toggle { background: #fcefe6; color: #d35400; border-color: #f5d0b5; }
+    #sentences-list.card-style-pastel .word-chip { background: #fff0e6; color: #d35400; border-color: #f5d0b5; }
+    #sentences-list.card-style-pastel .sentence-actions button { background: #f0e6dc; color: #5d4037; }
+    #sentences-list.card-style-pastel .sentence-actions .lang-btn { background: #82ca9d; color: #fff; }
+    #sentences-list.card-style-pastel .sentence-actions .loop-btn { background: #f0e6dc; color: #5d4037; }
+
+    #sentences-list.card-style-elegant .sentence-card { background: #fff; color: #2c3e50; border: 1px solid #e0e0e0; box-shadow: 0 4px 14px rgba(0,0,0,0.08); font-family: Georgia, 'Times New Roman', Times, serif; }
+    #sentences-list.card-style-elegant .sentence-card.active { border-inline-start-color: #8e44ad; background: #faf7fc; }
+    #sentences-list.card-style-elegant .sentence-time { color: #7f8c8d; }
+    #sentences-list.card-style-elegant .sentence-words { border-top-color: #e0e0e0; }
+    #sentences-list.card-style-elegant .words-label { color: #8e44ad; }
+    #sentences-list.card-style-elegant .sentence-edit { background: #fafafa; color: #2c3e50; border-color: #e0e0e0; }
+    #sentences-list.card-style-elegant .btn-words-toggle { background: #f9f9f9; color: #8e44ad; border-color: #e0e0e0; }
+    #sentences-list.card-style-elegant .word-chip { background: rgba(142,68,173,0.1); color: #8e44ad; border-color: rgba(142,68,173,0.3); }
+    #sentences-list.card-style-elegant .sentence-actions button { background: #ecf0f1; color: #2c3e50; }
+    #sentences-list.card-style-elegant .sentence-actions .lang-btn { background: #9b59b6; color: #fff; }
+    #sentences-list.card-style-elegant .sentence-actions .loop-btn { background: #ecf0f1; color: #2c3e50; }
+
+    #sentences-list.card-style-playful .sentence-card { background: #f7f5f0; color: #1a1a1a; border: 1px solid #111; border-top: 4px double #111; border-radius: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.12); font-family: 'Times New Roman', Times, Georgia, 'Noto Serif', serif; }
+    #sentences-list.card-style-playful .sentence-card.active { border-inline-start: 6px solid #b71c1c; background: #fff; }
+    #sentences-list.card-style-playful .sentence-time { color: #7a7a7a; font-style: italic; border-bottom: 1px dashed #aaa; padding-bottom: 0.3rem; margin-bottom: 0.5rem; }
+    #sentences-list.card-style-playful .sentence-words { border-top: 1px solid #111; }
+    #sentences-list.card-style-playful .words-label { color: #b71c1c; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
+    #sentences-list.card-style-playful .sentence-edit { background: #fff; color: #1a1a1a; border: 1px solid #111; border-radius: 0; }
+    #sentences-list.card-style-playful .btn-words-toggle { background: #fff; color: #1a1a1a; border: 1px solid #111; border-radius: 0; }
+    #sentences-list.card-style-playful .word-chip { background: #fff; color: #1a1a1a; border: 1px solid #111; border-radius: 0; }
+    #sentences-list.card-style-playful .sentence-actions button { background: #1a1a1a; color: #fff; border-radius: 0; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; font-family: 'Times New Roman', Times, Georgia, 'Noto Serif', serif; }
+    #sentences-list.card-style-playful .sentence-actions .lang-btn { background: #b71c1c; color: #fff; }
+    #sentences-list.card-style-playful .sentence-actions .loop-btn { background: #1a1a1a; color: #fff; }
+
+    /* Card style language line colors */
+    #sentences-list.card-style-modern .subtitle-line.fr { background: linear-gradient(135deg, #e67e22, #d35400); }
+    #sentences-list.card-style-modern .subtitle-line.ar { background: linear-gradient(135deg, #1abc9c, #16a085); }
+    #sentences-list.card-style-modern .subtitle-line.en { background: linear-gradient(135deg, #3498db, #2980b9); }
+
+    #sentences-list.card-style-pastel .subtitle-line.fr { background: linear-gradient(135deg, #ffb347, #ff9f43); }
+    #sentences-list.card-style-pastel .subtitle-line.ar { background: linear-gradient(135deg, #5eead4, #2dd4bf); }
+    #sentences-list.card-style-pastel .subtitle-line.en { background: linear-gradient(135deg, #93c5fd, #60a5fa); }
+
+    #sentences-list.card-style-elegant .subtitle-line.fr { background: linear-gradient(135deg, #f4a261, #e67e22); }
+    #sentences-list.card-style-elegant .subtitle-line.ar { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+    #sentences-list.card-style-elegant .subtitle-line.en { background: linear-gradient(135deg, #5dade2, #3498db); }
+
+    #sentences-list.card-style-playful .subtitle-line.fr { background: #1a1a1a; }
+    #sentences-list.card-style-playful .subtitle-line.ar { background: #b71c1c; }
+    #sentences-list.card-style-playful .subtitle-line.en { background: #555555; }
+
+    /* Overlay caption styles per card style */
+    .subtitle-display.card-style-classic .subtitle-line.fr { background: linear-gradient(135deg, #ff9f43, #ff7f50); }
+    .subtitle-display.card-style-classic .subtitle-line.ar { background: linear-gradient(135deg, #2dd4bf, #14b8a6); }
+    .subtitle-display.card-style-classic .subtitle-line.en { background: linear-gradient(135deg, #60a5fa, #3b82f6); }
+
+    .subtitle-display.card-style-modern .subtitle-line.fr { background: linear-gradient(135deg, #e67e22, #d35400); }
+    .subtitle-display.card-style-modern .subtitle-line.ar { background: linear-gradient(135deg, #1abc9c, #16a085); }
+    .subtitle-display.card-style-modern .subtitle-line.en { background: linear-gradient(135deg, #3498db, #2980b9); }
+
+    .subtitle-display.card-style-pastel .subtitle-line { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .subtitle-display.card-style-pastel .subtitle-line.fr { background: linear-gradient(135deg, #ffb347, #ff9f43); }
+    .subtitle-display.card-style-pastel .subtitle-line.ar { background: linear-gradient(135deg, #5eead4, #2dd4bf); }
+    .subtitle-display.card-style-pastel .subtitle-line.en { background: linear-gradient(135deg, #93c5fd, #60a5fa); }
+
+    .subtitle-display.card-style-elegant .subtitle-line { font-family: Georgia, 'Times New Roman', Times, serif; }
+    .subtitle-display.card-style-elegant .subtitle-line.fr { background: linear-gradient(135deg, #f4a261, #e67e22); }
+    .subtitle-display.card-style-elegant .subtitle-line.ar { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+    .subtitle-display.card-style-elegant .subtitle-line.en { background: linear-gradient(135deg, #5dade2, #3498db); }
+
+    .subtitle-display.card-style-playful .subtitle-line { font-family: 'Times New Roman', Times, Georgia, 'Noto Serif', serif; border-radius: 0; }
+    .subtitle-display.card-style-playful .subtitle-line.fr { background: #1a1a1a; }
+    .subtitle-display.card-style-playful .subtitle-line.ar { background: #b71c1c; }
+    .subtitle-display.card-style-playful .subtitle-line.en { background: #555555; }
+
+    .sentence-words-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-top: 0.6rem; }
+    .btn-words-toggle {
       background: var(--bg-tertiary);
       color: var(--text-primary);
       border: 1px solid var(--border);
       border-radius: 999px;
-      padding: 0.15rem 0.4rem 0.15rem 0.6rem;
+      padding: 0.35rem 0.8rem;
       font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .btn-words-toggle:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .sentence-words.hidden { display: none; }
+    .cue-words { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0; }
+    .word-chip {
+      background: rgba(255, 159, 67, 0.12);
+      color: #ff9f43;
+      border: 1px solid rgba(255, 159, 67, 0.5);
+      border-radius: 999px;
+      padding: 0.2rem 0.5rem 0.2rem 0.7rem;
+      font-size: calc(var(--font-size) + 1px);
+      font-weight: 600;
       cursor: pointer;
       user-select: none;
       display: inline-flex;
       align-items: center;
-      gap: 0.2rem;
+      gap: 0.25rem;
     }
-    .word-chip:hover { background: var(--accent); color: #fff; }
+    .word-chip:hover { background: rgba(255, 159, 67, 0.25); color: #ff9f43; }
     .word-chip.active { background: var(--success); color: #1a1a1a; }
     .word-chip .word-loop {
       background: transparent;
@@ -411,13 +782,7 @@
       border-radius: 50%;
     }
     .word-chip .word-loop:hover { background: rgba(255,255,255,0.2); }
-    .lesson-words {
-      margin-top: 1rem;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 0.7rem;
-    }
+    .lesson-words, #btn-lesson-words, #cue-list { display: none !important; }
     .lesson-words h3 { margin: 0 0 0.6rem; font-size: 1.1rem; color: var(--text-primary); }
     .lesson-words-list { max-height: 320px; overflow-y: auto; }
     .word-table { width: 100%; border-collapse: collapse; }
@@ -426,7 +791,7 @@
     }
     .word-table th { color: var(--text-secondary); font-weight: normal; font-size: 0.85rem; }
     .word-table td { color: var(--text-primary); }
-    .word-table .word-cell { font-size: calc(var(--font-size) + 1px); }
+    .word-table .word-cell { font-size: calc(var(--font-size) + 3px); color: #ff9f43; font-weight: 600; }
     .word-table .word-actions { display: flex; gap: 0.4rem; justify-content: flex-end; }
     .word-table .word-actions button {
       background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 50%;
@@ -480,6 +845,62 @@
     .settings-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
     .settings-row label { margin: 0; flex: 1; }
     .range-wrap { display: flex; align-items: center; gap: 0.5rem; }
+    .contact-row, .backup-row { align-items: flex-start; }
+    .contact-links, .backup-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .contact-links a { text-decoration: none; }
+
+    .player-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
+    .player-header h2 { margin: 0; flex: 1; font-size: 1.1rem; }
+    .player-mode .form-group, .player-mode .tabs, .player-mode .subtab-content, .player-mode .form-actions { display: none !important; }
+    .card.player-mode > h2:first-child { display: none; }
+    .card.player-mode #player-header { display: flex !important; }
+    .card.player-mode .btn-edit-sentence,
+    .card.player-mode .sentence-edit-wrap { display: none !important; }
+
+    .action-sheet {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .action-sheet-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+    }
+    .action-sheet-content {
+      position: relative;
+      background: var(--bg-secondary);
+      border-radius: 16px 16px 0 0;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+      animation: slideUp 0.25s ease;
+    }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    .action-sheet-item {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: none;
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      cursor: pointer;
+      text-align: start;
+    }
+    .action-sheet-item:hover { background: #4a4a4a; }
+    .action-sheet-item .as-icon { font-size: 1.1rem; width: 1.5rem; text-align: center; }
+    .action-sheet-item.action-play { color: var(--success); }
+    .action-sheet-item.action-edit { color: var(--accent); }
+    .action-sheet-item.action-delete { color: var(--danger); }
+    .action-sheet-item.action-cancel { justify-content: center; color: var(--text-secondary); margin-top: 0.3rem; }
 
     .toast {
       position: fixed;
@@ -504,7 +925,7 @@
     @media (max-width: 500px) {
       .header-inner { flex-wrap: wrap; }
       nav { order: 3; width: 100%; justify-content: center; }
-      main { padding-top: 6.5rem; }
+      main { padding-top: 8.5rem; }
       .logo { font-size: 1rem; }
     }
   </style>
@@ -512,14 +933,14 @@
 <body>
   <header>
     <div class="header-inner">
-      <div class="logo" id="app-name">Dross</div>
+      <div class="logo" id="app-name">VidCap</div>
       <nav>
-        <button id="nav-lessons" data-page="lessons" class="active" data-i18n="lessons">الدروس</button>
-        <button id="nav-editor" data-page="editor" data-i18n="editor">محرر</button>
-        <button id="nav-settings" data-page="settings" data-i18n="settings">الإعدادات</button>
+        <button id="nav-lessons" data-page="lessons" class="active" data-i18n="lessons">Lessons</button>
+        <button id="nav-editor" data-page="editor" data-i18n="editor">New lesson</button>
+        <button id="nav-settings" data-page="settings" data-i18n="settings">Settings</button>
       </nav>
       <div class="header-controls">
-        <a class="btn-icon" href="french.html" id="btn-french" title="تعلم الفرنسية">🇫🇷</a>
+        <button class="btn-icon" id="btn-mute" title="Stop sounds">🔇</button>
         <button class="btn-icon" id="btn-lang" title="Language">AR</button>
         <button class="btn-icon" id="btn-theme" title="Toggle theme">🌙</button>
       </div>
@@ -529,22 +950,21 @@
   <main>
     <!-- Lessons Page -->
     <section id="page-lessons" class="page active">
-      <div class="card">
-        <h2 data-i18n="myLessons">دروسي</h2>
-        <p data-i18n="lessonsDesc">اختر درسًا لعرضه، أو ابدأ بإضافة درس جديد.</p>
-        <button id="btn-new-lesson" data-i18n="newLesson">درس جديد</button>
-      </div>
       <div id="lessons-list" class="lesson-grid"></div>
       <div id="lessons-empty" class="empty-state hidden">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M10 12l4 3V9l-4 3z"/></svg>
-        <p data-i18n="noLessons">لا يوجد دروس بعد. اضغط "درس جديد" للبدء.</p>
+        <p data-i18n="noLessons">No lessons yet. Tap the "New lesson" tab to start.</p>
       </div>
     </section>
 
     <!-- Editor Page -->
     <section id="page-editor" class="page">
-      <div class="card">
+      <div class="card" id="editor-card">
         <h2 data-i18n="newLesson">درس جديد</h2>
+        <div class="player-header hidden" id="player-header">
+          <button class="btn-secondary" id="btn-back" data-i18n="back">رجوع</button>
+          <h2 id="player-title"></h2>
+        </div>
         <div class="form-group">
           <label for="lesson-title" data-i18n="lessonTitle">عنوان الدرس</label>
           <input type="text" id="lesson-title" data-i18n-placeholder="lessonTitlePlaceholder" placeholder="مثال: درس اللغة الفرنسية 1">
@@ -557,6 +977,15 @@
           </label>
           <input type="file" id="video-file" accept="video/*">
           <div id="video-name" class="muted"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="audio-file" data-i18n="audioFile">ملف صوتي</label>
+          <label for="audio-file" class="file-label" id="audio-label">
+            <span data-i18n="chooseAudio">اختر ملف صوتي من الهاتف</span>
+          </label>
+          <input type="file" id="audio-file" accept="audio/*">
+          <div id="audio-name" class="muted"></div>
         </div>
 
         <div class="tabs">
@@ -585,11 +1014,18 @@
 
         <div class="video-wrap hidden" id="preview-wrap">
           <video id="lesson-video" controls crossorigin="anonymous"></video>
+          <div class="subtitle-display hidden" id="subtitle-display">
+            <div class="subtitle-current" id="subtitle-current"></div>
+          </div>
         </div>
-        <div class="subtitle-display hidden" id="subtitle-display">
-          <span class="subtitle-current" id="subtitle-current"></span>
-          <button class="cue-loop" id="current-loop" title="تكرار" onclick="toggleCurrentLoop()">🔂</button>
+        <div class="subtitle-toolbar hidden" id="subtitle-toolbar">
+          <button class="cue-loop" id="btn-toggle-captions" title="إظهار/إخفاء الترجمة" onclick="toggleCaptions()">CC</button>
+          <span id="subtitle-lang-buttons"></span>
           <button class="cue-loop" id="btn-lesson-words" data-i18n-title="words" title="الكلمات" onclick="toggleLessonWords()">🔠</button>
+          <button class="cue-loop" id="current-loop" title="تكرار الجملة" onclick="toggleCurrentLoop()">🔂</button>
+          <button class="cue-loop" id="video-loop" title="تكرار الفيديو" onclick="toggleVideoLoop()">🔄</button>
+          <button class="cue-loop" id="btn-caption-minus" title="تصغير الخط" onclick="changeCaptionSize(-0.1)">A-</button>
+          <button class="cue-loop" id="btn-caption-plus" title="تكبير الخط" onclick="changeCaptionSize(0.1)">A+</button>
         </div>
         <div class="playback-controls hidden" id="playback-controls">
           <div class="speed-buttons">
@@ -601,10 +1037,10 @@
           </div>
           <button class="btn-reload" id="btn-replay" onclick="replayCurrentCue()" title="إعادة">🔃</button>
         </div>
-        <div class="download-links hidden" id="download-links">
-          <a href="#" id="download-srt" download="lesson.srt">تحميل SRT</a>
-          <a href="#" id="download-vtt" download="lesson.vtt">تحميل VTT</a>
-          <a href="#" id="download-txt" download="lesson.txt">تحميل كنص</a>
+        <div class="download-links hidden" id="download-links" dir="ltr">
+          <button class="btn-download" id="btn-download-srt" onclick="downloadMedia('srt')">📥 SRT</button>
+          <button class="btn-download" id="btn-download-vtt" onclick="downloadMedia('vtt')">📥 VTT</button>
+          <button class="btn-download" id="btn-download-txt" onclick="downloadMedia('txt')">📄 TXT</button>
         </div>
         <div class="words-section hidden" id="words-section">
           <div class="words-header">
@@ -618,7 +1054,7 @@
           <div id="lesson-words-list" class="lesson-words-list"></div>
         </div>
         <div class="sentences-section hidden" id="sentences-section">
-          <h3 data-i18n="sentencesSection">الجمل والتصحيح</h3>
+          <h3 data-i18n="sentencesSection">العبارات</h3>
           <div id="sentences-list"></div>
         </div>
         <div class="cue-list hidden" id="cue-list"></div>
@@ -630,6 +1066,9 @@
         </div>
       </div>
     </section>
+
+    <!-- Lesson (Player) Page -->
+    <section id="page-lesson" class="page"></section>
 
     <!-- Settings Page -->
     <section id="page-settings" class="page">
@@ -650,6 +1089,11 @@
           <select id="settings-theme">
             <option value="dark" data-i18n="dark">داكن (مريح للعين)</option>
             <option value="light" data-i18n="light">فاتح</option>
+            <option value="ocean" data-i18n="themeOcean">محيط</option>
+            <option value="forest" data-i18n="themeForest">غابة</option>
+            <option value="berry" data-i18n="themeBerry">توت</option>
+            <option value="sunset" data-i18n="themeSunset">غروب</option>
+            <option value="midnight" data-i18n="themeMidnight">منتصف الليل</option>
           </select>
         </div>
 
@@ -662,17 +1106,65 @@
         </div>
 
         <div class="settings-row">
+          <label data-i18n="cardStyle">ستايل البطاقات</label>
+          <select id="settings-card-style">
+            <option value="classic" data-i18n="cardClassic">كلاسيكي</option>
+            <option value="modern" data-i18n="cardModern">عصري داكن</option>
+            <option value="pastel" data-i18n="cardPastel">باستيل</option>
+            <option value="elegant" data-i18n="cardElegant">أنيق</option>
+            <option value="playful" data-i18n="cardPlayful">نشرة أخبار</option>
+          </select>
+        </div>
+
+        <div class="settings-row">
+          <label data-i18n="langOrder">ترتيب اللغات في الجمل</label>
+          <select id="settings-lang-order">
+            <option value="fr,ar,en">Français - العربية - English</option>
+            <option value="en,ar,fr">English - العربية - Français</option>
+            <option value="ar,en,fr">العربية - English - Français</option>
+            <option value="fr,en,ar">Français - English - العربية</option>
+            <option value="ar,fr,en">العربية - Français - English</option>
+            <option value="en,fr,ar">English - Français - العربية</option>
+          </select>
+        </div>
+
+        <div class="settings-row">
           <label data-i18n="storage">مساحة التخزين</label>
           <button id="btn-clear-data" class="btn-danger" data-i18n="clearData">مسح جميع الدروس</button>
         </div>
 
-        <div class="settings-row">
-          <label data-i18n="offline">تشغيل بدون إنترنت</label>
-          <button id="btn-install" class="btn-secondary" data-i18n="installApp">تثبيت التطبيق</button>
+        <div class="settings-row backup-row">
+          <label>Google Drive</label>
+          <div class="backup-buttons">
+            <button id="btn-export" class="btn-secondary" data-i18n="exportBackup">تصدير نسخة احتياطية ☁️</button>
+            <button id="btn-import" class="btn-secondary" data-i18n="importBackup">استيراد نسخة احتياطية 📥</button>
+          </div>
+          <input type="file" id="backup-import-file" accept=".json" class="hidden">
+        </div>
+
+        <div class="settings-row contact-row">
+          <label data-i18n="contact">تواصل معنا</label>
+          <div class="contact-links">
+            <a href="https://wa.me/33775813643" target="_blank" rel="noopener" class="btn-secondary">WhatsApp +337 75 81 36 43</a>
+            <a href="mailto:syrian020@gmail.com" class="btn-secondary">syrian020@gmail.com</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
+
+  <input type="file" id="lesson-image-file" accept="image/*" class="hidden">
+
+  <div id="lesson-actions" class="action-sheet hidden">
+    <div class="action-sheet-backdrop" onclick="closeLessonActions()"></div>
+    <div class="action-sheet-content">
+      <button class="action-sheet-item action-play" data-action="play"><span class="as-icon">▶️</span> <span data-i18n="play">تشغيل</span></button>
+      <button class="action-sheet-item action-edit" data-action="edit"><span class="as-icon">✏️</span> <span data-i18n="edit">تعديل</span></button>
+      <button class="action-sheet-item action-image" data-action="image"><span class="as-icon">🖼️</span> <span data-i18n="setImage">وضع صورة للدرس</span></button>
+      <button class="action-sheet-item action-delete" data-action="delete"><span class="as-icon">🗑️</span> <span data-i18n="delete">حذف</span></button>
+      <button class="action-sheet-item action-cancel" data-action="cancel" onclick="closeLessonActions()" data-i18n="cancel">إلغاء</button>
+    </div>
+  </div>
 
   <div id="toast" class="toast"></div>
 
@@ -680,94 +1172,124 @@
     // --- Translations ---
     const i18n = {
       ar: {
-        lessons: "الدروس", editor: "محرر", settings: "الإعدادات",
-        myLessons: "دروسي", lessonsDesc: "اختر درسًا لعرضه، أو ابدأ بإضافة درس جديد.",
+        lessons: "الدروس", editor: "درس جديد", settings: "الإعدادات",
+        myLessons: "دروسي", lessonsDesc: "اختر درساً لمشاهدته، أو أنشئ درساً جديداً.",
         newLesson: "درس جديد", lessonTitle: "عنوان الدرس",
         lessonTitlePlaceholder: "مثال: درس اللغة الفرنسية 1",
         videoFile: "ملف الفيديو", chooseVideo: "اضغط لاختيار فيديو من الهاتف",
+        audioFile: "ملف صوتي", chooseAudio: "اضغط لاختيار ملف صوتي من الهاتف",
         uploadSrt: "رفع SRT", timedText: "نص موقوت",
         srtFile: "ملف الترجمة (.srt)", chooseSrt: "اضغط لاختيار ملف SRT",
         timedTextLabel: "أدخل النص مع التوقيت الزمني",
         timedTextHelp: "اكتب كل جملة في سطر بصيغة: 00:01 النص أو [00:01:05.200] النص. اكتب الترجمة في السطر التالي. أو استخدم صيغة SRT الكاملة.",
         timedTextPlaceholder: "00:00 مرحباً\nHello\n00:04 درس جديد\nNew lesson",
         preview: "معاينة", saveLesson: "حفظ الدرس", cancel: "إلغاء",
-        language: "اللغة", theme: "الوضع", fontSize: "حجم الخط",
-        dark: "داكن (مريح للعين)", light: "فاتح",
+        language: "اللغة", theme: "الوضع", fontSize: "حجم الخط", langOrder: "ترتيب اللغات في الجمل",
+        cardStyle: "ستايل البطاقات", cardClassic: "كلاسيكي", cardModern: "عصري داكن", cardPastel: "باستيل", cardElegant: "أنيق", cardPlayful: "نشرة أخبار",
+        dark: "داكن (مريح للعين)", light: "فاتح", themeOcean: "محيط", themeForest: "غابة", themeBerry: "توت", themeSunset: "غروب", themeMidnight: "منتصف الليل",
         storage: "مساحة التخزين", clearData: "مسح جميع الدروس",
-        offline: "تشغيل بدون إنترنت", installApp: "تثبيت التطبيق",
-        noLessons: "لا يوجد دروس بعد. اضغط \"درس جديد\" للبدء.",
+        noLessons: "لا توجد دروس بعد. اضغط على تبويب \"درس جديد\" للبدء.",
         saved: "تم حفظ الدرس", deleted: "تم حذف الدرس",
-        enterTitle: "أدخل عنوان الدرس", chooseVideoFile: "اختر ملف الفيديو أولاً",
+        contact: "تواصل معنا",
+        enterTitle: "أدخل عنوان الدرس", chooseVideoFile: "اختر ملف الفيديو أو الصوت أولاً",
         addSubtitle: "أضف ملف SRT أو نص موقوت",
         invalidTime: "تنسيق الوقت غير صحيح",
         confirmDelete: "هل تريد حذف هذا الدرس؟",
         play: "تشغيل", pause: "إيقاف", edit: "تعديل", delete: "حذف", repeat: "تكرار العبارة",
-        words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "الجمل والتصحيح", saveCue: "حفظ",
+        words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "العبارات", saveCue: "حفظ",
         close: "إغلاق", listen: "استماع", repeatWord: "تكرار",
+        frenchWords: "كلمات فرنسية", englishWords: "كلمات إنجليزية", arabicWords: "كلمات عربية",
+        downloadVideo: "تحميل الفيديو", downloadAudio: "تحميل الصوت",
         downloadSrt: "تحميل SRT", downloadVtt: "تحميل VTT", downloadText: "تحميل كنص",
         lesson: "درس", of: "من",
-        installed: "يمكن تشغيل التطبيق من الشاشة الرئيسية",
-        notInstallable: "التثبيت غير متاح في هذا المتصفح"
+        back: "رجوع",
+        confirmClearAll: "هل تريد مسح جميع الدروس؟ لا يمكن التراجع عن هذا الإجراء.",
+        exportBackup: "تصدير نسخة احتياطية ☁️", importBackup: "استيراد نسخة احتياطية 📥",
+        setImage: "وضع صورة للدرس", exportSuccess: "تم تصدير النسخة الاحتياطية", importSuccess: "تم استيراد النسخة الاحتياطية",
+        exporting: "جاري تصدير النسخة الاحتياطية...", exportingLesson: "جاري تصدير الدرس {0} من {1}",
+        exportError: "فشل تصدير النسخة الاحتياطية. حاول تقليل عدد الدروس أو حجم الفيديوهات.",
+        invalidBackup: "ملف النسخة الاحتياطية غير صالح",
+        exitConfirm: "هل تريد الخروج من التطبيق؟"
       },
       fr: {
-        lessons: "Leçons", editor: "Éditeur", settings: "Paramètres",
-        myLessons: "Mes leçons", lessonsDesc: "Choisissez une leçon ou créez-en une nouvelle.",
+        lessons: "Leçons", editor: "Nouvelle leçon", settings: "Paramètres",
+        myLessons: "Mes leçons", lessonsDesc: "Choisissez une leçon à regarder, ou créez-en une nouvelle.",
         newLesson: "Nouvelle leçon", lessonTitle: "Titre de la leçon",
         lessonTitlePlaceholder: "Ex: Cours de français 1",
         videoFile: "Fichier vidéo", chooseVideo: "Appuyez pour choisir une vidéo",
+        audioFile: "Fichier audio", chooseAudio: "Appuyez pour choisir un fichier audio",
         uploadSrt: "Importer SRT", timedText: "Texte synchronisé",
         srtFile: "Fichier de sous-titres (.srt)", chooseSrt: "Appuyez pour choisir un fichier SRT",
         timedTextLabel: "Saisissez le texte avec horodatage",
         timedTextHelp: "Écrivez chaque phrase sur une ligne au format 00:01 texte ou [00:01:05.200] texte. Écrivez la traduction à la ligne suivante. Ou utilisez le format SRT complet.",
         timedTextPlaceholder: "00:00 Bienvenue\nWelcome\n00:04 Nouvelle leçon\nNew lesson",
         preview: "Aperçu", saveLesson: "Enregistrer", cancel: "Annuler",
-        language: "Langue", theme: "Thème", fontSize: "Taille de police",
-        dark: "Sombre (repos pour les yeux)", light: "Clair",
+        language: "Langue", theme: "Thème", fontSize: "Taille de police", langOrder: "Ordre des langues dans les phrases",
+        cardStyle: "Style des cartes", cardClassic: "Classique", cardModern: "Moderne foncé", cardPastel: "Pastel", cardElegant: "Élégant", cardPlayful: "Journal",
+        dark: "Sombre (repos pour les yeux)", light: "Clair", themeOcean: "Océan", themeForest: "Forêt", themeBerry: "Baie", themeSunset: "Coucher de soleil", themeMidnight: "Minuit",
         storage: "Stockage", clearData: "Supprimer toutes les leçons",
-        offline: "Hors connexion", installApp: "Installer l'application",
-        noLessons: "Aucune leçon. Appuyez sur \"Nouvelle leçon\" pour commencer.",
+        noLessons: "Aucune leçon pour l'instant. Appuyez sur l'onglet \"Nouvelle leçon\" pour commencer.",
         saved: "Leçon enregistrée", deleted: "Leçon supprimée",
-        enterTitle: "Entrez le titre", chooseVideoFile: "Choisissez d'abord une vidéo",
+        contact: "Contactez-nous",
+        enterTitle: "Entrez le titre", chooseVideoFile: "Choisissez d'abord une vidéo ou un audio",
         addSubtitle: "Ajoutez un fichier SRT ou du texte synchronisé",
         invalidTime: "Format de temps invalide",
         confirmDelete: "Supprimer cette leçon ?",
         play: "Lire", pause: "Pause", edit: "Modifier", delete: "Supprimer", repeat: "Répéter la phrase",
-        words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Phrases et correction", saveCue: "Enregistrer",
+        words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Les phrases", saveCue: "Enregistrer",
         close: "Fermer", listen: "Écouter", repeatWord: "Répéter",
+        frenchWords: "Mots français", englishWords: "Mots anglais", arabicWords: "Mots arabes",
+        downloadVideo: "Télécharger la vidéo", downloadAudio: "Télécharger l'audio",
         downloadSrt: "Télécharger SRT", downloadVtt: "Télécharger VTT", downloadText: "Télécharger texte",
         lesson: "Leçon", of: "sur",
-        installed: "L'application est installable depuis l'écran d'accueil",
-        notInstallable: "Installation non supportée par ce navigateur"
+        back: "Retour",
+        confirmClearAll: "Supprimer toutes les leçons ? Cette action est irréversible.",
+        exportBackup: "Exporter une sauvegarde ☁️", importBackup: "Importer une sauvegarde 📥",
+        setImage: "Définir l'image de la leçon", exportSuccess: "Sauvegarde exportée", importSuccess: "Sauvegarde importée",
+        exporting: "Export de la sauvegarde en cours...", exportingLesson: "Export de la leçon {0} sur {1}",
+        exportError: "Échec de l'export. Essayez de réduire le nombre de leçons ou la taille des vidéos.",
+        invalidBackup: "Fichier de sauvegarde invalide",
+        exitConfirm: "Voulez-vous quitter l'application ?"
       },
       en: {
-        lessons: "Lessons", editor: "Editor", settings: "Settings",
+        lessons: "Lessons", editor: "New lesson", settings: "Settings",
         myLessons: "My lessons", lessonsDesc: "Choose a lesson to watch, or create a new one.",
         newLesson: "New lesson", lessonTitle: "Lesson title",
         lessonTitlePlaceholder: "E.g. French lesson 1",
         videoFile: "Video file", chooseVideo: "Tap to choose a video",
+        audioFile: "Audio file", chooseAudio: "Tap to choose an audio file",
         uploadSrt: "Upload SRT", timedText: "Timed text",
         srtFile: "Subtitle file (.srt)", chooseSrt: "Tap to choose an SRT file",
         timedTextLabel: "Enter timed text",
         timedTextHelp: "Write each line as 00:01 text or [00:01:05.200] text. Write translation on the next line. Or use full SRT format.",
         timedTextPlaceholder: "00:00 Welcome\nترحيب\n00:04 New lesson\nدرس جديد",
         preview: "Preview", saveLesson: "Save lesson", cancel: "Cancel",
-        language: "Language", theme: "Theme", fontSize: "Font size",
-        dark: "Dark (eye-friendly)", light: "Light",
+        language: "Language", theme: "Theme", fontSize: "Font size", langOrder: "Language order in sentences",
+        cardStyle: "Card style", cardClassic: "Classic", cardModern: "Modern dark", cardPastel: "Pastel", cardElegant: "Elegant", cardPlayful: "Newspaper",
+        dark: "Dark (eye-friendly)", light: "Light", themeOcean: "Ocean", themeForest: "Forest", themeBerry: "Berry", themeSunset: "Sunset", themeMidnight: "Midnight",
         storage: "Storage", clearData: "Delete all lessons",
-        offline: "Offline use", installApp: "Install app",
         noLessons: "No lessons yet. Tap \"New lesson\" to start.",
         saved: "Lesson saved", deleted: "Lesson deleted",
-        enterTitle: "Enter a title", chooseVideoFile: "Choose a video first",
+        contact: "Contact us",
+        enterTitle: "Enter a title", chooseVideoFile: "Choose a video or audio file first",
         addSubtitle: "Add an SRT file or timed text",
         invalidTime: "Invalid time format",
         confirmDelete: "Delete this lesson?",
         play: "Play", pause: "Pause", edit: "Edit", delete: "Delete", repeat: "Repeat phrase",
-        words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "Sentences & correction", saveCue: "Save",
+        words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "The Phrases", saveCue: "Save",
         close: "Close", listen: "Listen", repeatWord: "Repeat",
+        frenchWords: "French words", englishWords: "English words", arabicWords: "Arabic words",
+        downloadVideo: "Download video", downloadAudio: "Download audio",
         downloadSrt: "Download SRT", downloadVtt: "Download VTT", downloadText: "Download text",
         lesson: "Lesson", of: "of",
-        installed: "The app can be launched from the home screen",
-        notInstallable: "Installation not supported by this browser"
+        back: "Back",
+        confirmClearAll: "Delete all lessons? This cannot be undone.",
+        exportBackup: "Export backup ☁️", importBackup: "Import backup 📥",
+        setImage: "Set lesson image", exportSuccess: "Backup exported", importSuccess: "Backup imported",
+        exporting: "Exporting backup...", exportingLesson: "Exporting lesson {0} of {1}",
+        exportError: "Export failed. Try reducing the number of lessons or video sizes.",
+        invalidBackup: "Invalid backup file",
+        exitConfirm: "Do you want to exit the app?"
       }
     };
 
@@ -775,20 +1297,39 @@
       lang: localStorage.getItem('vs_lang') || 'ar',
       theme: localStorage.getItem('vs_theme') || 'dark',
       fontSize: parseInt(localStorage.getItem('vs_font_size') || '16', 10),
+      cardStyle: localStorage.getItem('vs_card_style') || 'classic',
+      langOrder: (() => {
+        const saved = localStorage.getItem('vs_lang_order');
+        if (saved) {
+          const arr = saved.split(',').filter(x => ['fr','ar','en'].includes(x));
+          if (arr.length === 3) return arr;
+        }
+        return ['fr','ar','en'];
+      })(),
       db: null,
       currentLesson: null,
       videoFile: null,
+      audioFile: null,
       subtitleText: '',
       subtitleType: 'srt',
       editingId: null,
       currentCues: [],
       loopCue: null,
-      loopWord: null
+      loopWord: null,
+      cueLineLoop: null,
+      sentenceLineLoop: null,
+      videoLoop: false,
+      captionsVisible: true,
+      captionScale: parseFloat(localStorage.getItem('vs_caption_scale') || '1'),
+      imageLessonId: null,
+      actionLessonId: null,
+      playerMode: false
     };
 
     const DB_NAME = 'videoSubtitleDB';
     const DB_VERSION = 1;
     const STORE_NAME = 'lessons';
+    const DRAFT_ID = 'draft';
 
     // --- DB ---
     function openDB() {
@@ -825,6 +1366,31 @@
       });
     }
 
+    async function getLessonSummariesFromDB() {
+      const tx = state.db.transaction(STORE_NAME, 'readonly');
+      const store = tx.objectStore(STORE_NAME);
+      return new Promise((resolve, reject) => {
+        const out = [];
+        const req = store.openCursor();
+        req.onsuccess = (e) => {
+          const cursor = e.target.result;
+          if (!cursor) { resolve(out); return; }
+          const l = cursor.value;
+          if (l.id !== DRAFT_ID) {
+            out.push({
+              id: l.id,
+              title: l.title,
+              duration: l.duration,
+              createdAt: l.createdAt,
+              coverImage: l.coverImage || null
+            });
+          }
+          cursor.continue();
+        };
+        req.onerror = () => reject(req.error);
+      });
+    }
+
     async function deleteLessonFromDB(id) {
       const tx = state.db.transaction(STORE_NAME, 'readwrite');
       const store = tx.objectStore(STORE_NAME);
@@ -843,6 +1409,61 @@
         req.onsuccess = () => resolve(req.result);
         req.onerror = () => reject(req.error);
       });
+    }
+
+    // --- Draft ---
+    let draftSaveTimeout = null;
+    function scheduleSaveDraft() {
+      if (draftSaveTimeout) clearTimeout(draftSaveTimeout);
+      draftSaveTimeout = setTimeout(saveDraft, 800);
+    }
+    async function saveDraft() {
+      if (!state.db) return;
+      const draft = {
+        id: DRAFT_ID,
+        title: document.getElementById('lesson-title').value.trim(),
+        videoFile: state.videoFile || null,
+        videoName: state.videoFile ? state.videoFile.name : '',
+        videoType: state.videoFile ? state.videoFile.type : '',
+        audioFile: state.audioFile || null,
+        audioName: state.audioFile ? state.audioFile.name : '',
+        audioType: state.audioFile ? state.audioFile.type : '',
+        subtitleType: state.subtitleType,
+        subtitleText: state.subtitleType === 'srt' ? state.subtitleText : document.getElementById('timed-text').value,
+        playerMode: state.playerMode,
+        editingId: state.editingId || null,
+        currentLesson: state.currentLesson || null,
+        updatedAt: Date.now()
+      };
+      try { await saveLessonToDB(draft); } catch (e) { console.error('saveDraft failed', e); }
+    }
+    async function loadDraft() {
+      if (!state.db) return;
+      try {
+        const draft = await getLessonById(DRAFT_ID);
+        if (!draft) return;
+        state.editingId = draft.editingId || null;
+        state.currentLesson = draft.currentLesson || null;
+        state.playerMode = draft.playerMode || false;
+        setPlayerMode(state.playerMode);
+        document.getElementById('lesson-title').value = draft.title || '';
+        state.videoFile = draft.videoFile || null;
+        state.audioFile = draft.audioFile || null;
+        document.getElementById('video-name').textContent = draft.videoName || '';
+        document.getElementById('audio-name').textContent = draft.audioName || '';
+        state.subtitleType = draft.subtitleType || 'srt';
+        selectSubtab(state.subtitleType);
+        if (state.subtitleType === 'srt') {
+          state.subtitleText = draft.subtitleText || '';
+          if (draft.videoName || draft.audioName) document.getElementById('srt-name').textContent = (draft.videoName || draft.audioName || '').replace(/\.[^/.]+$/, '') + '.srt';
+        } else {
+          document.getElementById('timed-text').value = draft.subtitleText || '';
+        }
+      } catch (e) { console.error('loadDraft failed', e); }
+    }
+    async function deleteDraft() {
+      if (!state.db) return;
+      try { await deleteLessonFromDB(DRAFT_ID); } catch (e) { console.error('deleteDraft failed', e); }
     }
 
     // --- I18n ---
@@ -864,9 +1485,14 @@
         if (i18n[lang][key]) el.title = i18n[lang][key];
       });
       document.getElementById('btn-lang').textContent = lang.toUpperCase();
-      document.getElementById('app-name').textContent = lang === 'ar' ? 'دروسي المرئية' : (lang === 'fr' ? 'Mes Vidéos' : 'Video Lessons');
-      document.title = lang === 'ar' ? 'دروسي المرئية' : (lang === 'fr' ? 'Mes Vidéos' : 'Video Lessons');
+      document.getElementById('app-name').textContent = 'VidCap';
+      document.title = 'VidCap';
       document.getElementById('settings-language').value = lang;
+      updateDownloadLinks();
+      if (state.currentCues.length) {
+        renderSentences();
+        updateSubtitleOverlay();
+      }
     }
 
     function t(key) { return i18n[state.lang][key] || key; }
@@ -876,7 +1502,8 @@
       state.theme = theme;
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('vs_theme', theme);
-      document.getElementById('btn-theme').textContent = theme === 'dark' ? '☀️' : '🌙';
+      const themeIcons = { dark: '🌙', light: '☀️', ocean: '🌊', forest: '🌿', berry: '🍇', sunset: '🌅', midnight: '✨' };
+      document.getElementById('btn-theme').textContent = themeIcons[theme] || '🎨';
       document.getElementById('settings-theme').value = theme;
     }
 
@@ -887,6 +1514,36 @@
       localStorage.setItem('vs_font_size', size);
       document.getElementById('settings-font-size').value = size;
       document.getElementById('font-size-value').textContent = size + 'px';
+    }
+
+    function setLangOrder(order) {
+      if (!Array.isArray(order) || order.length !== 3) return;
+      state.langOrder = order;
+      localStorage.setItem('vs_lang_order', order.join(','));
+      const select = document.getElementById('settings-lang-order');
+      if (select) select.value = order.join(',');
+      if (state.currentCues.length) {
+        updateSubtitleOverlay();
+        renderSentences();
+      }
+    }
+
+    function setCardStyle(style) {
+      state.cardStyle = style;
+      localStorage.setItem('vs_card_style', style);
+      const select = document.getElementById('settings-card-style');
+      if (select) select.value = style;
+      const list = document.getElementById('sentences-list');
+      const display = document.getElementById('subtitle-display');
+      const classes = ['card-style-classic', 'card-style-modern', 'card-style-pastel', 'card-style-elegant', 'card-style-playful'];
+      if (list) {
+        list.classList.remove(...classes);
+        list.classList.add('card-style-' + style);
+      }
+      if (display) {
+        display.classList.remove(...classes);
+        display.classList.add('card-style-' + style);
+      }
     }
 
     // --- Utilities ---
@@ -1048,7 +1705,15 @@
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
       document.getElementById('page-' + page).classList.add('active');
-      document.getElementById('nav-' + page).classList.add('active');
+      if (page === 'editor' || page === 'lesson') {
+        const card = document.getElementById('editor-card');
+        const target = document.getElementById('page-' + page);
+        if (card && target && card.parentElement !== target) target.appendChild(card);
+      }
+      if (page === 'lessons' || page === 'settings' || page === 'editor') {
+        const navBtn = document.getElementById('nav-' + page);
+        if (navBtn) navBtn.classList.add('active');
+      }
       if (page === 'lessons') renderLessons();
     }
 
@@ -1056,7 +1721,7 @@
     async function renderLessons() {
       const list = document.getElementById('lessons-list');
       const empty = document.getElementById('lessons-empty');
-      const lessons = await getLessonsFromDB();
+      const lessons = await getLessonSummariesFromDB();
       list.innerHTML = '';
       if (!lessons.length) {
         empty.classList.remove('hidden');
@@ -1070,13 +1735,21 @@
         const card = document.createElement('div');
         card.className = 'lesson-card';
         const date = new Date(lesson.createdAt).toLocaleDateString(state.lang === 'ar' ? 'ar-EG' : (state.lang === 'fr' ? 'fr-FR' : 'en-US'));
+        const cover = lesson.coverImage
+          ? `<img class="cover-thumb" src="${URL.createObjectURL(lesson.coverImage)}" alt="">`
+          : '<div class="cover-thumb placeholder"></div>';
         card.innerHTML = `
-          <h3>${escapeHtml(lesson.title || t('lesson'))}</h3>
-          <small>${date} · ${formatDuration(lesson.duration || 0)}</small>
-          <div class="actions">
-            <button class="btn-play" data-id="${lesson.id}">${t('play')}</button>
-            <button class="btn-edit btn-secondary" data-id="${lesson.id}">${t('edit')}</button>
-            <button class="btn-delete btn-danger" data-id="${lesson.id}">${t('delete')}</button>
+          <div class="lesson-menu" data-id="${lesson.id}">
+            <button class="btn-menu" data-id="${lesson.id}" data-action="menu">⋮</button>
+          </div>
+          <div class="lesson-card-body">
+            <div class="thumb-wrap">
+              ${cover}
+            </div>
+            <div class="lesson-info">
+              <h3>${escapeHtml(lesson.title || t('lesson'))}</h3>
+              <small>${date} · ${formatDuration(lesson.duration || 0)}</small>
+            </div>
           </div>
         `;
         list.appendChild(card);
@@ -1096,27 +1769,153 @@
       return div.innerHTML;
     }
 
+    function blobToDataURL(blob) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(reader.error || new Error('Failed to read blob'));
+        reader.onabort = () => reject(new Error('Blob read aborted'));
+        reader.readAsDataURL(blob);
+      });
+    }
+
+    function dataURLtoBlob(dataUrl) {
+      const arr = dataUrl.split(',');
+      const mime = arr[0].match(/:(.*?);/)[1];
+      const bstr = atob(arr[1]);
+      const n = bstr.length;
+      const u8arr = new Uint8Array(n);
+      for (let i = 0; i < n; i++) u8arr[i] = bstr.charCodeAt(i);
+      return new Blob([u8arr], { type: mime });
+    }
+
+    function downloadFile(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 2000);
+    }
+
+    function setLessonImage(id) {
+      state.imageLessonId = id;
+      document.getElementById('lesson-image-file').click();
+    }
+
+    function setPlayerMode(active, title) {
+      state.playerMode = active;
+      const card = document.getElementById('editor-card');
+      const header = document.getElementById('player-header');
+      if (active) {
+        card.classList.add('player-mode');
+        header.classList.remove('hidden');
+        document.getElementById('player-title').textContent = title || '';
+      } else {
+        card.classList.remove('player-mode');
+        header.classList.add('hidden');
+        document.getElementById('player-title').textContent = '';
+      }
+    }
+
+    function openLessonActions(id) {
+      state.actionLessonId = id;
+      document.getElementById('lesson-actions').classList.remove('hidden');
+    }
+
+    function closeLessonActions() {
+      state.actionLessonId = null;
+      document.getElementById('lesson-actions').classList.add('hidden');
+    }
+
+    async function exportLessons() {
+      try {
+        const lessons = (await getLessonsFromDB()).filter(l => l.id !== DRAFT_ID);
+        const exported = [];
+        for (const l of lessons) {
+          const obj = { ...l };
+          if (l.videoFile && l.videoFile instanceof Blob) obj.videoFile = await blobToDataURL(l.videoFile);
+          if (l.vttBlob && l.vttBlob instanceof Blob) obj.vttBlob = await blobToDataURL(l.vttBlob);
+          if (l.coverImage && l.coverImage instanceof Blob) obj.coverImage = await blobToDataURL(l.coverImage);
+          exported.push(obj);
+        }
+        const json = JSON.stringify(exported);
+        const blob = new Blob([json], { type: 'application/json' });
+        await shareOrDownload({ filename: 'dross-backup.json', blob, contentType: 'application/json' });
+        showToast(t('exportSuccess'));
+      } catch (e) {
+        console.error('exportLessons failed', e);
+        showToast(t('exportError'));
+      }
+    }
+
+    async function importLessons(file) {
+      try {
+        const text = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsText(file);
+        });
+        const arr = JSON.parse(text);
+        if (!Array.isArray(arr)) throw new Error('invalid');
+        for (const l of arr) {
+          const lesson = { ...l };
+          if (l.videoFile && typeof l.videoFile === 'string' && l.videoFile.startsWith('data:')) {
+            lesson.videoFile = dataURLtoBlob(l.videoFile);
+            lesson.videoType = lesson.videoFile.type;
+          }
+          if (l.vttBlob && typeof l.vttBlob === 'string' && l.vttBlob.startsWith('data:')) {
+            lesson.vttBlob = dataURLtoBlob(l.vttBlob);
+          }
+          if (l.coverImage && typeof l.coverImage === 'string' && l.coverImage.startsWith('data:')) {
+            lesson.coverImage = dataURLtoBlob(l.coverImage);
+          }
+          if (!lesson.id) lesson.id = Date.now() + Math.random();
+          await saveLessonToDB(lesson);
+        }
+        showToast(t('importSuccess'));
+        renderLessons();
+      } catch (err) {
+        showToast(t('invalidBackup'));
+      }
+    }
+
     // --- Editor logic ---
     function resetEditor() {
+      stopCueLineLoop();
+      stopSentenceLineLoop();
       state.videoFile = null;
+      state.audioFile = null;
       state.subtitleText = '';
       state.subtitleType = 'srt';
       state.editingId = null;
+      state.currentLesson = null;
       state.currentCues = [];
       state.loopCue = null;
+      state.playerMode = false;
+      setPlayerMode(false);
       document.getElementById('lesson-title').value = '';
       document.getElementById('video-file').value = '';
+      document.getElementById('audio-file').value = '';
       document.getElementById('srt-file').value = '';
       document.getElementById('timed-text').value = '';
       document.getElementById('video-name').textContent = '';
+      document.getElementById('audio-name').textContent = '';
       document.getElementById('srt-name').textContent = '';
+      document.getElementById('subtitle-current').innerHTML = '';
+      document.getElementById('subtitle-lang-buttons').innerHTML = '';
       document.getElementById('preview-wrap').classList.add('hidden');
       document.getElementById('subtitle-display').classList.add('hidden');
+      document.getElementById('subtitle-toolbar').classList.add('hidden');
       document.getElementById('playback-controls').classList.add('hidden');
       document.getElementById('download-links').classList.add('hidden');
       document.getElementById('sentences-section').classList.add('hidden');
       document.getElementById('lesson-words').classList.add('hidden');
       document.getElementById('cue-list').classList.add('hidden');
+      selectSubtab('srt');
       const video = document.getElementById('lesson-video');
       detachSubtitleListeners(video);
       video.pause();
@@ -1126,7 +1925,6 @@
       document.querySelectorAll('.speed-buttons button').forEach(b => b.classList.toggle('active', parseFloat(b.dataset.speed) === 1));
       const track = video.querySelector('track');
       if (track) track.remove();
-      selectSubtab('srt');
     }
 
     function selectSubtab(tab) {
@@ -1140,7 +1938,8 @@
     async function previewLesson() {
       const title = document.getElementById('lesson-title').value.trim();
       if (!title) { showToast(t('enterTitle')); return; }
-      if (!state.videoFile) { showToast(t('chooseVideoFile')); return; }
+      if (!state.videoFile && !state.audioFile) { showToast(t('chooseVideoFile')); return; }
+      const mediaFile = state.videoFile || state.audioFile;
 
       const text = state.subtitleType === 'srt' ? state.subtitleText : document.getElementById('timed-text').value;
       if (!text.trim()) { showToast(t('addSubtitle')); return; }
@@ -1155,20 +1954,21 @@
 
       const video = document.getElementById('lesson-video');
       detachSubtitleListeners(video);
-      video.src = URL.createObjectURL(state.videoFile);
+      video.src = URL.createObjectURL(mediaFile);
       const track = document.createElement('track');
       track.kind = 'subtitles';
       track.label = 'Subtitles';
       track.srclang = state.lang;
       track.src = URL.createObjectURL(new Blob([vtt], { type: 'text/vtt' }));
-      track.default = true;
-      track.mode = 'hidden';
       const old = video.querySelector('track');
       if (old) old.remove();
       video.appendChild(track);
+      track.mode = 'hidden';
       document.getElementById('preview-wrap').classList.remove('hidden');
 
       document.getElementById('subtitle-display').classList.remove('hidden');
+      syncCaptionControls();
+      document.getElementById('subtitle-toolbar').classList.remove('hidden');
       document.getElementById('playback-controls').classList.remove('hidden');
       document.getElementById('download-links').classList.remove('hidden');
       document.getElementById('sentences-section').classList.remove('hidden');
@@ -1196,18 +1996,109 @@
       }
 
       if (cue) {
-        current.textContent = cue.text;
+        current.innerHTML = formatCueLines(cue);
+        renderSubtitleLangButtons(cue);
         const isLoop = state.loopCue && state.loopCue.start === cue.start && state.loopCue.end === cue.end;
         loopBtn.classList.toggle('active', isLoop);
-        loopBtn.textContent = isLoop ? '🔁' : '🔂';
       } else {
         current.innerHTML = '';
+        document.getElementById('subtitle-lang-buttons').innerHTML = '';
         loopBtn.classList.remove('active');
-        loopBtn.textContent = '🔂';
       }
       highlightActiveCue(cue);
       highlightActiveSentence(cue);
       updateSentenceLoopStates();
+    }
+
+    function getCueLangs(cue) {
+      let order = (state.langOrder || ['fr', 'ar', 'en']).filter((v, i, a) => a.indexOf(v) === i);
+      if (order.length < 3) order = ['fr', 'ar', 'en'];
+      if (!cue || !cue.text) return [];
+      const lines = cue.text.split('\n').map(l => l.trim()).filter(Boolean);
+      const arLines = lines.filter(l => /[\u0600-\u06FF]/.test(l));
+      const nonArLines = lines.filter(l => !/[\u0600-\u06FF]/.test(l));
+      const result = [];
+      let nonArIdx = 0;
+      order.forEach(lang => {
+        if (lang === 'ar') {
+          if (arLines.length) result.push({ lang: 'ar', text: arLines.shift() });
+        } else if (nonArIdx < nonArLines.length) {
+          result.push({ lang, text: nonArLines[nonArIdx++] });
+        }
+      });
+      arLines.forEach(text => result.push({ lang: 'ar', text }));
+      nonArLines.slice(nonArIdx).forEach((text, i) => {
+        const remaining = order.filter(l => l !== 'ar' && !result.some(r => r.lang === l));
+        result.push({ lang: remaining[i] || 'fr', text });
+      });
+      return result;
+    }
+
+    function getCueLineByLang(cue, lang) {
+      return getCueLangs(cue).find(x => x.lang === lang)?.text || '';
+    }
+
+    function formatCueLines(cue) {
+      const entries = getCueLangs(cue);
+      if (!entries.length) return '';
+      const labels = { fr: 'FR', ar: 'AR', en: 'EN' };
+      return entries.map((entry, i) => {
+        const dir = entry.lang === 'ar' ? 'rtl' : 'ltr';
+        const label = `<span class="lang-label">${labels[entry.lang] || ''}</span>`;
+        const primaryClass = i === 0 ? ' primary' : '';
+        return `<div class="subtitle-line ${entry.lang}${primaryClass}" dir="${dir}">${label}<span class="line-text">${escapeHtml(entry.text)}</span></div>`;
+      }).join('');
+    }
+
+    function renderSubtitleLangButtons(cue) {
+      const wrap = document.getElementById('subtitle-lang-buttons');
+      if (!wrap) return;
+      const order = state.langOrder || ['fr', 'ar', 'en'];
+      const labels = { fr: 'FR', ar: 'AR', en: 'EN' };
+      const present = order.filter(l => getCueLineByLang(cue, l));
+      wrap.innerHTML = present.map(l => {
+        const active = state.cueLineLoop && state.cueLineLoop.lang === l;
+        const icon = active ? '🔁' : '↻';
+        return `<button class="lang-btn ${active ? 'active' : ''}" data-lang="${l}" onclick="toggleCueLineLoop('${l}')">${labels[l]} <span class="loop-icon">${icon}</span></button>`;
+      }).join('');
+    }
+
+    function toggleCueLineLoop(lang) {
+      if (state.cueLineLoop && state.cueLineLoop.lang === lang) {
+        stopCueLineLoop();
+        return;
+      }
+      stopCueLineLoop();
+      state.cueLineLoop = { lang };
+      updateCueLineLoopButtons();
+      const ttsLang = lang === 'fr' ? 'fr-FR' : (lang === 'ar' ? 'ar-SA' : 'en-US');
+      const speakNext = () => {
+        if (!state.cueLineLoop || state.cueLineLoop.lang !== lang) return;
+        const video = document.getElementById('lesson-video');
+        const cue = state.currentCues.find(c => video.currentTime >= c.start && video.currentTime < c.end);
+        if (!cue) { setTimeout(speakNext, 400); return; }
+        const text = getCueLineByLang(cue, lang);
+        if (!text) { setTimeout(speakNext, 400); return; }
+        ttsSpeak({ text, lang: ttsLang, onend: () => setTimeout(speakNext, 300) });
+      };
+      speakNext();
+    }
+
+    function stopCueLineLoop() {
+      state.cueLineLoop = null;
+      ttsStop();
+      updateCueLineLoopButtons();
+    }
+
+    function updateCueLineLoopButtons() {
+      const wrap = document.getElementById('subtitle-lang-buttons');
+      if (!wrap) return;
+      wrap.querySelectorAll('.lang-btn').forEach(btn => {
+        const l = btn.dataset.lang;
+        const active = state.cueLineLoop && state.cueLineLoop.lang === l;
+        btn.classList.toggle('active', active);
+        btn.querySelector('.loop-icon').textContent = active ? '🔁' : '↻';
+      });
     }
 
     function renderCueList() {
@@ -1237,25 +2128,23 @@
       });
     }
 
-    function getCueWords(cue) {
-      const lines = (cue && cue.text ? cue.text : '').split('\n').map(l => l.trim()).filter(l => l);
-      const allWords = [];
-      lines.forEach(line => {
-        const words = line.split(/\s+/).filter(w => w.replace(/[^\w\u00C0-\u024F\u0600-\u06FF]/g, ''));
-        allWords.push(...words);
-      });
-      return allWords;
+    function getCueWordsByLang(cue, lang) {
+      const entry = getCueLangs(cue).find(x => x.lang === lang);
+      if (!entry) return [];
+      return entry.text.split(/\s+/).map(w => w.replace(/[^\w\u00C0-\u024F\u0400-\u04FF\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF'\-]/g, '')).filter(Boolean);
     }
 
-    function renderCueWords(cue, i) {
-      const words = getCueWords(cue);
+    function getCueWords(cue) { return getCueWordsByLang(cue, 'fr'); }
+
+    function renderCueWords(cue, i, lang) {
+      const words = getCueWordsByLang(cue, lang || 'fr');
       if (!words.length) return '';
       return `
         <div class="cue-words">
           ${words.map((w, idx) => `
-            <span class="word-chip" id="word-chip-${i}-${idx}" data-i="${i}" data-idx="${idx}">
-              <span onclick="event.stopPropagation(); speakWord(${i}, ${idx})">${escapeHtml(w)}</span>
-              <button class="word-loop" onclick="event.stopPropagation(); toggleWordLoop(${i}, ${idx})" title="${t('repeatWord')}">🔂</button>
+            <span class="word-chip" id="word-chip-${i}-${idx}-${lang || 'fr'}" data-i="${i}" data-idx="${idx}" data-lang="${lang || 'fr'}">
+              <span onclick="event.stopPropagation(); speakWord(${i}, ${idx}, '${lang || 'fr'}')">${escapeHtml(w)}</span>
+              <button class="word-loop" data-i="${i}" data-idx="${idx}" data-lang="${lang || 'fr'}" onclick="event.stopPropagation(); toggleWordLoop(${i}, ${idx}, '${lang || 'fr'}')" title="${t('repeatWord')}">🔂</button>
             </span>
           `).join('')}
         </div>
@@ -1278,9 +2167,9 @@
           <tbody>
             ${allWords.map(({ w, i, idx }) => `
               <tr>
-                <td class="word-cell" onclick="speakWord(${i}, ${idx})">${escapeHtml(w)}</td>
-                <td class="word-actions"><button onclick="speakWord(${i}, ${idx})" title="${t('listen')}">🔊</button></td>
-                <td class="word-actions"><button class="word-loop" data-i="${i}" data-idx="${idx}" onclick="toggleWordLoop(${i}, ${idx})" title="${t('repeatWord')}">🔂</button></td>
+                <td class="word-cell" onclick="speakWord(${i}, ${idx}, 'fr')">${escapeHtml(w)}</td>
+                <td class="word-actions"><button onclick="speakWord(${i}, ${idx}, 'fr')" title="${t('listen')}">🔊</button></td>
+                <td class="word-actions"><button class="word-loop" data-i="${i}" data-idx="${idx}" data-lang="fr" onclick="toggleWordLoop(${i}, ${idx}, 'fr')" title="${t('repeatWord')}">🔂</button></td>
               </tr>
             `).join('')}
           </tbody>
@@ -1302,22 +2191,131 @@
       }
     }
 
+    function renderCueWordsByLang(cue, i, lang) {
+      const words = getCueWordsByLang(cue, lang);
+      if (!words.length) return '';
+      const title = { fr: t('frenchWords') || 'كلمات فرنسية', en: t('englishWords') || 'كلمات إنجليزية', ar: t('arabicWords') || 'كلمات عربية' }[lang] || lang;
+      return `<div class="sentence-words hidden" id="sentence-words-${i}-${lang}"><div class="words-label">${escapeHtml(title)}</div><div class="cue-words">${words.map((w, idx) => `<span class="word-chip" id="word-chip-${i}-${idx}-${lang}" data-i="${i}" data-idx="${idx}" data-lang="${lang}"><span onclick="event.stopPropagation(); speakWord(${i}, ${idx}, '${lang}')">${escapeHtml(w)}</span><button class="word-loop" data-i="${i}" data-idx="${idx}" data-lang="${lang}" onclick="event.stopPropagation(); toggleWordLoop(${i}, ${idx}, '${lang}')" title="${t('repeatWord')}">🔂</button></span>`).join('')}</div></div>`;
+    }
+
+    function stopSentenceLineLoop() {
+      state.sentenceLineLoop = null;
+      ttsStop();
+      updateSentenceLineLoopButtons();
+    }
+
+    window.toggleSentenceLineLoop = function(i, lang) {
+      if (state.sentenceLineLoop && state.sentenceLineLoop.i === i && state.sentenceLineLoop.lang === lang) {
+        stopSentenceLineLoop();
+        return;
+      }
+      stopSentenceLineLoop();
+      state.sentenceLineLoop = { i, lang };
+      updateSentenceLineLoopButtons();
+      const ttsLang = lang === 'fr' ? 'fr-FR' : (lang === 'ar' ? 'ar-SA' : 'en-US');
+      const speakNext = () => {
+        if (!state.sentenceLineLoop || state.sentenceLineLoop.i !== i || state.sentenceLineLoop.lang !== lang) return;
+        const cue = state.currentCues[i];
+        if (!cue) { stopSentenceLineLoop(); return; }
+        const text = getCueLineByLang(cue, lang);
+        if (!text) { stopSentenceLineLoop(); return; }
+        ttsSpeak({ text, lang: ttsLang, onend: () => setTimeout(speakNext, 300) });
+      };
+      speakNext();
+    };
+
+    function updateSentenceLineLoopButtons() {
+      const container = document.getElementById('sentences-list');
+      if (!container) return;
+      container.querySelectorAll('.sentence-actions .lang-btn').forEach(btn => {
+        const i = parseInt(btn.dataset.i, 10);
+        const lang = btn.dataset.lang;
+        const active = state.sentenceLineLoop && state.sentenceLineLoop.i === i && state.sentenceLineLoop.lang === lang;
+        btn.classList.toggle('active', active);
+        const icon = active ? '🔁' : '↻';
+        if (btn.querySelector('.loop-icon')) {
+          btn.querySelector('.loop-icon').textContent = icon;
+        } else {
+          btn.textContent = `${btn.dataset.label || lang.toUpperCase()} ${icon}`;
+        }
+      });
+    }
+
+    function toggleSentenceEdit(i) {
+      const wrap = document.getElementById(`sentence-edit-wrap-${i}`);
+      const text = document.getElementById(`sentence-text-${i}`);
+      if (!wrap || !text) return;
+      const isHidden = wrap.classList.contains('hidden');
+      if (isHidden) {
+        wrap.classList.remove('hidden');
+        text.classList.add('hidden');
+        const ta = document.getElementById(`sentence-edit-${i}`);
+        if (ta) { ta.value = state.currentCues[i].text; ta.focus(); }
+      } else {
+        wrap.classList.add('hidden');
+        text.classList.remove('hidden');
+      }
+    }
+
+    function saveSentenceEdit(i) {
+      const ta = document.getElementById(`sentence-edit-${i}`);
+      if (!ta) return;
+      updateCueText(i, ta.value);
+      toggleSentenceEdit(i);
+    }
+
+    window.toggleSentenceWords = function(i, lang) {
+      const section = document.getElementById(`sentence-words-${i}-${lang}`);
+      const btn = document.getElementById(`btn-toggle-words-${i}-${lang}`);
+      if (!section || !btn) return;
+      const isHidden = section.classList.toggle('hidden');
+      const title = { fr: t('frenchWords') || 'كلمات فرنسية', en: t('englishWords') || 'كلمات إنجليزية', ar: t('arabicWords') || 'كلمات عربية' }[lang] || lang;
+      const icon = isHidden ? '🔽' : '🔼';
+      btn.textContent = `${title} ${icon}`;
+    };
+
     function renderSentences() {
       const container = document.getElementById('sentences-list');
       if (!container) return;
-      container.innerHTML = state.currentCues.map((cue, i) => `
+      container.innerHTML = state.currentCues.map((cue, i) => {
+        const hasFr = getCueWordsByLang(cue, 'fr').length;
+        const hasEn = getCueWordsByLang(cue, 'en').length;
+        const frTitle = t('frenchWords') || 'كلمات فرنسية';
+        const enTitle = t('englishWords') || 'كلمات إنجليزية';
+        const wordToggles = [];
+        if (hasFr) wordToggles.push(`<button class="btn-words-toggle" id="btn-toggle-words-${i}-fr" onclick="event.stopPropagation(); toggleSentenceWords(${i}, 'fr')">${escapeHtml(frTitle)} 🔽</button>`);
+        if (hasEn) wordToggles.push(`<button class="btn-words-toggle" id="btn-toggle-words-${i}-en" onclick="event.stopPropagation(); toggleSentenceWords(${i}, 'en')">${escapeHtml(enTitle)} 🔽</button>`);
+        return `
         <div class="sentence-card" data-index="${i}">
           <div class="sentence-time">${formatDuration(cue.start)} - ${formatDuration(cue.end)}</div>
-          <textarea data-index="${i}" onchange="updateCueText(${i}, this.value)">${escapeHtml(cue.text)}</textarea>
+          <div class="sentence-text" id="sentence-text-${i}">${formatCueLines(cue)}</div>
+          <div class="sentence-edit-wrap hidden" id="sentence-edit-wrap-${i}">
+            <textarea class="sentence-edit" id="sentence-edit-${i}">${escapeHtml(cue.text)}</textarea>
+            <div class="sentence-edit-actions">
+              <button class="btn-save" onclick="event.stopPropagation(); saveSentenceEdit(${i})">${t('save') === 'save' ? 'حفظ' : t('save')}</button>
+              <button class="btn-cancel" onclick="event.stopPropagation(); toggleSentenceEdit(${i})">${t('cancel') === 'cancel' ? 'إلغاء' : t('cancel')}</button>
+            </div>
+          </div>
+          <div class="sentence-words-actions">${wordToggles.join('')}</div>
+          ${renderCueWordsByLang(cue, i, 'fr')}
+          ${renderCueWordsByLang(cue, i, 'en')}
           <div class="sentence-actions">
-            <button class="loop-btn" data-start="${cue.start}" data-end="${cue.end}" onclick="toggleLoopCue(${cue.start}, ${cue.end})">${t('repeat')}</button>
-            <button onclick="jumpToCue(${i})">${formatDuration(cue.start)}</button>
+            ${(state.langOrder || ['fr','ar','en']).map(l => {
+              const labels = { fr: 'FR', ar: 'AR', en: 'EN' };
+              const active = state.sentenceLineLoop && state.sentenceLineLoop.i === i && state.sentenceLineLoop.lang === l;
+              const icon = active ? '🔁' : '↻';
+              return `<button class="lang-btn ${active ? 'active' : ''}" id="btn-sentence-lang-${i}-${l}" data-i="${i}" data-lang="${l}" data-label="${labels[l]}" onclick="event.stopPropagation(); toggleSentenceLineLoop(${i}, '${l}')">${labels[l]} <span class="loop-icon">${icon}</span></button>`;
+            }).join('')}
+            <button class="loop-btn" data-start="${cue.start}" data-end="${cue.end}" onclick="event.stopPropagation(); toggleLoopCue(${cue.start}, ${cue.end})">${t('repeat')}</button>
+            <button class="btn-edit-sentence" onclick="event.stopPropagation(); toggleSentenceEdit(${i})" title="تعديل">✏️</button>
+            <button onclick="event.stopPropagation(); jumpToCue(${i})">${formatDuration(cue.start)}</button>
           </div>
         </div>
-      `).join('');
+      `;}).join('');
       container.onclick = handleSentenceClick;
       highlightActiveSentence();
       updateSentenceLoopStates();
+      setCardStyle(state.cardStyle);
     }
 
     function highlightActiveSentence(activeCue) {
@@ -1380,8 +2378,14 @@
       const cue = state.currentCues[i];
       if (!cue) return;
       cue.text = value;
-      const video = document.getElementById('lesson-video');
+      // Sync subtitle source with edited cues so video overlay, downloads, and save use the same text
+      state.subtitleText = cuesToSrt(state.currentCues);
+      state.subtitleType = 'srt';
+      const vtt = cuesToVtt(state.currentCues);
+      const track = document.querySelector('#lesson-video track');
+      if (track) track.src = URL.createObjectURL(new Blob([vtt], { type: 'text/vtt' }));
       updateSubtitleOverlay();
+      renderSentences();
       updateDownloadLinks();
     }
 
@@ -1391,15 +2395,13 @@
       const section = document.getElementById('words-section');
       const list = document.getElementById('words-list');
       if (!section || !list) return;
-      const lines = cue.text.split('\n').map(l => l.trim()).filter(l => l);
-      const primary = lines[0] || '';
-      const words = primary.split(/\s+/).filter(w => w.replace(/[^\w\u00C0-\u024F\u0600-\u06FF]/g,''));
+      const words = getCueWords(cue);
       list.innerHTML = words.map((w, idx) => `
         <div class="word-card">
           <span class="word-text">${escapeHtml(w)}</span>
           <div class="word-actions">
-            <button onclick="speakWord(${i}, ${idx})" title="${t('listen')}">🔊</button>
-            <button id="word-loop-${i}-${idx}" class="loop-word" onclick="toggleWordLoop(${i}, ${idx})" title="${t('repeatWord')}">🔂</button>
+            <button onclick="speakWord(${i}, ${idx}, 'fr')" title="${t('listen')}">🔊</button>
+            <button id="word-loop-${i}-${idx}-fr" class="loop-word" data-i="${i}" data-idx="${idx}" data-lang="fr" onclick="toggleWordLoop(${i}, ${idx}, 'fr')" title="${t('repeatWord')}">🔂</button>
           </div>
         </div>
       `).join('');
@@ -1419,48 +2421,83 @@
       return state.lang || 'en';
     }
 
-    function speakWord(i, idx) {
-      const cue = state.currentCues[i];
-      if (!cue || !('speechSynthesis' in window)) return;
-      stopWordLoop();
-      const words = getCueWords(cue);
-      const word = words[idx];
-      if (!word) return;
-      const u = new SpeechSynthesisUtterance(word);
-      u.lang = getWordLang(word);
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(u);
+    function getTTSLang(word) {
+      const base = getWordLang(word);
+      if (base === 'ar') return 'ar-SA';
+      if (base === 'fr') return 'fr-FR';
+      return 'en-US';
     }
 
-    function toggleWordLoop(i, idx) {
-      if (state.loopWord && state.loopWord.i === i && state.loopWord.idx === idx) {
+    function isCapacitor() {
+      return typeof window !== 'undefined' && window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform();
+    }
+
+    function ttsStop() {
+      if (isCapacitor()) {
+        const plugin = window.Capacitor.Plugins.TextToSpeech;
+        if (plugin) plugin.stop().catch(() => {});
+      } else if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+    }
+
+    function ttsSpeak({ text, lang, onend }) {
+      const ttsLang = lang || getTTSLang(text);
+      if (isCapacitor()) {
+        const plugin = window.Capacitor.Plugins.TextToSpeech;
+        if (!plugin) return;
+        plugin.stop().catch(() => {})
+          .then(() => plugin.speak({ text, lang: ttsLang, rate: 1.0, pitch: 1.0, volume: 1.0, category: 'playback' }))
+          .then(() => { if (onend) onend(); })
+          .catch(() => { if (onend) onend(); });
+      } else if ('speechSynthesis' in window) {
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = ttsLang;
+        if (onend) u.onend = onend;
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(u);
+      }
+    }
+
+    function ttsLangForCode(lang) {
+      if (lang === 'fr') return 'fr-FR';
+      if (lang === 'ar') return 'ar-SA';
+      return 'en-US';
+    }
+
+    function speakWord(i, idx, lang) {
+      const cue = state.currentCues[i];
+      if (!cue) return;
+      stopWordLoop();
+      const words = getCueWordsByLang(cue, lang || 'fr');
+      const word = words[idx];
+      if (!word) return;
+      ttsSpeak({ text: word, lang: ttsLangForCode(lang || 'fr') });
+    }
+
+    function toggleWordLoop(i, idx, lang) {
+      if (state.loopWord && state.loopWord.i === i && state.loopWord.idx === idx && state.loopWord.lang === lang) {
         stopWordLoop();
         return;
       }
       stopWordLoop();
-      state.loopWord = { i, idx };
+      state.loopWord = { i, idx, lang: lang || 'fr' };
       const cue = state.currentCues[i];
-      const words = getCueWords(cue);
+      const words = getCueWordsByLang(cue, lang || 'fr');
       const word = words[idx];
       if (!word) return;
-      const speakAgain = () => {
-        if (!state.loopWord || state.loopWord.i !== i || state.loopWord.idx !== idx) return;
-        const u2 = new SpeechSynthesisUtterance(word);
-        u2.lang = getWordLang(word);
-        u2.onend = () => setTimeout(speakAgain, 300);
-        window.speechSynthesis.speak(u2);
+      const ttsLang = ttsLangForCode(lang || 'fr');
+      const speakLoop = () => {
+        if (!state.loopWord || state.loopWord.i !== i || state.loopWord.idx !== idx || state.loopWord.lang !== lang) return;
+        ttsSpeak({ text: word, lang: ttsLang, onend: () => setTimeout(speakLoop, 300) });
       };
-      const u = new SpeechSynthesisUtterance(word);
-      u.lang = getWordLang(word);
-      u.onend = () => setTimeout(speakAgain, 300);
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(u);
+      speakLoop();
       updateWordLoopButtons();
     }
 
     function stopWordLoop() {
       state.loopWord = null;
-      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      ttsStop();
       updateWordLoopButtons();
     }
 
@@ -1468,8 +2505,9 @@
       document.querySelectorAll('.word-loop').forEach(btn => {
         const i = parseInt(btn.dataset.i, 10);
         const idx = parseInt(btn.dataset.idx, 10);
+        const lang = btn.dataset.lang || 'fr';
         if (isNaN(i) || isNaN(idx)) return;
-        const isLoop = state.loopWord && state.loopWord.i === i && state.loopWord.idx === idx;
+        const isLoop = state.loopWord && state.loopWord.i === i && state.loopWord.idx === idx && state.loopWord.lang === lang;
         btn.classList.toggle('active', isLoop);
         btn.textContent = isLoop ? '🔁' : '🔂';
         const chip = btn.closest('.word-chip');
@@ -1477,14 +2515,81 @@
       });
     }
 
+    function blobToBase64(blob) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+    }
+
+    function isBlobLike(v) {
+      return v && (typeof v === 'object' || typeof v === 'function') && typeof v.size === 'number' && typeof v.type === 'string';
+    }
+
+    async function shareOrDownload({ filename, blob, contentType }) {
+      try {
+        if (isCapacitor() && window.Capacitor.Plugins.Filesystem && window.Capacitor.Plugins.Share) {
+          const base64 = await blobToBase64(blob);
+          const { uri } = await window.Capacitor.Plugins.Filesystem.writeFile({
+            path: filename,
+            data: base64,
+            directory: 'CACHE'
+          });
+          await window.Capacitor.Plugins.Share.share({
+            title: filename,
+            files: [uri],
+            dialogTitle: filename
+          });
+          return;
+        }
+      } catch (e) { console.error('share failed', e); }
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    window.downloadMedia = async function(type) {
+      let filename, blob, contentType;
+      if (type === 'video') {
+        const mediaFile = state.videoFile || state.audioFile;
+        if (!mediaFile) { showToast(t('chooseVideoFile')); return; }
+        filename = mediaFile.name || (mediaFile.type && mediaFile.type.includes('audio') ? 'lesson.m4a' : 'lesson.mp4');
+        blob = mediaFile;
+        contentType = mediaFile.type || 'video/mp4';
+      } else if (type === 'srt') {
+        if (!state.currentCues.length) { showToast(t('addSubtitle')); return; }
+        filename = (state.currentLesson && state.currentLesson.title ? state.currentLesson.title : 'lesson') + '.srt';
+        blob = new Blob([cuesToSrt(state.currentCues)], { type: 'text/plain' });
+        contentType = 'text/plain';
+      } else if (type === 'vtt') {
+        if (!state.currentCues.length) { showToast(t('addSubtitle')); return; }
+        filename = (state.currentLesson && state.currentLesson.title ? state.currentLesson.title : 'lesson') + '.vtt';
+        blob = new Blob([cuesToVtt(state.currentCues)], { type: 'text/vtt' });
+        contentType = 'text/vtt';
+      } else if (type === 'txt') {
+        if (!state.currentCues.length) { showToast(t('addSubtitle')); return; }
+        filename = (state.currentLesson && state.currentLesson.title ? state.currentLesson.title : 'lesson') + '.txt';
+        const txt = state.currentCues.map(c => `${formatDuration(c.start)} - ${formatDuration(c.end)}\n${c.text}`).join('\n\n');
+        blob = new Blob([txt], { type: 'text/plain' });
+        contentType = 'text/plain';
+      } else { return; }
+      await shareOrDownload({ filename, blob, contentType });
+    };
+
     function updateDownloadLinks() {
-      if (!state.currentCues.length) return;
-      const vtt = cuesToVtt(state.currentCues);
-      const srt = cuesToSrt(state.currentCues);
-      const txt = state.currentCues.map(c => `${formatDuration(c.start)} - ${formatDuration(c.end)}\n${c.text}`).join('\n\n');
-      document.getElementById('download-vtt').href = URL.createObjectURL(new Blob([vtt], { type: 'text/vtt' }));
-      document.getElementById('download-srt').href = URL.createObjectURL(new Blob([srt], { type: 'text/plain' }));
-      document.getElementById('download-txt').href = URL.createObjectURL(new Blob([txt], { type: 'text/plain' }));
+      const srtBtn = document.getElementById('btn-download-srt');
+      if (srtBtn) srtBtn.textContent = '\u200E📥 SRT\u200E';
+      const vttBtn = document.getElementById('btn-download-vtt');
+      if (vttBtn) vttBtn.textContent = '\u200E📥 VTT\u200E';
+      const txtBtn = document.getElementById('btn-download-txt');
+      if (txtBtn) txtBtn.textContent = '\u200E📄 TXT\u200E';
     }
 
     function cuesToSrt(cues) {
@@ -1528,6 +2633,8 @@
       video.addEventListener('seeked', updateSubtitleOverlay);
       video.addEventListener('play', updateSubtitleOverlay);
       video.addEventListener('pause', updateSubtitleOverlay);
+      video.addEventListener('ended', handleVideoEnded);
+      try { Array.from(video.textTracks).forEach(t => t.mode = 'hidden'); } catch (e) {}
     }
 
     function detachSubtitleListeners(video) {
@@ -1535,6 +2642,19 @@
       video.removeEventListener('seeked', updateSubtitleOverlay);
       video.removeEventListener('play', updateSubtitleOverlay);
       video.removeEventListener('pause', updateSubtitleOverlay);
+      video.removeEventListener('ended', handleVideoEnded);
+    }
+
+    function handleVideoEnded() {
+      const video = document.getElementById('lesson-video');
+      if (!video) return;
+      if (state.videoLoop) {
+        video.currentTime = 0;
+        video.play();
+      } else if (state.loopCue) {
+        video.currentTime = state.loopCue.start;
+        video.play();
+      }
     }
 
     window.toggleLoopCue = function(start, end) {
@@ -1579,10 +2699,43 @@
       if (video.paused) video.play();
     };
 
+    window.toggleVideoLoop = function() {
+      state.videoLoop = !state.videoLoop;
+      const btn = document.getElementById('video-loop');
+      if (btn) btn.classList.toggle('active', state.videoLoop);
+    };
+
+    window.toggleCaptions = function() {
+      state.captionsVisible = !state.captionsVisible;
+      const display = document.getElementById('subtitle-display');
+      const btn = document.getElementById('btn-toggle-captions');
+      if (display) display.classList.toggle('hidden', !state.captionsVisible);
+      if (btn) btn.classList.toggle('active', state.captionsVisible);
+      if (btn) btn.textContent = state.captionsVisible ? 'CC' : 'CC';
+    };
+
+    window.changeCaptionSize = function(delta) {
+      state.captionScale = Math.max(0.5, Math.min(2.0, state.captionScale + delta));
+      localStorage.setItem('vs_caption_scale', state.captionScale);
+      const display = document.getElementById('subtitle-display');
+      if (display) display.style.setProperty('--caption-scale', state.captionScale);
+    };
+
+    function syncCaptionControls() {
+      const display = document.getElementById('subtitle-display');
+      const btn = document.getElementById('btn-toggle-captions');
+      if (display) {
+        display.classList.toggle('hidden', !state.captionsVisible);
+        display.style.setProperty('--caption-scale', state.captionScale);
+      }
+      if (btn) btn.classList.toggle('active', state.captionsVisible);
+    }
+
     async function saveLesson() {
       const title = document.getElementById('lesson-title').value.trim();
       if (!title) { showToast(t('enterTitle')); return; }
-      if (!state.videoFile) { showToast(t('chooseVideoFile')); return; }
+      if (!state.videoFile && !state.audioFile) { showToast(t('chooseVideoFile')); return; }
+      const mediaFile = state.videoFile || state.audioFile;
 
       const text = state.subtitleType === 'srt' ? state.subtitleText : document.getElementById('timed-text').value;
       if (!text.trim()) { showToast(t('addSubtitle')); return; }
@@ -1593,22 +2746,26 @@
       const video = document.getElementById('lesson-video');
       const duration = video.duration || 0;
 
+      const isEdit = state.editingId && state.currentLesson && state.currentLesson.id === state.editingId;
+      const existing = isEdit ? state.currentLesson : null;
       const lesson = {
         id: state.editingId || Date.now(),
         title,
         lang: state.lang,
-        videoName: state.videoFile.name,
-        videoType: state.videoFile.type,
-        videoFile: state.videoFile,
+        videoName: mediaFile.name,
+        videoType: mediaFile.type,
+        videoFile: mediaFile,
         subtitleType: state.subtitleType,
         subtitleText: text,
         vttBlob: new Blob([vtt], { type: 'text/vtt' }),
         duration,
-        createdAt: Date.now()
+        coverImage: existing && existing.coverImage ? existing.coverImage : null,
+        createdAt: existing && existing.createdAt ? existing.createdAt : Date.now()
       };
 
       await saveLessonToDB(lesson);
       showToast(t('saved'));
+      await deleteDraft();
       resetEditor();
       showPage('lessons');
     }
@@ -1642,14 +2799,15 @@
       track.label = 'Subtitles';
       track.srclang = lesson.lang || 'ar';
       track.src = URL.createObjectURL(lesson.vttBlob);
-      track.default = true;
-      track.mode = 'hidden';
       const old = video.querySelector('track');
       if (old) old.remove();
       video.appendChild(track);
+      track.mode = 'hidden';
       document.getElementById('preview-wrap').classList.remove('hidden');
 
       document.getElementById('subtitle-display').classList.remove('hidden');
+      syncCaptionControls();
+      document.getElementById('subtitle-toolbar').classList.remove('hidden');
       document.getElementById('playback-controls').classList.remove('hidden');
       document.getElementById('download-links').classList.remove('hidden');
       document.getElementById('sentences-section').classList.remove('hidden');
@@ -1661,12 +2819,19 @@
       renderSentences();
       renderLessonWords();
       updateDownloadLinks();
-      showPage('editor');
+      setPlayerMode(true, lesson.title);
+      await saveDraft();
+      showPage('lesson');
+      history.pushState({ page: 'lesson', lessonId: id }, '');
     }
 
     async function loadLessonForEdit(id) {
       await loadLessonForPlay(id);
       state.editingId = id;
+      setPlayerMode(false);
+      showPage('editor');
+      await saveDraft();
+      history.pushState({ page: 'editor', lessonId: id }, '');
     }
 
     // --- Event listeners ---
@@ -1675,58 +2840,103 @@
       setLang(state.lang);
       setTheme(state.theme);
       setFontSize(state.fontSize);
+      setCardStyle(state.cardStyle);
+      setLangOrder(state.langOrder);
+
+      // Android hardware back: confirm before exit
+      if (isCapacitor() && window.Capacitor.Plugins.App) {
+        window.Capacitor.Plugins.App.addListener('backButton', ({ canGoBack }) => {
+          if (canGoBack) {
+            window.history.back();
+          } else if (confirm(t('exitConfirm'))) {
+            window.Capacitor.Plugins.App.exitApp();
+          }
+        });
+      }
 
       // Header nav
       document.querySelectorAll('nav button, .lesson-card').forEach(btn => {
-        if (btn.dataset.page) btn.addEventListener('click', () => showPage(btn.dataset.page));
+        if (btn.dataset.page) btn.addEventListener('click', () => {
+          if (btn.dataset.page === 'editor' && (state.playerMode || state.editingId)) {
+            resetEditor();
+          }
+          showPage(btn.dataset.page);
+        });
       });
 
-      // New lesson
-      document.getElementById('btn-new-lesson').addEventListener('click', () => {
-        resetEditor();
-        showPage('editor');
+      // Phone back button / browser back navigation
+      window.addEventListener('popstate', (e) => {
+        const activePage = document.querySelector('.page.active');
+        const activeId = activePage ? activePage.id : '';
+        if (activeId === 'page-lesson' || (activeId === 'page-editor' && state.currentLesson)) {
+          showPage('lessons');
+        }
       });
+
+      // Load draft workspace
+      await loadDraft();
 
       // File inputs
       document.getElementById('video-file').addEventListener('change', (e) => {
         const f = e.target.files[0];
-        if (f) { state.videoFile = f; document.getElementById('video-name').textContent = f.name; }
+        if (f) { state.videoFile = f; state.audioFile = null; document.getElementById('video-name').textContent = f.name; document.getElementById('audio-name').textContent = ''; document.getElementById('audio-file').value = ''; scheduleSaveDraft(); }
+      });
+      document.getElementById('audio-file').addEventListener('change', (e) => {
+        const f = e.target.files[0];
+        if (f) { state.audioFile = f; state.videoFile = null; document.getElementById('audio-name').textContent = f.name; document.getElementById('video-name').textContent = ''; document.getElementById('video-file').value = ''; scheduleSaveDraft(); }
       });
       document.getElementById('srt-file').addEventListener('change', (e) => {
         const f = e.target.files[0];
         if (!f) return;
         document.getElementById('srt-name').textContent = f.name;
         const reader = new FileReader();
-        reader.onload = (ev) => { state.subtitleText = ev.target.result; };
+        reader.onload = (ev) => { state.subtitleText = ev.target.result; scheduleSaveDraft(); };
         reader.readAsText(f);
       });
+      document.getElementById('lesson-title').addEventListener('input', scheduleSaveDraft);
+      document.getElementById('timed-text').addEventListener('input', scheduleSaveDraft);
 
       // Subtabs
       document.querySelectorAll('.tab').forEach(tab => {
-        tab.addEventListener('click', () => selectSubtab(tab.dataset.subtab));
+        tab.addEventListener('click', () => { selectSubtab(tab.dataset.subtab); scheduleSaveDraft(); });
       });
 
       // Actions
       document.getElementById('btn-preview').addEventListener('click', previewLesson);
       document.getElementById('btn-save-lesson').addEventListener('click', saveLesson);
-      document.getElementById('btn-cancel-edit').addEventListener('click', () => { resetEditor(); showPage('lessons'); });
+      document.getElementById('btn-cancel-edit').addEventListener('click', () => showPage('lessons'));
+      document.getElementById('btn-back').addEventListener('click', () => showPage('lessons'));
 
       // Lesson list interactions (delegation)
       document.getElementById('lessons-list').addEventListener('click', async (e) => {
-        const target = e.target.closest('[data-id]');
-        if (!target) return;
-        const id = parseInt(target.dataset.id, 10);
+        const card = e.target.closest('.lesson-card');
+        if (!card) return;
+        const menu = card.querySelector('.lesson-menu');
+        const id = menu ? parseInt(menu.dataset.id, 10) : null;
+        if (e.target.closest('.btn-menu') || e.target.closest('[data-action="menu"]')) {
+          e.stopPropagation();
+          if (id) openLessonActions(id);
+          return;
+        }
+        if (id) await loadLessonForPlay(id);
+      });
+
+      document.getElementById('lesson-actions').addEventListener('click', async (e) => {
+        const btn = e.target.closest('[data-action]');
+        if (!btn) return;
+        const action = btn.dataset.action;
+        const id = state.actionLessonId;
+        closeLessonActions();
         if (!id) return;
-        if (e.target.closest('.btn-delete')) {
+        if (action === 'play') await loadLessonForPlay(id);
+        else if (action === 'edit') await loadLessonForEdit(id);
+        else if (action === 'image') setLessonImage(id);
+        else if (action === 'delete') {
           if (confirm(t('confirmDelete'))) {
             await deleteLessonFromDB(id);
             showToast(t('deleted'));
             renderLessons();
           }
-        } else if (e.target.closest('.btn-edit')) {
-          await loadLessonForEdit(id);
-        } else {
-          await loadLessonForPlay(id);
         }
       });
 
@@ -1734,11 +2944,34 @@
       document.getElementById('settings-language').addEventListener('change', (e) => setLang(e.target.value));
       document.getElementById('settings-theme').addEventListener('change', (e) => setTheme(e.target.value));
       document.getElementById('settings-font-size').addEventListener('input', (e) => setFontSize(parseInt(e.target.value, 10)));
+      document.getElementById('settings-card-style').addEventListener('change', (e) => setCardStyle(e.target.value));
+      document.getElementById('settings-lang-order').addEventListener('change', (e) => setLangOrder(e.target.value.split(',')));
 
       document.getElementById('btn-clear-data').addEventListener('click', async () => {
+        if (!confirm(t('confirmClearAll'))) return;
         const lessons = await getLessonsFromDB();
-        for (const l of lessons) await deleteLessonFromDB(l.id);
+        for (const l of lessons) if (l.id !== DRAFT_ID) await deleteLessonFromDB(l.id);
         showToast(t('deleted'));
+        renderLessons();
+      });
+
+      document.getElementById('btn-export').addEventListener('click', exportLessons);
+      document.getElementById('btn-import').addEventListener('click', () => document.getElementById('backup-import-file').click());
+      document.getElementById('backup-import-file').addEventListener('change', (e) => {
+        const f = e.target.files[0];
+        if (f) importLessons(f);
+      });
+
+      document.getElementById('lesson-image-file').addEventListener('change', async (e) => {
+        const f = e.target.files[0];
+        const id = state.imageLessonId;
+        state.imageLessonId = null;
+        if (!f || !id) return;
+        const lesson = await getLessonById(id);
+        if (!lesson) return;
+        lesson.coverImage = f;
+        await saveLessonToDB(lesson);
+        showToast(t('saved'));
         renderLessons();
       });
 
@@ -1750,23 +2983,15 @@
       });
 
       document.getElementById('btn-theme').addEventListener('click', () => {
-        setTheme(state.theme === 'dark' ? 'light' : 'dark');
+        const themes = ['dark', 'light', 'ocean', 'forest', 'berry', 'sunset', 'midnight'];
+        const next = themes[(themes.indexOf(state.theme) + 1) % themes.length];
+        setTheme(next);
       });
 
-      document.getElementById('btn-install').addEventListener('click', async () => {
-        if (window.deferredPrompt) {
-          window.deferredPrompt.prompt();
-          await window.deferredPrompt.userChoice;
-          window.deferredPrompt = null;
-          showToast(t('installed'));
-        } else {
-          showToast(t('notInstallable'));
-        }
-      });
-
-      window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        window.deferredPrompt = e;
+      document.getElementById('btn-mute').addEventListener('click', () => {
+        ttsStop();
+        const video = document.getElementById('lesson-video');
+        if (video) video.pause();
       });
 
       // Service worker registration

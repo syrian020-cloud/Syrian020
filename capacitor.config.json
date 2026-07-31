@@ -1,0 +1,12 @@
+{
+  "appId": "com.syrian020.dross",
+  "appName": "Dross",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": false
+  }
+}
