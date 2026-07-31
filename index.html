@@ -1317,6 +1317,7 @@
     const DB_NAME = 'videoSubtitleDB';
     const DB_VERSION = 1;
     const STORE_NAME = 'lessons';
+    const DRAFT_ID = 'draft';
 
     // --- DB ---
     function openDB() {
@@ -1371,6 +1372,58 @@
         req.onsuccess = () => resolve(req.result);
         req.onerror = () => reject(req.error);
       });
+    }
+
+    // --- Draft ---
+    let draftSaveTimeout = null;
+    function scheduleSaveDraft() {
+      if (draftSaveTimeout) clearTimeout(draftSaveTimeout);
+      draftSaveTimeout = setTimeout(saveDraft, 800);
+    }
+    async function saveDraft() {
+      if (!state.db) return;
+      const draft = {
+        id: DRAFT_ID,
+        title: document.getElementById('lesson-title').value.trim(),
+        videoFile: state.videoFile || null,
+        videoName: state.videoFile ? state.videoFile.name : '',
+        videoType: state.videoFile ? state.videoFile.type : '',
+        audioFile: state.audioFile || null,
+        audioName: state.audioFile ? state.audioFile.name : '',
+        audioType: state.audioFile ? state.audioFile.type : '',
+        subtitleType: state.subtitleType,
+        subtitleText: state.subtitleType === 'srt' ? state.subtitleText : document.getElementById('timed-text').value,
+        editingId: state.editingId || null,
+        currentLesson: state.currentLesson || null,
+        updatedAt: Date.now()
+      };
+      try { await saveLessonToDB(draft); } catch (e) { console.error('saveDraft failed', e); }
+    }
+    async function loadDraft() {
+      if (!state.db) return;
+      try {
+        const draft = await getLessonById(DRAFT_ID);
+        if (!draft) return;
+        state.editingId = draft.editingId || null;
+        state.currentLesson = draft.currentLesson || null;
+        document.getElementById('lesson-title').value = draft.title || '';
+        state.videoFile = draft.videoFile || null;
+        state.audioFile = draft.audioFile || null;
+        document.getElementById('video-name').textContent = draft.videoName || '';
+        document.getElementById('audio-name').textContent = draft.audioName || '';
+        state.subtitleType = draft.subtitleType || 'srt';
+        selectSubtab(state.subtitleType);
+        if (state.subtitleType === 'srt') {
+          state.subtitleText = draft.subtitleText || '';
+          if (draft.videoName || draft.audioName) document.getElementById('srt-name').textContent = (draft.videoName || draft.audioName || '').replace(/\.[^/.]+$/, '') + '.srt';
+        } else {
+          document.getElementById('timed-text').value = draft.subtitleText || '';
+        }
+      } catch (e) { console.error('loadDraft failed', e); }
+    }
+    async function deleteDraft() {
+      if (!state.db) return;
+      try { await deleteLessonFromDB(DRAFT_ID); } catch (e) { console.error('deleteDraft failed', e); }
     }
 
     // --- I18n ---
@@ -1620,7 +1673,7 @@
     async function renderLessons() {
       const list = document.getElementById('lessons-list');
       const empty = document.getElementById('lessons-empty');
-      const lessons = await getLessonsFromDB();
+      const lessons = (await getLessonsFromDB()).filter(l => l.id !== DRAFT_ID);
       list.innerHTML = '';
       if (!lessons.length) {
         empty.classList.remove('hidden');
@@ -1728,7 +1781,7 @@
     }
 
     async function exportLessons() {
-      const lessons = await getLessonsFromDB();
+      const lessons = (await getLessonsFromDB()).filter(l => l.id !== DRAFT_ID);
       const exported = [];
       for (const l of lessons) {
         const obj = { ...l };
@@ -2634,7 +2687,8 @@
       const video = document.getElementById('lesson-video');
       const duration = video.duration || 0;
 
-      const existing = state.currentLesson;
+      const isEdit = state.editingId && state.currentLesson && state.currentLesson.id === state.editingId;
+      const existing = isEdit ? state.currentLesson : null;
       const lesson = {
         id: state.editingId || Date.now(),
         title,
@@ -2652,6 +2706,7 @@
 
       await saveLessonToDB(lesson);
       showToast(t('saved'));
+      await deleteDraft();
       resetEditor();
       showPage('lessons');
     }
@@ -2706,6 +2761,7 @@
       renderLessonWords();
       updateDownloadLinks();
       setPlayerMode(true, lesson.title);
+      await saveDraft();
       showPage('editor');
     }
 
@@ -2713,6 +2769,7 @@
       await loadLessonForPlay(id);
       state.editingId = id;
       setPlayerMode(false);
+      await saveDraft();
     }
 
     // --- Event listeners ---
@@ -2726,40 +2783,42 @@
 
       // Header nav
       document.querySelectorAll('nav button, .lesson-card').forEach(btn => {
-        if (btn.dataset.page) btn.addEventListener('click', () => {
-          if (btn.dataset.page === 'editor') resetEditor();
-          showPage(btn.dataset.page);
-        });
+        if (btn.dataset.page) btn.addEventListener('click', () => showPage(btn.dataset.page));
       });
+
+      // Load draft workspace
+      await loadDraft();
 
       // File inputs
       document.getElementById('video-file').addEventListener('change', (e) => {
         const f = e.target.files[0];
-        if (f) { state.videoFile = f; state.audioFile = null; document.getElementById('video-name').textContent = f.name; document.getElementById('audio-name').textContent = ''; document.getElementById('audio-file').value = ''; }
+        if (f) { state.videoFile = f; state.audioFile = null; document.getElementById('video-name').textContent = f.name; document.getElementById('audio-name').textContent = ''; document.getElementById('audio-file').value = ''; scheduleSaveDraft(); }
       });
       document.getElementById('audio-file').addEventListener('change', (e) => {
         const f = e.target.files[0];
-        if (f) { state.audioFile = f; state.videoFile = null; document.getElementById('audio-name').textContent = f.name; document.getElementById('video-name').textContent = ''; document.getElementById('video-file').value = ''; }
+        if (f) { state.audioFile = f; state.videoFile = null; document.getElementById('audio-name').textContent = f.name; document.getElementById('video-name').textContent = ''; document.getElementById('video-file').value = ''; scheduleSaveDraft(); }
       });
       document.getElementById('srt-file').addEventListener('change', (e) => {
         const f = e.target.files[0];
         if (!f) return;
         document.getElementById('srt-name').textContent = f.name;
         const reader = new FileReader();
-        reader.onload = (ev) => { state.subtitleText = ev.target.result; };
+        reader.onload = (ev) => { state.subtitleText = ev.target.result; scheduleSaveDraft(); };
         reader.readAsText(f);
       });
+      document.getElementById('lesson-title').addEventListener('input', scheduleSaveDraft);
+      document.getElementById('timed-text').addEventListener('input', scheduleSaveDraft);
 
       // Subtabs
       document.querySelectorAll('.tab').forEach(tab => {
-        tab.addEventListener('click', () => selectSubtab(tab.dataset.subtab));
+        tab.addEventListener('click', () => { selectSubtab(tab.dataset.subtab); scheduleSaveDraft(); });
       });
 
       // Actions
       document.getElementById('btn-preview').addEventListener('click', previewLesson);
       document.getElementById('btn-save-lesson').addEventListener('click', saveLesson);
-      document.getElementById('btn-cancel-edit').addEventListener('click', () => { resetEditor(); showPage('lessons'); });
-      document.getElementById('btn-back').addEventListener('click', () => { resetEditor(); showPage('lessons'); });
+      document.getElementById('btn-cancel-edit').addEventListener('click', () => showPage('lessons'));
+      document.getElementById('btn-back').addEventListener('click', () => showPage('lessons'));
 
       // Lesson list interactions (delegation)
       document.getElementById('lessons-list').addEventListener('click', async (e) => {
@@ -2804,7 +2863,7 @@
       document.getElementById('btn-clear-data').addEventListener('click', async () => {
         if (!confirm(t('confirmClearAll'))) return;
         const lessons = await getLessonsFromDB();
-        for (const l of lessons) await deleteLessonFromDB(l.id);
+        for (const l of lessons) if (l.id !== DRAFT_ID) await deleteLessonFromDB(l.id);
         showToast(t('deleted'));
         renderLessons();
       });
