@@ -413,5 +413,20 @@ window.FR_STAGES = [
       { id: 227, ar: "الإعجاب والشكوى", fr: "Compliments et plaintes", en: "Compliments and complaints" },
       { id: 228, ar: "التواصل الرقمي اليومي", fr: "La communication numérique quotidienne", en: "Daily digital communication" }
     ]
+  },
+  {
+    id: 32,
+    title: { ar: "الصيدلية", fr: "La pharmacie", en: "The pharmacy" },
+    lessonTitles: [
+      { id: 229, ar: "في الصيدلية", fr: "À la pharmacie", en: "At the pharmacy" },
+      { id: 230, ar: "التوفر والطلب", fr: "Disponibilité et commande", en: "Availability and ordering" },
+      { id: 231, ar: "الدفع والتأمين", fr: "Paiement et remboursement", en: "Payment and reimbursement" },
+      { id: 232, ar: "الوصفة الطبية", fr: "L'ordonnance", en: "The prescription" },
+      { id: 233, ar: "النصائح والحساسية", fr: "Conseils et allergies", en: "Advice and allergies" },
+      { id: 234, ar: "كيفية الاستعمال", fr: "Mode d'emploi", en: "How to use" },
+      { id: 235, ar: "العلاج والتجديد", fr: "Traitement et renouvellement", en: "Treatment and renewal" },
+      { id: 236, ar: "الجرعة والتوقيت", fr: "Dosage et horaires", en: "Dosage and timing" },
+      { id: 237, ar: "الأعراض والمنتجات", fr: "Symptômes et produits", en: "Symptoms and products" }
+    ]
   }
 ];
