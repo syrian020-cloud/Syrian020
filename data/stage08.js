@@ -302,6 +302,32 @@ window.registerStage({
       { fr: "Je voudrais une boîte de Ténofovir.", ar: "أريد علبة تينوفوفير.", en: "I'd like a box of Tenofovir." },
       { fr: "Voici mon ordonnance pour le Ténofovir.", ar: "هذه وصفتي للتينوفوفير.", en: "Here is my prescription for Tenofovir." },
     ]
+  },
+  {
+    id: 247,
+    title: { ar: "محادثات في الصيدلية", fr: "Dialogues à la pharmacie", en: "Pharmacy dialogues" },
+    phrases: [
+      { fr: "Bonjour. Je voudrais un sirop contre la toux, s'il vous plaît.", ar: "مرحبًا، أريد شرابًا للسعال، من فضلك.", en: "Hello. I'd like a cough syrup, please." },
+      { fr: "C'est une toux sèche ou grasse ?", ar: "هل السعال جاف أم مصحوب ببلغم؟", en: "Is it a dry or productive cough?" },
+      { fr: "C'est une toux sèche.", ar: "إنه سعال جاف.", en: "It's a dry cough." },
+      { fr: "Je vous conseille celui-ci.", ar: "أنصحك بهذا.", en: "I recommend this one." },
+      { fr: "Merci beaucoup, au revoir.", ar: "شكرًا جزيلاً، إلى اللقاء.", en: "Thank you very much, goodbye." },
+      { fr: "Je cherche un sirop pour un enfant.", ar: "أبحث عن شراب لطفل.", en: "I'm looking for a syrup for a child." },
+      { fr: "Quel âge a-t-il ?", ar: "كم عمره؟", en: "How old is he?" },
+      { fr: "Il a cinq ans.", ar: "عمره خمس سنوات.", en: "He's five years old." },
+      { fr: "Celui-ci est adapté aux enfants.", ar: "هذا مناسب للأطفال.", en: "This one is suitable for children." },
+      { fr: "Comment dois-je prendre ce sirop ?", ar: "كيف أتناول هذا الشراب؟", en: "How should I take this syrup?" },
+      { fr: "Deux cuillères par jour après les repas.", ar: "ملعقتان يوميًا بعد الوجبات.", en: "Two spoonfuls a day after meals." },
+      { fr: "Pendant combien de temps au total ?", ar: "لمدة كم من الوقت بالإجمال؟", en: "For how long in total?" },
+      { fr: "Pendant une semaine.", ar: "لمدة أسبوع.", en: "For one week." },
+      { fr: "Vous avez ce sirop ?", ar: "هل لديكم هذا الشراب؟", en: "Do you have this syrup?" },
+      { fr: "Oui, nous l'avons.", ar: "نعم، لدينا.", en: "Yes, we have it." },
+      { fr: "Je prends une bouteille, s'il vous plaît.", ar: "سأأخذ زجاجة، من فضلك.", en: "I'll take one bottle, please." },
+      { fr: "Vous avez ce sirop en stock ?", ar: "هل هذا الشراب متوفر في المخزون؟", en: "Do you have this syrup in stock?" },
+      { fr: "Désolé, il est en rupture de stock.", ar: "عذرًا، إنه غير متوفر حاليًا.", en: "Sorry, it's out of stock." },
+      { fr: "Vous pouvez le commander, s'il vous plaît ?", ar: "هل يمكنكم طلبه، من فضلك؟", en: "Can you order it, please?" },
+      { fr: "Oui, il sera disponible demain.", ar: "نعم، سيكون متوفرًا غدًا.", en: "Yes, it will be available tomorrow." },
+    ]
   }
   ]
 });
