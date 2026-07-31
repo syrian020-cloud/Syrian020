@@ -236,7 +236,25 @@
   var VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
   var speechRun = 0;         // bumped on every new pass and on stop
 
-  function speakSupported() { return 'speechSynthesis' in window; }
+  function nativeTTS() {
+    if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech) return window.Capacitor.Plugins.TextToSpeech;
+    if (window.Capacitor && window.Capacitor.registerPlugin) {
+      window.Capacitor.Plugins = window.Capacitor.Plugins || {};
+      window.Capacitor.Plugins.TextToSpeech = window.Capacitor.registerPlugin('TextToSpeech');
+      return window.Capacitor.Plugins.TextToSpeech;
+    }
+    return null;
+  }
+  function nativeSpeak(text, lang) {
+    var tts = nativeTTS();
+    if (!tts) return Promise.reject('no tts');
+    return tts.speak({ text: text, lang: VOICE_LANG[lang] || 'en-US', rate: state.rate || 1, queueStrategy: 1 });
+  }
+  function nativeStop() {
+    var tts = nativeTTS(); if (!tts) return Promise.resolve(); return tts.stop();
+  }
+
+  function speakSupported() { return !!nativeTTS() || 'speechSynthesis' in window; }
 
   function pickVoice(lang) {
     if (!speakSupported()) return null;
@@ -260,7 +278,8 @@
   function stopSpeech() {
     state.loop = null;
     speechRun++;
-    if (speakSupported()) window.speechSynthesis.cancel();
+    if (nativeTTS()) nativeStop();
+    else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     highlight(null, null);
     refreshButtons();
   }
@@ -268,11 +287,28 @@
   // Speaks one pass: French, then Arabic, then English (per selected mode).
   // Every pass carries a run id; stopSpeech() bumps it so pending steps abort.
   function speakOnce(phrase, langs, key, onDone) {
-    if (!speakSupported()) return;
-    window.speechSynthesis.cancel();
-    var run = ++speechRun;
     var seq = langs.filter(function (l) { return phrase[l]; });
     var i = 0;
+    var run = ++speechRun;
+    if (nativeTTS()) {
+      nativeStop();
+      (function next() {
+        if (run !== speechRun) return;
+        if (i >= seq.length) { highlight(null, null); if (onDone) onDone(); return; }
+        var lang = seq[i++];
+        highlight(key, lang);
+        nativeSpeak(phrase[lang], lang).then(function () {
+          if (run !== speechRun) return;
+          setTimeout(next, 250);
+        }).catch(function () {
+          if (run !== speechRun) return;
+          setTimeout(next, 250);
+        });
+      })();
+      return;
+    }
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
     (function next() {
       if (run !== speechRun) return;
       if (i >= seq.length) { highlight(null, null); if (onDone) onDone(); return; }
@@ -606,7 +642,7 @@
   var savedLangs = localStorage.getItem('fr_langs');
   if (savedLangs) { state.langs = savedLangs.split(','); document.getElementById('loopmode').value = savedLangs; }
 
-  if (speakSupported()) window.speechSynthesis.getVoices();
+  if (!nativeTTS() && 'speechSynthesis' in window) window.speechSynthesis.getVoices();
   window.addEventListener('beforeunload', function () { if (speakSupported()) window.speechSynthesis.cancel(); });
 
   if ('serviceWorker' in navigator) {
