@@ -1208,7 +1208,8 @@
         setImage: "وضع صورة للدرس", exportSuccess: "تم تصدير النسخة الاحتياطية", importSuccess: "تم استيراد النسخة الاحتياطية",
         exporting: "جاري تصدير النسخة الاحتياطية...", exportingLesson: "جاري تصدير الدرس {0} من {1}",
         exportError: "فشل تصدير النسخة الاحتياطية. حاول تقليل عدد الدروس أو حجم الفيديوهات.",
-        invalidBackup: "ملف النسخة الاحتياطية غير صالح"
+        invalidBackup: "ملف النسخة الاحتياطية غير صالح",
+        exitConfirm: "هل تريد الخروج من التطبيق؟"
       },
       fr: {
         lessons: "Leçons", editor: "Nouvelle leçon", settings: "Paramètres",
@@ -1247,7 +1248,8 @@
         setImage: "Définir l'image de la leçon", exportSuccess: "Sauvegarde exportée", importSuccess: "Sauvegarde importée",
         exporting: "Export de la sauvegarde en cours...", exportingLesson: "Export de la leçon {0} sur {1}",
         exportError: "Échec de l'export. Essayez de réduire le nombre de leçons ou la taille des vidéos.",
-        invalidBackup: "Fichier de sauvegarde invalide"
+        invalidBackup: "Fichier de sauvegarde invalide",
+        exitConfirm: "Voulez-vous quitter l'application ?"
       },
       en: {
         lessons: "Lessons", editor: "New lesson", settings: "Settings",
@@ -1286,7 +1288,8 @@
         setImage: "Set lesson image", exportSuccess: "Backup exported", importSuccess: "Backup imported",
         exporting: "Exporting backup...", exportingLesson: "Exporting lesson {0} of {1}",
         exportError: "Export failed. Try reducing the number of lessons or video sizes.",
-        invalidBackup: "Invalid backup file"
+        invalidBackup: "Invalid backup file",
+        exitConfirm: "Do you want to exit the app?"
       }
     };
 
@@ -2839,6 +2842,17 @@
       setFontSize(state.fontSize);
       setCardStyle(state.cardStyle);
       setLangOrder(state.langOrder);
+
+      // Android hardware back: confirm before exit
+      if (isCapacitor() && window.Capacitor.Plugins.App) {
+        window.Capacitor.Plugins.App.addListener('backButton', ({ canGoBack }) => {
+          if (canGoBack) {
+            window.history.back();
+          } else if (confirm(t('exitConfirm'))) {
+            window.Capacitor.Plugins.App.exitApp();
+          }
+        });
+      }
 
       // Header nav
       document.querySelectorAll('nav button, .lesson-card').forEach(btn => {
