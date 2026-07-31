@@ -142,7 +142,8 @@ window.FR_STAGES = [
       { id: 256, ar: "Hépatite B chronique - Questions complémentaires", fr: "Hépatite B chronique - Questions complémentaires", en: "Chronic hepatitis B - Additional questions" },
       { id: 257, ar: "Hépatite B chronique - Consultation chez l'hépatologue", fr: "Hépatite B chronique - Consultation chez l'hépatologue", en: "Chronic hepatitis B - Consultation with the hepatologist" },
       { id: 258, ar: "Endoscopie - محادثة ومفردات", fr: "Endoscopie - Dialogue et vocabulaire", en: "Endoscopy - Dialogue and vocabulary" },
-      { id: 259, ar: "Gastro-entérologue - محادثة شاملة", fr: "Gastro-entérologue - Consultation complète", en: "Gastroenterologist - Full consultation" }
+      { id: 259, ar: "Gastro-entérologue - محادثة شاملة", fr: "Gastro-entérologue - Consultation complète", en: "Gastroenterologist - Full consultation" },
+      { id: 260, ar: "Hémangiome hépatique - محادثة ومفردات", fr: "Hémangiome hépatique - Dialogue et vocabulaire", en: "Hepatic hemangioma - Dialogue and vocabulary" }
     ]
   },
   {

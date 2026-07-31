@@ -749,6 +749,43 @@ window.registerStage({
       { fr: "Quels examens dois-je faire maintenant ?", ar: "ما الفحوصات التي يجب أن أجريها الآن؟", en: "Which tests should I do now?" },
       { fr: "Une prise de sang, un test Helicobacter pylori et éventuellement une endoscopie selon vos symptômes.", ar: "تحليل دم، فحص جرثومة المعدة، وربما تنظير حسب الأعراض.", en: "Blood tests, Helicobacter pylori test and possibly endoscopy depending on your symptoms." }
     ]
+  },
+  {
+    id: 260,
+    title: { ar: "Hémangiome hépatique - محادثة ومفردات", fr: "Hémangiome hépatique - Dialogue et vocabulaire", en: "Hepatic hemangioma - Dialogue and vocabulary" },
+    phrases: [
+      { fr: "Hémangiome hépatique", ar: "ورم وعائي حميد في الكبد", en: "Hepatic hemangioma (benign liver blood vessel tumor)" },
+      { fr: "Docteur, on a trouvé une lésion au niveau du foie sur l'échographie.", ar: "دكتور، وجدوا آفة في الكبد أثناء الإيكو.", en: "Doctor, they found a lesion in my liver on ultrasound." },
+      { fr: "Oui, il s'agit probablement d'un hémangiome hépatique.", ar: "نعم، غالبًا هو ورم وعائي كبدي حميد.", en: "Yes, it is probably a hepatic hemangioma." },
+      { fr: "Est-ce que c'est un cancer ?", ar: "هل هو سرطان؟", en: "Is it cancer?" },
+      { fr: "Non, un hémangiome hépatique est une tumeur bénigne, ce n'est pas un cancer.", ar: "لا، الورم الوعائي الكبدي ورم حميد وليس سرطانًا.", en: "No, a hepatic hemangioma is a benign tumor, not cancer." },
+      { fr: "Pourquoi j'ai cet hémangiome ?", ar: "لماذا ظهر لدي هذا الورم؟", en: "Why do I have this hemangioma?" },
+      { fr: "La cause exacte n'est pas toujours connue. C'est une anomalie des vaisseaux sanguins du foie.", ar: "السبب الدقيق غير معروف دائمًا. هو تغير في أوعية الكبد الدموية.", en: "The exact cause is not always known. It is an abnormality of liver blood vessels." },
+      { fr: "Quelle est sa taille ?", ar: "ما حجمه؟", en: "What is its size?" },
+      { fr: "Il mesure environ ... centimètres.", ar: "حجمه حوالي ... سنتيمتر.", en: "It measures about ... centimeters." },
+      { fr: "Est-ce qu'il peut grossir ?", ar: "هل يمكن أن يكبر؟", en: "Can it grow?" },
+      { fr: "Il peut parfois évoluer légèrement, mais il reste généralement stable.", ar: "قد يتغير قليلًا أحيانًا لكنه يبقى غالبًا مستقرًا.", en: "It can sometimes change slightly but usually remains stable." },
+      { fr: "Est-ce qu'il faut le surveiller ?", ar: "هل يحتاج إلى مراقبة؟", en: "Does it need monitoring?" },
+      { fr: "Oui, on peut faire une surveillance par échographie ou IRM selon le cas.", ar: "نعم، يمكن مراقبته بالإيكو أو الرنين حسب الحالة.", en: "Yes, it can be monitored by ultrasound or MRI depending on the case." },
+      { fr: "Est-ce que mon hémangiome est lié à mon hépatite B ?", ar: "هل الورم مرتبط بالتهاب الكبد B لدي؟", en: "Is my hemangioma related to my hepatitis B?" },
+      { fr: "Non, ce sont deux choses différentes.", ar: "لا، هما أمران مختلفان.", en: "No, they are two different things." },
+      { fr: "Est-ce que l'hémangiome augmente le risque de cancer du foie ?", ar: "هل الورم يزيد خطر سرطان الكبد؟", en: "Does hemangioma increase liver cancer risk?" },
+      { fr: "Non, un hémangiome bénin ne devient pas un cancer.", ar: "لا، الورم الوعائي الحميد لا يتحول إلى سرطان.", en: "No, a benign hemangioma does not become cancer." },
+      { fr: "Est-ce qu'un hémangiome donne des symptômes ?", ar: "هل يسبب الورم أعراضًا؟", en: "Can a hemangioma cause symptoms?" },
+      { fr: "La plupart du temps, il ne donne aucun symptôme.", ar: "غالبًا لا يسبب أي أعراض.", en: "Most of the time, it causes no symptoms." },
+      { fr: "J'ai une douleur à droite sous les côtes, est-ce à cause de l'hémangiome ?", ar: "لدي ألم يمين تحت الأضلاع، هل بسبب الورم؟", en: "I have pain under the right ribs, is it because of the hemangioma?" },
+      { fr: "Ce n'est pas forcément lié, il faut rechercher d'autres causes.", ar: "ليس بالضرورة أن يكون مرتبطًا، يجب البحث عن أسباب أخرى.", en: "It is not necessarily related; other causes need to be checked." },
+      { fr: "Est-ce qu'il faut enlever l'hémangiome ?", ar: "هل يجب إزالة الورم؟", en: "Does it need to be removed?" },
+      { fr: "Non, dans la majorité des cas il n'y a pas besoin de traitement.", ar: "لا، في أغلب الحالات لا يحتاج إلى علاج.", en: "No, in most cases no treatment is needed." },
+      { fr: "Quand est-ce qu'on opère un hémangiome ?", ar: "متى يتم إجراء عملية للورم؟", en: "When is surgery needed?" },
+      { fr: "Seulement dans des situations particulières : grande taille, complications ou symptômes importants.", ar: "فقط في حالات خاصة: حجم كبير، مضاعفات أو أعراض مهمة.", en: "Only in special situations: large size, complications or significant symptoms." },
+      { fr: "Est-ce bien un hémangiome typique ?", ar: "هل هو ورم وعائي نموذجي؟", en: "Is it a typical hemangioma?" },
+      { fr: "Avez-vous besoin d'une IRM pour confirmer le diagnostic ?", ar: "هل تحتاجون إلى رنين مغناطيسي لتأكيد التشخيص؟", en: "Do you need an MRI to confirm the diagnosis?" },
+      { fr: "Quelle est la taille exacte de l'hémangiome ?", ar: "ما الحجم الدقيق للورم؟", en: "What is the exact size of the hemangioma?" },
+      { fr: "Est-ce qu'il a changé depuis la dernière échographie ?", ar: "هل تغير منذ آخر إيكو؟", en: "Has it changed since the last ultrasound?" },
+      { fr: "Quand dois-je refaire un contrôle ?", ar: "متى يجب أن أعيد الفحص؟", en: "When should I have a follow-up check?" },
+      { fr: "Avec mon hépatite B chronique, quelle surveillance du foie dois-je faire ?", ar: "مع التهاب الكبد B المزمن، ما المتابعة المطلوبة للكبد؟", en: "With my chronic hepatitis B, what liver monitoring should I do?" }
+    ]
   }
   ]
 });
