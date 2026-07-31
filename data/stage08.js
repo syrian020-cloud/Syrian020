@@ -392,6 +392,37 @@ window.registerStage({
       { fr: "Le GavisconPro me soulage rapidement.", ar: "جافيسكون برو يريحني بسرعة.", en: "GavisconPro relieves my symptoms quickly." },
       { fr: "Je voudrais une boîte de GavisconPro en sachets.", ar: "أريد علبة جافيسكون برو على شكل أكياس.", en: "I'd like a box of GavisconPro sachets, please." },
     ]
+  },
+  {
+    id: 251,
+    title: { ar: "Ténofovir Disoproxil 245 mg", fr: "Ténofovir Disoproxil 245 mg", en: "Ténofovir Disoproxil 245 mg" },
+    phrases: [
+      { fr: "Bonjour, je viens chercher mon Ténofovir Disoproxil 245 mg.", ar: "مرحبًا، جئت لاستلام تينوفوفير ديسوبروكسيل 245 ملغ.", en: "Hello, I'm here to pick up my Ténofovir Disoproxil 245 mg." },
+      { fr: "Vous avez votre ordonnance ?", ar: "هل لديك وصفتك الطبية؟", en: "Do you have your prescription?" },
+      { fr: "Oui, la voici.", ar: "نعم، تفضل.", en: "Yes, here it is." },
+      { fr: "À quoi sert ce médicament ?", ar: "ما استخدام هذا الدواء؟", en: "What is this medicine used for?" },
+      { fr: "Il sert à contrôler le virus de l'hépatite B et à empêcher sa multiplication.", ar: "يساعد على السيطرة على فيروس التهاب الكبد B ومنع تكاثره.", en: "It helps control hepatitis B virus and prevents it from multiplying." },
+      { fr: "Est-ce que ce médicament guérit l'hépatite B ?", ar: "هل هذا الدواء يشفي التهاب الكبد B؟", en: "Does this medicine cure hepatitis B?" },
+      { fr: "Il contrôle le virus, mais le traitement est souvent un traitement au long cours.", ar: "يسيطر على الفيروس، لكن العلاج غالبًا يكون طويل المدى.", en: "It controls the virus, but treatment is often long-term." },
+      { fr: "Comment dois-je prendre ce médicament ?", ar: "كيف يجب أن أتناول هذا الدواء؟", en: "How should I take this medicine?" },
+      { fr: "Généralement, un comprimé une fois par jour, selon la prescription du médecin.", ar: "عادةً قرص واحد مرة يوميًا حسب وصف الطبيب.", en: "Usually one tablet once a day, according to the doctor's prescription." },
+      { fr: "J'ai oublié de prendre mon comprimé. Que dois-je faire ?", ar: "نسيت تناول الحبة، ماذا أفعل؟", en: "I forgot to take my tablet. What should I do?" },
+      { fr: "Prenez-la dès que vous vous en souvenez, sauf si l'heure de la prochaine dose est proche.", ar: "خذها عندما تتذكر، إلا إذا اقترب موعد الجرعة التالية.", en: "Take it when you remember unless the next dose is close." },
+      { fr: "Est-ce que je peux arrêter le traitement ?", ar: "هل يمكنني إيقاف العلاج؟", en: "Can I stop the treatment?" },
+      { fr: "Ne l'arrêtez pas sans l'avis de votre médecin.", ar: "لا توقفه دون رأي طبيبك.", en: "Do not stop it without your doctor's advice." },
+      { fr: "Est-ce que je dois faire des analyses régulièrement ?", ar: "هل يجب أن أجري تحاليل بانتظام؟", en: "Do I need regular tests?" },
+      { fr: "Oui, votre médecin surveille généralement le foie et les reins.", ar: "نعم، الطبيب عادة يراقب الكبد والكلى.", en: "Yes, your doctor usually monitors the liver and kidneys." },
+      { fr: "Ma charge virale est indétectable.", ar: "الحمل الفيروسي لدي غير قابل للكشف.", en: "My viral load is undetectable." },
+      { fr: "Je prends du Ténofovir depuis plusieurs années.", ar: "أستخدم تينوفوفير منذ عدة سنوات.", en: "I've been taking Tenofovir for several years." },
+      { fr: "Je n'ai pas oublié mon traitement.", ar: "لم أنسَ علاجي.", en: "I haven't forgotten my treatment." },
+      { fr: "J'ai besoin d'une nouvelle ordonnance.", ar: "أحتاج إلى وصفة جديدة.", en: "I need a new prescription." },
+      { fr: "Je dois faire un suivi avec l'hépatologue.", ar: "يجب أن أتابع مع طبيب الكبد.", en: "I need follow-up with the hepatologist." },
+      { fr: "Est-ce que je peux prendre ce médicament avec d'autres traitements ?", ar: "هل يمكنني تناوله مع أدوية أخرى؟", en: "Can I take this medicine with other treatments?" },
+      { fr: "Est-ce qu'il y a des effets secondaires ?", ar: "هل توجد آثار جانبية؟", en: "Are there any side effects?" },
+      { fr: "Dois-je le prendre avec un repas ?", ar: "هل يجب تناوله مع الطعام؟", en: "Should I take it with food?" },
+      { fr: "Combien de boîtes avez-vous pour mon ordonnance ?", ar: "كم علبة لدي في الوصفة؟", en: "How many boxes do you have for my prescription?" },
+      { fr: "Je suis suivi pour une hépatite B chronique et je prends du Ténofovir Disoproxil 245 mg.", ar: "أنا أتابع بسبب التهاب الكبد B المزمن وأتناول تينوفوفير ديسوبروكسيل 245 ملغ.", en: "I am followed for chronic hepatitis B and I take Ténofovir Disoproxil 245 mg." },
+    ]
   }
   ]
 });
