@@ -1784,8 +1784,11 @@
       state.subtitleText = '';
       state.subtitleType = 'srt';
       state.editingId = null;
+      state.currentLesson = null;
       state.currentCues = [];
       state.loopCue = null;
+      state.playerMode = false;
+      setPlayerMode(false);
       document.getElementById('lesson-title').value = '';
       document.getElementById('video-file').value = '';
       document.getElementById('audio-file').value = '';
@@ -1794,6 +1797,8 @@
       document.getElementById('video-name').textContent = '';
       document.getElementById('audio-name').textContent = '';
       document.getElementById('srt-name').textContent = '';
+      document.getElementById('subtitle-current').innerHTML = '';
+      document.getElementById('subtitle-lang-buttons').innerHTML = '';
       document.getElementById('preview-wrap').classList.add('hidden');
       document.getElementById('subtitle-display').classList.add('hidden');
       document.getElementById('subtitle-toolbar').classList.add('hidden');
@@ -1802,6 +1807,7 @@
       document.getElementById('sentences-section').classList.add('hidden');
       document.getElementById('lesson-words').classList.add('hidden');
       document.getElementById('cue-list').classList.add('hidden');
+      selectSubtab('srt');
       const video = document.getElementById('lesson-video');
       detachSubtitleListeners(video);
       video.pause();
@@ -1811,8 +1817,6 @@
       document.querySelectorAll('.speed-buttons button').forEach(b => b.classList.toggle('active', parseFloat(b.dataset.speed) === 1));
       const track = video.querySelector('track');
       if (track) track.remove();
-      selectSubtab('srt');
-      setPlayerMode(false);
     }
 
     function selectSubtab(tab) {
@@ -2722,13 +2726,10 @@
 
       // Header nav
       document.querySelectorAll('nav button, .lesson-card').forEach(btn => {
-        if (btn.dataset.page) btn.addEventListener('click', () => showPage(btn.dataset.page));
-      });
-
-      // New lesson nav
-      document.getElementById('nav-editor').addEventListener('click', () => {
-        resetEditor();
-        showPage('editor');
+        if (btn.dataset.page) btn.addEventListener('click', () => {
+          if (btn.dataset.page === 'editor') resetEditor();
+          showPage(btn.dataset.page);
+        });
       });
 
       // File inputs
