@@ -1207,6 +1207,7 @@
         exportBackup: "تصدير نسخة احتياطية ☁️", importBackup: "استيراد نسخة احتياطية 📥",
         setImage: "وضع صورة للدرس", exportSuccess: "تم تصدير النسخة الاحتياطية", importSuccess: "تم استيراد النسخة الاحتياطية",
         exporting: "جاري تصدير النسخة الاحتياطية...", exportingLesson: "جاري تصدير الدرس {0} من {1}",
+        exportError: "فشل تصدير النسخة الاحتياطية. حاول تقليل عدد الدروس أو حجم الفيديوهات.",
         invalidBackup: "ملف النسخة الاحتياطية غير صالح"
       },
       fr: {
@@ -1245,6 +1246,7 @@
         exportBackup: "Exporter une sauvegarde ☁️", importBackup: "Importer une sauvegarde 📥",
         setImage: "Définir l'image de la leçon", exportSuccess: "Sauvegarde exportée", importSuccess: "Sauvegarde importée",
         exporting: "Export de la sauvegarde en cours...", exportingLesson: "Export de la leçon {0} sur {1}",
+        exportError: "Échec de l'export. Essayez de réduire le nombre de leçons ou la taille des vidéos.",
         invalidBackup: "Fichier de sauvegarde invalide"
       },
       en: {
@@ -1283,6 +1285,7 @@
         exportBackup: "Export backup ☁️", importBackup: "Import backup 📥",
         setImage: "Set lesson image", exportSuccess: "Backup exported", importSuccess: "Backup imported",
         exporting: "Exporting backup...", exportingLesson: "Exporting lesson {0} of {1}",
+        exportError: "Export failed. Try reducing the number of lessons or video sizes.",
         invalidBackup: "Invalid backup file"
       }
     };
@@ -1764,9 +1767,11 @@
     }
 
     function blobToDataURL(blob) {
-      return new Promise((resolve) => {
+      return new Promise((resolve, reject) => {
         const reader = new FileReader();
-        reader.onloadend = () => resolve(reader.result);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(reader.error || new Error('Failed to read blob'));
+        reader.onabort = () => reject(new Error('Blob read aborted'));
         reader.readAsDataURL(blob);
       });
     }
@@ -1823,23 +1828,46 @@
     }
 
     async function exportLessons() {
-      showToast(t('exporting'));
-      await new Promise(r => setTimeout(r, 50));
-      const lessons = (await getLessonsFromDB()).filter(l => l.id !== DRAFT_ID);
-      const total = lessons.length;
-      const exported = [];
-      for (let i = 0; i < lessons.length; i++) {
-        const l = lessons[i];
-        const obj = { ...l };
-        if (l.videoFile && l.videoFile instanceof Blob) obj.videoFile = await blobToDataURL(l.videoFile);
-        if (l.vttBlob && l.vttBlob instanceof Blob) obj.vttBlob = await blobToDataURL(l.vttBlob);
-        if (l.coverImage && l.coverImage instanceof Blob) obj.coverImage = await blobToDataURL(l.coverImage);
-        exported.push(obj);
-        showToast(t('exportingLesson').replace('{0}', i + 1).replace('{1}', total));
+      try {
+        showToast(t('exporting'));
+        await new Promise(r => setTimeout(r, 50));
+        const exported = [];
+        const tx = state.db.transaction(STORE_NAME, 'readonly');
+        const store = tx.objectStore(STORE_NAME);
+        const total = await new Promise((resolve, reject) => {
+          const req = store.count();
+          req.onsuccess = () => resolve(req.result);
+          req.onerror = () => reject(req.error);
+        });
+        await new Promise((resolve, reject) => {
+          const req = store.openCursor();
+          let i = 0;
+          req.onsuccess = async (e) => {
+            const cursor = e.target.result;
+            if (!cursor) { resolve(); return; }
+            const l = cursor.value;
+            if (l.id !== DRAFT_ID) {
+              i++;
+              const obj = { ...l };
+              const videoFile = l.videoFile, vttBlob = l.vttBlob, coverImage = l.coverImage;
+              if (isBlobLike(videoFile)) obj.videoFile = await blobToDataURL(videoFile);
+              if (isBlobLike(vttBlob)) obj.vttBlob = await blobToDataURL(vttBlob);
+              if (isBlobLike(coverImage)) obj.coverImage = await blobToDataURL(coverImage);
+              exported.push(obj);
+              showToast(t('exportingLesson').replace('{0}', i).replace('{1}', total));
+            }
+            cursor.continue();
+          };
+          req.onerror = () => reject(req.error);
+        });
+        const json = JSON.stringify(exported);
+        const blob = new Blob([json], { type: 'application/json' });
+        await shareOrDownload({ filename: 'dross-backup.json', blob, contentType: 'application/json' });
+        showToast(t('exportSuccess'));
+      } catch (e) {
+        console.error('exportLessons failed', e);
+        showToast(t('exportError'));
       }
-      const json = JSON.stringify(exported);
-      await shareOrDownload({ filename: 'dross-backup.json', data: json, contentType: 'application/json', encoding: 'utf8' });
-      showToast(t('exportSuccess'));
     }
 
     async function importLessons(file) {
@@ -2515,13 +2543,19 @@
       });
     }
 
-    async function shareOrDownload({ filename, blob, data, contentType, encoding }) {
+    function isBlobLike(v) {
+      return v && (typeof v === 'object' || typeof v === 'function') && typeof v.size === 'number' && typeof v.type === 'string';
+    }
+
+    async function shareOrDownload({ filename, blob, contentType }) {
       try {
         if (isCapacitor() && window.Capacitor.Plugins.Filesystem && window.Capacitor.Plugins.Share) {
-          const writeData = data !== undefined ? data : await blobToBase64(blob);
-          const opts = { path: filename, data: writeData, directory: 'CACHE' };
-          if (encoding) opts.encoding = encoding;
-          const { uri } = await window.Capacitor.Plugins.Filesystem.writeFile(opts);
+          const base64 = await blobToBase64(blob);
+          const { uri } = await window.Capacitor.Plugins.Filesystem.writeFile({
+            path: filename,
+            data: base64,
+            directory: 'CACHE'
+          });
           await window.Capacitor.Plugins.Share.share({
             title: filename,
             files: [uri],
@@ -2530,8 +2564,7 @@
           return;
         }
       } catch (e) { console.error('share failed', e); }
-      const outBlob = blob || new Blob([data || ''], { type: contentType || 'application/octet-stream' });
-      const url = URL.createObjectURL(outBlob);
+      const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
       a.download = filename;
