@@ -1,6 +1,6 @@
 {
-  "appId": "com.syrian020.dross",
-  "appName": "Dross",
+  "appId": "com.syrian020.frenchphrasebook",
+  "appName": "تعلم الفرنسية",
   "webDir": "www",
   "server": {
     "androidScheme": "https"
