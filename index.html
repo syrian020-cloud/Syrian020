@@ -716,6 +716,30 @@
     #sentences-list.card-style-playful .subtitle-line.ar { background: #b71c1c; }
     #sentences-list.card-style-playful .subtitle-line.en { background: #555555; }
 
+    /* Overlay caption styles per card style */
+    .subtitle-display.card-style-classic .subtitle-line.fr { background: linear-gradient(135deg, #ff9f43, #ff7f50); }
+    .subtitle-display.card-style-classic .subtitle-line.ar { background: linear-gradient(135deg, #2dd4bf, #14b8a6); }
+    .subtitle-display.card-style-classic .subtitle-line.en { background: linear-gradient(135deg, #60a5fa, #3b82f6); }
+
+    .subtitle-display.card-style-modern .subtitle-line.fr { background: linear-gradient(135deg, #e67e22, #d35400); }
+    .subtitle-display.card-style-modern .subtitle-line.ar { background: linear-gradient(135deg, #1abc9c, #16a085); }
+    .subtitle-display.card-style-modern .subtitle-line.en { background: linear-gradient(135deg, #3498db, #2980b9); }
+
+    .subtitle-display.card-style-pastel .subtitle-line { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .subtitle-display.card-style-pastel .subtitle-line.fr { background: linear-gradient(135deg, #ffb347, #ff9f43); }
+    .subtitle-display.card-style-pastel .subtitle-line.ar { background: linear-gradient(135deg, #5eead4, #2dd4bf); }
+    .subtitle-display.card-style-pastel .subtitle-line.en { background: linear-gradient(135deg, #93c5fd, #60a5fa); }
+
+    .subtitle-display.card-style-elegant .subtitle-line { font-family: Georgia, 'Times New Roman', Times, serif; }
+    .subtitle-display.card-style-elegant .subtitle-line.fr { background: linear-gradient(135deg, #f4a261, #e67e22); }
+    .subtitle-display.card-style-elegant .subtitle-line.ar { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+    .subtitle-display.card-style-elegant .subtitle-line.en { background: linear-gradient(135deg, #5dade2, #3498db); }
+
+    .subtitle-display.card-style-playful .subtitle-line { font-family: 'Times New Roman', Times, Georgia, 'Noto Serif', serif; border-radius: 0; }
+    .subtitle-display.card-style-playful .subtitle-line.fr { background: #1a1a1a; }
+    .subtitle-display.card-style-playful .subtitle-line.ar { background: #b71c1c; }
+    .subtitle-display.card-style-playful .subtitle-line.en { background: #555555; }
+
     .sentence-words-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-top: 0.6rem; }
     .btn-words-toggle {
       background: var(--bg-tertiary);
@@ -1417,9 +1441,15 @@
       const select = document.getElementById('settings-card-style');
       if (select) select.value = style;
       const list = document.getElementById('sentences-list');
+      const display = document.getElementById('subtitle-display');
+      const classes = ['card-style-classic', 'card-style-modern', 'card-style-pastel', 'card-style-elegant', 'card-style-playful'];
       if (list) {
-        list.classList.remove('card-style-classic', 'card-style-modern', 'card-style-pastel', 'card-style-elegant', 'card-style-playful');
+        list.classList.remove(...classes);
         list.classList.add('card-style-' + style);
+      }
+      if (display) {
+        display.classList.remove(...classes);
+        display.classList.add('card-style-' + style);
       }
     }
 
