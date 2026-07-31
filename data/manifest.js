@@ -134,7 +134,11 @@ window.FR_STAGES = [
       { id: 248, ar: "Clinutren / Fresubin", fr: "Clinutren / Fresubin", en: "Clinutren / Fresubin" },
       { id: 249, ar: "Pantoprazole 40 mg", fr: "Pantoprazole 40 mg", en: "Pantoprazole 40 mg" },
       { id: 250, ar: "GavisconPro", fr: "GavisconPro", en: "GavisconPro" },
-      { id: 251, ar: "Ténofovir Disoproxil 245 mg", fr: "Ténofovir Disoproxil 245 mg", en: "Ténofovir Disoproxil 245 mg" }
+      { id: 251, ar: "Ténofovir Disoproxil 245 mg", fr: "Ténofovir Disoproxil 245 mg", en: "Ténofovir Disoproxil 245 mg" },
+      { id: 252, ar: "Hépatite B chronique - Consultation", fr: "Hépatite B chronique - Consultation", en: "Chronic hepatitis B - Consultation" },
+      { id: 253, ar: "Hépatite B chronique - Virus et analyses", fr: "Hépatite B chronique - Virus et analyses", en: "Chronic hepatitis B - Virus and tests" },
+      { id: 254, ar: "Hépatite B chronique - Foie et traitement", fr: "Hépatite B chronique - Foie et traitement", en: "Chronic hepatitis B - Liver and treatment" },
+      { id: 255, ar: "Hépatite B chronique - Dialogue avec le médecin", fr: "Hépatite B chronique - Dialogue avec le médecin", en: "Chronic hepatitis B - Dialogue with the doctor" }
     ]
   },
   {
