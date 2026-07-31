@@ -132,7 +132,8 @@ window.FR_STAGES = [
       { id: 246, ar: "الأعراض والمنتجات", fr: "Symptômes et produits", en: "Symptoms and products" },
       { id: 247, ar: "محادثات في الصيدلية", fr: "Dialogues à la pharmacie", en: "Pharmacy dialogues" },
       { id: 248, ar: "Clinutren / Fresubin", fr: "Clinutren / Fresubin", en: "Clinutren / Fresubin" },
-      { id: 249, ar: "Pantoprazole 40 mg", fr: "Pantoprazole 40 mg", en: "Pantoprazole 40 mg" }
+      { id: 249, ar: "Pantoprazole 40 mg", fr: "Pantoprazole 40 mg", en: "Pantoprazole 40 mg" },
+      { id: 250, ar: "GavisconPro", fr: "GavisconPro", en: "GavisconPro" }
     ]
   },
   {
