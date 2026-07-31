@@ -2777,6 +2777,7 @@
       setPlayerMode(true, lesson.title);
       await saveDraft();
       showPage('lesson');
+      history.pushState({ page: 'lesson', lessonId: id }, '');
     }
 
     async function loadLessonForEdit(id) {
@@ -2785,6 +2786,7 @@
       setPlayerMode(false);
       showPage('editor');
       await saveDraft();
+      history.pushState({ page: 'editor', lessonId: id }, '');
     }
 
     // --- Event listeners ---
@@ -2804,6 +2806,15 @@
           }
           showPage(btn.dataset.page);
         });
+      });
+
+      // Phone back button / browser back navigation
+      window.addEventListener('popstate', (e) => {
+        const activePage = document.querySelector('.page.active');
+        const activeId = activePage ? activePage.id : '';
+        if (activeId === 'page-lesson' || (activeId === 'page-editor' && state.currentLesson)) {
+          showPage('lessons');
+        }
       });
 
       // Load draft workspace
