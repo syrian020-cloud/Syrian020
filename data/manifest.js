@@ -129,7 +129,8 @@ window.FR_STAGES = [
       { id: 243, ar: "كيفية الاستعمال", fr: "Mode d'emploi", en: "How to use" },
       { id: 244, ar: "العلاج والتجديد", fr: "Traitement et renouvellement", en: "Treatment and renewal" },
       { id: 245, ar: "الجرعة والتوقيت", fr: "Dosage et horaires", en: "Dosage and timing" },
-      { id: 246, ar: "الأعراض والمنتجات", fr: "Symptômes et produits", en: "Symptoms and products" }
+      { id: 246, ar: "الأعراض والمنتجات", fr: "Symptômes et produits", en: "Symptoms and products" },
+      { id: 247, ar: "محادثات في الصيدلية", fr: "Dialogues à la pharmacie", en: "Pharmacy dialogues" }
     ]
   },
   {
