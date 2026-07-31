@@ -397,5 +397,21 @@ window.FR_STAGES = [
       { id: 217, ar: "الأدب والاعتذار", fr: "La politesse", en: "Politeness" },
       { id: 218, ar: "إنهاء الحديث", fr: "Terminer une conversation", en: "Ending a conversation" }
     ]
+  },
+  {
+    id: 31,
+    title: { ar: "الدروس الشائعة", fr: "Les leçons courantes", en: "Common lessons" },
+    lessonTitles: [
+      { id: 219, ar: "التحدث عن النفس", fr: "Parler de soi", en: "Talking about yourself" },
+      { id: 220, ar: "طلب التوضيح والمساعدة", fr: "Demander des clarifications et de l'aide", en: "Asking for clarification and help" },
+      { id: 221, ar: "الاعتذار والشكر", fr: "S'excuser et remercier", en: "Apologising and thanking" },
+      { id: 222, ar: "الرأي والاتفاق والاختلاف", fr: "Opinions, accord et désaccord", en: "Opinion, agreement and disagreement" },
+      { id: 223, ar: "الوصف والكمية والمقارنة", fr: "Description, quantité et comparaison", en: "Description, quantity and comparison" },
+      { id: 224, ar: "التفضيل والرغبة", fr: "Préférences et souhaits", en: "Preferences and wishes" },
+      { id: 225, ar: "النصيحة والاحتمال والضرورة", fr: "Conseil, probabilité et nécessité", en: "Advice, probability and necessity" },
+      { id: 226, ar: "الطلب والإذن والتمني", fr: "Demandes, permission et souhaits", en: "Requests, permission and wishes" },
+      { id: 227, ar: "الإعجاب والشكوى", fr: "Compliments et plaintes", en: "Compliments and complaints" },
+      { id: 228, ar: "التواصل الرقمي اليومي", fr: "La communication numérique quotidienne", en: "Daily digital communication" }
+    ]
   }
 ];
