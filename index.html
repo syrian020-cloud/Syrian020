@@ -1829,37 +1829,15 @@
 
     async function exportLessons() {
       try {
-        showToast(t('exporting'));
-        await new Promise(r => setTimeout(r, 50));
+        const lessons = (await getLessonsFromDB()).filter(l => l.id !== DRAFT_ID);
         const exported = [];
-        const tx = state.db.transaction(STORE_NAME, 'readonly');
-        const store = tx.objectStore(STORE_NAME);
-        const total = await new Promise((resolve, reject) => {
-          const req = store.count();
-          req.onsuccess = () => resolve(req.result);
-          req.onerror = () => reject(req.error);
-        });
-        await new Promise((resolve, reject) => {
-          const req = store.openCursor();
-          let i = 0;
-          req.onsuccess = async (e) => {
-            const cursor = e.target.result;
-            if (!cursor) { resolve(); return; }
-            const l = cursor.value;
-            if (l.id !== DRAFT_ID) {
-              i++;
-              const obj = { ...l };
-              const videoFile = l.videoFile, vttBlob = l.vttBlob, coverImage = l.coverImage;
-              if (isBlobLike(videoFile)) obj.videoFile = await blobToDataURL(videoFile);
-              if (isBlobLike(vttBlob)) obj.vttBlob = await blobToDataURL(vttBlob);
-              if (isBlobLike(coverImage)) obj.coverImage = await blobToDataURL(coverImage);
-              exported.push(obj);
-              showToast(t('exportingLesson').replace('{0}', i).replace('{1}', total));
-            }
-            cursor.continue();
-          };
-          req.onerror = () => reject(req.error);
-        });
+        for (const l of lessons) {
+          const obj = { ...l };
+          if (l.videoFile && l.videoFile instanceof Blob) obj.videoFile = await blobToDataURL(l.videoFile);
+          if (l.vttBlob && l.vttBlob instanceof Blob) obj.vttBlob = await blobToDataURL(l.vttBlob);
+          if (l.coverImage && l.coverImage instanceof Blob) obj.coverImage = await blobToDataURL(l.coverImage);
+          exported.push(obj);
+        }
         const json = JSON.stringify(exported);
         const blob = new Blob([json], { type: 'application/json' });
         await shareOrDownload({ filename: 'dross-backup.json', blob, contentType: 'application/json' });
