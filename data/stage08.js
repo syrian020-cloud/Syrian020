@@ -616,6 +616,53 @@ window.registerStage({
       { fr: "Est-ce que j'ai une cirrhose du foie ?", ar: "هل لدي تشمع في الكبد؟", en: "Do I have liver cirrhosis?" },
       { fr: "Est-ce que je risque de transmettre le virus à ma famille ?", ar: "هل أخاطر بنقل الفيروس لعائلتي؟", en: "Am I at risk of transmitting the virus to my family?" }
     ]
+  },
+  {
+    id: 257,
+    title: { ar: "Hépatite B chronique - Consultation chez l'hépatologue", fr: "Hépatite B chronique - Consultation chez l'hépatologue", en: "Chronic hepatitis B - Consultation with the hepatologist" },
+    phrases: [
+      { fr: "Bonjour Monsieur, installez-vous. Nous allons regarder vos derniers résultats.", ar: "مرحبًا سيدي، تفضل بالجلوس. سنراجع آخر نتائجك.", en: "Hello sir, please sit down. We will review your latest results." },
+      { fr: "Bonjour Docteur. J'aimerais comprendre mes analyses.", ar: "مرحبًا دكتور. أود أن أفهم تحاليلي.", en: "Hello Doctor. I would like to understand my tests." },
+      { fr: "Votre charge virale de l'hépatite B est à 25 UI/mL.", ar: "الحمل الفيروسي لالتهاب الكبد B لديك هو 25 وحدة.", en: "Your hepatitis B viral load is 25 IU/mL." },
+      { fr: "Est-ce que c'est un bon résultat ?", ar: "هل هذه نتيجة جيدة؟", en: "Is this a good result?" },
+      { fr: "Oui, c'est très bas. Elle a diminué par rapport à la dernière fois où elle était à 268 UI/mL.", ar: "نعم، هذا منخفض جدًا. لقد انخفضت مقارنة بالمرة السابقة عندما كانت 268 وحدة.", en: "Yes, it is very low. It decreased compared with the last time when it was 268 IU/mL." },
+      { fr: "Est-ce que cela veut dire que le traitement fonctionne ?", ar: "هل يعني هذا أن العلاج يعمل؟", en: "Does this mean the treatment is working?" },
+      { fr: "Oui, votre réponse au Ténofovir est bonne. Le virus est fortement contrôlé.", ar: "نعم، استجابتك للتينوفوفير جيدة. الفيروس تحت سيطرة كبيرة.", en: "Yes, your response to Tenofovir is good. The virus is strongly controlled." },
+      { fr: "Est-ce que je peux arriver à une charge virale indétectable ?", ar: "هل يمكن أن أصل إلى حمل فيروسي غير قابل للكشف؟", en: "Can I reach an undetectable viral load?" },
+      { fr: "Oui, c'est possible. Nous allons continuer la surveillance.", ar: "نعم، هذا ممكن. سنواصل المتابعة.", en: "Yes, it is possible. We will continue monitoring." },
+      { fr: "Mon antigène HBs est toujours positif. Est-ce normal ?", ar: "مستضد HBs ما زال إيجابيًا. هل هذا طبيعي؟", en: "My HBs antigen is still positive. Is this normal?" },
+      { fr: "Oui, chez les patients avec une hépatite B chronique, il peut rester positif pendant longtemps.", ar: "نعم، عند مرضى التهاب الكبد B المزمن يمكن أن يبقى إيجابيًا فترة طويلة.", en: "Yes, in chronic hepatitis B patients it can remain positive for a long time." },
+      { fr: "Même si la charge virale est basse ?", ar: "حتى لو كان الحمل الفيروسي منخفضًا؟", en: "Even if the viral load is low?" },
+      { fr: "Oui, car le traitement contrôle le virus mais ne fait pas toujours disparaître l'antigène HBs.", ar: "نعم، لأن العلاج يسيطر على الفيروس لكنه لا يزيل دائمًا مستضد HBs.", en: "Yes, because treatment controls the virus but does not always eliminate HBs antigen." },
+      { fr: "Vos ASAT sont légèrement élevées à 45.", ar: "ASAT لديك مرتفعة قليلًا إلى 45.", en: "Your AST is slightly elevated at 45." },
+      { fr: "Est-ce inquiétant ?", ar: "هل هذا مقلق؟", en: "Is this worrying?" },
+      { fr: "Non, c'est une élévation légère. Nous allons surveiller l'évolution.", ar: "لا، إنه ارتفاع بسيط. سنراقب التطور.", en: "No, it is a mild elevation. We will monitor the trend." },
+      { fr: "Mes ALAT sont à 52, est-ce normal ?", ar: "ALAT لدي 52، هل هو طبيعي؟", en: "My ALT is 52, is it normal?" },
+      { fr: "Oui, elles sont dans la limite du laboratoire.", ar: "نعم، ضمن حدود المختبر.", en: "Yes, it is within the laboratory range." },
+      { fr: "Pourquoi les ASAT peuvent augmenter ?", ar: "لماذا يمكن أن ترتفع ASAT؟", en: "Why can AST increase?" },
+      { fr: "Plusieurs causes sont possibles : le foie, les muscles, l'effort physique ou certains médicaments.", ar: "توجد أسباب عديدة: الكبد، العضلات، المجهود الرياضي أو بعض الأدوية.", en: "Several causes are possible: liver, muscles, physical effort, or some medications." },
+      { fr: "Votre fonction rénale est excellente.", ar: "وظيفة الكلى لديك ممتازة.", en: "Your kidney function is excellent." },
+      { fr: "Ma créatinine est bonne ?", ar: "هل الكرياتينين جيد؟", en: "Is my creatinine good?" },
+      { fr: "Oui, elle est normale à 64 µmol/L.", ar: "نعم، طبيعية 64 ميكرومول/لتر.", en: "Yes, it is normal at 64 µmol/L." },
+      { fr: "Le Ténofovir peut abîmer les reins ?", ar: "هل يمكن للتينوفوفير أن يضر الكلى؟", en: "Can Tenofovir damage kidneys?" },
+      { fr: "Il peut parfois avoir un impact, c'est pourquoi nous surveillons la fonction rénale régulièrement.", ar: "قد يؤثر أحيانًا، لذلك نراقب وظائف الكلى بانتظام.", en: "It can sometimes have an impact, so we monitor kidney function regularly." },
+      { fr: "Mes plaquettes sont à 156, est-ce normal ?", ar: "الصفائح لدي 156، هل هذا طبيعي؟", en: "My platelets are 156, is that normal?" },
+      { fr: "Oui, elles sont dans la normale, mais proches de la limite basse.", ar: "نعم، هي طبيعية لكنها قريبة من الحد الأدنى.", en: "Yes, they are normal but close to the lower limit." },
+      { fr: "Est-ce lié au foie ?", ar: "هل له علاقة بالكبد؟", en: "Is it related to the liver?" },
+      { fr: "Nous surveillons surtout l'évolution avec les autres examens du foie.", ar: "نراقب التطور مع باقي فحوصات الكبد.", en: "We mainly monitor the trend with other liver tests." },
+      { fr: "Est-ce que mon échographie du foie est normale ?", ar: "هل إيكو الكبد طبيعي؟", en: "Is my liver ultrasound normal?" },
+      { fr: "Oui, il n'y a pas d'anomalie inquiétante.", ar: "نعم، لا توجد مشكلة مقلقة.", en: "Yes, there is no worrying abnormality." },
+      { fr: "Est-ce que j'ai une fibrose ?", ar: "هل لدي تليف؟", en: "Do I have fibrosis?" },
+      { fr: "Le FibroScan permet d'évaluer le degré de fibrose.", ar: "الفيبروسكان يسمح بتقييم درجة التليف.", en: "FibroScan assesses the degree of fibrosis." },
+      { fr: "Est-ce que j'ai une cirrhose aujourd'hui ?", ar: "هل لدي تشمع اليوم؟", en: "Do I have cirrhosis today?" },
+      { fr: "Nous n'avons pas d'élément indiquant une cirrhose importante actuellement.", ar: "لا توجد حاليًا عناصر تشير إلى تشمع مهم.", en: "There is currently no evidence of significant cirrhosis." },
+      { fr: "Est-ce que je continue le même traitement ?", ar: "هل أستمر بنفس العلاج؟", en: "Do I continue the same treatment?" },
+      { fr: "Oui, continuez le Ténofovir tous les jours.", ar: "نعم، استمر بالتينوفوفير كل يوم.", en: "Yes, continue Tenofovir every day." },
+      { fr: "Quand dois-je refaire les prochaines analyses ?", ar: "متى يجب أن أعيد التحاليل القادمة؟", en: "When should I repeat the next tests?" },
+      { fr: "Dans six mois, avec une prise de sang et le suivi du foie.", ar: "بعد ستة أشهر، مع تحليل دم ومتابعة الكبد.", en: "In six months, with blood tests and liver follow-up." },
+      { fr: "Merci Docteur.", ar: "شكرًا دكتور.", en: "Thank you Doctor." },
+      { fr: "Avec plaisir, à bientôt.", ar: "على الرحب والسعة، إلى اللقاء.", en: "You're welcome, see you soon." }
+    ]
   }
   ]
 });
