@@ -371,6 +371,27 @@ window.registerStage({
       { fr: "Pendant combien de temps dois-je le prendre ?", ar: "لمدة كم يجب أن أتناوله؟", en: "How long should I take it?" },
       { fr: "Suivez la durée indiquée par votre médecin sur l'ordonnance.", ar: "اتبع المدة التي حددها طبيبك في الوصفة الطبية.", en: "Follow the duration prescribed by your doctor." },
     ]
+  },
+  {
+    id: 250,
+    title: { ar: "GavisconPro", fr: "GavisconPro", en: "GavisconPro" },
+    phrases: [
+      { fr: "Bonjour. À quoi sert le GavisconPro ?", ar: "مرحبًا، ما استخدام جافيسكون برو؟", en: "Hello. What is GavisconPro used for?" },
+      { fr: "Il est utilisé pour soulager les brûlures d'estomac et le reflux gastrique.", ar: "يُستخدم لتخفيف حرقة المعدة والارتجاع المعدي.", en: "It is used to relieve heartburn and acid reflux." },
+      { fr: "Pourquoi mon médecin m'a prescrit du GavisconPro ?", ar: "لماذا وصف لي الطبيب جافيسكون برو؟", en: "Why did my doctor prescribe GavisconPro?" },
+      { fr: "Il forme une barrière au-dessus du contenu de l'estomac pour empêcher les remontées acides.", ar: "يُشكل حاجزًا فوق محتويات المعدة لمنع صعود الحمض.", en: "It forms a barrier on top of the stomach contents to prevent acid reflux." },
+      { fr: "Quand dois-je prendre le GavisconPro ?", ar: "متى يجب أن أتناول جافيسكون برو؟", en: "When should I take GavisconPro?" },
+      { fr: "Après les repas et avant de vous coucher si nécessaire.", ar: "بعد الوجبات وقبل النوم إذا لزم الأمر.", en: "After meals and before bedtime if needed." },
+      { fr: "Je prends déjà du Pantoprazole. Puis-je aussi prendre du GavisconPro ?", ar: "أنا أتناول بانتوبرازول بالفعل، هل يمكنني أيضًا تناول جافيسكون برو؟", en: "I'm already taking Pantoprazole. Can I also take GavisconPro?" },
+      { fr: "Oui, mais il est préférable de respecter un intervalle entre les deux médicaments.", ar: "نعم، لكن يُفضل ترك فاصل زمني بين الدواءين.", en: "Yes, but it's better to leave some time between the two medicines." },
+      { fr: "Vous l'avez en sachets ou en flacon ?", ar: "هل لديكم الأكياس أم الزجاجة؟", en: "Do you have it in sachets or as a bottle?" },
+      { fr: "Nous avons les deux.", ar: "لدينا الاثنان.", en: "We have both." },
+      { fr: "Je voudrais du GavisconPro, s'il vous plaît.", ar: "أريد جافيسكون برو، من فضلك.", en: "I'd like GavisconPro, please." },
+      { fr: "J'ai souvent des remontées acides.", ar: "أعاني كثيرًا من صعود الحمض.", en: "I often have acid reflux." },
+      { fr: "J'ai des brûlures d'estomac après les repas.", ar: "أعاني من حرقة المعدة بعد الوجبات.", en: "I get heartburn after meals." },
+      { fr: "Le GavisconPro me soulage rapidement.", ar: "جافيسكون برو يريحني بسرعة.", en: "GavisconPro relieves my symptoms quickly." },
+      { fr: "Je voudrais une boîte de GavisconPro en sachets.", ar: "أريد علبة جافيسكون برو على شكل أكياس.", en: "I'd like a box of GavisconPro sachets, please." },
+    ]
   }
   ]
 });
