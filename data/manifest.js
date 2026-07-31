@@ -145,7 +145,8 @@ window.FR_STAGES = [
       { id: 259, ar: "Gastro-entérologue - محادثة شاملة", fr: "Gastro-entérologue - Consultation complète", en: "Gastroenterologist - Full consultation" },
       { id: 260, ar: "Hémangiome hépatique - محادثة ومفردات", fr: "Hémangiome hépatique - Dialogue et vocabulaire", en: "Hepatic hemangioma - Dialogue and vocabulary" },
       { id: 261, ar: "Reflux gastro-œsophagien - محادثة ومفردات", fr: "Reflux gastro-œsophagien - Dialogue et vocabulaire", en: "Gastroesophageal reflux and bad breath - Dialogue and vocabulary" },
-      { id: 262, ar: "Laboratoire d'analyses médicales - محادثة ومفردات", fr: "Laboratoire d'analyses médicales - Dialogue et vocabulaire", en: "Medical laboratory - Dialogue and vocabulary" }
+      { id: 262, ar: "Laboratoire d'analyses médicales - محادثة ومفردات", fr: "Laboratoire d'analyses médicales - Dialogue et vocabulaire", en: "Medical laboratory - Dialogue and vocabulary" },
+      { id: 263, ar: "Helicobacter pylori - محادثة ومفردات", fr: "Helicobacter pylori - Dialogue et vocabulaire", en: "Helicobacter pylori - Dialogue and vocabulary" }
     ]
   },
   {
