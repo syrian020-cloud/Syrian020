@@ -578,6 +578,44 @@ window.registerStage({
       { fr: "Est-ce que mon foie va bien actuellement ?", ar: "هل كبدي بخير حاليًا؟", en: "Is my liver okay currently?" },
       { fr: "Oui, les résultats sont rassurants, on continue la surveillance.", ar: "نعم، النتائج مطمئنة، ونستمر بالمراقبة.", en: "Yes, the results are reassuring, we continue monitoring." }
     ]
+  },
+  {
+    id: 256,
+    title: { ar: "Hépatite B chronique - Questions complémentaires", fr: "Hépatite B chronique - Questions complémentaires", en: "Chronic hepatitis B - Additional questions" },
+    phrases: [
+      { fr: "Ma charge virale est passée de 268 à 25 UI/mL. Est-ce une bonne réponse au traitement ?", ar: "انخفض الحمل الفيروسي من 268 إلى 25 وحدة، هل هذه استجابة جيدة للعلاج؟", en: "My viral load went from 268 to 25 IU/mL. Is this a good response to treatment?" },
+      { fr: "Est-ce que ma charge virale est proche d'être indétectable ?", ar: "هل حملي الفيروسي قريب من أن يصبح غير قابل للكشف؟", en: "Is my viral load close to being undetectable?" },
+      { fr: "Ma charge virale est très basse maintenant ?", ar: "هل الحمل الفيروسي منخفض جدًا الآن؟", en: "Is my viral load very low now?" },
+      { fr: "Est-ce que le traitement fonctionne bien ?", ar: "هل العلاج يعمل بشكل جيد؟", en: "Is the treatment working well?" },
+      { fr: "Est-ce que je dois continuer le Ténofovir ?", ar: "هل يجب أن أستمر بالتينوفوفير؟", en: "Do I need to continue Tenofovir?" },
+      { fr: "Pendant combien de temps dois-je prendre le Ténofovir ?", ar: "إلى متى يجب أن أتناول التينوفوفير؟", en: "How long do I need to take Tenofovir?" },
+      { fr: "Est-ce que je dois prendre ce traitement toute ma vie ?", ar: "هل يجب أن أتناول هذا العلاج طوال حياتي؟", en: "Do I have to take this treatment for my whole life?" },
+      { fr: "Est-ce que mes analyses du foie sont bonnes ?", ar: "هل تحاليل الكبد لدي جيدة؟", en: "Are my liver tests good?" },
+      { fr: "Pourquoi mes ASAT sont un peu élevées ?", ar: "لماذا ASAT مرتفعة قليلًا؟", en: "Why are my AST slightly elevated?" },
+      { fr: "Est-ce que mes ALAT sont normales ?", ar: "هل ALAT لدي طبيعية؟", en: "Are my ALT normal?" },
+      { fr: "Est-ce que cette légère augmentation est inquiétante ?", ar: "هل هذا الارتفاع البسيط مقلق؟", en: "Is this slight increase worrying?" },
+      { fr: "Est-ce qu'il y a une inflammation du foie ?", ar: "هل يوجد التهاب في الكبد؟", en: "Is there inflammation of the liver?" },
+      { fr: "Est-ce que j'ai une fibrose du foie ?", ar: "هل لدي تليف في الكبد؟", en: "Do I have liver fibrosis?" },
+      { fr: "Quel est mon résultat de FibroScan ?", ar: "ما نتيجة الفيبروسكان لدي؟", en: "What is my FibroScan result?" },
+      { fr: "Est-ce que l'échographie du foie est normale ?", ar: "هل إيكو الكبد طبيعي؟", en: "Is the liver ultrasound normal?" },
+      { fr: "À quelle fréquence dois-je faire une échographie ?", ar: "كم مرة يجب أن أعمل إيكو؟", en: "How often should I have an ultrasound?" },
+      { fr: "Est-ce que je dois faire une échographie tous les six mois ?", ar: "هل يجب أن أعمل إيكو كل ستة أشهر؟", en: "Do I need an ultrasound every six months?" },
+      { fr: "Mes reins fonctionnent bien avec le Ténofovir ?", ar: "هل الكلى تعمل جيدًا مع التينوفوفير؟", en: "Are my kidneys working well with Tenofovir?" },
+      { fr: "Ma créatinine est-elle normale ?", ar: "هل الكرياتينين طبيعي؟", en: "Is my creatinine normal?" },
+      { fr: "Mon DFG est-il bon ?", ar: "هل معدل ترشيح الكلى جيد؟", en: "Is my eGFR good?" },
+      { fr: "Est-ce que le Ténofovir peut affecter mes reins ?", ar: "هل يمكن للتينوفوفير أن يؤثر على الكلى؟", en: "Can Tenofovir affect my kidneys?" },
+      { fr: "Mes plaquettes sont-elles normales ?", ar: "هل الصفائح الدموية طبيعية؟", en: "Are my platelets normal?" },
+      { fr: "Est-ce que je dois refaire une prise de sang ?", ar: "هل يجب أن أعيد تحليل الدم؟", en: "Do I need to repeat the blood test?" },
+      { fr: "Quand dois-je refaire mes analyses ?", ar: "متى يجب أن أعيد تحاليلي؟", en: "When should I repeat my tests?" },
+      { fr: "Quels examens dois-je faire la prochaine fois ?", ar: "ما الفحوصات التي يجب أن أجريها المرة القادمة؟", en: "Which tests should I do next time?" },
+      { fr: "Est-ce que je peux continuer le sport normalement ?", ar: "هل يمكنني ممارسة الرياضة بشكل طبيعي؟", en: "Can I continue exercising normally?" },
+      { fr: "Y a-t-il des aliments à éviter avec l'hépatite B ?", ar: "هل هناك أطعمة يجب تجنبها مع التهاب الكبد B؟", en: "Are there foods I should avoid with hepatitis B?" },
+      { fr: "Ma famille doit-elle faire un dépistage ?", ar: "هل يجب على عائلتي إجراء فحص؟", en: "Should my family get tested?" },
+      { fr: "Est-ce que mes proches doivent être vaccinés ?", ar: "هل يجب أن يأخذ أقاربي اللقاح؟", en: "Should my relatives be vaccinated?" },
+      { fr: "Est-ce que mon foie va bien aujourd'hui ?", ar: "هل كبدي بخير اليوم؟", en: "Is my liver okay today?" },
+      { fr: "Est-ce que j'ai une cirrhose du foie ?", ar: "هل لدي تشمع في الكبد؟", en: "Do I have liver cirrhosis?" },
+      { fr: "Est-ce que je risque de transmettre le virus à ma famille ?", ar: "هل أخاطر بنقل الفيروس لعائلتي؟", en: "Am I at risk of transmitting the virus to my family?" }
+    ]
   }
   ]
 });
