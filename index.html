@@ -1206,6 +1206,7 @@
         confirmClearAll: "هل تريد مسح جميع الدروس؟ لا يمكن التراجع عن هذا الإجراء.",
         exportBackup: "تصدير نسخة احتياطية ☁️", importBackup: "استيراد نسخة احتياطية 📥",
         setImage: "وضع صورة للدرس", exportSuccess: "تم تصدير النسخة الاحتياطية", importSuccess: "تم استيراد النسخة الاحتياطية",
+        exporting: "جاري تصدير النسخة الاحتياطية...", exportingLesson: "جاري تصدير الدرس {0} من {1}",
         invalidBackup: "ملف النسخة الاحتياطية غير صالح"
       },
       fr: {
@@ -1243,6 +1244,7 @@
         confirmClearAll: "Supprimer toutes les leçons ? Cette action est irréversible.",
         exportBackup: "Exporter une sauvegarde ☁️", importBackup: "Importer une sauvegarde 📥",
         setImage: "Définir l'image de la leçon", exportSuccess: "Sauvegarde exportée", importSuccess: "Sauvegarde importée",
+        exporting: "Export de la sauvegarde en cours...", exportingLesson: "Export de la leçon {0} sur {1}",
         invalidBackup: "Fichier de sauvegarde invalide"
       },
       en: {
@@ -1280,6 +1282,7 @@
         confirmClearAll: "Delete all lessons? This cannot be undone.",
         exportBackup: "Export backup ☁️", importBackup: "Import backup 📥",
         setImage: "Set lesson image", exportSuccess: "Backup exported", importSuccess: "Backup imported",
+        exporting: "Exporting backup...", exportingLesson: "Exporting lesson {0} of {1}",
         invalidBackup: "Invalid backup file"
       }
     };
@@ -1353,6 +1356,31 @@
       return new Promise((resolve, reject) => {
         const req = store.getAll();
         req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      });
+    }
+
+    async function getLessonSummariesFromDB() {
+      const tx = state.db.transaction(STORE_NAME, 'readonly');
+      const store = tx.objectStore(STORE_NAME);
+      return new Promise((resolve, reject) => {
+        const out = [];
+        const req = store.openCursor();
+        req.onsuccess = (e) => {
+          const cursor = e.target.result;
+          if (!cursor) { resolve(out); return; }
+          const l = cursor.value;
+          if (l.id !== DRAFT_ID) {
+            out.push({
+              id: l.id,
+              title: l.title,
+              duration: l.duration,
+              createdAt: l.createdAt,
+              coverImage: l.coverImage || null
+            });
+          }
+          cursor.continue();
+        };
         req.onerror = () => reject(req.error);
       });
     }
@@ -1687,7 +1715,7 @@
     async function renderLessons() {
       const list = document.getElementById('lessons-list');
       const empty = document.getElementById('lessons-empty');
-      const lessons = (await getLessonsFromDB()).filter(l => l.id !== DRAFT_ID);
+      const lessons = await getLessonSummariesFromDB();
       list.innerHTML = '';
       if (!lessons.length) {
         empty.classList.remove('hidden');
@@ -1795,18 +1823,22 @@
     }
 
     async function exportLessons() {
+      showToast(t('exporting'));
+      await new Promise(r => setTimeout(r, 50));
       const lessons = (await getLessonsFromDB()).filter(l => l.id !== DRAFT_ID);
+      const total = lessons.length;
       const exported = [];
-      for (const l of lessons) {
+      for (let i = 0; i < lessons.length; i++) {
+        const l = lessons[i];
         const obj = { ...l };
         if (l.videoFile && l.videoFile instanceof Blob) obj.videoFile = await blobToDataURL(l.videoFile);
         if (l.vttBlob && l.vttBlob instanceof Blob) obj.vttBlob = await blobToDataURL(l.vttBlob);
         if (l.coverImage && l.coverImage instanceof Blob) obj.coverImage = await blobToDataURL(l.coverImage);
         exported.push(obj);
+        showToast(t('exportingLesson').replace('{0}', i + 1).replace('{1}', total));
       }
       const json = JSON.stringify(exported);
-      const blob = new Blob([json], { type: 'application/json' });
-      await shareOrDownload({ filename: 'dross-backup.json', blob, contentType: 'application/json' });
+      await shareOrDownload({ filename: 'dross-backup.json', data: json, contentType: 'application/json', encoding: 'utf8' });
       showToast(t('exportSuccess'));
     }
 
@@ -2483,15 +2515,13 @@
       });
     }
 
-    async function shareOrDownload({ filename, blob, contentType }) {
+    async function shareOrDownload({ filename, blob, data, contentType, encoding }) {
       try {
         if (isCapacitor() && window.Capacitor.Plugins.Filesystem && window.Capacitor.Plugins.Share) {
-          const base64 = await blobToBase64(blob);
-          const { uri } = await window.Capacitor.Plugins.Filesystem.writeFile({
-            path: filename,
-            data: base64,
-            directory: 'CACHE'
-          });
+          const writeData = data !== undefined ? data : await blobToBase64(blob);
+          const opts = { path: filename, data: writeData, directory: 'CACHE' };
+          if (encoding) opts.encoding = encoding;
+          const { uri } = await window.Capacitor.Plugins.Filesystem.writeFile(opts);
           await window.Capacitor.Plugins.Share.share({
             title: filename,
             files: [uri],
@@ -2500,7 +2530,8 @@
           return;
         }
       } catch (e) { console.error('share failed', e); }
-      const url = URL.createObjectURL(blob);
+      const outBlob = blob || new Blob([data || ''], { type: contentType || 'application/octet-stream' });
+      const url = URL.createObjectURL(outBlob);
       const a = document.createElement('a');
       a.href = url;
       a.download = filename;
