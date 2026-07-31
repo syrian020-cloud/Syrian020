@@ -354,6 +354,23 @@ window.registerStage({
       { fr: "Vous avez d'autres parfums ?", ar: "هل لديكم نكهات أخرى؟", en: "Do you have other flavors?" },
       { fr: "Je prends toujours le même.", ar: "أنا دائمًا آخذ نفس النوع.", en: "I always take the same one." },
     ]
+  },
+  {
+    id: 249,
+    title: { ar: "Pantoprazole 40 mg", fr: "Pantoprazole 40 mg", en: "Pantoprazole 40 mg" },
+    phrases: [
+      { fr: "Mon médecin m'a prescrit du Pantoprazole. À quoi sert ce médicament ?", ar: "مرحبًا، طبيبي وصف لي بانتوبرازول. ما استخدام هذا الدواء؟", en: "Hello. My doctor prescribed Pantoprazole. What is this medicine for?" },
+      { fr: "Il sert à diminuer l'acidité de l'estomac.", ar: "يُستخدم لتقليل حمض المعدة.", en: "It is used to reduce stomach acid." },
+      { fr: "D'accord, merci.", ar: "حسنًا، شكرًا.", en: "Okay, thank you." },
+      { fr: "Pourquoi mon médecin m'a prescrit ce médicament ?", ar: "لماذا وصف لي الطبيب هذا الدواء؟", en: "Why did my doctor prescribe this medicine?" },
+      { fr: "Vous avez probablement un reflux gastro-œsophagien. Le Pantoprazole réduit les remontées acides.", ar: "على الأرجح لديك ارتجاع معدي مريئي. البانتوبرازول يقلل صعود الحمض.", en: "You probably have acid reflux. Pantoprazole reduces acid reflux." },
+      { fr: "Est-ce que ce médicament est efficace contre les brûlures d'estomac ?", ar: "هل هذا الدواء فعال ضد حرقة المعدة؟", en: "Is this medicine effective for heartburn?" },
+      { fr: "Oui, il soulage les brûlures d'estomac et protège l'œsophage.", ar: "نعم، يخفف حرقة المعدة ويحمي المريء.", en: "Yes, it relieves heartburn and protects the esophagus." },
+      { fr: "Quand dois-je prendre le Pantoprazole ?", ar: "متى يجب أن أتناول البانتوبرازول؟", en: "When should I take Pantoprazole?" },
+      { fr: "Le matin, à jeun, environ trente minutes avant le petit-déjeuner.", ar: "صباحًا على معدة فارغة، قبل الإفطار بحوالي ثلاثين دقيقة.", en: "In the morning, on an empty stomach, about thirty minutes before breakfast." },
+      { fr: "Pendant combien de temps dois-je le prendre ?", ar: "لمدة كم يجب أن أتناوله؟", en: "How long should I take it?" },
+      { fr: "Suivez la durée indiquée par votre médecin sur l'ordonnance.", ar: "اتبع المدة التي حددها طبيبك في الوصفة الطبية.", en: "Follow the duration prescribed by your doctor." },
+    ]
   }
   ]
 });
