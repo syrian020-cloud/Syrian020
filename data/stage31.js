@@ -5,7 +5,7 @@ window.registerStage({
       id: 219,
       title: { ar: "التحدث عن النفس", fr: "Parler de soi", en: "Talking about yourself" },
       phrases: [
-        { fr: "Je m'appelle ______ et je suis ravi(e) de vous rencontrer.", ar: "اسمي ______ وسعيد(ة) بلقائك.", en: "My name is ______ and I am glad to meet you." },
+        { fr: "Je m'appelle mohammad et je suis ravi(e) de vous rencontrer.", ar: "اسمي محمد وسعيد(ة) بلقائك.", en: "My name is Mohammad and I am glad to meet you." },
         { fr: "J'ai vingt-cinq ans.", ar: "عمري خمسة وعشرون عاماً.", en: "I am twenty-five years old." },
         { fr: "Je suis originaire de Damas.", ar: "أنا من دمشق الأصل.", en: "I am originally from Damascus." },
         { fr: "J'habite dans le dix-huitième arrondissement.", ar: "أسكن في الدائرة الثامنة عشرة.", en: "I live in the eighteenth arrondissement." },
