@@ -328,6 +328,32 @@ window.registerStage({
       { fr: "Vous pouvez le commander, s'il vous plaît ?", ar: "هل يمكنكم طلبه، من فضلك؟", en: "Can you order it, please?" },
       { fr: "Oui, il sera disponible demain.", ar: "نعم، سيكون متوفرًا غدًا.", en: "Yes, it will be available tomorrow." },
     ]
+  },
+  {
+    id: 248,
+    title: { ar: "Clinutren / Fresubin", fr: "Clinutren / Fresubin", en: "Clinutren / Fresubin" },
+    phrases: [
+      { fr: "Bonjour, je viens chercher mon Clinutren. Voici mon ordonnance.", ar: "مرحبًا، جئت لاستلام كلينوترين. هذه وصفتي الطبية.", en: "Hello, I'm here to pick up my Clinutren. Here's my prescription." },
+      { fr: "Très bien. Je regarde ça.", ar: "حسنًا، سأتحقق من ذلك.", en: "All right. Let me check." },
+      { fr: "Voilà votre traitement.", ar: "تفضل علاجك.", en: "Here is your treatment." },
+      { fr: "Vous préférez quel parfum ?", ar: "أي نكهة تفضل؟", en: "Which flavor would you prefer?" },
+      { fr: "Vanille, s'il vous plaît.", ar: "الفانيليا، من فضلك.", en: "Vanilla, please." },
+      { fr: "Chocolat, s'il vous plaît.", ar: "الشوكولاتة، من فضلك.", en: "Chocolate, please." },
+      { fr: "Café, s'il vous plaît.", ar: "القهوة، من فضلك.", en: "Coffee, please." },
+      { fr: "Peu importe.", ar: "لا يهم.", en: "It doesn't matter." },
+      { fr: "Nous ne l'avons plus en stock.", ar: "لم يعد متوفرًا في المخزون.", en: "We don't have it in stock anymore." },
+      { fr: "Pouvez-vous le commander ?", ar: "هل يمكنكم طلبه؟", en: "Can you order it?" },
+      { fr: "Oui, il arrivera demain.", ar: "نعم، سيوصل غدًا.", en: "Yes, it will arrive tomorrow." },
+      { fr: "Combien de bouteilles y a-t-il dans la boîte ?", ar: "كم زجاجة توجد في العلبة؟", en: "How many bottles are in the box?" },
+      { fr: "Il y en a quatre.", ar: "يوجد أربع زجاجات.", en: "There are four bottles." },
+      { fr: "Comment faut-il le consommer ?", ar: "كيف يجب استهلاكه؟", en: "How should I consume it?" },
+      { fr: "Une à deux bouteilles par jour, selon l'ordonnance.", ar: "زجاجة إلى زجاجتين يوميًا حسب الوصفة الطبية.", en: "One to two bottles a day, according to the prescription." },
+      { fr: "Je viens chercher mon Clinutren Boisson 2 kcal.", ar: "جئت لاستلام كلينوترين بواسون 2 كيلو كالوري.", en: "I'm here to pick up my Clinutren Drink 2 kcal." },
+      { fr: "Je viens chercher mon Fresubin.", ar: "جئت لاستلام فريزوبين.", en: "I'm here to pick up my Fresubin." },
+      { fr: "Vous avez le goût vanille ?", ar: "هل لديكم نكهة الفانيليا؟", en: "Do you have the vanilla flavor?" },
+      { fr: "Vous avez d'autres parfums ?", ar: "هل لديكم نكهات أخرى؟", en: "Do you have other flavors?" },
+      { fr: "Je prends toujours le même.", ar: "أنا دائمًا آخذ نفس النوع.", en: "I always take the same one." },
+    ]
   }
   ]
 });
