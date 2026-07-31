@@ -1067,6 +1067,9 @@
       </div>
     </section>
 
+    <!-- Lesson (Player) Page -->
+    <section id="page-lesson" class="page"></section>
+
     <!-- Settings Page -->
     <section id="page-settings" class="page">
       <div class="card">
@@ -1393,6 +1396,7 @@
         audioType: state.audioFile ? state.audioFile.type : '',
         subtitleType: state.subtitleType,
         subtitleText: state.subtitleType === 'srt' ? state.subtitleText : document.getElementById('timed-text').value,
+        playerMode: state.playerMode,
         editingId: state.editingId || null,
         currentLesson: state.currentLesson || null,
         updatedAt: Date.now()
@@ -1406,6 +1410,8 @@
         if (!draft) return;
         state.editingId = draft.editingId || null;
         state.currentLesson = draft.currentLesson || null;
+        state.playerMode = draft.playerMode || false;
+        setPlayerMode(state.playerMode);
         document.getElementById('lesson-title').value = draft.title || '';
         state.videoFile = draft.videoFile || null;
         state.audioFile = draft.audioFile || null;
@@ -1665,7 +1671,15 @@
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
       document.getElementById('page-' + page).classList.add('active');
-      document.getElementById('nav-' + page).classList.add('active');
+      if (page === 'editor' || page === 'lesson') {
+        const card = document.getElementById('editor-card');
+        const target = document.getElementById('page-' + page);
+        if (card && target && card.parentElement !== target) target.appendChild(card);
+      }
+      if (page === 'lessons' || page === 'settings' || page === 'editor') {
+        const navBtn = document.getElementById('nav-' + page);
+        if (navBtn) navBtn.classList.add('active');
+      }
       if (page === 'lessons') renderLessons();
     }
 
@@ -2762,13 +2776,14 @@
       updateDownloadLinks();
       setPlayerMode(true, lesson.title);
       await saveDraft();
-      showPage('editor');
+      showPage('lesson');
     }
 
     async function loadLessonForEdit(id) {
       await loadLessonForPlay(id);
       state.editingId = id;
       setPlayerMode(false);
+      showPage('editor');
       await saveDraft();
     }
 
@@ -2783,7 +2798,12 @@
 
       // Header nav
       document.querySelectorAll('nav button, .lesson-card').forEach(btn => {
-        if (btn.dataset.page) btn.addEventListener('click', () => showPage(btn.dataset.page));
+        if (btn.dataset.page) btn.addEventListener('click', () => {
+          if (btn.dataset.page === 'editor' && (state.playerMode || state.editingId)) {
+            resetEditor();
+          }
+          showPage(btn.dataset.page);
+        });
       });
 
       // Load draft workspace
