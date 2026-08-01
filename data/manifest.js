@@ -451,5 +451,12 @@ window.FR_STAGES = [
       { id: 227, ar: "الإعجاب والشكوى", fr: "Compliments et plaintes", en: "Compliments and complaints" },
       { id: 228, ar: "التواصل الرقمي اليومي", fr: "La communication numérique quotidienne", en: "Daily digital communication" }
     ]
+  },
+  {
+    id: 32,
+    title: { ar: "القيادة والسيارات", fr: "La conduite et la voiture", en: "Driving and the car" },
+    lessonTitles: [
+      { id: 276, ar: "قانون السير", fr: "Le code de la route", en: "The highway code" }
+    ]
   }
 ];
