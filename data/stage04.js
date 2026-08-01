@@ -398,6 +398,26 @@ window.registerStage({
         { fr: "Je contacte la CAF pour avoir des informations.", ar: "أتواصل مع CAF للحصول على معلومات.", en: "I contact CAF for information." },
         { fr: "J'appelle la CAF pour suivre mon dossier.", ar: "أتصل بـ CAF لمتابعة ملفي.", en: "I call CAF to follow my file." }
       ]
+    },
+    {
+      id: 270,
+      title: { ar: "التعبير عن استلام RSA - عبارات", fr: "Exprimer qu'on touche le RSA", en: "Ways to say you receive RSA" },
+      phrases: [
+        { fr: "Je touche le RSA.", ar: "أنا أتلقى RSA.", en: "I receive RSA." },
+        { fr: "Je perçois le RSA.", ar: "أنا أتلقى RSA.", en: "I receive RSA." },
+        { fr: "Je reçois le RSA sur mon compte.", ar: "أتلقى RSA على حسابي.", en: "I receive RSA into my account." },
+        { fr: "Je bénéficie du RSA.", ar: "أنا أستفيد من RSA.", en: "I benefit from RSA." },
+        { fr: "Je touche le RSA depuis six mois.", ar: "أنا أتلقى RSA منذ ستة أشهر.", en: "I have been receiving RSA for six months." },
+        { fr: "Je ne touche plus le RSA.", ar: "لم أعد أتلقى RSA.", en: "I no longer receive RSA." },
+        { fr: "Je viens de toucher le RSA.", ar: "لقد استلمت RSA للتو.", en: "I have just received my RSA." },
+        { fr: "Je vais toucher le RSA le mois prochain.", ar: "سأتلقى RSA الشهر القادم.", en: "I will receive RSA next month." },
+        { fr: "Je ne touche plus le RSA parce que je travaille maintenant.", ar: "لم أعد أتلقى RSA لأنني أعمل الآن.", en: "I no longer receive RSA because I work now." },
+        { fr: "Je ne perçois plus le RSA.", ar: "لم أعد أتلقى RSA.", en: "I no longer receive RSA." },
+        { fr: "Je ne reçois plus le RSA maintenant.", ar: "لم أعد أتلقى RSA الآن.", en: "I no longer receive RSA now." },
+        { fr: "Je travaille maintenant, donc je n'ai plus droit au RSA.", ar: "أنا أعمل الآن، لذلك لم يعد لي الحق في RSA.", en: "I work now, so I am no longer entitled to RSA." },
+        { fr: "Mes droits au RSA ont pris fin parce que je travaille.", ar: "انتهت حقوقي في RSA لأنني أعمل.", en: "My RSA entitlement ended because I am working." },
+        { fr: "Je bénéficie uniquement de l'APL maintenant.", ar: "أنا أستفيد فقط من APL الآن.", en: "I only receive housing assistance now." }
+      ]
     }
   ]
 });
