@@ -1,9 +1,11 @@
-const CACHE_NAME = 'dross-v65';
+const CACHE_NAME = 'dross-v66';
 const FILES_TO_CACHE = [
   './',
   './index.html',
   './french.html',
+  './sexual-education.html',
   './manifest.json',
+  './manifest-sexed.json',
   './icon-192.png',
   './icon-512.png',
   './data/manifest.js'
