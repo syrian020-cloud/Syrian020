@@ -1274,6 +1274,51 @@ window.registerStage({
       { fr: "Depuis combien de temps avez-vous ces symptômes ?", ar: "منذ متى لديك هذه الأعراض؟", en: "How long have you had these symptoms?" },
       { fr: "Si ça ne va pas mieux, consultez un médecin.", ar: "إذا لم تتحسن راجع الطبيب.", en: "If it does not improve, see a doctor." }
     ]
+  },
+  {
+    id: 267,
+    title: { ar: "عبارات يقال للمريض", fr: "Phrases adressées au patient", en: "Phrases said to a patient" },
+    phrases: [
+      { fr: "À tes souhaits !", ar: "يرحمك الله / صحة وعافية.", en: "Bless you!" },
+      { fr: "À vos souhaits !", ar: "يرحمك الله.", en: "Bless you! (formal)" },
+      { fr: "Merci !", ar: "شكرًا.", en: "Thank you." },
+      { fr: "Tu vas bien ?", ar: "هل أنت بخير؟", en: "Are you okay?" },
+      { fr: "Vous allez bien ?", ar: "هل أنت بخير؟ (رسمي)", en: "Are you okay? (formal)" },
+      { fr: "Qu'est-ce que tu as ?", ar: "ما بك؟", en: "What's wrong with you?" },
+      { fr: "Qu'est-ce qui t'arrive ?", ar: "ماذا حدث لك؟", en: "What's happening to you?" },
+      { fr: "Tu as l'air malade.", ar: "تبدو مريضًا.", en: "You look sick." },
+      { fr: "Tu n'as pas l'air en forme.", ar: "لا تبدو بحالة جيدة.", en: "You don't look well." },
+      { fr: "Qu'est-ce que tu as exactement ?", ar: "ماذا لديك بالضبط؟", en: "What's wrong exactly?" },
+      { fr: "Tu es malade ?", ar: "هل أنت مريض؟", en: "Are you sick?" },
+      { fr: "Depuis quand tu es malade ?", ar: "منذ متى وأنت مريض؟", en: "How long have you been sick?" },
+      { fr: "Tu as de la fièvre ?", ar: "هل لديك حرارة؟", en: "Do you have a fever?" },
+      { fr: "Tu as mal où ?", ar: "أين يؤلمك؟", en: "Where does it hurt?" },
+      { fr: "Tu as pris quelque chose ?", ar: "هل أخذت شيئًا؟", en: "Did you take something?" },
+      { fr: "Soigne-toi bien.", ar: "اعتنِ بنفسك / أتمنى لك الشفاء.", en: "Take care of yourself." },
+      { fr: "Prenez soin de vous.", ar: "اعتنِ بنفسك.", en: "Take care." },
+      { fr: "Bon rétablissement à toi !", ar: "شفاءً عاجلًا لك.", en: "Get well soon!" },
+      { fr: "Remets-toi vite !", ar: "أتمنى أن تتحسن بسرعة.", en: "Get better soon!" },
+      { fr: "J'espère que tu iras mieux rapidement.", ar: "أتمنى أن تتحسن بسرعة.", en: "I hope you feel better soon." },
+      { fr: "Ça va mieux aujourd'hui ?", ar: "هل أنت أفضل اليوم؟", en: "Are you better today?" },
+      { fr: "Tu étais malade hier ?", ar: "كنت مريضًا أمس؟", en: "Were you sick yesterday?" },
+      { fr: "Tu as réussi à te reposer ?", ar: "هل استطعت أن ترتاح؟", en: "Were you able to rest?" },
+      { fr: "Prends soin de toi.", ar: "اعتن بنفسك.", en: "Take care of yourself." },
+      { fr: "Tu tousses beaucoup.", ar: "أنت تسعل كثيرًا.", en: "You are coughing a lot." },
+      { fr: "Tu devrais voir un médecin.", ar: "يجب أن ترى طبيبًا.", en: "You should see a doctor." },
+      { fr: "Bois beaucoup d'eau.", ar: "اشرب الكثير من الماء.", en: "Drink plenty of water." },
+      { fr: "Reste au chaud.", ar: "ابقَ دافئًا.", en: "Stay warm." },
+      { fr: "Vous avez des symptômes ?", ar: "هل لديك أعراض؟", en: "Do you have symptoms?" },
+      { fr: "Quels symptômes avez-vous ?", ar: "ما هي أعراضك؟", en: "What are your symptoms?" },
+      { fr: "Vous avez mal quelque part ?", ar: "هل لديك ألم في مكان ما؟", en: "Do you have pain somewhere?" },
+      { fr: "Depuis combien de temps maintenant ?", ar: "منذ متى الآن؟", en: "How long now?" },
+      { fr: "Ça s'est aggravé ?", ar: "هل ساء الأمر؟", en: "Did it get worse?" },
+      { fr: "Je suis malade.", ar: "أنا مريض.", en: "I am sick." },
+      { fr: "Je ne me sens pas bien.", ar: "لا أشعر أنني بخير.", en: "I don't feel well." },
+      { fr: "Je suis fatigué.", ar: "أنا متعب.", en: "I am tired." },
+      { fr: "J'ai besoin de me reposer.", ar: "أحتاج أن أرتاح.", en: "I need to rest." },
+      { fr: "J'ai attrapé un rhume.", ar: "أصبت بالزكام.", en: "I caught a cold." },
+      { fr: "J'espère que ce n'est rien de grave.", ar: "أتمنى ألا يكون شيئًا خطيرًا.", en: "I hope it's nothing serious." }
+    ]
   }
   ]
 });

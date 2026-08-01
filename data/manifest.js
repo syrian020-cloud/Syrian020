@@ -149,7 +149,8 @@ window.FR_STAGES = [
       { id: 263, ar: "Helicobacter pylori - محادثة ومفردات", fr: "Helicobacter pylori - Dialogue et vocabulaire", en: "Helicobacter pylori - Dialogue and vocabulary" },
       { id: 264, ar: "Doctolib - محادثة ومفردات", fr: "Doctolib - Dialogue et vocabulaire", en: "Doctolib - Dialogue and vocabulary" },
       { id: 265, ar: "أفعال الجهاز الهضمي والكبد الشائعة - مفردات وعبارات", fr: "Verbes courants du foie et du système digestif - Vocabulaire", en: "Common liver and digestive verbs - Vocabulary" },
-      { id: 266, ar: "المواقف الشائعة في الصيدلية", fr: "Situations courantes à la pharmacie", en: "Common pharmacy situations" }
+      { id: 266, ar: "المواقف الشائعة في الصيدلية", fr: "Situations courantes à la pharmacie", en: "Common pharmacy situations" },
+      { id: 267, ar: "عبارات يقال للمريض", fr: "Phrases adressées au patient", en: "Phrases said to a patient" }
     ]
   },
   {
