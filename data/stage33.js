@@ -327,6 +327,51 @@ window.registerStage({
         { fr: "On a un problème.", ar: "لدينا مشكلة.", en: "We have a problem." },
         { fr: "Il faut arrêter la machine.", ar: "يجب إيقاف الآلة.", en: "The machine must be stopped." }
       ]
+    },
+    {
+      id: 289,
+      title: { ar: "في العمل — المساعدة والخطأ والآلة والتنظيم", fr: "Au travail — aide, erreur, machine et organisation", en: "At work — help, mistake, machine and organization" },
+      phrases: [
+        { fr: "Tu peux prendre le relais ?", ar: "هل يمكنك استلام المهمة بدلًا مني؟", en: "Can you take over?" },
+        { fr: "Je te remplace quelques minutes.", ar: "سأحل مكانك بضع دقائق.", en: "I’ll replace you for a few minutes." },
+        { fr: "Je suis bloqué sur cette étape.", ar: "أنا عالق في هذه المرحلة.", en: "I’m stuck on this step." },
+        { fr: "Je ne sais pas par où commencer.", ar: "لا أعرف من أين أبدأ.", en: "I don’t know where to start." },
+        { fr: "Tu peux vérifier avec moi ?", ar: "هل يمكنك التحقق معي؟", en: "Can you check with me?" },
+        { fr: "Il y a quelque chose qui cloche.", ar: "هناك شيء غير صحيح.", en: "Something is wrong." },
+        { fr: "Ça ne correspond pas.", ar: "هذا لا يتطابق.", en: "It doesn’t match." },
+        { fr: "Le produit est endommagé.", ar: "المنتج متضرر.", en: "The product is damaged." },
+        { fr: "Il faut refaire le contrôle.", ar: "يجب إعادة الفحص.", en: "The check needs to be done again." },
+        { fr: "Je viens de m’en rendre compte.", ar: "انتبهت لذلك للتو.", en: "I just noticed it." },
+        { fr: "Je n’avais pas vu.", ar: "لم أكن قد رأيت.", en: "I hadn’t seen." },
+        { fr: "Je vais faire attention la prochaine fois.", ar: "سأنتبه في المرة القادمة.", en: "I’ll be careful next time." }
+      ]
+    },
+    {
+      id: 290,
+      title: { ar: "الاستراحة والوقت", fr: "Pause et temps", en: "Breaks and time" },
+      phrases: [
+        { fr: "Je reviens tout à l’heure.", ar: "سأعود لاحقًا.", en: "I’ll come back later." },
+        { fr: "Je dois m’absenter deux minutes.", ar: "يجب أن أغيب دقيقتين.", en: "I need to step away for two minutes." },
+        { fr: "Je peux prendre cinq minutes ?", ar: "هل يمكنني أخذ خمس دقائق؟", en: "Can I take five minutes?" },
+        { fr: "Je suis de retour.", ar: "عدت.", en: "I’m back." },
+        { fr: "J’ai fini mon poste.", ar: "أنهيت ورديتي.", en: "I finished my shift." },
+        { fr: "Je prends mon service.", ar: "أبدأ خدمتي/ورديتي.", en: "I start my shift." }
+      ]
+    },
+    {
+      id: 291,
+      title: { ar: "مواقف مع الزملاء", fr: "Avec les collègues", en: "With colleagues" },
+      phrases: [
+        { fr: "Tu peux me remplacer un moment ?", ar: "هل يمكنك أن تحل مكاني قليلًا؟", en: "Can you replace me for a moment?" },
+        { fr: "Je te laisse finir.", ar: "سأتركك تنهي.", en: "I’ll let you finish." },
+        { fr: "Je suis juste derrière toi.", ar: "أنا خلفك مباشرة.", en: "I’m right behind you." },
+        { fr: "Passe-moi ça, s’il te plaît.", ar: "ناولني هذا من فضلك.", en: "Pass me that, please." },
+        { fr: "Pose-le ici.", ar: "ضعه هنا.", en: "Put it here." },
+        { fr: "Mets-le de côté.", ar: "ضعه جانبًا.", en: "Put it aside." },
+        { fr: "Garde ça pour après.", ar: "احتفظ بهذا لوقت لاحق.", en: "Keep this for later." },
+        { fr: "C’est prêt ?", ar: "هل هو جاهز؟", en: "Is it ready?" },
+        { fr: "C’est presque prêt.", ar: "يكاد يكون جاهزًا.", en: "It’s almost ready." }
+      ]
     }
   ]
 });
