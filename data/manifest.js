@@ -532,5 +532,14 @@ window.FR_STAGES = [
       { id: 313, ar: "أشهر أجهزة Basic-Fit", fr: "Les machines les plus courantes à Basic-Fit", en: "Most common Basic-Fit machines" },
       { id: 314, ar: "دعوة صديق والاشتراكات في Basic-Fit", fr: "Inviter un ami et les abonnements à Basic-Fit", en: "Inviting a friend and memberships at Basic-Fit" }
     ]
+  },
+  {
+    id: 39,
+    title: { ar: "المكالمات التجارية والاحتيالية", fr: "Démarchage téléphonique et arnaques", en: "Telemarketing and phone scams" },
+    lessonTitles: [
+      { id: 315, ar: "عبارات المكالمات التجارية والاحتيالية", fr: "Phrases pour les appels commerciaux et arnaques", en: "Phrases for commercial calls and scams" },
+      { id: 316, ar: "أفعال المكالمات التجارية 1", fr: "Verbes du démarchage téléphonique 1", en: "Telephone solicitation verbs 1" },
+      { id: 317, ar: "أفعال المكالمات التجارية 2", fr: "Verbes du démarchage téléphonique 2", en: "Telephone solicitation verbs 2" }
+    ]
   }
 ];
