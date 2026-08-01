@@ -528,7 +528,8 @@ window.FR_STAGES = [
       { id: 309, ar: "مع المدرب", fr: "Avec le coach", en: "With the coach" },
       { id: 310, ar: "مواقف شائعة داخل Basic-Fit", fr: "Situations courantes à Basic-Fit", en: "Common situations at Basic-Fit" },
       { id: 311, ar: "عبارات عامية شائعة جدًا", fr: "Expressions familières très courantes", en: "Very common colloquial phrases" },
-      { id: 312, ar: "أهم الأفعال في Basic-Fit", fr: "Les verbes essentiels à Basic-Fit", en: "Essential verbs at Basic-Fit" }
+      { id: 312, ar: "أهم الأفعال في Basic-Fit", fr: "Les verbes essentiels à Basic-Fit", en: "Essential verbs at Basic-Fit" },
+      { id: 313, ar: "أشهر أجهزة Basic-Fit", fr: "Les machines les plus courantes à Basic-Fit", en: "Most common Basic-Fit machines" }
     ]
   }
 ];
