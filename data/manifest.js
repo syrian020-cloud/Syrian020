@@ -61,7 +61,8 @@ window.FR_STAGES = [
       { id: 37, ar: "البلدية", fr: "La mairie", en: "The town hall" },
       { id: 38, ar: "مكتب البريد", fr: "La Poste", en: "The post office" },
       { id: 39, ar: "تغيير العنوان", fr: "Le changement d'adresse", en: "Changing address" },
-      { id: 40, ar: "إنشاء الحسابات الحكومية", fr: "Créer les comptes en ligne", en: "Creating government online accounts" }
+      { id: 40, ar: "إنشاء الحسابات الحكومية", fr: "Créer les comptes en ligne", en: "Creating government online accounts" },
+      { id: 268, ar: "CAF - مواقف وعبارات مفصلة", fr: "CAF - Situations et vocabulaire détaillés", en: "CAF - Detailed situations and vocabulary" }
     ]
   },
   {
