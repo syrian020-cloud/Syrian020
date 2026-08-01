@@ -466,7 +466,8 @@ window.FR_STAGES = [
     title: { ar: "مواقف يومية شائعة", fr: "Situations quotidiennes courantes", en: "Common daily situations" },
     lessonTitles: [
       { id: 279, ar: "مواقف يومية شائعة", fr: "Situations quotidiennes courantes", en: "Common daily situations" },
-      { id: 280, ar: "مواقف شائعة", fr: "Situations courantes", en: "Common situations" }
+      { id: 280, ar: "مواقف شائعة", fr: "Situations courantes", en: "Common situations" },
+      { id: 287, ar: "مواقف في العمل", fr: "Situations au travail", en: "Work situations" }
     ]
   },
   {
