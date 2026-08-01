@@ -485,5 +485,12 @@ window.FR_STAGES = [
     lessonTitles: [
       { id: 284, ar: "تسجيل الوقت بالبطاقة", fr: "Le pointage et le badgeage", en: "Clocking in and badge registration" }
     ]
+  },
+  {
+    id: 36,
+    title: { ar: "التسوق في Auchan", fr: "Faire ses courses à Auchan", en: "Shopping at Auchan" },
+    lessonTitles: [
+      { id: 286, ar: "التسوق والعمل في Auchan", fr: "Courses et travail à Auchan", en: "Shopping and working at Auchan" }
+    ]
   }
 ];
