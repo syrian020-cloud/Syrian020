@@ -66,7 +66,9 @@ window.FR_STAGES = [
       { id: 269, ar: "أفعال CAF الأكثر استعمالًا - عبارات", fr: "Verbes les plus utilisés avec la CAF", en: "Most common verbs with CAF" },
       { id: 270, ar: "التعبير عن استلام RSA - عبارات", fr: "Exprimer qu'on touche le RSA", en: "Ways to say you receive RSA" },
       { id: 272, ar: "CAF - الشهادات والدفع إلى طرف ثالث", fr: "CAF - Attestations et paiements à un tiers", en: "CAF - Attestations and payments to a third party" },
-      { id: 273, ar: "CAF - تطبيق Mon Compte وعبارات الواجهة", fr: "CAF - Application Mon Compte et mots utiles", en: "CAF - Mon Compte app and useful words" }
+      { id: 273, ar: "CAF - تطبيق Mon Compte وعبارات الواجهة", fr: "CAF - Application Mon Compte et mots utiles", en: "CAF - Mon Compte app and useful words" },
+      { id: 274, ar: "France Travail - المساحة الشخصية والإجراءات", fr: "France Travail - Espace personnel et démarches", en: "France Travail - Personal space and procedures" },
+      { id: 275, ar: "France Travail - الأفعال والأمثلة", fr: "France Travail - Verbes et exemples", en: "France Travail - Verbs and examples" }
     ]
   },
   {
