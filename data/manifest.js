@@ -474,7 +474,8 @@ window.FR_STAGES = [
     title: { ar: "اللوجستيك", fr: "La logistique", en: "Logistics" },
     lessonTitles: [
       { id: 281, ar: "اللوجستيك", fr: "La logistique", en: "Logistics" },
-      { id: 282, ar: "أفعال شائعة في Sistra", fr: "Verbes courants à Sistra", en: "Common verbs at Sistra" }
+      { id: 282, ar: "أفعال شائعة في Sistra", fr: "Verbes courants à Sistra", en: "Common verbs at Sistra" },
+      { id: 283, ar: "أسماء وأفعال في Sistra", fr: "Noms et verbes à Sistra", en: "Names and verbs at Sistra" }
     ]
   }
 ];
