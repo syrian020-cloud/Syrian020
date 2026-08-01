@@ -468,5 +468,12 @@ window.FR_STAGES = [
       { id: 279, ar: "مواقف يومية شائعة", fr: "Situations quotidiennes courantes", en: "Common daily situations" },
       { id: 280, ar: "مواقف شائعة", fr: "Situations courantes", en: "Common situations" }
     ]
+  },
+  {
+    id: 34,
+    title: { ar: "اللوجستيك", fr: "La logistique", en: "Logistics" },
+    lessonTitles: [
+      { id: 281, ar: "اللوجستيك", fr: "La logistique", en: "Logistics" }
+    ]
   }
 ];
