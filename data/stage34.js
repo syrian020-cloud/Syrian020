@@ -379,6 +379,33 @@ window.registerStage({
         { fr: "Retourne à ton poste.", ar: "عد إلى محطة عملك.", en: "Return to your workstation." },
         { fr: "La machine est en panne.", ar: "الآلة معطلة.", en: "The machine is broken." }
       ]
+    },
+    {
+      id: 285,
+      title: { ar: "مشاكل ومواقف شائعة في اللوجستيك", fr: "Problèmes et situations courants en logistique", en: "Common logistics problems and situations" },
+      phrases: [
+        { fr: "On n’a plus de boîtes.", ar: "لم يعد لدينا علب.", en: "We have no more boxes." },
+        { fr: "Il manque des produits.", ar: "هناك منتجات ناقصة.", en: "Some products are missing." },
+        { fr: "Le produit est défectueux.", ar: "المنتج فيه عيب.", en: "The product is defective." },
+        { fr: "Il y a une erreur de référence.", ar: "هناك خطأ في المرجع.", en: "There is a reference error." },
+        { fr: "La mauvaise étiquette est utilisée.", ar: "تم استعمال ملصق خاطئ.", en: "The wrong label is used." },
+        { fr: "Le carton est mal fermé.", ar: "الكرتون مغلق بشكل سيئ.", en: "The carton is badly closed." },
+        { fr: "L’étiquette est mal collée.", ar: "الملصق ملصوق بشكل خاطئ.", en: "The label is badly stuck." },
+        { fr: "Il faut refaire l’emballage.", ar: "يجب إعادة التغليف.", en: "The packaging needs to be redone." },
+        { fr: "Le carton est abîmé.", ar: "الكرتون متضرر.", en: "The carton is damaged." },
+        { fr: "La machine s’est arrêtée.", ar: "الآلة توقفت.", en: "The machine stopped." },
+        { fr: "Ça ne marche pas.", ar: "هذا لا يعمل.", en: "It doesn’t work." },
+        { fr: "Je suis en retard.", ar: "أنا متأخر.", en: "I’m late." },
+        { fr: "Je ne trouve pas mon poste.", ar: "لا أجد محطة عملي.", en: "I can’t find my workstation." },
+        { fr: "Je ne connais pas encore la procédure.", ar: "لا أعرف الإجراء بعد.", en: "I don’t know the procedure yet." },
+        { fr: "Tu peux m’expliquer ?", ar: "هل يمكنك أن تشرح لي؟", en: "Can you explain to me?" },
+        { fr: "Attention, c’est dangereux.", ar: "انتبه، هذا خطير.", en: "Be careful, it’s dangerous." },
+        { fr: "Il faut porter les gants.", ar: "يجب ارتداء القفازات.", en: "You must wear gloves." },
+        { fr: "Mets les lunettes de protection.", ar: "ضع نظارات الحماية.", en: "Put on safety glasses." },
+        { fr: "Je n’arrive pas à faire ça.", ar: "لا أستطيع فعل هذا.", en: "I can’t do this." },
+        { fr: "Je n’ai pas compris.", ar: "لم أفهم.", en: "I didn’t understand." },
+        { fr: "Répète, s’il te plaît.", ar: "كرر من فضلك.", en: "Repeat, please." }
+      ]
     }
   ]
 });
