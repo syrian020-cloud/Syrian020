@@ -464,7 +464,7 @@ window.registerStage({
     },
     {
       id: 304,
-      title: { ar: "الميزان وقياس الجسم", fr: "La balance", en: "La mesure corporelle" },
+      title: { ar: "الميزان وقياس الجسم", fr: "La balance et la mesure corporelle", en: "Scale and body measurement" },
       phrases: [
         { fr: "Est-ce qu’il y a une balance dans la salle ?", ar: "هل يوجد ميزان في النادي؟", en: "Is there a scale in the gym?" },
         { fr: "Oui, elle est près de l’espace cardio.", ar: "نعم، هي قرب منطقة الكارديو.", en: "Yes, it is near the cardio area." },
@@ -506,7 +506,7 @@ window.registerStage({
     },
     {
       id: 305,
-      title: { ar: "الدوش والخزائن", fr: "Les douches et les casiers", en: "Les douches et les casiers" },
+      title: { ar: "الدوش والخزائن", fr: "Les douches et les casiers", en: "Showers and lockers" },
       phrases: [
         { fr: "Excusez-moi, où sont les vestiaires ?", ar: "عذرًا، أين غرف تبديل الملابس؟", en: "Excuse me, where are the changing rooms?" },
         { fr: "Les vestiaires sont au fond à droite.", ar: "غرف تبديل الملابس في الخلف على اليمين.", en: "The changing rooms are at the back on the right." },
@@ -550,7 +550,7 @@ window.registerStage({
     },
     {
       id: 306,
-      title: { ar: "مواقف صحية أثناء التمرين", fr: "Situations de santé", en: "Situations de santé" },
+      title: { ar: "مواقف صحية أثناء التمرين", fr: "Situations de santé à Basic-Fit", en: "Health situations at Basic-Fit" },
       phrases: [
         { fr: "Je me sens étourdi.", ar: "أشعر بالدوخة.", en: "I feel dizzy." },
         { fr: "J’ai la tête qui tourne.", ar: "رأسي يدور / أشعر بدوار.", en: "I feel lightheaded." },
@@ -597,7 +597,7 @@ window.registerStage({
     },
     {
       id: 307,
-      title: { ar: "مواقف اجتماعية بين الأعضاء", fr: "Situations sociales", en: "Situations sociales" },
+      title: { ar: "مواقف اجتماعية بين الأعضاء", fr: "Situations sociales entre membres", en: "Social situations between members" },
       phrases: [
         { fr: "Salut, on se voit souvent ici, non ?", ar: "مرحبًا، نلتقي كثيرًا هنا، أليس كذلك؟", en: "Hi, we see each other often here, right?" },
         { fr: "Oui, je viens souvent à cette heure-là.", ar: "نعم، آتي غالبًا في هذا الوقت.", en: "Yes, I often come at this time." },
@@ -637,7 +637,7 @@ window.registerStage({
     },
     {
       id: 308,
-      title: { ar: "بعد التمرين", fr: "Après la séance", en: "Après la séance" },
+      title: { ar: "بعد التمرين", fr: "Après la séance", en: "After the workout" },
       phrases: [
         { fr: "Je vais remplir ma bouteille d’eau.", ar: "سأملأ قارورة الماء.", en: "I’m going to fill my water bottle." },
         { fr: "Où est la fontaine à eau ?", ar: "أين نافورة الماء؟", en: "Where is the water fountain?" },
