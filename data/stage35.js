@@ -106,7 +106,23 @@ window.registerStage({
         { fr: "Il y a peut-être une erreur sur mon pointage.", ar: "ربما يوجد خطأ في تسجيل وقتي.", en: "There may be an error in my time record." },
         { fr: "Le système a enregistré deux passages.", ar: "النظام سجل عمليتي مرور.", en: "The system recorded two badge scans." },
         { fr: "J’ai fait une mauvaise manipulation.", ar: "قمت بخطأ في الاستعمال.", en: "I made a wrong operation." },
-        { fr: "Ce n’est pas grave, on va régulariser.", ar: "لا مشكلة، سنقوم بتصحيحها.", en: "No problem, we’ll fix it." }
+        { fr: "Ce n’est pas grave, on va régulariser.", ar: "لا مشكلة، سنقوم بتصحيحها.", en: "No problem, we’ll fix it." },
+        { fr: "Je n’ai pas badgé en arrivant.", ar: "لم أسجل عند الوصول.", en: "I didn’t badge when I arrived." },
+        { fr: "J’ai badgé deux fois.", ar: "مررت البطاقة مرتين.", en: "I badged twice." },
+        { fr: "J’ai badgé au mauvais moment.", ar: "مررت البطاقة في الوقت الخطأ.", en: "I badged at the wrong time." },
+        { fr: "Je me suis trompé de badge.", ar: "استعملت البطاقة الخطأ.", en: "I used the wrong badge." },
+        { fr: "Le lecteur de badge est en panne.", ar: "جهاز قراءة البطاقة معطل.", en: "The badge reader is broken." },
+        { fr: "Le système n’a pas enregistré mon pointage.", ar: "النظام لم يسجل وقتي.", en: "The system didn’t record my time." },
+        { fr: "Mon pointage a disparu.", ar: "تسجيل وقتي اختفى.", en: "My time record disappeared." },
+        { fr: "Mes heures ne sont pas correctes.", ar: "ساعاتي ليست صحيحة.", en: "My hours are not correct." },
+        { fr: "Il manque une heure sur mon pointage.", ar: "هناك ساعة ناقصة في تسجيل وقتي.", en: "One hour is missing from my time record." },
+        { fr: "J’ai oublié de badger après la pause.", ar: "نسيت تسجيل الدخول بعد الاستراحة.", en: "I forgot to badge after the break." },
+        { fr: "J’ai dépassé ma pause.", ar: "تجاوزت وقت الاستراحة.", en: "I exceeded my break time." },
+        { fr: "J’ai repris le travail sans badger.", ar: "عدت للعمل بدون تسجيل.", en: "I returned to work without badging." },
+        { fr: "Je fais une demande de régularisation.", ar: "أقدم طلب تصحيح.", en: "I make a correction request." },
+        { fr: "Le chef va vérifier mon pointage.", ar: "المسؤول سيتحقق من تسجيل وقتي.", en: "The supervisor will check my time record." },
+        { fr: "Le responsable a corrigé mon pointage.", ar: "المسؤول صحح تسجيل وقتي.", en: "The manager corrected my time record." },
+        { fr: "Va voir les ressources humaines pour le pointage.", ar: "اذهب إلى الموارد البشرية بخصوص تسجيل الوقت.", en: "Go to HR about the time record." }
       ]
     }
   ]

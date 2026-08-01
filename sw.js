@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dross-v50';
+const CACHE_NAME = 'dross-v51';
 const FILES_TO_CACHE = [
   './',
   './index.html',
