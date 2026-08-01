@@ -98,7 +98,15 @@ window.registerStage({
         { fr: "Valider une absence", ar: "يعتمد غيابًا", en: "Approve an absence" },
         { fr: "Le chef valide mon absence.", ar: "المسؤول يعتمد غيابي.", en: "The supervisor approves my absence." },
         { fr: "Décompter", ar: "يحسب / يخصم", en: "To deduct / count" },
-        { fr: "La pause est décomptée automatiquement.", ar: "الاستراحة تُحسب تلقائيًا.", en: "The break is automatically deducted." }
+        { fr: "La pause est décomptée automatiquement.", ar: "الاستراحة تُحسب تلقائيًا.", en: "The break is automatically deducted." },
+        { fr: "J’ai badgé deux fois par erreur.", ar: "مررت البطاقة مرتين بالخطأ.", en: "I badged twice by mistake." },
+        { fr: "J’ai passé mon badge deux fois.", ar: "مررت بطاقتي مرتين.", en: "I used my badge twice." },
+        { fr: "Je crois que j’ai badgé deux fois.", ar: "أعتقد أنني مررت البطاقة مرتين.", en: "I think I badged twice." },
+        { fr: "Je ne suis pas sûr, mais je pense avoir badgé deux fois.", ar: "لست متأكدًا، لكن أعتقد أنني مررت البطاقة مرتين.", en: "I’m not sure, but I think I badged twice." },
+        { fr: "Il y a peut-être une erreur sur mon pointage.", ar: "ربما يوجد خطأ في تسجيل وقتي.", en: "There may be an error in my time record." },
+        { fr: "Le système a enregistré deux passages.", ar: "النظام سجل عمليتي مرور.", en: "The system recorded two badge scans." },
+        { fr: "J’ai fait une mauvaise manipulation.", ar: "قمت بخطأ في الاستعمال.", en: "I made a wrong operation." },
+        { fr: "Ce n’est pas grave, on va régulariser.", ar: "لا مشكلة، سنقوم بتصحيحها.", en: "No problem, we’ll fix it." }
       ]
     }
   ]
