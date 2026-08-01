@@ -406,6 +406,21 @@ window.registerStage({
         { fr: "Je n’ai pas compris.", ar: "لم أفهم.", en: "I didn’t understand." },
         { fr: "Répète, s’il te plaît.", ar: "كرر من فضلك.", en: "Repeat, please." }
       ]
+    },
+    {
+      id: 292,
+      title: { ar: "في Sistra — مخزون وسير الناقل", fr: "À Sistra — stock, convoyeur et production", en: "At Sistra — stock, conveyor and production" },
+      phrases: [
+        { fr: "Le stock est épuisé.", ar: "المخزون نفد.", en: "The stock is empty." },
+        { fr: "Il reste combien de cartons ?", ar: "كم بقي من الكراتين؟", en: "How many cartons are left?" },
+        { fr: "On manque de matériel.", ar: "نحن بحاجة إلى مواد.", en: "We are short of material." },
+        { fr: "Il faut remplir le bac.", ar: "يجب ملء الصندوق/الحاوية.", en: "The bin needs filling." },
+        { fr: "Le bac est plein.", ar: "الصندوق ممتلئ.", en: "The bin is full." },
+        { fr: "Le tapis tourne.", ar: "السير يعمل.", en: "The conveyor is running." },
+        { fr: "La ligne est à l’arrêt.", ar: "خط الإنتاج متوقف.", en: "The production line is stopped." },
+        { fr: "La ligne redémarre.", ar: "خط الإنتاج سيعود للعمل.", en: "The line is restarting." },
+        { fr: "On reprend la production.", ar: "نستأنف الإنتاج.", en: "We resume production." }
+      ]
     }
   ]
 });

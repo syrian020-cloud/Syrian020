@@ -467,7 +467,10 @@ window.FR_STAGES = [
     lessonTitles: [
       { id: 279, ar: "مواقف يومية شائعة", fr: "Situations quotidiennes courantes", en: "Common daily situations" },
       { id: 280, ar: "مواقف شائعة", fr: "Situations courantes", en: "Common situations" },
-      { id: 287, ar: "مواقف في العمل", fr: "Situations au travail", en: "Work situations" }
+      { id: 287, ar: "مواقف في العمل", fr: "Situations au travail", en: "Work situations" },
+      { id: 289, ar: "في العمل — المساعدة والخطأ والآلة والتنظيم", fr: "Au travail — aide, erreur, machine et organisation", en: "At work — help, mistake, machine and organization" },
+      { id: 290, ar: "الاستراحة والوقت", fr: "Pause et temps", en: "Breaks and time" },
+      { id: 291, ar: "مواقف مع الزملاء", fr: "Avec les collègues", en: "With colleagues" }
     ]
   },
   {
@@ -477,7 +480,8 @@ window.FR_STAGES = [
       { id: 281, ar: "اللوجستيك", fr: "La logistique", en: "Logistics" },
       { id: 282, ar: "أفعال شائعة في Sistra", fr: "Verbes courants à Sistra", en: "Common verbs at Sistra" },
       { id: 283, ar: "أسماء وأفعال في Sistra", fr: "Noms et verbes à Sistra", en: "Names and verbs at Sistra" },
-      { id: 285, ar: "مشاكل ومواقف شائعة في اللوجستيك", fr: "Problèmes et situations courants en logistique", en: "Common logistics problems and situations" }
+      { id: 285, ar: "مشاكل ومواقف شائعة في اللوجستيك", fr: "Problèmes et situations courants en logistique", en: "Common logistics problems and situations" },
+      { id: 292, ar: "في Sistra — مخزون وسير الناقل", fr: "À Sistra — stock, convoyeur et production", en: "At Sistra — stock, conveyor and production" }
     ]
   },
   {
