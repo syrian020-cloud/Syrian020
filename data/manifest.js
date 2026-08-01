@@ -504,5 +504,19 @@ window.FR_STAGES = [
     lessonTitles: [
       { id: 288, ar: "عبارات عامية شائعة", fr: "Expressions courantes familières", en: "Common colloquial expressions" }
     ]
+  },
+  {
+    id: 38,
+    title: { ar: "Basic-Fit", fr: "Basic-Fit", en: "Basic-Fit" },
+    lessonTitles: [
+      { id: 293, ar: "أسئلة وأجوبة شائعة", fr: "Questions et réponses courantes", en: "Common questions and answers" },
+      { id: 294, ar: "أسئلة وأجوبة إضافية", fr: "Questions et réponses supplémentaires", en: "More questions and answers" },
+      { id: 295, ar: "التمارين والعضلات والعبارات الشائعة", fr: "Exercices, muscles et expressions courantes", en: "Exercises, muscles and common phrases" },
+      { id: 296, ar: "برنامج مبتدئ وعبارات المدربين", fr: "Programme débutant et phrases du coach", en: "Beginner program and coach phrases" },
+      { id: 297, ar: "المكملات والبروتين وأسئلة المدرب", fr: "Compléments, protéines et questions au coach", en: "Supplements, protein and coach questions" },
+      { id: 298, ar: "محادثات حقيقية داخل Basic-Fit", fr: "Conversations réelles à Basic-Fit", en: "Real conversations at Basic-Fit" },
+      { id: 299, ar: "عبارات قصيرة تسمعها كثيرًا", fr: "Expressions courtes entendues souvent à Basic-Fit", en: "Short phrases often heard at Basic-Fit" },
+      { id: 300, ar: "محادثات وعبارات إضافية", fr: "Conversations et expressions supplémentaires", en: "More conversations and phrases" }
+    ]
   }
 ];

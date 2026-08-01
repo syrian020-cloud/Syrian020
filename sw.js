@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dross-v56';
+const CACHE_NAME = 'dross-v57';
 const FILES_TO_CACHE = [
   './',
   './index.html',
@@ -9,7 +9,7 @@ const FILES_TO_CACHE = [
   './data/manifest.js'
 ];
 
-for (let i = 1; i <= 37; i++) {
+for (let i = 1; i <= 38; i++) {
   FILES_TO_CACHE.push('./data/stage' + String(i).padStart(2, '0') + '.js');
 }
 
