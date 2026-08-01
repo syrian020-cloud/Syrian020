@@ -162,7 +162,10 @@
   .btns button:hover { border-color: var(--accent); transform: translateY(-1px); }
   .btns button.active { background: var(--success); color: #081c15; border-color: var(--success); }
   .btns button.fav-on { color: var(--gold); border-color: var(--gold); }
-  .btns .google-btn:hover { border-color: #4285F4; color: #4285F4; }
+  .btns .image-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .no-lessons { text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); }
+  .no-lessons .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .no-lessons .card-title { color: var(--text-primary); margin-bottom: 0.3rem; }
   .lesson-head { margin-bottom: 1rem; }
   .lesson-head h2 { margin: 0 0 0.2rem; font-size: 1.25rem; }
   .lesson-head .sub { color: var(--text-secondary); font-size: 0.95rem; }
@@ -232,120 +235,7 @@
 (function () {
   'use strict';
 
-  const LESSONS = [
-    {
-      id: 1,
-      title: { fr: 'Introduction à la santé sexuelle', ar: 'مقدمة في الصحة الجنسية', en: 'Introduction to sexual health' },
-      phrases: [
-        { fr: 'La santé sexuelle fait partie de la santé générale.', ar: 'الصحة الجنسية جزء من الصحة العامة.', en: 'Sexual health is part of overall health.' },
-        { fr: 'Il est normal de poser des questions sur son corps.', ar: 'من الطبيعي أن تطرح أسئلة عن جسمك.', en: 'It is normal to ask questions about your body.' },
-        { fr: 'Chaque personne a le droit à des informations fiables.', ar: 'لكل شخص الحق في معلومات موثوقة.', en: 'Everyone has the right to reliable information.' },
-        { fr: 'La sexualité concerne les sentiments, le corps et les relations.', ar: 'الجنسانية تشمل المشاعر والجسم والعلاقات.', en: 'Sexuality involves feelings, body, and relationships.' },
-        { fr: "L'éducation sexuelle aide à prendre des décisions éclairées.", ar: 'التثقيف الجنسي يساعد على اتخاذ قرارات واعية.', en: 'Sex education helps make informed decisions.' },
-        { fr: "Il n'y a pas de question bête en santé sexuelle.", ar: 'لا يوجد سؤال سخيف في الصحة الجنسية.', en: 'There is no stupid question in sexual health.' },
-        { fr: 'Parler avec un professionnel de santé est utile.', ar: 'التحدث مع أخصائي صحة مفيد.', en: 'Talking to a health professional is useful.' },
-        { fr: 'Le respect de soi et des autres est la base.', ar: 'احترام الذات والآخرين هو الأساس.', en: 'Self-respect and respect for others is the foundation.' }
-      ]
-    },
-    {
-      id: 2,
-      title: { fr: 'Le consentement', ar: 'الموافقة والرضا', en: 'Consent' },
-      phrases: [
-        { fr: 'Le consentement doit être clair et enthousiaste.', ar: 'يجب أن تكون الموافقة واضحة وحماسية.', en: 'Consent must be clear and enthusiastic.' },
-        { fr: 'Chacun peut changer d\'avis à tout moment.', ar: 'يمكن لكل شخص تغيير رأيه في أي وقت.', en: 'Anyone can change their mind at any time.' },
-        { fr: 'Un non est un non, sans discussion.', ar: 'لا تعني لا، دون نقاش.', en: 'No means no, no discussion needed.' },
-        { fr: "Le silence n'est pas un consentement.", ar: 'الصمت ليس موافقة.', en: 'Silence is not consent.' },
-        { fr: 'Le consentement s\'exprime librement, sans pression.', ar: 'تُعبر الموافقة بحرية، دون ضغط.', en: 'Consent is expressed freely, without pressure.' },
-        { fr: 'Il est important de demander avant d\'agir.', ar: 'من المهم أن تسأل قبل التصرف.', en: 'It is important to ask before acting.' },
-        { fr: 'Une personne ivre ne peut pas consentir.', ar: 'الشخص السكران لا يمكنه الموافقة.', en: 'An intoxicated person cannot consent.' },
-        { fr: 'Le respect des limites renforce la confiance.', ar: 'احترام الحدود يعزز الثقة.', en: 'Respecting boundaries strengthens trust.' }
-      ]
-    },
-    {
-      id: 3,
-      title: { fr: 'L\'anatomie', ar: 'التشريح', en: 'Anatomy' },
-      phrases: [
-        { fr: 'Le pénis et le vagin sont des organes génitaux.', ar: 'القضيب والمهبل هما أعضاء تناسلية.', en: 'The penis and vagina are genital organs.' },
-        { fr: "L'utérus est l'endroit où se développe un fœtus.", ar: 'الرحم هو المكان الذي ينمو فيه الجنين.', en: 'The uterus is where a fetus develops.' },
-        { fr: 'Les ovaires produisent des ovules.', ar: 'المبيضان ينتجان البويضات.', en: 'The ovaries produce eggs.' },
-        { fr: 'Les testicules produisent des spermatozoïdes.', ar: 'الخصيتان ينتجان الحيوانات المنوية.', en: 'The testicles produce sperm.' },
-        { fr: 'Les seins ont des formes et des tailles variées.', ar: 'للثديين أشكال وأحجام متنوعة.', en: 'Breasts come in various shapes and sizes.' },
-        { fr: 'Le clitoris est un organe sensible.', ar: 'البظر هو عضو حساس.', en: 'The clitoris is a sensitive organ.' },
-        { fr: "L'hygiène intime quotidienne est importante.", ar: 'النظافة اليومية للمناطق الحميمة مهمة.', en: 'Daily intimate hygiene is important.' },
-        { fr: 'Connaître son corps aide à détecter les changements.', ar: 'معرفة جسمك تساعد على اكتشاف التغيرات.', en: 'Knowing your body helps detect changes.' }
-      ]
-    },
-    {
-      id: 4,
-      title: { fr: 'La puberté', ar: 'البلوغ', en: 'Puberty' },
-      phrases: [
-        { fr: 'La puberté est une période de changements physiques.', ar: 'البلوغ هو فترة من التغيرات الجسدية.', en: 'Puberty is a time of physical changes.' },
-        { fr: 'Les hormones provoquent la croissance et les transformations.', ar: 'الهرمونات تسبب النمو والتغيرات.', en: 'Hormones cause growth and changes.' },
-        { fr: "L'apparition des règles est normale chez les filles.", ar: 'ظهور الدورة الشهرية أمر طبيعي عند الفتيات.', en: 'The onset of menstruation is normal in girls.' },
-        { fr: 'Les rêves humides sont communs chez les garçons.', ar: 'الاحتلام شائع عند الفتيان.', en: 'Wet dreams are common in boys.' },
-        { fr: 'La sueur et les odeurs corporelles peuvent augmenter.', ar: 'العرق والروائح الجسدية قد تزداد.', en: 'Sweating and body odor may increase.' },
-        { fr: 'Les émotions peuvent être plus intenses pendant la puberté.', ar: 'قد تكون المشاعر أكثر حدة خلال البلوغ.', en: 'Emotions can be more intense during puberty.' },
-        { fr: 'Il est normal de se comparer aux autres, mais chacun a son rythme.', ar: 'من الطبيعي مقارنة نفسك بالآخرين، لكن لكل شخص وتيرته.', en: 'It is normal to compare yourself, but everyone has their own pace.' },
-        { fr: 'Parler à un adulte de confiance peut rassurer.', ar: 'التحدث مع شخص بالغ تثق به يمكن أن يطمئنك.', en: 'Talking to a trusted adult can reassure you.' }
-      ]
-    },
-    {
-      id: 5,
-      title: { fr: 'La contraception', ar: 'منع الحمل', en: 'Contraception' },
-      phrases: [
-        { fr: 'Les préservatifs protègent des grossesses et des infections.', ar: 'الواقي الذكري يحمي من الحمل والعدوى.', en: 'Condoms protect against pregnancy and infections.' },
-        { fr: 'Il existe plusieurs méthodes de contraception.', ar: 'هناك عدة طرق لمنع الحمل.', en: 'There are several contraception methods.' },
-        { fr: 'La pilule contraceptive doit être prise régulièrement.', ar: 'يجب تناول حبوب منع الحمل بانتظام.', en: 'Birth control pills should be taken regularly.' },
-        { fr: 'Le préservatif féminin offre aussi une protection.', ar: 'الواقي الأنثوي يوفر حماية أيضاً.', en: 'The female condom also provides protection.' },
-        { fr: "Le contraceptif d'urgence n'est pas une méthode habituelle.", ar: 'مانع الحمل الطارئ ليس طريقة اعتيادية.', en: 'Emergency contraception is not a routine method.' },
-        { fr: 'Un professionnel de santé peut aider à choisir.', ar: 'يمكن لأخصائي الصحة مساعدتك في الاختيار.', en: 'A health professional can help choose.' },
-        { fr: "Aucune méthode n'est efficace à cent pour cent.", ar: 'لا توجد طريقة فعالة مئة بالمئة.', en: 'No method is one hundred percent effective.' },
-        { fr: 'Les deux partenaires peuvent participer à la protection.', ar: 'يمكن للشريكين المشاركة في الحماية.', en: 'Both partners can participate in protection.' }
-      ]
-    },
-    {
-      id: 6,
-      title: { fr: 'Les infections transmissibles', ar: 'العدوى المنقولة جنسياً', en: 'Sexually transmitted infections' },
-      phrases: [
-        { fr: 'Les infections sexuellement transmissibles se transmettent par contact.', ar: 'تنتقل العدوى المنقولة جنسياً بالاتصال.', en: 'Sexually transmitted infections spread through contact.' },
-        { fr: 'Le préservatif réduit le risque d\'infection.', ar: 'الواقي الذكري يقلل خطر الإصابة.', en: 'Condoms reduce the risk of infection.' },
-        { fr: 'Certaines infections ne présentent pas de symptômes visibles.', ar: 'بعض العدويات لا تظهر أعراضاً واضحة.', en: 'Some infections have no visible symptoms.' },
-        { fr: 'Le dépistage régulier est important si l\'on est sexuellement actif.', ar: 'الفحص الدوري مهم إذا كنت نشطاً جنسياً.', en: 'Regular testing is important if sexually active.' },
-        { fr: 'Le VIH peut être contrôlé avec un traitement.', ar: 'يمكن السيطرة على فيروس نقص المناعة البشرية بالعلاج.', en: 'HIV can be controlled with treatment.' },
-        { fr: 'Le HPV peut causer des lésions et un vaccin existe.', ar: 'فيروس الورم الحليمي البشري يمكن أن يسبب آفات، وهناك لقاح.', en: 'HPV can cause lesions and a vaccine exists.' },
-        { fr: 'Il ne faut pas avoir honte de se faire dépister.', ar: 'لا يجب أن تشعر بالخجل من إجراء الفحص.', en: 'You should not feel ashamed to get tested.' },
-        { fr: 'Le traitement précoce préserve la santé.', ar: 'العلاج المبكر يحافظ على الصحة.', en: 'Early treatment preserves health.' }
-      ]
-    },
-    {
-      id: 7,
-      title: { fr: 'Les relations saines', ar: 'العلاقات الصحية', en: 'Healthy relationships' },
-      phrases: [
-        { fr: 'Une relation saine repose sur le respect mutuel.', ar: 'العلاقة الصحية تقوم على الاحترام المتبادل.', en: 'A healthy relationship is based on mutual respect.' },
-        { fr: 'La communication honnête évite les malentendus.', ar: 'التواصل الصادق يتجنب سوء الفهم.', en: 'Honest communication avoids misunderstandings.' },
-        { fr: 'Les disputes normales ne doivent pas devenir humiliantes.', ar: 'الخلافات الطبيعية لا يجب أن تصبح مهينة.', en: 'Normal disagreements should not become humiliating.' },
-        { fr: "La jalousie excessive n'est pas de l'amour.", ar: 'الغيرة المفرطة ليست حباً.', en: 'Excessive jealousy is not love.' },
-        { fr: 'Chacun garde le droit à ses amis et ses intérêts.', ar: 'يحتفظ كل شخص بحقه في أصدقائه واهتماماته.', en: 'Everyone keeps the right to their friends and interests.' },
-        { fr: 'La violence physique ou verbale n\'est jamais acceptable.', ar: 'العنف الجسدي أو اللفظي غير مقبول أبداً.', en: 'Physical or verbal violence is never acceptable.' },
-        { fr: 'Les relations doivent apporter du soutien, pas de la peur.', ar: 'يجب أن تقدم العلاقات الدعم لا الخوف.', en: 'Relationships should bring support, not fear.' },
-        { fr: 'Demander de l\'aide est un signe de force.', ar: 'طلب المساعدة علامة قوة.', en: 'Asking for help is a sign of strength.' }
-      ]
-    },
-    {
-      id: 8,
-      title: { fr: 'Poser des questions', ar: 'طرح الأسئلة', en: 'Asking questions' },
-      phrases: [
-        { fr: 'Comment puis-je parler de sexualité avec mon médecin ?', ar: 'كيف يمكنني التحدث عن الجنسانية مع طبيبي؟', en: 'How can I talk about sexuality with my doctor?' },
-        { fr: 'Quelles sont les méthodes de contraception disponibles ?', ar: 'ما هي طرق منع الحمل المتوفرة؟', en: 'What contraception methods are available?' },
-        { fr: 'Où puis-je me faire dépister gratuitement ?', ar: 'أين يمكنني إجراء فحص مجاني؟', en: 'Where can I get tested for free?' },
-        { fr: 'Comment savoir si je suis prêt pour une relation intime ?', ar: 'كيف أعرف ما إذا كنت مستعداً للعلاقة الحميمة؟', en: 'How do I know if I am ready for an intimate relationship?' },
-        { fr: 'Que faire en cas de préservatif déchiré ?', ar: 'ماذا أفعل إذا انزلق الواقي الذكري؟', en: 'What should I do if a condom breaks?' },
-        { fr: 'Comment refuser quelque chose sans culpabilité ?', ar: 'كيف أرفض شيئاً بدون شعور بالذنب؟', en: 'How can I refuse something without guilt?' },
-        { fr: 'Quels signes indiquent une infection ?', ar: 'ما العلامات التي تشير إلى عدوى؟', en: 'What signs indicate an infection?' },
-        { fr: 'À qui puis-je demander des informations confidentielles ?', ar: 'لمن يمكنني طلب معلومات سرية؟', en: 'Who can I ask for confidential information?' }
-      ]
-    }
-  ];
+  const LESSONS = [];
 
   const UI = {
     appName: { ar: 'الصحة الجنسية', en: 'Sexual Health', fr: 'Santé sexuelle' },
@@ -363,7 +253,7 @@
     phrases: { ar: 'عبارة', en: 'phrases', fr: 'phrases' },
     speakOnce: { ar: 'نطق مرة واحدة', en: 'Speak once', fr: 'Parler une fois' },
     loopTitle: { ar: 'تكرار: فرنسي ← عربي ← إنجليزي', en: 'Repeat: French ← Arabic ← English', fr: 'Répéter : Français ← Arabe ← Anglais' },
-    googleTitle: { ar: 'بحث في Google', en: 'Search on Google', fr: 'Rechercher sur Google' },
+    imageTitle: { ar: 'بحث الصور في Google', en: 'Search images on Google', fr: 'Rechercher des images sur Google' },
     favTitle: { ar: 'حفظ', en: 'Save', fr: 'Enregistrer' },
     playAll: { ar: '▶ تشغيل كل الدرس', en: '▶ Play whole lesson', fr: '▶ Lire toute la leçon' },
     stopAll: { ar: '⏹ إيقاف', en: '⏹ Stop', fr: '⏹ Arrêter' },
@@ -372,6 +262,8 @@
     noSavedPhrases: { ar: 'لا توجد عبارات محفوظة بعد.', en: 'No saved phrases yet.', fr: 'Aucune phrase enregistrée.' },
     searchResults: { ar: 'نتائج البحث', en: 'Search results', fr: 'Résultats de recherche' },
     noResults: { ar: 'لا نتائج', en: 'No results', fr: 'Aucun résultat' },
+    noLessonsYetTitle: { ar: 'لا توجد دروس بعد', en: 'No lessons yet', fr: 'Aucune leçon pour le moment' },
+    noLessonsYetSub: { ar: 'أرسل الدروس الجديدة لإضافتها هنا', en: 'Send your new lessons to add them here', fr: 'Envoyez vos nouvelles leçons pour les ajouter ici' },
     lessonLabel: { ar: 'الدرس', en: 'Lesson', fr: 'Leçon' },
     footerText: { ar: 'تطبيق تثقيف صحي · ', en: 'Health education app · ', fr: 'Application d\'éducation sexuelle · ' },
     footerLink: { ar: 'تطبيقاتي الأخرى', en: 'My other apps', fr: 'Mes autres applications' },
@@ -395,7 +287,6 @@
   };
 
   let speechRun = 0;
-  let loadedVoices = [];
 
   function t(key) {
     const v = UI[key];
@@ -446,13 +337,9 @@
   function toggleTheme() { setTheme(state.theme === 'light' ? 'dark' : 'light'); }
 
   function nativeTTS() {
-    if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech) return window.Capacitor.Plugins.TextToSpeech;
-    if (window.Capacitor && window.Capacitor.registerPlugin) {
-      window.Capacitor.Plugins = window.Capacitor.Plugins || {};
-      window.Capacitor.Plugins.TextToSpeech = window.Capacitor.registerPlugin('TextToSpeech');
-      return window.Capacitor.Plugins.TextToSpeech;
-    }
-    return null;
+    if (!window.Capacitor) return null;
+    if (window.Capacitor.getPlatform && window.Capacitor.getPlatform() !== 'android') return null;
+    return window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech;
   }
 
   function nativeSpeak(text, lang) {
@@ -462,73 +349,28 @@
   }
   function nativeStop() { const tts = nativeTTS(); if (!tts) return Promise.resolve(); return tts.stop(); }
 
-  function speakSupported() { return !!nativeTTS() || 'speechSynthesis' in window; }
-
-  function loadVoices() {
-    if (!('speechSynthesis' in window)) return;
-    loadedVoices = window.speechSynthesis.getVoices() || [];
-    window.speechSynthesis.onvoiceschanged = () => { loadedVoices = window.speechSynthesis.getVoices() || []; };
-  }
-  loadVoices();
-  if ('speechSynthesis' in window && window.speechSynthesis.onvoiceschanged === undefined) {
-    window.speechSynthesis.onvoiceschanged = () => { loadedVoices = window.speechSynthesis.getVoices() || []; };
-    try { window.speechSynthesis.getVoices(); } catch (e) {}
-  }
-
-  function pickVoice(lang) {
-    if (!speakSupported()) return null;
-    const voices = loadedVoices;
-    const code = VOICE_LANG[lang];
-    const exact = voices.find(v => v.lang && v.lang.replace('_', '-') === code);
-    if (exact) return exact;
-    const prefix = code.split('-')[0];
-    return voices.find(v => v.lang && v.lang.toLowerCase().startsWith(prefix)) || null;
-  }
-
-  function utter(text, lang) {
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = VOICE_LANG[lang];
-    u.rate = lang === 'fr' ? state.rate * 0.95 : state.rate;
-    const v = pickVoice(lang);
-    if (v) u.voice = v;
-    return u;
-  }
+  function speakSupported() { return !!nativeTTS(); }
 
   function stopSpeech() {
     state.loop = null;
     speechRun++;
     if (nativeTTS()) nativeStop();
-    else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     highlight(null);
     refreshButtons();
   }
 
   function speakOnce(phrase, langs, key, onDone) {
+    if (!nativeTTS()) { highlight(null); return; }
     const seq = langs.filter(l => phrase[l]);
     let i = 0;
     const run = ++speechRun;
-    if (nativeTTS()) {
-      nativeStop();
-      (function next() {
-        if (run !== speechRun) return;
-        if (i >= seq.length) { highlight(null); if (onDone) onDone(); return; }
-        const lang = seq[i++];
-        highlight(key, lang);
-        nativeSpeak(phrase[lang], lang).then(() => { if (run === speechRun) setTimeout(next, 250); }).catch(() => { if (run === speechRun) setTimeout(next, 250); });
-      })();
-      return;
-    }
-    if (!('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
+    nativeStop();
     (function next() {
       if (run !== speechRun) return;
       if (i >= seq.length) { highlight(null); if (onDone) onDone(); return; }
       const lang = seq[i++];
-      const u = utter(phrase[lang], lang);
       highlight(key, lang);
-      u.onend = () => { if (run === speechRun) setTimeout(next, 250); };
-      u.onerror = () => { if (run === speechRun) setTimeout(next, 250); };
-      window.speechSynthesis.speak(u);
+      nativeSpeak(phrase[lang], lang).then(() => { if (run === speechRun) setTimeout(next, 250); }).catch(() => { if (run === speechRun) setTimeout(next, 250); });
     })();
   }
 
@@ -589,7 +431,7 @@
         <div class="btns">
           <button class="speak-btn" title="${t('speakOnce')}">🔊</button>
           <button class="loop-btn" title="${t('loopTitle')}">🔁</button>
-          <button class="google-btn" title="${t('googleTitle')}">🔍</button>
+          <button class="image-btn" title="${t('imageTitle')}">🖼️</button>
           <button class="fav-btn ${isFav(key) ? 'fav-on' : ''}" title="${t('favTitle')}">${isFav(key) ? '★' : '☆'}</button>
         </div>
       </div>
@@ -597,8 +439,9 @@
   }
 
   function renderHome() {
+    const placeholder = !LESSONS.length ? `<div class="no-lessons"><div class="icon">📝</div><div class="card-title">${t('noLessonsYetTitle')}</div><div class="sub">${t('noLessonsYetSub')}</div></div>` : '';
     const html = `<div class="hero"><h1 data-t="heroTitle">${t('heroTitle')}</h1><p data-t="heroSub">${t('heroSub')}</p></div>
-      <div class="breadcrumb"><span>${t('lessonsLabel')}</span></div>` +
+      <div class="breadcrumb"><span>${t('lessonsLabel')}</span></div>` + placeholder +
       LESSONS.map(l => `<div class="card lesson-card" data-lesson="${l.id}">
         <div class="num">${l.id}</div>
         <div class="card-body">
@@ -701,8 +544,8 @@
         speakOnce(p, state.langs, key);
       } else if (e.target.closest('.loop-btn')) {
         toggleLoop(p, key);
-      } else if (e.target.closest('.google-btn')) {
-        window.open('https://www.google.com/search?q=' + encodeURIComponent(p.fr), '_blank');
+      } else if (e.target.closest('.image-btn')) {
+        window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(p.fr), '_blank');
       } else if (e.target.closest('.fav-btn')) {
         toggleFav(key);
         const favBtn = phrase.querySelector('.fav-btn');
