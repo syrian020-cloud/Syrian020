@@ -456,7 +456,8 @@ window.FR_STAGES = [
     id: 32,
     title: { ar: "القيادة والسيارات", fr: "La conduite et la voiture", en: "Driving and the car" },
     lessonTitles: [
-      { id: 276, ar: "قانون السير", fr: "Le code de la route", en: "The highway code" }
+      { id: 276, ar: "قانون السير", fr: "Le code de la route", en: "The highway code" },
+      { id: 277, ar: "امتحان Code de la route النظري", fr: "L'examen du Code de la route", en: "The Code de la route theory exam" }
     ]
   }
 ];
