@@ -460,5 +460,12 @@ window.FR_STAGES = [
       { id: 277, ar: "امتحان Code de la route النظري", fr: "L'examen du Code de la route", en: "The Code de la route theory exam" },
       { id: 278, ar: "امتحان القيادة العملي", fr: "L'examen pratique de conduite", en: "The practical driving test" }
     ]
+  },
+  {
+    id: 33,
+    title: { ar: "مواقف يومية شائعة", fr: "Situations quotidiennes courantes", en: "Common daily situations" },
+    lessonTitles: [
+      { id: 279, ar: "مواقف يومية شائعة", fr: "Situations quotidiennes courantes", en: "Common daily situations" }
+    ]
   }
 ];
