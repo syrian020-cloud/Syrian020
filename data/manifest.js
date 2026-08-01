@@ -477,5 +477,12 @@ window.FR_STAGES = [
       { id: 282, ar: "أفعال شائعة في Sistra", fr: "Verbes courants à Sistra", en: "Common verbs at Sistra" },
       { id: 283, ar: "أسماء وأفعال في Sistra", fr: "Noms et verbes à Sistra", en: "Names and verbs at Sistra" }
     ]
+  },
+  {
+    id: 35,
+    title: { ar: "تسجيل الوقت (Le pointage)", fr: "Le pointage", en: "Clocking in / Time tracking" },
+    lessonTitles: [
+      { id: 284, ar: "تسجيل الوقت بالبطاقة", fr: "Le pointage et le badgeage", en: "Clocking in and badge registration" }
+    ]
   }
 ];
