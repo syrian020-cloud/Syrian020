@@ -493,5 +493,12 @@ window.FR_STAGES = [
     lessonTitles: [
       { id: 286, ar: "التسوق والعمل في Auchan", fr: "Courses et travail à Auchan", en: "Shopping and working at Auchan" }
     ]
+  },
+  {
+    id: 37,
+    title: { ar: "العامية الفرنسية اليومية", fr: "Français familier du quotidien", en: "Everyday colloquial French" },
+    lessonTitles: [
+      { id: 288, ar: "عبارات عامية شائعة", fr: "Expressions courantes familières", en: "Common colloquial expressions" }
+    ]
   }
 ];
