@@ -516,7 +516,15 @@ window.FR_STAGES = [
       { id: 297, ar: "المكملات والبروتين وأسئلة المدرب", fr: "Compléments, protéines et questions au coach", en: "Supplements, protein and coach questions" },
       { id: 298, ar: "محادثات حقيقية داخل Basic-Fit", fr: "Conversations réelles à Basic-Fit", en: "Real conversations at Basic-Fit" },
       { id: 299, ar: "عبارات قصيرة تسمعها كثيرًا", fr: "Expressions courtes entendues souvent à Basic-Fit", en: "Short phrases often heard at Basic-Fit" },
-      { id: 300, ar: "محادثات وعبارات إضافية", fr: "Conversations et expressions supplémentaires", en: "More conversations and phrases" }
+      { id: 300, ar: "محادثات وعبارات إضافية", fr: "Conversations et expressions supplémentaires", en: "More conversations and phrases" },
+      { id: 301, ar: "عبارات سريعة في Basic-Fit", fr: "Expressions rapides à Basic-Fit", en: "Quick phrases at Basic-Fit" },
+      { id: 302, ar: "مواقف Basic-Fit اليومية", fr: "Situations quotidiennes à Basic-Fit", en: "Daily situations at Basic-Fit" },
+      { id: 303, ar: "قواعد وآداب Basic-Fit", fr: "Règles et étiquette à Basic-Fit", en: "Basic-Fit rules and etiquette" },
+      { id: 304, ar: "الميزان وقياس الجسم", fr: "La balance et la mesure corporelle", en: "Scale and body measurement" },
+      { id: 305, ar: "الدوش والخزائن", fr: "Les douches et les casiers", en: "Showers and lockers" },
+      { id: 306, ar: "مواقف صحية أثناء التمرين", fr: "Situations de santé à Basic-Fit", en: "Health situations at Basic-Fit" },
+      { id: 307, ar: "مواقف اجتماعية بين الأعضاء", fr: "Situations sociales entre membres", en: "Social situations between members" },
+      { id: 308, ar: "بعد التمرين", fr: "Après la séance", en: "After the workout" }
     ]
   }
 ];
