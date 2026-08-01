@@ -675,5 +675,81 @@ window.registerStage({
         { fr: "À la prochaine !", ar: "إلى المرة القادمة!", en: "See you next time!" }
       ]
     },
+    {
+      id: 309,
+      title: { ar: "مع المدرب", fr: "Avec le coach", en: "With the coach" },
+      phrases: [
+        { fr: "Bonjour, j’aimerais avoir un programme pour débutant.", ar: "مرحبًا، أود الحصول على برنامج للمبتدئين.", en: "Hello, I would like a beginner program." },
+        { fr: "Tu as déjà fait de la musculation avant ?", ar: "هل مارست تمارين القوة من قبل؟", en: "Have you done weight training before?" },
+        { fr: "Non, je commence tout juste.", ar: "لا، أنا بدأت للتو.", en: "No, I’m just starting." },
+        { fr: "Quel est ton objectif ?", ar: "ما هو هدفك؟", en: "What is your goal?" },
+        { fr: "Je veux prendre du muscle et devenir plus fort.", ar: "أريد زيادة العضلات وأصبح أقوى.", en: "I want to build muscle and get stronger." },
+        { fr: "Tu peux me préparer un programme ?", ar: "هل يمكنك إعداد برنامج لي؟", en: "Can you prepare a program for me?" },
+        { fr: "Oui, on va commencer doucement.", ar: "نعم، سنبدأ تدريجيًا.", en: "Yes, we’ll start gradually." },
+        { fr: "Il faut apprendre les bons mouvements avant d’augmenter les charges.", ar: "يجب تعلم الحركات الصحيحة قبل زيادة الأوزان.", en: "You need to learn the correct movements before increasing weights." },
+        { fr: "Oui, mais tu peux améliorer ta position.", ar: "نعم، لكن يمكنك تحسين وضعيتك.", en: "Yes, but you can improve your position." },
+        { fr: "Tu peux regarder ma technique ?", ar: "هل يمكنك مشاهدة تقنيتي؟", en: "Can you check my technique?" },
+        { fr: "Oui, fais une répétition.", ar: "نعم، قم بتكرار واحد.", en: "Yes, do one repetition." },
+        { fr: "Ne bloque pas tes articulations.", ar: "لا تقفل مفاصلك.", en: "Don’t lock your joints." },
+        { fr: "J’ai mal à l’épaule pendant cet exercice.", ar: "أشعر بألم في الكتف أثناء هذا التمرين.", en: "I have shoulder pain during this exercise." },
+        { fr: "Arrête si tu ressens une douleur.", ar: "توقف إذا شعرت بألم.", en: "Stop if you feel pain." },
+        { fr: "Est-ce que je dois changer l’exercice ?", ar: "هل يجب أن أغير التمرين؟", en: "Should I change the exercise?" },
+        { fr: "Oui, on va essayer une autre variante.", ar: "نعم، سنجرب نوعًا آخر.", en: "Yes, we’ll try another variation." },
+        { fr: "C’est une douleur normale ou pas ?", ar: "هل هذا ألم طبيعي أم لا؟", en: "Is this normal pain or not?" },
+        { fr: "Une sensation dans le muscle est normale, mais pas une douleur dans l’articulation.", ar: "الإحساس في العضلة طبيعي، لكن ألم المفصل ليس طبيعيًا.", en: "A muscle sensation is normal, but joint pain is not." },
+        { fr: "Quel appareil travaille ce muscle ?", ar: "أي جهاز يمرن هذه العضلة؟", en: "Which machine works this muscle?" },
+        { fr: "Cette machine cible surtout les pectoraux.", ar: "هذا الجهاز يستهدف عضلات الصدر بشكل أساسي.", en: "This machine mainly targets the chest." },
+        { fr: "Quel exercice est le meilleur pour le dos ?", ar: "ما أفضل تمرين للظهر؟", en: "What is the best exercise for the back?" },
+        { fr: "Tu peux faire du tirage vertical et du rowing.", ar: "يمكنك القيام بالسحب العلوي والتجديف.", en: "You can do lat pulldown and rows." },
+        { fr: "Quelle machine pour les jambes ?", ar: "أي جهاز للأرجل؟", en: "Which machine for legs?" },
+        { fr: "La presse à jambes est un bon exercice pour commencer.", ar: "جهاز ضغط الأرجل تمرين جيد للبداية.", en: "The leg press is a good exercise to start with." },
+        { fr: "Pour débuter, trois séances par semaine suffisent.", ar: "للمبتدئ، ثلاث حصص في الأسبوع تكفي.", en: "For beginners, three sessions per week are enough." },
+        { fr: "Combien de temps doit durer une séance ?", ar: "كم يجب أن تستغرق الحصة؟", en: "How long should a workout last?" },
+        { fr: "Environ une heure, selon ton programme.", ar: "حوالي ساعة، حسب برنامجك.", en: "About one hour, depending on your program." },
+        { fr: "Échauffe-toi avant de commencer.", ar: "قم بالإحماء قبل البدء.", en: "Warm up before starting." },
+        { fr: "Commence avec une charge légère.", ar: "ابدأ بوزن خفيف.", en: "Start with a light weight." },
+        { fr: "Progresse petit à petit.", ar: "تطور تدريجيًا.", en: "Progress little by little." },
+        { fr: "Ne cherche pas à soulever trop lourd.", ar: "لا تحاول رفع وزن ثقيل جدًا.", en: "Don’t try to lift too heavy." }
+      ]
+    },
+    {
+      id: 310,
+      title: { ar: "مواقف شائعة داخل Basic-Fit", fr: "Situations courantes à Basic-Fit", en: "Common situations at Basic-Fit" },
+      phrases: [
+        { fr: "Excuse-moi, cette machine est en panne ?", ar: "عذرًا، هل هذا الجهاز معطل؟", en: "Excuse me, is this machine out of order?" },
+        { fr: "Oui, elle ne fonctionne plus.", ar: "نعم، لم يعد يعمل.", en: "Yes, it doesn't work anymore." },
+        { fr: "Tu sais depuis quand ?", ar: "هل تعرف منذ متى؟", en: "Do you know since when?" },
+        { fr: "Depuis ce matin, je crois.", ar: "منذ هذا الصباح، على ما أعتقد.", en: "Since this morning, I think." },
+        { fr: "Il faut prévenir l'accueil.", ar: "يجب إبلاغ الاستقبال.", en: "We should inform the reception." },
+        { fr: "Cette machine est sale.", ar: "هذا الجهاز متسخ.", en: "This machine is dirty." },
+        { fr: "Elle n'a pas été nettoyée.", ar: "لم يتم تنظيفها.", en: "It hasn't been cleaned." },
+        { fr: "Je vais la désinfecter avant de l'utiliser.", ar: "سأعقمها قبل استخدامها.", en: "I'll disinfect it before using it." },
+        { fr: "Tu peux me passer le spray ?", ar: "هل يمكنك إعطائي بخاخ التعقيم؟", en: "Can you pass me the spray?" },
+        { fr: "Il y a une serviette sur la machine.", ar: "هناك منشفة على الجهاز.", en: "There's a towel on the machine." },
+        { fr: "Tu sais à qui elle est ?", ar: "هل تعرف لمن هي؟", en: "Do you know whose it is?" },
+        { fr: "Non, je ne sais pas.", ar: "لا، لا أعرف.", en: "No, I don't." },
+        { fr: "Je vais attendre un peu.", ar: "سأنتظر قليلًا.", en: "I'll wait a bit." },
+        { fr: "Excuse-moi, tu utilises encore la machine ?", ar: "عذرًا، هل ما زلت تستخدم الجهاز؟", en: "Excuse me, are you still using the machine?" },
+        { fr: "Oui, je prends juste une petite pause.", ar: "نعم، آخذ استراحة قصيرة فقط.", en: "Yes, I'm just taking a short break." },
+        { fr: "Non, je reprends tout de suite.", ar: "لا، سأكمل الآن.", en: "No, I'll continue right away." },
+        { fr: "Tu utilises aussi cette machine ?", ar: "هل تستخدم هذا الجهاز أيضًا؟", en: "Are you using this machine too?" },
+        { fr: "Oui, j'alterne entre les deux.", ar: "نعم، أتناوب بين الجهازين.", en: "Yes, I'm alternating between the two." },
+        { fr: "Est-ce que je peux utiliser celui-ci pendant que tu fais l'autre ?", ar: "هل يمكنني استخدام هذا الجهاز بينما تستخدم الآخر؟", en: "Can I use this one while you're on the other one?" },
+        { fr: "J'attends mon tour.", ar: "أنتظر دوري.", en: "I'm waiting for my turn." },
+        { fr: "Il y a beaucoup de monde aujourd'hui.", ar: "هناك ازدحام كبير اليوم.", en: "It's very crowded today." },
+        { fr: "Oui, surtout en fin de journée.", ar: "نعم، خاصة في نهاية اليوم.", en: "Yes, especially at the end of the day." },
+        { fr: "Dès que tu as fini, tu me fais signe ?", ar: "عندما تنتهي، هل تخبرني؟", en: "When you're done, can you let me know?" }
+      ]
+    },
+    {
+      id: 311,
+      title: { ar: "عبارات عامية شائعة جدًا", fr: "Expressions familières très courantes", en: "Very common colloquial phrases" },
+      phrases: [
+        { fr: "Elle est prise ?", ar: "هل الجهاز مشغول؟", en: "Is it taken?" },
+        { fr: "Elle est libre ?", ar: "هل الجهاز فارغ؟", en: "Is it free?" },
+        { fr: "Je peux passer ?", ar: "هل يمكنني استخدامه؟", en: "Can I use it?" },
+        { fr: "Ça fait un moment que tu es dessus.", ar: "لقد مضى وقت وأنت على الجهاز.", en: "You've been on it for quite a while." }
+      ]
+    },
   ]
 });

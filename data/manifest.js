@@ -524,7 +524,10 @@ window.FR_STAGES = [
       { id: 305, ar: "الدوش والخزائن", fr: "Les douches et les casiers", en: "Showers and lockers" },
       { id: 306, ar: "مواقف صحية أثناء التمرين", fr: "Situations de santé à Basic-Fit", en: "Health situations at Basic-Fit" },
       { id: 307, ar: "مواقف اجتماعية بين الأعضاء", fr: "Situations sociales entre membres", en: "Social situations between members" },
-      { id: 308, ar: "بعد التمرين", fr: "Après la séance", en: "After the workout" }
+      { id: 308, ar: "بعد التمرين", fr: "Après la séance", en: "After the workout" },
+      { id: 309, ar: "مع المدرب", fr: "Avec le coach", en: "With the coach" },
+      { id: 310, ar: "مواقف شائعة داخل Basic-Fit", fr: "Situations courantes à Basic-Fit", en: "Common situations at Basic-Fit" },
+      { id: 311, ar: "عبارات عامية شائعة جدًا", fr: "Expressions familières très courantes", en: "Very common colloquial phrases" }
     ]
   }
 ];
