@@ -88,7 +88,17 @@ window.registerStage({
         { fr: "Je termine mon poste à 14 heures.", ar: "أنهي عملي الساعة الثانية.", en: "I finish my shift at 2." },
         { fr: "Je remplace le rouleau de scotch.", ar: "أستبدل لفة الشريط اللاصق.", en: "I replace the tape roll." },
         { fr: "Je contrôle la qualité du produit.", ar: "أفحص جودة المنتج.", en: "I inspect the product quality." },
-        { fr: "Je respecte les consignes de sécurité.", ar: "ألتزم بتعليمات السلامة.", en: "I follow safety instructions." }
+        { fr: "Je respecte les consignes de sécurité.", ar: "ألتزم بتعليمات السلامة.", en: "I follow safety instructions." },
+        { fr: "Le responsable valide les heures travaillées.", ar: "المسؤول يعتمد ساعات العمل.", en: "The manager validates the worked hours." },
+        { fr: "Je vérifie mon pointage.", ar: "أتحقق من تسجيل وقتي.", en: "I check my time record." },
+        { fr: "Je dois modifier mon horaire.", ar: "يجب أن أعدل جدولي.", en: "I need to modify my schedule." },
+        { fr: "Je déclare un oubli de badge.", ar: "أبلغ عن نسيان تسجيل البطاقة.", en: "I report a missed badge." },
+        { fr: "Je signale un problème de badge.", ar: "أبلغ عن مشكلة في البطاقة.", en: "I report a badge problem." },
+        { fr: "Oublier", ar: "ينسى", en: "To forget" },
+        { fr: "Valider une absence", ar: "يعتمد غيابًا", en: "Approve an absence" },
+        { fr: "Le chef valide mon absence.", ar: "المسؤول يعتمد غيابي.", en: "The supervisor approves my absence." },
+        { fr: "Décompter", ar: "يحسب / يخصم", en: "To deduct / count" },
+        { fr: "La pause est décomptée automatiquement.", ar: "الاستراحة تُحسب تلقائيًا.", en: "The break is automatically deducted." }
       ]
     }
   ]
