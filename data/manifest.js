@@ -539,7 +539,10 @@ window.FR_STAGES = [
     lessonTitles: [
       { id: 315, ar: "عبارات المكالمات التجارية والاحتيالية", fr: "Phrases pour les appels commerciaux et arnaques", en: "Phrases for commercial calls and scams" },
       { id: 316, ar: "أفعال المكالمات التجارية 1", fr: "Verbes du démarchage téléphonique 1", en: "Telephone solicitation verbs 1" },
-      { id: 317, ar: "أفعال المكالمات التجارية 2", fr: "Verbes du démarchage téléphonique 2", en: "Telephone solicitation verbs 2" }
+      { id: 317, ar: "أفعال المكالمات التجارية 2", fr: "Verbes du démarchage téléphonique 2", en: "Telephone solicitation verbs 2" },
+      { id: 318, ar: "عبارات إضافية في المكالمات التجارية 1", fr: "Phrases supplémentaires en démarchage 1", en: "Additional telemarketing phrases 1" },
+      { id: 319, ar: "عبارات إضافية في المكالمات التجارية 2", fr: "Phrases supplémentaires en démarchage 2", en: "Additional telemarketing phrases 2" },
+      { id: 320, ar: "عبارات إضافية في المكالمات التجارية 3", fr: "Phrases supplémentaires en démarchage 3", en: "Additional telemarketing phrases 3" }
     ]
   }
 ];
