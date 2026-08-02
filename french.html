@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#1a1a1a">
-<title>تعلم الفرنسية — فرنسي / عربي / إنجليزي</title>
+<title>Learn French — French / Arabic / English</title>
 <link rel="manifest" href="manifest.json">
 <style>
   :root {
@@ -58,6 +58,15 @@
     padding: 0.4rem 0.7rem; font-size: 1rem; cursor: pointer;
   }
   .icon-btn:hover { border-color: var(--accent); }
+  .lang-switch { display: flex; gap: 0.25rem; }
+  .lang-btn {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 0.35rem 0.55rem; font-size: 0.78rem; font-weight: 700;
+    cursor: pointer; min-width: 2.2rem;
+  }
+  .lang-btn:hover { border-color: var(--accent); }
+  .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
   main { max-width: 900px; margin: 0 auto; padding: 1rem; }
   .toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
   #search {
@@ -149,34 +158,39 @@
 <body>
 <header>
   <div class="header-inner">
-    <span class="logo">🇫🇷 تعلم الفرنسية</span>
+    <span class="logo">🇫🇷 <span data-t="appName">Learn French</span></span>
     <span class="spacer"></span>
-    <button class="icon-btn" id="btn-fav" title="المحفوظات">⭐</button>
-    <button class="icon-btn" id="btn-theme" title="الوضع الليلي/النهاري">🌙</button>
-    <button class="icon-btn" id="btn-stop" title="إيقاف الصوت">⏹</button>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="ar">AR</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
+    <button class="icon-btn" id="btn-fav" data-t-title="favourites" title="Favourites">⭐</button>
+    <button class="icon-btn" id="btn-theme" data-t-title="themeMode" title="Dark / light mode">🌙</button>
+    <button class="icon-btn" id="btn-stop" data-t-title="stopAudio" title="Stop audio">⏹</button>
   </div>
 </header>
 
 <main>
   <div class="toolbar">
-    <input id="search" type="search" placeholder="ابحث بالعربية أو الفرنسية أو الإنجليزية…">
-    <select class="ctl" id="rate" title="سرعة النطق">
+    <input id="search" type="search" data-t="searchPlaceholder" placeholder="Search in Arabic, French, or English…">
+    <select class="ctl" id="rate" data-t-title="rateTitle" title="Speech rate">
       <option value="0.6">0.6×</option>
       <option value="0.8">0.8×</option>
       <option value="1" selected>1×</option>
       <option value="1.2">1.2×</option>
     </select>
-    <select class="ctl" id="loopmode" title="محتوى التكرار">
-      <option value="fr,ar,en" selected>🔁 فرنسي + عربي + إنجليزي</option>
-      <option value="fr,ar">🔁 فرنسي + عربي</option>
-      <option value="fr">🔁 فرنسي فقط</option>
+    <select class="ctl" id="loopmode" data-t-title="loopModeTitle" title="Loop content">
+      <option value="fr,ar,en" data-t="loopFrenchArabicEnglish" selected>🔁 French + Arabic + English</option>
+      <option value="fr,ar" data-t="loopFrenchArabic">🔁 French + Arabic</option>
+      <option value="fr" data-t="loopFrenchOnly">🔁 French only</option>
     </select>
   </div>
   <div id="view"></div>
 </main>
 
 <footer>
-  تطبيق عبارات الحياة اليومية في فرنسا · <a href="index.html">دروسي المرئية</a>
+  <span data-t="footerText">Everyday phrases in France app · </span><a href="index.html" data-t="footerLink">My video lessons</a>
 </footer>
 
 <script src="data/manifest.js"></script>
@@ -194,8 +208,84 @@
     loop: null,             // { key: string, langs: [] }
     favs: JSON.parse(localStorage.getItem('fr_favs') || '[]'),
     rate: 1,
-    langs: ['fr', 'ar', 'en']
+    langs: ['fr', 'ar', 'en'],
+    uiLang: localStorage.getItem('fr_ui_lang') || 'en'
   };
+
+  /* ---------------- UI translations ---------------- */
+
+  var UI = {
+    appName: { en: 'Learn French', ar: 'تعلم الفرنسية', fr: 'Apprendre le français' },
+    appTitle: { en: 'Learn French — French / Arabic / English', ar: 'تعلم الفرنسية — فرنسي / عربي / إنجليزي', fr: 'Apprendre le français — Français / Arabe / Anglais' },
+    searchPlaceholder: { en: 'Search in Arabic, French, or English…', ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', fr: 'Rechercher en arabe, français ou anglais…' },
+    rateTitle: { en: 'Speech rate', ar: 'سرعة النطق', fr: 'Vitesse de la voix' },
+    loopModeTitle: { en: 'Loop content', ar: 'محتوى التكرار', fr: 'Contenu de la répétition' },
+    loopFrenchArabicEnglish: { en: '🔁 French + Arabic + English', ar: '🔁 فرنسي + عربي + إنجليزي', fr: '🔁 Français + Arabe + Anglais' },
+    loopFrenchArabic: { en: '🔁 French + Arabic', ar: '🔁 فرنسي + عربي', fr: '🔁 Français + Arabe' },
+    loopFrenchOnly: { en: '🔁 French only', ar: '🔁 فرنسي فقط', fr: '🔁 Français seulement' },
+    favourites: { en: 'Favourites', ar: 'المحفوظات', fr: 'Favoris' },
+    themeMode: { en: 'Dark / light mode', ar: 'الوضع الليلي/النهاري', fr: 'Mode sombre / clair' },
+    stopAudio: { en: 'Stop audio', ar: 'إيقاف الصوت', fr: 'Arrêter le son' },
+    hintStages: { en: 'Choose a stage ← then a lesson. Each phrase has a 🔊 button to speak and a 🔁 button to repeat (French ← Arabic ← English) until you stop it.', ar: 'اختر المرحلة ← ثم الدرس. كل عبارة فيها زر 🔊 للنطق وزر 🔁 لتكرار النطق (فرنسي ← عربي ← إنجليزي) حتى توقفه.', fr: "Choisissez un stage ← puis une leçon. Chaque phrase a un bouton 🔊 pour parler et un bouton 🔁 pour répéter (français ← arabe ← anglais) jusqu'à l'arrêt." },
+    stagesLabel: { en: 'Stages', ar: 'المراحل', fr: 'Stages' },
+    lessons: { en: 'lessons', ar: 'دروس', fr: 'leçons' },
+    phrases: { en: 'phrases', ar: 'عبارة', fr: 'phrases' },
+    speakOnce: { en: 'Speak once', ar: 'نطق مرة واحدة', fr: 'Parler une fois' },
+    loopTitle: { en: 'Repeat: French ← Arabic ← English', ar: 'تكرار: فرنسي ← عربي ← إنجليزي', fr: 'Répéter : Français ← Arabe ← Anglais' },
+    favTitle: { en: 'Save', ar: 'حفظ', fr: 'Enregistrer' },
+    playAll: { en: '▶ Play whole lesson', ar: '▶ تشغيل كل الدرس', fr: '▶ Lire toute la leçon' },
+    stopAll: { en: '⏹ Stop', ar: '⏹ إيقاف', fr: '⏹ Arrêter' },
+    loading: { en: '…Loading', ar: '…جاري التحميل', fr: '…Chargement' },
+    lessonUnavailable: { en: 'Lesson not available', ar: 'الدرس غير متوفر', fr: 'Leçon non disponible' },
+    loadStageFailed: { en: 'Could not load this stage\'s data', ar: 'تعذر تحميل بيانات هذه المرحلة', fr: 'Impossible de charger les données de ce stage' },
+    savedPhrasesTitle: { en: '⭐ Saved phrases', ar: '⭐ العبارات المحفوظة', fr: '⭐ Phrases enregistrées' },
+    noSavedPhrases: { en: 'No saved phrases yet. Tap ☆ next to any phrase to save it.', ar: 'لا توجد عبارات محفوظة بعد. اضغط ☆ بجانب أي عبارة لحفظها.', fr: 'Aucune phrase enregistrée. Appuyez sur ☆ à côté d\'une phrase pour l\'enregistrer.' },
+    searchResults: { en: 'Search results', ar: 'نتائج البحث', fr: 'Résultats de recherche' },
+    noResults: { en: 'No results', ar: 'لا نتائج', fr: 'Aucun résultat' },
+    stageLabel: { en: 'Stage', ar: 'المرحلة', fr: 'Stage' },
+    lessonLabel: { en: 'Lesson', ar: 'الدرس', fr: 'Leçon' },
+    footerText: { en: 'Everyday phrases in France app · ', ar: 'تطبيق عبارات الحياة اليومية في فرنسا · ', fr: 'Application de phrases quotidiennes en France · ' },
+    footerLink: { en: 'My video lessons', ar: 'دروسي المرئية', fr: 'Mes cours vidéo' },
+    uiLangLabel: { en: 'Language', ar: 'اللغة', fr: 'Langue' },
+    exitConfirm: { en: 'Do you want to exit the app?', ar: 'هل تريد الخروج من التطبيق؟', fr: 'Voulez-vous quitter l\'application ?' }
+  };
+
+  function t(key) {
+    var v = UI[key];
+    return (v && v[state.uiLang]) || (v && v.en) || (v && v.ar) || key;
+  }
+  function title(obj) {
+    return (obj && obj[state.uiLang]) || (obj && obj.en) || (obj && obj.ar) || (obj && obj.fr) || '';
+  }
+  function subtitle(obj) {
+    if (!obj) return '';
+    if (state.uiLang === 'ar') return esc(obj.fr) + ' · ' + esc(obj.en);
+    if (state.uiLang === 'en') return esc(obj.fr) + ' · ' + esc(obj.ar);
+    return esc(obj.ar) + ' · ' + esc(obj.en);
+  }
+  function chevron() { return document.documentElement.dir === 'rtl' ? '‹' : '›'; }
+  function applyTranslations() {
+    document.title = t('appTitle');
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      var key = el.dataset.t;
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = t(key);
+      else el.textContent = t(key);
+    });
+    document.querySelectorAll('[data-t-title]').forEach(function (el) { el.title = t(el.dataset.tTitle); });
+    var loopmode = document.getElementById('loopmode');
+    if (loopmode) {
+      [].forEach.call(loopmode.options, function (opt) { opt.textContent = t(opt.dataset.t); });
+    }
+  }
+  function setUILang(lang) {
+    state.uiLang = lang;
+    localStorage.setItem('fr_ui_lang', lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+    applyTranslations();
+    go(state.route, false);
+  }
 
   /* ---------------- data loading ---------------- */
 
@@ -236,7 +326,25 @@
   var VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
   var speechRun = 0;         // bumped on every new pass and on stop
 
-  function speakSupported() { return 'speechSynthesis' in window; }
+  function nativeTTS() {
+    if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech) return window.Capacitor.Plugins.TextToSpeech;
+    if (window.Capacitor && window.Capacitor.registerPlugin) {
+      window.Capacitor.Plugins = window.Capacitor.Plugins || {};
+      window.Capacitor.Plugins.TextToSpeech = window.Capacitor.registerPlugin('TextToSpeech');
+      return window.Capacitor.Plugins.TextToSpeech;
+    }
+    return null;
+  }
+  function nativeSpeak(text, lang) {
+    var tts = nativeTTS();
+    if (!tts) return Promise.reject('no tts');
+    return tts.speak({ text: text, lang: VOICE_LANG[lang] || 'en-US', rate: state.rate || 1, queueStrategy: 1 });
+  }
+  function nativeStop() {
+    var tts = nativeTTS(); if (!tts) return Promise.resolve(); return tts.stop();
+  }
+
+  function speakSupported() { return !!nativeTTS() || 'speechSynthesis' in window; }
 
   function pickVoice(lang) {
     if (!speakSupported()) return null;
@@ -260,7 +368,8 @@
   function stopSpeech() {
     state.loop = null;
     speechRun++;
-    if (speakSupported()) window.speechSynthesis.cancel();
+    if (nativeTTS()) nativeStop();
+    else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     highlight(null, null);
     refreshButtons();
   }
@@ -268,11 +377,28 @@
   // Speaks one pass: French, then Arabic, then English (per selected mode).
   // Every pass carries a run id; stopSpeech() bumps it so pending steps abort.
   function speakOnce(phrase, langs, key, onDone) {
-    if (!speakSupported()) return;
-    window.speechSynthesis.cancel();
-    var run = ++speechRun;
     var seq = langs.filter(function (l) { return phrase[l]; });
     var i = 0;
+    var run = ++speechRun;
+    if (nativeTTS()) {
+      nativeStop();
+      (function next() {
+        if (run !== speechRun) return;
+        if (i >= seq.length) { highlight(null, null); if (onDone) onDone(); return; }
+        var lang = seq[i++];
+        highlight(key, lang);
+        nativeSpeak(phrase[lang], lang).then(function () {
+          if (run !== speechRun) return;
+          setTimeout(next, 250);
+        }).catch(function () {
+          if (run !== speechRun) return;
+          setTimeout(next, 250);
+        });
+      })();
+      return;
+    }
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
     (function next() {
       if (run !== speechRun) return;
       if (i >= seq.length) { highlight(null, null); if (onDone) onDone(); return; }
@@ -353,9 +479,9 @@
           '<div class="line en" data-lang="en">' + esc(p.en) + '</div>' +
         '</div>' +
         '<div class="btns">' +
-          '<button class="speak-btn" title="نطق مرة واحدة">🔊</button>' +
-          '<button class="loop-btn" title="تكرار: فرنسي ← عربي ← إنجليزي">🔁</button>' +
-          '<button class="fav-btn ' + (isFav(key) ? 'fav-on' : '') + '" title="حفظ">' +
+          '<button class="speak-btn" title="' + t('speakOnce') + '">🔊</button>' +
+          '<button class="loop-btn" title="' + t('loopTitle') + '">🔁</button>' +
+          '<button class="fav-btn ' + (isFav(key) ? 'fav-on' : '') + '" title="' + t('favTitle') + '">' +
             (isFav(key) ? '★' : '☆') + '</button>' +
         '</div>' +
       '</div>' +
@@ -363,16 +489,16 @@
   }
 
   function renderStages() {
-    var html = '<div class="hint">اختر المرحلة ← ثم الدرس. كل عبارة فيها زر 🔊 للنطق وزر 🔁 لتكرار النطق (فرنسي ← عربي ← إنجليزي) حتى توقفه.</div>';
+    var html = '<div class="hint">' + t('hintStages') + '</div>';
     html += STAGES.map(function (st) {
       return '<div class="stage-card" data-stage="' + st.id + '">' +
         '<div class="num">' + st.id + '</div>' +
         '<div class="card-body">' +
-          '<div class="card-title">' + esc(st.title.ar) + '</div>' +
-          '<div class="card-sub" dir="ltr">' + esc(st.title.fr) + ' · ' + esc(st.title.en) + '</div>' +
-          '<div class="card-sub">' + st.lessonTitles.length + ' دروس</div>' +
+          '<div class="card-title">' + esc(title(st.title)) + '</div>' +
+          '<div class="card-sub" dir="ltr">' + subtitle(st.title) + '</div>' +
+          '<div class="card-sub">' + st.lessonTitles.length + ' ' + t('lessons') + '</div>' +
         '</div>' +
-        '<div class="chev">‹</div>' +
+        '<div class="chev">' + chevron() + '</div>' +
       '</div>';
     }).join('');
     view.innerHTML = html;
@@ -381,17 +507,17 @@
   function renderLessons(stageId) {
     var st = findStage(stageId);
     if (!st) { renderStages(); return; }
-    var html = crumbs([{ label: 'المراحل', route: { name: 'stages' } }, { label: st.title.ar }]);
-    html += '<div class="lesson-head"><h2>' + st.id + '. ' + esc(st.title.ar) + '</h2>' +
-      '<div class="sub" dir="ltr">' + esc(st.title.fr) + ' · ' + esc(st.title.en) + '</div></div>';
+    var html = crumbs([{ label: t('stagesLabel'), route: { name: 'stages' } }, { label: title(st.title) }]);
+    html += '<div class="lesson-head"><h2>' + st.id + '. ' + esc(title(st.title)) + '</h2>' +
+      '<div class="sub" dir="ltr">' + subtitle(st.title) + '</div></div>';
     html += st.lessonTitles.map(function (l) {
       return '<div class="lesson-card" data-stage="' + st.id + '" data-lesson="' + l.id + '">' +
         '<div class="num">' + l.id + '</div>' +
         '<div class="card-body">' +
-          '<div class="card-title">' + esc(l.ar) + '</div>' +
-          '<div class="card-sub" dir="ltr">' + esc(l.fr) + ' · ' + esc(l.en) + '</div>' +
+          '<div class="card-title">' + esc(title(l)) + '</div>' +
+          '<div class="card-sub" dir="ltr">' + subtitle(l) + '</div>' +
         '</div>' +
-        '<div class="chev">‹</div>' +
+        '<div class="chev">' + chevron() + '</div>' +
       '</div>';
     }).join('');
     view.innerHTML = html;
@@ -399,21 +525,21 @@
 
   function renderLesson(stageId, lessonId) {
     var st = findStage(stageId);
-    view.innerHTML = '<div class="empty">…جاري التحميل</div>';
+    view.innerHTML = '<div class="empty">' + t('loading') + '</div>';
     loadStage(stageId).then(function () {
       var lesson = findLesson(stageId, lessonId);
-      if (!lesson) { view.innerHTML = '<div class="empty">الدرس غير متوفر</div>'; return; }
+      if (!lesson) { view.innerHTML = '<div class="empty">' + t('lessonUnavailable') + '</div>'; return; }
       var html = crumbs([
-        { label: 'المراحل', route: { name: 'stages' } },
-        { label: st.title.ar, route: { name: 'lessons', stage: stageId } },
-        { label: lesson.title.ar }
+        { label: t('stagesLabel'), route: { name: 'stages' } },
+        { label: title(st.title), route: { name: 'lessons', stage: stageId } },
+        { label: title(lesson.title) }
       ]);
-      html += '<div class="lesson-head"><h2>الدرس ' + lesson.id + ': ' + esc(lesson.title.ar) + '</h2>' +
-        '<div class="sub" dir="ltr">' + esc(lesson.title.fr) + ' · ' + esc(lesson.title.en) + '</div></div>';
+      html += '<div class="lesson-head"><h2>' + t('lessonLabel') + ' ' + lesson.id + ': ' + esc(title(lesson.title)) + '</h2>' +
+        '<div class="sub" dir="ltr">' + subtitle(lesson.title) + '</div></div>';
       html += '<div class="lesson-actions">' +
-        '<button class="btn" id="play-all">▶ تشغيل كل الدرس</button>' +
-        '<button class="btn ghost" id="stop-all">⏹ إيقاف</button>' +
-        '<span class="pill">' + lesson.phrases.length + ' عبارة</span>' +
+        '<button class="btn" id="play-all">' + t('playAll') + '</button>' +
+        '<button class="btn ghost" id="stop-all">' + t('stopAll') + '</button>' +
+        '<span class="pill">' + lesson.phrases.length + ' ' + t('phrases') + '</span>' +
       '</div>';
       html += lesson.phrases.map(function (p, i) {
         return phraseHTML(p, phraseKey(stageId, lessonId, i));
@@ -423,7 +549,7 @@
       document.getElementById('play-all').onclick = function () { playLesson(lesson, stageId, lessonId); };
       document.getElementById('stop-all').onclick = stopSpeech;
     }).catch(function () {
-      view.innerHTML = '<div class="empty">تعذر تحميل بيانات هذه المرحلة</div>';
+      view.innerHTML = '<div class="empty">' + t('loadStageFailed') + '</div>';
     });
   }
 
@@ -449,7 +575,7 @@
   }
 
   function renderFavs() {
-    view.innerHTML = '<div class="empty">…جاري التحميل</div>';
+    view.innerHTML = '<div class="empty">' + t('loading') + '</div>';
     loadAll().then(function () {
       var items = [];
       state.favs.forEach(function (key) {
@@ -459,19 +585,19 @@
         var p = lesson.phrases[+parts[2]];
         if (p) items.push({ p: p, key: key, lesson: lesson });
       });
-      var html = crumbs([{ label: 'المراحل', route: { name: 'stages' } }, { label: 'المحفوظات' }]);
-      html += '<div class="lesson-head"><h2>⭐ العبارات المحفوظة</h2></div>';
+      var html = crumbs([{ label: t('stagesLabel'), route: { name: 'stages' } }, { label: t('favourites') }]);
+      html += '<div class="lesson-head"><h2>' + t('savedPhrasesTitle') + '</h2></div>';
       html += items.length
         ? items.map(function (it) {
-            return '<div class="pill">' + esc(it.lesson.title.ar) + '</div>' + phraseHTML(it.p, it.key);
+            return '<div class="pill">' + esc(title(it.lesson.title)) + '</div>' + phraseHTML(it.p, it.key);
           }).join('')
-        : '<div class="empty">لا توجد عبارات محفوظة بعد. اضغط ☆ بجانب أي عبارة لحفظها.</div>';
+        : '<div class="empty">' + t('noSavedPhrases') + '</div>';
       view.innerHTML = html;
     });
   }
 
   function renderSearch(q) {
-    view.innerHTML = '<div class="empty">…جاري البحث</div>';
+    view.innerHTML = '<div class="empty">' + t('loading') + '</div>';
     loadAll().then(function () {
       var needle = q.trim().toLowerCase();
       var results = [];
@@ -486,14 +612,14 @@
           });
         });
       });
-      var html = '<div class="lesson-head"><h2>نتائج البحث: ' + esc(q) + '</h2>' +
-        '<div class="sub">' + results.length + ' عبارة</div></div>';
+      var html = '<div class="lesson-head"><h2>' + t('searchResults') + ': ' + esc(q) + '</h2>' +
+        '<div class="sub">' + results.length + ' ' + t('phrases') + '</div></div>';
       html += results.length
         ? results.map(function (r) {
             return phraseHTML(r.p, r.key) +
-              '<div class="searchmeta">المرحلة ' + r.stage.id + ' · الدرس ' + r.lesson.id + ' — ' + esc(r.lesson.title.ar) + '</div>';
+              '<div class="searchmeta">' + t('stageLabel') + ' ' + r.stage.id + ' · ' + t('lessonLabel') + ' ' + r.lesson.id + ' — ' + esc(title(r.lesson.title)) + '</div>';
           }).join('')
-        : '<div class="empty">لا نتائج</div>';
+        : '<div class="empty">' + t('noResults') + '</div>';
       view.innerHTML = html;
     });
   }
@@ -538,6 +664,16 @@
   }
 
   window.addEventListener('hashchange', function () { go(routeFromHash(), false); });
+
+  function goBack() {
+    if (state.route.name === 'lesson') go({ name: 'lessons', stage: state.route.stage });
+    else if (state.route.name === 'lessons') go({ name: 'stages' });
+    else if (state.route.name === 'search' || state.route.name === 'favs') go({ name: 'stages' });
+    else {
+      var app = (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) || null;
+      if (window.confirm(t('exitConfirm')) && app && app.exitApp) app.exitApp();
+    }
+  }
 
   /* ---------------- events ---------------- */
 
@@ -605,15 +741,25 @@
   if (savedRate) { state.rate = parseFloat(savedRate); document.getElementById('rate').value = savedRate; }
   var savedLangs = localStorage.getItem('fr_langs');
   if (savedLangs) { state.langs = savedLangs.split(','); document.getElementById('loopmode').value = savedLangs; }
+  document.querySelector('.lang-switch').addEventListener('click', function (e) {
+    var btn = e.target.closest('.lang-btn');
+    if (btn) setUILang(btn.dataset.lang);
+  });
 
-  if (speakSupported()) window.speechSynthesis.getVoices();
+  if (!nativeTTS() && 'speechSynthesis' in window) window.speechSynthesis.getVoices();
   window.addEventListener('beforeunload', function () { if (speakSupported()) window.speechSynthesis.cancel(); });
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').catch(function () {});
   }
 
-  go(routeFromHash(), false);
+  var AppPlugin = (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) || null;
+  if (AppPlugin && AppPlugin.addListener) {
+    AppPlugin.addListener('backButton', function () { goBack(); });
+  }
+
+  state.route = routeFromHash();
+  setUILang(state.uiLang);
 })();
 </script>
 </body>

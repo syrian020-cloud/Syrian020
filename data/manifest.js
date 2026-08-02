@@ -61,7 +61,14 @@ window.FR_STAGES = [
       { id: 37, ar: "البلدية", fr: "La mairie", en: "The town hall" },
       { id: 38, ar: "مكتب البريد", fr: "La Poste", en: "The post office" },
       { id: 39, ar: "تغيير العنوان", fr: "Le changement d'adresse", en: "Changing address" },
-      { id: 40, ar: "إنشاء الحسابات الحكومية", fr: "Créer les comptes en ligne", en: "Creating government online accounts" }
+      { id: 40, ar: "إنشاء الحسابات الحكومية", fr: "Créer les comptes en ligne", en: "Creating government online accounts" },
+      { id: 268, ar: "CAF - مواقف وعبارات مفصلة", fr: "CAF - Situations et vocabulaire détaillés", en: "CAF - Detailed situations and vocabulary" },
+      { id: 269, ar: "أفعال CAF الأكثر استعمالًا - عبارات", fr: "Verbes les plus utilisés avec la CAF", en: "Most common verbs with CAF" },
+      { id: 270, ar: "التعبير عن استلام RSA - عبارات", fr: "Exprimer qu'on touche le RSA", en: "Ways to say you receive RSA" },
+      { id: 272, ar: "CAF - الشهادات والدفع إلى طرف ثالث", fr: "CAF - Attestations et paiements à un tiers", en: "CAF - Attestations and payments to a third party" },
+      { id: 273, ar: "CAF - تطبيق Mon Compte وعبارات الواجهة", fr: "CAF - Application Mon Compte et mots utiles", en: "CAF - Mon Compte app and useful words" },
+      { id: 274, ar: "France Travail - المساحة الشخصية والإجراءات", fr: "France Travail - Espace personnel et démarches", en: "France Travail - Personal space and procedures" },
+      { id: 275, ar: "France Travail - الأفعال والأمثلة", fr: "France Travail - Verbes et exemples", en: "France Travail - Verbs and examples" }
     ]
   },
   {
@@ -120,7 +127,38 @@ window.FR_STAGES = [
       { id: 72, ar: "طبيب الأسنان", fr: "Le dentiste", en: "The dentist" },
       { id: 73, ar: "طبيب العيون", fr: "L'ophtalmologue", en: "The eye doctor" },
       { id: 74, ar: "العلاج الطبيعي", fr: "Le kinésithérapeute", en: "Physiotherapy" },
-      { id: 75, ar: "الصيدلية والدواء", fr: "La pharmacie et les médicaments", en: "Pharmacy and medication" }
+      { id: 75, ar: "الصيدلية والدواء", fr: "La pharmacie et les médicaments", en: "Pharmacy and medication" },
+      { id: 238, ar: "في الصيدلية", fr: "À la pharmacie", en: "At the pharmacy" },
+      { id: 239, ar: "التوفر والطلب", fr: "Disponibilité et commande", en: "Availability and ordering" },
+      { id: 240, ar: "الدفع والتأمين", fr: "Paiement et remboursement", en: "Payment and reimbursement" },
+      { id: 241, ar: "الوصفة الطبية", fr: "L'ordonnance", en: "The prescription" },
+      { id: 242, ar: "النصائح والحساسية", fr: "Conseils et allergies", en: "Advice and allergies" },
+      { id: 243, ar: "كيفية الاستعمال", fr: "Mode d'emploi", en: "How to use" },
+      { id: 244, ar: "العلاج والتجديد", fr: "Traitement et renouvellement", en: "Treatment and renewal" },
+      { id: 245, ar: "الجرعة والتوقيت", fr: "Dosage et horaires", en: "Dosage and timing" },
+      { id: 246, ar: "الأعراض والمنتجات", fr: "Symptômes et produits", en: "Symptoms and products" },
+      { id: 247, ar: "محادثات في الصيدلية", fr: "Dialogues à la pharmacie", en: "Pharmacy dialogues" },
+      { id: 248, ar: "Clinutren / Fresubin", fr: "Clinutren / Fresubin", en: "Clinutren / Fresubin" },
+      { id: 249, ar: "Pantoprazole 40 mg", fr: "Pantoprazole 40 mg", en: "Pantoprazole 40 mg" },
+      { id: 250, ar: "GavisconPro", fr: "GavisconPro", en: "GavisconPro" },
+      { id: 251, ar: "Ténofovir Disoproxil 245 mg", fr: "Ténofovir Disoproxil 245 mg", en: "Ténofovir Disoproxil 245 mg" },
+      { id: 252, ar: "Hépatite B chronique - Consultation", fr: "Hépatite B chronique - Consultation", en: "Chronic hepatitis B - Consultation" },
+      { id: 253, ar: "Hépatite B chronique - Virus et analyses", fr: "Hépatite B chronique - Virus et analyses", en: "Chronic hepatitis B - Virus and tests" },
+      { id: 254, ar: "Hépatite B chronique - Foie et traitement", fr: "Hépatite B chronique - Foie et traitement", en: "Chronic hepatitis B - Liver and treatment" },
+      { id: 255, ar: "Hépatite B chronique - Dialogue avec le médecin", fr: "Hépatite B chronique - Dialogue avec le médecin", en: "Chronic hepatitis B - Dialogue with the doctor" },
+      { id: 256, ar: "Hépatite B chronique - Questions complémentaires", fr: "Hépatite B chronique - Questions complémentaires", en: "Chronic hepatitis B - Additional questions" },
+      { id: 257, ar: "Hépatite B chronique - Consultation chez l'hépatologue", fr: "Hépatite B chronique - Consultation chez l'hépatologue", en: "Chronic hepatitis B - Consultation with the hepatologist" },
+      { id: 258, ar: "Endoscopie - محادثة ومفردات", fr: "Endoscopie - Dialogue et vocabulaire", en: "Endoscopy - Dialogue and vocabulary" },
+      { id: 259, ar: "Gastro-entérologue - محادثة شاملة", fr: "Gastro-entérologue - Consultation complète", en: "Gastroenterologist - Full consultation" },
+      { id: 260, ar: "Hémangiome hépatique - محادثة ومفردات", fr: "Hémangiome hépatique - Dialogue et vocabulaire", en: "Hepatic hemangioma - Dialogue and vocabulary" },
+      { id: 261, ar: "Reflux gastro-œsophagien - محادثة ومفردات", fr: "Reflux gastro-œsophagien - Dialogue et vocabulaire", en: "Gastroesophageal reflux and bad breath - Dialogue and vocabulary" },
+      { id: 262, ar: "Laboratoire d'analyses médicales - محادثة ومفردات", fr: "Laboratoire d'analyses médicales - Dialogue et vocabulaire", en: "Medical laboratory - Dialogue and vocabulary" },
+      { id: 263, ar: "Helicobacter pylori - محادثة ومفردات", fr: "Helicobacter pylori - Dialogue et vocabulaire", en: "Helicobacter pylori - Dialogue and vocabulary" },
+      { id: 264, ar: "Doctolib - محادثة ومفردات", fr: "Doctolib - Dialogue et vocabulaire", en: "Doctolib - Dialogue and vocabulary" },
+      { id: 265, ar: "أفعال الجهاز الهضمي والكبد الشائعة - مفردات وعبارات", fr: "Verbes courants du foie et du système digestif - Vocabulaire", en: "Common liver and digestive verbs - Vocabulary" },
+      { id: 266, ar: "المواقف الشائعة في الصيدلية", fr: "Situations courantes à la pharmacie", en: "Common pharmacy situations" },
+      { id: 267, ar: "عبارات يقال للمريض", fr: "Phrases adressées au patient", en: "Phrases said to a patient" },
+      { id: 271, ar: "طبيب الأسنان - محادثة ومفردات وأفعال", fr: "Le dentiste - Dialogue, vocabulaire et verbes", en: "The dentist - Dialogue, vocabulary and verbs" }
     ]
   },
   {
@@ -396,6 +434,116 @@ window.FR_STAGES = [
       { id: 216, ar: "التعبير عن الرأي", fr: "Donner son avis", en: "Giving your opinion" },
       { id: 217, ar: "الأدب والاعتذار", fr: "La politesse", en: "Politeness" },
       { id: 218, ar: "إنهاء الحديث", fr: "Terminer une conversation", en: "Ending a conversation" }
+    ]
+  },
+  {
+    id: 31,
+    title: { ar: "الدروس الشائعة", fr: "Les leçons courantes", en: "Common lessons" },
+    lessonTitles: [
+      { id: 219, ar: "التحدث عن النفس", fr: "Parler de soi", en: "Talking about yourself" },
+      { id: 220, ar: "طلب التوضيح والمساعدة", fr: "Demander des clarifications et de l'aide", en: "Asking for clarification and help" },
+      { id: 221, ar: "الاعتذار والشكر", fr: "S'excuser et remercier", en: "Apologising and thanking" },
+      { id: 222, ar: "الرأي والاتفاق والاختلاف", fr: "Opinions, accord et désaccord", en: "Opinion, agreement and disagreement" },
+      { id: 223, ar: "الوصف والكمية والمقارنة", fr: "Description, quantité et comparaison", en: "Description, quantity and comparison" },
+      { id: 224, ar: "التفضيل والرغبة", fr: "Préférences et souhaits", en: "Preferences and wishes" },
+      { id: 225, ar: "النصيحة والاحتمال والضرورة", fr: "Conseil, probabilité et nécessité", en: "Advice, probability and necessity" },
+      { id: 226, ar: "الطلب والإذن والتمني", fr: "Demandes, permission et souhaits", en: "Requests, permission and wishes" },
+      { id: 227, ar: "الإعجاب والشكوى", fr: "Compliments et plaintes", en: "Compliments and complaints" },
+      { id: 228, ar: "التواصل الرقمي اليومي", fr: "La communication numérique quotidienne", en: "Daily digital communication" }
+    ]
+  },
+  {
+    id: 32,
+    title: { ar: "القيادة والسيارات", fr: "La conduite et la voiture", en: "Driving and the car" },
+    lessonTitles: [
+      { id: 276, ar: "قانون السير", fr: "Le code de la route", en: "The highway code" },
+      { id: 277, ar: "امتحان Code de la route النظري", fr: "L'examen du Code de la route", en: "The Code de la route theory exam" },
+      { id: 278, ar: "امتحان القيادة العملي", fr: "L'examen pratique de conduite", en: "The practical driving test" }
+    ]
+  },
+  {
+    id: 33,
+    title: { ar: "مواقف يومية شائعة", fr: "Situations quotidiennes courantes", en: "Common daily situations" },
+    lessonTitles: [
+      { id: 279, ar: "مواقف يومية شائعة", fr: "Situations quotidiennes courantes", en: "Common daily situations" },
+      { id: 280, ar: "مواقف شائعة", fr: "Situations courantes", en: "Common situations" },
+      { id: 287, ar: "مواقف في العمل", fr: "Situations au travail", en: "Work situations" },
+      { id: 289, ar: "في العمل — المساعدة والخطأ والآلة والتنظيم", fr: "Au travail — aide, erreur, machine et organisation", en: "At work — help, mistake, machine and organization" },
+      { id: 290, ar: "الاستراحة والوقت", fr: "Pause et temps", en: "Breaks and time" },
+      { id: 291, ar: "مواقف مع الزملاء", fr: "Avec les collègues", en: "With colleagues" }
+    ]
+  },
+  {
+    id: 34,
+    title: { ar: "اللوجستيك", fr: "La logistique", en: "Logistics" },
+    lessonTitles: [
+      { id: 281, ar: "اللوجستيك", fr: "La logistique", en: "Logistics" },
+      { id: 282, ar: "أفعال شائعة في Sistra", fr: "Verbes courants à Sistra", en: "Common verbs at Sistra" },
+      { id: 283, ar: "أسماء وأفعال في Sistra", fr: "Noms et verbes à Sistra", en: "Names and verbs at Sistra" },
+      { id: 285, ar: "مشاكل ومواقف شائعة في اللوجستيك", fr: "Problèmes et situations courants en logistique", en: "Common logistics problems and situations" },
+      { id: 292, ar: "في Sistra — مخزون وسير الناقل", fr: "À Sistra — stock, convoyeur et production", en: "At Sistra — stock, conveyor and production" }
+    ]
+  },
+  {
+    id: 35,
+    title: { ar: "تسجيل الوقت (Le pointage)", fr: "Le pointage", en: "Clocking in / Time tracking" },
+    lessonTitles: [
+      { id: 284, ar: "تسجيل الوقت بالبطاقة", fr: "Le pointage et le badgeage", en: "Clocking in and badge registration" }
+    ]
+  },
+  {
+    id: 36,
+    title: { ar: "التسوق في Auchan", fr: "Faire ses courses à Auchan", en: "Shopping at Auchan" },
+    lessonTitles: [
+      { id: 286, ar: "التسوق والعمل في Auchan", fr: "Courses et travail à Auchan", en: "Shopping and working at Auchan" }
+    ]
+  },
+  {
+    id: 37,
+    title: { ar: "العامية الفرنسية اليومية", fr: "Français familier du quotidien", en: "Everyday colloquial French" },
+    lessonTitles: [
+      { id: 288, ar: "عبارات عامية شائعة", fr: "Expressions courantes familières", en: "Common colloquial expressions" }
+    ]
+  },
+  {
+    id: 38,
+    title: { ar: "Basic-Fit", fr: "Basic-Fit", en: "Basic-Fit" },
+    lessonTitles: [
+      { id: 293, ar: "أسئلة وأجوبة شائعة", fr: "Questions et réponses courantes", en: "Common questions and answers" },
+      { id: 294, ar: "أسئلة وأجوبة إضافية", fr: "Questions et réponses supplémentaires", en: "More questions and answers" },
+      { id: 295, ar: "التمارين والعضلات والعبارات الشائعة", fr: "Exercices, muscles et expressions courantes", en: "Exercises, muscles and common phrases" },
+      { id: 296, ar: "برنامج مبتدئ وعبارات المدربين", fr: "Programme débutant et phrases du coach", en: "Beginner program and coach phrases" },
+      { id: 297, ar: "المكملات والبروتين وأسئلة المدرب", fr: "Compléments, protéines et questions au coach", en: "Supplements, protein and coach questions" },
+      { id: 298, ar: "محادثات حقيقية داخل Basic-Fit", fr: "Conversations réelles à Basic-Fit", en: "Real conversations at Basic-Fit" },
+      { id: 299, ar: "عبارات قصيرة تسمعها كثيرًا", fr: "Expressions courtes entendues souvent à Basic-Fit", en: "Short phrases often heard at Basic-Fit" },
+      { id: 300, ar: "محادثات وعبارات إضافية", fr: "Conversations et expressions supplémentaires", en: "More conversations and phrases" },
+      { id: 301, ar: "عبارات سريعة في Basic-Fit", fr: "Expressions rapides à Basic-Fit", en: "Quick phrases at Basic-Fit" },
+      { id: 302, ar: "مواقف Basic-Fit اليومية", fr: "Situations quotidiennes à Basic-Fit", en: "Daily situations at Basic-Fit" },
+      { id: 303, ar: "قواعد وآداب Basic-Fit", fr: "Règles et étiquette à Basic-Fit", en: "Basic-Fit rules and etiquette" },
+      { id: 304, ar: "الميزان وقياس الجسم", fr: "La balance et la mesure corporelle", en: "Scale and body measurement" },
+      { id: 305, ar: "الدوش والخزائن", fr: "Les douches et les casiers", en: "Showers and lockers" },
+      { id: 306, ar: "مواقف صحية أثناء التمرين", fr: "Situations de santé à Basic-Fit", en: "Health situations at Basic-Fit" },
+      { id: 307, ar: "مواقف اجتماعية بين الأعضاء", fr: "Situations sociales entre membres", en: "Social situations between members" },
+      { id: 308, ar: "بعد التمرين", fr: "Après la séance", en: "After the workout" },
+      { id: 309, ar: "مع المدرب", fr: "Avec le coach", en: "With the coach" },
+      { id: 310, ar: "مواقف شائعة داخل Basic-Fit", fr: "Situations courantes à Basic-Fit", en: "Common situations at Basic-Fit" },
+      { id: 311, ar: "عبارات عامية شائعة جدًا", fr: "Expressions familières très courantes", en: "Very common colloquial phrases" },
+      { id: 312, ar: "أهم الأفعال في Basic-Fit", fr: "Les verbes essentiels à Basic-Fit", en: "Essential verbs at Basic-Fit" },
+      { id: 313, ar: "أشهر أجهزة Basic-Fit", fr: "Les machines les plus courantes à Basic-Fit", en: "Most common Basic-Fit machines" },
+      { id: 314, ar: "دعوة صديق والاشتراكات في Basic-Fit", fr: "Inviter un ami et les abonnements à Basic-Fit", en: "Inviting a friend and memberships at Basic-Fit" }
+    ]
+  },
+  {
+    id: 39,
+    title: { ar: "المكالمات التجارية والاحتيالية", fr: "Démarchage téléphonique et arnaques", en: "Telemarketing and phone scams" },
+    lessonTitles: [
+      { id: 315, ar: "عبارات المكالمات التجارية والاحتيالية", fr: "Phrases pour les appels commerciaux et arnaques", en: "Phrases for commercial calls and scams" },
+      { id: 316, ar: "أفعال المكالمات التجارية 1", fr: "Verbes du démarchage téléphonique 1", en: "Telephone solicitation verbs 1" },
+      { id: 317, ar: "أفعال المكالمات التجارية 2", fr: "Verbes du démarchage téléphonique 2", en: "Telephone solicitation verbs 2" },
+      { id: 318, ar: "عبارات إضافية في المكالمات التجارية 1", fr: "Phrases supplémentaires en démarchage 1", en: "Additional telemarketing phrases 1" },
+      { id: 319, ar: "عبارات إضافية في المكالمات التجارية 2", fr: "Phrases supplémentaires en démarchage 2", en: "Additional telemarketing phrases 2" },
+      { id: 320, ar: "عبارات إضافية في المكالمات التجارية 3", fr: "Phrases supplémentaires en démarchage 3", en: "Additional telemarketing phrases 3" },
+      { id: 321, ar: "مواقف شائعة في المكالمات التجارية", fr: "Situations courantes en démarchage téléphonique", en: "Common telemarketing situations" }
     ]
   }
 ];
