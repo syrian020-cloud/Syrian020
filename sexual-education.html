@@ -55,6 +55,13 @@
     box-shadow: var(--shadow);
     backdrop-filter: blur(12px);
   }
+  .toast {
+    position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%);
+    background: var(--accent); color: #fff; padding: 0.65rem 1.1rem; border-radius: 999px;
+    font-size: 0.9rem; box-shadow: 0 8px 24px rgba(0,0,0,0.25); z-index: 100;
+    opacity: 0; transition: opacity 0.25s ease; pointer-events: none; max-width: 90%;
+  }
+  .toast.show { opacity: 1; }
   .header-inner {
     max-width: var(--max-width); margin: 0 auto; padding: 0.7rem 1rem;
     display: flex; align-items: center; gap: 0.65rem;
@@ -261,6 +268,8 @@
   <a href="index.html" data-t="footerLink">My other apps</a>
 </footer>
 
+<div id="toast" class="toast"></div>
+
 <script>
 (function () {
   'use strict';
@@ -279,6 +288,49 @@
   }
 
   function saveLessons() { localStorage.setItem('sexed_lessons', JSON.stringify(LESSONS)); }
+
+  function exportLessons() {
+    const data = JSON.stringify(LESSONS, null, 2);
+    const blob = new Blob([data], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'sexed-lessons.json';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    showToast(t('exportSuccess'));
+  }
+
+  function importLessons(file) {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const data = JSON.parse(e.target.result);
+        if (!Array.isArray(data)) throw new Error('invalid');
+        if (confirm(t('importConfirm'))) {
+          LESSONS = data.map((it, i) => ({ ...it, id: it.id || (Date.now() + i) }));
+          saveLessons();
+          go({ name: 'home' }, false);
+          showToast(t('importSuccess'));
+        }
+      } catch (err) {
+        showToast(t('importError'));
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  function showToast(msg, duration = 2200) {
+    const el = document.getElementById('toast');
+    if (!el) return;
+    el.textContent = msg;
+    el.classList.add('show');
+    if (el._timer) clearTimeout(el._timer);
+    el._timer = setTimeout(() => el.classList.remove('show'), duration);
+  }
 
   function cleanPhrasePart(s) {
     let r = String(s).trim();
@@ -353,6 +405,11 @@
     if (firstEn > 0 && lastFr > 0) return 'en-ar-fr';
     if (firstFr > 0 && lastEn > 0) return 'fr-ar-en';
     return 'fr-ar-en';
+  }
+
+  function parseTitle(text, userOrder = 'auto') {
+    const phrases = parsePhrases(text, userOrder);
+    return phrases[0] || null;
   }
 
   function parsePhrases(text, userOrder = 'auto') {
@@ -445,9 +502,7 @@
     addLesson: { ar: 'إضافة درس', en: 'Add lesson', fr: 'Ajouter une leçon' },
     addLessonSub: { ar: 'أنشئ درساً جديداً', en: 'Create a new lesson', fr: 'Créer une nouvelle leçon' },
     addLessonTitle: { ar: 'درس جديد', en: 'New lesson', fr: 'Nouvelle leçon' },
-    titleFr: { ar: 'العنوان بالفرنسية', en: 'Title in French', fr: 'Titre en français' },
-    titleAr: { ar: 'العنوان بالعربية', en: 'Title in Arabic', fr: 'Titre en arabe' },
-    titleEn: { ar: 'العنوان بالإنجليزية', en: 'Title in English', fr: 'Titre en anglais' },
+    title: { ar: 'العنوان (فرنسي | عربي | إنجليزي)', en: 'Title (French | Arabic | English)', fr: 'Titre (Français | Arabe | Anglais)' },
     phrasesLabel: { ar: 'العبارات', en: 'Phrases', fr: 'Phrases' },
     phrasesHint: { ar: 'كل سطر: فرنسي/إنجليزي ثم عربي ثم الآخر. يقبل | , = → : - ومسافات/Tab', en: 'One line: French/English then Arabic then the other. Supports | , = → : - and spaces/tabs', fr: 'Une ligne : Français/Anglais puis Arabe puis l\'autre. Accepte | , = → : - et espaces/tab' },
     pasteOrder: { ar: 'ترتيب الأعمدة', en: 'Column order', fr: 'Ordre des colonnes' },
@@ -462,7 +517,15 @@
     deleteConfirm: { ar: 'هل تريد حذف هذا الدرس؟', en: 'Delete this lesson?', fr: 'Supprimer cette leçon ?' },
     deleteFolderConfirm: { ar: 'هل تريد حذف هذا المجلد ودروسه؟', en: 'Delete this folder and its lessons?', fr: 'Supprimer ce dossier et ses leçons ?' },
     noPhrasesError: { ar: 'لم يتم التعرف على أي عبارة. تأكد من التنسيق: فرنسي | عربي | إنجليزي', en: 'No phrases recognized. Use format: French | Arabic | English', fr: 'Aucune phrase reconnue. Format : Français | Arabe | Anglais' },
-    fillTitleError: { ar: 'أدخل العنوان بكل لغة', en: 'Please fill the title in all languages', fr: 'Veuillez remplir le titre dans toutes les langues' },
+    fillTitleError: { ar: 'أدخل العنوان بالتنسيق: فرنسي | عربي | إنجليزي', en: 'Enter title in format: French | Arabic | English', fr: 'Entrez le titre au format : Français | Arabe | Anglais' },
+    export: { ar: 'تصدير', en: 'Export', fr: 'Exporter' },
+    import: { ar: 'استيراد', en: 'Import', fr: 'Importer' },
+    exportSuccess: { ar: 'تم تصدير الدروس', en: 'Lessons exported', fr: 'Leçons exportées' },
+    importSuccess: { ar: 'تم استيراد الدروس', en: 'Lessons imported', fr: 'Leçons importées' },
+    importError: { ar: 'ملف غير صالح', en: 'Invalid file', fr: 'Fichier invalide' },
+    importConfirm: { ar: 'سيحل محتوى الملف محل الدروس الحالية. متابعة؟', en: 'This will replace current lessons. Continue?', fr: 'Cela remplacera les leçons actuelles. Continuer ?' },
+    saved: { ar: 'تم الحفظ', en: 'Saved', fr: 'Enregistré' },
+    deleted: { ar: 'تم الحذف', en: 'Deleted', fr: 'Supprimé' },
     lessonLabel: { ar: 'الدرس', en: 'Lesson', fr: 'Leçon' },
     folderLabel: { ar: 'المجلد', en: 'Folder', fr: 'Dossier' },
     emptyFolder: { ar: 'لا توجد دروس في هذا المجلد. أضف درساً جديداً.', en: 'No lessons in this folder. Add a new lesson.', fr: 'Aucune leçon dans ce dossier. Ajoutez-en une nouvelle.' },
@@ -777,6 +840,7 @@
     if (!confirm(it.type === 'folder' ? t('deleteFolderConfirm') : t('deleteConfirm'))) return;
     LESSONS = LESSONS.filter(x => x.id !== id);
     saveLessons();
+    showToast(t('deleted'));
     go({ name: 'home' }, false);
   }
 
@@ -790,31 +854,25 @@
       LESSONS = LESSONS.filter(it => !(it.type === 'lesson' && it.id === id));
     }
     saveLessons();
+    showToast(t('deleted'));
     if (state.route.name === 'lesson' && state.route.lesson === id) go({ name: 'home' }, false);
     else go(state.route, false);
   }
 
   function addFolder() {
     const form = document.getElementById('add-folder-form');
-    const ttl = {
-      fr: cleanPhrasePart(form.elements.titleFr.value),
-      ar: cleanPhrasePart(form.elements.titleAr.value),
-      en: cleanPhrasePart(form.elements.titleEn.value)
-    };
-    if (!ttl.fr || !ttl.ar || !ttl.en) { alert(t('fillTitleError')); return; }
+    const ttl = parseTitle(form.elements.title.value, 'auto');
+    if (!ttl) { alert(t('fillTitleError')); return; }
     LESSONS.push({ id: nextId(), type: 'folder', title: ttl, lessons: [] });
     saveLessons();
+    showToast(t('saved'));
     go({ name: 'home' });
   }
 
   function addLesson() {
     const form = document.getElementById('add-lesson-form');
-    const ttl = {
-      fr: cleanPhrasePart(form.elements.titleFr.value),
-      ar: cleanPhrasePart(form.elements.titleAr.value),
-      en: cleanPhrasePart(form.elements.titleEn.value)
-    };
-    if (!ttl.fr || !ttl.ar || !ttl.en) { alert(t('fillTitleError')); return; }
+    const ttl = parseTitle(form.elements.title.value, 'auto');
+    if (!ttl) { alert(t('fillTitleError')); return; }
     const folderId = +form.elements.folderId.value || 0;
     const folder = folderId ? findFolder(folderId) : null;
     const phrases = parsePhrases(form.elements.phrases.value, form.elements.order.value);
@@ -822,6 +880,7 @@
     const lesson = { id: nextId(), type: 'lesson', title: ttl, phrases };
     if (folder) folder.lessons.push(lesson); else LESSONS.push(lesson);
     saveLessons();
+    showToast(t('saved'));
     go(folder ? { name: 'folder', folder: folder.id } : { name: 'home' });
   }
 
@@ -861,12 +920,17 @@
       </div>
       <div class="chev">${chevron()}</div>
     </div>`;
+    const importExport = `<div class="lesson-actions" style="margin-top:0.5rem; margin-bottom:0.5rem">
+      <button class="btn ghost" id="btn-export" data-t="export">${t('export')}</button>
+      <label for="import-file" class="btn ghost" style="display:inline-flex; align-items:center; cursor:pointer" data-t="import">${t('import')}</label>
+      <input type="file" id="import-file" accept=".json,application/json" style="display:none">
+    </div>`;
     const html = `<div class="hero"><h1 data-t="heroTitle">${t('heroTitle')}</h1><p data-t="heroSub">${t('heroSub')}</p></div>
-      <div class="breadcrumb"><span>${t('library')}</span></div>` + addFolderCard + addLessonCard + empty +
+      <div class="breadcrumb"><span>${t('library')}</span></div>` + addFolderCard + addLessonCard + importExport + empty +
       LESSONS.map(it => {
         if (it.type === 'folder') {
           return `<div class="card folder-card" data-route='${JSON.stringify({ name: 'folder', folder: it.id })}'>
-            <div class="num">📁</div>
+            <div class="num" style="color:#fff"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M2 6a2 2 0 0 1 2-2h5l2 2h9a2 2 0 0 1 2 2v1H2V6zm0 3h20v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9z"/></svg></div>
             <div class="card-body">
               <div class="card-title">${esc(title(it.title))}</div>
               <div class="card-sub" dir="ltr">${subtitle(it.title)}</div>
@@ -1006,9 +1070,7 @@
     const html = `<div class="breadcrumb"><button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button><span>›</span><span>${t('addFolder')}</span></div>
       <div class="lesson-head"><h2>${t('addFolderTitle')}</h2></div>
       <form id="add-folder-form" class="form-card">
-        <div class="form-group"><label data-t="titleFr">${t('titleFr')}</label><input name="titleFr" required placeholder="Ex: Anatomie"></div>
-        <div class="form-group"><label data-t="titleAr">${t('titleAr')}</label><input name="titleAr" required placeholder="مثال: التشريح" dir="rtl"></div>
-        <div class="form-group"><label data-t="titleEn">${t('titleEn')}</label><input name="titleEn" required placeholder="Ex: Anatomy"></div>
+        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required placeholder="Ex: Anatomie | التشريح | Anatomy"></div>
         <div class="form-actions">
           <button type="submit" class="btn" data-t="saveFolder">${t('saveFolder')}</button>
           <button type="button" class="btn ghost" data-route='${JSON.stringify({ name: 'home' })}' data-t="cancel">${t('cancel')}</button>
@@ -1028,9 +1090,7 @@
       <div class="lesson-head"><h2>${t('addLessonTitle')}</h2></div>
       <form id="add-lesson-form" class="form-card">
         <input type="hidden" name="folderId" value="${folderId || ''}">
-        <div class="form-group"><label data-t="titleFr">${t('titleFr')}</label><input name="titleFr" required placeholder="Ex: Les organes génitaux"></div>
-        <div class="form-group"><label data-t="titleAr">${t('titleAr')}</label><input name="titleAr" required placeholder="مثال: الأعضاء التناسلية" dir="rtl"></div>
-        <div class="form-group"><label data-t="titleEn">${t('titleEn')}</label><input name="titleEn" required placeholder="Ex: Genital organs"></div>
+        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required placeholder="Ex: Les organes génitaux | الأعضاء التناسلية | Genital organs"></div>
         <div class="form-group"><label data-t="pasteOrder">${t('pasteOrder')}</label><select name="order" class="ctl"><option value="auto" data-t="orderAuto" selected>${t('orderAuto')}</option><option value="fr-ar-en" data-t="orderFrFirst">${t('orderFrFirst')}</option><option value="en-ar-fr" data-t="orderEnFirst">${t('orderEnFirst')}</option></select></div>
         <div class="form-group"><label data-t="phrasesLabel">${t('phrasesLabel')}</label><textarea name="phrases" rows="10" placeholder="French | Arabic | English" required></textarea><div class="hint" data-t="phrasesHint">${t('phrasesHint')}</div></div>
         <div class="form-actions">
@@ -1044,6 +1104,9 @@
 
   function bindViewEvents() {
     view.addEventListener('click', e => {
+      const exportBtn = e.target.closest('#btn-export');
+      if (exportBtn) { e.stopPropagation(); exportLessons(); return; }
+
       const delItem = e.target.closest('[data-delete-item]');
       if (delItem) { e.stopPropagation(); deleteRootItem(+delItem.dataset.deleteItem); return; }
 
@@ -1133,6 +1196,12 @@
     view.addEventListener('submit', e => {
       if (e.target.id === 'add-lesson-form') { e.preventDefault(); addLesson(); }
       else if (e.target.id === 'add-folder-form') { e.preventDefault(); addFolder(); }
+    });
+    view.addEventListener('change', e => {
+      if (e.target.id === 'import-file' && e.target.files && e.target.files[0]) {
+        importLessons(e.target.files[0]);
+        e.target.value = '';
+      }
     });
     bindViewEvents();
     setTheme(state.theme);
