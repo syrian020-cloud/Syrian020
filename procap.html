@@ -838,13 +838,18 @@
     }
   }
 
+  function estimatedSpeechTimeout(text, rate) {
+    const words = String(text).trim().split(/\s+/).filter(Boolean).length;
+    return Math.max(8000, Math.ceil(words * 900 / (rate || 1)) + 3000);
+  }
+
   function nativeSpeak(text, lang) {
     const tts = nativeTTS();
     if (!tts) return Promise.reject('no tts');
     const tag = (state.voiceLang && state.voiceLang[lang]);
     if (!tag) return Promise.reject('unsupported lang');
     const p = tts.speak({ text: text, lang: tag, rate: state.rate || 1 });
-    const timeout = new Promise((_, reject) => setTimeout(() => reject('timeout'), 7000));
+    const timeout = new Promise((_, reject) => setTimeout(() => reject('timeout'), estimatedSpeechTimeout(text, state.rate)));
     return Promise.race([p, timeout]);
   }
 
@@ -870,7 +875,7 @@
       let settled = false;
       u.onend = () => { if (!settled) { settled = true; clearTimeout(timer); resolve(); } };
       u.onerror = () => { if (!settled) { settled = true; clearTimeout(timer); reject('web tts error'); } };
-      const timer = setTimeout(() => { if (!settled) { settled = true; resolve(); } }, 2500);
+      const timer = setTimeout(() => { if (!settled) { settled = true; resolve(); } }, estimatedSpeechTimeout(text, state.rate) + 2000);
       synth.speak(u);
     });
   }
