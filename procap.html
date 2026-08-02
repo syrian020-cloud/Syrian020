@@ -610,6 +610,7 @@
     importSuccess: { ar: 'تم استيراد الدروس', en: 'Lessons imported', fr: 'Leçons importées' },
     importError: { ar: 'ملف غير صالح', en: 'Invalid file', fr: 'Fichier invalide' },
     importConfirm: { ar: 'سيحل محتوى الملف محل الدروس الحالية. متابعة؟', en: 'This will replace current lessons. Continue?', fr: 'Cela remplacera les leçons actuelles. Continuer ?' },
+    exitConfirm: { ar: 'هل تريد الخروج من التطبيق؟', en: 'Exit the app?', fr: 'Quitter l\'application ?' },
     saved: { ar: 'تم الحفظ', en: 'Saved', fr: 'Enregistré' },
     deleted: { ar: 'تم الحذف', en: 'Deleted', fr: 'Supprimé' },
     lessonLabel: { ar: 'الدرس', en: 'Lesson', fr: 'Leçon' },
@@ -1392,7 +1393,17 @@
     return { name: 'home' };
   }
 
+  function bindBackButton() {
+    if (typeof Capacitor !== 'undefined' && Capacitor.Plugins && Capacitor.Plugins.App) {
+      Capacitor.Plugins.App.addListener('backButton', ({ canGoBack }) => {
+        if (canGoBack) { history.back(); }
+        else if (confirm(t('exitConfirm'))) { Capacitor.Plugins.App.exitApp(); }
+      });
+    }
+  }
+
   function init() {
+    bindBackButton();
     document.getElementById('btn-theme').onclick = toggleTheme;
     document.getElementById('btn-stop').onclick = stopSpeech;
     document.getElementById('btn-fav').onclick = () => go({ name: 'favs' });
