@@ -62,6 +62,32 @@
     opacity: 0; transition: opacity 0.25s ease; pointer-events: none; max-width: 90%;
   }
   .toast.show { opacity: 1; }
+  .action-sheet {
+    position: fixed; inset: 0; z-index: 90; background: rgba(0,0,0,0.5);
+    display: none; align-items: flex-end; justify-content: center;
+  }
+  .action-sheet.show { display: flex; }
+  .action-sheet .sheet-content {
+    width: 100%; max-width: var(--max-width); background: var(--bg-secondary);
+    border-radius: var(--radius) var(--radius) 0 0; padding: 1rem;
+    box-shadow: 0 -8px 30px rgba(0,0,0,0.3); animation: sheetUp 0.2s ease;
+  }
+  @keyframes sheetUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+  .action-sheet .sheet-title { font-weight: 700; margin-bottom: 0.75rem; text-align: center; color: var(--text-secondary); }
+  .action-sheet .sheet-actions { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .action-sheet .sheet-actions button { justify-content: center; }
+  .card .menu-btn {
+    background: transparent; color: var(--text-secondary); border: none; font-size: 1.2rem;
+    width: 2.2rem; height: 2.2rem; border-radius: 50%; cursor: pointer; margin-inline-start: auto;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .card .menu-btn:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+  .card-thumb {
+    min-width: 2.6rem; height: 2.6rem; border-radius: 50%; flex-shrink: 0;
+    background: var(--bg-tertiary); display: flex; align-items: center; justify-content: center;
+    overflow: hidden; object-fit: cover;
+  }
+  .card-thumb img { width: 100%; height: 100%; object-fit: cover; }
   .header-inner {
     max-width: var(--max-width); margin: 0 auto; padding: 0.7rem 1rem;
     display: flex; align-items: center; gap: 0.65rem;
@@ -269,6 +295,14 @@
 </footer>
 
 <div id="toast" class="toast"></div>
+
+<div id="action-sheet" class="action-sheet">
+  <div class="sheet-content">
+    <div class="sheet-title" id="sheet-title">--</div>
+    <div class="sheet-actions" id="sheet-actions"></div>
+    <button type="button" class="btn ghost" id="sheet-cancel" style="width:100%" data-t="cancel">إلغاء</button>
+  </div>
+</div>
 
 <script>
 (function () {
@@ -539,6 +573,14 @@
     deleteFolderConfirm: { ar: 'هل تريد حذف هذا المجلد ودروسه؟', en: 'Delete this folder and its lessons?', fr: 'Supprimer ce dossier et ses leçons ?' },
     noPhrasesError: { ar: 'لم يتم التعرف على أي عبارة. تأكد من التنسيق: فرنسي | عربي | إنجليزي', en: 'No phrases recognized. Use format: French | Arabic | English', fr: 'Aucune phrase reconnue. Format : Français | Arabe | Anglais' },
     fillTitleError: { ar: 'أدخل العنوان بالتنسيق: فرنسي | عربي | إنجليزي', en: 'Enter title in format: French | Arabic | English', fr: 'Entrez le titre au format : Français | Arabe | Anglais' },
+    actions: { ar: 'إجراءات', en: 'Actions', fr: 'Actions' },
+    edit: { ar: 'تعديل', en: 'Edit', fr: 'Modifier' },
+    setImage: { ar: 'ضبط صورة', en: 'Set image', fr: 'Définir l’image' },
+    chooseImage: { ar: 'اختر صورة', en: 'Choose an image', fr: 'Choisir une image' },
+    editFolderTitle: { ar: 'تعديل عنوان المجلد', en: 'Edit folder title', fr: 'Modifier le titre du dossier' },
+    editLessonTitle: { ar: 'تعديل الدرس', en: 'Edit lesson', fr: 'Modifier la leçon' },
+    invalidImage: { ar: 'الملف ليس صورة', en: 'File is not an image', fr: 'Le fichier n\'est pas une image' },
+    save: { ar: 'حفظ', en: 'Save', fr: 'Enregistrer' },
     export: { ar: 'تصدير', en: 'Export', fr: 'Exporter' },
     import: { ar: 'استيراد', en: 'Import', fr: 'Importer' },
     exportSuccess: { ar: 'تم تصدير الدروس', en: 'Lessons exported', fr: 'Leçons exportées' },
@@ -881,6 +923,62 @@
     else go(state.route, false);
   }
 
+  function cardThumb(it) {
+    if (it.image) return `<div class="card-thumb"><img src="${esc(it.image)}" alt=""></div>`;
+    if (it.type === 'folder') return `<div class="card-thumb" style="color:#fff; background:var(--accent-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M2 6a2 2 0 0 1 2-2h5l2 2h9a2 2 0 0 1 2 2v1H2V6zm0 3h20v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9z"/></svg></div>`;
+    return `<div class="num">${it.id}</div>`;
+  }
+
+  function openActionSheet(id, type) {
+    const sheet = document.getElementById('action-sheet');
+    const titleEl = document.getElementById('sheet-title');
+    const actions = document.getElementById('sheet-actions');
+    const it = type === 'folder' ? findFolder(id) : (findLesson(id) || {}).lesson;
+    const label = it ? title(it.title) : '';
+    titleEl.textContent = esc(label);
+    actions.innerHTML = `
+      <button type="button" class="btn" data-edit="${id}" data-type="${type}">${t('edit')}</button>
+      <button type="button" class="btn ghost" data-set-image="${id}" data-type="${type}">${t('setImage')}</button>
+      <button type="button" class="btn ghost" style="color:var(--danger); border-color:var(--danger)" data-delete-sheet="${id}" data-type="${type}">${type === 'folder' ? t('deleteFolder') : t('deleteLesson')}</button>
+    `;
+    sheet.classList.add('show');
+  }
+
+  function closeActionSheet() {
+    document.getElementById('action-sheet').classList.remove('show');
+  }
+
+  function setItemImage(id, type, file) {
+    if (!file || !file.type.startsWith('image/')) { showToast(t('invalidImage')); return; }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      let it;
+      if (type === 'folder') it = findFolder(id);
+      else { const found = findLesson(id); it = found ? found.lesson : null; }
+      if (!it) return;
+      it.image = e.target.result;
+      saveLessons();
+      showToast(t('saved'));
+      go(state.route, false);
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function editItem(id, type) {
+    if (type === 'folder') {
+      const folder = findFolder(id);
+      if (!folder) return;
+      const ttl = parseTitle(prompt(t('editFolderTitle'), `${folder.title.fr} | ${folder.title.ar} | ${folder.title.en}`) || '', 'auto');
+      if (!ttl) return;
+      folder.title = ttl;
+      saveLessons();
+      showToast(t('saved'));
+      go(state.route, false);
+    } else {
+      go({ name: 'edit-lesson', lesson: id });
+    }
+  }
+
   function addFolder() {
     const form = document.getElementById('add-folder-form');
     const ttl = parseTitle(form.elements.title.value, 'auto');
@@ -952,24 +1050,24 @@
       LESSONS.map(it => {
         if (it.type === 'folder') {
           return `<div class="card folder-card" data-route='${JSON.stringify({ name: 'folder', folder: it.id })}'>
-            <div class="num" style="color:#fff"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M2 6a2 2 0 0 1 2-2h5l2 2h9a2 2 0 0 1 2 2v1H2V6zm0 3h20v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9z"/></svg></div>
+            ${cardThumb(it)}
             <div class="card-body">
               <div class="card-title">${esc(title(it.title))}</div>
               <div class="card-sub" dir="ltr">${subtitle(it.title)}</div>
               <div class="card-sub">${(it.lessons || []).length} ${t('lessonsCount')}</div>
             </div>
-            <button class="delete-btn" data-delete-item="${it.id}" title="${t('deleteFolder')}">🗑️</button>
+            <button class="menu-btn" data-menu="${it.id}" data-type="folder" title="${t('actions')}">⋮</button>
             <div class="chev">${chevron()}</div>
           </div>`;
         }
         return `<div class="card lesson-card" data-route='${JSON.stringify({ name: 'lesson', lesson: it.id })}'>
-          <div class="num">${it.id}</div>
+          ${cardThumb(it)}
           <div class="card-body">
             <div class="card-title">${esc(title(it.title))}</div>
             <div class="card-sub" dir="ltr">${subtitle(it.title)}</div>
             <div class="card-sub">${it.phrases.length} ${t('phrases')}</div>
           </div>
-          <button class="delete-btn" data-delete-lesson="${it.id}" title="${t('deleteLesson')}">🗑️</button>
+          <button class="menu-btn" data-menu="${it.id}" data-type="lesson" title="${t('actions')}">⋮</button>
           <div class="chev">${chevron()}</div>
         </div>`;
       }).join('');
@@ -989,13 +1087,13 @@
     </div>`;
     const empty = !(folder.lessons || []).length ? `<div class="empty">${t('emptyFolder')}</div>` : '';
     const lessonsHtml = (folder.lessons || []).map(l => `<div class="card lesson-card" data-route='${JSON.stringify({ name: 'lesson', lesson: l.id })}'>
-        <div class="num">${l.id}</div>
+        ${cardThumb(l)}
         <div class="card-body">
           <div class="card-title">${esc(title(l.title))}</div>
           <div class="card-sub" dir="ltr">${subtitle(l.title)}</div>
           <div class="card-sub">${l.phrases.length} ${t('phrases')}</div>
         </div>
-        <button class="delete-btn" data-delete-lesson="${l.id}" title="${t('deleteLesson')}">🗑️</button>
+        <button class="menu-btn" data-menu="${l.id}" data-type="lesson" title="${t('actions')}">⋮</button>
         <div class="chev">${chevron()}</div>
       </div>`).join('');
     const html = `<div class="breadcrumb">
@@ -1007,7 +1105,7 @@
       </div>
       <div class="lesson-actions">
         <button class="btn" data-route='${JSON.stringify({ name: 'add-lesson', folder: folderId })}'>${t('addLesson')}</button>
-        <button class="btn ghost" data-delete-item="${folder.id}">${t('deleteFolder')}</button>
+        <button class="btn ghost menu-btn" data-menu="${folder.id}" data-type="folder" title="${t('actions')}">⋮ ${t('actions')}</button>
       </div>` + addCard + empty + lessonsHtml;
     view.innerHTML = html;
   }
@@ -1028,7 +1126,7 @@
       <div class="lesson-actions">
         <button class="btn" id="play-all">${t('playAll')}</button>
         <button class="btn ghost" id="stop-all">${t('stopAll')}</button>
-        <button class="btn ghost" data-delete-lesson="${lesson.id}">${t('deleteLesson')}</button>
+        <button class="btn ghost menu-btn" data-menu="${lesson.id}" data-type="lesson" title="${t('actions')}">⋮ ${t('actions')}</button>
         <span class="pill">${lesson.phrases.length} ${t('phrases')}</span>
       </div>` +
       lesson.phrases.map((p, i) => phraseHTML(p, phraseKey(lesson.id, i))).join('');
@@ -1124,16 +1222,53 @@
     applyTranslations();
   }
 
+  function renderEditLesson(lessonId) {
+    const found = findLesson(lessonId);
+    if (!found) { go({ name: 'home' }); return; }
+    const { lesson, parent } = found;
+    let breadcrumb = `<button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button>`;
+    if (parent) breadcrumb += `<span>›</span><button data-route='${JSON.stringify({ name: 'folder', folder: parent.id })}'>${esc(title(parent.title))}</button>`;
+    breadcrumb += `<span>›</span><span>${t('edit')}</span>`;
+    const cancelRoute = parent ? { name: 'folder', folder: parent.id } : { name: 'home' };
+    const phrasesText = lesson.phrases.map(p => `${p.fr} | ${p.ar} | ${p.en}`).join('\n');
+    const titleText = `${lesson.title.fr} | ${lesson.title.ar} | ${lesson.title.en}`;
+    const html = `<div class="breadcrumb">${breadcrumb}</div>
+      <div class="lesson-head"><h2>${t('editLessonTitle')}</h2></div>
+      <form id="edit-lesson-form" class="form-card" data-id="${lesson.id}" data-parent="${parent ? parent.id : ''}">
+        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required value="${esc(titleText)}"></div>
+        <div class="form-group"><label data-t="phrasesLabel">${t('phrasesLabel')}</label><textarea name="phrases" rows="10" required>${esc(phrasesText)}</textarea><div class="hint" data-t="phrasesHint">${t('phrasesHint')}</div></div>
+        <div class="form-actions">
+          <button type="submit" class="btn" data-t="save">${t('save')}</button>
+          <button type="button" class="btn ghost" data-route='${JSON.stringify(cancelRoute)}' data-t="cancel">${t('cancel')}</button>
+        </div>
+      </form>`;
+    view.innerHTML = html;
+    applyTranslations();
+  }
+
+  function updateLesson() {
+    const form = document.getElementById('edit-lesson-form');
+    const ttl = parseTitle(form.elements.title.value, 'auto');
+    if (!ttl) { alert(t('fillTitleError')); return; }
+    const phrases = parsePhrases(form.elements.phrases.value, 'auto');
+    if (!phrases.length) { alert(t('noPhrasesError')); return; }
+    const id = +form.dataset.id;
+    const found = findLesson(id);
+    if (!found) return;
+    found.lesson.title = ttl;
+    found.lesson.phrases = phrases;
+    saveLessons();
+    showToast(t('saved'));
+    go({ name: 'lesson', lesson: id });
+  }
+
   function bindViewEvents() {
     view.addEventListener('click', e => {
       const exportBtn = e.target.closest('#btn-export');
       if (exportBtn) { e.stopPropagation(); exportLessons(); return; }
 
-      const delItem = e.target.closest('[data-delete-item]');
-      if (delItem) { e.stopPropagation(); deleteRootItem(+delItem.dataset.deleteItem); return; }
-
-      const delLesson = e.target.closest('[data-delete-lesson]');
-      if (delLesson) { e.stopPropagation(); deleteLesson(+delLesson.dataset.deleteLesson); return; }
+      const menuBtn = e.target.closest('[data-menu]');
+      if (menuBtn) { e.stopPropagation(); openActionSheet(+menuBtn.dataset.menu, menuBtn.dataset.type); return; }
 
       const routeBtn = e.target.closest('[data-route]');
       if (routeBtn) { go(JSON.parse(routeBtn.dataset.route)); return; }
@@ -1163,6 +1298,40 @@
     });
   }
 
+  function bindActionSheet() {
+    const sheet = document.getElementById('action-sheet');
+    document.getElementById('sheet-cancel').onclick = closeActionSheet;
+    sheet.addEventListener('click', e => {
+      if (e.target === sheet) { closeActionSheet(); return; }
+      const edit = e.target.closest('[data-edit]');
+      if (edit) { closeActionSheet(); editItem(+edit.dataset.edit, edit.dataset.type); return; }
+      const del = e.target.closest('[data-delete-sheet]');
+      if (del) {
+        closeActionSheet();
+        const id = +del.dataset.deleteSheet;
+        if (del.dataset.type === 'folder') deleteRootItem(id); else deleteLesson(id);
+        return;
+      }
+      const setImg = e.target.closest('[data-set-image]');
+      if (setImg) {
+        closeActionSheet();
+        const id = +setImg.dataset.setImage;
+        const type = setImg.dataset.type;
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'image/*';
+        input.style.display = 'none';
+        input.onchange = () => {
+          if (input.files && input.files[0]) setItemImage(id, type, input.files[0]);
+          input.remove();
+        };
+        document.body.appendChild(input);
+        input.click();
+        return;
+      }
+    });
+  }
+
   function go(route, push = true) {
     stopSpeech();
     state.route = route;
@@ -1172,6 +1341,7 @@
       else if (route.name === 'lesson') hash = '#/lesson/' + route.lesson;
       else if (route.name === 'add-folder') hash = '#/add-folder';
       else if (route.name === 'add-lesson') hash = '#/add-lesson' + (route.folder ? '/' + route.folder : '');
+      else if (route.name === 'edit-lesson') hash = '#/edit-lesson/' + route.lesson;
       else if (route.name === 'favs') hash = '#/favs';
       else if (route.name === 'search') hash = '#/search/' + encodeURIComponent(route.q);
       if (location.hash !== hash) location.hash = hash;
@@ -1183,6 +1353,7 @@
     else if (route.name === 'search') renderSearch(route.q);
     else if (route.name === 'add-folder') renderAddFolder();
     else if (route.name === 'add-lesson') renderAddLesson(route.folder);
+    else if (route.name === 'edit-lesson') renderEditLesson(route.lesson);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -1197,6 +1368,8 @@
     if (m) return { name: 'lesson', lesson: +m[1] };
     m = h.match(/^#\/add-lesson\/(\d+)$/);
     if (m) return { name: 'add-lesson', folder: +m[1] };
+    m = h.match(/^#\/edit-lesson\/(\d+)$/);
+    if (m) return { name: 'edit-lesson', lesson: +m[1] };
     m = h.match(/^#\/search\/(.+)$/);
     if (m) return { name: 'search', q: decodeURIComponent(m[1]) };
     return { name: 'home' };
@@ -1218,6 +1391,7 @@
     view.addEventListener('submit', e => {
       if (e.target.id === 'add-lesson-form') { e.preventDefault(); addLesson(); }
       else if (e.target.id === 'add-folder-form') { e.preventDefault(); addFolder(); }
+      else if (e.target.id === 'edit-lesson-form') { e.preventDefault(); updateLesson(); }
     });
     view.addEventListener('change', e => {
       if (e.target.id === 'import-file' && e.target.files && e.target.files[0]) {
@@ -1226,6 +1400,7 @@
       }
     });
     bindViewEvents();
+    bindActionSheet();
     setTheme(state.theme);
     setUILang(state.uiLang);
     go(parseHash(), false);
