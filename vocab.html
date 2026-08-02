@@ -179,6 +179,11 @@
       <option value="fr,ar">🔁 فرنسي + عربي</option>
       <option value="fr">🔁 فرنسي فقط</option>
     </select>
+    <select class="ctl" id="sort" data-t="sortTitle" title="الترتيب">
+      <option value="" data-t="sortDefault">الترتيب الافتراضي</option>
+      <option value="az" data-t="sortAZ">أبجدي A → Z</option>
+      <option value="za" data-t="sortZA">أبجدي Z → A</option>
+    </select>
   </div>
 
   <div class="filters" id="filters"></div>
@@ -204,6 +209,7 @@
   var stats = document.getElementById('stats');
   var rateSelect = document.getElementById('rate');
   var loopSelect = document.getElementById('loopmode');
+  var sortSelect = document.getElementById('sort');
   var toast = document.getElementById('toast');
 
   var state = {
@@ -211,6 +217,7 @@
     levels: [],
     contexts: [],
     rate: parseFloat(localStorage.getItem('vocab_rate') || '1'),
+    sort: localStorage.getItem('vocab_sort') || '',
     loop: null,
     langs: (localStorage.getItem('vocab_langs') || 'fr,ar,en').split(','),
     theme: localStorage.getItem('vocab_theme') || 'dark',
@@ -228,6 +235,10 @@
       searchPlaceholder: 'ابحث بالفرنسية أو العربية أو الإنجليزية...',
       rateTitle: 'سرعة النطق',
       loopModeTitle: 'محتوى التكرار',
+      sortTitle: 'الترتيب',
+      sortDefault: 'الترتيب الافتراضي',
+      sortAZ: 'أبجدي A → Z',
+      sortZA: 'أبجدي Z → A',
       stopAudio: 'إيقاف الصوت',
       level: 'المستوى',
       context: 'السياق',
@@ -251,6 +262,10 @@
       searchPlaceholder: 'Search in French, Arabic or English...',
       rateTitle: 'Speech rate',
       loopModeTitle: 'Loop content',
+      sortTitle: 'Sort',
+      sortDefault: 'Default order',
+      sortAZ: 'Alphabetical A → Z',
+      sortZA: 'Alphabetical Z → A',
       stopAudio: 'Stop audio',
       level: 'Level',
       context: 'Context',
@@ -274,6 +289,10 @@
       searchPlaceholder: 'Rechercher en français, arabe ou anglais...',
       rateTitle: 'Vitesse',
       loopModeTitle: 'Répétition',
+      sortTitle: 'Tri',
+      sortDefault: 'Ordre par défaut',
+      sortAZ: 'Alphabétique A → Z',
+      sortZA: 'Alphabétique Z → A',
       stopAudio: 'Arrêter le son',
       level: 'Niveau',
       context: 'Contexte',
@@ -329,6 +348,7 @@
     document.documentElement.dir = state.uiLang === 'ar' ? 'rtl' : 'ltr';
     rateSelect.value = state.rate;
     loopSelect.value = state.langs.join(',');
+    sortSelect.value = state.sort;
     buildFilters();
     render();
     bindEvents();
@@ -340,9 +360,11 @@
     document.querySelectorAll('[data-t]').forEach(function(el){
       var key = el.dataset.t;
       if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = t(key);
+      else if(el.tagName === 'SELECT') el.title = t(key);
       else el.textContent = t(key);
     });
-    [].forEach.call(loopSelect.options, function(opt){ opt.textContent = t(opt.value); });
+    var LOOP_KEYS = { 'fr,ar,en': 'loopFrenchArabicEnglish', 'fr,ar': 'loopFrenchArabic', 'fr': 'loopFrenchOnly' };
+    [].forEach.call(loopSelect.options, function(opt){ opt.textContent = t(LOOP_KEYS[opt.value]); });
   }
 
   function setUILang(lang){
@@ -377,13 +399,16 @@
 
   function filtered(){
     var q = state.q.trim().toLowerCase();
-    return VOCAB.filter(function(v){
+    var items = VOCAB.filter(function(v){
       if(state.levels.length && state.levels.indexOf(v.level) === -1) return false;
       if(state.contexts.length && !v.contexts.some(function(c){ return state.contexts.indexOf(c) !== -1; })) return false;
       if(!q) return true;
       var hay = (v.fr + ' ' + (v.ar||'') + ' ' + (v.en||'')).toLowerCase();
       return hay.indexOf(q) !== -1;
     });
+    if(state.sort === 'az') items.sort(function(a,b){ return a.fr.localeCompare(b.fr, 'fr'); });
+    else if(state.sort === 'za') items.sort(function(a,b){ return b.fr.localeCompare(a.fr, 'fr'); });
+    return items;
   }
 
   function render(){
@@ -529,6 +554,7 @@
     search.addEventListener('input', function(){ state.q = search.value; render(); });
     rateSelect.addEventListener('change', function(){ state.rate = parseFloat(rateSelect.value); localStorage.setItem('vocab_rate', state.rate); });
     loopSelect.addEventListener('change', function(){ state.langs = loopSelect.value.split(','); localStorage.setItem('vocab_langs', loopSelect.value); });
+    sortSelect.addEventListener('change', function(){ state.sort = sortSelect.value; localStorage.setItem('vocab_sort', state.sort); render(); });
 
     document.getElementById('btn-stop').addEventListener('click', stopSpeech);
     document.getElementById('btn-theme').addEventListener('click', function(){
