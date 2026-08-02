@@ -56,6 +56,15 @@ cd "$BUILD_DIR"
 echo "==> Adding Android platform..."
 "$ROOT_DIR/node_modules/.bin/cap" add android
 
+echo "==> Setting Procap app icon..."
+MIPMAP_DIR="$BUILD_DIR/android/app/src/main/res"
+ICON_SRC="$ROOT_DIR/icon-512.png"
+for item in mdpi:48 hdpi:72 xhdpi:96 xxhdpi:144 xxxhdpi:192; do
+  IFS=: read -r dpi size <<< "$item"
+  convert "$ICON_SRC" -resize "${size}x${size}" "$MIPMAP_DIR/mipmap-$dpi/ic_launcher.png"
+  cp "$MIPMAP_DIR/mipmap-$dpi/ic_launcher.png" "$MIPMAP_DIR/mipmap-$dpi/ic_launcher_round.png"
+done
+
 echo "==> Syncing native plugins and web assets..."
 "$ROOT_DIR/node_modules/.bin/cap" sync android
 

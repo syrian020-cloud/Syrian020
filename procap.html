@@ -98,7 +98,7 @@
     -webkit-background-clip: text; background-clip: text; color: transparent;
     white-space: nowrap; display: flex; align-items: center; gap: 0.4rem;
   }
-  .logo-icon { font-size: 1.15rem; filter: drop-shadow(0 0 6px rgba(232,121,200,0.4)); }
+  .logo-icon { width: 1.3rem; height: 1.3rem; border-radius: 6px; object-fit: cover; box-shadow: 0 0 8px rgba(232,121,200,0.35); }
   .spacer { flex: 1; }
   .icon-btn {
     background: var(--bg-tertiary); color: var(--text-primary);
@@ -203,6 +203,13 @@
   .lesson-head h2 { margin: 0 0 0.2rem; font-size: 1.25rem; }
   .lesson-head .sub { color: var(--text-secondary); font-size: 0.95rem; }
   .lesson-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.8rem 0; align-items: center; }
+  .top-bar { display: flex; align-items: center; justify-content: space-between; margin: 1rem 0 0.75rem; }
+  .section-title { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); }
+  .quick-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+  @media (max-width: 520px) { .quick-actions { grid-template-columns: 1fr; } }
+  .quick-actions .add-card { margin: 0; flex-direction: column; align-items: center; text-align: center; gap: 0.5rem; padding: 1.2rem 0.6rem; }
+  .quick-actions .add-card .chev { display: none; }
+  .top-actions { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
   .btn {
     background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; border: none;
     border-radius: 999px; padding: 0.6rem 1.1rem; font-size: 0.95rem; font-weight: 700;
@@ -254,7 +261,7 @@
 <body>
 <header>
   <div class="header-inner">
-    <span class="logo"><span class="logo-icon">🌸</span> <span data-t="appName">Procap</span></span>
+    <span class="logo"><img src="icon-192.png" alt="" class="logo-icon"> <span data-t="appName">Procap</span></span>
     <span class="spacer"></span>
     <div class="lang-switch">
       <button class="lang-btn" data-lang="ar">AR</button>
@@ -1061,13 +1068,13 @@
       </div>
       <div class="chev">${chevron()}</div>
     </div>`;
-    const importExport = `<div class="lesson-actions" style="margin-top:0.5rem; margin-bottom:0.5rem">
+    const importExport = `<div class="top-actions">
       <button class="btn ghost" id="btn-export"><span style="display:inline-flex; direction:ltr; gap:0.35rem; align-items:center"><span>📤</span><span data-t="export">${t('export')}</span></span></button>
       <label for="import-file" class="btn ghost" style="display:inline-flex; align-items:center; cursor:pointer"><span style="display:inline-flex; direction:ltr; gap:0.35rem; align-items:center"><span>📥</span><span data-t="import">${t('import')}</span></span></label>
       <input type="file" id="import-file" accept=".json,application/json" style="display:none">
     </div>`;
-    const html = `<div class="hero"><h1 data-t="heroTitle">${t('heroTitle')}</h1><p data-t="heroSub">${t('heroSub')}</p></div>
-      <div class="breadcrumb"><span>${t('library')}</span></div>` + addFolderCard + addLessonCard + importExport + empty +
+    const html = `<div class="top-bar"><span class="section-title">${t('library')}</span></div>
+      <div class="quick-actions">${addFolderCard}${addLessonCard}</div>` + importExport + empty +
       LESSONS.map(it => {
         if (it.type === 'folder') {
           return `<div class="card folder-card" data-route='${JSON.stringify({ name: 'folder', folder: it.id })}'>
