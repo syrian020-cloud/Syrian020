@@ -842,77 +842,6 @@
     .cue-item .cue-loop:hover { background: var(--accent); color: #fff; }
     .cue-item .cue-loop.active { background: var(--success); color: #1a1a1a; border-color: var(--success); }
 
-    .notebook-panel {
-      background: #fff;
-      color: #1a1a1a;
-      border: 1px solid #e0e0e0;
-      border-radius: 18px;
-      padding: 1rem;
-      margin-top: 0.8rem;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    }
-    .notebook-panel.hidden { display: none; }
-    .notebook-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-weight: 700;
-      color: #555;
-      margin-bottom: 0.6rem;
-      font-size: 0.9rem;
-    }
-    .btn-close-notebook { background: transparent; border: none; font-size: 1rem; color: #888; cursor: pointer; }
-    .notebook-toolbar, .notebook-size {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-bottom: 0.6rem;
-      flex-wrap: wrap;
-    }
-    .notebook-toolbar button {
-      width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; padding: 0;
-    }
-    .notebook-toolbar button.active { border-color: #333; transform: scale(1.15); }
-    .notebook-size button {
-      width: 32px; height: 32px; border-radius: 50%; border: 2px solid transparent; background: #f5f5f5; cursor: pointer; padding: 0; display: inline-flex; align-items: center; justify-content: center;
-    }
-    .notebook-size button::after { content: ''; display: block; background: #333; border-radius: 50%; }
-    .notebook-size button[data-size="0.85"]::after { width: 4px; height: 4px; }
-    .notebook-size button[data-size="1"]::after { width: 6px; height: 6px; }
-    .notebook-size button[data-size="1.25"]::after { width: 9px; height: 9px; }
-    .notebook-size button[data-size="1.5"]::after { width: 12px; height: 12px; }
-    .notebook-size button[data-size="2"]::after { width: 16px; height: 16px; }
-    .notebook-size button.active { border-color: #333; }
-    .notebook-page {
-      position: relative;
-      min-height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem 3rem 1.5rem 1rem;
-    }
-    .notebook-phrase {
-      font-size: calc((var(--font-size) + 16px) * var(--notebook-scale, 1.25));
-      font-weight: 700;
-      text-align: center;
-      line-height: 1.5;
-      color: var(--notebook-color, #111);
-      max-width: 100%;
-      word-wrap: break-word;
-    }
-    .notebook-speak {
-      position: absolute;
-      bottom: 0.5rem;
-      right: 0.5rem;
-      width: 46px; height: 46px; border-radius: 50%;
-      background: #fff;
-      border: 1px solid #ddd;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-      font-size: 1.4rem; cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
-    }
-    [dir="rtl"] .notebook-speak { right: auto; left: 0.5rem; }
-
     .settings-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
     .settings-row label { margin: 0; flex: 1; }
     .range-wrap { display: flex; align-items: center; gap: 0.5rem; }
@@ -1094,37 +1023,9 @@
           <span id="subtitle-lang-buttons"></span>
           <button class="cue-loop" id="btn-lesson-words" data-i18n-title="words" title="الكلمات" onclick="toggleLessonWords()">🔠</button>
           <button class="cue-loop" id="current-loop" title="تكرار الجملة" onclick="toggleCurrentLoop()">🔂</button>
-          <button class="cue-loop" id="btn-notebook" title="دفتر" onclick="toggleNotebook()">📝</button>
           <button class="cue-loop" id="video-loop" title="تكرار الفيديو" onclick="toggleVideoLoop()">🔄</button>
           <button class="cue-loop" id="btn-caption-minus" title="تصغير الخط" onclick="changeCaptionSize(-0.1)">A-</button>
           <button class="cue-loop" id="btn-caption-plus" title="تكبير الخط" onclick="changeCaptionSize(0.1)">A+</button>
-        </div>
-        <div class="notebook-panel hidden" id="notebook-panel">
-          <div class="notebook-header">
-            <span data-i18n="notebook">دفتر</span>
-            <button class="btn-close-notebook" onclick="toggleNotebook()">✕</button>
-          </div>
-          <div class="notebook-toolbar" id="notebook-color-picker">
-            <button class="nb-color active" data-color="#111111" style="background:#111111" aria-label="Black" onclick="setNotebookColor('#111111')"></button>
-            <button class="nb-color" data-color="#e74c3c" style="background:#e74c3c" aria-label="Red" onclick="setNotebookColor('#e74c3c')"></button>
-            <button class="nb-color" data-color="#3498db" style="background:#3498db" aria-label="Blue" onclick="setNotebookColor('#3498db')"></button>
-            <button class="nb-color" data-color="#2ecc71" style="background:#2ecc71" aria-label="Green" onclick="setNotebookColor('#2ecc71')"></button>
-            <button class="nb-color" data-color="#f1c40f" style="background:#f1c40f" aria-label="Yellow" onclick="setNotebookColor('#f1c40f')"></button>
-            <button class="nb-color" data-color="#9b59b6" style="background:#9b59b6" aria-label="Purple" onclick="setNotebookColor('#9b59b6')"></button>
-            <button class="nb-color" data-color="#e67e22" style="background:#e67e22" aria-label="Orange" onclick="setNotebookColor('#e67e22')"></button>
-            <button class="nb-color" data-color="#95a5a6" style="background:#95a5a6" aria-label="Gray" onclick="setNotebookColor('#95a5a6')"></button>
-          </div>
-          <div class="notebook-size" id="notebook-size-picker">
-            <button data-size="0.85" aria-label="Small" onclick="setNotebookSize(0.85)"></button>
-            <button data-size="1" aria-label="Medium" onclick="setNotebookSize(1)"></button>
-            <button data-size="1.25" class="active" aria-label="Large" onclick="setNotebookSize(1.25)"></button>
-            <button data-size="1.5" aria-label="Larger" onclick="setNotebookSize(1.5)"></button>
-            <button data-size="2" aria-label="Largest" onclick="setNotebookSize(2)"></button>
-          </div>
-          <div class="notebook-page">
-            <div class="notebook-phrase" id="notebook-phrase" style="--notebook-scale:1.25; --notebook-color:#111111;"></div>
-            <button class="notebook-speak" title="استمع / Repeat" onclick="notebookSpeak()">🔊</button>
-          </div>
         </div>
         <div class="playback-controls hidden" id="playback-controls">
           <div class="speed-buttons">
@@ -1295,7 +1196,7 @@
         invalidTime: "تنسيق الوقت غير صحيح",
         confirmDelete: "هل تريد حذف هذا الدرس؟",
         play: "تشغيل", pause: "إيقاف", edit: "تعديل", delete: "حذف", repeat: "تكرار العبارة",
-        words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "العبارات", notebook: "دفتر", saveCue: "حفظ",
+        words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "العبارات", saveCue: "حفظ",
         close: "إغلاق", listen: "استماع", repeatWord: "تكرار",
         frenchWords: "كلمات فرنسية", englishWords: "كلمات إنجليزية", arabicWords: "كلمات عربية",
         downloadVideo: "تحميل الفيديو", downloadAudio: "تحميل الصوت",
@@ -1335,7 +1236,7 @@
         invalidTime: "Format de temps invalide",
         confirmDelete: "Supprimer cette leçon ?",
         play: "Lire", pause: "Pause", edit: "Modifier", delete: "Supprimer", repeat: "Répéter la phrase",
-        words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Les phrases", notebook: "Cahier", saveCue: "Enregistrer",
+        words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Les phrases", saveCue: "Enregistrer",
         close: "Fermer", listen: "Écouter", repeatWord: "Répéter",
         frenchWords: "Mots français", englishWords: "Mots anglais", arabicWords: "Mots arabes",
         downloadVideo: "Télécharger la vidéo", downloadAudio: "Télécharger l'audio",
@@ -1375,7 +1276,7 @@
         invalidTime: "Invalid time format",
         confirmDelete: "Delete this lesson?",
         play: "Play", pause: "Pause", edit: "Edit", delete: "Delete", repeat: "Repeat phrase",
-        words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "The Phrases", notebook: "Notebook", saveCue: "Save",
+        words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "The Phrases", saveCue: "Save",
         close: "Close", listen: "Listen", repeatWord: "Repeat",
         frenchWords: "French words", englishWords: "English words", arabicWords: "Arabic words",
         downloadVideo: "Download video", downloadAudio: "Download audio",
@@ -2009,7 +1910,6 @@
       document.getElementById('preview-wrap').classList.add('hidden');
       document.getElementById('subtitle-display').classList.add('hidden');
       document.getElementById('subtitle-toolbar').classList.add('hidden');
-      document.getElementById('notebook-panel').classList.add('hidden');
       document.getElementById('playback-controls').classList.add('hidden');
       document.getElementById('download-links').classList.add('hidden');
       document.getElementById('sentences-section').classList.add('hidden');
@@ -2108,7 +2008,6 @@
       highlightActiveCue(cue);
       highlightActiveSentence(cue);
       updateSentenceLoopStates();
-      updateNotebook();
     }
 
     function getCueLangs(cue) {
@@ -2831,52 +2730,6 @@
       }
       if (btn) btn.classList.toggle('active', state.captionsVisible);
     }
-
-    function getActiveCue() {
-      const video = document.getElementById('lesson-video');
-      const currentTime = video ? video.currentTime : 0;
-      return state.currentCues.find(c => currentTime >= c.start && currentTime < c.end);
-    }
-
-    function updateNotebook() {
-      const panel = document.getElementById('notebook-panel');
-      const phrase = document.getElementById('notebook-phrase');
-      if (!panel || panel.classList.contains('hidden') || !phrase) return;
-      const cue = getActiveCue();
-      if (!cue) { phrase.textContent = '—'; return; }
-      const text = getCueLineByLang(cue, 'fr') || cue.text.split('\n')[0] || '—';
-      if (phrase.textContent !== text) phrase.textContent = text;
-    }
-
-    window.toggleNotebook = function() {
-      const panel = document.getElementById('notebook-panel');
-      if (!panel) return;
-      const hidden = !panel.classList.contains('hidden');
-      panel.classList.toggle('hidden', hidden);
-      document.getElementById('btn-notebook')?.classList.toggle('active', !hidden);
-      if (!hidden) updateNotebook();
-    };
-
-    window.setNotebookColor = function(color) {
-      const phrase = document.getElementById('notebook-phrase');
-      if (phrase) phrase.style.setProperty('--notebook-color', color);
-      document.querySelectorAll('#notebook-color-picker .nb-color').forEach(b => b.classList.toggle('active', b.dataset.color === color));
-    };
-
-    window.setNotebookSize = function(size) {
-      const phrase = document.getElementById('notebook-phrase');
-      if (phrase) phrase.style.setProperty('--notebook-scale', size);
-      document.querySelectorAll('#notebook-size-picker button').forEach(b => b.classList.toggle('active', parseFloat(b.dataset.size) === size));
-    };
-
-    window.notebookSpeak = function() {
-      const cue = getActiveCue();
-      if (!cue) return;
-      const text = getCueLineByLang(cue, 'fr') || cue.text.split('\n')[0];
-      if (!text) return;
-      const lang = /[\u0600-\u06FF]/.test(text) ? 'ar-SA' : (/[\u00C0-\u024F]/.test(text) ? 'fr-FR' : 'en-US');
-      ttsSpeak({ text, lang });
-    };
 
     async function saveLesson() {
       const title = document.getElementById('lesson-title').value.trim();
