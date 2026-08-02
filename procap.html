@@ -76,6 +76,14 @@
   .action-sheet .sheet-title { font-weight: 700; margin-bottom: 0.75rem; text-align: center; color: var(--text-secondary); }
   .action-sheet .sheet-actions { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.75rem; }
   .action-sheet .sheet-actions button { justify-content: center; }
+  .modal {
+    position: fixed; inset: 0; z-index: 95; background: rgba(0,0,0,0.6);
+    display: none; align-items: center; justify-content: center; padding: 1rem;
+  }
+  .modal.show { display: flex; }
+  .modal-content { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; width: 100%; max-width: 480px; box-shadow: var(--shadow); }
+  .modal-content h3 { margin: 0 0 0.75rem; color: var(--text-primary); }
+  .modal-content textarea { width: 100%; background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.65rem; font-size: 0.95rem; resize: vertical; }
   .card .menu-btn {
     background: transparent; color: var(--text-secondary); border: none; font-size: 1.2rem;
     width: 2.2rem; height: 2.2rem; border-radius: 50%; cursor: pointer; margin-inline-start: auto;
@@ -303,6 +311,17 @@
     <div class="sheet-title" id="sheet-title">--</div>
     <div class="sheet-actions" id="sheet-actions"></div>
     <button type="button" class="btn ghost" id="sheet-cancel" style="width:100%" data-t="cancel">إلغاء</button>
+  </div>
+</div>
+
+<div id="examples-modal" class="modal" style="display:none">
+  <div class="modal-content">
+    <h3 data-t="inputExamples">Examples</h3>
+    <textarea id="examples-text" rows="10" readonly></textarea>
+    <div class="form-actions" style="margin-top:0.75rem">
+      <button type="button" class="btn" id="btn-copy-examples" data-t="copy">نسخ</button>
+      <button type="button" class="btn ghost" id="btn-close-examples" data-t="cancel">إلغاء</button>
+    </div>
   </div>
 </div>
 
@@ -583,6 +602,8 @@
     phrasesLabel: { ar: 'العبارات', en: 'Phrases', fr: 'Phrases' },
     phrasesHint: { ar: 'كل سطر: فرنسي/إنجليزي ثم عربي ثم الآخر. يقبل | , = → : - ومسافات/Tab', en: 'One line: French/English then Arabic then the other. Supports | , = → : - and spaces/tabs', fr: 'Une ligne : Français/Anglais puis Arabe puis l\'autre. Accepte | , = → : - et espaces/tab' },
     inputExamples: { ar: 'نماذج الإدخال', en: 'Input examples', fr: 'Exemples de saisie' },
+    copy: { ar: 'نسخ', en: 'Copy', fr: 'Copier' },
+    copied: { ar: 'تم النسخ', en: 'Copied', fr: 'Copié' },
     pasteOrder: { ar: 'ترتيب الأعمدة', en: 'Column order', fr: 'Ordre des colonnes' },
     orderAuto: { ar: 'تلقائي', en: 'Auto', fr: 'Auto' },
     orderFrFirst: { ar: 'فرنسي | عربي | إنجليزي', en: 'French | Arabic | English', fr: 'Français | Arabe | Anglais' },
@@ -1163,7 +1184,7 @@
     state.loop = { key: runKey };
     (function next() {
       if (!state.loop || state.loop.key !== runKey) return;
-      if (i >= lesson.phrases.length) { stopSpeech(); return; }
+      if (i >= lesson.phrases.length) { i = 0; }
       const p = lesson.phrases[i];
       const key = phraseKey(lesson.id, i);
       i++;
@@ -1281,18 +1302,35 @@
     go({ name: 'lesson', lesson: id });
   }
 
+  const PHRASE_EXAMPLES = [
+    'Bonjour | مرحبا | Hello',
+    'Comment allez-vous → كيف حالك → How are you',
+    'Je voudrais = أريد = I would like',
+    'Merci, شكرا, Thank you',
+    'Au revoir: مع السلامة: Goodbye',
+    'Pomme - تفاحة - Apple',
+    'Où sont les toilettes أين الحمام Where is the bathroom',
+    'English | Arabic | French'
+  ];
+
   function showPhraseExamples() {
-    const examples = [
-      'Bonjour | مرحبا | Hello',
-      'Comment allez-vous → كيف حالك → How are you',
-      'Je voudrais = أريد = I would like',
-      'Merci, شكرا, Thank you',
-      'Au revoir: مع السلامة: Goodbye',
-      'Pomme - تفاحة - Apple',
-      'Où sont les toilettes أين الحمام Where is the bathroom',
-      'English | Arabic | French'
-    ].join('\n');
-    alert('Examples / نماذج / Exemples:\n\n' + examples);
+    const modal = document.getElementById('examples-modal');
+    document.getElementById('examples-text').value = PHRASE_EXAMPLES.join('\n');
+    modal.classList.add('show');
+  }
+
+  function closePhraseExamples() {
+    document.getElementById('examples-modal').classList.remove('show');
+  }
+
+  function copyPhraseExamples() {
+    const ta = document.getElementById('examples-text');
+    ta.select();
+    try {
+      if (navigator.clipboard) { navigator.clipboard.writeText(ta.value); }
+      else { document.execCommand('copy'); }
+    } catch (e) {}
+    showToast(t('copied'));
   }
 
   function bindViewEvents() {
@@ -1422,6 +1460,8 @@
 
   function init() {
     bindBackButton();
+    document.getElementById('btn-copy-examples').onclick = copyPhraseExamples;
+    document.getElementById('btn-close-examples').onclick = closePhraseExamples;
     document.getElementById('btn-theme').onclick = toggleTheme;
     document.getElementById('btn-stop').onclick = stopSpeech;
     document.getElementById('btn-fav').onclick = () => go({ name: 'favs' });
