@@ -10,6 +10,7 @@ mkdir -p www/data www/js
 cp french.html www/index.html
 cp data/* www/data/
 cp manifest.json icon-192.png icon-512.png sw.js www/
+cp vocab.html index.html www/
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
 if [ "$USE_ALIYUN" = "1" ]; then
