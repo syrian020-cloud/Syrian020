@@ -472,7 +472,8 @@
     heroSub: { ar: 'عبارات موثوقة بالفرنسية مع ترجمة عربية وإنجليزية', en: 'Reliable French phrases with Arabic and English translations', fr: 'Des phrases fiables en français avec traductions arabe et anglaise' },
     installTTS: { ar: 'تثبيت النطق', en: 'Install speech', fr: 'Installer la voix' },
     ttsNotAvailable: { ar: 'محرك النطق غير متوفر على هذا الجهاز. اضغط لتثبيته.', en: 'Text-to-speech engine is not available on this device. Tap to install.', fr: 'Le moteur de synthèse vocale n\'est pas disponible. Appuyez pour installer.' },
-    ttsUnsupportedLanguage: { ar: 'اللغة المطلوبة غير مدعومة من محرك النطق.', en: 'The requested language is not supported by this TTS engine.', fr: 'La langue demandée n\'est pas prise en charge par ce moteur TTS.' }
+    ttsUnsupportedLanguage: { ar: 'اللغة المطلوبة غير مدعومة من محرك النطق.', en: 'The requested language is not supported by this TTS engine.', fr: 'La langue demandée n\'est pas prise en charge par ce moteur TTS.' },
+    ttsInstallMessage: { ar: 'التطبيق يحتاج إلى محرك نطق مثبت.\n1) تأكد من تثبيت Google Text-to-speech.\n2) افتح إعدادات الجهاز > النطق > اختر Google TTS.\n3) حمّل بيانات الصوت الفرنسي (fr-FR).\n4) أعد تشغيل التطبيق.', en: 'The app needs an installed TTS engine.\n1) Install Google Text-to-speech.\n2) Open device Settings > Speech > choose Google TTS.\n3) Download French (fr-FR) voice data.\n4) Restart the app.', fr: 'L\'application a besoin d\'un moteur TTS installé.\n1) Installez Google Text-to-speech.\n2) Paramètres > Synthèse vocale > choisissez Google TTS.\n3) Téléchargez les données vocales française (fr-FR).\n4) Redémarrez l\'application.' }
   };
 
   const VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
@@ -576,28 +577,40 @@
     tts.openInstall().catch(() => {}).then(() => { setTimeout(checkNativeTTS, 1500); });
   }
 
+  async function supportsLangTag(tts, tags) {
+    for (const tag of tags) {
+      try {
+        const r = await tts.isLanguageSupported({ lang: tag });
+        if (r && r.supported) return tag;
+      } catch (e) {}
+    }
+    return null;
+  }
+
   async function checkNativeTTS() {
     const tts = nativeTTS();
-    if (!tts) { state.ttsAvailable = false; hideTTSBanner(); return; }
+    if (!tts) {
+      state.ttsAvailable = false;
+      if (!webTTS()) showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
+      return;
+    }
     try {
-      const r = await tts.getSupportedLanguages();
-      const langs = ((r && r.languages) || []).map(l => String(l).toLowerCase());
-      if (!langs.length) {
+      let frTag = await supportsLangTag(tts, ['fr-FR','fr','fra','fr-CA','fr-CH']);
+      if (!frTag) {
+        const r = await tts.getSupportedLanguages().catch(() => ({}));
+        const langs = ((r && r.languages) || []).map(l => String(l).toLowerCase());
+        const pick = (tags) => tags.find(tag => langs.includes(tag.toLowerCase()));
+        frTag = pick(['fr-FR','fr','fra','fr-CA','fr-CH']);
+      }
+      if (!frTag) {
         state.ttsAvailable = false;
         showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
         return;
       }
-      const pick = (tags) => tags.find(tag => langs.includes(tag.toLowerCase()));
-      const frTag = pick(['fr-FR','fr','fra','fr-CA','fr-CH']);
-      if (!frTag) {
-        state.ttsAvailable = false;
-        showTTSBanner(t('ttsUnsupportedLanguage'), t('installTTS'));
-        return;
-      }
       state.voiceLang = {
         fr: frTag,
-        ar: pick(['ar-SA','ar','ara','ar-EG']) || 'ar-SA',
-        en: pick(['en-US','en','eng','en-GB','en-CA']) || 'en-US'
+        ar: await supportsLangTag(tts, ['ar-SA','ar','ara','ar-EG']) || 'ar-SA',
+        en: await supportsLangTag(tts, ['en-US','en','eng','en-GB','en-CA']) || 'en-US'
       };
       state.ttsAvailable = true;
       hideTTSBanner();
@@ -616,45 +629,81 @@
 
   function nativeStop() {
     const tts = nativeTTS();
-    if (!tts) return Promise.resolve();
-    return tts.stop().catch(() => {});
+    if (tts) tts.stop().catch(() => {});
   }
+
+  function webTTS() { return ('speechSynthesis' in window) ? window.speechSynthesis : null; }
+
+  function webSpeak(text, lang) {
+    const synth = webTTS();
+    if (!synth) return Promise.reject('no web tts');
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = (state.voiceLang && state.voiceLang[lang]) || VOICE_LANG[lang] || 'en-US';
+    u.rate = state.rate || 1;
+    return new Promise((resolve, reject) => {
+      u.onend = resolve;
+      u.onerror = reject;
+      synth.speak(u);
+    });
+  }
+
+  function anySpeak(text, lang) {
+    if (speakSupported()) return nativeSpeak(text, lang);
+    if (webTTS()) return webSpeak(text, lang);
+    return Promise.reject('no tts');
+  }
+
+  function anyStop() {
+    nativeStop();
+    const synth = webTTS();
+    if (synth) synth.cancel();
+  }
+
+  function anyTTSAvailable() { return speakSupported() || !!webTTS(); }
 
   function speakSupported() { return !!nativeTTS() && state.ttsAvailable; }
 
   function stopSpeech() {
     state.loop = null;
     speechRun++;
-    if (nativeTTS()) nativeStop();
+    anyStop();
     highlight(null);
     refreshButtons();
   }
 
+  function showTTSHelp() {
+    if (isAndroid()) alert(t('ttsInstallMessage'));
+  }
+
   function speakOnce(phrase, langs, key, onDone) {
-    if (!speakSupported()) {
-      if (nativeTTS()) openTTSInstall();
-      else if (isAndroid()) alert(t('ttsNotAvailable'));
+    if (!anyTTSAvailable()) {
+      openTTSInstall();
+      showTTSHelp();
       highlight(null);
       return;
     }
     const seq = langs.filter(l => phrase[l]);
     let i = 0;
+    let firstError = true;
     const run = ++speechRun;
-    nativeStop();
+    anyStop();
     (function next() {
       if (run !== speechRun) return;
       if (i >= seq.length) { highlight(null); if (onDone) onDone(); return; }
       const lang = seq[i++];
       highlight(key, lang);
-      nativeSpeak(phrase[lang], lang).then(() => { if (run === speechRun) setTimeout(next, 250); }).catch(() => { if (run === speechRun) setTimeout(next, 250); });
+      anySpeak(phrase[lang], lang).then(() => { if (run === speechRun) setTimeout(next, 250); }).catch(() => {
+        if (firstError) { firstError = false; openTTSInstall(); showTTSHelp(); }
+        if (run === speechRun) setTimeout(next, 250);
+      });
     })();
   }
 
   function toggleLoop(phrase, key) {
     if (state.loop && state.loop.key === key) { stopSpeech(); return; }
-    if (!speakSupported()) {
-      if (nativeTTS()) openTTSInstall();
-      else if (isAndroid()) alert(t('ttsNotAvailable'));
+    if (!anyTTSAvailable()) {
+      openTTSInstall();
+      showTTSHelp();
       return;
     }
     state.loop = { key: key };
@@ -883,9 +932,9 @@
   }
 
   function playLesson(lesson) {
-    if (!speakSupported()) {
-      if (nativeTTS()) openTTSInstall();
-      else if (isAndroid()) alert(t('ttsNotAvailable'));
+    if (!anyTTSAvailable()) {
+      openTTSInstall();
+      showTTSHelp();
       return;
     }
     stopSpeech();
