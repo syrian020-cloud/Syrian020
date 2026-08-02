@@ -38,6 +38,7 @@ cp "$ROOT_DIR/procap.html" "$WEB_DIR/index.html"
 cp "$ROOT_DIR/manifest-procap.json" "$WEB_DIR/"
 cp "$ROOT_DIR/icon-192.png" "$WEB_DIR/"
 cp "$ROOT_DIR/icon-512.png" "$WEB_DIR/"
+cp "$ROOT_DIR/bienvenue-lesson.jpg" "$WEB_DIR/"
 
 # Minimal service worker for the APK so registration succeeds without failing on missing files
 cat > "$WEB_DIR/sw.js" <<'EOF'

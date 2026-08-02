@@ -379,6 +379,7 @@
         if (!Array.isArray(data)) throw new Error('invalid');
         if (confirm(t('importConfirm'))) {
           LESSONS = data.map((it, i) => ({ ...it, id: it.id || (Date.now() + i) }));
+          ensureBuiltInLesson();
           saveLessons();
           go({ name: 'home' }, false);
           showToast(t('importSuccess'));
@@ -529,6 +530,38 @@
 
   let LESSONS = loadLessons();
 
+  const BIENVENUE_LESSON = {
+    type: 'lesson',
+    protected: true,
+    title: { fr: 'Bienvenue' },
+    image: 'bienvenue-lesson.jpg',
+    phrases: [
+      { fr: "Bienvenue dans notre application d'apprentissage du français", ar: 'مرحبًا بك في تطبيقنا لتعلّم اللغة الفرنسية', en: 'Welcome to our French learning app' },
+      { fr: 'Je suis ravi de vous accueillir parmi nous.', ar: 'يسعدني أن أرحب بك بيننا.', en: 'I’m delighted to welcome you.' },
+      { fr: 'Cette application a été conçue pour vous aider à apprendre le français de manière simple, efficace et progressive.', ar: 'صُمم هذا التطبيق لمساعدتك على تعلم اللغة الفرنسية بطريقة سهلة وفعّالة وتدريجية.', en: 'This app was designed to help you learn French in a simple, effective, and progressive way.' },
+      { fr: 'Vous y trouverez des leçons, du vocabulaire, des expressions courantes et de nombreux outils pour améliorer votre compréhension, votre expression et votre communication au quotidien.', ar: 'ستجد فيه دروسًا ومفردات وعبارات شائعة والعديد من الأدوات لتحسين الفهم والتعبير والتواصل اليومي.', en: 'You will find lessons, vocabulary, common expressions, and many tools to improve your comprehension, speaking, and daily communication.' },
+      { fr: 'Mon objectif est de rendre l\'apprentissage du français accessible à tous, quel que soit votre niveau.', ar: 'هدفي هو جعل تعلم اللغة الفرنسية متاحًا للجميع مهما كان مستواهم.', en: 'My goal is to make learning French accessible to everyone, regardless of their level.' },
+      { fr: "Merci d'utiliser cette application.", ar: 'شكرًا لاستخدامك هذا التطبيق.', en: 'Thank you for using this app.' },
+      { fr: 'Je vous souhaite un excellent apprentissage et beaucoup de réussite dans votre parcours linguistique !', ar: 'أتمنى لك تعلمًا ممتعًا ونجاحًا كبيرًا في رحلتك اللغوية!', en: 'I wish you an enjoyable learning experience and great success in your language journey!' },
+      { fr: 'À propos du créateur', ar: 'نبذة عن المطور', en: 'About the creator' },
+      { fr: 'Je m\'appelle Mohammad.', ar: 'اسمي محمد.', en: 'My name is Mohammad.' },
+      { fr: 'Je suis né le 15 juillet 1989.', ar: 'وُلدت في 15 يوليو 1989.', en: 'I was born on July 15, 1989.' },
+      { fr: 'Je viens de Syrie.', ar: 'أنا من سوريا.', en: 'I am from Syria.' },
+      { fr: 'Pour me contacter', ar: 'للتواصل معي', en: 'Contact me' },
+      { fr: 'WhatsApp : +33 7 75 81 36 43', ar: 'واتساب: +33 7 75 81 36 43', en: 'WhatsApp: +33 7 75 81 36 43' },
+      { fr: 'E-mail : Syrian020@gmail.com', ar: 'البريد الإلكتروني: Syrian020@gmail.com', en: 'Email: Syrian020@gmail.com' }
+    ]
+  };
+
+  function ensureBuiltInLesson() {
+    const exists = LESSONS.some(it => it.type === 'lesson' && it.protected);
+    if (exists) return;
+    const lesson = JSON.parse(JSON.stringify(BIENVENUE_LESSON));
+    lesson.id = nextId();
+    LESSONS.unshift(lesson);
+    saveLessons();
+  }
+
   function nextId() {
     let max = 0;
     LESSONS.forEach(it => {
@@ -635,6 +668,7 @@
     exitConfirm: { ar: 'هل تريد الخروج من التطبيق؟', en: 'Exit the app?', fr: 'Quitter l\'application ?' },
     saved: { ar: 'تم الحفظ', en: 'Saved', fr: 'Enregistré' },
     deleted: { ar: 'تم الحذف', en: 'Deleted', fr: 'Supprimé' },
+    protected: { ar: 'لا يمكن تعديل أو حذف هذا الدرس', en: 'This lesson cannot be edited or deleted', fr: 'Cette leçon ne peut pas être modifiée ou supprimée' },
     lessonLabel: { ar: 'الدرس', en: 'Lesson', fr: 'Leçon' },
     folderLabel: { ar: 'المجلد', en: 'Folder', fr: 'Dossier' },
     emptyFolder: { ar: 'لا توجد دروس في هذا المجلد. أضف درساً جديداً.', en: 'No lessons in this folder. Add a new lesson.', fr: 'Aucune leçon dans ce dossier. Ajoutez-en une nouvelle.' },
@@ -947,6 +981,7 @@
   function deleteRootItem(id) {
     const it = findItem(id);
     if (!it) return;
+    if (it.protected) { showToast(t('protected')); return; }
     if (!confirm(it.type === 'folder' ? t('deleteFolderConfirm') : t('deleteConfirm'))) return;
     LESSONS = LESSONS.filter(x => x.id !== id);
     saveLessons();
@@ -955,9 +990,10 @@
   }
 
   function deleteLesson(id) {
-    if (!confirm(t('deleteConfirm'))) return;
     const found = findLesson(id);
     if (!found) return;
+    if (found.lesson.protected) { showToast(t('protected')); return; }
+    if (!confirm(t('deleteConfirm'))) return;
     if (found.parent) {
       found.parent.lessons = found.parent.lessons.filter(l => l.id !== id);
     } else {
@@ -973,6 +1009,10 @@
     if (it.image) return `<div class="card-thumb"><img src="${esc(it.image)}" alt=""></div>`;
     if (it.type === 'folder') return `<div class="card-thumb" style="color:#fff; background:var(--accent-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M2 6a2 2 0 0 1 2-2h5l2 2h9a2 2 0 0 1 2 2v1H2V6zm0 3h20v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9z"/></svg></div>`;
     return `<div class="num">${it.id}</div>`;
+  }
+
+  function menuBtn(it, type) {
+    return it.protected ? '' : `<button class="menu-btn" data-menu="${it.id}" data-type="${type}" title="${t('actions')}">⋮</button>`;
   }
 
   function openActionSheet(id, type) {
@@ -996,12 +1036,13 @@
 
   function setItemImage(id, type, file) {
     if (!file || !file.type.startsWith('image/')) { showToast(t('invalidImage')); return; }
+    let it;
+    if (type === 'folder') it = findFolder(id);
+    else { const found = findLesson(id); it = found ? found.lesson : null; }
+    if (!it) return;
+    if (it.protected) { showToast(t('protected')); return; }
     const reader = new FileReader();
     reader.onload = (e) => {
-      let it;
-      if (type === 'folder') it = findFolder(id);
-      else { const found = findLesson(id); it = found ? found.lesson : null; }
-      if (!it) return;
       it.image = e.target.result;
       saveLessons();
       showToast(t('saved'));
@@ -1014,6 +1055,7 @@
     if (type === 'folder') {
       const folder = findFolder(id);
       if (!folder) return;
+      if (folder.protected) { showToast(t('protected')); return; }
       const ttl = parseTitle(prompt(t('editFolderTitle'), formatTitle(folder.title)) || '');
       if (!ttl) return;
       folder.title = ttl;
@@ -1021,6 +1063,8 @@
       showToast(t('saved'));
       go(state.route, false);
     } else {
+      const found = findLesson(id);
+      if (found && found.lesson.protected) { showToast(t('protected')); return; }
       go({ name: 'edit-lesson', lesson: id });
     }
   }
@@ -1096,7 +1140,7 @@
               <div class="card-sub" dir="ltr">${subtitle(it.title)}</div>
               <div class="card-sub">${(it.lessons || []).length} ${t('lessonsCount')}</div>
             </div>
-            <button class="menu-btn" data-menu="${it.id}" data-type="folder" title="${t('actions')}">⋮</button>
+            ${menuBtn(it, 'folder')}
             <div class="chev">${chevron()}</div>
           </div>`;
         }
@@ -1107,7 +1151,7 @@
             <div class="card-sub" dir="ltr">${subtitle(it.title)}</div>
             <div class="card-sub">${it.phrases.length} ${t('phrases')}</div>
           </div>
-          <button class="menu-btn" data-menu="${it.id}" data-type="lesson" title="${t('actions')}">⋮</button>
+          ${menuBtn(it, 'lesson')}
           <div class="chev">${chevron()}</div>
         </div>`;
       }).join('');
@@ -1133,7 +1177,7 @@
           <div class="card-sub" dir="ltr">${subtitle(l.title)}</div>
           <div class="card-sub">${l.phrases.length} ${t('phrases')}</div>
         </div>
-        <button class="menu-btn" data-menu="${l.id}" data-type="lesson" title="${t('actions')}">⋮</button>
+        ${menuBtn(l, 'lesson')}
         <div class="chev">${chevron()}</div>
       </div>`).join('');
     const html = `<div class="breadcrumb">
@@ -1145,7 +1189,7 @@
       </div>
       <div class="lesson-actions">
         <button class="btn" data-route='${JSON.stringify({ name: 'add-lesson', folder: folderId })}'>${t('addLesson')}</button>
-        <button class="btn ghost menu-btn" data-menu="${folder.id}" data-type="folder" title="${t('actions')}">⋮ ${t('actions')}</button>
+        ${folder.protected ? '' : `<button class="btn ghost menu-btn" data-menu="${folder.id}" data-type="folder" title="${t('actions')}">⋮ ${t('actions')}</button>`}
       </div>` + addCard + empty + lessonsHtml;
     view.innerHTML = html;
   }
@@ -1166,7 +1210,7 @@
       <div class="lesson-actions">
         <button class="btn" id="play-all">${t('playAll')}</button>
         <button class="btn ghost" id="stop-all">${t('stopAll')}</button>
-        <button class="btn ghost menu-btn" data-menu="${lesson.id}" data-type="lesson" title="${t('actions')}">⋮ ${t('actions')}</button>
+        ${lesson.protected ? '' : `<button class="btn ghost menu-btn" data-menu="${lesson.id}" data-type="lesson" title="${t('actions')}">⋮ ${t('actions')}</button>`}
         <span class="pill">${lesson.phrases.length} ${t('phrases')}</span>
       </div>` +
       lesson.phrases.map((p, i) => phraseHTML(p, phraseKey(lesson.id, i))).join('');
@@ -1264,7 +1308,7 @@
 
   function renderEditLesson(lessonId) {
     const found = findLesson(lessonId);
-    if (!found) { go({ name: 'home' }); return; }
+    if (!found || found.lesson.protected) { go({ name: 'home' }); return; }
     const { lesson, parent } = found;
     let breadcrumb = `<button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button>`;
     if (parent) breadcrumb += `<span>›</span><button data-route='${JSON.stringify({ name: 'folder', folder: parent.id })}'>${esc(title(parent.title))}</button>`;
@@ -1489,6 +1533,7 @@
     bindActionSheet();
     setTheme(state.theme);
     setUILang(state.uiLang);
+    ensureBuiltInLesson();
     go(parseHash(), false);
     if (nativeTTS()) checkNativeTTS();
   }
