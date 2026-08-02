@@ -184,6 +184,26 @@
   .empty { color: var(--text-secondary); text-align: center; padding: 2.5rem 1rem; }
   footer { text-align: center; color: var(--text-secondary); font-size: 0.78rem; padding: 1.5rem 1rem; }
   footer a { color: var(--accent); }
+
+  .add-card .num { background: var(--success); color: #081c15; }
+  .form-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+  .form-group { margin-bottom: 0.9rem; }
+  .form-group label { display: block; font-size: 0.9rem; margin-bottom: 0.35rem; color: var(--text-secondary); }
+  .form-group input, .form-group textarea {
+    width: 100%; background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: var(--radius); padding: 0.65rem;
+    font-size: 1rem; font-family: inherit;
+  }
+  .form-group textarea { resize: vertical; min-height: 180px; }
+  .form-group .hint { font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.3rem; }
+  .form-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .delete-btn {
+    background: var(--bg-tertiary); color: var(--danger); border: 1px solid var(--danger);
+    border-radius: 8px; width: 2.4rem; height: 2.4rem; cursor: pointer; font-size: 1rem;
+    display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+    margin-inline-start: auto;
+  }
+  .delete-btn:hover { background: var(--danger); color: #fff; }
   @media (max-width: 520px) {
     .header-inner { padding: 0.6rem 0.75rem; }
     .logo { font-size: 0.95rem; }
@@ -235,7 +255,32 @@
 (function () {
   'use strict';
 
-  const LESSONS = [];
+  function loadLessons() {
+    try { return JSON.parse(localStorage.getItem('sexed_lessons') || '[]'); } catch (e) { return []; }
+  }
+  function saveLessons() { localStorage.setItem('sexed_lessons', JSON.stringify(LESSONS)); }
+  function cleanPhrasePart(s) {
+    let r = String(s).trim();
+    const trim = '*–—-';
+    while (r && trim.includes(r[0])) r = r.slice(1).trim();
+    while (r && trim.includes(r[r.length - 1])) r = r.slice(0, -1).trim();
+    return r;
+  }
+  function parsePhrases(text) {
+    const phrases = [];
+    text.split('\n').forEach(raw => {
+      const line = raw.trim();
+      if (!line) return;
+      let parts = line.split('|').map(s => s.trim());
+      if (parts.length < 3) parts = line.split(/→|->|=>/).map(s => s.trim());
+      if (parts.length < 3) return;
+      const fr = cleanPhrasePart(parts[0]), ar = cleanPhrasePart(parts[1]), en = cleanPhrasePart(parts[2]);
+      if (fr && ar && en) phrases.push({ fr, ar, en });
+    });
+    return phrases;
+  }
+
+  let LESSONS = loadLessons();
 
   const UI = {
     appName: { ar: 'الصحة الجنسية', en: 'Sexual Health', fr: 'Santé sexuelle' },
@@ -264,6 +309,19 @@
     noResults: { ar: 'لا نتائج', en: 'No results', fr: 'Aucun résultat' },
     noLessonsYetTitle: { ar: 'لا توجد دروس بعد', en: 'No lessons yet', fr: 'Aucune leçon pour le moment' },
     noLessonsYetSub: { ar: 'أرسل الدروس الجديدة لإضافتها هنا', en: 'Send your new lessons to add them here', fr: 'Envoyez vos nouvelles leçons pour les ajouter ici' },
+    addLesson: { ar: 'إضافة درس', en: 'Add lesson', fr: 'Ajouter une leçon' },
+    addLessonSub: { ar: 'أنشئ مجلداً جديداً للعبارات', en: 'Create a new phrase folder', fr: 'Créer un nouveau dossier de phrases' },
+    titleFr: { ar: 'العنوان بالفرنسية', en: 'Title in French', fr: 'Titre en français' },
+    titleAr: { ar: 'العنوان بالعربية', en: 'Title in Arabic', fr: 'Titre en arabe' },
+    titleEn: { ar: 'العنوان بالإنجليزية', en: 'Title in English', fr: 'Titre en anglais' },
+    phrasesLabel: { ar: 'العبارات', en: 'Phrases', fr: 'Phrases' },
+    phrasesHint: { ar: 'كل سطر: فرنسي | عربي | إنجليزي', en: 'One line: French | Arabic | English', fr: 'Une ligne : Français | Arabe | Anglais' },
+    saveLesson: { ar: 'حفظ الدرس', en: 'Save lesson', fr: 'Enregistrer la leçon' },
+    cancel: { ar: 'إلغاء', en: 'Cancel', fr: 'Annuler' },
+    deleteLesson: { ar: 'حذف الدرس', en: 'Delete lesson', fr: 'Supprimer la leçon' },
+    deleteConfirm: { ar: 'هل تريد حذف هذا الدرس؟', en: 'Delete this lesson?', fr: 'Supprimer cette leçon ?' },
+    noPhrasesError: { ar: 'لم يتم التعرف على أي عبارة. تأكد من التنسيق: فرنسي | عربي | إنجليزي', en: 'No phrases recognized. Use format: French | Arabic | English', fr: 'Aucune phrase reconnue. Format : Français | Arabe | Anglais' },
+    fillTitleError: { ar: 'أدخل العنوان بكل لغة', en: 'Please fill the title in all languages', fr: 'Veuillez remplir le titre dans toutes les langues' },
     lessonLabel: { ar: 'الدرس', en: 'Lesson', fr: 'Leçon' },
     footerText: { ar: 'تطبيق تثقيف صحي · ', en: 'Health education app · ', fr: 'Application d\'éducation sexuelle · ' },
     footerLink: { ar: 'تطبيقاتي الأخرى', en: 'My other apps', fr: 'Mes autres applications' },
@@ -420,6 +478,48 @@
 
   function phraseKey(lessonId, idx) { return lessonId + '.' + idx; }
 
+  function saveLessons() { localStorage.setItem('sexed_lessons', JSON.stringify(LESSONS)); }
+
+  function addLesson() {
+    const form = document.getElementById('add-form');
+    const title = {
+      fr: cleanPhrasePart(form.elements.titleFr.value),
+      ar: cleanPhrasePart(form.elements.titleAr.value),
+      en: cleanPhrasePart(form.elements.titleEn.value)
+    };
+    if (!title.fr || !title.ar || !title.en) { alert(t('fillTitleError')); return; }
+    const phrases = parsePhrases(form.elements.phrases.value);
+    if (!phrases.length) { alert(t('noPhrasesError')); return; }
+    const id = LESSONS.length ? Math.max(...LESSONS.map(l => l.id)) + 1 : 1;
+    LESSONS.push({ id, custom: true, title, phrases });
+    saveLessons();
+    go({ name: 'home' });
+  }
+
+  function deleteLesson(id) {
+    if (!confirm(t('deleteConfirm'))) return;
+    LESSONS = LESSONS.filter(l => l.id !== id);
+    saveLessons();
+    go({ name: 'home' }, false);
+  }
+
+  function renderAdd() {
+    const html = `<div class="breadcrumb"><button data-route='${JSON.stringify({ name: 'home' })}'>${t('lessonsLabel')}</button><span>›</span><span>${t('addLesson')}</span></div>
+      <div class="lesson-head"><h2>${t('addLesson')}</h2></div>
+      <form id="add-form" class="form-card">
+        <div class="form-group"><label data-t="titleFr">${t('titleFr')}</label><input name="titleFr" required placeholder="Ex: Les organes génitaux"></div>
+        <div class="form-group"><label data-t="titleAr">${t('titleAr')}</label><input name="titleAr" required placeholder="مثال: الأعضاء التناسلية" dir="rtl"></div>
+        <div class="form-group"><label data-t="titleEn">${t('titleEn')}</label><input name="titleEn" required placeholder="Ex: Genital organs"></div>
+        <div class="form-group"><label data-t="phrasesLabel">${t('phrasesLabel')}</label><textarea name="phrases" rows="10" placeholder="vagin | المهبل | vagina" required></textarea><div class="hint" data-t="phrasesHint">${t('phrasesHint')}</div></div>
+        <div class="form-actions">
+          <button type="submit" class="btn">${t('saveLesson')}</button>
+          <button type="button" class="btn ghost" data-route='${JSON.stringify({ name: 'home' })}'>${t('cancel')}</button>
+        </div>
+      </form>`;
+    view.innerHTML = html;
+    applyTranslations();
+  }
+
   function phraseHTML(p, key) {
     return `<div class="phrase" data-key="${key}">
       <div class="phrase-top">
@@ -440,8 +540,16 @@
 
   function renderHome() {
     const placeholder = !LESSONS.length ? `<div class="no-lessons"><div class="icon">📝</div><div class="card-title">${t('noLessonsYetTitle')}</div><div class="sub">${t('noLessonsYetSub')}</div></div>` : '';
+    const addCard = `<div class="card add-card" data-route='${JSON.stringify({ name: 'add' })}'>
+      <div class="num">+</div>
+      <div class="card-body">
+        <div class="card-title">${t('addLesson')}</div>
+        <div class="card-sub">${t('addLessonSub')}</div>
+      </div>
+      <div class="chev">${chevron()}</div>
+    </div>`;
     const html = `<div class="hero"><h1 data-t="heroTitle">${t('heroTitle')}</h1><p data-t="heroSub">${t('heroSub')}</p></div>
-      <div class="breadcrumb"><span>${t('lessonsLabel')}</span></div>` + placeholder +
+      <div class="breadcrumb"><span>${t('lessonsLabel')}</span></div>` + addCard + placeholder +
       LESSONS.map(l => `<div class="card lesson-card" data-lesson="${l.id}">
         <div class="num">${l.id}</div>
         <div class="card-body">
@@ -449,6 +557,7 @@
           <div class="card-sub" dir="ltr">${subtitle(l.title)}</div>
           <div class="card-sub">${l.phrases.length} ${t('phrases')}</div>
         </div>
+        <button class="delete-btn" data-lesson="${l.id}" title="${t('deleteLesson')}">🗑️</button>
         <div class="chev">${chevron()}</div>
       </div>`).join('');
     view.innerHTML = html;
@@ -526,6 +635,9 @@
 
   function bindViewEvents() {
     view.addEventListener('click', e => {
+      const del = e.target.closest('.delete-btn');
+      if (del) { e.stopPropagation(); deleteLesson(+del.dataset.lesson); return; }
+
       const card = e.target.closest('.lesson-card');
       if (card) { go({ name: 'lesson', lesson: +card.dataset.lesson }); return; }
 
@@ -560,19 +672,21 @@
     stopSpeech();
     state.route = route;
     if (push) {
-      const hash = route.name === 'home' ? '#/' : route.name === 'lesson' ? `#/lesson/${route.lesson}` : route.name === 'favs' ? '#/favs' : '#/';
+      const hash = route.name === 'home' ? '#/' : route.name === 'lesson' ? `#/lesson/${route.lesson}` : route.name === 'favs' ? '#/favs' : route.name === 'add' ? '#/add' : '#/';
       if (location.hash !== hash) location.hash = hash;
     }
     if (route.name === 'home') renderHome();
     else if (route.name === 'lesson') renderLesson(route.lesson);
     else if (route.name === 'favs') renderFavs();
     else if (route.name === 'search') renderSearch(route.q);
+    else if (route.name === 'add') renderAdd();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function parseHash() {
     const h = location.hash || '#/';
     if (h === '#/favs') return { name: 'favs' };
+    if (h === '#/add') return { name: 'add' };
     const m = h.match(/#\/lesson\/(\d+)/);
     if (m) return { name: 'lesson', lesson: +m[1] };
     return { name: 'home' };
@@ -591,6 +705,7 @@
       else go({ name: 'home' }, false);
     });
     window.addEventListener('hashchange', () => { go(parseHash(), false); });
+    view.addEventListener('submit', e => { if (e.target.id === 'add-form') { e.preventDefault(); addLesson(); } });
     bindViewEvents();
     setTheme(state.theme);
     setUILang(state.uiLang);
