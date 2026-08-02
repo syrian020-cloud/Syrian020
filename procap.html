@@ -533,7 +533,7 @@
   const BIENVENUE_LESSON = {
     type: 'lesson',
     protected: true,
-    title: { fr: 'Bienvenue' },
+    title: { fr: 'Bienvenue', ar: 'مرحباً', en: 'Welcome' },
     image: 'bienvenue-lesson.jpg',
     phrases: [
       { fr: "Bienvenue dans notre application d'apprentissage du français", ar: 'مرحبًا بك في تطبيقنا لتعلّم اللغة الفرنسية', en: 'Welcome to our French learning app' },
@@ -631,7 +631,9 @@
     addLesson: { ar: 'إضافة درس', en: 'Add lesson', fr: 'Ajouter une leçon' },
     addLessonSub: { ar: 'أنشئ درساً جديداً', en: 'Create a new lesson', fr: 'Créer une nouvelle leçon' },
     addLessonTitle: { ar: 'درس جديد', en: 'New lesson', fr: 'Nouvelle leçon' },
-    title: { ar: 'العنوان (من 1 إلى 3 لغات)', en: 'Title (1 to 3 languages)', fr: 'Titre (1 à 3 langues)' },
+    title: { ar: 'العنوان', en: 'Title', fr: 'Titre' },
+    titleHint: { ar: 'يمكن إدخال لغة واحدة أو أكثر (فرنسي | عربي | إنجليزي)', en: 'One or more languages (French | Arabic | English)', fr: 'Une ou plusieurs langues (Français | Arabe | Anglais)' },
+    titlePlaceholder: { ar: 'مثال: الدرس الأول', en: 'Ex: First lesson', fr: 'Ex: Première leçon' },
     phrasesLabel: { ar: 'العبارات', en: 'Phrases', fr: 'Phrases' },
     phrasesHint: { ar: 'كل سطر: فرنسي/إنجليزي ثم عربي ثم الآخر. يقبل | , = → : - ومسافات/Tab', en: 'One line: French/English then Arabic then the other. Supports | , = → : - and spaces/tabs', fr: 'Une ligne : Français/Anglais puis Arabe puis l\'autre. Accepte | , = → : - et espaces/tab' },
     inputExamples: { ar: 'نماذج الإدخال', en: 'Input examples', fr: 'Exemples de saisie' },
@@ -1274,7 +1276,7 @@
     const html = `<div class="breadcrumb"><button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button><span>›</span><span>${t('addFolder')}</span></div>
       <div class="lesson-head"><h2>${t('addFolderTitle')}</h2></div>
       <form id="add-folder-form" class="form-card">
-        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required placeholder="Ex: Anatomie"></div>
+        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required placeholder="${t('titlePlaceholder')}"><div class="hint" data-t="titleHint">${t('titleHint')}</div></div>
         <div class="form-actions">
           <button type="submit" class="btn" data-t="saveFolder">${t('saveFolder')}</button>
           <button type="button" class="btn ghost" data-route='${JSON.stringify({ name: 'home' })}' data-t="cancel">${t('cancel')}</button>
@@ -1294,7 +1296,7 @@
       <div class="lesson-head"><h2>${t('addLessonTitle')}</h2></div>
       <form id="add-lesson-form" class="form-card">
         <input type="hidden" name="folderId" value="${folderId || ''}">
-        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required placeholder="Ex: Les organes génitaux"></div>
+        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required placeholder="${t('titlePlaceholder')}"><div class="hint" data-t="titleHint">${t('titleHint')}</div></div>
         <div class="form-group"><label data-t="pasteOrder">${t('pasteOrder')}</label><select name="order" class="ctl"><option value="auto" data-t="orderAuto" selected>${t('orderAuto')}</option><option value="fr-ar-en" data-t="orderFrFirst">${t('orderFrFirst')}</option><option value="en-ar-fr" data-t="orderEnFirst">${t('orderEnFirst')}</option></select></div>
         <div class="form-group"><button type="button" class="btn ghost info-btn" data-info="phrases" style="font-size:0.85rem;padding:0.35rem 0.7rem;margin-bottom:0.4rem">ℹ ${t('inputExamples')}</button><label data-t="phrasesLabel">${t('phrasesLabel')}</label><textarea name="phrases" rows="10" placeholder="French | Arabic | English" required></textarea><div class="hint" data-t="phrasesHint">${t('phrasesHint')}</div></div>
         <div class="form-actions">
@@ -1319,7 +1321,7 @@
     const html = `<div class="breadcrumb">${breadcrumb}</div>
       <div class="lesson-head"><h2>${t('editLessonTitle')}</h2></div>
       <form id="edit-lesson-form" class="form-card" data-id="${lesson.id}" data-parent="${parent ? parent.id : ''}">
-        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required value="${esc(titleText)}" placeholder="Ex: Les organes génitaux"></div>
+        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required value="${esc(titleText)}" placeholder="${t('titlePlaceholder')}"><div class="hint" data-t="titleHint">${t('titleHint')}</div></div>
         <div class="form-group"><button type="button" class="btn ghost info-btn" data-info="phrases" style="font-size:0.85rem;padding:0.35rem 0.7rem;margin-bottom:0.4rem">ℹ ${t('inputExamples')}</button><label data-t="phrasesLabel">${t('phrasesLabel')}</label><textarea name="phrases" rows="10" required>${esc(phrasesText)}</textarea><div class="hint" data-t="phrasesHint">${t('phrasesHint')}</div></div>
         <div class="form-actions">
           <button type="submit" class="btn" data-t="save">${t('save')}</button>
