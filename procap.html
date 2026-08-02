@@ -554,11 +554,16 @@
   };
 
   function ensureBuiltInLesson() {
-    const exists = LESSONS.some(it => it.type === 'lesson' && it.protected);
-    if (exists) return;
-    const lesson = JSON.parse(JSON.stringify(BIENVENUE_LESSON));
-    lesson.id = nextId();
-    LESSONS.unshift(lesson);
+    const builtIn = JSON.parse(JSON.stringify(BIENVENUE_LESSON));
+    const existing = LESSONS.find(it => it.type === 'lesson' && it.protected);
+    if (existing) {
+      existing.title = builtIn.title;
+      existing.phrases = builtIn.phrases;
+      if (!existing.image) existing.image = builtIn.image;
+    } else {
+      builtIn.id = nextId();
+      LESSONS.unshift(builtIn);
+    }
     saveLessons();
   }
 
