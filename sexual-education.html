@@ -289,17 +289,38 @@
 
   function saveLessons() { localStorage.setItem('sexed_lessons', JSON.stringify(LESSONS)); }
 
-  function exportLessons() {
+  async function exportLessons() {
     const data = JSON.stringify(LESSONS, null, 2);
-    const blob = new Blob([data], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
+    const file = new File([data], 'sexed-lessons.json', { type: 'application/json' });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share({ files: [file], title: 'sexed-lessons' });
+        showToast(t('exportSuccess'));
+        return;
+      } catch (e) { if (e && e.name === 'AbortError') return; }
+    }
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: 'sexed-lessons', text: data });
+        showToast(t('exportSuccess'));
+        return;
+      } catch (e) { if (e && e.name === 'AbortError') return; }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      try {
+        await navigator.clipboard.writeText(data);
+        showToast(t('exportCopied'));
+        return;
+      } catch (e) {}
+    }
+    const url = URL.createObjectURL(file);
     const a = document.createElement('a');
     a.href = url;
     a.download = 'sexed-lessons.json';
     document.body.appendChild(a);
     a.click();
     a.remove();
-    URL.revokeObjectURL(url);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
     showToast(t('exportSuccess'));
   }
 
@@ -521,6 +542,7 @@
     export: { ar: 'تصدير', en: 'Export', fr: 'Exporter' },
     import: { ar: 'استيراد', en: 'Import', fr: 'Importer' },
     exportSuccess: { ar: 'تم تصدير الدروس', en: 'Lessons exported', fr: 'Leçons exportées' },
+    exportCopied: { ar: 'تم نسخ البيانات — الصقها في ملف نصي', en: 'Data copied — paste into a text file', fr: 'Données copiées — collez dans un fichier texte' },
     importSuccess: { ar: 'تم استيراد الدروس', en: 'Lessons imported', fr: 'Leçons importées' },
     importError: { ar: 'ملف غير صالح', en: 'Invalid file', fr: 'Fichier invalide' },
     importConfirm: { ar: 'سيحل محتوى الملف محل الدروس الحالية. متابعة؟', en: 'This will replace current lessons. Continue?', fr: 'Cela remplacera les leçons actuelles. Continuer ?' },
@@ -921,8 +943,8 @@
       <div class="chev">${chevron()}</div>
     </div>`;
     const importExport = `<div class="lesson-actions" style="margin-top:0.5rem; margin-bottom:0.5rem">
-      <button class="btn ghost" id="btn-export" data-t="export">${t('export')}</button>
-      <label for="import-file" class="btn ghost" style="display:inline-flex; align-items:center; cursor:pointer" data-t="import">${t('import')}</label>
+      <button class="btn ghost" id="btn-export"><span style="display:inline-flex; direction:ltr; gap:0.35rem; align-items:center"><span>📤</span><span data-t="export">${t('export')}</span></span></button>
+      <label for="import-file" class="btn ghost" style="display:inline-flex; align-items:center; cursor:pointer"><span style="display:inline-flex; direction:ltr; gap:0.35rem; align-items:center"><span>📥</span><span data-t="import">${t('import')}</span></span></label>
       <input type="file" id="import-file" accept=".json,application/json" style="display:none">
     </div>`;
     const html = `<div class="hero"><h1 data-t="heroTitle">${t('heroTitle')}</h1><p data-t="heroSub">${t('heroSub')}</p></div>
