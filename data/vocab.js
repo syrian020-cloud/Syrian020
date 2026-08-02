@@ -155,7 +155,7 @@ window.VOCAB_DATA = [
 { fr: "l'accueil", ar: "الاستقبال / الترحيب", en: "reception / welcome", level: "B1", contexts: ["ofii", "ofpra", "redcross", "daily"] },
 { fr: "la formation civique", ar: "التدريب المدني", en: "civic training", level: "B2", contexts: ["ofii"] },
 { fr: "le contrat d'intégration républicaine (CIR)", ar: "عقد الاندماج الجمهوري", en: "Republican Integration Contract (CIR)", level: "B2", contexts: ["ofii"] },
-{ fr: " signer le CIR", ar: "توقيع عقد الاندماج", en: "to sign the CIR", level: "B2", contexts: ["ofii"] },
+{ fr: "signer le CIR", ar: "توقيع عقد الاندماج", en: "to sign the CIR", level: "B2", contexts: ["ofii"] },
 { fr: "la OFPRA", ar: "مكتب حماية اللاجئين", en: "OFPRA (asylum office)", level: "B1", contexts: ["ofpra"], ex: { fr: "J'ai déposé ma demande à la OFPRA.", ar: "قدمت طلبي لدى OFPRA.", en: "I submitted my application to OFPRA." } },
 { fr: "une demande d'asile", ar: "طلب لجوء", en: "asylum application", level: "B1", contexts: ["ofpra", "redcross"] },
 { fr: "un demandeur d'asile", ar: "طالب لجوء", en: "an asylum seeker", level: "B1", contexts: ["ofpra", "redcross"] },
@@ -864,7 +864,7 @@ window.VOCAB_DATA = [
 { fr: "transmettre", ar: "يرسل / ينقل", en: "to transmit", level: "B1", contexts: ["work", "prefecture"] },
 { fr: "instruire un dossier", ar: "دراسة ملف", en: "to process a file", level: "B2", contexts: ["prefecture", "ofpra"] },
 { fr: "statuer sur", ar: "البت في", en: "to rule on", level: "B2", contexts: ["prefecture", "ofpra"] },
-{ fr: " notifier", ar: "يبلّغ", en: "to notify", level: "B2", contexts: ["prefecture", "ofpra"] },
+{ fr: "notifier", ar: "يبلّغ", en: "to notify", level: "B2", contexts: ["prefecture", "ofpra"] },
 
 // ============================================================
 // A2-B1 — Integration & life in France
