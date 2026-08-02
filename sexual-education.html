@@ -462,9 +462,21 @@
     return 'fr-ar-en';
   }
 
-  function parseTitle(text, userOrder = 'auto') {
-    const phrases = parsePhrases(text, userOrder);
-    return phrases[0] || null;
+  function formatTitle(obj) {
+    if (!obj) return '';
+    const seen = new Set();
+    const parts = [];
+    [obj.fr, obj.ar, obj.en].forEach(v => { if (v && !seen.has(v)) { seen.add(v); parts.push(v); } });
+    return parts.join(' | ');
+  }
+
+  function parseTitle(text) {
+    const s = String(text).trim();
+    if (!s) return null;
+    const p = parsePhrases(s, 'auto');
+    if (p && p[0]) return p[0];
+    const value = s.replace(/\s*[|=,→:;\-]+\s*/g, ' ').trim();
+    return { fr: value, ar: value, en: value };
   }
 
   function parsePhrases(text, userOrder = 'auto') {
@@ -557,7 +569,7 @@
     addLesson: { ar: 'إضافة درس', en: 'Add lesson', fr: 'Ajouter une leçon' },
     addLessonSub: { ar: 'أنشئ درساً جديداً', en: 'Create a new lesson', fr: 'Créer une nouvelle leçon' },
     addLessonTitle: { ar: 'درس جديد', en: 'New lesson', fr: 'Nouvelle leçon' },
-    title: { ar: 'العنوان (فرنسي | عربي | إنجليزي)', en: 'Title (French | Arabic | English)', fr: 'Titre (Français | Arabe | Anglais)' },
+    title: { ar: 'العنوان (بلغة واحدة)', en: 'Title (one language)', fr: 'Titre (une seule langue)' },
     phrasesLabel: { ar: 'العبارات', en: 'Phrases', fr: 'Phrases' },
     phrasesHint: { ar: 'كل سطر: فرنسي/إنجليزي ثم عربي ثم الآخر. يقبل | , = → : - ومسافات/Tab', en: 'One line: French/English then Arabic then the other. Supports | , = → : - and spaces/tabs', fr: 'Une ligne : Français/Anglais puis Arabe puis l\'autre. Accepte | , = → : - et espaces/tab' },
     pasteOrder: { ar: 'ترتيب الأعمدة', en: 'Column order', fr: 'Ordre des colonnes' },
@@ -572,7 +584,7 @@
     deleteConfirm: { ar: 'هل تريد حذف هذا الدرس؟', en: 'Delete this lesson?', fr: 'Supprimer cette leçon ?' },
     deleteFolderConfirm: { ar: 'هل تريد حذف هذا المجلد ودروسه؟', en: 'Delete this folder and its lessons?', fr: 'Supprimer ce dossier et ses leçons ?' },
     noPhrasesError: { ar: 'لم يتم التعرف على أي عبارة. تأكد من التنسيق: فرنسي | عربي | إنجليزي', en: 'No phrases recognized. Use format: French | Arabic | English', fr: 'Aucune phrase reconnue. Format : Français | Arabe | Anglais' },
-    fillTitleError: { ar: 'أدخل العنوان بالتنسيق: فرنسي | عربي | إنجليزي', en: 'Enter title in format: French | Arabic | English', fr: 'Entrez le titre au format : Français | Arabe | Anglais' },
+    fillTitleError: { ar: 'أدخل العنوان بلغة واحدة (فرنسي أو عربي أو إنجليزي)', en: 'Enter the title in one language (French, Arabic, or English)', fr: 'Entrez le titre dans une seule langue (français, arabe ou anglais)' },
     actions: { ar: 'إجراءات', en: 'Actions', fr: 'Actions' },
     edit: { ar: 'تعديل', en: 'Edit', fr: 'Modifier' },
     setImage: { ar: 'ضبط صورة', en: 'Set image', fr: 'Définir l’image' },
@@ -636,9 +648,10 @@
 
   function subtitle(obj) {
     if (!obj) return '';
-    if (state.uiLang === 'ar') return esc(obj.fr) + ' · ' + esc(obj.en);
-    if (state.uiLang === 'en') return esc(obj.fr) + ' · ' + esc(obj.ar);
-    return esc(obj.ar) + ' · ' + esc(obj.en);
+    const seen = new Set();
+    const parts = [];
+    [obj.fr, obj.ar, obj.en].forEach(v => { if (v && !seen.has(v)) { seen.add(v); parts.push(esc(v)); } });
+    return parts.join(' · ');
   }
 
   function chevron() { return document.documentElement.dir === 'rtl' ? '‹' : '›'; }
@@ -968,7 +981,7 @@
     if (type === 'folder') {
       const folder = findFolder(id);
       if (!folder) return;
-      const ttl = parseTitle(prompt(t('editFolderTitle'), `${folder.title.fr} | ${folder.title.ar} | ${folder.title.en}`) || '', 'auto');
+      const ttl = parseTitle(prompt(t('editFolderTitle'), formatTitle(folder.title)) || '');
       if (!ttl) return;
       folder.title = ttl;
       saveLessons();
@@ -981,7 +994,7 @@
 
   function addFolder() {
     const form = document.getElementById('add-folder-form');
-    const ttl = parseTitle(form.elements.title.value, 'auto');
+    const ttl = parseTitle(form.elements.title.value);
     if (!ttl) { alert(t('fillTitleError')); return; }
     LESSONS.push({ id: nextId(), type: 'folder', title: ttl, lessons: [] });
     saveLessons();
@@ -991,7 +1004,7 @@
 
   function addLesson() {
     const form = document.getElementById('add-lesson-form');
-    const ttl = parseTitle(form.elements.title.value, 'auto');
+    const ttl = parseTitle(form.elements.title.value);
     if (!ttl) { alert(t('fillTitleError')); return; }
     const folderId = +form.elements.folderId.value || 0;
     const folder = folderId ? findFolder(folderId) : null;
@@ -1190,7 +1203,7 @@
     const html = `<div class="breadcrumb"><button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button><span>›</span><span>${t('addFolder')}</span></div>
       <div class="lesson-head"><h2>${t('addFolderTitle')}</h2></div>
       <form id="add-folder-form" class="form-card">
-        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required placeholder="Ex: Anatomie | التشريح | Anatomy"></div>
+        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required placeholder="Ex: Anatomie"></div>
         <div class="form-actions">
           <button type="submit" class="btn" data-t="saveFolder">${t('saveFolder')}</button>
           <button type="button" class="btn ghost" data-route='${JSON.stringify({ name: 'home' })}' data-t="cancel">${t('cancel')}</button>
@@ -1210,7 +1223,7 @@
       <div class="lesson-head"><h2>${t('addLessonTitle')}</h2></div>
       <form id="add-lesson-form" class="form-card">
         <input type="hidden" name="folderId" value="${folderId || ''}">
-        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required placeholder="Ex: Les organes génitaux | الأعضاء التناسلية | Genital organs"></div>
+        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required placeholder="Ex: Les organes génitaux"></div>
         <div class="form-group"><label data-t="pasteOrder">${t('pasteOrder')}</label><select name="order" class="ctl"><option value="auto" data-t="orderAuto" selected>${t('orderAuto')}</option><option value="fr-ar-en" data-t="orderFrFirst">${t('orderFrFirst')}</option><option value="en-ar-fr" data-t="orderEnFirst">${t('orderEnFirst')}</option></select></div>
         <div class="form-group"><label data-t="phrasesLabel">${t('phrasesLabel')}</label><textarea name="phrases" rows="10" placeholder="French | Arabic | English" required></textarea><div class="hint" data-t="phrasesHint">${t('phrasesHint')}</div></div>
         <div class="form-actions">
@@ -1231,11 +1244,11 @@
     breadcrumb += `<span>›</span><span>${t('edit')}</span>`;
     const cancelRoute = parent ? { name: 'folder', folder: parent.id } : { name: 'home' };
     const phrasesText = lesson.phrases.map(p => `${p.fr} | ${p.ar} | ${p.en}`).join('\n');
-    const titleText = `${lesson.title.fr} | ${lesson.title.ar} | ${lesson.title.en}`;
+    const titleText = formatTitle(lesson.title);
     const html = `<div class="breadcrumb">${breadcrumb}</div>
       <div class="lesson-head"><h2>${t('editLessonTitle')}</h2></div>
       <form id="edit-lesson-form" class="form-card" data-id="${lesson.id}" data-parent="${parent ? parent.id : ''}">
-        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required value="${esc(titleText)}"></div>
+        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required value="${esc(titleText)}" placeholder="Ex: Les organes génitaux"></div>
         <div class="form-group"><label data-t="phrasesLabel">${t('phrasesLabel')}</label><textarea name="phrases" rows="10" required>${esc(phrasesText)}</textarea><div class="hint" data-t="phrasesHint">${t('phrasesHint')}</div></div>
         <div class="form-actions">
           <button type="submit" class="btn" data-t="save">${t('save')}</button>
@@ -1248,7 +1261,7 @@
 
   function updateLesson() {
     const form = document.getElementById('edit-lesson-form');
-    const ttl = parseTitle(form.elements.title.value, 'auto');
+    const ttl = parseTitle(form.elements.title.value);
     if (!ttl) { alert(t('fillTitleError')); return; }
     const phrases = parsePhrases(form.elements.phrases.value, 'auto');
     if (!phrases.length) { alert(t('noPhrasesError')); return; }
