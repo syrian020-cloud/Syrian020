@@ -582,6 +582,7 @@
     title: { ar: 'العنوان (من 1 إلى 3 لغات)', en: 'Title (1 to 3 languages)', fr: 'Titre (1 à 3 langues)' },
     phrasesLabel: { ar: 'العبارات', en: 'Phrases', fr: 'Phrases' },
     phrasesHint: { ar: 'كل سطر: فرنسي/إنجليزي ثم عربي ثم الآخر. يقبل | , = → : - ومسافات/Tab', en: 'One line: French/English then Arabic then the other. Supports | , = → : - and spaces/tabs', fr: 'Une ligne : Français/Anglais puis Arabe puis l\'autre. Accepte | , = → : - et espaces/tab' },
+    inputExamples: { ar: 'نماذج الإدخال', en: 'Input examples', fr: 'Exemples de saisie' },
     pasteOrder: { ar: 'ترتيب الأعمدة', en: 'Column order', fr: 'Ordre des colonnes' },
     orderAuto: { ar: 'تلقائي', en: 'Auto', fr: 'Auto' },
     orderFrFirst: { ar: 'فرنسي | عربي | إنجليزي', en: 'French | Arabic | English', fr: 'Français | Arabe | Anglais' },
@@ -1230,7 +1231,7 @@
         <input type="hidden" name="folderId" value="${folderId || ''}">
         <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required placeholder="Ex: Les organes génitaux"></div>
         <div class="form-group"><label data-t="pasteOrder">${t('pasteOrder')}</label><select name="order" class="ctl"><option value="auto" data-t="orderAuto" selected>${t('orderAuto')}</option><option value="fr-ar-en" data-t="orderFrFirst">${t('orderFrFirst')}</option><option value="en-ar-fr" data-t="orderEnFirst">${t('orderEnFirst')}</option></select></div>
-        <div class="form-group"><label data-t="phrasesLabel">${t('phrasesLabel')}</label><textarea name="phrases" rows="10" placeholder="French | Arabic | English" required></textarea><div class="hint" data-t="phrasesHint">${t('phrasesHint')}</div></div>
+        <div class="form-group"><button type="button" class="btn ghost info-btn" data-info="phrases" style="font-size:0.85rem;padding:0.35rem 0.7rem;margin-bottom:0.4rem">ℹ ${t('inputExamples')}</button><label data-t="phrasesLabel">${t('phrasesLabel')}</label><textarea name="phrases" rows="10" placeholder="French | Arabic | English" required></textarea><div class="hint" data-t="phrasesHint">${t('phrasesHint')}</div></div>
         <div class="form-actions">
           <button type="submit" class="btn" data-t="saveLesson">${t('saveLesson')}</button>
           <button type="button" class="btn ghost" data-route='${JSON.stringify(cancelRoute)}' data-t="cancel">${t('cancel')}</button>
@@ -1254,7 +1255,7 @@
       <div class="lesson-head"><h2>${t('editLessonTitle')}</h2></div>
       <form id="edit-lesson-form" class="form-card" data-id="${lesson.id}" data-parent="${parent ? parent.id : ''}">
         <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required value="${esc(titleText)}" placeholder="Ex: Les organes génitaux"></div>
-        <div class="form-group"><label data-t="phrasesLabel">${t('phrasesLabel')}</label><textarea name="phrases" rows="10" required>${esc(phrasesText)}</textarea><div class="hint" data-t="phrasesHint">${t('phrasesHint')}</div></div>
+        <div class="form-group"><button type="button" class="btn ghost info-btn" data-info="phrases" style="font-size:0.85rem;padding:0.35rem 0.7rem;margin-bottom:0.4rem">ℹ ${t('inputExamples')}</button><label data-t="phrasesLabel">${t('phrasesLabel')}</label><textarea name="phrases" rows="10" required>${esc(phrasesText)}</textarea><div class="hint" data-t="phrasesHint">${t('phrasesHint')}</div></div>
         <div class="form-actions">
           <button type="submit" class="btn" data-t="save">${t('save')}</button>
           <button type="button" class="btn ghost" data-route='${JSON.stringify(cancelRoute)}' data-t="cancel">${t('cancel')}</button>
@@ -1280,10 +1281,27 @@
     go({ name: 'lesson', lesson: id });
   }
 
+  function showPhraseExamples() {
+    const examples = [
+      'Bonjour | مرحبا | Hello',
+      'Comment allez-vous → كيف حالك → How are you',
+      'Je voudrais = أريد = I would like',
+      'Merci, شكرا, Thank you',
+      'Au revoir: مع السلامة: Goodbye',
+      'Pomme - تفاحة - Apple',
+      'Où sont les toilettes أين الحمام Where is the bathroom',
+      'English | Arabic | French'
+    ].join('\n');
+    alert('Examples / نماذج / Exemples:\n\n' + examples);
+  }
+
   function bindViewEvents() {
     view.addEventListener('click', e => {
       const exportBtn = e.target.closest('#btn-export');
       if (exportBtn) { e.stopPropagation(); exportLessons(); return; }
+
+      const infoBtn = e.target.closest('[data-info]');
+      if (infoBtn) { e.stopPropagation(); showPhraseExamples(); return; }
 
       const menuBtn = e.target.closest('[data-menu]');
       if (menuBtn) { e.stopPropagation(); openActionSheet(+menuBtn.dataset.menu, menuBtn.dataset.type); return; }
