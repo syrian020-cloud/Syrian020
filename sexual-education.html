@@ -574,7 +574,7 @@
   function openTTSInstall() {
     const tts = nativeTTS();
     if (!tts || !tts.openInstall) return;
-    tts.openInstall().catch(() => {}).then(() => { setTimeout(checkNativeTTS, 1500); });
+    tts.openInstall().catch(() => {}).then(() => { setTimeout(checkNativeTTS, 3000); });
   }
 
   async function supportsLangTag(tts, tags) {
@@ -587,20 +587,25 @@
     return null;
   }
 
-  async function checkNativeTTS() {
+  async function checkNativeTTS(retry = 0) {
     const tts = nativeTTS();
     if (!tts) {
       state.ttsAvailable = false;
-      if (!webTTS()) showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
+      if (!('speechSynthesis' in window)) showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
       return;
     }
     try {
       let frTag = await supportsLangTag(tts, ['fr-FR','fr','fra','fr-CA','fr-CH']);
+      let langs = [];
       if (!frTag) {
         const r = await tts.getSupportedLanguages().catch(() => ({}));
-        const langs = ((r && r.languages) || []).map(l => String(l).toLowerCase());
+        langs = ((r && r.languages) || []).map(l => String(l).toLowerCase());
         const pick = (tags) => tags.find(tag => langs.includes(tag.toLowerCase()));
         frTag = pick(['fr-FR','fr','fra','fr-CA','fr-CH']);
+      }
+      if (!frTag && retry < 8) {
+        setTimeout(() => checkNativeTTS(retry + 1), 600);
+        return;
       }
       if (!frTag) {
         state.ttsAvailable = false;
@@ -615,8 +620,12 @@
       state.ttsAvailable = true;
       hideTTSBanner();
     } catch (e) {
-      state.ttsAvailable = false;
-      showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
+      if (retry < 8) {
+        setTimeout(() => checkNativeTTS(retry + 1), 600);
+      } else {
+        state.ttsAvailable = false;
+        showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
+      }
     }
   }
 
@@ -624,7 +633,9 @@
     const tts = nativeTTS();
     if (!tts) return Promise.reject('no tts');
     const tag = (state.voiceLang && state.voiceLang[lang]) || VOICE_LANG[lang] || 'en-US';
-    return tts.speak({ text: text, lang: tag, rate: state.rate || 1, queueStrategy: 1 });
+    const p = tts.speak({ text: text, lang: tag, rate: state.rate || 1 });
+    const timeout = new Promise((_, reject) => setTimeout(() => reject('timeout'), 7000));
+    return Promise.race([p, timeout]);
   }
 
   function nativeStop() {
@@ -632,7 +643,12 @@
     if (tts) tts.stop().catch(() => {});
   }
 
-  function webTTS() { return ('speechSynthesis' in window) ? window.speechSynthesis : null; }
+  function webTTS() {
+    const synth = window.speechSynthesis;
+    if (!synth) return null;
+    const voices = synth.getVoices();
+    return (voices && voices.length) ? synth : null;
+  }
 
   function webSpeak(text, lang) {
     const synth = webTTS();
@@ -641,8 +657,10 @@
     u.lang = (state.voiceLang && state.voiceLang[lang]) || VOICE_LANG[lang] || 'en-US';
     u.rate = state.rate || 1;
     return new Promise((resolve, reject) => {
-      u.onend = resolve;
-      u.onerror = reject;
+      let settled = false;
+      u.onend = () => { if (!settled) { settled = true; clearTimeout(timer); resolve(); } };
+      u.onerror = () => { if (!settled) { settled = true; clearTimeout(timer); reject('web tts error'); } };
+      const timer = setTimeout(() => { if (!settled) { settled = true; resolve(); } }, 2500);
       synth.speak(u);
     });
   }
@@ -659,7 +677,21 @@
     if (synth) synth.cancel();
   }
 
-  function anyTTSAvailable() { return speakSupported() || !!webTTS(); }
+  function anyTTSAvailable() {
+    if (nativeTTS()) return speakSupported();
+    return !!webTTS();
+  }
+
+  async function prepareTTS() {
+    if (anyTTSAvailable()) return true;
+    if (!nativeTTS() && !('speechSynthesis' in window)) return false;
+    if (nativeTTS()) checkNativeTTS();
+    for (let i = 0; i < 12; i++) {
+      await new Promise(r => setTimeout(r, 450));
+      if (anyTTSAvailable()) return true;
+    }
+    return false;
+  }
 
   function speakSupported() { return !!nativeTTS() && state.ttsAvailable; }
 
@@ -672,21 +704,19 @@
   }
 
   function showTTSHelp() {
+    stopSpeech();
     if (isAndroid()) alert(t('ttsInstallMessage'));
   }
 
-  function speakOnce(phrase, langs, key, onDone) {
-    if (!anyTTSAvailable()) {
-      openTTSInstall();
-      showTTSHelp();
-      highlight(null);
-      return;
-    }
+  async function speakOnce(phrase, langs, key, onDone) {
+    const run = ++speechRun;
+    anyStop();
+    const ready = await prepareTTS();
+    if (run !== speechRun) return;
+    if (!ready) { openTTSInstall(); showTTSHelp(); highlight(null); return; }
     const seq = langs.filter(l => phrase[l]);
     let i = 0;
     let firstError = true;
-    const run = ++speechRun;
-    anyStop();
     (function next() {
       if (run !== speechRun) return;
       if (i >= seq.length) { highlight(null); if (onDone) onDone(); return; }
@@ -699,13 +729,10 @@
     })();
   }
 
-  function toggleLoop(phrase, key) {
+  async function toggleLoop(phrase, key) {
     if (state.loop && state.loop.key === key) { stopSpeech(); return; }
-    if (!anyTTSAvailable()) {
-      openTTSInstall();
-      showTTSHelp();
-      return;
-    }
+    const ready = await prepareTTS();
+    if (!ready) { openTTSInstall(); showTTSHelp(); return; }
     state.loop = { key: key };
     refreshButtons();
     (function cycle() {
@@ -931,12 +958,9 @@
     document.getElementById('stop-all').onclick = stopSpeech;
   }
 
-  function playLesson(lesson) {
-    if (!anyTTSAvailable()) {
-      openTTSInstall();
-      showTTSHelp();
-      return;
-    }
+  async function playLesson(lesson) {
+    const ready = await prepareTTS();
+    if (!ready) { openTTSInstall(); showTTSHelp(); return; }
     stopSpeech();
     let i = 0;
     const runKey = 'lesson:' + lesson.id;
