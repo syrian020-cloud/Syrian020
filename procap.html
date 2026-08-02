@@ -325,27 +325,27 @@
 
   async function exportLessons() {
     const data = JSON.stringify(LESSONS, null, 2);
-    const file = new File([data], 'procap-lessons.json', { type: 'application/json' });
-    if (navigator.share) {
+    const filename = 'procap-lessons.json';
+    if (typeof Capacitor !== 'undefined' && Capacitor.Plugins && Capacitor.Plugins.Filesystem && Capacitor.Plugins.Share) {
       try {
-        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-          await navigator.share({ files: [file], title: 'procap-lessons' });
-        } else {
-          await navigator.share({ title: 'procap-lessons', text: data });
-        }
+        const { Filesystem, Share } = Capacitor.Plugins;
+        const dir = (Filesystem.Directory && Filesystem.Directory.Cache) ? Filesystem.Directory.Cache : 'CACHE';
+        await Filesystem.writeFile({ path: filename, data: data, directory: dir, encoding: 'utf8' });
+        const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
+        await Share.share({ title: 'Procap lessons', files: [uri], dialogTitle: 'Procap JSON' });
         showToast(t('exportSuccess'));
         return;
-      } catch (e) { if (e && e.name === 'AbortError') { showToast(t('exportSuccess')); return; } }
+      } catch (e) { console.error('Capacitor export failed', e); }
     }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      try {
-        await navigator.clipboard.writeText(data);
-        showToast(t('exportCopied'));
-        return;
-      } catch (e) {}
-    }
-    const url = 'data:application/json;charset=utf-8,' + encodeURIComponent(data);
-    window.open(url, '_blank');
+    const blobUrl = URL.createObjectURL(new Blob([data], { type: 'application/json' }));
+    const a = document.createElement('a');
+    a.href = blobUrl;
+    a.download = filename;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
     showToast(t('exportSuccess'));
   }
 
