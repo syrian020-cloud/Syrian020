@@ -13,14 +13,7 @@ rm -rf "$BUILD_DIR"
 mkdir -p "$WEB_DIR"
 
 # Sexual education app configuration
-cat > "$BUILD_DIR/package.json" <<'EOF'
-{
-  "name": "sexed-apk",
-  "version": "1.0.0",
-  "private": true,
-  "dependencies": {}
-}
-EOF
+cp "$ROOT_DIR/package.json" "$BUILD_DIR/package.json"
 
 cat > "$BUILD_DIR/capacitor.config.json" <<'EOF'
 {
