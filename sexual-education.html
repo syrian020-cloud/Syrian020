@@ -609,7 +609,7 @@
       }
       if (!frTag) {
         state.ttsAvailable = false;
-        showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
+        if (!webTTS()) showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
         return;
       }
       state.voiceLang = {
@@ -679,17 +679,16 @@
   }
 
   function anyTTSAvailable() {
-    if (nativeTTS()) return speakSupported();
-    return !!webTTS();
+    return speakSupported() || !!webTTS();
   }
 
   async function prepareTTS() {
-    if (anyTTSAvailable()) return true;
+    if (anyTTSAvailable()) { hideTTSBanner(); return true; }
     if (!nativeTTS() && !('speechSynthesis' in window)) return false;
     if (nativeTTS()) checkNativeTTS();
-    for (let i = 0; i < 12; i++) {
-      await new Promise(r => setTimeout(r, 450));
-      if (anyTTSAvailable()) return true;
+    for (let i = 0; i < 15; i++) {
+      await new Promise(r => setTimeout(r, 400));
+      if (anyTTSAvailable()) { hideTTSBanner(); return true; }
     }
     return false;
   }
@@ -704,27 +703,20 @@
     refreshButtons();
   }
 
-  function showTTSHelp() {
-    stopSpeech();
-    if (isAndroid()) alert(t('ttsInstallMessage'));
-  }
-
   async function speakOnce(phrase, langs, key, onDone) {
     const run = ++speechRun;
     anyStop();
     const ready = await prepareTTS();
     if (run !== speechRun) return;
-    if (!ready) { showTTSHelp(); highlight(null); return; }
+    if (!ready) { highlight(null); return; }
     const seq = langs.filter(l => phrase[l] && state.voiceLang[l]);
     let i = 0;
-    let firstError = true;
     (function next() {
       if (run !== speechRun) return;
       if (i >= seq.length) { highlight(null); if (onDone) onDone(); return; }
       const lang = seq[i++];
       highlight(key, lang);
       anySpeak(phrase[lang], lang).then(() => { if (run === speechRun) setTimeout(next, 250); }).catch(() => {
-        if (firstError) { firstError = false; showTTSHelp(); }
         if (run === speechRun) setTimeout(next, 250);
       });
     })();
@@ -733,7 +725,7 @@
   async function toggleLoop(phrase, key) {
     if (state.loop && state.loop.key === key) { stopSpeech(); return; }
     const ready = await prepareTTS();
-    if (!ready) { showTTSHelp(); return; }
+    if (!ready) { return; }
     state.loop = { key: key };
     refreshButtons();
     (function cycle() {
@@ -961,7 +953,7 @@
 
   async function playLesson(lesson) {
     const ready = await prepareTTS();
-    if (!ready) { showTTSHelp(); return; }
+    if (!ready) { return; }
     stopSpeech();
     let i = 0;
     const runKey = 'lesson:' + lesson.id;
