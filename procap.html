@@ -204,6 +204,8 @@
   .btns button.active { background: var(--success); color: #081c15; border-color: var(--success); }
   .btns button.fav-on { color: var(--gold); border-color: var(--gold); }
   .btns .image-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btns .note-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btns .note-btn.note-on { color: var(--success); border-color: var(--success); }
   .no-lessons { text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); }
   .no-lessons .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
   .no-lessons .card-title { color: var(--text-primary); margin-bottom: 0.3rem; }
@@ -321,6 +323,29 @@
     <div class="form-actions" style="margin-top:0.75rem">
       <button type="button" class="btn" id="btn-copy-examples" data-t="copy">نسخ</button>
       <button type="button" class="btn ghost" id="btn-close-examples" data-t="cancel">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<div id="note-modal" class="modal" style="z-index:96">
+  <div class="modal-content" style="max-width:640px">
+    <h3 data-t="noteTitle">Notebook</h3>
+    <div id="note-tools" style="display:flex;gap:0.4rem;flex-wrap:wrap;align-items:center;margin-bottom:0.5rem">
+      <button type="button" class="note-tool active" data-color="#000000" style="background:#000;width:1.5rem;height:1.5rem;border-radius:50%;border:2px solid var(--border)"></button>
+      <button type="button" class="note-tool" data-color="#e53935" style="background:#e53935;width:1.5rem;height:1.5rem;border-radius:50%;border:2px solid var(--border)"></button>
+      <button type="button" class="note-tool" data-color="#1e88e5" style="background:#1e88e5;width:1.5rem;height:1.5rem;border-radius:50%;border:2px solid var(--border)"></button>
+      <button type="button" class="note-tool" data-color="#43a047" style="background:#43a047;width:1.5rem;height:1.5rem;border-radius:50%;border:2px solid var(--border)"></button>
+      <button type="button" class="note-tool" data-color="#fb8c00" style="background:#fb8c00;width:1.5rem;height:1.5rem;border-radius:50%;border:2px solid var(--border)"></button>
+      <button type="button" class="note-tool" data-color="#8e24aa" style="background:#8e24aa;width:1.5rem;height:1.5rem;border-radius:50%;border:2px solid var(--border)"></button>
+      <button type="button" class="note-tool" data-color="#ffffff" style="background:#ffffff;width:1.5rem;height:1.5rem;border-radius:50%;border:2px solid var(--border)"></button>
+      <input type="range" id="note-size" min="1" max="10" value="3" style="width:5rem">
+      <button type="button" class="btn ghost" id="note-erase" style="font-size:0.78rem;padding:0.3rem 0.6rem" data-t="cancel">ممحاة</button>
+      <button type="button" class="btn ghost" id="note-clear" style="font-size:0.78rem;padding:0.3rem 0.6rem" data-t="delete">حذف</button>
+    </div>
+    <canvas id="note-canvas" width="600" height="400" style="width:100%;height:360px;background:#fff;border-radius:var(--radius);border:1px solid var(--border);touch-action:none"></canvas>
+    <div class="form-actions" style="margin-top:0.75rem">
+      <button type="button" class="btn" id="btn-save-note" data-t="save">حفظ</button>
+      <button type="button" class="btn ghost" id="btn-close-note" data-t="cancel">إلغاء</button>
     </div>
   </div>
 </div>
@@ -620,6 +645,7 @@
     speakOnce: { ar: 'نطق مرة واحدة', en: 'Speak once', fr: 'Parler une fois' },
     loopTitle: { ar: 'تكرار: فرنسي ← عربي ← إنجليزي', en: 'Repeat: French ← Arabic ← English', fr: 'Répéter : Français ← Arabe ← Anglais' },
     imageTitle: { ar: 'بحث الصور في Google', en: 'Search images on Google', fr: 'Rechercher des images sur Google' },
+    noteTitle: { ar: 'دفتر الملاحظات', en: 'Notebook', fr: 'Carnet' },
     favTitle: { ar: 'حفظ', en: 'Save', fr: 'Enregistrer' },
     playAll: { ar: '▶ تشغيل كل الدرس', en: '▶ Play whole lesson', fr: '▶ Lire toute la leçon' },
     stopAll: { ar: '⏹ إيقاف', en: '⏹ Stop', fr: '⏹ Arrêter' },
@@ -701,6 +727,7 @@
     route: { name: 'home' },
     loop: null,
     favs: JSON.parse(localStorage.getItem('procap_favs') || '[]'),
+    notes: JSON.parse(localStorage.getItem('procap_notes') || '{}'),
     rate: 1,
     langs: ['fr', 'ar', 'en'],
     uiLang: localStorage.getItem('procap_ui_lang') || 'ar',
@@ -977,6 +1004,8 @@
   }
 
   function isFav(key) { return state.favs.includes(key); }
+  function hasNote(key) { return !!state.notes[key]; }
+  function saveNotes() { localStorage.setItem('procap_notes', JSON.stringify(state.notes)); }
 
   function toggleFav(key) {
     const i = state.favs.indexOf(key);
@@ -1118,6 +1147,7 @@
           <button class="speak-btn" title="${t('speakOnce')}">🔊</button>
           <button class="loop-btn" title="${t('loopTitle')}">🔁</button>
           <button class="image-btn" title="${t('imageTitle')}">🖼️</button>
+          <button class="note-btn ${hasNote(key) ? 'note-on' : ''}" title="${t('noteTitle')}">${hasNote(key) ? '📔' : '📓'}</button>
           <button class="fav-btn ${isFav(key) ? 'fav-on' : ''}" title="${t('favTitle')}">${isFav(key) ? '★' : '☆'}</button>
         </div>
       </div>
@@ -1389,6 +1419,119 @@
     showToast(t('copied'));
   }
 
+  let noteKey = null;
+  let noteCtx = null;
+  let noteDrawing = false;
+  let noteErasing = false;
+  let noteColor = '#000000';
+  let noteSize = 3;
+
+  function setupNoteCanvas() {
+    const canvas = document.getElementById('note-canvas');
+    noteCtx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    const cssWidth = canvas.clientWidth || 600;
+    const cssHeight = canvas.clientHeight || 400;
+    canvas.width = Math.max(1, cssWidth * dpr);
+    canvas.height = Math.max(1, cssHeight * dpr);
+    noteCtx.setTransform(1, 0, 0, 1, 0, 0);
+    noteCtx.scale(dpr, dpr);
+    noteCtx.lineCap = 'round';
+    noteCtx.lineJoin = 'round';
+  }
+
+  function openNote(key) {
+    noteKey = key;
+    const modal = document.getElementById('note-modal');
+    modal.classList.add('show');
+    const canvas = document.getElementById('note-canvas');
+    setTimeout(() => {
+      setupNoteCanvas();
+      const dpr = window.devicePixelRatio || 1;
+      const w = canvas.width / dpr;
+      const h = canvas.height / dpr;
+      noteCtx.fillStyle = '#ffffff';
+      noteCtx.fillRect(0, 0, w, h);
+      if (state.notes[key]) {
+        const img = new Image();
+        img.onload = () => { noteCtx.drawImage(img, 0, 0, w, h); };
+        img.src = state.notes[key];
+      }
+    }, 50);
+    noteColor = '#000000';
+    noteErasing = false;
+    noteSize = 3;
+    document.getElementById('note-size').value = 3;
+    document.querySelectorAll('.note-tool').forEach(b => b.classList.toggle('active', b.dataset.color === noteColor));
+  }
+
+  function closeNote() {
+    document.getElementById('note-modal').classList.remove('show');
+    noteKey = null;
+    noteCtx = null;
+  }
+
+  function saveNote() {
+    if (!noteKey || !noteCtx) return;
+    const canvas = document.getElementById('note-canvas');
+    state.notes[noteKey] = canvas.toDataURL('image/png');
+    saveNotes();
+    const btn = document.querySelector(`.phrase[data-key="${noteKey}"] .note-btn`);
+    if (btn) { btn.classList.add('note-on'); btn.textContent = '📔'; }
+    closeNote();
+    showToast(t('saved'));
+  }
+
+  function clearNote() {
+    if (!noteCtx) return;
+    const canvas = document.getElementById('note-canvas');
+    noteCtx.fillStyle = '#ffffff';
+    noteCtx.fillRect(0, 0, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1));
+  }
+
+  function getNotePos(e) {
+    const canvas = document.getElementById('note-canvas');
+    const rect = canvas.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return { x: clientX - rect.left, y: clientY - rect.top };
+  }
+
+  function noteStart(e) {
+    if (!noteCtx) return;
+    e.preventDefault();
+    noteDrawing = true;
+    const p = getNotePos(e);
+    noteCtx.beginPath();
+    noteCtx.moveTo(p.x, p.y);
+    noteCtx.strokeStyle = noteErasing ? '#ffffff' : noteColor;
+    noteCtx.lineWidth = noteSize;
+  }
+
+  function noteMove(e) {
+    if (!noteDrawing || !noteCtx) return;
+    e.preventDefault();
+    const p = getNotePos(e);
+    noteCtx.lineTo(p.x, p.y);
+    noteCtx.stroke();
+  }
+
+  function noteEnd() {
+    if (!noteCtx) return;
+    noteDrawing = false;
+    noteCtx.closePath();
+  }
+
+  function bindNoteCanvas() {
+    const canvas = document.getElementById('note-canvas');
+    canvas.addEventListener('mousedown', noteStart);
+    canvas.addEventListener('mousemove', noteMove);
+    window.addEventListener('mouseup', noteEnd);
+    canvas.addEventListener('touchstart', noteStart, { passive: false });
+    canvas.addEventListener('touchmove', noteMove, { passive: false });
+    canvas.addEventListener('touchend', noteEnd);
+  }
+
   function bindViewEvents() {
     view.addEventListener('click', e => {
       const exportBtn = e.target.closest('#btn-export');
@@ -1418,6 +1561,8 @@
         toggleLoop(p, key);
       } else if (e.target.closest('.image-btn')) {
         window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(p.fr), '_blank');
+      } else if (e.target.closest('.note-btn')) {
+        openNote(key);
       } else if (e.target.closest('.fav-btn')) {
         toggleFav(key);
         const favBtn = phrase.querySelector('.fav-btn');
@@ -1543,6 +1688,22 @@
     });
     bindViewEvents();
     bindActionSheet();
+    bindNoteCanvas();
+    document.getElementById('btn-save-note').onclick = saveNote;
+    document.getElementById('btn-close-note').onclick = closeNote;
+    document.getElementById('note-clear').onclick = clearNote;
+    document.getElementById('note-erase').onclick = () => { noteErasing = !noteErasing; document.getElementById('note-erase').classList.toggle('active', noteErasing); };
+    document.getElementById('note-size').oninput = e => { noteSize = +e.target.value; };
+    document.getElementById('note-tools').addEventListener('click', e => {
+      const t = e.target.closest('.note-tool');
+      if (t) {
+        noteColor = t.dataset.color;
+        noteErasing = false;
+        document.getElementById('note-erase').classList.remove('active');
+        document.querySelectorAll('.note-tool').forEach(b => b.classList.remove('active'));
+        t.classList.add('active');
+      }
+    });
     setTheme(state.theme);
     setUILang(state.uiLang);
     ensureBuiltInLesson();
