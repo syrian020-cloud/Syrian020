@@ -145,6 +145,15 @@
     border: 1px solid var(--border); border-radius: var(--radius);
     padding: 0.55rem 0.6rem; font-size: 0.88rem;
   }
+  .contact-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 4.8rem; padding: 0.55rem 0.7rem; border-radius: var(--radius);
+    font-size: 0.78rem; font-weight: 600; text-decoration: none; color: #fff;
+    border: 1px solid transparent;
+  }
+  .contact-btn.whatsapp { background: #25d366; }
+  .contact-btn.gmail { background: #ea4335; }
+  .contact-btn:hover { filter: brightness(1.08); }
   .breadcrumb {
     display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
     color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.9rem;
@@ -300,6 +309,8 @@
       <option value="fr,ar" data-t="loopFrenchArabic">🔁 FR + AR</option>
       <option value="fr" data-t="loopFrenchOnly">🔁 FR only</option>
     </select>
+    <a class="contact-btn whatsapp" href="https://wa.me/33775813643" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">WhatsApp</a>
+    <a class="contact-btn gmail" href="mailto:Syrian020@gmail.com" title="Gmail" aria-label="Gmail">Gmail</a>
   </div>
   <div id="tts-banner" class="tts-banner">
     <span id="tts-msg"></span>
