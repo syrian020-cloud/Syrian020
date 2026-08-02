@@ -902,6 +902,67 @@
     .action-sheet-item.action-delete { color: var(--danger); }
     .action-sheet-item.action-cancel { justify-content: center; color: var(--text-secondary); margin-top: 0.3rem; }
 
+    .notebook-overlay {
+      position: fixed; inset: 0; z-index: 4000;
+      background: #fff; color: #111;
+      display: flex; flex-direction: column;
+      padding: 1rem;
+      transition: opacity 0.15s;
+    }
+    .notebook-overlay.hidden { display: none; }
+    .notebook-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 0.8rem; border-bottom: 1px solid #eee;
+      font-weight: 700; color: #555; font-size: 1.1rem;
+    }
+    .notebook-header button { background: transparent; border: none; font-size: 1.4rem; color: #888; cursor: pointer; }
+    .notebook-header-tools { display: flex; align-items: center; gap: 0.6rem; }
+    .notebook-palette {
+      display: flex; flex-direction: column; gap: 0.6rem;
+      padding: 0.7rem 0; align-items: center;
+    }
+    .notebook-palette.hidden { display: none; }
+    .notebook-colors, .notebook-sizes { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+    .notebook-colors button {
+      width: 32px; height: 32px; border-radius: 50%; border: 2px solid transparent; cursor: pointer;
+    }
+    .notebook-colors button.active { border-color: #333; transform: scale(1.12); }
+    .notebook-sizes button {
+      width: 36px; height: 36px; border-radius: 50%; border: 2px solid transparent; background: #f5f5f5; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .notebook-sizes button::after { content: ''; display: block; background: #333; border-radius: 50%; }
+    .notebook-sizes button[data-size="0.85"]::after { width: 4px; height: 4px; }
+    .notebook-sizes button[data-size="1"]::after { width: 6px; height: 6px; }
+    .notebook-sizes button[data-size="1.25"]::after { width: 9px; height: 9px; }
+    .notebook-sizes button[data-size="1.5"]::after { width: 12px; height: 12px; }
+    .notebook-sizes button[data-size="2"]::after { width: 16px; height: 16px; }
+    .notebook-sizes button.active { border-color: #333; }
+    .notebook-canvas {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      padding: 1rem; position: relative; overflow: hidden;
+    }
+    .notebook-phrase-bg {
+      font-size: calc((var(--font-size) + 18px) * var(--notebook-scale, 1.25));
+      font-weight: 700; text-align: center; line-height: 1.55;
+      color: #e0e0e0; max-width: 100%; word-wrap: break-word;
+      user-select: none; pointer-events: none;
+    }
+    .notebook-draw-canvas {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      touch-action: none; cursor: crosshair;
+    }
+    .notebook-speak-full {
+      position: absolute; bottom: 1.5rem; right: 1.5rem;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #fff; border: 1px solid #ddd;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      font-size: 1.6rem; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    [dir="rtl"] .notebook-speak-full { right: auto; left: 1.5rem; }
+    .btn-notebook-card { background: transparent; border: none; font-size: 1.3rem; cursor: pointer; padding: 0.2rem; line-height: 1; }
+
     .toast {
       position: fixed;
       bottom: 1rem;
@@ -1168,6 +1229,41 @@
 
   <div id="toast" class="toast"></div>
 
+  <div id="notebook-overlay" class="notebook-overlay hidden">
+    <div class="notebook-header">
+      <button onclick="closeNotebook()" aria-label="Close">✕</button>
+      <span data-i18n="notebook">دفتر</span>
+      <div class="notebook-header-tools">
+        <button onclick="clearNotebookCanvas()" aria-label="Clear">🗑️</button>
+        <button onclick="toggleNotebookPalette()" aria-label="Painter">🖌️</button>
+      </div>
+    </div>
+    <div id="notebook-palette" class="notebook-palette">
+      <div class="notebook-colors" id="notebook-colors">
+        <button class="active" data-color="#111111" style="background:#111111" onclick="setNotebookColor('#111111')"></button>
+        <button data-color="#e74c3c" style="background:#e74c3c" onclick="setNotebookColor('#e74c3c')"></button>
+        <button data-color="#3498db" style="background:#3498db" onclick="setNotebookColor('#3498db')"></button>
+        <button data-color="#2ecc71" style="background:#2ecc71" onclick="setNotebookColor('#2ecc71')"></button>
+        <button data-color="#f1c40f" style="background:#f1c40f" onclick="setNotebookColor('#f1c40f')"></button>
+        <button data-color="#9b59b6" style="background:#9b59b6" onclick="setNotebookColor('#9b59b6')"></button>
+        <button data-color="#e67e22" style="background:#e67e22" onclick="setNotebookColor('#e67e22')"></button>
+        <button data-color="#95a5a6" style="background:#95a5a6" onclick="setNotebookColor('#95a5a6')"></button>
+      </div>
+      <div class="notebook-sizes" id="notebook-sizes">
+        <button data-size="0.85" onclick="setNotebookSize(0.85)"></button>
+        <button data-size="1" onclick="setNotebookSize(1)"></button>
+        <button data-size="1.25" class="active" onclick="setNotebookSize(1.25)"></button>
+        <button data-size="1.5" onclick="setNotebookSize(1.5)"></button>
+        <button data-size="2" onclick="setNotebookSize(2)"></button>
+      </div>
+    </div>
+    <div class="notebook-canvas" id="notebook-canvas-wrap">
+      <div class="notebook-phrase-bg" id="notebook-phrase-bg"></div>
+      <canvas id="notebook-canvas" class="notebook-draw-canvas"></canvas>
+      <button class="notebook-speak-full" title="استمع / Repeat" onclick="notebookSpeakCurrent()">🔊</button>
+    </div>
+  </div>
+
   <script>
     // --- Translations ---
     const i18n = {
@@ -1196,7 +1292,7 @@
         invalidTime: "تنسيق الوقت غير صحيح",
         confirmDelete: "هل تريد حذف هذا الدرس؟",
         play: "تشغيل", pause: "إيقاف", edit: "تعديل", delete: "حذف", repeat: "تكرار العبارة",
-        words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "العبارات", saveCue: "حفظ",
+        words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "العبارات", notebook: "دفتر", saveCue: "حفظ",
         close: "إغلاق", listen: "استماع", repeatWord: "تكرار",
         frenchWords: "كلمات فرنسية", englishWords: "كلمات إنجليزية", arabicWords: "كلمات عربية",
         downloadVideo: "تحميل الفيديو", downloadAudio: "تحميل الصوت",
@@ -1236,7 +1332,7 @@
         invalidTime: "Format de temps invalide",
         confirmDelete: "Supprimer cette leçon ?",
         play: "Lire", pause: "Pause", edit: "Modifier", delete: "Supprimer", repeat: "Répéter la phrase",
-        words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Les phrases", saveCue: "Enregistrer",
+        words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Les phrases", notebook: "Cahier", saveCue: "Enregistrer",
         close: "Fermer", listen: "Écouter", repeatWord: "Répéter",
         frenchWords: "Mots français", englishWords: "Mots anglais", arabicWords: "Mots arabes",
         downloadVideo: "Télécharger la vidéo", downloadAudio: "Télécharger l'audio",
@@ -1276,7 +1372,7 @@
         invalidTime: "Invalid time format",
         confirmDelete: "Delete this lesson?",
         play: "Play", pause: "Pause", edit: "Edit", delete: "Delete", repeat: "Repeat phrase",
-        words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "The Phrases", saveCue: "Save",
+        words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "The Phrases", notebook: "Notebook", saveCue: "Save",
         close: "Close", listen: "Listen", repeatWord: "Repeat",
         frenchWords: "French words", englishWords: "English words", arabicWords: "Arabic words",
         downloadVideo: "Download video", downloadAudio: "Download audio",
@@ -1323,7 +1419,11 @@
       captionScale: parseFloat(localStorage.getItem('vs_caption_scale') || '1'),
       imageLessonId: null,
       actionLessonId: null,
-      playerMode: false
+      playerMode: false,
+      notebookIndex: null,
+      notebookColor: '#111111',
+      notebookScale: 1.25,
+      notebookPalette: true
     };
 
     const DB_NAME = 'videoSubtitleDB';
@@ -2309,6 +2409,7 @@
             <button class="loop-btn" data-start="${cue.start}" data-end="${cue.end}" onclick="event.stopPropagation(); toggleLoopCue(${cue.start}, ${cue.end})">${t('repeat')}</button>
             <button class="btn-edit-sentence" onclick="event.stopPropagation(); toggleSentenceEdit(${i})" title="تعديل">✏️</button>
             <button onclick="event.stopPropagation(); jumpToCue(${i})">${formatDuration(cue.start)}</button>
+            <button class="btn-notebook-card" onclick="event.stopPropagation(); openNotebook(${i})" title="${t('notebook')}">📝</button>
           </div>
         </div>
       `;}).join('');
@@ -2731,6 +2832,120 @@
       if (btn) btn.classList.toggle('active', state.captionsVisible);
     }
 
+    function renderNotebookOverlay() {
+      const overlay = document.getElementById('notebook-overlay');
+      const phraseEl = document.getElementById('notebook-phrase-bg');
+      const palette = document.getElementById('notebook-palette');
+      if (!overlay || !phraseEl) return;
+      const cue = state.currentCues[state.notebookIndex];
+      if (!cue) { closeNotebook(); return; }
+      const text = getCueLineByLang(cue, 'fr') || cue.text.split('\n')[0] || '';
+      phraseEl.textContent = text;
+      phraseEl.style.setProperty('--notebook-scale', state.notebookScale);
+      palette.classList.toggle('hidden', !state.notebookPalette);
+      document.querySelectorAll('#notebook-colors button').forEach(b => b.classList.toggle('active', b.dataset.color === state.notebookColor));
+      document.querySelectorAll('#notebook-sizes button').forEach(b => b.classList.toggle('active', parseFloat(b.dataset.size) === state.notebookScale));
+    }
+
+    window.openNotebook = function(i) {
+      state.notebookIndex = i;
+      renderNotebookOverlay();
+      const overlay = document.getElementById('notebook-overlay');
+      overlay.classList.remove('hidden');
+      initNotebookCanvas();
+      clearNotebookCanvas();
+      const video = document.getElementById('lesson-video');
+      if (video && !video.paused) video.pause();
+    };
+
+    window.closeNotebook = function() {
+      document.getElementById('notebook-overlay').classList.add('hidden');
+      state.notebookIndex = null;
+    };
+
+    window.toggleNotebookPalette = function() {
+      state.notebookPalette = !state.notebookPalette;
+      document.getElementById('notebook-palette').classList.toggle('hidden', !state.notebookPalette);
+    };
+
+    window.setNotebookColor = function(color) {
+      state.notebookColor = color;
+      document.querySelectorAll('#notebook-colors button').forEach(b => b.classList.toggle('active', b.dataset.color === color));
+    };
+
+    window.setNotebookSize = function(size) {
+      state.notebookScale = size;
+      const phraseEl = document.getElementById('notebook-phrase-bg');
+      if (phraseEl) phraseEl.style.setProperty('--notebook-scale', size);
+      document.querySelectorAll('#notebook-sizes button').forEach(b => b.classList.toggle('active', parseFloat(b.dataset.size) === size));
+      initNotebookCanvas();
+    };
+
+    function getCanvasPoint(e) {
+      const canvas = document.getElementById('notebook-canvas');
+      const rect = canvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      return { x: clientX - rect.left, y: clientY - rect.top };
+    }
+
+    function startNotebookDraw(e) {
+      state.notebookDrawing = true;
+      const p = getCanvasPoint(e);
+      state.notebookLastX = p.x;
+      state.notebookLastY = p.y;
+      const canvas = document.getElementById('notebook-canvas');
+      const ctx = canvas.getContext('2d');
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      ctx.strokeStyle = state.notebookColor;
+      ctx.lineWidth = Math.max(2, 4 * state.notebookScale);
+      ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y); ctx.stroke();
+      e.preventDefault();
+    }
+
+    function moveNotebookDraw(e) {
+      if (!state.notebookDrawing) return;
+      const p = getCanvasPoint(e);
+      const canvas = document.getElementById('notebook-canvas');
+      const ctx = canvas.getContext('2d');
+      ctx.beginPath();
+      ctx.moveTo(state.notebookLastX, state.notebookLastY);
+      ctx.lineTo(p.x, p.y);
+      ctx.stroke();
+      state.notebookLastX = p.x;
+      state.notebookLastY = p.y;
+      e.preventDefault();
+    }
+
+    function stopNotebookDraw(e) {
+      state.notebookDrawing = false;
+      if (e && e.cancelable) e.preventDefault();
+    }
+
+    window.clearNotebookCanvas = function() {
+      const canvas = document.getElementById('notebook-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    };
+
+    function initNotebookCanvas() {
+      const canvas = document.getElementById('notebook-canvas');
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+    }
+
+    window.notebookSpeakCurrent = function() {
+      const cue = state.currentCues[state.notebookIndex];
+      if (!cue) return;
+      const text = getCueLineByLang(cue, 'fr') || cue.text.split('\n')[0];
+      if (!text) return;
+      const lang = /[\u0600-\u06FF]/.test(text) ? 'ar-SA' : (/[\u00C0-\u024F]/.test(text) ? 'fr-FR' : 'en-US');
+      ttsSpeak({ text, lang });
+    };
+
     async function saveLesson() {
       const title = document.getElementById('lesson-title').value.trim();
       if (!title) { showToast(t('enterTitle')); return; }
@@ -2843,9 +3058,25 @@
       setCardStyle(state.cardStyle);
       setLangOrder(state.langOrder);
 
+      // Notebook canvas drawing
+      const nbCanvas = document.getElementById('notebook-canvas');
+      if (nbCanvas) {
+        nbCanvas.addEventListener('mousedown', startNotebookDraw);
+        nbCanvas.addEventListener('mousemove', moveNotebookDraw);
+        nbCanvas.addEventListener('mouseup', stopNotebookDraw);
+        nbCanvas.addEventListener('mouseleave', stopNotebookDraw);
+        nbCanvas.addEventListener('touchstart', startNotebookDraw, { passive: false });
+        nbCanvas.addEventListener('touchmove', moveNotebookDraw, { passive: false });
+        nbCanvas.addEventListener('touchend', stopNotebookDraw);
+        nbCanvas.addEventListener('touchcancel', stopNotebookDraw);
+      }
+      window.addEventListener('resize', () => { if (state.notebookIndex !== null) initNotebookCanvas(); });
+
       // Android hardware back: confirm before exit
       if (isCapacitor() && window.Capacitor.Plugins.App) {
         window.Capacitor.Plugins.App.addListener('backButton', ({ canGoBack }) => {
+          const overlay = document.getElementById('notebook-overlay');
+          if (overlay && !overlay.classList.contains('hidden')) { closeNotebook(); return; }
           if (canGoBack) {
             window.history.back();
           } else if (confirm(t('exitConfirm'))) {
