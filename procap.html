@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#2a0a2e">
-<meta name="description" content="دروس الثقافة الجنسية بالفرنسية مع ترجمة عربية وإنجليزية">
-<title>Sexual Health — Français / العربية / English</title>
-<link rel="manifest" href="manifest-sexed.json">
+<meta name="description" content="تعلم الفرنسية مع ترجمة عربية وإنجليزية">
+<title>Procap — Français / العربية / English</title>
+<link rel="manifest" href="manifest-procap.json">
 <link rel="apple-touch-icon" href="icon-192.png">
 <style>
   :root {
@@ -254,7 +254,7 @@
 <body>
 <header>
   <div class="header-inner">
-    <span class="logo"><span class="logo-icon">🌸</span> <span data-t="appName">Sexual Health</span></span>
+    <span class="logo"><span class="logo-icon">🌸</span> <span data-t="appName">Procap</span></span>
     <span class="spacer"></span>
     <div class="lang-switch">
       <button class="lang-btn" data-lang="ar">AR</button>
@@ -290,7 +290,7 @@
 </main>
 
 <footer>
-  <span data-t="footerText">Sexual health education · </span>
+  <span data-t="footerText">Procap · </span>
   <a href="index.html" data-t="footerLink">My other apps</a>
 </footer>
 
@@ -310,7 +310,7 @@
 
   function loadLessons() {
     try {
-      const raw = JSON.parse(localStorage.getItem('sexed_lessons') || '[]');
+      const raw = JSON.parse(localStorage.getItem('procap_lessons') || '[]');
       if (Array.isArray(raw)) {
         if (raw.length && raw[0].phrases && !raw[0].type) {
           return raw.map((l, i) => ({ id: l.id || i + 1, type: 'lesson', custom: true, title: l.title, phrases: l.phrases }));
@@ -321,24 +321,21 @@
     } catch (e) { return []; }
   }
 
-  function saveLessons() { localStorage.setItem('sexed_lessons', JSON.stringify(LESSONS)); }
+  function saveLessons() { localStorage.setItem('procap_lessons', JSON.stringify(LESSONS)); }
 
   async function exportLessons() {
     const data = JSON.stringify(LESSONS, null, 2);
-    const file = new File([data], 'sexed-lessons.json', { type: 'application/json' });
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      try {
-        await navigator.share({ files: [file], title: 'sexed-lessons' });
-        showToast(t('exportSuccess'));
-        return;
-      } catch (e) { if (e && e.name === 'AbortError') return; }
-    }
+    const file = new File([data], 'procap-lessons.json', { type: 'application/json' });
     if (navigator.share) {
       try {
-        await navigator.share({ title: 'sexed-lessons', text: data });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share({ files: [file], title: 'procap-lessons' });
+        } else {
+          await navigator.share({ title: 'procap-lessons', text: data });
+        }
         showToast(t('exportSuccess'));
         return;
-      } catch (e) { if (e && e.name === 'AbortError') return; }
+      } catch (e) { if (e && e.name === 'AbortError') { showToast(t('exportSuccess')); return; } }
     }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       try {
@@ -347,14 +344,8 @@
         return;
       } catch (e) {}
     }
-    const url = URL.createObjectURL(file);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'sexed-lessons.json';
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    const url = 'data:application/json;charset=utf-8,' + encodeURIComponent(data);
+    window.open(url, '_blank');
     showToast(t('exportSuccess'));
   }
 
@@ -475,8 +466,25 @@
     if (!s) return null;
     const p = parsePhrases(s, 'auto');
     if (p && p[0]) return p[0];
-    const value = s.replace(/\s*[|=,→:;\-]+\s*/g, ' ').trim();
-    return { fr: value, ar: value, en: value };
+    const tokens = s.split(/\s*(?:\|{1,2}|,|;|=>|->|→|=|:|\s+-\s+|\s+)\s*/).map(x => x.trim()).filter(Boolean);
+    if (!tokens.length) return null;
+    if (tokens.length === 1) {
+      const v = tokens[0];
+      return { fr: v, ar: v, en: v };
+    }
+    let fr = '', ar = '', en = '';
+    tokens.forEach(tok => {
+      if (/[\u0600-\u06FF]/.test(tok)) { if (!ar) ar = tok; }
+      else {
+        const lang = classifyLatinLang(tok);
+        if (lang === 'en' && !en) en = tok;
+        else if (lang === 'fr' && !fr) fr = tok;
+        else if (!fr) fr = tok;
+        else if (!en) en = tok;
+      }
+    });
+    if (!fr && !ar && !en) return null;
+    return { fr, ar, en };
   }
 
   function parsePhrases(text, userOrder = 'auto') {
@@ -536,8 +544,8 @@
   }
 
   const UI = {
-    appName: { ar: 'الصحة الجنسية', en: 'Sexual Health', fr: 'Santé sexuelle' },
-    appTitle: { ar: 'الصحة الجنسية — فرنسي / عربي / إنجليزي', en: 'Sexual Health — French / Arabic / English', fr: 'Santé sexuelle — Français / Arabe / Anglais' },
+    appName: { ar: 'Procap', en: 'Procap', fr: 'Procap' },
+    appTitle: { ar: 'Procap — فرنسي / عربي / إنجليزي', en: 'Procap — French / Arabic / English', fr: 'Procap — Français / Arabe / Anglais' },
     searchPlaceholder: { ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', en: 'Search in Arabic, French, or English…', fr: 'Rechercher en arabe, français ou anglais…' },
     rateTitle: { ar: 'سرعة النطق', en: 'Speech rate', fr: 'Vitesse de la voix' },
     loopModeTitle: { ar: 'محتوى التكرار', en: 'Loop content', fr: 'Contenu de la répétition' },
@@ -569,7 +577,7 @@
     addLesson: { ar: 'إضافة درس', en: 'Add lesson', fr: 'Ajouter une leçon' },
     addLessonSub: { ar: 'أنشئ درساً جديداً', en: 'Create a new lesson', fr: 'Créer une nouvelle leçon' },
     addLessonTitle: { ar: 'درس جديد', en: 'New lesson', fr: 'Nouvelle leçon' },
-    title: { ar: 'العنوان (بلغة واحدة)', en: 'Title (one language)', fr: 'Titre (une seule langue)' },
+    title: { ar: 'العنوان (من 1 إلى 3 لغات)', en: 'Title (1 to 3 languages)', fr: 'Titre (1 à 3 langues)' },
     phrasesLabel: { ar: 'العبارات', en: 'Phrases', fr: 'Phrases' },
     phrasesHint: { ar: 'كل سطر: فرنسي/إنجليزي ثم عربي ثم الآخر. يقبل | , = → : - ومسافات/Tab', en: 'One line: French/English then Arabic then the other. Supports | , = → : - and spaces/tabs', fr: 'Une ligne : Français/Anglais puis Arabe puis l\'autre. Accepte | , = → : - et espaces/tab' },
     pasteOrder: { ar: 'ترتيب الأعمدة', en: 'Column order', fr: 'Ordre des colonnes' },
@@ -605,10 +613,10 @@
     lessonLabel: { ar: 'الدرس', en: 'Lesson', fr: 'Leçon' },
     folderLabel: { ar: 'المجلد', en: 'Folder', fr: 'Dossier' },
     emptyFolder: { ar: 'لا توجد دروس في هذا المجلد. أضف درساً جديداً.', en: 'No lessons in this folder. Add a new lesson.', fr: 'Aucune leçon dans ce dossier. Ajoutez-en une nouvelle.' },
-    footerText: { ar: 'تطبيق تثقيف صحي · ', en: 'Health education app · ', fr: 'Application d\'éducation sexuelle · ' },
+    footerText: { ar: 'Procap · ', en: 'Procap · ', fr: 'Procap · ' },
     footerLink: { ar: 'تطبيقاتي الأخرى', en: 'My other apps', fr: 'Mes autres applications' },
-    heroTitle: { ar: 'تعلم الفرنسية للصحة الجنسية', en: 'Learn French for sexual health', fr: 'Apprenez le français pour la santé sexuelle' },
-    heroSub: { ar: 'عبارات موثوقة بالفرنسية مع ترجمة عربية وإنجليزية', en: 'Reliable French phrases with Arabic and English translations', fr: 'Des phrases fiables en français avec traductions arabe et anglaise' },
+    heroTitle: { ar: 'تعلم الفرنسية', en: 'Learn French', fr: 'Apprenez le français' },
+    heroSub: { ar: 'عبارات مترجمة إلى العربية والإنجليزية', en: 'Phrases translated into Arabic and English', fr: 'Phrases traduites en arabe et en anglais' },
     installTTS: { ar: 'تثبيت النطق', en: 'Install speech', fr: 'Installer la voix' },
     ttsNotAvailable: { ar: 'محرك النطق غير متوفر على هذا الجهاز. اضغط لتثبيته.', en: 'Text-to-speech engine is not available on this device. Tap to install.', fr: 'Le moteur de synthèse vocale n\'est pas disponible. Appuyez pour installer.' },
     ttsUnsupportedLanguage: { ar: 'اللغة المطلوبة غير مدعومة من محرك النطق.', en: 'The requested language is not supported by this TTS engine.', fr: 'La langue demandée n\'est pas prise en charge par ce moteur TTS.' },
@@ -626,11 +634,11 @@
   const state = {
     route: { name: 'home' },
     loop: null,
-    favs: JSON.parse(localStorage.getItem('sexed_favs') || '[]'),
+    favs: JSON.parse(localStorage.getItem('procap_favs') || '[]'),
     rate: 1,
     langs: ['fr', 'ar', 'en'],
-    uiLang: localStorage.getItem('sexed_ui_lang') || 'ar',
-    theme: localStorage.getItem('sexed_theme') || 'dark',
+    uiLang: localStorage.getItem('procap_ui_lang') || 'ar',
+    theme: localStorage.getItem('procap_theme') || 'dark',
     voiceLang: { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' },
     ttsAvailable: false
   };
@@ -643,7 +651,7 @@
   }
 
   function title(obj) {
-    return (obj && obj[state.uiLang]) || (obj && obj.en) || (obj && obj.ar) || (obj && obj.fr) || '';
+    return (obj && obj[state.uiLang]) || (obj && obj.fr) || (obj && obj.en) || (obj && obj.ar) || '';
   }
 
   function subtitle(obj) {
@@ -671,7 +679,7 @@
 
   function setUILang(lang) {
     state.uiLang = lang;
-    localStorage.setItem('sexed_ui_lang', lang);
+    localStorage.setItem('procap_ui_lang', lang);
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
@@ -681,7 +689,7 @@
 
   function setTheme(theme) {
     state.theme = theme;
-    localStorage.setItem('sexed_theme', theme);
+    localStorage.setItem('procap_theme', theme);
     document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : '');
     const btn = document.getElementById('btn-theme');
     if (btn) btn.textContent = theme === 'light' ? '☀️' : '🌙';
@@ -902,7 +910,7 @@
   function toggleFav(key) {
     const i = state.favs.indexOf(key);
     if (i === -1) state.favs.push(key); else state.favs.splice(i, 1);
-    localStorage.setItem('sexed_favs', JSON.stringify(state.favs));
+    localStorage.setItem('procap_favs', JSON.stringify(state.favs));
   }
 
   function esc(s) {

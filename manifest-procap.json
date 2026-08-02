@@ -1,14 +1,14 @@
 {
-  "name": "Sexual Health Education",
-  "short_name": "SexEd FR",
-  "start_url": "./sexual-education.html",
+  "name": "Procap",
+  "short_name": "Procap",
+  "start_url": "./procap.html",
   "display": "standalone",
   "background_color": "#1a0b1e",
   "theme_color": "#2a0a2e",
   "orientation": "portrait-primary",
   "lang": "ar",
   "dir": "rtl",
-  "description": "French sexual health education phrases with Arabic and English translations, audio loop, and Google search",
+  "description": "Learn French with Arabic and English translations, audio loop, and Google image search",
   "icons": [
     {
       "src": "icon-192.png",
