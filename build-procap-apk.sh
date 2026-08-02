@@ -64,6 +64,8 @@ for item in mdpi:48 hdpi:72 xhdpi:96 xxhdpi:144 xxxhdpi:192; do
   convert "$ICON_SRC" -resize "${size}x${size}" "$MIPMAP_DIR/mipmap-$dpi/ic_launcher.png"
   cp "$MIPMAP_DIR/mipmap-$dpi/ic_launcher.png" "$MIPMAP_DIR/mipmap-$dpi/ic_launcher_round.png"
 done
+# Remove adaptive-icon XML so Android uses our generated PNGs
+rm -rf "$MIPMAP_DIR/mipmap-anydpi-v26"
 
 echo "==> Syncing native plugins and web assets..."
 "$ROOT_DIR/node_modules/.bin/cap" sync android
