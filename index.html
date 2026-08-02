@@ -842,77 +842,6 @@
     .cue-item .cue-loop:hover { background: var(--accent); color: #fff; }
     .cue-item .cue-loop.active { background: var(--success); color: #1a1a1a; border-color: var(--success); }
 
-    .notebook-panel {
-      background: #fff;
-      color: #1a1a1a;
-      border: 1px solid #e0e0e0;
-      border-radius: 18px;
-      padding: 1rem;
-      margin-top: 0.8rem;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    }
-    .notebook-panel.hidden { display: none; }
-    .notebook-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-weight: 700;
-      color: #555;
-      margin-bottom: 0.6rem;
-      font-size: 0.9rem;
-    }
-    .btn-close-notebook { background: transparent; border: none; font-size: 1rem; color: #888; cursor: pointer; }
-    .notebook-toolbar, .notebook-size {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-bottom: 0.6rem;
-      flex-wrap: wrap;
-    }
-    .notebook-toolbar button {
-      width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; padding: 0;
-    }
-    .notebook-toolbar button.active { border-color: #333; transform: scale(1.15); }
-    .notebook-size button {
-      width: 32px; height: 32px; border-radius: 50%; border: 2px solid transparent; background: #f5f5f5; cursor: pointer; padding: 0; display: inline-flex; align-items: center; justify-content: center;
-    }
-    .notebook-size button::after { content: ''; display: block; background: #333; border-radius: 50%; }
-    .notebook-size button[data-size="0.85"]::after { width: 4px; height: 4px; }
-    .notebook-size button[data-size="1"]::after { width: 6px; height: 6px; }
-    .notebook-size button[data-size="1.25"]::after { width: 9px; height: 9px; }
-    .notebook-size button[data-size="1.5"]::after { width: 12px; height: 12px; }
-    .notebook-size button[data-size="2"]::after { width: 16px; height: 16px; }
-    .notebook-size button.active { border-color: #333; }
-    .notebook-page {
-      position: relative;
-      min-height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem 3rem 1.5rem 1rem;
-    }
-    .notebook-phrase {
-      font-size: calc((var(--font-size) + 16px) * var(--notebook-scale, 1.25));
-      font-weight: 700;
-      text-align: center;
-      line-height: 1.5;
-      color: var(--notebook-color, #111);
-      max-width: 100%;
-      word-wrap: break-word;
-    }
-    .notebook-speak {
-      position: absolute;
-      bottom: 0.5rem;
-      right: 0.5rem;
-      width: 46px; height: 46px; border-radius: 50%;
-      background: #fff;
-      border: 1px solid #ddd;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-      font-size: 1.4rem; cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
-    }
-    [dir="rtl"] .notebook-speak { right: auto; left: 0.5rem; }
-
     .settings-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
     .settings-row label { margin: 0; flex: 1; }
     .range-wrap { display: flex; align-items: center; gap: 0.5rem; }
@@ -972,6 +901,72 @@
     .action-sheet-item.action-edit { color: var(--accent); }
     .action-sheet-item.action-delete { color: var(--danger); }
     .action-sheet-item.action-cancel { justify-content: center; color: var(--text-secondary); margin-top: 0.3rem; }
+
+    .notebook-overlay {
+      position: fixed; inset: 0; z-index: 4000;
+      background: #fff; color: #111;
+      display: flex; flex-direction: column;
+      padding: 1rem;
+      transition: opacity 0.15s;
+    }
+    .notebook-overlay.hidden { display: none; }
+    .notebook-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.5rem 0.8rem; margin: 0.3rem 0.6rem;
+      background: rgba(255,255,255,0.95); border: 1px solid #eee; border-radius: 18px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      font-weight: 700; color: #555; font-size: 1.1rem;
+    }
+    .notebook-header > button:first-child { background: #fff; border: 1px solid #eee; border-radius: 12px; width: 40px; height: 40px; font-size: 1.4rem; color: #666; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+    .notebook-header-tools { display: flex; align-items: center; gap: 0.4rem; }
+    .notebook-header .nb-tool { width: 44px; height: 44px; background: #fff; border: 1px solid #eee; border-radius: 12px; font-size: 1.5rem; color: #666; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: transform 0.1s, background 0.1s, border-color 0.1s; }
+    .notebook-header .nb-tool.active { background: #e3f2fd; border-color: #90caf9; color: #1565c0; transform: scale(1.08); }
+    .notebook-palette {
+      display: flex; flex-direction: column; gap: 0.8rem;
+      padding: 0.7rem 1rem; align-items: center;
+      background: rgba(248,249,250,0.95); border: 1px solid #eee; border-radius: 20px;
+      margin: 0 0.8rem; box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    }
+    .notebook-palette.hidden { display: none; }
+    .notebook-colors, .notebook-size-preview { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; align-items: flex-end; }
+    .notebook-colors button {
+      width: 32px; height: 32px; border-radius: 50%; border: 2px solid transparent; cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .notebook-colors button.active { border-color: #333; transform: scale(1.12); }
+    .notebook-size-preview button {
+      width: 44px; height: 36px; border: 2px solid transparent; background: transparent; border-radius: 8px; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; padding: 0.3rem;
+    }
+    .notebook-size-preview button span { display: block; width: 28px; background: #333; border-radius: 2px; transition: height 0.1s; }
+    .notebook-size-preview button[data-size="0.85"] span { height: 2px; }
+    .notebook-size-preview button[data-size="1"] span { height: 3px; }
+    .notebook-size-preview button[data-size="1.25"] span { height: 5px; }
+    .notebook-size-preview button[data-size="1.5"] span { height: 7px; }
+    .notebook-size-preview button[data-size="2"] span { height: 11px; }
+    .notebook-size-preview button.active { border-color: #333; background: #f5f5f5; }
+    .notebook-canvas {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      padding: 1rem; position: relative; overflow: hidden;
+    }
+    .notebook-lines {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background: repeating-linear-gradient(to bottom, transparent 0 31px, #e0f0ff 31px 32px);
+      opacity: 1;
+    }
+    .notebook-lines.hidden { opacity: 0; }
+    .notebook-phrase-bg {
+      position: relative; z-index: 1;
+      font-size: calc((var(--font-size) + 18px) * var(--notebook-scale, 1.25));
+      font-weight: 700; text-align: center; line-height: 1.55;
+      color: #e0e0e0; max-width: 100%; word-wrap: break-word;
+      user-select: none; pointer-events: none;
+    }
+    .notebook-draw-canvas {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      touch-action: none; cursor: crosshair; z-index: 2;
+    }
+    .btn-notebook-card { background: transparent; border: none; font-size: 1.3rem; cursor: pointer; padding: 0.2rem; line-height: 1; }
 
     .toast {
       position: fixed;
@@ -1094,37 +1089,9 @@
           <span id="subtitle-lang-buttons"></span>
           <button class="cue-loop" id="btn-lesson-words" data-i18n-title="words" title="الكلمات" onclick="toggleLessonWords()">🔠</button>
           <button class="cue-loop" id="current-loop" title="تكرار الجملة" onclick="toggleCurrentLoop()">🔂</button>
-          <button class="cue-loop" id="btn-notebook" title="دفتر" onclick="toggleNotebook()">📝</button>
           <button class="cue-loop" id="video-loop" title="تكرار الفيديو" onclick="toggleVideoLoop()">🔄</button>
           <button class="cue-loop" id="btn-caption-minus" title="تصغير الخط" onclick="changeCaptionSize(-0.1)">A-</button>
           <button class="cue-loop" id="btn-caption-plus" title="تكبير الخط" onclick="changeCaptionSize(0.1)">A+</button>
-        </div>
-        <div class="notebook-panel hidden" id="notebook-panel">
-          <div class="notebook-header">
-            <span data-i18n="notebook">دفتر</span>
-            <button class="btn-close-notebook" onclick="toggleNotebook()">✕</button>
-          </div>
-          <div class="notebook-toolbar" id="notebook-color-picker">
-            <button class="nb-color active" data-color="#111111" style="background:#111111" aria-label="Black" onclick="setNotebookColor('#111111')"></button>
-            <button class="nb-color" data-color="#e74c3c" style="background:#e74c3c" aria-label="Red" onclick="setNotebookColor('#e74c3c')"></button>
-            <button class="nb-color" data-color="#3498db" style="background:#3498db" aria-label="Blue" onclick="setNotebookColor('#3498db')"></button>
-            <button class="nb-color" data-color="#2ecc71" style="background:#2ecc71" aria-label="Green" onclick="setNotebookColor('#2ecc71')"></button>
-            <button class="nb-color" data-color="#f1c40f" style="background:#f1c40f" aria-label="Yellow" onclick="setNotebookColor('#f1c40f')"></button>
-            <button class="nb-color" data-color="#9b59b6" style="background:#9b59b6" aria-label="Purple" onclick="setNotebookColor('#9b59b6')"></button>
-            <button class="nb-color" data-color="#e67e22" style="background:#e67e22" aria-label="Orange" onclick="setNotebookColor('#e67e22')"></button>
-            <button class="nb-color" data-color="#95a5a6" style="background:#95a5a6" aria-label="Gray" onclick="setNotebookColor('#95a5a6')"></button>
-          </div>
-          <div class="notebook-size" id="notebook-size-picker">
-            <button data-size="0.85" aria-label="Small" onclick="setNotebookSize(0.85)"></button>
-            <button data-size="1" aria-label="Medium" onclick="setNotebookSize(1)"></button>
-            <button data-size="1.25" class="active" aria-label="Large" onclick="setNotebookSize(1.25)"></button>
-            <button data-size="1.5" aria-label="Larger" onclick="setNotebookSize(1.5)"></button>
-            <button data-size="2" aria-label="Largest" onclick="setNotebookSize(2)"></button>
-          </div>
-          <div class="notebook-page">
-            <div class="notebook-phrase" id="notebook-phrase" style="--notebook-scale:1.25; --notebook-color:#111111;"></div>
-            <button class="notebook-speak" title="استمع / Repeat" onclick="notebookSpeak()">🔊</button>
-          </div>
         </div>
         <div class="playback-controls hidden" id="playback-controls">
           <div class="speed-buttons">
@@ -1252,6 +1219,11 @@
     </section>
   </main>
 
+  <footer style="text-align:center;padding:1rem 1rem 1.5rem;color:var(--text-secondary);font-size:0.85rem;">
+    <a href="french.html" style="color:var(--accent);text-decoration:none;">French lessons</a> ·
+    <a href="vocab.html" style="color:var(--accent);text-decoration:none;">Vocabulary / مفردات</a>
+  </footer>
+
   <input type="file" id="lesson-image-file" accept="image/*" class="hidden">
 
   <div id="lesson-actions" class="action-sheet hidden">
@@ -1266,6 +1238,44 @@
   </div>
 
   <div id="toast" class="toast"></div>
+
+  <div id="notebook-overlay" class="notebook-overlay hidden">
+    <div class="notebook-header">
+      <button onclick="closeNotebook()" aria-label="Close">✕</button>
+      <div class="notebook-header-tools" id="notebook-header-tools">
+        <button class="nb-tool active" data-tool="pencil" onclick="setNotebookTool('pencil')" aria-label="Pencil">🖊️</button>
+        <button class="nb-tool" data-tool="brush" onclick="setNotebookTool('brush')" aria-label="Brush">🖌️</button>
+        <button class="nb-tool" data-tool="eraser" onclick="setNotebookTool('eraser')" aria-label="Eraser">🧽</button>
+        <button class="nb-tool" onclick="undoNotebookCanvas()" aria-label="Undo">↩️</button>
+        <button class="nb-tool" onclick="toggleNotebookGrid()" aria-label="Grid">📐</button>
+        <button class="nb-tool" onclick="clearNotebookCanvas()" aria-label="Clear">🗑️</button>
+      </div>
+    </div>
+    <div id="notebook-palette" class="notebook-palette">
+      <div class="notebook-colors" id="notebook-colors">
+        <button class="active" data-color="#111111" style="background:#111111" onclick="setNotebookColor('#111111')"></button>
+        <button data-color="#e74c3c" style="background:#e74c3c" onclick="setNotebookColor('#e74c3c')"></button>
+        <button data-color="#3498db" style="background:#3498db" onclick="setNotebookColor('#3498db')"></button>
+        <button data-color="#2ecc71" style="background:#2ecc71" onclick="setNotebookColor('#2ecc71')"></button>
+        <button data-color="#f1c40f" style="background:#f1c40f" onclick="setNotebookColor('#f1c40f')"></button>
+        <button data-color="#9b59b6" style="background:#9b59b6" onclick="setNotebookColor('#9b59b6')"></button>
+        <button data-color="#e67e22" style="background:#e67e22" onclick="setNotebookColor('#e67e22')"></button>
+        <button data-color="#95a5a6" style="background:#95a5a6" onclick="setNotebookColor('#95a5a6')"></button>
+      </div>
+      <div class="notebook-size-preview" id="notebook-sizes">
+        <button data-size="0.85" onclick="setNotebookSize(0.85)"><span></span></button>
+        <button data-size="1" onclick="setNotebookSize(1)"><span></span></button>
+        <button data-size="1.25" class="active" onclick="setNotebookSize(1.25)"><span></span></button>
+        <button data-size="1.5" onclick="setNotebookSize(1.5)"><span></span></button>
+        <button data-size="2" onclick="setNotebookSize(2)"><span></span></button>
+      </div>
+    </div>
+    <div class="notebook-canvas" id="notebook-canvas-wrap">
+      <div class="notebook-lines" id="notebook-lines"></div>
+      <div class="notebook-phrase-bg" id="notebook-phrase-bg"></div>
+      <canvas id="notebook-canvas" class="notebook-draw-canvas"></canvas>
+    </div>
+  </div>
 
   <script>
     // --- Translations ---
@@ -1422,7 +1432,15 @@
       captionScale: parseFloat(localStorage.getItem('vs_caption_scale') || '1'),
       imageLessonId: null,
       actionLessonId: null,
-      playerMode: false
+      playerMode: false,
+      notebookIndex: null,
+      notebookTool: 'pencil',
+      notebookColor: '#111111',
+      notebookSelectedColor: '#111111',
+      notebookScale: 1.25,
+      notebookPalette: true,
+      notebookHistory: [],
+      notebookGrid: true
     };
 
     const DB_NAME = 'videoSubtitleDB';
@@ -2009,7 +2027,6 @@
       document.getElementById('preview-wrap').classList.add('hidden');
       document.getElementById('subtitle-display').classList.add('hidden');
       document.getElementById('subtitle-toolbar').classList.add('hidden');
-      document.getElementById('notebook-panel').classList.add('hidden');
       document.getElementById('playback-controls').classList.add('hidden');
       document.getElementById('download-links').classList.add('hidden');
       document.getElementById('sentences-section').classList.add('hidden');
@@ -2108,7 +2125,6 @@
       highlightActiveCue(cue);
       highlightActiveSentence(cue);
       updateSentenceLoopStates();
-      updateNotebook();
     }
 
     function getCueLangs(cue) {
@@ -2410,6 +2426,7 @@
             <button class="loop-btn" data-start="${cue.start}" data-end="${cue.end}" onclick="event.stopPropagation(); toggleLoopCue(${cue.start}, ${cue.end})">${t('repeat')}</button>
             <button class="btn-edit-sentence" onclick="event.stopPropagation(); toggleSentenceEdit(${i})" title="تعديل">✏️</button>
             <button onclick="event.stopPropagation(); jumpToCue(${i})">${formatDuration(cue.start)}</button>
+            <button class="btn-notebook-card" onclick="event.stopPropagation(); openNotebook(${i})" title="${t('notebook')}">📝</button>
           </div>
         </div>
       `;}).join('');
@@ -2832,45 +2849,151 @@
       if (btn) btn.classList.toggle('active', state.captionsVisible);
     }
 
-    function getActiveCue() {
+    function renderNotebookOverlay() {
+      const overlay = document.getElementById('notebook-overlay');
+      const phraseEl = document.getElementById('notebook-phrase-bg');
+      const linesEl = document.getElementById('notebook-lines');
+      if (!overlay || !phraseEl) return;
+      const cue = state.currentCues[state.notebookIndex];
+      if (!cue) { closeNotebook(); return; }
+      const text = getCueLineByLang(cue, 'fr') || cue.text.split('\n')[0] || '';
+      phraseEl.textContent = text;
+      phraseEl.style.setProperty('--notebook-scale', state.notebookScale);
+      if (linesEl) linesEl.classList.toggle('hidden', !state.notebookGrid);
+      document.querySelectorAll('#notebook-header-tools .nb-tool[data-tool]').forEach(b => b.classList.toggle('active', b.dataset.tool === state.notebookTool));
+      document.querySelectorAll('#notebook-colors button').forEach(b => b.classList.toggle('active', b.dataset.color === state.notebookSelectedColor));
+      document.querySelectorAll('#notebook-sizes button').forEach(b => b.classList.toggle('active', parseFloat(b.dataset.size) === state.notebookScale));
+    }
+
+    function saveNotebookHistory() {
+      const canvas = document.getElementById('notebook-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      state.notebookHistory.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+      if (state.notebookHistory.length > 12) state.notebookHistory.shift();
+    }
+
+    window.openNotebook = function(i) {
+      state.notebookIndex = i;
+      state.notebookHistory = [];
+      renderNotebookOverlay();
+      const overlay = document.getElementById('notebook-overlay');
+      overlay.classList.remove('hidden');
+      initNotebookCanvas();
+      clearNotebookCanvas();
+      requestAnimationFrame(saveNotebookHistory);
       const video = document.getElementById('lesson-video');
-      const currentTime = video ? video.currentTime : 0;
-      return state.currentCues.find(c => currentTime >= c.start && currentTime < c.end);
-    }
+      if (video && !video.paused) video.pause();
+    };
 
-    function updateNotebook() {
-      const panel = document.getElementById('notebook-panel');
-      const phrase = document.getElementById('notebook-phrase');
-      if (!panel || panel.classList.contains('hidden') || !phrase) return;
-      const cue = getActiveCue();
-      if (!cue) { phrase.textContent = '—'; return; }
-      const text = getCueLineByLang(cue, 'fr') || cue.text.split('\n')[0] || '—';
-      if (phrase.textContent !== text) phrase.textContent = text;
-    }
+    window.closeNotebook = function() {
+      document.getElementById('notebook-overlay').classList.add('hidden');
+      state.notebookIndex = null;
+    };
 
-    window.toggleNotebook = function() {
-      const panel = document.getElementById('notebook-panel');
-      if (!panel) return;
-      const hidden = !panel.classList.contains('hidden');
-      panel.classList.toggle('hidden', hidden);
-      document.getElementById('btn-notebook')?.classList.toggle('active', !hidden);
-      if (!hidden) updateNotebook();
+    window.toggleNotebookPalette = function() {
+      state.notebookPalette = !state.notebookPalette;
+      document.getElementById('notebook-palette').classList.toggle('hidden', !state.notebookPalette);
     };
 
     window.setNotebookColor = function(color) {
-      const phrase = document.getElementById('notebook-phrase');
-      if (phrase) phrase.style.setProperty('--notebook-color', color);
-      document.querySelectorAll('#notebook-color-picker .nb-color').forEach(b => b.classList.toggle('active', b.dataset.color === color));
+      state.notebookSelectedColor = color;
+      if (state.notebookTool !== 'eraser') state.notebookColor = color;
+      document.querySelectorAll('#notebook-colors button').forEach(b => b.classList.toggle('active', b.dataset.color === color));
+    };
+
+    window.setNotebookTool = function(tool) {
+      state.notebookTool = tool;
+      state.notebookColor = tool === 'eraser' ? '#ffffff' : state.notebookSelectedColor;
+      document.querySelectorAll('#notebook-header-tools .nb-tool[data-tool]').forEach(b => b.classList.toggle('active', b.dataset.tool === tool));
     };
 
     window.setNotebookSize = function(size) {
-      const phrase = document.getElementById('notebook-phrase');
-      if (phrase) phrase.style.setProperty('--notebook-scale', size);
-      document.querySelectorAll('#notebook-size-picker button').forEach(b => b.classList.toggle('active', parseFloat(b.dataset.size) === size));
+      state.notebookScale = size;
+      const phraseEl = document.getElementById('notebook-phrase-bg');
+      if (phraseEl) phraseEl.style.setProperty('--notebook-scale', size);
+      document.querySelectorAll('#notebook-sizes button').forEach(b => b.classList.toggle('active', parseFloat(b.dataset.size) === size));
+      state.notebookHistory = [];
+      initNotebookCanvas();
+      requestAnimationFrame(saveNotebookHistory);
     };
 
-    window.notebookSpeak = function() {
-      const cue = getActiveCue();
+    function getCanvasPoint(e) {
+      const canvas = document.getElementById('notebook-canvas');
+      const rect = canvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      return { x: clientX - rect.left, y: clientY - rect.top };
+    }
+
+    function startNotebookDraw(e) {
+      state.notebookDrawing = true;
+      const p = getCanvasPoint(e);
+      state.notebookLastX = p.x;
+      state.notebookLastY = p.y;
+      const canvas = document.getElementById('notebook-canvas');
+      const ctx = canvas.getContext('2d');
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      ctx.strokeStyle = state.notebookColor;
+      const toolFactor = { pencil: 1, brush: 2.5, eraser: 5 }[state.notebookTool] || 1;
+      ctx.lineWidth = Math.max(2, 3 * state.notebookScale * toolFactor);
+      ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y); ctx.stroke();
+      e.preventDefault();
+    }
+
+    function moveNotebookDraw(e) {
+      if (!state.notebookDrawing) return;
+      const p = getCanvasPoint(e);
+      const canvas = document.getElementById('notebook-canvas');
+      const ctx = canvas.getContext('2d');
+      ctx.beginPath();
+      ctx.moveTo(state.notebookLastX, state.notebookLastY);
+      ctx.lineTo(p.x, p.y);
+      ctx.stroke();
+      state.notebookLastX = p.x;
+      state.notebookLastY = p.y;
+      e.preventDefault();
+    }
+
+    function stopNotebookDraw(e) {
+      state.notebookDrawing = false;
+      saveNotebookHistory();
+      if (e && e.cancelable) e.preventDefault();
+    }
+
+    window.clearNotebookCanvas = function() {
+      const canvas = document.getElementById('notebook-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      saveNotebookHistory();
+    };
+
+    window.undoNotebookCanvas = function() {
+      const canvas = document.getElementById('notebook-canvas');
+      if (!canvas || state.notebookHistory.length < 2) return;
+      state.notebookHistory.pop();
+      const data = state.notebookHistory[state.notebookHistory.length - 1];
+      const ctx = canvas.getContext('2d');
+      ctx.putImageData(data, 0, 0);
+    };
+
+    window.toggleNotebookGrid = function() {
+      state.notebookGrid = !state.notebookGrid;
+      const linesEl = document.getElementById('notebook-lines');
+      if (linesEl) linesEl.classList.toggle('hidden', !state.notebookGrid);
+    };
+
+    function initNotebookCanvas() {
+      const canvas = document.getElementById('notebook-canvas');
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+    }
+
+    window.notebookSpeakCurrent = function() {
+      const cue = state.currentCues[state.notebookIndex];
       if (!cue) return;
       const text = getCueLineByLang(cue, 'fr') || cue.text.split('\n')[0];
       if (!text) return;
@@ -2990,9 +3113,25 @@
       setCardStyle(state.cardStyle);
       setLangOrder(state.langOrder);
 
+      // Notebook canvas drawing
+      const nbCanvas = document.getElementById('notebook-canvas');
+      if (nbCanvas) {
+        nbCanvas.addEventListener('mousedown', startNotebookDraw);
+        nbCanvas.addEventListener('mousemove', moveNotebookDraw);
+        nbCanvas.addEventListener('mouseup', stopNotebookDraw);
+        nbCanvas.addEventListener('mouseleave', stopNotebookDraw);
+        nbCanvas.addEventListener('touchstart', startNotebookDraw, { passive: false });
+        nbCanvas.addEventListener('touchmove', moveNotebookDraw, { passive: false });
+        nbCanvas.addEventListener('touchend', stopNotebookDraw);
+        nbCanvas.addEventListener('touchcancel', stopNotebookDraw);
+      }
+      window.addEventListener('resize', () => { if (state.notebookIndex !== null) initNotebookCanvas(); });
+
       // Android hardware back: confirm before exit
       if (isCapacitor() && window.Capacitor.Plugins.App) {
         window.Capacitor.Plugins.App.addListener('backButton', ({ canGoBack }) => {
+          const overlay = document.getElementById('notebook-overlay');
+          if (overlay && !overlay.classList.contains('hidden')) { closeNotebook(); return; }
           if (canGoBack) {
             window.history.back();
           } else if (confirm(t('exitConfirm'))) {

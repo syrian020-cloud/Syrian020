@@ -1,14 +1,16 @@
-const CACHE_NAME = 'dross-v72';
+const CACHE_NAME = 'dross-v73';
 const FILES_TO_CACHE = [
   './',
   './index.html',
   './french.html',
+  './vocab.html',
   './procap.html',
   './manifest.json',
   './manifest-procap.json',
   './icon-192.png',
   './icon-512.png',
-  './data/manifest.js'
+  './data/manifest.js',
+  './data/vocab.js'
 ];
 
 for (let i = 1; i <= 39; i++) {
