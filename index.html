@@ -916,7 +916,9 @@
       font-weight: 700; color: #555; font-size: 1.1rem;
     }
     .notebook-header button { background: transparent; border: none; font-size: 1.4rem; color: #888; cursor: pointer; }
-    .notebook-header-tools { display: flex; align-items: center; gap: 0.6rem; }
+    .notebook-header-tools { display: flex; align-items: center; gap: 0.4rem; }
+    .notebook-header .nb-tool { background: transparent; border: none; font-size: 1.4rem; color: #888; cursor: pointer; padding: 0.2rem; opacity: 0.7; transition: opacity 0.1s; }
+    .notebook-header .nb-tool.active { opacity: 1; transform: scale(1.15); filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15)); }
     .notebook-palette {
       display: flex; flex-direction: column; gap: 0.6rem;
       padding: 0.7rem 0; align-items: center;
@@ -952,15 +954,6 @@
       position: absolute; inset: 0; width: 100%; height: 100%;
       touch-action: none; cursor: crosshair;
     }
-    .notebook-speak-full {
-      position: absolute; bottom: 1.5rem; right: 1.5rem;
-      width: 56px; height: 56px; border-radius: 50%;
-      background: #fff; border: 1px solid #ddd;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      font-size: 1.6rem; cursor: pointer;
-      display: inline-flex; align-items: center; justify-content: center;
-    }
-    [dir="rtl"] .notebook-speak-full { right: auto; left: 1.5rem; }
     .btn-notebook-card { background: transparent; border: none; font-size: 1.3rem; cursor: pointer; padding: 0.2rem; line-height: 1; }
 
     .toast {
@@ -1232,10 +1225,11 @@
   <div id="notebook-overlay" class="notebook-overlay hidden">
     <div class="notebook-header">
       <button onclick="closeNotebook()" aria-label="Close">✕</button>
-      <span data-i18n="notebook">دفتر</span>
-      <div class="notebook-header-tools">
-        <button onclick="clearNotebookCanvas()" aria-label="Clear">🗑️</button>
-        <button onclick="toggleNotebookPalette()" aria-label="Painter">🖌️</button>
+      <div class="notebook-header-tools" id="notebook-header-tools">
+        <button class="nb-tool active" data-tool="pencil" onclick="setNotebookTool('pencil')" aria-label="Pencil">🖊️</button>
+        <button class="nb-tool" data-tool="brush" onclick="setNotebookTool('brush')" aria-label="Brush">🖌️</button>
+        <button class="nb-tool" data-tool="eraser" onclick="setNotebookTool('eraser')" aria-label="Eraser">🧽</button>
+        <button class="nb-tool" onclick="clearNotebookCanvas()" aria-label="Clear">🗑️</button>
       </div>
     </div>
     <div id="notebook-palette" class="notebook-palette">
@@ -1260,7 +1254,6 @@
     <div class="notebook-canvas" id="notebook-canvas-wrap">
       <div class="notebook-phrase-bg" id="notebook-phrase-bg"></div>
       <canvas id="notebook-canvas" class="notebook-draw-canvas"></canvas>
-      <button class="notebook-speak-full" title="استمع / Repeat" onclick="notebookSpeakCurrent()">🔊</button>
     </div>
   </div>
 
@@ -1421,7 +1414,9 @@
       actionLessonId: null,
       playerMode: false,
       notebookIndex: null,
+      notebookTool: 'pencil',
       notebookColor: '#111111',
+      notebookSelectedColor: '#111111',
       notebookScale: 1.25,
       notebookPalette: true
     };
@@ -2835,15 +2830,14 @@
     function renderNotebookOverlay() {
       const overlay = document.getElementById('notebook-overlay');
       const phraseEl = document.getElementById('notebook-phrase-bg');
-      const palette = document.getElementById('notebook-palette');
       if (!overlay || !phraseEl) return;
       const cue = state.currentCues[state.notebookIndex];
       if (!cue) { closeNotebook(); return; }
       const text = getCueLineByLang(cue, 'fr') || cue.text.split('\n')[0] || '';
       phraseEl.textContent = text;
       phraseEl.style.setProperty('--notebook-scale', state.notebookScale);
-      palette.classList.toggle('hidden', !state.notebookPalette);
-      document.querySelectorAll('#notebook-colors button').forEach(b => b.classList.toggle('active', b.dataset.color === state.notebookColor));
+      document.querySelectorAll('#notebook-header-tools .nb-tool[data-tool]').forEach(b => b.classList.toggle('active', b.dataset.tool === state.notebookTool));
+      document.querySelectorAll('#notebook-colors button').forEach(b => b.classList.toggle('active', b.dataset.color === state.notebookSelectedColor));
       document.querySelectorAll('#notebook-sizes button').forEach(b => b.classList.toggle('active', parseFloat(b.dataset.size) === state.notebookScale));
     }
 
@@ -2869,8 +2863,15 @@
     };
 
     window.setNotebookColor = function(color) {
-      state.notebookColor = color;
+      state.notebookSelectedColor = color;
+      if (state.notebookTool !== 'eraser') state.notebookColor = color;
       document.querySelectorAll('#notebook-colors button').forEach(b => b.classList.toggle('active', b.dataset.color === color));
+    };
+
+    window.setNotebookTool = function(tool) {
+      state.notebookTool = tool;
+      state.notebookColor = tool === 'eraser' ? '#ffffff' : state.notebookSelectedColor;
+      document.querySelectorAll('#notebook-header-tools .nb-tool[data-tool]').forEach(b => b.classList.toggle('active', b.dataset.tool === tool));
     };
 
     window.setNotebookSize = function(size) {
@@ -2898,7 +2899,8 @@
       const ctx = canvas.getContext('2d');
       ctx.lineCap = 'round'; ctx.lineJoin = 'round';
       ctx.strokeStyle = state.notebookColor;
-      ctx.lineWidth = Math.max(2, 4 * state.notebookScale);
+      const toolFactor = { pencil: 1, brush: 2.5, eraser: 5 }[state.notebookTool] || 1;
+      ctx.lineWidth = Math.max(2, 3 * state.notebookScale * toolFactor);
       ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y); ctx.stroke();
       e.preventDefault();
     }
