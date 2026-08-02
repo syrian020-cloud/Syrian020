@@ -614,8 +614,8 @@
       }
       state.voiceLang = {
         fr: frTag,
-        ar: await supportsLangTag(tts, ['ar-SA','ar','ara','ar-EG']) || 'ar-SA',
-        en: await supportsLangTag(tts, ['en-US','en','eng','en-GB','en-CA']) || 'en-US'
+        ar: await supportsLangTag(tts, ['ar-SA','ar','ara','ar-EG']),
+        en: await supportsLangTag(tts, ['en-US','en','eng','en-GB','en-CA'])
       };
       state.ttsAvailable = true;
       hideTTSBanner();
@@ -632,7 +632,8 @@
   function nativeSpeak(text, lang) {
     const tts = nativeTTS();
     if (!tts) return Promise.reject('no tts');
-    const tag = (state.voiceLang && state.voiceLang[lang]) || VOICE_LANG[lang] || 'en-US';
+    const tag = (state.voiceLang && state.voiceLang[lang]);
+    if (!tag) return Promise.reject('unsupported lang');
     const p = tts.speak({ text: text, lang: tag, rate: state.rate || 1 });
     const timeout = new Promise((_, reject) => setTimeout(() => reject('timeout'), 7000));
     return Promise.race([p, timeout]);
@@ -713,8 +714,8 @@
     anyStop();
     const ready = await prepareTTS();
     if (run !== speechRun) return;
-    if (!ready) { openTTSInstall(); showTTSHelp(); highlight(null); return; }
-    const seq = langs.filter(l => phrase[l]);
+    if (!ready) { showTTSHelp(); highlight(null); return; }
+    const seq = langs.filter(l => phrase[l] && state.voiceLang[l]);
     let i = 0;
     let firstError = true;
     (function next() {
@@ -723,7 +724,7 @@
       const lang = seq[i++];
       highlight(key, lang);
       anySpeak(phrase[lang], lang).then(() => { if (run === speechRun) setTimeout(next, 250); }).catch(() => {
-        if (firstError) { firstError = false; openTTSInstall(); showTTSHelp(); }
+        if (firstError) { firstError = false; showTTSHelp(); }
         if (run === speechRun) setTimeout(next, 250);
       });
     })();
@@ -732,7 +733,7 @@
   async function toggleLoop(phrase, key) {
     if (state.loop && state.loop.key === key) { stopSpeech(); return; }
     const ready = await prepareTTS();
-    if (!ready) { openTTSInstall(); showTTSHelp(); return; }
+    if (!ready) { showTTSHelp(); return; }
     state.loop = { key: key };
     refreshButtons();
     (function cycle() {
@@ -960,7 +961,7 @@
 
   async function playLesson(lesson) {
     const ready = await prepareTTS();
-    if (!ready) { openTTSInstall(); showTTSHelp(); return; }
+    if (!ready) { showTTSHelp(); return; }
     stopSpeech();
     let i = 0;
     const runKey = 'lesson:' + lesson.id;
