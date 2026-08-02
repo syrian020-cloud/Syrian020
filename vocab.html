@@ -133,6 +133,8 @@
   .card-actions button.active { background: var(--success); color: #12142b; border-color: var(--success); }
 
   .empty { text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); }
+  .load-more-btn { display: block; width: 100%; margin: 1rem 0; padding: 0.8rem; background: var(--bg-secondary); color: var(--accent); border: 1px dashed var(--accent); border-radius: var(--radius); cursor: pointer; font-size: 0.95rem; }
+  .load-more-btn:hover { background: var(--bg-tertiary); }
   footer { text-align: center; padding: 1.5rem 1rem; color: var(--text-secondary); font-size: 0.82rem; }
   footer a { color: var(--accent); text-decoration: none; }
 
@@ -198,11 +200,12 @@
 <div class="toast" id="toast"></div>
 
 <script src="data/vocab.js"></script>
+<script src="data/vocab-batch-02.js"></script>
 <script>
 (function(){
   'use strict';
 
-  var VOCAB = window.VOCAB_DATA || [];
+  var VOCAB = (window.VOCAB_DATA || []).concat(window.VOCAB_DATA_BATCH2 || []);
   var list = document.getElementById('list');
   var search = document.getElementById('search');
   var filters = document.getElementById('filters');
@@ -218,6 +221,8 @@
     contexts: [],
     rate: parseFloat(localStorage.getItem('vocab_rate') || '1'),
     sort: localStorage.getItem('vocab_sort') || '',
+    page: 1,
+    pageSize: 100,
     loop: null,
     langs: (localStorage.getItem('vocab_langs') || 'fr,ar,en').split(','),
     theme: localStorage.getItem('vocab_theme') || 'dark',
@@ -253,7 +258,8 @@
       loopFrenchOnly: '🔁 فرنسي فقط',
       backToFrench: '← العودة إلى دروس الفرنسية',
       footerText: 'مخصص للحياة اليومية في فرنسا',
-      copied: 'تم نسخ النص'
+      copied: 'تم نسخ النص',
+      loadMore: 'تحميل المزيد'
     },
     en: {
       appName: 'France Vocab',
@@ -280,7 +286,8 @@
       loopFrenchOnly: '🔁 French only',
       backToFrench: '← Back to French lessons',
       footerText: 'Built for daily life in France',
-      copied: 'Copied'
+      copied: 'Copied',
+      loadMore: 'Load more'
     },
     fr: {
       appName: 'Vocab France',
@@ -307,7 +314,8 @@
       loopFrenchOnly: '🔁 Français seulement',
       backToFrench: '← Retour aux leçons',
       footerText: 'Pour la vie quotidienne en France',
-      copied: 'Copié'
+      copied: 'Copié',
+      loadMore: 'Charger plus'
     }
   };
 
@@ -416,7 +424,8 @@
     stats.textContent = items.length + ' ' + t('results') + (state.q ? ' · "' + esc(state.q) + '"' : '');
     if(!items.length){ list.innerHTML = '<div class="empty">' + t('noResults') + '</div>'; return; }
 
-    list.innerHTML = items.map(function(v, idx){
+    var end = Math.min(items.length, state.page * state.pageSize);
+    var html = items.slice(0, end).map(function(v, idx){
       var key = 'v' + idx;
       var ex = v.ex ? '<div class="example"><div class="ex-fr" dir="ltr">' + esc(v.ex.fr) + '</div><div class="ex-ar">' + esc(v.ex.ar) + '</div>' + (v.ex.en ? '<div class="ex-en" dir="ltr">' + esc(v.ex.en) + '</div>' : '') + '</div>' : '';
       return '<div class="vocab-card" data-key="' + esc(key) + '" data-idx="' + idx + '">' +
@@ -440,6 +449,10 @@
         '</div>' +
       '</div>';
     }).join('');
+    if(end < items.length){
+      html += '<button class="load-more-btn" id="load-more" data-t="loadMore">' + esc(t('loadMore')) + ' (' + (items.length - end) + ')</button>';
+    }
+    list.innerHTML = html;
   }
 
   function itemByIdx(idx){ return filtered()[idx]; }
@@ -551,10 +564,10 @@
   }
 
   function bindEvents(){
-    search.addEventListener('input', function(){ state.q = search.value; render(); });
+    search.addEventListener('input', function(){ state.q = search.value; state.page = 1; render(); });
     rateSelect.addEventListener('change', function(){ state.rate = parseFloat(rateSelect.value); localStorage.setItem('vocab_rate', state.rate); });
     loopSelect.addEventListener('change', function(){ state.langs = loopSelect.value.split(','); localStorage.setItem('vocab_langs', loopSelect.value); });
-    sortSelect.addEventListener('change', function(){ state.sort = sortSelect.value; localStorage.setItem('vocab_sort', state.sort); render(); });
+    sortSelect.addEventListener('change', function(){ state.sort = sortSelect.value; localStorage.setItem('vocab_sort', state.sort); state.page = 1; render(); });
 
     document.getElementById('btn-stop').addEventListener('click', stopSpeech);
     document.getElementById('btn-theme').addEventListener('click', function(){
@@ -574,10 +587,12 @@
       var i = arr.indexOf(key);
       if(i === -1) arr.push(key); else arr.splice(i, 1);
       buildFilters();
+      state.page = 1;
       render();
     });
 
     list.addEventListener('click', function(e){
+      if(e.target.closest('#load-more')){ state.page++; render(); return; }
       var card = e.target.closest('.vocab-card'); if(!card) return;
       var idx = parseInt(card.dataset.idx, 10);
       var entry = itemByIdx(idx);
