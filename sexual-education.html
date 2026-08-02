@@ -189,7 +189,7 @@
   .form-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
   .form-group { margin-bottom: 0.9rem; }
   .form-group label { display: block; font-size: 0.9rem; margin-bottom: 0.35rem; color: var(--text-secondary); }
-  .form-group input, .form-group textarea {
+  .form-group input, .form-group textarea, .form-group select {
     width: 100%; background: var(--bg-tertiary); color: var(--text-primary);
     border: 1px solid var(--border); border-radius: var(--radius); padding: 0.65rem;
     font-size: 1rem; font-family: inherit;
@@ -261,21 +261,89 @@
   function saveLessons() { localStorage.setItem('sexed_lessons', JSON.stringify(LESSONS)); }
   function cleanPhrasePart(s) {
     let r = String(s).trim();
-    const trim = '*–—-';
+    const trim = '*–—-:=;';
     while (r && trim.includes(r[0])) r = r.slice(1).trim();
     while (r && trim.includes(r[r.length - 1])) r = r.slice(0, -1).trim();
     return r;
   }
-  function parsePhrases(text) {
-    const phrases = [];
+  function extractRawParts(line) {
+    const cleanLine = String(line).trim();
+    if (!cleanLine) return null;
+    const delims = /\s*(?:\|{1,2}|,|;|=>|->|→|=|:|\s+-\s+|\s+)\s*/;
+    const tokens = cleanLine.split(delims).map(s => s.trim()).filter(Boolean);
+    if (tokens.length < 3) return null;
+    const isAr = s => /[\u0600-\u06FF]/.test(s);
+    const firstAr = tokens.findIndex(isAr);
+    if (firstAr === -1) return null;
+    const lastAr = tokens.length - 1 - [...tokens].reverse().findIndex(isAr);
+    return {
+      first: tokens.slice(0, firstAr).join(' '),
+      ar: tokens.slice(firstAr, lastAr + 1).join(' '),
+      last: tokens.slice(lastAr + 1).join(' ')
+    };
+  }
+  function classifyLatinLang(s) {
+    const text = String(s).trim();
+    if (!text || /[\u0600-\u06FF]/.test(text)) return '';
+    const lower = text.toLowerCase();
+    if (/[éèêàâäæçíïîìôöòûüùœ]/.test(lower)) return 'fr';
+    const enMatch = lower.match(/\b(the|a|an|and|or|is|are|am|was|were|be|been|have|has|had|do|does|did|will|would|could|should|may|might|can|this|that|these|those|my|your|his|her|its|our|their|in|on|at|to|for|with|of|from|by|about|into|through|during|before|after|i|you|he|she|we|they|it|me|him|them|us|there|here|where|what|when|why|how|all|some|no|not|yes|please|thank|thanks|very|much|more|less)\b/g);
+    const frMatch = lower.match(/\b(le|la|les|l'|un|une|des|du|de|d'|et|ou|en|je|tu|il|elle|nous|vous|ils|elles|est|sont|ai|as|a|avons|avez|ont|avoir|faire|suis|es|sommes|etes|êtes|mon|ma|mes|ton|ta|tes|son|sa|ses|ce|cet|cette|ces|que|qui|quoi|pour|avec|dans|sur|par|sous|contre|vers|avant|après|plus|moins|très|bien|oui|non|merci|s'il|te|me|se|lui|y|en|où|dont|quand|comment|pourquoi|parce|car|si|quel|quelle|quels|quelles)\b/g);
+    const enWords = enMatch ? enMatch.length : 0;
+    const frWords = frMatch ? frMatch.length : 0;
+    if (enWords > frWords) return 'en';
+    if (frWords > enWords) return 'fr';
+    const words = lower.split(/[^a-z0-9'àâäæçéèêëïîôùûüœ'-]+/i).filter(Boolean);
+    const frHints = new Set(['vagin','vulve','clitoris','lèvres','grandes','petites','utérus','ovaires','seins','mamelons','col','hymen','mont','vénus','périnée','trompes','fallope','anus','pénis','gland','prépuce','testicules','scrotum','prostate','point']);
+    const enHints = new Set(['vagina','vulva','labia','majora','minora','uterus','womb','ovaries','breasts','nipples','cervix','mons','pubis','perineum','fallopian','tubes','penis','glans','foreskin','testicles','balls','scrotum','prostate','g-spot']);
+    let frAny = false, enAny = false;
+    words.forEach(w => { if (frHints.has(w)) frAny = true; if (enHints.has(w)) enAny = true; });
+    if (frAny && !enAny) return 'fr';
+    if (enAny && !frAny) return 'en';
+    return '';
+  }
+  function getLineOrder(first, last, blockOrder) {
+    const langFirst = classifyLatinLang(first);
+    const langLast = classifyLatinLang(last);
+    if (langFirst === 'fr' && langLast !== 'fr') return 'fr-ar-en';
+    if (langFirst === 'en' && langLast !== 'en') return 'en-ar-fr';
+    if (langLast === 'fr' && langFirst !== 'fr') return 'en-ar-fr';
+    if (langLast === 'en' && langFirst !== 'en') return 'fr-ar-en';
+    return blockOrder;
+  }
+  function detectBlockOrder(text) {
+    let firstFr = 0, firstEn = 0, lastFr = 0, lastEn = 0;
     text.split('\n').forEach(raw => {
-      const line = raw.trim();
-      if (!line) return;
-      let parts = line.split('|').map(s => s.trim());
-      if (parts.length < 3) parts = line.split(/→|->|=>/).map(s => s.trim());
-      if (parts.length < 3) return;
-      const fr = cleanPhrasePart(parts[0]), ar = cleanPhrasePart(parts[1]), en = cleanPhrasePart(parts[2]);
-      if (fr && ar && en) phrases.push({ fr, ar, en });
+      const parts = extractRawParts(raw);
+      if (!parts) return;
+      const first = cleanPhrasePart(parts.first);
+      const last = cleanPhrasePart(parts.last);
+      const langFirst = classifyLatinLang(first);
+      const langLast = classifyLatinLang(last);
+      if (langFirst === 'fr') firstFr++; else if (langFirst === 'en') firstEn++;
+      if (langLast === 'fr') lastFr++; else if (langLast === 'en') lastEn++;
+    });
+    if (firstEn > firstFr && lastFr >= lastEn) return 'en-ar-fr';
+    if (firstFr > firstEn && lastEn >= lastFr) return 'fr-ar-en';
+    if (firstEn > 0 && lastFr > 0) return 'en-ar-fr';
+    if (firstFr > 0 && lastEn > 0) return 'fr-ar-en';
+    return 'fr-ar-en';
+  }
+  function parsePhrases(text, userOrder = 'auto') {
+    const phrases = [];
+    const blockOrder = (userOrder === 'auto') ? detectBlockOrder(text) : userOrder;
+    text.split('\n').forEach(raw => {
+      const parts = extractRawParts(raw);
+      if (!parts) return;
+      const ar = cleanPhrasePart(parts.ar);
+      const first = cleanPhrasePart(parts.first);
+      const last = cleanPhrasePart(parts.last);
+      if (!ar || !first || !last) return;
+      const lineOrder = getLineOrder(first, last, blockOrder);
+      let fr, en;
+      if (lineOrder === 'en-ar-fr') { en = first; fr = last; }
+      else { fr = first; en = last; }
+      phrases.push({ fr, ar, en });
     });
     return phrases;
   }
@@ -315,7 +383,11 @@
     titleAr: { ar: 'العنوان بالعربية', en: 'Title in Arabic', fr: 'Titre en arabe' },
     titleEn: { ar: 'العنوان بالإنجليزية', en: 'Title in English', fr: 'Titre en anglais' },
     phrasesLabel: { ar: 'العبارات', en: 'Phrases', fr: 'Phrases' },
-    phrasesHint: { ar: 'كل سطر: فرنسي | عربي | إنجليزي', en: 'One line: French | Arabic | English', fr: 'Une ligne : Français | Arabe | Anglais' },
+    phrasesHint: { ar: 'كل سطر: فرنسي/إنجليزي ثم عربي ثم الآخر. يقبل | , = → : - ومسافات/Tab', en: 'One line: French/English then Arabic then the other. Supports | , = → : - and spaces/tabs', fr: 'Une ligne : Français/Anglais puis Arabe puis l\'autre. Accepte | , = → : - et espaces/tab' },
+    pasteOrder: { ar: 'ترتيب الأعمدة', en: 'Column order', fr: 'Ordre des colonnes' },
+    orderAuto: { ar: 'تلقائي', en: 'Auto', fr: 'Auto' },
+    orderFrFirst: { ar: 'فرنسي | عربي | إنجليزي', en: 'French | Arabic | English', fr: 'Français | Arabe | Anglais' },
+    orderEnFirst: { ar: 'إنجليزي | عربي | فرنسي', en: 'English | Arabic | French', fr: 'Anglais | Arabe | Français' },
     saveLesson: { ar: 'حفظ الدرس', en: 'Save lesson', fr: 'Enregistrer la leçon' },
     cancel: { ar: 'إلغاء', en: 'Cancel', fr: 'Annuler' },
     deleteLesson: { ar: 'حذف الدرس', en: 'Delete lesson', fr: 'Supprimer la leçon' },
@@ -488,7 +560,7 @@
       en: cleanPhrasePart(form.elements.titleEn.value)
     };
     if (!title.fr || !title.ar || !title.en) { alert(t('fillTitleError')); return; }
-    const phrases = parsePhrases(form.elements.phrases.value);
+    const phrases = parsePhrases(form.elements.phrases.value, form.elements.order.value);
     if (!phrases.length) { alert(t('noPhrasesError')); return; }
     const id = LESSONS.length ? Math.max(...LESSONS.map(l => l.id)) + 1 : 1;
     LESSONS.push({ id, custom: true, title, phrases });
@@ -510,6 +582,7 @@
         <div class="form-group"><label data-t="titleFr">${t('titleFr')}</label><input name="titleFr" required placeholder="Ex: Les organes génitaux"></div>
         <div class="form-group"><label data-t="titleAr">${t('titleAr')}</label><input name="titleAr" required placeholder="مثال: الأعضاء التناسلية" dir="rtl"></div>
         <div class="form-group"><label data-t="titleEn">${t('titleEn')}</label><input name="titleEn" required placeholder="Ex: Genital organs"></div>
+        <div class="form-group"><label data-t="pasteOrder">${t('pasteOrder')}</label><select name="order" class="ctl"><option value="auto" data-t="orderAuto" selected>${t('orderAuto')}</option><option value="fr-ar-en" data-t="orderFrFirst">${t('orderFrFirst')}</option><option value="en-ar-fr" data-t="orderEnFirst">${t('orderEnFirst')}</option></select></div>
         <div class="form-group"><label data-t="phrasesLabel">${t('phrasesLabel')}</label><textarea name="phrases" rows="10" placeholder="vagin | المهبل | vagina" required></textarea><div class="hint" data-t="phrasesHint">${t('phrasesHint')}</div></div>
         <div class="form-actions">
           <button type="submit" class="btn">${t('saveLesson')}</button>
