@@ -47,20 +47,21 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 ## Vocab page quick checks (updated dataset)
 
 - `data/vocab.js` and `data/vocab-batch-02.js` are concatenated into the in-memory list.
-- Total entries: **7,734**.
+- Total entries: **7,686** (after removing 48 duplicates).
 - Search examples:
   - `rue` → 14 results, including `fr: "rue"` with `ex.fr: "Le chat traversa la rue."`, `ex.ar: "عبر القط الطريق."`, `ex.en: "The cat crossed the road."`
   - `côté` → 5 results, including `fr: "côté"` with `ex.fr: "Mets-le de côté."` and `fr: "à côté de"` with `ex.fr: "C'est à côté de la mairie, derrière l'église."`
   - `à côté de` → 1 result with `ex.fr: "C'est à côté de la mairie, derrière l'église."`
   - rare/technical terms removed: `abaque` → 0, `spool` → 0
   - common/admin terms retained: `attestation` (3), `loyer` (4), `compte bancaire` (1), `titre de séjour` (1), `CAF` (11), `OFII` (1)
+- Examples: every entry now has an example. About 2,015 are matched from the in-app lesson phrases or Tatoeba; the rest use a generic fallback (`Le mot <fr> est utile.` / `L'expression <fr> est utile.`).
 - Filter counts:
-  - level `A1` → 988
-  - context `prefecture` (`محافظة` in AR, `Préfecture` in FR, `Prefecture` in EN) → 651
+  - level `A1` → 966
+  - context `prefecture` (`محافظة` in AR, `Préfecture` in FR, `Prefecture` in EN) → 649
 - Sorting:
   - A → Z first term: `à bas`
   - Z → A first term: `ZWD` (after filtering, `zygote` was removed)
-- Pagination: `pageSize` is 100; the `#load-more` button now shows the remaining count on first load (e.g. `تحميل المزيد (7634)` / `Load more (7634)` / `Charger plus (7634)`), and updates after each click.
+- Pagination: `pageSize` is 100; the `#load-more` button now shows the remaining count on first load (e.g. `تحميل المزيد (7586)` / `Load more (7586)` / `Charger plus (7586)`), and updates after each click.
 - Audio uses Web Speech API or Capacitor TTS; in the VM the audio may not play, but the buttons should not throw console errors.
 - Card action buttons (from left in LTR):
   - `speak-btn` (🔊 / `نطق` / `Speak` / `Écouter`)
@@ -76,9 +77,9 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v75`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v76`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
   ```
-- If `data/manifest.js` or any `data/stage*.js` file is missing, the install step fails and `dross-v75` will not activate.
+- If `data/manifest.js` or any `data/stage*.js` file is missing, the install step fails and `dross-v76` will not activate.
