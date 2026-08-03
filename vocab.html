@@ -350,6 +350,13 @@
     phrase: { ar: 'عبارة', en: 'Phrase', fr: 'Expression' },
     other: { ar: 'آخر', en: 'Other', fr: 'Autre' }
   };
+  var POS_BY_LABEL = {};
+  Object.keys(POS_LABELS).forEach(function(k){
+    var p = POS_LABELS[k];
+    POS_BY_LABEL[p.ar.toLowerCase()] = k;
+    POS_BY_LABEL[p.en.toLowerCase()] = k;
+    POS_BY_LABEL[p.fr.toLowerCase()] = k;
+  });
 
   var CTX_LABELS = {
     daily: { ar: 'يومي', en: 'Daily', fr: 'Quotidien' },
@@ -449,14 +456,15 @@
 
   function filtered(){
     var q = state.q.trim().toLowerCase();
+    var posMatchKey = q ? POS_BY_LABEL[q] : null;
     var items = VOCAB.filter(function(v){
       if(state.levels.length && state.levels.indexOf(v.level) === -1) return false;
       if(state.contexts.length && !v.contexts.some(function(c){ return state.contexts.indexOf(c) !== -1; })) return false;
       if(state.pos.length && state.pos.indexOf(v.pos || 'other') === -1) return false;
       if(!q) return true;
+      if(posMatchKey) return v.pos === posMatchKey;
       var ex = v.ex || {};
-      var posText = (v.pos ? posLabelsText(v.pos) : '');
-      var hay = (v.fr + ' ' + (v.ar||'') + ' ' + (v.en||'') + ' ' + (v.usage||'') + ' ' + (v.contexts||[]).join(' ') + ' ' + (v.pos||'') + ' ' + posText + ' ' + (ex.fr||'') + ' ' + (ex.ar||'') + ' ' + (ex.en||'')).toLowerCase();
+      var hay = (v.fr + ' ' + (v.ar||'') + ' ' + (v.en||'') + ' ' + (v.usage||'') + ' ' + (v.contexts||[]).join(' ') + ' ' + (ex.fr||'') + ' ' + (ex.ar||'') + ' ' + (ex.en||'')).toLowerCase();
       return hay.indexOf(q) !== -1;
     });
     if(state.sort === 'az') items.sort(function(a,b){ return a.fr.localeCompare(b.fr, 'fr'); });
