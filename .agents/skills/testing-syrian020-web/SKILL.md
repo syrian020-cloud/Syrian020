@@ -47,16 +47,18 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 ## Vocab page quick checks (updated dataset)
 
 - `data/vocab.js` and `data/vocab-batch-02.js` are concatenated into the in-memory list.
-- Total entries: **9,980**.
+- Total entries: **7,734**.
 - Search examples:
   - `rue` → 14 results, including `fr: "rue"` with `ex.fr: "Le chat traversa la rue."`, `ex.ar: "عبر القط الطريق."`, `ex.en: "The cat crossed the road."`
+  - `côté` → 5 results, including `fr: "côté"` with `ex.fr: "Mets-le de côté."` and `fr: "à côté de"` with `ex.fr: "C'est à côté de la mairie, derrière l'église."`
+  - `à côté de` → 1 result with `ex.fr: "C'est à côté de la mairie, derrière l'église."`
 - Filter counts:
-  - level `A1` → 994
-  - context `prefecture` (`محافظة` in AR, `Préfecture` in FR, `Prefecture` in EN) → 706
+  - level `A1` → 988
+  - context `prefecture` (`محافظة` in AR, `Préfecture` in FR, `Prefecture` in EN) → 651
 - Sorting:
   - A → Z first term: `à bas`
   - Z → A first term: `zygote`
-- Pagination: `pageSize` is 100; the `#load-more` button now shows the remaining count on first load (e.g. `تحميل المزيد (9880)` / `Load more (9880)` / `Charger plus (9880)`), and updates after each click.
+- Pagination: `pageSize` is 100; the `#load-more` button now shows the remaining count on first load (e.g. `تحميل المزيد (7634)` / `Load more (7634)` / `Charger plus (7634)`), and updates after each click.
 - Audio uses Web Speech API or Capacitor TTS; in the VM the audio may not play, but the buttons should not throw console errors.
 - Card action buttons (from left in LTR):
   - `speak-btn` (🔊 / `نطق` / `Speak` / `Écouter`)
@@ -68,12 +70,13 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   - EN: `<fr> translation to Arabic and French with common examples`
   - FR: `<fr> traduction arabe français avec exemples courants`
 - Google search links will often hit a reCAPTCHA from a VM IP; that is expected. Verify the generated URL, not the results page.
+- In Chrome for Testing, opening a Google AI Mode (`udm=50`) link may crash the entire browser process. If this happens, verify the generated `href` via CDP (`document.querySelector('.ai-btn').getAttribute('href')`) instead of clicking.
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v72`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v74`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
   ```
-- If `data/manifest.js` or any `data/stage*.js` file is missing, the install step fails and `dross-v72` will not activate.
+- If `data/manifest.js` or any `data/stage*.js` file is missing, the install step fails and `dross-v74` will not activate.

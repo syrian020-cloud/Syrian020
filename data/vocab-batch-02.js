@@ -1,4 +1,4 @@
-/* Auto-generated vocabulary batch 2: Arabic/French/English from ArabTerm and Polyglot, with matched examples from app lessons and Tatoeba (CC-BY). */
+/* Auto-generated vocabulary batch 2: Arabic/French/English from ArabTerm and Polyglot, filtered to common words and matched examples from app lessons and Tatoeba (CC-BY). */
 window.VOCAB_DATA_BATCH2 = [
   {
     "fr": "sol",
@@ -373,15 +373,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "culée",
-    "ar": "سنادة، كتف",
-    "en": "abutment",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "fossé",
     "ar": "حفير، حفرة",
     "en": "ditch",
@@ -472,15 +463,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "rivet",
     "ar": "برشام",
     "en": "rivet",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "toron",
-    "ar": "سلك شريطي",
-    "en": "stranded wire",
     "level": "B1",
     "contexts": [
       "transport"
@@ -605,24 +587,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "منحدر شديد.",
       "en": "Steep slope."
     }
-  },
-  {
-    "fr": "vérin",
-    "ar": "رافعة",
-    "en": "lifting jack",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "bogie",
-    "ar": "توقيف محوري",
-    "en": "pivoting suspension",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
   },
   {
     "fr": "jeton",
@@ -867,27 +831,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "auget",
-    "ar": "قناة",
-    "en": "trough",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "moise",
     "ar": "لوح ربط",
     "en": "waling",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "aviso",
-    "ar": "قارب توصيل",
-    "en": "despatch boat",
     "level": "B1",
     "contexts": [
       "transport"
@@ -945,15 +891,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "dalot",
-    "ar": "بالوعة السفينة",
-    "en": "scupper hole",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "bouée",
     "ar": "عوامة، أرمة عائمة",
     "en": "buoy",
@@ -993,15 +930,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "أقلعت الطائرة في الساعة العاشرة بالضبط.",
       "en": "The plane took off at exactly ten o'clock."
     }
-  },
-  {
-    "fr": "badin",
-    "ar": "مؤشر سرعة الطيران",
-    "en": "airspeed indicator",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
   },
   {
     "fr": "arbre",
@@ -1188,15 +1116,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "ripage",
-    "ar": "نشر طولي",
-    "en": "ripping",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "cardan",
     "ar": "عمود الكردان",
     "en": "cardan shaft",
@@ -1209,15 +1128,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "agrafe",
     "ar": "واصل",
     "en": "connector",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "méplat",
-    "ar": "عجلة مسطحة",
-    "en": "wheel flat",
     "level": "B1",
     "contexts": [
       "transport"
@@ -1333,27 +1243,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "birail",
-    "ar": "سكة مزدوجة",
-    "en": "double rail",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "signal",
     "ar": "إشارة",
     "en": "signal",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "ranche",
-    "ar": "مزرعة",
-    "en": "stake",
     "level": "B1",
     "contexts": [
       "transport"
@@ -1429,15 +1321,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "gabion",
-    "ar": "قفة تراب؛ كيس حجارة",
-    "en": "gabion",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "cassis",
     "ar": "طريق محدب",
     "en": "humped road",
@@ -1459,15 +1342,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "مستوى الزيت.",
       "en": "Oil level."
     }
-  },
-  {
-    "fr": "nivelé",
-    "ar": "مسوى",
-    "en": "levelled",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
   },
   {
     "fr": "pavage",
@@ -1509,15 +1383,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "رأيت ضوءا في نهاية النفق.",
       "en": "I saw a light at the end of the tunnel."
     }
-  },
-  {
-    "fr": "trémie",
-    "ar": "مدخل نفق",
-    "en": "underpass approach",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
   },
   {
     "fr": "déchet",
@@ -1616,15 +1481,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "fluage",
-    "ar": "تشويه",
-    "en": "creep",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "voyant",
     "ar": "مشور",
     "en": "indicator lamp",
@@ -1637,15 +1493,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "الضوء الأحمر مضاء على الراوتر.",
       "en": "The red light is on on the box."
     }
-  },
-  {
-    "fr": "tuyère",
-    "ar": "فوهة، صنبور",
-    "en": "nozzle",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
   },
   {
     "fr": "survol",
@@ -1730,15 +1577,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "mayday",
-    "ar": "ماي داي",
-    "en": "mayday",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "douane",
     "ar": "جمارك",
     "en": "customs",
@@ -1757,36 +1595,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Kanban",
-    "ar": "كانبان",
-    "en": "Kanban",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "muting",
-    "ar": "إسكات",
-    "en": "muting",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "triage",
     "ar": "فرز",
     "en": "sorting",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "tablar",
-    "ar": "طبق/ صينية",
-    "en": "tray",
     "level": "B1",
     "contexts": [
       "transport"
@@ -1940,27 +1751,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "saleuse",
-    "ar": "ملاحة",
-    "en": "salt spreader",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "segment",
     "ar": "مقطع",
     "en": "segment",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "congère",
-    "ar": "جرف ثلجي",
-    "en": "snowdrift",
     "level": "B1",
     "contexts": [
       "transport"
@@ -1997,15 +1790,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "alésage",
     "ar": "ثقب تركيب مطول",
     "en": "elongated mounting hole",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "Eurocab",
-    "ar": "مقصورة اليورو",
-    "en": "Eurocab",
     "level": "B1",
     "contexts": [
       "transport"
@@ -2119,15 +1903,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "أين خزائن الحقائب؟",
       "en": "Where is the luggage locker?"
     }
-  },
-  {
-    "fr": "midibus",
-    "ar": "حافلة متوسطة",
-    "en": "midibus",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
   },
   {
     "fr": "minibus",
@@ -2318,15 +2093,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "bouteur",
-    "ar": "جرافة",
-    "en": "bulldozer",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "broyeur",
     "ar": "كسارة",
     "en": "crusher",
@@ -2398,24 +2164,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "كم تكلّف ساعة في المرآب؟",
       "en": "How much is one hour of parking?"
     }
-  },
-  {
-    "fr": "peeling",
-    "ar": "تقشير",
-    "en": "peeling",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "perlite",
-    "ar": "برليت",
-    "en": "perlite",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
   },
   {
     "fr": "pigment",
@@ -2504,33 +2252,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "câblier",
-    "ar": "سفينة مد الكبلات",
-    "en": "cable ship",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "écubier",
-    "ar": "بيت القلس",
-    "en": "hause",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "bossoir",
-    "ar": "مقدم سفينة",
-    "en": "davit",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "fatigue",
     "ar": "تعب",
     "en": "fatigue",
@@ -2548,24 +2269,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "planeur",
     "ar": "طيارة شراعية، طائرة انزلاقية",
     "en": "glider",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "ponçage",
-    "ar": "سحق",
-    "en": "grinding",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "haubans",
-    "ar": "ستائر",
-    "en": "shrouds",
     "level": "B1",
     "contexts": [
       "transport"
@@ -2719,54 +2422,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "cercler",
-    "ar": "ربط",
-    "en": "strapping",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "étirage",
-    "ar": "تمديد",
-    "en": "stretching",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "panamax",
-    "ar": "باناماكس",
-    "en": "panamax",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "navette",
     "ar": "مكوك",
     "en": "shuttle",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "gerbage",
-    "ar": "تكديس",
-    "en": "stacking",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "racleur",
-    "ar": "مكشطة، مقشدة",
-    "en": "scraper",
     "level": "B1",
     "contexts": [
       "transport"
@@ -2799,15 +2457,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "éthanol",
     "ar": "الإيثانول",
     "en": "ethanol",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "gasohol",
-    "ar": "خليط البنزين",
-    "en": "gasohol",
     "level": "B1",
     "contexts": [
       "transport"
@@ -2855,24 +2504,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "cabotage",
-    "ar": "ملاحة ساحلية",
-    "en": "cabotage",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "affréter",
-    "ar": "استأجر",
-    "en": "charter",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "courtier",
     "ar": "سمسار",
     "en": "broker",
@@ -2905,15 +2536,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "autorail",
-    "ar": "سيطار ، عربة سكة حديدية",
-    "en": "railcar",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "portance",
     "ar": "حمولية، سعة الحمولة",
     "en": "bearing capacity",
@@ -2937,15 +2559,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "extrados",
-    "ar": "ظهري، ظهر الحرض",
-    "en": "extrados",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "trottoir",
     "ar": "ممر مشاة",
     "en": "footway",
@@ -2958,15 +2571,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "ابتعد عن الرصيف.",
       "en": "Move away from the sidewalk."
     }
-  },
-  {
-    "fr": "gélivité",
-    "ar": "انفلاعية، تأثر بالتجمد",
-    "en": "frost susceptibility",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
   },
   {
     "fr": "drainage",
@@ -3024,36 +2628,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "draisine",
-    "ar": "سيارة سكة حديد يدوية",
-    "en": "track motor car",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "onduleur",
-    "ar": "محول عكس",
-    "en": "inverter",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "monorail",
     "ar": "خط أحادي",
     "en": "monorail",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "présérie",
-    "ar": "سلسلة متقدمة",
-    "en": "pre-series",
     "level": "B1",
     "contexts": [
       "transport"
@@ -3083,27 +2660,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "tringles",
-    "ar": "قضبان",
-    "en": "sode rods",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "carénage",
     "ar": "انسيابية السطح",
     "en": "streamlined fairing",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "ultrason",
-    "ar": "فوق صوتي",
-    "en": "ultrasound",
     "level": "B1",
     "contexts": [
       "transport"
@@ -3127,15 +2686,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "candidat",
     "ar": "جهاز تحت الاختبار",
     "en": "device under test",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "répugner",
-    "ar": "تحويل آلي",
-    "en": "fly shunting",
     "level": "B1",
     "contexts": [
       "transport"
@@ -3261,15 +2811,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Fastclip",
-    "ar": "ربط سريع",
-    "en": "fastclip",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "pompiers",
     "ar": "قسم مكافحة الحرائق",
     "en": "fire department",
@@ -3287,24 +2828,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "soufflet",
     "ar": "منفاخ ممر مرتفع",
     "en": "gangway bellows",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "échouage",
-    "ar": "أساس",
-    "en": "grounding",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "frotteur",
-    "ar": "حامل منزلق",
-    "en": "pickup shoe",
     "level": "B1",
     "contexts": [
       "transport"
@@ -3389,54 +2912,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "flambage",
-    "ar": "شقيقة",
-    "en": "buckling",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "mâchefer",
-    "ar": "جفاء، آجر قاسي",
-    "en": "clinker",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "colloïde",
-    "ar": "مادة غروانية",
-    "en": "colloid",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "caniveau",
     "ar": "مفاض",
     "en": "drainage channel",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "ragréage",
-    "ar": "تشطيب",
-    "en": "finishing off",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "coffrage",
-    "ar": "تمليس",
-    "en": "formwork",
     "level": "B1",
     "contexts": [
       "transport"
@@ -3452,63 +2930,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "latérite",
-    "ar": "تربة اللاتريت",
-    "en": "laterite",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "longrine",
-    "ar": "عارضة طولية",
-    "en": "longitudinal girder",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "fraisage",
-    "ar": "رصفات ذاتية الرتح",
-    "en": "milling",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "marinage",
-    "ar": "إزالة تراب ومواد الحفريات؛ حمرغة",
-    "en": "mucking out",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "pipeline",
     "ar": "خط أنابيب",
     "en": "pipeline",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "remixage",
-    "ar": "تعديل",
-    "en": "remixing",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "repavage",
-    "ar": "إعادة رصف",
-    "en": "repaving",
     "level": "B1",
     "contexts": [
       "transport"
@@ -3524,63 +2948,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "longeron",
-    "ar": "عارضة طولية ثانوية",
-    "en": "secondary longitudinal beam",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "peignage",
-    "ar": "تمشيط",
-    "en": "streaking",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "butanier",
-    "ar": "ناقلة البيوتان",
-    "en": "butane tanker",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "pare-feu",
     "ar": "دارك اللهب",
     "en": "flame arrester",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "panavant",
-    "ar": "جسر عبور ضيق",
-    "en": "fore-and-aft bridge",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "aussière",
-    "ar": "قلس",
-    "en": "hawser",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "allégeur",
-    "ar": "ناقلة نفط مخففة",
-    "en": "lightering vessel",
     "level": "B1",
     "contexts": [
       "transport"
@@ -3632,24 +3002,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "cadmiage",
-    "ar": "طلاء بالكادميوم",
-    "en": "cadmium plating",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "cuivrage",
-    "ar": "طلاء بالنحاس",
-    "en": "copper plating",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "fuselage",
     "ar": "جسم الطائرة",
     "en": "fuselage",
@@ -3662,33 +3014,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "Prop-Fan",
     "ar": "دعم مروحة",
     "en": "prop-fan",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "giravion",
-    "ar": "حواطة",
-    "en": "rotary wing aircraft",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "TurboFan",
-    "ar": "مروحية عنفية",
-    "en": "turbofan",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "Turbojet",
-    "ar": "نفاث عنفي",
-    "en": "turbojet",
     "level": "B1",
     "contexts": [
       "transport"
@@ -3712,15 +3037,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "héliport",
     "ar": "مهبط المروحية",
     "en": "heliport",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "batelier",
-    "ar": "بحار",
-    "en": "boatman",
     "level": "B1",
     "contexts": [
       "transport"
@@ -3800,15 +3116,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "groupage",
-    "ar": "شحنة متجمعة/ مجمعة",
-    "en": "aggregated shipment",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "chariots",
     "ar": "رافغة شوكية",
     "en": "forklift",
@@ -3882,15 +3189,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "jaugeage",
-    "ar": "قياس الحمولة",
-    "en": "tonnage measurement",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "variante",
     "ar": "خيار",
     "en": "variant",
@@ -3903,42 +3201,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "نعم، سنجرب نوعًا آخر.",
       "en": "Yes, we’ll try another variation."
     }
-  },
-  {
-    "fr": "porterie",
-    "ar": "بيت الحارس عند مدخل",
-    "en": "gatehouse",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "goulotte",
-    "ar": "منحذر",
-    "en": "chute",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "glissoir",
-    "ar": "موضع إنزلاق",
-    "en": "slide",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "aerodyne",
-    "ar": "طائرة",
-    "en": "aircraft",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
   },
   {
     "fr": "aviation",
@@ -4005,15 +3267,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "navetteur",
-    "ar": "ناقل مكوكي",
-    "en": "commuter",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "conteneur",
     "ar": "حاوية",
     "en": "container",
@@ -4069,15 +3322,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "surfaçage",
-    "ar": "تمليس",
-    "en": "bridge deck",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "bulldozer",
     "ar": "جرافة",
     "en": "bulldozer",
@@ -4101,36 +3345,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "déflexion",
-    "ar": "انعطاف، انحراف",
-    "en": "deflection",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "ductilité",
-    "ar": "مطيلية",
-    "en": "ductility",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "échangeur",
     "ar": "مبدل",
     "en": "grade-separated interchange",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "colmatage",
-    "ar": "انسداد بالطي",
-    "en": "silting up",
     "level": "B1",
     "contexts": [
       "transport"
@@ -4187,36 +3404,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "aggloméré",
-    "ar": "لوح حبيبي",
-    "en": "particle board",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "wagon-lit",
     "ar": "عربة النوم",
     "en": "pullman car",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "autorails",
-    "ar": "حافلة سككية",
-    "en": "railbus",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "retardeur",
-    "ar": "مقاصر",
-    "en": "retarder",
     "level": "B1",
     "contexts": [
       "transport"
@@ -4244,24 +3434,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "collision",
     "ar": "تحطم",
     "en": "crash",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "Euroradio",
-    "ar": "أوروراديو",
-    "en": "Euroradio",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "markéting",
-    "ar": "تسويق",
-    "en": "marketing",
     "level": "B1",
     "contexts": [
       "transport"
@@ -4359,51 +3531,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "admixture",
-    "ar": "عينة",
-    "en": "admixture",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "chanfrein",
-    "ar": "حافة مشطوبة",
-    "en": "chamfer",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "ébréchure",
-    "ar": "تسمير",
-    "en": "chipping",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "finisseur",
-    "ar": "صقال، رصاف",
-    "en": "finisher",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "niveleuse",
-    "ar": "آلات تمهيد التربة",
-    "en": "graders",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "diffuseur",
     "ar": "عقدة طريق سيار",
     "en": "grade-separated interchange",
@@ -4463,36 +3590,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "balayeuse",
-    "ar": "كنس الطريق",
-    "en": "road sweeper",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "sel gemme",
     "ar": "ملح صخري",
     "en": "rock salt",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "décapeuse",
-    "ar": "جرافة",
-    "en": "scraper",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "épaufrure",
-    "ar": "لجف",
-    "en": "spalling",
     "level": "B1",
     "contexts": [
       "transport"
@@ -4522,27 +3622,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "carlingue",
-    "ar": "مقصورة الطيار",
-    "en": "cabin",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "haute mer",
     "ar": "أعالي البحار",
     "en": "deep-sea",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "méthanier",
-    "ar": "ناقلة غاز طبيعي مسال",
-    "en": "liquid natural gas carrier",
     "level": "B1",
     "contexts": [
       "transport"
@@ -4567,33 +3649,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "entrepont",
-    "ar": "بينية الجسرين",
-    "en": "steerage",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "aéroporté",
-    "ar": "منقول جوا",
-    "en": "airborne",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "bagagiste",
-    "ar": "مناول أمتعة",
-    "en": "baggage handler",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "en retard",
     "ar": "متأخر",
     "en": "behind schedule",
@@ -4606,15 +3661,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "corrosion",
     "ar": "تآكل كيميائي",
     "en": "corrosion",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "dégivrage",
-    "ar": "جهاز إذابة الصقيع",
-    "en": "defroster",
     "level": "B1",
     "contexts": [
       "transport"
@@ -4644,15 +3690,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "machmètre",
-    "ar": "مقياس ماك",
-    "en": "machmeter",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "mélangeur",
     "ar": "خلاط",
     "en": "mixer",
@@ -4662,27 +3699,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "nickelage",
-    "ar": "طلاء بالنيكل",
-    "en": "nickel plating",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "hydravion",
     "ar": "طائرة مائية",
     "en": "seaplane",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "argenture",
-    "ar": "طلاء بالفضة",
-    "en": "silver plating",
     "level": "B1",
     "contexts": [
       "transport"
@@ -4707,15 +3726,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "aéroroute",
-    "ar": "خط جوي، مسار جوي",
-    "en": "airway",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "garanties",
     "ar": "ضمانات",
     "en": "benefits",
@@ -4733,15 +3743,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "port payé",
     "ar": "أجرة حمل مدفوعة",
     "en": "carriage paid",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "affréteur",
-    "ar": "مستأجر",
-    "en": "charterer",
     "level": "B1",
     "contexts": [
       "transport"
@@ -4778,15 +3779,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "اتصل بشركة التأمين الخاصة بك.",
       "en": "Call your insurance company."
     }
-  },
-  {
-    "fr": "voyagiste",
-    "ar": "متعهد أسفار",
-    "en": "tour-operator",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
   },
   {
     "fr": "grossiste",
@@ -4844,15 +3836,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "housseuse",
-    "ar": "نقالة غطاء محرك السيارة",
-    "en": "hood stretcher",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "fiabilité",
     "ar": "موثوقية",
     "en": "reliability",
@@ -4874,15 +3857,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "كان لدي مشكلة في المواصلات.",
       "en": "I had a transport problem."
     }
-  },
-  {
-    "fr": "excluseur",
-    "ar": "مقاومة تحويل",
-    "en": "diverter",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
   },
   {
     "fr": "ascenseur",
@@ -4986,33 +3960,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "adsorption",
-    "ar": "امتزاز",
-    "en": "adsorption",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "angularité",
-    "ar": "تزو",
-    "en": "angularity",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "bétonnière",
-    "ar": "خلاطة إسمنت",
-    "en": "concrete mixer",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "réparation",
     "ar": "إصلاح",
     "en": "repair",
@@ -5027,15 +3974,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "accotement",
-    "ar": "كتد",
-    "en": "shoulder",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "conversion",
     "ar": "تحويل",
     "en": "conversion",
@@ -5048,15 +3986,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "wagon vide",
     "ar": "عربة فارغة",
     "en": "empty car",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "Eurobalise",
-    "ar": "منار اليورو",
-    "en": "Eurobalise",
     "level": "B1",
     "contexts": [
       "transport"
@@ -5109,42 +4038,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "aiguilleur",
-    "ar": "محول الاتجاه",
-    "en": "pointsman",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "ferroutage",
-    "ar": "نقل المركبات بالقطار",
-    "en": "rail -road transport",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "redresseur",
-    "ar": "مقوم",
-    "en": "rectifier",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "marchepied",
-    "ar": "مرقاة",
-    "en": "running board set",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "wagon silo",
     "ar": "عربة التخزين",
     "en": "silo wagon",
@@ -5157,15 +4050,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "case Runge",
     "ar": "صندوق السبق",
     "en": "stake box",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "trolleybus",
-    "ar": "حافلة ترولي",
-    "en": "trolleybus",
     "level": "B1",
     "contexts": [
       "transport"
@@ -5243,15 +4127,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "commettant",
     "ar": "مشتر",
     "en": "purchaser",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "graphicage",
-    "ar": "مخطط خدمة",
-    "en": "service planning diagram",
     "level": "B1",
     "contexts": [
       "transport"
@@ -5349,15 +4224,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "dérailleur",
-    "ar": "انحراف السكة",
-    "en": "track lock",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "souterrain",
     "ar": "تحت أرضي",
     "en": "under the baseboard",
@@ -5385,15 +4251,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "cantilever",
-    "ar": "الكابولي",
-    "en": "cantilever",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "catalyseur",
     "ar": "حافز",
     "en": "catalyst",
@@ -5403,27 +4260,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "compacteur",
-    "ar": "ضاغط",
-    "en": "compactor",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "pont mixte",
     "ar": "جسر مركب",
     "en": "composite bridge",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "délaminage",
-    "ar": "فصل إلى طبقات",
-    "en": "delamination",
     "level": "B1",
     "contexts": [
       "transport"
@@ -5457,15 +4296,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "élastomère",
-    "ar": "مطاط",
-    "en": "elastomer",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "uniformité",
     "ar": "استواء",
     "en": "evenness",
@@ -5484,15 +4314,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "extracteur",
-    "ar": "مستخرج",
-    "en": "extractor",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "passerelle",
     "ar": "جسر المشاة",
     "en": "footbridge",
@@ -5505,15 +4326,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "gravel pit",
     "ar": "حفرة حصباء",
     "en": "gravel pit",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "calepinage",
-    "ar": "تنسيق صلب",
-    "en": "hard landscaping",
     "level": "B1",
     "contexts": [
       "transport"
@@ -5556,15 +4368,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "cylindrage",
-    "ar": "أسطنة",
-    "en": "rolling",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "abri à sel",
     "ar": "ازالة الصقيع",
     "en": "salt barn",
@@ -5592,15 +4395,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "raidisseur",
-    "ar": "قطعة تقوية",
-    "en": "stiffener",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "gonflement",
     "ar": "تضخم",
     "en": "swelling",
@@ -5613,15 +4407,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "jonction T",
     "ar": "تقاطع تي",
     "en": "T junction",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "entretoise",
-    "ar": "جائر",
-    "en": "transverse girder",
     "level": "B1",
     "contexts": [
       "transport"
@@ -5687,24 +4472,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "hovercraft",
-    "ar": "حوامة",
-    "en": "hovercraft",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "clinomètre",
-    "ar": "مقياس ميل",
-    "en": "inclinometer",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "mécanicien",
     "ar": "ميكانيكي، آلاتي",
     "en": "machinist",
@@ -5719,15 +4486,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "marégraphe",
-    "ar": "مقياس المدر",
-    "en": "maregraph",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "temps doux",
     "ar": "طقس لطيف",
     "en": "mild weather",
@@ -5740,15 +4498,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "navigateur",
     "ar": "ملاح",
     "en": "navigator",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "minéralier",
-    "ar": "ناقلة خام",
-    "en": "ore carrier",
     "level": "B1",
     "contexts": [
       "transport"
@@ -5950,36 +4699,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "intermodal",
-    "ar": "متعدد الوسائط",
-    "en": "intermodal",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "logistique",
     "ar": "الخدمات اللوجستية/ الإمدادات",
     "en": "logistics",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "détrompeur",
-    "ar": "بوكا يوكي",
-    "en": "poka yoke",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "camionnage",
-    "ar": "أجرة النقل",
-    "en": "cartage",
     "level": "B1",
     "contexts": [
       "transport"
@@ -5998,15 +4720,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "séparateur",
     "ar": "فاصل، قاطع",
     "en": "separator",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "multimodal",
-    "ar": "المتعدد الوسائط",
-    "en": "multimodal",
     "level": "B1",
     "contexts": [
       "transport"
@@ -6054,15 +4767,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "servofreins",
-    "ar": "معزز المكبح",
-    "en": "brake booster",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
     "fr": "contre-rail",
     "ar": "سكة التجريب",
     "en": "check rail",
@@ -6084,15 +4788,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "contrepoids",
     "ar": "ثقل موازن",
     "en": "counterweight",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "pantographe",
-    "ar": "لاقط تيار ماسي",
-    "en": "diamond pantograph",
     "level": "B1",
     "contexts": [
       "transport"
@@ -6138,15 +4833,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "encadrement",
     "ar": "استقامة الإطار",
     "en": "frame alignment",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ]
-  },
-  {
-    "fr": "préhenseurs",
-    "ar": "خطاف",
-    "en": "grabber",
     "level": "B1",
     "contexts": [
       "transport"
@@ -6456,16 +5142,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "كتبوا مشروع قانون يخص الصحة.",
       "en": "They've written a bill for health care."
     }
-  },
-  {
-    "fr": "agio",
-    "ar": "عمولة حسم، عمولة صرافة",
-    "en": "agio",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
   },
   {
     "fr": "base",
@@ -7118,21 +5794,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "zakat",
-    "ar": "الزكاة",
-    "en": "zakat tax",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ],
-    "ex": {
-      "fr": "Est-ce qu'on peut payer la zakat ici ?",
-      "ar": "هل يمكن دفع الزكاة هنا؟",
-      "en": "Can we pay zakat here?"
-    }
-  },
-  {
     "fr": "compte",
     "ar": "حساب",
     "en": "account",
@@ -7166,16 +5827,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "fusion",
     "ar": "دمج، اندماج",
     "en": "amalgamation",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "déport",
-    "ar": "دفع فروع أسعار",
-    "en": "backwardation",
     "level": "B1",
     "contexts": [
       "shop",
@@ -7391,16 +6042,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "كيف أعيد تعبئة رصيدي؟",
       "en": "How do I top up my credit?"
     }
-  },
-  {
-    "fr": "arrhes",
-    "ar": "عربون",
-    "en": "deposit of earnest money",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
   },
   {
     "fr": "dépôts",
@@ -7808,16 +6449,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "protêt",
-    "ar": "احتجاج، اعتراض",
-    "en": "protest",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "achats",
     "ar": "مشتريات",
     "en": "purchases",
@@ -7931,16 +6562,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "hausse",
     "ar": "ارتفاع ملموس",
     "en": "upsurge",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "usance",
-    "ar": "مهلة عرفية",
-    "en": "usance",
     "level": "B1",
     "contexts": [
       "shop",
@@ -8116,16 +6737,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "binaire",
     "ar": "ثنائي",
     "en": "binary",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "batelée",
-    "ar": "شحنة مركب",
-    "en": "boat load",
     "level": "B1",
     "contexts": [
       "shop",
@@ -8338,16 +6949,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "duopole",
-    "ar": "احتكار البيع الثنائي",
-    "en": "duopoly",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "élément",
     "ar": "عنصر",
     "en": "element",
@@ -8533,36 +7134,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "bradeur",
-    "ar": "بائع المراخص",
-    "en": "jumble-salesman",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "konzern",
-    "ar": "اتحاد المشروعات الاقتصادية",
-    "en": "konzern",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "koulaks",
-    "ar": "كولاك",
-    "en": "kulaks",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "ouvrier",
     "ar": "عامل",
     "en": "labourer",
@@ -8586,16 +7157,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "prêteur",
     "ar": "مقرض",
     "en": "lender",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "patenté",
-    "ar": "صاحب الترخيص، صاحب الرخصة",
-    "en": "licence",
     "level": "B1",
     "contexts": [
       "shop",
@@ -8783,26 +7344,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "cotable",
-    "ar": "قابل للتسعير",
-    "en": "quotable",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "tarifié",
-    "ar": "مسعر",
-    "en": "rated",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "rentier",
     "ar": "صاحب دخل",
     "en": "rentier",
@@ -8896,16 +7437,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "vitrine",
     "ar": "واجهة زجاجية",
     "en": "shop-case",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "placier",
-    "ar": "وسيط تجاري",
-    "en": "solicitor",
     "level": "B1",
     "contexts": [
       "shop",
@@ -9058,29 +7589,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "actuaire",
-    "ar": "خبير حسابي",
-    "en": "actuary",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "sur fret",
     "ar": "أجرة شحن إضافية",
     "en": "additional freight",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "surprime",
-    "ar": "قسط إضافي",
-    "en": "additional premium",
     "level": "B1",
     "contexts": [
       "shop",
@@ -9103,16 +7614,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "agiotage",
-    "ar": "مضاربة بالأسهم",
-    "en": "agiotage",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "au mieux",
     "ar": "بالسعر الأحسن",
     "en": "at best",
@@ -9126,16 +7627,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "à parité",
     "ar": "بقيمة التعادل",
     "en": "at par value",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "à usance",
-    "ar": "مدة عرفية",
-    "en": "at usance",
     "level": "B1",
     "contexts": [
       "shop",
@@ -9183,16 +7674,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "haussier",
-    "ar": "مضارب على الصعود",
-    "en": "bull",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "exercice",
     "ar": "سنة مالية",
     "en": "business year",
@@ -9211,16 +7692,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "acheteur",
     "ar": "مشتر",
     "en": "buyer",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "exigible",
-    "ar": "مستحق، واجب الأداء",
-    "en": "callable",
     "level": "B1",
     "contexts": [
       "shop",
@@ -9318,26 +7789,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "métayage",
-    "ar": "نظام المزارعة، نظام المؤاجرة",
-    "en": "crop sharing",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "remisier",
-    "ar": "وسيط ثانوي في المصفق",
-    "en": "customer's man",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "cyclique",
     "ar": "دوري",
     "en": "cyclic",
@@ -9361,16 +7812,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "donation",
     "ar": "هبة مجانية",
     "en": "donation",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "duopsone",
-    "ar": "احتكار الشراء الثنائي",
-    "en": "duopsony",
     "level": "B1",
     "contexts": [
       "shop",
@@ -9583,16 +8024,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "kolkhoze",
-    "ar": "كلخوز، مزارع جماعية في الاتحاد السوفياتي",
-    "en": "kolkhoz",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "géomètre",
     "ar": "مساح أراض",
     "en": "land surveyor",
@@ -9666,26 +8097,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "marxisme",
     "ar": "الماركسية",
     "en": "Marxism",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "minutier",
-    "ar": "سجل النسخ الأصلية",
-    "en": "minute book",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "mécompte",
-    "ar": "خطأ حسابي، خطأ في الحساب",
-    "en": "miscalculation",
     "level": "B1",
     "contexts": [
       "shop",
@@ -9773,26 +8184,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "survente",
-    "ar": "فرط البيع",
-    "en": "over-selling",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "survendu",
-    "ar": "غزارة المبيعات",
-    "en": "oversold",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "tirelire",
     "ar": "حصالة نقود",
     "en": "piggy bank",
@@ -9843,16 +8234,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "rationné",
-    "ar": "محصص",
-    "en": "rationed",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "registre",
     "ar": "سجل",
     "en": "record",
@@ -9898,16 +8279,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "vendable",
-    "ar": "صالح للبيع",
-    "en": "salable",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "épargner",
     "ar": "ادخر",
     "en": "save",
@@ -9938,16 +8309,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "sovkhoze",
-    "ar": "مزرعة حكومية",
-    "en": "sovkhoz",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "magasins",
     "ar": "مخازن",
     "en": "stores",
@@ -9966,16 +8327,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "arrimage",
     "ar": "وسق البضائع ورصها في عنابر السفينة",
     "en": "stowage",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "gréviste",
-    "ar": "مضرب",
-    "en": "striker",
     "level": "B1",
     "contexts": [
       "shop",
@@ -10016,16 +8367,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "تحقق من تسجيل وقتك.",
       "en": "Check your time record."
     }
-  },
-  {
-    "fr": "tantième",
-    "ar": "نسبة أرباح أعضاء مجلس الادارة",
-    "en": "tantieme",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
   },
   {
     "fr": "taxation",
@@ -10148,16 +8489,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "accepteur",
-    "ar": "متقبل الورقة التجارية",
-    "en": "accepter",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "comptable",
     "ar": "محاسب",
     "en": "accountant",
@@ -10226,16 +8557,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "nuisances",
     "ar": "مواد مضرة",
     "en": "bads",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "tantièmes",
-    "ar": "حصة نسبية في الأرباح",
-    "en": "bonus percentage of profits",
     "level": "B1",
     "contexts": [
       "shop",
@@ -10323,29 +8644,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "cocaution",
-    "ar": "كفيل مشترك",
-    "en": "co-surety",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "artisanat",
     "ar": "حرف",
     "en": "craft",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "avariable",
-    "ar": "تلوف",
-    "en": "damageable",
     "level": "B1",
     "contexts": [
       "shop",
@@ -10403,26 +8704,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "dévardeur",
-    "ar": "شحان، مفرغ البضائع",
-    "en": "docker",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "drugstore",
-    "ar": "متجر العقاقير",
-    "en": "drugstore",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "économies",
     "ar": "توفير",
     "en": "economizing",
@@ -10451,16 +8732,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "صاحب العمل لم يدفع لي راتبي.",
       "en": "My employer hasn't paid my wages."
     }
-  },
-  {
-    "fr": "endosseur",
-    "ar": "مظهر",
-    "en": "endorser",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
   },
   {
     "fr": "passation",
@@ -10738,16 +9009,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "besogneux",
-    "ar": "معوز",
-    "en": "impecunious",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "en caisse",
     "ar": "جاهز",
     "en": "in hand",
@@ -10793,26 +9054,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "délestage",
-    "ar": "طرح الحمولة",
-    "en": "jettison",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "coassocié",
-    "ar": "مشارك",
-    "en": "joint partner",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "étiquette",
     "ar": "علامة تجارية",
     "en": "label",
@@ -10826,16 +9067,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "ضع ملصقات على المنتجات.",
       "en": "Label the products."
     }
-  },
-  {
-    "fr": "apériteur",
-    "ar": "مؤمن أول، في التأمين البحري",
-    "en": "leading underwriter",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
   },
   {
     "fr": "prêt-bail",
@@ -10893,29 +9124,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "monopsone",
-    "ar": "احتكار الشراء",
-    "en": "monopsony",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "moratoire",
     "ar": "تأجيل الزامي للدفع",
     "en": "moratorium",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "mainmorte",
-    "ar": "الوقف",
-    "en": "mortmain",
     "level": "B1",
     "contexts": [
       "shop",
@@ -10963,16 +9174,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "oligopole",
-    "ar": "احتكار القلة",
-    "en": "oligopoly",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "au crédit",
     "ar": "في الجانب الدائن",
     "en": "on the credit side",
@@ -10996,16 +9197,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "débouchés",
     "ar": "منافذ تصريف",
     "en": "outlets",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "suremploi",
-    "ar": "فرط العمالة",
-    "en": "overemployment",
     "level": "B1",
     "contexts": [
       "shop",
@@ -11153,26 +9344,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "reflation",
-    "ar": "انفاق انعاشي",
-    "en": "pump priming",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "achetable",
-    "ar": "يشرى، ممكن شراءه",
-    "en": "purchasable",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "coût réel",
     "ar": "تكلفة حقيقية",
     "en": "real cost",
@@ -11246,16 +9417,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "redevance",
     "ar": "ضريبة، رسم امتياز",
     "en": "royalty",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "facturier",
-    "ar": "دفتر المبيعات",
-    "en": "sales-book",
     "level": "B1",
     "contexts": [
       "shop",
@@ -11463,16 +9624,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "aviculture",
-    "ar": "تربية الدجاج",
-    "en": "aviculture",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "jour férié",
     "ar": "يوم عطلة",
     "en": "bank holiday",
@@ -11533,16 +9684,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "boycottage",
-    "ar": "مقاطعة",
-    "en": "boycott",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "succursale",
     "ar": "مكتب فرعي",
     "en": "branch office",
@@ -11566,16 +9707,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "règlements",
     "ar": "لوائح داخلية",
     "en": "by-laws",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "calculable",
-    "ar": "قابل للحساب",
-    "en": "calculable",
     "level": "B1",
     "contexts": [
       "shop",
@@ -11763,26 +9894,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "guichetier",
-    "ar": "موظف الشباك",
-    "en": "counter clerk",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "assolement",
-    "ar": "دورة زراعية",
-    "en": "crop rotation",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "déductible",
     "ar": "قابل للاقتطاع",
     "en": "deductible",
@@ -11796,16 +9907,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "manquement",
     "ar": "تقصير",
     "en": "deficiency",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "délivrable",
-    "ar": "قابل للتسليم",
-    "en": "deliverable",
     "level": "B1",
     "contexts": [
       "shop",
@@ -11836,16 +9937,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "épuisement",
     "ar": "نفاذ، نضوب",
     "en": "depletion",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "déstockage",
-    "ar": "تصفية المخزون",
-    "en": "destocking",
     "level": "B1",
     "contexts": [
       "shop",
@@ -11888,29 +9979,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "désépargne",
-    "ar": "عدم الادخار",
-    "en": "dissaving",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "saisissant",
     "ar": "طالب الحجز، الحاجز",
     "en": "distrainer",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "désutilité",
-    "ar": "عدم النفع",
-    "en": "disutility",
     "level": "B1",
     "contexts": [
       "shop",
@@ -11986,16 +10057,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "estimation",
     "ar": "تثمين",
     "en": "estimation",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "estimateur",
-    "ar": "مثمن",
-    "en": "estimator",
     "level": "B1",
     "contexts": [
       "shop",
@@ -12118,26 +10179,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "capitation",
-    "ar": "ضريبة الرؤوس",
-    "en": "head tax",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "importable",
-    "ar": "قابل للاستيراد",
-    "en": "importable",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "imposition",
     "ar": "فرض الضريبة",
     "en": "imposition",
@@ -12253,16 +10294,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "codébiteur",
-    "ar": "شريك في الدين",
-    "en": "joint debitor",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "offre liée",
     "ar": "عرض متلازم",
     "en": "joint supply",
@@ -12341,16 +10372,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "locomotion",
     "ar": "انتقال، نقل",
     "en": "locomotion",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "mercuriale",
-    "ar": "تسعيرة أسبوعية",
-    "en": "market price",
     "level": "B1",
     "contexts": [
       "shop",
@@ -12438,16 +10459,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "nomagramme",
-    "ar": "مخطط بياني",
-    "en": "nomagram",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "obligation",
     "ar": "سند، التزام",
     "en": "obligation",
@@ -12466,16 +10477,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "occupation",
     "ar": "مهنة، صنعة",
     "en": "occupation",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "oligopsone",
-    "ar": "احتكار القلة",
-    "en": "oligopsony",
     "level": "B1",
     "contexts": [
       "shop",
@@ -12541,16 +10542,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "trop perçu",
     "ar": "دفع بالزيادة",
     "en": "overpayment",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "surévaluer",
-    "ar": "أفرط في التقييم، أفرط في تقدير القيمة",
-    "en": "overstate",
     "level": "B1",
     "contexts": [
       "shop",
@@ -12708,16 +10699,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "pluviosité",
-    "ar": "كمية الأمطار",
-    "en": "rainfall",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "prix réels",
     "ar": "أثمان حقيقية",
     "en": "real prices",
@@ -12731,16 +10712,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "récompense",
     "ar": "تعويض",
     "en": "recompense",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "réescompte",
-    "ar": "اعادة الحسم",
-    "en": "rediscount",
     "level": "B1",
     "contexts": [
       "shop",
@@ -12848,16 +10819,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "brocanteur",
-    "ar": "سمسار غير معتمد",
-    "en": "stag broker",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "status quo",
     "ar": "الوضع الراهن",
     "en": "status quo",
@@ -12868,29 +10829,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "magasinier",
-    "ar": "أمين مخزن",
-    "en": "storekeeper",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "suffisance",
     "ar": "كفاية",
     "en": "sufficiency",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "sursalaire",
-    "ar": "أجرة اضافية",
-    "en": "supplementary wage",
     "level": "B1",
     "contexts": [
       "shop",
@@ -12928,29 +10869,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "expomarché",
-    "ar": "سوق تجارية",
-    "en": "trade market",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "camionneur",
     "ar": "شاحن",
     "en": "truck-man",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "inexploité",
-    "ar": "غير مستغل",
-    "en": "unexploited",
     "level": "B1",
     "contexts": [
       "shop",
@@ -13138,16 +11059,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "échéanciers",
-    "ar": "سجل أجال الاستحقاق للأوراق التجارية",
-    "en": "bill book",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "liste noire",
     "ar": "قائمة سوداء",
     "en": "black list",
@@ -13218,29 +11129,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "cartonnerie",
-    "ar": "مصنع الورق المقوى",
-    "en": "cardboard factory",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "avion cargo",
     "ar": "طائرة الشحن",
     "en": "cargo aircraft",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "centralisme",
-    "ar": "مركزية",
-    "en": "centralism",
     "level": "B1",
     "contexts": [
       "shop",
@@ -13296,16 +11187,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "cofondateur",
     "ar": "شريك مؤسس",
     "en": "co-founder",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "colégataire",
-    "ar": "موصى له مع آخرين",
-    "en": "co-legatee",
     "level": "B1",
     "contexts": [
       "shop",
@@ -13396,26 +11277,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "copropriété",
     "ar": "ملكية مشتركة",
     "en": "co-property",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "coacquéreur",
-    "ar": "مشتر مشترك",
-    "en": "co-purchaser",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "bâtonnement",
-    "ar": "شطب التظهير",
-    "en": "cross out",
     "level": "B1",
     "contexts": [
       "shop",
@@ -13526,16 +11387,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "affectation",
     "ar": "تخصيص",
     "en": "earmarking",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "économétrie",
-    "ar": "اقتصاد قياسي",
-    "en": "econometrics",
     "level": "B1",
     "contexts": [
       "shop",
@@ -13698,16 +11549,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "affrètement",
-    "ar": "استئجار سفينة",
-    "en": "freightage",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "compte gelé",
     "ar": "حساب مجمد",
     "en": "frozen account",
@@ -13721,26 +11562,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "plein tarif",
     "ar": "سعر كامل",
     "en": "full fare",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "futurologie",
-    "ar": "دراسة المستقبل",
-    "en": "futurology",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "spéculateur",
-    "ar": "مضارب",
-    "en": "gambler",
     "level": "B1",
     "contexts": [
       "shop",
@@ -13888,26 +11709,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "endossement",
-    "ar": "تظهير",
-    "en": "indorsment",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "inféodation",
-    "ar": "اقطاع",
-    "en": "infeudation",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "information",
     "ar": "اعلام",
     "en": "information",
@@ -13951,16 +11752,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "facturation",
     "ar": "تحرير قائمة الحساب",
     "en": "invoicing",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "cocréancier",
-    "ar": "شريك الدائن",
-    "en": "joint creditor",
     "level": "B1",
     "contexts": [
       "shop",
@@ -14143,16 +11934,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "monoculture",
-    "ar": "نظام زراعة المحصول الواحد",
-    "en": "monoculture",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "mensualités",
     "ar": "أقساط شهرية",
     "en": "monthly instalment",
@@ -14221,16 +12002,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "tonnage net",
     "ar": "صافي الحمولة",
     "en": "net tonnage",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "neutralisme",
-    "ar": "الحيادية",
-    "en": "neutralism",
     "level": "B1",
     "contexts": [
       "shop",
@@ -14321,16 +12092,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "rentabilité",
     "ar": "ربحية، مردودية",
     "en": "profitability",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "projectiste",
-    "ar": "خبير مشاريع",
-    "en": "projectist",
     "level": "B1",
     "contexts": [
       "shop",
@@ -14463,26 +12224,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "saisissable",
-    "ar": "قابل للحجز",
-    "en": "seizable",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "sériculture",
-    "ar": "انتاج الحرير الخام",
-    "en": "sericulture",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "actionnaire",
     "ar": "مساهم",
     "en": "shareholder",
@@ -14506,16 +12247,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "dette à vue",
     "ar": "دين يدفع عند الاطلاع",
     "en": "sight debt",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "solidarisme",
-    "ar": "مذهب التضامن",
-    "en": "solidarism",
     "level": "B1",
     "contexts": [
       "shop",
@@ -14556,16 +12287,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "sous-garant",
     "ar": "ضامن تبعي",
     "en": "sub-underwriter",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "superfluité",
-    "ar": "وفرة",
-    "en": "superfluity",
     "level": "B1",
     "contexts": [
       "shop",
@@ -14663,29 +12384,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "transitaire",
-    "ar": "وكيل نقل",
-    "en": "transit agent",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "sous-emploi",
     "ar": "عمالة ناقصة",
     "en": "under-employment",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "sans protêt",
-    "ar": "دون احتجاج",
-    "en": "without protest",
     "level": "B1",
     "contexts": [
       "shop",
@@ -14741,16 +12442,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "nos créances",
     "ar": "مستحقاتنا، حقوقنا",
     "en": "account owing to yes",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "imputabilité",
-    "ar": "مساءلة",
-    "en": "accountability",
     "level": "B1",
     "contexts": [
       "shop",
@@ -14853,16 +12544,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "adjudicateur",
-    "ar": "بائع بالمزاد",
-    "en": "adjudicator",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "prix imposés",
     "ar": "أثمان مفروضة",
     "en": "administered prices",
@@ -14941,16 +12622,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "souscription",
     "ar": "اكتتاب",
     "en": "application",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "cessionnaire",
-    "ar": "متنازل له",
-    "en": "assignee",
     "level": "B1",
     "contexts": [
       "shop",
@@ -15066,16 +12737,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "هذا رقم IBAN للمستفيد.",
       "en": "Here is the beneficiary's IBAN."
     }
-  },
-  {
-    "fr": "bimétallisme",
-    "ar": "نظام المعدنين",
-    "en": "bimetallism",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
   },
   {
     "fr": "bureaucratie",
@@ -15238,16 +12899,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "dédouanement",
-    "ar": "جمركة",
-    "en": "clearance of goods",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "compensation",
     "ar": "وفاء دين",
     "en": "clearing",
@@ -15341,16 +12992,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "ستتلقى رسالة تأكيد عبر البريد الإلكتروني.",
       "en": "You will receive a confirmation email."
     }
-  },
-  {
-    "fr": "consignateur",
-    "ar": "المرسل",
-    "en": "consigner",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
   },
   {
     "fr": "constitution",
@@ -15553,16 +13194,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "prix-achteur",
-    "ar": "ثمن المشتري",
-    "en": "demand price",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "impôt direct",
     "ar": "ضريبة مباشرة",
     "en": "direct tax",
@@ -15573,29 +13204,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "décaissement",
-    "ar": "انفاق",
-    "en": "disbursement",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "déséquilibre",
     "ar": "اختلال التوازن",
     "en": "disequilibrant",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "désinflation",
-    "ar": "مكافحة التضخم",
-    "en": "disinflation",
     "level": "B1",
     "contexts": [
       "shop",
@@ -15671,16 +13282,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "embarquement",
     "ar": "ابحار",
     "en": "embarkation",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "indemnisable",
-    "ar": "مستحق التعويض",
-    "en": "entitled to compensation",
     "level": "B1",
     "contexts": [
       "shop",
@@ -16113,26 +13714,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "copartageant",
-    "ar": "مشارك في حصة",
-    "en": "joint sharer",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "cojouissance",
-    "ar": "انتفاع مشترك",
-    "en": "joint use",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "pas de porte",
     "ar": "خلو رجل",
     "en": "key-money",
@@ -16271,16 +13852,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "main-d'œuvre",
     "ar": "القوى العاملة",
     "en": "man-power",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "marginalisme",
-    "ar": "الحدية",
-    "en": "marginalism",
     "level": "B1",
     "contexts": [
       "shop",
@@ -16538,16 +14109,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "ploutocratie",
-    "ar": "حكم الأثرياء",
-    "en": "plutocracy",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "portefeuille",
     "ar": "محفظة أوراق مالية، حافظة أوراق مالية",
     "en": "portfolio",
@@ -16688,16 +14249,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "réajustement",
-    "ar": "اعادة التسوية",
-    "en": "readjustment",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "rechargement",
     "ar": "اعادة الشحن",
     "en": "recharging",
@@ -16728,16 +14279,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "rééquipement",
-    "ar": "اعادة تجهيز",
-    "en": "reequipment",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "réévaluation",
     "ar": "اعادة تقييم",
     "en": "reevaluation",
@@ -16748,44 +14289,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "réexpédition",
-    "ar": "اعادة الشحن",
-    "en": "reforwading",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ],
-    "ex": {
-      "fr": "Je voudrais un service de réexpédition du courrier.",
-      "ar": "أريد خدمة إعادة توجيه البريد.",
-      "en": "I would like a mail forwarding service."
-    }
-  },
-  {
     "fr": "régionalisme",
     "ar": "اقليمية",
     "en": "regionalism",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "réimposition",
-    "ar": "اعادة فرض الضريبة",
-    "en": "reimposition",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "repeuplement",
-    "ar": "اعادة الاعمار",
-    "en": "repopulation",
     "level": "B1",
     "contexts": [
       "shop",
@@ -16826,16 +14332,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "monnaie rare",
     "ar": "عملة نادرة",
     "en": "scarce currency",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "seigneuriage",
-    "ar": "امتياز اصدار العملة",
-    "en": "seigniorage",
     "level": "B1",
     "contexts": [
       "shop",
@@ -17053,26 +14549,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "totalisation",
-    "ar": "ايجاد المجموع الكلي",
-    "en": "totalization",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "transférable",
-    "ar": "قابل للتحويل",
-    "en": "transferable",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "taux de fret",
     "ar": "تعريفة النقل",
     "en": "transportation rate",
@@ -17226,16 +14702,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "valeur réelle",
     "ar": "قيمة حقيقية",
     "en": "actual value",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "accommodation",
-    "ar": "ملاءمة، تكيف",
-    "en": "adapting",
     "level": "B1",
     "contexts": [
       "shop",
@@ -17483,16 +14949,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "bélatéralisme",
-    "ar": "نظام التجارة الثنائية",
-    "en": "bilateralism",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
     "fr": "compte bloqué",
     "ar": "حساب مجمد",
     "en": "blocked account",
@@ -17556,16 +15012,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "dette annulée",
     "ar": "دين ملغى",
     "en": "cancelled debt",
-    "level": "B1",
-    "contexts": [
-      "shop",
-      "bank"
-    ]
-  },
-  {
-    "fr": "capitalisable",
-    "ar": "قابل للرسملة",
-    "en": "capitalisable",
     "level": "B1",
     "contexts": [
       "shop",
@@ -17848,17 +15294,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "indu",
-    "ar": "غير مستحق، غير واجب الأداء",
-    "en": "undue",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "veto",
     "ar": "اعتراض",
     "en": "veto",
@@ -17873,17 +15308,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "vote",
     "ar": "تصويت",
     "en": "voting",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "wakf",
-    "ar": "وقف ، حبوس",
-    "en": "wakf",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -18166,17 +15590,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "bande",
     "ar": "عصابة",
     "en": "gang",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "glose",
-    "ar": "حاشية",
-    "en": "gloss",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -18543,17 +15956,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "abusus",
-    "ar": "استنفاد الحق",
-    "en": "abusus",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "arrêté",
     "ar": "قرار إداري",
     "en": "administrative decision",
@@ -18781,17 +16183,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "rature",
-    "ar": "شطب",
-    "en": "erasure",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "erreur",
     "ar": "غلط",
     "en": "error",
@@ -18897,17 +16288,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "ليس لديّ رقم ضريبي.",
       "en": "I don't have a tax number."
     }
-  },
-  {
-    "fr": "fixité",
-    "ar": "ثبات",
-    "en": "fixity",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
   },
   {
     "fr": "lacune",
@@ -19124,17 +16504,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "احفظ لي الإيصال، إنه إثبات.",
       "en": "Keep the receipt for me, it's proof."
     }
-  },
-  {
-    "fr": "quitus",
-    "ar": "إبراء",
-    "en": "receipt in full",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
   },
   {
     "fr": "renvoi",
@@ -19408,17 +16777,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "acquêts",
-    "ar": "مكتسبات",
-    "en": "acquired property",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "adresse",
     "ar": "عنوان",
     "en": "address",
@@ -19449,17 +16807,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "اترك الموضوع.",
       "en": "Drop it."
     }
-  },
-  {
-    "fr": "angarie",
-    "ar": "استيلاء  على السفن",
-    "en": "angary",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
   },
   {
     "fr": "archive",
@@ -19836,17 +17183,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "fréteur",
-    "ar": "مؤجر السفن",
-    "en": "freighter",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "tutelle",
     "ar": "ولاية، وصاية",
     "en": "guardianship",
@@ -19883,17 +17219,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "inceste",
     "ar": "زنى المحارم",
     "en": "incest",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "paraphe",
-    "ar": "توقيع بالحروف الأولى",
-    "en": "initials",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -20019,17 +17344,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "minimum",
     "ar": "حد أدنى",
     "en": "minimum",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "monisme",
-    "ar": "أحدية",
-    "en": "monism",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -20234,17 +17548,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "bornage",
-    "ar": "تعيين الحدود، وضع الحدود",
-    "en": "set limits",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "marasme",
     "ar": "ركود، كساد",
     "en": "slackness",
@@ -20403,28 +17706,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "warrant",
-    "ar": "سند الخزن، سند رهن البضاعة",
-    "en": "warehouse warrant",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "viduité",
-    "ar": "عدة المرأة",
-    "en": "widowhood",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "travail",
     "ar": "عمل، شغل",
     "en": "work",
@@ -20439,17 +17720,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "عقد العمل",
       "en": "Employment contract"
     }
-  },
-  {
-    "fr": "dégrever",
-    "ar": "خصم، خفض",
-    "en": "abate",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
   },
   {
     "fr": "complice",
@@ -20504,17 +17774,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "alliance",
     "ar": "مصاهرة",
     "en": "affinity",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "agrarien",
-    "ar": "زراعي، مرتبط بالزراعة",
-    "en": "agrarian",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -20682,17 +17941,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "caducité",
-    "ar": "شيخوخة",
-    "en": "caducity",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "capacité",
     "ar": "أهلية",
     "en": "capacity",
@@ -20728,17 +17976,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "citation",
     "ar": "استدعاء",
     "en": "citation",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "caboteur",
-    "ar": "سفينة ساحلية",
-    "en": "coaster",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -20931,17 +18168,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "émigrant",
-    "ar": "مهاجر",
-    "en": "emigrant",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "ethnique",
     "ar": "عرقي، إثني",
     "en": "ethnic",
@@ -21095,17 +18321,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "commodat",
-    "ar": "عارية الاستعمال",
-    "en": "free loan",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "germains",
     "ar": "أشقاء",
     "en": "full brothers",
@@ -21226,17 +18441,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "indigent",
-    "ar": "معوز، فقير",
-    "en": "indigent",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "innocent",
     "ar": "بريء",
     "en": "innocent",
@@ -21251,17 +18455,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "coauteur",
     "ar": "مساهم",
     "en": "joint author",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "coobligé",
-    "ar": "شريك في الالتزام",
-    "en": "joint debtor",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -21319,17 +18512,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "acconier",
-    "ar": "مقاول الشحن والتفريغ",
-    "en": "lighterage contractor",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "lucratif",
     "ar": "مربح، جالب للكسب",
     "en": "lucrative",
@@ -21384,17 +18566,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "plumitif",
-    "ar": "سجل محاضر الجلسات، دفتر محاضر الجلسات",
-    "en": "minute-book",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "mutuelle",
     "ar": "تعاضدية",
     "en": "mutual insurance company",
@@ -21414,17 +18585,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "non lieu",
     "ar": "عدم المتابعة",
     "en": "non suit",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "novation",
-    "ar": "تجديد",
-    "en": "novation",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -21869,17 +19029,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "arrérages",
-    "ar": "متأخرات",
-    "en": "arrears",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "assemblée",
     "ar": "جمعية",
     "en": "assembly",
@@ -21929,17 +19078,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "ballotage",
-    "ar": "إخفاق انتخابي",
-    "en": "ballotage",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "bonne foi",
     "ar": "حسن النية",
     "en": "bona fide",
@@ -21954,17 +19092,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "frontière",
     "ar": "حدود",
     "en": "boundary",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "alcootest",
-    "ar": "اختبار الكحول",
-    "en": "breathalyzer",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -22159,17 +19286,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "mainlevée",
-    "ar": "فك الرهن، رفع الحجز",
-    "en": "discharge of mortgage",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "différend",
     "ar": "خلاف، نزاع",
     "en": "dispute",
@@ -22184,17 +19300,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "donataire",
     "ar": "موهوب له",
     "en": "donee",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "électrice",
-    "ar": "ناخبة",
-    "en": "electress",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -22239,17 +19344,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "exécuteur",
     "ar": "منفذ",
     "en": "executor",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "exequatur",
-    "ar": "أمر التنفيذ",
-    "en": "exequatur",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -22310,17 +19404,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "fanatisme",
     "ar": "تعصب ديني",
     "en": "fanaticism",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "affermage",
-    "ar": "تأجير زراعي",
-    "en": "farming lease",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -22619,17 +19702,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "monopolie",
-    "ar": "احتكار",
-    "en": "monopoly",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "mutualité",
     "ar": "تعاون، تعاضد",
     "en": "mutuality",
@@ -22674,17 +19746,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "parricide",
-    "ar": "قتل الأصول",
-    "en": "parricide",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "paternité",
     "ar": "أبوة",
     "en": "paternity",
@@ -22701,31 +19762,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "plagiaire",
-    "ar": "منتحل تأليف الغير، سارق تأليف الغير",
-    "en": "plagiarist",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "préambule",
     "ar": "ديباجة، تمهيد",
     "en": "preamble",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "présidium",
-    "ar": "مجلس رئاسي",
-    "en": "presidium",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -22848,17 +19887,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "rescision",
-    "ar": "فسخ، إلغاء",
-    "en": "rescission",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "résidence",
     "ar": "محل الإقامة",
     "en": "residence",
@@ -22946,17 +19974,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "débrayage",
-    "ar": "إضراب قصير المدة",
-    "en": "short-dated strike",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "signature",
     "ar": "توقيع، إمضاء",
     "en": "signature",
@@ -22976,17 +19993,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "esclavage",
     "ar": "رق، عبودية",
     "en": "slavery",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "testateur",
-    "ar": "موص",
-    "en": "testator",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -23058,17 +20064,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "mal fondé",
     "ar": "غير مؤسس، غير صحيح",
     "en": "unsound",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "usucapion",
-    "ar": "تقادم مكسب",
-    "en": "usucaption",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -23225,17 +20220,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "anatocisme",
-    "ar": "رسملة الفوائد",
-    "en": "anatocism",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "annotation",
     "ar": "شرح، تفسير",
     "en": "annotation",
@@ -23269,17 +20253,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "autocratie",
-    "ar": "حكم مطلق، حكم فردي",
-    "en": "autocracy",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "effraction",
     "ar": "سرقة بواسطة الكسر",
     "en": "break and entry",
@@ -23299,17 +20272,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "corruption",
     "ar": "رشوة",
     "en": "bribery",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "démarcheur",
-    "ar": "مروج بيع سندات مالية",
-    "en": "canvasser",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -23547,17 +20509,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "emphytéose",
-    "ar": "إيجار طويل الأمد، كراء طويل الأمد",
-    "en": "emphyteusis",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "jouissance",
     "ar": "تمتع، انتفاع",
     "en": "enjoyment",
@@ -23616,17 +20567,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "excitation",
     "ar": "تحريض، إثارة",
     "en": "excitation",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "exécutable",
-    "ar": "قابل للتنفيذ",
-    "en": "executable",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -23779,17 +20719,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "honoraires",
     "ar": "أتعاب",
     "en": "fees",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "féodalisme",
-    "ar": "إقطاعية",
-    "en": "feudalism",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -23957,28 +20886,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "kidnappeur",
-    "ar": "مختطف، مرتكب الاختطاف",
-    "en": "kidnapper",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "kleptomane",
-    "ar": "مصاب بجنون السرقة",
-    "en": "kleptomaniac",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "vice caché",
     "ar": "عيب خفي",
     "en": "latent defect",
@@ -24015,17 +20922,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "mémorandum",
     "ar": "مذكرة",
     "en": "memorandum",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "concussion",
-    "ar": "غدر",
-    "en": "misappropriation",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -24086,17 +20982,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "سيئ جدًا.",
       "en": "It’s rubbish."
     }
-  },
-  {
-    "fr": "numérotage",
-    "ar": "ترقيم",
-    "en": "numbering",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
   },
   {
     "fr": "oligarchie",
@@ -24167,17 +21052,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "plébiscite",
     "ar": "استفتاء",
     "en": "plebiscite",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "forclusion",
-    "ar": "سقوط",
-    "en": "preclusion",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -24508,17 +21382,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "testatrice",
-    "ar": "موصية",
-    "en": "testatrix",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "témoignage",
     "ar": "شهادة، إفادة",
     "en": "testimony",
@@ -24568,31 +21431,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "déshérence",
-    "ar": "شغور التركة، شغار التركة",
-    "en": "unclaimed inheritance",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
     "fr": "unilatéral",
     "ar": "من جانب واحد، من طرف واحد",
     "en": "unilateral",
-    "level": "B2",
-    "contexts": [
-      "prefecture",
-      "ofpra",
-      "ofii"
-    ]
-  },
-  {
-    "fr": "audiencier",
-    "ar": "محضر الجلسة",
-    "en": "usher",
     "level": "B2",
     "contexts": [
       "prefecture",
@@ -24944,15 +21785,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "burn",
     "ar": "إحراق",
     "en": "burn",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "dump",
-    "ar": "تفريع",
-    "en": "dump",
     "level": "A2",
     "contexts": [
       "school"
@@ -25372,15 +22204,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "alexie",
-    "ar": "عمى المفردات",
-    "en": "alexia",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "campus",
     "ar": "حرم جامعي",
     "en": "campus",
@@ -25500,15 +22323,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "scolie",
-    "ar": "تعليق",
-    "en": "scholium",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "savant",
     "ar": "عالم",
     "en": "scientist",
@@ -25609,24 +22423,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "vision",
     "ar": "رؤية",
     "en": "vision",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "abaque",
-    "ar": "عدادة",
-    "en": "abacus",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "bisync",
-    "ar": "نظام ثنائي تزامني",
-    "en": "bisync",
     "level": "A2",
     "contexts": [
       "school"
@@ -25737,15 +22533,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "moblog",
-    "ar": "سجل النقال، سجل المحمول",
-    "en": "moblog",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "module",
     "ar": "وحدة",
     "en": "module",
@@ -25776,15 +22563,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "paquet",
     "ar": "حزمة",
     "en": "packet",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "paging",
-    "ar": "تصفح",
-    "en": "paging",
     "level": "A2",
     "contexts": [
       "school"
@@ -25837,15 +22615,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "boulier",
-    "ar": "عداد",
-    "en": "abacus",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "capable",
     "ar": "قادر",
     "en": "able",
@@ -25872,15 +22641,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "نتيجة غير طبيعية",
       "en": "Abnormal result"
     }
-  },
-  {
-    "fr": "aboulie",
-    "ar": "فقد الارادة",
-    "en": "aboulia",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
   },
   {
     "fr": "amnésie",
@@ -25950,15 +22710,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "استلمت إشعار مرور من موظف البريد.",
       "en": "I received a delivery notice from the postman."
     }
-  },
-  {
-    "fr": "gestalt",
-    "ar": "بنية  الكلية",
-    "en": "gestalt",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
   },
   {
     "fr": "diplômé",
@@ -26052,15 +22803,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "rhéteur",
-    "ar": "معلم علم البلاغة",
-    "en": "rhetor",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "sadisme",
     "ar": "سادية",
     "en": "sadism",
@@ -26087,15 +22829,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "croquis",
     "ar": "رسم مجمل",
     "en": "sketch",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "bégayer",
-    "ar": "يتمتم",
-    "en": "stammer",
     "level": "A2",
     "contexts": [
       "school"
@@ -26191,24 +22924,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "algèbre",
     "ar": "جبر",
     "en": "algebra",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "astable",
-    "ar": "غير مستقر",
-    "en": "astable",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "booléen",
-    "ar": "بولياني",
-    "en": "boolean",
     "level": "A2",
     "contexts": [
       "school"
@@ -26334,15 +23049,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "parsing",
-    "ar": "إعراب",
-    "en": "parsing",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "traceur",
     "ar": "راسم",
     "en": "plotter",
@@ -26407,15 +23113,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "telnet",
-    "ar": "شبكة عن بعد",
-    "en": "telnet",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "test-t",
     "ar": "اختبار",
     "en": "t-test",
@@ -26437,15 +23134,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "virtuel",
     "ar": "افتراضي",
     "en": "virtual",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "webcast",
-    "ar": "بث بالشبكة",
-    "en": "webcast",
     "level": "A2",
     "contexts": [
       "school"
@@ -26511,15 +23199,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "agraphie",
-    "ar": "قصور  الكتابي",
-    "en": "agraphia",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "aptitude",
     "ar": "قابلية",
     "en": "aptitude",
@@ -26541,15 +23220,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "ما هو التصرف الأفضل؟",
       "en": "What is the best attitude?"
     }
-  },
-  {
-    "fr": "barycoïe",
-    "ar": "وقر",
-    "en": "baryecoi",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
   },
   {
     "fr": "bilingue",
@@ -26587,15 +23257,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "colloque",
     "ar": "مناظرة",
     "en": "colloquy",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "dyslalie",
-    "ar": "خلل في التكلم",
-    "en": "dyslalia",
     "level": "A2",
     "contexts": [
       "school"
@@ -26775,15 +23436,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "testable",
-    "ar": "قابل للقياس اختباريا",
-    "en": "testable",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "timidité",
     "ar": "خجل",
     "en": "timidity",
@@ -26843,15 +23495,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "débogage",
-    "ar": "تشخيص الأخطاء",
-    "en": "debugging",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "démonter",
     "ar": "إيقاف التحميل",
     "en": "demount",
@@ -26893,15 +23536,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "extranet",
-    "ar": "شبكة إضافية",
-    "en": "extranet",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "fair use",
     "ar": "استخدام جائر",
     "en": "fair use",
@@ -26937,15 +23571,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "intranet",
     "ar": "شبكة داخلية",
     "en": "intranet",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "limiteur",
-    "ar": "محددة",
-    "en": "limiter",
     "level": "A2",
     "contexts": [
       "school"
@@ -27025,15 +23650,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "habilite",
-    "ar": "مهارة",
-    "en": "skill",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "standard",
     "ar": "مقياس",
     "en": "standard",
@@ -27079,15 +23695,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "VBScript",
-    "ar": "فبسكريبت",
-    "en": "VBScript",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "page web",
     "ar": "صفحة الشبكة",
     "en": "webpage",
@@ -27100,42 +23707,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "site web",
     "ar": "موقع على الشبكة، موقع إلكتروني",
     "en": "website",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "webzines",
-    "ar": "مجلات الشبكة",
-    "en": "webzines",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "aboulique",
-    "ar": "فاقد الادارة",
-    "en": "aboulic",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "acalculie",
-    "ar": "فقدان القدرة الحسابية",
-    "en": "acalculia",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "acoumètre",
-    "ar": "مسمع",
-    "en": "acoumeter",
     "level": "A2",
     "contexts": [
       "school"
@@ -27190,15 +23761,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "caractère",
     "ar": "طبع، خلق",
     "en": "character",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "coloquium",
-    "ar": "حلقة دراسية",
-    "en": "colloquium",
     "level": "A2",
     "contexts": [
       "school"
@@ -27291,33 +23853,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "paralalie",
-    "ar": "اختلال النطق",
-    "en": "paralalia",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "paralaxie",
-    "ar": "اختلال القراءة",
-    "en": "paralaxia",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "paralogie",
-    "ar": "عي التفكير",
-    "en": "paralogia",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "pédagogie",
     "ar": "علم التربية",
     "en": "pedagogy",
@@ -27366,15 +23901,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "récréatif",
     "ar": "ترويحي",
     "en": "recreative",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "rééduquer",
-    "ar": "يعيد التربية",
-    "en": "re-educate",
     "level": "A2",
     "contexts": [
       "school"
@@ -27430,15 +23956,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "rétention",
     "ar": "حفظ",
     "en": "retention",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "classroom",
-    "ar": "غرفة الصف المستقلة",
-    "en": "self-contained classroom",
     "level": "A2",
     "contexts": [
       "school"
@@ -27523,15 +24040,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "verbosité",
-    "ar": "كثرة الكلام",
-    "en": "wordiness",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "activisme",
     "ar": "تفاعلية",
     "en": "activism",
@@ -27544,15 +24052,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "activités",
     "ar": "أنشطة",
     "en": "activities",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "adressage",
-    "ar": "عنونة",
-    "en": "addressing",
     "level": "A2",
     "contexts": [
       "school"
@@ -27591,36 +24090,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "backspace",
-    "ar": "حركة خلفية",
-    "en": "backspace",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "étalonage",
-    "ar": "تحديد المعايير",
-    "en": "benchmarking",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "bluetooth",
     "ar": "بلوتوث",
     "en": "bluetooth",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "bootstrap",
-    "ar": "بدء تحميل",
-    "en": "bootstrap",
     "level": "A2",
     "contexts": [
       "school"
@@ -27639,15 +24111,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "temps UCT",
     "ar": "زمن المعالجة المركزية",
     "en": "CPU time",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "débogueur",
-    "ar": "مشخص الأخطاء",
-    "en": "debugger",
     "level": "A2",
     "contexts": [
       "school"
@@ -27695,27 +24158,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "gigaoctet",
-    "ar": "جيجا بايت",
-    "en": "gigabyte",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "graphique",
     "ar": "بياني",
     "en": "graphic",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "hyperlien",
-    "ar": "ارتباط تشعبي",
-    "en": "hyperlink",
     "level": "A2",
     "contexts": [
       "school"
@@ -27830,15 +24275,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "quicktime",
-    "ar": "برنامج إسعاف",
-    "en": "quicktime",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "réalisme",
     "ar": "واقعية",
     "en": "realism",
@@ -27902,15 +24338,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "webinaire",
-    "ar": "تخاطب  عبر الشبكة",
-    "en": "webinar",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "assistant",
     "ar": "عراف",
     "en": "wizard",
@@ -27932,33 +24359,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "aberration",
     "ar": "زيغ",
     "en": "aberration",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "anormalité",
-    "ar": "شذوذ",
-    "en": "abnormality",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "abréaction",
-    "ar": "تنفيس",
-    "en": "abreaction",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "acoumétrie",
-    "ar": "قياس السمع",
-    "en": "acoumetry",
     "level": "A2",
     "contexts": [
       "school"
@@ -28024,15 +24424,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "antiphrase",
-    "ar": "تعبير معكوس",
-    "en": "antiphrasis",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "aspiration",
     "ar": "طموح",
     "en": "aspiration",
@@ -28081,24 +24472,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "discipline",
     "ar": "حقل معرفي",
     "en": "discipline",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "dysgraphie",
-    "ar": "خلل في الكتابة",
-    "en": "dysgraphy",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "émotivisme",
-    "ar": "انفعالية",
-    "en": "emotivism",
     "level": "A2",
     "contexts": [
       "school"
@@ -28218,24 +24591,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "redoublant",
-    "ar": "معيد",
-    "en": "redoubling",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "rééducatif",
-    "ar": "تصحيحي",
-    "en": "re-educative",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "réfectoire",
     "ar": "مطعم المدرسة، مطعم الكلية",
     "en": "refectory",
@@ -28277,15 +24632,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "scientisme",
-    "ar": "نزعة علمية",
-    "en": "scientism",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "sémantique",
     "ar": "علم دلالات الألفاظ",
     "en": "semantics",
@@ -28298,15 +24644,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "phrase-clé",
     "ar": "جملة مفتاحية",
     "en": "sentence",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "interligne",
-    "ar": "فراغ بين سطرين",
-    "en": "space between two lines",
     "level": "A2",
     "contexts": [
       "school"
@@ -28331,27 +24668,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "épellation",
-    "ar": "تهجئة",
-    "en": "spelling",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "sous-titre",
     "ar": "عنوان فرعي",
     "en": "subtitle",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "syllabisme",
-    "ar": "تقطيع اللفظ",
-    "en": "syllabism",
     "level": "A2",
     "contexts": [
       "school"
@@ -28426,15 +24745,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "activateur",
-    "ar": "محرك",
-    "en": "activator",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "adaptateur",
     "ar": "مهايئ، موائم",
     "en": "adapter",
@@ -28447,15 +24757,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "assembleur",
     "ar": "مجمع",
     "en": "assembler",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "asynchrone",
-    "ar": "لا تزامني، غير متواقت",
-    "en": "asynchronous",
     "level": "A2",
     "contexts": [
       "school"
@@ -28489,15 +24790,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "catalogage",
-    "ar": "فهرسة",
-    "en": "cataloging",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "contention",
     "ar": "تزاحم",
     "en": "contention",
@@ -28507,36 +24799,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "covariance",
-    "ar": "تغاير",
-    "en": "covariance",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "datagramme",
-    "ar": "حزمة بيانات",
-    "en": "datagram",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "diagrammes",
     "ar": "مخططات",
     "en": "diagrams",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "numéroteur",
-    "ar": "مرقم، محول رقمي",
-    "en": "digitizer",
     "level": "A2",
     "contexts": [
       "school"
@@ -28579,15 +24844,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "hypertexte",
-    "ar": "نص متصل",
-    "en": "hypertext",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "hypothèses",
     "ar": "فرضيات",
     "en": "hypothesis",
@@ -28624,15 +24880,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "netiquette",
-    "ar": "آداب الشابكة",
-    "en": "netiquette",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "imprimante",
     "ar": "طابعة",
     "en": "printer",
@@ -28660,36 +24907,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "taxonomie",
-    "ar": "علم التصنيف",
-    "en": "taxonomy",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "télécours",
-    "ar": "مقررات عن بعد",
-    "en": "telecourses",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "télescope",
     "ar": "منظار",
     "en": "telescope",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "télétexte",
-    "ar": "بث النصوص",
-    "en": "teletext",
     "level": "A2",
     "contexts": [
       "school"
@@ -28705,36 +24925,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "acatalepsie",
-    "ar": "فقدان الادراك",
-    "en": "acatalepsy",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "acataphasie",
-    "ar": "عيي",
-    "en": "acataphasia",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "agressivité",
     "ar": "عدوانية",
     "en": "aggressiveness",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "arabisation",
-    "ar": "تعريب",
-    "en": "arabization",
     "level": "A2",
     "contexts": [
       "school"
@@ -28789,24 +24982,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "délinquance",
     "ar": "جنوح",
     "en": "delinquency",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "docimologie",
-    "ar": "علم الامتحانات",
-    "en": "docimology",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "éducabilité",
-    "ar": "قابلية التعلم",
-    "en": "educability",
     "level": "A2",
     "contexts": [
       "school"
@@ -28886,24 +25061,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "paragraphie",
-    "ar": "اختلال الكتابة",
-    "en": "paragraphia",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "paralogisme",
-    "ar": "قياس فاسد",
-    "en": "paralogism",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "philosophie",
     "ar": "فلسفة",
     "en": "philosophy",
@@ -28925,15 +25082,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "polyvalence",
     "ar": "تعدد القدرات",
     "en": "polyvalency",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "postdiplômé",
-    "ar": "ما بعد التخرج",
-    "en": "postgraduate",
     "level": "A2",
     "contexts": [
       "school"
@@ -28972,15 +25120,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "rhétoricien",
-    "ar": "عالم البلاغة",
-    "en": "rhetoricien",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "schématique",
     "ar": "تخطيطي",
     "en": "schematic",
@@ -29002,15 +25141,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "instituteur",
     "ar": "معلم مدرسة",
     "en": "school teacher",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "autodidaxie",
-    "ar": "تعلم ذاتي",
-    "en": "self-education",
     "level": "A2",
     "contexts": [
       "school"
@@ -29088,15 +25218,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "test mental",
     "ar": "اختبار عقلي",
     "en": "test",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "test-retest",
-    "ar": "اختبار معاد",
-    "en": "test-retest",
     "level": "A2",
     "contexts": [
       "school"
@@ -29202,27 +25323,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "didacticiel",
-    "ar": "مقرر حاسوبي",
-    "en": "courseware",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "crédibilité",
     "ar": "مصداقية",
     "en": "credibility",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "descripteur",
-    "ar": "مصنف، واصفة",
-    "en": "descriptor",
     "level": "A2",
     "contexts": [
       "school"
@@ -29270,36 +25373,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "télécopieur",
-    "ar": "ناسوخ، فاكس",
-    "en": "fax",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "authentique",
     "ar": "أصيل",
     "en": "genuine",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "histogramme",
-    "ar": "رسم بياني تناسبي، هستوجرام",
-    "en": "histogram",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "hypermédias",
-    "ar": "وسائط فائقة",
-    "en": "hypermedia",
     "level": "A2",
     "contexts": [
       "school"
@@ -29387,15 +25463,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "mataélément",
-    "ar": "بطاقة تعريف",
-    "en": "meta tag",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "métadonnées",
     "ar": "بيانات مفرقة، بيانات تعريفية",
     "en": "metadata",
@@ -29426,24 +25493,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "liste nulle",
     "ar": "قائمة صفرية",
     "en": "null list",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "appariement",
-    "ar": "مزاوجة",
-    "en": "pairing",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "paramétrage",
-    "ar": "تثبيت المعلمات",
-    "en": "parameters setting",
     "level": "A2",
     "contexts": [
       "school"
@@ -29489,24 +25538,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "redondance",
     "ar": "إطناب",
     "en": "redundancy",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "évolutivité",
-    "ar": "قابلية التوسع، تدرجية",
-    "en": "scalability",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "diapositive",
-    "ar": "شفافة، شريحة",
-    "en": "slide",
     "level": "A2",
     "contexts": [
       "school"
@@ -29567,15 +25598,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "xérographie",
-    "ar": "تصوير جاف",
-    "en": "xerography",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "groupe zéro",
     "ar": "مجموعة ضابطة",
     "en": "zero group",
@@ -29588,24 +25610,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "lecteur zip",
     "ar": "محرك الأقراص",
     "en": "zip drive",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "acatmathesie",
-    "ar": "فقدان القدرة ادراك المواقف",
-    "en": "acatamathesia",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "achromatisme",
-    "ar": "عمى الألوان",
-    "en": "achromatism",
     "level": "A2",
     "contexts": [
       "school"
@@ -29648,24 +25652,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "agrammatisme",
-    "ar": "قصور  النحوي",
-    "en": "agrammatism",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "anorthoscope",
-    "ar": "منظار المنحرفات",
-    "en": "anorthoscope",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "assimilation",
     "ar": "استيعاب، تمثل",
     "en": "assimilation",
@@ -29692,15 +25678,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "carte muette",
     "ar": "خريطة صماء",
     "en": "blank map",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "ramification",
-    "ar": "تشعب",
-    "en": "branching",
     "level": "A2",
     "contexts": [
       "school"
@@ -29773,15 +25750,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "intelligence",
     "ar": "ذكاء",
     "en": "intelligence",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "introversion",
-    "ar": "انطواء",
-    "en": "introversion",
     "level": "A2",
     "contexts": [
       "school"
@@ -29946,15 +25914,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "standardiser",
-    "ar": "يوحد القياس",
-    "en": "standardize",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "pensionnaire",
     "ar": "طالب داخلي",
     "en": "student",
@@ -30012,15 +25971,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "بدون عظم، من فضلك.",
       "en": "Without bones, please."
     }
-  },
-  {
-    "fr": "Rh",
-    "ar": "عامل ريزوس",
-    "en": "rh",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
   },
   {
     "fr": "air",
@@ -30473,15 +26423,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "hile",
-    "ar": "سرة",
-    "en": "hilum",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "trou",
     "ar": "ثقب",
     "en": "hole",
@@ -30494,15 +26435,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "هناك ثقب يحتاج إصلاحاً هنا.",
       "en": "There's a hole to repair here."
     }
-  },
-  {
-    "fr": "hote",
-    "ar": "مضيف",
-    "en": "host",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
   },
   {
     "fr": "iode",
@@ -30862,36 +26794,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "carié",
-    "ar": "متسوس",
-    "en": "carious",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "carpe",
     "ar": "رسغ اليد",
     "en": "carpus",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "chyle",
-    "ar": "كيلوس",
-    "en": "chyle",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "chyme",
-    "ar": "كيموس",
-    "en": "chyme",
     "level": "A2",
     "contexts": [
       "health"
@@ -30910,15 +26815,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "crane",
     "ar": "جمجمة",
     "en": "cranium",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "croup",
-    "ar": "خناق",
-    "en": "croup",
     "level": "A2",
     "contexts": [
       "health"
@@ -30966,15 +26862,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "étuve",
-    "ar": "فرن مجفف",
-    "en": "drying oven",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "coude",
     "ar": "مرفق",
     "en": "elbow",
@@ -31001,15 +26888,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "تجاوز السرعة.",
       "en": "Speeding."
     }
-  },
-  {
-    "fr": "fécal",
-    "ar": "برازي",
-    "en": "faecal",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
   },
   {
     "fr": "fémur",
@@ -31149,15 +27027,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "fovéa",
-    "ar": "بقعة الصفراء",
-    "en": "fovea",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "talon",
     "ar": "كعب",
     "en": "heel",
@@ -31259,15 +27128,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "lombe",
-    "ar": "قطن صلب",
-    "en": "lumbus",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "malin",
     "ar": "خبيث",
     "en": "malignant",
@@ -31346,24 +27206,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "azoté",
-    "ar": "آزوتي، نيتروجيني",
-    "en": "nitrogenous",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "nodal",
-    "ar": "عقدي",
-    "en": "nodal",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "nocif",
     "ar": "مؤذ، ضار",
     "en": "noxious",
@@ -31430,15 +27272,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "paume",
     "ar": "رائحة الكف",
     "en": "palm",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "panus",
-    "ar": "ثخانة القرنية",
-    "en": "pannus",
     "level": "A2",
     "contexts": [
       "health"
@@ -31522,15 +27355,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "ralle",
-    "ar": "حشرجة",
-    "en": "rale",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "rayon",
     "ar": "شعاع",
     "en": "ray",
@@ -31562,15 +27386,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "cotes",
     "ar": "أضلاع، ضلوع",
     "en": "ribs",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "sébum",
-    "ar": "دهن",
-    "en": "sebum",
     "level": "A2",
     "contexts": [
       "health"
@@ -31658,15 +27473,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "épice",
     "ar": "بهار، تابل",
     "en": "spice",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "spore",
-    "ar": "بوغ، بوغة",
-    "en": "spore",
     "level": "A2",
     "contexts": [
       "health"
@@ -31929,15 +27735,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "acinus",
-    "ar": "عنبة، سنخ",
-    "en": "acinus",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "adulte",
     "ar": "بالغ",
     "en": "adult",
@@ -31968,15 +27765,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "هل تشرب الكحول؟",
       "en": "Do you drink alcohol?"
     }
-  },
-  {
-    "fr": "amnios",
-    "ar": "سلى، كيس الجنين",
-    "en": "amnion",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
   },
   {
     "fr": "anémie",
@@ -32115,15 +27903,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "caecum",
-    "ar": "ممرغة، مصير الأعور",
-    "en": "caecum",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "cancer",
     "ar": "سرطان",
     "en": "cancer",
@@ -32147,45 +27926,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "cardia",
-    "ar": "فتحة الفؤاد",
-    "en": "cardia",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "menton",
     "ar": "ذقن",
     "en": "chin",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "coccus",
-    "ar": "بكتيريا كروية",
-    "en": "coccus",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "coccyx",
-    "ar": "عصعص",
-    "en": "coccyx",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "cœlome",
-    "ar": "تجويف الجسم",
-    "en": "coelom",
     "level": "A2",
     "contexts": [
       "health"
@@ -32258,15 +28001,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "diluer",
     "ar": "خفف",
     "en": "dilute",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "doping",
-    "ar": "تناول المنشطات",
-    "en": "doping",
     "level": "A2",
     "contexts": [
       "health"
@@ -32433,24 +28167,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "gamète",
-    "ar": "مشيج",
-    "en": "gamete",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "gélose",
-    "ar": "غراء، جيلوزين",
-    "en": "gelosin",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "germes",
     "ar": "جراثيم",
     "en": "germs",
@@ -32463,24 +28179,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "glande",
     "ar": "غدة",
     "en": "gland",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "glotte",
-    "ar": "مزمار",
-    "en": "glottis",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "goitre",
-    "ar": "تدرق، تضخم الدرقية",
-    "en": "goitre",
     "level": "A2",
     "contexts": [
       "health"
@@ -32532,24 +28230,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "hyalin",
-    "ar": "شفاف",
-    "en": "hyaline",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "fêlure",
-    "ar": "صدع",
-    "en": "infraction",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "isoler",
     "ar": "عزل",
     "en": "isolate",
@@ -32591,36 +28271,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "lobule",
-    "ar": "فصيص",
-    "en": "lobule",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "poumon",
     "ar": "رئة",
     "en": "lung",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "lymphe",
-    "ar": "لمف، لمفا",
-    "en": "lymph system",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "lysine",
-    "ar": "ليزين",
-    "en": "lysin",
     "level": "A2",
     "contexts": [
       "health"
@@ -32673,15 +28326,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "mitral",
-    "ar": "إكليلي، تاجي",
-    "en": "mitral",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "modéré",
     "ar": "معتدل",
     "en": "moderate",
@@ -32705,15 +28349,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "mycose",
-    "ar": "فطار، داء فطري",
-    "en": "mycosis",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "myopie",
     "ar": "حسر، قصير النظر",
     "en": "myopia",
@@ -32726,15 +28361,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "nausée",
     "ar": "غثيان",
     "en": "nausea",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "nodule",
-    "ar": "عقيدة",
-    "en": "nodule",
     "level": "A2",
     "contexts": [
       "health"
@@ -32758,15 +28384,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "narine",
     "ar": "منخر",
     "en": "nostril",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "canule",
-    "ar": "قنية، ميزاب",
-    "en": "nozzle",
     "level": "A2",
     "contexts": [
       "health"
@@ -32836,15 +28453,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "pâleur",
-    "ar": "شحوب",
-    "en": "pallor",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "rotule",
     "ar": "رضفة",
     "en": "patella",
@@ -32886,15 +28494,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "plèvre",
-    "ar": "غشاء الجنب",
-    "en": "pleur",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "plexus",
     "ar": "ضفيرة",
     "en": "plexus",
@@ -32916,15 +28515,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "épurer",
     "ar": "صفى، نقى",
     "en": "purify",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pylore",
-    "ar": "بواب",
-    "en": "pylorus",
     "level": "A2",
     "contexts": [
       "health"
@@ -32999,15 +28589,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "rénine",
-    "ar": "انزيم الرنين",
-    "en": "renin",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "rétine",
     "ar": "شبكية العين",
     "en": "retina",
@@ -33017,27 +28598,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "sacrum",
-    "ar": "عجز",
-    "en": "sacrum",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "salive",
     "ar": "لعاب",
     "en": "saliva",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "sébacé",
-    "ar": "دهني",
-    "en": "sebaceous",
     "level": "A2",
     "contexts": [
       "health"
@@ -33112,15 +28675,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "stérol",
-    "ar": "سترول",
-    "en": "sterol",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "étrier",
     "ar": "ركاب، عظم ركابي",
     "en": "stirrup",
@@ -33148,24 +28702,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "thalle",
-    "ar": "تالوس، مشرة",
-    "en": "thallus",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "théine",
-    "ar": "شايين",
-    "en": "theine",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "cuisse",
     "ar": "فخذ",
     "en": "thigh",
@@ -33187,15 +28723,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "muguet",
     "ar": "قلاع، التهاب فطري في الفم",
     "en": "thrush",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "thymus",
-    "ar": "غدة التيموسية",
-    "en": "thymus",
     "level": "A2",
     "contexts": [
       "health"
@@ -33271,27 +28798,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "urémie",
-    "ar": "بولينا، يوريميا",
-    "en": "uraemia",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "urètre",
     "ar": "إحليل، قناة مجرى البول",
     "en": "urethra",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "urique",
-    "ar": "بولي",
-    "en": "uric",
     "level": "A2",
     "contexts": [
       "health"
@@ -33307,27 +28816,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "luette",
-    "ar": "لهاة",
-    "en": "uvula",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "vaccin",
     "ar": "لقاح",
     "en": "vaccine",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "varice",
-    "ar": "دالية",
-    "en": "varix",
     "level": "A2",
     "contexts": [
       "health"
@@ -33380,27 +28871,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "cireux",
-    "ar": "شمعي",
-    "en": "waxy",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "levure",
     "ar": "خميرة",
     "en": "yeast",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "zygote",
-    "ar": "بيضة مخصبة، زيجوت",
-    "en": "zygote",
     "level": "A2",
     "contexts": [
       "health"
@@ -33419,24 +28892,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "adipeux",
     "ar": "شحمي، ذهني",
     "en": "adipose",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "aérobie",
-    "ar": "هوائي",
-    "en": "aerobic",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ameboid",
-    "ar": "تحوري، أميبي الشكل",
-    "en": "ameboid",
     "level": "A2",
     "contexts": [
       "health"
@@ -33464,15 +28919,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "amputer",
     "ar": "بتر",
     "en": "amputate",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "amylase",
-    "ar": "اميلانأنزيم النشاء",
-    "en": "amylase",
     "level": "A2",
     "contexts": [
       "health"
@@ -33511,27 +28957,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "asepsie",
-    "ar": "تطهير",
-    "en": "asepsis",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "bacille",
     "ar": "عصية",
     "en": "bacillus",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "biotype",
-    "ar": "طراز حيوي",
-    "en": "biotype",
     "level": "A2",
     "contexts": [
       "health"
@@ -33615,24 +29043,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "calorie",
-    "ar": "حريرة، سعرة",
-    "en": "calory",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "camphre",
-    "ar": "كافور",
-    "en": "camphor",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "capsule",
     "ar": "محفظة",
     "en": "capsule",
@@ -33642,45 +29052,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "carpien",
-    "ar": "رسغي",
-    "en": "carpal",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "caséine",
-    "ar": "كازئين",
-    "en": "casein",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "cérumen",
-    "ar": "صملاخ",
-    "en": "cerumen",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "choléra",
     "ar": "كوليرا",
     "en": "cholera",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "chorion",
-    "ar": "مشيمة، كوريون",
-    "en": "chorion",
     "level": "A2",
     "contexts": [
       "health"
@@ -33732,27 +29106,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "cyphose",
-    "ar": "حدبة",
-    "en": "cyphosis",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "surdité",
     "ar": "صمم",
     "en": "deafness",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "denture",
-    "ar": "طقم أسنان",
-    "en": "denture",
     "level": "A2",
     "contexts": [
       "health"
@@ -33789,15 +29145,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "dissous",
     "ar": "مذاب",
     "en": "dissolved",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "diurèse",
-    "ar": "غزارة البول",
-    "en": "diuresis",
     "level": "A2",
     "contexts": [
       "health"
@@ -33863,15 +29210,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "collyre",
-    "ar": "قطرة للعين",
-    "en": "eye drops",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "graisse",
     "ar": "دسم، شحم",
     "en": "fat",
@@ -33889,24 +29227,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "facette",
     "ar": "صفيحة، وجه صغير",
     "en": "facet",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "fibrine",
-    "ar": "ليفين، فيبرين",
-    "en": "fibrin",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "fibreux",
-    "ar": "ليفي",
-    "en": "fibrous",
     "level": "A2",
     "contexts": [
       "health"
@@ -33934,15 +29254,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "conduit",
     "ar": "مجرى",
     "en": "conduct",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "condyle",
-    "ar": "لقمة",
-    "en": "condyle",
     "level": "A2",
     "contexts": [
       "health"
@@ -34031,27 +29342,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "glucide",
-    "ar": "سكر غلوسيد",
-    "en": "glucide",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "glucose",
     "ar": "جلوكوز",
     "en": "glucose",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "gonades",
-    "ar": "غدد تناسلية",
-    "en": "gonads",
     "level": "A2",
     "contexts": [
       "health"
@@ -34154,27 +29447,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "iliaque",
-    "ar": "حرقفي",
-    "en": "iliac",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "inactif",
     "ar": "خامل، غير فعال",
     "en": "inactive",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "inhaler",
-    "ar": "استنشق، شهق",
-    "en": "inhale",
     "level": "A2",
     "contexts": [
       "health"
@@ -34199,15 +29474,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "iridien",
-    "ar": "قزحي",
-    "en": "iridian",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "lactose",
     "ar": "سكر اللبن ، لاكتوز",
     "en": "lactose",
@@ -34222,15 +29488,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "lamelle",
-    "ar": "صفيحة",
-    "en": "lamellule",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "latence",
     "ar": "كمون",
     "en": "latency",
@@ -34243,15 +29500,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "latéral",
     "ar": "جانبي",
     "en": "lateral",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "latrine",
-    "ar": "مرحاض",
-    "en": "latrine",
     "level": "A2",
     "contexts": [
       "health"
@@ -34318,45 +29566,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "lipoïde",
-    "ar": "دهنوي، شحماني",
-    "en": "lipoid",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "lordose",
-    "ar": "قعس",
-    "en": "lordosis",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "lytique",
-    "ar": "انحلالي",
-    "en": "lytic",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "malaise",
     "ar": "توعك",
     "en": "malaise",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "maltose",
-    "ar": "مالتوز، سكر شعير",
-    "en": "maltose",
     "level": "A2",
     "contexts": [
       "health"
@@ -34445,15 +29657,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "myosine",
-    "ar": "ميوسين",
-    "en": "myosin",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "nécrose",
     "ar": "نخر",
     "en": "necrosis",
@@ -34493,15 +29696,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "oblique",
     "ar": "منحرف، مائل",
     "en": "oblique",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "oestrus",
-    "ar": "طمث، طمت",
-    "en": "oestrus",
     "level": "A2",
     "contexts": [
       "health"
@@ -34549,90 +29743,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "osséine",
-    "ar": "عظمين",
-    "en": "ossein",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "osselet",
-    "ar": "عظيمة",
-    "en": "ossicle",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "oxalate",
-    "ar": "حماضات، اكسالات",
-    "en": "oxalate",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "oxydase",
-    "ar": "اكسيداز",
-    "en": "oxidase",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "oxygène",
     "ar": "أكسجين",
     "en": "oxygen",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "oxygéné",
-    "ar": "مؤكسج",
-    "en": "oxygenated",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "papille",
-    "ar": "حليم",
-    "en": "papilla",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "papules",
-    "ar": "حبيبات جلدية",
-    "en": "papules",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pepsine",
-    "ar": "ببسين",
-    "en": "pepsin",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "peptide",
-    "ar": "ببتيد",
-    "en": "peptide",
     "level": "A2",
     "contexts": [
       "health"
@@ -34648,90 +29761,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "pharynx",
-    "ar": "بلعوم",
-    "en": "pharynx",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "phlegme",
-    "ar": "بلغم",
-    "en": "phlegm",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "epiphse",
-    "ar": "غدة الصنوبرية",
-    "en": "pineal body",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "protide",
-    "ar": "بروتيد",
-    "en": "protid",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "proteus",
-    "ar": "متحولات",
-    "en": "proteus",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "saillie",
     "ar": "نتوء، بروز",
     "en": "protrusion",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "foulure",
-    "ar": "خلع، التواء",
-    "en": "pulling",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pustule",
-    "ar": "بثرة",
-    "en": "pustule",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "quinine",
-    "ar": "كينين",
-    "en": "quinine",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "rabique",
-    "ar": "كلبي",
-    "en": "rabic",
     "level": "A2",
     "contexts": [
       "health"
@@ -34833,24 +29865,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "salubre",
-    "ar": "صحي",
-    "en": "salubrious",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "sacrome",
-    "ar": "ورم ليفي",
-    "en": "sacroma",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "scalpel",
     "ar": "مشرط، مبضع",
     "en": "scalpel",
@@ -34895,15 +29909,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "scrotum",
     "ar": "كيس الصفن",
     "en": "scortum",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "séreuse",
-    "ar": "طبقة مصلية",
-    "en": "serosa",
     "level": "A2",
     "contexts": [
       "health"
@@ -35115,36 +30120,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "synapse",
-    "ar": "مشبك، وصلة عصبية",
-    "en": "synapse",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "syncope",
     "ar": "إغماء",
     "en": "syncope",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "synovie",
-    "ar": "آح مفصلي، زلال",
-    "en": "synovia",
-    "level": "A2",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "systole",
-    "ar": "انقباض القلب",
-    "en": "systole",
     "level": "A2",
     "contexts": [
       "health"
@@ -35220,44 +30198,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "As",
-    "ar": "رمز عنصر الزرنيخ",
-    "en": "As",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ],
-    "ex": {
-      "fr": "As-tu un père ?",
-      "ar": "ألديك أب؟",
-      "en": "Do you have a father?"
-    }
-  },
-  {
-    "fr": "Ba",
-    "ar": "رمز الباريوم",
-    "en": "Ba",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "Ca",
     "ar": "رمز عنصر الكالسيوم",
     "en": "Ca",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "Ga",
-    "ar": "رمزغاليوم",
-    "en": "Ga",
     "level": "B1",
     "contexts": [
       "health",
@@ -35300,41 +30243,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Ra",
-    "ar": "رمز الراديوم",
-    "en": "Ra",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "Ta",
-    "ar": "رمز التنتالوم",
-    "en": "Ta",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ],
-    "ex": {
-      "fr": "Ta sœur ne sait-elle pas nager ?",
-      "ar": "ألا تعرف أختك السباحة؟",
-      "en": "Doesn't your sister know how to swim?"
-    }
-  },
-  {
-    "fr": "bid",
-    "ar": "مرتان يوميا",
-    "en": "bid",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "ion",
     "ar": "شاردة",
     "en": "ion",
@@ -35365,39 +30273,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "O.U",
-    "ar": "عينان  معا",
-    "en": "O.U",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "pur",
     "ar": "نقي",
     "en": "pure",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "q.d",
-    "ar": "كل يوم",
-    "en": "q.d",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "q.h",
-    "ar": "كل ساعة",
-    "en": "q.h",
     "level": "B1",
     "contexts": [
       "health",
@@ -35470,16 +30348,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "p.c.",
-    "ar": "بعد الطعام",
-    "en": "p.c.",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "pâle",
     "ar": "شاحب",
     "en": "pale",
@@ -35500,49 +30368,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "pili",
-    "ar": "أشعار",
-    "en": "pili",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "pipe",
     "ar": "ماسورة",
     "en": "pipe",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "q.l.",
-    "ar": "حسب الرغبة",
-    "en": "q.l.",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "q.n.",
-    "ar": "كل ليلة",
-    "en": "q.n.",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "q.p.",
-    "ar": "حسب الرغبة",
-    "en": "q.p.",
     "level": "B1",
     "contexts": [
       "health",
@@ -35575,16 +30403,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "uvée",
-    "ar": "عنبية",
-    "en": "uvea",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "alpha",
     "ar": "ألفا",
     "en": "alpha",
@@ -35605,29 +30423,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "anion",
-    "ar": "شرسبة، صاعدة",
-    "en": "anion",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "anode",
     "ar": "مصعد",
     "en": "anode",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "anite",
-    "ar": "التهاب الشرج",
-    "en": "anusitis",
     "level": "B1",
     "contexts": [
       "health",
@@ -35658,26 +30456,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "لا، الورم الوعائي الحميد لا يتحول إلى سرطان.",
       "en": "No, a benign hemangioma does not become cancer."
     }
-  },
-  {
-    "fr": "bolus",
-    "ar": "بلعة",
-    "en": "bolus",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "borax",
-    "ar": "بورق، بوراكس",
-    "en": "borax",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
   },
   {
     "fr": "brome",
@@ -35850,26 +30628,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "immun",
-    "ar": "منيع، مناعي",
-    "en": "immune",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "irite",
-    "ar": "التهاب القزحية",
-    "en": "iritis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "joule",
     "ar": "جول",
     "en": "joule",
@@ -35925,16 +30683,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "lysat",
-    "ar": "حلالة",
-    "en": "lysate",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "micro",
     "ar": "دقيق",
     "en": "micro",
@@ -35948,16 +30696,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "أريد إنشاء مشروع صغير (micro-entreprise).",
       "en": "I would like to set up a micro-enterprise."
     }
-  },
-  {
-    "fr": "myose",
-    "ar": "تضيق الحدقة",
-    "en": "miosis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
   },
   {
     "fr": "moule",
@@ -35990,16 +30728,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "oxydé",
-    "ar": "مؤكسد",
-    "en": "oxidized",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "peste",
     "ar": "طاعون",
     "en": "pestis",
@@ -36013,16 +30741,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "radon",
     "ar": "رادون",
     "en": "radon",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "rédox",
-    "ar": "أكسدة، إرجاع",
-    "en": "redox",
     "level": "B1",
     "contexts": [
       "health",
@@ -36080,36 +30798,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "acétal",
-    "ar": "أسيتال",
-    "en": "acetal",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "alkyle",
-    "ar": "ألكيل",
-    "en": "alkyl",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "amides",
-    "ar": "أميدات",
-    "en": "amides",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "angine",
     "ar": "ذبحة",
     "en": "angina",
@@ -36120,39 +30808,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "ascite",
-    "ar": "حبن",
-    "en": "ascites",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "cendre",
     "ar": "رماد",
     "en": "ash",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "baryum",
-    "ar": "باريوم",
-    "en": "barium",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "bécher",
-    "ar": "بيكر، دورق",
-    "en": "beaker",
     "level": "B1",
     "contexts": [
       "health",
@@ -36188,56 +30846,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "تغيير (فرشاة الأسنان)",
       "en": "To change (toothbrush)"
     }
-  },
-  {
-    "fr": "butane",
-    "ar": "بوتان",
-    "en": "butane",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "butyle",
-    "ar": "بوتيل",
-    "en": "butyl",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "Césium",
-    "ar": "سيزيوم",
-    "en": "caesium،cesium",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "cation",
-    "ar": "شرجبة",
-    "en": "cation",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "cérium",
-    "ar": "سريوم",
-    "en": "cerium",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
   },
   {
     "fr": "chaîne",
@@ -36280,39 +30888,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "colite",
-    "ar": "التهاب القولون",
-    "en": "colitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "cuivre",
     "ar": "نحاس",
     "en": "copper",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "coryza",
-    "ar": "زكام",
-    "en": "coryza",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "curare",
-    "ar": "كورار",
-    "en": "curare",
     "level": "B1",
     "contexts": [
       "health",
@@ -36330,39 +30908,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "dimère",
-    "ar": "ثنائي الحد",
-    "en": "dimer",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "dipôle",
-    "ar": "ثنائي القطب",
-    "en": "dipole",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "dopage",
     "ar": "تنشط",
     "en": "doping",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "dopant",
-    "ar": "منشط",
-    "en": "doping agent",
     "level": "B1",
     "contexts": [
       "health",
@@ -36465,26 +31013,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Hafnia",
-    "ar": "هفنية",
-    "en": "Hafnia",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "gélule",
-    "ar": "محفظة قاسية",
-    "en": "hard gelatine capsule",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "durcir",
     "ar": "قسى",
     "en": "harden",
@@ -36508,36 +31036,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "hélium",
     "ar": "هليوم",
     "en": "helium",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "ictère",
-    "ar": "يرقان",
-    "en": "icterus",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "iléite",
-    "ar": "التهاب اللفائفي",
-    "en": "ileitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "indium",
-    "ar": "إنديوم",
-    "en": "indium",
     "level": "B1",
     "contexts": [
       "health",
@@ -36580,69 +31078,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "cétone",
-    "ar": "كيتون، سيتون",
-    "en": "ketone",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "kinase",
-    "ar": "كيناز",
-    "en": "kinase",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "labile",
-    "ar": "عطوب",
-    "en": "labile",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "lobite",
-    "ar": "التهاب الفص",
-    "en": "lobitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "lotion",
     "ar": "غسول",
     "en": "lotion",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "méiose",
-    "ar": "تنصف، انقسام اختزالي",
-    "en": "meiosis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "mitose",
-    "ar": "تخيط، انقسام خيطي",
-    "en": "mitosis",
     "level": "B1",
     "contexts": [
       "health",
@@ -36678,36 +31116,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "nickel",
     "ar": "نيكل",
     "en": "nickel",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "oddite",
-    "ar": "التهاب مصرة أودي",
-    "en": "odditis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "oligo-",
-    "ar": "قليل",
-    "en": "oligo-",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "osmium",
-    "ar": "أسميوم",
-    "en": "osmium",
     "level": "B1",
     "contexts": [
       "health",
@@ -36753,56 +31161,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "proton",
     "ar": "بروتون",
     "en": "proton",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "pyémie",
-    "ar": "قيحمية",
-    "en": "pyemia",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "pyurie",
-    "ar": "بيلة قيحية",
-    "en": "pyuria",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "q.i.d.",
-    "ar": "أربع مرات يوميا",
-    "en": "q.i.d.",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "q.n.s.",
-    "ar": "كمية غير كافية",
-    "en": "q.n.s.",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "q.q.h.",
-    "ar": "كل أربع ساعات",
-    "en": "q.q.h.",
     "level": "B1",
     "contexts": [
       "health",
@@ -36875,16 +31233,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "soluté",
-    "ar": "منحل، مذاب",
-    "en": "solute",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "espèce",
     "ar": "نوع",
     "en": "species",
@@ -36940,26 +31288,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "uvéite",
-    "ar": "التهاب العنبية",
-    "en": "uveitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "Vibrio",
-    "ar": "ضمة",
-    "en": "Vibrio",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "lavage",
     "ar": "غسل",
     "en": "wash out",
@@ -36985,29 +31313,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "abortif",
-    "ar": "مجهض",
-    "en": "abortive",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "acétone",
     "ar": "خلون، أسيتون",
     "en": "acetone",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "acétyle",
-    "ar": "أسيتيل",
-    "en": "acetyl",
     "level": "B1",
     "contexts": [
       "health",
@@ -37030,89 +31338,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "adénine",
-    "ar": "أدنين",
-    "en": "adenine",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "adénite",
-    "ar": "التهاب الغدة",
-    "en": "adenitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "aérosol",
     "ar": "رذاذ",
     "en": "aerosol",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "alanine",
-    "ar": "ألانين",
-    "en": "alanine",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "anergie",
-    "ar": "استعطال",
-    "en": "anergy",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "angéite",
-    "ar": "التهاب وعائي",
-    "en": "angiitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "anhydre",
-    "ar": "لا مائي",
-    "en": "anhydrous",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "aniline",
-    "ar": "أنيلين",
-    "en": "aniline",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "antrite",
-    "ar": "التهاب الغار",
-    "en": "antritis",
     "level": "B1",
     "contexts": [
       "health",
@@ -37130,59 +31358,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "aortite",
-    "ar": "التهاب الأبهر",
-    "en": "aortitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "aplasie",
-    "ar": "لا تنسج",
-    "en": "aplasia",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "arsenic",
     "ar": "زرنيخ",
     "en": "arsenic",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "Ascaris",
-    "ar": "صفر",
-    "en": "ascaris",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "asépsie",
-    "ar": "تعقم",
-    "en": "asepsis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "asialie",
-    "ar": "لا لعابية",
-    "en": "asialia",
     "level": "B1",
     "contexts": [
       "health",
@@ -37210,16 +31388,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "bimodal",
-    "ar": "ثنائي المنوال",
-    "en": "bimodal",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "bismuth",
     "ar": "بزموت",
     "en": "bismuth",
@@ -37240,39 +31408,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "burette",
-    "ar": "سحاحة، ستالة",
-    "en": "buret",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "bursite",
-    "ar": "التهاب الجراب",
-    "en": "bursitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "cadmium",
     "ar": "كادميوم",
     "en": "cadmium",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "caducée",
-    "ar": "شارة الطبابة",
-    "en": "caduceus",
     "level": "B1",
     "contexts": [
       "health",
@@ -37290,39 +31428,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "candida",
-    "ar": "مبيضة",
-    "en": "candida",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "carbène",
-    "ar": "كاربين",
-    "en": "carbene",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "carbone",
     "ar": "كربون",
     "en": "carbon",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "cardite",
-    "ar": "التهاب القلب",
-    "en": "carditis",
     "level": "B1",
     "contexts": [
       "health",
@@ -37340,29 +31448,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "chancre",
-    "ar": "غرين، قرح",
-    "en": "chancre",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "charbon",
     "ar": "فحم",
     "en": "charcoal",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "chélate",
-    "ar": "مستخلب",
-    "en": "chelate",
     "level": "B1",
     "contexts": [
       "health",
@@ -37420,16 +31508,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "coulomb",
-    "ar": "كولوم",
-    "en": "coulomb",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "doublet",
     "ar": "مزدوجة",
     "en": "couple",
@@ -37453,66 +31531,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "cuvette",
     "ar": "محفد، مركن",
     "en": "cuvette",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "cystite",
-    "ar": "التهاب المثانة",
-    "en": "cystitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "dapsone",
-    "ar": "دابسون",
-    "en": "dapsone",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "défence",
-    "ar": "دفاع",
-    "en": "defense",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "empyème",
-    "ar": "دبيلة",
-    "en": "empyema",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "épimère",
-    "ar": "صنو",
-    "en": "epimer",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "eugénol",
-    "ar": "يوجينول",
-    "en": "eugenol",
     "level": "B1",
     "contexts": [
       "health",
@@ -37575,16 +31593,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "filtrat",
-    "ar": "رشاحة",
-    "en": "filtrate",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "finesse",
     "ar": "نعومة",
     "en": "fineness",
@@ -37620,16 +31628,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "gallium",
-    "ar": "غاليوم",
-    "en": "gallium",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "gravité",
     "ar": "جاذبية",
     "en": "gravity",
@@ -37643,36 +31641,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "broyage",
     "ar": "طحن",
     "en": "grinding",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "Hafnium",
-    "ar": "هفنيوم",
-    "en": "Hafnium",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "haptène",
-    "ar": "ناشبة",
-    "en": "hapten",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "hexoses",
-    "ar": "سكريات سداسية",
-    "en": "hexoses",
     "level": "B1",
     "contexts": [
       "health",
@@ -37725,29 +31693,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "isomère",
-    "ar": "مماكب",
-    "en": "isomer",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "isotope",
     "ar": "نظير",
     "en": "isotope",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "lactate",
-    "ar": "لبنات، لاكتات",
-    "en": "lactate",
     "level": "B1",
     "contexts": [
       "health",
@@ -37765,69 +31713,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "lipémie",
-    "ar": "دسمية",
-    "en": "lipemia",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "lithium",
     "ar": "ليثيوم",
     "en": "lithium",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "macérat",
-    "ar": "عطين",
-    "en": "macerate",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "maltase",
-    "ar": "مالتاز",
-    "en": "maltase",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "mammite",
-    "ar": "التهاب الحلمة",
-    "en": "mamillitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "mastite",
-    "ar": "التهاب الثدي",
-    "en": "mastitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "menthol",
-    "ar": "منتول",
-    "en": "menthol",
     "level": "B1",
     "contexts": [
       "health",
@@ -37848,26 +31736,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "méthyle",
     "ar": "مثيل",
     "en": "methyl",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "métrite",
-    "ar": "التهاب الرحم",
-    "en": "metritis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "micelle",
-    "ar": "فتيتة",
-    "en": "micelle",
     "level": "B1",
     "contexts": [
       "health",
@@ -37910,56 +31778,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "myélite",
-    "ar": "التهاب النخاع",
-    "en": "myelitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "myosite",
-    "ar": "التهاب العضل",
-    "en": "myositis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "nadolol",
-    "ar": "نادولول",
-    "en": "nadolol",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "narcose",
-    "ar": "تخدر، تخدير",
-    "en": "narcosis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "névrite",
-    "ar": "التهاب العصب",
-    "en": "neuritis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "neutron",
     "ar": "نيوترون، نوترون",
     "en": "neutron",
@@ -37990,59 +31808,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "onychie",
-    "ar": "التهاب منبت الظفر",
-    "en": "onychia",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "orchite",
-    "ar": "التهاب الخصية",
-    "en": "orchitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "ostéite",
-    "ar": "التهاب العظم",
-    "en": "osteitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "ovarite",
-    "ar": "التهاب المبيض",
-    "en": "ovaritis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "oxydant",
     "ar": "مؤكسد",
     "en": "oxidant",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "panaris",
-    "ar": "داحس",
-    "en": "panaris",
     "level": "B1",
     "contexts": [
       "health",
@@ -38115,39 +31883,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "polyène",
-    "ar": "متعدد الروابط المضاعفة",
-    "en": "polyen",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "poudres",
     "ar": "مساحيق",
     "en": "powders",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "pulpite",
-    "ar": "التهاب اللب",
-    "en": "pulpitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "pyélite",
-    "ar": "التهاب الحويضة",
-    "en": "pyelitis",
     "level": "B1",
     "contexts": [
       "health",
@@ -38165,49 +31903,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "rectite",
-    "ar": "التهاب المستقيم",
-    "en": "rectitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "rhinite",
-    "ar": "التهاب الأنف",
-    "en": "rhinitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "rubéole",
-    "ar": "حصبة  الألمانية",
-    "en": "rubella",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "sédatif",
     "ar": "مركن",
     "en": "sedative",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "sialite",
-    "ar": "التهاب الغدة اللعابية",
-    "en": "sialitis",
     "level": "B1",
     "contexts": [
       "health",
@@ -38255,39 +31953,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "tétanie",
-    "ar": "تكزز",
-    "en": "tetany",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "toxémie",
-    "ar": "تسمم الدم",
-    "en": "toxemia",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "uranium",
     "ar": "يورانيوم",
     "en": "uranium",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "uvulite",
-    "ar": "التهاب اللهاة",
-    "en": "uvulitis",
     "level": "B1",
     "contexts": [
       "health",
@@ -38308,26 +31976,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "vecteur",
     "ar": "ناقل",
     "en": "vector",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "vibrion",
-    "ar": "ضمة",
-    "en": "vibrion",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "zoonose",
-    "ar": "مرض حيواني المصدر",
-    "en": "zoonosis",
     "level": "B1",
     "contexts": [
       "health",
@@ -38360,59 +32008,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "annexite",
-    "ar": "التهاب الملحقات",
-    "en": "adnexitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "affinité",
     "ar": "ألفة",
     "en": "affinity",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "agoniste",
-    "ar": "شاد",
-    "en": "agonist",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "albumine",
-    "ar": "ألبومين، زلال",
-    "en": "albumin",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "aldéhyde",
-    "ar": "ألدهيد",
-    "en": "aldehyde",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "alcalose",
-    "ar": "قلاء",
-    "en": "alkalosis",
     "level": "B1",
     "contexts": [
       "health",
@@ -38433,36 +32031,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "لدي حساسية.",
       "en": "I have an allergy."
     }
-  },
-  {
-    "fr": "alloxane",
-    "ar": "ألوكسان",
-    "en": "alloxan",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "alopécie",
-    "ar": "حاصة",
-    "en": "alopecia",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "alvérine",
-    "ar": "ألفيرين",
-    "en": "alverine",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
   },
   {
     "fr": "amalgame",
@@ -38520,16 +32088,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "apolaire",
-    "ar": "لا قطبي",
-    "en": "apolar",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "appareil",
     "ar": "جهاز",
     "en": "apparatus",
@@ -38543,16 +32101,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "أرتدي تقويم أسنان.",
       "en": "I wear braces."
     }
-  },
-  {
-    "fr": "artérite",
-    "ar": "التهاب شرياني",
-    "en": "arteritis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
   },
   {
     "fr": "arthrite",
@@ -38575,56 +32123,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "astatine",
-    "ar": "أستاتين",
-    "en": "astatin",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "athérome",
-    "ar": "عصيدة",
-    "en": "atheroma",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "autolyse",
-    "ar": "تحلل ذاتي",
-    "en": "autolysis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "autosome",
-    "ar": "صبغي جسدي",
-    "en": "autosome",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "bacillus",
-    "ar": "عصوية",
-    "en": "bacillus",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "bactérie",
     "ar": "جراثيم",
     "en": "bacteria",
@@ -38640,36 +32138,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "basicité",
-    "ar": "قاعدية، أساسية",
-    "en": "basicity",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "bivalent",
-    "ar": "ثنائي التكافؤ",
-    "en": "bivalent",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "Borrelia",
-    "ar": "بورلية",
-    "en": "Borrelia",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "bouillon",
     "ar": "مرق",
     "en": "bouillon",
@@ -38683,36 +32151,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "هل المرق مصنوع من اللحم؟",
       "en": "Is the stock meat-based?"
     }
-  },
-  {
-    "fr": "Brucella",
-    "ar": "بروسيلة",
-    "en": "Brucella",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "busulfan",
-    "ar": "بوسلفان",
-    "en": "busulfan",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "cachexie",
-    "ar": "دنف",
-    "en": "cachexia",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
   },
   {
     "fr": "calibrer",
@@ -38735,36 +32173,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "céfaclor",
-    "ar": "سيفاكلور",
-    "en": "cefaclor",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "cétiédil",
-    "ar": "سيتيديل",
-    "en": "cetiedil",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "chéilite",
-    "ar": "التهاب الشفة",
-    "en": "cheilitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "chimiste",
     "ar": "كيميائي",
     "en": "chemist",
@@ -38778,46 +32186,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "chlorure",
     "ar": "كلوريد، كلورور",
     "en": "chloride",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "chlorite",
-    "ar": "كلوريت",
-    "en": "chlorite",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "chromate",
-    "ar": "كرومات",
-    "en": "chromate",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "clobazam",
-    "ar": "كلوبازام",
-    "en": "clobazam",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "coccoïde",
-    "ar": "مكوراني",
-    "en": "coccoid",
     "level": "B1",
     "contexts": [
       "health",
@@ -38855,26 +32223,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "dégazage",
-    "ar": "إزالة الغاز",
-    "en": "degassing",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "désonide",
-    "ar": "ديزونيد",
-    "en": "desonide",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "détecter",
     "ar": "تحرى، كشف",
     "en": "detect",
@@ -38890,16 +32238,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "diathèse",
-    "ar": "استعداد",
-    "en": "diathesis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "dilution",
     "ar": "تمديد",
     "en": "dilution",
@@ -38910,49 +32248,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "divalent",
-    "ar": "ثنائي التكافؤ",
-    "en": "divalent",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "doxapram",
-    "ar": "دوكسابرام",
-    "en": "doxapram",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "doxépine",
-    "ar": "دوكسيبين",
-    "en": "doxepin",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "électron",
     "ar": "إلكترون",
     "en": "electron",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "emulsion",
-    "ar": "مستحلب",
-    "en": "emulsion",
     "level": "B1",
     "contexts": [
       "health",
@@ -38980,59 +32278,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "érythème",
-    "ar": "حمامى",
-    "en": "erythema",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "estérase",
-    "ar": "إستراز",
-    "en": "esterase",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "collyres",
-    "ar": "قطرات عينية",
-    "en": "eye drops",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "fenbufen",
-    "ar": "فينبوفين",
-    "en": "fenbufen",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "fentanyl",
     "ar": "فينتانيل",
     "en": "fentanyl",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "flagelle",
-    "ar": "سوط",
-    "en": "flagellum",
     "level": "B1",
     "contexts": [
       "health",
@@ -39050,26 +32298,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "formiate",
-    "ar": "نملات، فورمات",
-    "en": "formate",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "furoncle",
-    "ar": "دمل",
-    "en": "furuncle",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "gangrène",
     "ar": "موات",
     "en": "gangrene",
@@ -39078,21 +32306,6 @@ window.VOCAB_DATA_BATCH2 = [
       "health",
       "redcross"
     ]
-  },
-  {
-    "fr": "gastrite",
-    "ar": "التهاب المعدة",
-    "en": "gastritis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ],
-    "ex": {
-      "fr": "Une gastrite",
-      "ar": "التهاب المعدة.",
-      "en": "Gastritis."
-    }
   },
   {
     "fr": "gélatine",
@@ -39108,56 +32321,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "هل يوجد جيلاتين خنزير فيه؟",
       "en": "Does it contain pork gelatine?"
     }
-  },
-  {
-    "fr": "génotype",
-    "ar": "نمط جيني",
-    "en": "genotype",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "glossite",
-    "ar": "التهاب اللسان",
-    "en": "glossitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "glottite",
-    "ar": "التهاب المزمار",
-    "en": "glottitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "glucagon",
-    "ar": "غلوكاغون",
-    "en": "glucagon",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "glycérol",
-    "ar": "غليسرول",
-    "en": "glycerol",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
   },
   {
     "fr": "granules",
@@ -39200,26 +32363,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "hémolyse",
-    "ar": "انحلال الدم",
-    "en": "hemolysis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "héparine",
-    "ar": "هيبارين",
-    "en": "heparin",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "hépatite",
     "ar": "التهاب الكبد",
     "en": "hepatitis",
@@ -39255,39 +32398,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "hydrogel",
-    "ar": "هلام مائي",
-    "en": "hydrogel",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "hydrique",
     "ar": "مائي",
     "en": "hydrous",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "hydroxyl",
-    "ar": "هيدروكسيل",
-    "en": "hydroxyl",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "impétigo",
-    "ar": "قوباء",
-    "en": "impetigo",
     "level": "B1",
     "contexts": [
       "health",
@@ -39335,199 +32448,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "iodation",
-    "ar": "يوددة",
-    "en": "iodination",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "isomèrie",
-    "ar": "تماكب",
-    "en": "isomerism",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "isotrope",
-    "ar": "موحد الخصائص",
-    "en": "isotropic",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "jéjunite",
-    "ar": "التهاب الصائم",
-    "en": "jejunitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "kaliémie",
-    "ar": "بوتاسيومية",
-    "en": "kaliemia",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "kératite",
-    "ar": "التهاب القرنية",
-    "en": "keratitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "kétamine",
-    "ar": "كيتامين",
-    "en": "ketamine",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "lanoline",
-    "ar": "لانولين",
-    "en": "lanolin",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
     "fr": "leucémie",
     "ar": "ابيضاض الدم",
     "en": "leukemia",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "lévogyre",
-    "ar": "مدور لليسار",
-    "en": "levogyral",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "splénite",
-    "ar": "طحال، التهاب الطحال",
-    "en": "lienitis",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "liniment",
-    "ar": "مروخ",
-    "en": "liniment",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "liposome",
-    "ar": "جسيم دهني",
-    "en": "liposome",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "listeria",
-    "ar": "لسترية",
-    "en": "listeria",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "loxapine",
-    "ar": "لوكسابين",
-    "en": "loxapine",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "lysogène",
-    "ar": "مستذيب",
-    "en": "lysogen",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "lysosome",
-    "ar": "جسيم حال",
-    "en": "lysosome",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "lysozyme",
-    "ar": "ليزوزيم",
-    "en": "lysozyme",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "magnésie",
-    "ar": "مغنيزيا، مغنيسيا",
-    "en": "magnesia",
-    "level": "B1",
-    "contexts": [
-      "health",
-      "redcross"
-    ]
-  },
-  {
-    "fr": "mannitol",
-    "ar": "منيتول",
-    "en": "mannitol",
     "level": "B1",
     "contexts": [
       "health",
@@ -39552,36 +32475,6 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
-  },
-  {
-    "fr": "a:",
-    "ar": "a:",
-    "en": "a:",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "b:",
-    "ar": "b:",
-    "en": "b:",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "c:",
-    "ar": "c:",
-    "en": "c:",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
     ]
   },
   {
@@ -40055,29 +32948,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "retou",
-    "ar": "رجوع",
-    "en": "return",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "ombre",
     "ar": "ظل",
     "en": "shadow",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "spool",
-    "ar": "أسبول",
-    "en": "spool",
     "level": "B1",
     "contexts": [
       "phone",
@@ -40115,16 +32988,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "tilde",
-    "ar": "تلدة",
-    "en": "tilde",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "taper",
     "ar": "رقن",
     "en": "type",
@@ -40138,16 +33001,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "évolué",
     "ar": "متطور",
     "en": "advanced",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "affixe",
-    "ar": "لاصقة",
-    "en": "affix",
     "level": "B1",
     "contexts": [
       "phone",
@@ -40195,36 +33048,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "bitmap",
-    "ar": "مصفوفة بتات",
-    "en": "bitmap",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "signet",
-    "ar": "مؤشرة",
-    "en": "bookmark",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "codeur",
-    "ar": "مشفر",
-    "en": "coder",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "cookie",
     "ar": "كوكي",
     "en": "cookie",
@@ -40258,16 +33081,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "أين مكتب الصرافة؟",
       "en": "Where is the currency exchange office?"
     }
-  },
-  {
-    "fr": "dongle",
-    "ar": "مفتاح حماية",
-    "en": "dongle",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
   },
   {
     "fr": "copier",
@@ -40313,16 +33126,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "أقود بطريقة سلسة.",
       "en": "I drive smoothly."
     }
-  },
-  {
-    "fr": "gopher",
-    "ar": "غوفر",
-    "en": "gopher",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
   },
   {
     "fr": "grille",
@@ -40510,29 +33313,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "subnet",
-    "ar": "شبيكة",
-    "en": "subnet",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "abonné",
     "ar": "مشترك",
     "en": "subscriber",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "usenet",
-    "ar": "شبكة استعمال",
-    "en": "usenet",
     "level": "B1",
     "contexts": [
       "phone",
@@ -40553,16 +33336,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "activer",
     "ar": "تنشيط",
     "en": "activate",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "activex",
-    "ar": "أكتيف إكس",
-    "en": "activex",
     "level": "B1",
     "contexts": [
       "phone",
@@ -40700,16 +33473,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "décibel",
-    "ar": "ديسيبيل",
-    "en": "decibel",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "décimal",
     "ar": "عشري",
     "en": "decimal",
@@ -40748,16 +33511,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "éjecter",
     "ar": "قذف",
     "en": "eject",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "encoder",
-    "ar": "أشفر",
-    "en": "encode",
     "level": "B1",
     "contexts": [
       "phone",
@@ -40863,16 +33616,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "pattern",
     "ar": "نموذج",
     "en": "pattern",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "palpeur",
-    "ar": "ملتقط",
-    "en": "pecker",
     "level": "B1",
     "contexts": [
       "phone",
@@ -41070,16 +33813,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "unicode",
-    "ar": "يونيكود",
-    "en": "unicode",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "correct",
     "ar": "صحيح",
     "en": "valid",
@@ -41173,16 +33906,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "porteuse",
     "ar": "حاملة",
     "en": "carrier",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "déboguer",
-    "ar": "ضبط",
-    "en": "debug",
     "level": "B1",
     "contexts": [
       "phone",
@@ -41315,16 +34038,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "masquage",
-    "ar": "إخفاء جزئي",
-    "en": "masking",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "moniteur",
     "ar": "مرقاب",
     "en": "monitor",
@@ -41445,16 +34158,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "spouleur",
-    "ar": "مدبر صف الانتظار",
-    "en": "spooler",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "crochets",
     "ar": "معقوفتان",
     "en": "square brackets",
@@ -41468,36 +34171,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "naviguer",
     "ar": "إبحار",
     "en": "surf",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "swapping",
-    "ar": "تبديلة",
-    "en": "swapping",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "vidéotex",
-    "ar": "فيديوتكس",
-    "en": "videotex",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "winsocks",
-    "ar": "مقابس وندوز",
-    "en": "winsocks",
     "level": "B1",
     "contexts": [
       "phone",
@@ -41550,16 +34223,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "clignoter",
-    "ar": "ومضان",
-    "en": "blink",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "accolades",
     "ar": "لامتان",
     "en": "braces",
@@ -41573,16 +34236,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "incorporé",
     "ar": "مدمج",
     "en": "built-in",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "cardeware",
-    "ar": "كاردوير",
-    "en": "cardeware",
     "level": "B1",
     "contexts": [
       "phone",
@@ -41660,16 +34313,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "décrément",
-    "ar": "منقوص ثابت",
-    "en": "decrement",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "désactivé",
     "ar": "معطل",
     "en": "disabled",
@@ -41740,16 +34383,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "incrément",
-    "ar": "مضاف ثابت",
-    "en": "increment",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "lancement",
     "ar": "إطلاق",
     "en": "initiation",
@@ -41810,16 +34443,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "megaoctet",
-    "ar": "ميغابايت",
-    "en": "megabyte",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "mémoriser",
     "ar": "تخزين",
     "en": "memorize",
@@ -41833,16 +34456,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "عليك أن تحفظ هذه الجملة.",
       "en": "You have to memorize this sentence."
     }
-  },
-  {
-    "fr": "microfilm",
-    "ar": "فلم دقي",
-    "en": "microfilm",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
   },
   {
     "fr": "transfert",
@@ -41898,16 +34511,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "عامل الإنتاج",
       "en": "Production operator"
     }
-  },
-  {
-    "fr": "progiciel",
-    "ar": "برمجية جاهزة",
-    "en": "package",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
   },
   {
     "fr": "partition",
@@ -42010,26 +34613,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "télécopie",
-    "ar": "نسخ عن بعد",
-    "en": "telefax",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "thésaurus",
-    "ar": "مكنز",
-    "en": "thesaurus",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "dépannage",
     "ar": "مساعفة",
     "en": "troubleshooting",
@@ -42063,16 +34646,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "visionner",
     "ar": "رأى",
     "en": "view",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "fenêtrage",
-    "ar": "منفذة",
-    "en": "windowing",
     "level": "B1",
     "contexts": [
       "phone",
@@ -42200,16 +34773,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "cyberspace",
-    "ar": "فضاء سبرنيتيكي",
-    "en": "cyberspace",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "marguerite",
     "ar": "لؤلؤية",
     "en": "daisy print wheel",
@@ -42258,16 +34821,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "défectueux",
     "ar": "معيب",
     "en": "defective",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "délimiteur",
-    "ar": "محدد",
-    "en": "delimiter",
     "level": "B1",
     "contexts": [
       "phone",
@@ -42385,16 +34938,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "hypermédia",
-    "ar": "وسائط متشعبة",
-    "en": "hypermedia",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "indexation",
     "ar": "مثبتة",
     "en": "indexing",
@@ -42455,16 +34998,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "microfiche",
-    "ar": "جذاذة دقية",
-    "en": "microfiche",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "modérateur",
     "ar": "وسيط",
     "en": "moderator",
@@ -42478,16 +35011,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "carte mère",
     "ar": "لوحة أم",
     "en": "motherboard",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "multitâche",
-    "ar": "متعدد المهام",
-    "en": "multitasking",
     "level": "B1",
     "contexts": [
       "phone",
@@ -42600,26 +35123,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "tabulation",
-    "ar": "جدولة",
-    "en": "tabulation",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "targetting",
-    "ar": "توجه",
-    "en": "targeting",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "traduction",
     "ar": "ترجمة",
     "en": "translation",
@@ -42648,16 +35151,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "توم ليس مترجم.",
       "en": "Tom isn't a translator."
     }
-  },
-  {
-    "fr": "troncature",
-    "ar": "بتر",
-    "en": "truncation",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
   },
   {
     "fr": "utilitaire",
@@ -42730,16 +35223,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "transcodage",
-    "ar": "تحويل شفرة",
-    "en": "code conversion",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "graveuse CD",
     "ar": "مسجلة الأقراص المدمجة",
     "en": "compact disk burner",
@@ -42783,16 +35266,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "élimination",
     "ar": "حذف",
     "en": "deletion",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "digitaliser",
-    "ar": "روقمة",
-    "en": "digitize",
     "level": "B1",
     "contexts": [
       "phone",
@@ -42860,16 +35333,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "indentation",
-    "ar": "عملية الإزاحة",
-    "en": "indentation",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "emplacement",
     "ar": "موضع",
     "en": "location",
@@ -42883,16 +35346,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "اختر مكانًا.",
       "en": "Choose a spot."
     }
-  },
-  {
-    "fr": "nanoseconde",
-    "ar": "نانوثانية",
-    "en": "nanosecond",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
   },
   {
     "fr": "redémarrage",
@@ -42925,29 +35378,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "initialiser",
-    "ar": "استفتح",
-    "en": "preset",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "programmeur",
     "ar": "مبرمج",
     "en": "programmer",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "qualimètrie",
-    "ar": "قياس الجودة",
-    "en": "qualimetry",
     "level": "B1",
     "contexts": [
       "phone",
@@ -43048,16 +35481,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "réseau en T",
     "ar": "شبكة على شكل الحرف اللاتيني 'تي'",
     "en": "T network",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "télématique",
-    "ar": "حاسوبيات بعدية",
-    "en": "telematics",
     "level": "B1",
     "contexts": [
       "phone",
@@ -43170,16 +35593,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "automaticien",
-    "ar": "آلي",
-    "en": "automatician",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "arrière-plan",
     "ar": "خلفية",
     "en": "background",
@@ -43203,36 +35616,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "enchaînement",
     "ar": "تسلسل",
     "en": "catenation",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "fusionnement",
-    "ar": "دمج",
-    "en": "collating",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "informatiser",
-    "ar": "حوسبة",
-    "en": "computerize",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "coprocesseur",
-    "ar": "معالج اقتراني",
-    "en": "coprocessor",
     "level": "B1",
     "contexts": [
       "phone",
@@ -43325,16 +35708,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "clignotement",
-    "ar": "وميض",
-    "en": "flashing",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "but",
     "ar": "هدف",
     "en": "goal",
@@ -43385,34 +35758,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "ton",
-    "ar": "نغمة",
-    "en": "tone",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ],
-    "ex": {
-      "fr": "Ton ami a quitté la ville.",
-      "ar": "غادر صديقك المدينة.",
-      "en": "Your friend left town."
-    }
-  },
-  {
     "fr": "buzz",
     "ar": "إشاعة",
     "en": "buzz",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "byte",
-    "ar": "بايت",
-    "en": "byte",
     "level": "B1",
     "contexts": [
       "phone",
@@ -43625,16 +35973,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "ouie",
-    "ar": "سمع",
-    "en": "hearing",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "zèle",
     "ar": "حماسة",
     "en": "zeal",
@@ -43743,16 +36081,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "nègre",
     "ar": "قلم مأجور",
     "en": "devil",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "ragot",
-    "ar": "شائعة",
-    "en": "dirt",
     "level": "B1",
     "contexts": [
       "phone",
@@ -43945,16 +36273,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "télex",
-    "ar": "هاتف برقي",
-    "en": "telex",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "tract",
     "ar": "منشور",
     "en": "tract",
@@ -44085,16 +36403,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "koinè",
-    "ar": "لغة مشتركة",
-    "en": "koine",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "modal",
     "ar": "موجه",
     "en": "modal",
@@ -44148,26 +36456,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "لدي وقت.",
       "en": "I have time."
     }
-  },
-  {
-    "fr": "tonal",
-    "ar": "نغمي",
-    "en": "tonal",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "trope",
-    "ar": "صورة بيانية",
-    "en": "trope",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
   },
   {
     "fr": "usage",
@@ -44370,16 +36658,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "polard",
-    "ar": "عصامي",
-    "en": "nerd",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "brèves",
     "ar": "موجز الأنباء",
     "en": "news in brief",
@@ -44463,16 +36741,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "على حد علمي، فإن الشائعات ليست صحيحة.",
       "en": "As far as I know, the rumor isn't true."
     }
-  },
-  {
-    "fr": "skycam",
-    "ar": "كاميرة علوية",
-    "en": "skycam",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
   },
   {
     "fr": "slogan",
@@ -44660,16 +36928,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "copule",
-    "ar": "فعل رابط",
-    "en": "copula",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "créole",
     "ar": "كريول",
     "en": "creole",
@@ -44683,16 +36941,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "défini",
     "ar": "معر ف",
     "en": "defined",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "deixis",
-    "ar": "حالة الإشارة",
-    "en": "deixis",
     "level": "B1",
     "contexts": [
       "phone",
@@ -44745,16 +36993,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "hatics",
-    "ar": "علم اللمس",
-    "en": "hatics",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "espoir",
     "ar": "أمل",
     "en": "hope",
@@ -44770,16 +37008,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "indexe",
-    "ar": "لمعة",
-    "en": "index",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "ironie",
     "ar": "سخرية",
     "en": "irony",
@@ -44793,16 +37021,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "jargon",
     "ar": "رطانة",
     "en": "jargon",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "kinème",
-    "ar": "إيماءة",
-    "en": "kineme",
     "level": "B1",
     "contexts": [
       "phone",
@@ -44855,39 +37073,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "mutité",
-    "ar": "عمه لغوي",
-    "en": "muteness",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "patois",
     "ar": "لهجة محلية",
     "en": "patois",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "pidgin",
-    "ar": "لهجة هجينة",
-    "en": "pidgin",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "eloges",
-    "ar": "مدح",
-    "en": "praise",
     "level": "B1",
     "contexts": [
       "phone",
@@ -44908,16 +37096,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "dicton",
     "ar": "مثل",
     "en": "saying",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "schème",
-    "ar": "صيغة",
-    "en": "scheme",
     "level": "B1",
     "contexts": [
       "phone",
@@ -45075,16 +37253,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "captcha",
-    "ar": "كابتشا، كلمة التحقق",
-    "en": "captcha",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "censeur",
     "ar": "رقيب",
     "en": "censor",
@@ -45188,16 +37356,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "gazette",
     "ar": "صحيفة",
     "en": "gazette",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "titrier",
-    "ar": "معنون",
-    "en": "headline writer",
     "level": "B1",
     "contexts": [
       "phone",
@@ -45495,16 +37653,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "webmail",
-    "ar": "بريد الويب، بريد  الإلكتروني",
-    "en": "webmail",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "western",
     "ar": "فلم رعاة البقر",
     "en": "western film",
@@ -45543,26 +37691,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "adverbe",
     "ar": "ظرف",
     "en": "adverb",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "apocope",
-    "ar": "جزم، ترخيم",
-    "en": "apocope",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "apodose",
-    "ar": "جواب الشرط",
-    "en": "apodosis",
     "level": "B1",
     "contexts": [
       "phone",
@@ -45765,26 +37893,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "mimique",
-    "ar": "إيمائية",
-    "en": "mimicry",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "optatif",
-    "ar": "صيغة التمني",
-    "en": "optative",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "pluriel",
     "ar": "جمع",
     "en": "plural",
@@ -45813,16 +37921,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "présent",
     "ar": "صيغة الحال، مضارع",
     "en": "present",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "purisme",
-    "ar": "صفوة اللغة، صفائية",
-    "en": "purism",
     "level": "B1",
     "contexts": [
       "phone",
@@ -45890,26 +37988,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "syndèse",
-    "ar": "ربط",
-    "en": "syndesis",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "verbeux",
-    "ar": "ثرثار",
-    "en": "talky",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "topique",
     "ar": "محور",
     "en": "topic",
@@ -45945,29 +38023,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "vocatif",
-    "ar": "نداء دعائي، نداء",
-    "en": "vocative",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "souhait",
     "ar": "تمن",
     "en": "wish",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "addendum",
-    "ar": "إضافة",
-    "en": "addendum",
     "level": "B1",
     "contexts": [
       "phone",
@@ -46040,16 +38098,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "buzzword",
-    "ar": "مصطلح رائج",
-    "en": "buzzword",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "chapitre",
     "ar": "فصل",
     "en": "chapter",
@@ -46090,16 +38138,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "curation",
-    "ar": "إرشاد",
-    "en": "curation",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "curateur",
     "ar": "مرشد",
     "en": "curator",
@@ -46123,16 +38161,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "dialecte",
     "ar": "لهجة",
     "en": "dialect",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "lettrine",
-    "ar": "حرف استهلال",
-    "en": "division label",
     "level": "B1",
     "contexts": [
       "phone",
@@ -46175,29 +38203,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "manequin",
-    "ar": "عارضة أزياء",
-    "en": "fashion model",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "folklore",
     "ar": "فلكلور",
     "en": "folklore",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "freemium",
-    "ar": "مجان وأداء",
-    "en": "freemium",
     "level": "B1",
     "contexts": [
       "phone",
@@ -46283,16 +38291,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "coquille",
     "ar": "خطأ طباعي",
     "en": "misprint",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "morphing",
-    "ar": "تغيير الوجه بالحاسوب",
-    "en": "morphing",
     "level": "B1",
     "contexts": [
       "phone",
@@ -46545,16 +38543,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "insonore",
-    "ar": "عازل للصوت",
-    "en": "sound-proof",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "discours",
     "ar": "خطاب",
     "en": "speech",
@@ -46583,16 +38571,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "téléthon",
     "ar": "برنامج تبرعات",
     "en": "telethon",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "titreuse",
-    "ar": "معنونة",
-    "en": "titler",
     "level": "B1",
     "contexts": [
       "phone",
@@ -46665,16 +38643,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "webstore",
-    "ar": "متجر إلكتروني",
-    "en": "web store",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "enrouler",
     "ar": "لف",
     "en": "wind",
@@ -46715,36 +38683,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "anaphore",
-    "ar": "عائد",
-    "en": "anaphora",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "antonyme",
-    "ar": "مضاد",
-    "en": "antonym",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
-    "fr": "assertif",
-    "ar": "خبرية",
-    "en": "assertive",
-    "level": "B1",
-    "contexts": [
-      "phone",
-      "services"
-    ]
-  },
-  {
     "fr": "gel",
     "ar": "صقيع",
     "en": "frost",
@@ -46773,16 +38711,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "كنت مشغولا.",
       "en": "I have been busy."
     }
-  },
-  {
-    "fr": "vog",
-    "ar": "ضباب بركاني",
-    "en": "vog",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
   },
   {
     "fr": "arc",
@@ -46895,16 +38823,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "muda",
-    "ar": "مودا",
-    "en": "muda",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "boue",
     "ar": "حمأة",
     "en": "sludge",
@@ -46965,16 +38883,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "lœss",
-    "ar": "راسب طفالي",
-    "en": "loess",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "mica",
     "ar": "ميكا",
     "en": "mica",
@@ -47005,56 +38913,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "pest",
-    "ar": "آفة",
-    "en": "pest",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "exon",
-    "ar": "خرجون",
-    "en": "exon",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "arnm",
-    "ar": "ر ن أ الراسل",
-    "en": "mrna",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "arnr",
-    "ar": "ر ن أ الريبوسومي",
-    "en": "rrna",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "arnt",
-    "ar": "ر ن أ الناقل",
-    "en": "trna",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "bois",
     "ar": "خشب",
     "en": "wood",
@@ -47070,39 +38928,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "arac",
-    "ar": "أراك",
-    "en": "salvadora",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "sève",
     "ar": "نسغ",
     "en": "sap",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "spur",
-    "ar": "بوق",
-    "en": "spur",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "axon",
-    "ar": "محور عصبي",
-    "en": "axon",
     "level": "A2",
     "contexts": [
       "weather",
@@ -47285,26 +39113,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "fetch",
-    "ar": "فيتش",
-    "en": "fetch",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "foehn",
-    "ar": "رياح جبلية دافئة",
-    "en": "foehn",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "orage",
     "ar": "عاصفة رعدية",
     "en": "thunderstorm",
@@ -47345,39 +39153,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "berme",
-    "ar": "حاجز رملي",
-    "en": "berm",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "craie",
     "ar": "طباشير",
     "en": "chalk",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "clast",
-    "ar": "كلاست",
-    "en": "clast",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "esker",
-    "ar": "إيسكر",
-    "en": "esker",
     "level": "A2",
     "contexts": [
       "weather",
@@ -47405,16 +39183,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "karst",
-    "ar": "كارست",
-    "en": "karst",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "magma",
     "ar": "صهارة",
     "en": "magma",
@@ -47425,59 +39193,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "loess",
-    "ar": "لوس",
-    "en": "loess",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "fange",
     "ar": "تربة وحل",
     "en": "mire",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "areal",
-    "ar": "مجال",
-    "en": "areal",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "biome",
-    "ar": "وحدة إحيائية",
-    "en": "biome",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "biota",
-    "ar": "كائنات حية",
-    "en": "biota",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "clade",
-    "ar": "فرع حيوي",
-    "en": "clade",
     "level": "A2",
     "contexts": [
       "weather",
@@ -47505,16 +39223,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "taxon",
-    "ar": "أصنوفة",
-    "en": "taxon",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "clone",
     "ar": "استنساخ",
     "en": "clone",
@@ -47525,39 +39233,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "codon",
-    "ar": "الشفرة",
-    "en": "codon",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "adnmt",
-    "ar": "د ن أ سبحي",
-    "en": "mtdna",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "trait",
     "ar": "سمة",
     "en": "trait",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "mould",
-    "ar": "فطر خيطي",
-    "en": "mould",
     "level": "A2",
     "contexts": [
       "weather",
@@ -47595,49 +39273,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "forbs",
-    "ar": "نباتات عشبية ذات أوراق عريضة",
-    "en": "forbs",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "sagou",
-    "ar": "دقيق النخل",
-    "en": "sago",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "salep",
-    "ar": "سحلب",
-    "en": "salep",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "saule",
     "ar": "صفصاف",
     "en": "sallow",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "carex",
-    "ar": "نباتات السعادى",
-    "en": "sedges",
     "level": "A2",
     "contexts": [
       "weather",
@@ -47710,16 +39348,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "lahar",
-    "ar": "اهار",
-    "en": "lahar",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "coupe",
     "ar": "قطع",
     "en": "coupe",
@@ -47780,26 +39408,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "cacam",
-    "ar": "تحالف",
-    "en": "cacam",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "farad",
-    "ar": "فاراد",
-    "en": "farad",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "boues",
     "ar": "حمأة",
     "en": "sludge",
@@ -47830,16 +39438,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "aries",
-    "ar": "ذكاء اصطناعي في خدمة النظام الإيكولوجي",
-    "en": "aries",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "ferme",
     "ar": "مزرعة",
     "en": "farm",
@@ -47853,16 +39451,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "أغلق العلبة.",
       "en": "Close the box."
     }
-  },
-  {
-    "fr": "cnued",
-    "ar": "مؤتمر الأمم المتحدة المعني بالبيئة والتنمية",
-    "en": "unced",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
   },
   {
     "fr": "foins",
@@ -47930,16 +39518,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "calcin",
-    "ar": "كسارة زجاج",
-    "en": "cullet",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "poreux",
     "ar": "مسامي",
     "en": "porous",
@@ -47960,39 +39538,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Marpol",
-    "ar": "ماربول",
-    "en": "Marpol",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "abysse",
-    "ar": "غور سحيق",
-    "en": "abyss",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "éolien",
     "ar": "ريحي",
     "en": "aeolian",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "anoxie",
-    "ar": "أنوكسيا",
-    "en": "anoxia",
     "level": "A2",
     "contexts": [
       "weather",
@@ -48040,29 +39588,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "albédo",
-    "ar": "بياض",
-    "en": "albedo",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "azimut",
     "ar": "زاوية السمت",
     "en": "azimuth",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "cirrus",
-    "ar": "هدابة",
-    "en": "cirrus",
     "level": "A2",
     "contexts": [
       "weather",
@@ -48108,16 +39636,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "جمع كل قواه ليزحف خارج السيارة المحطمة.",
       "en": "He used all his strength to crawl out of the wrecked car."
     }
-  },
-  {
-    "fr": "cuesta",
-    "ar": "كويستا",
-    "en": "cuesta",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
   },
   {
     "fr": "régime",
@@ -48170,36 +39688,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "gabbro",
-    "ar": "جابرو",
-    "en": "gabbro",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "gangue",
-    "ar": "غث",
-    "en": "gangue",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "graben",
-    "ar": "انخساف/خندق",
-    "en": "graben",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "granit",
     "ar": "جرانيت",
     "en": "granite",
@@ -48230,16 +39718,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "sebkha",
-    "ar": "سبخة",
-    "en": "sebkha",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "strate",
     "ar": "طبقة",
     "en": "stratum",
@@ -48260,79 +39738,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "catena",
-    "ar": "كاتينا/وتر",
-    "en": "catena",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "scorie",
-    "ar": "خبث بركاني",
-    "en": "scoria",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "kettle",
-    "ar": "بركة / برك من أصل جليدي",
-    "en": "kettle holes",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "refuge",
     "ar": "ملاذ",
     "en": "refuge",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "vorous",
-    "ar": "آكل",
-    "en": "vorous",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "allèle",
-    "ar": "بديل - نسخة",
-    "en": "allele",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "asexué",
-    "ar": "عديم الجنس",
-    "en": "asexual",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "ecovar",
-    "ar": "نوع بيئي",
-    "en": "ecovar",
     "level": "A2",
     "contexts": [
       "weather",
@@ -48353,16 +39761,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "génome",
     "ar": "جينوم",
     "en": "genome",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "intron",
-    "ar": "دخلون",
-    "en": "intron",
     "level": "A2",
     "contexts": [
       "weather",
@@ -48480,16 +39878,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "polype",
-    "ar": "بوليب",
-    "en": "polyp",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "rachis",
     "ar": "محور النورة",
     "en": "rachis",
@@ -48500,79 +39888,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "salvia",
-    "ar": "سلفيا",
-    "en": "salvia",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "samare",
-    "ar": "ثمرة جناحية",
-    "en": "samara",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "aubier",
     "ar": "خشب رخو",
     "en": "sap-wood",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "varech",
-    "ar": "حطام",
-    "en": "wrack",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "xylème",
-    "ar": "نسيج الخشب",
-    "en": "xylem",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "bipède",
-    "ar": "ذو قدمين",
-    "en": "bipedal",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "endogé",
-    "ar": "كائنات ترابية",
-    "en": "endogeic",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "exuvie",
-    "ar": "تجرد",
-    "en": "exuviation",
     "level": "A2",
     "contexts": [
       "weather",
@@ -48615,26 +39933,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "necton",
-    "ar": "سابحة",
-    "en": "nekton",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "neuron",
-    "ar": "خلية عصبية",
-    "en": "neuron",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "trompe",
     "ar": "خرطوم",
     "en": "proboscis",
@@ -48648,16 +39946,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "nymphe",
     "ar": "عذراء",
     "en": "pupa",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "ongulé",
-    "ar": "ذو حوافر",
-    "en": "ungulate",
     "level": "A2",
     "contexts": [
       "weather",
@@ -48770,16 +40058,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "tenure",
-    "ar": "حيازة",
-    "en": "tenure",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "verger",
     "ar": "بستان",
     "en": "orchard",
@@ -48810,69 +40088,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "haboob",
-    "ar": "هبوب/حبوب",
-    "en": "haboob",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "doline",
-    "ar": "منخفض سطحي",
-    "en": "sinkhole",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "brûlis",
-    "ar": "قطع وحرق",
-    "en": "slash and burn",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "arable",
-    "ar": "أرض صالحة للزراعة",
-    "en": "arable",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "éthane",
-    "ar": "إيثان",
-    "en": "ethane",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "averse",
     "ar": "عاصفة مطرية",
     "en": "flurry",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "fréons",
-    "ar": "فريون",
-    "en": "freons",
     "level": "A2",
     "contexts": [
       "weather",
@@ -48935,16 +40153,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "ipat-s",
-    "ar": "تأثير السكان والثراء، والتكنولوجيا",
-    "en": "ipat-s",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "hybrid",
     "ar": "هجين",
     "en": "hybrid",
@@ -48958,36 +40166,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "fumier",
     "ar": "سماد عضوي",
     "en": "farmayard  manure",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "bruche",
-    "ar": "سوسة",
-    "en": "pea-beetle",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "polder",
-    "ar": "أرض منخفضة",
-    "en": "polder",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "clisou",
-    "ar": "غاز المناجم",
-    "en": "fire-damp",
     "level": "A2",
     "contexts": [
       "weather",
@@ -49080,16 +40258,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "clinker",
-    "ar": "كلنكر",
-    "en": "clinker",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "pourrir",
     "ar": "تعفن",
     "en": "rot",
@@ -49103,26 +40271,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "litière",
     "ar": "نقالة",
     "en": "litter",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "puisard",
-    "ar": "مستنقع",
-    "en": "sump",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "râleurs",
-    "ar": "متذمر",
-    "en": "grousers",
     "level": "A2",
     "contexts": [
       "weather",
@@ -49150,36 +40298,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "azoïque",
-    "ar": "بدون حياة",
-    "en": "azoic",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "biogène",
-    "ar": "أحيائي الأصل",
-    "en": "biogenous",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "chapada",
-    "ar": "شبادا",
-    "en": "chapada",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "air sec",
     "ar": "هواء جاف",
     "en": "dry adiabat",
@@ -49190,79 +40308,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Biocide",
-    "ar": "مبيد بيولوجي",
-    "en": "Biocide",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "écotope",
-    "ar": "منطقة بيئية",
-    "en": "ecotope",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "écotype",
-    "ar": "انحراف تطوري",
-    "en": "ecotype",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "édaphon",
-    "ar": "تربي",
-    "en": "edaphon",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "ovicide",
-    "ar": "مبيد البيض",
-    "en": "egg-killer",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "ovipare",
-    "ar": "بيوض",
-    "en": "egg-laying",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "enclave",
     "ar": "مكتنفة",
     "en": "enclave",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "aphélie",
-    "ar": "أوج",
-    "en": "aphelion",
     "level": "A2",
     "contexts": [
       "weather",
@@ -49298,26 +40346,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "melange",
     "ar": "مزيج",
     "en": "melange",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "néogène",
-    "ar": "نيوجين",
-    "en": "neogene",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "benthos",
-    "ar": "أحياء قاعية",
-    "en": "benthos",
     "level": "A2",
     "contexts": [
       "weather",
@@ -49385,29 +40413,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "la niña",
-    "ar": "نينيا",
-    "en": "la niña",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "mousson",
     "ar": "ريح موسمية",
     "en": "monsoon",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "baltica",
-    "ar": "بلطيقيا",
-    "en": "baltica",
     "level": "A2",
     "contexts": [
       "weather",
@@ -49425,16 +40433,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "breccia",
-    "ar": "صخور بريشيا",
-    "en": "breccia",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "calcite",
     "ar": "كلسيت",
     "en": "calcite",
@@ -49445,49 +40443,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "drumlin",
-    "ar": "دروملين",
-    "en": "drumlin",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "falaise",
     "ar": "جرف خفيض",
     "en": "falaise",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "flexure",
-    "ar": "طية",
-    "en": "flexure",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "forearc",
-    "ar": "قوس أمامي",
-    "en": "forearc",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "mafique",
-    "ar": "معادن داكنة",
-    "en": "mafic",
     "level": "A2",
     "contexts": [
       "weather",
@@ -49510,46 +40468,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "olivine",
-    "ar": "زبرجد زيتوني",
-    "en": "olivine",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "oolithe",
-    "ar": "سرئية",
-    "en": "oolith",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "orthose",
-    "ar": "أورتوز",
-    "en": "orthoclase",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "pangaea",
-    "ar": "بانجيا",
-    "en": "pangaea",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "plaques",
     "ar": "صفائح",
     "en": "plates",
@@ -49565,96 +40483,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "rodinia",
-    "ar": "رودينيا",
-    "en": "rodinia",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "pendage",
-    "ar": "تقاطع أفقي",
-    "en": "strike",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "terrane",
-    "ar": "تران",
-    "en": "terrane",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "andique",
-    "ar": "آندك",
-    "en": "andic",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "bisequa",
-    "ar": "حلقتين في تربة",
-    "en": "bisequa",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "caliche",
-    "ar": "كاليش",
-    "en": "caliche",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "claypan",
-    "ar": "طبقة طينية",
-    "en": "claypan",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "éluvial",
-    "ar": "مواد متنقلة",
-    "en": "eluvial",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "exogène",
-    "ar": "خارجي المنشأ",
-    "en": "exogenetic",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "fertile",
     "ar": "خصب",
     "en": "fertile",
@@ -49665,39 +40493,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "cryosol",
-    "ar": "تربة متجمدة",
-    "en": "frost soil",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "givrage",
-    "ar": "تجمد سطح الماء",
-    "en": "frosting",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "gelé",
     "ar": "متجمد",
     "en": "frozen",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "loameux",
-    "ar": "طميي",
-    "en": "loamy",
     "level": "A2",
     "contexts": [
       "weather",
@@ -49718,26 +40516,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "saturer",
     "ar": "إشباع",
     "en": "saturate",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "écotone",
-    "ar": "منطقة بيئية انتقالية",
-    "en": "ecotone",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "érémien",
-    "ar": "صحراوي",
-    "en": "eremean",
     "level": "A2",
     "contexts": [
       "weather",
@@ -49800,99 +40578,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "néotype",
-    "ar": "نوع جديد",
-    "en": "neotype",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "refugia",
-    "ar": "مجال لجوء",
-    "en": "refugia",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "relique",
     "ar": "بقية معمرة",
     "en": "relict",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "sessile",
-    "ar": "لاطئ",
-    "en": "sessile",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "trophic",
-    "ar": "غذائي",
-    "en": "trophic",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "dioïque",
-    "ar": "منفصل الجنس",
-    "en": "dioecious",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "guanine",
-    "ar": "جوانين",
-    "en": "guanine",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "ploïdie",
-    "ar": "صيغة صبغية",
-    "en": "ploidy",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "thymine",
-    "ar": "ثايمين",
-    "en": "thymine",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "nucléus",
-    "ar": "نواة",
-    "en": "nucleus",
     "level": "A2",
     "contexts": [
       "weather",
@@ -49910,36 +40598,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "aphylle",
-    "ar": "نباتات عديمة الأوراق",
-    "en": "aphyllous",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "biennal",
-    "ar": "دورة من سنتين",
-    "en": "biennial",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "cambium",
-    "ar": "طبقة الكامبيوم",
-    "en": "cambium",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "glauque",
     "ar": "أخضر شاحب",
     "en": "glaucous",
@@ -49950,49 +40608,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "herbacé",
-    "ar": "عشبي",
-    "en": "herbaceous",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "laxiste",
     "ar": "مهلهل",
     "en": "lax",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "foliole",
-    "ar": "وريقة",
-    "en": "leaflet",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "lignine",
-    "ar": "لجنين",
-    "en": "lignin",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "drageon",
-    "ar": "ممص جذري",
-    "en": "root sucker",
     "level": "A2",
     "contexts": [
       "weather",
@@ -50040,56 +40658,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "rhizome",
-    "ar": "جذمور",
-    "en": "rhizome",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "étamine",
-    "ar": "سداة",
-    "en": "stamen",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "stolons",
-    "ar": "رئد / رئدان",
-    "en": "stolons",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "vacuole",
-    "ar": "فجوة",
-    "en": "vacuole",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "bivalve",
-    "ar": "ذو صدفتين",
-    "en": "bivalve",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "sauvage",
     "ar": "وحشي",
     "en": "feral",
@@ -50115,26 +40683,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "synagme",
-    "ar": "دودة حمراء",
-    "en": "gape-worm",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "glygène",
-    "ar": "نشأ حيواني",
-    "en": "glucogen",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "rongeur",
     "ar": "قارض",
     "en": "gnawing",
@@ -50145,59 +40693,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "goéland",
-    "ar": "نورس",
-    "en": "gul",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "infauna",
-    "ar": "حيوانات الوسط الرسوبي",
-    "en": "infauna",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "injecté",
     "ar": "محقون",
     "en": "injected",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "neozoon",
-    "ar": "حيوانات جديدة",
-    "en": "neozoon",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "aphidés",
-    "ar": "أرقيات",
-    "en": "plant-lice",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "spicule",
-    "ar": "شوكة",
-    "en": "spicule",
     "level": "A2",
     "contexts": [
       "weather",
@@ -50225,16 +40723,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "méandre",
-    "ar": "متعرج",
-    "en": "meander",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "torrent",
     "ar": "سيل",
     "en": "torrent",
@@ -50248,46 +40736,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "versant",
     "ar": "منحدر",
     "en": "versant",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "analyte",
-    "ar": "محلل",
-    "en": "analyte",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "dioxine",
-    "ar": "ديوكسين",
-    "en": "dioxin",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "oxidase",
-    "ar": "خميرة التأكسد",
-    "en": "oxidase",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "quassia",
-    "ar": "كواسية",
-    "en": "quassia",
     "level": "A2",
     "contexts": [
       "weather",
@@ -50375,16 +40823,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "nunatak",
-    "ar": "نوناطاك",
-    "en": "nunatak",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "marquer",
     "ar": "علامة القطع",
     "en": "blaze",
@@ -50415,16 +40853,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "buttage",
-    "ar": "زراعة تحضيرية",
-    "en": "mounding",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "surplus",
     "ar": "تكدس",
     "en": "overstocked",
@@ -50438,26 +40866,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "semence",
     "ar": "بذرة",
     "en": "seed",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "taungya",
-    "ar": "تونغيا",
-    "en": "taungya",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "panaché",
-    "ar": "تلون",
-    "en": "variegated",
     "level": "A2",
     "contexts": [
       "weather",
@@ -50515,26 +40923,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "aridité",
-    "ar": "جفاف",
-    "en": "aridity",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "butanal",
-    "ar": "ألدهيد البوتان",
-    "en": "butanal",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "essence",
     "ar": "بنزين",
     "en": "gasoline",
@@ -50560,26 +40948,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "weadapt",
-    "ar": "تعاونية تكيف",
-    "en": "weadapt",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "giardia",
-    "ar": "جيارديا",
-    "en": "giardia",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
     "fr": "vaccins",
     "ar": "لقاحات",
     "en": "vaccines",
@@ -50598,26 +40966,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "artemis",
     "ar": "أرتميس",
     "en": "artemis",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "fissile",
-    "ar": "انشطاري",
-    "en": "fissile",
-    "level": "A2",
-    "contexts": [
-      "weather",
-      "daily"
-    ]
-  },
-  {
-    "fr": "ébouage",
-    "ar": "كنس",
-    "en": "scavenging",
     "level": "A2",
     "contexts": [
       "weather",
@@ -50840,16 +41188,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "ghee",
-    "ar": "سمن حيواني",
-    "en": "ghee",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "miel",
     "ar": "عسل النحل، شهد",
     "en": "honey",
@@ -50920,16 +41258,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "okra",
-    "ar": "بامية",
-    "en": "okra",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "pois",
     "ar": "بازلاء، بسلة",
     "en": "pea",
@@ -50953,16 +41281,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "أحب أن أزور الساحل الفرنسي.",
       "en": "I would love to visit the French coast."
     }
-  },
-  {
-    "fr": "suif",
-    "ar": "شحم حيواني",
-    "en": "tallow",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
   },
   {
     "fr": "thym",
@@ -51010,29 +41328,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Baumé",
-    "ar": "مقياس بوميه",
-    "en": "baume",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "bière",
     "ar": "بيرة، جعة",
     "en": "beer",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "kéfir",
-    "ar": "لبن الكفير",
-    "en": "buddized milk",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -51110,16 +41408,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "épons",
-    "ar": "أبونات",
-    "en": "epons",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "figue",
     "ar": "تين",
     "en": "fig",
@@ -51133,16 +41421,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "flanc",
     "ar": "خاصرة",
     "en": "flank",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "Fréon",
-    "ar": "فريون",
-    "en": "freon",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -51175,26 +41453,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Jamid",
-    "ar": "جميد",
-    "en": "Jameed",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "julep",
-    "ar": "جلاب",
-    "en": "julap",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "Ka'ak",
     "ar": "كعك، قرشلة",
     "en": "Ka'ak",
@@ -51205,89 +41463,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "kafta",
-    "ar": "كفتة",
-    "en": "kafta",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "kabab",
-    "ar": "كباب",
-    "en": "kebab",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "kishk",
-    "ar": "كشك",
-    "en": "kishk",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "krill",
-    "ar": "كريل",
-    "en": "krill",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "laban",
-    "ar": "لبن",
-    "en": "laban",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "leben",
-    "ar": "لبن",
-    "en": "leben",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "lupin",
     "ar": "ترمس",
     "en": "lupine",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "lyase",
-    "ar": "لياز، أنزيم ناقل",
-    "en": "lyase",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "macis",
-    "ar": "مسحوق قشور جوزة الطيب",
-    "en": "mace",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -51353,16 +41531,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "poire",
     "ar": "كمثراة",
     "en": "pear",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "phage",
-    "ar": "عاثية",
-    "en": "phage",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -51465,39 +41633,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "sumac",
-    "ar": "سماق",
-    "en": "sumac",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "trans",
     "ar": "متقابل، مفروق",
     "en": "trans",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "actine",
-    "ar": "أكتين",
-    "en": "actin",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "alcali",
-    "ar": "قلوي",
-    "en": "alkali",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -51518,46 +41656,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "لماذا اشتريت موزة واحدة فقط؟",
       "en": "Why did you buy only one banana?"
     }
-  },
-  {
-    "fr": "liants",
-    "ar": "مواد رابطة، مواد لاحمة",
-    "en": "binders",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "bixine",
-    "ar": "بكسين",
-    "en": "bixin",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "pruine",
-    "ar": "تزهر",
-    "en": "bloom",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "burgul",
-    "ar": "برغل",
-    "en": "burghol",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
   },
   {
     "fr": "beurre",
@@ -51615,36 +41713,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "chroma",
-    "ar": "صفاء اللون",
-    "en": "chroma",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "citral",
-    "ar": "سترال",
-    "en": "citral",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "cédrat",
-    "ar": "أترجة، كبادة",
-    "en": "citron",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "citron",
     "ar": "ليمون",
     "en": "citrus",
@@ -51675,26 +41743,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "éluent",
-    "ar": "شاطف، جارف",
-    "en": "eluent",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "farina",
-    "ar": "سميد أبيض",
-    "en": "farina",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "fibres",
     "ar": "ألياف",
     "en": "fibers",
@@ -51705,49 +41753,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "ficine",
-    "ar": "فايسين",
-    "en": "ficin",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "mousse",
     "ar": "رغوة، زبد",
     "en": "foam",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "frekel",
-    "ar": "فريكة",
-    "en": "frekeh",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "abatis",
-    "ar": "سقط الطائر",
-    "en": "giblets",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "gésier",
-    "ar": "قانصة",
-    "en": "gizzard",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -51780,26 +41788,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "râpage",
-    "ar": "بشر",
-    "en": "grating",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "flétan",
-    "ar": "هلبوت، راقود",
-    "en": "halibut",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "jambon",
     "ar": "لحم فخذ الخنزير",
     "en": "ham",
@@ -51810,29 +41798,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "harees",
-    "ar": "هريس",
-    "en": "harees",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "hareng",
     "ar": "سمك الرنجة",
     "en": "herring",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "hexose",
-    "ar": "هكسوز",
-    "en": "hexose",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -51860,69 +41828,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "kibbeh",
-    "ar": "كبة",
-    "en": "kibbeh",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "knafeh",
-    "ar": "كنافة",
-    "en": "knafeh",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "kullag",
-    "ar": "كلاج، جولاش",
-    "en": "kullaj",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "kumiss",
-    "ar": "كوميس",
-    "en": "kumiss",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "laquer",
-    "ar": "طلاء، دهان",
-    "en": "lacque",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "lagune",
     "ar": "هور",
     "en": "lagoon",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "lipase",
-    "ar": "ليباز",
-    "en": "lipase",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -51940,29 +41848,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "madeer",
-    "ar": "أقط",
-    "en": "madeer",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "mastic",
     "ar": "مستكة، مصطكا",
     "en": "mastic",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "mazzah",
-    "ar": "مازة",
-    "en": "mazzah",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -52035,29 +41923,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "oléine",
-    "ar": "أوليين، زيتين",
-    "en": "olean",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "oignon",
     "ar": "بصل",
     "en": "onion",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "orégan",
-    "ar": "أوريجانو",
-    "en": "oregano",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -52085,16 +41953,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "cornue",
-    "ar": "معقم",
-    "en": "retort",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "seigle",
     "ar": "شيلم",
     "en": "rye",
@@ -52108,16 +41966,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "safran",
     "ar": "زعفران، جادي",
     "en": "saffron",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "sahlab",
-    "ar": "سحلب",
-    "en": "sahlab",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -52175,26 +42023,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "poêlon",
-    "ar": "مقلاة",
-    "en": "skillet",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "fumage",
-    "ar": "تدخين",
-    "en": "smoking",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "sorgho",
     "ar": "ذرة بيضاء، ذرة مكانس",
     "en": "sorghum",
@@ -52235,36 +42063,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "stroma",
-    "ar": "لحمة",
-    "en": "stroma",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "teflon",
-    "ar": "تفلون",
-    "en": "teflon",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "triose",
-    "ar": "سكر ثلاثي",
-    "en": "triose",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "camion",
     "ar": "شاحنة",
     "en": "truck",
@@ -52290,49 +42088,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "xylose",
-    "ar": "سكر الزايلوز، سكر الخشب",
-    "en": "xylose",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "yakhni",
-    "ar": "يخنة",
-    "en": "yakhneh",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "zabadi",
-    "ar": "لبن زبادي، لبن رائب",
-    "en": "zabadi",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "acétate",
     "ar": "خلات، أسيتات",
     "en": "acetate",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "acidose",
-    "ar": "احمضاض",
-    "en": "acidosis",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -52353,36 +42111,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "اقطع الشريط اللاصق.",
       "en": "Cut the adhesive tape."
     }
-  },
-  {
-    "fr": "algue's",
-    "ar": "طحالب",
-    "en": "algae",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "alcalin",
-    "ar": "قلوي",
-    "en": "alkaline",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "amylose",
-    "ar": "أميلوز",
-    "en": "amylose",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
   },
   {
     "fr": "pommier",
@@ -52425,49 +42153,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "avidine",
-    "ar": "أفيدين",
-    "en": "avidin",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "bagasse",
-    "ar": "تفل قصب السكر",
-    "en": "bagasse",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "baklava",
-    "ar": "بقلاوة",
-    "en": "baklava",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "basilic",
     "ar": "حبق، ريحان",
     "en": "basil",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "biotine",
-    "ar": "بيوتين",
-    "en": "biotin",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -52485,39 +42173,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "blutoir",
-    "ar": "منخل طحين",
-    "en": "bolting sieve",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "bulghur",
-    "ar": "برغل",
-    "en": "Bulghur",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "boucher",
     "ar": "جزار، قصاب",
     "en": "butcher",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "caféone",
-    "ar": "كافيول ، زيت القهوة",
-    "en": "caffeol",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -52543,16 +42201,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "caramel",
     "ar": "كراميل",
     "en": "caramel",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "caroube",
-    "ar": "خروب، خرنوب",
-    "en": "carob",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -52595,49 +42243,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "hachage",
-    "ar": "فرم",
-    "en": "chopping",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "baratte",
-    "ar": "ممخضة",
-    "en": "churn",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "clônage",
-    "ar": "استنساخ",
-    "en": "cloning",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "girofle",
     "ar": "قرنفل، كبش القرنفل",
     "en": "clove",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "cacaoie",
-    "ar": "مشروب الكاكاو",
-    "en": "cocoa drink",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -52673,16 +42281,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "trognon",
     "ar": "لب",
     "en": "core",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "crocine",
-    "ar": "كروسين",
-    "en": "crocin",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -52750,26 +42348,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "élution",
-    "ar": "شطف، جرف",
-    "en": "elution",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "falafel",
-    "ar": "فلافل",
-    "en": "falafel",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "plumage",
     "ar": "ترييش",
     "en": "feathering",
@@ -52820,16 +42398,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "flavedo",
-    "ar": "فلافيدو",
-    "en": "flavedo",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "fondant",
     "ar": "فوندان",
     "en": "fondant",
@@ -52853,36 +42421,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "friture",
     "ar": "قلي، تحمير",
     "en": "frying",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "gaimere",
-    "ar": "قيمر، قايمر",
-    "en": "gaimer",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "ginseng",
-    "ar": "جنسنج، جنسة",
-    "en": "ginseng",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "granule",
-    "ar": "حبيبة",
-    "en": "granule",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -52915,59 +42453,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "miellée",
-    "ar": "ندوة  العسلية",
-    "en": "honey dew",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "houblon",
     "ar": "حشيشة الدينار",
     "en": "hops",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "isolats",
-    "ar": "عزلات",
-    "en": "isolates",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "karkade",
-    "ar": "كركدي، كركديه",
-    "en": "karkade",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "katayef",
-    "ar": "قطايف",
-    "en": "katayef",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "cetones",
-    "ar": "كيتونات",
-    "en": "ketones",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -52990,89 +42478,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "kunafah",
-    "ar": "كنافة",
-    "en": "kunafah",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "labaneh",
-    "ar": "لبنة",
-    "en": "labaneh",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "lactase",
-    "ar": "لاكتاز",
-    "en": "lactase",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "maftoul",
-    "ar": "مفتول",
-    "en": "maftool",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "mahaleb",
-    "ar": "محلب",
-    "en": "mahaleb",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "maltage",
-    "ar": "تنبيت الشعير",
-    "en": "malting",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "maqrodh",
-    "ar": "مقروض",
-    "en": "maqroudh",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "mélasse",
     "ar": "مولاس، دبس السكر",
     "en": "molass",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "niacine",
-    "ar": "نياسين",
-    "en": "niacin",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -53100,16 +42508,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "papaine",
-    "ar": "أنزيم البابايين",
-    "en": "papain",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "paprika",
     "ar": "فليفلة",
     "en": "paprica",
@@ -53120,49 +42518,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "paturon",
-    "ar": "رسغ الدابة",
-    "en": "pastern",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "poirier",
     "ar": "كمثرى",
     "en": "pear-tree",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "pectase",
-    "ar": "بكتاز",
-    "en": "pectase",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "pectine",
-    "ar": "بكتين",
-    "en": "pectin",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "pentose",
-    "ar": "سكر خماسي",
-    "en": "pentose",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -53200,16 +42558,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "pochage",
-    "ar": "سمط",
-    "en": "poaching",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "pruneau",
     "ar": "برقوق مجفف ، خوخ مجفف",
     "en": "prune",
@@ -53223,46 +42571,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "pudding",
     "ar": "مهلبية",
     "en": "pudding",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "qauarma",
-    "ar": "قاورمة",
-    "en": "qauarma",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "ravioli",
-    "ar": "رافيولي",
-    "en": "ravioli",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "rennine",
-    "ar": "رينين، منفحين",
-    "en": "rennin",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "roselle",
-    "ar": "كركدي، كركديه",
-    "en": "rosella",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -53315,16 +42623,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "sharbat",
-    "ar": "شربات",
-    "en": "sherbets",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "flasque",
     "ar": "رخو",
     "en": "slack",
@@ -53335,59 +42633,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "lavasse",
-    "ar": "شراب مثلج، جليد",
-    "en": "slush",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "épinard",
-    "ar": "سبانخ",
-    "en": "spinach",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "bonbons",
     "ar": "حلوى",
     "en": "sweet meats",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "tamarin",
-    "ar": "تمر هندي",
-    "en": "tamarind",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "tannins",
-    "ar": "دباغ، مواد عفصة",
-    "en": "tannins",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "tetrose",
-    "ar": "سكر رباعي",
-    "en": "tetroses",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -53420,56 +42668,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "viscose",
-    "ar": "فسكوز",
-    "en": "viscose",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "vannage",
-    "ar": "تذرية، نخل",
-    "en": "winnowing",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "xylanes",
-    "ar": "سكريات الزايلان",
-    "en": "xylans",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "zalabia",
-    "ar": "زلابية",
-    "en": "zalabia",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "zéolite",
-    "ar": "زيوليت",
-    "en": "zeolite",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "abattoir",
     "ar": "مسلخ، مجزر",
     "en": "abattoir",
@@ -53500,76 +42698,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "aérateur",
-    "ar": "جهاز تهوية",
-    "en": "aerator",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "aleurone",
-    "ar": "أليرون",
-    "en": "aleurone",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "alginate",
-    "ar": "ألجينات",
-    "en": "alginate",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "allicine",
-    "ar": "أليسين",
-    "en": "allicin",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "amylases",
-    "ar": "أميلازات، أنزيمات محللة للنشاء",
-    "en": "amylases",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "anisette",
-    "ar": "عرق",
-    "en": "anisette",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "arginine",
-    "ar": "أرجنين",
-    "en": "arganine",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "asperges",
     "ar": "هليون",
     "en": "Asparagus",
@@ -53583,16 +42711,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "barbecue",
     "ar": "باربكيو، حفلة شواء",
     "en": "barbecue",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "basterma",
-    "ar": "بسطرمة",
-    "en": "bastermah",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -53655,26 +42773,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "braisage",
-    "ar": "تطجين",
-    "en": "braising",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "bromélin",
-    "ar": "بروملين",
-    "en": "bromelain",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "brossage",
     "ar": "تفريش",
     "en": "brushing",
@@ -53720,49 +42818,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "carotène",
-    "ar": "كاروتين، جزرين",
-    "en": "carotene",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "catalase",
-    "ar": "كتالاز",
-    "en": "catalase",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "céréales",
     "ar": "حبوب",
     "en": "cereals",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "cervelas",
-    "ar": "سجق جاف، سجق شبه جاف",
-    "en": "cervelat",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "empilage",
-    "ar": "تكويم، تنضيد",
-    "en": "cheddaring",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -53795,16 +42853,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "palourde",
-    "ar": "بطلينوس",
-    "en": "clam",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "cocktail",
     "ar": "شراب مسكر",
     "en": "cocktail",
@@ -53815,29 +42863,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "coenzyme",
-    "ar": "تميم الأنزيم",
-    "en": "coenzyme",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "cohésion",
     "ar": "تماسك، تلازب",
     "en": "cohesion",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "conchage",
-    "ar": "إنضاج الشوكولاتة",
-    "en": "conching",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -53865,36 +42893,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "dextrine",
-    "ar": "ديكسترين",
-    "en": "dextrin",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "dextrose",
-    "ar": "دكستروز، سكر العنب",
-    "en": "dextrose",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "diastase",
-    "ar": "أنزيم النشا، دياستاز",
-    "en": "diastase",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "valeur D",
     "ar": "قيمة دال",
     "en": "D-value",
@@ -53908,26 +42906,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "écologie",
     "ar": "علم البيئة",
     "en": "Ecology",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "effluent",
-    "ar": "عادم",
-    "en": "effluent",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "élastine",
-    "ar": "إلاستين، مرنين",
-    "en": "elastin",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -53965,29 +42943,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "fenugrec",
-    "ar": "حلبة",
-    "en": "fenugreek",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "affinage",
     "ar": "ترويق بالترسيب",
     "en": "fining",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "flavones",
-    "ar": "فلافونات",
-    "en": "flavones",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -54025,39 +42983,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "branchie",
-    "ar": "خيشوم",
-    "en": "gill",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "verrerie",
     "ar": "آنية زجاجية",
     "en": "glassware",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "gliadine",
-    "ar": "غلايادين",
-    "en": "gliadin",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "glutelin",
-    "ar": "غلوتالين",
-    "en": "glutelin",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -54075,69 +43003,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "goyavier",
-    "ar": "جوافة",
-    "en": "guava (Psidium guajava",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "halkoume",
-    "ar": "حلقوم، راحة الحلقوم",
-    "en": "halkoum",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "hareeseh",
-    "ar": "هريسة",
-    "en": "hareeseh",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "miellure",
-    "ar": "عسل الندوة العسلية",
-    "en": "honey dew honey",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "kératine",
-    "ar": "كيراتين، قرنين",
-    "en": "keratin",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "limonade",
     "ar": "ليموناده",
     "en": "lemonade",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "chaulage",
-    "ar": "إضافة الجير، ترويق بالجير",
-    "en": "liming",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -54155,39 +43023,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "manguier",
-    "ar": "منجا، منغا",
-    "en": "mango-tree",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "marinade",
     "ar": "ماء نقع مالح",
     "en": "marinade",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "farineux",
-    "ar": "حبيبي، دقيقي",
-    "en": "mealy",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "micelles",
-    "ar": "ميسيلات",
-    "en": "micelles",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -54208,16 +43046,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "minéraux",
     "ar": "عناصر معدنية",
     "en": "minerals",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "monomère",
-    "ar": "مركب إفرادي",
-    "en": "monomer",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -54255,29 +43083,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "sapidité",
-    "ar": "استساغة",
-    "en": "palatability",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
     "fr": "grillage",
     "ar": "تحميص",
     "en": "parching",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "poivrier",
-    "ar": "فلفل",
-    "en": "pepper-plant",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -54328,46 +43136,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "volaille",
     "ar": "طيور، دواجن",
     "en": "poultry",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "tourteau",
-    "ar": "كسب",
-    "en": "press cake",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "prophage",
-    "ar": "طور أول",
-    "en": "prophage",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "propolis",
-    "ar": "عكبر",
-    "en": "propolis",
-    "level": "B1",
-    "contexts": [
-      "restaurant",
-      "health"
-    ]
-  },
-  {
-    "fr": "protéase",
-    "ar": "بروتياز، أنزيم محلل للبروتين",
-    "en": "protease",
     "level": "B1",
     "contexts": [
       "restaurant",
@@ -54550,15 +43318,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "râpe",
-    "ar": "مبشرة",
-    "en": "rasp",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "vide",
     "ar": "خواء",
     "en": "vacuum",
@@ -54669,33 +43428,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "dyke",
-    "ar": "ساتر ترابي ردمي",
-    "en": "dyke",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "pore",
-    "ar": "مسام",
-    "en": "pore",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "silt",
-    "ar": "تربة السيلت",
-    "en": "silt",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "appui",
     "ar": "مسند",
     "en": "bearing",
@@ -54726,15 +43458,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "benne",
     "ar": "كباش",
     "en": "grab",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "cavet",
-    "ar": "حضيض",
-    "en": "invert",
     "level": "B1",
     "contexts": [
       "housing"
@@ -54914,15 +43637,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "invar",
-    "ar": "أنفار",
-    "en": "invar",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "limbe",
     "ar": "مقسم",
     "en": "limb",
@@ -55060,27 +43774,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "gélif",
-    "ar": "تجميد",
-    "en": "freezing",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "grain",
     "ar": "حبيبة",
     "en": "grain",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "lévée",
-    "ar": "ساتر ترابي ردمي",
-    "en": "levee",
     "level": "B1",
     "contexts": [
       "housing"
@@ -55155,15 +43851,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "arquer",
-    "ar": "تقوس إلى الأعلى",
-    "en": "hog",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "quille",
     "ar": "كعب الجدار الاستنادي",
     "en": "keel",
@@ -55185,15 +43872,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "radier",
     "ar": "حصيرة",
     "en": "mat",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "musoir",
-    "ar": "قبعة الدعامة",
-    "en": "pier cap",
     "level": "B1",
     "contexts": [
       "housing"
@@ -55239,24 +43917,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "ارتجاع معدي مريئي.",
       "en": "Gastroesophageal reflux."
     }
-  },
-  {
-    "fr": "tubage",
-    "ar": "تغليف",
-    "en": "casing",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "chloré",
-    "ar": "مكلورة",
-    "en": "chlorinated",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
   },
   {
     "fr": "argile",
@@ -55318,15 +43978,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "iodeur",
-    "ar": "ميود",
-    "en": "iodinator",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "mortel",
     "ar": "مميت",
     "en": "lethal",
@@ -55339,24 +43990,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "moudre",
     "ar": "طحن",
     "en": "mill",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "oxyder",
-    "ar": "أكسد",
-    "en": "oxidize",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "pyrite",
-    "ar": "حجر النار",
-    "en": "pyrite",
     "level": "B1",
     "contexts": [
       "housing"
@@ -55408,15 +44041,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "xylène",
-    "ar": "زيلين",
-    "en": "xylene",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "acuité",
     "ar": "حدة",
     "en": "acuity",
@@ -55435,27 +44059,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "géoïde",
-    "ar": "جيوئيد",
-    "en": "geoid",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "gradué",
     "ar": "مدرج",
     "en": "graduated",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "devers",
-    "ar": "ميلان",
-    "en": "inclination",
     "level": "B1",
     "contexts": [
       "housing"
@@ -55521,24 +44127,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "radian",
-    "ar": "راديان",
-    "en": "radian",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "sécant",
-    "ar": "مستقيم قاطع",
-    "en": "secant",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "sphère",
     "ar": "كرة",
     "en": "sphere",
@@ -55557,15 +44145,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "trépan",
-    "ar": "إزميل",
-    "en": "chisel",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "débris",
     "ar": "أنقاض",
     "en": "debris",
@@ -55575,36 +44154,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "vidage",
-    "ar": "تجريف",
-    "en": "drawdown",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "percer",
     "ar": "دق",
     "en": "drive",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "illite",
-    "ar": "فلز الإليت",
-    "en": "illite",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "pélite",
-    "ar": "صخر طيني",
-    "en": "mudstone",
     "level": "B1",
     "contexts": [
       "housing"
@@ -55643,15 +44195,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "solute",
-    "ar": "مادة  المنحلة",
-    "en": "solute",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "tirant",
     "ar": "شداد",
     "en": "tie-back",
@@ -55679,42 +44222,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "déblais",
-    "ar": "ردم إضافي",
-    "en": "back cutting",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "purgeur",
-    "ar": "مخرج المصرف",
-    "en": "blow off",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "ponceau",
-    "ar": "عبارة صندوقية",
-    "en": "box culvert",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "crampon",
-    "ar": "مربط",
-    "en": "cleat",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "fouille",
     "ar": "حفر",
     "en": "excavation",
@@ -55724,27 +44231,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "planage",
-    "ar": "تسوية",
-    "en": "grading",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "gousset",
     "ar": "لوح تقوية",
     "en": "gusset",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "lançage",
-    "ar": "نفث",
-    "en": "jetting",
     "level": "B1",
     "contexts": [
       "housing"
@@ -55815,15 +44304,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "épisser",
-    "ar": "وصل",
-    "en": "splice",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "raideur",
     "ar": "قساوة",
     "en": "stiffness",
@@ -55851,51 +44331,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "chéneau",
-    "ar": "مقطع على شكل U",
-    "en": "troughing",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "aérobic",
-    "ar": "هوائي",
-    "en": "aerobic",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "bromide",
-    "ar": "بروميد",
-    "en": "bromide",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "bromine",
-    "ar": "برومين",
-    "en": "bromine",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "calcine",
-    "ar": "خام معالج",
-    "en": "calcine",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "captage",
     "ar": "إمساك",
     "en": "catchment",
@@ -55908,15 +44343,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "chicane",
     "ar": "عائق",
     "en": "chicane",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "diluant",
-    "ar": "مخفف",
-    "en": "diluent",
     "level": "B1",
     "contexts": [
       "housing"
@@ -55968,24 +44394,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "carneau",
-    "ar": "مدخنة",
-    "en": "flue",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "écumage",
-    "ar": "تزبد",
-    "en": "frothing",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "hectare",
     "ar": "هكتار",
     "en": "hectare",
@@ -56007,24 +44415,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "in situ",
     "ar": "في الموقع",
     "en": "in situ",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "lessivé",
-    "ar": "غسالة",
-    "en": "leachate",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "lindane",
-    "ar": "لندان",
-    "en": "lindane",
     "level": "B1",
     "contexts": [
       "housing"
@@ -56068,24 +44458,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "phénols",
-    "ar": "فينول",
-    "en": "phenol",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "pluvial",
-    "ar": "مطري",
-    "en": "pluvial",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "écaille",
     "ar": "قشرة",
     "en": "scale",
@@ -56095,36 +44467,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "crépine",
-    "ar": "مصفاة",
-    "en": "strainer",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "xérique",
-    "ar": "كائن حي جفافي",
-    "en": "xeric",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "ajuster",
     "ar": "عدل",
     "en": "adjust",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "alidade",
-    "ar": "دائرة المؤشر",
-    "en": "alidade",
     "level": "B1",
     "contexts": [
       "housing"
@@ -56152,15 +44497,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "canevas",
     "ar": "شبكة",
     "en": "framework",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "hachure",
-    "ar": "تهشير",
-    "en": "hachure",
     "level": "B1",
     "contexts": [
       "housing"
@@ -56231,15 +44567,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "aborner",
-    "ar": "وضع علامات",
-    "en": "mark out",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "période",
     "ar": "فترة زمنية",
     "en": "period",
@@ -56277,15 +44604,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "traçoir",
-    "ar": "مرسام",
-    "en": "scriber",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "seconde",
     "ar": "ثانية",
     "en": "second",
@@ -56298,15 +44616,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "لحظة.",
       "en": "One second."
     }
-  },
-  {
-    "fr": "sextant",
-    "ar": "جهاز التسديس",
-    "en": "sextant",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
   },
   {
     "fr": "sidéral",
@@ -56341,45 +44650,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "trièdre",
-    "ar": "ثلاثية الوجوه",
-    "en": "trihedral",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "trinôme",
-    "ar": "ثلاثية الحدود",
-    "en": "trinomial",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "Vernier",
     "ar": "ورنيه",
     "en": "Vernier",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "alumina",
-    "ar": "ألمنيوم",
-    "en": "aluminum",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "tarière",
-    "ar": "مثقب الحفر الحلزوني",
-    "en": "auger",
     "level": "B1",
     "contexts": [
       "housing"
@@ -56418,15 +44691,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "dolomie",
-    "ar": "دولوميت",
-    "en": "dolomite rock",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "granite",
     "ar": "غرانيت",
     "en": "granite",
@@ -56463,15 +44727,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "préforé",
-    "ar": "حفر  السابق",
-    "en": "prebore",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
     "fr": "rip rap",
     "ar": "حجارة  المرصوفة",
     "en": "rip rap",
@@ -56484,15 +44739,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "sableux",
     "ar": "رملي",
     "en": "sandy",
-    "level": "B1",
-    "contexts": [
-      "housing"
-    ]
-  },
-  {
-    "fr": "étayage",
-    "ar": "تدعيم",
-    "en": "shoring",
     "level": "B1",
     "contexts": [
       "housing"
@@ -56642,16 +44888,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "B-",
     "ar": "طرف البطارية السالب -B",
     "en": "battery minus",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "B+",
-    "ar": "طرف البطارية الموجب +B",
-    "en": "battery plus",
     "level": "B1",
     "contexts": [
       "car",
@@ -57207,16 +45443,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "SBC",
     "ar": "نظام SBC",
     "en": "SBC",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "F/B",
-    "ar": "علبة المصاهر",
-    "en": "F/B",
     "level": "B1",
     "contexts": [
       "car",
@@ -58179,89 +46405,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "AcEA",
-    "ar": "جمعية مصممي السيارات الأوروبيين",
-    "en": "Association des Constructeurs Europeens d’Automobiles",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "volt",
     "ar": "فولط",
     "en": "volt",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "rSAP",
-    "ar": "تقنية استقراء بطاقة تعريف مشترك عن بعد",
-    "en": "remote SIM access profile",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "Necar",
-    "ar": "سيارات Necar",
-    "en": "new electric car",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "Dozer",
-    "ar": "'دوزر'",
-    "en": "dozer",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "EZL-h",
-    "ar": "الإشعال الإلكتروني بمنحنى الأداء",
-    "en": "electronic ignition system with characteristic curves",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "EZF-h",
-    "ar": "الإشعال الإلكتروني بالمخطط الخصائصي",
-    "en": "electronic ignition system with map",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "TSZ-h",
-    "ar": "إشعال ترانزستوري بحساس 'هول'",
-    "en": "transistor coil ignition with Hall sensor",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "R134a",
-    "ar": "وسيط R134a",
-    "en": "R134a",
     "level": "B1",
     "contexts": [
       "car",
@@ -58289,16 +46435,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "BiFuel",
-    "ar": "وقود مزدوج",
-    "en": "BiFuel",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "LuK TS",
     "ar": "قابض لوك تي إس",
     "en": "LuK TS",
@@ -58319,39 +46455,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Comand",
-    "ar": "نظام 'كوماند'",
-    "en": "Comand",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "PC",
     "ar": "كمبيوتر شخصي",
     "en": "PC",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "prefire",
-    "ar": "نظام 'بري فاير'",
-    "en": "prefire",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "PreSafe",
-    "ar": "الحماية الاستباقية",
-    "en": "PreSafe",
     "level": "B1",
     "contexts": [
       "car",
@@ -58419,36 +46525,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Motronic",
-    "ar": "نظام 'موترونيك'",
-    "en": "Motronic",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "Pullover",
-    "ar": "تجهيزة الإفقار",
-    "en": "pulldown",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "Jetronic",
-    "ar": "نظام 'ﭽيترونيك'",
-    "en": "Jetronic",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "balayage",
     "ar": "كسح",
     "en": "scavenging",
@@ -58462,16 +46538,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "tas",
     "ar": "ساندة",
     "en": "snap die",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "Hydromat",
-    "ar": "هيدرومات",
-    "en": "Hydromat",
     "level": "B1",
     "contexts": [
       "car",
@@ -58564,39 +46630,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "kilovolt",
-    "ar": "كيلو فولط",
-    "en": "kilovolt",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "grattoir",
-    "ar": "مكشطة",
-    "en": "scraper",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "pack",
     "ar": "المركبة بكاملها",
     "en": "package",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "Cobapress",
-    "ar": "طريقة 'كوبا بريس'",
-    "en": "calliper",
     "level": "B1",
     "contexts": [
       "car",
@@ -58622,56 +46658,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "Hot Start",
     "ar": "البدء على الساخن",
     "en": "hot start",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "Transaxle",
-    "ar": "ناقل الحركة ذو المحور",
-    "en": "transaxle",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "Airpuller",
-    "ar": "ساحب هوائي",
-    "en": "air puller",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "Hydrolift",
-    "ar": "مرفاع هيدرولي",
-    "en": "Hydrolift",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "hump",
-    "ar": "حدبة اطار العجلة",
-    "en": "rim hump",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "millivolt",
-    "ar": "الملي فولط",
-    "en": "millivolt",
     "level": "B1",
     "contexts": [
       "car",
@@ -58759,16 +46745,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Torx",
-    "ar": "الشكل النجمي 'توركس'",
-    "en": "torx screw",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "burin",
     "ar": "أجنة مفلطحة",
     "en": "flat chisel",
@@ -58814,39 +46790,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "L-Jetronic",
-    "ar": "نظام حقن إلكتروني المتقطع",
-    "en": "L-Jetronic",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "Jetronic K",
-    "ar": "نظام حقن الوقود الإلكتروميكانيكية",
-    "en": "K-Jetronic",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "Hy Wire GM",
     "ar": "سيارة Hy Wire من جنرال موتورز",
     "en": "GM Hy-wire",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "Variomatic",
-    "ar": "ناقل الحركة اللاتدرجي",
-    "en": "Variomatic",
     "level": "B1",
     "contexts": [
       "car",
@@ -58969,29 +46915,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "bédane",
-    "ar": "أجنة صليبية",
-    "en": "cross-cutting chisel",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "collet",
     "ar": "شفة",
     "en": "collar",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "taraud",
-    "ar": "قاطع لوالب خارجية",
-    "en": "die",
     "level": "B1",
     "contexts": [
       "car",
@@ -59039,16 +46965,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "bielle",
-    "ar": "ذراع التوصيل",
-    "en": "connecting rod",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "Jetronic KE",
     "ar": "نظام KE-Jetronic",
     "en": "KE-Jetronic",
@@ -59059,59 +46975,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "LE-Jetronic",
-    "ar": "نظام LE-Jetronic",
-    "en": "LE Jetronic",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "Ecojet",
-    "ar": "نظام 'إيكو ﭽيت'",
-    "en": "EcoJet",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "LH-Jetronic",
-    "ar": "نظام الحقن الإلكتروني المتقطع",
-    "en": "LH-Jetronic",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "bavage",
-    "ar": "استمرار تقطر الوقود",
-    "en": "dripping",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "tube Y",
     "ar": "ماسورة سروالية",
     "en": "Y-pipe",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "mateur",
-    "ar": "عدة جلفطة",
-    "en": "caulker",
     "level": "B1",
     "contexts": [
       "car",
@@ -59162,16 +47028,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "chasse",
     "ar": "كاستر موجب",
     "en": "caster",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "Servotronic",
-    "ar": "نظام المؤازرة Servotronic",
-    "en": "Servotronic",
     "level": "B1",
     "contexts": [
       "car",
@@ -59234,29 +47090,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "stator",
-    "ar": "عضو ساكن",
-    "en": "stator",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "bobine",
     "ar": "ملف",
     "en": "coil",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "noyage",
-    "ar": "ابتلال شمعات الشرر",
-    "en": "flooding",
     "level": "B1",
     "contexts": [
       "car",
@@ -59399,16 +47235,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "bimétal",
-    "ar": "معدن ثنائي",
-    "en": "bimetal",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "soupape",
     "ar": "صمام",
     "en": "valve",
@@ -59432,16 +47258,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "starter",
     "ar": "تجهيزة بدء الدوران",
     "en": "starting device",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "digijet",
-    "ar": "نظام 'دﯾﺟﯾﭽت'",
-    "en": "digijet",
     "level": "B1",
     "contexts": [
       "car",
@@ -59509,39 +47325,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "étamage",
-    "ar": "قصدرة",
-    "en": "tin-plating",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "pick-up",
     "ar": "شاحنة صغيرة",
     "en": "pickup",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "coulure",
-    "ar": "آثار الطلاء",
-    "en": "varnish run",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "tangage",
-    "ar": "الانكفاء",
-    "en": "squat",
     "level": "B1",
     "contexts": [
       "car",
@@ -59559,39 +47345,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Nivomat",
-    "ar": "نيفومات",
-    "en": "Nivomat",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "blocage",
     "ar": "انغلاق العجلات",
     "en": "wheel lock-up",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "rupteur",
-    "ar": "قاطع التلامس",
-    "en": "contact breaker",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "dignition",
-    "ar": "نظام الإشعال 'ديجنيشن'",
-    "en": "Dignition",
     "level": "B1",
     "contexts": [
       "car",
@@ -59662,26 +47418,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "Front Assist",
     "ar": "مساعد القيادة الأمامي",
     "en": "front assist",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "antigel",
-    "ar": "سائل حماية من التجمد",
-    "en": "antifreeze",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "profilé",
-    "ar": "البروفيل",
-    "en": "profile",
     "level": "B1",
     "contexts": [
       "car",
@@ -59774,16 +47510,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "trusquin",
-    "ar": "شنكار الارتفاعات",
-    "en": "marking gauge",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "décalage",
     "ar": "تدريج",
     "en": "settling",
@@ -59804,29 +47530,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "soudeuse",
-    "ar": "جهاز اللحام",
-    "en": "welder",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "silicium",
     "ar": "السليكون",
     "en": "silicon",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "calamine",
-    "ar": "رواسب كربونية",
-    "en": "carbon",
     "level": "B1",
     "contexts": [
       "car",
@@ -59864,16 +47570,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Mono-Jetronic",
-    "ar": "نظام 'مونو ﭽيترونيك'",
-    "en": "Mono-Jetronic",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "code SAE",
     "ar": "كود جمعية مهندسي السيارات الأمريكية",
     "en": "SAE code",
@@ -59887,26 +47583,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "patinage",
     "ar": "ميل للانزلاق",
     "en": "drive slip",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "broutage",
-    "ar": "سلوك النتش",
-    "en": "grabbing response",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "surmultipliée",
-    "ar": "مضاعفة السرعة",
-    "en": "overdrive",
     "level": "B1",
     "contexts": [
       "car",
@@ -59979,16 +47655,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "nuançage",
-    "ar": "ضبط درجة اللون",
-    "en": "tinting",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "Dynamic Drive",
     "ar": "نظام القيادة الدينامية",
     "en": "dynamic drive",
@@ -60059,16 +47725,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "luxmètre",
-    "ar": "مقياس شدة الاستضاءة",
-    "en": "luxmeter",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "batterie",
     "ar": "بطارية",
     "en": "battery",
@@ -60094,26 +47750,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "granulat",
-    "ar": "حبيبات",
-    "en": "granular material",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "poussoir",
-    "ar": "غماز",
-    "en": "lifter",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "cendrier",
     "ar": "منفضة السجائر",
     "en": "ash tray",
@@ -60127,16 +47763,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "pavillon",
     "ar": "بطانة سقف السيارة",
     "en": "headliner",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "kilowatt",
-    "ar": "كيلو واط",
-    "en": "kilowatt",
     "level": "B1",
     "contexts": [
       "car",
@@ -60174,59 +47800,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "mordache",
-    "ar": "فكوك الحماية",
-    "en": "protective jaws",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "Resitorx",
-    "ar": "بروفيل 'ريزيتوركس'",
-    "en": "resistorx",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "pincette",
-    "ar": "ملقاط",
-    "en": "tweezer",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "pédalier",
     "ar": "مجموعة الدواسات",
     "en": "foot lever unit",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "kilooctet",
-    "ar": "كيلو بايت",
-    "en": "kilobyte",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "mégaoctet",
-    "ar": "ميجا بايت",
-    "en": "megabyte",
     "level": "B1",
     "contexts": [
       "car",
@@ -60244,16 +47820,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "clinchage",
-    "ar": "عملية الضم",
-    "en": "clinches  / clinching",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "arc pulsé",
     "ar": "قوس كهربائي نبضي",
     "en": "pulsed arc",
@@ -60264,29 +47830,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "retassure",
-    "ar": "فجوة هواء",
-    "en": "shrink hole",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "aluminium",
     "ar": "ألمونيوم",
     "en": "aluminium  / aluminum",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "calalmine",
-    "ar": "طبقة الأكسدة",
-    "en": "scale",
     "level": "B1",
     "contexts": [
       "car",
@@ -60314,16 +47860,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "surrégime",
-    "ar": "فرط الدوران",
-    "en": "overrevving",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "jeu axial",
     "ar": "خلوص محوري",
     "en": "axial end play",
@@ -60334,39 +47870,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "déphaseur",
-    "ar": "محول مرحلي",
-    "en": "phase torque converter",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "réalésage",
-    "ar": "تكبير قطر الأسطوانة",
-    "en": "boring",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "radiateur",
     "ar": "رادياتير",
     "en": "radiator",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "culbuteur",
-    "ar": "ذراع ترجحية",
-    "en": "rocker arm",
     "level": "B1",
     "contexts": [
       "car",
@@ -60417,16 +47923,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "دواسة القابض (الكلتش)",
       "en": "Clutch pedal"
     }
-  },
-  {
-    "fr": "précharge",
-    "ar": "شحن متقدم",
-    "en": "preload",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
   },
   {
     "fr": "huile ATF",
@@ -60549,16 +48045,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "survirage",
-    "ar": "ميل مفرط",
-    "en": "oversteering",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "direction",
     "ar": "منظومة التوجيه",
     "en": "steering",
@@ -60629,16 +48115,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "rechapage",
-    "ar": "تجديد الإطار",
-    "en": "retread",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
     "fr": "prise ABS",
     "ar": "مقبس نظام منع غلق العجلات",
     "en": "ABS socket",
@@ -60652,16 +48128,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "électrode",
     "ar": "إلكترود",
     "en": "electrode",
-    "level": "B1",
-    "contexts": [
-      "car",
-      "transport"
-    ]
-  },
-  {
-    "fr": "solénoïde",
-    "ar": "سولينويد",
-    "en": "electromagnet  / solenoid",
     "level": "B1",
     "contexts": [
       "car",
@@ -60699,16 +48165,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "frêt",
-    "ar": "حملان",
-    "en": "freight",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "firme",
     "ar": "منشأة",
     "en": "firm",
@@ -60722,16 +48178,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "devise",
     "ar": "عملة",
     "en": "currency",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "kulaks",
-    "ar": "كبار المزارعين",
-    "en": "kulaks",
     "level": "B1",
     "contexts": [
       "bank",
@@ -60919,16 +48365,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "owenisme",
-    "ar": "أوينية",
-    "en": "owenism",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "pléthore",
     "ar": "وفرة النقد",
     "en": "plethora of money",
@@ -60952,16 +48388,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "altruisme",
     "ar": "إيثار",
     "en": "altruism",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "déflateur",
-    "ar": "معامل تصحيح",
-    "en": "deflator",
     "level": "B1",
     "contexts": [
       "bank",
@@ -61024,26 +48450,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "réflation",
-    "ar": "انعاش الاقتصاد",
-    "en": "reflation",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "ad-valorem",
-    "ar": "حسب القيمة",
-    "en": "ad-valorem",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "anarchisme",
     "ar": "فوضوية",
     "en": "anarchism",
@@ -61069,29 +48475,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "accapareur",
-    "ar": "محتكر",
-    "en": "buyer up",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "dépression",
     "ar": "ركود، انحطاط",
     "en": "depression",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "économisme",
-    "ar": "اقتصادانية",
-    "en": "economism",
     "level": "B1",
     "contexts": [
       "bank",
@@ -61174,16 +48560,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "mutualisme",
-    "ar": "تعاضدية",
-    "en": "mutualism",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "périodique",
     "ar": "دوري",
     "en": "periodical",
@@ -61234,16 +48610,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "taylorisme",
-    "ar": "تايلورية",
-    "en": "taylorism",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "obligations",
     "ar": "سندات",
     "en": "bonds",
@@ -61277,26 +48643,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "dialectique",
     "ar": "جدلية",
     "en": "dialectic",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "discordance",
-    "ar": "تنافر، نشاز",
-    "en": "discordance",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "déséconomie",
-    "ar": "اهدار",
-    "en": "diseconomy",
     "level": "B1",
     "contexts": [
       "bank",
@@ -61374,26 +48720,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "monétarisme",
-    "ar": "نقدانية، مذهب نقدي",
-    "en": "monetarism",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "monétariste",
-    "ar": "نقداني",
-    "en": "monetarist",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "modèle naïf",
     "ar": "نموذج بسيط",
     "en": "naive model",
@@ -61434,26 +48760,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "plutocracie",
-    "ar": "حكم الأثرياء",
-    "en": "plutocracy",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "préfabriqué",
-    "ar": "سابق الصنع، مصنوع سلفا",
-    "en": "prefabricate",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "cycle court",
     "ar": "دورة قصيرة",
     "en": "short cycle",
@@ -61484,16 +48790,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "stagflation",
-    "ar": "ركود تضخمي",
-    "en": "stagflation",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "groupe visé",
     "ar": "زمرة مستهدفة",
     "en": "target group",
@@ -61507,16 +48803,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "coût usager",
     "ar": "تكلفة الاستعمال",
     "en": "usury cost",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "abondancisme",
-    "ar": "مذهب الوفرة",
-    "en": "abundancism",
     "level": "B1",
     "contexts": [
       "bank",
@@ -61547,16 +48833,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "lingots d'or",
     "ar": "سبائك ذهبية",
     "en": "bullion",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "dépeuplement",
-    "ar": "تناقص السكان",
-    "en": "depopulation",
     "level": "B1",
     "contexts": [
       "bank",
@@ -61644,16 +48920,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "guarantie-or",
-    "ar": "ضمان القيمة الذهبية",
-    "en": "gold -value guarantee",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "hyper emploi",
     "ar": "استخدام مفرط، تشغيل مفرط",
     "en": "hyperemployment",
@@ -61674,26 +48940,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "inélasticité",
-    "ar": "انعدام المرونة",
-    "en": "inelasticity",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "input-output",
-    "ar": "دواخل وخوارج",
-    "en": "input-output",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "cycle Juglar",
     "ar": "دورة جوكلار",
     "en": "Juglar cycle",
@@ -61707,16 +48953,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "savoir-faire",
     "ar": "دراية، خبرة",
     "en": "know-how",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "travaillisme",
-    "ar": "مذهب عمالي، عمالية",
-    "en": "labourism",
     "level": "B1",
     "contexts": [
       "bank",
@@ -61787,26 +49023,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "surabondance",
     "ar": "وفرة العرض، عرض فائض",
     "en": "over-supply",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "sociétè-mère",
-    "ar": "شركة الأم، شركة أصلية",
-    "en": "parent company",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "physiocratie",
-    "ar": "مدرسة طبيعية",
-    "en": "physiocracy",
     "level": "B1",
     "contexts": [
       "bank",
@@ -61904,16 +49120,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "technocratie",
-    "ar": "سلطة الفنيين، سلطة التقنيين",
-    "en": "technocracy",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "valorisation",
     "ar": "رفع القيمة",
     "en": "valorization",
@@ -62002,26 +49208,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "compétitivité",
     "ar": "قدرة تنافسية",
     "en": "competitiveness",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "consommatisme",
-    "ar": "حماية المستهلك",
-    "en": "consumerism",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "corrélogramme",
-    "ar": "رسم ترابطي",
-    "en": "correlogram",
     "level": "B1",
     "contexts": [
       "bank",
@@ -62269,16 +49455,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "mercantilisme",
-    "ar": "تجارية",
-    "en": "mercantilism",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "revenu divers",
     "ar": "دخول متنوعة",
     "en": "miscellaneous income",
@@ -62412,16 +49588,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "étalon-papier",
     "ar": "قاعدة النقد الورقي",
     "en": "paper standard",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "pétro-dollars",
-    "ar": "دولارات نفطية",
-    "en": "petro-dollars",
     "level": "B1",
     "contexts": [
       "bank",
@@ -62569,16 +49735,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "échelonnement",
-    "ar": "جدولة",
-    "en": "scheduling",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "banque d'état",
     "ar": "مصرف الدولة",
     "en": "state bank",
@@ -62599,29 +49755,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "symmétallisme",
-    "ar": "نظام المعدن المختلط",
-    "en": "symmetallism",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "coût unitaire",
     "ar": "تكلفة الوحدة",
     "en": "unit cost",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "inconvertible",
-    "ar": "غير استبدالي",
-    "en": "unconvertible",
     "level": "B1",
     "contexts": [
       "bank",
@@ -62769,16 +49905,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "convertibilité",
-    "ar": "قابلية التحويل",
-    "en": "convertibility",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "coût de la vie",
     "ar": "تكلفة المعيشة",
     "en": "cost of living",
@@ -62802,16 +49928,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "tarif douanier",
     "ar": "تعرفة جمركية",
     "en": "customs tariff",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "démonétisation",
-    "ar": "إلغاء الصفة النقدية",
-    "en": "demonetization",
     "level": "B1",
     "contexts": [
       "bank",
@@ -62969,29 +50085,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "thésaurisation",
-    "ar": "اكتناز",
-    "en": "hoarding",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "capital humain",
     "ar": "رأسمال بشري",
     "en": "human capital",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "hyperinflation",
-    "ar": "تضخم متفش",
-    "en": "hyperinflation",
     "level": "B1",
     "contexts": [
       "bank",
@@ -63012,16 +50108,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "flux du revenu",
     "ar": "تدفق الدخل",
     "en": "income stream",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "indivisibilité",
-    "ar": "عدم قابلية التجزئة",
-    "en": "indivisibility",
     "level": "B1",
     "contexts": [
       "bank",
@@ -63129,16 +50215,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "malthusianisme",
-    "ar": "مالتوسية",
-    "en": "Malthusianism",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
     "fr": "travail manuel",
     "ar": "عمل يدوي",
     "en": "manual labour",
@@ -63202,16 +50278,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "flux monétaire",
     "ar": "تدفق نقدي",
     "en": "money flow",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "monométallisme",
-    "ar": "نظام المعدن الواحد",
-    "en": "monometallism",
     "level": "B1",
     "contexts": [
       "bank",
@@ -63397,16 +50463,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "indice relatif",
     "ar": "رقم قياسي نسبي",
     "en": "relative index",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "remonétisation",
-    "ar": "اعادة الصفة النقدية",
-    "en": "remonetization",
     "level": "B1",
     "contexts": [
       "bank",
@@ -63697,16 +50753,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "banque centrale",
     "ar": "مصرف مركزي",
     "en": "central bank",
-    "level": "B1",
-    "contexts": [
-      "bank",
-      "work"
-    ]
-  },
-  {
-    "fr": "ceteris paribus",
-    "ar": "'مع بقاء الأشياء الأخرى على حالها'",
-    "en": "ceteris paribus",
     "level": "B1",
     "contexts": [
       "bank",
@@ -64154,16 +51200,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "fugu",
-    "ar": "هروب",
-    "en": "fugue",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "gang",
     "ar": "عصابة",
     "en": "gang",
@@ -64599,16 +51635,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "éthos",
-    "ar": "سمات  التراثية",
-    "en": "ethos",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "panel",
     "ar": "مناقشة عامة",
     "en": "panel",
@@ -64719,16 +51745,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "socius",
-    "ar": "خلية اجتماعية",
-    "en": "socius",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "urbain",
     "ar": "حضري",
     "en": "urban",
@@ -64769,49 +51785,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "linéal",
-    "ar": "خط نسب",
-    "en": "lineal",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "médium",
     "ar": "وسط",
     "en": "medium",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "amitat",
-    "ar": "سلطة العمة",
-    "en": "amitate",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "amoral",
-    "ar": "غير أخلاقي",
-    "en": "amoral",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "anomie",
-    "ar": "لامعيارية",
-    "en": "anomie",
     "level": "A2",
     "contexts": [
       "family",
@@ -64869,16 +51845,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "percept",
-    "ar": "مدرك حسي",
-    "en": "percept",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "plaisir",
     "ar": "متعة",
     "en": "pleasure",
@@ -64892,26 +51858,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "بكل سرور.",
       "en": "With pleasure."
     }
-  },
-  {
-    "fr": "poverté",
-    "ar": "فقر",
-    "en": "poverty",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "punalua",
-    "ar": "زواج مشترك جماعي",
-    "en": "punalua",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
   },
   {
     "fr": "racisme",
@@ -65049,16 +51995,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "holisme",
-    "ar": "جماعية ، هوليزم",
-    "en": "holism",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "idiotie",
     "ar": "غباء",
     "en": "idiocy",
@@ -65079,29 +52015,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "théisme",
-    "ar": "اعتقاد  بإلاه",
-    "en": "theism",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "village",
     "ar": "قرية",
     "en": "village",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "lévirat",
-    "ar": "زواج أرملة الأخ",
-    "en": "levirate",
     "level": "A2",
     "contexts": [
       "family",
@@ -65134,46 +52050,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "agnosie",
-    "ar": "فقدان االإدراك",
-    "en": "agnosia",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "acinèse",
-    "ar": "عسر الحركة",
-    "en": "akinesia",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "aphonie",
-    "ar": "بحح",
-    "en": "aphonia",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "apraxie",
-    "ar": "اضطراب الحركية",
-    "en": "apraxia",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "autisme",
     "ar": "اجترارية",
     "en": "autism",
@@ -65187,16 +52063,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "avidité",
     "ar": "جشع",
     "en": "avidity",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "bigamie",
-    "ar": "مضارة",
-    "en": "bigamy",
     "level": "A2",
     "contexts": [
       "family",
@@ -65289,16 +52155,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "ordalie",
-    "ar": "محنة",
-    "en": "ordeal",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "charité",
     "ar": "صدقة",
     "en": "charity",
@@ -65327,16 +52183,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "chimère",
     "ar": "وهم",
     "en": "chimera",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "couvade",
-    "ar": "عرف بدائي خاص بالولادة",
-    "en": "couvade",
     "level": "A2",
     "contexts": [
       "family",
@@ -65404,16 +52250,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "phratrie",
-    "ar": "فرع قبيلة",
-    "en": "phraty",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "pionnier",
     "ar": "رائد",
     "en": "pioneer",
@@ -65427,16 +52263,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "polarité",
     "ar": "قطبية",
     "en": "polarity",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "potlatch",
-    "ar": "نظام البوتلاتش",
-    "en": "potlatch",
     "level": "A2",
     "contexts": [
       "family",
@@ -65544,39 +52370,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "salacité",
-    "ar": "غلمة",
-    "en": "salacity",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "sénilité",
-    "ar": "هرم",
-    "en": "senility",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "sévérité",
     "ar": "قسوة",
     "en": "severity",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "tamisage",
-    "ar": "غربلة",
-    "en": "sifting",
     "level": "A2",
     "contexts": [
       "family",
@@ -65604,29 +52400,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "folkways",
-    "ar": "أساليب شعبية، فولكلورية",
-    "en": "folkways",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "sociétal",
     "ar": "مجتمعي",
     "en": "societal",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "sororate",
-    "ar": "زواج أرمل الأخت",
-    "en": "sororate",
     "level": "A2",
     "contexts": [
       "family",
@@ -65657,16 +52433,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "hérédité",
     "ar": "وراثة",
     "en": "heredity",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "hormique",
-    "ar": "هورمية",
-    "en": "hormic",
     "level": "A2",
     "contexts": [
       "family",
@@ -65789,16 +52555,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "tropisme",
-    "ar": "انتحاء",
-    "en": "tropism",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "validité",
     "ar": "صحة",
     "en": "validity",
@@ -65864,16 +52620,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "agnation",
-    "ar": "قرابة أبوية",
-    "en": "agnation",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "amulette",
     "ar": "تميمة",
     "en": "amulet",
@@ -65897,56 +52643,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "angoisse",
     "ar": "كرب",
     "en": "anguish",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "animisme",
-    "ar": "احيائية",
-    "en": "animism",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "aphelxie",
-    "ar": "ذهول",
-    "en": "aphelxia",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "asthénie",
-    "ar": "وهن",
-    "en": "asthenia",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "ataraxie",
-    "ar": "تقبل مطلق",
-    "en": "ataraxia",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "atavisme",
-    "ar": "ارتداد",
-    "en": "atavism",
     "level": "A2",
     "contexts": [
       "family",
@@ -66019,16 +52715,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "onanisme",
-    "ar": "استنماء",
-    "en": "onanism",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "charisme",
     "ar": "قيادة ملهمة",
     "en": "charisma",
@@ -66054,16 +52740,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "délusion",
-    "ar": "توهم",
-    "en": "delusion",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "descente",
     "ar": "انحدار سلالي",
     "en": "descent",
@@ -66079,39 +52755,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "ecmnésie",
-    "ar": "هلوسة الماضي",
-    "en": "ecmnesy",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "égomanie",
-    "ar": "هوس الأنا",
-    "en": "egomania",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "empathie",
     "ar": "تقمص وجداني",
     "en": "empathy",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "énurésie",
-    "ar": "تبول لا ارادي",
-    "en": "enuresis",
     "level": "A2",
     "contexts": [
       "family",
@@ -66129,39 +52775,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "exogamie",
-    "ar": "زواج خارجي",
-    "en": "exogamy",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
     "fr": "paradoxe",
     "ar": "مفارقة",
     "en": "paradoxe",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "paranoia",
-    "ar": "هذاء العظمة، بارانويا",
-    "en": "paranoia",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "pénologie",
-    "ar": "علم العقاب",
-    "en": "penology",
     "level": "A2",
     "contexts": [
       "family",
@@ -66186,26 +52802,6 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ]
-  },
-  {
-    "fr": "polygénie",
-    "ar": "تعدد الاصول",
-    "en": "polygeny",
-    "level": "A2",
-    "contexts": [
-      "family",
-      "daily"
-    ]
-  },
-  {
-    "fr": "dé",
-    "ar": "مكعب القاعدة",
-    "en": "dies",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
     ]
   },
   {
@@ -66247,16 +52843,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "ère",
     "ar": "زمن",
     "en": "era",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "erg",
-    "ar": "عرق",
-    "en": "erg",
     "level": "A2",
     "contexts": [
       "daily",
@@ -66314,16 +52900,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "sif",
-    "ar": "سيف",
-    "en": "seif dune",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "val",
     "ar": "وادي المقعر",
     "en": "val",
@@ -66357,36 +52933,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "uni",
     "ar": "سوي",
     "en": "even",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "lur",
-    "ar": "صور",
-    "en": "lur",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "ove",
-    "ar": "بيضة",
-    "en": "ovum",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "raa",
-    "ar": "اله رع",
-    "en": "ra",
     "level": "A2",
     "contexts": [
       "daily",
@@ -66494,39 +53040,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "névé",
-    "ar": "ثلج مرصوص",
-    "en": "firn",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "fœhn",
-    "ar": "الفهن",
-    "en": "fohn  wind",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "horn",
     "ar": "قرن",
     "en": "horn",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "lias",
-    "ar": "لياس",
-    "en": "lias",
     "level": "A2",
     "contexts": [
       "daily",
@@ -66554,26 +53070,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "nifé",
-    "ar": "نيف",
-    "en": "nife",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "octa",
-    "ar": "أوكتا",
-    "en": "okta",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "mare",
     "ar": "بركة",
     "en": "pool",
@@ -66584,39 +53080,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "puna",
-    "ar": "بونا",
-    "en": "puna",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "rift",
     "ar": "واد أخدودي",
     "en": "rift valley",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "ubac",
-    "ar": "سفح ضليل",
-    "en": "schattenseite",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "sial",
-    "ar": "سيال",
-    "en": "sial",
     "level": "A2",
     "contexts": [
       "daily",
@@ -66637,16 +53103,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "till",
     "ar": "جلمود طيني",
     "en": "till",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "veld",
-    "ar": "فلد",
-    "en": "veld",
     "level": "A2",
     "contexts": [
       "daily",
@@ -66677,36 +53133,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "azur",
     "ar": "لازوردي",
     "en": "azure",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "balk",
-    "ar": "حاجز",
-    "en": "baulk",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "bêma",
-    "ar": "سدة الكنيسة",
-    "en": "bema",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "bige",
-    "ar": "مركبة رومانية",
-    "en": "biga",
     "level": "A2",
     "contexts": [
       "daily",
@@ -66814,39 +53240,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "atre",
-    "ar": "موقد",
-    "en": "fireplace",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "flot",
     "ar": "طفو",
     "en": "flot",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "grés",
-    "ar": "حجر رملي",
-    "en": "freestone",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "houe",
-    "ar": "معزقة",
-    "en": "hoe",
     "level": "A2",
     "contexts": [
       "daily",
@@ -66867,16 +53263,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "inca",
     "ar": "حضارة الانكا",
     "en": "inca",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "iwan",
-    "ar": "ايوان",
-    "en": "iwan",
     "level": "A2",
     "contexts": [
       "daily",
@@ -66914,16 +53300,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "lobé",
-    "ar": "مفصص",
-    "en": "lobed",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "luth",
     "ar": "عود",
     "en": "lute",
@@ -66937,26 +53313,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "maya",
     "ar": "حضارة  المايية",
     "en": "maya",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "mède",
-    "ar": "ميديون",
-    "en": "medes",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "naos",
-    "ar": "غرفة المعبود",
-    "en": "naos",
     "level": "A2",
     "contexts": [
       "daily",
@@ -66984,26 +53340,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "orle",
-    "ar": "حلية رأس العمود الدوري",
-    "en": "orle",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "pisé",
-    "ar": "تراب مدكوك",
-    "en": "pisé",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "pose",
     "ar": "وضع",
     "en": "pose",
@@ -67022,56 +53358,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "lise",
     "ar": "رمال متحركة",
     "en": "quicksand",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "sâti",
-    "ar": "انتحار الأرملة حرقا",
-    "en": "sati",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "jubé",
-    "ar": "حاجز المذبح",
-    "en": "screen",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "etai",
-    "ar": "سناد مؤقت",
-    "en": "shore",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "ache",
-    "ar": "نبتة الكرفس",
-    "en": "smallage",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "gond",
-    "ar": "نجران",
-    "en": "socket",
     "level": "A2",
     "contexts": [
       "daily",
@@ -67169,16 +53455,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "adret",
-    "ar": "سفح مشمس",
-    "en": "adret",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "arête",
     "ar": "رعن، عرف حاد",
     "en": "arête",
@@ -67234,16 +53510,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "régur",
-    "ar": "تربة القطن الدكناء",
-    "en": "black cotton soil",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "brise",
     "ar": "نسيم",
     "en": "breeze",
@@ -67262,26 +53528,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "butte",
     "ar": "قارة",
     "en": "butte",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "chott",
-    "ar": "شط",
-    "en": "chott",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "cluze",
-    "ar": "مخنق",
-    "en": "cluze",
     "level": "A2",
     "contexts": [
       "daily",
@@ -67339,16 +53585,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Fjell",
-    "ar": "فيل، فيلد",
-    "en": "Fjall",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "biens",
     "ar": "بضائع",
     "en": "goods",
@@ -67392,16 +53628,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "igloo",
     "ar": "كوخ الاسكيمو",
     "en": "igloo",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "bilon",
-    "ar": "عرق معدني",
-    "en": "lode",
     "level": "A2",
     "contexts": [
       "daily",
@@ -67459,26 +53685,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Sandr",
-    "ar": "سهل رسوبي جليدي",
-    "en": "outwash plain",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "pingo",
-    "ar": "بنكو",
-    "en": "pingo",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "piton",
     "ar": "شعفة",
     "en": "piton",
@@ -67492,26 +53698,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "playa",
     "ar": "سبخة، خبرة",
     "en": "playa",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "poljé",
-    "ar": "دارة كارستية",
-    "en": "polje",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "ponor",
-    "ar": "بونور",
-    "en": "ponor",
     "level": "A2",
     "contexts": [
       "daily",
@@ -67554,16 +53740,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "regel",
-    "ar": "إعادة التجمد",
-    "en": "regelation",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "série",
     "ar": "نسق طباقي",
     "en": "series",
@@ -67579,26 +53755,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "sérir",
-    "ar": "سرير، رق",
-    "en": "serir",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "shale",
-    "ar": "نضيد",
-    "en": "shale",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "étape",
     "ar": "مرحلة",
     "en": "stage",
@@ -67612,16 +53768,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "أنا عالق في هذه المرحلة.",
       "en": "I’m stuck on this step."
     }
-  },
-  {
-    "fr": "taiga",
-    "ar": "تايغا",
-    "en": "taiga",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
   },
   {
     "fr": "dégel",
@@ -67644,69 +53790,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "varve",
-    "ar": "رقائق الطفل",
-    "en": "varve",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "vents",
     "ar": "رياح",
     "en": "winds",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "ebène",
-    "ar": "أبنوس",
-    "en": "ebony",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "adode",
-    "ar": "لبن",
-    "en": "adode",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "egéen",
-    "ar": "حضارة  الإيجية",
-    "en": "aegean",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "Egide",
-    "ar": "ايجيد",
-    "en": "aegis",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "aetos",
-    "ar": "جبهة عقابية",
-    "en": "aetos",
     "level": "A2",
     "contexts": [
       "daily",
@@ -67727,16 +53813,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "agora",
     "ar": "الساحة العامة",
     "en": "agora",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "aiwan",
-    "ar": "ايوان",
-    "en": "aiwan",
     "level": "A2",
     "contexts": [
       "daily",
@@ -67779,49 +53855,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "ambon",
-    "ar": "منبر",
-    "en": "ambo",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "apode",
-    "ar": "تمثال عديم الرجلين",
-    "en": "apodal",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "arqué",
-    "ar": "معقود",
-    "en": "arcuated",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "arène",
     "ar": "حلبة",
     "en": "arena",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "armet",
-    "ar": "بيضة",
-    "en": "armet",
     "level": "A2",
     "contexts": [
       "daily",
@@ -67864,26 +53900,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "baile",
-    "ar": "داخل الحصن",
-    "en": "bailey",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "batik",
-    "ar": "باتك",
-    "en": "batik",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "ruche",
     "ar": "خلية نحل",
     "en": "beehive",
@@ -67897,16 +53913,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "béret",
     "ar": "قلنسوة",
     "en": "beret",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "béryl",
-    "ar": "زمرد مصري",
-    "en": "beryl",
     "level": "A2",
     "contexts": [
       "daily",
@@ -67974,16 +53980,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "camée",
-    "ar": "قمعول",
-    "en": "cameo",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "canon",
     "ar": "مدفع",
     "en": "cannon",
@@ -68019,29 +54015,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "balme",
-    "ar": "كهف",
-    "en": "cave",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "cella",
     "ar": "حجرة التماثيل",
     "en": "cella",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "fifre",
-    "ar": "شبابة، مزمار",
-    "en": "chabbabeh",
     "level": "A2",
     "contexts": [
       "daily",
@@ -68059,39 +54035,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "chert",
-    "ar": "حجر صواني",
-    "en": "chert",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "perse",
     "ar": "قماش مصور",
     "en": "chintz",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "cippe",
-    "ar": "شاهدة",
-    "en": "cippus",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "ciste",
-    "ar": "صندوق الرفات",
-    "en": "cist",
     "level": "A2",
     "contexts": [
       "daily",
@@ -68122,16 +54068,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "croix",
     "ar": "صليب",
     "en": "cross",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "redan",
-    "ar": "قرنة، حيد",
-    "en": "cusp",
     "level": "A2",
     "contexts": [
       "daily",
@@ -68174,16 +54110,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "emmer",
-    "ar": "ايمر",
-    "en": "emmer",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "fable",
     "ar": "قصة خرافية",
     "en": "fable",
@@ -68207,16 +54133,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "lobes",
     "ar": "زخارف ورقية",
     "en": "foils",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "folié",
-    "ar": "تصفيح",
-    "en": "foliate",
     "level": "A2",
     "contexts": [
       "daily",
@@ -68289,16 +54205,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "halaf",
-    "ar": "حضارة حلف",
-    "en": "halaf",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "salle",
     "ar": "قاعة",
     "en": "hall",
@@ -68334,29 +54240,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "idôle",
-    "ar": "وثن",
-    "en": "idol",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "jarre",
     "ar": "جرة",
     "en": "jar",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "jaspe",
-    "ar": "يشب",
-    "en": "jasper",
     "level": "A2",
     "contexts": [
       "daily",
@@ -68384,59 +54270,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "bedon",
-    "ar": "طبلة",
-    "en": "kettle-drum",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "ornat",
-    "ar": "شكل جاث",
-    "en": "kneeling",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "kohol",
-    "ar": "كحل",
-    "en": "kohl",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "latin",
     "ar": "لاتينية",
     "en": "latin",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "lauré",
-    "ar": "مكلل بالغار",
-    "en": "laureate",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "linon",
-    "ar": "قماش رقيق",
-    "en": "lawn",
     "level": "A2",
     "contexts": [
       "daily",
@@ -68467,16 +54303,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "lotus",
     "ar": "زهرة اللوتس",
     "en": "lotus",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "ergot",
-    "ar": "مقبض",
-    "en": "luge",
     "level": "A2",
     "contexts": [
       "daily",
@@ -68539,16 +54365,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "murex",
-    "ar": "مريق",
-    "en": "murex",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "nacre",
     "ar": "صدف",
     "en": "nacre",
@@ -68569,29 +54385,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "nimbe",
-    "ar": "هالة",
-    "en": "nimbus",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "coche",
     "ar": "ثلمة",
     "en": "nock",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "obole",
-    "ar": "أبول",
-    "en": "obol",
     "level": "A2",
     "contexts": [
       "daily",
@@ -68609,29 +54405,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "avers",
-    "ar": "وجه العملة",
-    "en": "onverse",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "opale",
     "ar": "أوبال",
     "en": "opal",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "ajour",
-    "ar": "تخريم",
-    "en": "openwork",
     "level": "A2",
     "contexts": [
       "daily",
@@ -68704,16 +54480,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "pilum",
-    "ar": "مزراق روماني",
-    "en": "pilum",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "plane",
     "ar": "مصقل",
     "en": "plane",
@@ -68727,46 +54493,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "herse",
     "ar": "باب زلاج",
     "en": "portcullis",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "putto",
-    "ar": "بتو",
-    "en": "putto",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "qibla",
-    "ar": "قبلة",
-    "en": "qibla",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "octan",
-    "ar": "رباعي",
-    "en": "quadrant",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "rebec",
-    "ar": "ربابة",
-    "en": "rababa",
     "level": "A2",
     "contexts": [
       "daily",
@@ -68832,16 +54558,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "sabre",
     "ar": "سبف أعقف",
     "en": "sabre",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "arçon",
-    "ar": "قربوس",
-    "en": "saddle-bow",
     "level": "A2",
     "contexts": [
       "daily",
@@ -69064,16 +54780,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "arco",
-    "ar": "بالقوس",
-    "en": "arco",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "aria",
     "ar": "آريا",
     "en": "aria",
@@ -69104,16 +54810,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "coda",
-    "ar": "تذييل",
-    "en": "coda",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "jazz",
     "ar": "جاز",
     "en": "jazz",
@@ -69129,29 +54825,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "jota",
-    "ar": "خوتا",
-    "en": "jota",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "lied",
     "ar": "ليد",
     "en": "lied",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "lute",
-    "ar": "عود",
-    "en": "luth",
     "level": "A2",
     "contexts": [
       "daily",
@@ -69182,16 +54858,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "opus",
     "ar": "مؤلف",
     "en": "opus",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "poco",
-    "ar": "رويدا",
-    "en": "poco",
     "level": "A2",
     "contexts": [
       "daily",
@@ -69434,26 +55100,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "animo",
-    "ar": "شعور",
-    "en": "animo",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "assai",
-    "ar": "جدا",
-    "en": "assai",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "noire",
     "ar": "سوداء",
     "en": "crotchet",
@@ -69539,16 +55185,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "gigue",
-    "ar": "جيكا",
-    "en": "giga",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "haute",
     "ar": "عال",
     "en": "high",
@@ -69574,29 +55210,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "iambe",
-    "ar": "يامب",
-    "en": "iamb",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "blues",
     "ar": "بلوز",
     "en": "blues",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "buffo",
-    "ar": "هزلي",
-    "en": "buffo",
     "level": "A2",
     "contexts": [
       "daily",
@@ -69617,16 +55233,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "chœur",
     "ar": "جوق إنشاد",
     "en": "choir",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "comma",
-    "ar": "كوما",
-    "en": "comma",
     "level": "A2",
     "contexts": [
       "daily",
@@ -69664,39 +55270,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "lento",
-    "ar": "بطء",
-    "en": "lento",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "loure",
-    "ar": "لوريه",
-    "en": "loure",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "mètre",
     "ar": "بحر",
     "en": "metre",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "motet",
-    "ar": "موتيت",
-    "en": "motet",
     "level": "A2",
     "contexts": [
       "daily",
@@ -69779,16 +55355,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "dièze",
-    "ar": "رافع",
-    "en": "sharp",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "sixte",
     "ar": "سادسة",
     "en": "sixth",
@@ -69834,16 +55400,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "tacet",
-    "ar": "توقف عن الأداء",
-    "en": "tacet",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "tango",
     "ar": "تانغو",
     "en": "tango",
@@ -69874,16 +55430,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "trill",
-    "ar": "زغردة",
-    "en": "trill",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "tutti",
     "ar": "للجميع",
     "en": "tutti",
@@ -69904,16 +55450,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "vièle",
-    "ar": "فييل",
-    "en": "vielle",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "Snack",
     "ar": "أكلة خفيفة",
     "en": "Bar meal",
@@ -69924,29 +55460,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Velum",
-    "ar": "ظلة، مظلة",
-    "en": "canopy",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "Bâche",
     "ar": "قلع، غطاء مشغول",
     "en": "Canvas cover",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "endos",
-    "ar": "تظهير",
-    "en": "endorsement",
     "level": "A2",
     "contexts": [
       "daily",
@@ -70024,16 +55540,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "kiosk",
-    "ar": "كشك",
-    "en": "kiosk",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "draps",
     "ar": "بياضات، مفروشات",
     "en": "linen",
@@ -70062,16 +55568,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "motel",
     "ar": "موتيل",
     "en": "motel",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "nuité",
-    "ar": "ليلة مبيت",
-    "en": "overnight stay",
     "level": "A2",
     "contexts": [
       "daily",
@@ -70224,16 +55720,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "retest",
-    "ar": "إعادة الاختبار، إعادة الروز",
-    "en": "retest",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "timing",
     "ar": "توقيت",
     "en": "timing",
@@ -70264,16 +55750,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "arpège",
-    "ar": "تآلف بالتعاقب",
-    "en": "arpeggio",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "cornet",
     "ar": "شياع",
     "en": "cornet",
@@ -70294,29 +55770,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "ballad",
-    "ar": "أغنية عاطفية",
-    "en": "ballad",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "ballet",
     "ar": "باليه",
     "en": "ballet",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "basson",
-    "ar": "باصون",
-    "en": "bassoon",
     "level": "A2",
     "contexts": [
       "daily",
@@ -70349,26 +55805,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "fugato",
-    "ar": "فوكاتو",
-    "en": "fugato",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "guisto",
-    "ar": "مضبوط",
-    "en": "guisto",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "gospel",
     "ar": "نشيد كنائسي زنجي",
     "en": "gospel",
@@ -70379,39 +55815,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "grelot",
-    "ar": "جلاجل",
-    "en": "grelot",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "boléro",
     "ar": "بوليرو",
     "en": "bolero",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "bongos",
-    "ar": "نقارات",
-    "en": "bongos",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "bourée",
-    "ar": "بوريه",
-    "en": "bourée",
     "level": "A2",
     "contexts": [
       "daily",
@@ -70439,16 +55845,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "calore",
-    "ar": "بحرارة",
-    "en": "calore",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "choral",
     "ar": "إنشاد جماعي",
     "en": "choral",
@@ -70469,36 +55865,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "doppio",
-    "ar": "مضاعف",
-    "en": "doppio",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "dorien",
-    "ar": "دوريان",
-    "en": "dorian",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "duolet",
-    "ar": "ثنائية",
-    "en": "duplet",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "élégie",
     "ar": "مرثية",
     "en": "elegy",
@@ -70512,16 +55878,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "quinte",
     "ar": "خامسة",
     "en": "fifth",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "legato",
-    "ar": "مرتبط",
-    "en": "legato",
     "level": "A2",
     "contexts": [
       "daily",
@@ -70569,16 +55925,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "menuet",
-    "ar": "منويت",
-    "en": "minuet",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "manche",
     "ar": "ذراع",
     "en": "neck",
@@ -70594,39 +55940,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "neumes",
-    "ar": "نومات",
-    "en": "neumes",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "sillet",
-    "ar": "أنف",
-    "en": "nut",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "octave",
     "ar": "ديوان",
     "en": "octave",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "octava",
-    "ar": "إشارة تغيير الديوان",
-    "en": "octava sign",
     "level": "A2",
     "contexts": [
       "daily",
@@ -70729,26 +56045,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "répons",
-    "ar": "إجابة المصلين",
-    "en": "response",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "rondel",
-    "ar": "روندو",
-    "en": "rondo",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "rosace",
     "ar": "نجمية",
     "en": "rose",
@@ -70759,49 +56055,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "rubato",
-    "ar": "روباتو",
-    "en": "rubato",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "trille",
-    "ar": "زغردة",
-    "en": "shake",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "sirène",
     "ar": "صفارة",
     "en": "siren",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "sistre",
-    "ar": "صلاصل",
-    "en": "sistrum",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "sonata",
-    "ar": "سوناتة",
-    "en": "sonata",
     "level": "A2",
     "contexts": [
       "daily",
@@ -70969,16 +56225,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Cahise",
-    "ar": "كرسي",
-    "en": "chair",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
     "fr": "Cirque",
     "ar": "سيرك",
     "en": "circus",
@@ -71007,16 +56253,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "Consul",
     "ar": "قنصل",
     "en": "consul",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "Dînner",
-    "ar": "عشاء",
-    "en": "dinner",
     "level": "A2",
     "contexts": [
       "daily",
@@ -71067,16 +56303,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "gratis",
     "ar": "مجاني، مجانا",
     "en": "for nothing",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "galrie",
-    "ar": "رواق، بهو",
-    "en": "gallery",
     "level": "A2",
     "contexts": [
       "daily",
@@ -71152,16 +56378,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "hockey",
     "ar": "مستردف",
     "en": "hockey",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "services"
-    ]
-  },
-  {
-    "fr": "jetlag",
-    "ar": "إنهاك تفاوت الوقت، إنهاك تفاوت التوقيت",
-    "en": "jetlag",
     "level": "A2",
     "contexts": [
       "daily",
@@ -71304,15 +56520,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "Bref",
     "ar": "قصير",
     "en": "Breve",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Chwa",
-    "ar": "صائت محايد",
-    "en": "Chwa",
     "level": "A2",
     "contexts": [
       "school"
@@ -71465,24 +56672,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "Datif",
-    "ar": "ممنوح",
-    "en": "Datif",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Essif",
-    "ar": "حكم الصفة الطارئة",
-    "en": "Essive",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "Faits",
     "ar": "وقائع",
     "en": "Facts",
@@ -71509,33 +56698,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "Futur",
     "ar": "مستقبل",
     "en": "Future",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Glide",
-    "ar": "علة",
-    "en": "Glide",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Hapax",
-    "ar": "نادر",
-    "en": "Hapax",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Koine",
-    "ar": "لغة مشتركة",
-    "en": "Koine",
     "level": "A2",
     "contexts": [
       "school"
@@ -71574,27 +56736,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Mande",
-    "ar": "استجابة",
-    "en": "Mand",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "Nasal",
     "ar": "أنفي",
     "en": "Nasal",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Nexie",
-    "ar": "فقرة",
-    "en": "Nexie",
     "level": "A2",
     "contexts": [
       "school"
@@ -71642,54 +56786,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Rhème",
-    "ar": "مسند محمول",
-    "en": "Rheme",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Schwa",
-    "ar": "حركة محايدة",
-    "en": "Schwa",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "Tendu",
     "ar": "شديد",
     "en": "Strong",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Tmèse",
-    "ar": "فصل الكلمة",
-    "en": "Tmesis",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Triel",
-    "ar": "ثلاث",
-    "en": "Trial",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Voisé",
-    "ar": "مجهور",
-    "en": "Voiced",
     "level": "A2",
     "contexts": [
       "school"
@@ -71769,42 +56868,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "ethos",
-    "ar": "إيثوسية ، سمات تراثية مميزة",
-    "en": "ethos",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "haiku",
-    "ar": "هايكو، مقطوعات شعرية يابانية",
-    "en": "haiku",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "kitch",
-    "ar": "كيتش، أسلوب متجاوز",
-    "en": "kitsch",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "koiné",
-    "ar": "اصطلاح مشترك",
-    "en": "koine",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "logos",
     "ar": "لوغوس",
     "en": "logos",
@@ -71840,15 +56903,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "وثيقة إثبات",
       "en": "Supporting document"
     }
-  },
-  {
-    "fr": "poéme",
-    "ar": "قصيدة",
-    "en": "poem",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
   },
   {
     "fr": "éloge",
@@ -71937,15 +56991,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Ablaut",
-    "ar": "تناوب حركي، تناوب صائتي",
-    "en": "Ablaut",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "Procès",
     "ar": "حدث",
     "en": "Action",
@@ -71960,36 +57005,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "Actant",
-    "ar": "فاعل حقيقي",
-    "en": "Actor",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "Ad hoc",
     "ar": "موضعي",
     "en": "Ad hoc",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Amusie",
-    "ar": "حبسة الألحان",
-    "en": "Amusia",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Apical",
-    "ar": "أسلي، ذولقي",
-    "en": "Apical",
     "level": "A2",
     "contexts": [
       "school"
@@ -72051,36 +57069,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Cénème",
-    "ar": "و حدة مميزة صغرى",
-    "en": "Ceneme",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Chrone",
-    "ar": "كرون",
-    "en": "Chron",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "Sombre",
     "ar": "خافت",
     "en": "Dark",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Dental",
-    "ar": "أسناني",
-    "en": "Dental",
     "level": "A2",
     "contexts": [
       "school"
@@ -72119,54 +57110,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "Émique",
-    "ar": "ذو وظيفة",
-    "en": "Emic",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Ethnic",
-    "ar": "سلالي، عرقي",
-    "en": "Ethnic",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Étique",
-    "ar": "غير وظيفي",
-    "en": "Etic",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Etymon",
-    "ar": "أصل",
-    "en": "Etymon",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "Formel",
     "ar": "شكلي صوري",
     "en": "Formal",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Géminé",
-    "ar": "مشدد، مضاعف",
-    "en": "Geminate",
     "level": "A2",
     "contexts": [
       "school"
@@ -72191,63 +57137,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Hyoïde",
-    "ar": "لامي",
-    "en": "Hyoid",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "Idiome",
     "ar": "لهجة خاصة",
     "en": "Idiom",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Infixe",
-    "ar": "واسطة، حشوية",
-    "en": "Infix",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Jussif",
-    "ar": "أمري",
-    "en": "Jussive",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Kleene",
-    "ar": "كلين",
-    "en": "Kleene",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Labial",
-    "ar": "شفوي",
-    "en": "Labial",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Laxité",
-    "ar": "رخاوة",
-    "en": "Laxity",
     "level": "A2",
     "contexts": [
       "school"
@@ -72268,15 +57160,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "Lexème",
-    "ar": "معجمية",
-    "en": "Lexeme",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "Lèvres",
     "ar": "شفتان",
     "en": "Lips",
@@ -72289,24 +57172,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "Marqué",
     "ar": "موسوم",
     "en": "Marked",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Monème",
-    "ar": "مونيم",
-    "en": "Monem",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Morphe",
-    "ar": "صرفية دنيا",
-    "en": "Morph",
     "level": "A2",
     "contexts": [
       "school"
@@ -72336,15 +57201,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "Oxyton",
-    "ar": "منبور الأخير",
-    "en": "Oxyton",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "Proche",
     "ar": "قريب",
     "en": "Proximate",
@@ -72359,72 +57215,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "Sandhi",
-    "ar": "تعاملي حدي",
-    "en": "Sandhi",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Sémème",
-    "ar": "وحدة دلالية",
-    "en": "Semem",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "Sonore",
     "ar": "مجهور",
     "en": "Sonorant",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Statif",
-    "ar": "قار",
-    "en": "Stative",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Taxème",
-    "ar": "سمة انتظامية",
-    "en": "Taxem",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Tonème",
-    "ar": "وحدة نغمية",
-    "en": "Tonem",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Umlaut",
-    "ar": "إمالة",
-    "en": "Umlaut",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "Enoncé",
-    "ar": "ملفوظ",
-    "en": "Utterance",
     "level": "A2",
     "contexts": [
       "school"
@@ -72551,15 +57344,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "hamasa",
-    "ar": "شعر الحماسة",
-    "en": "hamasa",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "idylle",
     "ar": "غزل عذري",
     "en": "idyll",
@@ -72572,15 +57356,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "insert",
     "ar": "دمج",
     "en": "insert",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
-    "fr": "mangat",
-    "ar": "قصص الشريط المصور الياباني",
-    "en": "mangat",
     "level": "A2",
     "contexts": [
       "school"
@@ -72660,15 +57435,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "schèma",
-    "ar": "خطة",
-    "en": "scheme",
-    "level": "A2",
-    "contexts": [
-      "school"
-    ]
-  },
-  {
     "fr": "sketch",
     "ar": "مسرح هزلي",
     "en": "sketch",
@@ -72737,63 +57503,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "floccus",
-    "ar": "خصلي",
-    "en": "floccus )",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "humilis",
-    "ar": "مبسط",
-    "en": "humilis )",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "isobare",
-    "ar": "متساوية الضغط",
-    "en": "isobar",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "isohèle",
-    "ar": "متساوية التشمس",
-    "en": "isohel",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "pentade",
-    "ar": "أخموس",
-    "en": "pentad",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
     "fr": "embruns",
     "ar": "رشاش",
     "en": "spray",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "stratus",
-    "ar": "طبقي",
-    "en": "stratus )",
     "level": "A2",
     "contexts": [
       "weather"
@@ -72863,24 +57575,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "isophène",
-    "ar": "متساوية ظهور الحياة",
-    "en": "isophene",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "isophote",
-    "ar": "متساوية الضياء",
-    "en": "isophote",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
     "fr": "air froid",
     "ar": "هواء بارد",
     "en": "cold air",
@@ -72899,36 +57593,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "isochasme",
-    "ar": "متساوية ترذد الفلق",
-    "en": "isochasm",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "isoplèthe",
-    "ar": "متساوية القيمة",
-    "en": "isopleth",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
     "fr": "nuage bas",
     "ar": "سحابة منخفضة",
     "en": "low cloud",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "lysimètre",
-    "ar": "مقياس الرشاحة",
-    "en": "lysimeter",
     "level": "A2",
     "contexts": [
       "weather"
@@ -72953,15 +57620,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "parhélies",
-    "ar": "شموس طفيلية",
-    "en": "parhelia",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
     "fr": "vent vrai",
     "ar": "رياح حقيقية",
     "en": "true wind",
@@ -72974,24 +57632,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "air chaud",
     "ar": "هواء دافئ",
     "en": "warm air",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "anallobare",
-    "ar": "متساوية ارتفاع الضغط",
-    "en": "anallobar",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "antisélène",
-    "ar": "قمر",
-    "en": "antiselena",
     "level": "A2",
     "contexts": [
       "weather"
@@ -73061,15 +57701,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "hystérésis",
-    "ar": "تخلفية",
-    "en": "hysteresis",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
     "fr": "été indien",
     "ar": "صيف هندي",
     "en": "indian summer",
@@ -73109,15 +57740,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "air humide",
     "ar": "هواء رطب",
     "en": "moist air",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "parasélène",
-    "ar": "أقمار طفيلية متقاربة",
-    "en": "paraselene",
     "level": "A2",
     "contexts": [
       "weather"
@@ -73178,24 +57800,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "subsidence",
-    "ar": "هبوط",
-    "en": "subsidence",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "superfroid",
-    "ar": "فرط البرودة",
-    "en": "supercooling",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
     "fr": "brise-vent",
     "ar": "كاسر الرياح",
     "en": "windbreak",
@@ -73208,15 +57812,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "pluie acide",
     "ar": "مطر حامضي",
     "en": "acid rain",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "adiabatique",
-    "ar": "كظمي، ذاتي",
-    "en": "adiabatic",
     "level": "A2",
     "contexts": [
       "weather"
@@ -73253,15 +57848,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "front froid",
     "ar": "جبهة باردة",
     "en": "cold front",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "disdromètre",
-    "ar": "مقياس القطيرات",
-    "en": "disdrometer",
     "level": "A2",
     "contexts": [
       "weather"
@@ -73406,15 +57992,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "grand frais",
     "ar": "رياح رادة",
     "en": "near gale",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "paranthélie",
-    "ar": "شموس طفيلية متباعدة",
-    "en": "paranthelion",
     "level": "A2",
     "contexts": [
       "weather"
@@ -73646,15 +58223,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "electrosonde",
-    "ar": "مسبار كهربائي",
-    "en": "electrosonde",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
     "fr": "mur de Foehn",
     "ar": "حائط فهن",
     "en": "Fohn wall",
@@ -73703,15 +58271,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "légère brise",
     "ar": "نسيم خفيف",
     "en": "light breeze",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "lithométéore",
-    "ar": "نوئية لخافية",
-    "en": "lithometeor",
     "level": "A2",
     "contexts": [
       "weather"
@@ -73793,15 +58352,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "carte prévue",
     "ar": "خريطة التنبؤ الجوي",
     "en": "prognostic chart",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "radiosondage",
-    "ar": "سبر راديوي",
-    "en": "radio sounding",
     "level": "A2",
     "contexts": [
       "weather"
@@ -73910,15 +58460,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "air instable",
     "ar": "هواء غير مستقر",
     "en": "unstable air",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "isobare en V",
-    "ar": "متساوية الضغط الجوي على شكل",
-    "en": "V-shaped isobar",
     "level": "A2",
     "contexts": [
       "weather"
@@ -74186,15 +58727,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "isocéraunique",
-    "ar": "متساوية الرواعد",
-    "en": "isokeraunic",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
     "fr": "flux lumineux",
     "ar": "دفق ضوئي",
     "en": "luminous flux",
@@ -74234,15 +58766,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "nuages nacrés",
     "ar": "سحب صدفية",
     "en": "nacreous clouds",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "parantisélène",
-    "ar": "أقمار طفيلية متباعدة",
-    "en": "parantiselena",
     "level": "A2",
     "contexts": [
       "weather"
@@ -74627,15 +59150,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "névé )",
-    "ar": "خشيف",
-    "en": "firn",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
     "fr": "limite du névé",
     "ar": "حد خشيف",
     "en": "firn line",
@@ -74657,15 +59171,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "niveaux de vol",
     "ar": "مستويات الطيران",
     "en": "flight levels",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "prévisionniste",
-    "ar": "متنبئ جوي",
-    "en": "forecaster",
     "level": "A2",
     "contexts": [
       "weather"
@@ -74969,15 +59474,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "sosimètre U.V.",
-    "ar": "مقياس جرعات فوق البنفسجية",
-    "en": "U.V. dosimeter",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
     "fr": "temps )",
     "ar": "طقس",
     "en": "weather",
@@ -75017,15 +59513,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "rose des vents",
     "ar": "وردة الرياح",
     "en": "wind rose",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "albédo .)",
-    "ar": "عاكسية",
-    "en": "albedo",
     "level": "A2",
     "contexts": [
       "weather"
@@ -75293,15 +59780,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Foehn )",
-    "ar": "رياح فهن",
-    "en": "Fohn",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
     "fr": "brèche de Foehn",
     "ar": "ثغرة فهن",
     "en": "Fohn break",
@@ -75428,15 +59906,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "incus )",
-    "ar": "سنداني",
-    "en": "incus )",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
     "fr": "compteur d'ions",
     "ar": "عداد الأيونات",
     "en": "ion counter",
@@ -75521,15 +59990,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "onde planétaire",
     "ar": "موجة كوكبية",
     "en": "planetary wave",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
-    "fr": "pluviothermique",
-    "ar": "نسبة مطرية حرارية",
-    "en": "pluviothermic ratio",
     "level": "A2",
     "contexts": [
       "weather"
@@ -75806,15 +60266,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "virga )",
-    "ar": "ذائلة، ذيل",
-    "en": "virga )",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
     "fr": "dépression en V",
     "ar": "منخفض جوي على شكل",
     "en": "V-shaped depression",
@@ -76031,15 +60482,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "calvus )",
-    "ar": "صلعي",
-    "en": "calvus )",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
     "fr": "capacité du vent",
     "ar": "سعة الرياح",
     "en": "capacity of the wind",
@@ -76157,15 +60599,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "bruine )",
-    "ar": "رذاذ",
-    "en": "drizzle",
-    "level": "A2",
-    "contexts": [
-      "weather"
-    ]
-  },
-  {
     "fr": "langue d'air sec",
     "ar": "لسان هواء جاف",
     "en": "dry tongue",
@@ -76258,16 +60691,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "biote",
-    "ar": "كائنات حية",
-    "en": "biota",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "amont",
     "ar": "أعلى النهر",
     "en": "upstream",
@@ -76308,16 +60731,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "grêlon",
-    "ar": "مطر متجمد",
-    "en": "sleet",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "Tartre",
     "ar": "مقياس",
     "en": "scale",
@@ -76343,49 +60756,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "talweg",
-    "ar": "محور الوادي المنخفض",
-    "en": "thalweg",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "pompes",
     "ar": "المضخات",
     "en": "pumps",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "memsys",
-    "ar": "تقطير بالأغشية",
-    "en": "memsys",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "bruine",
-    "ar": "رذاذ",
-    "en": "drizzle",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "décrue",
-    "ar": "انحسار",
-    "en": "recession",
     "level": "B1",
     "contexts": [
       "housing",
@@ -76403,39 +60776,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "ammonia",
-    "ar": "نشادر",
-    "en": "ammoniac",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "retours",
     "ar": "مادة قابلة لإعادة التدوير",
     "en": "scrap return",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "nitrite",
-    "ar": "النتريت",
-    "en": "nitrite",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "thalweg",
-    "ar": "خط العمق الأعظمي للمقطع النهري",
-    "en": "thalweg",
     "level": "B1",
     "contexts": [
       "housing",
@@ -76463,16 +60806,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "exergie",
-    "ar": "الطاقة المستحالة",
-    "en": "exergy",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "nourrir",
     "ar": "تغذية",
     "en": "feed",
@@ -76486,26 +60819,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "volatil",
     "ar": "متطاير",
     "en": "volatile",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "Biofilm",
-    "ar": "غشاء حيوي رقيق",
-    "en": "Biofilm",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "perméat",
-    "ar": "نفيذ",
-    "en": "permeate",
     "level": "B1",
     "contexts": [
       "housing",
@@ -76533,29 +60846,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "foggara",
-    "ar": "فجارة",
-    "en": "foggara",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "arroser",
     "ar": "نثر",
     "en": "spray  / sprinkle",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "aréique",
-    "ar": "جاف",
-    "en": "arheic",
     "level": "B1",
     "contexts": [
       "housing",
@@ -76618,29 +60911,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "anoxique",
-    "ar": "أنوكسيك",
-    "en": "anoxic",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "parcours",
     "ar": "مسار",
     "en": "course",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "goutteur",
-    "ar": "قطارة",
-    "en": "dripper",
     "level": "B1",
     "contexts": [
       "housing",
@@ -76668,16 +60941,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "miscible",
-    "ar": "قابل للخلط",
-    "en": "miscible",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "mol",
     "ar": "مول",
     "en": "mol",
@@ -76698,16 +60961,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "saprobie",
-    "ar": "رمي",
-    "en": "saprobe",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "en amont",
     "ar": "ضد التيار",
     "en": "upstream",
@@ -76718,39 +60971,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "dégazeur",
-    "ar": "تفريغ من الغاز",
-    "en": "degasifier",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "calcaire",
     "ar": "كلس",
     "en": "lime",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "sulphate",
-    "ar": "كبريتات",
-    "en": "sulphate",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "biotique",
-    "ar": "أحيائي",
-    "en": "biotic",
     "level": "B1",
     "contexts": [
       "housing",
@@ -76793,16 +61016,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "bouchage",
-    "ar": "انسداد",
-    "en": "plugging",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "résiduel",
     "ar": "مخلفات",
     "en": "residual",
@@ -76823,16 +61036,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "aquifère",
-    "ar": "المياه الجوفية",
-    "en": "aquifer",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "polluant",
     "ar": "ملوث",
     "en": "pollutant",
@@ -76843,29 +61046,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "deslater",
-    "ar": "محلي",
-    "en": "deslater",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "jet noyé",
     "ar": "نفث غاطس",
     "en": "drowned jet",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "bouchure",
-    "ar": "هدار حقلي",
-    "en": "flood gate",
     "level": "B1",
     "contexts": [
       "housing",
@@ -76911,36 +61094,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "déblayer",
     "ar": "نظف",
     "en": "scour",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "madriers",
-    "ar": "عوارض حاجزة",
-    "en": "stop logs",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "aquifuge",
-    "ar": "حوض جوفي كتيم",
-    "en": "aquifuge",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "aquitard",
-    "ar": "طبقة شبه نفاذة",
-    "en": "aquitard",
     "level": "B1",
     "contexts": [
       "housing",
@@ -77053,16 +61206,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "anionique",
-    "ar": "أنيوني",
-    "en": "anionic",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "cage",
     "ar": "قفص",
     "en": "cage",
@@ -77078,39 +61221,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "décanteur",
-    "ar": "دورق",
-    "en": "decanter",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "pare-boue",
     "ar": "واقية الوحل",
     "en": "dirt pan",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "excrément",
-    "ar": "فضلات",
-    "en": "excrement",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "mésophile",
-    "ar": "أليف الحرارة المعتدلة",
-    "en": "mesophilic",
     "level": "B1",
     "contexts": [
       "housing",
@@ -77128,29 +61241,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "captureur",
-    "ar": "مصيدة",
-    "en": "separator / interceptor / trap",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "sphérique",
     "ar": "كروي",
     "en": "spherical",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "coagulant",
-    "ar": "مجلط",
-    "en": "coagulant",
     "level": "B1",
     "contexts": [
       "housing",
@@ -77208,16 +61301,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "polyamide",
-    "ar": "عديد الأميد",
-    "en": "polyamide",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "régénérer",
     "ar": "تنشيط",
     "en": "regenerate",
@@ -77231,36 +61314,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "eau salée",
     "ar": "مياه مالحة",
     "en": "salt water",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "relargage",
-    "ar": "إزالة بإضافة الملح، فصل بالتمليح",
-    "en": "salting out",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "turbidité",
-    "ar": "تعكر",
-    "en": "turbidity",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "anaérobie",
-    "ar": "لاهوائي",
-    "en": "anaerobic",
     "level": "B1",
     "contexts": [
       "housing",
@@ -77323,26 +61376,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "condenser",
-    "ar": "مكثف",
-    "en": "condensate",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "dessalage",
-    "ar": "تحلية",
-    "en": "desalting",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "précipité",
     "ar": "مادة مرسبة، رسابة",
     "en": "precipitate",
@@ -77373,29 +61406,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "osmotique",
-    "ar": "تناضحي، أسموزي",
-    "en": "osmotic",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "oxydation",
     "ar": "أكسدة",
     "en": "oxidation",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "écaillage",
-    "ar": "التكلس",
-    "en": "Scaling",
     "level": "B1",
     "contexts": [
       "housing",
@@ -77418,49 +61431,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "distillat",
-    "ar": "ماء مقطر",
-    "en": "distillate / distilled water",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
-    "fr": "enthalpie",
-    "ar": "الانثلية",
-    "en": "enthalpy",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "daily"
-    ]
-  },
-  {
     "fr": "PN",
     "ar": "قاعدة PN",
     "en": "PN",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "kJ",
-    "ar": "كيلوجول",
-    "en": "kJ",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "th",
-    "ar": "حراري/حرارة",
-    "en": "th",
     "level": "B1",
     "contexts": [
       "work",
@@ -77501,26 +61474,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "SP6",
     "ar": "طريقة التجميع SP6",
     "en": "SP6",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "Btu",
-    "ar": "وحدة حرارية بريطانية",
-    "en": "Btu",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "C/H",
-    "ar": "C/H",
-    "en": "C/H",
     "level": "B1",
     "contexts": [
       "work",
@@ -77593,16 +61546,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "HCl",
-    "ar": "حمض الهيدروكلوريك",
-    "en": "HCl",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "N2O",
     "ar": "N2O",
     "en": "N2O",
@@ -77633,16 +61576,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "GaAs",
-    "ar": "زرنيخيد الغاليوم",
-    "en": "GaAs",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "bore",
     "ar": "بورون",
     "en": "boron",
@@ -77656,16 +61589,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "pale",
     "ar": "ريشة العنفة",
     "en": "blade",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "gazs",
-    "ar": "غازات",
-    "en": "gases",
     "level": "B1",
     "contexts": [
       "work",
@@ -77718,26 +61641,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "noria",
-    "ar": "ناعورة",
-    "en": "noria",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "shunt",
-    "ar": "مفرع تيار",
-    "en": "shunt",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "vanne",
     "ar": "صمام",
     "en": "valve",
@@ -77758,59 +61661,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Mérox",
-    "ar": "ميروكس",
-    "en": "Merox",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "wafer",
-    "ar": "رقاقة",
-    "en": "wafer",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "lacet",
     "ar": "نظام الانعراج",
     "en": "yaw",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "Chlor",
-    "ar": "كلور",
-    "en": "chlorine",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "Zokor",
-    "ar": "خلد أعمى",
-    "en": "Zokor",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "moder",
-    "ar": "دبال بني ناعم",
-    "en": "moder",
     "level": "B1",
     "contexts": [
       "work",
@@ -77838,16 +61691,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "lisier",
-    "ar": "سماد سائل",
-    "en": "liquid manure",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "paille",
     "ar": "قش",
     "en": "straw",
@@ -77858,39 +61701,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "adblue",
-    "ar": "سائل أزرق",
-    "en": "adblue",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "grisou",
-    "ar": "غاز المناجم",
-    "en": "mine gas",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "string",
     "ar": "سلسلة",
     "en": "string",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "Phelix",
-    "ar": "مؤشر فيزيائي للكهرباء",
-    "en": "Physical Electricity Index",
     "level": "B1",
     "contexts": [
       "work",
@@ -77928,29 +61741,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Albedo",
-    "ar": "عاكسية",
-    "en": "Albedo",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "corona",
     "ar": "هالة شمسية",
     "en": "corona",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "Tedlar",
-    "ar": "تدلار",
-    "en": "Tedlar",
     "level": "B1",
     "contexts": [
       "work",
@@ -77998,16 +61791,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Thanet",
-    "ar": "حقل رياح 'ثانيت'",
-    "en": "Thanet",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "couple",
     "ar": "عزم الدوران",
     "en": "torque",
@@ -78033,16 +61816,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Géonef",
-    "ar": "مبنى إيرث شيب",
-    "en": "Earthship",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "bavure",
     "ar": "لطخ",
     "en": "smudge",
@@ -78056,16 +61829,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "pilier",
     "ar": "دعامة وسطى",
     "en": "pillar",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "Eisman",
-    "ar": "إسمان",
-    "en": "Eisman",
     "level": "B1",
     "contexts": [
       "work",
@@ -78096,46 +61859,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "كانت هناك أسماك البيرانيا في النهر.",
       "en": "There were piranhas in the river."
     }
-  },
-  {
-    "fr": "MtCO2e",
-    "ar": "MtCO2e",
-    "en": "MtCO2e",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "geyser",
-    "ar": "نبع ماء حار",
-    "en": "geyser",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "grésil",
-    "ar": "مطر متجمد",
-    "en": "sleet",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "Humine",
-    "ar": "هيومين",
-    "en": "Humine",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
   },
   {
     "fr": "houille",
@@ -78178,39 +61901,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "marnage",
-    "ar": "مدى المد والجزر",
-    "en": "tidal range",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "brûleur",
     "ar": "موقد",
     "en": "burner",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "Caloduc",
-    "ar": "أنبوب حرارة",
-    "en": "heat pipe",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "molasse",
-    "ar": "تراكمات اجتثاث",
-    "en": "molasse",
     "level": "B1",
     "contexts": [
       "work",
@@ -78231,16 +61924,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "caverne",
     "ar": "كهف",
     "en": "cavern",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "îlotage",
-    "ar": "تشغيل منعزل",
-    "en": "island operation",
     "level": "B1",
     "contexts": [
       "work",
@@ -78283,15 +61966,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "cup",
     "ar": "كوب",
     "en": "cup",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Iin",
-    "ar": "كتان",
-    "en": "flax",
     "level": "B1",
     "contexts": [
       "shop"
@@ -78343,15 +62017,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "CTex",
-    "ar": "سي تكس",
-    "en": "CTex",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "clos",
     "ar": "تجهيز مانع",
     "en": "down-proof",
@@ -78370,24 +62035,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "ikat",
-    "ar": "تقنية إيكات",
-    "en": "ikat / ikkat",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "lamé",
-    "ar": "لاميه",
-    "en": "lamé",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "Nova",
     "ar": "قماش نوفا",
     "en": "Nova cotton",
@@ -78400,42 +62047,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "rayé",
     "ar": "قماش مخطط",
     "en": "striped fabric",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "steg",
-    "ar": "حمالة للقدم",
-    "en": "web",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "dtex",
-    "ar": "دي تيكس",
-    "en": "dtex",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Grex",
-    "ar": "جريكس",
-    "en": "Grex",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "mesh",
-    "ar": "درجة اتساع فتحات الشبكة",
-    "en": "mesh",
     "level": "B1",
     "contexts": [
       "shop"
@@ -78492,36 +62103,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "shag",
-    "ar": "شاغ",
-    "en": "shag",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Wiss",
-    "ar": "ويس",
-    "en": "Wiss",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "taie",
     "ar": "كيس المخدة",
     "en": "cushion cover",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Zitz",
-    "ar": "شيت",
-    "en": "chintz",
     "level": "B1",
     "contexts": [
       "shop"
@@ -78555,24 +62139,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Pima",
-    "ar": "بيما",
-    "en": "Pima",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Sunn",
-    "ar": "قنب قروطالارية",
-    "en": "Sunn",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "crin",
     "ar": "ذيل الحصان",
     "en": "horsehair",
@@ -78594,33 +62160,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "Poly",
     "ar": "عديد",
     "en": "Poly",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "siks",
-    "ar": "ألياف سيكس ®",
-    "en": "siks",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Zyex",
-    "ar": "ألياف زايكس",
-    "en": "Zyex",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Neps",
-    "ar": "عقد",
-    "en": "Nep",
     "level": "B1",
     "contexts": [
       "shop"
@@ -78667,15 +62206,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "daim",
     "ar": "جلدأيل",
     "en": "suede / buckskin",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "laif",
-    "ar": "لايف",
-    "en": "Laif",
     "level": "B1",
     "contexts": [
       "shop"
@@ -78827,135 +62357,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Tods",
-    "ar": "حذاء تودس",
-    "en": "Tods",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "lacis",
-    "ar": "قماش الشباك",
-    "en": "mesh",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "sergé",
-    "ar": "سيرج",
-    "en": "serge",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Codur",
-    "ar": "كودور",
-    "en": "Codur",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "doppi",
-    "ar": "دوبي",
-    "en": "doppi",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "jarré",
-    "ar": "جاري",
-    "en": "jarré",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "jaspé",
-    "ar": "جاسبي",
-    "en": "jaspé",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "ganse",
-    "ar": "خيط قيطان",
-    "en": "gimp thread / cordonnet",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "lurex",
-    "ar": "لوريكس",
-    "en": "lurex",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "méryl",
-    "ar": "ميريل",
-    "en": "Meryl",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "mylar",
-    "ar": "مايلار",
-    "en": "Mylar",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "fil V",
     "ar": "خيط غزل في V",
     "en": "V yarn",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Atrex",
-    "ar": "أتركس",
-    "en": "Atrex",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "chiné",
-    "ar": "صيني",
-    "en": "chiné",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "créas",
-    "ar": "تجعد",
-    "en": "creas",
     "level": "B1",
     "contexts": [
       "shop"
@@ -79034,45 +62438,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Honan",
-    "ar": "هونان",
-    "en": "honan",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "cadès",
-    "ar": "كاديت",
-    "en": "pinstripe / chalkstripe",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Kasha",
-    "ar": "كاشا",
-    "en": "kasha",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "crêpe",
     "ar": "قماش كريب",
     "en": "crepe / crêpe",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "loden",
-    "ar": "لودن",
-    "en": "loden",
     "level": "B1",
     "contexts": [
       "shop"
@@ -79097,33 +62465,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "natté",
-    "ar": "جديلة",
-    "en": "natté",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "noppé",
-    "ar": "نسيج محبب",
-    "en": "noppé",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "perlé",
-    "ar": "قماش لؤلؤي",
-    "en": "perlé",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "piqué",
     "ar": "نسيج مضلع",
     "en": "piqué",
@@ -79136,15 +62477,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "plaid",
     "ar": "نقش كاروه",
     "en": "plaid",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "pongé",
-    "ar": "قماش بونجيه",
-    "en": "pongé",
     "level": "B1",
     "contexts": [
       "shop"
@@ -79168,15 +62500,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "satin",
     "ar": "أطلس",
     "en": "satin",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Tubic",
-    "ar": "توبيك",
-    "en": "tubic",
     "level": "B1",
     "contexts": [
       "shop"
@@ -79306,42 +62629,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "Heriz",
-    "ar": "هريس",
-    "en": "Heriz",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Kasak",
-    "ar": "سجاد كازاك",
-    "en": "Kazak",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Kelim",
-    "ar": "كليم",
-    "en": "kilim",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Ladik",
-    "ar": "لاديك",
-    "en": "Ladik",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "Népal",
     "ar": "نيبال",
     "en": "Nepal",
@@ -79351,36 +62638,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Pergo",
-    "ar": "بيرجو",
-    "en": "Pergo",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "futon",
-    "ar": "فوتون",
-    "en": "futon",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "duvet",
     "ar": "غطااء السرير",
     "en": "comforter / duvet",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "alèse",
-    "ar": "واق المرتبة",
-    "en": "mattress protector",
     "level": "B1",
     "contexts": [
       "shop"
@@ -79401,63 +62661,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "genêt",
-    "ar": "نبات وزال",
-    "en": "broom / Scotch broom",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "kénaf",
-    "ar": "تيل",
-    "en": "Kenaf",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "kapok",
-    "ar": "قبك",
-    "en": "kapok",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "ramie",
-    "ar": "ألياف الرامي",
-    "en": "ramie",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "sisal",
-    "ar": "ألياف السيزال",
-    "en": "sisal",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "laine",
     "ar": "صوف",
     "en": "wool",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Exlan",
-    "ar": "ألياف إكسلان",
-    "en": "Exlan",
     "level": "B1",
     "contexts": [
       "shop"
@@ -79473,72 +62679,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "lycra",
-    "ar": "ألياف ليكرا",
-    "en": "lycra",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Tenax",
-    "ar": "ألياف تيناكس ®",
-    "en": "Tenax",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Tesil",
-    "ar": "تيسيل ®",
-    "en": "Tesil",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Vinal",
-    "ar": "فينال",
-    "en": "Vinal",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Fasin",
-    "ar": "فازان",
-    "en": "Fasin",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "suint",
-    "ar": "تعرق",
-    "en": "perspiration",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "suède",
     "ar": "جلد دنماركي",
     "en": "Danish leather",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Dehli",
-    "ar": "جلد دلهي",
-    "en": "Delhi sheep",
     "level": "B1",
     "contexts": [
       "shop"
@@ -79577,15 +62720,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "nappa",
-    "ar": "نابا",
-    "en": "nappa",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "fanon",
     "ar": "غبب",
     "en": "dewlap",
@@ -79595,27 +62729,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Domy®",
-    "ar": "دومي®",
-    "en": "Domy®",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "lumen",
     "ar": "لومن",
     "en": "Lumen",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Emba®",
-    "ar": "إيمبا®",
-    "en": "Emba®",
     "level": "B1",
     "contexts": [
       "shop"
@@ -79640,15 +62756,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "caban",
-    "ar": "سترة كابان",
-    "en": "caban / templar coat",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "gilet",
     "ar": "صدار",
     "en": "gilet",
@@ -79663,15 +62770,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "panty",
-    "ar": "سروال داخلي",
-    "en": "panty",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "parka",
     "ar": "معطف باركا",
     "en": "parka",
@@ -79684,24 +62782,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "jupon",
     "ar": "تنورة قصيرة",
     "en": "petticoat",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "talma",
-    "ar": "معطف تالما",
-    "en": "talma",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "tanga",
-    "ar": "تانغا",
-    "en": "tanga",
     "level": "B1",
     "contexts": [
       "shop"
@@ -79726,54 +62806,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "kabig",
-    "ar": "كابيك",
-    "en": "kabik",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "palla",
-    "ar": "رداء بالا",
-    "en": "palla",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "paréo",
-    "ar": "منديل الشاطئ",
-    "en": "pareo",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "stola",
-    "ar": "دثار",
-    "en": "stole",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "toque",
     "ar": "توكة",
     "en": "toque",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "clogs",
-    "ar": "قباقيب",
-    "en": "clogs",
     "level": "B1",
     "contexts": [
       "shop"
@@ -79825,42 +62860,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Ceolon",
-    "ar": "سيولون",
-    "en": "Ceolon",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "blazes",
-    "ar": "ندف الحرير",
-    "en": "flock silk",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "fresco",
-    "ar": "خيط مبروم فريسكو",
-    "en": "Fresco yarn",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "liséré",
-    "ar": "ضفيرة",
-    "en": "pin-tuck",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "cordon",
     "ar": "حبل",
     "en": "cord",
@@ -79870,54 +62869,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "lilion",
-    "ar": "ألياف ليليون",
-    "en": "Lilion",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Metion",
-    "ar": "متيون",
-    "en": "Metion",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "monece",
-    "ar": "مونيس",
-    "en": "Monece",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "Nigel®",
     "ar": "خيوط نيجل®",
     "en": "Nigel®",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Perlon",
-    "ar": "برلون",
-    "en": "Perlon",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Rexor®",
-    "ar": "أشرطة ريكسور ®",
-    "en": "Rexor®",
     "level": "B1",
     "contexts": [
       "shop"
@@ -79942,36 +62896,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "vrillé",
-    "ar": "خيط غزل فريلي",
-    "en": "vrille",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "bouclé",
     "ar": "قماش مجعد",
     "en": "bouclé",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "calmuc",
-    "ar": "كالموك",
-    "en": "calmuc",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "chintz",
-    "ar": "قماش قطني مطبوع",
-    "en": "chintz",
     "level": "B1",
     "contexts": [
       "shop"
@@ -79987,45 +62914,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "coutil",
-    "ar": "تصميم مبرد",
-    "en": "coutil / coutille",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "crespo",
-    "ar": "كريسبو",
-    "en": "Crespo",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "crewel",
-    "ar": "خيط مغزول",
-    "en": "crewel",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "damier",
     "ar": "ضامة",
     "en": "Damier pattern",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "Dowlas",
-    "ar": "دولاس",
-    "en": "dowlas",
     "level": "B1",
     "contexts": [
       "shop"
@@ -80041,36 +62932,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "epingé",
-    "ar": "قطيفة مجعدة",
-    "en": "epingé",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "feutre",
     "ar": "لباد",
     "en": "felt",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "flammé",
-    "ar": "ملتهب",
-    "en": "flammé",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "gaufré",
-    "ar": "جوفريه",
-    "en": "gaufré",
     "level": "B1",
     "contexts": [
       "shop"
@@ -80113,15 +62977,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "lampas",
-    "ar": "لامباس",
-    "en": "lampas",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "rodage",
     "ar": "نسيج مجلخ",
     "en": "lapping",
@@ -80149,15 +63004,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "matiné",
-    "ar": "ماتينه",
-    "en": "matiné",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "Oxford",
     "ar": "قماش أكسفورد",
     "en": "Oxford",
@@ -80176,36 +63022,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "pékiné",
-    "ar": "بكينه",
-    "en": "pekin",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "pepita",
-    "ar": "بيبيتا",
-    "en": "pepita / shepherd’s check",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "plissé",
     "ar": "ثنيات",
     "en": "pleat",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "ramage",
-    "ar": "راماجيه",
-    "en": "ramagé",
     "level": "B1",
     "contexts": [
       "shop"
@@ -80224,24 +63043,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "taches",
     "ar": "رسم البقع",
     "en": "tache pattern",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "felpel",
-    "ar": "فيليبليه",
-    "en": "felpel / velple",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
-    "fr": "ratiné",
-    "ar": "نسيج ولينيه",
-    "en": "undulated ratiné",
     "level": "B1",
     "contexts": [
       "shop"
@@ -80329,15 +63130,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "girlie",
-    "ar": "بناتي",
-    "en": "girlie",
-    "level": "B1",
-    "contexts": [
-      "shop"
-    ]
-  },
-  {
     "fr": "ais",
     "ar": "لوح خشب",
     "en": "plank",
@@ -80351,16 +63143,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "pan",
     "ar": "سنام، تهريم",
     "en": "hip",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "adné",
-    "ar": "مندمج",
-    "en": "adnate",
     "level": "B1",
     "contexts": [
       "housing",
@@ -80391,16 +63173,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "sofa",
     "ar": "أريكة",
     "en": "sofa",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "épar",
-    "ar": "مقطع عرضي",
-    "en": "cross-bar",
     "level": "B1",
     "contexts": [
       "housing",
@@ -80483,16 +63255,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "douve",
-    "ar": "ضلع البرميل",
-    "en": "barrel stave",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
     "fr": "hêtre",
     "ar": "زان، مران",
     "en": "beech",
@@ -80528,16 +63290,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "jable",
-    "ar": "حزة قعر البراميل",
-    "en": "croze",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
     "fr": "divan",
     "ar": "أريكة، متكأ",
     "en": "divan",
@@ -80558,26 +63310,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "fasce",
-    "ar": "إفريز",
-    "en": "fascial",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "gouge",
-    "ar": "مظفار",
-    "en": "gouge",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
     "fr": "laque",
     "ar": "لك",
     "en": "lac",
@@ -80591,16 +63323,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "chêne",
     "ar": "بلوط، سنديان",
     "en": "oak",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "digon",
-    "ar": "عصا العلم",
-    "en": "pennant stick",
     "level": "B1",
     "contexts": [
       "housing",
@@ -80638,16 +63360,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "taret",
-    "ar": "دودة السفن",
-    "en": "ship -worm",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
     "fr": "volet",
     "ar": "مصراع",
     "en": "shutter",
@@ -80661,56 +63373,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "gâche",
     "ar": "صفيحة حماية",
     "en": "striking plate",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "tenon",
-    "ar": "لسان",
-    "en": "tenon",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "torus",
-    "ar": "نتوء مستدير",
-    "en": "torus",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "alléd",
-    "ar": "ممشى",
-    "en": "alley",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "arète",
-    "ar": "قمة",
-    "en": "apex",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "balsa",
-    "ar": "خشب البلسا",
-    "en": "balsa",
     "level": "B1",
     "contexts": [
       "housing",
@@ -80798,29 +63460,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "grume",
-    "ar": "قرمة",
-    "en": "log",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
     "fr": "cloué",
     "ar": "مسمر",
     "en": "nailed",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "chène",
-    "ar": "خشب البلوط",
-    "en": "oak",
     "level": "B1",
     "contexts": [
       "housing",
@@ -80873,29 +63515,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "solin",
-    "ar": "فرجة",
-    "en": "space",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
     "fr": "sapin",
     "ar": "خشب التنوب، خشب صنوبري",
     "en": "spruce",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "couls",
-    "ar": "مسمار جمع أو تجميع",
-    "en": "tack",
     "level": "B1",
     "contexts": [
       "housing",
@@ -80913,16 +63535,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "spaté",
-    "ar": "رباط حائطي، شدادة حائطية",
-    "en": "wall tie",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
     "fr": "noyer",
     "ar": "خشب الجوز",
     "en": "walnut",
@@ -80933,49 +63545,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "chenet",
-    "ar": "منصب",
-    "en": "andiron",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
     "fr": "taquet",
     "ar": "إسفين",
     "en": "angle blocck",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "bâcher",
-    "ar": "قفل",
-    "en": "bar",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "liteau",
-    "ar": "قدة خشبية",
-    "en": "batten",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "châlit",
-    "ar": "هيكل السرير",
-    "en": "bedstead",
     "level": "B1",
     "contexts": [
       "housing",
@@ -81038,29 +63610,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "davier",
-    "ar": "مربط",
-    "en": "cramp",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
     "fr": "tiroir",
     "ar": "جارور، درج",
     "en": "drawer",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "ébéner",
-    "ar": "وبنس",
-    "en": "ebonize",
     "level": "B1",
     "contexts": [
       "housing",
@@ -81088,29 +63640,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "latter",
-    "ar": "لوح",
-    "en": "lath",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
     "fr": "allège",
     "ar": "صندل",
     "en": "lighter",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "grumes",
-    "ar": "جذوع",
-    "en": "logs",
     "level": "B1",
     "contexts": [
       "housing",
@@ -81131,16 +63663,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "onglet",
     "ar": "زاوية مائلة",
     "en": "miter",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "naphte",
-    "ar": "نفط",
-    "en": "naphth",
     "level": "B1",
     "contexts": [
       "housing",
@@ -81178,16 +63700,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "rescie",
-    "ar": "أعاد النشر",
-    "en": "resaw",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
     "fr": "sciage",
     "ar": "نشر",
     "en": "sawing",
@@ -81218,29 +63730,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "enture",
-    "ar": "وصلة",
-    "en": "splice",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
     "fr": "triple",
     "ar": "ثلاثي",
     "en": "triplet",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
-    "fr": "cageot",
-    "ar": "سلة خشبية",
-    "en": "wooden humper",
     "level": "B1",
     "contexts": [
       "housing",
@@ -81373,16 +63865,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "sapine",
-    "ar": "تصدع شبكي",
-    "en": "crane tower",
-    "level": "B1",
-    "contexts": [
-      "housing",
-      "work"
-    ]
-  },
-  {
     "fr": "avis",
     "ar": "اعلان",
     "en": "advertisement",
@@ -81398,39 +63880,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "pica",
-    "ar": "بيكا",
-    "en": "pica",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "paté",
-    "ar": "جمع مخلط",
-    "en": "pie",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "méga",
     "ar": "ميغا",
     "en": "mega",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "brai",
-    "ar": "قار",
-    "en": "pitch",
     "level": "B1",
     "contexts": [
       "work",
@@ -81483,16 +63935,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "galée",
-    "ar": "صينية",
-    "en": "galley",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "encre",
     "ar": "حبر",
     "en": "ink",
@@ -81503,39 +63945,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "ronéo",
-    "ar": "نساخة",
-    "en": "roneo",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "frame",
     "ar": "شبكة",
     "en": "screen",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "délié",
-    "ar": "جزء الرقيق",
-    "en": "thin stroke",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "tréma",
-    "ar": "شكله حرف العلة",
-    "en": "umlaut",
     "level": "B1",
     "contexts": [
       "work",
@@ -81613,26 +64025,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "koalin",
-    "ar": "صلصال صيني",
-    "en": "china-clay",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "cursif",
-    "ar": "جار",
-    "en": "cursive",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "gardes",
     "ar": "ورق بطانة",
     "en": "end papers",
@@ -81708,29 +64100,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "plioir",
-    "ar": "مطواة",
-    "en": "paper-knife",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "plaqué",
     "ar": "مصفح",
     "en": "plated",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "proème",
-    "ar": "ديباجة، تصدير",
-    "en": "proem",
     "level": "B1",
     "contexts": [
       "work",
@@ -81751,26 +64123,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "السحب العلوي",
       "en": "Lat pulldown"
     }
-  },
-  {
-    "fr": "cadrat",
-    "ar": "رقيقة فاصلة",
-    "en": "quad",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "réglet",
-    "ar": "رطوبة النسبية",
-    "en": "reglet",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
   },
   {
     "fr": "biseau",
@@ -81813,16 +64165,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "sébile",
-    "ar": "جفنة خشبية",
-    "en": "wooden bowl",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "ondulé",
     "ar": "مموج",
     "en": "corrugated",
@@ -81853,39 +64195,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "alumel",
-    "ar": "لوميل",
-    "en": "alumel",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "griffe",
     "ar": "مخلب تعليق",
     "en": "ear",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "feeder",
-    "ar": "مغذي",
-    "en": "feeder",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "getter",
-    "ar": "مستأصلة",
-    "en": "getter",
     "level": "B1",
     "contexts": [
       "work",
@@ -81913,29 +64225,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "modulé",
-    "ar": "معدل",
-    "en": "modulated",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "étalon",
     "ar": "عيار",
     "en": "standard",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "touret",
-    "ar": "بكرة",
-    "en": "reel",
     "level": "B1",
     "contexts": [
       "work",
@@ -81958,29 +64250,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "triode",
-    "ar": "ثلاثي المساري",
-    "en": "triode",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "accents",
     "ar": "علامات الشكل",
     "en": "accents",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "addenda",
-    "ar": "ملحق",
-    "en": "addendum",
     "level": "B1",
     "contexts": [
       "work",
@@ -81998,29 +64270,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "plieuse",
-    "ar": "طواية",
-    "en": "bending machine",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "affiche",
     "ar": "ملصق اعلاني",
     "en": "bill",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "relieur",
-    "ar": "مجلد كتب",
-    "en": "bookbinder",
     "level": "B1",
     "contexts": [
       "work",
@@ -82098,16 +64350,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "margeur",
-    "ar": "ملقم",
-    "en": "feeder",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "fleuron",
     "ar": "زهرية",
     "en": "flower",
@@ -82141,26 +64383,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "preneur",
     "ar": "أسطوانة التغذية بالحبر",
     "en": "ink feed roller/cylinder",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "encrage",
-    "ar": "تحبير",
-    "en": "inking",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "taquoir",
-    "ar": "مدق",
-    "en": "jogging machine",
     "level": "B1",
     "contexts": [
       "work",
@@ -82203,16 +64425,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "crénage",
-    "ar": "تحزيز",
-    "en": "nicking",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "papyrus",
     "ar": "بردي",
     "en": "papyrus",
@@ -82243,46 +64455,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "diluent",
-    "ar": "مخفف القوام",
-    "en": "reducer",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "tramage",
-    "ar": "فصل بالغربلة",
-    "en": "screening",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "tireuse",
-    "ar": "نقالة تصويرية",
-    "en": "step-and-repeat",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "grenure",
-    "ar": "تنقيط",
-    "en": "stippling",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "voyelle",
     "ar": "حرف صامت",
     "en": "vowel",
@@ -82293,39 +64465,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "zébrure",
-    "ar": "خطوط زردية",
-    "en": "zebra marks",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
-    "fr": "candela",
-    "ar": "كانديلا",
-    "en": "candela",
-    "level": "B1",
-    "contexts": [
-      "work",
-      "services"
-    ]
-  },
-  {
     "fr": "vif",
     "ar": "مشرق",
     "en": "bright",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "alum",
-    "ar": "شب",
-    "en": "alum",
     "level": "B1",
     "contexts": [
       "school",
@@ -82358,16 +64500,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "fané",
-    "ar": "باهت",
-    "en": "faded",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
     "fr": "fini",
     "ar": "لمسات أخيرة",
     "en": "finish",
@@ -82381,16 +64513,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "انتهيت.",
       "en": "I’m done."
     }
-  },
-  {
-    "fr": "embu",
-    "ar": "لوحة مسطحة",
-    "en": "flat",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
   },
   {
     "fr": "flou",
@@ -82468,16 +64590,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "rapin",
-    "ar": "مبتدئ",
-    "en": "dauber",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
     "fr": "épure",
     "ar": "رسم مكتمل",
     "en": "drawing",
@@ -82513,16 +64625,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "irisé",
-    "ar": "قزحي",
-    "en": "iridescent",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
     "fr": "press",
     "ar": "مكبس",
     "en": "press",
@@ -82551,16 +64653,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "بدون صلصة، من فضلك.",
       "en": "Without sauce, please."
     }
-  },
-  {
-    "fr": "sépia",
-    "ar": "سبيدج",
-    "en": "sepia",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
   },
   {
     "fr": "scale",
@@ -82703,26 +64795,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "criard",
-    "ar": "صارخ",
-    "en": "glaring",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "engobe",
-    "ar": "طلاء الخزف",
-    "en": "glaze",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
     "fr": "nuance",
     "ar": "فارق لوني",
     "en": "hue",
@@ -82736,36 +64808,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "infini",
     "ar": "لامتناه",
     "en": "infinite",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "encrer",
-    "ar": "حبر",
-    "en": "ink",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "mouler",
-    "ar": "سكاب",
-    "en": "moulder",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "moufle",
-    "ar": "صندوق الرص",
-    "en": "muffler",
     "level": "B1",
     "contexts": [
       "school",
@@ -82793,29 +64835,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "poncif",
-    "ar": "رسم مثقب",
-    "en": "ponced",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
     "fr": "pureté",
     "ar": "نقاء اللون",
     "en": "purity",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "calame",
-    "ar": "قلم",
-    "en": "quill",
     "level": "B1",
     "contexts": [
       "school",
@@ -82843,39 +64865,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "rayage",
-    "ar": "كشط",
-    "en": "scratching",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "ombrer",
-    "ar": "ظلل",
-    "en": "shade",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
     "fr": "statue",
     "ar": "تمثال",
     "en": "statue",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "priser",
-    "ar": "ثمن",
-    "en": "value",
     "level": "B1",
     "contexts": [
       "school",
@@ -82893,29 +64885,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "abrasif",
-    "ar": "كاشط",
-    "en": "abrasive",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
     "fr": "amateur",
     "ar": "هاو",
     "en": "amateur",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "Appollo",
-    "ar": "أبولو",
-    "en": "Appollo",
     "level": "B1",
     "contexts": [
       "school",
@@ -82953,26 +64925,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "bossett",
-    "ar": "حدبة",
-    "en": "boss",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "brocart",
-    "ar": "دمقس",
-    "en": "brocade",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
     "fr": "brosser",
     "ar": "رسم بالفرشاة",
     "en": "brush",
@@ -82988,16 +64940,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "brûlage",
-    "ar": "تضهيب",
-    "en": "burning off",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
     "fr": "bustier",
     "ar": "مثال نصفي",
     "en": "bust sculptor",
@@ -83008,49 +64950,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "camaïeu",
-    "ar": "نحيتة ملونة",
-    "en": "cameo-painting",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
     "fr": "moulure",
     "ar": "صب، سبك",
     "en": "casting",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "cinabar",
-    "ar": "زنجفر",
-    "en": "cinnabar",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "caleage",
-    "ar": "استنساخ",
-    "en": "copying",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "écacher",
-    "ar": "عجن",
-    "en": "crush",
     "level": "B1",
     "contexts": [
       "school",
@@ -83078,16 +64980,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "diorama",
-    "ar": "لوحة كبيرة مضاءة",
-    "en": "diorama",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
     "fr": "punaise",
     "ar": "دبوس الرسم",
     "en": "drawing pin",
@@ -83098,29 +64990,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "piquage",
-    "ar": "نحت الأحجار",
-    "en": "dressing of building stone",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
     "fr": "effigie",
     "ar": "نقيشة",
     "en": "effigy",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "bossage",
-    "ar": "نقش ناتئ",
-    "en": "embossing",
     "level": "B1",
     "contexts": [
       "school",
@@ -83151,16 +65023,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "fissure",
     "ar": "تشقق",
     "en": "fissure",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "fixatif",
-    "ar": "مثبت",
-    "en": "fixative",
     "level": "B1",
     "contexts": [
       "school",
@@ -83218,16 +65080,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "racloir",
-    "ar": "مكشط",
-    "en": "grater",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
     "fr": "cerceau",
     "ar": "إطار دائري",
     "en": "hoop",
@@ -83238,79 +65090,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "empâter",
-    "ar": "طلس",
-    "en": "impast",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "inciser",
-    "ar": "حز",
-    "en": "incise",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "ivoirin",
-    "ar": "عاجي",
-    "en": "ivory white",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "coulage",
-    "ar": "سكب",
-    "en": "leakage",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
     "fr": "mordant",
     "ar": "مثبت",
     "en": "mordant",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "mouleur",
-    "ar": "قالب",
-    "en": "mould",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "mudéjar",
-    "ar": "فن  المدجن",
-    "en": "mudejar",
-    "level": "B1",
-    "contexts": [
-      "school",
-      "services"
-    ]
-  },
-  {
-    "fr": "huilier",
-    "ar": "مزيته",
-    "en": "oil-cruet",
     "level": "B1",
     "contexts": [
       "school",
@@ -83335,15 +65117,6 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "school",
       "services"
-    ]
-  },
-  {
-    "fr": "Dx",
-    "ar": "رمز التشخيص",
-    "en": "Dx",
-    "level": "B1",
-    "contexts": [
-      "health"
     ]
   },
   {
@@ -83384,54 +65157,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "mu",
-    "ar": "مو",
-    "en": "mu",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Md",
-    "ar": "رمز المندليفيوم",
-    "en": "Md",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ng",
-    "ar": "رمز النانوغرام",
-    "en": "ng.",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "OH",
     "ar": "رمز زمرة الهيدروكسيل",
     "en": "OH",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pI",
-    "ar": "رمز الباياء",
-    "en": "pI",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Ti",
-    "ar": "رمز التيتانيوم",
-    "en": "Ti",
     "level": "B1",
     "contexts": [
       "health"
@@ -83495,24 +65223,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "cc.",
     "ar": "رمز سنتي متر مكعب",
     "en": "cc.",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "clo",
-    "ar": "كلو",
-    "en": "clo",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "mm3",
-    "ar": "رمز ميلي متر مكعب",
-    "en": "cmm.",
     "level": "B1",
     "contexts": [
       "health"
@@ -83612,15 +65322,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "HVA",
     "ar": "مختصر حمض الهوموفانيليك",
     "en": "HVA",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Qât",
-    "ar": "قات",
-    "en": "khat",
     "level": "B1",
     "contexts": [
       "health"
@@ -83781,15 +65482,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "pO2",
-    "ar": "رمز ضغط الأكسجين الجزئي",
-    "en": "pO2",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "cul",
     "ar": "الدبر",
     "en": "podex",
@@ -83811,15 +65503,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "ré-",
     "ar": "سابقة بمعنى العودة؛الإعادة؛الرد؛الإرجاع؛التكرار",
     "en": "re-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "rhe",
-    "ar": "ري",
-    "en": "rhe",
     "level": "B1",
     "contexts": [
       "health"
@@ -83867,45 +65550,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Zea",
-    "ar": "ذرة",
-    "en": "Zea",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pian",
-    "ar": "الداء العليقي",
-    "en": "ab-oukine",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "abs-",
     "ar": "سابقة بمعنى بعيدا عن",
     "en": "abs-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "akée",
-    "ar": "آقية",
-    "en": "ackee",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "âcre",
-    "ar": "حراق",
-    "en": "acrid",
     "level": "B1",
     "contexts": [
       "health"
@@ -83924,15 +65571,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "aéré",
     "ar": "مشبع بالغاز؛مهوى",
     "en": "aerated",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "akee",
-    "ar": "الآكية",
-    "en": "akee",
     "level": "B1",
     "contexts": [
       "health"
@@ -83971,36 +65609,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Ammi",
-    "ar": "الخلة",
-    "en": "Ammi",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "amok",
-    "ar": "سعار القتل",
-    "en": "amok",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "ana-",
     "ar": "سابقة بمعنى الصعود",
     "en": "ana-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Anda",
-    "ar": "أندة",
-    "en": "Anda",
     "level": "B1",
     "contexts": [
       "health"
@@ -84034,15 +65645,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "aryl",
-    "ar": "أريل",
-    "en": "aryl",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "aut-",
     "ar": "سابقة بمعنى الذاتية ؛ التلقائية",
     "en": "aut-",
@@ -84061,24 +65663,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "axo-",
-    "ar": "سابقة بمعنى المحور",
-    "en": "axo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "azo-",
-    "ar": "آزو",
-    "en": "azo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "bébé",
     "ar": "طفل ؛ رضيع",
     "en": "baby",
@@ -84091,15 +65675,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "اعتنى بالطفل أو رعاه.",
       "en": "He looked after the baby."
     }
-  },
-  {
-    "fr": "barn",
-    "ar": "بارن",
-    "en": "barn",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
   },
   {
     "fr": "bien",
@@ -84157,15 +65732,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Bodo",
-    "ar": "البودو",
-    "en": "Bodo",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "bord",
     "ar": "حد",
     "en": "boundary",
@@ -84189,27 +65755,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Bufo",
-    "ar": "الضفدع",
-    "en": "Bufo",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "cin-",
     "ar": "سابقة بمعنى الحركة",
     "en": "cin-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "taon",
-    "ar": "ذباب الفرس",
-    "en": "clegs",
     "level": "B1",
     "contexts": [
       "health"
@@ -84284,42 +65832,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "cyme",
-    "ar": "سنمة",
-    "en": "cyme",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "cyn-",
-    "ar": "سابقة بمعنى الكلب",
-    "en": "cyn-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "cyt-",
-    "ar": "سابقة بمعنى الخلية",
-    "en": "cyt-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "déca",
-    "ar": "ديكا سابقة بمعنى",
-    "en": "deca",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "déni",
     "ar": "إنكار",
     "en": "denial",
@@ -84370,15 +65882,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "dupp",
-    "ar": "دب",
-    "en": "dupp",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "dure",
     "ar": "الجافية",
     "en": "dura",
@@ -84391,24 +65894,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "كم يستغرق؟",
       "en": "How long does it take?"
     }
-  },
-  {
-    "fr": "dyne",
-    "ar": "داين",
-    "en": "dyne",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "dys-",
-    "ar": "سابقة بمعنى خلل ؛ سوء ؛ عسر ؛ شذوذ",
-    "en": "dys-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
   },
   {
     "fr": "éco-",
@@ -84438,15 +65923,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "éman",
-    "ar": "إمان",
-    "en": "eman",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "end-",
     "ar": "سابقة بمعنى باطن ؛ داخل",
     "en": "end-",
@@ -84465,15 +65941,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "éph-",
-    "ar": "سابقة بمعنى فوق",
-    "en": "eph-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "épi-",
     "ar": "سابقة بمعنى فوق",
     "en": "epi-",
@@ -84483,36 +65950,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "éso-",
-    "ar": "سابقة بمعنى باطن ؛ داخلي ؛ إنسي",
-    "en": "eso-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "exa-",
-    "ar": "إيكزا",
-    "en": "exa-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "exo-",
     "ar": "سابقة بمعنى خارجي ؛ ظاهر ؛ براني ؛ وحشي",
     "en": "exo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "féc-",
-    "ar": "سابقة بمعنى البراز ؛ الغائط",
-    "en": "faec-",
     "level": "B1",
     "contexts": [
       "health"
@@ -84545,15 +65985,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "هل لديكم ملين خفيف؟",
       "en": "Do you have a mild laxative?"
     }
-  },
-  {
-    "fr": "fogo",
-    "ar": "داء الفقاع البرازيلي؛فوغو",
-    "en": "fogo",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
   },
   {
     "fr": "ruse",
@@ -84592,60 +66023,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "gyn-",
-    "ar": "سابقة بمعنى أنثى ؛ امرأة ؛ نساء",
-    "en": "gyn-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "gyr-",
-    "ar": "سابقة بمعنى التلفيف",
-    "en": "gyr-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "plur",
-    "ar": "تلفيف",
-    "en": "gyre",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "habu",
-    "ar": "هابو",
-    "en": "habu",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "hème",
-    "ar": "هيم",
-    "en": "haem",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "hém-",
-    "ar": "سابقة بمعنى الدم",
-    "en": "haem-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "halo",
     "ar": "بهر البصر",
     "en": "halation",
@@ -84664,45 +66041,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "hid-",
-    "ar": "سابقة بمعنى العرق",
-    "en": "hid-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "hol-",
-    "ar": "سابقة بمعنى الشمولية",
-    "en": "hol-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "Homo",
     "ar": "الإنسان",
     "en": "Homo",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "hyl-",
-    "ar": "سابقة بمعنى المادة",
-    "en": "hyl-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "hyo-",
-    "ar": "سابقة بمعنى العظم اللامي",
-    "en": "hyo-",
     "level": "B1",
     "contexts": [
       "health"
@@ -84745,33 +66086,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "koro",
-    "ar": "كورو",
-    "en": "koro",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "kuru",
-    "ar": "الكورو",
-    "en": "kuru",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "lév-",
-    "ar": "سابقة بمعنى اليسار",
-    "en": "lev-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "poux",
     "ar": "قمل",
     "en": "lice",
@@ -84802,33 +66116,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "log-",
     "ar": "سابقة بمعنى الكلام",
     "en": "log-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "lox-",
-    "ar": "سابقة بمعنى عوج ؛ ميل ؛ انحراف",
-    "en": "lox-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "luxé",
-    "ar": "منخلع",
-    "en": "luxated",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "lyo-",
-    "ar": "سابقة بمعنى الذوبان",
-    "en": "lyo-",
     "level": "B1",
     "contexts": [
       "health"
@@ -84867,36 +66154,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "maz-",
-    "ar": "سابقة بمعنى الثدي",
-    "en": "maz-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "men-",
     "ar": "سابقة بمعنى الحيض",
     "en": "men-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "més-",
-    "ar": "سابقة بمعنى متوسط ؛ معتدل ؛ ناصف ؛ إنسي",
-    "en": "mes-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "méso",
-    "ar": "مسيريق",
-    "en": "mesenteriolum",
     "level": "B1",
     "contexts": [
       "health"
@@ -84939,15 +66199,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "moxa",
-    "ar": "كاوية الجلد",
-    "en": "moxa",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "mûre",
     "ar": "التوت",
     "en": "mulberry",
@@ -84966,42 +66217,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "myc-",
-    "ar": "سابقة بمعنى الفطر",
-    "en": "myc-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "myo-",
-    "ar": "سابقة بمعنى العضل",
-    "en": "myo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "myx-",
-    "ar": "سابقة بمعنى المخاط",
-    "en": "myx-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Naja",
-    "ar": "الكوبرا",
-    "en": "Naja",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "nas-",
     "ar": "سابقة بمعنى الأنف",
     "en": "nas-",
@@ -85014,15 +66229,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "néo-",
     "ar": "سابقة بمعنى الجديد ؛ الحديث ؛ المستحدث",
     "en": "neo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "noïa",
-    "ar": "تفكير",
-    "en": "noesis",
     "level": "B1",
     "contexts": [
       "health"
@@ -85065,45 +66271,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "nyad",
-    "ar": "غديرية",
-    "en": "nyad",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "octo",
-    "ar": "سابقة بمعنى الثمانية",
-    "en": "octi-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "olé-",
     "ar": "سابقة بمعنى الزيت",
     "en": "ole-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "omo-",
-    "ar": "سابقة بمعنى الكتف",
-    "en": "omo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "onc-",
-    "ar": "سابقة بمعنى الكلاب أو الصنارة",
-    "en": "onc-",
     "level": "B1",
     "contexts": [
       "health"
@@ -85146,54 +66316,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "oval",
-    "ar": "بيضوي",
-    "en": "oval",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "sur-",
     "ar": "سابقة بمعنى الإفراط",
     "en": "over-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ovin",
-    "ar": "ضأني",
-    "en": "ovine",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ovo-",
-    "ar": "سابقة بمعنى البيضة",
-    "en": "ovo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "oxo-",
-    "ar": "أكسوسابقة كيميائية بمعنى",
-    "en": "oxo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "péd-",
-    "ar": "سابقة بمعنى القدم",
-    "en": "paed-",
     "level": "B1",
     "contexts": [
       "health"
@@ -85223,36 +66348,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "ridé",
-    "ar": "مجعد",
-    "en": "pharcidous",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "phot",
     "ar": "فوت",
     "en": "phot",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pial",
-    "ar": "حنوني",
-    "en": "pial",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Pila",
-    "ar": "البيلاء",
-    "en": "Pila",
     "level": "B1",
     "contexts": [
       "health"
@@ -85286,33 +66384,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "poin",
-    "ar": "بوين",
-    "en": "poin",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pyla",
-    "ar": "البويبة",
-    "en": "pyla",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pyo-",
-    "ar": "سابقة بمعنى القيح",
-    "en": "pyo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "Rana",
     "ar": "الضفدع",
     "en": "Rana",
@@ -85325,15 +66396,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "râle",
     "ar": "صلصلة",
     "en": "rattle",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "roka",
-    "ar": "الرقع",
-    "en": "roka",
     "level": "B1",
     "contexts": [
       "health"
@@ -85363,15 +66425,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "séné",
-    "ar": "سنا ؛ سنامكي",
-    "en": "senna",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "côté",
     "ar": "جانب",
     "en": "side",
@@ -85395,33 +66448,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "sone",
-    "ar": "سون",
-    "en": "sone",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "noma",
-    "ar": "آكلة الفم",
-    "en": "stomatonoma",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "sym-",
-    "ar": "سابقة بمعنى الالتحام",
-    "en": "syn-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "ter-",
     "ar": "سابقة بمعنى الثلاثة",
     "en": "ter-",
@@ -85434,15 +66460,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "tofu",
     "ar": "توفو",
     "en": "tofu",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "torr",
-    "ar": "تور",
-    "en": "torr",
     "level": "B1",
     "contexts": [
       "health"
@@ -85485,99 +66502,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "zéta",
-    "ar": "زيتا",
-    "en": "zeta",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "zipp",
-    "ar": "زيب",
-    "en": "zipp",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "zisp",
-    "ar": "زيسب",
-    "en": "zisp",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "zoo-",
     "ar": "سابقة بمعنى الحيوان",
     "en": "zoo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "acou-",
-    "ar": "سابقة بمعنى السمع أو الصوت المسموع",
-    "en": "acou-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "acro-",
-    "ar": "سابقة بمعنى طرف ؛ نهاية",
-    "en": "acro-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "adén-",
-    "ar": "سابقة بمعنى الغدة",
-    "en": "aden-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Aedes",
-    "ar": "الزاعجة",
-    "en": "Aedes",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "affin",
-    "ar": "تصاهري",
-    "en": "affinous",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "agnat",
-    "ar": "وصي",
-    "en": "agnate",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "aldol",
-    "ar": "ألدول",
-    "en": "aldol",
     "level": "B1",
     "contexts": [
       "health"
@@ -85593,81 +66520,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Aloès",
-    "ar": "صبر",
-    "en": "aloe",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "aloin",
-    "ar": "آلوين",
-    "en": "aloetin",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "amers",
     "ar": "مادة مرة",
     "en": "amaroid",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ambi-",
-    "ar": "سابقة بمعنى بالجهتين",
-    "en": "ambi-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ambo-",
-    "ar": "سابقة بمعنى كلا",
-    "en": "ambo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "andr-",
-    "ar": "سابقة بمعنى الذكورة",
-    "en": "andr-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "angi-",
-    "ar": "سابقة بمعنى الوعاء",
-    "en": "angi-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "anide",
-    "ar": "مشوأ",
-    "en": "anidean",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "anile",
-    "ar": "عجائزي",
-    "en": "anile",
     "level": "B1",
     "contexts": [
       "health"
@@ -85683,54 +66538,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "anote",
-    "ar": "عديم الأذن",
-    "en": "anotus",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "anté-",
-    "ar": "سابقة بمعنى أمام ؛ قبل",
-    "en": "ante-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "anti-",
     "ar": "سابقة بمعنى مضاد ؛ مانع ؛ ضد ؛ معارض",
     "en": "anti-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Anura",
-    "ar": "البتراوات",
-    "en": "Anura",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "aphte",
-    "ar": "قلاع",
-    "en": "aphtha",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "apic-",
-    "ar": "سابقة بمعنى القمة",
-    "en": "apic-",
     "level": "B1",
     "contexts": [
       "health"
@@ -85755,144 +66565,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Areca",
-    "ar": "الفوفل",
-    "en": "Areca",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Argas",
-    "ar": "البرام",
-    "en": "Argas",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "asque",
-    "ar": "عصابة حلزونية",
-    "en": "ascia",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Asco-",
-    "ar": "سابقة بمعنى الزق",
-    "en": "Asco-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "asoma",
-    "ar": "عديم الجسد",
-    "en": "asomus",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "astr-",
-    "ar": "سابقة بمعنى النجم",
-    "en": "astr-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "atite",
-    "ar": "أتيت",
-    "en": "atite",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Atrax",
-    "ar": "العنكب الأسترالي",
-    "en": "Atrax",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "atto-",
-    "ar": "سابقة بمعنى آتو",
-    "en": "atto-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "auto-",
     "ar": "سابقة بمعنى الذاتية أو التلقائية",
     "en": "auto-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "auxo-",
-    "ar": "سابقة بمعنى التنامي",
-    "en": "auxo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Avena",
-    "ar": "الشوفان",
-    "en": "Avena",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "axio-",
-    "ar": "سابقة بمعنى المحور",
-    "en": "axio-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "axone",
-    "ar": "محوار",
-    "en": "axon",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pinta",
-    "ar": "الداء العليقي ؛ بنتا",
-    "en": "azul",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "bary-",
-    "ar": "سابقة بمعنى الثقل",
-    "en": "bary-",
     "level": "B1",
     "contexts": [
       "health"
@@ -85931,45 +66606,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "bétel",
-    "ar": "تنبول",
-    "en": "betel",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "bili-",
-    "ar": "سابقة بمعنى الصفراء",
-    "en": "bili-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Bitis",
-    "ar": "الأبتر",
-    "en": "Bitis",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "blond",
     "ar": "أشقر ؛ شقراء",
     "en": "blond",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "boldo",
-    "ar": "البولدو",
-    "en": "boldo",
     "level": "B1",
     "contexts": [
       "health"
@@ -86003,72 +66642,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "bromé",
-    "ar": "مبرمن",
-    "en": "brominized",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "bubon",
-    "ar": "دبل",
-    "en": "bubon",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "bufa-",
-    "ar": "سابقة بمعنى الضفدعة",
-    "en": "bufa-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "bulb-",
-    "ar": "سابقة بمعنى البصلة",
-    "en": "bulb-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "caco-",
-    "ar": "سابقة بمعنى فاسد ؛ كريه ؛ سيء",
-    "en": "caco-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "canne",
     "ar": "عصا",
     "en": "cane",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "carvi",
-    "ar": "كراويا",
-    "en": "caraway",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "carob",
-    "ar": "خروب",
-    "en": "carob",
     "level": "B1",
     "contexts": [
       "health"
@@ -86084,90 +66660,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Catha",
-    "ar": "قات",
-    "en": "Catha",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "caudé",
-    "ar": "مذنب",
-    "en": "caudate",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "caval",
-    "ar": "متعلق بالوريد الأجوف",
-    "en": "caval",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Cavia",
-    "ar": "كابياء",
-    "en": "Cavia",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "c. cm",
     "ar": "رمز سنتي متر مكعب",
     "en": "c. cm",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "coel-",
-    "ar": "سابقة بمعنى الجوف",
-    "en": "cel-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "cérat",
-    "ar": "شماعة",
-    "en": "cerate",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "céro-",
-    "ar": "سابقة بمعنى الشمع",
-    "en": "cero-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "céryl",
-    "ar": "سيريل",
-    "en": "ceryl",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "cétyl",
-    "ar": "سيتيل",
-    "en": "cetyl",
     "level": "B1",
     "contexts": [
       "health"
@@ -86183,81 +66678,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "ganja",
-    "ar": "غانجا",
-    "en": "charas",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "chil-",
-    "ar": "سابقة بمعنى الشفة",
-    "en": "chil-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "chol-",
-    "ar": "سابقة بمعنى الصفراء",
-    "en": "chol-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "cord-",
     "ar": "سابقة بمعنى الحبل",
     "en": "chord-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "chyl-",
-    "ar": "سابقة بمعنى الكيلوس",
-    "en": "chyl-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "cilié",
-    "ar": "مهدب",
-    "en": "ciliated",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Cimex",
-    "ar": "البق",
-    "en": "Cimex",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "cirs-",
-    "ar": "سابقة بمعنى الدوالي",
-    "en": "cirs-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "clamp",
-    "ar": "ملقاط",
-    "en": "clamp",
     "level": "B1",
     "contexts": [
       "health"
@@ -86291,15 +66714,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "colp-",
-    "ar": "سابقة بمعنى المهبل",
-    "en": "colp-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "teint",
     "ar": "سحناء",
     "en": "complexion",
@@ -86312,33 +66726,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "cone-",
     "ar": "سابقة بمعنى الاشتراك",
     "en": "cone-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Conus",
-    "ar": "القونس",
-    "en": "Conus",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "copal",
-    "ar": "كابال",
-    "en": "copal",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "cordé",
-    "ar": "قلبي الشكل",
-    "en": "cordate",
     "level": "B1",
     "contexts": [
       "health"
@@ -86363,108 +66750,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "corné",
-    "ar": "قرنوي؛قرني",
-    "en": "corneous",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "coro-",
-    "ar": "سابقة بمعنى الحدقة",
-    "en": "coro-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "crêté",
-    "ar": "عرفي",
-    "en": "cristal",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "crith",
-    "ar": "كريث",
-    "en": "crith",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "cruor",
-    "ar": "جلطة",
-    "en": "cruor",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "cryo-",
-    "ar": "سابقة بمعنى البرد",
-    "en": "cryo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Culex",
-    "ar": "الباعضة",
-    "en": "Culex",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "cyan-",
-    "ar": "سابقة بمعنى الأزرق",
-    "en": "cyan-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "cymba",
-    "ar": "زورقة",
-    "en": "cymba",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "cyno-",
-    "ar": "سابقة بمعنى الكلب",
-    "en": "cyno-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "aster",
     "ar": "كوكب",
     "en": "cytaster",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "cyto-",
-    "ar": "سابقة بمعنى الخلية",
-    "en": "cyto-",
     "level": "B1",
     "contexts": [
       "health"
@@ -86494,24 +66782,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "déci-",
-    "ar": "ديسيسابقة بمعنى",
-    "en": "deci-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "déca-",
-    "ar": "سابقة بمعنى عشرة",
-    "en": "deka-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "demi-",
     "ar": "سابقة بمعنى النصف",
     "en": "demi-",
@@ -86530,72 +66800,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "deque",
-    "ar": "صف مزدوج الذيل",
-    "en": "deque",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "derm-",
-    "ar": "سابقة بمعنى الجلد",
-    "en": "derm-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "desm-",
-    "ar": "سابقة بمعنى الرباط",
-    "en": "desm-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "deut-",
-    "ar": "سابقة بمعنى الاثنين",
-    "en": "deut-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "séché",
     "ar": "مجفف؛منزوع الماء",
     "en": "dewatered",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "favus",
-    "ar": "قراع",
-    "en": "dikwakwadi",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "diose",
-    "ar": "ديوز؛ثنائي الأوز",
-    "en": "diose",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "dipl-",
-    "ar": "سابقة بمعنى التضاعف",
-    "en": "dipl-",
     "level": "B1",
     "contexts": [
       "health"
@@ -86634,96 +66841,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "drupe",
-    "ar": "حسلة",
-    "en": "drupe",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "nabot",
-    "ar": "قزمي",
-    "en": "dwarfish",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "dyade",
-    "ar": "صبغي مزدوج",
-    "en": "dyad",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Echis",
-    "ar": "الحارية",
-    "en": "Echis",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ecto-",
-    "ar": "سابقة بمعنى ظاهر ؛ خارجي ؛ براني",
-    "en": "ecto-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ekiri",
-    "ar": "أكيري",
-    "en": "ekiri",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "éléo-",
-    "ar": "سابقة بمعنى الزيت",
-    "en": "elaeo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "élemi",
-    "ar": "إيليمي",
-    "en": "elemi",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "éluat",
-    "ar": "شطافة",
-    "en": "eluate",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "émeri",
-    "ar": "صنفرة",
-    "en": "emery",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "endo-",
     "ar": "سابقة بمعنى باطن ؛ داخل",
     "en": "endo-",
@@ -86733,90 +66850,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "énéma",
-    "ar": "محقنة",
-    "en": "enemator",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ento-",
-    "ar": "سابقة بمعنى باطن ؛ داخل",
-    "en": "ento-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "épigé",
-    "ar": "متعلق بسطح الأرض",
-    "en": "epigean",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "épilé",
-    "ar": "عديم الشعر",
-    "en": "epilose",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "équi-",
-    "ar": "سابقة بمعنى التساوي",
-    "en": "equi-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "équin",
-    "ar": "خيلي",
-    "en": "equine",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Equus",
-    "ar": "الفرس",
-    "en": "Equus",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "ergo-",
     "ar": "سابقة بمعنى العمل",
     "en": "ergo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "érodé",
-    "ar": "متآكل",
-    "en": "eroded",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "eury-",
-    "ar": "سابقة بمعنى واسع ؛ عريض",
-    "en": "eury-",
     "level": "B1",
     "contexts": [
       "health"
@@ -86864,15 +66900,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "flav-",
-    "ar": "سابقة بمعنى أصفر",
-    "en": "flav-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "focal",
     "ar": "بؤري",
     "en": "focal",
@@ -86900,24 +66927,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "Gadus",
-    "ar": "القد ؛ القادوس",
-    "en": "Gadus",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Galen",
-    "ar": "جالينوس",
-    "en": "Galen",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "galop",
     "ar": "خبب",
     "en": "gallop",
@@ -86936,45 +66945,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "uvule",
-    "ar": "اللهاة",
-    "en": "gargareon",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "gemme",
     "ar": "برعومة",
     "en": "gemma",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "jugal",
-    "ar": "خدي",
-    "en": "genal",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "géode",
-    "ar": "حفض",
-    "en": "geode",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "géro-",
-    "ar": "سابقة بمعنى الشيخوخة",
-    "en": "gero-",
     "level": "B1",
     "contexts": [
       "health"
@@ -87008,45 +66981,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "glie-",
-    "ar": "لاحقة بمعنى الدبق",
-    "en": "glia-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "glial",
-    "ar": "دبقي",
-    "en": "glial",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "glio-",
-    "ar": "سابقة بمعنى الدبق",
-    "en": "glio-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "globe",
     "ar": "كرة",
     "en": "globe",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "gono-",
-    "ar": "سابقة بمعنى ركبي",
-    "en": "gony-",
     "level": "B1",
     "contexts": [
       "health"
@@ -87071,42 +67008,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "guaco",
-    "ar": "غواقة",
-    "en": "guaco",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "gyné-",
-    "ar": "سابقة بمعنى أنثى ؛ امرأة ؛ نساء",
-    "en": "gyne-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "gyno-",
-    "ar": "سابقة بمعنى أنثى ؛ امرأة ؛ نساء",
-    "en": "gyno-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "hémo-",
-    "ar": "سابقة بمعنى الدم",
-    "en": "haemo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "poilu",
     "ar": "ذو شعر",
     "en": "haired",
@@ -87119,24 +67020,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "halo-",
     "ar": "سابقة بمعنى الملح",
     "en": "halo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "haph-",
-    "ar": "سابقة بمعنى اللمس",
-    "en": "haph-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "hapt-",
-    "ar": "سابقة بمعنى اللمس",
-    "en": "hapt-",
     "level": "B1",
     "contexts": [
       "health"
@@ -87157,15 +67040,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "héli-",
-    "ar": "سابقة بمعنى الشمس",
-    "en": "heli-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "Helix",
     "ar": "الحلز",
     "en": "Helix",
@@ -87175,63 +67049,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "cigué",
-    "ar": "شوكران",
-    "en": "hemlock",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "henné",
     "ar": "حناء",
     "en": "henna",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "hexa-",
-    "ar": "سابقة بمعنى ستة ؛ سداسي",
-    "en": "hexa-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "hexyl",
-    "ar": "هيكسيل",
-    "en": "hexyl",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "hidr-",
-    "ar": "سابقة بمعنى العرق",
-    "en": "hidroa-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "hiér-",
-    "ar": "سابقة بمعنى العجز",
-    "en": "hier-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ipéca",
-    "ar": "عرق الذهب",
-    "en": "hippo",
     "level": "B1",
     "contexts": [
       "health"
@@ -87250,15 +67070,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "كن رجلا!",
       "en": "Be a man."
     }
-  },
-  {
-    "fr": "hormé",
-    "ar": "مصدر الغرائز",
-    "en": "horme",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
   },
   {
     "fr": "heure",
@@ -87284,252 +67095,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "hyal-",
-    "ar": "سابقة بمعنى الزجاج",
-    "en": "hyal-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "hygr-",
-    "ar": "سابقة بمعنى الرطوبة",
-    "en": "hygr-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "hyle-",
-    "ar": "سابقة بمعنى المادة",
-    "en": "hyle-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "hylo-",
-    "ar": "سابقة بمعنى المادة",
-    "en": "hylo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "hypn-",
-    "ar": "سابقة بمعنى النوم",
-    "en": "hypn-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "iatr-",
-    "ar": "سابقة بمعنى العلاج",
-    "en": "iatr-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ichor",
-    "ar": "غثيثة",
-    "en": "ichor",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ictus",
-    "ar": "نشبة",
-    "en": "ictus",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "idéo-",
-    "ar": "سابقة بمعنى الفكر",
-    "en": "ideo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "idio-",
-    "ar": "سابقة بمعنى الذات",
-    "en": "idio-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "iléal",
-    "ar": "لفائفي",
-    "en": "ileal",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "iléo-",
-    "ar": "سابقة بمعنى اللفائفي",
-    "en": "ileo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ilio-",
-    "ar": "سابقة بمعنى الحرقفة",
-    "en": "ilio-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "impur",
     "ar": "مشوب",
     "en": "impure",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "aines",
-    "ar": "الأربيتان",
-    "en": "inguina",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "inio-",
-    "ar": "سابقة بمعنى القذال",
-    "en": "inio-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Inula",
-    "ar": "الراسن",
-    "en": "Inula",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ioder",
-    "ar": "ييودن",
-    "en": "iodinate",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ipsi-",
-    "ar": "سابقة بمعنى التماثل",
-    "en": "ipsi-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "irid-",
-    "ar": "سابقة بمعنى القزحية",
-    "en": "irid-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "irien",
-    "ar": "قزحي",
-    "en": "iritic",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "itate",
-    "ar": "إيتات",
-    "en": "itate",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "jalap",
-    "ar": "شب الليل",
-    "en": "jalap",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "kasai",
-    "ar": "كازاي",
-    "en": "kasai",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "katal",
-    "ar": "رمز الكاتال",
-    "en": "kat",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "kerma",
-    "ar": "كيرما",
-    "en": "kerma",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "kétal",
-    "ar": "كيتال",
-    "en": "ketal",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "céto-",
-    "ar": "سابقة بمعنى وجود زمرة كيتونية",
-    "en": "keto-",
     "level": "B1",
     "contexts": [
       "health"
@@ -87545,15 +67113,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "crépu",
-    "ar": "ملتو",
-    "en": "kinky",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "kino-",
     "ar": "سابقة بمعنى الحركة",
     "en": "kino-",
@@ -87563,72 +67122,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "kitol",
-    "ar": "كيتول",
-    "en": "kitol",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "kopr-",
-    "ar": "سابقة بمعنى البراز",
-    "en": "kopr-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "laqué",
     "ar": "لكي",
     "en": "laccate",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "lévo-",
-    "ar": "سابقة بمعنى اليسار",
-    "en": "laevo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "lalo-",
-    "ar": "سابقة بمعنى الكلام",
-    "en": "lalo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "filin",
-    "ar": "خويط",
-    "en": "lamin",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "larvé",
-    "ar": "مقنع",
-    "en": "larvaceous",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "latah",
-    "ar": "لاتا",
-    "en": "latah",
     "level": "B1",
     "contexts": [
       "health"
@@ -87658,87 +67154,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "léio-",
-    "ar": "سابقة بمعنى الأملس",
-    "en": "leio-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "lept-",
-    "ar": "سابقة بمعنى النحافة",
-    "en": "lept-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "léser",
-    "ar": "يؤذي",
-    "en": "lese",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "létal",
-    "ar": "مميت",
-    "en": "lethal",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "leuc-",
-    "ar": "سابقة بمعنى الأبيض",
-    "en": "leuc-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "lién-",
-    "ar": "سابقة بمعنى الطحال",
-    "en": "lien-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "lipo-",
-    "ar": "سابقة بمعنى الشحم",
-    "en": "lipo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "lith-",
-    "ar": "سابقة بمعنى الحصاة",
-    "en": "lith-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "urate",
-    "ar": "ليثات",
-    "en": "lithate",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "logo-",
     "ar": "سابقة بمعنى الكلام",
     "en": "logo-",
@@ -87757,51 +67172,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "luxer",
-    "ar": "ينخلع",
-    "en": "luxate",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "lyso-",
-    "ar": "سابقة بمعنى الانحلال",
-    "en": "lyso-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "lysyl",
-    "ar": "ليزيل",
-    "en": "lysyl",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Lytta",
-    "ar": "الذرنوحة",
-    "en": "Lytta",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "maedi",
-    "ar": "ميثة",
-    "en": "maedi",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "magot",
     "ar": "الماغوت ؛ القرد البربري",
     "en": "magot",
@@ -87814,15 +67184,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "mamba",
     "ar": "الحراش",
     "en": "mamba",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "mamm-",
-    "ar": "سابقة بمعنى الثدي",
-    "en": "mamm-",
     "level": "B1",
     "contexts": [
       "health"
@@ -87852,51 +67213,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "méat-",
-    "ar": "سابقة بمعنى الصماخ",
-    "en": "meat-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "méli-",
-    "ar": "سابقة بمعنى العسل ؛ النحل",
-    "en": "meli-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "méso-",
-    "ar": "سابقة بمعنى متوسط ؛ معتدل ؛ ناصف ؛ إنسي",
-    "en": "meso-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "méson",
-    "ar": "ميزوترون",
-    "en": "mesotron",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "métr-",
-    "ar": "سابقة بمعنى الرحم",
-    "en": "metr-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "mini-",
     "ar": "سابقة بمعنى الصغر:صغير ؛ أصغر ؛ صغروي ؛ أدنى ؛ دنيا",
     "en": "mini-",
@@ -87906,36 +67222,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "acare",
-    "ar": "سوس",
-    "en": "mite",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "miti-",
-    "ar": "سابقة بمعنى خيط ؛ فتيل",
-    "en": "miti-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "mito-",
     "ar": "سابقة بمعنى خيط ؛ فتيل",
     "en": "mito-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "mogi-",
-    "ar": "سابقة بمعنى الصعوبة",
-    "en": "mogi-",
     "level": "B1",
     "contexts": [
       "health"
@@ -87978,42 +67267,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "sprue",
-    "ar": "فم بقرحة سيلان",
-    "en": "Ceylon sore mouth",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "muco-",
-    "ar": "سابقة بمعنى المخاط",
-    "en": "muco-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Mucor",
-    "ar": "العفنة",
-    "en": "Mucor",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "poitu",
-    "ar": "شوكي الشكل",
-    "en": "mucroniform",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "mulet",
     "ar": "بغل",
     "en": "mule",
@@ -88026,132 +67279,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "mural",
     "ar": "جداري",
     "en": "mural",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "murin",
-    "ar": "فأري",
-    "en": "murine",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Musca",
-    "ar": "الذبابة",
-    "en": "Musca",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "muton",
-    "ar": "موتون",
-    "en": "muton",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "myco-",
-    "ar": "سابقة بمعنى الفطر",
-    "en": "myco-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "tabès",
-    "ar": "ضمور النخاع",
-    "en": "myelanalosis",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "mylo-",
-    "ar": "سابقة بمعنى الضرس",
-    "en": "mylo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "myone",
-    "ar": "عضلون",
-    "en": "myon",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "myxo-",
-    "ar": "سابقة بمعنى المخاط",
-    "en": "myxo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "naled",
-    "ar": "ناليد",
-    "en": "naled",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "nann-",
-    "ar": "سابقة بمعنى القزم",
-    "en": "nann-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "napex",
-    "ar": "المقذ",
-    "en": "napex",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "naso-",
-    "ar": "سابقة بمعنى الأنف",
-    "en": "naso-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "nécr-",
-    "ar": "سابقة بمعنى النخر ؛ البلى ؛ الموت ؛ الرمة",
-    "en": "necr-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "nérol",
-    "ar": "نيرول",
-    "en": "nerol",
     "level": "B1",
     "contexts": [
       "health"
@@ -88172,78 +67299,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "naev-",
-    "ar": "سابقة بمعنى الوحمة",
-    "en": "nev-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "nexin",
-    "ar": "نيكسين",
-    "en": "nexin",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "nidus",
-    "ar": "عشيش",
-    "en": "nidulus",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "noci-",
-    "ar": "سابقة بمعنى الضرر أو الأذية",
-    "en": "noci-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "noct-",
-    "ar": "سابقة بمعنى الليل",
-    "en": "noct-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "nomo-",
-    "ar": "سابقة بمعنى القانون أو العرف",
-    "en": "nomo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "nona-",
-    "ar": "سابقة بمعنى تسعة",
-    "en": "nona-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "nonan",
-    "ar": "تساعي",
-    "en": "nonan",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "norma",
     "ar": "تمثيلة",
     "en": "norma",
@@ -88253,108 +67308,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "noso-",
-    "ar": "سابقة بمعنى المرض",
-    "en": "noso-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "noto-",
-    "ar": "سابقة بمعنى الظهر",
-    "en": "noto-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "notum",
-    "ar": "الظهر",
-    "en": "notum",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "nyct-",
-    "ar": "سابقة بمعنى الليل",
-    "en": "nyct-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "octa-",
-    "ar": "سابقة بمعنى الثمانية",
-    "en": "octa-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "octal",
-    "ar": "ثماني",
-    "en": "octal",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "pinte",
     "ar": "ثمنية",
     "en": "octarius",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "octo-",
-    "ar": "سابقة بمعنى الثمانية",
-    "en": "octo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ocul-",
-    "ar": "سابقة بمعنى العين",
-    "en": "ocul-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "odyn-",
-    "ar": "سابقة بمعنى الألم",
-    "en": "odyn-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "oléo-",
-    "ar": "سابقة بمعنى الزيت",
-    "en": "oleo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "olig-",
-    "ar": "سابقة بمعنى القلة",
-    "en": "olig-",
     "level": "B1",
     "contexts": [
       "health"
@@ -88379,54 +67335,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "onaye",
-    "ar": "أوناي",
-    "en": "onaye",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "onci-",
-    "ar": "سابقة بمعنى الكلاب أو الصنارة",
-    "en": "onci-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "onir-",
-    "ar": "سابقة بمعنى الحلم ؛ المنام",
-    "en": "oneir-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ophi-",
-    "ar": "سابقة بمعنى الثعبان",
-    "en": "ophi-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "opium",
     "ar": "أفيون",
     "en": "opium",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "opto-",
-    "ar": "سابقة بمعنى البصر ؛ الرؤية ؛ النظر",
-    "en": "opto-",
     "level": "B1",
     "contexts": [
       "health"
@@ -88447,99 +67358,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "séro-",
-    "ar": "سابقة بمعنى المصل",
-    "en": "orrho-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Oryza",
-    "ar": "الرز",
-    "en": "Oryza",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "osté-",
-    "ar": "سابقة بمعنى العظم",
-    "en": "oste-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ozène",
-    "ar": "نتن الأنف",
-    "en": "ozena",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ozoné",
-    "ar": "أوزوني",
-    "en": "ozonic",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pédo-",
-    "ar": "سابقة بمعنى القدم",
-    "en": "paedo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "paire",
     "ar": "زوج",
     "en": "pair",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "palé-",
-    "ar": "سابقة بمعنى القديم",
-    "en": "pale-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pali-",
-    "ar": "سابقة بمعنى التكرار",
-    "en": "pali-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "palpe",
-    "ar": "لامسة",
-    "en": "palp",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "viron",
-    "ar": "جسيم فيروسي",
-    "en": "viral particle",
     "level": "B1",
     "contexts": [
       "health"
@@ -88555,90 +67376,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "pédal",
-    "ar": "قدمي",
-    "en": "pedal",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pélo-",
-    "ar": "سابقة بمعنى الطين",
-    "en": "pelo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pelta",
-    "ar": "دريعة",
-    "en": "pelta",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pelté",
-    "ar": "درعي الشكل",
-    "en": "peltate",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "pence",
     "ar": "وزن البنس",
     "en": "pennyweight",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "péro-",
-    "ar": "سابقة بمعنى التشوه",
-    "en": "pero-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "péta-",
-    "ar": "سابقة بمعنى البيطا",
-    "en": "peta-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "phao-",
-    "ar": "سابقة بمعنى قاتم اللون",
-    "en": "phao-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "phene",
-    "ar": "فين",
-    "en": "phene",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "phon-",
-    "ar": "سابقة بمعنى الصوت",
-    "en": "phon-",
     "level": "B1",
     "contexts": [
       "health"
@@ -88654,15 +67394,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "phor-",
-    "ar": "سابقة بمعنى الحمل",
-    "en": "phor-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "phot-",
     "ar": "سابقة بمعنى الضوء",
     "en": "phot-",
@@ -88672,90 +67403,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "phyma",
-    "ar": "فيمة",
-    "en": "phyma",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "Physa",
-    "ar": "المنفخة",
-    "en": "Physa",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "phyt-",
-    "ar": "سابقة بمعنى النبات",
-    "en": "phyt-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "pico-",
     "ar": "سابقة بمعنى بيكو",
     "en": "pico-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "piéz-",
-    "ar": "سابقة بمعنى الضغط",
-    "en": "pies-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pièze",
-    "ar": "بييز",
-    "en": "pièze",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pigmé",
-    "ar": "قزم",
-    "en": "pigmy",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pilo-",
-    "ar": "سابقة بمعنى الشعر",
-    "en": "pilo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pinné",
-    "ar": "ريشي الشكل",
-    "en": "pinnate",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "oxyre",
-    "ar": "الأقصورة",
-    "en": "pinworm",
     "level": "B1",
     "contexts": [
       "health"
@@ -88780,24 +67430,6 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "plano",
-    "ar": "مستوية",
-    "en": "plano",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "grêlé",
-    "ar": "أوقس",
-    "en": "pockmarked",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "tasse",
     "ar": "فنجان",
     "en": "poculum",
@@ -88812,45 +67444,9 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "podo-",
-    "ar": "سابقة بمعنى القدم",
-    "en": "podo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "poise",
-    "ar": "بواز",
-    "en": "poise",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "poli-",
     "ar": "سابقة بمعنى القطب",
     "en": "poli-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ponos",
-    "ar": "بانوس",
-    "en": "ponos",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "prion",
-    "ar": "بريون",
-    "en": "prion",
     "level": "B1",
     "contexts": [
       "health"
@@ -88875,90 +67471,9 @@ window.VOCAB_DATA_BATCH2 = [
     ]
   },
   {
-    "fr": "psoas",
-    "ar": "العضلة القطنية",
-    "en": "psoas",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ptosé",
-    "ar": "متدل",
-    "en": "ptosed",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "puffs",
-    "ar": "نفائش صبغية",
-    "en": "chromosome puffs",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pulex",
-    "ar": "برغوث",
-    "en": "pulex",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
     "fr": "punir",
     "ar": "يعاقب",
     "en": "punish",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pyél-",
-    "ar": "سابقة بمعنى الحويضة الكلوية",
-    "en": "pyel-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pygo-",
-    "ar": "سابقة بمعنى الألية",
-    "en": "pygo-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pyine",
-    "ar": "بايين",
-    "en": "pyin",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pylé-",
-    "ar": "سابقة بمعنى الباب",
-    "en": "pyle-",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "pyro-",
-    "ar": "سابقة بمعنى الحمى",
-    "en": "pyro-",
     "level": "B1",
     "contexts": [
       "health"
@@ -88991,15 +67506,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "coing",
     "ar": "سفرجل",
     "en": "quince",
-    "level": "B1",
-    "contexts": [
-      "health"
-    ]
-  },
-  {
-    "fr": "ranci",
-    "ar": "زنخ",
-    "en": "rancid",
     "level": "B1",
     "contexts": [
       "health"
@@ -89810,15 +68316,6 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
-  },
-  {
-    "fr": "caféier",
-    "ar": "بن",
-    "en": "coffee",
-    "level": "A1",
-    "contexts": [
-      "restaurant"
     ]
   },
   {
@@ -90844,20 +69341,6 @@ window.VOCAB_DATA_BATCH2 = [
       "fr": "C'est libre ?",
       "ar": "هل هذا المكان فارغ؟",
       "en": "Is this free?"
-    }
-  },
-  {
-    "fr": "sans",
-    "ar": "بغير",
-    "en": "free",
-    "level": "A1",
-    "contexts": [
-      "shop"
-    ],
-    "ex": {
-      "fr": "Sans blague !",
-      "ar": "حقًا؟ / لا تمزح!",
-      "en": "Seriously?"
     }
   },
   {
@@ -92309,20 +70792,6 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "que",
-    "ar": "فقط",
-    "en": "only",
-    "level": "A1",
-    "contexts": [
-      "daily"
-    ],
-    "ex": {
-      "fr": "Que veut Dieu ?",
-      "ar": "ماذا يريد الله؟",
-      "en": "What does God want?"
-    }
-  },
-  {
     "fr": "seulement",
     "ar": "فقط",
     "en": "only",
@@ -92979,15 +71448,6 @@ window.VOCAB_DATA_BATCH2 = [
       "ar": "بار مستقيم",
       "en": "Straight bar"
     }
-  },
-  {
-    "fr": "lézarde",
-    "ar": "نهر أبيض",
-    "en": "river",
-    "level": "A1",
-    "contexts": [
-      "daily"
-    ]
   },
   {
     "fr": "courir",
@@ -94548,15 +73008,6 @@ window.VOCAB_DATA_BATCH2 = [
     "fr": "erroné",
     "ar": "خاطئ",
     "en": "wrong",
-    "level": "A1",
-    "contexts": [
-      "daily"
-    ]
-  },
-  {
-    "fr": "froussard",
-    "ar": "جبان",
-    "en": "yellow",
     "level": "A1",
     "contexts": [
       "daily"

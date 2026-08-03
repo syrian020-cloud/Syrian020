@@ -3501,20 +3501,6 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "composter",
-    "ar": "تصديق التذكرة",
-    "en": "to validate (a ticket)",
-    "level": "B1",
-    "contexts": [
-      "transport"
-    ],
-    "ex": {
-      "fr": "Est-ce qu'il faut composter le billet ?",
-      "ar": "هل يجب تصديق التذكرة؟",
-      "en": "Do I need to validate the ticket?"
-    }
-  },
-  {
     "fr": "un contrôleur",
     "ar": "مفتش التذاكر",
     "en": "a ticket inspector",
@@ -7534,15 +7520,6 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "un télévendeur",
-    "ar": "بائع عبر الهاتف",
-    "en": "a telemarketer",
-    "level": "B1",
-    "contexts": [
-      "work"
-    ]
-  },
-  {
     "fr": "une prospection",
     "ar": "استكشاف / بحث عن زبائن",
     "en": "prospecting",
@@ -7663,21 +7640,6 @@ window.VOCAB_DATA = [
     "contexts": [
       "work"
     ]
-  },
-  {
-    "fr": "un",
-    "ar": "واحد",
-    "en": "one",
-    "level": "A1",
-    "contexts": [
-      "daily",
-      "shop"
-    ],
-    "ex": {
-      "fr": "Un droit",
-      "ar": "حق",
-      "en": "Right"
-    }
   },
   {
     "fr": "deux",
@@ -10362,15 +10324,6 @@ window.VOCAB_DATA = [
       "work",
       "housing",
       "car"
-    ]
-  },
-  {
-    "fr": "un facturier",
-    "ar": "دفتر فواتير",
-    "en": "an invoice book",
-    "level": "B2",
-    "contexts": [
-      "work"
     ]
   },
   {
