@@ -95,12 +95,15 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "daily",
+      "housing",
+      "services",
       "work"
     ],
+    "usage": "المواعيد، العمل، السكن، الإدارة",
     "ex": {
-      "fr": "À partir de demain, je travaille le matin.",
-      "ar": "ابتداءً من الغد، أعمل صباحاً.",
-      "en": "Starting tomorrow, I work in the morning."
+      "fr": "À partir du 1er septembre, je commence un nouveau travail.",
+      "ar": "ابتداءً من 1 سبتمبر، أبدأ عملاً جديدًا.",
+      "en": "Starting September 1st, I start a new job."
     }
   },
   {
@@ -997,17 +1000,19 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "À défaut de",
-    "ar": "في حال عدم وجود",
-    "en": "In the absence of / Failing that",
+    "ar": "في حال عدم وجود / عدم حصول",
+    "en": "In the absence of",
     "level": "B1",
     "contexts": [
       "daily",
-      "restaurant"
+      "restaurant",
+      "services"
     ],
+    "usage": "الشروط الإدارية والبدائل",
     "ex": {
-      "fr": "À défaut de café, je prendrai du thé.",
-      "ar": "في حال عدم وجود القهوة، سأشرب الشاي.",
-      "en": "If there's no coffee, I'll have tea."
+      "fr": "À défaut de réponse, je contacterai le service.",
+      "ar": "في حال عدم وجود جواب، سأتصل بالمصلحة.",
+      "en": "If there is no response, I will contact the service."
     }
   },
   {
@@ -1068,16 +1073,19 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "À votre disposition",
-    "ar": "تحت تصرفكم",
+    "ar": "أنا تحت تصرفكم",
     "en": "At your disposal",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "phone",
+      "services"
     ],
+    "usage": "رسائل رسمية مع الإدارة",
     "ex": {
-      "fr": "Je reste à votre disposition pour toute question.",
-      "ar": "أنا تحت تصرفكم لأي سؤال.",
-      "en": "I remain at your disposal for any question."
+      "fr": "Je reste à votre disposition pour toute information complémentaire.",
+      "ar": "أنا تحت تصرفكم لأي معلومات إضافية.",
+      "en": "I remain available for any additional information."
     }
   },
   {
@@ -1124,17 +1132,21 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "À compter de",
-    "ar": "اعتباراً من",
+    "ar": "اعتبارًا من",
     "en": "Effective from",
     "level": "B1",
     "contexts": [
+      "bank",
+      "caf",
       "daily",
-      "bank"
+      "services",
+      "work"
     ],
+    "usage": "CAF / العمل / العقود / القرارات الإدارية",
     "ex": {
-      "fr": "À compter de lundi, les horaires changent.",
-      "ar": "اعتباراً من يوم الاثنين، ستتغير المواعيد.",
-      "en": "Effective Monday, the schedules will change."
+      "fr": "À compter du mois prochain, mon aide change.",
+      "ar": "اعتبارًا من الشهر القادم، ستتغير مساعدتي.",
+      "en": "Starting next month, my benefit changes."
     }
   },
   {
@@ -1226,18 +1238,20 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "À la suite de",
-    "ar": "بعد / نتيجة لـ",
-    "en": "Following / As a result of",
+    "ar": "بعد / بناءً على",
+    "en": "Following",
     "level": "B1",
     "contexts": [
+      "car",
       "daily",
-      "transport",
-      "car"
+      "services",
+      "transport"
     ],
+    "usage": "الرد على رسالة، قرار، موعد",
     "ex": {
-      "fr": "À la suite de l'accident, la route est fermée.",
-      "ar": "بعد الحادث، الطريق مغلق.",
-      "en": "Following the accident, the road is closed."
+      "fr": "À la suite de votre courrier, je vous contacte.",
+      "ar": "بعد رسالتكم، أتواصل معكم.",
+      "en": "Following your letter, I contact you."
     }
   },
   {
@@ -1430,15 +1444,17 @@ window.VOCAB_DATA = [
   {
     "fr": "À ce jour",
     "ar": "حتى اليوم / إلى الآن",
-    "en": "To this day",
+    "en": "As of today",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "services"
     ],
+    "usage": "جميع الإدارات (متابعة ملف، شكوى، طلب)",
     "ex": {
       "fr": "À ce jour, je n'ai pas reçu de réponse.",
-      "ar": "حتى اليوم، لم أتلقَّ جواباً.",
-      "en": "To this day, I haven't received an answer."
+      "ar": "حتى اليوم، لم أتلقَّ جوابًا.",
+      "en": "As of today, I haven't received a response."
     }
   },
   {
@@ -2080,6 +2096,325 @@ window.VOCAB_DATA = [
       "fr": "Il y a un parking à proximité.",
       "ar": "يوجد موقف سيارات قريب.",
       "en": "There is a parking lot nearby."
+    }
+  },
+  {
+    "fr": "À la demande de",
+    "ar": "بناءً على طلب",
+    "en": "At the request of",
+    "level": "B1",
+    "contexts": [
+      "caf",
+      "france_travail",
+      "health",
+      "prefecture",
+      "work"
+    ],
+    "usage": "CAF / France Travail / Préfecture / CPAM",
+    "ex": {
+      "fr": "À la demande de la CAF, j'ai envoyé les documents.",
+      "ar": "بناءً على طلب الكاف، أرسلت الوثائق.",
+      "en": "At the request of CAF, I sent the documents."
+    }
+  },
+  {
+    "fr": "À remplir",
+    "ar": "للتعبئة / يجب ملؤه",
+    "en": "To be filled out",
+    "level": "A2",
+    "contexts": [
+      "caf",
+      "prefecture",
+      "services"
+    ],
+    "usage": "CAF / Mairie / Préfecture / ملفات الطلبات",
+    "ex": {
+      "fr": "Voici le formulaire à remplir.",
+      "ar": "هذه الاستمارة يجب ملؤها.",
+      "en": "Here is the form to fill out."
+    }
+  },
+  {
+    "fr": "À fournir",
+    "ar": "المطلوب تقديمه",
+    "en": "To provide",
+    "level": "A2",
+    "contexts": [
+      "caf",
+      "france_travail",
+      "housing",
+      "work"
+    ],
+    "usage": "ملفات CAF / France Travail / السكن",
+    "ex": {
+      "fr": "Les documents à fournir sont : une pièce d'identité et un justificatif de domicile.",
+      "ar": "الوثائق المطلوبة هي: الهوية وإثبات السكن.",
+      "en": "The required documents are: ID and proof of address."
+    }
+  },
+  {
+    "fr": "À joindre",
+    "ar": "يجب إرفاقه",
+    "en": "To attach",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "usage": "إرسال الملفات والطلبات",
+    "ex": {
+      "fr": "Les justificatifs à joindre sont obligatoires.",
+      "ar": "الوثائق المرفقة مطلوبة.",
+      "en": "The attached documents are required."
+    }
+  },
+  {
+    "fr": "À transmettre",
+    "ar": "يجب إرساله / تحويله",
+    "en": "To send / Forward",
+    "level": "A2",
+    "contexts": [
+      "caf",
+      "france_travail",
+      "work"
+    ],
+    "usage": "CAF / France Travail / الشركات",
+    "ex": {
+      "fr": "Le dossier est à transmettre avant vendredi.",
+      "ar": "يجب إرسال الملف قبل الجمعة.",
+      "en": "The file must be sent before Friday."
+    }
+  },
+  {
+    "fr": "À l'appui de",
+    "ar": "لدعم / لإثبات",
+    "en": "In support of",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "usage": "طلب مساعدة، اعتراض، ملف قانوني",
+    "ex": {
+      "fr": "J'ajoute un document à l'appui de ma demande.",
+      "ar": "أضيف وثيقة لدعم طلبي.",
+      "en": "I add a document in support of my request."
+    }
+  },
+  {
+    "fr": "À l'attention de",
+    "ar": "إلى عناية / موجه إلى",
+    "en": "For the attention of",
+    "level": "B1",
+    "contexts": [
+      "phone",
+      "services"
+    ],
+    "usage": "الرسائل الرسمية والملفات الإدارية",
+    "ex": {
+      "fr": "À l'attention du service CAF.",
+      "ar": "إلى عناية مصلحة الكاف.",
+      "en": "For the attention of the CAF department."
+    }
+  },
+  {
+    "fr": "À destination de",
+    "ar": "موجه إلى / خاص بـ",
+    "en": "Intended for",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "usage": "إرسال وثائق أو معلومات إلى جهة معينة",
+    "ex": {
+      "fr": "Ce courrier est à destination de France Travail.",
+      "ar": "هذه الرسالة موجهة إلى مكتب العمل.",
+      "en": "This letter is intended for France Travail."
+    }
+  },
+  {
+    "fr": "À envoyer",
+    "ar": "يجب إرساله",
+    "en": "To be sent",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "usage": "الاستمارات والوثائق",
+    "ex": {
+      "fr": "Le document est à envoyer avant la date limite.",
+      "ar": "يجب إرسال الوثيقة قبل الموعد النهائي.",
+      "en": "The document must be sent before the deadline."
+    }
+  },
+  {
+    "fr": "À signer",
+    "ar": "يجب توقيعه",
+    "en": "To be signed",
+    "level": "A2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "usage": "العقود، التصاريح، الملفات",
+    "ex": {
+      "fr": "Voici le document à signer.",
+      "ar": "هذه الوثيقة يجب توقيعها.",
+      "en": "Here is the document to sign."
+    }
+  },
+  {
+    "fr": "À dater",
+    "ar": "يجب وضع التاريخ عليه",
+    "en": "To be dated",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "usage": "النماذج الإدارية",
+    "ex": {
+      "fr": "Le formulaire est à dater et à signer.",
+      "ar": "يجب وضع التاريخ والتوقيع على الاستمارة.",
+      "en": "The form must be dated and signed."
+    }
+  },
+  {
+    "fr": "À compléter",
+    "ar": "يجب إكماله / تعبئته",
+    "en": "To be completed",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "usage": "ملفات الإدارة",
+    "ex": {
+      "fr": "Le dossier est à compléter.",
+      "ar": "يجب إكمال الملف.",
+      "en": "The file needs to be completed."
+    }
+  },
+  {
+    "fr": "À retourner",
+    "ar": "يجب إعادته / إرساله مرة أخرى",
+    "en": "To return",
+    "level": "A2",
+    "contexts": [
+      "caf",
+      "health",
+      "services",
+      "work"
+    ],
+    "usage": "CAF، التأمين، العقود",
+    "ex": {
+      "fr": "Le formulaire est à retourner signé.",
+      "ar": "يجب إعادة الاستمارة موقعة.",
+      "en": "The form must be returned signed."
+    }
+  },
+  {
+    "fr": "À jour",
+    "ar": "محدّث / مسدد / في وضع جيد",
+    "en": "Up to date",
+    "level": "A2",
+    "contexts": [
+      "bank",
+      "services"
+    ],
+    "usage": "الحسابات، الملفات، الوثائق",
+    "ex": {
+      "fr": "Mon dossier CAF est à jour.",
+      "ar": "ملفي في الكاف محدث.",
+      "en": "My CAF file is up to date."
+    }
+  },
+  {
+    "fr": "À jour de ses droits",
+    "ar": "مستوفي حقوقه / حقوقه مفعلة",
+    "en": "Up to date with one's rights",
+    "level": "B1",
+    "contexts": [
+      "caf",
+      "services"
+    ],
+    "usage": "CAF، الضمان الاجتماعي، المساعدات",
+    "ex": {
+      "fr": "Je veux vérifier si mes droits sont à jour.",
+      "ar": "أريد التأكد من أن حقوقي مفعلة."
+    }
+  },
+  {
+    "fr": "À titre exceptionnel",
+    "ar": "بصفة استثنائية",
+    "en": "Exceptionally",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "usage": "طلبات خاصة، مساعدات استثنائية",
+    "ex": {
+      "fr": "Je demande une aide à titre exceptionnel.",
+      "ar": "أطلب مساعدة بصفة استثنائية."
+    }
+  },
+  {
+    "fr": "À titre informatif",
+    "ar": "للعلم فقط",
+    "en": "For information only",
+    "level": "B1",
+    "contexts": [
+      "phone",
+      "services"
+    ],
+    "usage": "رسائل الإدارة",
+    "ex": {
+      "fr": "Ce message est envoyé à titre informatif.",
+      "ar": "هذه الرسالة أرسلت للعلم فقط."
+    }
+  },
+  {
+    "fr": "À votre demande",
+    "ar": "بناءً على طلبكم",
+    "en": "At your request",
+    "level": "A2",
+    "contexts": [
+      "health",
+      "services",
+      "work"
+    ],
+    "usage": "الإدارة، الشركات، التأمين",
+    "ex": {
+      "fr": "À votre demande, nous avons modifié le dossier.",
+      "ar": "بناءً على طلبكم، عدلنا الملف."
+    }
+  },
+  {
+    "fr": "À réception de",
+    "ar": "عند استلام",
+    "en": "Upon receipt of",
+    "level": "B1",
+    "contexts": [
+      "bank",
+      "post",
+      "services"
+    ],
+    "usage": "البريد، الوثائق، الدفعات",
+    "ex": {
+      "fr": "Le paiement sera effectué à réception des documents.",
+      "ar": "سيتم الدفع عند استلام الوثائق."
+    }
+  },
+  {
+    "fr": "À défaut de paiement",
+    "ar": "في حال عدم الدفع",
+    "en": "In case of non-payment",
+    "level": "B1",
+    "contexts": [
+      "bank",
+      "housing",
+      "services"
+    ],
+    "usage": "الفواتير، الإيجار، الخدمات",
+    "ex": {
+      "fr": "À défaut de paiement, des frais seront appliqués.",
+      "ar": "في حال عدم الدفع، ستُفرض رسوم."
     }
   }
 ];
