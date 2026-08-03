@@ -29,7 +29,7 @@ The relevant pages are:
 /opt/.devin/chrome/chrome/linux-137.0.7118.2/chrome-linux64/chrome \
   --no-sandbox --disable-gpu --remote-debugging-port=29229 \
   --remote-allow-origins='*' \
-  --user-data-dir=/tmp/chromev137 \
+  --user-data-dir=/tmp/chromev140 \
   --no-first-run --no-default-browser-check \
   --incognito http://localhost:8080/vocab.html
 ```
@@ -45,25 +45,32 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Chrome may show a 404 for `favicon.ico` on first load; this is harmless and does not affect functionality.
 - The `browser_console` tool can drop its CDP connection in this environment. Use `/tmp/cdp_helper.py` (Python `websocket-client`) to connect to `ws://localhost:29229/devtools/page/<id>` and evaluate JS / capture `Log.entryAdded` and `Runtime.consoleAPICalled` events.
 
-## Vocab page quick checks (reset 143-entry dataset)
+## Vocab page quick checks (163-entry dataset with `usage` field)
 
 - `data/vocab.js` contains the active dataset; `data/vocab-batch-02.js` is currently empty (`window.VOCAB_DATA_BATCH2 = []`).
-- Total entries: **143** French phrases beginning with `À`.
+- Total entries: **163** French phrases beginning with `À`.
 - Entry structure: every entry has `fr`, `ar`, `en`, `level` (A1/A2/B1), `contexts` array, and `ex` (`fr`, `ar`, `en`).
-- Levels: A1=28, A2=94, B1=21.
-- Contexts: daily (143 entries; tag always present), transport=16, work=16, housing=8, shop=7, family=6, health=5, restaurant=5, car=5, bank=4, services=3, weather=3, phone=2.
+- **26 new administrative entries also include a `usage` field** (Arabic usage context) rendered on the card above the example.
+- Levels: A1=28, A2=105, B1=30.
+- Contexts: daily (143), services (26), work (23), housing (11), health (8), shop (7), bank (7), caf (7), transport (16), family (6), restaurant (5), car (5), phone (5), France Travail (3), prefecture (2), post (1), weather (3).
 - Search examples:
   - `gauche` → 1 result (`À gauche`)
-  - `يسار` → 1 result (`À gauche`)
-  - `côté` → 3 results (`À côté`, `À côté de ça`, `À côté de la plaque`)
-  - `left` → 1 result (`À gauche`)
+  - `demande` → 3 results (`À la suite de votre demande`, `À la demande de`, `À votre demande`)
+  - `remplir` → 1 result (`À remplir`)
+  - `envoyer` → 1 result (`À envoyer`)
+  - `réception` → 1 result (`À réception de`)
+  - `CAF` → **0 results** because search only scans `fr`/`ar`/`en`, not `usage` or context labels. Use the `CAF` context chip to see the 7 CAF-related entries.
 - Filter counts:
-  - level `A1` → 28
-  - context `transport` (`مواصلات` in AR, `Transports` in FR) → 16
+  - level `A2` → 105
+  - context `services` → 26
 - Sorting:
   - A → Z first term: `À bas`
   - Z → A first term: `À vue d'œil`
-- Pagination: `pageSize` is 100; the `#load-more` button shows the remaining count on first load (e.g. `تحميل المزيد (43)` / `Load more (43)` / `Charger plus (43)`), and after one click renders all 143 cards and removes the button.
+- Pagination: `pageSize` is 100; the `#load-more` button shows the remaining count on first load (e.g. `تحميل المزيد (63)` / `Load more (63)` / `Charger plus (63)`), and after one click renders all 163 cards and removes the button.
+- `usage` field:
+  - Rendered in a `.usage` div with `dir="rtl"` between the `.meta` pills and the `.example` block.
+  - Styled with a right accent border and subtle accent background (`vocab.html` line 116).
+  - Only appears on entries that have a `usage` property; non-admin cards (e.g., `À gauche`) do not have a `.usage` element.
 - Audio uses Web Speech API or Capacitor TTS; in the VM the audio may not play, but the buttons should not throw console errors.
 - Card action buttons (from right to left in RTL Arabic, left to right in LTR English/French):
   - `speak-btn` (🔊 / `نطق` / `Speak` / `Écouter`)
@@ -79,14 +86,20 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v80`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v81`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
   ```
-- If `data/manifest.js` or any `data/stage*.js` file is missing, the install step fails and `dross-v80` will not activate.
+- If `data/manifest.js` or any `data/stage*.js` file is missing, the install step fails and `dross-v81` will not activate.
 
 ## Android APK testing
 
 - The debug APK is built to `android/app/build/outputs/apk/debug/app-debug.apk` after Capacitor rebuilds.
 - If no Android device or emulator is attached (`adb devices` is empty), runtime APK testing is not feasible; only inspect APK presence/size or metadata.
+
+## Known data-quality issues (last observed)
+
+- 6 administrative entries are missing the `ex.en` (English example) field:
+  `À jour de ses droits`, `À titre exceptionnel`, `À titre informatif`, `À votre demande`, `À réception de`, `À défaut de paiement`.
+  They render a `.usage` line and French/Arabic example, but no English example line.

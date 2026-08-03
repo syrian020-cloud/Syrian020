@@ -2337,7 +2337,8 @@ window.VOCAB_DATA = [
     "usage": "CAF، الضمان الاجتماعي، المساعدات",
     "ex": {
       "fr": "Je veux vérifier si mes droits sont à jour.",
-      "ar": "أريد التأكد من أن حقوقي مفعلة."
+      "ar": "أريد التأكد من أن حقوقي مفعلة.",
+      "en": "I want to check if my rights are up to date."
     }
   },
   {
@@ -2351,7 +2352,8 @@ window.VOCAB_DATA = [
     "usage": "طلبات خاصة، مساعدات استثنائية",
     "ex": {
       "fr": "Je demande une aide à titre exceptionnel.",
-      "ar": "أطلب مساعدة بصفة استثنائية."
+      "ar": "أطلب مساعدة بصفة استثنائية.",
+      "en": "I am requesting assistance exceptionally."
     }
   },
   {
@@ -2366,7 +2368,8 @@ window.VOCAB_DATA = [
     "usage": "رسائل الإدارة",
     "ex": {
       "fr": "Ce message est envoyé à titre informatif.",
-      "ar": "هذه الرسالة أرسلت للعلم فقط."
+      "ar": "هذه الرسالة أرسلت للعلم فقط.",
+      "en": "This message is sent for information only."
     }
   },
   {
@@ -2382,7 +2385,8 @@ window.VOCAB_DATA = [
     "usage": "الإدارة، الشركات، التأمين",
     "ex": {
       "fr": "À votre demande, nous avons modifié le dossier.",
-      "ar": "بناءً على طلبكم، عدلنا الملف."
+      "ar": "بناءً على طلبكم، عدلنا الملف.",
+      "en": "At your request, we have modified the file."
     }
   },
   {
@@ -2398,7 +2402,8 @@ window.VOCAB_DATA = [
     "usage": "البريد، الوثائق، الدفعات",
     "ex": {
       "fr": "Le paiement sera effectué à réception des documents.",
-      "ar": "سيتم الدفع عند استلام الوثائق."
+      "ar": "سيتم الدفع عند استلام الوثائق.",
+      "en": "Payment will be made upon receipt of the documents."
     }
   },
   {
@@ -2414,7 +2419,8 @@ window.VOCAB_DATA = [
     "usage": "الفواتير، الإيجار، الخدمات",
     "ex": {
       "fr": "À défaut de paiement, des frais seront appliqués.",
-      "ar": "في حال عدم الدفع، ستُفرض رسوم."
+      "ar": "في حال عدم الدفع، ستُفرض رسوم.",
+      "en": "In case of non-payment, fees will be applied."
     }
   }
 ];
