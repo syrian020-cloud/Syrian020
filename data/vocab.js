@@ -1,4 +1,4 @@
-/* French vocabulary for daily life in France — starter dataset with examples. */
+/* French vocabulary for daily life in France — starter dataset with matched trilingual examples. */
 window.VOCAB_DATA = [
   {
     "fr": "Bonjour",
@@ -9,9 +9,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Bonjour, comment allez-vous ?",
-      "ar": "مرحباً، كيف حالك؟",
-      "en": "Hello, how are you?"
+      "fr": "Bonjour, mon ami.",
+      "ar": "مرحبا, يا صديقي.",
+      "en": "Hello, my friend."
     }
   },
   {
@@ -21,12 +21,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Bonsoir tout le monde.",
-      "ar": "مساء الخير للجميع.",
-      "en": "Good evening everyone."
-    }
+    ]
   },
   {
     "fr": "Bonsoir",
@@ -35,12 +30,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Bonsoir, une table pour deux.",
-      "ar": "مساء الخير، طاولة لشخصين.",
-      "en": "Good evening, a table for two."
-    }
+    ]
   },
   {
     "fr": "Salut",
@@ -51,9 +41,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Salut ! Ça va ?",
-      "ar": "مرحباً! كيفك؟",
-      "en": "Hi! How are you?"
+      "fr": "Salut, ça va ?",
+      "ar": "أهلاً، كيف حالك؟",
+      "en": "Hi, how are you?"
     }
   },
   {
@@ -65,9 +55,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Merci beaucoup.",
-      "ar": "شكراً جزيلاً.",
-      "en": "Thank you very much."
+      "fr": "Merci Docteur.",
+      "ar": "شكرًا دكتور.",
+      "en": "Thank you Doctor."
     }
   },
   {
@@ -79,9 +69,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Merci beaucoup !",
-      "ar": "شكرا جزيلا!",
-      "en": "Thank you so much!"
+      "fr": "Merci beaucoup les amis.",
+      "ar": "شكرا جزيلا يا رفاق.",
+      "en": "Many thanks, friends."
     }
   },
   {
@@ -93,9 +83,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Un café, s'il vous plaît.",
-      "ar": "قهوة، من فضلك.",
-      "en": "A coffee, please."
+      "fr": "S'il vous plaît, merci, de rien.",
+      "ar": "من فضلك، شكراً، عفواً.",
+      "en": "Please, thank you, you're welcome."
     }
   },
   {
@@ -107,9 +97,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Excusez-moi, où est la sortie ?",
-      "ar": "عفواً، أين المخرج؟",
-      "en": "Excuse me, where is the exit?"
+      "fr": "Excusez-moi, c'est à vous ?",
+      "ar": "عذرًا، هل هذا دورك؟",
+      "en": "Excuse me, is it your turn?"
     }
   },
   {
@@ -121,9 +111,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Pardon, je ne comprends pas.",
-      "ar": "عذراً، لا أفهم.",
-      "en": "Sorry, I don't understand."
+      "fr": "Pardon, c'est ma faute.",
+      "ar": "المعذرة، إنه خطئي.",
+      "en": "Sorry, it's my fault."
     }
   },
   {
@@ -133,12 +123,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "Oui",
@@ -149,9 +134,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Oui, je suis allé hier.",
-      "ar": "نعم ذهبت البارحة.",
-      "en": "Yes, I went yesterday."
+      "fr": "Oui, tiens.",
+      "ar": "نعم، تفضل.",
+      "en": "Yes, here you go."
     }
   },
   {
@@ -163,9 +148,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Non !",
-      "ar": "لا!",
-      "en": "Nope!"
+      "fr": "Non, ça va.",
+      "ar": "لا، لا مشكلة.",
+      "en": "No, it's okay."
     }
   },
   {
@@ -177,9 +162,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "C'est peut-être vrai ou pas.",
-      "ar": "قد يكون أو لا يكون صحيحا.",
-      "en": "It may or may not be true."
+      "fr": "Peut-être, mais ce n'est pas facile.",
+      "ar": "ربما، لكن الأمر ليس سهلاً.",
+      "en": "Maybe, but it's not easy."
     }
   },
   {
@@ -191,9 +176,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Je ne sais pas.",
-      "ar": "لا أدري.",
-      "en": "I do not know."
+      "fr": "Je ne sais pas, Tom.",
+      "ar": "لا أعلم يا تام.",
+      "en": "I don't know, Tom."
     }
   },
   {
@@ -205,9 +190,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Je ne comprends pas, pouvez-vous répéter ?",
-      "ar": "لا أفهم، هل يمكنك التكرار؟",
-      "en": "I don't understand, can you repeat?"
+      "fr": "Je ne comprends pas la posologie.",
+      "ar": "لا أفهم طريقة الجرعة.",
+      "en": "I don't understand the dosage."
     }
   },
   {
@@ -219,12 +204,7 @@ window.VOCAB_DATA = [
       "daily",
       "office",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "Pouvez-vous répéter ?",
@@ -234,12 +214,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "office"
-    ],
-    "ex": {
-      "fr": "Où êtes-vous ?",
-      "ar": "أين أنت ؟",
-      "en": "Where art thou?"
-    }
+    ]
   },
   {
     "fr": "Pouvez-vous parler plus lentement ?",
@@ -251,12 +226,7 @@ window.VOCAB_DATA = [
       "office",
       "ofii",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "Où êtes-vous ?",
-      "ar": "أين أنت ؟",
-      "en": "Where art thou?"
-    }
+    ]
   },
   {
     "fr": "Pouvez-vous m'aider ?",
@@ -268,12 +238,7 @@ window.VOCAB_DATA = [
       "redcross",
       "prefecture",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Où êtes-vous ?",
-      "ar": "أين أنت ؟",
-      "en": "Where art thou?"
-    }
+    ]
   },
   {
     "fr": "J'ai besoin d'aide",
@@ -286,9 +251,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "J'ai faim !",
-      "ar": "أشعر بالجوع.",
-      "en": "I am hungry!"
+      "fr": "J'ai besoin d'aide d'urgence.",
+      "ar": "أحتاج إلى مساعدة عاجلة.",
+      "en": "I need urgent help."
     }
   },
   {
@@ -300,12 +265,7 @@ window.VOCAB_DATA = [
       "daily",
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "Où es-tu ?",
-      "ar": "أين أنت ؟",
-      "en": "Where art thou?"
-    }
+    ]
   },
   {
     "fr": "Combien ça coûte ?",
@@ -318,9 +278,9 @@ window.VOCAB_DATA = [
       "cafe"
     ],
     "ex": {
-      "fr": "Regarde ça.",
-      "ar": "انظری الی هذا.",
-      "en": "Watch this."
+      "fr": "Combien pèse-t-il et combien ça coûte ?",
+      "ar": "كم وزنه وكم يكلّف؟",
+      "en": "How much does it weigh and how much does it cost?"
     }
   },
   {
@@ -332,12 +292,7 @@ window.VOCAB_DATA = [
       "daily",
       "shop",
       "cafe"
-    ],
-    "ex": {
-      "fr": "C'est son ami.",
-      "ar": "هو صديق له.",
-      "en": "This is her friend."
-    }
+    ]
   },
   {
     "fr": "Je voudrais...",
@@ -349,12 +304,7 @@ window.VOCAB_DATA = [
       "cafe",
       "restaurant",
       "shop"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "Je cherche...",
@@ -365,12 +315,7 @@ window.VOCAB_DATA = [
       "daily",
       "shop",
       "office"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "Je voudrais payer",
@@ -383,9 +328,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
+      "fr": "Je voudrais payer mensuellement.",
+      "ar": "أريد الدفع شهرياً.",
+      "en": "I would like to pay monthly."
     }
   },
   {
@@ -396,12 +341,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "Où êtes-vous ?",
-      "ar": "أين أنت ؟",
-      "en": "Where art thou?"
-    }
+    ]
   },
   {
     "fr": "Je peux payer par carte ?",
@@ -413,12 +353,7 @@ window.VOCAB_DATA = [
       "shop",
       "restaurant",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "le café",
@@ -428,12 +363,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "daily"
-    ],
-    "ex": {
-      "fr": "Je vais au café tous les matins.",
-      "ar": "أذهب إلى المقهى كل صباح.",
-      "en": "I go to the café every morning."
-    }
+    ]
   },
   {
     "fr": "un café",
@@ -445,9 +375,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "Un café, s'il vous plaît.",
-      "ar": "قهوة، من فضلك.",
-      "en": "A coffee, please."
+      "fr": "Un café allongé, s'il vous plaît.",
+      "ar": "قهوة مخفّفة، من فضلك.",
+      "en": "An americano, please."
     }
   },
   {
@@ -457,12 +387,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "cafe"
-    ],
-    "ex": {
-      "fr": "Au secours !",
-      "ar": "النجدة!",
-      "en": "Help!"
-    }
+    ]
   },
   {
     "fr": "un café noir",
@@ -471,12 +396,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "cafe"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un thé",
@@ -486,12 +406,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un jus d'orange",
@@ -502,12 +417,7 @@ window.VOCAB_DATA = [
       "cafe",
       "restaurant",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un verre d'eau",
@@ -517,12 +427,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une carafe d'eau",
@@ -532,12 +437,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "le sucre",
@@ -578,12 +478,7 @@ window.VOCAB_DATA = [
       "cafe",
       "restaurant",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le poivre",
@@ -593,12 +488,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le pain",
@@ -609,12 +499,7 @@ window.VOCAB_DATA = [
       "cafe",
       "restaurant",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "une baguette",
@@ -625,12 +510,7 @@ window.VOCAB_DATA = [
       "cafe",
       "daily",
       "shop"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un croissant",
@@ -640,12 +520,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un sandwich",
@@ -655,12 +530,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une salade",
@@ -670,12 +540,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une soupe",
@@ -685,12 +550,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "le plat du jour",
@@ -700,12 +560,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "un menu",
@@ -715,12 +570,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "la carte",
@@ -733,9 +583,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
+      "fr": "La carte, s'il vous plaît.",
+      "ar": "القائمة، من فضلك.",
+      "en": "The menu, please."
     }
   },
   {
@@ -748,9 +598,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "Ce n'est pas une table.",
-      "ar": "هذه ليست طاولة.",
-      "en": "This is not a table."
+      "fr": "Une table pour deux personnes, ce soir.",
+      "ar": "طاولة لشخصين، هذا المساء.",
+      "en": "A table for two, this evening."
     }
   },
   {
@@ -762,12 +612,7 @@ window.VOCAB_DATA = [
       "cafe",
       "daily",
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une terrasse",
@@ -777,12 +622,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une serveuse",
@@ -792,12 +632,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un serveur",
@@ -807,12 +642,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "le patron",
@@ -823,12 +653,7 @@ window.VOCAB_DATA = [
       "cafe",
       "work",
       "shop"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le pourboire",
@@ -840,9 +665,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
+      "fr": "Le pourboire n'est pas obligatoire.",
+      "ar": "البقشيش ليس إلزامياً.",
+      "en": "Tipping is not mandatory."
     }
   },
   {
@@ -854,12 +679,7 @@ window.VOCAB_DATA = [
       "cafe",
       "shop",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "Regarde ça.",
-      "ar": "انظری الی هذا.",
-      "en": "Watch this."
-    }
+    ]
   },
   {
     "fr": "C'est trop cher",
@@ -871,9 +691,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "C'est son ami.",
-      "ar": "هو صديق له.",
-      "en": "This is her friend."
+      "fr": "C'est trop cher pour mon budget.",
+      "ar": "هذا غالٍ جداً على ميزانيتي.",
+      "en": "That's too expensive for my budget."
     }
   },
   {
@@ -884,12 +704,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "Je voudrais commander",
@@ -901,9 +716,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
+      "fr": "Je voudrais commander un taxi pour huit heures.",
+      "ar": "أريد طلب تاكسي للساعة الثامنة.",
+      "en": "I would like to book a taxi for eight o'clock."
     }
   },
   {
@@ -915,12 +730,7 @@ window.VOCAB_DATA = [
       "cafe",
       "restaurant",
       "health"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "sans gluten",
@@ -931,12 +741,7 @@ window.VOCAB_DATA = [
       "cafe",
       "restaurant",
       "health"
-    ],
-    "ex": {
-      "fr": "Je ne suis plus sans-abri.",
-      "ar": "لم أعد بلا مأوى",
-      "en": "I'm not homeless any more."
-    }
+    ]
   },
   {
     "fr": "végétarien",
@@ -962,7 +767,12 @@ window.VOCAB_DATA = [
       "cafe",
       "restaurant",
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que cette viande est halal ?",
+      "ar": "هل هذا اللحم حلال؟",
+      "en": "Is this meat halal?"
+    }
   },
   {
     "fr": "le travail",
@@ -975,9 +785,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Je cherche du travail.",
-      "ar": "أبحث عن عمل.",
-      "en": "I am looking for work."
+      "fr": "Le travail sera terminé en deux jours.",
+      "ar": "سينتهي العمل في يومين.",
+      "en": "The work will be finished in two days."
     }
   },
   {
@@ -988,12 +798,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un poste",
@@ -1003,12 +808,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "le bureau",
@@ -1019,12 +819,7 @@ window.VOCAB_DATA = [
       "work",
       "office",
       "daily"
-    ],
-    "ex": {
-      "fr": "Est-ce le bureau de Tom Jackson ?",
-      "ar": "هل هذا مكتب توم جاكسون؟",
-      "en": "Is this Tom Jackson's office?"
-    }
+    ]
   },
   {
     "fr": "un collègue",
@@ -1034,12 +829,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une collègue",
@@ -1049,12 +839,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "le patron / la patronne",
@@ -1064,12 +849,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "un salarié",
@@ -1079,12 +859,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "le salaire",
@@ -1095,12 +870,7 @@ window.VOCAB_DATA = [
       "work",
       "office",
       "bank"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le SMIC",
@@ -1110,12 +880,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "un contrat",
@@ -1126,12 +891,7 @@ window.VOCAB_DATA = [
       "work",
       "office",
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un CDI",
@@ -1141,12 +901,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un CDD",
@@ -1156,12 +911,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une période d'essai",
@@ -1171,12 +921,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un entretien",
@@ -1186,12 +931,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "J'ai un entretien demain.",
-      "ar": "لدي مقابلة غداً.",
-      "en": "I have an interview tomorrow."
-    }
+    ]
   },
   {
     "fr": "un CV",
@@ -1201,12 +941,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une lettre de motivation",
@@ -1216,12 +951,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "les congés",
@@ -1231,12 +961,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "un arrêt maladie",
@@ -1247,12 +972,7 @@ window.VOCAB_DATA = [
       "work",
       "office",
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un bulletin de salaire",
@@ -1263,12 +983,7 @@ window.VOCAB_DATA = [
       "work",
       "office",
       "bank"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "les horaires",
@@ -1279,12 +994,7 @@ window.VOCAB_DATA = [
       "work",
       "office",
       "daily"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "le matin",
@@ -1297,9 +1007,9 @@ window.VOCAB_DATA = [
       "office"
     ],
     "ex": {
-      "fr": "Ils ont quatre cours le matin.",
-      "ar": "لديهم اربعة فصول في الصباح",
-      "en": "They have four classes in the morning."
+      "fr": "Le matin, ça m'arrange mieux.",
+      "ar": "الصباح أنسب لي.",
+      "en": "The morning suits me better."
     }
   },
   {
@@ -1313,9 +1023,9 @@ window.VOCAB_DATA = [
       "office"
     ],
     "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
+      "fr": "Le matin, l'après-midi, le soir, la nuit.",
+      "ar": "الصباح، بعد الظهر، المساء، الليل.",
+      "en": "The morning, the afternoon, the evening, the night."
     }
   },
   {
@@ -1329,9 +1039,9 @@ window.VOCAB_DATA = [
       "cafe"
     ],
     "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
+      "fr": "La pause est décomptée automatiquement.",
+      "ar": "الاستراحة تُحسب تلقائيًا.",
+      "en": "The break is automatically deducted."
     }
   },
   {
@@ -1343,12 +1053,7 @@ window.VOCAB_DATA = [
       "work",
       "office",
       "cafe"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "télétravail",
@@ -1368,12 +1073,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "Il y a une réunion à 14h.",
-      "ar": "هناك اجتماع الساعة 2 ظهراً.",
-      "en": "There is a meeting at 2 PM."
-    }
+    ]
   },
   {
     "fr": "un ordinateur",
@@ -1384,12 +1084,7 @@ window.VOCAB_DATA = [
       "work",
       "office",
       "daily"
-    ],
-    "ex": {
-      "fr": "Possèdes-tu un ordinateur ?",
-      "ar": "هل تمتلك كمبيوتر؟",
-      "en": "Do you own a computer?"
-    }
+    ]
   },
   {
     "fr": "un clavier",
@@ -1399,12 +1094,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une imprimante",
@@ -1414,12 +1104,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un document",
@@ -1432,9 +1117,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
+      "fr": "Un document manque dans mon dossier.",
+      "ar": "تنقص وثيقة في ملفي.",
+      "en": "A document is missing from my file."
     }
   },
   {
@@ -1447,12 +1132,7 @@ window.VOCAB_DATA = [
       "office",
       "prefecture",
       "ofii"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une fiche",
@@ -1463,12 +1143,7 @@ window.VOCAB_DATA = [
       "work",
       "office",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un formulaire",
@@ -1481,12 +1156,7 @@ window.VOCAB_DATA = [
       "prefecture",
       "ofii",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une signature",
@@ -1498,12 +1168,7 @@ window.VOCAB_DATA = [
       "office",
       "prefecture",
       "bank"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "dater et signer",
@@ -1514,12 +1179,7 @@ window.VOCAB_DATA = [
       "work",
       "office",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "Pardonne et oublie.",
-      "ar": "سامحي وانسي.",
-      "en": "Forgive and forget."
-    }
+    ]
   },
   {
     "fr": "joindre un document",
@@ -1531,12 +1191,7 @@ window.VOCAB_DATA = [
       "office",
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "envoyer un e-mail",
@@ -1546,12 +1201,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "office"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "répondre",
@@ -1564,9 +1214,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Il hésita avant de répondre.",
-      "ar": "لقد تردد قبل الإجابة.",
-      "en": "He hesitated before answering."
+      "fr": "Répondre au message",
+      "ar": "الرد على الرسالة",
+      "en": "Reply to the message"
     }
   },
   {
@@ -1580,9 +1230,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Il me faut appeler Tom.",
-      "ar": "علي أن أتصل بتوم.",
-      "en": "I need to call Tom."
+      "fr": "Contacter / Appeler",
+      "ar": "يتواصل / يتصل",
+      "en": "To contact / call"
     }
   },
   {
@@ -1594,7 +1244,12 @@ window.VOCAB_DATA = [
       "work",
       "office",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Un conseiller va vous rappeler.",
+      "ar": "سيعاود مستشار الاتصال بك.",
+      "en": "An advisor will call you back."
+    }
   },
   {
     "fr": "confirmer",
@@ -1605,7 +1260,12 @@ window.VOCAB_DATA = [
       "work",
       "office",
       "prefecture"
-    ]
+    ],
+    "ex": {
+      "fr": "Confirmer l'action",
+      "ar": "تأكيد الإجراء",
+      "en": "Confirm the action"
+    }
   },
   {
     "fr": "annuler",
@@ -1616,7 +1276,12 @@ window.VOCAB_DATA = [
       "work",
       "office",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Annuler la démarche",
+      "ar": "إلغاء الإجراء",
+      "en": "Cancel the procedure"
+    }
   },
   {
     "fr": "reporter",
@@ -1639,9 +1304,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
+      "fr": "Je suis en retard de dix minutes.",
+      "ar": "أنا متأخر عشر دقائق.",
+      "en": "I'm ten minutes late."
     }
   },
   {
@@ -1654,9 +1319,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Désolé.",
-      "ar": "آسف.",
-      "en": "Sorry!"
+      "fr": "Je suis désolé, ça va ?",
+      "ar": "أنا آسف، هل أنت بخير؟",
+      "en": "I'm sorry, are you okay?"
     }
   },
   {
@@ -1666,12 +1331,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "prefecture"
-    ],
-    "ex": {
-      "fr": "Je vais à la préfecture pour renouveler mon titre.",
-      "ar": "سأذهب إلى المحافظة لتجديد بطاقتي.",
-      "en": "I go to the prefecture to renew my residence permit."
-    }
+    ]
   },
   {
     "fr": "la sous-préfecture",
@@ -1680,12 +1340,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "prefecture"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "un rendez-vous",
@@ -1699,9 +1354,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
+      "fr": "Un rendez-vous sera fixé avec un technicien.",
+      "ar": "سيتم تحديد موعد مع تقني.",
+      "en": "An appointment will be scheduled with a technician."
     }
   },
   {
@@ -1716,9 +1371,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "Où êtes-vous ?",
-      "ar": "أين أنت ؟",
-      "en": "Where art thou?"
+      "fr": "Prendre rendez-vous en ligne",
+      "ar": "حجز موعد عبر الإنترنت",
+      "en": "Make an appointment online"
     }
   },
   {
@@ -1731,12 +1386,7 @@ window.VOCAB_DATA = [
       "ofii",
       "ofpra",
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "déplacer un rendez-vous",
@@ -1747,12 +1397,7 @@ window.VOCAB_DATA = [
       "prefecture",
       "ofii",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "le titre de séjour",
@@ -1761,12 +1406,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "prefecture"
-    ],
-    "ex": {
-      "fr": "Mon titre de séjour expire dans deux mois.",
-      "ar": "تنتهي صلاحية بطاقة إقامتي بعد شهرين.",
-      "en": "My residence permit expires in two months."
-    }
+    ]
   },
   {
     "fr": "le renouvellement",
@@ -1776,12 +1416,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "une attestation",
@@ -1795,9 +1430,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
+      "fr": "Une attestation est disponible.",
+      "ar": "توجد شهادة متاحة.",
+      "en": "A certificate is available."
     }
   },
   {
@@ -1811,12 +1446,7 @@ window.VOCAB_DATA = [
       "ofpra",
       "bank",
       "caf"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un domicile",
@@ -1828,12 +1458,7 @@ window.VOCAB_DATA = [
       "bank",
       "taxes",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un justificatif de domicile",
@@ -1844,12 +1469,7 @@ window.VOCAB_DATA = [
       "prefecture",
       "bank",
       "caf"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "un passeport",
@@ -1859,12 +1479,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une carte d'identité",
@@ -1874,12 +1489,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une photo d'identité",
@@ -1889,12 +1499,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un timbre fiscal",
@@ -1904,12 +1509,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "taxes"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "payer les frais",
@@ -1920,12 +1520,7 @@ window.VOCAB_DATA = [
       "prefecture",
       "ofii",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "un récépissé",
@@ -1934,12 +1529,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "prefecture"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "la convocation",
@@ -1950,12 +1540,7 @@ window.VOCAB_DATA = [
       "prefecture",
       "ofii",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "une décision",
@@ -1965,12 +1550,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une opposition",
@@ -1980,12 +1560,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "la OFII",
@@ -1994,12 +1569,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "ofii"
-    ],
-    "ex": {
-      "fr": "La OFII m'a envoyé une convocation.",
-      "ar": "أرسلت لي OFII استدعاءً.",
-      "en": "The OFII sent me a summons."
-    }
+    ]
   },
   {
     "fr": "l'accueil",
@@ -2011,7 +1581,12 @@ window.VOCAB_DATA = [
       "ofpra",
       "redcross",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "L'accueil accueille les nouveaux membres.",
+      "ar": "الاستقبال يستقبل الأعضاء الجدد.",
+      "en": "Reception welcomes new members."
+    }
   },
   {
     "fr": "la formation civique",
@@ -2020,12 +1595,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "ofii"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "le contrat d'intégration républicaine (CIR)",
@@ -2034,12 +1604,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "ofii"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "signer le CIR",
@@ -2048,12 +1613,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "ofii"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "la OFPRA",
@@ -2062,12 +1622,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "ofpra"
-    ],
-    "ex": {
-      "fr": "J'ai déposé ma demande à la OFPRA.",
-      "ar": "قدمت طلبي لدى OFPRA.",
-      "en": "I submitted my application to OFPRA."
-    }
+    ]
   },
   {
     "fr": "une demande d'asile",
@@ -2077,12 +1632,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "ofpra",
       "redcross"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un demandeur d'asile",
@@ -2092,12 +1642,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "ofpra",
       "redcross"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un réfugié",
@@ -2108,12 +1653,7 @@ window.VOCAB_DATA = [
       "ofpra",
       "redcross",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "la protection subsidiaire",
@@ -2122,12 +1662,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "ofpra"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "le statut de réfugié",
@@ -2136,12 +1671,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "ofpra"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "une audience",
@@ -2150,12 +1680,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "ofpra"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un interprète",
@@ -2166,12 +1691,7 @@ window.VOCAB_DATA = [
       "ofpra",
       "ofii",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "J'ai besoin d'un interprète.",
-      "ar": "أحتاج إلى مترجم.",
-      "en": "I need an interpreter."
-    }
+    ]
   },
   {
     "fr": "un avocat",
@@ -2182,12 +1702,7 @@ window.VOCAB_DATA = [
       "ofpra",
       "prefecture",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "prendre un avocat",
@@ -2197,12 +1712,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "ofpra",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "la CNDA",
@@ -2211,12 +1721,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "ofpra"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "un recours",
@@ -2226,12 +1731,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "ofpra",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "Toute personne a droit à un recours effectif devant les juridictions nationales compétentes contre les actes violant les droits fondamentaux qui lui sont reconnus par la constitution ou par la loi.",
-      "ar": "لكل شخص الحق في أن يلجأ إلى المحاكم الوطنية لإنصافه عن أعمال فيها اعتداء على الحقوق الأساسية التي يمنحها له القانون.",
-      "en": "Everyone has the right to an effective remedy by the competent national tribunals for acts violating the fundamental rights granted him by the constitution or by law."
-    }
+    ]
   },
   {
     "fr": "faire appel",
@@ -2241,12 +1741,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "ofpra",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "Je ne peux rien faire.",
-      "ar": "ليس باليد حيلة.",
-      "en": "I can't do anything."
-    }
+    ]
   },
   {
     "fr": "les impôts",
@@ -2255,12 +1750,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "taxes"
-    ],
-    "ex": {
-      "fr": "Je dois déclarer mes impôts chaque année.",
-      "ar": "يجب أن أعلن عن ضرائبي كل سنة.",
-      "en": "I have to declare my taxes every year."
-    }
+    ]
   },
   {
     "fr": "la déclaration d'impôts",
@@ -2269,12 +1759,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "taxes"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "déclarer ses revenus",
@@ -2283,12 +1768,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "taxes"
-    ],
-    "ex": {
-      "fr": "Elle sécha ses larmes.",
-      "ar": "مسحت دموعها.",
-      "en": "She dried her tears."
-    }
+    ]
   },
   {
     "fr": "le revenu",
@@ -2299,12 +1779,7 @@ window.VOCAB_DATA = [
       "taxes",
       "work",
       "bank"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "un contribuable",
@@ -2313,12 +1788,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "taxes"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un avis d'imposition",
@@ -2327,12 +1797,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "taxes"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "la taxe d'habitation",
@@ -2342,12 +1807,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "taxes",
       "housing"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "la TVA",
@@ -2357,12 +1817,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "taxes",
       "shop"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "un numéro fiscal",
@@ -2371,12 +1826,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "taxes"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "le fisc",
@@ -2385,12 +1835,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "taxes"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le site impots.gouv.fr",
@@ -2399,12 +1844,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "taxes"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "un compte impots.gouv.fr",
@@ -2413,12 +1853,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "taxes"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "la Croix-Rouge",
@@ -2428,12 +1863,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "redcross",
       "health"
-    ],
-    "ex": {
-      "fr": "La Croix-Rouge distribue des repas.",
-      "ar": "الصليب الأحمر يوزع وجبات.",
-      "en": "The Red Cross distributes meals."
-    }
+    ]
   },
   {
     "fr": "un bénévole",
@@ -2443,12 +1873,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "redcross",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une association",
@@ -2459,12 +1884,7 @@ window.VOCAB_DATA = [
       "redcross",
       "daily",
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une aide alimentaire",
@@ -2474,12 +1894,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "redcross",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un kit d'hygiène",
@@ -2489,12 +1904,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "redcross",
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un hébergement d'urgence",
@@ -2504,12 +1914,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "redcross",
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "la SPADA",
@@ -2519,12 +1924,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "ofpra",
       "redcross"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "le SAMU social",
@@ -2535,12 +1935,7 @@ window.VOCAB_DATA = [
       "redcross",
       "health",
       "housing"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le 115",
@@ -2550,12 +1945,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "redcross",
       "housing"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le 18",
@@ -2566,12 +1956,7 @@ window.VOCAB_DATA = [
       "health",
       "daily",
       "redcross"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le SAMU (15)",
@@ -2581,12 +1966,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "health",
       "redcross"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "les urgences",
@@ -2596,12 +1976,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "health",
       "redcross"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "le logement",
@@ -2611,12 +1986,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "un appartement",
@@ -2626,12 +1996,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une chambre",
@@ -2641,12 +2006,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une cuisine",
@@ -2656,12 +2016,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une salle de bain",
@@ -2671,12 +2026,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "les toilettes",
@@ -2688,9 +2038,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
+      "fr": "Les toilettes sont bouchées.",
+      "ar": "المرحاض مسدود.",
+      "en": "The toilet is blocked."
     }
   },
   {
@@ -2701,12 +2051,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un balcon",
@@ -2715,12 +2060,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un immeuble",
@@ -2729,12 +2069,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un étage",
@@ -2744,12 +2079,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "le rez-de-chaussée",
@@ -2758,12 +2088,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "le premier étage",
@@ -2772,12 +2097,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "un ascenseur",
@@ -2787,12 +2107,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un bail",
@@ -2801,12 +2116,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un propriétaire",
@@ -2815,12 +2125,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une agence immobilière",
@@ -2829,12 +2134,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "le loyer",
@@ -2847,9 +2147,9 @@ window.VOCAB_DATA = [
       "caf"
     ],
     "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
+      "fr": "Le loyer est payable le combien de chaque mois ?",
+      "ar": "في أي يوم من الشهر يُدفع الإيجار؟",
+      "en": "On which day of the month is the rent due?"
     }
   },
   {
@@ -2860,12 +2160,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "bank"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "une caution",
@@ -2875,12 +2170,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "bank"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un garant",
@@ -2890,12 +2180,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "bank"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "l'électricité",
@@ -2908,9 +2193,9 @@ window.VOCAB_DATA = [
       "services"
     ],
     "ex": {
-      "fr": "Cet appareil produit de l'électricité.",
-      "ar": "هذا الجهاز يولد الكهرباء.",
-      "en": "This device produces electricity."
+      "fr": "J'ai coupé le gaz et l'électricité.",
+      "ar": "قطعت الغاز والكهرباء.",
+      "en": "I have turned off the gas and electricity."
     }
   },
   {
@@ -2922,12 +2207,7 @@ window.VOCAB_DATA = [
       "housing",
       "daily",
       "services"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "l'eau",
@@ -2956,9 +2236,9 @@ window.VOCAB_DATA = [
       "services"
     ],
     "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
+      "fr": "Le chauffage ne marche pas correctement.",
+      "ar": "التدفئة لا تعمل بشكل صحيح.",
+      "en": "The heating is not working properly."
     }
   },
   {
@@ -2970,7 +2250,12 @@ window.VOCAB_DATA = [
       "housing",
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Ce soir sur internet.",
+      "ar": "هذا المساء على الإنترنت.",
+      "en": "This evening online."
+    }
   },
   {
     "fr": "le wifi",
@@ -2983,9 +2268,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
+      "fr": "Le wifi ne fonctionne plus depuis hier.",
+      "ar": "الواي فاي لا يعمل منذ أمس.",
+      "en": "The wifi hasn't worked since yesterday."
     }
   },
   {
@@ -2996,12 +2281,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "services"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un contrat d'électricité",
@@ -3011,12 +2291,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "services"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "ouvrir un compteur",
@@ -3026,12 +2301,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "services"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "fermer un compteur",
@@ -3041,12 +2311,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "services"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une facture",
@@ -3058,12 +2323,7 @@ window.VOCAB_DATA = [
       "services",
       "bank",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "payer une facture",
@@ -3074,12 +2334,7 @@ window.VOCAB_DATA = [
       "housing",
       "bank",
       "services"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un prélèvement automatique",
@@ -3089,12 +2344,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "bank"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une coupure",
@@ -3104,12 +2354,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "services"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un problème technique",
@@ -3120,12 +2365,7 @@ window.VOCAB_DATA = [
       "housing",
       "work",
       "services"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "la santé",
@@ -3135,12 +2375,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "health",
       "daily"
-    ],
-    "ex": {
-      "fr": "Ils ont rédigé un projet de loi sur la santé.",
-      "ar": "كتبوا مشروع قانون يخص الصحة.",
-      "en": "They've written a bill for health care."
-    }
+    ]
   },
   {
     "fr": "un médecin",
@@ -3149,12 +2384,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Je voudrais prendre rendez-vous avec un médecin.",
-      "ar": "أريد حجز موعد مع طبيب.",
-      "en": "I would like to make an appointment with a doctor."
-    }
+    ]
   },
   {
     "fr": "un médecin généraliste",
@@ -3163,12 +2393,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un médecin traitant",
@@ -3177,12 +2402,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un spécialiste",
@@ -3191,12 +2411,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un rendez-vous médical",
@@ -3205,12 +2420,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un hôpital",
@@ -3219,12 +2429,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Il y a un hôpital près d'ici.",
-      "ar": "هناك مستشفى بالقرب من هنا.",
-      "en": "There is a hospital nearby."
-    }
+    ]
   },
   {
     "fr": "une clinique",
@@ -3233,12 +2438,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une pharmacie",
@@ -3248,12 +2448,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "health",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un médicament",
@@ -3263,12 +2458,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "health",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une ordonnance",
@@ -3279,9 +2469,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
+      "fr": "Une ordonnance médicale",
+      "ar": "وصفة طبية",
+      "en": "Medical prescription"
     }
   },
   {
@@ -3294,9 +2484,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
+      "fr": "Un remboursement est en cours.",
+      "ar": "عملية استرداد المبلغ جارية.",
+      "en": "A reimbursement is in progress."
     }
   },
   {
@@ -3307,12 +2497,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "health",
       "daily"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "la carte Vitale",
@@ -3321,12 +2506,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "une mutuelle",
@@ -3336,12 +2516,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "health",
       "bank"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un symptôme",
@@ -3350,12 +2525,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une douleur",
@@ -3367,9 +2537,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
+      "fr": "Une sensation dans le muscle est normale, mais pas une douleur dans l’articulation.",
+      "ar": "الإحساس في العضلة طبيعي، لكن ألم المفصل ليس طبيعيًا.",
+      "en": "A muscle sensation is normal, but joint pain is not."
     }
   },
   {
@@ -3379,12 +2549,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai faim !",
-      "ar": "أشعر بالجوع.",
-      "en": "I am hungry!"
-    }
+    ]
   },
   {
     "fr": "la tête",
@@ -3394,12 +2559,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "health",
       "daily"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "le ventre",
@@ -3409,12 +2569,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "health",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le dos",
@@ -3424,12 +2579,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "health",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "la gorge",
@@ -3438,12 +2588,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "le nez",
@@ -3453,12 +2598,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "health",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "les yeux",
@@ -3468,12 +2608,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "health",
       "daily"
-    ],
-    "ex": {
-      "fr": "Lorsqu'elle a ouvert les yeux, j'ai été la première personne qu'elle a vue.",
-      "ar": "كنت أول شخص تراه عندما فتحت عينيها.",
-      "en": "When she opened her eyes I was the first person she saw."
-    }
+    ]
   },
   {
     "fr": "un rhume",
@@ -3482,12 +2617,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "la grippe",
@@ -3496,12 +2626,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai été vacciné contre la grippe.",
-      "ar": "طعمت من الإنفلونزا.",
-      "en": "I've had a flu jab."
-    }
+    ]
   },
   {
     "fr": "une fièvre",
@@ -3510,12 +2635,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un vomi",
@@ -3524,12 +2644,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "la diarrhée",
@@ -3538,12 +2653,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "une allergie",
@@ -3554,12 +2664,7 @@ window.VOCAB_DATA = [
       "health",
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "enceinte",
@@ -3582,12 +2687,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un test",
@@ -3599,9 +2699,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
+      "fr": "Un test respiratoire à l'urée marquée.",
+      "ar": "فحص التنفس باليوريا الموسومة.",
+      "en": "A urea breath test."
     }
   },
   {
@@ -3611,12 +2711,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "une radio",
@@ -3625,12 +2720,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un scanner",
@@ -3639,12 +2729,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "Je suis malade",
@@ -3655,9 +2740,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "Je suis malade.",
-      "ar": "أنا مريضة.",
-      "en": "I have been sick."
+      "fr": "Je suis malade, je ne peux pas venir travailler.",
+      "ar": "أنا مريض، لا أستطيع القدوم للعمل.",
+      "en": "I am ill, I can't come to work."
     }
   },
   {
@@ -3668,12 +2753,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "health",
       "daily"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "Prenez ce médicament",
@@ -3684,9 +2764,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "Prenez ce médicament deux fois par jour.",
-      "ar": "تناول هذا الدواء مرتين في اليوم.",
-      "en": "Take this medicine twice a day."
+      "fr": "Prenez ce médicament après les repas.",
+      "ar": "خذ هذا الدواء بعد الطعام.",
+      "en": "Take this medicine after meals."
     }
   },
   {
@@ -3696,12 +2776,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le supermarché",
@@ -3711,12 +2786,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le marché",
@@ -3726,12 +2796,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "une boulangerie",
@@ -3741,12 +2806,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une boucherie",
@@ -3756,12 +2816,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une pharmacie",
@@ -3771,12 +2826,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une librairie",
@@ -3786,12 +2836,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un magasin",
@@ -3801,12 +2846,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "le prix",
@@ -3818,9 +2858,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Quel est le prix de cette casquette ?",
-      "ar": "ما ثمن هذه القبعة؟",
-      "en": "What is the price of this cap?"
+      "fr": "Le prix sera fixe pendant douze mois.",
+      "ar": "السعر سيكون ثابتًا لمدة اثني عشر شهرًا.",
+      "en": "The price will be fixed for twelve months."
     }
   },
   {
@@ -3832,9 +2872,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
+      "fr": "La réduction sera déduite de votre facture.",
+      "ar": "سيُخصم التخفيض من فاتورتك.",
+      "en": "The discount will be deducted from your invoice."
     }
   },
   {
@@ -3844,12 +2884,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "solde",
@@ -3868,12 +2903,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "un panier",
@@ -3883,12 +2913,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un chariot",
@@ -3897,12 +2922,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une caisse",
@@ -3912,12 +2932,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un vendeur",
@@ -3926,12 +2941,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une vendeuse",
@@ -3940,12 +2950,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "Je voudrais essayer",
@@ -3954,12 +2959,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "Je cherche la taille...",
@@ -3968,12 +2968,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "C'est trop grand",
@@ -3984,9 +2979,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "C'est son ami.",
-      "ar": "هو صديق له.",
-      "en": "This is her friend."
+      "fr": "C'est trop grand pour moi.",
+      "ar": "هذا كبير جداً عليّ.",
+      "en": "It's too big for me."
     }
   },
   {
@@ -3998,9 +2993,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "C'est son ami.",
-      "ar": "هو صديق له.",
-      "en": "This is her friend."
+      "fr": "C'est trop petit, avez-vous plus grand ?",
+      "ar": "هذا صغير جداً، هل لديكم أكبر؟",
+      "en": "It's too small, do you have a bigger size?"
     }
   },
   {
@@ -4010,12 +3005,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "le riz",
@@ -4026,12 +3016,7 @@ window.VOCAB_DATA = [
       "shop",
       "restaurant",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "les pâtes",
@@ -4041,12 +3026,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "le pain",
@@ -4056,12 +3036,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le lait",
@@ -4086,12 +3061,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "le poulet",
@@ -4102,12 +3072,7 @@ window.VOCAB_DATA = [
       "shop",
       "restaurant",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "la viande",
@@ -4118,12 +3083,7 @@ window.VOCAB_DATA = [
       "shop",
       "restaurant",
       "daily"
-    ],
-    "ex": {
-      "fr": "Le lion mange de la viande.",
-      "ar": "يأكل الأسد اللحم.",
-      "en": "The lion eats the meat."
-    }
+    ]
   },
   {
     "fr": "le poisson",
@@ -4134,12 +3094,7 @@ window.VOCAB_DATA = [
       "shop",
       "restaurant",
       "daily"
-    ],
-    "ex": {
-      "fr": "Je préfère le poisson à la viande.",
-      "ar": "أفضل السمك على اللحم.",
-      "en": "I prefer fish to meat."
-    }
+    ]
   },
   {
     "fr": "les fruits",
@@ -4149,12 +3104,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "les légumes",
@@ -4164,12 +3114,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "les pommes",
@@ -4179,12 +3124,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "les bananes",
@@ -4209,12 +3149,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Est-ce que Tom aime les tomates ?",
-      "ar": "هل يحب توم الطماطم؟",
-      "en": "Does Tom like tomatoes?"
-    }
+    ]
   },
   {
     "fr": "les oignons",
@@ -4224,12 +3159,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "l'huile",
@@ -4239,7 +3169,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Il faut changer l'huile et le filtre.",
+      "ar": "يجب تغيير الزيت والفلتر.",
+      "en": "The oil and filter need changing."
+    }
   },
   {
     "fr": "le beurre",
@@ -4249,12 +3184,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le fromage",
@@ -4264,12 +3194,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le yaourt",
@@ -4279,12 +3204,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "les céréales",
@@ -4294,12 +3214,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "un kilo",
@@ -4311,9 +3226,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
+      "fr": "Un kilo de tomates, s'il vous plaît.",
+      "ar": "كيلو بندورة، من فضلك.",
+      "en": "One kilo of tomatoes, please."
     }
   },
   {
@@ -4324,12 +3239,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une bouteille",
@@ -4341,9 +3251,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
+      "fr": "Une bouteille d'eau plate, s'il vous plaît.",
+      "ar": "قنينة ماء عادي، من فضلك.",
+      "en": "A bottle of still water, please."
     }
   },
   {
@@ -4353,12 +3263,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une boîte",
@@ -4367,12 +3272,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une tranche",
@@ -4382,12 +3282,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "Demi",
@@ -4399,9 +3294,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Donne-moi un demi-kilo de pommes.",
-      "ar": "أعطني نصف كيلو من التفاح.",
-      "en": "Give me half a kilo of apples."
+      "fr": "Demi-tour interdit.",
+      "ar": "الرجوع للخلف ممنوع.",
+      "en": "U-turn prohibited."
     }
   },
   {
@@ -4446,7 +3341,12 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "Où se trouve le rayon bio ?",
+      "ar": "أين يوجد قسم المنتجات العضوية؟",
+      "en": "Where is the organic section?"
+    }
   },
   {
     "fr": "un bus",
@@ -4456,12 +3356,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "transport",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un train",
@@ -4471,12 +3366,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "transport",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un métro",
@@ -4486,12 +3376,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "transport",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un tramway",
@@ -4501,12 +3386,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "transport",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un taxi",
@@ -4516,12 +3396,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "transport",
       "daily"
-    ],
-    "ex": {
-      "fr": "Où puis-je trouver un taxi ?",
-      "ar": "أين يمكنني أن أجد سيارة أجرة؟",
-      "en": "Where can I find a cab?"
-    }
+    ]
   },
   {
     "fr": "un vélo",
@@ -4531,12 +3406,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "transport",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une voiture",
@@ -4546,12 +3416,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "transport",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une voiture.",
-      "ar": "أملك سيارة.",
-      "en": "I have a car."
-    }
+    ]
   },
   {
     "fr": "un arrêt",
@@ -4561,12 +3426,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "transport",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une station",
@@ -4576,12 +3436,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "transport",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un quai",
@@ -4590,12 +3445,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un billet",
@@ -4607,9 +3457,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
+      "fr": "Un billet pour Paris, s'il vous plaît.",
+      "ar": "تذكرة إلى باريس، من فضلك.",
+      "en": "One ticket to Paris, please."
     }
   },
   {
@@ -4621,9 +3471,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
+      "fr": "Un aller simple ou un aller-retour ?",
+      "ar": "ذهاب فقط أم ذهاب وعودة؟",
+      "en": "One way or return?"
     }
   },
   {
@@ -4635,9 +3485,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
+      "fr": "Un aller simple ou un aller-retour ?",
+      "ar": "ذهاب فقط أم ذهاب وعودة؟",
+      "en": "One way or return?"
     }
   },
   {
@@ -4648,12 +3498,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "transport",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "composter",
@@ -4662,7 +3507,12 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'il faut composter le billet ?",
+      "ar": "هل يجب تصديق التذكرة؟",
+      "en": "Do I need to validate the ticket?"
+    }
   },
   {
     "fr": "un contrôleur",
@@ -4671,12 +3521,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une amende",
@@ -4688,9 +3533,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
+      "fr": "Une amende forfaitaire.",
+      "ar": "غرامة ثابتة.",
+      "en": "Fixed fine."
     }
   },
   {
@@ -4702,12 +3547,7 @@ window.VOCAB_DATA = [
       "transport",
       "work",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "en avance",
@@ -4718,12 +3558,7 @@ window.VOCAB_DATA = [
       "transport",
       "work",
       "daily"
-    ],
-    "ex": {
-      "fr": "L'oiseau en avance attrape le vers.",
-      "ar": "العصفور المبكر يلتقط الدودة.",
-      "en": "The early bird gets the worm."
-    }
+    ]
   },
   {
     "fr": "À quelle heure part le train ?",
@@ -4732,12 +3567,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "Où est la sortie ?",
@@ -4747,12 +3577,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "transport",
       "daily"
-    ],
-    "ex": {
-      "fr": "Où es-tu ?",
-      "ar": "أين أنت ؟",
-      "en": "Where art thou?"
-    }
+    ]
   },
   {
     "fr": "un distributeur de billets",
@@ -4761,12 +3586,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "une borne",
@@ -4776,12 +3596,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "transport",
       "services"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "le trafic",
@@ -4792,12 +3607,7 @@ window.VOCAB_DATA = [
       "transport",
       "car",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "un embouteillage",
@@ -4808,12 +3618,7 @@ window.VOCAB_DATA = [
       "transport",
       "car",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "la banque",
@@ -4823,12 +3628,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "bank",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai vu Tom entrer dans la banque.",
-      "ar": "رأيت توم داخلا المصرف.",
-      "en": "I saw Tom going into the bank."
-    }
+    ]
   },
   {
     "fr": "un compte bancaire",
@@ -4837,12 +3637,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "bank"
-    ],
-    "ex": {
-      "fr": "Je voudrais ouvrir un compte bancaire.",
-      "ar": "أريد فتح حساب بنكي.",
-      "en": "I would like to open a bank account."
-    }
+    ]
   },
   {
     "fr": "un compte courant",
@@ -4851,12 +3646,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "bank"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un livret",
@@ -4865,12 +3655,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "bank"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une carte bancaire",
@@ -4880,12 +3665,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "bank",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un distributeur automatique",
@@ -4895,12 +3675,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "bank",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un retrait",
@@ -4911,9 +3686,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
+      "fr": "Un retrait de points.",
+      "ar": "سحب نقاط.",
+      "en": "Points deduction."
     }
   },
   {
@@ -4923,12 +3698,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "bank"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un virement",
@@ -4939,12 +3709,7 @@ window.VOCAB_DATA = [
       "bank",
       "work",
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un prélèvement",
@@ -4955,9 +3720,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
+      "fr": "Un prélèvement sanguin",
+      "ar": "سحب عينة دم",
+      "en": "Blood sample collection"
     }
   },
   {
@@ -4968,12 +3733,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "bank",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un reçu",
@@ -4984,12 +3744,7 @@ window.VOCAB_DATA = [
       "bank",
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "le solde",
@@ -4998,12 +3753,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "bank"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "découvert",
@@ -5012,7 +3762,12 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Mon compte est à découvert.",
+      "ar": "حسابي في السحب على المكشوف.",
+      "en": "My account is overdrawn."
+    }
   },
   {
     "fr": "les frais bancaires",
@@ -5021,12 +3776,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "bank"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "un conseiller bancaire",
@@ -5035,12 +3785,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "bank"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "J'ai perdu ma carte",
@@ -5051,9 +3796,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "J'ai faim !",
-      "ar": "أشعر بالجوع.",
-      "en": "I am hungry!"
+      "fr": "J'ai perdu ma carte Vitale.",
+      "ar": "فقدت بطاقتي الصحية.",
+      "en": "I lost my health card."
     }
   },
   {
@@ -5063,12 +3808,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "bank"
-    ],
-    "ex": {
-      "fr": "J'aime ma mère.",
-      "ar": "أحب والدتي.",
-      "en": "I love my mum."
-    }
+    ]
   },
   {
     "fr": "Je voudrais retirer de l'argent",
@@ -5078,12 +3818,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "bank",
       "daily"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "l'argent",
@@ -5095,9 +3830,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Je veux de l'argent.",
-      "ar": "أريد بعض المال.",
-      "en": "I want some money."
+      "fr": "L'argent n'est rien.",
+      "ar": "المال ليس شيئا.",
+      "en": "Money is nothing."
     }
   },
   {
@@ -5108,12 +3843,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "bank",
       "daily"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "la monnaie",
@@ -5124,12 +3854,7 @@ window.VOCAB_DATA = [
       "bank",
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "un téléphone",
@@ -5139,12 +3864,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "phone",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un portable",
@@ -5154,12 +3874,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "phone",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un forfait",
@@ -5169,12 +3884,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "phone",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "sans engagement",
@@ -5183,12 +3893,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "phone"
-    ],
-    "ex": {
-      "fr": "Je ne suis plus sans-abri.",
-      "ar": "لم أعد بلا مأوى",
-      "en": "I'm not homeless any more."
-    }
+    ]
   },
   {
     "fr": "un appel",
@@ -5200,9 +3905,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "J'ai eu un appel de l'école aujourd'hui.",
-      "ar": "تلقيت اتصالا من المدرسة اليوم.",
-      "en": "I got a call from the school today."
+      "fr": "un appel suspect",
+      "ar": "مكالمة مشبوهة",
+      "en": "A suspicious call"
     }
   },
   {
@@ -5213,12 +3918,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "phone",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un message vocal",
@@ -5227,12 +3927,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "phone"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "la batterie",
@@ -5244,9 +3939,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
+      "fr": "La batterie est à plat.",
+      "ar": "البطارية فارغة.",
+      "en": "The battery is dead."
     }
   },
   {
@@ -5257,12 +3952,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "phone",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "la 4G / la 5G",
@@ -5271,12 +3961,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "phone"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "le wifi",
@@ -5289,9 +3974,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
+      "fr": "Le wifi ne fonctionne plus depuis hier.",
+      "ar": "الواي فاي لا يعمل منذ أمس.",
+      "en": "The wifi hasn't worked since yesterday."
     }
   },
   {
@@ -5302,12 +3987,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "phone",
       "bank"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "débloquer un téléphone",
@@ -5316,12 +3996,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "phone"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "la Poste",
@@ -5331,12 +4006,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "post",
       "daily"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "un timbre",
@@ -5345,12 +4015,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "post"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une enveloppe",
@@ -5360,12 +4025,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "post",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un colis",
@@ -5375,12 +4035,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "post",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une lettre",
@@ -5391,12 +4046,7 @@ window.VOCAB_DATA = [
       "post",
       "daily",
       "work"
-    ],
-    "ex": {
-      "fr": "Il écrit une lettre.",
-      "ar": "هو يكتب رسالة.",
-      "en": "He is writing a letter."
-    }
+    ]
   },
   {
     "fr": "un recommandé",
@@ -5405,12 +4055,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "post"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une boîte aux lettres",
@@ -5420,12 +4065,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "post",
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une adresse",
@@ -5437,12 +4077,7 @@ window.VOCAB_DATA = [
       "housing",
       "daily",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "envoyer",
@@ -5453,7 +4088,12 @@ window.VOCAB_DATA = [
       "post",
       "phone",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Envoyer un message",
+      "ar": "إرسال رسالة",
+      "en": "Send a message"
+    }
   },
   {
     "fr": "recevoir",
@@ -5475,12 +4115,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "school",
       "daily"
-    ],
-    "ex": {
-      "fr": "Le monde est une école.",
-      "ar": "العالم مدرسة.",
-      "en": "The world is a school."
-    }
+    ]
   },
   {
     "fr": "un cours",
@@ -5490,12 +4125,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "school",
       "daily"
-    ],
-    "ex": {
-      "fr": "Cours !",
-      "ar": "اركض!",
-      "en": "Leg it!"
-    }
+    ]
   },
   {
     "fr": "un professeur",
@@ -5505,12 +4135,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "school",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un élève",
@@ -5519,12 +4144,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un étudiant",
@@ -5533,12 +4153,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Je suis un étudiant de cette école.",
-      "ar": "أنا طالب في هذه المدرسة.",
-      "en": "I'm a student of this school."
-    }
+    ]
   },
   {
     "fr": "un examen",
@@ -5547,12 +4162,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un diplôme",
@@ -5562,12 +4172,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "school",
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "le français",
@@ -5579,9 +4184,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Elle nous enseigne le français.",
-      "ar": "إنها تعلمنا الفرنسية.",
-      "en": "She is teaching us French."
+      "fr": "Le français est parlé en France.",
+      "ar": "الفرنسية يتحدث بها في فرنسا.",
+      "en": "French is spoken in France."
     }
   },
   {
@@ -5609,9 +4214,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "J'adore l'arabe.",
-      "ar": "أحب اللغة العربية.",
-      "en": "I love Arabic."
+      "fr": "L'arabe est difficile !",
+      "ar": "اللغة العربية صعبة!",
+      "en": "Arabic is difficult!"
     }
   },
   {
@@ -5635,9 +4240,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "N'arrête jamais d'apprendre.",
-      "ar": "لا تتوقف أبدا عن التعلم.",
-      "en": "Never stop learning."
+      "fr": "Apprendre une langue étrangère est difficile.",
+      "ar": "تعلم لغة أجنبية صعب.",
+      "en": "Learning a foreign language is hard."
     }
   },
   {
@@ -5683,12 +4288,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "family"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "un père",
@@ -5700,12 +4300,7 @@ window.VOCAB_DATA = [
       "family",
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "As-tu un père ?",
-      "ar": "ألديك أب؟",
-      "en": "Do you have a father?"
-    }
+    ]
   },
   {
     "fr": "une mère",
@@ -5717,12 +4312,7 @@ window.VOCAB_DATA = [
       "family",
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "Je suis une mère.",
-      "ar": "أنا أم.",
-      "en": "I'm a mother."
-    }
+    ]
   },
   {
     "fr": "un mari",
@@ -5733,12 +4323,7 @@ window.VOCAB_DATA = [
       "daily",
       "family",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une femme",
@@ -5748,12 +4333,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "family"
-    ],
-    "ex": {
-      "fr": "Je suis une femme forte.",
-      "ar": "أنا امرأة قوية.",
-      "en": "I'm a strong woman."
-    }
+    ]
   },
   {
     "fr": "un enfant",
@@ -5768,9 +4348,9 @@ window.VOCAB_DATA = [
       "caf"
     ],
     "ex": {
-      "fr": "Ils vont avoir un enfant.",
-      "ar": "سيرزقون بطفل.",
-      "en": "They are about to have a child."
+      "fr": "Un enfant peut surgir brusquement.",
+      "ar": "قد يظهر طفل فجأة.",
+      "en": "A child may suddenly appear."
     }
   },
   {
@@ -5781,12 +4361,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "family"
-    ],
-    "ex": {
-      "fr": "Elle a une fille qui s'appelle Marie.",
-      "ar": "لديها بنت إسمها مريم.",
-      "en": "She has a daughter whose name is Mary."
-    }
+    ]
   },
   {
     "fr": "un fils",
@@ -5796,12 +4371,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "family"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un frère",
@@ -5811,12 +4381,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "family"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une sœur",
@@ -5826,12 +4391,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "family"
-    ],
-    "ex": {
-      "fr": "Le cœur bat.",
-      "ar": "القلب ينبض.",
-      "en": "The heart beats."
-    }
+    ]
   },
   {
     "fr": "un ami",
@@ -5842,9 +4402,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "J'ai un ami en Angleterre.",
-      "ar": "أنا لدي صديق في إنجلترا.",
-      "en": "I've got a friend in England."
+      "fr": "Un ami dans le besoin est vraiment un ami.",
+      "ar": "الصديق وقت الضيق",
+      "en": "A friend in need is a friend indeed."
     }
   },
   {
@@ -5854,12 +4414,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "le voisin",
@@ -5869,12 +4424,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "housing"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "la voisine",
@@ -5884,12 +4434,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "housing"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "célibataire",
@@ -5899,7 +4444,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "prefecture"
-    ]
+    ],
+    "ex": {
+      "fr": "Je suis célibataire / marié.",
+      "ar": "أنا أعزب / متزوج.",
+      "en": "I am single / married."
+    }
   },
   {
     "fr": "marié",
@@ -5961,9 +4511,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "Il sera chez lui demain.",
-      "ar": "غدا، سيكون في بيته.",
-      "en": "He'll be back home tomorrow."
+      "fr": "Demain, c'est la fête de l'Aïd.",
+      "ar": "غداً عيد.",
+      "en": "Tomorrow is the Eid festival."
     }
   },
   {
@@ -5988,12 +4538,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "work"
-    ],
-    "ex": {
-      "fr": "J'aime cette école.",
-      "ar": "أحب هذه المدرسة.",
-      "en": "I like this school."
-    }
+    ]
   },
   {
     "fr": "la semaine prochaine",
@@ -6005,9 +4550,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Je vais en Europe la semaine prochaine.",
-      "ar": "سأذهب إلى أوروبا الاسبوع المقبل.",
-      "en": "I'll be going to Europe next week."
+      "fr": "La semaine dernière, cette semaine, la semaine prochaine.",
+      "ar": "الأسبوع الماضي، هذا الأسبوع، الأسبوع القادم.",
+      "en": "Last week, this week, next week."
     }
   },
   {
@@ -6019,12 +4564,7 @@ window.VOCAB_DATA = [
       "daily",
       "work",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "l'année",
@@ -6037,9 +4577,9 @@ window.VOCAB_DATA = [
       "taxes"
     ],
     "ex": {
-      "fr": "Janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre et décembre sont les douze mois de l'année.",
-      "ar": "يناير، فبراير، مارس، أبريل، مايو، يونيو، يوليو، أغسطس، سبتمبر، أكتوبر، نوفمبر و ديسمبر هي أشهر السنة الإثنة عشر.",
-      "en": "January, February, March, April, May, June, July, August, September, October, November and December are the twelve months of the year."
+      "fr": "Je dois déclarer mes revenus de l'année.",
+      "ar": "يجب أن أصرّح بمدخولي عن السنة.",
+      "en": "I have to declare my income for the year."
     }
   },
   {
@@ -6052,9 +4592,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Ils ont quatre cours le matin.",
-      "ar": "لديهم اربعة فصول في الصباح",
-      "en": "They have four classes in the morning."
+      "fr": "Le matin, ça m'arrange mieux.",
+      "ar": "الصباح أنسب لي.",
+      "en": "The morning suits me better."
     }
   },
   {
@@ -6067,9 +4607,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Je déjeune à midi avec mes amis.",
-      "ar": "أتناول الغداء عند الظهيرة مع أصدقائي.",
-      "en": "I have lunch at noon with my friends."
+      "fr": "Le matin, l'après-midi, le soir, la nuit.",
+      "ar": "الصباح، بعد الظهر، المساء، الليل.",
+      "en": "The morning, the afternoon, the evening, the night."
     }
   },
   {
@@ -6082,9 +4622,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Nous avons fait la fête toute la nuit.",
-      "ar": "احتفلنا طيلة الليل",
-      "en": "We partied all night long."
+      "fr": "La visibilité est mauvaise la nuit.",
+      "ar": "الرؤية سيئة ليلًا.",
+      "en": "Visibility is poor at night."
     }
   },
   {
@@ -6112,9 +4652,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Le bus est arrivé dix minutes trop tard.",
-      "ar": "وصلت الحافلة متأخرة بعشرة دقائق.",
-      "en": "The bus arrived ten minutes behind time."
+      "fr": "On en reparlera plus tard.",
+      "ar": "نتحدث عن ذلك لاحقًا.",
+      "en": "We'll talk about it later."
     }
   },
   {
@@ -6127,9 +4667,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Pleut-il maintenant ?",
-      "ar": "هل تمطر الآن؟",
-      "en": "Is it raining at the moment?"
+      "fr": "Maintenant je comprends.",
+      "ar": "الآن فهمت.",
+      "en": "Now I understand."
     }
   },
   {
@@ -6140,12 +4680,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "work"
-    ],
-    "ex": {
-      "fr": "Je ne l'aime plus.",
-      "ar": "لم أعد أحبه.",
-      "en": "I don't love her any more."
-    }
+    ]
   },
   {
     "fr": "tout de suite",
@@ -6155,12 +4690,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "work"
-    ],
-    "ex": {
-      "fr": "Je reviens tout de suite.",
-      "ar": "سأرجع حالا.",
-      "en": "I'll be back in a moment."
-    }
+    ]
   },
   {
     "fr": "à gauche",
@@ -6172,9 +4702,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "L'arabe s'écrit de droite à gauche.",
-      "ar": "تكتب العربية من اليمين إلى اليسار.",
-      "en": "Arabic is written from right to left."
+      "fr": "Tournez à gauche.",
+      "ar": "انعطف يسارًا.",
+      "en": "Turn left."
     }
   },
   {
@@ -6187,9 +4717,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Alors, deux fois à droite, hein ?",
-      "ar": "إذن مرتين على اليمين، أليس كذلك؟",
-      "en": "So, two times to the right, right?"
+      "fr": "Serrez à droite.",
+      "ar": "اقترب من اليمين.",
+      "en": "Keep to the right."
     }
   },
   {
@@ -6200,12 +4730,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "transport"
-    ],
-    "ex": {
-      "fr": "Tout est faux.",
-      "ar": "الكل خاطئ.",
-      "en": "It's all wrong."
-    }
+    ]
   },
   {
     "fr": "au coin de",
@@ -6215,12 +4740,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "transport"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "en face de",
@@ -6230,12 +4750,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "transport"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "à côté de",
@@ -6247,9 +4762,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
+      "fr": "C'est à côté de la mairie, derrière l'église.",
+      "ar": "إنه بجانب البلدية، خلف الكنيسة.",
+      "en": "It's next to the town hall, behind the church."
     }
   },
   {
@@ -6262,9 +4777,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "J'ai mis le combiné du téléphone près de mon oreille.",
-      "ar": "وضعت السماعة قريبا من أذني",
-      "en": "I put the receiver to my ear."
+      "fr": "Elle est près de l’entrée.",
+      "ar": "إنها قرب المدخل.",
+      "en": "It’s near the entrance."
     }
   },
   {
@@ -6292,9 +4807,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "La vie s'étend devant toi.",
-      "ar": "ما زالت الحياة أمامك.",
-      "en": "Life lies in front of you."
+      "fr": "Vas-y, passe devant.",
+      "ar": "تفضل، مرّ أمامي.",
+      "en": "Go ahead, pass in front."
     }
   },
   {
@@ -6307,9 +4822,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Le lapin se cacha derrière l'arbre.",
-      "ar": "اختبأ الأرنب خلف الشجرة.",
-      "en": "The rabbit hid behind the tree."
+      "fr": "Attention derrière !",
+      "ar": "انتبه، هناك شخص خلفك!",
+      "en": "Watch out behind you!"
     }
   },
   {
@@ -6322,9 +4837,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Elle m'a séduit dès le premier regard.",
-      "ar": "لقد جذبتني من النظرة الأولى .",
-      "en": "She attracted me at first sight."
+      "fr": "Le Premier Ministre tiendra une conférence de presse demain.",
+      "ar": "رئيس الوزراء سوف يعقد غدا مؤتمرا صحفيا.",
+      "en": "The Prime Minister will hold a press conference tomorrow."
     }
   },
   {
@@ -6335,12 +4850,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "transport"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "prochain",
@@ -6350,7 +4860,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Je suis libre lundi prochain.",
+      "ar": "أنا متفرّغ الاثنين القادم.",
+      "en": "I'm free next Monday."
+    }
   },
   {
     "fr": "Combien ?",
@@ -6360,12 +4875,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "shop"
-    ],
-    "ex": {
-      "fr": "Combien ça va coûter ?",
-      "ar": "كم سيكلف ذلك؟",
-      "en": "How much is this going to cost?"
-    }
+    ]
   },
   {
     "fr": "Quel / Quelle ?",
@@ -6374,12 +4884,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Quel gros livre !",
-      "ar": "ياله من كتاب ضخم !",
-      "en": "What a big book this is!"
-    }
+    ]
   },
   {
     "fr": "Où ?",
@@ -6389,12 +4894,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "transport"
-    ],
-    "ex": {
-      "fr": "Où es-tu ?",
-      "ar": "أين أنت ؟",
-      "en": "Where art thou?"
-    }
+    ]
   },
   {
     "fr": "Quand ?",
@@ -6404,12 +4904,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "work"
-    ],
-    "ex": {
-      "fr": "Tu rentres quand ?",
-      "ar": "متى سترجع؟",
-      "en": "When will you be back home?"
-    }
+    ]
   },
   {
     "fr": "Pourquoi ?",
@@ -6419,12 +4914,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "work"
-    ],
-    "ex": {
-      "fr": "« Pourquoi le singe est-il tombé de l'arbre ? » « Je ne sais pas, Tom. Pourquoi ? » « Parce qu'il était mort. »",
-      "ar": "\"لماذا سقط القرد من الشجرة؟\" \"لا أعرف يا توم. لماذا؟\" \"لأنه كان ميتا.\"",
-      "en": "\"Why did the monkey fall out of the tree?\" \"I don't know, Tom. Why?\" \"Because it was dead.\""
-    }
+    ]
   },
   {
     "fr": "Comment ?",
@@ -6434,12 +4924,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "work"
-    ],
-    "ex": {
-      "fr": "Salut. Comment vas-tu ?",
-      "ar": "أهلا كيف حالك؟",
-      "en": "Hi, how are you?"
-    }
+    ]
   },
   {
     "fr": "Qui ?",
@@ -6448,12 +4933,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Qui dit ça ?",
-      "ar": "من يقول هذا؟",
-      "en": "Who says that?"
-    }
+    ]
   },
   {
     "fr": "être",
@@ -6465,9 +4945,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Je veux être médecin.",
-      "ar": "أريد أن أصبح طبيبا.",
-      "en": "I want to be a doctor."
+      "fr": "Être élevé",
+      "ar": "يكون مرتفعًا",
+      "en": "To be high"
     }
   },
   {
@@ -6480,9 +4960,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Je crois avoir compris.",
-      "ar": "أعتقد أني فهمت.",
-      "en": "I think I got it."
+      "fr": "Avoir mal",
+      "ar": "يشعر بالألم",
+      "en": "To hurt / To have pain"
     }
   },
   {
@@ -6495,9 +4975,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Je ne peux rien faire.",
-      "ar": "ليس باليد حيلة.",
-      "en": "I can't do anything."
+      "fr": "Faire une biopsie",
+      "ar": "يأخذ خزعة",
+      "en": "To take a biopsy"
     }
   },
   {
@@ -6511,9 +4991,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Je veux aller à Tokyo.",
-      "ar": "أريد أن أذهب إلى طوكيو.",
-      "en": "I want to go to Tokyo."
+      "fr": "Ça va aller.",
+      "ar": "سيكون كل شيء بخير.",
+      "en": "It’ll be okay."
     }
   },
   {
@@ -6527,9 +5007,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Je lui ai dit de venir.",
-      "ar": "قلت له أن يأتي.",
-      "en": "I told her to come."
+      "fr": "Paiement à venir",
+      "ar": "دفعة قادمة",
+      "en": "Upcoming payment"
     }
   },
   {
@@ -6541,9 +5021,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Laisse-moi les voir.",
-      "ar": "دعني أراها.",
-      "en": "Let me see it."
+      "fr": "Voir plus.",
+      "ar": "عرض المزيد.",
+      "en": "See more."
     }
   },
   {
@@ -6556,9 +5036,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Tu dois savoir que je ronfle.",
-      "ar": "عليك أن تعلم أنني أشخر",
-      "en": "You must know I snore."
+      "fr": "C’est bon à savoir.",
+      "ar": "من الجيد معرفة ذلك.",
+      "en": "Good to know."
     }
   },
   {
@@ -6585,7 +5065,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "Je vous remercie de bien vouloir examiner ma demande.",
+      "ar": "أشكركم على النظر في طلبي.",
+      "en": "I would be grateful if you could review my request."
+    }
   },
   {
     "fr": "devoir",
@@ -6625,9 +5110,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Tu dois prendre ça.",
-      "ar": "عليك أن تأخذ هذا.",
-      "en": "You have to take this."
+      "fr": "Prendre un comprimé",
+      "ar": "يتناول حبة",
+      "en": "To take a tablet"
     }
   },
   {
@@ -6639,9 +5124,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Combien devrais-je lui donner ?",
-      "ar": "كم ينبغي أن أدفعه له؟",
-      "en": "How much should I give her?"
+      "fr": "Pouvez-vous me donner un reçu ?",
+      "ar": "هل يمكنك إعطائي وصلاً؟",
+      "en": "Can you give me a receipt?"
     }
   },
   {
@@ -6670,9 +5155,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Je ne voulais pas te dire ça.",
-      "ar": "لم أكن أريد أن أقول لك هذا.",
-      "en": "I didn't want to tell you this."
+      "fr": "J’ai rien à dire.",
+      "ar": "ليس لدي ما أقوله.",
+      "en": "I have nothing to say."
     }
   },
   {
@@ -6686,9 +5171,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "J'ai oublié de lui demander.",
-      "ar": "نسيت أن أسأله.",
-      "en": "I forgot to ask him."
+      "fr": "Demander une attestation",
+      "ar": "طلب شهادة",
+      "en": "Request a certificate"
     }
   },
   {
@@ -6702,9 +5187,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "Il hésita avant de répondre.",
-      "ar": "لقد تردد قبل الإجابة.",
-      "en": "He hesitated before answering."
+      "fr": "Répondre au message",
+      "ar": "الرد على الرسالة",
+      "en": "Reply to the message"
     }
   },
   {
@@ -6718,9 +5203,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Où trouver un miroir ?",
-      "ar": "أين بإمكاني أن أجد مرآة",
-      "en": "Where's a mirror?"
+      "fr": "Trouver un professionnel de santé.",
+      "ar": "العثور على مختص صحي.",
+      "en": "Find a healthcare professional."
     }
   },
   {
@@ -6732,12 +5217,7 @@ window.VOCAB_DATA = [
       "daily",
       "work",
       "shop"
-    ],
-    "ex": {
-      "fr": "C'est comme chercher une aiguille dans une botte de foin.",
-      "ar": "كمن يبحث عن إبرة في كومة قش.",
-      "en": "It is like looking for a needle in the sea."
-    }
+    ]
   },
   {
     "fr": "comprendre",
@@ -6782,9 +5262,9 @@ window.VOCAB_DATA = [
       "school"
     ],
     "ex": {
-      "fr": "Je suis fatigué d'écrire.",
-      "ar": "تعبت من الكتابة.",
-      "en": "I'm tired of writing."
+      "fr": "Écrire des lettres d'amour ne m'est pas aisé.",
+      "ar": "كتابة رسائل الحب ليست سهلة.",
+      "en": "Writing love letters isn't easy for me."
     }
   },
   {
@@ -6797,9 +5277,9 @@ window.VOCAB_DATA = [
       "school"
     ],
     "ex": {
-      "fr": "Il est en train de lire.",
-      "ar": "إنه يقرأ الآن.",
-      "en": "He's reading."
+      "fr": "Lire le message",
+      "ar": "قراءة الرسالة.",
+      "en": "Read the message."
     }
   },
   {
@@ -6826,12 +5306,7 @@ window.VOCAB_DATA = [
       "daily",
       "transport",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "Nous ne voulons pas attendre.",
-      "ar": "لا نريد الانتظار.",
-      "en": "We don't want to wait."
-    }
+    ]
   },
   {
     "fr": "payer",
@@ -6842,12 +5317,7 @@ window.VOCAB_DATA = [
       "daily",
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tu vas payer pour ça.",
-      "ar": "ستدفع ثمن هذا.",
-      "en": "You're going to pay for this."
-    }
+    ]
   },
   {
     "fr": "acheter",
@@ -6857,12 +5327,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "shop"
-    ],
-    "ex": {
-      "fr": "Je veux acheter une maison.",
-      "ar": "أريد أن أشتري منزلا",
-      "en": "I want to buy a house."
-    }
+    ]
   },
   {
     "fr": "vendre",
@@ -6889,12 +5354,7 @@ window.VOCAB_DATA = [
       "daily",
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "Que voulez-vous manger ?",
-      "ar": "ماذا تريد أن تأكل؟",
-      "en": "What do you guys want to eat?"
-    }
+    ]
   },
   {
     "fr": "boire",
@@ -6904,12 +5364,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "cafe"
-    ],
-    "ex": {
-      "fr": "Étais-tu en train de boire ?",
-      "ar": "هل كنت تشرب؟",
-      "en": "Were you drinking?"
-    }
+    ]
   },
   {
     "fr": "dormir",
@@ -6919,12 +5374,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "health"
-    ],
-    "ex": {
-      "fr": "Je veux dormir.",
-      "ar": "أريد أن أنام.",
-      "en": "I want to sleep."
-    }
+    ]
   },
   {
     "fr": "travailler",
@@ -6934,12 +5384,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "work"
-    ],
-    "ex": {
-      "fr": "Je ne veux pas travailler.",
-      "ar": "لا أريد العمل.",
-      "en": "I don't want to work."
-    }
+    ]
   },
   {
     "fr": "commencer",
@@ -6951,9 +5396,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Tu devrais commencer aussi tôt que possible.",
-      "ar": "ينبغي أن تبدأ أبكر ما يمكنك.",
-      "en": "You should set off as soon as possible."
+      "fr": "Commencer un emploi",
+      "ar": "بدء عمل",
+      "en": "Start a job"
     }
   },
   {
@@ -6975,7 +5420,12 @@ window.VOCAB_DATA = [
       "daily",
       "transport",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "Ça peut arriver.",
+      "ar": "يمكن أن يحدث.",
+      "en": "It can happen."
+    }
   },
   {
     "fr": "partir",
@@ -6986,12 +5436,7 @@ window.VOCAB_DATA = [
       "daily",
       "transport",
       "work"
-    ],
-    "ex": {
-      "fr": "C'est l'heure de partir.",
-      "ar": "حان وقت الرحيل.",
-      "en": "It's time to set off."
-    }
+    ]
   },
   {
     "fr": "entrer",
@@ -7015,7 +5460,12 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "J’ai pas envie de sortir.",
+      "ar": "لا أريد الخروج.",
+      "en": "I don’t feel like going out."
+    }
   },
   {
     "fr": "monter",
@@ -7025,12 +5475,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "transport"
-    ],
-    "ex": {
-      "fr": "Vous ne savez pas monter à cheval.",
-      "ar": "لا تستطيع ركوب حصان.",
-      "en": "You can't ride a horse."
-    }
+    ]
   },
   {
     "fr": "descendre",
@@ -7040,12 +5485,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "transport"
-    ],
-    "ex": {
-      "fr": "Je l'ai entendu descendre les escaliers.",
-      "ar": "سمعته ينزل السلالم.",
-      "en": "I heard him go down the stairs."
-    }
+    ]
   },
   {
     "fr": "tourner",
@@ -7055,12 +5495,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "transport"
-    ],
-    "ex": {
-      "fr": "Elle fait tourner l'entreprise avec ses filles.",
-      "ar": "هي تسير الشركة مع بناتها.",
-      "en": "She runs the business with her daughters."
-    }
+    ]
   },
   {
     "fr": "continuer",
@@ -7070,7 +5505,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Continuer la démarche",
+      "ar": "متابعة الإجراء",
+      "en": "Continue the procedure"
+    }
   },
   {
     "fr": "s'arrêter",
@@ -7092,9 +5532,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "Je préfère rester assise.",
-      "ar": "أفضل البقاء جالسة.",
-      "en": "I prefer to remain seated."
+      "fr": "Rester stable",
+      "ar": "يبقى مستقرًا",
+      "en": "To remain stable"
     }
   },
   {
@@ -7115,7 +5555,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "Revenir à la normale",
+      "ar": "يعود للطبيعي",
+      "en": "To return to normal"
+    }
   },
   {
     "fr": "apporter",
@@ -7149,9 +5594,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Tu peux ouvrir la fenêtre.",
-      "ar": "يمكنك فتح النافذة.",
-      "en": "You can open the window."
+      "fr": "Ouvrir un droit",
+      "ar": "يفتح حقًا",
+      "en": "To open a right"
     }
   },
   {
@@ -7165,9 +5610,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "N'est-il pas venu à ton esprit de fermer les fenêtres ?",
-      "ar": "ألم يخطر ببالك أن تغلق النوافذ؟",
-      "en": "Didn't it occur to you to shut the windows?"
+      "fr": "Fermer la page",
+      "ar": "إغلاق الصفحة",
+      "en": "Close the page"
     }
   },
   {
@@ -7181,9 +5626,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Je vais changer tout ça.",
-      "ar": "سأغير هذا كله.",
-      "en": "I'm going to change all that."
+      "fr": "Changer de direction",
+      "ar": "يغير الاتجاه",
+      "en": "To change direction"
     }
   },
   {
@@ -7195,12 +5640,7 @@ window.VOCAB_DATA = [
       "daily",
       "housing",
       "car"
-    ],
-    "ex": {
-      "fr": "J'ai demandé à mon frère de réparer mon vélo.",
-      "ar": "جعلت أخي يصلح دراجتي.",
-      "en": "I asked my brother to repair my bicycle."
-    }
+    ]
   },
   {
     "fr": "nettoyer",
@@ -7210,12 +5650,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "housing"
-    ],
-    "ex": {
-      "fr": "Elle m'a aidé à nettoyer le bordel.",
-      "ar": "لقد ساعدني في التنظيف",
-      "en": "She helped me clean up the mess."
-    }
+    ]
   },
   {
     "fr": "cuisiner",
@@ -7240,7 +5675,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Où puis-je laver mes vêtements ?",
+      "ar": "أين يمكنني غسل ملابسي؟",
+      "en": "Where can I wash my clothes?"
+    }
   },
   {
     "fr": "repasser",
@@ -7260,7 +5700,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "car"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai le permis de conduire.",
+      "ar": "لديّ رخصة قيادة.",
+      "en": "I have a driving licence."
+    }
   },
   {
     "fr": "stationner",
@@ -7272,9 +5717,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "Tu n'as pas le droit de stationner dans cette rue.",
-      "ar": "ليس لديك الحق في التوقف في هذا الشارع.",
-      "en": "You're not allowed to park in this street."
+      "fr": "Stationner / Se garer",
+      "ar": "يركن",
+      "en": "To park"
     }
   },
   {
@@ -7285,12 +5730,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "car"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "Je voudrais prendre rendez-vous",
@@ -7304,9 +5744,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
+      "fr": "Je voudrais prendre rendez-vous avec un médecin.",
+      "ar": "أريد أخذ موعد مع طبيب.",
+      "en": "I would like to make an appointment with a doctor."
     }
   },
   {
@@ -7318,12 +5758,7 @@ window.VOCAB_DATA = [
       "office",
       "prefecture",
       "ofii"
-    ],
-    "ex": {
-      "fr": "J'ai faim !",
-      "ar": "أشعر بالجوع.",
-      "en": "I am hungry!"
-    }
+    ]
   },
   {
     "fr": "J'ai perdu mon rendez-vous",
@@ -7334,12 +5769,7 @@ window.VOCAB_DATA = [
       "office",
       "prefecture",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Mon Dieu !",
-      "ar": "يا الهي!",
-      "en": "Good Lord."
-    }
+    ]
   },
   {
     "fr": "Puis-je avoir un formulaire ?",
@@ -7350,12 +5780,7 @@ window.VOCAB_DATA = [
       "office",
       "prefecture",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "Où puis-joindre ce document ?",
@@ -7366,12 +5791,7 @@ window.VOCAB_DATA = [
       "office",
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "Où es-tu ?",
-      "ar": "أين أنت ؟",
-      "en": "Where art thou?"
-    }
+    ]
   },
   {
     "fr": "Quels sont les documents nécessaires ?",
@@ -7383,12 +5803,7 @@ window.VOCAB_DATA = [
       "prefecture",
       "ofii",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "Combien de temps ça prend ?",
@@ -7401,9 +5816,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
+      "fr": "Combien ça coûte et combien de temps ça prend ?",
+      "ar": "كم يكلّف وكم يستغرق من وقت؟",
+      "en": "How much does it cost and how long does it take?"
     }
   },
   {
@@ -7415,12 +5830,7 @@ window.VOCAB_DATA = [
       "office",
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "Je n'ai pas encore reçu...",
@@ -7431,12 +5841,7 @@ window.VOCAB_DATA = [
       "office",
       "prefecture",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "Je voudrais suivre mon dossier",
@@ -7448,12 +5853,7 @@ window.VOCAB_DATA = [
       "prefecture",
       "ofii",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "Mon dossier est en cours",
@@ -7466,9 +5866,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "Cours !",
-      "ar": "اركض!",
-      "en": "Leg it!"
+      "fr": "Mon dossier est en cours de traitement.",
+      "ar": "ملفي قيد المعالجة.",
+      "en": "My file is being processed."
     }
   },
   {
@@ -7480,12 +5880,7 @@ window.VOCAB_DATA = [
       "office",
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "Mon Dieu !",
-      "ar": "يا الهي!",
-      "en": "Good Lord."
-    }
+    ]
   },
   {
     "fr": "Je voudrais faire un recours",
@@ -7495,12 +5890,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "ofpra",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "C'est urgent",
@@ -7513,9 +5903,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "C'est son ami.",
-      "ar": "هو صديق له.",
-      "en": "This is her friend."
+      "fr": "C'est urgent, envoyez un technicien.",
+      "ar": "الأمر عاجل، أرسلوا فنياً.",
+      "en": "It's urgent, please send a technician."
     }
   },
   {
@@ -7528,9 +5918,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "C'est son ami.",
-      "ar": "هو صديق له.",
-      "en": "This is her friend."
+      "fr": "C'est important de rester calme.",
+      "ar": "من المهم أن تبقى هادئاً.",
+      "en": "It is important to stay calm."
     }
   },
   {
@@ -7557,12 +5947,7 @@ window.VOCAB_DATA = [
       "office",
       "shop",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "Pouvez-vous m'expliquer ?",
@@ -7573,12 +5958,7 @@ window.VOCAB_DATA = [
       "office",
       "prefecture",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Où êtes-vous ?",
-      "ar": "أين أنت ؟",
-      "en": "Where art thou?"
-    }
+    ]
   },
   {
     "fr": "Pouvez-vous écrire cela ?",
@@ -7589,12 +5969,7 @@ window.VOCAB_DATA = [
       "office",
       "prefecture",
       "daily"
-    ],
-    "ex": {
-      "fr": "Où êtes-vous ?",
-      "ar": "أين أنت ؟",
-      "en": "Where art thou?"
-    }
+    ]
   },
   {
     "fr": "Je vais revenir",
@@ -7605,12 +5980,7 @@ window.VOCAB_DATA = [
       "office",
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "la CAF",
@@ -7621,9 +5991,9 @@ window.VOCAB_DATA = [
       "caf"
     ],
     "ex": {
-      "fr": "Je perçois l'APL de la CAF.",
-      "ar": "أتلقى إعانة الإيجار APL من CAF.",
-      "en": "I receive housing benefit (APL) from CAF."
+      "fr": "La CAF traite ma demande.",
+      "ar": "CAF تعالج طلبي.",
+      "en": "CAF is processing my request."
     }
   },
   {
@@ -7634,7 +6004,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "caf",
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "L'APL est versée au bailleur.",
+      "ar": "تُحوَّل APL إلى المؤجر.",
+      "en": "The housing benefit is paid to the landlord."
+    }
   },
   {
     "fr": "l'ALS",
@@ -7653,12 +6028,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "caf"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "le RSA",
@@ -7668,12 +6038,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "caf",
       "work"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "percevoir le RSA",
@@ -7683,12 +6048,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "caf",
       "work"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "la prime d'activité",
@@ -7698,12 +6058,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "caf",
       "work"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "un numéro d'allocataire",
@@ -7712,12 +6067,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "caf"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un compte CAF",
@@ -7726,12 +6076,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "caf"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "attestation de droits",
@@ -7740,12 +6085,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "caf"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "France Travail",
@@ -7756,9 +6096,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Je suis inscrit à France Travail.",
-      "ar": "أنا مسجل في France Travail.",
-      "en": "I am registered with France Travail."
+      "fr": "France Travail peut radier un demandeur d'emploi.",
+      "ar": "يمكن لـ France Travail شطب طالب العمل.",
+      "en": "France Travail can remove a job seeker from the register."
     }
   },
   {
@@ -7768,12 +6108,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une offre d'emploi",
@@ -7782,12 +6117,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un entretien d'embauche",
@@ -7796,12 +6126,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "le chômage",
@@ -7811,12 +6136,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "caf"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "au chômage",
@@ -7826,12 +6146,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "caf"
-    ],
-    "ex": {
-      "fr": "Au secours !",
-      "ar": "النجدة!",
-      "en": "Help!"
-    }
+    ]
   },
   {
     "fr": "une demande",
@@ -7843,12 +6158,7 @@ window.VOCAB_DATA = [
       "prefecture",
       "ofpra",
       "caf"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "déposer une demande",
@@ -7859,12 +6169,7 @@ window.VOCAB_DATA = [
       "prefecture",
       "ofpra",
       "caf"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "l'URSSAF",
@@ -7874,7 +6179,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "taxes"
-    ]
+    ],
+    "ex": {
+      "fr": "Je dois déclarer ces revenus à l'URSSAF.",
+      "ar": "يجب أن أصرّح بهذه المداخيل إلى URSSAF.",
+      "en": "I have to declare this income to URSSAF."
+    }
   },
   {
     "fr": "cotisations",
@@ -7884,7 +6194,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "taxes"
-    ]
+    ],
+    "ex": {
+      "fr": "Quel est le montant des cotisations ?",
+      "ar": "ما مقدار الاستقطاعات؟",
+      "en": "How much are the contributions?"
+    }
   },
   {
     "fr": "la mairie",
@@ -7894,12 +6209,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "un acte de naissance",
@@ -7909,12 +6219,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "un certificat de vie",
@@ -7924,12 +6229,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "un livret de famille",
@@ -7939,12 +6239,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "un extrait",
@@ -7953,12 +6248,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "prefecture"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "la pause-café",
@@ -7969,12 +6259,7 @@ window.VOCAB_DATA = [
       "cafe",
       "work",
       "daily"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "la machine à café",
@@ -7984,12 +6269,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "work"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "une tasse",
@@ -7999,12 +6279,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "daily"
-    ],
-    "ex": {
-      "fr": "Voudriez-vous une tasse de thé ?",
-      "ar": "أتريد فنجانا من الشاي؟",
-      "en": "Would you like a cup of tea?"
-    }
+    ]
   },
   {
     "fr": "un verre",
@@ -8014,12 +6289,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une nappe",
@@ -8029,12 +6299,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une serviette",
@@ -8044,12 +6309,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un couteau",
@@ -8060,12 +6320,7 @@ window.VOCAB_DATA = [
       "cafe",
       "restaurant",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une fourchette",
@@ -8076,12 +6331,7 @@ window.VOCAB_DATA = [
       "cafe",
       "restaurant",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une cuillère",
@@ -8092,12 +6342,7 @@ window.VOCAB_DATA = [
       "cafe",
       "restaurant",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une assiette",
@@ -8108,12 +6353,7 @@ window.VOCAB_DATA = [
       "cafe",
       "restaurant",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un bol",
@@ -8124,12 +6364,7 @@ window.VOCAB_DATA = [
       "cafe",
       "restaurant",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "le déjeuner",
@@ -8140,12 +6375,7 @@ window.VOCAB_DATA = [
       "cafe",
       "work",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le dîner",
@@ -8156,12 +6386,7 @@ window.VOCAB_DATA = [
       "cafe",
       "restaurant",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le petit déjeuner",
@@ -8171,12 +6396,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai préparé le petit déjeuner pour Tom.",
-      "ar": "قمت بتحضير فطور الصباح لتوم.",
-      "en": "I prepared breakfast for Tom."
-    }
+    ]
   },
   {
     "fr": "un goûter",
@@ -8186,12 +6406,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "le plat",
@@ -8201,12 +6416,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le dessert",
@@ -8216,12 +6426,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "l'entrée",
@@ -8243,12 +6448,7 @@ window.VOCAB_DATA = [
       "cafe",
       "restaurant",
       "shop"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "la crème",
@@ -8258,12 +6458,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "shop"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "le yaourt",
@@ -8273,12 +6468,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "shop"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "les frites",
@@ -8288,12 +6478,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "une salade composée",
@@ -8303,12 +6488,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "la carte des vins",
@@ -8317,12 +6497,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "restaurant"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "une boisson",
@@ -8332,12 +6507,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un apéritif",
@@ -8347,12 +6517,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un digestif",
@@ -8361,12 +6526,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "l'addition",
@@ -8376,7 +6536,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ]
+    ],
+    "ex": {
+      "fr": "L'addition, s'il vous plaît.",
+      "ar": "الحساب، من فضلك.",
+      "en": "The bill, please."
+    }
   },
   {
     "fr": "le service compris",
@@ -8385,12 +6550,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "restaurant"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "commander à emporter",
@@ -8410,12 +6570,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ],
-    "ex": {
-      "fr": "La haine a sa place.",
-      "ar": "الكراهية لها مكانها.",
-      "en": "Hate has its place."
-    }
+    ]
   },
   {
     "fr": "à emporter",
@@ -8425,7 +6580,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "cafe",
       "restaurant"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais un sandwich à emporter.",
+      "ar": "أريد ساندويتش للطريق.",
+      "en": "I would like a sandwich to take away."
+    }
   },
   {
     "fr": "Bonne journée",
@@ -8437,9 +6597,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Bonne nuit.",
-      "ar": "ليلة سعيدة.",
-      "en": "Have a great night."
+      "fr": "Bonne journée, au revoir.",
+      "ar": "نهاراً طيباً، إلى اللقاء.",
+      "en": "Have a good day, goodbye."
     }
   },
   {
@@ -8452,9 +6612,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Bonne nuit.",
-      "ar": "ليلة سعيدة.",
-      "en": "Have a great night."
+      "fr": "Bonne journée, bonne soirée.",
+      "ar": "نهاراً سعيداً، مساءً طيباً.",
+      "en": "Have a good day, have a good evening."
     }
   },
   {
@@ -8466,9 +6626,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Bonne nuit.",
-      "ar": "ليلة سعيدة.",
-      "en": "Have a great night."
+      "fr": "Bonne nuit, ma chère.",
+      "ar": "ليلة سعيدة يا عزيزتي.",
+      "en": "Good night, my love."
     }
   },
   {
@@ -8481,9 +6641,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Il sera chez lui demain.",
-      "ar": "غدا، سيكون في بيته.",
-      "en": "He'll be back home tomorrow."
+      "fr": "À bientôt, à demain.",
+      "ar": "إلى قريب، إلى الغد.",
+      "en": "See you soon, see you tomorrow."
     }
   },
   {
@@ -8496,9 +6656,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Tu pars bientôt ?",
-      "ar": "ستخادر قريبا؟",
-      "en": "Are you leaving soon?"
+      "fr": "À bientôt, à demain.",
+      "ar": "إلى قريب، إلى الغد.",
+      "en": "See you soon, see you tomorrow."
     }
   },
   {
@@ -8509,12 +6669,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "daily"
-    ],
-    "ex": {
-      "fr": "Je ne l'aime plus.",
-      "ar": "لم أعد أحبه.",
-      "en": "I don't love her any more."
-    }
+    ]
   },
   {
     "fr": "Bienvenue",
@@ -8542,9 +6697,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Félicitations.",
-      "ar": "تهانينا.",
-      "en": "Give yourself a pat on the back."
+      "fr": "Félicitations pour votre mariage !",
+      "ar": "مبروك على زواجكم!",
+      "en": "Congratulations on your wedding!"
     }
   },
   {
@@ -8557,9 +6712,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Bonne nuit.",
-      "ar": "ليلة سعيدة.",
-      "en": "Have a great night."
+      "fr": "Bonne chance pour votre entretien !",
+      "ar": "حظاً موفقاً في مقابلتك!",
+      "en": "Good luck with your interview!"
     }
   },
   {
@@ -8572,9 +6727,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Courage !",
-      "ar": "تشجع !",
-      "en": "Cheer up."
+      "fr": "Bon courage et bonne chance.",
+      "ar": "بالتوفيق وحظاً سعيداً.",
+      "en": "Good luck and all the best."
     }
   },
   {
@@ -8585,12 +6740,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "daily"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "C'est compris",
@@ -8600,12 +6750,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "daily"
-    ],
-    "ex": {
-      "fr": "C'est son ami.",
-      "ar": "هو صديق له.",
-      "en": "This is her friend."
-    }
+    ]
   },
   {
     "fr": "Je suis disponible",
@@ -8617,9 +6762,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
+      "fr": "Je suis disponible immédiatement.",
+      "ar": "أنا متاح للعمل فوراً.",
+      "en": "I am available immediately."
     }
   },
   {
@@ -8632,9 +6777,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
+      "fr": "Je suis occupé actuellement.",
+      "ar": "أنا مشغول حاليًا.",
+      "en": "I’m busy right now."
     }
   },
   {
@@ -8647,9 +6792,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "Je suis malade.",
-      "ar": "أنا مريضة.",
-      "en": "I have been sick."
+      "fr": "Je suis malade, je ne peux pas venir travailler.",
+      "ar": "أنا مريض، لا أستطيع القدوم للعمل.",
+      "en": "I am ill, I can't come to work."
     }
   },
   {
@@ -8660,12 +6805,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "health"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "Je dois partir tôt",
@@ -8675,12 +6815,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "daily"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "Je peux travailler demain",
@@ -8689,12 +6824,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "Je voudrais poser un congé",
@@ -8703,12 +6833,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "J'ai un problème avec mon collègue",
@@ -8717,12 +6842,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "Mon Dieu !",
-      "ar": "يا الهي!",
-      "en": "Good Lord."
-    }
+    ]
   },
   {
     "fr": "On a beaucoup de travail",
@@ -8731,12 +6851,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "C'est urgent",
@@ -8747,9 +6862,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "C'est son ami.",
-      "ar": "هو صديق له.",
-      "en": "This is her friend."
+      "fr": "C'est urgent, envoyez un technicien.",
+      "ar": "الأمر عاجل، أرسلوا فنياً.",
+      "en": "It's urgent, please send a technician."
     }
   },
   {
@@ -8759,12 +6874,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "Répondez-moi.",
-      "ar": "أجبني",
-      "en": "Answer me."
-    }
+    ]
   },
   {
     "fr": "Appelez-moi",
@@ -8789,12 +6899,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "phone"
-    ],
-    "ex": {
-      "fr": "Répondez-moi.",
-      "ar": "أجبني",
-      "en": "Answer me."
-    }
+    ]
   },
   {
     "fr": "Je cherche un appartement",
@@ -8803,12 +6908,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "Je voudrais visiter un logement",
@@ -8817,12 +6917,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "Le loyer est de combien ?",
@@ -8831,12 +6926,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "Les charges sont comprises ?",
@@ -8845,12 +6935,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "Je voudrais souscrire un contrat",
@@ -8862,9 +6947,9 @@ window.VOCAB_DATA = [
       "services"
     ],
     "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
+      "fr": "Je voudrais souscrire un contrat d'électricité.",
+      "ar": "أريد الاشتراك في عقد كهرباء.",
+      "en": "I would like to sign up for an electricity contract."
     }
   },
   {
@@ -8877,9 +6962,9 @@ window.VOCAB_DATA = [
       "services"
     ],
     "ex": {
-      "fr": "Il lit.",
-      "ar": "هو يقرأ.",
-      "en": "He is reading."
+      "fr": "Il y a une fuite d'eau au plafond.",
+      "ar": "هناك تسرّب ماء في السقف.",
+      "en": "There is a water leak in the ceiling."
     }
   },
   {
@@ -8892,9 +6977,9 @@ window.VOCAB_DATA = [
       "services"
     ],
     "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
+      "fr": "Le chauffage ne marche pas correctement.",
+      "ar": "التدفئة لا تعمل بشكل صحيح.",
+      "en": "The heating is not working properly."
     }
   },
   {
@@ -8904,12 +6989,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "Il est là.",
-      "ar": "هو موجود.",
-      "en": "There it is."
-    }
+    ]
   },
   {
     "fr": "un plombier",
@@ -8918,12 +6998,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un électricien",
@@ -8932,12 +7007,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un serrurier",
@@ -8946,12 +7016,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "le syndic",
@@ -8960,12 +7025,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "les voisins",
@@ -8975,12 +7035,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "le bruit",
@@ -8992,9 +7047,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
+      "fr": "Le bruit dans cette rue est insupportable.",
+      "ar": "الضجيج في هذا الشارع لا يُحتمل.",
+      "en": "The noise in this street is unbearable."
     }
   },
   {
@@ -9005,12 +7060,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "J'ai une panne d'électricité",
@@ -9020,12 +7070,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "services"
-    ],
-    "ex": {
-      "fr": "J'ai faim !",
-      "ar": "أشعر بالجوع.",
-      "en": "I am hungry!"
-    }
+    ]
   },
   {
     "fr": "Je voudrais résilier mon contrat",
@@ -9038,9 +7083,9 @@ window.VOCAB_DATA = [
       "phone"
     ],
     "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
+      "fr": "Je voudrais résilier mon contrat d'assurance.",
+      "ar": "أريد إلغاء عقد التأمين.",
+      "en": "I would like to cancel my insurance policy."
     }
   },
   {
@@ -9051,7 +7096,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "Quel est le préavis pour partir ?",
+      "ar": "ما مدة الإشعار للمغادرة؟",
+      "en": "What is the notice period to leave?"
+    }
   },
   {
     "fr": "donner congé",
@@ -9061,12 +7111,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "work"
-    ],
-    "ex": {
-      "fr": "Combien devrais-je lui donner ?",
-      "ar": "كم ينبغي أن أدفعه له؟",
-      "en": "How much should I give her?"
-    }
+    ]
   },
   {
     "fr": "un permis de conduire",
@@ -9076,12 +7121,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "car",
       "daily"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "une voiture",
@@ -9091,12 +7131,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "car",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une voiture.",
-      "ar": "أملك سيارة.",
-      "en": "I have a car."
-    }
+    ]
   },
   {
     "fr": "un véhicule",
@@ -9107,9 +7142,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
+      "fr": "Un véhicule bien entretenu consomme moins.",
+      "ar": "السيارة التي تتم صيانتها جيدًا تستهلك أقل.",
+      "en": "A well-maintained vehicle consumes less."
     }
   },
   {
@@ -9120,12 +7155,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "car",
       "bank"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un contrôle technique",
@@ -9134,12 +7164,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "car"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un stationnement",
@@ -9149,12 +7174,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "car",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un parking",
@@ -9164,12 +7184,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "car",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une place de parking",
@@ -9179,12 +7194,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "car",
       "housing"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "l'essence",
@@ -9202,12 +7212,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "car"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "une station-service",
@@ -9216,12 +7221,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "car"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "le volant",
@@ -9230,12 +7230,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "car"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "les freins",
@@ -9246,9 +7241,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
+      "fr": "Les freins font du bruit.",
+      "ar": "الفرامل تصدر صوتاً.",
+      "en": "The brakes are making a noise."
     }
   },
   {
@@ -9258,12 +7253,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "car"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un accident",
@@ -9273,12 +7263,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "car",
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une panne",
@@ -9287,12 +7272,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "car"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "les phares",
@@ -9301,12 +7281,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "car"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "les clignotants",
@@ -9315,12 +7290,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "car"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "le compteur",
@@ -9329,12 +7299,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "car"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "un péage",
@@ -9344,12 +7309,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un radar",
@@ -9358,12 +7318,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "car"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "Au secours !",
@@ -9374,12 +7329,7 @@ window.VOCAB_DATA = [
       "health",
       "daily",
       "redcross"
-    ],
-    "ex": {
-      "fr": "Au secours !",
-      "ar": "النجدة!",
-      "en": "Help!"
-    }
+    ]
   },
   {
     "fr": "Appelez la police",
@@ -9391,9 +7341,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
+      "fr": "Appelez la police, s'il vous plaît !",
+      "ar": "اتصلوا بالشرطة، من فضلكم!",
+      "en": "Call the police, please!"
     }
   },
   {
@@ -9404,12 +7354,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un gendarme",
@@ -9418,12 +7363,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un commissariat",
@@ -9433,12 +7373,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "volé",
@@ -9450,9 +7385,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "Il m'a volé chaque centime que j'avais.",
-      "ar": "سرق مني كل مالي.",
-      "en": "He robbed me of every cent I had."
+      "fr": "On m'a volé mon vélo hier.",
+      "ar": "سُرقت دراجتي أمس.",
+      "en": "My bike was stolen yesterday."
     }
   },
   {
@@ -9465,9 +7400,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "J'ai perdu ma force.",
-      "ar": "فقدت قواي.",
-      "en": "I've lost my strength."
+      "fr": "J'ai perdu du gras.",
+      "ar": "خسرت دهونًا.",
+      "en": "I lost fat."
     }
   },
   {
@@ -9493,12 +7428,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "porter plainte",
@@ -9519,12 +7449,7 @@ window.VOCAB_DATA = [
       "prefecture",
       "ofpra",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "aide juridictionnelle",
@@ -9534,12 +7459,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "Je vous remercie de votre aide.",
-      "ar": "أشكرك على مساعدتك",
-      "en": "I thank you for your assistance."
-    }
+    ]
   },
   {
     "fr": "un droit",
@@ -9550,12 +7470,7 @@ window.VOCAB_DATA = [
       "daily",
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une obligation",
@@ -9565,12 +7480,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un devoir",
@@ -9580,12 +7490,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "school"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "la discrimination",
@@ -9596,12 +7501,7 @@ window.VOCAB_DATA = [
       "work",
       "daily",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "l'égalité",
@@ -9621,12 +7521,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "redcross",
       "daily"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "l'entraide",
@@ -9645,12 +7540,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une prospection",
@@ -9659,12 +7549,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un appel entrant",
@@ -9674,12 +7559,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "phone"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un appel sortant",
@@ -9689,12 +7569,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "phone"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un script",
@@ -9703,12 +7578,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un objectif",
@@ -9717,12 +7587,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un chiffre d'affaires",
@@ -9731,12 +7596,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une vente",
@@ -9746,12 +7606,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "shop"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un client",
@@ -9761,12 +7616,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "shop"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une cliente",
@@ -9776,12 +7626,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "shop"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un prospect",
@@ -9790,12 +7635,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un rendez-vous commercial",
@@ -9804,12 +7644,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "clôturer une vente",
@@ -9818,12 +7653,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "suivi client",
@@ -9844,9 +7674,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Un instant...",
-      "ar": "هنيهة .",
-      "en": "Wait a minute."
+      "fr": "Un droit",
+      "ar": "حق",
+      "en": "Right"
     }
   },
   {
@@ -9859,9 +7689,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Un plus deux égale trois.",
-      "ar": "واحد زائد اثنان يساوي ثلاثة.",
-      "en": "One plus two makes three."
+      "fr": "Deux croissants et un pain au chocolat.",
+      "ar": "قطعتا كرواسان وقطعة بان أو شوكولا.",
+      "en": "Two croissants and one chocolate pastry."
     }
   },
   {
@@ -9874,9 +7704,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Un plus deux égale trois.",
-      "ar": "واحد زائد اثنان يساوي ثلاثة.",
-      "en": "One plus two makes three."
+      "fr": "Je reste trois mois.",
+      "ar": "سأبقى ثلاثة أشهر.",
+      "en": "I am staying for three months."
     }
   },
   {
@@ -9889,9 +7719,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Ils ont quatre cours le matin.",
-      "ar": "لديهم اربعة فصول في الصباح",
-      "en": "They have four classes in the morning."
+      "fr": "Il y en a quatre.",
+      "ar": "يوجد أربع زجاجات.",
+      "en": "There are four bottles."
     }
   },
   {
@@ -9904,9 +7734,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Un pied a cinq orteils.",
-      "ar": "للقدم خمسة أصابع.",
-      "en": "A foot has five toes."
+      "fr": "Il a cinq ans.",
+      "ar": "عمره خمس سنوات.",
+      "en": "He's five years old."
     }
   },
   {
@@ -9919,9 +7749,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "J'ai dix stylos.",
-      "ar": "لدي عشرة أقلام.",
-      "en": "I have ten pens."
+      "fr": "Dix minutes environ.",
+      "ar": "حوالي عشر دقائق.",
+      "en": "About ten minutes."
     }
   },
   {
@@ -9934,9 +7764,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "« Quelle heure est-il ? » « Il est trois heures vingt. »",
-      "ar": "\"كم الساعة الآن؟\" \"إنها الثالثة وعشرون دقيقة.\"",
-      "en": "\"What time is it?\" \"It's 3:20.\""
+      "fr": "vingt, trente, quarante, cinquante",
+      "ar": "عشرون، ثلاثون، أربعون، خمسون.",
+      "en": "twenty, thirty, forty, fifty"
     }
   },
   {
@@ -9948,7 +7778,12 @@ window.VOCAB_DATA = [
       "daily",
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Dix pour cent, c'est déjà généreux.",
+      "ar": "عشرة بالمئة تُعتبر كريمة.",
+      "en": "Ten percent is already generous."
+    }
   },
   {
     "fr": "mille",
@@ -9958,7 +7793,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai moins de mille euros en espèces.",
+      "ar": "معي أقل من ألف يورو نقداً.",
+      "en": "I have less than a thousand euros in cash."
+    }
   },
   {
     "fr": "un euro",
@@ -9969,12 +7809,7 @@ window.VOCAB_DATA = [
       "daily",
       "bank",
       "shop"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "beaucoup",
@@ -9986,9 +7821,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Merci beaucoup !",
-      "ar": "شكرا جزيلا!",
-      "en": "Thank you so much!"
+      "fr": "Beaucoup de membres choisissent cette formule.",
+      "ar": "الكثير من الأعضاء يختارون هذا الاشتراك.",
+      "en": "Many members choose this plan."
     }
   },
   {
@@ -10001,9 +7836,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Je veux un peu d'argent.",
-      "ar": "أريد بعض المال.",
-      "en": "I want a little money."
+      "fr": "Peu importe.",
+      "ar": "لا يهم.",
+      "en": "It doesn't matter."
     }
   },
   {
@@ -10017,9 +7852,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Elle parle trop.",
-      "ar": "هي تتكلم كثيرا.",
-      "en": "She speaks too much."
+      "fr": "Trop-perçu",
+      "ar": "مبلغ صُرف بالزيادة",
+      "en": "Overpayment"
     }
   },
   {
@@ -10032,9 +7867,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Vous n'êtes pas assez rapide.",
-      "ar": "لست سريعا بما يكفي.",
-      "en": "You're not fast enough."
+      "fr": "Je mange assez de protéines.",
+      "ar": "آكل كمية كافية من البروتين.",
+      "en": "I eat enough protein."
     }
   },
   {
@@ -10047,9 +7882,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Je ne l'aime plus.",
-      "ar": "لم أعد أحبه.",
-      "en": "I don't love her any more."
+      "fr": "Plus lentement, s'il vous plaît.",
+      "ar": "أبطأ، من فضلك.",
+      "en": "More slowly, please."
     }
   },
   {
@@ -10062,9 +7897,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "J'ai terminé ce travail en moins d'une heure.",
-      "ar": "لقد أنهيت العمل في أقل من ساعة",
-      "en": "I finished the work in less than an hour."
+      "fr": "Il fait moins deux degrés.",
+      "ar": "الحرارة سالب درجتين.",
+      "en": "It's minus two degrees."
     }
   },
   {
@@ -10090,9 +7925,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
+      "fr": "Rien n'est accompli sans effort.",
+      "ar": "لا إنجاز بلا جهد .",
+      "en": "Nothing is achieved without effort."
     }
   },
   {
@@ -10104,9 +7939,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Il se passait quelque chose.",
-      "ar": "شيء ما حدث.",
-      "en": "Something was happening."
+      "fr": "Ça me dit quelque chose.",
+      "ar": "هذا يبدو مألوفًا لي / يذكرني بشيء.",
+      "en": "That rings a bell."
     }
   },
   {
@@ -10150,9 +7985,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Il est probable qu'il pleuve à nouveau.",
-      "ar": "يمكن أن تمطر من جديد .",
-      "en": "It is likely to rain again."
+      "fr": "Je suis nouveau à la salle.",
+      "ar": "أنا جديد في النادي.",
+      "en": "I’m new at the gym."
     }
   },
   {
@@ -10164,7 +7999,12 @@ window.VOCAB_DATA = [
       "daily",
       "work",
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "Nous allons remplacer votre ancien matériel.",
+      "ar": "سنستبدل معداتك القديمة.",
+      "en": "We will replace your old equipment."
+    }
   },
   {
     "fr": "bon",
@@ -10191,12 +8031,7 @@ window.VOCAB_DATA = [
       "daily",
       "work",
       "shop"
-    ],
-    "ex": {
-      "fr": "Tout ce qui est mauvais n'est pas génocide.",
-      "ar": "ليس كل ما هو سيء إبادة جماعية.",
-      "en": "Not everything bad is genocide."
-    }
+    ]
   },
   {
     "fr": "beau",
@@ -10232,9 +8067,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "Elle est comme ma propre fille.",
-      "ar": "هي كطفلتي تماما.",
-      "en": "She's like my own daughter."
+      "fr": "Propre et intact",
+      "ar": "نظيف وسليم",
+      "en": "Clean and intact"
     }
   },
   {
@@ -10245,12 +8080,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "housing"
-    ],
-    "ex": {
-      "fr": "Le miroir est très sale.",
-      "ar": "المرآة متسخة جدا",
-      "en": "The mirror is very dirty."
-    }
+    ]
   },
   {
     "fr": "facile",
@@ -10295,9 +8125,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Mon chien est rapide.",
-      "ar": "كلبي سريع.",
-      "en": "My dog is fast."
+      "fr": "C’est rapide.",
+      "ar": "هذا سريع.",
+      "en": "It’s quick."
     }
   },
   {
@@ -10319,7 +8149,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "Ce produit est trop cher.",
+      "ar": "هذا المنتج غالٍ جدًا.",
+      "en": "This product is too expensive."
+    }
   },
   {
     "fr": "bon marché",
@@ -10329,12 +8164,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "shop"
-    ],
-    "ex": {
-      "fr": "Bon Dieu !",
-      "ar": "يا الهي!",
-      "en": "Jesus!"
-    }
+    ]
   },
   {
     "fr": "chaud",
@@ -10346,9 +8176,9 @@ window.VOCAB_DATA = [
       "weather"
     ],
     "ex": {
-      "fr": "Le lait ne se conserve pas longtemps lorsqu'il fait chaud.",
-      "ar": "لا يمكن الاحتفاظ بالحليب طويلا عندما يكون الجو ساخنا.",
-      "en": "Milk does not keep long in hot weather."
+      "fr": "Reste au chaud.",
+      "ar": "ابقَ دافئًا.",
+      "en": "Stay warm."
     }
   },
   {
@@ -10376,9 +8206,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Lorsque j'ai ouvert la porte, je l'ai trouvé endormi.",
-      "ar": "عندما فتحت الباب وجدته ينام",
-      "en": "When I opened the door, I found him asleep."
+      "fr": "Le sac est ouvert, pouvez-vous vérifier ?",
+      "ar": "الكيس مفتوح، هل يمكنك التحقق؟",
+      "en": "The bag is open, can you check?"
     }
   },
   {
@@ -10389,7 +8219,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "Mal fermé",
+      "ar": "مغلق بشكل سيئ",
+      "en": "Poorly closed"
+    }
   },
   {
     "fr": "possible",
@@ -10401,9 +8236,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Cela n'est pas possible.",
-      "ar": "ذلك مستحيل.",
-      "en": "It isn't possible."
+      "fr": "Pas possible !",
+      "ar": "غير معقول!",
+      "en": "No way!"
     }
   },
   {
@@ -10414,12 +8249,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "work"
-    ],
-    "ex": {
-      "fr": "Impossible !",
-      "ar": "مستحيل !",
-      "en": "Impossible."
-    }
+    ]
   },
   {
     "fr": "important",
@@ -10431,9 +8261,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "La chance joue un rôle important dans la vie.",
-      "ar": "يلعب الحظ دورا هاما في الحياة.",
-      "en": "Luck plays an important role in our life."
+      "fr": "C'est important de rester calme.",
+      "ar": "من المهم أن تبقى هادئاً.",
+      "en": "It is important to stay calm."
     }
   },
   {
@@ -10447,9 +8277,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "Le monde est plus dangereux que je ne le pensais.",
-      "ar": "العالم أخطر مما كنت أتوقع.",
-      "en": "The world is more dangerous than I thought."
+      "fr": "Attention, c’est dangereux.",
+      "ar": "انتبه، هذا خطير.",
+      "en": "Be careful, it’s dangerous."
     }
   },
   {
@@ -10463,9 +8293,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "Tu es sûr ?",
-      "ar": "هل أنت متأكد؟",
-      "en": "Are you sure?"
+      "fr": "Bien sûr.",
+      "ar": "طبعًا.",
+      "en": "Of course."
     }
   },
   {
@@ -10478,9 +8308,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Il est prêt.",
-      "ar": "هو مستعد.",
-      "en": "He finished."
+      "fr": "C’est prêt ?",
+      "ar": "هل هو جاهز؟",
+      "en": "Is it ready?"
     }
   },
   {
@@ -10494,9 +8324,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "Je suis fatigué d'écrire.",
-      "ar": "تعبت من الكتابة.",
-      "en": "I'm tired of writing."
+      "fr": "Je suis fatigué.",
+      "ar": "أنا متعب.",
+      "en": "I am tired."
     }
   },
   {
@@ -10510,9 +8340,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "Je suis malade.",
-      "ar": "أنا مريضة.",
-      "en": "I have been sick."
+      "fr": "Tu es malade ?",
+      "ar": "هل أنت مريض؟",
+      "en": "Are you sick?"
     }
   },
   {
@@ -10523,7 +8353,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "Content de vous rencontrer.",
+      "ar": "سعيد بلقائك.",
+      "en": "Nice to meet you."
+    }
   },
   {
     "fr": "triste",
@@ -10559,9 +8394,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "Nara est une ville calme et jolie.",
-      "ar": "نارا مدينة هادئة و جميلة",
-      "en": "Nara is a quiet and beautiful city."
+      "fr": "Calme-toi, s'il te plaît.",
+      "ar": "اهدأ من فضلك.",
+      "en": "Calm down, please."
     }
   },
   {
@@ -10600,12 +8435,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Il lit.",
-      "ar": "هو يقرأ.",
-      "en": "He is reading."
-    }
+    ]
   },
   {
     "fr": "il pleut",
@@ -10616,9 +8446,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Il pleut aujourd'hui. Où est mon parapluie?",
-      "ar": "إنها تمطر اليوم، أين مظلتي؟",
-      "en": "It's raining today. Where is my umbrella?"
+      "fr": "Il pleut fortement.",
+      "ar": "تمطر بغزارة.",
+      "en": "It is raining heavily."
     }
   },
   {
@@ -10630,9 +8460,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Il lit.",
-      "ar": "هو يقرأ.",
-      "en": "He is reading."
+      "fr": "Il neige, les routes sont glissantes.",
+      "ar": "الثلج يتساقط، الطرق زلقة.",
+      "en": "It's snowing, the roads are slippery."
     }
   },
   {
@@ -10644,9 +8474,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "J'aime le soleil.",
-      "ar": "أحب الشمس.",
-      "en": "I like the sun."
+      "fr": "Le soleil se lève à l'est.",
+      "ar": "تشرق الشمس من الشرق.",
+      "en": "The sun rises in the east."
     }
   },
   {
@@ -10658,9 +8488,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Après la pluie, le beau temps.",
-      "ar": "ما بعد الضيق إلا الفرج",
-      "en": "After the rain, fair weather."
+      "fr": "La météo annonce de la pluie demain.",
+      "ar": "توقعات الطقس تقول إن غداً ممطر.",
+      "en": "The forecast says rain tomorrow."
     }
   },
   {
@@ -10672,9 +8502,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
+      "fr": "Le vent ne souffle pas au gré des navires.",
+      "ar": "تجري الرياح بما لا تشتهي السفن.",
+      "en": "The winds blow contrary to what ships wish."
     }
   },
   {
@@ -10698,12 +8528,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le brouillard",
@@ -10712,12 +8537,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "la tempête",
@@ -10726,12 +8546,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "le tonnerre",
@@ -10740,12 +8555,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "L'éclair précède le tonnerre.",
-      "ar": "البرق يسبق الرعد",
-      "en": "Lightning precedes thunder."
-    }
+    ]
   },
   {
     "fr": "un éclair",
@@ -10754,12 +8564,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "chaud",
@@ -10770,9 +8575,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Le lait ne se conserve pas longtemps lorsqu'il fait chaud.",
-      "ar": "لا يمكن الاحتفاظ بالحليب طويلا عندما يكون الجو ساخنا.",
-      "en": "Milk does not keep long in hot weather."
+      "fr": "Reste au chaud.",
+      "ar": "ابقَ دافئًا.",
+      "en": "Stay warm."
     }
   },
   {
@@ -10798,9 +8603,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Il fait beau aujourd'hui.",
-      "ar": "الجو صحو هذا اليوم.",
-      "en": "It's nice today."
+      "fr": "Il fait beau et chaud.",
+      "ar": "الجو جميل وحار.",
+      "en": "It's nice and warm."
     }
   },
   {
@@ -10810,12 +8615,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Il lit.",
-      "ar": "هو يقرأ.",
-      "en": "He is reading."
-    }
+    ]
   },
   {
     "fr": "concernant",
@@ -10826,7 +8626,12 @@ window.VOCAB_DATA = [
       "work",
       "prefecture",
       "ofpra"
-    ]
+    ],
+    "ex": {
+      "fr": "Je vous contacte concernant…",
+      "ar": "أتصل بك بخصوص…",
+      "en": "I'm contacting you regarding…"
+    }
   },
   {
     "fr": "suite à",
@@ -10839,9 +8644,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "Je reviens tout de suite.",
-      "ar": "سأرجع حالا.",
-      "en": "I'll be back in a moment."
+      "fr": "Je fais suite à votre inscription.",
+      "ar": "أتصل بك متابعةً لتسجيلك.",
+      "en": "I’m following up on your registration."
     }
   },
   {
@@ -10852,12 +8657,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "Veuillez trouver ci-joint",
@@ -10867,12 +8667,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "Où trouver un miroir ?",
-      "ar": "أين بإمكاني أن أجد مرآة",
-      "en": "Where's a mirror?"
-    }
+    ]
   },
   {
     "fr": "Je vous prie d'agréer",
@@ -10885,9 +8680,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
+      "fr": "Je vous prie d'agréer mes salutations distinguées.",
+      "ar": "تفضّلوا بقبول فائق الاحترام.",
+      "en": "Yours faithfully,"
     }
   },
   {
@@ -10898,7 +8693,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "prefecture"
-    ]
+    ],
+    "ex": {
+      "fr": "Cordialement, Mohammad.",
+      "ar": "مع التحية، محمد.",
+      "en": "Kind regards, Mohammad."
+    }
   },
   {
     "fr": "Madame, Monsieur",
@@ -10911,9 +8711,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "Le téléphone est en panne, Monsieur Tamori.",
-      "ar": "الهاتف معطل يا السيد تاموري.",
-      "en": "The telephone is out of order, Mr Tamori."
+      "fr": "Madame, Monsieur, je vous écris pour poser ma candidature.",
+      "ar": "سيدتي، سيدي، أكتب إليكم لتقديم طلب ترشحي.",
+      "en": "Dear Sir or Madam, I am writing to apply."
     }
   },
   {
@@ -10924,12 +8724,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "délivrer",
@@ -10979,12 +8774,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "statuer sur",
@@ -10994,12 +8784,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "Nous vivons sur Terre.",
-      "ar": "نحن نعيش على كوكب الأرض.",
-      "en": "We live on Earth."
-    }
+    ]
   },
   {
     "fr": "notifier",
@@ -11028,12 +8813,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "ofii"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "les valeurs de la République",
@@ -11042,12 +8822,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "ofii"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "la laïcité",
@@ -11057,12 +8832,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "ofii",
       "daily"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "l'égalité homme-femme",
@@ -11072,12 +8842,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "ofii",
       "daily"
-    ],
-    "ex": {
-      "fr": "Sois un homme !",
-      "ar": "كن رجلا!",
-      "en": "Be a man."
-    }
+    ]
   },
   {
     "fr": "les droits et les devoirs",
@@ -11087,12 +8852,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "ofii",
       "daily"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "la fraternité",
@@ -11102,12 +8862,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "ofii",
       "daily"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "un citoyen",
@@ -11117,12 +8872,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "ofii",
       "daily"
-    ],
-    "ex": {
-      "fr": "Tom est un citoyen britannique.",
-      "ar": "توم مواطن بريطاني.",
-      "en": "Tom is a British citizen."
-    }
+    ]
   },
   {
     "fr": "un étranger",
@@ -11132,12 +8882,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Tom est un étranger.",
-      "ar": "توم أجنبي.",
-      "en": "Tom is a foreigner."
-    }
+    ]
   },
   {
     "fr": "une résident",
@@ -11147,12 +8892,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une nationalité",
@@ -11162,12 +8902,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une demande de naturalisation",
@@ -11176,12 +8911,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "prefecture"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "le code de la route",
@@ -11190,12 +8920,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "car"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "une formation",
@@ -11205,12 +8930,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "ofii"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un stage",
@@ -11222,9 +8942,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
+      "fr": "Un stage de récupération de points.",
+      "ar": "دورة استرجاع النقاط.",
+      "en": "Points recovery course."
     }
   },
   {
@@ -11235,12 +8955,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "france_travail"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "un métier",
@@ -11249,12 +8964,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un secteur",
@@ -11263,12 +8973,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "le marché du travail",
@@ -11277,12 +8982,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "une offre",
@@ -11292,12 +8992,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "shop"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "postuler",
@@ -11315,12 +9010,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "recruter",
@@ -11356,12 +9046,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "une maison",
@@ -11371,12 +9056,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Ils vivent dans une maison.",
-      "ar": "يسكنون في بيت واحد.",
-      "en": "They live in a house."
-    }
+    ]
   },
   {
     "fr": "un appartement",
@@ -11386,12 +9066,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une pièce",
@@ -11403,9 +9078,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "J'ai ajouté une pièce à ma maison.",
-      "ar": "لقد أضفت غرفة إلى منزلي",
-      "en": "I added a room to my house."
+      "fr": "Une pièce justificative",
+      "ar": "وثيقة إثبات",
+      "en": "Supporting document"
     }
   },
   {
@@ -11416,12 +9091,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "une fenêtre",
@@ -11431,12 +9101,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Quelqu'un peut-il ouvrir une fenêtre ?",
-      "ar": "هلا تفضل أحد لفتح النافذة؟",
-      "en": "Can someone open a window?"
-    }
+    ]
   },
   {
     "fr": "un lit",
@@ -11446,12 +9111,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Il lit.",
-      "ar": "هو يقرأ.",
-      "en": "He is reading."
-    }
+    ]
   },
   {
     "fr": "une armoire",
@@ -11460,12 +9120,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un réfrigérateur",
@@ -11474,12 +9129,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un congélateur",
@@ -11488,12 +9138,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un four",
@@ -11502,12 +9147,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une plaque de cuisson",
@@ -11516,12 +9156,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "un micro-ondes",
@@ -11530,12 +9165,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une machine à laver",
@@ -11544,12 +9174,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un aspirateur",
@@ -11558,12 +9183,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une télécommande",
@@ -11572,12 +9192,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une couverture",
@@ -11586,12 +9201,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un oreiller",
@@ -11600,12 +9210,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "des draps",
@@ -11614,12 +9219,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai des sœurs.",
-      "ar": "لدي أخوات.",
-      "en": "I have sisters."
-    }
+    ]
   },
   {
     "fr": "une serviette de bain",
@@ -11628,12 +9228,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "un savon",
@@ -11643,12 +9238,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un shampooing",
@@ -11658,12 +9248,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une brosse à dents",
@@ -11673,12 +9258,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "du dentifrice",
@@ -11688,12 +9268,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "du papier toilette",
@@ -11703,12 +9278,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "des mouchoirs",
@@ -11718,12 +9288,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai des sœurs.",
-      "ar": "لدي أخوات.",
-      "en": "I have sisters."
-    }
+    ]
   },
   {
     "fr": "une poubelle",
@@ -11733,12 +9298,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "le recyclage",
@@ -11748,12 +9308,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "tri sélectif",
@@ -11788,12 +9343,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "health",
       "daily"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "le bras",
@@ -11805,9 +9355,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
+      "fr": "Le bras droit / gauche, s'il vous plaît.",
+      "ar": "الذراع اليمنى / اليسرى من فضلك.",
+      "en": "The right / left arm, please."
     }
   },
   {
@@ -11818,12 +9368,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "health",
       "daily"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "le pied",
@@ -11833,12 +9378,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "health",
       "daily"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "le cœur",
@@ -11861,12 +9401,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "l'estomac",
@@ -11875,7 +9410,12 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Il sert à diminuer l'acidité de l'estomac.",
+      "ar": "يُستخدم لتقليل حمض المعدة.",
+      "en": "It is used to reduce stomach acid."
+    }
   },
   {
     "fr": "le foie",
@@ -11884,12 +9424,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "un rein",
@@ -11898,12 +9433,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "la peau",
@@ -11927,12 +9457,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une brûlure",
@@ -11941,12 +9466,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une entorse",
@@ -11955,12 +9475,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une fracture",
@@ -11969,12 +9484,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "saigner",
@@ -12010,12 +9520,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "avoir de la fièvre",
@@ -12024,12 +9529,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "avoir des nausées",
@@ -12038,12 +9538,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai des sœurs.",
-      "ar": "لدي أخوات.",
-      "en": "I have sisters."
-    }
+    ]
   },
   {
     "fr": "une ordonnance",
@@ -12054,9 +9549,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
+      "fr": "Une ordonnance médicale",
+      "ar": "وصفة طبية",
+      "en": "Medical prescription"
     }
   },
   {
@@ -12066,12 +9561,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un sirop",
@@ -12080,12 +9570,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un comprimé",
@@ -12096,9 +9581,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
+      "fr": "Un comprimé le soir ?",
+      "ar": "حبة واحدة مساءً؟",
+      "en": "One tablet in the evening?"
     }
   },
   {
@@ -12108,12 +9593,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "des gouttes",
@@ -12122,12 +9602,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai des sœurs.",
-      "ar": "لدي أخوات.",
-      "en": "I have sisters."
-    }
+    ]
   },
   {
     "fr": "une piqûre",
@@ -12136,12 +9611,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un vaccin",
@@ -12150,12 +9620,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un rendez-vous de vaccination",
@@ -12164,12 +9629,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "les effets secondaires",
@@ -12178,12 +9638,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "lundi",
@@ -12195,9 +9650,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Aujourd'hui c'est lundi.",
-      "ar": "اليوم هو الإثنين.",
-      "en": "It is Monday today."
+      "fr": "lundi, mardi, mercredi, jeudi",
+      "ar": "الاثنين، الثلاثاء، الأربعاء، الخميس.",
+      "en": "Monday, Tuesday, Wednesday, Thursday"
     }
   },
   {
@@ -12225,9 +9680,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Dimanche, lundi, mardi, mercredi, jeudi, vendredi et samedi.",
-      "ar": "الأحد, الإثنين, الثلاثاء, الأربعاء, الخميس, الجمعة والسبت.",
-      "en": "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday."
+      "fr": "lundi, mardi, mercredi, jeudi",
+      "ar": "الاثنين، الثلاثاء، الأربعاء، الخميس.",
+      "en": "Monday, Tuesday, Wednesday, Thursday"
     }
   },
   {
@@ -12255,9 +9710,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Dimanche, lundi, mardi, mercredi, jeudi, vendredi et samedi.",
-      "ar": "الأحد, الإثنين, الثلاثاء, الأربعاء, الخميس, الجمعة والسبت.",
-      "en": "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday."
+      "fr": "vendredi, samedi, dimanche",
+      "ar": "الجمعة، السبت، الأحد.",
+      "en": "Friday, Saturday, Sunday"
     }
   },
   {
@@ -12270,9 +9725,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Que fais-tu samedi soir ?",
-      "ar": "ماذا تفعل ليلة السبت؟",
-      "en": "What are you doing Saturday night?"
+      "fr": "On reporte à samedi ?",
+      "ar": "نؤجّلها إلى السبت؟",
+      "en": "Shall we postpone to Saturday?"
     }
   },
   {
@@ -12299,9 +9754,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre et décembre sont les douze mois de l'année.",
-      "ar": "يناير، فبراير، مارس، أبريل، مايو، يونيو، يوليو، أغسطس، سبتمبر، أكتوبر، نوفمبر و ديسمبر هي أشهر السنة الإثنة عشر.",
-      "en": "January, February, March, April, May, June, July, August, September, October, November and December are the twelve months of the year."
+      "fr": "janvier, février, mars, avril",
+      "ar": "يناير، فبراير، مارس، أبريل.",
+      "en": "January, February, March, April"
     }
   },
   {
@@ -12313,9 +9768,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre et décembre sont les douze mois de l'année.",
-      "ar": "يناير، فبراير، مارس، أبريل، مايو، يونيو، يوليو، أغسطس، سبتمبر، أكتوبر، نوفمبر و ديسمبر هي أشهر السنة الإثنة عشر.",
-      "en": "January, February, March, April, May, June, July, August, September, October, November and December are the twelve months of the year."
+      "fr": "janvier, février, mars, avril",
+      "ar": "يناير، فبراير، مارس، أبريل.",
+      "en": "January, February, March, April"
     }
   },
   {
@@ -12327,9 +9782,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre et décembre sont les douze mois de l'année.",
-      "ar": "يناير، فبراير، مارس، أبريل، مايو، يونيو، يوليو، أغسطس، سبتمبر، أكتوبر، نوفمبر و ديسمبر هي أشهر السنة الإثنة عشر.",
-      "en": "January, February, March, April, May, June, July, August, September, October, November and December are the twelve months of the year."
+      "fr": "Nous sommes le trois mars.",
+      "ar": "اليوم الثالث من مارس.",
+      "en": "It's the third of March."
     }
   },
   {
@@ -12341,9 +9796,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre et décembre sont les douze mois de l'année.",
-      "ar": "يناير، فبراير، مارس، أبريل، مايو، يونيو، يوليو، أغسطس، سبتمبر، أكتوبر، نوفمبر و ديسمبر هي أشهر السنة الإثنة عشر.",
-      "en": "January, February, March, April, May, June, July, August, September, October, November and December are the twelve months of the year."
+      "fr": "janvier, février, mars, avril",
+      "ar": "يناير، فبراير، مارس، أبريل.",
+      "en": "January, February, March, April"
     }
   },
   {
@@ -12355,9 +9810,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre et décembre sont les douze mois de l'année.",
-      "ar": "يناير، فبراير، مارس، أبريل، مايو، يونيو، يوليو، أغسطس، سبتمبر، أكتوبر، نوفمبر و ديسمبر هي أشهر السنة الإثنة عشر.",
-      "en": "January, February, March, April, May, June, July, August, September, October, November and December are the twelve months of the year."
+      "fr": "Nous attendons un bébé pour le mois de mai.",
+      "ar": "ننتظر مولوداً في شهر أيار/مايو.",
+      "en": "We are expecting a baby in May."
     }
   },
   {
@@ -12369,9 +9824,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre et décembre sont les douze mois de l'année.",
-      "ar": "يناير، فبراير، مارس، أبريل، مايو، يونيو، يوليو، أغسطس، سبتمبر، أكتوبر، نوفمبر و ديسمبر هي أشهر السنة الإثنة عشر.",
-      "en": "January, February, March, April, May, June, July, August, September, October, November and December are the twelve months of the year."
+      "fr": "Le document est valable jusqu'au trente juin.",
+      "ar": "الوثيقة صالحة حتى الثلاثين من يونيو.",
+      "en": "The document is valid until the thirtieth of June."
     }
   },
   {
@@ -12381,12 +9836,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre et décembre sont les douze mois de l'année.",
-      "ar": "يناير، فبراير، مارس، أبريل، مايو، يونيو، يوليو، أغسطس، سبتمبر، أكتوبر، نوفمبر و ديسمبر هي أشهر السنة الإثنة عشر.",
-      "en": "January, February, March, April, May, June, July, August, September, October, November and December are the twelve months of the year."
-    }
+    ]
   },
   {
     "fr": "août",
@@ -12397,9 +9847,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre et décembre sont les douze mois de l'année.",
-      "ar": "يناير، فبراير، مارس، أبريل، مايو، يونيو، يوليو، أغسطس، سبتمبر، أكتوبر، نوفمبر و ديسمبر هي أشهر السنة الإثنة عشر.",
-      "en": "January, February, March, April, May, June, July, August, September, October, November and December are the twelve months of the year."
+      "fr": "Est-ce que je peux prendre congé en août ?",
+      "ar": "هل يمكنني أخذ إجازة في آب/أغسطس؟",
+      "en": "Can I take leave in August?"
     }
   },
   {
@@ -12410,12 +9860,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "school"
-    ],
-    "ex": {
-      "fr": "Janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre et décembre sont les douze mois de l'année.",
-      "ar": "يناير، فبراير، مارس، أبريل، مايو، يونيو، يوليو، أغسطس، سبتمبر، أكتوبر، نوفمبر و ديسمبر هي أشهر السنة الإثنة عشر.",
-      "en": "January, February, March, April, May, June, July, August, September, October, November and December are the twelve months of the year."
-    }
+    ]
   },
   {
     "fr": "octobre",
@@ -12424,12 +9869,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre et décembre sont les douze mois de l'année.",
-      "ar": "يناير، فبراير، مارس، أبريل، مايو، يونيو، يوليو، أغسطس، سبتمبر، أكتوبر، نوفمبر و ديسمبر هي أشهر السنة الإثنة عشر.",
-      "en": "January, February, March, April, May, June, July, August, September, October, November and December are the twelve months of the year."
-    }
+    ]
   },
   {
     "fr": "novembre",
@@ -12438,12 +9878,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre et décembre sont les douze mois de l'année.",
-      "ar": "يناير، فبراير، مارس، أبريل، مايو، يونيو، يوليو، أغسطس، سبتمبر، أكتوبر، نوفمبر و ديسمبر هي أشهر السنة الإثنة عشر.",
-      "en": "January, February, March, April, May, June, July, August, September, October, November and December are the twelve months of the year."
-    }
+    ]
   },
   {
     "fr": "décembre",
@@ -12452,12 +9887,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre et décembre sont les douze mois de l'année.",
-      "ar": "يناير، فبراير، مارس، أبريل، مايو، يونيو، يوليو، أغسطس، سبتمبر، أكتوبر، نوفمبر و ديسمبر هي أشهر السنة الإثنة عشر.",
-      "en": "January, February, March, April, May, June, July, August, September, October, November and December are the twelve months of the year."
-    }
+    ]
   },
   {
     "fr": "un vêtement",
@@ -12467,12 +9897,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un pantalon",
@@ -12482,12 +9907,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un jean",
@@ -12497,12 +9917,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une chemise",
@@ -12513,12 +9928,7 @@ window.VOCAB_DATA = [
       "shop",
       "work",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un t-shirt",
@@ -12528,12 +9938,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un pull",
@@ -12543,12 +9948,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une veste",
@@ -12558,12 +9958,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un manteau",
@@ -12573,12 +9968,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Il lui faut un manteau.",
-      "ar": "يحتاج إلى معطف",
-      "en": "She needs a coat."
-    }
+    ]
   },
   {
     "fr": "une robe",
@@ -12588,12 +9978,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "Je lui achèterai une robe.",
-      "ar": "سأشتري لها فستانا.",
-      "en": "I will buy her a dress."
-    }
+    ]
   },
   {
     "fr": "une jupe",
@@ -12603,12 +9988,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une chaussure",
@@ -12618,12 +9998,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un chausson",
@@ -12633,12 +10008,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une chaussette",
@@ -12648,12 +10018,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un sous-vêtement",
@@ -12663,12 +10028,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un pyjama",
@@ -12678,12 +10038,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une taille",
@@ -12692,12 +10047,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "la taille S / M / L",
@@ -12706,12 +10056,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "une pointure",
@@ -12720,12 +10065,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "en solde",
@@ -12734,12 +10074,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "la caisse",
@@ -12748,12 +10083,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "Je vais l'essayer",
@@ -12762,12 +10092,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "Je pense.",
-      "ar": "يخطر ببالي.",
-      "en": "I think."
-    }
+    ]
   },
   {
     "fr": "la cabine d'essayage",
@@ -12776,12 +10101,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "blanc",
@@ -12793,9 +10113,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Ce chien est blanc.",
-      "ar": "هذا الكلب أبيض.",
-      "en": "This dog is white."
+      "fr": "blanc, noir, rouge, bleu, vert",
+      "ar": "أبيض، أسود، أحمر، أزرق، أخضر.",
+      "en": "white, black, red, blue, green"
     }
   },
   {
@@ -12823,9 +10143,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Ce livre est rouge.",
-      "ar": "هذا الكتاب أحمر.",
-      "en": "This book is red."
+      "fr": "Le feu rouge",
+      "ar": "الإشارة الحمراء",
+      "en": "Red light"
     }
   },
   {
@@ -12836,7 +10156,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "blanc, noir, rouge, bleu, vert",
+      "ar": "أبيض، أسود، أحمر، أزرق، أخضر.",
+      "en": "white, black, red, blue, green"
+    }
   },
   {
     "fr": "vert",
@@ -12846,7 +10171,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "Le feu vert",
+      "ar": "الإشارة الخضراء",
+      "en": "Green light"
+    }
   },
   {
     "fr": "jaune",
@@ -12856,7 +10186,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "jaune, gris, marron, orange",
+      "ar": "أصفر، رمادي، بني، برتقالي.",
+      "en": "yellow, grey, brown, orange"
+    }
   },
   {
     "fr": "orange",
@@ -12866,7 +10201,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "Le feu orange",
+      "ar": "الإشارة البرتقالية",
+      "en": "Amber light"
+    }
   },
   {
     "fr": "rose",
@@ -12896,7 +10236,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "jaune, gris, marron, orange",
+      "ar": "أصفر، رمادي، بني، برتقالي.",
+      "en": "yellow, grey, brown, orange"
+    }
   },
   {
     "fr": "marron",
@@ -12906,7 +10251,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "jaune, gris, marron, orange",
+      "ar": "أصفر، رمادي، بني، برتقالي.",
+      "en": "yellow, grey, brown, orange"
+    }
   },
   {
     "fr": "beige",
@@ -12928,12 +10278,7 @@ window.VOCAB_DATA = [
       "ofii",
       "ofpra",
       "caf"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une formalité",
@@ -12943,12 +10288,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "prefecture",
       "ofii"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une déclaration sur l'honneur",
@@ -12959,12 +10299,7 @@ window.VOCAB_DATA = [
       "prefecture",
       "caf",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un hébergement",
@@ -12975,12 +10310,7 @@ window.VOCAB_DATA = [
       "housing",
       "redcross",
       "ofpra"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "attestation d'hébergement",
@@ -13000,12 +10330,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "work",
       "prefecture"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un règlement",
@@ -13016,12 +10341,7 @@ window.VOCAB_DATA = [
       "work",
       "prefecture",
       "housing"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un tarif",
@@ -13031,12 +10351,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "transport",
       "shop"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un devis",
@@ -13047,12 +10362,7 @@ window.VOCAB_DATA = [
       "work",
       "housing",
       "car"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un facturier",
@@ -13061,12 +10371,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un virement bancaire",
@@ -13076,12 +10381,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un relevé de compte",
@@ -13090,12 +10390,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "bank"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "un chèque énergie",
@@ -13105,12 +10400,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing",
       "services"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un chèque emploi service",
@@ -13119,12 +10409,7 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "une aide financière",
@@ -13135,12 +10420,7 @@ window.VOCAB_DATA = [
       "caf",
       "redcross",
       "ofii"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "une aide sociale",
@@ -13150,12 +10430,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "redcross",
       "caf"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "un travailleur social",
@@ -13165,12 +10440,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "redcross",
       "ofii"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un centre social",
@@ -13180,12 +10450,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "redcross",
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un centre d'hébergement",
@@ -13196,12 +10461,7 @@ window.VOCAB_DATA = [
       "redcross",
       "housing",
       "ofii"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un CADA",
@@ -13211,12 +10471,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "ofpra",
       "redcross"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un CPH",
@@ -13226,12 +10481,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "ofpra",
       "redcross"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "un HUDA",
@@ -13240,11 +10490,6 @@ window.VOCAB_DATA = [
     "level": "B2",
     "contexts": [
       "ofpra"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   }
 ];

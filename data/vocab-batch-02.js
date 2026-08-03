@@ -1,4 +1,4 @@
-/* Auto-generated vocabulary batch 2: Arabic/French/English from ArabTerm and Polyglot, with examples from Tatoeba (CC-BY). */
+/* Auto-generated vocabulary batch 2: Arabic/French/English from ArabTerm and Polyglot, with matched examples from app lessons and Tatoeba (CC-BY). */
 window.VOCAB_DATA_BATCH2 = [
   {
     "fr": "sol",
@@ -7,7 +7,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Le tapis de sol",
+      "ar": "حصيرة التمرين",
+      "en": "Exercise mat"
+    }
   },
   {
     "fr": "axe",
@@ -50,9 +55,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "C'est son ami.",
-      "ar": "هو صديق له.",
-      "en": "This is her friend."
+      "fr": "Son ami est un chanteur.",
+      "ar": "صديقها مغني.",
+      "en": "Her friend is a singer."
     }
   },
   {
@@ -71,7 +76,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Changez de voie.",
+      "ar": "غيّر المسار.",
+      "en": "Change lanes."
+    }
   },
   {
     "fr": "vrac",
@@ -98,7 +108,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Je rame pendant dix minutes.",
+      "ar": "أستخدم جهاز التجديف عشر دقائق.",
+      "en": "I row for ten minutes."
+    }
   },
   {
     "fr": "tôle",
@@ -125,7 +140,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai eu un choc !",
+      "ar": "لقد أصبت بصدمة!",
+      "en": "I got a shock!"
+    }
   },
   {
     "fr": "quai",
@@ -134,7 +154,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "De quel quai part le train ?",
+      "ar": "من أي رصيف يقوم القطار؟",
+      "en": "Which platform does the train leave from?"
+    }
   },
   {
     "fr": "port",
@@ -163,9 +188,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Nous nous sommes hâtées vers la gare.",
-      "ar": "أسرعنا إلى محطة القطار.",
-      "en": "We hurried to the train station."
+      "fr": "Je me gare.",
+      "ar": "أركن.",
+      "en": "I park."
     }
   },
   {
@@ -175,7 +200,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Mon pneu est crevé.",
+      "ar": "عجلتي مثقوبة.",
+      "en": "I have a flat tyre."
+    }
   },
   {
     "fr": "fond",
@@ -184,7 +214,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Juste au fond, à droite.",
+      "ar": "في الخلف مباشرة، على اليمين.",
+      "en": "At the back, on the right."
+    }
   },
   {
     "fr": "pile",
@@ -265,7 +300,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Accès interdit.",
+      "ar": "الدخول ممنوع.",
+      "en": "No entry."
+    }
   },
   {
     "fr": "rampe",
@@ -283,7 +323,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Le tarif va augmenter.",
+      "ar": "السعر سيرتفع.",
+      "en": "The price will increase."
+    }
   },
   {
     "fr": "frein",
@@ -292,7 +337,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "La pédale de frein",
+      "ar": "دواسة الفرامل",
+      "en": "Brake pedal"
+    }
   },
   {
     "fr": "dépôt",
@@ -301,7 +351,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Quel est le montant du dépôt de garantie ?",
+      "ar": "كم مبلغ التأمين (الضمان)؟",
+      "en": "How much is the security deposit?"
+    }
   },
   {
     "fr": "train",
@@ -342,7 +397,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Le débit de filtration glomérulaire (DFG)",
+      "ar": "معدل ترشيح الكلى.",
+      "en": "Estimated glomerular filtration rate (eGFR)."
+    }
   },
   {
     "fr": "brume",
@@ -380,9 +440,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Il hésita avant de répondre.",
-      "ar": "لقد تردد قبل الإجابة.",
-      "en": "He hesitated before answering."
+      "fr": "Avant le repas ?",
+      "ar": "قبل الطعام؟",
+      "en": "Before the meal?"
     }
   },
   {
@@ -392,7 +452,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Comment est-ce que je paie à la pompe ?",
+      "ar": "كيف أدفع عند المضخة؟",
+      "en": "How do I pay at the pump?"
+    }
   },
   {
     "fr": "cadre",
@@ -428,7 +493,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que le métro ferme tard ?",
+      "ar": "هل يُغلق المترو في وقت متأخر؟",
+      "en": "Does the metro close late?"
+    }
   },
   {
     "fr": "usure",
@@ -455,7 +525,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Pas la peine.",
+      "ar": "لا داعي.",
+      "en": "No need."
+    }
   },
   {
     "fr": "ligne",
@@ -464,7 +539,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Mettre en ligne",
+      "ar": "ينشر على الإنترنت",
+      "en": "To upload / put online"
+    }
   },
   {
     "fr": "piste",
@@ -473,7 +553,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Il faut rouler sur la piste cyclable.",
+      "ar": "يجب السير على مسار الدراجات.",
+      "en": "You must ride in the cycle lane."
+    }
   },
   {
     "fr": "gaine",
@@ -491,7 +576,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Arrêt interdit.",
+      "ar": "التوقف ممنوع.",
+      "en": "No stopping."
+    }
   },
   {
     "fr": "jauge",
@@ -509,7 +599,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Une forte pente.",
+      "ar": "منحدر شديد.",
+      "en": "Steep slope."
+    }
   },
   {
     "fr": "vérin",
@@ -545,7 +640,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai mal à la gorge.",
+      "ar": "لدي ألم في الحلق.",
+      "en": "I have a sore throat."
+    }
   },
   {
     "fr": "tracé",
@@ -633,9 +733,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "J'avais fait fausse route.",
-      "ar": "ضللت الطريق.",
-      "en": "I was on the wrong track."
+      "fr": "Ça tient la route.",
+      "ar": "هذا منطقي / يصمد.",
+      "en": "It holds up."
     }
   },
   {
@@ -645,7 +745,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai joint mon contrat de travail.",
+      "ar": "أرفقت عقد العمل.",
+      "en": "I attached my employment contract."
+    }
   },
   {
     "fr": "marne",
@@ -672,7 +777,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "J’ai la dalle.",
+      "ar": "أنا جائع جدًا.",
+      "en": "I’m starving."
+    }
   },
   {
     "fr": "givre",
@@ -699,7 +809,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai une gêne comme du sable dans l'œil.",
+      "ar": "أشعر بشيء كالرمل في عيني.",
+      "en": "It feels like sand in my eye."
+    }
   },
   {
     "fr": "égout",
@@ -785,7 +900,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Je suis allergique aux fruits à coque.",
+      "ar": "لديّ حساسية من المكسّرات.",
+      "en": "I am allergic to nuts."
+    }
   },
   {
     "fr": "carte",
@@ -796,9 +916,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Puis-je payer par carte de crédit ?",
-      "ar": "أيمكنني الدفع عن طريق بطاقة الإئتمان؟",
-      "en": "May I pay with a credit card?"
+      "fr": "Je paie par carte.",
+      "ar": "سأدفع بالبطاقة.",
+      "en": "I'll pay by card."
     }
   },
   {
@@ -906,9 +1026,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "La fumée des cigarettes dérange les autres passagers.",
-      "ar": "دخان السجائر يزعج الركاب الآخرين.",
-      "en": "Cigarette smoke bothers other passengers."
+      "fr": "Le détecteur de fumée sonne sans arrêt.",
+      "ar": "كاشف الدخان يصدر صوتاً بلا توقف.",
+      "en": "The smoke detector keeps beeping."
     }
   },
   {
@@ -936,7 +1056,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Je dépasse le seuil de TVA cette année.",
+      "ar": "سأتجاوز حد ضريبة القيمة المضافة هذا العام.",
+      "en": "I will exceed the VAT threshold this year."
+    }
   },
   {
     "fr": "robot",
@@ -954,7 +1079,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Le stock est vide.",
+      "ar": "المخزون فارغ.",
+      "en": "The stock is empty."
+    }
   },
   {
     "fr": "baril",
@@ -1006,9 +1136,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Mastodon est un réseau social fédéré, libre et ouvert.",
-      "ar": "ماستدون هي شبكة تواصل اجتماعي فدرالية حرة ومفتوحة المصدر.",
-      "en": "Mastodon is a federated free and open-source social network."
+      "fr": "Je n'ai plus de réseau depuis ce matin.",
+      "ar": "لا يوجد لديّ شبكة منذ هذا الصباح.",
+      "en": "I've had no network since this morning."
     }
   },
   {
@@ -1020,9 +1150,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Il faut laisser aux gens le soin d'inventer leurs propres valeurs en leur donnant au départ le maximum de liberté de création. Car à un certain niveau de profondeur, si une culture est réelle, elle est libératrice.",
-      "ar": "يجب أن نترك الناس يخترعون قيمهم الخاصة بهم وذلك بمنحهم بداية أقصى درجة من حرية الإبداع. لأنه عند مستوى معين من العمق، إذا كانت الثقافة حقيقية، فإنها محررة. مولود معمري",
-      "en": "We must let people invent their own values by giving them the maximum freedom of creation. Because at a certain level of depth, if a culture is real, it is liberating."
+      "fr": "À quelle heure est le départ ?",
+      "ar": "في أي ساعة موعد الخروج؟",
+      "en": "What time is check-out?"
     }
   },
   {
@@ -1032,7 +1162,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Charge le camion.",
+      "ar": "حمّل الشاحنة.",
+      "en": "Load the truck."
+    }
   },
   {
     "fr": "halage",
@@ -1133,9 +1268,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Nous prîmes un taxi pour ne pas être en retard.",
-      "ar": "ركبنا في التاكسي لكي لا نتأخر.",
-      "en": "We took a taxi so that we wouldn't be late."
+      "fr": "On est en retard.",
+      "ar": "نحن متأخرون.",
+      "en": "We’re behind."
     }
   },
   {
@@ -1156,9 +1291,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "L'abeille est sortie par la fenêtre.",
-      "ar": "طارت النحلة من النافذة.",
-      "en": "The bee flew out the window."
+      "fr": "Je prends la première sortie.",
+      "ar": "آخذ أول مخرج.",
+      "en": "I take the first exit."
     }
   },
   {
@@ -1272,7 +1407,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Entrée en formation",
+      "ar": "بدء التدريب",
+      "en": "Start of training"
+    }
   },
   {
     "fr": "format",
@@ -1283,9 +1423,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Comme je n'ai pas le logiciel qui correspond à la pièce jointe, je ne peux pas ouvrir le fichier. S'il vous plaît, renvoyez-le-moi dans un autre format.",
-      "ar": "بما أنه ليس لدي البرمجية التي تتلاءم مع الملحق، لا يمكنني فتح الملف. من فضلك، أعد بعثه بصيغة أخرى.",
-      "en": "As I don't have the software that matches the attachment, I cannot open the file. Please resend it in another format."
+      "fr": "Vous avez un format plus grand ?",
+      "ar": "هل لديكم حجم أكبر؟",
+      "en": "Do you have a bigger size?"
     }
   },
   {
@@ -1315,9 +1455,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Je dois renforcer mon niveau en anglais.",
-      "ar": "علي أن أطور مستواي في اللغة الإنجليزية.",
-      "en": "I must brush up my English."
+      "fr": "Le niveau d'huile.",
+      "ar": "مستوى الزيت.",
+      "en": "Oil level."
     }
   },
   {
@@ -1433,9 +1573,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Je t'ai vu au volant de ta nouvelle voiture.",
-      "ar": "رأيتك راكبا سيارتك الجديدة.",
-      "en": "I saw you driving your new car."
+      "fr": "Téléphoner au volant.",
+      "ar": "استخدام الهاتف أثناء القيادة.",
+      "en": "Using a phone while driving."
     }
   },
   {
@@ -1491,7 +1631,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Le voyant rouge est allumé sur la box.",
+      "ar": "الضوء الأحمر مضاء على الراوتر.",
+      "en": "The red light is on on the box."
+    }
   },
   {
     "fr": "tuyère",
@@ -1554,7 +1699,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Je n'ai pas de garant en France.",
+      "ar": "ليس لديّ ضامن في فرنسا.",
+      "en": "I don't have a guarantor in France."
+    }
   },
   {
     "fr": "voyage",
@@ -1565,9 +1715,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Le voyage est plus important que la destination.",
-      "ar": "مشوار الطريق أهم من الوصول.",
-      "en": "The journey is more important than the destination."
+      "fr": "Je voyage avec mes enfants.",
+      "ar": "أنا مسافر مع أطفالي.",
+      "en": "I am travelling with my children."
     }
   },
   {
@@ -1658,7 +1808,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Combien de temps dure le trajet ?",
+      "ar": "كم تستغرق الرحلة؟",
+      "en": "How long does the journey take?"
+    }
   },
   {
     "fr": "modèle",
@@ -1667,7 +1822,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "C'est presque pareil que l'autre modèle.",
+      "ar": "هذا شبه مماثل للنموذج الآخر.",
+      "en": "It is almost the same as the other model."
+    }
   },
   {
     "fr": "piéton",
@@ -1676,7 +1836,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Le passage piéton",
+      "ar": "ممر المشاة",
+      "en": "Pedestrian crossing"
+    }
   },
   {
     "fr": "chemin",
@@ -1699,7 +1864,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Mon espace",
+      "ar": "مساحتي الشخصية",
+      "en": "My account"
+    }
   },
   {
     "fr": "arrivée",
@@ -1708,7 +1878,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "La livraison est arrivée.",
+      "ar": "وصلت الشحنة.",
+      "en": "The delivery has arrived."
+    }
   },
   {
     "fr": "fourgon",
@@ -1924,7 +2099,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "On peut faire une anesthésie locale ou une sédation pour votre confort.",
+      "ar": "يمكن عمل تخدير موضعي أو مهدئ لراحتك.",
+      "en": "We can use local anesthesia or sedation for your comfort."
+    }
   },
   {
     "fr": "bagages",
@@ -1933,7 +2113,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Où est la consigne à bagages ?",
+      "ar": "أين خزائن الحقائب؟",
+      "en": "Where is the luggage locker?"
+    }
   },
   {
     "fr": "midibus",
@@ -1962,9 +2147,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Bien sûr, reconnaître notre humanité commune est seulement le commencement de notre tâche.",
-      "ar": "يمثل إدراك أوجه الإنسانية المشتركة فيما بيننا بطبيعة الحال مجرد البداية لمهمتنا.",
-      "en": "Of course, recognizing our common humanity is only the beginning of our task."
+      "fr": "Y a-t-il une cuisine commune ?",
+      "ar": "هل هناك مطبخ مشترك؟",
+      "en": "Is there a shared kitchen?"
     }
   },
   {
@@ -1974,7 +2159,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Je dois modifier mon horaire.",
+      "ar": "يجب أن أعدل جدولي.",
+      "en": "I need to modify my schedule."
+    }
   },
   {
     "fr": "vitesse",
@@ -1983,7 +2173,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Le levier de vitesse",
+      "ar": "عصا ناقل السرعة",
+      "en": "Gear stick"
+    }
   },
   {
     "fr": "tronçon",
@@ -2010,7 +2205,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Un retrait de points.",
+      "ar": "سحب نقاط.",
+      "en": "Points deduction."
+    }
   },
   {
     "fr": "gravier",
@@ -2046,12 +2246,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "La gouvernance des données définit les règles de gestion, de qualité et de sécurité des données.",
-      "ar": "تحدد حوكمة البيانات قواعد إدارة البيانات وجودتها وأمنها.",
-      "en": "Data governance defines the rules for data management, quality, and security."
-    }
+    ]
   },
   {
     "fr": "guichet",
@@ -2060,7 +2255,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Où est le guichet numéro cinq ?",
+      "ar": "أين الشبّاك رقم خمسة؟",
+      "en": "Where is counter number five?"
+    }
   },
   {
     "fr": "section",
@@ -2078,7 +2278,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Je participe à un atelier de recherche d'emploi.",
+      "ar": "أشارك في ورشة للبحث عن عمل.",
+      "en": "I participate in a job search workshop."
+    }
   },
   {
     "fr": "voiture",
@@ -2166,9 +2371,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Le singe saute de branche en branche.",
-      "ar": "القرد يقفز من غصن لغصن.",
-      "en": "The monkey jumps from branch to branch."
+      "fr": "Je branche mes écouteurs.",
+      "ar": "أوصل سماعاتي.",
+      "en": "I plug in my earphones."
     }
   },
   {
@@ -2187,7 +2392,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Combien coûte une heure de parking ?",
+      "ar": "كم تكلّف ساعة في المرآب؟",
+      "en": "How much is one hour of parking?"
+    }
   },
   {
     "fr": "peeling",
@@ -2277,7 +2487,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Au passage…",
+      "ar": "بالمناسبة...",
+      "en": "By the way…"
+    }
   },
   {
     "fr": "chaland",
@@ -2322,7 +2537,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Ça me fatigue.",
+      "ar": "هذا يتعبني.",
+      "en": "It tires me."
+    }
   },
   {
     "fr": "planeur",
@@ -2385,7 +2605,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Voici la facture.",
+      "ar": "هذه الفاتورة.",
+      "en": "Here is the receipt."
+    }
   },
   {
     "fr": "steward",
@@ -2403,7 +2628,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "On va remplir un constat.",
+      "ar": "سنملأ استمارة الحادث.",
+      "en": "We will fill out an accident report."
+    }
   },
   {
     "fr": "article",
@@ -2414,9 +2644,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Je traduis un article.",
-      "ar": "إني أترجم مقالا.",
-      "en": "I'm translating an article."
+      "fr": "Annule cet article.",
+      "ar": "ألغِ هذا المنتج.",
+      "en": "Cancel this item."
     }
   },
   {
@@ -2437,9 +2667,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Les scientifiques veulent plus de données.",
-      "ar": "العلماء يريدون المزيد من البيانات.",
-      "en": "The scientists want more data."
+      "fr": "Nous collectons vos données.",
+      "ar": "نجمع بياناتك.",
+      "en": "We collect your data."
     }
   },
   {
@@ -2449,7 +2679,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Filme la palette.",
+      "ar": "غلّف المنصة بالبلاستيك.",
+      "en": "Wrap the pallet."
+    }
   },
   {
     "fr": "scanner",
@@ -2467,7 +2702,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Aligne les produits sur l’étagère.",
+      "ar": "رتب المنتجات بشكل مستقيم على الرف.",
+      "en": "Align the products on the shelf."
+    }
   },
   {
     "fr": "stocker",
@@ -2548,7 +2788,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Économise ton énergie pour la dernière série.",
+      "ar": "حافظ على طاقتك للمجموعة الأخيرة.",
+      "en": "Save your energy for the last set."
+    }
   },
   {
     "fr": "éthanol",
@@ -2652,7 +2897,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Vérifier la pression des pneus.",
+      "ar": "فحص ضغط الإطارات.",
+      "en": "Check tire pressure."
+    }
   },
   {
     "fr": "autorail",
@@ -2681,9 +2931,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "J'habite au rez-de-chaussée.",
-      "ar": "أعيش في الطابق الأرضي.",
-      "en": "I live on the ground floor."
+      "fr": "La chaussée est mouillée.",
+      "ar": "الطريق مبلل.",
+      "en": "The road is wet."
     }
   },
   {
@@ -2702,7 +2952,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Écartez-vous du trottoir.",
+      "ar": "ابتعد عن الرصيف.",
+      "en": "Move away from the sidewalk."
+    }
   },
   {
     "fr": "gélivité",
@@ -2729,7 +2984,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que le chargeur est inclus ?",
+      "ar": "هل الشاحن مشمول؟",
+      "en": "Is the charger included?"
+    }
   },
   {
     "fr": "décharge",
@@ -2738,7 +2998,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Décharge la barre, s'il te plaît.",
+      "ar": "أزل الأوزان من البار، من فضلك.",
+      "en": "Unload the bar, please."
+    }
   },
   {
     "fr": "cylindre",
@@ -2756,12 +3021,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Je ne suis plus sans-abri.",
-      "ar": "لم أعد بلا مأوى",
-      "en": "I'm not homeless any more."
-    }
+    ]
   },
   {
     "fr": "draisine",
@@ -2806,7 +3066,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Démarrer le véhicule.",
+      "ar": "تشغيل السيارة والانطلاق.",
+      "en": "Start the vehicle."
+    }
   },
   {
     "fr": "corridor",
@@ -2851,7 +3116,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Confirme la commande.",
+      "ar": "أكد الطلب.",
+      "en": "Confirm the order."
+    }
   },
   {
     "fr": "candidat",
@@ -2887,7 +3157,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais un rendez-vous pour une révision.",
+      "ar": "أريد موعداً لصيانة دورية.",
+      "en": "I would like an appointment for a service."
+    }
   },
   {
     "fr": "passager",
@@ -2932,7 +3207,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Il forme une barrière au-dessus du contenu de l'estomac pour empêcher les remontées acides.",
+      "ar": "يُشكل حاجزًا فوق محتويات المعدة لمنع صعود الحمض.",
+      "en": "It forms a barrier on top of the stomach contents to prevent acid reflux."
+    }
   },
   {
     "fr": "obstacle",
@@ -2941,7 +3221,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Évitez l'obstacle.",
+      "ar": "تجنب العائق.",
+      "en": "Avoid the obstacle."
+    }
   },
   {
     "fr": "abri-bus",
@@ -2950,12 +3235,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Je ne suis plus sans-abri.",
-      "ar": "لم أعد بلا مأوى",
-      "en": "I'm not homeless any more."
-    }
+    ]
   },
   {
     "fr": "cheminée",
@@ -2996,7 +3276,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Appelez les pompiers, le dix-huit !",
+      "ar": "اتصلوا بالإطفاء، الرقم 18!",
+      "en": "Call the fire brigade, eighteen!"
+    }
   },
   {
     "fr": "soufflet",
@@ -3041,7 +3326,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai travaillé dans le bâtiment pendant trois ans.",
+      "ar": "عملت في البناء لمدة ثلاث سنوات.",
+      "en": "I worked in construction for three years."
+    }
   },
   {
     "fr": "aiguille",
@@ -3064,7 +3354,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Je cherche le terminal 2.",
+      "ar": "أبحث عن الصالة رقم 2.",
+      "en": "I am looking for terminal 2."
+    }
   },
   {
     "fr": "traverse",
@@ -3406,7 +3701,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Où est la consigne à bagages ?",
+      "ar": "أين خزائن الحقائب؟",
+      "en": "Where is the luggage locker?"
+    }
   },
   {
     "fr": "héliport",
@@ -3469,7 +3769,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Quelle est la durée de la garantie ?",
+      "ar": "ما مدة الضمان؟",
+      "en": "How long is the warranty?"
+    }
   },
   {
     "fr": "voyageur",
@@ -3487,7 +3792,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais déclarer un sinistre.",
+      "ar": "أريد الإبلاغ عن حادث/ضرر.",
+      "en": "I would like to report a claim."
+    }
   },
   {
     "fr": "groupage",
@@ -3532,7 +3842,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai oublié de déclarer, il y a une pénalité ?",
+      "ar": "نسيت التصريح، هل هناك غرامة؟",
+      "en": "I forgot to declare, is there a penalty?"
+    }
   },
   {
     "fr": "position",
@@ -3541,7 +3856,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Maintiens cette position.",
+      "ar": "حافظ على هذه الوضعية.",
+      "en": "Hold this position."
+    }
   },
   {
     "fr": "rétrécir",
@@ -3577,7 +3897,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Oui, on va essayer une autre variante.",
+      "ar": "نعم، سنجرب نوعًا آخر.",
+      "en": "Yes, we’ll try another variation."
+    }
   },
   {
     "fr": "porterie",
@@ -3649,7 +3974,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'il y a un office de tourisme ?",
+      "ar": "هل هناك مكتب سياحة؟",
+      "en": "Is there a tourist office?"
+    }
   },
   {
     "fr": "commerce",
@@ -3667,7 +3997,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Démarrer le véhicule.",
+      "ar": "تشغيل السيارة والانطلاق.",
+      "en": "Start the vehicle."
+    }
   },
   {
     "fr": "navetteur",
@@ -3685,7 +4020,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Le verre va dans le conteneur vert.",
+      "ar": "الزجاج يوضع في الحاوية الخضراء.",
+      "en": "Glass goes in the green container."
+    }
   },
   {
     "fr": "déviation",
@@ -3721,7 +4061,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Entretien d'embauche",
+      "ar": "مقابلة عمل",
+      "en": "Job interview"
+    }
   },
   {
     "fr": "surfaçage",
@@ -3748,7 +4093,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Dégagez le carrefour.",
+      "ar": "أخلِ التقاطع.",
+      "en": "Clear the intersection."
+    }
   },
   {
     "fr": "déflexion",
@@ -3802,7 +4152,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "La chaudière ne s'allume plus.",
+      "ar": "المرجل (السخّان) لم يعد يشتعل.",
+      "en": "The boiler won't light anymore."
+    }
   },
   {
     "fr": "couchette",
@@ -3829,12 +4184,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Je veux que tu sois à mon côté.",
-      "ar": "أريد أن تقف بجانبي.",
-      "en": "I want you to be by my side."
-    }
+    ]
   },
   {
     "fr": "aggloméré",
@@ -3852,12 +4202,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Il lit.",
-      "ar": "هو يقرأ.",
-      "en": "He is reading."
-    }
+    ]
   },
   {
     "fr": "autorails",
@@ -3929,7 +4274,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Il y a une réduction ?",
+      "ar": "هل يوجد تخفيض؟",
+      "en": "Is there a discount?"
+    }
   },
   {
     "fr": "sécuriser",
@@ -3974,7 +4324,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai peur des aiguilles.",
+      "ar": "أخاف من الإبر.",
+      "en": "I'm afraid of needles."
+    }
   },
   {
     "fr": "pare-choc",
@@ -4082,7 +4437,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Je m'engage sur l'autoroute.",
+      "ar": "أدخل الطريق السريع.",
+      "en": "I enter the motorway."
+    }
   },
   {
     "fr": "polissage",
@@ -4118,12 +4478,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Reste-t-il du sel ?",
-      "ar": "هل بقي ملح؟",
-      "en": "Is there salt left?"
-    }
+    ]
   },
   {
     "fr": "décapeuse",
@@ -4150,7 +4505,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Nom, prénom, date de naissance.",
+      "ar": "اسم العائلة، الاسم الشخصي، تاريخ الميلاد.",
+      "en": "Surname, first name, date of birth."
+    }
   },
   {
     "fr": "viscosité",
@@ -4177,12 +4537,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Quelques enfants nagent dans la mer.",
-      "ar": "بعض الأطفال يسبحون في البحر.",
-      "en": "Some children are swimming in the sea."
-    }
+    ]
   },
   {
     "fr": "méthanier",
@@ -4200,12 +4555,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Dieu est grand.",
-      "ar": "الله أكبر.",
-      "en": "God is great."
-    }
+    ]
   },
   {
     "fr": "pétrolier",
@@ -4250,12 +4600,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Nous prîmes un taxi pour ne pas être en retard.",
-      "ar": "ركبنا في التاكسي لكي لا نتأخر.",
-      "en": "We took a taxi so that we wouldn't be late."
-    }
+    ]
   },
   {
     "fr": "corrosion",
@@ -4291,7 +4636,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Je me suis trompé de carburant.",
+      "ar": "أخطأت في نوع الوقود.",
+      "en": "I put in the wrong fuel."
+    }
   },
   {
     "fr": "machmètre",
@@ -4372,7 +4722,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Quelles garanties avez-vous actuellement ?",
+      "ar": "ما هي التغطيات التي لديك حاليًا؟",
+      "en": "What coverage do you currently have?"
+    }
   },
   {
     "fr": "port payé",
@@ -4417,7 +4772,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Appelez votre assurance.",
+      "ar": "اتصل بشركة التأمين الخاصة بك.",
+      "en": "Call your insurance company."
+    }
   },
   {
     "fr": "voyagiste",
@@ -4453,7 +4813,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Débloque le convoyeur.",
+      "ar": "افتح انسداد السير الناقل.",
+      "en": "Unblock the conveyor."
+    }
   },
   {
     "fr": "cargaison",
@@ -4471,7 +4836,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Contrôler la livraison.",
+      "ar": "فحص الشحنة.",
+      "en": "Check the delivery."
+    }
   },
   {
     "fr": "housseuse",
@@ -4498,7 +4868,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai eu un problème de transport.",
+      "ar": "كان لدي مشكلة في المواصلات.",
+      "en": "I had a transport problem."
+    }
   },
   {
     "fr": "excluseur",
@@ -4516,7 +4891,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que l'ascenseur fonctionne ?",
+      "ar": "هل المصعد يعمل؟",
+      "en": "Is the lift working?"
+    }
   },
   {
     "fr": "escalator",
@@ -4589,12 +4969,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Il est en train de lire.",
-      "ar": "إنه يقرأ الآن.",
-      "en": "He's reading."
-    }
+    ]
   },
   {
     "fr": "clignotant",
@@ -4603,7 +4978,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Je mets mon clignotant.",
+      "ar": "أشغل إشارة الانعطاف.",
+      "en": "I use my indicator."
+    }
   },
   {
     "fr": "adsorption",
@@ -4639,7 +5019,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Combien coûte la réparation ?",
+      "ar": "كم تكلّف عملية التصليح؟",
+      "en": "How much is the repair?"
+    }
   },
   {
     "fr": "accotement",
@@ -4666,12 +5051,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "La pièce est vide.",
-      "ar": "الغرفة فارغة.",
-      "en": "The room is empty."
-    }
+    ]
   },
   {
     "fr": "Eurobalise",
@@ -4689,7 +5069,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Avez-vous une couverture chaude ?",
+      "ar": "هل لديكم بطانية دافئة؟",
+      "en": "Do you have a warm blanket?"
+    }
   },
   {
     "fr": "wagon plat",
@@ -4707,7 +5092,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "La masse grasse",
+      "ar": "كتلة الدهون",
+      "en": "Fat mass"
+    }
   },
   {
     "fr": "locomotive",
@@ -4806,12 +5196,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Il a laissé son parapluie dans le bus.",
-      "ar": "لقد ترك مظلته في الحافلة.",
-      "en": "He left his umbrella on the bus."
-    }
+    ]
   },
   {
     "fr": "concession",
@@ -4829,12 +5214,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Que faites-vous de votre temps libre ?",
-      "ar": "ماذا تفعل بأوقات فراغك؟",
-      "en": "What do you do in your spare time?"
-    }
+    ]
   },
   {
     "fr": "chargement",
@@ -4852,7 +5232,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Je dois ralentir par précaution.",
+      "ar": "يجب أن أخفف السرعة احتياطًا.",
+      "en": "I must slow down as a precaution."
+    }
   },
   {
     "fr": "commettant",
@@ -4879,7 +5264,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Pouvez-vous me montrer l'itinéraire sur votre téléphone ?",
+      "ar": "هل يمكنك أن تريني الطريق على هاتفك؟",
+      "en": "Can you show me the route on your phone?"
+    }
   },
   {
     "fr": "glissement",
@@ -4897,7 +5287,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Je suis jeune conducteur, est-ce plus cher ?",
+      "ar": "أنا سائق جديد، هل السعر أعلى؟",
+      "en": "I'm a new driver, is it more expensive?"
+    }
   },
   {
     "fr": "voie large",
@@ -4942,12 +5337,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Nous nous sommes hâtées vers la gare.",
-      "ar": "أسرعنا إلى محطة القطار.",
-      "en": "We hurried to the train station."
-    }
+    ]
   },
   {
     "fr": "aiguillage",
@@ -5028,12 +5418,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Ce pont est très beau.",
-      "ar": "هذا الجسر جميل جدا.",
-      "en": "That bridge is very beautiful."
-    }
+    ]
   },
   {
     "fr": "délaminage",
@@ -5051,12 +5436,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Ce pont est très beau.",
-      "ar": "هذا الجسر جميل جدا.",
-      "en": "That bridge is very beautiful."
-    }
+    ]
   },
   {
     "fr": "faux joint",
@@ -5065,12 +5445,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Faux.",
-      "ar": "خطأ.",
-      "en": "Wrong!"
-    }
+    ]
   },
   {
     "fr": "élasticité",
@@ -5151,12 +5526,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "chaux vive",
@@ -5165,12 +5535,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Vive la démocratie !",
-      "ar": "عاشت الديمقراطية!",
-      "en": "Long live democracy!"
-    }
+    ]
   },
   {
     "fr": "béton armé",
@@ -5206,12 +5571,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Reste-t-il du sel ?",
-      "ar": "هل بقي ملح؟",
-      "en": "Is there salt left?"
-    }
+    ]
   },
   {
     "fr": "pont-dalle",
@@ -5220,12 +5580,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Ce pont est très beau.",
-      "ar": "هذا الجسر جميل جدا.",
-      "en": "That bridge is very beautiful."
-    }
+    ]
   },
   {
     "fr": "pare-neige",
@@ -5234,12 +5589,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "La neige tombe sur les montagnes.",
-      "ar": "الثلج يتساقط في الجبال.",
-      "en": "Snow is falling on the mountains."
-    }
+    ]
   },
   {
     "fr": "raidisseur",
@@ -5293,7 +5643,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "La visibilité est réduite.",
+      "ar": "الرؤية ضعيفة.",
+      "en": "Visibility is reduced."
+    }
   },
   {
     "fr": "film d'eau",
@@ -5302,12 +5657,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Ce film m'a plu.",
-      "ar": "أعجبني هذا الفيلم.",
-      "en": "I liked that movie."
-    }
+    ]
   },
   {
     "fr": "Y jonction",
@@ -5325,12 +5675,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "air occlus",
@@ -5389,12 +5734,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Le temps est froid.",
-      "ar": "الجو بارد.",
-      "en": "The weather is cold."
-    }
+    ]
   },
   {
     "fr": "navigateur",
@@ -5430,12 +5770,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Tom est caché sous la table.",
-      "ar": "اختبأ توم تحت الطاولة.",
-      "en": "Tom hid under the table."
-    }
+    ]
   },
   {
     "fr": "remorquage",
@@ -5462,12 +5797,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Mort au roi !",
-      "ar": "الموت لالملك!",
-      "en": "Death to the king!"
-    }
+    ]
   },
   {
     "fr": "brise lame",
@@ -5476,12 +5806,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Ne brise pas un miroir.",
-      "ar": "لا تكسر مرآتا",
-      "en": "Don't break a mirror."
-    }
+    ]
   },
   {
     "fr": "avant-port",
@@ -5490,12 +5815,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Il hésita avant de répondre.",
-      "ar": "لقد تردد قبل الإجابة.",
-      "en": "He hesitated before answering."
-    }
+    ]
   },
   {
     "fr": "côté piste",
@@ -5504,12 +5824,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Je veux que tu sois à mon côté.",
-      "ar": "أريد أن تقف بجانبي.",
-      "en": "I want you to be by my side."
-    }
+    ]
   },
   {
     "fr": "vol direct",
@@ -5520,9 +5835,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "La propriété, c'est le vol.",
-      "ar": "الملكية سرقة.",
-      "en": "Property is theft."
+      "fr": "Est-ce qu'il y a un vol direct ?",
+      "ar": "هل هناك رحلة مباشرة؟",
+      "en": "Is there a direct flight?"
     }
   },
   {
@@ -5532,12 +5847,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Mort au roi !",
-      "ar": "الموت لالملك!",
-      "en": "Death to the king!"
-    }
+    ]
   },
   {
     "fr": "vol recalé",
@@ -5546,12 +5856,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "La propriété, c'est le vol.",
-      "ar": "الملكية سرقة.",
-      "en": "Property is theft."
-    }
+    ]
   },
   {
     "fr": "tare nette",
@@ -5578,7 +5883,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Prévenez-moi s'il y a une annulation.",
+      "ar": "أخبرني إن حدث إلغاء.",
+      "en": "Let me know if there's a cancellation."
+    }
   },
   {
     "fr": "infraction",
@@ -5587,7 +5897,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Une infraction au code de la route.",
+      "ar": "مخالفة لقانون السير.",
+      "en": "A traffic offence."
+    }
   },
   {
     "fr": "régulateur",
@@ -5706,9 +6021,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "J'aurai dû faire une réservation d’hôtel plus tôt.",
-      "ar": "كان علي أن أحجز في الفندق مسبقا.",
-      "en": "I ought to have made a hotel reservation earlier."
+      "fr": "J'ai une réservation pour deux nuits.",
+      "ar": "لديّ حجز لليلتين.",
+      "en": "I have a reservation for two nights."
     }
   },
   {
@@ -5718,12 +6033,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Il lit.",
-      "ar": "هو يقرأ.",
-      "en": "He is reading."
-    }
+    ]
   },
   {
     "fr": "relais bloc",
@@ -5759,12 +6069,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Je respirais contre le miroir.",
-      "ar": "كانت أنفاسي تتشكل ككتلة على سطح المرآة",
-      "en": "I blew my breath against the mirror."
-    }
+    ]
   },
   {
     "fr": "roue dentée",
@@ -5827,12 +6132,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "La boîte à sucre est vide.",
-      "ar": "وعاء السکر فارغ.",
-      "en": "The sugar canister is empty."
-    }
+    ]
   },
   {
     "fr": "encadrement",
@@ -5859,12 +6159,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "C’est un arbre.",
-      "ar": "هذه شجرة.",
-      "en": "That's a tree."
-    }
+    ]
   },
   {
     "fr": "inflammable",
@@ -5891,12 +6186,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Il est en train de lire.",
-      "ar": "إنه يقرأ الآن.",
-      "en": "He's reading."
-    }
+    ]
   },
   {
     "fr": "pleine roue",
@@ -5905,12 +6195,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Toute personne a droit, en pleine égalité, à ce que sa cause soit entendue équitablement et publiquement par un tribunal indépendant et impartial, qui décidera, soit de ses droits et obligations, soit du bien-fondé de toute accusation en matière pénale dirigée contre elle.",
-      "ar": "لكل إنسان الحق، على قدم المساواة التامة مع الآخرين، في أن تنظر قضيته أمام محكمة مستقلة نزيهة نظرا عادلا علنيا للفصل في حقوقه والتزاماته وأية تهمة جنائية توجه إليه.",
-      "en": "Everyone is entitled in full equality to a fair and public hearing by an independent and impartial tribunal, in the determination of his rights and obligations and of any criminal charge against him."
-    }
+    ]
   },
   {
     "fr": "commutateur",
@@ -5928,12 +6213,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "bac à sable",
@@ -5951,12 +6231,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Quelle est votre type d'art préféré ?",
-      "ar": "ما هو فنك المفضل؟",
-      "en": "What's your favorite kind of art?"
-    }
+    ]
   },
   {
     "fr": "feu arrière",
@@ -6010,7 +6285,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "La composition corporelle",
+      "ar": "تركيبة الجسم",
+      "en": "Body composition"
+    }
   },
   {
     "fr": "bus bi-mode",
@@ -6019,12 +6299,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Il a laissé son parapluie dans le bus.",
-      "ar": "لقد ترك مظلته في الحافلة.",
-      "en": "He left his umbrella on the bus."
-    }
+    ]
   },
   {
     "fr": "bus hybride",
@@ -6033,12 +6308,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Il a laissé son parapluie dans le bus.",
-      "ar": "لقد ترك مظلته في الحافلة.",
-      "en": "He left his umbrella on the bus."
-    }
+    ]
   },
   {
     "fr": "contrat net",
@@ -6056,12 +6326,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Que faites-vous de votre temps libre ?",
-      "ar": "ماذا تفعل بأوقات فراغك؟",
-      "en": "What do you do in your spare time?"
-    }
+    ]
   },
   {
     "fr": "dépassement",
@@ -6070,7 +6335,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Le dépassement est interdit.",
+      "ar": "التجاوز ممنوع.",
+      "en": "Overtaking is forbidden."
+    }
   },
   {
     "fr": "parc relais",
@@ -6079,12 +6349,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Je joue dans le parc.",
-      "ar": "أنا ألعب في المتنزه.",
-      "en": "I'm playing in the park."
-    }
+    ]
   },
   {
     "fr": "performance",
@@ -6102,7 +6367,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Combien de temps prend l'instruction du dossier ?",
+      "ar": "كم يستغرق النظر في الملف؟",
+      "en": "How long does the review of the file take?"
+    }
   },
   {
     "fr": "remplissage",
@@ -6120,7 +6390,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Essuie la machine après utilisation.",
+      "ar": "نظف الجهاز بعد الاستخدام.",
+      "en": "Wipe the machine after use."
+    }
   },
   {
     "fr": "tarif zonal",
@@ -6156,12 +6431,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "voie fermée",
@@ -6205,7 +6475,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que le bouillon est à base de viande ?",
+      "ar": "هل المرق مصنوع من اللحم؟",
+      "en": "Is the stock meat-based?"
+    }
   },
   {
     "fr": "test",
@@ -6217,9 +6492,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Il se prépare pour le test.",
-      "ar": "إنه يستعد للامتحان.",
-      "en": "He is preparing for the test."
+      "fr": "Le test est négatif.",
+      "ar": "الفحص سلبي.",
+      "en": "The test is negative."
     }
   },
   {
@@ -6250,7 +6525,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Tapez votre code.",
+      "ar": "أدخل الرقم السري.",
+      "en": "Enter your PIN."
+    }
   },
   {
     "fr": "tiré",
@@ -6285,7 +6565,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Ça fait un bail ! (عامية شائعة)",
+      "ar": "مر زمن طويل!",
+      "en": "It's been ages!"
+    }
   },
   {
     "fr": "part",
@@ -6297,9 +6582,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "On ne l'a vue nulle part.",
-      "ar": "لم نرها مطلقا.",
-      "en": "We didn't see her anywhere."
+      "fr": "Blague à part.",
+      "ar": "بعيدًا عن المزاح.",
+      "en": "Joking aside."
     }
   },
   {
@@ -6375,7 +6660,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Le virus est-il toujours actif ?",
+      "ar": "هل الفيروس ما زال نشطًا؟",
+      "en": "Is the virus still active?"
+    }
   },
   {
     "fr": "à vue",
@@ -6385,12 +6675,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je l'ai vue.",
-      "ar": "رأيتها.",
-      "en": "I saw her."
-    }
+    ]
   },
   {
     "fr": "bilan",
@@ -6400,7 +6685,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Bilan médical",
+      "ar": "فحص/تقييم طبي.",
+      "en": "Medical check-up."
+    }
   },
   {
     "fr": "bazar",
@@ -6420,7 +6710,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Prime d'activité",
+      "ar": "منحة النشاط",
+      "en": "Activity bonus"
+    }
   },
   {
     "fr": "carat",
@@ -6450,7 +6745,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Voilà, c'est terminé. Appuyez avec le coton.",
+      "ar": "انتهى الأمر. اضغط بالقطن.",
+      "en": "That's it, it's finished. Press with the cotton."
+    }
   },
   {
     "fr": "crise",
@@ -6485,7 +6785,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je n'ai pas bien saisi le sens.",
+      "ar": "لم أفهم المعنى جيداً.",
+      "en": "I didn't quite grasp the meaning."
+    }
   },
   {
     "fr": "effet",
@@ -6495,7 +6800,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Non, je le supporte bien. Je n'ai pas d'effet secondaire particulier.",
+      "ar": "لا، أتحمله جيدًا. ليس لدي آثار جانبية خاصة.",
+      "en": "No, I tolerate it well. I don't have any particular side effects."
+    }
   },
   {
     "fr": "aigle",
@@ -6525,12 +6835,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "À qui de droit.",
-      "ar": "إلى من يهمه الأمر.",
-      "en": "To whom it may concern:"
-    }
+    ]
   },
   {
     "fr": "krach",
@@ -6550,7 +6855,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai perdu mon titre de séjour.",
+      "ar": "فقدت بطاقة إقامتي.",
+      "en": "I lost my residence permit."
+    }
   },
   {
     "fr": "écart",
@@ -6590,7 +6900,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Il y a une fuite d'eau au plafond.",
+      "ar": "هناك تسرّب ماء في السقف.",
+      "en": "There is a water leak in the ceiling."
+    }
   },
   {
     "fr": "liste",
@@ -6602,9 +6917,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Pourrais-tu ajouter mon nom à la liste d'attente ?",
-      "ar": "هل يمكن أن تضع إسمي على قائمة الانتظار؟",
-      "en": "Could you put my name on the waiting list?"
+      "fr": "Retirez mon numéro de votre liste.",
+      "ar": "احذفوا رقمي من قائمتكم.",
+      "en": "Remove my number from your list."
     }
   },
   {
@@ -6615,7 +6930,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais faire une déclaration de perte.",
+      "ar": "أريد تقديم إقرار بالفقدان.",
+      "en": "I would like to report the loss."
+    }
   },
   {
     "fr": "motif",
@@ -6625,7 +6945,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Motif de consultation",
+      "ar": "سبب الزيارة.",
+      "en": "Reason for appointment."
+    }
   },
   {
     "fr": "offre",
@@ -6635,7 +6960,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Offre d'emploi",
+      "ar": "عرض عمل",
+      "en": "Job offer"
+    }
   },
   {
     "fr": "usine",
@@ -6725,7 +7055,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que je paie l'impôt sur le revenu ?",
+      "ar": "هل أدفع ضريبة الدخل؟",
+      "en": "Do I pay income tax?"
+    }
   },
   {
     "fr": "thèse",
@@ -6745,7 +7080,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Quel est le délai pour payer ?",
+      "ar": "ما هي المدة المتاحة للدفع؟",
+      "en": "What is the deadline to pay?"
+    }
   },
   {
     "fr": "tonne",
@@ -6785,7 +7125,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'on peut payer la zakat ici ?",
+      "ar": "هل يمكن دفع الزكاة هنا؟",
+      "en": "Can we pay zakat here?"
+    }
   },
   {
     "fr": "compte",
@@ -6797,9 +7142,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "La vie des Noirs compte.",
-      "ar": "حياة السود مهمة.",
-      "en": "Black lives matter."
+      "fr": "Compte-les.",
+      "ar": "عدّها.",
+      "en": "Count them."
     }
   },
   {
@@ -6812,9 +7157,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Il faut payer d'avance.",
-      "ar": "عليك أن تدفع مقدما.",
-      "en": "You must pay in advance."
+      "fr": "Ça avance.",
+      "ar": "الأمور تتقدم.",
+      "en": "It’s moving forward."
     }
   },
   {
@@ -6860,7 +7205,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "La CAF traite ma demande.",
+      "ar": "CAF تعالج طلبي.",
+      "en": "CAF is processing my request."
+    }
   },
   {
     "fr": "blocus",
@@ -6880,7 +7230,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que je peux avoir une bourse ?",
+      "ar": "هل يمكنني الحصول على منحة؟",
+      "en": "Can I get a scholarship?"
+    }
   },
   {
     "fr": "budget",
@@ -6890,7 +7245,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "C'est trop cher pour mon budget.",
+      "ar": "هذا غالٍ جداً على ميزانيتي.",
+      "en": "That's too expensive for my budget."
+    }
   },
   {
     "fr": "calcul",
@@ -6900,7 +7260,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Pouvez-vous m'expliquer le calcul ?",
+      "ar": "هل يمكنكم شرح طريقة الحساب؟",
+      "en": "Can you explain the calculation?"
+    }
   },
   {
     "fr": "report",
@@ -6930,7 +7295,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Le ticket de caisse",
+      "ar": "وصل الدفع",
+      "en": "Receipt"
+    }
   },
   {
     "fr": "centre",
@@ -6940,7 +7310,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Quel bus va au centre-ville ?",
+      "ar": "أي باص يذهب إلى وسط المدينة؟",
+      "en": "Which bus goes to the city centre?"
+    }
   },
   {
     "fr": "chèque",
@@ -6950,7 +7325,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que le chèque énergie existe pour moi ?",
+      "ar": "هل يمكنني الاستفادة من شيك الطاقة؟",
+      "en": "Am I eligible for the energy voucher?"
+    }
   },
   {
     "fr": "cercle",
@@ -6970,7 +7350,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Prépare la commande client.",
+      "ar": "حضّر طلب الزبون.",
+      "en": "Prepare the customer order."
+    }
   },
   {
     "fr": "codage",
@@ -7002,9 +7387,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Puis-je payer par carte de crédit ?",
-      "ar": "أيمكنني الدفع عن طريق بطاقة الإئتمان؟",
-      "en": "May I pay with a credit card?"
+      "fr": "Comment je recharge mon crédit ?",
+      "ar": "كيف أعيد تعبئة رصيدي؟",
+      "en": "How do I top up my credit?"
     }
   },
   {
@@ -7047,9 +7432,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Tous les êtres humains naissent libres et égaux en dignité et en droits. Ils sont doués de raison et de conscience et doivent agir les uns envers les autres dans un esprit de fraternité.",
-      "ar": "يولد جميع الناس أحرارا ومتساوين في الكرامة والحقوق، وهم قد وهبوا العقل والوجدان، وعليهم أن يعاملوا بعضهم بعضا بروح الإخاء.",
-      "en": "All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood."
+      "fr": "Mes droits",
+      "ar": "حقوقي",
+      "en": "My benefits / entitlements"
     }
   },
   {
@@ -7062,9 +7447,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Pourquoi ne pas faire acte de candidature pour cet emploi ?",
-      "ar": "لماذا لا تتنافس حول هذا العمل؟",
-      "en": "Why not apply for that job?"
+      "fr": "Offre d'emploi",
+      "ar": "عرض عمل",
+      "en": "Job offer"
     }
   },
   {
@@ -7105,12 +7490,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tout ce qui brille n'est pas or.",
-      "ar": "ليس كل ما يلمع ذهبا.",
-      "en": "All that glisters is not gold."
-    }
+    ]
   },
   {
     "fr": "rappel",
@@ -7120,7 +7500,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Rappel de votre rendez-vous.",
+      "ar": "تذكير بموعدك.",
+      "en": "Appointment reminder."
+    }
   },
   {
     "fr": "fraude",
@@ -7142,9 +7527,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Vous devez manger des fruits.",
-      "ar": "يجب أن تأكلوا الفواكه.",
-      "en": "You must eat fruits."
+      "fr": "Le rayon fruits et légumes",
+      "ar": "قسم الفواكه والخضار",
+      "en": "Fruit and vegetables section"
     }
   },
   {
@@ -7175,7 +7560,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que je paie l'impôt sur le revenu ?",
+      "ar": "هل أدفع ضريبة الدخل؟",
+      "en": "Do I pay income tax?"
+    }
   },
   {
     "fr": "indice",
@@ -7185,7 +7575,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "L’indice de masse corporelle (IMC)",
+      "ar": "مؤشر كتلة الجسم",
+      "en": "Body Mass Index (BMI)"
+    }
   },
   {
     "fr": "lingot",
@@ -7205,7 +7600,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que le vélo est assuré contre le vol ?",
+      "ar": "هل الدراجة مؤمّنة ضد السرقة؟",
+      "en": "Is the bike insured against theft?"
+    }
   },
   {
     "fr": "stocks",
@@ -7255,7 +7655,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je suis bloqué.",
+      "ar": "أنا عالق.",
+      "en": "I’m blocked."
+    }
   },
   {
     "fr": "marché",
@@ -7267,9 +7672,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Je ne suis pas allée au marché.",
-      "ar": "أنا لم أذهب الى السوق.",
-      "en": "I didn't go to the market."
+      "fr": "Ça a marché ?",
+      "ar": "هل نجح؟",
+      "en": "Did it work?"
     }
   },
   {
@@ -7282,9 +7687,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Après qu'elle eut perdu son travail, elle n'était plus en mesure de nourrir ses chiens, alors elle les donna.",
-      "ar": "بعد فقدانها لعملها، لم تكن قادرة على إطعام كلابها، لذلك أعطتهم لأحدهم.",
-      "en": "After she lost her job, she couldn't afford to feed her dogs, so she gave them away."
+      "fr": "Il mesure environ ... centimètres.",
+      "ar": "حجمه حوالي ... سنتيمتر.",
+      "en": "It measures about ... centimeters."
     }
   },
   {
@@ -7332,9 +7737,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Vous n'êtes pas obligé de faire ça.",
-      "ar": "لست مجبرا على فعل ذلك.",
-      "en": "It's not necessary for you to do that."
+      "fr": "C’est obligé.",
+      "ar": "هذا إجباري / لا بد.",
+      "en": "It’s mandatory."
     }
   },
   {
@@ -7345,7 +7750,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je veux désactiver cette option.",
+      "ar": "أريد إلغاء تفعيل هذا الخيار.",
+      "en": "I want to disable this option."
+    }
   },
   {
     "fr": "partie",
@@ -7445,7 +7855,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Voici un justificatif de domicile récent.",
+      "ar": "هذا إثبات سكن حديث.",
+      "en": "Here is a recent proof of address."
+    }
   },
   {
     "fr": "risque",
@@ -7455,7 +7870,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Ça risque de…",
+      "ar": "قد يؤدي إلى…",
+      "en": "It might…"
+    }
   },
   {
     "fr": "péages",
@@ -7485,7 +7905,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je regarde des films avec des sous-titres.",
+      "ar": "أشاهد أفلاماً مع ترجمة.",
+      "en": "I watch films with subtitles."
+    }
   },
   {
     "fr": "action",
@@ -7495,7 +7920,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Action requise",
+      "ar": "مطلوب اتخاذ إجراء",
+      "en": "Action required"
+    }
   },
   {
     "fr": "hausse",
@@ -7525,7 +7955,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Une valeur basse",
+      "ar": "قيمة منخفضة",
+      "en": "Low value"
+    }
   },
   {
     "fr": "analyse",
@@ -7535,7 +7970,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Une analyse urgente",
+      "ar": "تحليل مستعجل",
+      "en": "Urgent test"
+    }
   },
   {
     "fr": "annuité",
@@ -7605,12 +8045,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Au secours !",
-      "ar": "النجدة!",
-      "en": "Help!"
-    }
+    ]
   },
   {
     "fr": "soutien",
@@ -7630,7 +8065,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je peux payer la caution par virement.",
+      "ar": "يمكنني دفع الضمان بحوالة بنكية.",
+      "en": "I can pay the deposit by bank transfer."
+    }
   },
   {
     "fr": "balance",
@@ -7640,7 +8080,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu’il y a une balance dans la salle ?",
+      "ar": "هل يوجد ميزان في النادي؟",
+      "en": "Is there a scale in the gym?"
+    }
   },
   {
     "fr": "vendeur",
@@ -7660,7 +8105,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Être porteur du virus",
+      "ar": "يكون حاملًا للفيروس",
+      "en": "To carry the virus"
+    }
   },
   {
     "fr": "binaire",
@@ -7715,7 +8165,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais m'inscrire comme livreur.",
+      "ar": "أريد التسجيل كعامل توصيل.",
+      "en": "I would like to sign up as a delivery rider."
+    }
   },
   {
     "fr": "charges",
@@ -7725,7 +8180,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Quel est le montant des charges ?",
+      "ar": "كم مبلغ المصاريف؟",
+      "en": "How much are the service charges?"
+    }
   },
   {
     "fr": "monnaie",
@@ -7735,7 +8195,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Gardez la monnaie.",
+      "ar": "احتفظ بالباقي.",
+      "en": "Keep the change."
+    }
   },
   {
     "fr": "mandaté",
@@ -7755,7 +8220,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Contrat de travail",
+      "ar": "عقد العمل",
+      "en": "Employment contract"
+    }
   },
   {
     "fr": "société",
@@ -7810,12 +8280,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il faut laisser aux gens le soin d'inventer leurs propres valeurs en leur donnant au départ le maximum de liberté de création. Car à un certain niveau de profondeur, si une culture est réelle, elle est libératrice.",
-      "ar": "يجب أن نترك الناس يخترعون قيمهم الخاصة بهم وذلك بمنحهم بداية أقصى درجة من حرية الإبداع. لأنه عند مستوى معين من العمق، إذا كانت الثقافة حقيقية، فإنها محررة. مولود معمري",
-      "en": "We must let people invent their own values by giving them the maximum freedom of creation. Because at a certain level of depth, if a culture is real, it is liberating."
-    }
+    ]
   },
   {
     "fr": "coûteux",
@@ -7857,9 +8322,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Je demande pardon à Dieu !",
-      "ar": "أستغفرالله!",
-      "en": "I ask God for forgiveness!"
+      "fr": "Demande refusée",
+      "ar": "تم رفض الطلب",
+      "en": "Application rejected"
     }
   },
   {
@@ -7890,7 +8355,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Nous n'avons pas d'élément indiquant une cirrhose importante actuellement.",
+      "ar": "لا توجد حاليًا عناصر تشير إلى تشمع مهم.",
+      "en": "There is currently no evidence of significant cirrhosis."
+    }
   },
   {
     "fr": "embargo",
@@ -7910,7 +8380,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Employé de rayon",
+      "ar": "موظف قسم",
+      "en": "Shelf employee"
+    }
   },
   {
     "fr": "égalité",
@@ -7920,12 +8395,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Toute personne a droit, en pleine égalité, à ce que sa cause soit entendue équitablement et publiquement par un tribunal indépendant et impartial, qui décidera, soit de ses droits et obligations, soit du bien-fondé de toute accusation en matière pénale dirigée contre elle.",
-      "ar": "لكل إنسان الحق، على قدم المساواة التامة مع الآخرين، في أن تنظر قضيته أمام محكمة مستقلة نزيهة نظرا عادلا علنيا للفصل في حقوقه والتزاماته وأية تهمة جنائية توجه إليه.",
-      "en": "Everyone is entitled in full equality to a fair and public hearing by an independent and impartial tribunal, in the determination of his rights and obligations and of any criminal charge against him."
-    }
+    ]
   },
   {
     "fr": "chiffre",
@@ -7935,7 +8405,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Quel est le plafond de chiffre d'affaires ?",
+      "ar": "ما هو الحد الأقصى للمبيعات؟",
+      "en": "What is the turnover ceiling?"
+    }
   },
   {
     "fr": "finance",
@@ -7995,12 +8470,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tout ce qui brille n'est pas or.",
-      "ar": "ليس كل ما يلمع ذهبا.",
-      "en": "All that glisters is not gold."
-    }
+    ]
   },
   {
     "fr": "habitat",
@@ -8045,12 +8515,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "intérêt",
@@ -8060,7 +8525,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Quel est le taux d'intérêt du Livret A ?",
+      "ar": "ما هي نسبة الفائدة على حساب التوفير Livret A؟",
+      "en": "What is the interest rate on the Livret A?"
+    }
   },
   {
     "fr": "bradeur",
@@ -8172,9 +8642,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Il faut laisser aux gens le soin d'inventer leurs propres valeurs en leur donnant au départ le maximum de liberté de création. Car à un certain niveau de profondeur, si une culture est réelle, elle est libératrice.",
-      "ar": "يجب أن نترك الناس يخترعون قيمهم الخاصة بهم وذلك بمنحهم بداية أقصى درجة من حرية الإبداع. لأنه عند مستوى معين من العمق، إذا كانت الثقافة حقيقية، فإنها محررة. مولود معمري",
-      "en": "We must let people invent their own values by giving them the maximum freedom of creation. Because at a certain level of depth, if a culture is real, it is liberating."
+      "fr": "Vous avez droit à 5 erreurs maximum.",
+      "ar": "يسمح لك بـ 5 أخطاء كحد أقصى.",
+      "en": "You are allowed a maximum of 5 mistakes."
     }
   },
   {
@@ -8195,7 +8665,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Ça dépend de vos besoins.",
+      "ar": "يعتمد على احتياجاتك.",
+      "en": "It depends on your needs."
+    }
   },
   {
     "fr": "notaire",
@@ -8235,7 +8710,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je préfère le médicament d'origine.",
+      "ar": "أفضل الدواء الأصلي.",
+      "en": "I prefer the original medication."
+    }
   },
   {
     "fr": "partage",
@@ -8247,9 +8727,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Il y avait des juifs dans les pays arabes avant le partage de la Palestine.",
-      "ar": "كان يهودا في دول عربية قبل تقسيم فلسطين.",
-      "en": "There were Jews in Arab countries before the partition of Palestine."
+      "fr": "Partage les machines.",
+      "ar": "شارك الأجهزة مع الآخرين.",
+      "en": "Share the machines."
     }
   },
   {
@@ -8270,12 +8750,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Son salaire mensuel s'élève à plus de 500 000 yens.",
-      "ar": "يتقاضى شهريا خمس مائة ين",
-      "en": "His monthly salary is no less than 500,000 yen."
-    }
+    ]
   },
   {
     "fr": "produit",
@@ -8287,9 +8762,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Je jure que rien ne s'est produit.",
-      "ar": "أقسم بأن لا شيء حصل.",
-      "en": "I swear, nothing happened."
+      "fr": "Emballe le produit.",
+      "ar": "غلّف المنتج.",
+      "en": "Pack the product."
     }
   },
   {
@@ -8300,7 +8775,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je vais mesurer mes progrès.",
+      "ar": "سأقيس تقدمي.",
+      "en": "I'm going to measure my progress."
+    }
   },
   {
     "fr": "cotable",
@@ -8340,7 +8820,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Va chercher un carton en réserve.",
+      "ar": "اذهب وأحضر كرتونة من المخزن.",
+      "en": "Go get a carton from the stockroom."
+    }
   },
   {
     "fr": "recette",
@@ -8360,7 +8845,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais ouvrir un livret d'épargne.",
+      "ar": "أريد فتح دفتر توفير.",
+      "en": "I would like to open a savings account."
+    }
   },
   {
     "fr": "session",
@@ -8370,7 +8860,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Session expirée",
+      "ar": "انتهت الجلسة.",
+      "en": "Session expired."
+    }
   },
   {
     "fr": "métayer",
@@ -8392,9 +8887,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Je suis allé à ce magasin avant.",
-      "ar": "سبق لي و أن زرت هذا المتجر.",
-      "en": "I have been to the store before."
+      "fr": "Le fournisseur livre le magasin.",
+      "ar": "المورد يوصل المتجر.",
+      "en": "The supplier delivers to the store."
     }
   },
   {
@@ -8480,7 +8975,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je perçois une allocation chômage.",
+      "ar": "أتلقى إعانة البطالة.",
+      "en": "I receive unemployment benefits."
+    }
   },
   {
     "fr": "usagers",
@@ -8490,7 +8990,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je laisse passer les autres usagers.",
+      "ar": "أترك الآخرين يمرون.",
+      "en": "I let other road users pass."
+    }
   },
   {
     "fr": "utilité",
@@ -8525,7 +9030,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Y a-t-il des travaux à prévoir ?",
+      "ar": "هل هناك أعمال إصلاح متوقعة؟",
+      "en": "Is any work needed?"
+    }
   },
   {
     "fr": "acquitté",
@@ -8565,12 +9075,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Nous vivons sur Terre.",
-      "ar": "نحن نعيش على كوكب الأرض.",
-      "en": "We live on Earth."
-    }
+    ]
   },
   {
     "fr": "surprime",
@@ -8590,7 +9095,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous bénéficiez d’un avantage client.",
+      "ar": "تستفيد من ميزة للزبائن.",
+      "en": "You benefit from a customer advantage."
+    }
   },
   {
     "fr": "agiotage",
@@ -8610,12 +9120,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Au secours !",
-      "ar": "النجدة!",
-      "en": "Help!"
-    }
+    ]
   },
   {
     "fr": "à parité",
@@ -8695,7 +9200,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je vais changer d'exercice.",
+      "ar": "سأغير التمرين.",
+      "en": "I'm going to change exercises."
+    }
   },
   {
     "fr": "acheteur",
@@ -8725,7 +9235,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Caissier / caissière",
+      "ar": "موظف صندوق",
+      "en": "Cashier"
+    }
   },
   {
     "fr": "prix CAF",
@@ -8735,12 +9250,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "décodage",
@@ -8940,7 +9450,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Votre contrat arrive bientôt à échéance.",
+      "ar": "عقدك سينتهي قريبًا.",
+      "en": "Your contract is about to expire."
+    }
   },
   {
     "fr": "fabrique",
@@ -8960,12 +9475,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "création",
@@ -8975,12 +9485,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il faut laisser aux gens le soin d'inventer leurs propres valeurs en leur donnant au départ le maximum de liberté de création. Car à un certain niveau de profondeur, si une culture est réelle, elle est libératrice.",
-      "ar": "يجب أن نترك الناس يخترعون قيمهم الخاصة بهم وذلك بمنحهم بداية أقصى درجة من حرية الإبداع. لأنه عند مستوى معين من العمق، إذا كانت الثقافة حقيقية، فإنها محررة. مولود معمري",
-      "en": "We must let people invent their own values by giving them the maximum freedom of creation. Because at a certain level of depth, if a culture is real, it is liberating."
-    }
+    ]
   },
   {
     "fr": "mercerie",
@@ -9002,9 +9507,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Il a l'habitude de parler à des étrangers.",
-      "ar": "هو معتاد على التحدث إلى الأجانب.",
-      "en": "He is used to talking to foreigners."
+      "fr": "J’ai l’habitude.",
+      "ar": "أنا معتاد على ذلك.",
+      "en": "I’m used to it."
     }
   },
   {
@@ -9025,12 +9530,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "assureur",
@@ -9110,7 +9610,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "L'APL est versée au bailleur.",
+      "ar": "تُحوَّل APL إلى المؤجر.",
+      "en": "The housing benefit is paid to the landlord."
+    }
   },
   {
     "fr": "location",
@@ -9120,7 +9625,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Voici mon contrat de location.",
+      "ar": "هذا عقد الإيجار الخاص بي.",
+      "en": "Here is my rental contract."
+    }
   },
   {
     "fr": "cotation",
@@ -9220,12 +9730,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "à compte",
@@ -9235,12 +9740,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La vie des Noirs compte.",
-      "ar": "حياة السود مهمة.",
-      "en": "Black lives matter."
-    }
+    ]
   },
   {
     "fr": "au débit",
@@ -9250,12 +9750,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Au secours !",
-      "ar": "النجدة!",
-      "en": "Help!"
-    }
+    ]
   },
   {
     "fr": "opulence",
@@ -9275,12 +9770,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Cours !",
-      "ar": "اركض!",
-      "en": "Leg it!"
-    }
+    ]
   },
   {
     "fr": "survente",
@@ -9330,7 +9820,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je dois tenir un livre de recettes.",
+      "ar": "يجب أن أحتفظ بدفتر مدخولات.",
+      "en": "I have to keep a revenue book."
+    }
   },
   {
     "fr": "quantité",
@@ -9340,7 +9835,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Vérifie la quantité.",
+      "ar": "تحقق من الكمية.",
+      "en": "Check the quantity."
+    }
   },
   {
     "fr": "rationné",
@@ -9392,9 +9892,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Ton succès sera le résultat de ton travail assidu.",
-      "ar": "نجاحك يعود لاجتهادك في عملك.",
-      "en": "Your success is the result of your hard work."
+      "fr": "Résultat positif",
+      "ar": "نتيجة إيجابية",
+      "en": "Positive result"
     }
   },
   {
@@ -9415,7 +9915,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je veux épargner pour un logement.",
+      "ar": "أريد التوفير من أجل السكن.",
+      "en": "I want to save for a home."
+    }
   },
   {
     "fr": "solution",
@@ -9427,9 +9932,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Nous voulons une solution pacifique.",
-      "ar": "نحن نريد حلا سلميا.",
-      "en": "We want a peaceful solution."
+      "fr": "On a trouvé une solution.",
+      "ar": "وجدنا حلًا.",
+      "en": "We found a solution."
     }
   },
   {
@@ -9450,7 +9955,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que les magasins sont fermés les jours fériés ?",
+      "ar": "هل المتاجر مغلقة في أيام الأعياد الرسمية؟",
+      "en": "Are the shops closed on public holidays?"
+    }
   },
   {
     "fr": "arrimage",
@@ -9490,12 +10000,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Quel gros livre !",
-      "ar": "ياله من كتاب ضخم !",
-      "en": "What a big book this is!"
-    }
+    ]
   },
   {
     "fr": "pointage",
@@ -9505,7 +10010,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Vérifie ton pointage.",
+      "ar": "تحقق من تسجيل وقتك.",
+      "en": "Check your time record."
+    }
   },
   {
     "fr": "tantième",
@@ -9535,12 +10045,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il est prêt.",
-      "ar": "هو مستعد.",
-      "en": "He finished."
-    }
+    ]
   },
   {
     "fr": "encaisse",
@@ -9550,7 +10055,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "La caissière encaisse le client.",
+      "ar": "موظفة الصندوق تقبض من الزبون.",
+      "en": "The cashier takes the customer’s payment."
+    }
   },
   {
     "fr": "totalité",
@@ -9655,7 +10165,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Combien coûte un comptable par mois ?",
+      "ar": "كم يكلّف المحاسب شهرياً؟",
+      "en": "How much does an accountant cost per month?"
+    }
   },
   {
     "fr": "précision",
@@ -9675,12 +10190,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "arbitrage",
@@ -9780,7 +10290,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je suis conseiller clientèle.",
+      "ar": "أنا مستشار زبائن.",
+      "en": "I’m a customer advisor."
+    }
   },
   {
     "fr": "compagnie",
@@ -9915,7 +10430,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Cette offre vous permet de faire des économies.",
+      "ar": "هذا العرض يسمح لك بتوفير المال.",
+      "en": "This offer allows you to save money."
+    }
   },
   {
     "fr": "employeur",
@@ -9925,7 +10445,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Mon employeur ne m'a pas payé mon salaire.",
+      "ar": "صاحب العمل لم يدفع لي راتبي.",
+      "en": "My employer hasn't paid my wages."
+    }
   },
   {
     "fr": "endosseur",
@@ -9997,9 +10522,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "L'extinction fait partie de l'évolution.",
-      "ar": "يمثل الانقراض جزءا من التطور",
-      "en": "Extinction is part of evolution."
+      "fr": "Suivre l'évolution",
+      "ar": "يتابع التطور",
+      "en": "To follow the evolution"
     }
   },
   {
@@ -10010,7 +10535,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Bonne exécution.",
+      "ar": "أداء جيد للحركة.",
+      "en": "Good execution."
+    }
   },
   {
     "fr": "expertise",
@@ -10032,9 +10562,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Je n'ai pas l'habitude de travailler à l'extérieur.",
-      "ar": "أنا لست معتادة على العمل في الخارج.",
-      "en": "I'm not used to working outside."
+      "fr": "Le rétroviseur extérieur",
+      "ar": "المرآة الخارجية",
+      "en": "Side mirror"
     }
   },
   {
@@ -10085,12 +10615,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "fondation",
@@ -10120,12 +10645,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tout ce qui brille n'est pas or.",
-      "ar": "ليس كل ما يلمع ذهبا.",
-      "en": "All that glisters is not gold."
-    }
+    ]
   },
   {
     "fr": "parité-or",
@@ -10135,12 +10655,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tout ce qui brille n'est pas or.",
-      "ar": "ليس كل ما يلمع ذهبا.",
-      "en": "All that glisters is not gold."
-    }
+    ]
   },
   {
     "fr": "étalon-or",
@@ -10150,12 +10665,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tout ce qui brille n'est pas or.",
-      "ar": "ليس كل ما يلمع ذهبا.",
-      "en": "All that glisters is not gold."
-    }
+    ]
   },
   {
     "fr": "pâturages",
@@ -10185,12 +10695,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il est prêt.",
-      "ar": "هو مستعد.",
-      "en": "He finished."
-    }
+    ]
   },
   {
     "fr": "hypothèse",
@@ -10250,12 +10755,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "croissant",
@@ -10320,7 +10820,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Étiquette les produits.",
+      "ar": "ضع ملصقات على المنتجات.",
+      "en": "Label the products."
+    }
   },
   {
     "fr": "apériteur",
@@ -10340,12 +10845,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il est prêt.",
-      "ar": "هو مستعد.",
-      "en": "He finished."
-    }
+    ]
   },
   {
     "fr": "liquidité",
@@ -10450,12 +10950,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Comment faites-vous pour manger ainsi, sans prendre de poids ?",
-      "ar": "كيف يمكنك أن تأكل هكذا، من دون أن تزيد في الوزن؟",
-      "en": "How do you eat like that without gaining weight?"
-    }
+    ]
   },
   {
     "fr": "bricoleur",
@@ -10485,12 +10980,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Au secours !",
-      "ar": "النجدة!",
-      "en": "Help!"
-    }
+    ]
   },
   {
     "fr": "opération",
@@ -10540,7 +11030,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je fais l’emballage.",
+      "ar": "أقوم بالتغليف.",
+      "en": "I do the packaging."
+    }
   },
   {
     "fr": "acquitter",
@@ -10560,7 +11055,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Un espace personnel",
+      "ar": "الحساب الشخصي",
+      "en": "Personal account"
+    }
   },
   {
     "fr": "phénomène",
@@ -10590,7 +11090,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que ce placement est risqué ?",
+      "ar": "هل هذا الاستثمار محفوف بالمخاطر؟",
+      "en": "Is this investment risky?"
+    }
   },
   {
     "fr": "politique",
@@ -10615,7 +11120,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Tu suis un programme ?",
+      "ar": "هل تتبع برنامجًا؟",
+      "en": "Do you follow a program?"
+    }
   },
   {
     "fr": "à couvert",
@@ -10625,12 +11135,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Vous avez couvert notre famille de honte.",
-      "ar": "أنت جلبت العار على عائلتنا.",
-      "en": "You have brought shame upon our family."
-    }
+    ]
   },
   {
     "fr": "publicité",
@@ -10640,7 +11145,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Combien coûte une publicité locale ?",
+      "ar": "كم تكلّف دعاية محلية؟",
+      "en": "How much does local advertising cost?"
+    }
   },
   {
     "fr": "reflation",
@@ -10780,7 +11290,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je suis locataire.",
+      "ar": "أنا مستأجر.",
+      "en": "I am a tenant."
+    }
   },
   {
     "fr": "négociant",
@@ -10810,12 +11325,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "bien-être",
@@ -10825,12 +11335,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Bien cuit !",
-      "ar": "أحسنت عملا.",
-      "en": "Well done!"
-    }
+    ]
   },
   {
     "fr": "abattement",
@@ -10920,7 +11425,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que l'assistance est incluse ?",
+      "ar": "هل خدمة المساعدة على الطريق مشمولة؟",
+      "en": "Is roadside assistance included?"
+    }
   },
   {
     "fr": "mandataire",
@@ -10950,12 +11460,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "aviculture",
@@ -10977,9 +11482,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Aujourd'hui, c'est mon jour de congé.",
-      "ar": "اليوم هو يوم راحتي.",
-      "en": "Today is my day off."
+      "fr": "Est-ce que ce jour est un jour férié ?",
+      "ar": "هل هذا اليوم عطلة رسمية؟",
+      "en": "Is this day a public holiday?"
     }
   },
   {
@@ -10990,12 +11495,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il a mis toutes ses forces pour ramper hors de la voiture écrasée.",
-      "ar": "جمع كل قواه ليزحف خارج السيارة المحطمة.",
-      "en": "He used all his strength to crawl out of the wrecked car."
-    }
+    ]
   },
   {
     "fr": "échéancier",
@@ -11005,7 +11505,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais un échéancier mensuel fixe.",
+      "ar": "أريد قسطاً شهرياً ثابتاً.",
+      "en": "I would like a fixed monthly instalment."
+    }
   },
   {
     "fr": "prospérité",
@@ -11085,7 +11590,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "démarchage téléphonique",
+      "ar": "التسويق عبر الهاتف",
+      "en": "Telephone solicitation"
+    }
   },
   {
     "fr": "moins cher",
@@ -11097,9 +11607,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "J'ai terminé ce travail en moins d'une heure.",
-      "ar": "لقد أنهيت العمل في أقل من ساعة",
-      "en": "I finished the work in less than an hour."
+      "fr": "Je voudrais un tarif moins cher.",
+      "ar": "أريد تعرفة أرخص.",
+      "en": "I would like a cheaper tariff."
     }
   },
   {
@@ -11120,12 +11630,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il est prêt.",
-      "ar": "هو مستعد.",
-      "en": "He finished."
-    }
+    ]
   },
   {
     "fr": "engagement",
@@ -11135,7 +11640,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Y a-t-il un engagement ?",
+      "ar": "هل يوجد التزام بعقد؟",
+      "en": "Is there a contract commitment?"
+    }
   },
   {
     "fr": "communisme",
@@ -11165,7 +11675,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Le contrôleur qualité",
+      "ar": "مراقب الجودة",
+      "en": "Quality inspector"
+    }
   },
   {
     "fr": "ordinateur",
@@ -11235,12 +11750,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "co-associé",
@@ -11320,12 +11830,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "épuisement",
@@ -11430,12 +11935,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "J'avais la bouche sèche.",
-      "ar": "كان فمي جاف.",
-      "en": "My mouth was dry."
-    }
+    ]
   },
   {
     "fr": "durabilité",
@@ -11477,9 +11977,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Elle fait tourner l'entreprise avec ses filles.",
-      "ar": "هي تسير الشركة مع بناتها.",
-      "en": "She runs the business with her daughters."
+      "fr": "L'entreprise recrute en ce moment.",
+      "ar": "الشركة توظف حاليًا.",
+      "en": "The company is hiring at the moment."
     }
   },
   {
@@ -11510,12 +12010,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "ex-magasin",
@@ -11525,12 +12020,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je suis allé à ce magasin avant.",
-      "ar": "سبق لي و أن زرت هذا المتجر.",
-      "en": "I have been to the store before."
-    }
+    ]
   },
   {
     "fr": "exemptions",
@@ -11560,12 +12050,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "J'avais prévu cela.",
-      "ar": "كنت أتوقع ذلك.",
-      "en": "I had planned for this."
-    }
+    ]
   },
   {
     "fr": "fédération",
@@ -11615,7 +12100,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que la taxe d'habitation ?",
+      "ar": "ما هي ضريبة السكن؟",
+      "en": "What is the residence tax?"
+    }
   },
   {
     "fr": "colporteur",
@@ -11655,7 +12145,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais un avis d'imposition.",
+      "ar": "أريد إشعار الضريبة.",
+      "en": "I would like a tax assessment notice."
+    }
   },
   {
     "fr": "en espèces",
@@ -11665,12 +12160,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "à l'avance",
@@ -11680,7 +12170,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Faut-il réserver à l'avance ?",
+      "ar": "هل يجب الحجز مسبقاً؟",
+      "en": "Do I need to book in advance?"
+    }
   },
   {
     "fr": "sans frais",
@@ -11690,12 +12185,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Conservez-le au frais.",
-      "ar": "احتفظ به في مكان بارد.",
-      "en": "Keep it at a lower temperature."
-    }
+    ]
   },
   {
     "fr": "indicateur",
@@ -11800,12 +12290,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je suis juste allongé.",
-      "ar": "أنا متمدد فحسب.",
-      "en": "I am only lying down."
-    }
+    ]
   },
   {
     "fr": "projet clé",
@@ -11815,12 +12300,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je me demande où Tom a caché sa clé.",
-      "ar": "أتساءل أين أخفى توم مفتاحه.",
-      "en": "I wonder where Tom hid his key."
-    }
+    ]
   },
   {
     "fr": "étiquetage",
@@ -11830,7 +12310,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "On passe à l’étiquetage.",
+      "ar": "ننتقل إلى وضع الملصقات.",
+      "en": "We move on to labeling."
+    }
   },
   {
     "fr": "répertoire",
@@ -11880,12 +12365,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "commerçant",
@@ -11975,7 +12455,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Un panneau d'obligation.",
+      "ar": "إشارة إلزام.",
+      "en": "Mandatory sign."
+    }
   },
   {
     "fr": "occupation",
@@ -12005,12 +12490,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Nous vivons sur Terre.",
-      "ar": "نحن نعيش على كوكب الأرض.",
-      "en": "We live on Earth."
-    }
+    ]
   },
   {
     "fr": "en réclame",
@@ -12020,12 +12500,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "surenchère",
@@ -12045,7 +12520,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "La ligne de production",
+      "ar": "خط الإنتاج",
+      "en": "Production line"
+    }
   },
   {
     "fr": "impôts dus",
@@ -12065,12 +12545,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Elle parle trop.",
-      "ar": "هي تتكلم كثيرا.",
-      "en": "She speaks too much."
-    }
+    ]
   },
   {
     "fr": "surévaluer",
@@ -12110,12 +12585,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je ne l'aime plus.",
-      "ar": "لم أعد أحبه.",
-      "en": "I don't love her any more."
-    }
+    ]
   },
   {
     "fr": "population",
@@ -12180,12 +12650,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Au secours !",
-      "ar": "النجدة!",
-      "en": "Help!"
-    }
+    ]
   },
   {
     "fr": "procédures",
@@ -12225,7 +12690,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Mets les lunettes de protection.",
+      "ar": "ضع نظارات الحماية.",
+      "en": "Put on safety glasses."
+    }
   },
   {
     "fr": "rente pure",
@@ -12255,12 +12725,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "récompense",
@@ -12322,9 +12787,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Il était difficile de voir la route à cause de l'épais brouillard.",
-      "ar": "كان من الصعب رؤية الطريق بسبب كثافة الضباب.",
-      "en": "The thick fog made it hard to see the road."
+      "fr": "Il y a du brouillard.",
+      "ar": "يوجد ضباب.",
+      "en": "There is fog."
     }
   },
   {
@@ -12500,12 +12965,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La pièce est vide.",
-      "ar": "الغرفة فارغة.",
-      "en": "The room is empty."
-    }
+    ]
   },
   {
     "fr": "abréviation",
@@ -12565,12 +13025,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je ne suis pas allée au marché.",
-      "ar": "أنا لم أذهب الى السوق.",
-      "en": "I didn't go to the market."
-    }
+    ]
   },
   {
     "fr": "taux ajusté",
@@ -12590,12 +13045,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tom dit que tu es un génie.",
-      "ar": "يقول \"توم\" أنك عبقري.",
-      "en": "Tom says you're a genius."
-    }
+    ]
   },
   {
     "fr": "agriculture",
@@ -12625,12 +13075,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Ça colle pour moi.",
-      "ar": "يناسبني ذلك.",
-      "en": "That's OK with me."
-    }
+    ]
   },
   {
     "fr": "coût annuel",
@@ -12660,12 +13105,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Nous vivons sur Terre.",
-      "ar": "نحن نعيش على كوكب الأرض.",
-      "en": "We live on Earth."
-    }
+    ]
   },
   {
     "fr": "dépositaire",
@@ -12695,12 +13135,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tom est caché sous la table.",
-      "ar": "اختبأ توم تحت الطاولة.",
-      "en": "Tom hid under the table."
-    }
+    ]
   },
   {
     "fr": "échéanciers",
@@ -12720,12 +13155,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Pourrais-tu ajouter mon nom à la liste d'attente ?",
-      "ar": "هل يمكن أن تضع إسمي على قائمة الانتظار؟",
-      "en": "Could you put my name on the waiting list?"
-    }
+    ]
   },
   {
     "fr": "marché noir",
@@ -12762,9 +13192,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Elle s'est mise en colère.",
-      "ar": "فقدت أعصابها.",
-      "en": "She got mad."
+      "fr": "Mise à jour effectuée",
+      "ar": "تم التحديث.",
+      "en": "Update completed."
     }
   },
   {
@@ -12825,12 +13255,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je l'ai vue.",
-      "ar": "رأيتها.",
-      "en": "I saw her."
-    }
+    ]
   },
   {
     "fr": "réclamation",
@@ -12840,7 +13265,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais faire une réclamation.",
+      "ar": "أريد تقديم شكوى.",
+      "en": "I'd like to make a claim."
+    }
   },
   {
     "fr": "liquidation",
@@ -13010,12 +13440,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Ce n'est pas du véritable argent.",
-      "ar": "ليست نقودا حقيقية.",
-      "en": "It's not real money."
-    }
+    ]
   },
   {
     "fr": "prêts à vue",
@@ -13025,12 +13450,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je l'ai vue.",
-      "ar": "رأيتها.",
-      "en": "I saw her."
-    }
+    ]
   },
   {
     "fr": "effet à vue",
@@ -13040,12 +13460,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je l'ai vue.",
-      "ar": "رأيتها.",
-      "en": "I saw her."
-    }
+    ]
   },
   {
     "fr": "cours à vue",
@@ -13055,12 +13470,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Cours !",
-      "ar": "اركض!",
-      "en": "Leg it!"
-    }
+    ]
   },
   {
     "fr": "dévaluation",
@@ -13080,12 +13490,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "J'ai terminé ce travail en moins d'une heure.",
-      "ar": "لقد أنهيت العمل في أقل من ساعة",
-      "en": "I finished the work in less than an hour."
-    }
+    ]
   },
   {
     "fr": "coût direct",
@@ -13147,9 +13552,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Cet appareil produit de l'électricité.",
-      "ar": "هذا الجهاز يولد الكهرباء.",
-      "en": "This device produces electricity."
+      "fr": "J'ai coupé le gaz et l'électricité.",
+      "ar": "قطعت الغاز والكهرباء.",
+      "en": "I have turned off the gas and electricity."
     }
   },
   {
@@ -13170,12 +13575,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je ne suis plus sans-abri.",
-      "ar": "لم أعد بلا مأوى",
-      "en": "I'm not homeless any more."
-    }
+    ]
   },
   {
     "fr": "exportation",
@@ -13235,12 +13635,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Ferme ton livre.",
-      "ar": "اغلق كتابك.",
-      "en": "Close your book."
-    }
+    ]
   },
   {
     "fr": "achat ferme",
@@ -13250,12 +13645,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Ferme ton livre.",
-      "ar": "اغلق كتابك.",
-      "en": "Close your book."
-    }
+    ]
   },
   {
     "fr": "vente ferme",
@@ -13265,12 +13655,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Ferme ton livre.",
-      "ar": "اغلق كتابك.",
-      "en": "Close your book."
-    }
+    ]
   },
   {
     "fr": "coûts fixes",
@@ -13290,12 +13675,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Cours !",
-      "ar": "اركض!",
-      "en": "Leg it!"
-    }
+    ]
   },
   {
     "fr": "franco quai",
@@ -13335,12 +13715,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La vie des Noirs compte.",
-      "ar": "حياة السود مهمة.",
-      "en": "Black lives matter."
-    }
+    ]
   },
   {
     "fr": "plein tarif",
@@ -13350,12 +13725,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Bois plein d'eau !",
-      "ar": "اشرب الكثير من الماء",
-      "en": "Drink plenty of water."
-    }
+    ]
   },
   {
     "fr": "futurologie",
@@ -13385,12 +13755,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il a expliqué l'objectif principal de ce plan.",
-      "ar": "فسر الهدف الرئيسي لهذا المخطط",
-      "en": "He explained the plan's main objective."
-    }
+    ]
   },
   {
     "fr": "lingot d'or",
@@ -13400,12 +13765,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Le monde suit une règle d'or : Quiconque possède l'or écrit les règles.",
-      "ar": "يحترم عالمنا قانونا ذهبيا واحدا: من يملك الذهب يضع القانون.",
-      "en": "The world follows one golden rule: whoever has the gold makes the rules."
-    }
+    ]
   },
   {
     "fr": "pièces d'or",
@@ -13415,12 +13775,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Le monde suit une règle d'or : Quiconque possède l'or écrit les règles.",
-      "ar": "يحترم عالمنا قانونا ذهبيا واحدا: من يملك الذهب يضع القانون.",
-      "en": "The world follows one golden rule: whoever has the gold makes the rules."
-    }
+    ]
   },
   {
     "fr": "valeur - or",
@@ -13430,12 +13785,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tout ce qui brille n'est pas or.",
-      "ar": "ليس كل ما يلمع ذهبا.",
-      "en": "All that glisters is not gold."
-    }
+    ]
   },
   {
     "fr": "revenu brut",
@@ -13505,12 +13855,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "inaliénable",
@@ -13540,12 +13885,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il est prêt.",
-      "ar": "هو مستعد.",
-      "en": "He finished."
-    }
+    ]
   },
   {
     "fr": "endossement",
@@ -13577,9 +13917,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Cette information est-elle correcte ?",
-      "ar": "هل هذه المعلومة صحيحة؟",
-      "en": "Is this information right?"
+      "fr": "Changer (une information)",
+      "ar": "تغيير (معلومة)",
+      "en": "To change (a piece of information)"
     }
   },
   {
@@ -13590,7 +13930,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Mon inscription",
+      "ar": "تسجيلي",
+      "en": "My registration"
+    }
   },
   {
     "fr": "instabilité",
@@ -13630,12 +13975,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je me demande où Tom a caché sa clé.",
-      "ar": "أتساءل أين أخفى توم مفتاحه.",
-      "en": "I wonder where Tom hid his key."
-    }
+    ]
   },
   {
     "fr": "secteur clé",
@@ -13645,12 +13985,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je me demande où Tom a caché sa clé.",
-      "ar": "أتساءل أين أخفى توم مفتاحه.",
-      "en": "I wonder where Tom hid his key."
-    }
+    ]
   },
   {
     "fr": "laboratoire",
@@ -13660,7 +13995,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Le laboratoire va vous envoyer les résultats",
+      "ar": "المخبر سيرسل النتائج",
+      "en": "The laboratory will send you the results"
+    }
   },
   {
     "fr": "grand livre",
@@ -13670,12 +14010,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Lis ce livre.",
-      "ar": "اطلع على هذا الكتاب.",
-      "en": "Read this book."
-    }
+    ]
   },
   {
     "fr": "délai légal",
@@ -13705,12 +14040,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "prix limite",
@@ -13720,12 +14050,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "compte loro",
@@ -13735,12 +14060,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La vie des Noirs compte.",
-      "ar": "حياة السود مهمة.",
-      "en": "Black lives matter."
-    }
+    ]
   },
   {
     "fr": "lotissement",
@@ -13760,12 +14080,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Sois un homme !",
-      "ar": "كن رجلا!",
-      "en": "Be a man."
-    }
+    ]
   },
   {
     "fr": "manufacture",
@@ -13785,7 +14100,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Lis la fiche de fabrication.",
+      "ar": "اقرأ ورقة التصنيع.",
+      "en": "Read the production sheet."
+    }
   },
   {
     "fr": "dette échue",
@@ -13805,7 +14125,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Contrôle la marchandise.",
+      "ar": "افحص البضاعة.",
+      "en": "Inspect the goods."
+    }
   },
   {
     "fr": "cours moyen",
@@ -13815,12 +14140,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Cours !",
-      "ar": "اركض!",
-      "en": "Leg it!"
-    }
+    ]
   },
   {
     "fr": "monoculture",
@@ -13840,7 +14160,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais payer en plusieurs mensualités.",
+      "ar": "أريد الدفع على أقساط شهرية.",
+      "en": "I would like to pay in monthly instalments."
+    }
   },
   {
     "fr": "nationalité",
@@ -13852,9 +14177,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Quelle est sa nationalité ?",
-      "ar": "ما جنسيته؟",
-      "en": "What is his nationality?"
+      "fr": "Nationalité, lieu de naissance, situation familiale.",
+      "ar": "الجنسية، مكان الميلاد، الحالة الاجتماعية.",
+      "en": "Nationality, place of birth, marital status."
     }
   },
   {
@@ -13865,7 +14190,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Montant net social",
+      "ar": "المبلغ الصافي الاجتماعي",
+      "en": "Net social amount"
+    }
   },
   {
     "fr": "perte nette",
@@ -13885,12 +14215,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je jure que rien ne s'est produit.",
-      "ar": "أقسم بأن لا شيء حصل.",
-      "en": "I swear, nothing happened."
-    }
+    ]
   },
   {
     "fr": "tonnage net",
@@ -13920,12 +14245,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "obligataire",
@@ -13945,12 +14265,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il a mis toutes ses forces pour ramper hors de la voiture écrasée.",
-      "ar": "جمع كل قواه ليزحف خارج السيارة المحطمة.",
-      "en": "He used all his strength to crawl out of the wrecked car."
-    }
+    ]
   },
   {
     "fr": "orientation",
@@ -13960,7 +14275,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Voici la lettre d'orientation.",
+      "ar": "هذه رسالة التحويل.",
+      "en": "Here is the referral letter."
+    }
   },
   {
     "fr": "menus frais",
@@ -13970,12 +14290,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Conservez-le au frais.",
-      "ar": "احتفظ به في مكان بارد.",
-      "en": "Keep it at a lower temperature."
-    }
+    ]
   },
   {
     "fr": "sommes dues",
@@ -13985,12 +14300,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Nous sommes juifs.",
-      "ar": "نحن يهود.",
-      "en": "We're Jews."
-    }
+    ]
   },
   {
     "fr": "prix",
@@ -14002,9 +14312,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
+      "fr": "Je compare les prix.",
+      "ar": "أقارن الأسعار.",
+      "en": "I compare prices."
     }
   },
   {
@@ -14065,7 +14375,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Le pourcentage de graisse",
+      "ar": "نسبة الدهون",
+      "en": "Body fat percentage"
+    }
   },
   {
     "fr": "crédit réel",
@@ -14075,12 +14390,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Puis-je payer par carte de crédit ?",
-      "ar": "أيمكنني الدفع عن طريق بطاقة الإئتمان؟",
-      "en": "May I pay with a credit card?"
-    }
+    ]
   },
   {
     "fr": "revenu réel",
@@ -14110,12 +14420,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "reboisement",
@@ -14135,12 +14440,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "coffre fort",
@@ -14150,12 +14450,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il est fort comme un cheval.",
-      "ar": "إنه قوي كالحصان.",
-      "en": "He's very strong."
-    }
+    ]
   },
   {
     "fr": "échantillon",
@@ -14195,12 +14490,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "John Locke, le philosophe bien connu de la liberté, était actionnaire de la Royal African Company, qui achetait et vendait des esclaves.",
-      "ar": "كان جون لوك، المعروف بفيلسوف الحرية، أحد المساهمين في شركة رويال الأفريقية، التي كانت تعمل في بيع وشراء العبيد.",
-      "en": "John Locke, the well-known philosopher of freedom, was a shareholder of the Royal African Company, which bought and sold slaves."
-    }
+    ]
   },
   {
     "fr": "court terme",
@@ -14210,12 +14500,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Ce garçon court.",
-      "ar": "ذلك الولد يركض.",
-      "en": "This boy is running."
-    }
+    ]
   },
   {
     "fr": "dette à vue",
@@ -14225,12 +14510,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je l'ai vue.",
-      "ar": "رأيتها.",
-      "en": "I saw her."
-    }
+    ]
   },
   {
     "fr": "solidarisme",
@@ -14270,12 +14550,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tom est caché sous la table.",
-      "ar": "اختبأ توم تحت الطاولة.",
-      "en": "Tom hid under the table."
-    }
+    ]
   },
   {
     "fr": "sous-garant",
@@ -14285,12 +14560,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tom est caché sous la table.",
-      "ar": "اختبأ توم تحت الطاولة.",
-      "en": "Tom hid under the table."
-    }
+    ]
   },
   {
     "fr": "superfluité",
@@ -14310,7 +14580,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Il y a des courses de supermarché à livrer.",
+      "ar": "هناك مشتريات سوبرماركت للتوصيل.",
+      "en": "There are supermarket orders to deliver."
+    }
   },
   {
     "fr": "fournisseur",
@@ -14320,7 +14595,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Le fournisseur livre le magasin.",
+      "ar": "المورد يوصل المتجر.",
+      "en": "The supplier delivers to the store."
+    }
   },
   {
     "fr": "salaire net",
@@ -14330,12 +14610,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Son salaire mensuel s'élève à plus de 500 000 yens.",
-      "ar": "يتقاضى شهريا خمس مائة ين",
-      "en": "His monthly salary is no less than 500,000 yen."
-    }
+    ]
   },
   {
     "fr": "impôt perçu",
@@ -14365,12 +14640,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Aujourd'hui, c'est mon jour de congé.",
-      "ar": "اليوم هو يوم راحتي.",
-      "en": "Today is my day off."
-    }
+    ]
   },
   {
     "fr": "Tiers-Monde",
@@ -14380,12 +14650,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Le monde est beau.",
-      "ar": "العالم جميل.",
-      "en": "The world is beautiful."
-    }
+    ]
   },
   {
     "fr": "transaction",
@@ -14415,12 +14680,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tom est caché sous la table.",
-      "ar": "اختبأ توم تحت الطاولة.",
-      "en": "Tom hid under the table."
-    }
+    ]
   },
   {
     "fr": "sans protêt",
@@ -14430,12 +14690,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je ne suis plus sans-abri.",
-      "ar": "لم أعد بلا مأوى",
-      "en": "I'm not homeless any more."
-    }
+    ]
   },
   {
     "fr": "écart absolu",
@@ -14455,12 +14710,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "accélérateur",
@@ -14470,7 +14720,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "La pédale d'accélérateur",
+      "ar": "دواسة البنزين",
+      "en": "Accelerator pedal"
+    }
   },
   {
     "fr": "N° de compte",
@@ -14480,12 +14735,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "nos créances",
@@ -14495,12 +14745,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Les animaux sont nos amis.",
-      "ar": "الحيوانات أصدقاؤنا.",
-      "en": "Animals are our friends."
-    }
+    ]
   },
   {
     "fr": "imputabilité",
@@ -14540,12 +14785,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "À qui de droit.",
-      "ar": "إلى من يهمه الأمر.",
-      "en": "To whom it may concern:"
-    }
+    ]
   },
   {
     "fr": "acquittement",
@@ -14565,12 +14805,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La vie des Noirs compte.",
-      "ar": "حياة السود مهمة.",
-      "en": "Black lives matter."
-    }
+    ]
   },
   {
     "fr": "dette active",
@@ -14590,12 +14825,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je ne suis pas allée au marché.",
-      "ar": "أنا لم أذهب الى السوق.",
-      "en": "I didn't go to the market."
-    }
+    ]
   },
   {
     "fr": "destinataire",
@@ -14605,7 +14835,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Voici l'adresse du destinataire.",
+      "ar": "هذا عنوان المرسَل إليه.",
+      "en": "Here is the recipient's address."
+    }
   },
   {
     "fr": "adjudication",
@@ -14635,12 +14870,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "pays avancés",
@@ -14650,12 +14880,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Le Rif est un grand pays.",
-      "ar": "الريف بلد كبير.",
-      "en": "The Rif is a big land."
-    }
+    ]
   },
   {
     "fr": "après-bourse",
@@ -14665,12 +14890,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Après la pluie, le beau temps.",
-      "ar": "ما بعد الضيق إلا الفرج",
-      "en": "After the rain, fair weather."
-    }
+    ]
   },
   {
     "fr": "groupe d'âge",
@@ -14690,7 +14910,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Nous avons identifié une possibilité d’amélioration.",
+      "ar": "حددنا إمكانية للتحسين.",
+      "en": "We identified an opportunity for improvement."
+    }
   },
   {
     "fr": "anti-dumping",
@@ -14760,12 +14985,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La vie des Noirs compte.",
-      "ar": "حياة السود مهمة.",
-      "en": "Black lives matter."
-    }
+    ]
   },
   {
     "fr": "autorisation",
@@ -14775,7 +14995,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Nous avons besoin de votre autorisation.",
+      "ar": "نحتاج إلى إذنك.",
+      "en": "We need your authorization."
+    }
   },
   {
     "fr": "revenu moyen",
@@ -14805,12 +15030,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La pièce est vide.",
-      "ar": "الغرفة فارغة.",
-      "en": "The room is empty."
-    }
+    ]
   },
   {
     "fr": "prix de base",
@@ -14820,12 +15040,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "avant-bourse",
@@ -14835,12 +15050,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il hésita avant de répondre.",
-      "ar": "لقد تردد قبل الإجابة.",
-      "en": "He hesitated before answering."
-    }
+    ]
   },
   {
     "fr": "bénéficiaire",
@@ -14850,7 +15060,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Voici l'IBAN du bénéficiaire.",
+      "ar": "هذا رقم IBAN للمستفيد.",
+      "en": "Here is the beneficiary's IBAN."
+    }
   },
   {
     "fr": "bimétallisme",
@@ -14895,12 +15110,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Laisse-le aux professionnels.",
-      "ar": "دع الأمر للمحترفيين.",
-      "en": "Leave it to the professionals."
-    }
+    ]
   },
   {
     "fr": "sous-produit",
@@ -14910,12 +15120,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tom est caché sous la table.",
-      "ar": "اختبأ توم تحت الطاولة.",
-      "en": "Tom hid under the table."
-    }
+    ]
   },
   {
     "fr": "grève perlée",
@@ -14935,12 +15140,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "En quelle année êtes-vous né ?",
-      "ar": "متى ولدت؟",
-      "en": "What year were you born?"
-    }
+    ]
   },
   {
     "fr": "compte à vue",
@@ -14950,12 +15150,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je l'ai vue.",
-      "ar": "رأيتها.",
-      "en": "I saw her."
-    }
+    ]
   },
   {
     "fr": "capital émis",
@@ -14985,12 +15180,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "tarif mobile",
@@ -15010,12 +15200,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "vérification",
@@ -15025,7 +15210,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Vérification en cours",
+      "ar": "التحقق جارٍ.",
+      "en": "Verification in progress."
+    }
   },
   {
     "fr": "localisation",
@@ -15125,12 +15315,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Mastodon est un réseau social fédéré, libre et ouvert.",
-      "ar": "ماستدون هي شبكة تواصل اجتماعي فدرالية حرة ومفتوحة المصدر.",
-      "en": "Mastodon is a federated free and open-source social network."
-    }
+    ]
   },
   {
     "fr": "vente forcée",
@@ -15150,7 +15335,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous recevrez un email de confirmation.",
+      "ar": "ستتلقى رسالة تأكيد عبر البريد الإلكتروني.",
+      "en": "You will receive a confirmation email."
+    }
   },
   {
     "fr": "consignateur",
@@ -15170,12 +15360,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Toute personne a droit à un recours effectif devant les juridictions nationales compétentes contre les actes violant les droits fondamentaux qui lui sont reconnus par la constitution ou par la loi.",
-      "ar": "لكل شخص الحق في أن يلجأ إلى المحاكم الوطنية لإنصافه عن أعمال فيها اعتداء على الحقوق الأساسية التي يمنحها له القانون.",
-      "en": "Everyone has the right to an effective remedy by the competent national tribunals for acts violating the fundamental rights granted him by the constitution or by law."
-    }
+    ]
   },
   {
     "fr": "consommateur",
@@ -15197,9 +15382,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "La consommation d'alcool augmente chaque année.",
-      "ar": "يرتفع تعاطي الكحول سنويا.",
-      "en": "Alcohol consumption is increasing every year."
+      "fr": "Je réduis ma consommation de carburant.",
+      "ar": "أقلل استهلاك الوقود.",
+      "en": "I reduce fuel consumption."
     }
   },
   {
@@ -15210,7 +15395,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Comment sont imposés mes revenus d'auto-entrepreneur ?",
+      "ar": "كيف تُفرض الضريبة على مدخولي كصاحب عمل حر؟",
+      "en": "How is my self-employed income taxed?"
+    }
   },
   {
     "fr": "avis d'opéré",
@@ -15250,12 +15440,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "poste crédit",
@@ -15265,12 +15450,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Puis-je payer par carte de crédit ?",
-      "ar": "أيمكنني الدفع عن طريق بطاقة الإئتمان؟",
-      "en": "May I pay with a credit card?"
-    }
+    ]
   },
   {
     "fr": "compte-avoir",
@@ -15280,12 +15460,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je crois avoir compris.",
-      "ar": "أعتقد أني فهمت.",
-      "en": "I think I got it."
-    }
+    ]
   },
   {
     "fr": "chèque barré",
@@ -15325,12 +15500,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Ils sont au courant.",
-      "ar": "إنهم يدرون.",
-      "en": "They know."
-    }
+    ]
   },
   {
     "fr": "saison morte",
@@ -15340,12 +15510,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tom ne sait pas si Mary est morte ou vivante.",
-      "ar": "لا يعرف توم ما إذا كانت ماري حية أم ميتة.",
-      "en": "Tom doesn't know if Mary is dead or alive."
-    }
+    ]
   },
   {
     "fr": "tonnage réel",
@@ -15385,12 +15550,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je l'ai vue.",
-      "ar": "رأيتها.",
-      "en": "I saw her."
-    }
+    ]
   },
   {
     "fr": "prix-achteur",
@@ -15400,12 +15560,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "impôt direct",
@@ -15465,12 +15620,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "distribution",
@@ -15482,9 +15632,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Ubuntu est une distribution Linux populaire.",
-      "ar": "أوبونتو هي توزيعة لينكس مشهورة.",
-      "en": "Ubuntu is a popular Linux distribution."
+      "fr": "Quels jours faites-vous la distribution ?",
+      "ar": "في أي أيام تكون التوزيعات؟",
+      "en": "Which days do you distribute?"
     }
   },
   {
@@ -15495,12 +15645,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Le Rif est un grand pays.",
-      "ar": "الريف بلد كبير.",
-      "en": "The Rif is a big land."
-    }
+    ]
   },
   {
     "fr": "traite à vue",
@@ -15510,12 +15655,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je l'ai vue.",
-      "ar": "رأيتها.",
-      "en": "I saw her."
-    }
+    ]
   },
   {
     "fr": "morte saison",
@@ -15525,12 +15665,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tom ne sait pas si Mary est morte ou vivante.",
-      "ar": "لا يعرف توم ما إذا كانت ماري حية أم ميتة.",
-      "en": "Tom doesn't know if Mary is dead or alive."
-    }
+    ]
   },
   {
     "fr": "embarquement",
@@ -15595,12 +15730,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La vie des Noirs compte.",
-      "ar": "حياة السود مهمة.",
-      "en": "Black lives matter."
-    }
+    ]
   },
   {
     "fr": "marché ferme",
@@ -15610,12 +15740,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Ferme ton livre.",
-      "ar": "اغلق كتابك.",
-      "en": "Close your book."
-    }
+    ]
   },
   {
     "fr": "agent fiscal",
@@ -15665,12 +15790,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je ne suis pas allée au marché.",
-      "ar": "أنا لم أذهب الى السوق.",
-      "en": "I didn't go to the market."
-    }
+    ]
   },
   {
     "fr": "fluctuations",
@@ -15720,12 +15840,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Que faites-vous de votre temps libre ?",
-      "ar": "ماذا تفعل بأوقات فراغك؟",
-      "en": "What do you do in your spare time?"
-    }
+    ]
   },
   {
     "fr": "marché libre",
@@ -15735,12 +15850,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je ne suis pas allée au marché.",
-      "ar": "أنا لم أذهب الى السوق.",
-      "en": "I didn't go to the market."
-    }
+    ]
   },
   {
     "fr": "zone franche",
@@ -15760,12 +15870,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "saisie-arrêt",
@@ -15785,12 +15890,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "tranche - or",
@@ -15800,12 +15900,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tout ce qui brille n'est pas or.",
-      "ar": "ليس كل ما يلمع ذهبا.",
-      "en": "All that glisters is not gold."
-    }
+    ]
   },
   {
     "fr": "marchandises",
@@ -15855,12 +15950,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "arrière-pays",
@@ -15870,12 +15960,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Le Rif est un grand pays.",
-      "ar": "الريف بلد كبير.",
-      "en": "The Rif is a big land."
-    }
+    ]
   },
   {
     "fr": "société mère",
@@ -15885,12 +15970,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "J'aime ma mère.",
-      "ar": "أحب والدتي.",
-      "en": "I love my mum."
-    }
+    ]
   },
   {
     "fr": "importations",
@@ -15920,12 +16000,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je ne l'aime plus.",
-      "ar": "لم أعد أحبه.",
-      "en": "I don't love her any more."
-    }
+    ]
   },
   {
     "fr": "informatique",
@@ -15955,7 +16030,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Vérifiez votre installation.",
+      "ar": "تحقق من وضعية جلوسك وتجهيزك.",
+      "en": "Check your driving position."
+    }
   },
   {
     "fr": "intervention",
@@ -15965,7 +16045,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Merci beaucoup pour votre intervention.",
+      "ar": "شكراً جزيلاً على تدخّلكم.",
+      "en": "Thank you very much for your intervention."
+    }
   },
   {
     "fr": "investisseur",
@@ -15995,12 +16080,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "irrégularité",
@@ -16020,12 +16100,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je demande pardon à Dieu !",
-      "ar": "أستغفرالله!",
-      "en": "I ask God for forgiveness!"
-    }
+    ]
   },
   {
     "fr": "co-propriété",
@@ -16035,12 +16110,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La propriété, c'est le vol.",
-      "ar": "الملكية سرقة.",
-      "en": "Property is theft."
-    }
+    ]
   },
   {
     "fr": "copartageant",
@@ -16070,12 +16140,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "savoir faire",
@@ -16085,12 +16150,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je ne peux rien faire.",
-      "ar": "ليس باليد حيلة.",
-      "en": "I can't do anything."
-    }
+    ]
   },
   {
     "fr": "propriétaire",
@@ -16102,9 +16162,9 @@ window.VOCAB_DATA_BATCH2 = [
       "bank"
     ],
     "ex": {
-      "fr": "Rends le livre à son propriétaire.",
-      "ar": "أعد الكتاب إلى صاحبه.",
-      "en": "Give the book back to the owner."
+      "fr": "Je dois appeler le propriétaire.",
+      "ar": "يجب أن أتصل بالمالك.",
+      "en": "I have to call the landlord."
     }
   },
   {
@@ -16115,12 +16175,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je ne suis pas allée au marché.",
-      "ar": "أنا لم أذهب الى السوق.",
-      "en": "I didn't go to the market."
-    }
+    ]
   },
   {
     "fr": "coût minimum",
@@ -16150,12 +16205,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tom gagne bien sa vie.",
-      "ar": "توم يكسب جيدا عيشه.",
-      "en": "Tom earns good money."
-    }
+    ]
   },
   {
     "fr": "espace vital",
@@ -16175,12 +16225,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il est prêt.",
-      "ar": "هو مستعد.",
-      "en": "He finished."
-    }
+    ]
   },
   {
     "fr": "marché local",
@@ -16190,12 +16235,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je ne suis pas allée au marché.",
-      "ar": "أنا لم أذهب الى السوق.",
-      "en": "I didn't go to the market."
-    }
+    ]
   },
   {
     "fr": "trafic local",
@@ -16235,12 +16275,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Prends ma main.",
-      "ar": "خذ يدي.",
-      "en": "Take my hand."
-    }
+    ]
   },
   {
     "fr": "marginalisme",
@@ -16270,12 +16305,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "mécanisation",
@@ -16305,12 +16335,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "fonds mixtes",
@@ -16340,12 +16365,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Aucun État n'a le droit d'exister.",
-      "ar": "ليس لأي دولة الحق في الوجود.",
-      "en": "No state has the right to exist."
-    }
+    ]
   },
   {
     "fr": "fonds mutuel",
@@ -16365,12 +16385,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "bénéfice net",
@@ -16400,12 +16415,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "taux naturel",
@@ -16415,12 +16425,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il est naturel qu'il soit fier de son fils.",
-      "ar": "من الطبيعي أن يكون فخورا بولده.",
-      "en": "It's only natural that he's proud of his son."
-    }
+    ]
   },
   {
     "fr": "numismatique",
@@ -16470,12 +16475,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "organigramme",
@@ -16505,12 +16505,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "jour de paye",
@@ -16520,12 +16515,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "agent payeur",
@@ -16565,7 +16555,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai perdu mon portefeuille.",
+      "ar": "أضعت محفظتي.",
+      "en": "I lost my wallet."
+    }
   },
   {
     "fr": "avant-projet",
@@ -16575,12 +16570,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il hésita avant de répondre.",
-      "ar": "لقد تردد قبل الإجابة.",
-      "en": "He hesitated before answering."
-    }
+    ]
   },
   {
     "fr": "prix demandé",
@@ -16590,12 +16580,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il m'a demandé conseil.",
-      "ar": "طلب مني النصيحة.",
-      "en": "He asked for my advice."
-    }
+    ]
   },
   {
     "fr": "taux de base",
@@ -16605,12 +16590,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "crédit privé",
@@ -16620,12 +16600,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Puis-je payer par carte de crédit ?",
-      "ar": "أيمكنني الدفع عن طريق بطاقة الإئتمان؟",
-      "en": "May I pay with a credit card?"
-    }
+    ]
   },
   {
     "fr": "productivité",
@@ -16665,7 +16640,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Il n’y aura pas d’augmentation de tarif.",
+      "ar": "لن تكون هناك زيادة في السعر.",
+      "en": "There will be no price increase."
+    }
   },
   {
     "fr": "contrepartie",
@@ -16735,12 +16715,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Nous vivons sur Terre.",
-      "ar": "نحن نعيش على كوكب الأرض.",
-      "en": "We live on Earth."
-    }
+    ]
   },
   {
     "fr": "reconversion",
@@ -16780,7 +16755,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais un service de réexpédition du courrier.",
+      "ar": "أريد خدمة إعادة توجيه البريد.",
+      "en": "I would like a mail forwarding service."
+    }
   },
   {
     "fr": "régionalisme",
@@ -16830,12 +16810,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "À qui de droit.",
-      "ar": "إلى من يهمه الأمر.",
-      "en": "To whom it may concern:"
-    }
+    ]
   },
   {
     "fr": "répercussion",
@@ -16855,12 +16830,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tout ce que vous devez faire, c'est tirer profit de cette occasion rare.",
-      "ar": "كل ما عليك فعله هو أن تغتنم هذه المناسبة النادرة.",
-      "en": "All you have to do is take advantage of this rare opportunity."
-    }
+    ]
   },
   {
     "fr": "seigneuriage",
@@ -16880,12 +16850,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La vie des Noirs compte.",
-      "ar": "حياة السود مهمة.",
-      "en": "Black lives matter."
-    }
+    ]
   },
   {
     "fr": "crédit à vue",
@@ -16895,12 +16860,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je l'ai vue.",
-      "ar": "رأيتها.",
-      "en": "I saw her."
-    }
+    ]
   },
   {
     "fr": "mandat à vue",
@@ -16910,12 +16870,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je l'ai vue.",
-      "ar": "رأيتها.",
-      "en": "I saw her."
-    }
+    ]
   },
   {
     "fr": "avoirs à vue",
@@ -16925,12 +16880,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je l'ai vue.",
-      "ar": "رأيتها.",
-      "en": "I saw her."
-    }
+    ]
   },
   {
     "fr": "cadre social",
@@ -16940,12 +16890,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Mastodon est un réseau social fédéré, libre et ouvert.",
-      "ar": "ماستدون هي شبكة تواصل اجتماعي فدرالية حرة ومفتوحة المصدر.",
-      "en": "Mastodon is a federated free and open-source social network."
-    }
+    ]
   },
   {
     "fr": "ordre social",
@@ -16955,12 +16900,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Mastodon est un réseau social fédéré, libre et ouvert.",
-      "ar": "ماستدون هي شبكة تواصل اجتماعي فدرالية حرة ومفتوحة المصدر.",
-      "en": "Mastodon is a federated free and open-source social network."
-    }
+    ]
   },
   {
     "fr": "prix stables",
@@ -16970,12 +16910,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "statisticien",
@@ -16995,12 +16930,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "frais divers",
@@ -17010,12 +16940,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Conservez-le au frais.",
-      "ar": "احتفظ به في مكان بارد.",
-      "en": "Keep it at a lower temperature."
-    }
+    ]
   },
   {
     "fr": "prix d'offre",
@@ -17025,12 +16950,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "syndicalisme",
@@ -17160,12 +17080,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "tarif binôme",
@@ -17185,12 +17100,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tom est caché sous la table.",
-      "ar": "اختبأ توم تحت الطاولة.",
-      "en": "Tom hid under the table."
-    }
+    ]
   },
   {
     "fr": "prix exagéré",
@@ -17200,12 +17110,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "tarif unique",
@@ -17215,12 +17120,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "C'était son unique espoir.",
-      "ar": "كان ذلك أمله الوحيد.",
-      "en": "This was her one and only hope."
-    }
+    ]
   },
   {
     "fr": "coût d'usage",
@@ -17240,12 +17140,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "main d'œuvre",
@@ -17255,12 +17150,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Prends ma main.",
-      "ar": "خذ يدي.",
-      "en": "Take my hand."
-    }
+    ]
   },
   {
     "fr": "bons à un an",
@@ -17270,12 +17160,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "J'ai un chat.",
-      "ar": "أملك قطا.",
-      "en": "I have a cat."
-    }
+    ]
   },
   {
     "fr": "rente absolue",
@@ -17295,12 +17180,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "fait accompli",
@@ -17310,12 +17190,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "J'ai fait cela.",
-      "ar": "فعلت هذا",
-      "en": "I have done that."
-    }
+    ]
   },
   {
     "fr": "intérêt couru",
@@ -17355,12 +17230,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il faut laisser aux gens le soin d'inventer leurs propres valeurs en leur donnant au départ le maximum de liberté de création. Car à un certain niveau de profondeur, si une culture est réelle, elle est libératrice.",
-      "ar": "يجب أن نترك الناس يخترعون قيمهم الخاصة بهم وذلك بمنحهم بداية أقصى درجة من حرية الإبداع. لأنه عند مستوى معين من العمق، إذا كانت الثقافة حقيقية، فإنها محررة. مولود معمري",
-      "en": "We must let people invent their own values by giving them the maximum freedom of creation. Because at a certain level of depth, if a culture is real, it is liberating."
-    }
+    ]
   },
   {
     "fr": "accommodation",
@@ -17380,12 +17250,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il est prêt.",
-      "ar": "هو مستعد.",
-      "en": "He finished."
-    }
+    ]
   },
   {
     "fr": "lettre d'avis",
@@ -17395,12 +17260,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Il écrit une lettre.",
-      "ar": "هو يكتب رسالة.",
-      "en": "He is writing a letter."
-    }
+    ]
   },
   {
     "fr": "ordre du jour",
@@ -17410,12 +17270,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "emploi global",
@@ -17425,12 +17280,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Pourquoi ne pas faire acte de candidature pour cet emploi ?",
-      "ar": "لماذا لا تتنافس حول هذا العمل؟",
-      "en": "Why not apply for that job?"
-    }
+    ]
   },
   {
     "fr": "offre globale",
@@ -17460,12 +17310,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Pourquoi ne m'as-tu pas demandé d'aide?",
-      "ar": "لماذا لم تطلب مني المساعدة؟",
-      "en": "Why didn't you ask for my help?"
-    }
+    ]
   },
   {
     "fr": "réseau aérien",
@@ -17475,12 +17320,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Mastodon est un réseau social fédéré, libre et ouvert.",
-      "ar": "ماستدون هي شبكة تواصل اجتماعي فدرالية حرة ومفتوحة المصدر.",
-      "en": "Mastodon is a federated free and open-source social network."
-    }
+    ]
   },
   {
     "fr": "trafic aérien",
@@ -17500,12 +17340,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Au secours !",
-      "ar": "النجدة!",
-      "en": "Help!"
-    }
+    ]
   },
   {
     "fr": "niveau record",
@@ -17515,12 +17350,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Je dois renforcer mon niveau en anglais.",
-      "ar": "علي أن أطور مستواي في اللغة الإنجليزية.",
-      "en": "I must brush up my English."
-    }
+    ]
   },
   {
     "fr": "amortissement",
@@ -17590,12 +17420,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Cours !",
-      "ar": "اركض!",
-      "en": "Leg it!"
-    }
+    ]
   },
   {
     "fr": "banque agréée",
@@ -17605,12 +17430,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Elle travaille dans une banque.",
-      "ar": "هي تعمل في بنك.",
-      "en": "She works for a bank."
-    }
+    ]
   },
   {
     "fr": "prix de solde",
@@ -17620,12 +17440,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "cours établis",
@@ -17635,12 +17450,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Cours !",
-      "ar": "اركض!",
-      "en": "Leg it!"
-    }
+    ]
   },
   {
     "fr": "tarif de base",
@@ -17650,12 +17460,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "stock initial",
@@ -17675,12 +17480,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Dieu est grand.",
-      "ar": "الله أكبر.",
-      "en": "God is great."
-    }
+    ]
   },
   {
     "fr": "bélatéralisme",
@@ -17700,12 +17500,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "La vie des Noirs compte.",
-      "ar": "حياة السود مهمة.",
-      "en": "Black lives matter."
-    }
+    ]
   },
   {
     "fr": "fonds bloqués",
@@ -17725,12 +17520,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Nous vivons sur Terre.",
-      "ar": "نحن نعيش على كوكب الأرض.",
-      "en": "We live on Earth."
-    }
+    ]
   },
   {
     "fr": "jour ouvrable",
@@ -17740,12 +17530,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "Aujourd'hui, c'est mon jour de congé.",
-      "ar": "اليوم هو يوم راحتي.",
-      "en": "Today is my day off."
-    }
+    ]
   },
   {
     "fr": "ordre d'achat",
@@ -17765,12 +17550,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "bank"
-    ],
-    "ex": {
-      "fr": "J'ai eu un appel de l'école aujourd'hui.",
-      "ar": "تلقيت اتصالا من المدرسة اليوم.",
-      "en": "I got a call from the school today."
-    }
+    ]
   },
   {
     "fr": "dette annulée",
@@ -17886,7 +17666,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Montant net social",
+      "ar": "المبلغ الصافي الاجتماعي",
+      "en": "Net social amount"
+    }
   },
   {
     "fr": "vol",
@@ -18028,7 +17813,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Bonne fête, que la paix soit sur vous.",
+      "ar": "عيد مبارك، السلام عليكم.",
+      "en": "Happy holiday, peace be upon you."
+    }
   },
   {
     "fr": "viol",
@@ -18052,9 +17842,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "Aucun État n'a le droit d'exister.",
-      "ar": "ليس لأي دولة الحق في الوجود.",
-      "en": "No state has the right to exist."
+      "fr": "État de la demande",
+      "ar": "حالة الطلب",
+      "en": "Application status"
     }
   },
   {
@@ -18145,9 +17935,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "J'ai eu un appel de l'école aujourd'hui.",
-      "ar": "تلقيت اتصالا من المدرسة اليوم.",
-      "en": "I got a call from the school today."
+      "fr": "appel commercial",
+      "ar": "مكالمة تجارية",
+      "en": "Commercial call"
     }
   },
   {
@@ -18159,12 +17949,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Je ne sais pas avec quelles armes la troisième guerre mondiale sera menée, mais la quatrième se fera avec des bâtons et des pierres.",
-      "ar": "أنا لا أعرف السلاح الذي سيستخدمه الإنسان في الحرب العالمية الثالثة، لكني أعرف أنه سيستخدم العصا والحجر في الحرب العالمية الرابعة",
-      "en": "I know not with what weapons World War III will be fought, but World War IV will be fought with sticks and stones."
-    }
+    ]
   },
   {
     "fr": "armée",
@@ -18186,7 +17971,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Je demande l'asile en France.",
+      "ar": "أطلب اللجوء في فرنسا.",
+      "en": "I am applying for asylum in France."
+    }
   },
   {
     "fr": "coups",
@@ -18221,9 +18011,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "Il était difficile de voir la route à cause de l'épais brouillard.",
-      "ar": "كان من الصعب رؤية الطريق بسبب كثافة الضباب.",
-      "en": "The thick fog made it hard to see the road."
+      "fr": "Traiter la cause",
+      "ar": "يعالج السبب",
+      "en": "To treat the cause"
     }
   },
   {
@@ -18235,7 +18025,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Garde le dos droit.",
+      "ar": "حافظ على ظهرك مستقيمًا.",
+      "en": "Keep your back straight."
+    }
   },
   {
     "fr": "décès",
@@ -18268,7 +18063,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Envoyez-moi un devis par email.",
+      "ar": "أرسلوا لي عرض سعر عبر البريد الإلكتروني.",
+      "en": "Send me a quote by email."
+    }
   },
   {
     "fr": "exilé",
@@ -18312,7 +18112,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Quel sera le prix final exactement ?",
+      "ar": "ما السعر النهائي بالضبط؟",
+      "en": "What will be the exact final price?"
+    }
   },
   {
     "fr": "forcé",
@@ -18334,7 +18139,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Être en forme",
+      "ar": "أن تكون في لياقة",
+      "en": "Be fit"
+    }
   },
   {
     "fr": "grâce",
@@ -18401,9 +18211,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "Aujourd'hui, c'est mon jour de congé.",
-      "ar": "اليوم هو يوم راحتي.",
-      "en": "Today is my day off."
+      "fr": "Est-ce que le congé est payé ?",
+      "ar": "هل الإجازة مدفوعة؟",
+      "en": "Is the leave paid?"
     }
   },
   {
@@ -18448,12 +18258,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "J'ai des sœurs.",
-      "ar": "لدي أخوات.",
-      "en": "I have sisters."
-    }
+    ]
   },
   {
     "fr": "maire",
@@ -18493,9 +18298,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "Ceci n’est pas ma faute mais la vôtre.",
-      "ar": "هذا ليس خطئي، بل خطؤكم.",
-      "en": "The fault is not mine but yours."
+      "fr": "C'est ma faute.",
+      "ar": "هذا خطئي.",
+      "en": "It's my fault."
     }
   },
   {
@@ -18531,9 +18336,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "Je penserai chaque jour à toi pendant que je serai parti.",
-      "ar": "سأفكر فيك كل يوم بعد رحيلي.",
-      "en": "I'll be thinking of you every day while I'm away."
+      "fr": "C’est parti !",
+      "ar": "هيا بدأنا!",
+      "en": "Here we go!"
     }
   },
   {
@@ -18545,7 +18350,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Change de poste.",
+      "ar": "غيّر محطة العمل.",
+      "en": "Change workstation."
+    }
   },
   {
     "fr": "écrou",
@@ -18600,12 +18410,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "John Locke, le philosophe bien connu de la liberté, était actionnaire de la Royal African Company, qui achetait et vendait des esclaves.",
-      "ar": "كان جون لوك، المعروف بفيلسوف الحرية، أحد المساهمين في شركة رويال الأفريقية، التي كانت تعمل في بيع وشراء العبيد.",
-      "en": "John Locke, the well-known philosopher of freedom, was a shareholder of the Royal African Company, which bought and sold slaves."
-    }
+    ]
   },
   {
     "fr": "sacré",
@@ -18638,7 +18443,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Votre contrat arrive à son terme.",
+      "ar": "عقدك وصل إلى نهايته.",
+      "en": "Your contract is coming to an end."
+    }
   },
   {
     "fr": "tiers",
@@ -18649,7 +18459,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Payé à un tiers",
+      "ar": "مدفوع إلى طرف ثالث.",
+      "en": "Paid to a third party."
+    }
   },
   {
     "fr": "trône",
@@ -18671,7 +18486,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Un stage de récupération de points.",
+      "ar": "دورة استرجاع النقاط.",
+      "en": "Points recovery course."
+    }
   },
   {
     "fr": "tyran",
@@ -18744,9 +18564,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "Mon père a arrêté de fumer récemment.",
-      "ar": "أبي اقلع عن التدخين مؤخرا",
-      "en": "My father has given up smoking recently."
+      "fr": "Le tapis est arrêté.",
+      "ar": "السير متوقف.",
+      "en": "The conveyor belt is stopped."
     }
   },
   {
@@ -18758,7 +18578,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que je peux changer d'agence ?",
+      "ar": "هل يمكنني تغيير الفرع؟",
+      "en": "Can I change branches?"
+    }
   },
   {
     "fr": "aumône",
@@ -18780,7 +18605,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Quand est l'entretien annuel de la chaudière ?",
+      "ar": "متى الصيانة السنوية للمرجل؟",
+      "en": "When is the annual boiler service?"
+    }
   },
   {
     "fr": "failli",
@@ -18791,7 +18621,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "J’ai failli oublier.",
+      "ar": "كدت أنسى.",
+      "en": "I almost forgot."
+    }
   },
   {
     "fr": "charte",
@@ -18829,7 +18664,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Nom, prénom, date de naissance.",
+      "ar": "اسم العائلة، الاسم الشخصي، تاريخ الميلاد.",
+      "en": "Surname, first name, date of birth."
+    }
   },
   {
     "fr": "clause",
@@ -18895,7 +18735,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que la naturalisation par décret ou par mariage ?",
+      "ar": "هل التجنيس بمرسوم أم عن طريق الزواج؟",
+      "en": "Is it naturalisation by decree or through marriage?"
+    }
   },
   {
     "fr": "défaut",
@@ -18908,9 +18753,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "Comment se manifeste le défaut ?",
-      "ar": "كيف يلاحظ الخطأ؟",
-      "en": "How is the error observed?"
+      "fr": "Il y a un défaut.",
+      "ar": "يوجد عيب.",
+      "en": "There is a defect."
     }
   },
   {
@@ -18957,9 +18802,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "C'était une erreur stupide.",
-      "ar": "كان خطأ غبيا.",
-      "en": "That was a silly mistake."
+      "fr": "Par erreur.",
+      "ar": "عن طريق الخطأ.",
+      "en": "By mistake."
     }
   },
   {
@@ -18971,7 +18816,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Change de poste.",
+      "ar": "غيّر محطة العمل.",
+      "en": "Change workstation."
+    }
   },
   {
     "fr": "excuse",
@@ -18984,9 +18834,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "Je m'excuse mais je ne pourrai participer en personne à la réunion.",
-      "ar": "آسف، لكن لا يمكنني حضور الإجتماع شخصيا.",
-      "en": "I'm sorry, but I can't attend the meeting in person."
+      "fr": "Excuse-moi, tu peux m’aider ?",
+      "ar": "عذرًا، هل يمكنك مساعدتي؟",
+      "en": "Excuse me, can you help me?"
     }
   },
   {
@@ -18998,7 +18848,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que je peux avoir un expert ?",
+      "ar": "هل يمكنني الحصول على خبير تقييم؟",
+      "en": "Can I have an assessor?"
+    }
   },
   {
     "fr": "fiasco",
@@ -19020,7 +18875,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Une amende.",
+      "ar": "غرامة.",
+      "en": "Fine."
+    }
   },
   {
     "fr": "fiscal",
@@ -19031,7 +18891,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Je n'ai pas de numéro fiscal.",
+      "ar": "ليس لديّ رقم ضريبي.",
+      "en": "I don't have a tax number."
+    }
   },
   {
     "fr": "fixité",
@@ -19088,9 +18953,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "L'avocat doutait de son innocence.",
-      "ar": "شك المحامي في براءته.",
-      "en": "The lawyer doubted his innocence."
+      "fr": "Je voudrais appeler un avocat.",
+      "ar": "أريد الاتصال بمحامٍ.",
+      "en": "I would like to call a lawyer."
     }
   },
   {
@@ -19102,7 +18967,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "L'échographie montre une lésion bénigne.",
+      "ar": "الإيكو يظهر آفة حميدة.",
+      "en": "The ultrasound shows a benign lesion."
+    }
   },
   {
     "fr": "litige",
@@ -19159,9 +19029,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "Attends une minute.",
-      "ar": "مهلا لحظة.",
-      "en": "Hang on a minute."
+      "fr": "Environ une minute.",
+      "ar": "حوالي دقيقة.",
+      "en": "About one minute."
     }
   },
   {
@@ -19173,7 +19043,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Nous avons une nouvelle offre mobile pour vous.",
+      "ar": "لدينا عرض هاتف محمول جديد لك.",
+      "en": "We have a new mobile offer for you."
+    }
   },
   {
     "fr": "meuble",
@@ -19184,7 +19059,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'il faut monter le meuble soi-même ?",
+      "ar": "هل يجب تركيب الأثاث بنفسي؟",
+      "en": "Do I have to assemble the furniture myself?"
+    }
   },
   {
     "fr": "notion",
@@ -19238,7 +19118,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Gardez-moi le reçu, c'est une preuve.",
+      "ar": "احفظ لي الإيصال، إنه إثبات.",
+      "en": "Keep the receipt for me, it's proof."
+    }
   },
   {
     "fr": "quitus",
@@ -19271,7 +19156,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai oublié mon code secret.",
+      "ar": "نسيت الرقم السري.",
+      "en": "I forgot my PIN."
+    }
   },
   {
     "fr": "sûreté",
@@ -19304,7 +19194,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Une coupe simple, s'il vous plaît.",
+      "ar": "قصّة عادية، من فضلك.",
+      "en": "A simple haircut, please."
+    }
   },
   {
     "fr": "séance",
@@ -19315,7 +19210,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Bonne séance !",
+      "ar": "حصة جيدة!",
+      "en": "Good workout!"
+    }
   },
   {
     "fr": "injure",
@@ -19337,7 +19237,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Dois-je payer un timbre fiscal ?",
+      "ar": "هل يجب أن أدفع طابعاً ضريبياً؟",
+      "en": "Do I need to pay a tax stamp?"
+    }
   },
   {
     "fr": "résumé",
@@ -19441,7 +19346,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "C'est assez urgent, merci d'avance.",
+      "ar": "الأمر عاجل نوعاً ما، شكراً مقدماً.",
+      "en": "It's rather urgent, thank you in advance."
+    }
   },
   {
     "fr": "usages",
@@ -19490,7 +19400,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Absence justifiée",
+      "ar": "غياب مبرر",
+      "en": "Excused absence"
+    }
   },
   {
     "fr": "acquêts",
@@ -19514,9 +19429,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "Voici l'adresse.",
-      "ar": "ها هو العنوان.",
-      "en": "Here's the address."
+      "fr": "Adresse e-mail",
+      "ar": "البريد الإلكتروني",
+      "en": "Email address"
     }
   },
   {
@@ -19530,9 +19445,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "Il m'a expliqué l'affaire.",
-      "ar": "لقد فسر لي المسألة.",
-      "en": "He explained the matter to me."
+      "fr": "Lâche l’affaire.",
+      "ar": "اترك الموضوع.",
+      "en": "Drop it."
     }
   },
   {
@@ -19593,7 +19508,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Une biopsie",
+      "ar": "خزعة / أخذ عينة.",
+      "en": "Biopsy."
+    }
   },
   {
     "fr": "emprunt",
@@ -19604,7 +19524,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais prolonger mon emprunt.",
+      "ar": "أريد تمديد استعارتي.",
+      "en": "I would like to extend my loan."
+    }
   },
   {
     "fr": "cellule",
@@ -19664,7 +19589,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais porter plainte.",
+      "ar": "أريد تقديم شكوى.",
+      "en": "I would like to file a complaint."
+    }
   },
   {
     "fr": "conflit",
@@ -19677,9 +19607,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "Il ne semble pas être au courant du conflit entre mon père et moi.",
-      "ar": "لا يبدو على علم بسوء التفاهم الذي بيني وبين أبي.",
-      "en": "He seems not to be aware of the conflict between my father and me."
+      "fr": "Je ne cherche pas le conflit.",
+      "ar": "أنا لا أبحث عن مشكلة.",
+      "en": "I'm not looking for conflict."
     }
   },
   {
@@ -19726,9 +19656,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "C'est dommage.",
-      "ar": "من المؤسف.",
-      "en": "That's a pity."
+      "fr": "C’est dommage.",
+      "ar": "هذا مؤسف.",
+      "en": "That’s a shame."
     }
   },
   {
@@ -19762,12 +19692,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Tous les êtres humains naissent libres et égaux en dignité et en droits. Ils sont doués de raison et de conscience et doivent agir les uns envers les autres dans un esprit de fraternité.",
-      "ar": "يولد جميع الناس أحرارا ومتساوين في الكرامة والحقوق، وهم قد وهبوا العقل والوجدان، وعليهم أن يعاملوا بعضهم بعضا بروح الإخاء.",
-      "en": "All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood."
-    }
+    ]
   },
   {
     "fr": "maladie",
@@ -19894,9 +19819,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "Que contient le dossier ?",
-      "ar": "ما الذي في الملف؟",
-      "en": "What's in the file?"
+      "fr": "Dossier complet",
+      "ar": "ملف كامل",
+      "en": "Complete file"
     }
   },
   {
@@ -19985,7 +19910,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que je peux suivre l'enquête ?",
+      "ar": "هل يمكنني متابعة التحقيق؟",
+      "en": "Can I follow up on the investigation?"
+    }
   },
   {
     "fr": "juriste",
@@ -20078,7 +20008,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Félicitations pour votre mariage !",
+      "ar": "مبروك على زواجكم!",
+      "en": "Congratulations on your wedding!"
+    }
   },
   {
     "fr": "minimum",
@@ -20113,9 +20048,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "Son salaire mensuel s'élève à plus de 500 000 yens.",
-      "ar": "يتقاضى شهريا خمس مائة ين",
-      "en": "His monthly salary is no less than 500,000 yen."
+      "fr": "Je voudrais un échéancier mensuel fixe.",
+      "ar": "أريد قسطاً شهرياً ثابتاً.",
+      "en": "I would like a fixed monthly instalment."
     }
   },
   {
@@ -20222,9 +20157,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "La gouvernance des données définit les règles de gestion, de qualité et de sécurité des données.",
-      "ar": "تحدد حوكمة البيانات قواعد إدارة البيانات وجودتها وأمنها.",
-      "en": "Data governance defines the rules for data management, quality, and security."
+      "fr": "Contrôle la qualité.",
+      "ar": "راقب الجودة.",
+      "en": "Check the quality."
     }
   },
   {
@@ -20236,12 +20171,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Toute personne a droit à un recours effectif devant les juridictions nationales compétentes contre les actes violant les droits fondamentaux qui lui sont reconnus par la constitution ou par la loi.",
-      "ar": "لكل شخص الحق في أن يلجأ إلى المحاكم الوطنية لإنصافه عن أعمال فيها اعتداء على الحقوق الأساسية التي يمنحها له القانون.",
-      "en": "Everyone has the right to an effective remedy by the competent national tribunals for acts violating the fundamental rights granted him by the constitution or by law."
-    }
+    ]
   },
   {
     "fr": "requête",
@@ -20296,7 +20226,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Une aire de service.",
+      "ar": "منطقة خدمات.",
+      "en": "Service area."
+    }
   },
   {
     "fr": "bornage",
@@ -20389,7 +20324,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous avez des troubles du transit ?",
+      "ar": "هل لديك اضطرابات في الأمعاء؟",
+      "en": "Do you have bowel problems?"
+    }
   },
   {
     "fr": "urgence",
@@ -20400,7 +20340,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "C'est une urgence.",
+      "ar": "إنها حالة طارئة.",
+      "en": "It's an emergency."
+    }
   },
   {
     "fr": "vacance",
@@ -20490,9 +20435,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "Cherches-tu du travail ?",
-      "ar": "هل تبحث عن عمل؟",
-      "en": "Are you looking for work?"
+      "fr": "Contrat de travail",
+      "ar": "عقد العمل",
+      "en": "Employment contract"
     }
   },
   {
@@ -20526,7 +20471,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "L'addition, s'il vous plaît.",
+      "ar": "الحساب، من فضلك.",
+      "en": "The bill, please."
+    }
   },
   {
     "fr": "adoption",
@@ -20581,7 +20531,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Modifier le rendez-vous",
+      "ar": "تعديل الموعد.",
+      "en": "Change the appointment."
+    }
   },
   {
     "fr": "amnistie",
@@ -20746,7 +20701,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Quelle est la capacité de la batterie ?",
+      "ar": "ما سعة البطارية؟",
+      "en": "What is the battery capacity?"
+    }
   },
   {
     "fr": "certifié",
@@ -20757,7 +20717,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que c'est certifié par un organisme ?",
+      "ar": "هل هو معتمد من جهة رسمية؟",
+      "en": "Is it certified by an organisation?"
+    }
   },
   {
     "fr": "citation",
@@ -20801,7 +20766,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que ma famille doit passer un entretien au consulat ?",
+      "ar": "هل يجب أن تُجري عائلتي مقابلة في القنصلية؟",
+      "en": "Does my family have to attend an interview at the consulate?"
+    }
   },
   {
     "fr": "contrôle",
@@ -20812,7 +20782,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Contrôle la qualité.",
+      "ar": "راقب الجودة.",
+      "en": "Check the quality."
+    }
   },
   {
     "fr": "décision",
@@ -20883,7 +20858,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Document demandé",
+      "ar": "وثيقة مطلوبة",
+      "en": "Requested document"
+    }
   },
   {
     "fr": "domicile",
@@ -20894,7 +20874,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Visite à domicile",
+      "ar": "زيارة منزلية.",
+      "en": "Home visit."
+    }
   },
   {
     "fr": "donateur",
@@ -20938,7 +20923,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous êtes éligible à cette offre.",
+      "ar": "أنت مؤهل لهذا العرض.",
+      "en": "You are eligible for this offer."
+    }
   },
   {
     "fr": "émigrant",
@@ -21070,7 +21060,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous avez la carte de fidélité ?",
+      "ar": "هل لديك بطاقة الوفاء؟",
+      "en": "Do you have a loyalty card?"
+    }
   },
   {
     "fr": "fixation",
@@ -21141,7 +21136,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Quand est l'audience ?",
+      "ar": "متى الجلسة؟",
+      "en": "When is the hearing?"
+    }
   },
   {
     "fr": "ouï-dire",
@@ -21152,12 +21152,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Je ne voulais pas te dire ça.",
-      "ar": "لم أكن أريد أن أقول لك هذا.",
-      "en": "I didn't want to tell you this."
-    }
+    ]
   },
   {
     "fr": "héritier",
@@ -21190,12 +21185,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Bien sûr, reconnaître notre humanité commune est seulement le commencement de notre tâche.",
-      "ar": "يمثل إدراك أوجه الإنسانية المشتركة فيما بيننا بطبيعة الحال مجرد البداية لمهمتنا.",
-      "en": "Of course, recognizing our common humanity is only the beginning of our task."
-    }
+    ]
   },
   {
     "fr": "identité",
@@ -21206,7 +21196,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Justificatif d'identité",
+      "ar": "إثبات الهوية",
+      "en": "Proof of identity"
+    }
   },
   {
     "fr": "illicite",
@@ -21316,7 +21311,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai été licencié.",
+      "ar": "تم فصلي من العمل.",
+      "en": "I was laid off."
+    }
   },
   {
     "fr": "acconier",
@@ -21349,7 +21349,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Non, dans la majorité des cas il n'y a pas besoin de traitement.",
+      "ar": "لا، في أغلب الحالات لا يحتاج إلى علاج.",
+      "en": "No, in most cases no treatment is needed."
+    }
   },
   {
     "fr": "ministre",
@@ -21398,7 +21403,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai aussi ma mutuelle.",
+      "ar": "لدي أيضًا التأمين التكميلي.",
+      "en": "I also have supplementary health insurance."
+    }
   },
   {
     "fr": "non lieu",
@@ -21409,12 +21419,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Non !",
-      "ar": "لا!",
-      "en": "Nope!"
-    }
+    ]
   },
   {
     "fr": "novation",
@@ -21436,7 +21441,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Avez-vous un site officiel ?",
+      "ar": "هل لديكم موقع رسمي؟",
+      "en": "Do you have an official website?"
+    }
   },
   {
     "fr": "paiement",
@@ -21447,7 +21457,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Paiement à venir",
+      "ar": "دفعة قادمة",
+      "en": "Upcoming payment"
+    }
   },
   {
     "fr": "personne",
@@ -21523,7 +21538,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "L'eau est coupée dans mon immeuble.",
+      "ar": "الماء مقطوع في عمارتي.",
+      "en": "The water is cut off in my building."
+    }
   },
   {
     "fr": "récidive",
@@ -21687,7 +21707,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Évitez les aliments très sucrés.",
+      "ar": "تجنب الأطعمة كثيرة السكر.",
+      "en": "Avoid very sugary foods."
+    }
   },
   {
     "fr": "trahison",
@@ -21885,12 +21910,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Le grand chanteur kabyle Matoub Lounès a critiqué la dictature et a même osé critiquer l'islam. Mais quand il a osé parler du droit des peuples à l'autodétermination, et donc au peuple kabyle d'avoir son État, il a été assassiné par les autorités algériennes.",
-      "ar": "انتقد مطرب القبايل العظيم معتوب لوناس الديكتاتورية وحتى أنه تجرأ على انتقاد الإسلام. لكن عندما تجرأ على الحديث عن حق الشعوب في تقرير مصيرهم ، وبالتالي لشعب القبائل أن يكون لهم دولتهم ، اغتيلته السلطات الجزائرية.",
-      "en": "The great Kabyle singer Matoub Lounès criticized the dictatorship and even dared to criticize Islam. But when he dared to speak of the right of peoples to self-determination, and thus to the Kabyle people to have their state, he was assassinated by Algerian authorities."
-    }
+    ]
   },
   {
     "fr": "autonomie",
@@ -21901,7 +21921,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Quelle est l'autonomie de la batterie ?",
+      "ar": "ما هي مدة عمل البطارية؟",
+      "en": "What's the battery range?"
+    }
   },
   {
     "fr": "ballotage",
@@ -21923,12 +21948,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Bonne nuit.",
-      "ar": "ليلة سعيدة.",
-      "en": "Have a great night."
-    }
+    ]
   },
   {
     "fr": "frontière",
@@ -21983,7 +22003,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "La fermeture éclair est cassée.",
+      "ar": "السحّاب مكسور.",
+      "en": "The zip is broken."
+    }
   },
   {
     "fr": "coalition",
@@ -22027,7 +22052,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Je veux améliorer ma condition physique.",
+      "ar": "أريد تحسين لياقتي البدنية.",
+      "en": "I want to improve my fitness."
+    }
   },
   {
     "fr": "réclusion",
@@ -22258,7 +22288,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Je travaille les quadriceps avec la leg extension.",
+      "ar": "أدرب عضلات الفخذ الأمامية.",
+      "en": "I work my quadriceps with leg extension."
+    }
   },
   {
     "fr": "extorsion",
@@ -22324,7 +22359,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Le résultat est favorable.",
+      "ar": "النتيجة إيجابية.",
+      "en": "The result is favorable."
+    }
   },
   {
     "fr": "féminisme",
@@ -22379,12 +22419,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "taux fixe",
@@ -22406,12 +22441,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Ils ont rédigé un projet de loi sur la santé.",
-      "ar": "كتبوا مشروع قانون يخص الصحة.",
-      "en": "They've written a bill for health care."
-    }
+    ]
   },
   {
     "fr": "clause or",
@@ -22422,12 +22452,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Tout ce qui brille n'est pas or.",
-      "ar": "ليس كل ما يلمع ذهبا.",
-      "en": "All that glisters is not gold."
-    }
+    ]
   },
   {
     "fr": "bâtonnier",
@@ -22520,12 +22545,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Il a le même âge que moi.",
-      "ar": "لدينا نفس السن.",
-      "en": "He's the same age as me."
-    }
+    ]
   },
   {
     "fr": "légataire",
@@ -22547,7 +22567,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Ma femme est en congé maternité.",
+      "ar": "زوجتي في إجازة ولادة.",
+      "en": "My wife is on maternity leave."
+    }
   },
   {
     "fr": "médiation",
@@ -22668,7 +22693,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais demander un congé paternité.",
+      "ar": "أريد طلب إجازة أبوة.",
+      "en": "I would like to request paternity leave."
+    }
   },
   {
     "fr": "plagiaire",
@@ -22723,7 +22753,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Les priorités",
+      "ar": "الأولويات",
+      "en": "Priorities"
+    }
   },
   {
     "fr": "privilège",
@@ -22778,7 +22813,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Je souhaite recevoir une quittance de loyer.",
+      "ar": "أرغب في استلام إيصال إيجار.",
+      "en": "I would like to receive a rent receipt."
+    }
   },
   {
     "fr": "récépissé",
@@ -22789,7 +22829,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Voici mon récépissé et mon passeport.",
+      "ar": "هذا إيصالي وجواز سفري.",
+      "en": "Here is my receipt and my passport."
+    }
   },
   {
     "fr": "règlement",
@@ -22822,7 +22867,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que je remplis les conditions de résidence ?",
+      "ar": "هل أستوفي شروط الإقامة؟",
+      "en": "Do I meet the residence conditions?"
+    }
   },
   {
     "fr": "démission",
@@ -22835,9 +22885,9 @@ window.VOCAB_DATA_BATCH2 = [
       "ofii"
     ],
     "ex": {
-      "fr": "En Algérie, la démission d'Abdelaziz Bouteflika représente la fin d'une époque.",
-      "ar": "في الجزائر, تمثل استقالة عبد العزيز بوتفليقة نهاية حقبة.",
-      "en": "In Algeria, the resignation of Abdelaziz Bouteflika represents the end of an era."
+      "fr": "Voici ma lettre de démission.",
+      "ar": "هذه رسالة استقالتي.",
+      "en": "Here is my resignation letter."
     }
   },
   {
@@ -22915,7 +22965,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Il faut une signature à la livraison.",
+      "ar": "يلزم توقيع عند التسليم.",
+      "en": "A signature is required on delivery."
+    }
   },
   {
     "fr": "esclavage",
@@ -22948,7 +23003,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Le pourboire n'est pas obligatoire.",
+      "ar": "البقشيش ليس إلزامياً.",
+      "en": "Tipping is not mandatory."
+    }
   },
   {
     "fr": "urbanisme",
@@ -23003,12 +23063,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "L'amour fait mal.",
-      "ar": "الحب يؤلم.",
-      "en": "Love hurts."
-    }
+    ]
   },
   {
     "fr": "usucapion",
@@ -23041,12 +23096,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Je ne suis plus sans-abri.",
-      "ar": "لم أعد بلا مأوى",
-      "en": "I'm not homeless any more."
-    }
+    ]
   },
   {
     "fr": "xénophobe",
@@ -23145,7 +23195,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Allocation versée",
+      "ar": "تم دفع الإعانة.",
+      "en": "Benefit paid."
+    }
   },
   {
     "fr": "guet-apens",
@@ -23233,7 +23288,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "On est entré chez moi par effraction.",
+      "ar": "تم اقتحام منزلي.",
+      "en": "My home was broken into."
+    }
   },
   {
     "fr": "corruption",
@@ -23266,7 +23326,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Voici le certificat médical.",
+      "ar": "هذه هي الشهادة الطبية.",
+      "en": "Here is the medical certificate."
+    }
   },
   {
     "fr": "état civil",
@@ -23277,12 +23342,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Aucun État n'a le droit d'exister.",
-      "ar": "ليس لأي دولة الحق في الوجود.",
-      "en": "No state has the right to exist."
-    }
+    ]
   },
   {
     "fr": "commission",
@@ -23293,7 +23353,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'il y a une commission ?",
+      "ar": "هل هناك عمولة؟",
+      "en": "Is there a commission?"
+    }
   },
   {
     "fr": "confisquer",
@@ -23348,12 +23413,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Ils ont rédigé un projet de loi sur la santé.",
-      "ar": "كتبوا مشروع قانون يخص الصحة.",
-      "en": "They've written a bill for health care."
-    }
+    ]
   },
   {
     "fr": "délégation",
@@ -23457,7 +23517,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Quel est le diagnostic le plus probable ?",
+      "ar": "ما التشخيص الأكثر احتمالًا؟",
+      "en": "What is the most likely diagnosis?"
+    }
   },
   {
     "fr": "diplomatie",
@@ -23611,7 +23676,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Le produit est prêt pour l’expédition.",
+      "ar": "المنتج جاهز للشحن.",
+      "en": "The product is ready for shipment."
+    }
   },
   {
     "fr": "expérience",
@@ -23622,7 +23692,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Le poste correspond à mon expérience.",
+      "ar": "الوظيفة تناسب خبرتي.",
+      "en": "The position matches my experience."
+    }
   },
   {
     "fr": "expiration",
@@ -23633,7 +23708,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Votre contrat arrive bientôt à expiration.",
+      "ar": "عقدك سينتهي قريبًا.",
+      "en": "Your contract is expiring soon."
+    }
   },
   {
     "fr": "explicatif",
@@ -23781,12 +23861,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Cette montagne n'est pas très haute.",
-      "ar": "هذا الجبل ليس عاليا جدا.",
-      "en": "This mountain isn't a lofty one."
-    }
+    ]
   },
   {
     "fr": "illégitime",
@@ -23912,12 +23987,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Tom est caché sous la table.",
-      "ar": "اختبأ توم تحت الطاولة.",
-      "en": "Tom hid under the table."
-    }
+    ]
   },
   {
     "fr": "légalement",
@@ -23972,12 +24042,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Pourquoi ne pas faire acte de candidature pour cet emploi ?",
-      "ar": "لماذا لا تتنافس حول هذا العمل؟",
-      "en": "Why not apply for that job?"
-    }
+    ]
   },
   {
     "fr": "motivation",
@@ -23988,7 +24053,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Lettre de motivation",
+      "ar": "رسالة تحفيزية",
+      "en": "Cover letter"
+    }
   },
   {
     "fr": "profit net",
@@ -23999,12 +24069,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Tout ce que vous devez faire, c'est tirer profit de cette occasion rare.",
-      "ar": "كل ما عليك فعله هو أن تغتنم هذه المناسبة النادرة.",
-      "en": "All you have to do is take advantage of this rare opportunity."
-    }
+    ]
   },
   {
     "fr": "nul",
@@ -24015,7 +24080,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "C’est nul.",
+      "ar": "سيئ جدًا.",
+      "en": "It’s rubbish."
+    }
   },
   {
     "fr": "numérotage",
@@ -24048,7 +24118,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "On m'a volé ma carte, je fais opposition.",
+      "ar": "سُرقت بطاقتي، أطلب إيقافها.",
+      "en": "My card was stolen, I'm reporting it."
+    }
   },
   {
     "fr": "ordonnance",
@@ -24059,7 +24134,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai une ordonnance.",
+      "ar": "لدي وصفة طبية.",
+      "en": "I have a prescription."
+    }
   },
   {
     "fr": "congé payé",
@@ -24070,12 +24150,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Aujourd'hui, c'est mon jour de congé.",
-      "ar": "اليوم هو يوم راحتي.",
-      "en": "Today is my day off."
-    }
+    ]
   },
   {
     "fr": "plaidoirie",
@@ -24141,12 +24216,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "avancement",
@@ -24179,12 +24249,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "On ne l'a vue nulle part.",
-      "ar": "لم نرها مطلقا.",
-      "en": "We didn't see her anywhere."
-    }
+    ]
   },
   {
     "fr": "droit réel",
@@ -24195,12 +24260,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "À qui de droit.",
-      "ar": "إلى من يهمه الأمر.",
-      "en": "To whom it may concern:"
-    }
+    ]
   },
   {
     "fr": "référendum",
@@ -24315,7 +24375,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que mon ancienneté de mon pays compte ?",
+      "ar": "هل تُحسب خبرتي من بلدي؟",
+      "en": "Does my driving history from my country count?"
+    }
   },
   {
     "fr": "séparation",
@@ -24353,7 +24418,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Je vous propose de faire une simulation gratuite.",
+      "ar": "أقترح عليك إجراء محاكاة مجانية.",
+      "en": "I suggest doing a free simulation."
+    }
   },
   {
     "fr": "solidarité",
@@ -24479,7 +24549,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Nous allons vous accompagner pendant la transition.",
+      "ar": "سنساعدك أثناء الانتقال.",
+      "en": "We will assist you during the transition."
+    }
   },
   {
     "fr": "nom triple",
@@ -24490,12 +24565,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Mon nom est Tom.",
-      "ar": "إسمي توم.",
-      "en": "Tom is my name."
-    }
+    ]
   },
   {
     "fr": "déshérence",
@@ -24561,7 +24631,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "Ce n’était pas volontaire.",
+      "ar": "لم يكن مقصودًا.",
+      "en": "It wasn’t intentional."
+    }
   },
   {
     "fr": "loi écrite",
@@ -24572,12 +24647,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Ils ont rédigé un projet de loi sur la santé.",
-      "ar": "كتبوا مشروع قانون يخص الصحة.",
-      "en": "They've written a bill for health care."
-    }
+    ]
   },
   {
     "fr": "xénophobie",
@@ -24599,12 +24669,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Tu as tort dans ce cas.",
-      "ar": "انت مخطئ في هذه الحالة",
-      "en": "You're wrong in this case."
-    }
+    ]
   },
   {
     "fr": "réalisation",
@@ -24637,12 +24702,7 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ],
-    "ex": {
-      "fr": "Ce documentaire sur la crise environnementale nous a vraiment ouvert les yeux.",
-      "ar": "هذا الوثائقي حول القضية البيئية فتح حقا أعيننا.",
-      "en": "That documentary about the environmental crisis was a real eye-opener."
-    }
+    ]
   },
   {
     "fr": "toxicomanie",
@@ -24719,7 +24779,12 @@ window.VOCAB_DATA_BATCH2 = [
       "prefecture",
       "ofpra",
       "ofii"
-    ]
+    ],
+    "ex": {
+      "fr": "On m'a envoyé ici par l'association.",
+      "ar": "أرسلتني الجمعية إلى هنا.",
+      "en": "The association sent me here."
+    }
   },
   {
     "fr": "supposition",
@@ -24777,7 +24842,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Vérifie le numéro de lot.",
+      "ar": "تحقق من رقم الدفعة.",
+      "en": "Check the batch number."
+    }
   },
   {
     "fr": "bus",
@@ -24788,9 +24858,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Il a laissé son parapluie dans le bus.",
-      "ar": "لقد ترك مظلته في الحافلة.",
-      "en": "He left his umbrella on the bus."
+      "fr": "Quel bus va au centre-ville ?",
+      "ar": "أي باص يذهب إلى وسط المدينة؟",
+      "en": "Which bus goes to the city centre?"
     }
   },
   {
@@ -24845,7 +24915,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Le taux de graisse corporelle",
+      "ar": "نسبة دهون الجسم",
+      "en": "Body fat percentage"
+    }
   },
   {
     "fr": "rime",
@@ -24890,12 +24965,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Faux.",
-      "ar": "خطأ.",
-      "en": "Wrong!"
-    }
+    ]
   },
   {
     "fr": "java",
@@ -24913,7 +24983,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous devez cliquer sur le lien de confirmation.",
+      "ar": "يجب أن تضغط على رابط التأكيد.",
+      "en": "You need to click the confirmation link."
+    }
   },
   {
     "fr": "loop",
@@ -24931,7 +25006,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que le menu enfant existe ?",
+      "ar": "هل يوجد قائمة للأطفال؟",
+      "en": "Is there a children's menu?"
+    }
   },
   {
     "fr": "nano",
@@ -24949,7 +25029,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Fermer la page",
+      "ar": "إغلاق الصفحة",
+      "en": "Close the page"
+    }
   },
   {
     "fr": "quiz",
@@ -24976,12 +25061,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Cours !",
-      "ar": "اركض!",
-      "en": "Leg it!"
-    }
+    ]
   },
   {
     "fr": "échec",
@@ -24990,7 +25070,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Je vais jusqu’à l’échec.",
+      "ar": "سأتمرن حتى الفشل العضلي.",
+      "en": "I’m going to failure."
+    }
   },
   {
     "fr": "index",
@@ -25024,9 +25109,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Le monde suit une règle d'or : Quiconque possède l'or écrit les règles.",
-      "ar": "يحترم عالمنا قانونا ذهبيا واحدا: من يملك الذهب يضع القانون.",
-      "en": "The world follows one golden rule: whoever has the gold makes the rules."
+      "fr": "Règle le siège à ta hauteur.",
+      "ar": "اضبط المقعد على ارتفاعك.",
+      "en": "Adjust the seat to your height."
     }
   },
   {
@@ -25036,7 +25121,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Je m’en fiche.",
+      "ar": "لا يهمني.",
+      "en": "I don’t care."
+    }
   },
   {
     "fr": "étude",
@@ -25045,7 +25135,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Nous vous proposons une étude gratuite pour des panneaux solaires.",
+      "ar": "نقترح عليك دراسة مجانية للألواح الشمسية.",
+      "en": "We offer you a free study for solar panels."
+    }
   },
   {
     "fr": "texte",
@@ -25095,7 +25190,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Y a moyen.",
+      "ar": "ممكن / يوجد احتمال.",
+      "en": "It’s possible."
+    }
   },
   {
     "fr": "octet",
@@ -25113,7 +25213,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Combien coûte une copie de clé ?",
+      "ar": "كم تكلّف نسخة المفتاح؟",
+      "en": "How much is a key copy?"
+    }
   },
   {
     "fr": "flash",
@@ -25154,7 +25259,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Le rond-point",
+      "ar": "الدوار",
+      "en": "Roundabout"
+    }
   },
   {
     "fr": "revue",
@@ -25183,9 +25293,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Je ne connais pas son mot de passe.",
-      "ar": "لا أعرف كلمة مرورها.",
-      "en": "I don't know his password."
+      "fr": "Passe une bonne journée.",
+      "ar": "أتمنى لك يومًا سعيدًا.",
+      "en": "Have a good day."
     }
   },
   {
@@ -25213,7 +25323,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Allume l’écran de la machine.",
+      "ar": "شغّل شاشة الجهاز.",
+      "en": "Turn on the machine screen."
+    }
   },
   {
     "fr": "vidéo",
@@ -25231,7 +25346,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Être porteur du virus",
+      "ar": "يكون حاملًا للفيروس",
+      "en": "To carry the virus"
+    }
   },
   {
     "fr": "abrégé",
@@ -25276,7 +25396,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Combien coûte la crèche par mois ?",
+      "ar": "كم تكلّف الحضانة شهرياً؟",
+      "en": "How much is daycare per month?"
+    }
   },
   {
     "fr": "classe",
@@ -25317,12 +25442,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "examen",
@@ -25333,9 +25453,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "L'examen n'était pas difficile.",
-      "ar": "الإمتحان لم يكن صعبا.",
-      "en": "The exam wasn't hard."
+      "fr": "Quand est l'examen ?",
+      "ar": "متى الامتحان؟",
+      "en": "When is the exam?"
     }
   },
   {
@@ -25363,7 +25483,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Je surveille mon rythme cardiaque.",
+      "ar": "أراقب نبضات قلبي.",
+      "en": "I monitor my heart rate."
+    }
   },
   {
     "fr": "schéma",
@@ -25413,7 +25538,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai obtenu le statut de réfugié.",
+      "ar": "حصلت على صفة لاجئ.",
+      "en": "I have been granted refugee status."
+    }
   },
   {
     "fr": "succès",
@@ -25438,9 +25568,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Vu que j'ai beaucoup étudié, j'ai réussi tous mes examens.",
-      "ar": "بما اني درست كثيرا، فإنني نجحت في كل اختباراتي.",
-      "en": "Since I studied a lot, I passed all my exams."
+      "fr": "Tu as réussi à te reposer ?",
+      "ar": "هل استطعت أن ترتاح؟",
+      "en": "Were you able to rest?"
     }
   },
   {
@@ -25509,7 +25639,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais un livret de famille.",
+      "ar": "أريد دفتر العائلة.",
+      "en": "I would like a family record book."
+    }
   },
   {
     "fr": "tampon",
@@ -25626,12 +25761,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Souris !",
-      "ar": "فأر!",
-      "en": "Mouse!"
-    }
+    ]
   },
   {
     "fr": "ms-dos",
@@ -25676,7 +25806,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Je t'invite à dîner chez moi samedi.",
+      "ar": "أدعوك للعشاء عندي يوم السبت.",
+      "en": "I'm inviting you to dinner at my place on Saturday."
+    }
   },
   {
     "fr": "script",
@@ -25696,9 +25831,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Bien sûr, reconnaître notre humanité commune est seulement le commencement de notre tâche.",
-      "ar": "يمثل إدراك أوجه الإنسانية المشتركة فيما بيننا بطبيعة الحال مجرد البداية لمهمتنا.",
-      "en": "Of course, recognizing our common humanity is only the beginning of our task."
+      "fr": "J'ai terminé cette tâche.",
+      "ar": "أنهيت هذه المهمة.",
+      "en": "I finished this task."
     }
   },
   {
@@ -25731,7 +25866,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Un résultat anormal",
+      "ar": "نتيجة غير طبيعية",
+      "en": "Abnormal result"
+    }
   },
   {
     "fr": "aboulie",
@@ -25781,7 +25921,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Ma valise est noire, de taille moyenne.",
+      "ar": "حقيبتي سوداء، حجمها متوسط.",
+      "en": "My suitcase is black, medium sized."
+    }
   },
   {
     "fr": "émotion",
@@ -25799,7 +25944,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai reçu un avis de passage du facteur.",
+      "ar": "استلمت إشعار مرور من موظف البريد.",
+      "en": "I received a delivery notice from the postman."
+    }
   },
   {
     "fr": "gestalt",
@@ -25896,9 +26046,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Est-ce que tu sais la réponse ?",
-      "ar": "هل تعرف الإجابة؟",
-      "en": "You know the answer?"
+      "fr": "Valider votre réponse.",
+      "ar": "تأكيد إجابتك.",
+      "en": "Confirm your answer."
     }
   },
   {
@@ -25987,9 +26137,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Linux est un système d'exploitation libre ; tu devrais l'essayer.",
-      "ar": "لينكس هو نظام تشغيل حر؛ أنصحك بتجريبه !",
-      "en": "Linux is a free operating system; you should try it."
+      "fr": "Le système de pointage.",
+      "ar": "نظام تسجيل الوقت.",
+      "en": "Time tracking system."
     }
   },
   {
@@ -26071,7 +26221,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Vérifie le contenu de la boîte.",
+      "ar": "تحقق من محتوى العلبة.",
+      "en": "Check the contents of the box."
+    }
   },
   {
     "fr": "glisser",
@@ -26123,9 +26278,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Comme je n'ai pas le logiciel qui correspond à la pièce jointe, je ne peux pas ouvrir le fichier. S'il vous plaît, renvoyez-le-moi dans un autre format.",
-      "ar": "بما أنه ليس لدي البرمجية التي تتلاءم مع الملحق، لا يمكنني فتح الملف. من فضلك، أعد بعثه بصيغة أخرى.",
-      "en": "As I don't have the software that matches the attachment, I cannot open the file. Please resend it in another format."
+      "fr": "Le fichier ne s'ouvre pas.",
+      "ar": "الملف لا يفتح.",
+      "en": "The file won't open."
     }
   },
   {
@@ -26144,12 +26299,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il a laissé un mot.",
-      "ar": "ترك كلمة.",
-      "en": "He left a note."
-    }
+    ]
   },
   {
     "fr": "matrice",
@@ -26176,7 +26326,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais changer de forfait.",
+      "ar": "أريد تغيير العرض.",
+      "en": "I would like to change my plan."
+    }
   },
   {
     "fr": "parsing",
@@ -26230,7 +26385,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Je laisse deux euros pour le serveur.",
+      "ar": "أترك يورويين للنادل.",
+      "en": "I'll leave two euros for the waiter."
+    }
   },
   {
     "fr": "talent",
@@ -26262,12 +26422,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il se prépare pour le test.",
-      "ar": "إنه يستعد للامتحان.",
-      "en": "He is preparing for the test."
-    }
+    ]
   },
   {
     "fr": "bus USB",
@@ -26276,12 +26431,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il a laissé son parapluie dans le bus.",
-      "ar": "لقد ترك مظلته في الحافلة.",
-      "en": "He left his umbrella on the bus."
-    }
+    ]
   },
   {
     "fr": "virtuel",
@@ -26337,9 +26487,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Marcher est une excellente activité.",
-      "ar": "المشي تشاط ممتاز.",
-      "en": "Walking is an excellent exercise."
+      "fr": "Prime d'activité",
+      "ar": "منحة النشاط",
+      "en": "Activity bonus"
     }
   },
   {
@@ -26385,7 +26535,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Quelle est la meilleure attitude ?",
+      "ar": "ما هو التصرف الأفضل؟",
+      "en": "What is the best attitude?"
+    }
   },
   {
     "fr": "barycoïe",
@@ -26471,7 +26626,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "La fonction hépatique est conservée.",
+      "ar": "وظيفة الكبد محفوظة.",
+      "en": "Liver function is preserved."
+    }
   },
   {
     "fr": "maturité",
@@ -26507,7 +26667,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Quotient familial",
+      "ar": "المعامل العائلي",
+      "en": "Family quotient"
+    }
   },
   {
     "fr": "réaction",
@@ -26516,7 +26681,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Le temps de réaction est important.",
+      "ar": "وقت رد الفعل مهم.",
+      "en": "Reaction time is important."
+    }
   },
   {
     "fr": "souvenir",
@@ -26656,7 +26826,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "J'approche d'un rond-point.",
+      "ar": "أقترب من دوار.",
+      "en": "I approach a roundabout."
+    }
   },
   {
     "fr": "attribut",
@@ -26683,7 +26858,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Démonter le carton",
+      "ar": "تفكيك الكرتونة",
+      "en": "Dismantle the carton"
+    }
   },
   {
     "fr": "e-classe",
@@ -26692,12 +26872,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Notre classe est une petite classe.",
-      "ar": "قسمنا صغير .",
-      "en": "Our class is a small one."
-    }
+    ]
   },
   {
     "fr": "entropie",
@@ -26753,9 +26928,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Pouvez-vous m'informer au sujet de cette conversation ?",
-      "ar": "هل يمكنك اعلامي بموضوع تلك المحادثة؟",
-      "en": "Can you tell me about that conversation?"
+      "fr": "Je vais vous informer des nouvelles conditions.",
+      "ar": "سأخبرك بالشروط الجديدة.",
+      "en": "I will inform you of the new conditions."
     }
   },
   {
@@ -26792,7 +26967,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Ça se remarque.",
+      "ar": "يمكن ملاحظته.",
+      "en": "It’s noticeable."
+    }
   },
   {
     "fr": "objectif",
@@ -26803,9 +26983,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Il a expliqué l'objectif principal de ce plan.",
-      "ar": "فسر الهدف الرئيسي لهذا المخطط",
-      "en": "He explained the plan's main objective."
+      "fr": "Quel est ton objectif ?",
+      "ar": "ما هو هدفك؟",
+      "en": "What is your goal?"
     }
   },
   {
@@ -26968,12 +27148,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il a le même âge que moi.",
-      "ar": "لدينا نفس السن.",
-      "en": "He's the same age as me."
-    }
+    ]
   },
   {
     "fr": "animation",
@@ -27158,12 +27333,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Notre avenir est en jeu.",
-      "ar": "مستقبلنا على المحك.",
-      "en": "Our future is at stake."
-    }
+    ]
   },
   {
     "fr": "post-test",
@@ -27172,12 +27342,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il se prépare pour le test.",
-      "ar": "إنه يستعد للامتحان.",
-      "en": "He is preparing for the test."
-    }
+    ]
   },
   {
     "fr": "précocité",
@@ -27231,7 +27396,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Les valeurs de référence",
+      "ar": "القيم المرجعية",
+      "en": "Reference values"
+    }
   },
   {
     "fr": "recherche",
@@ -27240,7 +27410,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "On recherche Helicobacter pylori.",
+      "ar": "نبحث عن جرثومة المعدة.",
+      "en": "We look for Helicobacter pylori."
+    }
   },
   {
     "fr": "chercheur",
@@ -27317,7 +27492,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Le contrôle technique.",
+      "ar": "الفحص التقني للسيارة.",
+      "en": "Vehicle inspection."
+    }
   },
   {
     "fr": "test oral",
@@ -27326,12 +27506,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il se prépare pour le test.",
-      "ar": "إنه يستعد للامتحان.",
-      "en": "He is preparing for the test."
-    }
+    ]
   },
   {
     "fr": "théorique",
@@ -27340,7 +27515,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous avez réussi l'épreuve théorique.",
+      "ar": "لقد نجحت في الاختبار النظري.",
+      "en": "You passed the theory test."
+    }
   },
   {
     "fr": "verbosité",
@@ -27405,9 +27585,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Attention !",
-      "ar": "حذاري !",
-      "en": "Timber!"
+      "fr": "Attention, zone 30.",
+      "ar": "انتبه، منطقة 30.",
+      "en": "Attention, 30 zone."
     }
   },
   {
@@ -27462,12 +27642,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Le temps est froid.",
-      "ar": "الجو بارد.",
-      "en": "The weather is cold."
-    }
+    ]
   },
   {
     "fr": "débogueur",
@@ -27485,7 +27660,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'il y a une permanence numérique près d'ici ?",
+      "ar": "هل هناك مركز دعم رقمي قريب من هنا؟",
+      "en": "Is there a digital help desk nearby?"
+    }
   },
   {
     "fr": "disquette",
@@ -27512,12 +27692,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Faux.",
-      "ar": "خطأ.",
-      "en": "Wrong!"
-    }
+    ]
   },
   {
     "fr": "gigaoctet",
@@ -27607,12 +27782,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il a laissé son parapluie dans le bus.",
-      "ar": "لقد ترك مظلته في الحافلة.",
-      "en": "He left his umbrella on the bus."
-    }
+    ]
   },
   {
     "fr": "modulaire",
@@ -27693,12 +27863,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Le génie logiciel est la discipline qui permet de concevoir, développer et maintenir des logiciels de qualité.",
-      "ar": "هندسة البرمجيات هي التخصص الذي يهدف إلى تصميم وتطوير وصيانة برمجيات عالية الجودة.",
-      "en": "Software engineering is the discipline of designing, developing, and maintaining high-quality software."
-    }
+    ]
   },
   {
     "fr": "stratégie",
@@ -27833,12 +27998,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il a le même âge que moi.",
-      "ar": "لدينا نفس السن.",
-      "en": "He's the same age as me."
-    }
+    ]
   },
   {
     "fr": "algorithme",
@@ -27888,12 +28048,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il s'est occupé du bébé.",
-      "ar": "اعتنى بالطفل أو رعاه.",
-      "en": "He looked after the baby."
-    }
+    ]
   },
   {
     "fr": "consultant",
@@ -27929,12 +28084,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Le génie logiciel est la discipline qui permet de concevoir, développer et maintenir des logiciels de qualité.",
-      "ar": "هندسة البرمجيات هي التخصص الذي يهدف إلى تصميم وتطوير وصيانة برمجيات عالية الجودة.",
-      "en": "Software engineering is the discipline of designing, developing, and maintaining high-quality software."
-    }
+    ]
   },
   {
     "fr": "dysgraphie",
@@ -28110,7 +28260,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Une répétition (une rep)",
+      "ar": "تكرار",
+      "en": "Repetition / rep"
+    }
   },
   {
     "fr": "rhétorique",
@@ -28146,12 +28301,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Je me demande où Tom a caché sa clé.",
-      "ar": "أتساءل أين أخفى توم مفتاحه.",
-      "en": "I wonder where Tom hid his key."
-    }
+    ]
   },
   {
     "fr": "interligne",
@@ -28196,12 +28346,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Tom est caché sous la table.",
-      "ar": "اختبأ توم تحت الطاولة.",
-      "en": "Tom hid under the table."
-    }
+    ]
   },
   {
     "fr": "syllabisme",
@@ -28246,12 +28391,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il se prépare pour le test.",
-      "ar": "إنه يستعد للامتحان.",
-      "en": "He is preparing for the test."
-    }
+    ]
   },
   {
     "fr": "thématique",
@@ -28418,12 +28558,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Faux.",
-      "ar": "خطأ.",
-      "en": "Wrong!"
-    }
+    ]
   },
   {
     "fr": "graphiques",
@@ -28441,12 +28576,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il est dur d'aimer quelqu'un quand vous ne savez pas s'il vous aime autant que vous l'aimez.",
-      "ar": "من الصعب ان تحب أحدا عندما لا تعلم إن كان يحبك مثلما تحبه.",
-      "en": "It is hard to love someone when you do not know whether he or she loves you as much as you love him or her."
-    }
+    ]
   },
   {
     "fr": "hypertexte",
@@ -28635,12 +28765,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Ils vont avoir un enfant.",
-      "ar": "سيرزقون بطفل.",
-      "en": "They are about to have a child."
-    }
+    ]
   },
   {
     "fr": "école mixte",
@@ -28649,12 +28774,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "C'est notre école.",
-      "ar": "هذه مدرستنا.",
-      "en": "That is our school."
-    }
+    ]
   },
   {
     "fr": "coefficient",
@@ -28717,7 +28837,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai signé le contrat d'intégration républicaine.",
+      "ar": "وقّعت عقد الاندماج الجمهوري.",
+      "en": "I signed the republican integration contract."
+    }
   },
   {
     "fr": "interaction",
@@ -28744,7 +28869,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Une erreur peut être due à une mauvaise observation.",
+      "ar": "قد يكون الخطأ بسبب سوء الملاحظة.",
+      "en": "A mistake can be due to poor observation."
+    }
   },
   {
     "fr": "observateur",
@@ -28780,12 +28910,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "« Philosophie » est un mot grec qui signifie amour de la sagesse.",
-      "ar": "\"الفلسفة\" كلمة يونانية تعني حب الحكمة.",
-      "en": "\"Philosophy\" is a Greek word meaning love of wisdom."
-    }
+    ]
   },
   {
     "fr": "physiologie",
@@ -28821,7 +28946,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "La préparation de l'examen",
+      "ar": "التحضير للفحص.",
+      "en": "Preparation for the examination."
+    }
   },
   {
     "fr": "exposé oral",
@@ -28866,12 +28996,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "C'est notre école.",
-      "ar": "هذه مدرستنا.",
-      "en": "That is our school."
-    }
+    ]
   },
   {
     "fr": "instituteur",
@@ -28934,7 +29059,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'il y a une aide pour les fournitures scolaires ?",
+      "ar": "هل هناك مساعدة للمستلزمات المدرسية؟",
+      "en": "Is there help with school supplies?"
+    }
   },
   {
     "fr": "tempérament",
@@ -28961,12 +29091,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il se prépare pour le test.",
-      "ar": "إنه يستعد للامتحان.",
-      "en": "He is preparing for the test."
-    }
+    ]
   },
   {
     "fr": "test-retest",
@@ -28975,12 +29100,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il se prépare pour le test.",
-      "ar": "إنه يستعد للامتحان.",
-      "en": "He is preparing for the test."
-    }
+    ]
   },
   {
     "fr": "vocabulaire",
@@ -28998,12 +29118,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Je me sens bien !",
-      "ar": "اننی بحال جیده.",
-      "en": "I'm feeling great."
-    }
+    ]
   },
   {
     "fr": "méthode abc",
@@ -29129,12 +29244,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "L'Éternel dit: Tu ne pourras pas voir ma face, car l'homme ne peut me voir et vivre.",
-      "ar": "وقال لا تقدر ان ترى وجهي. لان الانسان لا يراني ويعيش.",
-      "en": "And He said, \"You may not see My face, for no one may see Me and live.\""
-    }
+    ]
   },
   {
     "fr": "télécharger",
@@ -29143,7 +29253,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Télécharger l'attestation",
+      "ar": "تنزيل الشهادة",
+      "en": "Download the certificate"
+    }
   },
   {
     "fr": "face-à-face",
@@ -29152,12 +29267,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "L'Éternel dit: Tu ne pourras pas voir ma face, car l'homme ne peut me voir et vivre.",
-      "ar": "وقال لا تقدر ان ترى وجهي. لان الانسان لا يراني ويعيش.",
-      "en": "And He said, \"You may not see My face, for no one may see Me and live.\""
-    }
+    ]
   },
   {
     "fr": "télécopieur",
@@ -29238,12 +29348,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Comme je n'ai pas le logiciel qui correspond à la pièce jointe, je ne peux pas ouvrir le fichier. S'il vous plaît, renvoyez-le-moi dans un autre format.",
-      "ar": "بما أنه ليس لدي البرمجية التي تتلاءم مع الملحق، لا يمكنني فتح الملف. من فضلك، أعد بعثه بصيغة أخرى.",
-      "en": "As I don't have the software that matches the attachment, I cannot open the file. Please resend it in another format."
-    }
+    ]
   },
   {
     "fr": "conjoncture",
@@ -29261,12 +29366,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Où sont tes clés ?",
-      "ar": "أين هي مفاتيحك؟",
-      "en": "Where are your keys?"
-    }
+    ]
   },
   {
     "fr": "ligne louée",
@@ -29311,12 +29411,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "La chance joue un rôle important dans la vie.",
-      "ar": "يلعب الحظ دورا هاما في الحياة.",
-      "en": "Luck plays an important role in our life."
-    }
+    ]
   },
   {
     "fr": "multimédias",
@@ -29334,12 +29429,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "On ne l'a vue nulle part.",
-      "ar": "لم نرها مطلقا.",
-      "en": "We didn't see her anywhere."
-    }
+    ]
   },
   {
     "fr": "appariement",
@@ -29375,12 +29465,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il se prépare pour le test.",
-      "ar": "إنه يستعد للامتحان.",
-      "en": "He is preparing for the test."
-    }
+    ]
   },
   {
     "fr": "quantitatif",
@@ -29398,12 +29483,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Le temps est froid.",
-      "ar": "الجو بارد.",
-      "en": "The weather is cold."
-    }
+    ]
   },
   {
     "fr": "redondance",
@@ -29466,12 +29546,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il se prépare pour le test.",
-      "ar": "إنه يستعد للامتحان.",
-      "en": "He is preparing for the test."
-    }
+    ]
   },
   {
     "fr": "journal web",
@@ -29561,12 +29636,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il a le même âge que moi.",
-      "ar": "لدينا نفس السن.",
-      "en": "He's the same age as me."
-    }
+    ]
   },
   {
     "fr": "âge scolaire",
@@ -29575,12 +29645,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Il a le même âge que moi.",
-      "ar": "لدينا نفس السن.",
-      "en": "He's the same age as me."
-    }
+    ]
   },
   {
     "fr": "agrammatisme",
@@ -29618,9 +29683,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "J'en ai marre de son comportement.",
-      "ar": "تعبت من سلوكه.",
-      "en": "I am fed up with his behaviour."
+      "fr": "Quel comportement adopter ?",
+      "ar": "ما هو التصرف الصحيح؟",
+      "en": "What behavior should be adopted?"
     }
   },
   {
@@ -29630,12 +29695,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Puis-je payer par carte de crédit ?",
-      "ar": "أيمكنني الدفع عن طريق بطاقة الإئتمان؟",
-      "en": "May I pay with a credit card?"
-    }
+    ]
   },
   {
     "fr": "ramification",
@@ -29653,12 +29713,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "tableau noir",
@@ -29667,12 +29722,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Le noir est à moi.",
-      "ar": "الأسود لي.",
-      "en": "The black one is mine."
-    }
+    ]
   },
   {
     "fr": "construction",
@@ -29690,12 +29740,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "C'est notre école.",
-      "ar": "هذه مدرستنا.",
-      "en": "That is our school."
-    }
+    ]
   },
   {
     "fr": "égocentrisme",
@@ -29790,12 +29835,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "C'est notre école.",
-      "ar": "هذه مدرستنا.",
-      "en": "That is our school."
-    }
+    ]
   },
   {
     "fr": "appréciation",
@@ -29840,12 +29880,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "En Algérie, la démission d'Abdelaziz Bouteflika représente la fin d'une époque.",
-      "ar": "في الجزائر, تمثل استقالة عبد العزيز بوتفليقة نهاية حقبة.",
-      "en": "In Algeria, the resignation of Abdelaziz Bouteflika represents the end of an era."
-    }
+    ]
   },
   {
     "fr": "vie scolaire",
@@ -29854,12 +29889,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "école modèle",
@@ -29868,12 +29898,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "C'est notre école.",
-      "ar": "هذه مدرستنا.",
-      "en": "That is our school."
-    }
+    ]
   },
   {
     "fr": "école laïque",
@@ -29882,12 +29907,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "C'est notre école.",
-      "ar": "هذه مدرستنا.",
-      "en": "That is our school."
-    }
+    ]
   },
   {
     "fr": "second degré",
@@ -29914,12 +29934,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Lis ce livre.",
-      "ar": "اطلع على هذا الكتاب.",
-      "en": "Read this book."
-    }
+    ]
   },
   {
     "fr": "espace-temps",
@@ -29928,12 +29943,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Le temps est froid.",
-      "ar": "الجو بارد.",
-      "en": "The weather is cold."
-    }
+    ]
   },
   {
     "fr": "standardiser",
@@ -29996,7 +30006,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Sans os, s'il vous plaît.",
+      "ar": "بدون عظم، من فضلك.",
+      "en": "Without bones, please."
+    }
   },
   {
     "fr": "Rh",
@@ -30016,9 +30031,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "T'as l'air d'un flic.",
-      "ar": "تبدو وكأنك شرطي.",
-      "en": "You look like a cop."
+      "fr": "Tu as l'air malade.",
+      "ar": "تبدو مريضًا.",
+      "en": "You look sick."
     }
   },
   {
@@ -30028,7 +30043,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai mal au dos.",
+      "ar": "لدي ألم في الظهر.",
+      "en": "I have back pain."
+    }
   },
   {
     "fr": "cal",
@@ -30082,7 +30102,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai le nez bouché.",
+      "ar": "أنفي مسدود.",
+      "en": "My nose is blocked."
+    }
   },
   {
     "fr": "pli",
@@ -30209,7 +30234,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Un tube de sang",
+      "ar": "أنبوب دم",
+      "en": "Blood tube"
+    }
   },
   {
     "fr": "bras",
@@ -30218,7 +30248,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Détendez votre bras.",
+      "ar": "أرخِ ذراعك.",
+      "en": "Relax your arm."
+    }
   },
   {
     "fr": "sein",
@@ -30238,9 +30273,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Il faut laisser aux gens le soin d'inventer leurs propres valeurs en leur donnant au départ le maximum de liberté de création. Car à un certain niveau de profondeur, si une culture est réelle, elle est libératrice.",
-      "ar": "يجب أن نترك الناس يخترعون قيمهم الخاصة بهم وذلك بمنحهم بداية أقصى درجة من حرية الإبداع. لأنه عند مستوى معين من العمق، إذا كانت الثقافة حقيقية، فإنها محررة. مولود معمري",
-      "en": "We must let people invent their own values by giving them the maximum freedom of creation. Because at a certain level of depth, if a culture is real, it is liberating."
+      "fr": "Prends soin de toi.",
+      "ar": "اعتن بنفسك.",
+      "en": "Take care of yourself."
     }
   },
   {
@@ -30287,7 +30322,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Oublier une dose",
+      "ar": "ينسى جرعة",
+      "en": "To miss a dose"
+    }
   },
   {
     "fr": "oeil",
@@ -30316,9 +30356,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "L'Éternel dit: Tu ne pourras pas voir ma face, car l'homme ne peut me voir et vivre.",
-      "ar": "وقال لا تقدر ان ترى وجهي. لان الانسان لا يراني ويعيش.",
-      "en": "And He said, \"You may not see My face, for no one may see Me and live.\""
+      "fr": "C'est juste en face de la pharmacie.",
+      "ar": "إنه مقابل الصيدلية تماماً.",
+      "en": "It's right opposite the pharmacy."
     }
   },
   {
@@ -30328,7 +30368,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Le banc plat",
+      "ar": "مقعد مستقيم",
+      "en": "Flat bench"
+    }
   },
   {
     "fr": "puce",
@@ -30337,7 +30382,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'il faut une puce d'identification ?",
+      "ar": "هل تلزم شريحة تعريف؟",
+      "en": "Is an identification chip required?"
+    }
   },
   {
     "fr": "pied",
@@ -30392,7 +30442,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai mal à la tête.",
+      "ar": "لدي صداع.",
+      "en": "I have a headache."
+    }
   },
   {
     "fr": "sain",
@@ -30435,9 +30490,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Attention ! Il y a un gros trou là-bas.",
-      "ar": "انتبه! هناك حفرة كبيرة هناك.",
-      "en": "Watch out! There's a big hole there."
+      "fr": "Il y a un trou à réparer ici.",
+      "ar": "هناك ثقب يحتاج إصلاحاً هنا.",
+      "en": "There's a hole to repair here."
     }
   },
   {
@@ -30492,7 +30547,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "La fibrose du foie",
+      "ar": "تليف الكبد.",
+      "en": "Liver fibrosis."
+    }
   },
   {
     "fr": "lobe",
@@ -30557,9 +30617,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Je me sens bien !",
-      "ar": "اننی بحال جیده.",
-      "en": "I'm feeling great."
+      "fr": "Sens interdit.",
+      "ar": "اتجاه ممنوع.",
+      "en": "No entry / wrong way."
     }
   },
   {
@@ -30612,9 +30672,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Cette eau a bon goût.",
-      "ar": "مذاق هذا الماء طيب.",
-      "en": "This water tastes good."
+      "fr": "Le goût est normal ?",
+      "ar": "هل الطعم طبيعي؟",
+      "en": "Is the taste normal?"
     }
   },
   {
@@ -30624,7 +30684,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai mal à une dent.",
+      "ar": "لدي ألم في أحد الأسنان.",
+      "en": "I have a toothache."
+    }
   },
   {
     "fr": "tube",
@@ -30635,9 +30700,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Le vagin est un tube musculaire.",
-      "ar": "المهبل أنبوب عضلي.",
-      "en": "The vagina is a muscular tube."
+      "fr": "Un tube de sang",
+      "ar": "أنبوب دم",
+      "en": "Blood tube"
     }
   },
   {
@@ -30649,9 +30714,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Quelle est votre type d'art préféré ?",
-      "ar": "ما هو فنك المفضل؟",
-      "en": "What's your favorite kind of art?"
+      "fr": "Quel type de chauffage y a-t-il ?",
+      "ar": "ما نوع التدفئة الموجودة؟",
+      "en": "What type of heating is there?"
     }
   },
   {
@@ -30661,7 +30726,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "La solution d'urée marquée",
+      "ar": "محلول اليوريا الموسومة",
+      "en": "Labeled urea solution"
+    }
   },
   {
     "fr": "onde",
@@ -30706,7 +30776,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous avez un abcès.",
+      "ar": "لديك خراج.",
+      "en": "You have an abscess."
+    }
   },
   {
     "fr": "acide",
@@ -30715,7 +30790,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "L'acide remonte dans l'œsophage.",
+      "ar": "الحمض يصعد إلى المريء.",
+      "en": "Acid comes back up into the esophagus."
+    }
   },
   {
     "fr": "aorte",
@@ -30751,7 +30831,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Plier le carton",
+      "ar": "طيّ الكرتونة",
+      "en": "Fold the carton"
+    }
   },
   {
     "fr": "front",
@@ -30769,7 +30854,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Traiter (la carie)",
+      "ar": "يعالج (التسوس)",
+      "en": "To treat (the cavity)"
+    }
   },
   {
     "fr": "carié",
@@ -30870,9 +30960,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Je trempai le doigt dans le miel.",
-      "ar": "غمست اصبعي في العسل.",
-      "en": "I dipped my finger into the honey."
+      "fr": "Je me suis coupé le doigt.",
+      "ar": "جرحت إصبعي / قطعت إصبعي.",
+      "en": "I cut my finger."
     }
   },
   {
@@ -30905,7 +30995,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Un excès de vitesse.",
+      "ar": "تجاوز السرعة.",
+      "en": "Speeding."
+    }
   },
   {
     "fr": "fécal",
@@ -30932,7 +31027,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Voulez-vous passer à la fibre ?",
+      "ar": "هل تريد الانتقال إلى الألياف؟",
+      "en": "Would you like to switch to fiber?"
+    }
   },
   {
     "fr": "rhume",
@@ -30941,7 +31041,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai attrapé un rhume.",
+      "ar": "أصبت بالزكام.",
+      "en": "I caught a cold."
+    }
   },
   {
     "fr": "cônes",
@@ -30970,9 +31075,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Dans son essai « l'Espéranto  : langue européenne ou asiatique », Claude Piron a montré les similitudes entre l'espéranto et le chinois, mettant à bas la conception que l'espéranto serait purement eurocentrique.",
-      "ar": "عرض كلاود بيرون في مقالته \"الإسبرانتو: لغة أوروبية أم آسيوية\" التشابهات بين الإسبرانتو والصينية، مميتا بذلك فكرة كون الإسبرانتو أوروبية خالصة.",
-      "en": "In his essay \"Esperanto: European or Asiatic language\" Claude Piron has shown the similarities between Esperanto and Chinese, thereby putting to rest the notion that Esperanto is purely eurocentric."
+      "fr": "Est-ce qu'il y a une période d'essai ?",
+      "ar": "هل هناك فترة تجريبية؟",
+      "en": "Is there a trial period?"
     }
   },
   {
@@ -31059,7 +31164,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Le talon de ma chaussure est cassé.",
+      "ar": "كعب حذائي مكسور.",
+      "en": "The heel of my shoe is broken."
+    }
   },
   {
     "fr": "creux",
@@ -31095,7 +31205,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "J’ai une douleur au genou.",
+      "ar": "لدي ألم في الركبة.",
+      "en": "I have knee pain."
+    }
   },
   {
     "fr": "larve",
@@ -31113,7 +31228,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "J’ai une crampe à la jambe.",
+      "ar": "لدي تشنج في الساق.",
+      "en": "I have a leg cramp."
+    }
   },
   {
     "fr": "lèvre",
@@ -31131,7 +31251,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Le local à poubelles sent mauvais, il faut le nettoyer.",
+      "ar": "غرفة القمامة رائحتها سيئة، يجب تنظيفها.",
+      "en": "The bin room smells bad, it needs cleaning."
+    }
   },
   {
     "fr": "lombe",
@@ -31149,7 +31274,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Fais pas le malin.",
+      "ar": "لا تتصرف بذكاء زائد / لا تتذاكى.",
+      "en": "Don’t act smart."
+    }
   },
   {
     "fr": "repas",
@@ -31158,7 +31288,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Après le repas ?",
+      "ar": "بعد الطعام؟",
+      "en": "After the meal?"
+    }
   },
   {
     "fr": "mixte",
@@ -31167,7 +31302,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que la salle est mixte ?",
+      "ar": "هل النادي مختلط؟",
+      "en": "Is the gym mixed?"
+    }
   },
   {
     "fr": "mucus",
@@ -31320,12 +31460,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Ziri a crié « pénis ».",
-      "ar": "صاح زيري بكلمة \"قضيب\".",
-      "en": "Ziri yelled \"penis.\""
-    }
+    ]
   },
   {
     "fr": "phase",
@@ -31334,7 +31469,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "La phase de montée",
+      "ar": "مرحلة الصعود",
+      "en": "Concentric phase"
+    }
   },
   {
     "fr": "pivot",
@@ -31397,7 +31537,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Mise en rayon",
+      "ar": "ترتيب المنتجات على الرفوف",
+      "en": "Stocking shelves"
+    }
   },
   {
     "fr": "rénal",
@@ -31406,7 +31551,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous avez fait votre bilan rénal ?",
+      "ar": "هل أجريت فحص الكلى؟",
+      "en": "Did you do your kidney tests?"
+    }
   },
   {
     "fr": "cotes",
@@ -31433,7 +31583,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Grave ! (عامية)",
+      "ar": "أكيد / جدًا.",
+      "en": "Definitely."
+    }
   },
   {
     "fr": "sérum",
@@ -31451,7 +31606,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Fais-moi signe.",
+      "ar": "أخبرني عندما تحتاج.",
+      "en": "Let me know."
+    }
   },
   {
     "fr": "sinus",
@@ -31471,9 +31631,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "C'est quoi cette odeur ?",
-      "ar": "ما هذه الرائحة؟",
-      "en": "What is that smell?"
+      "fr": "Masquer une odeur",
+      "ar": "يغطي رائحة",
+      "en": "To mask an odor"
     }
   },
   {
@@ -31533,7 +31693,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Il y a une tache ici, est-ce que ça part ?",
+      "ar": "هناك بقعة هنا، هل تزول؟",
+      "en": "There's a stain here, will it come out?"
+    }
   },
   {
     "fr": "strié",
@@ -31574,7 +31739,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous avez ce sirop ?",
+      "ar": "هل لديكم هذا الشراب؟",
+      "en": "Do you have this syrup?"
+    }
   },
   {
     "fr": "tarse",
@@ -31660,7 +31830,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Je me suis tordu la cheville.",
+      "ar": "لويت كاحلي.",
+      "en": "I twisted my ankle."
+    }
   },
   {
     "fr": "urine",
@@ -31669,7 +31844,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai aussi besoin d'un test d'urine.",
+      "ar": "أحتاج أيضاً إلى تحليل بول.",
+      "en": "I also need a urine test."
+    }
   },
   {
     "fr": "vagin",
@@ -31784,9 +31964,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "La consommation d'alcool augmente chaque année.",
-      "ar": "يرتفع تعاطي الكحول سنويا.",
-      "en": "Alcohol consumption is increasing every year."
+      "fr": "Vous buvez de l'alcool ?",
+      "ar": "هل تشرب الكحول؟",
+      "en": "Do you drink alcohol?"
     }
   },
   {
@@ -31873,7 +32053,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "La machine à biceps",
+      "ar": "جهاز البايسبس",
+      "en": "Biceps machine"
+    }
   },
   {
     "fr": "relier",
@@ -31945,7 +32130,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que c'est un cancer ?",
+      "ar": "هل هو سرطان؟",
+      "en": "Is it cancer?"
+    }
   },
   {
     "fr": "canine",
@@ -32098,7 +32288,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Le gel douche",
+      "ar": "جل الاستحمام",
+      "en": "Shower gel"
+    }
   },
   {
     "fr": "noyade",
@@ -32139,7 +32334,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Le stock est épuisé.",
+      "ar": "المخزون نفد.",
+      "en": "The stock is empty."
+    }
   },
   {
     "fr": "orbite",
@@ -32175,7 +32375,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Je cherche de la farine et du riz.",
+      "ar": "أبحث عن طحين وأرز.",
+      "en": "I'm looking for flour and rice."
+    }
   },
   {
     "fr": "fécule",
@@ -32195,9 +32400,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Tu n'as pas de fièvre.",
-      "ar": "ليس لديك أي حمى.",
-      "en": "You don't have a fever."
+      "fr": "J'ai de la fièvre.",
+      "ar": "لدي حرارة.",
+      "en": "I have a fever."
     }
   },
   {
@@ -32378,7 +32583,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Le levier de vitesse",
+      "ar": "عصا ناقل السرعة",
+      "en": "Gear stick"
+    }
   },
   {
     "fr": "lobule",
@@ -32434,9 +32644,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Ne mange pas de viande !",
-      "ar": "لا تأكلي اللحم!",
-      "en": "Don't eat meat!"
+      "fr": "Le rayon viande",
+      "ar": "قسم اللحوم",
+      "en": "Meat section"
     }
   },
   {
@@ -32455,7 +32665,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Le rowing travaille le milieu du dos.",
+      "ar": "التجديف يعمل وسط الظهر.",
+      "en": "The seated row works the middle back."
+    }
   },
   {
     "fr": "mitral",
@@ -32482,7 +32697,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "J’ai pris du muscle ?",
+      "ar": "هل زادت عضلاتي؟",
+      "en": "Did I gain muscle?"
+    }
   },
   {
     "fr": "mycose",
@@ -32527,7 +32747,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Être normal",
+      "ar": "يكون طبيعيًا",
+      "en": "To be normal"
+    }
   },
   {
     "fr": "narine",
@@ -32635,7 +32860,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai une plaque métallique dans la jambe.",
+      "ar": "لديّ صفيحة معدنية في ساقي.",
+      "en": "I have a metal plate in my leg."
+    }
   },
   {
     "fr": "plasma",
@@ -32752,7 +32982,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "L'alcool réduit les réflexes.",
+      "ar": "الكحول يقلل ردود الفعل.",
+      "en": "Alcohol reduces reflexes."
+    }
   },
   {
     "fr": "région",
@@ -32826,9 +33061,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Il posa sa main sur mon épaule.",
-      "ar": "وضع يده على كتفي.",
-      "en": "He rested his hand on my shoulder."
+      "fr": "J’ai mal à l’épaule.",
+      "ar": "كتفي يؤلمني.",
+      "en": "My shoulder hurts."
     }
   },
   {
@@ -32996,7 +33231,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Non, un hémangiome hépatique est une tumeur bénigne, ce n'est pas un cancer.",
+      "ar": "لا، الورم الوعائي الكبدي ورم حميد وليس سرطانًا.",
+      "en": "No, a hepatic hemangioma is a benign tumor, not cancer."
+    }
   },
   {
     "fr": "jumeau",
@@ -33023,7 +33263,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Un ulcère duodénal",
+      "ar": "قرحة الاثني عشر.",
+      "en": "Duodenal ulcer."
+    }
   },
   {
     "fr": "urémie",
@@ -33095,7 +33340,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai le ventre gonflé.",
+      "ar": "بطني منتفخ.",
+      "en": "My stomach is bloated."
+    }
   },
   {
     "fr": "verrue",
@@ -33122,7 +33372,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Tu as pris du volume.",
+      "ar": "زادت كتلتك العضلية.",
+      "en": "You gained size."
+    }
   },
   {
     "fr": "cireux",
@@ -33316,7 +33571,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Sentir une brûlure",
+      "ar": "يشعر بحرقة",
+      "en": "To feel burning"
+    }
   },
   {
     "fr": "cadavre",
@@ -33561,9 +33821,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "J'ai mis le combiné du téléphone près de mon oreille.",
-      "ar": "وضعت السماعة قريبا من أذني",
-      "en": "I put the receiver to my ear."
+      "fr": "Le bouche-à-oreille fonctionne très bien.",
+      "ar": "الترويج الشفهي فعّال جداً.",
+      "en": "Word of mouth works very well."
     }
   },
   {
@@ -33620,9 +33880,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Le corps transforme les calories superflues en graisse.",
-      "ar": "يحول الجسم السعرات الحرارية الزائدة إلى شحم.",
-      "en": "The body converts extra calories into fat."
+      "fr": "Le pourcentage de graisse",
+      "ar": "نسبة الدهون",
+      "en": "Body fat percentage"
     }
   },
   {
@@ -33736,7 +33996,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Il peut parfois évoluer légèrement, mais il reste généralement stable.",
+      "ar": "قد يتغير قليلًا أحيانًا لكنه يبقى غالبًا مستقرًا.",
+      "en": "It can sometimes change slightly but usually remains stable."
+    }
   },
   {
     "fr": "fléchir",
@@ -33817,7 +34082,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "La gencive cicatrise bien.",
+      "ar": "اللثة تلتئم جيدًا.",
+      "en": "The gum is healing well."
+    }
   },
   {
     "fr": "marteau",
@@ -33944,7 +34214,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Je digère mal le lactose.",
+      "ar": "لا أهضم اللاكتوز جيدًا.",
+      "en": "I don’t digest lactose well."
+    }
   },
   {
     "fr": "lamelle",
@@ -33989,7 +34264,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Avez-vous un laxatif doux ?",
+      "ar": "هل لديكم ملين خفيف؟",
+      "en": "Do you have a mild laxative?"
+    }
   },
   {
     "fr": "lumière",
@@ -34012,7 +34292,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Respecte les autres membres.",
+      "ar": "احترم الأعضاء الآخرين.",
+      "en": "Respect other members."
+    }
   },
   {
     "fr": "limpide",
@@ -34102,7 +34387,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Bilan médical",
+      "ar": "فحص/تقييم طبي.",
+      "en": "Medical check-up."
+    }
   },
   {
     "fr": "médecin",
@@ -34113,9 +34403,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Il est médecin.",
-      "ar": "هو طبيب.",
-      "en": "He's a doctor."
+      "fr": "Médecin généraliste",
+      "ar": "طبيب عام.",
+      "en": "General practitioner."
     }
   },
   {
@@ -34242,7 +34532,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Quel jour passe le camion des ordures ?",
+      "ar": "في أي يوم تمرّ شاحنة القمامة؟",
+      "en": "Which day does the rubbish truck come?"
+    }
   },
   {
     "fr": "orifice",
@@ -34530,7 +34825,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "C’est en rupture de stock.",
+      "ar": "نفد من المخزون.",
+      "en": "It’s out of stock."
+    }
   },
   {
     "fr": "salubre",
@@ -34566,7 +34866,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Les ciseaux",
+      "ar": "المقصات",
+      "en": "Scissors"
+    }
   },
   {
     "fr": "scorbut",
@@ -34715,7 +35020,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous avez des brûlures derrière le sternum ?",
+      "ar": "هل لديك حرقة خلف عظمة الصدر؟",
+      "en": "Do you have burning behind the breastbone?"
+    }
   },
   {
     "fr": "estomac",
@@ -34724,7 +35034,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Brûlures d'estomac",
+      "ar": "حرقة المعدة.",
+      "en": "Heartburn."
+    }
   },
   {
     "fr": "entorse",
@@ -34778,7 +35093,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Quelle est la surface de l'appartement ?",
+      "ar": "ما مساحة الشقة؟",
+      "en": "What is the size of the apartment?"
+    }
   },
   {
     "fr": "suspect",
@@ -34787,7 +35107,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "un appel suspect",
+      "ar": "مكالمة مشبوهة",
+      "en": "A suspicious call"
+    }
   },
   {
     "fr": "synapse",
@@ -34850,7 +35175,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Tolérer un médicament",
+      "ar": "يتحمل دواء",
+      "en": "To tolerate a medication"
+    }
   },
   {
     "fr": "tonique",
@@ -34899,9 +35229,9 @@ window.VOCAB_DATA_BATCH2 = [
       "redcross"
     ],
     "ex": {
-      "fr": "Tu as raison.",
-      "ar": "عندك حق.",
-      "en": "You're correct."
+      "fr": "As-tu un père ?",
+      "ar": "ألديك أب؟",
+      "en": "Do you have a father?"
     }
   },
   {
@@ -34989,9 +35319,9 @@ window.VOCAB_DATA_BATCH2 = [
       "redcross"
     ],
     "ex": {
-      "fr": "Où est ta chambre ?",
-      "ar": "أين غرفتك؟",
-      "en": "Where is your room?"
+      "fr": "Ta sœur ne sait-elle pas nager ?",
+      "ar": "ألا تعرف أختك السباحة؟",
+      "en": "Doesn't your sister know how to swim?"
     }
   },
   {
@@ -35092,7 +35422,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai une toux sèche.",
+      "ar": "لدي سعال جاف.",
+      "en": "I have a dry cough."
+    }
   },
   {
     "fr": "lime",
@@ -35222,7 +35557,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Quel est le salaire brut et le salaire net ?",
+      "ar": "ما الراتب الإجمالي وما الصافي؟",
+      "en": "What is the gross and the net salary?"
+    }
   },
   {
     "fr": "talc",
@@ -35312,7 +35652,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Non, un hémangiome bénin ne devient pas un cancer.",
+      "ar": "لا، الورم الوعائي الحميد لا يتحول إلى سرطان.",
+      "en": "No, a benign hemangioma does not become cancer."
+    }
   },
   {
     "fr": "bolus",
@@ -35352,7 +35697,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Merci beaucoup pour vos soins.",
+      "ar": "شكراً جزيلاً على العلاج.",
+      "en": "Thank you very much for your care."
+    }
   },
   {
     "fr": "crème",
@@ -35362,7 +35712,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Avez-vous une crème anti-inflammatoire ?",
+      "ar": "هل لديكم كريم مضاد للالتهاب؟",
+      "en": "Do you have an anti-inflammatory cream?"
+    }
   },
   {
     "fr": "curie",
@@ -35447,7 +35802,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "C'est exactement le genre de musique que j'apprécie.",
+      "ar": "هذا بالضبط نوع الموسيقى التي أحبها.",
+      "en": "This is exactly the kind of music I enjoy."
+    }
   },
   {
     "fr": "germe",
@@ -35547,7 +35907,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Quelle pompe est pour le sans-plomb 95 ?",
+      "ar": "أي مضخة للبنزين 95؟",
+      "en": "Which pump is unleaded 95?"
+    }
   },
   {
     "fr": "lèpre",
@@ -35577,7 +35942,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais créer une micro-entreprise.",
+      "ar": "أريد إنشاء مشروع صغير (micro-entreprise).",
+      "en": "I would like to set up a micro-enterprise."
+    }
   },
   {
     "fr": "myose",
@@ -35797,7 +36167,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Je choisis cette marque.",
+      "ar": "أختار هذه الماركة.",
+      "en": "I choose this brand."
+    }
   },
   {
     "fr": "brosse",
@@ -35807,7 +36182,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Changer (de brosse à dents)",
+      "ar": "تغيير (فرشاة الأسنان)",
+      "en": "To change (toothbrush)"
+    }
   },
   {
     "fr": "butane",
@@ -36007,7 +36387,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Il faut changer l'huile et le filtre.",
+      "ar": "يجب تغيير الزيت والفلتر.",
+      "en": "The oil and filter need changing."
+    }
   },
   {
     "fr": "joints",
@@ -36042,7 +36427,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous l'avez en sachets ou en flacon ?",
+      "ar": "هل لديكم الأكياس أم الزجاجة؟",
+      "en": "Do you have it in sachets or as a bottle?"
+    }
   },
   {
     "fr": "saveur",
@@ -36172,7 +36562,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Je veux augmenter mon apport en protéines.",
+      "ar": "أريد زيادة كمية البروتين.",
+      "en": "I want to increase my protein intake."
+    }
   },
   {
     "fr": "kaolin",
@@ -36264,9 +36659,9 @@ window.VOCAB_DATA_BATCH2 = [
       "redcross"
     ],
     "ex": {
-      "fr": "Je reste à l'hôtel pour le moment.",
-      "ar": "سأبقى في الفندق حاليا.",
-      "en": "For now, I will wait at the hotel."
+      "fr": "Tu peux m'aider un moment ?",
+      "ar": "هل يمكنك مساعدتي قليلًا؟",
+      "en": "Can you help me for a moment?"
     }
   },
   {
@@ -36349,9 +36744,9 @@ window.VOCAB_DATA_BATCH2 = [
       "redcross"
     ],
     "ex": {
-      "fr": "Le Premier Ministre tiendra une conférence de presse demain.",
-      "ar": "رئيس الوزراء سوف يعقد غدا مؤتمرا صحفيا.",
-      "en": "The Prime Minister will hold a press conference tomorrow."
+      "fr": "La presse à jambes",
+      "ar": "جهاز ضغط الأرجل",
+      "en": "Leg press"
     }
   },
   {
@@ -36572,7 +36967,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Combien coûte le lavage d'une couverture ?",
+      "ar": "كم يكلّف غسل بطانية؟",
+      "en": "How much does washing a blanket cost?"
+    }
   },
   {
     "fr": "laveur",
@@ -36622,7 +37022,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Il sert à diminuer l'acidité de l'estomac.",
+      "ar": "يُستخدم لتقليل حمض المعدة.",
+      "en": "It is used to reduce stomach acid."
+    }
   },
   {
     "fr": "adénine",
@@ -37122,7 +37527,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Je préfère un remboursement, pas un échange.",
+      "ar": "أفضّل استرداد المال، لا التبديل.",
+      "en": "I'd prefer a refund, not an exchange."
+    }
   },
   {
     "fr": "extrait",
@@ -37132,7 +37542,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais aussi un extrait d'acte de naissance.",
+      "ar": "أريد أيضاً مستخرج شهادة ميلاد.",
+      "en": "I would also like a birth certificate extract."
+    }
   },
   {
     "fr": "faraday",
@@ -37152,7 +37567,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Les volets ne se ferment plus.",
+      "ar": "المصاريع لا تُغلق.",
+      "en": "The shutters won't close anymore."
+    }
   },
   {
     "fr": "filtrat",
@@ -37182,7 +37602,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais changer de formule.",
+      "ar": "أريد تغيير نوع الاشتراك.",
+      "en": "I would like to change my plan."
+    }
   },
   {
     "fr": "friable",
@@ -37282,7 +37707,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Combien coûte un implant ?",
+      "ar": "كم تكلفة زراعة السن؟",
+      "en": "How much does a dental implant cost?"
+    }
   },
   {
     "fr": "iridium",
@@ -37627,7 +38057,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Ajouter un patient",
+      "ar": "إضافة مريض.",
+      "en": "Add a patient."
+    }
   },
   {
     "fr": "photons",
@@ -37907,7 +38342,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Détecter une anomalie",
+      "ar": "يكشف خللًا",
+      "en": "To detect an abnormality"
+    }
   },
   {
     "fr": "abrasion",
@@ -37987,7 +38427,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai une allergie.",
+      "ar": "لدي حساسية.",
+      "en": "I have an allergy."
+    }
   },
   {
     "fr": "alloxane",
@@ -38067,7 +38512,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "L'antigène HBs (Ag HBs)",
+      "ar": "مستضد سطح فيروس B.",
+      "en": "HBs antigen."
+    }
   },
   {
     "fr": "apolaire",
@@ -38089,9 +38539,9 @@ window.VOCAB_DATA_BATCH2 = [
       "redcross"
     ],
     "ex": {
-      "fr": "Cet appareil produit de l'électricité.",
-      "ar": "هذا الجهاز يولد الكهرباء.",
-      "en": "This device produces electricity."
+      "fr": "Je porte un appareil dentaire.",
+      "ar": "أرتدي تقويم أسنان.",
+      "en": "I wear braces."
     }
   },
   {
@@ -38182,7 +38632,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Attraper une bactérie",
+      "ar": "يصاب ببكتيريا",
+      "en": "To catch bacteria"
+    }
   },
   {
     "fr": "basicité",
@@ -38222,7 +38677,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que le bouillon est à base de viande ?",
+      "ar": "هل المرق مصنوع من اللحم؟",
+      "en": "Is the stock meat-based?"
+    }
   },
   {
     "fr": "Brucella",
@@ -38422,7 +38882,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Détecter (une carie)",
+      "ar": "يكشف (تسوسًا)",
+      "en": "To detect (a cavity)"
+    }
   },
   {
     "fr": "diathèse",
@@ -38622,7 +39087,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Une gastrite",
+      "ar": "التهاب المعدة.",
+      "en": "Gastritis."
+    }
   },
   {
     "fr": "gélatine",
@@ -38632,7 +39102,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'il y a de la gélatine de porc dedans ?",
+      "ar": "هل يوجد جيلاتين خنزير فيه؟",
+      "en": "Does it contain pork gelatine?"
+    }
   },
   {
     "fr": "génotype",
@@ -38702,12 +39177,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "halogène",
@@ -38727,12 +39197,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ],
-    "ex": {
-      "fr": "Cette eau a bon goût.",
-      "ar": "مذاق هذا الماء طيب.",
-      "en": "This water tastes good."
-    }
+    ]
   },
   {
     "fr": "hémolyse",
@@ -38762,7 +39227,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ]
+    ],
+    "ex": {
+      "fr": "Hépatite B chronique",
+      "ar": "التهاب الكبد B المزمن",
+      "en": "Chronic hepatitis B"
+    }
   },
   {
     "fr": "homogène",
@@ -38832,12 +39302,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "health",
       "redcross"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "infusion",
@@ -39167,7 +39632,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Le kit de test respiratoire",
+      "ar": "كيت فحص التنفس",
+      "en": "Breath test kit"
+    }
   },
   {
     "fr": "tri",
@@ -39199,9 +39669,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Il a laissé un mot.",
-      "ar": "ترك كلمة.",
-      "en": "He left a note."
+      "fr": "Mot de passe",
+      "ar": "كلمة المرور",
+      "en": "Password"
     }
   },
   {
@@ -39222,7 +39692,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai perdu du gras.",
+      "ar": "خسرت دهونًا.",
+      "en": "I lost fat."
+    }
   },
   {
     "fr": "pont",
@@ -39259,9 +39734,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Je l'aide.",
-      "ar": "أساعده.",
-      "en": "I'm helping her out."
+      "fr": "Aide-moi à la remettre.",
+      "ar": "ساعدني على إعادتها.",
+      "en": "Help me put it back."
     }
   },
   {
@@ -39307,7 +39782,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Avez-vous un site officiel ?",
+      "ar": "هل لديكم موقع رسمي؟",
+      "en": "Do you have an official website?"
+    }
   },
   {
     "fr": "flux",
@@ -39342,7 +39822,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que je dois déclarer zéro ?",
+      "ar": "هل يجب أن أصرّح بصفر؟",
+      "en": "Do I need to declare zero?"
+    }
   },
   {
     "fr": "zoom",
@@ -39412,7 +39897,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "La barre EZ",
+      "ar": "بار EZ",
+      "en": "EZ bar"
+    }
   },
   {
     "fr": "boîte",
@@ -39424,9 +39914,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "La boîte à sucre est vide.",
-      "ar": "وعاء السکر فارغ.",
-      "en": "The sugar canister is empty."
+      "fr": "Ferme la boîte.",
+      "ar": "أغلق العلبة.",
+      "en": "Close the box."
     }
   },
   {
@@ -39439,9 +39929,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Le téléphone est en panne, Monsieur Tamori.",
-      "ar": "الهاتف معطل يا السيد تاموري.",
-      "en": "The telephone is out of order, Mr Tamori."
+      "fr": "La machine est en panne.",
+      "ar": "الآلة معطلة.",
+      "en": "The machine is broken."
     }
   },
   {
@@ -39547,7 +40037,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "C'est un objet très léger.",
+      "ar": "هذا جسم خفيف جداً.",
+      "en": "This is a very light object."
+    }
   },
   {
     "fr": "patch",
@@ -39612,7 +40107,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Cet exercice cible les pectoraux.",
+      "ar": "هذا التمرين يستهدف عضلات الصدر.",
+      "en": "This exercise targets the chest."
+    }
   },
   {
     "fr": "tilde",
@@ -39754,9 +40254,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Est-ce le bureau de Tom Jackson ?",
-      "ar": "هل هذا مكتب توم جاكسون؟",
-      "en": "Is this Tom Jackson's office?"
+      "fr": "Où est le bureau de change ?",
+      "ar": "أين مكتب الصرافة؟",
+      "en": "Where is the currency exchange office?"
     }
   },
   {
@@ -39807,7 +40307,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "J'adopte une conduite souple.",
+      "ar": "أقود بطريقة سلسة.",
+      "en": "I drive smoothly."
+    }
   },
   {
     "fr": "gopher",
@@ -39882,7 +40387,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Il manque un bouton à cette chemise.",
+      "ar": "ينقص زر في هذا القميص.",
+      "en": "This shirt is missing a button."
+    }
   },
   {
     "fr": "maigre",
@@ -39912,7 +40422,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je reste maître de mon véhicule.",
+      "ar": "أبقى مسيطرًا على سيارتي.",
+      "en": "I remain in control of my vehicle."
+    }
   },
   {
     "fr": "coller",
@@ -39932,7 +40447,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que le covoiturage est fiable ?",
+      "ar": "هل مشاركة السيارة موثوقة؟",
+      "en": "Is car sharing reliable?"
+    }
   },
   {
     "fr": "racine",
@@ -39942,7 +40462,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "La racine est touchée.",
+      "ar": "الجذر متضرر.",
+      "en": "The root is affected."
+    }
   },
   {
     "fr": "taille",
@@ -39952,7 +40477,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Quelle est sa taille ?",
+      "ar": "ما حجمه؟",
+      "en": "What is its size?"
+    }
   },
   {
     "fr": "source",
@@ -39962,7 +40492,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Il faut traiter le problème à la source.",
+      "ar": "يجب علاج المشكلة من مصدرها.",
+      "en": "The problem must be treated at its source."
+    }
   },
   {
     "fr": "étoile",
@@ -40062,7 +40597,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Faites une marche arrière.",
+      "ar": "قم بالرجوع للخلف.",
+      "en": "Reverse."
+    }
   },
   {
     "fr": "effacer",
@@ -40187,7 +40727,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai de l'expérience dans ce domaine.",
+      "ar": "لديّ خبرة في هذا المجال.",
+      "en": "I have experience in this field."
+    }
   },
   {
     "fr": "édition",
@@ -40227,12 +40772,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "intégré",
@@ -40277,12 +40817,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Il a laissé un mot.",
-      "ar": "ترك كلمة.",
-      "en": "He left a note."
-    }
+    ]
   },
   {
     "fr": "langage",
@@ -40302,7 +40837,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Charger la barre",
+      "ar": "وضع أوزان على البار",
+      "en": "Load the bar"
+    }
   },
   {
     "fr": "message",
@@ -40314,9 +40854,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Tom m'a laissé une message.",
-      "ar": "ترك لي توم رسالة.",
-      "en": "Tom left me a message."
+      "fr": "Lire le message",
+      "ar": "قراءة الرسالة.",
+      "en": "Read the message."
     }
   },
   {
@@ -40367,7 +40907,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je vais le refaire.",
+      "ar": "سأعيده.",
+      "en": "I’ll do it again."
+    }
   },
   {
     "fr": "version",
@@ -40377,7 +40922,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je préfère la version la plus simple.",
+      "ar": "أفضل النسخة الأبسط.",
+      "en": "I prefer the simplest version."
+    }
   },
   {
     "fr": "relance",
@@ -40387,7 +40937,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je vous relance concernant votre demande.",
+      "ar": "أتواصل معك مجددًا بخصوص طلبك.",
+      "en": "I will follow up with you regarding your request."
+    }
   },
   {
     "fr": "routeur",
@@ -40417,7 +40972,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Êtes-vous conventionné secteur 1 ?",
+      "ar": "هل أنتم قطاع 1؟",
+      "en": "Are you in sector 1?"
+    }
   },
   {
     "fr": "émettre",
@@ -40492,7 +41052,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Comment est-ce que je contacte le support ?",
+      "ar": "كيف أتواصل مع الدعم؟",
+      "en": "How do I contact support?"
+    }
   },
   {
     "fr": "textuel",
@@ -40692,7 +41257,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Prépare le matériel.",
+      "ar": "جهّز المواد.",
+      "en": "Prepare the materials."
+    }
   },
   {
     "fr": "incident",
@@ -40702,7 +41272,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Le tram est bloqué, il y a un incident.",
+      "ar": "الترام متوقف، هناك حادث.",
+      "en": "The tram is stuck, there's an incident."
+    }
   },
   {
     "fr": "invalide",
@@ -40722,7 +41297,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Marquez la longueur, s'il vous plaît.",
+      "ar": "علّم الطول، من فضلك.",
+      "en": "Please mark the length."
+    }
   },
   {
     "fr": "parasite",
@@ -40762,7 +41342,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Imprimer l'attestation",
+      "ar": "طباعة الشهادة",
+      "en": "Print the certificate"
+    }
   },
   {
     "fr": "priorité",
@@ -40772,7 +41357,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Fin de priorité.",
+      "ar": "نهاية الأولوية.",
+      "en": "End of priority."
+    }
   },
   {
     "fr": "relation",
@@ -40792,7 +41382,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Détruire un carton",
+      "ar": "إتلاف/تكسير الكرتون.",
+      "en": "Destroy a carton."
+    }
   },
   {
     "fr": "ensemble",
@@ -40802,7 +41397,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "On va se motiver ensemble.",
+      "ar": "سنشجع بعضنا.",
+      "en": "We’ll motivate each other."
+    }
   },
   {
     "fr": "partager",
@@ -40839,9 +41439,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Le génie logiciel est la discipline qui permet de concevoir, développer et maintenir des logiciels de qualité.",
-      "ar": "هندسة البرمجيات هي التخصص الذي يهدف إلى تصميم وتطوير وصيانة برمجيات عالية الجودة.",
-      "en": "Software engineering is the discipline of designing, developing, and maintaining high-quality software."
+      "fr": "Quel logiciel me conseillez-vous ?",
+      "ar": "بأي برنامج تنصحني؟",
+      "en": "Which software do you recommend?"
     }
   },
   {
@@ -40912,7 +41512,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Pouvez-vous confirmer la réception de la facture ?",
+      "ar": "هل يمكنكم تأكيد استلام الفاتورة؟",
+      "en": "Can you confirm receipt of the invoice?"
+    }
   },
   {
     "fr": "analyseur",
@@ -41012,7 +41617,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Maintenez une vitesse constante.",
+      "ar": "حافظ على سرعة ثابتة.",
+      "en": "Maintain a steady speed."
+    }
   },
   {
     "fr": "consulter",
@@ -41022,7 +41632,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Consulter le détail",
+      "ar": "عرض التفاصيل",
+      "en": "View the details"
+    }
   },
   {
     "fr": "contraste",
@@ -41062,7 +41677,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Mon compte a été désactivé, pourquoi ?",
+      "ar": "تم تعطيل حسابي، لماذا؟",
+      "en": "My account was deactivated, why?"
+    }
   },
   {
     "fr": "émulation",
@@ -41092,7 +41712,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "À quelle fréquence je dois me peser ?",
+      "ar": "كم مرة يجب أن أزن نفسي؟",
+      "en": "How often should I weigh myself?"
+    }
   },
   {
     "fr": "graphisme",
@@ -41152,7 +41777,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Connexion sécurisée",
+      "ar": "اتصال آمن.",
+      "en": "Secure connection."
+    }
   },
   {
     "fr": "ouverture",
@@ -41162,7 +41792,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Quels sont vos horaires d'ouverture ?",
+      "ar": "ما هي ساعات العمل عندكم؟",
+      "en": "What are your opening hours?"
+    }
   },
   {
     "fr": "minuscule",
@@ -41217,7 +41852,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Quel est le meilleur moyen, la banque ou un service de transfert ?",
+      "ar": "ما الأفضل، البنك أم شركة تحويل؟",
+      "en": "Which is better, the bank or a transfer service?"
+    }
   },
   {
     "fr": "nouvelles",
@@ -41242,12 +41882,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "opérateur",
@@ -41257,7 +41892,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "L'opérateur de production",
+      "ar": "عامل الإنتاج",
+      "en": "Production operator"
+    }
   },
   {
     "fr": "progiciel",
@@ -41287,12 +41927,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Répondez-moi.",
-      "ar": "أجبني",
-      "en": "Answer me."
-    }
+    ]
   },
   {
     "fr": "récepteur",
@@ -41312,7 +41947,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Récupérer des points.",
+      "ar": "استعادة النقاط.",
+      "en": "Recover points."
+    }
   },
   {
     "fr": "redondant",
@@ -41332,7 +41972,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Remplacer une brosse à dents",
+      "ar": "يستبدل فرشاة الأسنان",
+      "en": "To replace a toothbrush"
+    }
   },
   {
     "fr": "exigences",
@@ -41452,7 +42097,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Actualiser son CV",
+      "ar": "يحدّث السيرة الذاتية",
+      "en": "To update one's CV"
+    }
   },
   {
     "fr": "déclencher",
@@ -41512,7 +42162,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Non, je le supporte bien. Je n'ai pas d'effet secondaire particulier.",
+      "ar": "لا، أتحمله جيدًا. ليس لدي آثار جانبية خاصة.",
+      "en": "No, I tolerate it well. I don't have any particular side effects."
+    }
   },
   {
     "fr": "livre bleu",
@@ -41522,12 +42177,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Lis ce livre.",
-      "ar": "اطلع على هذا الكتاب.",
-      "en": "Read this book."
-    }
+    ]
   },
   {
     "fr": "en service",
@@ -41537,12 +42187,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "connecteur",
@@ -41582,7 +42227,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je veux désactiver cette option.",
+      "ar": "أريد إلغاء تفعيل هذا الخيار.",
+      "en": "I want to disable this option."
+    }
   },
   {
     "fr": "temps mort",
@@ -41592,12 +42242,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Mort au roi !",
-      "ar": "الموت لالملك!",
-      "en": "Death to the king!"
-    }
+    ]
   },
   {
     "fr": "décryptage",
@@ -41637,12 +42282,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Dans son essai « l'Espéranto  : langue européenne ou asiatique », Claude Piron a montré les similitudes entre l'espéranto et le chinois, mettant à bas la conception que l'espéranto serait purement eurocentrique.",
-      "ar": "عرض كلاود بيرون في مقالته \"الإسبرانتو: لغة أوروبية أم آسيوية\" التشابهات بين الإسبرانتو والصينية، مميتا بذلك فكرة كون الإسبرانتو أوروبية خالصة.",
-      "en": "In his essay \"Esperanto: European or Asiatic language\" Claude Piron has shown the similarities between Esperanto and Chinese, thereby putting to rest the notion that Esperanto is purely eurocentric."
-    }
+    ]
   },
   {
     "fr": "dispositif",
@@ -41692,7 +42332,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Rechercher un emploi",
+      "ar": "البحث عن عمل",
+      "en": "Look for a job"
+    }
   },
   {
     "fr": "avant-plan",
@@ -41702,12 +42347,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Il hésita avant de répondre.",
-      "ar": "لقد تردد قبل الإجابة.",
-      "en": "He hesitated before answering."
-    }
+    ]
   },
   {
     "fr": "formulaire",
@@ -41719,9 +42359,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "S'il vous plaît, remplissez ce formulaire.",
-      "ar": "من فضلك إملأ هذه الاستمارة.",
-      "en": "Please fill in this form."
+      "fr": "Il faut remplir ce formulaire.",
+      "ar": "يجب ملء هذه الاستمارة.",
+      "en": "You need to fill out this form."
     }
   },
   {
@@ -41792,12 +42432,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Écrivez votre adresse ici.",
-      "ar": "اكتب عنوانك هنا.",
-      "en": "Write your address here."
-    }
+    ]
   },
   {
     "fr": "mode local",
@@ -41847,12 +42482,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "J'aime ma mère.",
-      "ar": "أحب والدتي.",
-      "en": "I love my mum."
-    }
+    ]
   },
   {
     "fr": "multitâche",
@@ -41882,12 +42512,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Il a mis toutes ses forces pour ramper hors de la voiture écrasée.",
-      "ar": "جمع كل قواه ليزحف خارج السيارة المحطمة.",
-      "en": "He used all his strength to crawl out of the wrecked car."
-    }
+    ]
   },
   {
     "fr": "compresser",
@@ -41927,7 +42552,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "J’ai l’impression de stagner.",
+      "ar": "أشعر أن تقدمي توقف.",
+      "en": "I feel like I’m plateauing."
+    }
   },
   {
     "fr": "traitement",
@@ -41937,7 +42567,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Prendre un traitement",
+      "ar": "يأخذ علاجًا",
+      "en": "To take treatment"
+    }
   },
   {
     "fr": "port série",
@@ -41957,7 +42592,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "A : Tu as déjà un abonnement ?",
+      "ar": "هل لديك اشتراك مسبقًا؟",
+      "en": "Do you already have a membership?"
+    }
   },
   {
     "fr": "tabulation",
@@ -42047,7 +42687,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "L'application plante souvent.",
+      "ar": "التطبيق يتعطل كثيراً.",
+      "en": "The app crashes often."
+    }
   },
   {
     "fr": "carte audio",
@@ -42057,12 +42702,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Puis-je payer par carte de crédit ?",
-      "ar": "أيمكنني الدفع عن طريق بطاقة الإئتمان؟",
-      "en": "May I pay with a credit card?"
-    }
+    ]
   },
   {
     "fr": "automatique",
@@ -42072,7 +42712,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Bonjour, ceci est un message automatique.",
+      "ar": "مرحبًا، هذه رسالة آلية.",
+      "en": "Hello, this is an automated message."
+    }
   },
   {
     "fr": "automatisme",
@@ -42172,12 +42817,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "La pièce est vide.",
-      "ar": "الغرفة فارغة.",
-      "en": "The room is empty."
-    }
+    ]
   },
   {
     "fr": "échappement",
@@ -42237,7 +42877,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Choisissez un emplacement.",
+      "ar": "اختر مكانًا.",
+      "en": "Choose a spot."
+    }
   },
   {
     "fr": "nanoseconde",
@@ -42317,12 +42962,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Lis ce livre.",
-      "ar": "اطلع على هذا الكتاب.",
-      "en": "Read this book."
-    }
+    ]
   },
   {
     "fr": "relationnel",
@@ -42342,12 +42982,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Il a laissé un mot.",
-      "ar": "ترك كلمة.",
-      "en": "He left a note."
-    }
+    ]
   },
   {
     "fr": "restitution",
@@ -42387,12 +43022,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "superviseur",
@@ -42422,12 +43052,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "télématique",
@@ -42447,12 +43072,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Notre avenir est en jeu.",
-      "ar": "مستقبلنا على المحك.",
-      "en": "Our future is at stake."
-    }
+    ]
   },
   {
     "fr": "en chantier",
@@ -42462,12 +43082,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "non détecté",
@@ -42477,12 +43092,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Non !",
-      "ar": "لا!",
-      "en": "Nope!"
-    }
+    ]
   },
   {
     "fr": "non protégé",
@@ -42492,12 +43102,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Non !",
-      "ar": "لا!",
-      "en": "Nope!"
-    }
+    ]
   },
   {
     "fr": "utilisateur",
@@ -42517,12 +43122,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Lis ce livre.",
-      "ar": "اطلع على هذا الكتاب.",
-      "en": "Read this book."
-    }
+    ]
   },
   {
     "fr": "consultation",
@@ -42532,7 +43132,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Consultation de suivi",
+      "ar": "زيارة متابعة.",
+      "en": "Follow-up appointment."
+    }
   },
   {
     "fr": "ad. Rotation",
@@ -42582,12 +43187,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Il a expliqué l'objectif principal de ce plan.",
-      "ar": "فسر الهدف الرئيسي لهذا المخطط",
-      "en": "He explained the plan's main objective."
-    }
+    ]
   },
   {
     "fr": "envoi en BCC",
@@ -42597,12 +43197,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "enchaînement",
@@ -42662,12 +43257,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Il a mis toutes ses forces pour ramper hors de la voiture écrasée.",
-      "ar": "جمع كل قواه ليزحف خارج السيارة المحطمة.",
-      "en": "He used all his strength to crawl out of the wrecked car."
-    }
+    ]
   },
   {
     "fr": "ligne dédiée",
@@ -42707,12 +43297,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Le temps est froid.",
-      "ar": "الجو بارد.",
-      "en": "The weather is cold."
-    }
+    ]
   },
   {
     "fr": "fin de texte",
@@ -42722,12 +43307,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "alimentation",
@@ -42737,7 +43317,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "On va adapter votre alimentation.",
+      "ar": "سنعدل نظامك الغذائي.",
+      "en": "We will adjust your diet."
+    }
   },
   {
     "fr": "clignotement",
@@ -42794,9 +43379,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Mon nom est Tom.",
-      "ar": "إسمي توم.",
-      "en": "Tom is my name."
+      "fr": "Nom, prénom, date de naissance.",
+      "ar": "اسم العائلة، الاسم الشخصي، تاريخ الميلاد.",
+      "en": "Surname, first name, date of birth."
     }
   },
   {
@@ -42809,9 +43394,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "À ton tour.",
-      "ar": "إنه دورك.",
-      "en": "It's your turn."
+      "fr": "Ton ami a quitté la ville.",
+      "ar": "غادر صديقك المدينة.",
+      "en": "Your friend left town."
     }
   },
   {
@@ -42842,7 +43427,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Date de versement",
+      "ar": "تاريخ الدفع.",
+      "en": "Payment date."
+    }
   },
   {
     "fr": "coté",
@@ -42937,7 +43527,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je note.",
+      "ar": "سأسجل ذلك.",
+      "en": "I’ll note it."
+    }
   },
   {
     "fr": "rôle",
@@ -42972,7 +43567,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai besoin d'un spot sur cette série.",
+      "ar": "أحتاج مساعدة في هذه المجموعة.",
+      "en": "I need a spot on this set."
+    }
   },
   {
     "fr": "wiki",
@@ -42994,9 +43594,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Pourquoi ne pas faire acte de candidature pour cet emploi ?",
-      "ar": "لماذا لا تتنافس حول هذا العمل؟",
-      "en": "Why not apply for that job?"
+      "fr": "Je voudrais un acte de naissance.",
+      "ar": "أريد شهادة ميلاد.",
+      "en": "I would like a birth certificate."
     }
   },
   {
@@ -43019,9 +43619,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Tom n'a pas peur de mourir.",
-      "ar": "توم لا يخاف من الموت.",
-      "en": "Tom isn't afraid of dying."
+      "fr": "J'ai eu peur.",
+      "ar": "لقد خفت.",
+      "en": "I was scared."
     }
   },
   {
@@ -43052,7 +43652,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Zone de rencontre.",
+      "ar": "منطقة مشاركة الطريق.",
+      "en": "Shared space zone."
+    }
   },
   {
     "fr": "ondes",
@@ -43072,7 +43677,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Regardez l'angle mort.",
+      "ar": "انظر إلى النقطة العمياء.",
+      "en": "Check the blind spot."
+    }
   },
   {
     "fr": "badge",
@@ -43082,7 +43692,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Le lecteur de badge",
+      "ar": "جهاز قراءة البطاقة",
+      "en": "Badge reader"
+    }
   },
   {
     "fr": "clips",
@@ -43112,12 +43727,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Je suis celui dont l'aveugle voit la littérature, et celui dont les mots ont fait ouïr le sourd.",
-      "ar": "أنا الذي نظر الأعمى إلى أدبي/ وأسمعت كلماتي من به صمم",
-      "en": "I am the one whose literature the blind can see, and whose words have made the deaf hear."
-    }
+    ]
   },
   {
     "fr": "décor",
@@ -43167,7 +43777,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Quel est le taux et la durée ?",
+      "ar": "ما النسبة والمدة؟",
+      "en": "What is the rate and the term?"
+    }
   },
   {
     "fr": "folio",
@@ -43209,9 +43824,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Nous avons une pause de 10 h 40 à 11 h 00.",
-      "ar": "وقت استراحتنا يمتد من 10h40 إلى 11h00.",
-      "en": "We have a break from 10:40 to 11:00."
+      "fr": "Prends ta pause.",
+      "ar": "خذ استراحتك.",
+      "en": "Take your break."
     }
   },
   {
@@ -43224,9 +43839,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Il regarde la photo de son ami.",
-      "ar": "ينظر إلى صورة صديقه.",
-      "en": "He is looking at the photo of his friend."
+      "fr": "Voici une photo d'identité.",
+      "ar": "هذه صورة شخصية.",
+      "en": "Here is an ID photo."
     }
   },
   {
@@ -43252,7 +43867,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "La radio a détecté une carie.",
+      "ar": "الأشعة كشفت تسوسًا.",
+      "en": "The X-ray detected a cavity."
+    }
   },
   {
     "fr": "verso",
@@ -43409,9 +44029,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "J'ai perdu ma force.",
-      "ar": "فقدت قواي.",
-      "en": "I've lost my strength."
+      "fr": "Ne force pas.",
+      "ar": "لا تضغط على نفسك.",
+      "en": "Don’t force it."
     }
   },
   {
@@ -43422,7 +44042,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je déclare un oubli de badge.",
+      "ar": "أبلغ عن نسيان تسجيل البطاقة.",
+      "en": "I report a missed badge."
+    }
   },
   {
     "fr": "forum",
@@ -43442,7 +44067,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je demande un geste commercial pour les jours perdus.",
+      "ar": "أطلب تعويضاً عن الأيام المفقودة.",
+      "en": "I'm asking for a goodwill gesture for the lost days."
+    }
   },
   {
     "fr": "input",
@@ -43514,9 +44144,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Le temps est froid.",
-      "ar": "الجو بارد.",
-      "en": "The weather is cold."
+      "fr": "J’ai le temps.",
+      "ar": "لدي وقت.",
+      "en": "I have time."
     }
   },
   {
@@ -43547,7 +44177,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Repose les haltères après usage.",
+      "ar": "أعد الدمبلات بعد الاستخدام.",
+      "en": "Put the dumbbells back after use."
+    }
   },
   {
     "fr": "vague",
@@ -43692,7 +44327,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Il peut parfois avoir un impact, c'est pourquoi nous surveillons la fonction rénale régulièrement.",
+      "ar": "قد يؤثر أحيانًا، لذلك نراقب وظائف الكلى بانتظام.",
+      "en": "It can sometimes have an impact, so we monitor kidney function regularly."
+    }
   },
   {
     "fr": "satire",
@@ -43757,7 +44397,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Excusez-moi, ces places sont libres ?",
+      "ar": "عفواً، هل هذه المقاعد فارغة؟",
+      "en": "Excuse me, are these seats free?"
+    }
   },
   {
     "fr": "podium",
@@ -43787,7 +44432,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Tu suis un programme précis ?",
+      "ar": "هل تتبع برنامجًا محددًا؟",
+      "en": "Do you follow a specific program?"
+    }
   },
   {
     "fr": "rangée",
@@ -43842,7 +44492,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je cherche un studio à louer.",
+      "ar": "أبحث عن استوديو للإيجار.",
+      "en": "I am looking for a studio to rent."
+    }
   },
   {
     "fr": "tomate",
@@ -43864,9 +44519,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Nous l'avons élue capitaine de notre équipe.",
-      "ar": "انتخبناها رئيسة لفريقنا.",
-      "en": "We elected her captain of our team."
+      "fr": "Le chef d'équipe",
+      "ar": "رئيس الفريق",
+      "en": "Team leader"
     }
   },
   {
@@ -43897,7 +44552,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Fais un contrôle visuel.",
+      "ar": "قم بفحص بصري.",
+      "en": "Perform a visual inspection."
+    }
   },
   {
     "fr": "témoin",
@@ -43907,7 +44567,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je suis témoin d'un accident.",
+      "ar": "أنا شاهد على حادث.",
+      "en": "I witness an accident."
+    }
   },
   {
     "fr": "zapper",
@@ -43939,9 +44604,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Je suis d'accord.",
-      "ar": "أوافق.",
-      "en": "I approve."
+      "fr": "D'accord, merci.",
+      "ar": "حسنًا، شكرًا.",
+      "en": "Okay, thank you."
     }
   },
   {
@@ -44184,9 +44849,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Je ne vais dire ceci qu'une seule fois, alors écoute avec attention !",
-      "ar": "سأقوله مرة واحدة فقط، إذن تسمع بعناية",
-      "en": "I'm only going to say this once, so listen carefully."
+      "fr": "Écoute ton corps.",
+      "ar": "استمع إلى جسمك.",
+      "en": "Listen to your body."
     }
   },
   {
@@ -44287,7 +44952,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je touche le RSA.",
+      "ar": "أنا أتلقى RSA.",
+      "en": "I receive RSA."
+    }
   },
   {
     "fr": "énoncé",
@@ -44297,7 +44967,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Lisez bien l'énoncé avant de répondre.",
+      "ar": "اقرأ السؤال جيدًا قبل الإجابة.",
+      "en": "Read the question carefully before answering."
+    }
   },
   {
     "fr": "versus",
@@ -44342,7 +45017,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Où puis-je trouver des annales d'examen ?",
+      "ar": "أين أجد نماذج امتحانات سابقة؟",
+      "en": "Where can I find past exam papers?"
+    }
   },
   {
     "fr": "annonce",
@@ -44352,7 +45032,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Ce panneau annonce un danger.",
+      "ar": "هذه الإشارة تحذر من خطر.",
+      "en": "This sign warns of danger."
+    }
   },
   {
     "fr": "artiste",
@@ -44417,7 +45102,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous devez cliquer sur le lien de confirmation.",
+      "ar": "يجب أن تضغط على رابط التأكيد.",
+      "en": "You need to click the confirmation link."
+    }
   },
   {
     "fr": "couleur",
@@ -44429,9 +45119,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Sa couleur est le rouge.",
-      "ar": "لونه أحمر.",
-      "en": "Its color is red."
+      "fr": "Quelle couleur ?",
+      "ar": "ما لونها؟",
+      "en": "What color?"
     }
   },
   {
@@ -44547,12 +45237,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "kiosque",
@@ -44592,7 +45277,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Pouvez-vous baisser la musique, s'il vous plaît ?",
+      "ar": "هل يمكنك تخفيض الموسيقى، من فضلك؟",
+      "en": "Can you turn the music down, please?"
+    }
   },
   {
     "fr": "meeting",
@@ -44614,9 +45304,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "J'aime écouter de la musique, mais j'aime encore plus en jouer.",
-      "ar": "أحب الاستماع للموسيقى لكني أحب العزف أكثر.",
-      "en": "I like listening to music, and playing music even more."
+      "fr": "La musique est un peu forte, s'il vous plaît.",
+      "ar": "الموسيقى عالية قليلاً، من فضلك.",
+      "en": "The music is a bit loud, please."
     }
   },
   {
@@ -44649,9 +45339,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "L'évolution n'est pas une opinion, c'est un fait.",
-      "ar": "إن التطور ليس رأيا و إنما هو واقع.",
-      "en": "Evolution is not an opinion, it's a fact."
+      "fr": "Je ne partage pas cette opinion.",
+      "ar": "لا أتفق مع هذا الرأي.",
+      "en": "I do not share this opinion."
     }
   },
   {
@@ -44672,7 +45362,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Résultat positif",
+      "ar": "نتيجة إيجابية",
+      "en": "Positive result"
+    }
   },
   {
     "fr": "préface",
@@ -44702,7 +45397,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous avez terminé l'épreuve.",
+      "ar": "لقد أنهيت الاختبار.",
+      "en": "You have finished the test."
+    }
   },
   {
     "fr": "lecteur",
@@ -44712,7 +45412,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Le lecteur de badge",
+      "ar": "جهاز قراءة البطاقة",
+      "en": "Badge reader"
+    }
   },
   {
     "fr": "chanson",
@@ -44817,7 +45522,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Dépêche-toi.",
+      "ar": "أسرع.",
+      "en": "Hurry up."
+    }
   },
   {
     "fr": "rayon X",
@@ -44867,7 +45577,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Toutes mes excuses.",
+      "ar": "كل اعتذاراتي.",
+      "en": "My apologies."
+    }
   },
   {
     "fr": "murmure",
@@ -45087,7 +45802,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Attention à la posture.",
+      "ar": "انتبه للوضعية.",
+      "en": "Watch your posture."
+    }
   },
   {
     "fr": "présent",
@@ -45127,7 +45847,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Merci de votre compréhension et de votre respect.",
+      "ar": "شكراً على تفهّمكم واحترامكم.",
+      "en": "Thank you for your understanding and respect."
+    }
   },
   {
     "fr": "routine",
@@ -45137,7 +45862,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Oui, j’essaie de garder une routine.",
+      "ar": "نعم، أحاول الحفاظ على روتين.",
+      "en": "Yes, I try to keep a routine."
+    }
   },
   {
     "fr": "sexisme",
@@ -45302,7 +46032,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Bulletin de salaire",
+      "ar": "كشف الراتب",
+      "en": "Payslip"
+    }
   },
   {
     "fr": "buzzword",
@@ -45422,7 +46157,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Le traitement est efficace.",
+      "ar": "العلاج فعال.",
+      "en": "The treatment is effective."
+    }
   },
   {
     "fr": "en clair",
@@ -45432,12 +46172,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "manequin",
@@ -45507,7 +46242,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai reçu un courrier de la CAF.",
+      "ar": "استلمت رسالة من CAF.",
+      "en": "I received a letter from CAF."
+    }
   },
   {
     "fr": "original",
@@ -45639,9 +46379,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "C'était la première fois pour moi aussi.",
-      "ar": "كانت أول مرة بالنسبة لي كذلك.",
-      "en": "It was my first time, too."
+      "fr": "Première consultation",
+      "ar": "أول زيارة.",
+      "en": "First consultation."
     }
   },
   {
@@ -45682,12 +46422,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "C'est son ami.",
-      "ar": "هو صديق له.",
-      "en": "This is her friend."
-    }
+    ]
   },
   {
     "fr": "rééditer",
@@ -45707,7 +46442,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Comment je recharge mon crédit ?",
+      "ar": "كيف أعيد تعبئة رصيدي؟",
+      "en": "How do I top up my credit?"
+    }
   },
   {
     "fr": "prestige",
@@ -45802,12 +46542,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "phone",
       "services"
-    ],
-    "ex": {
-      "fr": "Ça a été son seul espoir.",
-      "ar": "كان ذلك أمله الوحيد.",
-      "en": "This was his one and only hope."
-    }
+    ]
   },
   {
     "fr": "insonore",
@@ -46017,7 +46752,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Le gel douche",
+      "ar": "جل الاستحمام",
+      "en": "Shower gel"
+    }
   },
   {
     "fr": "été",
@@ -46102,7 +46842,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Le sac réutilisable",
+      "ar": "كيس قابل لإعادة الاستخدام",
+      "en": "Reusable bag"
+    }
   },
   {
     "fr": "reg",
@@ -46132,7 +46877,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Le feu vert",
+      "ar": "الإشارة الخضراء",
+      "en": "Green light"
+    }
   },
   {
     "fr": "ohm",
@@ -46184,9 +46934,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
+      "fr": "Il y a du vent et des nuages.",
+      "ar": "هناك ريح وسُحب.",
+      "en": "It's windy and cloudy."
     }
   },
   {
@@ -46314,9 +47064,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Bois !",
-      "ar": "إشربي!",
-      "en": "Drink!"
+      "fr": "Bois de l’eau.",
+      "ar": "اشرب ماء.",
+      "en": "Drink water."
     }
   },
   {
@@ -46472,7 +47222,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Je vérifie les pneus.",
+      "ar": "أفحص الإطارات.",
+      "en": "I check the tires."
+    }
   },
   {
     "fr": "lagon",
@@ -46504,9 +47259,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Si tu vois les dents du lion surgir, ne crois surtout pas que le lion te sourit.",
-      "ar": "إذا رأيت نيوب الليث بارزة، فلا تظنن أن الليث يبتسم.",
-      "en": "If you see the lion baring its teeth, don't think that the lion is smiling at you."
+      "fr": "Brosser les dents",
+      "ar": "ينظف الأسنان",
+      "en": "To brush teeth"
     }
   },
   {
@@ -46567,7 +47322,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "La météo annonce de la pluie demain.",
+      "ar": "توقعات الطقس تقول إن غداً ممطر.",
+      "en": "The forecast says rain tomorrow."
+    }
   },
   {
     "fr": "hiver",
@@ -46812,7 +47572,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Où est la station de taxis ?",
+      "ar": "أين موقف سيارات الأجرة؟",
+      "en": "Where is the taxi rank?"
+    }
   },
   {
     "fr": "fleur",
@@ -46907,7 +47672,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Une chute",
+      "ar": "سقوط",
+      "en": "Fall"
+    }
   },
   {
     "fr": "glace",
@@ -46917,7 +47687,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "L'essuie-glace",
+      "ar": "ماسحة الزجاج",
+      "en": "Windshield wiper"
+    }
   },
   {
     "fr": "isolé",
@@ -46927,7 +47702,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "L'appartement est-il bien isolé ?",
+      "ar": "هل الشقة معزولة جيداً؟",
+      "en": "Is the apartment well insulated?"
+    }
   },
   {
     "fr": "lahar",
@@ -46947,7 +47727,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Coupe le scotch.",
+      "ar": "اقطع الشريط اللاصق.",
+      "en": "Cut the tape."
+    }
   },
   {
     "fr": "stand",
@@ -46957,7 +47742,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'il y a un stand de produits orientaux ?",
+      "ar": "هل هناك بسطة للمنتجات الشرقية؟",
+      "en": "Is there a stall with Middle Eastern products?"
+    }
   },
   {
     "fr": "saper",
@@ -46987,12 +47777,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ],
-    "ex": {
-      "fr": "Tom voulut découvrir quel était l'artiste qui jouait ainsi du violon dans une forêt de l'Arkansas.",
-      "ar": "توم أراد أن يكتشف من الفنان الذي كان يعزف على الكمان بطريقة غابة أركنساس.",
-      "en": "Tom wanted to find out who the artist was who was playing violin in such a manner in an Arkansan forest."
-    }
+    ]
   },
   {
     "fr": "cacam",
@@ -47064,9 +47849,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Ferme ton livre.",
-      "ar": "اغلق كتابك.",
-      "en": "Close your book."
+      "fr": "Ferme la boîte.",
+      "ar": "أغلق العلبة.",
+      "en": "Close the box."
     }
   },
   {
@@ -47127,7 +47912,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Le permis est invalidé.",
+      "ar": "تم إلغاء الرخصة.",
+      "en": "The license is invalidated."
+    }
   },
   {
     "fr": "retour",
@@ -47137,12 +47927,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ],
-    "ex": {
-      "fr": "Je resterai ici jusqu'à votre retour.",
-      "ar": "سأبقى هنا إلى أن ترجع.",
-      "en": "I'll stay here until you return."
-    }
+    ]
   },
   {
     "fr": "calcin",
@@ -47304,9 +48089,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Les nuages cachèrent le soleil.",
-      "ar": "أخفت الغيوم الشمس.",
-      "en": "The clouds hid the sun."
+      "fr": "Il y a du vent et des nuages.",
+      "ar": "هناك ريح وسُحب.",
+      "en": "It's windy and cloudy."
     }
   },
   {
@@ -47642,7 +48427,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Avez-vous des herbes fraîches, du persil ?",
+      "ar": "هل لديكم أعشاب طازجة، بقدونس؟",
+      "en": "Do you have fresh herbs, parsley?"
+    }
   },
   {
     "fr": "lianes",
@@ -47682,7 +48472,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "L'application plante souvent.",
+      "ar": "التطبيق يتعطل كثيراً.",
+      "en": "The app crashes often."
+    }
   },
   {
     "fr": "polype",
@@ -47814,9 +48609,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "J'avais la bouche sèche.",
-      "ar": "كان فمي جاف.",
-      "en": "My mouth was dry."
+      "fr": "Fermez la bouche.",
+      "ar": "أغلق فمك.",
+      "en": "Close your mouth."
     }
   },
   {
@@ -47877,7 +48672,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Propre et intact",
+      "ar": "نظيف وسليم",
+      "en": "Clean and intact"
+    }
   },
   {
     "fr": "étiage",
@@ -47907,7 +48707,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai des remontées acides.",
+      "ar": "لدي صعود أحماض (ارتجاع).",
+      "en": "I have acid reflux."
+    }
   },
   {
     "fr": "atomes",
@@ -48104,9 +48909,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "J'ai besoin de ça.",
-      "ar": "أنا بحاجة لهذا.",
-      "en": "I need that."
+      "fr": "Besoin d'aide ?",
+      "ar": "هل تحتاج إلى مساعدة؟",
+      "en": "Need help?"
     }
   },
   {
@@ -48257,7 +49062,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Jette les déchets à la poubelle.",
+      "ar": "ارمِ النفايات في سلة المهملات.",
+      "en": "Throw the waste into the bin."
+    }
   },
   {
     "fr": "résidus",
@@ -48582,12 +49392,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "mousson",
@@ -48752,7 +49557,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai des plaques rouges.",
+      "ar": "لدي بقع حمراء.",
+      "en": "I have red patches."
+    }
   },
   {
     "fr": "rodinia",
@@ -49502,7 +50312,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Tu rigoles ?",
+      "ar": "هل تمزح؟",
+      "en": "Are you joking?"
+    }
   },
   {
     "fr": "tempête",
@@ -49772,7 +50587,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "weather",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Il a besoin de ses vaccins.",
+      "ar": "يحتاج تطعيماته.",
+      "en": "He needs his vaccinations."
+    }
   },
   {
     "fr": "artemis",
@@ -49842,7 +50662,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "J’en ai ras-le-bol.",
+      "ar": "سئمت جدًا.",
+      "en": "I’m fed up."
+    }
   },
   {
     "fr": "cis",
@@ -49872,7 +50697,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Tiens-moi au jus.",
+      "ar": "أخبرني بالمستجدات.",
+      "en": "Keep me updated."
+    }
   },
   {
     "fr": "pot",
@@ -49904,9 +50734,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Voudriez-vous une tasse de thé ?",
-      "ar": "أتريد فنجانا من الشاي؟",
-      "en": "Would you like a cup of tea?"
+      "fr": "J'apporte un gâteau et du thé.",
+      "ar": "سأجلب كيكة وشاياً.",
+      "en": "I'll bring a cake and some tea."
     }
   },
   {
@@ -49949,9 +50779,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Dites-moi quel pain vous désirez manger.",
-      "ar": "أي نوع من الخبز تريد أن تأكل؟",
-      "en": "Tell me what bread you'd like to eat."
+      "fr": "Avez-vous du pain complet ?",
+      "ar": "هل لديكم خبز أسمر كامل؟",
+      "en": "Do you have wholemeal bread?"
     }
   },
   {
@@ -49984,9 +50814,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Je déteste le café.",
-      "ar": "أكره القهوة.",
-      "en": "I hate coffee."
+      "fr": "Café, s'il vous plaît.",
+      "ar": "القهوة، من فضلك.",
+      "en": "Coffee, please."
     }
   },
   {
@@ -50117,7 +50947,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "J'adorerais visiter la côte française.",
+      "ar": "أحب أن أزور الساحل الفرنسي.",
+      "en": "I would love to visit the French coast."
+    }
   },
   {
     "fr": "suif",
@@ -50324,9 +51159,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Ça colle pour moi.",
-      "ar": "يناسبني ذلك.",
-      "en": "That's OK with me."
+      "fr": "Colle l’étiquette.",
+      "ar": "ألصق الملصق.",
+      "en": "Stick the label."
     }
   },
   {
@@ -50507,7 +51342,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Le niveau d'huile.",
+      "ar": "مستوى الزيت.",
+      "en": "Oil level."
+    }
   },
   {
     "fr": "poire",
@@ -50737,7 +51577,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Combien coûte ce gâteau ?",
+      "ar": "كم يكلّف هذا الكيك؟",
+      "en": "How much is this cake?"
+    }
   },
   {
     "fr": "caviar",
@@ -50917,7 +51762,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Je ne peux pas manger de gluten.",
+      "ar": "لا أستطيع تناول الغلوتين.",
+      "en": "I can't eat gluten."
+    }
   },
   {
     "fr": "raisin",
@@ -51147,7 +51997,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai envie d'un thé à la menthe.",
+      "ar": "أريد شاي بالنعناع.",
+      "en": "I would like a mint tea."
+    }
   },
   {
     "fr": "nectar",
@@ -51357,7 +52212,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Je cherche des épices et du thé.",
+      "ar": "أبحث عن بهارات وشاي.",
+      "en": "I'm looking for spices and tea."
+    }
   },
   {
     "fr": "ragoût",
@@ -51367,7 +52227,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais de l'agneau pour un ragoût.",
+      "ar": "أريد لحم غنم للطبخ (يخنة).",
+      "en": "I would like lamb for a stew."
+    }
   },
   {
     "fr": "stroma",
@@ -51407,7 +52272,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Charge le camion.",
+      "ar": "حمّل الشاحنة.",
+      "en": "Load the truck."
+    }
   },
   {
     "fr": "dindon",
@@ -51477,7 +52347,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Coupe le ruban adhésif.",
+      "ar": "اقطع الشريط اللاصق.",
+      "en": "Cut the adhesive tape."
+    }
   },
   {
     "fr": "algue's",
@@ -51657,7 +52532,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais inscrire mon enfant à la cantine.",
+      "ar": "أريد تسجيل طفلي في المقصف (الطعام المدرسي).",
+      "en": "I would like to sign my child up for school meals."
+    }
   },
   {
     "fr": "caramel",
@@ -51707,7 +52587,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Ce fromage, je peux le goûter ?",
+      "ar": "هذه الجبنة، هل يمكنني تذوّقها؟",
+      "en": "This cheese, may I taste it?"
+    }
   },
   {
     "fr": "hachage",
@@ -51767,7 +52652,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que la cuisson est faite dans la même huile ?",
+      "ar": "هل الطهي يتم بنفس الزيت؟",
+      "en": "Is it cooked in the same oil?"
+    }
   },
   {
     "fr": "cordial",
@@ -52007,12 +52897,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ],
-    "ex": {
-      "fr": "Il est dur d'aimer quelqu'un quand vous ne savez pas s'il vous aime autant que vous l'aimez.",
-      "ar": "من الصعب ان تحب أحدا عندما لا تعلم إن كان يحبك مثلما تحبه.",
-      "en": "It is hard to love someone when you do not know whether he or she loves you as much as you love him or her."
-    }
+    ]
   },
   {
     "fr": "trouble",
@@ -52022,7 +52907,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "L'eau est trouble, est-ce normal ?",
+      "ar": "الماء عَكِر، هل هذا طبيعي؟",
+      "en": "The water is cloudy, is that normal?"
+    }
   },
   {
     "fr": "miellée",
@@ -52094,9 +52984,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Chaque matin elle aide sa mère à préparer le petit déjeuner dans la cuisine.",
-      "ar": "تساعد أمها كل صباح في المطبخ لإعداد الفطور.",
-      "en": "Every morning, she helps her mother make breakfast in the kitchen."
+      "fr": "Y a-t-il une cuisine commune ?",
+      "ar": "هل هناك مطبخ مشترك؟",
+      "en": "Is there a shared kitchen?"
     }
   },
   {
@@ -52407,7 +53297,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que je peux essayer avant la couture ?",
+      "ar": "هل يمكنني القياس قبل الخياطة؟",
+      "en": "May I try it on before you sew?"
+    }
   },
   {
     "fr": "semoule",
@@ -52517,7 +53412,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Vanille, s'il vous plaît.",
+      "ar": "الفانيليا، من فضلك.",
+      "en": "Vanilla, please."
+    }
   },
   {
     "fr": "viscose",
@@ -52717,7 +53617,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Le rayon boissons",
+      "ar": "قسم المشروبات",
+      "en": "Drinks section"
+    }
   },
   {
     "fr": "biomasse",
@@ -52737,12 +53642,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ],
-    "ex": {
-      "fr": "Le noir est à moi.",
-      "ar": "الأسود لي.",
-      "en": "The black one is mine."
-    }
+    ]
   },
   {
     "fr": "eau liée",
@@ -52752,12 +53652,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ],
-    "ex": {
-      "fr": "Cette eau a bon goût.",
-      "ar": "مذاق هذا الماء طيب.",
-      "en": "This water tastes good."
-    }
+    ]
   },
   {
     "fr": "braisage",
@@ -52787,7 +53682,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Oui, parfois même après le brossage des dents.",
+      "ar": "نعم، أحيانًا حتى بعد تنظيف الأسنان.",
+      "en": "Yes, sometimes even after brushing my teeth."
+    }
   },
   {
     "fr": "bouclage",
@@ -52879,9 +53779,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "J'aime le chocolat.",
-      "ar": "أنا أحب الشوكولاتة.",
-      "en": "I like chocolate."
+      "fr": "Chocolat, s'il vous plaît.",
+      "ar": "الشوكولاتة، من فضلك.",
+      "en": "Chocolate, please."
     }
   },
   {
@@ -53172,12 +54072,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ],
-    "ex": {
-      "fr": "Voudriez-vous une tasse de thé ?",
-      "ar": "أتريد فنجانا من الشاي؟",
-      "en": "Would you like a cup of tea?"
-    }
+    ]
   },
   {
     "fr": "goyavier",
@@ -53487,7 +54382,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Quelle protéine tu prends ?",
+      "ar": "أي بروتين تأخذ؟",
+      "en": "Which protein do you take?"
+    }
   },
   {
     "fr": "mât",
@@ -53505,7 +54405,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Avoir des gaz",
+      "ar": "لديه غازات",
+      "en": "To have gas"
+    }
   },
   {
     "fr": "lac",
@@ -53525,9 +54430,9 @@ window.VOCAB_DATA_BATCH2 = [
       "housing"
     ],
     "ex": {
-      "fr": "L'eau est froide.",
-      "ar": "الماء بارد",
-      "en": "The water's cold."
+      "fr": "Bois de l’eau.",
+      "ar": "اشرب ماء.",
+      "en": "Drink water."
     }
   },
   {
@@ -53551,7 +54456,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais visiter le sud de la France.",
+      "ar": "أريد زيارة جنوب فرنسا.",
+      "en": "I would like to visit the south of France."
+    }
   },
   {
     "fr": "lit",
@@ -53657,9 +54567,9 @@ window.VOCAB_DATA_BATCH2 = [
       "housing"
     ],
     "ex": {
-      "fr": "La pièce est vide.",
-      "ar": "الغرفة فارغة.",
-      "en": "The room is empty."
+      "fr": "Le stock est vide.",
+      "ar": "المخزون فارغ.",
+      "en": "The stock is empty."
     }
   },
   {
@@ -53687,7 +54597,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Une aire piétonne.",
+      "ar": "منطقة للمشاة.",
+      "en": "Pedestrian area."
+    }
   },
   {
     "fr": "mile",
@@ -53859,7 +54774,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Soulever de la fonte",
+      "ar": "رفع الأوزان",
+      "en": "Lift weights"
+    }
   },
   {
     "fr": "nuage",
@@ -53945,7 +54865,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Je saute à la corde avant la séance.",
+      "ar": "أقفز بالحبل قبل الحصة.",
+      "en": "I jump rope before the workout."
+    }
   },
   {
     "fr": "degré",
@@ -53954,7 +54879,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Le degré de fibrose",
+      "ar": "درجة التليف.",
+      "en": "Fibrosis stage."
+    }
   },
   {
     "fr": "jalon",
@@ -54017,7 +54947,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Coupe le ruban adhésif.",
+      "ar": "اقطع الشريط اللاصق.",
+      "en": "Cut the adhesive tape."
+    }
   },
   {
     "fr": "marée",
@@ -54037,9 +54972,9 @@ window.VOCAB_DATA_BATCH2 = [
       "housing"
     ],
     "ex": {
-      "fr": "Comment faites-vous pour manger ainsi, sans prendre de poids ?",
-      "ar": "كيف يمكنك أن تأكل هكذا، من دون أن تزيد في الوزن؟",
-      "en": "How do you eat like that without gaining weight?"
+      "fr": "Choisis un poids adapté.",
+      "ar": "اختر وزنًا مناسبًا.",
+      "en": "Choose an appropriate weight."
     }
   },
   {
@@ -54060,9 +54995,9 @@ window.VOCAB_DATA_BATCH2 = [
       "housing"
     ],
     "ex": {
-      "fr": "En quelle année êtes-vous né ?",
-      "ar": "متى ولدت؟",
-      "en": "What year were you born?"
+      "fr": "Bonne année, meilleurs vœux !",
+      "ar": "سنة سعيدة، أطيب التمنيات!",
+      "en": "Happy New Year, best wishes!"
     }
   },
   {
@@ -54099,7 +55034,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "La circulation est dense.",
+      "ar": "حركة المرور كثيفة.",
+      "en": "Traffic is heavy."
+    }
   },
   {
     "fr": "fosse",
@@ -54182,9 +55122,9 @@ window.VOCAB_DATA_BATCH2 = [
       "housing"
     ],
     "ex": {
-      "fr": "Je refuse de céder là-dessus.",
-      "ar": "لا أريد أن أتنازل بهذا الخصوص.",
-      "en": "I refuse to give up on this."
+      "fr": "Céder le passage",
+      "ar": "يعطي الأولوية",
+      "en": "To give way"
     }
   },
   {
@@ -54293,7 +55233,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Reflux gastro-œsophagien (RGO)",
+      "ar": "ارتجاع معدي مريئي.",
+      "en": "Gastroesophageal reflux."
+    }
   },
   {
     "fr": "tubage",
@@ -54356,7 +55301,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Je rigole.",
+      "ar": "أنا أمزح.",
+      "en": "I’m joking."
+    }
   },
   {
     "fr": "carter",
@@ -54685,7 +55635,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Mon profil",
+      "ar": "ملفي الشخصي",
+      "en": "My profile"
+    }
   },
   {
     "fr": "solute",
@@ -54829,7 +55784,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que vous pouvez recoudre cette semelle ?",
+      "ar": "هل يمكنكم خياطة هذا النعل؟",
+      "en": "Can you stitch this sole back on?"
+    }
   },
   {
     "fr": "rouleau",
@@ -54838,7 +55798,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Prends le rouleau de scotch.",
+      "ar": "خذ لفة الشريط اللاصق.",
+      "en": "Take the roll of tape."
+    }
   },
   {
     "fr": "laitier",
@@ -54964,12 +55929,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "vidange",
@@ -55077,7 +56037,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Il manque un bouton à cette chemise.",
+      "ar": "ينقص زر في هذا القميص.",
+      "en": "This shirt is missing a button."
+    }
   },
   {
     "fr": "liquide",
@@ -55086,7 +56051,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Le liquide de frein.",
+      "ar": "سائل الفرامل.",
+      "en": "Brake fluid."
+    }
   },
   {
     "fr": "milieux",
@@ -55203,7 +56173,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Ajuste la hauteur du siège.",
+      "ar": "اضبط ارتفاع المقعد.",
+      "en": "Adjust the seat height."
+    }
   },
   {
     "fr": "horizon",
@@ -55248,7 +56223,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Je veux dépasser mes limites.",
+      "ar": "أريد تجاوز حدودي.",
+      "en": "I want to push my limits."
+    }
   },
   {
     "fr": "aborner",
@@ -55266,7 +56246,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'il y a une période d'essai ?",
+      "ar": "هل هناك فترة تجريبية؟",
+      "en": "Is there a trial period?"
+    }
   },
   {
     "fr": "planète",
@@ -55307,7 +56292,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Une seconde.",
+      "ar": "لحظة.",
+      "en": "One second."
+    }
   },
   {
     "fr": "sextant",
@@ -55334,7 +56324,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Direction quelle station ?",
+      "ar": "باتجاه أي محطة؟",
+      "en": "In the direction of which station?"
+    }
   },
   {
     "fr": "lunette",
@@ -55415,7 +56410,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Le contenu est fragile, attention s'il vous plaît.",
+      "ar": "المحتوى قابل للكسر، انتبهوا من فضلكم.",
+      "en": "The contents are fragile, please be careful."
+    }
   },
   {
     "fr": "dolomie",
@@ -55686,7 +56686,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "La barre EZ",
+      "ar": "بار EZ",
+      "en": "EZ bar"
+    }
   },
   {
     "fr": "VZ",
@@ -55726,12 +56731,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "Si tu dois, tu dois.",
-      "ar": "إن كنت مجبرا، فأنت مجبر.",
-      "en": "If you must, you must."
-    }
+    ]
   },
   {
     "fr": "AM",
@@ -56481,12 +57481,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "Il est là.",
-      "ar": "هو موجود.",
-      "en": "There it is."
-    }
+    ]
   },
   {
     "fr": "ESA",
@@ -56656,12 +57651,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "Bob est mon ami.",
-      "ar": "بوب صديقي.",
-      "en": "Bob is my friend."
-    }
+    ]
   },
   {
     "fr": "DLC",
@@ -56701,7 +57691,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Ma carte SIM ne fonctionne pas.",
+      "ar": "شريحتي لا تعمل.",
+      "en": "My SIM card is not working."
+    }
   },
   {
     "fr": "PAG",
@@ -56801,12 +57796,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "La traduction est un art.",
-      "ar": "ألترجمة فن.",
-      "en": "Translation is an art."
-    }
+    ]
   },
   {
     "fr": "LRR",
@@ -56886,7 +57876,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Le site me demande un code envoyé par SMS.",
+      "ar": "الموقع يطلب رمزاً مُرسلاً برسالة نصية.",
+      "en": "The website is asking for a code sent by text."
+    }
   },
   {
     "fr": "SVA",
@@ -56936,7 +57931,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Le GPS m'envoie au mauvais endroit.",
+      "ar": "الملاحة ترسلني إلى مكان خاطئ.",
+      "en": "The GPS is sending me to the wrong place."
+    }
   },
   {
     "fr": "KOM",
@@ -57386,12 +58386,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "Il a laissé son parapluie dans le bus.",
-      "ar": "لقد ترك مظلته في الحافلة.",
-      "en": "He left his umbrella on the bus."
-    }
+    ]
   },
   {
     "fr": "ECE",
@@ -57711,12 +58706,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "Le car dispose-t-il de toilettes ?",
-      "ar": "هل يوجد مرحاض في الحافلة?",
-      "en": "Does the bus have a toilet?"
-    }
+    ]
   },
   {
     "fr": "moto",
@@ -57881,7 +58871,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Je me suis coupé.",
+      "ar": "جرحت نفسي.",
+      "en": "I cut myself."
+    }
   },
   {
     "fr": "butée",
@@ -57921,7 +58916,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Où est la borne de mise à jour ?",
+      "ar": "أين جهاز التحديث؟",
+      "en": "Where is the update terminal?"
+    }
   },
   {
     "fr": "diode",
@@ -57951,7 +58951,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'il y a un péage sur cette route ?",
+      "ar": "هل هناك رسوم مرور على هذا الطريق؟",
+      "en": "Is there a toll on this road?"
+    }
   },
   {
     "fr": "carré",
@@ -58011,7 +59016,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Coupez le moteur.",
+      "ar": "أطفئ المحرك.",
+      "en": "Turn off the engine."
+    }
   },
   {
     "fr": "course",
@@ -58021,7 +59031,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Le tapis de course",
+      "ar": "جهاز المشي / الركض",
+      "en": "Treadmill"
+    }
   },
   {
     "fr": "bielle",
@@ -58051,12 +59066,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "Ecojet",
@@ -58096,12 +59106,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "Le vagin est un tube musculaire.",
-      "ar": "المهبل أنبوب عضلي.",
-      "en": "The vagina is a muscular tube."
-    }
+    ]
   },
   {
     "fr": "mateur",
@@ -58211,7 +59216,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Tu peux prendre le relais ?",
+      "ar": "هل يمكنك استلام المهمة بدلًا مني؟",
+      "en": "Can you take over?"
+    }
   },
   {
     "fr": "induit",
@@ -58291,7 +59301,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "La pédale de frein",
+      "ar": "دواسة الفرامل",
+      "en": "Brake pedal"
+    }
   },
   {
     "fr": "bruits",
@@ -58356,7 +59371,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Vérifie le collage.",
+      "ar": "تحقق من اللصق.",
+      "en": "Check the sticking."
+    }
   },
   {
     "fr": "durcissement",
@@ -58596,12 +59616,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "Il a laissé son parapluie dans le bus.",
-      "ar": "لقد ترك مظلته في الحافلة.",
-      "en": "He left his umbrella on the bus."
-    }
+    ]
   },
   {
     "fr": "bus LIN",
@@ -58611,12 +59626,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "Il a laissé son parapluie dans le bus.",
-      "ar": "لقد ترك مظلته في الحافلة.",
-      "en": "He left his umbrella on the bus."
-    }
+    ]
   },
   {
     "fr": "guidage",
@@ -58636,12 +59646,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "Il a laissé son parapluie dans le bus.",
-      "ar": "لقد ترك مظلته في الحافلة.",
-      "en": "He left his umbrella on the bus."
-    }
+    ]
   },
   {
     "fr": "bus VAN",
@@ -58651,12 +59656,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "Il a laissé son parapluie dans le bus.",
-      "ar": "لقد ترك مظلته في الحافلة.",
-      "en": "He left his umbrella on the bus."
-    }
+    ]
   },
   {
     "fr": "Front Assist",
@@ -58766,7 +59766,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Où puis-je trouver un chariot ?",
+      "ar": "أين أجد عربة للحقائب؟",
+      "en": "Where can I find a trolley?"
+    }
   },
   {
     "fr": "trusquin",
@@ -58846,12 +59851,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "Je t'ai vu au volant de ta nouvelle voiture.",
-      "ar": "رأيتك راكبا سيارتك الجديدة.",
-      "en": "I saw you driving your new car."
-    }
+    ]
   },
   {
     "fr": "flotteur",
@@ -58971,7 +59971,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Une blessure",
+      "ar": "إصابة",
+      "en": "Injury"
+    }
   },
   {
     "fr": "nuançage",
@@ -59001,12 +60006,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "J'ai perdu ma force.",
-      "ar": "فقدت قواي.",
-      "en": "I've lost my strength."
-    }
+    ]
   },
   {
     "fr": "Steer by Wire",
@@ -59076,7 +60076,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "La batterie est à plat.",
+      "ar": "البطارية فارغة.",
+      "en": "The battery is dead."
+    }
   },
   {
     "fr": "câble Rx",
@@ -59156,12 +60161,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "On est arrivés.",
-      "ar": "لقد وصلنا.",
-      "en": "We have arrived."
-    }
+    ]
   },
   {
     "fr": "rallonge",
@@ -59331,12 +60331,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "Notre avenir est en jeu.",
-      "ar": "مستقبلنا على المحك.",
-      "en": "Our future is at stake."
-    }
+    ]
   },
   {
     "fr": "déphaseur",
@@ -59386,12 +60381,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "Tom n'arrive pas à choisir entre une voiture Toyota ou Ford.",
-      "ar": "توم لا يستطيع أن يقرر في ما لو يشتري سيارة تيوتا أو فورد.",
-      "en": "Tom can't make up his mind choosing between a Toyota or a Ford car."
-    }
+    ]
   },
   {
     "fr": "procédé M",
@@ -59421,7 +60411,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "La pédale d'embrayage",
+      "ar": "دواسة القابض (الكلتش)",
+      "en": "Clutch pedal"
+    }
   },
   {
     "fr": "précharge",
@@ -59551,12 +60546,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "survirage",
@@ -59578,9 +60568,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Ils vont dans la même direction.",
-      "ar": ".يذهبون في نفس الاتجاه",
-      "en": "They're going in the same direction."
+      "fr": "Direction quelle station ?",
+      "ar": "باتجاه أي محطة؟",
+      "en": "In the direction of which station?"
     }
   },
   {
@@ -59621,12 +60611,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ],
-    "ex": {
-      "fr": "Faux.",
-      "ar": "خطأ.",
-      "en": "Wrong!"
-    }
+    ]
   },
   {
     "fr": "adhérence",
@@ -59636,7 +60621,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "car",
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "L'adhérence diminue.",
+      "ar": "تقل قوة التصاق الإطارات بالطريق.",
+      "en": "Grip decreases."
+    }
   },
   {
     "fr": "rechapage",
@@ -59816,12 +60806,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tout ce qui brille n'est pas or.",
-      "ar": "ليس كل ما يلمع ذهبا.",
-      "en": "All that glisters is not gold."
-    }
+    ]
   },
   {
     "fr": "indices",
@@ -59841,7 +60826,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "Tu te mesures souvent ?",
+      "ar": "هل تقيس جسمك كثيرًا؟",
+      "en": "Do you measure yourself often?"
+    }
   },
   {
     "fr": "optimum",
@@ -59901,7 +60891,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai un logement.",
+      "ar": "لدي سكن.",
+      "en": "I have housing."
+    }
   },
   {
     "fr": "coût lié",
@@ -59921,12 +60916,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Elle vit à New York.",
-      "ar": "إنها تعيش في نيويورك.",
-      "en": "She lives in New York."
-    }
+    ]
   },
   {
     "fr": "owenisme",
@@ -59956,12 +60946,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Nous vivons sur Terre.",
-      "ar": "نحن نعيش على كوكب الأرض.",
-      "en": "We live on Earth."
-    }
+    ]
   },
   {
     "fr": "altruisme",
@@ -59991,7 +60976,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "Soyez plus dynamique.",
+      "ar": "كن أكثر نشاطًا في القيادة.",
+      "en": "Be more dynamic."
+    }
   },
   {
     "fr": "parité or",
@@ -60001,12 +60991,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tout ce qui brille n'est pas or.",
-      "ar": "ليس كل ما يلمع ذهبا.",
-      "en": "All that glisters is not gold."
-    }
+    ]
   },
   {
     "fr": "étalon or",
@@ -60016,12 +61001,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tout ce qui brille n'est pas or.",
-      "ar": "ليس كل ما يلمع ذهبا.",
-      "en": "All that glisters is not gold."
-    }
+    ]
   },
   {
     "fr": "courbe LM",
@@ -60081,7 +61061,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "Être disponible",
+      "ar": "يكون متاحًا",
+      "en": "To be available"
+    }
   },
   {
     "fr": "accapareur",
@@ -60131,12 +61116,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tout ce qui brille n'est pas or.",
-      "ar": "ليس كل ما يلمع ذهبا.",
-      "en": "All that glisters is not gold."
-    }
+    ]
   },
   {
     "fr": "tranche-or",
@@ -60146,12 +61126,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tout ce qui brille n'est pas or.",
-      "ar": "ليس كل ما يلمع ذهبا.",
-      "en": "All that glisters is not gold."
-    }
+    ]
   },
   {
     "fr": "graduation",
@@ -60171,12 +61146,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je suis juste allongé.",
-      "ar": "أنا متمدد فحسب.",
-      "en": "I am only lying down."
-    }
+    ]
   },
   {
     "fr": "négociable",
@@ -60186,7 +61156,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que le prix est négociable ?",
+      "ar": "هل السعر قابل للتفاوض؟",
+      "en": "Is the price negotiable?"
+    }
   },
   {
     "fr": "mass media",
@@ -60246,12 +61221,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "substituts",
@@ -60281,12 +61251,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Toute personne a droit, en pleine égalité, à ce que sa cause soit entendue équitablement et publiquement par un tribunal indépendant et impartial, qui décidera, soit de ses droits et obligations, soit du bien-fondé de toute accusation en matière pénale dirigée contre elle.",
-      "ar": "لكل إنسان الحق، على قدم المساواة التامة مع الآخرين، في أن تنظر قضيته أمام محكمة مستقلة نزيهة نظرا عادلا علنيا للفصل في حقوقه والتزاماته وأية تهمة جنائية توجه إليه.",
-      "en": "Everyone is entitled in full equality to a fair and public hearing by an independent and impartial tribunal, in the determination of his rights and obligations and of any criminal charge against him."
-    }
+    ]
   },
   {
     "fr": "compétition",
@@ -60356,12 +61321,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Ils ont rédigé un projet de loi sur la santé.",
-      "ar": "كتبوا مشروع قانون يخص الصحة.",
-      "en": "They've written a bill for health care."
-    }
+    ]
   },
   {
     "fr": "taxe cachée",
@@ -60391,12 +61351,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Le monde suit une règle d'or : Quiconque possède l'or écrit les règles.",
-      "ar": "يحترم عالمنا قانونا ذهبيا واحدا: من يملك الذهب يضع القانون.",
-      "en": "The world follows one golden rule: whoever has the gold makes the rules."
-    }
+    ]
   },
   {
     "fr": "produit lié",
@@ -60406,12 +61361,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je jure que rien ne s'est produit.",
-      "ar": "أقسم بأن لا شيء حصل.",
-      "en": "I swear, nothing happened."
-    }
+    ]
   },
   {
     "fr": "monnaie-clé",
@@ -60421,12 +61371,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je me demande où Tom a caché sa clé.",
-      "ar": "أتساءل أين أخفى توم مفتاحه.",
-      "en": "I wonder where Tom hid his key."
-    }
+    ]
   },
   {
     "fr": "monétarisme",
@@ -60476,12 +61421,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Nous vivons sur Terre.",
-      "ar": "نحن نعيش على كوكب الأرض.",
-      "en": "We live on Earth."
-    }
+    ]
   },
   {
     "fr": "paysannerie",
@@ -60521,12 +61461,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Ce garçon court.",
-      "ar": "ذلك الولد يركض.",
-      "en": "This boy is running."
-    }
+    ]
   },
   {
     "fr": "taxe unique",
@@ -60536,12 +61471,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "C'était son unique espoir.",
-      "ar": "كان ذلك أمله الوحيد.",
-      "en": "This was her one and only hope."
-    }
+    ]
   },
   {
     "fr": "coût social",
@@ -60551,12 +61481,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Mastodon est un réseau social fédéré, libre et ouvert.",
-      "ar": "ماستدون هي شبكة تواصل اجتماعي فدرالية حرة ومفتوحة المصدر.",
-      "en": "Mastodon is a federated free and open-source social network."
-    }
+    ]
   },
   {
     "fr": "stagflation",
@@ -60626,12 +61551,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Le monde suit une règle d'or : Quiconque possède l'or écrit les règles.",
-      "ar": "يحترم عالمنا قانونا ذهبيا واحدا: من يملك الذهب يضع القانون.",
-      "en": "The world follows one golden rule: whoever has the gold makes the rules."
-    }
+    ]
   },
   {
     "fr": "dépeuplement",
@@ -60671,12 +61591,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "juste valeur",
@@ -60686,12 +61601,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je suis juste allongé.",
-      "ar": "أنا متمدد فحسب.",
-      "en": "I am only lying down."
-    }
+    ]
   },
   {
     "fr": "actifs fixes",
@@ -60711,12 +61621,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tous les êtres humains naissent libres et égaux en dignité et en droits. Ils sont doués de raison et de conscience et doivent agir les uns envers les autres dans un esprit de fraternité.",
-      "ar": "يولد جميع الناس أحرارا ومتساوين في الكرامة والحقوق، وهم قد وهبوا العقل والوجدان، وعليهم أن يعاملوا بعضهم بعضا بروح الإخاء.",
-      "en": "All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood."
-    }
+    ]
   },
   {
     "fr": "plein emploi",
@@ -60726,12 +61631,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Bois plein d'eau !",
-      "ar": "اشرب الكثير من الماء",
-      "en": "Drink plenty of water."
-    }
+    ]
   },
   {
     "fr": "pool de l'or",
@@ -60741,12 +61641,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "guarantie-or",
@@ -60756,12 +61651,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tout ce qui brille n'est pas or.",
-      "ar": "ليس كل ما يلمع ذهبا.",
-      "en": "All that glisters is not gold."
-    }
+    ]
   },
   {
     "fr": "hyper emploi",
@@ -60771,12 +61661,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Pourquoi ne pas faire acte de candidature pour cet emploi ?",
-      "ar": "لماذا لا تتنافس حول هذا العمل؟",
-      "en": "Why not apply for that job?"
-    }
+    ]
   },
   {
     "fr": "effet direct",
@@ -60826,12 +61711,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je ne peux rien faire.",
-      "ar": "ليس باليد حيلة.",
-      "en": "I can't do anything."
-    }
+    ]
   },
   {
     "fr": "travaillisme",
@@ -60861,12 +61741,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Le Rif est un grand pays.",
-      "ar": "الريف بلد كبير.",
-      "en": "The Rif is a big land."
-    }
+    ]
   },
   {
     "fr": "or monétaire",
@@ -60876,12 +61751,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tout ce qui brille n'est pas or.",
-      "ar": "ليس كل ما يلمع ذهبا.",
-      "en": "All that glisters is not gold."
-    }
+    ]
   },
   {
     "fr": "néo-marxisme",
@@ -60911,12 +61781,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "surabondance",
@@ -60936,12 +61801,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "J'aime ma mère.",
-      "ar": "أحب والدتي.",
-      "en": "I love my mum."
-    }
+    ]
   },
   {
     "fr": "physiocratie",
@@ -60961,12 +61821,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai des sœurs.",
-      "ar": "لدي أخوات.",
-      "en": "I have sisters."
-    }
+    ]
   },
   {
     "fr": "échange pure",
@@ -61006,12 +61861,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Son salaire mensuel s'élève à plus de 500 000 yens.",
-      "ar": "يتقاضى شهريا خمس مائة ين",
-      "en": "His monthly salary is no less than 500,000 yen."
-    }
+    ]
   },
   {
     "fr": "prix relatif",
@@ -61021,12 +61871,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "prix ruineux",
@@ -61036,12 +61881,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "morte-saison",
@@ -61051,12 +61891,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tom ne sait pas si Mary est morte ou vivante.",
-      "ar": "لا يعرف توم ما إذا كانت ماري حية أم ميتة.",
-      "en": "Tom doesn't know if Mary is dead or alive."
-    }
+    ]
   },
   {
     "fr": "effondrement",
@@ -61106,7 +61941,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "Actualisation effectuée",
+      "ar": "تم تحديث الوضع",
+      "en": "Monthly update completed"
+    }
   },
   {
     "fr": "approximation",
@@ -61136,12 +61976,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Le Rif est un grand pays.",
-      "ar": "الريف بلد كبير.",
-      "en": "The Rif is a big land."
-    }
+    ]
   },
   {
     "fr": "collectivisme",
@@ -61161,12 +61996,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je ne suis pas allée au marché.",
-      "ar": "أنا لم أذهب الى السوق.",
-      "en": "I didn't go to the market."
-    }
+    ]
   },
   {
     "fr": "compétitivité",
@@ -61206,12 +62036,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "taux d'emploi",
@@ -61231,12 +62056,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je jure que rien ne s'est produit.",
-      "ar": "أقسم بأن لا شيء حصل.",
-      "en": "I swear, nothing happened."
-    }
+    ]
   },
   {
     "fr": "établissement",
@@ -61276,12 +62096,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "En quelle année êtes-vous né ?",
-      "ar": "متى ولدت؟",
-      "en": "What year were you born?"
-    }
+    ]
   },
   {
     "fr": "prix plancher",
@@ -61291,12 +62106,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "emprunt forcé",
@@ -61316,12 +62126,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai perdu ma force.",
-      "ar": "فقدت قواي.",
-      "en": "I've lost my strength."
-    }
+    ]
   },
   {
     "fr": "capital libre",
@@ -61331,12 +62136,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Que faites-vous de votre temps libre ?",
-      "ar": "ماذا تفعل بأوقات فراغك؟",
-      "en": "What do you do in your spare time?"
-    }
+    ]
   },
   {
     "fr": "libre-échange",
@@ -61346,12 +62146,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Que faites-vous de votre temps libre ?",
-      "ar": "ماذا تفعل بأوقات فراغك؟",
-      "en": "What do you do in your spare time?"
-    }
+    ]
   },
   {
     "fr": "couverture-or",
@@ -61361,12 +62156,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tout ce qui brille n'est pas or.",
-      "ar": "ليس كل ما يلمع ذهبا.",
-      "en": "All that glisters is not gold."
-    }
+    ]
   },
   {
     "fr": "prime de l'or",
@@ -61376,12 +62166,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "don en nature",
@@ -61391,12 +62176,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "paupérisation",
@@ -61426,12 +62206,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "juste salaire",
@@ -61441,12 +62216,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je suis juste allongé.",
-      "ar": "أنا متمدد فحسب.",
-      "en": "I am only lying down."
-    }
+    ]
   },
   {
     "fr": "industrie clé",
@@ -61456,12 +62226,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je me demande où Tom a caché sa clé.",
-      "ar": "أتساءل أين أخفى توم مفتاحه.",
-      "en": "I wonder where Tom hid his key."
-    }
+    ]
   },
   {
     "fr": "lois agraires",
@@ -61481,12 +62246,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "plan Marshall",
@@ -61496,12 +62256,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Il a expliqué l'objectif principal de ce plan.",
-      "ar": "فسر الهدف الرئيسي لهذا المخطط",
-      "en": "He explained the plan's main objective."
-    }
+    ]
   },
   {
     "fr": "coût marginal",
@@ -61551,12 +62306,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Il a expliqué l'objectif principal de ce plan.",
-      "ar": "فسر الهدف الرئيسي لهذا المخطط",
-      "en": "He explained the plan's main objective."
-    }
+    ]
   },
   {
     "fr": "ordre naturel",
@@ -61566,12 +62316,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Il est naturel qu'il soit fier de son fils.",
-      "ar": "من الطبيعي أن يكون فخورا بولده.",
-      "en": "It's only natural that he's proud of his son."
-    }
+    ]
   },
   {
     "fr": "quasi-monnaie",
@@ -61611,12 +62356,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tout ce que vous devez faire, c'est tirer profit de cette occasion rare.",
-      "ar": "كل ما عليك فعله هو أن تغتنم هذه المناسبة النادرة.",
-      "en": "All you have to do is take advantage of this rare opportunity."
-    }
+    ]
   },
   {
     "fr": "marché ouvert",
@@ -61626,12 +62366,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je ne suis pas allée au marché.",
-      "ar": "أنا لم أذهب الى السوق.",
-      "en": "I didn't go to the market."
-    }
+    ]
   },
   {
     "fr": "choix optimum",
@@ -61641,12 +62376,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "C'est leur seul choix.",
-      "ar": "إنه خيارهم الوحيد.",
-      "en": "It is their only choice."
-    }
+    ]
   },
   {
     "fr": "tarif optimum",
@@ -61686,12 +62416,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je veux du papier.",
-      "ar": "أريد بعضا من الورق.",
-      "en": "I want paper."
-    }
+    ]
   },
   {
     "fr": "pétro-dollars",
@@ -61711,12 +62436,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "effet de prix",
@@ -61726,12 +62446,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "écart de prix",
@@ -61741,12 +62456,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "ligne de prix",
@@ -61756,12 +62466,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "dépôt initial",
@@ -61831,12 +62536,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "J'avais la bouche sèche.",
-      "ar": "كان فمي جاف.",
-      "en": "My mouth was dry."
-    }
+    ]
   },
   {
     "fr": "effet Ricardo",
@@ -61856,12 +62556,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Le Rif est un grand pays.",
-      "ar": "الريف بلد كبير.",
-      "en": "The Rif is a big land."
-    }
+    ]
   },
   {
     "fr": "prix courants",
@@ -61871,12 +62566,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "La liberté n'a pas de prix.",
-      "ar": "الحرية ما عندها ثمن.",
-      "en": "Freedom is priceless."
-    }
+    ]
   },
   {
     "fr": "échelonnement",
@@ -61896,12 +62586,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Elle travaille dans une banque.",
-      "ar": "هي تعمل في بنك.",
-      "en": "She works for a bank."
-    }
+    ]
   },
   {
     "fr": "zone sterling",
@@ -61991,12 +62676,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "anti-inflation",
@@ -62026,12 +62706,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "termes de troc",
@@ -62041,12 +62716,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "risque calculé",
@@ -62056,12 +62726,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tom a calculé ses dépenses.",
-      "ar": "توم حسب مصاريفه.",
-      "en": "Tom calculated his expenses."
-    }
+    ]
   },
   {
     "fr": "monnaie facile",
@@ -62071,12 +62736,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "C'est très facile.",
-      "ar": "إنه سهل جدا.",
-      "en": "This is real easy."
-    }
+    ]
   },
   {
     "fr": "indice composé",
@@ -62126,12 +62786,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "fausse monnaie",
@@ -62141,12 +62796,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "J'avais fait fausse route.",
-      "ar": "ضللت الطريق.",
-      "en": "I was on the wrong track."
-    }
+    ]
   },
   {
     "fr": "tarif douanier",
@@ -62176,12 +62826,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je ne suis pas allée au marché.",
-      "ar": "أنا لم أذهب الى السوق.",
-      "en": "I didn't go to the market."
-    }
+    ]
   },
   {
     "fr": "produit dérivé",
@@ -62191,12 +62836,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je jure que rien ne s'est produit.",
-      "ar": "أقسم بأن لا شيء حصل.",
-      "en": "I swear, nothing happened."
-    }
+    ]
   },
   {
     "fr": "valeur dérivée",
@@ -62226,12 +62866,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Ils ont rédigé un projet de loi sur la santé.",
-      "ar": "كتبوا مشروع قانون يخص الصحة.",
-      "en": "They've written a bill for health care."
-    }
+    ]
   },
   {
     "fr": "change au pair",
@@ -62241,12 +62876,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Au secours !",
-      "ar": "النجدة!",
-      "en": "Help!"
-    }
+    ]
   },
   {
     "fr": "demande finale",
@@ -62256,12 +62886,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je demande pardon à Dieu !",
-      "ar": "أستغفرالله!",
-      "en": "I ask God for forgiveness!"
-    }
+    ]
   },
   {
     "fr": "produits finis",
@@ -62291,12 +62916,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je vous remercie de votre aide.",
-      "ar": "أشكرك على مساعدتك",
-      "en": "I thank you for your assistance."
-    }
+    ]
   },
   {
     "fr": "substitut brut",
@@ -62316,12 +62936,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Ce n'est pas du véritable argent.",
-      "ar": "ليست نقودا حقيقية.",
-      "en": "It's not real money."
-    }
+    ]
   },
   {
     "fr": "marché indécis",
@@ -62331,12 +62946,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je ne suis pas allée au marché.",
-      "ar": "أنا لم أذهب الى السوق.",
-      "en": "I didn't go to the market."
-    }
+    ]
   },
   {
     "fr": "main invisible",
@@ -62346,12 +62956,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Prends ma main.",
-      "ar": "خذ يدي.",
-      "en": "Take my hand."
-    }
+    ]
   },
   {
     "fr": "location vente",
@@ -62411,12 +63016,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "indivisibilité",
@@ -62446,12 +63046,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Ils ont rédigé un projet de loi sur la santé.",
-      "ar": "كتبوا مشروع قانون يخص الصحة.",
-      "en": "They've written a bill for health care."
-    }
+    ]
   },
   {
     "fr": "investissement",
@@ -62471,12 +63066,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Cherches-tu du travail ?",
-      "ar": "هل تبحث عن عمل؟",
-      "en": "Are you looking for work?"
-    }
+    ]
   },
   {
     "fr": "monnaie légale",
@@ -62506,12 +63096,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Ce n'était pas une surprise.",
-      "ar": "لم تكن مفاجأة.",
-      "en": "It wasn't a surprise."
-    }
+    ]
   },
   {
     "fr": "accord de prêt",
@@ -62521,12 +63106,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "macro-économie",
@@ -62566,12 +63146,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Cherches-tu du travail ?",
-      "ar": "هل تبحث عن عمل؟",
-      "en": "Are you looking for work?"
-    }
+    ]
   },
   {
     "fr": "prix du marché",
@@ -62581,12 +63156,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "micro économie",
@@ -62606,12 +63176,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Notre classe est une petite classe.",
-      "ar": "قسمنا صغير .",
-      "en": "Our class is a small one."
-    }
+    ]
   },
   {
     "fr": "économie mixte",
@@ -62711,12 +63276,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "système ouvert",
@@ -62726,12 +63286,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Lorsque j'ai ouvert la porte, je l'ai trouvé endormi.",
-      "ar": "عندما فتحت الباب وجدته ينام",
-      "en": "When I opened the door, I found him asleep."
-    }
+    ]
   },
   {
     "fr": "grève illégale",
@@ -62751,12 +63306,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Nous vivons sur Terre.",
-      "ar": "نحن نعيش على كوكب الأرض.",
-      "en": "We live on Earth."
-    }
+    ]
   },
   {
     "fr": "papier-monnaie",
@@ -62766,12 +63316,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je veux du papier.",
-      "ar": "أريد بعضا من الورق.",
-      "en": "I want paper."
-    }
+    ]
   },
   {
     "fr": "dette publique",
@@ -62801,12 +63346,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "C'est leur seul choix.",
-      "ar": "إنه خيارهم الوحيد.",
-      "en": "It is their only choice."
-    }
+    ]
   },
   {
     "fr": "quasi-monopole",
@@ -62826,7 +63366,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "Quel est le taux d'intérêt du Livret A ?",
+      "ar": "ما هي نسبة الفائدة على حساب التوفير Livret A؟",
+      "en": "What is the interest rate on the Livret A?"
+    }
   },
   {
     "fr": "données brutes",
@@ -62836,12 +63381,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Les scientifiques veulent plus de données.",
-      "ar": "العلماء يريدون المزيد من البيانات.",
-      "en": "The scientists want more data."
-    }
+    ]
   },
   {
     "fr": "re-exportation",
@@ -62881,12 +63421,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "plan d'épargne",
@@ -62896,12 +63431,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Il a expliqué l'objectif principal de ce plan.",
-      "ar": "فسر الهدف الرئيسي لهذا المخطط",
-      "en": "He explained the plan's main objective."
-    }
+    ]
   },
   {
     "fr": "taux d'épargne",
@@ -62931,12 +63461,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "échelle mobile",
@@ -62956,12 +63481,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Mastodon est un réseau social fédéré, libre et ouvert.",
-      "ar": "ماستدون هي شبكة تواصل اجتماعي فدرالية حرة ومفتوحة المصدر.",
-      "en": "Mastodon is a federated free and open-source social network."
-    }
+    ]
   },
   {
     "fr": "monnaie faible",
@@ -62971,12 +63491,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "L'esprit est fort mais la chair est faible.",
-      "ar": "أما الروح فنشيط، وأما الجسد فضعيف.",
-      "en": "The spirit is willing, but the flesh is weak."
-    }
+    ]
   },
   {
     "fr": "stratification",
@@ -62996,12 +63511,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je ne suis pas allée au marché.",
-      "ar": "أنا لم أذهب الى السوق.",
-      "en": "I didn't go to the market."
-    }
+    ]
   },
   {
     "fr": "recette totale",
@@ -63021,12 +63531,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Ça ne m'est d'aucune utilité.",
-      "ar": "هذا غير مجد أبدا بالنسبة لي.",
-      "en": "That's of no use to me."
-    }
+    ]
   },
   {
     "fr": "bons de trésor",
@@ -63036,12 +63541,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "valeur d'usage",
@@ -63101,12 +63601,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je demande pardon à Dieu !",
-      "ar": "أستغفرالله!",
-      "en": "I ask God for forgiveness!"
-    }
+    ]
   },
   {
     "fr": "réforme agraire",
@@ -63166,12 +63661,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "bio-technologie",
@@ -63191,12 +63681,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je pense pouvoir.",
-      "ar": "أظن أنه بمقدوري ذلك.",
-      "en": "I think I can."
-    }
+    ]
   },
   {
     "fr": "sous production",
@@ -63206,12 +63691,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tom est caché sous la table.",
-      "ar": "اختبأ توم تحت الطاولة.",
-      "en": "Tom hid under the table."
-    }
+    ]
   },
   {
     "fr": "banque centrale",
@@ -63221,12 +63701,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Elle travaille dans une banque.",
-      "ar": "هي تعمل في بنك.",
-      "en": "She works for a bank."
-    }
+    ]
   },
   {
     "fr": "ceteris paribus",
@@ -63246,12 +63721,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "C'est notre école.",
-      "ar": "هذه مدرستنا.",
-      "en": "That is our school."
-    }
+    ]
   },
   {
     "fr": "lutte de classe",
@@ -63261,12 +63731,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "économie fermée",
@@ -63296,12 +63761,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "corps de métier",
@@ -63311,12 +63771,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "accord douanier",
@@ -63356,12 +63811,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Je demande pardon à Dieu !",
-      "ar": "أستغفرالله!",
-      "en": "I ask God for forgiveness!"
-    }
+    ]
   },
   {
     "fr": "chômage déguisé",
@@ -63391,12 +63841,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "gains",
@@ -63426,12 +63871,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Il se prépare pour le test.",
-      "ar": "إنه يستعد للامتحان.",
-      "en": "He is preparing for the test."
-    }
+    ]
   },
   {
     "fr": "étude empirique",
@@ -63501,12 +63941,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "flux de capital",
@@ -63516,12 +63951,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "réserves libres",
@@ -63531,12 +63961,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "Tous les êtres humains naissent libres et égaux en dignité et en droits. Ils sont doués de raison et de conscience et doivent agir les uns envers les autres dans un esprit de fraternité.",
-      "ar": "يولد جميع الناس أحرارا ومتساوين في الكرامة والحقوق، وهم قد وهبوا العقل والوجدان، وعليهم أن يعاملوا بعضهم بعضا بروح الإخاء.",
-      "en": "All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood."
-    }
+    ]
   },
   {
     "fr": "chômage général",
@@ -63556,12 +63981,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "dumping occulte",
@@ -63611,12 +64031,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "bank",
       "work"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "don",
@@ -63663,9 +64078,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Tu as tort dans ce cas.",
-      "ar": "انت مخطئ في هذه الحالة",
-      "en": "You're wrong in this case."
+      "fr": "Ça dépend du cas.",
+      "ar": "يعتمد على الحالة.",
+      "en": "It depends on the case."
     }
   },
   {
@@ -63723,9 +64138,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "J'ai fait cela.",
-      "ar": "فعلت هذا",
-      "en": "I have done that."
+      "fr": "En fait.",
+      "ar": "في الحقيقة / يعني.",
+      "en": "Actually."
     }
   },
   {
@@ -63811,7 +64226,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Ça me fait rire.",
+      "ar": "هذا يضحكني.",
+      "en": "It makes me laugh."
+    }
   },
   {
     "fr": "mana",
@@ -63841,7 +64261,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Je rêve d'avoir un grand jardin.",
+      "ar": "أحلم بأن يكون لديّ حديقة كبيرة.",
+      "en": "I dream of having a large garden."
+    }
   },
   {
     "fr": "paria",
@@ -63946,12 +64371,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ],
-    "ex": {
-      "fr": "Idiot !",
-      "ar": "مغفل!",
-      "en": "Fool!"
-    }
+    ]
   },
   {
     "fr": "folie",
@@ -63961,7 +64381,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "C’est de la folie !",
+      "ar": "هذا جنون!",
+      "en": "That’s crazy!"
+    }
   },
   {
     "fr": "totem",
@@ -64168,9 +64593,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Je ne vous envie pas.",
-      "ar": "لا أغار منك",
-      "en": "I don't envy you."
+      "fr": "J’ai pas envie.",
+      "ar": "ليس لدي رغبة.",
+      "en": "I don’t feel like it."
     }
   },
   {
@@ -64226,7 +64651,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Je fais une courte pause pour la prière.",
+      "ar": "آخذ استراحة قصيرة للصلاة.",
+      "en": "I'm taking a short break to pray."
+    }
   },
   {
     "fr": "public",
@@ -64258,9 +64688,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Tu as raison.",
-      "ar": "عندك حق.",
-      "en": "You're correct."
+      "fr": "T’as raison.",
+      "ar": "معك حق.",
+      "en": "You’re right."
     }
   },
   {
@@ -64283,9 +64713,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Mastodon est un réseau social fédéré, libre et ouvert.",
-      "ar": "ماستدون هي شبكة تواصل اجتماعي فدرالية حرة ومفتوحة المصدر.",
-      "en": "Mastodon is a federated free and open-source social network."
+      "fr": "Montant net social",
+      "ar": "المبلغ الصافي الاجتماعي",
+      "en": "Net social amount"
     }
   },
   {
@@ -64456,7 +64886,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Avec plaisir.",
+      "ar": "بكل سرور.",
+      "en": "With pleasure."
+    }
   },
   {
     "fr": "poverté",
@@ -64541,7 +64976,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Un bilan sanguin",
+      "ar": "تحاليل دم شاملة",
+      "en": "Blood work"
+    }
   },
   {
     "fr": "servage",
@@ -64601,7 +65041,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Je te souhaite beaucoup de bonheur et de santé.",
+      "ar": "أتمنى لك الكثير من السعادة والصحة.",
+      "en": "I wish you lots of happiness and health."
+    }
   },
   {
     "fr": "holisme",
@@ -64621,12 +65066,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ],
-    "ex": {
-      "fr": "Idiotie !",
-      "ar": "مغفل!",
-      "en": "Fool!"
-    }
+    ]
   },
   {
     "fr": "sur-moi",
@@ -64636,12 +65076,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ],
-    "ex": {
-      "fr": "Répondez-moi.",
-      "ar": "أجبني",
-      "en": "Answer me."
-    }
+    ]
   },
   {
     "fr": "théisme",
@@ -64786,7 +65221,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'il faut un certificat de célibat ?",
+      "ar": "هل تلزم شهادة عزوبية؟",
+      "en": "Is a certificate of single status required?"
+    }
   },
   {
     "fr": "miracle",
@@ -65021,7 +65461,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Il a six ans, il va à l'école primaire.",
+      "ar": "عمره ست سنوات، يذهب إلى المدرسة الابتدائية.",
+      "en": "He's six, he goes to primary school."
+    }
   },
   {
     "fr": "primates",
@@ -65063,9 +65508,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "C'est un problème complexe.",
-      "ar": "هذه مشكلة صعبة.",
-      "en": "This is a complex problem."
+      "fr": "Pas de problème.",
+      "ar": "لا يوجد مشكلة.",
+      "en": "No problem."
     }
   },
   {
@@ -65146,12 +65591,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ],
-    "ex": {
-      "fr": "Je veux un peu d'argent.",
-      "ar": "أريد بعض المال.",
-      "en": "I want a little money."
-    }
+    ]
   },
   {
     "fr": "fascisme",
@@ -65291,7 +65731,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "La plupart du temps, il ne donne aucun symptôme.",
+      "ar": "غالبًا لا يسبب أي أعراض.",
+      "en": "Most of the time, it causes no symptoms."
+    }
   },
   {
     "fr": "synergie",
@@ -65361,7 +65806,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que le diplôme a une durée de validité ?",
+      "ar": "هل للشهادة مدة صلاحية؟",
+      "en": "Does the certificate have a validity period?"
+    }
   },
   {
     "fr": "vendetta",
@@ -65596,7 +66046,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Reprenez votre conduite.",
+      "ar": "عد إلى القيادة.",
+      "en": "Continue driving."
+    }
   },
   {
     "fr": "délusion",
@@ -65616,7 +66071,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "family",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "La phase de descente",
+      "ar": "مرحلة النزول",
+      "en": "Eccentric phase"
+    }
   },
   {
     "fr": "ecmnésie",
@@ -65776,7 +66236,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je veux être plus sec et plus musclé.",
+      "ar": "أريد أن أصبح أنشف وأكثر عضلية.",
+      "en": "I want to be leaner and more muscular."
+    }
   },
   {
     "fr": "ère",
@@ -65826,12 +66291,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ],
-    "ex": {
-      "fr": "Hum...",
-      "ar": "امم...",
-      "en": "Hmm..."
-    }
+    ]
   },
   {
     "fr": "île",
@@ -66291,7 +66751,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Ils sont dans le coin musculation.",
+      "ar": "هي في قسم تمارين القوة.",
+      "en": "They are in the weight training area."
+    }
   },
   {
     "fr": "cour",
@@ -66343,9 +66808,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Nous avons fait la fête toute la nuit.",
-      "ar": "احتفلنا طيلة الليل",
-      "en": "We partied all night long."
+      "fr": "Demain, c'est la fête de l'Aïd.",
+      "ar": "غداً عيد.",
+      "en": "Tomorrow is the Eid festival."
     }
   },
   {
@@ -66546,7 +67011,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Pose-le ici.",
+      "ar": "ضعه هنا.",
+      "en": "Put it here."
+    }
   },
   {
     "fr": "lise",
@@ -66636,12 +67106,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ],
-    "ex": {
-      "fr": "Une nation ne lèvera plus l'épée contre une autre, et l'on n'apprendra plus la guerre.",
-      "ar": "لا ترفع أمة على أمة سيفا ولا يتعلمون الحرب فيما بعد.",
-      "en": "Nation shall not lift up sword against nation, neither shall they learn war any more."
-    }
+    ]
   },
   {
     "fr": "toge",
@@ -66788,9 +67253,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Ne brise pas un miroir.",
-      "ar": "لا تكسر مرآتا",
-      "en": "Don't break a mirror."
+      "fr": "Le pare-brise",
+      "ar": "الزجاج الأمامي",
+      "en": "Windshield"
     }
   },
   {
@@ -67106,7 +67571,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Une série",
+      "ar": "مجموعة",
+      "en": "Set"
+    }
   },
   {
     "fr": "sérir",
@@ -67136,7 +67606,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je suis bloqué sur cette étape.",
+      "ar": "أنا عالق في هذه المرحلة.",
+      "en": "I’m stuck on this step."
+    }
   },
   {
     "fr": "taiga",
@@ -67538,9 +68013,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Ils vendent des tapis anciens.",
-      "ar": "هم يبيعون أبسطة قديمة.",
-      "en": "They sell old carpets."
+      "fr": "Le tapis de sol",
+      "ar": "حصيرة التمرين",
+      "en": "Exercise mat"
     }
   },
   {
@@ -67681,7 +68156,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je suis originaire de Damas.",
+      "ar": "أنا من دمشق الأصل.",
+      "en": "I am originally from Damascus."
+    }
   },
   {
     "fr": "mèche",
@@ -67826,7 +68306,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Tu trouves la salle bien ?",
+      "ar": "هل تجد النادي جيدًا؟",
+      "en": "Do you think the gym is good?"
+    }
   },
   {
     "fr": "harpe",
@@ -68018,9 +68503,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Nous sommes arrivés au musée après dix minutes de marche.",
-      "ar": "قد وصلنا إلى المتحف بعد عشرة دقائق من المشي",
-      "en": "We arrived at the museum after a ten-minute walk."
+      "fr": "Un billet pour le musée, s'il vous plaît.",
+      "ar": "تذكرة للمتحف، من فضلك.",
+      "en": "One ticket for the museum, please."
     }
   },
   {
@@ -68201,7 +68686,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'on peut faire un pique-nique ici ?",
+      "ar": "هل يمكننا القيام برحلة طعام هنا؟",
+      "en": "Can we have a picnic here?"
+    }
   },
   {
     "fr": "pilot",
@@ -68388,9 +68878,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "En Algérie, la démission d'Abdelaziz Bouteflika représente la fin d'une époque.",
-      "ar": "في الجزائر, تمثل استقالة عبد العزيز بوتفليقة نهاية حقبة.",
-      "en": "In Algeria, the resignation of Abdelaziz Bouteflika represents the end of an era."
+      "fr": "Fin de contrat",
+      "ar": "انتهاء العقد",
+      "en": "End of contract"
     }
   },
   {
@@ -68431,7 +68921,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Le bac est plein.",
+      "ar": "الصندوق ممتلئ.",
+      "en": "The bin is full."
+    }
   },
   {
     "fr": "Car",
@@ -68553,9 +69048,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Les jeux olympiques sont organisés tous les quatre ans.",
-      "ar": "تقام الألعاب الأولمبية كل أربع سنوات",
-      "en": "The Olympic Games are staged every four years."
+      "fr": "Est-ce qu'il y a une aire de jeux pour les enfants ?",
+      "ar": "هل هناك منطقة ألعاب للأطفال؟",
+      "en": "Is there a playground for children?"
     }
   },
   {
@@ -68733,9 +69228,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "J'étais dans le bain quand le téléphone sonna.",
-      "ar": "كنت في الحمام عندما رن الهاتف",
-      "en": "I was in the bath when the phone rang."
+      "fr": "Utiliser un bain de bouche",
+      "ar": "يستخدم غسول فم",
+      "en": "To use mouthwash"
     }
   },
   {
@@ -68783,9 +69278,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Je pense que le monde s'unirait si j'étais le chef des États-Unis.",
-      "ar": "أعتقد أن العالم سيتحد إن أكون قائد الولايات المتحدة.",
-      "en": "I think the world would unite if I were the leader of the United States."
+      "fr": "Le chef arrive.",
+      "ar": "المسؤول قادم.",
+      "en": "The supervisor is coming."
     }
   },
   {
@@ -68798,9 +69293,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Nous vous souhaitons la bienvenue à notre club.",
-      "ar": "نحن نرحب بك في نادينا.",
-      "en": "We welcome you to our club."
+      "fr": "Ça dépend de l’abonnement et du club.",
+      "ar": "يعتمد على الاشتراك والنادي.",
+      "en": "It depends on the membership and club."
     }
   },
   {
@@ -68813,9 +69308,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Mets les carottes dans la casserole.",
-      "ar": "ضع الجزر في القدر.",
-      "en": "Put the carrots in the pot."
+      "fr": "Mets-le de côté.",
+      "ar": "ضعه جانبًا.",
+      "en": "Put it aside."
     }
   },
   {
@@ -68886,7 +69381,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'il y a un tram de nuit ?",
+      "ar": "هل هناك ترام ليلي؟",
+      "en": "Is there a night tram?"
+    }
   },
   {
     "fr": "visa",
@@ -68896,7 +69396,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Voici mon visa et mon billet de retour.",
+      "ar": "هذه تأشيرتي وتذكرة عودتي.",
+      "en": "Here is my visa and my return ticket."
+    }
   },
   {
     "fr": "média",
@@ -68956,7 +69461,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Ma valise est noire, de taille moyenne.",
+      "ar": "حقيبتي سوداء، حجمها متوسط.",
+      "en": "My suitcase is black, medium sized."
+    }
   },
   {
     "fr": "banjo",
@@ -68976,7 +69486,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "La poulie basse",
+      "ar": "الكابل السفلي",
+      "en": "Low pulley"
+    }
   },
   {
     "fr": "bémol",
@@ -69043,9 +69558,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Cette montagne n'est pas très haute.",
-      "ar": "هذا الجبل ليس عاليا جدا.",
-      "en": "This mountain isn't a lofty one."
+      "fr": "La poulie haute",
+      "ar": "الكابل العلوي",
+      "en": "High pulley"
     }
   },
   {
@@ -69106,12 +69621,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ],
-    "ex": {
-      "fr": "Le cœur bat.",
-      "ar": "القلب ينبض.",
-      "en": "The heart beats."
-    }
+    ]
   },
   {
     "fr": "comma",
@@ -69308,9 +69818,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Je reviens tout de suite.",
-      "ar": "سأرجع حالا.",
-      "en": "I'll be back in a moment."
+      "fr": "Commence tout de suite.",
+      "ar": "ابدأ فورًا.",
+      "en": "Start right away."
     }
   },
   {
@@ -69453,9 +69963,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "À quel étage loges-tu ?",
-      "ar": "في أي دور تسكن؟",
-      "en": "Which floor do you live on?"
+      "fr": "Quel étage ?",
+      "ar": "أي طابق؟",
+      "en": "Which floor?"
     }
   },
   {
@@ -69531,7 +70041,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais des draps pour un lit double.",
+      "ar": "أريد شراشف لسرير مزدوج.",
+      "en": "I would like sheets for a double bed."
+    }
   },
   {
     "fr": "salon",
@@ -69571,7 +70086,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Pèse le colis.",
+      "ar": "زن الطرد.",
+      "en": "Weigh the parcel."
+    }
   },
   {
     "fr": "rugby",
@@ -69591,7 +70111,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que le sauna est inclus ?",
+      "ar": "هل الساونا مشمولة؟",
+      "en": "Is the sauna included?"
+    }
   },
   {
     "fr": "berge",
@@ -69621,7 +70146,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Ça me tente.",
+      "ar": "يعجبني الأمر / أرغب به.",
+      "en": "I’m tempted."
+    }
   },
   {
     "fr": "villa",
@@ -69676,12 +70206,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ],
-    "ex": {
-      "fr": "Il se prépare pour le test.",
-      "ar": "إنه يستعد للامتحان.",
-      "en": "He is preparing for the test."
-    }
+    ]
   },
   {
     "fr": "poster",
@@ -69806,7 +70331,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Il y a quelque chose qui cloche.",
+      "ar": "هناك شيء غير صحيح.",
+      "en": "Something is wrong."
+    }
   },
   {
     "fr": "doigté",
@@ -69906,12 +70436,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ],
-    "ex": {
-      "fr": "La vérité ?",
-      "ar": "الحقيقة ؟",
-      "en": "The truth?"
-    }
+    ]
   },
   {
     "fr": "calore",
@@ -70038,9 +70563,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Elle marche.",
-      "ar": "هي تمشي.",
-      "en": "She is walking."
+      "fr": "Ça marche.",
+      "ar": "تمام / موافق.",
+      "en": "Okay / works."
     }
   },
   {
@@ -70061,7 +70586,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Relevez votre manche.",
+      "ar": "ارفع كمك.",
+      "en": "Roll up your sleeve."
+    }
   },
   {
     "fr": "neumes",
@@ -70121,7 +70651,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Une phrase à la fois, s'il vous plaît.",
+      "ar": "جملة واحدة في كل مرة، من فضلك.",
+      "en": "One sentence at a time, please."
+    }
   },
   {
     "fr": "phrasé",
@@ -70141,7 +70676,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je pointe à 6 heures.",
+      "ar": "أسجل وقت دخولي الساعة السادسة.",
+      "en": "I clock in at 6 o’clock."
+    }
   },
   {
     "fr": "presto",
@@ -70183,9 +70723,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Les chambres de cet hôtel sont vraiment très mal insonorisées. J’arrive à entendre mon voisin mâcher son chewing-gum !",
-      "ar": "غرف هذا الفندق عازلة للصوت سيئة للغاية. يمكنني سماع جارتي وهو يمضغ علكته",
-      "en": "The rooms in this hotel are really very bad at muffling sounds. I can hear my neighbor chewing his gum!"
+      "fr": "Bonjour, je suis votre nouveau voisin.",
+      "ar": "مرحباً، أنا جارك الجديد.",
+      "en": "Hello, I'm your new neighbour."
     }
   },
   {
@@ -70331,12 +70871,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ],
-    "ex": {
-      "fr": "Y a-t-il un médecin à bord ?",
-      "ar": "هل هناك طبيب على متن السفينة؟",
-      "en": "Is there a doctor on board?"
-    }
+    ]
   },
   {
     "fr": "Airbus",
@@ -70496,7 +71031,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous avez droit à une remise.",
+      "ar": "لديك الحق في تخفيض.",
+      "en": "You are entitled to a discount."
+    }
   },
   {
     "fr": "pâques",
@@ -70516,7 +71056,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Bonne soirée !",
+      "ar": "مساء سعيد!",
+      "en": "Have a nice evening!"
+    }
   },
   {
     "fr": "gratis",
@@ -70546,12 +71091,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "gibier",
@@ -70583,9 +71123,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Tom m'a remercié pour le cadeau.",
-      "ar": "توم قام بشكري على الهدية.",
-      "en": "Tom thanked me for the present."
+      "fr": "Vous avez gagné un cadeau.",
+      "ar": "لقد ربحت هدية.",
+      "en": "You won a gift."
     }
   },
   {
@@ -70656,7 +71196,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "daily",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Ferme bien ton casier.",
+      "ar": "أغلق خزانتك جيدًا.",
+      "en": "Close your locker properly."
+    }
   },
   {
     "fr": "Nu",
@@ -70674,7 +71219,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce lié au foie ?",
+      "ar": "هل له علاقة بالكبد؟",
+      "en": "Is it related to the liver?"
+    }
   },
   {
     "fr": "Bas",
@@ -70708,9 +71258,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Répondez-moi.",
-      "ar": "أجبني",
-      "en": "Answer me."
+      "fr": "Moi c’est Karim, et toi ?",
+      "ar": "أنا كريم، وأنت؟",
+      "en": "I’m Karim, and you?"
     }
   },
   {
@@ -70743,7 +71293,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'il faut monter le meuble soi-même ?",
+      "ar": "هل يجب تركيب الأثاث بنفسي؟",
+      "en": "Do I have to assemble the furniture myself?"
+    }
   },
   {
     "fr": "Bref",
@@ -70781,9 +71336,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Le fleuve Shinano est plus long que n'importe quelle rivière du Japon.",
-      "ar": "نهر شينانو أطول من أي نهر آخر في اليابان.",
-      "en": "The Shinano River is longer than any river in Japan."
+      "fr": "C’est long.",
+      "ar": "هذا طويل / يستغرق وقتًا.",
+      "en": "It’s taking long."
     }
   },
   {
@@ -70820,7 +71375,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Je suis stressé, j'ai peur de l'oral.",
+      "ar": "أنا متوتر، أخاف من الامتحان الشفهي.",
+      "en": "I'm stressed, I'm afraid of the oral."
+    }
   },
   {
     "fr": "Sème",
@@ -70899,9 +71459,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "J'ai un souvenir clair de mon enfance.",
-      "ar": "أتذكر طفولتي بوضوح.",
-      "en": "I have a clear memory of my childhood."
+      "fr": "C’est clair.",
+      "ar": "واضح / أكيد.",
+      "en": "That’s clear / Definitely."
     }
   },
   {
@@ -70988,7 +71548,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Lâche-moi.",
+      "ar": "اتركني.",
+      "en": "Leave me alone."
+    }
   },
   {
     "fr": "Lexie",
@@ -71171,9 +71736,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Tout mon corps me fait mal.",
-      "ar": "كل جسمي يوجعني.",
-      "en": "My whole body hurts."
+      "fr": "Écoute ton corps.",
+      "ar": "استمع إلى جسمك.",
+      "en": "Listen to your body."
     }
   },
   {
@@ -71257,9 +71822,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Tom a un autre chien.",
-      "ar": "توم لديه كلب آخر.",
-      "en": "Tom has another dog."
+      "fr": "Une autre fois.",
+      "ar": "مرة أخرى.",
+      "en": "Another time."
     }
   },
   {
@@ -71271,9 +71836,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "La pièce est vide.",
-      "ar": "الغرفة فارغة.",
-      "en": "The room is empty."
+      "fr": "Pièce justificative",
+      "ar": "وثيقة إثبات",
+      "en": "Supporting document"
     }
   },
   {
@@ -71301,12 +71866,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Toute personne a droit à un recours effectif devant les juridictions nationales compétentes contre les actes violant les droits fondamentaux qui lui sont reconnus par la constitution ou par la loi.",
-      "ar": "لكل شخص الحق في أن يلجأ إلى المحاكم الوطنية لإنصافه عن أعمال فيها اعتداء على الحقوق الأساسية التي يمنحها له القانون.",
-      "en": "Everyone has the right to an effective remedy by the competent national tribunals for acts violating the fundamental rights granted him by the constitution or by law."
-    }
+    ]
   },
   {
     "fr": "quête",
@@ -71392,7 +71952,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Voici le procès-verbal du contrôle.",
+      "ar": "هذا تقرير الفحص.",
+      "en": "Here is the inspection report."
+    }
   },
   {
     "fr": "Actant",
@@ -71437,7 +72002,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "La flèche directionnelle.",
+      "ar": "السهم الاتجاهي.",
+      "en": "Directional arrow."
+    }
   },
   {
     "fr": "Aspiré",
@@ -71455,7 +72025,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "À la limite.",
+      "ar": "في أسوأ الأحوال / ربما.",
+      "en": "At a pinch."
+    }
   },
   {
     "fr": "Calque",
@@ -71536,7 +72111,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "On va commencer par un premier prélèvement d'air expiré.",
+      "ar": "سنبدأ بأخذ عينة أولى من النفس.",
+      "en": "We will start with a first breath sample."
+    }
   },
   {
     "fr": "Émique",
@@ -71682,9 +72262,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Il écrit une lettre.",
-      "ar": "هو يكتب رسالة.",
-      "en": "He is writing a letter."
+      "fr": "Lettre de motivation",
+      "ar": "رسالة تحفيزية",
+      "en": "Cover letter"
     }
   },
   {
@@ -71750,9 +72330,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Ce livre comporte nombre d'erreurs mais est intéressant.",
-      "ar": "يحتوي هذا الكتاب على العديد من الأخطاء لكنه مثير للاهتمام.",
-      "en": "This book has a number of mistakes, but it's interesting."
+      "fr": "L’offre est disponible pour un nombre limité de clients.",
+      "ar": "العرض متاح لعدد محدود من العملاء.",
+      "en": "The offer is available for a limited number of customers."
     }
   },
   {
@@ -71773,9 +72353,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "Dites-moi quelle est la gare la plus proche de votre bureau.",
-      "ar": "قل لي ماهي أقرب محطة لمكتبك.",
-      "en": "Please tell me the closest station to your office."
+      "fr": "Une sortie d'école est proche.",
+      "ar": "مخرج مدرسة قريب.",
+      "en": "A school exit is nearby."
     }
   },
   {
@@ -71857,7 +72437,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Voici le procès-verbal du contrôle.",
+      "ar": "هذا تقرير الفحص.",
+      "en": "Here is the inspection report."
+    }
   },
   {
     "fr": "Faible",
@@ -71868,9 +72453,9 @@ window.VOCAB_DATA_BATCH2 = [
       "school"
     ],
     "ex": {
-      "fr": "L'esprit est fort mais la chair est faible.",
-      "ar": "أما الروح فنشيط، وأما الجسد فضعيف.",
-      "en": "The spirit is willing, but the flesh is weak."
+      "fr": "La réplication virale est faible.",
+      "ar": "تكاثر الفيروس منخفض.",
+      "en": "Viral replication is low."
     }
   },
   {
@@ -71921,7 +72506,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Consulter le détail",
+      "ar": "عرض التفاصيل",
+      "en": "View the details"
+    }
   },
   {
     "fr": "double",
@@ -71930,7 +72520,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Je voudrais des draps pour un lit double.",
+      "ar": "أريد شراشف لسرير مزدوج.",
+      "en": "I would like sheets for a double bed."
+    }
   },
   {
     "fr": "épître",
@@ -71948,7 +72543,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Figure-toi que…",
+      "ar": "تخيل أن…",
+      "en": "Guess what…"
+    }
   },
   {
     "fr": "hamasa",
@@ -71993,7 +72593,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Il manque une pièce.",
+      "ar": "هناك قطعة ناقصة.",
+      "en": "A piece is missing."
+    }
   },
   {
     "fr": "orient",
@@ -72201,12 +72806,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le soleil se couche à l'ouest.",
-      "ar": "تغرب الشمس في الغرب.",
-      "en": "The sun sets in the west."
-    }
+    ]
   },
   {
     "fr": "région D",
@@ -72224,12 +72824,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le soleil se couche à l'ouest.",
-      "ar": "تغرب الشمس في الغرب.",
-      "en": "The sun sets in the west."
-    }
+    ]
   },
   {
     "fr": "région E",
@@ -72247,12 +72842,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le soleil se couche à l'ouest.",
-      "ar": "تغرب الشمس في الغرب.",
-      "en": "The sun sets in the west."
-    }
+    ]
   },
   {
     "fr": "région F",
@@ -72297,12 +72887,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le temps est froid.",
-      "ar": "الجو بارد.",
-      "en": "The weather is cold."
-    }
+    ]
   },
   {
     "fr": "stade sec",
@@ -72338,12 +72923,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Ils étaient là-bas.",
-      "ar": "هم كانوا هناك.",
-      "en": "They were there."
-    }
+    ]
   },
   {
     "fr": "lysimètre",
@@ -72361,12 +72941,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Linux est un système d'exploitation libre ; tu devrais l'essayer.",
-      "ar": "لينكس هو نظام تشغيل حر؛ أنصحك بتجريبه !",
-      "en": "Linux is a free operating system; you should try it."
-    }
+    ]
   },
   {
     "fr": "système p",
@@ -72375,12 +72950,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Linux est un système d'exploitation libre ; tu devrais l'essayer.",
-      "ar": "لينكس هو نظام تشغيل حر؛ أنصحك بتجريبه !",
-      "en": "Linux is a free operating system; you should try it."
-    }
+    ]
   },
   {
     "fr": "parhélies",
@@ -72398,12 +72968,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Ce que je dis est vrai.",
-      "ar": "ما أقوله حقيقة.",
-      "en": "What I'm saying is true."
-    }
+    ]
   },
   {
     "fr": "air chaud",
@@ -72412,12 +72977,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le lait ne se conserve pas longtemps lorsqu'il fait chaud.",
-      "ar": "لا يمكن الاحتفاظ بالحليب طويلا عندما يكون الجو ساخنا.",
-      "en": "Milk does not keep long in hot weather."
-    }
+    ]
   },
   {
     "fr": "anallobare",
@@ -72453,12 +73013,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le noir est à moi.",
-      "ar": "الأسود لي.",
-      "en": "The black one is mine."
-    }
+    ]
   },
   {
     "fr": "lune bleue",
@@ -72467,12 +73022,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "L'eau était bleue.",
-      "ar": "كان الماء ازرقا",
-      "en": "The water was blue."
-    }
+    ]
   },
   {
     "fr": "tourbillon",
@@ -72526,12 +73076,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "J'ai été occupé.",
-      "ar": "كنت مشغولا.",
-      "en": "I have been busy."
-    }
+    ]
   },
   {
     "fr": "grand halo",
@@ -72540,12 +73085,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Dieu est grand.",
-      "ar": "الله أكبر.",
-      "en": "God is great."
-    }
+    ]
   },
   {
     "fr": "vent local",
@@ -72554,12 +73094,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "indice bas",
@@ -72568,12 +73103,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Ils étaient là-bas.",
-      "ar": "هم كانوا هناك.",
-      "en": "They were there."
-    }
+    ]
   },
   {
     "fr": "air humide",
@@ -72627,12 +73157,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le monde est petit.",
-      "ar": "الدنيا صغيرة.",
-      "en": "The world is small."
-    }
+    ]
   },
   {
     "fr": "air stable",
@@ -72641,12 +73166,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Je suis un génie très stable.",
-      "ar": "أنا عبقري مستقر جدا عقليا.",
-      "en": "I'm a very stable genius."
-    }
+    ]
   },
   {
     "fr": "vent frais",
@@ -72655,12 +73175,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Conservez-le au frais.",
-      "ar": "احتفظ به في مكان بارد.",
-      "en": "Keep it at a lower temperature."
-    }
+    ]
   },
   {
     "fr": "subsidence",
@@ -72687,12 +73202,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Ne brise pas un miroir.",
-      "ar": "لا تكسر مرآتا",
-      "en": "Don't break a mirror."
-    }
+    ]
   },
   {
     "fr": "pluie acide",
@@ -72701,12 +73211,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Après la pluie, le beau temps.",
-      "ar": "ما بعد الضيق إلا الفرج",
-      "en": "After the rain, fair weather."
-    }
+    ]
   },
   {
     "fr": "adiabatique",
@@ -72733,12 +73238,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "J'aime le soleil.",
-      "ar": "أحب الشمس.",
-      "en": "I like the sun."
-    }
+    ]
   },
   {
     "fr": "air limpide",
@@ -72756,12 +73256,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le temps est froid.",
-      "ar": "الجو بارد.",
-      "en": "The weather is cold."
-    }
+    ]
   },
   {
     "fr": "disdromètre",
@@ -72788,12 +73283,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "valeur de D",
@@ -72802,12 +73292,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "faux cirrus",
@@ -72816,12 +73301,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Faux.",
-      "ar": "خطأ.",
-      "en": "Wrong!"
-    }
+    ]
   },
   {
     "fr": "cart prévue",
@@ -72848,12 +73328,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "J'aime le soleil.",
-      "ar": "أحب الشمس.",
-      "en": "I like the sun."
-    }
+    ]
   },
   {
     "fr": "stade grêle",
@@ -72871,12 +73346,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "nuage élevé",
@@ -72912,12 +73382,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Ma maison est grande.",
-      "ar": "منزلي كبير.",
-      "en": "My house is big."
-    }
+    ]
   },
   {
     "fr": "nuage mixte",
@@ -72935,12 +73400,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Ne brise pas un miroir.",
-      "ar": "لا تكسر مرآتا",
-      "en": "Don't break a mirror."
-    }
+    ]
   },
   {
     "fr": "grand frais",
@@ -72949,12 +73409,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Dieu est grand.",
-      "ar": "الله أكبر.",
-      "en": "God is great."
-    }
+    ]
   },
   {
     "fr": "paranthélie",
@@ -72972,12 +73427,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le temps est froid.",
-      "ar": "الجو بارد.",
-      "en": "The weather is cold."
-    }
+    ]
   },
   {
     "fr": "air polaire",
@@ -72995,12 +73445,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "La propriété, c'est le vol.",
-      "ar": "الملكية سرقة.",
-      "en": "Property is theft."
-    }
+    ]
   },
   {
     "fr": "stade pluie",
@@ -73009,12 +73454,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Après la pluie, le beau temps.",
-      "ar": "ما بعد الضيق إلا الفرج",
-      "en": "After the rain, fair weather."
-    }
+    ]
   },
   {
     "fr": "arc-en-ciel",
@@ -73023,12 +73463,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "givre blanc",
@@ -73037,12 +73472,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Ce chien est blanc.",
-      "ar": "هذا الكلب أبيض.",
-      "en": "This dog is white."
-    }
+    ]
   },
   {
     "fr": "noyau salin",
@@ -73069,12 +73499,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "front chaud",
@@ -73083,12 +73508,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le lait ne se conserve pas longtemps lorsqu'il fait chaud.",
-      "ar": "لا يمكن الاحتفاظ بالحليب طويلا عندما يكون الجو ساخنا.",
-      "en": "Milk does not keep long in hot weather."
-    }
+    ]
   },
   {
     "fr": "ondes d'est",
@@ -73106,12 +73526,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Ce chien est blanc.",
-      "ar": "هذا الكلب أبيض.",
-      "en": "This dog is white."
-    }
+    ]
   },
   {
     "fr": "mer du vent",
@@ -73120,12 +73535,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "air )",
@@ -73143,12 +73553,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Je respirais contre le miroir.",
-      "ar": "كانت أنفاسي تتشكل ككتلة على سطح المرآة",
-      "en": "I blew my breath against the mirror."
-    }
+    ]
   },
   {
     "fr": "vapeur d'eau",
@@ -73157,12 +73562,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Bois plein d'eau !",
-      "ar": "اشرب الكثير من الماء",
-      "en": "Drink plenty of water."
-    }
+    ]
   },
   {
     "fr": "air arctique",
@@ -73180,12 +73580,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "ciel nuageux",
@@ -73194,12 +73589,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Elle regarda le ciel.",
-      "ar": "Temmuqqel s igenni.",
-      "en": "She looked at the sky."
-    }
+    ]
   },
   {
     "fr": "vague froide",
@@ -73208,12 +73598,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "L'eau est froide.",
-      "ar": "الماء بارد",
-      "en": "The water's cold."
-    }
+    ]
   },
   {
     "fr": "vent de coté",
@@ -73222,12 +73607,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "temps actuel",
@@ -73236,12 +73616,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le temps est froid.",
-      "ar": "الجو بارد.",
-      "en": "The weather is cold."
-    }
+    ]
   },
   {
     "fr": "lueur diurne",
@@ -73268,12 +73643,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "J'avais la bouche sèche.",
-      "ar": "كان فمي جاف.",
-      "en": "My mouth was dry."
-    }
+    ]
   },
   {
     "fr": "electrosonde",
@@ -73291,12 +73661,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "petite brise",
@@ -73305,12 +73670,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Ne brise pas un miroir.",
-      "ar": "لا تكسر مرآتا",
-      "en": "Don't break a mirror."
-    }
+    ]
   },
   {
     "fr": "indice élevé",
@@ -73328,12 +73688,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "effet Lénard",
@@ -73351,12 +73706,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Ne brise pas un miroir.",
-      "ar": "لا تكسر مرآتا",
-      "en": "Don't break a mirror."
-    }
+    ]
   },
   {
     "fr": "lithométéore",
@@ -73410,12 +73760,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Faux.",
-      "ar": "خطأ.",
-      "en": "Wrong!"
-    }
+    ]
   },
   {
     "fr": "point neutre",
@@ -73442,12 +73787,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Elle regarda le ciel.",
-      "ar": "Temmuqqel s igenni.",
-      "en": "She looked at the sky."
-    }
+    ]
   },
   {
     "fr": "carte prévue",
@@ -73456,12 +73796,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Puis-je payer par carte de crédit ?",
-      "ar": "أيمكنني الدفع عن طريق بطاقة الإئتمان؟",
-      "en": "May I pay with a credit card?"
-    }
+    ]
   },
   {
     "fr": "radiosondage",
@@ -73479,12 +73814,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "brume de sel",
@@ -73493,12 +73823,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "mur de sable",
@@ -73507,12 +73832,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "brise de mer",
@@ -73521,12 +73841,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "neige roulée",
@@ -73535,12 +73850,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "La neige tombe sur les montagnes.",
-      "ar": "الثلج يتساقط في الجبال.",
-      "en": "Snow is falling on the mountains."
-    }
+    ]
   },
   {
     "fr": "halo solaire",
@@ -73558,12 +73868,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "carte au sol",
@@ -73572,12 +73877,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Au secours !",
-      "ar": "النجدة!",
-      "en": "Help!"
-    }
+    ]
   },
   {
     "fr": "vent arrière",
@@ -73586,12 +73886,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "air tropical",
@@ -73627,12 +73922,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "nuage aqueux",
@@ -73668,12 +73958,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "côté au vent",
@@ -73682,12 +73967,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Au secours !",
-      "ar": "النجدة!",
-      "en": "Help!"
-    }
+    ]
   },
   {
     "fr": "indice zonal",
@@ -73705,12 +73985,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "onde annuelle",
@@ -73728,12 +74003,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "point d'Arago",
@@ -73760,12 +74030,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "bar )",
@@ -73783,12 +74048,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "rue de nuages",
@@ -73797,12 +74057,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "développement",
@@ -73820,12 +74075,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "nuage de Fohn",
@@ -73834,12 +74084,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "onde de Foehn",
@@ -73848,12 +74093,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "gel )",
@@ -73871,12 +74111,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Ne brise pas un miroir.",
-      "ar": "لا تكسر مرآتا",
-      "en": "Don't break a mirror."
-    }
+    ]
   },
   {
     "fr": "onde frontale",
@@ -73903,12 +74138,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "gelée blanche",
@@ -73935,12 +74165,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "nuages irisés",
@@ -73949,12 +74174,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Les nuages cachèrent le soleil.",
-      "ar": "أخفت الغيوم الشمس.",
-      "en": "The clouds hid the sun."
-    }
+    ]
   },
   {
     "fr": "carte isobare",
@@ -73963,12 +74183,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Puis-je payer par carte de crédit ?",
-      "ar": "أيمكنني الدفع عن طريق بطاقة الإئتمان؟",
-      "en": "May I pay with a credit card?"
-    }
+    ]
   },
   {
     "fr": "isocéraunique",
@@ -74013,12 +74228,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "nuages nacrés",
@@ -74027,12 +74237,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Les nuages cachèrent le soleil.",
-      "ar": "أخفت الغيوم الشمس.",
-      "en": "The clouds hid the sun."
-    }
+    ]
   },
   {
     "fr": "parantisélène",
@@ -74059,12 +74264,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "front polaire",
@@ -74082,12 +74282,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le temps est froid.",
-      "ar": "الجو بارد.",
-      "en": "The weather is cold."
-    }
+    ]
   },
   {
     "fr": "vent dominant",
@@ -74096,12 +74291,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "ruissellement",
@@ -74119,12 +74309,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Quelques enfants nagent dans la mer.",
-      "ar": "بعض الأطفال يسبحون في البحر.",
-      "en": "Some children are swimming in the sea."
-    }
+    ]
   },
   {
     "fr": "mer de nuages",
@@ -74133,12 +74318,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "éclair diffus",
@@ -74156,12 +74336,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "région source",
@@ -74179,12 +74354,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "J'ai hâte que les vacances d'été arrivent.",
-      "ar": "أنتظر بلهفة عطلة الصيف",
-      "en": "I'm looking forward to the summer vacation."
-    }
+    ]
   },
   {
     "fr": "grain orageux",
@@ -74202,12 +74372,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "effet Venturi",
@@ -74225,12 +74390,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le lait ne se conserve pas longtemps lorsqu'il fait chaud.",
-      "ar": "لا يمكن الاحتفاظ بالحليب طويلا عندما يكون الجو ساخنا.",
-      "en": "Milk does not keep long in hot weather."
-    }
+    ]
   },
   {
     "fr": "trombe marine",
@@ -74248,12 +74408,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "vents d'ouest",
@@ -74280,12 +74435,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "saute de vent",
@@ -74294,12 +74444,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "nuages annexes",
@@ -74308,12 +74453,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Les nuages cachèrent le soleil.",
-      "ar": "أخفت الغيوم الشمس.",
-      "en": "The clouds hid the sun."
-    }
+    ]
   },
   {
     "fr": "noyau d'Aitken",
@@ -74331,12 +74471,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Puis-je payer par carte de crédit ?",
-      "ar": "أيمكنني الدفع عن طريق بطاقة الإئتمان؟",
-      "en": "May I pay with a credit card?"
-    }
+    ]
   },
   {
     "fr": "front arctique",
@@ -74381,12 +74516,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "arc du Brocken",
@@ -74395,12 +74525,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "banc de nuages",
@@ -74409,12 +74534,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "groupe de code",
@@ -74423,12 +74543,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "pôles de froid",
@@ -74437,12 +74552,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "carte isohypse",
@@ -74451,12 +74561,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Puis-je payer par carte de crédit ?",
-      "ar": "أيمكنني الدفع عن طريق بطاقة الإئتمان؟",
-      "en": "May I pay with a credit card?"
-    }
+    ]
   },
   {
     "fr": "ligne isohypse",
@@ -74474,12 +74579,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "force déviante",
@@ -74488,12 +74588,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "J'ai perdu ma force.",
-      "ar": "فقدت قواي.",
-      "en": "I've lost my strength."
-    }
+    ]
   },
   {
     "fr": "point de rosée",
@@ -74502,12 +74597,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "clair de terre",
@@ -74516,12 +74606,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "flux turbulent",
@@ -74557,12 +74642,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "dossier de vol",
@@ -74571,12 +74651,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "niveaux de vol",
@@ -74585,12 +74660,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "prévisionniste",
@@ -74617,12 +74687,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "poche de gelée",
@@ -74631,12 +74696,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "point de gelée",
@@ -74645,12 +74705,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "vue ultérieure",
@@ -74659,12 +74714,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Je l'ai vue.",
-      "ar": "رأيتها.",
-      "en": "I saw her."
-    }
+    ]
   },
   {
     "fr": "effet de serre",
@@ -74673,12 +74723,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "vecteur rafale",
@@ -74705,12 +74750,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "avis d'ouragan",
@@ -74755,12 +74795,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "brume )",
@@ -74787,12 +74822,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le soleil se couche à l'ouest.",
-      "ar": "تغرب الشمس في الغرب.",
-      "en": "The sun sets in the west."
-    }
+    ]
   },
   {
     "fr": "climat polaire",
@@ -74819,12 +74849,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Il a encouragé l'idée d'un gouvernement mondial.",
-      "ar": "لقد شجع فكرة حكومة عالمية.",
-      "en": "He promoted the idea of world government."
-    }
+    ]
   },
   {
     "fr": "vent résultant",
@@ -74833,12 +74858,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "sonde de fusée",
@@ -74847,12 +74867,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "onde de Rossby",
@@ -74861,12 +74876,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "brume de sable",
@@ -74875,12 +74885,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "ciel )",
@@ -74889,12 +74894,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Elle regarda le ciel.",
-      "ar": "Temmuqqel s igenni.",
-      "en": "She looked at the sky."
-    }
+    ]
   },
   {
     "fr": "nappe de fumée",
@@ -74903,12 +74903,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "balise à neige",
@@ -74917,12 +74912,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "La neige tombe sur les montagnes.",
-      "ar": "الثلج يتساقط في الجبال.",
-      "en": "Snow is falling on the mountains."
-    }
+    ]
   },
   {
     "fr": "climat solaire",
@@ -74949,12 +74939,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "climat tempéré",
@@ -74972,12 +74957,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "avis de typhon",
@@ -74986,12 +74966,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "sosimètre U.V.",
@@ -75009,12 +74984,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le temps est froid.",
-      "ar": "الجو بارد.",
-      "en": "The weather is cold."
-    }
+    ]
   },
   {
     "fr": "carte du temps",
@@ -75023,12 +74993,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "vent )",
@@ -75037,12 +75002,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "profil du vent",
@@ -75051,12 +75011,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "rose des vents",
@@ -75065,12 +75020,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "J'ai des sœurs.",
-      "ar": "لدي أخوات.",
-      "en": "I have sisters."
-    }
+    ]
   },
   {
     "fr": "albédo .)",
@@ -75088,12 +75038,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "air antarctique",
@@ -75138,12 +75083,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "tube de Bourdon",
@@ -75152,12 +75092,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "calme )",
@@ -75166,12 +75101,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Nara est une ville calme et jolie.",
-      "ar": "نارا مدينة هادئة و جميلة",
-      "en": "Nara is a quiet and beautiful city."
-    }
+    ]
   },
   {
     "fr": "zone climatique",
@@ -75198,12 +75128,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "T'as l'air d'un flic.",
-      "ar": "تبدو وكأنك شرطي.",
-      "en": "You look like a cop."
-    }
+    ]
   },
   {
     "fr": "goutte nuageuse",
@@ -75230,12 +75155,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "système nuageux",
@@ -75244,12 +75164,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Linux est un système d'exploitation libre ; tu devrais l'essayer.",
-      "ar": "لينكس هو نظام تشغيل حر؛ أنصحك بتجريبه !",
-      "en": "Linux is a free operating system; you should try it."
-    }
+    ]
   },
   {
     "fr": "voile de nuages",
@@ -75258,12 +75173,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "chiffre de code",
@@ -75272,12 +75182,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "symbole de code",
@@ -75286,12 +75191,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "zone de confort",
@@ -75300,12 +75200,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "air continental",
@@ -75341,12 +75236,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Éteignez la lumière !",
-      "ar": "أطفئ الضوء.",
-      "en": "Turn off the light."
-    }
+    ]
   },
   {
     "fr": "thermomètre sec",
@@ -75400,12 +75290,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "Foehn )",
@@ -75423,12 +75308,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "front )",
@@ -75446,12 +75326,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Linux est un système d'exploitation libre ; tu devrais l'essayer.",
-      "ar": "لينكس هو نظام تشغيل حر؛ أنصحك بتجريبه !",
-      "en": "Linux is a free operating system; you should try it."
-    }
+    ]
   },
   {
     "fr": "orages frontaux",
@@ -75487,12 +75362,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "climat de serre",
@@ -75501,12 +75371,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "onde de gravité",
@@ -75515,12 +75380,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "décharge au sol",
@@ -75529,12 +75389,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Au secours !",
-      "ar": "النجدة!",
-      "en": "Help!"
-    }
+    ]
   },
   {
     "fr": "couche de brume",
@@ -75543,12 +75398,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "bilan thermique",
@@ -75566,12 +75416,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le téléphone est en panne, Monsieur Tamori.",
-      "ar": "الهاتف معطل يا السيد تاموري.",
-      "en": "The telephone is out of order, Mr Tamori."
-    }
+    ]
   },
   {
     "fr": "noyau glaçogène",
@@ -75607,12 +75452,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Mélange la soupe.",
-      "ar": "اخلط الحساء.",
-      "en": "Stir the soup."
-    }
+    ]
   },
   {
     "fr": "éclair )",
@@ -75648,12 +75488,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "indice méridien",
@@ -75680,12 +75515,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Je lui achèterai un tableau.",
-      "ar": "سأشتري له سبورة.",
-      "en": "I'll buy him a whiteboard."
-    }
+    ]
   },
   {
     "fr": "onde planétaire",
@@ -75712,12 +75542,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Le temps est froid.",
-      "ar": "الجو بارد.",
-      "en": "The weather is cold."
-    }
+    ]
   },
   {
     "fr": "front principal",
@@ -75726,12 +75551,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Il a expliqué l'objectif principal de ce plan.",
-      "ar": "فسر الهدف الرئيسي لهذا المخطط",
-      "en": "He explained the plan's main objective."
-    }
+    ]
   },
   {
     "fr": "lumière pourpre",
@@ -75740,12 +75560,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Éteignez la lumière !",
-      "ar": "أطفئ الضوء.",
-      "en": "Turn off the light."
-    }
+    ]
   },
   {
     "fr": "radar )",
@@ -75763,12 +75578,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Après la pluie, le beau temps.",
-      "ar": "ما بعد الضيق إلا الفرج",
-      "en": "After the rain, fair weather."
-    }
+    ]
   },
   {
     "fr": "goutte de pluie",
@@ -75777,12 +75587,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "averse de pluie",
@@ -75791,12 +75596,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "sonde radiovent",
@@ -75814,12 +75614,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "zone semi-aride",
@@ -75837,12 +75632,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Je me suis réveillé à six heures ce matin.",
-      "ar": "استيقظت عند السادسة هذا الصباح.",
-      "en": "I got up at six this morning."
-    }
+    ]
   },
   {
     "fr": "fumée )",
@@ -75851,12 +75641,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "La fumée des cigarettes dérange les autres passagers.",
-      "ar": "دخان السجائر يزعج الركاب الآخرين.",
-      "en": "Cigarette smoke bothers other passengers."
-    }
+    ]
   },
   {
     "fr": "neige )",
@@ -75865,12 +75650,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "La neige tombe sur les montagnes.",
-      "ar": "الثلج يتساقط في الجبال.",
-      "en": "Snow is falling on the mountains."
-    }
+    ]
   },
   {
     "fr": "neige en grains",
@@ -75879,12 +75659,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "humidité du sol",
@@ -75893,12 +75668,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "grain )",
@@ -75916,12 +75686,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "ligne de grains",
@@ -75930,12 +75695,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "avis de tempête",
@@ -75944,12 +75704,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "pluie de soufre",
@@ -75958,12 +75713,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "colonne solaire",
@@ -75981,12 +75731,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Quelle est votre type d'art préféré ?",
-      "ar": "ما هو فنك المفضل؟",
-      "en": "What's your favorite kind of art?"
-    }
+    ]
   },
   {
     "fr": "dégel )",
@@ -76013,12 +75758,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Linux est un système d'exploitation libre ; tu devrais l'essayer.",
-      "ar": "لينكس هو نظام تشغيل حر؛ أنصحك بتجريبه !",
-      "en": "Linux is a free operating system; you should try it."
-    }
+    ]
   },
   {
     "fr": "pression totale",
@@ -76045,12 +75785,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "brise de vallée",
@@ -76059,12 +75794,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "vent dextrogyre",
@@ -76073,12 +75803,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "virga )",
@@ -76096,12 +75821,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "vitesse du vent",
@@ -76110,12 +75830,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "mousson d'hiver",
@@ -76133,12 +75848,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "zone de silence",
@@ -76147,12 +75857,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "humidité absolue",
@@ -76179,12 +75884,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "lumière de l'air",
@@ -76193,12 +75893,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "vent allobarique",
@@ -76207,12 +75902,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "front anabatique",
@@ -76284,12 +75974,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Qui sème le vent, récolte la tempête.",
-      "ar": "من يزرع الريح يحصد العاصفة.",
-      "en": "You reap what you sow."
-    }
+    ]
   },
   {
     "fr": "point de Babinet",
@@ -76298,12 +75983,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "modèle barocline",
@@ -76339,12 +76019,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "rapport de Bowen",
@@ -76353,12 +76028,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "calvus )",
@@ -76376,12 +76046,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Tom boit du lait.",
-      "ar": "يشرب توم الحليب.",
-      "en": "Tom is drinking milk."
-    }
+    ]
   },
   {
     "fr": "plafond )",
@@ -76444,12 +76109,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Puis-je payer par carte de crédit ?",
-      "ar": "أيمكنني الدفع عن طريق بطاقة الإئتمان؟",
-      "en": "May I pay with a credit card?"
-    }
+    ]
   },
   {
     "fr": "forêt des nuages",
@@ -76458,12 +76118,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "J'ai des sœurs.",
-      "ar": "لدي أخوات.",
-      "en": "I have sisters."
-    }
+    ]
   },
   {
     "fr": "genres de nuages",
@@ -76472,12 +76127,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "couche de nuages",
@@ -76486,12 +76136,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "col barométrique",
@@ -76527,12 +76172,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Apprends ta langue.",
-      "ar": "تعلم لغتك.",
-      "en": "Learn your language."
-    }
+    ]
   },
   {
     "fr": "mur de poussière",
@@ -76541,12 +76181,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A2",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "front équatorial",
@@ -76605,7 +76240,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Suivi régulier",
+      "ar": "متابعة منتظمة",
+      "en": "Regular follow-up"
+    }
   },
   {
     "fr": "algue",
@@ -76685,7 +76325,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Nous allons enlever le tartre.",
+      "ar": "سنزيل الجير.",
+      "en": "We are going to remove the tartar."
+    }
   },
   {
     "fr": "graine",
@@ -76835,12 +76480,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Après qu'elle eut perdu son travail, elle n'était plus en mesure de nourrir ses chiens, alors elle les donna.",
-      "ar": "بعد فقدانها لعملها، لم تكن قادرة على إطعام كلابها، لذلك أعطتهم لأحدهم.",
-      "en": "After she lost her job, she couldn't afford to feed her dogs, so she gave them away."
-    }
+    ]
   },
   {
     "fr": "volatil",
@@ -76970,7 +76610,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Je vais vous présenter nos services.",
+      "ar": "سأقدم لك خدماتنا.",
+      "en": "I will present our services to you."
+    }
   },
   {
     "fr": "anoxique",
@@ -77070,12 +76715,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "dégazeur",
@@ -77125,7 +76765,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Souffler dans un tube",
+      "ar": "النفخ في أنبوب",
+      "en": "Blow into a tube"
+    }
   },
   {
     "fr": "Salinité",
@@ -77145,12 +76790,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Cette eau a bon goût.",
-      "ar": "مذاق هذا الماء طيب.",
-      "en": "This water tastes good."
-    }
+    ]
   },
   {
     "fr": "bouchage",
@@ -77365,12 +77005,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "poubelle",
@@ -77380,7 +77015,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Jette les déchets à la poubelle.",
+      "ar": "ارمِ النفايات في سلة المهملات.",
+      "en": "Throw the waste into the bin."
+    }
   },
   {
     "fr": "situation",
@@ -77392,9 +77032,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "La situation ne fait qu'empirer.",
-      "ar": "الوضع يزداد سوءا.",
-      "en": "The situation gets worse and worse."
+      "fr": "Situation familiale",
+      "ar": "الوضع العائلي",
+      "en": "Family situation"
     }
   },
   {
@@ -77405,7 +77045,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que la taxe d'habitation ?",
+      "ar": "ما هي ضريبة السكن؟",
+      "en": "What is the residence tax?"
+    }
   },
   {
     "fr": "anionique",
@@ -77425,7 +77070,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "La cage à squat",
+      "ar": "قفص السكوات",
+      "en": "Squat rack / Power rack"
+    }
   },
   {
     "fr": "décanteur",
@@ -77585,12 +77235,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Cette eau a bon goût.",
-      "ar": "مذاق هذا الماء طيب.",
-      "en": "This water tastes good."
-    }
+    ]
   },
   {
     "fr": "relargage",
@@ -77630,7 +77275,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Veuillez supprimer mes coordonnées.",
+      "ar": "يرجى حذف معلوماتي.",
+      "en": "Please delete my details."
+    }
   },
   {
     "fr": "eau bleue",
@@ -77640,12 +77290,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "L'eau était bleue.",
-      "ar": "كان الماء ازرقا",
-      "en": "The water was blue."
-    }
+    ]
   },
   {
     "fr": "eau douce",
@@ -77655,12 +77300,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Il a la voix douce.",
-      "ar": "لديه صوت حلو .",
-      "en": "He has a sweet voice."
-    }
+    ]
   },
   {
     "fr": "eau verte",
@@ -77670,12 +77310,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Cette eau a bon goût.",
-      "ar": "مذاق هذا الماء طيب.",
-      "en": "This water tastes good."
-    }
+    ]
   },
   {
     "fr": "eau grise",
@@ -77685,12 +77320,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "daily"
-    ],
-    "ex": {
-      "fr": "Cette eau a bon goût.",
-      "ar": "مذاق هذا الماء طيب.",
-      "en": "This water tastes good."
-    }
+    ]
   },
   {
     "fr": "condenser",
@@ -77782,9 +77412,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "J'ai concentré mon attention sur le sujet.",
-      "ar": "وجهت تركيزي على الموضوع.",
-      "en": "I concentrated my attention on the subject."
+      "fr": "Je reste concentré sur la route.",
+      "ar": "أبقى مركزًا على الطريق.",
+      "en": "I stay focused on the road."
     }
   },
   {
@@ -78000,12 +77630,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "work",
       "services"
-    ],
-    "ex": {
-      "fr": "Si tu dois, tu dois.",
-      "ar": "إن كنت مجبرا، فأنت مجبر.",
-      "en": "If you must, you must."
-    }
+    ]
   },
   {
     "fr": "GaAs",
@@ -78065,7 +77690,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "work",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je viens chercher mon Clinutren Boisson 2 kcal.",
+      "ar": "جئت لاستلام كلينوترين بواسون 2 كيلو كالوري.",
+      "en": "I'm here to pick up my Clinutren Drink 2 kcal."
+    }
   },
   {
     "fr": "sels",
@@ -78535,12 +78165,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "work",
       "services"
-    ],
-    "ex": {
-      "fr": "Toute personne a droit, en pleine égalité, à ce que sa cause soit entendue équitablement et publiquement par un tribunal indépendant et impartial, qui décidera, soit de ses droits et obligations, soit du bien-fondé de toute accusation en matière pénale dirigée contre elle.",
-      "ar": "لكل إنسان الحق، على قدم المساواة التامة مع الآخرين، في أن تنظر قضيته أمام محكمة مستقلة نزيهة نظرا عادلا علنيا للفصل في حقوقه والتزاماته وأية تهمة جنائية توجه إليه.",
-      "en": "Everyone is entitled in full equality to a fair and public hearing by an independent and impartial tribunal, in the determination of his rights and obligations and of any criminal charge against him."
-    }
+    ]
   },
   {
     "fr": "thorium",
@@ -78629,12 +78254,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "Marie se couvrait.",
-      "ar": "غطت ماري نفسها.",
-      "en": "Mary covered herself."
-    }
+    ]
   },
   {
     "fr": "fil",
@@ -78645,9 +78265,9 @@ window.VOCAB_DATA_BATCH2 = [
       "shop"
     ],
     "ex": {
-      "fr": "J'ai passé un coup de fil à Tom.",
-      "ar": "اتصلت بتوم.",
-      "en": "I rang Tom."
+      "fr": "Utilisez du fil dentaire.",
+      "ar": "استخدم خيط الأسنان.",
+      "en": "Use dental floss."
     }
   },
   {
@@ -78837,7 +78457,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "Le rack à squat",
+      "ar": "حامل السكوات",
+      "en": "Squat rack"
+    }
   },
   {
     "fr": "look",
@@ -79008,7 +78633,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que le cuir est de bonne qualité ?",
+      "ar": "هل الجلد بجودة جيدة؟",
+      "en": "Is the leather good quality?"
+    }
   },
   {
     "fr": "lynx",
@@ -79026,7 +78656,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "Je ne mange pas de porc.",
+      "ar": "لا آكل لحم الخنزير.",
+      "en": "I don't eat pork."
+    }
   },
   {
     "fr": "daim",
@@ -79085,7 +78720,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "Je pousse la barre vers le haut.",
+      "ar": "أدفع البار للأعلى.",
+      "en": "I push the bar up."
+    }
   },
   {
     "fr": "aube",
@@ -79292,12 +78932,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "J'ai passé un coup de fil à Tom.",
-      "ar": "اتصلت بتوم.",
-      "en": "I rang Tom."
-    }
+    ]
   },
   {
     "fr": "Atrex",
@@ -79522,7 +79157,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai une douleur à droite sous les côtes, est-ce à cause de l'hémangiome ?",
+      "ar": "لدي ألم يمين تحت الأضلاع، هل بسبب الورم؟",
+      "en": "I have pain under the right ribs, is it because of the hemangioma?"
+    }
   },
   {
     "fr": "satin",
@@ -79605,9 +79245,9 @@ window.VOCAB_DATA_BATCH2 = [
       "shop"
     ],
     "ex": {
-      "fr": "Assure-toi de prendre une tenue pour la pluie !",
-      "ar": "تأكد من ارتداء ملابس شتوية !",
-      "en": "Be sure to bring rain gear."
+      "fr": "Porte une tenue de sport.",
+      "ar": "ارتدِ ملابس رياضية.",
+      "en": "Wear sportswear."
     }
   },
   {
@@ -79646,9 +79286,9 @@ window.VOCAB_DATA_BATCH2 = [
       "shop"
     ],
     "ex": {
-      "fr": "Tom est tombé amoureux de Mary.",
-      "ar": "توم وقع في حب ماري",
-      "en": "Tom fell in love with Mary."
+      "fr": "Je suis tombé.",
+      "ar": "وقعت.",
+      "en": "I fell."
     }
   },
   {
@@ -79658,7 +79298,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "De toute façon.",
+      "ar": "على أي حال.",
+      "en": "Anyway."
+    }
   },
   {
     "fr": "Heriz",
@@ -79748,7 +79393,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "Sur l'App Store ou Google Play.",
+      "ar": "من App Store أو Google Play.",
+      "en": "From the App Store or Google Play."
+    }
   },
   {
     "fr": "genêt",
@@ -80005,7 +79655,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "Le gilet de sécurité.",
+      "ar": "سترة السلامة.",
+      "en": "Safety vest."
+    }
   },
   {
     "fr": "panty",
@@ -80149,12 +79804,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "Les Hasmonéens étaient une dynastie royale juive qui gouvernait la terre d'Israël et mena la rébellion des Maccabées.",
-      "ar": "كانت الأسرة الحشمونية أسرة ملكية يهودية حكمت أرض إسرائيل، وقد قادت الثورة المكابية.",
-      "en": "The Hasmoneans were a Jewish royal dynasty that ruled the Land of Israel and led the Maccabee revolt."
-    }
+    ]
   },
   {
     "fr": "côte S",
@@ -80860,7 +80510,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "Fais gaffe.",
+      "ar": "انتبه.",
+      "en": "Watch out."
+    }
   },
   {
     "fr": "foret",
@@ -81135,7 +80790,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "Serre bien la barre.",
+      "ar": "أمسك البار بقوة.",
+      "en": "Grip the bar firmly."
+    }
   },
   {
     "fr": "grume",
@@ -81360,7 +81020,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "Pouvez-vous ouvrir le coffre, s'il vous plaît ?",
+      "ar": "هل يمكنك فتح الصندوق، من فضلك؟",
+      "en": "Can you open the boot, please?"
+    }
   },
   {
     "fr": "ciseau",
@@ -81625,7 +81290,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "L'adresse est le cinq, avenue Victor Hugo.",
+      "ar": "العنوان: 5 جادة فيكتور هوغو.",
+      "en": "The address is five, Avenue Victor Hugo."
+    }
   },
   {
     "fr": "balcon",
@@ -81695,7 +81365,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "housing",
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "Tu fais toujours le même métier ?",
+      "ar": "هل ما زلت تعمل نفس المهنة؟",
+      "en": "Are you still doing the same job?"
+    }
   },
   {
     "fr": "sapine",
@@ -81715,7 +81390,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "work",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "À mon avis.",
+      "ar": "برأيي.",
+      "en": "In my opinion."
+    }
   },
   {
     "fr": "pica",
@@ -81775,7 +81455,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "work",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Casse les cartons.",
+      "ar": "فكّك الكراتين / حضّرها للتخلص منها.",
+      "en": "Break down the cartons."
+    }
   },
   {
     "fr": "jeter",
@@ -81895,7 +81580,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "work",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Elle est prise ?",
+      "ar": "هل الجهاز مشغول؟",
+      "en": "Is it taken?"
+    }
   },
   {
     "fr": "étain",
@@ -81915,7 +81605,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "work",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Plier le carton",
+      "ar": "طيّ الكرتونة",
+      "en": "Fold the carton"
+    }
   },
   {
     "fr": "koalin",
@@ -81985,7 +81680,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "work",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je préfère une couleur plus claire.",
+      "ar": "أفضّل لوناً أفتح.",
+      "en": "I prefer a lighter colour."
+    }
   },
   {
     "fr": "offset",
@@ -82045,7 +81745,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "work",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Le tirage vertical",
+      "ar": "السحب العلوي",
+      "en": "Lat pulldown"
+    }
   },
   {
     "fr": "cadrat",
@@ -82245,7 +81950,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "work",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "La poulie haute",
+      "ar": "الكابل العلوي",
+      "en": "High pulley"
+    }
   },
   {
     "fr": "triode",
@@ -82485,7 +82195,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "work",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Résultat négatif",
+      "ar": "نتيجة سلبية",
+      "en": "Negative result"
+    }
   },
   {
     "fr": "crénage",
@@ -82662,9 +82377,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Tout est fini pour moi. J'ai perdu mon travail.",
-      "ar": "لقد انتهى كل شيء بالنسبة لي . لقد فقدت عملي .",
-      "en": "It's all over for me. I lost my job."
+      "fr": "J’ai fini.",
+      "ar": "انتهيت.",
+      "en": "I’m done."
     }
   },
   {
@@ -82685,7 +82400,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "school",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Je vois flou de loin.",
+      "ar": "أرى بشكل غير واضح من بعيد.",
+      "en": "My distance vision is blurry."
+    }
   },
   {
     "fr": "jury",
@@ -82715,7 +82435,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "school",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Le rond-point",
+      "ar": "الدوار",
+      "en": "Roundabout"
+    }
   },
   {
     "fr": "file",
@@ -82725,7 +82450,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "school",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Il y a une file d'attente.",
+      "ar": "هناك طابور انتظار.",
+      "en": "There is a queue."
+    }
   },
   {
     "fr": "lavis",
@@ -82767,9 +82497,9 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Je me suis rendu deux fois à Paris.",
-      "ar": "زرت باريس مرتين.",
-      "en": "I've been to Paris twice."
+      "fr": "Le compte rendu",
+      "ar": "التقرير",
+      "en": "Report"
     }
   },
   {
@@ -82800,7 +82530,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "school",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "La machine shoulder press",
+      "ar": "جهاز ضغط الكتف",
+      "en": "Shoulder press machine"
+    }
   },
   {
     "fr": "sauce",
@@ -82810,7 +82545,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "school",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Sans sauce, s'il vous plaît.",
+      "ar": "بدون صلصة، من فضلك.",
+      "en": "Without sauce, please."
+    }
   },
   {
     "fr": "sépia",
@@ -83050,12 +82790,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "school",
       "services"
-    ],
-    "ex": {
-      "fr": "La traduction est un art.",
-      "ar": "ألترجمة فن.",
-      "en": "Translation is an art."
-    }
+    ]
   },
   {
     "fr": "poncif",
@@ -83245,7 +82980,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "school",
       "services"
-    ]
+    ],
+    "ex": {
+      "fr": "Brosser les dents",
+      "ar": "ينظف الأسنان",
+      "en": "To brush teeth"
+    }
   },
   {
     "fr": "brûlage",
@@ -83465,12 +83205,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "school",
       "services"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "gouache",
@@ -83620,9 +83355,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Regarde ça.",
-      "ar": "انظری الی هذا.",
-      "en": "Watch this."
+      "fr": "Ça va.",
+      "ar": "أنا بخير / لا بأس.",
+      "en": "I’m fine."
     }
   },
   {
@@ -83632,7 +83367,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "La vitesse est limitée à 30 km/h.",
+      "ar": "السرعة محددة بـ 30 كم/ساعة.",
+      "en": "The speed limit is 30 km/h."
+    }
   },
   {
     "fr": "LE",
@@ -83641,12 +83381,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Porte-le.",
-      "ar": "احمله.",
-      "en": "Carry it."
-    }
+    ]
   },
   {
     "fr": "mu",
@@ -83682,12 +83417,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Oh, mon Dieu !",
-      "ar": "يا الهي!",
-      "en": "Oh my God!"
-    }
+    ]
   },
   {
     "fr": "pI",
@@ -83822,12 +83552,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "ép-",
@@ -83845,12 +83570,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Pardonne et oublie.",
-      "ar": "سامحي وانسي.",
-      "en": "Forgive and forget."
-    }
+    ]
   },
   {
     "fr": "ex-",
@@ -83877,12 +83597,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Il est dur d'aimer quelqu'un quand vous ne savez pas s'il vous aime autant que vous l'aimez.",
-      "ar": "من الصعب ان تحب أحدا عندما لا تعلم إن كان يحبك مثلما تحبه.",
-      "en": "It is hard to love someone when you do not know whether he or she loves you as much as you love him or her."
-    }
+    ]
   },
   {
     "fr": "Hua",
@@ -83929,9 +83644,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
+      "fr": "Vie maritale",
+      "ar": "الحالة الزوجية",
+      "en": "Marital status"
     }
   },
   {
@@ -83970,9 +83685,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "L'amour fait mal.",
-      "ar": "الحب يؤلم.",
-      "en": "Love hurts."
+      "fr": "Mal fermé",
+      "ar": "مغلق بشكل سيئ",
+      "en": "Poorly closed"
     }
   },
   {
@@ -84018,12 +83733,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Où est né Tom ?",
-      "ar": "أين ولد توم؟",
-      "en": "Where was Tom born?"
-    }
+    ]
   },
   {
     "fr": "oo-",
@@ -84122,7 +83832,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Je cherche de la farine et du riz.",
+      "ar": "أبحث عن طحين وأرز.",
+      "en": "I'm looking for flour and rice."
+    }
   },
   {
     "fr": "rut",
@@ -84239,7 +83954,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Oui, parfois j'ai un goût amer ou acide.",
+      "ar": "نعم، أحيانًا يكون لدي طعم مر أو حامض.",
+      "en": "Yes, sometimes I have a bitter or acidic taste."
+    }
   },
   {
     "fr": "amb-",
@@ -84338,12 +84058,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Laisse-le aux professionnels.",
-      "ar": "دع الأمر للمحترفيين.",
-      "en": "Leave it to the professionals."
-    }
+    ]
   },
   {
     "fr": "axo-",
@@ -84395,9 +84110,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Bien cuit !",
-      "ar": "أحسنت عملا.",
-      "en": "Well done!"
+      "fr": "Bien sûr.",
+      "ar": "طبعًا.",
+      "en": "Of course."
     }
   },
   {
@@ -84545,9 +84260,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "J'ai passé un coup de fil à Tom.",
-      "ar": "اتصلت بتوم.",
-      "en": "I rang Tom."
+      "fr": "Du coup.",
+      "ar": "لذلك / إذًا (تستعمل كثيرًا).",
+      "en": "So / as a result."
     }
   },
   {
@@ -84640,9 +84355,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "J'ai très soif.",
-      "ar": "أنا عطشان جدا.",
-      "en": "I'm really thirsty."
+      "fr": "J’ai soif.",
+      "ar": "أنا عطشان.",
+      "en": "I’m thirsty."
     }
   },
   {
@@ -84670,7 +84385,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Combien de temps ça dure ?",
+      "ar": "كم يستغرق؟",
+      "en": "How long does it take?"
+    }
   },
   {
     "fr": "dyne",
@@ -84805,7 +84525,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Un rendez-vous sera fixé avec un technicien.",
+      "ar": "سيتم تحديد موعد مع تقني.",
+      "en": "An appointment will be scheduled with a technician."
+    }
   },
   {
     "fr": "doux",
@@ -84814,7 +84539,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Avez-vous un laxatif doux ?",
+      "ar": "هل لديكم ملين خفيف؟",
+      "en": "Do you have a mild laxative?"
+    }
   },
   {
     "fr": "fogo",
@@ -85120,12 +84850,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "L'amour fait mal.",
-      "ar": "الحب يؤلم.",
-      "en": "Love hurts."
-    }
+    ]
   },
   {
     "fr": "mère",
@@ -85202,12 +84927,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Mon Dieu !",
-      "ar": "يا الهي!",
-      "en": "Good Lord."
-    }
+    ]
   },
   {
     "fr": "lune",
@@ -85315,12 +85035,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Mon nom est Tom.",
-      "ar": "إسمي توم.",
-      "en": "Tom is my name."
-    }
+    ]
   },
   {
     "fr": "nos-",
@@ -85329,12 +85044,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Les animaux sont nos amis.",
-      "ar": "الحيوانات أصدقاؤنا.",
-      "en": "Animals are our friends."
-    }
+    ]
   },
   {
     "fr": "not-",
@@ -85451,12 +85161,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Nous vivons sur Terre.",
-      "ar": "نحن نعيش على كوكب الأرض.",
-      "en": "We live on Earth."
-    }
+    ]
   },
   {
     "fr": "ovin",
@@ -85510,7 +85215,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Le pare-brise",
+      "ar": "الزجاج الأمامي",
+      "en": "Windshield"
+    }
   },
   {
     "fr": "ridé",
@@ -85645,7 +85355,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Un popcorn salé et une boisson, s'il vous plaît.",
+      "ar": "فشار مالح ومشروب، من فضلك.",
+      "en": "A salted popcorn and a drink, please."
+    }
   },
   {
     "fr": "séné",
@@ -85665,9 +85380,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Je veux que tu sois à mon côté.",
-      "ar": "أريد أن تقف بجانبي.",
-      "en": "I want you to be by my side."
+      "fr": "Mets-le de côté.",
+      "ar": "ضعه جانبًا.",
+      "en": "Put it aside."
     }
   },
   {
@@ -86190,7 +85905,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Taillez la barbe, mais gardez la longueur.",
+      "ar": "رتّب اللحية لكن احفظ الطول.",
+      "en": "Trim the beard but keep the length."
+    }
   },
   {
     "fr": "boeuf",
@@ -86280,12 +86000,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Qui a cassé ceci ?",
-      "ar": "من كسر هذا؟",
-      "en": "Who broke this?"
-    }
+    ]
   },
   {
     "fr": "bromé",
@@ -86764,9 +86479,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Je ne connais pas cette fille.",
-      "ar": "أنا لا أعرف هذه البنت.",
-      "en": "I don't know that girl."
+      "fr": "J'ai un fils et une fille.",
+      "ar": "لديّ ابن وابنة.",
+      "en": "I have a son and a daughter."
     }
   },
   {
@@ -86803,12 +86518,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Donne-moi un demi-kilo de pommes.",
-      "ar": "أعطني نصف كيلو من التفاح.",
-      "en": "Give me half a kilo of apples."
-    }
+    ]
   },
   {
     "fr": "dent-",
@@ -87439,7 +87149,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "C'est lourd !",
+      "ar": "هذا ثقيل!",
+      "en": "That's heavy!"
+    }
   },
   {
     "fr": "héli-",
@@ -87554,9 +87269,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "C'est l'heure de partir.",
-      "ar": "حان وقت الرحيل.",
-      "en": "It's time to set off."
+      "fr": "Tout à l’heure.",
+      "ar": "بعد قليل / منذ قليل (حسب السياق).",
+      "en": "Later / earlier."
     }
   },
   {
@@ -87827,12 +87542,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Donne-moi un demi-kilo de pommes.",
-      "ar": "أعطني نصف كيلو من التفاح.",
-      "en": "Give me half a kilo of apples."
-    }
+    ]
   },
   {
     "fr": "crépu",
@@ -87931,7 +87641,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Je prends une prise plus large.",
+      "ar": "أمسك قبضة أوسع.",
+      "en": "I take a wider grip."
+    }
   },
   {
     "fr": "rires",
@@ -88122,9 +87837,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Je dois partir demain matin.",
-      "ar": "علي بالذهاب غدا في الصباح.",
-      "en": "I have to leave tomorrow morning."
+      "fr": "Un comprimé le matin ?",
+      "ar": "حبة واحدة صباحًا؟",
+      "en": "One tablet in the morning?"
     }
   },
   {
@@ -88449,7 +88164,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Le jeûne avant le test",
+      "ar": "الصيام قبل الفحص",
+      "en": "Fasting before the test"
+    }
   },
   {
     "fr": "naev-",
@@ -88719,7 +88439,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce qu'il y a une épreuve orale ?",
+      "ar": "هل هناك امتحان شفهي؟",
+      "en": "Is there an oral test?"
+    }
   },
   {
     "fr": "séro-",
@@ -89255,7 +88980,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "B1",
     "contexts": [
       "health"
-    ]
+    ],
+    "ex": {
+      "fr": "Je faisais la queue.",
+      "ar": "كنت أقف في الطابور.",
+      "en": "I was waiting in line."
+    }
   },
   {
     "fr": "coing",
@@ -89282,7 +89012,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Environ six mois.",
+      "ar": "حوالي ستة أشهر.",
+      "en": "About six months."
+    }
   },
   {
     "fr": "ajouter",
@@ -89293,9 +89028,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "N'oublie pas de m'y ajouter.",
-      "ar": "لا تنس إضافتي.",
-      "en": "Don't forget to add me in."
+      "fr": "Ajouter un patient",
+      "ar": "إضافة مريض.",
+      "en": "Add a patient."
     }
   },
   {
@@ -89316,9 +89051,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Il m'a demandé conseil.",
-      "ar": "طلب مني النصيحة.",
-      "en": "He asked for my advice."
+      "fr": "Tu veux un conseil ?",
+      "ar": "هل تريد نصيحة؟",
+      "en": "Do you want advice?"
     }
   },
   {
@@ -89328,7 +89063,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai été effrayé.",
+      "ar": "لقد خفت.",
+      "en": "I was frightened."
+    }
   },
   {
     "fr": "après-midi",
@@ -89337,12 +89077,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "J'ai encore quelques cours cet après-midi.",
-      "ar": "لا تزال لدي بعض الدروس هذه الظهيرة.",
-      "en": "I still have a few more classes this afternoon."
-    }
+    ]
   },
   {
     "fr": "de nouveau",
@@ -89351,12 +89086,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "âge",
@@ -89367,9 +89097,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Il a le même âge que moi.",
-      "ar": "لدينا نفس السن.",
-      "en": "He's the same age as me."
+      "fr": "Quel âge a-t-il ?",
+      "ar": "كم عمره؟",
+      "en": "How old is he?"
     }
   },
   {
@@ -89379,12 +89109,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "J'étais d'accord.",
-      "ar": "كنت موافقا.",
-      "en": "I agreed."
-    }
+    ]
   },
   {
     "fr": "aéroport",
@@ -89409,9 +89134,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Il l'a vu aussi.",
-      "ar": "لقد رآه هو أيضا.",
-      "en": "He saw it too."
+      "fr": "Enchanté aussi.",
+      "ar": "وأنا أيضًا تشرفت.",
+      "en": "Nice to meet you too."
     }
   },
   {
@@ -89423,9 +89148,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Tom attend toujours.",
-      "ar": "ينتظر توم دائما.",
-      "en": "Tom is still waiting."
+      "fr": "Comme toujours.",
+      "ar": "كما دائمًا.",
+      "en": "As always."
     }
   },
   {
@@ -89474,9 +89199,9 @@ window.VOCAB_DATA_BATCH2 = [
       "housing"
     ],
     "ex": {
-      "fr": "L'ameublement d'un nouvel appartement contraint à de grosses dépenses.",
-      "ar": "فرش شقة جديدة يفرض نفقات كبيرة.",
-      "en": "Furnishing a new apartment imposes large expenses."
+      "fr": "Le vélo (d’appartement)",
+      "ar": "الدراجة الثابتة",
+      "en": "Exercise bike"
     }
   },
   {
@@ -89495,7 +89220,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "family"
-    ]
+    ],
+    "ex": {
+      "fr": "Mon oncle et ma tante sont en Allemagne.",
+      "ar": "عمي وعمتي في ألمانيا.",
+      "en": "My uncle and aunt are in Germany."
+    }
   },
   {
     "fr": "loin",
@@ -89506,9 +89236,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Cette fois tu es allé trop loin.",
-      "ar": "هذه المرة تجاوزت الحدود.",
-      "en": "This time you went too far."
+      "fr": "Tu vas trop loin.",
+      "ar": "لقد تجاوزت الحد.",
+      "en": "You’re going too far."
     }
   },
   {
@@ -89518,12 +89248,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "family"
-    ],
-    "ex": {
-      "fr": "Mon Dieu !",
-      "ar": "يا الهي!",
-      "en": "Good Lord."
-    }
+    ]
   },
   {
     "fr": "balle",
@@ -89564,12 +89289,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "housing"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "devenir",
@@ -89580,9 +89300,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Il décida de devenir juge.",
-      "ar": "قرر أن يصبح قاضيا.",
-      "en": "He decided to be a lawyer."
+      "fr": "Devenir indétectable",
+      "ar": "يصبح غير قابل للكشف",
+      "en": "To become undetectable"
     }
   },
   {
@@ -89620,12 +89340,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Je ne veux tout simplement pas y croire.",
-      "ar": "ببساطة لا أريد تصديق ذلك.",
-      "en": "I just don't want to believe it."
-    }
+    ]
   },
   {
     "fr": "meilleur",
@@ -89636,9 +89351,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Le chien est le meilleur ami de l'homme.",
-      "ar": "الكلب أفضل صديق للإنسان.",
-      "en": "Dogs are man's best friends."
+      "fr": "Celui-ci est nettement meilleur marché.",
+      "ar": "هذا أرخص بكثير.",
+      "en": "This one is much cheaper."
     }
   },
   {
@@ -89756,7 +89471,12 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "restaurant",
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "Tu as une bouteille d’eau ?",
+      "ar": "هل لديك قارورة ماء؟",
+      "en": "Do you have a water bottle?"
+    }
   },
   {
     "fr": "coup de poing",
@@ -89765,12 +89485,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "buis",
@@ -89802,12 +89517,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Mon Dieu !",
-      "ar": "يا الهي!",
-      "en": "Good Lord."
-    }
+    ]
   },
   {
     "fr": "se rompre",
@@ -89816,12 +89526,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Marie se couvrait.",
-      "ar": "غطت ماري نفسها.",
-      "en": "Mary covered herself."
-    }
+    ]
   },
   {
     "fr": "rompre",
@@ -89885,7 +89590,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "phone"
-    ]
+    ],
+    "ex": {
+      "fr": "Visite à domicile",
+      "ar": "زيارة منزلية.",
+      "en": "Home visit."
+    }
   },
   {
     "fr": "appareil photo",
@@ -89894,12 +89604,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "phone"
-    ],
-    "ex": {
-      "fr": "Il regarde la photo de son ami.",
-      "ar": "ينظر إلى صورة صديقه.",
-      "en": "He is looking at the photo of his friend."
-    }
+    ]
   },
   {
     "fr": "ne pas pouvoir",
@@ -89908,12 +89613,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Ne dis pas ça.",
-      "ar": "لا تقل ذلك.",
-      "en": "Don't say that."
-    }
+    ]
   },
   {
     "fr": "chapiteau",
@@ -89963,12 +89663,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "chaire",
@@ -89988,9 +89683,9 @@ window.VOCAB_DATA_BATCH2 = [
       "housing"
     ],
     "ex": {
-      "fr": "Que fait cette chaise ici ?",
-      "ar": "ماذا يفعل هذا الكرسي هنا؟",
-      "en": "What's this chair doing here?"
+      "fr": "La chaise romaine",
+      "ar": "كرسي روماني (بطن وعقلة)",
+      "en": "Roman chair"
     }
   },
   {
@@ -90000,7 +89695,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "shop"
-    ]
+    ],
+    "ex": {
+      "fr": "Changement de situation",
+      "ar": "تغيير في الوضع",
+      "en": "Change of situation"
+    }
   },
   {
     "fr": "mettre en échec",
@@ -90009,12 +89709,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "vérifier",
@@ -90023,7 +89718,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Vérifier la date",
+      "ar": "يتحقق من التاريخ",
+      "en": "Check the date"
+    }
   },
   {
     "fr": "poulet",
@@ -90032,7 +89732,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "restaurant"
-    ]
+    ],
+    "ex": {
+      "fr": "Pour moi, un poulet avec des frites.",
+      "ar": "لي، دجاج مع بطاطا مقلية.",
+      "en": "For me, chicken with fries."
+    }
   },
   {
     "fr": "élire",
@@ -90052,9 +89757,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Tom n'arrive pas à choisir entre une voiture Toyota ou Ford.",
-      "ar": "توم لا يستطيع أن يقرر في ما لو يشتري سيارة تيوتا أو فورد.",
-      "en": "Tom can't make up his mind choosing between a Toyota or a Ford car."
+      "fr": "Choisir un créneau.",
+      "ar": "اختيار وقت الموعد.",
+      "en": "Choose a time slot."
     }
   },
   {
@@ -90064,12 +89769,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "grimper",
@@ -90098,9 +89798,9 @@ window.VOCAB_DATA_BATCH2 = [
       "housing"
     ],
     "ex": {
-      "fr": "Il n'abîmera pas ses vêtements.",
-      "ar": "لن يتلف ملابسه.",
-      "en": "He won’t ruin his clothes."
+      "fr": "Dois-je enlever mes vêtements ?",
+      "ar": "هل يجب أن أخلع ملابسي؟",
+      "en": "Do I have to remove my clothes?"
     }
   },
   {
@@ -90166,9 +89866,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Pouvez-vous m'informer au sujet de cette conversation ?",
-      "ar": "هل يمكنك اعلامي بموضوع تلك المحادثة؟",
-      "en": "Can you tell me about that conversation?"
+      "fr": "Je cherche quelqu'un pour pratiquer la conversation.",
+      "ar": "أبحث عن شخص لأتدرّب على المحادثة.",
+      "en": "I'm looking for someone to practise conversation with."
     }
   },
   {
@@ -90188,12 +89888,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Merci de corriger ma prononciation.",
-      "ar": "صحح نطقي من فضلك.",
-      "en": "Please correct my pronunciation."
-    }
+    ]
   },
   {
     "fr": "coûter",
@@ -90266,7 +89961,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Créer un compte",
+      "ar": "إنشاء حساب.",
+      "en": "Create an account."
+    }
   },
   {
     "fr": "papa",
@@ -90339,12 +90039,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Où êtes-vous ?",
-      "ar": "أين أنت ؟",
-      "en": "Where art thou?"
-    }
+    ]
   },
   {
     "fr": "journée",
@@ -90355,9 +90050,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "J'ai eu une journée atroce.",
-      "ar": "عشت يوما رهيبا.",
-      "en": "I've had a horrible day."
+      "fr": "Bonne journée.",
+      "ar": "نهارك سعيد.",
+      "en": "Have a good day."
     }
   },
   {
@@ -90369,9 +90064,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Aujourd'hui, c'est mon jour de congé.",
-      "ar": "اليوم هو يوم راحتي.",
-      "en": "Today is my day off."
+      "fr": "Mettre à jour",
+      "ar": "يحدّث",
+      "en": "To update"
     }
   },
   {
@@ -90383,9 +90078,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "J'ai dû décider sur-le-champ.",
-      "ar": "علي أن أتخذ القرار حالا.",
-      "en": "I had to decide right then and there."
+      "fr": "Il faut décider maintenant.",
+      "ar": "يجب أن تقرر الآن.",
+      "en": "You have to decide now."
     }
   },
   {
@@ -90395,12 +90090,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "restaurant"
-    ],
-    "ex": {
-      "fr": "Délicieux !",
-      "ar": "لذيذ!",
-      "en": "Yum yum!"
-    }
+    ]
   },
   {
     "fr": "décrire",
@@ -90409,7 +90099,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Je vais vous décrire l’offre.",
+      "ar": "سأصف لك العرض.",
+      "en": "I will describe the offer to you."
+    }
   },
   {
     "fr": "description",
@@ -90418,7 +90113,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Voici la description de l'objet volé.",
+      "ar": "هذا وصف الشيء المسروق.",
+      "en": "Here is the description of the stolen item."
+    }
   },
   {
     "fr": "dictionnaire",
@@ -90455,7 +90155,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Quelle est la différence entre eux ?",
+      "ar": "ما الفرق بينها؟",
+      "en": "What's the difference between them?"
+    }
   },
   {
     "fr": "différent",
@@ -90473,7 +90178,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "restaurant"
-    ]
+    ],
+    "ex": {
+      "fr": "Je t'invite à dîner chez moi samedi.",
+      "ar": "أدعوك للعشاء عندي يوم السبت.",
+      "en": "I'm inviting you to dinner at my place on Saturday."
+    }
   },
   {
     "fr": "déjeuner",
@@ -90496,7 +90206,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Calme-toi, on peut en discuter tranquillement.",
+      "ar": "اهدأ، يمكننا مناقشة الأمر بهدوء.",
+      "en": "Calm down, we can discuss it calmly."
+    }
   },
   {
     "fr": "assiette",
@@ -90516,9 +90231,9 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Appelle le docteur !",
-      "ar": "اتصل بالطبيب!",
-      "en": "Call the doctor!"
+      "fr": "Docteur, j'ai toujours des douleurs d'estomac et des brûlures.",
+      "ar": "دكتور، ما زالت لدي آلام في المعدة وحرقة.",
+      "en": "Doctor, I still have stomach pain and burning."
     }
   },
   {
@@ -90537,12 +90252,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Dans son essai « l'Espéranto  : langue européenne ou asiatique », Claude Piron a montré les similitudes entre l'espéranto et le chinois, mettant à bas la conception que l'espéranto serait purement eurocentrique.",
-      "ar": "عرض كلاود بيرون في مقالته \"الإسبرانتو: لغة أوروبية أم آسيوية\" التشابهات بين الإسبرانتو والصينية، مميتا بذلك فكرة كون الإسبرانتو أوروبية خالصة.",
-      "en": "In his essay \"Esperanto: European or Asiatic language\" Claude Piron has shown the similarities between Esperanto and Chinese, thereby putting to rest the notion that Esperanto is purely eurocentric."
-    }
+    ]
   },
   {
     "fr": "tirer",
@@ -90551,12 +90261,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Tout ce que vous devez faire, c'est tirer profit de cette occasion rare.",
-      "ar": "كل ما عليك فعله هو أن تغتنم هذه المناسبة النادرة.",
-      "en": "All you have to do is take advantage of this rare opportunity."
-    }
+    ]
   },
   {
     "fr": "dessiner",
@@ -90601,12 +90306,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "oriental",
@@ -90638,12 +90338,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "œuf",
@@ -90675,7 +90370,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "phone"
-    ]
+    ],
+    "ex": {
+      "fr": "Si vous préférez, envoyez-moi un courriel.",
+      "ar": "إن كنتم تفضّلون، أرسلوا لي بريداً إلكترونياً.",
+      "en": "If you prefer, send me an email."
+    }
   },
   {
     "fr": "courrier électronique",
@@ -90693,12 +90393,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "profiter de",
@@ -90709,9 +90404,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
+      "fr": "Voulez-vous profiter de cette offre ?",
+      "ar": "هل تريد الاستفادة من هذا العرض؟",
+      "en": "Would you like to take advantage of this offer?"
     }
   },
   {
@@ -90721,7 +90416,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Il y a suffisamment de place pour tout le monde.",
+      "ar": "هناك مساحة كافية للجميع.",
+      "en": "There is enough room for everyone."
+    }
   },
   {
     "fr": "euro",
@@ -90741,9 +90441,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "De la même manière ?",
-      "ar": "بنفس الطريقة.",
-      "en": "In the same way?"
+      "fr": "Même si…",
+      "ar": "حتى لو…",
+      "en": "Even if…"
     }
   },
   {
@@ -90764,9 +90464,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Que fais-tu samedi soir ?",
-      "ar": "ماذا تفعل ليلة السبت؟",
-      "en": "What are you doing Saturday night?"
+      "fr": "Merci, à ce soir.",
+      "ar": "شكراً، إلى هذا المساء.",
+      "en": "Thank you, see you tonight."
     }
   },
   {
@@ -90778,9 +90478,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Tom ne fera jamais ça.",
-      "ar": "لن يقوم توم بفعل ذلك أبدا.",
-      "en": "Tom will never do that."
+      "fr": "On sait jamais.",
+      "ar": "لا أحد يعلم / ربما.",
+      "en": "You never know."
     }
   },
   {
@@ -90826,12 +90526,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "health"
-    ],
-    "ex": {
-      "fr": "Il lit.",
-      "ar": "هو يقرأ.",
-      "en": "He is reading."
-    }
+    ]
   },
   {
     "fr": "visage",
@@ -90840,7 +90535,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Je me souviens de ton visage, mais pas de ton prénom.",
+      "ar": "أتذكر وجهك لكن ليس اسمك.",
+      "en": "I remember your face, but not your first name."
+    }
   },
   {
     "fr": "tomber",
@@ -90849,7 +90549,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "weather"
-    ]
+    ],
+    "ex": {
+      "fr": "Laisse tomber.",
+      "ar": "اترك الأمر / انسَ الموضوع.",
+      "en": "Forget it."
+    }
   },
   {
     "fr": "célèbre",
@@ -90881,12 +90586,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Fantastique !",
-      "ar": "رائع !",
-      "en": "Brilliant!"
-    }
+    ]
   },
   {
     "fr": "agriculteur",
@@ -90913,7 +90613,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Je dois freiner rapidement.",
+      "ar": "يجب أن أفرمل بسرعة.",
+      "en": "I must brake quickly."
+    }
   },
   {
     "fr": "gros",
@@ -90938,9 +90643,9 @@ window.VOCAB_DATA_BATCH2 = [
       "family"
     ],
     "ex": {
-      "fr": "As-tu un père ?",
-      "ar": "ألديك أب؟",
-      "en": "Do you have a father?"
+      "fr": "Père, pardonne-leur, car ils ne savent pas ce qu'ils font.",
+      "ar": "يا أبتاه اغفر لهم لأنهم لا يعلمون ماذا يفعلون",
+      "en": "Father, forgive them; for they know not what they do."
     }
   },
   {
@@ -90950,12 +90655,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Marie se couvrait.",
-      "ar": "غطت ماري نفسها.",
-      "en": "Mary covered herself."
-    }
+    ]
   },
   {
     "fr": "sentir",
@@ -90964,7 +90664,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Sentir mauvais",
+      "ar": "تكون له رائحة سيئة",
+      "en": "To smell bad"
+    }
   },
   {
     "fr": "palper",
@@ -90982,7 +90687,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai une sensation de brûlure dans la poitrine.",
+      "ar": "لدي إحساس بحرقة في الصدر.",
+      "en": "I have a burning sensation in my chest."
+    }
   },
   {
     "fr": "festival",
@@ -91000,7 +90710,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Remplir le rayon",
+      "ar": "تعبئة الرفوف",
+      "en": "Fill the shelves"
+    }
   },
   {
     "fr": "se remplir",
@@ -91009,12 +90724,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Marie se couvrait.",
-      "ar": "غطت ماري نفسها.",
-      "en": "Mary covered herself."
-    }
+    ]
   },
   {
     "fr": "avant tout",
@@ -91023,12 +90733,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Tout est faux.",
-      "ar": "الكل خاطئ.",
-      "en": "It's all wrong."
-    }
+    ]
   },
   {
     "fr": "voler",
@@ -91048,9 +90753,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Je vais suivre votre conseil.",
-      "ar": "سأعمل بنصيحتك",
-      "en": "I'll follow your advice."
+      "fr": "Suivre ma demande",
+      "ar": "متابعة طلبي",
+      "en": "Track my application"
     }
   },
   {
@@ -91060,12 +90765,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Marie se couvrait.",
-      "ar": "غطت ماري نفسها.",
-      "en": "Mary covered herself."
-    }
+    ]
   },
   {
     "fr": "nourriture",
@@ -91111,7 +90811,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Oublier une dose",
+      "ar": "ينسى جرعة",
+      "en": "To miss a dose"
+    }
   },
   {
     "fr": "former",
@@ -91120,7 +90825,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Je souhaite me former dans un nouveau domaine.",
+      "ar": "أرغب في التدريب في مجال جديد.",
+      "en": "I want to train in a new field."
+    }
   },
   {
     "fr": "libre",
@@ -91131,9 +90841,9 @@ window.VOCAB_DATA_BATCH2 = [
       "shop"
     ],
     "ex": {
-      "fr": "Que faites-vous de votre temps libre ?",
-      "ar": "ماذا تفعل بأوقات فراغك؟",
-      "en": "What do you do in your spare time?"
+      "fr": "C'est libre ?",
+      "ar": "هل هذا المكان فارغ؟",
+      "en": "Is this free?"
     }
   },
   {
@@ -91145,9 +90855,9 @@ window.VOCAB_DATA_BATCH2 = [
       "shop"
     ],
     "ex": {
-      "fr": "Je ne suis plus sans-abri.",
-      "ar": "لم أعد بلا مأوى",
-      "en": "I'm not homeless any more."
+      "fr": "Sans blague !",
+      "ar": "حقًا؟ / لا تمزح!",
+      "en": "Seriously?"
     }
   },
   {
@@ -91205,9 +90915,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Bois plein d'eau !",
-      "ar": "اشرب الكثير من الماء",
-      "en": "Drink plenty of water."
+      "fr": "Le bac est plein.",
+      "ar": "الصندوق ممتلئ.",
+      "en": "The bin is full."
     }
   },
   {
@@ -91282,7 +90992,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Je n'arrive pas à obtenir un rendez-vous en ligne.",
+      "ar": "لا أستطيع الحصول على موعد عبر الإنترنت.",
+      "en": "I can't get an appointment online."
+    }
   },
   {
     "fr": "petite amie",
@@ -91291,12 +91006,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Mary était mon amie.",
-      "ar": "ماري كانت صديقتي.",
-      "en": "Mary was my friend."
-    }
+    ]
   },
   {
     "fr": "s’en aller",
@@ -91305,12 +91015,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "grand-père",
@@ -91319,12 +91024,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "family"
-    ],
-    "ex": {
-      "fr": "Dieu est grand.",
-      "ar": "الله أكبر.",
-      "en": "God is great."
-    }
+    ]
   },
   {
     "fr": "grand-mère",
@@ -91333,12 +91033,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "family"
-    ],
-    "ex": {
-      "fr": "J'aime ma mère.",
-      "ar": "أحب والدتي.",
-      "en": "I love my mum."
-    }
+    ]
   },
   {
     "fr": "grand-parent",
@@ -91347,12 +91042,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Dieu est grand.",
-      "ar": "الله أكبر.",
-      "en": "God is great."
-    }
+    ]
   },
   {
     "fr": "excellent",
@@ -91361,7 +91051,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Le service était excellent.",
+      "ar": "كانت الخدمة ممتازة.",
+      "en": "The service was excellent."
+    }
   },
   {
     "fr": "grandir",
@@ -91402,12 +91097,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "cheveu",
@@ -91496,9 +91186,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "J'ai vu une lumière au bout du tunnel.",
-      "ar": "رأيت ضوءا في نهاية النفق.",
-      "en": "I saw a light at the end of the tunnel."
+      "fr": "Je suis à bout.",
+      "ar": "أنا وصلت لحدي.",
+      "en": "I’m exhausted."
     }
   },
   {
@@ -91508,12 +91198,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Bon Dieu !",
-      "ar": "يا الهي!",
-      "en": "Jesus!"
-    }
+    ]
   },
   {
     "fr": "en bonne santé",
@@ -91522,12 +91207,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Êtes-vous en bonne santé ?",
-      "ar": "هل صحتك جيدة؟",
-      "en": "Are you in good health?"
-    }
+    ]
   },
   {
     "fr": "entendre",
@@ -91550,12 +91230,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Viens nous aider.",
-      "ar": "تعالي وساعدينا.",
-      "en": "Come and help us."
-    }
+    ]
   },
   {
     "fr": "ici",
@@ -91566,9 +91241,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Je dormirai ici.",
-      "ar": "سأنام هنا.",
-      "en": "I'll sleep here."
+      "fr": "Ici, personne ne mange de viande.",
+      "ar": "لا يأكل أحد اللحم هنا.",
+      "en": "Nobody here eats meat."
     }
   },
   {
@@ -91578,12 +91253,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Je dormirai ici.",
-      "ar": "سأنام هنا.",
-      "en": "I'll sleep here."
-    }
+    ]
   },
   {
     "fr": "défoncé",
@@ -91615,7 +91285,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "school"
-    ]
+    ],
+    "ex": {
+      "fr": "Historique des paiements",
+      "ar": "سجل المدفوعات",
+      "en": "Payment history"
+    }
   },
   {
     "fr": "passe-temps",
@@ -91624,12 +91299,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Le temps est froid.",
-      "ar": "الجو بارد.",
-      "en": "The weather is cold."
-    }
+    ]
   },
   {
     "fr": "patrie",
@@ -91670,12 +91340,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "weather"
-    ],
-    "ex": {
-      "fr": "Je ne peux rien faire.",
-      "ar": "ليس باليد حيلة.",
-      "en": "I can't do anything."
-    }
+    ]
   },
   {
     "fr": "maison",
@@ -91700,9 +91365,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Salut. Comment vas-tu ?",
-      "ar": "أهلا كيف حالك؟",
-      "en": "Hi, how are you?"
+      "fr": "Comment ça ?",
+      "ar": "كيف ذلك؟ / ماذا تقصد؟",
+      "en": "How come? / What do you mean?"
     }
   },
   {
@@ -91714,9 +91379,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Comme tu me manques !",
-      "ar": "كم أشتاق إليك !",
-      "en": "How I miss you."
+      "fr": "Comme tu veux.",
+      "ar": "كما تريد.",
+      "en": "As you want."
     }
   },
   {
@@ -91746,9 +91411,9 @@ window.VOCAB_DATA_BATCH2 = [
       "family"
     ],
     "ex": {
-      "fr": "Elle se moquait de son mari.",
-      "ar": "كانت تسخر من زوجها.",
-      "en": "She made fun of her husband."
+      "fr": "Mon mari travaille à Paris.",
+      "ar": "زوجي يعمل في باريس.",
+      "en": "My husband works in Paris."
     }
   },
   {
@@ -91785,12 +91450,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Ken désire améliorer son anglais.",
-      "ar": "يريد كين أن يتحسن في الإنجليزية.",
-      "en": "Ken wishes to brush up his English."
-    }
+    ]
   },
   {
     "fr": "inclure",
@@ -91808,7 +91468,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Je reste à votre disposition pour tout renseignement.",
+      "ar": "أبقى في خدمتكم لأي معلومة إضافية.",
+      "en": "I remain available for any further information."
+    }
   },
   {
     "fr": "intéressé",
@@ -91819,9 +91484,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Il n'est pas intéressé par la politique.",
-      "ar": "هو ليس مهتما بالسياسة.",
-      "en": "He's not interested in politics."
+      "fr": "Je ne suis pas intéressé.",
+      "ar": "أنا غير مهتم.",
+      "en": "I'm not interested."
     }
   },
   {
@@ -91854,12 +91519,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "work"
-    ],
-    "ex": {
-      "fr": "J'ai une maladie.",
-      "ar": "عندي مرض.",
-      "en": "I have a disease."
-    }
+    ]
   },
   {
     "fr": "présenter",
@@ -91877,12 +91537,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Marie se couvrait.",
-      "ar": "غطت ماري نفسها.",
-      "en": "Mary covered herself."
-    }
+    ]
   },
   {
     "fr": "joindre",
@@ -91891,7 +91546,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Joindre un document",
+      "ar": "إرفاق وثيقة",
+      "en": "Attach a document"
+    }
   },
   {
     "fr": "juste",
@@ -91902,9 +91562,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Je suis juste allongé.",
-      "ar": "أنا متمدد فحسب.",
-      "en": "I am only lying down."
+      "fr": "Juste pour te dire…",
+      "ar": "فقط لأخبرك...",
+      "en": "Just to tell you…"
     }
   },
   {
@@ -91914,12 +91574,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Puis-je garder ceci ?",
-      "ar": "هل بإمكاني الاحتفاظ بهذا؟",
-      "en": "Can I keep this?"
-    }
+    ]
   },
   {
     "fr": "clé",
@@ -91930,9 +91585,9 @@ window.VOCAB_DATA_BATCH2 = [
       "housing"
     ],
     "ex": {
-      "fr": "Je me demande où Tom a caché sa clé.",
-      "ar": "أتساءل أين أخفى توم مفتاحه.",
-      "en": "I wonder where Tom hid his key."
+      "fr": "Combien coûte une copie de clé ?",
+      "ar": "كم تكلّف نسخة المفتاح؟",
+      "en": "How much is a key copy?"
     }
   },
   {
@@ -91974,12 +91629,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "faire des études",
@@ -91988,12 +91638,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "J'ai des sœurs.",
-      "ar": "لدي أخوات.",
-      "en": "I have sisters."
-    }
+    ]
   },
   {
     "fr": "laisser",
@@ -92004,9 +91649,9 @@ window.VOCAB_DATA_BATCH2 = [
       "work"
     ],
     "ex": {
-      "fr": "Ne jamais se laisser attrister par une séparation.",
-      "ar": "لا تهلك نفسك أسفا على فراق من تحب.",
-      "en": "Never let yourself be saddened by a separation."
+      "fr": "On peut le laisser passer.",
+      "ar": "يمكننا السماح له بالمرور.",
+      "en": "We can let it pass."
     }
   },
   {
@@ -92018,9 +91663,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "L'arabe s'écrit de droite à gauche.",
-      "ar": "تكتب العربية من اليمين إلى اليسار.",
-      "en": "Arabic is written from right to left."
+      "fr": "Tournez à gauche.",
+      "ar": "انعطف يسارًا.",
+      "en": "Turn left."
     }
   },
   {
@@ -92045,12 +91690,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Je pensais être seul.",
-      "ar": "خيل لي أنني كنت الوحيدة.",
-      "en": "I thought I was alone."
-    }
+    ]
   },
   {
     "fr": "mentir",
@@ -92077,7 +91717,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "C'est un objet très léger.",
+      "ar": "هذا جسم خفيف جداً.",
+      "en": "This is a very light object."
+    }
   },
   {
     "fr": "aimer",
@@ -92137,7 +91782,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Résider / Habiter",
+      "ar": "يقيم / يسكن",
+      "en": "To live"
+    }
   },
   {
     "fr": "sembler",
@@ -92155,12 +91805,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Elle essaya de ne pas le regarder.",
-      "ar": "حاولت ألا تنظر إليه.",
-      "en": "She tried not to look at him."
-    }
+    ]
   },
   {
     "fr": "perdre",
@@ -92171,9 +91816,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Nous n'avons rien à perdre.",
-      "ar": "لا يوجد لدينا ما نخسره.",
-      "en": "We don't have anything to lose."
+      "fr": "Perdre des points sur son permis.",
+      "ar": "يفقد نقاطًا من رخصته.",
+      "en": "Lose points on the license."
     }
   },
   {
@@ -92183,12 +91828,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Merci beaucoup !",
-      "ar": "شكرا جزيلا!",
-      "en": "Thank you so much!"
-    }
+    ]
   },
   {
     "fr": "machine",
@@ -92199,9 +91839,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Qui a inventé cette machine ?",
-      "ar": "من اخترع هذه الآلة؟",
-      "en": "Who invented this machine?"
+      "fr": "La Smith machine",
+      "ar": "جهاز سميث (بار موجه)",
+      "en": "Smith machine"
     }
   },
   {
@@ -92231,9 +91871,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Il a expliqué l'objectif principal de ce plan.",
-      "ar": "فسر الهدف الرئيسي لهذا المخطط",
-      "en": "He explained the plan's main objective."
+      "fr": "Quel est le risque principal ?",
+      "ar": "ما الخطر الرئيسي؟",
+      "en": "What is the main risk?"
     }
   },
   {
@@ -92243,12 +91883,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Je vais te rendre heureux.",
-      "ar": "سأجعلك سعيدا.",
-      "en": "I'll make you happy."
-    }
+    ]
   },
   {
     "fr": "centre commercial",
@@ -92307,12 +91942,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Je ne voulais pas te dire ça.",
-      "ar": "لم أكن أريد أن أقول لك هذا.",
-      "en": "I didn't want to tell you this."
-    }
+    ]
   },
   {
     "fr": "signification",
@@ -92330,7 +91960,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Content de vous rencontrer.",
+      "ar": "سعيد بلقائك.",
+      "en": "Nice to meet you."
+    }
   },
   {
     "fr": "se retrouver",
@@ -92339,12 +91974,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Le couple se sépara, pour ne plus jamais se retrouver.",
-      "ar": "افترق الزوجان للأبد.",
-      "en": "The couple parted, never to meet again."
-    }
+    ]
   },
   {
     "fr": "rencontre",
@@ -92353,7 +91983,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "work"
-    ]
+    ],
+    "ex": {
+      "fr": "Zone de rencontre.",
+      "ar": "منطقة مشاركة الطريق.",
+      "en": "Shared space zone."
+    }
   },
   {
     "fr": "réunion",
@@ -92364,9 +91999,9 @@ window.VOCAB_DATA_BATCH2 = [
       "work"
     ],
     "ex": {
-      "fr": "Je m'excuse mais je ne pourrai participer en personne à la réunion.",
-      "ar": "آسف، لكن لا يمكنني حضور الإجتماع شخصيا.",
-      "en": "I'm sorry, but I can't attend the meeting in person."
+      "fr": "Je dois assister à une réunion.",
+      "ar": "يجب أن أحضر اجتماعًا.",
+      "en": "I must attend a meeting."
     }
   },
   {
@@ -92385,12 +92020,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Tu vas me manquer.",
-      "ar": "سأشتاق لك.",
-      "en": "I'm going to miss you."
-    }
+    ]
   },
   {
     "fr": "languir",
@@ -92447,9 +92077,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Combien dépense-t-il par mois ?",
-      "ar": "كم يصرف في الشهر؟",
-      "en": "How much does he spend per month?"
+      "fr": "Dans six mois.",
+      "ar": "بعد ستة أشهر.",
+      "en": "In six months."
     }
   },
   {
@@ -92473,12 +92103,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Marie se couvrait.",
-      "ar": "غطت ماري نفسها.",
-      "en": "Mary covered herself."
-    }
+    ]
   },
   {
     "fr": "bouger",
@@ -92487,7 +92112,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "J’ai pas envie de bouger.",
+      "ar": "لا أرغب في التحرك.",
+      "en": "I don’t feel like moving."
+    }
   },
   {
     "fr": "déménager",
@@ -92525,9 +92155,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Il y a un hôpital près d'ici.",
-      "ar": "هناك مستشفى بالقرب من هنا.",
-      "en": "There is a hospital nearby."
+      "fr": "Elle est près de l’entrée.",
+      "ar": "إنها قرب المدخل.",
+      "en": "It’s near the entrance."
     }
   },
   {
@@ -92537,12 +92167,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "voisinage",
@@ -92562,9 +92187,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "S'il te plaît, envoie-nous plus d'informations.",
-      "ar": "أرسل إلينا المزيد من المعلومات إذا تكرمت.",
-      "en": "Please send us more information."
+      "fr": "Informations personnelles",
+      "ar": "المعلومات الشخصية",
+      "en": "Personal information"
     }
   },
   {
@@ -92576,9 +92201,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Tom est un gentil.",
-      "ar": "توم ليس يهوديا.",
-      "en": "Tom is a gentile."
+      "fr": "C’est gentil.",
+      "ar": "هذا لطف منك.",
+      "en": "That’s kind."
     }
   },
   {
@@ -92602,12 +92227,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Ne dis pas ça.",
-      "ar": "لا تقل ذلك.",
-      "en": "Don't say that."
-    }
+    ]
   },
   {
     "fr": "numéro",
@@ -92616,7 +92236,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "phone"
-    ]
+    ],
+    "ex": {
+      "fr": "Numéro de téléphone",
+      "ar": "رقم الهاتف",
+      "en": "Phone number"
+    }
   },
   {
     "fr": "infirmière",
@@ -92636,9 +92261,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Je pense souvent à elles.",
-      "ar": "أفكر غالبا بهم.",
-      "en": "I think about them often."
+      "fr": "Ça arrive souvent.",
+      "ar": "يحدث كثيرًا.",
+      "en": "It happens often."
     }
   },
   {
@@ -92650,9 +92275,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Tu ne peux pas apprendre de nouveaux tours à un vieux chien.",
-      "ar": "لا يمكنك تعليم كلب عجوز حيلا جديدة.",
-      "en": "You can't teach an old dog new tricks."
+      "fr": "Je dois jeter un vieux meuble, comment faire ?",
+      "ar": "يجب أن أرمي أثاثاً قديماً، كيف أفعل؟",
+      "en": "I need to dispose of old furniture, how do I do it?"
     }
   },
   {
@@ -92664,9 +92289,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Il était une fois, dans le pays d'Erin, un jeune homme qui cherchait une femme et, de toutes les jeunes filles qui l'entouraient, aucune ne lui plaisait autant que la fille unique d'un fermier.",
-      "ar": "كان يا ما كان ، في بلاد إيرين ، شاب يبحث عن زوجة ، ومن بين جميع الفتيات من حوله ، لم تعجبه واحدة كما أعجبته ابنة المزارع الوحيدة.",
-      "en": "Once upon a time there dwelt in the land of Erin a young man who was seeking a wife, and of all the maidens round about none pleased him as well as the only daughter of a farmer."
+      "fr": "Une fois de temps en temps.",
+      "ar": "مرة من حين لآخر.",
+      "en": "Once in a while."
     }
   },
   {
@@ -92706,9 +92331,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "J'essaye seulement de découvrir la vérité.",
-      "ar": "انا احاول فقط كشف الحقيقة.",
-      "en": "I'm just trying to uncover the truth."
+      "fr": "Seulement quelques minutes.",
+      "ar": "بضع دقائق فقط.",
+      "en": "Only a few minutes."
     }
   },
   {
@@ -92727,12 +92352,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "commander",
@@ -92750,7 +92370,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Ranger les produits.",
+      "ar": "رتب المنتجات.",
+      "en": "Arrange products."
+    }
   },
   {
     "fr": "dehors",
@@ -92759,7 +92384,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Nous dormons dehors depuis deux nuits.",
+      "ar": "ننام في الخارج منذ ليلتين.",
+      "en": "We've been sleeping outside for two nights."
+    }
   },
   {
     "fr": "peindre",
@@ -92777,7 +92407,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Ce pantalon est trop long, il faut le raccourcir.",
+      "ar": "هذا البنطال طويل جداً، يجب تقصيره.",
+      "en": "These trousers are too long, they need shortening."
+    }
   },
   {
     "fr": "caleçon",
@@ -92804,7 +92439,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Stationner / Se garer",
+      "ar": "يركن",
+      "en": "To park"
+    }
   },
   {
     "fr": "partenaire",
@@ -92824,9 +92464,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Oh non, mon passeport a disparu.",
-      "ar": "أوه، لا! قد اختفى جواز سفري.",
-      "en": "Oh, no! My passport has disappeared."
+      "fr": "Voici mon passeport.",
+      "ar": "هذا جواز سفري.",
+      "en": "Here is my passport."
     }
   },
   {
@@ -92859,12 +92499,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "family"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "poivre",
@@ -92882,12 +92517,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Parfait !",
-      "ar": "حسن !",
-      "en": "Perfect!"
-    }
+    ]
   },
   {
     "fr": "téléphoner",
@@ -92896,7 +92526,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "phone"
-    ]
+    ],
+    "ex": {
+      "fr": "Téléphoner au volant.",
+      "ar": "استخدام الهاتف أثناء القيادة.",
+      "en": "Using a phone while driving."
+    }
   },
   {
     "fr": "photographie",
@@ -92923,7 +92558,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Tu peux me couper un morceau de scotch ?",
+      "ar": "هل يمكنك قص قطعة من الشريط اللاصق؟",
+      "en": "Can you cut me a piece of tape?"
+    }
   },
   {
     "fr": "cochon",
@@ -92952,9 +92592,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Quand vous êtes venu, la cérémonie avait eu lieu.",
-      "ar": "وصلت بعد انتهاء الحفلة.",
-      "en": "When you arrived, the ceremony had already taken place."
+      "fr": "L'accident a eu lieu hier à midi.",
+      "ar": "وقع الحادث أمس عند الظهر.",
+      "en": "The accident happened yesterday at noon."
     }
   },
   {
@@ -92966,9 +92606,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "La haine a sa place.",
-      "ar": "الكراهية لها مكانها.",
-      "en": "Hate has its place."
+      "fr": "Place l’étiquette correctement.",
+      "ar": "ضع الملصق بشكل صحيح.",
+      "en": "Place the label correctly."
     }
   },
   {
@@ -92987,7 +92627,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Y a-t-il des travaux à prévoir ?",
+      "ar": "هل هناك أعمال إصلاح متوقعة؟",
+      "en": "Is any work needed?"
+    }
   },
   {
     "fr": "platane",
@@ -93007,9 +92652,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Mon fils aime jouer aux petites voitures.",
-      "ar": "ابني يحب اللعب بالسيارات الصغيرة",
-      "en": "My son likes to play with cars."
+      "fr": "À toi de jouer.",
+      "ar": "دورك الآن.",
+      "en": "Your turn."
     }
   },
   {
@@ -93019,12 +92664,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "jouer de",
@@ -93033,12 +92673,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "mettre",
@@ -93047,7 +92682,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Mettre à jour",
+      "ar": "يحدّث",
+      "en": "To update"
+    }
   },
   {
     "fr": "joueur",
@@ -93067,9 +92707,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
+      "fr": "Je comprends votre point de vue, mais je ne suis pas convaincu(e).",
+      "ar": "أفهم وجهة نظرك، لكنني غير مقتنع(ة).",
+      "en": "I understand your point of view, but I am not convinced."
     }
   },
   {
@@ -93104,9 +92744,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Ubuntu est une distribution Linux populaire.",
-      "ar": "أوبونتو هي توزيعة لينكس مشهورة.",
-      "en": "Ubuntu is a popular Linux distribution."
+      "fr": "Lequel est le plus populaire ?",
+      "ar": "أيها الأكثر شيوعًا؟",
+      "en": "Which one is the most popular?"
     }
   },
   {
@@ -93125,12 +92765,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "restaurant"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "pratique",
@@ -93139,7 +92774,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Quand est-ce que je peux passer l'examen pratique ?",
+      "ar": "متى يمكنني أن أخضع للامتحان العملي؟",
+      "en": "When can I take the practical test?"
+    }
   },
   {
     "fr": "préférer",
@@ -93157,12 +92797,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Marie se couvrait.",
-      "ar": "غطت ماري نفسها.",
-      "en": "Mary covered herself."
-    }
+    ]
   },
   {
     "fr": "préparer",
@@ -93171,12 +92806,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Chaque matin elle aide sa mère à préparer le petit déjeuner dans la cuisine.",
-      "ar": "تساعد أمها كل صباح في المطبخ لإعداد الفطور.",
-      "en": "Every morning, she helps her mother make breakfast in the kitchen."
-    }
+    ]
   },
   {
     "fr": "joli",
@@ -93199,7 +92829,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Oui, il s'agit probablement d'un hémangiome hépatique.",
+      "ar": "نعم، غالبًا هو ورم وعائي كبدي حميد.",
+      "en": "Yes, it is probably a hepatic hemangioma."
+    }
   },
   {
     "fr": "placer",
@@ -93217,7 +92852,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Il est huit heures et quart.",
+      "ar": "الساعة الثامنة والربع.",
+      "en": "It's a quarter past eight."
+    }
   },
   {
     "fr": "quartier",
@@ -93226,7 +92866,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous habitez dans le quartier ?",
+      "ar": "هل تسكن في هذا الحي؟",
+      "en": "Do you live in this neighbourhood?"
+    }
   },
   {
     "fr": "pleuvoir",
@@ -93251,9 +92896,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Non, pas vraiment.",
-      "ar": "لا ليس حقا.",
-      "en": "No, not really."
+      "fr": "Pas vraiment.",
+      "ar": "ليس حقًا.",
+      "en": "Not really."
     }
   },
   {
@@ -93281,12 +92926,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Marie se couvrait.",
-      "ar": "غطت ماري نفسها.",
-      "en": "Mary covered herself."
-    }
+    ]
   },
   {
     "fr": "restaurant",
@@ -93310,12 +92950,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "transport"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "rouler",
@@ -93324,7 +92959,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Il faut rouler sur la piste cyclable.",
+      "ar": "يجب السير على مسار الدراجات.",
+      "en": "You must ride in the cycle lane."
+    }
   },
   {
     "fr": "droite",
@@ -93335,9 +92975,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Alors, deux fois à droite, hein ?",
-      "ar": "إذن مرتين على اليمين، أليس كذلك؟",
-      "en": "So, two times to the right, right?"
+      "fr": "La barre droite",
+      "ar": "بار مستقيم",
+      "en": "Straight bar"
     }
   },
   {
@@ -93356,12 +92996,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Il est capable de courir.",
-      "ar": "إنه يستطيع الركض.",
-      "en": "He can run."
-    }
+    ]
   },
   {
     "fr": "sandwich",
@@ -93409,9 +93044,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Je veux une deuxième chance.",
-      "ar": "أريد فرصة ثانية.",
-      "en": "I want a second chance."
+      "fr": "Passez la deuxième vitesse.",
+      "ar": "ضع السرعة الثانية.",
+      "en": "Change into second gear."
     }
   },
   {
@@ -93421,12 +93056,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "Marie se couvrait.",
-      "ar": "غطت ماري نفسها.",
-      "en": "Mary covered herself."
-    }
+    ]
   },
   {
     "fr": "chaussure",
@@ -93435,7 +93065,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "housing"
-    ]
+    ],
+    "ex": {
+      "fr": "Le talon de ma chaussure est cassé.",
+      "ar": "كعب حذائي مكسور.",
+      "en": "The heel of my shoe is broken."
+    }
   },
   {
     "fr": "boutique",
@@ -93447,9 +93082,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Les touristes achètent souvent des souvenirs à cette boutique.",
-      "ar": "غالبا ما يشتري السياح الهدايا التذكارية من هذا المتجر .",
-      "en": "Tourists often bought souvenirs in this shop."
+      "fr": "Où est la sortie et la boutique ?",
+      "ar": "أين المخرج والمتجر؟",
+      "en": "Where is the exit and the shop?"
     }
   },
   {
@@ -93460,12 +93095,7 @@ window.VOCAB_DATA_BATCH2 = [
     "contexts": [
       "shop",
       "transport"
-    ],
-    "ex": {
-      "fr": "Arrête-les.",
-      "ar": "أوقفهم.",
-      "en": "Stop them."
-    }
+    ]
   },
   {
     "fr": "shopping",
@@ -93497,12 +93127,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Sérieusement. Nous allons devoir faire quelque choses à ce propos.",
-      "ar": "حقا، يجب أن نقوم بشيء حيال هذا الأمر.",
-      "en": "Seriously. We're going to have to do something about this."
-    }
+    ]
   },
   {
     "fr": "démonstration",
@@ -93586,9 +93211,9 @@ window.VOCAB_DATA_BATCH2 = [
       "family"
     ],
     "ex": {
-      "fr": "Ma sœur est chrétienne.",
-      "ar": ".أختي مسيحية",
-      "en": "My sister is a Christian."
+      "fr": "Ma sœur est étudiante.",
+      "ar": "أختي طالبة.",
+      "en": "My sister is a student."
     }
   },
   {
@@ -93598,12 +93223,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Je pensais être seul.",
-      "ar": "خيل لي أنني كنت الوحيدة.",
-      "en": "I thought I was alone."
-    }
+    ]
   },
   {
     "fr": "intelligent",
@@ -93715,9 +93335,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Désolé.",
-      "ar": "آسف.",
-      "en": "Sorry!"
+      "fr": "Désolé pour le retard.",
+      "ar": "آسف على التأخير.",
+      "en": "Sorry for being late."
     }
   },
   {
@@ -93772,12 +93392,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "shop"
-    ],
-    "ex": {
-      "fr": "Mon père doit passer à la télé, ce soir.",
-      "ar": "سيظهر أبي على التلفاز الليلة.",
-      "en": "My father is to appear on TV tonight."
-    }
+    ]
   },
   {
     "fr": "dépenser",
@@ -93809,12 +93424,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Je pensais être seul.",
-      "ar": "خيل لي أنني كنت الوحيدة.",
-      "en": "I thought I was alone."
-    }
+    ]
   },
   {
     "fr": "déclaration",
@@ -93823,7 +93433,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Déclaration trimestrielle",
+      "ar": "التصريح الفصلي",
+      "en": "Quarterly declaration"
+    }
   },
   {
     "fr": "néanmoins",
@@ -93843,9 +93458,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Tom est encore à l'école.",
-      "ar": "لا يزال توم في المدرسة.",
-      "en": "Tom is still at school."
+      "fr": "Encore une !",
+      "ar": "واحدة أخرى!",
+      "en": "One more!"
     }
   },
   {
@@ -93880,9 +93495,9 @@ window.VOCAB_DATA_BATCH2 = [
       "transport"
     ],
     "ex": {
-      "fr": "Je te conseille d'arrêter de fumer.",
-      "ar": "انصحك ان تتوقف عن التدخين.",
-      "en": "I advise you to stop smoking."
+      "fr": "Arrêter le traitement",
+      "ar": "يوقف العلاج",
+      "en": "To stop treatment"
     }
   },
   {
@@ -93894,9 +93509,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Il est fort comme un cheval.",
-      "ar": "إنه قوي كالحصان.",
-      "en": "He's very strong."
+      "fr": "Je dois souffler fort ?",
+      "ar": "هل يجب أن أنفخ بقوة؟",
+      "en": "Do I need to blow hard?"
     }
   },
   {
@@ -93906,7 +93521,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "J'ai besoin d'un antivol solide.",
+      "ar": "أحتاج إلى قفل قوي.",
+      "en": "I need a strong lock."
+    }
   },
   {
     "fr": "étudiant",
@@ -94025,9 +93645,9 @@ window.VOCAB_DATA_BATCH2 = [
       "phone"
     ],
     "ex": {
-      "fr": "Il a le clavier berbère sur son téléphone.",
-      "ar": "لديه لوحة المفاتيح الأمازيغية على هاتفه.",
-      "en": "He has the Berber keyboard on his phone."
+      "fr": "Numéro de téléphone",
+      "ar": "رقم الهاتف",
+      "en": "Phone number"
     }
   },
   {
@@ -94069,7 +93689,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "C’est pas terrible.",
+      "ar": "ليس جيدًا جدًا.",
+      "en": "It’s not great."
+    }
   },
   {
     "fr": "épouvantable",
@@ -94096,7 +93721,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Je ne sais pas comment vous remercier.",
+      "ar": "لا أدري كيف أشكرك.",
+      "en": "I don't know how to thank you."
+    }
   },
   {
     "fr": "théâtre",
@@ -94130,9 +93760,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Lis puis réponds.",
-      "ar": "أقرأ وأجب.",
-      "en": "Read and reply."
+      "fr": "Puis-je continuer ?",
+      "ar": "هل يمكنني المتابعة؟",
+      "en": "Can I continue?"
     }
   },
   {
@@ -94158,9 +93788,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Il se passait quelque chose.",
-      "ar": "شيء ما حدث.",
-      "en": "Something was happening."
+      "fr": "Ça me dit quelque chose.",
+      "ar": "هذا يبدو مألوفًا لي / يذكرني بشيء.",
+      "en": "That rings a bell."
     }
   },
   {
@@ -94170,7 +93800,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Ça me fait penser à…",
+      "ar": "هذا يذكرني بـ...",
+      "en": "It makes me think of…"
+    }
   },
   {
     "fr": "penser à",
@@ -94179,7 +93814,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Ça me fait penser à…",
+      "ar": "هذا يذكرني بـ...",
+      "en": "It makes me think of…"
+    }
   },
   {
     "fr": "réfléchir à",
@@ -94197,12 +93837,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "restaurant"
-    ],
-    "ex": {
-      "fr": "J'ai très soif.",
-      "ar": "أنا عطشان جدا.",
-      "en": "I'm really thirsty."
-    }
+    ]
   },
   {
     "fr": "billet",
@@ -94211,7 +93846,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Est-ce que le billet est modifiable ?",
+      "ar": "هل التذكرة قابلة للتعديل؟",
+      "en": "Is the ticket changeable?"
+    }
   },
   {
     "fr": "époque",
@@ -94236,9 +93876,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Il a été en France trois fois.",
-      "ar": "هو زار فرنسا ثلاثة مرات.",
-      "en": "He has been to France three times."
+      "fr": "À chaque fois.",
+      "ar": "في كل مرة.",
+      "en": "Every time."
     }
   },
   {
@@ -94248,12 +93888,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "De rien.",
-      "ar": "لا شكر على واجب.",
-      "en": "You are welcome."
-    }
+    ]
   },
   {
     "fr": "toilettes",
@@ -94264,9 +93899,9 @@ window.VOCAB_DATA_BATCH2 = [
       "housing"
     ],
     "ex": {
-      "fr": "Le car dispose-t-il de toilettes ?",
-      "ar": "هل يوجد مرحاض في الحافلة?",
-      "en": "Does the bus have a toilet?"
+      "fr": "Je vais aux toilettes.",
+      "ar": "سأذهب إلى الحمام.",
+      "en": "I'm going to the toilet."
     }
   },
   {
@@ -94278,9 +93913,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Mon père doit passer à la télé, ce soir.",
-      "ar": "سيظهر أبي على التلفاز الليلة.",
-      "en": "My father is to appear on TV tonight."
+      "fr": "Ce soir sur internet.",
+      "ar": "هذا المساء على الإنترنت.",
+      "en": "This evening online."
     }
   },
   {
@@ -94290,12 +93925,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Bonne nuit.",
-      "ar": "ليلة سعيدة.",
-      "en": "Have a great night."
-    }
+    ]
   },
   {
     "fr": "touriste",
@@ -94313,7 +93943,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Circulation interdite.",
+      "ar": "حركة المرور ممنوعة.",
+      "en": "Traffic prohibited."
+    }
   },
   {
     "fr": "caravane",
@@ -94377,12 +94012,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Puis-je essayer ceci ?",
-      "ar": "هل يمكن أن أجربه؟",
-      "en": "Could I try this on?"
-    }
+    ]
   },
   {
     "fr": "traduire en justice",
@@ -94391,12 +94021,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "virage",
@@ -94405,7 +94030,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "transport"
-    ]
+    ],
+    "ex": {
+      "fr": "Rétrogradez avant le virage.",
+      "ar": "أنزل السرعة قبل المنعطف.",
+      "en": "Shift down before the bend."
+    }
   },
   {
     "fr": "deux fois",
@@ -94414,12 +94044,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Alors, deux fois à droite, hein ?",
-      "ar": "إذن مرتين على اليمين، أليس كذلك؟",
-      "en": "So, two times to the right, right?"
-    }
+    ]
   },
   {
     "fr": "parapluie",
@@ -94430,9 +94055,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Il a laissé son parapluie dans le bus.",
-      "ar": "لقد ترك مظلته في الحافلة.",
-      "en": "He left his umbrella on the bus."
+      "fr": "Il pleut, prends un parapluie.",
+      "ar": "المطر ينزل، خذ مظلة.",
+      "en": "It's raining, take an umbrella."
     }
   },
   {
@@ -94456,12 +94081,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Ils sont en vie.",
-      "ar": "هم على قيد الحياة.",
-      "en": "They're alive."
-    }
+    ]
   },
   {
     "fr": "utiliser",
@@ -94472,9 +94092,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Je ne sais pas comment l'utiliser.",
-      "ar": "لا أعرف كيف أستخدمها.",
-      "en": "I don't know how to use this."
+      "fr": "Utiliser un bain de bouche",
+      "ar": "يستخدم غسول فم",
+      "en": "To use mouthwash"
     }
   },
   {
@@ -94486,9 +94106,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Je déjeune généralement tout seul.",
-      "ar": "إعتدت أن أتناول غدائي وحيدا.",
-      "en": "I usually eat lunch by myself."
+      "fr": "Généralement, un comprimé une fois par jour, selon la prescription du médecin.",
+      "ar": "عادةً قرص واحد مرة يوميًا حسب وصف الطبيب.",
+      "en": "Usually one tablet once a day, according to the doctor's prescription."
     }
   },
   {
@@ -94500,9 +94120,9 @@ window.VOCAB_DATA_BATCH2 = [
       "work"
     ],
     "ex": {
-      "fr": "Comment as-tu passé tes vacances ?",
-      "ar": "كيف قضيت عطلتك؟",
-      "en": "How did you spend your vacation?"
+      "fr": "Vous partez en vacances cet été ?",
+      "ar": "هل ستسافر في الصيف؟",
+      "en": "Are you going on holiday this summer?"
     }
   },
   {
@@ -94532,9 +94152,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "J'ai très soif.",
-      "ar": "أنا عطشان جدا.",
-      "en": "I'm really thirsty."
+      "fr": "Très bien. Je regarde ça.",
+      "ar": "حسنًا، سأتحقق من ذلك.",
+      "en": "All right. Let me check."
     }
   },
   {
@@ -94544,7 +94164,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Je te fais visiter.",
+      "ar": "سأقوم بجولة لك.",
+      "en": "I’ll show you around."
+    }
   },
   {
     "fr": "visiteur",
@@ -94590,12 +94215,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Marie se couvrait.",
-      "ar": "غطت ماري نفسها.",
-      "en": "Mary covered herself."
-    }
+    ]
   },
   {
     "fr": "démarche",
@@ -94604,7 +94224,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Annuler la démarche",
+      "ar": "إلغاء الإجراء",
+      "en": "Cancel the procedure"
+    }
   },
   {
     "fr": "marcher",
@@ -94615,9 +94240,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Tom a continué à marcher.",
-      "ar": "استمر توم بالمشي.",
-      "en": "Tom kept on walking."
+      "fr": "Marcher est une excellente activité.",
+      "ar": "المشي تشاط ممتاز.",
+      "en": "Walking is an excellent exercise."
     }
   },
   {
@@ -94670,9 +94295,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Montre-lui le chemin.",
-      "ar": "أره الطريق .",
-      "en": "Show him the way."
+      "fr": "Montre-moi.",
+      "ar": "أرني.",
+      "en": "Show me."
     }
   },
   {
@@ -94682,7 +94307,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Surveiller les reins",
+      "ar": "يراقب الكلى",
+      "en": "To monitor kidneys"
+    }
   },
   {
     "fr": "faire attention",
@@ -94691,12 +94321,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Attention !",
-      "ar": "حذاري !",
-      "en": "Timber!"
-    }
+    ]
   },
   {
     "fr": "manière",
@@ -94721,9 +94346,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Je vais en Europe la semaine prochaine.",
-      "ar": "سأذهب إلى أوروبا الاسبوع المقبل.",
-      "en": "I'll be going to Europe next week."
+      "fr": "Cette semaine",
+      "ar": "هذا الأسبوع.",
+      "en": "This week."
     }
   },
   {
@@ -94733,7 +94358,12 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "Vous avez passé un bon week-end ?",
+      "ar": "هل قضيت عطلة أسبوع جيدة؟",
+      "en": "Did you have a good weekend?"
+    }
   },
   {
     "fr": "accueillir",
@@ -94767,9 +94397,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Tu rentres quand ?",
-      "ar": "متى سترجع؟",
-      "en": "When will you be back home?"
+      "fr": "Quand même.",
+      "ar": "مع ذلك / رغم ذلك.",
+      "en": "Still / anyway."
     }
   },
   {
@@ -94795,9 +94425,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Pourquoi es-tu triste ?",
-      "ar": "لماذا أنت حزين؟",
-      "en": "Why are you sad?"
+      "fr": "Pourquoi pas.",
+      "ar": "لم لا.",
+      "en": "Why not."
     }
   },
   {
@@ -94862,12 +94492,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Au commencement, Dieu créa le ciel et la terre.",
-      "ar": "في البداية خلق الله السماء و الأرض.",
-      "en": "In the beginning God created Heaven and Earth."
-    }
+    ]
   },
   {
     "fr": "univers",
@@ -94885,12 +94510,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "school"
-    ],
-    "ex": {
-      "fr": "Pouvez-vous écrire une lettre en anglais ?",
-      "ar": "أيمكنك كتابة رسالة بالإنجليزية؟",
-      "en": "Can you write a letter in English?"
-    }
+    ]
   },
   {
     "fr": "écrivain",
@@ -94910,9 +94530,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Il écrit une lettre.",
-      "ar": "هو يكتب رسالة.",
-      "en": "He is writing a letter."
+      "fr": "Comment ça s'écrit ?",
+      "ar": "كيف تُكتب؟",
+      "en": "How is it spelled?"
     }
   },
   {
@@ -94922,12 +94542,7 @@ window.VOCAB_DATA_BATCH2 = [
     "level": "A1",
     "contexts": [
       "daily"
-    ],
-    "ex": {
-      "fr": "Je joue dans le parc.",
-      "ar": "أنا ألعب في المتنزه.",
-      "en": "I'm playing in the park."
-    }
+    ]
   },
   {
     "fr": "erroné",
