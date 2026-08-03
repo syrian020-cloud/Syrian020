@@ -45,12 +45,15 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Chrome may show a 404 for `favicon.ico` on first load; this is harmless and does not affect functionality.
 - The `browser_console` tool can drop its CDP connection in this environment. Use `/tmp/cdp_helper.py` (Python `websocket-client`) to connect to `ws://localhost:29229/devtools/page/<id>` and evaluate JS / capture `Log.entryAdded` and `Runtime.consoleAPICalled` events.
 
-## Vocab page quick checks (550-entry dataset with `usage` field and A-words + A-adjectives)
+## Vocab page quick checks (550-entry dataset with POS, `usage` field, A-words + A-adjectives)
 
 - `data/vocab.js` contains the active dataset; `data/vocab-batch-02.js` is currently empty (`window.VOCAB_DATA_BATCH2 = []`).
 - Total entries: **550** French phrases (163 beginning with `À` + 236 other A-words including 78 A-verbs + 151 new A-adjectives + 89 merged entries).
-- Entry structure: every entry has `fr`, `ar`, `en`, `level` (A1/A2/B1/B2), `contexts` array, and `ex` (`fr`, `ar`, `en`).
-- **Administrative entries include a `usage` field** (Arabic usage context) rendered in a `.usage` div above the example.
+- Entry structure: every entry has `fr`, `ar`, `en`, `level` (A1/A2/B1/B2), `pos` (`verb`/`adjective`/`noun`/`phrase`/`other`), `contexts` array, and `ex` (`fr`, `ar`, `en`).
+- Administrative entries may also include a `usage` field rendered in a `.usage` div above the example.
+- POS counts: verb=121, adjective=167, noun=80, phrase=170, other=12.
+- POS chip labels are localized by UI language (AR: فعل/صفة/اسم/عبارة/آخر; EN: Verb/Adjective/Noun/Phrase/Other; FR: Verbe/Adjectif/Nom/Expression/Autre).
+- Each card renders a `.pos-pill` next to `.level-pill`.
 - Levels: A1=83, A2=289, B1=97, B2=81.
 - Contexts include: daily (342), services (179), work (131), housing (27), health (27), bank (19), caf (16), transport (20), family (10), restaurant (5), shop (20), car (14), phone (17), France Travail (10), prefecture (6), post (4), cpam (3), school (10), mairie (2), weather (3).
 - Search examples:
@@ -66,21 +69,25 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   - `Avancé` → 1 result; example `J'ai un niveau avancé en français.`
   - `autorisation` → 1 result (`Autorisation`)
   - `CPAM` → 3 results
-  - `CAF` → **25 results** now that search scans `usage`, `contexts`, and `ex.*` text.
+  - `CAF` → **25 results** now that search scans `usage`, `contexts`, `pos`, and `ex.*` text.
   - `dossier` → **20 results** because the search haystack includes `ex.fr`/`ex.ar`/`ex.en`.
   - `Mairie` (`البلدية`) → 2 results
   - `administratif` → 1 result (`Administratif`)
+  - **POS text search (English UI):** `verb` → 121, `adjective` → 167, `noun` → 80, `phrase` → 170, `other` → 12
+  - **POS text search (Arabic/French UI):** `فعل`/`Verbe` returns only incidental matches, because `filtered()` only includes the English `pos` key in the search haystack, not localized labels.
 - Filter counts:
   - level `A1` → 83, `A2` → 289, `B1` → 97, `B2` → 81
   - context `services` → 179
   - context `caf` → 16
   - context `cpam` → 3
   - context `mairie` → 2
+  - POS `verb` → 121, `adjective` → 167, `noun` → 80, `phrase` → 170, `other` → 12
+  - combined `POS verb` + `A2` → 25; `POS adjective` + `services` → 31
 - Sorting:
   - A → Z first term: `À bas`
   - Z → A first term: `Avouer` (non-`À` A-words sort before `À` in `localeCompare`; `Avouer` is alphabetically last)
 - Pagination: `pageSize` is 100; the `#load-more` button shows remaining counts `450`, `350`, `250`, `150`, `50` for the 550-entry dataset, and after a fifth click renders all 550 cards and removes the button.
-- There is currently **no copy/clipboard UI** in `vocab.html`.
+- There is currently **no copy/clipboard UI** in `vocab.html`; only localized `copied` toast strings exist in `UI`.
 - `usage` field:
   - Rendered in a `.usage` div with `dir="rtl"` between the `.meta` pills and the `.example` block.
   - Styled with a right accent border and subtle accent background (`vocab.html` line 116).
@@ -100,7 +107,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v88`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v89`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();

@@ -383,6 +383,7 @@
   function t(key){ return UI[state.uiLang][key] || UI.en[key] || UI.ar[key] || key; }
   function ctxLabel(key){ var c = CTX_LABELS[key]; return c ? c[state.uiLang] || c.en : key; }
   function posLabel(key){ var p = POS_LABELS[key]; return p ? p[state.uiLang] || p.en : key; }
+  function posLabelsText(key){ var p = POS_LABELS[key]; return p ? (p.ar + ' ' + p.en + ' ' + p.fr) : key; }
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
   function init(){
@@ -454,7 +455,8 @@
       if(state.pos.length && state.pos.indexOf(v.pos || 'other') === -1) return false;
       if(!q) return true;
       var ex = v.ex || {};
-      var hay = (v.fr + ' ' + (v.ar||'') + ' ' + (v.en||'') + ' ' + (v.usage||'') + ' ' + (v.contexts||[]).join(' ') + ' ' + (v.pos||'') + ' ' + (ex.fr||'') + ' ' + (ex.ar||'') + ' ' + (ex.en||'')).toLowerCase();
+      var posText = (v.pos ? posLabelsText(v.pos) : '');
+      var hay = (v.fr + ' ' + (v.ar||'') + ' ' + (v.en||'') + ' ' + (v.usage||'') + ' ' + (v.contexts||[]).join(' ') + ' ' + (v.pos||'') + ' ' + posText + ' ' + (ex.fr||'') + ' ' + (ex.ar||'') + ' ' + (ex.en||'')).toLowerCase();
       return hay.indexOf(q) !== -1;
     });
     if(state.sort === 'az') items.sort(function(a,b){ return a.fr.localeCompare(b.fr, 'fr'); });
