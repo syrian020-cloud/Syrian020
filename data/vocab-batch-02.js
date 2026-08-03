@@ -68744,12 +68744,17 @@ window.VOCAB_DATA_BATCH2 = [
   },
   {
     "fr": "à bas",
-    "ar": "تحت",
-    "en": "down",
-    "level": "A1",
+    "ar": "أسفل / سقط / لا لـ",
+    "en": "down with",
+    "level": "A2",
     "contexts": [
       "daily"
-    ]
+    ],
+    "ex": {
+      "fr": "À bas le racisme !",
+      "ar": "لا للعنصرية!",
+      "en": "Down with racism!"
+    }
   },
   {
     "fr": "tirer",
