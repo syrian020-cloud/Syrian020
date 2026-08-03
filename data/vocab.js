@@ -12,7 +12,8 @@ window.VOCAB_DATA = [
       "fr": "Je suis assis à côté de toi.",
       "ar": "أنا جالس بجانبك.",
       "en": "I am sitting next to you."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À gauche",
@@ -26,7 +27,8 @@ window.VOCAB_DATA = [
       "fr": "Tournez à gauche.",
       "ar": "انعطف إلى اليسار.",
       "en": "Turn left."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À droite",
@@ -41,7 +43,8 @@ window.VOCAB_DATA = [
       "fr": "La pharmacie est à droite.",
       "ar": "الصيدلية على اليمين.",
       "en": "The pharmacy is on the right."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À pied",
@@ -57,7 +60,8 @@ window.VOCAB_DATA = [
       "fr": "Je vais au travail à pied.",
       "ar": "أذهب إلى العمل مشياً.",
       "en": "I go to work on foot."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À vélo",
@@ -72,7 +76,8 @@ window.VOCAB_DATA = [
       "fr": "Je vais au parc à vélo.",
       "ar": "أذهب إلى الحديقة بالدراجة.",
       "en": "I go to the park by bike."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À temps",
@@ -86,7 +91,8 @@ window.VOCAB_DATA = [
       "fr": "Je suis arrivé à temps.",
       "ar": "وصلت في الوقت المناسب.",
       "en": "I arrived on time."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À partir de",
@@ -104,7 +110,8 @@ window.VOCAB_DATA = [
       "fr": "À partir du 1er septembre, je commence un nouveau travail.",
       "ar": "ابتداءً من 1 سبتمبر، أبدأ عملاً جديدًا.",
       "en": "Starting September 1st, I start a new job."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À cause de",
@@ -119,7 +126,8 @@ window.VOCAB_DATA = [
       "fr": "Je suis en retard à cause du trafic.",
       "ar": "أنا متأخر بسبب الازدحام.",
       "en": "I am late because of traffic."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'intérieur",
@@ -134,7 +142,8 @@ window.VOCAB_DATA = [
       "fr": "Il fait chaud à l'intérieur.",
       "ar": "الجو حار في الداخل.",
       "en": "It is warm inside."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'extérieur",
@@ -149,7 +158,8 @@ window.VOCAB_DATA = [
       "fr": "Les enfants jouent à l'extérieur.",
       "ar": "الأطفال يلعبون في الخارج.",
       "en": "The children are playing outside."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À propos de",
@@ -163,7 +173,8 @@ window.VOCAB_DATA = [
       "fr": "Je veux parler à propos de ce problème.",
       "ar": "أريد أن أتكلم بخصوص هذه المشكلة.",
       "en": "I want to talk about this problem."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la fin",
@@ -177,7 +188,8 @@ window.VOCAB_DATA = [
       "fr": "À la fin du film, tout le monde pleure.",
       "ar": "في نهاية الفيلم، الجميع يبكي.",
       "en": "At the end of the film, everyone cries."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À peine",
@@ -191,7 +203,8 @@ window.VOCAB_DATA = [
       "fr": "Je peux à peine marcher.",
       "ar": "أستطيع المشي بالكاد.",
       "en": "I can barely walk."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À peu près",
@@ -205,7 +218,8 @@ window.VOCAB_DATA = [
       "fr": "Il est à peu près midi.",
       "ar": "الساعة حوالي الثانية عشرة.",
       "en": "It is about noon."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À nouveau",
@@ -219,7 +233,8 @@ window.VOCAB_DATA = [
       "fr": "Pouvez-vous répéter à nouveau ?",
       "ar": "هل يمكنك أن تعيد مرة أخرى؟",
       "en": "Can you repeat again?"
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À présent",
@@ -233,7 +248,8 @@ window.VOCAB_DATA = [
       "fr": "À présent, tout va bien.",
       "ar": "الآن كل شيء على ما يرام.",
       "en": "Now everything is fine."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À venir",
@@ -247,7 +263,8 @@ window.VOCAB_DATA = [
       "fr": "Les semaines à venir seront importantes.",
       "ar": "الأسابيع القادمة ستكون مهمة.",
       "en": "The coming weeks will be important."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À travers",
@@ -262,7 +279,8 @@ window.VOCAB_DATA = [
       "fr": "La lumière passe à travers la fenêtre.",
       "ar": "الضوء يمر عبر النافذة.",
       "en": "The light comes through the window."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'heure",
@@ -277,7 +295,8 @@ window.VOCAB_DATA = [
       "fr": "Le train est arrivé à l'heure.",
       "ar": "وصل القطار في الموعد.",
       "en": "The train arrived on time."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'heure actuelle",
@@ -292,7 +311,8 @@ window.VOCAB_DATA = [
       "fr": "À l'heure actuelle, je travaille en France.",
       "ar": "في الوقت الحالي، أعمل في فرنسا.",
       "en": "Currently, I work in France."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'avenir",
@@ -306,7 +326,8 @@ window.VOCAB_DATA = [
       "fr": "À l'avenir, je veux parler couramment français.",
       "ar": "في المستقبل، أريد التحدث بالفرنسية بطلاقة.",
       "en": "In the future, I want to speak French fluently."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À mon avis",
@@ -320,7 +341,8 @@ window.VOCAB_DATA = [
       "fr": "À mon avis, c'est une bonne idée.",
       "ar": "في رأيي، إنها فكرة جيدة.",
       "en": "In my opinion, it's a good idea."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À mon goût",
@@ -335,7 +357,8 @@ window.VOCAB_DATA = [
       "fr": "C'est trop sucré à mon goût.",
       "ar": "إنه حلو أكثر من اللازم بالنسبة لذوقي.",
       "en": "It's too sweet for my taste."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À vrai dire",
@@ -349,7 +372,8 @@ window.VOCAB_DATA = [
       "fr": "À vrai dire, je ne sais pas.",
       "ar": "بصراحة، لا أعرف.",
       "en": "To tell the truth, I don't know."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À ce moment-là",
@@ -364,7 +388,8 @@ window.VOCAB_DATA = [
       "fr": "À ce moment-là, j'étais au travail.",
       "ar": "في ذلك الوقت، كنت في العمل.",
       "en": "At that moment, I was at work."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À tout prix",
@@ -380,7 +405,8 @@ window.VOCAB_DATA = [
       "fr": "Je veux réussir à tout prix.",
       "ar": "أريد أن أنجح بأي ثمن.",
       "en": "I want to succeed at all costs."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la gare",
@@ -395,7 +421,8 @@ window.VOCAB_DATA = [
       "fr": "Je t'attends à la gare.",
       "ar": "أنا أنتظرك في محطة القطار.",
       "en": "I am waiting for you at the train station."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la pharmacie",
@@ -410,7 +437,8 @@ window.VOCAB_DATA = [
       "fr": "Je vais à la pharmacie.",
       "ar": "أنا ذاهب إلى الصيدلية.",
       "en": "I am going to the pharmacy."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la banque",
@@ -426,7 +454,8 @@ window.VOCAB_DATA = [
       "fr": "Je suis à la banque.",
       "ar": "أنا في البنك.",
       "en": "I am at the bank."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la caisse",
@@ -441,7 +470,8 @@ window.VOCAB_DATA = [
       "fr": "Je vous attends à la caisse.",
       "ar": "أنا بانتظارك عند صندوق الدفع.",
       "en": "I'm waiting for you at the checkout."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la porte",
@@ -456,7 +486,8 @@ window.VOCAB_DATA = [
       "fr": "Quelqu'un est à la porte.",
       "ar": "هناك شخص عند الباب.",
       "en": "Someone is at the door."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À table !",
@@ -472,7 +503,8 @@ window.VOCAB_DATA = [
       "fr": "Les enfants, à table !",
       "ar": "يا أطفال، إلى المائدة!",
       "en": "Kids, come to the table!"
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À bientôt",
@@ -487,7 +519,8 @@ window.VOCAB_DATA = [
       "fr": "À bientôt, prends soin de toi.",
       "ar": "إلى اللقاء قريبًا، اعتنِ بنفسك.",
       "en": "See you soon, take care."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À demain",
@@ -502,7 +535,8 @@ window.VOCAB_DATA = [
       "fr": "À demain au travail.",
       "ar": "أراك غدًا في العمل.",
       "en": "See you tomorrow at work."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À plus tard",
@@ -516,7 +550,8 @@ window.VOCAB_DATA = [
       "fr": "À plus tard, bonne journée !",
       "ar": "أراك لاحقًا، يومًا سعيدًا!",
       "en": "See you later, have a nice day!"
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À tout à l'heure",
@@ -531,7 +566,8 @@ window.VOCAB_DATA = [
       "fr": "À tout à l'heure au bureau.",
       "ar": "أراك بعد قليل في المكتب.",
       "en": "See you later at the office."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À tout de suite",
@@ -545,7 +581,8 @@ window.VOCAB_DATA = [
       "fr": "J'arrive, à tout de suite !",
       "ar": "أنا قادم، أراك حالًا!",
       "en": "I'm coming, see you right away!"
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la prochaine",
@@ -559,7 +596,8 @@ window.VOCAB_DATA = [
       "fr": "Merci et à la prochaine !",
       "ar": "شكرًا وإلى المرة القادمة!",
       "en": "Thanks, until next time!"
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À votre santé !",
@@ -574,7 +612,8 @@ window.VOCAB_DATA = [
       "fr": "À votre santé !",
       "ar": "في صحتكم!",
       "en": "Cheers!"
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À vos souhaits !",
@@ -588,7 +627,8 @@ window.VOCAB_DATA = [
       "fr": "À vos souhaits ! Vous allez bien ?",
       "ar": "يرحمكم الله! هل أنت بخير؟",
       "en": "Bless you! Are you okay?"
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la fois",
@@ -602,7 +642,8 @@ window.VOCAB_DATA = [
       "fr": "Je ne peux pas faire deux choses à la fois.",
       "ar": "لا أستطيع فعل شيئين في الوقت نفسه.",
       "en": "I can't do two things at the same time."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la place de",
@@ -617,7 +658,8 @@ window.VOCAB_DATA = [
       "fr": "Prends le bus à la place du train.",
       "ar": "خذ الحافلة بدلاً من القطار.",
       "en": "Take the bus instead of the train."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la recherche de",
@@ -633,7 +675,8 @@ window.VOCAB_DATA = [
       "fr": "Je suis à la recherche d'un emploi.",
       "ar": "أنا أبحث عن عمل.",
       "en": "I am looking for a job."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'entrée",
@@ -647,7 +690,8 @@ window.VOCAB_DATA = [
       "fr": "Retrouvons-nous à l'entrée.",
       "ar": "لنلتقِ عند المدخل.",
       "en": "Let's meet at the entrance."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la sortie",
@@ -661,7 +705,8 @@ window.VOCAB_DATA = [
       "fr": "Je t'attends à la sortie.",
       "ar": "سأنتظرك عند المخرج.",
       "en": "I'll wait for you at the exit."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'étage",
@@ -676,7 +721,8 @@ window.VOCAB_DATA = [
       "fr": "Les toilettes sont à l'étage.",
       "ar": "المرحاض في الطابق العلوي.",
       "en": "The toilets are upstairs."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'arrêt de bus",
@@ -691,7 +737,8 @@ window.VOCAB_DATA = [
       "fr": "Je suis à l'arrêt de bus.",
       "ar": "أنا في موقف الحافلات.",
       "en": "I am at the bus stop."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À distance",
@@ -706,7 +753,8 @@ window.VOCAB_DATA = [
       "fr": "Je travaille à distance aujourd'hui.",
       "ar": "أعمل عن بُعد اليوم.",
       "en": "I am working remotely today."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À domicile",
@@ -722,7 +770,8 @@ window.VOCAB_DATA = [
       "fr": "Le médecin vient à domicile.",
       "ar": "الطبيب يأتي إلى المنزل.",
       "en": "The doctor makes house calls."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À disposition",
@@ -736,7 +785,8 @@ window.VOCAB_DATA = [
       "fr": "Je reste à votre disposition.",
       "ar": "أنا تحت تصرفكم.",
       "en": "I remain at your disposal."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À condition que",
@@ -751,7 +801,8 @@ window.VOCAB_DATA = [
       "fr": "Tu peux venir à condition que tu m'appelles.",
       "ar": "يمكنك المجيء بشرط أن تتصل بي.",
       "en": "You can come provided that you call me."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À chaque fois",
@@ -765,7 +816,8 @@ window.VOCAB_DATA = [
       "fr": "À chaque fois, il est en retard.",
       "ar": "في كل مرة، يتأخر.",
       "en": "Every time, he is late."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À jamais",
@@ -780,7 +832,8 @@ window.VOCAB_DATA = [
       "fr": "Je ne l'oublierai jamais. Il restera dans mon cœur à jamais.",
       "ar": "لن أنساه أبداً. سيبقى في قلبي إلى الأبد.",
       "en": "I will never forget him. He will stay in my heart forever."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À tout moment",
@@ -795,7 +848,8 @@ window.VOCAB_DATA = [
       "fr": "Tu peux m'appeler à tout moment.",
       "ar": "يمكنك الاتصال بي في أي وقت.",
       "en": "You can call me at any time."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À court terme",
@@ -809,7 +863,8 @@ window.VOCAB_DATA = [
       "fr": "À court terme, ce sera difficile.",
       "ar": "على المدى القصير، سيكون الأمر صعبًا.",
       "en": "In the short term, it will be difficult."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À long terme",
@@ -823,7 +878,8 @@ window.VOCAB_DATA = [
       "fr": "À long terme, tu verras les résultats.",
       "ar": "على المدى الطويل، سترى النتائج.",
       "en": "In the long term, you will see the results."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À moitié",
@@ -837,7 +893,8 @@ window.VOCAB_DATA = [
       "fr": "La bouteille est à moitié vide.",
       "ar": "الزجاجة نصف فارغة.",
       "en": "The bottle is half empty."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À plein temps",
@@ -852,7 +909,8 @@ window.VOCAB_DATA = [
       "fr": "Je travaille à plein temps.",
       "ar": "أعمل بدوام كامل.",
       "en": "I work full-time."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À temps partiel",
@@ -867,7 +925,8 @@ window.VOCAB_DATA = [
       "fr": "Elle travaille à temps partiel.",
       "ar": "هي تعمل بدوام جزئي.",
       "en": "She works part-time."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À tour de rôle",
@@ -881,7 +940,8 @@ window.VOCAB_DATA = [
       "fr": "Nous parlons à tour de rôle.",
       "ar": "نتحدث بالتناوب.",
       "en": "We speak in turns."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la minute",
@@ -895,7 +955,8 @@ window.VOCAB_DATA = [
       "fr": "Je reviens à la minute.",
       "ar": "سأعود فورًا.",
       "en": "I'll be back immediately."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la dernière minute",
@@ -909,7 +970,8 @@ window.VOCAB_DATA = [
       "fr": "Il a annulé à la dernière minute.",
       "ar": "ألغى في اللحظة الأخيرة.",
       "en": "He canceled at the last minute."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À tout hasard",
@@ -924,7 +986,8 @@ window.VOCAB_DATA = [
       "fr": "Prends un parapluie à tout hasard.",
       "ar": "خذ مظلة احتياطًا.",
       "en": "Take an umbrella just in case."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À perte de vue",
@@ -938,7 +1001,8 @@ window.VOCAB_DATA = [
       "fr": "Des champs à perte de vue.",
       "ar": "حقول تمتد على مدّ البصر.",
       "en": "Fields as far as the eye can see."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À voix basse",
@@ -952,7 +1016,8 @@ window.VOCAB_DATA = [
       "fr": "Parlez à voix basse, s'il vous plaît.",
       "ar": "تحدثوا بصوت منخفض، من فضلكم.",
       "en": "Please speak in a low voice."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À voix haute",
@@ -966,7 +1031,8 @@ window.VOCAB_DATA = [
       "fr": "Lis le texte à voix haute.",
       "ar": "اقرأ النص بصوت عالٍ.",
       "en": "Read the text out loud."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À vue d'œil",
@@ -981,7 +1047,8 @@ window.VOCAB_DATA = [
       "fr": "Les prix augmentent à vue d'œil.",
       "ar": "الأسعار ترتفع بشكل ملحوظ.",
       "en": "Prices are rising noticeably."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À force de",
@@ -996,7 +1063,8 @@ window.VOCAB_DATA = [
       "fr": "À force de travailler, je suis fatigué.",
       "ar": "من كثرة العمل، أنا متعب.",
       "en": "I'm tired from working so much."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À défaut de",
@@ -1013,7 +1081,8 @@ window.VOCAB_DATA = [
       "fr": "À défaut de réponse, je contacterai le service.",
       "ar": "في حال عدم وجود جواب، سأتصل بالمصلحة.",
       "en": "If there is no response, I will contact the service."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À partir du moment où",
@@ -1027,7 +1096,8 @@ window.VOCAB_DATA = [
       "fr": "À partir du moment où tu acceptes, tu es responsable.",
       "ar": "منذ اللحظة التي توافق فيها، تصبح مسؤولاً.",
       "en": "From the moment you accept, you are responsible."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À première vue",
@@ -1041,7 +1111,8 @@ window.VOCAB_DATA = [
       "fr": "À première vue, tout semble normal.",
       "ar": "للوهلة الأولى، يبدو كل شيء طبيعياً.",
       "en": "At first sight, everything seems normal."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À titre d'exemple",
@@ -1055,7 +1126,8 @@ window.VOCAB_DATA = [
       "fr": "À titre d'exemple, regarde cette photo.",
       "ar": "على سبيل المثال، انظر إلى هذه الصورة.",
       "en": "As an example, look at this picture."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À titre personnel",
@@ -1069,7 +1141,8 @@ window.VOCAB_DATA = [
       "fr": "À titre personnel, je suis d'accord.",
       "ar": "على المستوى الشخصي، أنا موافق.",
       "en": "Personally, I agree."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À votre disposition",
@@ -1086,7 +1159,8 @@ window.VOCAB_DATA = [
       "fr": "Je reste à votre disposition pour toute information complémentaire.",
       "ar": "أنا تحت تصرفكم لأي معلومات إضافية.",
       "en": "I remain available for any additional information."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À ce sujet",
@@ -1100,7 +1174,8 @@ window.VOCAB_DATA = [
       "fr": "Je n'ai rien à dire à ce sujet.",
       "ar": "ليس لدي ما أقوله بخصوص هذا الموضوع.",
       "en": "I have nothing to say on this subject."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À ce propos",
@@ -1114,7 +1189,8 @@ window.VOCAB_DATA = [
       "fr": "À ce propos, j'ai une question.",
       "ar": "بالمناسبة، لدي سؤال.",
       "en": "By the way, I have a question."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'instant même",
@@ -1128,7 +1204,8 @@ window.VOCAB_DATA = [
       "fr": "Il est parti à l'instant même.",
       "ar": "لقد غادر في هذه اللحظة بالذات.",
       "en": "He left just this moment."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À compter de",
@@ -1147,7 +1224,8 @@ window.VOCAB_DATA = [
       "fr": "À compter du mois prochain, mon aide change.",
       "ar": "اعتبارًا من الشهر القادم، ستتغير مساعدتي.",
       "en": "Starting next month, my benefit changes."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À peine arrivé",
@@ -1162,7 +1240,8 @@ window.VOCAB_DATA = [
       "fr": "À peine arrivé, il a commencé à travailler.",
       "ar": "ما إن وصل حتى بدأ العمل.",
       "en": "As soon as he arrived, he started working."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'heure de",
@@ -1176,7 +1255,8 @@ window.VOCAB_DATA = [
       "fr": "À l'heure de l'internet, tout va plus vite.",
       "ar": "في عصر الإنترنت، كل شيء أصبح أسرع.",
       "en": "In the age of the internet, everything is faster."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'écoute de",
@@ -1190,7 +1270,8 @@ window.VOCAB_DATA = [
       "fr": "Je suis à l'écoute de vos conseils.",
       "ar": "أنا أستمع إلى نصائحكم.",
       "en": "I am listening to your advice."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'abri de",
@@ -1205,7 +1286,8 @@ window.VOCAB_DATA = [
       "fr": "Nous sommes à l'abri de la pluie.",
       "ar": "نحن محميون من المطر.",
       "en": "We are sheltered from the rain."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'aide de",
@@ -1219,7 +1301,8 @@ window.VOCAB_DATA = [
       "fr": "J'ai réparé la machine à l'aide d'un outil.",
       "ar": "أصلحت الآلة باستخدام أداة.",
       "en": "I repaired the machine using a tool."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'insu de",
@@ -1234,7 +1317,8 @@ window.VOCAB_DATA = [
       "fr": "Il est parti à l'insu de ses parents.",
       "ar": "غادر دون علم والديه.",
       "en": "He left without his parents knowing."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la suite de",
@@ -1252,7 +1336,8 @@ window.VOCAB_DATA = [
       "fr": "À la suite de votre courrier, je vous contacte.",
       "ar": "بعد رسالتكم، أتواصل معكم.",
       "en": "Following your letter, I contact you."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la limite",
@@ -1266,7 +1351,8 @@ window.VOCAB_DATA = [
       "fr": "À la limite, je peux accepter.",
       "ar": "في أقصى حد، يمكنني القبول.",
       "en": "At the limit, I can accept."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la main",
@@ -1280,7 +1366,8 @@ window.VOCAB_DATA = [
       "fr": "J'ai écrit cette lettre à la main.",
       "ar": "كتبت هذه الرسالة باليد.",
       "en": "I wrote this letter by hand."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la machine",
@@ -1294,7 +1381,8 @@ window.VOCAB_DATA = [
       "fr": "Le document est imprimé à la machine.",
       "ar": "الوثيقة مطبوعة بواسطة الآلة.",
       "en": "The document is printed by machine."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la première occasion",
@@ -1308,7 +1396,8 @@ window.VOCAB_DATA = [
       "fr": "Je viendrai à la première occasion.",
       "ar": "سآتي في أول فرصة.",
       "en": "I will come at the first opportunity."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la place",
@@ -1322,7 +1411,8 @@ window.VOCAB_DATA = [
       "fr": "Mets le livre à sa place.",
       "ar": "ضع الكتاب في مكانه.",
       "en": "Put the book in its place."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la fois simple et efficace",
@@ -1336,7 +1426,8 @@ window.VOCAB_DATA = [
       "fr": "Cette méthode est à la fois simple et efficace.",
       "ar": "هذه الطريقة بسيطة وفعالة في نفس الوقت.",
       "en": "This method is both simple and effective."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À côté de ça",
@@ -1350,7 +1441,8 @@ window.VOCAB_DATA = [
       "fr": "À côté de ça, tout va bien.",
       "ar": "إضافة إلى ذلك، كل شيء بخير.",
       "en": "Besides that, everything is fine."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'intérieur de",
@@ -1366,7 +1458,8 @@ window.VOCAB_DATA = [
       "fr": "Il y a quelqu'un à l'intérieur de la voiture.",
       "ar": "يوجد شخص داخل السيارة.",
       "en": "There is someone inside the car."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'extérieur de",
@@ -1381,7 +1474,8 @@ window.VOCAB_DATA = [
       "fr": "Il attend à l'extérieur du bâtiment.",
       "ar": "هو ينتظر خارج المبنى.",
       "en": "He is waiting outside the building."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À proximité de",
@@ -1396,7 +1490,8 @@ window.VOCAB_DATA = [
       "fr": "J'habite à proximité de la gare.",
       "ar": "أسكن بالقرب من المحطة.",
       "en": "I live near the station."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À distance de",
@@ -1410,7 +1505,8 @@ window.VOCAB_DATA = [
       "fr": "L'hôtel est à distance de marche.",
       "ar": "الفندق على مسافة يمكن قطعها مشياً.",
       "en": "The hotel is within walking distance."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À bord de",
@@ -1425,7 +1521,8 @@ window.VOCAB_DATA = [
       "fr": "Nous sommes à bord du train.",
       "ar": "نحن على متن القطار.",
       "en": "We are on board the train."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'époque",
@@ -1439,7 +1536,8 @@ window.VOCAB_DATA = [
       "fr": "À l'époque, je vivais à Paris.",
       "ar": "في ذلك الوقت، كنت أعيش في باريس.",
       "en": "Back then, I lived in Paris."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À ce jour",
@@ -1455,7 +1553,8 @@ window.VOCAB_DATA = [
       "fr": "À ce jour, je n'ai pas reçu de réponse.",
       "ar": "حتى اليوم، لم أتلقَّ جوابًا.",
       "en": "As of today, I haven't received a response."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À partir de maintenant",
@@ -1470,7 +1569,8 @@ window.VOCAB_DATA = [
       "fr": "À partir de maintenant, je ferai attention.",
       "ar": "من الآن فصاعداً، سأنتبه.",
       "en": "From now on, I will be careful."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À moitié prix",
@@ -1485,7 +1585,8 @@ window.VOCAB_DATA = [
       "fr": "Le produit est vendu à moitié prix.",
       "ar": "المنتج يباع بنصف السعر.",
       "en": "The product is sold at half price."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À bon prix",
@@ -1502,7 +1603,8 @@ window.VOCAB_DATA = [
       "fr": "J'ai acheté cette voiture à bon prix.",
       "ar": "اشتريت هذه السيارة بسعر جيد.",
       "en": "I bought this car at a good price."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À bas prix",
@@ -1517,7 +1619,8 @@ window.VOCAB_DATA = [
       "fr": "Ils vendent des vêtements à bas prix.",
       "ar": "يبيعون ملابس بأسعار منخفضة.",
       "en": "They sell clothes at low prices."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À haute voix",
@@ -1531,7 +1634,8 @@ window.VOCAB_DATA = [
       "fr": "Lisez le texte à haute voix.",
       "ar": "اقرأ النص بصوت مرتفع.",
       "en": "Read the text out loud."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'instant",
@@ -1545,7 +1649,8 @@ window.VOCAB_DATA = [
       "fr": "Je l'ai vu à l'instant.",
       "ar": "رأيته منذ لحظة.",
       "en": "I saw him just now."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'avance",
@@ -1560,7 +1665,8 @@ window.VOCAB_DATA = [
       "fr": "Réservez votre billet à l'avance.",
       "ar": "احجز تذكرتك مسبقاً.",
       "en": "Book your ticket in advance."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'occasion",
@@ -1574,7 +1680,8 @@ window.VOCAB_DATA = [
       "fr": "Je vais à Paris à l'occasion.",
       "ar": "أذهب إلى باريس أحياناً.",
       "en": "I go to Paris occasionally."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'occasion de",
@@ -1588,7 +1695,8 @@ window.VOCAB_DATA = [
       "fr": "À l'occasion de son anniversaire, on organise une fête.",
       "ar": "بمناسبة عيد ميلاده، ننظم حفلة.",
       "en": "On the occasion of his birthday, we organize a party."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'origine",
@@ -1602,7 +1710,8 @@ window.VOCAB_DATA = [
       "fr": "À l'origine, je voulais rester chez moi.",
       "ar": "في الأصل، كنت أريد البقاء في المنزل.",
       "en": "Originally, I wanted to stay home."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'essai",
@@ -1618,7 +1727,8 @@ window.VOCAB_DATA = [
       "fr": "La voiture est à l'essai.",
       "ar": "السيارة قيد التجربة.",
       "en": "The car is on trial."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'abandon",
@@ -1633,7 +1743,8 @@ window.VOCAB_DATA = [
       "fr": "Cette maison est à l'abandon.",
       "ar": "هذا المنزل مهجور.",
       "en": "This house is abandoned."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'endroit",
@@ -1647,7 +1758,8 @@ window.VOCAB_DATA = [
       "fr": "Mets le vêtement à l'endroit.",
       "ar": "ضع الملابس على الوجه الصحيح.",
       "en": "Put the clothing the right way."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'envers",
@@ -1661,7 +1773,8 @@ window.VOCAB_DATA = [
       "fr": "Tu as mis ton pull à l'envers.",
       "ar": "لقد ارتديت كنزتك بالمقلوب.",
       "en": "You put your sweater on backwards."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'intérieur de soi",
@@ -1675,7 +1788,8 @@ window.VOCAB_DATA = [
       "fr": "Il garde ses émotions à l'intérieur de soi.",
       "ar": "يحتفظ بمشاعره داخله.",
       "en": "He keeps his emotions inside himself."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'extérieur du pays",
@@ -1690,7 +1804,8 @@ window.VOCAB_DATA = [
       "fr": "Il travaille à l'extérieur du pays.",
       "ar": "يعمل خارج البلاد.",
       "en": "He works outside the country."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'exception de",
@@ -1706,7 +1821,8 @@ window.VOCAB_DATA = [
       "fr": "Tout est ouvert à l'exception de la banque.",
       "ar": "كل شيء مفتوح باستثناء البنك.",
       "en": "Everything is open except the bank."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'origine de",
@@ -1720,7 +1836,8 @@ window.VOCAB_DATA = [
       "fr": "Qui est à l'origine de ce problème ?",
       "ar": "من سبب هذه المشكلة؟",
       "en": "Who is behind this problem?"
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'écoute",
@@ -1735,7 +1852,8 @@ window.VOCAB_DATA = [
       "fr": "Je suis à l'écoute de vos besoins.",
       "ar": "أنا أستمع إلى احتياجاتكم.",
       "en": "I am listening to your needs."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'encontre de",
@@ -1749,7 +1867,8 @@ window.VOCAB_DATA = [
       "fr": "Cette décision va à l'encontre de la loi.",
       "ar": "هذا القرار يخالف القانون.",
       "en": "This decision goes against the law."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'égard de",
@@ -1763,7 +1882,8 @@ window.VOCAB_DATA = [
       "fr": "Il est respectueux à l'égard des autres.",
       "ar": "هو محترم تجاه الآخرين.",
       "en": "He is respectful toward others."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'intérieur du bâtiment",
@@ -1778,7 +1898,8 @@ window.VOCAB_DATA = [
       "fr": "Il y a une salle à l'intérieur du bâtiment.",
       "ar": "توجد قاعة داخل المبنى.",
       "en": "There is a room inside the building."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'extérieur du bâtiment",
@@ -1793,7 +1914,8 @@ window.VOCAB_DATA = [
       "fr": "Il attend à l'extérieur du bâtiment.",
       "ar": "هو ينتظر خارج المبنى.",
       "en": "He is waiting outside the building."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'entrée du magasin",
@@ -1808,7 +1930,8 @@ window.VOCAB_DATA = [
       "fr": "Je t'attends à l'entrée du magasin.",
       "ar": "سأنتظرك عند مدخل المتجر.",
       "en": "I am waiting for you at the entrance of the shop."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la sortie du travail",
@@ -1823,7 +1946,8 @@ window.VOCAB_DATA = [
       "fr": "On se voit à la sortie du travail.",
       "ar": "نلتقي بعد انتهاء العمل.",
       "en": "See you after work."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la fin de la journée",
@@ -1837,7 +1961,8 @@ window.VOCAB_DATA = [
       "fr": "Je suis fatigué à la fin de la journée.",
       "ar": "أنا متعب في نهاية اليوم.",
       "en": "I am tired at the end of the day."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la pause",
@@ -1851,7 +1976,8 @@ window.VOCAB_DATA = [
       "fr": "Je mange à la pause.",
       "ar": "آكل في وقت الاستراحة.",
       "en": "I eat during the break."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la prochaine fois",
@@ -1865,7 +1991,8 @@ window.VOCAB_DATA = [
       "fr": "Merci pour votre aide, à la prochaine fois.",
       "ar": "شكراً لمساعدتك، إلى المرة القادمة.",
       "en": "Thank you for your help, until next time."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la limite de",
@@ -1879,7 +2006,8 @@ window.VOCAB_DATA = [
       "fr": "La ville est à la limite de la forêt.",
       "ar": "المدينة على حدود الغابة.",
       "en": "The city is on the edge of the forest."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la suite de votre demande",
@@ -1893,7 +2021,8 @@ window.VOCAB_DATA = [
       "fr": "À la suite de votre demande, nous vous répondons.",
       "ar": "بناءً على طلبكم، نجيبكم.",
       "en": "Following your request, we reply to you."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À bas",
@@ -1907,7 +2036,8 @@ window.VOCAB_DATA = [
       "fr": "À bas le racisme !",
       "ar": "يسقط التمييز العنصري!",
       "en": "Down with racism!"
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À bord",
@@ -1921,7 +2051,8 @@ window.VOCAB_DATA = [
       "fr": "Bienvenue à bord !",
       "ar": "أهلاً بك على متن الطائرة/القطار!",
       "en": "Welcome aboard!"
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À bon escient",
@@ -1935,7 +2066,8 @@ window.VOCAB_DATA = [
       "fr": "Il faut utiliser cet outil à bon escient.",
       "ar": "يجب استعمال هذه الأداة بحكمة.",
       "en": "This tool must be used wisely."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À bon entendeur",
@@ -1949,7 +2081,8 @@ window.VOCAB_DATA = [
       "fr": "À bon entendeur, salut !",
       "ar": "هذه رسالة لمن يفهم.",
       "en": "A word to the wise."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À bras ouverts",
@@ -1963,7 +2096,8 @@ window.VOCAB_DATA = [
       "fr": "Ils m'ont accueilli à bras ouverts.",
       "ar": "استقبلوني بأذرع مفتوحة.",
       "en": "They welcomed me with open arms."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À cœur ouvert",
@@ -1978,7 +2112,8 @@ window.VOCAB_DATA = [
       "fr": "Il parle à cœur ouvert.",
       "ar": "يتحدث بكل صراحة.",
       "en": "He speaks openly."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À contrecœur",
@@ -1993,7 +2128,8 @@ window.VOCAB_DATA = [
       "fr": "J'ai accepté à contrecœur.",
       "ar": "وافقت على مضض.",
       "en": "I accepted reluctantly."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À côté de la plaque",
@@ -2007,7 +2143,8 @@ window.VOCAB_DATA = [
       "fr": "Tu es à côté de la plaque.",
       "ar": "أنت مخطئ تماماً.",
       "en": "You are completely wrong."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À deux pas de",
@@ -2021,7 +2158,8 @@ window.VOCAB_DATA = [
       "fr": "La boulangerie est à deux pas de chez moi.",
       "ar": "المخبز يبعد خطوات عن منزلي.",
       "en": "The bakery is a stone's throw from my home."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À fond",
@@ -2036,7 +2174,8 @@ window.VOCAB_DATA = [
       "fr": "Je travaille à fond aujourd'hui.",
       "ar": "أعمل بكل طاقتي اليوم.",
       "en": "I'm working hard today."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'aise",
@@ -2051,7 +2190,8 @@ window.VOCAB_DATA = [
       "fr": "Je me sens à l'aise ici.",
       "ar": "أشعر بالراحة هنا.",
       "en": "I feel comfortable here."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'heure du déjeuner",
@@ -2066,7 +2206,8 @@ window.VOCAB_DATA = [
       "fr": "On se retrouve à l'heure du déjeuner.",
       "ar": "نلتقي وقت الغداء.",
       "en": "We meet at lunchtime."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À mi-chemin",
@@ -2080,7 +2221,8 @@ window.VOCAB_DATA = [
       "fr": "Nous sommes à mi-chemin.",
       "ar": "نحن في منتصف الطريق.",
       "en": "We are halfway there."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À proximité",
@@ -2096,7 +2238,8 @@ window.VOCAB_DATA = [
       "fr": "Il y a un parking à proximité.",
       "ar": "يوجد موقف سيارات قريب.",
       "en": "There is a parking lot nearby."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À la demande de",
@@ -2115,7 +2258,8 @@ window.VOCAB_DATA = [
       "fr": "À la demande de la CAF, j'ai envoyé les documents.",
       "ar": "بناءً على طلب الكاف، أرسلت الوثائق.",
       "en": "At the request of CAF, I sent the documents."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À remplir",
@@ -2132,7 +2276,8 @@ window.VOCAB_DATA = [
       "fr": "Voici le formulaire à remplir.",
       "ar": "هذه الاستمارة يجب ملؤها.",
       "en": "Here is the form to fill out."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À fournir",
@@ -2150,7 +2295,8 @@ window.VOCAB_DATA = [
       "fr": "Les documents à fournir sont : une pièce d'identité et un justificatif de domicile.",
       "ar": "الوثائق المطلوبة هي: الهوية وإثبات السكن.",
       "en": "The required documents are: ID and proof of address."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À joindre",
@@ -2165,7 +2311,8 @@ window.VOCAB_DATA = [
       "fr": "Les justificatifs à joindre sont obligatoires.",
       "ar": "الوثائق المرفقة مطلوبة.",
       "en": "The attached documents are required."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À transmettre",
@@ -2182,7 +2329,8 @@ window.VOCAB_DATA = [
       "fr": "Le dossier est à transmettre avant vendredi.",
       "ar": "يجب إرسال الملف قبل الجمعة.",
       "en": "The file must be sent before Friday."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'appui de",
@@ -2197,7 +2345,8 @@ window.VOCAB_DATA = [
       "fr": "J'ajoute un document à l'appui de ma demande.",
       "ar": "أضيف وثيقة لدعم طلبي.",
       "en": "I add a document in support of my request."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À l'attention de",
@@ -2213,7 +2362,8 @@ window.VOCAB_DATA = [
       "fr": "À l'attention du service CAF.",
       "ar": "إلى عناية مصلحة الكاف.",
       "en": "For the attention of the CAF department."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À destination de",
@@ -2228,7 +2378,8 @@ window.VOCAB_DATA = [
       "fr": "Ce courrier est à destination de France Travail.",
       "ar": "هذه الرسالة موجهة إلى مكتب العمل.",
       "en": "This letter is intended for France Travail."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À envoyer",
@@ -2243,7 +2394,8 @@ window.VOCAB_DATA = [
       "fr": "Le document est à envoyer avant la date limite.",
       "ar": "يجب إرسال الوثيقة قبل الموعد النهائي.",
       "en": "The document must be sent before the deadline."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À signer",
@@ -2259,7 +2411,8 @@ window.VOCAB_DATA = [
       "fr": "Voici le document à signer.",
       "ar": "هذه الوثيقة يجب توقيعها.",
       "en": "Here is the document to sign."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À dater",
@@ -2274,7 +2427,8 @@ window.VOCAB_DATA = [
       "fr": "Le formulaire est à dater et à signer.",
       "ar": "يجب وضع التاريخ والتوقيع على الاستمارة.",
       "en": "The form must be dated and signed."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À compléter",
@@ -2289,7 +2443,8 @@ window.VOCAB_DATA = [
       "fr": "Le dossier est à compléter.",
       "ar": "يجب إكمال الملف.",
       "en": "The file needs to be completed."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À retourner",
@@ -2307,7 +2462,8 @@ window.VOCAB_DATA = [
       "fr": "Le formulaire est à retourner signé.",
       "ar": "يجب إعادة الاستمارة موقعة.",
       "en": "The form must be returned signed."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À jour",
@@ -2323,7 +2479,8 @@ window.VOCAB_DATA = [
       "fr": "Mon dossier CAF est à jour.",
       "ar": "ملفي في الكاف محدث.",
       "en": "My CAF file is up to date."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À jour de ses droits",
@@ -2339,7 +2496,8 @@ window.VOCAB_DATA = [
       "fr": "Je veux vérifier si mes droits sont à jour.",
       "ar": "أريد التأكد من أن حقوقي مفعلة.",
       "en": "I want to check if my rights are up to date."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À titre exceptionnel",
@@ -2354,7 +2512,8 @@ window.VOCAB_DATA = [
       "fr": "Je demande une aide à titre exceptionnel.",
       "ar": "أطلب مساعدة بصفة استثنائية.",
       "en": "I am requesting assistance exceptionally."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À titre informatif",
@@ -2370,7 +2529,8 @@ window.VOCAB_DATA = [
       "fr": "Ce message est envoyé à titre informatif.",
       "ar": "هذه الرسالة أرسلت للعلم فقط.",
       "en": "This message is sent for information only."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À votre demande",
@@ -2387,7 +2547,8 @@ window.VOCAB_DATA = [
       "fr": "À votre demande, nous avons modifié le dossier.",
       "ar": "بناءً على طلبكم، عدلنا الملف.",
       "en": "At your request, we have modified the file."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À réception de",
@@ -2404,7 +2565,8 @@ window.VOCAB_DATA = [
       "fr": "Le paiement sera effectué à réception des documents.",
       "ar": "سيتم الدفع عند استلام الوثائق.",
       "en": "Payment will be made upon receipt of the documents."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "À défaut de paiement",
@@ -2421,7 +2583,8 @@ window.VOCAB_DATA = [
       "fr": "À défaut de paiement, des frais seront appliqués.",
       "ar": "في حال عدم الدفع، ستُفرض رسوم.",
       "en": "In case of non-payment, fees will be applied."
-    }
+    },
+    "pos": "phrase"
   },
   {
     "fr": "Abandonner",
@@ -2436,7 +2599,8 @@ window.VOCAB_DATA = [
       "ar": "لقد تركت طلبي.",
       "en": "I abandoned my request."
     },
-    "usage": "الملفات، الطلبات، الإجراءات | المشاريع، الطلبات، العادات"
+    "usage": "الملفات، الطلبات، الإجراءات | المشاريع، الطلبات، العادات",
+    "pos": "verb"
   },
   {
     "fr": "Absence",
@@ -2453,7 +2617,8 @@ window.VOCAB_DATA = [
       "ar": "يجب أن أبرر غيابي.",
       "en": "I have to justify my absence."
     },
-    "usage": "العمل، المواعيد، الإدارة"
+    "usage": "العمل، المواعيد، الإدارة",
+    "pos": "noun"
   },
   {
     "fr": "Absent",
@@ -2470,7 +2635,8 @@ window.VOCAB_DATA = [
       "ar": "المسؤول غائب اليوم.",
       "en": "The manager is absent today."
     },
-    "usage": "العمل، المواعيد"
+    "usage": "العمل، المواعيد",
+    "pos": "adjective"
   },
   {
     "fr": "Absolument",
@@ -2485,7 +2651,8 @@ window.VOCAB_DATA = [
       "ar": "نعم، بالتأكيد.",
       "en": "Yes, absolutely."
     },
-    "usage": "المحادثات مع الموظفين"
+    "usage": "المحادثات مع الموظفين",
+    "pos": "other"
   },
   {
     "fr": "Accepter",
@@ -2501,7 +2668,8 @@ window.VOCAB_DATA = [
       "ar": "تم قبول طلبك.",
       "en": "Your request is accepted."
     },
-    "usage": "الطلبات، الشروط، الملفات"
+    "usage": "الطلبات، الشروط، الملفات",
+    "pos": "verb"
   },
   {
     "fr": "Acceptation",
@@ -2516,7 +2684,8 @@ window.VOCAB_DATA = [
       "ar": "تلقيت قبول ملفي.",
       "en": "I received acceptance of my file."
     },
-    "usage": "القرارات الإدارية | الطلبات والقرارات"
+    "usage": "القرارات الإدارية | الطلبات والقرارات",
+    "pos": "noun"
   },
   {
     "fr": "Accès",
@@ -2532,7 +2701,8 @@ window.VOCAB_DATA = [
       "ar": "لم يعد لدي وصول إلى حسابي في الكاف.",
       "en": "I no longer have access to my CAF account."
     },
-    "usage": "الحسابات الإلكترونية، الخدمات"
+    "usage": "الحسابات الإلكترونية، الخدمات",
+    "pos": "noun"
   },
   {
     "fr": "Accéder",
@@ -2549,7 +2719,8 @@ window.VOCAB_DATA = [
       "ar": "لا أستطيع الدخول إلى مساحتي الشخصية.",
       "en": "I can't access my personal account."
     },
-    "usage": "المواقع والحسابات | الحسابات الإلكترونية، المواقع، الخدمات"
+    "usage": "المواقع والحسابات | الحسابات الإلكترونية، المواقع، الخدمات",
+    "pos": "verb"
   },
   {
     "fr": "Accompagner",
@@ -2567,7 +2738,8 @@ window.VOCAB_DATA = [
       "ar": "مكتب العمل يساعدني في البحث عن عمل.",
       "en": "France Travail supports me in my job search."
     },
-    "usage": "France Travail، الإدماج، التدريب | العمل، الخدمات الاجتماعية، France Travail"
+    "usage": "France Travail، الإدماج، التدريب | العمل، الخدمات الاجتماعية، France Travail",
+    "pos": "verb"
   },
   {
     "fr": "Accompagnement",
@@ -2583,7 +2755,8 @@ window.VOCAB_DATA = [
       "ar": "أطلب دعمًا مهنيًا.",
       "en": "I request professional support."
     },
-    "usage": "الخدمات الاجتماعية والعمل | العمل، الإدارات، التدريب"
+    "usage": "الخدمات الاجتماعية والعمل | العمل، الإدارات، التدريب",
+    "pos": "noun"
   },
   {
     "fr": "Accord",
@@ -2599,7 +2772,8 @@ window.VOCAB_DATA = [
       "ar": "تلقيت موافقتكم.",
       "en": "I received your approval."
     },
-    "usage": "العقود والطلبات"
+    "usage": "العقود والطلبات",
+    "pos": "noun"
   },
   {
     "fr": "Accorder",
@@ -2615,7 +2789,8 @@ window.VOCAB_DATA = [
       "ar": "يمكن للكاف منح مساعدة.",
       "en": "CAF can grant assistance."
     },
-    "usage": "المساعدات والحقوق"
+    "usage": "المساعدات والحقوق",
+    "pos": "verb"
   },
   {
     "fr": "Accusé de réception",
@@ -2631,7 +2806,8 @@ window.VOCAB_DATA = [
       "ar": "تلقيت إشعار استلام لملفي.",
       "en": "I received an acknowledgment of receipt for my file."
     },
-    "usage": "البريد والإدارة"
+    "usage": "البريد والإدارة",
+    "pos": "phrase"
   },
   {
     "fr": "Acheminer",
@@ -2647,7 +2823,8 @@ window.VOCAB_DATA = [
       "ar": "تم إرسال ملفك إلى المصلحة المعنية.",
       "en": "Your file was forwarded to the relevant department."
     },
-    "usage": "البريد والوثائق | البريد، الملفات الإدارية | البريد والملفات"
+    "usage": "البريد والوثائق | البريد، الملفات الإدارية | البريد والملفات",
+    "pos": "verb"
   },
   {
     "fr": "Acte",
@@ -2662,7 +2839,8 @@ window.VOCAB_DATA = [
       "ar": "مطلوب شهادة ميلاد.",
       "en": "A birth certificate is required."
     },
-    "usage": "الحالة المدنية، الإدارة"
+    "usage": "الحالة المدنية، الإدارة",
+    "pos": "noun"
   },
   {
     "fr": "Actualiser",
@@ -2678,7 +2856,8 @@ window.VOCAB_DATA = [
       "ar": "يجب أن أحدّث وضعي كل شهر.",
       "en": "I must update my situation every month."
     },
-    "usage": "France Travail (مهم جدًا)"
+    "usage": "France Travail (مهم جدًا)",
+    "pos": "verb"
   },
   {
     "fr": "Actualisation",
@@ -2694,7 +2873,8 @@ window.VOCAB_DATA = [
       "ar": "التحديث الشهري إجباري.",
       "en": "Monthly update is mandatory."
     },
-    "usage": "France Travail"
+    "usage": "France Travail",
+    "pos": "noun"
   },
   {
     "fr": "Ajouter",
@@ -2710,7 +2890,8 @@ window.VOCAB_DATA = [
       "ar": "أريد إضافة وثيقة إلى ملفي.",
       "en": "I would like to add a document to my file."
     },
-    "usage": "الملفات والوثائق | الملفات والوثائق | الملفات، المعلومات"
+    "usage": "الملفات والوثائق | الملفات والوثائق | الملفات، المعلومات",
+    "pos": "verb"
   },
   {
     "fr": "Adresse",
@@ -2729,7 +2910,8 @@ window.VOCAB_DATA = [
       "ar": "غيّرت عنواني.",
       "en": "I changed my address."
     },
-    "usage": "CAF / France Travail / Préfecture / العقود"
+    "usage": "CAF / France Travail / Préfecture / العقود",
+    "pos": "noun"
   },
   {
     "fr": "Adhérer",
@@ -2747,7 +2929,8 @@ window.VOCAB_DATA = [
       "ar": "أرغب في الانضمام إلى هذه الجمعية.",
       "en": "I want to join this association."
     },
-    "usage": "الجمعيات، التأمين، الخدمات | الجمعيات، الاشتراكات | الجمعيات، العقود"
+    "usage": "الجمعيات، التأمين، الخدمات | الجمعيات، الاشتراكات | الجمعيات، العقود",
+    "pos": "verb"
   },
   {
     "fr": "Adhésion",
@@ -2763,7 +2946,8 @@ window.VOCAB_DATA = [
       "ar": "اشتراكي صالح لمدة سنة.",
       "en": "My membership is valid for one year."
     },
-    "usage": "النوادي، التأمين، الخدمات"
+    "usage": "النوادي، التأمين، الخدمات",
+    "pos": "noun"
   },
   {
     "fr": "Administratif",
@@ -2779,7 +2963,8 @@ window.VOCAB_DATA = [
       "ar": "لدي مشكلة إدارية.",
       "en": "I have an administrative problem."
     },
-    "usage": "الملفات والإجراءات"
+    "usage": "الملفات والإجراءات",
+    "pos": "adjective"
   },
   {
     "fr": "Administration",
@@ -2794,7 +2979,8 @@ window.VOCAB_DATA = [
       "ar": "يجب أن أتواصل مع الإدارة.",
       "en": "I have to contact the administration."
     },
-    "usage": "جميع المراكز الحكومية"
+    "usage": "جميع المراكز الحكومية",
+    "pos": "noun"
   },
   {
     "fr": "Administrer",
@@ -2809,7 +2995,8 @@ window.VOCAB_DATA = [
       "ar": "هذه المساعدة تُدار من طرف الكاف.",
       "en": "This benefit is administered by CAF."
     },
-    "usage": "المؤسسات والخدمات"
+    "usage": "المؤسسات والخدمات",
+    "pos": "verb"
   },
   {
     "fr": "Admissible",
@@ -2826,7 +3013,8 @@ window.VOCAB_DATA = [
       "ar": "أنا مؤهل لهذه المساعدة.",
       "en": "I am eligible for this assistance."
     },
-    "usage": "CAF / المساعدات / الوظائف"
+    "usage": "CAF / المساعدات / الوظائف",
+    "pos": "adjective"
   },
   {
     "fr": "Admission",
@@ -2841,7 +3029,8 @@ window.VOCAB_DATA = [
       "ar": "تلقيت قبولي في التكوين.",
       "en": "I received my admission to the training."
     },
-    "usage": "المؤسسات، التدريب، المستشفيات"
+    "usage": "المؤسسات، التدريب، المستشفيات",
+    "pos": "noun"
   },
   {
     "fr": "Adopter",
@@ -2856,7 +3045,8 @@ window.VOCAB_DATA = [
       "ar": "اعتمدت البلدية قاعدة جديدة.",
       "en": "The town hall adopted a new rule."
     },
-    "usage": "القوانين، الإجراءات، الحلول"
+    "usage": "القوانين، الإجراءات، الحلول",
+    "pos": "verb"
   },
   {
     "fr": "Adresser",
@@ -2873,7 +3063,8 @@ window.VOCAB_DATA = [
       "ar": "أوجه طلبي إلى المصلحة المعنية.",
       "en": "I send my request to the relevant department."
     },
-    "usage": "الرسائل والطلبات الرسمية | الإدارة"
+    "usage": "الرسائل والطلبات الرسمية | الإدارة",
+    "pos": "verb"
   },
   {
     "fr": "Adresse mail",
@@ -2888,7 +3079,8 @@ window.VOCAB_DATA = [
       "ar": "هل يمكنك تأكيد بريدك الإلكتروني؟",
       "en": "Can you confirm your email address?"
     },
-    "usage": "جميع الإدارات والحسابات"
+    "usage": "جميع الإدارات والحسابات",
+    "pos": "noun"
   },
   {
     "fr": "Affecter",
@@ -2904,7 +3096,8 @@ window.VOCAB_DATA = [
       "ar": "تم تعييني في منصب جديد.",
       "en": "I am assigned to a new position."
     },
-    "usage": "العمل والإدارة | العمل والموارد"
+    "usage": "العمل والإدارة | العمل والموارد",
+    "pos": "verb"
   },
   {
     "fr": "Affaire",
@@ -2919,7 +3112,8 @@ window.VOCAB_DATA = [
       "ar": "هذا ليس شأني.",
       "en": "It's not my business."
     },
-    "usage": "المحادثات اليومية والإدارة"
+    "usage": "المحادثات اليومية والإدارة",
+    "pos": "noun"
   },
   {
     "fr": "Afficher",
@@ -2934,7 +3128,8 @@ window.VOCAB_DATA = [
       "ar": "تظهر الرسالة على الشاشة.",
       "en": "The message appears on the screen."
     },
-    "usage": "المواقع، الإعلانات، الحسابات"
+    "usage": "المواقع، الإعلانات، الحسابات",
+    "pos": "verb"
   },
   {
     "fr": "Affiliation",
@@ -2950,7 +3145,8 @@ window.VOCAB_DATA = [
       "ar": "أطلب تسجيلي في الضمان الاجتماعي.",
       "en": "I request my registration with social security."
     },
-    "usage": "CPAM / الضمان الاجتماعي"
+    "usage": "CPAM / الضمان الاجتماعي",
+    "pos": "noun"
   },
   {
     "fr": "Agir",
@@ -2967,7 +3163,8 @@ window.VOCAB_DATA = [
       "ar": "يجب التصرف بسرعة.",
       "en": "We must act quickly."
     },
-    "usage": "الإدارة، القانون، الحياة اليومية | الإدارة، العمل، المشاكل"
+    "usage": "الإدارة، القانون، الحياة اليومية | الإدارة، العمل، المشاكل",
+    "pos": "verb"
   },
   {
     "fr": "Aide",
@@ -2984,7 +3181,8 @@ window.VOCAB_DATA = [
       "ar": "أطلب مساعدة مالية.",
       "en": "I am requesting financial assistance."
     },
-    "usage": "CAF / الخدمات الاجتماعية / العمل"
+    "usage": "CAF / الخدمات الاجتماعية / العمل",
+    "pos": "noun"
   },
   {
     "fr": "Aider",
@@ -2999,7 +3197,8 @@ window.VOCAB_DATA = [
       "ar": "هل يمكنك مساعدتي بهذا الملف؟",
       "en": "Can you help me with this file?"
     },
-    "usage": "الحياة اليومية والإدارات"
+    "usage": "الحياة اليومية والإدارات",
+    "pos": "verb"
   },
   {
     "fr": "Aisance",
@@ -3014,7 +3213,8 @@ window.VOCAB_DATA = [
       "ar": "أتحدث الفرنسية براحة أكبر.",
       "en": "I speak French more easily."
     },
-    "usage": "اللغة، العمل، التواصل"
+    "usage": "اللغة، العمل، التواصل",
+    "pos": "noun"
   },
   {
     "fr": "Allocation",
@@ -3030,7 +3230,8 @@ window.VOCAB_DATA = [
       "ar": "أتلقى إعانة من الكاف.",
       "en": "I receive a benefit from CAF."
     },
-    "usage": "CAF / المساعدات الاجتماعية"
+    "usage": "CAF / المساعدات الاجتماعية",
+    "pos": "noun"
   },
   {
     "fr": "Allouer",
@@ -3045,7 +3246,8 @@ window.VOCAB_DATA = [
       "ar": "يمكن منح مساعدة حسب وضعك.",
       "en": "Assistance can be granted depending on your situation."
     },
-    "usage": "المساعدات والميزانيات"
+    "usage": "المساعدات والميزانيات",
+    "pos": "verb"
   },
   {
     "fr": "Améliorer",
@@ -3061,7 +3263,8 @@ window.VOCAB_DATA = [
       "ar": "أريد تحسين مستواي في الفرنسية.",
       "en": "I want to improve my French level."
     },
-    "usage": "العمل، اللغة، الوضعية"
+    "usage": "العمل، اللغة، الوضعية",
+    "pos": "verb"
   },
   {
     "fr": "Aménagement",
@@ -3077,7 +3280,8 @@ window.VOCAB_DATA = [
       "ar": "أطلب تعديل منصب عملي.",
       "en": "I request an adjustment of my workstation."
     },
-    "usage": "السكن، العمل، الإعاقة"
+    "usage": "السكن، العمل، الإعاقة",
+    "pos": "noun"
   },
   {
     "fr": "Amende",
@@ -3092,7 +3296,8 @@ window.VOCAB_DATA = [
       "ar": "تلقيت غرامة.",
       "en": "I received a fine."
     },
-    "usage": "الإدارة، المرور"
+    "usage": "الإدارة، المرور",
+    "pos": "noun"
   },
   {
     "fr": "Année",
@@ -3109,7 +3314,8 @@ window.VOCAB_DATA = [
       "ar": "العقد مدته سنة.",
       "en": "The contract lasts one year."
     },
-    "usage": "العقود، المواعيد، الملفات"
+    "usage": "العقود، المواعيد، الملفات",
+    "pos": "noun"
   },
   {
     "fr": "Annuler",
@@ -3126,7 +3332,8 @@ window.VOCAB_DATA = [
       "ar": "أريد إلغاء موعدي.",
       "en": "I would like to cancel my appointment."
     },
-    "usage": "المواعيد، الطلبات، العقود"
+    "usage": "المواعيد، الطلبات، العقود",
+    "pos": "verb"
   },
   {
     "fr": "Annulation",
@@ -3142,7 +3349,8 @@ window.VOCAB_DATA = [
       "ar": "تلقيت تأكيد الإلغاء.",
       "en": "I received a cancellation confirmation."
     },
-    "usage": "المواعيد والإجراءات"
+    "usage": "المواعيد والإجراءات",
+    "pos": "noun"
   },
   {
     "fr": "Apparaître",
@@ -3158,7 +3366,8 @@ window.VOCAB_DATA = [
       "ar": "المبلغ يظهر في حسابي.",
       "en": "The amount appears on my account."
     },
-    "usage": "الحسابات الإلكترونية والوثائق"
+    "usage": "الحسابات الإلكترونية والوثائق",
+    "pos": "verb"
   },
   {
     "fr": "Appel",
@@ -3174,7 +3383,8 @@ window.VOCAB_DATA = [
       "ar": "تلقيت اتصالًا من مكتب العمل.",
       "en": "I received a call from France Travail."
     },
-    "usage": "الهاتف، القرارات الإدارية"
+    "usage": "الهاتف، القرارات الإدارية",
+    "pos": "noun"
   },
   {
     "fr": "Appeler",
@@ -3189,7 +3399,8 @@ window.VOCAB_DATA = [
       "ar": "سأتصل بالكاف غدًا.",
       "en": "I will call CAF tomorrow."
     },
-    "usage": "جميع المواقف"
+    "usage": "جميع المواقف",
+    "pos": "verb"
   },
   {
     "fr": "Apporter",
@@ -3205,7 +3416,8 @@ window.VOCAB_DATA = [
       "ar": "لا تنسَ إحضار وثائقك.",
       "en": "Don't forget to bring your documents."
     },
-    "usage": "الوثائق والمواعيد | الوثائق والمواعيد"
+    "usage": "الوثائق والمواعيد | الوثائق والمواعيد",
+    "pos": "verb"
   },
   {
     "fr": "Appliquer",
@@ -3220,7 +3432,8 @@ window.VOCAB_DATA = [
       "ar": "هذه القاعدة تطبق على الجميع.",
       "en": "This rule applies to everyone."
     },
-    "usage": "القوانين، الشروط، الإجراءات"
+    "usage": "القوانين، الشروط، الإجراءات",
+    "pos": "verb"
   },
   {
     "fr": "Approuver",
@@ -3235,7 +3448,8 @@ window.VOCAB_DATA = [
       "ar": "تمت الموافقة على طلبك.",
       "en": "Your request has been approved."
     },
-    "usage": "الإدارة، الطلبات، القرارات | القرارات والطلبات"
+    "usage": "الإدارة، الطلبات، القرارات | القرارات والطلبات",
+    "pos": "verb"
   },
   {
     "fr": "Approbation",
@@ -3250,7 +3464,8 @@ window.VOCAB_DATA = [
       "ar": "أنتظر الموافقة على ملفي.",
       "en": "I am waiting for the approval of my file."
     },
-    "usage": "الملفات والقرارات الرسمية"
+    "usage": "الملفات والقرارات الرسمية",
+    "pos": "noun"
   },
   {
     "fr": "Apprentissage",
@@ -3267,7 +3482,8 @@ window.VOCAB_DATA = [
       "ar": "أبحث عن تكوين مهني بالتناوب.",
       "en": "I am looking for an apprenticeship program."
     },
-    "usage": "التكوين، العمل، France Travail"
+    "usage": "التكوين، العمل، France Travail",
+    "pos": "noun"
   },
   {
     "fr": "Apprendre",
@@ -3282,7 +3498,8 @@ window.VOCAB_DATA = [
       "ar": "أنا أتعلم الفرنسية.",
       "en": "I am learning French."
     },
-    "usage": "اللغة، التدريب، الحياة اليومية"
+    "usage": "اللغة، التدريب، الحياة اليومية",
+    "pos": "verb"
   },
   {
     "fr": "Apprenant",
@@ -3298,7 +3515,8 @@ window.VOCAB_DATA = [
       "ar": "أنا متعلم للفرنسية.",
       "en": "I am a French learner."
     },
-    "usage": "التكوين واللغة"
+    "usage": "التكوين واللغة",
+    "pos": "noun"
   },
   {
     "fr": "Approcher",
@@ -3314,7 +3532,8 @@ window.VOCAB_DATA = [
       "ar": "التاريخ يقترب.",
       "en": "The date is approaching."
     },
-    "usage": "المواعيد، الوقت، الأشخاص"
+    "usage": "المواعيد، الوقت، الأشخاص",
+    "pos": "verb"
   },
   {
     "fr": "Approche",
@@ -3330,7 +3549,8 @@ window.VOCAB_DATA = [
       "ar": "لدينا طريقة جديدة.",
       "en": "We have a new approach."
     },
-    "usage": "العمل، المشاريع، الإدارة"
+    "usage": "العمل، المشاريع، الإدارة",
+    "pos": "noun"
   },
   {
     "fr": "Appui",
@@ -3345,7 +3565,8 @@ window.VOCAB_DATA = [
       "ar": "أضيف وثائق لدعم طلبي.",
       "en": "I add documents in support of my request."
     },
-    "usage": "الملفات، الطلبات الرسمية"
+    "usage": "الملفات، الطلبات الرسمية",
+    "pos": "noun"
   },
   {
     "fr": "Appartenir",
@@ -3360,7 +3581,8 @@ window.VOCAB_DATA = [
       "ar": "هذه الوثيقة تخصني.",
       "en": "This document belongs to me."
     },
-    "usage": "الملكية والوثائق | الملكية، الوثائق"
+    "usage": "الملكية والوثائق | الملكية، الوثائق",
+    "pos": "verb"
   },
   {
     "fr": "Appareil",
@@ -3376,7 +3598,8 @@ window.VOCAB_DATA = [
       "ar": "الجهاز لا يعمل.",
       "en": "The device is not working."
     },
-    "usage": "العمل، المنزل، الصحة"
+    "usage": "العمل، المنزل، الصحة",
+    "pos": "noun"
   },
   {
     "fr": "Apparition",
@@ -3391,7 +3614,8 @@ window.VOCAB_DATA = [
       "ar": "ظهور مشكلة.",
       "en": "The appearance of a problem."
     },
-    "usage": "التقارير، المشاكل، الأعراض"
+    "usage": "التقارير، المشاكل، الأعراض",
+    "pos": "noun"
   },
   {
     "fr": "Arrêt",
@@ -3407,7 +3631,8 @@ window.VOCAB_DATA = [
       "ar": "أنزل في موقف الحافلة.",
       "en": "I get off at the bus stop."
     },
-    "usage": "المواصلات، العمل، الإجراءات"
+    "usage": "المواصلات، العمل، الإجراءات",
+    "pos": "noun"
   },
   {
     "fr": "Arrêter",
@@ -3423,7 +3648,8 @@ window.VOCAB_DATA = [
       "ar": "توقفت عن العمل.",
       "en": "I stopped working."
     },
-    "usage": "العمل، الإجراءات، الحياة اليومية"
+    "usage": "العمل، الإجراءات، الحياة اليومية",
+    "pos": "verb"
   },
   {
     "fr": "Arrivée",
@@ -3440,7 +3666,8 @@ window.VOCAB_DATA = [
       "ar": "وصولي مقرر غداً.",
       "en": "My arrival is scheduled for tomorrow."
     },
-    "usage": "المواعيد، السفر، العمل"
+    "usage": "المواعيد، السفر، العمل",
+    "pos": "noun"
   },
   {
     "fr": "Arriver",
@@ -3455,7 +3682,8 @@ window.VOCAB_DATA = [
       "ar": "سأصل متأخرًا.",
       "en": "I will arrive late."
     },
-    "usage": "يومي جدًا"
+    "usage": "يومي جدًا",
+    "pos": "verb"
   },
   {
     "fr": "Assurance",
@@ -3474,7 +3702,8 @@ window.VOCAB_DATA = [
       "ar": "لدي تأمين على السكن.",
       "en": "I have home insurance."
     },
-    "usage": "CPAM، السكن، السيارة، العقود"
+    "usage": "CPAM، السكن، السيارة، العقود",
+    "pos": "noun"
   },
   {
     "fr": "Assurer",
@@ -3492,7 +3721,8 @@ window.VOCAB_DATA = [
       "ar": "هذا التأمين يوفر حماية.",
       "en": "This insurance provides protection."
     },
-    "usage": "التأمين، المسؤوليات، العمل | العمل والإدارة"
+    "usage": "التأمين، المسؤوليات، العمل | العمل والإدارة",
+    "pos": "verb"
   },
   {
     "fr": "Assister",
@@ -3509,7 +3739,8 @@ window.VOCAB_DATA = [
       "ar": "حضرت اجتماعًا.",
       "en": "I attended a meeting."
     },
-    "usage": "الاجتماعات، التكوين، المساعدة | الاجتماعات، الدورات"
+    "usage": "الاجتماعات، التكوين، المساعدة | الاجتماعات، الدورات",
+    "pos": "verb"
   },
   {
     "fr": "Association",
@@ -3524,7 +3755,8 @@ window.VOCAB_DATA = [
       "ar": "أنا عضو في جمعية.",
       "en": "I am a member of an association."
     },
-    "usage": "الجمعيات، الخدمات الاجتماعية"
+    "usage": "الجمعيات، الخدمات الاجتماعية",
+    "pos": "noun"
   },
   {
     "fr": "Associer",
@@ -3539,7 +3771,8 @@ window.VOCAB_DATA = [
       "ar": "يجب ربط الوثائق بالملف.",
       "en": "The documents must be attached to the file."
     },
-    "usage": "الملفات، المشاريع، العمل | العمل، الملفات، المشاريع"
+    "usage": "الملفات، المشاريع، العمل | العمل، الملفات، المشاريع",
+    "pos": "verb"
   },
   {
     "fr": "Attacher",
@@ -3555,7 +3788,8 @@ window.VOCAB_DATA = [
       "ar": "يرجى إرفاق الملف بالرسالة.",
       "en": "Please attach the file to the message."
     },
-    "usage": "الوثائق، الأشياء"
+    "usage": "الوثائق، الأشياء",
+    "pos": "verb"
   },
   {
     "fr": "Atteindre",
@@ -3570,7 +3804,8 @@ window.VOCAB_DATA = [
       "ar": "حققت هدفي.",
       "en": "I achieved my goal."
     },
-    "usage": "الأهداف، النتائج"
+    "usage": "الأهداف، النتائج",
+    "pos": "verb"
   },
   {
     "fr": "Attendre",
@@ -3586,7 +3821,8 @@ window.VOCAB_DATA = [
       "ar": "أنتظر جوابًا من الكاف.",
       "en": "I am waiting for a response from CAF."
     },
-    "usage": "المواعيد، الإدارات، الحياة اليومية"
+    "usage": "المواعيد، الإدارات، الحياة اليومية",
+    "pos": "verb"
   },
   {
     "fr": "Attente",
@@ -3602,7 +3838,8 @@ window.VOCAB_DATA = [
       "ar": "مدة الانتظار طويلة.",
       "en": "The waiting time is long."
     },
-    "usage": "الملفات، المواعيد"
+    "usage": "الملفات، المواعيد",
+    "pos": "noun"
   },
   {
     "fr": "Attestation",
@@ -3621,7 +3858,8 @@ window.VOCAB_DATA = [
       "ar": "أحتاج إلى شهادة سكن.",
       "en": "I need a proof of address."
     },
-    "usage": "CAF، France Travail، السكن، الإدارة"
+    "usage": "CAF، France Travail، السكن، الإدارة",
+    "pos": "noun"
   },
   {
     "fr": "Attestation de droits",
@@ -3638,7 +3876,8 @@ window.VOCAB_DATA = [
       "ar": "يجب أن أرسل شهادة حقوقي.",
       "en": "I need to send my proof of entitlement."
     },
-    "usage": "CPAM / CAF"
+    "usage": "CPAM / CAF",
+    "pos": "phrase"
   },
   {
     "fr": "Attestation de travail",
@@ -3653,7 +3892,8 @@ window.VOCAB_DATA = [
       "ar": "أعطاني صاحب العمل شهادة عمل.",
       "en": "My employer gave me an employment certificate."
     },
-    "usage": "العمل، الملفات الإدارية"
+    "usage": "العمل، الملفات الإدارية",
+    "pos": "phrase"
   },
   {
     "fr": "Attention",
@@ -3669,7 +3909,8 @@ window.VOCAB_DATA = [
       "ar": "انتبه، الأرض مبللة.",
       "en": "Attention, the floor is wet."
     },
-    "usage": "التحذير، الرسائل، الحياة اليومية"
+    "usage": "التحذير، الرسائل، الحياة اليومية",
+    "pos": "noun"
   },
   {
     "fr": "Attirer",
@@ -3684,7 +3925,8 @@ window.VOCAB_DATA = [
       "ar": "هذا العرض يجذب الكثير من الناس.",
       "en": "This offer attracts many people."
     },
-    "usage": "الإعلانات، الاهتمام"
+    "usage": "الإعلانات، الاهتمام",
+    "pos": "verb"
   },
   {
     "fr": "Auparavant",
@@ -3699,7 +3941,8 @@ window.VOCAB_DATA = [
       "ar": "كنت أسكن سابقًا في ستراسبورغ.",
       "en": "I previously lived in Strasbourg."
     },
-    "usage": "الإدارة، شرح الوضع السابق"
+    "usage": "الإدارة، شرح الوضع السابق",
+    "pos": "other"
   },
   {
     "fr": "Autorisation",
@@ -3718,7 +3961,8 @@ window.VOCAB_DATA = [
       "ar": "أحتاج إلى تصريح لهذا الإجراء.",
       "en": "I need authorization for this procedure."
     },
-    "usage": "Préfecture، Mairie، العمل، السكن"
+    "usage": "Préfecture، Mairie، العمل، السكن",
+    "pos": "noun"
   },
   {
     "fr": "Autoriser",
@@ -3735,7 +3979,8 @@ window.VOCAB_DATA = [
       "ar": "سمحت لي الكاف بإرسال الوثيقة عبر الإنترنت.",
       "en": "CAF authorized me to send the document online."
     },
-    "usage": "الإدارة، القوانين، العمل"
+    "usage": "الإدارة، القوانين، العمل",
+    "pos": "verb"
   },
   {
     "fr": "Automatique",
@@ -3752,7 +3997,8 @@ window.VOCAB_DATA = [
       "ar": "التجديد تلقائي.",
       "en": "The renewal is automatic."
     },
-    "usage": "الحسابات، الخدمات الإلكترونية، الأجهزة"
+    "usage": "الحسابات، الخدمات الإلكترونية، الأجهزة",
+    "pos": "adjective"
   },
   {
     "fr": "Automatiquement",
@@ -3767,7 +4013,8 @@ window.VOCAB_DATA = [
       "ar": "يتم حساب المبلغ تلقائيًا.",
       "en": "The amount is calculated automatically."
     },
-    "usage": "الإدارة والخدمات"
+    "usage": "الإدارة والخدمات",
+    "pos": "other"
   },
   {
     "fr": "Autonomie",
@@ -3783,7 +4030,8 @@ window.VOCAB_DATA = [
       "ar": "أبحث عن استقلالية أكبر في عملي.",
       "en": "I seek more autonomy in my work."
     },
-    "usage": "العمل، المساعدة الاجتماعية، الحياة اليومية"
+    "usage": "العمل، المساعدة الاجتماعية، الحياة اليومية",
+    "pos": "noun"
   },
   {
     "fr": "Autonome",
@@ -3799,7 +4047,8 @@ window.VOCAB_DATA = [
       "ar": "أستطيع العمل بشكل مستقل.",
       "en": "I can work independently."
     },
-    "usage": "العمل والتقييمات المهنية"
+    "usage": "العمل والتقييمات المهنية",
+    "pos": "adjective"
   },
   {
     "fr": "Autour de",
@@ -3814,7 +4063,8 @@ window.VOCAB_DATA = [
       "ar": "توجد عدة خدمات حول البلدية.",
       "en": "There are several services around the town hall."
     },
-    "usage": "المكان والحديث اليومي"
+    "usage": "المكان والحديث اليومي",
+    "pos": "other"
   },
   {
     "fr": "Autrement",
@@ -3829,7 +4079,8 @@ window.VOCAB_DATA = [
       "ar": "يجب فعل ذلك بطريقة أخرى.",
       "en": "It must be done differently."
     },
-    "usage": "المحادثات اليومية"
+    "usage": "المحادثات اليومية",
+    "pos": "other"
   },
   {
     "fr": "Avaliser",
@@ -3845,7 +4096,8 @@ window.VOCAB_DATA = [
       "ar": "يجب على المسؤول المصادقة على الطلب.",
       "en": "The manager must approve the request."
     },
-    "usage": "الإدارة، العقود، القرارات"
+    "usage": "الإدارة، العقود، القرارات",
+    "pos": "verb"
   },
   {
     "fr": "Avancer",
@@ -3860,7 +4112,8 @@ window.VOCAB_DATA = [
       "ar": "ملفي يتقدم.",
       "en": "My file is moving forward."
     },
-    "usage": "الملفات، المشاريع، الحياة اليومية"
+    "usage": "الملفات، المشاريع، الحياة اليومية",
+    "pos": "verb"
   },
   {
     "fr": "Avancement",
@@ -3875,7 +4128,8 @@ window.VOCAB_DATA = [
       "ar": "أطلب متابعة تقدم ملفي.",
       "en": "I request a follow-up on the progress of my file."
     },
-    "usage": "الملفات، العمل"
+    "usage": "الملفات، العمل",
+    "pos": "noun"
   },
   {
     "fr": "Avant",
@@ -3891,7 +4145,8 @@ window.VOCAB_DATA = [
       "ar": "أرسل الوثيقة قبل الجمعة.",
       "en": "Send the document before Friday."
     },
-    "usage": "المواعيد، الإجراءات"
+    "usage": "المواعيد، الإجراءات",
+    "pos": "other"
   },
   {
     "fr": "Avec",
@@ -3906,7 +4161,8 @@ window.VOCAB_DATA = [
       "ar": "أتيت مع وثائقي.",
       "en": "I came with my documents."
     },
-    "usage": "كلمة أساسية في كل المواقف"
+    "usage": "كلمة أساسية في كل المواقف",
+    "pos": "phrase"
   },
   {
     "fr": "Avis",
@@ -3922,7 +4178,8 @@ window.VOCAB_DATA = [
       "ar": "تلقيت إشعارًا من الكاف.",
       "en": "I received a notice from CAF."
     },
-    "usage": "الإدارة، البريد، القرارات"
+    "usage": "الإدارة، البريد، القرارات",
+    "pos": "noun"
   },
   {
     "fr": "Avis d'imposition",
@@ -3938,7 +4195,8 @@ window.VOCAB_DATA = [
       "ar": "يطلبون مني إشعاري الضريبي.",
       "en": "They are asking for my tax notice."
     },
-    "usage": "CAF، السكن، الملفات المالية"
+    "usage": "CAF، السكن، الملفات المالية",
+    "pos": "phrase"
   },
   {
     "fr": "Avoir",
@@ -3953,7 +4211,8 @@ window.VOCAB_DATA = [
       "ar": "لدي موعد غدًا.",
       "en": "I have an appointment tomorrow."
     },
-    "usage": "من أكثر الأفعال استعمالًا"
+    "usage": "من أكثر الأفعال استعمالًا",
+    "pos": "verb"
   },
   {
     "fr": "Aimer",
@@ -3968,7 +4227,8 @@ window.VOCAB_DATA = [
       "ar": "أحب هذا المطعم.",
       "en": "I like this restaurant."
     },
-    "usage": "الحياة اليومية"
+    "usage": "الحياة اليومية",
+    "pos": "verb"
   },
   {
     "fr": "Aller",
@@ -3985,7 +4245,8 @@ window.VOCAB_DATA = [
       "ar": "أذهب إلى العمل.",
       "en": "I go to work."
     },
-    "usage": "يومي جدًا / المواعيد / العمل"
+    "usage": "يومي جدًا / المواعيد / العمل",
+    "pos": "verb"
   },
   {
     "fr": "Allumer",
@@ -4000,7 +4261,8 @@ window.VOCAB_DATA = [
       "ar": "شغّل الضوء من فضلك.",
       "en": "Turn on the light, please."
     },
-    "usage": "المنزل / الأجهزة"
+    "usage": "المنزل / الأجهزة",
+    "pos": "verb"
   },
   {
     "fr": "Amener",
@@ -4016,7 +4278,8 @@ window.VOCAB_DATA = [
       "ar": "سآخذ طفلي إلى الطبيب.",
       "en": "I will take my child to the doctor."
     },
-    "usage": "الأطفال / المواعيد"
+    "usage": "الأطفال / المواعيد",
+    "pos": "verb"
   },
   {
     "fr": "Amuser",
@@ -4031,7 +4294,8 @@ window.VOCAB_DATA = [
       "ar": "هذه القصة تسليني.",
       "en": "This story amuses me."
     },
-    "usage": "المحادثات اليومية"
+    "usage": "المحادثات اليومية",
+    "pos": "verb"
   },
   {
     "fr": "Amusant",
@@ -4046,7 +4310,8 @@ window.VOCAB_DATA = [
       "ar": "إنه فيلم ممتع.",
       "en": "It's a fun movie."
     },
-    "usage": "وصف الأشياء"
+    "usage": "وصف الأشياء",
+    "pos": "adjective"
   },
   {
     "fr": "Ancien",
@@ -4062,7 +4327,8 @@ window.VOCAB_DATA = [
       "ar": "صاحب عملي السابق.",
       "en": "My former employer."
     },
-    "usage": "العمل / السكن / العلاقات"
+    "usage": "العمل / السكن / العلاقات",
+    "pos": "adjective"
   },
   {
     "fr": "Annonce",
@@ -4078,7 +4344,8 @@ window.VOCAB_DATA = [
       "ar": "وجدت إعلانًا لشقة.",
       "en": "I found an apartment advertisement."
     },
-    "usage": "العمل / السكن / الإنترنت"
+    "usage": "العمل / السكن / الإنترنت",
+    "pos": "noun"
   },
   {
     "fr": "Après",
@@ -4094,7 +4361,8 @@ window.VOCAB_DATA = [
       "ar": "بعد العمل أعود.",
       "en": "After work, I go home."
     },
-    "usage": "الوقت والمواعيد"
+    "usage": "الوقت والمواعيد",
+    "pos": "other"
   },
   {
     "fr": "Assez",
@@ -4109,7 +4377,8 @@ window.VOCAB_DATA = [
       "ar": "لدي وقت كافٍ.",
       "en": "I have enough time."
     },
-    "usage": "يومي جدًا"
+    "usage": "يومي جدًا",
+    "pos": "other"
   },
   {
     "fr": "Aujourd'hui",
@@ -4126,7 +4395,8 @@ window.VOCAB_DATA = [
       "ar": "أعمل اليوم.",
       "en": "I work today."
     },
-    "usage": "المواعيد والعمل"
+    "usage": "المواعيد والعمل",
+    "pos": "other"
   },
   {
     "fr": "Aussi",
@@ -4141,7 +4411,8 @@ window.VOCAB_DATA = [
       "ar": "أنا أيضًا.",
       "en": "Me too."
     },
-    "usage": "المحادثات"
+    "usage": "المحادثات",
+    "pos": "other"
   },
   {
     "fr": "Autre",
@@ -4156,7 +4427,8 @@ window.VOCAB_DATA = [
       "ar": "أريد خيارًا آخر.",
       "en": "I would like another option."
     },
-    "usage": "الطلبات والمقارنة"
+    "usage": "الطلبات والمقارنة",
+    "pos": "other"
   },
   {
     "fr": "Abîmer",
@@ -4171,7 +4443,8 @@ window.VOCAB_DATA = [
       "ar": "لقد أتلفت هاتفي.",
       "en": "I damaged my phone."
     },
-    "usage": "المنزل، الأجهزة، الأشياء"
+    "usage": "المنزل، الأجهزة، الأشياء",
+    "pos": "verb"
   },
   {
     "fr": "Abîmé",
@@ -4187,7 +4460,8 @@ window.VOCAB_DATA = [
       "ar": "الشاشة متضررة.",
       "en": "The screen is damaged."
     },
-    "usage": "وصف الأشياء"
+    "usage": "وصف الأشياء",
+    "pos": "adjective"
   },
   {
     "fr": "Aborder",
@@ -4204,7 +4478,8 @@ window.VOCAB_DATA = [
       "ar": "أود التطرق إلى مشكلة مهمة.",
       "en": "I would like to address an important issue."
     },
-    "usage": "العمل، النقاشات، الإدارة"
+    "usage": "العمل، النقاشات، الإدارة",
+    "pos": "verb"
   },
   {
     "fr": "Absorber",
@@ -4220,7 +4495,8 @@ window.VOCAB_DATA = [
       "ar": "هذه الإسفنجة تمتص الماء.",
       "en": "This sponge absorbs water."
     },
-    "usage": "المواد، الصحة، الحياة اليومية"
+    "usage": "المواد، الصحة، الحياة اليومية",
+    "pos": "verb"
   },
   {
     "fr": "Accueillir",
@@ -4235,7 +4511,8 @@ window.VOCAB_DATA = [
       "ar": "البلدية تستقبل السكان.",
       "en": "The town hall welcomes residents."
     },
-    "usage": "الإدارات، الشركات، الأماكن العامة"
+    "usage": "الإدارات، الشركات، الأماكن العامة",
+    "pos": "verb"
   },
   {
     "fr": "Accueil",
@@ -4251,7 +4528,8 @@ window.VOCAB_DATA = [
       "ar": "أذهب إلى الاستقبال لطلب معلومات.",
       "en": "I go to reception to ask for information."
     },
-    "usage": "الإدارات، الشركات، المستشفيات"
+    "usage": "الإدارات، الشركات، المستشفيات",
+    "pos": "noun"
   },
   {
     "fr": "Accrocher",
@@ -4267,7 +4545,8 @@ window.VOCAB_DATA = [
       "ar": "أعلق اللوحة على الحائط.",
       "en": "I hang the picture on the wall."
     },
-    "usage": "المنزل، الأشياء | الأشياء، الهاتف"
+    "usage": "المنزل، الأشياء | الأشياء، الهاتف",
+    "pos": "verb"
   },
   {
     "fr": "Acheteur",
@@ -4282,7 +4561,8 @@ window.VOCAB_DATA = [
       "ar": "يجب على المشتري فحص المنتج.",
       "en": "The buyer must check the product."
     },
-    "usage": "التجارة، البيع"
+    "usage": "التجارة، البيع",
+    "pos": "noun"
   },
   {
     "fr": "Acquérir",
@@ -4299,7 +4579,8 @@ window.VOCAB_DATA = [
       "ar": "اكتسبت خبرة.",
       "en": "I gained experience."
     },
-    "usage": "العمل، المهارات، الإدارة | الخبرة، الحقوق، الممتلكات | الخبرة، المهارات، الممتلكات"
+    "usage": "العمل، المهارات، الإدارة | الخبرة، الحقوق، الممتلكات | الخبرة، المهارات، الممتلكات",
+    "pos": "verb"
   },
   {
     "fr": "Activer",
@@ -4315,7 +4596,8 @@ window.VOCAB_DATA = [
       "ar": "يجب أن أفعل بطاقتي.",
       "en": "I need to activate my card."
     },
-    "usage": "الحسابات، البطاقات، الخدمات"
+    "usage": "الحسابات، البطاقات، الخدمات",
+    "pos": "verb"
   },
   {
     "fr": "Activé",
@@ -4330,7 +4612,8 @@ window.VOCAB_DATA = [
       "ar": "حسابي مفعّل.",
       "en": "My account is activated."
     },
-    "usage": "الخدمات الإلكترونية"
+    "usage": "الخدمات الإلكترونية",
+    "pos": "adjective"
   },
   {
     "fr": "Actualité",
@@ -4345,7 +4628,8 @@ window.VOCAB_DATA = [
       "ar": "أتابع الأخبار.",
       "en": "I follow the news."
     },
-    "usage": "الإعلام والمحادثات"
+    "usage": "الإعلام والمحادثات",
+    "pos": "noun"
   },
   {
     "fr": "Adapter",
@@ -4361,7 +4645,8 @@ window.VOCAB_DATA = [
       "ar": "يجب تكييف هذا الحل.",
       "en": "This solution must be adapted."
     },
-    "usage": "العمل، الحياة، القوانين"
+    "usage": "العمل، الحياة، القوانين",
+    "pos": "verb"
   },
   {
     "fr": "Admettre",
@@ -4378,7 +4663,8 @@ window.VOCAB_DATA = [
       "ar": "يجب أن أعترف بخطئي.",
       "en": "I must admit my mistake."
     },
-    "usage": "النقاشات الرسمية واليومية | النقاشات والرسائل الرسمية"
+    "usage": "النقاشات الرسمية واليومية | النقاشات والرسائل الرسمية",
+    "pos": "verb"
   },
   {
     "fr": "Affirmer",
@@ -4394,7 +4680,8 @@ window.VOCAB_DATA = [
       "ar": "أستطيع تأكيد أن المعلومات صحيحة.",
       "en": "I can confirm that the information is correct."
     },
-    "usage": "الإدارة، العمل، النقاشات | العمل، القانون"
+    "usage": "الإدارة، العمل، النقاشات | العمل، القانون",
+    "pos": "verb"
   },
   {
     "fr": "Agir contre",
@@ -4409,7 +4696,8 @@ window.VOCAB_DATA = [
       "ar": "الشرطة تحارب الاحتيال.",
       "en": "The police act against fraud."
     },
-    "usage": "القوانين، المشاكل"
+    "usage": "القوانين، المشاكل",
+    "pos": "verb"
   },
   {
     "fr": "Analyser",
@@ -4424,7 +4712,8 @@ window.VOCAB_DATA = [
       "ar": "يجب أن نحلل ملفك.",
       "en": "We must analyze your file."
     },
-    "usage": "العمل، التقارير، الملفات | العمل، الملفات، التقارير"
+    "usage": "العمل، التقارير، الملفات | العمل، الملفات، التقارير",
+    "pos": "verb"
   },
   {
     "fr": "Anticiper",
@@ -4440,7 +4729,8 @@ window.VOCAB_DATA = [
       "ar": "يجب توقع المشاكل.",
       "en": "We must anticipate problems."
     },
-    "usage": "العمل، الإدارة، التخطيط | التخطيط والعمل"
+    "usage": "العمل، الإدارة، التخطيط | التخطيط والعمل",
+    "pos": "verb"
   },
   {
     "fr": "Apprécier",
@@ -4456,7 +4746,8 @@ window.VOCAB_DATA = [
       "ar": "أقدّر مساعدتك.",
       "en": "I appreciate your help."
     },
-    "usage": "الحياة اليومية والعمل"
+    "usage": "الحياة اليومية والعمل",
+    "pos": "verb"
   },
   {
     "fr": "Approfondir",
@@ -4471,7 +4762,8 @@ window.VOCAB_DATA = [
       "ar": "أريد تعميق معرفتي.",
       "en": "I want to deepen my knowledge."
     },
-    "usage": "الدراسة، العمل"
+    "usage": "الدراسة، العمل",
+    "pos": "verb"
   },
   {
     "fr": "Argumenter",
@@ -4487,7 +4779,8 @@ window.VOCAB_DATA = [
       "ar": "يجب دعم طلبك بالحجج.",
       "en": "You must support your request with arguments."
     },
-    "usage": "العمل، الاجتماعات، الدراسة | العمل، الطلبات، النقاشات"
+    "usage": "العمل، الاجتماعات، الدراسة | العمل، الطلبات، النقاشات",
+    "pos": "verb"
   },
   {
     "fr": "Assumer",
@@ -4502,7 +4795,8 @@ window.VOCAB_DATA = [
       "ar": "أتحمل مسؤولياتي.",
       "en": "I take responsibility for my duties."
     },
-    "usage": "العمل والحياة اليومية"
+    "usage": "العمل والحياة اليومية",
+    "pos": "verb"
   },
   {
     "fr": "Augmenter",
@@ -4517,7 +4811,8 @@ window.VOCAB_DATA = [
       "ar": "ارتفع السعر.",
       "en": "The price increased."
     },
-    "usage": "الأسعار، الراتب، الكمية"
+    "usage": "الأسعار، الراتب، الكمية",
+    "pos": "verb"
   },
   {
     "fr": "Augmentation",
@@ -4532,7 +4827,8 @@ window.VOCAB_DATA = [
       "ar": "حدثت زيادة في الراتب.",
       "en": "There was a salary increase."
     },
-    "usage": "الرواتب، الأسعار، المساعدات"
+    "usage": "الرواتب، الأسعار، المساعدات",
+    "pos": "noun"
   },
   {
     "fr": "Avantage",
@@ -4548,7 +4844,8 @@ window.VOCAB_DATA = [
       "ar": "ما هي مزايا هذا العرض؟",
       "en": "What are the advantages of this offer?"
     },
-    "usage": "العمل، العقود، الخدمات"
+    "usage": "العمل، العقود، الخدمات",
+    "pos": "noun"
   },
   {
     "fr": "Aborder un sujet",
@@ -4564,7 +4861,8 @@ window.VOCAB_DATA = [
       "ar": "سنتناول هذا الموضوع غدًا.",
       "en": "We will address this topic tomorrow."
     },
-    "usage": "العمل، الاجتماعات، الإدارة"
+    "usage": "العمل، الاجتماعات، الإدارة",
+    "pos": "verb"
   },
   {
     "fr": "Accomplir",
@@ -4580,7 +4878,8 @@ window.VOCAB_DATA = [
       "ar": "أنجزت جميع مهامي.",
       "en": "I completed all my tasks."
     },
-    "usage": "العمل، الأهداف، المهام"
+    "usage": "العمل، الأهداف، المهام",
+    "pos": "verb"
   },
   {
     "fr": "Accomplissement",
@@ -4595,7 +4894,8 @@ window.VOCAB_DATA = [
       "ar": "هذا إنجاز مهني كبير.",
       "en": "It is a great professional achievement."
     },
-    "usage": "العمل، السيرة الذاتية | العمل، المشاريع، السيرة المهنية"
+    "usage": "العمل، السيرة الذاتية | العمل، المشاريع، السيرة المهنية",
+    "pos": "noun"
   },
   {
     "fr": "Accroître",
@@ -4611,7 +4911,8 @@ window.VOCAB_DATA = [
       "ar": "تريد الشركة زيادة إنتاجها.",
       "en": "The company wants to increase its production."
     },
-    "usage": "الاقتصاد، العمل، التقارير | الاقتصاد، الشركات، التقارير"
+    "usage": "الاقتصاد، العمل، التقارير | الاقتصاد، الشركات، التقارير",
+    "pos": "verb"
   },
   {
     "fr": "Accuser",
@@ -4626,7 +4927,8 @@ window.VOCAB_DATA = [
       "ar": "هو متهم بخطأ.",
       "en": "He is accused of a mistake."
     },
-    "usage": "القانون، الأخبار، النقاشات | القانون، النقاشات"
+    "usage": "القانون، الأخبار، النقاشات | القانون، النقاشات",
+    "pos": "verb"
   },
   {
     "fr": "Accomplir une démarche",
@@ -4641,7 +4943,8 @@ window.VOCAB_DATA = [
       "ar": "يجب أن أقوم بعدة إجراءات إدارية.",
       "en": "I have to complete several administrative procedures."
     },
-    "usage": "الإدارة"
+    "usage": "الإدارة",
+    "pos": "verb"
   },
   {
     "fr": "Admettre que",
@@ -4656,7 +4959,8 @@ window.VOCAB_DATA = [
       "ar": "يجب أن أعترف أنكم على حق.",
       "en": "I must admit that you are right."
     },
-    "usage": "النقاشات الرسمية واليومية"
+    "usage": "النقاشات الرسمية واليومية",
+    "pos": "verb"
   },
   {
     "fr": "Affronter",
@@ -4671,7 +4975,8 @@ window.VOCAB_DATA = [
       "ar": "يجب مواجهة الصعوبات.",
       "en": "We must face difficulties."
     },
-    "usage": "المشاكل، التحديات"
+    "usage": "المشاكل، التحديات",
+    "pos": "verb"
   },
   {
     "fr": "Aggraver",
@@ -4686,7 +4991,8 @@ window.VOCAB_DATA = [
       "ar": "هذا القرار قد يزيد الوضع سوءًا.",
       "en": "This decision may worsen the situation."
     },
-    "usage": "المشاكل، الصحة، الأوضاع"
+    "usage": "المشاكل، الصحة، الأوضاع",
+    "pos": "verb"
   },
   {
     "fr": "Amélioration",
@@ -4703,7 +5009,8 @@ window.VOCAB_DATA = [
       "ar": "هناك تحسن في الوضع.",
       "en": "There is an improvement in the situation."
     },
-    "usage": "العمل، الصحة، الخدمات"
+    "usage": "العمل، الصحة، الخدمات",
+    "pos": "noun"
   },
   {
     "fr": "Analyser une situation",
@@ -4719,7 +5026,8 @@ window.VOCAB_DATA = [
       "ar": "يجب أن نحلل الوضع قبل اتخاذ القرار.",
       "en": "We must analyze the situation before deciding."
     },
-    "usage": "الإدارة والعمل"
+    "usage": "الإدارة والعمل",
+    "pos": "verb"
   },
   {
     "fr": "Annuler une demande",
@@ -4734,7 +5042,8 @@ window.VOCAB_DATA = [
       "ar": "أرغب في إلغاء طلبي.",
       "en": "I want to cancel my request."
     },
-    "usage": "الإدارة، الملفات"
+    "usage": "الإدارة، الملفات",
+    "pos": "verb"
   },
   {
     "fr": "Appliquer une règle",
@@ -4750,7 +5059,8 @@ window.VOCAB_DATA = [
       "ar": "يجب تطبيق قواعد السلامة.",
       "en": "Safety rules must be applied."
     },
-    "usage": "العمل والإدارة"
+    "usage": "العمل والإدارة",
+    "pos": "verb"
   },
   {
     "fr": "Apporter une preuve",
@@ -4766,7 +5076,8 @@ window.VOCAB_DATA = [
       "ar": "يجب أن أقدم إثبات سكن.",
       "en": "I must provide proof of address."
     },
-    "usage": "CAF، الإدارة، القانون"
+    "usage": "CAF، الإدارة، القانون",
+    "pos": "verb"
   },
   {
     "fr": "Approfondir ses connaissances",
@@ -4781,7 +5092,8 @@ window.VOCAB_DATA = [
       "ar": "أريد تعميق معرفتي بالفرنسية.",
       "en": "I want to deepen my knowledge of French."
     },
-    "usage": "الدراسة والعمل"
+    "usage": "الدراسة والعمل",
+    "pos": "verb"
   },
   {
     "fr": "Aboutir",
@@ -4796,7 +5108,8 @@ window.VOCAB_DATA = [
       "ar": "أدى الطلب إلى جواب إيجابي.",
       "en": "The request led to a positive response."
     },
-    "usage": "المشاريع، الملفات، المفاوضات"
+    "usage": "المشاريع، الملفات، المفاوضات",
+    "pos": "verb"
   },
   {
     "fr": "Acquérir des compétences",
@@ -4812,7 +5125,8 @@ window.VOCAB_DATA = [
       "ar": "هذا التكوين يسمح باكتساب مهارات جديدة.",
       "en": "This training allows you to acquire new skills."
     },
-    "usage": "العمل، التكوين"
+    "usage": "العمل، التكوين",
+    "pos": "verb"
   },
   {
     "fr": "Adéquat",
@@ -4829,7 +5143,8 @@ window.VOCAB_DATA = [
       "ar": "نبحث عن حل مناسب.",
       "en": "We are looking for a suitable solution."
     },
-    "usage": "العمل، الحلول، الإجراءات"
+    "usage": "العمل، الحلول، الإجراءات",
+    "pos": "adjective"
   },
   {
     "fr": "Adéquation",
@@ -4844,7 +5159,8 @@ window.VOCAB_DATA = [
       "ar": "التوافق بين المنصب والمهارات مهم.",
       "en": "The match between the position and skills is important."
     },
-    "usage": "العمل، التوظيف، المشاريع"
+    "usage": "العمل، التوظيف، المشاريع",
+    "pos": "noun"
   },
   {
     "fr": "Admettre une erreur",
@@ -4859,7 +5175,8 @@ window.VOCAB_DATA = [
       "ar": "اعترف بخطئه.",
       "en": "He admitted his mistake."
     },
-    "usage": "العمل والنقاشات"
+    "usage": "العمل والنقاشات",
+    "pos": "verb"
   },
   {
     "fr": "Alléger",
@@ -4875,7 +5192,8 @@ window.VOCAB_DATA = [
       "ar": "هذا الإجراء سيخفف الإجراءات.",
       "en": "This measure will simplify procedures."
     },
-    "usage": "التكاليف، الإجراءات، العمل | العمل، الإجراءات، التكاليف"
+    "usage": "التكاليف، الإجراءات، العمل | العمل، الإجراءات، التكاليف",
+    "pos": "verb"
   },
   {
     "fr": "Aménager",
@@ -4891,7 +5209,8 @@ window.VOCAB_DATA = [
       "ar": "يجب تهيئة مكان العمل.",
       "en": "We need to adapt the workspace."
     },
-    "usage": "السكن، مكان العمل | السكن، العمل"
+    "usage": "السكن، مكان العمل | السكن، العمل",
+    "pos": "verb"
   },
   {
     "fr": "Antérieur",
@@ -4909,7 +5228,8 @@ window.VOCAB_DATA = [
       "ar": "حسب المعلومات السابقة...",
       "en": "According to previous information..."
     },
-    "usage": "التقارير والملفات"
+    "usage": "التقارير والملفات",
+    "pos": "adjective"
   },
   {
     "fr": "Anticipation",
@@ -4924,7 +5244,8 @@ window.VOCAB_DATA = [
       "ar": "التخطيط الجيد يمنع المشاكل.",
       "en": "Good anticipation prevents problems."
     },
-    "usage": "التخطيط والعمل"
+    "usage": "التخطيط والعمل",
+    "pos": "noun"
   },
   {
     "fr": "Appuyer",
@@ -4940,7 +5261,8 @@ window.VOCAB_DATA = [
       "ar": "أريد دعم طلبي بوثائق.",
       "en": "I want to support my request with documents."
     },
-    "usage": "الطلبات، الحجج، الأجهزة"
+    "usage": "الطلبات، الحجج، الأجهزة",
+    "pos": "verb"
   },
   {
     "fr": "Arbitrer",
@@ -4956,7 +5278,8 @@ window.VOCAB_DATA = [
       "ar": "يجب على المسؤول حسم الوضع.",
       "en": "The manager must resolve the situation."
     },
-    "usage": "العمل، النزاعات | النزاعات، القرارات"
+    "usage": "العمل، النزاعات | النزاعات، القرارات",
+    "pos": "verb"
   },
   {
     "fr": "Attribuer",
@@ -4972,7 +5295,8 @@ window.VOCAB_DATA = [
       "ar": "يمكن منح مساعدة حسب الشروط.",
       "en": "Assistance can be granted according to conditions."
     },
-    "usage": "المساعدات، السكن، المناصب | الحقوق، المساعدات، السكن | السكن، المساعدات، الحقوق"
+    "usage": "المساعدات، السكن، المناصب | الحقوق، المساعدات، السكن | السكن، المساعدات، الحقوق",
+    "pos": "verb"
   },
   {
     "fr": "Avertir",
@@ -4988,7 +5312,8 @@ window.VOCAB_DATA = [
       "ar": "أبلغكم بتغيير.",
       "en": "I inform you of a change."
     },
-    "usage": "العمل، الإدارة"
+    "usage": "العمل، الإدارة",
+    "pos": "verb"
   },
   {
     "fr": "Aboutissement",
@@ -5003,7 +5328,8 @@ window.VOCAB_DATA = [
       "ar": "كانت نتيجة هذا الإجراء إيجابية.",
       "en": "The outcome of this process was positive."
     },
-    "usage": "المشاريع، الطلبات، الإجراءات"
+    "usage": "المشاريع، الطلبات، الإجراءات",
+    "pos": "noun"
   },
   {
     "fr": "Abus",
@@ -5018,7 +5344,8 @@ window.VOCAB_DATA = [
       "ar": "حدث سوء استعمال للنظام.",
       "en": "There was misuse of the system."
     },
-    "usage": "القانون، الإدارة، الخدمات"
+    "usage": "القانون، الإدارة، الخدمات",
+    "pos": "noun"
   },
   {
     "fr": "Abuser de",
@@ -5033,7 +5360,8 @@ window.VOCAB_DATA = [
       "ar": "لا يجب إساءة استعمال هذه المساعدة.",
       "en": "You should not misuse this assistance."
     },
-    "usage": "العلاقات، الخدمات، الحقوق"
+    "usage": "العلاقات، الخدمات، الحقوق",
+    "pos": "verb"
   },
   {
     "fr": "Accorder de l'importance à",
@@ -5048,7 +5376,8 @@ window.VOCAB_DATA = [
       "ar": "أولي أهمية كبيرة للجودة.",
       "en": "I attach great importance to quality."
     },
-    "usage": "العمل، الحياة اليومية"
+    "usage": "العمل، الحياة اليومية",
+    "pos": "verb"
   },
   {
     "fr": "Accroissement",
@@ -5063,7 +5392,8 @@ window.VOCAB_DATA = [
       "ar": "من المتوقع زيادة الطلب.",
       "en": "An increase in demand is expected."
     },
-    "usage": "الاقتصاد، الشركات، التقارير"
+    "usage": "الاقتصاد، الشركات، التقارير",
+    "pos": "noun"
   },
   {
     "fr": "Adaptation",
@@ -5079,7 +5409,8 @@ window.VOCAB_DATA = [
       "ar": "التكيف مع المنصب الجديد يحتاج وقتًا.",
       "en": "Adapting to the new position takes time."
     },
-    "usage": "العمل، السكن، التغيير"
+    "usage": "العمل، السكن، التغيير",
+    "pos": "noun"
   },
   {
     "fr": "Adopter une attitude",
@@ -5094,7 +5425,8 @@ window.VOCAB_DATA = [
       "ar": "يجب تبني موقف مهني.",
       "en": "You need to adopt a professional attitude."
     },
-    "usage": "العمل، التواصل"
+    "usage": "العمل، التواصل",
+    "pos": "verb"
   },
   {
     "fr": "Affectionner",
@@ -5109,7 +5441,8 @@ window.VOCAB_DATA = [
       "ar": "أحب هذا المكان بشكل خاص.",
       "en": "I am particularly fond of this place."
     },
-    "usage": "اللغة الأدبية أو الرسمية قليلًا"
+    "usage": "اللغة الأدبية أو الرسمية قليلًا",
+    "pos": "verb"
   },
   {
     "fr": "Affluence",
@@ -5124,7 +5457,8 @@ window.VOCAB_DATA = [
       "ar": "يوجد ازدحام كبير اليوم.",
       "en": "There is a large crowd today."
     },
-    "usage": "الإدارات، المتاجر، المواصلات"
+    "usage": "الإدارات، المتاجر، المواصلات",
+    "pos": "noun"
   },
   {
     "fr": "Agencement",
@@ -5140,7 +5474,8 @@ window.VOCAB_DATA = [
       "ar": "تم تغيير ترتيب المكتب.",
       "en": "The office layout was changed."
     },
-    "usage": "المحلات، المكاتب، السكن | السكن، المكاتب، المحلات"
+    "usage": "المحلات، المكاتب، السكن | السكن، المكاتب، المحلات",
+    "pos": "noun"
   },
   {
     "fr": "Allégation",
@@ -5155,7 +5490,8 @@ window.VOCAB_DATA = [
       "ar": "يجب التحقق من هذا الادعاء.",
       "en": "This allegation must be verified."
     },
-    "usage": "القانون، الأخبار، التقارير"
+    "usage": "القانون، الأخبار، التقارير",
+    "pos": "noun"
   },
   {
     "fr": "Ambigu",
@@ -5172,7 +5508,8 @@ window.VOCAB_DATA = [
       "ar": "الجملة غير واضحة.",
       "en": "The sentence is ambiguous."
     },
-    "usage": "العقود، الرسائل، القوانين"
+    "usage": "العقود، الرسائل، القوانين",
+    "pos": "adjective"
   },
   {
     "fr": "Améliorer la qualité",
@@ -5188,7 +5525,8 @@ window.VOCAB_DATA = [
       "ar": "يجب تحسين جودة الخدمة.",
       "en": "We must improve the quality of the service."
     },
-    "usage": "العمل والخدمات"
+    "usage": "العمل والخدمات",
+    "pos": "verb"
   },
   {
     "fr": "Analyser les données",
@@ -5204,7 +5542,8 @@ window.VOCAB_DATA = [
       "ar": "سنحلل بيانات الملف.",
       "en": "We will analyze the file data."
     },
-    "usage": "الشركات، الإدارة، التقارير"
+    "usage": "الشركات، الإدارة، التقارير",
+    "pos": "verb"
   },
   {
     "fr": "Annuler une procédure",
@@ -5219,7 +5558,8 @@ window.VOCAB_DATA = [
       "ar": "تم إلغاء الإجراء.",
       "en": "The procedure was cancelled."
     },
-    "usage": "الإدارة والقانون"
+    "usage": "الإدارة والقانون",
+    "pos": "verb"
   },
   {
     "fr": "Approbation officielle",
@@ -5234,7 +5574,8 @@ window.VOCAB_DATA = [
       "ar": "المشروع ينتظر موافقة رسمية.",
       "en": "The project is awaiting official approval."
     },
-    "usage": "المؤسسات والإدارة"
+    "usage": "المؤسسات والإدارة",
+    "pos": "noun"
   },
   {
     "fr": "Assurer le suivi",
@@ -5250,7 +5591,8 @@ window.VOCAB_DATA = [
       "ar": "سأتابع ملفك.",
       "en": "I will follow up on your file."
     },
-    "usage": "الملفات، العمل، الخدمات"
+    "usage": "الملفات، العمل، الخدمات",
+    "pos": "verb"
   },
   {
     "fr": "Accusation",
@@ -5265,7 +5607,8 @@ window.VOCAB_DATA = [
       "ar": "يرفض الاتهامات الموجهة إليه.",
       "en": "He rejects the accusations against him."
     },
-    "usage": "القانون، الأخبار، النزاعات"
+    "usage": "القانون، الأخبار، النزاعات",
+    "pos": "noun"
   },
   {
     "fr": "Achèvement",
@@ -5280,7 +5623,8 @@ window.VOCAB_DATA = [
       "ar": "من المتوقع اكتمال الأشغال في يونيو.",
       "en": "Completion of the work is planned for June."
     },
-    "usage": "المشاريع والأعمال"
+    "usage": "المشاريع والأعمال",
+    "pos": "noun"
   },
   {
     "fr": "Acquittement",
@@ -5296,7 +5640,8 @@ window.VOCAB_DATA = [
       "ar": "تسديد الفاتورة إجباري.",
       "en": "Payment of the invoice is mandatory."
     },
-    "usage": "القانون أو الفواتير (حسب السياق)"
+    "usage": "القانون أو الفواتير (حسب السياق)",
+    "pos": "noun"
   },
   {
     "fr": "Adéquatement",
@@ -5311,7 +5656,8 @@ window.VOCAB_DATA = [
       "ar": "يجب معالجة المشكلة بشكل مناسب.",
       "en": "The problem must be handled appropriately."
     },
-    "usage": "اللغة الرسمية"
+    "usage": "اللغة الرسمية",
+    "pos": "other"
   },
   {
     "fr": "Adresser une demande",
@@ -5326,7 +5672,8 @@ window.VOCAB_DATA = [
       "ar": "قدمت طلبًا إلى المصلحة المعنية.",
       "en": "I submitted a request to the relevant department."
     },
-    "usage": "الإدارة"
+    "usage": "الإدارة",
+    "pos": "verb"
   },
   {
     "fr": "Affirmer son droit",
@@ -5341,7 +5688,8 @@ window.VOCAB_DATA = [
       "ar": "يجب تأكيد حقوقك.",
       "en": "You must assert your rights."
     },
-    "usage": "الإدارة، القانون"
+    "usage": "الإدارة، القانون",
+    "pos": "verb"
   },
   {
     "fr": "Ajournement",
@@ -5356,7 +5704,8 @@ window.VOCAB_DATA = [
       "ar": "تأجيل القرار ممكن.",
       "en": "Postponement of the decision is possible."
     },
-    "usage": "الإدارة، الامتحانات، الإجراءات"
+    "usage": "الإدارة، الامتحانات، الإجراءات",
+    "pos": "noun"
   },
   {
     "fr": "Amendement",
@@ -5372,7 +5721,8 @@ window.VOCAB_DATA = [
       "ar": "تعديل على العقد ضروري.",
       "en": "An amendment to the contract is necessary."
     },
-    "usage": "القوانين، العقود، الوثائق"
+    "usage": "القوانين، العقود، الوثائق",
+    "pos": "noun"
   },
   {
     "fr": "Ampleur",
@@ -5387,7 +5737,8 @@ window.VOCAB_DATA = [
       "ar": "لم نقس بعد حجم المشكلة.",
       "en": "We have not yet measured the extent of the problem."
     },
-    "usage": "المشاكل، المشاريع"
+    "usage": "المشاكل، المشاريع",
+    "pos": "noun"
   },
   {
     "fr": "Antécédent",
@@ -5402,7 +5753,8 @@ window.VOCAB_DATA = [
       "ar": "الطبيب يطلب تاريخك الطبي.",
       "en": "The doctor asks for your medical history."
     },
-    "usage": "الملفات، الطب، القانون"
+    "usage": "الملفات، الطب، القانون",
+    "pos": "noun"
   },
   {
     "fr": "Appel d'offres",
@@ -5418,7 +5770,8 @@ window.VOCAB_DATA = [
       "ar": "الشركة تستجيب لمناقصة.",
       "en": "The company responds to a tender."
     },
-    "usage": "الشركات والإدارة"
+    "usage": "الشركات والإدارة",
+    "pos": "phrase"
   },
   {
     "fr": "Arbitrage",
@@ -5433,7 +5786,8 @@ window.VOCAB_DATA = [
       "ar": "هناك حاجة إلى تحكيم لحل النزاع.",
       "en": "Arbitration is needed to solve the conflict."
     },
-    "usage": "النزاعات، العمل"
+    "usage": "النزاعات، العمل",
+    "pos": "noun"
   },
   {
     "fr": "Arrondissement",
@@ -5448,7 +5802,8 @@ window.VOCAB_DATA = [
       "ar": "بلدية الدائرة.",
       "en": "The district town hall."
     },
-    "usage": "المدن الكبرى مثل باريس"
+    "usage": "المدن الكبرى مثل باريس",
+    "pos": "noun"
   },
   {
     "fr": "Assainir",
@@ -5463,7 +5818,8 @@ window.VOCAB_DATA = [
       "ar": "يجب على الشركة تحسين وضعها المالي.",
       "en": "The company must improve its financial situation."
     },
-    "usage": "الاقتصاد، الوضع المالي، البيئة"
+    "usage": "الاقتصاد، الوضع المالي، البيئة",
+    "pos": "verb"
   },
   {
     "fr": "Assistance",
@@ -5479,7 +5835,8 @@ window.VOCAB_DATA = [
       "ar": "أطلب مساعدة لهذا الإجراء.",
       "en": "I request assistance for this procedure."
     },
-    "usage": "الخدمات الاجتماعية، التقنية، الإدارة"
+    "usage": "الخدمات الاجتماعية، التقنية، الإدارة",
+    "pos": "noun"
   },
   {
     "fr": "Assister à",
@@ -5494,7 +5851,8 @@ window.VOCAB_DATA = [
       "ar": "حضرت اجتماعًا إداريًا.",
       "en": "I attended an administrative meeting."
     },
-    "usage": "الاجتماعات، الدورات"
+    "usage": "الاجتماعات، الدورات",
+    "pos": "verb"
   },
   {
     "fr": "Assigner",
@@ -5510,7 +5868,8 @@ window.VOCAB_DATA = [
       "ar": "تم تكليفي بمهمة جديدة.",
       "en": "I was assigned a new task."
     },
-    "usage": "العمل، القانون | العمل، المهام"
+    "usage": "العمل، القانون | العمل، المهام",
+    "pos": "verb"
   },
   {
     "fr": "Associer à",
@@ -5525,7 +5884,8 @@ window.VOCAB_DATA = [
       "ar": "هذه الوثيقة مرتبطة بملفك.",
       "en": "This document is associated with your file."
     },
-    "usage": "المشاريع والملفات"
+    "usage": "المشاريع والملفات",
+    "pos": "verb"
   },
   {
     "fr": "Assurer la conformité",
@@ -5541,7 +5901,8 @@ window.VOCAB_DATA = [
       "ar": "يجب ضمان مطابقة الوثائق.",
       "en": "We must ensure document compliance."
     },
-    "usage": "الشركات، الجودة، الإدارة"
+    "usage": "الشركات، الجودة، الإدارة",
+    "pos": "verb"
   },
   {
     "fr": "Attester",
@@ -5556,7 +5917,8 @@ window.VOCAB_DATA = [
       "ar": "هذه الوثيقة تثبت هويتك.",
       "en": "This document certifies your identity."
     },
-    "usage": "الوثائق الرسمية"
+    "usage": "الوثائق الرسمية",
+    "pos": "verb"
   },
   {
     "fr": "Attendu",
@@ -5573,7 +5935,8 @@ window.VOCAB_DATA = [
       "ar": "الرد متوقع قريبًا.",
       "en": "The response is expected soon."
     },
-    "usage": "القرارات والرسائل الرسمية"
+    "usage": "القرارات والرسائل الرسمية",
+    "pos": "adjective"
   },
   {
     "fr": "Attribution",
@@ -5589,7 +5952,8 @@ window.VOCAB_DATA = [
       "ar": "منح السكن يعتمد على المعايير.",
       "en": "Housing allocation depends on criteria."
     },
-    "usage": "السكن، المساعدات، المناصب"
+    "usage": "السكن، المساعدات، المناصب",
+    "pos": "noun"
   },
   {
     "fr": "Audit",
@@ -5606,7 +5970,8 @@ window.VOCAB_DATA = [
       "ar": "هناك تدقيق للنظام مقرر.",
       "en": "A system audit is planned."
     },
-    "usage": "الشركات، الإدارة، الحسابات"
+    "usage": "الشركات، الإدارة، الحسابات",
+    "pos": "noun"
   },
   {
     "fr": "Authentifier",
@@ -5621,7 +5986,8 @@ window.VOCAB_DATA = [
       "ar": "يجب التحقق من صحة الوثيقة.",
       "en": "The document must be authenticated."
     },
-    "usage": "الوثائق، الهوية"
+    "usage": "الوثائق، الهوية",
+    "pos": "verb"
   },
   {
     "fr": "Authentique",
@@ -5637,7 +6003,8 @@ window.VOCAB_DATA = [
       "ar": "الوثيقة أصلية.",
       "en": "The document is authentic."
     },
-    "usage": "الوثائق، المنتجات"
+    "usage": "الوثائق، المنتجات",
+    "pos": "adjective"
   },
   {
     "fr": "Automatiser",
@@ -5652,7 +6019,8 @@ window.VOCAB_DATA = [
       "ar": "تريد الشركة أتمتة بعض المهام.",
       "en": "The company wants to automate some tasks."
     },
-    "usage": "العمل، الأنظمة"
+    "usage": "العمل، الأنظمة",
+    "pos": "verb"
   },
   {
     "fr": "Autorité",
@@ -5667,7 +6035,8 @@ window.VOCAB_DATA = [
       "ar": "ستدرس الجهات المختصة الملف.",
       "en": "The competent authorities will review the file."
     },
-    "usage": "الإدارة، القانون"
+    "usage": "الإدارة، القانون",
+    "pos": "noun"
   },
   {
     "fr": "Autorité compétente",
@@ -5684,7 +6053,8 @@ window.VOCAB_DATA = [
       "ar": "يجب إرسال طلبك إلى الجهة المختصة.",
       "en": "Your request must be sent to the competent authority."
     },
-    "usage": "الإدارة الفرنسية (Préfecture، Mairie...)"
+    "usage": "الإدارة الفرنسية (Préfecture، Mairie...)",
+    "pos": "noun"
   },
   {
     "fr": "Avancement du dossier",
@@ -5700,7 +6070,8 @@ window.VOCAB_DATA = [
       "ar": "أود معرفة تقدم ملفي.",
       "en": "I would like to know the progress of my file."
     },
-    "usage": "CAF، Préfecture، الإدارات"
+    "usage": "CAF، Préfecture، الإدارات",
+    "pos": "phrase"
   },
   {
     "fr": "Accord préalable",
@@ -5716,7 +6087,8 @@ window.VOCAB_DATA = [
       "ar": "يجب الحصول على موافقة مسبقة.",
       "en": "Prior approval is required."
     },
-    "usage": "الإدارة، التأمين، الإجراءات"
+    "usage": "الإدارة، التأمين، الإجراءات",
+    "pos": "noun"
   },
   {
     "fr": "Accompagnement personnalisé",
@@ -5733,7 +6105,8 @@ window.VOCAB_DATA = [
       "ar": "أستفيد من دعم شخصي.",
       "en": "I receive personalized support."
     },
-    "usage": "France Travail، الخدمات الاجتماعية"
+    "usage": "France Travail، الخدمات الاجتماعية",
+    "pos": "noun"
   },
   {
     "fr": "Accomplir une mission",
@@ -5748,7 +6121,8 @@ window.VOCAB_DATA = [
       "ar": "أنجز مهمته بنجاح.",
       "en": "He carried out his mission successfully."
     },
-    "usage": "العمل"
+    "usage": "العمل",
+    "pos": "verb"
   },
   {
     "fr": "Adhésion obligatoire",
@@ -5764,7 +6138,8 @@ window.VOCAB_DATA = [
       "ar": "الاشتراك إجباري في بعض الحالات.",
       "en": "Membership is mandatory in some cases."
     },
-    "usage": "التأمين، بعض الأنظمة"
+    "usage": "التأمين، بعض الأنظمة",
+    "pos": "noun"
   },
   {
     "fr": "Affiliation obligatoire",
@@ -5780,7 +6155,8 @@ window.VOCAB_DATA = [
       "ar": "الانتساب إلى الضمان الاجتماعي إجباري.",
       "en": "Registration with social security is mandatory."
     },
-    "usage": "الضمان الاجتماعي"
+    "usage": "الضمان الاجتماعي",
+    "pos": "noun"
   },
   {
     "fr": "Aggravation",
@@ -5795,7 +6171,8 @@ window.VOCAB_DATA = [
       "ar": "قد يحدث تفاقم في الوضع.",
       "en": "A worsening of the situation is possible."
     },
-    "usage": "الصحة، المشاكل، الأوضاع"
+    "usage": "الصحة، المشاكل، الأوضاع",
+    "pos": "noun"
   },
   {
     "fr": "Ajout",
@@ -5810,7 +6187,8 @@ window.VOCAB_DATA = [
       "ar": "أضفت شيئًا إلى الملف.",
       "en": "I made an addition to the file."
     },
-    "usage": "الملفات، الوثائق، البرامج"
+    "usage": "الملفات، الوثائق، البرامج",
+    "pos": "noun"
   },
   {
     "fr": "Alternative",
@@ -5826,7 +6204,8 @@ window.VOCAB_DATA = [
       "ar": "نبحث عن بديل.",
       "en": "We are looking for an alternative."
     },
-    "usage": "الحلول، العمل، الإدارة"
+    "usage": "الحلول، العمل، الإدارة",
+    "pos": "adjective"
   },
   {
     "fr": "Améliorer les conditions",
@@ -5843,7 +6222,8 @@ window.VOCAB_DATA = [
       "ar": "نريد تحسين ظروف العمل.",
       "en": "We want to improve working conditions."
     },
-    "usage": "العمل، السكن، الخدمات"
+    "usage": "العمل، السكن، الخدمات",
+    "pos": "verb"
   },
   {
     "fr": "Application",
@@ -5859,7 +6239,8 @@ window.VOCAB_DATA = [
       "ar": "تطبيق هذه القاعدة إجباري.",
       "en": "The application of this rule is mandatory."
     },
-    "usage": "الهاتف، القوانين، الإجراءات"
+    "usage": "الهاتف، القوانين، الإجراءات",
+    "pos": "noun"
   },
   {
     "fr": "Appliquer une loi",
@@ -5874,7 +6255,8 @@ window.VOCAB_DATA = [
       "ar": "يجب على المصالح تطبيق القانون.",
       "en": "Services must enforce the law."
     },
-    "usage": "الإدارة والقانون"
+    "usage": "الإدارة والقانون",
+    "pos": "verb"
   },
   {
     "fr": "Arrangement",
@@ -5891,7 +6273,8 @@ window.VOCAB_DATA = [
       "ar": "وجدنا اتفاقًا.",
       "en": "We found an arrangement."
     },
-    "usage": "العمل، المواعيد، الاتفاقات"
+    "usage": "العمل، المواعيد، الاتفاقات",
+    "pos": "noun"
   },
   {
     "fr": "Assurer une mission",
@@ -5907,7 +6290,8 @@ window.VOCAB_DATA = [
       "ar": "يتولى مهمة مهمة.",
       "en": "He carries out an important duty."
     },
-    "usage": "العمل والإدارة"
+    "usage": "العمل والإدارة",
+    "pos": "verb"
   },
   {
     "fr": "Abstrait",
@@ -5922,7 +6306,8 @@ window.VOCAB_DATA = [
       "ar": "إنه مفهوم مجرد إلى حد ما.",
       "en": "It is quite an abstract concept."
     },
-    "usage": "الدراسة، الأفكار، النقاشات"
+    "usage": "الدراسة، الأفكار، النقاشات",
+    "pos": "adjective"
   },
   {
     "fr": "Accentuer",
@@ -5937,7 +6322,8 @@ window.VOCAB_DATA = [
       "ar": "هذا الوضع يزيد الصعوبات.",
       "en": "This situation increases difficulties."
     },
-    "usage": "التقارير، التحليل"
+    "usage": "التقارير، التحليل",
+    "pos": "verb"
   },
   {
     "fr": "Abolir",
@@ -5951,7 +6337,8 @@ window.VOCAB_DATA = [
       "fr": "Le gouvernement veut abolir cette loi.",
       "ar": "تريد الحكومة إلغاء هذا القانون.",
       "en": "The government wants to abolish this law."
-    }
+    },
+    "pos": "verb"
   },
   {
     "fr": "Absenter (s'absenter)",
@@ -5965,7 +6352,8 @@ window.VOCAB_DATA = [
       "fr": "Je dois m'absenter quelques minutes.",
       "ar": "يجب أن أغيب بضع دقائق.",
       "en": "I have to be away for a few minutes."
-    }
+    },
+    "pos": "verb"
   },
   {
     "fr": "Accélérer",
@@ -5982,7 +6370,8 @@ window.VOCAB_DATA = [
       "ar": "يجب تسريع الإجراء.",
       "en": "The procedure must be accelerated."
     },
-    "usage": "الإجراءات، العمل، القيادة"
+    "usage": "الإجراءات، العمل، القيادة",
+    "pos": "verb"
   },
   {
     "fr": "Acheter",
@@ -5996,7 +6385,8 @@ window.VOCAB_DATA = [
       "fr": "Je vais acheter du pain.",
       "ar": "سأشتري خبزًا.",
       "en": "I will buy bread."
-    }
+    },
+    "pos": "verb"
   },
   {
     "fr": "Arranger",
@@ -6012,7 +6402,8 @@ window.VOCAB_DATA = [
       "ar": "سنحل الوضع.",
       "en": "We will fix the situation."
     },
-    "usage": "المواعيد والمشاكل"
+    "usage": "المواعيد والمشاكل",
+    "pos": "verb"
   },
   {
     "fr": "Abaisser",
@@ -6027,7 +6418,8 @@ window.VOCAB_DATA = [
       "ar": "يجب خفض السعر.",
       "en": "The price must be lowered."
     },
-    "usage": "الأسعار، الصوت، المستوى"
+    "usage": "الأسعار، الصوت، المستوى",
+    "pos": "verb"
   },
   {
     "fr": "Abattre",
@@ -6042,7 +6434,8 @@ window.VOCAB_DATA = [
       "ar": "سيهدمون هذا الجدار.",
       "en": "They will demolish this wall."
     },
-    "usage": "البناء، الأشجار، العمل"
+    "usage": "البناء، الأشجار، العمل",
+    "pos": "verb"
   },
   {
     "fr": "Achever",
@@ -6057,7 +6450,8 @@ window.VOCAB_DATA = [
       "ar": "أنهيت عملي.",
       "en": "I finished my work."
     },
-    "usage": "المشاريع، الأعمال"
+    "usage": "المشاريع، الأعمال",
+    "pos": "verb"
   },
   {
     "fr": "Ajuster",
@@ -6072,7 +6466,8 @@ window.VOCAB_DATA = [
       "ar": "يجب ضبط الإعدادات.",
       "en": "The settings must be adjusted."
     },
-    "usage": "الأجهزة، الأسعار، الخطط"
+    "usage": "الأجهزة، الأسعار، الخطط",
+    "pos": "verb"
   },
   {
     "fr": "Amplifier",
@@ -6087,7 +6482,8 @@ window.VOCAB_DATA = [
       "ar": "هذا قد يزيد المشكلة.",
       "en": "This can amplify the problem."
     },
-    "usage": "المشاكل، التأثيرات"
+    "usage": "المشاكل، التأثيرات",
+    "pos": "verb"
   },
   {
     "fr": "Assembler",
@@ -6102,7 +6498,8 @@ window.VOCAB_DATA = [
       "ar": "أركب القطع.",
       "en": "I assemble the parts."
     },
-    "usage": "العمل، الصناعة"
+    "usage": "العمل، الصناعة",
+    "pos": "verb"
   },
   {
     "fr": "Aviser",
@@ -6118,7 +6515,8 @@ window.VOCAB_DATA = [
       "ar": "سنبلغكم بالقرار.",
       "en": "We will inform you of the decision."
     },
-    "usage": "الإدارة والرسائل الرسمية"
+    "usage": "الإدارة والرسائل الرسمية",
+    "pos": "verb"
   },
   {
     "fr": "Avouer",
@@ -6133,7 +6531,8 @@ window.VOCAB_DATA = [
       "ar": "اعترف بخطئه.",
       "en": "He admitted his mistake."
     },
-    "usage": "المحادثات والنقاشات"
+    "usage": "المحادثات والنقاشات",
+    "pos": "verb"
   },
   {
     "fr": "Abandonné",
@@ -6147,7 +6546,8 @@ window.VOCAB_DATA = [
       "fr": "Ce bâtiment est abandonné.",
       "ar": "هذا المبنى مهجور.",
       "en": "This building is abandoned."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Abaissé",
@@ -6161,7 +6561,8 @@ window.VOCAB_DATA = [
       "fr": "Les prix sont abaissés cette semaine.",
       "ar": "الأسعار مخفّضة هذا الأسبوع.",
       "en": "The prices are lowered this week."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Absolu",
@@ -6175,7 +6576,8 @@ window.VOCAB_DATA = [
       "fr": "Ce n'est pas une vérité absolue.",
       "ar": "ليست حقيقة مطلقة.",
       "en": "It's not an absolute truth."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Absurde",
@@ -6189,7 +6591,8 @@ window.VOCAB_DATA = [
       "fr": "C'est une décision absurde.",
       "ar": "إنه قرار غير منطقي.",
       "en": "It's an absurd decision."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Académique",
@@ -6203,7 +6606,8 @@ window.VOCAB_DATA = [
       "fr": "Il a un excellent niveau académique.",
       "ar": "لديه مستوى أكاديمي ممتاز.",
       "en": "He has an excellent academic level."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Accablé",
@@ -6217,7 +6621,8 @@ window.VOCAB_DATA = [
       "fr": "Je suis accablé de travail.",
       "ar": "أنا مثقل بالعمل.",
       "en": "I am overwhelmed with work."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Accéléré",
@@ -6231,7 +6636,8 @@ window.VOCAB_DATA = [
       "fr": "La procédure est accélérée.",
       "ar": "تم تسريع الإجراء.",
       "en": "The procedure is accelerated."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Acceptable",
@@ -6245,7 +6651,8 @@ window.VOCAB_DATA = [
       "fr": "Cette solution est acceptable.",
       "ar": "هذا الحل مقبول.",
       "en": "This solution is acceptable."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Accessible",
@@ -6260,7 +6667,8 @@ window.VOCAB_DATA = [
       "fr": "Le bâtiment est accessible aux personnes handicapées.",
       "ar": "المبنى متاح لذوي الإعاقة.",
       "en": "The building is accessible to people with disabilities."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Accidentel",
@@ -6274,7 +6682,8 @@ window.VOCAB_DATA = [
       "fr": "C'était un accident.",
       "ar": "كان ذلك حادثًا.",
       "en": "It was an accident."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Accompagné",
@@ -6288,7 +6697,8 @@ window.VOCAB_DATA = [
       "fr": "L'enfant doit être accompagné d'un adulte.",
       "ar": "يجب أن يكون الطفل برفقة شخص بالغ.",
       "en": "The child must be accompanied by an adult."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Accompli",
@@ -6303,7 +6713,8 @@ window.VOCAB_DATA = [
       "fr": "C'est un travail bien accompli.",
       "ar": "إنه عمل أُنجز بشكل جيد.",
       "en": "It is a job well done."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Accordé",
@@ -6317,7 +6728,8 @@ window.VOCAB_DATA = [
       "fr": "Votre demande a été accordée.",
       "ar": "تمت الموافقة على طلبك.",
       "en": "Your request has been approved."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Accueillant",
@@ -6331,7 +6743,8 @@ window.VOCAB_DATA = [
       "fr": "Le personnel est très accueillant.",
       "ar": "الموظفون مرحبون جدًا.",
       "en": "The staff is very welcoming."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Accumulé",
@@ -6345,7 +6758,8 @@ window.VOCAB_DATA = [
       "fr": "J'ai beaucoup de retard accumulé.",
       "ar": "لدي الكثير من التأخير المتراكم.",
       "en": "I have a lot of accumulated delay."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Accusé",
@@ -6359,7 +6773,8 @@ window.VOCAB_DATA = [
       "fr": "Il est accusé d'une erreur.",
       "ar": "هو متهم بخطأ.",
       "en": "He is accused of a mistake."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Actif",
@@ -6376,7 +6791,8 @@ window.VOCAB_DATA = [
       "fr": "Je reste actif malgré mon âge.",
       "ar": "أبقى نشيطًا رغم عمري.",
       "en": "I stay active despite my age."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Actuelle",
@@ -6390,7 +6806,8 @@ window.VOCAB_DATA = [
       "fr": "Ma situation actuelle est différente.",
       "ar": "وضعي الحالي مختلف.",
       "en": "My current situation is different."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Actuel",
@@ -6404,7 +6821,8 @@ window.VOCAB_DATA = [
       "fr": "Le problème actuel doit être réglé.",
       "ar": "يجب حل المشكلة الحالية.",
       "en": "The current problem must be solved."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Adapté",
@@ -6418,7 +6836,8 @@ window.VOCAB_DATA = [
       "fr": "Ce traitement est adapté à ma situation.",
       "ar": "هذا العلاج مناسب لوضعي.",
       "en": "This treatment is suitable for my situation."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Admirable",
@@ -6432,7 +6851,8 @@ window.VOCAB_DATA = [
       "fr": "C'est un effort admirable.",
       "ar": "إنه جهد رائع.",
       "en": "It is an admirable effort."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Adolescent",
@@ -6446,7 +6866,8 @@ window.VOCAB_DATA = [
       "fr": "C'est un jeune adolescent.",
       "ar": "إنه مراهق صغير.",
       "en": "He is a young teenager."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Adopté",
@@ -6460,7 +6881,8 @@ window.VOCAB_DATA = [
       "fr": "La nouvelle règle est adoptée.",
       "ar": "تم اعتماد القاعدة الجديدة.",
       "en": "The new rule is adopted."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Adorable",
@@ -6474,7 +6896,8 @@ window.VOCAB_DATA = [
       "fr": "Ton enfant est adorable.",
       "ar": "طفلك لطيف جدًا.",
       "en": "Your child is adorable."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Adroit",
@@ -6488,7 +6911,8 @@ window.VOCAB_DATA = [
       "fr": "Il est très adroit avec ses mains.",
       "ar": "هو ماهر جدًا بيديه.",
       "en": "He is very skillful with his hands."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Adulte",
@@ -6502,7 +6926,8 @@ window.VOCAB_DATA = [
       "fr": "Un adulte doit respecter les règles.",
       "ar": "يجب على الشخص البالغ احترام القواعد.",
       "en": "An adult must respect the rules."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Aérien",
@@ -6517,7 +6942,8 @@ window.VOCAB_DATA = [
       "fr": "Le transport aérien est rapide.",
       "ar": "النقل الجوي سريع.",
       "en": "Air transport is fast."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Affectueux",
@@ -6531,7 +6957,8 @@ window.VOCAB_DATA = [
       "fr": "C'est une personne très affectueuse.",
       "ar": "إنه شخص حنون جدًا.",
       "en": "He is a very affectionate person."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Affamé",
@@ -6545,7 +6972,8 @@ window.VOCAB_DATA = [
       "fr": "Je suis affamé après le travail.",
       "ar": "أنا جائع جدًا بعد العمل.",
       "en": "I am starving after work."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Affaibli",
@@ -6559,7 +6987,8 @@ window.VOCAB_DATA = [
       "fr": "Je me sens affaibli après la maladie.",
       "ar": "أشعر بالضعف بعد المرض.",
       "en": "I feel weakened after the illness."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Affirmatif",
@@ -6573,7 +7002,8 @@ window.VOCAB_DATA = [
       "fr": "La réponse est affirmative.",
       "ar": "الإجابة إيجابية.",
       "en": "The answer is affirmative."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Âgé",
@@ -6587,7 +7017,8 @@ window.VOCAB_DATA = [
       "fr": "Une personne âgée a besoin d'aide.",
       "ar": "الشخص المسن يحتاج إلى مساعدة.",
       "en": "An elderly person needs help."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Agile",
@@ -6601,7 +7032,8 @@ window.VOCAB_DATA = [
       "fr": "Il est agile et rapide.",
       "ar": "هو رشيق وسريع.",
       "en": "He is agile and fast."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Agréable",
@@ -6615,7 +7047,8 @@ window.VOCAB_DATA = [
       "fr": "C'est une personne agréable.",
       "ar": "إنه شخص لطيف.",
       "en": "He is a pleasant person."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Agressif",
@@ -6629,7 +7062,8 @@ window.VOCAB_DATA = [
       "fr": "Son comportement est agressif.",
       "ar": "تصرفه عدواني.",
       "en": "His behavior is aggressive."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Agrandi",
@@ -6643,7 +7077,8 @@ window.VOCAB_DATA = [
       "fr": "La salle a été agrandie.",
       "ar": "تم توسيع القاعة.",
       "en": "The room was enlarged."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Aigu",
@@ -6657,7 +7092,8 @@ window.VOCAB_DATA = [
       "fr": "J'ai une douleur aiguë.",
       "ar": "لدي ألم شديد.",
       "en": "I have acute pain."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Ailé",
@@ -6671,7 +7107,8 @@ window.VOCAB_DATA = [
       "fr": "Un insecte ailé.",
       "ar": "حشرة مجنحة.",
       "en": "A winged insect."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Aimable",
@@ -6685,7 +7122,8 @@ window.VOCAB_DATA = [
       "fr": "Le personnel est aimable.",
       "ar": "الموظفون لطفاء.",
       "en": "The staff is kind."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Alarmant",
@@ -6699,7 +7137,8 @@ window.VOCAB_DATA = [
       "fr": "La situation devient alarmante.",
       "ar": "الوضع يصبح مقلقًا.",
       "en": "The situation is becoming alarming."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Aléatoire",
@@ -6713,7 +7152,8 @@ window.VOCAB_DATA = [
       "fr": "Le choix est aléatoire.",
       "ar": "الاختيار عشوائي.",
       "en": "The choice is random."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Alimentaire",
@@ -6728,7 +7168,8 @@ window.VOCAB_DATA = [
       "fr": "Les produits alimentaires sont contrôlés.",
       "ar": "يتم فحص المنتجات الغذائية.",
       "en": "Food products are controlled."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Aligné",
@@ -6743,7 +7184,8 @@ window.VOCAB_DATA = [
       "fr": "Les documents sont bien alignés.",
       "ar": "الوثائق مصطفة جيدًا.",
       "en": "The documents are well aligned."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Allégé",
@@ -6757,7 +7199,8 @@ window.VOCAB_DATA = [
       "fr": "Un produit allégé contient moins de matières grasses.",
       "ar": "منتج مخفف يحتوي على دهون أقل.",
       "en": "A light product contains less fat."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Allongé",
@@ -6771,7 +7214,8 @@ window.VOCAB_DATA = [
       "fr": "Le délai est allongé.",
       "ar": "تم تمديد المدة.",
       "en": "The deadline is extended."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Ambitieux",
@@ -6786,7 +7230,8 @@ window.VOCAB_DATA = [
       "fr": "C'est un projet ambitieux.",
       "ar": "إنه مشروع طموح.",
       "en": "It is an ambitious project."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Amélioré",
@@ -6800,7 +7245,8 @@ window.VOCAB_DATA = [
       "fr": "La qualité du service est améliorée.",
       "ar": "جودة الخدمة تحسنت.",
       "en": "The quality of the service is improved."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Amical",
@@ -6815,7 +7261,8 @@ window.VOCAB_DATA = [
       "fr": "Il a une attitude amicale.",
       "ar": "لديه تصرف ودّي.",
       "en": "He has a friendly attitude."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Amoureux",
@@ -6829,7 +7276,8 @@ window.VOCAB_DATA = [
       "fr": "Ils sont amoureux.",
       "ar": "إنهما واقعان في الحب.",
       "en": "They are in love."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Analogue",
@@ -6843,7 +7291,8 @@ window.VOCAB_DATA = [
       "fr": "J'ai une situation analogue.",
       "ar": "لدي وضع مشابه.",
       "en": "I have a similar situation."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Annuel",
@@ -6857,7 +7306,8 @@ window.VOCAB_DATA = [
       "fr": "Le contrôle annuel est obligatoire.",
       "ar": "الفحص السنوي إجباري.",
       "en": "The annual check is mandatory."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Annulable",
@@ -6871,7 +7321,8 @@ window.VOCAB_DATA = [
       "fr": "La réservation est annulable.",
       "ar": "الحجز قابل للإلغاء.",
       "en": "The reservation is cancelable."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Anonyme",
@@ -6886,7 +7337,8 @@ window.VOCAB_DATA = [
       "fr": "Vous pouvez répondre de manière anonyme.",
       "ar": "يمكنك الإجابة بشكل مجهول.",
       "en": "You can answer anonymously."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Antérieur(e)",
@@ -6900,7 +7352,8 @@ window.VOCAB_DATA = [
       "fr": "Une expérience antérieure est demandée.",
       "ar": "مطلوب خبرة سابقة.",
       "en": "Previous experience is required."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Apparent",
@@ -6914,7 +7367,8 @@ window.VOCAB_DATA = [
       "fr": "Le problème est apparent.",
       "ar": "المشكلة واضحة.",
       "en": "The problem is apparent."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Approprié",
@@ -6928,7 +7382,8 @@ window.VOCAB_DATA = [
       "fr": "C'est une réponse appropriée.",
       "ar": "هذا جواب مناسب.",
       "en": "It is an appropriate answer."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Approfondi",
@@ -6942,7 +7397,8 @@ window.VOCAB_DATA = [
       "fr": "Une analyse approfondie est nécessaire.",
       "ar": "تحليل متعمق ضروري.",
       "en": "An in-depth analysis is necessary."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Ardent",
@@ -6956,7 +7412,8 @@ window.VOCAB_DATA = [
       "fr": "Il est un défenseur ardent de cette idée.",
       "ar": "هو مدافع متحمس عن هذه الفكرة.",
       "en": "He is a passionate supporter of this idea."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Aride",
@@ -6970,7 +7427,8 @@ window.VOCAB_DATA = [
       "fr": "Un texte aride est difficile à lire.",
       "ar": "نص جاف صعب القراءة.",
       "en": "A dry text is difficult to read."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Artificiel",
@@ -6985,7 +7443,8 @@ window.VOCAB_DATA = [
       "fr": "Ce produit contient des arômes artificiels.",
       "ar": "هذا المنتج يحتوي على نكهات اصطناعية.",
       "en": "This product contains artificial flavors."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Artistique",
@@ -6999,7 +7458,8 @@ window.VOCAB_DATA = [
       "fr": "C'est une œuvre artistique.",
       "ar": "إنه عمل فني.",
       "en": "It is an artistic work."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Assidu",
@@ -7015,7 +7475,8 @@ window.VOCAB_DATA = [
       "fr": "Il est assidu au travail.",
       "ar": "هو مواظب في العمل.",
       "en": "He is diligent at work."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Assuré",
@@ -7031,7 +7492,8 @@ window.VOCAB_DATA = [
       "fr": "Le véhicule est assuré.",
       "ar": "السيارة مؤمّنة.",
       "en": "The vehicle is insured."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Attentif",
@@ -7045,7 +7507,8 @@ window.VOCAB_DATA = [
       "fr": "Soyez attentif aux instructions.",
       "ar": "كن منتبهًا للتعليمات.",
       "en": "Be attentive to the instructions."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Attentionné",
@@ -7059,7 +7522,8 @@ window.VOCAB_DATA = [
       "fr": "C'est une personne attentionnée.",
       "ar": "إنه شخص مهتم بالآخرين.",
       "en": "He is a caring person."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Attractif",
@@ -7074,7 +7538,8 @@ window.VOCAB_DATA = [
       "fr": "Cette offre est très attractive.",
       "ar": "هذا العرض جذاب جدًا.",
       "en": "This offer is very attractive."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Attrayant",
@@ -7088,7 +7553,8 @@ window.VOCAB_DATA = [
       "fr": "Le prix est attrayant.",
       "ar": "السعر جذاب.",
       "en": "The price is attractive."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Autorisé",
@@ -7103,7 +7569,8 @@ window.VOCAB_DATA = [
       "fr": "Le stationnement est autorisé ici.",
       "ar": "الوقوف مسموح هنا.",
       "en": "Parking is allowed here."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Avancé",
@@ -7117,7 +7584,8 @@ window.VOCAB_DATA = [
       "fr": "J'ai un niveau avancé en français.",
       "ar": "لدي مستوى متقدم في الفرنسية.",
       "en": "I have an advanced level in French."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Avantageux",
@@ -7132,7 +7600,8 @@ window.VOCAB_DATA = [
       "fr": "Cette offre est avantageuse.",
       "ar": "هذا العرض مفيد.",
       "en": "This offer is advantageous."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Avisé",
@@ -7146,7 +7615,8 @@ window.VOCAB_DATA = [
       "fr": "C'est une décision avisée.",
       "ar": "إنه قرار حكيم.",
       "en": "It is a wise decision."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Actif (sens financier)",
@@ -7160,7 +7630,8 @@ window.VOCAB_DATA = [
       "fr": "Un compte actif.",
       "ar": "حساب نشط.",
       "en": "An active account."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Adaptable",
@@ -7174,7 +7645,8 @@ window.VOCAB_DATA = [
       "fr": "Il est adaptable aux changements.",
       "ar": "هو قادر على التكيف مع التغييرات.",
       "en": "He is adaptable to changes."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Agréé",
@@ -7188,7 +7660,8 @@ window.VOCAB_DATA = [
       "fr": "Un professionnel agréé.",
       "ar": "مهني معتمد.",
       "en": "A certified professional."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Alimenté",
@@ -7202,7 +7675,8 @@ window.VOCAB_DATA = [
       "fr": "L'appareil est alimenté par une batterie.",
       "ar": "الجهاز يعمل ببطارية.",
       "en": "The device is powered by a battery."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Alternatif",
@@ -7216,7 +7690,8 @@ window.VOCAB_DATA = [
       "fr": "Une solution alternative.",
       "ar": "حل بديل.",
       "en": "An alternative solution."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Ample",
@@ -7230,7 +7705,8 @@ window.VOCAB_DATA = [
       "fr": "Il y a un espace ample.",
       "ar": "هناك مساحة واسعة.",
       "en": "There is ample space."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Analytique",
@@ -7244,7 +7720,8 @@ window.VOCAB_DATA = [
       "fr": "Il a un esprit analytique.",
       "ar": "لديه عقل تحليلي.",
       "en": "He has an analytical mind."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Approximatif",
@@ -7259,7 +7736,8 @@ window.VOCAB_DATA = [
       "fr": "C'est un calcul approximatif.",
       "ar": "إنه حساب تقريبي.",
       "en": "It is an approximate calculation."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Arbitraire",
@@ -7273,7 +7751,8 @@ window.VOCAB_DATA = [
       "fr": "Cette décision semble arbitraire.",
       "ar": "هذا القرار يبدو اعتباطيًا.",
       "en": "This decision seems arbitrary."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Assumable",
@@ -7287,7 +7766,8 @@ window.VOCAB_DATA = [
       "fr": "La situation est encore assumable.",
       "ar": "الوضع ما زال قابلًا للتحمل.",
       "en": "The situation is still manageable."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Acéré",
@@ -7302,7 +7782,8 @@ window.VOCAB_DATA = [
       "fr": "Une douleur acérée.",
       "ar": "ألم حاد.",
       "en": "A sharp pain."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Acoustique",
@@ -7316,7 +7797,8 @@ window.VOCAB_DATA = [
       "fr": "La qualité acoustique de la salle est bonne.",
       "ar": "جودة الصوت في القاعة جيدة.",
       "en": "The acoustic quality of the room is good."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Adaptatif",
@@ -7330,7 +7812,8 @@ window.VOCAB_DATA = [
       "fr": "Un système adaptatif.",
       "ar": "نظام متكيف.",
       "en": "An adaptive system."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Additif",
@@ -7344,7 +7827,8 @@ window.VOCAB_DATA = [
       "fr": "Un produit sans additif.",
       "ar": "منتج بدون إضافات.",
       "en": "A product without additives."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Adhérent",
@@ -7358,7 +7842,8 @@ window.VOCAB_DATA = [
       "fr": "Les membres adhérents participent aux activités.",
       "ar": "الأعضاء المشاركون يشاركون في الأنشطة.",
       "en": "Members participate in activities."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Administrable",
@@ -7372,7 +7857,8 @@ window.VOCAB_DATA = [
       "fr": "La situation est administrable.",
       "ar": "الوضع قابل للإدارة.",
       "en": "The situation is manageable."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Admiré",
@@ -7386,7 +7872,8 @@ window.VOCAB_DATA = [
       "fr": "C'est un professeur très admiré.",
       "ar": "إنه أستاذ يحظى بإعجاب كبير.",
       "en": "He is a highly admired teacher."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Adoptable",
@@ -7400,7 +7887,8 @@ window.VOCAB_DATA = [
       "fr": "Cette solution est facilement adoptable.",
       "ar": "هذا الحل سهل الاعتماد.",
       "en": "This solution is easy to adopt."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Adressable",
@@ -7414,7 +7902,8 @@ window.VOCAB_DATA = [
       "fr": "Le problème est adressable.",
       "ar": "يمكن معالجة المشكلة.",
       "en": "The problem can be addressed."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Affecté",
@@ -7428,7 +7917,8 @@ window.VOCAB_DATA = [
       "fr": "Il est affecté à un nouveau poste.",
       "ar": "تم تعيينه في منصب جديد.",
       "en": "He is assigned to a new position."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Affirmé",
@@ -7442,7 +7932,8 @@ window.VOCAB_DATA = [
       "fr": "Un style affirmé.",
       "ar": "أسلوب واضح وقوي.",
       "en": "A strong style."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Agissant",
@@ -7456,7 +7947,8 @@ window.VOCAB_DATA = [
       "fr": "Une mesure agissante.",
       "ar": "إجراء فعّال.",
       "en": "An effective measure."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Aisé",
@@ -7471,7 +7963,8 @@ window.VOCAB_DATA = [
       "fr": "Un accès aisé.",
       "ar": "وصول سهل.",
       "en": "Easy access."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Alarmé",
@@ -7485,7 +7978,8 @@ window.VOCAB_DATA = [
       "fr": "Je suis alarmé par cette situation.",
       "ar": "أنا قلق بسبب هذا الوضع.",
       "en": "I am alarmed by this situation."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Analysable",
@@ -7499,7 +7993,8 @@ window.VOCAB_DATA = [
       "fr": "Les données sont analysables.",
       "ar": "البيانات قابلة للتحليل.",
       "en": "The data is analyzable."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Angoissant",
@@ -7513,7 +8008,8 @@ window.VOCAB_DATA = [
       "fr": "Cette situation est angoissante.",
       "ar": "هذا الوضع يسبب القلق.",
       "en": "This situation is stressful."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Annexe",
@@ -7527,7 +8023,8 @@ window.VOCAB_DATA = [
       "fr": "Un document annexe est nécessaire.",
       "ar": "وثيقة مرفقة ضرورية.",
       "en": "An annex document is required."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Annulé",
@@ -7541,7 +8038,8 @@ window.VOCAB_DATA = [
       "fr": "Le rendez-vous est annulé.",
       "ar": "الموعد ملغى.",
       "en": "The appointment is cancelled."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Anormal",
@@ -7555,7 +8053,8 @@ window.VOCAB_DATA = [
       "fr": "Ce comportement est anormal.",
       "ar": "هذا التصرف غير طبيعي.",
       "en": "This behavior is abnormal."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Anticipé",
@@ -7569,7 +8068,8 @@ window.VOCAB_DATA = [
       "fr": "Un paiement anticipé est possible.",
       "ar": "الدفع المسبق ممكن.",
       "en": "An advance payment is possible."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Apaisé",
@@ -7584,7 +8084,8 @@ window.VOCAB_DATA = [
       "fr": "Le conflit est maintenant apaisé.",
       "ar": "النزاع أصبح هادئًا الآن.",
       "en": "The conflict is now calmed."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Arrangé",
@@ -7598,7 +8099,8 @@ window.VOCAB_DATA = [
       "fr": "Tout est arrangé maintenant.",
       "ar": "كل شيء مرتب الآن.",
       "en": "Everything is arranged now."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Ascendant",
@@ -7612,7 +8114,8 @@ window.VOCAB_DATA = [
       "fr": "Un ordre ascendant.",
       "ar": "ترتيب تصاعدي.",
       "en": "An ascending order."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Associatif",
@@ -7626,7 +8129,8 @@ window.VOCAB_DATA = [
       "fr": "Une activité associative.",
       "ar": "نشاط جمعوي.",
       "en": "An associative activity."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Assorti",
@@ -7640,7 +8144,8 @@ window.VOCAB_DATA = [
       "fr": "Une couleur assortie.",
       "ar": "لون متناسق.",
       "en": "A matching color."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Astucieux",
@@ -7654,7 +8159,8 @@ window.VOCAB_DATA = [
       "fr": "C'est une solution astucieuse.",
       "ar": "إنه حل ذكي.",
       "en": "It is a clever solution."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Atteignable",
@@ -7668,7 +8174,8 @@ window.VOCAB_DATA = [
       "fr": "Cet objectif est atteignable.",
       "ar": "هذا الهدف قابل للتحقيق.",
       "en": "This goal is achievable."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Authentifié",
@@ -7682,7 +8189,8 @@ window.VOCAB_DATA = [
       "fr": "Le document est authentifié.",
       "ar": "تم توثيق الوثيقة.",
       "en": "The document is authenticated."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Automatisé",
@@ -7696,7 +8204,8 @@ window.VOCAB_DATA = [
       "fr": "Le système est automatisé.",
       "ar": "النظام مؤتمت.",
       "en": "The system is automated."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Autoritaire",
@@ -7710,7 +8219,8 @@ window.VOCAB_DATA = [
       "fr": "Un chef autoritaire.",
       "ar": "مدير متسلط.",
       "en": "An authoritarian manager."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Averti",
@@ -7724,7 +8234,8 @@ window.VOCAB_DATA = [
       "fr": "Un utilisateur averti.",
       "ar": "مستخدم ذو خبرة.",
       "en": "An experienced user."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Accessible financièrement",
@@ -7738,7 +8249,8 @@ window.VOCAB_DATA = [
       "fr": "Ce logement est accessible financièrement.",
       "ar": "هذا السكن ميسور التكلفة.",
       "en": "This housing is affordable."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Acquis",
@@ -7752,7 +8264,8 @@ window.VOCAB_DATA = [
       "fr": "Des connaissances acquises.",
       "ar": "معارف مكتسبة.",
       "en": "Acquired knowledge."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Adjoint",
@@ -7766,7 +8279,8 @@ window.VOCAB_DATA = [
       "fr": "Le directeur adjoint est absent.",
       "ar": "نائب المدير غائب.",
       "en": "The deputy director is absent."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Ambiant",
@@ -7780,7 +8294,8 @@ window.VOCAB_DATA = [
       "fr": "La température ambiante.",
       "ar": "درجة حرارة الغرفة.",
       "en": "The ambient temperature."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Anglais",
@@ -7794,7 +8309,8 @@ window.VOCAB_DATA = [
       "fr": "La langue anglaise.",
       "ar": "اللغة الإنجليزية.",
       "en": "The English language."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Argumenté",
@@ -7808,7 +8324,8 @@ window.VOCAB_DATA = [
       "fr": "Un rapport bien argumenté.",
       "ar": "تقرير مدعوم جيدًا بالحجج.",
       "en": "A well-argued report."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Arrivé",
@@ -7822,7 +8339,8 @@ window.VOCAB_DATA = [
       "fr": "Je suis arrivé à l'heure.",
       "ar": "وصلت في الوقت المحدد.",
       "en": "I arrived on time."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Articulé",
@@ -7836,7 +8354,8 @@ window.VOCAB_DATA = [
       "fr": "Un discours bien articulé.",
       "ar": "خطاب واضح ومنظم.",
       "en": "A well-articulated speech."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Audacieux",
@@ -7850,7 +8369,8 @@ window.VOCAB_DATA = [
       "fr": "C'est un choix audacieux.",
       "ar": "إنه اختيار جريء.",
       "en": "It is a bold choice."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Augmenté",
@@ -7864,7 +8384,8 @@ window.VOCAB_DATA = [
       "fr": "Le prix augmenté pose problème.",
       "ar": "السعر المرتفع يسبب مشكلة.",
       "en": "The increased price causes a problem."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Autrichien",
@@ -7878,7 +8399,8 @@ window.VOCAB_DATA = [
       "fr": "Un citoyen autrichien.",
       "ar": "مواطن نمساوي.",
       "en": "An Austrian citizen."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Avantagé",
@@ -7892,7 +8414,8 @@ window.VOCAB_DATA = [
       "fr": "Un groupe avantagé par la situation.",
       "ar": "مجموعة مستفيدة من الوضع.",
       "en": "A group advantaged by the situation."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Atypique",
@@ -7907,7 +8430,8 @@ window.VOCAB_DATA = [
       "fr": "Un parcours atypique.",
       "ar": "مسار غير عادي.",
       "en": "An atypical path."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Abordable",
@@ -7921,7 +8445,8 @@ window.VOCAB_DATA = [
       "fr": "Un prix abordable.",
       "ar": "سعر معقول.",
       "en": "An affordable price."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Abondant",
@@ -7935,7 +8460,8 @@ window.VOCAB_DATA = [
       "fr": "Une récolte abondante.",
       "ar": "محصول وفير.",
       "en": "An abundant harvest."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Abrupt",
@@ -7949,7 +8475,8 @@ window.VOCAB_DATA = [
       "fr": "Un changement abrupt.",
       "ar": "تغيير مفاجئ.",
       "en": "An abrupt change."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Absentéiste",
@@ -7963,7 +8490,8 @@ window.VOCAB_DATA = [
       "fr": "Un employé absentéiste.",
       "ar": "موظف كثير الغياب.",
       "en": "An employee frequently absent."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Absorbant",
@@ -7977,7 +8505,8 @@ window.VOCAB_DATA = [
       "fr": "Un papier absorbant.",
       "ar": "ورق ماص.",
       "en": "Absorbent paper."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Accepté",
@@ -7991,7 +8520,8 @@ window.VOCAB_DATA = [
       "fr": "Votre demande est acceptée.",
       "ar": "طلبك مقبول.",
       "en": "Your request is accepted."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Accidenté",
@@ -8005,7 +8535,8 @@ window.VOCAB_DATA = [
       "fr": "Une route accidentée.",
       "ar": "طريق وعر.",
       "en": "A rough road."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Accru",
@@ -8019,7 +8550,8 @@ window.VOCAB_DATA = [
       "fr": "Une demande accrue.",
       "ar": "طلب متزايد.",
       "en": "An increased demand."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Adhésif",
@@ -8033,7 +8565,8 @@ window.VOCAB_DATA = [
       "fr": "Un ruban adhésif.",
       "ar": "شريط لاصق.",
       "en": "An adhesive tape."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Adjacent",
@@ -8047,7 +8580,8 @@ window.VOCAB_DATA = [
       "fr": "La chambre adjacente.",
       "ar": "الغرفة المجاورة.",
       "en": "The adjacent room."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Admiratif",
@@ -8061,7 +8595,8 @@ window.VOCAB_DATA = [
       "fr": "Il a un regard admiratif.",
       "ar": "لديه نظرة إعجاب.",
       "en": "He has an admiring look."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Adoptif",
@@ -8075,7 +8610,8 @@ window.VOCAB_DATA = [
       "fr": "Une famille adoptive.",
       "ar": "عائلة بالتبني.",
       "en": "An adoptive family."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Aéré",
@@ -8089,7 +8625,8 @@ window.VOCAB_DATA = [
       "fr": "Une pièce bien aérée.",
       "ar": "غرفة جيدة التهوية.",
       "en": "A well-ventilated room."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Affiché",
@@ -8103,7 +8640,8 @@ window.VOCAB_DATA = [
       "fr": "Le prix affiché est correct.",
       "ar": "السعر المعروض صحيح.",
       "en": "The displayed price is correct."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Agité",
@@ -8117,7 +8655,8 @@ window.VOCAB_DATA = [
       "fr": "L'enfant est très agité.",
       "ar": "الطفل كثير الحركة.",
       "en": "The child is very restless."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Aiguë",
@@ -8131,7 +8670,8 @@ window.VOCAB_DATA = [
       "fr": "Une douleur aiguë.",
       "ar": "ألم حاد.",
       "en": "An acute pain."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Allumé",
@@ -8145,7 +8685,8 @@ window.VOCAB_DATA = [
       "fr": "La lumière est allumée.",
       "ar": "الضوء مشغّل.",
       "en": "The light is on."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Alterné",
@@ -8159,7 +8700,8 @@ window.VOCAB_DATA = [
       "fr": "Un travail en horaires alternés.",
       "ar": "عمل بساعات متناوبة.",
       "en": "Work with alternating shifts."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Angélique",
@@ -8173,7 +8715,8 @@ window.VOCAB_DATA = [
       "fr": "Un sourire angélique.",
       "ar": "ابتسامة ملائكية.",
       "en": "An angelic smile."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Anormalisé",
@@ -8187,7 +8730,8 @@ window.VOCAB_DATA = [
       "fr": "Un produit anormalisé.",
       "ar": "منتج غير مطابق.",
       "en": "A non-standard product."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Appréciable",
@@ -8201,7 +8745,8 @@ window.VOCAB_DATA = [
       "fr": "Une amélioration appréciable.",
       "ar": "تحسن ملحوظ.",
       "en": "A significant improvement."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Arbitral",
@@ -8215,7 +8760,8 @@ window.VOCAB_DATA = [
       "fr": "Une décision arbitrale.",
       "ar": "قرار تحكيمي.",
       "en": "An arbitral decision."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Argumentatif",
@@ -8229,7 +8775,8 @@ window.VOCAB_DATA = [
       "fr": "Un texte argumentatif.",
       "ar": "نص يعتمد على الحجج.",
       "en": "An argumentative text."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Armé",
@@ -8243,7 +8790,8 @@ window.VOCAB_DATA = [
       "fr": "Il est bien armé pour réussir.",
       "ar": "هو مجهز جيدًا للنجاح.",
       "en": "He is well equipped to succeed."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Associé",
@@ -8257,7 +8805,8 @@ window.VOCAB_DATA = [
       "fr": "Un risque associé.",
       "ar": "خطر مرتبط.",
       "en": "An associated risk."
-    }
+    },
+    "pos": "adjective"
   },
   {
     "fr": "Automatisable",
@@ -8272,6 +8821,7 @@ window.VOCAB_DATA = [
       "fr": "Une tâche automatisable.",
       "ar": "مهمة قابلة للأتمتة.",
       "en": "An automatable task."
-    }
+    },
+    "pos": "adjective"
   }
 ];

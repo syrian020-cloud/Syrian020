@@ -113,6 +113,7 @@
   .meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; align-items: center; }
   .level-pill { background: rgba(0,230,118,0.16); color: var(--success); border: 1px solid rgba(0,230,118,0.35); border-radius: 999px; padding: 0.1rem 0.5rem; font-size: 0.72rem; font-weight: 700; }
   .ctx-pill { background: var(--bg-tertiary); color: var(--text-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 0.1rem 0.5rem; font-size: 0.72rem; }
+  .pos-pill { background: rgba(123,121,255,0.12); color: var(--accent); border: 1px solid rgba(123,121,255,0.35); border-radius: 999px; padding: 0.1rem 0.5rem; font-size: 0.72rem; }
   .usage { color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.45rem; padding: 0.25rem 0.4rem; border-right: 3px solid var(--accent); background: rgba(123,121,255,0.08); border-radius: 0 8px 8px 0; }
 
   .example {
@@ -220,6 +221,7 @@
     q: '',
     levels: [],
     contexts: [],
+    pos: [],
     rate: parseFloat(localStorage.getItem('vocab_rate') || '1'),
     sort: localStorage.getItem('vocab_sort') || '',
     page: 1,
@@ -248,7 +250,13 @@
       stopAudio: 'إيقاف الصوت',
       level: 'المستوى',
       context: 'السياق',
+      pos: 'نوع الكلمة',
       all: 'الكل',
+      pos_verb: 'فعل',
+      pos_adjective: 'صفة',
+      pos_noun: 'اسم',
+      pos_phrase: 'عبارة',
+      pos_other: 'آخر',
       results: 'نتيجة',
       noResults: 'لا توجد نتائج',
       searchImages: 'صور Google',
@@ -277,7 +285,13 @@
       stopAudio: 'Stop audio',
       level: 'Level',
       context: 'Context',
+      pos: 'Word type',
       all: 'All',
+      pos_verb: 'Verb',
+      pos_adjective: 'Adjective',
+      pos_noun: 'Noun',
+      pos_phrase: 'Phrase',
+      pos_other: 'Other',
       results: 'result(s)',
       noResults: 'No results',
       searchImages: 'Images',
@@ -306,7 +320,13 @@
       stopAudio: 'Arrêter le son',
       level: 'Niveau',
       context: 'Contexte',
+      pos: 'Type de mot',
       all: 'Tout',
+      pos_verb: 'Verbe',
+      pos_adjective: 'Adjectif',
+      pos_noun: 'Nom',
+      pos_phrase: 'Expression',
+      pos_other: 'Autre',
       results: 'résultat(s)',
       noResults: 'Aucun résultat',
       searchImages: 'Images',
@@ -321,6 +341,14 @@
       copied: 'Copié',
       loadMore: 'Charger plus'
     }
+  };
+
+  var POS_LABELS = {
+    verb: { ar: 'فعل', en: 'Verb', fr: 'Verbe' },
+    adjective: { ar: 'صفة', en: 'Adjective', fr: 'Adjectif' },
+    noun: { ar: 'اسم', en: 'Noun', fr: 'Nom' },
+    phrase: { ar: 'عبارة', en: 'Phrase', fr: 'Expression' },
+    other: { ar: 'آخر', en: 'Other', fr: 'Autre' }
   };
 
   var CTX_LABELS = {
@@ -354,6 +382,7 @@
 
   function t(key){ return UI[state.uiLang][key] || UI.en[key] || UI.ar[key] || key; }
   function ctxLabel(key){ var c = CTX_LABELS[key]; return c ? c[state.uiLang] || c.en : key; }
+  function posLabel(key){ var p = POS_LABELS[key]; return p ? p[state.uiLang] || p.en : key; }
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
   function init(){
@@ -397,6 +426,9 @@
     var ctxs = {};
     VOCAB.forEach(function(v){ (v.contexts||[]).forEach(function(c){ ctxs[c] = (ctxs[c]||0)+1; }); });
     var sortedCtxs = Object.keys(ctxs).sort(function(a,b){ return ctxs[b]-ctxs[a] || a.localeCompare(b); });
+    var poss = ['verb','adjective','noun','phrase','other'];
+    var posCounts = {};
+    VOCAB.forEach(function(v){ var p = v.pos || 'other'; posCounts[p] = (posCounts[p]||0)+1; });
 
     var html = '';
     html += '<span style="color:var(--text-secondary);font-size:0.82rem;align-self:center;">' + t('level') + ':</span>';
@@ -404,6 +436,9 @@
     html += '<span style="width:0.4rem"></span>';
     html += '<span style="color:var(--text-secondary);font-size:0.82rem;align-self:center;">' + t('context') + ':</span>';
     sortedCtxs.forEach(function(c){ html += chipHtml('context', c, ctxLabel(c), state.contexts.indexOf(c) !== -1); });
+    html += '<span style="width:0.4rem"></span>';
+    html += '<span style="color:var(--text-secondary);font-size:0.82rem;align-self:center;">' + t('pos') + ':</span>';
+    poss.forEach(function(p){ if((posCounts[p]||0) > 0){ html += chipHtml('pos', p, posLabel(p) + ' (' + posCounts[p] + ')', state.pos.indexOf(p) !== -1); } });
     filters.innerHTML = html;
   }
 
@@ -416,9 +451,10 @@
     var items = VOCAB.filter(function(v){
       if(state.levels.length && state.levels.indexOf(v.level) === -1) return false;
       if(state.contexts.length && !v.contexts.some(function(c){ return state.contexts.indexOf(c) !== -1; })) return false;
+      if(state.pos.length && state.pos.indexOf(v.pos || 'other') === -1) return false;
       if(!q) return true;
       var ex = v.ex || {};
-      var hay = (v.fr + ' ' + (v.ar||'') + ' ' + (v.en||'') + ' ' + (v.usage||'') + ' ' + (v.contexts||[]).join(' ') + ' ' + (ex.fr||'') + ' ' + (ex.ar||'') + ' ' + (ex.en||'')).toLowerCase();
+      var hay = (v.fr + ' ' + (v.ar||'') + ' ' + (v.en||'') + ' ' + (v.usage||'') + ' ' + (v.contexts||[]).join(' ') + ' ' + (v.pos||'') + ' ' + (ex.fr||'') + ' ' + (ex.ar||'') + ' ' + (ex.en||'')).toLowerCase();
       return hay.indexOf(q) !== -1;
     });
     if(state.sort === 'az') items.sort(function(a,b){ return a.fr.localeCompare(b.fr, 'fr'); });
@@ -453,6 +489,7 @@
             '<div class="en-line" dir="ltr">' + esc(v.en||'') + '</div>' +
             '<div class="meta">' +
               '<span class="level-pill">' + esc(v.level) + '</span>' +
+              (v.pos ? '<span class="pos-pill">' + esc(posLabel(v.pos)) + '</span>' : '') +
               (v.contexts||[]).map(function(c){ return '<span class="ctx-pill">' + esc(ctxLabel(c)) + '</span>'; }).join('') +
             '</div>' +
             usage +
@@ -601,7 +638,7 @@
     filters.addEventListener('click', function(e){
       var chip = e.target.closest('.filter-chip'); if(!chip) return;
       var type = chip.dataset.type, key = chip.dataset.key;
-      var arr = type === 'level' ? state.levels : state.contexts;
+      var arr = type === 'level' ? state.levels : type === 'context' ? state.contexts : state.pos;
       var i = arr.indexOf(key);
       if(i === -1) arr.push(key); else arr.splice(i, 1);
       buildFilters();
