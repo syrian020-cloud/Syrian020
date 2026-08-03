@@ -2771,7 +2771,8 @@ window.VOCAB_DATA = [
     "en": "Administrative",
     "level": "B1",
     "contexts": [
-      "daily"
+      "daily",
+      "services"
     ],
     "ex": {
       "fr": "J'ai un problème administratif.",
@@ -2817,6 +2818,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "caf",
+      "daily",
       "services"
     ],
     "ex": {
@@ -3742,6 +3744,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "bank",
+      "car",
       "services"
     ],
     "ex": {
@@ -3788,6 +3791,7 @@ window.VOCAB_DATA = [
     "en": "Independent",
     "level": "B1",
     "contexts": [
+      "car",
       "work"
     ],
     "ex": {
@@ -4175,7 +4179,8 @@ window.VOCAB_DATA = [
     "en": "Damaged",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "phone"
     ],
     "ex": {
       "fr": "L'écran est abîmé.",
@@ -4815,6 +4820,7 @@ window.VOCAB_DATA = [
     "en": "Suitable / Appropriate",
     "level": "B2",
     "contexts": [
+      "daily",
       "services",
       "work"
     ],
@@ -4893,7 +4899,10 @@ window.VOCAB_DATA = [
     "en": "Previous / Prior",
     "level": "B2",
     "contexts": [
-      "daily"
+      "daily",
+      "school",
+      "services",
+      "work"
     ],
     "ex": {
       "fr": "Selon les informations antérieures...",
@@ -5555,6 +5564,7 @@ window.VOCAB_DATA = [
     "en": "Expected",
     "level": "B2",
     "contexts": [
+      "daily",
       "phone",
       "services"
     ],
@@ -5619,7 +5629,8 @@ window.VOCAB_DATA = [
     "en": "Authentic / Genuine",
     "level": "B2",
     "contexts": [
-      "services"
+      "services",
+      "shop"
     ],
     "ex": {
       "fr": "Le document est authentique.",
@@ -6123,5 +6134,2144 @@ window.VOCAB_DATA = [
       "en": "He admitted his mistake."
     },
     "usage": "المحادثات والنقاشات"
+  },
+  {
+    "fr": "Abandonné",
+    "ar": "مهجور / متروك",
+    "en": "Abandoned",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ce bâtiment est abandonné.",
+      "ar": "هذا المبنى مهجور.",
+      "en": "This building is abandoned."
+    }
+  },
+  {
+    "fr": "Abaissé",
+    "ar": "منخفض / مخفّض",
+    "en": "Lowered",
+    "level": "A2",
+    "contexts": [
+      "shop"
+    ],
+    "ex": {
+      "fr": "Les prix sont abaissés cette semaine.",
+      "ar": "الأسعار مخفّضة هذا الأسبوع.",
+      "en": "The prices are lowered this week."
+    }
+  },
+  {
+    "fr": "Absolu",
+    "ar": "مطلق / كامل",
+    "en": "Absolute",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ce n'est pas une vérité absolue.",
+      "ar": "ليست حقيقة مطلقة.",
+      "en": "It's not an absolute truth."
+    }
+  },
+  {
+    "fr": "Absurde",
+    "ar": "سخيف / غير منطقي",
+    "en": "Absurd",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "C'est une décision absurde.",
+      "ar": "إنه قرار غير منطقي.",
+      "en": "It's an absurd decision."
+    }
+  },
+  {
+    "fr": "Académique",
+    "ar": "أكاديمي",
+    "en": "Academic",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il a un excellent niveau académique.",
+      "ar": "لديه مستوى أكاديمي ممتاز.",
+      "en": "He has an excellent academic level."
+    }
+  },
+  {
+    "fr": "Accablé",
+    "ar": "مثقل / مرهق",
+    "en": "Overwhelmed",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je suis accablé de travail.",
+      "ar": "أنا مثقل بالعمل.",
+      "en": "I am overwhelmed with work."
+    }
+  },
+  {
+    "fr": "Accéléré",
+    "ar": "متسارع",
+    "en": "Accelerated",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "La procédure est accélérée.",
+      "ar": "تم تسريع الإجراء.",
+      "en": "The procedure is accelerated."
+    }
+  },
+  {
+    "fr": "Acceptable",
+    "ar": "مقبول",
+    "en": "Acceptable",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cette solution est acceptable.",
+      "ar": "هذا الحل مقبول.",
+      "en": "This solution is acceptable."
+    }
+  },
+  {
+    "fr": "Accessible",
+    "ar": "متاح / سهل الوصول",
+    "en": "Accessible",
+    "level": "A2",
+    "contexts": [
+      "health",
+      "services"
+    ],
+    "ex": {
+      "fr": "Le bâtiment est accessible aux personnes handicapées.",
+      "ar": "المبنى متاح لذوي الإعاقة.",
+      "en": "The building is accessible to people with disabilities."
+    }
+  },
+  {
+    "fr": "Accidentel",
+    "ar": "عرضي / غير مقصود",
+    "en": "Accidental",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'était un accident.",
+      "ar": "كان ذلك حادثًا.",
+      "en": "It was an accident."
+    }
+  },
+  {
+    "fr": "Accompagné",
+    "ar": "برفقة / مرفق",
+    "en": "Accompanied",
+    "level": "A2",
+    "contexts": [
+      "family"
+    ],
+    "ex": {
+      "fr": "L'enfant doit être accompagné d'un adulte.",
+      "ar": "يجب أن يكون الطفل برفقة شخص بالغ.",
+      "en": "The child must be accompanied by an adult."
+    }
+  },
+  {
+    "fr": "Accompli",
+    "ar": "منجز / مكتمل",
+    "en": "Accomplished",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "C'est un travail bien accompli.",
+      "ar": "إنه عمل أُنجز بشكل جيد.",
+      "en": "It is a job well done."
+    }
+  },
+  {
+    "fr": "Accordé",
+    "ar": "ممنوح / مُوافق عليه",
+    "en": "Granted / Approved",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Votre demande a été accordée.",
+      "ar": "تمت الموافقة على طلبك.",
+      "en": "Your request has been approved."
+    }
+  },
+  {
+    "fr": "Accueillant",
+    "ar": "مرحّب / ودود",
+    "en": "Welcoming",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le personnel est très accueillant.",
+      "ar": "الموظفون مرحبون جدًا.",
+      "en": "The staff is very welcoming."
+    }
+  },
+  {
+    "fr": "Accumulé",
+    "ar": "متراكم",
+    "en": "Accumulated",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai beaucoup de retard accumulé.",
+      "ar": "لدي الكثير من التأخير المتراكم.",
+      "en": "I have a lot of accumulated delay."
+    }
+  },
+  {
+    "fr": "Accusé",
+    "ar": "متهم",
+    "en": "Accused",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il est accusé d'une erreur.",
+      "ar": "هو متهم بخطأ.",
+      "en": "He is accused of a mistake."
+    }
+  },
+  {
+    "fr": "Actif",
+    "ar": "نشيط / فعّال",
+    "en": "Active",
+    "level": "A2",
+    "contexts": [
+      "bank",
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je reste actif malgré mon âge.",
+      "ar": "أبقى نشيطًا رغم عمري.",
+      "en": "I stay active despite my age."
+    }
+  },
+  {
+    "fr": "Actuelle",
+    "ar": "حالية",
+    "en": "Current",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ma situation actuelle est différente.",
+      "ar": "وضعي الحالي مختلف.",
+      "en": "My current situation is different."
+    }
+  },
+  {
+    "fr": "Actuel",
+    "ar": "حالي",
+    "en": "Current",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le problème actuel doit être réglé.",
+      "ar": "يجب حل المشكلة الحالية.",
+      "en": "The current problem must be solved."
+    }
+  },
+  {
+    "fr": "Adapté",
+    "ar": "مناسب / ملائم",
+    "en": "Suitable / Adapted",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ce traitement est adapté à ma situation.",
+      "ar": "هذا العلاج مناسب لوضعي.",
+      "en": "This treatment is suitable for my situation."
+    }
+  },
+  {
+    "fr": "Admirable",
+    "ar": "رائع / جدير بالإعجاب",
+    "en": "Admirable",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est un effort admirable.",
+      "ar": "إنه جهد رائع.",
+      "en": "It is an admirable effort."
+    }
+  },
+  {
+    "fr": "Adolescent",
+    "ar": "مراهق",
+    "en": "Teenage / Adolescent",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est un jeune adolescent.",
+      "ar": "إنه مراهق صغير.",
+      "en": "He is a young teenager."
+    }
+  },
+  {
+    "fr": "Adopté",
+    "ar": "معتمد / متبنّى",
+    "en": "Adopted",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "La nouvelle règle est adoptée.",
+      "ar": "تم اعتماد القاعدة الجديدة.",
+      "en": "The new rule is adopted."
+    }
+  },
+  {
+    "fr": "Adorable",
+    "ar": "لطيف جدًا / محبوب",
+    "en": "Adorable",
+    "level": "A2",
+    "contexts": [
+      "family"
+    ],
+    "ex": {
+      "fr": "Ton enfant est adorable.",
+      "ar": "طفلك لطيف جدًا.",
+      "en": "Your child is adorable."
+    }
+  },
+  {
+    "fr": "Adroit",
+    "ar": "ماهر / بارع",
+    "en": "Skillful / Dexterous",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il est très adroit avec ses mains.",
+      "ar": "هو ماهر جدًا بيديه.",
+      "en": "He is very skillful with his hands."
+    }
+  },
+  {
+    "fr": "Adulte",
+    "ar": "بالغ",
+    "en": "Adult",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Un adulte doit respecter les règles.",
+      "ar": "يجب على الشخص البالغ احترام القواعد.",
+      "en": "An adult must respect the rules."
+    }
+  },
+  {
+    "fr": "Aérien",
+    "ar": "جوي",
+    "en": "Aerial / Air-related",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": {
+      "fr": "Le transport aérien est rapide.",
+      "ar": "النقل الجوي سريع.",
+      "en": "Air transport is fast."
+    }
+  },
+  {
+    "fr": "Affectueux",
+    "ar": "حنون / عطوف",
+    "en": "Affectionate",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est une personne très affectueuse.",
+      "ar": "إنه شخص حنون جدًا.",
+      "en": "He is a very affectionate person."
+    }
+  },
+  {
+    "fr": "Affamé",
+    "ar": "جائع جدًا",
+    "en": "Hungry / Starving",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je suis affamé après le travail.",
+      "ar": "أنا جائع جدًا بعد العمل.",
+      "en": "I am starving after work."
+    }
+  },
+  {
+    "fr": "Affaibli",
+    "ar": "ضعيف / منهك",
+    "en": "Weakened",
+    "level": "A2",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je me sens affaibli après la maladie.",
+      "ar": "أشعر بالضعف بعد المرض.",
+      "en": "I feel weakened after the illness."
+    }
+  },
+  {
+    "fr": "Affirmatif",
+    "ar": "إيجابي / مؤكد",
+    "en": "Affirmative",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La réponse est affirmative.",
+      "ar": "الإجابة إيجابية.",
+      "en": "The answer is affirmative."
+    }
+  },
+  {
+    "fr": "Âgé",
+    "ar": "كبير في السن",
+    "en": "Elderly / Aged",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Une personne âgée a besoin d'aide.",
+      "ar": "الشخص المسن يحتاج إلى مساعدة.",
+      "en": "An elderly person needs help."
+    }
+  },
+  {
+    "fr": "Agile",
+    "ar": "رشيق / سريع الحركة",
+    "en": "Agile",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il est agile et rapide.",
+      "ar": "هو رشيق وسريع.",
+      "en": "He is agile and fast."
+    }
+  },
+  {
+    "fr": "Agréable",
+    "ar": "لطيف / ممتع",
+    "en": "Pleasant / Nice",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est une personne agréable.",
+      "ar": "إنه شخص لطيف.",
+      "en": "He is a pleasant person."
+    }
+  },
+  {
+    "fr": "Agressif",
+    "ar": "عدواني",
+    "en": "Aggressive",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Son comportement est agressif.",
+      "ar": "تصرفه عدواني.",
+      "en": "His behavior is aggressive."
+    }
+  },
+  {
+    "fr": "Agrandi",
+    "ar": "موسّع / أكبر",
+    "en": "Enlarged",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La salle a été agrandie.",
+      "ar": "تم توسيع القاعة.",
+      "en": "The room was enlarged."
+    }
+  },
+  {
+    "fr": "Aigu",
+    "ar": "حاد / شديد",
+    "en": "Acute / Sharp",
+    "level": "A2",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai une douleur aiguë.",
+      "ar": "لدي ألم شديد.",
+      "en": "I have acute pain."
+    }
+  },
+  {
+    "fr": "Ailé",
+    "ar": "مجنّح",
+    "en": "Winged",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un insecte ailé.",
+      "ar": "حشرة مجنحة.",
+      "en": "A winged insect."
+    }
+  },
+  {
+    "fr": "Aimable",
+    "ar": "لطيف / مهذب",
+    "en": "Kind / Pleasant",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le personnel est aimable.",
+      "ar": "الموظفون لطفاء.",
+      "en": "The staff is kind."
+    }
+  },
+  {
+    "fr": "Alarmant",
+    "ar": "مقلق / خطير",
+    "en": "Alarming",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La situation devient alarmante.",
+      "ar": "الوضع يصبح مقلقًا.",
+      "en": "The situation is becoming alarming."
+    }
+  },
+  {
+    "fr": "Aléatoire",
+    "ar": "عشوائي",
+    "en": "Random",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le choix est aléatoire.",
+      "ar": "الاختيار عشوائي.",
+      "en": "The choice is random."
+    }
+  },
+  {
+    "fr": "Alimentaire",
+    "ar": "غذائي",
+    "en": "Food-related",
+    "level": "A2",
+    "contexts": [
+      "health",
+      "shop"
+    ],
+    "ex": {
+      "fr": "Les produits alimentaires sont contrôlés.",
+      "ar": "يتم فحص المنتجات الغذائية.",
+      "en": "Food products are controlled."
+    }
+  },
+  {
+    "fr": "Aligné",
+    "ar": "مصطف / محاذٍ",
+    "en": "Aligned",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "Les documents sont bien alignés.",
+      "ar": "الوثائق مصطفة جيدًا.",
+      "en": "The documents are well aligned."
+    }
+  },
+  {
+    "fr": "Allégé",
+    "ar": "مخفف / أقل ثقلًا",
+    "en": "Lightened / Reduced",
+    "level": "A2",
+    "contexts": [
+      "shop"
+    ],
+    "ex": {
+      "fr": "Un produit allégé contient moins de matières grasses.",
+      "ar": "منتج مخفف يحتوي على دهون أقل.",
+      "en": "A light product contains less fat."
+    }
+  },
+  {
+    "fr": "Allongé",
+    "ar": "ممدّد / طويل",
+    "en": "Extended / Elongated",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le délai est allongé.",
+      "ar": "تم تمديد المدة.",
+      "en": "The deadline is extended."
+    }
+  },
+  {
+    "fr": "Ambitieux",
+    "ar": "طموح",
+    "en": "Ambitious",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "C'est un projet ambitieux.",
+      "ar": "إنه مشروع طموح.",
+      "en": "It is an ambitious project."
+    }
+  },
+  {
+    "fr": "Amélioré",
+    "ar": "محسّن",
+    "en": "Improved",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "La qualité du service est améliorée.",
+      "ar": "جودة الخدمة تحسنت.",
+      "en": "The quality of the service is improved."
+    }
+  },
+  {
+    "fr": "Amical",
+    "ar": "ودّي / وديع",
+    "en": "Friendly",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "phone"
+    ],
+    "ex": {
+      "fr": "Il a une attitude amicale.",
+      "ar": "لديه تصرف ودّي.",
+      "en": "He has a friendly attitude."
+    }
+  },
+  {
+    "fr": "Amoureux",
+    "ar": "واقع في الحب / محب",
+    "en": "In love",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ils sont amoureux.",
+      "ar": "إنهما واقعان في الحب.",
+      "en": "They are in love."
+    }
+  },
+  {
+    "fr": "Analogue",
+    "ar": "مماثل / مشابه",
+    "en": "Similar / Analogous",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai une situation analogue.",
+      "ar": "لدي وضع مشابه.",
+      "en": "I have a similar situation."
+    }
+  },
+  {
+    "fr": "Annuel",
+    "ar": "سنوي",
+    "en": "Annual",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le contrôle annuel est obligatoire.",
+      "ar": "الفحص السنوي إجباري.",
+      "en": "The annual check is mandatory."
+    }
+  },
+  {
+    "fr": "Annulable",
+    "ar": "قابل للإلغاء",
+    "en": "Cancelable",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La réservation est annulable.",
+      "ar": "الحجز قابل للإلغاء.",
+      "en": "The reservation is cancelable."
+    }
+  },
+  {
+    "fr": "Anonyme",
+    "ar": "مجهول / بدون اسم",
+    "en": "Anonymous",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "phone"
+    ],
+    "ex": {
+      "fr": "Vous pouvez répondre de manière anonyme.",
+      "ar": "يمكنك الإجابة بشكل مجهول.",
+      "en": "You can answer anonymously."
+    }
+  },
+  {
+    "fr": "Antérieur(e)",
+    "ar": "سابق / سابق الذكر",
+    "en": "Earlier",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Une expérience antérieure est demandée.",
+      "ar": "مطلوب خبرة سابقة.",
+      "en": "Previous experience is required."
+    }
+  },
+  {
+    "fr": "Apparent",
+    "ar": "ظاهر / واضح",
+    "en": "Apparent",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le problème est apparent.",
+      "ar": "المشكلة واضحة.",
+      "en": "The problem is apparent."
+    }
+  },
+  {
+    "fr": "Approprié",
+    "ar": "مناسب / ملائم",
+    "en": "Appropriate",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est une réponse appropriée.",
+      "ar": "هذا جواب مناسب.",
+      "en": "It is an appropriate answer."
+    }
+  },
+  {
+    "fr": "Approfondi",
+    "ar": "متعمق",
+    "en": "Thorough / In-depth",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Une analyse approfondie est nécessaire.",
+      "ar": "تحليل متعمق ضروري.",
+      "en": "An in-depth analysis is necessary."
+    }
+  },
+  {
+    "fr": "Ardent",
+    "ar": "شديد الحماس / متحمس",
+    "en": "Passionate / Ardent",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il est un défenseur ardent de cette idée.",
+      "ar": "هو مدافع متحمس عن هذه الفكرة.",
+      "en": "He is a passionate supporter of this idea."
+    }
+  },
+  {
+    "fr": "Aride",
+    "ar": "جاف / صعب الفهم",
+    "en": "Dry / Arid",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un texte aride est difficile à lire.",
+      "ar": "نص جاف صعب القراءة.",
+      "en": "A dry text is difficult to read."
+    }
+  },
+  {
+    "fr": "Artificiel",
+    "ar": "اصطناعي",
+    "en": "Artificial",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "shop"
+    ],
+    "ex": {
+      "fr": "Ce produit contient des arômes artificiels.",
+      "ar": "هذا المنتج يحتوي على نكهات اصطناعية.",
+      "en": "This product contains artificial flavors."
+    }
+  },
+  {
+    "fr": "Artistique",
+    "ar": "فني",
+    "en": "Artistic",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est une œuvre artistique.",
+      "ar": "إنه عمل فني.",
+      "en": "It is an artistic work."
+    }
+  },
+  {
+    "fr": "Assidu",
+    "ar": "مواظب / مجتهد",
+    "en": "Diligent",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "school",
+      "work"
+    ],
+    "ex": {
+      "fr": "Il est assidu au travail.",
+      "ar": "هو مواظب في العمل.",
+      "en": "He is diligent at work."
+    }
+  },
+  {
+    "fr": "Assuré",
+    "ar": "مؤمّن / واثق",
+    "en": "Insured / Confident",
+    "level": "A2",
+    "contexts": [
+      "car",
+      "housing",
+      "services"
+    ],
+    "ex": {
+      "fr": "Le véhicule est assuré.",
+      "ar": "السيارة مؤمّنة.",
+      "en": "The vehicle is insured."
+    }
+  },
+  {
+    "fr": "Attentif",
+    "ar": "منتبه / حريص",
+    "en": "Attentive / Careful",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Soyez attentif aux instructions.",
+      "ar": "كن منتبهًا للتعليمات.",
+      "en": "Be attentive to the instructions."
+    }
+  },
+  {
+    "fr": "Attentionné",
+    "ar": "مهتم / حنون",
+    "en": "Caring / Thoughtful",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est une personne attentionnée.",
+      "ar": "إنه شخص مهتم بالآخرين.",
+      "en": "He is a caring person."
+    }
+  },
+  {
+    "fr": "Attractif",
+    "ar": "جذاب",
+    "en": "Attractive",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "Cette offre est très attractive.",
+      "ar": "هذا العرض جذاب جدًا.",
+      "en": "This offer is very attractive."
+    }
+  },
+  {
+    "fr": "Attrayant",
+    "ar": "جذاب / ملفت",
+    "en": "Appealing / Attractive",
+    "level": "A2",
+    "contexts": [
+      "shop"
+    ],
+    "ex": {
+      "fr": "Le prix est attrayant.",
+      "ar": "السعر جذاب.",
+      "en": "The price is attractive."
+    }
+  },
+  {
+    "fr": "Autorisé",
+    "ar": "مسموح / مرخّص",
+    "en": "Authorized / Allowed",
+    "level": "A2",
+    "contexts": [
+      "car",
+      "services"
+    ],
+    "ex": {
+      "fr": "Le stationnement est autorisé ici.",
+      "ar": "الوقوف مسموح هنا.",
+      "en": "Parking is allowed here."
+    }
+  },
+  {
+    "fr": "Avancé",
+    "ar": "متقدم",
+    "en": "Advanced",
+    "level": "A2",
+    "contexts": [
+      "school"
+    ],
+    "ex": {
+      "fr": "J'ai un niveau avancé en français.",
+      "ar": "لدي مستوى متقدم في الفرنسية.",
+      "en": "I have an advanced level in French."
+    }
+  },
+  {
+    "fr": "Avantageux",
+    "ar": "مفيد / مربح",
+    "en": "Advantageous",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "Cette offre est avantageuse.",
+      "ar": "هذا العرض مفيد.",
+      "en": "This offer is advantageous."
+    }
+  },
+  {
+    "fr": "Avisé",
+    "ar": "حكيم / مدروس",
+    "en": "Wise / Prudent",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "C'est une décision avisée.",
+      "ar": "إنه قرار حكيم.",
+      "en": "It is a wise decision."
+    }
+  },
+  {
+    "fr": "Actif (sens financier)",
+    "ar": "نشط / ذو قيمة",
+    "en": "Active / Asset-related",
+    "level": "A2",
+    "contexts": [
+      "bank"
+    ],
+    "ex": {
+      "fr": "Un compte actif.",
+      "ar": "حساب نشط.",
+      "en": "An active account."
+    }
+  },
+  {
+    "fr": "Adaptable",
+    "ar": "قابل للتكيف",
+    "en": "Adaptable",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il est adaptable aux changements.",
+      "ar": "هو قادر على التكيف مع التغييرات.",
+      "en": "He is adaptable to changes."
+    }
+  },
+  {
+    "fr": "Agréé",
+    "ar": "معتمد / مرخّص",
+    "en": "Approved / Certified",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un professionnel agréé.",
+      "ar": "مهني معتمد.",
+      "en": "A certified professional."
+    }
+  },
+  {
+    "fr": "Alimenté",
+    "ar": "مزود / يعمل بالطاقة",
+    "en": "Powered / Supplied",
+    "level": "A2",
+    "contexts": [
+      "car"
+    ],
+    "ex": {
+      "fr": "L'appareil est alimenté par une batterie.",
+      "ar": "الجهاز يعمل ببطارية.",
+      "en": "The device is powered by a battery."
+    }
+  },
+  {
+    "fr": "Alternatif",
+    "ar": "بديل",
+    "en": "Alternative",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Une solution alternative.",
+      "ar": "حل بديل.",
+      "en": "An alternative solution."
+    }
+  },
+  {
+    "fr": "Ample",
+    "ar": "واسع / كافٍ",
+    "en": "Ample / Sufficient",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il y a un espace ample.",
+      "ar": "هناك مساحة واسعة.",
+      "en": "There is ample space."
+    }
+  },
+  {
+    "fr": "Analytique",
+    "ar": "تحليلي",
+    "en": "Analytical",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il a un esprit analytique.",
+      "ar": "لديه عقل تحليلي.",
+      "en": "He has an analytical mind."
+    }
+  },
+  {
+    "fr": "Approximatif",
+    "ar": "تقريبي",
+    "en": "Approximate",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "shop"
+    ],
+    "ex": {
+      "fr": "C'est un calcul approximatif.",
+      "ar": "إنه حساب تقريبي.",
+      "en": "It is an approximate calculation."
+    }
+  },
+  {
+    "fr": "Arbitraire",
+    "ar": "اعتباطي / عشوائي",
+    "en": "Arbitrary",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Cette décision semble arbitraire.",
+      "ar": "هذا القرار يبدو اعتباطيًا.",
+      "en": "This decision seems arbitrary."
+    }
+  },
+  {
+    "fr": "Assumable",
+    "ar": "قابل للتحمل / يمكن تحمله",
+    "en": "Bearable / Manageable",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La situation est encore assumable.",
+      "ar": "الوضع ما زال قابلًا للتحمل.",
+      "en": "The situation is still manageable."
+    }
+  },
+  {
+    "fr": "Acéré",
+    "ar": "حاد / شديد",
+    "en": "Sharp / Acute",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "ex": {
+      "fr": "Une douleur acérée.",
+      "ar": "ألم حاد.",
+      "en": "A sharp pain."
+    }
+  },
+  {
+    "fr": "Acoustique",
+    "ar": "صوتي / متعلق بالصوت",
+    "en": "Acoustic",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La qualité acoustique de la salle est bonne.",
+      "ar": "جودة الصوت في القاعة جيدة.",
+      "en": "The acoustic quality of the room is good."
+    }
+  },
+  {
+    "fr": "Adaptatif",
+    "ar": "متكيف / قابل للتكيف",
+    "en": "Adaptive",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un système adaptatif.",
+      "ar": "نظام متكيف.",
+      "en": "An adaptive system."
+    }
+  },
+  {
+    "fr": "Additif",
+    "ar": "مضاف / إضافي",
+    "en": "Additive",
+    "level": "A2",
+    "contexts": [
+      "shop"
+    ],
+    "ex": {
+      "fr": "Un produit sans additif.",
+      "ar": "منتج بدون إضافات.",
+      "en": "A product without additives."
+    }
+  },
+  {
+    "fr": "Adhérent",
+    "ar": "منضم / عضو",
+    "en": "Member / Affiliated",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Les membres adhérents participent aux activités.",
+      "ar": "الأعضاء المشاركون يشاركون في الأنشطة.",
+      "en": "Members participate in activities."
+    }
+  },
+  {
+    "fr": "Administrable",
+    "ar": "قابل للإدارة",
+    "en": "Manageable",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La situation est administrable.",
+      "ar": "الوضع قابل للإدارة.",
+      "en": "The situation is manageable."
+    }
+  },
+  {
+    "fr": "Admiré",
+    "ar": "محبوب / مُعجب به",
+    "en": "Admired",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est un professeur très admiré.",
+      "ar": "إنه أستاذ يحظى بإعجاب كبير.",
+      "en": "He is a highly admired teacher."
+    }
+  },
+  {
+    "fr": "Adoptable",
+    "ar": "قابل للتبني / الاعتماد",
+    "en": "Adoptable",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cette solution est facilement adoptable.",
+      "ar": "هذا الحل سهل الاعتماد.",
+      "en": "This solution is easy to adopt."
+    }
+  },
+  {
+    "fr": "Adressable",
+    "ar": "قابل للتوجيه / الإرسال",
+    "en": "Addressable",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le problème est adressable.",
+      "ar": "يمكن معالجة المشكلة.",
+      "en": "The problem can be addressed."
+    }
+  },
+  {
+    "fr": "Affecté",
+    "ar": "متأثر / مخصص",
+    "en": "Affected / Assigned",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il est affecté à un nouveau poste.",
+      "ar": "تم تعيينه في منصب جديد.",
+      "en": "He is assigned to a new position."
+    }
+  },
+  {
+    "fr": "Affirmé",
+    "ar": "واضح / قوي",
+    "en": "Asserted / Strong",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un style affirmé.",
+      "ar": "أسلوب واضح وقوي.",
+      "en": "A strong style."
+    }
+  },
+  {
+    "fr": "Agissant",
+    "ar": "فعّال / نشط",
+    "en": "Active / Acting",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Une mesure agissante.",
+      "ar": "إجراء فعّال.",
+      "en": "An effective measure."
+    }
+  },
+  {
+    "fr": "Aisé",
+    "ar": "سهل / ميسور",
+    "en": "Easy / Well-off",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "Un accès aisé.",
+      "ar": "وصول سهل.",
+      "en": "Easy access."
+    }
+  },
+  {
+    "fr": "Alarmé",
+    "ar": "قلق / مذعور",
+    "en": "Alarmed",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je suis alarmé par cette situation.",
+      "ar": "أنا قلق بسبب هذا الوضع.",
+      "en": "I am alarmed by this situation."
+    }
+  },
+  {
+    "fr": "Analysable",
+    "ar": "قابل للتحليل",
+    "en": "Analyzable",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Les données sont analysables.",
+      "ar": "البيانات قابلة للتحليل.",
+      "en": "The data is analyzable."
+    }
+  },
+  {
+    "fr": "Angoissant",
+    "ar": "مقلق / يسبب القلق",
+    "en": "Anxiety-provoking",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cette situation est angoissante.",
+      "ar": "هذا الوضع يسبب القلق.",
+      "en": "This situation is stressful."
+    }
+  },
+  {
+    "fr": "Annexe",
+    "ar": "ملحق / إضافي",
+    "en": "Attached / Annex",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Un document annexe est nécessaire.",
+      "ar": "وثيقة مرفقة ضرورية.",
+      "en": "An annex document is required."
+    }
+  },
+  {
+    "fr": "Annulé",
+    "ar": "ملغى",
+    "en": "Cancelled",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le rendez-vous est annulé.",
+      "ar": "الموعد ملغى.",
+      "en": "The appointment is cancelled."
+    }
+  },
+  {
+    "fr": "Anormal",
+    "ar": "غير طبيعي",
+    "en": "Abnormal",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ce comportement est anormal.",
+      "ar": "هذا التصرف غير طبيعي.",
+      "en": "This behavior is abnormal."
+    }
+  },
+  {
+    "fr": "Anticipé",
+    "ar": "متوقع / مُسبق",
+    "en": "Anticipated",
+    "level": "A2",
+    "contexts": [
+      "bank"
+    ],
+    "ex": {
+      "fr": "Un paiement anticipé est possible.",
+      "ar": "الدفع المسبق ممكن.",
+      "en": "An advance payment is possible."
+    }
+  },
+  {
+    "fr": "Apaisé",
+    "ar": "هادئ / مهدأ",
+    "en": "Calmed / Peaceful",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "ex": {
+      "fr": "Le conflit est maintenant apaisé.",
+      "ar": "النزاع أصبح هادئًا الآن.",
+      "en": "The conflict is now calmed."
+    }
+  },
+  {
+    "fr": "Arrangé",
+    "ar": "مرتب / متفق عليه",
+    "en": "Arranged",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Tout est arrangé maintenant.",
+      "ar": "كل شيء مرتب الآن.",
+      "en": "Everything is arranged now."
+    }
+  },
+  {
+    "fr": "Ascendant",
+    "ar": "تصاعدي / صاعد",
+    "en": "Ascending",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un ordre ascendant.",
+      "ar": "ترتيب تصاعدي.",
+      "en": "An ascending order."
+    }
+  },
+  {
+    "fr": "Associatif",
+    "ar": "جمعوي / متعلق بالجمعيات",
+    "en": "Associative",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Une activité associative.",
+      "ar": "نشاط جمعوي.",
+      "en": "An associative activity."
+    }
+  },
+  {
+    "fr": "Assorti",
+    "ar": "متناسق / مناسب",
+    "en": "Matching",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Une couleur assortie.",
+      "ar": "لون متناسق.",
+      "en": "A matching color."
+    }
+  },
+  {
+    "fr": "Astucieux",
+    "ar": "ذكي / بارع في إيجاد الحلول",
+    "en": "Clever / Cleverly designed",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est une solution astucieuse.",
+      "ar": "إنه حل ذكي.",
+      "en": "It is a clever solution."
+    }
+  },
+  {
+    "fr": "Atteignable",
+    "ar": "قابل للتحقيق",
+    "en": "Achievable",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cet objectif est atteignable.",
+      "ar": "هذا الهدف قابل للتحقيق.",
+      "en": "This goal is achievable."
+    }
+  },
+  {
+    "fr": "Authentifié",
+    "ar": "موثّق / تم التحقق منه",
+    "en": "Authenticated",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Le document est authentifié.",
+      "ar": "تم توثيق الوثيقة.",
+      "en": "The document is authenticated."
+    }
+  },
+  {
+    "fr": "Automatisé",
+    "ar": "مؤتمت / آلي",
+    "en": "Automated",
+    "level": "A2",
+    "contexts": [
+      "car"
+    ],
+    "ex": {
+      "fr": "Le système est automatisé.",
+      "ar": "النظام مؤتمت.",
+      "en": "The system is automated."
+    }
+  },
+  {
+    "fr": "Autoritaire",
+    "ar": "متسلّط / صارم",
+    "en": "Authoritarian",
+    "level": "A2",
+    "contexts": [
+      "car"
+    ],
+    "ex": {
+      "fr": "Un chef autoritaire.",
+      "ar": "مدير متسلط.",
+      "en": "An authoritarian manager."
+    }
+  },
+  {
+    "fr": "Averti",
+    "ar": "مطلع / ذو خبرة",
+    "en": "Informed / Experienced",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un utilisateur averti.",
+      "ar": "مستخدم ذو خبرة.",
+      "en": "An experienced user."
+    }
+  },
+  {
+    "fr": "Accessible financièrement",
+    "ar": "ميسور التكلفة",
+    "en": "Affordable",
+    "level": "A2",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "Ce logement est accessible financièrement.",
+      "ar": "هذا السكن ميسور التكلفة.",
+      "en": "This housing is affordable."
+    }
+  },
+  {
+    "fr": "Acquis",
+    "ar": "مكتسب",
+    "en": "Acquired",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Des connaissances acquises.",
+      "ar": "معارف مكتسبة.",
+      "en": "Acquired knowledge."
+    }
+  },
+  {
+    "fr": "Adjoint",
+    "ar": "مساعد / نائب",
+    "en": "Assistant / Deputy",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le directeur adjoint est absent.",
+      "ar": "نائب المدير غائب.",
+      "en": "The deputy director is absent."
+    }
+  },
+  {
+    "fr": "Ambiant",
+    "ar": "محيط / سائد",
+    "en": "Ambient",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La température ambiante.",
+      "ar": "درجة حرارة الغرفة.",
+      "en": "The ambient temperature."
+    }
+  },
+  {
+    "fr": "Anglais",
+    "ar": "إنجليزي",
+    "en": "English",
+    "level": "A2",
+    "contexts": [
+      "school"
+    ],
+    "ex": {
+      "fr": "La langue anglaise.",
+      "ar": "اللغة الإنجليزية.",
+      "en": "The English language."
+    }
+  },
+  {
+    "fr": "Argumenté",
+    "ar": "مدعوم بالحجج / مبرر",
+    "en": "Well-argued",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un rapport bien argumenté.",
+      "ar": "تقرير مدعوم جيدًا بالحجج.",
+      "en": "A well-argued report."
+    }
+  },
+  {
+    "fr": "Arrivé",
+    "ar": "واصل / حاضر",
+    "en": "Arrived",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je suis arrivé à l'heure.",
+      "ar": "وصلت في الوقت المحدد.",
+      "en": "I arrived on time."
+    }
+  },
+  {
+    "fr": "Articulé",
+    "ar": "واضح / منظم",
+    "en": "Articulate / Structured",
+    "level": "A2",
+    "contexts": [
+      "school"
+    ],
+    "ex": {
+      "fr": "Un discours bien articulé.",
+      "ar": "خطاب واضح ومنظم.",
+      "en": "A well-articulated speech."
+    }
+  },
+  {
+    "fr": "Audacieux",
+    "ar": "جريء",
+    "en": "Bold / Daring",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est un choix audacieux.",
+      "ar": "إنه اختيار جريء.",
+      "en": "It is a bold choice."
+    }
+  },
+  {
+    "fr": "Augmenté",
+    "ar": "مرتفع / زاد",
+    "en": "Increased",
+    "level": "A2",
+    "contexts": [
+      "shop"
+    ],
+    "ex": {
+      "fr": "Le prix augmenté pose problème.",
+      "ar": "السعر المرتفع يسبب مشكلة.",
+      "en": "The increased price causes a problem."
+    }
+  },
+  {
+    "fr": "Autrichien",
+    "ar": "نمساوي",
+    "en": "Austrian",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un citoyen autrichien.",
+      "ar": "مواطن نمساوي.",
+      "en": "An Austrian citizen."
+    }
+  },
+  {
+    "fr": "Avantagé",
+    "ar": "محظوظ / مستفيد",
+    "en": "Advantaged",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un groupe avantagé par la situation.",
+      "ar": "مجموعة مستفيدة من الوضع.",
+      "en": "A group advantaged by the situation."
+    }
+  },
+  {
+    "fr": "Atypique",
+    "ar": "غير نمطي / استثنائي",
+    "en": "Atypical",
+    "level": "A2",
+    "contexts": [
+      "school",
+      "services"
+    ],
+    "ex": {
+      "fr": "Un parcours atypique.",
+      "ar": "مسار غير عادي.",
+      "en": "An atypical path."
+    }
+  },
+  {
+    "fr": "Abordable",
+    "ar": "معقول السعر",
+    "en": "Affordable",
+    "level": "A2",
+    "contexts": [
+      "shop"
+    ],
+    "ex": {
+      "fr": "Un prix abordable.",
+      "ar": "سعر معقول.",
+      "en": "An affordable price."
+    }
+  },
+  {
+    "fr": "Abondant",
+    "ar": "وفير / كثير",
+    "en": "Abundant",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Une récolte abondante.",
+      "ar": "محصول وفير.",
+      "en": "An abundant harvest."
+    }
+  },
+  {
+    "fr": "Abrupt",
+    "ar": "مفاجئ / حاد",
+    "en": "Abrupt",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un changement abrupt.",
+      "ar": "تغيير مفاجئ.",
+      "en": "An abrupt change."
+    }
+  },
+  {
+    "fr": "Absentéiste",
+    "ar": "كثير الغياب",
+    "en": "Frequently absent",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un employé absentéiste.",
+      "ar": "موظف كثير الغياب.",
+      "en": "An employee frequently absent."
+    }
+  },
+  {
+    "fr": "Absorbant",
+    "ar": "ماص / ممتص",
+    "en": "Absorbent",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un papier absorbant.",
+      "ar": "ورق ماص.",
+      "en": "Absorbent paper."
+    }
+  },
+  {
+    "fr": "Accepté",
+    "ar": "مقبول",
+    "en": "Accepted",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Votre demande est acceptée.",
+      "ar": "طلبك مقبول.",
+      "en": "Your request is accepted."
+    }
+  },
+  {
+    "fr": "Accidenté",
+    "ar": "وعر / متضرر بسبب حادث",
+    "en": "Accidented / Damaged",
+    "level": "A2",
+    "contexts": [
+      "transport"
+    ],
+    "ex": {
+      "fr": "Une route accidentée.",
+      "ar": "طريق وعر.",
+      "en": "A rough road."
+    }
+  },
+  {
+    "fr": "Accru",
+    "ar": "متزايد / مرتفع",
+    "en": "Increased / Growing",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Une demande accrue.",
+      "ar": "طلب متزايد.",
+      "en": "An increased demand."
+    }
+  },
+  {
+    "fr": "Adhésif",
+    "ar": "لاصق",
+    "en": "Adhesive",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un ruban adhésif.",
+      "ar": "شريط لاصق.",
+      "en": "An adhesive tape."
+    }
+  },
+  {
+    "fr": "Adjacent",
+    "ar": "مجاور / ملاصق",
+    "en": "Adjacent",
+    "level": "A2",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "La chambre adjacente.",
+      "ar": "الغرفة المجاورة.",
+      "en": "The adjacent room."
+    }
+  },
+  {
+    "fr": "Admiratif",
+    "ar": "معجب",
+    "en": "Admiring",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il a un regard admiratif.",
+      "ar": "لديه نظرة إعجاب.",
+      "en": "He has an admiring look."
+    }
+  },
+  {
+    "fr": "Adoptif",
+    "ar": "بالتبني",
+    "en": "Adoptive",
+    "level": "A2",
+    "contexts": [
+      "family"
+    ],
+    "ex": {
+      "fr": "Une famille adoptive.",
+      "ar": "عائلة بالتبني.",
+      "en": "An adoptive family."
+    }
+  },
+  {
+    "fr": "Aéré",
+    "ar": "مهوّى / جيد التهوية",
+    "en": "Ventilated / Airy",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Une pièce bien aérée.",
+      "ar": "غرفة جيدة التهوية.",
+      "en": "A well-ventilated room."
+    }
+  },
+  {
+    "fr": "Affiché",
+    "ar": "معروض / ظاهر",
+    "en": "Displayed",
+    "level": "A2",
+    "contexts": [
+      "shop"
+    ],
+    "ex": {
+      "fr": "Le prix affiché est correct.",
+      "ar": "السعر المعروض صحيح.",
+      "en": "The displayed price is correct."
+    }
+  },
+  {
+    "fr": "Agité",
+    "ar": "مضطرب / كثير الحركة",
+    "en": "Agitated",
+    "level": "A2",
+    "contexts": [
+      "family"
+    ],
+    "ex": {
+      "fr": "L'enfant est très agité.",
+      "ar": "الطفل كثير الحركة.",
+      "en": "The child is very restless."
+    }
+  },
+  {
+    "fr": "Aiguë",
+    "ar": "حادّة (مؤنث aigu)",
+    "en": "Acute",
+    "level": "A2",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Une douleur aiguë.",
+      "ar": "ألم حاد.",
+      "en": "An acute pain."
+    }
+  },
+  {
+    "fr": "Allumé",
+    "ar": "مُشغّل / مضاء",
+    "en": "On / Lit",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La lumière est allumée.",
+      "ar": "الضوء مشغّل.",
+      "en": "The light is on."
+    }
+  },
+  {
+    "fr": "Alterné",
+    "ar": "متناوب",
+    "en": "Alternating",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Un travail en horaires alternés.",
+      "ar": "عمل بساعات متناوبة.",
+      "en": "Work with alternating shifts."
+    }
+  },
+  {
+    "fr": "Angélique",
+    "ar": "ملائكي / بريء جدًا",
+    "en": "Angelic",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un sourire angélique.",
+      "ar": "ابتسامة ملائكية.",
+      "en": "An angelic smile."
+    }
+  },
+  {
+    "fr": "Anormalisé",
+    "ar": "غير مطابق / غير طبيعي",
+    "en": "Non-standardized",
+    "level": "A2",
+    "contexts": [
+      "shop"
+    ],
+    "ex": {
+      "fr": "Un produit anormalisé.",
+      "ar": "منتج غير مطابق.",
+      "en": "A non-standard product."
+    }
+  },
+  {
+    "fr": "Appréciable",
+    "ar": "مهم / ملحوظ / جيد",
+    "en": "Appreciable / Significant",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Une amélioration appréciable.",
+      "ar": "تحسن ملحوظ.",
+      "en": "A significant improvement."
+    }
+  },
+  {
+    "fr": "Arbitral",
+    "ar": "تحكيمي",
+    "en": "Arbitral",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Une décision arbitrale.",
+      "ar": "قرار تحكيمي.",
+      "en": "An arbitral decision."
+    }
+  },
+  {
+    "fr": "Argumentatif",
+    "ar": "حِجاجي / يعتمد على الحجج",
+    "en": "Argumentative",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un texte argumentatif.",
+      "ar": "نص يعتمد على الحجج.",
+      "en": "An argumentative text."
+    }
+  },
+  {
+    "fr": "Armé",
+    "ar": "مجهّز / مسلح",
+    "en": "Equipped / Armed",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il est bien armé pour réussir.",
+      "ar": "هو مجهز جيدًا للنجاح.",
+      "en": "He is well equipped to succeed."
+    }
+  },
+  {
+    "fr": "Associé",
+    "ar": "مرتبط / شريك",
+    "en": "Associated",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un risque associé.",
+      "ar": "خطر مرتبط.",
+      "en": "An associated risk."
+    }
+  },
+  {
+    "fr": "Automatisable",
+    "ar": "قابل للأتمتة",
+    "en": "Automatable",
+    "level": "A2",
+    "contexts": [
+      "car",
+      "work"
+    ],
+    "ex": {
+      "fr": "Une tâche automatisable.",
+      "ar": "مهمة قابلة للأتمتة.",
+      "en": "An automatable task."
+    }
   }
 ];
