@@ -45,19 +45,23 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Chrome may show a 404 for `favicon.ico` on first load; this is harmless and does not affect functionality.
 - The `browser_console` tool can drop its CDP connection in this environment. Use `/tmp/cdp_helper.py` (Python `websocket-client`) to connect to `ws://localhost:29229/devtools/page/<id>` and evaluate JS / capture `Log.entryAdded` and `Runtime.consoleAPICalled` events.
 
-## Vocab page quick checks (386-entry dataset with `usage` field and A-words)
+## Vocab page quick checks (399-entry dataset with `usage` field and A-words)
 
 - `data/vocab.js` contains the active dataset; `data/vocab-batch-02.js` is currently empty (`window.VOCAB_DATA_BATCH2 = []`).
-- Total entries: **386** French phrases (163 beginning with `À` + 223 other A-words).
+- Total entries: **399** French phrases (163 beginning with `À` + 236 other A-words, including 78 A-verbs).
 - Entry structure: every entry has `fr`, `ar`, `en`, `level` (A1/A2/B1/B2), `contexts` array, and `ex` (`fr`, `ar`, `en`).
 - **26 administrative `À` entries and many new A-word entries include a `usage` field** (Arabic usage context) rendered on the card above the example.
 - Levels: A1=86, A2=126, B1=93, B2=81.
-- Contexts include: daily (206), services (152), work (116), housing (24), health (20), bank (16), caf (16), transport (18), family (6), restaurant (5), shop (8), car (6), phone (11), France Travail (10), prefecture (6), post (4), cpam (3), school (4), mairie (2), weather (3).
+- Contexts include: daily (236), services (157), work (120), housing (24), health (20), bank (16), caf (16), transport (18), family (6), restaurant (5), shop (8), car (6), phone (14), France Travail (10), prefecture (6), post (4), cpam (3), school (4), mairie (2), weather (3).
 - Search examples:
   - `gauche` → 1 result (`À gauche`)
+  - `Abolir` → 1 result (`Abolir`) with example `Le gouvernement veut abolir cette loi.`
+  - `Accélérer` → 1 result (`Accélérer`)
+  - `Avouer` → 1 result (`Avouer`)
+  - `Acheter` → 1 result (`Acheter`)
   - `autorisation` → 1 result (`Autorisation`)
   - `CPAM` → 4 results (`À la demande de`, `Affiliation`, `Assurance`, `Attestation de droits`)
-  - `CAF` → **25 results** now that search scans `usage`, `contexts`, and `ex.*` text across 386 entries.
+  - `CAF` → **25 results** now that search scans `usage`, `contexts`, and `ex.*` text across 399 entries.
   - `dossier` → **20 results** because the search haystack includes `ex.fr`/`ex.ar`/`ex.en`.
   - `Mairie` → 7 results
   - `demande` → 3 results (`À la suite de votre demande`, `À la demande de`, `À votre demande`)
@@ -69,14 +73,14 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   - `paiement` → 1 result (`À défaut de paiement`)
 - Filter counts:
   - level `A1` → 86, `A2` → 126, `B1` → 93, `B2` → 81
-  - context `services` → 152
+  - context `services` → 157
   - context `caf` → 16
   - context `cpam` → 3
   - context `mairie` → 2
 - Sorting:
   - A → Z first term: `À bas`
-  - Z → A first term: `Avoir` (non-`À` A-words sort before `À` in `localeCompare`)
-- Pagination: `pageSize` is 100; the `#load-more` button shows remaining counts `286`, `186`, `86` for the 386-entry dataset, and after a fourth click renders all 386 cards and removes the button.
+  - Z → A first term: `Avouer` (non-`À` A-words sort before `À` in `localeCompare`; `Avouer` is now alphabetically last)
+- Pagination: `pageSize` is 100; the `#load-more` button shows remaining counts `299`, `199`, `99` for the 399-entry dataset, and after a fourth click renders all 399 cards and removes the button.
 - `usage` field:
   - Rendered in a `.usage` div with `dir="rtl"` between the `.meta` pills and the `.example` block.
   - Styled with a right accent border and subtle accent background (`vocab.html` line 116).
@@ -96,12 +100,12 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v86`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v87`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
   ```
-- If `data/manifest.js` or any `data/stage*.js` file is missing, the install step fails and `dross-v86` will not activate.
+- If `data/manifest.js` or any `data/stage*.js` file is missing, the install step fails and `dross-v87` will not activate.
 
 ## Android APK testing
 
