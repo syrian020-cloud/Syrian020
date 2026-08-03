@@ -40,6 +40,7 @@ cp "$ROOT_DIR/icon-192.png" "$WEB_DIR/"
 cp "$ROOT_DIR/icon-512.png" "$WEB_DIR/"
 cp "$ROOT_DIR/bienvenue-lesson.jpg" "$WEB_DIR/"
 cp "$ROOT_DIR/whatsapp-icon.png" "$WEB_DIR/"
+cp "$ROOT_DIR/sw-procap.js" "$WEB_DIR/"
 
 # Minimal service worker for the APK so registration succeeds without failing on missing files
 cat > "$WEB_DIR/sw.js" <<'EOF'

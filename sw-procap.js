@@ -1,20 +1,12 @@
-const CACHE_NAME = 'dross-v70';
+const CACHE_NAME = 'procap-v1';
 const FILES_TO_CACHE = [
-  './',
-  './index.html',
-  './french.html',
-  './vocab.html',
-  './manifest.json',
+  './procap.html',
+  './manifest-procap.json',
   './icon-192.png',
   './icon-512.png',
-  './data/manifest.js',
-  './data/vocab.js',
-  './data/vocab-batch-02.js'
+  './bienvenue-lesson.jpg',
+  './whatsapp-icon.png'
 ];
-
-for (let i = 1; i <= 39; i++) {
-  FILES_TO_CACHE.push('./data/stage' + String(i).padStart(2, '0') + '.js');
-}
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -38,7 +30,7 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
-      return response || fetch(event.request).catch(() => caches.match('./french.html'));
+      return response || fetch(event.request).catch(() => caches.match('./procap.html'));
     })
   );
 });

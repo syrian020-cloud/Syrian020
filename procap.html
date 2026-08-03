@@ -1733,6 +1733,10 @@
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw-procap.js').catch(() => {});
+  }
 })();
 </script>
 </body>
