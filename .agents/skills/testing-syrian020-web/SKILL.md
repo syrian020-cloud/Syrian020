@@ -45,32 +45,38 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Chrome may show a 404 for `favicon.ico` on first load; this is harmless and does not affect functionality.
 - The `browser_console` tool can drop its CDP connection in this environment. Use `/tmp/cdp_helper.py` (Python `websocket-client`) to connect to `ws://localhost:29229/devtools/page/<id>` and evaluate JS / capture `Log.entryAdded` and `Runtime.consoleAPICalled` events.
 
-## Vocab page quick checks (163-entry dataset with `usage` field)
+## Vocab page quick checks (386-entry dataset with `usage` field and A-words)
 
 - `data/vocab.js` contains the active dataset; `data/vocab-batch-02.js` is currently empty (`window.VOCAB_DATA_BATCH2 = []`).
-- Total entries: **163** French phrases beginning with `À`.
-- Entry structure: every entry has `fr`, `ar`, `en`, `level` (A1/A2/B1), `contexts` array, and `ex` (`fr`, `ar`, `en`).
-- **26 new administrative entries also include a `usage` field** (Arabic usage context) rendered on the card above the example.
-- Levels: A1=28, A2=105, B1=30.
-- Contexts: daily (143), services (26), work (23), housing (11), health (8), shop (7), bank (7), caf (7), transport (16), family (6), restaurant (5), car (5), phone (5), France Travail (3), prefecture (2), post (1), weather (3).
+- Total entries: **386** French phrases (163 beginning with `À` + 223 other A-words).
+- Entry structure: every entry has `fr`, `ar`, `en`, `level` (A1/A2/B1/B2), `contexts` array, and `ex` (`fr`, `ar`, `en`).
+- **26 administrative `À` entries and many new A-word entries include a `usage` field** (Arabic usage context) rendered on the card above the example.
+- Levels: A1=86, A2=126, B1=93, B2=81.
+- Contexts include: daily (206), services (152), work (116), housing (24), health (20), bank (16), caf (16), transport (18), family (6), restaurant (5), shop (8), car (6), phone (11), France Travail (10), prefecture (6), post (4), cpam (3), school (4), mairie (2), weather (3).
 - Search examples:
   - `gauche` → 1 result (`À gauche`)
+  - `autorisation` → 1 result (`Autorisation`)
+  - `CPAM` → 4 results (`À la demande de`, `Affiliation`, `Assurance`, `Attestation de droits`)
+  - `CAF` → **25 results** now that search scans `usage`, `contexts`, and `ex.*` text across 386 entries.
+  - `dossier` → **20 results** because the search haystack includes `ex.fr`/`ex.ar`/`ex.en`.
+  - `Mairie` → 7 results
   - `demande` → 3 results (`À la suite de votre demande`, `À la demande de`, `À votre demande`)
   - `remplir` → 1 result (`À remplir`)
   - `envoyer` → 1 result (`À envoyer`)
   - `réception` → 1 result (`À réception de`)
-  - `CAF` → **9 results** now that search also scans `usage`, `contexts`, and `ex.*` text. 7 entries are tagged `caf`; 2 additional entries (`À l'attention de`, `À jour`) mention CAF only in their example sentences.
   - `Préfecture` → 2 results (`À la demande de`, `À remplir`)
   - `France Travail` → 3 results (`À la demande de`, `À fournir`, `À transmettre`)
   - `paiement` → 1 result (`À défaut de paiement`)
-  - `dossier` → **4 results** (`À transmettre`, `À compléter`, `À jour`, `À votre demande`) because the search haystack now includes `ex.fr`/`ex.ar`/`ex.en`.
 - Filter counts:
-  - level `A2` → 105
-  - context `services` → 26
+  - level `A1` → 86, `A2` → 126, `B1` → 93, `B2` → 81
+  - context `services` → 152
+  - context `caf` → 16
+  - context `cpam` → 3
+  - context `mairie` → 2
 - Sorting:
   - A → Z first term: `À bas`
-  - Z → A first term: `À vue d'œil`
-- Pagination: `pageSize` is 100; the `#load-more` button shows the remaining count on first load (e.g. `تحميل المزيد (63)` / `Load more (63)` / `Charger plus (63)`), and after one click renders all 163 cards and removes the button.
+  - Z → A first term: `Avoir` (non-`À` A-words sort before `À` in `localeCompare`)
+- Pagination: `pageSize` is 100; the `#load-more` button shows remaining counts `286`, `186`, `86` for the 386-entry dataset, and after a fourth click renders all 386 cards and removes the button.
 - `usage` field:
   - Rendered in a `.usage` div with `dir="rtl"` between the `.meta` pills and the `.example` block.
   - Styled with a right accent border and subtle accent background (`vocab.html` line 116).
@@ -90,12 +96,12 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v83`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v86`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
   ```
-- If `data/manifest.js` or any `data/stage*.js` file is missing, the install step fails and `dross-v82` will not activate.
+- If `data/manifest.js` or any `data/stage*.js` file is missing, the install step fails and `dross-v86` will not activate.
 
 ## Android APK testing
 
