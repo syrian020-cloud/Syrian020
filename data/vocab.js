@@ -23,9 +23,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Le mot Bonsoir est utile.",
-      "ar": "كلمة مساء الخير مفيدة.",
-      "en": "The word Good evening is useful."
+      "fr": "On dit souvent Bonsoir dans la vie quotidienne.",
+      "ar": "نقول مساء الخير كثيراً في الحياة اليومية.",
+      "en": "We often say Good evening in daily life."
     }
   },
   {
@@ -207,9 +207,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "L'expression Je ne parle pas bien français est utile.",
-      "ar": "تعبير لا أتحدث الفرنسية جيداً مفيد.",
-      "en": "The expression I don't speak French well is useful."
+      "fr": "On dit souvent « Je ne parle pas bien français » dans la vie quotidienne.",
+      "ar": "نقول « لا أتحدث الفرنسية جيداً » كثيراً في الحياة اليومية.",
+      "en": "We often say \"I don't speak French well\" in daily life."
     }
   },
   {
@@ -320,9 +320,9 @@ window.VOCAB_DATA = [
       "cafe"
     ],
     "ex": {
-      "fr": "C'est combien le kilo ?",
-      "ar": "كم سعر الكيلو؟",
-      "en": "How much per kilo?"
+      "fr": "On dit souvent « C'est combien » dans la vie quotidienne.",
+      "ar": "نقول « بكم هذا؟ » كثيراً في الحياة اليومية.",
+      "en": "We often say \"How much is it?\" in daily life."
     }
   },
   {
@@ -384,9 +384,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression L'addition, s'il vous plaît est utile.",
-      "ar": "تعبير الفاتورة مفيد.",
-      "en": "The expression The bill, please is useful."
+      "fr": "On utilise souvent « L'addition, s'il vous plaît » au café.",
+      "ar": "نستخدم « الفاتورة » كثيراً في المقهى.",
+      "en": "We often use \"The bill, please\" at the café."
     }
   },
   {
@@ -416,9 +416,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Merci, mais je ne peux pas boire le café maintenant.",
-      "ar": "شكراً، لكن لا أستطيع شرب القهوة الآن.",
-      "en": "Thank you, but I can't drink the coffee now."
+      "fr": "On utilise souvent le café au café.",
+      "ar": "نستخدم المقهى كثيراً في المقهى.",
+      "en": "We often use the café at the café."
     }
   },
   {
@@ -445,9 +445,9 @@ window.VOCAB_DATA = [
       "cafe"
     ],
     "ex": {
-      "fr": "L'expression un café au lait est utile.",
-      "ar": "تعبير قهوة بالحليب مفيد.",
-      "en": "The expression coffee with milk is useful."
+      "fr": "On utilise souvent un café au lait au café.",
+      "ar": "نستخدم قهوة بالحليب كثيراً في المقهى.",
+      "en": "We often use coffee with milk at the café."
     }
   },
   {
@@ -459,9 +459,9 @@ window.VOCAB_DATA = [
       "cafe"
     ],
     "ex": {
-      "fr": "L'expression un café noir est utile.",
-      "ar": "تعبير قهوة سوداء مفيد.",
-      "en": "The expression black coffee is useful."
+      "fr": "On utilise souvent un café noir au café.",
+      "ar": "نستخدم قهوة سوداء كثيراً في المقهى.",
+      "en": "We often use black coffee at the café."
     }
   },
   {
@@ -490,9 +490,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un jus d'orange est utile.",
-      "ar": "تعبير عصير برتقال مفيد.",
-      "en": "The expression orange juice is useful."
+      "fr": "On utilise souvent un jus d'orange au café.",
+      "ar": "نستخدم عصير برتقال كثيراً في المقهى.",
+      "en": "We often use orange juice at the café."
     }
   },
   {
@@ -520,9 +520,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression une carafe d'eau est utile.",
-      "ar": "تعبير إبريق ماء مفيد.",
-      "en": "The expression a jug of water is useful."
+      "fr": "On utilise souvent une carafe d'eau au café.",
+      "ar": "نستخدم إبريق ماء كثيراً في المقهى.",
+      "en": "We often use a jug of water at the café."
     }
   },
   {
@@ -581,9 +581,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression le poivre est utile.",
-      "ar": "تعبير الفلفل الأسود مفيد.",
-      "en": "The expression pepper is useful."
+      "fr": "On utilise souvent le poivre au café.",
+      "ar": "نستخدم الفلفل الأسود كثيراً في المقهى.",
+      "en": "We often use pepper at the café."
     }
   },
   {
@@ -613,9 +613,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Bonjour, une baguette, s'il vous plaît.",
-      "ar": "مرحباً، رغيف باغيت، من فضلك.",
-      "en": "Hello, one baguette, please."
+      "fr": "On utilise souvent une baguette au café.",
+      "ar": "نستخدم كيسان (خبز فرنسي) كثيراً في المقهى.",
+      "en": "We often use a baguette at the café."
     }
   },
   {
@@ -628,9 +628,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un croissant est utile.",
-      "ar": "تعبير كرواسون مفيد.",
-      "en": "The expression a croissant is useful."
+      "fr": "On utilise souvent un croissant au café.",
+      "ar": "نستخدم كرواسون كثيراً في المقهى.",
+      "en": "We often use a croissant at the café."
     }
   },
   {
@@ -658,9 +658,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression une salade est utile.",
-      "ar": "تعبير سلطة مفيد.",
-      "en": "The expression a salad is useful."
+      "fr": "On utilise souvent une salade au café.",
+      "ar": "نستخدم سلطة كثيراً في المقهى.",
+      "en": "We often use a salad at the café."
     }
   },
   {
@@ -673,9 +673,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression une soupe est utile.",
-      "ar": "تعبير شوربة مفيد.",
-      "en": "The expression a soup is useful."
+      "fr": "On utilise souvent une soupe au café.",
+      "ar": "نستخدم شوربة كثيراً في المقهى.",
+      "en": "We often use a soup at the café."
     }
   },
   {
@@ -703,9 +703,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression un menu est utile.",
-      "ar": "تعبير قائمة طعام مفيد.",
-      "en": "The expression a menu is useful."
+      "fr": "On utilise souvent un menu au café.",
+      "ar": "نستخدم قائمة طعام كثيراً في المقهى.",
+      "en": "We often use a menu at the café."
     }
   },
   {
@@ -765,9 +765,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression une terrasse est utile.",
-      "ar": "تعبير تراس مفيد.",
-      "en": "The expression a terrace (outdoor seating) is useful."
+      "fr": "On utilise souvent une terrasse au café.",
+      "ar": "نستخدم تراس كثيراً في المقهى.",
+      "en": "We often use a terrace (outdoor seating) at the café."
     }
   },
   {
@@ -780,9 +780,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression une serveuse est utile.",
-      "ar": "تعبير نادلة مفيد.",
-      "en": "The expression a waitress is useful."
+      "fr": "On utilise souvent une serveuse au café.",
+      "ar": "نستخدم نادلة كثيراً في المقهى.",
+      "en": "We often use a waitress at the café."
     }
   },
   {
@@ -795,9 +795,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression un serveur est utile.",
-      "ar": "تعبير نادل مفيد.",
-      "en": "The expression a waiter is useful."
+      "fr": "On utilise souvent un serveur au café.",
+      "ar": "نستخدم نادل كثيراً في المقهى.",
+      "en": "We often use a waiter at the café."
     }
   },
   {
@@ -811,9 +811,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression le patron est utile.",
-      "ar": "تعبير صاحب المحل مفيد.",
-      "en": "The expression the owner is useful."
+      "fr": "On utilise souvent le patron au café.",
+      "ar": "نستخدم صاحب المحل كثيراً في المقهى.",
+      "en": "We often use the owner at the café."
     }
   },
   {
@@ -842,9 +842,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "Ça fait combien en tout ?",
-      "ar": "كم المجموع؟",
-      "en": "How much is that in total?"
+      "fr": "On dit souvent « Ça fait combien » au café.",
+      "ar": "نقول « كم يصبح المبلغ؟ » كثيراً في المقهى.",
+      "en": "We often say \"How much is it in total?\" at the café."
     }
   },
   {
@@ -872,9 +872,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression Je voudrais l'addition est utile.",
-      "ar": "تعبير أريد الفاتورة مفيد.",
-      "en": "The expression I would like the bill is useful."
+      "fr": "On dit souvent « Je voudrais l'addition » au café.",
+      "ar": "نقول « أريد الفاتورة » كثيراً في المقهى.",
+      "en": "We often say \"I would like the bill\" at the café."
     }
   },
   {
@@ -887,9 +887,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "Je voudrais commander un taxi pour huit heures.",
-      "ar": "أريد طلب تاكسي للساعة الثامنة.",
-      "en": "I would like to book a taxi for eight o'clock."
+      "fr": "On dit souvent « Je voudrais commander » au café.",
+      "ar": "نقول « أريد أن أطلب » كثيراً في المقهى.",
+      "en": "We often say \"I would like to order\" at the café."
     }
   },
   {
@@ -903,9 +903,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "Je suis allergique à ce médicament.",
-      "ar": "لدي حساسية من هذا الدواء.",
-      "en": "I'm allergic to this medication."
+      "fr": "On dit souvent « Je suis allergique à » au café.",
+      "ar": "نقول « أنا مصاب بحساسية من... » كثيراً في المقهى.",
+      "en": "We often say \"I am allergic to...\" at the café."
     }
   },
   {
@@ -919,9 +919,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression sans gluten est utile.",
-      "ar": "تعبير خالي من الغلوتين مفيد.",
-      "en": "The expression gluten-free is useful."
+      "fr": "On utilise souvent « sans gluten » au café.",
+      "ar": "نستخدم « خالي من الغلوتين » كثيراً في المقهى.",
+      "en": "We often use \"gluten-free\" at the café."
     }
   },
   {
@@ -996,9 +996,9 @@ window.VOCAB_DATA = [
       "office"
     ],
     "ex": {
-      "fr": "L'expression un poste est utile.",
-      "ar": "تعبير منصب مفيد.",
-      "en": "The expression a position is useful."
+      "fr": "On utilise souvent un poste au travail.",
+      "ar": "نستخدم منصب كثيراً في العمل.",
+      "en": "We often use a position at work."
     }
   },
   {
@@ -1012,9 +1012,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Où est le bureau d'information ?",
-      "ar": "أين مكتب المعلومات؟",
-      "en": "Where is the information desk?"
+      "fr": "On utilise souvent le bureau au travail.",
+      "ar": "نستخدم المكتب كثيراً في العمل.",
+      "en": "We often use the office at work."
     }
   },
   {
@@ -1027,9 +1027,9 @@ window.VOCAB_DATA = [
       "office"
     ],
     "ex": {
-      "fr": "L'expression un collègue est utile.",
-      "ar": "تعبير زميل عمل مفيد.",
-      "en": "The expression a colleague is useful."
+      "fr": "On utilise souvent un collègue au travail.",
+      "ar": "نستخدم زميل عمل كثيراً في العمل.",
+      "en": "We often use a colleague at work."
     }
   },
   {
@@ -1042,9 +1042,9 @@ window.VOCAB_DATA = [
       "office"
     ],
     "ex": {
-      "fr": "L'expression une collègue est utile.",
-      "ar": "تعبير زميلة عمل مفيد.",
-      "en": "The expression a female colleague is useful."
+      "fr": "On utilise souvent une collègue au travail.",
+      "ar": "نستخدم زميلة عمل كثيراً في العمل.",
+      "en": "We often use a female colleague at work."
     }
   },
   {
@@ -1057,9 +1057,9 @@ window.VOCAB_DATA = [
       "office"
     ],
     "ex": {
-      "fr": "L'expression le patron / la patronne est utile.",
-      "ar": "تعبير المدير مفيد.",
-      "en": "The expression the boss is useful."
+      "fr": "On utilise souvent le patron / la patronne au travail.",
+      "ar": "نستخدم المدير كثيراً في العمل.",
+      "en": "We often use the boss at work."
     }
   },
   {
@@ -1072,9 +1072,9 @@ window.VOCAB_DATA = [
       "office"
     ],
     "ex": {
-      "fr": "L'expression un salarié est utile.",
-      "ar": "تعبير موظف مفيد.",
-      "en": "The expression an employee is useful."
+      "fr": "On utilise souvent un salarié au travail.",
+      "ar": "نستخدم موظف كثيراً في العمل.",
+      "en": "We often use an employee at work."
     }
   },
   {
@@ -1103,9 +1103,9 @@ window.VOCAB_DATA = [
       "office"
     ],
     "ex": {
-      "fr": "L'expression le SMIC est utile.",
-      "ar": "تعبير الحد الأدنى للأجر مفيد.",
-      "en": "The expression minimum wage (SMIC) is useful."
+      "fr": "On utilise souvent le SMIC au travail.",
+      "ar": "نستخدم الحد الأدنى للأجر كثيراً في العمل.",
+      "en": "We often use minimum wage (SMIC) at work."
     }
   },
   {
@@ -1149,9 +1149,9 @@ window.VOCAB_DATA = [
       "office"
     ],
     "ex": {
-      "fr": "Est-ce que c'est un CDD ou un CDI ?",
-      "ar": "هل هو عقد محدد المدة أم غير محدد المدة؟",
-      "en": "Is it a fixed-term or a permanent contract?"
+      "fr": "On utilise souvent un CDD au travail.",
+      "ar": "نستخدم عقد عمل محدد المدة كثيراً في العمل.",
+      "en": "We often use fixed-term contract at work."
     }
   },
   {
@@ -1194,9 +1194,9 @@ window.VOCAB_DATA = [
       "office"
     ],
     "ex": {
-      "fr": "L'expression un CV est utile.",
-      "ar": "تعبير السيرة الذاتية مفيد.",
-      "en": "The expression CV is useful."
+      "fr": "On utilise souvent un CV au travail.",
+      "ar": "نستخدم السيرة الذاتية كثيراً في العمل.",
+      "en": "We often use CV at work."
     }
   },
   {
@@ -1209,9 +1209,9 @@ window.VOCAB_DATA = [
       "office"
     ],
     "ex": {
-      "fr": "L'expression une lettre de motivation est utile.",
-      "ar": "تعبير رسالة تحفيزية مفيد.",
-      "en": "The expression cover letter is useful."
+      "fr": "On utilise souvent une lettre de motivation au travail.",
+      "ar": "نستخدم رسالة تحفيزية كثيراً في العمل.",
+      "en": "We often use cover letter at work."
     }
   },
   {
@@ -1224,9 +1224,9 @@ window.VOCAB_DATA = [
       "office"
     ],
     "ex": {
-      "fr": "L'expression les congés est utile.",
-      "ar": "تعبير الإجازات مفيد.",
-      "en": "The expression leave is useful."
+      "fr": "On utilise souvent les congés au travail.",
+      "ar": "نستخدم الإجازات كثيراً في العمل.",
+      "en": "We often use leave at work."
     }
   },
   {
@@ -1240,9 +1240,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression un arrêt maladie est utile.",
-      "ar": "تعبير توقف عن العمل بسبب المرض مفيد.",
-      "en": "The expression sick leave is useful."
+      "fr": "On utilise souvent un arrêt maladie au travail.",
+      "ar": "نستخدم توقف عن العمل بسبب المرض كثيراً في العمل.",
+      "en": "We often use sick leave at work."
     }
   },
   {
@@ -1256,9 +1256,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "L'expression un bulletin de salaire est utile.",
-      "ar": "تعبير كشف الراتب مفيد.",
-      "en": "The expression payslip is useful."
+      "fr": "On utilise souvent un bulletin de salaire au travail.",
+      "ar": "نستخدم كشف الراتب كثيراً في العمل.",
+      "en": "We often use payslip at work."
     }
   },
   {
@@ -1272,9 +1272,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Quels sont les horaires de la mairie ?",
-      "ar": "ما هي أوقات عمل البلدية؟",
-      "en": "What are the town hall's opening hours?"
+      "fr": "On utilise souvent les horaires au travail.",
+      "ar": "نستخدم المواعيد كثيراً في العمل.",
+      "en": "We often use schedules at work."
     }
   },
   {
@@ -1336,9 +1336,9 @@ window.VOCAB_DATA = [
       "cafe"
     ],
     "ex": {
-      "fr": "L'expression la pause déjeuner est utile.",
-      "ar": "تعبير استراحة الغداء مفيد.",
-      "en": "The expression lunch break is useful."
+      "fr": "On utilise souvent la pause déjeuner au travail.",
+      "ar": "نستخدم استراحة الغداء كثيراً في العمل.",
+      "en": "We often use lunch break at work."
     }
   },
   {
@@ -1351,9 +1351,9 @@ window.VOCAB_DATA = [
       "office"
     ],
     "ex": {
-      "fr": "Le mot télétravail est utile.",
-      "ar": "كلمة العمل عن بُعد مفيدة.",
-      "en": "The word remote work is useful."
+      "fr": "On utilise souvent « télétravail » au travail.",
+      "ar": "نستخدم « العمل عن بُعد » كثيراً في العمل.",
+      "en": "We often use \"remote work\" at work."
     }
   },
   {
@@ -1397,9 +1397,9 @@ window.VOCAB_DATA = [
       "office"
     ],
     "ex": {
-      "fr": "L'expression un clavier est utile.",
-      "ar": "تعبير لوحة مفاتيح مفيد.",
-      "en": "The expression a keyboard is useful."
+      "fr": "On utilise souvent un clavier au travail.",
+      "ar": "نستخدم لوحة مفاتيح كثيراً في العمل.",
+      "en": "We often use a keyboard at work."
     }
   },
   {
@@ -1412,9 +1412,9 @@ window.VOCAB_DATA = [
       "office"
     ],
     "ex": {
-      "fr": "L'expression une imprimante est utile.",
-      "ar": "تعبير طابعة مفيد.",
-      "en": "The expression a printer is useful."
+      "fr": "On utilise souvent une imprimante au travail.",
+      "ar": "نستخدم طابعة كثيراً في العمل.",
+      "en": "We often use a printer at work."
     }
   },
   {
@@ -1461,9 +1461,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "L'expression une fiche est utile.",
-      "ar": "تعبير استمارة مفيد.",
-      "en": "The expression a form is useful."
+      "fr": "On utilise souvent une fiche au travail.",
+      "ar": "نستخدم استمارة كثيراً في العمل.",
+      "en": "We often use a form at work."
     }
   },
   {
@@ -1479,9 +1479,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression un formulaire est utile.",
-      "ar": "تعبير نموذج مفيد.",
-      "en": "The expression a form is useful."
+      "fr": "On utilise souvent un formulaire au travail.",
+      "ar": "نستخدم نموذج كثيراً في العمل.",
+      "en": "We often use a form at work."
     }
   },
   {
@@ -1512,9 +1512,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "L'expression dater et signer est utile.",
-      "ar": "تعبير أن يؤرخ ويوقع مفيد.",
-      "en": "The expression to date and sign is useful."
+      "fr": "On utilise souvent « dater et signer » au travail.",
+      "ar": "نستخدم « أن يؤرخ ويوقع » كثيراً في العمل.",
+      "en": "We often use \"to date and sign\" at work."
     }
   },
   {
@@ -1529,9 +1529,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression joindre un document est utile.",
-      "ar": "تعبير إرفاق وثيقة مفيد.",
-      "en": "The expression to attach a document is useful."
+      "fr": "On utilise souvent « joindre un document » au travail.",
+      "ar": "نستخدم « إرفاق وثيقة » كثيراً في العمل.",
+      "en": "We often use \"to attach a document\" at work."
     }
   },
   {
@@ -1544,9 +1544,9 @@ window.VOCAB_DATA = [
       "office"
     ],
     "ex": {
-      "fr": "L'expression envoyer un e-mail est utile.",
-      "ar": "تعبير إرسال بريد إلكتروني مفيد.",
-      "en": "The expression to send an email is useful."
+      "fr": "On utilise souvent « envoyer un e-mail » au travail.",
+      "ar": "نستخدم « إرسال بريد إلكتروني » كثيراً في العمل.",
+      "en": "We often use \"to send an email\" at work."
     }
   },
   {
@@ -1560,9 +1560,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Répondre au message",
-      "ar": "الرد على الرسالة",
-      "en": "Reply to the message"
+      "fr": "On utilise souvent « répondre » au travail.",
+      "ar": "نستخدم « يرد » كثيراً في العمل.",
+      "en": "We often use \"to reply\" at work."
     }
   },
   {
@@ -1592,9 +1592,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Un conseiller va vous rappeler.",
-      "ar": "سيعاود مستشار الاتصال بك.",
-      "en": "An advisor will call you back."
+      "fr": "On utilise souvent « rappeler » au travail.",
+      "ar": "نستخدم « يعاود الاتصال » كثيراً في العمل.",
+      "en": "We often use \"to call back\" at work."
     }
   },
   {
@@ -1608,9 +1608,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "Confirmer l'action",
-      "ar": "تأكيد الإجراء",
-      "en": "Confirm the action"
+      "fr": "On utilise souvent « confirmer » au travail.",
+      "ar": "نستخدم « يتأكد » كثيراً في العمل.",
+      "en": "We often use \"to confirm\" at work."
     }
   },
   {
@@ -1624,9 +1624,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Annuler la démarche",
-      "ar": "إلغاء الإجراء",
-      "en": "Cancel the procedure"
+      "fr": "On utilise souvent « annuler » au travail.",
+      "ar": "نستخدم « يلغي » كثيراً في العمل.",
+      "en": "We often use \"to cancel\" at work."
     }
   },
   {
@@ -1698,9 +1698,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "L'expression la sous-préfecture est utile.",
-      "ar": "تعبير الدائرة مفيد.",
-      "en": "The expression the sub-prefecture is useful."
+      "fr": "On utilise souvent la sous-préfecture à la préfecture.",
+      "ar": "نستخدم الدائرة كثيراً في المحافظة.",
+      "en": "We often use the sub-prefecture at the prefecture."
     }
   },
   {
@@ -1749,9 +1749,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression annuler un rendez-vous est utile.",
-      "ar": "تعبير إلغاء موعد مفيد.",
-      "en": "The expression to cancel an appointment is useful."
+      "fr": "On utilise souvent « annuler un rendez-vous » à la préfecture.",
+      "ar": "نستخدم « إلغاء موعد » كثيراً في المحافظة.",
+      "en": "We often use \"to cancel an appointment\" at the prefecture."
     }
   },
   {
@@ -1765,9 +1765,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression déplacer un rendez-vous est utile.",
-      "ar": "تعبير تغيير موعد مفيد.",
-      "en": "The expression to reschedule is useful."
+      "fr": "On utilise souvent « déplacer un rendez-vous » à la préfecture.",
+      "ar": "نستخدم « تغيير موعد » كثيراً في المحافظة.",
+      "en": "We often use \"to reschedule\" at the prefecture."
     }
   },
   {
@@ -1779,9 +1779,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "L'expression le titre de séjour est utile.",
-      "ar": "تعبير بطاقة الإقامة مفيد.",
-      "en": "The expression residence permit is useful."
+      "fr": "On utilise souvent le titre de séjour à la préfecture.",
+      "ar": "نستخدم بطاقة الإقامة كثيراً في المحافظة.",
+      "en": "We often use residence permit at the prefecture."
     }
   },
   {
@@ -1846,9 +1846,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un domicile est utile.",
-      "ar": "تعبير محل إقامة مفيد.",
-      "en": "The expression domicile is useful."
+      "fr": "On utilise souvent un domicile à la préfecture.",
+      "ar": "نستخدم محل إقامة كثيراً في المحافظة.",
+      "en": "We often use domicile at the prefecture."
     }
   },
   {
@@ -1877,9 +1877,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un passeport est utile.",
-      "ar": "تعبير جواز سفر مفيد.",
-      "en": "The expression a passport is useful."
+      "fr": "On utilise souvent un passeport à la préfecture.",
+      "ar": "نستخدم جواز سفر كثيراً في المحافظة.",
+      "en": "We often use a passport at the prefecture."
     }
   },
   {
@@ -1892,9 +1892,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une carte d'identité est utile.",
-      "ar": "تعبير بطاقة هوية مفيد.",
-      "en": "The expression identity card is useful."
+      "fr": "On utilise souvent une carte d'identité à la préfecture.",
+      "ar": "نستخدم بطاقة هوية كثيراً في المحافظة.",
+      "en": "We often use identity card at the prefecture."
     }
   },
   {
@@ -1922,9 +1922,9 @@ window.VOCAB_DATA = [
       "taxes"
     ],
     "ex": {
-      "fr": "Dois-je payer un timbre fiscal ?",
-      "ar": "هل يجب أن أدفع طابعاً ضريبياً؟",
-      "en": "Do I need to pay a tax stamp?"
+      "fr": "On utilise souvent un timbre fiscal à la préfecture.",
+      "ar": "نستخدم طابع ضريبي كثيراً في المحافظة.",
+      "en": "We often use fiscal stamp at the prefecture."
     }
   },
   {
@@ -1938,9 +1938,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression payer les frais est utile.",
-      "ar": "تعبير دفع الرسوم مفيد.",
-      "en": "The expression to pay the fees is useful."
+      "fr": "On utilise souvent « payer les frais » à la préfecture.",
+      "ar": "نستخدم « دفع الرسوم » كثيراً في المحافظة.",
+      "en": "We often use \"to pay the fees\" at the prefecture."
     }
   },
   {
@@ -1968,9 +1968,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression la convocation est utile.",
-      "ar": "تعبير استدعاء مفيد.",
-      "en": "The expression summons is useful."
+      "fr": "On utilise souvent la convocation à la préfecture.",
+      "ar": "نستخدم استدعاء كثيراً في المحافظة.",
+      "en": "We often use summons at the prefecture."
     }
   },
   {
@@ -1998,9 +1998,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression une opposition est utile.",
-      "ar": "تعبير اعتراض مفيد.",
-      "en": "The expression an appeal is useful."
+      "fr": "On utilise souvent une opposition à la préfecture.",
+      "ar": "نستخدم اعتراض كثيراً في المحافظة.",
+      "en": "We often use an appeal at the prefecture."
     }
   },
   {
@@ -2012,9 +2012,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "L'expression la OFII est utile.",
-      "ar": "تعبير مكتب الهجرة والاندماج مفيد.",
-      "en": "The expression OFII (immigration and integration office) is useful."
+      "fr": "On utilise souvent la OFII à l'OFII.",
+      "ar": "نستخدم مكتب الهجرة والاندماج كثيراً في OFII.",
+      "en": "We often use OFII (immigration and integration office) at the OFII."
     }
   },
   {
@@ -2043,9 +2043,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "L'expression la formation civique est utile.",
-      "ar": "تعبير التدريب المدني مفيد.",
-      "en": "The expression civic training is useful."
+      "fr": "On utilise souvent la formation civique à l'OFII.",
+      "ar": "نستخدم التدريب المدني كثيراً في OFII.",
+      "en": "We often use civic training at the OFII."
     }
   },
   {
@@ -2057,9 +2057,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "L'expression le contrat d'intégration républicaine (CIR) est utile.",
-      "ar": "تعبير عقد الاندماج الجمهوري مفيد.",
-      "en": "The expression Republican Integration Contract (CIR) is useful."
+      "fr": "On utilise souvent le contrat d'intégration républicaine (CIR) à l'OFII.",
+      "ar": "نستخدم عقد الاندماج الجمهوري كثيراً في OFII.",
+      "en": "We often use Republican Integration Contract (CIR) at the OFII."
     }
   },
   {
@@ -2071,9 +2071,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "L'expression signer le CIR est utile.",
-      "ar": "تعبير توقيع عقد الاندماج مفيد.",
-      "en": "The expression to sign the CIR is useful."
+      "fr": "On utilise souvent « signer le CIR » à l'OFII.",
+      "ar": "نستخدم « توقيع عقد الاندماج » كثيراً في OFII.",
+      "en": "We often use \"to sign the CIR\" at the OFII."
     }
   },
   {
@@ -2085,9 +2085,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression la OFPRA est utile.",
-      "ar": "تعبير مكتب حماية اللاجئين مفيد.",
-      "en": "The expression OFPRA (asylum office) is useful."
+      "fr": "On utilise souvent la OFPRA à l'OFPRA.",
+      "ar": "نستخدم مكتب حماية اللاجئين كثيراً في OFPRA.",
+      "en": "We often use OFPRA (asylum office) at the OFPRA."
     }
   },
   {
@@ -2115,9 +2115,9 @@ window.VOCAB_DATA = [
       "redcross"
     ],
     "ex": {
-      "fr": "L'expression un demandeur d'asile est utile.",
-      "ar": "تعبير طالب لجوء مفيد.",
-      "en": "The expression an asylum seeker is useful."
+      "fr": "On utilise souvent un demandeur d'asile à l'OFPRA.",
+      "ar": "نستخدم طالب لجوء كثيراً في OFPRA.",
+      "en": "We often use an asylum seeker at the OFPRA."
     }
   },
   {
@@ -2131,9 +2131,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un réfugié est utile.",
-      "ar": "تعبير لاجئ مفيد.",
-      "en": "The expression a refugee is useful."
+      "fr": "On utilise souvent un réfugié à l'OFPRA.",
+      "ar": "نستخدم لاجئ كثيراً في OFPRA.",
+      "en": "We often use a refugee at the OFPRA."
     }
   },
   {
@@ -2145,9 +2145,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression la protection subsidiaire est utile.",
-      "ar": "تعبير الحماية الفرعية مفيد.",
-      "en": "The expression subsidiary protection is useful."
+      "fr": "On utilise souvent la protection subsidiaire à l'OFPRA.",
+      "ar": "نستخدم الحماية الفرعية كثيراً في OFPRA.",
+      "en": "We often use subsidiary protection at the OFPRA."
     }
   },
   {
@@ -2173,9 +2173,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression une audience est utile.",
-      "ar": "تعبير جلسة استماع مفيد.",
-      "en": "The expression a hearing is useful."
+      "fr": "On utilise souvent une audience à l'OFPRA.",
+      "ar": "نستخدم جلسة استماع كثيراً في OFPRA.",
+      "en": "We often use a hearing at the OFPRA."
     }
   },
   {
@@ -2220,9 +2220,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "L'expression prendre un avocat est utile.",
-      "ar": "تعبير تعيين محامٍ مفيد.",
-      "en": "The expression to hire a lawyer is useful."
+      "fr": "On utilise souvent « prendre un avocat » à l'OFPRA.",
+      "ar": "نستخدم « تعيين محامٍ » كثيراً في OFPRA.",
+      "en": "We often use \"to hire a lawyer\" at the OFPRA."
     }
   },
   {
@@ -2234,9 +2234,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "Je veux faire un recours devant la CNDA.",
-      "ar": "أريد تقديم استئناف أمام CNDA.",
-      "en": "I want to appeal to the CNDA."
+      "fr": "On utilise souvent la CNDA à l'OFPRA.",
+      "ar": "نستخدم المحكمة الوطنية لحق اللجوء كثيراً في OFPRA.",
+      "en": "We often use CNDA (asylum appeals court) at the OFPRA."
     }
   },
   {
@@ -2278,9 +2278,9 @@ window.VOCAB_DATA = [
       "taxes"
     ],
     "ex": {
-      "fr": "L'expression les impôts est utile.",
-      "ar": "تعبير الضرائب مفيد.",
-      "en": "The expression taxes is useful."
+      "fr": "On utilise souvent les impôts pour les impôts.",
+      "ar": "نستخدم الضرائب كثيراً في الضرائب.",
+      "en": "We often use taxes for taxes."
     }
   },
   {
@@ -2292,9 +2292,9 @@ window.VOCAB_DATA = [
       "taxes"
     ],
     "ex": {
-      "fr": "L'expression la déclaration d'impôts est utile.",
-      "ar": "تعبير إقرار ضريبي مفيد.",
-      "en": "The expression tax return is useful."
+      "fr": "On utilise souvent la déclaration d'impôts pour les impôts.",
+      "ar": "نستخدم إقرار ضريبي كثيراً في الضرائب.",
+      "en": "We often use tax return for taxes."
     }
   },
   {
@@ -2306,9 +2306,9 @@ window.VOCAB_DATA = [
       "taxes"
     ],
     "ex": {
-      "fr": "L'expression déclarer ses revenus est utile.",
-      "ar": "تعبير إعلان الدخل مفيد.",
-      "en": "The expression to declare income is useful."
+      "fr": "On utilise souvent « déclarer ses revenus » pour les impôts.",
+      "ar": "نستخدم « إعلان الدخل » كثيراً في الضرائب.",
+      "en": "We often use \"to declare income\" for taxes."
     }
   },
   {
@@ -2336,9 +2336,9 @@ window.VOCAB_DATA = [
       "taxes"
     ],
     "ex": {
-      "fr": "L'expression un contribuable est utile.",
-      "ar": "تعبير مكلّف ضريبي مفيد.",
-      "en": "The expression a taxpayer is useful."
+      "fr": "On utilise souvent un contribuable pour les impôts.",
+      "ar": "نستخدم مكلّف ضريبي كثيراً في الضرائب.",
+      "en": "We often use a taxpayer for taxes."
     }
   },
   {
@@ -2394,9 +2394,9 @@ window.VOCAB_DATA = [
       "taxes"
     ],
     "ex": {
-      "fr": "L'expression un numéro fiscal est utile.",
-      "ar": "تعبير الرقم الضريبي مفيد.",
-      "en": "The expression tax number is useful."
+      "fr": "On utilise souvent un numéro fiscal pour les impôts.",
+      "ar": "نستخدم الرقم الضريبي كثيراً في الضرائب.",
+      "en": "We often use tax number for taxes."
     }
   },
   {
@@ -2408,9 +2408,9 @@ window.VOCAB_DATA = [
       "taxes"
     ],
     "ex": {
-      "fr": "L'expression le fisc est utile.",
-      "ar": "تعبير مصلحة الضرائب مفيد.",
-      "en": "The expression the tax authorities is useful."
+      "fr": "On utilise souvent le fisc pour les impôts.",
+      "ar": "نستخدم مصلحة الضرائب كثيراً في الضرائب.",
+      "en": "We often use the tax authorities for taxes."
     }
   },
   {
@@ -2422,9 +2422,9 @@ window.VOCAB_DATA = [
       "taxes"
     ],
     "ex": {
-      "fr": "L'expression le site impots.gouv.fr est utile.",
-      "ar": "تعبير موقع الضرائب الفرنسية مفيد.",
-      "en": "The expression the French tax website is useful."
+      "fr": "On utilise souvent le site impots.gouv.fr pour les impôts.",
+      "ar": "نستخدم موقع الضرائب الفرنسية كثيراً في الضرائب.",
+      "en": "We often use the French tax website for taxes."
     }
   },
   {
@@ -2436,9 +2436,9 @@ window.VOCAB_DATA = [
       "taxes"
     ],
     "ex": {
-      "fr": "L'expression un compte impots.gouv.fr est utile.",
-      "ar": "تعبير حساب في موقع الضرائب مفيد.",
-      "en": "The expression a tax website account is useful."
+      "fr": "On utilise souvent un compte impots.gouv.fr pour les impôts.",
+      "ar": "نستخدم حساب في موقع الضرائب كثيراً في الضرائب.",
+      "en": "We often use a tax website account for taxes."
     }
   },
   {
@@ -2451,9 +2451,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression la Croix-Rouge est utile.",
-      "ar": "تعبير الصليب الأحمر مفيد.",
-      "en": "The expression the Red Cross is useful."
+      "fr": "On utilise souvent la Croix-Rouge à la Croix-Rouge.",
+      "ar": "نستخدم الصليب الأحمر كثيراً عند الصليب الأحمر.",
+      "en": "We often use the Red Cross at the Red Cross."
     }
   },
   {
@@ -2497,9 +2497,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une aide alimentaire est utile.",
-      "ar": "تعبير مساعدة غذائية مفيد.",
-      "en": "The expression food aid is useful."
+      "fr": "On utilise souvent une aide alimentaire à la Croix-Rouge.",
+      "ar": "نستخدم مساعدة غذائية كثيراً عند الصليب الأحمر.",
+      "en": "We often use food aid at the Red Cross."
     }
   },
   {
@@ -2512,9 +2512,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression un kit d'hygiène est utile.",
-      "ar": "تعبير حقيبة النظافة الشخصية مفيد.",
-      "en": "The expression a hygiene kit is useful."
+      "fr": "On utilise souvent un kit d'hygiène à la Croix-Rouge.",
+      "ar": "نستخدم حقيبة النظافة الشخصية كثيراً عند الصليب الأحمر.",
+      "en": "We often use a hygiene kit at the Red Cross."
     }
   },
   {
@@ -2527,9 +2527,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression un hébergement d'urgence est utile.",
-      "ar": "تعبير سكن طوارئ مفيد.",
-      "en": "The expression emergency accommodation is useful."
+      "fr": "On utilise souvent un hébergement d'urgence à la Croix-Rouge.",
+      "ar": "نستخدم سكن طوارئ كثيراً عند الصليب الأحمر.",
+      "en": "We often use emergency accommodation at the Red Cross."
     }
   },
   {
@@ -2542,9 +2542,9 @@ window.VOCAB_DATA = [
       "redcross"
     ],
     "ex": {
-      "fr": "L'expression la SPADA est utile.",
-      "ar": "تعبير منصة الاستقبال مفيد.",
-      "en": "The expression SPADA (reception platform) is useful."
+      "fr": "On utilise souvent la SPADA à l'OFPRA.",
+      "ar": "نستخدم منصة الاستقبال كثيراً في OFPRA.",
+      "en": "We often use SPADA (reception platform) at the OFPRA."
     }
   },
   {
@@ -2558,9 +2558,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression le SAMU social est utile.",
-      "ar": "تعبير خدمة الطوارئ الاجتماعية مفيد.",
-      "en": "The expression SAMU social (emergency social services) is useful."
+      "fr": "On utilise souvent le SAMU social à la Croix-Rouge.",
+      "ar": "نستخدم خدمة الطوارئ الاجتماعية كثيراً عند الصليب الأحمر.",
+      "en": "We often use SAMU social (emergency social services) at the Red Cross."
     }
   },
   {
@@ -2573,9 +2573,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression le 115 est utile.",
-      "ar": "تعبير الرقم 115 للطوارئ الاجتماعية مفيد.",
-      "en": "The expression 115 (emergency social number) is useful."
+      "fr": "On utilise souvent le 115 à la Croix-Rouge.",
+      "ar": "نستخدم الرقم 115 للطوارئ الاجتماعية كثيراً عند الصليب الأحمر.",
+      "en": "We often use 115 (emergency social number) at the Red Cross."
     }
   },
   {
@@ -2589,9 +2589,9 @@ window.VOCAB_DATA = [
       "redcross"
     ],
     "ex": {
-      "fr": "L'expression le 18 est utile.",
-      "ar": "تعبير رقم الإطفاء (18) مفيد.",
-      "en": "The expression 18 (fire is useful."
+      "fr": "On utilise souvent le 18 chez le médecin.",
+      "ar": "نستخدم رقم الإطفاء (18) كثيراً عند الطبيب.",
+      "en": "We often use 18 (fire at the doctor's."
     }
   },
   {
@@ -2604,9 +2604,9 @@ window.VOCAB_DATA = [
       "redcross"
     ],
     "ex": {
-      "fr": "L'expression le SAMU (15) est utile.",
-      "ar": "تعبير رقم الإسعافات الطبية (15) مفيد.",
-      "en": "The expression SAMU emergency medical (15) is useful."
+      "fr": "On utilise souvent le SAMU (15) chez le médecin.",
+      "ar": "نستخدم رقم الإسعافات الطبية (15) كثيراً عند الطبيب.",
+      "en": "We often use SAMU emergency medical (15) at the doctor's."
     }
   },
   {
@@ -2619,9 +2619,9 @@ window.VOCAB_DATA = [
       "redcross"
     ],
     "ex": {
-      "fr": "L'expression les urgences est utile.",
-      "ar": "تعبير الطوارئ مفيد.",
-      "en": "The expression emergency room is useful."
+      "fr": "On utilise souvent les urgences chez le médecin.",
+      "ar": "نستخدم الطوارئ كثيراً عند الطبيب.",
+      "en": "We often use emergency room at the doctor's."
     }
   },
   {
@@ -2634,9 +2634,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression le logement est utile.",
-      "ar": "تعبير السكن مفيد.",
-      "en": "The expression housing is useful."
+      "fr": "On utilise souvent le logement pour le logement.",
+      "ar": "نستخدم السكن كثيراً للسكن.",
+      "en": "We often use housing for housing."
     }
   },
   {
@@ -2649,9 +2649,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un appartement est utile.",
-      "ar": "تعبير شقة مفيد.",
-      "en": "The expression an apartment is useful."
+      "fr": "On utilise souvent un appartement pour le logement.",
+      "ar": "نستخدم شقة كثيراً للسكن.",
+      "en": "We often use an apartment for housing."
     }
   },
   {
@@ -2664,9 +2664,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Est-ce que vous avez une chambre libre ce soir ?",
-      "ar": "هل لديكم غرفة متاحة هذا المساء؟",
-      "en": "Do you have a room available tonight?"
+      "fr": "On utilise souvent une chambre pour le logement.",
+      "ar": "نستخدم غرفة نوم كثيراً للسكن.",
+      "en": "We often use a bedroom for housing."
     }
   },
   {
@@ -2694,9 +2694,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une salle de bain est utile.",
-      "ar": "تعبير حمام مفيد.",
-      "en": "The expression a bathroom is useful."
+      "fr": "On utilise souvent une salle de bain pour le logement.",
+      "ar": "نستخدم حمام كثيراً للسكن.",
+      "en": "We often use a bathroom for housing."
     }
   },
   {
@@ -2724,9 +2724,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un salon est utile.",
-      "ar": "تعبير صالون مفيد.",
-      "en": "The expression a living room is useful."
+      "fr": "On utilise souvent un salon pour le logement.",
+      "ar": "نستخدم صالون كثيراً للسكن.",
+      "en": "We often use a living room for housing."
     }
   },
   {
@@ -2738,9 +2738,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression un balcon est utile.",
-      "ar": "تعبير شرفة مفيد.",
-      "en": "The expression a balcony is useful."
+      "fr": "On utilise souvent un balcon pour le logement.",
+      "ar": "نستخدم شرفة كثيراً للسكن.",
+      "en": "We often use a balcony for housing."
     }
   },
   {
@@ -2752,9 +2752,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression un immeuble est utile.",
-      "ar": "تعبير عمارة سكنية مفيد.",
-      "en": "The expression a building is useful."
+      "fr": "On utilise souvent un immeuble pour le logement.",
+      "ar": "نستخدم عمارة سكنية كثيراً للسكن.",
+      "en": "We often use a building for housing."
     }
   },
   {
@@ -2767,9 +2767,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un étage est utile.",
-      "ar": "تعبير طابق مفيد.",
-      "en": "The expression a floor is useful."
+      "fr": "On utilise souvent un étage pour le logement.",
+      "ar": "نستخدم طابق كثيراً للسكن.",
+      "en": "We often use a floor for housing."
     }
   },
   {
@@ -2781,9 +2781,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression le rez-de-chaussée est utile.",
-      "ar": "تعبير الطابق الأرضي مفيد.",
-      "en": "The expression ground floor is useful."
+      "fr": "On utilise souvent le rez-de-chaussée pour le logement.",
+      "ar": "نستخدم الطابق الأرضي كثيراً للسكن.",
+      "en": "We often use ground floor for housing."
     }
   },
   {
@@ -2795,9 +2795,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression le premier étage est utile.",
-      "ar": "تعبير الطابق الأول مفيد.",
-      "en": "The expression first floor is useful."
+      "fr": "On utilise souvent le premier étage pour le logement.",
+      "ar": "نستخدم الطابق الأول كثيراً للسكن.",
+      "en": "We often use first floor for housing."
     }
   },
   {
@@ -2824,9 +2824,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "Ça fait un bail ! (عامية شائعة)",
-      "ar": "مر زمن طويل!",
-      "en": "It's been ages!"
+      "fr": "On utilise souvent un bail pour le logement.",
+      "ar": "نستخدم عقد إيجار كثيراً للسكن.",
+      "en": "We often use a lease for housing."
     }
   },
   {
@@ -2838,9 +2838,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression un propriétaire est utile.",
-      "ar": "تعبير مالك العقار مفيد.",
-      "en": "The expression a landlord is useful."
+      "fr": "On utilise souvent un propriétaire pour le logement.",
+      "ar": "نستخدم مالك العقار كثيراً للسكن.",
+      "en": "We often use a landlord for housing."
     }
   },
   {
@@ -2852,9 +2852,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression une agence immobilière est utile.",
-      "ar": "تعبير وكالة عقارية مفيد.",
-      "en": "The expression a real estate agency is useful."
+      "fr": "On utilise souvent une agence immobilière pour le logement.",
+      "ar": "نستخدم وكالة عقارية كثيراً للسكن.",
+      "en": "We often use a real estate agency for housing."
     }
   },
   {
@@ -2898,9 +2898,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "L'expression une caution est utile.",
-      "ar": "تعبير تأمين مفيد.",
-      "en": "The expression a deposit is useful."
+      "fr": "On utilise souvent une caution pour le logement.",
+      "ar": "نستخدم تأمين كثيراً للسكن.",
+      "en": "We often use a deposit for housing."
     }
   },
   {
@@ -3024,9 +3024,9 @@ window.VOCAB_DATA = [
       "services"
     ],
     "ex": {
-      "fr": "L'expression un fournisseur est utile.",
-      "ar": "تعبير مورد مفيد.",
-      "en": "The expression a supplier is useful."
+      "fr": "On utilise souvent un fournisseur pour le logement.",
+      "ar": "نستخدم مورد كثيراً للسكن.",
+      "en": "We often use a supplier for housing."
     }
   },
   {
@@ -3054,9 +3054,9 @@ window.VOCAB_DATA = [
       "services"
     ],
     "ex": {
-      "fr": "L'expression ouvrir un compteur est utile.",
-      "ar": "تعبير فتح العداد مفيد.",
-      "en": "The expression to open is useful."
+      "fr": "On utilise souvent « ouvrir un compteur » pour le logement.",
+      "ar": "نستخدم « فتح العداد » كثيراً للسكن.",
+      "en": "We often use \"to open\" for housing."
     }
   },
   {
@@ -3069,9 +3069,9 @@ window.VOCAB_DATA = [
       "services"
     ],
     "ex": {
-      "fr": "L'expression fermer un compteur est utile.",
-      "ar": "تعبير إغلاق العداد مفيد.",
-      "en": "The expression to close a meter is useful."
+      "fr": "On utilise souvent « fermer un compteur » pour le logement.",
+      "ar": "نستخدم « إغلاق العداد » كثيراً للسكن.",
+      "en": "We often use \"to close a meter\" for housing."
     }
   },
   {
@@ -3102,9 +3102,9 @@ window.VOCAB_DATA = [
       "services"
     ],
     "ex": {
-      "fr": "L'expression payer une facture est utile.",
-      "ar": "تعبير دفع فاتورة مفيد.",
-      "en": "The expression to pay a bill is useful."
+      "fr": "On utilise souvent « payer une facture » pour le logement.",
+      "ar": "نستخدم « دفع فاتورة » كثيراً للسكن.",
+      "en": "We often use \"to pay a bill\" for housing."
     }
   },
   {
@@ -3117,9 +3117,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "L'expression un prélèvement automatique est utile.",
-      "ar": "تعبير خصم تلقائي من الحساب مفيد.",
-      "en": "The expression direct debit is useful."
+      "fr": "On utilise souvent un prélèvement automatique pour le logement.",
+      "ar": "نستخدم خصم تلقائي من الحساب كثيراً للسكن.",
+      "en": "We often use direct debit for housing."
     }
   },
   {
@@ -3132,9 +3132,9 @@ window.VOCAB_DATA = [
       "services"
     ],
     "ex": {
-      "fr": "L'expression une coupure est utile.",
-      "ar": "تعبير انقطاع مفيد.",
-      "en": "The expression a cut is useful."
+      "fr": "On utilise souvent une coupure pour le logement.",
+      "ar": "نستخدم انقطاع كثيراً للسكن.",
+      "en": "We often use a cut for housing."
     }
   },
   {
@@ -3148,9 +3148,9 @@ window.VOCAB_DATA = [
       "services"
     ],
     "ex": {
-      "fr": "L'expression un problème technique est utile.",
-      "ar": "تعبير مشكلة تقنية مفيد.",
-      "en": "The expression a technical problem is useful."
+      "fr": "On utilise souvent un problème technique pour le logement.",
+      "ar": "نستخدم مشكلة تقنية كثيراً للسكن.",
+      "en": "We often use a technical problem for housing."
     }
   },
   {
@@ -3191,9 +3191,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression un médecin généraliste est utile.",
-      "ar": "تعبير طبيب عام مفيد.",
-      "en": "The expression a GP is useful."
+      "fr": "On utilise souvent un médecin généraliste chez le médecin.",
+      "ar": "نستخدم طبيب عام كثيراً عند الطبيب.",
+      "en": "We often use a GP at the doctor's."
     }
   },
   {
@@ -3205,9 +3205,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "Je voudrais déclarer un médecin traitant.",
-      "ar": "أريد تعيين طبيب معالج.",
-      "en": "I would like to register a family doctor."
+      "fr": "On utilise souvent un médecin traitant chez le médecin.",
+      "ar": "نستخدم الطبيب المعالج كثيراً عند الطبيب.",
+      "en": "We often use a regular doctor at the doctor's."
     }
   },
   {
@@ -3233,9 +3233,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression un rendez-vous médical est utile.",
-      "ar": "تعبير موعد طبي مفيد.",
-      "en": "The expression a medical appointment is useful."
+      "fr": "On utilise souvent un rendez-vous médical chez le médecin.",
+      "ar": "نستخدم موعد طبي كثيراً عند الطبيب.",
+      "en": "We often use a medical appointment at the doctor's."
     }
   },
   {
@@ -3261,9 +3261,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression une clinique est utile.",
-      "ar": "تعبير عيادة مفيد.",
-      "en": "The expression a clinic is useful."
+      "fr": "On utilise souvent une clinique chez le médecin.",
+      "ar": "نستخدم عيادة كثيراً عند الطبيب.",
+      "en": "We often use a clinic at the doctor's."
     }
   },
   {
@@ -3276,9 +3276,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une pharmacie est utile.",
-      "ar": "تعبير صيدلية مفيد.",
-      "en": "The expression a pharmacy is useful."
+      "fr": "On utilise souvent une pharmacie chez le médecin.",
+      "ar": "نستخدم صيدلية كثيراً عند الطبيب.",
+      "en": "We often use a pharmacy at the doctor's."
     }
   },
   {
@@ -3349,9 +3349,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "Est-ce que vous acceptez la Carte Vitale ?",
-      "ar": "هل تقبلون بطاقة فيتال؟",
-      "en": "Do you accept the Vitale card?"
+      "fr": "On utilise souvent la carte Vitale chez le médecin.",
+      "ar": "نستخدم البطاقة الصحية كثيراً عند الطبيب.",
+      "en": "We often use the Vitale health card at the doctor's."
     }
   },
   {
@@ -3364,9 +3364,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "Vous avez une mutuelle ?",
-      "ar": "هل لديك تأمين تكميلي؟",
-      "en": "Do you have supplementary insurance?"
+      "fr": "On utilise souvent une mutuelle chez le médecin.",
+      "ar": "نستخدم تأمين صحي تكميلي كثيراً عند الطبيب.",
+      "en": "We often use a top-up health insurance at the doctor's."
     }
   },
   {
@@ -3378,9 +3378,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression un symptôme est utile.",
-      "ar": "تعبير عرض (مرضي) مفيد.",
-      "en": "The expression a symptom is useful."
+      "fr": "On utilise souvent un symptôme chez le médecin.",
+      "ar": "نستخدم عرض (مرضي) كثيراً عند الطبيب.",
+      "en": "We often use a symptom at the doctor's."
     }
   },
   {
@@ -3407,9 +3407,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "J'ai mal à la tête, avez-vous quelque chose ?",
-      "ar": "أشعر بصداع، هل لديكم شيء له؟",
-      "en": "I have a headache, do you have something for it?"
+      "fr": "On utilise souvent « J'ai mal à » chez le médecin.",
+      "ar": "نستخدم « أعاني من ألم في... » كثيراً عند الطبيب.",
+      "en": "We often use \"I have pain in...\" at the doctor's."
     }
   },
   {
@@ -3496,9 +3496,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Ce documentaire sur la crise environnementale nous a vraiment ouvert les yeux.",
-      "ar": "هذا الوثائقي حول القضية البيئية فتح حقا أعيننا.",
-      "en": "That documentary about the environmental crisis was a real eye-opener."
+      "fr": "On utilise souvent les yeux chez le médecin.",
+      "ar": "نستخدم العيون كثيراً عند الطبيب.",
+      "en": "We often use eyes at the doctor's."
     }
   },
   {
@@ -3538,9 +3538,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression une fièvre est utile.",
-      "ar": "تعبير حمى مفيد.",
-      "en": "The expression a fever is useful."
+      "fr": "On utilise souvent une fièvre chez le médecin.",
+      "ar": "نستخدم حمى كثيراً عند الطبيب.",
+      "en": "We often use a fever at the doctor's."
     }
   },
   {
@@ -3552,9 +3552,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression un vomi est utile.",
-      "ar": "تعبير تقيؤ مفيد.",
-      "en": "The expression vomit is useful."
+      "fr": "On utilise souvent un vomi chez le médecin.",
+      "ar": "نستخدم تقيؤ كثيراً عند الطبيب.",
+      "en": "We often use vomit at the doctor's."
     }
   },
   {
@@ -3610,9 +3610,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression un vaccin est utile.",
-      "ar": "تعبير لقاح مفيد.",
-      "en": "The expression a vaccine is useful."
+      "fr": "On utilise souvent un vaccin chez le médecin.",
+      "ar": "نستخدم لقاح كثيراً عند الطبيب.",
+      "en": "We often use a vaccine at the doctor's."
     }
   },
   {
@@ -3625,9 +3625,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Un test respiratoire à l'urée marquée.",
-      "ar": "فحص التنفس باليوريا الموسومة.",
-      "en": "A urea breath test."
+      "fr": "On utilise souvent un test chez le médecin.",
+      "ar": "نستخدم اختبار كثيراً عند الطبيب.",
+      "en": "We often use a test at the doctor's."
     }
   },
   {
@@ -3639,9 +3639,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression une analyse de sang est utile.",
-      "ar": "تعبير تحليل دم مفيد.",
-      "en": "The expression a blood test is useful."
+      "fr": "On utilise souvent une analyse de sang chez le médecin.",
+      "ar": "نستخدم تحليل دم كثيراً عند الطبيب.",
+      "en": "We often use a blood test at the doctor's."
     }
   },
   {
@@ -3696,9 +3696,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression Je me sens fatigué est utile.",
-      "ar": "تعبير أشعر بالتعب مفيد.",
-      "en": "The expression I feel tired is useful."
+      "fr": "On dit souvent « Je me sens fatigué » chez le médecin.",
+      "ar": "نقول « أشعر بالتعب » كثيراً عند الطبيب.",
+      "en": "We often say \"I feel tired\" at the doctor's."
     }
   },
   {
@@ -3724,9 +3724,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression avoir rendez-vous chez le dentiste est utile.",
-      "ar": "تعبير لدي موعد عند طبيب الأسنان مفيد.",
-      "en": "The expression to have a dentist appointment is useful."
+      "fr": "On utilise souvent « avoir rendez-vous chez le dentiste » chez le médecin.",
+      "ar": "نستخدم « لدي موعد عند طبيب الأسنان » كثيراً عند الطبيب.",
+      "en": "We often use \"to have a dentist appointment\" at the doctor's."
     }
   },
   {
@@ -3739,9 +3739,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression le supermarché est utile.",
-      "ar": "تعبير سوبرماركت مفيد.",
-      "en": "The expression the supermarket is useful."
+      "fr": "On utilise souvent le supermarché dans un magasin.",
+      "ar": "نستخدم سوبرماركت كثيراً في المتجر.",
+      "en": "We often use the supermarket in a shop."
     }
   },
   {
@@ -3769,9 +3769,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une boulangerie est utile.",
-      "ar": "تعبير مخبز مفيد.",
-      "en": "The expression a bakery is useful."
+      "fr": "On utilise souvent une boulangerie dans un magasin.",
+      "ar": "نستخدم مخبز كثيراً في المتجر.",
+      "en": "We often use a bakery in a shop."
     }
   },
   {
@@ -3784,9 +3784,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Je cherche une boucherie halal dans le quartier.",
-      "ar": "أبحث عن ملحمة حلال في الحي.",
-      "en": "I'm looking for a halal butcher in the neighbourhood."
+      "fr": "On utilise souvent une boucherie dans un magasin.",
+      "ar": "نستخدم جزارة كثيراً في المتجر.",
+      "en": "We often use a butcher's in a shop."
     }
   },
   {
@@ -3799,9 +3799,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une librairie est utile.",
-      "ar": "تعبير مكتبة (بيع الكتب) مفيد.",
-      "en": "The expression a bookshop is useful."
+      "fr": "On utilise souvent une librairie dans un magasin.",
+      "ar": "نستخدم مكتبة (بيع الكتب) كثيراً في المتجر.",
+      "en": "We often use a bookshop in a shop."
     }
   },
   {
@@ -3814,9 +3814,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un magasin est utile.",
-      "ar": "تعبير متجر مفيد.",
-      "en": "The expression a shop is useful."
+      "fr": "On utilise souvent un magasin dans un magasin.",
+      "ar": "نستخدم متجر كثيراً في المتجر.",
+      "en": "We often use a shop in a shop."
     }
   },
   {
@@ -3857,9 +3857,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Est-ce que ce produit est en promotion ?",
-      "ar": "هل هذا المنتج عليه عرض؟",
-      "en": "Is this product on offer?"
+      "fr": "On utilise souvent « en promotion » dans un magasin.",
+      "ar": "نستخدم « في عرض خاص » كثيراً في المتجر.",
+      "en": "We often use \"on promotion\" in a shop."
     }
   },
   {
@@ -3871,9 +3871,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Est-ce que je reçois mon solde de tout compte ?",
-      "ar": "هل سأستلم مستحقاتي النهائية؟",
-      "en": "Will I receive my final pay settlement?"
+      "fr": "On utilise souvent « solde » dans un magasin.",
+      "ar": "نستخدم « تخفيض » كثيراً في المتجر.",
+      "en": "We often use \"sale\" in a shop."
     }
   },
   {
@@ -3901,9 +3901,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un panier est utile.",
-      "ar": "تعبير سلة مفيد.",
-      "en": "The expression a basket is useful."
+      "fr": "On utilise souvent un panier dans un magasin.",
+      "ar": "نستخدم سلة كثيراً في المتجر.",
+      "en": "We often use a basket in a shop."
     }
   },
   {
@@ -3915,9 +3915,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Où puis-je trouver un chariot ?",
-      "ar": "أين أجد عربة للحقائب؟",
-      "en": "Where can I find a trolley?"
+      "fr": "On utilise souvent un chariot dans un magasin.",
+      "ar": "نستخدم عربة تسوق كثيراً في المتجر.",
+      "en": "We often use a shopping trolley in a shop."
     }
   },
   {
@@ -3930,9 +3930,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une caisse est utile.",
-      "ar": "تعبير صندوق الدفع مفيد.",
-      "en": "The expression a checkout is useful."
+      "fr": "On utilise souvent une caisse dans un magasin.",
+      "ar": "نستخدم صندوق الدفع كثيراً في المتجر.",
+      "en": "We often use a checkout in a shop."
     }
   },
   {
@@ -3944,9 +3944,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression un vendeur est utile.",
-      "ar": "تعبير بائع مفيد.",
-      "en": "The expression a salesman is useful."
+      "fr": "On utilise souvent un vendeur dans un magasin.",
+      "ar": "نستخدم بائع كثيراً في المتجر.",
+      "en": "We often use a salesman in a shop."
     }
   },
   {
@@ -3958,9 +3958,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression une vendeuse est utile.",
-      "ar": "تعبير بائعة مفيد.",
-      "en": "The expression a saleswoman is useful."
+      "fr": "On utilise souvent une vendeuse dans un magasin.",
+      "ar": "نستخدم بائعة كثيراً في المتجر.",
+      "en": "We often use a saleswoman in a shop."
     }
   },
   {
@@ -3972,9 +3972,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression Je voudrais essayer est utile.",
-      "ar": "تعبير أريد أن أجرب مفيد.",
-      "en": "The expression I would like to try is useful."
+      "fr": "On dit souvent « Je voudrais essayer » dans un magasin.",
+      "ar": "نقول « أريد أن أجرب » كثيراً في المتجر.",
+      "en": "We often say \"I would like to try\" in a shop."
     }
   },
   {
@@ -3986,9 +3986,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression Je cherche la taille... est utile.",
-      "ar": "تعبير أبحث عن المقاس... مفيد.",
-      "en": "The expression I am looking for size... is useful."
+      "fr": "On dit souvent « Je cherche la taille... » dans un magasin.",
+      "ar": "نقول « أبحث عن المقاس... » كثيراً في المتجر.",
+      "en": "We often say \"I am looking for size...\" in a shop."
     }
   },
   {
@@ -4028,9 +4028,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression Avez-vous un autre modèle ? est utile.",
-      "ar": "تعبير هل لديكم موديل آخر؟ مفيد.",
-      "en": "The expression Do you have another model? is useful."
+      "fr": "On dit souvent « Avez-vous un autre modèle ? » dans un magasin.",
+      "ar": "نقول « هل لديكم موديل آخر؟ » كثيراً في المتجر.",
+      "en": "We often say \"Do you have another model?\" in a shop."
     }
   },
   {
@@ -4044,9 +4044,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression le riz est utile.",
-      "ar": "تعبير أرز مفيد.",
-      "en": "The expression rice is useful."
+      "fr": "On utilise souvent le riz dans un magasin.",
+      "ar": "نستخدم أرز كثيراً في المتجر.",
+      "en": "We often use rice in a shop."
     }
   },
   {
@@ -4059,9 +4059,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression les pâtes est utile.",
-      "ar": "تعبير مكرونة مفيد.",
-      "en": "The expression pasta is useful."
+      "fr": "On utilise souvent les pâtes dans un magasin.",
+      "ar": "نستخدم مكرونة كثيراً في المتجر.",
+      "en": "We often use pasta in a shop."
     }
   },
   {
@@ -4074,9 +4074,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression les œufs est utile.",
-      "ar": "تعبير بيض مفيد.",
-      "en": "The expression eggs is useful."
+      "fr": "On utilise souvent les œufs dans un magasin.",
+      "ar": "نستخدم بيض كثيراً في المتجر.",
+      "en": "We often use eggs in a shop."
     }
   },
   {
@@ -4090,9 +4090,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression le poulet est utile.",
-      "ar": "تعبير دجاج مفيد.",
-      "en": "The expression chicken is useful."
+      "fr": "On utilise souvent le poulet dans un magasin.",
+      "ar": "نستخدم دجاج كثيراً في المتجر.",
+      "en": "We often use chicken in a shop."
     }
   },
   {
@@ -4137,9 +4137,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression les fruits est utile.",
-      "ar": "تعبير فواكه مفيد.",
-      "en": "The expression fruits is useful."
+      "fr": "On utilise souvent les fruits dans un magasin.",
+      "ar": "نستخدم فواكه كثيراً في المتجر.",
+      "en": "We often use fruits in a shop."
     }
   },
   {
@@ -4152,9 +4152,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression les légumes est utile.",
-      "ar": "تعبير خضار مفيد.",
-      "en": "The expression vegetables is useful."
+      "fr": "On utilise souvent les légumes dans un magasin.",
+      "ar": "نستخدم خضار كثيراً في المتجر.",
+      "en": "We often use vegetables in a shop."
     }
   },
   {
@@ -4167,9 +4167,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression les pommes est utile.",
-      "ar": "تعبير تفاح مفيد.",
-      "en": "The expression apples is useful."
+      "fr": "On utilise souvent les pommes dans un magasin.",
+      "ar": "نستخدم تفاح كثيراً في المتجر.",
+      "en": "We often use apples in a shop."
     }
   },
   {
@@ -4212,9 +4212,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression les oignons est utile.",
-      "ar": "تعبير بصل مفيد.",
-      "en": "The expression onions is useful."
+      "fr": "On utilise souvent les oignons dans un magasin.",
+      "ar": "نستخدم بصل كثيراً في المتجر.",
+      "en": "We often use onions in a shop."
     }
   },
   {
@@ -4242,9 +4242,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression le beurre est utile.",
-      "ar": "تعبير زبدة مفيد.",
-      "en": "The expression butter is useful."
+      "fr": "On utilise souvent le beurre dans un magasin.",
+      "ar": "نستخدم زبدة كثيراً في المتجر.",
+      "en": "We often use butter in a shop."
     }
   },
   {
@@ -4257,9 +4257,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression le fromage est utile.",
-      "ar": "تعبير جبن مفيد.",
-      "en": "The expression cheese is useful."
+      "fr": "On utilise souvent le fromage dans un magasin.",
+      "ar": "نستخدم جبن كثيراً في المتجر.",
+      "en": "We often use cheese in a shop."
     }
   },
   {
@@ -4272,9 +4272,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression le yaourt est utile.",
-      "ar": "تعبير زبادي مفيد.",
-      "en": "The expression yoghurt is useful."
+      "fr": "On utilise souvent le yaourt dans un magasin.",
+      "ar": "نستخدم زبادي كثيراً في المتجر.",
+      "en": "We often use yoghurt in a shop."
     }
   },
   {
@@ -4287,9 +4287,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression les céréales est utile.",
-      "ar": "تعبير حبوب إفطار مفيد.",
-      "en": "The expression cereals is useful."
+      "fr": "On utilise souvent les céréales dans un magasin.",
+      "ar": "نستخدم حبوب إفطار كثيراً في المتجر.",
+      "en": "We often use cereals in a shop."
     }
   },
   {
@@ -4317,9 +4317,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un litre est utile.",
-      "ar": "تعبير لتر مفيد.",
-      "en": "The expression a litre is useful."
+      "fr": "On utilise souvent un litre dans un magasin.",
+      "ar": "نستخدم لتر كثيراً في المتجر.",
+      "en": "We often use a litre in a shop."
     }
   },
   {
@@ -4346,9 +4346,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression un sachet est utile.",
-      "ar": "تعبير كيس مفيد.",
-      "en": "The expression a bag is useful."
+      "fr": "On utilise souvent un sachet dans un magasin.",
+      "ar": "نستخدم كيس كثيراً في المتجر.",
+      "en": "We often use a bag in a shop."
     }
   },
   {
@@ -4375,9 +4375,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une tranche est utile.",
-      "ar": "تعبير شريحة مفيد.",
-      "en": "The expression a slice is useful."
+      "fr": "On utilise souvent une tranche dans un magasin.",
+      "ar": "نستخدم شريحة كثيراً في المتجر.",
+      "en": "We often use a slice in a shop."
     }
   },
   {
@@ -4390,9 +4390,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Demi-tour interdit.",
-      "ar": "الرجوع للخلف ممنوع.",
-      "en": "U-turn prohibited."
+      "fr": "On dit souvent Demi dans un magasin.",
+      "ar": "نقول نصف كثيراً في المتجر.",
+      "en": "We often say half in a shop."
     }
   },
   {
@@ -4405,9 +4405,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Le mot entier est utile.",
-      "ar": "كلمة كامل مفيدة.",
-      "en": "The word whole is useful."
+      "fr": "On utilise souvent « entier » dans un magasin.",
+      "ar": "نستخدم « كامل » كثيراً في المتجر.",
+      "en": "We often use \"whole\" in a shop."
     }
   },
   {
@@ -4420,9 +4420,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Conservez-le au frais.",
-      "ar": "احتفظ به في مكان بارد.",
-      "en": "Keep it at a lower temperature."
+      "fr": "On utilise souvent « frais » dans un magasin.",
+      "ar": "نستخدم « طازج » كثيراً في المتجر.",
+      "en": "We often use \"fresh\" in a shop."
     }
   },
   {
@@ -4435,9 +4435,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Le mot congelé est utile.",
-      "ar": "كلمة مجمد مفيدة.",
-      "en": "The word frozen is useful."
+      "fr": "On utilise souvent « congelé » dans un magasin.",
+      "ar": "نستخدم « مجمد » كثيراً في المتجر.",
+      "en": "We often use \"frozen\" in a shop."
     }
   },
   {
@@ -4494,9 +4494,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un métro est utile.",
-      "ar": "تعبير مترو مفيد.",
-      "en": "The expression a metro is useful."
+      "fr": "On utilise souvent un métro dans les transports.",
+      "ar": "نستخدم مترو كثيراً في المواصلات.",
+      "en": "We often use a metro in transport."
     }
   },
   {
@@ -4509,9 +4509,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un tramway est utile.",
-      "ar": "تعبير ترام مفيد.",
-      "en": "The expression a tram is useful."
+      "fr": "On utilise souvent un tramway dans les transports.",
+      "ar": "نستخدم ترام كثيراً في المواصلات.",
+      "en": "We often use a tram in transport."
     }
   },
   {
@@ -4539,9 +4539,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Je voudrais louer un vélo.",
-      "ar": "أريد استئجار دراجة.",
-      "en": "I would like to rent a bike."
+      "fr": "On utilise souvent un vélo dans les transports.",
+      "ar": "نستخدم دراجة هوائية كثيراً في المواصلات.",
+      "en": "We often use a bicycle in transport."
     }
   },
   {
@@ -4569,9 +4569,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Le médecin m'a donné un arrêt de travail.",
-      "ar": "أعطاني الطبيب إجازة مرضية.",
-      "en": "The doctor gave me a sick note."
+      "fr": "On utilise souvent un arrêt dans les transports.",
+      "ar": "نستخدم موقف كثيراً في المواصلات.",
+      "en": "We often use a stop in transport."
     }
   },
   {
@@ -4584,9 +4584,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une station est utile.",
-      "ar": "تعبير محطة مفيد.",
-      "en": "The expression a station is useful."
+      "fr": "On utilise souvent une station dans les transports.",
+      "ar": "نستخدم محطة كثيراً في المواصلات.",
+      "en": "We often use a station in transport."
     }
   },
   {
@@ -4598,9 +4598,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "L'expression un quai est utile.",
-      "ar": "تعبير رصيف محطة مفيد.",
-      "en": "The expression a platform is useful."
+      "fr": "On utilise souvent un quai dans les transports.",
+      "ar": "نستخدم رصيف محطة كثيراً في المواصلات.",
+      "en": "We often use a platform in transport."
     }
   },
   {
@@ -4670,9 +4670,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "L'expression un contrôleur est utile.",
-      "ar": "تعبير مفتش التذاكر مفيد.",
-      "en": "The expression a ticket inspector is useful."
+      "fr": "On utilise souvent un contrôleur dans les transports.",
+      "ar": "نستخدم مفتش التذاكر كثيراً في المواصلات.",
+      "en": "We often use a ticket inspector in transport."
     }
   },
   {
@@ -4701,9 +4701,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Vous avez un retard ?",
-      "ar": "هل أنت متأخر؟",
-      "en": "Are you late?"
+      "fr": "On utilise souvent un retard dans les transports.",
+      "ar": "نستخدم تأخير كثيراً في المواصلات.",
+      "en": "We often use a delay in transport."
     }
   },
   {
@@ -4731,9 +4731,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "L'expression À quelle heure part le train ? est utile.",
-      "ar": "تعبير في أي ساعة يقوم القطار؟ مفيد.",
-      "en": "The expression What time does the train leave? is useful."
+      "fr": "On utilise souvent « À quelle heure part le train ? » dans les transports.",
+      "ar": "نستخدم « في أي ساعة يقوم القطار؟ » كثيراً في المواصلات.",
+      "en": "We often use \"What time does the train leave?\" in transport."
     }
   },
   {
@@ -4760,9 +4760,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "L'expression un distributeur de billets est utile.",
-      "ar": "تعبير آلة بيع التذاكر مفيد.",
-      "en": "The expression a ticket machine is useful."
+      "fr": "On utilise souvent un distributeur de billets dans les transports.",
+      "ar": "نستخدم آلة بيع التذاكر كثيراً في المواصلات.",
+      "en": "We often use a ticket machine in transport."
     }
   },
   {
@@ -4775,9 +4775,9 @@ window.VOCAB_DATA = [
       "services"
     ],
     "ex": {
-      "fr": "L'expression une borne est utile.",
-      "ar": "تعبير عمود مفيد.",
-      "en": "The expression a terminal is useful."
+      "fr": "On utilise souvent une borne dans les transports.",
+      "ar": "نستخدم عمود كثيراً في المواصلات.",
+      "en": "We often use a terminal in transport."
     }
   },
   {
@@ -4791,9 +4791,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression le trafic est utile.",
-      "ar": "تعبير حركة المرور مفيد.",
-      "en": "The expression traffic is useful."
+      "fr": "On utilise souvent le trafic dans les transports.",
+      "ar": "نستخدم حركة المرور كثيراً في المواصلات.",
+      "en": "We often use traffic in transport."
     }
   },
   {
@@ -4850,9 +4850,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "L'expression un compte courant est utile.",
-      "ar": "تعبير حساب جاري مفيد.",
-      "en": "The expression a current account is useful."
+      "fr": "On utilise souvent un compte courant à la banque.",
+      "ar": "نستخدم حساب جاري كثيراً في البنك.",
+      "en": "We often use a current account at the bank."
     }
   },
   {
@@ -4879,9 +4879,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une carte bancaire est utile.",
-      "ar": "تعبير بطاقة بنكية مفيد.",
-      "en": "The expression a bank card is useful."
+      "fr": "On utilise souvent une carte bancaire à la banque.",
+      "ar": "نستخدم بطاقة بنكية كثيراً في البنك.",
+      "en": "We often use a bank card at the bank."
     }
   },
   {
@@ -4894,9 +4894,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un distributeur automatique est utile.",
-      "ar": "تعبير صرّاف آلي مفيد.",
-      "en": "The expression an ATM is useful."
+      "fr": "On utilise souvent un distributeur automatique à la banque.",
+      "ar": "نستخدم صرّاف آلي كثيراً في البنك.",
+      "en": "We often use an ATM at the bank."
     }
   },
   {
@@ -4908,9 +4908,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "Un retrait de points.",
-      "ar": "سحب نقاط.",
-      "en": "Points deduction."
+      "fr": "On utilise souvent un retrait à la banque.",
+      "ar": "نستخدم سحب نقدي كثيراً في البنك.",
+      "en": "We often use a withdrawal at the bank."
     }
   },
   {
@@ -4922,9 +4922,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "L'expression un dépôt est utile.",
-      "ar": "تعبير إيداع مفيد.",
-      "en": "The expression a deposit is useful."
+      "fr": "On utilise souvent un dépôt à la banque.",
+      "ar": "نستخدم إيداع كثيراً في البنك.",
+      "en": "We often use a deposit at the bank."
     }
   },
   {
@@ -4938,9 +4938,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "Je voudrais faire un virement.",
-      "ar": "أريد إجراء حوالة.",
-      "en": "I would like to make a transfer."
+      "fr": "On utilise souvent un virement à la banque.",
+      "ar": "نستخدم حوالة بنكية كثيراً في البنك.",
+      "en": "We often use a bank transfer at the bank."
     }
   },
   {
@@ -4952,9 +4952,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "Un prélèvement sanguin",
-      "ar": "سحب عينة دم",
-      "en": "Blood sample collection"
+      "fr": "On utilise souvent un prélèvement à la banque.",
+      "ar": "نستخدم خصم تلقائي كثيراً في البنك.",
+      "en": "We often use a direct debit at the bank."
     }
   },
   {
@@ -4967,9 +4967,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un chèque est utile.",
-      "ar": "تعبير شيك مفيد.",
-      "en": "The expression a cheque is useful."
+      "fr": "On utilise souvent un chèque à la banque.",
+      "ar": "نستخدم شيك كثيراً في البنك.",
+      "en": "We often use a cheque at the bank."
     }
   },
   {
@@ -4997,9 +4997,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "Je voudrais consulter le solde de mon compte.",
-      "ar": "أريد الاطلاع على رصيد حسابي.",
-      "en": "I would like to check my account balance."
+      "fr": "On utilise souvent le solde à la banque.",
+      "ar": "نستخدم الرصيد كثيراً في البنك.",
+      "en": "We often use the balance at the bank."
     }
   },
   {
@@ -5025,9 +5025,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "L'expression les frais bancaires est utile.",
-      "ar": "تعبير رسوم بنكية مفيد.",
-      "en": "The expression bank fees is useful."
+      "fr": "On utilise souvent les frais bancaires à la banque.",
+      "ar": "نستخدم رسوم بنكية كثيراً في البنك.",
+      "en": "We often use bank fees at the bank."
     }
   },
   {
@@ -5039,9 +5039,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "L'expression un conseiller bancaire est utile.",
-      "ar": "تعبير مستشار بنكي مفيد.",
-      "en": "The expression a bank advisor is useful."
+      "fr": "On utilise souvent un conseiller bancaire à la banque.",
+      "ar": "نستخدم مستشار بنكي كثيراً في البنك.",
+      "en": "We often use a bank advisor at the bank."
     }
   },
   {
@@ -5067,9 +5067,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "L'expression Ma carte a été avalée est utile.",
-      "ar": "تعبير ابتلعت البطاقة مفيد.",
-      "en": "The expression My card was swallowed is useful."
+      "fr": "On utilise souvent Ma carte a été avalée à la banque.",
+      "ar": "نستخدم ابتلعت البطاقة كثيراً في البنك.",
+      "en": "We often use My card was swallowed at the bank."
     }
   },
   {
@@ -5082,9 +5082,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression Je voudrais retirer de l'argent est utile.",
-      "ar": "تعبير أريد سحب نقود مفيد.",
-      "en": "The expression I would like to withdraw money is useful."
+      "fr": "On dit souvent « Je voudrais retirer de l'argent » à la banque.",
+      "ar": "نقول « أريد سحب نقود » كثيراً في البنك.",
+      "en": "We often say \"I would like to withdraw money\" at the bank."
     }
   },
   {
@@ -5158,9 +5158,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un portable est utile.",
-      "ar": "تعبير هاتف محمول مفيد.",
-      "en": "The expression a mobile phone is useful."
+      "fr": "On utilise souvent un portable au téléphone.",
+      "ar": "نستخدم هاتف محمول كثيراً في الهاتف.",
+      "en": "We often use a mobile phone on the phone."
     }
   },
   {
@@ -5217,9 +5217,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "J'ai reçu un SMS qui dit que ma carte est prête.",
-      "ar": "استلمت رسالة تقول إن بطاقتي جاهزة.",
-      "en": "I received a text saying my card is ready."
+      "fr": "On utilise souvent un SMS au téléphone.",
+      "ar": "نستخدم رسالة نصية كثيراً في الهاتف.",
+      "en": "We often use a text message on the phone."
     }
   },
   {
@@ -5231,9 +5231,9 @@ window.VOCAB_DATA = [
       "phone"
     ],
     "ex": {
-      "fr": "L'expression un message vocal est utile.",
-      "ar": "تعبير رسالة صوتية مفيد.",
-      "en": "The expression a voicemail is useful."
+      "fr": "On utilise souvent un message vocal au téléphone.",
+      "ar": "نستخدم رسالة صوتية كثيراً في الهاتف.",
+      "en": "We often use a voicemail on the phone."
     }
   },
   {
@@ -5275,9 +5275,9 @@ window.VOCAB_DATA = [
       "phone"
     ],
     "ex": {
-      "fr": "L'expression la 4G / la 5G est utile.",
-      "ar": "تعبير الجيل الرابع مفيد.",
-      "en": "The expression 4G is useful."
+      "fr": "On utilise souvent la 4G / la 5G au téléphone.",
+      "ar": "نستخدم الجيل الرابع كثيراً في الهاتف.",
+      "en": "We often use 4G on the phone."
     }
   },
   {
@@ -5290,9 +5290,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "L'expression le code PIN est utile.",
-      "ar": "تعبير رمز PIN مفيد.",
-      "en": "The expression PIN code is useful."
+      "fr": "On utilise souvent le code PIN au téléphone.",
+      "ar": "نستخدم رمز PIN كثيراً في الهاتف.",
+      "en": "We often use PIN code on the phone."
     }
   },
   {
@@ -5304,9 +5304,9 @@ window.VOCAB_DATA = [
       "phone"
     ],
     "ex": {
-      "fr": "L'expression débloquer un téléphone est utile.",
-      "ar": "تعبير فك قفل الهاتف مفيد.",
-      "en": "The expression to unlock a phone is useful."
+      "fr": "On utilise souvent « débloquer un téléphone » au téléphone.",
+      "ar": "نستخدم « فك قفل الهاتف » كثيراً في الهاتف.",
+      "en": "We often use \"to unlock a phone\" on the phone."
     }
   },
   {
@@ -5319,9 +5319,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression la Poste est utile.",
-      "ar": "تعبير البريد مفيد.",
-      "en": "The expression the post office is useful."
+      "fr": "On utilise souvent la Poste à la poste.",
+      "ar": "نستخدم البريد كثيراً في البريد.",
+      "en": "We often use the post office at the post office."
     }
   },
   {
@@ -5333,9 +5333,9 @@ window.VOCAB_DATA = [
       "post"
     ],
     "ex": {
-      "fr": "Dois-je payer un timbre fiscal ?",
-      "ar": "هل يجب أن أدفع طابعاً ضريبياً؟",
-      "en": "Do I need to pay a tax stamp?"
+      "fr": "On utilise souvent un timbre à la poste.",
+      "ar": "نستخدم طابع بريدي كثيراً في البريد.",
+      "en": "We often use a stamp at the post office."
     }
   },
   {
@@ -5348,9 +5348,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une enveloppe est utile.",
-      "ar": "تعبير ظرف مفيد.",
-      "en": "The expression an envelope is useful."
+      "fr": "On utilise souvent une enveloppe à la poste.",
+      "ar": "نستخدم ظرف كثيراً في البريد.",
+      "en": "We often use an envelope at the post office."
     }
   },
   {
@@ -5393,9 +5393,9 @@ window.VOCAB_DATA = [
       "post"
     ],
     "ex": {
-      "fr": "L'expression un recommandé est utile.",
-      "ar": "تعبير بريد موصى عليه مفيد.",
-      "en": "The expression registered mail is useful."
+      "fr": "On utilise souvent un recommandé à la poste.",
+      "ar": "نستخدم بريد موصى عليه كثيراً في البريد.",
+      "en": "We often use registered mail at the post office."
     }
   },
   {
@@ -5408,9 +5408,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression une boîte aux lettres est utile.",
-      "ar": "تعبير صندوق بريد مفيد.",
-      "en": "The expression a mailbox is useful."
+      "fr": "On utilise souvent une boîte aux lettres à la poste.",
+      "ar": "نستخدم صندوق بريد كثيراً في البريد.",
+      "en": "We often use a mailbox at the post office."
     }
   },
   {
@@ -5425,9 +5425,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "L'expression une adresse est utile.",
-      "ar": "تعبير عنوان مفيد.",
-      "en": "The expression an address is useful."
+      "fr": "On utilise souvent une adresse à la poste.",
+      "ar": "نستخدم عنوان كثيراً في البريد.",
+      "en": "We often use an address at the post office."
     }
   },
   {
@@ -5441,9 +5441,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Envoyer un message",
-      "ar": "إرسال رسالة",
-      "en": "Send a message"
+      "fr": "On utilise souvent « envoyer » à la poste.",
+      "ar": "نستخدم « يرسل » كثيراً في البريد.",
+      "en": "We often use \"to send\" at the post office."
     }
   },
   {
@@ -5458,9 +5458,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Quand est-ce que je vais la recevoir ?",
-      "ar": "متى سأستلمها؟",
-      "en": "When will I get it?"
+      "fr": "On utilise souvent « recevoir » à la poste.",
+      "ar": "نستخدم « يتلقى » كثيراً في البريد.",
+      "en": "We often use \"to receive\" at the post office."
     }
   },
   {
@@ -5488,9 +5488,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Je voudrais m'inscrire à un cours de français.",
-      "ar": "أريد التسجيل في دورة فرنسية.",
-      "en": "I would like to enrol in a French course."
+      "fr": "On utilise souvent un cours à l'école.",
+      "ar": "نستخدم درس كثيراً في المدرسة.",
+      "en": "We often use a class at school."
     }
   },
   {
@@ -5503,9 +5503,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un professeur est utile.",
-      "ar": "تعبير أستاذ مفيد.",
-      "en": "The expression a teacher is useful."
+      "fr": "On utilise souvent un professeur à l'école.",
+      "ar": "نستخدم أستاذ كثيراً في المدرسة.",
+      "en": "We often use a teacher at school."
     }
   },
   {
@@ -5517,9 +5517,9 @@ window.VOCAB_DATA = [
       "school"
     ],
     "ex": {
-      "fr": "L'expression un élève est utile.",
-      "ar": "تعبير تلميذ مفيد.",
-      "en": "The expression a student is useful."
+      "fr": "On utilise souvent un élève à l'école.",
+      "ar": "نستخدم تلميذ كثيراً في المدرسة.",
+      "en": "We often use a student at school."
     }
   },
   {
@@ -5531,9 +5531,9 @@ window.VOCAB_DATA = [
       "school"
     ],
     "ex": {
-      "fr": "Je suis un étudiant de cette école.",
-      "ar": "أنا طالب في هذه المدرسة.",
-      "en": "I'm a student of this school."
+      "fr": "On utilise souvent un étudiant à l'école.",
+      "ar": "نستخدم طالب جامعي كثيراً في المدرسة.",
+      "en": "We often use a university student at school."
     }
   },
   {
@@ -5545,9 +5545,9 @@ window.VOCAB_DATA = [
       "school"
     ],
     "ex": {
-      "fr": "Votre demande nécessite un examen.",
-      "ar": "طلبك يحتاج إلى دراسة.",
-      "en": "Your application requires review."
+      "fr": "On utilise souvent un examen à l'école.",
+      "ar": "نستخدم امتحان كثيراً في المدرسة.",
+      "en": "We often use an exam at school."
     }
   },
   {
@@ -5621,9 +5621,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "Le mot s'inscrire est utile.",
-      "ar": "كلمة يسجل مفيدة.",
-      "en": "The word to register is useful."
+      "fr": "On utilise souvent « s'inscrire » à l'école.",
+      "ar": "نستخدم « يسجل » كثيراً في المدرسة.",
+      "en": "We often use \"to register\" at school."
     }
   },
   {
@@ -5636,9 +5636,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Apprendre une langue étrangère est difficile.",
-      "ar": "تعلم لغة أجنبية صعب.",
-      "en": "Learning a foreign language is hard."
+      "fr": "On utilise souvent « apprendre » à l'école.",
+      "ar": "نستخدم « يتعلم » كثيراً في المدرسة.",
+      "en": "We often use \"to learn\" at school."
     }
   },
   {
@@ -5651,9 +5651,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Je voudrais un ordinateur portable pour étudier.",
-      "ar": "أريد حاسوباً محمولاً للدراسة.",
-      "en": "I would like a laptop for studying."
+      "fr": "On utilise souvent « étudier » à l'école.",
+      "ar": "نستخدم « يدرس » كثيراً في المدرسة.",
+      "en": "We often use \"to study\" at school."
     }
   },
   {
@@ -5681,9 +5681,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Ma mère déteste rédiger des lettres.",
-      "ar": "تكره أمي كتابة الرسائل.",
-      "en": "My mother hates writing letters."
+      "fr": "On utilise souvent « rédiger » à l'école.",
+      "ar": "نستخدم « يكتب » كثيراً في المدرسة.",
+      "en": "We often use \"to write\" at school."
     }
   },
   {
@@ -5746,9 +5746,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "L'expression un mari est utile.",
-      "ar": "تعبير زوج مفيد.",
-      "en": "The expression a husband is useful."
+      "fr": "On utilise souvent un mari dans la vie quotidienne.",
+      "ar": "نستخدم زوج كثيراً في الحياة اليومية.",
+      "en": "We often use a husband in daily life."
     }
   },
   {
@@ -5761,9 +5761,9 @@ window.VOCAB_DATA = [
       "family"
     ],
     "ex": {
-      "fr": "J'entendis une femme crier.",
-      "ar": "سمعت امرأة تصرخ.",
-      "en": "I heard a woman scream."
+      "fr": "On utilise souvent une femme dans la vie quotidienne.",
+      "ar": "نستخدم زوجة كثيراً في الحياة اليومية.",
+      "en": "We often use a wife in daily life."
     }
   },
   {
@@ -5824,9 +5824,9 @@ window.VOCAB_DATA = [
       "family"
     ],
     "ex": {
-      "fr": "L'expression un frère est utile.",
-      "ar": "تعبير أخ مفيد.",
-      "en": "The expression a brother is useful."
+      "fr": "On utilise souvent un frère dans la vie quotidienne.",
+      "ar": "نستخدم أخ كثيراً في الحياة اليومية.",
+      "en": "We often use a brother in daily life."
     }
   },
   {
@@ -5839,9 +5839,9 @@ window.VOCAB_DATA = [
       "family"
     ],
     "ex": {
-      "fr": "L'expression une sœur est utile.",
-      "ar": "تعبير أخت مفيد.",
-      "en": "The expression a sister is useful."
+      "fr": "On utilise souvent une sœur dans la vie quotidienne.",
+      "ar": "نستخدم أخت كثيراً في الحياة اليومية.",
+      "en": "We often use a sister in daily life."
     }
   },
   {
@@ -5867,9 +5867,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une amie est utile.",
-      "ar": "تعبير صديقة مفيد.",
-      "en": "The expression a female friend is useful."
+      "fr": "On utilise souvent une amie dans la vie quotidienne.",
+      "ar": "نستخدم صديقة كثيراً في الحياة اليومية.",
+      "en": "We often use a female friend in daily life."
     }
   },
   {
@@ -5897,9 +5897,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression la voisine est utile.",
-      "ar": "تعبير جارة مفيد.",
-      "en": "The expression female neighbour is useful."
+      "fr": "On utilise souvent la voisine dans la vie quotidienne.",
+      "ar": "نستخدم جارة كثيراً في الحياة اليومية.",
+      "en": "We often use female neighbour in daily life."
     }
   },
   {
@@ -5942,9 +5942,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "Le mot divorcé est utile.",
-      "ar": "كلمة مطلّق مفيدة.",
-      "en": "The word divorced is useful."
+      "fr": "On utilise souvent « divorcé » dans la vie quotidienne.",
+      "ar": "نستخدم « مطلّق » كثيراً في الحياة اليومية.",
+      "en": "We often use \"divorced\" in daily life."
     }
   },
   {
@@ -5957,9 +5957,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "Le mot veuf est utile.",
-      "ar": "كلمة أرمل مفيدة.",
-      "en": "The word widower is useful."
+      "fr": "On utilise souvent « veuf » dans la vie quotidienne.",
+      "ar": "نستخدم « أرمل » كثيراً في الحياة اليومية.",
+      "en": "We often use \"widower\" in daily life."
     }
   },
   {
@@ -6183,9 +6183,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Tournez à gauche.",
-      "ar": "انعطف يسارًا.",
-      "en": "Turn left."
+      "fr": "On utilise souvent « à gauche » dans la vie quotidienne.",
+      "ar": "نستخدم « على اليسار » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to the left\" in daily life."
     }
   },
   {
@@ -6213,9 +6213,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Allez tout droit jusqu'au feu.",
-      "ar": "امشِ مباشرة حتى الإشارة.",
-      "en": "Go straight on to the traffic light."
+      "fr": "On utilise souvent « tout droit » dans la vie quotidienne.",
+      "ar": "نستخدم « على طول » كثيراً في الحياة اليومية.",
+      "en": "We often use \"straight ahead\" in daily life."
     }
   },
   {
@@ -6228,9 +6228,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "L'expression au coin de est utile.",
-      "ar": "تعبير على زاوية مفيد.",
-      "en": "The expression at the corner of is useful."
+      "fr": "On utilise souvent au coin de dans la vie quotidienne.",
+      "ar": "نستخدم على زاوية كثيراً في الحياة اليومية.",
+      "en": "We often use at the corner of in daily life."
     }
   },
   {
@@ -6333,9 +6333,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Le Premier Ministre tiendra une conférence de presse demain.",
-      "ar": "رئيس الوزراء سوف يعقد غدا مؤتمرا صحفيا.",
-      "en": "The Prime Minister will hold a press conference tomorrow."
+      "fr": "On utilise souvent le premier dans la vie quotidienne.",
+      "ar": "نستخدم الأول كثيراً في الحياة اليومية.",
+      "en": "We often use first in daily life."
     }
   },
   {
@@ -6378,9 +6378,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Le prélèvement est fait chaque combien ?",
-      "ar": "في أي يوم يُخصم المبلغ؟",
-      "en": "When is the payment taken each month?"
+      "fr": "On dit souvent « Combien ? » dans la vie quotidienne.",
+      "ar": "نقول « كم؟ » كثيراً في الحياة اليومية.",
+      "en": "We often say \"How many\" in daily life."
     }
   },
   {
@@ -6392,9 +6392,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression Quel / Quelle ? est utile.",
-      "ar": "تعبير أي؟ مفيد.",
-      "en": "The expression Which? is useful."
+      "fr": "On dit souvent « Quel / Quelle ? » dans la vie quotidienne.",
+      "ar": "نقول « أي؟ » كثيراً في الحياة اليومية.",
+      "en": "We often say \"Which?\" in daily life."
     }
   },
   {
@@ -6511,9 +6511,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Faire une biopsie",
-      "ar": "يأخذ خزعة",
-      "en": "To take a biopsy"
+      "fr": "On utilise souvent « faire » dans la vie quotidienne.",
+      "ar": "نستخدم « يفعل » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to do\" in daily life."
     }
   },
   {
@@ -6527,9 +6527,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Ça va aller.",
-      "ar": "سيكون كل شيء بخير.",
-      "en": "It’ll be okay."
+      "fr": "On utilise souvent « aller » dans la vie quotidienne.",
+      "ar": "نستخدم « يذهب » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to go\" in daily life."
     }
   },
   {
@@ -6543,9 +6543,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Paiement à venir",
-      "ar": "دفعة قادمة",
-      "en": "Upcoming payment"
+      "fr": "On utilise souvent « venir » dans la vie quotidienne.",
+      "ar": "نستخدم « يأتي » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to come\" in daily life."
     }
   },
   {
@@ -6557,9 +6557,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Voir plus.",
-      "ar": "عرض المزيد.",
-      "en": "See more."
+      "fr": "On utilise souvent « voir » dans la vie quotidienne.",
+      "ar": "نستخدم « يرى » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to see\" in daily life."
     }
   },
   {
@@ -6588,9 +6588,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "Je pense pouvoir.",
-      "ar": "أظن أنه بمقدوري ذلك.",
-      "en": "I think I can."
+      "fr": "On utilise souvent « pouvoir » dans la vie quotidienne.",
+      "ar": "نستخدم « يستطيع » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to be able to\" in daily life."
     }
   },
   {
@@ -6603,9 +6603,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Je vous remercie de bien vouloir examiner ma demande.",
-      "ar": "أشكركم على النظر في طلبي.",
-      "en": "I would be grateful if you could review my request."
+      "fr": "On utilise souvent « vouloir » dans la vie quotidienne.",
+      "ar": "نستخدم « يريد » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to want\" in daily life."
     }
   },
   {
@@ -6635,9 +6635,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "Le mot falloir est utile.",
-      "ar": "كلمة يجب مفيدة.",
-      "en": "The word to be necessary is useful."
+      "fr": "On utilise souvent « falloir » dans la vie quotidienne.",
+      "ar": "نستخدم « يجب » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to be necessary\" in daily life."
     }
   },
   {
@@ -6665,9 +6665,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Pouvez-vous me donner un reçu ?",
-      "ar": "هل يمكنك إعطائي وصلاً؟",
-      "en": "Can you give me a receipt?"
+      "fr": "On utilise souvent « donner » dans la vie quotidienne.",
+      "ar": "نستخدم « يعطي » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to give\" in daily life."
     }
   },
   {
@@ -6681,9 +6681,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "Avec qui veux-tu parler ?",
-      "ar": "مع من تريد أن تتحدث؟",
-      "en": "Who is it that you want to talk to?"
+      "fr": "On utilise souvent « parler » dans la vie quotidienne.",
+      "ar": "نستخدم « يتكلم » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to speak\" in daily life."
     }
   },
   {
@@ -6712,9 +6712,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "Demander une attestation",
-      "ar": "طلب شهادة",
-      "en": "Request a certificate"
+      "fr": "On utilise souvent « demander » dans la vie quotidienne.",
+      "ar": "نستخدم « يسأل » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to ask\" in daily life."
     }
   },
   {
@@ -6728,9 +6728,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Trouver un professionnel de santé.",
-      "ar": "العثور على مختص صحي.",
-      "en": "Find a healthcare professional."
+      "fr": "On utilise souvent « trouver » dans la vie quotidienne.",
+      "ar": "نستخدم « يجد » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to find\" in daily life."
     }
   },
   {
@@ -6744,9 +6744,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Est-ce que je peux venir chercher mon courrier ici ?",
-      "ar": "هل يمكنني القدوم لاستلام بريدي هنا؟",
-      "en": "Can I come and collect my mail here?"
+      "fr": "On utilise souvent « chercher » dans la vie quotidienne.",
+      "ar": "نستخدم « يبحث » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to look for\" in daily life."
     }
   },
   {
@@ -6760,9 +6760,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "Pouvez-vous m'expliquer le calcul ?",
-      "ar": "هل يمكنكم شرح طريقة الحساب؟",
-      "en": "Can you explain the calculation?"
+      "fr": "On utilise souvent « expliquer » dans la vie quotidienne.",
+      "ar": "نستخدم « يشرح » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to explain\" in daily life."
     }
   },
   {
@@ -6775,9 +6775,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Je ne comprends pas, pouvez-vous répéter ?",
-      "ar": "لا أفهم، هل يمكنك التكرار؟",
-      "en": "I don't understand, can you repeat?"
+      "fr": "On utilise souvent « répéter » dans la vie quotidienne.",
+      "ar": "نستخدم « يكرر » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to repeat\" in daily life."
     }
   },
   {
@@ -6791,9 +6791,9 @@ window.VOCAB_DATA = [
       "school"
     ],
     "ex": {
-      "fr": "Écrire des lettres d'amour ne m'est pas aisé.",
-      "ar": "كتابة رسائل الحب ليست سهلة.",
-      "en": "Writing love letters isn't easy for me."
+      "fr": "On utilise souvent « écrire » dans la vie quotidienne.",
+      "ar": "نستخدم « يكتب » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to write\" in daily life."
     }
   },
   {
@@ -6806,9 +6806,9 @@ window.VOCAB_DATA = [
       "school"
     ],
     "ex": {
-      "fr": "Lire le message",
-      "ar": "قراءة الرسالة.",
-      "en": "Read the message."
+      "fr": "On utilise souvent « lire » dans la vie quotidienne.",
+      "ar": "نستخدم « يقرأ » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to read\" in daily life."
     }
   },
   {
@@ -6900,9 +6900,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "Évitez de manger juste avant de dormir.",
-      "ar": "تجنب الأكل قبل النوم مباشرة.",
-      "en": "Avoid eating just before sleeping."
+      "fr": "On utilise souvent « manger » dans la vie quotidienne.",
+      "ar": "نستخدم « ياكل » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to eat\" in daily life."
     }
   },
   {
@@ -6930,9 +6930,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "Évitez de manger juste avant de dormir.",
-      "ar": "تجنب الأكل قبل النوم مباشرة.",
-      "en": "Avoid eating just before sleeping."
+      "fr": "On utilise souvent « dormir » dans la vie quotidienne.",
+      "ar": "نستخدم « ينام » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to sleep\" in daily life."
     }
   },
   {
@@ -6960,9 +6960,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Commencer un emploi",
-      "ar": "بدء عمل",
-      "en": "Start a job"
+      "fr": "On utilise souvent « commencer » dans la vie quotidienne.",
+      "ar": "نستخدم « يبدأ » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to start\" in daily life."
     }
   },
   {
@@ -6975,9 +6975,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Je te laisse finir.",
-      "ar": "سأتركك تنهي.",
-      "en": "I’ll let you finish."
+      "fr": "On utilise souvent « finir » dans la vie quotidienne.",
+      "ar": "نستخدم « ينتهي » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to finish\" in daily life."
     }
   },
   {
@@ -6991,9 +6991,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Ça peut arriver.",
-      "ar": "يمكن أن يحدث.",
-      "en": "It can happen."
+      "fr": "On utilise souvent « arriver » dans la vie quotidienne.",
+      "ar": "نستخدم « يصل » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to arrive\" in daily life."
     }
   },
   {
@@ -7022,9 +7022,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Fais-le entrer.",
-      "ar": "أدخله.",
-      "en": "Let him in."
+      "fr": "On utilise souvent « entrer » dans la vie quotidienne.",
+      "ar": "نستخدم « يدخل » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to enter\" in daily life."
     }
   },
   {
@@ -7036,9 +7036,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "J’ai pas envie de sortir.",
-      "ar": "لا أريد الخروج.",
-      "en": "I don’t feel like going out."
+      "fr": "On utilise souvent « sortir » dans la vie quotidienne.",
+      "ar": "نستخدم « يخرج » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to go out\" in daily life."
     }
   },
   {
@@ -7051,9 +7051,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Est-ce qu'il faut monter le meuble soi-même ?",
-      "ar": "هل يجب تركيب الأثاث بنفسي؟",
-      "en": "Do I have to assemble the furniture myself?"
+      "fr": "On utilise souvent « monter » dans la vie quotidienne.",
+      "ar": "نستخدم « يصعد » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to go up\" in daily life."
     }
   },
   {
@@ -7066,9 +7066,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Pouvez-vous me dire quand descendre ?",
-      "ar": "هل يمكنك أن تقول لي متى أنزل؟",
-      "en": "Can you tell me when to get off?"
+      "fr": "On utilise souvent « descendre » dans la vie quotidienne.",
+      "ar": "نستخدم « ينزل » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to go down\" in daily life."
     }
   },
   {
@@ -7096,9 +7096,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Continuer la démarche",
-      "ar": "متابعة الإجراء",
-      "en": "Continue the procedure"
+      "fr": "On utilise souvent « continuer » dans la vie quotidienne.",
+      "ar": "نستخدم « يستمر » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to continue\" in daily life."
     }
   },
   {
@@ -7111,9 +7111,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Est-ce que les prélèvements vont s'arrêter ?",
-      "ar": "هل ستتوقف الخصومات؟",
-      "en": "Will the direct debits stop?"
+      "fr": "On utilise souvent « s'arrêter » dans la vie quotidienne.",
+      "ar": "نستخدم « يتوقف » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to stop\" in daily life."
     }
   },
   {
@@ -7141,9 +7141,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "Le mot rentrer est utile.",
-      "ar": "كلمة يعود مفيدة.",
-      "en": "The word to return is useful."
+      "fr": "On utilise souvent « rentrer » dans la vie quotidienne.",
+      "ar": "نستخدم « يعود » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to return\" in daily life."
     }
   },
   {
@@ -7172,9 +7172,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "Quels documents dois-je apporter ?",
-      "ar": "ما الوثائق التي يجب أن أجلبها؟",
-      "en": "Which documents should I bring?"
+      "fr": "On utilise souvent « apporter » dans la vie quotidienne.",
+      "ar": "نستخدم « يجلب (شيئاً) » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to bring (something)\" in daily life."
     }
   },
   {
@@ -7219,9 +7219,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Fermer la page",
-      "ar": "إغلاق الصفحة",
-      "en": "Close the page"
+      "fr": "On utilise souvent « fermer » dans la vie quotidienne.",
+      "ar": "نستخدم « يغلق » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to close\" in daily life."
     }
   },
   {
@@ -7251,9 +7251,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "Mon téléphone est cassé, pouvez-vous le réparer ?",
-      "ar": "هاتفي مكسور، هل يمكنكم إصلاحه؟",
-      "en": "My phone is broken, can you repair it?"
+      "fr": "On utilise souvent « réparer » dans la vie quotidienne.",
+      "ar": "نستخدم « يصلح » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to repair\" in daily life."
     }
   },
   {
@@ -7311,9 +7311,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "Le mot repasser est utile.",
-      "ar": "كلمة يكوي مفيدة.",
-      "en": "The word to iron is useful."
+      "fr": "On utilise souvent « repasser » dans la vie quotidienne.",
+      "ar": "نستخدم « يكوي » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to iron\" in daily life."
     }
   },
   {
@@ -7326,9 +7326,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "J'ai le permis de conduire.",
-      "ar": "لديّ رخصة قيادة.",
-      "en": "I have a driving licence."
+      "fr": "On utilise souvent « conduire » dans la vie quotidienne.",
+      "ar": "نستخدم « يقود » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to drive\" in daily life."
     }
   },
   {
@@ -7356,9 +7356,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "L'expression tomber en panne est utile.",
-      "ar": "تعبير تعطل مفيد.",
-      "en": "The expression to break down is useful."
+      "fr": "On utilise souvent « tomber en panne » dans la vie quotidienne.",
+      "ar": "نستخدم « تعطل » كثيراً في الحياة اليومية.",
+      "en": "We often use \"to break down\" in daily life."
     }
   },
   {
@@ -7405,9 +7405,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "L'expression J'ai perdu mon rendez-vous est utile.",
-      "ar": "تعبير فقدت موعدي مفيد.",
-      "en": "The expression I lost is useful."
+      "fr": "On utilise souvent « J'ai perdu mon rendez-vous » au bureau.",
+      "ar": "نستخدم « فقدت موعدي » كثيراً في المكتب.",
+      "en": "We often use \"I lost\" at the office."
     }
   },
   {
@@ -7421,9 +7421,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "L'expression Puis-je avoir un formulaire ? est utile.",
-      "ar": "تعبير هل يمكنني الحصول على استمارة؟ مفيد.",
-      "en": "The expression Can I have a form? is useful."
+      "fr": "On dit souvent « Puis-je avoir un formulaire ? » au bureau.",
+      "ar": "نقول « هل يمكنني الحصول على استمارة؟ » كثيراً في المكتب.",
+      "en": "We often say \"Can I have a form?\" at the office."
     }
   },
   {
@@ -7437,9 +7437,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression Où puis-joindre ce document ? est utile.",
-      "ar": "تعبير أين أرفق هذه الوثيقة؟ مفيد.",
-      "en": "The expression Where should I attach this document? is useful."
+      "fr": "On dit souvent « Où puis-joindre ce document ? » au bureau.",
+      "ar": "نقول « أين أرفق هذه الوثيقة؟ » كثيراً في المكتب.",
+      "en": "We often say \"Where should I attach this document?\" at the office."
     }
   },
   {
@@ -7454,9 +7454,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression Quels sont les documents nécessaires ? est utile.",
-      "ar": "تعبير ما هي الوثائق المطلوبة؟ مفيد.",
-      "en": "The expression What documents are required? is useful."
+      "fr": "On dit souvent « Quels sont les documents nécessaires ? » au bureau.",
+      "ar": "نقول « ما هي الوثائق المطلوبة؟ » كثيراً في المكتب.",
+      "en": "We often say \"What documents are required?\" at the office."
     }
   },
   {
@@ -7486,9 +7486,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression Quand est-ce que je vais recevoir la réponse ? est utile.",
-      "ar": "تعبير متى سأتلقى الإجابة؟ مفيد.",
-      "en": "The expression When will I receive the answer? is useful."
+      "fr": "On dit souvent « Quand est-ce que je vais recevoir la réponse ? » au bureau.",
+      "ar": "نقول « متى سأتلقى الإجابة؟ » كثيراً في المكتب.",
+      "en": "We often say \"When will I receive the answer?\" at the office."
     }
   },
   {
@@ -7502,9 +7502,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "Je n'ai pas encore reçu ma carte de paiement.",
-      "ar": "لم أستلم بطاقة الدفع بعد.",
-      "en": "I haven't received my payment card yet."
+      "fr": "On dit souvent « Je n'ai pas encore reçu » au bureau.",
+      "ar": "نقول « لم أستلم بعد... » كثيراً في المكتب.",
+      "en": "We often say \"I have not received yet...\" at the office."
     }
   },
   {
@@ -7519,9 +7519,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression Je voudrais suivre mon dossier est utile.",
-      "ar": "تعبير أريد متابعة ملفي مفيد.",
-      "en": "The expression I would like to follow up on my file is useful."
+      "fr": "On dit souvent « Je voudrais suivre mon dossier » au bureau.",
+      "ar": "نقول « أريد متابعة ملفي » كثيراً في المكتب.",
+      "en": "We often say \"I would like to follow up on my file\" at the office."
     }
   },
   {
@@ -7551,9 +7551,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression Mon dossier a été refusé est utile.",
-      "ar": "تعبير تم رفض ملفي مفيد.",
-      "en": "The expression My file was refused is useful."
+      "fr": "On utilise souvent Mon dossier a été refusé au bureau.",
+      "ar": "نستخدم تم رفض ملفي كثيراً في المكتب.",
+      "en": "We often use My file was refused at the office."
     }
   },
   {
@@ -7566,9 +7566,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "L'expression Je voudrais faire un recours est utile.",
-      "ar": "تعبير أريد تقديم طعن مفيد.",
-      "en": "The expression I would like to appeal is useful."
+      "fr": "On dit souvent « Je voudrais faire un recours » à l'OFPRA.",
+      "ar": "نقول « أريد تقديم طعن » كثيراً في OFPRA.",
+      "en": "We often say \"I would like to appeal\" at the OFPRA."
     }
   },
   {
@@ -7597,9 +7597,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "C'est important de rester calme.",
-      "ar": "من المهم أن تبقى هادئاً.",
-      "en": "It is important to stay calm."
+      "fr": "On dit souvent « C'est important » au bureau.",
+      "ar": "نقول « هذا مهم » كثيراً في المكتب.",
+      "en": "We often say \"It's important\" at the office."
     }
   },
   {
@@ -7612,9 +7612,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Je ne suis pas d'accord avec toi.",
-      "ar": "لا أوافقك الرأي.",
-      "en": "I do not agree with you."
+      "fr": "On dit souvent « Je ne suis pas d'accord » au bureau.",
+      "ar": "نقول « أنا لا أوافق » كثيراً في المكتب.",
+      "en": "We often say \"I don't agree\" at the office."
     }
   },
   {
@@ -7628,9 +7628,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "L'expression Je voudrais parler au responsable est utile.",
-      "ar": "تعبير أريد التحدث إلى المسؤول مفيد.",
-      "en": "The expression I would like to speak to the manager is useful."
+      "fr": "On dit souvent « Je voudrais parler au responsable » au bureau.",
+      "ar": "نقول « أريد التحدث إلى المسؤول » كثيراً في المكتب.",
+      "en": "We often say \"I would like to speak to the manager\" at the office."
     }
   },
   {
@@ -7644,9 +7644,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "Pouvez-vous m'expliquer le calcul ?",
-      "ar": "هل يمكنكم شرح طريقة الحساب؟",
-      "en": "Can you explain the calculation?"
+      "fr": "On dit souvent « Pouvez-vous m'expliquer » au bureau.",
+      "ar": "نقول « هل يمكنك شرح ذلك لي؟ » كثيراً في المكتب.",
+      "en": "We often say \"Can you explain it to me?\" at the office."
     }
   },
   {
@@ -7660,9 +7660,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression Pouvez-vous écrire cela ? est utile.",
-      "ar": "تعبير هل يمكنك كتابة ذلك؟ مفيد.",
-      "en": "The expression Can you write that down? is useful."
+      "fr": "On dit souvent « Pouvez-vous écrire cela ? » au bureau.",
+      "ar": "نقول « هل يمكنك كتابة ذلك؟ » كثيراً في المكتب.",
+      "en": "We often say \"Can you write that down?\" at the office."
     }
   },
   {
@@ -7676,9 +7676,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression Je vais revenir est utile.",
-      "ar": "تعبير سأعود مفيد.",
-      "en": "The expression I will come back is useful."
+      "fr": "On dit souvent « Je vais revenir » au bureau.",
+      "ar": "نقول « سأعود » كثيراً في المكتب.",
+      "en": "We often say \"I will come back\" at the office."
     }
   },
   {
@@ -7690,9 +7690,9 @@ window.VOCAB_DATA = [
       "caf"
     ],
     "ex": {
-      "fr": "La CAF traite ma demande.",
-      "ar": "CAF تعالج طلبي.",
-      "en": "CAF is processing my request."
+      "fr": "On utilise souvent la CAF à la CAF.",
+      "ar": "نستخدم صندوق الإعانات العائلية كثيراً في CAF.",
+      "en": "We often use CAF (family benefits office) at the CAF."
     }
   },
   {
@@ -7705,9 +7705,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'APL est versée au bailleur.",
-      "ar": "تُحوَّل APL إلى المؤجر.",
-      "en": "The housing benefit is paid to the landlord."
+      "fr": "On utilise souvent « l'APL » à la CAF.",
+      "ar": "نستخدم « إعانة الإيجار الشخصي » كثيراً في CAF.",
+      "en": "We often use \"APL (housing benefit)\" at the CAF."
     }
   },
   {
@@ -7720,9 +7720,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "Le mot l'ALS est utile.",
-      "ar": "كلمة إعانة الإيجار الاجتماعية مفيدة.",
-      "en": "The word ALS (social housing benefit) is useful."
+      "fr": "On utilise souvent « l'ALS » à la CAF.",
+      "ar": "نستخدم « إعانة الإيجار الاجتماعية » كثيراً في CAF.",
+      "en": "We often use \"ALS (social housing benefit)\" at the CAF."
     }
   },
   {
@@ -7734,9 +7734,9 @@ window.VOCAB_DATA = [
       "caf"
     ],
     "ex": {
-      "fr": "L'expression les allocations est utile.",
-      "ar": "تعبير الإعانات مفيد.",
-      "en": "The expression benefits is useful."
+      "fr": "On utilise souvent les allocations à la CAF.",
+      "ar": "نستخدم الإعانات كثيراً في CAF.",
+      "en": "We often use benefits at the CAF."
     }
   },
   {
@@ -7749,9 +7749,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Je ne reçois plus le RSA.",
-      "ar": "لم أعد أتلقى RSA.",
-      "en": "I no longer receive RSA."
+      "fr": "On utilise souvent le RSA à la CAF.",
+      "ar": "نستخدم إعانة الدخل النشيط كثيراً في CAF.",
+      "en": "We often use RSA (active solidarity income) at the CAF."
     }
   },
   {
@@ -7764,9 +7764,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression percevoir le RSA est utile.",
-      "ar": "تعبير تلقي RSA مفيد.",
-      "en": "The expression to receive RSA is useful."
+      "fr": "On utilise souvent « percevoir le RSA » à la CAF.",
+      "ar": "نستخدم « تلقي RSA » كثيراً في CAF.",
+      "en": "We often use \"to receive RSA\" at the CAF."
     }
   },
   {
@@ -7779,9 +7779,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression la prime d'activité est utile.",
-      "ar": "تعبير علاوة النشاط مفيد.",
-      "en": "The expression activity bonus is useful."
+      "fr": "On utilise souvent la prime d'activité à la CAF.",
+      "ar": "نستخدم علاوة النشاط كثيراً في CAF.",
+      "en": "We often use activity bonus at the CAF."
     }
   },
   {
@@ -7793,9 +7793,9 @@ window.VOCAB_DATA = [
       "caf"
     ],
     "ex": {
-      "fr": "L'expression un numéro d'allocataire est utile.",
-      "ar": "تعبير رقم المستفيد مفيد.",
-      "en": "The expression beneficiary number is useful."
+      "fr": "On utilise souvent un numéro d'allocataire à la CAF.",
+      "ar": "نستخدم رقم المستفيد كثيراً في CAF.",
+      "en": "We often use beneficiary number at the CAF."
     }
   },
   {
@@ -7821,9 +7821,9 @@ window.VOCAB_DATA = [
       "caf"
     ],
     "ex": {
-      "fr": "En attendant, voici mon attestation de droits.",
-      "ar": "في الانتظار، هذه شهادة حقوقي.",
-      "en": "In the meantime, here is my proof of entitlement."
+      "fr": "On utilise souvent « attestation de droits » à la CAF.",
+      "ar": "نستخدم « شهادة بالحقوق » كثيراً في CAF.",
+      "en": "We often use \"rights certificate\" at the CAF."
     }
   },
   {
@@ -7835,9 +7835,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "France Travail peut radier un demandeur d'emploi.",
-      "ar": "يمكن لـ France Travail شطب طالب العمل.",
-      "en": "France Travail can remove a job seeker from the register."
+      "fr": "On utilise souvent « France Travail » au travail.",
+      "ar": "نستخدم « وكالة العمل (السابقة Pôle emploi) » كثيراً في العمل.",
+      "en": "We often use \"France Travail (job centre)\" at work."
     }
   },
   {
@@ -7849,9 +7849,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression un conseiller France Travail est utile.",
-      "ar": "تعبير مستشار عمل مفيد.",
-      "en": "The expression a France Travail advisor is useful."
+      "fr": "On utilise souvent un conseiller France Travail au travail.",
+      "ar": "نستخدم مستشار عمل كثيراً في العمل.",
+      "en": "We often use a France Travail advisor at work."
     }
   },
   {
@@ -7877,9 +7877,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression un entretien d'embauche est utile.",
-      "ar": "تعبير مقابلة توظيف مفيد.",
-      "en": "The expression a job interview is useful."
+      "fr": "On utilise souvent un entretien d'embauche au travail.",
+      "ar": "نستخدم مقابلة توظيف كثيراً في العمل.",
+      "en": "We often use a job interview at work."
     }
   },
   {
@@ -7892,9 +7892,9 @@ window.VOCAB_DATA = [
       "caf"
     ],
     "ex": {
-      "fr": "L'expression le chômage est utile.",
-      "ar": "تعبير البطالة مفيد.",
-      "en": "The expression unemployment (benefit) is useful."
+      "fr": "On utilise souvent le chômage au travail.",
+      "ar": "نستخدم البطالة كثيراً في العمل.",
+      "en": "We often use unemployment (benefit) at work."
     }
   },
   {
@@ -7907,9 +7907,9 @@ window.VOCAB_DATA = [
       "caf"
     ],
     "ex": {
-      "fr": "L'expression au chômage est utile.",
-      "ar": "تعبير عاطل عن العمل مفيد.",
-      "en": "The expression unemployed is useful."
+      "fr": "On utilise souvent au chômage au travail.",
+      "ar": "نستخدم عاطل عن العمل كثيراً في العمل.",
+      "en": "We often use unemployed at work."
     }
   },
   {
@@ -7955,9 +7955,9 @@ window.VOCAB_DATA = [
       "taxes"
     ],
     "ex": {
-      "fr": "Je dois déclarer ces revenus à l'URSSAF.",
-      "ar": "يجب أن أصرّح بهذه المداخيل إلى URSSAF.",
-      "en": "I have to declare this income to URSSAF."
+      "fr": "On utilise souvent « l'URSSAF » au travail.",
+      "ar": "نستخدم « صندوق الضمان الاجتماعي » كثيراً في العمل.",
+      "en": "We often use \"URSSAF (social contributions)\" at work."
     }
   },
   {
@@ -7970,9 +7970,9 @@ window.VOCAB_DATA = [
       "taxes"
     ],
     "ex": {
-      "fr": "Quel est le montant des cotisations ?",
-      "ar": "ما مقدار الاستقطاعات؟",
-      "en": "How much are the contributions?"
+      "fr": "On utilise souvent « cotisations » au travail.",
+      "ar": "نستخدم « اشتراكات اجتماعية » كثيراً في العمل.",
+      "en": "We often use \"social contributions\" at work."
     }
   },
   {
@@ -8015,9 +8015,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression un certificat de vie est utile.",
-      "ar": "تعبير شهادة حياة مفيد.",
-      "en": "The expression a certificate of life is useful."
+      "fr": "On utilise souvent un certificat de vie à la préfecture.",
+      "ar": "نستخدم شهادة حياة كثيراً في المحافظة.",
+      "en": "We often use a certificate of life at the prefecture."
     }
   },
   {
@@ -8044,9 +8044,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "Je voudrais aussi un extrait d'acte de naissance.",
-      "ar": "أريد أيضاً مستخرج شهادة ميلاد.",
-      "en": "I would also like a birth certificate extract."
+      "fr": "On utilise souvent un extrait à la préfecture.",
+      "ar": "نستخدم نسخة استخراج كثيراً في المحافظة.",
+      "en": "We often use an extract at the prefecture."
     }
   },
   {
@@ -8060,9 +8060,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression la pause-café est utile.",
-      "ar": "تعبير استراحة القهوة مفيد.",
-      "en": "The expression coffee break is useful."
+      "fr": "On utilise souvent la pause-café au café.",
+      "ar": "نستخدم استراحة القهوة كثيراً في المقهى.",
+      "en": "We often use coffee break at the café."
     }
   },
   {
@@ -8075,9 +8075,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression la machine à café est utile.",
-      "ar": "تعبير آلة القهوة مفيد.",
-      "en": "The expression the coffee machine is useful."
+      "fr": "On utilise souvent la machine à café au café.",
+      "ar": "نستخدم آلة القهوة كثيراً في المقهى.",
+      "en": "We often use the coffee machine at the café."
     }
   },
   {
@@ -8120,9 +8120,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression une nappe est utile.",
-      "ar": "تعبير مفرش المائدة مفيد.",
-      "en": "The expression a tablecloth is useful."
+      "fr": "On utilise souvent une nappe au café.",
+      "ar": "نستخدم مفرش المائدة كثيراً في المقهى.",
+      "en": "We often use a tablecloth at the café."
     }
   },
   {
@@ -8135,9 +8135,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "Mets une serviette sur la machine.",
-      "ar": "ضع منشفة على الجهاز.",
-      "en": "Put a towel on the machine."
+      "fr": "On utilise souvent une serviette au café.",
+      "ar": "نستخدم منديل كثيراً في المقهى.",
+      "en": "We often use a napkin at the café."
     }
   },
   {
@@ -8151,9 +8151,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un couteau est utile.",
-      "ar": "تعبير سكين مفيد.",
-      "en": "The expression a knife is useful."
+      "fr": "On utilise souvent un couteau au café.",
+      "ar": "نستخدم سكين كثيراً في المقهى.",
+      "en": "We often use a knife at the café."
     }
   },
   {
@@ -8167,9 +8167,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une fourchette est utile.",
-      "ar": "تعبير شوكة مفيد.",
-      "en": "The expression a fork is useful."
+      "fr": "On utilise souvent une fourchette au café.",
+      "ar": "نستخدم شوكة كثيراً في المقهى.",
+      "en": "We often use a fork at the café."
     }
   },
   {
@@ -8183,9 +8183,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une cuillère est utile.",
-      "ar": "تعبير ملعقة مفيد.",
-      "en": "The expression a spoon is useful."
+      "fr": "On utilise souvent une cuillère au café.",
+      "ar": "نستخدم ملعقة كثيراً في المقهى.",
+      "en": "We often use a spoon at the café."
     }
   },
   {
@@ -8199,9 +8199,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une assiette est utile.",
-      "ar": "تعبير طبق مفيد.",
-      "en": "The expression a plate is useful."
+      "fr": "On utilise souvent une assiette au café.",
+      "ar": "نستخدم طبق كثيراً في المقهى.",
+      "en": "We often use a plate at the café."
     }
   },
   {
@@ -8215,9 +8215,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un bol est utile.",
-      "ar": "تعبير طاسة مفيد.",
-      "en": "The expression a bowl is useful."
+      "fr": "On utilise souvent un bol au café.",
+      "ar": "نستخدم طاسة كثيراً في المقهى.",
+      "en": "We often use a bowl at the café."
     }
   },
   {
@@ -8231,9 +8231,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression le déjeuner est utile.",
-      "ar": "تعبير غداء مفيد.",
-      "en": "The expression lunch is useful."
+      "fr": "On utilise souvent le déjeuner au café.",
+      "ar": "نستخدم غداء كثيراً في المقهى.",
+      "en": "We often use lunch at the café."
     }
   },
   {
@@ -8247,9 +8247,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression le dîner est utile.",
-      "ar": "تعبير عشاء مفيد.",
-      "en": "The expression dinner is useful."
+      "fr": "On utilise souvent le dîner au café.",
+      "ar": "نستخدم عشاء كثيراً في المقهى.",
+      "en": "We often use dinner at the café."
     }
   },
   {
@@ -8277,9 +8277,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un goûter est utile.",
-      "ar": "تعبير وجبة خفيفة بعد الظهر مفيد.",
-      "en": "The expression an afternoon snack is useful."
+      "fr": "On utilise souvent un goûter au café.",
+      "ar": "نستخدم وجبة خفيفة بعد الظهر كثيراً في المقهى.",
+      "en": "We often use an afternoon snack at the café."
     }
   },
   {
@@ -8292,9 +8292,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "Quel est le plat du jour ?",
-      "ar": "ما هو طبق اليوم؟",
-      "en": "What is today's special?"
+      "fr": "On utilise souvent le plat au café.",
+      "ar": "نستخدم طبق (أكل) كثيراً في المقهى.",
+      "en": "We often use dish at the café."
     }
   },
   {
@@ -8307,9 +8307,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression le dessert est utile.",
-      "ar": "تعبير حلوى مفيد.",
-      "en": "The expression dessert is useful."
+      "fr": "On utilise souvent le dessert au café.",
+      "ar": "نستخدم حلوى كثيراً في المقهى.",
+      "en": "We often use dessert at the café."
     }
   },
   {
@@ -8323,9 +8323,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Est-ce que l'entrée est gratuite le premier dimanche ?",
-      "ar": "هل الدخول مجاني في الأحد الأول؟",
-      "en": "Is entry free on the first Sunday?"
+      "fr": "On utilise souvent « l'entrée » au café.",
+      "ar": "نستخدم « مقبلات » كثيراً في المقهى.",
+      "en": "We often use \"starter\" at the café."
     }
   },
   {
@@ -8338,9 +8338,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression la crème est utile.",
-      "ar": "تعبير قشطة مفيد.",
-      "en": "The expression cream is useful."
+      "fr": "On utilise souvent la crème au café.",
+      "ar": "نستخدم قشطة كثيراً في المقهى.",
+      "en": "We often use cream at the café."
     }
   },
   {
@@ -8353,9 +8353,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression les frites est utile.",
-      "ar": "تعبير بطاطا مقلية مفيد.",
-      "en": "The expression chips is useful."
+      "fr": "On utilise souvent les frites au café.",
+      "ar": "نستخدم بطاطا مقلية كثيراً في المقهى.",
+      "en": "We often use chips at the café."
     }
   },
   {
@@ -8368,9 +8368,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression une salade composée est utile.",
-      "ar": "تعبير سلطة مشكّلة مفيد.",
-      "en": "The expression a mixed salad is useful."
+      "fr": "On utilise souvent une salade composée au café.",
+      "ar": "نستخدم سلطة مشكّلة كثيراً في المقهى.",
+      "en": "We often use a mixed salad at the café."
     }
   },
   {
@@ -8382,9 +8382,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression la carte des vins est utile.",
-      "ar": "تعبير قائمة النبيذ مفيد.",
-      "en": "The expression the wine list is useful."
+      "fr": "On utilise souvent la carte des vins au restaurant.",
+      "ar": "نستخدم قائمة النبيذ كثيراً في المطعم.",
+      "en": "We often use the wine list at the restaurant."
     }
   },
   {
@@ -8412,9 +8412,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression un apéritif est utile.",
-      "ar": "تعبير مشروب قبل الأكل مفيد.",
-      "en": "The expression an aperitif is useful."
+      "fr": "On utilise souvent un apéritif au café.",
+      "ar": "نستخدم مشروب قبل الأكل كثيراً في المقهى.",
+      "en": "We often use an aperitif at the café."
     }
   },
   {
@@ -8426,9 +8426,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression un digestif est utile.",
-      "ar": "تعبير مشروب بعد الأكل مفيد.",
-      "en": "The expression a digestif is useful."
+      "fr": "On utilise souvent un digestif au restaurant.",
+      "ar": "نستخدم مشروب بعد الأكل كثيراً في المطعم.",
+      "en": "We often use a digestif at the restaurant."
     }
   },
   {
@@ -8441,9 +8441,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'addition, s'il vous plaît.",
-      "ar": "الحساب، من فضلك.",
-      "en": "The bill, please."
+      "fr": "On utilise souvent « l'addition » au café.",
+      "ar": "نستخدم « الفاتورة (في مطعم) » كثيراً في المقهى.",
+      "en": "We often use \"the bill (restaurant)\" at the café."
     }
   },
   {
@@ -8455,9 +8455,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression le service compris est utile.",
-      "ar": "تعبير الخدمة مشمولة مفيد.",
-      "en": "The expression service included is useful."
+      "fr": "On utilise souvent le service compris au restaurant.",
+      "ar": "نستخدم الخدمة مشمولة كثيراً في المطعم.",
+      "en": "We often use service included at the restaurant."
     }
   },
   {
@@ -8470,9 +8470,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "L'expression commander à emporter est utile.",
-      "ar": "تعبير طلب للأخذ بعيداً مفيد.",
-      "en": "The expression to order takeaway is useful."
+      "fr": "On utilise souvent « commander à emporter » au café.",
+      "ar": "نستخدم « طلب للأخذ بعيداً » كثيراً في المقهى.",
+      "en": "We often use \"to order takeaway\" at the café."
     }
   },
   {
@@ -8485,9 +8485,9 @@ window.VOCAB_DATA = [
       "restaurant"
     ],
     "ex": {
-      "fr": "Je préfère venir sur place pour en parler.",
-      "ar": "أفضّل الحضور شخصياً للحديث في الأمر.",
-      "en": "I'd rather come in person to discuss it."
+      "fr": "On utilise souvent « sur place » au café.",
+      "ar": "نستخدم « في المكان » كثيراً في المقهى.",
+      "en": "We often use \"eat in\" at the café."
     }
   },
   {
@@ -8589,9 +8589,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression À plus tard est utile.",
-      "ar": "تعبير إلى اللقاء لاحقاً مفيد.",
-      "en": "The expression See you later is useful."
+      "fr": "On utilise souvent « À plus tard » au travail.",
+      "ar": "نستخدم « إلى اللقاء لاحقاً » كثيراً في العمل.",
+      "en": "We often use \"See you later\" at work."
     }
   },
   {
@@ -8680,9 +8680,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression C'est compris est utile.",
-      "ar": "تعبير مفهوم مفيد.",
-      "en": "The expression Understood is useful."
+      "fr": "On dit souvent « C'est compris » au travail.",
+      "ar": "نقول « مفهوم » كثيراً في العمل.",
+      "en": "We often say \"Understood\" at work."
     }
   },
   {
@@ -8725,9 +8725,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression Je ne me sens pas bien est utile.",
-      "ar": "تعبير لا أشعر أنني بخير مفيد.",
-      "en": "The expression I don't feel well is useful."
+      "fr": "On dit souvent « Je ne me sens pas bien » au travail.",
+      "ar": "نقول « لا أشعر أنني بخير » كثيراً في العمل.",
+      "en": "We often say \"I don't feel well\" at work."
     }
   },
   {
@@ -8740,9 +8740,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression Je dois partir tôt est utile.",
-      "ar": "تعبير يجب أن أغادر مبكراً مفيد.",
-      "en": "The expression I have to leave early is useful."
+      "fr": "On dit souvent « Je dois partir tôt » au travail.",
+      "ar": "نقول « يجب أن أغادر مبكراً » كثيراً في العمل.",
+      "en": "We often say \"I have to leave early\" at work."
     }
   },
   {
@@ -8754,9 +8754,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression Je peux travailler demain est utile.",
-      "ar": "تعبير أستطيع العمل غداً مفيد.",
-      "en": "The expression I can work tomorrow is useful."
+      "fr": "On dit souvent « Je peux travailler demain » au travail.",
+      "ar": "نقول « أستطيع العمل غداً » كثيراً في العمل.",
+      "en": "We often say \"I can work tomorrow\" at work."
     }
   },
   {
@@ -8768,9 +8768,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'Aïd est dans deux jours, je voudrais poser un congé.",
-      "ar": "العيد بعد يومين، أريد أخذ يوم إجازة.",
-      "en": "Eid is in two days, I'd like to take a day off."
+      "fr": "On dit souvent « Je voudrais poser un congé » au travail.",
+      "ar": "نقول « أريد أخذ إجازة » كثيراً في العمل.",
+      "en": "We often say \"I would like to take leave\" at work."
     }
   },
   {
@@ -8782,9 +8782,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression J'ai un problème avec mon collègue est utile.",
-      "ar": "تعبير لدي مشكلة مع زميلي مفيد.",
-      "en": "The expression I have a problem with my colleague is useful."
+      "fr": "On utilise souvent « J'ai un problème avec mon collègue » au travail.",
+      "ar": "نستخدم « لدي مشكلة مع زميلي » كثيراً في العمل.",
+      "en": "We often use \"I have a problem with my colleague\" at work."
     }
   },
   {
@@ -8796,9 +8796,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression On a beaucoup de travail est utile.",
-      "ar": "تعبير لدينا الكثير من العمل مفيد.",
-      "en": "The expression We have a lot of work is useful."
+      "fr": "On dit souvent « On a beaucoup de travail » au travail.",
+      "ar": "نقول « لدينا الكثير من العمل » كثيراً في العمل.",
+      "en": "We often say \"We have a lot of work\" at work."
     }
   },
   {
@@ -8810,9 +8810,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression Envoyez-moi un e-mail est utile.",
-      "ar": "تعبير أرسل لي بريداً إلكترونياً مفيد.",
-      "en": "The expression Send me an email is useful."
+      "fr": "On utilise souvent « Envoyez-moi un e-mail » au travail.",
+      "ar": "نستخدم « أرسل لي بريداً إلكترونياً » كثيراً في العمل.",
+      "en": "We often use \"Send me an email\" at work."
     }
   },
   {
@@ -8840,9 +8840,9 @@ window.VOCAB_DATA = [
       "phone"
     ],
     "ex": {
-      "fr": "L'expression Laissez-moi un message est utile.",
-      "ar": "تعبير اترك لي رسالة مفيد.",
-      "en": "The expression Leave me a message is useful."
+      "fr": "On utilise souvent « Laissez-moi un message » au travail.",
+      "ar": "نستخدم « اترك لي رسالة » كثيراً في العمل.",
+      "en": "We often use \"Leave me a message\" at work."
     }
   },
   {
@@ -8854,9 +8854,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression Je cherche un appartement est utile.",
-      "ar": "تعبير أبحث عن شقة مفيد.",
-      "en": "The expression I am looking for an apartment is useful."
+      "fr": "On dit souvent « Je cherche un appartement » pour le logement.",
+      "ar": "نقول « أبحث عن شقة » كثيراً للسكن.",
+      "en": "We often say \"I am looking for an apartment\" for housing."
     }
   },
   {
@@ -8868,9 +8868,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression Je voudrais visiter un logement est utile.",
-      "ar": "تعبير أريد زيارة سكن مفيد.",
-      "en": "The expression I would like to visit a property is useful."
+      "fr": "On dit souvent « Je voudrais visiter un logement » pour le logement.",
+      "ar": "نقول « أريد زيارة سكن » كثيراً للسكن.",
+      "en": "We often say \"I would like to visit a property\" for housing."
     }
   },
   {
@@ -8882,9 +8882,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression Le loyer est de combien ? est utile.",
-      "ar": "تعبير كم قيمة الإيجار؟ مفيد.",
-      "en": "The expression How much is the rent? is useful."
+      "fr": "On utilise souvent « Le loyer est de combien ? » pour le logement.",
+      "ar": "نستخدم « كم قيمة الإيجار؟ » كثيراً للسكن.",
+      "en": "We often use \"How much is the rent?\" for housing."
     }
   },
   {
@@ -8896,9 +8896,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression Les charges sont comprises ? est utile.",
-      "ar": "تعبير هل المصاريف مشمولة؟ مفيد.",
-      "en": "The expression Are service charges included? is useful."
+      "fr": "On utilise souvent « Les charges sont comprises ? » pour le logement.",
+      "ar": "نستخدم « هل المصاريف مشمولة؟ » كثيراً للسكن.",
+      "en": "We often use \"Are service charges included?\" for housing."
     }
   },
   {
@@ -8955,9 +8955,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression La douche est bouchée est utile.",
-      "ar": "تعبير الدش مسدود مفيد.",
-      "en": "The expression The shower is blocked is useful."
+      "fr": "On utilise souvent La douche est bouchée pour le logement.",
+      "ar": "نستخدم الدش مسدود كثيراً للسكن.",
+      "en": "We often use The shower is blocked for housing."
     }
   },
   {
@@ -8983,9 +8983,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression un électricien est utile.",
-      "ar": "تعبير كهربائي مفيد.",
-      "en": "The expression an electrician is useful."
+      "fr": "On utilise souvent un électricien pour le logement.",
+      "ar": "نستخدم كهربائي كثيراً للسكن.",
+      "en": "We often use an electrician for housing."
     }
   },
   {
@@ -9011,9 +9011,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression le syndic est utile.",
-      "ar": "تعبير شركة إدارة العقار مفيد.",
-      "en": "The expression the building management is useful."
+      "fr": "On utilise souvent le syndic pour le logement.",
+      "ar": "نستخدم شركة إدارة العقار كثيراً للسكن.",
+      "en": "We often use the building management for housing."
     }
   },
   {
@@ -9056,9 +9056,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression le calme est utile.",
-      "ar": "تعبير الهدوء مفيد.",
-      "en": "The expression quiet is useful."
+      "fr": "On utilise souvent le calme pour le logement.",
+      "ar": "نستخدم الهدوء كثيراً للسكن.",
+      "en": "We often use quiet for housing."
     }
   },
   {
@@ -9071,9 +9071,9 @@ window.VOCAB_DATA = [
       "services"
     ],
     "ex": {
-      "fr": "L'expression J'ai une panne d'électricité est utile.",
-      "ar": "تعبير انقطعت الكهرباء لدي مفيد.",
-      "en": "The expression I have a power cut is useful."
+      "fr": "On utilise souvent « J'ai une panne d'électricité » pour le logement.",
+      "ar": "نستخدم « انقطعت الكهرباء لدي » كثيراً للسكن.",
+      "en": "We often use \"I have a power cut\" for housing."
     }
   },
   {
@@ -9087,9 +9087,9 @@ window.VOCAB_DATA = [
       "phone"
     ],
     "ex": {
-      "fr": "Je voudrais résilier mon contrat d'assurance.",
-      "ar": "أريد إلغاء عقد التأمين.",
-      "en": "I would like to cancel my insurance policy."
+      "fr": "On dit souvent « Je voudrais résilier mon contrat » pour le logement.",
+      "ar": "نقول « أريد إنهاء عقدي » كثيراً للسكن.",
+      "en": "We often say \"I would like to cancel my contract\" for housing."
     }
   },
   {
@@ -9117,9 +9117,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression donner congé est utile.",
-      "ar": "تعبير إشعار بإنهاء العقد مفيد.",
-      "en": "The expression to give notice is useful."
+      "fr": "On utilise souvent « donner congé » pour le logement.",
+      "ar": "نستخدم « إشعار بإنهاء العقد » كثيراً للسكن.",
+      "en": "We often use \"to give notice\" for housing."
     }
   },
   {
@@ -9146,9 +9146,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "Un véhicule bien entretenu consomme moins.",
-      "ar": "السيارة التي تتم صيانتها جيدًا تستهلك أقل.",
-      "en": "A well-maintained vehicle consumes less."
+      "fr": "On utilise souvent un véhicule pour la voiture.",
+      "ar": "نستخدم مركبة كثيراً للسيارة.",
+      "en": "We often use a vehicle for the car."
     }
   },
   {
@@ -9161,9 +9161,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "L'expression une assurance auto est utile.",
-      "ar": "تعبير تأمين السيارة مفيد.",
-      "en": "The expression car insurance is useful."
+      "fr": "On utilise souvent une assurance auto pour la voiture.",
+      "ar": "نستخدم تأمين السيارة كثيراً للسيارة.",
+      "en": "We often use car insurance for the car."
     }
   },
   {
@@ -9175,9 +9175,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "L'expression un contrôle technique est utile.",
-      "ar": "تعبير فحص فني للسيارة مفيد.",
-      "en": "The expression a technical inspection is useful."
+      "fr": "On utilise souvent un contrôle technique pour la voiture.",
+      "ar": "نستخدم فحص فني للسيارة كثيراً للسيارة.",
+      "en": "We often use a technical inspection for the car."
     }
   },
   {
@@ -9190,9 +9190,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "C'est pour un stationnement interdit.",
-      "ar": "إنها لوقوف ممنوع.",
-      "en": "It's for illegal parking."
+      "fr": "On utilise souvent un stationnement pour la voiture.",
+      "ar": "نستخدم موقف سيارات كثيراً للسيارة.",
+      "en": "We often use a parking space for the car."
     }
   },
   {
@@ -9205,9 +9205,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Est-ce qu'il y a un parking pour la voiture ?",
-      "ar": "هل هناك موقف للسيارة؟",
-      "en": "Is there parking for the car?"
+      "fr": "On utilise souvent un parking pour la voiture.",
+      "ar": "نستخدم موقف سيارات كثيراً للسيارة.",
+      "en": "We often use a car park for the car."
     }
   },
   {
@@ -9220,9 +9220,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression une place de parking est utile.",
-      "ar": "تعبير مكان لوقوف السيارة مفيد.",
-      "en": "The expression a parking spot is useful."
+      "fr": "On utilise souvent une place de parking pour la voiture.",
+      "ar": "نستخدم مكان لوقوف السيارة كثيراً للسيارة.",
+      "en": "We often use a parking spot for the car."
     }
   },
   {
@@ -9234,9 +9234,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "Le mot l'essence est utile.",
-      "ar": "كلمة بنزين مفيدة.",
-      "en": "The word petrol is useful."
+      "fr": "On utilise souvent « l'essence » pour la voiture.",
+      "ar": "نستخدم « بنزين » كثيراً للسيارة.",
+      "en": "We often use \"petrol\" for the car."
     }
   },
   {
@@ -9248,9 +9248,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "L'expression le gazole est utile.",
-      "ar": "تعبير ديزل مفيد.",
-      "en": "The expression diesel is useful."
+      "fr": "On utilise souvent le gazole pour la voiture.",
+      "ar": "نستخدم ديزل كثيراً للسيارة.",
+      "en": "We often use diesel for the car."
     }
   },
   {
@@ -9262,9 +9262,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "L'expression une station-service est utile.",
-      "ar": "تعبير محطة وقود مفيد.",
-      "en": "The expression a petrol station is useful."
+      "fr": "On utilise souvent une station-service pour la voiture.",
+      "ar": "نستخدم محطة وقود كثيراً للسيارة.",
+      "en": "We often use a petrol station for the car."
     }
   },
   {
@@ -9276,9 +9276,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "L'expression le volant est utile.",
-      "ar": "تعبير دركسيون مفيد.",
-      "en": "The expression the steering wheel is useful."
+      "fr": "On utilise souvent le volant pour la voiture.",
+      "ar": "نستخدم دركسيون كثيراً للسيارة.",
+      "en": "We often use the steering wheel for the car."
     }
   },
   {
@@ -9304,9 +9304,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "J'ai un pneu crevé, pouvez-vous le réparer ?",
-      "ar": "لديّ عجل مثقوب، هل يمكنكم تصليحه؟",
-      "en": "I have a flat tyre, can you fix it?"
+      "fr": "On utilise souvent un pneu pour la voiture.",
+      "ar": "نستخدم إطار كثيراً للسيارة.",
+      "en": "We often use a tyre for the car."
     }
   },
   {
@@ -9333,9 +9333,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "Il y a une panne de courant dans l'immeuble.",
-      "ar": "هناك انقطاع كهرباء في العمارة.",
-      "en": "There is a power cut in the building."
+      "fr": "On utilise souvent une panne pour la voiture.",
+      "ar": "نستخدم عطل كثيراً للسيارة.",
+      "en": "We often use a breakdown for the car."
     }
   },
   {
@@ -9347,9 +9347,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "Je risque d'être ébloui par les phares.",
-      "ar": "قد تنبهر عيناي من الأضواء.",
-      "en": "I may be dazzled by headlights."
+      "fr": "On utilise souvent les phares pour la voiture.",
+      "ar": "نستخدم أضواء السيارة كثيراً للسيارة.",
+      "en": "We often use the headlights for the car."
     }
   },
   {
@@ -9361,9 +9361,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "L'expression les clignotants est utile.",
-      "ar": "تعبير إشارات الانعطاف مفيد.",
-      "en": "The expression the indicators is useful."
+      "fr": "On utilise souvent les clignotants pour la voiture.",
+      "ar": "نستخدم إشارات الانعطاف كثيراً للسيارة.",
+      "en": "We often use the indicators for the car."
     }
   },
   {
@@ -9375,9 +9375,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "Pouvez-vous mettre le compteur, s'il vous plaît ?",
-      "ar": "هل يمكنك تشغيل العدّاد، من فضلك؟",
-      "en": "Can you turn on the meter, please?"
+      "fr": "On utilise souvent le compteur pour la voiture.",
+      "ar": "نستخدم عداد السرعة كثيراً للسيارة.",
+      "en": "We often use the speedometer for the car."
     }
   },
   {
@@ -9404,9 +9404,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "L'expression un radar est utile.",
-      "ar": "تعبير رادار سرعة مفيد.",
-      "en": "The expression a speed camera is useful."
+      "fr": "On utilise souvent un radar pour la voiture.",
+      "ar": "نستخدم رادار سرعة كثيراً للسيارة.",
+      "en": "We often use a speed camera for the car."
     }
   },
   {
@@ -9420,9 +9420,9 @@ window.VOCAB_DATA = [
       "redcross"
     ],
     "ex": {
-      "fr": "L'expression Au secours ! est utile.",
-      "ar": "تعبير النجدة! مفيد.",
-      "en": "The expression Help! is useful."
+      "fr": "On utilise souvent « Au secours ! » chez le médecin.",
+      "ar": "نستخدم « النجدة! » كثيراً عند الطبيب.",
+      "en": "We often use \"Help!\" at the doctor's."
     }
   },
   {
@@ -9450,9 +9450,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "L'expression un policier est utile.",
-      "ar": "تعبير شرطي مفيد.",
-      "en": "The expression a policeman is useful."
+      "fr": "On utilise souvent un policier dans la vie quotidienne.",
+      "ar": "نستخدم شرطي كثيراً في الحياة اليومية.",
+      "en": "We often use a policeman in daily life."
     }
   },
   {
@@ -9464,9 +9464,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un gendarme est utile.",
-      "ar": "تعبير دركي مفيد.",
-      "en": "The expression a gendarme is useful."
+      "fr": "On utilise souvent un gendarme dans la vie quotidienne.",
+      "ar": "نستخدم دركي كثيراً في الحياة اليومية.",
+      "en": "We often use a gendarme in daily life."
     }
   },
   {
@@ -9479,9 +9479,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "L'expression un commissariat est utile.",
-      "ar": "تعبير مركز شرطة مفيد.",
-      "en": "The expression a police station is useful."
+      "fr": "On utilise souvent un commissariat dans la vie quotidienne.",
+      "ar": "نستخدم مركز شرطة كثيراً في الحياة اليومية.",
+      "en": "We often use a police station in daily life."
     }
   },
   {
@@ -9615,9 +9615,9 @@ window.VOCAB_DATA = [
       "school"
     ],
     "ex": {
-      "fr": "L'expression un devoir est utile.",
-      "ar": "تعبير واجب مفيد.",
-      "en": "The expression a duty is useful."
+      "fr": "On utilise souvent un devoir au travail.",
+      "ar": "نستخدم واجب كثيراً في العمل.",
+      "en": "We often use a duty at work."
     }
   },
   {
@@ -9631,9 +9631,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression la discrimination est utile.",
-      "ar": "تعبير التمييز مفيد.",
-      "en": "The expression discrimination is useful."
+      "fr": "On utilise souvent la discrimination au travail.",
+      "ar": "نستخدم التمييز كثيراً في العمل.",
+      "en": "We often use discrimination at work."
     }
   },
   {
@@ -9646,9 +9646,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Le mot l'égalité est utile.",
-      "ar": "كلمة المساواة مفيدة.",
-      "en": "The word equality is useful."
+      "fr": "On utilise souvent « l'égalité » au travail.",
+      "ar": "نستخدم « المساواة » كثيراً في العمل.",
+      "en": "We often use \"equality\" at work."
     }
   },
   {
@@ -9661,9 +9661,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression la solidarité est utile.",
-      "ar": "تعبير التضامن مفيد.",
-      "en": "The expression solidarity is useful."
+      "fr": "On utilise souvent la solidarité à la Croix-Rouge.",
+      "ar": "نستخدم التضامن كثيراً عند الصليب الأحمر.",
+      "en": "We often use solidarity at the Red Cross."
     }
   },
   {
@@ -9676,9 +9676,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Le mot l'entraide est utile.",
-      "ar": "كلمة المساعدة المتبادلة مفيدة.",
-      "en": "The word mutual aid is useful."
+      "fr": "On utilise souvent « l'entraide » à la Croix-Rouge.",
+      "ar": "نستخدم « المساعدة المتبادلة » كثيراً عند الصليب الأحمر.",
+      "en": "We often use \"mutual aid\" at the Red Cross."
     }
   },
   {
@@ -9690,9 +9690,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression une prospection est utile.",
-      "ar": "تعبير استكشاف مفيد.",
-      "en": "The expression prospecting is useful."
+      "fr": "On utilise souvent une prospection au travail.",
+      "ar": "نستخدم استكشاف كثيراً في العمل.",
+      "en": "We often use prospecting at work."
     }
   },
   {
@@ -9705,9 +9705,9 @@ window.VOCAB_DATA = [
       "phone"
     ],
     "ex": {
-      "fr": "L'expression un appel entrant est utile.",
-      "ar": "تعبير مكالمة واردة مفيد.",
-      "en": "The expression an incoming call is useful."
+      "fr": "On utilise souvent un appel entrant au travail.",
+      "ar": "نستخدم مكالمة واردة كثيراً في العمل.",
+      "en": "We often use an incoming call at work."
     }
   },
   {
@@ -9720,9 +9720,9 @@ window.VOCAB_DATA = [
       "phone"
     ],
     "ex": {
-      "fr": "L'expression un appel sortant est utile.",
-      "ar": "تعبير مكالمة صادرة مفيد.",
-      "en": "The expression an outgoing call is useful."
+      "fr": "On utilise souvent un appel sortant au travail.",
+      "ar": "نستخدم مكالمة صادرة كثيراً في العمل.",
+      "en": "We often use an outgoing call at work."
     }
   },
   {
@@ -9734,9 +9734,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression un script est utile.",
-      "ar": "تعبير نص مفيد.",
-      "en": "The expression a script is useful."
+      "fr": "On utilise souvent un script au travail.",
+      "ar": "نستخدم نص كثيراً في العمل.",
+      "en": "We often use a script at work."
     }
   },
   {
@@ -9748,9 +9748,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression un objectif est utile.",
-      "ar": "تعبير هدف مفيد.",
-      "en": "The expression a target is useful."
+      "fr": "On utilise souvent un objectif au travail.",
+      "ar": "نستخدم هدف كثيراً في العمل.",
+      "en": "We often use a target at work."
     }
   },
   {
@@ -9762,9 +9762,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression un chiffre d'affaires est utile.",
-      "ar": "تعبير حجم المبيعات مفيد.",
-      "en": "The expression turnover is useful."
+      "fr": "On utilise souvent un chiffre d'affaires au travail.",
+      "ar": "نستخدم حجم المبيعات كثيراً في العمل.",
+      "en": "We often use turnover at work."
     }
   },
   {
@@ -9777,9 +9777,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression une vente est utile.",
-      "ar": "تعبير بيعة مفيد.",
-      "en": "The expression a sale is useful."
+      "fr": "On utilise souvent une vente au travail.",
+      "ar": "نستخدم بيعة كثيراً في العمل.",
+      "en": "We often use a sale at work."
     }
   },
   {
@@ -9792,9 +9792,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression un client est utile.",
-      "ar": "تعبير عميل مفيد.",
-      "en": "The expression a client is useful."
+      "fr": "On utilise souvent un client au travail.",
+      "ar": "نستخدم عميل كثيراً في العمل.",
+      "en": "We often use a client at work."
     }
   },
   {
@@ -9807,9 +9807,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression une cliente est utile.",
-      "ar": "تعبير عميلة مفيد.",
-      "en": "The expression a female client is useful."
+      "fr": "On utilise souvent une cliente au travail.",
+      "ar": "نستخدم عميلة كثيراً في العمل.",
+      "en": "We often use a female client at work."
     }
   },
   {
@@ -9821,9 +9821,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression un prospect est utile.",
-      "ar": "تعبير زبون محتمل مفيد.",
-      "en": "The expression a prospect is useful."
+      "fr": "On utilise souvent un prospect au travail.",
+      "ar": "نستخدم زبون محتمل كثيراً في العمل.",
+      "en": "We often use a prospect at work."
     }
   },
   {
@@ -9835,9 +9835,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression un rendez-vous commercial est utile.",
-      "ar": "تعبير موعد تجاري مفيد.",
-      "en": "The expression a business appointment is useful."
+      "fr": "On utilise souvent un rendez-vous commercial au travail.",
+      "ar": "نستخدم موعد تجاري كثيراً في العمل.",
+      "en": "We often use a business appointment at work."
     }
   },
   {
@@ -9849,9 +9849,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression clôturer une vente est utile.",
-      "ar": "تعبير إتمام بيعة مفيد.",
-      "en": "The expression to close a sale is useful."
+      "fr": "On utilise souvent « clôturer une vente » au travail.",
+      "ar": "نستخدم « إتمام بيعة » كثيراً في العمل.",
+      "en": "We often use \"to close a sale\" at work."
     }
   },
   {
@@ -9863,9 +9863,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression suivi client est utile.",
-      "ar": "تعبير متابعة العميل مفيد.",
-      "en": "The expression customer follow-up is useful."
+      "fr": "On utilise souvent « suivi client » au travail.",
+      "ar": "نستخدم « متابعة العميل » كثيراً في العمل.",
+      "en": "We often use \"customer follow-up\" at work."
     }
   },
   {
@@ -10000,9 +10000,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression un euro est utile.",
-      "ar": "تعبير يورو واحد مفيد.",
-      "en": "The expression one euro is useful."
+      "fr": "On utilise souvent un euro dans la vie quotidienne.",
+      "ar": "نستخدم يورو واحد كثيراً في الحياة اليومية.",
+      "en": "We often use one euro in daily life."
     }
   },
   {
@@ -10030,9 +10030,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Peu importe.",
-      "ar": "لا يهم.",
-      "en": "It doesn't matter."
+      "fr": "On utilise souvent « peu » dans la vie quotidienne.",
+      "ar": "نستخدم « قليل » كثيراً في الحياة اليومية.",
+      "en": "We often use \"few\" in daily life."
     }
   },
   {
@@ -10046,9 +10046,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Trop-perçu",
-      "ar": "مبلغ صُرف بالزيادة",
-      "en": "Overpayment"
+      "fr": "On utilise souvent « trop » dans la vie quotidienne.",
+      "ar": "نستخدم « كثير جداً » كثيراً في الحياة اليومية.",
+      "en": "We often use \"too much\" in daily life."
     }
   },
   {
@@ -10091,9 +10091,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Il fait moins deux degrés.",
-      "ar": "الحرارة سالب درجتين.",
-      "en": "It's minus two degrees."
+      "fr": "On utilise souvent « moins » dans la vie quotidienne.",
+      "ar": "نستخدم « أقل » كثيراً في الحياة اليومية.",
+      "en": "We often use \"less\" in daily life."
     }
   },
   {
@@ -10133,9 +10133,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Ça me dit quelque chose.",
-      "ar": "هذا يبدو مألوفًا لي / يذكرني بشيء.",
-      "en": "That rings a bell."
+      "fr": "On utilise souvent « quelque chose » dans la vie quotidienne.",
+      "ar": "نستخدم « شيء ما » كثيراً في الحياة اليومية.",
+      "en": "We often use \"something\" in daily life."
     }
   },
   {
@@ -10148,9 +10148,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Dieu est grand.",
-      "ar": "الله أكبر.",
-      "en": "God is great."
+      "fr": "On utilise souvent « grand » dans la vie quotidienne.",
+      "ar": "نستخدم « كبير » كثيراً في الحياة اليومية.",
+      "en": "We often use \"big\" in daily life."
     }
   },
   {
@@ -10211,9 +10211,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Bon Dieu !",
-      "ar": "يا الهي!",
-      "en": "Jesus!"
+      "fr": "On utilise souvent « bon » dans la vie quotidienne.",
+      "ar": "نستخدم « جيد » كثيراً في الحياة اليومية.",
+      "en": "We often use \"good\" in daily life."
     }
   },
   {
@@ -10256,9 +10256,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Le mot laid est utile.",
-      "ar": "كلمة قبيح مفيدة.",
-      "en": "The word ugly is useful."
+      "fr": "On utilise souvent « laid » dans la vie quotidienne.",
+      "ar": "نستخدم « قبيح » كثيراً في الحياة اليومية.",
+      "en": "We often use \"ugly\" in daily life."
     }
   },
   {
@@ -10350,9 +10350,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Le mot lent est utile.",
-      "ar": "كلمة بطيء مفيدة.",
-      "en": "The word slow is useful."
+      "fr": "On utilise souvent « lent » dans la vie quotidienne.",
+      "ar": "نستخدم « بطيء » كثيراً في الحياة اليومية.",
+      "en": "We often use \"slow\" in daily life."
     }
   },
   {
@@ -10380,9 +10380,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression bon marché est utile.",
-      "ar": "تعبير رخيص مفيد.",
-      "en": "The expression cheap is useful."
+      "fr": "On utilise souvent « bon marché » dans la vie quotidienne.",
+      "ar": "نستخدم « رخيص » كثيراً في الحياة اليومية.",
+      "en": "We often use \"cheap\" in daily life."
     }
   },
   {
@@ -10395,9 +10395,9 @@ window.VOCAB_DATA = [
       "weather"
     ],
     "ex": {
-      "fr": "Reste au chaud.",
-      "ar": "ابقَ دافئًا.",
-      "en": "Stay warm."
+      "fr": "On utilise souvent « chaud » dans la vie quotidienne.",
+      "ar": "نستخدم « حار » كثيراً في الحياة اليومية.",
+      "en": "We often use \"hot\" in daily life."
     }
   },
   {
@@ -10455,9 +10455,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Pas possible !",
-      "ar": "غير معقول!",
-      "en": "No way!"
+      "fr": "On utilise souvent « possible » dans la vie quotidienne.",
+      "ar": "نستخدم « ممكن » كثيراً في الحياة اليومية.",
+      "en": "We often use \"possible\" in daily life."
     }
   },
   {
@@ -10470,9 +10470,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Le mot impossible est utile.",
-      "ar": "كلمة مستحيل مفيدة.",
-      "en": "The word impossible is useful."
+      "fr": "On utilise souvent « impossible » dans la vie quotidienne.",
+      "ar": "نستخدم « مستحيل » كثيراً في الحياة اليومية.",
+      "en": "We often use \"impossible\" in daily life."
     }
   },
   {
@@ -10517,9 +10517,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "Bien sûr.",
-      "ar": "طبعًا.",
-      "en": "Of course."
+      "fr": "On utilise souvent « sûr » dans la vie quotidienne.",
+      "ar": "نستخدم « آمن » كثيراً في الحياة اليومية.",
+      "en": "We often use \"safe\" in daily life."
     }
   },
   {
@@ -10608,9 +10608,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Le mot énervé est utile.",
-      "ar": "كلمة منزعج مفيدة.",
-      "en": "The word annoyed is useful."
+      "fr": "On utilise souvent « énervé » dans la vie quotidienne.",
+      "ar": "نستخدم « منزعج » كثيراً في الحياة اليومية.",
+      "en": "We often use \"annoyed\" in daily life."
     }
   },
   {
@@ -10722,9 +10722,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "La météo annonce de la pluie demain.",
-      "ar": "توقعات الطقس تقول إن غداً ممطر.",
-      "en": "The forecast says rain tomorrow."
+      "fr": "On utilise souvent la pluie dans la vie quotidienne.",
+      "ar": "نستخدم المطر كثيراً في الحياة اليومية.",
+      "en": "We often use the rain in daily life."
     }
   },
   {
@@ -10764,9 +10764,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression le nuage est utile.",
-      "ar": "تعبير الغيم مفيد.",
-      "en": "The expression cloud is useful."
+      "fr": "On utilise souvent le nuage dans la vie quotidienne.",
+      "ar": "نستخدم الغيم كثيراً في الحياة اليومية.",
+      "en": "We often use cloud in daily life."
     }
   },
   {
@@ -10778,9 +10778,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression le brouillard est utile.",
-      "ar": "تعبير الضباب مفيد.",
-      "en": "The expression fog is useful."
+      "fr": "On utilise souvent le brouillard dans la vie quotidienne.",
+      "ar": "نستخدم الضباب كثيراً في الحياة اليومية.",
+      "en": "We often use fog in daily life."
     }
   },
   {
@@ -10820,9 +10820,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un éclair est utile.",
-      "ar": "تعبير برق مفيد.",
-      "en": "The expression lightning is useful."
+      "fr": "On utilise souvent un éclair dans la vie quotidienne.",
+      "ar": "نستخدم برق كثيراً في الحياة اليومية.",
+      "en": "We often use lightning in daily life."
     }
   },
   {
@@ -10834,9 +10834,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Il fait beau et chaud.",
-      "ar": "الجو جميل وحار.",
-      "en": "It's nice and warm."
+      "fr": "On dit souvent « Il fait beau » dans la vie quotidienne.",
+      "ar": "نقول « الطقس جميل » كثيراً في الحياة اليومية.",
+      "en": "We often say \"The weather is nice\" in daily life."
     }
   },
   {
@@ -10848,9 +10848,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression Il fait mauvais est utile.",
-      "ar": "تعبير الطقس سيئ مفيد.",
-      "en": "The expression The weather is bad is useful."
+      "fr": "On dit souvent « Il fait mauvais » dans la vie quotidienne.",
+      "ar": "نقول « الطقس سيئ » كثيراً في الحياة اليومية.",
+      "en": "We often say \"The weather is bad\" in daily life."
     }
   },
   {
@@ -10910,9 +10910,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "L'expression Veuillez trouver ci-joint est utile.",
-      "ar": "تعبير يرجى إيجاد المرفق مفيد.",
-      "en": "The expression Please find attached is useful."
+      "fr": "On utilise souvent « Veuillez trouver ci-joint » au travail.",
+      "ar": "نستخدم « يرجى إيجاد المرفق » كثيراً في العمل.",
+      "en": "We often use \"Please find attached\" at work."
     }
   },
   {
@@ -10926,9 +10926,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "Je vous prie d'agréer mes salutations distinguées.",
-      "ar": "تفضّلوا بقبول فائق الاحترام.",
-      "en": "Yours faithfully,"
+      "fr": "On dit souvent « Je vous prie d'agréer » au travail.",
+      "ar": "نقول « أرجو قبول » كثيراً في العمل.",
+      "en": "We often say \"Please accept\" at work."
     }
   },
   {
@@ -10941,9 +10941,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "Cordialement, Mohammad.",
-      "ar": "مع التحية، محمد.",
-      "en": "Kind regards, Mohammad."
+      "fr": "On dit souvent Cordialement au travail.",
+      "ar": "نقول بإخلاص كثيراً في العمل.",
+      "en": "We often say Sincerely at work."
     }
   },
   {
@@ -10972,9 +10972,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression Je soussigné(e) est utile.",
-      "ar": "تعبير أنا الموقع(ة) أدناه مفيد.",
-      "en": "The expression I, the undersigned is useful."
+      "fr": "On dit souvent « Je soussigné(e) » à la préfecture.",
+      "ar": "نقول « أنا الموقع(ة) أدناه » كثيراً في المحافظة.",
+      "en": "We often say \"I, the undersigned\" at the prefecture."
     }
   },
   {
@@ -10987,9 +10987,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "Le mot délivrer est utile.",
-      "ar": "كلمة يسلّم مفيدة.",
-      "en": "The word to issue is useful."
+      "fr": "On utilise souvent « délivrer » à la préfecture.",
+      "ar": "نستخدم « يسلّم » كثيراً في المحافظة.",
+      "en": "We often use \"to issue\" at the prefecture."
     }
   },
   {
@@ -11001,9 +11001,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "Le mot délivrance est utile.",
-      "ar": "كلمة تسليم مفيدة.",
-      "en": "The word issuance is useful."
+      "fr": "On utilise souvent « délivrance » à la préfecture.",
+      "ar": "نستخدم « تسليم » كثيراً في المحافظة.",
+      "en": "We often use \"issuance\" at the prefecture."
     }
   },
   {
@@ -11032,9 +11032,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "Je vais transmettre les documents demandés.",
-      "ar": "سأرسل الوثائق المطلوبة.",
-      "en": "I will send the requested documents."
+      "fr": "On utilise souvent « transmettre » au travail.",
+      "ar": "نستخدم « يرسل » كثيراً في العمل.",
+      "en": "We often use \"to transmit\" at work."
     }
   },
   {
@@ -11047,9 +11047,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression instruire un dossier est utile.",
-      "ar": "تعبير دراسة ملف مفيد.",
-      "en": "The expression to process a file is useful."
+      "fr": "On utilise souvent « instruire un dossier » à la préfecture.",
+      "ar": "نستخدم « دراسة ملف » كثيراً في المحافظة.",
+      "en": "We often use \"to process a file\" at the prefecture."
     }
   },
   {
@@ -11062,9 +11062,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression statuer sur est utile.",
-      "ar": "تعبير البت في مفيد.",
-      "en": "The expression to rule on is useful."
+      "fr": "On utilise souvent « statuer sur » à la préfecture.",
+      "ar": "نستخدم « البت في » كثيراً في المحافظة.",
+      "en": "We often use \"to rule on\" at the prefecture."
     }
   },
   {
@@ -11077,9 +11077,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "Le mot notifier est utile.",
-      "ar": "كلمة يبلّغ مفيدة.",
-      "en": "The word to notify is useful."
+      "fr": "On utilise souvent « notifier » à la préfecture.",
+      "ar": "نستخدم « يبلّغ » كثيراً في المحافظة.",
+      "en": "We often use \"to notify\" at the prefecture."
     }
   },
   {
@@ -11092,9 +11092,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Le mot l'intégration est utile.",
-      "ar": "كلمة الاندماج مفيدة.",
-      "en": "The word integration is useful."
+      "fr": "On utilise souvent « l'intégration » à l'OFII.",
+      "ar": "نستخدم « الاندماج » كثيراً في OFII.",
+      "en": "We often use \"integration\" at the OFII."
     }
   },
   {
@@ -11106,9 +11106,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "L'expression la citoyenneté est utile.",
-      "ar": "تعبير المواطنة مفيد.",
-      "en": "The expression citizenship is useful."
+      "fr": "On utilise souvent la citoyenneté à l'OFII.",
+      "ar": "نستخدم المواطنة كثيراً في OFII.",
+      "en": "We often use citizenship at the OFII."
     }
   },
   {
@@ -11135,9 +11135,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression la laïcité est utile.",
-      "ar": "تعبير العلمانية مفيد.",
-      "en": "The expression secularism is useful."
+      "fr": "On utilise souvent la laïcité à l'OFII.",
+      "ar": "نستخدم العلمانية كثيراً في OFII.",
+      "en": "We often use secularism at the OFII."
     }
   },
   {
@@ -11150,9 +11150,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression l'égalité homme-femme est utile.",
-      "ar": "تعبير المساواة بين الرجل والمرأة مفيد.",
-      "en": "The expression gender equality is useful."
+      "fr": "On utilise souvent « l'égalité homme-femme » à l'OFII.",
+      "ar": "نستخدم « المساواة بين الرجل والمرأة » كثيراً في OFII.",
+      "en": "We often use \"gender equality\" at the OFII."
     }
   },
   {
@@ -11165,9 +11165,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression les droits et les devoirs est utile.",
-      "ar": "تعبير الحقوق والواجبات مفيد.",
-      "en": "The expression rights and duties is useful."
+      "fr": "On utilise souvent les droits et les devoirs à l'OFII.",
+      "ar": "نستخدم الحقوق والواجبات كثيراً في OFII.",
+      "en": "We often use rights and duties at the OFII."
     }
   },
   {
@@ -11180,9 +11180,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression la fraternité est utile.",
-      "ar": "تعبير الأخوة مفيد.",
-      "en": "The expression fraternity is useful."
+      "fr": "On utilise souvent la fraternité à l'OFII.",
+      "ar": "نستخدم الأخوة كثيراً في OFII.",
+      "en": "We often use fraternity at the OFII."
     }
   },
   {
@@ -11225,9 +11225,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une résident est utile.",
-      "ar": "تعبير مقيم مفيد.",
-      "en": "The expression a resident is useful."
+      "fr": "On utilise souvent une résident à la préfecture.",
+      "ar": "نستخدم مقيم كثيراً في المحافظة.",
+      "en": "We often use a resident at the prefecture."
     }
   },
   {
@@ -11240,9 +11240,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression une nationalité est utile.",
-      "ar": "تعبير جنسية مفيد.",
-      "en": "The expression a nationality is useful."
+      "fr": "On utilise souvent une nationalité à la préfecture.",
+      "ar": "نستخدم جنسية كثيراً في المحافظة.",
+      "en": "We often use a nationality at the prefecture."
     }
   },
   {
@@ -11254,9 +11254,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "L'expression une demande de naturalisation est utile.",
-      "ar": "تعبير طلب تجنيس مفيد.",
-      "en": "The expression an application for citizenship is useful."
+      "fr": "On utilise souvent une demande de naturalisation à la préfecture.",
+      "ar": "نستخدم طلب تجنيس كثيراً في المحافظة.",
+      "en": "We often use an application for citizenship at the prefecture."
     }
   },
   {
@@ -11268,9 +11268,9 @@ window.VOCAB_DATA = [
       "car"
     ],
     "ex": {
-      "fr": "Je dois d'abord passer le code de la route.",
-      "ar": "يجب أولاً أن أجتاز امتحان قانون المرور.",
-      "en": "First I have to pass the theory test."
+      "fr": "On utilise souvent le code de la route pour la voiture.",
+      "ar": "نستخدم قانون السير كثيراً للسيارة.",
+      "en": "We often use the highway code for the car."
     }
   },
   {
@@ -11298,9 +11298,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "Un stage de récupération de points.",
-      "ar": "دورة استرجاع النقاط.",
-      "en": "Points recovery course."
+      "fr": "On utilise souvent un stage au travail.",
+      "ar": "نستخدم تدريب عملي كثيراً في العمل.",
+      "en": "We often use an internship at work."
     }
   },
   {
@@ -11313,9 +11313,9 @@ window.VOCAB_DATA = [
       "france_travail"
     ],
     "ex": {
-      "fr": "L'expression un bilan de compétences est utile.",
-      "ar": "تعبير تقييم الكفاءات مفيد.",
-      "en": "The expression skills assessment is useful."
+      "fr": "On utilise souvent un bilan de compétences au travail.",
+      "ar": "نستخدم تقييم الكفاءات كثيراً في العمل.",
+      "en": "We often use skills assessment at work."
     }
   },
   {
@@ -11327,9 +11327,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression un métier est utile.",
-      "ar": "تعبير مهنة مفيد.",
-      "en": "The expression a trade is useful."
+      "fr": "On utilise souvent un métier au travail.",
+      "ar": "نستخدم مهنة كثيراً في العمل.",
+      "en": "We often use a trade at work."
     }
   },
   {
@@ -11341,9 +11341,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression un secteur est utile.",
-      "ar": "تعبير قطاع مفيد.",
-      "en": "The expression a sector is useful."
+      "fr": "On utilise souvent un secteur au travail.",
+      "ar": "نستخدم قطاع كثيراً في العمل.",
+      "en": "We often use a sector at work."
     }
   },
   {
@@ -11355,9 +11355,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression le marché du travail est utile.",
-      "ar": "تعبير سوق العمل مفيد.",
-      "en": "The expression the job market is useful."
+      "fr": "On utilise souvent le marché du travail au travail.",
+      "ar": "نستخدم سوق العمل كثيراً في العمل.",
+      "en": "We often use the job market at work."
     }
   },
   {
@@ -11384,9 +11384,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Le mot postuler est utile.",
-      "ar": "كلمة يتقدم لوظيفة مفيدة.",
-      "en": "The word to apply is useful."
+      "fr": "On utilise souvent « postuler » au travail.",
+      "ar": "نستخدم « يتقدم لوظيفة » كثيراً في العمل.",
+      "en": "We often use \"to apply\" at work."
     }
   },
   {
@@ -11398,9 +11398,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression une candidature est utile.",
-      "ar": "تعبير طلب توظيف مفيد.",
-      "en": "The expression an application is useful."
+      "fr": "On utilise souvent une candidature au travail.",
+      "ar": "نستخدم طلب توظيف كثيراً في العمل.",
+      "en": "We often use an application at work."
     }
   },
   {
@@ -11412,9 +11412,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Le mot recruter est utile.",
-      "ar": "كلمة يوظف مفيدة.",
-      "en": "The word to recruit is useful."
+      "fr": "On utilise souvent « recruter » au travail.",
+      "ar": "نستخدم « يوظف » كثيراً في العمل.",
+      "en": "We often use \"to recruit\" at work."
     }
   },
   {
@@ -11426,9 +11426,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "Le mot licencier est utile.",
-      "ar": "كلمة يفصل من العمل مفيدة.",
-      "en": "The word to dismiss is useful."
+      "fr": "On utilise souvent « licencier » au travail.",
+      "ar": "نستخدم « يفصل من العمل » كثيراً في العمل.",
+      "en": "We often use \"to dismiss\" at work."
     }
   },
   {
@@ -11454,9 +11454,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression la retraite est utile.",
-      "ar": "تعبير التقاعد مفيد.",
-      "en": "The expression retirement is useful."
+      "fr": "On utilise souvent la retraite au travail.",
+      "ar": "نستخدم التقاعد كثيراً في العمل.",
+      "en": "We often use retirement at work."
     }
   },
   {
@@ -11484,9 +11484,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Une pièce justificative",
-      "ar": "وثيقة إثبات",
-      "en": "Supporting document"
+      "fr": "On utilise souvent une pièce pour le logement.",
+      "ar": "نستخدم غرفة كثيراً للسكن.",
+      "en": "We often use a room for housing."
     }
   },
   {
@@ -11499,9 +11499,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une porte est utile.",
-      "ar": "تعبير باب مفيد.",
-      "en": "The expression a door is useful."
+      "fr": "On utilise souvent une porte pour le logement.",
+      "ar": "نستخدم باب كثيراً للسكن.",
+      "en": "We often use a door for housing."
     }
   },
   {
@@ -11543,9 +11543,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression une armoire est utile.",
-      "ar": "تعبير خزانة ملابس مفيد.",
-      "en": "The expression a wardrobe is useful."
+      "fr": "On utilise souvent une armoire pour le logement.",
+      "ar": "نستخدم خزانة ملابس كثيراً للسكن.",
+      "en": "We often use a wardrobe for housing."
     }
   },
   {
@@ -11557,9 +11557,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression un réfrigérateur est utile.",
-      "ar": "تعبير ثلاجة مفيد.",
-      "en": "The expression a fridge is useful."
+      "fr": "On utilise souvent un réfrigérateur pour le logement.",
+      "ar": "نستخدم ثلاجة كثيراً للسكن.",
+      "en": "We often use a fridge for housing."
     }
   },
   {
@@ -11571,9 +11571,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression un congélateur est utile.",
-      "ar": "تعبير فريزر مفيد.",
-      "en": "The expression a freezer is useful."
+      "fr": "On utilise souvent un congélateur pour le logement.",
+      "ar": "نستخدم فريزر كثيراً للسكن.",
+      "en": "We often use a freezer for housing."
     }
   },
   {
@@ -11585,9 +11585,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression un four est utile.",
-      "ar": "تعبير فرن مفيد.",
-      "en": "The expression an oven is useful."
+      "fr": "On utilise souvent un four pour le logement.",
+      "ar": "نستخدم فرن كثيراً للسكن.",
+      "en": "We often use an oven for housing."
     }
   },
   {
@@ -11599,9 +11599,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression une plaque de cuisson est utile.",
-      "ar": "تعبير موقد مفيد.",
-      "en": "The expression a hob is useful."
+      "fr": "On utilise souvent une plaque de cuisson pour le logement.",
+      "ar": "نستخدم موقد كثيراً للسكن.",
+      "en": "We often use a hob for housing."
     }
   },
   {
@@ -11613,9 +11613,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression un micro-ondes est utile.",
-      "ar": "تعبير مايكروويف مفيد.",
-      "en": "The expression a microwave is useful."
+      "fr": "On utilise souvent un micro-ondes pour le logement.",
+      "ar": "نستخدم مايكروويف كثيراً للسكن.",
+      "en": "We often use a microwave for housing."
     }
   },
   {
@@ -11627,9 +11627,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression une machine à laver est utile.",
-      "ar": "تعبير غسالة مفيد.",
-      "en": "The expression a washing machine is useful."
+      "fr": "On utilise souvent une machine à laver pour le logement.",
+      "ar": "نستخدم غسالة كثيراً للسكن.",
+      "en": "We often use a washing machine for housing."
     }
   },
   {
@@ -11655,9 +11655,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression une télécommande est utile.",
-      "ar": "تعبير ريموت كنترول مفيد.",
-      "en": "The expression a remote control is useful."
+      "fr": "On utilise souvent une télécommande pour le logement.",
+      "ar": "نستخدم ريموت كنترول كثيراً للسكن.",
+      "en": "We often use a remote control for housing."
     }
   },
   {
@@ -11683,9 +11683,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression un oreiller est utile.",
-      "ar": "تعبير مخدة مفيد.",
-      "en": "The expression a pillow is useful."
+      "fr": "On utilise souvent un oreiller pour le logement.",
+      "ar": "نستخدم مخدة كثيراً للسكن.",
+      "en": "We often use a pillow for housing."
     }
   },
   {
@@ -11711,9 +11711,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression une serviette de bain est utile.",
-      "ar": "تعبير منشفة حمام مفيد.",
-      "en": "The expression a bath towel is useful."
+      "fr": "On utilise souvent une serviette de bain pour le logement.",
+      "ar": "نستخدم منشفة حمام كثيراً للسكن.",
+      "en": "We often use a bath towel for housing."
     }
   },
   {
@@ -11726,9 +11726,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un savon est utile.",
-      "ar": "تعبير صابون مفيد.",
-      "en": "The expression soap is useful."
+      "fr": "On utilise souvent un savon pour le logement.",
+      "ar": "نستخدم صابون كثيراً للسكن.",
+      "en": "We often use soap for housing."
     }
   },
   {
@@ -11741,9 +11741,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un shampooing est utile.",
-      "ar": "تعبير شامبو مفيد.",
-      "en": "The expression shampoo is useful."
+      "fr": "On utilise souvent un shampooing pour le logement.",
+      "ar": "نستخدم شامبو كثيراً للسكن.",
+      "en": "We often use shampoo for housing."
     }
   },
   {
@@ -11771,9 +11771,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression du dentifrice est utile.",
-      "ar": "تعبير معجون أسنان مفيد.",
-      "en": "The expression toothpaste is useful."
+      "fr": "On utilise souvent du dentifrice pour le logement.",
+      "ar": "نستخدم معجون أسنان كثيراً للسكن.",
+      "en": "We often use toothpaste for housing."
     }
   },
   {
@@ -11786,9 +11786,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression du papier toilette est utile.",
-      "ar": "تعبير ورق تواليت مفيد.",
-      "en": "The expression toilet paper is useful."
+      "fr": "On utilise souvent du papier toilette pour le logement.",
+      "ar": "نستخدم ورق تواليت كثيراً للسكن.",
+      "en": "We often use toilet paper for housing."
     }
   },
   {
@@ -11801,9 +11801,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression des mouchoirs est utile.",
-      "ar": "تعبير مناديل ورقية مفيد.",
-      "en": "The expression tissues is useful."
+      "fr": "On utilise souvent des mouchoirs pour le logement.",
+      "ar": "نستخدم مناديل ورقية كثيراً للسكن.",
+      "en": "We often use tissues for housing."
     }
   },
   {
@@ -11816,9 +11816,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une poubelle est utile.",
-      "ar": "تعبير سلة مهملات مفيد.",
-      "en": "The expression a bin is useful."
+      "fr": "On utilise souvent une poubelle pour le logement.",
+      "ar": "نستخدم سلة مهملات كثيراً للسكن.",
+      "en": "We often use a bin for housing."
     }
   },
   {
@@ -11831,9 +11831,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression le recyclage est utile.",
-      "ar": "تعبير إعادة التدوير مفيد.",
-      "en": "The expression recycling is useful."
+      "fr": "On utilise souvent le recyclage pour le logement.",
+      "ar": "نستخدم إعادة التدوير كثيراً للسكن.",
+      "en": "We often use recycling for housing."
     }
   },
   {
@@ -11846,9 +11846,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression tri sélectif est utile.",
-      "ar": "تعبير فرز النفايات مفيد.",
-      "en": "The expression selective sorting is useful."
+      "fr": "On utilise souvent « tri sélectif » pour le logement.",
+      "ar": "نستخدم « فرز النفايات » كثيراً للسكن.",
+      "en": "We often use \"selective sorting\" for housing."
     }
   },
   {
@@ -11876,9 +11876,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Je me suis brûlé la main.",
-      "ar": "أحرقت يدي.",
-      "en": "I burned my hand."
+      "fr": "On utilise souvent la main chez le médecin.",
+      "ar": "نستخدم اليد كثيراً عند الطبيب.",
+      "en": "We often use the hand at the doctor's."
     }
   },
   {
@@ -11906,9 +11906,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "J'ai une plaque métallique dans la jambe.",
-      "ar": "لديّ صفيحة معدنية في ساقي.",
-      "en": "I have a metal plate in my leg."
+      "fr": "On utilise souvent la jambe chez le médecin.",
+      "ar": "نستخدم الساق كثيراً عند الطبيب.",
+      "en": "We often use the leg at the doctor's."
     }
   },
   {
@@ -11921,9 +11921,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression le pied est utile.",
-      "ar": "تعبير القدم مفيد.",
-      "en": "The expression the foot is useful."
+      "fr": "On utilise souvent le pied chez le médecin.",
+      "ar": "نستخدم القدم كثيراً عند الطبيب.",
+      "en": "We often use the foot at the doctor's."
     }
   },
   {
@@ -11949,9 +11949,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression les poumons est utile.",
-      "ar": "تعبير الرئتان مفيد.",
-      "en": "The expression the lungs is useful."
+      "fr": "On utilise souvent les poumons chez le médecin.",
+      "ar": "نستخدم الرئتان كثيراً عند الطبيب.",
+      "en": "We often use the lungs at the doctor's."
     }
   },
   {
@@ -11991,9 +11991,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression un rein est utile.",
-      "ar": "تعبير كلية مفيد.",
-      "en": "The expression a kidney is useful."
+      "fr": "On utilise souvent un rein chez le médecin.",
+      "ar": "نستخدم كلية كثيراً عند الطبيب.",
+      "en": "We often use a kidney at the doctor's."
     }
   },
   {
@@ -12006,9 +12006,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "La peau humaine est très sensible aux changements de température.",
-      "ar": "بشرة الإنسان حساسة جدا للتغير في الحرارة.",
-      "en": "Man's skin is very sensitive to temperature changes."
+      "fr": "On utilise souvent la peau chez le médecin.",
+      "ar": "نستخدم الجلد كثيراً عند الطبيب.",
+      "en": "We often use the skin at the doctor's."
     }
   },
   {
@@ -12020,9 +12020,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression une plaie est utile.",
-      "ar": "تعبير جرح مفيد.",
-      "en": "The expression a wound is useful."
+      "fr": "On utilise souvent une plaie chez le médecin.",
+      "ar": "نستخدم جرح كثيراً عند الطبيب.",
+      "en": "We often use a wound at the doctor's."
     }
   },
   {
@@ -12048,9 +12048,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression une entorse est utile.",
-      "ar": "تعبير التواء مفيد.",
-      "en": "The expression a sprain is useful."
+      "fr": "On utilise souvent une entorse chez le médecin.",
+      "ar": "نستخدم التواء كثيراً عند الطبيب.",
+      "en": "We often use a sprain at the doctor's."
     }
   },
   {
@@ -12062,9 +12062,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression une fracture est utile.",
-      "ar": "تعبير كسر مفيد.",
-      "en": "The expression a fracture is useful."
+      "fr": "On utilise souvent une fracture chez le médecin.",
+      "ar": "نستخدم كسر كثيراً عند الطبيب.",
+      "en": "We often use a fracture at the doctor's."
     }
   },
   {
@@ -12076,9 +12076,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "Le mot saigner est utile.",
-      "ar": "كلمة ينزف مفيدة.",
-      "en": "The word to bleed is useful."
+      "fr": "On utilise souvent « saigner » chez le médecin.",
+      "ar": "نستخدم « ينزف » كثيراً عند الطبيب.",
+      "en": "We often use \"to bleed\" at the doctor's."
     }
   },
   {
@@ -12090,9 +12090,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "Le mot tousser est utile.",
-      "ar": "كلمة يسعل مفيدة.",
-      "en": "The word to cough is useful."
+      "fr": "On utilise souvent « tousser » chez le médecin.",
+      "ar": "نستخدم « يسعل » كثيراً عند الطبيب.",
+      "en": "We often use \"to cough\" at the doctor's."
     }
   },
   {
@@ -12104,9 +12104,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "Le mot éternuer est utile.",
-      "ar": "كلمة يعطس مفيدة.",
-      "en": "The word to sneeze is useful."
+      "fr": "On utilise souvent « éternuer » chez le médecin.",
+      "ar": "نستخدم « يعطس » كثيراً عند الطبيب.",
+      "en": "We often use \"to sneeze\" at the doctor's."
     }
   },
   {
@@ -12118,9 +12118,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression avoir mal à la tête est utile.",
-      "ar": "تعبير يشعر بصداع مفيد.",
-      "en": "The expression to have a headache is useful."
+      "fr": "On utilise souvent « avoir mal à la tête » chez le médecin.",
+      "ar": "نستخدم « يشعر بصداع » كثيراً عند الطبيب.",
+      "en": "We often use \"to have a headache\" at the doctor's."
     }
   },
   {
@@ -12132,9 +12132,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression avoir de la fièvre est utile.",
-      "ar": "تعبير لديه حمى مفيد.",
-      "en": "The expression to have a fever is useful."
+      "fr": "On utilise souvent « avoir de la fièvre » chez le médecin.",
+      "ar": "نستخدم « لديه حمى » كثيراً عند الطبيب.",
+      "en": "We often use \"to have a fever\" at the doctor's."
     }
   },
   {
@@ -12146,9 +12146,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression avoir des nausées est utile.",
-      "ar": "تعبير لديه غثيان مفيد.",
-      "en": "The expression to feel nauseous is useful."
+      "fr": "On utilise souvent « avoir des nausées » chez le médecin.",
+      "ar": "نستخدم « لديه غثيان » كثيراً عند الطبيب.",
+      "en": "We often use \"to feel nauseous\" at the doctor's."
     }
   },
   {
@@ -12174,9 +12174,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "Un comprimé le soir ?",
-      "ar": "حبة واحدة مساءً؟",
-      "en": "One tablet in the evening?"
+      "fr": "On utilise souvent un comprimé chez le médecin.",
+      "ar": "نستخدم حبة دواء كثيراً عند الطبيب.",
+      "en": "We often use a tablet at the doctor's."
     }
   },
   {
@@ -12188,9 +12188,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression une pommade est utile.",
-      "ar": "تعبير مرهم مفيد.",
-      "en": "The expression an ointment is useful."
+      "fr": "On utilise souvent une pommade chez le médecin.",
+      "ar": "نستخدم مرهم كثيراً عند الطبيب.",
+      "en": "We often use an ointment at the doctor's."
     }
   },
   {
@@ -12202,9 +12202,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression des gouttes est utile.",
-      "ar": "تعبير قطرات مفيد.",
-      "en": "The expression drops is useful."
+      "fr": "On utilise souvent des gouttes chez le médecin.",
+      "ar": "نستخدم قطرات كثيراً عند الطبيب.",
+      "en": "We often use drops at the doctor's."
     }
   },
   {
@@ -12216,9 +12216,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression une piqûre est utile.",
-      "ar": "تعبير حقنة مفيد.",
-      "en": "The expression an injection is useful."
+      "fr": "On utilise souvent une piqûre chez le médecin.",
+      "ar": "نستخدم حقنة كثيراً عند الطبيب.",
+      "en": "We often use an injection at the doctor's."
     }
   },
   {
@@ -12230,9 +12230,9 @@ window.VOCAB_DATA = [
       "health"
     ],
     "ex": {
-      "fr": "L'expression un rendez-vous de vaccination est utile.",
-      "ar": "تعبير موعد تلقيح مفيد.",
-      "en": "The expression a vaccination appointment is useful."
+      "fr": "On utilise souvent un rendez-vous de vaccination chez le médecin.",
+      "ar": "نستخدم موعد تلقيح كثيراً عند الطبيب.",
+      "en": "We often use a vaccination appointment at the doctor's."
     }
   },
   {
@@ -12447,9 +12447,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Le mot juillet est utile.",
-      "ar": "كلمة تموز مفيدة.",
-      "en": "The word July is useful."
+      "fr": "On utilise souvent « juillet » dans la vie quotidienne.",
+      "ar": "نستخدم « تموز » كثيراً في الحياة اليومية.",
+      "en": "We often use \"July\" in daily life."
     }
   },
   {
@@ -12476,9 +12476,9 @@ window.VOCAB_DATA = [
       "school"
     ],
     "ex": {
-      "fr": "Le mot septembre est utile.",
-      "ar": "كلمة أيلول مفيدة.",
-      "en": "The word September is useful."
+      "fr": "On utilise souvent « septembre » dans la vie quotidienne.",
+      "ar": "نستخدم « أيلول » كثيراً في الحياة اليومية.",
+      "en": "We often use \"September\" in daily life."
     }
   },
   {
@@ -12490,9 +12490,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Le mot octobre est utile.",
-      "ar": "كلمة تشرين الأول مفيدة.",
-      "en": "The word October is useful."
+      "fr": "On utilise souvent « octobre » dans la vie quotidienne.",
+      "ar": "نستخدم « تشرين الأول » كثيراً في الحياة اليومية.",
+      "en": "We often use \"October\" in daily life."
     }
   },
   {
@@ -12504,9 +12504,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Le mot novembre est utile.",
-      "ar": "كلمة تشرين الثاني مفيدة.",
-      "en": "The word November is useful."
+      "fr": "On utilise souvent « novembre » dans la vie quotidienne.",
+      "ar": "نستخدم « تشرين الثاني » كثيراً في الحياة اليومية.",
+      "en": "We often use \"November\" in daily life."
     }
   },
   {
@@ -12518,9 +12518,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "Le mot décembre est utile.",
-      "ar": "كلمة كانون الأول مفيدة.",
-      "en": "The word December is useful."
+      "fr": "On utilise souvent « décembre » dans la vie quotidienne.",
+      "ar": "نستخدم « كانون الأول » كثيراً في الحياة اليومية.",
+      "en": "We often use \"December\" in daily life."
     }
   },
   {
@@ -12533,9 +12533,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un vêtement est utile.",
-      "ar": "تعبير لباس مفيد.",
-      "en": "The expression a piece of clothing is useful."
+      "fr": "On utilise souvent un vêtement dans un magasin.",
+      "ar": "نستخدم لباس كثيراً في المتجر.",
+      "en": "We often use a piece of clothing in a shop."
     }
   },
   {
@@ -12548,9 +12548,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un pantalon est utile.",
-      "ar": "تعبير بنطلون مفيد.",
-      "en": "The expression trousers is useful."
+      "fr": "On utilise souvent un pantalon dans un magasin.",
+      "ar": "نستخدم بنطلون كثيراً في المتجر.",
+      "en": "We often use trousers in a shop."
     }
   },
   {
@@ -12563,9 +12563,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un jean est utile.",
-      "ar": "تعبير جينز مفيد.",
-      "en": "The expression jeans is useful."
+      "fr": "On utilise souvent un jean dans un magasin.",
+      "ar": "نستخدم جينز كثيراً في المتجر.",
+      "en": "We often use jeans in a shop."
     }
   },
   {
@@ -12579,9 +12579,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une chemise est utile.",
-      "ar": "تعبير قميص مفيد.",
-      "en": "The expression a shirt is useful."
+      "fr": "On utilise souvent une chemise dans un magasin.",
+      "ar": "نستخدم قميص كثيراً في المتجر.",
+      "en": "We often use a shirt in a shop."
     }
   },
   {
@@ -12594,9 +12594,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un t-shirt est utile.",
-      "ar": "تعبير تيشيرت مفيد.",
-      "en": "The expression a T-shirt is useful."
+      "fr": "On utilise souvent un t-shirt dans un magasin.",
+      "ar": "نستخدم تيشيرت كثيراً في المتجر.",
+      "en": "We often use a T-shirt in a shop."
     }
   },
   {
@@ -12609,9 +12609,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un pull est utile.",
-      "ar": "تعبير سترة مفيد.",
-      "en": "The expression a jumper is useful."
+      "fr": "On utilise souvent un pull dans un magasin.",
+      "ar": "نستخدم سترة كثيراً في المتجر.",
+      "en": "We often use a jumper in a shop."
     }
   },
   {
@@ -12624,9 +12624,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une veste est utile.",
-      "ar": "تعبير جاكيت مفيد.",
-      "en": "The expression a jacket is useful."
+      "fr": "On utilise souvent une veste dans un magasin.",
+      "ar": "نستخدم جاكيت كثيراً في المتجر.",
+      "en": "We often use a jacket in a shop."
     }
   },
   {
@@ -12669,9 +12669,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une jupe est utile.",
-      "ar": "تعبير تنورة مفيد.",
-      "en": "The expression a skirt is useful."
+      "fr": "On utilise souvent une jupe dans un magasin.",
+      "ar": "نستخدم تنورة كثيراً في المتجر.",
+      "en": "We often use a skirt in a shop."
     }
   },
   {
@@ -12684,9 +12684,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une chaussure est utile.",
-      "ar": "تعبير حذاء مفيد.",
-      "en": "The expression a shoe is useful."
+      "fr": "On utilise souvent une chaussure dans un magasin.",
+      "ar": "نستخدم حذاء كثيراً في المتجر.",
+      "en": "We often use a shoe in a shop."
     }
   },
   {
@@ -12699,9 +12699,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un chausson est utile.",
-      "ar": "تعبير خف مفيد.",
-      "en": "The expression a slipper is useful."
+      "fr": "On utilise souvent un chausson dans un magasin.",
+      "ar": "نستخدم خف كثيراً في المتجر.",
+      "en": "We often use a slipper in a shop."
     }
   },
   {
@@ -12714,9 +12714,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression une chaussette est utile.",
-      "ar": "تعبير جورب مفيد.",
-      "en": "The expression a sock is useful."
+      "fr": "On utilise souvent une chaussette dans un magasin.",
+      "ar": "نستخدم جورب كثيراً في المتجر.",
+      "en": "We often use a sock in a shop."
     }
   },
   {
@@ -12729,9 +12729,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un sous-vêtement est utile.",
-      "ar": "تعبير ملابس داخلية مفيد.",
-      "en": "The expression underwear is useful."
+      "fr": "On utilise souvent un sous-vêtement dans un magasin.",
+      "ar": "نستخدم ملابس داخلية كثيراً في المتجر.",
+      "en": "We often use underwear in a shop."
     }
   },
   {
@@ -12744,9 +12744,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un pyjama est utile.",
-      "ar": "تعبير بيجاما مفيد.",
-      "en": "The expression pyjamas is useful."
+      "fr": "On utilise souvent un pyjama dans un magasin.",
+      "ar": "نستخدم بيجاما كثيراً في المتجر.",
+      "en": "We often use pyjamas in a shop."
     }
   },
   {
@@ -12772,9 +12772,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression la taille S / M / L est utile.",
-      "ar": "تعبير المقاس S مفيد.",
-      "en": "The expression size S is useful."
+      "fr": "On utilise souvent la taille S / M / L dans un magasin.",
+      "ar": "نستخدم المقاس S كثيراً في المتجر.",
+      "en": "We often use size S in a shop."
     }
   },
   {
@@ -12786,9 +12786,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression une pointure est utile.",
-      "ar": "تعبير مقاس الحذاء مفيد.",
-      "en": "The expression a shoe size is useful."
+      "fr": "On utilise souvent une pointure dans un magasin.",
+      "ar": "نستخدم مقاس الحذاء كثيراً في المتجر.",
+      "en": "We often use a shoe size in a shop."
     }
   },
   {
@@ -12814,9 +12814,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Le prix en rayon n’est pas le même à la caisse.",
-      "ar": "السعر على الرف ليس نفسه في الصندوق.",
-      "en": "The shelf price is different at checkout."
+      "fr": "On utilise souvent la caisse dans un magasin.",
+      "ar": "نستخدم صندوق الدفع كثيراً في المتجر.",
+      "en": "We often use the checkout in a shop."
     }
   },
   {
@@ -12828,9 +12828,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression Je vais l'essayer est utile.",
-      "ar": "تعبير سأجربه مفيد.",
-      "en": "The expression I will try it on is useful."
+      "fr": "On dit souvent « Je vais l'essayer » dans un magasin.",
+      "ar": "نقول « سأجربه » كثيراً في المتجر.",
+      "en": "We often say \"I will try it on\" in a shop."
     }
   },
   {
@@ -12842,9 +12842,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression la cabine d'essayage est utile.",
-      "ar": "تعبير قسمة القياس مفيد.",
-      "en": "The expression the fitting room is useful."
+      "fr": "On utilise souvent la cabine d'essayage dans un magasin.",
+      "ar": "نستخدم قسمة القياس كثيراً في المتجر.",
+      "en": "We often use the fitting room in a shop."
     }
   },
   {
@@ -12962,9 +12962,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Le mot rose est utile.",
-      "ar": "كلمة وردي مفيدة.",
-      "en": "The word pink is useful."
+      "fr": "On utilise souvent « rose » dans la vie quotidienne.",
+      "ar": "نستخدم « وردي » كثيراً في الحياة اليومية.",
+      "en": "We often use \"pink\" in daily life."
     }
   },
   {
@@ -12977,9 +12977,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Le mot violet est utile.",
-      "ar": "كلمة بنفسجي مفيدة.",
-      "en": "The word purple is useful."
+      "fr": "On utilise souvent « violet » dans la vie quotidienne.",
+      "ar": "نستخدم « بنفسجي » كثيراً في الحياة اليومية.",
+      "en": "We often use \"purple\" in daily life."
     }
   },
   {
@@ -13022,9 +13022,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Le mot beige est utile.",
-      "ar": "كلمة بيج مفيدة.",
-      "en": "The word beige is useful."
+      "fr": "On utilise souvent « beige » dans la vie quotidienne.",
+      "ar": "نستخدم « بيج » كثيراً في الحياة اليومية.",
+      "en": "We often use \"beige\" in daily life."
     }
   },
   {
@@ -13054,9 +13054,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "L'expression une formalité est utile.",
-      "ar": "تعبير شكلية مفيد.",
-      "en": "The expression a formality is useful."
+      "fr": "On utilise souvent une formalité à la préfecture.",
+      "ar": "نستخدم شكلية كثيراً في المحافظة.",
+      "en": "We often use a formality at the prefecture."
     }
   },
   {
@@ -13070,9 +13070,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression une déclaration sur l'honneur est utile.",
-      "ar": "تعبير إقرار بالشرف مفيد.",
-      "en": "The expression a sworn statement is useful."
+      "fr": "On utilise souvent une déclaration sur l'honneur à la préfecture.",
+      "ar": "نستخدم إقرار بالشرف كثيراً في المحافظة.",
+      "en": "We often use a sworn statement at the prefecture."
     }
   },
   {
@@ -13101,9 +13101,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression attestation d'hébergement est utile.",
-      "ar": "تعبير شهادة إقامة مفيد.",
-      "en": "The expression accommodation certificate is useful."
+      "fr": "On utilise souvent « attestation d'hébergement » à la préfecture.",
+      "ar": "نستخدم « شهادة إقامة » كثيراً في المحافظة.",
+      "en": "We often use \"accommodation certificate\" at the prefecture."
     }
   },
   {
@@ -13116,9 +13116,9 @@ window.VOCAB_DATA = [
       "prefecture"
     ],
     "ex": {
-      "fr": "L'expression une convention est utile.",
-      "ar": "تعبير اتفاقية مفيد.",
-      "en": "The expression an agreement is useful."
+      "fr": "On utilise souvent une convention au travail.",
+      "ar": "نستخدم اتفاقية كثيراً في العمل.",
+      "en": "We often use an agreement at work."
     }
   },
   {
@@ -13132,9 +13132,9 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression un règlement est utile.",
-      "ar": "تعبير لائحة مفيد.",
-      "en": "The expression rules is useful."
+      "fr": "On utilise souvent un règlement au travail.",
+      "ar": "نستخدم لائحة كثيراً في العمل.",
+      "en": "We often use rules at work."
     }
   },
   {
@@ -13147,9 +13147,9 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "Y a-t-il un tarif réduit pour moi ?",
-      "ar": "هل هناك تعرفة مخفّضة لي؟",
-      "en": "Is there a reduced fare for me?"
+      "fr": "On utilise souvent un tarif dans les transports.",
+      "ar": "نستخدم تسعيرة كثيراً في المواصلات.",
+      "en": "We often use a rate in transport."
     }
   },
   {
@@ -13178,9 +13178,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression un virement bancaire est utile.",
-      "ar": "تعبير حوالة بنكية مفيد.",
-      "en": "The expression a bank transfer is useful."
+      "fr": "On utilise souvent un virement bancaire à la banque.",
+      "ar": "نستخدم حوالة بنكية كثيراً في البنك.",
+      "en": "We often use a bank transfer at the bank."
     }
   },
   {
@@ -13192,9 +13192,9 @@ window.VOCAB_DATA = [
       "bank"
     ],
     "ex": {
-      "fr": "L'expression un relevé de compte est utile.",
-      "ar": "تعبير كشف حساب مفيد.",
-      "en": "The expression a bank statement is useful."
+      "fr": "On utilise souvent un relevé de compte à la banque.",
+      "ar": "نستخدم كشف حساب كثيراً في البنك.",
+      "en": "We often use a bank statement at the bank."
     }
   },
   {
@@ -13207,9 +13207,9 @@ window.VOCAB_DATA = [
       "services"
     ],
     "ex": {
-      "fr": "L'expression un chèque énergie est utile.",
-      "ar": "تعبير شيك الطاقة مفيد.",
-      "en": "The expression an energy voucher is useful."
+      "fr": "On utilise souvent un chèque énergie pour le logement.",
+      "ar": "نستخدم شيك الطاقة كثيراً للسكن.",
+      "en": "We often use an energy voucher for housing."
     }
   },
   {
@@ -13221,9 +13221,9 @@ window.VOCAB_DATA = [
       "work"
     ],
     "ex": {
-      "fr": "L'expression un chèque emploi service est utile.",
-      "ar": "تعبير شيك خدمات العمالة مفيد.",
-      "en": "The expression employment service cheque is useful."
+      "fr": "On utilise souvent un chèque emploi service au travail.",
+      "ar": "نستخدم شيك خدمات العمالة كثيراً في العمل.",
+      "en": "We often use employment service cheque at work."
     }
   },
   {
@@ -13252,9 +13252,9 @@ window.VOCAB_DATA = [
       "caf"
     ],
     "ex": {
-      "fr": "L'expression une aide sociale est utile.",
-      "ar": "تعبير مساعدة اجتماعية مفيد.",
-      "en": "The expression social aid is useful."
+      "fr": "On utilise souvent une aide sociale à la Croix-Rouge.",
+      "ar": "نستخدم مساعدة اجتماعية كثيراً عند الصليب الأحمر.",
+      "en": "We often use social aid at the Red Cross."
     }
   },
   {
@@ -13267,9 +13267,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "L'expression un travailleur social est utile.",
-      "ar": "تعبير أخصائي اجتماعي مفيد.",
-      "en": "The expression a social worker is useful."
+      "fr": "On utilise souvent un travailleur social à la Croix-Rouge.",
+      "ar": "نستخدم أخصائي اجتماعي كثيراً عند الصليب الأحمر.",
+      "en": "We often use a social worker at the Red Cross."
     }
   },
   {
@@ -13282,9 +13282,9 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression un centre social est utile.",
-      "ar": "تعبير مركز اجتماعي مفيد.",
-      "en": "The expression a social centre is useful."
+      "fr": "On utilise souvent un centre social à la Croix-Rouge.",
+      "ar": "نستخدم مركز اجتماعي كثيراً عند الصليب الأحمر.",
+      "en": "We often use a social centre at the Red Cross."
     }
   },
   {
@@ -13298,9 +13298,9 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "L'expression un centre d'hébergement est utile.",
-      "ar": "تعبير مركز إقامة مفيد.",
-      "en": "The expression an accommodation centre is useful."
+      "fr": "On utilise souvent un centre d'hébergement à la Croix-Rouge.",
+      "ar": "نستخدم مركز إقامة كثيراً عند الصليب الأحمر.",
+      "en": "We often use an accommodation centre at the Red Cross."
     }
   },
   {
@@ -13313,9 +13313,9 @@ window.VOCAB_DATA = [
       "redcross"
     ],
     "ex": {
-      "fr": "L'expression un CADA est utile.",
-      "ar": "تعبير مركز استقبال طالبي اللجوء مفيد.",
-      "en": "The expression CADA (asylum seekers accommodation) is useful."
+      "fr": "On utilise souvent un CADA à l'OFPRA.",
+      "ar": "نستخدم مركز استقبال طالبي اللجوء كثيراً في OFPRA.",
+      "en": "We often use CADA (asylum seekers accommodation) at the OFPRA."
     }
   },
   {
@@ -13328,9 +13328,9 @@ window.VOCAB_DATA = [
       "redcross"
     ],
     "ex": {
-      "fr": "L'expression un CPH est utile.",
-      "ar": "تعبير مركز إقامة مؤقت مفيد.",
-      "en": "The expression CPH (temporary housing centre) is useful."
+      "fr": "On utilise souvent un CPH à l'OFPRA.",
+      "ar": "نستخدم مركز إقامة مؤقت كثيراً في OFPRA.",
+      "en": "We often use CPH (temporary housing centre) at the OFPRA."
     }
   },
   {
@@ -13342,9 +13342,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression un HUDA est utile.",
-      "ar": "تعبير وحدة إقامة طالبي اللجوء مفيد.",
-      "en": "The expression HUDA (housing unit) is useful."
+      "fr": "On utilise souvent un HUDA à l'OFPRA.",
+      "ar": "نستخدم وحدة إقامة طالبي اللجوء كثيراً في OFPRA.",
+      "en": "We often use HUDA (housing unit) at the OFPRA."
     }
   },
   {
@@ -13356,9 +13356,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Le tapis de sol",
-      "ar": "حصيرة التمرين",
-      "en": "Exercise mat"
+      "fr": "On utilise souvent « sol » dans les transports.",
+      "ar": "نستخدم « تربة » كثيراً في المواصلات.",
+      "en": "We often use \"soil\" in transport."
     }
   },
   {
@@ -13370,9 +13370,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Le mot axe est utile.",
-      "ar": "كلمة محور مفيدة.",
-      "en": "The word axis is useful."
+      "fr": "On utilise souvent « axe » dans les transports.",
+      "ar": "نستخدم « محور » كثيراً في المواصلات.",
+      "en": "We often use \"axis\" in transport."
     }
   },
   {
@@ -13384,9 +13384,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Le chat traversa la rue.",
-      "ar": "عبر القط الطريق.",
-      "en": "The cat crossed the road."
+      "fr": "On utilise souvent « rue » dans les transports.",
+      "ar": "نستخدم « شارع » كثيراً في المواصلات.",
+      "en": "We often use \"street\" in transport."
     }
   },
   {
@@ -13398,9 +13398,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Le mot tuf est utile.",
-      "ar": "كلمة طوفة مفيدة.",
-      "en": "The word tufa is useful."
+      "fr": "On utilise souvent « tuf » dans les transports.",
+      "ar": "نستخدم « طوفة » كثيراً في المواصلات.",
+      "en": "We often use \"tufa\" in transport."
     }
   },
   {
@@ -13412,9 +13412,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Son ami est un chanteur.",
-      "ar": "صديقها مغني.",
-      "en": "Her friend is a singer."
+      "fr": "On utilise souvent « son » dans les transports.",
+      "ar": "نستخدم « صوت » كثيراً في المواصلات.",
+      "en": "We often use \"sound\" in transport."
     }
   },
   {
@@ -13426,9 +13426,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Le mot toit est utile.",
-      "ar": "كلمة سقف مفيدة.",
-      "en": "The word roof is useful."
+      "fr": "On utilise souvent « toit » dans les transports.",
+      "ar": "نستخدم « سقف » كثيراً في المواصلات.",
+      "en": "We often use \"roof\" in transport."
     }
   },
   {
@@ -13440,9 +13440,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Changez de voie.",
-      "ar": "غيّر المسار.",
-      "en": "Change lanes."
+      "fr": "On utilise souvent « voie » dans les transports.",
+      "ar": "نستخدم « سكة » كثيراً في المواصلات.",
+      "en": "We often use \"track\" in transport."
     }
   },
   {
@@ -13454,9 +13454,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Le mot vrac est utile.",
-      "ar": "كلمة بضائع جزافية وشحن جزافي مفيدة.",
-      "en": "The word bulk goods is useful."
+      "fr": "On utilise souvent « vrac » dans les transports.",
+      "ar": "نستخدم « بضائع جزافية وشحن جزافي » كثيراً في المواصلات.",
+      "en": "We often use \"bulk goods\" in transport."
     }
   },
   {
@@ -13468,9 +13468,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Le mot dôme est utile.",
-      "ar": "كلمة قبة مفيدة.",
-      "en": "The word dome is useful."
+      "fr": "On utilise souvent « dôme » dans les transports.",
+      "ar": "نستخدم « قبة » كثيراً في المواصلات.",
+      "en": "We often use \"dome\" in transport."
     }
   },
   {
@@ -13482,9 +13482,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Je rame pendant dix minutes.",
-      "ar": "أستخدم جهاز التجديف عشر دقائق.",
-      "en": "I row for ten minutes."
+      "fr": "On utilise souvent « rame » dans les transports.",
+      "ar": "نستخدم « مركبة سككية متعددة الوحدات » كثيراً في المواصلات.",
+      "en": "We often use \"multi-unit rail coach\" in transport."
     }
   },
   {
@@ -13496,9 +13496,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Le mot tôle est utile.",
-      "ar": "كلمة صفائح معدنية مفيدة.",
-      "en": "The word sheet metal is useful."
+      "fr": "On utilise souvent « tôle » dans les transports.",
+      "ar": "نستخدم « صفائح معدنية » كثيراً في المواصلات.",
+      "en": "We often use \"sheet metal\" in transport."
     }
   },
   {
@@ -13510,9 +13510,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Le mot roue est utile.",
-      "ar": "كلمة عجلة مفيدة.",
-      "en": "The word wheel is useful."
+      "fr": "On utilise souvent « roue » dans les transports.",
+      "ar": "نستخدم « عجلة » كثيراً في المواصلات.",
+      "en": "We often use \"wheel\" in transport."
     }
   },
   {
@@ -13524,9 +13524,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "J'ai eu un choc !",
-      "ar": "لقد أصبت بصدمة!",
-      "en": "I got a shock!"
+      "fr": "On utilise souvent « choc » dans les transports.",
+      "ar": "نستخدم « تأثير » كثيراً في المواصلات.",
+      "en": "We often use \"impact\" in transport."
     }
   },
   {
@@ -13552,9 +13552,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Le mot port est utile.",
-      "ar": "كلمة مرفأ بحري مفيدة.",
-      "en": "The word port is useful."
+      "fr": "On utilise souvent « port » dans les transports.",
+      "ar": "نستخدم « مرفأ بحري » كثيراً في المواصلات.",
+      "en": "We often use \"port\" in transport."
     }
   },
   {
@@ -13566,9 +13566,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Le mot rail est utile.",
-      "ar": "كلمة قضيب السكة الحديدية مفيدة.",
-      "en": "The word rail is useful."
+      "fr": "On utilise souvent « rail » dans les transports.",
+      "ar": "نستخدم « قضيب السكة الحديدية » كثيراً في المواصلات.",
+      "en": "We often use \"rail\" in transport."
     }
   },
   {
@@ -13580,9 +13580,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Je me gare.",
-      "ar": "أركن.",
-      "en": "I park."
+      "fr": "On utilise souvent « gare » dans les transports.",
+      "ar": "نستخدم « محطة القطار » كثيراً في المواصلات.",
+      "en": "We often use \"railway station\" in transport."
     }
   },
   {
@@ -13608,9 +13608,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Juste au fond, à droite.",
-      "ar": "في الخلف مباشرة، على اليمين.",
-      "en": "At the back, on the right."
+      "fr": "On utilise souvent « fond » dans les transports.",
+      "ar": "نستخدم « خلفية » كثيراً في المواصلات.",
+      "en": "We often use \"background\" in transport."
     }
   },
   {
@@ -13622,9 +13622,9 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "Le mot pile est utile.",
-      "ar": "كلمة منشاتة مفيدة.",
-      "en": "The word pier is useful."
+      "fr": "On utilise souvent « pile » dans les transports.",
+      "ar": "نستخدم « منشاتة » كثيراً في المواصلات.",
+      "en": "We often use \"pier\" in transport."
     }
   }
 ];
