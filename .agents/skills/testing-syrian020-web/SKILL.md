@@ -52,12 +52,14 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   - `rue` → 14 results, including `fr: "rue"` with `ex.fr: "Le chat traversa la rue."`, `ex.ar: "عبر القط الطريق."`, `ex.en: "The cat crossed the road."`
   - `côté` → 5 results, including `fr: "côté"` with `ex.fr: "Mets-le de côté."` and `fr: "à côté de"` with `ex.fr: "C'est à côté de la mairie, derrière l'église."`
   - `à côté de` → 1 result with `ex.fr: "C'est à côté de la mairie, derrière l'église."`
+  - rare/technical terms removed: `abaque` → 0, `spool` → 0
+  - common/admin terms retained: `attestation` (3), `loyer` (4), `compte bancaire` (1), `titre de séjour` (1), `CAF` (11), `OFII` (1)
 - Filter counts:
   - level `A1` → 988
   - context `prefecture` (`محافظة` in AR, `Préfecture` in FR, `Prefecture` in EN) → 651
 - Sorting:
   - A → Z first term: `à bas`
-  - Z → A first term: `zygote`
+  - Z → A first term: `ZWD` (after filtering, `zygote` was removed)
 - Pagination: `pageSize` is 100; the `#load-more` button now shows the remaining count on first load (e.g. `تحميل المزيد (7634)` / `Load more (7634)` / `Charger plus (7634)`), and updates after each click.
 - Audio uses Web Speech API or Capacitor TTS; in the VM the audio may not play, but the buttons should not throw console errors.
 - Card action buttons (from left in LTR):
