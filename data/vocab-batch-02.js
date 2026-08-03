@@ -43702,7 +43702,7 @@ window.VOCAB_DATA_BATCH2 = [
       "services"
     ],
     "ex": {
-      "fr": "Le mot ad est utile.",
+      "fr": "Le mot ad. est utile.",
       "ar": "كلمة إعلان مفيدة.",
       "en": "The word ad. is useful."
     }
@@ -80294,7 +80294,7 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "mer )",
+    "fr": "mer",
     "ar": "بحر",
     "en": "sea",
     "level": "A2",
@@ -80302,9 +80302,9 @@ window.VOCAB_DATA_BATCH2 = [
       "weather"
     ],
     "ex": {
-      "fr": "Je suis allergique aux fruits de mer.",
-      "ar": "لديّ حساسية من المأكولات البحرية.",
-      "en": "I am allergic to seafood."
+      "fr": "La mer est calme aujourd'hui.",
+      "ar": "البحر هادئ اليوم.",
+      "en": "The sea is calm today."
     }
   },
   {
@@ -81148,7 +81148,7 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "ciel )",
+    "fr": "ciel",
     "ar": "سماء",
     "en": "sky",
     "level": "A2",
@@ -81156,9 +81156,9 @@ window.VOCAB_DATA_BATCH2 = [
       "weather"
     ],
     "ex": {
-      "fr": "Elle regarda le ciel.",
-      "ar": "Temmuqqel s igenni.",
-      "en": "She looked at the sky."
+      "fr": "Le ciel est bleu aujourd'hui.",
+      "ar": "السماء زرقاء اليوم.",
+      "en": "The sky is blue today."
     }
   },
   {
@@ -81212,9 +81212,9 @@ window.VOCAB_DATA_BATCH2 = [
       "weather"
     ],
     "ex": {
-      "fr": "Le mot trombe est utile.",
-      "ar": "كلمة زوبعة مفيدة.",
-      "en": "The word spout is useful."
+      "fr": "L'expression trombe ) est utile.",
+      "ar": "تعبير زوبعة مفيد.",
+      "en": "The expression spout is useful."
     }
   },
   {
@@ -81884,9 +81884,9 @@ window.VOCAB_DATA_BATCH2 = [
       "weather"
     ],
     "ex": {
-      "fr": "Le mot mamma est utile.",
-      "ar": "كلمة ضرعي مفيدة.",
-      "en": "The word mamma ) is useful."
+      "fr": "L'expression mamma ) est utile.",
+      "ar": "تعبير ضرعي مفيد.",
+      "en": "The expression mamma ) is useful."
     }
   },
   {
@@ -82486,9 +82486,9 @@ window.VOCAB_DATA_BATCH2 = [
       "weather"
     ],
     "ex": {
-      "fr": "Le mot auréole est utile.",
-      "ar": "كلمة هالة مفيدة.",
-      "en": "The word aureole is useful."
+      "fr": "L'expression auréole ) est utile.",
+      "ar": "تعبير هالة مفيد.",
+      "en": "The expression aureole is useful."
     }
   },
   {
@@ -82500,9 +82500,9 @@ window.VOCAB_DATA_BATCH2 = [
       "weather"
     ],
     "ex": {
-      "fr": "Le mot aurore est utile.",
-      "ar": "كلمة فلق مفيدة.",
-      "en": "The word aurora is useful."
+      "fr": "L'expression aurore ) est utile.",
+      "ar": "تعبير فلق مفيد.",
+      "en": "The expression aurora is useful."
     }
   },
   {
@@ -82618,7 +82618,7 @@ window.VOCAB_DATA_BATCH2 = [
     }
   },
   {
-    "fr": "plafond )",
+    "fr": "plafond",
     "ar": "سقف",
     "en": "ceiling",
     "level": "A2",
@@ -89305,7 +89305,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot bi- est utile.",
-      "ar": "كلمة سابقة بمعنى ثنائي ؛ مزدوج مفيدة.",
+      "ar": "كلمة سابقة بمعنى ثنائي مفيدة.",
       "en": "The word bi- is useful."
     }
   },
@@ -89346,7 +89346,7 @@ window.VOCAB_DATA_BATCH2 = [
       "health"
     ],
     "ex": {
-      "fr": "Le mot cc est utile.",
+      "fr": "Le mot cc. est utile.",
       "ar": "كلمة رمز سنتي متر مكعب مفيدة.",
       "en": "The word cc. is useful."
     }
@@ -89389,7 +89389,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot di- est utile.",
-      "ar": "كلمة سابقة بمعنى ثنائي ؛ مزدوج ؛ مضاعف مفيدة.",
+      "ar": "كلمة سابقة بمعنى ثنائي مفيدة.",
       "en": "The word di- is useful."
     }
   },
@@ -89627,7 +89627,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot Mus est utile.",
-      "ar": "كلمة الفأر ؛ الجرذ مفيدة.",
+      "ar": "كلمة الفأر مفيدة.",
       "en": "The word Mus is useful."
     }
   },
@@ -89767,7 +89767,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot ré- est utile.",
-      "ar": "كلمة سابقة بمعنى العودة؛الإعادة؛الرد؛الإرجاع؛التكرار مفيدة.",
+      "ar": "كلمة سابقة بمعنى العودة مفيدة.",
       "en": "The word re- is useful."
     }
   },
@@ -89865,7 +89865,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot aéré est utile.",
-      "ar": "كلمة مشبع بالغاز؛مهوى مفيدة.",
+      "ar": "كلمة مشبع بالغاز مفيدة.",
       "en": "The word aerated is useful."
     }
   },
@@ -89977,7 +89977,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot aut- est utile.",
-      "ar": "كلمة سابقة بمعنى الذاتية ؛ التلقائية مفيدة.",
+      "ar": "كلمة سابقة بمعنى الذاتية مفيدة.",
       "en": "The word aut- is useful."
     }
   },
@@ -90075,7 +90075,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot bis- est utile.",
-      "ar": "كلمة سابقة بمعنى ثنائي ؛ مزدوج ؛ مضاعف مفيدة.",
+      "ar": "كلمة سابقة بمعنى ثنائي مفيدة.",
       "en": "The word bis- is useful."
     }
   },
@@ -90103,7 +90103,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot bry- est utile.",
-      "ar": "كلمة سابقة بمعنى الأشنة ؛ الطحلب مفيدة.",
+      "ar": "كلمة سابقة بمعنى الأشنة مفيدة.",
       "en": "The word bry- is useful."
     }
   },
@@ -90201,7 +90201,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot cry- est utile.",
-      "ar": "كلمة سابقة بمعنى البرد؛القر مفيدة.",
+      "ar": "كلمة سابقة بمعنى البرد مفيدة.",
       "en": "The word cry- is useful."
     }
   },
@@ -90243,7 +90243,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot dia- est utile.",
-      "ar": "كلمة سابقة بمعنى عبر ؛ بطريق مفيدة.",
+      "ar": "كلمة سابقة بمعنى عبر مفيدة.",
       "en": "The word dia- is useful."
     }
   },
@@ -90327,7 +90327,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot ect- est utile.",
-      "ar": "كلمة سابقة بمعنى ظاهر ؛ خارجي ؛ براني مفيدة.",
+      "ar": "كلمة سابقة بمعنى ظاهر مفيدة.",
       "en": "The word ect- is useful."
     }
   },
@@ -90355,7 +90355,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot end- est utile.",
-      "ar": "كلمة سابقة بمعنى باطن ؛ داخل مفيدة.",
+      "ar": "كلمة سابقة بمعنى باطن مفيدة.",
       "en": "The word end- is useful."
     }
   },
@@ -90369,7 +90369,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot ent- est utile.",
-      "ar": "كلمة سابقة بمعنى باطن ؛ داخل مفيدة.",
+      "ar": "كلمة سابقة بمعنى باطن مفيدة.",
       "en": "The word ent- is useful."
     }
   },
@@ -90397,7 +90397,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot exo- est utile.",
-      "ar": "كلمة سابقة بمعنى خارجي ؛ ظاهر ؛ براني ؛ وحشي مفيدة.",
+      "ar": "كلمة سابقة بمعنى خارجي مفيدة.",
       "en": "The word exo- is useful."
     }
   },
@@ -90649,7 +90649,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot lys- est utile.",
-      "ar": "كلمة سابقة بمعنى الانحلال ؛ الذوبان مفيدة.",
+      "ar": "كلمة سابقة بمعنى الانحلال مفيدة.",
       "en": "The word lys- is useful."
     }
   },
@@ -90733,7 +90733,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot mon- est utile.",
-      "ar": "كلمة سابقة بمعنى وحيد ؛ أحادي مفيدة.",
+      "ar": "كلمة سابقة بمعنى وحيد مفيدة.",
       "en": "The word mon- is useful."
     }
   },
@@ -90803,7 +90803,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot néo- est utile.",
-      "ar": "كلمة سابقة بمعنى الجديد ؛ الحديث ؛ المستحدث مفيدة.",
+      "ar": "كلمة سابقة بمعنى الجديد مفيدة.",
       "en": "The word neo- is useful."
     }
   },
@@ -90887,7 +90887,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot opt- est utile.",
-      "ar": "كلمة سابقة بمعنى البصر ؛ الرؤية ؛ النظر مفيدة.",
+      "ar": "كلمة سابقة بمعنى البصر مفيدة.",
       "en": "The word opt- is useful."
     }
   },
@@ -91265,7 +91265,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot anti- est utile.",
-      "ar": "كلمة سابقة بمعنى مضاد ؛ مانع ؛ ضد ؛ معارض مفيدة.",
+      "ar": "كلمة سابقة بمعنى مضاد مفيدة.",
       "en": "The word anti- is useful."
     }
   },
@@ -91293,7 +91293,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot arch- est utile.",
-      "ar": "كلمة سابقة بمعنى بدائي ؛ عتيق ؛ عريق مفيدة.",
+      "ar": "كلمة سابقة بمعنى بدائي مفيدة.",
       "en": "The word arch- is useful."
     }
   },
@@ -91363,7 +91363,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot blond est utile.",
-      "ar": "كلمة أشقر ؛ شقراء مفيدة.",
+      "ar": "كلمة أشقر مفيدة.",
       "en": "The word blond is useful."
     }
   },
@@ -91489,7 +91489,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot cobra est utile.",
-      "ar": "كلمة الصل الناشر؛الكوبرا مفيدة.",
+      "ar": "كلمة الصل الناشر مفيدة.",
       "en": "The word cobra is useful."
     }
   },
@@ -91657,7 +91657,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot séché est utile.",
-      "ar": "كلمة مجفف؛منزوع الماء مفيدة.",
+      "ar": "كلمة مجفف مفيدة.",
       "en": "The word dewatered is useful."
     }
   },
@@ -91713,7 +91713,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot endo- est utile.",
-      "ar": "كلمة سابقة بمعنى باطن ؛ داخل مفيدة.",
+      "ar": "كلمة سابقة بمعنى باطن مفيدة.",
       "en": "The word endo- is useful."
     }
   },
@@ -92147,7 +92147,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot rires est utile.",
-      "ar": "كلمة ضحك ؛ قهقهة مفيدة.",
+      "ar": "كلمة ضحك مفيدة.",
       "en": "The word laughter is useful."
     }
   },
@@ -92189,7 +92189,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot magot est utile.",
-      "ar": "كلمة الماغوت ؛ القرد البربري مفيدة.",
+      "ar": "كلمة الماغوت مفيدة.",
       "en": "The word magot is useful."
     }
   },
@@ -92245,7 +92245,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot mini- est utile.",
-      "ar": "كلمة سابقة بمعنى الصغر:صغير ؛ أصغر ؛ صغروي ؛ أدنى ؛ دنيا مفيدة.",
+      "ar": "كلمة سابقة بمعنى الصغر:صغير مفيدة.",
       "en": "The word mini- is useful."
     }
   },
@@ -92259,7 +92259,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot mito- est utile.",
-      "ar": "كلمة سابقة بمعنى خيط ؛ فتيل مفيدة.",
+      "ar": "كلمة سابقة بمعنى خيط مفيدة.",
       "en": "The word mito- is useful."
     }
   },
@@ -92273,7 +92273,7 @@ window.VOCAB_DATA_BATCH2 = [
     ],
     "ex": {
       "fr": "Le mot mono- est utile.",
-      "ar": "كلمة سابقة بمعنى وحيد ؛ أحادي مفيدة.",
+      "ar": "كلمة سابقة بمعنى وحيد مفيدة.",
       "en": "The word mono- is useful."
     }
   },
@@ -96616,9 +96616,9 @@ window.VOCAB_DATA_BATCH2 = [
       "daily"
     ],
     "ex": {
-      "fr": "Ne pas respecter un stop.",
-      "ar": "عدم احترام إشارة قف.",
-      "en": "Not obeying a stop sign."
+      "fr": "On utilise « ne ... pas » pour la négation.",
+      "ar": "نستخدم « لا » للنفي.",
+      "en": "We use \"ne ... pas\" for negation."
     }
   },
   {

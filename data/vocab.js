@@ -228,7 +228,7 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Pouvez-vous parler plus lentement ?",
+    "fr": "Pouvez-vous parler plus lentement",
     "ar": "هل يمكنك التحدث ببطء أكثر؟",
     "en": "Can you speak more slowly?",
     "level": "A1",
@@ -278,7 +278,7 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Où sont les toilettes ?",
+    "fr": "Où sont les toilettes",
     "ar": "أين الحمامات؟",
     "en": "Where are the toilets?",
     "level": "A1",
@@ -310,7 +310,7 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "C'est combien ?",
+    "fr": "C'est combien",
     "ar": "بكم هذا؟",
     "en": "How much is it?",
     "level": "A1",
@@ -326,7 +326,7 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Je voudrais...",
+    "fr": "Je voudrais",
     "ar": "أريد...",
     "en": "I would like...",
     "level": "A1",
@@ -343,7 +343,7 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Je cherche...",
+    "fr": "Je cherche",
     "ar": "أبحث عن...",
     "en": "I am looking for...",
     "level": "A1",
@@ -386,11 +386,11 @@ window.VOCAB_DATA = [
     "ex": {
       "fr": "L'expression L'addition, s'il vous plaît est utile.",
       "ar": "تعبير الفاتورة مفيد.",
-      "en": "The expression The bill is useful."
+      "en": "The expression The bill, please is useful."
     }
   },
   {
-    "fr": "Je peux payer par carte ?",
+    "fr": "Je peux payer par carte",
     "ar": "هل يمكنني الدفع بالبطاقة؟",
     "en": "Can I pay by card?",
     "level": "A1",
@@ -832,7 +832,7 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Ça fait combien ?",
+    "fr": "Ça fait combien",
     "ar": "كم يصبح المبلغ؟",
     "en": "How much is it in total?",
     "level": "A1",
@@ -893,7 +893,7 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Je suis allergique à...",
+    "fr": "Je suis allergique à",
     "ar": "أنا مصاب بحساسية من...",
     "en": "I am allergic to...",
     "level": "A2",
@@ -2057,7 +2057,7 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "L'expression le contrat d'intégration républicaine (CIR est utile.",
+      "fr": "L'expression le contrat d'intégration républicaine (CIR) est utile.",
       "ar": "تعبير عقد الاندماج الجمهوري مفيد.",
       "en": "The expression Republican Integration Contract (CIR) is useful."
     }
@@ -2604,7 +2604,7 @@ window.VOCAB_DATA = [
       "redcross"
     ],
     "ex": {
-      "fr": "L'expression le SAMU (15 est utile.",
+      "fr": "L'expression le SAMU (15) est utile.",
       "ar": "تعبير رقم الإسعافات الطبية (15) مفيد.",
       "en": "The expression SAMU emergency medical (15) is useful."
     }
@@ -3399,7 +3399,7 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "J'ai mal à...",
+    "fr": "J'ai mal à",
     "ar": "أعاني من ألم في...",
     "en": "I have pain in...",
     "level": "A1",
@@ -3986,7 +3986,7 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression Je cherche la taille est utile.",
+      "fr": "L'expression Je cherche la taille... est utile.",
       "ar": "تعبير أبحث عن المقاس... مفيد.",
       "en": "The expression I am looking for size... is useful."
     }
@@ -4028,7 +4028,7 @@ window.VOCAB_DATA = [
       "shop"
     ],
     "ex": {
-      "fr": "L'expression Avez-vous un autre modèle est utile.",
+      "fr": "L'expression Avez-vous un autre modèle ? est utile.",
       "ar": "تعبير هل لديكم موديل آخر؟ مفيد.",
       "en": "The expression Do you have another model? is useful."
     }
@@ -4731,7 +4731,7 @@ window.VOCAB_DATA = [
       "transport"
     ],
     "ex": {
-      "fr": "L'expression À quelle heure part le train est utile.",
+      "fr": "L'expression À quelle heure part le train ? est utile.",
       "ar": "تعبير في أي ساعة يقوم القطار؟ مفيد.",
       "en": "The expression What time does the train leave? is useful."
     }
@@ -6392,7 +6392,7 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression Quel / Quelle est utile.",
+      "fr": "L'expression Quel / Quelle ? est utile.",
       "ar": "تعبير أي؟ مفيد.",
       "en": "The expression Which? is useful."
     }
@@ -7379,7 +7379,7 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "J'ai un rendez-vous à...",
+    "fr": "J'ai un rendez-vous à",
     "ar": "لدي موعد الساعة...",
     "en": "I have an appointment at...",
     "level": "A2",
@@ -7421,7 +7421,7 @@ window.VOCAB_DATA = [
       "ofii"
     ],
     "ex": {
-      "fr": "L'expression Puis-je avoir un formulaire est utile.",
+      "fr": "L'expression Puis-je avoir un formulaire ? est utile.",
       "ar": "تعبير هل يمكنني الحصول على استمارة؟ مفيد.",
       "en": "The expression Can I have a form? is useful."
     }
@@ -7437,7 +7437,7 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression Où puis-joindre ce document est utile.",
+      "fr": "L'expression Où puis-joindre ce document ? est utile.",
       "ar": "تعبير أين أرفق هذه الوثيقة؟ مفيد.",
       "en": "The expression Where should I attach this document? is useful."
     }
@@ -7454,7 +7454,7 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression Quels sont les documents nécessaires est utile.",
+      "fr": "L'expression Quels sont les documents nécessaires ? est utile.",
       "ar": "تعبير ما هي الوثائق المطلوبة؟ مفيد.",
       "en": "The expression What documents are required? is useful."
     }
@@ -7486,13 +7486,13 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression Quand est-ce que je vais recevoir la réponse est utile.",
+      "fr": "L'expression Quand est-ce que je vais recevoir la réponse ? est utile.",
       "ar": "تعبير متى سأتلقى الإجابة؟ مفيد.",
       "en": "The expression When will I receive the answer? is useful."
     }
   },
   {
-    "fr": "Je n'ai pas encore reçu...",
+    "fr": "Je n'ai pas encore reçu",
     "ar": "لم أستلم بعد...",
     "en": "I have not received yet...",
     "level": "B1",
@@ -7634,7 +7634,7 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Pouvez-vous m'expliquer ?",
+    "fr": "Pouvez-vous m'expliquer",
     "ar": "هل يمكنك شرح ذلك لي؟",
     "en": "Can you explain it to me?",
     "level": "A2",
@@ -7660,7 +7660,7 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "ex": {
-      "fr": "L'expression Pouvez-vous écrire cela est utile.",
+      "fr": "L'expression Pouvez-vous écrire cela ? est utile.",
       "ar": "تعبير هل يمكنك كتابة ذلك؟ مفيد.",
       "en": "The expression Can you write that down? is useful."
     }
@@ -8882,7 +8882,7 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression Le loyer est de combien est utile.",
+      "fr": "L'expression Le loyer est de combien ? est utile.",
       "ar": "تعبير كم قيمة الإيجار؟ مفيد.",
       "en": "The expression How much is the rent? is useful."
     }
@@ -8896,7 +8896,7 @@ window.VOCAB_DATA = [
       "housing"
     ],
     "ex": {
-      "fr": "L'expression Les charges sont comprises est utile.",
+      "fr": "L'expression Les charges sont comprises ? est utile.",
       "ar": "تعبير هل المصاريف مشمولة؟ مفيد.",
       "en": "The expression Are service charges included? is useful."
     }
@@ -9420,7 +9420,7 @@ window.VOCAB_DATA = [
       "redcross"
     ],
     "ex": {
-      "fr": "L'expression Au secours est utile.",
+      "fr": "L'expression Au secours ! est utile.",
       "ar": "تعبير النجدة! مفيد.",
       "en": "The expression Help! is useful."
     }
@@ -10658,7 +10658,7 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Quel temps fait-il ?",
+    "fr": "Quel temps fait-il",
     "ar": "كيف الطقس؟",
     "en": "What's the weather like?",
     "level": "A1",
@@ -10972,9 +10972,9 @@ window.VOCAB_DATA = [
       "ofpra"
     ],
     "ex": {
-      "fr": "L'expression Je soussigné(e est utile.",
+      "fr": "L'expression Je soussigné(e) est utile.",
       "ar": "تعبير أنا الموقع(ة) أدناه مفيد.",
-      "en": "The expression I is useful."
+      "en": "The expression I, the undersigned is useful."
     }
   },
   {
