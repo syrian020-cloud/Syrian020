@@ -250,7 +250,8 @@
       all: 'الكل',
       results: 'نتيجة',
       noResults: 'لا توجد نتائج',
-      searchGoogle: 'بحث Google',
+      searchImages: 'صور Google',
+      searchAI: 'Google AI',
       speak: 'نطق',
       loop: 'تكرار',
       loopFrenchArabicEnglish: '🔁 فرنسي + عربي + إنجليزي',
@@ -278,7 +279,8 @@
       all: 'All',
       results: 'result(s)',
       noResults: 'No results',
-      searchGoogle: 'Google',
+      searchImages: 'Images',
+      searchAI: 'Google AI',
       speak: 'Speak',
       loop: 'Loop',
       loopFrenchArabicEnglish: '🔁 French + Arabic + English',
@@ -306,7 +308,8 @@
       all: 'Tout',
       results: 'résultat(s)',
       noResults: 'Aucun résultat',
-      searchGoogle: 'Google',
+      searchImages: 'Images',
+      searchAI: 'Google IA',
       speak: 'Écouter',
       loop: 'Répéter',
       loopFrenchArabicEnglish: '🔁 Français + Arabe + Anglais',
@@ -419,6 +422,15 @@
     return items;
   }
 
+  function aiQuery(v){
+    var prompts = {
+      ar: v.fr + ' ترجمة للعربية والفرنسية مع أمثلة شائعة',
+      en: v.fr + ' translation to Arabic and French with common examples',
+      fr: v.fr + ' traduction arabe français avec exemples courants'
+    };
+    return prompts[state.uiLang] || prompts.en;
+  }
+
   function render(){
     var items = filtered();
     stats.textContent = items.length + ' ' + t('results') + (state.q ? ' · "' + esc(state.q) + '"' : '');
@@ -444,8 +456,8 @@
         '<div class="card-actions">' +
           '<button class="speak-btn" data-idx="' + idx + '">🔊 ' + t('speak') + '</button>' +
           '<button class="loop-btn" data-idx="' + idx + '">🔁 ' + t('loop') + '</button>' +
-          '<a class="google-btn" href="https://www.google.com/search?q=' + encodeURIComponent(v.fr) + '" target="_blank" rel="noopener">🔎 ' + t('searchGoogle') + '</a>' +
-          '<button class="copy-btn" data-idx="' + idx + '">📋</button>' +
+          '<a class="google-btn" href="https://www.google.com/search?udm=2&amp;q=' + encodeURIComponent(v.fr) + '" target="_blank" rel="noopener">🖼️ ' + t('searchImages') + '</a>' +
+          '<a class="ai-btn" href="https://www.google.com/search?udm=50&amp;q=' + encodeURIComponent(aiQuery(v)) + '" target="_blank" rel="noopener">✨ ' + t('searchAI') + '</a>' +
         '</div>' +
       '</div>';
     }).join('');
@@ -600,10 +612,7 @@
 
       if(e.target.closest('.speak-btn')){ stopSpeech(); speakEntry(entry, state.langs, null); return; }
       if(e.target.closest('.loop-btn')){ toggleLoop(entry, card.dataset.key); return; }
-      if(e.target.closest('.copy-btn')){
-        var text = entry.fr + '\n' + entry.ar + '\n' + (entry.en||'');
-        navigator.clipboard.writeText(text).then(function(){ showToast(t('copied')); }).catch(function(){});
-      }
+      /* image and AI search are <a> links; no extra click handling needed */
     });
 
     window.addEventListener('beforeunload', stopSpeech);
