@@ -45,42 +45,42 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Chrome may show a 404 for `favicon.ico` on first load; this is harmless and does not affect functionality.
 - The `browser_console` tool can drop its CDP connection in this environment. Use `/tmp/cdp_helper.py` (Python `websocket-client`) to connect to `ws://localhost:29229/devtools/page/<id>` and evaluate JS / capture `Log.entryAdded` and `Runtime.consoleAPICalled` events.
 
-## Vocab page quick checks (399-entry dataset with `usage` field and A-words)
+## Vocab page quick checks (550-entry dataset with `usage` field and A-words + A-adjectives)
 
 - `data/vocab.js` contains the active dataset; `data/vocab-batch-02.js` is currently empty (`window.VOCAB_DATA_BATCH2 = []`).
-- Total entries: **399** French phrases (163 beginning with `À` + 236 other A-words, including 78 A-verbs).
+- Total entries: **550** French phrases (163 beginning with `À` + 236 other A-words including 78 A-verbs + 151 new A-adjectives + 89 merged entries).
 - Entry structure: every entry has `fr`, `ar`, `en`, `level` (A1/A2/B1/B2), `contexts` array, and `ex` (`fr`, `ar`, `en`).
-- **26 administrative `À` entries and many new A-word entries include a `usage` field** (Arabic usage context) rendered on the card above the example.
-- Levels: A1=86, A2=126, B1=93, B2=81.
-- Contexts include: daily (236), services (157), work (120), housing (24), health (20), bank (16), caf (16), transport (18), family (6), restaurant (5), shop (8), car (6), phone (14), France Travail (10), prefecture (6), post (4), cpam (3), school (4), mairie (2), weather (3).
+- **Administrative entries include a `usage` field** (Arabic usage context) rendered in a `.usage` div above the example.
+- Levels: A1=83, A2=289, B1=97, B2=81.
+- Contexts include: daily (342), services (179), work (131), housing (27), health (27), bank (19), caf (16), transport (20), family (10), restaurant (5), shop (20), car (14), phone (17), France Travail (10), prefecture (6), post (4), cpam (3), school (10), mairie (2), weather (3).
 - Search examples:
   - `gauche` → 1 result (`À gauche`)
-  - `Abolir` → 1 result (`Abolir`) with example `Le gouvernement veut abolir cette loi.`
-  - `Accélérer` → 1 result (`Accélérer`)
+  - `Abolir` → 1 result (`Abolir`)
   - `Avouer` → 1 result (`Avouer`)
   - `Acheter` → 1 result (`Acheter`)
+  - `Abandonné` → 2 results (`Abandonné` + `Abandonner`); `Abandonné` card example `Ce bâtiment est abandonné.`
+  - `Abordable` → 1 result; example `Un prix abordable.`
+  - `Accidentel` → 1 result; example `C'était un accident.`
+  - `Administratif` → 1 result; usage `الملفات والإجراءات`; example `J'ai un problème administratif.`
+  - `Autonome` → 1 result; example `Je suis capable de travailler de manière autonome.`
+  - `Avancé` → 1 result; example `J'ai un niveau avancé en français.`
   - `autorisation` → 1 result (`Autorisation`)
-  - `CPAM` → 4 results (`À la demande de`, `Affiliation`, `Assurance`, `Attestation de droits`)
-  - `CAF` → **25 results** now that search scans `usage`, `contexts`, and `ex.*` text across 399 entries.
+  - `CPAM` → 3 results
+  - `CAF` → **25 results** now that search scans `usage`, `contexts`, and `ex.*` text.
   - `dossier` → **20 results** because the search haystack includes `ex.fr`/`ex.ar`/`ex.en`.
-  - `Mairie` → 7 results
-  - `demande` → 3 results (`À la suite de votre demande`, `À la demande de`, `À votre demande`)
-  - `remplir` → 1 result (`À remplir`)
-  - `envoyer` → 1 result (`À envoyer`)
-  - `réception` → 1 result (`À réception de`)
-  - `Préfecture` → 2 results (`À la demande de`, `À remplir`)
-  - `France Travail` → 3 results (`À la demande de`, `À fournir`, `À transmettre`)
-  - `paiement` → 1 result (`À défaut de paiement`)
+  - `Mairie` (`البلدية`) → 2 results
+  - `administratif` → 1 result (`Administratif`)
 - Filter counts:
-  - level `A1` → 86, `A2` → 126, `B1` → 93, `B2` → 81
-  - context `services` → 157
+  - level `A1` → 83, `A2` → 289, `B1` → 97, `B2` → 81
+  - context `services` → 179
   - context `caf` → 16
   - context `cpam` → 3
   - context `mairie` → 2
 - Sorting:
   - A → Z first term: `À bas`
-  - Z → A first term: `Avouer` (non-`À` A-words sort before `À` in `localeCompare`; `Avouer` is now alphabetically last)
-- Pagination: `pageSize` is 100; the `#load-more` button shows remaining counts `299`, `199`, `99` for the 399-entry dataset, and after a fourth click renders all 399 cards and removes the button.
+  - Z → A first term: `Avouer` (non-`À` A-words sort before `À` in `localeCompare`; `Avouer` is alphabetically last)
+- Pagination: `pageSize` is 100; the `#load-more` button shows remaining counts `450`, `350`, `250`, `150`, `50` for the 550-entry dataset, and after a fifth click renders all 550 cards and removes the button.
+- There is currently **no copy/clipboard UI** in `vocab.html`.
 - `usage` field:
   - Rendered in a `.usage` div with `dir="rtl"` between the `.meta` pills and the `.example` block.
   - Styled with a right accent border and subtle accent background (`vocab.html` line 116).
@@ -100,7 +100,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v87`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v88`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
@@ -114,4 +114,4 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Known data-quality issues (last observed)
 
-- None. All 163 entries now have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object (`ex.fr`, `ex.ar`, `ex.en`). The 26 administrative entries also include a `usage` field.
+- None. All 550 entries now have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object (`ex.fr`, `ex.ar`, `ex.en`). Administrative entries may also include a `usage` field.
