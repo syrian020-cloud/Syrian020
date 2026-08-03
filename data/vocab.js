@@ -2506,7 +2506,7 @@ window.VOCAB_DATA = [
     "fr": "Acceptation",
     "ar": "قبول",
     "en": "Acceptance",
-    "level": "A2",
+    "level": "B2",
     "contexts": [
       "services"
     ],
@@ -2515,7 +2515,7 @@ window.VOCAB_DATA = [
       "ar": "تلقيت قبول ملفي.",
       "en": "I received acceptance of my file."
     },
-    "usage": "القرارات الإدارية"
+    "usage": "القرارات الإدارية | الطلبات والقرارات"
   },
   {
     "fr": "Accès",
@@ -2537,16 +2537,17 @@ window.VOCAB_DATA = [
     "fr": "Accéder",
     "ar": "يدخل / يصل إلى",
     "en": "To access",
-    "level": "A1",
+    "level": "A2",
     "contexts": [
-      "bank"
+      "bank",
+      "services"
     ],
     "ex": {
       "fr": "Je n'arrive pas à accéder à mon espace personnel.",
       "ar": "لا أستطيع الدخول إلى مساحتي الشخصية.",
       "en": "I can't access my personal account."
     },
-    "usage": "المواقع والحسابات"
+    "usage": "المواقع والحسابات | الحسابات الإلكترونية، المواقع، الخدمات"
   },
   {
     "fr": "Accompagner",
@@ -2555,6 +2556,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "france_travail",
+      "services",
       "work"
     ],
     "ex": {
@@ -2562,7 +2564,7 @@ window.VOCAB_DATA = [
       "ar": "مكتب العمل يساعدني في البحث عن عمل.",
       "en": "France Travail supports me in my job search."
     },
-    "usage": "France Travail، الإدماج، التدريب"
+    "usage": "France Travail، الإدماج، التدريب | العمل، الخدمات الاجتماعية، France Travail"
   },
   {
     "fr": "Accompagnement",
@@ -2578,7 +2580,7 @@ window.VOCAB_DATA = [
       "ar": "أطلب دعمًا مهنيًا.",
       "en": "I request professional support."
     },
-    "usage": "الخدمات الاجتماعية والعمل"
+    "usage": "الخدمات الاجتماعية والعمل | العمل، الإدارات، التدريب"
   },
   {
     "fr": "Accord",
@@ -2631,7 +2633,7 @@ window.VOCAB_DATA = [
     "fr": "Acheminer",
     "ar": "يوصل / يرسل",
     "en": "To route / Deliver",
-    "level": "A1",
+    "level": "B2",
     "contexts": [
       "post",
       "services"
@@ -2641,7 +2643,7 @@ window.VOCAB_DATA = [
       "ar": "تم إرسال ملفك إلى المصلحة المعنية.",
       "en": "Your file was forwarded to the relevant department."
     },
-    "usage": "البريد والوثائق"
+    "usage": "البريد والوثائق | البريد، الملفات الإدارية"
   },
   {
     "fr": "Acte",
@@ -2728,8 +2730,9 @@ window.VOCAB_DATA = [
     "fr": "Adhérer",
     "ar": "ينضم / يشترك",
     "en": "To join / To subscribe",
-    "level": "A1",
+    "level": "B1",
     "contexts": [
+      "daily",
       "health",
       "services"
     ],
@@ -2738,7 +2741,7 @@ window.VOCAB_DATA = [
       "ar": "أرغب في الانضمام إلى هذه الجمعية.",
       "en": "I want to join this association."
     },
-    "usage": "الجمعيات، التأمين، الخدمات"
+    "usage": "الجمعيات، التأمين، الخدمات | الجمعيات، الاشتراكات"
   },
   {
     "fr": "Adhésion",
@@ -2790,7 +2793,7 @@ window.VOCAB_DATA = [
     "fr": "Administrer",
     "ar": "يدير / يسيّر",
     "en": "To manage / Administer",
-    "level": "B1",
+    "level": "B2",
     "contexts": [
       "services"
     ],
@@ -2882,7 +2885,7 @@ window.VOCAB_DATA = [
     "fr": "Affecter",
     "ar": "يعيّن / يؤثر على",
     "en": "To assign / Affect",
-    "level": "B1",
+    "level": "B2",
     "contexts": [
       "services",
       "work"
@@ -2892,7 +2895,7 @@ window.VOCAB_DATA = [
       "ar": "تم تعييني في منصب جديد.",
       "en": "I am assigned to a new position."
     },
-    "usage": "العمل والإدارة"
+    "usage": "العمل والإدارة | العمل والموارد"
   },
   {
     "fr": "Affaire",
@@ -2944,16 +2947,17 @@ window.VOCAB_DATA = [
     "fr": "Agir",
     "ar": "يتصرف / يعمل",
     "en": "To act",
-    "level": "A1",
+    "level": "B1",
     "contexts": [
-      "services"
+      "services",
+      "work"
     ],
     "ex": {
       "fr": "Il faut agir rapidement.",
       "ar": "يجب التصرف بسرعة.",
       "en": "We must act quickly."
     },
-    "usage": "الإدارة، القانون، الحياة اليومية"
+    "usage": "الإدارة، القانون، الحياة اليومية | الإدارة، العمل، المشاكل"
   },
   {
     "fr": "Aide",
@@ -3522,7 +3526,7 @@ window.VOCAB_DATA = [
       "ar": "يجب ربط الوثائق بالملف.",
       "en": "The documents must be attached to the file."
     },
-    "usage": "الملفات، المشاريع، العمل"
+    "usage": "الملفات، المشاريع، العمل | العمل، الملفات، المشاريع"
   },
   {
     "fr": "Attacher",
@@ -3543,7 +3547,7 @@ window.VOCAB_DATA = [
     "fr": "Atteindre",
     "ar": "يصل إلى / يحقق",
     "en": "To reach / Achieve",
-    "level": "A1",
+    "level": "B1",
     "contexts": [
       "daily"
     ],
@@ -3933,5 +3937,1970 @@ window.VOCAB_DATA = [
       "en": "I have an appointment tomorrow."
     },
     "usage": "من أكثر الأفعال استعمالًا"
+  },
+  {
+    "fr": "Aimer",
+    "ar": "يحب",
+    "en": "To like / Love",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'aime ce restaurant.",
+      "ar": "أحب هذا المطعم.",
+      "en": "I like this restaurant."
+    },
+    "usage": "الحياة اليومية"
+  },
+  {
+    "fr": "Aller",
+    "ar": "يذهب",
+    "en": "To go",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je vais au travail.",
+      "ar": "أذهب إلى العمل.",
+      "en": "I go to work."
+    },
+    "usage": "يومي جدًا / المواعيد / العمل"
+  },
+  {
+    "fr": "Allumer",
+    "ar": "يشغّل / يضيء",
+    "en": "To turn on",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Allume la lumière, s'il te plaît.",
+      "ar": "شغّل الضوء من فضلك.",
+      "en": "Turn on the light, please."
+    },
+    "usage": "المنزل / الأجهزة"
+  },
+  {
+    "fr": "Amener",
+    "ar": "يأخذ / يحضر شخصًا",
+    "en": "To take / Bring",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "Je vais amener mon enfant chez le médecin.",
+      "ar": "سآخذ طفلي إلى الطبيب.",
+      "en": "I will take my child to the doctor."
+    },
+    "usage": "الأطفال / المواعيد"
+  },
+  {
+    "fr": "Amuser",
+    "ar": "يسلي / يضحك",
+    "en": "To entertain",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cette histoire m'amuse.",
+      "ar": "هذه القصة تسليني.",
+      "en": "This story amuses me."
+    },
+    "usage": "المحادثات اليومية"
+  },
+  {
+    "fr": "Amusant",
+    "ar": "ممتع / مسلٍ",
+    "en": "Fun / Entertaining",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est un film amusant.",
+      "ar": "إنه فيلم ممتع.",
+      "en": "It's a fun movie."
+    },
+    "usage": "وصف الأشياء"
+  },
+  {
+    "fr": "Ancien",
+    "ar": "قديم / سابق",
+    "en": "Former / Old",
+    "level": "A1",
+    "contexts": [
+      "housing",
+      "work"
+    ],
+    "ex": {
+      "fr": "Mon ancien employeur.",
+      "ar": "صاحب عملي السابق.",
+      "en": "My former employer."
+    },
+    "usage": "العمل / السكن / العلاقات"
+  },
+  {
+    "fr": "Annonce",
+    "ar": "إعلان",
+    "en": "Advertisement / Announcement",
+    "level": "A1",
+    "contexts": [
+      "housing",
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai trouvé une annonce pour un appartement.",
+      "ar": "وجدت إعلانًا لشقة.",
+      "en": "I found an apartment advertisement."
+    },
+    "usage": "العمل / السكن / الإنترنت"
+  },
+  {
+    "fr": "Après",
+    "ar": "بعد",
+    "en": "After",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "Après le travail, je rentre.",
+      "ar": "بعد العمل أعود.",
+      "en": "After work, I go home."
+    },
+    "usage": "الوقت والمواعيد"
+  },
+  {
+    "fr": "Assez",
+    "ar": "كفاية / إلى حد ما",
+    "en": "Enough / Quite",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai assez de temps.",
+      "ar": "لدي وقت كافٍ.",
+      "en": "I have enough time."
+    },
+    "usage": "يومي جدًا"
+  },
+  {
+    "fr": "Aujourd'hui",
+    "ar": "اليوم",
+    "en": "Today",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je travaille aujourd'hui.",
+      "ar": "أعمل اليوم.",
+      "en": "I work today."
+    },
+    "usage": "المواعيد والعمل"
+  },
+  {
+    "fr": "Aussi",
+    "ar": "أيضًا",
+    "en": "Also / Too",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Moi aussi.",
+      "ar": "أنا أيضًا.",
+      "en": "Me too."
+    },
+    "usage": "المحادثات"
+  },
+  {
+    "fr": "Autre",
+    "ar": "آخر",
+    "en": "Other / Another",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je voudrais une autre option.",
+      "ar": "أريد خيارًا آخر.",
+      "en": "I would like another option."
+    },
+    "usage": "الطلبات والمقارنة"
+  },
+  {
+    "fr": "Abîmer",
+    "ar": "يُتلف / يخرّب",
+    "en": "To damage",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai abîmé mon téléphone.",
+      "ar": "لقد أتلفت هاتفي.",
+      "en": "I damaged my phone."
+    },
+    "usage": "المنزل، الأجهزة، الأشياء"
+  },
+  {
+    "fr": "Abîmé",
+    "ar": "تالف / متضرر",
+    "en": "Damaged",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "L'écran est abîmé.",
+      "ar": "الشاشة متضررة.",
+      "en": "The screen is damaged."
+    },
+    "usage": "وصف الأشياء"
+  },
+  {
+    "fr": "Aborder",
+    "ar": "يتطرق إلى / يبدأ الحديث عن",
+    "en": "To address / Approach",
+    "level": "A2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je voudrais aborder un problème important.",
+      "ar": "أود التطرق إلى مشكلة مهمة.",
+      "en": "I would like to address an important issue."
+    },
+    "usage": "العمل، النقاشات، الإدارة"
+  },
+  {
+    "fr": "Absorber",
+    "ar": "يمتص",
+    "en": "To absorb",
+    "level": "A2",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Cette éponge absorbe l'eau.",
+      "ar": "هذه الإسفنجة تمتص الماء.",
+      "en": "This sponge absorbs water."
+    },
+    "usage": "المواد، الصحة، الحياة اليومية"
+  },
+  {
+    "fr": "Accueillir",
+    "ar": "يستقبل / يرحب بـ",
+    "en": "To welcome",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "La mairie accueille les habitants.",
+      "ar": "البلدية تستقبل السكان.",
+      "en": "The town hall welcomes residents."
+    },
+    "usage": "الإدارات، الشركات، الأماكن العامة"
+  },
+  {
+    "fr": "Accueil",
+    "ar": "استقبال",
+    "en": "Reception / Welcome",
+    "level": "A2",
+    "contexts": [
+      "health",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je vais à l'accueil pour demander un renseignement.",
+      "ar": "أذهب إلى الاستقبال لطلب معلومات.",
+      "en": "I go to reception to ask for information."
+    },
+    "usage": "الإدارات، الشركات، المستشفيات"
+  },
+  {
+    "fr": "Accrocher",
+    "ar": "يعلّق / يمسك",
+    "en": "To hang / Attach",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'accroche le tableau au mur.",
+      "ar": "أعلق اللوحة على الحائط.",
+      "en": "I hang the picture on the wall."
+    },
+    "usage": "المنزل، الأشياء"
+  },
+  {
+    "fr": "Acheteur",
+    "ar": "مشتري",
+    "en": "Buyer",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "L'acheteur doit vérifier le produit.",
+      "ar": "يجب على المشتري فحص المنتج.",
+      "en": "The buyer must check the product."
+    },
+    "usage": "التجارة، البيع"
+  },
+  {
+    "fr": "Acquérir",
+    "ar": "يكتسب / يحصل على",
+    "en": "To acquire",
+    "level": "B2",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai acquis de l'expérience.",
+      "ar": "اكتسبت خبرة.",
+      "en": "I gained experience."
+    },
+    "usage": "العمل، المهارات، الإدارة | الخبرة، الحقوق، الممتلكات"
+  },
+  {
+    "fr": "Activer",
+    "ar": "يفعّل",
+    "en": "To activate",
+    "level": "A2",
+    "contexts": [
+      "bank",
+      "services"
+    ],
+    "ex": {
+      "fr": "Je dois activer ma carte.",
+      "ar": "يجب أن أفعل بطاقتي.",
+      "en": "I need to activate my card."
+    },
+    "usage": "الحسابات، البطاقات، الخدمات"
+  },
+  {
+    "fr": "Activé",
+    "ar": "مفعّل",
+    "en": "Activated",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Mon compte est activé.",
+      "ar": "حسابي مفعّل.",
+      "en": "My account is activated."
+    },
+    "usage": "الخدمات الإلكترونية"
+  },
+  {
+    "fr": "Actualité",
+    "ar": "أخبار / مستجدات",
+    "en": "News / Current affairs",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je regarde l'actualité.",
+      "ar": "أتابع الأخبار.",
+      "en": "I follow the news."
+    },
+    "usage": "الإعلام والمحادثات"
+  },
+  {
+    "fr": "Adapter",
+    "ar": "يكيّف / يتأقلم",
+    "en": "To adapt",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Il faut adapter cette solution.",
+      "ar": "يجب تكييف هذا الحل.",
+      "en": "This solution must be adapted."
+    },
+    "usage": "العمل، الحياة، القوانين"
+  },
+  {
+    "fr": "Admettre",
+    "ar": "يعترف / يقبل",
+    "en": "To admit",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je dois admettre mon erreur.",
+      "ar": "يجب أن أعترف بخطئي.",
+      "en": "I must admit my mistake."
+    },
+    "usage": "النقاشات الرسمية واليومية"
+  },
+  {
+    "fr": "Affirmer",
+    "ar": "يؤكد / يصرّح",
+    "en": "To affirm / State",
+    "level": "B1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je peux affirmer que les informations sont correctes.",
+      "ar": "أستطيع تأكيد أن المعلومات صحيحة.",
+      "en": "I can confirm that the information is correct."
+    },
+    "usage": "الإدارة، العمل، النقاشات"
+  },
+  {
+    "fr": "Agir contre",
+    "ar": "يتصرف ضد / يحارب",
+    "en": "To act against",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La police agit contre la fraude.",
+      "ar": "الشرطة تحارب الاحتيال.",
+      "en": "The police act against fraud."
+    },
+    "usage": "القوانين، المشاكل"
+  },
+  {
+    "fr": "Analyser",
+    "ar": "يحلل",
+    "en": "To analyze",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Nous devons analyser votre dossier.",
+      "ar": "يجب أن نحلل ملفك.",
+      "en": "We must analyze your file."
+    },
+    "usage": "العمل، التقارير، الملفات"
+  },
+  {
+    "fr": "Anticiper",
+    "ar": "يتوقع / يستعد مسبقًا",
+    "en": "To anticipate",
+    "level": "B1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Il faut anticiper les problèmes.",
+      "ar": "يجب توقع المشاكل.",
+      "en": "We must anticipate problems."
+    },
+    "usage": "العمل، الإدارة، التخطيط"
+  },
+  {
+    "fr": "Apprécier",
+    "ar": "يقدّر / يعجب بـ",
+    "en": "To appreciate",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "J'apprécie votre aide.",
+      "ar": "أقدّر مساعدتك.",
+      "en": "I appreciate your help."
+    },
+    "usage": "الحياة اليومية والعمل"
+  },
+  {
+    "fr": "Approfondir",
+    "ar": "يتعمق في / يوسع المعرفة",
+    "en": "To deepen",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je veux approfondir mes connaissances.",
+      "ar": "أريد تعميق معرفتي.",
+      "en": "I want to deepen my knowledge."
+    },
+    "usage": "الدراسة، العمل"
+  },
+  {
+    "fr": "Argumenter",
+    "ar": "يقدم حججًا / يناقش",
+    "en": "To argue / Provide arguments",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Il faut argumenter votre demande.",
+      "ar": "يجب دعم طلبك بالحجج.",
+      "en": "You must support your request with arguments."
+    },
+    "usage": "العمل، الاجتماعات، الدراسة"
+  },
+  {
+    "fr": "Assumer",
+    "ar": "يتحمل المسؤولية / يفترض",
+    "en": "To take responsibility",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "J'assume mes responsabilités.",
+      "ar": "أتحمل مسؤولياتي.",
+      "en": "I take responsibility for my duties."
+    },
+    "usage": "العمل والحياة اليومية"
+  },
+  {
+    "fr": "Augmenter",
+    "ar": "يزيد / يرفع",
+    "en": "To increase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le prix a augmenté.",
+      "ar": "ارتفع السعر.",
+      "en": "The price increased."
+    },
+    "usage": "الأسعار، الراتب، الكمية"
+  },
+  {
+    "fr": "Augmentation",
+    "ar": "زيادة / ارتفاع",
+    "en": "Increase",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Il y a eu une augmentation du salaire.",
+      "ar": "حدثت زيادة في الراتب.",
+      "en": "There was a salary increase."
+    },
+    "usage": "الرواتب، الأسعار، المساعدات"
+  },
+  {
+    "fr": "Avantage",
+    "ar": "ميزة / فائدة",
+    "en": "Advantage / Benefit",
+    "level": "B1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Quels sont les avantages de cette offre ?",
+      "ar": "ما هي مزايا هذا العرض؟",
+      "en": "What are the advantages of this offer?"
+    },
+    "usage": "العمل، العقود، الخدمات"
+  },
+  {
+    "fr": "Aborder un sujet",
+    "ar": "يتناول موضوعًا / يناقش موضوعًا",
+    "en": "To address a topic",
+    "level": "B1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Nous allons aborder ce sujet demain.",
+      "ar": "سنتناول هذا الموضوع غدًا.",
+      "en": "We will address this topic tomorrow."
+    },
+    "usage": "العمل، الاجتماعات، الإدارة"
+  },
+  {
+    "fr": "Accomplir",
+    "ar": "ينجز / يتمّم",
+    "en": "To accomplish",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai accompli toutes mes tâches.",
+      "ar": "أنجزت جميع مهامي.",
+      "en": "I completed all my tasks."
+    },
+    "usage": "العمل، الأهداف، المهام"
+  },
+  {
+    "fr": "Accomplissement",
+    "ar": "إنجاز",
+    "en": "Achievement / Accomplishment",
+    "level": "B2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "C'est un grand accomplissement professionnel.",
+      "ar": "هذا إنجاز مهني كبير.",
+      "en": "It is a great professional achievement."
+    },
+    "usage": "العمل، السيرة الذاتية | العمل، المشاريع، السيرة المهنية"
+  },
+  {
+    "fr": "Accroître",
+    "ar": "يزيد / يعزز",
+    "en": "To increase / Enhance",
+    "level": "B2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "L'entreprise veut accroître sa production.",
+      "ar": "تريد الشركة زيادة إنتاجها.",
+      "en": "The company wants to increase its production."
+    },
+    "usage": "الاقتصاد، العمل، التقارير | الاقتصاد، الشركات، التقارير"
+  },
+  {
+    "fr": "Accuser",
+    "ar": "يتهم",
+    "en": "To accuse",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Il est accusé d'une erreur.",
+      "ar": "هو متهم بخطأ.",
+      "en": "He is accused of a mistake."
+    },
+    "usage": "القانون، الأخبار، النقاشات"
+  },
+  {
+    "fr": "Accomplir une démarche",
+    "ar": "يقوم بإجراء",
+    "en": "To complete a procedure",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je dois accomplir plusieurs démarches administratives.",
+      "ar": "يجب أن أقوم بعدة إجراءات إدارية.",
+      "en": "I have to complete several administrative procedures."
+    },
+    "usage": "الإدارة"
+  },
+  {
+    "fr": "Admettre que",
+    "ar": "يعترف بأن",
+    "en": "To admit that",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je dois admettre que vous avez raison.",
+      "ar": "يجب أن أعترف أنكم على حق.",
+      "en": "I must admit that you are right."
+    },
+    "usage": "النقاشات الرسمية واليومية"
+  },
+  {
+    "fr": "Affronter",
+    "ar": "يواجه",
+    "en": "To face",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il faut affronter les difficultés.",
+      "ar": "يجب مواجهة الصعوبات.",
+      "en": "We must face difficulties."
+    },
+    "usage": "المشاكل، التحديات"
+  },
+  {
+    "fr": "Aggraver",
+    "ar": "يزيد سوءًا / يفاقم",
+    "en": "To worsen",
+    "level": "B1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Cette décision peut aggraver la situation.",
+      "ar": "هذا القرار قد يزيد الوضع سوءًا.",
+      "en": "This decision may worsen the situation."
+    },
+    "usage": "المشاكل، الصحة، الأوضاع"
+  },
+  {
+    "fr": "Amélioration",
+    "ar": "تحسّن",
+    "en": "Improvement",
+    "level": "B1",
+    "contexts": [
+      "health",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Il y a une amélioration de la situation.",
+      "ar": "هناك تحسن في الوضع.",
+      "en": "There is an improvement in the situation."
+    },
+    "usage": "العمل، الصحة، الخدمات"
+  },
+  {
+    "fr": "Analyser une situation",
+    "ar": "يحلل وضعًا",
+    "en": "To analyze a situation",
+    "level": "B1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Nous devons analyser la situation avant de décider.",
+      "ar": "يجب أن نحلل الوضع قبل اتخاذ القرار.",
+      "en": "We must analyze the situation before deciding."
+    },
+    "usage": "الإدارة والعمل"
+  },
+  {
+    "fr": "Annuler une demande",
+    "ar": "يلغي طلبًا",
+    "en": "To cancel a request",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je souhaite annuler ma demande.",
+      "ar": "أرغب في إلغاء طلبي.",
+      "en": "I want to cancel my request."
+    },
+    "usage": "الإدارة، الملفات"
+  },
+  {
+    "fr": "Appliquer une règle",
+    "ar": "يطبق قاعدة",
+    "en": "To apply a rule",
+    "level": "B1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Il faut appliquer les règles de sécurité.",
+      "ar": "يجب تطبيق قواعد السلامة.",
+      "en": "Safety rules must be applied."
+    },
+    "usage": "العمل والإدارة"
+  },
+  {
+    "fr": "Apporter une preuve",
+    "ar": "يقدم دليلًا / إثباتًا",
+    "en": "To provide proof",
+    "level": "B1",
+    "contexts": [
+      "caf",
+      "services"
+    ],
+    "ex": {
+      "fr": "Je dois apporter une preuve de domicile.",
+      "ar": "يجب أن أقدم إثبات سكن.",
+      "en": "I must provide proof of address."
+    },
+    "usage": "CAF، الإدارة، القانون"
+  },
+  {
+    "fr": "Approfondir ses connaissances",
+    "ar": "يعّمق معرفته",
+    "en": "To deepen one's knowledge",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je veux approfondir mes connaissances en français.",
+      "ar": "أريد تعميق معرفتي بالفرنسية.",
+      "en": "I want to deepen my knowledge of French."
+    },
+    "usage": "الدراسة والعمل"
+  },
+  {
+    "fr": "Aboutir",
+    "ar": "يؤدي إلى نتيجة / ينجح في الوصول",
+    "en": "To lead to / Succeed",
+    "level": "B2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La demande a abouti à une réponse positive.",
+      "ar": "أدى الطلب إلى جواب إيجابي.",
+      "en": "The request led to a positive response."
+    },
+    "usage": "المشاريع، الملفات، المفاوضات"
+  },
+  {
+    "fr": "Acquérir des compétences",
+    "ar": "اكتساب مهارات",
+    "en": "To acquire skills",
+    "level": "B2",
+    "contexts": [
+      "school",
+      "work"
+    ],
+    "ex": {
+      "fr": "Cette formation permet d'acquérir de nouvelles compétences.",
+      "ar": "هذا التكوين يسمح باكتساب مهارات جديدة.",
+      "en": "This training allows you to acquire new skills."
+    },
+    "usage": "العمل، التكوين"
+  },
+  {
+    "fr": "Adéquat",
+    "ar": "مناسب / ملائم",
+    "en": "Suitable / Appropriate",
+    "level": "B2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Nous cherchons une solution adéquate.",
+      "ar": "نبحث عن حل مناسب.",
+      "en": "We are looking for a suitable solution."
+    },
+    "usage": "العمل، الحلول، الإجراءات"
+  },
+  {
+    "fr": "Adéquation",
+    "ar": "ملاءمة / توافق",
+    "en": "Suitability / Match",
+    "level": "B2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "L'adéquation entre le poste et les compétences est importante.",
+      "ar": "التوافق بين المنصب والمهارات مهم.",
+      "en": "The match between the position and skills is important."
+    },
+    "usage": "العمل، التوظيف، المشاريع"
+  },
+  {
+    "fr": "Admettre une erreur",
+    "ar": "يعترف بخطأ",
+    "en": "To admit a mistake",
+    "level": "B2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Il a admis son erreur.",
+      "ar": "اعترف بخطئه.",
+      "en": "He admitted his mistake."
+    },
+    "usage": "العمل والنقاشات"
+  },
+  {
+    "fr": "Alléger",
+    "ar": "يخفف / يقلل",
+    "en": "To lighten / Reduce",
+    "level": "B2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Cette mesure va alléger les démarches.",
+      "ar": "هذا الإجراء سيخفف الإجراءات.",
+      "en": "This measure will simplify procedures."
+    },
+    "usage": "التكاليف، الإجراءات، العمل"
+  },
+  {
+    "fr": "Aménager",
+    "ar": "يهيئ / يعدّل",
+    "en": "To arrange / Adapt",
+    "level": "B2",
+    "contexts": [
+      "housing",
+      "work"
+    ],
+    "ex": {
+      "fr": "Nous devons aménager l'espace de travail.",
+      "ar": "يجب تهيئة مكان العمل.",
+      "en": "We need to adapt the workspace."
+    },
+    "usage": "السكن، مكان العمل"
+  },
+  {
+    "fr": "Antérieur",
+    "ar": "سابق / سابق الذكر",
+    "en": "Previous / Prior",
+    "level": "B2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Selon les informations antérieures...",
+      "ar": "حسب المعلومات السابقة...",
+      "en": "According to previous information..."
+    },
+    "usage": "التقارير والملفات"
+  },
+  {
+    "fr": "Anticipation",
+    "ar": "توقع / استعداد مسبق",
+    "en": "Anticipation",
+    "level": "B2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Une bonne anticipation évite les problèmes.",
+      "ar": "التخطيط الجيد يمنع المشاكل.",
+      "en": "Good anticipation prevents problems."
+    },
+    "usage": "التخطيط والعمل"
+  },
+  {
+    "fr": "Appuyer",
+    "ar": "يدعم / يضغط",
+    "en": "To support / Press",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je veux appuyer ma demande avec des documents.",
+      "ar": "أريد دعم طلبي بوثائق.",
+      "en": "I want to support my request with documents."
+    },
+    "usage": "الطلبات، الحجج، الأجهزة"
+  },
+  {
+    "fr": "Arbitrer",
+    "ar": "يحسم / يفصل بين خيارات",
+    "en": "To arbitrate",
+    "level": "B2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Le responsable doit arbitrer la situation.",
+      "ar": "يجب على المسؤول حسم الوضع.",
+      "en": "The manager must resolve the situation."
+    },
+    "usage": "العمل، النزاعات"
+  },
+  {
+    "fr": "Attribuer",
+    "ar": "يمنح / يخصص",
+    "en": "To grant / Allocate",
+    "level": "B2",
+    "contexts": [
+      "housing",
+      "services"
+    ],
+    "ex": {
+      "fr": "Une aide peut être attribuée selon les conditions.",
+      "ar": "يمكن منح مساعدة حسب الشروط.",
+      "en": "Assistance can be granted according to conditions."
+    },
+    "usage": "المساعدات، السكن، المناصب | الحقوق، المساعدات، السكن"
+  },
+  {
+    "fr": "Avertir",
+    "ar": "يحذر / يخبر",
+    "en": "To warn / Inform",
+    "level": "B2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je vous avertis d'un changement.",
+      "ar": "أبلغكم بتغيير.",
+      "en": "I inform you of a change."
+    },
+    "usage": "العمل، الإدارة"
+  },
+  {
+    "fr": "Aboutissement",
+    "ar": "نتيجة نهائية / نهاية ناجحة",
+    "en": "Outcome / Completion",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "L'aboutissement de cette démarche a été positif.",
+      "ar": "كانت نتيجة هذا الإجراء إيجابية.",
+      "en": "The outcome of this process was positive."
+    },
+    "usage": "المشاريع، الطلبات، الإجراءات"
+  },
+  {
+    "fr": "Abus",
+    "ar": "سوء استعمال / إساءة",
+    "en": "Abuse / Misuse",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Il y a eu un abus du système.",
+      "ar": "حدث سوء استعمال للنظام.",
+      "en": "There was misuse of the system."
+    },
+    "usage": "القانون، الإدارة، الخدمات"
+  },
+  {
+    "fr": "Abuser de",
+    "ar": "يسيء استعمال / يستغل",
+    "en": "To misuse / Take advantage of",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Il ne faut pas abuser de cette aide.",
+      "ar": "لا يجب إساءة استعمال هذه المساعدة.",
+      "en": "You should not misuse this assistance."
+    },
+    "usage": "العلاقات، الخدمات، الحقوق"
+  },
+  {
+    "fr": "Accorder de l'importance à",
+    "ar": "يعطي أهمية لـ",
+    "en": "To attach importance to",
+    "level": "B2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "J'accorde beaucoup d'importance à la qualité.",
+      "ar": "أولي أهمية كبيرة للجودة.",
+      "en": "I attach great importance to quality."
+    },
+    "usage": "العمل، الحياة اليومية"
+  },
+  {
+    "fr": "Accroissement",
+    "ar": "زيادة / نمو",
+    "en": "Increase / Growth",
+    "level": "B2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Un accroissement de la demande est prévu.",
+      "ar": "من المتوقع زيادة الطلب.",
+      "en": "An increase in demand is expected."
+    },
+    "usage": "الاقتصاد، الشركات، التقارير"
+  },
+  {
+    "fr": "Adaptation",
+    "ar": "تكيّف / تعديل",
+    "en": "Adaptation",
+    "level": "B2",
+    "contexts": [
+      "housing",
+      "work"
+    ],
+    "ex": {
+      "fr": "L'adaptation au nouveau poste prend du temps.",
+      "ar": "التكيف مع المنصب الجديد يحتاج وقتًا.",
+      "en": "Adapting to the new position takes time."
+    },
+    "usage": "العمل، السكن، التغيير"
+  },
+  {
+    "fr": "Adopter une attitude",
+    "ar": "يتبنى موقفًا / طريقة تصرف",
+    "en": "To adopt an attitude",
+    "level": "B2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Il faut adopter une attitude professionnelle.",
+      "ar": "يجب تبني موقف مهني.",
+      "en": "You need to adopt a professional attitude."
+    },
+    "usage": "العمل، التواصل"
+  },
+  {
+    "fr": "Affectionner",
+    "ar": "يحب / يفضل كثيرًا",
+    "en": "To be fond of",
+    "level": "B2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'affectionne particulièrement ce lieu.",
+      "ar": "أحب هذا المكان بشكل خاص.",
+      "en": "I am particularly fond of this place."
+    },
+    "usage": "اللغة الأدبية أو الرسمية قليلًا"
+  },
+  {
+    "fr": "Affluence",
+    "ar": "ازدحام / كثرة الناس",
+    "en": "Crowd / Influx",
+    "level": "B2",
+    "contexts": [
+      "transport"
+    ],
+    "ex": {
+      "fr": "Il y a beaucoup d'affluence aujourd'hui.",
+      "ar": "يوجد ازدحام كبير اليوم.",
+      "en": "There is a large crowd today."
+    },
+    "usage": "الإدارات، المتاجر، المواصلات"
+  },
+  {
+    "fr": "Agencement",
+    "ar": "ترتيب / تنظيم المكان",
+    "en": "Layout / Arrangement",
+    "level": "B2",
+    "contexts": [
+      "housing",
+      "shop"
+    ],
+    "ex": {
+      "fr": "L'agencement du bureau a été modifié.",
+      "ar": "تم تغيير ترتيب المكتب.",
+      "en": "The office layout was changed."
+    },
+    "usage": "المحلات، المكاتب، السكن | السكن، المكاتب، المحلات"
+  },
+  {
+    "fr": "Allégation",
+    "ar": "ادعاء / قول غير مثبت",
+    "en": "Allegation",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Cette allégation doit être vérifiée.",
+      "ar": "يجب التحقق من هذا الادعاء.",
+      "en": "This allegation must be verified."
+    },
+    "usage": "القانون، الأخبار، التقارير"
+  },
+  {
+    "fr": "Ambigu",
+    "ar": "غامض / غير واضح",
+    "en": "Ambiguous",
+    "level": "B2",
+    "contexts": [
+      "phone",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "La phrase est ambiguë.",
+      "ar": "الجملة غير واضحة.",
+      "en": "The sentence is ambiguous."
+    },
+    "usage": "العقود، الرسائل، القوانين"
+  },
+  {
+    "fr": "Améliorer la qualité",
+    "ar": "يحسن الجودة",
+    "en": "To improve quality",
+    "level": "B2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Nous devons améliorer la qualité du service.",
+      "ar": "يجب تحسين جودة الخدمة.",
+      "en": "We must improve the quality of the service."
+    },
+    "usage": "العمل والخدمات"
+  },
+  {
+    "fr": "Analyser les données",
+    "ar": "يحلل البيانات",
+    "en": "To analyze data",
+    "level": "B2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Nous allons analyser les données du dossier.",
+      "ar": "سنحلل بيانات الملف.",
+      "en": "We will analyze the file data."
+    },
+    "usage": "الشركات، الإدارة، التقارير"
+  },
+  {
+    "fr": "Annuler une procédure",
+    "ar": "يلغي إجراءً",
+    "en": "To cancel a procedure",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "La procédure a été annulée.",
+      "ar": "تم إلغاء الإجراء.",
+      "en": "The procedure was cancelled."
+    },
+    "usage": "الإدارة والقانون"
+  },
+  {
+    "fr": "Approbation officielle",
+    "ar": "موافقة رسمية",
+    "en": "Official approval",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Le projet attend une approbation officielle.",
+      "ar": "المشروع ينتظر موافقة رسمية.",
+      "en": "The project is awaiting official approval."
+    },
+    "usage": "المؤسسات والإدارة"
+  },
+  {
+    "fr": "Assurer le suivi",
+    "ar": "يتابع / يضمن المتابعة",
+    "en": "To monitor / Follow up",
+    "level": "B2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je vais assurer le suivi de votre dossier.",
+      "ar": "سأتابع ملفك.",
+      "en": "I will follow up on your file."
+    },
+    "usage": "الملفات، العمل، الخدمات"
+  },
+  {
+    "fr": "Accusation",
+    "ar": "اتهام",
+    "en": "Accusation",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Il rejette les accusations contre lui.",
+      "ar": "يرفض الاتهامات الموجهة إليه.",
+      "en": "He rejects the accusations against him."
+    },
+    "usage": "القانون، الأخبار، النزاعات"
+  },
+  {
+    "fr": "Achèvement",
+    "ar": "إتمام / اكتمال",
+    "en": "Completion",
+    "level": "B2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "L'achèvement des travaux est prévu en juin.",
+      "ar": "من المتوقع اكتمال الأشغال في يونيو.",
+      "en": "Completion of the work is planned for June."
+    },
+    "usage": "المشاريع والأعمال"
+  },
+  {
+    "fr": "Acquittement",
+    "ar": "تبرئة / تسديد مبلغ",
+    "en": "Acquittal / Payment",
+    "level": "B2",
+    "contexts": [
+      "bank",
+      "services"
+    ],
+    "ex": {
+      "fr": "L'acquittement de la facture est obligatoire.",
+      "ar": "تسديد الفاتورة إجباري.",
+      "en": "Payment of the invoice is mandatory."
+    },
+    "usage": "القانون أو الفواتير (حسب السياق)"
+  },
+  {
+    "fr": "Adéquatement",
+    "ar": "بشكل مناسب",
+    "en": "Appropriately",
+    "level": "B2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le problème doit être traité adéquatement.",
+      "ar": "يجب معالجة المشكلة بشكل مناسب.",
+      "en": "The problem must be handled appropriately."
+    },
+    "usage": "اللغة الرسمية"
+  },
+  {
+    "fr": "Adresser une demande",
+    "ar": "يوجه طلبًا / يقدم طلبًا",
+    "en": "To submit a request",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai adressé une demande au service concerné.",
+      "ar": "قدمت طلبًا إلى المصلحة المعنية.",
+      "en": "I submitted a request to the relevant department."
+    },
+    "usage": "الإدارة"
+  },
+  {
+    "fr": "Affirmer son droit",
+    "ar": "يؤكد حقه / يطالب بحقه",
+    "en": "To assert one's right",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Il faut affirmer ses droits.",
+      "ar": "يجب تأكيد حقوقك.",
+      "en": "You must assert your rights."
+    },
+    "usage": "الإدارة، القانون"
+  },
+  {
+    "fr": "Ajournement",
+    "ar": "تأجيل",
+    "en": "Postponement",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "L'ajournement de la décision est possible.",
+      "ar": "تأجيل القرار ممكن.",
+      "en": "Postponement of the decision is possible."
+    },
+    "usage": "الإدارة، الامتحانات، الإجراءات"
+  },
+  {
+    "fr": "Amendement",
+    "ar": "تعديل / إضافة على نص",
+    "en": "Amendment",
+    "level": "B2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Un amendement au contrat est nécessaire.",
+      "ar": "تعديل على العقد ضروري.",
+      "en": "An amendment to the contract is necessary."
+    },
+    "usage": "القوانين، العقود، الوثائق"
+  },
+  {
+    "fr": "Ampleur",
+    "ar": "حجم / مدى",
+    "en": "Extent / Scale",
+    "level": "B2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Nous n'avons pas encore mesuré l'ampleur du problème.",
+      "ar": "لم نقس بعد حجم المشكلة.",
+      "en": "We have not yet measured the extent of the problem."
+    },
+    "usage": "المشاكل، المشاريع"
+  },
+  {
+    "fr": "Antécédent",
+    "ar": "سابق / معلومة سابقة",
+    "en": "Previous record / Background",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Le médecin demande vos antécédents médicaux.",
+      "ar": "الطبيب يطلب تاريخك الطبي.",
+      "en": "The doctor asks for your medical history."
+    },
+    "usage": "الملفات، الطب، القانون"
+  },
+  {
+    "fr": "Appel d'offres",
+    "ar": "مناقصة",
+    "en": "Call for tenders",
+    "level": "B2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "L'entreprise répond à un appel d'offres.",
+      "ar": "الشركة تستجيب لمناقصة.",
+      "en": "The company responds to a tender."
+    },
+    "usage": "الشركات والإدارة"
+  },
+  {
+    "fr": "Arbitrage",
+    "ar": "تحكيم / حل وسط",
+    "en": "Arbitration",
+    "level": "B2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Un arbitrage est nécessaire pour résoudre le conflit.",
+      "ar": "هناك حاجة إلى تحكيم لحل النزاع.",
+      "en": "Arbitration is needed to solve the conflict."
+    },
+    "usage": "النزاعات، العمل"
+  },
+  {
+    "fr": "Arrondissement",
+    "ar": "دائرة إدارية / حي إداري",
+    "en": "District / Borough",
+    "level": "B2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La mairie de l'arrondissement.",
+      "ar": "بلدية الدائرة.",
+      "en": "The district town hall."
+    },
+    "usage": "المدن الكبرى مثل باريس"
+  },
+  {
+    "fr": "Assainir",
+    "ar": "يطهّر / يصلح / يحسّن الوضع",
+    "en": "To clean up / Restore",
+    "level": "B2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "L'entreprise doit assainir sa situation financière.",
+      "ar": "يجب على الشركة تحسين وضعها المالي.",
+      "en": "The company must improve its financial situation."
+    },
+    "usage": "الاقتصاد، الوضع المالي، البيئة"
+  },
+  {
+    "fr": "Assistance",
+    "ar": "مساعدة / دعم",
+    "en": "Assistance / Support",
+    "level": "B2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je demande une assistance pour cette démarche.",
+      "ar": "أطلب مساعدة لهذا الإجراء.",
+      "en": "I request assistance for this procedure."
+    },
+    "usage": "الخدمات الاجتماعية، التقنية، الإدارة"
+  },
+  {
+    "fr": "Assister à",
+    "ar": "يحضر / يشارك في حضور شيء",
+    "en": "To attend",
+    "level": "B2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai assisté à une réunion administrative.",
+      "ar": "حضرت اجتماعًا إداريًا.",
+      "en": "I attended an administrative meeting."
+    },
+    "usage": "الاجتماعات، الدورات"
+  },
+  {
+    "fr": "Assigner",
+    "ar": "يكلّف / يعيّن",
+    "en": "To assign",
+    "level": "B2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "On m'a assigné une nouvelle tâche.",
+      "ar": "تم تكليفي بمهمة جديدة.",
+      "en": "I was assigned a new task."
+    },
+    "usage": "العمل، القانون"
+  },
+  {
+    "fr": "Associer à",
+    "ar": "يربط بـ / يشرك مع",
+    "en": "To associate with",
+    "level": "B2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ce document est associé à votre dossier.",
+      "ar": "هذه الوثيقة مرتبطة بملفك.",
+      "en": "This document is associated with your file."
+    },
+    "usage": "المشاريع والملفات"
+  },
+  {
+    "fr": "Assurer la conformité",
+    "ar": "يضمن المطابقة",
+    "en": "To ensure compliance",
+    "level": "B2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Nous devons assurer la conformité des documents.",
+      "ar": "يجب ضمان مطابقة الوثائق.",
+      "en": "We must ensure document compliance."
+    },
+    "usage": "الشركات، الجودة، الإدارة"
+  },
+  {
+    "fr": "Attester",
+    "ar": "يشهد / يثبت",
+    "en": "To certify / Confirm",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Ce document atteste votre identité.",
+      "ar": "هذه الوثيقة تثبت هويتك.",
+      "en": "This document certifies your identity."
+    },
+    "usage": "الوثائق الرسمية"
+  },
+  {
+    "fr": "Attendu",
+    "ar": "متوقع / منتظر",
+    "en": "Expected",
+    "level": "B2",
+    "contexts": [
+      "phone",
+      "services"
+    ],
+    "ex": {
+      "fr": "La réponse est attendue prochainement.",
+      "ar": "الرد متوقع قريبًا.",
+      "en": "The response is expected soon."
+    },
+    "usage": "القرارات والرسائل الرسمية"
+  },
+  {
+    "fr": "Attribution",
+    "ar": "منح / تخصيص",
+    "en": "Allocation / Assignment",
+    "level": "B2",
+    "contexts": [
+      "housing",
+      "services"
+    ],
+    "ex": {
+      "fr": "L'attribution d'un logement dépend des critères.",
+      "ar": "منح السكن يعتمد على المعايير.",
+      "en": "Housing allocation depends on criteria."
+    },
+    "usage": "السكن، المساعدات، المناصب"
+  },
+  {
+    "fr": "Audit",
+    "ar": "تدقيق / مراجعة",
+    "en": "Audit",
+    "level": "B2",
+    "contexts": [
+      "bank",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Un audit du système est prévu.",
+      "ar": "هناك تدقيق للنظام مقرر.",
+      "en": "A system audit is planned."
+    },
+    "usage": "الشركات، الإدارة، الحسابات"
+  },
+  {
+    "fr": "Authentifier",
+    "ar": "يتحقق من صحة / يصادق",
+    "en": "To authenticate",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Il faut authentifier le document.",
+      "ar": "يجب التحقق من صحة الوثيقة.",
+      "en": "The document must be authenticated."
+    },
+    "usage": "الوثائق، الهوية"
+  },
+  {
+    "fr": "Authentique",
+    "ar": "أصلي / حقيقي",
+    "en": "Authentic / Genuine",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Le document est authentique.",
+      "ar": "الوثيقة أصلية.",
+      "en": "The document is authentic."
+    },
+    "usage": "الوثائق، المنتجات"
+  },
+  {
+    "fr": "Automatiser",
+    "ar": "يجعل آليًا / يؤتمت",
+    "en": "To automate",
+    "level": "B2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "L'entreprise veut automatiser certaines tâches.",
+      "ar": "تريد الشركة أتمتة بعض المهام.",
+      "en": "The company wants to automate some tasks."
+    },
+    "usage": "العمل، الأنظمة"
+  },
+  {
+    "fr": "Autorité",
+    "ar": "سلطة / جهة رسمية",
+    "en": "Authority",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Les autorités compétentes vont examiner le dossier.",
+      "ar": "ستدرس الجهات المختصة الملف.",
+      "en": "The competent authorities will review the file."
+    },
+    "usage": "الإدارة، القانون"
+  },
+  {
+    "fr": "Autorité compétente",
+    "ar": "الجهة المختصة",
+    "en": "Competent authority",
+    "level": "B2",
+    "contexts": [
+      "mairie",
+      "prefecture",
+      "services"
+    ],
+    "ex": {
+      "fr": "Votre demande doit être envoyée à l'autorité compétente.",
+      "ar": "يجب إرسال طلبك إلى الجهة المختصة.",
+      "en": "Your request must be sent to the competent authority."
+    },
+    "usage": "الإدارة الفرنسية (Préfecture، Mairie...)"
+  },
+  {
+    "fr": "Avancement du dossier",
+    "ar": "تقدم الملف / سير الملف",
+    "en": "Progress of the file",
+    "level": "B2",
+    "contexts": [
+      "caf",
+      "prefecture"
+    ],
+    "ex": {
+      "fr": "Je voudrais connaître l'avancement de mon dossier.",
+      "ar": "أود معرفة تقدم ملفي.",
+      "en": "I would like to know the progress of my file."
+    },
+    "usage": "CAF، Préfecture، الإدارات"
+  },
+  {
+    "fr": "Accord préalable",
+    "ar": "موافقة مسبقة",
+    "en": "Prior approval",
+    "level": "B2",
+    "contexts": [
+      "health",
+      "services"
+    ],
+    "ex": {
+      "fr": "Il faut obtenir un accord préalable.",
+      "ar": "يجب الحصول على موافقة مسبقة.",
+      "en": "Prior approval is required."
+    },
+    "usage": "الإدارة، التأمين، الإجراءات"
+  },
+  {
+    "fr": "Accompagnement personnalisé",
+    "ar": "دعم شخصي / مرافقة خاصة",
+    "en": "Personalized support",
+    "level": "B2",
+    "contexts": [
+      "france_travail",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je bénéficie d'un accompagnement personnalisé.",
+      "ar": "أستفيد من دعم شخصي.",
+      "en": "I receive personalized support."
+    },
+    "usage": "France Travail، الخدمات الاجتماعية"
+  },
+  {
+    "fr": "Accomplir une mission",
+    "ar": "ينجز مهمة",
+    "en": "To carry out a mission",
+    "level": "B2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Il a accompli sa mission avec succès.",
+      "ar": "أنجز مهمته بنجاح.",
+      "en": "He carried out his mission successfully."
+    },
+    "usage": "العمل"
+  },
+  {
+    "fr": "Adhésion obligatoire",
+    "ar": "انضمام إجباري / اشتراك إلزامي",
+    "en": "Mandatory membership",
+    "level": "B2",
+    "contexts": [
+      "health",
+      "services"
+    ],
+    "ex": {
+      "fr": "L'adhésion est obligatoire dans certains cas.",
+      "ar": "الاشتراك إجباري في بعض الحالات.",
+      "en": "Membership is mandatory in some cases."
+    },
+    "usage": "التأمين، بعض الأنظمة"
+  },
+  {
+    "fr": "Affiliation obligatoire",
+    "ar": "انتساب إجباري",
+    "en": "Mandatory affiliation",
+    "level": "B2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "L'affiliation à la sécurité sociale est obligatoire.",
+      "ar": "الانتساب إلى الضمان الاجتماعي إجباري.",
+      "en": "Registration with social security is mandatory."
+    },
+    "usage": "الضمان الاجتماعي"
+  },
+  {
+    "fr": "Aggravation",
+    "ar": "تفاقم / ازدياد سوءًا",
+    "en": "Worsening",
+    "level": "B2",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Une aggravation de la situation est possible.",
+      "ar": "قد يحدث تفاقم في الوضع.",
+      "en": "A worsening of the situation is possible."
+    },
+    "usage": "الصحة، المشاكل، الأوضاع"
+  },
+  {
+    "fr": "Ajout",
+    "ar": "إضافة",
+    "en": "Addition / Addition of something",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai fait un ajout au dossier.",
+      "ar": "أضفت شيئًا إلى الملف.",
+      "en": "I made an addition to the file."
+    },
+    "usage": "الملفات، الوثائق، البرامج"
+  },
+  {
+    "fr": "Alternative",
+    "ar": "بديل / خيار آخر",
+    "en": "Alternative",
+    "level": "B2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Nous cherchons une alternative.",
+      "ar": "نبحث عن بديل.",
+      "en": "We are looking for an alternative."
+    },
+    "usage": "الحلول، العمل، الإدارة"
+  },
+  {
+    "fr": "Améliorer les conditions",
+    "ar": "يحسن الظروف",
+    "en": "To improve conditions",
+    "level": "B2",
+    "contexts": [
+      "housing",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Nous voulons améliorer les conditions de travail.",
+      "ar": "نريد تحسين ظروف العمل.",
+      "en": "We want to improve working conditions."
+    },
+    "usage": "العمل، السكن، الخدمات"
+  },
+  {
+    "fr": "Application",
+    "ar": "تطبيق / تطبيق قاعدة",
+    "en": "Application",
+    "level": "B2",
+    "contexts": [
+      "phone",
+      "services"
+    ],
+    "ex": {
+      "fr": "L'application de cette règle est obligatoire.",
+      "ar": "تطبيق هذه القاعدة إجباري.",
+      "en": "The application of this rule is mandatory."
+    },
+    "usage": "الهاتف، القوانين، الإجراءات"
+  },
+  {
+    "fr": "Appliquer une loi",
+    "ar": "يطبق قانونًا",
+    "en": "To enforce a law",
+    "level": "B2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Les services doivent appliquer la loi.",
+      "ar": "يجب على المصالح تطبيق القانون.",
+      "en": "Services must enforce the law."
+    },
+    "usage": "الإدارة والقانون"
+  },
+  {
+    "fr": "Arrangement",
+    "ar": "ترتيب / اتفاق",
+    "en": "Arrangement",
+    "level": "B2",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Nous avons trouvé un arrangement.",
+      "ar": "وجدنا اتفاقًا.",
+      "en": "We found an arrangement."
+    },
+    "usage": "العمل، المواعيد، الاتفاقات"
+  },
+  {
+    "fr": "Assurer une mission",
+    "ar": "يتولى مهمة / يضمن تنفيذ مهمة",
+    "en": "To carry out a duty",
+    "level": "B2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Il assure une mission importante.",
+      "ar": "يتولى مهمة مهمة.",
+      "en": "He carries out an important duty."
+    },
+    "usage": "العمل والإدارة"
+  },
+  {
+    "fr": "Abstrait",
+    "ar": "مجرّد / غير ملموس",
+    "en": "Abstract",
+    "level": "B2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est un concept assez abstrait.",
+      "ar": "إنه مفهوم مجرد إلى حد ما.",
+      "en": "It is quite an abstract concept."
+    },
+    "usage": "الدراسة، الأفكار، النقاشات"
+  },
+  {
+    "fr": "Accentuer",
+    "ar": "يزيد / يبرز",
+    "en": "To emphasize / Increase",
+    "level": "B2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cette situation accentue les difficultés.",
+      "ar": "هذا الوضع يزيد الصعوبات.",
+      "en": "This situation increases difficulties."
+    },
+    "usage": "التقارير، التحليل"
   }
 ];
