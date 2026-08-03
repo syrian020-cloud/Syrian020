@@ -76,9 +76,9 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v74`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v75`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
   ```
-- If `data/manifest.js` or any `data/stage*.js` file is missing, the install step fails and `dross-v74` will not activate.
+- If `data/manifest.js` or any `data/stage*.js` file is missing, the install step fails and `dross-v75` will not activate.
