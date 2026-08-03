@@ -73,8 +73,10 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   - `dossier` → **20 results** because the search haystack includes `ex.fr`/`ex.ar`/`ex.en`.
   - `Mairie` (`البلدية`) → 2 results
   - `administratif` → 1 result (`Administratif`)
-  - **POS text search (English UI):** `verb` → 121, `adjective` → 167, `noun` → 80, `phrase` → 170, `other` → 12
-  - **POS text search (Arabic/French UI):** `فعل`/`Verbe` returns only incidental matches, because `filtered()` only includes the English `pos` key in the search haystack, not localized labels.
+  - **POS text search (all UI languages):** `vocab.html` builds a `POS_BY_LABEL` map from the localized labels and first checks the query as an exact POS label before falling back to substring search.
+    - English UI: `verb` → 121, `adjective` → 167, `noun` → 80, `phrase` → 170, `other` → 12
+    - French UI: `Verbe` → 121, `Adjectif` → 167, `Nom` → 80, `Expression` → 170, `Autre` → 12
+    - Arabic UI: `فعل` → 121, `صفة` → 167, `اسم` → 80, `عبارة` → 170, `آخر` → 12
 - Filter counts:
   - level `A1` → 83, `A2` → 289, `B1` → 97, `B2` → 81
   - context `services` → 179
