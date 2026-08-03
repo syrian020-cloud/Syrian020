@@ -2427,7 +2427,7 @@ window.VOCAB_DATA = [
     "fr": "Abandonner",
     "ar": "يترك / يتخلى عن",
     "en": "To abandon / To give up",
-    "level": "A1",
+    "level": "A2",
     "contexts": [
       "services"
     ],
@@ -2436,7 +2436,7 @@ window.VOCAB_DATA = [
       "ar": "لقد تركت طلبي.",
       "en": "I abandoned my request."
     },
-    "usage": "الملفات، الطلبات، الإجراءات"
+    "usage": "الملفات، الطلبات، الإجراءات | المشاريع، الطلبات، العادات"
   },
   {
     "fr": "Absence",
@@ -2493,6 +2493,7 @@ window.VOCAB_DATA = [
     "en": "To accept",
     "level": "A1",
     "contexts": [
+      "daily",
       "services"
     ],
     "ex": {
@@ -2540,6 +2541,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "bank",
+      "daily",
       "services"
     ],
     "ex": {
@@ -2555,6 +2557,7 @@ window.VOCAB_DATA = [
     "en": "To accompany",
     "level": "A2",
     "contexts": [
+      "daily",
       "france_travail",
       "services",
       "work"
@@ -2604,6 +2607,7 @@ window.VOCAB_DATA = [
     "en": "To grant",
     "level": "B1",
     "contexts": [
+      "daily",
       "services"
     ],
     "ex": {
@@ -2643,7 +2647,7 @@ window.VOCAB_DATA = [
       "ar": "تم إرسال ملفك إلى المصلحة المعنية.",
       "en": "Your file was forwarded to the relevant department."
     },
-    "usage": "البريد والوثائق | البريد، الملفات الإدارية"
+    "usage": "البريد والوثائق | البريد، الملفات الإدارية | البريد والملفات"
   },
   {
     "fr": "Acte",
@@ -2696,8 +2700,9 @@ window.VOCAB_DATA = [
     "fr": "Ajouter",
     "ar": "يضيف",
     "en": "To add",
-    "level": "A1",
+    "level": "A2",
     "contexts": [
+      "daily",
       "services"
     ],
     "ex": {
@@ -2705,7 +2710,7 @@ window.VOCAB_DATA = [
       "ar": "أريد إضافة وثيقة إلى ملفي.",
       "en": "I would like to add a document to my file."
     },
-    "usage": "الملفات والوثائق | الملفات والوثائق"
+    "usage": "الملفات والوثائق | الملفات والوثائق | الملفات، المعلومات"
   },
   {
     "fr": "Adresse",
@@ -2734,14 +2739,15 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "health",
-      "services"
+      "services",
+      "work"
     ],
     "ex": {
       "fr": "Je souhaite adhérer à cette association.",
       "ar": "أرغب في الانضمام إلى هذه الجمعية.",
       "en": "I want to join this association."
     },
-    "usage": "الجمعيات، التأمين، الخدمات | الجمعيات، الاشتراكات"
+    "usage": "الجمعيات، التأمين، الخدمات | الجمعيات، الاشتراكات | الجمعيات، العقود"
   },
   {
     "fr": "Adhésion",
@@ -2856,6 +2862,7 @@ window.VOCAB_DATA = [
     "en": "To address / Send",
     "level": "B1",
     "contexts": [
+      "daily",
       "phone",
       "services"
     ],
@@ -2864,7 +2871,7 @@ window.VOCAB_DATA = [
       "ar": "أوجه طلبي إلى المصلحة المعنية.",
       "en": "I send my request to the relevant department."
     },
-    "usage": "الرسائل والطلبات الرسمية"
+    "usage": "الرسائل والطلبات الرسمية | الإدارة"
   },
   {
     "fr": "Adresse mail",
@@ -2949,6 +2956,7 @@ window.VOCAB_DATA = [
     "en": "To act",
     "level": "B1",
     "contexts": [
+      "daily",
       "services",
       "work"
     ],
@@ -3043,6 +3051,7 @@ window.VOCAB_DATA = [
     "en": "To improve",
     "level": "A1",
     "contexts": [
+      "daily",
       "work"
     ],
     "ex": {
@@ -3224,7 +3233,7 @@ window.VOCAB_DATA = [
       "ar": "تمت الموافقة على طلبك.",
       "en": "Your request has been approved."
     },
-    "usage": "الإدارة، الطلبات، القرارات"
+    "usage": "الإدارة، الطلبات، القرارات | القرارات والطلبات"
   },
   {
     "fr": "Approbation",
@@ -3349,7 +3358,7 @@ window.VOCAB_DATA = [
       "ar": "هذه الوثيقة تخصني.",
       "en": "This document belongs to me."
     },
-    "usage": "الملكية والوثائق"
+    "usage": "الملكية والوثائق | الملكية، الوثائق"
   },
   {
     "fr": "Appareil",
@@ -3404,6 +3413,7 @@ window.VOCAB_DATA = [
     "en": "To stop",
     "level": "A1",
     "contexts": [
+      "daily",
       "work"
     ],
     "ex": {
@@ -3470,6 +3480,7 @@ window.VOCAB_DATA = [
     "en": "To insure / Ensure",
     "level": "A2",
     "contexts": [
+      "daily",
       "health",
       "services",
       "work"
@@ -3479,13 +3490,13 @@ window.VOCAB_DATA = [
       "ar": "هذا التأمين يوفر حماية.",
       "en": "This insurance provides protection."
     },
-    "usage": "التأمين، المسؤوليات، العمل"
+    "usage": "التأمين، المسؤوليات، العمل | العمل والإدارة"
   },
   {
     "fr": "Assister",
     "ar": "يحضر / يساعد",
     "en": "To attend / Assist",
-    "level": "A1",
+    "level": "B1",
     "contexts": [
       "school",
       "services",
@@ -3496,7 +3507,7 @@ window.VOCAB_DATA = [
       "ar": "حضرت اجتماعًا.",
       "en": "I attended a meeting."
     },
-    "usage": "الاجتماعات، التكوين، المساعدة"
+    "usage": "الاجتماعات، التكوين، المساعدة | الاجتماعات، الدورات"
   },
   {
     "fr": "Association",
@@ -3534,6 +3545,7 @@ window.VOCAB_DATA = [
     "en": "To attach",
     "level": "A1",
     "contexts": [
+      "daily",
       "services"
     ],
     "ex": {
@@ -3712,6 +3724,7 @@ window.VOCAB_DATA = [
     "en": "To authorize / Allow",
     "level": "B1",
     "contexts": [
+      "daily",
       "services",
       "work"
     ],
@@ -3834,7 +3847,7 @@ window.VOCAB_DATA = [
     "fr": "Avancer",
     "ar": "يتقدم / يحرّك إلى الأمام",
     "en": "To move forward / Advance",
-    "level": "A1",
+    "level": "B1",
     "contexts": [
       "daily"
     ],
@@ -4177,6 +4190,7 @@ window.VOCAB_DATA = [
     "en": "To address / Approach",
     "level": "A2",
     "contexts": [
+      "daily",
       "services",
       "work"
     ],
@@ -4193,6 +4207,7 @@ window.VOCAB_DATA = [
     "en": "To absorb",
     "level": "A2",
     "contexts": [
+      "daily",
       "health"
     ],
     "ex": {
@@ -4239,14 +4254,15 @@ window.VOCAB_DATA = [
     "en": "To hang / Attach",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "phone"
     ],
     "ex": {
       "fr": "J'accroche le tableau au mur.",
       "ar": "أعلق اللوحة على الحائط.",
       "en": "I hang the picture on the wall."
     },
-    "usage": "المنزل، الأشياء"
+    "usage": "المنزل، الأشياء | الأشياء، الهاتف"
   },
   {
     "fr": "Acheteur",
@@ -4278,7 +4294,7 @@ window.VOCAB_DATA = [
       "ar": "اكتسبت خبرة.",
       "en": "I gained experience."
     },
-    "usage": "العمل، المهارات، الإدارة | الخبرة، الحقوق، الممتلكات"
+    "usage": "العمل، المهارات، الإدارة | الخبرة، الحقوق، الممتلكات | الخبرة، المهارات، الممتلكات"
   },
   {
     "fr": "Activer",
@@ -4332,6 +4348,7 @@ window.VOCAB_DATA = [
     "en": "To adapt",
     "level": "A2",
     "contexts": [
+      "daily",
       "work"
     ],
     "ex": {
@@ -4347,14 +4364,16 @@ window.VOCAB_DATA = [
     "en": "To admit",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "phone",
+      "services"
     ],
     "ex": {
       "fr": "Je dois admettre mon erreur.",
       "ar": "يجب أن أعترف بخطئي.",
       "en": "I must admit my mistake."
     },
-    "usage": "النقاشات الرسمية واليومية"
+    "usage": "النقاشات الرسمية واليومية | النقاشات والرسائل الرسمية"
   },
   {
     "fr": "Affirmer",
@@ -4370,7 +4389,7 @@ window.VOCAB_DATA = [
       "ar": "أستطيع تأكيد أن المعلومات صحيحة.",
       "en": "I can confirm that the information is correct."
     },
-    "usage": "الإدارة، العمل، النقاشات"
+    "usage": "الإدارة، العمل، النقاشات | العمل، القانون"
   },
   {
     "fr": "Agir contre",
@@ -4400,7 +4419,7 @@ window.VOCAB_DATA = [
       "ar": "يجب أن نحلل ملفك.",
       "en": "We must analyze your file."
     },
-    "usage": "العمل، التقارير، الملفات"
+    "usage": "العمل، التقارير، الملفات | العمل، الملفات، التقارير"
   },
   {
     "fr": "Anticiper",
@@ -4416,7 +4435,7 @@ window.VOCAB_DATA = [
       "ar": "يجب توقع المشاكل.",
       "en": "We must anticipate problems."
     },
-    "usage": "العمل، الإدارة، التخطيط"
+    "usage": "العمل، الإدارة، التخطيط | التخطيط والعمل"
   },
   {
     "fr": "Apprécier",
@@ -4424,6 +4443,7 @@ window.VOCAB_DATA = [
     "en": "To appreciate",
     "level": "B1",
     "contexts": [
+      "daily",
       "work"
     ],
     "ex": {
@@ -4454,6 +4474,7 @@ window.VOCAB_DATA = [
     "en": "To argue / Provide arguments",
     "level": "B1",
     "contexts": [
+      "services",
       "work"
     ],
     "ex": {
@@ -4461,7 +4482,7 @@ window.VOCAB_DATA = [
       "ar": "يجب دعم طلبك بالحجج.",
       "en": "You must support your request with arguments."
     },
-    "usage": "العمل، الاجتماعات، الدراسة"
+    "usage": "العمل، الاجتماعات، الدراسة | العمل، الطلبات، النقاشات"
   },
   {
     "fr": "Assumer",
@@ -4546,6 +4567,7 @@ window.VOCAB_DATA = [
     "en": "To accomplish",
     "level": "B1",
     "contexts": [
+      "daily",
       "work"
     ],
     "ex": {
@@ -4576,6 +4598,7 @@ window.VOCAB_DATA = [
     "en": "To increase / Enhance",
     "level": "B2",
     "contexts": [
+      "daily",
       "work"
     ],
     "ex": {
@@ -4598,7 +4621,7 @@ window.VOCAB_DATA = [
       "ar": "هو متهم بخطأ.",
       "en": "He is accused of a mistake."
     },
-    "usage": "القانون، الأخبار، النقاشات"
+    "usage": "القانون، الأخبار، النقاشات | القانون، النقاشات"
   },
   {
     "fr": "Accomplir une démarche",
@@ -4846,7 +4869,7 @@ window.VOCAB_DATA = [
       "ar": "هذا الإجراء سيخفف الإجراءات.",
       "en": "This measure will simplify procedures."
     },
-    "usage": "التكاليف، الإجراءات، العمل"
+    "usage": "التكاليف، الإجراءات، العمل | العمل، الإجراءات، التكاليف"
   },
   {
     "fr": "Aménager",
@@ -4862,7 +4885,7 @@ window.VOCAB_DATA = [
       "ar": "يجب تهيئة مكان العمل.",
       "en": "We need to adapt the workspace."
     },
-    "usage": "السكن، مكان العمل"
+    "usage": "السكن، مكان العمل | السكن، العمل"
   },
   {
     "fr": "Antérieur",
@@ -4900,6 +4923,7 @@ window.VOCAB_DATA = [
     "en": "To support / Press",
     "level": "B2",
     "contexts": [
+      "daily",
       "services"
     ],
     "ex": {
@@ -4915,6 +4939,7 @@ window.VOCAB_DATA = [
     "en": "To arbitrate",
     "level": "B2",
     "contexts": [
+      "daily",
       "work"
     ],
     "ex": {
@@ -4922,7 +4947,7 @@ window.VOCAB_DATA = [
       "ar": "يجب على المسؤول حسم الوضع.",
       "en": "The manager must resolve the situation."
     },
-    "usage": "العمل، النزاعات"
+    "usage": "العمل، النزاعات | النزاعات، القرارات"
   },
   {
     "fr": "Attribuer",
@@ -4938,7 +4963,7 @@ window.VOCAB_DATA = [
       "ar": "يمكن منح مساعدة حسب الشروط.",
       "en": "Assistance can be granted according to conditions."
     },
-    "usage": "المساعدات، السكن، المناصب | الحقوق، المساعدات، السكن"
+    "usage": "المساعدات، السكن، المناصب | الحقوق، المساعدات، السكن | السكن، المساعدات، الحقوق"
   },
   {
     "fr": "Avertir",
@@ -5476,7 +5501,7 @@ window.VOCAB_DATA = [
       "ar": "تم تكليفي بمهمة جديدة.",
       "en": "I was assigned a new task."
     },
-    "usage": "العمل، القانون"
+    "usage": "العمل، القانون | العمل، المهام"
   },
   {
     "fr": "Associer à",
@@ -5902,5 +5927,201 @@ window.VOCAB_DATA = [
       "en": "This situation increases difficulties."
     },
     "usage": "التقارير، التحليل"
+  },
+  {
+    "fr": "Abolir",
+    "ar": "يلغي (قانونًا أو نظامًا)",
+    "en": "To abolish",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le gouvernement veut abolir cette loi.",
+      "ar": "تريد الحكومة إلغاء هذا القانون.",
+      "en": "The government wants to abolish this law."
+    }
+  },
+  {
+    "fr": "Absenter (s'absenter)",
+    "ar": "يغيب / يبتعد مؤقتًا",
+    "en": "To be absent",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je dois m'absenter quelques minutes.",
+      "ar": "يجب أن أغيب بضع دقائق.",
+      "en": "I have to be away for a few minutes."
+    }
+  },
+  {
+    "fr": "Accélérer",
+    "ar": "يسرّع",
+    "en": "To accelerate",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Il faut accélérer la procédure.",
+      "ar": "يجب تسريع الإجراء.",
+      "en": "The procedure must be accelerated."
+    },
+    "usage": "الإجراءات، العمل، القيادة"
+  },
+  {
+    "fr": "Acheter",
+    "ar": "يشتري",
+    "en": "To buy",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je vais acheter du pain.",
+      "ar": "سأشتري خبزًا.",
+      "en": "I will buy bread."
+    }
+  },
+  {
+    "fr": "Arranger",
+    "ar": "يرتب / يصلح / يسوي",
+    "en": "To arrange / Fix",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On va arranger la situation.",
+      "ar": "سنحل الوضع.",
+      "en": "We will fix the situation."
+    },
+    "usage": "المواعيد والمشاكل"
+  },
+  {
+    "fr": "Abaisser",
+    "ar": "يخفض / ينزل",
+    "en": "To lower / Reduce",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il faut abaisser le prix.",
+      "ar": "يجب خفض السعر.",
+      "en": "The price must be lowered."
+    },
+    "usage": "الأسعار، الصوت، المستوى"
+  },
+  {
+    "fr": "Abattre",
+    "ar": "يهدم / يسقط",
+    "en": "To demolish / Knock down",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Ils vont abattre ce mur.",
+      "ar": "سيهدمون هذا الجدار.",
+      "en": "They will demolish this wall."
+    },
+    "usage": "البناء، الأشجار، العمل"
+  },
+  {
+    "fr": "Achever",
+    "ar": "ينهي / يكمل",
+    "en": "To complete / Finish",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai achevé mon travail.",
+      "ar": "أنهيت عملي.",
+      "en": "I finished my work."
+    },
+    "usage": "المشاريع، الأعمال"
+  },
+  {
+    "fr": "Ajuster",
+    "ar": "يضبط / يعدّل",
+    "en": "To adjust",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il faut ajuster les paramètres.",
+      "ar": "يجب ضبط الإعدادات.",
+      "en": "The settings must be adjusted."
+    },
+    "usage": "الأجهزة، الأسعار، الخطط"
+  },
+  {
+    "fr": "Amplifier",
+    "ar": "يكبر / يزيد",
+    "en": "To amplify / Increase",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cela peut amplifier le problème.",
+      "ar": "هذا قد يزيد المشكلة.",
+      "en": "This can amplify the problem."
+    },
+    "usage": "المشاكل، التأثيرات"
+  },
+  {
+    "fr": "Assembler",
+    "ar": "يجمع / يركّب",
+    "en": "To assemble",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "J'assemble les pièces.",
+      "ar": "أركب القطع.",
+      "en": "I assemble the parts."
+    },
+    "usage": "العمل، الصناعة"
+  },
+  {
+    "fr": "Aviser",
+    "ar": "يبلغ / يخطر",
+    "en": "To notify / Inform",
+    "level": "B1",
+    "contexts": [
+      "phone",
+      "services"
+    ],
+    "ex": {
+      "fr": "Nous vous aviserons de la décision.",
+      "ar": "سنبلغكم بالقرار.",
+      "en": "We will inform you of the decision."
+    },
+    "usage": "الإدارة والرسائل الرسمية"
+  },
+  {
+    "fr": "Avouer",
+    "ar": "يعترف",
+    "en": "To confess / Admit",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il a avoué son erreur.",
+      "ar": "اعترف بخطئه.",
+      "en": "He admitted his mistake."
+    },
+    "usage": "المحادثات والنقاشات"
   }
 ];
