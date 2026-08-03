@@ -361,9 +361,9 @@
     loopSelect.value = state.langs.join(',');
     sortSelect.value = state.sort;
     buildFilters();
+    applyTranslations();
     render();
     bindEvents();
-    applyTranslations();
     if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function(){});
   }
 
