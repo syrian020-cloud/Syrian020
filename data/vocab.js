@@ -2422,5 +2422,1516 @@ window.VOCAB_DATA = [
       "ar": "في حال عدم الدفع، ستُفرض رسوم.",
       "en": "In case of non-payment, fees will be applied."
     }
+  },
+  {
+    "fr": "Abandonner",
+    "ar": "يترك / يتخلى عن",
+    "en": "To abandon / To give up",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai abandonné ma demande.",
+      "ar": "لقد تركت طلبي.",
+      "en": "I abandoned my request."
+    },
+    "usage": "الملفات، الطلبات، الإجراءات"
+  },
+  {
+    "fr": "Absence",
+    "ar": "غياب",
+    "en": "Absence",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je dois justifier mon absence.",
+      "ar": "يجب أن أبرر غيابي.",
+      "en": "I have to justify my absence."
+    },
+    "usage": "العمل، المواعيد، الإدارة"
+  },
+  {
+    "fr": "Absent",
+    "ar": "غائب",
+    "en": "Absent",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Le responsable est absent aujourd'hui.",
+      "ar": "المسؤول غائب اليوم.",
+      "en": "The manager is absent today."
+    },
+    "usage": "العمل، المواعيد"
+  },
+  {
+    "fr": "Absolument",
+    "ar": "بالتأكيد / تمامًا",
+    "en": "Absolutely",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Oui, absolument.",
+      "ar": "نعم، بالتأكيد.",
+      "en": "Yes, absolutely."
+    },
+    "usage": "المحادثات مع الموظفين"
+  },
+  {
+    "fr": "Accepter",
+    "ar": "يقبل",
+    "en": "To accept",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Votre demande est acceptée.",
+      "ar": "تم قبول طلبك.",
+      "en": "Your request is accepted."
+    },
+    "usage": "الطلبات، الشروط، الملفات"
+  },
+  {
+    "fr": "Acceptation",
+    "ar": "قبول",
+    "en": "Acceptance",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai reçu l'acceptation de mon dossier.",
+      "ar": "تلقيت قبول ملفي.",
+      "en": "I received acceptance of my file."
+    },
+    "usage": "القرارات الإدارية"
+  },
+  {
+    "fr": "Accès",
+    "ar": "وصول / دخول",
+    "en": "Access",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "services"
+    ],
+    "ex": {
+      "fr": "Je n'ai plus accès à mon compte CAF.",
+      "ar": "لم يعد لدي وصول إلى حسابي في الكاف.",
+      "en": "I no longer have access to my CAF account."
+    },
+    "usage": "الحسابات الإلكترونية، الخدمات"
+  },
+  {
+    "fr": "Accéder",
+    "ar": "يدخل / يصل إلى",
+    "en": "To access",
+    "level": "A1",
+    "contexts": [
+      "bank"
+    ],
+    "ex": {
+      "fr": "Je n'arrive pas à accéder à mon espace personnel.",
+      "ar": "لا أستطيع الدخول إلى مساحتي الشخصية.",
+      "en": "I can't access my personal account."
+    },
+    "usage": "المواقع والحسابات"
+  },
+  {
+    "fr": "Accompagner",
+    "ar": "يرافق / يساعد",
+    "en": "To accompany",
+    "level": "A2",
+    "contexts": [
+      "france_travail",
+      "work"
+    ],
+    "ex": {
+      "fr": "France Travail m'accompagne dans ma recherche d'emploi.",
+      "ar": "مكتب العمل يساعدني في البحث عن عمل.",
+      "en": "France Travail supports me in my job search."
+    },
+    "usage": "France Travail، الإدماج، التدريب"
+  },
+  {
+    "fr": "Accompagnement",
+    "ar": "مرافقة / دعم",
+    "en": "Support / Assistance",
+    "level": "B1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je demande un accompagnement professionnel.",
+      "ar": "أطلب دعمًا مهنيًا.",
+      "en": "I request professional support."
+    },
+    "usage": "الخدمات الاجتماعية والعمل"
+  },
+  {
+    "fr": "Accord",
+    "ar": "موافقة / اتفاق",
+    "en": "Agreement",
+    "level": "B1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai reçu votre accord.",
+      "ar": "تلقيت موافقتكم.",
+      "en": "I received your approval."
+    },
+    "usage": "العقود والطلبات"
+  },
+  {
+    "fr": "Accorder",
+    "ar": "يمنح / يوافق على",
+    "en": "To grant",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "La CAF peut accorder une aide.",
+      "ar": "يمكن للكاف منح مساعدة.",
+      "en": "CAF can grant assistance."
+    },
+    "usage": "المساعدات والحقوق"
+  },
+  {
+    "fr": "Accusé de réception",
+    "ar": "إشعار بالاستلام",
+    "en": "Acknowledgment of receipt",
+    "level": "B1",
+    "contexts": [
+      "post",
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai reçu un accusé de réception de mon dossier.",
+      "ar": "تلقيت إشعار استلام لملفي.",
+      "en": "I received an acknowledgment of receipt for my file."
+    },
+    "usage": "البريد والإدارة"
+  },
+  {
+    "fr": "Acheminer",
+    "ar": "يوصل / يرسل",
+    "en": "To route / Deliver",
+    "level": "A1",
+    "contexts": [
+      "post",
+      "services"
+    ],
+    "ex": {
+      "fr": "Votre dossier a été acheminé au service concerné.",
+      "ar": "تم إرسال ملفك إلى المصلحة المعنية.",
+      "en": "Your file was forwarded to the relevant department."
+    },
+    "usage": "البريد والوثائق"
+  },
+  {
+    "fr": "Acte",
+    "ar": "وثيقة / إجراء رسمي",
+    "en": "Document / Official act",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Un acte de naissance est demandé.",
+      "ar": "مطلوب شهادة ميلاد.",
+      "en": "A birth certificate is required."
+    },
+    "usage": "الحالة المدنية، الإدارة"
+  },
+  {
+    "fr": "Actualiser",
+    "ar": "يحدّث / يصرّح بالتحديث",
+    "en": "To update",
+    "level": "B1",
+    "contexts": [
+      "france_travail",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je dois actualiser ma situation chaque mois.",
+      "ar": "يجب أن أحدّث وضعي كل شهر.",
+      "en": "I must update my situation every month."
+    },
+    "usage": "France Travail (مهم جدًا)"
+  },
+  {
+    "fr": "Actualisation",
+    "ar": "تحديث / تصريح شهري",
+    "en": "Update / Monthly declaration",
+    "level": "B1",
+    "contexts": [
+      "france_travail",
+      "work"
+    ],
+    "ex": {
+      "fr": "L'actualisation est obligatoire.",
+      "ar": "التحديث الشهري إجباري.",
+      "en": "Monthly update is mandatory."
+    },
+    "usage": "France Travail"
+  },
+  {
+    "fr": "Ajouter",
+    "ar": "يضيف",
+    "en": "To add",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je voudrais ajouter un document à mon dossier.",
+      "ar": "أريد إضافة وثيقة إلى ملفي.",
+      "en": "I would like to add a document to my file."
+    },
+    "usage": "الملفات والوثائق | الملفات والوثائق"
+  },
+  {
+    "fr": "Adresse",
+    "ar": "عنوان",
+    "en": "Address",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "france_travail",
+      "prefecture",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai changé d'adresse.",
+      "ar": "غيّرت عنواني.",
+      "en": "I changed my address."
+    },
+    "usage": "CAF / France Travail / Préfecture / العقود"
+  },
+  {
+    "fr": "Adhérer",
+    "ar": "ينضم / يشترك",
+    "en": "To join / To subscribe",
+    "level": "A1",
+    "contexts": [
+      "health",
+      "services"
+    ],
+    "ex": {
+      "fr": "Je souhaite adhérer à cette association.",
+      "ar": "أرغب في الانضمام إلى هذه الجمعية.",
+      "en": "I want to join this association."
+    },
+    "usage": "الجمعيات، التأمين، الخدمات"
+  },
+  {
+    "fr": "Adhésion",
+    "ar": "انضمام / اشتراك",
+    "en": "Membership / Subscription",
+    "level": "A1",
+    "contexts": [
+      "health",
+      "services"
+    ],
+    "ex": {
+      "fr": "Mon adhésion est valable un an.",
+      "ar": "اشتراكي صالح لمدة سنة.",
+      "en": "My membership is valid for one year."
+    },
+    "usage": "النوادي، التأمين، الخدمات"
+  },
+  {
+    "fr": "Administratif",
+    "ar": "إداري",
+    "en": "Administrative",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai un problème administratif.",
+      "ar": "لدي مشكلة إدارية.",
+      "en": "I have an administrative problem."
+    },
+    "usage": "الملفات والإجراءات"
+  },
+  {
+    "fr": "Administration",
+    "ar": "إدارة / مصلحة حكومية",
+    "en": "Administration",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je dois contacter l'administration.",
+      "ar": "يجب أن أتواصل مع الإدارة.",
+      "en": "I have to contact the administration."
+    },
+    "usage": "جميع المراكز الحكومية"
+  },
+  {
+    "fr": "Administrer",
+    "ar": "يدير / يسيّر",
+    "en": "To manage / Administer",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Cette aide est administrée par la CAF.",
+      "ar": "هذه المساعدة تُدار من طرف الكاف.",
+      "en": "This benefit is administered by CAF."
+    },
+    "usage": "المؤسسات والخدمات"
+  },
+  {
+    "fr": "Admissible",
+    "ar": "مؤهل / مستحق",
+    "en": "Eligible",
+    "level": "B1",
+    "contexts": [
+      "caf",
+      "services"
+    ],
+    "ex": {
+      "fr": "Je suis admissible à cette aide.",
+      "ar": "أنا مؤهل لهذه المساعدة.",
+      "en": "I am eligible for this assistance."
+    },
+    "usage": "CAF / المساعدات / الوظائف"
+  },
+  {
+    "fr": "Admission",
+    "ar": "قبول / دخول",
+    "en": "Admission",
+    "level": "B1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai reçu mon admission à la formation.",
+      "ar": "تلقيت قبولي في التكوين.",
+      "en": "I received my admission to the training."
+    },
+    "usage": "المؤسسات، التدريب، المستشفيات"
+  },
+  {
+    "fr": "Adopter",
+    "ar": "يعتمد / يتبنى",
+    "en": "To adopt",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La mairie a adopté une nouvelle règle.",
+      "ar": "اعتمدت البلدية قاعدة جديدة.",
+      "en": "The town hall adopted a new rule."
+    },
+    "usage": "القوانين، الإجراءات، الحلول"
+  },
+  {
+    "fr": "Adresser",
+    "ar": "يوجه / يرسل",
+    "en": "To address / Send",
+    "level": "B1",
+    "contexts": [
+      "phone",
+      "services"
+    ],
+    "ex": {
+      "fr": "J'adresse ma demande au service concerné.",
+      "ar": "أوجه طلبي إلى المصلحة المعنية.",
+      "en": "I send my request to the relevant department."
+    },
+    "usage": "الرسائل والطلبات الرسمية"
+  },
+  {
+    "fr": "Adresse mail",
+    "ar": "البريد الإلكتروني",
+    "en": "Email address",
+    "level": "B1",
+    "contexts": [
+      "bank"
+    ],
+    "ex": {
+      "fr": "Pouvez-vous confirmer votre adresse mail ?",
+      "ar": "هل يمكنك تأكيد بريدك الإلكتروني؟",
+      "en": "Can you confirm your email address?"
+    },
+    "usage": "جميع الإدارات والحسابات"
+  },
+  {
+    "fr": "Affecter",
+    "ar": "يعيّن / يؤثر على",
+    "en": "To assign / Affect",
+    "level": "B1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je suis affecté à un nouveau poste.",
+      "ar": "تم تعييني في منصب جديد.",
+      "en": "I am assigned to a new position."
+    },
+    "usage": "العمل والإدارة"
+  },
+  {
+    "fr": "Affaire",
+    "ar": "أمر / قضية / شؤون",
+    "en": "Matter / Business",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Ce n'est pas mon affaire.",
+      "ar": "هذا ليس شأني.",
+      "en": "It's not my business."
+    },
+    "usage": "المحادثات اليومية والإدارة"
+  },
+  {
+    "fr": "Afficher",
+    "ar": "يعرض / يظهر",
+    "en": "To display",
+    "level": "B1",
+    "contexts": [
+      "bank"
+    ],
+    "ex": {
+      "fr": "Le message s'affiche à l'écran.",
+      "ar": "تظهر الرسالة على الشاشة.",
+      "en": "The message appears on the screen."
+    },
+    "usage": "المواقع، الإعلانات، الحسابات"
+  },
+  {
+    "fr": "Affiliation",
+    "ar": "انتساب / تسجيل",
+    "en": "Affiliation",
+    "level": "B1",
+    "contexts": [
+      "cpam",
+      "services"
+    ],
+    "ex": {
+      "fr": "Je demande mon affiliation à la sécurité sociale.",
+      "ar": "أطلب تسجيلي في الضمان الاجتماعي.",
+      "en": "I request my registration with social security."
+    },
+    "usage": "CPAM / الضمان الاجتماعي"
+  },
+  {
+    "fr": "Agir",
+    "ar": "يتصرف / يعمل",
+    "en": "To act",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Il faut agir rapidement.",
+      "ar": "يجب التصرف بسرعة.",
+      "en": "We must act quickly."
+    },
+    "usage": "الإدارة، القانون، الحياة اليومية"
+  },
+  {
+    "fr": "Aide",
+    "ar": "مساعدة / إعانة",
+    "en": "Help / Assistance / Benefit",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je demande une aide financière.",
+      "ar": "أطلب مساعدة مالية.",
+      "en": "I am requesting financial assistance."
+    },
+    "usage": "CAF / الخدمات الاجتماعية / العمل"
+  },
+  {
+    "fr": "Aider",
+    "ar": "يساعد",
+    "en": "To help",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Pouvez-vous m'aider avec ce dossier ?",
+      "ar": "هل يمكنك مساعدتي بهذا الملف؟",
+      "en": "Can you help me with this file?"
+    },
+    "usage": "الحياة اليومية والإدارات"
+  },
+  {
+    "fr": "Aisance",
+    "ar": "راحة / سهولة",
+    "en": "Ease / Comfort",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je parle français avec plus d'aisance.",
+      "ar": "أتحدث الفرنسية براحة أكبر.",
+      "en": "I speak French more easily."
+    },
+    "usage": "اللغة، العمل، التواصل"
+  },
+  {
+    "fr": "Allocation",
+    "ar": "إعانة / مخصصات",
+    "en": "Allowance / Benefit",
+    "level": "A2",
+    "contexts": [
+      "caf",
+      "services"
+    ],
+    "ex": {
+      "fr": "Je reçois une allocation de la CAF.",
+      "ar": "أتلقى إعانة من الكاف.",
+      "en": "I receive a benefit from CAF."
+    },
+    "usage": "CAF / المساعدات الاجتماعية"
+  },
+  {
+    "fr": "Allouer",
+    "ar": "يمنح / يخصص",
+    "en": "To allocate / Grant",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Une aide peut être allouée selon votre situation.",
+      "ar": "يمكن منح مساعدة حسب وضعك.",
+      "en": "Assistance can be granted depending on your situation."
+    },
+    "usage": "المساعدات والميزانيات"
+  },
+  {
+    "fr": "Améliorer",
+    "ar": "يحسن",
+    "en": "To improve",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je veux améliorer mon niveau de français.",
+      "ar": "أريد تحسين مستواي في الفرنسية.",
+      "en": "I want to improve my French level."
+    },
+    "usage": "العمل، اللغة، الوضعية"
+  },
+  {
+    "fr": "Aménagement",
+    "ar": "ترتيب / تهيئة / تعديل",
+    "en": "Arrangement / Adjustment",
+    "level": "B1",
+    "contexts": [
+      "housing",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je demande un aménagement de mon poste de travail.",
+      "ar": "أطلب تعديل منصب عملي.",
+      "en": "I request an adjustment of my workstation."
+    },
+    "usage": "السكن، العمل، الإعاقة"
+  },
+  {
+    "fr": "Amende",
+    "ar": "غرامة",
+    "en": "Fine / Penalty",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai reçu une amende.",
+      "ar": "تلقيت غرامة.",
+      "en": "I received a fine."
+    },
+    "usage": "الإدارة، المرور"
+  },
+  {
+    "fr": "Année",
+    "ar": "سنة",
+    "en": "Year",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Le contrat dure un an.",
+      "ar": "العقد مدته سنة.",
+      "en": "The contract lasts one year."
+    },
+    "usage": "العقود، المواعيد، الملفات"
+  },
+  {
+    "fr": "Annuler",
+    "ar": "يلغي",
+    "en": "To cancel",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je voudrais annuler mon rendez-vous.",
+      "ar": "أريد إلغاء موعدي.",
+      "en": "I would like to cancel my appointment."
+    },
+    "usage": "المواعيد، الطلبات، العقود"
+  },
+  {
+    "fr": "Annulation",
+    "ar": "إلغاء",
+    "en": "Cancellation",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai reçu une confirmation d'annulation.",
+      "ar": "تلقيت تأكيد الإلغاء.",
+      "en": "I received a cancellation confirmation."
+    },
+    "usage": "المواعيد والإجراءات"
+  },
+  {
+    "fr": "Apparaître",
+    "ar": "يظهر",
+    "en": "To appear",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "services"
+    ],
+    "ex": {
+      "fr": "Le montant apparaît sur mon compte.",
+      "ar": "المبلغ يظهر في حسابي.",
+      "en": "The amount appears on my account."
+    },
+    "usage": "الحسابات الإلكترونية والوثائق"
+  },
+  {
+    "fr": "Appel",
+    "ar": "اتصال / مكالمة / استئناف",
+    "en": "Call / Appeal",
+    "level": "A1",
+    "contexts": [
+      "phone",
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai reçu un appel de France Travail.",
+      "ar": "تلقيت اتصالًا من مكتب العمل.",
+      "en": "I received a call from France Travail."
+    },
+    "usage": "الهاتف، القرارات الإدارية"
+  },
+  {
+    "fr": "Appeler",
+    "ar": "يتصل / ينادي",
+    "en": "To call",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je vais appeler la CAF demain.",
+      "ar": "سأتصل بالكاف غدًا.",
+      "en": "I will call CAF tomorrow."
+    },
+    "usage": "جميع المواقف"
+  },
+  {
+    "fr": "Apporter",
+    "ar": "يجلب / يحضر",
+    "en": "To bring",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "N'oubliez pas d'apporter vos documents.",
+      "ar": "لا تنسَ إحضار وثائقك.",
+      "en": "Don't forget to bring your documents."
+    },
+    "usage": "الوثائق والمواعيد | الوثائق والمواعيد"
+  },
+  {
+    "fr": "Appliquer",
+    "ar": "يطبق",
+    "en": "To apply / Implement",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cette règle s'applique à tout le monde.",
+      "ar": "هذه القاعدة تطبق على الجميع.",
+      "en": "This rule applies to everyone."
+    },
+    "usage": "القوانين، الشروط، الإجراءات"
+  },
+  {
+    "fr": "Approuver",
+    "ar": "يوافق / يصادق على",
+    "en": "To approve",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Votre demande a été approuvée.",
+      "ar": "تمت الموافقة على طلبك.",
+      "en": "Your request has been approved."
+    },
+    "usage": "الإدارة، الطلبات، القرارات"
+  },
+  {
+    "fr": "Approbation",
+    "ar": "موافقة / مصادقة",
+    "en": "Approval",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'attends l'approbation de mon dossier.",
+      "ar": "أنتظر الموافقة على ملفي.",
+      "en": "I am waiting for the approval of my file."
+    },
+    "usage": "الملفات والقرارات الرسمية"
+  },
+  {
+    "fr": "Apprentissage",
+    "ar": "تعلّم / تدريب مهني",
+    "en": "Learning / Apprenticeship",
+    "level": "B1",
+    "contexts": [
+      "france_travail",
+      "school",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je cherche une formation en apprentissage.",
+      "ar": "أبحث عن تكوين مهني بالتناوب.",
+      "en": "I am looking for an apprenticeship program."
+    },
+    "usage": "التكوين، العمل، France Travail"
+  },
+  {
+    "fr": "Apprendre",
+    "ar": "يتعلم",
+    "en": "To learn",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'apprends le français.",
+      "ar": "أنا أتعلم الفرنسية.",
+      "en": "I am learning French."
+    },
+    "usage": "اللغة، التدريب، الحياة اليومية"
+  },
+  {
+    "fr": "Apprenant",
+    "ar": "متعلم / متدرب",
+    "en": "Learner / Trainee",
+    "level": "A1",
+    "contexts": [
+      "school",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je suis apprenant en français.",
+      "ar": "أنا متعلم للفرنسية.",
+      "en": "I am a French learner."
+    },
+    "usage": "التكوين واللغة"
+  },
+  {
+    "fr": "Approcher",
+    "ar": "يقترب / يقارب",
+    "en": "To approach",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "La date approche.",
+      "ar": "التاريخ يقترب.",
+      "en": "The date is approaching."
+    },
+    "usage": "المواعيد، الوقت، الأشخاص"
+  },
+  {
+    "fr": "Approche",
+    "ar": "طريقة / نهج / اقتراب",
+    "en": "Approach",
+    "level": "A2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Nous avons une nouvelle approche.",
+      "ar": "لدينا طريقة جديدة.",
+      "en": "We have a new approach."
+    },
+    "usage": "العمل، المشاريع، الإدارة"
+  },
+  {
+    "fr": "Appui",
+    "ar": "دعم / مساندة",
+    "en": "Support",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ajoute des documents à l'appui de ma demande.",
+      "ar": "أضيف وثائق لدعم طلبي.",
+      "en": "I add documents in support of my request."
+    },
+    "usage": "الملفات، الطلبات الرسمية"
+  },
+  {
+    "fr": "Appartenir",
+    "ar": "ينتمي / يخص",
+    "en": "To belong",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Ce document m'appartient.",
+      "ar": "هذه الوثيقة تخصني.",
+      "en": "This document belongs to me."
+    },
+    "usage": "الملكية والوثائق"
+  },
+  {
+    "fr": "Appareil",
+    "ar": "جهاز",
+    "en": "Device / Appliance",
+    "level": "B1",
+    "contexts": [
+      "health",
+      "work"
+    ],
+    "ex": {
+      "fr": "L'appareil ne fonctionne pas.",
+      "ar": "الجهاز لا يعمل.",
+      "en": "The device is not working."
+    },
+    "usage": "العمل، المنزل، الصحة"
+  },
+  {
+    "fr": "Apparition",
+    "ar": "ظهور",
+    "en": "Appearance",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "L'apparition d'un problème.",
+      "ar": "ظهور مشكلة.",
+      "en": "The appearance of a problem."
+    },
+    "usage": "التقارير، المشاكل، الأعراض"
+  },
+  {
+    "fr": "Arrêt",
+    "ar": "توقف / محطة / إيقاف",
+    "en": "Stop / Halt",
+    "level": "A1",
+    "contexts": [
+      "transport",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je descends à l'arrêt de bus.",
+      "ar": "أنزل في موقف الحافلة.",
+      "en": "I get off at the bus stop."
+    },
+    "usage": "المواصلات، العمل، الإجراءات"
+  },
+  {
+    "fr": "Arrêter",
+    "ar": "يتوقف / يوقف",
+    "en": "To stop",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai arrêté de travailler.",
+      "ar": "توقفت عن العمل.",
+      "en": "I stopped working."
+    },
+    "usage": "العمل، الإجراءات، الحياة اليومية"
+  },
+  {
+    "fr": "Arrivée",
+    "ar": "وصول",
+    "en": "Arrival",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Mon arrivée est prévue demain.",
+      "ar": "وصولي مقرر غداً.",
+      "en": "My arrival is scheduled for tomorrow."
+    },
+    "usage": "المواعيد، السفر، العمل"
+  },
+  {
+    "fr": "Arriver",
+    "ar": "يصل / يحدث",
+    "en": "To arrive / Happen",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je vais arriver en retard.",
+      "ar": "سأصل متأخرًا.",
+      "en": "I will arrive late."
+    },
+    "usage": "يومي جدًا"
+  },
+  {
+    "fr": "Assurance",
+    "ar": "تأمين / ضمان",
+    "en": "Insurance / Assurance",
+    "level": "B1",
+    "contexts": [
+      "car",
+      "cpam",
+      "housing",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai une assurance habitation.",
+      "ar": "لدي تأمين على السكن.",
+      "en": "I have home insurance."
+    },
+    "usage": "CPAM، السكن، السيارة، العقود"
+  },
+  {
+    "fr": "Assurer",
+    "ar": "يؤمّن / يضمن",
+    "en": "To insure / Ensure",
+    "level": "A2",
+    "contexts": [
+      "health",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Cette assurance assure une protection.",
+      "ar": "هذا التأمين يوفر حماية.",
+      "en": "This insurance provides protection."
+    },
+    "usage": "التأمين، المسؤوليات، العمل"
+  },
+  {
+    "fr": "Assister",
+    "ar": "يحضر / يساعد",
+    "en": "To attend / Assist",
+    "level": "A1",
+    "contexts": [
+      "school",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai assisté à une réunion.",
+      "ar": "حضرت اجتماعًا.",
+      "en": "I attended a meeting."
+    },
+    "usage": "الاجتماعات، التكوين، المساعدة"
+  },
+  {
+    "fr": "Association",
+    "ar": "جمعية",
+    "en": "Association",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je suis membre d'une association.",
+      "ar": "أنا عضو في جمعية.",
+      "en": "I am a member of an association."
+    },
+    "usage": "الجمعيات، الخدمات الاجتماعية"
+  },
+  {
+    "fr": "Associer",
+    "ar": "يربط / يشارك",
+    "en": "To associate",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Il faut associer les documents au dossier.",
+      "ar": "يجب ربط الوثائق بالملف.",
+      "en": "The documents must be attached to the file."
+    },
+    "usage": "الملفات، المشاريع، العمل"
+  },
+  {
+    "fr": "Attacher",
+    "ar": "يربط / يرفق",
+    "en": "To attach",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Veuillez attacher le fichier au message.",
+      "ar": "يرجى إرفاق الملف بالرسالة.",
+      "en": "Please attach the file to the message."
+    },
+    "usage": "الوثائق، الأشياء"
+  },
+  {
+    "fr": "Atteindre",
+    "ar": "يصل إلى / يحقق",
+    "en": "To reach / Achieve",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai atteint mon objectif.",
+      "ar": "حققت هدفي.",
+      "en": "I achieved my goal."
+    },
+    "usage": "الأهداف، النتائج"
+  },
+  {
+    "fr": "Attendre",
+    "ar": "ينتظر",
+    "en": "To wait",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "J'attends une réponse de la CAF.",
+      "ar": "أنتظر جوابًا من الكاف.",
+      "en": "I am waiting for a response from CAF."
+    },
+    "usage": "المواعيد، الإدارات، الحياة اليومية"
+  },
+  {
+    "fr": "Attente",
+    "ar": "انتظار",
+    "en": "Waiting / Expectation",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "Le délai d'attente est long.",
+      "ar": "مدة الانتظار طويلة.",
+      "en": "The waiting time is long."
+    },
+    "usage": "الملفات، المواعيد"
+  },
+  {
+    "fr": "Attestation",
+    "ar": "شهادة / إثبات",
+    "en": "Certificate / Proof",
+    "level": "B1",
+    "contexts": [
+      "caf",
+      "france_travail",
+      "housing",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai besoin d'une attestation de domicile.",
+      "ar": "أحتاج إلى شهادة سكن.",
+      "en": "I need a proof of address."
+    },
+    "usage": "CAF، France Travail، السكن، الإدارة"
+  },
+  {
+    "fr": "Attestation de droits",
+    "ar": "شهادة الحقوق",
+    "en": "Proof of entitlement",
+    "level": "B1",
+    "contexts": [
+      "caf",
+      "cpam",
+      "services"
+    ],
+    "ex": {
+      "fr": "Je dois envoyer mon attestation de droits.",
+      "ar": "يجب أن أرسل شهادة حقوقي.",
+      "en": "I need to send my proof of entitlement."
+    },
+    "usage": "CPAM / CAF"
+  },
+  {
+    "fr": "Attestation de travail",
+    "ar": "شهادة عمل",
+    "en": "Employment certificate",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Mon employeur m'a donné une attestation de travail.",
+      "ar": "أعطاني صاحب العمل شهادة عمل.",
+      "en": "My employer gave me an employment certificate."
+    },
+    "usage": "العمل، الملفات الإدارية"
+  },
+  {
+    "fr": "Attention",
+    "ar": "انتباه / عناية",
+    "en": "Attention / Care",
+    "level": "A1",
+    "contexts": [
+      "phone",
+      "services"
+    ],
+    "ex": {
+      "fr": "Attention, le sol est mouillé.",
+      "ar": "انتبه، الأرض مبللة.",
+      "en": "Attention, the floor is wet."
+    },
+    "usage": "التحذير، الرسائل، الحياة اليومية"
+  },
+  {
+    "fr": "Attirer",
+    "ar": "يجذب",
+    "en": "To attract",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cette offre attire beaucoup de personnes.",
+      "ar": "هذا العرض يجذب الكثير من الناس.",
+      "en": "This offer attracts many people."
+    },
+    "usage": "الإعلانات، الاهتمام"
+  },
+  {
+    "fr": "Auparavant",
+    "ar": "سابقًا / من قبل",
+    "en": "Previously / Before",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'habitais auparavant à Strasbourg.",
+      "ar": "كنت أسكن سابقًا في ستراسبورغ.",
+      "en": "I previously lived in Strasbourg."
+    },
+    "usage": "الإدارة، شرح الوضع السابق"
+  },
+  {
+    "fr": "Autorisation",
+    "ar": "إذن / تصريح",
+    "en": "Authorization / Permission",
+    "level": "B1",
+    "contexts": [
+      "housing",
+      "mairie",
+      "prefecture",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai besoin d'une autorisation pour cette démarche.",
+      "ar": "أحتاج إلى تصريح لهذا الإجراء.",
+      "en": "I need authorization for this procedure."
+    },
+    "usage": "Préfecture، Mairie، العمل، السكن"
+  },
+  {
+    "fr": "Autoriser",
+    "ar": "يسمح / يجيز",
+    "en": "To authorize / Allow",
+    "level": "B1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "La CAF m'a autorisé à envoyer le document en ligne.",
+      "ar": "سمحت لي الكاف بإرسال الوثيقة عبر الإنترنت.",
+      "en": "CAF authorized me to send the document online."
+    },
+    "usage": "الإدارة، القوانين، العمل"
+  },
+  {
+    "fr": "Automatique",
+    "ar": "تلقائي",
+    "en": "Automatic",
+    "level": "B1",
+    "contexts": [
+      "bank",
+      "services"
+    ],
+    "ex": {
+      "fr": "Le renouvellement est automatique.",
+      "ar": "التجديد تلقائي.",
+      "en": "The renewal is automatic."
+    },
+    "usage": "الحسابات، الخدمات الإلكترونية، الأجهزة"
+  },
+  {
+    "fr": "Automatiquement",
+    "ar": "بشكل تلقائي",
+    "en": "Automatically",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Le montant est calculé automatiquement.",
+      "ar": "يتم حساب المبلغ تلقائيًا.",
+      "en": "The amount is calculated automatically."
+    },
+    "usage": "الإدارة والخدمات"
+  },
+  {
+    "fr": "Autonomie",
+    "ar": "استقلالية / قدرة على الاعتماد على النفس",
+    "en": "Autonomy / Independence",
+    "level": "B1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je cherche plus d'autonomie dans mon travail.",
+      "ar": "أبحث عن استقلالية أكبر في عملي.",
+      "en": "I seek more autonomy in my work."
+    },
+    "usage": "العمل، المساعدة الاجتماعية، الحياة اليومية"
+  },
+  {
+    "fr": "Autonome",
+    "ar": "مستقل / يعتمد على نفسه",
+    "en": "Independent",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je suis capable de travailler de manière autonome.",
+      "ar": "أستطيع العمل بشكل مستقل.",
+      "en": "I can work independently."
+    },
+    "usage": "العمل والتقييمات المهنية"
+  },
+  {
+    "fr": "Autour de",
+    "ar": "حول / بالقرب من",
+    "en": "Around / About",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il y a plusieurs services autour de la mairie.",
+      "ar": "توجد عدة خدمات حول البلدية.",
+      "en": "There are several services around the town hall."
+    },
+    "usage": "المكان والحديث اليومي"
+  },
+  {
+    "fr": "Autrement",
+    "ar": "بطريقة أخرى / وإلا",
+    "en": "Otherwise / Differently",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il faut faire autrement.",
+      "ar": "يجب فعل ذلك بطريقة أخرى.",
+      "en": "It must be done differently."
+    },
+    "usage": "المحادثات اليومية"
+  },
+  {
+    "fr": "Avaliser",
+    "ar": "يصادق / يوافق رسميًا",
+    "en": "To approve / Validate",
+    "level": "B1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Le responsable doit avaliser la demande.",
+      "ar": "يجب على المسؤول المصادقة على الطلب.",
+      "en": "The manager must approve the request."
+    },
+    "usage": "الإدارة، العقود، القرارات"
+  },
+  {
+    "fr": "Avancer",
+    "ar": "يتقدم / يحرّك إلى الأمام",
+    "en": "To move forward / Advance",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Mon dossier avance.",
+      "ar": "ملفي يتقدم.",
+      "en": "My file is moving forward."
+    },
+    "usage": "الملفات، المشاريع، الحياة اليومية"
+  },
+  {
+    "fr": "Avancement",
+    "ar": "تقدم / سير العمل",
+    "en": "Progress / Advancement",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je demande un suivi de l'avancement de mon dossier.",
+      "ar": "أطلب متابعة تقدم ملفي.",
+      "en": "I request a follow-up on the progress of my file."
+    },
+    "usage": "الملفات، العمل"
+  },
+  {
+    "fr": "Avant",
+    "ar": "قبل",
+    "en": "Before",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "Envoyez le document avant vendredi.",
+      "ar": "أرسل الوثيقة قبل الجمعة.",
+      "en": "Send the document before Friday."
+    },
+    "usage": "المواعيد، الإجراءات"
+  },
+  {
+    "fr": "Avec",
+    "ar": "مع",
+    "en": "With",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je viens avec mes documents.",
+      "ar": "أتيت مع وثائقي.",
+      "en": "I came with my documents."
+    },
+    "usage": "كلمة أساسية في كل المواقف"
+  },
+  {
+    "fr": "Avis",
+    "ar": "رأي / إشعار",
+    "en": "Opinion / Notice",
+    "level": "A1",
+    "contexts": [
+      "post",
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai reçu un avis de la CAF.",
+      "ar": "تلقيت إشعارًا من الكاف.",
+      "en": "I received a notice from CAF."
+    },
+    "usage": "الإدارة، البريد، القرارات"
+  },
+  {
+    "fr": "Avis d'imposition",
+    "ar": "إشعار ضريبي",
+    "en": "Tax notice",
+    "level": "B1",
+    "contexts": [
+      "caf",
+      "housing"
+    ],
+    "ex": {
+      "fr": "On me demande mon avis d'imposition.",
+      "ar": "يطلبون مني إشعاري الضريبي.",
+      "en": "They are asking for my tax notice."
+    },
+    "usage": "CAF، السكن، الملفات المالية"
+  },
+  {
+    "fr": "Avoir",
+    "ar": "لديه / يملك",
+    "en": "To have",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai un rendez-vous demain.",
+      "ar": "لدي موعد غدًا.",
+      "en": "I have an appointment tomorrow."
+    },
+    "usage": "من أكثر الأفعال استعمالًا"
   }
 ];

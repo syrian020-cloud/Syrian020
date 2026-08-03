@@ -59,7 +59,11 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   - `remplir` → 1 result (`À remplir`)
   - `envoyer` → 1 result (`À envoyer`)
   - `réception` → 1 result (`À réception de`)
-  - `CAF` → **0 results** because search only scans `fr`/`ar`/`en`, not `usage` or context labels. Use the `CAF` context chip to see the 7 CAF-related entries.
+  - `CAF` → **9 results** now that search also scans `usage`, `contexts`, and `ex.*` text. 7 entries are tagged `caf`; 2 additional entries (`À l'attention de`, `À jour`) mention CAF only in their example sentences.
+  - `Préfecture` → 2 results (`À la demande de`, `À remplir`)
+  - `France Travail` → 3 results (`À la demande de`, `À fournir`, `À transmettre`)
+  - `paiement` → 1 result (`À défaut de paiement`)
+  - `dossier` → **4 results** (`À transmettre`, `À compléter`, `À jour`, `À votre demande`) because the search haystack now includes `ex.fr`/`ex.ar`/`ex.en`.
 - Filter counts:
   - level `A2` → 105
   - context `services` → 26
@@ -86,12 +90,12 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v81`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v83`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
   ```
-- If `data/manifest.js` or any `data/stage*.js` file is missing, the install step fails and `dross-v81` will not activate.
+- If `data/manifest.js` or any `data/stage*.js` file is missing, the install step fails and `dross-v82` will not activate.
 
 ## Android APK testing
 
@@ -100,6 +104,4 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Known data-quality issues (last observed)
 
-- 6 administrative entries are missing the `ex.en` (English example) field:
-  `À jour de ses droits`, `À titre exceptionnel`, `À titre informatif`, `À votre demande`, `À réception de`, `À défaut de paiement`.
-  They render a `.usage` line and French/Arabic example, but no English example line.
+- None. All 163 entries now have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object (`ex.fr`, `ex.ar`, `ex.en`). The 26 administrative entries also include a `usage` field.
