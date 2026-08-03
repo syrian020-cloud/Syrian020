@@ -1897,16 +1897,16 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "À bas",
-    "ar": "إلى الأسفل / منخفض",
-    "en": "Down / Low",
-    "level": "A2",
+    "ar": "يسقط / لا لـ / إلى الأسفل",
+    "en": "Down with",
+    "level": "A1",
     "contexts": [
       "daily"
     ],
     "ex": {
-      "fr": "Descendez à bas niveau.",
-      "ar": "انزل إلى المستوى المنخفض.",
-      "en": "Go down to the lower level."
+      "fr": "À bas le racisme !",
+      "ar": "يسقط التمييز العنصري!",
+      "en": "Down with racism!"
     }
   },
   {
