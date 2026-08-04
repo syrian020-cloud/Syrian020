@@ -9082,22 +9082,6 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Biper",
-    "ar": "يمرر البطاقة / يصدر صوتًا (جهاز)",
-    "en": "To beep / Scan",
-    "level": "A2",
-    "contexts": [
-      "office",
-      "work"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "N'oubliez pas de biper votre badge.",
-      "ar": "لا تنس تمرير بطاقة الدخول.",
-      "en": "Don't forget to scan your badge."
-    }
-  },
-  {
     "fr": "Border",
     "ar": "يحيط بـ / يرتب السرير",
     "en": "To border / Tuck in",
@@ -9236,17 +9220,18 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Buter",
-    "ar": "يصطدم / يتعثر",
-    "en": "To bump into / Stumble",
+    "ar": "يصطدم / يتعثر / يواجه عائقًا",
+    "en": "To stumble / bump into / run into",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "services"
     ],
     "pos": "verb",
     "ex": {
-      "fr": "J'ai buté contre la marche.",
-      "ar": "تعثرت بالدرجة.",
-      "en": "I stumbled on the step."
+      "fr": "Je bute contre un problème administratif.",
+      "ar": "أواجه مشكلة إدارية.",
+      "en": "I run into an administrative problem."
     }
   },
   {
@@ -9470,8 +9455,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Bourdonner",
-    "ar": "يطن",
-    "en": "To buzz",
+    "ar": "يطن (مثل النحل) / يهتز (للهاتف)",
+    "en": "To buzz (like a bee) / vibrate (phone)",
     "level": "A2",
     "contexts": [
       "daily"
@@ -9591,8 +9576,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Bastonner",
-    "ar": "يضرب",
-    "en": "To beat up",
+    "ar": "يتشاجر بالضرب (عامية)",
+    "en": "To beat up (slang)",
     "level": "A2",
     "contexts": [
       "daily"
@@ -9681,18 +9666,19 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Bipper",
-    "ar": "يمرر البطاقة / يصدر صفيرًا",
-    "en": "To beep / Scan",
+    "ar": "يمرّر البطاقة / يمسح المنتج (جهاز الصفير)",
+    "en": "To beep / scan (badge or product)",
     "level": "A2",
     "contexts": [
+      "office",
       "shop",
       "work"
     ],
     "pos": "verb",
     "ex": {
-      "fr": "Il faut bipper le produit à la caisse.",
-      "ar": "يجب تمرير المنتج على جهاز الدفع.",
-      "en": "You need to scan the product at the checkout."
+      "fr": "N'oubliez pas de bipper votre badge à l'entrée.",
+      "ar": "لا تنس تمرير بطاقة الدخول عند المدخل.",
+      "en": "Do not forget to scan your badge at the entrance."
     }
   },
   {
@@ -9708,22 +9694,6 @@ window.VOCAB_DATA = [
       "fr": "Nous allons bivouaquer ce soir.",
       "ar": "سنخيّم هذه الليلة.",
       "en": "We are going to camp tonight."
-    }
-  },
-  {
-    "fr": "Bénévoler",
-    "ar": "يتطوع",
-    "en": "To volunteer",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "work"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Je bénévole dans une association.",
-      "ar": "أنا أتطوع في جمعية.",
-      "en": "I volunteer in an association."
     }
   },
   {
@@ -9848,23 +9818,6 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Budgéter",
-    "ar": "يضع ميزانية",
-    "en": "To budget",
-    "level": "A2",
-    "contexts": [
-      "bank",
-      "daily",
-      "services"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Je dois budgéter mes dépenses.",
-      "ar": "يجب أن أضع ميزانية لمصاريفي.",
-      "en": "I need to budget my expenses."
-    }
-  },
-  {
     "fr": "Baratter",
     "ar": "يخضّ (الزبدة)",
     "en": "To churn",
@@ -9942,8 +9895,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Bétonner",
-    "ar": "يقوّي / يثبت (بشكل قوي)",
-    "en": "To reinforce",
+    "ar": "يعبّد بالخرسانة / يدعّم ويقوّي (مجازي)",
+    "en": "To concrete / to reinforce (figurative)",
     "level": "A2",
     "contexts": [
       "daily",
@@ -10061,22 +10014,6 @@ window.VOCAB_DATA = [
       "fr": "Nous brunchons le dimanche.",
       "ar": "نتناول البرنش يوم الأحد.",
       "en": "We have brunch on Sunday."
-    }
-  },
-  {
-    "fr": "Buter contre",
-    "ar": "يصطدم بـ / يواجه عائقًا",
-    "en": "To run into",
-    "level": "A2",
-    "contexts": [
-      "services",
-      "work"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Je bute contre un problème administratif.",
-      "ar": "أواجه مشكلة إدارية.",
-      "en": "I run into an administrative problem."
     }
   },
   {
