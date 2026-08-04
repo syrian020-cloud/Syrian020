@@ -1,4 +1,3 @@
-/* French vocabulary for daily life in France — starter dataset with matched trilingual examples. */
 window.VOCAB_DATA = [
   {
     "fr": "À côté",
@@ -9923,5 +9922,754 @@ window.VOCAB_DATA = [
       "daily"
     ],
     "pos": "verb"
+  },
+  {
+    "fr": "Bureau",
+    "ar": "مكتب",
+    "en": "Office / Desk",
+    "ex": {
+      "fr": "Je travaille au bureau tous les jours.",
+      "ar": "بشتغل بالمكتب كل يوم.",
+      "en": "I work at the office every day."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "office",
+      "work"
+    ]
+  },
+  {
+    "fr": "Banque",
+    "ar": "بنك",
+    "en": "Bank",
+    "ex": {
+      "fr": "Je dois aller à la banque cet après-midi.",
+      "ar": "لازم روح عالبنك بعد الظهر.",
+      "en": "I need to go to the bank this afternoon."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "bank"
+    ]
+  },
+  {
+    "fr": "Bateau",
+    "ar": "مركب / سفينة",
+    "en": "Boat",
+    "ex": {
+      "fr": "Nous avons pris le bateau pour traverser.",
+      "ar": "ركبنا المركب لحتى نعبر.",
+      "en": "We took the boat to cross over."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "transport"
+    ]
+  },
+  {
+    "fr": "Boulangerie",
+    "ar": "مخبز",
+    "en": "Bakery",
+    "ex": {
+      "fr": "J'achète le pain à la boulangerie.",
+      "ar": "بشتري الخبز من المخبز.",
+      "en": "I buy bread from the bakery."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "shop"
+    ]
+  },
+  {
+    "fr": "Billet",
+    "ar": "تذكرة / ورقة نقدية",
+    "en": "Ticket / Banknote",
+    "ex": {
+      "fr": "J'ai perdu mon billet de train.",
+      "ar": "ضيعت تذكرة القطار تبعي.",
+      "en": "I lost my train ticket."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "transport"
+    ]
+  },
+  {
+    "fr": "Bagage",
+    "ar": "حقيبة سفر",
+    "en": "Luggage",
+    "ex": {
+      "fr": "Mon bagage est trop lourd.",
+      "ar": "حقيبتي تقيلة كتير.",
+      "en": "My luggage is too heavy."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "transport"
+    ]
+  },
+  {
+    "fr": "Balcon",
+    "ar": "شرفة / بلكون",
+    "en": "Balcony",
+    "ex": {
+      "fr": "On boit le café sur le balcon.",
+      "ar": "منشرب قهوة عالبلكون.",
+      "en": "We drink coffee on the balcony."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "housing"
+    ]
+  },
+  {
+    "fr": "Banc",
+    "ar": "مقعد (بحديقة)",
+    "en": "Bench",
+    "ex": {
+      "fr": "Il s'est assis sur un banc.",
+      "ar": "قعد عمقعد بالحديقة.",
+      "en": "He sat on a bench."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bâtiment",
+    "ar": "مبنى",
+    "en": "Building",
+    "ex": {
+      "fr": "Ce bâtiment a cent ans.",
+      "ar": "هالمبنى عمره مية سنة.",
+      "en": "This building is a hundred years old."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Besoin",
+    "ar": "حاجة",
+    "en": "Need",
+    "ex": {
+      "fr": "J'ai besoin d'aide, s'il vous plaît.",
+      "ar": "محتاج مساعدة، لو سمحت.",
+      "en": "I need help, please."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bébé",
+    "ar": "طفل رضيع",
+    "en": "Baby",
+    "ex": {
+      "fr": "Le bébé dort maintenant.",
+      "ar": "البيبي نايم هلأ.",
+      "en": "The baby is sleeping now."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "family",
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bibliothèque",
+    "ar": "مكتبة",
+    "en": "Library",
+    "ex": {
+      "fr": "J'étudie souvent à la bibliothèque.",
+      "ar": "بدرس كتير بالمكتبة.",
+      "en": "I often study at the library."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "school"
+    ]
+  },
+  {
+    "fr": "Bijou",
+    "ar": "مجوهرة",
+    "en": "Jewel",
+    "ex": {
+      "fr": "Elle a offert un bijou à sa fille.",
+      "ar": "هدت مجوهرة لبنتها.",
+      "en": "She gave a jewel to her daughter."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Boisson",
+    "ar": "مشروب",
+    "en": "Drink",
+    "ex": {
+      "fr": "Quelle boisson voulez-vous ?",
+      "ar": "شو المشروب يلي بدك ياه؟",
+      "en": "What drink would you like?"
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "restaurant"
+    ]
+  },
+  {
+    "fr": "Boîte",
+    "ar": "علبة",
+    "en": "Box",
+    "ex": {
+      "fr": "Range ça dans la boîte.",
+      "ar": "حط هاد بالعلبة.",
+      "en": "Put that in the box."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bonheur",
+    "ar": "سعادة",
+    "en": "Happiness",
+    "ex": {
+      "fr": "Le bonheur, c'est simple parfois.",
+      "ar": "السعادة بسيطة بعض الأحيان.",
+      "en": "Happiness is simple sometimes."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bord",
+    "ar": "حافة / جانب",
+    "en": "Edge / Side",
+    "ex": {
+      "fr": "Ne t'approche pas du bord.",
+      "ar": "لا تقرب من الحافة.",
+      "en": "Don't get close to the edge."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bouche",
+    "ar": "فم",
+    "en": "Mouth",
+    "ex": {
+      "fr": "Ferme la bouche en mangeant.",
+      "ar": "سكر تمك وانت عم تاكل.",
+      "en": "Close your mouth while eating."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "health"
+    ]
+  },
+  {
+    "fr": "Bouchon",
+    "ar": "سدادة / ازدحام سير",
+    "en": "Cork / Traffic jam",
+    "ex": {
+      "fr": "On était bloqués dans les bouchons.",
+      "ar": "كنا عالقين بالزحمة.",
+      "en": "We were stuck in traffic."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "transport",
+      "daily"
+    ]
+  },
+  {
+    "fr": "Boue",
+    "ar": "وحل / طين",
+    "en": "Mud",
+    "ex": {
+      "fr": "Ses chaussures sont pleines de boue.",
+      "ar": "حذاؤه مليان وحل.",
+      "en": "His shoes are full of mud."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Boulot",
+    "ar": "شغل (عامية)",
+    "en": "Job (slang)",
+    "ex": {
+      "fr": "Je vais au boulot à 8h.",
+      "ar": "بروح عالشغل الساعة تمنية.",
+      "en": "I go to work at 8am."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "work",
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bourse",
+    "ar": "منحة دراسية / محفظة",
+    "en": "Scholarship / Wallet",
+    "ex": {
+      "fr": "Il a obtenu une bourse d'études.",
+      "ar": "حصل على منحة دراسية.",
+      "en": "He got a scholarship."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "school"
+    ]
+  },
+  {
+    "fr": "Bout",
+    "ar": "طرف / نهاية",
+    "en": "End / Tip",
+    "ex": {
+      "fr": "On est presque au bout du chemin.",
+      "ar": "صرنا قريبين من آخر الطريق.",
+      "en": "We're almost at the end of the road."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bouteille",
+    "ar": "قنينة",
+    "en": "Bottle",
+    "ex": {
+      "fr": "Passe-moi la bouteille d'eau.",
+      "ar": "ناولني قنينة الميه.",
+      "en": "Pass me the water bottle."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bouton",
+    "ar": "زر",
+    "en": "Button",
+    "ex": {
+      "fr": "Appuie sur le bouton rouge.",
+      "ar": "دوس عالزر الأحمر.",
+      "en": "Press the red button."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Branche",
+    "ar": "غصن",
+    "en": "Branch",
+    "ex": {
+      "fr": "L'oiseau est sur la branche.",
+      "ar": "العصفور عالغصن.",
+      "en": "The bird is on the branch."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bras",
+    "ar": "ذراع",
+    "en": "Arm",
+    "ex": {
+      "fr": "J'ai mal au bras.",
+      "ar": "بيوجعني ذراعي.",
+      "en": "My arm hurts."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "health"
+    ]
+  },
+  {
+    "fr": "Brique",
+    "ar": "طوبة / آجرة",
+    "en": "Brick",
+    "ex": {
+      "fr": "La maison est en briques.",
+      "ar": "البيت مبني من الطوب.",
+      "en": "The house is made of brick."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Brosse",
+    "ar": "فرشاة",
+    "en": "Brush",
+    "ex": {
+      "fr": "Où est ma brosse à dents ?",
+      "ar": "وين فرشاة أسناني؟",
+      "en": "Where's my toothbrush?"
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bruit",
+    "ar": "ضجيج / صوت",
+    "en": "Noise",
+    "ex": {
+      "fr": "Il y a trop de bruit ici.",
+      "ar": "في ضجة كتير هون.",
+      "en": "There's too much noise here."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Brume",
+    "ar": "ضباب",
+    "en": "Mist / Fog",
+    "ex": {
+      "fr": "La brume couvre la vallée ce matin.",
+      "ar": "الضباب غاطي الوادي هالصباح.",
+      "en": "Mist covers the valley this morning."
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "weather"
+    ]
+  },
+  {
+    "fr": "But",
+    "ar": "هدف",
+    "en": "Goal",
+    "ex": {
+      "fr": "Quel est le but de cette réunion ?",
+      "ar": "شو هدف هالاجتماع؟",
+      "en": "What's the goal of this meeting?"
+    },
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ]
+  },
+  {
+    "fr": "Bas / Basse",
+    "ar": "منخفض / واطي",
+    "en": "Low",
+    "ex": {
+      "fr": "Les prix sont bas en ce moment.",
+      "ar": "الأسعار واطية هلأ.",
+      "en": "Prices are low right now."
+    },
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Beau / Belle",
+    "ar": "جميل",
+    "en": "Beautiful",
+    "ex": {
+      "fr": "Quel beau temps aujourd'hui !",
+      "ar": "شو أحلى طقس اليوم!",
+      "en": "What beautiful weather today!"
+    },
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bête",
+    "ar": "غبي / (كاسم: حيوان)",
+    "en": "Stupid / Silly",
+    "ex": {
+      "fr": "Ne sois pas bête, réfléchis un peu.",
+      "ar": "لا تكون غبي، فكر شوي.",
+      "en": "Don't be silly, think a bit."
+    },
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bizarre",
+    "ar": "غريب",
+    "en": "Strange / Weird",
+    "ex": {
+      "fr": "C'est bizarre, il n'a pas répondu.",
+      "ar": "غريب، ما جاوب.",
+      "en": "It's strange, he didn't answer."
+    },
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Blanc / Blanche",
+    "ar": "أبيض",
+    "en": "White",
+    "ex": {
+      "fr": "J'ai acheté une chemise blanche.",
+      "ar": "اشتريت قميص أبيض.",
+      "en": "I bought a white shirt."
+    },
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bleu",
+    "ar": "أزرق",
+    "en": "Blue",
+    "ex": {
+      "fr": "Le ciel est bleu aujourd'hui.",
+      "ar": "السما زرقا اليوم.",
+      "en": "The sky is blue today."
+    },
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bon / Bonne",
+    "ar": "جيد / طيب",
+    "en": "Good",
+    "ex": {
+      "fr": "C'est un bon restaurant.",
+      "ar": "هاد مطعم منيح.",
+      "en": "This is a good restaurant."
+    },
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bref / Brève",
+    "ar": "مختصر",
+    "en": "Brief / Short",
+    "ex": {
+      "fr": "Il a fait un discours bref.",
+      "ar": "عمل خطاب مختصر.",
+      "en": "He gave a brief speech."
+    },
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Brillant",
+    "ar": "لامع / بارع",
+    "en": "Brilliant / Shiny",
+    "ex": {
+      "fr": "C'est une idée brillante.",
+      "ar": "هاد فكرة رائعة.",
+      "en": "That's a brilliant idea."
+    },
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Brun / Brune",
+    "ar": "بني الشعر / أسمر",
+    "en": "Brown-haired / Dark",
+    "ex": {
+      "fr": "Elle a les cheveux bruns.",
+      "ar": "شعرها بني.",
+      "en": "She has brown hair."
+    },
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Brutal",
+    "ar": "عنيف / فظ",
+    "en": "Brutal / Harsh",
+    "ex": {
+      "fr": "La réponse a été brutale.",
+      "ar": "الجواب كان قاسي.",
+      "en": "The answer was harsh."
+    },
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bruyant",
+    "ar": "صاخب / مزعج بالصوت",
+    "en": "Noisy",
+    "ex": {
+      "fr": "Le quartier est très bruyant la nuit.",
+      "ar": "الحي صاخب كتير بالليل.",
+      "en": "The neighborhood is very noisy at night."
+    },
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Beaucoup",
+    "ar": "كثير",
+    "en": "A lot / Much",
+    "ex": {
+      "fr": "Merci beaucoup pour ton aide.",
+      "ar": "شكراً كتير عمساعدتك.",
+      "en": "Thank you very much for your help."
+    },
+    "pos": "phrase",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bientôt",
+    "ar": "قريباً",
+    "en": "Soon",
+    "ex": {
+      "fr": "À bientôt !",
+      "ar": "لقاء قريب!",
+      "en": "See you soon!"
+    },
+    "pos": "phrase",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bien sûr",
+    "ar": "بالتأكيد / أكيد",
+    "en": "Of course",
+    "ex": {
+      "fr": "Bien sûr, je peux t'aider.",
+      "ar": "أكيد، فيني ساعدك.",
+      "en": "Of course, I can help you."
+    },
+    "pos": "phrase",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bref (adv.)",
+    "ar": "باختصار",
+    "en": "In short",
+    "ex": {
+      "fr": "Bref, on a réussi.",
+      "ar": "بالمختصر، نجحنا.",
+      "en": "In short, we succeeded."
+    },
+    "pos": "phrase",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bon marché",
+    "ar": "رخيص / بسعر منيح",
+    "en": "Cheap / Affordable",
+    "ex": {
+      "fr": "Ce magasin est bon marché.",
+      "ar": "هالمحل رخيص.",
+      "en": "This store is cheap."
+    },
+    "pos": "phrase",
+    "level": "A2",
+    "contexts": [
+      "shop",
+      "daily"
+    ]
   }
 ];
