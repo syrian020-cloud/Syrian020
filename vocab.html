@@ -688,7 +688,8 @@
       var type = chip.dataset.type, key = chip.dataset.key;
       if(type === 'letter'){
         if(key === ''){ state.letters = []; }
-        else { var li = state.letters.indexOf(key); if(li === -1) state.letters.push(key); else state.letters.splice(li, 1); }
+        else if(state.letters.length === 1 && state.letters[0] === key){ state.letters = []; }
+        else { state.letters = [key]; }
         localStorage.setItem('vocab_letters', JSON.stringify(state.letters));
         buildFilters();
         state.page = 1;
