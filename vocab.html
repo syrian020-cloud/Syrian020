@@ -87,15 +87,21 @@
     padding: 0.65rem 0.6rem; font-size: 0.9rem; font-family: inherit;
   }
 
-  .filters { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
+  .filters { display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 1rem; }
+  .filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; }
+  .filter-label { color: var(--text-secondary); font-size: 0.82rem; align-self: center; padding: 0 0.2rem; white-space: nowrap; }
+  .letters-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem; direction: ltr; }
+  .contexts-strip { display: flex; flex-wrap: nowrap; gap: 0.4rem; overflow-x: auto; padding: 0.2rem 1px; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+  .contexts-strip::-webkit-scrollbar { display: none; }
   .filter-chip {
     background: var(--bg-secondary); color: var(--text-secondary);
     border: 1px solid var(--border); border-radius: 999px;
     padding: 0.35rem 0.7rem; font-size: 0.82rem; cursor: pointer;
-    user-select: none; transition: all 0.15s;
+    user-select: none; transition: all 0.15s; white-space: nowrap;
   }
   .filter-chip:hover { border-color: var(--accent); color: var(--text-primary); }
   .filter-chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .filter-chip.letter { min-width: 2.1rem; padding: 0.35rem 0.2rem; text-align: center; font-weight: 700; border-radius: 10px; }
 
   .stats { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.9rem; }
 
@@ -217,11 +223,14 @@
   var sortSelect = document.getElementById('sort');
   var toast = document.getElementById('toast');
 
+  var savedLetters;
+  try { savedLetters = JSON.parse(localStorage.getItem('vocab_letters') || '[]'); } catch(e){ savedLetters = []; }
   var state = {
     q: '',
     levels: [],
     contexts: [],
     pos: [],
+    letters: Array.isArray(savedLetters) ? savedLetters : [],
     rate: parseFloat(localStorage.getItem('vocab_rate') || '1'),
     sort: localStorage.getItem('vocab_sort') || '',
     page: 1,
@@ -251,6 +260,7 @@
       level: 'المستوى',
       context: 'السياق',
       pos: 'نوع الكلمة',
+      letters: 'الحروف',
       all: 'الكل',
       pos_verb: 'فعل',
       pos_adjective: 'صفة',
@@ -286,6 +296,7 @@
       level: 'Level',
       context: 'Context',
       pos: 'Word type',
+      letters: 'Letters',
       all: 'All',
       pos_verb: 'Verb',
       pos_adjective: 'Adjective',
@@ -321,6 +332,7 @@
       level: 'Niveau',
       context: 'Contexte',
       pos: 'Type de mot',
+      letters: 'Lettres',
       all: 'Tout',
       pos_verb: 'Verbe',
       pos_adjective: 'Adjectif',
@@ -392,6 +404,13 @@
   function posLabel(key){ var p = POS_LABELS[key]; return p ? p[state.uiLang] || p.en : key; }
   function posLabelsText(key){ var p = POS_LABELS[key]; return p ? (p.ar + ' ' + p.en + ' ' + p.fr) : key; }
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function firstLetter(fr){
+    var s = String(fr || '').replace(/^[^A-Za-z\u00C0-\u024F]+/,'');
+    if(!s) return '#';
+    var base = s.charAt(0).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();
+    if(/[A-Z]/.test(base)) return base;
+    return '#';
+  }
 
   function init(){
     document.documentElement.dataset.theme = state.theme;
@@ -438,20 +457,38 @@
     var posCounts = {};
     VOCAB.forEach(function(v){ var p = v.pos || 'other'; posCounts[p] = (posCounts[p]||0)+1; });
 
+    var letterCounts = {};
+    VOCAB.forEach(function(v){ letterCounts[firstLetter(v.fr)] = (letterCounts[firstLetter(v.fr)]||0)+1; });
+    var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
     var html = '';
-    html += '<span style="color:var(--text-secondary);font-size:0.82rem;align-self:center;">' + t('level') + ':</span>';
+
+    // Letter chips: A-Z + all
+    html += '<div class="filter-row"><span class="filter-label">' + esc(t('letters')) + ':</span>';
+    html += chipHtml('letter', '', t('all') + ' (' + VOCAB.length + ')', state.letters.length === 0, true);
+    letters.forEach(function(l){ html += chipHtml('letter', l, l + ' (' + (letterCounts[l]||0) + ')', state.letters.indexOf(l) !== -1, true); });
+    html += '</div>';
+
+    // Context strip (horizontally scrollable)
+    html += '<div class="contexts-strip">';
+    sortedCtxs.forEach(function(c){ html += chipHtml('context', c, ctxLabel(c) + ' (' + ctxs[c] + ')', state.contexts.indexOf(c) !== -1); });
+    html += '</div>';
+
+    // Levels and POS
+    html += '<div class="filter-row">';
+    html += '<span class="filter-label">' + esc(t('level')) + ':</span>';
     levels.forEach(function(l){ html += chipHtml('level', l, l, state.levels.indexOf(l) !== -1); });
     html += '<span style="width:0.4rem"></span>';
-    html += '<span style="color:var(--text-secondary);font-size:0.82rem;align-self:center;">' + t('context') + ':</span>';
-    sortedCtxs.forEach(function(c){ html += chipHtml('context', c, ctxLabel(c), state.contexts.indexOf(c) !== -1); });
-    html += '<span style="width:0.4rem"></span>';
-    html += '<span style="color:var(--text-secondary);font-size:0.82rem;align-self:center;">' + t('pos') + ':</span>';
+    html += '<span class="filter-label">' + esc(t('pos')) + ':</span>';
     poss.forEach(function(p){ if((posCounts[p]||0) > 0){ html += chipHtml('pos', p, posLabel(p) + ' (' + posCounts[p] + ')', state.pos.indexOf(p) !== -1); } });
+    html += '</div>';
+
     filters.innerHTML = html;
   }
 
-  function chipHtml(type, key, label, active){
-    return '<button class="filter-chip ' + (active?'active':'') + '" data-type="' + type + '" data-key="' + esc(key) + '">' + esc(label) + '</button>';
+  function chipHtml(type, key, label, active, isLetter){
+    var cls = 'filter-chip' + (active?' active':'') + (isLetter?' letter':'');
+    return '<button class="' + cls + '" data-type="' + type + '" data-key="' + esc(key) + '">' + esc(label) + '</button>';
   }
 
   function filtered(){
@@ -461,6 +498,7 @@
       if(state.levels.length && state.levels.indexOf(v.level) === -1) return false;
       if(state.contexts.length && !v.contexts.some(function(c){ return state.contexts.indexOf(c) !== -1; })) return false;
       if(state.pos.length && state.pos.indexOf(v.pos || 'other') === -1) return false;
+      if(state.letters.length && state.letters.indexOf(firstLetter(v.fr)) === -1) return false;
       if(!q) return true;
       if(posMatchKey) return v.pos === posMatchKey;
       var ex = v.ex || {};
@@ -648,6 +686,15 @@
     filters.addEventListener('click', function(e){
       var chip = e.target.closest('.filter-chip'); if(!chip) return;
       var type = chip.dataset.type, key = chip.dataset.key;
+      if(type === 'letter'){
+        if(key === ''){ state.letters = []; }
+        else { var li = state.letters.indexOf(key); if(li === -1) state.letters.push(key); else state.letters.splice(li, 1); }
+        localStorage.setItem('vocab_letters', JSON.stringify(state.letters));
+        buildFilters();
+        state.page = 1;
+        render();
+        return;
+      }
       var arr = type === 'level' ? state.levels : type === 'context' ? state.contexts : state.pos;
       var i = arr.indexOf(key);
       if(i === -1) arr.push(key); else arr.splice(i, 1);

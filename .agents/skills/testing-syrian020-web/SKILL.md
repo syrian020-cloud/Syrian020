@@ -100,16 +100,17 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   - `loop-btn` (🔁 / `تكرار` / `Loop` / `Répéter`)
   - `google-btn` (🖼️ / `صور Google` / `Images` / `Images`) — opens `https://www.google.com/search?udm=2&q=<fr>`
   - `ai-btn` (🔍 / `Google AI` / `Google AI` / `Google IA`) — opens `https://www.google.com/search?udm=50&q=<prompt>`
-- Google AI prompt per UI language:
-  - AR: `تصحيح وتحليل العبارة الفرنسية "<fr>" كلمة كلمة مع ترجمة كل كلمة والجملة كاملة إلى العربية والإنجليزية والفرنسية`
-  - EN: `Correct and analyze the French phrase "<fr>" word by word, translate each word and the full phrase into Arabic, English, and French`
-  - FR: `Corriger et analyser la phrase française "<fr>" mot par mot, traduire chaque mot et la phrase complète en arabe, anglais et français`
+- Google AI prompt per UI language (also asks for common examples used in daily life in France):
+  - AR: `تصحيح العبارة الفرنسية "<fr>" وتحليلها كلمة كلمة مع ترجمة الكلمات والجملة إلى العربية والإنجليزية والفرنسية وإعطاء أمثلة شائعة في الحياة اليومية في فرنسا`
+  - EN: `Correct and analyze the French phrase "<fr>" word by word, translate the words and the phrase into Arabic, English, and French, and give common examples used in daily life in France`
+  - FR: `Corriger et analyser la phrase française "<fr>" mot par mot, traduire les mots et la phrase en arabe, anglais et français, et donner des exemples courants de la vie quotidienne en France`
+- `index.html` (VidCap lesson player/editor) also has a `🤖` AI button on each sentence card (next to the `📝` notebook button). It calls `openGoogleAiMode(i)` and opens `https://www.google.com/search?udm=50&hl=<lang>&q=<prompt>` where the prompt asks to correct/analyze the French phrase word by word, translate into Arabic/French/English, and give common examples used in daily life in France.
 - Google search links will often hit a reCAPTCHA from a VM IP; that is expected. Verify the generated URL, not the results page.
-- In Chrome for Testing, opening a Google AI Mode (`udm=50`) link may crash the entire browser process. If this happens, verify the generated `href` via CDP (`document.querySelector('.ai-btn').getAttribute('href')`) instead of clicking.
+- In Chrome for Testing, opening a Google AI Mode (`udm=50`) link may crash the entire browser process. If this happens, verify the generated `href` via CDP (`document.querySelector('.ai-btn').getAttribute('href')`) or by overriding `window.open` instead of clicking.
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v90`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v92`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
