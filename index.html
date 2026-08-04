@@ -967,6 +967,7 @@
       touch-action: none; cursor: crosshair; z-index: 2;
     }
     .btn-notebook-card { background: transparent; border: none; font-size: 1.3rem; cursor: pointer; padding: 0.2rem; line-height: 1; }
+    .btn-ai-search-card { background: transparent; border: none; font-size: 1.3rem; cursor: pointer; padding: 0.2rem; line-height: 1; }
 
     .toast {
       position: fixed;
@@ -1306,6 +1307,7 @@
         confirmDelete: "هل تريد حذف هذا الدرس؟",
         play: "تشغيل", pause: "إيقاف", edit: "تعديل", delete: "حذف", repeat: "تكرار العبارة",
         words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "العبارات", notebook: "دفتر", saveCue: "حفظ",
+        aiSearch: "Google AI Mode", phraseAnalysis: "تحليل العبارة", searchGoogleAI: "فتح Google AI Mode", wordByWord: "كلمة بكلمة",
         close: "إغلاق", listen: "استماع", repeatWord: "تكرار",
         frenchWords: "كلمات فرنسية", englishWords: "كلمات إنجليزية", arabicWords: "كلمات عربية",
         downloadVideo: "تحميل الفيديو", downloadAudio: "تحميل الصوت",
@@ -1346,6 +1348,7 @@
         confirmDelete: "Supprimer cette leçon ?",
         play: "Lire", pause: "Pause", edit: "Modifier", delete: "Supprimer", repeat: "Répéter la phrase",
         words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Les phrases", notebook: "Cahier", saveCue: "Enregistrer",
+        aiSearch: "Google AI Mode", phraseAnalysis: "Analyse de la phrase", searchGoogleAI: "Ouvrir Google AI Mode", wordByWord: "mot à mot",
         close: "Fermer", listen: "Écouter", repeatWord: "Répéter",
         frenchWords: "Mots français", englishWords: "Mots anglais", arabicWords: "Mots arabes",
         downloadVideo: "Télécharger la vidéo", downloadAudio: "Télécharger l'audio",
@@ -1386,6 +1389,7 @@
         confirmDelete: "Delete this lesson?",
         play: "Play", pause: "Pause", edit: "Edit", delete: "Delete", repeat: "Repeat phrase",
         words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "The Phrases", notebook: "Notebook", saveCue: "Save",
+        aiSearch: "Google AI Mode", phraseAnalysis: "Phrase analysis", searchGoogleAI: "Open Google AI Mode", wordByWord: "word by word",
         close: "Close", listen: "Listen", repeatWord: "Repeat",
         frenchWords: "French words", englishWords: "English words", arabicWords: "Arabic words",
         downloadVideo: "Download video", downloadAudio: "Download audio",
@@ -2427,6 +2431,7 @@
             <button class="btn-edit-sentence" onclick="event.stopPropagation(); toggleSentenceEdit(${i})" title="تعديل">✏️</button>
             <button onclick="event.stopPropagation(); jumpToCue(${i})">${formatDuration(cue.start)}</button>
             <button class="btn-notebook-card" onclick="event.stopPropagation(); openNotebook(${i})" title="${t('notebook')}">📝</button>
+            <button class="btn-ai-search-card" onclick="event.stopPropagation(); openGoogleAiMode(${i})" title="${t('aiSearch')}">🤖</button>
           </div>
         </div>
       `;}).join('');
@@ -2999,6 +3004,29 @@
       if (!text) return;
       const lang = /[\u0600-\u06FF]/.test(text) ? 'ar-SA' : (/[\u00C0-\u024F]/.test(text) ? 'fr-FR' : 'en-US');
       ttsSpeak({ text, lang });
+    };
+
+    window.openGoogleAiMode = function(i) {
+      const cue = state.currentCues[i];
+      if (!cue) return;
+      const fr = getCueLineByLang(cue, 'fr') || cue.text.split('\n')[0] || '';
+      const ar = getCueLineByLang(cue, 'ar') || '';
+      const en = getCueLineByLang(cue, 'en') || '';
+      let prompt;
+      if (state.lang === 'ar') {
+        prompt = `حلّل، صحّح إذا لزم، وترجم العبارة الفرنسية "${fr}" كلمة كلمة إلى العربية والإنجليزية.\nالترجمة العربية: "${ar}"\nالترجمة الإنجليزية: "${en}"\nقدّم المعنى الكامل ونصائح النطق والقواعد.`;
+      } else if (state.lang === 'fr') {
+        prompt = `Analyse, corrige si nécessaire, et traduis la phrase française "${fr}" mot à mot en arabe et anglais.\nArabe: "${ar}"\nAnglais: "${en}"\nDonne le sens complet, la prononciation et des notes de grammaire.`;
+      } else {
+        prompt = `Analyze, correct if needed, and translate the French phrase "${fr}" word by word into Arabic and English.\nArabic: "${ar}"\nEnglish: "${en}"\nProvide full meaning, pronunciation tips, and grammar notes.`;
+      }
+      const hl = state.lang === 'ar' ? 'ar' : (state.lang === 'fr' ? 'fr' : 'en');
+      const url = 'https://www.google.com/search?udm=50&hl=' + hl + '&q=' + encodeURIComponent(prompt);
+      if (window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Browser) {
+        Capacitor.Plugins.Browser.open({ url });
+      } else {
+        window.open(url, '_blank');
+      }
     };
 
     async function saveLesson() {

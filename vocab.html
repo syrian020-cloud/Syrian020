@@ -113,6 +113,8 @@
   .meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; align-items: center; }
   .level-pill { background: rgba(0,230,118,0.16); color: var(--success); border: 1px solid rgba(0,230,118,0.35); border-radius: 999px; padding: 0.1rem 0.5rem; font-size: 0.72rem; font-weight: 700; }
   .ctx-pill { background: var(--bg-tertiary); color: var(--text-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 0.1rem 0.5rem; font-size: 0.72rem; }
+  .pos-pill { background: rgba(123,121,255,0.12); color: var(--accent); border: 1px solid rgba(123,121,255,0.35); border-radius: 999px; padding: 0.1rem 0.5rem; font-size: 0.72rem; }
+  .usage { color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.45rem; padding: 0.25rem 0.4rem; border-right: 3px solid var(--accent); background: rgba(123,121,255,0.08); border-radius: 0 8px 8px 0; }
 
   .example {
     background: var(--bg-tertiary); border: 1px solid var(--border);
@@ -219,6 +221,7 @@
     q: '',
     levels: [],
     contexts: [],
+    pos: [],
     rate: parseFloat(localStorage.getItem('vocab_rate') || '1'),
     sort: localStorage.getItem('vocab_sort') || '',
     page: 1,
@@ -247,10 +250,17 @@
       stopAudio: 'إيقاف الصوت',
       level: 'المستوى',
       context: 'السياق',
+      pos: 'نوع الكلمة',
       all: 'الكل',
+      pos_verb: 'فعل',
+      pos_adjective: 'صفة',
+      pos_noun: 'اسم',
+      pos_phrase: 'عبارة',
+      pos_other: 'آخر',
       results: 'نتيجة',
       noResults: 'لا توجد نتائج',
-      searchGoogle: 'بحث Google',
+      searchImages: 'صور Google',
+      searchAI: 'Google AI',
       speak: 'نطق',
       loop: 'تكرار',
       loopFrenchArabicEnglish: '🔁 فرنسي + عربي + إنجليزي',
@@ -275,10 +285,17 @@
       stopAudio: 'Stop audio',
       level: 'Level',
       context: 'Context',
+      pos: 'Word type',
       all: 'All',
+      pos_verb: 'Verb',
+      pos_adjective: 'Adjective',
+      pos_noun: 'Noun',
+      pos_phrase: 'Phrase',
+      pos_other: 'Other',
       results: 'result(s)',
       noResults: 'No results',
-      searchGoogle: 'Google',
+      searchImages: 'Images',
+      searchAI: 'Google AI',
       speak: 'Speak',
       loop: 'Loop',
       loopFrenchArabicEnglish: '🔁 French + Arabic + English',
@@ -303,10 +320,17 @@
       stopAudio: 'Arrêter le son',
       level: 'Niveau',
       context: 'Contexte',
+      pos: 'Type de mot',
       all: 'Tout',
+      pos_verb: 'Verbe',
+      pos_adjective: 'Adjectif',
+      pos_noun: 'Nom',
+      pos_phrase: 'Expression',
+      pos_other: 'Autre',
       results: 'résultat(s)',
       noResults: 'Aucun résultat',
-      searchGoogle: 'Google',
+      searchImages: 'Images',
+      searchAI: 'Google IA',
       speak: 'Écouter',
       loop: 'Répéter',
       loopFrenchArabicEnglish: '🔁 Français + Arabe + Anglais',
@@ -318,6 +342,21 @@
       loadMore: 'Charger plus'
     }
   };
+
+  var POS_LABELS = {
+    verb: { ar: 'فعل', en: 'Verb', fr: 'Verbe' },
+    adjective: { ar: 'صفة', en: 'Adjective', fr: 'Adjectif' },
+    noun: { ar: 'اسم', en: 'Noun', fr: 'Nom' },
+    phrase: { ar: 'عبارة', en: 'Phrase', fr: 'Expression' },
+    other: { ar: 'آخر', en: 'Other', fr: 'Autre' }
+  };
+  var POS_BY_LABEL = {};
+  Object.keys(POS_LABELS).forEach(function(k){
+    var p = POS_LABELS[k];
+    POS_BY_LABEL[p.ar.toLowerCase()] = k;
+    POS_BY_LABEL[p.en.toLowerCase()] = k;
+    POS_BY_LABEL[p.fr.toLowerCase()] = k;
+  });
 
   var CTX_LABELS = {
     daily: { ar: 'يومي', en: 'Daily', fr: 'Quotidien' },
@@ -342,12 +381,16 @@
     services: { ar: 'خدمات', en: 'Services', fr: 'Services' },
     france_travail: { ar: 'France Travail', en: 'France Travail', fr: 'France Travail' },
     caf: { ar: 'CAF', en: 'CAF', fr: 'CAF' },
+    cpam: { ar: 'CPAM', en: 'CPAM', fr: 'CPAM' },
+    mairie: { ar: 'البلدية', en: 'Town hall', fr: 'Mairie' },
     family: { ar: 'عائلة', en: 'Family', fr: 'Famille' },
     weather: { ar: 'طقس', en: 'Weather', fr: 'Météo' }
   };
 
   function t(key){ return UI[state.uiLang][key] || UI.en[key] || UI.ar[key] || key; }
   function ctxLabel(key){ var c = CTX_LABELS[key]; return c ? c[state.uiLang] || c.en : key; }
+  function posLabel(key){ var p = POS_LABELS[key]; return p ? p[state.uiLang] || p.en : key; }
+  function posLabelsText(key){ var p = POS_LABELS[key]; return p ? (p.ar + ' ' + p.en + ' ' + p.fr) : key; }
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
   function init(){
@@ -358,9 +401,9 @@
     loopSelect.value = state.langs.join(',');
     sortSelect.value = state.sort;
     buildFilters();
+    applyTranslations();
     render();
     bindEvents();
-    applyTranslations();
     if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function(){});
   }
 
@@ -391,6 +434,9 @@
     var ctxs = {};
     VOCAB.forEach(function(v){ (v.contexts||[]).forEach(function(c){ ctxs[c] = (ctxs[c]||0)+1; }); });
     var sortedCtxs = Object.keys(ctxs).sort(function(a,b){ return ctxs[b]-ctxs[a] || a.localeCompare(b); });
+    var poss = ['verb','adjective','noun','phrase','other'];
+    var posCounts = {};
+    VOCAB.forEach(function(v){ var p = v.pos || 'other'; posCounts[p] = (posCounts[p]||0)+1; });
 
     var html = '';
     html += '<span style="color:var(--text-secondary);font-size:0.82rem;align-self:center;">' + t('level') + ':</span>';
@@ -398,6 +444,9 @@
     html += '<span style="width:0.4rem"></span>';
     html += '<span style="color:var(--text-secondary);font-size:0.82rem;align-self:center;">' + t('context') + ':</span>';
     sortedCtxs.forEach(function(c){ html += chipHtml('context', c, ctxLabel(c), state.contexts.indexOf(c) !== -1); });
+    html += '<span style="width:0.4rem"></span>';
+    html += '<span style="color:var(--text-secondary);font-size:0.82rem;align-self:center;">' + t('pos') + ':</span>';
+    poss.forEach(function(p){ if((posCounts[p]||0) > 0){ html += chipHtml('pos', p, posLabel(p) + ' (' + posCounts[p] + ')', state.pos.indexOf(p) !== -1); } });
     filters.innerHTML = html;
   }
 
@@ -407,16 +456,29 @@
 
   function filtered(){
     var q = state.q.trim().toLowerCase();
+    var posMatchKey = q ? POS_BY_LABEL[q] : null;
     var items = VOCAB.filter(function(v){
       if(state.levels.length && state.levels.indexOf(v.level) === -1) return false;
       if(state.contexts.length && !v.contexts.some(function(c){ return state.contexts.indexOf(c) !== -1; })) return false;
+      if(state.pos.length && state.pos.indexOf(v.pos || 'other') === -1) return false;
       if(!q) return true;
-      var hay = (v.fr + ' ' + (v.ar||'') + ' ' + (v.en||'')).toLowerCase();
+      if(posMatchKey) return v.pos === posMatchKey;
+      var ex = v.ex || {};
+      var hay = (v.fr + ' ' + (v.ar||'') + ' ' + (v.en||'') + ' ' + (v.usage||'') + ' ' + (v.contexts||[]).join(' ') + ' ' + (ex.fr||'') + ' ' + (ex.ar||'') + ' ' + (ex.en||'')).toLowerCase();
       return hay.indexOf(q) !== -1;
     });
     if(state.sort === 'az') items.sort(function(a,b){ return a.fr.localeCompare(b.fr, 'fr'); });
     else if(state.sort === 'za') items.sort(function(a,b){ return b.fr.localeCompare(a.fr, 'fr'); });
     return items;
+  }
+
+  function aiQuery(v){
+    var prompts = {
+      ar: 'تصحيح وتحليل العبارة الفرنسية "' + v.fr + '" كلمة كلمة مع ترجمة كل كلمة والجملة كاملة إلى العربية والإنجليزية والفرنسية',
+      en: 'Correct and analyze the French phrase "' + v.fr + '" word by word, translate each word and the full phrase into Arabic, English, and French',
+      fr: 'Corriger et analyser la phrase française "' + v.fr + '" mot par mot, traduire chaque mot et la phrase complète en arabe, anglais et français'
+    };
+    return prompts[state.uiLang] || prompts.en;
   }
 
   function render(){
@@ -428,6 +490,7 @@
     var html = items.slice(0, end).map(function(v, idx){
       var key = 'v' + idx;
       var ex = v.ex ? '<div class="example"><div class="ex-fr" dir="ltr">' + esc(v.ex.fr) + '</div><div class="ex-ar">' + esc(v.ex.ar) + '</div>' + (v.ex.en ? '<div class="ex-en" dir="ltr">' + esc(v.ex.en) + '</div>' : '') + '</div>' : '';
+      var usage = v.usage ? '<div class="usage" dir="rtl">' + esc(v.usage) + '</div>' : '';
       return '<div class="vocab-card" data-key="' + esc(key) + '" data-idx="' + idx + '">' +
         '<div class="vocab-head">' +
           '<div class="vocab-main">' +
@@ -436,16 +499,18 @@
             '<div class="en-line" dir="ltr">' + esc(v.en||'') + '</div>' +
             '<div class="meta">' +
               '<span class="level-pill">' + esc(v.level) + '</span>' +
+              (v.pos ? '<span class="pos-pill">' + esc(posLabel(v.pos)) + '</span>' : '') +
               (v.contexts||[]).map(function(c){ return '<span class="ctx-pill">' + esc(ctxLabel(c)) + '</span>'; }).join('') +
             '</div>' +
+            usage +
             ex +
           '</div>' +
         '</div>' +
         '<div class="card-actions">' +
           '<button class="speak-btn" data-idx="' + idx + '">🔊 ' + t('speak') + '</button>' +
           '<button class="loop-btn" data-idx="' + idx + '">🔁 ' + t('loop') + '</button>' +
-          '<a class="google-btn" href="https://www.google.com/search?q=' + encodeURIComponent(v.fr) + '" target="_blank" rel="noopener">🔎 ' + t('searchGoogle') + '</a>' +
-          '<button class="copy-btn" data-idx="' + idx + '">📋</button>' +
+          '<a class="google-btn" href="https://www.google.com/search?udm=2&amp;q=' + encodeURIComponent(v.fr) + '" target="_blank" rel="noopener">🖼️ ' + t('searchImages') + '</a>' +
+          '<a class="ai-btn" href="https://www.google.com/search?udm=50&amp;q=' + encodeURIComponent(aiQuery(v)) + '" target="_blank" rel="noopener">🔍 ' + t('searchAI') + '</a>' +
         '</div>' +
       '</div>';
     }).join('');
@@ -583,7 +648,7 @@
     filters.addEventListener('click', function(e){
       var chip = e.target.closest('.filter-chip'); if(!chip) return;
       var type = chip.dataset.type, key = chip.dataset.key;
-      var arr = type === 'level' ? state.levels : state.contexts;
+      var arr = type === 'level' ? state.levels : type === 'context' ? state.contexts : state.pos;
       var i = arr.indexOf(key);
       if(i === -1) arr.push(key); else arr.splice(i, 1);
       buildFilters();
@@ -600,10 +665,7 @@
 
       if(e.target.closest('.speak-btn')){ stopSpeech(); speakEntry(entry, state.langs, null); return; }
       if(e.target.closest('.loop-btn')){ toggleLoop(entry, card.dataset.key); return; }
-      if(e.target.closest('.copy-btn')){
-        var text = entry.fr + '\n' + entry.ar + '\n' + (entry.en||'');
-        navigator.clipboard.writeText(text).then(function(){ showToast(t('copied')); }).catch(function(){});
-      }
+      /* image and AI search are <a> links; no extra click handling needed */
     });
 
     window.addEventListener('beforeunload', stopSpeech);
