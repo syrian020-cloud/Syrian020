@@ -109,14 +109,14 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Google search links will often hit a reCAPTCHA from a VM IP; that is expected. Verify the generated URL, not the results page.
 - In Chrome for Testing, opening a Google AI Mode (`udm=50`) link may crash the entire browser process. If this happens, verify the generated `href` via CDP (`document.querySelector('.ai-btn').getAttribute('href')`) or by overriding `window.open` instead of clicking.
 
-## B-nouns/adjectives/phrases batch (dross-v101)
+## B-nouns/adjectives/phrases batch (dross-v102)
 
-- `data/vocab.js` now contains **668** entries after the deletion of `Bercer`, `Berner`, `Barouder`, `Bâfrer` (only two were present; the other two were already absent). `data/vocab-batch-02.js` is still empty.
-- Cache name is `dross-v101`.
-- Letter chip counts: `A (550)`, `B (118)`, all other letters `0`.
-- POS counts: `verb` **190**, `adjective` **179**, `noun` **112**, `phrase` **175**, `other` **12`.
-- The `firstLetter()` function in `vocab.html` strips leading non-letters, then `Se ` / `s'` / `S'` reflexive prefixes, then normalizes the first character. Entries like `Bref (adv.)`, `Bas / Basse`, and `Beau / Belle` therefore group under `B`.
-- Sample new B nouns/adjectives/phrases (each returns 1 result):
+- `data/vocab.js` now contains **669** entries and `data/vocab-batch-02.js` is still empty.
+- Cache name is `dross-v102`.
+- Letter chip counts: `A (550)`, `B (118)`, `F (1)`, all other letters `0`. The `F` entry is `Faire du bénévolat`.
+- POS counts: `verb` **190**, `adjective` **179**, `noun` **112**, `phrase` **176**, `other` **12`.
+- The `firstLetter()` function in `vocab.html` strips leading non-letters, then `Se ` / `s'` / `S'` reflexive prefixes, then normalizes the first character. Entries like `Bref (adv.)`, `Bas / Basse`, `Beau / Belle`, and `Faire du bénévolat` therefore group under their first alphabetic letter.
+- Sample B nouns/adjectives/phrases (each returns 1 result):
   - `Bureau` → noun
   - `Banque` → noun
   - `Bateau` → noun
@@ -127,6 +127,10 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   - `Bref / Brève` → adjective
   - `Bref (adv.)` → phrase
   - `Beau / Belle` → adjective
+- New phrase entry `Faire du bénévolat` (POS `phrase`) with updated example:
+  - `fr`: `Je fais du bénévolat dans une association.`
+  - `ar`: `أنا أتطوع في جمعية.`
+  - `en`: `I volunteer in an association.`
 - Added/updated common B verbs (each returns 1 result):
   - `Bénir` → `Le prêtre a béni les mariés.`
   - `Bosser` → `Je bosse jusqu'à 18h aujourd'hui.`
@@ -185,7 +189,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v101`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v102`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
