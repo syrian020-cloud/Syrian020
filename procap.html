@@ -215,7 +215,16 @@
   .btns button:hover { border-color: var(--accent); transform: translateY(-1px); }
   .btns button.active { background: var(--success); color: #081c15; border-color: var(--success); }
   .btns button.fav-on { color: var(--gold); border-color: var(--gold); }
-  .btns .image-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btns .ai-btn {
+    width: auto; height: auto; min-height: 2.35rem; padding: 0.35rem 0.65rem;
+    border-radius: 999px; background: rgba(255,255,255,0.95); color: #1a73e8;
+    border: 1px solid #dadce0; font-size: 0.72rem; font-weight: 700;
+    display: inline-flex; align-items: center; gap: 0.25rem;
+    box-shadow: none; white-space: nowrap;
+  }
+  [data-theme="light"] .btns .ai-btn { background: #fff; color: #1a73e8; border-color: #c5c8cc; }
+  .btns .ai-btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
+  .btns .ai-btn .ai-sparkle { color: #fbbf24; font-size: 0.9rem; }
   .btns .note-btn:hover { border-color: var(--accent); color: var(--accent); }
   .btns .note-btn.note-on { color: var(--success); border-color: var(--success); }
   .no-lessons { text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); }
@@ -658,7 +667,7 @@
     lessonsCount: { ar: 'درس', en: 'lessons', fr: 'leçons' },
     speakOnce: { ar: 'نطق مرة واحدة', en: 'Speak once', fr: 'Parler une fois' },
     loopTitle: { ar: 'تكرار: فرنسي ← عربي ← إنجليزي', en: 'Repeat: French ← Arabic ← English', fr: 'Répéter : Français ← Arabe ← Anglais' },
-    imageTitle: { ar: 'بحث الصور في Google', en: 'Search images on Google', fr: 'Rechercher des images sur Google' },
+    aiTitle: { ar: 'شرح العبارة بالذكاء الاصطناعي من Google', en: 'Explain phrase with Google AI', fr: 'Expliquer la phrase avec Google AI' },
     noteTitle: { ar: 'دفتر الملاحظات', en: 'Notebook', fr: 'Carnet' },
     favTitle: { ar: 'حفظ', en: 'Save', fr: 'Enregistrer' },
     playAll: { ar: '▶ تشغيل كل الدرس', en: '▶ Play whole lesson', fr: '▶ Lire toute la leçon' },
@@ -1160,7 +1169,7 @@
         <div class="btns">
           <button class="speak-btn" title="${t('speakOnce')}">🔊</button>
           <button class="loop-btn" title="${t('loopTitle')}">🔁</button>
-          <button class="image-btn" title="${t('imageTitle')}">🖼️</button>
+          <button class="ai-btn" title="${t('aiTitle')}"><span class="ai-label">Google AI</span><span class="ai-sparkle">✨</span></button>
           <button class="note-btn ${hasNote(key) ? 'note-on' : ''}" title="${t('noteTitle')}">${hasNote(key) ? '📔' : '📓'}</button>
           <button class="fav-btn ${isFav(key) ? 'fav-on' : ''}" title="${t('favTitle')}">${isFav(key) ? '★' : '☆'}</button>
         </div>
@@ -1579,8 +1588,9 @@
         speakOnce(p, state.langs, key);
       } else if (e.target.closest('.loop-btn')) {
         toggleLoop(p, key);
-      } else if (e.target.closest('.image-btn')) {
-        window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(p.fr), '_blank');
+      } else if (e.target.closest('.ai-btn')) {
+        const query = 'Explain the phrase "' + p.fr + '" in French, Arabic and English. French: ' + p.fr + ' / Arabic: ' + p.ar + ' / English: ' + p.en + ' (without tables)';
+        window.open('https://www.google.com/search?q=' + encodeURIComponent(query) + '&udm=50&hl=' + state.uiLang, '_blank');
       } else if (e.target.closest('.note-btn')) {
         openNote(key);
       } else if (e.target.closest('.fav-btn')) {
