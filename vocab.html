@@ -474,9 +474,9 @@
 
   function aiQuery(v){
     var prompts = {
-      ar: v.fr + ' ترجمة للعربية والفرنسية مع أمثلة شائعة',
-      en: v.fr + ' translation to Arabic and French with common examples',
-      fr: v.fr + ' traduction arabe français avec exemples courants'
+      ar: 'تصحيح وتحليل العبارة الفرنسية "' + v.fr + '" كلمة كلمة مع ترجمة كل كلمة والجملة كاملة إلى العربية والإنجليزية والفرنسية',
+      en: 'Correct and analyze the French phrase "' + v.fr + '" word by word, translate each word and the full phrase into Arabic, English, and French',
+      fr: 'Corriger et analyser la phrase française "' + v.fr + '" mot par mot, traduire chaque mot et la phrase complète en arabe, anglais et français'
     };
     return prompts[state.uiLang] || prompts.en;
   }
@@ -510,7 +510,7 @@
           '<button class="speak-btn" data-idx="' + idx + '">🔊 ' + t('speak') + '</button>' +
           '<button class="loop-btn" data-idx="' + idx + '">🔁 ' + t('loop') + '</button>' +
           '<a class="google-btn" href="https://www.google.com/search?udm=2&amp;q=' + encodeURIComponent(v.fr) + '" target="_blank" rel="noopener">🖼️ ' + t('searchImages') + '</a>' +
-          '<a class="ai-btn" href="https://www.google.com/search?udm=50&amp;q=' + encodeURIComponent(aiQuery(v)) + '" target="_blank" rel="noopener">✨ ' + t('searchAI') + '</a>' +
+          '<a class="ai-btn" href="https://www.google.com/search?udm=50&amp;q=' + encodeURIComponent(aiQuery(v)) + '" target="_blank" rel="noopener">🔍 ' + t('searchAI') + '</a>' +
         '</div>' +
       '</div>';
     }).join('');
