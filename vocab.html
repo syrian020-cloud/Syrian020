@@ -474,9 +474,9 @@
 
   function aiQuery(v){
     var prompts = {
-      ar: 'تصحيح وتحليل العبارة الفرنسية "' + v.fr + '" كلمة كلمة مع ترجمة كل كلمة والجملة كاملة إلى العربية والإنجليزية والفرنسية',
-      en: 'Correct and analyze the French phrase "' + v.fr + '" word by word, translate each word and the full phrase into Arabic, English, and French',
-      fr: 'Corriger et analyser la phrase française "' + v.fr + '" mot par mot, traduire chaque mot et la phrase complète en arabe, anglais et français'
+      ar: 'تصحيح العبارة الفرنسية "' + v.fr + '" وتحليلها كلمة كلمة مع ترجمة الكلمات والجملة إلى العربية والإنجليزية والفرنسية وإعطاء أمثلة شائعة في الحياة اليومية في فرنسا',
+      en: 'Correct and analyze the French phrase "' + v.fr + '" word by word, translate the words and the phrase into Arabic, English, and French, and give common examples used in daily life in France',
+      fr: 'Corriger et analyser la phrase française "' + v.fr + '" mot par mot, traduire les mots et la phrase en arabe, anglais et français, et donner des exemples courants de la vie quotidienne en France'
     };
     return prompts[state.uiLang] || prompts.en;
   }

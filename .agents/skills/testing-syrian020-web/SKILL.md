@@ -99,17 +99,17 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   - `speak-btn` (🔊 / `نطق` / `Speak` / `Écouter`)
   - `loop-btn` (🔁 / `تكرار` / `Loop` / `Répéter`)
   - `google-btn` (🖼️ / `صور Google` / `Images` / `Images`) — opens `https://www.google.com/search?udm=2&q=<fr>`
-  - `ai-btn` (✨ / `Google AI` / `Google AI` / `Google IA`) — opens `https://www.google.com/search?udm=50&q=<fr>%20<prompt>`
+  - `ai-btn` (🔍 / `Google AI` / `Google AI` / `Google IA`) — opens `https://www.google.com/search?udm=50&q=<prompt>`
 - Google AI prompt per UI language:
-  - AR: `<fr> ترجمة للعربية والفرنسية مع أمثلة شائعة`
-  - EN: `<fr> translation to Arabic and French with common examples`
-  - FR: `<fr> traduction arabe français avec exemples courants`
+  - AR: `تصحيح وتحليل العبارة الفرنسية "<fr>" كلمة كلمة مع ترجمة كل كلمة والجملة كاملة إلى العربية والإنجليزية والفرنسية`
+  - EN: `Correct and analyze the French phrase "<fr>" word by word, translate each word and the full phrase into Arabic, English, and French`
+  - FR: `Corriger et analyser la phrase française "<fr>" mot par mot, traduire chaque mot et la phrase complète en arabe, anglais et français`
 - Google search links will often hit a reCAPTCHA from a VM IP; that is expected. Verify the generated URL, not the results page.
 - In Chrome for Testing, opening a Google AI Mode (`udm=50`) link may crash the entire browser process. If this happens, verify the generated `href` via CDP (`document.querySelector('.ai-btn').getAttribute('href')`) instead of clicking.
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v89`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v90`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
