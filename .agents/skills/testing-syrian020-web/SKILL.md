@@ -55,7 +55,8 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - POS chip labels are localized by UI language (AR: فعل/صفة/اسم/عبارة/آخر; EN: Verb/Adjective/Noun/Phrase/Other; FR: Verbe/Adjectif/Nom/Expression/Autre).
 - Each card renders a `.pos-pill` next to `.level-pill`.
 - Levels: A1=83, A2=289, B1=97, B2=81.
-- Contexts include: daily (342), services (179), work (131), housing (27), health (27), bank (19), caf (16), transport (20), family (10), restaurant (5), shop (20), car (14), phone (17), France Travail (10), prefecture (6), post (4), cpam (3), school (10), mairie (2), weather (3).
+- Contexts include: daily (342), services (179), work (131), housing (27), health (27), bank (19), caf (16), transport (20), family (10), restaurant (5), shop (20), car (14), phone (17), France Travail (10), prefecture (6), post (4), cpam (3), school (10), mairie (2), weather (3). Context chips render in a horizontally scrollable `.contexts-strip`.
+- A-Z letter chips appear above the context strip, with `الكل` (All) followed by `A`–`Z` and per-letter counts. Letter chips are single-select: clicking a letter replaces the previous selection, clicking the same letter again toggles it off, and `الكل` clears the selection. With the current 550-entry dataset only `A` has entries (550); all other letters show `0`.
 - Search examples:
   - `gauche` → 1 result (`À gauche`)
   - `Abolir` → 1 result (`Abolir`)
@@ -110,7 +111,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v92`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v94`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
