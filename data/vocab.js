@@ -10647,9 +10647,9 @@ window.VOCAB_DATA = [
     "ar": "يتطوع / يعمل تطوعيًا",
     "en": "To volunteer / Do volunteer work",
     "ex": {
-      "fr": "Elle fait du bénévolat à la Croix-Rouge le samedi.",
-      "ar": "هي بتتطوع عند الصليب الأحمر يوم السبت.",
-      "en": "She volunteers at the Red Cross on Saturdays."
+      "fr": "Je fais du bénévolat dans une association.",
+      "ar": "أنا أتطوع في جمعية.",
+      "en": "I volunteer in an association."
     },
     "level": "A2",
     "contexts": [
