@@ -9113,36 +9113,6 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Bercer",
-    "ar": "يهدهد",
-    "en": "To rock",
-    "level": "A2",
-    "contexts": [
-      "family"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Elle berce son bébé.",
-      "ar": "إنها تهدهد طفلها.",
-      "en": "She is rocking her baby."
-    }
-  },
-  {
-    "fr": "Berner",
-    "ar": "يخدع",
-    "en": "To fool",
-    "level": "A2",
-    "contexts": [
-      "daily"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Il a essayé de me berner.",
-      "ar": "حاول خداعي.",
-      "en": "He tried to fool me."
-    }
-  },
-  {
     "fr": "Bondir",
     "ar": "يقفز",
     "en": "To jump",
