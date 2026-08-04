@@ -3014,11 +3014,11 @@
       const en = getCueLineByLang(cue, 'en') || '';
       let prompt;
       if (state.lang === 'ar') {
-        prompt = `حلّل، صحّح إذا لزم، وترجم العبارة الفرنسية "${fr}" كلمة كلمة إلى العربية والإنجليزية.\nالترجمة العربية: "${ar}"\nالترجمة الإنجليزية: "${en}"\nقدّم المعنى الكامل ونصائح النطق والقواعد.`;
+        prompt = `صحّح وأعطِ تحليلاً للعبارة الفرنسية "${fr}" كلمة كلمة مع الترجمة إلى العربية والفرنسية والإنجليزية.\nالترجمة العربية: "${ar}"\nالترجمة الإنجليزية: "${en}"\nقدّم معنى كاملاً وأمثلة شائعة تُستخدم في الحياة اليومية في فرنسا ونصائح نطق وقواعد.`;
       } else if (state.lang === 'fr') {
-        prompt = `Analyse, corrige si nécessaire, et traduis la phrase française "${fr}" mot à mot en arabe et anglais.\nArabe: "${ar}"\nAnglais: "${en}"\nDonne le sens complet, la prononciation et des notes de grammaire.`;
+        prompt = `Corrige et analyse la phrase française "${fr}" mot à mot avec la traduction en arabe, en français et en anglais.\nArabe: "${ar}"\nAnglais: "${en}"\nDonne le sens complet, des exemples courants de la vie quotidienne en France, des conseils de prononciation et des notes de grammaire.`;
       } else {
-        prompt = `Analyze, correct if needed, and translate the French phrase "${fr}" word by word into Arabic and English.\nArabic: "${ar}"\nEnglish: "${en}"\nProvide full meaning, pronunciation tips, and grammar notes.`;
+        prompt = `Correct and analyze the French phrase "${fr}" word by word with translations into Arabic, French, and English.\nArabic: "${ar}"\nEnglish: "${en}"\nProvide full meaning, common examples used in daily life in France, pronunciation tips, and grammar notes.`;
       }
       const hl = state.lang === 'ar' ? 'ar' : (state.lang === 'fr' ? 'fr' : 'en');
       const url = 'https://www.google.com/search?udm=50&hl=' + hl + '&q=' + encodeURIComponent(prompt);
