@@ -109,25 +109,69 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Google search links will often hit a reCAPTCHA from a VM IP; that is expected. Verify the generated URL, not the results page.
 - In Chrome for Testing, opening a Google AI Mode (`udm=50`) link may crash the entire browser process. If this happens, verify the generated `href` via CDP (`document.querySelector('.ai-btn').getAttribute('href')`) or by overriding `window.open` instead of clicking.
 
-## B-verbs batch (dross-v100)
+## B-nouns/adjectives/phrases batch (dross-v101)
 
-- `data/vocab.js` now contains **621** entries. `data/vocab-batch-02.js` is still empty.
-- Cache name is `dross-v100`.
-- Letter chip counts: `A (550)`, `B (70)`, all other letters `0`.
-- POS counts: `verb` **192**, `adjective` 167, `noun` 80, `phrase` 170, `other` 12.
-- Added common verbs:
-  - `Bouder` → example `Il boude depuis ce matin.`; contexts `daily`, `family`.
-  - `Bâiller` → example `Je bâille parce que je suis fatigué.`; contexts `daily`, `health`.
-  - `Brouiller` → example `Je brouille les œufs pour le petit-déjeuner.`; contexts `daily`, `services`.
-  - `Baigner` → example `Je me baigne dans la mer en été.`; contexts `daily`.
-  - `Basculer` → example `Il faut basculer vers une autre page.`; contexts `daily`, `services`, `work`.
+- `data/vocab.js` now contains **668** entries after the deletion of `Bercer`, `Berner`, `Barouder`, `Bâfrer` (only two were present; the other two were already absent). `data/vocab-batch-02.js` is still empty.
+- Cache name is `dross-v101`.
+- Letter chip counts: `A (550)`, `B (118)`, all other letters `0`.
+- POS counts: `verb` **190**, `adjective` **179**, `noun` **112**, `phrase` **175**, `other` **12`.
+- The `firstLetter()` function in `vocab.html` strips leading non-letters, then `Se ` / `s'` / `S'` reflexive prefixes, then normalizes the first character. Entries like `Bref (adv.)`, `Bas / Basse`, and `Beau / Belle` therefore group under `B`.
+- Sample new B nouns/adjectives/phrases (each returns 1 result):
+  - `Bureau` → noun
+  - `Banque` → noun
+  - `Bateau` → noun
+  - `Boulangerie` → noun
+  - `Bon marché` → phrase
+  - `Bien sûr` → phrase
+  - `Bas / Basse` → adjective
+  - `Bref / Brève` → adjective
+  - `Bref (adv.)` → phrase
+  - `Beau / Belle` → adjective
+- Added/updated common B verbs (each returns 1 result):
+  - `Bénir` → `Le prêtre a béni les mariés.`
+  - `Bosser` → `Je bosse jusqu'à 18h aujourd'hui.`
+  - `Boucher` → `L'évier est bouché.`
+  - `Bouffer` → `On va bouffer un truc vite fait ?`
+  - `Boutonner` → `Boutonne ta chemise, il fait froid.`
+  - `Brasser` → `Cette entreprise brasse de la bière artisanale.`
+  - `Bâiller` (updated) → `Il bâille tout le temps, il est fatigué.`
+  - `Baigner` (updated) → `Je baigne mon fils tous les soirs.`
+  - `Se balader` → `On se balade dans le parc ce week-end ?`
+  - `Bafouiller` → `Il a bafouillé quelques excuses.`
+  - `Boiter` → `Depuis son accident, il boite un peu.`
+  - `Bouquiner` → `J'aime bouquiner le soir avant de dormir.`
+  - `Bredouiller` → `Elle a bredouillé une réponse confuse.`
+  - `Brunir` → `Sa peau a bruni au soleil.`
+  - `Buller` → `Aujourd'hui, je bulle devant la télé.`
+  - `Bazarder` → `J'ai bazardé mes vieux meubles.`
+  - `Bifurquer` → `La route bifurque à gauche après le pont.`
+  - `Botter` → `Ce projet me botte vraiment.`
+  - `Braver` → `Ils ont bravé la tempête pour rentrer.`
+  - `Bombarder` → `La ville a été bombardée pendant la guerre.`
+  - `Brimer` → `Il se sentait brimé par son chef.`
+  - `Brusquer` → `Ne le brusque pas, il a besoin de temps.`
+  - `Brutaliser` → `Personne ne doit être brutalisé au travail.`
+  - `Braiser` → `On va braiser la viande pendant deux heures.`
+  - `Bichonner` → `Elle bichonne toujours ses plantes.`
+  - `Banaliser` → `Il ne faut pas banaliser ce genre de comportement.`
+  - `Bonifier` → `Le temps a bonifié ce vin.`
+  - `Borner` → `Il s'est borné à répondre par oui ou non.`
+  - `Bafouer` → `Cette décision bafoue les règles de l'entreprise.`
+  - `Beugler` → `La vache beugle dans le champ.`
+  - `Barbouiller` → `L'enfant a barbouillé le mur avec de la peinture.`
+  - `Bloguer` → `Elle blogue sur la cuisine française depuis deux ans.`
+  - `Butiner` → `Les abeilles butinent les fleurs du jardin.`
+  - `Bourlinguer` → `Il a bourlingué pendant dix ans avant de s'installer ici.`
+  - `Bomber` → `Il bombe le torse pour montrer sa fierté.`
+- Also still present from previous curation: `Bouder`, `Brouiller`, `Basculer`.
 - Removed rare/old/agricultural B verbs including: `Breveter`, `Bipper`, `Bourrer`, `Broncher`, `Bruiner`, `Budgétiser`, `Buter`, `Bâcler`, `Bannir`, `Baptiser`, `Bidonner`, `Blaguer`, `Blâmer`, `Bourdonner`, `Barder`, `Barrer`, `Bastonner`, `Bêcher`, `Bégayer`, `Biner`, `Bivouaquer`, `Brader`, `Broyer`, `Brouter`, `Bidouiller`, `Brailler`, `Bétonner`, `Bluffer`, `Bousiller`, `Brider`, `Broder`, `Bruncher`, `Besogner`, `Babiller`, `Barboter`, `Barguigner`, `Bénévoler`, `Bâillonner`, `Baratter`, `Biffer`, `Baragouiner`, `Bâfrer`.
 - Search examples:
+  - `Se balader` → 1 result under `B` filter.
+  - `Bosser` / `Bénir` / `Bloguer` / `Bomber` / `Bouffer` → 1 result each.
   - `Boire` → 1 result; example `Je bois beaucoup d'eau.`; Arabic `يشرب`.
   - `Bloquer` → 1 result; example `Ma carte bancaire est bloquée.`; contexts include `bank`.
   - `Bénéficier` → 1 result; example `Je bénéficie de l'aide au logement.`
   - Arabic `يشرب` finds `Boire`.
-- The `firstLetter()` function normalizes leading diacritics (`Bénéficier` → `B`) and strips leading reflexive pronouns (`Se balader` → `B`), so `B` letter chips count entries that start with `B`, accented `B`, or `Se b...`.
 
 ## Modernized `vocab.html` UI (dross-v95)
 
@@ -141,7 +185,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v100`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v101`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
