@@ -1,12 +1,15 @@
-const CACHE_NAME = 'dross-v65';
+const CACHE_NAME = 'dross-v90';
 const FILES_TO_CACHE = [
   './',
   './index.html',
   './french.html',
+  './vocab.html',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
-  './data/manifest.js'
+  './data/manifest.js',
+  './data/vocab.js',
+  './data/vocab-batch-02.js'
 ];
 
 for (let i = 1; i <= 39; i++) {
@@ -15,7 +18,9 @@ for (let i = 1; i <= 39; i++) {
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
+    caches.open(CACHE_NAME).then((cache) =>
+      cache.addAll(FILES_TO_CACHE.map((url) => new Request(url, { cache: 'reload' })))
+    )
   );
   self.skipWaiting();
 });

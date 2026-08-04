@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#12142b">
+<title>مفردات الحياة اليومية في فرنسا</title>
+<link rel="manifest" href="manifest.json">
+<style>
+  :root {
+    --bg-primary: #12142b;
+    --bg-secondary: #1d1f3d;
+    --bg-tertiary: #2a2d55;
+    --text-primary: #eceffc;
+    --text-secondary: #9fa2c7;
+    --accent: #7b79ff;
+    --accent-hover: #5c5bdb;
+    --danger: #ff6b81;
+    --success: #00e676;
+    --gold: #ffc857;
+    --border: #3a3d6e;
+    --radius: 16px;
+    --shadow: 0 6px 18px rgba(0,0,0,0.35);
+  }
+  [data-theme="light"] {
+    --bg-primary: #f7f7fb;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #e9eaf5;
+    --text-primary: #1c1c2e;
+    --text-secondary: #565a7b;
+    --border: #d7d9e8;
+    --shadow: 0 6px 18px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.65;
+    padding-bottom: 3rem;
+  }
+  header {
+    position: sticky; top: 0; z-index: 60;
+    background: rgba(18,20,43,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  [data-theme="light"] header { background: rgba(255,255,255,0.92); }
+  .header-inner {
+    max-width: 960px; margin: 0 auto; padding: 0.6rem 1rem;
+    display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+  }
+  .logo { font-weight: 800; color: var(--accent); font-size: 1rem; white-space: nowrap; display: flex; align-items: center; gap: 0.35rem; }
+  .spacer { flex: 1; }
+  .icon-btn {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 12px;
+    padding: 0.45rem 0.7rem; font-size: 1rem; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    font-weight: 600;
+  }
+  .icon-btn:hover { border-color: var(--accent); }
+  .icon-btn.active { background: var(--success); color: #12142b; border-color: var(--success); }
+  main { max-width: 960px; margin: 0 auto; padding: 0.9rem; }
+
+  .hero {
+    background: linear-gradient(135deg, rgba(123,121,255,0.18), rgba(0,230,118,0.08));
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1rem 1.2rem; margin-bottom: 1rem;
+  }
+  .hero h1 { margin: 0 0 0.3rem; font-size: 1.25rem; }
+  .hero p { margin: 0; color: var(--text-secondary); font-size: 0.92rem; }
+
+  .toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.8rem; }
+  #search {
+    flex: 1; min-width: 220px;
+    background: var(--bg-secondary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 0.7rem 0.9rem; font-size: 1rem; font-family: inherit;
+  }
+  #search:focus { outline: none; border-color: var(--accent); }
+  select.ctl {
+    background: var(--bg-secondary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 0.65rem 0.6rem; font-size: 0.9rem; font-family: inherit;
+  }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
+  .filter-chip {
+    background: var(--bg-secondary); color: var(--text-secondary);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 0.35rem 0.7rem; font-size: 0.82rem; cursor: pointer;
+    user-select: none; transition: all 0.15s;
+  }
+  .filter-chip:hover { border-color: var(--accent); color: var(--text-primary); }
+  .filter-chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  .stats { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.9rem; }
+
+  .vocab-card {
+    background: var(--bg-secondary); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1rem; margin-bottom: 0.7rem;
+    transition: border-color 0.2s, transform 0.1s;
+  }
+  .vocab-card.playing { border-color: var(--success); box-shadow: 0 0 0 1px var(--success); }
+  .vocab-head { display: flex; align-items: flex-start; gap: 0.7rem; }
+  .vocab-main { flex: 1; min-width: 0; }
+  .fr-line { direction: ltr; text-align: left; font-size: 1.25rem; font-weight: 800; color: var(--accent); word-wrap: break-word; }
+  .ar-line { direction: rtl; text-align: right; font-size: 1.08rem; color: var(--text-primary); margin-top: 0.25rem; }
+  .en-line { direction: ltr; text-align: left; font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.15rem; }
+  .meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; align-items: center; }
+  .level-pill { background: rgba(0,230,118,0.16); color: var(--success); border: 1px solid rgba(0,230,118,0.35); border-radius: 999px; padding: 0.1rem 0.5rem; font-size: 0.72rem; font-weight: 700; }
+  .ctx-pill { background: var(--bg-tertiary); color: var(--text-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 0.1rem 0.5rem; font-size: 0.72rem; }
+  .pos-pill { background: rgba(123,121,255,0.12); color: var(--accent); border: 1px solid rgba(123,121,255,0.35); border-radius: 999px; padding: 0.1rem 0.5rem; font-size: 0.72rem; }
+  .usage { color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.45rem; padding: 0.25rem 0.4rem; border-right: 3px solid var(--accent); background: rgba(123,121,255,0.08); border-radius: 0 8px 8px 0; }
+
+  .example {
+    background: var(--bg-tertiary); border: 1px solid var(--border);
+    border-radius: 12px; padding: 0.7rem 0.9rem; margin-top: 0.65rem;
+  }
+  .ex-fr { direction: ltr; text-align: left; color: var(--text-primary); font-weight: 600; }
+  .ex-ar { direction: rtl; text-align: right; color: var(--text-secondary); font-size: 0.93rem; margin-top: 0.2rem; }
+  .ex-en { direction: ltr; text-align: left; color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.15rem; }
+
+  .card-actions { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.7rem; }
+  .card-actions button, .card-actions a {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 10px;
+    padding: 0.4rem 0.7rem; font-size: 0.9rem; cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.3rem;
+  }
+  .card-actions button:hover, .card-actions a:hover { border-color: var(--accent); }
+  .card-actions button.active { background: var(--success); color: #12142b; border-color: var(--success); }
+
+  .empty { text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); }
+  .load-more-btn { display: block; width: 100%; margin: 1rem 0; padding: 0.8rem; background: var(--bg-secondary); color: var(--accent); border: 1px dashed var(--accent); border-radius: var(--radius); cursor: pointer; font-size: 0.95rem; }
+  .load-more-btn:hover { background: var(--bg-tertiary); }
+  footer { text-align: center; padding: 1.5rem 1rem; color: var(--text-secondary); font-size: 0.82rem; }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  .top-actions { display: flex; gap: 0.4rem; align-items: center; }
+  .toast {
+    position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%);
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 0.6rem 1rem; box-shadow: var(--shadow); z-index: 100;
+    opacity: 0; transition: opacity 0.2s; pointer-events: none;
+  }
+  .toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <span class="logo">🇫🇷 <span data-t="appName">Vocab France</span></span>
+    <span class="spacer"></span>
+    <div class="top-actions">
+      <button class="icon-btn" id="btn-lang" title="Language / اللغة">AR</button>
+      <button class="icon-btn" id="btn-theme" title="Dark / light mode">🌙</button>
+      <button class="icon-btn" id="btn-stop" title="Stop audio / إيقاف الصوت">🔇</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <h1 data-t="title">مفردات الحياة اليومية والإدارة في فرنسا</h1>
+    <p data-t="subtitle">كلمات وأفعال وعبارات مترجمة للعربية والإنجليزية مع المستوى والسياق. اضغط 🔊 للنطق أو 🔁 للتكرار.</p>
+  </div>
+
+  <div class="toolbar">
+    <input id="search" type="search" data-t="searchPlaceholder" placeholder="ابحث بالفرنسية أو العربية أو الإنجليزية...">
+    <select class="ctl" id="rate" data-t="rateTitle" title="سرعة النطق">
+      <option value="0.6">0.6×</option>
+      <option value="0.8">0.8×</option>
+      <option value="1" selected>1×</option>
+      <option value="1.2">1.2×</option>
+    </select>
+    <select class="ctl" id="loopmode" data-t="loopModeTitle" title="محتوى التكرار">
+      <option value="fr,ar,en" selected>🔁 فرنسي + عربي + إنجليزي</option>
+      <option value="fr,ar">🔁 فرنسي + عربي</option>
+      <option value="fr">🔁 فرنسي فقط</option>
+    </select>
+    <select class="ctl" id="sort" data-t="sortTitle" title="الترتيب">
+      <option value="" data-t="sortDefault">الترتيب الافتراضي</option>
+      <option value="az" data-t="sortAZ">أبجدي A → Z</option>
+      <option value="za" data-t="sortZA">أبجدي Z → A</option>
+    </select>
+  </div>
+
+  <div class="filters" id="filters"></div>
+  <div class="stats" id="stats"></div>
+  <div id="list"></div>
+</main>
+
+<footer>
+  <a href="french.html" data-t="backToFrench">← العودة إلى دروس الفرنسية</a> · <span data-t="footerText">Built for daily life in France</span>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="data/vocab.js"></script>
+<script src="data/vocab-batch-02.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  var VOCAB = (window.VOCAB_DATA || []).concat(window.VOCAB_DATA_BATCH2 || []);
+  var list = document.getElementById('list');
+  var search = document.getElementById('search');
+  var filters = document.getElementById('filters');
+  var stats = document.getElementById('stats');
+  var rateSelect = document.getElementById('rate');
+  var loopSelect = document.getElementById('loopmode');
+  var sortSelect = document.getElementById('sort');
+  var toast = document.getElementById('toast');
+
+  var state = {
+    q: '',
+    levels: [],
+    contexts: [],
+    pos: [],
+    rate: parseFloat(localStorage.getItem('vocab_rate') || '1'),
+    sort: localStorage.getItem('vocab_sort') || '',
+    page: 1,
+    pageSize: 100,
+    loop: null,
+    langs: (localStorage.getItem('vocab_langs') || 'fr,ar,en').split(','),
+    theme: localStorage.getItem('vocab_theme') || 'dark',
+    uiLang: localStorage.getItem('vocab_ui_lang') || 'ar'
+  };
+
+  var VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
+  var speechRun = 0;
+
+  var UI = {
+    ar: {
+      appName: 'مفردات فرنسا',
+      title: 'مفردات الحياة اليومية والإدارة في فرنسا',
+      subtitle: 'كلمات وأفعال وعبارات مترجمة للعربية والإنجليزية مع المستوى والسياق.',
+      searchPlaceholder: 'ابحث بالفرنسية أو العربية أو الإنجليزية...',
+      rateTitle: 'سرعة النطق',
+      loopModeTitle: 'محتوى التكرار',
+      sortTitle: 'الترتيب',
+      sortDefault: 'الترتيب الافتراضي',
+      sortAZ: 'أبجدي A → Z',
+      sortZA: 'أبجدي Z → A',
+      stopAudio: 'إيقاف الصوت',
+      level: 'المستوى',
+      context: 'السياق',
+      pos: 'نوع الكلمة',
+      all: 'الكل',
+      pos_verb: 'فعل',
+      pos_adjective: 'صفة',
+      pos_noun: 'اسم',
+      pos_phrase: 'عبارة',
+      pos_other: 'آخر',
+      results: 'نتيجة',
+      noResults: 'لا توجد نتائج',
+      searchImages: 'صور Google',
+      searchAI: 'Google AI',
+      speak: 'نطق',
+      loop: 'تكرار',
+      loopFrenchArabicEnglish: '🔁 فرنسي + عربي + إنجليزي',
+      loopFrenchArabic: '🔁 فرنسي + عربي',
+      loopFrenchOnly: '🔁 فرنسي فقط',
+      backToFrench: '← العودة إلى دروس الفرنسية',
+      footerText: 'مخصص للحياة اليومية في فرنسا',
+      copied: 'تم نسخ النص',
+      loadMore: 'تحميل المزيد'
+    },
+    en: {
+      appName: 'France Vocab',
+      title: 'Daily & administrative vocabulary for France',
+      subtitle: 'Words, verbs and phrases with Arabic and English translations, level and context.',
+      searchPlaceholder: 'Search in French, Arabic or English...',
+      rateTitle: 'Speech rate',
+      loopModeTitle: 'Loop content',
+      sortTitle: 'Sort',
+      sortDefault: 'Default order',
+      sortAZ: 'Alphabetical A → Z',
+      sortZA: 'Alphabetical Z → A',
+      stopAudio: 'Stop audio',
+      level: 'Level',
+      context: 'Context',
+      pos: 'Word type',
+      all: 'All',
+      pos_verb: 'Verb',
+      pos_adjective: 'Adjective',
+      pos_noun: 'Noun',
+      pos_phrase: 'Phrase',
+      pos_other: 'Other',
+      results: 'result(s)',
+      noResults: 'No results',
+      searchImages: 'Images',
+      searchAI: 'Google AI',
+      speak: 'Speak',
+      loop: 'Loop',
+      loopFrenchArabicEnglish: '🔁 French + Arabic + English',
+      loopFrenchArabic: '🔁 French + Arabic',
+      loopFrenchOnly: '🔁 French only',
+      backToFrench: '← Back to French lessons',
+      footerText: 'Built for daily life in France',
+      copied: 'Copied',
+      loadMore: 'Load more'
+    },
+    fr: {
+      appName: 'Vocab France',
+      title: 'Vocabulaire quotidien et administratif en France',
+      subtitle: 'Mots, verbes et phrases traduits en arabe et en anglais, avec niveau et contexte.',
+      searchPlaceholder: 'Rechercher en français, arabe ou anglais...',
+      rateTitle: 'Vitesse',
+      loopModeTitle: 'Répétition',
+      sortTitle: 'Tri',
+      sortDefault: 'Ordre par défaut',
+      sortAZ: 'Alphabétique A → Z',
+      sortZA: 'Alphabétique Z → A',
+      stopAudio: 'Arrêter le son',
+      level: 'Niveau',
+      context: 'Contexte',
+      pos: 'Type de mot',
+      all: 'Tout',
+      pos_verb: 'Verbe',
+      pos_adjective: 'Adjectif',
+      pos_noun: 'Nom',
+      pos_phrase: 'Expression',
+      pos_other: 'Autre',
+      results: 'résultat(s)',
+      noResults: 'Aucun résultat',
+      searchImages: 'Images',
+      searchAI: 'Google IA',
+      speak: 'Écouter',
+      loop: 'Répéter',
+      loopFrenchArabicEnglish: '🔁 Français + Arabe + Anglais',
+      loopFrenchArabic: '🔁 Français + Arabe',
+      loopFrenchOnly: '🔁 Français seulement',
+      backToFrench: '← Retour aux leçons',
+      footerText: 'Pour la vie quotidienne en France',
+      copied: 'Copié',
+      loadMore: 'Charger plus'
+    }
+  };
+
+  var POS_LABELS = {
+    verb: { ar: 'فعل', en: 'Verb', fr: 'Verbe' },
+    adjective: { ar: 'صفة', en: 'Adjective', fr: 'Adjectif' },
+    noun: { ar: 'اسم', en: 'Noun', fr: 'Nom' },
+    phrase: { ar: 'عبارة', en: 'Phrase', fr: 'Expression' },
+    other: { ar: 'آخر', en: 'Other', fr: 'Autre' }
+  };
+  var POS_BY_LABEL = {};
+  Object.keys(POS_LABELS).forEach(function(k){
+    var p = POS_LABELS[k];
+    POS_BY_LABEL[p.ar.toLowerCase()] = k;
+    POS_BY_LABEL[p.en.toLowerCase()] = k;
+    POS_BY_LABEL[p.fr.toLowerCase()] = k;
+  });
+
+  var CTX_LABELS = {
+    daily: { ar: 'يومي', en: 'Daily', fr: 'Quotidien' },
+    cafe: { ar: 'مقهى', en: 'Café', fr: 'Café' },
+    restaurant: { ar: 'مطعم', en: 'Restaurant', fr: 'Restaurant' },
+    work: { ar: 'عمل', en: 'Work', fr: 'Travail' },
+    office: { ar: 'مكتب', en: 'Office', fr: 'Bureau' },
+    taxes: { ar: 'ضرائب', en: 'Taxes', fr: 'Impôts' },
+    prefecture: { ar: 'محافظة', en: 'Prefecture', fr: 'Préfecture' },
+    ofii: { ar: 'OFII', en: 'OFII', fr: 'OFII' },
+    ofpra: { ar: 'OFPRA', en: 'OFPRA', fr: 'OFPRA' },
+    redcross: { ar: 'صليب أحمر', en: 'Red Cross', fr: 'Croix-Rouge' },
+    health: { ar: 'صحة', en: 'Health', fr: 'Santé' },
+    housing: { ar: 'سكن', en: 'Housing', fr: 'Logement' },
+    bank: { ar: 'بنك', en: 'Bank', fr: 'Banque' },
+    transport: { ar: 'مواصلات', en: 'Transport', fr: 'Transports' },
+    shop: { ar: 'تسوق', en: 'Shopping', fr: 'Courses' },
+    school: { ar: 'مدرسة', en: 'School', fr: 'École' },
+    phone: { ar: 'هاتف', en: 'Phone', fr: 'Téléphone' },
+    post: { ar: 'بريد', en: 'Post', fr: 'Poste' },
+    car: { ar: 'سيارة', en: 'Car', fr: 'Voiture' },
+    services: { ar: 'خدمات', en: 'Services', fr: 'Services' },
+    france_travail: { ar: 'France Travail', en: 'France Travail', fr: 'France Travail' },
+    caf: { ar: 'CAF', en: 'CAF', fr: 'CAF' },
+    cpam: { ar: 'CPAM', en: 'CPAM', fr: 'CPAM' },
+    mairie: { ar: 'البلدية', en: 'Town hall', fr: 'Mairie' },
+    family: { ar: 'عائلة', en: 'Family', fr: 'Famille' },
+    weather: { ar: 'طقس', en: 'Weather', fr: 'Météo' }
+  };
+
+  function t(key){ return UI[state.uiLang][key] || UI.en[key] || UI.ar[key] || key; }
+  function ctxLabel(key){ var c = CTX_LABELS[key]; return c ? c[state.uiLang] || c.en : key; }
+  function posLabel(key){ var p = POS_LABELS[key]; return p ? p[state.uiLang] || p.en : key; }
+  function posLabelsText(key){ var p = POS_LABELS[key]; return p ? (p.ar + ' ' + p.en + ' ' + p.fr) : key; }
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  function init(){
+    document.documentElement.dataset.theme = state.theme;
+    document.documentElement.lang = state.uiLang;
+    document.documentElement.dir = state.uiLang === 'ar' ? 'rtl' : 'ltr';
+    rateSelect.value = state.rate;
+    loopSelect.value = state.langs.join(',');
+    sortSelect.value = state.sort;
+    buildFilters();
+    applyTranslations();
+    render();
+    bindEvents();
+    if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function(){});
+  }
+
+  function applyTranslations(){
+    document.querySelectorAll('[data-t]').forEach(function(el){
+      var key = el.dataset.t;
+      if(el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = t(key);
+      else if(el.tagName === 'SELECT') el.title = t(key);
+      else el.textContent = t(key);
+    });
+    var LOOP_KEYS = { 'fr,ar,en': 'loopFrenchArabicEnglish', 'fr,ar': 'loopFrenchArabic', 'fr': 'loopFrenchOnly' };
+    [].forEach.call(loopSelect.options, function(opt){ opt.textContent = t(LOOP_KEYS[opt.value]); });
+  }
+
+  function setUILang(lang){
+    state.uiLang = lang;
+    localStorage.setItem('vocab_ui_lang', lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.getElementById('btn-lang').textContent = lang.toUpperCase();
+    buildFilters();
+    applyTranslations();
+    render();
+  }
+
+  function buildFilters(){
+    var levels = ['A1','A2','B1','B2'];
+    var ctxs = {};
+    VOCAB.forEach(function(v){ (v.contexts||[]).forEach(function(c){ ctxs[c] = (ctxs[c]||0)+1; }); });
+    var sortedCtxs = Object.keys(ctxs).sort(function(a,b){ return ctxs[b]-ctxs[a] || a.localeCompare(b); });
+    var poss = ['verb','adjective','noun','phrase','other'];
+    var posCounts = {};
+    VOCAB.forEach(function(v){ var p = v.pos || 'other'; posCounts[p] = (posCounts[p]||0)+1; });
+
+    var html = '';
+    html += '<span style="color:var(--text-secondary);font-size:0.82rem;align-self:center;">' + t('level') + ':</span>';
+    levels.forEach(function(l){ html += chipHtml('level', l, l, state.levels.indexOf(l) !== -1); });
+    html += '<span style="width:0.4rem"></span>';
+    html += '<span style="color:var(--text-secondary);font-size:0.82rem;align-self:center;">' + t('context') + ':</span>';
+    sortedCtxs.forEach(function(c){ html += chipHtml('context', c, ctxLabel(c), state.contexts.indexOf(c) !== -1); });
+    html += '<span style="width:0.4rem"></span>';
+    html += '<span style="color:var(--text-secondary);font-size:0.82rem;align-self:center;">' + t('pos') + ':</span>';
+    poss.forEach(function(p){ if((posCounts[p]||0) > 0){ html += chipHtml('pos', p, posLabel(p) + ' (' + posCounts[p] + ')', state.pos.indexOf(p) !== -1); } });
+    filters.innerHTML = html;
+  }
+
+  function chipHtml(type, key, label, active){
+    return '<button class="filter-chip ' + (active?'active':'') + '" data-type="' + type + '" data-key="' + esc(key) + '">' + esc(label) + '</button>';
+  }
+
+  function filtered(){
+    var q = state.q.trim().toLowerCase();
+    var posMatchKey = q ? POS_BY_LABEL[q] : null;
+    var items = VOCAB.filter(function(v){
+      if(state.levels.length && state.levels.indexOf(v.level) === -1) return false;
+      if(state.contexts.length && !v.contexts.some(function(c){ return state.contexts.indexOf(c) !== -1; })) return false;
+      if(state.pos.length && state.pos.indexOf(v.pos || 'other') === -1) return false;
+      if(!q) return true;
+      if(posMatchKey) return v.pos === posMatchKey;
+      var ex = v.ex || {};
+      var hay = (v.fr + ' ' + (v.ar||'') + ' ' + (v.en||'') + ' ' + (v.usage||'') + ' ' + (v.contexts||[]).join(' ') + ' ' + (ex.fr||'') + ' ' + (ex.ar||'') + ' ' + (ex.en||'')).toLowerCase();
+      return hay.indexOf(q) !== -1;
+    });
+    if(state.sort === 'az') items.sort(function(a,b){ return a.fr.localeCompare(b.fr, 'fr'); });
+    else if(state.sort === 'za') items.sort(function(a,b){ return b.fr.localeCompare(a.fr, 'fr'); });
+    return items;
+  }
+
+  function aiQuery(v){
+    var prompts = {
+      ar: 'تصحيح وتحليل العبارة الفرنسية "' + v.fr + '" كلمة كلمة مع ترجمة كل كلمة والجملة كاملة إلى العربية والإنجليزية والفرنسية',
+      en: 'Correct and analyze the French phrase "' + v.fr + '" word by word, translate each word and the full phrase into Arabic, English, and French',
+      fr: 'Corriger et analyser la phrase française "' + v.fr + '" mot par mot, traduire chaque mot et la phrase complète en arabe, anglais et français'
+    };
+    return prompts[state.uiLang] || prompts.en;
+  }
+
+  function render(){
+    var items = filtered();
+    stats.textContent = items.length + ' ' + t('results') + (state.q ? ' · "' + esc(state.q) + '"' : '');
+    if(!items.length){ list.innerHTML = '<div class="empty">' + t('noResults') + '</div>'; return; }
+
+    var end = Math.min(items.length, state.page * state.pageSize);
+    var html = items.slice(0, end).map(function(v, idx){
+      var key = 'v' + idx;
+      var ex = v.ex ? '<div class="example"><div class="ex-fr" dir="ltr">' + esc(v.ex.fr) + '</div><div class="ex-ar">' + esc(v.ex.ar) + '</div>' + (v.ex.en ? '<div class="ex-en" dir="ltr">' + esc(v.ex.en) + '</div>' : '') + '</div>' : '';
+      var usage = v.usage ? '<div class="usage" dir="rtl">' + esc(v.usage) + '</div>' : '';
+      return '<div class="vocab-card" data-key="' + esc(key) + '" data-idx="' + idx + '">' +
+        '<div class="vocab-head">' +
+          '<div class="vocab-main">' +
+            '<div class="fr-line" dir="ltr">' + esc(v.fr) + '</div>' +
+            '<div class="ar-line">' + esc(v.ar) + '</div>' +
+            '<div class="en-line" dir="ltr">' + esc(v.en||'') + '</div>' +
+            '<div class="meta">' +
+              '<span class="level-pill">' + esc(v.level) + '</span>' +
+              (v.pos ? '<span class="pos-pill">' + esc(posLabel(v.pos)) + '</span>' : '') +
+              (v.contexts||[]).map(function(c){ return '<span class="ctx-pill">' + esc(ctxLabel(c)) + '</span>'; }).join('') +
+            '</div>' +
+            usage +
+            ex +
+          '</div>' +
+        '</div>' +
+        '<div class="card-actions">' +
+          '<button class="speak-btn" data-idx="' + idx + '">🔊 ' + t('speak') + '</button>' +
+          '<button class="loop-btn" data-idx="' + idx + '">🔁 ' + t('loop') + '</button>' +
+          '<a class="google-btn" href="https://www.google.com/search?udm=2&amp;q=' + encodeURIComponent(v.fr) + '" target="_blank" rel="noopener">🖼️ ' + t('searchImages') + '</a>' +
+          '<a class="ai-btn" href="https://www.google.com/search?udm=50&amp;q=' + encodeURIComponent(aiQuery(v)) + '" target="_blank" rel="noopener">🔍 ' + t('searchAI') + '</a>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+    if(end < items.length){
+      html += '<button class="load-more-btn" id="load-more" data-t="loadMore">' + esc(t('loadMore')) + ' (' + (items.length - end) + ')</button>';
+    }
+    list.innerHTML = html;
+  }
+
+  function itemByIdx(idx){ return filtered()[idx]; }
+
+  function nativeTTS(){
+    if(window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech) return window.Capacitor.Plugins.TextToSpeech;
+    if(window.Capacitor && window.Capacitor.registerPlugin){
+      window.Capacitor.Plugins = window.Capacitor.Plugins || {};
+      window.Capacitor.Plugins.TextToSpeech = window.Capacitor.registerPlugin('TextToSpeech');
+      return window.Capacitor.Plugins.TextToSpeech;
+    }
+    return null;
+  }
+
+  function pickVoice(lang){
+    if(!('speechSynthesis' in window)) return null;
+    var voices = window.speechSynthesis.getVoices() || [];
+    var code = VOICE_LANG[lang];
+    var exact = voices.filter(function(v){ return v.lang && v.lang.replace('_','-') === code; })[0];
+    if(exact) return exact;
+    var prefix = code.split('-')[0];
+    return voices.filter(function(v){ return v.lang && v.lang.toLowerCase().indexOf(prefix) === 0; })[0] || null;
+  }
+
+  function nativeStop(){ var tts = nativeTTS(); if(!tts) return Promise.resolve(); return tts.stop(); }
+  function nativeSpeak(text, lang){
+    var tts = nativeTTS(); if(!tts) return Promise.reject('no tts');
+    return tts.speak({ text: text, lang: VOICE_LANG[lang] || 'en-US', rate: state.rate, queueStrategy: 1 });
+  }
+
+  function utter(text, lang){
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = VOICE_LANG[lang];
+    u.rate = lang === 'fr' ? state.rate * 0.95 : state.rate;
+    var v = pickVoice(lang);
+    if(v) u.voice = v;
+    return u;
+  }
+
+  function stopSpeech(){
+    state.loop = null;
+    speechRun++;
+    if(nativeTTS()) nativeStop();
+    else if('speechSynthesis' in window) window.speechSynthesis.cancel();
+    highlight(null);
+    document.getElementById('btn-stop').classList.remove('active');
+  }
+
+  function highlight(key){
+    document.querySelectorAll('.vocab-card').forEach(function(el){ el.classList.toggle('playing', key && el.dataset.key === key); });
+    document.querySelectorAll('.loop-btn').forEach(function(btn){
+      var on = state.loop && state.loop.key === btn.closest('.vocab-card').dataset.key;
+      btn.classList.toggle('active', !!on);
+      btn.textContent = (on ? '⏸ ' : '🔁 ') + t('loop');
+    });
+  }
+
+  function speakEntry(entry, langs, key, onDone){
+    var seq = [];
+    langs.forEach(function(l){ if(entry[l]) seq.push({ lang: l, text: entry[l] }); });
+    if(entry.ex){
+      langs.forEach(function(l){ var t = entry.ex[l]; if(t) seq.push({ lang: l, text: t }); });
+    }
+    var i = 0;
+    var run = ++speechRun;
+    if(nativeTTS()){
+      nativeStop();
+      (function next(){
+        if(run !== speechRun) return;
+        if(i >= seq.length){ highlight(null); if(onDone) onDone(); return; }
+        var step = seq[i++];
+        highlight(key);
+        nativeSpeak(step.text, step.lang).then(function(){ if(run===speechRun) setTimeout(next, 200); }).catch(function(){ if(run===speechRun) setTimeout(next, 200); });
+      })();
+      return;
+    }
+    if(!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    (function next(){
+      if(run !== speechRun) return;
+      if(i >= seq.length){ highlight(null); if(onDone) onDone(); return; }
+      var step = seq[i++];
+      var u = utter(step.text, step.lang);
+      highlight(key);
+      u.onend = function(){ if(run===speechRun) setTimeout(next, 200); };
+      u.onerror = function(){ if(run===speechRun) setTimeout(next, 200); };
+      window.speechSynthesis.speak(u);
+    })();
+  }
+
+  function toggleLoop(entry, key){
+    if(state.loop && state.loop.key === key){ stopSpeech(); return; }
+    state.loop = { key: key };
+    document.getElementById('btn-stop').classList.add('active');
+    highlight(key);
+    (function cycle(){
+      if(!state.loop || state.loop.key !== key) return;
+      speakEntry(entry, state.langs, key, function(){
+        if(!state.loop || state.loop.key !== key) return;
+        setTimeout(cycle, 700);
+      });
+    })();
+  }
+
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 1600);
+  }
+
+  function bindEvents(){
+    search.addEventListener('input', function(){ state.q = search.value; state.page = 1; render(); });
+    rateSelect.addEventListener('change', function(){ state.rate = parseFloat(rateSelect.value); localStorage.setItem('vocab_rate', state.rate); });
+    loopSelect.addEventListener('change', function(){ state.langs = loopSelect.value.split(','); localStorage.setItem('vocab_langs', loopSelect.value); });
+    sortSelect.addEventListener('change', function(){ state.sort = sortSelect.value; localStorage.setItem('vocab_sort', state.sort); state.page = 1; render(); });
+
+    document.getElementById('btn-stop').addEventListener('click', stopSpeech);
+    document.getElementById('btn-theme').addEventListener('click', function(){
+      state.theme = state.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = state.theme;
+      localStorage.setItem('vocab_theme', state.theme);
+    });
+    document.getElementById('btn-lang').addEventListener('click', function(){
+      var next = state.uiLang === 'ar' ? 'en' : state.uiLang === 'en' ? 'fr' : 'ar';
+      setUILang(next);
+    });
+
+    filters.addEventListener('click', function(e){
+      var chip = e.target.closest('.filter-chip'); if(!chip) return;
+      var type = chip.dataset.type, key = chip.dataset.key;
+      var arr = type === 'level' ? state.levels : type === 'context' ? state.contexts : state.pos;
+      var i = arr.indexOf(key);
+      if(i === -1) arr.push(key); else arr.splice(i, 1);
+      buildFilters();
+      state.page = 1;
+      render();
+    });
+
+    list.addEventListener('click', function(e){
+      if(e.target.closest('#load-more')){ state.page++; render(); return; }
+      var card = e.target.closest('.vocab-card'); if(!card) return;
+      var idx = parseInt(card.dataset.idx, 10);
+      var entry = itemByIdx(idx);
+      if(!entry) return;
+
+      if(e.target.closest('.speak-btn')){ stopSpeech(); speakEntry(entry, state.langs, null); return; }
+      if(e.target.closest('.loop-btn')){ toggleLoop(entry, card.dataset.key); return; }
+      /* image and AI search are <a> links; no extra click handling needed */
+    });
+
+    window.addEventListener('beforeunload', stopSpeech);
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>
