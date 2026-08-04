@@ -9377,16 +9377,16 @@ window.VOCAB_DATA = [
     "fr": "Bâiller",
     "ar": "يتثاءب",
     "en": "To yawn",
-    "level": "A1",
+    "level": "A2",
     "contexts": [
       "daily",
       "health"
     ],
     "pos": "verb",
     "ex": {
-      "fr": "Je bâille parce que je suis fatigué.",
-      "ar": "أتثاءب لأنني متعب.",
-      "en": "I yawn because I am tired."
+      "fr": "Il bâille tout le temps, il est fatigué.",
+      "ar": "عم يتثاءب طول الوقت، هو تعبان.",
+      "en": "He keeps yawning, he's tired."
     }
   },
   {
@@ -9407,17 +9407,521 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Baigner",
-    "ar": "يستحم / يسبح (في البحر أو المسبح) (se baigner)",
-    "en": "To bathe / swim (in the sea or pool) (se baigner)",
-    "level": "A1",
+    "ar": "يحمّم / يستحم / يغطس (se baigner)",
+    "en": "To bathe / to bathe someone / to swim (se baigner)",
+    "level": "A2",
     "contexts": [
       "daily"
     ],
     "pos": "verb",
     "ex": {
-      "fr": "Je me baigne dans la mer en été.",
-      "ar": "أسبح في البحر في الصيف.",
-      "en": "I swim in the sea in summer."
+      "fr": "Je baigne mon fils tous les soirs.",
+      "ar": "بحمّم ابني كل مسا.",
+      "en": "I bathe my son every evening."
     }
+  },
+  {
+    "fr": "Bénir",
+    "ar": "يبارك",
+    "en": "To bless",
+    "ex": {
+      "fr": "Le prêtre a béni les mariés.",
+      "ar": "بارك الكاهن العروسين.",
+      "en": "The priest blessed the newlyweds."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bosser",
+    "ar": "يشتغل (عامية شائعة جداً)",
+    "en": "To work (colloquial)",
+    "ex": {
+      "fr": "Je bosse jusqu'à 18h aujourd'hui.",
+      "ar": "بشتغل لحتى الساعة ستة اليوم.",
+      "en": "I'm working until 6pm today."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ]
+  },
+  {
+    "fr": "Boucher",
+    "ar": "يسد / يعيق",
+    "en": "To block / To cork",
+    "ex": {
+      "fr": "L'évier est bouché.",
+      "ar": "المغسلة مسدودة.",
+      "en": "The sink is blocked."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bouffer",
+    "ar": "يأكل (عامية)",
+    "en": "To eat (colloquial)",
+    "ex": {
+      "fr": "On va bouffer un truc vite fait ?",
+      "ar": "منروح ناكل شي بسرعة؟",
+      "en": "Shall we grab a quick bite?"
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Boutonner",
+    "ar": "يزرر",
+    "en": "To button up",
+    "ex": {
+      "fr": "Boutonne ta chemise, il fait froid.",
+      "ar": "زرر قميصك، الجو بارد.",
+      "en": "Button up your shirt, it's cold."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Brasser",
+    "ar": "يخلط / يمزج",
+    "en": "To mix / To brew",
+    "ex": {
+      "fr": "Cette entreprise brasse de la bière artisanale.",
+      "ar": "هالشركة بتصنع بيرة حرفية.",
+      "en": "This company brews craft beer."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ]
+  },
+  {
+    "fr": "Se balader",
+    "ar": "يتمشى / يتنزه",
+    "en": "To go for a walk / stroll",
+    "ex": {
+      "fr": "On se balade dans le parc ce week-end ?",
+      "ar": "منتمشى بالحديقة هالويكند؟",
+      "en": "Shall we go for a walk in the park this weekend?"
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bafouiller",
+    "ar": "يتلعثم / يتكلم بارتباك",
+    "en": "To mumble",
+    "ex": {
+      "fr": "Il a bafouillé quelques excuses.",
+      "ar": "تلعثم وقال شوي أعذار.",
+      "en": "He mumbled a few excuses."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Boiter",
+    "ar": "يعرج",
+    "en": "To limp",
+    "ex": {
+      "fr": "Depuis son accident, il boite un peu.",
+      "ar": "من بعد حادثته، عم يعرج شوي.",
+      "en": "Since his accident, he limps a little."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "health"
+    ]
+  },
+  {
+    "fr": "Bouquiner",
+    "ar": "يقرأ (عامية)",
+    "en": "To read (colloquial)",
+    "ex": {
+      "fr": "J'aime bouquiner le soir avant de dormir.",
+      "ar": "بحب اقرا بالمسا قبل ما نام.",
+      "en": "I like to read in the evening before sleeping."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bredouiller",
+    "ar": "يتلعثم",
+    "en": "To stammer / mumble",
+    "ex": {
+      "fr": "Elle a bredouillé une réponse confuse.",
+      "ar": "تلعثمت وجاوبت جواب مو واضح.",
+      "en": "She stammered a confused answer."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Brunir",
+    "ar": "يسمّر / يصبح بنياً",
+    "en": "To tan / To turn brown",
+    "ex": {
+      "fr": "Sa peau a bruni au soleil.",
+      "ar": "جلده اسمر من الشمس.",
+      "en": "His skin has tanned in the sun."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Buller",
+    "ar": "يرتاح / يكسل (عامية)",
+    "en": "To chill / To do nothing (slang)",
+    "ex": {
+      "fr": "Aujourd'hui, je bulle devant la télé.",
+      "ar": "اليوم عم كسل قدام التلفزيون.",
+      "en": "Today I'm just chilling in front of the TV."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bazarder",
+    "ar": "يتخلص من (عامية)",
+    "en": "To get rid of (colloquial)",
+    "ex": {
+      "fr": "J'ai bazardé mes vieux meubles.",
+      "ar": "تخلصت من الموبيليا القديمة تبعي.",
+      "en": "I got rid of my old furniture."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bifurquer",
+    "ar": "ينعطف / يغير اتجاهه",
+    "en": "To branch off / To turn",
+    "ex": {
+      "fr": "La route bifurque à gauche après le pont.",
+      "ar": "الطريق بينعطف يسار بعد الجسر.",
+      "en": "The road branches off to the left after the bridge."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "transport"
+    ]
+  },
+  {
+    "fr": "Botter",
+    "ar": "يركل / يعجبني (تعبير: ça me botte)",
+    "en": "To kick / To appeal to (slang)",
+    "ex": {
+      "fr": "Ce projet me botte vraiment.",
+      "ar": "هالمشروع عاجبني كتير.",
+      "en": "This project really appeals to me."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Braver",
+    "ar": "يتحدى",
+    "en": "To brave / To defy",
+    "ex": {
+      "fr": "Ils ont bravé la tempête pour rentrer.",
+      "ar": "تحدوا العاصفة لحتى يرجعوا عالبيت.",
+      "en": "They braved the storm to get home."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bombarder",
+    "ar": "يقصف",
+    "en": "To bomb / To bombard",
+    "ex": {
+      "fr": "La ville a été bombardée pendant la guerre.",
+      "ar": "المدينة انقصفت خلال الحرب.",
+      "en": "The city was bombed during the war."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Brimer",
+    "ar": "يتنمر / يقهر",
+    "en": "To bully / To oppress",
+    "ex": {
+      "fr": "Il se sentait brimé par son chef.",
+      "ar": "كان حاسس حاله مقهور من مديره.",
+      "en": "He felt bullied by his boss."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ]
+  },
+  {
+    "fr": "Brusquer",
+    "ar": "يتصرف بفظاظة / يستعجل",
+    "en": "To rush / To be abrupt with",
+    "ex": {
+      "fr": "Ne le brusque pas, il a besoin de temps.",
+      "ar": "لا تستعجل عليه، هو محتاج وقت.",
+      "en": "Don't rush him, he needs time."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Brutaliser",
+    "ar": "يعامل بعنف",
+    "en": "To brutalize / To rough up",
+    "ex": {
+      "fr": "Personne ne doit être brutalisé au travail.",
+      "ar": "ما حدا لازم يتعامل معه بعنف بالشغل.",
+      "en": "No one should be roughed up at work."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Braiser",
+    "ar": "يطهو على نار هادئة (طبخ)",
+    "en": "To braise (cooking)",
+    "ex": {
+      "fr": "On va braiser la viande pendant deux heures.",
+      "ar": "رح نطهي اللحمة عنار هادئة لمدة ساعتين.",
+      "en": "We're going to braise the meat for two hours."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bichonner",
+    "ar": "يدلل / يعتني بعناية",
+    "en": "To pamper",
+    "ex": {
+      "fr": "Elle bichonne toujours ses plantes.",
+      "ar": "هي دايماً بتدلل نباتاتها.",
+      "en": "She always pampers her plants."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Banaliser",
+    "ar": "يجعله أمراً عادياً",
+    "en": "To normalize / To trivialize",
+    "ex": {
+      "fr": "Il ne faut pas banaliser ce genre de comportement.",
+      "ar": "ما لازم نخلي هالتصرف يصير شي عادي.",
+      "en": "This kind of behavior shouldn't be normalized."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bonifier",
+    "ar": "يحسّن",
+    "en": "To improve / To enhance",
+    "ex": {
+      "fr": "Le temps a bonifié ce vin.",
+      "ar": "الوقت حسّن هالنبيذ.",
+      "en": "Time has improved this wine."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Borner",
+    "ar": "يحدد / يقيد",
+    "en": "To limit / To confine",
+    "ex": {
+      "fr": "Il s'est borné à répondre par oui ou non.",
+      "ar": "اكتفى بالجواب بس بنعم أو لا.",
+      "en": "He limited himself to answering yes or no."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ]
+  },
+  {
+    "fr": "Bafouer",
+    "ar": "يستهزئ / يخالف بازدراء",
+    "en": "To flout / To scorn",
+    "ex": {
+      "fr": "Cette décision bafoue les règles de l'entreprise.",
+      "ar": "هالقرار بيخالف قوانين الشركة بازدراء.",
+      "en": "This decision flouts the company's rules."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ]
+  },
+  {
+    "fr": "Beugler",
+    "ar": "يزعق / يخور",
+    "en": "To bellow / To yell",
+    "ex": {
+      "fr": "La vache beugle dans le champ.",
+      "ar": "البقرة عم تخور بالحقل.",
+      "en": "The cow is bellowing in the field."
+    },
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Barbouiller",
+    "ar": "يلطخ / يخربش (ويعني أيضاً: يسبب الغثيان)",
+    "en": "To daub / To smear (also: to make nauseous)",
+    "ex": {
+      "fr": "L'enfant a barbouillé le mur avec de la peinture.",
+      "ar": "لطّخ الطفل الجدار بالدهان.",
+      "en": "The child smeared the wall with paint."
+    },
+    "level": "B1",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "pos": "verb"
+  },
+  {
+    "fr": "Bloguer",
+    "ar": "يكتب في مدونة",
+    "en": "To blog",
+    "ex": {
+      "fr": "Elle blogue sur la cuisine française depuis deux ans.",
+      "ar": "هي تكتب في مدونة عن الطبخ الفرنسي منذ سنتين.",
+      "en": "She has been blogging about French cuisine for two years."
+    },
+    "level": "B1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "verb"
+  },
+  {
+    "fr": "Butiner",
+    "ar": "يجمع الرحيق (ومجازاً: يتصفح أو ينقل بتنقل عشوائي)",
+    "en": "To gather nectar (figuratively: to browse around)",
+    "ex": {
+      "fr": "Les abeilles butinent les fleurs du jardin.",
+      "ar": "النحل يجمع الرحيق من أزهار الحديقة.",
+      "en": "Bees gather nectar from the garden flowers."
+    },
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb"
+  },
+  {
+    "fr": "Bourlinguer",
+    "ar": "يجوب العالم / يتنقل كثيراً (عامية محببة)",
+    "en": "To travel extensively / To globe-trot",
+    "ex": {
+      "fr": "Il a bourlingué pendant dix ans avant de s'installer ici.",
+      "ar": "جاب البلاد لمدة عشر سنوات قبل أن يستقر هنا.",
+      "en": "He travelled extensively for ten years before settling here."
+    },
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb"
+  },
+  {
+    "fr": "Bomber",
+    "ar": "ينفخ (الصدر) / (وعامياً: يرش الغرافيتي)",
+    "en": "To puff out (chest) / (slang: to spray paint graffiti)",
+    "ex": {
+      "fr": "Il bombe le torse pour montrer sa fierté.",
+      "ar": "ينفخ صدره ليعبر عن فخره.",
+      "en": "He puffs out his chest to show his pride"
+    },
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb"
   }
 ];

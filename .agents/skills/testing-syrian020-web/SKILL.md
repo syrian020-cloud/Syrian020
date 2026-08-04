@@ -109,20 +109,25 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Google search links will often hit a reCAPTCHA from a VM IP; that is expected. Verify the generated URL, not the results page.
 - In Chrome for Testing, opening a Google AI Mode (`udm=50`) link may crash the entire browser process. If this happens, verify the generated `href` via CDP (`document.querySelector('.ai-btn').getAttribute('href')`) or by overriding `window.open` instead of clicking.
 
-## B-verbs batch (dross-v99)
+## B-verbs batch (dross-v100)
 
-- `data/vocab.js` now contains **588** entries. `data/vocab-batch-02.js` is still empty.
-- Cache name is `dross-v99`.
-- Letter chip counts: `A (550)`, `B (38)`, all other letters `0`.
-- POS counts: `verb` **159**, `adjective` 167, `noun` 80, `phrase` 170, `other` 12.
-- Added common verbs: `Bouder`, `Bâiller`, `Brouiller`, `Baigner`, `Basculer`.
+- `data/vocab.js` now contains **621** entries. `data/vocab-batch-02.js` is still empty.
+- Cache name is `dross-v100`.
+- Letter chip counts: `A (550)`, `B (70)`, all other letters `0`.
+- POS counts: `verb` **192**, `adjective` 167, `noun` 80, `phrase` 170, `other` 12.
+- Added common verbs:
+  - `Bouder` → example `Il boude depuis ce matin.`; contexts `daily`, `family`.
+  - `Bâiller` → example `Je bâille parce que je suis fatigué.`; contexts `daily`, `health`.
+  - `Brouiller` → example `Je brouille les œufs pour le petit-déjeuner.`; contexts `daily`, `services`.
+  - `Baigner` → example `Je me baigne dans la mer en été.`; contexts `daily`.
+  - `Basculer` → example `Il faut basculer vers une autre page.`; contexts `daily`, `services`, `work`.
 - Removed rare/old/agricultural B verbs including: `Breveter`, `Bipper`, `Bourrer`, `Broncher`, `Bruiner`, `Budgétiser`, `Buter`, `Bâcler`, `Bannir`, `Baptiser`, `Bidonner`, `Blaguer`, `Blâmer`, `Bourdonner`, `Barder`, `Barrer`, `Bastonner`, `Bêcher`, `Bégayer`, `Biner`, `Bivouaquer`, `Brader`, `Broyer`, `Brouter`, `Bidouiller`, `Brailler`, `Bétonner`, `Bluffer`, `Bousiller`, `Brider`, `Broder`, `Bruncher`, `Besogner`, `Babiller`, `Barboter`, `Barguigner`, `Bénévoler`, `Bâillonner`, `Baratter`, `Biffer`, `Baragouiner`, `Bâfrer`.
 - Search examples:
   - `Boire` → 1 result; example `Je bois beaucoup d'eau.`; Arabic `يشرب`.
   - `Bloquer` → 1 result; example `Ma carte bancaire est bloquée.`; contexts include `bank`.
   - `Bénéficier` → 1 result; example `Je bénéficie de l'aide au logement.`
   - Arabic `يشرب` finds `Boire`.
-- The `firstLetter()` function normalizes leading diacritics (`Bénéficier` → `B`), so `B` letter chips count entries that start with `B` or accented `B`.
+- The `firstLetter()` function normalizes leading diacritics (`Bénéficier` → `B`) and strips leading reflexive pronouns (`Se balader` → `B`), so `B` letter chips count entries that start with `B`, accented `B`, or `Se b...`.
 
 ## Modernized `vocab.html` UI (dross-v95)
 
@@ -136,7 +141,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v99`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v100`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();

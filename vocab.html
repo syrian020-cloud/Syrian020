@@ -376,6 +376,7 @@
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
   function firstLetter(fr){
     var s = String(fr || '').replace(/^[^A-Za-z\u00C0-\u024F]+/,'');
+    s = s.replace(/^(Se |s'|S')/i,'');
     if(!s) return '#';
     var base = s.charAt(0).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();
     if(/[A-Z]/.test(base)) return base;
