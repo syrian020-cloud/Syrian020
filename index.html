@@ -967,6 +967,30 @@
       touch-action: none; cursor: crosshair; z-index: 2;
     }
     .btn-notebook-card { background: transparent; border: none; font-size: 1.3rem; cursor: pointer; padding: 0.2rem; line-height: 1; }
+    .btn-ai-search-card { background: transparent; border: none; font-size: 1.3rem; cursor: pointer; padding: 0.2rem; line-height: 1; }
+
+    .ai-search-overlay { position: fixed; inset: 0; z-index: 4100; background: #fff; color: #222; display: flex; flex-direction: column; padding: 1rem; }
+    .ai-search-overlay.hidden { display: none; }
+    .ai-search-header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 0.8rem; border-bottom: 1px solid #eee; }
+    .ai-search-header h3 { margin: 0; font-size: 1.2rem; color: #333; }
+    .ai-search-header button { background: #f5f5f5; border: 1px solid #ddd; border-radius: 10px; width: 38px; height: 38px; font-size: 1.3rem; cursor: pointer; }
+    .ai-search-content { flex: 1; overflow-y: auto; padding: 1rem 0; }
+    .ai-phrase-box { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1rem; }
+    .ai-phrase-line { padding: 0.7rem 1rem; border-radius: 14px; font-weight: 600; }
+    .ai-phrase-line.fr { background: #fff3e0; color: #e65100; }
+    .ai-phrase-line.ar { background: #e0f7fa; color: #006064; direction: rtl; }
+    .ai-phrase-line.en { background: #e3f2fd; color: #0d47a1; }
+    .ai-phrase-line small { display: block; font-size: 0.7rem; opacity: 0.7; font-weight: 400; margin-bottom: 0.2rem; }
+    .ai-words-title { font-size: 1rem; color: #555; margin: 0.8rem 0 0.4rem; }
+    .ai-words-table { width: 100%; border-collapse: collapse; }
+    .ai-words-table th, .ai-words-table td { padding: 0.6rem; border: 1px solid #eee; text-align: center; font-size: 0.95rem; }
+    .ai-words-table th { background: #f8f9fa; color: #555; font-weight: 600; }
+    .ai-words-table td.fr { color: #e65100; font-weight: 600; }
+    .ai-words-table td.ar { color: #006064; direction: rtl; font-weight: 600; }
+    .ai-words-table td.en { color: #0d47a1; font-weight: 600; }
+    .ai-search-actions { display: flex; gap: 0.6rem; justify-content: center; padding-top: 0.8rem; border-top: 1px solid #eee; }
+    .btn-ai-search { flex: 1; padding: 0.9rem; border: none; border-radius: 14px; background: linear-gradient(135deg, #4285f4, #34a853); color: #fff; font-weight: 700; cursor: pointer; }
+    .btn-ai-close { padding: 0.9rem 1.2rem; border: 1px solid #ddd; border-radius: 14px; background: #f5f5f5; color: #555; font-weight: 600; cursor: pointer; }
 
     .toast {
       position: fixed;
@@ -1272,6 +1296,18 @@
     </div>
   </div>
 
+  <div id="ai-search-overlay" class="ai-search-overlay hidden">
+    <div class="ai-search-header">
+      <h3 id="ai-search-title">تحليل العبارة</h3>
+      <button onclick="closeAiSearch()" aria-label="Close">✕</button>
+    </div>
+    <div class="ai-search-content" id="ai-search-content"></div>
+    <div class="ai-search-actions">
+      <button class="btn-ai-search" id="btn-ai-search-prompt" onclick="searchGoogleAiPhrase()">بحث في Google AI</button>
+      <button class="btn-ai-close" id="btn-ai-search-close" onclick="closeAiSearch()">إغلاق</button>
+    </div>
+  </div>
+
   <script>
     // --- Translations ---
     const i18n = {
@@ -1301,6 +1337,7 @@
         confirmDelete: "هل تريد حذف هذا الدرس؟",
         play: "تشغيل", pause: "إيقاف", edit: "تعديل", delete: "حذف", repeat: "تكرار العبارة",
         words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "العبارات", notebook: "دفتر", saveCue: "حفظ",
+        aiSearch: "تحليل Google AI", phraseAnalysis: "تحليل العبارة", searchGoogleAI: "بحث في Google AI", wordByWord: "كلمة بكلمة",
         close: "إغلاق", listen: "استماع", repeatWord: "تكرار",
         frenchWords: "كلمات فرنسية", englishWords: "كلمات إنجليزية", arabicWords: "كلمات عربية",
         downloadVideo: "تحميل الفيديو", downloadAudio: "تحميل الصوت",
@@ -1341,6 +1378,7 @@
         confirmDelete: "Supprimer cette leçon ?",
         play: "Lire", pause: "Pause", edit: "Modifier", delete: "Supprimer", repeat: "Répéter la phrase",
         words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Les phrases", notebook: "Cahier", saveCue: "Enregistrer",
+        aiSearch: "Analyse Google AI", phraseAnalysis: "Analyse de la phrase", searchGoogleAI: "Rechercher sur Google AI", wordByWord: "mot à mot",
         close: "Fermer", listen: "Écouter", repeatWord: "Répéter",
         frenchWords: "Mots français", englishWords: "Mots anglais", arabicWords: "Mots arabes",
         downloadVideo: "Télécharger la vidéo", downloadAudio: "Télécharger l'audio",
@@ -1381,6 +1419,7 @@
         confirmDelete: "Delete this lesson?",
         play: "Play", pause: "Pause", edit: "Edit", delete: "Delete", repeat: "Repeat phrase",
         words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "The Phrases", notebook: "Notebook", saveCue: "Save",
+        aiSearch: "Google AI analysis", phraseAnalysis: "Phrase analysis", searchGoogleAI: "Search on Google AI", wordByWord: "word by word",
         close: "Close", listen: "Listen", repeatWord: "Repeat",
         frenchWords: "French words", englishWords: "English words", arabicWords: "Arabic words",
         downloadVideo: "Download video", downloadAudio: "Download audio",
@@ -1435,7 +1474,8 @@
       notebookScale: 1.25,
       notebookPalette: true,
       notebookHistory: [],
-      notebookGrid: true
+      notebookGrid: true,
+      aiSearchIndex: null
     };
 
     const DB_NAME = 'videoSubtitleDB';
@@ -2422,6 +2462,7 @@
             <button class="btn-edit-sentence" onclick="event.stopPropagation(); toggleSentenceEdit(${i})" title="تعديل">✏️</button>
             <button onclick="event.stopPropagation(); jumpToCue(${i})">${formatDuration(cue.start)}</button>
             <button class="btn-notebook-card" onclick="event.stopPropagation(); openNotebook(${i})" title="${t('notebook')}">📝</button>
+            <button class="btn-ai-search-card" onclick="event.stopPropagation(); openAiSearch(${i})" title="${t('aiSearch')}">🤖</button>
           </div>
         </div>
       `;}).join('');
@@ -2994,6 +3035,66 @@
       if (!text) return;
       const lang = /[\u0600-\u06FF]/.test(text) ? 'ar-SA' : (/[\u00C0-\u024F]/.test(text) ? 'fr-FR' : 'en-US');
       ttsSpeak({ text, lang });
+    };
+
+    function renderAiSearchOverlay() {
+      const titleEl = document.getElementById('ai-search-title');
+      const content = document.getElementById('ai-search-content');
+      const searchBtn = document.getElementById('btn-ai-search-prompt');
+      const closeBtn = document.getElementById('btn-ai-search-close');
+      if (titleEl) titleEl.textContent = t('phraseAnalysis');
+      if (searchBtn) searchBtn.textContent = t('searchGoogleAI');
+      if (closeBtn) closeBtn.textContent = t('close');
+      const cue = state.currentCues[state.aiSearchIndex];
+      if (!cue) { closeAiSearch(); return; }
+      const fr = getCueLineByLang(cue, 'fr') || cue.text.split('\n')[0] || '';
+      const ar = getCueLineByLang(cue, 'ar') || '';
+      const en = getCueLineByLang(cue, 'en') || '';
+      const frWords = fr.trim().split(/\s+/).filter(Boolean);
+      const arWords = ar.trim().split(/\s+/).filter(Boolean);
+      const enWords = en.trim().split(/\s+/).filter(Boolean);
+      const max = Math.max(frWords.length, arWords.length, enWords.length);
+      let rows = '';
+      for (let i = 0; i < max; i++) {
+        rows += `<tr><td class="fr">${escapeHtml(frWords[i] || '-')}</td><td class="ar">${escapeHtml(arWords[i] || '-')}</td><td class="en">${escapeHtml(enWords[i] || '-')}</td></tr>`;
+      }
+      content.innerHTML = `
+        <div class="ai-phrase-box">
+          <div class="ai-phrase-line fr"><small>FR</small>${escapeHtml(fr)}</div>
+          ${ar ? `<div class="ai-phrase-line ar"><small>AR</small>${escapeHtml(ar)}</div>` : ''}
+          ${en ? `<div class="ai-phrase-line en"><small>EN</small>${escapeHtml(en)}</div>` : ''}
+        </div>
+        <h4 class="ai-words-title">${t('wordByWord')}</h4>
+        <table class="ai-words-table"><thead><tr><th>FR</th><th>AR</th><th>EN</th></tr></thead><tbody>${rows}</tbody></table>
+      `;
+    }
+
+    window.openAiSearch = function(i) {
+      state.aiSearchIndex = i;
+      renderAiSearchOverlay();
+      document.getElementById('ai-search-overlay').classList.remove('hidden');
+      const video = document.getElementById('lesson-video');
+      if (video && !video.paused) video.pause();
+    };
+
+    window.closeAiSearch = function() {
+      document.getElementById('ai-search-overlay').classList.add('hidden');
+      state.aiSearchIndex = null;
+    };
+
+    window.searchGoogleAiPhrase = function() {
+      const cue = state.currentCues[state.aiSearchIndex];
+      if (!cue) return;
+      const fr = getCueLineByLang(cue, 'fr') || cue.text.split('\n')[0] || '';
+      const ar = getCueLineByLang(cue, 'ar') || '';
+      const en = getCueLineByLang(cue, 'en') || '';
+      const prompt = `Analyze, correct if needed, and translate the French phrase word by word into Arabic and English.\nPhrase: "${fr}"\nArabic: "${ar}"\nEnglish: "${en}"\nProvide full meaning, pronunciation tips, and grammar notes.`;
+      const url = 'https://gemini.google.com/app?prompt=' + encodeURIComponent(prompt);
+      if (window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Browser) {
+        Capacitor.Plugins.Browser.open({ url });
+      } else {
+        window.open(url, '_blank');
+      }
     };
 
     async function saveLesson() {
