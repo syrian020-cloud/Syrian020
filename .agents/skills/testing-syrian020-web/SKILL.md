@@ -109,9 +109,19 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Google search links will often hit a reCAPTCHA from a VM IP; that is expected. Verify the generated URL, not the results page.
 - In Chrome for Testing, opening a Google AI Mode (`udm=50`) link may crash the entire browser process. If this happens, verify the generated `href` via CDP (`document.querySelector('.ai-btn').getAttribute('href')`) or by overriding `window.open` instead of clicking.
 
+## Modernized `vocab.html` UI (dross-v95)
+
+- `vocab.html` now uses a refreshed dark/light palette, glass-morphism sticky `header` (`backdrop-filter: blur(12px)`), a `.hero` section with a gradient top accent line, and a `.toolbar` grid layout.
+- Filter chips are wrapped in `.filter-section` cards with `var(--bg-secondary)` backgrounds.
+- The A-Z letter chips render in `.letters-row` and remain single-select.
+- Context chips render in a horizontally scrollable `.contexts-strip` (`overflow-x: auto`).
+- Each `.vocab-card` has a 3px gradient top accent line (`::before`), a `.example` block with a left accent line, and `.card-actions` displayed as a 4-column grid (`grid-template-columns: repeat(4, 1fr)`).
+- Hover on `.vocab-card` raises the card (`transform: translateY(-2px)`) and increases shadow.
+- Mobile (`max-width: 640px`): `.toolbar` becomes 2-column, `#search` spans the full width (`grid-column: 1 / -1`) and uses a smaller radius, and `.card-actions` stays 4-column.
+
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v94`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v95`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();

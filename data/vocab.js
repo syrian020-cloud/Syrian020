@@ -8823,5 +8823,1275 @@ window.VOCAB_DATA = [
       "en": "An automatable task."
     },
     "pos": "adjective"
+  },
+  {
+    "fr": "Boire",
+    "ar": "يشرب",
+    "en": "To drink",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je bois beaucoup d'eau.",
+      "ar": "أشرب الكثير من الماء.",
+      "en": "I drink a lot of water."
+    }
+  },
+  {
+    "fr": "Bouger",
+    "ar": "يتحرك",
+    "en": "To move",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il faut bouger un peu.",
+      "ar": "يجب أن تتحرك قليلًا.",
+      "en": "You need to move a little."
+    }
+  },
+  {
+    "fr": "Brûler",
+    "ar": "يحترق / يحرق",
+    "en": "To burn",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Attention, c'est très chaud, tu vas te brûler.",
+      "ar": "انتبه، إنه ساخن جدًا، ستحرق نفسك.",
+      "en": "Be careful, it's very hot, you'll burn yourself."
+    }
+  },
+  {
+    "fr": "Baisser",
+    "ar": "يخفض / ينخفض",
+    "en": "To lower / To decrease",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "shop"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Les prix ont baissé.",
+      "ar": "انخفضت الأسعار.",
+      "en": "Prices have gone down."
+    }
+  },
+  {
+    "fr": "Battre",
+    "ar": "يضرب / يهزم / يخفق (القلب)",
+    "en": "To beat",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Mon cœur bat très vite.",
+      "ar": "قلبي ينبض بسرعة.",
+      "en": "My heart is beating very fast."
+    }
+  },
+  {
+    "fr": "Balayer",
+    "ar": "يكنس",
+    "en": "To sweep",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je dois balayer le sol.",
+      "ar": "يجب أن أكنس الأرض.",
+      "en": "I have to sweep the floor."
+    }
+  },
+  {
+    "fr": "Brancher",
+    "ar": "يوصل (جهازًا بالكهرباء)",
+    "en": "To plug in",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "office",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Branche le chargeur, s'il te plaît.",
+      "ar": "صل الشاحن، من فضلك.",
+      "en": "Plug in the charger, please."
+    }
+  },
+  {
+    "fr": "Bloquer",
+    "ar": "يمنع / يحجز / يعلق",
+    "en": "To block",
+    "level": "A2",
+    "contexts": [
+      "bank",
+      "daily",
+      "phone",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Ma carte bancaire est bloquée.",
+      "ar": "بطاقتي البنكية محجوبة.",
+      "en": "My bank card is blocked."
+    }
+  },
+  {
+    "fr": "Blesser",
+    "ar": "يجرح / يصيب",
+    "en": "To injure",
+    "level": "A2",
+    "contexts": [
+      "health",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je me suis blessé au travail.",
+      "ar": "أصبت نفسي في العمل.",
+      "en": "I injured myself at work."
+    }
+  },
+  {
+    "fr": "Brouiller",
+    "ar": "يشوش / يربك",
+    "en": "To confuse",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le mauvais temps brouille le signal.",
+      "ar": "الطقس السيئ يشوش الإشارة.",
+      "en": "Bad weather disrupts the signal."
+    }
+  },
+  {
+    "fr": "Bronzer",
+    "ar": "يتسمّر (من الشمس)",
+    "en": "To tan",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "J'aime bronzer en été.",
+      "ar": "أحب التسمّر في الصيف.",
+      "en": "I like to tan in summer."
+    }
+  },
+  {
+    "fr": "Bénéficier",
+    "ar": "يستفيد من",
+    "en": "To benefit from",
+    "level": "A2",
+    "contexts": [
+      "caf",
+      "cpam",
+      "daily",
+      "france_travail",
+      "housing",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je bénéficie de l'aide au logement.",
+      "ar": "أستفيد من مساعدة السكن.",
+      "en": "I benefit from housing assistance."
+    }
+  },
+  {
+    "fr": "Breveter",
+    "ar": "يسجل براءة اختراع",
+    "en": "To patent",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "L'entreprise a breveté son invention.",
+      "ar": "سجلت الشركة اختراعها كبراءة.",
+      "en": "The company patented its invention."
+    }
+  },
+  {
+    "fr": "Badigeonner",
+    "ar": "يدهن / يطلي",
+    "en": "To coat / Brush on",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il faut badigeonner le mur de peinture.",
+      "ar": "يجب طلاء الجدار بالدهان.",
+      "en": "You need to coat the wall with paint."
+    }
+  },
+  {
+    "fr": "Babiller",
+    "ar": "يثرثر (خصوصًا الأطفال)",
+    "en": "To babble",
+    "level": "A2",
+    "contexts": [
+      "family"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le bébé commence à babiller.",
+      "ar": "بدأ الطفل بالمناغاة.",
+      "en": "The baby is starting to babble."
+    }
+  },
+  {
+    "fr": "Besogner",
+    "ar": "يعمل بجد",
+    "en": "To work hard",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il besogne toute la journée.",
+      "ar": "يعمل طوال اليوم بجد.",
+      "en": "He works hard all day."
+    }
+  },
+  {
+    "fr": "Biper",
+    "ar": "يمرر البطاقة / يصدر صوتًا (جهاز)",
+    "en": "To beep / Scan",
+    "level": "A2",
+    "contexts": [
+      "office",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "N'oubliez pas de biper votre badge.",
+      "ar": "لا تنس تمرير بطاقة الدخول.",
+      "en": "Don't forget to scan your badge."
+    }
+  },
+  {
+    "fr": "Border",
+    "ar": "يحيط بـ / يرتب السرير",
+    "en": "To border / Tuck in",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Elle borde le lit de son enfant.",
+      "ar": "ترتب سرير طفلها.",
+      "en": "She tucks in her child's bed."
+    }
+  },
+  {
+    "fr": "Bouillir",
+    "ar": "يغلي",
+    "en": "To boil",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "L'eau commence à bouillir.",
+      "ar": "بدأ الماء يغلي.",
+      "en": "The water is starting to boil."
+    }
+  },
+  {
+    "fr": "Bousculer",
+    "ar": "يدفع / يزاحم",
+    "en": "To push / Jostle",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Ne me bousculez pas, s'il vous plaît.",
+      "ar": "من فضلك لا تدفعني.",
+      "en": "Please don't push me."
+    }
+  },
+  {
+    "fr": "Bourrer",
+    "ar": "يملأ بإفراط",
+    "en": "To stuff / Fill",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le sac est bourré de vêtements.",
+      "ar": "الحقيبة مليئة بالملابس.",
+      "en": "The bag is stuffed with clothes."
+    }
+  },
+  {
+    "fr": "Bricoler",
+    "ar": "يقوم بأعمال الصيانة المنزلية",
+    "en": "To do DIY",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "J'aime bricoler le week-end.",
+      "ar": "أحب القيام بأعمال الصيانة في عطلة نهاية الأسبوع.",
+      "en": "I like doing DIY on weekends."
+    }
+  },
+  {
+    "fr": "Briller",
+    "ar": "يلمع / يتألق",
+    "en": "To shine",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Tes chaussures brillent.",
+      "ar": "حذاؤك يلمع.",
+      "en": "Your shoes are shining."
+    }
+  },
+  {
+    "fr": "Broncher",
+    "ar": "يتراجع / يعترض",
+    "en": "To flinch / Object",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il n'a pas bronché.",
+      "ar": "لم يعترض أبدًا.",
+      "en": "He didn't flinch."
+    }
+  },
+  {
+    "fr": "Bruiner",
+    "ar": "يرذذ المطر",
+    "en": "To drizzle",
+    "level": "A2",
+    "contexts": [
+      "weather"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il commence à bruiner.",
+      "ar": "بدأ المطر الخفيف.",
+      "en": "It's starting to drizzle."
+    }
+  },
+  {
+    "fr": "Budgétiser",
+    "ar": "يضع ميزانية",
+    "en": "To budget",
+    "level": "A2",
+    "contexts": [
+      "bank",
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je dois budgétiser mes dépenses.",
+      "ar": "يجب أن أضع ميزانية لمصاريفي.",
+      "en": "I need to budget my expenses."
+    }
+  },
+  {
+    "fr": "Buter",
+    "ar": "يصطدم / يتعثر",
+    "en": "To bump into / Stumble",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "J'ai buté contre la marche.",
+      "ar": "تعثرت بالدرجة.",
+      "en": "I stumbled on the step."
+    }
+  },
+  {
+    "fr": "Bâcler",
+    "ar": "ينجز بسرعة وبإهمال",
+    "en": "To do hastily",
+    "level": "A2",
+    "contexts": [
+      "school",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Ne bâcle pas ton travail.",
+      "ar": "لا تنجز عملك بإهمال.",
+      "en": "Don't do your work carelessly."
+    }
+  },
+  {
+    "fr": "Bannir",
+    "ar": "يمنع / يحظر",
+    "en": "To ban",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il est interdit de bannir quelqu'un sans raison.",
+      "ar": "لا يجوز حظر شخص دون سبب.",
+      "en": "It is forbidden to ban someone without a reason."
+    }
+  },
+  {
+    "fr": "Baptiser",
+    "ar": "يسمي / يعمّد",
+    "en": "To name / To baptize",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Ils ont baptisé leur entreprise \"Nova\".",
+      "ar": "سمّوا شركتهم \"Nova\".",
+      "en": "They named their company \"Nova\"."
+    }
+  },
+  {
+    "fr": "Barboter",
+    "ar": "يخوض في الماء / يسبح قليلًا",
+    "en": "To paddle",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Les enfants barbotent dans la piscine.",
+      "ar": "الأطفال يلعبون في المسبح.",
+      "en": "The children are paddling in the pool."
+    }
+  },
+  {
+    "fr": "Barguigner",
+    "ar": "يتردد",
+    "en": "To hesitate",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il ne faut pas barguigner avant de répondre.",
+      "ar": "لا تتردد قبل الإجابة.",
+      "en": "Don't hesitate before answering."
+    }
+  },
+  {
+    "fr": "Bâtir",
+    "ar": "يبني",
+    "en": "To build",
+    "level": "A2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Ils vont bâtir une nouvelle école.",
+      "ar": "سيبنون مدرسة جديدة.",
+      "en": "They are going to build a new school."
+    }
+  },
+  {
+    "fr": "Bavarder",
+    "ar": "يتحدث / يدردش",
+    "en": "To chat",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Ils bavardent pendant la pause.",
+      "ar": "إنهم يتحدثون أثناء الاستراحة.",
+      "en": "They are chatting during the break."
+    }
+  },
+  {
+    "fr": "Bercer",
+    "ar": "يهدهد",
+    "en": "To rock",
+    "level": "A2",
+    "contexts": [
+      "family"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Elle berce son bébé.",
+      "ar": "إنها تهدهد طفلها.",
+      "en": "She is rocking her baby."
+    }
+  },
+  {
+    "fr": "Berner",
+    "ar": "يخدع",
+    "en": "To fool",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il a essayé de me berner.",
+      "ar": "حاول خداعي.",
+      "en": "He tried to fool me."
+    }
+  },
+  {
+    "fr": "Bidonner",
+    "ar": "يزور / يلفق",
+    "en": "To fake",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Les documents ont été bidonnés.",
+      "ar": "تم تزوير الوثائق.",
+      "en": "The documents were faked."
+    }
+  },
+  {
+    "fr": "Blaguer",
+    "ar": "يمزح",
+    "en": "To joke",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je plaisante, je blague !",
+      "ar": "أنا أمزح فقط!",
+      "en": "I'm just joking!"
+    }
+  },
+  {
+    "fr": "Blâmer",
+    "ar": "يلوم",
+    "en": "To blame",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Ne me blâmez pas.",
+      "ar": "لا تلمني.",
+      "en": "Don't blame me."
+    }
+  },
+  {
+    "fr": "Bondir",
+    "ar": "يقفز",
+    "en": "To jump",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le chat a bondi sur la table.",
+      "ar": "قفز القط على الطاولة.",
+      "en": "The cat jumped onto the table."
+    }
+  },
+  {
+    "fr": "Boucler",
+    "ar": "ينهي / يغلق",
+    "en": "To finish / To fasten",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je dois boucler ce dossier aujourd'hui.",
+      "ar": "يجب أن أنهي هذا الملف اليوم.",
+      "en": "I have to finish this file today."
+    }
+  },
+  {
+    "fr": "Bourdonner",
+    "ar": "يطن",
+    "en": "To buzz",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Mon téléphone bourdonne.",
+      "ar": "هاتفي يهتز.",
+      "en": "My phone is buzzing."
+    }
+  },
+  {
+    "fr": "Boxer",
+    "ar": "يلاكم",
+    "en": "To box",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il boxe deux fois par semaine.",
+      "ar": "هو يمارس الملاكمة مرتين في الأسبوع.",
+      "en": "He boxes twice a week."
+    }
+  },
+  {
+    "fr": "Badger",
+    "ar": "يمرّر بطاقة الدخول",
+    "en": "To badge in / Swipe a badge",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il faut badger en arrivant au travail.",
+      "ar": "يجب تمرير بطاقة الدخول عند الوصول إلى العمل.",
+      "en": "You have to badge in when you arrive at work."
+    }
+  },
+  {
+    "fr": "Balancer",
+    "ar": "يرمي / يوازن",
+    "en": "To throw / To swing",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Ne balance pas les papiers par terre.",
+      "ar": "لا ترمِ الأوراق على الأرض.",
+      "en": "Don't throw the papers on the floor."
+    }
+  },
+  {
+    "fr": "Balbutier",
+    "ar": "يتلعثم",
+    "en": "To stammer",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il a commencé à balbutier.",
+      "ar": "بدأ يتلعثم.",
+      "en": "He started to stammer."
+    }
+  },
+  {
+    "fr": "Barder",
+    "ar": "يغلف / يحيط",
+    "en": "To wrap",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le colis est bien bardé.",
+      "ar": "الطرد مغلف جيدًا.",
+      "en": "The package is well wrapped."
+    }
+  },
+  {
+    "fr": "Barrer",
+    "ar": "يشطب / يغلق",
+    "en": "To cross out / Block",
+    "level": "A2",
+    "contexts": [
+      "school",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Barrez la mauvaise réponse.",
+      "ar": "اشطب الإجابة الخاطئة.",
+      "en": "Cross out the wrong answer."
+    }
+  },
+  {
+    "fr": "Basculer",
+    "ar": "ينقلب / يتحول",
+    "en": "To tip over / Switch",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "La situation a basculé rapidement.",
+      "ar": "تغير الوضع بسرعة.",
+      "en": "The situation changed quickly."
+    }
+  },
+  {
+    "fr": "Bastonner",
+    "ar": "يضرب",
+    "en": "To beat up",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Ils se sont bastonnés.",
+      "ar": "تشاجروا بالضرب.",
+      "en": "They beat each other up."
+    }
+  },
+  {
+    "fr": "Bâillonner",
+    "ar": "يكمّم",
+    "en": "To gag",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le suspect a été bâillonné.",
+      "ar": "تم تكميم المشتبه به.",
+      "en": "The suspect was gagged."
+    }
+  },
+  {
+    "fr": "Bêcher",
+    "ar": "يحفر الأرض",
+    "en": "To dig",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il bêche le jardin.",
+      "ar": "يحفر الحديقة.",
+      "en": "He is digging the garden."
+    }
+  },
+  {
+    "fr": "Bégayer",
+    "ar": "يتأتئ",
+    "en": "To stutter",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je bégaie quand je suis stressé.",
+      "ar": "أتأتئ عندما أكون متوترًا.",
+      "en": "I stutter when I'm stressed."
+    }
+  },
+  {
+    "fr": "Beurrer",
+    "ar": "يدهن بالزبدة",
+    "en": "To butter",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Beurre le pain.",
+      "ar": "ادهن الخبز بالزبدة.",
+      "en": "Butter the bread."
+    }
+  },
+  {
+    "fr": "Biner",
+    "ar": "يعزق الأرض",
+    "en": "To hoe",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il bine le potager.",
+      "ar": "يعزق حديقة الخضار.",
+      "en": "He is hoeing the vegetable garden."
+    }
+  },
+  {
+    "fr": "Bipper",
+    "ar": "يمرر البطاقة / يصدر صفيرًا",
+    "en": "To beep / Scan",
+    "level": "A2",
+    "contexts": [
+      "shop",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il faut bipper le produit à la caisse.",
+      "ar": "يجب تمرير المنتج على جهاز الدفع.",
+      "en": "You need to scan the product at the checkout."
+    }
+  },
+  {
+    "fr": "Bivouaquer",
+    "ar": "يخيّم",
+    "en": "To camp",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Nous allons bivouaquer ce soir.",
+      "ar": "سنخيّم هذه الليلة.",
+      "en": "We are going to camp tonight."
+    }
+  },
+  {
+    "fr": "Bénévoler",
+    "ar": "يتطوع",
+    "en": "To volunteer",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je bénévole dans une association.",
+      "ar": "أنا أتطوع في جمعية.",
+      "en": "I volunteer in an association."
+    }
+  },
+  {
+    "fr": "Blanchir",
+    "ar": "يبيّض / يبرئ",
+    "en": "To whiten / Clear",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il faut blanchir les légumes.",
+      "ar": "يجب سلق الخضار قليلًا.",
+      "en": "You need to blanch the vegetables."
+    }
+  },
+  {
+    "fr": "Bouder",
+    "ar": "يزعل / يقاطع",
+    "en": "To sulk",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "family"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il boude depuis ce matin.",
+      "ar": "هو زعلان منذ هذا الصباح.",
+      "en": "He has been sulking since this morning."
+    }
+  },
+  {
+    "fr": "Brader",
+    "ar": "يبيع بسعر منخفض",
+    "en": "To sell off",
+    "level": "A2",
+    "contexts": [
+      "shop"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le magasin brade ses produits.",
+      "ar": "المتجر يبيع منتجاته بأسعار منخفضة.",
+      "en": "The shop is selling off its products."
+    }
+  },
+  {
+    "fr": "Braquer",
+    "ar": "يسرق تحت تهديد / يوجه",
+    "en": "To rob / Point",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "La banque a été braquée.",
+      "ar": "تمت سرقة البنك.",
+      "en": "The bank was robbed."
+    }
+  },
+  {
+    "fr": "Brosser",
+    "ar": "يفرش / ينظف بالفرشاة",
+    "en": "To brush",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je me brosse les dents.",
+      "ar": "أفرش أسناني.",
+      "en": "I brush my teeth."
+    }
+  },
+  {
+    "fr": "Broyer",
+    "ar": "يطحن / يسحق",
+    "en": "To grind / Crush",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Cette machine broie le plastique.",
+      "ar": "هذه الآلة تطحن البلاستيك.",
+      "en": "This machine crushes plastic."
+    }
+  },
+  {
+    "fr": "Briser",
+    "ar": "يكسر / يحطم",
+    "en": "To break",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "J'ai brisé mon téléphone.",
+      "ar": "كسرت هاتفي.",
+      "en": "I broke my phone."
+    }
+  },
+  {
+    "fr": "Brouter",
+    "ar": "يرعى / يأكل العشب",
+    "en": "To graze",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Les moutons broutent dans le champ.",
+      "ar": "الخراف ترعى في الحقل.",
+      "en": "The sheep are grazing in the field."
+    }
+  },
+  {
+    "fr": "Budgéter",
+    "ar": "يضع ميزانية",
+    "en": "To budget",
+    "level": "A2",
+    "contexts": [
+      "bank",
+      "daily",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je dois budgéter mes dépenses.",
+      "ar": "يجب أن أضع ميزانية لمصاريفي.",
+      "en": "I need to budget my expenses."
+    }
+  },
+  {
+    "fr": "Baratter",
+    "ar": "يخضّ (الزبدة)",
+    "en": "To churn",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Ils barattent le lait pour faire du beurre.",
+      "ar": "يخضون الحليب لصنع الزبدة.",
+      "en": "They churn milk to make butter."
+    }
+  },
+  {
+    "fr": "Biffer",
+    "ar": "يشطب / يحذف",
+    "en": "To cross out / Delete",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Biffez les informations incorrectes.",
+      "ar": "اشطب المعلومات الخاطئة.",
+      "en": "Cross out the incorrect information."
+    }
+  },
+  {
+    "fr": "Bidouiller",
+    "ar": "يصلح بطريقة غير احترافية / يعبث",
+    "en": "To tinker",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il bidouille son ordinateur.",
+      "ar": "يعبث بحاسوبه لإصلاحه.",
+      "en": "He tinkers with his computer."
+    }
+  },
+  {
+    "fr": "Brailler",
+    "ar": "يصرخ",
+    "en": "To yell",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Ne braille pas comme ça !",
+      "ar": "لا تصرخ هكذا!",
+      "en": "Don't yell like that!"
+    }
+  },
+  {
+    "fr": "Baragouiner",
+    "ar": "يتكلم بصعوبة / يتلعثم في لغة",
+    "en": "To speak poorly",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il baragouine quelques mots en français.",
+      "ar": "يتكلم بعض الكلمات بالفرنسية بصعوبة.",
+      "en": "He speaks a few words of French poorly."
+    }
+  },
+  {
+    "fr": "Bétonner",
+    "ar": "يقوّي / يثبت (بشكل قوي)",
+    "en": "To reinforce",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il faut bétonner cet argument.",
+      "ar": "يجب تقوية هذه الحجة.",
+      "en": "This argument needs to be reinforced."
+    }
+  },
+  {
+    "fr": "Bluffer",
+    "ar": "يخدع / يثير الإعجاب",
+    "en": "To bluff",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il essaie de bluffer tout le monde.",
+      "ar": "يحاول خداع الجميع.",
+      "en": "He tries to bluff everyone."
+    }
+  },
+  {
+    "fr": "Bousiller",
+    "ar": "يخرب / يتلف",
+    "en": "To ruin / Mess up",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "J'ai bousillé mon ordinateur.",
+      "ar": "خربت حاسوبي.",
+      "en": "I ruined my computer."
+    }
+  },
+  {
+    "fr": "Boycotter",
+    "ar": "يقاطع",
+    "en": "To boycott",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Ils boycottent ce produit.",
+      "ar": "هم يقاطعون هذا المنتج.",
+      "en": "They are boycotting this product."
+    }
+  },
+  {
+    "fr": "Bouleverser",
+    "ar": "يُربك / يغيّر كثيرًا / يؤثر بشدة",
+    "en": "To upset / Transform",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Cette nouvelle a bouleversé sa vie.",
+      "ar": "هذا الخبر غيّر حياته كثيرًا.",
+      "en": "This news changed his life completely."
+    }
+  },
+  {
+    "fr": "Brider",
+    "ar": "يقيّد / يحد",
+    "en": "To restrict",
+    "level": "A2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Cette règle bride la créativité.",
+      "ar": "هذه القاعدة تحد من الإبداع.",
+      "en": "This rule restricts creativity."
+    }
+  },
+  {
+    "fr": "Broder",
+    "ar": "يطرّز / يضيف تفاصيل",
+    "en": "To embroider",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Elle brode une nappe.",
+      "ar": "هي تطرز مفرشًا.",
+      "en": "She embroiders a tablecloth."
+    }
+  },
+  {
+    "fr": "Bruncher",
+    "ar": "يتناول وجبة البرنش",
+    "en": "To have brunch",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "restaurant"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Nous brunchons le dimanche.",
+      "ar": "نتناول البرنش يوم الأحد.",
+      "en": "We have brunch on Sunday."
+    }
+  },
+  {
+    "fr": "Buter contre",
+    "ar": "يصطدم بـ / يواجه عائقًا",
+    "en": "To run into",
+    "level": "A2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je bute contre un problème administratif.",
+      "ar": "أواجه مشكلة إدارية.",
+      "en": "I run into an administrative problem."
+    }
+  },
+  {
+    "fr": "Bâfrer",
+    "ar": "يأكل بشراهة",
+    "en": "To stuff oneself",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il ne faut pas bâfrer trop vite.",
+      "ar": "لا يجب الأكل بشراهة بسرعة.",
+      "en": "You shouldn't stuff yourself too quickly."
+    }
   }
 ];
