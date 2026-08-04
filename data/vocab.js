@@ -10641,5 +10641,21 @@ window.VOCAB_DATA = [
       "shop",
       "daily"
     ]
+  },
+  {
+    "fr": "Faire du bénévolat",
+    "ar": "يتطوع / يعمل تطوعيًا",
+    "en": "To volunteer / Do volunteer work",
+    "ex": {
+      "fr": "Elle fait du bénévolat à la Croix-Rouge le samedi.",
+      "ar": "هي بتتطوع عند الصليب الأحمر يوم السبت.",
+      "en": "She volunteers at the Red Cross on Saturdays."
+    },
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "phrase"
   }
 ];
