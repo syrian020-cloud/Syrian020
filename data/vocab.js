@@ -9037,51 +9037,6 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Badigeonner",
-    "ar": "يدهن / يطلي",
-    "en": "To coat / Brush on",
-    "level": "A2",
-    "contexts": [
-      "services"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Il faut badigeonner le mur de peinture.",
-      "ar": "يجب طلاء الجدار بالدهان.",
-      "en": "You need to coat the wall with paint."
-    }
-  },
-  {
-    "fr": "Babiller",
-    "ar": "يثرثر (خصوصًا الأطفال)",
-    "en": "To babble",
-    "level": "A2",
-    "contexts": [
-      "family"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Le bébé commence à babiller.",
-      "ar": "بدأ الطفل بالمناغاة.",
-      "en": "The baby is starting to babble."
-    }
-  },
-  {
-    "fr": "Besogner",
-    "ar": "يعمل بجد",
-    "en": "To work hard",
-    "level": "A2",
-    "contexts": [
-      "work"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Il besogne toute la journée.",
-      "ar": "يعمل طوال اليوم بجد.",
-      "en": "He works hard all day."
-    }
-  },
-  {
     "fr": "Border",
     "ar": "يحيط بـ / يرتب السرير",
     "en": "To border / Tuck in",
@@ -9295,21 +9250,6 @@ window.VOCAB_DATA = [
       "fr": "Les enfants barbotent dans la piscine.",
       "ar": "الأطفال يلعبون في المسبح.",
       "en": "The children are paddling in the pool."
-    }
-  },
-  {
-    "fr": "Barguigner",
-    "ar": "يتردد",
-    "en": "To hesitate",
-    "level": "A2",
-    "contexts": [
-      "daily"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Il ne faut pas barguigner avant de répondre.",
-      "ar": "لا تتردد قبل الإجابة.",
-      "en": "Don't hesitate before answering."
     }
   },
   {
@@ -9605,21 +9545,6 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Bêcher",
-    "ar": "يحفر الأرض",
-    "en": "To dig",
-    "level": "A2",
-    "contexts": [
-      "daily"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Il bêche le jardin.",
-      "ar": "يحفر الحديقة.",
-      "en": "He is digging the garden."
-    }
-  },
-  {
     "fr": "Bégayer",
     "ar": "يتأتئ",
     "en": "To stutter",
@@ -9647,21 +9572,6 @@ window.VOCAB_DATA = [
       "fr": "Beurre le pain.",
       "ar": "ادهن الخبز بالزبدة.",
       "en": "Butter the bread."
-    }
-  },
-  {
-    "fr": "Biner",
-    "ar": "يعزق الأرض",
-    "en": "To hoe",
-    "level": "A2",
-    "contexts": [
-      "daily"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Il bine le potager.",
-      "ar": "يعزق حديقة الخضار.",
-      "en": "He is hoeing the vegetable garden."
     }
   },
   {
@@ -9818,36 +9728,6 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Baratter",
-    "ar": "يخضّ (الزبدة)",
-    "en": "To churn",
-    "level": "A2",
-    "contexts": [
-      "daily"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Ils barattent le lait pour faire du beurre.",
-      "ar": "يخضون الحليب لصنع الزبدة.",
-      "en": "They churn milk to make butter."
-    }
-  },
-  {
-    "fr": "Biffer",
-    "ar": "يشطب / يحذف",
-    "en": "To cross out / Delete",
-    "level": "A2",
-    "contexts": [
-      "services"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Biffez les informations incorrectes.",
-      "ar": "اشطب المعلومات الخاطئة.",
-      "en": "Cross out the incorrect information."
-    }
-  },
-  {
     "fr": "Bidouiller",
     "ar": "يصلح بطريقة غير احترافية / يعبث",
     "en": "To tinker",
@@ -9876,21 +9756,6 @@ window.VOCAB_DATA = [
       "fr": "Ne braille pas comme ça !",
       "ar": "لا تصرخ هكذا!",
       "en": "Don't yell like that!"
-    }
-  },
-  {
-    "fr": "Baragouiner",
-    "ar": "يتكلم بصعوبة / يتلعثم في لغة",
-    "en": "To speak poorly",
-    "level": "A2",
-    "contexts": [
-      "daily"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Il baragouine quelques mots en français.",
-      "ar": "يتكلم بعض الكلمات بالفرنسية بصعوبة.",
-      "en": "He speaks a few words of French poorly."
     }
   },
   {
@@ -10014,21 +9879,6 @@ window.VOCAB_DATA = [
       "fr": "Nous brunchons le dimanche.",
       "ar": "نتناول البرنش يوم الأحد.",
       "en": "We have brunch on Sunday."
-    }
-  },
-  {
-    "fr": "Bâfrer",
-    "ar": "يأكل بشراهة",
-    "en": "To stuff oneself",
-    "level": "A2",
-    "contexts": [
-      "daily"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Il ne faut pas bâfrer trop vite.",
-      "ar": "لا يجب الأكل بشراهة بسرعة.",
-      "en": "You shouldn't stuff yourself too quickly."
     }
   }
 ];

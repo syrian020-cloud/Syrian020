@@ -109,12 +109,21 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Google search links will often hit a reCAPTCHA from a VM IP; that is expected. Verify the generated URL, not the results page.
 - In Chrome for Testing, opening a Google AI Mode (`udm=50`) link may crash the entire browser process. If this happens, verify the generated `href` via CDP (`document.querySelector('.ai-btn').getAttribute('href')`) or by overriding `window.open` instead of clicking.
 
-## B-verbs batch (dross-v97)
+## B-verbs batch (dross-v98)
 
-- `data/vocab.js` now contains **628** entries (up from 550). `data/vocab-batch-02.js` is still empty.
-- Letter chip counts: `A (550)`, `B (78)`, all other letters `0`.
-- POS counts: `verb` **199**, `adjective` 167, `noun` 80, `phrase` 170, `other` 12.
-- Search examples for the new B-verbs:
+- `data/vocab.js` now contains **618** entries (up from 550). `data/vocab-batch-02.js` is still empty.
+- Cache name is `dross-v98`.
+- Letter chip counts: `A (550)`, `B (68)`, all other letters `0`.
+- POS counts: `verb` **189**, `adjective` 167, `noun` 80, `phrase` 170, `other` 12.
+- Removed entries: `Bénévoler`, `Budgéter`, `Biper`, `Buter contre`, `Barguigner`, `Besogner`, `Babiller`, `Bâfrer`, `Baragouiner`, `Baratter`, `Biner`, `Bêcher`, `Biffer`, `Badigeonner`.
+- Merged/single entries: `Bipper` (1), `Budgétiser` (1), `Buter` (1).
+- `Bipper` contexts: `office`, `shop`, `work`.
+- `Buter` contexts: `daily`, `services`; example `Je bute contre un problème administratif.`
+- Updated translations:
+  - `Bastonner` → `To beat up (slang)` / Arabic `يتشاجر بالضرب (عامية)`.
+  - `Bétonner` → `To concrete / to reinforce (figurative)` / Arabic `يعبّد بالخرسانة / يدعّم ويقوّي (مجازي)`.
+  - `Bourdonner` → `To buzz (like a bee) / vibrate (phone)` / Arabic `يطن (مثل النحل) / يهتز (للهاتف)`.
+- Search examples:
   - `Boire` → 1 result; example `Je bois beaucoup d'eau.`; Arabic `يشرب`.
   - `Bloquer` → 1 result; example `Ma carte bancaire est bloquée.`; contexts include `bank`.
   - `Bénéficier` → 1 result; example `Je bénéficie de l'aide au logement.`
@@ -133,7 +142,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v97`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v98`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
