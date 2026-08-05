@@ -330,6 +330,7 @@
     document.querySelectorAll('.question').forEach(function (el) { el.classList.remove('playing'); });
     document.querySelectorAll('.line').forEach(function (el) { el.classList.remove('active'); });
     document.querySelectorAll('.word').forEach(function (el) { el.classList.remove('active'); });
+    document.querySelectorAll('.line-speak').forEach(function (b) { b.classList.remove('active'); b.textContent = '🔁'; });
     document.getElementById('btn-global-loop').textContent = '▶ ' + t('playAll');
     document.querySelectorAll('.loop-btn').forEach(function (b) { b.classList.remove('active'); b.textContent = '🔁'; });
   }
@@ -398,6 +399,30 @@
         if (!state.loop || state.loop.key !== key || state.loop.line || state.loop.word) return;
         setTimeout(cycle, 700);
       });
+    })();
+  }
+
+  function toggleLineLoop(lineEl, q, key, type, lang, index) {
+    var text = lineEl.dataset.text || '';
+    if (state.loop && state.loop.key === key && state.loop.line &&
+        state.loop.line.type === type && state.loop.line.lang === lang && state.loop.line.index === index) {
+      stopSpeech(); return;
+    }
+    stopSpeech();
+    state.loop = { key: key, line: { type: type, lang: lang, index: index, text: text } };
+    var btn = lineEl.querySelector('.line-speak');
+    if (btn) { btn.classList.add('active'); btn.textContent = '⏸'; }
+    var run = speechRun;
+    (function cycle() {
+      if (!state.loop || state.loop.key !== key || !state.loop.line ||
+          state.loop.line.type !== type || state.loop.line.lang !== lang || state.loop.line.index !== index) return;
+      lineEl.classList.add('active');
+      speakText(text, lang, function () {
+        lineEl.classList.remove('active');
+        if (!state.loop || state.loop.key !== key || !state.loop.line ||
+            state.loop.line.type !== type || state.loop.line.lang !== lang || state.loop.line.index !== index) return;
+        setTimeout(cycle, 500);
+      }, run);
     })();
   }
 
@@ -1052,6 +1077,7 @@
 
   function lineHtml(text, lang, type, index, label) {
     return '<div class="line ' + lang + '" data-lang="' + lang + '" data-type="' + type + '" data-index="' + index + '" data-text="' + esc(text) + '">' +
+      '<button class="line-btn line-speak" title="' + t('loop') + '">🔁</button>' +
       '<button class="line-btn line-ai" title="' + t('askAi') + '">🤖</button>' + wordSpans(text) + '</div>';
   }
 
@@ -1122,6 +1148,7 @@
       return;
     }
     if (lineEl) {
+      if (e.target.closest('.line-speak')) { toggleLineLoop(lineEl, q, key, lineEl.dataset.type, lineEl.dataset.lang, parseInt(lineEl.dataset.index, 10)); return; }
       if (e.target.closest('.line-ai')) { askAiLine(q, lineEl.dataset.type); return; }
     }
 
