@@ -130,7 +130,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Letter chip counts: `A (550)`, `B (138)`, `C (461)`, `F (1)`, all other letters `0`.
 - POS counts: `verb` **281**, `adjective` **217**, `noun` **408**, `phrase` **195**, `other` **49**.
 - 84 new C entries added and 77 existing C entries merged, increasing `C` from 305 to 461. Sample entries:
-  - `Cibler` → verb (B1), contexts `['work','work']` (duplicate context chip rendered)
+  - `Cibler` → verb (B1), context `work` (duplicate context fixed; one `عمل` chip rendered)
   - `Code postal` → noun (A1), context `services`
   - `Créer` → verb (A2), 3 trilingual examples
   - `Crédit bancaire` → noun (B1)
