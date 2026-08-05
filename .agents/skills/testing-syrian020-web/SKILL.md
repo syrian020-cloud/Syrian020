@@ -114,7 +114,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - `data/vocab.js` now contains **994** entries and `data/vocab-batch-02.js` is still empty.
 - Cache name is `dross-v108`.
 - Letter chip counts: `A (550)`, `B (138)`, `C (305)`, `F (1)`, all other letters `0`.
-- POS counts: `verb` **251**, `adjective` **199**, `noun` **317**, `phrase` **195**, `other` **32`.
+- POS counts: `verb` **251**, `adjective` **199**, `noun` **317**, `phrase` **195**, `other` **32**.
 - 102 new C entries added and 55 existing C entries merged, increasing `C` from 203 to 305. Sample entries:
   - `Connaître` → verb
   - `Crème solaire` → noun
@@ -122,6 +122,21 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   - `Cabine téléphonique` → noun
   - `Caméra` → noun (2 examples)
   - `Contacter` → verb (3 examples)
+
+## C-words batch (dross-v110)
+
+- `data/vocab.js` now contains **1150** entries and `data/vocab-batch-02.js` is still empty.
+- Cache name is `dross-v110`.
+- Letter chip counts: `A (550)`, `B (138)`, `C (461)`, `F (1)`, all other letters `0`.
+- POS counts: `verb` **281**, `adjective` **217**, `noun` **408**, `phrase` **195**, `other` **49**.
+- 84 new C entries added and 77 existing C entries merged, increasing `C` from 305 to 461. Sample entries:
+  - `Cibler` → verb (B1), contexts `['work','work']` (duplicate context chip rendered)
+  - `Code postal` → noun (A1), context `services`
+  - `Créer` → verb (A2), 3 trilingual examples
+  - `Crédit bancaire` → noun (B1)
+  - `Capture d'écran` → noun (A2)
+  - `Chauffeur-livreur` → noun (B1)
+- Search `Contacter` also matches `À défaut de` (its example contains `contacterai`) before matching `Contacter`; this is expected substring search behavior.
 - Each new idiom uses the `ex` array with 2 trilingual example objects.
 - `vocab.html` now supports `ex` as either a single object or an array of objects. `render()` creates one `.example` block per array item, and `speakEntry()` enqueues each example in each loop language. So `Faire du bénévolat` (4 examples × 3 languages + headword × 3 languages = 15 utterances) works end-to-end.
 - The `firstLetter()` function in `vocab.html` strips leading non-letters, then `Se ` / `s'` / `S'` reflexive prefixes, then `Le ` / `La ` / `Les ` / `L'` and `Être ` / `Etre ` / `être ` article/copula prefixes, then normalizes the first character. `Le bénévolat` and `Être bénévole` therefore group under `B`.
@@ -198,7 +213,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v108`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v110`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
