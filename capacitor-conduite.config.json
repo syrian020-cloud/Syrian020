@@ -1,6 +1,6 @@
 {
   "appId": "com.syrian020.conduite",
-  "appName": "امتحان القيادة",
+  "appName": "Conduite",
   "webDir": "www",
   "server": {
     "androidScheme": "https"

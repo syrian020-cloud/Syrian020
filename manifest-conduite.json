@@ -1,6 +1,6 @@
 {
-  "name": "امتحان القيادة العملي",
-  "short_name": "امتحان القيادة",
+  "name": "Conduite",
+  "short_name": "Conduite",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#0f172a",

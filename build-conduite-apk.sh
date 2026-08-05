@@ -21,6 +21,7 @@ mkdir -p www
 cp conduite.html www/index.html
 cp conduite.html www/conduite.html
 cp manifest-conduite.json www/manifest.json
+cp manifest-conduite.json www/manifest-conduite.json
 cp icon-192.png icon-512.png www/
 cp sw-conduite.js www/sw.js
 
@@ -34,6 +35,37 @@ if [ "$USE_ALIYUN" = "1" ]; then
 fi
 
 npx cap add android
+
+# Replace Android launcher icons with the Conduite icon and set background color
+python3 << 'PY'
+from PIL import Image
+import os, re
+
+sizes = {
+    'mipmap-mdpi': 48,
+    'mipmap-hdpi': 72,
+    'mipmap-xhdpi': 96,
+    'mipmap-xxhdpi': 144,
+    'mipmap-xxxhdpi': 192
+}
+
+src = Image.open('app-icon.png').convert('RGBA')
+fg = Image.open('app-icon-foreground.png').convert('RGBA')
+
+base = 'android/app/src/main/res'
+for d, size in sizes.items():
+    path = os.path.join(base, d)
+    if os.path.isdir(path):
+        src.resize((size, size), Image.LANCZOS).save(os.path.join(path, 'ic_launcher.png'))
+        src.resize((size, size), Image.LANCZOS).save(os.path.join(path, 'ic_launcher_round.png'))
+        fg.resize((size, size), Image.LANCZOS).save(os.path.join(path, 'ic_launcher_foreground.png'))
+
+bg_path = os.path.join(base, 'values/ic_launcher_background.xml')
+if os.path.isfile(bg_path):
+    with open(bg_path, 'w') as f:
+        f.write("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<resources>\n    <color name=\"ic_launcher_background\">#1a3a52</color>\n</resources>")
+PY
+
 npx cap sync android
 cd android
 ./gradlew assembleDebug
