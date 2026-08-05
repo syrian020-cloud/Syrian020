@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#1a3a52">
+<title>امتحان القيادة العملي | Examen Pratique de Conduite | Practical Driving Exam</title>
+<link rel="manifest" href="manifest.json">
+<style>
+  :root {
+    --bg-primary: #0f2439;
+    --bg-secondary: #1a3a52;
+    --bg-tertiary: #264d66;
+    --text-primary: #e8f4ff;
+    --text-secondary: #a8c9e8;
+    --accent: #4facfe;
+    --accent-hover: #00c6fb;
+    --danger: #ff6b81;
+    --success: #00e676;
+    --gold: #ffc857;
+    --border: #2a5a7a;
+    --shadow: 0 4px 16px rgba(0,0,0,0.35);
+    --radius: 16px;
+  }
+  [data-theme="light"] {
+    --bg-primary: #f2f7fb;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #e4eef6;
+    --text-primary: #1c2e3e;
+    --text-secondary: #4a6276;
+    --accent: #0077c2;
+    --accent-hover: #005fa3;
+    --border: #c9dce8;
+    --shadow: 0 4px 16px rgba(0,0,0,0.1);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; min-height: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", sans-serif;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    color: var(--text-primary);
+    line-height: 1.65;
+    padding-bottom: 6rem;
+  }
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(26,58,82,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .header-inner {
+    max-width: 960px; margin: 0 auto; padding: 0.7rem 1rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .logo { font-weight: 800; color: var(--accent); font-size: 1.05rem; white-space: nowrap; }
+  .spacer { flex: 1; }
+  .icon-btn {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 50%;
+    width: 40px; height: 40px; font-size: 1.1rem; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .lang-switch { display: flex; gap: 0.25rem; }
+  .lang-btn {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 0.35rem 0.7rem; font-size: 0.78rem; font-weight: 700; cursor: pointer;
+  }
+  .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  main { max-width: 960px; margin: 0 auto; padding: 1rem; }
+  .hero {
+    text-align: center; padding: 1.2rem 0.5rem 1rem;
+  }
+  .hero h1 { margin: 0; font-size: 1.35rem; }
+  .hero p { margin: 0.4rem 0 0; color: var(--text-secondary); font-size: 0.95rem; }
+  .toolbar {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 1.2rem;
+    background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 0.8rem; box-shadow: var(--shadow);
+  }
+  select.ctl, .btn-ctl {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 0.55rem 0.8rem; font-size: 0.9rem; cursor: pointer; font-weight: 600;
+  }
+  .btn-ctl { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn-ctl:hover { background: var(--accent-hover); }
+  .btn-ctl.secondary { background: var(--bg-tertiary); color: var(--text-primary); }
+  .question {
+    background: var(--bg-secondary); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1rem; margin-bottom: 1rem;
+    box-shadow: var(--shadow); transition: transform 0.15s, border-color 0.2s;
+  }
+  .question:hover { border-color: var(--accent); }
+  .question.playing { border-color: var(--success); box-shadow: 0 0 0 2px var(--success); }
+  .q-head {
+    display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem;
+    padding-bottom: 0.7rem; border-bottom: 1px solid var(--border);
+  }
+  .q-num {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 1.1rem; flex-shrink: 0;
+  }
+  .q-title { flex: 1; font-weight: 700; font-size: 1.05rem; }
+  .q-actions { display: flex; gap: 0.4rem; flex-shrink: 0; }
+  .q-actions button {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 50%;
+    width: 38px; height: 38px; font-size: 1rem; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .q-actions button:hover { border-color: var(--accent); color: var(--accent); }
+  .q-actions button.active { background: var(--success); color: #1a1a1a; border-color: var(--success); }
+  .section { margin-bottom: 0.85rem; }
+  .section:last-child { margin-bottom: 0; }
+  .section-label {
+    display: inline-block; background: var(--bg-tertiary); color: var(--accent);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 0.15rem 0.65rem; font-size: 0.72rem; font-weight: 700; margin-bottom: 0.35rem;
+  }
+  .line { padding: 0.55rem 0.7rem; border-radius: 10px; margin-bottom: 0.35rem; }
+  .line:last-child { margin-bottom: 0; }
+  .line.fr { background: rgba(79,172,254,0.12); direction: ltr; text-align: left; }
+  .line.en { background: rgba(0,230,118,0.1); direction: ltr; text-align: left; color: var(--text-secondary); }
+  .line.ar { background: rgba(255,200,87,0.12); direction: rtl; text-align: right; }
+  .line .tag { font-size: 0.7rem; font-weight: 800; margin-inline-end: 0.4rem; opacity: 0.7; }
+  .line.active { outline: 2px solid var(--success); }
+  .drawer-fab {
+    position: fixed; bottom: 1.2rem; left: 1.2rem; z-index: 60;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b81, #ff8c61); color: #fff;
+    border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 14px rgba(255,107,129,0.45);
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .drawer-overlay {
+    position: fixed; inset: 0; z-index: 100;
+    background: var(--bg-primary); display: none; flex-direction: column;
+  }
+  .drawer-overlay.open { display: flex; }
+  .drawer-toolbar {
+    display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem;
+    background: var(--bg-secondary); border-bottom: 1px solid var(--border); flex-wrap: wrap;
+  }
+  .drawer-toolbar button, .drawer-toolbar input, .drawer-toolbar select {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 0.45rem 0.65rem; font-size: 0.9rem; cursor: pointer;
+  }
+  .drawer-toolbar input[type="color"] { padding: 0.15rem; width: 42px; height: 34px; }
+  .drawer-canvas { flex: 1; touch-action: none; cursor: crosshair; background: #fff; }
+  footer { text-align: center; color: var(--text-secondary); font-size: 0.8rem; padding: 1.5rem 1rem; }
+  footer a { color: var(--accent); text-decoration: none; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <span class="logo">🚗 <span data-t="appName">امتحان القيادة</span></span>
+    <span class="spacer"></span>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ar">AR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
+    <button class="icon-btn" id="btn-theme" title="Dark / light mode">🌙</button>
+    <button class="icon-btn" id="btn-stop" title="Stop audio">⏹</button>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <h1 data-t="title">امتحان القيادة العملي</h1>
+    <p data-t="subtitle">12 سؤالًا بالفرنسية · الإنجليزية · العربية</p>
+  </div>
+
+  <div class="toolbar">
+    <select class="ctl" id="rate" title="Speech rate">
+      <option value="0.6">0.6×</option>
+      <option value="0.8">0.8×</option>
+      <option value="1" selected>1×</option>
+      <option value="1.2">1.2×</option>
+    </select>
+    <select class="ctl" id="loopmode" title="Loop content">
+      <option value="fr,en,ar" data-t="loopAll" selected>🔁 FR + EN + AR</option>
+      <option value="fr,ar" data-t="loopFrAr">🔁 FR + AR</option>
+      <option value="fr" data-t="loopFr">🔁 FR</option>
+    </select>
+    <button class="btn-ctl secondary" id="btn-global-loop" title="Play all questions">▶ <span data-t="playAll">تشغيل الكل</span></button>
+    <button class="btn-ctl" id="btn-draw" title="Open drawing board">🎨 <span data-t="draw">الرسام</span></button>
+  </div>
+
+  <div id="questions"></div>
+</main>
+
+<footer>
+  <span data-t="footerText">تطبيق امتحان القيادة العملي · </span>
+  <a href="index.html" data-t="videoLink">دروسي المرئية</a> ·
+  <a href="french.html" data-t="frenchLink">تعلم الفرنسية</a>
+</footer>
+
+<button class="drawer-fab" id="fab-draw" title="Open drawing board">🎨</button>
+
+<div class="drawer-overlay" id="drawer">
+  <div class="drawer-toolbar">
+    <button id="draw-close" title="Close">✕</button>
+    <input type="color" id="draw-color" value="#1a1a1a" title="Color">
+    <select id="draw-size" title="Brush size">
+      <option value="2">2px</option>
+      <option value="4" selected>4px</option>
+      <option value="8">8px</option>
+      <option value="16">16px</option>
+    </select>
+    <button id="draw-eraser" title="Eraser">🧼</button>
+    <button id="draw-pen" title="Pen">✏️</button>
+    <button id="draw-clear" title="Clear">🗑️</button>
+    <button id="draw-save" title="Save image">💾</button>
+    <span class="spacer"></span>
+  </div>
+  <canvas id="draw-canvas" class="drawer-canvas"></canvas>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var UI = {
+    appName: { ar: 'امتحان القيادة', en: 'Driving Exam', fr: 'Examen de Conduite' },
+    title: { ar: 'امتحان القيادة العملي', en: 'Practical Driving Exam', fr: 'Examen Pratique de Conduite' },
+    subtitle: { ar: '12 سؤالًا بالفرنسية · الإنجليزية · العربية', en: '12 questions in French · English · Arabic', fr: '12 questions en Français · Anglais · Arabe' },
+    playAll: { ar: 'تشغيل الكل', en: 'Play all', fr: 'Tout lire' },
+    draw: { ar: 'الرسام', en: 'Draw', fr: 'Dessiner' },
+    loopAll: { ar: '🔁 فرنسي + إنجليزي + عربي', en: '🔁 French + English + Arabic', fr: '🔁 Français + Anglais + Arabe' },
+    loopFrAr: { ar: '🔁 فرنسي + عربي', en: '🔁 French + Arabic', fr: '🔁 Français + Arabe' },
+    loopFr: { ar: '🔁 فرنسي فقط', en: '🔁 French only', fr: '🔁 Français seulement' },
+    searchImages: { ar: 'بحث صور Google', en: 'Google Images', fr: 'Google Images' },
+    askAi: { ar: 'اسأل Google AI', en: 'Ask Google AI', fr: 'Demander à Google AI' },
+    footerText: { ar: 'تطبيق امتحان القيادة العملي · ', en: 'Practical driving exam app · ', fr: 'Application examen pratique de conduite · ' },
+    videoLink: { ar: 'دروسي المرئية', en: 'My video lessons', fr: 'Mes cours vidéo' },
+    frenchLink: { ar: 'تعلم الفرنسية', en: 'Learn French', fr: 'Apprendre le français' },
+    vi: { ar: 'التحقق', en: 'Vehicle check', fr: 'Vérification' },
+    qser: { ar: 'السلامة المرورية', en: 'Road safety', fr: 'Sécurité routière' },
+    secours: { ar: 'الإسعافات الأولية', en: 'First aid', fr: 'Premiers secours' },
+    question: { ar: 'السؤال', en: 'Question', fr: 'Question' },
+    answer: { ar: 'الجواب', en: 'Answer', fr: 'Réponse' }
+  };
+
+  var VOICE_LANG = { fr: 'fr-FR', en: 'en-US', ar: 'ar-SA' };
+  var speechRun = 0;
+
+  var state = {
+    uiLang: localStorage.getItem('conduite_ui_lang') || 'ar',
+    langs: (localStorage.getItem('conduite_langs') || 'fr,en,ar').split(','),
+    rate: parseFloat(localStorage.getItem('conduite_rate') || '1'),
+    loop: null,
+    globalLoop: false
+  };
+
+  function t(key) {
+    var v = UI[key];
+    return (v && v[state.uiLang]) || (v && v.en) || key;
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function nativeTTS() {
+    if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech) return window.Capacitor.Plugins.TextToSpeech;
+    if (window.Capacitor && window.Capacitor.registerPlugin) {
+      window.Capacitor.Plugins = window.Capacitor.Plugins || {};
+      window.Capacitor.Plugins.TextToSpeech = window.Capacitor.registerPlugin('TextToSpeech');
+      return window.Capacitor.Plugins.TextToSpeech;
+    }
+    return null;
+  }
+
+  function nativeSpeak(text, lang) {
+    var tts = nativeTTS();
+    if (!tts) return Promise.reject('no tts');
+    return tts.speak({ text: text, lang: VOICE_LANG[lang] || 'en-US', rate: state.rate || 1, queueStrategy: 1 });
+  }
+
+  function nativeStop() {
+    var tts = nativeTTS(); if (!tts) return Promise.resolve(); return tts.stop();
+  }
+
+  function pickVoice(lang) {
+    if (!('speechSynthesis' in window)) return null;
+    var voices = window.speechSynthesis.getVoices() || [];
+    var code = VOICE_LANG[lang];
+    var exact = voices.filter(function (v) { return v.lang && v.lang.replace('_', '-') === code; })[0];
+    if (exact) return exact;
+    var prefix = code.split('-')[0];
+    return voices.filter(function (v) { return v.lang && v.lang.toLowerCase().indexOf(prefix) === 0; })[0] || null;
+  }
+
+  function utter(text, lang) {
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = VOICE_LANG[lang];
+    u.rate = lang === 'fr' ? state.rate * 0.95 : state.rate;
+    var v = pickVoice(lang);
+    if (v) u.voice = v;
+    return u;
+  }
+
+  function stopSpeech() {
+    state.loop = null; state.globalLoop = false;
+    speechRun++;
+    if (nativeTTS()) nativeStop();
+    else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    document.querySelectorAll('.question').forEach(function (el) { el.classList.remove('playing'); });
+    document.querySelectorAll('.line').forEach(function (el) { el.classList.remove('active'); });
+    document.getElementById('btn-global-loop').textContent = '▶ ' + t('playAll');
+    document.querySelectorAll('.loop-btn').forEach(function (b) { b.classList.remove('active'); b.textContent = '🔁'; });
+  }
+
+  function speakText(text, lang, onDone, run) {
+    if (run !== speechRun) return;
+    if (nativeTTS()) {
+      nativeSpeak(text, lang).then(function () { if (run === speechRun && onDone) onDone(); }).catch(function () { if (run === speechRun && onDone) onDone(); });
+      return;
+    }
+    if (!('speechSynthesis' in window)) { if (onDone) onDone(); return; }
+    var u = utter(text, lang);
+    u.onend = function () { if (run === speechRun && onDone) onDone(); };
+    u.onerror = function () { if (run === speechRun && onDone) onDone(); };
+    window.speechSynthesis.speak(u);
+  }
+
+  function speakSection(lines, idx, key, run, onDone) {
+    if (run !== speechRun) return;
+    if (idx >= lines.length) { if (onDone) onDone(); return; }
+    var item = lines[idx];
+    var el = document.querySelector('.question[data-key="' + key + '"] .line[data-lang="' + item.lang + '"][data-type="' + item.type + '"][data-index="' + item.index + '"]');
+    if (el) el.classList.add('active');
+    speakText(item.text, item.lang, function () {
+      if (el) el.classList.remove('active');
+      if (run !== speechRun) return;
+      setTimeout(function () { speakSection(lines, idx + 1, key, run, onDone); }, 180);
+    }, run);
+  }
+
+  function getQuestionLines(q, langs) {
+    var lines = [];
+    function add(text, lang, type, index) {
+      if (text) lines.push({ text: text, lang: lang, type: type, index: index });
+    }
+    langs.forEach(function (lang) {
+      add(q.vi[lang], lang, 'vi', 0);
+      add(q.qser.q[lang], lang, 'qser-q', 0);
+      add(q.qser.a[lang], lang, 'qser-a', 0);
+      add(q.secours.q[lang], lang, 'secours-q', 0);
+      add(q.secours.a[lang], lang, 'secours-a', 0);
+    });
+    return lines;
+  }
+
+  function speakQuestion(q, key, onDone) {
+    var run = ++speechRun;
+    var el = document.querySelector('.question[data-key="' + key + '"]');
+    if (el) { el.scrollIntoView({ block: 'center', behavior: 'smooth' }); el.classList.add('playing'); }
+    var lines = getQuestionLines(q, state.langs);
+    speakSection(lines, 0, key, run, function () {
+      if (el) el.classList.remove('playing');
+      if (onDone) onDone();
+    });
+  }
+
+  function toggleLoop(q, key) {
+    if (state.loop && state.loop.key === key) { stopSpeech(); return; }
+    stopSpeech();
+    state.loop = { key: key };
+    var btn = document.querySelector('.question[data-key="' + key + '"] .loop-btn');
+    if (btn) { btn.classList.add('active'); btn.textContent = '⏸'; }
+    (function cycle() {
+      if (!state.loop || state.loop.key !== key) return;
+      speakQuestion(q, key, function () {
+        if (!state.loop || state.loop.key !== key) return;
+        setTimeout(cycle, 700);
+      });
+    })();
+  }
+
+  var QUESTIONS = [
+    {
+      id: 1,
+      vi: { fr: 'Montrez la commande de réglage de hauteur des feux. (Dispositif situé en général à gauche du volant.)', en: 'Show the headlight height adjustment control. (Device usually located to the left of the steering wheel.)', ar: 'أشر إلى أداة التحكم في ضبط ارتفاع الأضواء. (الجهاز يقع عادةً على يسار عجلة القيادة.)' },
+      qser: { q: { fr: 'Pourquoi doit-on régler la hauteur des feux ?', en: 'Why must the headlight height be adjusted?', ar: 'لماذا يجب ضبط ارتفاع الأضواء؟' }, a: { fr: 'Pour ne pas éblouir les autres usagers.', en: 'In order not to dazzle other road users.', ar: 'لعدم إبهار مستخدمي الطريق الآخرين.' } },
+      secours: { q: { fr: "Comment et pourquoi protéger une zone de danger en cas d'accident de la route ?", en: 'How and why should a danger zone be protected in the event of a road accident?', ar: 'كيف ولماذا نحمي منطقة الخطر في حالة وقوع حادث سير؟' }, a: { fr: 'En délimitant clairement et largement la zone de danger de façon visible pour protéger les victimes et éviter un sur-accident.', en: 'By clearly and broadly delimiting the danger zone in a visible way to protect the victims and prevent a secondary accident.', ar: 'من خلال تحديد منطقة الخطر بوضوح وسعة وبطريقة مرئية لحماية الضحايا وتجنب وقوع حادث ثانٍ.' } }
+    },
+    {
+      id: 2,
+      vi: { fr: 'Montrez où s\'effectue le remplissage du produit lave-glace.', en: 'Show where the windshield washer fluid is filled.', ar: 'أشر إلى مكان سكب سائل غسيل الزجاج.' },
+      qser: { q: { fr: 'Pourquoi est-il préférable d\'utiliser un liquide spécial en hiver ?', en: 'Why is it preferable to use a special fluid in winter?', ar: 'لماذا يُفضل استخدام سائل خاص في فصل الشتاء؟' }, a: { fr: 'Pour éviter le gel du liquide.', en: 'To prevent the fluid from freezing.', ar: 'لتجنب تجمد السائل.' } },
+      secours: { q: { fr: 'Quels comportements adopter en cas de diffusion du signal d\'alerte du Système d\'Alerte et d\'Information des Populations (SAIP) ?', en: 'What actions should be taken if the SAIP alert signal is broadcast?', ar: 'ما هي التصرفات الواجب اتخاذها عند بث إشارة الإنذار الخاصة بنظام الإنذار وإعلام السكان (SAIP)؟' }, a: { fr: 'Se mettre en sécurité. S\'informer grâce aux médias et sites internet des autorités dès que leur consultation est possible. Respecter les consignes des autorités.', en: 'Go to a safe place. Stay informed through the media and authority websites as soon as available. Follow authority instructions.', ar: 'التوجه إلى مكان آمن. الاطلاع على الأخبار عبر وسائل الإعلام ومواقع السلطات الإلكترونية بمجرد إمكانية ذلك. الالتزام بتعليمات السلطات.' } }
+    },
+    {
+      id: 3,
+      vi: { fr: 'Mettez le rétroviseur intérieur en position "nuit".', en: 'Set the interior rear-view mirror to the "night" position.', ar: 'اضبط المرآة العاكسة الداخلية على الوضع "الليلي".' },
+      qser: { q: { fr: 'Quel est l\'intérêt de la position nuit ?', en: 'What is the benefit of the night position?', ar: 'ما هي فائدة الوضع الليلي؟' }, a: { fr: 'Ne pas être ébloui par les feux du véhicule suiveur.', en: 'Not to be dazzled by the headlights of the vehicle behind.', ar: 'عدم التعرض للإبهار بفعل أضواء السيارة الخلفية.' } },
+      secours: { q: { fr: 'Comment est composé le signal d\'alerte du Système d\'Alerte et d\'Information des Populations (SAIP) diffusé par les sirènes ?', en: 'How is the SAIP alert signal broadcast by sirens composed?', ar: 'كيف تتكون إشارة الإنذار الصادرة عن صفارات نظام (SAIP)؟' }, a: { fr: 'Il se compose de deux codes distincts : le Signal National d\'Alerte (SNA), variation du signal sur trois cycles successifs. Le signal de fin d\'alerte, signal continu.', en: 'It consists of two distinct signals: The National Alert Signal (SNA), a modulated sound over three successive cycles. The end-of-alert signal, a continuous tone.', ar: 'تتكون من رمزين منفصلين: إشارة الإنذار الوطنية (SNA)، وتغير في الصوت عبر ثلاث دورات متتالية. ثم إشارة انتهاء الإنذار، وهي صوت مستمر.' } }
+    },
+    {
+      id: 4,
+      vi: { fr: 'Contrôlez l\'état du flanc sur l\'un des pneumatiques.', en: 'Check the condition of the sidewall on one of the tires.', ar: 'افحص حالة الجانب (الحافة) لأحد الإطارات.' },
+      qser: { q: { fr: 'Citez un endroit où l\'on peut trouver les pressions préconisées pour les pneumatiques ?', en: 'Name a location where you can find the recommended tire pressures.', ar: 'اذكر مكانًا يمكن فيه العثور على ضغط الإطارات الموصى به؟' }, a: { fr: 'Sur une plaque sur une portière, dans la notice d\'utilisation du véhicule, ou au niveau de la trappe à carburant.', en: 'On a sticker on a door frame, in the vehicle owner\'s manual, or inside the fuel filler flap.', ar: 'هي مدونة إما: على لوحة ملصقة على أحد الأبواب، أو في كتيب دليل استخدام السيارة، أو عند غطاء باب خزان الوقود.' } },
+      secours: { q: { fr: 'Sur autoroute, comment indiquer avec précision les lieux de l\'accident depuis un téléphone portable ?', en: 'On a highway, how can you precisely indicate the location of the accident from a cell phone?', ar: 'على الطريق السريع، كيف تحدد مكان الحادث بدقة عبر الهاتف المحمول؟' }, a: { fr: 'En indiquant le numéro de l\'autoroute, le sens de circulation et le point kilométrique.', en: 'By providing the highway number, driving direction, and the kilometer marker.', ar: 'بذكر رقم الطريق السريع، اتجاه السير، والعلامة الكيلومترية.' } }
+    },
+    {
+      id: 5,
+      vi: { fr: 'Faites fonctionner les essuie-glaces avants du véhicule sur la position la plus rapide.', en: 'Operate the vehicle\'s front windshield wipers on the fastest setting.', ar: 'شَغِّل مساحات الزجاج الأمامي للسيارة على السرعة القصوى.' },
+      qser: { q: { fr: 'Comment détecter leur usure en circulation ?', en: 'How can you detect their wear while driving?', ar: 'كيف تكتشف تلفها/تآكلها أثناء القيادة؟' }, a: { fr: 'En cas de pluie, lorsqu\'ils laissent des traces sur le pare-brise.', en: 'In rainy weather, when they leave streaks on the windshield.', ar: 'في حالة المطر، عندما تترك أثرًا أو خطوطًا على الزجاج الأمامي.' } },
+      secours: { q: { fr: 'Comment vérifier la respiration d\'une victime ?', en: 'How do you check a victim\'s breathing?', ar: 'كيف تتحقق من تنفس المصاب؟' }, a: { fr: 'Regarder si le ventre et la poitrine se soulèvent et sentir de l\'air à l\'expiration.', en: 'Look if the stomach and chest rise, and feel for air during exhalation.', ar: 'ملاحظة ما إذا كان البطن والصدر يرتفعان وشعور بخروج الهواء عند الزفير.' } }
+    },
+    {
+      id: 6,
+      vi: { fr: 'Vérifiez l\'état et la propreté des plaques d\'immatriculation.', en: 'Check the condition and cleanliness of the license plates.', ar: 'تحقق من حالة ونظافة لوحات الترقيم (اللوحات المعدنية).' },
+      qser: { q: { fr: 'Quelles sont les précautions à prendre en cas d\'installation d\'un porte-vélo ?', en: 'What precautions should be taken when installing a bike rack?', ar: 'ما هي الاحتياطات الواجب اتخاذها عند تركيب حامل الدراجات؟' }, a: { fr: 'La plaque d\'immatriculation et les feux doivent être visibles.', en: 'The license plate and lights must remain visible.', ar: 'يجب أن تظل لوحة الترقيم والأضواء مرئية.' } },
+      secours: { q: { fr: 'Qu\'est-ce qu\'une perte de connaissance ?', en: 'What is loss of consciousness?', ar: 'ما هو فقدان الوعي؟' }, a: { fr: 'C\'est lorsque la victime ne répond pas et ne réagit pas mais respire.', en: 'It is when the victim does not answer or react, but is still breathing.', ar: 'هو عندما لا يستجيب المصاب ولا يتفاعل، ولكنه يتنفس.' } }
+    },
+    {
+      id: 7,
+      vi: { fr: 'Vérifiez la présence du gilet de haute visibilité.', en: 'Verify the presence of the high-visibility safety vest.', ar: 'تحقق من وجود سترة السلامة عالية الرؤية.' },
+      qser: { q: { fr: 'En cas de panne ou d\'accident, quel autre accessoire de sécurité est obligatoire ?', en: 'In case of breakdown or accident, what other safety accessory is mandatory?', ar: 'في حالة العطل أو الحادث، ما هو ملحق السلامة الآخر الإجباري؟' }, a: { fr: 'Le triangle de pré-signalisation.', en: 'The warning triangle.', ar: 'مثلث التحذير المسبق.' } },
+      secours: { q: { fr: 'Si un dégagement d\'urgence de la victime est nécessaire, où doit-elle être déplacée ?', en: 'If an emergency evacuation of the victim is necessary, where should they be moved?', ar: 'إذا كان الإخلاء الطارئ للمصاب ضروريًا، إلى أين يجب نقله؟' }, a: { fr: 'Dans un endroit suffisamment éloigné du danger et de ses conséquences.', en: 'To a location sufficiently far from the danger and its consequences.', ar: 'إلى مكان بعيد بدرجة كافية عن الخطر وتبعاته.' } }
+    },
+    {
+      id: 8,
+      vi: { fr: 'Montrez où s\'effectue le contrôle du niveau du liquide de frein.', en: 'Show where the brake fluid level is checked.', ar: 'أشر إلى مكان فحص مستوى سائل الفرامل.' },
+      qser: { q: { fr: 'Quelle est la conséquence d\'un niveau insuffisant du liquide de frein ?', en: 'What is the consequence of an insufficient brake fluid level?', ar: 'ما هي نتيجة انخفاض مستوى سائل الفرامل؟' }, a: { fr: 'Une perte d\'efficacité du freinage.', en: 'A loss of braking efficiency.', ar: 'فقدان كفاءة الفرملة.' } },
+      secours: { q: { fr: 'En cas de panne ou d\'accident, quel équipement de sécurité doit être porté avant de quitter le véhicule ?', en: 'In case of breakdown or accident, what safety equipment must be worn before leaving the vehicle?', ar: 'في حالة العطل أو الحادث، ما هو تجهيز السلامة الذي يجب ارتداؤه قبل مغادرة السيارة؟' }, a: { fr: 'Il faut porter le gilet de haute visibilité avant de sortir du véhicule.', en: 'You must wear the high-visibility vest before getting out of the vehicle.', ar: 'يجب ارتداء سترة السلامة عالية الرؤية قبل الخروج من السيارة.' } }
+    },
+    {
+      id: 9,
+      vi: { fr: 'Vérifiez la présence du certificat d\'immatriculation du véhicule (ou carte grise).', en: 'Check for the presence of the vehicle registration certificate (carte grise).', ar: 'تحقق من وجود شهادة تسجيل السيارة (أو البطاقة الرمادية).' },
+      qser: { q: { fr: 'Quels sont les deux autres documents obligatoires à présenter en cas de contrôle par les forces de l\'ordre ?', en: 'What are the two other mandatory documents to present during a police check?', ar: 'ما هما الوثيقتان الإلزاميتان الأخريان الواجب إبرازهما عند التفتيش من قبل رجال الأمن؟' }, a: { fr: 'L\'attestation d\'assurance et le permis de conduire.', en: 'Insurance certificate and driver\'s license.', ar: 'شهادة التأمين ورخصة القيادة.' } },
+      secours: { q: { fr: 'Pourquoi l\'alerte auprès des services de secours doit-elle être rapide et précise ?', en: 'Why must the call to emergency services be fast and accurate?', ar: 'لماذا يجب أن يكون الإبلاغ لخدمات الطوارئ سريعًا ودقيقًا؟' }, a: { fr: 'Pour permettre aux services de secours d\'apporter les moyens adaptés aux victimes dans le délai le plus court.', en: 'To allow emergency services to send the appropriate resources to victims in the shortest time.', ar: 'لتمكين خدمات الطوارئ من تقديم الوسائل المناسبة للضحايا في أسرع وقت ممكن.' } }
+    },
+    {
+      id: 10,
+      vi: { fr: 'Contrôlez l\'état de tous les balais d\'essuie-glace du véhicule.', en: 'Check the condition of all windshield wiper blades on the vehicle.', ar: 'افحص حالة جميع شفرات مساحات الزجاج بالسيارة.' },
+      qser: { q: { fr: 'Quel est le risque de circuler avec des balais d\'essuie-glace défectueux ?', en: 'What is the risk of driving with defective wiper blades?', ar: 'ما هو خطر السير بشفرات مساحات زجاج تالفة؟' }, a: { fr: 'Une mauvaise visibilité en cas d\'intempéries.', en: 'Poor visibility in bad weather conditions.', ar: 'رداءة الرؤية في حالة سوء الأحوال الجوية.' } },
+      secours: { q: { fr: 'Quels sont les numéros d\'urgence à composer ?', en: 'What emergency numbers should be dialed?', ar: 'ما هي أرقام الطوارئ التي يجب الاتصال بها؟' }, a: { fr: 'Le 18 (sapeurs-pompiers), le 15 (SAMU), le 112 (numéro européen d\'urgence).', en: '18 (Fire department), 15 (Medical Emergency / SAMU), 112 (European emergency number).', ar: '18 لرجال الإطفاء، 15 للإسعاف الطبي السريع (SAMU)، و112 للاتصالات الإسعافية الطارئة داخل الاتحاد الأوروبي.' } }
+    },
+    {
+      id: 11,
+      vi: { fr: 'Montrez l\'indicateur de niveau de carburant.', en: 'Show the fuel level gauge.', ar: 'أشر إلى مؤشر مستوى الوقود.' },
+      qser: { q: { fr: 'Quelles sont les précautions à prendre lors du remplissage du réservoir ?', en: 'What precautions should be taken when refueling?', ar: 'ما هي الاحتياطات الواجب اتخاذها عند تزويد الخزان بالوقود؟' }, a: { fr: 'Arrêter le moteur, ne pas fumer, ne pas téléphoner.', en: 'Turn off the engine, do not smoke, do not use a phone.', ar: 'إيقاف تشغيل المحرك، عدم التدخين، وعدم استخدام الهاتف.' } },
+      secours: { q: { fr: 'Quels comportements adopter en présence d\'une victime qui ne répond pas et ne réagit pas, mais respire ?', en: 'How should you act if a victim is unresponsive and unreactive, but breathing?', ar: 'ما هي التصرفات الواجب اتخاذها أمام مصاب لا يستجيب ولا يتفاعل ولكنه يتنفس؟' }, a: { fr: 'La placer en position stable sur le côté (PLS). Alerter les secours. Surveiller la respiration de la victime jusqu\'à l\'arrivée des secours.', en: 'Place them in the recovery position (PLS). Call emergency services. Monitor their breathing until help arrives.', ar: 'وضعه في وضعية استقرار على الجانب (وضعية الأمان الجانبية PLS). الاتصال بالطوارئ. ومراقبة تنفس المصاب حتى وصول الطوارئ.' } }
+    },
+    {
+      id: 12,
+      vi: { fr: 'Montrez où s\'effectue le remplissage du liquide de refroidissement.', en: 'Show where the engine coolant is filled.', ar: 'أشر إلى مكان ملء سائل التبريد.' },
+      qser: { q: { fr: 'Quel est le danger si l\'on complète le niveau du liquide lorsque le moteur est chaud ?', en: 'What is the danger of topping up coolant when the engine is hot?', ar: 'ما هو الخطر إذا تم تزويد السائل والمحرك ساخن؟' }, a: { fr: 'Un risque de brûlure.', en: 'A risk of severe burns.', ar: 'خطر التعرض للحروق.' } },
+      secours: { q: { fr: 'Comment arrêter une hémorragie ?', en: 'How do you stop heavy bleeding (hemorrhage)?', ar: 'كيف يتم إيقاف النزيف؟' }, a: { fr: 'En appuyant fortement sur l\'endroit qui saigne avec les doigts ou avec la paume de la main en mettant un tissu propre sur la plaie.', en: 'By applying firm direct pressure on the bleeding area with fingers or palm using a clean cloth on the wound.', ar: 'الضغط بقوة على موضع النزيف بالأصابع أو بكف اليد مع وضع قطعة قماش نظيفة على الجرح.' } }
+    }
+  ];
+
+  function lineHtml(text, lang, type, index, label) {
+    return '<div class="line ' + lang + '" data-lang="' + lang + '" data-type="' + type + '" data-index="' + index + '">' +
+      '<span class="tag">' + label + '</span>' + esc(text) + '</div>';
+  }
+
+  function render() {
+    var html = '';
+    QUESTIONS.forEach(function (q) {
+      var key = 'q' + q.id;
+      html += '<div class="question" data-key="' + key + '">';
+      html += '<div class="q-head">';
+      html += '<div class="q-num">' + q.id + '</div>';
+      html += '<div class="q-title">' + t('question') + ' ' + q.id + '</div>';
+      html += '<div class="q-actions">';
+      html += '<button class="speak-btn" title="' + t('playAll') + '">🔊</button>';
+      html += '<button class="loop-btn" title="Loop">🔁</button>';
+      html += '<button class="ai-btn" title="' + t('askAi') + '">🤖</button>';
+      html += '<button class="img-btn" title="' + t('searchImages') + '">🖼️</button>';
+      html += '</div></div>';
+
+      html += '<div class="section"><div class="section-label">' + t('vi') + '</div>';
+      ['fr','en','ar'].forEach(function (lang) { html += lineHtml(q.vi[lang], lang, 'vi', 0, lang.toUpperCase()); });
+      html += '</div>';
+
+      html += '<div class="section"><div class="section-label">' + t('qser') + '</div>';
+      html += '<div class="section-label" style="margin-inline-start:0.6rem;background:var(--bg-primary);color:var(--text-secondary)">' + t('question') + '</div>';
+      ['fr','en','ar'].forEach(function (lang) { html += lineHtml(q.qser.q[lang], lang, 'qser-q', 0, lang.toUpperCase()); });
+      html += '<div class="section-label" style="margin-inline-start:0.6rem;background:var(--bg-primary);color:var(--success)">' + t('answer') + '</div>';
+      ['fr','en','ar'].forEach(function (lang) { html += lineHtml(q.qser.a[lang], lang, 'qser-a', 0, lang.toUpperCase()); });
+      html += '</div>';
+
+      html += '<div class="section"><div class="section-label">' + t('secours') + '</div>';
+      html += '<div class="section-label" style="margin-inline-start:0.6rem;background:var(--bg-primary);color:var(--text-secondary)">' + t('question') + '</div>';
+      ['fr','en','ar'].forEach(function (lang) { html += lineHtml(q.secours.q[lang], lang, 'secours-q', 0, lang.toUpperCase()); });
+      html += '<div class="section-label" style="margin-inline-start:0.6rem;background:var(--bg-primary);color:var(--success)">' + t('answer') + '</div>';
+      ['fr','en','ar'].forEach(function (lang) { html += lineHtml(q.secours.a[lang], lang, 'secours-a', 0, lang.toUpperCase()); });
+      html += '</div>';
+
+      html += '</div>';
+    });
+    document.getElementById('questions').innerHTML = html;
+  }
+
+  function setUILang(lang) {
+    state.uiLang = lang;
+    localStorage.setItem('conduite_ui_lang', lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    render();
+    document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      var key = el.dataset.t;
+      if (el.tagName === 'OPTION') el.textContent = t(key);
+      else if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') el.title = t(key);
+      else el.textContent = t(key);
+    });
+    document.querySelectorAll('[data-t-title]').forEach(function (el) { el.title = t(el.dataset.tTitle); });
+    if (!state.globalLoop) document.getElementById('btn-global-loop').textContent = '▶ ' + t('playAll');
+    document.getElementById('btn-draw').childNodes[1].textContent = ' ' + t('draw');
+  }
+
+  function searchImages(q) {
+    var query = q.vi.fr + ' ' + q.qser.q.fr + ' permis conduire';
+    window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(query), '_blank');
+  }
+
+  function askAi(q) {
+    var query = q.vi.fr + ' ' + q.qser.q.fr + ' ' + q.secours.q.fr;
+    window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+  }
+
+  document.getElementById('questions').addEventListener('click', function (e) {
+    var qEl = e.target.closest('.question');
+    if (!qEl) return;
+    var key = qEl.dataset.key;
+    var id = parseInt(key.replace('q', ''), 10);
+    var q = QUESTIONS[id - 1];
+
+    if (e.target.closest('.speak-btn')) { stopSpeech(); speakQuestion(q, key); return; }
+    if (e.target.closest('.loop-btn')) { toggleLoop(q, key); return; }
+    if (e.target.closest('.ai-btn')) { askAi(q); return; }
+    if (e.target.closest('.img-btn')) { searchImages(q); return; }
+  });
+
+  document.getElementById('btn-global-loop').addEventListener('click', function () {
+    if (state.globalLoop) { stopSpeech(); return; }
+    stopSpeech();
+    state.globalLoop = true;
+    this.textContent = '⏸ ' + t('playAll');
+    var i = 0;
+    (function next() {
+      if (!state.globalLoop) return;
+      if (i >= QUESTIONS.length) { stopSpeech(); return; }
+      var q = QUESTIONS[i];
+      var key = 'q' + q.id;
+      i++;
+      speakQuestion(q, key, function () {
+        if (!state.globalLoop) return;
+        setTimeout(next, 700);
+      });
+    })();
+  });
+
+  document.getElementById('rate').addEventListener('change', function (e) {
+    state.rate = parseFloat(e.target.value);
+    localStorage.setItem('conduite_rate', e.target.value);
+  });
+
+  document.getElementById('loopmode').addEventListener('change', function (e) {
+    state.langs = e.target.value.split(',');
+    localStorage.setItem('conduite_langs', e.target.value);
+  });
+
+  document.getElementById('btn-stop').addEventListener('click', stopSpeech);
+
+  document.getElementById('btn-theme').addEventListener('click', function () {
+    var next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('conduite_theme', next);
+  });
+
+  document.querySelector('.lang-switch').addEventListener('click', function (e) {
+    var btn = e.target.closest('.lang-btn');
+    if (btn) setUILang(btn.dataset.lang);
+  });
+
+  /* ---- drawing board ---- */
+  var drawer = document.getElementById('drawer');
+  var canvas = document.getElementById('draw-canvas');
+  var ctx = canvas.getContext('2d');
+  var drawing = false, tool = 'pen';
+
+  function resizeCanvas() {
+    canvas.width = drawer.clientWidth;
+    canvas.height = drawer.clientHeight;
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  }
+
+  function getPos(e) {
+    var rect = canvas.getBoundingClientRect();
+    var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    var clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return { x: clientX - rect.left, y: clientY - rect.top };
+  }
+
+  function startDraw(e) {
+    e.preventDefault(); drawing = true;
+    var p = getPos(e);
+    ctx.beginPath(); ctx.moveTo(p.x, p.y);
+  }
+  function moveDraw(e) {
+    e.preventDefault();
+    if (!drawing) return;
+    var p = getPos(e);
+    ctx.globalCompositeOperation = tool === 'eraser' ? 'destination-out' : 'source-over';
+    ctx.strokeStyle = tool === 'eraser' ? 'rgba(0,0,0,1)' : document.getElementById('draw-color').value;
+    ctx.lineWidth = parseInt(document.getElementById('draw-size').value, 10) * (tool === 'eraser' ? 3 : 1);
+    ctx.lineTo(p.x, p.y); ctx.stroke();
+  }
+  function endDraw() { drawing = false; ctx.beginPath(); }
+
+  function openDrawer() { drawer.classList.add('open'); setTimeout(resizeCanvas, 50); }
+  function closeDrawer() { drawer.classList.remove('open'); }
+
+  canvas.addEventListener('mousedown', startDraw);
+  canvas.addEventListener('mousemove', moveDraw);
+  canvas.addEventListener('mouseup', endDraw);
+  canvas.addEventListener('mouseout', endDraw);
+  canvas.addEventListener('touchstart', startDraw, { passive: false });
+  canvas.addEventListener('touchmove', moveDraw, { passive: false });
+  canvas.addEventListener('touchend', endDraw);
+
+  document.getElementById('btn-draw').addEventListener('click', openDrawer);
+  document.getElementById('fab-draw').addEventListener('click', openDrawer);
+  document.getElementById('draw-close').addEventListener('click', closeDrawer);
+  document.getElementById('draw-pen').addEventListener('click', function () { tool = 'pen'; });
+  document.getElementById('draw-eraser').addEventListener('click', function () { tool = 'eraser'; });
+  document.getElementById('draw-clear').addEventListener('click', function () { ctx.clearRect(0, 0, canvas.width, canvas.height); });
+  document.getElementById('draw-save').addEventListener('click', function () {
+    var link = document.createElement('a');
+    link.download = 'driving-exam-drawing-' + Date.now() + '.png';
+    link.href = canvas.toDataURL(); link.click();
+  });
+
+  /* ---- init ---- */
+  document.documentElement.dataset.theme = localStorage.getItem('conduite_theme') || 'dark';
+  document.getElementById('rate').value = state.rate;
+  var savedLangs = localStorage.getItem('conduite_langs');
+  if (savedLangs) document.getElementById('loopmode').value = savedLangs;
+  else document.getElementById('loopmode').value = 'fr,en,ar';
+
+  render();
+  setUILang(state.uiLang);
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  }
+  if (!nativeTTS() && 'speechSynthesis' in window) window.speechSynthesis.getVoices();
+  window.addEventListener('beforeunload', function () { if (nativeTTS() || 'speechSynthesis' in window) stopSpeech(); });
+
+  var AppPlugin = (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) || null;
+  if (AppPlugin && AppPlugin.addListener) {
+    AppPlugin.addListener('backButton', function () {
+      if (drawer.classList.contains('open')) { closeDrawer(); return; }
+      stopSpeech();
+    });
+  }
+})();
+</script>
+</body>
+</html>
