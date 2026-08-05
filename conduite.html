@@ -127,6 +127,15 @@
   .line.fr { background: rgba(79,172,254,0.12); direction: ltr; text-align: left; }
   .line.en { background: rgba(0,230,118,0.1); direction: ltr; text-align: left; color: var(--text-secondary); }
   .line.ar { background: rgba(255,200,87,0.12); direction: rtl; text-align: right; }
+  .line .line-btn {
+    font-size: 0.75rem; font-weight: 800; margin-inline-end: 0.45rem;
+    width: 26px; height: 26px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-primary);
+    display: inline-flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;
+    vertical-align: middle;
+  }
+  .line .line-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .line .line-btn.active { background: var(--success); color: #1a1a1a; border-color: var(--success); }
   .line .tag { font-size: 0.7rem; font-weight: 800; margin-inline-end: 0.4rem; opacity: 0.7; }
   .line.active { outline: 2px solid var(--success); }
   .drawer-fab {
@@ -240,6 +249,7 @@
     loopFr: { ar: '🔁 فرنسي فقط', en: '🔁 French only', fr: '🔁 Français seulement' },
     searchImages: { ar: 'بحث صور Google', en: 'Google Images', fr: 'Google Images' },
     askAi: { ar: 'اسأل Google AI', en: 'Ask Google AI', fr: 'Demander à Google AI' },
+    loop: { ar: 'تكرار السطر', en: 'Loop line', fr: 'Boucle la ligne' },
     footerText: { ar: 'تطبيق امتحان القيادة العملي · ', en: 'Practical driving exam app · ', fr: 'Application examen pratique de conduite · ' },
     videoLink: { ar: 'دروسي المرئية', en: 'My video lessons', fr: 'Mes cours vidéo' },
     frenchLink: { ar: 'تعلم الفرنسية', en: 'Learn French', fr: 'Apprendre le français' },
@@ -316,6 +326,7 @@
     else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     document.querySelectorAll('.question').forEach(function (el) { el.classList.remove('playing'); });
     document.querySelectorAll('.line').forEach(function (el) { el.classList.remove('active'); });
+    document.querySelectorAll('.line-speak').forEach(function (b) { b.classList.remove('active'); b.textContent = '🔁'; });
     document.getElementById('btn-global-loop').textContent = '▶ ' + t('playAll');
     document.querySelectorAll('.loop-btn').forEach(function (b) { b.classList.remove('active'); b.textContent = '🔁'; });
   }
@@ -373,18 +384,54 @@
   }
 
   function toggleLoop(q, key) {
-    if (state.loop && state.loop.key === key) { stopSpeech(); return; }
+    if (state.loop && state.loop.key === key && !state.loop.line) { stopSpeech(); return; }
     stopSpeech();
     state.loop = { key: key };
     var btn = document.querySelector('.question[data-key="' + key + '"] .loop-btn');
     if (btn) { btn.classList.add('active'); btn.textContent = '⏸'; }
     (function cycle() {
-      if (!state.loop || state.loop.key !== key) return;
+      if (!state.loop || state.loop.key !== key || state.loop.line) return;
       speakQuestion(q, key, function () {
-        if (!state.loop || state.loop.key !== key) return;
+        if (!state.loop || state.loop.key !== key || state.loop.line) return;
         setTimeout(cycle, 700);
       });
     })();
+  }
+
+  function toggleLineLoop(lineEl, q, key, type, lang, index) {
+    var text = lineEl.dataset.text || '';
+    if (state.loop && state.loop.key === key && state.loop.line &&
+        state.loop.line.type === type && state.loop.line.lang === lang && state.loop.line.index === index) {
+      stopSpeech(); return;
+    }
+    stopSpeech();
+    state.loop = { key: key, line: { type: type, lang: lang, index: index, text: text } };
+    var btn = lineEl.querySelector('.line-speak');
+    if (btn) { btn.classList.add('active'); btn.textContent = '⏸'; }
+    var run = speechRun;
+    (function cycle() {
+      if (!state.loop || state.loop.key !== key || !state.loop.line ||
+          state.loop.line.type !== type || state.loop.line.lang !== lang || state.loop.line.index !== index) return;
+      lineEl.classList.add('active');
+      speakText(text, lang, function () {
+        lineEl.classList.remove('active');
+        if (!state.loop || state.loop.key !== key || !state.loop.line ||
+            state.loop.line.type !== type || state.loop.line.lang !== lang || state.loop.line.index !== index) return;
+        setTimeout(cycle, 500);
+      }, run);
+    })();
+  }
+
+  function askAiLine(q, type) {
+    var parts = type.split('-');
+    var obj = parts[0] === 'qser' ? q.qser : (parts[0] === 'secours' ? q.secours : null);
+    var sub = parts[1] === 'q' ? 'q' : (parts[1] === 'a' ? 'a' : null);
+    if (!obj || !sub) return;
+    var fr = obj[sub].fr;
+    var en = obj[sub].en;
+    var ar = obj[sub].ar;
+    var query = fr + ' | EN: ' + en + ' | AR: ' + ar;
+    window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
   }
 
   var QUESTIONS = [
@@ -991,8 +1038,10 @@
   ];
 
   function lineHtml(text, lang, type, index, label) {
-    return '<div class="line ' + lang + '" data-lang="' + lang + '" data-type="' + type + '" data-index="' + index + '">' +
-      '<span class="tag">' + label + '</span>' + esc(text) + '</div>';
+    var ai = lang === 'fr' && /^(qser|secours)-(q|a)$/.test(type);
+    var aiBtn = ai ? '<button class="line-btn line-ai" title="' + t('askAi') + '">🤖</button>' : '';
+    return '<div class="line ' + lang + '" data-lang="' + lang + '" data-type="' + type + '" data-index="' + index + '" data-text="' + esc(text) + '">' +
+      '<button class="line-btn line-speak" title="' + t('loop') + '">🔁</button>' + aiBtn + esc(text) + '</div>';
   }
 
   function render() {
@@ -1067,6 +1116,12 @@
     var key = qEl.dataset.key;
     var id = parseInt(key.replace('q', ''), 10);
     var q = QUESTIONS[id - 1];
+
+    var lineEl = e.target.closest('.line');
+    if (lineEl) {
+      if (e.target.closest('.line-speak')) { toggleLineLoop(lineEl, q, key, lineEl.dataset.type, lineEl.dataset.lang, parseInt(lineEl.dataset.index, 10)); return; }
+      if (e.target.closest('.line-ai')) { askAiLine(q, lineEl.dataset.type); return; }
+    }
 
     if (e.target.closest('.speak-btn')) { stopSpeech(); speakQuestion(q, key); return; }
     if (e.target.closest('.loop-btn')) { toggleLoop(q, key); return; }
