@@ -1,4 +1,4 @@
-const CACHE_NAME = 'conduite-v21';
+const CACHE_NAME = 'conduite-v22';
 const FILES_TO_CACHE = [
   './',
   './index.html',

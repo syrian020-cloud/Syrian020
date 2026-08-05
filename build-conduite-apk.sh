@@ -63,7 +63,7 @@ for d, size in sizes.items():
 bg_path = os.path.join(base, 'values/ic_launcher_background.xml')
 if os.path.isfile(bg_path):
     with open(bg_path, 'w') as f:
-        f.write("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<resources>\n    <color name=\"ic_launcher_background\">#1a3a52</color>\n</resources>")
+        f.write("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<resources>\n    <color name=\"ic_launcher_background\">#0087e6</color>\n</resources>")
 PY
 
 npx cap sync android
