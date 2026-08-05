@@ -472,8 +472,9 @@
       if(state.letters.length && state.letters.indexOf(firstLetter(v.fr)) === -1) return false;
       if(!q) return true;
       if(posMatchKey) return v.pos === posMatchKey;
-      var ex = v.ex || {};
-      var hay = (v.fr + ' ' + (v.ar||'') + ' ' + (v.en||'') + ' ' + (v.usage||'') + ' ' + (v.contexts||[]).join(' ') + ' ' + (ex.fr||'') + ' ' + (ex.ar||'') + ' ' + (ex.en||'')).toLowerCase();
+      var exArr = Array.isArray(v.ex) ? v.ex : (v.ex ? [v.ex] : []);
+      var exText = exArr.map(function(e){ return (e.fr||'') + ' ' + (e.ar||'') + ' ' + (e.en||''); }).join(' ');
+      var hay = (v.fr + ' ' + (v.ar||'') + ' ' + (v.en||'') + ' ' + (v.usage||'') + ' ' + (v.contexts||[]).join(' ') + ' ' + exText).toLowerCase();
       return hay.indexOf(q) !== -1;
     });
     if(state.sort === 'az') items.sort(function(a,b){ return a.fr.localeCompare(b.fr, 'fr'); });
@@ -498,7 +499,8 @@
     var end = Math.min(items.length, state.page * state.pageSize);
     var html = items.slice(0, end).map(function(v, idx){
       var key = 'v' + idx;
-      var ex = v.ex ? '<div class="example"><div class="ex-fr" dir="ltr">' + esc(v.ex.fr) + '</div><div class="ex-ar">' + esc(v.ex.ar) + '</div>' + (v.ex.en ? '<div class="ex-en" dir="ltr">' + esc(v.ex.en) + '</div>' : '') + '</div>' : '';
+      var exArr = Array.isArray(v.ex) ? v.ex : (v.ex ? [v.ex] : []);
+      var ex = exArr.map(function(e){ return '<div class="example"><div class="ex-fr" dir="ltr">' + esc(e.fr||'') + '</div><div class="ex-ar">' + esc(e.ar||'') + '</div>' + (e.en ? '<div class="ex-en" dir="ltr">' + esc(e.en) + '</div>' : '') + '</div>'; }).join('');
       var usage = v.usage ? '<div class="usage" dir="rtl">' + esc(v.usage) + '</div>' : '';
       return '<div class="vocab-card" data-key="' + esc(key) + '" data-idx="' + idx + '">' +
         '<div class="vocab-head">' +
@@ -587,9 +589,10 @@
   function speakEntry(entry, langs, key, onDone){
     var seq = [];
     langs.forEach(function(l){ if(entry[l]) seq.push({ lang: l, text: entry[l] }); });
-    if(entry.ex){
-      langs.forEach(function(l){ var t = entry.ex[l]; if(t) seq.push({ lang: l, text: t }); });
-    }
+    var exArr = Array.isArray(entry.ex) ? entry.ex : (entry.ex ? [entry.ex] : []);
+    exArr.forEach(function(e){
+      langs.forEach(function(l){ var t = e[l]; if(t) seq.push({ lang: l, text: t }); });
+    });
     var i = 0;
     var run = ++speechRun;
     if(nativeTTS()){

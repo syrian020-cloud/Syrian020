@@ -10646,10 +10646,59 @@ window.VOCAB_DATA = [
     "fr": "Faire du bénévolat",
     "ar": "يتطوع / يعمل تطوعيًا",
     "en": "To volunteer / Do volunteer work",
+    "ex": [
+      {
+        "fr": "Je fais du bénévolat le week-end.",
+        "ar": "بتطوع بعطلة نهاية الأسبوع.",
+        "en": "I volunteer on weekends."
+      },
+      {
+        "fr": "Je voudrais faire du bénévolat dans une association.",
+        "ar": "بدي أتطوع بجمعية.",
+        "en": "I would like to volunteer at an association."
+      },
+      {
+        "fr": "J'ai fait du bénévolat pendant deux ans.",
+        "ar": "تطوعت لمدة سنتين.",
+        "en": "I volunteered for two years."
+      },
+      {
+        "fr": "Je vais faire du bénévolat cet été.",
+        "ar": "رح أتطوع هالصيف.",
+        "en": "I'm going to volunteer this summer."
+      }
+    ],
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "phrase"
+  },
+  {
+    "fr": "Le bénévolat",
+    "ar": "التطوع / العمل التطوعي",
+    "en": "Volunteering / Volunteer work (noun)",
     "ex": {
-      "fr": "Je fais du bénévolat dans une association.",
-      "ar": "أنا أتطوع في جمعية.",
-      "en": "I volunteer in an association."
+      "fr": "Le bénévolat m'a beaucoup appris.",
+      "ar": "التطوع علمني كتير.",
+      "en": "Volunteering taught me a lot."
+    },
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Être bénévole",
+    "ar": "يكون متطوعًا",
+    "en": "To be a volunteer",
+    "ex": {
+      "fr": "Je suis bénévole dans une association d'aide alimentaire.",
+      "ar": "أنا متطوع بجمعية مساعدة غذائية.",
+      "en": "I'm a volunteer at a food assistance association."
     },
     "level": "A2",
     "contexts": [
