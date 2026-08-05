@@ -11235,11 +11235,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "La caméra fonctionne bien.",
-      "ar": "الكاميرا تعمل جيداً.",
-      "en": "The camera works well."
-    }
+    "ex": [
+      {
+        "fr": "La caméra fonctionne bien.",
+        "ar": "الكاميرا تعمل جيداً.",
+        "en": "The camera works well."
+      },
+      {
+        "fr": "La caméra de mon téléphone fonctionne bien.",
+        "ar": "كاميرا هاتفي تعمل جيدًا.",
+        "en": "My phone camera works well."
+      }
+    ]
   },
   {
     "fr": "Capable",
@@ -11256,6 +11263,11 @@ window.VOCAB_DATA = [
         "fr": "Je suis capable de le faire.",
         "ar": "أنا قادر على فعل ذلك.",
         "en": "I am able to do it."
+      },
+      {
+        "fr": "Je suis capable de faire ce travail.",
+        "ar": "أنا قادر على القيام بهذا العمل.",
+        "en": "I am able to do this work."
       }
     ]
   },
@@ -11347,11 +11359,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "C'est un acteur célèbre.",
-      "ar": "إنه ممثل مشهور.",
-      "en": "He is a famous actor."
-    }
+    "ex": [
+      {
+        "fr": "C'est un acteur célèbre.",
+        "ar": "إنه ممثل مشهور.",
+        "en": "He is a famous actor."
+      },
+      {
+        "fr": "Paris est une ville célèbre.",
+        "ar": "باريس مدينة مشهورة.",
+        "en": "Paris is a famous city."
+      }
+    ]
   },
   {
     "fr": "Cent",
@@ -11497,13 +11516,11 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": [
-      {
-        "fr": "Je cherche mes clés.",
-        "ar": "أبحث عن مفاتيحي.",
-        "en": "I am looking for my keys."
-      }
-    ]
+    "ex": {
+      "fr": "Je cherche mes clés.",
+      "ar": "أبحث عن مفاتيحي.",
+      "en": "I am looking for my keys."
+    }
   },
   {
     "fr": "Choisir",
@@ -11514,11 +11531,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Je dois choisir une voiture.",
-      "ar": "يجب أن أختار سيارة.",
-      "en": "I have to choose a car."
-    }
+    "ex": [
+      {
+        "fr": "Je dois choisir une voiture.",
+        "ar": "يجب أن أختار سيارة.",
+        "en": "I have to choose a car."
+      },
+      {
+        "fr": "Je dois choisir une option.",
+        "ar": "يجب أن أختار خيارًا.",
+        "en": "I have to choose an option."
+      }
+    ]
   },
   {
     "fr": "Chose",
@@ -11529,28 +11553,33 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": [
-      {
-        "fr": "J'ai une chose importante à dire.",
-        "ar": "لدي شيء مهم لأقوله.",
-        "en": "I have something important to say."
-      }
-    ]
+    "ex": {
+      "fr": "J'ai une chose importante à dire.",
+      "ar": "لدي شيء مهم لأقوله.",
+      "en": "I have something important to say."
+    }
   },
   {
     "fr": "Chaudron",
-    "ar": "قدر كبير / إناء طبخ كبير",
+    "ar": "قدر كبير",
     "en": "Large pot / Cauldron",
     "level": "B2",
     "pos": "noun",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Le cuisinier prépare la soupe dans un chaudron.",
-      "ar": "الطباخ يحضر الحساء في قدر كبير.",
-      "en": "The cook prepares the soup in a large pot."
-    }
+    "ex": [
+      {
+        "fr": "Le cuisinier prépare la soupe dans un chaudron.",
+        "ar": "الطباخ يحضر الحساء في قدر كبير.",
+        "en": "The cook prepares the soup in a large pot."
+      },
+      {
+        "fr": "Le cuisinier utilise un grand chaudron.",
+        "ar": "الطباخ يستخدم قدرًا كبيرًا.",
+        "en": "The cook uses a large pot."
+      }
+    ]
   },
   {
     "fr": "Chute",
@@ -11559,8 +11588,8 @@ window.VOCAB_DATA = [
     "level": "A2",
     "pos": "noun",
     "contexts": [
-      "daily",
-      "health"
+      "health",
+      "daily"
     ],
     "ex": [
       {
@@ -11572,6 +11601,11 @@ window.VOCAB_DATA = [
         "fr": "Il a fait une chute dans la rue.",
         "ar": "لقد سقط في الشارع.",
         "en": "He had a fall in the street."
+      },
+      {
+        "fr": "Il a fait une chute.",
+        "ar": "لقد سقط.",
+        "en": "He had a fall."
       }
     ]
   },
@@ -11615,7 +11649,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Circuler",
     "ar": "يسير / يتنقل",
-    "en": "To move / To circulate",
+    "en": "To move / Circulate",
     "level": "A2",
     "pos": "verb",
     "contexts": [
@@ -11637,18 +11671,25 @@ window.VOCAB_DATA = [
   {
     "fr": "Citer",
     "ar": "يذكر / يقتبس",
-    "en": "To mention / To quote",
+    "en": "To mention / Quote",
     "level": "B1",
     "pos": "verb",
     "contexts": [
       "school",
       "work"
     ],
-    "ex": {
-      "fr": "Il a cité un exemple.",
-      "ar": "ذكر مثالاً.",
-      "en": "He mentioned an example."
-    }
+    "ex": [
+      {
+        "fr": "Il a cité un exemple.",
+        "ar": "ذكر مثالاً.",
+        "en": "He mentioned an example."
+      },
+      {
+        "fr": "Il cite un exemple dans son rapport.",
+        "ar": "يذكر مثالًا في تقريره.",
+        "en": "He mentions an example in his report."
+      }
+    ]
   },
   {
     "fr": "Clair / Claire",
@@ -11664,6 +11705,11 @@ window.VOCAB_DATA = [
         "fr": "L'explication est claire.",
         "ar": "الشرح واضح.",
         "en": "The explanation is clear."
+      },
+      {
+        "fr": "Votre explication est claire.",
+        "ar": "شرحك واضح.",
+        "en": "Your explanation is clear."
       }
     ]
   },
@@ -11677,18 +11723,16 @@ window.VOCAB_DATA = [
       "school",
       "daily"
     ],
-    "ex": [
-      {
-        "fr": "Les élèves sont en classe.",
-        "ar": "الطلاب في الصف.",
-        "en": "The students are in class."
-      }
-    ]
+    "ex": {
+      "fr": "Les élèves sont en classe.",
+      "ar": "الطلاب في الصف.",
+      "en": "The students are in class."
+    }
   },
   {
     "fr": "Classer",
     "ar": "يرتب / يصنف",
-    "en": "To sort / To classify",
+    "en": "To sort / Classify",
     "level": "A2",
     "pos": "verb",
     "contexts": [
@@ -11733,13 +11777,11 @@ window.VOCAB_DATA = [
       "work",
       "shop"
     ],
-    "ex": [
-      {
-        "fr": "Le client attend son tour.",
-        "ar": "الزبون ينتظر دوره.",
-        "en": "The customer is waiting for his turn."
-      }
-    ]
+    "ex": {
+      "fr": "Le client attend son tour.",
+      "ar": "الزبون ينتظر دوره.",
+      "en": "The customer is waiting for his turn."
+    }
   },
   {
     "fr": "Climat",
@@ -11766,7 +11808,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Clôturer",
     "ar": "يغلق / ينهي",
-    "en": "To close / To finalize",
+    "en": "To close / Finalize",
     "level": "B1",
     "pos": "verb",
     "contexts": [
@@ -11881,6 +11923,11 @@ window.VOCAB_DATA = [
         "fr": "Ma couleur préférée est le bleu.",
         "ar": "لوني المفضل هو الأزرق.",
         "en": "My favorite color is blue."
+      },
+      {
+        "fr": "Quelle est ta couleur préférée ?",
+        "ar": "ما لونك المفضل؟",
+        "en": "What is your favorite color?"
       }
     ]
   },
@@ -12018,7 +12065,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Créer",
-    "ar": "ينشئ / يخلق",
+    "ar": "ينشئ",
     "en": "To create",
     "level": "A2",
     "pos": "verb",
@@ -12036,6 +12083,11 @@ window.VOCAB_DATA = [
         "fr": "Il veut créer une entreprise.",
         "ar": "يريد إنشاء شركة.",
         "en": "He wants to create a company."
+      },
+      {
+        "fr": "Je veux créer une application.",
+        "ar": "أريد إنشاء تطبيق.",
+        "en": "I want to create an application."
       }
     ]
   },
@@ -12048,13 +12100,11 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": [
-      {
-        "fr": "Je crois que c'est vrai.",
-        "ar": "أعتقد أن هذا صحيح.",
-        "en": "I believe that it is true."
-      }
-    ]
+    "ex": {
+      "fr": "Je crois que c'est vrai.",
+      "ar": "أعتقد أن هذا صحيح.",
+      "en": "I believe that it is true."
+    }
   },
   {
     "fr": "Croiser",
@@ -12087,13 +12137,11 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": [
-      {
-        "fr": "La cuisine est propre.",
-        "ar": "المطبخ نظيف.",
-        "en": "The kitchen is clean."
-      }
-    ]
+    "ex": {
+      "fr": "La cuisine est propre.",
+      "ar": "المطبخ نظيف.",
+      "en": "The kitchen is clean."
+    }
   },
   {
     "fr": "Cuisiner",
@@ -12202,8 +12250,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Charger",
-    "ar": "يشحن / يحمّل",
-    "en": "To charge / To load",
+    "ar": "يشحن / يحمل",
+    "en": "To charge / Load",
     "level": "A2",
     "pos": "verb",
     "contexts": [
@@ -12219,7 +12267,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Chasser",
     "ar": "يطارد / يصطاد",
-    "en": "To hunt / To chase",
+    "en": "To chase / Hunt",
     "level": "A2",
     "pos": "verb",
     "contexts": [
@@ -12233,7 +12281,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Chauffer",
-    "ar": "يسخّن / يدفئ",
+    "ar": "يسخن",
     "en": "To heat",
     "level": "A2",
     "pos": "verb",
@@ -12270,11 +12318,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "J'ai un chien à la maison.",
-      "ar": "لدي كلب في المنزل.",
-      "en": "I have a dog at home."
-    }
+    "ex": [
+      {
+        "fr": "J'ai un chien à la maison.",
+        "ar": "لدي كلب في المنزل.",
+        "en": "I have a dog at home."
+      },
+      {
+        "fr": "Le chien joue dans le jardin.",
+        "ar": "الكلب يلعب في الحديقة.",
+        "en": "The dog plays in the garden."
+      }
+    ]
   },
   {
     "fr": "Chambre",
@@ -12355,7 +12410,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Chemin",
-    "ar": "طريق / مسار",
+    "ar": "طريق",
     "en": "Way / Path",
     "level": "A1",
     "pos": "noun",
@@ -12491,18 +12546,26 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Compter",
-    "ar": "يحسب / يعتمد على",
-    "en": "To count / To rely on",
+    "ar": "يعد / يحسب",
+    "en": "To count",
     "level": "A1",
     "pos": "verb",
     "contexts": [
-      "daily"
+      "daily",
+      "work"
     ],
-    "ex": {
-      "fr": "Je compte l'argent.",
-      "ar": "أعدّ المال.",
-      "en": "I count the money."
-    }
+    "ex": [
+      {
+        "fr": "Je compte l'argent.",
+        "ar": "أعدّ المال.",
+        "en": "I count the money."
+      },
+      {
+        "fr": "Je compte les produits.",
+        "ar": "أعد المنتجات.",
+        "en": "I count the products."
+      }
+    ]
   },
   {
     "fr": "Conduire",
@@ -12592,6 +12655,1783 @@ window.VOCAB_DATA = [
       "fr": "J'ai un cours de français.",
       "ar": "لدي درس فرنسي.",
       "en": "I have a French class."
+    }
+  },
+  {
+    "fr": "Cabine",
+    "ar": "كابينة / مقصورة",
+    "en": "Booth / Cabin",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "services",
+      "transport"
+    ],
+    "ex": {
+      "fr": "J'attends dans la cabine.",
+      "ar": "أنتظر في الكابينة.",
+      "en": "I am waiting in the booth."
+    }
+  },
+  {
+    "fr": "Câble",
+    "ar": "كابل / سلك",
+    "en": "Cable",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "Le câble est trop long.",
+      "ar": "الكابل طويل جدًا.",
+      "en": "The cable is too long."
+    }
+  },
+  {
+    "fr": "Cabinet",
+    "ar": "عيادة / مكتب",
+    "en": "Clinic / Office",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "health",
+      "work"
+    ],
+    "ex": {
+      "fr": "Le cabinet ouvre à huit heures.",
+      "ar": "تفتح العيادة الساعة الثامنة.",
+      "en": "The clinic opens at eight o'clock."
+    }
+  },
+  {
+    "fr": "Cadre",
+    "ar": "إطار / مدير",
+    "en": "Frame / Executive",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "Le cadre est accroché au mur.",
+      "ar": "الإطار معلق على الحائط.",
+      "en": "The frame is hanging on the wall."
+    }
+  },
+  {
+    "fr": "Cahier",
+    "ar": "دفتر",
+    "en": "Notebook",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "school"
+    ],
+    "ex": {
+      "fr": "J'écris dans mon cahier.",
+      "ar": "أكتب في دفتري.",
+      "en": "I write in my notebook."
+    }
+  },
+  {
+    "fr": "Camion",
+    "ar": "شاحنة",
+    "en": "Truck",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "transport",
+      "work"
+    ],
+    "ex": {
+      "fr": "Le camion est arrivé.",
+      "ar": "وصلت الشاحنة.",
+      "en": "The truck has arrived."
+    }
+  },
+  {
+    "fr": "Campagne",
+    "ar": "ريف",
+    "en": "Countryside",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'habite à la campagne.",
+      "ar": "أعيش في الريف.",
+      "en": "I live in the countryside."
+    }
+  },
+  {
+    "fr": "Canapé",
+    "ar": "أريكة",
+    "en": "Sofa",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "Le canapé est confortable.",
+      "ar": "الأريكة مريحة.",
+      "en": "The sofa is comfortable."
+    }
+  },
+  {
+    "fr": "Canard",
+    "ar": "بطة",
+    "en": "Duck",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Les enfants regardent les canards.",
+      "ar": "الأطفال ينظرون إلى البط.",
+      "en": "The children are watching the ducks."
+    }
+  },
+  {
+    "fr": "Canette",
+    "ar": "علبة مشروب",
+    "en": "Can",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "shop"
+    ],
+    "ex": {
+      "fr": "J'achète une canette de soda.",
+      "ar": "أشتري علبة مشروب غازي.",
+      "en": "I buy a can of soda."
+    }
+  },
+  {
+    "fr": "Capot",
+    "ar": "غطاء المحرك",
+    "en": "Hood",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "transport"
+    ],
+    "ex": {
+      "fr": "Ouvre le capot de la voiture.",
+      "ar": "افتح غطاء محرك السيارة.",
+      "en": "Open the car hood."
+    }
+  },
+  {
+    "fr": "Carotte",
+    "ar": "جزرة",
+    "en": "Carrot",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je mange une carotte.",
+      "ar": "آكل جزرة.",
+      "en": "I eat a carrot."
+    }
+  },
+  {
+    "fr": "Cas",
+    "ar": "حالة",
+    "en": "Case",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est un cas particulier.",
+      "ar": "هذه حالة خاصة.",
+      "en": "It is a special case."
+    }
+  },
+  {
+    "fr": "Casier",
+    "ar": "خزانة / صندوق",
+    "en": "Locker",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "work",
+      "daily"
+    ],
+    "ex": {
+      "fr": "Mon sac est dans le casier.",
+      "ar": "حقيبتي في الخزانة.",
+      "en": "My bag is in the locker."
+    }
+  },
+  {
+    "fr": "Casque",
+    "ar": "خوذة / سماعات",
+    "en": "Helmet / Headphones",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Porte ton casque.",
+      "ar": "ارتدِ خوذتك.",
+      "en": "Wear your helmet."
+    }
+  },
+  {
+    "fr": "Catalogue",
+    "ar": "كتالوج",
+    "en": "Catalogue",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "shop"
+    ],
+    "ex": {
+      "fr": "Regardez le catalogue.",
+      "ar": "انظر إلى الكتالوج.",
+      "en": "Look at the catalogue."
+    }
+  },
+  {
+    "fr": "Catégorie",
+    "ar": "فئة",
+    "en": "Category",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cette catégorie est complète.",
+      "ar": "هذه الفئة مكتملة.",
+      "en": "This category is complete."
+    }
+  },
+  {
+    "fr": "Cauchemar",
+    "ar": "كابوس",
+    "en": "Nightmare",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai fait un cauchemar.",
+      "ar": "رأيت كابوسًا.",
+      "en": "I had a nightmare."
+    }
+  },
+  {
+    "fr": "Caution",
+    "ar": "تأمين / وديعة",
+    "en": "Deposit",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "J'ai payé la caution.",
+      "ar": "دفعت مبلغ التأمين.",
+      "en": "I paid the deposit."
+    }
+  },
+  {
+    "fr": "Cave",
+    "ar": "قبو",
+    "en": "Basement / Cellar",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "Les vélos sont dans la cave.",
+      "ar": "الدراجات في القبو.",
+      "en": "The bikes are in the basement."
+    }
+  },
+  {
+    "fr": "Cendrier",
+    "ar": "منفضة سجائر",
+    "en": "Ashtray",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le cendrier est plein.",
+      "ar": "منفضة السجائر ممتلئة.",
+      "en": "The ashtray is full."
+    }
+  },
+  {
+    "fr": "Centre",
+    "ar": "مركز",
+    "en": "Center",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le centre-ville est animé.",
+      "ar": "وسط المدينة مزدحم.",
+      "en": "The city center is lively."
+    }
+  },
+  {
+    "fr": "Céréales",
+    "ar": "حبوب الإفطار",
+    "en": "Cereal",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je mange des céréales.",
+      "ar": "أتناول حبوب الإفطار.",
+      "en": "I eat cereal."
+    }
+  },
+  {
+    "fr": "Certificat",
+    "ar": "شهادة",
+    "en": "Certificate",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "work",
+      "school"
+    ],
+    "ex": {
+      "fr": "J'ai besoin d'un certificat médical.",
+      "ar": "أحتاج إلى شهادة طبية.",
+      "en": "I need a medical certificate."
+    }
+  },
+  {
+    "fr": "Chaîne",
+    "ar": "سلسلة",
+    "en": "Chain",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La chaîne est cassée.",
+      "ar": "السلسلة مكسورة.",
+      "en": "The chain is broken."
+    }
+  },
+  {
+    "fr": "Chaise",
+    "ar": "كرسي",
+    "en": "Chair",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": {
+      "fr": "La chaise est près de la table.",
+      "ar": "الكرسي بجانب الطاولة.",
+      "en": "The chair is next to the table."
+    }
+  },
+  {
+    "fr": "Chaleur",
+    "ar": "حرارة / طقس حار",
+    "en": "Heat",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "weather",
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il fait une chaleur incroyable aujourd'hui.",
+      "ar": "الجو حار جدًا اليوم.",
+      "en": "It is incredibly hot today."
+    }
+  },
+  {
+    "fr": "Chambre d'hôtel",
+    "ar": "غرفة فندق",
+    "en": "Hotel room",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La chambre d'hôtel est prête.",
+      "ar": "غرفة الفندق جاهزة.",
+      "en": "The hotel room is ready."
+    }
+  },
+  {
+    "fr": "Champ",
+    "ar": "حقل",
+    "en": "Field",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Les enfants jouent dans le champ.",
+      "ar": "يلعب الأطفال في الحقل.",
+      "en": "The children are playing in the field."
+    }
+  },
+  {
+    "fr": "Champion",
+    "ar": "بطل",
+    "en": "Champion",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il est champion de France.",
+      "ar": "إنه بطل فرنسا.",
+      "en": "He is the champion of France."
+    }
+  },
+  {
+    "fr": "Chapeau",
+    "ar": "قبعة",
+    "en": "Hat",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "shop",
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je porte un chapeau noir.",
+      "ar": "أرتدي قبعة سوداء.",
+      "en": "I wear a black hat."
+    }
+  },
+  {
+    "fr": "Chargeur",
+    "ar": "شاحن",
+    "en": "Charger",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où est mon chargeur ?",
+      "ar": "أين شاحني؟",
+      "en": "Where is my charger?"
+    }
+  },
+  {
+    "fr": "Charcuterie",
+    "ar": "لحوم باردة",
+    "en": "Cold cuts",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'achète de la charcuterie.",
+      "ar": "أشتري لحومًا باردة.",
+      "en": "I buy cold cuts."
+    }
+  },
+  {
+    "fr": "Charnière",
+    "ar": "مفصلة",
+    "en": "Hinge",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "La charnière de la porte est cassée.",
+      "ar": "مفصلة الباب مكسورة.",
+      "en": "The door hinge is broken."
+    }
+  },
+  {
+    "fr": "Chaussette",
+    "ar": "جورب",
+    "en": "Sock",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "shop"
+    ],
+    "ex": {
+      "fr": "Il me manque une chaussette.",
+      "ar": "ينقصني جورب.",
+      "en": "I am missing a sock."
+    }
+  },
+  {
+    "fr": "Chaussure",
+    "ar": "حذاء",
+    "en": "Shoe",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "shop"
+    ],
+    "ex": {
+      "fr": "Ces chaussures sont confortables.",
+      "ar": "هذا الحذاء مريح.",
+      "en": "These shoes are comfortable."
+    }
+  },
+  {
+    "fr": "Chef d'équipe",
+    "ar": "قائد الفريق",
+    "en": "Team leader",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Le chef d'équipe donne les consignes.",
+      "ar": "قائد الفريق يعطي التعليمات.",
+      "en": "The team leader gives instructions."
+    }
+  },
+  {
+    "fr": "Chèque",
+    "ar": "شيك",
+    "en": "Check",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "bank"
+    ],
+    "ex": {
+      "fr": "Je paie par chèque.",
+      "ar": "أدفع بشيك.",
+      "en": "I pay by check."
+    }
+  },
+  {
+    "fr": "Cheval",
+    "ar": "حصان",
+    "en": "Horse",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le cheval court vite.",
+      "ar": "الحصان يركض بسرعة.",
+      "en": "The horse runs fast."
+    }
+  },
+  {
+    "fr": "Cheville",
+    "ar": "كاحل",
+    "en": "Ankle",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je me suis blessé à la cheville.",
+      "ar": "أصبت كاحلي.",
+      "en": "I injured my ankle."
+    }
+  },
+  {
+    "fr": "Chiffon",
+    "ar": "قطعة قماش",
+    "en": "Cloth",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Nettoie la table avec un chiffon.",
+      "ar": "نظف الطاولة بقطعة قماش.",
+      "en": "Clean the table with a cloth."
+    }
+  },
+  {
+    "fr": "Chocolat",
+    "ar": "شوكولاتة",
+    "en": "Chocolate",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'aime le chocolat noir.",
+      "ar": "أحب الشوكولاتة الداكنة.",
+      "en": "I like dark chocolate."
+    }
+  },
+  {
+    "fr": "Choix",
+    "ar": "اختيار",
+    "en": "Choice",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est un bon choix.",
+      "ar": "إنه اختيار جيد.",
+      "en": "It is a good choice."
+    }
+  },
+  {
+    "fr": "Chômage",
+    "ar": "بطالة",
+    "en": "Unemployment",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Le chômage a augmenté.",
+      "ar": "ارتفعت البطالة.",
+      "en": "Unemployment has increased."
+    }
+  },
+  {
+    "fr": "Chronomètre",
+    "ar": "ساعة توقيت",
+    "en": "Stopwatch",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Lance le chronomètre.",
+      "ar": "شغّل ساعة التوقيت.",
+      "en": "Start the stopwatch."
+    }
+  },
+  {
+    "fr": "Cigarette",
+    "ar": "سيجارة",
+    "en": "Cigarette",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il fume une cigarette.",
+      "ar": "يدخن سيجارة.",
+      "en": "He is smoking a cigarette."
+    }
+  },
+  {
+    "fr": "Cinéma",
+    "ar": "سينما",
+    "en": "Cinema",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Nous allons au cinéma ce soir.",
+      "ar": "سنذهب إلى السينما هذا المساء.",
+      "en": "We are going to the cinema tonight."
+    }
+  },
+  {
+    "fr": "Circonstance",
+    "ar": "ظرف",
+    "en": "Circumstance",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Les circonstances sont difficiles.",
+      "ar": "الظروف صعبة.",
+      "en": "The circumstances are difficult."
+    }
+  },
+  {
+    "fr": "Citoyen",
+    "ar": "مواطن",
+    "en": "Citizen",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Chaque citoyen a des droits.",
+      "ar": "لكل مواطن حقوق.",
+      "en": "Every citizen has rights."
+    }
+  },
+  {
+    "fr": "Civil",
+    "ar": "مدني",
+    "en": "Civil",
+    "pos": "adjective",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "C'est une affaire civile.",
+      "ar": "إنها قضية مدنية.",
+      "en": "It is a civil matter."
+    }
+  },
+  {
+    "fr": "Clavier",
+    "ar": "لوحة مفاتيح",
+    "en": "Keyboard",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Mon clavier ne fonctionne plus.",
+      "ar": "لوحة المفاتيح لا تعمل بعد الآن.",
+      "en": "My keyboard no longer works."
+    }
+  },
+  {
+    "fr": "Clé USB",
+    "ar": "مفتاح USB / فلاشة",
+    "en": "USB drive",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai enregistré le fichier sur une clé USB.",
+      "ar": "حفظت الملف على فلاشة USB.",
+      "en": "I saved the file on a USB drive."
+    }
+  },
+  {
+    "fr": "Climatisation",
+    "ar": "تكييف هواء",
+    "en": "Air conditioning",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "housing",
+      "work"
+    ],
+    "ex": {
+      "fr": "La climatisation ne marche pas.",
+      "ar": "جهاز التكييف لا يعمل.",
+      "en": "The air conditioning does not work."
+    }
+  },
+  {
+    "fr": "Cloche",
+    "ar": "جرس",
+    "en": "Bell",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La cloche sonne.",
+      "ar": "الجرس يرن.",
+      "en": "The bell rings."
+    }
+  },
+  {
+    "fr": "Colis",
+    "ar": "طرد",
+    "en": "Package / Parcel",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'attends un colis.",
+      "ar": "أنتظر طردًا.",
+      "en": "I am waiting for a package."
+    }
+  },
+  {
+    "fr": "Collation",
+    "ar": "وجبة خفيفة",
+    "en": "Snack",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je prends une petite collation.",
+      "ar": "أتناول وجبة خفيفة.",
+      "en": "I have a small snack."
+    }
+  },
+  {
+    "fr": "Colline",
+    "ar": "تلة",
+    "en": "Hill",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Nous montons sur la colline.",
+      "ar": "نصعد إلى التلة.",
+      "en": "We climb the hill."
+    }
+  },
+  {
+    "fr": "Commande",
+    "ar": "طلب",
+    "en": "Order",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "shop",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai reçu ma commande.",
+        "ar": "استلمت طلبي.",
+        "en": "I received my order."
+      },
+      {
+        "fr": "Ma commande arrive demain.",
+        "ar": "طلبي يصل غدًا.",
+        "en": "My order arrives tomorrow."
+      }
+    ]
+  },
+  {
+    "fr": "Commander",
+    "ar": "يطلب",
+    "en": "To order",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "shop",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Je voudrais commander un café.",
+      "ar": "أريد أن أطلب قهوة.",
+      "en": "I would like to order a coffee."
+    }
+  },
+  {
+    "fr": "Commerce",
+    "ar": "تجارة / متجر",
+    "en": "Business / Shop",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "work",
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le commerce est fermé.",
+      "ar": "المتجر مغلق.",
+      "en": "The shop is closed."
+    }
+  },
+  {
+    "fr": "Commun / Commune",
+    "ar": "مشترك / عام",
+    "en": "Common",
+    "pos": "adjective",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est un problème commun.",
+      "ar": "هذه مشكلة مشتركة.",
+      "en": "It is a common problem."
+    }
+  },
+  {
+    "fr": "Communiquer",
+    "ar": "يتواصل",
+    "en": "To communicate",
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "work",
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il faut bien communiquer avec l'équipe.",
+      "ar": "يجب التواصل جيدًا مع الفريق.",
+      "en": "We must communicate well with the team."
+    }
+  },
+  {
+    "fr": "Comparer",
+    "ar": "يقارن",
+    "en": "To compare",
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je compare les prix avant d'acheter.",
+      "ar": "أقارن الأسعار قبل الشراء.",
+      "en": "I compare prices before buying."
+    }
+  },
+  {
+    "fr": "Compagnie",
+    "ar": "شركة / رفقة",
+    "en": "Company / Companionship",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "work",
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je travaille dans une grande compagnie.",
+      "ar": "أعمل في شركة كبيرة.",
+      "en": "I work in a large company."
+    }
+  },
+  {
+    "fr": "Compléter",
+    "ar": "يكمل / يملأ",
+    "en": "To complete / Fill in",
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je dois compléter ce formulaire.",
+      "ar": "يجب أن أملأ هذا الاستمارة.",
+      "en": "I have to complete this form."
+    }
+  },
+  {
+    "fr": "Comportement",
+    "ar": "سلوك",
+    "en": "Behavior",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "Son comportement est correct.",
+      "ar": "سلوكه صحيح.",
+      "en": "His behavior is appropriate."
+    }
+  },
+  {
+    "fr": "Compte",
+    "ar": "حساب",
+    "en": "Account",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai un compte bancaire.",
+      "ar": "لدي حساب بنكي.",
+      "en": "I have a bank account."
+    }
+  },
+  {
+    "fr": "Confirmer",
+    "ar": "يؤكد",
+    "en": "To confirm",
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je confirme mon rendez-vous.",
+      "ar": "أؤكد موعدي.",
+      "en": "I confirm my appointment."
+    }
+  },
+  {
+    "fr": "Connexion",
+    "ar": "اتصال / اتصال بالإنترنت",
+    "en": "Connection",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La connexion Internet est lente.",
+      "ar": "اتصال الإنترنت بطيء.",
+      "en": "The Internet connection is slow."
+    }
+  },
+  {
+    "fr": "Conserver",
+    "ar": "يحتفظ",
+    "en": "To keep / Preserve",
+    "pos": "verb",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je conserve les documents importants.",
+      "ar": "أحتفظ بالوثائق المهمة.",
+      "en": "I keep the important documents."
+    }
+  },
+  {
+    "fr": "Construire",
+    "ar": "يبني",
+    "en": "To build",
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "work",
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ils construisent une maison.",
+      "ar": "يبنون منزلًا.",
+      "en": "They are building a house."
+    }
+  },
+  {
+    "fr": "Contacter",
+    "ar": "يتصل بـ",
+    "en": "To contact",
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je vais contacter le médecin.",
+      "ar": "سأتصل بالطبيب.",
+      "en": "I will contact the doctor."
+    }
+  },
+  {
+    "fr": "Conversation",
+    "ar": "محادثة",
+    "en": "Conversation",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Nous avons une conversation intéressante.",
+      "ar": "لدينا محادثة ممتعة.",
+      "en": "We have an interesting conversation."
+    }
+  },
+  {
+    "fr": "Convocation",
+    "ar": "استدعاء / دعوة رسمية",
+    "en": "Notice / Summons",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai reçu une convocation pour un rendez-vous.",
+      "ar": "تلقيت استدعاءً لموعد.",
+      "en": "I received a notice for an appointment."
+    }
+  },
+  {
+    "fr": "Copier",
+    "ar": "ينسخ",
+    "en": "To copy",
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je dois copier ce document.",
+      "ar": "يجب أن أنسخ هذه الوثيقة.",
+      "en": "I have to copy this document."
+    }
+  },
+  {
+    "fr": "Coquille",
+    "ar": "قشرة / صدفة",
+    "en": "Shell",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai trouvé une coquille sur la plage.",
+      "ar": "وجدت صدفة على الشاطئ.",
+      "en": "I found a shell on the beach."
+    }
+  },
+  {
+    "fr": "Corps",
+    "ar": "جسم",
+    "en": "Body",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Il faut écouter son corps.",
+      "ar": "يجب الاستماع إلى الجسم.",
+      "en": "You have to listen to your body."
+    }
+  },
+  {
+    "fr": "Corriger",
+    "ar": "يصحح",
+    "en": "To correct",
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "school",
+      "work"
+    ],
+    "ex": {
+      "fr": "Le professeur corrige les exercices.",
+      "ar": "الأستاذ يصحح التمارين.",
+      "en": "The teacher corrects the exercises."
+    }
+  },
+  {
+    "fr": "Côté",
+    "ar": "جانب",
+    "en": "Side",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Assieds-toi à côté de moi.",
+      "ar": "اجلس بجانبي.",
+      "en": "Sit next to me."
+    }
+  },
+  {
+    "fr": "Coton",
+    "ar": "قطن",
+    "en": "Cotton",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "shop",
+      "health"
+    ],
+    "ex": {
+      "fr": "Cette chemise est en coton.",
+      "ar": "هذا القميص مصنوع من القطن.",
+      "en": "This shirt is made of cotton."
+    }
+  },
+  {
+    "fr": "Couche",
+    "ar": "طبقة / حفاض",
+    "en": "Layer / Diaper",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le bébé a besoin d'une couche propre.",
+      "ar": "يحتاج الطفل إلى حفاض نظيف.",
+      "en": "The baby needs a clean diaper."
+    }
+  },
+  {
+    "fr": "Coucher",
+    "ar": "ينام / يضع",
+    "en": "To go to bed / Lay down",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je me couche à dix heures.",
+      "ar": "أنام الساعة العاشرة.",
+      "en": "I go to bed at ten o'clock."
+    }
+  },
+  {
+    "fr": "Courage",
+    "ar": "شجاعة / تشجيع",
+    "en": "Courage",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Bon courage pour ton travail.",
+      "ar": "بالتوفيق في عملك.",
+      "en": "Good luck with your work."
+    }
+  },
+  {
+    "fr": "Course",
+    "ar": "تسوق / سباق",
+    "en": "Shopping / Race",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je fais les courses le samedi.",
+      "ar": "أذهب للتسوق يوم السبت.",
+      "en": "I do the shopping on Saturday."
+    }
+  },
+  {
+    "fr": "Cousin / Cousine",
+    "ar": "ابن العم / ابنة العم",
+    "en": "Cousin / Cousine",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "family"
+    ],
+    "ex": {
+      "fr": "Mon cousin habite en France.",
+      "ar": "ابن عمي يعيش في فرنسا.",
+      "en": "My cousin lives in France."
+    }
+  },
+  {
+    "fr": "Couteau",
+    "ar": "سكين",
+    "en": "Knife",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'utilise un couteau pour couper le pain.",
+      "ar": "أستخدم سكينًا لقطع الخبز.",
+      "en": "I use a knife to cut bread."
+    }
+  },
+  {
+    "fr": "Couverture",
+    "ar": "غطاء / بطانية",
+    "en": "Cover / Blanket",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "J'ai besoin d'une couverture chaude.",
+      "ar": "أحتاج إلى بطانية دافئة.",
+      "en": "I need a warm blanket."
+    }
+  },
+  {
+    "fr": "Crayon",
+    "ar": "قلم رصاص",
+    "en": "Pencil",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "school"
+    ],
+    "ex": {
+      "fr": "J'écris avec un crayon.",
+      "ar": "أكتب بقلم رصاص.",
+      "en": "I write with a pencil."
+    }
+  },
+  {
+    "fr": "Crème",
+    "ar": "كريم / قشطة",
+    "en": "Cream",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "ex": {
+      "fr": "J'utilise une crème pour la peau.",
+      "ar": "أستخدم كريمًا للبشرة.",
+      "en": "I use a cream for the skin."
+    }
+  },
+  {
+    "fr": "Crise",
+    "ar": "أزمة",
+    "en": "Crisis",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le pays traverse une crise.",
+      "ar": "تمر البلاد بأزمة.",
+      "en": "The country is going through a crisis."
+    }
+  },
+  {
+    "fr": "Crochet",
+    "ar": "خطاف / علاقة",
+    "en": "Hook",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Accroche le manteau au crochet.",
+      "ar": "علق المعطف على الخطاف.",
+      "en": "Hang the coat on the hook."
+    }
+  },
+  {
+    "fr": "Croissant",
+    "ar": "كرواسون",
+    "en": "Croissant",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je prends un café avec un croissant.",
+      "ar": "آخذ قهوة مع كرواسون.",
+      "en": "I have a coffee with a croissant."
+    }
+  },
+  {
+    "fr": "Cru / Crue",
+    "ar": "نيء",
+    "en": "Raw",
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je préfère les légumes crus.",
+      "ar": "أفضل الخضار النيئة.",
+      "en": "I prefer raw vegetables."
+    }
+  },
+  {
+    "fr": "Cuillère",
+    "ar": "ملعقة",
+    "en": "Spoon",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Donne-moi une cuillère, s'il te plaît.",
+      "ar": "أعطني ملعقة من فضلك.",
+      "en": "Give me a spoon, please."
+    }
+  },
+  {
+    "fr": "Culture",
+    "ar": "ثقافة",
+    "en": "Culture",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La culture française est riche.",
+      "ar": "الثقافة الفرنسية غنية.",
+      "en": "French culture is rich."
+    }
+  },
+  {
+    "fr": "Carburant",
+    "ar": "وقود",
+    "en": "Fuel",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "transport"
+    ],
+    "ex": {
+      "fr": "La voiture manque de carburant.",
+      "ar": "السيارة تحتاج إلى وقود.",
+      "en": "The car is low on fuel."
+    }
+  },
+  {
+    "fr": "Carte bancaire",
+    "ar": "بطاقة بنكية",
+    "en": "Bank card",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai oublié ma carte bancaire.",
+      "ar": "نسيت بطاقتي البنكية.",
+      "en": "I forgot my bank card."
+    }
+  },
+  {
+    "fr": "Carte d'identité",
+    "ar": "بطاقة هوية",
+    "en": "Identity card",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai besoin de ma carte d'identité.",
+      "ar": "أحتاج إلى بطاقة هويتي.",
+      "en": "I need my identity card."
+    }
+  },
+  {
+    "fr": "Caveau",
+    "ar": "قبو / مكان تحت الأرض",
+    "en": "Cellar / Vault",
+    "pos": "noun",
+    "level": "B2",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "Le vieux bâtiment possède un caveau.",
+      "ar": "المبنى القديم لديه قبو.",
+      "en": "The old building has a cellar."
+    }
+  },
+  {
+    "fr": "Célébrer",
+    "ar": "يحتفل",
+    "en": "To celebrate",
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Nous allons célébrer son anniversaire.",
+      "ar": "سنحتفل بعيد ميلاده.",
+      "en": "We are going to celebrate his birthday."
+    }
+  },
+  {
+    "fr": "Cendre",
+    "ar": "رماد",
+    "en": "Ash",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La cigarette laisse de la cendre.",
+      "ar": "السيجارة تترك رمادًا.",
+      "en": "The cigarette leaves ash."
+    }
+  },
+  {
+    "fr": "Cercle",
+    "ar": "دائرة",
+    "en": "Circle",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Dessine un cercle.",
+      "ar": "ارسم دائرة.",
+      "en": "Draw a circle."
+    }
+  },
+  {
+    "fr": "Cerise",
+    "ar": "كرز",
+    "en": "Cherry",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'aime les cerises.",
+      "ar": "أحب الكرز.",
+      "en": "I like cherries."
+    }
+  },
+  {
+    "fr": "Chaleureux",
+    "ar": "دافئ / ودود",
+    "en": "Warm / Friendly",
+    "pos": "adjective",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Les habitants sont chaleureux.",
+      "ar": "السكان ودودون.",
+      "en": "The inhabitants are friendly."
+    }
+  },
+  {
+    "fr": "Cheveu",
+    "ar": "شعرة",
+    "en": "Hair",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai un cheveu blanc.",
+      "ar": "لدي شعرة بيضاء.",
+      "en": "I have a white hair."
+    }
+  },
+  {
+    "fr": "Coiffeur",
+    "ar": "حلاق",
+    "en": "Hairdresser",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je vais chez le coiffeur demain.",
+      "ar": "سأذهب إلى الحلاق غدًا.",
+      "en": "I am going to the hairdresser tomorrow."
+    }
+  },
+  {
+    "fr": "Coin",
+    "ar": "زاوية / مكان",
+    "en": "Corner / Place",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il y a une table dans le coin.",
+      "ar": "توجد طاولة في الزاوية.",
+      "en": "There is a table in the corner."
+    }
+  },
+  {
+    "fr": "Coller",
+    "ar": "يلصق",
+    "en": "To stick / Glue",
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "work",
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je colle une étiquette sur la boîte.",
+      "ar": "ألصق ملصقًا على العلبة.",
+      "en": "I stick a label on the box."
+    }
+  },
+  {
+    "fr": "Colère",
+    "ar": "غضب",
+    "en": "Anger",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il est en colère.",
+      "ar": "هو غاضب.",
+      "en": "He is angry."
+    }
+  },
+  {
+    "fr": "Combattre",
+    "ar": "يحارب",
+    "en": "To fight",
+    "pos": "verb",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il faut combattre le stress.",
+      "ar": "يجب محاربة التوتر.",
+      "en": "We must fight stress."
+    }
+  },
+  {
+    "fr": "Combinaison",
+    "ar": "بدلة / تركيبة",
+    "en": "Suit / Combination",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "work",
+      "shop"
+    ],
+    "ex": {
+      "fr": "Il porte une combinaison de travail.",
+      "ar": "يرتدي بدلة عمل.",
+      "en": "He wears a work suit."
+    }
+  },
+  {
+    "fr": "Commentaire",
+    "ar": "تعليق / ملاحظة",
+    "en": "Comment / Remark",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai laissé un commentaire.",
+      "ar": "تركت تعليقًا.",
+      "en": "I left a comment."
+    }
+  },
+  {
+    "fr": "Commettre",
+    "ar": "يرتكب",
+    "en": "To commit",
+    "pos": "verb",
+    "level": "B1",
+    "contexts": [
+      "services",
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il a commis une erreur.",
+      "ar": "ارتكب خطأ.",
+      "en": "He made a mistake."
+    }
+  },
+  {
+    "fr": "Communauté",
+    "ar": "مجتمع / جماعة",
+    "en": "Community",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cette communauté aide les personnes.",
+      "ar": "هذا المجتمع يساعد الناس.",
+      "en": "This community helps people."
+    }
+  },
+  {
+    "fr": "Compagnon",
+    "ar": "رفيق / شريك",
+    "en": "Companion",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il voyage avec son compagnon.",
+      "ar": "يسافر مع رفيقه.",
+      "en": "He travels with his companion."
+    }
+  },
+  {
+    "fr": "Compétence",
+    "ar": "مهارة",
+    "en": "Skill",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Cette compétence est importante pour le poste.",
+      "ar": "هذه المهارة مهمة للوظيفة.",
+      "en": "This skill is important for the position."
     }
   }
 ];
