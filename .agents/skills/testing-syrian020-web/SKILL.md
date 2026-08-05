@@ -109,13 +109,17 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Google search links will often hit a reCAPTCHA from a VM IP; that is expected. Verify the generated URL, not the results page.
 - In Chrome for Testing, opening a Google AI Mode (`udm=50`) link may crash the entire browser process. If this happens, verify the generated `href` via CDP (`document.querySelector('.ai-btn').getAttribute('href')`) or by overriding `window.open` instead of clicking.
 
-## B-nouns/adjectives/phrases batch (dross-v102)
+## B-nouns/adjectives/phrases batch (dross-v103)
 
-- `data/vocab.js` now contains **669** entries and `data/vocab-batch-02.js` is still empty.
-- Cache name is `dross-v102`.
-- Letter chip counts: `A (550)`, `B (118)`, `F (1)`, all other letters `0`. The `F` entry is `Faire du bénévolat`.
-- POS counts: `verb` **190**, `adjective` **179**, `noun` **112**, `phrase` **176**, `other` **12`.
-- The `firstLetter()` function in `vocab.html` strips leading non-letters, then `Se ` / `s'` / `S'` reflexive prefixes, then normalizes the first character. Entries like `Bref (adv.)`, `Bas / Basse`, `Beau / Belle`, and `Faire du bénévolat` therefore group under their first alphabetic letter.
+- `data/vocab.js` now contains **671** entries and `data/vocab-batch-02.js` is still empty.
+- Cache name is `dross-v103`.
+- Letter chip counts: `A (550)`, `B (118)`, `F (1)`, `L (1)`, `E (1)`, all other letters `0`.
+  - `F (1)` = `Faire du bénévolat`
+  - `L (1)` = `Le bénévolat`
+  - `E (1)` = `Être bénévole` (`Ê` normalizes to `E`)
+- POS counts: `verb` **190**, `adjective` **179**, `noun` **113**, `phrase` **177**, `other` **12`.
+- `vocab.html` now supports `ex` as either a single object or an array of objects. `render()` creates one `.example` block per array item, and `speakEntry()` enqueues each example in each loop language. So `Faire du bénévolat` (4 examples × 3 languages + headword × 3 languages = 15 utterances) works end-to-end.
+- The `firstLetter()` function in `vocab.html` strips leading non-letters, then `Se ` / `s'` / `S'` reflexive prefixes, then normalizes the first character. It does **not** strip `Le ` or `Être `, so those phrases do not group under `F`.
 - Sample B nouns/adjectives/phrases (each returns 1 result):
   - `Bureau` → noun
   - `Banque` → noun
@@ -127,10 +131,10 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   - `Bref / Brève` → adjective
   - `Bref (adv.)` → phrase
   - `Beau / Belle` → adjective
-- New phrase entry `Faire du bénévolat` (POS `phrase`) with updated example:
-  - `fr`: `Je fais du bénévolat dans une association.`
-  - `ar`: `أنا أتطوع في جمعية.`
-  - `en`: `I volunteer in an association.`
+- Bénévolat entries:
+  - `Faire du bénévolat` → phrase, 4 trilingual examples
+  - `Le bénévolat` → noun, single example
+  - `Être bénévole` → phrase, single example
 - Added/updated common B verbs (each returns 1 result):
   - `Bénir` → `Le prêtre a béni les mariés.`
   - `Bosser` → `Je bosse jusqu'à 18h aujourd'hui.`
@@ -189,7 +193,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v102`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v103`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
