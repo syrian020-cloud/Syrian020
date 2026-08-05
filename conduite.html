@@ -451,19 +451,26 @@
   }
 
   function askAiLine(q, type, lang) {
-    var fr, en, ar, query;
+    var text;
     if (type === 'vi') {
-      fr = q.vi.fr; en = q.vi.en; ar = q.vi.ar;
-      query = lang === 'ar' ? ar : (lang === 'en' ? en : fr);
+      text = q.vi[lang];
     } else {
       var parts = type.split('-');
       var obj = parts[0] === 'qser' ? q.qser : (parts[0] === 'secours' ? q.secours : null);
       var sub = parts[1] === 'q' ? 'q' : (parts[1] === 'a' ? 'a' : null);
       if (!obj || !sub) return;
-      query = obj[sub].fr + ' réponse en français avec traduction arabe';
+      text = obj[sub][lang];
     }
-    if (!query) return;
-    window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+    if (!text) return;
+    var prompt;
+    if (lang === 'en') {
+      prompt = text + ' answer in English with French then Arabic translation';
+    } else if (lang === 'ar') {
+      prompt = text + ' أجب بالعربية مع الترجمة الإنجليزية ثم الفرنسية';
+    } else {
+      prompt = text + ' réponse en français avec traduction arabe puis anglaise';
+    }
+    window.open('https://www.google.com/search?q=' + encodeURIComponent(prompt), '_blank');
   }
 
   var QUESTIONS = [
