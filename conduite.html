@@ -451,25 +451,18 @@
   }
 
   function askAiLine(q, type, lang) {
-    var fr, en, ar;
+    var fr, en, ar, query;
     if (type === 'vi') {
       fr = q.vi.fr; en = q.vi.en; ar = q.vi.ar;
+      query = lang === 'ar' ? ar : (lang === 'en' ? en : fr);
     } else {
       var parts = type.split('-');
       var obj = parts[0] === 'qser' ? q.qser : (parts[0] === 'secours' ? q.secours : null);
       var sub = parts[1] === 'q' ? 'q' : (parts[1] === 'a' ? 'a' : null);
       if (!obj || !sub) return;
-      fr = obj[sub].fr; en = obj[sub].en; ar = obj[sub].ar;
+      query = obj[sub].fr + ' réponse en français avec traduction arabe';
     }
-    if (!fr && !en && !ar) return;
-    var query;
-    if (lang === 'en') {
-      query = en + ' | FR: ' + fr + ' | AR: ' + ar;
-    } else if (lang === 'ar') {
-      query = ar + ' | FR: ' + fr + ' | EN: ' + en;
-    } else {
-      query = fr + ' | EN: ' + en + ' | AR: ' + ar;
-    }
+    if (!query) return;
     window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
   }
 
