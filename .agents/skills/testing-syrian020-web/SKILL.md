@@ -109,13 +109,13 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Google search links will often hit a reCAPTCHA from a VM IP; that is expected. Verify the generated URL, not the results page.
 - In Chrome for Testing, opening a Google AI Mode (`udm=50`) link may crash the entire browser process. If this happens, verify the generated `href` via CDP (`document.querySelector('.ai-btn').getAttribute('href')`) or by overriding `window.open` instead of clicking.
 
-## C-words batch (dross-v106)
+## C-words batch (dross-v107)
 
-- `data/vocab.js` now contains **776** entries and `data/vocab-batch-02.js` is still empty.
-- Cache name is `dross-v106`.
-- Letter chip counts: `A (550)`, `B (138)`, `C (87)`, `F (1)`, all other letters `0`.
-- POS counts: `verb` **223**, `adjective` **191**, `noun` **147**, `phrase` **195**, `other` **20`.
-- The 87 C entries are split across all POS. Sample entries:
+- `data/vocab.js` now contains **892** entries and `data/vocab-batch-02.js` is still empty.
+- Cache name is `dross-v107`.
+- Letter chip counts: `A (550)`, `B (138)`, `C (203)`, `F (1)`, all other letters `0`.
+- POS counts: `verb` **238**, `adjective` **195**, `noun` **244**, `phrase` **195**, `other` **20`.
+- 147 C nouns/verbs/adjectives were added or merged, increasing `C` from 87 to 203. Sample entries:
   - `Café` → noun
   - `Cacher` → verb
   - `Calme` → adjective
@@ -200,7 +200,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v106`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v107`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
