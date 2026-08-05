@@ -10706,5 +10706,401 @@ window.VOCAB_DATA = [
       "services"
     ],
     "pos": "phrase"
+  },
+  {
+    "fr": "Bouche bée",
+    "ar": "مذهول / فاتح تمه من الدهشة",
+    "en": "Open-mouthed / Astonished",
+    "ex": [
+      {
+        "fr": "Il est resté bouche bée devant le spectacle.",
+        "ar": "بقي فاتح تمه من الدهشة قدام العرض.",
+        "en": "He stood open-mouthed at the show."
+      },
+      {
+        "fr": "Elle m'a regardé bouche bée quand j'ai annoncé la nouvelle.",
+        "ar": "نظرتلي مذهولة لما حكيت الخبر.",
+        "en": "She looked at me astonished when I announced the news."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Boire la tasse",
+    "ar": "يبلع ميّ (وهو عم يسبح) / مجازاً: يفشل أو يتضرر بموقف",
+    "en": "To swallow water (while swimming) / To take a hit",
+    "ex": [
+      {
+        "fr": "J'ai bu la tasse en nageant dans la mer.",
+        "ar": "بلعت ميّ وأنا عم اسبح بالبحر.",
+        "en": "I swallowed water while swimming in the sea."
+      },
+      {
+        "fr": "Il a bu la tasse dans cette affaire, il a perdu beaucoup d'argent.",
+        "ar": "تضرر كتير بهالصفقة، خسر مصاري كتير.",
+        "en": "He took a real hit in this deal, he lost a lot of money."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Broyer du noir",
+    "ar": "يكون محبط / متشائم / حزين",
+    "en": "To feel down / To be in a dark mood",
+    "ex": [
+      {
+        "fr": "Depuis quelques jours, il broie du noir.",
+        "ar": "من كام يوم، هو حاسس حاله محبط.",
+        "en": "For a few days now, he's been feeling down."
+      },
+      {
+        "fr": "Ne broie pas du noir, tout va s'arranger.",
+        "ar": "لا تحبط، كل شي رح ينحل.",
+        "en": "Don't feel down, everything will work out."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Battre son plein",
+    "ar": "يكون بأوج نشاطه / بذروته",
+    "en": "To be in full swing",
+    "ex": [
+      {
+        "fr": "La fête bat son plein depuis minuit.",
+        "ar": "الحفلة بذروتها من نص الليل.",
+        "en": "The party has been in full swing since midnight."
+      },
+      {
+        "fr": "Les négociations battent leur plein en ce moment.",
+        "ar": "المفاوضات بأوجها هلأ.",
+        "en": "The negotiations are in full swing right now."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Baisser les bras",
+    "ar": "يستسلم / ييأس",
+    "en": "To give up",
+    "ex": [
+      {
+        "fr": "Ne baisse jamais les bras, tu vas y arriver.",
+        "ar": "لا تستسلم أبداً، رح توصل.",
+        "en": "Never give up, you'll get there."
+      },
+      {
+        "fr": "Après trois refus, il a fini par baisser les bras.",
+        "ar": "بعد ثلاث رفضات، استسلم بالآخر.",
+        "en": "After three rejections, he finally gave up."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bon gré mal gré",
+    "ar": "طوعاً أو كرهاً / سواء حب أو لا",
+    "en": "Whether one likes it or not",
+    "ex": [
+      {
+        "fr": "Bon gré mal gré, il faut finir ce travail aujourd'hui.",
+        "ar": "طوعاً أو كرهاً، لازم نخلص هالشغل اليوم.",
+        "en": "Like it or not, this work has to be finished today."
+      },
+      {
+        "fr": "Bon gré mal gré, elle a accepté les nouvelles règles.",
+        "ar": "سواء حبت أو لأ، قبلت بالقوانين الجديدة.",
+        "en": "Whether she liked it or not, she accepted the new rules."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Brûler les étapes",
+    "ar": "يستعجل / يتخطى المراحل",
+    "en": "To skip steps / To rush ahead",
+    "ex": [
+      {
+        "fr": "Ne brûle pas les étapes, prends ton temps.",
+        "ar": "لا تستعجل، خد وقتك.",
+        "en": "Don't skip steps, take your time."
+      },
+      {
+        "fr": "Il a voulu brûler les étapes et ça n'a pas marché.",
+        "ar": "حاول يستعجل ويتخطى المراحل وما نجحت.",
+        "en": "He wanted to rush ahead and it didn't work out."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bête comme ses pieds",
+    "ar": "غبي كتير (تعبير عامي)",
+    "en": "As dumb as a post",
+    "ex": [
+      {
+        "fr": "Il est gentil, mais bête comme ses pieds.",
+        "ar": "هو لطيف، بس غبي كتير.",
+        "en": "He's nice, but as dumb as a post."
+      },
+      {
+        "fr": "Je me sens bête comme mes pieds d'avoir oublié ça.",
+        "ar": "حاسس حالي غبي لأني نسيت هيدا.",
+        "en": "I feel so stupid for forgetting that."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bon débarras",
+    "ar": "خلص منه / يا سلام (بمعنى الفرح بابتعاد شخص أو شي مزعج)",
+    "en": "Good riddance",
+    "ex": [
+      {
+        "fr": "Il est enfin parti — bon débarras !",
+        "ar": "بالآخر مشي — خلصنا منه!",
+        "en": "He's finally gone — good riddance!"
+      },
+      {
+        "fr": "Bon débarras, cette vieille voiture ne marchait plus.",
+        "ar": "يا سلام، هالسيارة القديمة ما كانت عم تشتغل أصلاً.",
+        "en": "Good riddance, that old car didn't even work anymore."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bien dans sa peau",
+    "ar": "مرتاح مع حاله / واثق من نفسه",
+    "en": "Comfortable in one's own skin",
+    "ex": [
+      {
+        "fr": "Depuis qu'il a changé de travail, il est bien dans sa peau.",
+        "ar": "من بعد ما غير شغله، صار مرتاح مع حاله.",
+        "en": "Since he changed jobs, he's been comfortable in his own skin."
+      },
+      {
+        "fr": "Elle a l'air bien dans sa peau maintenant.",
+        "ar": "بانلها مرتاحة مع حالها هلأ.",
+        "en": "She seems comfortable in her own skin now."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bras de fer",
+    "ar": "مصارعة الأذرع / مجازاً: صراع قوة",
+    "en": "Arm wrestling / Power struggle",
+    "ex": [
+      {
+        "fr": "Les deux pays sont dans un bras de fer économique.",
+        "ar": "البلدين بصراع قوة اقتصادي.",
+        "en": "The two countries are in an economic power struggle."
+      },
+      {
+        "fr": "On a fait un bras de fer pour rigoler.",
+        "ar": "عملنا مصارعة أذرع عالمزح.",
+        "en": "We had an arm-wrestling match just for fun."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bouc émissaire",
+    "ar": "كبش فداء / الشخص يلي يلاق اللوم",
+    "en": "Scapegoat",
+    "ex": [
+      {
+        "fr": "On a fait de lui le bouc émissaire de l'échec.",
+        "ar": "خلوه كبش فداء للفشل.",
+        "en": "They made him the scapegoat for the failure."
+      },
+      {
+        "fr": "Je ne veux pas être le bouc émissaire de cette histoire.",
+        "ar": "ما بدي كون كبش الفداء بهالقصة.",
+        "en": "I don't want to be the scapegoat in this story."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bavard comme une pie",
+    "ar": "كتير حكي / ما بيسكت (زي العقعق)",
+    "en": "Chatty as a magpie / A real chatterbox",
+    "ex": [
+      {
+        "fr": "Ma voisine est bavarde comme une pie.",
+        "ar": "جارتي كتير حكاية، ما بتسكت.",
+        "en": "My neighbor is a real chatterbox."
+      },
+      {
+        "fr": "Ne l'invite pas si tu veux du calme, il est bavard comme une pie.",
+        "ar": "لا تعزمه إذا بدك هدوء، هو كتير حكي.",
+        "en": "Don't invite him if you want quiet, he never stops talking."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bon sang !",
+    "ar": "يا الله! / تعبير تعجب أو انزعاج خفيف",
+    "en": "Dang! / Good grief!",
+    "ex": [
+      {
+        "fr": "Bon sang, j'ai encore oublié mes clés !",
+        "ar": "يا الله، نسيت مفاتيحي كمان مرة!",
+        "en": "Dang, I forgot my keys again!"
+      },
+      {
+        "fr": "Bon sang, quelle journée compliquée !",
+        "ar": "يا الله، شو يوم معقد!",
+        "en": "Good grief, what a complicated day!"
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Boule de nerfs",
+    "ar": "عصبي كتير / متوتر جداً",
+    "en": "A bundle of nerves",
+    "ex": [
+      {
+        "fr": "Avant l'examen, j'étais une vraie boule de nerfs.",
+        "ar": "قبل الامتحان، كنت متوتر جداً.",
+        "en": "Before the exam, I was a total bundle of nerves."
+      },
+      {
+        "fr": "Il devient une boule de nerfs quand il est en retard.",
+        "ar": "بيصير متوتر كتير لما بيتأخر.",
+        "en": "He becomes a bundle of nerves when he's running late."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Battre à plate couture",
+    "ar": "يهزم بشكل ساحق / كاسح",
+    "en": "To beat hands down / To crush (in competition)",
+    "ex": [
+      {
+        "fr": "Notre équipe a battu l'autre à plate couture.",
+        "ar": "فريقنا هزم التاني بشكل ساحق.",
+        "en": "Our team beat the other one hands down."
+      },
+      {
+        "fr": "Il s'est fait battre à plate couture aux échecs.",
+        "ar": "انهزم بشكل كاسح بلعبة الشطرنج.",
+        "en": "He got crushed in chess."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Bon pied bon œil",
+    "ar": "بصحة جيدة / نشيط رغم العمر",
+    "en": "Fit as a fiddle / In good health",
+    "ex": [
+      {
+        "fr": "À 80 ans, mon grand-père est encore bon pied bon œil.",
+        "ar": "بعمر التمانين، جدي لسا نشيط وبصحة منيحة.",
+        "en": "At 80, my grandfather is still fit as a fiddle."
+      },
+      {
+        "fr": "J'espère rester bon pied bon œil le plus longtemps possible.",
+        "ar": "بتمنى ضل بصحة منيحة لأطول فترة ممكنة.",
+        "en": "I hope to stay in good health for as long as possible."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
+  },
+  {
+    "fr": "Blanc comme neige",
+    "ar": "بريء تماماً / نظيف من أي شبهة",
+    "en": "Whiter than white / Completely innocent",
+    "ex": [
+      {
+        "fr": "Il n'est pas blanc comme neige dans cette affaire.",
+        "ar": "هو مش بريء تماماً بهالقضية.",
+        "en": "He's not exactly innocent in this matter."
+      },
+      {
+        "fr": "Elle a prouvé qu'elle était blanche comme neige.",
+        "ar": "أثبتت إنها بريئة تماماً.",
+        "en": "She proved she was completely innocent."
+      }
+    ],
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "daily"
+    ]
   }
 ];
