@@ -109,13 +109,14 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Google search links will often hit a reCAPTCHA from a VM IP; that is expected. Verify the generated URL, not the results page.
 - In Chrome for Testing, opening a Google AI Mode (`udm=50`) link may crash the entire browser process. If this happens, verify the generated `href` via CDP (`document.querySelector('.ai-btn').getAttribute('href')`) or by overriding `window.open` instead of clicking.
 
-## B-nouns/adjectives/phrases batch (dross-v104)
+## B-idioms batch (dross-v105)
 
-- `data/vocab.js` now contains **671** entries and `data/vocab-batch-02.js` is still empty.
-- Cache name is `dross-v104`.
-- Letter chip counts: `A (550)`, `B (120)`, `F (1)`, all other letters `0`.
-  - `B (120)` includes `Faire du bénévolat` plus `Le bénévolat` and `Être bénévole` via the updated prefix strip.
-- POS counts: `verb` **190**, `adjective` **179**, `noun` **113**, `phrase` **177**, `other` **12`.
+- `data/vocab.js` now contains **689** entries and `data/vocab-batch-02.js` is still empty.
+- Cache name is `dross-v105`.
+- Letter chip counts: `A (550)`, `B (138)`, `F (1)`, all other letters `0`.
+  - `B (138)` includes 18 new B idiomatic expressions plus `Faire du bénévolat`, `Le bénévolat`, and `Être bénévole`.
+- POS counts: `verb` **190**, `adjective` **179**, `noun` **113**, `phrase` **195**, `other` **12`.
+- Each new idiom uses the `ex` array with 2 trilingual example objects.
 - `vocab.html` now supports `ex` as either a single object or an array of objects. `render()` creates one `.example` block per array item, and `speakEntry()` enqueues each example in each loop language. So `Faire du bénévolat` (4 examples × 3 languages + headword × 3 languages = 15 utterances) works end-to-end.
 - The `firstLetter()` function in `vocab.html` strips leading non-letters, then `Se ` / `s'` / `S'` reflexive prefixes, then `Le ` / `La ` / `Les ` / `L'` and `Être ` / `Etre ` / `être ` article/copula prefixes, then normalizes the first character. `Le bénévolat` and `Être bénévole` therefore group under `B`.
 - Sample B nouns/adjectives/phrases (each returns 1 result):
@@ -191,7 +192,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v104`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v105`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
