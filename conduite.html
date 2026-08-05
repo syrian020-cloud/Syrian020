@@ -450,7 +450,7 @@
     })();
   }
 
-  function askAiLine(q, type) {
+  function askAiLine(q, type, lang) {
     var fr, en, ar;
     if (type === 'vi') {
       fr = q.vi.fr; en = q.vi.en; ar = q.vi.ar;
@@ -462,7 +462,14 @@
       fr = obj[sub].fr; en = obj[sub].en; ar = obj[sub].ar;
     }
     if (!fr && !en && !ar) return;
-    var query = fr + ' | EN: ' + en + ' | AR: ' + ar;
+    var query;
+    if (lang === 'en') {
+      query = en + ' | FR: ' + fr + ' | AR: ' + ar;
+    } else if (lang === 'ar') {
+      query = ar + ' | FR: ' + fr + ' | EN: ' + en;
+    } else {
+      query = fr + ' | EN: ' + en + ' | AR: ' + ar;
+    }
     window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
   }
 
@@ -1149,7 +1156,7 @@
     }
     if (lineEl) {
       if (e.target.closest('.line-speak')) { toggleLineLoop(lineEl, q, key, lineEl.dataset.type, lineEl.dataset.lang, parseInt(lineEl.dataset.index, 10)); return; }
-      if (e.target.closest('.line-ai')) { askAiLine(q, lineEl.dataset.type); return; }
+      if (e.target.closest('.line-ai')) { askAiLine(q, lineEl.dataset.type, lineEl.dataset.lang); return; }
     }
 
     if (e.target.closest('.loop-btn')) { toggleLoop(q, key); return; }
