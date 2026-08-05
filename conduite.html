@@ -138,6 +138,9 @@
   .line .line-btn.active { background: var(--success); color: #1a1a1a; border-color: var(--success); }
   .line .tag { font-size: 0.7rem; font-weight: 800; margin-inline-end: 0.4rem; opacity: 0.7; }
   .line.active { outline: 2px solid var(--success); }
+  .word { cursor: pointer; border-radius: 3px; padding: 0 1px; }
+  .word:hover { text-decoration: underline; color: var(--accent); }
+  .word.active { background: var(--success); color: #1a1a1a; }
   .drawer-fab {
     position: fixed; bottom: 1.2rem; left: 1.2rem; z-index: 60;
     width: 56px; height: 56px; border-radius: 50%;
@@ -326,6 +329,7 @@
     else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     document.querySelectorAll('.question').forEach(function (el) { el.classList.remove('playing'); });
     document.querySelectorAll('.line').forEach(function (el) { el.classList.remove('active'); });
+    document.querySelectorAll('.word').forEach(function (el) { el.classList.remove('active'); });
     document.querySelectorAll('.line-speak').forEach(function (b) { b.classList.remove('active'); b.textContent = '🔁'; });
     document.getElementById('btn-global-loop').textContent = '▶ ' + t('playAll');
     document.querySelectorAll('.loop-btn').forEach(function (b) { b.classList.remove('active'); b.textContent = '🔁'; });
@@ -417,6 +421,30 @@
         lineEl.classList.remove('active');
         if (!state.loop || state.loop.key !== key || !state.loop.line ||
             state.loop.line.type !== type || state.loop.line.lang !== lang || state.loop.line.index !== index) return;
+        setTimeout(cycle, 500);
+      }, run);
+    })();
+  }
+
+  function toggleWordLoop(wordEl, q, key, type, lang, index) {
+    var text = wordEl.textContent || '';
+    if (state.loop && state.loop.key === key && state.loop.word &&
+        state.loop.word.type === type && state.loop.word.lang === lang &&
+        state.loop.word.index === index && state.loop.word.el === wordEl) {
+      stopSpeech(); return;
+    }
+    stopSpeech();
+    state.loop = { key: key, word: { type: type, lang: lang, index: index, text: text, el: wordEl } };
+    wordEl.classList.add('active');
+    var run = speechRun;
+    (function cycle() {
+      if (!state.loop || state.loop.key !== key || !state.loop.word ||
+          state.loop.word.type !== type || state.loop.word.lang !== lang || state.loop.word.index !== index ||
+          state.loop.word.el !== wordEl) return;
+      speakText(text, lang, function () {
+        if (!state.loop || state.loop.key !== key || !state.loop.word ||
+            state.loop.word.type !== type || state.loop.word.lang !== lang || state.loop.word.index !== index ||
+            state.loop.word.el !== wordEl) return;
         setTimeout(cycle, 500);
       }, run);
     })();
@@ -1037,11 +1065,17 @@
     }
   ];
 
+  function wordSpans(text) {
+    return String(text == null ? '' : text).split(/\s+/).map(function (w) {
+      return w ? '<span class="word">' + esc(w) + '</span>' : '';
+    }).join(' ');
+  }
+
   function lineHtml(text, lang, type, index, label) {
     var ai = lang === 'fr' && /^(qser|secours)-(q|a)$/.test(type);
     var aiBtn = ai ? '<button class="line-btn line-ai" title="' + t('askAi') + '">🤖</button>' : '';
     return '<div class="line ' + lang + '" data-lang="' + lang + '" data-type="' + type + '" data-index="' + index + '" data-text="' + esc(text) + '">' +
-      '<button class="line-btn line-speak" title="' + t('loop') + '">🔁</button>' + aiBtn + esc(text) + '</div>';
+      '<button class="line-btn line-speak" title="' + t('loop') + '">🔁</button>' + aiBtn + wordSpans(text) + '</div>';
   }
 
   function render() {
@@ -1118,6 +1152,11 @@
     var q = QUESTIONS[id - 1];
 
     var lineEl = e.target.closest('.line');
+    var wordEl = e.target.closest('.word');
+    if (wordEl && lineEl) {
+      toggleWordLoop(wordEl, q, key, lineEl.dataset.type, lineEl.dataset.lang, parseInt(lineEl.dataset.index, 10));
+      return;
+    }
     if (lineEl) {
       if (e.target.closest('.line-speak')) { toggleLineLoop(lineEl, q, key, lineEl.dataset.type, lineEl.dataset.lang, parseInt(lineEl.dataset.index, 10)); return; }
       if (e.target.closest('.line-ai')) { askAiLine(q, lineEl.dataset.type); return; }
