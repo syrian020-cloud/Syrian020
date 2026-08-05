@@ -330,7 +330,6 @@
     document.querySelectorAll('.question').forEach(function (el) { el.classList.remove('playing'); });
     document.querySelectorAll('.line').forEach(function (el) { el.classList.remove('active'); });
     document.querySelectorAll('.word').forEach(function (el) { el.classList.remove('active'); });
-    document.querySelectorAll('.line-speak').forEach(function (b) { b.classList.remove('active'); b.textContent = '🔁'; });
     document.getElementById('btn-global-loop').textContent = '▶ ' + t('playAll');
     document.querySelectorAll('.loop-btn').forEach(function (b) { b.classList.remove('active'); b.textContent = '🔁'; });
   }
@@ -388,41 +387,17 @@
   }
 
   function toggleLoop(q, key) {
-    if (state.loop && state.loop.key === key && !state.loop.line) { stopSpeech(); return; }
+    if (state.loop && state.loop.key === key && !state.loop.line && !state.loop.word) { stopSpeech(); return; }
     stopSpeech();
     state.loop = { key: key };
     var btn = document.querySelector('.question[data-key="' + key + '"] .loop-btn');
     if (btn) { btn.classList.add('active'); btn.textContent = '⏸'; }
     (function cycle() {
-      if (!state.loop || state.loop.key !== key || state.loop.line) return;
+      if (!state.loop || state.loop.key !== key || state.loop.line || state.loop.word) return;
       speakQuestion(q, key, function () {
-        if (!state.loop || state.loop.key !== key || state.loop.line) return;
+        if (!state.loop || state.loop.key !== key || state.loop.line || state.loop.word) return;
         setTimeout(cycle, 700);
       });
-    })();
-  }
-
-  function toggleLineLoop(lineEl, q, key, type, lang, index) {
-    var text = lineEl.dataset.text || '';
-    if (state.loop && state.loop.key === key && state.loop.line &&
-        state.loop.line.type === type && state.loop.line.lang === lang && state.loop.line.index === index) {
-      stopSpeech(); return;
-    }
-    stopSpeech();
-    state.loop = { key: key, line: { type: type, lang: lang, index: index, text: text } };
-    var btn = lineEl.querySelector('.line-speak');
-    if (btn) { btn.classList.add('active'); btn.textContent = '⏸'; }
-    var run = speechRun;
-    (function cycle() {
-      if (!state.loop || state.loop.key !== key || !state.loop.line ||
-          state.loop.line.type !== type || state.loop.line.lang !== lang || state.loop.line.index !== index) return;
-      lineEl.classList.add('active');
-      speakText(text, lang, function () {
-        lineEl.classList.remove('active');
-        if (!state.loop || state.loop.key !== key || !state.loop.line ||
-            state.loop.line.type !== type || state.loop.line.lang !== lang || state.loop.line.index !== index) return;
-        setTimeout(cycle, 500);
-      }, run);
     })();
   }
 
@@ -451,13 +426,17 @@
   }
 
   function askAiLine(q, type) {
-    var parts = type.split('-');
-    var obj = parts[0] === 'qser' ? q.qser : (parts[0] === 'secours' ? q.secours : null);
-    var sub = parts[1] === 'q' ? 'q' : (parts[1] === 'a' ? 'a' : null);
-    if (!obj || !sub) return;
-    var fr = obj[sub].fr;
-    var en = obj[sub].en;
-    var ar = obj[sub].ar;
+    var fr, en, ar;
+    if (type === 'vi') {
+      fr = q.vi.fr; en = q.vi.en; ar = q.vi.ar;
+    } else {
+      var parts = type.split('-');
+      var obj = parts[0] === 'qser' ? q.qser : (parts[0] === 'secours' ? q.secours : null);
+      var sub = parts[1] === 'q' ? 'q' : (parts[1] === 'a' ? 'a' : null);
+      if (!obj || !sub) return;
+      fr = obj[sub].fr; en = obj[sub].en; ar = obj[sub].ar;
+    }
+    if (!fr && !en && !ar) return;
     var query = fr + ' | EN: ' + en + ' | AR: ' + ar;
     window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
   }
@@ -1072,10 +1051,8 @@
   }
 
   function lineHtml(text, lang, type, index, label) {
-    var ai = lang === 'fr' && /^(qser|secours)-(q|a)$/.test(type);
-    var aiBtn = ai ? '<button class="line-btn line-ai" title="' + t('askAi') + '">🤖</button>' : '';
     return '<div class="line ' + lang + '" data-lang="' + lang + '" data-type="' + type + '" data-index="' + index + '" data-text="' + esc(text) + '">' +
-      '<button class="line-btn line-speak" title="' + t('loop') + '">🔁</button>' + aiBtn + wordSpans(text) + '</div>';
+      '<button class="line-btn line-ai" title="' + t('askAi') + '">🤖</button>' + wordSpans(text) + '</div>';
   }
 
   function render() {
@@ -1087,10 +1064,7 @@
       html += '<div class="q-num">' + q.id + '</div>';
       html += '<div class="q-title">' + t('question') + ' ' + q.id + '</div>';
       html += '<div class="q-actions">';
-      html += '<button class="speak-btn" title="' + t('playAll') + '">🔊</button>';
       html += '<button class="loop-btn" title="Loop">🔁</button>';
-      html += '<button class="ai-btn" title="' + t('askAi') + '">🤖</button>';
-      html += '<button class="img-btn" title="' + t('searchImages') + '">🖼️</button>';
       html += '</div></div>';
 
       html += '<div class="section"><div class="section-label">' + t('vi') + '</div>';
@@ -1134,16 +1108,6 @@
     document.getElementById('btn-draw').childNodes[1].textContent = ' ' + t('draw');
   }
 
-  function searchImages(q) {
-    var query = q.vi.fr + ' ' + q.qser.q.fr + ' permis conduire';
-    window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(query), '_blank');
-  }
-
-  function askAi(q) {
-    var query = q.vi.fr + ' ' + q.qser.q.fr + ' ' + q.secours.q.fr;
-    window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
-  }
-
   document.getElementById('questions').addEventListener('click', function (e) {
     var qEl = e.target.closest('.question');
     if (!qEl) return;
@@ -1158,14 +1122,10 @@
       return;
     }
     if (lineEl) {
-      if (e.target.closest('.line-speak')) { toggleLineLoop(lineEl, q, key, lineEl.dataset.type, lineEl.dataset.lang, parseInt(lineEl.dataset.index, 10)); return; }
       if (e.target.closest('.line-ai')) { askAiLine(q, lineEl.dataset.type); return; }
     }
 
-    if (e.target.closest('.speak-btn')) { stopSpeech(); speakQuestion(q, key); return; }
     if (e.target.closest('.loop-btn')) { toggleLoop(q, key); return; }
-    if (e.target.closest('.ai-btn')) { askAi(q); return; }
-    if (e.target.closest('.img-btn')) { searchImages(q); return; }
   });
 
   document.getElementById('btn-global-loop').addEventListener('click', function () {
