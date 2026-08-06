@@ -3318,18 +3318,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Aménagement",
-    "ar": "ترتيب / تهيئة / تعديل",
-    "en": "Arrangement / Adjustment",
+    "ar": "تهيئة / تعديل",
+    "en": "Adjustment / Accommodation",
     "level": "B1",
     "contexts": [
       "housing",
       "work"
     ],
-    "ex": {
-      "fr": "Je demande un aménagement de mon poste de travail.",
-      "ar": "أطلب تعديل منصب عملي.",
-      "en": "I request an adjustment of my workstation."
-    },
+    "ex": [
+      {
+        "fr": "Je demande un aménagement de mon poste de travail.",
+        "ar": "أطلب تعديل منصب عملي.",
+        "en": "I request an adjustment of my workstation."
+      },
+      {
+        "fr": "Je demande un aménagement de mon poste de travail.",
+        "ar": "أطلب تهيئة مكان عملي.",
+        "en": "I request a workplace adjustment."
+      }
+    ],
     "usage": "السكن، العمل، الإعاقة",
     "pos": "noun"
   },
@@ -4075,18 +4082,26 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Autonomie",
-    "ar": "استقلالية / قدرة على الاعتماد على النفس",
-    "en": "Autonomy / Independence",
+    "ar": "استقلالية",
+    "en": "Independence / Autonomy",
     "level": "B1",
     "contexts": [
+      "health",
       "services",
       "work"
     ],
-    "ex": {
-      "fr": "Je cherche plus d'autonomie dans mon travail.",
-      "ar": "أبحث عن استقلالية أكبر في عملي.",
-      "en": "I seek more autonomy in my work."
-    },
+    "ex": [
+      {
+        "fr": "Je cherche plus d'autonomie dans mon travail.",
+        "ar": "أبحث عن استقلالية أكبر في عملي.",
+        "en": "I seek more autonomy in my work."
+      },
+      {
+        "fr": "Cette aide améliore mon autonomie.",
+        "ar": "هذه المساعدة تحسن استقلاليتي.",
+        "en": "This assistance improves my independence."
+      }
+    ],
     "usage": "العمل، المساعدة الاجتماعية، الحياة اليومية",
     "pos": "noun"
   },
@@ -4888,17 +4903,24 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Augmentation",
-    "ar": "زيادة / ارتفاع",
+    "ar": "زيادة",
     "en": "Increase",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
       "services"
     ],
-    "ex": {
-      "fr": "Il y a eu une augmentation du salaire.",
-      "ar": "حدثت زيادة في الراتب.",
-      "en": "There was a salary increase."
-    },
+    "ex": [
+      {
+        "fr": "Il y a eu une augmentation du salaire.",
+        "ar": "حدثت زيادة في الراتب.",
+        "en": "There was a salary increase."
+      },
+      {
+        "fr": "Est-ce qu'il y aura une augmentation de mon aide ?",
+        "ar": "هل ستكون هناك زيادة في مساعدتي؟",
+        "en": "Will there be an increase in my benefit?"
+      }
+    ],
     "usage": "الرواتب، الأسعار، المساعدات",
     "pos": "noun"
   },
@@ -5469,18 +5491,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Adaptation",
-    "ar": "تكيّف / تعديل",
+    "ar": "تكييف / تعديل",
     "en": "Adaptation",
-    "level": "B2",
+    "level": "A1",
     "contexts": [
       "housing",
       "work"
     ],
-    "ex": {
-      "fr": "L'adaptation au nouveau poste prend du temps.",
-      "ar": "التكيف مع المنصب الجديد يحتاج وقتًا.",
-      "en": "Adapting to the new position takes time."
-    },
+    "ex": [
+      {
+        "fr": "L'adaptation au nouveau poste prend du temps.",
+        "ar": "التكيف مع المنصب الجديد يحتاج وقتًا.",
+        "en": "Adapting to the new position takes time."
+      },
+      {
+        "fr": "Une adaptation de mon poste est nécessaire.",
+        "ar": "تكييف منصبي ضروري.",
+        "en": "An adaptation of my position is necessary."
+      }
+    ],
     "usage": "العمل، السكن، التغيير",
     "pos": "noun"
   },
@@ -19865,15 +19894,22 @@ window.VOCAB_DATA = [
     "ar": "استشارة / موعد طبي",
     "en": "Consultation",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "contexts": [
       "health"
     ],
-    "ex": {
-      "fr": "J'ai une consultation chez le médecin.",
-      "ar": "لدي موعد طبي عند الطبيب.",
-      "en": "I have a medical consultation."
-    }
+    "ex": [
+      {
+        "fr": "J'ai une consultation chez le médecin.",
+        "ar": "لدي موعد طبي عند الطبيب.",
+        "en": "I have a medical consultation."
+      },
+      {
+        "fr": "J'ai une consultation avec mon spécialiste.",
+        "ar": "لدي موعد مع طبيبي المختص.",
+        "en": "I have an appointment with my specialist."
+      }
+    ]
   },
   {
     "fr": "Contacter le service",
@@ -19923,11 +19959,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "work"
     ],
-    "ex": {
-      "fr": "J'ai signé mon contrat de travail.",
-      "ar": "وقعت عقد عملي.",
-      "en": "I signed my employment contract."
-    }
+    "ex": [
+      {
+        "fr": "J'ai signé mon contrat de travail.",
+        "ar": "وقعت عقد عملي.",
+        "en": "I signed my employment contract."
+      },
+      {
+        "fr": "Voici mon contrat de travail.",
+        "ar": "هذا عقد عملي.",
+        "en": "Here is my employment contract."
+      }
+    ]
   },
   {
     "fr": "Contrôler la qualité",
@@ -21189,18 +21232,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Prestation",
-    "ar": "إعانة / خدمة اجتماعية",
-    "en": "Benefit / Allowance",
+    "ar": "إعانة / خدمة",
+    "en": "Benefit / Service",
     "pos": "noun",
     "level": "B1",
     "contexts": [
       "services"
     ],
-    "ex": {
-      "fr": "La CAF verse plusieurs prestations.",
-      "ar": "تقدم CAF عدة إعانات.",
-      "en": "CAF provides several benefits."
-    }
+    "ex": [
+      {
+        "fr": "La CAF verse plusieurs prestations.",
+        "ar": "تقدم CAF عدة إعانات.",
+        "en": "CAF provides several benefits."
+      },
+      {
+        "fr": "Je souhaite connaître mes droits aux prestations.",
+        "ar": "أريد معرفة حقوقي في الإعانات.",
+        "en": "I want to know my benefit rights."
+      }
+    ]
   },
   {
     "fr": "Prestation familiale",
@@ -22434,6 +22484,1201 @@ window.VOCAB_DATA = [
       "fr": "Je dois organiser un rendez-vous.",
       "ar": "يجب أن أنظم موعدًا.",
       "en": "I need to arrange an appointment."
+    }
+  },
+  {
+    "fr": "Activité professionnelle",
+    "ar": "نشاط مهني",
+    "en": "Professional activity",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai repris une activité professionnelle.",
+      "ar": "استأنفت نشاطًا مهنيًا.",
+      "en": "I resumed professional activity."
+    }
+  },
+  {
+    "fr": "Emploi",
+    "ar": "عمل / وظيفة",
+    "en": "Employment / Job",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je cherche un emploi.",
+      "ar": "أبحث عن عمل.",
+      "en": "I am looking for a job."
+    }
+  },
+  {
+    "fr": "Sans emploi",
+    "ar": "بدون عمل",
+    "en": "Unemployed",
+    "pos": "other",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je suis actuellement sans emploi.",
+      "ar": "أنا حاليًا بدون عمل.",
+      "en": "I am currently unemployed."
+    }
+  },
+  {
+    "fr": "Demandeur d'emploi",
+    "ar": "طالب عمل",
+    "en": "Job seeker",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je suis inscrit comme demandeur d'emploi.",
+      "ar": "أنا مسجل كطالب عمل.",
+      "en": "I am registered as a job seeker."
+    }
+  },
+  {
+    "fr": "Inscription",
+    "ar": "تسجيل",
+    "en": "Registration",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Mon inscription est terminée.",
+      "ar": "تم تسجيلي.",
+      "en": "My registration is complete."
+    }
+  },
+  {
+    "fr": "Inscrire",
+    "ar": "يسجل",
+    "en": "To register",
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Je voudrais m'inscrire à France Travail.",
+      "ar": "أريد التسجيل في France Travail.",
+      "en": "I would like to register with France Travail."
+    }
+  },
+  {
+    "fr": "Actualiser sa situation",
+    "ar": "تحديث الوضعية",
+    "en": "Update one's situation",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je dois actualiser ma situation chaque mois.",
+      "ar": "يجب أن أحدث وضعيتي كل شهر.",
+      "en": "I must update my situation every month."
+    }
+  },
+  {
+    "fr": "Déclaration mensuelle",
+    "ar": "تصريح شهري",
+    "en": "Monthly declaration",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai fait ma déclaration mensuelle.",
+      "ar": "قدمت التصريح الشهري.",
+      "en": "I made my monthly declaration."
+    }
+  },
+  {
+    "fr": "Salaire",
+    "ar": "راتب",
+    "en": "Salary",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai reçu mon salaire.",
+      "ar": "استلمت راتبي.",
+      "en": "I received my salary."
+    }
+  },
+  {
+    "fr": "Bulletin de salaire",
+    "ar": "كشف الراتب",
+    "en": "Payslip",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "bank",
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai envoyé mon bulletin de salaire.",
+      "ar": "أرسلت كشف راتبي.",
+      "en": "I sent my payslip."
+    }
+  },
+  {
+    "fr": "CDD",
+    "ar": "عقد محدد المدة",
+    "en": "Fixed-term contract",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je travaille avec un CDD.",
+      "ar": "أعمل بعقد محدد المدة.",
+      "en": "I work with a fixed-term contract."
+    }
+  },
+  {
+    "fr": "CDI",
+    "ar": "عقد دائم",
+    "en": "Permanent contract",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Il a trouvé un CDI.",
+      "ar": "وجد عقدًا دائمًا.",
+      "en": "He found a permanent contract."
+    }
+  },
+  {
+    "fr": "Intérim",
+    "ar": "عمل مؤقت",
+    "en": "Temporary work",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je travaille en intérim.",
+      "ar": "أعمل عن طريق العمل المؤقت.",
+      "en": "I work through a temporary agency."
+    }
+  },
+  {
+    "fr": "Déclarer un changement",
+    "ar": "التصريح بتغيير",
+    "en": "Report a change",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je dois déclarer un changement de situation.",
+      "ar": "يجب أن أصرح بتغيير في وضعيتي.",
+      "en": "I must report a change of situation."
+    }
+  },
+  {
+    "fr": "Indemnité",
+    "ar": "تعويض / بدل مالي",
+    "en": "Allowance / Compensation",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je reçois une indemnité.",
+      "ar": "أتلقى تعويضًا ماليًا.",
+      "en": "I receive compensation."
+    }
+  },
+  {
+    "fr": "Versement",
+    "ar": "صرف / تحويل مبلغ",
+    "en": "Payment / Transfer",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "bank"
+    ],
+    "ex": {
+      "fr": "Le versement sera effectué bientôt.",
+      "ar": "سيتم صرف المبلغ قريبًا.",
+      "en": "The payment will be made soon."
+    }
+  },
+  {
+    "fr": "Montant mensuel",
+    "ar": "المبلغ الشهري",
+    "en": "Monthly amount",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "bank"
+    ],
+    "ex": {
+      "fr": "Je voudrais connaître le montant mensuel.",
+      "ar": "أريد معرفة المبلغ الشهري.",
+      "en": "I would like to know the monthly amount."
+    }
+  },
+  {
+    "fr": "Baisse",
+    "ar": "انخفاض",
+    "en": "Decrease",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Pourquoi y a-t-il une baisse de mon aide ?",
+      "ar": "لماذا حدث انخفاض في مساعدتي؟",
+      "en": "Why is there a decrease in my benefit?"
+    }
+  },
+  {
+    "fr": "Montant versé",
+    "ar": "المبلغ المدفوع",
+    "en": "Amount paid",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "bank"
+    ],
+    "ex": {
+      "fr": "Le montant versé n'est pas correct.",
+      "ar": "المبلغ المدفوع غير صحيح.",
+      "en": "The amount paid is not correct."
+    }
+  },
+  {
+    "fr": "Paiement en retard",
+    "ar": "دفعة متأخرة",
+    "en": "Late payment",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "bank"
+    ],
+    "ex": {
+      "fr": "Mon paiement est en retard.",
+      "ar": "دفعتي متأخرة.",
+      "en": "My payment is late."
+    }
+  },
+  {
+    "fr": "Retard de paiement",
+    "ar": "تأخر الدفع",
+    "en": "Payment delay",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "bank"
+    ],
+    "ex": {
+      "fr": "Je voudrais signaler un retard de paiement.",
+      "ar": "أريد الإبلاغ عن تأخر في الدفع.",
+      "en": "I would like to report a payment delay."
+    }
+  },
+  {
+    "fr": "Non-reçu",
+    "ar": "لم يتم الاستلام",
+    "en": "Not received",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Je n'ai pas reçu le versement.",
+      "ar": "لم أستلم التحويل.",
+      "en": "I did not receive the payment."
+    }
+  },
+  {
+    "fr": "Réclamation en ligne",
+    "ar": "شكوى عبر الإنترنت",
+    "en": "Online complaint",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai envoyé une réclamation en ligne.",
+      "ar": "أرسلت شكوى عبر الإنترنت.",
+      "en": "I sent an online complaint."
+    }
+  },
+  {
+    "fr": "Demande en cours",
+    "ar": "طلب قيد الدراسة",
+    "en": "Application in progress",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Ma demande est toujours en cours.",
+      "ar": "طلبي ما زال قيد الدراسة.",
+      "en": "My application is still in progress."
+    }
+  },
+  {
+    "fr": "Dossier incomplet",
+    "ar": "ملف ناقص",
+    "en": "Incomplete file",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Mon dossier est incomplet.",
+      "ar": "ملفي ناقص.",
+      "en": "My file is incomplete."
+    }
+  },
+  {
+    "fr": "Compléter un dossier",
+    "ar": "إكمال ملف",
+    "en": "Complete a file",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je dois compléter mon dossier.",
+      "ar": "يجب أن أكمل ملفي.",
+      "en": "I need to complete my file."
+    }
+  },
+  {
+    "fr": "Pièce justificative",
+    "ar": "وثيقة إثبات",
+    "en": "Supporting document",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quelle pièce justificative manque ?",
+      "ar": "ما هي وثيقة الإثبات الناقصة؟",
+      "en": "Which supporting document is missing?"
+    }
+  },
+  {
+    "fr": "Fournir un document",
+    "ar": "تقديم وثيقة",
+    "en": "Provide a document",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je vais fournir le document demandé.",
+      "ar": "سأقدم الوثيقة المطلوبة.",
+      "en": "I will provide the requested document."
+    }
+  },
+  {
+    "fr": "Envoyer par courrier",
+    "ar": "يرسل بالبريد",
+    "en": "Send by mail",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Dois-je envoyer le document par courrier ?",
+      "ar": "هل يجب أن أرسل الوثيقة بالبريد؟",
+      "en": "Do I have to send the document by mail?"
+    }
+  },
+  {
+    "fr": "Téléverser",
+    "ar": "يرفع ملفًا إلكترونيًا",
+    "en": "Upload",
+    "pos": "verb",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je vais téléverser le justificatif sur mon compte.",
+      "ar": "سأرفع وثيقة الإثبات على حسابي.",
+      "en": "I will upload the document to my account."
+    }
+  },
+  {
+    "fr": "Numériser",
+    "ar": "يمسح ضوئيًا",
+    "en": "Scan",
+    "pos": "verb",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je dois numériser le document.",
+      "ar": "يجب أن أمسح الوثيقة ضوئيًا.",
+      "en": "I need to scan the document."
+    }
+  },
+  {
+    "fr": "Signature",
+    "ar": "توقيع",
+    "en": "Signature",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Il manque votre signature.",
+      "ar": "توقيعك ناقص.",
+      "en": "Your signature is missing."
+    }
+  },
+  {
+    "fr": "Dater",
+    "ar": "يؤرخ / يضع التاريخ",
+    "en": "Date",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "N'oubliez pas de dater le document.",
+      "ar": "لا تنسَ وضع تاريخ على الوثيقة.",
+      "en": "Don't forget to date the document."
+    }
+  },
+  {
+    "fr": "Cachet",
+    "ar": "ختم",
+    "en": "Stamp / Seal",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Le document doit avoir un cachet officiel.",
+      "ar": "يجب أن تحمل الوثيقة ختمًا رسميًا.",
+      "en": "The document must have an official stamp."
+    }
+  },
+  {
+    "fr": "MDPH",
+    "ar": "بيت الأشخاص ذوي الإعاقة",
+    "en": "Departmental disability office",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai envoyé mon dossier à la MDPH.",
+      "ar": "أرسلت ملفي إلى MDPH.",
+      "en": "I sent my file to the disability office."
+    }
+  },
+  {
+    "fr": "Handicap",
+    "ar": "إعاقة",
+    "en": "Disability",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je demande une reconnaissance de handicap.",
+      "ar": "أطلب الاعتراف بالإعاقة.",
+      "en": "I am requesting disability recognition."
+    }
+  },
+  {
+    "fr": "Situation de handicap",
+    "ar": "وضعية إعاقة",
+    "en": "Disability situation",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Ma situation de handicap limite mes activités.",
+      "ar": "وضعيتي بسبب الإعاقة تحد من نشاطاتي.",
+      "en": "My disability situation limits my activities."
+    }
+  },
+  {
+    "fr": "Reconnaissance",
+    "ar": "اعتراف / إقرار",
+    "en": "Recognition",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je demande une reconnaissance de mes difficultés.",
+      "ar": "أطلب الاعتراف بصعوباتي.",
+      "en": "I request recognition of my difficulties."
+    }
+  },
+  {
+    "fr": "RQTH (Reconnaissance de la Qualité de Travailleur Handicapé)",
+    "ar": "الاعتراف كعامل معاق",
+    "en": "Disabled worker status",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work",
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai fait une demande de RQTH.",
+      "ar": "قدمت طلب RQTH.",
+      "en": "I applied for disabled worker status."
+    }
+  },
+  {
+    "fr": "Dossier MDPH",
+    "ar": "ملف MDPH",
+    "en": "Disability application file",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Mon dossier MDPH est en cours d'étude.",
+      "ar": "ملف MDPH الخاص بي قيد الدراسة.",
+      "en": "My MDPH file is being reviewed."
+    }
+  },
+  {
+    "fr": "Certificat médical",
+    "ar": "شهادة طبية",
+    "en": "Medical certificate",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le certificat médical doit être rempli par le médecin.",
+      "ar": "يجب أن يملأ الطبيب الشهادة الطبية.",
+      "en": "The medical certificate must be completed by the doctor."
+    }
+  },
+  {
+    "fr": "Médecin traitant",
+    "ar": "الطبيب المعالج",
+    "en": "General practitioner",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Mon médecin traitant a rempli le certificat.",
+      "ar": "طبيبي المعالج ملأ الشهادة.",
+      "en": "My doctor completed the certificate."
+    }
+  },
+  {
+    "fr": "Spécialiste",
+    "ar": "طبيب مختص",
+    "en": "Specialist",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je consulte un médecin spécialiste.",
+      "ar": "أراجع طبيبًا مختصًا.",
+      "en": "I see a specialist doctor."
+    }
+  },
+  {
+    "fr": "Limitation",
+    "ar": "محدودية / تقييد",
+    "en": "Limitation",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai des limitations dans la vie quotidienne.",
+      "ar": "لدي محدوديات في الحياة اليومية.",
+      "en": "I have limitations in daily life."
+    }
+  },
+  {
+    "fr": "Difficulté",
+    "ar": "صعوبة",
+    "en": "Difficulty",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai des difficultés pour travailler.",
+      "ar": "لدي صعوبات في العمل.",
+      "en": "I have difficulties working."
+    }
+  },
+  {
+    "fr": "Besoin d'aide",
+    "ar": "حاجة إلى المساعدة",
+    "en": "Need for help",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai besoin d'aide dans certaines tâches.",
+      "ar": "أحتاج إلى مساعدة في بعض المهام.",
+      "en": "I need help with some tasks."
+    }
+  },
+  {
+    "fr": "Aménagement du poste",
+    "ar": "تهيئة منصب العمل",
+    "en": "Workplace accommodation",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "L'aménagement du poste peut faciliter mon travail.",
+      "ar": "تهيئة المنصب يمكن أن تسهل عملي.",
+      "en": "Workplace accommodation can make my work easier."
+    }
+  },
+  {
+    "fr": "Droit ouvert",
+    "ar": "حق مفتوح / مستحق",
+    "en": "Entitlement opened",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Mes droits sont ouverts jusqu'à cette date.",
+      "ar": "حقوقي مفتوحة حتى هذا التاريخ.",
+      "en": "My entitlements are valid until this date."
+    }
+  },
+  {
+    "fr": "Fatigue",
+    "ar": "تعب / إرهاق",
+    "en": "Fatigue",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je ressens une grande fatigue au quotidien.",
+      "ar": "أشعر بتعب شديد يوميًا.",
+      "en": "I feel very tired every day."
+    }
+  },
+  {
+    "fr": "Fatigue chronique",
+    "ar": "تعب مزمن",
+    "en": "Chronic fatigue",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je souffre de fatigue chronique.",
+      "ar": "أعاني من تعب مزمن.",
+      "en": "I suffer from chronic fatigue."
+    }
+  },
+  {
+    "fr": "Épuisement",
+    "ar": "إنهاك / استنزاف",
+    "en": "Exhaustion",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Après le travail, je ressens un épuisement important.",
+      "ar": "بعد العمل أشعر بإنهاك كبير.",
+      "en": "After work, I feel very exhausted."
+    }
+  },
+  {
+    "fr": "Douleur",
+    "ar": "ألم",
+    "en": "Pain",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai des douleurs régulières.",
+      "ar": "لدي آلام متكررة.",
+      "en": "I have regular pain."
+    }
+  },
+  {
+    "fr": "Symptôme",
+    "ar": "عرض",
+    "en": "Symptom",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je dois expliquer mes symptômes.",
+      "ar": "يجب أن أشرح أعراضي.",
+      "en": "I need to explain my symptoms."
+    }
+  },
+  {
+    "fr": "Trouble",
+    "ar": "اضطراب / مشكلة صحية",
+    "en": "Disorder / Issue",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai des troubles digestifs.",
+      "ar": "لدي اضطرابات هضمية.",
+      "en": "I have digestive problems."
+    }
+  },
+  {
+    "fr": "Maladie chronique",
+    "ar": "مرض مزمن",
+    "en": "Chronic illness",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai une maladie chronique.",
+      "ar": "لدي مرض مزمن.",
+      "en": "I have a chronic illness."
+    }
+  },
+  {
+    "fr": "Suivi médical",
+    "ar": "متابعة طبية",
+    "en": "Medical follow-up",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai un suivi médical régulier.",
+      "ar": "لدي متابعة طبية منتظمة.",
+      "en": "I have regular medical follow-up."
+    }
+  },
+  {
+    "fr": "Traitement médical",
+    "ar": "علاج طبي",
+    "en": "Medical treatment",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Je suis un traitement médical.",
+      "ar": "أتابع علاجًا طبيًا.",
+      "en": "I am undergoing medical treatment."
+    }
+  },
+  {
+    "fr": "Compte rendu médical",
+    "ar": "تقرير طبي",
+    "en": "Medical report",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai joint mon compte rendu médical au dossier.",
+      "ar": "أرفقت التقرير الطبي بالملف.",
+      "en": "I attached my medical report to the file."
+    }
+  },
+  {
+    "fr": "Avis médical",
+    "ar": "رأي طبي",
+    "en": "Medical opinion",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "L'avis médical est important pour mon dossier.",
+      "ar": "الرأي الطبي مهم لملفي.",
+      "en": "The medical opinion is important for my file."
+    }
+  },
+  {
+    "fr": "Impact",
+    "ar": "تأثير",
+    "en": "Impact",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Ma maladie a un impact sur ma vie quotidienne.",
+      "ar": "مرضي له تأثير على حياتي اليومية.",
+      "en": "My illness impacts my daily life."
+    }
+  },
+  {
+    "fr": "Vie quotidienne",
+    "ar": "الحياة اليومية",
+    "en": "Daily life",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai des difficultés dans ma vie quotidienne.",
+      "ar": "لدي صعوبات في حياتي اليومية.",
+      "en": "I have difficulties in my daily life."
+    }
+  },
+  {
+    "fr": "Activités quotidiennes",
+    "ar": "الأنشطة اليومية",
+    "en": "Daily activities",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Certaines activités quotidiennes sont difficiles.",
+      "ar": "بعض الأنشطة اليومية صعبة.",
+      "en": "Some daily activities are difficult."
+    }
+  },
+  {
+    "fr": "Maintien dans l'emploi",
+    "ar": "الحفاظ على العمل",
+    "en": "Job retention",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je souhaite un maintien dans l'emploi.",
+      "ar": "أريد الحفاظ على عملي.",
+      "en": "I want to keep my job."
+    }
+  },
+  {
+    "fr": "Capacité de travail",
+    "ar": "القدرة على العمل",
+    "en": "Work capacity",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work",
+      "health"
+    ],
+    "ex": {
+      "fr": "Ma capacité de travail est réduite.",
+      "ar": "قدرتي على العمل منخفضة.",
+      "en": "My work capacity is reduced."
+    }
+  },
+  {
+    "fr": "Je souhaite expliquer ma situation",
+    "ar": "أريد شرح وضعيتي",
+    "en": "I would like to explain my situation",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je souhaite expliquer ma situation personnelle et professionnelle.",
+      "ar": "أريد شرح وضعيتي الشخصية والمهنية.",
+      "en": "I would like to explain my personal and professional situation."
+    }
+  },
+  {
+    "fr": "Ma situation a changé",
+    "ar": "تغيرت وضعيتي",
+    "en": "My situation has changed",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Ma situation a changé depuis ma dernière déclaration.",
+      "ar": "تغيرت وضعيتي منذ آخر تصريح.",
+      "en": "My situation has changed since my last declaration."
+    }
+  },
+  {
+    "fr": "Je rencontre des difficultés",
+    "ar": "أواجه صعوبات",
+    "en": "I am facing difficulties",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je rencontre des difficultés dans ma vie quotidienne.",
+      "ar": "أواجه صعوبات في حياتي اليومية.",
+      "en": "I am facing difficulties in my daily life."
+    }
+  },
+  {
+    "fr": "Cela limite mes capacités",
+    "ar": "هذا يحد من قدراتي",
+    "en": "This limits my abilities",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Cette situation limite mes capacités au travail.",
+      "ar": "هذه الوضعية تحد من قدراتي في العمل.",
+      "en": "This situation limits my abilities at work."
+    }
+  },
+  {
+    "fr": "J'ai besoin d'un accompagnement",
+    "ar": "أحتاج إلى مرافقة",
+    "en": "I need support",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai besoin d'un accompagnement adapté à ma situation.",
+      "ar": "أحتاج إلى مرافقة مناسبة لوضعي.",
+      "en": "I need support adapted to my situation."
+    }
+  },
+  {
+    "fr": "Je demande une étude de mes droits",
+    "ar": "أطلب دراسة حقوقي",
+    "en": "I request an assessment of my rights",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je demande une étude de mes droits auprès de la MDPH.",
+      "ar": "أطلب دراسة حقوقي لدى MDPH.",
+      "en": "I request an assessment of my rights with MDPH."
+    }
+  },
+  {
+    "fr": "Je voudrais savoir où en est mon dossier",
+    "ar": "أريد معرفة أين وصل ملفي",
+    "en": "I would like to know the status of my file",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je voudrais savoir où en est mon dossier.",
+      "ar": "أريد معرفة أين وصل ملفي.",
+      "en": "I would like to know the status of my file."
+    }
+  },
+  {
+    "fr": "Mon dossier est toujours en attente",
+    "ar": "ملفي ما زال قيد الانتظار",
+    "en": "My file is still pending",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Mon dossier est toujours en attente de traitement.",
+      "ar": "ملفي ما زال ينتظر المعالجة.",
+      "en": "My file is still waiting for processing."
+    }
+  },
+  {
+    "fr": "Le délai est trop long",
+    "ar": "المدة طويلة جدًا",
+    "en": "The delay is too long",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Le délai de traitement est très long.",
+      "ar": "مدة معالجة الملف طويلة جدًا.",
+      "en": "The processing time is very long."
+    }
+  },
+  {
+    "fr": "Pouvez-vous vérifier mon dossier ?",
+    "ar": "هل يمكنكم التحقق من ملفي؟",
+    "en": "Can you check my file?",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Pouvez-vous vérifier l'état de mon dossier ?",
+      "ar": "هل يمكنكم التحقق من حالة ملفي؟",
+      "en": "Can you check my file status?"
+    }
+  },
+  {
+    "fr": "Il manque un document",
+    "ar": "هناك وثيقة ناقصة",
+    "en": "A document is missing",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Pouvez-vous me dire quel document manque ?",
+      "ar": "هل يمكنكم إخباري ما هي الوثيقة الناقصة؟",
+      "en": "Can you tell me which document is missing?"
+    }
+  },
+  {
+    "fr": "J'ai envoyé tous les documents",
+    "ar": "أرسلت كل الوثائق",
+    "en": "I sent all documents",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai envoyé tous les documents demandés.",
+      "ar": "أرسلت كل الوثائق المطلوبة.",
+      "en": "I sent all the requested documents."
+    }
+  },
+  {
+    "fr": "Je n'ai pas reçu de réponse",
+    "ar": "لم أتلق ردًا",
+    "en": "I have not received a reply",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je n'ai pas reçu de réponse concernant ma demande.",
+      "ar": "لم أتلق ردًا بخصوص طلبي.",
+      "en": "I have not received a response about my request."
+    }
+  },
+  {
+    "fr": "Je souhaite faire un recours",
+    "ar": "أريد تقديم طعن",
+    "en": "I want to appeal",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je souhaite faire un recours contre cette décision.",
+      "ar": "أريد تقديم طعن ضد هذا القرار.",
+      "en": "I want to appeal this decision."
+    }
+  },
+  {
+    "fr": "Décision défavorable",
+    "ar": "قرار غير مؤاتٍ / رفض",
+    "en": "Unfavorable decision",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai reçu une décision défavorable.",
+      "ar": "تلقيت قرارًا بالرفض.",
+      "en": "I received an unfavorable decision."
     }
   }
 ];
