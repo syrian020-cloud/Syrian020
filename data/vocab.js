@@ -4105,9 +4105,9 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Autonomie",
-    "ar": "استقلالية",
+    "ar": "الاستقلالية",
     "en": "Independence / Autonomy",
-    "level": "B1",
+    "level": "A1",
     "contexts": [
       "health",
       "services",
@@ -4123,6 +4123,11 @@ window.VOCAB_DATA = [
         "fr": "Cette aide améliore mon autonomie.",
         "ar": "هذه المساعدة تحسن استقلاليتي.",
         "en": "This assistance improves my independence."
+      },
+      {
+        "fr": "Ma maladie réduit mon autonomie.",
+        "ar": "مرضي يقلل من استقلاليتي.",
+        "en": "My illness reduces my independence."
       }
     ],
     "usage": "العمل، المساعدة الاجتماعية، الحياة اليومية",
@@ -5121,19 +5126,26 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Amélioration",
-    "ar": "تحسّن",
+    "ar": "تحسن",
     "en": "Improvement",
-    "level": "B1",
+    "level": "A1",
     "contexts": [
       "health",
       "services",
       "work"
     ],
-    "ex": {
-      "fr": "Il y a une amélioration de la situation.",
-      "ar": "هناك تحسن في الوضع.",
-      "en": "There is an improvement in the situation."
-    },
+    "ex": [
+      {
+        "fr": "Il y a une amélioration de la situation.",
+        "ar": "هناك تحسن في الوضع.",
+        "en": "There is an improvement in the situation."
+      },
+      {
+        "fr": "Il y a une amélioration des résultats.",
+        "ar": "هناك تحسن في النتائج.",
+        "en": "There is an improvement in the results."
+      }
+    ],
     "usage": "العمل، الصحة، الخدمات",
     "pos": "noun"
   },
@@ -6292,17 +6304,24 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Aggravation",
-    "ar": "تفاقم / ازدياد سوءًا",
+    "ar": "تدهور",
     "en": "Worsening",
-    "level": "B2",
+    "level": "A1",
     "contexts": [
       "health"
     ],
-    "ex": {
-      "fr": "Une aggravation de la situation est possible.",
-      "ar": "قد يحدث تفاقم في الوضع.",
-      "en": "A worsening of the situation is possible."
-    },
+    "ex": [
+      {
+        "fr": "Une aggravation de la situation est possible.",
+        "ar": "قد يحدث تفاقم في الوضع.",
+        "en": "A worsening of the situation is possible."
+      },
+      {
+        "fr": "Il n'y a pas d'aggravation de la maladie.",
+        "ar": "لا يوجد تدهور في المرض.",
+        "en": "There is no worsening of the disease."
+      }
+    ],
     "usage": "الصحة، المشاكل، الأوضاع",
     "pos": "noun"
   },
@@ -23203,17 +23222,25 @@ window.VOCAB_DATA = [
   {
     "fr": "Dossier MDPH",
     "ar": "ملف MDPH",
-    "en": "Disability application file",
+    "en": "MDPH file",
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "health",
       "services"
     ],
-    "ex": {
-      "fr": "Mon dossier MDPH est en cours d'étude.",
-      "ar": "ملف MDPH الخاص بي قيد الدراسة.",
-      "en": "My MDPH file is being reviewed."
-    }
+    "ex": [
+      {
+        "fr": "Mon dossier MDPH est en cours d'étude.",
+        "ar": "ملف MDPH الخاص بي قيد الدراسة.",
+        "en": "My MDPH file is being reviewed."
+      },
+      {
+        "fr": "J'ai envoyé mon dossier MDPH.",
+        "ar": "أرسلت ملف MDPH.",
+        "en": "I sent my MDPH file."
+      }
+    ]
   },
   {
     "fr": "Certificat médical",
@@ -23222,13 +23249,21 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "health"
+      "health",
+      "services"
     ],
-    "ex": {
-      "fr": "Le certificat médical doit être rempli par le médecin.",
-      "ar": "يجب أن يملأ الطبيب الشهادة الطبية.",
-      "en": "The medical certificate must be completed by the doctor."
-    }
+    "ex": [
+      {
+        "fr": "Le certificat médical doit être rempli par le médecin.",
+        "ar": "يجب أن يملأ الطبيب الشهادة الطبية.",
+        "en": "The medical certificate must be completed by the doctor."
+      },
+      {
+        "fr": "J'ai besoin d'un certificat médical pour mon dossier MDPH.",
+        "ar": "أحتاج إلى شهادة طبية لملف MDPH.",
+        "en": "I need a medical certificate for my MDPH file."
+      }
+    ]
   },
   {
     "fr": "Médecin traitant",
@@ -23261,11 +23296,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "health"
     ],
-    "ex": {
-      "fr": "Je consulte un médecin spécialiste.",
-      "ar": "أراجع طبيبًا مختصًا.",
-      "en": "I see a specialist doctor."
-    }
+    "ex": [
+      {
+        "fr": "Je consulte un médecin spécialiste.",
+        "ar": "أراجع طبيبًا مختصًا.",
+        "en": "I see a specialist doctor."
+      },
+      {
+        "fr": "Je consulte un spécialiste.",
+        "ar": "أراجع طبيبًا مختصًا.",
+        "en": "I see a specialist."
+      }
+    ]
   },
   {
     "fr": "Limitation",
@@ -23299,33 +23341,48 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Besoin d'aide",
-    "ar": "حاجة إلى المساعدة",
+    "ar": "الحاجة إلى المساعدة",
     "en": "Need for help",
     "pos": "other",
     "level": "A1",
     "contexts": [
       "health"
     ],
-    "ex": {
-      "fr": "J'ai besoin d'aide dans certaines tâches.",
-      "ar": "أحتاج إلى مساعدة في بعض المهام.",
-      "en": "I need help with some tasks."
-    }
+    "ex": [
+      {
+        "fr": "J'ai besoin d'aide dans certaines tâches.",
+        "ar": "أحتاج إلى مساعدة في بعض المهام.",
+        "en": "I need help with some tasks."
+      },
+      {
+        "fr": "J'ai besoin d'aide pour certaines tâches.",
+        "ar": "أحتاج إلى مساعدة في بعض المهام.",
+        "en": "I need help with some tasks."
+      }
+    ]
   },
   {
     "fr": "Aménagement du poste",
     "ar": "تهيئة منصب العمل",
-    "en": "Workplace accommodation",
-    "pos": "other",
+    "en": "Workplace adaptation",
+    "pos": "noun",
     "level": "A1",
     "contexts": [
+      "services",
       "work"
     ],
-    "ex": {
-      "fr": "L'aménagement du poste peut faciliter mon travail.",
-      "ar": "تهيئة المنصب يمكن أن تسهل عملي.",
-      "en": "Workplace accommodation can make my work easier."
-    }
+    "ex": [
+      {
+        "fr": "L'aménagement du poste peut faciliter mon travail.",
+        "ar": "تهيئة المنصب يمكن أن تسهل عملي.",
+        "en": "Workplace accommodation can make my work easier."
+      },
+      {
+        "fr": "J'ai besoin d'un aménagement de mon poste.",
+        "ar": "أحتاج إلى تهيئة منصب عملي.",
+        "en": "I need workplace adaptation."
+      }
+    ]
   },
   {
     "fr": "Droit ouvert",
@@ -23345,62 +23402,90 @@ window.VOCAB_DATA = [
   {
     "fr": "Fatigue",
     "ar": "تعب / إرهاق",
-    "en": "Fatigue",
+    "en": "Fatigue / Tiredness",
     "pos": "noun",
-    "level": "A1",
+    "level": "A2",
     "contexts": [
       "health"
     ],
-    "ex": {
-      "fr": "Je ressens une grande fatigue au quotidien.",
-      "ar": "أشعر بتعب شديد يوميًا.",
-      "en": "I feel very tired every day."
-    }
+    "ex": [
+      {
+        "fr": "Je ressens une grande fatigue au quotidien.",
+        "ar": "أشعر بتعب شديد يوميًا.",
+        "en": "I feel very tired every day."
+      },
+      {
+        "fr": "Je ressens une grande fatigue.",
+        "ar": "أشعر بتعب شديد.",
+        "en": "I feel very tired."
+      }
+    ]
   },
   {
     "fr": "Fatigue chronique",
     "ar": "تعب مزمن",
     "en": "Chronic fatigue",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "contexts": [
       "health"
     ],
-    "ex": {
-      "fr": "Je souffre de fatigue chronique.",
-      "ar": "أعاني من تعب مزمن.",
-      "en": "I suffer from chronic fatigue."
-    }
+    "ex": [
+      {
+        "fr": "Je souffre de fatigue chronique.",
+        "ar": "أعاني من تعب مزمن.",
+        "en": "I suffer from chronic fatigue."
+      },
+      {
+        "fr": "Je souffre d'une fatigue chronique.",
+        "ar": "أعاني من تعب مزمن.",
+        "en": "I suffer from chronic fatigue."
+      }
+    ]
   },
   {
     "fr": "Épuisement",
     "ar": "إنهاك / استنزاف",
     "en": "Exhaustion",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "contexts": [
       "health"
     ],
-    "ex": {
-      "fr": "Après le travail, je ressens un épuisement important.",
-      "ar": "بعد العمل أشعر بإنهاك كبير.",
-      "en": "After work, I feel very exhausted."
-    }
+    "ex": [
+      {
+        "fr": "Après le travail, je ressens un épuisement important.",
+        "ar": "بعد العمل أشعر بإنهاك كبير.",
+        "en": "After work, I feel very exhausted."
+      },
+      {
+        "fr": "Je ressens un épuisement permanent.",
+        "ar": "أشعر بإنهاك دائم.",
+        "en": "I feel permanent exhaustion."
+      }
+    ]
   },
   {
     "fr": "Douleur",
     "ar": "ألم",
     "en": "Pain",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "contexts": [
       "health"
     ],
-    "ex": {
-      "fr": "J'ai des douleurs régulières.",
-      "ar": "لدي آلام متكررة.",
-      "en": "I have regular pain."
-    }
+    "ex": [
+      {
+        "fr": "J'ai des douleurs régulières.",
+        "ar": "لدي آلام متكررة.",
+        "en": "I have regular pain."
+      },
+      {
+        "fr": "J'ai une douleur au ventre.",
+        "ar": "لدي ألم في البطن.",
+        "en": "I have stomach pain."
+      }
+    ]
   },
   {
     "fr": "Symptôme",
@@ -23435,17 +23520,24 @@ window.VOCAB_DATA = [
   {
     "fr": "Maladie chronique",
     "ar": "مرض مزمن",
-    "en": "Chronic illness",
+    "en": "Chronic disease",
     "pos": "noun",
     "level": "A1",
     "contexts": [
       "health"
     ],
-    "ex": {
-      "fr": "J'ai une maladie chronique.",
-      "ar": "لدي مرض مزمن.",
-      "en": "I have a chronic illness."
-    }
+    "ex": [
+      {
+        "fr": "J'ai une maladie chronique.",
+        "ar": "لدي مرض مزمن.",
+        "en": "I have a chronic illness."
+      },
+      {
+        "fr": "J'ai une maladie chronique.",
+        "ar": "لدي مرض مزمن.",
+        "en": "I have a chronic disease."
+      }
+    ]
   },
   {
     "fr": "Suivi médical",
@@ -23454,8 +23546,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "J'ai un suivi médical régulier.",
@@ -23535,11 +23627,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "health"
     ],
-    "ex": {
-      "fr": "J'ai des difficultés dans ma vie quotidienne.",
-      "ar": "لدي صعوبات في حياتي اليومية.",
-      "en": "I have difficulties in my daily life."
-    }
+    "ex": [
+      {
+        "fr": "J'ai des difficultés dans ma vie quotidienne.",
+        "ar": "لدي صعوبات في حياتي اليومية.",
+        "en": "I have difficulties in my daily life."
+      },
+      {
+        "fr": "La fatigue complique ma vie quotidienne.",
+        "ar": "التعب يجعل حياتي اليومية صعبة.",
+        "en": "Fatigue makes my daily life difficult."
+      }
+    ]
   },
   {
     "fr": "Activités quotidiennes",
@@ -23550,11 +23649,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "health"
     ],
-    "ex": {
-      "fr": "Certaines activités quotidiennes sont difficiles.",
-      "ar": "بعض الأنشطة اليومية صعبة.",
-      "en": "Some daily activities are difficult."
-    }
+    "ex": [
+      {
+        "fr": "Certaines activités quotidiennes sont difficiles.",
+        "ar": "بعض الأنشطة اليومية صعبة.",
+        "en": "Some daily activities are difficult."
+      },
+      {
+        "fr": "J'ai des difficultés avec certaines activités quotidiennes.",
+        "ar": "لدي صعوبات في بعض الأنشطة اليومية.",
+        "en": "I have difficulties with some daily activities."
+      }
+    ]
   },
   {
     "fr": "Maintien dans l'emploi",
@@ -23578,8 +23684,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "work",
-      "health"
+      "health",
+      "work"
     ],
     "ex": {
       "fr": "Ma capacité de travail est réduite.",
@@ -25399,6 +25505,1687 @@ window.VOCAB_DATA = [
       "fr": "Ce traitement peut aider à guérir.",
       "ar": "هذا العلاج يمكن أن يساعد على الشفاء.",
       "en": "This treatment can help heal."
+    }
+  },
+  {
+    "fr": "Avoir mal",
+    "ar": "يؤلم / أشعر بألم",
+    "en": "To hurt / Have pain",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai mal à la tête.",
+      "ar": "لدي صداع.",
+      "en": "I have a headache."
+    }
+  },
+  {
+    "fr": "Mal de tête",
+    "ar": "صداع",
+    "en": "Headache",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai souvent mal à la tête.",
+      "ar": "غالبًا ما أعاني من الصداع.",
+      "en": "I often have headaches."
+    }
+  },
+  {
+    "fr": "Mal au ventre",
+    "ar": "ألم البطن",
+    "en": "Stomach ache",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai mal au ventre depuis hier.",
+      "ar": "لدي ألم في البطن منذ أمس.",
+      "en": "I have had stomach pain since yesterday."
+    }
+  },
+  {
+    "fr": "Fatigué / Fatiguée",
+    "ar": "متعب",
+    "en": "Tired",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je suis fatigué après le travail.",
+      "ar": "أنا متعب بعد العمل.",
+      "en": "I am tired after work."
+    }
+  },
+  {
+    "fr": "Fièvre",
+    "ar": "حمى",
+    "en": "Fever",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai de la fièvre depuis deux jours.",
+      "ar": "لدي حمى منذ يومين.",
+      "en": "I have had a fever for two days."
+    }
+  },
+  {
+    "fr": "Toux",
+    "ar": "سعال",
+    "en": "Cough",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai une toux sèche.",
+      "ar": "لدي سعال جاف.",
+      "en": "I have a dry cough."
+    }
+  },
+  {
+    "fr": "Rhume",
+    "ar": "زكام",
+    "en": "Cold",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai attrapé un rhume.",
+      "ar": "أصبت بالزكام.",
+      "en": "I caught a cold."
+    }
+  },
+  {
+    "fr": "Nez bouché",
+    "ar": "أنف مسدود",
+    "en": "Blocked nose",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai le nez bouché.",
+      "ar": "أنفي مسدود.",
+      "en": "My nose is blocked."
+    }
+  },
+  {
+    "fr": "Gorge irritée",
+    "ar": "التهاب / تهيج الحلق",
+    "en": "Irritated throat",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai la gorge irritée.",
+      "ar": "لدي تهيج في الحلق.",
+      "en": "I have an irritated throat."
+    }
+  },
+  {
+    "fr": "Nausée",
+    "ar": "غثيان",
+    "en": "Nausea",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai des nausées le matin.",
+      "ar": "لدي غثيان في الصباح.",
+      "en": "I feel nauseous in the morning."
+    }
+  },
+  {
+    "fr": "Vomir",
+    "ar": "يتقيأ",
+    "en": "To vomit",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai vomi après le repas.",
+      "ar": "تقيأت بعد الطعام.",
+      "en": "I vomited after the meal."
+    }
+  },
+  {
+    "fr": "Diarrhée",
+    "ar": "إسهال",
+    "en": "Diarrhea",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai eu une diarrhée pendant deux jours.",
+      "ar": "أصبت بإسهال لمدة يومين.",
+      "en": "I had diarrhea for two days."
+    }
+  },
+  {
+    "fr": "Constipation",
+    "ar": "إمساك",
+    "en": "Constipation",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai des problèmes de constipation.",
+      "ar": "لدي مشاكل في الإمساك.",
+      "en": "I have constipation problems."
+    }
+  },
+  {
+    "fr": "Ballonnement",
+    "ar": "انتفاخ",
+    "en": "Bloating",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai des ballonnements après les repas.",
+      "ar": "لدي انتفاخ بعد الوجبات.",
+      "en": "I have bloating after meals."
+    }
+  },
+  {
+    "fr": "Digestion",
+    "ar": "هضم",
+    "en": "Digestion",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai des problèmes de digestion.",
+      "ar": "لدي مشاكل في الهضم.",
+      "en": "I have digestion problems."
+    }
+  },
+  {
+    "fr": "Reflux",
+    "ar": "ارتجاع",
+    "en": "Reflux",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai des reflux après manger.",
+      "ar": "لدي ارتجاع بعد الأكل.",
+      "en": "I have reflux after eating."
+    }
+  },
+  {
+    "fr": "Brûlure",
+    "ar": "حرقة",
+    "en": "Burning sensation",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je ressens une brûlure dans l'estomac.",
+      "ar": "أشعر بحرقة في المعدة.",
+      "en": "I feel a burning sensation in my stomach."
+    }
+  },
+  {
+    "fr": "Vertige",
+    "ar": "دوخة / دوار",
+    "en": "Dizziness",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai des vertiges parfois.",
+      "ar": "لدي دوخة أحيانًا.",
+      "en": "I sometimes feel dizzy."
+    }
+  },
+  {
+    "fr": "Depuis quand ?",
+    "ar": "منذ متى؟",
+    "en": "Since when?",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Depuis quand avez-vous ces symptômes ?",
+      "ar": "منذ متى لديك هذه الأعراض؟",
+      "en": "Since when have you had these symptoms?"
+    }
+  },
+  {
+    "fr": "Depuis combien de temps ?",
+    "ar": "منذ كم من الوقت؟",
+    "en": "How long?",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Depuis combien de temps avez-vous mal ?",
+      "ar": "منذ كم من الوقت وأنت تشعر بالألم؟",
+      "en": "How long have you been in pain?"
+    }
+  },
+  {
+    "fr": "Ça a commencé quand ?",
+    "ar": "متى بدأ ذلك؟",
+    "en": "When did it start?",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Ça a commencé quand exactement ?",
+      "ar": "متى بدأ ذلك بالضبط؟",
+      "en": "When exactly did it start?"
+    }
+  },
+  {
+    "fr": "La douleur est où ?",
+    "ar": "أين يوجد الألم؟",
+    "en": "Where is the pain?",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "La douleur est où exactement ?",
+      "ar": "أين يوجد الألم بالضبط؟",
+      "en": "Where exactly is the pain?"
+    }
+  },
+  {
+    "fr": "La douleur est forte",
+    "ar": "الألم قوي",
+    "en": "The pain is strong",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "La douleur est très forte aujourd'hui.",
+      "ar": "الألم قوي جدًا اليوم.",
+      "en": "The pain is very strong today."
+    }
+  },
+  {
+    "fr": "La douleur est légère",
+    "ar": "الألم خفيف",
+    "en": "The pain is mild",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "La douleur est légère mais continue.",
+      "ar": "الألم خفيف لكنه مستمر.",
+      "en": "The pain is mild but continuous."
+    }
+  },
+  {
+    "fr": "La douleur augmente",
+    "ar": "الألم يزداد",
+    "en": "The pain increases",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "La douleur augmente après le repas.",
+      "ar": "الألم يزداد بعد الطعام.",
+      "en": "The pain increases after eating."
+    }
+  },
+  {
+    "fr": "La douleur diminue",
+    "ar": "الألم ينخفض",
+    "en": "The pain decreases",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "La douleur diminue avec le traitement.",
+      "ar": "الألم ينخفض مع العلاج.",
+      "en": "The pain decreases with the treatment."
+    }
+  },
+  {
+    "fr": "J'ai des symptômes",
+    "ar": "لدي أعراض",
+    "en": "I have symptoms",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai plusieurs symptômes depuis quelques semaines.",
+      "ar": "لدي عدة أعراض منذ عدة أسابيع.",
+      "en": "I have several symptoms for a few weeks."
+    }
+  },
+  {
+    "fr": "Je ne me sens pas bien",
+    "ar": "لا أشعر أنني بخير",
+    "en": "I don't feel well",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Je ne me sens pas bien depuis hier.",
+      "ar": "لا أشعر أنني بخير منذ أمس.",
+      "en": "I don't feel well since yesterday."
+    }
+  },
+  {
+    "fr": "Je me sens mieux",
+    "ar": "أشعر بتحسن",
+    "en": "I feel better",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Je me sens mieux avec ce traitement.",
+      "ar": "أشعر بتحسن مع هذا العلاج.",
+      "en": "I feel better with this treatment."
+    }
+  },
+  {
+    "fr": "Je me sens plus fatigué",
+    "ar": "أشعر بتعب أكثر",
+    "en": "I feel more tired",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je me sens plus fatigué ces derniers jours.",
+      "ar": "أشعر بتعب أكثر في الأيام الأخيرة.",
+      "en": "I feel more tired these days."
+    }
+  },
+  {
+    "fr": "Avez-vous des antécédents ?",
+    "ar": "هل لديك سوابق مرضية؟",
+    "en": "Do you have medical history?",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Avez-vous des antécédents médicaux ?",
+      "ar": "هل لديك سوابق طبية؟",
+      "en": "Do you have medical history?"
+    }
+  },
+  {
+    "fr": "Je suis suivi par un spécialiste",
+    "ar": "أتابع عند طبيب مختص",
+    "en": "I am followed by a specialist",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Je suis suivi par un hépatologue.",
+      "ar": "أتابع عند طبيب كبد.",
+      "en": "I am followed by a hepatologist."
+    }
+  },
+  {
+    "fr": "Je prends un traitement régulier",
+    "ar": "أتناول علاجًا منتظمًا",
+    "en": "I take regular medication",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Je prends un traitement régulier depuis longtemps.",
+      "ar": "أتناول علاجًا منتظمًا منذ مدة طويلة.",
+      "en": "I take regular medication for a long time."
+    }
+  },
+  {
+    "fr": "J'ai besoin d'une ordonnance",
+    "ar": "أحتاج إلى وصفة",
+    "en": "I need a prescription",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai besoin d'une nouvelle ordonnance.",
+      "ar": "أحتاج إلى وصفة جديدة.",
+      "en": "I need a new prescription."
+    }
+  },
+  {
+    "fr": "J'ai besoin d'un certificat médical",
+    "ar": "أحتاج إلى شهادة طبية",
+    "en": "I need a medical certificate",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai besoin d'un certificat médical pour mon dossier.",
+      "ar": "أحتاج إلى شهادة طبية لملفي.",
+      "en": "I need a medical certificate for my file."
+    }
+  },
+  {
+    "fr": "Pouvez-vous expliquer ?",
+    "ar": "هل يمكنك الشرح؟",
+    "en": "Can you explain?",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Pouvez-vous m'expliquer le résultat ?",
+      "ar": "هل يمكنك شرح النتيجة لي؟",
+      "en": "Can you explain the result to me?"
+    }
+  },
+  {
+    "fr": "Je n'ai pas compris",
+    "ar": "لم أفهم",
+    "en": "I didn't understand",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Désolé, je n'ai pas compris.",
+      "ar": "آسف، لم أفهم.",
+      "en": "Sorry, I didn't understand."
+    }
+  },
+  {
+    "fr": "Prélèvement sanguin",
+    "ar": "سحب عينة دم",
+    "en": "Blood sample collection",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je dois faire un prélèvement sanguin demain.",
+      "ar": "يجب أن أجري سحب عينة دم غدًا.",
+      "en": "I have to have a blood sample taken tomorrow."
+    }
+  },
+  {
+    "fr": "Laboratoire d'analyses",
+    "ar": "مخبر التحاليل",
+    "en": "Medical laboratory",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai rendez-vous au laboratoire d'analyses.",
+      "ar": "لدي موعد في مخبر التحاليل.",
+      "en": "I have an appointment at the laboratory."
+    }
+  },
+  {
+    "fr": "Bilan sanguin",
+    "ar": "فحص دم شامل",
+    "en": "Blood test panel",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin m'a demandé un bilan sanguin.",
+      "ar": "طلب مني الطبيب فحص دم شامل.",
+      "en": "The doctor asked for a blood test panel."
+    }
+  },
+  {
+    "fr": "Résultat normal",
+    "ar": "نتيجة طبيعية",
+    "en": "Normal result",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Les résultats sont normaux.",
+      "ar": "النتائج طبيعية.",
+      "en": "The results are normal."
+    }
+  },
+  {
+    "fr": "Résultat anormal",
+    "ar": "نتيجة غير طبيعية",
+    "en": "Abnormal result",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Un résultat est anormal.",
+      "ar": "إحدى النتائج غير طبيعية.",
+      "en": "One result is abnormal."
+    }
+  },
+  {
+    "fr": "Valeur élevée",
+    "ar": "قيمة مرتفعة",
+    "en": "High value",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Cette valeur est élevée.",
+      "ar": "هذه القيمة مرتفعة.",
+      "en": "This value is high."
+    }
+  },
+  {
+    "fr": "Valeur basse",
+    "ar": "قيمة منخفضة",
+    "en": "Low value",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Cette valeur est basse.",
+      "ar": "هذه القيمة منخفضة.",
+      "en": "This value is low."
+    }
+  },
+  {
+    "fr": "Taux",
+    "ar": "نسبة / معدل",
+    "en": "Level / Rate",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Mon taux est stable.",
+      "ar": "معدلي مستقر.",
+      "en": "My level is stable."
+    }
+  },
+  {
+    "fr": "Évolution",
+    "ar": "تطور / تغير",
+    "en": "Evolution / Progress",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin regarde l'évolution de la maladie.",
+      "ar": "الطبيب يراقب تطور المرض.",
+      "en": "The doctor monitors the evolution of the disease."
+    }
+  },
+  {
+    "fr": "Stable",
+    "ar": "مستقر",
+    "en": "Stable",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Mon état est stable.",
+      "ar": "حالتي مستقرة.",
+      "en": "My condition is stable."
+    }
+  },
+  {
+    "fr": "Suivre un patient",
+    "ar": "متابعة مريض",
+    "en": "Follow a patient",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le spécialiste suit mon état de santé.",
+      "ar": "الطبيب المختص يتابع حالتي الصحية.",
+      "en": "The specialist follows my health condition."
+    }
+  },
+  {
+    "fr": "Hépatologue",
+    "ar": "طبيب كبد",
+    "en": "Hepatologist",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je suis suivi par un hépatologue.",
+      "ar": "أتابع عند طبيب كبد.",
+      "en": "I am followed by a hepatologist."
+    }
+  },
+  {
+    "fr": "Traitement à long terme",
+    "ar": "علاج طويل الأمد",
+    "en": "Long-term treatment",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Je prends un traitement à long terme.",
+      "ar": "أتناول علاجًا طويل الأمد.",
+      "en": "I take long-term treatment."
+    }
+  },
+  {
+    "fr": "Surveillance médicale",
+    "ar": "مراقبة طبية",
+    "en": "Medical monitoring",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Cette maladie nécessite une surveillance médicale.",
+      "ar": "هذا المرض يحتاج إلى مراقبة طبية.",
+      "en": "This disease requires medical monitoring."
+    }
+  },
+  {
+    "fr": "Hépatite B",
+    "ar": "التهاب الكبد B",
+    "en": "Hepatitis B",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je suis suivi pour une hépatite B chronique.",
+      "ar": "أتابع بسبب التهاب الكبد B المزمن.",
+      "en": "I am followed for chronic hepatitis B."
+    }
+  },
+  {
+    "fr": "Hépatite chronique",
+    "ar": "التهاب مزمن",
+    "en": "Chronic hepatitis",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "L'hépatite chronique nécessite un suivi régulier.",
+      "ar": "التهاب الكبد المزمن يحتاج إلى متابعة منتظمة.",
+      "en": "Chronic hepatitis requires regular follow-up."
+    }
+  },
+  {
+    "fr": "Virus de l'hépatite B",
+    "ar": "فيروس التهاب الكبد B",
+    "en": "Hepatitis B virus",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin contrôle le virus de l'hépatite B.",
+      "ar": "الطبيب يراقب فيروس التهاب الكبد B.",
+      "en": "The doctor monitors the hepatitis B virus."
+    }
+  },
+  {
+    "fr": "Charge virale",
+    "ar": "الحمل الفيروسي",
+    "en": "Viral load",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Ma charge virale est faible.",
+      "ar": "الحمل الفيروسي لدي منخفض.",
+      "en": "My viral load is low."
+    }
+  },
+  {
+    "fr": "ADN viral",
+    "ar": "الحمض النووي الفيروسي",
+    "en": "Viral DNA",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "L'analyse mesure l'ADN viral.",
+      "ar": "التحليل يقيس الحمض النووي الفيروسي.",
+      "en": "The test measures viral DNA."
+    }
+  },
+  {
+    "fr": "Indétectable",
+    "ar": "غير قابل للكشف",
+    "en": "Undetectable",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "La charge virale est indétectable.",
+      "ar": "الحمل الفيروسي غير قابل للكشف.",
+      "en": "The viral load is undetectable."
+    }
+  },
+  {
+    "fr": "Détectable",
+    "ar": "قابل للكشف",
+    "en": "Detectable",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le virus est encore détectable.",
+      "ar": "الفيروس ما زال قابلًا للكشف.",
+      "en": "The virus is still detectable."
+    }
+  },
+  {
+    "fr": "Antigène HBs",
+    "ar": "مستضد التهاب الكبد B",
+    "en": "HBs antigen",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "L'antigène HBs reste positif.",
+      "ar": "مستضد HBs ما زال إيجابيًا.",
+      "en": "HBs antigen remains positive."
+    }
+  },
+  {
+    "fr": "Anticorps",
+    "ar": "أجسام مضادة",
+    "en": "Antibodies",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le laboratoire recherche des anticorps.",
+      "ar": "المختبر يبحث عن الأجسام المضادة.",
+      "en": "The laboratory looks for antibodies."
+    }
+  },
+  {
+    "fr": "Sérologie",
+    "ar": "تحليل الأجسام المضادة",
+    "en": "Serology",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai fait une sérologie complète.",
+      "ar": "أجريت تحليل أجسام مضادة كامل.",
+      "en": "I had a complete serology test."
+    }
+  },
+  {
+    "fr": "Fonction du foie",
+    "ar": "وظيفة الكبد",
+    "en": "Liver function",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin vérifie la fonction du foie.",
+      "ar": "الطبيب يفحص وظيفة الكبد.",
+      "en": "The doctor checks liver function."
+    }
+  },
+  {
+    "fr": "Bilan hépatique",
+    "ar": "تحاليل الكبد",
+    "en": "Liver panel",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je dois faire un bilan hépatique.",
+      "ar": "يجب أن أجري تحاليل الكبد.",
+      "en": "I have to do a liver panel."
+    }
+  },
+  {
+    "fr": "Transaminases",
+    "ar": "إنزيمات الكبد",
+    "en": "Transaminases",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Mes transaminases sont normales.",
+      "ar": "إنزيمات الكبد لدي طبيعية.",
+      "en": "My transaminases are normal."
+    }
+  },
+  {
+    "fr": "ALAT (Alanine aminotransférase)",
+    "ar": "إنزيم كبدي ALT",
+    "en": "ALT enzyme",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin regarde le taux d'ALAT.",
+      "ar": "الطبيب ينظر إلى نسبة ALT.",
+      "en": "The doctor checks the ALT level."
+    }
+  },
+  {
+    "fr": "ASAT (Aspartate aminotransférase)",
+    "ar": "إنزيم كبدي AST",
+    "en": "AST enzyme",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le taux d'ASAT est surveillé.",
+      "ar": "تتم مراقبة نسبة AST.",
+      "en": "The AST level is monitored."
+    }
+  },
+  {
+    "fr": "Échographie du foie",
+    "ar": "تصوير الكبد بالأمواج فوق الصوتية",
+    "en": "Liver ultrasound",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je dois faire une échographie du foie.",
+      "ar": "يجب أن أجري تصويرًا للكبد.",
+      "en": "I have to have a liver ultrasound."
+    }
+  },
+  {
+    "fr": "Fibrose",
+    "ar": "تليف",
+    "en": "Fibrosis",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin évalue le degré de fibrose.",
+      "ar": "الطبيب يقيم درجة التليف.",
+      "en": "The doctor assesses the degree of fibrosis."
+    }
+  },
+  {
+    "fr": "Cirrhose",
+    "ar": "تشمع الكبد",
+    "en": "Cirrhosis",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin vérifie l'absence de cirrhose.",
+      "ar": "الطبيب يتحقق من عدم وجود تشمع.",
+      "en": "The doctor checks for absence of cirrhosis."
+    }
+  },
+  {
+    "fr": "Renouveler mon traitement",
+    "ar": "تجديد علاجي",
+    "en": "Renew my treatment",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Je voudrais renouveler mon traitement.",
+      "ar": "أريد تجديد علاجي.",
+      "en": "I would like to renew my treatment."
+    }
+  },
+  {
+    "fr": "Continuer le traitement",
+    "ar": "متابعة العلاج",
+    "en": "Continue the treatment",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Est-ce que je dois continuer le traitement ?",
+      "ar": "هل يجب أن أستمر في العلاج؟",
+      "en": "Do I need to continue the treatment?"
+    }
+  },
+  {
+    "fr": "Arrêter le traitement",
+    "ar": "إيقاف العلاج",
+    "en": "Stop the treatment",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Est-ce possible d'arrêter le traitement ?",
+      "ar": "هل يمكن إيقاف العلاج؟",
+      "en": "Is it possible to stop the treatment?"
+    }
+  },
+  {
+    "fr": "Modifier le traitement",
+    "ar": "تغيير العلاج",
+    "en": "Change the treatment",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin a décidé de modifier le traitement.",
+      "ar": "قرر الطبيب تغيير العلاج.",
+      "en": "The doctor decided to change the treatment."
+    }
+  },
+  {
+    "fr": "Efficacité du traitement",
+    "ar": "فعالية العلاج",
+    "en": "Treatment effectiveness",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Le traitement est-il efficace ?",
+      "ar": "هل العلاج فعال؟",
+      "en": "Is the treatment effective?"
+    }
+  },
+  {
+    "fr": "Tolérer le traitement",
+    "ar": "تحمل العلاج",
+    "en": "Tolerate the treatment",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Je tolère bien le traitement.",
+      "ar": "أتحمل العلاج بشكل جيد.",
+      "en": "I tolerate the treatment well."
+    }
+  },
+  {
+    "fr": "Effets indésirables",
+    "ar": "آثار غير مرغوبة",
+    "en": "Adverse effects",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Je n'ai pas d'effets indésirables.",
+      "ar": "ليس لدي آثار جانبية.",
+      "en": "I have no adverse effects."
+    }
+  },
+  {
+    "fr": "Impact sur la vie quotidienne",
+    "ar": "تأثير على الحياة اليومية",
+    "en": "Impact on daily life",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Cette maladie a un impact sur ma vie quotidienne.",
+      "ar": "هذا المرض يؤثر على حياتي اليومية.",
+      "en": "This disease affects my daily life."
+    }
+  },
+  {
+    "fr": "Virus actif",
+    "ar": "فيروس نشط",
+    "en": "Active virus",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Est-ce que le virus est actif ?",
+      "ar": "هل الفيروس نشط؟",
+      "en": "Is the virus active?"
+    }
+  },
+  {
+    "fr": "Virus inactif",
+    "ar": "فيروس غير نشط",
+    "en": "Inactive virus",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le virus est-il inactif ?",
+      "ar": "هل الفيروس غير نشط؟",
+      "en": "Is the virus inactive?"
+    }
+  },
+  {
+    "fr": "Risque de transmission",
+    "ar": "خطر الانتقال",
+    "en": "Risk of transmission",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Quel est le risque de transmission ?",
+      "ar": "ما خطر انتقال العدوى؟",
+      "en": "What is the risk of transmission?"
+    }
+  },
+  {
+    "fr": "Contagieux / Contagieuse",
+    "ar": "معدٍ",
+    "en": "Contagious",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Est-ce que cette maladie est contagieuse ?",
+      "ar": "هل هذا المرض معدٍ؟",
+      "en": "Is this disease contagious?"
+    }
+  },
+  {
+    "fr": "Précaution",
+    "ar": "احتياط",
+    "en": "Precaution",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Quelles sont les précautions à prendre ?",
+      "ar": "ما هي الاحتياطات التي يجب اتخاذها؟",
+      "en": "What precautions should be taken?"
+    }
+  },
+  {
+    "fr": "Vaccination",
+    "ar": "تلقيح / تطعيم",
+    "en": "Vaccination",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "La vaccination protège contre l'hépatite B.",
+      "ar": "التطعيم يحمي من التهاب الكبد B.",
+      "en": "Vaccination protects against hepatitis B."
+    }
+  },
+  {
+    "fr": "Dépistage",
+    "ar": "فحص الكشف",
+    "en": "Screening",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Un dépistage est nécessaire pour les proches.",
+      "ar": "الفحص ضروري للأشخاص المقربين.",
+      "en": "Screening is necessary for relatives."
+    }
+  },
+  {
+    "fr": "Suivi régulier",
+    "ar": "متابعة منتظمة",
+    "en": "Regular follow-up",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai un suivi régulier avec l'hépatologue.",
+      "ar": "لدي متابعة منتظمة مع طبيب الكبد.",
+      "en": "I have regular follow-up with the hepatologist."
+    }
+  },
+  {
+    "fr": "Prochain rendez-vous",
+    "ar": "الموعد القادم",
+    "en": "Next appointment",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Quand est mon prochain rendez-vous ?",
+      "ar": "متى موعدي القادم؟",
+      "en": "When is my next appointment?"
+    }
+  },
+  {
+    "fr": "État de santé",
+    "ar": "الحالة الصحية",
+    "en": "Health condition",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Mon état de santé m'empêche de faire certaines activités.",
+      "ar": "حالتي الصحية تمنعني من القيام ببعض الأنشطة.",
+      "en": "My health condition prevents me from doing some activities."
+    }
+  },
+  {
+    "fr": "Décrire mes difficultés",
+    "ar": "وصف صعوباتي",
+    "en": "Describe my difficulties",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je voudrais décrire mes difficultés au médecin.",
+      "ar": "أريد شرح صعوباتي للطبيب.",
+      "en": "I would like to describe my difficulties to the doctor."
+    }
+  },
+  {
+    "fr": "Difficulté à travailler",
+    "ar": "صعوبة في العمل",
+    "en": "Difficulty working",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "work",
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai des difficultés à travailler à cause de ma fatigue.",
+      "ar": "لدي صعوبات في العمل بسبب التعب.",
+      "en": "I have difficulties working because of fatigue."
+    }
+  },
+  {
+    "fr": "Limitation fonctionnelle",
+    "ar": "محدودية وظيفية",
+    "en": "Functional limitation",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai des limitations fonctionnelles au quotidien.",
+      "ar": "لدي محدوديات وظيفية في الحياة اليومية.",
+      "en": "I have functional limitations in daily life."
+    }
+  },
+  {
+    "fr": "Se reposer souvent",
+    "ar": "الراحة كثيرًا",
+    "en": "Rest often",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je dois me reposer souvent dans la journée.",
+      "ar": "يجب أن أرتاح كثيرًا خلال اليوم.",
+      "en": "I need to rest often during the day."
+    }
+  },
+  {
+    "fr": "Manque d'énergie",
+    "ar": "نقص الطاقة",
+    "en": "Lack of energy",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je ressens un manque d'énergie important.",
+      "ar": "أشعر بنقص كبير في الطاقة.",
+      "en": "I feel a significant lack of energy."
+    }
+  },
+  {
+    "fr": "Fatigue invalidante",
+    "ar": "تعب مُعيق",
+    "en": "Disabling fatigue",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Cette fatigue est invalidante au quotidien.",
+      "ar": "هذا التعب يعيق حياتي اليومية.",
+      "en": "This fatigue is disabling in daily life."
+    }
+  },
+  {
+    "fr": "Rapport médical",
+    "ar": "تقرير طبي",
+    "en": "Medical report",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin prépare un rapport médical.",
+      "ar": "الطبيب يحضر تقريرًا طبيًا.",
+      "en": "The doctor prepares a medical report."
+    }
+  },
+  {
+    "fr": "Reconnaissance de la qualité de travailleur handicapé (RQTH)",
+    "ar": "الاعتراف بصفة عامل معاق",
+    "en": "Recognition of disabled worker status",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work",
+      "health"
+    ],
+    "ex": {
+      "fr": "Je souhaite demander une RQTH.",
+      "ar": "أريد طلب RQTH.",
+      "en": "I would like to apply for RQTH."
+    }
+  },
+  {
+    "fr": "Médecine du travail",
+    "ar": "طب العمل",
+    "en": "Occupational health",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work",
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai rendez-vous avec la médecine du travail.",
+      "ar": "لدي موعد مع طب العمل.",
+      "en": "I have an appointment with occupational health."
+    }
+  },
+  {
+    "fr": "Médecin du travail",
+    "ar": "طبيب العمل",
+    "en": "Occupational doctor",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work",
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin du travail peut proposer des adaptations.",
+      "ar": "طبيب العمل يمكنه اقتراح تكييفات.",
+      "en": "The occupational doctor can suggest adjustments."
+    }
+  },
+  {
+    "fr": "Visite médicale",
+    "ar": "زيارة طبية",
+    "en": "Medical visit",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work",
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai une visite médicale obligatoire.",
+      "ar": "لدي زيارة طبية إجبارية.",
+      "en": "I have a mandatory medical visit."
+    }
+  },
+  {
+    "fr": "Aptitude au travail",
+    "ar": "القدرة على العمل",
+    "en": "Fitness for work",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work",
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin évalue mon aptitude au travail.",
+      "ar": "الطبيب يقيّم قدرتي على العمل.",
+      "en": "The doctor evaluates my fitness for work."
+    }
+  },
+  {
+    "fr": "Inaptitude",
+    "ar": "عدم القدرة على العمل",
+    "en": "Inability to work",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work",
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin peut déclarer une inaptitude.",
+      "ar": "يمكن للطبيب إعلان عدم القدرة على العمل.",
+      "en": "The doctor can declare inability to work."
+    }
+  },
+  {
+    "fr": "Restriction médicale",
+    "ar": "تقييد طبي",
+    "en": "Medical restriction",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work",
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai des restrictions médicales pour certains travaux.",
+      "ar": "لدي قيود طبية لبعض الأعمال.",
+      "en": "I have medical restrictions for certain tasks."
+    }
+  },
+  {
+    "fr": "Recommandation médicale",
+    "ar": "توصية طبية",
+    "en": "Medical recommendation",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work",
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin a fait une recommandation médicale.",
+      "ar": "قدم الطبيب توصية طبية.",
+      "en": "The doctor made a medical recommendation."
+    }
+  },
+  {
+    "fr": "Aménager les horaires",
+    "ar": "تهيئة ساعات العمل",
+    "en": "Adjust working hours",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je voudrais aménager mes horaires de travail.",
+      "ar": "أريد تهيئة ساعات عملي.",
+      "en": "I would like to adjust my working hours."
+    }
+  },
+  {
+    "fr": "Réduire le temps de travail",
+    "ar": "تقليل وقت العمل",
+    "en": "Reduce working time",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Est-il possible de réduire mon temps de travail ?",
+      "ar": "هل يمكن تقليل وقت عملي؟",
+      "en": "Is it possible to reduce my working time?"
+    }
+  },
+  {
+    "fr": "Mi-temps thérapeutique",
+    "ar": "دوام جزئي علاجي",
+    "en": "Therapeutic part-time work",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work",
+      "health"
+    ],
+    "ex": {
+      "fr": "Mon médecin propose un mi-temps thérapeutique.",
+      "ar": "طبيبي يقترح دوامًا جزئيًا علاجيًا.",
+      "en": "My doctor suggests therapeutic part-time work."
+    }
+  },
+  {
+    "fr": "Changer de poste",
+    "ar": "تغيير المنصب",
+    "en": "Change position",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je voudrais changer de poste pour des raisons de santé.",
+      "ar": "أريد تغيير منصبي لأسباب صحية.",
+      "en": "I would like to change position for health reasons."
+    }
+  },
+  {
+    "fr": "Adapter les tâches",
+    "ar": "تكييف المهام",
+    "en": "Adapt tasks",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Il faut adapter mes tâches à ma situation.",
+      "ar": "يجب تكييف مهامي مع وضعي.",
+      "en": "My tasks need to be adapted to my situation."
+    }
+  },
+  {
+    "fr": "Éviter les efforts physiques",
+    "ar": "تجنب الجهد البدني",
+    "en": "Avoid physical effort",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je dois éviter les efforts physiques importants.",
+      "ar": "يجب أن أتجنب الجهود البدنية الكبيرة.",
+      "en": "I must avoid heavy physical effort."
+    }
+  },
+  {
+    "fr": "Porter des charges lourdes",
+    "ar": "حمل أوزان ثقيلة",
+    "en": "Carry heavy loads",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je ne peux pas porter des charges lourdes.",
+      "ar": "لا أستطيع حمل أوزان ثقيلة.",
+      "en": "I cannot carry heavy loads."
+    }
+  },
+  {
+    "fr": "Signaler un problème",
+    "ar": "الإبلاغ عن مشكلة",
+    "en": "Report a problem",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je voudrais signaler un problème lié à mon poste.",
+      "ar": "أريد الإبلاغ عن مشكلة مرتبطة بمنصبي.",
+      "en": "I would like to report a problem related to my position."
+    }
+  },
+  {
+    "fr": "Demander un aménagement",
+    "ar": "طلب تكييف",
+    "en": "Request an adjustment",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je souhaite demander un aménagement de travail.",
+      "ar": "أريد طلب تكييف في العمل.",
+      "en": "I would like to request a work adjustment."
     }
   }
 ];
