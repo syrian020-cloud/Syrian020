@@ -11412,13 +11412,11 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": [
-      {
-        "fr": "Le quartier est calme.",
-        "ar": "الحي هادئ.",
-        "en": "The neighborhood is quiet."
-      }
-    ]
+    "ex": {
+      "fr": "Le quartier est calme.",
+      "ar": "الحي هادئ.",
+      "en": "The neighborhood is quiet."
+    }
   },
   {
     "fr": "Calmer",
@@ -11525,13 +11523,11 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": [
-      {
-        "fr": "J'ai cassé mon téléphone.",
-        "ar": "كسرت هاتفي.",
-        "en": "I broke my phone."
-      }
-    ]
+    "ex": {
+      "fr": "J'ai cassé mon téléphone.",
+      "ar": "كسرت هاتفي.",
+      "en": "I broke my phone."
+    }
   },
   {
     "fr": "Cause",
@@ -11648,13 +11644,11 @@ window.VOCAB_DATA = [
       "daily",
       "work"
     ],
-    "ex": [
-      {
-        "fr": "Je veux changer de travail.",
-        "ar": "أريد تغيير العمل.",
-        "en": "I want to change jobs."
-      }
-    ]
+    "ex": {
+      "fr": "Je veux changer de travail.",
+      "ar": "أريد تغيير العمل.",
+      "en": "I want to change jobs."
+    }
   },
   {
     "fr": "Chanson",
@@ -11680,13 +11674,11 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": [
-      {
-        "fr": "Elle aime chanter.",
-        "ar": "هي تحب الغناء.",
-        "en": "She likes singing."
-      }
-    ]
+    "ex": {
+      "fr": "Elle aime chanter.",
+      "ar": "هي تحب الغناء.",
+      "en": "She likes singing."
+    }
   },
   {
     "fr": "Chaud / Chaude",
@@ -11697,13 +11689,11 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": [
-      {
-        "fr": "Le café est chaud.",
-        "ar": "القهوة ساخنة.",
-        "en": "The coffee is hot."
-      }
-    ]
+    "ex": {
+      "fr": "Le café est chaud.",
+      "ar": "القهوة ساخنة.",
+      "en": "The coffee is hot."
+    }
   },
   {
     "fr": "Cher / Chère",
@@ -14388,11 +14378,6 @@ window.VOCAB_DATA = [
         "fr": "La connexion Internet est rapide.",
         "ar": "اتصال الإنترنت سريع.",
         "en": "The Internet connection is fast."
-      },
-      {
-        "fr": "La connexion internet est lente.",
-        "ar": "اتصال الإنترنت بطيء.",
-        "en": "The internet connection is slow."
       },
       {
         "fr": "J'ai un problème de connexion.",
@@ -21126,8 +21111,8 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "RSA (Revenu de solidarité active)",
-    "ar": "دخل التضامن النشط",
+    "fr": "Le RSA (Revenu de Solidarité Active)",
+    "ar": "دخل التضامن النشط / دخل التضامن النشيط",
     "en": "Active Solidarity Income (welfare benefit)",
     "pos": "noun",
     "level": "A1",
@@ -21146,6 +21131,11 @@ window.VOCAB_DATA = [
         "fr": "Il touche le RSA depuis qu'il a perdu son emploi.",
         "ar": "عم ياخد الـ RSA من وقت ما خسر شغله.",
         "en": "He's been receiving the RSA since he lost his job."
+      },
+      {
+        "fr": "Je suis éligible au RSA.",
+        "ar": "بيطلعلي الـ RSA.",
+        "en": "I'm eligible for RSA."
       }
     ]
   },
@@ -21261,7 +21251,7 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Quotient familial",
+    "fr": "Le quotient familial",
     "ar": "المعامل العائلي",
     "en": "Family quotient (income-based coefficient)",
     "pos": "noun",
@@ -21279,6 +21269,11 @@ window.VOCAB_DATA = [
         "fr": "Mon quotient familial détermine le montant de l'aide.",
         "ar": "المعامل العائلي تبعي بيحدد قيمة المساعدة.",
         "en": "My family quotient determines the amount of assistance."
+      },
+      {
+        "fr": "Mon quotient familial est de 800 euros.",
+        "ar": "معاملي العائلي 800 يورو.",
+        "en": "My family quotient is 800 euros."
       }
     ]
   },
@@ -21406,8 +21401,8 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Compte CAF",
-    "ar": "حساب CAF",
+    "fr": "Le compte CAF (Mon compte)",
+    "ar": "حساب CAF / حساب الـ CAF",
     "en": "CAF account",
     "pos": "noun",
     "level": "A1",
@@ -21415,11 +21410,18 @@ window.VOCAB_DATA = [
       "caf",
       "services"
     ],
-    "ex": {
-      "fr": "Je consulte mon compte CAF en ligne.",
-      "ar": "أراجع حسابي في CAF عبر الإنترنت.",
-      "en": "I check my CAF account online."
-    }
+    "ex": [
+      {
+        "fr": "Je consulte mon compte CAF en ligne.",
+        "ar": "أراجع حسابي في CAF عبر الإنترنت.",
+        "en": "I check my CAF account online."
+      },
+      {
+        "fr": "Je me connecte à mon compte CAF.",
+        "ar": "بدوز عحسابي بالـ CAF.",
+        "en": "I log in to my CAF account."
+      }
+    ]
   },
   {
     "fr": "Identifiant",
@@ -21638,8 +21640,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Le justificatif",
-    "ar": "وثيقة إثبات / إثبات / مستند داعم",
-    "en": "Supporting document",
+    "ar": "وثيقة إثبات / إثبات / مستند داعم / مستند / ورقة إثبات",
+    "en": "proof / supporting document",
     "pos": "noun",
     "level": "B1",
     "contexts": [
@@ -21656,6 +21658,11 @@ window.VOCAB_DATA = [
         "fr": "La CAF demande un justificatif.",
         "ar": "الـ CAF طالبة إثبات.",
         "en": "CAF is asking for a supporting document."
+      },
+      {
+        "fr": "Il faut fournir des justificatifs de revenus.",
+        "ar": "لازم نقدم مستندات للدخل.",
+        "en": "You have to provide proof of income."
       }
     ]
   },
@@ -22081,19 +22088,27 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Locataire",
-    "ar": "مستأجر",
+    "fr": "Le locataire",
+    "ar": "المستأجر",
     "en": "Tenant",
     "pos": "noun",
     "level": "A2",
     "contexts": [
+      "caf",
       "housing"
     ],
-    "ex": {
-      "fr": "Je suis locataire de cet appartement.",
-      "ar": "أنا مستأجر هذه الشقة.",
-      "en": "I am the tenant of this apartment."
-    }
+    "ex": [
+      {
+        "fr": "Je suis locataire de cet appartement.",
+        "ar": "أنا مستأجر هذه الشقة.",
+        "en": "I am the tenant of this apartment."
+      },
+      {
+        "fr": "Je suis locataire de cet appartement.",
+        "ar": "أنا مستأجر هالشقة.",
+        "en": "I am the tenant of this flat."
+      }
+    ]
   },
   {
     "fr": "Propriétaire",
@@ -22111,49 +22126,73 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Loyer",
-    "ar": "إيجار",
+    "fr": "Le loyer",
+    "ar": "الإيجار / الكراء",
     "en": "Rent",
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "housing"
     ],
-    "ex": {
-      "fr": "Je paie mon loyer chaque mois.",
-      "ar": "أدفع الإيجار كل شهر.",
-      "en": "I pay my rent every month."
-    }
+    "ex": [
+      {
+        "fr": "Je paie mon loyer chaque mois.",
+        "ar": "أدفع الإيجار كل شهر.",
+        "en": "I pay my rent every month."
+      },
+      {
+        "fr": "Le loyer est de 600 euros par mois.",
+        "ar": "الإيجار 600 يورو بالشهر.",
+        "en": "The rent is 600 euros per month."
+      }
+    ]
   },
   {
-    "fr": "Quittance de loyer",
-    "ar": "وصل الإيجار",
+    "fr": "La quittance de loyer",
+    "ar": "وصل الإيجار / إيصال الإيجار",
     "en": "Rent receipt",
     "pos": "noun",
     "level": "B1",
     "contexts": [
+      "caf",
       "housing"
     ],
-    "ex": {
-      "fr": "J'ai besoin d'une quittance de loyer.",
-      "ar": "أحتاج إلى وصل الإيجار.",
-      "en": "I need a rent receipt."
-    }
+    "ex": [
+      {
+        "fr": "J'ai besoin d'une quittance de loyer.",
+        "ar": "أحتاج إلى وصل الإيجار.",
+        "en": "I need a rent receipt."
+      },
+      {
+        "fr": "La CAF demande la quittance de loyer.",
+        "ar": "الـ CAF طالب إيصال الإيجار.",
+        "en": "The CAF is asking for the rent receipt."
+      }
+    ]
   },
   {
-    "fr": "Charges",
-    "ar": "مصاريف إضافية / أعباء",
-    "en": "Charges / Service fees",
+    "fr": "Les charges (locatives)",
+    "ar": "مصاريف إضافية / أعباء / المصاريف المشتركة / التكاليف",
+    "en": "Charges / Service fees / service charges / utility bills",
     "pos": "noun",
     "level": "B1",
     "contexts": [
+      "caf",
       "housing"
     ],
-    "ex": {
-      "fr": "Les charges sont comprises dans le loyer.",
-      "ar": "المصاريف مشمولة في الإيجار.",
-      "en": "Charges are included in the rent."
-    }
+    "ex": [
+      {
+        "fr": "Les charges sont comprises dans le loyer.",
+        "ar": "المصاريف مشمولة في الإيجار.",
+        "en": "Charges are included in the rent."
+      },
+      {
+        "fr": "Les charges sont comprises dans le loyer.",
+        "ar": "المصاريف داخلة مع الإيجار.",
+        "en": "The charges are included in the rent."
+      }
+    ]
   },
   {
     "fr": "État des lieux",
@@ -23150,8 +23189,8 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Versement",
-    "ar": "صرف / تحويل مبلغ",
+    "fr": "Le versement",
+    "ar": "صرف / تحويل مبلغ / الدفعة / التحويل",
     "en": "Payment / Transfer",
     "pos": "noun",
     "level": "A1",
@@ -23160,11 +23199,18 @@ window.VOCAB_DATA = [
       "caf",
       "services"
     ],
-    "ex": {
-      "fr": "Le versement sera effectué bientôt.",
-      "ar": "سيتم صرف المبلغ قريبًا.",
-      "en": "The payment will be made soon."
-    }
+    "ex": [
+      {
+        "fr": "Le versement sera effectué bientôt.",
+        "ar": "سيتم صرف المبلغ قريبًا.",
+        "en": "The payment will be made soon."
+      },
+      {
+        "fr": "Le versement tombe le 5 du mois.",
+        "ar": "الدفعة بتنزّل بتاريخ 5 كل شهر.",
+        "en": "The payment goes through on the 5th of each month."
+      }
+    ]
   },
   {
     "fr": "Montant mensuel",
@@ -27717,19 +27763,26 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "Trop-perçu",
+    "fr": "Un trop-perçu",
     "pos": "noun",
     "level": "A1",
     "contexts": [
       "caf"
     ],
-    "ar": "مبلغ زايد تم استلامه بالخطأ (يجب إرجاعه)",
+    "ar": "مبلغ زايد تم استلامه بالخطأ (يجب إرجاعه) / مبلغ مأخوذ زيادة",
     "en": "Overpayment",
-    "ex": {
-      "fr": "La CAF m'a signalé un trop-perçu à rembourser.",
-      "ar": "الـ CAF أعلمتني إنو في مبلغ زايد لازم أرجعه.",
-      "en": "The CAF notified me of an overpayment I need to repay."
-    }
+    "ex": [
+      {
+        "fr": "La CAF m'a signalé un trop-perçu à rembourser.",
+        "ar": "الـ CAF أعلمتني إنو في مبلغ زايد لازم أرجعه.",
+        "en": "The CAF notified me of an overpayment I need to repay."
+      },
+      {
+        "fr": "J'ai un trop-perçu à rembourser.",
+        "ar": "عندي مبلغ مأخوذ زيادة لازم أرجّعو.",
+        "en": "I have an overpayment to repay."
+      }
+    ]
   },
   {
     "fr": "Titulaire du compte",
@@ -28450,5 +28503,1105 @@ window.VOCAB_DATA = [
       "ar": "لا تنسى تحدّث معلوماتك.",
       "en": "Remember to update your information."
     }
+  },
+  {
+    "fr": "Le courrier / l'avis",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "الخطاب / الإشعار",
+    "en": "letter / notice",
+    "ex": {
+      "fr": "J'ai reçu un courrier de la CAF.",
+      "ar": "وصلني خطاب من الـ CAF.",
+      "en": "I received a letter from the CAF."
+    }
+  },
+  {
+    "fr": "L'aide au logement (APL / ALS)",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "مساعدة السكن",
+    "en": "housing assistance",
+    "ex": {
+      "fr": "Je touche l'APL pour mon appartement.",
+      "ar": "آخد مساعدة السكن عالشقة.",
+      "en": "I get housing assistance for my flat."
+    }
+  },
+  {
+    "fr": "Une régularisation",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "تسوية / تصحيح",
+    "en": "adjustment / correction",
+    "ex": {
+      "fr": "La CAF va faire une régularisation.",
+      "ar": "الـ CAF رح يسوّي تصحيح.",
+      "en": "The CAF will make an adjustment."
+    }
+  },
+  {
+    "fr": "Faire une simulation",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "عمل محاكاة / حساب تقريبي",
+    "en": "do a simulation / estimate",
+    "ex": {
+      "fr": "Fais une simulation sur le site.",
+      "ar": "اعمل محاكاة عالموقع.",
+      "en": "Do a simulation on the website."
+    }
+  },
+  {
+    "fr": "L'unité d'habitation / Le logement",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "الوحدة السكنية / المسكن",
+    "en": "dwelling unit / housing",
+    "ex": {
+      "fr": "L'unité d'habitation doit respecter des critères de décence.",
+      "ar": "الوحدة السكنية لازم تكون مستوفية شروط الكرامة.",
+      "en": "The dwelling unit must meet decency criteria."
+    }
+  },
+  {
+    "fr": "La surface habitable",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "المساحة الصالحة للسكن",
+    "en": "living area",
+    "ex": {
+      "fr": "La surface habitable est de 45 m².",
+      "ar": "المساحة الصالحة للسكن 45 متر مربع.",
+      "en": "The living area is 45 m²."
+    }
+  },
+  {
+    "fr": "Le bail / Le contrat de location",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "عقد الإيجار",
+    "en": "lease / rental contract",
+    "ex": {
+      "fr": "Il faut envoyer le bail à la CAF.",
+      "ar": "لازم نبعث عقد الإيجار للـ CAF.",
+      "en": "You have to send the lease to the CAF."
+    }
+  },
+  {
+    "fr": "Le propriétaire / Le bailleur",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "المالك / المؤجر",
+    "en": "landlord / owner",
+    "ex": {
+      "fr": "Le propriétaire a signé le bail.",
+      "ar": "المالك وقّع عقد الإيجار.",
+      "en": "The landlord signed the lease."
+    }
+  },
+  {
+    "fr": "Le DPE (Diagnostic de Performance Énergétique)",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "تشخيص الأداء الطاقي",
+    "en": "energy performance certificate",
+    "ex": {
+      "fr": "Le DPE doit être fourni pour l'APL.",
+      "ar": "لازم نقدم تشخيص الأداء الطاقي عشان الـ APL.",
+      "en": "The energy performance certificate must be provided for APL."
+    }
+  },
+  {
+    "fr": "La décence du logement",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "كرامة / صلاحية المسكن للسكن",
+    "en": "decency of housing",
+    "ex": {
+      "fr": "Le logement doit être décent.",
+      "ar": "المسكن لازم يكون كريم / صالح للسكن.",
+      "en": "The housing must be decent."
+    }
+  },
+  {
+    "fr": "Changer de logement",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "تغيير السكن / نقل السكن",
+    "en": "change housing",
+    "ex": {
+      "fr": "J'ai changé de logement, je dois prévenir la CAF.",
+      "ar": "غيرت السكن، لازم أخبر الـ CAF.",
+      "en": "I changed housing, I have to notify the CAF."
+    }
+  },
+  {
+    "fr": "Bonjour, j'ai rendez-vous avec un conseiller.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "مرحبًا، عندي موعد مع مستشار.",
+    "en": "Hello, I have an appointment with an advisor.",
+    "ex": null
+  },
+  {
+    "fr": "Je viens pour mon dossier CAF.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "جاي بخصوص ملف الـ CAF.",
+    "en": "I'm here about my CAF application.",
+    "ex": null
+  },
+  {
+    "fr": "Je voudrais des renseignements.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بدي استفسر عن شغلة.",
+    "en": "I'd like some information.",
+    "ex": null
+  },
+  {
+    "fr": "Pouvez-vous m'aider, s'il vous plaît ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ممكن تساعدني لو سمحت؟",
+    "en": "Could you help me, please?",
+    "ex": null
+  },
+  {
+    "fr": "Où en est mon dossier ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "لوين وصل ملفي؟",
+    "en": "What's the status of my application?",
+    "ex": null
+  },
+  {
+    "fr": "Mon dossier est-il traité ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "تمت معالجة ملفي؟",
+    "en": "Has my application been processed?",
+    "ex": null
+  },
+  {
+    "fr": "Pourquoi mon dossier est-il bloqué ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ليش ملفي موقف؟",
+    "en": "Why is my application blocked?",
+    "ex": null
+  },
+  {
+    "fr": "Combien de temps faut-il attendre ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "قديش لازم ناطر؟",
+    "en": "How long do I have to wait?",
+    "ex": null
+  },
+  {
+    "fr": "Quels documents manquent ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "شو الأوراق الناقصة؟",
+    "en": "Which documents are missing?",
+    "ex": null
+  },
+  {
+    "fr": "Je peux les apporter aujourd'hui.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "فيني جيبهم اليوم.",
+    "en": "I can bring them today.",
+    "ex": null
+  },
+  {
+    "fr": "J'ai déjà envoyé tous les documents.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "أنا بعثت كل الأوراق.",
+    "en": "I already sent all the documents.",
+    "ex": null
+  },
+  {
+    "fr": "Pouvez-vous vérifier, s'il vous plaît ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ممكن تتأكد لو سمحت؟",
+    "en": "Could you check, please?",
+    "ex": null
+  },
+  {
+    "fr": "Je n'ai pas reçu mon paiement.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ما نزلتلي الدفعة.",
+    "en": "I haven't received my payment.",
+    "ex": null
+  },
+  {
+    "fr": "Pourquoi le paiement est-il en retard ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ليش الدفعة متأخرة؟",
+    "en": "Why is the payment delayed?",
+    "ex": null
+  },
+  {
+    "fr": "Quand vais-je recevoir l'argent ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "إمتى رح ينزل المبلغ؟",
+    "en": "When will I receive the money?",
+    "ex": null
+  },
+  {
+    "fr": "Je voudrais changer mon adresse.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بدي غيّر عنواني.",
+    "en": "I'd like to change my address.",
+    "ex": null
+  },
+  {
+    "fr": "J'ai changé de travail.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "غيّرت شغلي.",
+    "en": "I changed my job.",
+    "ex": null
+  },
+  {
+    "fr": "Ma situation familiale a changé.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "وضعي العائلي تغيّر.",
+    "en": "My family situation has changed.",
+    "ex": null
+  },
+  {
+    "fr": "Je voudrais faire une demande d'APL.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بدي قدّم على مساعدة السكن.",
+    "en": "I'd like to apply for housing assistance.",
+    "ex": null
+  },
+  {
+    "fr": "Suis-je éligible à l'APL ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بيطلعلي دعم السكن؟",
+    "en": "Am I eligible for housing assistance?",
+    "ex": null
+  },
+  {
+    "fr": "Quel sera le montant de mon APL ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "قديش رح تكون قيمة دعم السكن؟",
+    "en": "How much will my housing benefit be?",
+    "ex": null
+  },
+  {
+    "fr": "Je voudrais demander la prime d'activité.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بدي قدّم على علاوة النشاط.",
+    "en": "I'd like to apply for the activity bonus.",
+    "ex": null
+  },
+  {
+    "fr": "Est-ce que j'y ai droit ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بيطلعلي هالدعم؟",
+    "en": "Am I entitled to it?",
+    "ex": null
+  },
+  {
+    "fr": "Merci pour votre aide.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "شكراً على مساعدتك.",
+    "en": "Thank you for your help.",
+    "ex": null
+  },
+  {
+    "fr": "Bonne journée.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "نهارك سعيد.",
+    "en": "Have a nice day.",
+    "ex": null
+  },
+  {
+    "fr": "Au revoir.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "مع السلامة.",
+    "en": "Goodbye.",
+    "ex": null
+  },
+  {
+    "fr": "Je voudrais prendre un rendez-vous.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بدي احجز موعد.",
+    "en": "I'd like to make an appointment.",
+    "ex": null
+  },
+  {
+    "fr": "Avez-vous un rendez-vous disponible cette semaine ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "عندكم موعد فاضي هالأسبوع؟",
+    "en": "Do you have an available appointment this week?",
+    "ex": null
+  },
+  {
+    "fr": "Je peux venir sans rendez-vous ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "فيني إجي بدون موعد؟",
+    "en": "Can I come without an appointment?",
+    "ex": null
+  },
+  {
+    "fr": "À quelle heure est mon rendez-vous ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "الساعة كم موعدي؟",
+    "en": "What time is my appointment?",
+    "ex": null
+  },
+  {
+    "fr": "Je n'arrive plus à me connecter.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ما عاد عم بقدر فوت على حسابي.",
+    "en": "I can't log in anymore.",
+    "ex": null
+  },
+  {
+    "fr": "J'ai oublié mon mot de passe.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "نسيت كلمة السر.",
+    "en": "I forgot my password.",
+    "ex": null
+  },
+  {
+    "fr": "Mon compte est bloqué.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "حسابي محظور.",
+    "en": "My account is blocked.",
+    "ex": null
+  },
+  {
+    "fr": "Pouvez-vous réinitialiser mon compte ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ممكن تعيدوا تفعيل حسابي؟",
+    "en": "Can you reset my account?",
+    "ex": null
+  },
+  {
+    "fr": "Pourquoi je n'ai rien reçu ce mois-ci ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ليش ما نزللي شي هالشهر؟",
+    "en": "Why didn't I receive anything this month?",
+    "ex": null
+  },
+  {
+    "fr": "Le paiement a été refusé ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "انرفضت الدفعة؟",
+    "en": "Was the payment rejected?",
+    "ex": null
+  },
+  {
+    "fr": "L'argent a été versé sur quel compte ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "على أي حساب نزلت الدفعة؟",
+    "en": "Which bank account was the payment sent to?",
+    "ex": null
+  },
+  {
+    "fr": "Je voudrais changer mon RIB.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بدي غيّر الحساب البنكي (RIB).",
+    "en": "I'd like to change my bank account details.",
+    "ex": null
+  },
+  {
+    "fr": "Voici mon nouveau RIB.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "هاد رقم حسابي البنكي الجديد.",
+    "en": "Here are my new bank details.",
+    "ex": null
+  },
+  {
+    "fr": "Le changement est-il enregistré ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "تسجل التغيير؟",
+    "en": "Has the change been recorded?",
+    "ex": null
+  },
+  {
+    "fr": "J'ai commencé un nouveau travail.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بلشت شغل جديد.",
+    "en": "I started a new job.",
+    "ex": null
+  },
+  {
+    "fr": "J'ai perdu mon travail.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "خسرت شغلي.",
+    "en": "I lost my job.",
+    "ex": null
+  },
+  {
+    "fr": "Je travaille à temps partiel.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بشتغل دوام جزئي.",
+    "en": "I work part-time.",
+    "ex": null
+  },
+  {
+    "fr": "Je travaille à temps plein.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بشتغل دوام كامل.",
+    "en": "I work full-time.",
+    "ex": null
+  },
+  {
+    "fr": "J'ai déménagé.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "نقلت على بيت جديد.",
+    "en": "I moved to a new home.",
+    "ex": null
+  },
+  {
+    "fr": "Je paie un nouveau loyer.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "صرت أدفع إيجار جديد.",
+    "en": "I pay a new rent.",
+    "ex": null
+  },
+  {
+    "fr": "Je vis seul maintenant.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "صرت عايش لحالي.",
+    "en": "I live alone now.",
+    "ex": null
+  },
+  {
+    "fr": "Je vis avec quelqu'un.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "صرت ساكن مع شخص.",
+    "en": "I live with someone now.",
+    "ex": null
+  },
+  {
+    "fr": "Qu'est-ce que je dois faire maintenant ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "شو لازم أعمل هلق؟",
+    "en": "What should I do now?",
+    "ex": null
+  },
+  {
+    "fr": "Quel est le délai ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "قديش مدة الانتظار؟",
+    "en": "What is the waiting time?",
+    "ex": null
+  },
+  {
+    "fr": "Pouvez-vous me l'expliquer ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ممكن تشرحلي؟",
+    "en": "Could you explain it to me?",
+    "ex": null
+  },
+  {
+    "fr": "Je n'ai pas bien compris.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ما فهمت منيح.",
+    "en": "I didn't understand well.",
+    "ex": null
+  },
+  {
+    "fr": "Pouvez-vous parler plus lentement ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ممكن تحكي شوي أبطأ؟",
+    "en": "Could you speak more slowly?",
+    "ex": null
+  },
+  {
+    "fr": "Est-ce que je dois revenir ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "لازم أرجع مرة تانية؟",
+    "en": "Do I need to come back?",
+    "ex": null
+  },
+  {
+    "fr": "Est-ce que vous allez me contacter ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "رح تتواصلوا معي؟",
+    "en": "Will you contact me?",
+    "ex": null
+  },
+  {
+    "fr": "Merci, au revoir et bonne journée.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "شكراً، مع السلامة، نهارك سعيد.",
+    "en": "Thank you, goodbye, have a nice day.",
+    "ex": null
+  },
+  {
+    "fr": "Mon dossier a été rejeté.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ملفي انرفض.",
+    "en": "My application was rejected.",
+    "ex": null
+  },
+  {
+    "fr": "Je voudrais connaître la raison du refus.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بدي أعرف سبب الرفض.",
+    "en": "I would like to know the reason for the rejection.",
+    "ex": null
+  },
+  {
+    "fr": "Je souhaite contester la décision.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بدي اعترض على القرار.",
+    "en": "I want to appeal the decision.",
+    "ex": null
+  },
+  {
+    "fr": "Comment faire un recours ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "كيف بعمل اعتراض؟",
+    "en": "How can I make an appeal?",
+    "ex": null
+  },
+  {
+    "fr": "On me demande un document supplémentaire.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "طالبين مني ورقة إضافية.",
+    "en": "They are asking me for an additional document.",
+    "ex": null
+  },
+  {
+    "fr": "Je ne sais pas quel document envoyer.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ما بعرف أي ورقة لازم ابعت.",
+    "en": "I don't know which document to send.",
+    "ex": null
+  },
+  {
+    "fr": "Est-ce que ce document suffit ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "هالورقة بتكفي؟",
+    "en": "Is this document enough?",
+    "ex": null
+  },
+  {
+    "fr": "Je vais envoyer le document aujourd'hui.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "رح ابعت الورقة اليوم.",
+    "en": "I will send the document today.",
+    "ex": null
+  },
+  {
+    "fr": "Je dois déclarer mes revenus.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "لازم صرّح عن دخلي.",
+    "en": "I have to declare my income.",
+    "ex": null
+  },
+  {
+    "fr": "J'ai oublié de faire ma déclaration.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "نسيت أعمل التصريح.",
+    "en": "I forgot to make my declaration.",
+    "ex": null
+  },
+  {
+    "fr": "J'ai fait une erreur dans ma déclaration.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "غلطت بالتصريح.",
+    "en": "I made a mistake in my declaration.",
+    "ex": null
+  },
+  {
+    "fr": "Je voudrais corriger ma déclaration.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بدي صحّح التصريح.",
+    "en": "I would like to correct my declaration.",
+    "ex": null
+  },
+  {
+    "fr": "Je voudrais parler à un conseiller.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بدي احكي مع مستشار.",
+    "en": "I would like to speak with an advisor.",
+    "ex": null
+  },
+  {
+    "fr": "Le conseiller m'a demandé ce document.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "المستشار طلب مني هالورقة.",
+    "en": "The advisor asked me for this document.",
+    "ex": null
+  },
+  {
+    "fr": "Pouvez-vous regarder mon dossier ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ممكن تطّلع على ملفي؟",
+    "en": "Can you look at my file?",
+    "ex": null
+  },
+  {
+    "fr": "Avez-vous accès à mon dossier ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "فيك تشوف ملفي؟",
+    "en": "Do you have access to my file?",
+    "ex": null
+  },
+  {
+    "fr": "Je n'ai pas reçu votre courrier.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ما وصلني خطابكم.",
+    "en": "I did not receive your letter.",
+    "ex": null
+  },
+  {
+    "fr": "Mon adresse est incorrecte.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "عنواني غلط.",
+    "en": "My address is incorrect.",
+    "ex": null
+  },
+  {
+    "fr": "Je voudrais modifier mon adresse postale.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بدي غيّر عنوان البريد.",
+    "en": "I would like to change my postal address.",
+    "ex": null
+  },
+  {
+    "fr": "Pouvez-vous m'envoyer le courrier à nouveau ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ممكن تبعتولي الخطاب مرة تانية؟",
+    "en": "Can you send the letter again?",
+    "ex": null
+  },
+  {
+    "fr": "Quel montant vais-je recevoir ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "قديش رح آخد مبلغ؟",
+    "en": "How much will I receive?",
+    "ex": null
+  },
+  {
+    "fr": "Le montant a changé. Pourquoi ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "المبلغ تغيّر، ليش؟",
+    "en": "The amount has changed, why?",
+    "ex": null
+  },
+  {
+    "fr": "Pourquoi le montant est plus bas ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ليش المبلغ صار أقل؟",
+    "en": "Why is the amount lower?",
+    "ex": null
+  },
+  {
+    "fr": "Pouvez-vous vérifier le calcul ?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ممكن تتأكدوا من الحساب؟",
+    "en": "Can you check the calculation?",
+    "ex": null
+  },
+  {
+    "fr": "Votre dossier est en cours d'étude.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "ملفك قيد الدراسة.",
+    "en": "Your application is being reviewed.",
+    "ex": null
+  },
+  {
+    "fr": "Nous avons besoin d'informations complémentaires.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "بدنا معلومات إضافية.",
+    "en": "We need additional information.",
+    "ex": null
+  },
+  {
+    "fr": "Votre demande a été enregistrée.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "تم تسجيل طلبك.",
+    "en": "Your request has been registered.",
+    "ex": null
+  },
+  {
+    "fr": "Votre droit sera recalculé.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "رح نعيد حساب استحقاقك.",
+    "en": "Your entitlement will be recalculated.",
+    "ex": null
+  },
+  {
+    "fr": "Une notification sera envoyée sur votre compte.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ar": "رح توصلك رسالة على حسابك.",
+    "en": "A notification will be sent to your account.",
+    "ex": null
   }
 ];

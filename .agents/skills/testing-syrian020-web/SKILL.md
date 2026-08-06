@@ -318,7 +318,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v120`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v121`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
@@ -330,32 +330,25 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - The debug APK is built to `android/app/build/outputs/apk/debug/app-debug.apk` after Capacitor rebuilds.
 - If no Android device or emulator is attached (`adb devices` is empty), runtime APK testing is not feasible; only inspect APK presence/size or metadata.
 
-## CAF vocabulary batch (dross-v120)
+## CAF vocabulary batch (dross-v121)
 
-- `data/vocab.js` now contains **1699** entries; `sw.js` cache bumped to `dross-v120`.
-- Parsed ~90 submitted CAF entries and deduplicated against existing records: 53 new unique entries added and 33 merged.
-- All CAF entries are tagged with context `caf` (**198** unique entries after deduplication); merged entries keep existing `services`/`housing`/`bank` contexts.
-- POS counts: `noun 767`, `verb 317`, `phrase 219`, `adjective 239`, `other 157`.
-- Context counts: `daily 687`, `services 391`, `work 298`, `health 251`, `caf 198`, `housing 70`, `cpam 50`, `shop 45`, `bank 43`, `mdph 40`, `transport 38`, `school 27`, `phone 18`, `family 14`, `car 14`, `france_travail 11`, `food 8`, `weather 7`, `restaurant 7`, `prefecture 6`, `post 4`, `mairie 2`, `office 2`, `geography 1`.
+- `data/vocab.js` now contains **1795** entries; `sw.js` cache bumped to `dross-v121`.
+- This is the second CAF batch: 106 parsed entries (19 nouns, 87 phrases/sentences), 96 new unique entries added and 10 merged with existing records.
+- New terms include `Le compte CAF`, `Le courrier / l'avis`, `Un justificatif`, `Le quotient familial`, `L'aide au logement (APL / ALS)`, `Une régularisation`, `Un trop-perçu`, `Faire une simulation`, `Le versement`, housing terms (`L'unité d'habitation`, `La surface habitable`, `Le loyer`, `Le bail`, `Le propriétaire`, `Le locataire`, `La quittance de loyer`, `Le DPE`, `La décence du logement`, `Changer de logement`), and 87 ready-to-use CAF situations/sentences.
+- All CAF entries are tagged with context `caf` (**298** unique entries); merged entries keep existing `services`/`housing`/`bank` contexts.
+- POS counts: `noun 776`, `verb 317`, `phrase 306`, `adjective 239`, `other 157`.
+- Context counts: `daily 687`, `caf 298`, `services 391`, `work 298`, `health 251`, `housing 70`, `cpam 50`, `shop 45`, `bank 43`, `mdph 40`, `transport 38`, `school 27`, `phone 18`, `family 14`, `car 14`, `france_travail 11`, `food 8`, `weather 7`, `restaurant 7`, `prefecture 6`, `post 4`, `mairie 2`, `office 2`, `geography 1`.
 - E2E verification steps:
   1. Open `http://localhost:8080/vocab.html` in a fresh Chrome incognito/profile.
-  2. Confirm active service worker cache is `dross-v120` (e.g. `(await caches.keys())`).
-  3. Confirm `#stats` shows `1699 result(s)` and context chips match the counts above.
-  4. Filter by the `CAF` context chip; expect the chip label to show `CAF (198)` and the results count to also show **198**.
-  5. Search `La CAF`, `Allocation`, `Déclarer`, `Faire une demande`, and `Attestation de paiement` and verify each card renders the expected POS, level, context pills, and `ex` array blocks.
-  6. Click the `Loop` button on `Allocation` (3 examples) and verify the card is highlighted/active and no JS runtime errors occur.
+  2. Confirm active service worker cache is `dross-v121`.
+  3. Confirm `#stats` shows `1795 result(s)` and context chips match the counts above.
+  4. Filter by the `CAF` context chip; expect the chip label to show `CAF (298)` and the results count to also show **298**.
+  5. Search `Le compte CAF`, `Le loyer`, `Faire une simulation`, and sample situations like `Bonjour, j'ai rendez-vous avec un conseiller.` and `Je voudrais faire une demande d'APL.` Verify POS, level, context pills, and `ex` blocks.
+  6. Click the `Loop` button on an entry with examples and on a situation entry (no `ex`) to verify no JS runtime errors.
   7. Toggle dark/light mode and verify `<html data-theme>` flips without errors.
-  8. Verify Google Images link includes `udm=2&q=<fr>` and Google AI link includes `udm=50` with the Arabic/English/French analysis prompt.
-- Sample entries:
-  - `La CAF` → noun A1, contexts `caf` + `services`, 2 trilingual examples
-  - `Allocation` → noun B1, contexts `caf` + `services`, 3 trilingual examples
-  - `Déclarer` → verb A1, context `caf`, 3 trilingual examples
-  - `Faire une demande` → phrase A1, contexts `caf` + `services`, 2 trilingual examples
-  - `Attestation de paiement` → noun A1, context `caf`, 2 trilingual examples
-  - `Attestation de droits` → noun A1, contexts `caf` + `cpam` + `health` + `services`, 3 trilingual examples
-  - `Numéro de dossier` → noun A1, context `caf`, 1 trilingual example
+  8. Verify Google Images link includes `udm=2&q=<fr>` and Google AI link includes `udm=50`.
 - The debug APK was rebuilt after this batch.
 
 ## Known data-quality issues (last observed)
 
-- None. All 1699 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`). Administrative entries may also include a `usage` field.
+- None. All 1795 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`) when a separate example was provided. Situation sentences use `fr`/`ar`/`en` directly and may not have a separate `ex` block. Administrative entries may also include a `usage` field.
