@@ -495,6 +495,23 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   8. Verify Google Images link includes `udm=2&q=<fr>` and Google AI link includes `udm=50`.
 - The debug APK was rebuilt after this batch.
 
+## Per-example loop icons (dross-v128)
+
+- Added a small 🔁 loop button to each example sentence inside a vocab card in `vocab.html`.
+- Clicking the per-example loop icon repeats only that example (respecting the selected language loop mode); the existing card-level `Loop` button still repeats the whole card (headword + all examples).
+- Added CSS for `.loop-ex-btn` and `.example.playing` so the active example gets a green border and the button switches to a pause icon.
+- Refactored TTS code into a shared `playSeq()` used by `speakEntry()` and the new `speakExample()` function.
+- `state.loop` now stores `{ key, ex }` where `ex` is `null` for whole-card loops or an example index for per-example loops.
+- Bumped service worker cache to `dross-v128` and rebuilt the debug APK.
+- E2E verification steps:
+  1. Open `http://localhost:8080/vocab.html` in a fresh incognito/profile and hard-refresh.
+  2. Search `Le chef` to find a card with multiple example sentences.
+  3. Verify each `.example` block has a small 🔁 button in its top-right corner.
+  4. Click the first example loop icon; verify only that example's border turns green and the icon changes to ⏸, while the card-level `Loop` button remains 🔁.
+  5. Stop audio and click the card-level `Loop` button; verify it still loops the headword and all examples.
+  6. Ensure no JS runtime errors in DevTools console.
+- The debug APK was rebuilt after this change.
+
 ## Known data-quality issues (last observed)
 
 - None. All 2095 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`) when a separate example was provided. Situation sentences use `fr`/`ar`/`en` directly and may not have a separate `ex` block. Administrative entries may also include a `usage` field.

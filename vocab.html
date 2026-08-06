@@ -98,6 +98,11 @@
   .usage { color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; padding: 0.35rem 0.55rem; border-right: 3px solid var(--accent); background: rgba(123,121,255,0.06); border-radius: 0 10px 10px 0; }
 
   .example { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 12px; padding: 0.7rem 0.9rem; margin-top: 0.65rem; position: relative; overflow: hidden; }
+  .example { padding-top: 1.25rem; }
+  .example.playing { border-color: var(--success); box-shadow: 0 0 0 2px rgba(0,230,118,0.18); }
+  .loop-ex-btn { position: absolute; top: 0.45rem; right: 0.45rem; background: var(--bg-primary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; width: 1.9rem; height: 1.9rem; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; cursor: pointer; padding: 0; transition: all .12s; }
+  .loop-ex-btn:hover { border-color: var(--accent); background: var(--bg-secondary); }
+  .loop-ex-btn.active { background: var(--success); border-color: var(--success); color: #0b0d1f; }
   .example::before { content: ''; position: absolute; top:0; left:0; width: 3px; height: 100%; background: linear-gradient(180deg, var(--accent), var(--success)); opacity: 0.7; }
   .ex-fr { direction: ltr; text-align: left; color: var(--text-primary); font-weight: 600; font-size: 0.96rem; }
   .ex-ar { direction: rtl; text-align: right; color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.2rem; }
@@ -504,7 +509,7 @@
     var html = items.slice(0, end).map(function(v, idx){
       var key = 'v' + idx;
       var exArr = Array.isArray(v.ex) ? v.ex : (v.ex ? [v.ex] : []);
-      var ex = exArr.map(function(e){ return '<div class="example"><div class="ex-fr" dir="ltr">' + esc(e.fr||'') + '</div><div class="ex-ar">' + esc(e.ar||'') + '</div>' + (e.en ? '<div class="ex-en" dir="ltr">' + esc(e.en) + '</div>' : '') + '</div>'; }).join('');
+      var ex = exArr.map(function(e, ei){ return '<div class="example" data-ex="' + ei + '"><button class="loop-ex-btn" data-ex="' + ei + '" title="' + esc(t('loop')) + '">🔁</button><div class="ex-fr" dir="ltr">' + esc(e.fr||'') + '</div><div class="ex-ar">' + esc(e.ar||'') + '</div>' + (e.en ? '<div class="ex-en" dir="ltr">' + esc(e.en) + '</div>' : '') + '</div>'; }).join('');
       var usage = v.usage ? '<div class="usage" dir="rtl">' + esc(v.usage) + '</div>' : '';
       return '<div class="vocab-card" data-key="' + esc(key) + '" data-idx="' + idx + '">' +
         '<div class="vocab-head">' +
@@ -577,36 +582,47 @@
     speechRun++;
     if(nativeTTS()) nativeStop();
     else if('speechSynthesis' in window) window.speechSynthesis.cancel();
-    highlight(null);
+    highlight();
     document.getElementById('btn-stop').classList.remove('active');
   }
 
-  function highlight(key){
-    document.querySelectorAll('.vocab-card').forEach(function(el){ el.classList.toggle('playing', key && el.dataset.key === key); });
+  function highlight(){
+    var loop = state.loop;
+    document.querySelectorAll('.vocab-card').forEach(function(el){ el.classList.toggle('playing', loop && loop.key === el.dataset.key); });
+    document.querySelectorAll('.example').forEach(function(el){ el.classList.toggle('playing', loop && loop.key === el.closest('.vocab-card').dataset.key && loop.ex === parseInt(el.dataset.ex, 10)); });
     document.querySelectorAll('.loop-btn').forEach(function(btn){
-      var on = state.loop && state.loop.key === btn.closest('.vocab-card').dataset.key;
+      var on = loop && loop.key === btn.closest('.vocab-card').dataset.key && loop.ex == null;
       btn.classList.toggle('active', !!on);
       btn.textContent = (on ? '⏸ ' : '🔁 ') + t('loop');
     });
+    document.querySelectorAll('.loop-ex-btn').forEach(function(btn){
+      var ex = parseInt(btn.dataset.ex, 10);
+      var on = loop && loop.key === btn.closest('.vocab-card').dataset.key && loop.ex === ex;
+      btn.classList.toggle('active', !!on);
+      btn.textContent = on ? '⏸' : '🔁';
+    });
   }
 
-  function speakEntry(entry, langs, key, onDone){
-    var seq = [];
-    langs.forEach(function(l){ if(entry[l]) seq.push({ lang: l, text: entry[l] }); });
-    var exArr = Array.isArray(entry.ex) ? entry.ex : (entry.ex ? [entry.ex] : []);
-    exArr.forEach(function(e){
-      langs.forEach(function(l){ var t = e[l]; if(t) seq.push({ lang: l, text: t }); });
-    });
+  function playSeq(seq, key, exIndex, onDone){
     var i = 0;
     var run = ++speechRun;
+    function step(){
+      state.loop = { key: key, ex: exIndex };
+      highlight();
+      document.getElementById('btn-stop').classList.add('active');
+    }
+    function finish(){
+      if(onDone) onDone();
+      else { state.loop = null; highlight(); document.getElementById('btn-stop').classList.remove('active'); }
+    }
     if(nativeTTS()){
       nativeStop();
       (function next(){
         if(run !== speechRun) return;
-        if(i >= seq.length){ highlight(null); if(onDone) onDone(); return; }
-        var step = seq[i++];
-        highlight(key);
-        nativeSpeak(step.text, step.lang).then(function(){ if(run===speechRun) setTimeout(next, 200); }).catch(function(){ if(run===speechRun) setTimeout(next, 200); });
+        if(i >= seq.length){ finish(); return; }
+        var s = seq[i++];
+        step();
+        nativeSpeak(s.text, s.lang).then(function(){ if(run===speechRun) setTimeout(next, 200); }).catch(function(){ if(run===speechRun) setTimeout(next, 200); });
       })();
       return;
     }
@@ -614,25 +630,56 @@
     window.speechSynthesis.cancel();
     (function next(){
       if(run !== speechRun) return;
-      if(i >= seq.length){ highlight(null); if(onDone) onDone(); return; }
-      var step = seq[i++];
-      var u = utter(step.text, step.lang);
-      highlight(key);
+      if(i >= seq.length){ finish(); return; }
+      var s = seq[i++];
+      step();
+      var u = utter(s.text, s.lang);
       u.onend = function(){ if(run===speechRun) setTimeout(next, 200); };
       u.onerror = function(){ if(run===speechRun) setTimeout(next, 200); };
       window.speechSynthesis.speak(u);
     })();
   }
 
+  function speakEntry(entry, langs, key, onDone){
+    var seq = [];
+    langs.forEach(function(l){ if(entry[l]) seq.push({ lang: l, text: entry[l] }); });
+    var exArr = Array.isArray(entry.ex) ? entry.ex : (entry.ex ? [entry.ex] : []);
+    exArr.forEach(function(e){
+      langs.forEach(function(l){ if(e[l]) seq.push({ lang: l, text: e[l] }); });
+    });
+    playSeq(seq, key, null, onDone);
+  }
+
+  function speakExample(entry, exIndex, langs, key, onDone){
+    var exArr = Array.isArray(entry.ex) ? entry.ex : (entry.ex ? [entry.ex] : []);
+    var e = exArr[exIndex];
+    if(!e){ if(onDone) onDone(); return; }
+    var seq = [];
+    langs.forEach(function(l){ if(e[l]) seq.push({ lang: l, text: e[l] }); });
+    playSeq(seq, key, exIndex, onDone);
+  }
+
   function toggleLoop(entry, key){
-    if(state.loop && state.loop.key === key){ stopSpeech(); return; }
-    state.loop = { key: key };
-    document.getElementById('btn-stop').classList.add('active');
-    highlight(key);
+    if(state.loop && state.loop.key === key && state.loop.ex == null){ stopSpeech(); return; }
+    stopSpeech();
+    state.loop = { key: key, ex: null };
     (function cycle(){
-      if(!state.loop || state.loop.key !== key) return;
+      if(!state.loop || state.loop.key !== key || state.loop.ex != null) return;
       speakEntry(entry, state.langs, key, function(){
-        if(!state.loop || state.loop.key !== key) return;
+        if(!state.loop || state.loop.key !== key || state.loop.ex != null) return;
+        setTimeout(cycle, 700);
+      });
+    })();
+  }
+
+  function toggleExampleLoop(entry, exIndex, key){
+    if(state.loop && state.loop.key === key && state.loop.ex === exIndex){ stopSpeech(); return; }
+    stopSpeech();
+    state.loop = { key: key, ex: exIndex };
+    (function cycle(){
+      if(!state.loop || state.loop.key !== key || state.loop.ex !== exIndex) return;
+      speakExample(entry, exIndex, state.langs, key, function(){
+        if(!state.loop || state.loop.key !== key || state.loop.ex !== exIndex) return;
         setTimeout(cycle, 700);
       });
     })();
@@ -691,6 +738,8 @@
 
       if(e.target.closest('.speak-btn')){ stopSpeech(); speakEntry(entry, state.langs, null); return; }
       if(e.target.closest('.loop-btn')){ toggleLoop(entry, card.dataset.key); return; }
+      var exBtn = e.target.closest('.loop-ex-btn');
+      if(exBtn){ toggleExampleLoop(entry, parseInt(exBtn.dataset.ex, 10), card.dataset.key); return; }
       /* image and AI search are <a> links; no extra click handling needed */
     });
 
