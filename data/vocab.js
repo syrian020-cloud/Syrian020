@@ -3015,7 +3015,8 @@ window.VOCAB_DATA = [
     "en": "Administration",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "services"
     ],
     "ex": [
       {
@@ -24242,7 +24243,9 @@ window.VOCAB_DATA = [
     "en": "Procedure / Step",
     "pos": "noun",
     "level": "B1",
-    "contexts": [],
+    "contexts": [
+      "services"
+    ],
     "ex": {
       "fr": "Quelle est la démarche à suivre ?",
       "ar": "ما هي الإجراءات التي يجب اتباعها؟",
@@ -24268,7 +24271,9 @@ window.VOCAB_DATA = [
     "en": "Form",
     "pos": "noun",
     "level": "A1",
-    "contexts": [],
+    "contexts": [
+      "services"
+    ],
     "ex": {
       "fr": "Je dois remplir ce formulaire.",
       "ar": "يجب أن أملأ هذه الاستمارة.",
