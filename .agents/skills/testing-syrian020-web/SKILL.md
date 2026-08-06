@@ -449,6 +449,29 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   8. Verify Google Images link includes `udm=2&q=<fr>` and Google AI link includes `udm=50`.
 - The debug APK was rebuilt after this cleanup.
 
+## Sushi / Japanese restaurant vocabulary batch (dross-v126)
+
+- `data/vocab.js` now contains **2016** entries; `sw.js` cache bumped to `dross-v126`.
+- Added a new `sushi` context label (`سوشي` / `Sushi` / `Sushi`) and a `food` context label (`طعام` / `Food` / `Alimentation`) in `vocab.html`.
+- Parsed and merged 125 raw sushi/restaurant/kitchen entries; after deduplication 122 unique entries were added/merged (108 new, 14 merged with existing).
+- `sushi` context count: **122** entries; `restaurant` context count increased to **24**.
+- POS distribution after merge: `noun 882`, `verb 383`, `phrase 349`, `adjective 244`, `other 158`.
+- New sample entries:
+  - `Le sushi` → Noun A1, `Sushi`, example `Je prépare des sushis frais.`
+  - `Le saumon` → Noun A1, `Sushi`, example `Le saumon est utilisé pour les sushis.`
+  - `Dépêche-toi` → Phrase A1, `Sushi`, example `Dépêche-toi, la commande est prête.`
+  - `Attention` → Phrase A1, contexts `Phone` + `Services` + `Sushi`
+- E2E verification steps:
+  1. Open `http://localhost:8080/vocab.html` in a fresh Chrome incognito/profile and hard-refresh to ensure `dross-v126` is active.
+  2. Confirm `#stats` shows `2016 result(s)` and context chips show `Sushi (122)` and `Restaurant (24)`.
+  3. Click the `Sushi (122)` context chip and verify filtered results show `122 result(s)` and cards like `Le sushi`, `Dépêche-toi`, `Attention` render correctly.
+  4. Search `Le sushi` and verify the `Le sushi` card with `Sushi` context and the example `Je prépare des sushis frais.` appears.
+  5. Search `Attention` and verify the `Phrase` pill and `Sushi` context pill are present.
+  6. Click `Loop` on a multi-example card (`La cuisson`) and a single-example card (`Le sushi`); verify no JS runtime errors.
+  7. Toggle dark/light mode and verify `<html data-theme>` flips without errors.
+  8. Verify Google Images link includes `udm=2&q=<fr>` and Google AI link includes `udm=50`.
+- The debug APK was rebuilt after this batch.
+
 ## Known data-quality issues (last observed)
 
 - None. All 1908 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`) when a separate example was provided. Situation sentences use `fr`/`ar`/`en` directly and may not have a separate `ex` block. Administrative entries may also include a `usage` field.

@@ -4108,20 +4108,28 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Attention",
-    "ar": "انتباه / عناية",
-    "en": "Attention / Care",
+    "ar": "انتباه / عناية / انتبه",
+    "en": "Attention / Care / Be careful",
     "level": "A1",
     "contexts": [
       "phone",
-      "services"
+      "services",
+      "sushi"
     ],
-    "ex": {
-      "fr": "Attention, le sol est mouillé.",
-      "ar": "انتبه، الأرض مبللة.",
-      "en": "Attention, the floor is wet."
-    },
+    "ex": [
+      {
+        "fr": "Attention, le sol est mouillé.",
+        "ar": "انتبه، الأرض مبللة.",
+        "en": "Attention, the floor is wet."
+      },
+      {
+        "fr": "Attention, le couteau est très coupant.",
+        "ar": "انتبه، السكين حاد جدًا.",
+        "en": "Be careful, the knife is very sharp."
+      }
+    ],
     "usage": "التحذير، الرسائل، الحياة اليومية",
-    "pos": "noun"
+    "pos": "phrase"
   },
   {
     "fr": "Attirer",
@@ -4749,11 +4757,13 @@ window.VOCAB_DATA = [
   {
     "fr": "Accueillir",
     "ar": "يستقبل",
-    "en": "To welcome / Receive",
+    "en": "To welcome / Receive / To greet",
     "level": "A2",
     "contexts": [
       "services",
-      "work"
+      "work",
+      "sushi",
+      "restaurant"
     ],
     "ex": [
       {
@@ -4765,6 +4775,11 @@ window.VOCAB_DATA = [
         "fr": "L'agent m'a accueilli au guichet.",
         "ar": "الموظف استقبلني في الشباك.",
         "en": "The agent welcomed me at the counter."
+      },
+      {
+        "fr": "J’accueille les clients avec le sourire.",
+        "ar": "أستقبل الزبائن بابتسامة.",
+        "en": "I welcome customers with a smile."
       }
     ],
     "usage": "الإدارات، الشركات، الأماكن العامة",
@@ -11887,7 +11902,9 @@ window.VOCAB_DATA = [
     "level": "A1",
     "pos": "verb",
     "contexts": [
-      "daily"
+      "daily",
+      "sushi",
+      "restaurant"
     ],
     "ex": [
       {
@@ -11904,6 +11921,11 @@ window.VOCAB_DATA = [
         "fr": "Choisis ce que tu préfères.",
         "ar": "اختر ما تفضله.",
         "en": "Choose what you prefer."
+      },
+      {
+        "fr": "Vous pouvez choisir vos sushis.",
+        "ar": "يمكنكم اختيار السوشي الخاص بكم.",
+        "en": "You can choose your sushi."
       }
     ]
   },
@@ -12219,13 +12241,14 @@ window.VOCAB_DATA = [
   {
     "fr": "Contrôler",
     "ar": "يفحص / يراقب / يتحقق",
-    "en": "To check / Control / control",
+    "en": "To check / Control / control / To control",
     "level": "A2",
     "pos": "verb",
     "contexts": [
       "daily",
       "work",
-      "caf"
+      "caf",
+      "sushi"
     ],
     "ex": [
       {
@@ -12242,6 +12265,11 @@ window.VOCAB_DATA = [
         "fr": "La CAF peut contrôler les informations déclarées.",
         "ar": "الـ CAF ممكن تتحقق من المعلومات المصرّح عنها.",
         "en": "CAF can check the declared information."
+      },
+      {
+        "fr": "Je contrôle la qualité des produits.",
+        "ar": "أفحص جودة المنتجات.",
+        "en": "I check the quality of the products."
       }
     ]
   },
@@ -12824,20 +12852,28 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Chef",
-    "ar": "مدير / رئيس / طاهٍ",
-    "en": "Boss / Chef",
+    "fr": "Le chef",
+    "ar": "مدير / رئيس / طاهٍ / الشيف / الطاهي المسؤول",
+    "en": "Boss / Chef / Head cook",
     "level": "A1",
     "pos": "noun",
     "contexts": [
       "work",
-      "daily"
+      "daily",
+      "sushi"
     ],
-    "ex": {
-      "fr": "Mon chef est gentil.",
-      "ar": "مديري لطيف.",
-      "en": "My boss is nice."
-    }
+    "ex": [
+      {
+        "fr": "Mon chef est gentil.",
+        "ar": "مديري لطيف.",
+        "en": "My boss is nice."
+      },
+      {
+        "fr": "Le chef contrôle la préparation.",
+        "ar": "الشيف يراقب التحضير.",
+        "en": "The chef checks the preparation."
+      }
+    ]
   },
   {
     "fr": "Chemin",
@@ -14318,7 +14354,9 @@ window.VOCAB_DATA = [
     "contexts": [
       "shop",
       "work",
-      "stage"
+      "stage",
+      "sushi",
+      "restaurant"
     ],
     "ex": [
       {
@@ -14350,13 +14388,14 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Commander",
-    "ar": "يطلب / يأمر",
+    "ar": "يطلب / يأمر / يطلب (طعامًا)",
     "en": "To order",
     "pos": "verb",
     "level": "A1",
     "contexts": [
       "restaurant",
-      "shop"
+      "shop",
+      "sushi"
     ],
     "ex": [
       {
@@ -14368,6 +14407,11 @@ window.VOCAB_DATA = [
         "fr": "Je vais commander une pizza.",
         "ar": "سأطلب بيتزا.",
         "en": "I will order a pizza."
+      },
+      {
+        "fr": "Je voudrais commander des sushis.",
+        "ar": "أريد طلب سوشي.",
+        "en": "I would like to order sushi."
       }
     ]
   },
@@ -15233,14 +15277,16 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "Carte bancaire",
-    "ar": "بطاقة بنكية",
-    "en": "Bank card",
+    "fr": "La carte bancaire",
+    "ar": "بطاقة بنكية / البطاقة البنكية",
+    "en": "Bank card / Debit card",
     "pos": "noun",
     "level": "A1",
     "contexts": [
       "bank",
-      "daily"
+      "daily",
+      "sushi",
+      "restaurant"
     ],
     "ex": [
       {
@@ -15252,6 +15298,11 @@ window.VOCAB_DATA = [
         "fr": "Je paie avec ma carte bancaire.",
         "ar": "أدفع ببطاقتي البنكية.",
         "en": "I pay with my bank card."
+      },
+      {
+        "fr": "Vous pouvez payer par carte bancaire.",
+        "ar": "يمكنكم الدفع بالبطاقة البنكية.",
+        "en": "You can pay by bank card."
       }
     ]
   },
@@ -17017,7 +17068,8 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "daily",
-      "food"
+      "food",
+      "sushi"
     ],
     "ex": [
       {
@@ -17029,17 +17081,23 @@ window.VOCAB_DATA = [
         "fr": "Il faut cuire le riz pendant vingt minutes.",
         "ar": "يجب طبخ الأرز لمدة عشرين دقيقة.",
         "en": "You have to cook the rice for twenty minutes."
+      },
+      {
+        "fr": "Je cuis le riz à sushi.",
+        "ar": "أطبخ أرز السوشي.",
+        "en": "I cook sushi rice."
       }
     ]
   },
   {
-    "fr": "Cuisson",
-    "ar": "طبخ / طهي",
+    "fr": "La cuisson",
+    "ar": "طبخ / طهي / الطبخ / الطهي",
     "en": "Cooking / Cooking process",
     "pos": "noun",
     "level": "B1",
     "contexts": [
-      "daily"
+      "daily",
+      "sushi"
     ],
     "ex": [
       {
@@ -17051,6 +17109,11 @@ window.VOCAB_DATA = [
         "fr": "La cuisson de la viande est parfaite.",
         "ar": "طهي اللحم ممتاز.",
         "en": "The cooking of the meat is perfect."
+      },
+      {
+        "fr": "La cuisson du riz est importante pour le sushi.",
+        "ar": "طبخ الأرز مهم للسوشي.",
+        "en": "Cooking the rice is important for sushi."
       }
     ]
   },
@@ -18031,18 +18094,26 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Congeler",
-    "ar": "يجمد",
+    "ar": "يجمد / يجمّد",
     "en": "To freeze",
     "pos": "verb",
     "level": "A2",
     "contexts": [
-      "food"
+      "food",
+      "sushi"
     ],
-    "ex": {
-      "fr": "Je congèle la viande.",
-      "ar": "أجمد اللحم.",
-      "en": "I freeze the meat."
-    }
+    "ex": [
+      {
+        "fr": "Je congèle la viande.",
+        "ar": "أجمد اللحم.",
+        "en": "I freeze the meat."
+      },
+      {
+        "fr": "On peut congeler certains produits.",
+        "ar": "يمكن تجميد بعض المنتجات.",
+        "en": "Some products can be frozen."
+      }
+    ]
   },
   {
     "fr": "Congélation",
@@ -21679,7 +21750,9 @@ window.VOCAB_DATA = [
     "contexts": [
       "bank",
       "caf",
-      "services"
+      "services",
+      "sushi",
+      "restaurant"
     ],
     "ex": [
       {
@@ -21691,6 +21764,11 @@ window.VOCAB_DATA = [
         "fr": "Le paiement sera effectué le 5 du mois.",
         "ar": "الدفعة بتنزل بخمسة الشهر.",
         "en": "The payment will be made on the 5th of the month."
+      },
+      {
+        "fr": "Le paiement se fait par carte.",
+        "ar": "الدفع يكون بالبطاقة.",
+        "en": "Payment is made by card."
       }
     ]
   },
@@ -31294,13 +31372,21 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "contexts": [
       "stage",
-      "work"
+      "work",
+      "sushi"
     ],
-    "ex": {
-      "fr": "Je prépare les ingrédients.",
-      "ar": "أجهز المكونات.",
-      "en": "I prepare the ingredients."
-    }
+    "ex": [
+      {
+        "fr": "Je prépare les ingrédients.",
+        "ar": "أجهز المكونات.",
+        "en": "I prepare the ingredients."
+      },
+      {
+        "fr": "Je prépare les sushis pour les clients.",
+        "ar": "أحضّر السوشي للزبائن.",
+        "en": "I prepare sushi for customers."
+      }
+    ]
   },
   {
     "fr": "Les ingrédients",
@@ -31320,19 +31406,28 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Le client",
-    "ar": "الزبون / العميل",
+    "ar": "الزبون / العميل / زبون / عميل",
     "en": "Customer / Client",
     "level": "A1",
     "pos": "noun",
     "contexts": [
       "stage",
-      "work"
+      "work",
+      "sushi",
+      "restaurant"
     ],
-    "ex": {
-      "fr": "Le client attend sa commande.",
-      "ar": "الزبون ينتظر طلبه.",
-      "en": "The customer is waiting for his order."
-    }
+    "ex": [
+      {
+        "fr": "Le client attend sa commande.",
+        "ar": "الزبون ينتظر طلبه.",
+        "en": "The customer is waiting for his order."
+      },
+      {
+        "fr": "Un client attend sa commande.",
+        "ar": "زبون ينتظر طلبه.",
+        "en": "A customer is waiting for his order."
+      }
+    ]
   },
   {
     "fr": "Servir",
@@ -32020,6 +32115,1658 @@ window.VOCAB_DATA = [
       "fr": "L’entreprise commence un recrutement.",
       "ar": "الشركة بدأت عملية توظيف.",
       "en": "The company is starting recruitment."
+    }
+  },
+  {
+    "fr": "Le sushi",
+    "ar": "السوشي",
+    "en": "Sushi",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je prépare des sushis frais.",
+      "ar": "أحضّر سوشي طازجًا.",
+      "en": "I prepare fresh sushi."
+    }
+  },
+  {
+    "fr": "Le riz à sushi",
+    "ar": "أرز السوشي",
+    "en": "Sushi rice",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le riz à sushi doit être bien cuit.",
+      "ar": "يجب أن يكون أرز السوشي مطبوخًا جيدًا.",
+      "en": "Sushi rice must be well cooked."
+    }
+  },
+  {
+    "fr": "Le poisson",
+    "ar": "السمك",
+    "en": "Fish",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je coupe le poisson avec un couteau.",
+      "ar": "أقطع السمك بسكين.",
+      "en": "I cut the fish with a knife."
+    }
+  },
+  {
+    "fr": "Le saumon",
+    "ar": "السلمون",
+    "en": "Salmon",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le saumon est utilisé pour les sushis.",
+      "ar": "يُستخدم السلمون في السوشي.",
+      "en": "Salmon is used for sushi."
+    }
+  },
+  {
+    "fr": "Le thon",
+    "ar": "التونة",
+    "en": "Tuna",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je prépare des sushis au thon.",
+      "ar": "أحضّر سوشي بالتونة.",
+      "en": "I prepare tuna sushi."
+    }
+  },
+  {
+    "fr": "Les crevettes",
+    "ar": "الروبيان / الجمبري",
+    "en": "Shrimp / Prawns",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Les crevettes doivent être fraîches.",
+      "ar": "يجب أن يكون الروبيان طازجًا.",
+      "en": "The shrimp must be fresh."
+    }
+  },
+  {
+    "fr": "L’algue (nori)",
+    "ar": "الطحالب (نوري)",
+    "en": "Seaweed (nori)",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "J’utilise une feuille de nori pour préparer le maki.",
+      "ar": "أستخدم ورقة نوري لتحضير الماكي.",
+      "en": "I use a sheet of nori to prepare maki."
+    }
+  },
+  {
+    "fr": "Le maki",
+    "ar": "الماكي (نوع من السوشي الملفوف)",
+    "en": "Maki roll",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je coupe le maki en plusieurs morceaux.",
+      "ar": "أقطع الماكي إلى عدة قطع.",
+      "en": "I cut the maki into several pieces."
+    }
+  },
+  {
+    "fr": "Le rouleau",
+    "ar": "اللفافة / الرول",
+    "en": "Roll",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je roule le sushi doucement.",
+      "ar": "ألف السوشي بهدوء.",
+      "en": "I roll the sushi gently."
+    }
+  },
+  {
+    "fr": "Le tapis de bambou (makisu)",
+    "ar": "حصيرة الخيزران الخاصة بالسوشي",
+    "en": "Bamboo sushi mat",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "J’utilise un tapis de bambou pour rouler le maki.",
+      "ar": "أستخدم حصيرة الخيزران للف الماكي.",
+      "en": "I use a bamboo mat to roll the maki."
+    }
+  },
+  {
+    "fr": "La sauce soja",
+    "ar": "صلصة الصويا",
+    "en": "Soy sauce",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le client mange le sushi avec de la sauce soja.",
+      "ar": "الزبون يأكل السوشي مع صلصة الصويا.",
+      "en": "The customer eats sushi with soy sauce."
+    }
+  },
+  {
+    "fr": "Le wasabi",
+    "ar": "الوسابي",
+    "en": "Wasabi",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le wasabi est très épicé.",
+      "ar": "الوسابي حار جدًا.",
+      "en": "Wasabi is very spicy."
+    }
+  },
+  {
+    "fr": "Le gingembre mariné",
+    "ar": "الزنجبيل المخلل",
+    "en": "Pickled ginger",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "On mange le gingembre entre les sushis.",
+      "ar": "نأكل الزنجبيل بين قطع السوشي.",
+      "en": "We eat ginger between sushi pieces."
+    }
+  },
+  {
+    "fr": "La garniture",
+    "ar": "الحشوة / التزيين",
+    "en": "Filling / Topping / Garnish",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "J’ajoute la garniture sur le sushi.",
+      "ar": "أضيف التزيين على السوشي.",
+      "en": "I add the topping on the sushi."
+    }
+  },
+  {
+    "fr": "L’ingrédient",
+    "ar": "المكوّن",
+    "en": "Ingredient",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je vérifie tous les ingrédients avant la préparation.",
+      "ar": "أتحقق من جميع المكونات قبل التحضير.",
+      "en": "I check all the ingredients before preparation."
+    }
+  },
+  {
+    "fr": "Le couteau à sushi",
+    "ar": "سكين السوشي",
+    "en": "Sushi knife",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le couteau à sushi doit être très bien aiguisé.",
+      "ar": "يجب أن يكون سكين السوشي حادًا جدًا.",
+      "en": "The sushi knife must be very sharp."
+    }
+  },
+  {
+    "fr": "Aiguiser",
+    "ar": "يسنّ / يشحذ",
+    "en": "To sharpen",
+    "level": "A2",
+    "pos": "verb",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "J’aiguise le couteau avant de couper le poisson.",
+      "ar": "أشحذ السكين قبل تقطيع السمك.",
+      "en": "I sharpen the knife before cutting the fish."
+    }
+  },
+  {
+    "fr": "La planche à découper",
+    "ar": "لوح التقطيع",
+    "en": "Cutting board",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je nettoie la planche à découper après utilisation.",
+      "ar": "أنظف لوح التقطيع بعد الاستعمال.",
+      "en": "I clean the cutting board after use."
+    }
+  },
+  {
+    "fr": "Le bac",
+    "ar": "حاوية / صندوق صغير",
+    "en": "Container / Bin",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je mets les ingrédients dans le bac.",
+      "ar": "أضع المكونات في الحاوية.",
+      "en": "I put the ingredients in the container."
+    }
+  },
+  {
+    "fr": "La boîte à sushi",
+    "ar": "علبة السوشي",
+    "en": "Sushi box",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je mets les sushis dans la boîte.",
+      "ar": "أضع السوشي في العلبة.",
+      "en": "I put the sushi in the box."
+    }
+  },
+  {
+    "fr": "Emballer",
+    "ar": "يغلّف / يعبّئ",
+    "en": "To pack / To wrap",
+    "level": "A2",
+    "pos": "verb",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "J’emballe les commandes des clients.",
+      "ar": "أغلّف طلبات الزبائن.",
+      "en": "I pack the customers’ orders."
+    }
+  },
+  {
+    "fr": "L’emballage",
+    "ar": "التغليف",
+    "en": "Packaging",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "L’emballage doit être propre.",
+      "ar": "يجب أن يكون التغليف نظيفًا.",
+      "en": "The packaging must be clean."
+    }
+  },
+  {
+    "fr": "La livraison",
+    "ar": "التوصيل",
+    "en": "Delivery",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": [
+      {
+        "fr": "La livraison doit être rapide.",
+        "ar": "يجب أن يكون التوصيل سريعًا.",
+        "en": "Delivery must be fast."
+      },
+      {
+        "fr": "Nous faisons la livraison à domicile.",
+        "ar": "نقوم بالتوصيل إلى المنزل.",
+        "en": "We deliver to your home."
+      }
+    ]
+  },
+  {
+    "fr": "Découper",
+    "ar": "يقطّع",
+    "en": "To cut / To slice",
+    "level": "A2",
+    "pos": "verb",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je découpe le saumon en fines tranches.",
+      "ar": "أقطع السلمون إلى شرائح رقيقة.",
+      "en": "I slice the salmon into thin pieces."
+    }
+  },
+  {
+    "fr": "Trancher",
+    "ar": "يشرّح / يقطع شرائح",
+    "en": "To slice",
+    "level": "A2",
+    "pos": "verb",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Il faut trancher le poisson correctement.",
+      "ar": "يجب تقطيع السمك بشكل صحيح.",
+      "en": "The fish must be sliced correctly."
+    }
+  },
+  {
+    "fr": "Mélanger",
+    "ar": "يخلط",
+    "en": "To mix",
+    "level": "A2",
+    "pos": "verb",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je mélange le riz avec le vinaigre.",
+      "ar": "أخلط الأرز مع الخل.",
+      "en": "I mix the rice with vinegar."
+    }
+  },
+  {
+    "fr": "Le vinaigre de riz",
+    "ar": "خل الأرز",
+    "en": "Rice vinegar",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le vinaigre de riz donne un goût spécial au sushi.",
+      "ar": "خل الأرز يعطي السوشي طعمًا خاصًا.",
+      "en": "Rice vinegar gives sushi a special taste."
+    }
+  },
+  {
+    "fr": "Le goût",
+    "ar": "الطعم / النكهة",
+    "en": "Taste / Flavor",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le goût du sushi est très important.",
+      "ar": "طعم السوشي مهم جدًا.",
+      "en": "The taste of sushi is very important."
+    }
+  },
+  {
+    "fr": "Stocker",
+    "ar": "يخزّن / يضع في المخزن",
+    "en": "To store",
+    "level": "A2",
+    "pos": "verb",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je stocke les produits dans le réfrigérateur.",
+      "ar": "أخزّن المنتجات في الثلاجة.",
+      "en": "I store the products in the refrigerator."
+    }
+  },
+  {
+    "fr": "Le réfrigérateur",
+    "ar": "الثلاجة",
+    "en": "Refrigerator / Fridge",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le poisson doit rester au réfrigérateur.",
+      "ar": "يجب أن يبقى السمك في الثلاجة.",
+      "en": "The fish must stay in the refrigerator."
+    }
+  },
+  {
+    "fr": "Décongeler",
+    "ar": "يذيب التجميد",
+    "en": "To defrost / To thaw",
+    "level": "A2",
+    "pos": "verb",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je décongèle le poisson avant la préparation.",
+      "ar": "أذيب تجميد السمك قبل التحضير.",
+      "en": "I defrost the fish before preparation."
+    }
+  },
+  {
+    "fr": "Peser",
+    "ar": "يزن",
+    "en": "To weigh",
+    "level": "A2",
+    "pos": "verb",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je pèse le riz avant la cuisson.",
+      "ar": "أزن الأرز قبل الطبخ.",
+      "en": "I weigh the rice before cooking."
+    }
+  },
+  {
+    "fr": "Mesurer",
+    "ar": "يقيس",
+    "en": "To measure",
+    "level": "A2",
+    "pos": "verb",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je mesure la quantité d’eau.",
+      "ar": "أقيس كمية الماء.",
+      "en": "I measure the amount of water."
+    }
+  },
+  {
+    "fr": "La quantité",
+    "ar": "الكمية",
+    "en": "Quantity / Amount",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Il faut respecter la quantité des ingrédients.",
+      "ar": "يجب احترام كمية المكونات.",
+      "en": "The quantity of ingredients must be respected."
+    }
+  },
+  {
+    "fr": "Refroidir",
+    "ar": "يبرّد",
+    "en": "To cool",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je laisse refroidir le riz après la cuisson.",
+      "ar": "أترك الأرز ليبرد بعد الطبخ.",
+      "en": "I let the rice cool after cooking."
+    }
+  },
+  {
+    "fr": "La fraîcheur",
+    "ar": "الط freshness / الطزاجة",
+    "en": "Freshness",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "La fraîcheur du poisson est essentielle.",
+      "ar": "طزاجة السمك ضرورية.",
+      "en": "The freshness of the fish is essential."
+    }
+  },
+  {
+    "fr": "La date de péremption",
+    "ar": "تاريخ انتهاء الصلاحية",
+    "en": "Expiry date",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je vérifie la date de péremption.",
+      "ar": "أتحقق من تاريخ انتهاء الصلاحية.",
+      "en": "I check the expiry date."
+    }
+  },
+  {
+    "fr": "Jeter",
+    "ar": "يرمي / يتخلص من",
+    "en": "To throw away / To discard",
+    "level": "A2",
+    "pos": "verb",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Il faut jeter les produits périmés.",
+      "ar": "يجب رمي المنتجات منتهية الصلاحية.",
+      "en": "Expired products must be thrown away."
+    }
+  },
+  {
+    "fr": "Périmé",
+    "ar": "منتهي الصلاحية",
+    "en": "Expired",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Ce produit est périmé.",
+      "ar": "هذا المنتج منتهي الصلاحية.",
+      "en": "This product is expired."
+    }
+  },
+  {
+    "fr": "Nettoyer le poste de travail",
+    "ar": "تنظيف مكان العمل",
+    "en": "Clean the workstation",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je nettoie mon poste de travail après le service.",
+      "ar": "أنظف مكان عملي بعد انتهاء الخدمة.",
+      "en": "I clean my workstation after service."
+    }
+  },
+  {
+    "fr": "Dépêche-toi",
+    "ar": "أسرع / استعجل",
+    "en": "Hurry up",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": [
+      {
+        "fr": "Dépêche-toi, la commande est prête.",
+        "ar": "أسرع، الطلبية جاهزة.",
+        "en": "Hurry up, the order is ready."
+      },
+      {
+        "fr": "Dépêche-toi, le client attend.",
+        "ar": "أسرع، الزبون ينتظر.",
+        "en": "Hurry up, the customer is waiting."
+      }
+    ]
+  },
+  {
+    "fr": "Prépare la commande",
+    "ar": "حضّر الطلبية",
+    "en": "Prepare the order",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Prépare la commande du client, s’il te plaît.",
+      "ar": "حضّر طلب الزبون من فضلك.",
+      "en": "Prepare the customer’s order, please."
+    }
+  },
+  {
+    "fr": "Vérifie la commande",
+    "ar": "تحقق من الطلبية",
+    "en": "Check the order",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Vérifie la commande avant de la donner au client.",
+      "ar": "تحقق من الطلب قبل إعطائه للزبون.",
+      "en": "Check the order before giving it to the customer."
+    }
+  },
+  {
+    "fr": "Il manque",
+    "ar": "ينقص / لا يوجد",
+    "en": "There is missing / We are missing / There is not enough",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": [
+      {
+        "fr": "Il manque du saumon pour la préparation.",
+        "ar": "ينقصنا سلمون للتحضير.",
+        "en": "We are missing salmon for preparation."
+      },
+      {
+        "fr": "Il manque des baguettes.",
+        "ar": "تنقصنا عيدان الأكل.",
+        "en": "We are missing chopsticks."
+      }
+    ]
+  },
+  {
+    "fr": "Ajoute",
+    "ar": "أضف",
+    "en": "Add",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Ajoute un peu de sauce soja.",
+      "ar": "أضف قليلًا من صلصة الصويا.",
+      "en": "Add a little soy sauce."
+    }
+  },
+  {
+    "fr": "Enlève",
+    "ar": "أزل / انزع",
+    "en": "Remove / Take off",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Enlève les produits inutiles de la table.",
+      "ar": "أزل المنتجات غير الضرورية من الطاولة.",
+      "en": "Remove the unnecessary products from the table."
+    }
+  },
+  {
+    "fr": "Mets",
+    "ar": "ضع",
+    "en": "Put",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Mets les sushis dans la boîte.",
+      "ar": "ضع السوشي في العلبة.",
+      "en": "Put the sushi in the box."
+    }
+  },
+  {
+    "fr": "Prends",
+    "ar": "خذ",
+    "en": "Take",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Prends le poisson du réfrigérateur.",
+      "ar": "خذ السمك من الثلاجة.",
+      "en": "Take the fish from the refrigerator."
+    }
+  },
+  {
+    "fr": "Range",
+    "ar": "رتّب / ضع في مكانه",
+    "en": "Put away / Organize",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Range les ingrédients après utilisation.",
+      "ar": "رتّب المكونات بعد الاستعمال.",
+      "en": "Put away the ingredients after use."
+    }
+  },
+  {
+    "fr": "Nettoie",
+    "ar": "نظّف",
+    "en": "Clean",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Nettoie la table de travail.",
+      "ar": "نظّف طاولة العمل.",
+      "en": "Clean the work table."
+    }
+  },
+  {
+    "fr": "Fais attention",
+    "ar": "انتبه / كن حذرًا",
+    "en": "Be careful",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Fais attention à la qualité du poisson.",
+      "ar": "انتبه إلى جودة السمك.",
+      "en": "Pay attention to the quality of the fish."
+    }
+  },
+  {
+    "fr": "Termine",
+    "ar": "أنهِ / أكمل",
+    "en": "Finish / Complete",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Termine cette commande avant la pause.",
+      "ar": "أنهِ هذه الطلبية قبل الاستراحة.",
+      "en": "Finish this order before the break."
+    }
+  },
+  {
+    "fr": "Commence par",
+    "ar": "ابدأ بـ",
+    "en": "Start with",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Commence par préparer le riz.",
+      "ar": "ابدأ بتحضير الأرز.",
+      "en": "Start by preparing the rice."
+    }
+  },
+  {
+    "fr": "Suis les instructions",
+    "ar": "اتبع التعليمات",
+    "en": "Follow the instructions",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Suis les instructions du chef.",
+      "ar": "اتبع تعليمات الشيف.",
+      "en": "Follow the chef’s instructions."
+    }
+  },
+  {
+    "fr": "Bienvenue",
+    "ar": "أهلاً وسهلاً",
+    "en": "Welcome",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Bienvenue dans notre restaurant.",
+      "ar": "أهلاً بكم في مطعمنا.",
+      "en": "Welcome to our restaurant."
+    }
+  },
+  {
+    "fr": "Une réservation",
+    "ar": "حجز",
+    "en": "Reservation / Booking",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Avez-vous une réservation ?",
+      "ar": "هل لديكم حجز؟",
+      "en": "Do you have a reservation?"
+    }
+  },
+  {
+    "fr": "Réserver",
+    "ar": "يحجز",
+    "en": "To book / To reserve",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Je voudrais réserver une table.",
+      "ar": "أريد حجز طاولة.",
+      "en": "I would like to reserve a table."
+    }
+  },
+  {
+    "fr": "Une table",
+    "ar": "طاولة",
+    "en": "Table",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Votre table est prête.",
+      "ar": "طاولتكم جاهزة.",
+      "en": "Your table is ready."
+    }
+  },
+  {
+    "fr": "Le menu",
+    "ar": "قائمة الطعام",
+    "en": "Menu",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Voici le menu du restaurant.",
+      "ar": "هذه قائمة طعام المطعم.",
+      "en": "Here is the restaurant menu."
+    }
+  },
+  {
+    "fr": "Une commande à emporter",
+    "ar": "طلب خارجي / سفري",
+    "en": "Takeaway order",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "C’est une commande à emporter.",
+      "ar": "هذا طلب للأخذ خارج المطعم.",
+      "en": "This is a takeaway order."
+    }
+  },
+  {
+    "fr": "Sur place",
+    "ar": "داخل المطعم / في المكان",
+    "en": "On site / Dine in",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Vous mangez sur place ou à emporter ?",
+      "ar": "هل تأكلون هنا أم تأخذونه معكم؟",
+      "en": "Are you eating here or taking it away?"
+    }
+  },
+  {
+    "fr": "L’adresse de livraison",
+    "ar": "عنوان التوصيل",
+    "en": "Delivery address",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Pouvez-vous confirmer l’adresse de livraison ?",
+      "ar": "هل يمكنكم تأكيد عنوان التوصيل؟",
+      "en": "Can you confirm the delivery address?"
+    }
+  },
+  {
+    "fr": "L’addition",
+    "ar": "الحساب (في المطعم)",
+    "en": "Bill / Check",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Je voudrais l’addition, s’il vous plaît.",
+      "ar": "أريد الحساب من فضلك.",
+      "en": "I would like the bill, please."
+    }
+  },
+  {
+    "fr": "C’est prêt",
+    "ar": "إنه جاهز",
+    "en": "It’s ready",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "La commande est prête.",
+      "ar": "الطلبية جاهزة.",
+      "en": "The order is ready."
+    }
+  },
+  {
+    "fr": "Ce n’est pas prêt",
+    "ar": "ليس جاهزًا",
+    "en": "It’s not ready",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le sushi n’est pas encore prêt.",
+      "ar": "السوشي ليس جاهزًا بعد.",
+      "en": "The sushi is not ready yet."
+    }
+  },
+  {
+    "fr": "Encore",
+    "ar": "ما زال / مرة أخرى",
+    "en": "Still / Again / More",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Il faut encore préparer du riz.",
+      "ar": "يجب تحضير المزيد من الأرز.",
+      "en": "We still need to prepare more rice."
+    }
+  },
+  {
+    "fr": "C’est fini",
+    "ar": "انتهى",
+    "en": "It’s finished / It’s done",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le saumon est fini.",
+      "ar": "انتهى السلمون.",
+      "en": "The salmon is finished."
+    }
+  },
+  {
+    "fr": "Il reste",
+    "ar": "بقي / تبقى",
+    "en": "There is left / Remains",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Il reste deux commandes.",
+      "ar": "بقي طلبان.",
+      "en": "Two orders are left."
+    }
+  },
+  {
+    "fr": "Apporte",
+    "ar": "أحضر",
+    "en": "Bring",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Apporte le riz, s’il te plaît.",
+      "ar": "أحضر الأرز من فضلك.",
+      "en": "Bring the rice, please."
+    }
+  },
+  {
+    "fr": "Donne-moi",
+    "ar": "أعطني",
+    "en": "Give me",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Donne-moi le couteau.",
+      "ar": "أعطني السكين.",
+      "en": "Give me the knife."
+    }
+  },
+  {
+    "fr": "Passe-moi",
+    "ar": "ناولني",
+    "en": "Pass me",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Passe-moi la sauce soja.",
+      "ar": "ناولني صلصة الصويا.",
+      "en": "Pass me the soy sauce."
+    }
+  },
+  {
+    "fr": "Attends",
+    "ar": "انتظر",
+    "en": "Wait",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Attends une minute, s’il te plaît.",
+      "ar": "انتظر دقيقة من فضلك.",
+      "en": "Wait a minute, please."
+    }
+  },
+  {
+    "fr": "Aide-moi",
+    "ar": "ساعدني",
+    "en": "Help me",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Aide-moi à préparer cette commande.",
+      "ar": "ساعدني في تحضير هذه الطلبية.",
+      "en": "Help me prepare this order."
+    }
+  },
+  {
+    "fr": "J’ai besoin de",
+    "ar": "أحتاج إلى",
+    "en": "I need",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "J’ai besoin de plus de riz.",
+      "ar": "أحتاج إلى المزيد من الأرز.",
+      "en": "I need more rice."
+    }
+  },
+  {
+    "fr": "Faire attention",
+    "ar": "الانتباه / الحذر",
+    "en": "To be careful / Pay attention",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Il faut faire attention avec le couteau.",
+      "ar": "يجب الانتباه عند استخدام السكين.",
+      "en": "You must be careful with the knife."
+    }
+  },
+  {
+    "fr": "Nettoie la surface",
+    "ar": "نظف السطح",
+    "en": "Clean the surface",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Nettoie la surface de travail après la préparation.",
+      "ar": "نظف سطح العمل بعد التحضير.",
+      "en": "Clean the work surface after preparation."
+    }
+  },
+  {
+    "fr": "Range le matériel",
+    "ar": "رتّب المعدات",
+    "en": "Put away the equipment",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Range le matériel après le service.",
+      "ar": "رتّب المعدات بعد انتهاء الخدمة.",
+      "en": "Put away the equipment after service."
+    }
+  },
+  {
+    "fr": "Le service",
+    "ar": "فترة العمل / الخدمة",
+    "en": "Service / Shift",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le service commence à midi.",
+      "ar": "تبدأ فترة الخدمة عند الظهر.",
+      "en": "The service starts at noon."
+    }
+  },
+  {
+    "fr": "Le cuiseur à riz",
+    "ar": "جهاز طبخ الأرز",
+    "en": "Rice cooker",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "J’utilise le cuiseur à riz pour préparer le riz à sushi.",
+      "ar": "أستخدم جهاز طبخ الأرز لتحضير أرز السوشي.",
+      "en": "I use the rice cooker to prepare sushi rice."
+    }
+  },
+  {
+    "fr": "Le bol",
+    "ar": "وعاء / زبدية",
+    "en": "Bowl",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je mets le riz dans un bol.",
+      "ar": "أضع الأرز في وعاء.",
+      "en": "I put the rice in a bowl."
+    }
+  },
+  {
+    "fr": "La spatule à riz",
+    "ar": "ملعقة الأرز",
+    "en": "Rice paddle",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "J’utilise une spatule pour mélanger le riz.",
+      "ar": "أستخدم ملعقة لخلط الأرز.",
+      "en": "I use a rice paddle to mix the rice."
+    }
+  },
+  {
+    "fr": "La pince",
+    "ar": "ملقط",
+    "en": "Tongs / Tweezers",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "J’utilise une pince pour prendre les ingrédients.",
+      "ar": "أستخدم ملقطًا لأخذ المكونات.",
+      "en": "I use tongs to pick up the ingredients."
+    }
+  },
+  {
+    "fr": "Le plateau",
+    "ar": "صينية / طبق تقديم",
+    "en": "Tray",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je place les sushis sur le plateau.",
+      "ar": "أضع السوشي على الصينية.",
+      "en": "I place the sushi on the tray."
+    }
+  },
+  {
+    "fr": "L’assiette",
+    "ar": "الصحن",
+    "en": "Plate",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je mets les sushis dans une assiette.",
+      "ar": "أضع السوشي في صحن.",
+      "en": "I put the sushi on a plate."
+    }
+  },
+  {
+    "fr": "Les baguettes",
+    "ar": "عيدان الأكل",
+    "en": "Chopsticks",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le client mange avec des baguettes.",
+      "ar": "الزبون يأكل بعيدان الأكل.",
+      "en": "The customer eats with chopsticks."
+    }
+  },
+  {
+    "fr": "Le tablier",
+    "ar": "المريول / المئزر",
+    "en": "Apron",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je porte un tablier propre au travail.",
+      "ar": "أرتدي مئزرًا نظيفًا في العمل.",
+      "en": "I wear a clean apron at work."
+    }
+  },
+  {
+    "fr": "Les gants",
+    "ar": "القفازات",
+    "en": "Gloves",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je porte des gants pour préparer les aliments.",
+      "ar": "أرتدي القفازات لتحضير الطعام.",
+      "en": "I wear gloves to prepare food."
+    }
+  },
+  {
+    "fr": "La charlotte",
+    "ar": "غطاء الشعر",
+    "en": "Hairnet",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Il faut porter une charlotte en cuisine.",
+      "ar": "يجب ارتداء غطاء الشعر في المطبخ.",
+      "en": "You must wear a hairnet in the kitchen."
+    }
+  },
+  {
+    "fr": "Le réfrigérateur positif",
+    "ar": "ثلاجة حفظ الطعام الطازج",
+    "en": "Refrigerator / Chiller",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le poisson est conservé dans le réfrigérateur.",
+      "ar": "يُحفظ السمك في الثلاجة.",
+      "en": "The fish is kept in the refrigerator."
+    }
+  },
+  {
+    "fr": "Le congélateur",
+    "ar": "الفريزر / المجمد",
+    "en": "Freezer",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Les produits congelés sont dans le congélateur.",
+      "ar": "المنتجات المجمدة موجودة في الفريزر.",
+      "en": "Frozen products are in the freezer."
+    }
+  },
+  {
+    "fr": "L’évier",
+    "ar": "المغسلة / الحوض",
+    "en": "Sink",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je lave les ustensiles dans l’évier.",
+      "ar": "أغسل الأدوات في المغسلة.",
+      "en": "I wash the utensils in the sink."
+    }
+  },
+  {
+    "fr": "L’éponge",
+    "ar": "الإسفنجة",
+    "en": "Sponge",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je nettoie la table avec une éponge.",
+      "ar": "أنظف الطاولة بإسفنجة.",
+      "en": "I clean the table with a sponge."
+    }
+  },
+  {
+    "fr": "Le produit de nettoyage",
+    "ar": "مادة التنظيف",
+    "en": "Cleaning product",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "J’utilise le produit de nettoyage après le travail.",
+      "ar": "أستخدم مادة التنظيف بعد العمل.",
+      "en": "I use the cleaning product after work."
+    }
+  },
+  {
+    "fr": "Le nigiri",
+    "ar": "نيغيري (أرز مع قطعة سمك فوقه)",
+    "en": "Nigiri",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je prépare des nigiris avec du saumon frais.",
+      "ar": "أحضّر نيغيري مع سلمون طازج.",
+      "en": "I prepare nigiri with fresh salmon."
+    }
+  },
+  {
+    "fr": "Le sashimi",
+    "ar": "ساشيمي (شرائح سمك نيء)",
+    "en": "Sashimi",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le sashimi est préparé avec du poisson frais.",
+      "ar": "يُحضّر الساشيمي من سمك طازج.",
+      "en": "Sashimi is prepared with fresh fish."
+    }
+  },
+  {
+    "fr": "Le california roll",
+    "ar": "كاليفورنيا رول",
+    "en": "California roll",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le california roll contient souvent de l’avocat.",
+      "ar": "غالبًا يحتوي الكاليفورنيا رول على الأفوكادو.",
+      "en": "California roll often contains avocado."
+    }
+  },
+  {
+    "fr": "L’avocat",
+    "ar": "الأفوكادو",
+    "en": "Avocado",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je coupe l’avocat en petits morceaux.",
+      "ar": "أقطع الأفوكادو إلى قطع صغيرة.",
+      "en": "I cut the avocado into small pieces."
+    }
+  },
+  {
+    "fr": "Le concombre",
+    "ar": "الخيار",
+    "en": "Cucumber",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "J’ajoute du concombre dans le maki.",
+      "ar": "أضيف الخيار داخل الماكي.",
+      "en": "I add cucumber to the maki."
+    }
+  },
+  {
+    "fr": "Le fromage frais",
+    "ar": "الجبن الطازج",
+    "en": "Cream cheese / Fresh cheese",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Certains sushis contiennent du fromage frais.",
+      "ar": "بعض أنواع السوشي تحتوي على جبن طازج.",
+      "en": "Some sushi contain cream cheese."
+    }
+  },
+  {
+    "fr": "La feuille de nori",
+    "ar": "ورقة النوري (طحالب)",
+    "en": "Nori sheet",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je place le riz sur la feuille de nori.",
+      "ar": "أضع الأرز على ورقة النوري.",
+      "en": "I place the rice on the nori sheet."
+    }
+  },
+  {
+    "fr": "La tranche",
+    "ar": "شريحة",
+    "en": "Slice",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Je coupe le saumon en fines tranches.",
+      "ar": "أقطع السلمون إلى شرائح رقيقة.",
+      "en": "I cut the salmon into thin slices."
+    }
+  },
+  {
+    "fr": "Fin / Fine",
+    "ar": "رقيق / نحيف",
+    "en": "Thin / Fine",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Les tranches doivent être fines.",
+      "ar": "يجب أن تكون الشرائح رقيقة.",
+      "en": "The slices must be thin."
+    }
+  },
+  {
+    "fr": "Épais / Épaisse",
+    "ar": "سميك",
+    "en": "Thick",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Cette tranche est trop épaisse.",
+      "ar": "هذه الشريحة سميكة جدًا.",
+      "en": "This slice is too thick."
+    }
+  },
+  {
+    "fr": "La texture",
+    "ar": "القوام / الملمس",
+    "en": "Texture",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "La texture du riz est importante.",
+      "ar": "قوام الأرز مهم.",
+      "en": "The texture of the rice is important."
+    }
+  },
+  {
+    "fr": "La saveur",
+    "ar": "النكهة",
+    "en": "Flavor / Taste",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Cette sauce donne une bonne saveur au sushi.",
+      "ar": "هذه الصلصة تعطي نكهة جيدة للسوشي.",
+      "en": "This sauce gives a good flavor to the sushi."
+    }
+  },
+  {
+    "fr": "Épicé",
+    "ar": "حار / متبل",
+    "en": "Spicy",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Ce sushi est un peu épicé.",
+      "ar": "هذا السوشي حار قليلًا.",
+      "en": "This sushi is a little spicy."
+    }
+  },
+  {
+    "fr": "Doux / Douce",
+    "ar": "خفيف / غير حار",
+    "en": "Mild / Soft",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Cette sauce a un goût doux.",
+      "ar": "هذه الصلصة طعمها خفيف.",
+      "en": "This sauce has a mild taste."
+    }
+  },
+  {
+    "fr": "La présentation",
+    "ar": "طريقة التقديم / الشكل",
+    "en": "Presentation",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "La présentation du sushi doit être soignée.",
+      "ar": "يجب أن يكون شكل تقديم السوشي مرتبًا.",
+      "en": "The presentation of sushi must be neat."
     }
   }
 ]
