@@ -314,6 +314,29 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   - `work`, `health`, `bank`, `housing`, and all other context counts remain unchanged from dross-v115.
 - All other entries from dross-v115 remain unchanged.
 
+## Medical symptoms / blood tests / hepatitis B / MDPH work batch (dross-v117)
+
+- `data/vocab.js` now contains **1646** entries; `sw.js` cache bumped to `dross-v117`.
+- Letter chip counts: `A (589)`, `B (152)`, `C (591)`, `D (48)`, `E (25)`, `F (16)`, `G (4)`, `H (10)`, `I (15)`, `J (21)`, `L (8)`, `M (24)`, `N (6)`, `O (9)`, `P (30)`, `Q (2)`, `R (40)`, `S (26)`, `T (15)`, `U (2)`, `V (13)`.
+- POS counts: `noun 741`, `verb 312`, `adjective 239`, `phrase 193`, `other 161`.
+- Context counts: `daily 687`, `health 251`, `services 391`, `work 298`, `housing 70`, `bank 43`, `shop 45`, `transport 38`, `school 27`, `phone 18`, `caf 17`, `car 14`, `family 14`, `france_travail 11`, `weather 7`, `restaurant 7`, `food 8`, `prefecture 6`, `post 4`, `cpam 4`, `mairie 2`, `office 2`, `geography 1`.
+- 111 new entries added and 17 merged, focusing on medical symptoms, blood tests, hepatitis B, and MDPH/work terms. Sample entries:
+  - `Douleur` → noun A1, health, 2 examples
+  - `Avoir mal` → other A1, health
+  - `Fièvre` / `Toux` / `Rhume` / `Nausée` / `Vomir` / `Diarrhée` / `Constipation` / `Ballonnement` / `Reflux` / `Brûlure` / `Vertige` → A1 health
+  - `J'ai des symptômes` → other A1, health
+  - `Prélèvement sanguin` / `Bilan sanguin` / `Taux` / `Évolution` → noun A1, health
+  - `Stable` → adjective A1, health
+  - `Amélioration` → noun A1, health+services+work, 2 examples
+  - `Aggravation` → noun A1, health, 2 examples
+  - `Hépatite B` / `Charge virale` / `ADN viral` / `Antigène HBs` / `Anticorps` / `Sérologie` / `Transaminases` / `ALAT (Alanine aminotransférase)` / `ASAT (Aspartate aminotransférase)` / `Échographie du foie` / `Fibrose` / `Cirrhose` → noun A1, health
+  - `Médecine du travail` / `Médecin du travail` / `Aptitude au travail` / `Inaptitude` → noun A1, services+work+health
+  - `Mi-temps thérapeutique` → noun A1, work+health
+  - `Aménager les horaires` / `Réduire le temps de travail` / `Changer de poste` / `Adapter les tâches` → other A1, work
+  - `Demander un aménagement` → other A1, services+work
+- Searching common short health/work terms returns multiple substring matches; exact entries are present in the result list.
+- TTS loop on `Douleur` (2 examples) emits 9 unique `fr/ar/en` utterances per cycle.
+
 ## Modernized `vocab.html` UI (dross-v95)
 
 - `vocab.html` now uses a refreshed dark/light palette, glass-morphism sticky `header` (`backdrop-filter: blur(12px)`), a `.hero` section with a gradient top accent line, and a `.toolbar` grid layout.
@@ -326,7 +349,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v116`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v117`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
