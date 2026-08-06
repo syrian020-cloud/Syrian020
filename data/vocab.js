@@ -3011,17 +3011,24 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Administration",
-    "ar": "إدارة / مصلحة حكومية",
+    "ar": "إدارة",
     "en": "Administration",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Je dois contacter l'administration.",
-      "ar": "يجب أن أتواصل مع الإدارة.",
-      "en": "I have to contact the administration."
-    },
+    "ex": [
+      {
+        "fr": "Je dois contacter l'administration.",
+        "ar": "يجب أن أتواصل مع الإدارة.",
+        "en": "I have to contact the administration."
+      },
+      {
+        "fr": "Je dois faire une démarche administrative.",
+        "ar": "يجب أن أقوم بإجراء إداري.",
+        "en": "I have to complete an administrative procedure."
+      }
+    ],
     "usage": "جميع المراكز الحكومية",
     "pos": "noun"
   },
@@ -3268,18 +3275,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Allocation",
-    "ar": "إعانة / مخصصات",
+    "ar": "مخصص / إعانة مالية",
     "en": "Allowance / Benefit",
-    "level": "A2",
+    "level": "B1",
     "contexts": [
       "caf",
       "services"
     ],
-    "ex": {
-      "fr": "Je reçois une allocation de la CAF.",
-      "ar": "أتلقى إعانة من الكاف.",
-      "en": "I receive a benefit from CAF."
-    },
+    "ex": [
+      {
+        "fr": "Je reçois une allocation de la CAF.",
+        "ar": "أتلقى إعانة من الكاف.",
+        "en": "I receive a benefit from CAF."
+      },
+      {
+        "fr": "Je reçois une allocation sociale.",
+        "ar": "أتلقى إعانة اجتماعية.",
+        "en": "I receive a social benefit."
+      }
+    ],
     "usage": "CAF / المساعدات الاجتماعية",
     "pos": "noun"
   },
@@ -3929,19 +3943,27 @@ window.VOCAB_DATA = [
     "fr": "Attestation de droits",
     "ar": "شهادة الحقوق",
     "en": "Proof of entitlement",
-    "level": "B1",
+    "level": "A1",
     "contexts": [
       "caf",
       "cpam",
+      "health",
       "services"
     ],
-    "ex": {
-      "fr": "Je dois envoyer mon attestation de droits.",
-      "ar": "يجب أن أرسل شهادة حقوقي.",
-      "en": "I need to send my proof of entitlement."
-    },
+    "ex": [
+      {
+        "fr": "Je dois envoyer mon attestation de droits.",
+        "ar": "يجب أن أرسل شهادة حقوقي.",
+        "en": "I need to send my proof of entitlement."
+      },
+      {
+        "fr": "J'ai besoin d'une attestation de droits.",
+        "ar": "أحتاج إلى شهادة الحقوق.",
+        "en": "I need a proof of entitlement."
+      }
+    ],
     "usage": "CPAM / CAF",
-    "pos": "phrase"
+    "pos": "noun"
   },
   {
     "fr": "Attestation de travail",
@@ -4579,17 +4601,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Accueillir",
-    "ar": "يستقبل / يرحب بـ",
-    "en": "To welcome",
+    "ar": "يستقبل",
+    "en": "To welcome / Receive",
     "level": "A2",
     "contexts": [
+      "services",
       "work"
     ],
-    "ex": {
-      "fr": "La mairie accueille les habitants.",
-      "ar": "البلدية تستقبل السكان.",
-      "en": "The town hall welcomes residents."
-    },
+    "ex": [
+      {
+        "fr": "La mairie accueille les habitants.",
+        "ar": "البلدية تستقبل السكان.",
+        "en": "The town hall welcomes residents."
+      },
+      {
+        "fr": "L'agent m'a accueilli au guichet.",
+        "ar": "الموظف استقبلني في الشباك.",
+        "en": "The agent welcomed me at the counter."
+      }
+    ],
     "usage": "الإدارات، الشركات، الأماكن العامة",
     "pos": "verb"
   },
@@ -14726,7 +14756,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Crème",
-    "ar": "كريم",
+    "ar": "كريم / مرهم",
     "en": "Cream",
     "pos": "noun",
     "level": "A1",
@@ -14749,6 +14779,11 @@ window.VOCAB_DATA = [
         "fr": "J'utilise une crème pour la peau.",
         "ar": "أستخدم كريمًا للبشرة.",
         "en": "I use a skin cream."
+      },
+      {
+        "fr": "J'applique cette crème sur la peau.",
+        "ar": "أضع هذا الكريم على الجلد.",
+        "en": "I apply this cream on the skin."
       }
     ]
   },
@@ -15841,7 +15876,7 @@ window.VOCAB_DATA = [
     "ar": "جراحة",
     "en": "Surgery",
     "pos": "noun",
-    "level": "B1",
+    "level": "A1",
     "contexts": [
       "health"
     ],
@@ -15855,6 +15890,11 @@ window.VOCAB_DATA = [
         "fr": "Il doit subir une chirurgie.",
         "ar": "يجب أن يخضع لعملية جراحية.",
         "en": "He needs to undergo surgery."
+      },
+      {
+        "fr": "Le service de chirurgie m'a contacté.",
+        "ar": "قسم الجراحة اتصل بي.",
+        "en": "The surgery department contacted me."
       }
     ]
   },
@@ -16390,18 +16430,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Contester",
-    "ar": "يعترض / يطعن",
-    "en": "To contest",
+    "ar": "يعترض",
+    "en": "To dispute / Challenge",
     "pos": "verb",
     "level": "B1",
     "contexts": [
       "services"
     ],
-    "ex": {
-      "fr": "Je veux contester cette décision.",
-      "ar": "أريد الاعتراض على هذا القرار.",
-      "en": "I want to contest this decision."
-    }
+    "ex": [
+      {
+        "fr": "Je veux contester cette décision.",
+        "ar": "أريد الاعتراض على هذا القرار.",
+        "en": "I want to contest this decision."
+      },
+      {
+        "fr": "Je souhaite contester la décision.",
+        "ar": "أريد الاعتراض على القرار.",
+        "en": "I want to challenge the decision."
+      }
+    ]
   },
   {
     "fr": "Continuité",
@@ -18277,16 +18324,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Candidature",
-    "ar": "طلب ترشح / طلب عمل",
+    "ar": "طلب ترشح",
     "en": "Application",
     "pos": "noun",
     "level": "B1",
-    "contexts": [],
-    "ex": {
-      "fr": "J'envoie ma candidature demain.",
-      "ar": "سأرسل طلب الترشح غدًا.",
-      "en": "I will send my application tomorrow."
-    }
+    "contexts": [
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "J'envoie ma candidature demain.",
+        "ar": "سأرسل طلب الترشح غدًا.",
+        "en": "I will send my application tomorrow."
+      },
+      {
+        "fr": "J'ai envoyé ma candidature.",
+        "ar": "أرسلت طلبي للترشح.",
+        "en": "I sent my application."
+      }
+    ]
   },
   {
     "fr": "Capteur",
@@ -20368,16 +20424,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Conseiller",
-    "ar": "ينصح / مستشار",
-    "en": "To advise / Adviser",
-    "pos": "other",
+    "ar": "مستشار",
+    "en": "Advisor",
+    "pos": "noun",
     "level": "A2",
-    "contexts": [],
-    "ex": {
-      "fr": "Le médecin me conseille de me reposer.",
-      "ar": "الطبيب ينصحني بالراحة.",
-      "en": "The doctor advises me to rest."
-    }
+    "contexts": [
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Le médecin me conseille de me reposer.",
+        "ar": "الطبيب ينصحني بالراحة.",
+        "en": "The doctor advises me to rest."
+      },
+      {
+        "fr": "Je voudrais parler avec un conseiller.",
+        "ar": "أريد التحدث مع مستشار.",
+        "en": "I would like to speak with an advisor."
+      }
+    ]
   },
   {
     "fr": "Conserver au frais",
@@ -21029,13 +21094,21 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "health",
       "services"
     ],
-    "ex": {
-      "fr": "Je dois faire le renouvellement de mes droits.",
-      "ar": "يجب أن أجدد حقوقي.",
-      "en": "I need to renew my rights."
-    }
+    "ex": [
+      {
+        "fr": "Je dois faire le renouvellement de mes droits.",
+        "ar": "يجب أن أجدد حقوقي.",
+        "en": "I need to renew my rights."
+      },
+      {
+        "fr": "J'ai besoin d'un renouvellement de traitement.",
+        "ar": "أحتاج إلى تجديد العلاج.",
+        "en": "I need a treatment renewal."
+      }
+    ]
   },
   {
     "fr": "Droits",
@@ -21336,26 +21409,40 @@ window.VOCAB_DATA = [
     "contexts": [
       "services"
     ],
-    "ex": {
-      "fr": "J'ai un rendez-vous à la CAF.",
-      "ar": "لدي موعد في CAF.",
-      "en": "I have an appointment at CAF."
-    }
+    "ex": [
+      {
+        "fr": "J'ai un rendez-vous à la CAF.",
+        "ar": "لدي موعد في CAF.",
+        "en": "I have an appointment at CAF."
+      },
+      {
+        "fr": "J'ai un rendez-vous avec mon conseiller.",
+        "ar": "لدي موعد مع مستشاري.",
+        "en": "I have an appointment with my advisor."
+      }
+    ]
   },
   {
     "fr": "Guichet",
-    "ar": "شباك الخدمة",
-    "en": "Service counter",
+    "ar": "شباك / مكتب استقبال",
+    "en": "Counter",
     "pos": "noun",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
       "services"
     ],
-    "ex": {
-      "fr": "Je dois aller au guichet.",
-      "ar": "يجب أن أذهب إلى شباك الخدمة.",
-      "en": "I have to go to the service counter."
-    }
+    "ex": [
+      {
+        "fr": "Je dois aller au guichet.",
+        "ar": "يجب أن أذهب إلى شباك الخدمة.",
+        "en": "I have to go to the service counter."
+      },
+      {
+        "fr": "Je vais au guichet d'accueil.",
+        "ar": "سأذهب إلى مكتب الاستقبال.",
+        "en": "I am going to the reception desk."
+      }
+    ]
   },
   {
     "fr": "Justificatif",
@@ -21498,11 +21585,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "services"
     ],
-    "ex": {
-      "fr": "Je peux faire un recours contre cette décision.",
-      "ar": "يمكنني تقديم طعن ضد هذا القرار.",
-      "en": "I can appeal this decision."
-    }
+    "ex": [
+      {
+        "fr": "Je peux faire un recours contre cette décision.",
+        "ar": "يمكنني تقديم طعن ضد هذا القرار.",
+        "en": "I can appeal this decision."
+      },
+      {
+        "fr": "J'ai envoyé un recours.",
+        "ar": "أرسلت طعنًا.",
+        "en": "I sent an appeal."
+      }
+    ]
   },
   {
     "fr": "Alerte",
@@ -21536,16 +21630,23 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Déclarer",
-    "ar": "يصرّح",
-    "en": "To declare / Report",
+    "ar": "يصرح",
+    "en": "To declare",
     "pos": "verb",
-    "level": "A2",
+    "level": "A1",
     "contexts": [],
-    "ex": {
-      "fr": "Je dois déclarer mes revenus.",
-      "ar": "يجب أن أصرح بدخلي.",
-      "en": "I must declare my income."
-    }
+    "ex": [
+      {
+        "fr": "Je dois déclarer mes revenus.",
+        "ar": "يجب أن أصرح بدخلي.",
+        "en": "I must declare my income."
+      },
+      {
+        "fr": "Je dois déclarer un changement d'adresse.",
+        "ar": "يجب أن أصرح بتغيير العنوان.",
+        "en": "I must declare a change of address."
+      }
+    ]
   },
   {
     "fr": "Déclaration",
@@ -21571,18 +21672,25 @@ window.VOCAB_DATA = [
     "contexts": [
       "services"
     ],
-    "ex": {
-      "fr": "Est-ce que je suis éligible à cette aide ?",
-      "ar": "هل أنا مؤهل لهذه المساعدة؟",
-      "en": "Am I eligible for this aid?"
-    }
+    "ex": [
+      {
+        "fr": "Est-ce que je suis éligible à cette aide ?",
+        "ar": "هل أنا مؤهل لهذه المساعدة؟",
+        "en": "Am I eligible for this aid?"
+      },
+      {
+        "fr": "Est-ce que je suis éligible à cette aide ?",
+        "ar": "هل أنا مؤهل لهذه المساعدة؟",
+        "en": "Am I eligible for this benefit?"
+      }
+    ]
   },
   {
     "fr": "Éligibilité",
     "ar": "الأهلية / الاستحقاق",
     "en": "Eligibility",
     "pos": "noun",
-    "level": "B2",
+    "level": "A1",
     "contexts": [
       "services"
     ],
@@ -21617,11 +21725,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "services"
     ],
-    "ex": {
-      "fr": "J'ai reçu une notification.",
-      "ar": "تلقيت إشعارًا.",
-      "en": "I received a notification."
-    }
+    "ex": [
+      {
+        "fr": "J'ai reçu une notification.",
+        "ar": "تلقيت إشعارًا.",
+        "en": "I received a notification."
+      },
+      {
+        "fr": "Je n'ai pas compris cette notification.",
+        "ar": "لم أفهم هذا الإشعار.",
+        "en": "I did not understand this notification."
+      }
+    ]
   },
   {
     "fr": "Réception",
@@ -22269,18 +22384,26 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Traitement",
-    "ar": "معالجة",
-    "en": "Processing",
+    "ar": "علاج",
+    "en": "Treatment",
     "pos": "noun",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
+      "health",
       "services"
     ],
-    "ex": {
-      "fr": "Le traitement de mon dossier prend du temps.",
-      "ar": "معالجة ملفي تأخذ وقتًا.",
-      "en": "Processing my file takes time."
-    }
+    "ex": [
+      {
+        "fr": "Le traitement de mon dossier prend du temps.",
+        "ar": "معالجة ملفي تأخذ وقتًا.",
+        "en": "Processing my file takes time."
+      },
+      {
+        "fr": "Je suis un traitement depuis un an.",
+        "ar": "أتابع علاجًا منذ سنة.",
+        "en": "I have been on a treatment for one year."
+      }
+    ]
   },
   {
     "fr": "Traiter",
@@ -23109,17 +23232,24 @@ window.VOCAB_DATA = [
   {
     "fr": "Médecin traitant",
     "ar": "الطبيب المعالج",
-    "en": "General practitioner",
+    "en": "Primary doctor",
     "pos": "noun",
     "level": "A1",
     "contexts": [
       "health"
     ],
-    "ex": {
-      "fr": "Mon médecin traitant a rempli le certificat.",
-      "ar": "طبيبي المعالج ملأ الشهادة.",
-      "en": "My doctor completed the certificate."
-    }
+    "ex": [
+      {
+        "fr": "Mon médecin traitant a rempli le certificat.",
+        "ar": "طبيبي المعالج ملأ الشهادة.",
+        "en": "My doctor completed the certificate."
+      },
+      {
+        "fr": "J'ai déclaré mon médecin traitant.",
+        "ar": "صرحت بطبيبي المعالج.",
+        "en": "I declared my primary doctor."
+      }
+    ]
   },
   {
     "fr": "Spécialiste",
@@ -23679,6 +23809,1591 @@ window.VOCAB_DATA = [
       "fr": "J'ai reçu une décision défavorable.",
       "ar": "تلقيت قرارًا بالرفض.",
       "en": "I received an unfavorable decision."
+    }
+  },
+  {
+    "fr": "AAH (Allocation aux adultes handicapés)",
+    "ar": "مخصص للبالغين ذوي الإعاقة",
+    "en": "Disability allowance for adults",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Je souhaite faire une demande d'AAH.",
+      "ar": "أريد تقديم طلب للحصول على AAH.",
+      "en": "I would like to apply for AAH."
+    }
+  },
+  {
+    "fr": "Montant de l'allocation",
+    "ar": "مبلغ الإعانة",
+    "en": "Benefit amount",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "bank"
+    ],
+    "ex": {
+      "fr": "Je voudrais connaître le montant de l'allocation.",
+      "ar": "أريد معرفة مبلغ الإعانة.",
+      "en": "I would like to know the benefit amount."
+    }
+  },
+  {
+    "fr": "Conditions d'attribution",
+    "ar": "شروط الحصول",
+    "en": "Eligibility conditions",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quelles sont les conditions d'attribution ?",
+      "ar": "ما هي شروط الحصول؟",
+      "en": "What are the eligibility conditions?"
+    }
+  },
+  {
+    "fr": "Taux d'incapacité",
+    "ar": "نسبة العجز",
+    "en": "Disability rate",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le taux d'incapacité est évalué par la MDPH.",
+      "ar": "يتم تقييم نسبة العجز من قبل MDPH.",
+      "en": "The disability rate is assessed by MDPH."
+    }
+  },
+  {
+    "fr": "Incapacité",
+    "ar": "عجز / عدم قدرة",
+    "en": "Incapacity",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Cette incapacité affecte mon quotidien.",
+      "ar": "هذا العجز يؤثر على حياتي اليومية.",
+      "en": "This incapacity affects my daily life."
+    }
+  },
+  {
+    "fr": "Invalidité",
+    "ar": "عجز صحي / إعاقة",
+    "en": "Invalidity",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Mon état de santé entraîne une invalidité.",
+      "ar": "حالتي الصحية تسبب عجزًا.",
+      "en": "My health condition causes invalidity."
+    }
+  },
+  {
+    "fr": "Carte mobilité inclusion (CMI)",
+    "ar": "بطاقة التنقل والإدماج",
+    "en": "Mobility inclusion card",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je souhaite demander une carte mobilité inclusion.",
+      "ar": "أريد طلب بطاقة التنقل والإدماج.",
+      "en": "I would like to apply for a mobility inclusion card."
+    }
+  },
+  {
+    "fr": "Carte priorité",
+    "ar": "بطاقة أولوية",
+    "en": "Priority card",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "La carte priorité permet un accès prioritaire.",
+      "ar": "بطاقة الأولوية تسمح بالدخول الأولوي.",
+      "en": "The priority card allows priority access."
+    }
+  },
+  {
+    "fr": "Orientation professionnelle",
+    "ar": "توجيه مهني",
+    "en": "Vocational guidance",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "La MDPH peut proposer une orientation professionnelle.",
+      "ar": "يمكن لـ MDPH اقتراح توجيه مهني.",
+      "en": "MDPH can offer vocational guidance."
+    }
+  },
+  {
+    "fr": "Formation adaptée",
+    "ar": "تدريب مناسب",
+    "en": "Adapted training",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je cherche une formation adaptée à ma situation.",
+      "ar": "أبحث عن تدريب مناسب لوضعي.",
+      "en": "I am looking for training adapted to my situation."
+    }
+  },
+  {
+    "fr": "Milieu ordinaire de travail",
+    "ar": "العمل العادي",
+    "en": "Ordinary work environment",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je souhaite continuer à travailler en milieu ordinaire.",
+      "ar": "أريد الاستمرار في العمل العادي.",
+      "en": "I want to continue working in an ordinary work environment."
+    }
+  },
+  {
+    "fr": "Entreprise adaptée",
+    "ar": "شركة مناسبة لذوي الإعاقة",
+    "en": "Adapted company",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Une entreprise adaptée peut proposer un emploi.",
+      "ar": "يمكن لشركة مناسبة أن توفر عملًا.",
+      "en": "An adapted company can offer employment."
+    }
+  },
+  {
+    "fr": "Aménagement raisonnable",
+    "ar": "تكييف معقول",
+    "en": "Reasonable accommodation",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je demande un aménagement raisonnable de mon poste.",
+      "ar": "أطلب تكييفًا مناسبًا لمنصب عملي.",
+      "en": "I request reasonable accommodation of my position."
+    }
+  },
+  {
+    "fr": "Conseillère",
+    "ar": "مستشارة",
+    "en": "Female advisor",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Ma conseillère m'a proposé une formation.",
+      "ar": "مستشارتي اقترحت عليّ تدريبًا.",
+      "en": "My advisor offered me training."
+    }
+  },
+  {
+    "fr": "Bilan professionnel",
+    "ar": "تقييم مهني",
+    "en": "Career assessment",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je souhaite faire un bilan professionnel.",
+      "ar": "أريد إجراء تقييم مهني.",
+      "en": "I would like to do a career assessment."
+    }
+  },
+  {
+    "fr": "Projet professionnel",
+    "ar": "مشروع مهني",
+    "en": "Career plan",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je travaille sur mon projet professionnel.",
+      "ar": "أعمل على مشروعي المهني.",
+      "en": "I am working on my career plan."
+    }
+  },
+  {
+    "fr": "Recherche d'emploi",
+    "ar": "البحث عن عمل",
+    "en": "Job search",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je suis en recherche d'emploi.",
+      "ar": "أنا أبحث عن عمل.",
+      "en": "I am looking for a job."
+    }
+  },
+  {
+    "fr": "Offre d'emploi",
+    "ar": "عرض عمل",
+    "en": "Job offer",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai trouvé une offre d'emploi intéressante.",
+      "ar": "وجدت عرض عمل مناسبًا.",
+      "en": "I found an interesting job offer."
+    }
+  },
+  {
+    "fr": "Postuler",
+    "ar": "يترشح / يقدم طلب عمل",
+    "en": "To apply",
+    "pos": "verb",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je vais postuler pour ce poste.",
+      "ar": "سأقدم طلبًا لهذا المنصب.",
+      "en": "I will apply for this position."
+    }
+  },
+  {
+    "fr": "CV (Curriculum vitae)",
+    "ar": "سيرة ذاتية",
+    "en": "Resume / CV",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai préparé mon CV.",
+      "ar": "حضرت سيرتي الذاتية.",
+      "en": "I prepared my resume."
+    }
+  },
+  {
+    "fr": "Lettre de motivation",
+    "ar": "رسالة تحفيزية",
+    "en": "Cover letter",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai besoin d'une lettre de motivation.",
+      "ar": "أحتاج إلى رسالة تحفيزية.",
+      "en": "I need a cover letter."
+    }
+  },
+  {
+    "fr": "Entretien d'embauche",
+    "ar": "مقابلة عمل",
+    "en": "Job interview",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai un entretien d'embauche demain.",
+      "ar": "لدي مقابلة عمل غدًا.",
+      "en": "I have a job interview tomorrow."
+    }
+  },
+  {
+    "fr": "Période d'essai",
+    "ar": "فترة التجربة",
+    "en": "Trial period",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je suis en période d'essai.",
+      "ar": "أنا في فترة التجربة.",
+      "en": "I am in the trial period."
+    }
+  },
+  {
+    "fr": "Reprendre le travail",
+    "ar": "استئناف العمل",
+    "en": "Return to work",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je vais reprendre le travail lundi.",
+      "ar": "سأعود إلى العمل يوم الاثنين.",
+      "en": "I will return to work on Monday."
+    }
+  },
+  {
+    "fr": "Arrêt maladie",
+    "ar": "إجازة مرضية",
+    "en": "Sick leave",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work",
+      "health"
+    ],
+    "ex": {
+      "fr": "Je suis en arrêt maladie.",
+      "ar": "أنا في إجازة مرضية.",
+      "en": "I am on sick leave."
+    }
+  },
+  {
+    "fr": "Reprise progressive",
+    "ar": "عودة تدريجية",
+    "en": "Gradual return",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Mon médecin conseille une reprise progressive.",
+      "ar": "طبيبي ينصح بعودة تدريجية.",
+      "en": "My doctor recommends a gradual return."
+    }
+  },
+  {
+    "fr": "Aménagement du temps de travail",
+    "ar": "تهيئة وقت العمل",
+    "en": "Working hours adjustment",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai besoin d'un aménagement du temps de travail.",
+      "ar": "أحتاج إلى تعديل وقت العمل.",
+      "en": "I need an adjustment of working hours."
+    }
+  },
+  {
+    "fr": "Formation professionnelle",
+    "ar": "تدريب مهني",
+    "en": "Vocational training",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je souhaite suivre une formation professionnelle.",
+      "ar": "أريد متابعة تدريب مهني.",
+      "en": "I would like to take vocational training."
+    }
+  },
+  {
+    "fr": "Démarche",
+    "ar": "إجراء / معاملة",
+    "en": "Procedure / Step",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Quelle est la démarche à suivre ?",
+      "ar": "ما هي الإجراءات التي يجب اتباعها؟",
+      "en": "What procedure should I follow?"
+    }
+  },
+  {
+    "fr": "Procédure",
+    "ar": "إجراءات / مسطرة",
+    "en": "Procedure",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "La procédure prend plusieurs semaines.",
+      "ar": "الإجراءات تستغرق عدة أسابيع.",
+      "en": "The procedure takes several weeks."
+    }
+  },
+  {
+    "fr": "Formulaire",
+    "ar": "استمارة",
+    "en": "Form",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Je dois remplir ce formulaire.",
+      "ar": "يجب أن أملأ هذه الاستمارة.",
+      "en": "I have to fill out this form."
+    }
+  },
+  {
+    "fr": "Remplir",
+    "ar": "يملأ",
+    "en": "To fill in",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "J'ai rempli le formulaire en ligne.",
+      "ar": "ملأت الاستمارة عبر الإنترنت.",
+      "en": "I filled out the online form."
+    }
+  },
+  {
+    "fr": "Déposer une demande",
+    "ar": "تقديم طلب",
+    "en": "Submit an application",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je souhaite déposer une demande.",
+      "ar": "أريد تقديم طلب.",
+      "en": "I would like to submit an application."
+    }
+  },
+  {
+    "fr": "Recevoir une notification",
+    "ar": "تلقي إشعار",
+    "en": "Receive a notification",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai reçu une notification dans mon espace personnel.",
+      "ar": "تلقيت إشعارًا في حسابي الشخصي.",
+      "en": "I received a notification in my personal account."
+    }
+  },
+  {
+    "fr": "Décision",
+    "ar": "قرار",
+    "en": "Decision",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je conteste cette décision.",
+      "ar": "أعترض على هذا القرار.",
+      "en": "I dispute this decision."
+    }
+  },
+  {
+    "fr": "Délai",
+    "ar": "مهلة / مدة",
+    "en": "Deadline / Time limit",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quel est le délai de réponse ?",
+      "ar": "ما هي مدة الرد؟",
+      "en": "What is the response time?"
+    }
+  },
+  {
+    "fr": "Respecter un délai",
+    "ar": "احترام المهلة",
+    "en": "Meet a deadline",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Il faut respecter le délai.",
+      "ar": "يجب احترام المهلة.",
+      "en": "The deadline must be respected."
+    }
+  },
+  {
+    "fr": "Urgent",
+    "ar": "مستعجل",
+    "en": "Urgent",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Ma demande est urgente.",
+      "ar": "طلبي مستعجل.",
+      "en": "My request is urgent."
+    }
+  },
+  {
+    "fr": "Prioritaire",
+    "ar": "ذو أولوية",
+    "en": "Priority",
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Mon dossier est prioritaire.",
+      "ar": "ملفي له أولوية.",
+      "en": "My file has priority."
+    }
+  },
+  {
+    "fr": "Agent",
+    "ar": "موظف",
+    "en": "Officer / Agent",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "L'agent vérifie mon dossier.",
+      "ar": "الموظف يتحقق من ملفي.",
+      "en": "The officer checks my file."
+    }
+  },
+  {
+    "fr": "Assurance Maladie",
+    "ar": "التأمين الصحي",
+    "en": "Health insurance",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je dépends de l'Assurance Maladie.",
+      "ar": "أنا تابع للتأمين الصحي.",
+      "en": "I am covered by Health Insurance."
+    }
+  },
+  {
+    "fr": "CPAM (Caisse Primaire d'Assurance Maladie)",
+    "ar": "صندوق التأمين الصحي الأساسي",
+    "en": "Primary Health Insurance Fund",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Je contacte la CPAM pour mon dossier.",
+      "ar": "أتواصل مع CPAM بخصوص ملفي.",
+      "en": "I contact CPAM about my file."
+    }
+  },
+  {
+    "fr": "Carte Vitale",
+    "ar": "بطاقة التأمين الصحي",
+    "en": "Health insurance card",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai oublié ma carte Vitale.",
+      "ar": "نسيت بطاقة Vitale الخاصة بي.",
+      "en": "I forgot my health insurance card."
+    }
+  },
+  {
+    "fr": "Remboursement",
+    "ar": "تعويض / استرجاع مالي",
+    "en": "Reimbursement",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Quand vais-je recevoir le remboursement ?",
+      "ar": "متى سأحصل على التعويض؟",
+      "en": "When will I receive the reimbursement?"
+    }
+  },
+  {
+    "fr": "Rembourser",
+    "ar": "يعوض / يرجع المال",
+    "en": "To reimburse",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "La CPAM rembourse une partie des frais.",
+      "ar": "CPAM تعوض جزءًا من المصاريف.",
+      "en": "CPAM reimburses part of the costs."
+    }
+  },
+  {
+    "fr": "Frais médicaux",
+    "ar": "مصاريف طبية",
+    "en": "Medical expenses",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai payé des frais médicaux.",
+      "ar": "دفعت مصاريف طبية.",
+      "en": "I paid medical expenses."
+    }
+  },
+  {
+    "fr": "Dépense de santé",
+    "ar": "نفقات صحية",
+    "en": "Healthcare expense",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Cette dépense de santé est importante.",
+      "ar": "هذه النفقة الصحية كبيرة.",
+      "en": "This healthcare expense is high."
+    }
+  },
+  {
+    "fr": "Ordonnance",
+    "ar": "وصفة طبية",
+    "en": "Prescription",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin m'a donné une ordonnance.",
+      "ar": "أعطاني الطبيب وصفة طبية.",
+      "en": "The doctor gave me a prescription."
+    }
+  },
+  {
+    "fr": "Renouveler",
+    "ar": "يجدد",
+    "en": "To renew",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin doit renouveler mon ordonnance.",
+      "ar": "يجب على الطبيب تجديد وصفتي.",
+      "en": "The doctor must renew my prescription."
+    }
+  },
+  {
+    "fr": "Feuille de soins",
+    "ar": "ورقة علاج",
+    "en": "Treatment form",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai envoyé la feuille de soins.",
+      "ar": "أرسلت ورقة العلاج.",
+      "en": "I sent the treatment form."
+    }
+  },
+  {
+    "fr": "Déclaration de médecin traitant",
+    "ar": "تصريح الطبيب المعالج",
+    "en": "Primary doctor declaration",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Ma déclaration de médecin traitant est enregistrée.",
+      "ar": "تم تسجيل تصريح طبيبي المعالج.",
+      "en": "My primary doctor declaration is registered."
+    }
+  },
+  {
+    "fr": "Mutuelle",
+    "ar": "تأمين صحي إضافي",
+    "en": "Complementary health insurance",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Ma mutuelle rembourse le reste.",
+      "ar": "التأمين الإضافي يعوض الباقي.",
+      "en": "My supplementary insurance reimburses the rest."
+    }
+  },
+  {
+    "fr": "Tiers payant",
+    "ar": "الدفع من طرف التأمين",
+    "en": "Third-party payment",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Je bénéficie du tiers payant.",
+      "ar": "أستفيد من نظام الدفع المباشر.",
+      "en": "I benefit from third-party payment."
+    }
+  },
+  {
+    "fr": "Prise en charge",
+    "ar": "تغطية / تكفل",
+    "en": "Coverage",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Je demande une prise en charge médicale.",
+      "ar": "أطلب تغطية طبية.",
+      "en": "I request medical coverage."
+    }
+  },
+  {
+    "fr": "Rendez-vous médical",
+    "ar": "موعد طبي",
+    "en": "Medical appointment",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai pris un rendez-vous médical.",
+      "ar": "حجزت موعدًا طبيًا.",
+      "en": "I made a medical appointment."
+    }
+  },
+  {
+    "fr": "Prendre rendez-vous",
+    "ar": "حجز موعد",
+    "en": "To make an appointment",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Je voudrais prendre rendez-vous avec le médecin.",
+      "ar": "أريد حجز موعد مع الطبيب.",
+      "en": "I would like to make an appointment with the doctor."
+    }
+  },
+  {
+    "fr": "Disponibilité du médecin",
+    "ar": "توفر الطبيب",
+    "en": "Doctor availability",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Quelle est la prochaine disponibilité du médecin ?",
+      "ar": "متى أقرب موعد متاح للطبيب؟",
+      "en": "When is the doctor's next availability?"
+    }
+  },
+  {
+    "fr": "Secrétariat médical",
+    "ar": "سكرتارية طبية",
+    "en": "Medical reception",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "J'appelle le secrétariat médical.",
+      "ar": "أتصل بالسكرتارية الطبية.",
+      "en": "I am calling the medical reception."
+    }
+  },
+  {
+    "fr": "Salle d'attente",
+    "ar": "غرفة الانتظار",
+    "en": "Waiting room",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "J'attends dans la salle d'attente.",
+      "ar": "أنتظر في غرفة الانتظار.",
+      "en": "I am waiting in the waiting room."
+    }
+  },
+  {
+    "fr": "Consultation médicale",
+    "ar": "استشارة طبية",
+    "en": "Medical consultation",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "La consultation dure trente minutes.",
+      "ar": "الاستشارة تستغرق ثلاثين دقيقة.",
+      "en": "The consultation lasts thirty minutes."
+    }
+  },
+  {
+    "fr": "Examen médical",
+    "ar": "فحص طبي",
+    "en": "Medical examination",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je dois faire un examen médical.",
+      "ar": "يجب أن أجري فحصًا طبيًا.",
+      "en": "I have to do a medical examination."
+    }
+  },
+  {
+    "fr": "Analyse sanguine",
+    "ar": "تحليل دم",
+    "en": "Blood test",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai fait une analyse sanguine.",
+      "ar": "أجريت تحليل دم.",
+      "en": "I had a blood test."
+    }
+  },
+  {
+    "fr": "Résultat d'analyse",
+    "ar": "نتيجة التحليل",
+    "en": "Test result",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je voudrais connaître mes résultats d'analyse.",
+      "ar": "أريد معرفة نتائج تحاليلي.",
+      "en": "I would like to know my test results."
+    }
+  },
+  {
+    "fr": "Compte rendu",
+    "ar": "تقرير / ملخص طبي",
+    "en": "Report / Summary",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin m'a donné un compte rendu.",
+      "ar": "أعطاني الطبيب تقريرًا.",
+      "en": "The doctor gave me a report."
+    }
+  },
+  {
+    "fr": "Dossier médical",
+    "ar": "ملف طبي",
+    "en": "Medical record",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Mon dossier médical est complet.",
+      "ar": "ملفي الطبي كامل.",
+      "en": "My medical record is complete."
+    }
+  },
+  {
+    "fr": "Antécédents médicaux",
+    "ar": "سوابق طبية",
+    "en": "Medical history",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin demande mes antécédents médicaux.",
+      "ar": "الطبيب يسأل عن سوابقي الطبية.",
+      "en": "The doctor asks about my medical history."
+    }
+  },
+  {
+    "fr": "Allergie",
+    "ar": "حساسية",
+    "en": "Allergy",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je suis allergique à ce médicament.",
+      "ar": "لدي حساسية من هذا الدواء.",
+      "en": "I am allergic to this medication."
+    }
+  },
+  {
+    "fr": "Effet secondaire",
+    "ar": "أثر جانبي",
+    "en": "Side effect",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai des effets secondaires avec ce traitement.",
+      "ar": "لدي آثار جانبية مع هذا العلاج.",
+      "en": "I have side effects from this treatment."
+    }
+  },
+  {
+    "fr": "Posologie",
+    "ar": "جرعة الدواء",
+    "en": "Dosage",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Quelle est la posologie de ce médicament ?",
+      "ar": "ما هي جرعة هذا الدواء؟",
+      "en": "What is the dosage of this medicine?"
+    }
+  },
+  {
+    "fr": "Prendre un médicament",
+    "ar": "تناول دواء",
+    "en": "Take medication",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je prends ce médicament tous les jours.",
+      "ar": "أتناول هذا الدواء كل يوم.",
+      "en": "I take this medicine every day."
+    }
+  },
+  {
+    "fr": "Arrêter un traitement",
+    "ar": "إيقاف علاج",
+    "en": "Stop treatment",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Je ne dois pas arrêter le traitement sans avis médical.",
+      "ar": "لا يجب أن أوقف العلاج دون رأي طبي.",
+      "en": "I should not stop treatment without medical advice."
+    }
+  },
+  {
+    "fr": "Suivre un traitement",
+    "ar": "متابعة علاج",
+    "en": "Follow a treatment",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Je suis un traitement depuis plusieurs mois.",
+      "ar": "أتابع علاجًا منذ عدة أشهر.",
+      "en": "I have been following a treatment for several months."
+    }
+  },
+  {
+    "fr": "Hôpital",
+    "ar": "مستشفى",
+    "en": "Hospital",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je dois aller à l'hôpital.",
+      "ar": "يجب أن أذهب إلى المستشفى.",
+      "en": "I have to go to the hospital."
+    }
+  },
+  {
+    "fr": "Urgences",
+    "ar": "قسم الطوارئ",
+    "en": "Emergency department",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je suis allé aux urgences hier.",
+      "ar": "ذهبت إلى قسم الطوارئ أمس.",
+      "en": "I went to the emergency department yesterday."
+    }
+  },
+  {
+    "fr": "Service des urgences",
+    "ar": "مصلحة الطوارئ",
+    "en": "Emergency service",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le service des urgences est ouvert 24 heures sur 24.",
+      "ar": "قسم الطوارئ مفتوح 24 ساعة.",
+      "en": "The emergency service is open 24 hours."
+    }
+  },
+  {
+    "fr": "Hospitalisation",
+    "ar": "دخول المستشفى",
+    "en": "Hospitalization",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Une hospitalisation est nécessaire.",
+      "ar": "دخول المستشفى ضروري.",
+      "en": "Hospitalization is necessary."
+    }
+  },
+  {
+    "fr": "Hospitaliser",
+    "ar": "يدخل المستشفى",
+    "en": "To hospitalize",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin veut m'hospitaliser.",
+      "ar": "الطبيب يريد إدخالي إلى المستشفى.",
+      "en": "The doctor wants to hospitalize me."
+    }
+  },
+  {
+    "fr": "Chambre d'hôpital",
+    "ar": "غرفة المستشفى",
+    "en": "Hospital room",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je suis dans une chambre d'hôpital.",
+      "ar": "أنا في غرفة بالمستشفى.",
+      "en": "I am in a hospital room."
+    }
+  },
+  {
+    "fr": "Patient",
+    "ar": "مريض",
+    "en": "Patient",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le patient attend le médecin.",
+      "ar": "المريض ينتظر الطبيب.",
+      "en": "The patient is waiting for the doctor."
+    }
+  },
+  {
+    "fr": "Infirmier / Infirmière",
+    "ar": "ممرض / ممرضة",
+    "en": "Nurse",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "L'infirmière prend ma tension.",
+      "ar": "الممرضة تقيس ضغط دمي.",
+      "en": "The nurse checks my blood pressure."
+    }
+  },
+  {
+    "fr": "Tension artérielle",
+    "ar": "ضغط الدم",
+    "en": "Blood pressure",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Ma tension artérielle est normale.",
+      "ar": "ضغط دمي طبيعي.",
+      "en": "My blood pressure is normal."
+    }
+  },
+  {
+    "fr": "Température",
+    "ar": "درجة الحرارة",
+    "en": "Temperature",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "L'infirmière prend ma température.",
+      "ar": "الممرضة تقيس حرارتي.",
+      "en": "The nurse takes my temperature."
+    }
+  },
+  {
+    "fr": "Perfusion",
+    "ar": "محلول وريدي",
+    "en": "IV drip",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "On m'a mis une perfusion.",
+      "ar": "وضعوا لي محلولًا وريديًا.",
+      "en": "They gave me an IV drip."
+    }
+  },
+  {
+    "fr": "Injection",
+    "ar": "حقنة",
+    "en": "Injection",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai reçu une injection.",
+      "ar": "تلقيت حقنة.",
+      "en": "I received an injection."
+    }
+  },
+  {
+    "fr": "Opération",
+    "ar": "عملية جراحية",
+    "en": "Operation / Surgery",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je dois subir une opération.",
+      "ar": "يجب أن أخضع لعملية.",
+      "en": "I have to undergo surgery."
+    }
+  },
+  {
+    "fr": "Anesthésie",
+    "ar": "تخدير",
+    "en": "Anesthesia",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "L'anesthésie est prévue demain.",
+      "ar": "التخدير مقرر غدًا.",
+      "en": "Anesthesia is planned for tomorrow."
+    }
+  },
+  {
+    "fr": "Anesthésiste",
+    "ar": "طبيب التخدير",
+    "en": "Anesthetist",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai rendez-vous avec l'anesthésiste.",
+      "ar": "لدي موعد مع طبيب التخدير.",
+      "en": "I have an appointment with the anesthetist."
+    }
+  },
+  {
+    "fr": "Sortie de l'hôpital",
+    "ar": "الخروج من المستشفى",
+    "en": "Hospital discharge",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Ma sortie de l'hôpital est prévue demain.",
+      "ar": "خروجي من المستشفى مقرر غدًا.",
+      "en": "My hospital discharge is planned for tomorrow."
+    }
+  },
+  {
+    "fr": "Ordonnance de sortie",
+    "ar": "وصفة الخروج",
+    "en": "Discharge prescription",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin m'a donné une ordonnance de sortie.",
+      "ar": "أعطاني الطبيب وصفة الخروج.",
+      "en": "The doctor gave me a discharge prescription."
+    }
+  },
+  {
+    "fr": "Pharmacie",
+    "ar": "صيدلية",
+    "en": "Pharmacy",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je vais à la pharmacie acheter un médicament.",
+      "ar": "سأذهب إلى الصيدلية لشراء دواء.",
+      "en": "I am going to the pharmacy to buy a medicine."
+    }
+  },
+  {
+    "fr": "Pharmacien / Pharmacienne",
+    "ar": "صيدلي / صيدلانية",
+    "en": "Pharmacist",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je demande conseil au pharmacien.",
+      "ar": "أطلب نصيحة من الصيدلي.",
+      "en": "I ask the pharmacist for advice."
+    }
+  },
+  {
+    "fr": "Médicament",
+    "ar": "دواء",
+    "en": "Medicine / Medication",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je prends ce médicament chaque matin.",
+      "ar": "أتناول هذا الدواء كل صباح.",
+      "en": "I take this medicine every morning."
+    }
+  },
+  {
+    "fr": "Boîte de médicaments",
+    "ar": "علبة دواء",
+    "en": "Box of medicine",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai besoin de deux boîtes de médicaments.",
+      "ar": "أحتاج إلى علبتين من الدواء.",
+      "en": "I need two boxes of medicine."
+    }
+  },
+  {
+    "fr": "Comprimé",
+    "ar": "قرص / حبة دواء",
+    "en": "Tablet / Pill",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je prends un comprimé après le repas.",
+      "ar": "أتناول حبة بعد الطعام.",
+      "en": "I take a tablet after the meal."
+    }
+  },
+  {
+    "fr": "Gélule",
+    "ar": "كبسولة",
+    "en": "Capsule",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Ce médicament existe en gélules.",
+      "ar": "هذا الدواء موجود على شكل كبسولات.",
+      "en": "This medicine is available in capsules."
+    }
+  },
+  {
+    "fr": "Sirop",
+    "ar": "شراب دوائي",
+    "en": "Syrup",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin m'a prescrit un sirop.",
+      "ar": "وصف لي الطبيب شرابًا.",
+      "en": "The doctor prescribed me a syrup."
+    }
+  },
+  {
+    "fr": "Pommade",
+    "ar": "مرهم",
+    "en": "Ointment",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Cette pommade soulage la douleur.",
+      "ar": "هذا المرهم يخفف الألم.",
+      "en": "This ointment relieves pain."
+    }
+  },
+  {
+    "fr": "Notice",
+    "ar": "النشرة الداخلية",
+    "en": "Leaflet / Instructions",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je lis la notice du médicament.",
+      "ar": "أقرأ نشرة الدواء.",
+      "en": "I read the medicine leaflet."
+    }
+  },
+  {
+    "fr": "Prescription",
+    "ar": "وصفة طبية",
+    "en": "Prescription",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Ce médicament nécessite une prescription.",
+      "ar": "هذا الدواء يحتاج إلى وصفة.",
+      "en": "This medicine requires a prescription."
+    }
+  },
+  {
+    "fr": "Prescrire",
+    "ar": "يصف دواء",
+    "en": "To prescribe",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Le médecin m'a prescrit un traitement.",
+      "ar": "وصف لي الطبيب علاجًا.",
+      "en": "The doctor prescribed me a treatment."
+    }
+  },
+  {
+    "fr": "Dose",
+    "ar": "جرعة",
+    "en": "Dose",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Quelle est la dose recommandée ?",
+      "ar": "ما هي الجرعة الموصى بها؟",
+      "en": "What is the recommended dose?"
+    }
+  },
+  {
+    "fr": "Prendre une dose",
+    "ar": "أخذ جرعة",
+    "en": "Take a dose",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Je dois prendre une dose le soir.",
+      "ar": "يجب أن آخذ جرعة مساءً.",
+      "en": "I have to take a dose in the evening."
+    }
+  },
+  {
+    "fr": "Effet du médicament",
+    "ar": "تأثير الدواء",
+    "en": "Effect of the medicine",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Quand vais-je sentir l'effet du médicament ?",
+      "ar": "متى سأشعر بتأثير الدواء؟",
+      "en": "When will I feel the effect of the medicine?"
+    }
+  },
+  {
+    "fr": "Soulager",
+    "ar": "يخفف / يريح",
+    "en": "To relieve",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Ce médicament soulage la douleur.",
+      "ar": "هذا الدواء يخفف الألم.",
+      "en": "This medicine relieves pain."
+    }
+  },
+  {
+    "fr": "Guérir",
+    "ar": "يشفى / يعالج",
+    "en": "To heal / Cure",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Ce traitement peut aider à guérir.",
+      "ar": "هذا العلاج يمكن أن يساعد على الشفاء.",
+      "en": "This treatment can help heal."
     }
   }
 ];
