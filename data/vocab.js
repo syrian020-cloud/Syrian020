@@ -2661,13 +2661,14 @@ window.VOCAB_DATA = [
     "fr": "Accepter",
     "ar": "يقبل / يوافق",
     "en": "To accept / approve",
-    "level": "A1",
+    "level": "A2",
     "contexts": [
       "daily",
       "services",
       "caf",
       "stage",
-      "work"
+      "work",
+      "mdph"
     ],
     "ex": [
       {
@@ -2684,6 +2685,11 @@ window.VOCAB_DATA = [
         "fr": "Le restaurant a accepté ma demande.",
         "ar": "المطعم وافق على طلبي.",
         "en": "The restaurant accepted my request."
+      },
+      {
+        "fr": "La MDPH a accepté ma demande.",
+        "ar": "الـ MDPH قبلت طلبي.",
+        "en": "MDPH accepted my request."
       }
     ],
     "usage": "الطلبات، الشروط، الملفات",
@@ -2763,13 +2769,21 @@ window.VOCAB_DATA = [
       "daily",
       "france_travail",
       "services",
-      "work"
+      "work",
+      "mdph"
     ],
-    "ex": {
-      "fr": "France Travail m'accompagne dans ma recherche d'emploi.",
-      "ar": "مكتب العمل يساعدني في البحث عن عمل.",
-      "en": "France Travail supports me in my job search."
-    },
+    "ex": [
+      {
+        "fr": "France Travail m'accompagne dans ma recherche d'emploi.",
+        "ar": "مكتب العمل يساعدني في البحث عن عمل.",
+        "en": "France Travail supports me in my job search."
+      },
+      {
+        "fr": "La MDPH accompagne les personnes handicapées.",
+        "ar": "الـ MDPH تدعم الأشخاص ذوي الإعاقة.",
+        "en": "MDPH supports people with disabilities."
+      }
+    ],
     "usage": "France Travail، الإدماج، التدريب | العمل، الخدمات الاجتماعية، France Travail",
     "pos": "verb"
   },
@@ -2824,11 +2838,12 @@ window.VOCAB_DATA = [
     "fr": "Accorder",
     "ar": "يمنح / يوافق على",
     "en": "To grant",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
       "daily",
       "services",
-      "caf"
+      "caf",
+      "mdph"
     ],
     "ex": [
       {
@@ -2845,6 +2860,11 @@ window.VOCAB_DATA = [
         "fr": "Cette aide est accordée sous conditions.",
         "ar": "هالمساعدة تُمنح بشروط.",
         "en": "This benefit is granted under conditions."
+      },
+      {
+        "fr": "La CDAPH a accordé la RQTH.",
+        "ar": "لجنة CDAPH منحتني RQTH.",
+        "en": "CDAPH granted me RQTH."
       }
     ],
     "usage": "المساعدات والحقوق",
@@ -2913,12 +2933,13 @@ window.VOCAB_DATA = [
     "fr": "Actualiser",
     "ar": "يحدّث / يجدد المعلومات / يحدّث المعلومات",
     "en": "To update",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
       "caf",
       "france_travail",
       "services",
-      "work"
+      "work",
+      "mdph"
     ],
     "ex": [
       {
@@ -2940,6 +2961,11 @@ window.VOCAB_DATA = [
         "fr": "Je dois actualiser ma situation chaque trimestre.",
         "ar": "لازم حدّث وضعي كل ثلاثة أشهر.",
         "en": "I must update my situation every three months."
+      },
+      {
+        "fr": "Je dois actualiser mes informations médicales.",
+        "ar": "لازم حدّث معلوماتي الطبية.",
+        "en": "I need to update my medical information."
       }
     ],
     "usage": "France Travail (مهم جدًا)",
@@ -4998,15 +5024,23 @@ window.VOCAB_DATA = [
     "fr": "Analyser",
     "ar": "يحلل",
     "en": "To analyze",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
-      "work"
+      "work",
+      "mdph"
     ],
-    "ex": {
-      "fr": "Nous devons analyser votre dossier.",
-      "ar": "يجب أن نحلل ملفك.",
-      "en": "We must analyze your file."
-    },
+    "ex": [
+      {
+        "fr": "Nous devons analyser votre dossier.",
+        "ar": "يجب أن نحلل ملفك.",
+        "en": "We must analyze your file."
+      },
+      {
+        "fr": "La MDPH analyse les informations médicales.",
+        "ar": "الـ MDPH تحلل المعلومات الطبية.",
+        "en": "MDPH analyzes the medical information."
+      }
+    ],
     "usage": "العمل، التقارير، الملفات | العمل، الملفات، التقارير",
     "pos": "verb"
   },
@@ -5031,16 +5065,24 @@ window.VOCAB_DATA = [
     "fr": "Apprécier",
     "ar": "يقدّر / يعجب بـ",
     "en": "To appreciate",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
       "daily",
-      "work"
+      "work",
+      "mdph"
     ],
-    "ex": {
-      "fr": "J'apprécie votre aide.",
-      "ar": "أقدّر مساعدتك.",
-      "en": "I appreciate your help."
-    },
+    "ex": [
+      {
+        "fr": "J'apprécie votre aide.",
+        "ar": "أقدّر مساعدتك.",
+        "en": "I appreciate your help."
+      },
+      {
+        "fr": "La commission apprécie le niveau de difficulté.",
+        "ar": "اللجنة تقيّم مستوى الصعوبة.",
+        "en": "The committee assesses the level of difficulty."
+      }
+    ],
     "usage": "الحياة اليومية والعمل",
     "pos": "verb"
   },
@@ -9347,14 +9389,22 @@ window.VOCAB_DATA = [
       "daily",
       "france_travail",
       "housing",
-      "services"
+      "services",
+      "mdph"
     ],
     "pos": "verb",
-    "ex": {
-      "fr": "Je bénéficie de l'aide au logement.",
-      "ar": "أستفيد من مساعدة السكن.",
-      "en": "I benefit from housing assistance."
-    }
+    "ex": [
+      {
+        "fr": "Je bénéficie de l'aide au logement.",
+        "ar": "أستفيد من مساعدة السكن.",
+        "en": "I benefit from housing assistance."
+      },
+      {
+        "fr": "Je bénéficie d'une reconnaissance RQTH.",
+        "ar": "أنا مستفيد من اعتراف RQTH.",
+        "en": "I benefit from RQTH recognition."
+      }
+    ]
   },
   {
     "fr": "Border",
@@ -14544,7 +14594,8 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "services",
-      "caf"
+      "caf",
+      "mdph"
     ],
     "ex": [
       {
@@ -14561,6 +14612,11 @@ window.VOCAB_DATA = [
         "fr": "Il faut compléter votre dossier.",
         "ar": "لازم تكمل ملفك.",
         "en": "You need to complete your application."
+      },
+      {
+        "fr": "Je dois compléter mon dossier.",
+        "ar": "لازم كمّل ملفي.",
+        "en": "I have to complete my application."
       }
     ]
   },
@@ -22423,10 +22479,11 @@ window.VOCAB_DATA = [
     "ar": "يرسل / يحوّل / يحوّل (معلومة أو وثيقة)",
     "en": "To submit / Forward / To transmit / forward",
     "pos": "verb",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
       "services",
-      "caf"
+      "caf",
+      "mdph"
     ],
     "ex": [
       {
@@ -22443,6 +22500,11 @@ window.VOCAB_DATA = [
         "fr": "Je transmets les documents demandés.",
         "ar": "عم أرسل الأوراق المطلوبة.",
         "en": "I transmit the requested documents."
+      },
+      {
+        "fr": "Le médecin transmet le certificat médical.",
+        "ar": "الطبيب يرسل الشهادة الطبية.",
+        "en": "The doctor transmits the medical certificate."
       }
     ]
   },
@@ -23013,9 +23075,10 @@ window.VOCAB_DATA = [
     "ar": "يوقف / يعلّق / يوقف مؤقتاً / يوقف مؤقتًا",
     "en": "To suspend",
     "pos": "verb",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
-      "caf"
+      "caf",
+      "mdph"
     ],
     "ex": [
       {
@@ -23032,6 +23095,11 @@ window.VOCAB_DATA = [
         "fr": "Mes droits ont été suspendus.",
         "ar": "تم إيقاف استحقاقاتي مؤقتًا.",
         "en": "My benefits have been suspended."
+      },
+      {
+        "fr": "Le versement peut être suspendu.",
+        "ar": "ممكن يتوقف الدفع مؤقتًا.",
+        "en": "The payment may be suspended."
       }
     ]
   },
@@ -24383,7 +24451,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "health"
+      "health",
+      "mdph"
     ],
     "ex": [
       {
@@ -24395,6 +24464,11 @@ window.VOCAB_DATA = [
         "fr": "Je souffre d'une fatigue chronique.",
         "ar": "أعاني من تعب مزمن.",
         "en": "I suffer from chronic fatigue."
+      },
+      {
+        "fr": "Je souffre d'une fatigue chronique importante.",
+        "ar": "بعاني من تعب مزمن قوي.",
+        "en": "I suffer from severe chronic fatigue."
       }
     ]
   },
@@ -24627,13 +24701,21 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
-      "work"
+      "work",
+      "mdph"
     ],
-    "ex": {
-      "fr": "Je souhaite un maintien dans l'emploi.",
-      "ar": "أريد الحفاظ على عملي.",
-      "en": "I want to keep my job."
-    }
+    "ex": [
+      {
+        "fr": "Je souhaite un maintien dans l'emploi.",
+        "ar": "أريد الحفاظ على عملي.",
+        "en": "I want to keep my job."
+      },
+      {
+        "fr": "Je souhaite un accompagnement pour le maintien dans l'emploi.",
+        "ar": "بدي دعم حتى حافظ على شغلي.",
+        "en": "I want support to keep my job."
+      }
+    ]
   },
   {
     "fr": "Capacité de travail",
@@ -24646,11 +24728,18 @@ window.VOCAB_DATA = [
       "mdph",
       "work"
     ],
-    "ex": {
-      "fr": "Ma capacité de travail est réduite.",
-      "ar": "قدرتي على العمل منخفضة.",
-      "en": "My work capacity is reduced."
-    }
+    "ex": [
+      {
+        "fr": "Ma capacité de travail est réduite.",
+        "ar": "قدرتي على العمل منخفضة.",
+        "en": "My work capacity is reduced."
+      },
+      {
+        "fr": "Ma capacité de travail est limitée.",
+        "ar": "قدرتي على العمل محدودة.",
+        "en": "My work capacity is limited."
+      }
+    ]
   },
   {
     "fr": "Je souhaite expliquer ma situation",
@@ -24946,11 +25035,18 @@ window.VOCAB_DATA = [
       "health",
       "mdph"
     ],
-    "ex": {
-      "fr": "Le taux d'incapacité est évalué par la MDPH.",
-      "ar": "يتم تقييم نسبة العجز من قبل MDPH.",
-      "en": "The disability rate is assessed by MDPH."
-    }
+    "ex": [
+      {
+        "fr": "Le taux d'incapacité est évalué par la MDPH.",
+        "ar": "يتم تقييم نسبة العجز من قبل MDPH.",
+        "en": "The disability rate is assessed by MDPH."
+      },
+      {
+        "fr": "Le taux d'incapacité sera évalué par la MDPH.",
+        "ar": "رح يتم تقييم نسبة العجز من الـ MDPH.",
+        "en": "The disability rate will be assessed by MDPH."
+      }
+    ]
   },
   {
     "fr": "Incapacité",
@@ -25447,17 +25543,25 @@ window.VOCAB_DATA = [
     "fr": "Recevoir une notification",
     "ar": "تلقي إشعار",
     "en": "Receive a notification",
-    "pos": "other",
-    "level": "A1",
+    "pos": "phrase",
+    "level": "B1",
     "contexts": [
       "caf",
-      "services"
+      "services",
+      "mdph"
     ],
-    "ex": {
-      "fr": "J'ai reçu une notification dans mon espace personnel.",
-      "ar": "تلقيت إشعارًا في حسابي الشخصي.",
-      "en": "I received a notification in my personal account."
-    }
+    "ex": [
+      {
+        "fr": "J'ai reçu une notification dans mon espace personnel.",
+        "ar": "تلقيت إشعارًا في حسابي الشخصي.",
+        "en": "I received a notification in my personal account."
+      },
+      {
+        "fr": "J'ai reçu la notification de la MDPH.",
+        "ar": "وصلتني رسالة قرار من الـ MDPH.",
+        "en": "I received the MDPH notification."
+      }
+    ]
   },
   {
     "fr": "Décision",
@@ -25692,10 +25796,11 @@ window.VOCAB_DATA = [
     "ar": "يجدد / يجدّد",
     "en": "To renew",
     "pos": "verb",
-    "level": "A1",
+    "level": "A2",
     "contexts": [
       "health",
-      "caf"
+      "caf",
+      "mdph"
     ],
     "ex": [
       {
@@ -25707,6 +25812,11 @@ window.VOCAB_DATA = [
         "fr": "Je dois renouveler ma demande.",
         "ar": "لازم جدّد طلبي.",
         "en": "I need to renew my request."
+      },
+      {
+        "fr": "Je dois renouveler mon dossier MDPH.",
+        "ar": "لازم جدّد ملف الـ MDPH.",
+        "en": "I have to renew my MDPH application."
       }
     ]
   },
@@ -27959,11 +28069,18 @@ window.VOCAB_DATA = [
       "health",
       "mdph"
     ],
-    "ex": {
-      "fr": "J'ai des limitations fonctionnelles au quotidien.",
-      "ar": "لدي محدوديات وظيفية في الحياة اليومية.",
-      "en": "I have functional limitations in daily life."
-    }
+    "ex": [
+      {
+        "fr": "J'ai des limitations fonctionnelles au quotidien.",
+        "ar": "لدي محدوديات وظيفية في الحياة اليومية.",
+        "en": "I have functional limitations in daily life."
+      },
+      {
+        "fr": "J'ai des limitations fonctionnelles importantes.",
+        "ar": "عندي محدوديات وظيفية مهمة.",
+        "en": "I have significant functional limitations."
+      }
+    ]
   },
   {
     "fr": "Se reposer souvent",
@@ -28042,11 +28159,18 @@ window.VOCAB_DATA = [
       "services",
       "work"
     ],
-    "ex": {
-      "fr": "Je souhaite demander une RQTH.",
-      "ar": "أريد طلب RQTH.",
-      "en": "I would like to apply for RQTH."
-    }
+    "ex": [
+      {
+        "fr": "Je souhaite demander une RQTH.",
+        "ar": "أريد طلب RQTH.",
+        "en": "I would like to apply for RQTH."
+      },
+      {
+        "fr": "Je demande une reconnaissance RQTH.",
+        "ar": "عم اطلب اعتراف RQTH.",
+        "en": "I am requesting RQTH recognition."
+      }
+    ]
   },
   {
     "fr": "Médecine du travail",
@@ -29003,17 +29127,25 @@ window.VOCAB_DATA = [
   {
     "fr": "Étudier un dossier",
     "pos": "phrase",
-    "level": "A1",
+    "level": "B1",
     "contexts": [
-      "caf"
+      "caf",
+      "mdph"
     ],
     "ar": "دراسة الملف",
     "en": "Review an application",
-    "ex": {
-      "fr": "La CAF étudie actuellement mon dossier.",
-      "ar": "الـ CAF عم تدرس ملفي.",
-      "en": "CAF is currently reviewing my application."
-    }
+    "ex": [
+      {
+        "fr": "La CAF étudie actuellement mon dossier.",
+        "ar": "الـ CAF عم تدرس ملفي.",
+        "en": "CAF is currently reviewing my application."
+      },
+      {
+        "fr": "La commission étudie mon dossier.",
+        "ar": "اللجنة عم تدرس ملفي.",
+        "en": "The committee is reviewing my file."
+      }
+    ]
   },
   {
     "fr": "Dossier complet",
@@ -30407,12 +30539,13 @@ window.VOCAB_DATA = [
     "fr": "Refuser",
     "ar": "يرفض",
     "en": "To refuse / reject / To reject",
-    "level": "A1",
+    "level": "A2",
     "pos": "verb",
     "contexts": [
       "caf",
       "stage",
-      "work"
+      "work",
+      "mdph"
     ],
     "ex": [
       {
@@ -30424,6 +30557,11 @@ window.VOCAB_DATA = [
         "fr": "L’entreprise peut refuser la demande.",
         "ar": "يمكن للشركة رفض الطلب.",
         "en": "The company can refuse the request."
+      },
+      {
+        "fr": "La demande peut être refusée.",
+        "ar": "ممكن يتم رفض الطلب.",
+        "en": "The request may be refused."
       }
     ]
   },
@@ -30431,16 +30569,24 @@ window.VOCAB_DATA = [
     "fr": "Signaler",
     "ar": "يبلّغ عن / يخبر بـ",
     "en": "To report",
-    "level": "A1",
+    "level": "A2",
     "pos": "verb",
     "contexts": [
-      "caf"
+      "caf",
+      "mdph"
     ],
-    "ex": {
-      "fr": "Je dois signaler un changement de situation.",
-      "ar": "لازم بلّغ عن تغيير بوضعتي.",
-      "en": "I have to report a change of situation."
-    }
+    "ex": [
+      {
+        "fr": "Je dois signaler un changement de situation.",
+        "ar": "لازم بلّغ عن تغيير بوضعتي.",
+        "en": "I have to report a change of situation."
+      },
+      {
+        "fr": "Je dois signaler une évolution de ma situation.",
+        "ar": "لازم أبلّغ عن تغيّر بوضعتي.",
+        "en": "I must report a change in my situation."
+      }
+    ]
   },
   {
     "fr": "Recevoir",
@@ -30776,25 +30922,34 @@ window.VOCAB_DATA = [
     "fr": "Examiner",
     "ar": "يفحص / يدرس",
     "en": "To examine / review",
-    "level": "A1",
+    "level": "A2",
     "pos": "verb",
     "contexts": [
-      "caf"
+      "caf",
+      "mdph"
     ],
-    "ex": {
-      "fr": "Votre demande sera examinée.",
-      "ar": "رح يتم دراسة طلبك.",
-      "en": "Your request will be examined."
-    }
+    "ex": [
+      {
+        "fr": "Votre demande sera examinée.",
+        "ar": "رح يتم دراسة طلبك.",
+        "en": "Your request will be examined."
+      },
+      {
+        "fr": "La commission examine mon dossier.",
+        "ar": "اللجنة تدرس ملفي.",
+        "en": "The committee examines my file."
+      }
+    ]
   },
   {
     "fr": "Percevoir",
     "ar": "يتلقى / يحصل على (مبلغ) / يقبض",
     "en": "To receive / collect",
-    "level": "A1",
+    "level": "A2",
     "pos": "verb",
     "contexts": [
-      "caf"
+      "caf",
+      "mdph"
     ],
     "ex": [
       {
@@ -30806,6 +30961,11 @@ window.VOCAB_DATA = [
         "fr": "Je perçois la prime d'activité.",
         "ar": "عم آخد علاوة النشاط.",
         "en": "I receive the activity bonus."
+      },
+      {
+        "fr": "Je perçois l'AAH chaque mois.",
+        "ar": "عم آخد AAH كل شهر.",
+        "en": "I receive AAH every month."
       }
     ]
   },
@@ -35037,5 +35197,755 @@ window.VOCAB_DATA = [
       "ar": "السكين حاد جيدًا لتقطيع السلمون.",
       "en": "The knife is very sharp for cutting salmon."
     }
+  },
+  {
+    "fr": "Déposer un dossier MDPH",
+    "ar": "يقدّم ملف MDPH",
+    "en": "Submit an MDPH application",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "J'ai déposé mon dossier à la MDPH.",
+      "ar": "قدّمت ملفي عند الـ MDPH.",
+      "en": "I submitted my MDPH application."
+    }
+  },
+  {
+    "fr": "Faire une demande MDPH",
+    "ar": "يقدّم طلب MDPH",
+    "en": "Apply to MDPH",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je souhaite faire une demande MDPH.",
+      "ar": "بدي قدّم طلب عند الـ MDPH.",
+      "en": "I want to apply to MDPH."
+    }
+  },
+  {
+    "fr": "Remplir un formulaire",
+    "ar": "يعبّي استمارة",
+    "en": "Fill in a form",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je dois remplir le formulaire MDPH.",
+      "ar": "لازم عبّي استمارة MDPH.",
+      "en": "I have to fill in the MDPH form."
+    }
+  },
+  {
+    "fr": "Joindre un certificat médical",
+    "ar": "يرفق شهادة طبية",
+    "en": "Attach a medical certificate",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je dois joindre un certificat médical à mon dossier.",
+      "ar": "لازم أرفق شهادة طبية مع ملفي.",
+      "en": "I have to attach a medical certificate to my application."
+    }
+  },
+  {
+    "fr": "Fournir des justificatifs",
+    "ar": "يقدّم إثباتات / وثائق",
+    "en": "Provide supporting documents",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Il faut fournir des justificatifs médicaux.",
+      "ar": "لازم قدّم وثائق طبية.",
+      "en": "You need to provide medical documents."
+    }
+  },
+  {
+    "fr": "Décrire ses difficultés",
+    "ar": "يصف صعوباته",
+    "en": "Describe difficulties",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je dois décrire mes difficultés dans la vie quotidienne.",
+      "ar": "لازم أوصف صعوباتي بالحياة اليومية.",
+      "en": "I have to describe my difficulties in daily life."
+    }
+  },
+  {
+    "fr": "Évaluer la situation",
+    "ar": "يقيّم الوضع",
+    "en": "Assess the situation",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "La MDPH évalue ma situation.",
+      "ar": "الـ MDPH عم تقيّم وضعي.",
+      "en": "MDPH assesses my situation."
+    }
+  },
+  {
+    "fr": "Reconnaître un handicap",
+    "ar": "يعترف بالإعاقة / يثبت الإعاقة",
+    "en": "Recognize a disability",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "La MDPH peut reconnaître mon handicap.",
+      "ar": "الـ MDPH ممكن تثبت إعاقتي.",
+      "en": "MDPH can recognize my disability."
+    }
+  },
+  {
+    "fr": "Accorder une aide",
+    "ar": "يمنح مساعدة",
+    "en": "Grant assistance",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "La MDPH peut accorder des aides.",
+      "ar": "الـ MDPH ممكن تمنح مساعدات.",
+      "en": "MDPH can grant assistance."
+    }
+  },
+  {
+    "fr": "Attribuer une prestation",
+    "ar": "يمنح إعانة",
+    "en": "Grant a benefit",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "La CDAPH attribue une prestation.",
+      "ar": "لجنة CDAPH تمنح إعانة.",
+      "en": "CDAPH grants a benefit."
+    }
+  },
+  {
+    "fr": "Bénéficier de la PCH",
+    "ar": "يستفيد من تعويض PCH",
+    "en": "Benefit from PCH",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je bénéficie de la PCH.",
+      "ar": "أنا مستفيد من PCH.",
+      "en": "I benefit from PCH."
+    }
+  },
+  {
+    "fr": "Demander l'AAH",
+    "ar": "يطلب مخصصات البالغين ذوي الإعاقة",
+    "en": "Apply for disability allowance",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je souhaite demander l'AAH.",
+      "ar": "بدي قدّم على AAH.",
+      "en": "I want to apply for AAH."
+    }
+  },
+  {
+    "fr": "Renouveler une demande",
+    "ar": "يجدّد الطلب",
+    "en": "Renew an application",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je dois renouveler ma demande MDPH.",
+      "ar": "لازم جدّد طلب MDPH.",
+      "en": "I have to renew my MDPH application."
+    }
+  },
+  {
+    "fr": "Contester une décision",
+    "ar": "يعترض على قرار",
+    "en": "Appeal a decision",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je souhaite contester la décision de la MDPH.",
+      "ar": "بدي اعترض على قرار الـ MDPH.",
+      "en": "I want to appeal the MDPH decision."
+    }
+  },
+  {
+    "fr": "Être reconnu travailleur handicapé (RQTH)",
+    "ar": "يُعترف به كعامل من ذوي الإعاقة",
+    "en": "Be recognized as a disabled worker",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je demande la reconnaissance RQTH.",
+      "ar": "عم اطلب الاعتراف RQTH.",
+      "en": "I am applying for RQTH recognition."
+    }
+  },
+  {
+    "fr": "Aménager le poste de travail",
+    "ar": "يهيّئ / يعدّل مكان العمل",
+    "en": "Adapt the workplace",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je demande un aménagement de mon poste de travail.",
+      "ar": "عم اطلب تعديل مكان عملي.",
+      "en": "I request workplace adaptation."
+    }
+  },
+  {
+    "fr": "Être orienté vers un service",
+    "ar": "يتم توجيهه إلى خدمة",
+    "en": "Be referred to a service",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "La MDPH m'a orienté vers un service adapté.",
+      "ar": "الـ MDPH وجّهتني لخدمة مناسبة.",
+      "en": "MDPH referred me to an appropriate service."
+    }
+  },
+  {
+    "fr": "Solliciter une aide",
+    "ar": "يطلب مساعدة رسميًا",
+    "en": "Request assistance",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je sollicite une aide auprès de la MDPH.",
+      "ar": "عم اطلب مساعدة من الـ MDPH.",
+      "en": "I am requesting assistance from MDPH."
+    }
+  },
+  {
+    "fr": "Présenter une demande",
+    "ar": "يقدّم طلبًا",
+    "en": "Submit a request",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "J'ai présenté une demande de RQTH.",
+      "ar": "قدّمت طلب RQTH.",
+      "en": "I submitted an RQTH request."
+    }
+  },
+  {
+    "fr": "Déposer un recours",
+    "ar": "يقدّم اعتراضًا",
+    "en": "File an appeal",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je vais déposer un recours contre la décision.",
+      "ar": "رح قدّم اعتراض على القرار.",
+      "en": "I will file an appeal against the decision."
+    }
+  },
+  {
+    "fr": "Faire appel d'une décision",
+    "ar": "يستأنف قرارًا",
+    "en": "Appeal a decision",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je souhaite faire appel de la décision.",
+      "ar": "بدي أستأنف القرار.",
+      "en": "I want to appeal the decision."
+    }
+  },
+  {
+    "fr": "Obtenir une reconnaissance",
+    "ar": "يحصل على اعتراف",
+    "en": "Obtain recognition",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je souhaite obtenir une reconnaissance de handicap.",
+      "ar": "بدي أحصل على اعتراف بالإعاقة.",
+      "en": "I want to obtain disability recognition."
+    }
+  },
+  {
+    "fr": "Justifier une limitation",
+    "ar": "يثبت وجود محدودية",
+    "en": "Justify a limitation",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Le certificat médical justifie mes limitations.",
+      "ar": "الشهادة الطبية تثبت محدودياتي.",
+      "en": "The medical certificate justifies my limitations."
+    }
+  },
+  {
+    "fr": "Mentionner les difficultés",
+    "ar": "يذكر الصعوبات",
+    "en": "Mention difficulties",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Il faut mentionner toutes vos difficultés.",
+      "ar": "لازم تذكر كل صعوباتك.",
+      "en": "You must mention all your difficulties."
+    }
+  },
+  {
+    "fr": "Décrire l'impact du handicap",
+    "ar": "يصف تأثير الإعاقة",
+    "en": "Describe the impact of disability",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je dois décrire l'impact sur ma vie quotidienne.",
+      "ar": "لازم أوصف تأثير وضعي على حياتي اليومية.",
+      "en": "I have to describe the impact on my daily life."
+    }
+  },
+  {
+    "fr": "Avoir besoin d'une aide humaine",
+    "ar": "يحتاج مساعدة بشرية",
+    "en": "Need human assistance",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "J'ai besoin d'une aide humaine au quotidien.",
+      "ar": "بحتاج مساعدة شخص بحياتي اليومية.",
+      "en": "I need human assistance in daily life."
+    }
+  },
+  {
+    "fr": "Demander une carte mobilité inclusion (CMI)",
+    "ar": "يطلب بطاقة التنقل والإدماج",
+    "en": "Apply for mobility inclusion card",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je demande une carte mobilité inclusion.",
+      "ar": "عم اطلب بطاقة CMI.",
+      "en": "I am applying for a mobility inclusion card."
+    }
+  },
+  {
+    "fr": "Atteindre un taux d'incapacité",
+    "ar": "تبلغ نسبة العجز",
+    "en": "Reach a disability rate",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Mon taux d'incapacité doit être évalué.",
+      "ar": "لازم يتم تقييم نسبة العجز عندي.",
+      "en": "My disability rate must be assessed."
+    }
+  },
+  {
+    "fr": "Émettre un avis",
+    "ar": "يصدر رأيًا",
+    "en": "Give an opinion",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "La commission émet un avis sur mon dossier.",
+      "ar": "اللجنة تصدر رأيًا حول ملفي.",
+      "en": "The committee gives an opinion on my file."
+    }
+  },
+  {
+    "fr": "Statuer sur un dossier",
+    "ar": "يبتّ في ملف / يتخذ قرارًا",
+    "en": "Make a decision on a case",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "La commission va statuer sur mon dossier.",
+      "ar": "اللجنة رح تتخذ قرار بملفي.",
+      "en": "The committee will decide on my case."
+    }
+  },
+  {
+    "fr": "Notifier une décision",
+    "ar": "يبلّغ قرارًا رسميًا",
+    "en": "Notify a decision",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "La MDPH va notifier sa décision.",
+      "ar": "الـ MDPH رح تبلغني بالقرار.",
+      "en": "MDPH will notify its decision."
+    }
+  },
+  {
+    "fr": "Accorder l'AAH",
+    "ar": "يمنح AAH",
+    "en": "Grant disability allowance",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "La CAF verse l'AAH après l'accord de la MDPH.",
+      "ar": "الـ CAF تدفع AAH بعد موافقة الـ MDPH.",
+      "en": "CAF pays AAH after MDPH approval."
+    }
+  },
+  {
+    "fr": "Réexaminer une situation",
+    "ar": "يعيد دراسة الوضع",
+    "en": "Reassess a situation",
+    "level": "B1",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Mon dossier sera réexaminé dans deux ans.",
+      "ar": "رح يعيدوا دراسة ملفي بعد سنتين.",
+      "en": "My file will be reassessed in two years."
+    }
+  },
+  {
+    "fr": "Évaluer",
+    "ar": "يقيّم",
+    "en": "To assess / evaluate",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "L'équipe évalue mes besoins.",
+      "ar": "الفريق يقيّم احتياجاتي.",
+      "en": "The team assesses my needs."
+    }
+  },
+  {
+    "fr": "Déterminer",
+    "ar": "يحدد",
+    "en": "To determine",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "La MDPH détermine mes besoins.",
+      "ar": "الـ MDPH تحدد احتياجاتي.",
+      "en": "MDPH determines my needs."
+    }
+  },
+  {
+    "fr": "Identifier",
+    "ar": "يحدّد / يتعرّف على",
+    "en": "To identify",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le médecin identifie mes limitations.",
+      "ar": "الطبيب يحدد محدودياتي.",
+      "en": "The doctor identifies my limitations."
+    }
+  },
+  {
+    "fr": "Adapter",
+    "ar": "يكيّف / يلاءم",
+    "en": "To adapt",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il faut adapter mon poste de travail.",
+      "ar": "لازم نكيّف مكان عملي.",
+      "en": "My workplace needs to be adapted."
+    }
+  },
+  {
+    "fr": "Orienter",
+    "ar": "يوجّه",
+    "en": "To refer / guide",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "La MDPH m'oriente vers une structure spécialisée.",
+      "ar": "الـ MDPH وجهتني لمؤسسة مختصة.",
+      "en": "MDPH referred me to a specialized service."
+    }
+  },
+  {
+    "fr": "Reconduire",
+    "ar": "يجدّد / يمدّد",
+    "en": "To renew / extend",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "La décision peut être reconduite.",
+      "ar": "ممكن يتم تمديد القرار.",
+      "en": "The decision can be renewed."
+    }
+  },
+  {
+    "fr": "Le certificat médical MDPH",
+    "ar": "الشهادة الطبية الخاصة بالـ MDPH",
+    "en": "MDPH medical certificate",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Mon médecin a rempli le certificat médical MDPH.",
+      "ar": "دكتوري عبّى الشهادة الطبية تبع الـ MDPH.",
+      "en": "My doctor completed the MDPH medical certificate."
+    }
+  },
+  {
+    "fr": "Le projet de vie",
+    "ar": "مشروع الحياة / شرح أهداف واحتياجات الشخص",
+    "en": "Life project",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "J'ai décrit mon projet de vie dans le dossier.",
+      "ar": "شرحت مشروع حياتي بالملف.",
+      "en": "I described my life project in the application."
+    }
+  },
+  {
+    "fr": "Les difficultés au quotidien",
+    "ar": "الصعوبات اليومية",
+    "en": "Daily difficulties",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "J'ai des difficultés dans ma vie quotidienne.",
+      "ar": "عندي صعوبات بحياتي اليومية.",
+      "en": "I have difficulties in my daily life."
+    }
+  },
+  {
+    "fr": "L'autonomie",
+    "ar": "الاستقلالية / القدرة على الاعتماد على النفس",
+    "en": "Independence / autonomy",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Mes difficultés réduisent mon autonomie.",
+      "ar": "صعوباتي بتخفف من استقلاليتي.",
+      "en": "My difficulties reduce my independence."
+    }
+  },
+  {
+    "fr": "L'aménagement du poste de travail",
+    "ar": "تهيئة مكان العمل",
+    "en": "Workplace adaptation",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "J'ai besoin d'un aménagement de mon poste.",
+      "ar": "بحتاج تعديل بمكان عملي.",
+      "en": "I need workplace adjustments."
+    }
+  },
+  {
+    "fr": "La restriction d'activité",
+    "ar": "تقييد النشاط",
+    "en": "Activity restriction",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Ma maladie entraîne des restrictions d'activité.",
+      "ar": "مرضي يسببلي قيود بالنشاط.",
+      "en": "My illness causes activity restrictions."
+    }
+  },
+  {
+    "fr": "Le besoin d'accompagnement",
+    "ar": "الحاجة إلى دعم أو مرافقة",
+    "en": "Need for support",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "J'ai besoin d'un accompagnement adapté.",
+      "ar": "بحتاج مرافقة مناسبة.",
+      "en": "I need appropriate support."
+    }
+  },
+  {
+    "fr": "L'aide humaine",
+    "ar": "مساعدة بشرية",
+    "en": "Human assistance",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "J'ai besoin d'une aide humaine.",
+      "ar": "بحتاج مساعدة من شخص.",
+      "en": "I need human assistance."
+    }
+  },
+  {
+    "fr": "L'aide technique",
+    "ar": "مساعدة تقنية / معدات مساعدة",
+    "en": "Technical aid",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Je demande une aide technique.",
+      "ar": "عم اطلب مساعدة تقنية.",
+      "en": "I am requesting technical assistance."
+    }
+  },
+  {
+    "fr": "La reconnaissance du handicap",
+    "ar": "الاعتراف بالإعاقة",
+    "en": "Disability recognition",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Je demande une reconnaissance de mon handicap.",
+      "ar": "عم اطلب الاعتراف بوضع الإعاقة.",
+      "en": "I request recognition of my disability."
+    }
+  },
+  {
+    "fr": "La commission CDAPH",
+    "ar": "لجنة اتخاذ القرار التابعة للـ MDPH",
+    "en": "CDAPH decision committee",
+    "level": "A2",
+    "contexts": [
+      "mdph"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Mon dossier sera examiné par la CDAPH.",
+      "ar": "ملفي رح تدرسه لجنة CDAPH.",
+      "en": "My file will be reviewed by the CDAPH."
+    }
   }
-]
+];

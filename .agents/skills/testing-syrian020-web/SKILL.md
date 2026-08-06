@@ -528,6 +528,21 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   5. Verify the card-level `Loop` button still loops the whole card and no JS runtime errors appear.
 - The debug APK was rebuilt after this change.
 
+## MDPH verbs and phrases batch (dross-v130)
+
+- Parsed and merged a large MDPH/AAH/RQTH/PCH/CDAPH batch from the user's message into `data/vocab.js`.
+- Added 50 new entries and merged 19 existing entries into the `mdph` context. Total vocab increased from 2095 to **2145**; `mdph` context increased from 40 to **109**.
+- Entries include infinitive verbs (e.g., `Évaluer`, `Analyser`, `Adapter`), infinitive phrases (e.g., `Déposer un dossier MDPH`, `Bénéficier de la PCH`), and noun phrases (e.g., `Le certificat médical MDPH`, `La commission CDAPH`).
+- POS and level were assigned heuristically: single infinitives → `verb A2`; article-led phrases → `noun A2`; multi-word infinitive/object phrases → `phrase B1`.
+- Duplicate entries were merged by normalizing the French headword (removing leading `Le/La/L'/Les/Un/Une/Des`, lowercasing, and stripping accents). Existing duplicates like `Taux d'incapacité` had the new MDPH example and context merged in.
+- Bumped service worker cache to `dross-v130` and rebuilt the debug APK.
+- E2E verification steps:
+  1. Open `vocab.html` fresh and search `Déposer un dossier MDPH` — verify the MDPH phrase card renders with all three example languages.
+  2. Search `Évaluer` — verify both the single verb `Évaluer` (A2 Verb MDPH) and the phrase `Évaluer la situation` (B1 Phrase MDPH) appear.
+  3. Search `Le certificat médical MDPH` — verify the noun phrase renders.
+  4. Confirm the `MDPH` context chip shows `109` results and no JS runtime errors in DevTools.
+- The debug APK was rebuilt after this batch.
+
 ## Known data-quality issues (last observed)
 
 - None. All 2095 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`) when a separate example was provided. Situation sentences use `fr`/`ar`/`en` directly and may not have a separate `ex` block. Administrative entries may also include a `usage` field.
