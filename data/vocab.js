@@ -429,6 +429,7 @@ window.VOCAB_DATA = [
     "en": "At the pharmacy",
     "level": "A1",
     "contexts": [
+      "cpam",
       "daily",
       "health"
     ],
@@ -2014,6 +2015,7 @@ window.VOCAB_DATA = [
     "en": "Following your request",
     "level": "B1",
     "contexts": [
+      "caf",
       "daily"
     ],
     "ex": {
@@ -2537,6 +2539,7 @@ window.VOCAB_DATA = [
     "en": "At your request",
     "level": "A2",
     "contexts": [
+      "caf",
       "health",
       "services",
       "work"
@@ -2574,6 +2577,7 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "bank",
+      "caf",
       "housing",
       "services"
     ],
@@ -2818,6 +2822,7 @@ window.VOCAB_DATA = [
     "en": "Acknowledgement of receipt",
     "level": "B2",
     "contexts": [
+      "caf",
       "post",
       "services"
     ],
@@ -2859,6 +2864,7 @@ window.VOCAB_DATA = [
     "en": "Document / Official act",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -2875,6 +2881,7 @@ window.VOCAB_DATA = [
     "en": "To update",
     "level": "B1",
     "contexts": [
+      "caf",
       "france_travail",
       "services",
       "work"
@@ -2900,6 +2907,7 @@ window.VOCAB_DATA = [
     "en": "Update",
     "level": "B1",
     "contexts": [
+      "caf",
       "france_travail",
       "services",
       "work"
@@ -2998,6 +3006,7 @@ window.VOCAB_DATA = [
     "en": "Administrative",
     "level": "B1",
     "contexts": [
+      "caf",
       "daily",
       "services"
     ],
@@ -3015,6 +3024,7 @@ window.VOCAB_DATA = [
     "en": "Administration",
     "level": "A2",
     "contexts": [
+      "caf",
       "daily",
       "services"
     ],
@@ -3304,6 +3314,7 @@ window.VOCAB_DATA = [
     "en": "To allocate / Grant",
     "level": "B1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -3909,6 +3920,7 @@ window.VOCAB_DATA = [
     "en": "Waiting / Expectation",
     "level": "A1",
     "contexts": [
+      "caf",
       "daily",
       "services"
     ],
@@ -3972,6 +3984,7 @@ window.VOCAB_DATA = [
     "en": "Employment certificate",
     "level": "B1",
     "contexts": [
+      "caf",
       "work"
     ],
     "ex": {
@@ -4110,6 +4123,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "health",
+      "mdph",
       "services",
       "work"
     ],
@@ -5066,6 +5080,7 @@ window.VOCAB_DATA = [
     "en": "To complete a procedure",
     "level": "B1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -5172,6 +5187,7 @@ window.VOCAB_DATA = [
     "en": "To cancel a request",
     "level": "B1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -5809,6 +5825,7 @@ window.VOCAB_DATA = [
     "en": "To submit a request",
     "level": "B2",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -5825,6 +5842,7 @@ window.VOCAB_DATA = [
     "en": "To assert one's right",
     "level": "B2",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -6088,6 +6106,7 @@ window.VOCAB_DATA = [
     "en": "Allocation / Assignment",
     "level": "B2",
     "contexts": [
+      "caf",
       "housing",
       "services"
     ],
@@ -12167,6 +12186,7 @@ window.VOCAB_DATA = [
     "level": "A2",
     "pos": "noun",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": [
@@ -14301,6 +14321,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "bank",
+      "caf",
       "daily"
     ],
     "ex": {
@@ -18904,7 +18925,9 @@ window.VOCAB_DATA = [
     "en": "Confirm an appointment",
     "pos": "other",
     "level": "A2",
-    "contexts": [],
+    "contexts": [
+      "caf"
+    ],
     "ex": [
       {
         "fr": "Je confirme mon rendez-vous chez le médecin.",
@@ -20370,7 +20393,9 @@ window.VOCAB_DATA = [
     "en": "To close an account",
     "pos": "other",
     "level": "B1",
-    "contexts": [],
+    "contexts": [
+      "caf"
+    ],
     "ex": {
       "fr": "Je veux clôturer mon compte bancaire.",
       "ar": "أريد إغلاق حسابي البنكي.",
@@ -20449,6 +20474,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": [
@@ -20991,6 +21017,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21006,6 +21033,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21021,8 +21049,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "housing"
+      "caf",
+      "housing",
+      "services"
     ],
     "ex": {
       "fr": "Je fais une demande d'allocation logement.",
@@ -21037,8 +21066,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "housing"
+      "caf",
+      "housing",
+      "services"
     ],
     "ex": {
       "fr": "Je bénéficie de l'APL.",
@@ -21053,8 +21083,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "bank"
+      "bank",
+      "caf",
+      "services"
     ],
     "ex": {
       "fr": "Je fais une demande de RSA.",
@@ -21069,6 +21100,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21084,6 +21116,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21099,6 +21132,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21114,6 +21148,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "health",
       "services"
     ],
@@ -21137,6 +21172,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21152,6 +21188,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21166,7 +21203,9 @@ window.VOCAB_DATA = [
     "en": "Family quotient",
     "pos": "noun",
     "level": "A1",
-    "contexts": [],
+    "contexts": [
+      "caf"
+    ],
     "ex": {
       "fr": "Le quotient familial est nécessaire.",
       "ar": "المعامل العائلي ضروري.",
@@ -21180,6 +21219,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21195,7 +21235,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "bank"
+      "bank",
+      "caf"
     ],
     "ex": {
       "fr": "La CAF demande mes ressources.",
@@ -21210,7 +21251,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "bank"
+      "bank",
+      "caf"
     ],
     "ex": {
       "fr": "Mes revenus ont changé.",
@@ -21224,7 +21266,9 @@ window.VOCAB_DATA = [
     "en": "Change of situation",
     "pos": "other",
     "level": "A1",
-    "contexts": [],
+    "contexts": [
+      "caf"
+    ],
     "ex": {
       "fr": "Je dois déclarer un changement de situation.",
       "ar": "يجب أن أصرح بتغيير وضعيتي.",
@@ -21238,8 +21282,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "bank"
+      "bank",
+      "caf",
+      "services"
     ],
     "ex": {
       "fr": "Je n'ai pas reçu mon paiement.",
@@ -21254,8 +21299,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "bank"
+      "bank",
+      "caf",
+      "services"
     ],
     "ex": {
       "fr": "Le virement sera effectué demain.",
@@ -21270,6 +21316,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21315,6 +21362,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "B1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21330,6 +21378,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "B1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": [
@@ -21352,6 +21401,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "B1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21367,6 +21417,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21382,6 +21433,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "B1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21397,6 +21449,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "B1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21412,6 +21465,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21427,6 +21481,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": [
@@ -21449,6 +21504,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": [
@@ -21471,6 +21527,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "B1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21486,8 +21543,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "bank"
+      "bank",
+      "caf",
+      "services"
     ],
     "ex": {
       "fr": "La CAF demande un justificatif de revenus.",
@@ -21514,7 +21572,9 @@ window.VOCAB_DATA = [
     "en": "Missing document",
     "pos": "noun",
     "level": "A1",
-    "contexts": [],
+    "contexts": [
+      "caf"
+    ],
     "ex": {
       "fr": "Il manque un document dans mon dossier.",
       "ar": "توجد وثيقة ناقصة في ملفي.",
@@ -21528,6 +21588,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21543,6 +21604,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21558,6 +21620,7 @@ window.VOCAB_DATA = [
     "pos": "adjective",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21573,6 +21636,7 @@ window.VOCAB_DATA = [
     "pos": "adjective",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21588,6 +21652,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21603,6 +21668,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "B2",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": [
@@ -21625,6 +21691,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21640,6 +21707,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "B2",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21690,6 +21758,7 @@ window.VOCAB_DATA = [
     "pos": "adjective",
     "level": "B1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": [
@@ -21712,6 +21781,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -21727,8 +21797,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
-      "services",
-      "bank"
+      "bank",
+      "caf",
+      "services"
     ],
     "ex": {
       "fr": "Quel est le montant de mon aide ?",
@@ -21743,6 +21814,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "B1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": [
@@ -21810,6 +21882,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
+      "caf",
       "housing"
     ],
     "ex": {
@@ -22005,8 +22078,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
-      "services",
-      "housing"
+      "caf",
+      "housing",
+      "services"
     ],
     "ex": {
       "fr": "Voici mon justificatif de domicile.",
@@ -22021,6 +22095,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "B2",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -22036,6 +22111,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
+      "caf",
       "housing"
     ],
     "ex": {
@@ -22051,8 +22127,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "B1",
     "contexts": [
-      "services",
-      "housing"
+      "caf",
+      "housing",
+      "services"
     ],
     "ex": {
       "fr": "J'ai envoyé ma demande d'aide au logement.",
@@ -22067,8 +22144,9 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "B1",
     "contexts": [
-      "services",
-      "housing"
+      "caf",
+      "housing",
+      "services"
     ],
     "ex": {
       "fr": "Chacun a un droit au logement.",
@@ -22183,7 +22261,9 @@ window.VOCAB_DATA = [
     "en": "Family situation",
     "pos": "noun",
     "level": "B1",
-    "contexts": [],
+    "contexts": [
+      "caf"
+    ],
     "ex": {
       "fr": "Je dois déclarer ma situation familiale.",
       "ar": "يجب أن أصرح بحالتي العائلية.",
@@ -22196,7 +22276,9 @@ window.VOCAB_DATA = [
     "en": "Employment situation",
     "pos": "noun",
     "level": "B1",
-    "contexts": [],
+    "contexts": [
+      "caf"
+    ],
     "ex": {
       "fr": "Ma situation professionnelle a changé.",
       "ar": "تغير وضعي المهني.",
@@ -22248,7 +22330,9 @@ window.VOCAB_DATA = [
     "en": "Household composition",
     "pos": "noun",
     "level": "B1",
-    "contexts": [],
+    "contexts": [
+      "caf"
+    ],
     "ex": {
       "fr": "La CAF demande la composition du foyer.",
       "ar": "CAF تطلب تكوين الأسرة.",
@@ -22379,6 +22463,7 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "B1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -22490,6 +22575,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -22681,6 +22767,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
+      "caf",
       "services",
       "work"
     ],
@@ -22725,6 +22812,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -22740,6 +22828,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -22832,6 +22921,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -22862,8 +22952,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "bank"
+      "bank",
+      "caf",
+      "services"
     ],
     "ex": {
       "fr": "Le versement sera effectué bientôt.",
@@ -22878,8 +22969,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "bank"
+      "bank",
+      "caf",
+      "services"
     ],
     "ex": {
       "fr": "Je voudrais connaître le montant mensuel.",
@@ -22907,8 +22999,9 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
-      "services",
-      "bank"
+      "bank",
+      "caf",
+      "services"
     ],
     "ex": {
       "fr": "Le montant versé n'est pas correct.",
@@ -22923,8 +23016,9 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
-      "services",
-      "bank"
+      "bank",
+      "caf",
+      "services"
     ],
     "ex": {
       "fr": "Mon paiement est en retard.",
@@ -22939,8 +23033,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "bank"
+      "bank",
+      "caf",
+      "services"
     ],
     "ex": {
       "fr": "Je voudrais signaler un retard de paiement.",
@@ -22968,6 +23063,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -22983,6 +23079,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -22998,6 +23095,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -23013,6 +23111,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -23028,6 +23127,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -23043,6 +23143,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -23058,6 +23159,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -23103,6 +23205,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -23133,6 +23236,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "B1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -23148,6 +23252,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "mdph",
       "services"
     ],
     "ex": {
@@ -23163,7 +23268,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
-      "health"
+      "health",
+      "mdph"
     ],
     "ex": {
       "fr": "Je demande une reconnaissance de handicap.",
@@ -23178,8 +23284,9 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "health",
+      "mdph",
+      "services"
     ],
     "ex": {
       "fr": "Ma situation de handicap limite mes activités.",
@@ -23209,9 +23316,10 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "health",
+      "mdph",
       "services",
-      "work",
-      "health"
+      "work"
     ],
     "ex": {
       "fr": "J'ai fait une demande de RQTH.",
@@ -23226,7 +23334,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "health",
+      "mdph",
       "services"
     ],
     "ex": [
@@ -23272,6 +23382,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": [
@@ -23331,7 +23442,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
-      "health"
+      "health",
+      "mdph"
     ],
     "ex": {
       "fr": "J'ai des difficultés pour travailler.",
@@ -23346,7 +23458,8 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
-      "health"
+      "health",
+      "mdph"
     ],
     "ex": [
       {
@@ -23368,6 +23481,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "mdph",
       "services",
       "work"
     ],
@@ -23391,6 +23505,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -23450,7 +23565,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "health"
+      "health",
+      "mdph"
     ],
     "ex": [
       {
@@ -23578,8 +23694,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "caf",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "J'ai joint mon compte rendu médical au dossier.",
@@ -23647,7 +23764,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "health"
+      "health",
+      "mdph"
     ],
     "ex": [
       {
@@ -23685,6 +23803,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "health",
+      "mdph",
       "work"
     ],
     "ex": {
@@ -23730,7 +23849,8 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
-      "health"
+      "health",
+      "mdph"
     ],
     "ex": {
       "fr": "Je rencontre des difficultés dans ma vie quotidienne.",
@@ -23775,6 +23895,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -23790,6 +23911,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -23805,6 +23927,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -23835,6 +23958,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -23850,6 +23974,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -23865,6 +23990,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -23895,6 +24021,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -23910,6 +24037,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -23925,8 +24053,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "caf",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "Je souhaite faire une demande d'AAH.",
@@ -23941,8 +24070,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "bank"
+      "bank",
+      "caf",
+      "services"
     ],
     "ex": {
       "fr": "Je voudrais connaître le montant de l'allocation.",
@@ -23972,7 +24102,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "health"
+      "cpam",
+      "health",
+      "mdph"
     ],
     "ex": {
       "fr": "Le taux d'incapacité est évalué par la MDPH.",
@@ -24108,6 +24240,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "mdph",
       "work"
     ],
     "ex": {
@@ -24123,6 +24256,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -24320,6 +24454,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "mdph",
       "work"
     ],
     "ex": {
@@ -24350,6 +24485,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "B1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -24378,6 +24514,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -24406,6 +24543,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -24421,6 +24559,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "caf",
       "services"
     ],
     "ex": {
@@ -24520,6 +24659,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -24535,8 +24675,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "cpam",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "Je contacte la CPAM pour mon dossier.",
@@ -24551,8 +24692,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "cpam",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "J'ai oublié ma carte Vitale.",
@@ -24567,8 +24709,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "cpam",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "Quand vais-je recevoir le remboursement ?",
@@ -24596,8 +24739,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "cpam",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "J'ai payé des frais médicaux.",
@@ -24612,8 +24756,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "cpam",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "Cette dépense de santé est importante.",
@@ -24628,8 +24773,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "cpam",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "Le médecin m'a donné une ordonnance.",
@@ -24659,8 +24805,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "cpam",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "J'ai envoyé la feuille de soins.",
@@ -24675,8 +24822,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "cpam",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "Ma déclaration de médecin traitant est enregistrée.",
@@ -24691,8 +24839,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "cpam",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "Ma mutuelle rembourse le reste.",
@@ -24707,8 +24856,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "cpam",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "Je bénéficie du tiers payant.",
@@ -24723,8 +24873,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "cpam",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "Je demande une prise en charge médicale.",
@@ -24739,8 +24890,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "caf",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "J'ai pris un rendez-vous médical.",
@@ -24755,8 +24907,9 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "caf",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "Je voudrais prendre rendez-vous avec le médecin.",
@@ -24803,8 +24956,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "caf",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "J'attends dans la salle d'attente.",
@@ -24849,6 +25003,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -24864,6 +25019,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -24879,8 +25035,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "caf",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "Le médecin m'a donné un compte rendu.",
@@ -24895,8 +25052,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "caf",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "Mon dossier médical est complet.",
@@ -24971,6 +25129,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -25018,6 +25177,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -25093,6 +25253,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -25243,6 +25404,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -25258,8 +25420,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "cpam",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "Le médecin m'a donné une ordonnance de sortie.",
@@ -25274,6 +25437,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -25289,6 +25453,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -25304,6 +25469,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -25319,6 +25485,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -25469,6 +25636,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26001,8 +26169,9 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "cpam",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "J'ai besoin d'une nouvelle ordonnance.",
@@ -26059,6 +26228,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26074,6 +26244,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26089,6 +26260,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26104,6 +26276,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26119,6 +26292,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26134,6 +26308,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26149,6 +26324,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26224,6 +26400,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26270,6 +26447,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26285,6 +26463,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26300,6 +26479,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26315,6 +26495,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26330,6 +26511,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26405,6 +26587,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26420,6 +26603,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26435,6 +26619,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26450,6 +26635,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26495,6 +26681,7 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "cpam",
       "health"
     ],
     "ex": {
@@ -26540,8 +26727,9 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "caf",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "Je voudrais renouveler mon traitement.",
@@ -26649,7 +26837,8 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
-      "health"
+      "health",
+      "mdph"
     ],
     "ex": {
       "fr": "Cette maladie a un impact sur ma vie quotidienne.",
@@ -26782,8 +26971,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "caf",
+      "health",
+      "services"
     ],
     "ex": {
       "fr": "Quand est mon prochain rendez-vous ?",
@@ -26814,7 +27004,8 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
-      "health"
+      "health",
+      "mdph"
     ],
     "ex": {
       "fr": "Je voudrais décrire mes difficultés au médecin.",
@@ -26829,8 +27020,9 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
-      "work",
-      "health"
+      "health",
+      "mdph",
+      "work"
     ],
     "ex": {
       "fr": "J'ai des difficultés à travailler à cause de ma fatigue.",
@@ -26845,7 +27037,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "health"
+      "health",
+      "mdph"
     ],
     "ex": {
       "fr": "J'ai des limitations fonctionnelles au quotidien.",
@@ -26860,7 +27053,8 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
-      "health"
+      "health",
+      "mdph"
     ],
     "ex": {
       "fr": "Je dois me reposer souvent dans la journée.",
@@ -26875,7 +27069,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "health"
+      "health",
+      "mdph"
     ],
     "ex": {
       "fr": "Je ressens un manque d'énergie important.",
@@ -26890,7 +27085,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "health"
+      "health",
+      "mdph"
     ],
     "ex": {
       "fr": "Cette fatigue est invalidante au quotidien.",
@@ -26905,8 +27101,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "services",
-      "health"
+      "health",
+      "mdph",
+      "services"
     ],
     "ex": {
       "fr": "Le médecin prépare un rapport médical.",
@@ -26921,9 +27118,10 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "health",
+      "mdph",
       "services",
-      "work",
-      "health"
+      "work"
     ],
     "ex": {
       "fr": "Je souhaite demander une RQTH.",
@@ -26938,9 +27136,10 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "health",
+      "mdph",
       "services",
-      "work",
-      "health"
+      "work"
     ],
     "ex": {
       "fr": "J'ai rendez-vous avec la médecine du travail.",
@@ -26955,9 +27154,10 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "health",
+      "mdph",
       "services",
-      "work",
-      "health"
+      "work"
     ],
     "ex": {
       "fr": "Le médecin du travail peut proposer des adaptations.",
@@ -26972,9 +27172,10 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "health",
+      "mdph",
       "services",
-      "work",
-      "health"
+      "work"
     ],
     "ex": {
       "fr": "J'ai une visite médicale obligatoire.",
@@ -26989,9 +27190,10 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "health",
+      "mdph",
       "services",
-      "work",
-      "health"
+      "work"
     ],
     "ex": {
       "fr": "Le médecin évalue mon aptitude au travail.",
@@ -27006,9 +27208,10 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "health",
+      "mdph",
       "services",
-      "work",
-      "health"
+      "work"
     ],
     "ex": {
       "fr": "Le médecin peut déclarer une inaptitude.",
@@ -27023,9 +27226,10 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "health",
+      "mdph",
       "services",
-      "work",
-      "health"
+      "work"
     ],
     "ex": {
       "fr": "J'ai des restrictions médicales pour certains travaux.",
@@ -27040,9 +27244,10 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "health",
+      "mdph",
       "services",
-      "work",
-      "health"
+      "work"
     ],
     "ex": {
       "fr": "Le médecin a fait une recommandation médicale.",
@@ -27057,6 +27262,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "mdph",
       "work"
     ],
     "ex": {
@@ -27087,8 +27293,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "work",
-      "health"
+      "health",
+      "mdph",
+      "work"
     ],
     "ex": {
       "fr": "Mon médecin propose un mi-temps thérapeutique.",
@@ -27103,6 +27310,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "mdph",
       "work"
     ],
     "ex": {
@@ -27118,6 +27326,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "mdph",
       "work"
     ],
     "ex": {
@@ -27133,6 +27342,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "mdph",
       "work"
     ],
     "ex": {
@@ -27148,6 +27358,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "mdph",
       "work"
     ],
     "ex": {
@@ -27163,6 +27374,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "mdph",
       "services",
       "work"
     ],
@@ -27179,6 +27391,7 @@ window.VOCAB_DATA = [
     "pos": "other",
     "level": "A1",
     "contexts": [
+      "mdph",
       "services",
       "work"
     ],

@@ -45,69 +45,25 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Chrome may show a 404 for `favicon.ico` on first load; this is harmless and does not affect functionality.
 - The `browser_console` tool can drop its CDP connection in this environment. Use `/tmp/cdp_helper.py` (Python `websocket-client`) to connect to `ws://localhost:29229/devtools/page/<id>` and evaluate JS / capture `Log.entryAdded` and `Runtime.consoleAPICalled` events.
 
-## Vocab page quick checks (550-entry dataset with POS, `usage` field, A-words + A-adjectives)
+## Vocab page quick checks (1646-entry dataset with POS, contexts, and `ex` arrays)
 
 - `data/vocab.js` contains the active dataset; `data/vocab-batch-02.js` is currently empty (`window.VOCAB_DATA_BATCH2 = []`).
-- Total entries: **550** French phrases (163 beginning with `À` + 236 other A-words including 78 A-verbs + 151 new A-adjectives + 89 merged entries).
-- Entry structure: every entry has `fr`, `ar`, `en`, `level` (A1/A2/B1/B2), `pos` (`verb`/`adjective`/`noun`/`phrase`/`other`), `contexts` array, and `ex` (`fr`, `ar`, `en`).
-- Administrative entries may also include a `usage` field rendered in a `.usage` div above the example.
-- POS counts: verb=121, adjective=167, noun=80, phrase=170, other=12.
+- Total entries: **1646** French headwords.
+- Entry structure: every entry has `fr`, `ar`, `en`, `level` (A1/A2/B1/B2), `pos` (`verb`/`adjective`/`noun`/`phrase`/`other`), `contexts` array, and `ex` (`fr`, `ar`, `en`). `ex` may be an array of such objects.
+- Levels: A1=491, A2=634, B1=385, B2=136.
+- POS counts: noun=741, verb=312, adjective=239, phrase=193, other=161.
 - POS chip labels are localized by UI language (AR: فعل/صفة/اسم/عبارة/آخر; EN: Verb/Adjective/Noun/Phrase/Other; FR: Verbe/Adjectif/Nom/Expression/Autre).
-- Each card renders a `.pos-pill` next to `.level-pill`.
-- Levels: A1=83, A2=289, B1=97, B2=81.
-- Contexts include: daily (342), services (179), work (131), housing (27), health (27), bank (19), caf (16), transport (20), family (10), restaurant (5), shop (20), car (14), phone (17), France Travail (10), prefecture (6), post (4), cpam (3), school (10), mairie (2), weather (3). Context chips render in a horizontally scrollable `.contexts-strip`.
-- A-Z letter chips appear above the context strip, with `الكل` (All) followed by `A`–`Z` and per-letter counts. Letter chips are single-select: clicking a letter replaces the previous selection, clicking the same letter again toggles it off, and `الكل` clears the selection. With the current 550-entry dataset only `A` has entries (550); all other letters show `0`.
-- Search examples:
-  - `gauche` → 1 result (`À gauche`)
-  - `Abolir` → 1 result (`Abolir`)
-  - `Avouer` → 1 result (`Avouer`)
-  - `Acheter` → 1 result (`Acheter`)
-  - `Abandonné` → 2 results (`Abandonné` + `Abandonner`); `Abandonné` card example `Ce bâtiment est abandonné.`
-  - `Abordable` → 1 result; example `Un prix abordable.`
-  - `Accidentel` → 1 result; example `C'était un accident.`
-  - `Administratif` → 1 result; usage `الملفات والإجراءات`; example `J'ai un problème administratif.`
-  - `Autonome` → 1 result; example `Je suis capable de travailler de manière autonome.`
-  - `Avancé` → 1 result; example `J'ai un niveau avancé en français.`
-  - `autorisation` → 1 result (`Autorisation`)
-  - `CPAM` → 3 results
-  - `CAF` → **25 results** now that search scans `usage`, `contexts`, `pos`, and `ex.*` text.
-  - `dossier` → **20 results** because the search haystack includes `ex.fr`/`ex.ar`/`ex.en`.
-  - `Mairie` (`البلدية`) → 2 results
-  - `administratif` → 1 result (`Administratif`)
-  - **POS text search (all UI languages):** `vocab.html` builds a `POS_BY_LABEL` map from the localized labels and first checks the query as an exact POS label before falling back to substring search.
-    - English UI: `verb` → 121, `adjective` → 167, `noun` → 80, `phrase` → 170, `other` → 12
-    - French UI: `Verbe` → 121, `Adjectif` → 167, `Nom` → 80, `Expression` → 170, `Autre` → 12
-    - Arabic UI: `فعل` → 121, `صفة` → 167, `اسم` → 80, `عبارة` → 170, `آخر` → 12
-- Filter counts:
-  - level `A1` → 83, `A2` → 289, `B1` → 97, `B2` → 81
-  - context `services` → 179
-  - context `caf` → 16
-  - context `cpam` → 3
-  - context `mairie` → 2
-  - POS `verb` → 121, `adjective` → 167, `noun` → 80, `phrase` → 170, `other` → 12
-  - combined `POS verb` + `A2` → 25; `POS adjective` + `services` → 31
-- Sorting:
-  - A → Z first term: `À bas`
-  - Z → A first term: `Avouer` (non-`À` A-words sort before `À` in `localeCompare`; `Avouer` is alphabetically last)
-- Pagination: `pageSize` is 100; the `#load-more` button shows remaining counts `450`, `350`, `250`, `150`, `50` for the 550-entry dataset, and after a fifth click renders all 550 cards and removes the button.
-- There is currently **no copy/clipboard UI** in `vocab.html`; only localized `copied` toast strings exist in `UI`.
-- `usage` field:
-  - Rendered in a `.usage` div with `dir="rtl"` between the `.meta` pills and the `.example` block.
-  - Styled with a right accent border and subtle accent background (`vocab.html` line 116).
-  - Only appears on entries that have a `usage` property; non-admin cards (e.g., `À gauche`) do not have a `.usage` element.
-- Audio uses Web Speech API or Capacitor TTS; in the VM the audio may not play, but the buttons should not throw console errors.
+- Contexts include: daily (687), services (391), work (298), health (251), caf (136), housing (70), cpam (50), shop (45), bank (43), mdph (40), transport (38), school (27), phone (18), family (14), car (14), france_travail (11), food (8), weather (7), restaurant (7), prefecture (6), post (4), mairie (2), office (2), geography (1). Context chips render in a horizontally scrollable `.contexts-strip`.
+- A-Z letter chips appear above the context strip, with `الكل` (All) followed by `A`–`Z` and per-letter counts. Letter chips are single-select.
+- Filter is OR across selected contexts, levels, and POS; search is a substring over `fr`, `ar`, `en`, `usage`, `contexts`, `pos`, and `ex.*` text.
+- Each card renders `.pos-pill`, `.level-pill`, and a `.contexts-strip` of context pills. `ex` can be an array; each object is rendered as a separate example block.
 - Card action buttons (from right to left in RTL Arabic, left to right in LTR English/French):
   - `speak-btn` (🔊 / `نطق` / `Speak` / `Écouter`)
   - `loop-btn` (🔁 / `تكرار` / `Loop` / `Répéter`)
   - `google-btn` (🖼️ / `صور Google` / `Images` / `Images`) — opens `https://www.google.com/search?udm=2&q=<fr>`
   - `ai-btn` (🔍 / `Google AI` / `Google AI` / `Google IA`) — opens `https://www.google.com/search?udm=50&q=<prompt>`
-- Google AI prompt per UI language (also asks for common examples used in daily life in France):
-  - AR: `تصحيح العبارة الفرنسية "<fr>" وتحليلها كلمة كلمة مع ترجمة الكلمات والجملة إلى العربية والإنجليزية والفرنسية وإعطاء أمثلة شائعة في الحياة اليومية في فرنسا`
-  - EN: `Correct and analyze the French phrase "<fr>" word by word, translate the words and the phrase into Arabic, English, and French, and give common examples used in daily life in France`
-  - FR: `Corriger et analyser la phrase française "<fr>" mot par mot, traduire les mots et la phrase en arabe, anglais et français, et donner des exemples courants de la vie quotidienne en France`
-- `index.html` (VidCap lesson player/editor) also has a `🤖` AI button on each sentence card (next to the `📝` notebook button). It calls `openGoogleAiMode(i)` and opens `https://www.google.com/search?udm=50&hl=<lang>&q=<prompt>` where the prompt asks to correct/analyze the French phrase word by word, translate into Arabic/French/English, and give common examples used in daily life in France.
 - Google search links will often hit a reCAPTCHA from a VM IP; that is expected. Verify the generated URL, not the results page.
-- In Chrome for Testing, opening a Google AI Mode (`udm=50`) link may crash the entire browser process. If this happens, verify the generated `href` via CDP (`document.querySelector('.ai-btn').getAttribute('href')`) or by overriding `window.open` instead of clicking.
+- In Chrome for Testing, opening a Google AI Mode (`udm=50`) link may crash the entire browser process. If this happens, verify the generated `href` via CDP or by overriding `window.open` instead of clicking.
 
 ## C-words batch (dross-v108)
 
@@ -337,6 +293,19 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Searching common short health/work terms returns multiple substring matches; exact entries are present in the result list.
 - TTS loop on `Douleur` (2 examples) emits 9 unique `fr/ar/en` utterances per cycle.
 
+## CAF / CPAM / MDPH context fix (dross-v118)
+
+- `data/vocab.js` still contains **1646** entries; `sw.js` cache bumped to `dross-v118`.
+- `vocab.html` `CTX_LABELS` now includes `mdph: { ar: 'MDPH', en: 'MDPH', fr: 'MDPH' }`.
+- Re-tagged CAF/administrative entries with context `caf` (136 entries), CPAM/health-insurance entries with `cpam` (50 entries), and MDPH/handicap/work-adaptation entries with `mdph` (40 entries). Existing `services`, `health`, `work`, `bank`, and `housing` contexts are preserved.
+- Context counts after the fix: `daily 687`, `services 391`, `work 298`, `health 251`, `caf 136`, `housing 70`, `cpam 50`, `shop 45`, `bank 43`, `mdph 40`, `transport 38`, `school 27`, `phone 18`, `family 14`, `car 14`, `france_travail 11`, `food 8`, `weather 7`, `restaurant 7`, `prefecture 6`, `post 4`, `mairie 2`, `office 2`, `geography 1`.
+- Sample entries:
+  - `CAF` / `APL (Aide personnalisée au logement)` / `RSA (Revenu de solidarité active)` / `Dossier` / `Demande` / `Attestation de droits` → context `caf` (+ existing `services`/`housing`/`bank`)
+  - `CPAM (Caisse Primaire d'Assurance Maladie)` / `Carte Vitale` / `Remboursement` / `Ordonnance` / `Bilan sanguin` / `Hépatite B` → context `cpam` (+ `health`/`services`)
+  - `MDPH` / `RQTH` / `Aménagement du poste` / `Capacité de travail` / `Inaptitude` / `Mi-temps thérapeutique` → context `mdph` (+ `health`/`work`/`services`)
+- Filtering by the `CAF`, `CPAM`, and `MDPH` context chips returns the expected counts and renders the `ex` arrays.
+- The debug APK was rebuilt after this fix.
+
 ## Modernized `vocab.html` UI (dross-v95)
 
 - `vocab.html` now uses a refreshed dark/light palette, glass-morphism sticky `header` (`backdrop-filter: blur(12px)`), a `.hero` section with a gradient top accent line, and a `.toolbar` grid layout.
@@ -349,7 +318,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v117`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v118`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
@@ -363,4 +332,4 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Known data-quality issues (last observed)
 
-- None. All 550 entries now have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object (`ex.fr`, `ex.ar`, `ex.en`). Administrative entries may also include a `usage` field.
+- None. All 1646 entries now have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`). Administrative entries may also include a `usage` field.
