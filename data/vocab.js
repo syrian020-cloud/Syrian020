@@ -2665,7 +2665,9 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "services",
-      "caf"
+      "caf",
+      "stage",
+      "work"
     ],
     "ex": [
       {
@@ -2677,6 +2679,11 @@ window.VOCAB_DATA = [
         "fr": "Ma demande a été acceptée.",
         "ar": "وافقوا على طلبي.",
         "en": "My request was accepted."
+      },
+      {
+        "fr": "Le restaurant a accepté ma demande.",
+        "ar": "المطعم وافق على طلبي.",
+        "en": "The restaurant accepted my request."
       }
     ],
     "usage": "الطلبات، الشروط، الملفات",
@@ -2767,13 +2774,14 @@ window.VOCAB_DATA = [
     "pos": "verb"
   },
   {
-    "fr": "Accompagnement",
-    "ar": "مرافقة / دعم",
-    "en": "Support / Assistance",
+    "fr": "Un accompagnement",
+    "ar": "مرافقة / دعم / متابعة",
+    "en": "Support / Assistance / Guidance",
     "level": "B1",
     "contexts": [
       "services",
-      "work"
+      "work",
+      "stage"
     ],
     "ex": [
       {
@@ -2785,6 +2793,11 @@ window.VOCAB_DATA = [
         "fr": "Je bénéficie d'un accompagnement social.",
         "ar": "أستفيد من دعم اجتماعي.",
         "en": "I receive social support."
+      },
+      {
+        "fr": "J’ai besoin d’un accompagnement pour mon projet.",
+        "ar": "أحتاج إلى متابعة لمشروعي.",
+        "en": "I need support for my project."
       }
     ],
     "usage": "الخدمات الاجتماعية والعمل | العمل، الإدارات، التدريب",
@@ -2965,18 +2978,27 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "daily",
-      "services"
+      "services",
+      "stage",
+      "work"
     ],
-    "ex": {
-      "fr": "Je voudrais ajouter un document à mon dossier.",
-      "ar": "أريد إضافة وثيقة إلى ملفي.",
-      "en": "I would like to add a document to my file."
-    },
+    "ex": [
+      {
+        "fr": "Je voudrais ajouter un document à mon dossier.",
+        "ar": "أريد إضافة وثيقة إلى ملفي.",
+        "en": "I would like to add a document to my file."
+      },
+      {
+        "fr": "J’ajoute la sauce sur le sushi.",
+        "ar": "أضيف الصلصة على السوشي.",
+        "en": "I add the sauce to the sushi."
+      }
+    ],
     "usage": "الملفات والوثائق | الملفات والوثائق | الملفات، المعلومات",
     "pos": "verb"
   },
   {
-    "fr": "Adresse",
+    "fr": "Une adresse",
     "ar": "عنوان",
     "en": "Address",
     "level": "A1",
@@ -2985,13 +3007,21 @@ window.VOCAB_DATA = [
       "france_travail",
       "prefecture",
       "services",
-      "work"
+      "work",
+      "stage"
     ],
-    "ex": {
-      "fr": "J'ai changé d'adresse.",
-      "ar": "غيّرت عنواني.",
-      "en": "I changed my address."
-    },
+    "ex": [
+      {
+        "fr": "J'ai changé d'adresse.",
+        "ar": "غيّرت عنواني.",
+        "en": "I changed my address."
+      },
+      {
+        "fr": "J’ai besoin de l’adresse du restaurant.",
+        "ar": "أحتاج إلى عنوان المطعم.",
+        "en": "I need the restaurant’s address."
+      }
+    ],
     "usage": "CAF / France Travail / Préfecture / العقود",
     "pos": "noun"
   },
@@ -3561,12 +3591,14 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Appliquer",
-    "ar": "يطبق / يطبّق",
-    "en": "To apply / Implement",
+    "ar": "يطبق / يطبّق / ينفذ",
+    "en": "To apply / Implement / To follow",
     "level": "A1",
     "contexts": [
       "daily",
-      "caf"
+      "caf",
+      "stage",
+      "work"
     ],
     "ex": [
       {
@@ -3578,6 +3610,11 @@ window.VOCAB_DATA = [
         "fr": "Les nouvelles règles seront appliquées.",
         "ar": "رح يتم تطبيق القوانين الجديدة.",
         "en": "The new rules will be applied."
+      },
+      {
+        "fr": "Je dois appliquer les règles d’hygiène.",
+        "ar": "يجب أن أطبق قواعد النظافة.",
+        "en": "I must follow hygiene rules."
       }
     ],
     "usage": "القوانين، الشروط، الإجراءات",
@@ -3639,13 +3676,22 @@ window.VOCAB_DATA = [
     "en": "To learn",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "stage",
+      "work"
     ],
-    "ex": {
-      "fr": "J'apprends le français.",
-      "ar": "أنا أتعلم الفرنسية.",
-      "en": "I am learning French."
-    },
+    "ex": [
+      {
+        "fr": "J'apprends le français.",
+        "ar": "أنا أتعلم الفرنسية.",
+        "en": "I am learning French."
+      },
+      {
+        "fr": "Je veux apprendre la cuisine japonaise.",
+        "ar": "أريد تعلم الطبخ الياباني.",
+        "en": "I want to learn Japanese cooking."
+      }
+    ],
     "usage": "اللغة، التدريب، الحياة اليومية",
     "pos": "verb"
   },
@@ -3991,22 +4037,30 @@ window.VOCAB_DATA = [
     "pos": "noun"
   },
   {
-    "fr": "Attestation",
-    "ar": "شهادة / إثبات",
-    "en": "Certificate / Proof",
+    "fr": "Une attestation",
+    "ar": "شهادة / إثبات / إثبات مكتوب",
+    "en": "Certificate / Proof / Proof document",
     "level": "B1",
     "contexts": [
       "caf",
       "france_travail",
       "housing",
       "services",
-      "work"
+      "work",
+      "stage"
     ],
-    "ex": {
-      "fr": "J'ai besoin d'une attestation de domicile.",
-      "ar": "أحتاج إلى شهادة سكن.",
-      "en": "I need a proof of address."
-    },
+    "ex": [
+      {
+        "fr": "J'ai besoin d'une attestation de domicile.",
+        "ar": "أحتاج إلى شهادة سكن.",
+        "en": "I need a proof of address."
+      },
+      {
+        "fr": "J’ai besoin d’une attestation de travail.",
+        "ar": "أحتاج إلى شهادة عمل.",
+        "en": "I need an employment certificate."
+      }
+    ],
     "usage": "CAF، France Travail، السكن، الإدارة",
     "pos": "noun"
   },
@@ -4117,31 +4171,47 @@ window.VOCAB_DATA = [
       "mairie",
       "prefecture",
       "services",
-      "work"
+      "work",
+      "stage"
     ],
-    "ex": {
-      "fr": "J'ai besoin d'une autorisation pour cette démarche.",
-      "ar": "أحتاج إلى تصريح لهذا الإجراء.",
-      "en": "I need authorization for this procedure."
-    },
+    "ex": [
+      {
+        "fr": "J'ai besoin d'une autorisation pour cette démarche.",
+        "ar": "أحتاج إلى تصريح لهذا الإجراء.",
+        "en": "I need authorization for this procedure."
+      },
+      {
+        "fr": "J’ai besoin d’une autorisation pour commencer.",
+        "ar": "أحتاج إلى تصريح للبدء.",
+        "en": "I need authorization to start."
+      }
+    ],
     "usage": "Préfecture، Mairie، العمل، السكن",
     "pos": "noun"
   },
   {
     "fr": "Autoriser",
-    "ar": "يسمح / يجيز",
-    "en": "To authorize / Allow",
+    "ar": "يسمح / يجيز / يأذن",
+    "en": "To authorize / Allow / To allow",
     "level": "B1",
     "contexts": [
       "daily",
       "services",
-      "work"
+      "work",
+      "stage"
     ],
-    "ex": {
-      "fr": "La CAF m'a autorisé à envoyer le document en ligne.",
-      "ar": "سمحت لي الكاف بإرسال الوثيقة عبر الإنترنت.",
-      "en": "CAF authorized me to send the document online."
-    },
+    "ex": [
+      {
+        "fr": "La CAF m'a autorisé à envoyer le document en ligne.",
+        "ar": "سمحت لي الكاف بإرسال الوثيقة عبر الإنترنت.",
+        "en": "CAF authorized me to send the document online."
+      },
+      {
+        "fr": "La France Travail m’autorise à faire le stage.",
+        "ar": "France Travail يسمح لي بعمل التدريب.",
+        "en": "France Travail authorizes me to do the internship."
+      }
+    ],
     "usage": "الإدارة، القوانين، العمل",
     "pos": "verb"
   },
@@ -4840,19 +4910,27 @@ window.VOCAB_DATA = [
     "pos": "noun"
   },
   {
-    "fr": "Adapter",
+    "fr": "S’adapter",
     "ar": "يكيّف / يتأقلم",
     "en": "To adapt",
     "level": "A2",
     "contexts": [
       "daily",
-      "work"
+      "work",
+      "stage"
     ],
-    "ex": {
-      "fr": "Il faut adapter cette solution.",
-      "ar": "يجب تكييف هذا الحل.",
-      "en": "This solution must be adapted."
-    },
+    "ex": [
+      {
+        "fr": "Il faut adapter cette solution.",
+        "ar": "يجب تكييف هذا الحل.",
+        "en": "This solution must be adapted."
+      },
+      {
+        "fr": "Je peux m’adapter rapidement au travail.",
+        "ar": "أستطيع التأقلم بسرعة مع العمل.",
+        "en": "I can adapt quickly to the work."
+      }
+    ],
     "usage": "العمل، الحياة، القوانين",
     "pos": "verb"
   },
@@ -12121,20 +12199,28 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "Contrat",
-    "ar": "عقد",
+    "fr": "Le contrat",
+    "ar": "عقد / العقد",
     "en": "Contract",
     "level": "A2",
     "pos": "noun",
     "contexts": [
       "housing",
-      "work"
+      "work",
+      "stage"
     ],
-    "ex": {
-      "fr": "J'ai signé un contrat de travail.",
-      "ar": "وقعت عقد عمل.",
-      "en": "I signed an employment contract."
-    }
+    "ex": [
+      {
+        "fr": "J'ai signé un contrat de travail.",
+        "ar": "وقعت عقد عمل.",
+        "en": "I signed an employment contract."
+      },
+      {
+        "fr": "J’ai signé un contrat de travail.",
+        "ar": "وقعت عقد عمل.",
+        "en": "I signed an employment contract."
+      }
+    ]
   },
   {
     "fr": "Contrôler",
@@ -12244,7 +12330,8 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "contexts": [
       "daily",
-      "work"
+      "work",
+      "stage"
     ],
     "ex": [
       {
@@ -12256,6 +12343,11 @@ window.VOCAB_DATA = [
         "fr": "Coupe la lumière, s'il te plaît.",
         "ar": "أطفئ الضوء من فضلك.",
         "en": "Turn off the light, please."
+      },
+      {
+        "fr": "Je coupe les légumes.",
+        "ar": "أقطع الخضار.",
+        "en": "I cut the vegetables."
       }
     ]
   },
@@ -12815,19 +12907,27 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Collègue",
+    "fr": "Un collègue",
     "ar": "زميل / زميلة",
-    "en": "Colleague",
+    "en": "Colleague / Coworker",
     "level": "A1",
     "pos": "noun",
     "contexts": [
-      "work"
+      "work",
+      "stage"
     ],
-    "ex": {
-      "fr": "Mon collègue m'aide souvent.",
-      "ar": "زميلي يساعدني غالباً.",
-      "en": "My colleague often helps me."
-    }
+    "ex": [
+      {
+        "fr": "Mon collègue m'aide souvent.",
+        "ar": "زميلي يساعدني غالباً.",
+        "en": "My colleague often helps me."
+      },
+      {
+        "fr": "Mes collègues m’aident au début.",
+        "ar": "زملائي يساعدونني في البداية.",
+        "en": "My colleagues help me at the beginning."
+      }
+    ]
   },
   {
     "fr": "Combien",
@@ -12847,18 +12947,31 @@ window.VOCAB_DATA = [
   {
     "fr": "Commencer",
     "ar": "يبدأ",
-    "en": "To start",
+    "en": "To start / To begin",
     "level": "A1",
     "pos": "verb",
     "contexts": [
       "daily",
-      "work"
+      "work",
+      "stage"
     ],
-    "ex": {
-      "fr": "Je commence à huit heures.",
-      "ar": "أبدأ الساعة الثامنة.",
-      "en": "I start at eight o'clock."
-    }
+    "ex": [
+      {
+        "fr": "Je commence à huit heures.",
+        "ar": "أبدأ الساعة الثامنة.",
+        "en": "I start at eight o'clock."
+      },
+      {
+        "fr": "Je commence le stage lundi.",
+        "ar": "أبدأ التدريب يوم الاثنين.",
+        "en": "I start the internship on Monday."
+      },
+      {
+        "fr": "Quand puis-je commencer le stage ?",
+        "ar": "متى يمكنني البدء بالتدريب؟",
+        "en": "When can I start the internship?"
+      }
+    ]
   },
   {
     "fr": "Comment",
@@ -14204,14 +14317,15 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "Commande",
-    "ar": "طلب / أمر",
+    "fr": "La commande",
+    "ar": "طلب / أمر / الطلبية / الطلب",
     "en": "Order / Command",
     "pos": "noun",
     "level": "A2",
     "contexts": [
       "shop",
-      "work"
+      "work",
+      "stage"
     ],
     "ex": [
       {
@@ -14233,6 +14347,11 @@ window.VOCAB_DATA = [
         "fr": "Ma commande est arrivée.",
         "ar": "وصل طلبي.",
         "en": "My order has arrived."
+      },
+      {
+        "fr": "Je prépare la commande du client.",
+        "ar": "أجهز طلب الزبون.",
+        "en": "I prepare the customer's order."
       }
     ]
   },
@@ -14867,19 +14986,28 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Couteau",
-    "ar": "سكين",
+    "fr": "Le couteau",
+    "ar": "سكين / السكين",
     "en": "Knife",
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "stage",
+      "work"
     ],
-    "ex": {
-      "fr": "J'utilise un couteau pour couper le pain.",
-      "ar": "أستخدم سكينًا لقطع الخبز.",
-      "en": "I use a knife to cut bread."
-    }
+    "ex": [
+      {
+        "fr": "J'utilise un couteau pour couper le pain.",
+        "ar": "أستخدم سكينًا لقطع الخبز.",
+        "en": "I use a knife to cut bread."
+      },
+      {
+        "fr": "J’utilise un couteau pour couper le poisson.",
+        "ar": "أستخدم سكينًا لتقطيع السمك.",
+        "en": "I use a knife to cut the fish."
+      }
+    ]
   },
   {
     "fr": "Couverture",
@@ -15487,13 +15615,14 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Compétence",
+    "fr": "Une compétence",
     "ar": "مهارة / كفاءة",
-    "en": "Skill / Competence",
+    "en": "Skill / Competence / Ability",
     "pos": "noun",
     "level": "B1",
     "contexts": [
-      "work"
+      "work",
+      "stage"
     ],
     "ex": [
       {
@@ -15510,23 +15639,36 @@ window.VOCAB_DATA = [
         "fr": "Il possède de bonnes compétences.",
         "ar": "لديه مهارات جيدة.",
         "en": "He has good skills."
+      },
+      {
+        "fr": "Je veux développer mes compétences.",
+        "ar": "أريد تطوير مهاراتي.",
+        "en": "I want to develop my skills."
       }
     ]
   },
   {
-    "fr": "Consigne",
+    "fr": "Une consigne",
     "ar": "تعليمات",
-    "en": "Instruction",
+    "en": "Instruction / Guideline",
     "pos": "noun",
     "level": "A2",
     "contexts": [
-      "work"
+      "work",
+      "stage"
     ],
-    "ex": {
-      "fr": "Respectez les consignes de sécurité.",
-      "ar": "احترم تعليمات السلامة.",
-      "en": "Follow the safety instructions."
-    }
+    "ex": [
+      {
+        "fr": "Respectez les consignes de sécurité.",
+        "ar": "احترم تعليمات السلامة.",
+        "en": "Follow the safety instructions."
+      },
+      {
+        "fr": "Je suis les consignes du responsable.",
+        "ar": "أتبع تعليمات المسؤول.",
+        "en": "I follow the manager’s instructions."
+      }
+    ]
   },
   {
     "fr": "Contenu",
@@ -16673,19 +16815,32 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Convention",
-    "ar": "اتفاقية / عرف",
+    "fr": "La convention",
+    "ar": "اتفاقية / عرف / الاتفاقية",
     "en": "Agreement / Convention",
     "pos": "noun",
     "level": "B1",
     "contexts": [
-      "work"
+      "work",
+      "stage"
     ],
-    "ex": {
-      "fr": "Nous avons signé une convention.",
-      "ar": "وقعنا اتفاقية.",
-      "en": "We signed an agreement."
-    }
+    "ex": [
+      {
+        "fr": "Nous avons signé une convention.",
+        "ar": "وقعنا اتفاقية.",
+        "en": "We signed an agreement."
+      },
+      {
+        "fr": "J’ai besoin d’une convention pour le stage.",
+        "ar": "أحتاج إلى اتفاقية من أجل التدريب.",
+        "en": "I need an agreement for the internship."
+      },
+      {
+        "fr": "Je voudrais obtenir une convention PMSMP.",
+        "ar": "أريد الحصول على اتفاقية PMSMP.",
+        "en": "I would like to obtain a PMSMP agreement."
+      }
+    ]
   },
   {
     "fr": "Coopérer",
@@ -18054,12 +18209,15 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "Contact",
-    "ar": "اتصال / جهة اتصال",
+    "fr": "Un contact",
+    "ar": "اتصال / جهة اتصال / شخص للتواصل",
     "en": "Contact",
     "pos": "noun",
     "level": "A1",
-    "contexts": [],
+    "contexts": [
+      "stage",
+      "work"
+    ],
     "ex": [
       {
         "fr": "Voici mon contact.",
@@ -18070,6 +18228,11 @@ window.VOCAB_DATA = [
         "fr": "J'ai perdu son contact.",
         "ar": "أضعت جهة اتصاله.",
         "en": "I lost his contact."
+      },
+      {
+        "fr": "Voici le contact du responsable.",
+        "ar": "هذا هو رقم/معلومات اتصال المسؤول.",
+        "en": "Here is the manager’s contact."
       }
     ]
   },
@@ -20614,14 +20777,16 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Conseiller",
-    "ar": "مستشار",
-    "en": "Advisor",
+    "fr": "Un conseiller",
+    "ar": "مستشار / موظف متابعة",
+    "en": "Advisor / Counselor",
     "pos": "noun",
     "level": "A2",
     "contexts": [
       "caf",
-      "services"
+      "services",
+      "stage",
+      "work"
     ],
     "ex": [
       {
@@ -20633,6 +20798,16 @@ window.VOCAB_DATA = [
         "fr": "Je voudrais parler avec un conseiller.",
         "ar": "أريد التحدث مع مستشار.",
         "en": "I would like to speak with an advisor."
+      },
+      {
+        "fr": "Je vais parler avec mon conseiller.",
+        "ar": "سأتحدث مع مستشاري.",
+        "en": "I will talk with my advisor."
+      },
+      {
+        "fr": "Mon conseiller va m’aider pour les démarches.",
+        "ar": "مستشاري سيساعدني في الإجراءات.",
+        "en": "My advisor will help me with the procedures."
       }
     ]
   },
@@ -21266,36 +21441,54 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "Dossier",
+    "fr": "Un dossier",
     "ar": "ملف",
-    "en": "File / Application",
+    "en": "File / Application / Application file",
     "pos": "noun",
     "level": "A1",
     "contexts": [
       "caf",
-      "services"
+      "services",
+      "stage",
+      "work"
     ],
-    "ex": {
-      "fr": "Mon dossier est en cours de traitement.",
-      "ar": "ملفي قيد المعالجة.",
-      "en": "My file is being processed."
-    }
+    "ex": [
+      {
+        "fr": "Mon dossier est en cours de traitement.",
+        "ar": "ملفي قيد المعالجة.",
+        "en": "My file is being processed."
+      },
+      {
+        "fr": "Mon dossier est complet.",
+        "ar": "ملفي مكتمل.",
+        "en": "My file is complete."
+      }
+    ]
   },
   {
-    "fr": "Demande",
+    "fr": "Une demande",
     "ar": "طلب",
     "en": "Request / Application",
     "pos": "noun",
     "level": "A1",
     "contexts": [
       "caf",
-      "services"
+      "services",
+      "stage",
+      "work"
     ],
-    "ex": {
-      "fr": "J'ai envoyé ma demande.",
-      "ar": "أرسلت طلبي.",
-      "en": "I sent my application."
-    }
+    "ex": [
+      {
+        "fr": "J'ai envoyé ma demande.",
+        "ar": "أرسلت طلبي.",
+        "en": "I sent my application."
+      },
+      {
+        "fr": "Je veux faire une demande pour une convention.",
+        "ar": "أريد تقديم طلب للحصول على اتفاقية.",
+        "en": "I want to make a request for an agreement."
+      }
+    ]
   },
   {
     "fr": "Faire une demande",
@@ -21719,14 +21912,16 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Rendez-vous",
+    "fr": "Un rendez-vous",
     "ar": "موعد",
     "en": "Appointment",
     "pos": "noun",
     "level": "A1",
     "contexts": [
       "caf",
-      "services"
+      "services",
+      "stage",
+      "work"
     ],
     "ex": [
       {
@@ -21738,6 +21933,11 @@ window.VOCAB_DATA = [
         "fr": "J'ai un rendez-vous avec mon conseiller.",
         "ar": "لدي موعد مع مستشاري.",
         "en": "I have an appointment with my advisor."
+      },
+      {
+        "fr": "Je voudrais prendre un rendez-vous.",
+        "ar": "أريد أخذ موعد.",
+        "en": "I would like to make an appointment."
       }
     ]
   },
@@ -21767,12 +21967,14 @@ window.VOCAB_DATA = [
   {
     "fr": "Le justificatif",
     "ar": "وثيقة إثبات / إثبات / مستند داعم / مستند / ورقة إثبات",
-    "en": "proof / supporting document",
+    "en": "proof / supporting document / Proof / Supporting document",
     "pos": "noun",
     "level": "B1",
     "contexts": [
       "caf",
-      "services"
+      "services",
+      "stage",
+      "work"
     ],
     "ex": [
       {
@@ -21789,6 +21991,11 @@ window.VOCAB_DATA = [
         "fr": "Il faut fournir des justificatifs de revenus.",
         "ar": "لازم نقدم مستندات للدخل.",
         "en": "You have to provide proof of income."
+      },
+      {
+        "fr": "Il faut fournir un justificatif.",
+        "ar": "يجب تقديم وثيقة إثبات.",
+        "en": "You need to provide proof."
       }
     ]
   },
@@ -22577,12 +22784,22 @@ window.VOCAB_DATA = [
     "en": "Contact details",
     "pos": "noun",
     "level": "B1",
-    "contexts": [],
-    "ex": {
-      "fr": "J'ai mis à jour mes coordonnées.",
-      "ar": "حدثت معلومات الاتصال الخاصة بي.",
-      "en": "I updated my contact details."
-    }
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai mis à jour mes coordonnées.",
+        "ar": "حدثت معلومات الاتصال الخاصة بي.",
+        "en": "I updated my contact details."
+      },
+      {
+        "fr": "J’ai les coordonnées du restaurant.",
+        "ar": "لدي معلومات اتصال المطعم.",
+        "en": "I have the restaurant’s contact details."
+      }
+    ]
   },
   {
     "fr": "La situation familiale",
@@ -22836,17 +23053,27 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Réponse",
+    "fr": "Une réponse",
     "ar": "جواب / رد",
     "en": "Answer / Response",
     "pos": "noun",
     "level": "A1",
-    "contexts": [],
-    "ex": {
-      "fr": "J'attends une réponse de la CAF.",
-      "ar": "أنتظر ردًا من CAF.",
-      "en": "I am waiting for a response from CAF."
-    }
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "J'attends une réponse de la CAF.",
+        "ar": "أنتظر ردًا من CAF.",
+        "en": "I am waiting for a response from CAF."
+      },
+      {
+        "fr": "J’attends une réponse de France Travail.",
+        "ar": "أنتظر ردًا من France Travail.",
+        "en": "I am waiting for a response from France Travail."
+      }
+    ]
   },
   {
     "fr": "Relancer",
@@ -22934,13 +23161,20 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "services",
-      "caf"
+      "caf",
+      "stage",
+      "work"
     ],
     "ex": [
       {
         "fr": "J'ai envoyé les documents demandés.",
         "ar": "أرسلت الوثائق المطلوبة.",
         "en": "I sent the requested documents."
+      },
+      {
+        "fr": "Je vais envoyer les documents par email.",
+        "ar": "سأرسل الوثائق عبر البريد الإلكتروني.",
+        "en": "I will send the documents by email."
       }
     ]
   },
@@ -23078,19 +23312,28 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Disponibilité",
-    "ar": "توفر / جاهزية",
+    "fr": "Une disponibilité",
+    "ar": "توفر / جاهزية / التوفر / الوقت المتاح",
     "en": "Availability",
     "pos": "noun",
     "level": "B1",
     "contexts": [
-      "services"
+      "services",
+      "stage",
+      "work"
     ],
-    "ex": {
-      "fr": "Je reste disponible pour un rendez-vous.",
-      "ar": "أنا متاح لموعد.",
-      "en": "I am available for an appointment."
-    }
+    "ex": [
+      {
+        "fr": "Je reste disponible pour un rendez-vous.",
+        "ar": "أنا متاح لموعد.",
+        "en": "I am available for an appointment."
+      },
+      {
+        "fr": "Quelles sont mes disponibilités pour le stage ?",
+        "ar": "ما هي الأوقات المتاحة لدي للتدريب؟",
+        "en": "What is my availability for the internship?"
+      }
+    ]
   },
   {
     "fr": "Entretien",
@@ -23123,19 +23366,28 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Orientation",
+    "fr": "Une orientation",
     "ar": "توجيه",
-    "en": "Guidance / Referral",
+    "en": "Guidance / Referral / Career orientation",
     "pos": "noun",
     "level": "B1",
     "contexts": [
-      "services"
+      "services",
+      "stage",
+      "work"
     ],
-    "ex": {
-      "fr": "Le conseiller m'a donné une orientation.",
-      "ar": "أعطاني المستشار توجيهًا.",
-      "en": "The advisor gave me guidance."
-    }
+    "ex": [
+      {
+        "fr": "Le conseiller m'a donné une orientation.",
+        "ar": "أعطاني المستشار توجيهًا.",
+        "en": "The advisor gave me guidance."
+      },
+      {
+        "fr": "Je cherche une orientation professionnelle.",
+        "ar": "أبحث عن توجيه مهني.",
+        "en": "I am looking for career guidance."
+      }
+    ]
   },
   {
     "fr": "Organiser",
@@ -23213,19 +23465,32 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Inscription",
+    "fr": "Une inscription",
     "ar": "تسجيل",
-    "en": "Registration",
+    "en": "Registration / Enrollment",
     "pos": "noun",
     "level": "A2",
     "contexts": [
-      "work"
+      "work",
+      "stage"
     ],
-    "ex": {
-      "fr": "Mon inscription est terminée.",
-      "ar": "تم تسجيلي.",
-      "en": "My registration is complete."
-    }
+    "ex": [
+      {
+        "fr": "Mon inscription est terminée.",
+        "ar": "تم تسجيلي.",
+        "en": "My registration is complete."
+      },
+      {
+        "fr": "Mon inscription à France Travail est à jour.",
+        "ar": "تسجيلي في France Travail محدث.",
+        "en": "My registration with France Travail is up to date."
+      },
+      {
+        "fr": "Je suis inscrit à France Travail.",
+        "ar": "أنا مسجل في France Travail.",
+        "en": "I am registered with France Travail."
+      }
+    ]
   },
   {
     "fr": "Inscrire",
@@ -23676,20 +23941,29 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Signature",
+    "fr": "Une signature",
     "ar": "توقيع",
     "en": "Signature",
     "pos": "noun",
     "level": "A2",
     "contexts": [
       "caf",
-      "services"
+      "services",
+      "stage",
+      "work"
     ],
-    "ex": {
-      "fr": "Il manque votre signature.",
-      "ar": "توقيعك ناقص.",
-      "en": "Your signature is missing."
-    }
+    "ex": [
+      {
+        "fr": "Il manque votre signature.",
+        "ar": "توقيعك ناقص.",
+        "en": "Your signature is missing."
+      },
+      {
+        "fr": "Il faut une signature du responsable.",
+        "ar": "يجب الحصول على توقيع المسؤول.",
+        "en": "A signature from the manager is required."
+      }
+    ]
   },
   {
     "fr": "Dater",
@@ -24758,19 +25032,27 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Projet professionnel",
+    "fr": "Un projet professionnel",
     "ar": "مشروع مهني",
-    "en": "Career plan",
+    "en": "Career plan / Professional project",
     "pos": "noun",
     "level": "B1",
     "contexts": [
-      "work"
+      "work",
+      "stage"
     ],
-    "ex": {
-      "fr": "Je travaille sur mon projet professionnel.",
-      "ar": "أعمل على مشروعي المهني.",
-      "en": "I am working on my career plan."
-    }
+    "ex": [
+      {
+        "fr": "Je travaille sur mon projet professionnel.",
+        "ar": "أعمل على مشروعي المهني.",
+        "en": "I am working on my career plan."
+      },
+      {
+        "fr": "Mon projet professionnel est de travailler en cuisine.",
+        "ar": "مشروعي المهني هو العمل في المطبخ.",
+        "en": "My career plan is to work in the kitchen."
+      }
+    ]
   },
   {
     "fr": "Recherche d'emploi",
@@ -24864,19 +25146,27 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Période d'essai",
-    "ar": "فترة التجربة",
-    "en": "Trial period",
+    "fr": "Une période d’essai",
+    "ar": "فترة التجربة / فترة تجربة",
+    "en": "Trial period / Probation period",
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "work"
+      "work",
+      "stage"
     ],
-    "ex": {
-      "fr": "Je suis en période d'essai.",
-      "ar": "أنا في فترة التجربة.",
-      "en": "I am in the trial period."
-    }
+    "ex": [
+      {
+        "fr": "Je suis en période d'essai.",
+        "ar": "أنا في فترة التجربة.",
+        "en": "I am in the trial period."
+      },
+      {
+        "fr": "Après le stage, il peut y avoir une période d’essai.",
+        "ar": "بعد التدريب يمكن أن تكون هناك فترة تجربة.",
+        "en": "After the internship, there may be a trial period."
+      }
+    ]
   },
   {
     "fr": "Reprendre le travail",
@@ -24985,29 +25275,40 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Formulaire",
-    "ar": "استمارة",
+    "fr": "Un formulaire",
+    "ar": "استمارة / نموذج",
     "en": "Form",
     "pos": "noun",
     "level": "A1",
     "contexts": [
       "caf",
-      "services"
+      "services",
+      "stage",
+      "work"
     ],
-    "ex": {
-      "fr": "Je dois remplir ce formulaire.",
-      "ar": "يجب أن أملأ هذه الاستمارة.",
-      "en": "I have to fill out this form."
-    }
+    "ex": [
+      {
+        "fr": "Je dois remplir ce formulaire.",
+        "ar": "يجب أن أملأ هذه الاستمارة.",
+        "en": "I have to fill out this form."
+      },
+      {
+        "fr": "Je dois remplir un formulaire.",
+        "ar": "يجب أن أملأ استمارة.",
+        "en": "I I have to fill out a form."
+      }
+    ]
   },
   {
     "fr": "Remplir",
     "ar": "يملأ / يملأ (استمارة) / يحقق / يستوفي الشروط",
-    "en": "To fill in / To meet requirements",
+    "en": "To fill in / To meet requirements / To fill / To complete",
     "pos": "verb",
     "level": "A1",
     "contexts": [
-      "caf"
+      "caf",
+      "stage",
+      "work"
     ],
     "ex": [
       {
@@ -25024,6 +25325,16 @@ window.VOCAB_DATA = [
         "fr": "Je remplis les conditions pour bénéficier du RSA.",
         "ar": "أنا مستوفي شروط الحصول على RSA.",
         "en": "I meet the requirements to receive RSA."
+      },
+      {
+        "fr": "Je remplis les boîtes.",
+        "ar": "أملأ العلب.",
+        "en": "I fill the boxes."
+      },
+      {
+        "fr": "Je remplis le formulaire en ligne.",
+        "ar": "أملأ الاستمارة عبر الإنترنت.",
+        "en": "I fill in the form online."
       }
     ]
   },
@@ -25075,19 +25386,23 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Délai",
-    "ar": "مهلة / مدة",
-    "en": "Deadline / Time limit",
+    "fr": "Un délai",
+    "ar": "مهلة / مدة / مدة انتظار",
+    "en": "Deadline / Time limit / Waiting time",
     "pos": "noun",
     "level": "B1",
     "contexts": [
-      "services"
+      "services",
+      "stage",
+      "work"
     ],
-    "ex": {
-      "fr": "Quel est le délai de réponse ?",
-      "ar": "ما هي مدة الرد؟",
-      "en": "What is the response time?"
-    }
+    "ex": [
+      {
+        "fr": "Quel est le délai de réponse ?",
+        "ar": "ما هي مدة الرد؟",
+        "en": "What is the response time?"
+      }
+    ]
   },
   {
     "fr": "Respecter un délai",
@@ -29866,17 +30181,26 @@ window.VOCAB_DATA = [
   {
     "fr": "Demander",
     "ar": "يطلب / يقدّم طلب",
-    "en": "To request / apply for",
+    "en": "To request / apply for / To ask",
     "level": "A1",
     "pos": "verb",
     "contexts": [
-      "caf"
+      "caf",
+      "stage",
+      "work"
     ],
-    "ex": {
-      "fr": "Je demande une aide auprès de la CAF.",
-      "ar": "عم قدّم طلب مساعدة عند الـ CAF.",
-      "en": "I am requesting assistance from CAF."
-    }
+    "ex": [
+      {
+        "fr": "Je demande une aide auprès de la CAF.",
+        "ar": "عم قدّم طلب مساعدة عند الـ CAF.",
+        "en": "I am requesting assistance from CAF."
+      },
+      {
+        "fr": "Je demande une information.",
+        "ar": "أطلب معلومة.",
+        "en": "I ask for information."
+      }
+    ]
   },
   {
     "fr": "Déposer (un dossier / une demande)",
@@ -29902,18 +30226,27 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Fournir",
-    "ar": "يقدّم / يوفّر (وثيقة أو معلومة)",
-    "en": "To provide",
+    "ar": "يقدّم / يوفّر (وثيقة أو معلومة) / يوفّر",
+    "en": "To provide / To supply",
     "level": "A1",
     "pos": "verb",
     "contexts": [
-      "caf"
+      "caf",
+      "stage",
+      "work"
     ],
-    "ex": {
-      "fr": "Je dois fournir un justificatif.",
-      "ar": "لازم قدّم إثبات.",
-      "en": "I have to provide proof."
-    }
+    "ex": [
+      {
+        "fr": "Je dois fournir un justificatif.",
+        "ar": "لازم قدّم إثبات.",
+        "en": "I have to provide proof."
+      },
+      {
+        "fr": "Quels documents faut-il fournir ?",
+        "ar": "ما هي الوثائق التي يجب تقديمها؟",
+        "en": "Which documents need to be provided?"
+      }
+    ]
   },
   {
     "fr": "Télécharger",
@@ -29939,12 +30272,14 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Vérifier",
-    "ar": "يتحقق / يتأكد / يراجع",
+    "ar": "يتحقق / يتأكد / يراجع / يفحص",
     "en": "To check / verify / To verify",
     "level": "A1",
     "pos": "verb",
     "contexts": [
-      "caf"
+      "caf",
+      "stage",
+      "work"
     ],
     "ex": [
       {
@@ -29956,6 +30291,11 @@ window.VOCAB_DATA = [
         "fr": "Pouvez-vous vérifier mon dossier ?",
         "ar": "فيك تتأكد من ملفي؟",
         "en": "Can you check my file?"
+      },
+      {
+        "fr": "Je vérifie la qualité des produits.",
+        "ar": "أتحقق من جودة المنتجات.",
+        "en": "I check the quality of the products."
       }
     ]
   },
@@ -29977,17 +30317,26 @@ window.VOCAB_DATA = [
   {
     "fr": "Refuser",
     "ar": "يرفض",
-    "en": "To refuse / reject",
+    "en": "To refuse / reject / To reject",
     "level": "A1",
     "pos": "verb",
     "contexts": [
-      "caf"
+      "caf",
+      "stage",
+      "work"
     ],
-    "ex": {
-      "fr": "La CAF a refusé ma demande.",
-      "ar": "الـ CAF رفضت طلبي.",
-      "en": "CAF refused my request."
-    }
+    "ex": [
+      {
+        "fr": "La CAF a refusé ma demande.",
+        "ar": "الـ CAF رفضت طلبي.",
+        "en": "CAF refused my request."
+      },
+      {
+        "fr": "L’entreprise peut refuser la demande.",
+        "ar": "يمكن للشركة رفض الطلب.",
+        "en": "The company can refuse the request."
+      }
+    ]
   },
   {
     "fr": "Signaler",
@@ -30011,13 +30360,22 @@ window.VOCAB_DATA = [
     "level": "A1",
     "pos": "verb",
     "contexts": [
-      "caf"
+      "caf",
+      "stage",
+      "work"
     ],
-    "ex": {
-      "fr": "J'ai reçu une notification de la CAF.",
-      "ar": "وصلتني رسالة من الـ CAF.",
-      "en": "I received a notification from CAF."
-    }
+    "ex": [
+      {
+        "fr": "J'ai reçu une notification de la CAF.",
+        "ar": "وصلتني رسالة من الـ CAF.",
+        "en": "I received a notification from CAF."
+      },
+      {
+        "fr": "Je vais recevoir la convention par email.",
+        "ar": "سأستلم الاتفاقية عبر البريد الإلكتروني.",
+        "en": "I will receive the agreement by email."
+      }
+    ]
   },
   {
     "fr": "Mettre à jour",
@@ -30735,6 +31093,941 @@ window.VOCAB_DATA = [
       "fr": "Je touche le même montant tous les mois.",
       "ar": "بيوصلني نفس المبلغ كل شهر.",
       "en": "I receive the same amount every month."
+    }
+  },
+  {
+    "fr": "L’immersion professionnelle",
+    "ar": "تجربة مهنية / فترة اكتشاف العمل",
+    "en": "Work immersion / Professional immersion / Work placement",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je fais une immersion professionnelle dans un restaurant.",
+        "ar": "أقوم بتجربة مهنية في مطعم.",
+        "en": "I am doing a professional immersion in a restaurant."
+      },
+      {
+        "fr": "Je veux faire une immersion professionnelle dans un restaurant de sushi.",
+        "ar": "أريد القيام بتجربة مهنية في مطعم سوشي.",
+        "en": "I want to do a professional immersion in a sushi restaurant."
+      }
+    ]
+  },
+  {
+    "fr": "Le responsable",
+    "ar": "المسؤول / المدير",
+    "en": "Manager / Supervisor",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Le responsable me demande un document.",
+        "ar": "المدير يطلب مني وثيقة.",
+        "en": "The manager asks me for a document."
+      },
+      {
+        "fr": "Le responsable du restaurant me demande une convention.",
+        "ar": "مسؤول المطعم يطلب مني اتفاقية.",
+        "en": "The restaurant manager asks me for an agreement."
+      }
+    ]
+  },
+  {
+    "fr": "Le document",
+    "ar": "الوثيقة",
+    "en": "Document",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je dois envoyer le document demain.",
+      "ar": "يجب أن أرسل الوثيقة غدًا.",
+      "en": "I have to send the document tomorrow."
+    }
+  },
+  {
+    "fr": "Obtenir",
+    "ar": "يحصل على",
+    "en": "To obtain / To get",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je veux obtenir une autorisation.",
+      "ar": "أريد الحصول على تصريح.",
+      "en": "I want to obtain an authorization."
+    }
+  },
+  {
+    "fr": "Découvrir",
+    "ar": "يكتشف",
+    "en": "To discover",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je veux découvrir ce métier.",
+        "ar": "أريد اكتشاف هذه المهنة.",
+        "en": "I want to discover this job."
+      }
+    ]
+  },
+  {
+    "fr": "Le métier",
+    "ar": "المهنة / العمل",
+    "en": "Job / Profession",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je veux changer de métier.",
+      "ar": "أريد تغيير مهنتي.",
+      "en": "I want to change my profession."
+    }
+  },
+  {
+    "fr": "Une expérience",
+    "ar": "الخبرة / التجربة / تجربة / خبرة",
+    "en": "Experience",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je veux avoir une expérience dans ce domaine.",
+        "ar": "أريد الحصول على خبرة في هذا المجال.",
+        "en": "I want to gain experience in this field."
+      },
+      {
+        "fr": "Je veux avoir une expérience dans la restauration.",
+        "ar": "أريد الحصول على خبرة في مجال المطاعم.",
+        "en": "I want to gain experience in the restaurant industry."
+      }
+    ]
+  },
+  {
+    "fr": "La formation",
+    "ar": "التدريب / التكوين",
+    "en": "Training / Education",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je cherche une formation en cuisine.",
+      "ar": "أبحث عن تدريب في الطبخ.",
+      "en": "I am looking for cooking training."
+    }
+  },
+  {
+    "fr": "L’employeur",
+    "ar": "صاحب العمل / المشغّل",
+    "en": "Employer",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Mon employeur accepte ma demande.",
+      "ar": "صاحب عملي يوافق على طلبي.",
+      "en": "My employer accepts my request."
+    }
+  },
+  {
+    "fr": "L’employé",
+    "ar": "الموظف / العامل",
+    "en": "Employee",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "L’employé prépare les commandes.",
+      "ar": "العامل يحضر الطلبات.",
+      "en": "The employee prepares the orders."
+    }
+  },
+  {
+    "fr": "La tâche",
+    "ar": "المهمة",
+    "en": "Task / Duty",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Ma tâche est de préparer les plats.",
+      "ar": "مهمتي هي تحضير الأطباق.",
+      "en": "My task is to prepare the dishes."
+    }
+  },
+  {
+    "fr": "Préparer",
+    "ar": "يحضّر / يجهّز",
+    "en": "To prepare",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je prépare les ingrédients.",
+      "ar": "أجهز المكونات.",
+      "en": "I prepare the ingredients."
+    }
+  },
+  {
+    "fr": "Les ingrédients",
+    "ar": "المكونات",
+    "en": "Ingredients",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Il faut vérifier les ingrédients.",
+      "ar": "يجب التأكد من المكونات.",
+      "en": "We must check the ingredients."
+    }
+  },
+  {
+    "fr": "Le client",
+    "ar": "الزبون / العميل",
+    "en": "Customer / Client",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Le client attend sa commande.",
+      "ar": "الزبون ينتظر طلبه.",
+      "en": "The customer is waiting for his order."
+    }
+  },
+  {
+    "fr": "Servir",
+    "ar": "يقدّم / يخدم",
+    "en": "To serve",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je sers les clients.",
+      "ar": "أقدم الخدمة للزبائن.",
+      "en": "I serve the customers."
+    }
+  },
+  {
+    "fr": "Nettoyer",
+    "ar": "ينظف",
+    "en": "To clean",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je nettoie la cuisine après le travail.",
+      "ar": "أنظف المطبخ بعد العمل.",
+      "en": "I clean the kitchen after work."
+    }
+  },
+  {
+    "fr": "Respecter",
+    "ar": "يحترم / يلتزم بـ",
+    "en": "To respect / To follow",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Il faut respecter les règles d’hygiène.",
+      "ar": "يجب احترام قواعد النظافة.",
+      "en": "We must follow hygiene rules."
+    }
+  },
+  {
+    "fr": "L’hygiène",
+    "ar": "النظافة / الصحة العامة",
+    "en": "Hygiene",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "L’hygiène est très importante dans un restaurant.",
+      "ar": "النظافة مهمة جدًا في المطعم.",
+      "en": "Hygiene is very important in a restaurant."
+    }
+  },
+  {
+    "fr": "La sécurité",
+    "ar": "السلامة",
+    "en": "Safety / Security",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Il faut respecter les règles de sécurité.",
+      "ar": "يجب احترام قواعد السلامة.",
+      "en": "We must follow safety rules."
+    }
+  },
+  {
+    "fr": "Le matériel",
+    "ar": "المعدات / الأدوات",
+    "en": "Equipment / Tools",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je prépare le matériel avant de commencer.",
+      "ar": "أجهز المعدات قبل أن أبدأ.",
+      "en": "I prepare the equipment before starting."
+    }
+  },
+  {
+    "fr": "Laver",
+    "ar": "يغسل",
+    "en": "To wash",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je lave les mains avant de travailler.",
+      "ar": "أغسل يدي قبل العمل.",
+      "en": "I wash my hands before working."
+    }
+  },
+  {
+    "fr": "Ranger",
+    "ar": "يرتب / يضع في مكانه",
+    "en": "To tidy / To put away",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je range le matériel après utilisation.",
+      "ar": "أرتب المعدات بعد الاستعمال.",
+      "en": "I put away the equipment after use."
+    }
+  },
+  {
+    "fr": "La qualité",
+    "ar": "الجودة",
+    "en": "Quality",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "La qualité des aliments est importante.",
+      "ar": "جودة الطعام مهمة.",
+      "en": "The quality of food is important."
+    }
+  },
+  {
+    "fr": "Le produit",
+    "ar": "المنتج",
+    "en": "Product",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je contrôle les produits avant la préparation.",
+      "ar": "أفحص المنتجات قبل التحضير.",
+      "en": "I check the products before preparation."
+    }
+  },
+  {
+    "fr": "Le stock",
+    "ar": "المخزون",
+    "en": "Stock / Inventory",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Nous devons vérifier le stock.",
+      "ar": "يجب أن نتحقق من المخزون.",
+      "en": "We have to check the stock."
+    }
+  },
+  {
+    "fr": "Manquer",
+    "ar": "ينقص / يفتقد",
+    "en": "To lack / To be missing",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Il manque du riz pour les sushis.",
+      "ar": "ينقصنا الأرز الخاص بالسوشي.",
+      "en": "We are missing rice for sushi."
+    }
+  },
+  {
+    "fr": "Démarches",
+    "ar": "الإجراءات / الخطوات",
+    "en": "Procedures / Steps",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je voudrais savoir quelles sont les démarches.",
+      "ar": "أريد معرفة ما هي الإجراءات.",
+      "en": "I would like to know what the procedures are."
+    }
+  },
+  {
+    "fr": "Actuellement",
+    "ar": "حاليًا",
+    "en": "Currently / At the moment",
+    "level": "A1",
+    "pos": "other",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je travaille actuellement.",
+      "ar": "أنا أعمل حاليًا.",
+      "en": "I am currently working."
+    }
+  },
+  {
+    "fr": "La durée",
+    "ar": "المدة",
+    "en": "Duration / Length",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Quelle est la durée de l’immersion ?",
+      "ar": "ما مدة فترة التجربة؟",
+      "en": "What is the duration of the immersion?"
+    }
+  },
+  {
+    "fr": "Une entreprise",
+    "ar": "شركة / مؤسسة",
+    "en": "Company / Business",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "J’ai trouvé une entreprise pour faire l’immersion.",
+      "ar": "وجدت شركة للقيام بالتجربة المهنية.",
+      "en": "I found a company to do the immersion."
+    }
+  },
+  {
+    "fr": "La restauration",
+    "ar": "مجال المطاعم / قطاع الطعام",
+    "en": "Catering / Food service industry",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je veux travailler dans la restauration.",
+      "ar": "أريد العمل في مجال المطاعم.",
+      "en": "I want to work in the food service industry."
+    }
+  },
+  {
+    "fr": "Un poste",
+    "ar": "منصب / وظيفة",
+    "en": "Position / Job role",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je suis intéressé par ce poste.",
+      "ar": "أنا مهتم بهذه الوظيفة.",
+      "en": "I am interested in this position."
+    }
+  },
+  {
+    "fr": "Une convention signée",
+    "ar": "اتفاقية موقعة",
+    "en": "Signed agreement",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "J’attends la convention signée avant de commencer.",
+      "ar": "أنتظر الاتفاقية الموقعة قبل أن أبدأ.",
+      "en": "I am waiting for the signed agreement before starting."
+    }
+  },
+  {
+    "fr": "Une validation",
+    "ar": "موافقة / اعتماد",
+    "en": "Approval / Validation",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "J’attends la validation de France Travail.",
+      "ar": "أنتظر موافقة France Travail.",
+      "en": "I am waiting for approval from France Travail."
+    }
+  },
+  {
+    "fr": "Une étape",
+    "ar": "خطوة / مرحلة",
+    "en": "Step / Stage",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Quelle est la prochaine étape ?",
+      "ar": "ما هي الخطوة القادمة؟",
+      "en": "What is the next step?"
+    }
+  },
+  {
+    "fr": "Une obligation",
+    "ar": "إلزام / واجب",
+    "en": "Obligation / Requirement",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Quelles sont mes obligations pendant l’immersion ?",
+      "ar": "ما هي واجباتي أثناء فترة التجربة؟",
+      "en": "What are my obligations during the immersion?"
+    }
+  },
+  {
+    "fr": "Une date de début",
+    "ar": "تاريخ البداية",
+    "en": "Start date",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Quelle est la date de début du stage ?",
+      "ar": "ما تاريخ بداية التدريب؟",
+      "en": "What is the start date of the internship?"
+    }
+  },
+  {
+    "fr": "Un lieu",
+    "ar": "مكان / موقع",
+    "en": "Place / Location",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Quel est le lieu de l’immersion ?",
+      "ar": "ما هو مكان فترة التجربة؟",
+      "en": "What is the location of the immersion?"
+    }
+  },
+  {
+    "fr": "Une démarche administrative",
+    "ar": "إجراء إداري",
+    "en": "Administrative procedure",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je dois faire une démarche administrative.",
+      "ar": "يجب أن أقوم بإجراء إداري.",
+      "en": "I have to complete an administrative procedure."
+    }
+  },
+  {
+    "fr": "Une demande en ligne",
+    "ar": "طلب عبر الإنترنت",
+    "en": "Online request / Online application",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je fais la demande en ligne.",
+      "ar": "أقدم الطلب عبر الإنترنت.",
+      "en": "I submit the application online."
+    }
+  },
+  {
+    "fr": "Une confirmation",
+    "ar": "تأكيد",
+    "en": "Confirmation",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je voudrais une confirmation par email.",
+      "ar": "أريد تأكيدًا عبر البريد الإلكتروني.",
+      "en": "I would like a confirmation by email."
+    }
+  },
+  {
+    "fr": "Une modification",
+    "ar": "تعديل / تغيير",
+    "en": "Change / Modification",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Il faut faire une modification du dossier.",
+      "ar": "يجب إجراء تعديل على الملف.",
+      "en": "A modification of the file is required."
+    }
+  },
+  {
+    "fr": "Être disponible",
+    "ar": "يكون متاحًا",
+    "en": "To be available",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je suis disponible pour commencer la semaine prochaine.",
+      "ar": "أنا متاح للبدء الأسبوع القادم.",
+      "en": "I am available to start next week."
+    }
+  },
+  {
+    "fr": "Une période",
+    "ar": "فترة",
+    "en": "Period",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "La période d’immersion est courte.",
+      "ar": "فترة التجربة قصيرة.",
+      "en": "The immersion period is short."
+    }
+  },
+  {
+    "fr": "Une observation",
+    "ar": "ملاحظة / مراقبة",
+    "en": "Observation",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "C’est une période d’observation du métier.",
+      "ar": "إنها فترة لمراقبة واكتشاف المهنة.",
+      "en": "It is a period of observing the job."
+    }
+  },
+  {
+    "fr": "Une intégration",
+    "ar": "اندماج / إدماج في العمل",
+    "en": "Integration",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Cette immersion aide à l’intégration dans l’entreprise.",
+      "ar": "هذه التجربة تساعد على الاندماج في الشركة.",
+      "en": "This immersion helps with integration into the company."
+    }
+  },
+  {
+    "fr": "Un objectif",
+    "ar": "هدف",
+    "en": "Objective / Goal",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Mon objectif est de trouver un emploi en cuisine.",
+      "ar": "هدفي هو إيجاد عمل في المطبخ.",
+      "en": "My goal is to find a job in the kitchen."
+    }
+  },
+  {
+    "fr": "Une motivation",
+    "ar": "دافع / حافز",
+    "en": "Motivation",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je veux montrer ma motivation.",
+      "ar": "أريد إظهار حافزي.",
+      "en": "I want to show my motivation."
+    }
+  },
+  {
+    "fr": "Une règle",
+    "ar": "قاعدة",
+    "en": "Rule",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je respecte les règles de l’entreprise.",
+      "ar": "أحترم قواعد الشركة.",
+      "en": "I respect the company rules."
+    }
+  },
+  {
+    "fr": "Un planning",
+    "ar": "جدول العمل",
+    "en": "Schedule / Work plan",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je veux connaître mon planning.",
+      "ar": "أريد معرفة جدول عملي.",
+      "en": "I want to know my schedule."
+    }
+  },
+  {
+    "fr": "Un horaire",
+    "ar": "وقت / دوام",
+    "en": "Working hours / Schedule",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Quels sont les horaires du stage ?",
+      "ar": "ما هي أوقات التدريب؟",
+      "en": "What are the internship hours?"
+    }
+  },
+  {
+    "fr": "Une équipe",
+    "ar": "فريق",
+    "en": "Team",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je vais travailler avec une équipe.",
+      "ar": "سأعمل مع فريق.",
+      "en": "I will work with a team."
+    }
+  },
+  {
+    "fr": "Une responsabilité",
+    "ar": "مسؤولية",
+    "en": "Responsibility",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "J’aime prendre des responsabilités.",
+      "ar": "أحب تحمل المسؤوليات.",
+      "en": "I like taking responsibilities."
+    }
+  },
+  {
+    "fr": "Une tâche quotidienne",
+    "ar": "مهمة يومية",
+    "en": "Daily task",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je fais mes tâches quotidiennes.",
+      "ar": "أقوم بمهامي اليومية.",
+      "en": "I do my daily tasks."
+    }
+  },
+  {
+    "fr": "Un environnement de travail",
+    "ar": "بيئة العمل",
+    "en": "Work environment",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je veux découvrir l’environnement de travail.",
+      "ar": "أريد اكتشاف بيئة العمل.",
+      "en": "I want to discover the work environment."
+    }
+  },
+  {
+    "fr": "Une embauche",
+    "ar": "توظيف",
+    "en": "Hiring / Employment",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "Cette immersion peut mener à une embauche.",
+      "ar": "هذه التجربة يمكن أن تؤدي إلى توظيف.",
+      "en": "This immersion can lead to employment."
+    }
+  },
+  {
+    "fr": "Un recrutement",
+    "ar": "توظيف / اختيار موظفين",
+    "en": "Recruitment",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "stage",
+      "work"
+    ],
+    "ex": {
+      "fr": "L’entreprise commence un recrutement.",
+      "ar": "الشركة بدأت عملية توظيف.",
+      "en": "The company is starting recruitment."
     }
   }
 ]

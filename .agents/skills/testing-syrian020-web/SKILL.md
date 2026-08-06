@@ -403,6 +403,35 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   8. Verify Google Images link includes `udm=2&q=<fr>` and Google AI link includes `udm=50`.
 - The debug APK was rebuilt after this batch.
 
+## Stage / work / restaurant vocabulary batch (dross-v124)
+
+- `data/vocab.js` now contains **1908** entries; `sw.js` cache bumped to `dross-v124`.
+- Added `stage` context label (`تدريب` / `Internship` / `Stage`) in `vocab.html`.
+- This batch parsed 108 raw stage/work/restaurant entries (format A/B mixed) and merged article variants (`Le contrat`/`Contrat`, `La commande`/`Commande`, etc.); 57 new entries and 42 merged.
+- New `stage` context count: **99** entries; `work` context count: **380** entries.
+- POS counts: `noun 824`, `verb 371`, `phrase 316`, `adjective 239`, `other 158`.
+- Context counts: `daily 687`, `services 391`, `work 380`, `caf 377`, `health 251`, `housing 70`, `cpam 50`, `shop 45`, `bank 43`, `mdph 40`, `transport 38`, `stage 99`, `school 27`, `phone 18`, `family 14`, `car 14`, `france_travail 11`, `food 8`, `restaurant 7`, `weather 7`, `prefecture 6`, `post 4`, `mairie 2`, `office 2`, `geography 1`.
+- Sample `stage` entries:
+  - `La convention` → Noun B1, `Work` + `Internship`, 3 examples
+  - `Le responsable` → Noun A1, `Internship` + `Work`, 2 examples
+  - `Une inscription` → Noun A2, `Work` + `Internship`, 3 examples
+  - `Remplir` → Verb A1, `CAF` + `Internship` + `Work`, 5 examples
+  - `S’adapter` → Verb A2, `Daily` + `Work` + `Internship`, 2 examples
+  - `Appliquer` → Verb A1, `Daily` + `CAF` + `Internship` + `Work`, 3 examples
+  - `Une période d’essai` → Noun A1, `Work` + `Internship`, 2 examples
+  - `Actuellement` → Other A1, `Internship` + `Work`
+- E2E verification steps:
+  1. Open `http://localhost:8080/vocab.html` in a fresh Chrome incognito/profile.
+  2. Confirm active service worker cache is `dross-v124`.
+  3. Confirm `#stats` shows `1908 result(s)` and context chips match the counts above.
+  4. Filter by the `Stage` context chip; expect the chip label to show `Internship (99)` and the results count to also show **99**.
+  5. Filter by the `Work` context chip; expect the chip label to show `Work (380)` and the results count to also show **380**.
+  6. Search each sample entry and verify POS, level, context pills, and FR/AR/EN example blocks render correctly.
+  7. Click `Loop` on a multi-example card (`Remplir`) and a single-example card (`S’adapter`); verify the card highlights and no JS runtime errors occur.
+  8. Toggle dark/light mode and verify `<html data-theme>` flips without errors.
+  9. Verify Google Images link includes `udm=2&q=<fr>` and Google AI link includes `udm=50`.
+- The debug APK was rebuilt after this batch.
+
 ## Known data-quality issues (last observed)
 
-- None. All 1851 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`) when a separate example was provided. Situation sentences use `fr`/`ar`/`en` directly and may not have a separate `ex` block. Administrative entries may also include a `usage` field.
+- None. All 1908 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`) when a separate example was provided. Situation sentences use `fr`/`ar`/`en` directly and may not have a separate `ex` block. Administrative entries may also include a `usage` field.
