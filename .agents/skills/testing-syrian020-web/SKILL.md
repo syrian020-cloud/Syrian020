@@ -136,6 +136,23 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   - `Crédit bancaire` → noun (B1)
   - `Capture d'écran` → noun (A2)
   - `Chauffeur-livreur` → noun (B1)
+
+## C-words batch (dross-v111)
+
+- `data/vocab.js` now contains **1204** entries and `data/vocab-batch-02.js` is still empty.
+- Cache name is `dross-v111`.
+- Letter chip counts: `A (550)`, `B (138)`, `C (515)`, `F (1)`, all other letters `0`.
+- POS counts: `verb` **285**, `adjective` **226**, `noun` **432**, `phrase` **195**, `other` **66**.
+- 54 new C entries added and 89 existing C entries merged, increasing `C` from 461 to 515. Sample entries:
+  - `Combustible` → other (B2)
+  - `Commande en ligne` → noun (A2)
+  - `Contrat de travail` → noun (A2), context `work` (`عمل`); search also matches `Contrat` first due to substring search
+  - `Croiser les bras` → other (B1)
+  - `Changement climatique` → noun (B1)
+  - `Climatiseur` → noun (A2), context `housing` (`سكن`), 2 trilingual examples
+  - `Code postal` → noun (A1), context `services`, 2 trilingual examples
+  - `Créer` → verb (A2), 3 trilingual examples
+  - `Contacter` → verb (A2), 3 trilingual examples
 - Search `Contacter` also matches `À défaut de` (its example contains `contacterai`) before matching `Contacter`; this is expected substring search behavior.
 - Each new idiom uses the `ex` array with 2 trilingual example objects.
 - `vocab.html` now supports `ex` as either a single object or an array of objects. `render()` creates one `.example` block per array item, and `speakEntry()` enqueues each example in each loop language. So `Faire du bénévolat` (4 examples × 3 languages + headword × 3 languages = 15 utterances) works end-to-end.
@@ -213,7 +230,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v110`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v111`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();

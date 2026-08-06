@@ -13023,7 +13023,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Catégorie",
-    "ar": "فئة / تصنيف",
+    "ar": "فئة",
     "en": "Category",
     "pos": "noun",
     "level": "B1",
@@ -13041,6 +13041,11 @@ window.VOCAB_DATA = [
         "fr": "Choisissez une catégorie de produit.",
         "ar": "اختر فئة من المنتجات.",
         "en": "Choose a product category."
+      },
+      {
+        "fr": "Choisissez une catégorie.",
+        "ar": "اختر فئة.",
+        "en": "Choose a category."
       }
     ]
   },
@@ -13192,7 +13197,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Chaîne",
     "ar": "سلسلة / قناة",
-    "en": "Chain",
+    "en": "Chain / Channel",
     "pos": "noun",
     "level": "A2",
     "contexts": [
@@ -13241,7 +13246,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Chaleur",
-    "ar": "حرارة",
+    "ar": "حرارة / دفء",
     "en": "Heat",
     "pos": "noun",
     "level": "A2",
@@ -13714,8 +13719,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Clé USB",
-    "ar": "ذاكرة USB",
-    "en": "USB key",
+    "ar": "مفتاح USB / ذاكرة فلاش",
+    "en": "USB drive",
     "pos": "noun",
     "level": "A2",
     "contexts": [
@@ -13731,6 +13736,11 @@ window.VOCAB_DATA = [
         "fr": "J'ai enregistré le fichier sur une clé USB.",
         "ar": "حفظت الملف على ذاكرة USB.",
         "en": "I saved the file on a USB key."
+      },
+      {
+        "fr": "J'ai enregistré le fichier sur une clé USB.",
+        "ar": "حفظت الملف على ذاكرة USB.",
+        "en": "I saved the file on a USB drive."
       }
     ]
   },
@@ -13780,17 +13790,24 @@ window.VOCAB_DATA = [
   {
     "fr": "Colis",
     "ar": "طرد",
-    "en": "Package / Parcel",
+    "en": "Parcel / Package",
     "pos": "noun",
     "level": "A2",
     "contexts": [
       "services"
     ],
-    "ex": {
-      "fr": "J'attends un colis.",
-      "ar": "أنتظر طردًا.",
-      "en": "I am waiting for a package."
-    }
+    "ex": [
+      {
+        "fr": "J'attends un colis.",
+        "ar": "أنتظر طردًا.",
+        "en": "I am waiting for a package."
+      },
+      {
+        "fr": "J'attends un colis important.",
+        "ar": "أنتظر طردًا مهمًا.",
+        "en": "I am waiting for an important package."
+      }
+    ]
   },
   {
     "fr": "Collation",
@@ -13809,18 +13826,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Colline",
-    "ar": "تلة",
+    "ar": "تل / هضبة صغيرة",
     "en": "Hill",
     "pos": "noun",
-    "level": "A2",
+    "level": "B1",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Nous montons sur la colline.",
-      "ar": "نصعد إلى التلة.",
-      "en": "We climb the hill."
-    }
+    "ex": [
+      {
+        "fr": "Nous montons sur la colline.",
+        "ar": "نصعد إلى التلة.",
+        "en": "We climb the hill."
+      },
+      {
+        "fr": "Nous montons sur la colline.",
+        "ar": "نصعد إلى التل.",
+        "en": "We climb the hill."
+      }
+    ]
   },
   {
     "fr": "Commande",
@@ -13847,6 +13871,11 @@ window.VOCAB_DATA = [
         "fr": "J'ai reçu ma commande aujourd'hui.",
         "ar": "استلمت طلبي اليوم.",
         "en": "I received my order today."
+      },
+      {
+        "fr": "Ma commande est arrivée.",
+        "ar": "وصل طلبي.",
+        "en": "My order has arrived."
       }
     ]
   },
@@ -13876,18 +13905,25 @@ window.VOCAB_DATA = [
   {
     "fr": "Commerce",
     "ar": "تجارة / متجر",
-    "en": "Business / Shop",
+    "en": "Trade / Business",
     "pos": "noun",
     "level": "A2",
     "contexts": [
-      "work",
-      "daily"
+      "daily",
+      "work"
     ],
-    "ex": {
-      "fr": "Le commerce est fermé.",
-      "ar": "المتجر مغلق.",
-      "en": "The shop is closed."
-    }
+    "ex": [
+      {
+        "fr": "Le commerce est fermé.",
+        "ar": "المتجر مغلق.",
+        "en": "The shop is closed."
+      },
+      {
+        "fr": "Il travaille dans le commerce.",
+        "ar": "يعمل في مجال التجارة.",
+        "en": "He works in commerce."
+      }
+    ]
   },
   {
     "fr": "Commun / Commune",
@@ -13924,6 +13960,11 @@ window.VOCAB_DATA = [
         "fr": "Il est important de communiquer clairement.",
         "ar": "من المهم التواصل بوضوح.",
         "en": "It is important to communicate clearly."
+      },
+      {
+        "fr": "Il faut communiquer avec l'équipe.",
+        "ar": "يجب التواصل مع الفريق.",
+        "en": "We need to communicate with the team."
       }
     ]
   },
@@ -13953,18 +13994,25 @@ window.VOCAB_DATA = [
   {
     "fr": "Compagnie",
     "ar": "شركة / رفقة",
-    "en": "Company / Companionship",
+    "en": "Company / Companion",
     "pos": "noun",
     "level": "A2",
     "contexts": [
-      "work",
-      "daily"
+      "daily",
+      "work"
     ],
-    "ex": {
-      "fr": "Je travaille dans une grande compagnie.",
-      "ar": "أعمل في شركة كبيرة.",
-      "en": "I work in a large company."
-    }
+    "ex": [
+      {
+        "fr": "Je travaille dans une grande compagnie.",
+        "ar": "أعمل في شركة كبيرة.",
+        "en": "I work in a large company."
+      },
+      {
+        "fr": "Je travaille pour une grande compagnie.",
+        "ar": "أعمل لدى شركة كبيرة.",
+        "en": "I work for a large company."
+      }
+    ]
   },
   {
     "fr": "Compléter",
@@ -14008,6 +14056,11 @@ window.VOCAB_DATA = [
         "fr": "Son comportement est respectueux.",
         "ar": "سلوكه محترم.",
         "en": "His behavior is respectful."
+      },
+      {
+        "fr": "Son comportement est étrange.",
+        "ar": "سلوكه غريب.",
+        "en": "His behavior is strange."
       }
     ]
   },
@@ -14044,7 +14097,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Connexion",
-    "ar": "اتصال / ارتباط",
+    "ar": "اتصال / ربط",
     "en": "Connection",
     "pos": "noun",
     "level": "A2",
@@ -14061,13 +14114,18 @@ window.VOCAB_DATA = [
         "fr": "La connexion Internet est rapide.",
         "ar": "اتصال الإنترنت سريع.",
         "en": "The Internet connection is fast."
+      },
+      {
+        "fr": "La connexion internet est lente.",
+        "ar": "اتصال الإنترنت بطيء.",
+        "en": "The internet connection is slow."
       }
     ]
   },
   {
     "fr": "Conserver",
-    "ar": "يحفظ / يحتفظ",
-    "en": "To keep / Preserve",
+    "ar": "يحتفظ / يحفظ",
+    "en": "To keep",
     "pos": "verb",
     "level": "A2",
     "contexts": [
@@ -14083,6 +14141,11 @@ window.VOCAB_DATA = [
         "fr": "Je conserve ce document.",
         "ar": "أحتفظ بهذه الوثيقة.",
         "en": "I keep this document."
+      },
+      {
+        "fr": "Je conserve les documents importants.",
+        "ar": "أحتفظ بالوثائق المهمة.",
+        "en": "I keep important documents."
       }
     ]
   },
@@ -14162,8 +14225,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Convocation",
-    "ar": "استدعاء",
-    "en": "Summons / Appointment letter",
+    "ar": "استدعاء / دعوة رسمية",
+    "en": "Official notice",
     "pos": "noun",
     "level": "B1",
     "contexts": [
@@ -14180,6 +14243,11 @@ window.VOCAB_DATA = [
         "fr": "J'ai reçu une convocation.",
         "ar": "تلقيت استدعاء.",
         "en": "I received a summons."
+      },
+      {
+        "fr": "J'ai reçu une convocation.",
+        "ar": "تلقيت استدعاء.",
+        "en": "I received an official notice."
       }
     ]
   },
@@ -14426,18 +14494,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Couverture",
-    "ar": "غطاء / بطانية",
-    "en": "Cover / Blanket",
+    "ar": "تغطية / غطاء",
+    "en": "Coverage / Cover",
     "pos": "noun",
-    "level": "A2",
+    "level": "B1",
     "contexts": [
       "housing"
     ],
-    "ex": {
-      "fr": "J'ai besoin d'une couverture chaude.",
-      "ar": "أحتاج إلى بطانية دافئة.",
-      "en": "I need a warm blanket."
-    }
+    "ex": [
+      {
+        "fr": "J'ai besoin d'une couverture chaude.",
+        "ar": "أحتاج إلى بطانية دافئة.",
+        "en": "I need a warm blanket."
+      },
+      {
+        "fr": "L'assurance offre une bonne couverture.",
+        "ar": "التأمين يوفر تغطية جيدة.",
+        "en": "Insurance provides good coverage."
+      }
+    ]
   },
   {
     "fr": "Crayon",
@@ -14456,7 +14531,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Crème",
-    "ar": "كريمة / كريم",
+    "ar": "كريم",
     "en": "Cream",
     "pos": "noun",
     "level": "A1",
@@ -14474,6 +14549,11 @@ window.VOCAB_DATA = [
         "fr": "J'ajoute de la crème dans la sauce.",
         "ar": "أضيف الكريمة إلى الصلصة.",
         "en": "I add cream to the sauce."
+      },
+      {
+        "fr": "J'utilise une crème pour la peau.",
+        "ar": "أستخدم كريمًا للبشرة.",
+        "en": "I use a skin cream."
       }
     ]
   },
@@ -14517,7 +14597,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Croissant",
     "ar": "هلال / كرواسون",
-    "en": "Croissant",
+    "en": "Croissant / Crescent",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -14561,6 +14641,11 @@ window.VOCAB_DATA = [
         "fr": "Je préfère la viande bien cuite, pas crue.",
         "ar": "أفضل اللحم المطهو جيدًا وليس النيء.",
         "en": "I prefer well-cooked meat, not raw."
+      },
+      {
+        "fr": "Je préfère manger des légumes crus.",
+        "ar": "أفضل أكل الخضار النيئة.",
+        "en": "I prefer eating raw vegetables."
       }
     ]
   },
@@ -14824,6 +14909,11 @@ window.VOCAB_DATA = [
         "fr": "Le magasin est au coin de la rue.",
         "ar": "المتجر في زاوية الشارع.",
         "en": "The shop is on the corner of the street."
+      },
+      {
+        "fr": "Il habite dans un coin calme.",
+        "ar": "يسكن في مكان هادئ.",
+        "en": "He lives in a quiet place."
       }
     ]
   },
@@ -14834,8 +14924,8 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "A2",
     "contexts": [
-      "work",
-      "daily"
+      "daily",
+      "work"
     ],
     "ex": {
       "fr": "Je colle une étiquette sur la boîte.",
@@ -14905,49 +14995,70 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Commentaire",
-    "ar": "تعليق / ملاحظة",
-    "en": "Comment / Remark",
+    "ar": "تعليق",
+    "en": "Comment",
     "pos": "noun",
     "level": "A2",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "J'ai laissé un commentaire.",
-      "ar": "تركت تعليقًا.",
-      "en": "I left a comment."
-    }
+    "ex": [
+      {
+        "fr": "J'ai laissé un commentaire.",
+        "ar": "تركت تعليقًا.",
+        "en": "I left a comment."
+      },
+      {
+        "fr": "J'ai lu les commentaires.",
+        "ar": "قرأت التعليقات.",
+        "en": "I read the comments."
+      }
+    ]
   },
   {
     "fr": "Commettre",
     "ar": "يرتكب",
     "en": "To commit",
     "pos": "verb",
-    "level": "B1",
+    "level": "B2",
     "contexts": [
-      "services",
-      "daily"
+      "daily",
+      "services"
     ],
-    "ex": {
-      "fr": "Il a commis une erreur.",
-      "ar": "ارتكب خطأ.",
-      "en": "He made a mistake."
-    }
+    "ex": [
+      {
+        "fr": "Il a commis une erreur.",
+        "ar": "ارتكب خطأ.",
+        "en": "He made a mistake."
+      },
+      {
+        "fr": "Il a commis une erreur.",
+        "ar": "ارتكب خطأ.",
+        "en": "He made an error."
+      }
+    ]
   },
   {
     "fr": "Communauté",
-    "ar": "مجتمع / جماعة",
+    "ar": "مجتمع",
     "en": "Community",
     "pos": "noun",
     "level": "B1",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Cette communauté aide les personnes.",
-      "ar": "هذا المجتمع يساعد الناس.",
-      "en": "This community helps people."
-    }
+    "ex": [
+      {
+        "fr": "Cette communauté aide les personnes.",
+        "ar": "هذا المجتمع يساعد الناس.",
+        "en": "This community helps people."
+      },
+      {
+        "fr": "Il aide sa communauté.",
+        "ar": "يساعد مجتمعه.",
+        "en": "He helps his community."
+      }
+    ]
   },
   {
     "fr": "Compagnon",
@@ -14983,6 +15094,11 @@ window.VOCAB_DATA = [
         "fr": "Il développe ses compétences professionnelles.",
         "ar": "يطور مهاراته المهنية.",
         "en": "He develops his professional skills."
+      },
+      {
+        "fr": "Il possède de bonnes compétences.",
+        "ar": "لديه مهارات جيدة.",
+        "en": "He has good skills."
       }
     ]
   },
@@ -15108,26 +15224,40 @@ window.VOCAB_DATA = [
       "school",
       "work"
     ],
-    "ex": {
-      "fr": "J'utilise une calculatrice.",
-      "ar": "أستخدم آلة حاسبة.",
-      "en": "I use a calculator."
-    }
+    "ex": [
+      {
+        "fr": "J'utilise une calculatrice.",
+        "ar": "أستخدم آلة حاسبة.",
+        "en": "I use a calculator."
+      },
+      {
+        "fr": "J'utilise une calculatrice pour calculer.",
+        "ar": "أستخدم آلة حاسبة للحساب.",
+        "en": "I use a calculator to calculate."
+      }
+    ]
   },
   {
     "fr": "Calendrier",
-    "ar": "تقويم / رزنامة",
+    "ar": "تقويم / جدول",
     "en": "Calendar",
     "pos": "noun",
-    "level": "A1",
+    "level": "A2",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Je regarde le calendrier.",
-      "ar": "أنظر إلى التقويم.",
-      "en": "I look at the calendar."
-    }
+    "ex": [
+      {
+        "fr": "Je regarde le calendrier.",
+        "ar": "أنظر إلى التقويم.",
+        "en": "I look at the calendar."
+      },
+      {
+        "fr": "Je note le rendez-vous dans mon calendrier.",
+        "ar": "أسجل الموعد في التقويم.",
+        "en": "I write the appointment in my calendar."
+      }
+    ]
   },
   {
     "fr": "Camionnette",
@@ -15183,7 +15313,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Capacité",
-    "ar": "قدرة / سعة",
+    "ar": "قدرة",
     "en": "Ability / Capacity",
     "pos": "noun",
     "level": "B1",
@@ -15200,6 +15330,11 @@ window.VOCAB_DATA = [
         "fr": "Cette machine a une grande capacité.",
         "ar": "هذه الآلة لديها قدرة كبيرة.",
         "en": "This machine has a large capacity."
+      },
+      {
+        "fr": "Il a la capacité de résoudre le problème.",
+        "ar": "لديه القدرة على حل المشكلة.",
+        "en": "He has the ability to solve the problem."
       }
     ]
   },
@@ -15331,25 +15466,32 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Centrale",
-    "ar": "مركز / محطة",
-    "en": "Central unit / Plant",
-    "pos": "noun",
+    "ar": "مركزي / محطة",
+    "en": "Central / Power station",
+    "pos": "other",
     "level": "B1",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "La centrale électrique produit de l'énergie.",
-      "ar": "محطة الكهرباء تنتج الطاقة.",
-      "en": "The power plant produces energy."
-    }
+    "ex": [
+      {
+        "fr": "La centrale électrique produit de l'énergie.",
+        "ar": "محطة الكهرباء تنتج الطاقة.",
+        "en": "The power plant produces energy."
+      },
+      {
+        "fr": "La gare centrale est proche.",
+        "ar": "المحطة المركزية قريبة.",
+        "en": "The central station is nearby."
+      }
+    ]
   },
   {
     "fr": "Certitude",
-    "ar": "يقين",
+    "ar": "يقين / تأكد",
     "en": "Certainty",
     "pos": "noun",
-    "level": "B1",
+    "level": "B2",
     "contexts": [
       "daily"
     ],
@@ -15469,26 +15611,40 @@ window.VOCAB_DATA = [
     "contexts": [
       "health"
     ],
-    "ex": {
-      "fr": "Il a besoin d'une chirurgie.",
-      "ar": "يحتاج إلى عملية جراحية.",
-      "en": "He needs surgery."
-    }
+    "ex": [
+      {
+        "fr": "Il a besoin d'une chirurgie.",
+        "ar": "يحتاج إلى عملية جراحية.",
+        "en": "He needs surgery."
+      },
+      {
+        "fr": "Il doit subir une chirurgie.",
+        "ar": "يجب أن يخضع لعملية جراحية.",
+        "en": "He needs to undergo surgery."
+      }
+    ]
   },
   {
     "fr": "Citoyenneté",
     "ar": "مواطنة",
     "en": "Citizenship",
     "pos": "noun",
-    "level": "B1",
+    "level": "B2",
     "contexts": [
       "services"
     ],
-    "ex": {
-      "fr": "La citoyenneté française donne des droits.",
-      "ar": "المواطنة الفرنسية تمنح حقوقًا.",
-      "en": "French citizenship gives rights."
-    }
+    "ex": [
+      {
+        "fr": "La citoyenneté française donne des droits.",
+        "ar": "المواطنة الفرنسية تمنح حقوقًا.",
+        "en": "French citizenship gives rights."
+      },
+      {
+        "fr": "La citoyenneté donne des responsabilités.",
+        "ar": "المواطنة تعطي مسؤوليات.",
+        "en": "Citizenship gives responsibilities."
+      }
+    ]
   },
   {
     "fr": "Civilisation",
@@ -15567,11 +15723,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "housing"
     ],
-    "ex": {
-      "fr": "Le climatiseur fonctionne bien.",
-      "ar": "المكيف يعمل جيدًا.",
-      "en": "The air conditioner works well."
-    }
+    "ex": [
+      {
+        "fr": "Le climatiseur fonctionne bien.",
+        "ar": "المكيف يعمل جيدًا.",
+        "en": "The air conditioner works well."
+      },
+      {
+        "fr": "Le climatiseur ne fonctionne plus.",
+        "ar": "مكيف الهواء لم يعد يعمل.",
+        "en": "The air conditioner no longer works."
+      }
+    ]
   },
   {
     "fr": "Cocher",
@@ -15590,19 +15753,26 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Coffre",
-    "ar": "صندوق / صندوق السيارة",
-    "en": "Chest / Trunk",
+    "ar": "صندوق / خزانة / صندوق السيارة",
+    "en": "Safe / Trunk",
     "pos": "noun",
     "level": "A2",
     "contexts": [
-      "transport",
-      "daily"
+      "daily",
+      "transport"
     ],
-    "ex": {
-      "fr": "Les valises sont dans le coffre.",
-      "ar": "الحقائب في صندوق السيارة.",
-      "en": "The suitcases are in the trunk."
-    }
+    "ex": [
+      {
+        "fr": "Les valises sont dans le coffre.",
+        "ar": "الحقائب في صندوق السيارة.",
+        "en": "The suitcases are in the trunk."
+      },
+      {
+        "fr": "J'ai mis les valises dans le coffre.",
+        "ar": "وضعت الحقائب في صندوق السيارة.",
+        "en": "I put the suitcases in the trunk."
+      }
+    ]
   },
   {
     "fr": "Coffret",
@@ -15654,7 +15824,7 @@ window.VOCAB_DATA = [
     "ar": "يجمع",
     "en": "To collect",
     "pos": "verb",
-    "level": "A2",
+    "level": "B1",
     "contexts": [
       "work"
     ],
@@ -15668,6 +15838,11 @@ window.VOCAB_DATA = [
         "fr": "Ils collectent les déchets.",
         "ar": "يجمعون النفايات.",
         "en": "They collect waste."
+      },
+      {
+        "fr": "Ils collectent les informations.",
+        "ar": "يجمعون المعلومات.",
+        "en": "They collect information."
       }
     ]
   },
@@ -15719,17 +15894,24 @@ window.VOCAB_DATA = [
   {
     "fr": "Compagnie aérienne",
     "ar": "شركة طيران",
-    "en": "Airline",
+    "en": "Airline company",
     "pos": "noun",
     "level": "B1",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Cette compagnie aérienne est connue.",
-      "ar": "شركة الطيران هذه معروفة.",
-      "en": "This airline is well known."
-    }
+    "ex": [
+      {
+        "fr": "Cette compagnie aérienne est connue.",
+        "ar": "شركة الطيران هذه معروفة.",
+        "en": "This airline is well known."
+      },
+      {
+        "fr": "Cette compagnie aérienne propose des vols directs.",
+        "ar": "شركة الطيران هذه تقدم رحلات مباشرة.",
+        "en": "This airline offers direct flights."
+      }
+    ]
   },
   {
     "fr": "Compétent",
@@ -15778,7 +15960,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Concerner",
-    "ar": "يخص / يتعلق بـ",
+    "ar": "يتعلق بـ",
     "en": "To concern",
     "pos": "verb",
     "level": "B1",
@@ -15795,6 +15977,11 @@ window.VOCAB_DATA = [
         "fr": "Cette information concerne tous les employés.",
         "ar": "هذه المعلومة تخص جميع الموظفين.",
         "en": "This information concerns all employees."
+      },
+      {
+        "fr": "Cette règle concerne tout le monde.",
+        "ar": "هذه القاعدة تخص الجميع.",
+        "en": "This rule concerns everyone."
       }
     ]
   },
@@ -15803,21 +15990,28 @@ window.VOCAB_DATA = [
     "ar": "نتيجة / خلاصة",
     "en": "Conclusion",
     "pos": "noun",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
-      "work",
-      "school"
+      "school",
+      "work"
     ],
-    "ex": {
-      "fr": "La conclusion est claire.",
-      "ar": "الخلاصة واضحة.",
-      "en": "The conclusion is clear."
-    }
+    "ex": [
+      {
+        "fr": "La conclusion est claire.",
+        "ar": "الخلاصة واضحة.",
+        "en": "The conclusion is clear."
+      },
+      {
+        "fr": "En conclusion, le projet est réussi.",
+        "ar": "في النهاية، المشروع ناجح.",
+        "en": "In conclusion, the project is successful."
+      }
+    ]
   },
   {
     "fr": "Conditionner",
-    "ar": "يعبئ / يجهز",
-    "en": "To package / Condition",
+    "ar": "يعبئ / يغلف",
+    "en": "To package",
     "pos": "verb",
     "level": "B1",
     "contexts": [
@@ -15833,6 +16027,11 @@ window.VOCAB_DATA = [
         "fr": "Je conditionne les produits.",
         "ar": "أقوم بتعبئة المنتجات.",
         "en": "I package the products."
+      },
+      {
+        "fr": "Je conditionne les boîtes à l'usine.",
+        "ar": "أقوم بتغليف الصناديق في المصنع.",
+        "en": "I package boxes at the factory."
       }
     ]
   },
@@ -15919,11 +16118,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Il faut consommer moins de sucre.",
-      "ar": "يجب استهلاك كمية أقل من السكر.",
-      "en": "We need to consume less sugar."
-    }
+    "ex": [
+      {
+        "fr": "Il faut consommer moins de sucre.",
+        "ar": "يجب استهلاك كمية أقل من السكر.",
+        "en": "We need to consume less sugar."
+      },
+      {
+        "fr": "Il faut consommer moins d'énergie.",
+        "ar": "يجب استهلاك طاقة أقل.",
+        "en": "We must consume less energy."
+      }
+    ]
   },
   {
     "fr": "Consommation",
@@ -15935,11 +16141,18 @@ window.VOCAB_DATA = [
       "daily",
       "work"
     ],
-    "ex": {
-      "fr": "La consommation d'énergie augmente.",
-      "ar": "استهلاك الطاقة يزداد.",
-      "en": "Energy consumption is increasing."
-    }
+    "ex": [
+      {
+        "fr": "La consommation d'énergie augmente.",
+        "ar": "استهلاك الطاقة يزداد.",
+        "en": "Energy consumption is increasing."
+      },
+      {
+        "fr": "La consommation d'eau augmente.",
+        "ar": "استهلاك الماء يرتفع.",
+        "en": "Water consumption is increasing."
+      }
+    ]
   },
   {
     "fr": "Contester",
@@ -16047,11 +16260,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Il faut travailler correctement.",
-      "ar": "يجب العمل بشكل صحيح.",
-      "en": "You have to work correctly."
-    }
+    "ex": [
+      {
+        "fr": "Il faut travailler correctement.",
+        "ar": "يجب العمل بشكل صحيح.",
+        "en": "You have to work correctly."
+      },
+      {
+        "fr": "Il faut remplir le formulaire correctement.",
+        "ar": "يجب ملء الاستمارة بشكل صحيح.",
+        "en": "You must fill out the form correctly."
+      }
+    ]
   },
   {
     "fr": "Correspondre",
@@ -16062,11 +16282,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "work"
     ],
-    "ex": {
-      "fr": "Cette information correspond à la réalité.",
-      "ar": "هذه المعلومة تتوافق مع الواقع.",
-      "en": "This information corresponds to reality."
-    }
+    "ex": [
+      {
+        "fr": "Cette information correspond à la réalité.",
+        "ar": "هذه المعلومة تتوافق مع الواقع.",
+        "en": "This information corresponds to reality."
+      },
+      {
+        "fr": "Cette couleur correspond à mon style.",
+        "ar": "هذا اللون يناسب أسلوبي.",
+        "en": "This color matches my style."
+      }
+    ]
   },
   {
     "fr": "Couloir",
@@ -16176,6 +16403,11 @@ window.VOCAB_DATA = [
         "fr": "L'entreprise connaît une forte croissance.",
         "ar": "الشركة تشهد نموًا كبيرًا.",
         "en": "The company is experiencing strong growth."
+      },
+      {
+        "fr": "La croissance de l'entreprise est rapide.",
+        "ar": "نمو الشركة سريع.",
+        "en": "The company's growth is fast."
       }
     ]
   },
@@ -16263,7 +16495,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Cycle",
-    "ar": "دورة / دورة تدريبية",
+    "ar": "دورة / دورة متكررة",
     "en": "Cycle",
     "pos": "noun",
     "level": "A2",
@@ -16280,6 +16512,11 @@ window.VOCAB_DATA = [
         "fr": "Je commence un nouveau cycle de formation.",
         "ar": "أبدأ دورة تدريبية جديدة.",
         "en": "I start a new training cycle."
+      },
+      {
+        "fr": "Le cycle de formation dure six mois.",
+        "ar": "دورة التدريب تستمر ستة أشهر.",
+        "en": "The training cycle lasts six months."
       }
     ]
   },
@@ -16292,11 +16529,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Le cylindre de la machine est remplacé.",
-      "ar": "تم استبدال أسطوانة الآلة.",
-      "en": "The machine cylinder was replaced."
-    }
+    "ex": [
+      {
+        "fr": "Le cylindre de la machine est remplacé.",
+        "ar": "تم استبدال أسطوانة الآلة.",
+        "en": "The machine cylinder was replaced."
+      },
+      {
+        "fr": "La machine contient un cylindre métallique.",
+        "ar": "الآلة تحتوي على أسطوانة معدنية.",
+        "en": "The machine contains a metal cylinder."
+      }
+    ]
   },
   {
     "fr": "Capturer",
@@ -16329,11 +16573,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "work"
     ],
-    "ex": {
-      "fr": "Il veut développer sa carrière.",
-      "ar": "يريد تطوير مسيرته المهنية.",
-      "en": "He wants to develop his career."
-    }
+    "ex": [
+      {
+        "fr": "Il veut développer sa carrière.",
+        "ar": "يريد تطوير مسيرته المهنية.",
+        "en": "He wants to develop his career."
+      },
+      {
+        "fr": "Il développe sa carrière professionnelle.",
+        "ar": "يطور مسيرته المهنية.",
+        "en": "He develops his professional career."
+      }
+    ]
   },
   {
     "fr": "Célébration",
@@ -16589,22 +16840,29 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Circulation",
-    "ar": "حركة المرور",
-    "en": "Traffic",
+    "ar": "حركة المرور / دوران",
+    "en": "Traffic / Circulation",
     "pos": "noun",
     "level": "A2",
     "contexts": [
       "transport"
     ],
-    "ex": {
-      "fr": "Il y a beaucoup de circulation aujourd'hui.",
-      "ar": "هناك ازدحام كبير اليوم.",
-      "en": "There is a lot of traffic today."
-    }
+    "ex": [
+      {
+        "fr": "Il y a beaucoup de circulation aujourd'hui.",
+        "ar": "هناك ازدحام كبير اليوم.",
+        "en": "There is a lot of traffic today."
+      },
+      {
+        "fr": "La circulation est difficile le matin.",
+        "ar": "حركة المرور صعبة صباحًا.",
+        "en": "Traffic is difficult in the morning."
+      }
+    ]
   },
   {
     "fr": "Citation",
-    "ar": "اقتباس / استشهاد",
+    "ar": "اقتباس / ذكر",
     "en": "Quote / Citation",
     "pos": "noun",
     "level": "B1",
@@ -16612,11 +16870,18 @@ window.VOCAB_DATA = [
       "school",
       "work"
     ],
-    "ex": {
-      "fr": "Il ajoute une citation dans son texte.",
-      "ar": "يضيف اقتباسًا في نصه.",
-      "en": "He adds a quote to his text."
-    }
+    "ex": [
+      {
+        "fr": "Il ajoute une citation dans son texte.",
+        "ar": "يضيف اقتباسًا في نصه.",
+        "en": "He adds a quote to his text."
+      },
+      {
+        "fr": "Il utilise une citation célèbre.",
+        "ar": "يستخدم اقتباسًا مشهورًا.",
+        "en": "He uses a famous quote."
+      }
+    ]
   },
   {
     "fr": "Classement mondial",
@@ -16635,18 +16900,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Clientèle",
-    "ar": "زبائن / عملاء",
-    "en": "Customers / Clientele",
+    "ar": "الزبائن / العملاء",
+    "en": "Customers / Client base",
     "pos": "noun",
     "level": "B1",
     "contexts": [
       "work"
     ],
-    "ex": {
-      "fr": "Cette entreprise a une grande clientèle.",
-      "ar": "هذه الشركة لديها عدد كبير من الزبائن.",
-      "en": "This company has a large clientele."
-    }
+    "ex": [
+      {
+        "fr": "Cette entreprise a une grande clientèle.",
+        "ar": "هذه الشركة لديها عدد كبير من الزبائن.",
+        "en": "This company has a large clientele."
+      },
+      {
+        "fr": "Le magasin a une bonne clientèle.",
+        "ar": "المتجر لديه زبائن جيدون.",
+        "en": "The shop has a good customer base."
+      }
+    ]
   },
   {
     "fr": "Clôture",
@@ -16688,18 +16960,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Code",
-    "ar": "رمز / قانون",
+    "ar": "رمز / قانون / كود",
     "en": "Code",
     "pos": "noun",
     "level": "A1",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "J'ai oublié mon code secret.",
-      "ar": "نسيت رمزي السري.",
-      "en": "I forgot my secret code."
-    }
+    "ex": [
+      {
+        "fr": "J'ai oublié mon code secret.",
+        "ar": "نسيت رمزي السري.",
+        "en": "I forgot my secret code."
+      },
+      {
+        "fr": "Entrez votre code secret.",
+        "ar": "أدخل رمزك السري.",
+        "en": "Enter your secret code."
+      }
+    ]
   },
   {
     "fr": "Collier",
@@ -16711,11 +16990,18 @@ window.VOCAB_DATA = [
       "daily",
       "shop"
     ],
-    "ex": {
-      "fr": "Le chien porte un collier.",
-      "ar": "الكلب يرتدي طوقًا.",
-      "en": "The dog wears a collar."
-    }
+    "ex": [
+      {
+        "fr": "Le chien porte un collier.",
+        "ar": "الكلب يرتدي طوقًا.",
+        "en": "The dog wears a collar."
+      },
+      {
+        "fr": "Elle porte un collier en or.",
+        "ar": "ترتدي قلادة من الذهب.",
+        "en": "She wears a gold necklace."
+      }
+    ]
   },
   {
     "fr": "Collection",
@@ -16734,18 +17020,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Combinaison de travail",
-    "ar": "بدلة عمل",
+    "ar": "لباس العمل",
     "en": "Work suit",
     "pos": "noun",
-    "level": "A2",
+    "level": "B1",
     "contexts": [
       "work"
     ],
-    "ex": {
-      "fr": "Je porte une combinaison de travail.",
-      "ar": "أرتدي بدلة عمل.",
-      "en": "I wear a work suit."
-    }
+    "ex": [
+      {
+        "fr": "Je porte une combinaison de travail.",
+        "ar": "أرتدي بدلة عمل.",
+        "en": "I wear a work suit."
+      },
+      {
+        "fr": "Je porte une combinaison de travail.",
+        "ar": "أرتدي لباس العمل.",
+        "en": "I wear a work suit."
+      }
+    ]
   },
   {
     "fr": "Commandement",
@@ -16795,17 +17088,24 @@ window.VOCAB_DATA = [
   {
     "fr": "Choisir entre",
     "ar": "يختار بين",
-    "en": "Choose between",
+    "en": "To choose between",
     "pos": "other",
     "level": "A2",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Je dois choisir entre deux options.",
-      "ar": "يجب أن أختار بين خيارين.",
-      "en": "I have to choose between two options."
-    }
+    "ex": [
+      {
+        "fr": "Je dois choisir entre deux options.",
+        "ar": "يجب أن أختار بين خيارين.",
+        "en": "I have to choose between two options."
+      },
+      {
+        "fr": "Je dois choisir entre deux options.",
+        "ar": "يجب أن أختار بين خيارين.",
+        "en": "I must choose between two options."
+      }
+    ]
   },
   {
     "fr": "Chute libre",
@@ -16816,11 +17116,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Il pratique la chute libre.",
-      "ar": "يمارس السقوط الحر.",
-      "en": "He practices skydiving."
-    }
+    "ex": [
+      {
+        "fr": "Il pratique la chute libre.",
+        "ar": "يمارس السقوط الحر.",
+        "en": "He practices skydiving."
+      },
+      {
+        "fr": "La température est en chute libre.",
+        "ar": "درجة الحرارة تنخفض بسرعة كبيرة.",
+        "en": "The temperature is falling sharply."
+      }
+    ]
   },
   {
     "fr": "Cible",
@@ -16876,24 +17183,38 @@ window.VOCAB_DATA = [
     "pos": "adjective",
     "level": "A2",
     "contexts": [],
-    "ex": {
-      "fr": "C'est un problème commun.",
-      "ar": "هذه مشكلة شائعة.",
-      "en": "It is a common problem."
-    }
+    "ex": [
+      {
+        "fr": "C'est un problème commun.",
+        "ar": "هذه مشكلة شائعة.",
+        "en": "It is a common problem."
+      },
+      {
+        "fr": "C'est un problème commun.",
+        "ar": "هذه مشكلة مشتركة.",
+        "en": "It is a common problem."
+      }
+    ]
   },
   {
     "fr": "Comparaison",
     "ar": "مقارنة",
     "en": "Comparison",
     "pos": "noun",
-    "level": "B1",
+    "level": "A2",
     "contexts": [],
-    "ex": {
-      "fr": "La comparaison montre la différence.",
-      "ar": "المقارنة تظهر الفرق.",
-      "en": "The comparison shows the difference."
-    }
+    "ex": [
+      {
+        "fr": "La comparaison montre la différence.",
+        "ar": "المقارنة تظهر الفرق.",
+        "en": "The comparison shows the difference."
+      },
+      {
+        "fr": "Cette comparaison est utile.",
+        "ar": "هذه المقارنة مفيدة.",
+        "en": "This comparison is useful."
+      }
+    ]
   },
   {
     "fr": "Comporter",
@@ -16914,17 +17235,24 @@ window.VOCAB_DATA = [
   {
     "fr": "Compter sur",
     "ar": "يعتمد على",
-    "en": "To rely on",
+    "en": "To count on",
     "pos": "other",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Je compte sur ton aide.",
-      "ar": "أعتمد على مساعدتك.",
-      "en": "I rely on your help."
-    }
+    "ex": [
+      {
+        "fr": "Je compte sur ton aide.",
+        "ar": "أعتمد على مساعدتك.",
+        "en": "I rely on your help."
+      },
+      {
+        "fr": "Tu peux compter sur moi.",
+        "ar": "يمكنك الاعتماد علي.",
+        "en": "You can count on me."
+      }
+    ]
   },
   {
     "fr": "Concentrer",
@@ -16966,11 +17294,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "work"
     ],
-    "ex": {
-      "fr": "Nous pouvons conclure la réunion.",
-      "ar": "يمكننا إنهاء الاجتماع.",
-      "en": "We can conclude the meeting."
-    }
+    "ex": [
+      {
+        "fr": "Nous pouvons conclure la réunion.",
+        "ar": "يمكننا إنهاء الاجتماع.",
+        "en": "We can conclude the meeting."
+      },
+      {
+        "fr": "Nous pouvons conclure que tout va bien.",
+        "ar": "نستطيع أن نستنتج أن كل شيء جيد.",
+        "en": "We can conclude that everything is fine."
+      }
+    ]
   },
   {
     "fr": "Concurrence",
@@ -16981,11 +17316,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "work"
     ],
-    "ex": {
-      "fr": "La concurrence est forte.",
-      "ar": "المنافسة قوية.",
-      "en": "Competition is strong."
-    }
+    "ex": [
+      {
+        "fr": "La concurrence est forte.",
+        "ar": "المنافسة قوية.",
+        "en": "Competition is strong."
+      },
+      {
+        "fr": "La concurrence est forte dans ce secteur.",
+        "ar": "المنافسة قوية في هذا المجال.",
+        "en": "Competition is strong in this sector."
+      }
+    ]
   },
   {
     "fr": "Conditionnement",
@@ -17022,30 +17364,44 @@ window.VOCAB_DATA = [
     "ar": "مؤتمر / محاضرة",
     "en": "Conference",
     "pos": "noun",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
       "work"
     ],
-    "ex": {
-      "fr": "J'assiste à une conférence.",
-      "ar": "أحضر مؤتمرًا.",
-      "en": "I attend a conference."
-    }
+    "ex": [
+      {
+        "fr": "J'assiste à une conférence.",
+        "ar": "أحضر مؤتمرًا.",
+        "en": "I attend a conference."
+      },
+      {
+        "fr": "J'assiste à une conférence médicale.",
+        "ar": "أحضر مؤتمرًا طبيًا.",
+        "en": "I attend a medical conference."
+      }
+    ]
   },
   {
     "fr": "Conflit",
-    "ar": "صراع / خلاف",
+    "ar": "نزاع / صراع",
     "en": "Conflict",
     "pos": "noun",
     "level": "B1",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Ils cherchent une solution au conflit.",
-      "ar": "يبحثون عن حل للخلاف.",
-      "en": "They look for a solution to the conflict."
-    }
+    "ex": [
+      {
+        "fr": "Ils cherchent une solution au conflit.",
+        "ar": "يبحثون عن حل للخلاف.",
+        "en": "They look for a solution to the conflict."
+      },
+      {
+        "fr": "Ils cherchent une solution au conflit.",
+        "ar": "يبحثون عن حل للنزاع.",
+        "en": "They look for a solution to the conflict."
+      }
+    ]
   },
   {
     "fr": "Conforter",
@@ -17133,16 +17489,23 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Considérer",
-    "ar": "يعتبر",
+    "ar": "يعتبر / ينظر إلى",
     "en": "To consider",
     "pos": "verb",
     "level": "B1",
     "contexts": [],
-    "ex": {
-      "fr": "Je considère cette solution efficace.",
-      "ar": "أعتبر هذا الحل فعالًا.",
-      "en": "I consider this solution effective."
-    }
+    "ex": [
+      {
+        "fr": "Je considère cette solution efficace.",
+        "ar": "أعتبر هذا الحل فعالًا.",
+        "en": "I consider this solution effective."
+      },
+      {
+        "fr": "Je considère cette proposition intéressante.",
+        "ar": "أعتبر هذا الاقتراح مهمًا.",
+        "en": "I consider this proposal interesting."
+      }
+    ]
   },
   {
     "fr": "Consigne de sécurité",
@@ -17153,24 +17516,38 @@ window.VOCAB_DATA = [
     "contexts": [
       "work"
     ],
-    "ex": {
-      "fr": "Lisez les consignes de sécurité.",
-      "ar": "اقرأ تعليمات السلامة.",
-      "en": "Read the safety instructions."
-    }
+    "ex": [
+      {
+        "fr": "Lisez les consignes de sécurité.",
+        "ar": "اقرأ تعليمات السلامة.",
+        "en": "Read the safety instructions."
+      },
+      {
+        "fr": "Il faut lire les consignes de sécurité.",
+        "ar": "يجب قراءة تعليمات السلامة.",
+        "en": "You must read the safety instructions."
+      }
+    ]
   },
   {
     "fr": "Constater",
     "ar": "يلاحظ / يعاين",
-    "en": "To observe / Notice",
+    "en": "To notice / Observe",
     "pos": "verb",
     "level": "B1",
     "contexts": [],
-    "ex": {
-      "fr": "Le médecin constate une amélioration.",
-      "ar": "يلاحظ الطبيب تحسنًا.",
-      "en": "The doctor notices an improvement."
-    }
+    "ex": [
+      {
+        "fr": "Le médecin constate une amélioration.",
+        "ar": "يلاحظ الطبيب تحسنًا.",
+        "en": "The doctor notices an improvement."
+      },
+      {
+        "fr": "Le médecin constate une amélioration.",
+        "ar": "الطبيب يلاحظ تحسنًا.",
+        "en": "The doctor notices an improvement."
+      }
+    ]
   },
   {
     "fr": "Constituer",
@@ -17179,11 +17556,18 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "B2",
     "contexts": [],
-    "ex": {
-      "fr": "Cette équipe constitue un groupe important.",
-      "ar": "هذا الفريق يشكل مجموعة مهمة.",
-      "en": "This team constitutes an important group."
-    }
+    "ex": [
+      {
+        "fr": "Cette équipe constitue un groupe important.",
+        "ar": "هذا الفريق يشكل مجموعة مهمة.",
+        "en": "This team constitutes an important group."
+      },
+      {
+        "fr": "Cela constitue un problème.",
+        "ar": "هذا يشكل مشكلة.",
+        "en": "This constitutes a problem."
+      }
+    ]
   },
   {
     "fr": "Consulter",
@@ -17194,24 +17578,38 @@ window.VOCAB_DATA = [
     "contexts": [
       "health"
     ],
-    "ex": {
-      "fr": "Je consulte un médecin.",
-      "ar": "أراجع طبيبًا.",
-      "en": "I consult a doctor."
-    }
+    "ex": [
+      {
+        "fr": "Je consulte un médecin.",
+        "ar": "أراجع طبيبًا.",
+        "en": "I consult a doctor."
+      },
+      {
+        "fr": "Je dois consulter un spécialiste.",
+        "ar": "يجب أن أراجع اختصاصيًا.",
+        "en": "I need to consult a specialist."
+      }
+    ]
   },
   {
     "fr": "Contact",
     "ar": "اتصال / جهة اتصال",
     "en": "Contact",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "contexts": [],
-    "ex": {
-      "fr": "Voici mon contact.",
-      "ar": "هذا هو رقم الاتصال بي.",
-      "en": "Here is my contact."
-    }
+    "ex": [
+      {
+        "fr": "Voici mon contact.",
+        "ar": "هذا هو رقم الاتصال بي.",
+        "en": "Here is my contact."
+      },
+      {
+        "fr": "J'ai perdu son contact.",
+        "ar": "أضعت جهة اتصاله.",
+        "en": "I lost his contact."
+      }
+    ]
   },
   {
     "fr": "Contenir",
@@ -17268,11 +17666,18 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [],
-    "ex": {
-      "fr": "Donnez-moi une copie du document.",
-      "ar": "أعطني نسخة من الوثيقة.",
-      "en": "Give me a copy of the document."
-    }
+    "ex": [
+      {
+        "fr": "Donnez-moi une copie du document.",
+        "ar": "أعطني نسخة من الوثيقة.",
+        "en": "Give me a copy of the document."
+      },
+      {
+        "fr": "Je garde une copie du document.",
+        "ar": "أحتفظ بنسخة من الوثيقة.",
+        "en": "I keep a copy of the document."
+      }
+    ]
   },
   {
     "fr": "Coquin / Coquine",
@@ -17469,16 +17874,23 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Critique",
-    "ar": "نقد / حرج",
+    "ar": "نقد / حاسم",
     "en": "Criticism / Critical",
     "pos": "other",
     "level": "B1",
     "contexts": [],
-    "ex": {
-      "fr": "Il accepte la critique.",
-      "ar": "يقبل النقد.",
-      "en": "He accepts criticism."
-    }
+    "ex": [
+      {
+        "fr": "Il accepte la critique.",
+        "ar": "يقبل النقد.",
+        "en": "He accepts criticism."
+      },
+      {
+        "fr": "Il fait une critique du film.",
+        "ar": "يقدم نقدًا للفيلم.",
+        "en": "He gives a review of the movie."
+      }
+    ]
   },
   {
     "fr": "Cultivé / Cultivée",
@@ -17502,11 +17914,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "health"
     ],
-    "ex": {
-      "fr": "Ce traitement a un effet curatif.",
-      "ar": "هذا العلاج له تأثير علاجي.",
-      "en": "This treatment has a curative effect."
-    }
+    "ex": [
+      {
+        "fr": "Ce traitement a un effet curatif.",
+        "ar": "هذا العلاج له تأثير علاجي.",
+        "en": "This treatment has a curative effect."
+      },
+      {
+        "fr": "Le traitement curatif est efficace.",
+        "ar": "العلاج العلاجي فعال.",
+        "en": "The curative treatment is effective."
+      }
+    ]
   },
   {
     "fr": "Curiosité",
@@ -17528,11 +17947,18 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [],
-    "ex": {
-      "fr": "Le cycliste roule rapidement.",
-      "ar": "راكب الدراجة يسير بسرعة.",
-      "en": "The cyclist rides quickly."
-    }
+    "ex": [
+      {
+        "fr": "Le cycliste roule rapidement.",
+        "ar": "راكب الدراجة يسير بسرعة.",
+        "en": "The cyclist rides quickly."
+      },
+      {
+        "fr": "Le cycliste roule sur la piste.",
+        "ar": "راكب الدراجة يسير على المسار.",
+        "en": "The cyclist rides on the track."
+      }
+    ]
   },
   {
     "fr": "Cyclisme",
@@ -17541,11 +17967,18 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [],
-    "ex": {
-      "fr": "Il pratique le cyclisme chaque semaine.",
-      "ar": "يمارس ركوب الدراجات كل أسبوع.",
-      "en": "He practices cycling every week."
-    }
+    "ex": [
+      {
+        "fr": "Il pratique le cyclisme chaque semaine.",
+        "ar": "يمارس ركوب الدراجات كل أسبوع.",
+        "en": "He practices cycling every week."
+      },
+      {
+        "fr": "Il pratique le cyclisme chaque week-end.",
+        "ar": "يمارس ركوب الدراجات كل عطلة أسبوع.",
+        "en": "He practices cycling every weekend."
+      }
+    ]
   },
   {
     "fr": "Cabinet médical",
@@ -17638,17 +18071,24 @@ window.VOCAB_DATA = [
   {
     "fr": "Casserole",
     "ar": "قدر / طنجرة",
-    "en": "Saucepan / Pot",
+    "en": "Saucepan",
     "pos": "noun",
-    "level": "A1",
+    "level": "A2",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Je fais cuire les pâtes dans une casserole.",
-      "ar": "أطبخ المعكرونة في قدر.",
-      "en": "I cook pasta in a saucepan."
-    }
+    "ex": [
+      {
+        "fr": "Je fais cuire les pâtes dans une casserole.",
+        "ar": "أطبخ المعكرونة في قدر.",
+        "en": "I cook pasta in a saucepan."
+      },
+      {
+        "fr": "Je chauffe la soupe dans une casserole.",
+        "ar": "أسخن الحساء في قدر.",
+        "en": "I heat the soup in a saucepan."
+      }
+    ]
   },
   {
     "fr": "Cause principale",
@@ -17666,7 +18106,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Censé",
     "ar": "من المفترض",
-    "en": "Supposed to",
+    "en": "Supposed",
     "pos": "adjective",
     "level": "B1",
     "contexts": [],
@@ -17859,11 +18299,18 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "B1",
     "contexts": [],
-    "ex": {
-      "fr": "Le voyant rouge clignote.",
-      "ar": "الضوء الأحمر يومض.",
-      "en": "The red light is blinking."
-    }
+    "ex": [
+      {
+        "fr": "Le voyant rouge clignote.",
+        "ar": "الضوء الأحمر يومض.",
+        "en": "The red light is blinking."
+      },
+      {
+        "fr": "La lumière rouge clignote.",
+        "ar": "الضوء الأحمر يومض.",
+        "en": "The red light is blinking."
+      }
+    ]
   },
   {
     "fr": "Clouer",
@@ -17900,11 +18347,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "services"
     ],
-    "ex": {
-      "fr": "Quel est votre code postal ?",
-      "ar": "ما هو الرمز البريدي الخاص بك؟",
-      "en": "What is your postal code?"
-    }
+    "ex": [
+      {
+        "fr": "Quel est votre code postal ?",
+        "ar": "ما هو الرمز البريدي الخاص بك؟",
+        "en": "What is your postal code?"
+      },
+      {
+        "fr": "Quel est votre code postal ?",
+        "ar": "ما هو رمزك البريدي؟",
+        "en": "What is your postal code?"
+      }
+    ]
   },
   {
     "fr": "Coefficient",
@@ -18085,11 +18539,18 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [],
-    "ex": {
-      "fr": "C'est une condition importante.",
-      "ar": "هذا شرط مهم.",
-      "en": "It is an important condition."
-    }
+    "ex": [
+      {
+        "fr": "C'est une condition importante.",
+        "ar": "هذا شرط مهم.",
+        "en": "It is an important condition."
+      },
+      {
+        "fr": "Les conditions du contrat sont claires.",
+        "ar": "شروط العقد واضحة.",
+        "en": "The contract conditions are clear."
+      }
+    ]
   },
   {
     "fr": "Conférence de presse",
@@ -18106,16 +18567,23 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Confirmer un rendez-vous",
-    "ar": "يؤكد موعدًا",
+    "ar": "تأكيد موعد",
     "en": "Confirm an appointment",
     "pos": "other",
     "level": "A2",
     "contexts": [],
-    "ex": {
-      "fr": "Je confirme mon rendez-vous chez le médecin.",
-      "ar": "أؤكد موعدي عند الطبيب.",
-      "en": "I confirm my appointment with the doctor."
-    }
+    "ex": [
+      {
+        "fr": "Je confirme mon rendez-vous chez le médecin.",
+        "ar": "أؤكد موعدي عند الطبيب.",
+        "en": "I confirm my appointment with the doctor."
+      },
+      {
+        "fr": "Je téléphone pour confirmer un rendez-vous.",
+        "ar": "أتصل لتأكيد موعد.",
+        "en": "I call to confirm an appointment."
+      }
+    ]
   },
   {
     "fr": "Confronter",
@@ -18773,16 +19241,23 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Cérémonie",
-    "ar": "مراسم / احتفال رسمي",
+    "ar": "حفل / مراسم",
     "en": "Ceremony",
     "pos": "noun",
     "level": "B1",
     "contexts": [],
-    "ex": {
-      "fr": "La cérémonie commence à huit heures.",
-      "ar": "تبدأ المراسم الساعة الثامنة.",
-      "en": "The ceremony starts at eight."
-    }
+    "ex": [
+      {
+        "fr": "La cérémonie commence à huit heures.",
+        "ar": "تبدأ المراسم الساعة الثامنة.",
+        "en": "The ceremony starts at eight."
+      },
+      {
+        "fr": "La cérémonie commence à dix heures.",
+        "ar": "يبدأ الحفل الساعة العاشرة.",
+        "en": "The ceremony starts at ten o'clock."
+      }
+    ]
   },
   {
     "fr": "Certifier",
@@ -18804,11 +19279,18 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "B1",
     "contexts": [],
-    "ex": {
-      "fr": "Il a cessé de travailler.",
-      "ar": "توقف عن العمل.",
-      "en": "He stopped working."
-    }
+    "ex": [
+      {
+        "fr": "Il a cessé de travailler.",
+        "ar": "توقف عن العمل.",
+        "en": "He stopped working."
+      },
+      {
+        "fr": "Il faut cesser de fumer.",
+        "ar": "يجب التوقف عن التدخين.",
+        "en": "You must stop smoking."
+      }
+    ]
   },
   {
     "fr": "Charte",
@@ -18927,6 +19409,716 @@ window.VOCAB_DATA = [
       "fr": "J'ai perdu ma clé de voiture.",
       "ar": "أضعت مفتاح سيارتي.",
       "en": "I lost my car key."
+    }
+  },
+  {
+    "fr": "Coefficient médical",
+    "ar": "معامل طبي",
+    "en": "Medical coefficient",
+    "pos": "noun",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "Le coefficient médical est calculé.",
+      "ar": "يتم حساب المعامل الطبي.",
+      "en": "The medical coefficient is calculated."
+    }
+  },
+  {
+    "fr": "Collecte",
+    "ar": "جمع / تجميع",
+    "en": "Collection",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "La collecte des déchets est organisée.",
+      "ar": "يتم تنظيم جمع النفايات.",
+      "en": "Waste collection is organized."
+    }
+  },
+  {
+    "fr": "Collaborer",
+    "ar": "يتعاون",
+    "en": "To collaborate",
+    "pos": "verb",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Nous collaborons avec plusieurs entreprises.",
+      "ar": "نتعاون مع عدة شركات.",
+      "en": "We collaborate with several companies."
+    }
+  },
+  {
+    "fr": "Colle",
+    "ar": "غراء",
+    "en": "Glue",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "J'utilise de la colle pour réparer le papier.",
+      "ar": "أستخدم الغراء لإصلاح الورق.",
+      "en": "I use glue to repair the paper."
+    }
+  },
+  {
+    "fr": "Commande en ligne",
+    "ar": "طلب عبر الإنترنت",
+    "en": "Online order",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "J'ai passé une commande en ligne.",
+      "ar": "قدمت طلبًا عبر الإنترنت.",
+      "en": "I placed an online order."
+    }
+  },
+  {
+    "fr": "Combustible",
+    "ar": "قابل للاحتراق / وقود",
+    "en": "Combustible",
+    "pos": "other",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "Ce produit est combustible.",
+      "ar": "هذا المنتج قابل للاحتراق.",
+      "en": "This product is combustible."
+    }
+  },
+  {
+    "fr": "Commander en ligne",
+    "ar": "يطلب عبر الإنترنت",
+    "en": "To order online",
+    "pos": "other",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Je préfère commander en ligne.",
+      "ar": "أفضل الطلب عبر الإنترنت.",
+      "en": "I prefer ordering online."
+    }
+  },
+  {
+    "fr": "Commerçant / Commerçante",
+    "ar": "تاجر",
+    "en": "Shopkeeper / Trader",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Le commerçant ouvre son magasin.",
+      "ar": "التاجر يفتح متجره.",
+      "en": "The shopkeeper opens his store."
+    }
+  },
+  {
+    "fr": "Commercial / Commerciale",
+    "ar": "تجاري",
+    "en": "Commercial",
+    "pos": "adjective",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "C'est une offre commerciale.",
+      "ar": "هذا عرض تجاري.",
+      "en": "This is a commercial offer."
+    }
+  },
+  {
+    "fr": "Compact / Compacte",
+    "ar": "صغير ومدمج",
+    "en": "Compact",
+    "pos": "adjective",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Cet appareil est compact.",
+      "ar": "هذا الجهاز صغير ومدمج.",
+      "en": "This device is compact."
+    }
+  },
+  {
+    "fr": "Compatible",
+    "ar": "متوافق",
+    "en": "Compatible",
+    "pos": "adjective",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Ce logiciel est compatible avec mon téléphone.",
+      "ar": "هذا البرنامج متوافق مع هاتفي.",
+      "en": "This software is compatible with my phone."
+    }
+  },
+  {
+    "fr": "Compétitif / Compétitive",
+    "ar": "تنافسي",
+    "en": "Competitive",
+    "pos": "adjective",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "Le prix est très compétitif.",
+      "ar": "السعر تنافسي جدًا.",
+      "en": "The price is very competitive."
+    }
+  },
+  {
+    "fr": "Complètement",
+    "ar": "تمامًا",
+    "en": "Completely",
+    "pos": "other",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Je suis complètement d'accord.",
+      "ar": "أنا موافق تمامًا.",
+      "en": "I completely agree."
+    }
+  },
+  {
+    "fr": "Composer",
+    "ar": "يؤلف / يكوّن",
+    "en": "To compose / Make up",
+    "pos": "verb",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Le groupe est composé de cinq personnes.",
+      "ar": "المجموعة مكونة من خمسة أشخاص.",
+      "en": "The group is made up of five people."
+    }
+  },
+  {
+    "fr": "Conduite",
+    "ar": "قيادة / تصرف",
+    "en": "Driving / Conduct",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "La conduite demande de l'expérience.",
+      "ar": "القيادة تحتاج إلى خبرة.",
+      "en": "Driving requires experience."
+    }
+  },
+  {
+    "fr": "Conducteur / Conductrice",
+    "ar": "سائق",
+    "en": "Driver",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Le conducteur respecte les règles.",
+      "ar": "السائق يحترم القوانين.",
+      "en": "The driver respects the rules."
+    }
+  },
+  {
+    "fr": "Confortablement",
+    "ar": "بشكل مريح",
+    "en": "Comfortably",
+    "pos": "other",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Il est installé confortablement.",
+      "ar": "هو جالس بشكل مريح.",
+      "en": "He is sitting comfortably."
+    }
+  },
+  {
+    "fr": "Consultation",
+    "ar": "استشارة / موعد طبي",
+    "en": "Consultation",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "J'ai une consultation chez le médecin.",
+      "ar": "لدي موعد طبي عند الطبيب.",
+      "en": "I have a medical consultation."
+    }
+  },
+  {
+    "fr": "Contacter le service",
+    "ar": "الاتصال بالخدمة",
+    "en": "Contact the service",
+    "pos": "other",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Je vais contacter le service technique.",
+      "ar": "سأتصل بالخدمة التقنية.",
+      "en": "I will contact the technical service."
+    }
+  },
+  {
+    "fr": "Contenu numérique",
+    "ar": "محتوى رقمي",
+    "en": "Digital content",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Je crée du contenu numérique.",
+      "ar": "أنشئ محتوى رقميًا.",
+      "en": "I create digital content."
+    }
+  },
+  {
+    "fr": "Continuer à",
+    "ar": "يستمر في",
+    "en": "To continue to",
+    "pos": "other",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Je continue à apprendre le français.",
+      "ar": "أستمر في تعلم الفرنسية.",
+      "en": "I continue learning French."
+    }
+  },
+  {
+    "fr": "Contrat de travail",
+    "ar": "عقد عمل",
+    "en": "Employment contract",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai signé mon contrat de travail.",
+      "ar": "وقعت عقد عملي.",
+      "en": "I signed my employment contract."
+    }
+  },
+  {
+    "fr": "Contrôler la qualité",
+    "ar": "يراقب الجودة",
+    "en": "Check quality",
+    "pos": "other",
+    "level": "A2",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je contrôle la qualité des produits.",
+      "ar": "أراقب جودة المنتجات.",
+      "en": "I check the quality of products."
+    }
+  },
+  {
+    "fr": "Correspondance",
+    "ar": "مراسلة / توافق",
+    "en": "Correspondence",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "J'ai reçu une correspondance importante.",
+      "ar": "تلقيت مراسلة مهمة.",
+      "en": "I received an important correspondence."
+    }
+  },
+  {
+    "fr": "Critiquer",
+    "ar": "ينتقد",
+    "en": "To criticize",
+    "pos": "verb",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Il ne faut pas critiquer les autres sans raison.",
+      "ar": "لا يجب انتقاد الآخرين دون سبب.",
+      "en": "You should not criticize others without reason."
+    }
+  },
+  {
+    "fr": "Croiser les bras",
+    "ar": "يعقد ذراعيه",
+    "en": "To cross one's arms",
+    "pos": "other",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Il reste debout en croisant les bras.",
+      "ar": "يقف وهو يعقد ذراعيه.",
+      "en": "He stands with his arms crossed."
+    }
+  },
+  {
+    "fr": "Cruel / Cruelle",
+    "ar": "قاسٍ / ظالم",
+    "en": "Cruel",
+    "pos": "adjective",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "C'est une situation cruelle.",
+      "ar": "هذا وضع قاسٍ.",
+      "en": "It is a cruel situation."
+    }
+  },
+  {
+    "fr": "Cuisine française",
+    "ar": "المطبخ الفرنسي",
+    "en": "French cuisine",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "J'aime découvrir la cuisine française.",
+      "ar": "أحب اكتشاف المطبخ الفرنسي.",
+      "en": "I like discovering French cuisine."
+    }
+  },
+  {
+    "fr": "Cuisiner maison",
+    "ar": "الطبخ المنزلي",
+    "en": "Home cooking",
+    "pos": "other",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Je préfère cuisiner maison.",
+      "ar": "أفضل الطبخ المنزلي.",
+      "en": "I prefer home cooking."
+    }
+  },
+  {
+    "fr": "Culinaire",
+    "ar": "طبخي / متعلق بالطعام",
+    "en": "Culinary",
+    "pos": "adjective",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Il suit une formation culinaire.",
+      "ar": "يتابع تدريبًا في الطبخ.",
+      "en": "He follows culinary training."
+    }
+  },
+  {
+    "fr": "Caisse automatique",
+    "ar": "صندوق دفع آلي",
+    "en": "Self-checkout",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Je paie à la caisse automatique.",
+      "ar": "أدفع عند صندوق الدفع الآلي.",
+      "en": "I pay at the self-checkout."
+    }
+  },
+  {
+    "fr": "Célébrité",
+    "ar": "مشهور / شخصية مشهورة",
+    "en": "Celebrity",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Cette personne est une célébrité.",
+      "ar": "هذا الشخص مشهور.",
+      "en": "This person is a celebrity."
+    }
+  },
+  {
+    "fr": "Chaîne de production",
+    "ar": "خط الإنتاج",
+    "en": "Production line",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je travaille sur une chaîne de production.",
+      "ar": "أعمل على خط إنتاج.",
+      "en": "I work on a production line."
+    }
+  },
+  {
+    "fr": "Changement climatique",
+    "ar": "تغير المناخ",
+    "en": "Climate change",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Le changement climatique est un grand problème.",
+      "ar": "تغير المناخ مشكلة كبيرة.",
+      "en": "Climate change is a major problem."
+    }
+  },
+  {
+    "fr": "Chantier de construction",
+    "ar": "ورشة بناء",
+    "en": "Construction site",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Le chantier de construction est fermé.",
+      "ar": "ورشة البناء مغلقة.",
+      "en": "The construction site is closed."
+    }
+  },
+  {
+    "fr": "Charger une batterie",
+    "ar": "شحن بطارية",
+    "en": "To charge a battery",
+    "pos": "other",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Je dois charger la batterie.",
+      "ar": "يجب أن أشحن البطارية.",
+      "en": "I need to charge the battery."
+    }
+  },
+  {
+    "fr": "Charrier",
+    "ar": "ينقل / يسخر (عامية)",
+    "en": "To carry / Tease",
+    "pos": "verb",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "Il me charrie souvent.",
+      "ar": "هو يسخر مني كثيرًا.",
+      "en": "He often teases me."
+    }
+  },
+  {
+    "fr": "Chaufferie",
+    "ar": "غرفة التدفئة / محطة تدفئة",
+    "en": "Boiler room",
+    "pos": "noun",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "La chaufferie se trouve au sous-sol.",
+      "ar": "غرفة التدفئة موجودة في القبو.",
+      "en": "The boiler room is in the basement."
+    }
+  },
+  {
+    "fr": "Chef de service",
+    "ar": "رئيس قسم",
+    "en": "Department manager",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Je parle avec le chef de service.",
+      "ar": "أتحدث مع رئيس القسم.",
+      "en": "I speak with the department manager."
+    }
+  },
+  {
+    "fr": "Chercher une solution",
+    "ar": "البحث عن حل",
+    "en": "To look for a solution",
+    "pos": "other",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Nous cherchons une solution au problème.",
+      "ar": "نبحث عن حل للمشكلة.",
+      "en": "We are looking for a solution to the problem."
+    }
+  },
+  {
+    "fr": "Chirurgien / Chirurgienne",
+    "ar": "جراح",
+    "en": "Surgeon",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Le chirurgien explique l'opération.",
+      "ar": "الجراح يشرح العملية.",
+      "en": "The surgeon explains the operation."
+    }
+  },
+  {
+    "fr": "Choc électrique",
+    "ar": "صدمة كهربائية",
+    "en": "Electric shock",
+    "pos": "noun",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "Il faut éviter le choc électrique.",
+      "ar": "يجب تجنب الصدمة الكهربائية.",
+      "en": "Electric shock must be avoided."
+    }
+  },
+  {
+    "fr": "Circulation sanguine",
+    "ar": "الدورة الدموية",
+    "en": "Blood circulation",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Le sport améliore la circulation sanguine.",
+      "ar": "الرياضة تحسن الدورة الدموية.",
+      "en": "Sport improves blood circulation."
+    }
+  },
+  {
+    "fr": "Civil / Civile",
+    "ar": "مدني",
+    "en": "Civil",
+    "pos": "adjective",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "C'est un problème civil.",
+      "ar": "هذه مشكلة مدنية.",
+      "en": "It is a civil problem."
+    }
+  },
+  {
+    "fr": "Clairvoyant",
+    "ar": "واسع الإدراك",
+    "en": "Clear-sighted",
+    "pos": "adjective",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "Il a une vision clairvoyante.",
+      "ar": "لديه رؤية ثاقبة.",
+      "en": "He has a clear-sighted vision."
+    }
+  },
+  {
+    "fr": "Classement professionnel",
+    "ar": "ترتيب مهني",
+    "en": "Professional ranking",
+    "pos": "noun",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "Le classement professionnel est important.",
+      "ar": "الترتيب المهني مهم.",
+      "en": "The professional ranking is important."
+    }
+  },
+  {
+    "fr": "Clôturer un compte",
+    "ar": "إغلاق حساب",
+    "en": "To close an account",
+    "pos": "other",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Je veux clôturer mon compte bancaire.",
+      "ar": "أريد إغلاق حسابي البنكي.",
+      "en": "I want to close my bank account."
+    }
+  },
+  {
+    "fr": "Commencer par",
+    "ar": "يبدأ بـ",
+    "en": "To start with",
+    "pos": "other",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Je commence par le plus important.",
+      "ar": "أبدأ بالأهم.",
+      "en": "I start with the most important."
+    }
+  },
+  {
+    "fr": "Communication",
+    "ar": "تواصل / اتصال",
+    "en": "Communication",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "La communication est importante au travail.",
+      "ar": "التواصل مهم في العمل.",
+      "en": "Communication is important at work."
+    }
+  },
+  {
+    "fr": "Comparer les prix",
+    "ar": "مقارنة الأسعار",
+    "en": "Compare prices",
+    "pos": "other",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Je compare les prix avant d'acheter.",
+      "ar": "أقارن الأسعار قبل الشراء.",
+      "en": "I compare prices before buying."
+    }
+  },
+  {
+    "fr": "Concentré / Concentrée",
+    "ar": "مركز / مركز الذهن",
+    "en": "Focused",
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Je suis concentré sur mon travail.",
+      "ar": "أنا مركز على عملي.",
+      "en": "I am focused on my work."
+    }
+  },
+  {
+    "fr": "Concurrent / Concurrente",
+    "ar": "منافس",
+    "en": "Competitor",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Cette entreprise est un concurrent important.",
+      "ar": "هذه الشركة منافس مهم.",
+      "en": "This company is an important competitor."
+    }
+  },
+  {
+    "fr": "Conseiller",
+    "ar": "ينصح / مستشار",
+    "en": "To advise / Adviser",
+    "pos": "other",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Le médecin me conseille de me reposer.",
+      "ar": "الطبيب ينصحني بالراحة.",
+      "en": "The doctor advises me to rest."
+    }
+  },
+  {
+    "fr": "Conserver au frais",
+    "ar": "يحفظ في مكان بارد",
+    "en": "Keep refrigerated",
+    "pos": "other",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Il faut conserver ce produit au frais.",
+      "ar": "يجب حفظ هذا المنتج في مكان بارد.",
+      "en": "This product must be kept refrigerated."
     }
   }
 ];
