@@ -512,6 +512,22 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   6. Ensure no JS runtime errors in DevTools console.
 - The debug APK was rebuilt after this change.
 
+## Per-language line loop icons (dross-v129)
+
+- Replaced/extended the per-example loop with a small 🔁 loop button next to every French and English text line: `.fr-line`, `.en-line`, `.ex-fr`, and `.ex-en`. Arabic lines do not get a per-line loop icon.
+- The per-line loop repeats **only that single line** in its own language (French or English). The existing card-level `Loop` button still loops the full card according to the selected language mode, and the example-level `Loop` button (if present) still loops all languages of that example.
+- Updated `playSeq()` to track `state.loop.lang` so highlight can target a single language line.
+- Added `toggleLineLoop()` and `lineText()` helpers to start/stop per-line loops.
+- Added `.line-wrap`, `.line-loop-btn` CSS with `padding-inline-end` so the icon does not overlap the text.
+- Bumped service worker cache to `dross-v129` and rebuilt the debug APK.
+- E2E verification steps:
+  1. Open `http://localhost:8080/vocab.html` in a fresh incognito/profile and hard-refresh.
+  2. Search `Le chef` and verify every French/English line has a small 🔁 icon, while Arabic lines do not.
+  3. Click the French word loop icon (`Le chef`) and verify only that icon turns green/active.
+  4. Click an English example line (`My boss is nice.`) and verify only that line's icon activates.
+  5. Verify the card-level `Loop` button still loops the whole card and no JS runtime errors appear.
+- The debug APK was rebuilt after this change.
+
 ## Known data-quality issues (last observed)
 
 - None. All 2095 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`) when a separate example was provided. Situation sentences use `fr`/`ar`/`en` directly and may not have a separate `ex` block. Administrative entries may also include a `usage` field.
