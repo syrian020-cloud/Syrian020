@@ -27647,7 +27647,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "المستفيد من المخصصات",
@@ -27670,7 +27669,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "منحة النشاط",
@@ -27686,7 +27684,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "رقم المستفيد",
@@ -27702,7 +27699,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "شهادة الدفع / إفادة استلام",
@@ -27725,7 +27721,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "مبلغ زايد تم استلامه بالخطأ (يجب إرجاعه)",
@@ -27741,7 +27736,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "صاحب الحساب البنكي",
@@ -27757,7 +27751,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "توقيف الدفع",
@@ -27773,7 +27766,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "تحديث الملف",
@@ -27789,7 +27781,6 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "يحوّل (مبلغ مالي)",
@@ -27805,7 +27796,6 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "يسوّي / يصحح الوضع",
@@ -27821,7 +27811,6 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "يجمع بين (مصادر دخل أو مساعدات)",
@@ -27837,7 +27826,6 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "يبلّغ رسمياً",
@@ -27853,7 +27841,6 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "يدرس / يعالج (ملف)",
@@ -27869,7 +27856,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "يكون له الحق بـ",
@@ -27885,7 +27871,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "يستلم مساعدة (عامية شائعة)",
@@ -27901,7 +27886,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "بشرط الدخل (مرتبط بالدخل)",
@@ -27917,7 +27901,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "يرسل مستند إثباتي",
@@ -27933,7 +27916,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "يبلغ عن تغيير",
@@ -27949,7 +27931,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "يدفع دفعة واحدة",
@@ -27965,7 +27946,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "مساعدة السكن",
@@ -27981,7 +27961,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "الدخل",
@@ -27997,7 +27976,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "رفع مستند",
@@ -28013,7 +27991,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "إرسال مستند",
@@ -28029,7 +28006,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "معالجة الملف",
@@ -28045,7 +28021,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "تقديم اعتراض / شكوى",
@@ -28061,7 +28036,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "التواصل مع الـ CAF",
@@ -28077,7 +28051,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "حجز موعد",
@@ -28093,7 +28066,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "الاستحقاق",
@@ -28109,7 +28081,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "فتح استحقاق",
@@ -28125,7 +28096,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "خسارة الاستحقاق",
@@ -28141,7 +28111,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "إيقاف الدفعات",
@@ -28157,7 +28126,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "إعادة الدفعات",
@@ -28173,7 +28141,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "تحديث الملف",
@@ -28189,7 +28156,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "تغيير وضع العمل",
@@ -28205,7 +28171,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "الحياة الزوجية / وضع الشريك",
@@ -28221,7 +28186,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "شخص معال",
@@ -28237,7 +28201,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "تجيع الخروج",
@@ -28253,7 +28216,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "رسالة من الـ CAF",
@@ -28269,7 +28231,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "الدفعة الشهرية",
@@ -28285,7 +28246,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "تاريخ الدفع",
@@ -28301,7 +28261,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "كشف الدفعات",
@@ -28317,7 +28276,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "الحصول على مساعدة",
@@ -28333,7 +28291,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "طلب مساعدة",
@@ -28349,7 +28306,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "دراسة الملف",
@@ -28365,7 +28321,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "ملف كامل",
@@ -28381,7 +28336,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "اعتماد الملف",
@@ -28397,7 +28351,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "رفض الطلب",
@@ -28413,7 +28366,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "قبول الطلب",
@@ -28429,7 +28381,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "رقم الملف",
@@ -28445,7 +28396,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "المعاملة قيد الإنجاز",
@@ -28461,7 +28411,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "وضع الملف قيد الانتظار",
@@ -28477,7 +28426,6 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "ردّ الـ CAF",
@@ -28493,7 +28441,6 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "caf",
       "caf"
     ],
     "ar": "تحديث المعلومات",
