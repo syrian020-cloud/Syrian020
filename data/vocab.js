@@ -3452,7 +3452,8 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "services",
-      "work"
+      "work",
+      "caf"
     ],
     "ex": [
       {
@@ -3464,6 +3465,11 @@ window.VOCAB_DATA = [
         "fr": "Je dois annuler le rendez-vous.",
         "ar": "يجب أن ألغي الموعد.",
         "en": "I have to cancel the appointment."
+      },
+      {
+        "fr": "Je souhaite annuler ma demande.",
+        "ar": "بدي ألغي طلبي.",
+        "en": "I would like to cancel my request."
       }
     ],
     "usage": "المواعيد، الطلبات، العقود",
@@ -22808,6 +22814,11 @@ window.VOCAB_DATA = [
         "fr": "Je peux modifier mes informations en ligne.",
         "ar": "فيني عدّل معلوماتي أونلاين.",
         "en": "I can modify my information online."
+      },
+      {
+        "fr": "Je dois modifier mes coordonnées.",
+        "ar": "لازم أعدّل معلومات الاتصال.",
+        "en": "I have to modify my contact details."
       }
     ]
   },
@@ -23231,19 +23242,26 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Actualiser sa situation",
-    "ar": "تحديث الوضعية",
-    "en": "Update one's situation",
+    "ar": "تحديث الوضعية / يحدّث وضعه",
+    "en": "Update one's situation / To update one's situation",
     "pos": "other",
     "level": "A1",
     "contexts": [
       "caf",
       "services"
     ],
-    "ex": {
-      "fr": "Je dois actualiser ma situation chaque mois.",
-      "ar": "يجب أن أحدث وضعيتي كل شهر.",
-      "en": "I must update my situation every month."
-    }
+    "ex": [
+      {
+        "fr": "Je dois actualiser ma situation chaque mois.",
+        "ar": "يجب أن أحدث وضعيتي كل شهر.",
+        "en": "I must update my situation every month."
+      },
+      {
+        "fr": "Vous devez actualiser votre situation.",
+        "ar": "لازم تحدّث وضعك.",
+        "en": "You must update your situation."
+      }
+    ]
   },
   {
     "fr": "Déclaration mensuelle",
@@ -23340,8 +23358,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Déclarer un changement",
-    "ar": "التصريح بتغيير / التصريح عن تغيير",
-    "en": "Report a change",
+    "ar": "التصريح بتغيير / التصريح عن تغيير / يصرّح عن تغيير",
+    "en": "Report a change / To report a change",
     "pos": "phrase",
     "level": "A1",
     "contexts": [
@@ -24984,8 +25002,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Remplir",
-    "ar": "يملأ / يملأ (استمارة)",
-    "en": "To fill in",
+    "ar": "يملأ / يملأ (استمارة) / يحقق / يستوفي الشروط",
+    "en": "To fill in / To meet requirements",
     "pos": "verb",
     "level": "A1",
     "contexts": [
@@ -25001,6 +25019,11 @@ window.VOCAB_DATA = [
         "fr": "Je dois remplir le formulaire.",
         "ar": "لازم عبّي الاستمارة.",
         "en": "I have to fill in the form."
+      },
+      {
+        "fr": "Je remplis les conditions pour bénéficier du RSA.",
+        "ar": "أنا مستوفي شروط الحصول على RSA.",
+        "en": "I meet the requirements to receive RSA."
       }
     ]
   },
@@ -28138,13 +28161,20 @@ window.VOCAB_DATA = [
     "contexts": [
       "caf"
     ],
-    "ar": "يستلم مساعدة (عامية شائعة)",
-    "en": "To receive assistance",
-    "ex": {
-      "fr": "Je touche une petite aide au logement.",
-      "ar": "عم ألاقي مساعدة سكن صغيرة.",
-      "en": "I receive a small housing benefit."
-    }
+    "ar": "يستلم مساعدة (عامية شائعة) / استلام مساعدة / يوصله مساعدة",
+    "en": "To receive assistance / receive a benefit / help",
+    "ex": [
+      {
+        "fr": "Je touche une petite aide au logement.",
+        "ar": "عم ألاقي مساعدة سكن صغيرة.",
+        "en": "I receive a small housing benefit."
+      },
+      {
+        "fr": "Elle touche l'APL pour son appartement.",
+        "ar": "هي بتستلم APL ع شقتها.",
+        "en": "She receives APL for her flat."
+      }
+    ]
   },
   {
     "fr": "Sous conditions de ressources",
@@ -29850,18 +29880,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Déposer (un dossier / une demande)",
-    "ar": "يودع / يقدّم (ملف أو طلب)",
+    "ar": "يودع / يقدّم (ملف أو طلب) / يقدّم",
     "en": "To submit / file",
     "level": "A1",
     "pos": "verb",
     "contexts": [
       "caf"
     ],
-    "ex": {
-      "fr": "J'ai déposé mon dossier à la CAF.",
-      "ar": "قدّمت ملفي عند الـ CAF.",
-      "en": "I submitted my application to CAF."
-    }
+    "ex": [
+      {
+        "fr": "J'ai déposé mon dossier à la CAF.",
+        "ar": "قدّمت ملفي عند الـ CAF.",
+        "en": "I submitted my application to CAF."
+      },
+      {
+        "fr": "J'ai déposé une demande d'aide.",
+        "ar": "قدّمت طلب مساعدة.",
+        "en": "I submitted an assistance request."
+      }
+    ]
   },
   {
     "fr": "Fournir",
@@ -30305,18 +30342,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Percevoir",
-    "ar": "يتلقى / يحصل على (مبلغ)",
+    "ar": "يتلقى / يحصل على (مبلغ) / يقبض",
     "en": "To receive / collect",
     "level": "A1",
     "pos": "verb",
     "contexts": [
       "caf"
     ],
-    "ex": {
-      "fr": "Je perçois une aide de la CAF.",
-      "ar": "عم آخد مساعدة من الـ CAF.",
-      "en": "I receive a benefit from CAF."
-    }
+    "ex": [
+      {
+        "fr": "Je perçois une aide de la CAF.",
+        "ar": "عم آخد مساعدة من الـ CAF.",
+        "en": "I receive a benefit from CAF."
+      },
+      {
+        "fr": "Je perçois la prime d'activité.",
+        "ar": "عم آخد علاوة النشاط.",
+        "en": "I receive the activity bonus."
+      }
+    ]
   },
   {
     "fr": "Ouvrir",
@@ -30436,6 +30480,261 @@ window.VOCAB_DATA = [
       "fr": "Il faut perfectionner votre dossier.",
       "ar": "لازم تكمل ملفك بشكل أفضل.",
       "en": "You need to complete your file."
+    }
+  },
+  {
+    "fr": "Renoncer",
+    "ar": "يتنازل عن / يتراجع عن",
+    "en": "To give up / waive",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je renonce à cette aide.",
+      "ar": "أنا بتنازل عن هالمساعدة.",
+      "en": "I give up this benefit."
+    }
+  },
+  {
+    "fr": "Remplacer",
+    "ar": "يستبدل",
+    "en": "To replace",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je dois remplacer un document perdu.",
+      "ar": "لازم أستبدل ورقة ضايعة.",
+      "en": "I need to replace a lost document."
+    }
+  },
+  {
+    "fr": "Solliciter",
+    "ar": "يطلب (بشكل رسمي)",
+    "en": "To request / seek",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je sollicite une aide exceptionnelle.",
+      "ar": "عم اطلب مساعدة استثنائية.",
+      "en": "I am requesting exceptional assistance."
+    }
+  },
+  {
+    "fr": "Revendiquer",
+    "ar": "يطالب بحقه",
+    "en": "To claim / assert a right",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je revendique mes droits auprès de la CAF.",
+      "ar": "عم طالب بحقوقي عند الـ CAF.",
+      "en": "I am asserting my rights with CAF."
+    }
+  },
+  {
+    "fr": "Satisfaire (une condition)",
+    "ar": "يستوفي (شرطًا)",
+    "en": "To meet (a condition)",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je satisfais aux conditions pour cette aide.",
+      "ar": "أنا مستوفي شروط هالمساعدة.",
+      "en": "I meet the conditions for this benefit."
+    }
+  },
+  {
+    "fr": "Dépendre de",
+    "ar": "يعتمد على / يكون تابعًا لـ",
+    "en": "To depend on",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Le montant dépend de vos ressources.",
+      "ar": "المبلغ بيعتمد على دخلك.",
+      "en": "The amount depends on your income."
+    }
+  },
+  {
+    "fr": "Prendre en compte",
+    "ar": "يأخذ بعين الاعتبار",
+    "en": "To take into account",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "La CAF prend en compte votre situation.",
+      "ar": "الـ CAF بتاخد وضعك بعين الاعتبار.",
+      "en": "CAF takes your situation into account."
+    }
+  },
+  {
+    "fr": "Justifier ses ressources",
+    "ar": "يثبت دخله",
+    "en": "To justify one's income",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je dois justifier mes ressources.",
+      "ar": "لازم أثبت مواردي المالية.",
+      "en": "I have to justify my income."
+    }
+  },
+  {
+    "fr": "Être éligible",
+    "ar": "يكون مستحقًا / مؤهلًا",
+    "en": "To be eligible",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je suis éligible à cette aide.",
+      "ar": "أنا مستحق لهالمساعدة.",
+      "en": "I am eligible for this benefit."
+    }
+  },
+  {
+    "fr": "Bénéficier de",
+    "ar": "يستفيد من",
+    "en": "To benefit from",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je bénéficie d'une aide au logement.",
+      "ar": "أنا مستفيد من مساعدة السكن.",
+      "en": "I benefit from housing assistance."
+    }
+  },
+  {
+    "fr": "Toucher (recevoir)",
+    "ar": "استلام / يستلم",
+    "en": "to receive / get (benefits)",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je touche les allocations chaque mois.",
+      "ar": "بستلم المخصصات كل شهر.",
+      "en": "I receive the allowances every month."
+    }
+  },
+  {
+    "fr": "Toucher le RSA",
+    "ar": "يوصله RSA / يستلم RSA",
+    "en": "receive RSA",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Il touche le RSA depuis 6 mois.",
+      "ar": "هو عم يوصله RSA من 6 شهور.",
+      "en": "He's been receiving RSA for 6 months."
+    }
+  },
+  {
+    "fr": "Toucher la prime d'activité",
+    "ar": "استلام علاوة النشاط",
+    "en": "receive activity bonus",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Est-ce que tu touches la prime d'activité ?",
+      "ar": "شو بيوصلك علاوة النشاط؟",
+      "en": "Do you receive the activity bonus?"
+    }
+  },
+  {
+    "fr": "Les montants touchés",
+    "ar": "المبالغ المستلمة",
+    "en": "amounts received",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Les montants touchés sont affichés sur le compte.",
+      "ar": "المبالغ المستلمة ظاهرة عالحساب.",
+      "en": "The amounts received are displayed on the account."
+    }
+  },
+  {
+    "fr": "Ne plus toucher (d'allocations)",
+    "ar": "ما عاد يوصله / انقطعو عنه",
+    "en": "no longer receive",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je ne touche plus les allocations.",
+      "ar": "ما عاد يوصلي المخصصات / انقطعو عني.",
+      "en": "I no longer receive the allowances."
+    }
+  },
+  {
+    "fr": "La date de versement (quand on touche)",
+    "ar": "تاريخ التحويل / متى بيوصل",
+    "en": "payment date",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je touche le paiement le 5 de chaque mois.",
+      "ar": "بيوصلني المبلغ بتاريخ 5 كل شهر.",
+      "en": "I receive the payment on the 5th of every month."
+    }
+  },
+  {
+    "fr": "Toucher le même montant",
+    "ar": "يوصله نفس المبلغ / استلام نفس المبلغ",
+    "en": "receive the same amount",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je touche le même montant tous les mois.",
+      "ar": "بيوصلني نفس المبلغ كل شهر.",
+      "en": "I receive the same amount every month."
     }
   }
 ]
