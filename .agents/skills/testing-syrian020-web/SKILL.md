@@ -318,7 +318,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v121`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v122`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
@@ -349,6 +349,35 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   8. Verify Google Images link includes `udm=2&q=<fr>` and Google AI link includes `udm=50`.
 - The debug APK was rebuilt after this batch.
 
+## CAF verbs batch (dross-v122)
+
+- `data/vocab.js` now contains **1834** entries; `sw.js` cache bumped to `dross-v122`.
+- This batch added 38 new CAF verbs and merged 27 existing entries to add the `caf` context.
+- New/merged CAF verb sample entries (all `caf` context, `Verb` POS):
+  - `Demander` → A1, 1 example
+  - `Déposer (un dossier / une demande)` → A1, 1 example
+  - `Fournir` → A1, 1 example
+  - `Transmettre` → B1, `services` + `caf`, 3 examples
+  - `Vérifier` → A1, 2 examples
+  - `Réévaluer` → A1, 1 example
+  - `Joindre` → B1, `services` + `caf`, 3 examples
+  - `Modifier` → A2, 3 examples
+  - `Consulter` → A2, `health` + `caf`, 4 examples
+  - `Réclamer` → A1, 1 example
+  - `Déclarer sur l'honneur` → A1, 1 example
+- POS counts: `noun 776`, `verb 356`, `phrase 306`, `adjective 239`, `other 157`.
+- Context counts: `daily 687`, `caf 359`, `services 391`, `work 298`, `health 251`, `housing 70`, `cpam 50`, `shop 45`, `bank 43`, `mdph 40`, `transport 38`, `school 27`, `phone 18`, `family 14`, `car 14`, `france_travail 11`, `food 8`, `restaurant 7`, `weather 7`, `prefecture 6`, `post 4`, `mairie 2`, `office 2`, `geography 1`.
+- E2E verification steps:
+  1. Open `http://localhost:8080/vocab.html` in a fresh Chrome incognito/profile.
+  2. Confirm active service worker cache is `dross-v122`.
+  3. Confirm `#stats` shows `1834 result(s)` and context chips match the counts above.
+  4. Filter by the `CAF` context chip; expect the chip label to show `CAF (359)` and the results count to also show **359**.
+  5. Search each of the sample CAF verbs above and verify POS pill is `Verb`, level pill matches, context pills include `CAF`, and FR/AR/EN example blocks render.
+  6. Click the `Loop` button on a one-example card (e.g. `Demander`) and a multi-example card (e.g. `Consulter`); verify the card highlights and no JS runtime errors occur.
+  7. Toggle dark/light mode and verify `<html data-theme>` flips without errors.
+  8. Verify Google Images link includes `udm=2&q=<fr>` and Google AI link includes `udm=50`.
+- The debug APK was rebuilt after this batch.
+
 ## Known data-quality issues (last observed)
 
-- None. All 1795 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`) when a separate example was provided. Situation sentences use `fr`/`ar`/`en` directly and may not have a separate `ex` block. Administrative entries may also include a `usage` field.
+- None. All 1834 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`) when a separate example was provided. Situation sentences use `fr`/`ar`/`en` directly and may not have a separate `ex` block. Administrative entries may also include a `usage` field.

@@ -2659,18 +2659,26 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Accepter",
-    "ar": "يقبل",
-    "en": "To accept",
+    "ar": "يقبل / يوافق",
+    "en": "To accept / approve",
     "level": "A1",
     "contexts": [
       "daily",
-      "services"
+      "services",
+      "caf"
     ],
-    "ex": {
-      "fr": "Votre demande est acceptée.",
-      "ar": "تم قبول طلبك.",
-      "en": "Your request is accepted."
-    },
+    "ex": [
+      {
+        "fr": "Votre demande est acceptée.",
+        "ar": "تم قبول طلبك.",
+        "en": "Your request is accepted."
+      },
+      {
+        "fr": "Ma demande a été acceptée.",
+        "ar": "وافقوا على طلبي.",
+        "en": "My request was accepted."
+      }
+    ],
     "usage": "الطلبات، الشروط، الملفات",
     "pos": "verb"
   },
@@ -2806,13 +2814,26 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "daily",
-      "services"
+      "services",
+      "caf"
     ],
-    "ex": {
-      "fr": "La CAF peut accorder une aide.",
-      "ar": "يمكن للكاف منح مساعدة.",
-      "en": "CAF can grant assistance."
-    },
+    "ex": [
+      {
+        "fr": "La CAF peut accorder une aide.",
+        "ar": "يمكن للكاف منح مساعدة.",
+        "en": "CAF can grant assistance."
+      },
+      {
+        "fr": "La CAF m'a accordé une aide.",
+        "ar": "الـ CAF منحتني مساعدة.",
+        "en": "CAF granted me assistance."
+      },
+      {
+        "fr": "Cette aide est accordée sous conditions.",
+        "ar": "هالمساعدة تُمنح بشروط.",
+        "en": "This benefit is granted under conditions."
+      }
+    ],
     "usage": "المساعدات والحقوق",
     "pos": "verb"
   },
@@ -2877,7 +2898,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Actualiser",
-    "ar": "يحدّث / يجدد المعلومات",
+    "ar": "يحدّث / يجدد المعلومات / يحدّث المعلومات",
     "en": "To update",
     "level": "B1",
     "contexts": [
@@ -2901,6 +2922,11 @@ window.VOCAB_DATA = [
         "fr": "Actualisez votre situation chaque trimestre.",
         "ar": "حدّث وضعك كل ثلاث شهور.",
         "en": "Update your situation every quarter."
+      },
+      {
+        "fr": "Je dois actualiser ma situation chaque trimestre.",
+        "ar": "لازم حدّث وضعي كل ثلاثة أشهر.",
+        "en": "I must update my situation every three months."
       }
     ],
     "usage": "France Travail (مهم جدًا)",
@@ -3150,18 +3176,26 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Affecter",
-    "ar": "يعيّن / يؤثر على",
-    "en": "To assign / Affect",
+    "ar": "يعيّن / يؤثر على / يخصص",
+    "en": "To assign / Affect / To affect / assign",
     "level": "B2",
     "contexts": [
       "services",
-      "work"
+      "work",
+      "caf"
     ],
-    "ex": {
-      "fr": "Je suis affecté à un nouveau poste.",
-      "ar": "تم تعييني في منصب جديد.",
-      "en": "I am assigned to a new position."
-    },
+    "ex": [
+      {
+        "fr": "Je suis affecté à un nouveau poste.",
+        "ar": "تم تعييني في منصب جديد.",
+        "en": "I am assigned to a new position."
+      },
+      {
+        "fr": "Ce changement peut affecter mes droits.",
+        "ar": "هالتغيير ممكن يأثر على استحقاقاتي.",
+        "en": "This change may affect my benefits."
+      }
+    ],
     "usage": "العمل والإدارة | العمل والموارد",
     "pos": "verb"
   },
@@ -3521,17 +3555,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Appliquer",
-    "ar": "يطبق",
+    "ar": "يطبق / يطبّق",
     "en": "To apply / Implement",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "caf"
     ],
-    "ex": {
-      "fr": "Cette règle s'applique à tout le monde.",
-      "ar": "هذه القاعدة تطبق على الجميع.",
-      "en": "This rule applies to everyone."
-    },
+    "ex": [
+      {
+        "fr": "Cette règle s'applique à tout le monde.",
+        "ar": "هذه القاعدة تطبق على الجميع.",
+        "en": "This rule applies to everyone."
+      },
+      {
+        "fr": "Les nouvelles règles seront appliquées.",
+        "ar": "رح يتم تطبيق القوانين الجديدة.",
+        "en": "The new rules will be applied."
+      }
+    ],
     "usage": "القوانين، الشروط، الإجراءات",
     "pos": "verb"
   },
@@ -4741,13 +4783,21 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "bank",
-      "services"
+      "services",
+      "caf"
     ],
-    "ex": {
-      "fr": "Je dois activer ma carte.",
-      "ar": "يجب أن أفعل بطاقتي.",
-      "en": "I need to activate my card."
-    },
+    "ex": [
+      {
+        "fr": "Je dois activer ma carte.",
+        "ar": "يجب أن أفعل بطاقتي.",
+        "en": "I need to activate my card."
+      },
+      {
+        "fr": "Je dois activer mon espace personnel.",
+        "ar": "لازم فعّل حسابي الشخصي.",
+        "en": "I need to activate my personal account."
+      }
+    ],
     "usage": "الحسابات، البطاقات، الخدمات",
     "pos": "verb"
   },
@@ -5452,17 +5502,25 @@ window.VOCAB_DATA = [
   {
     "fr": "Attribuer",
     "ar": "يمنح / يخصص",
-    "en": "To grant / Allocate",
+    "en": "To grant / Allocate / award",
     "level": "B2",
     "contexts": [
       "housing",
-      "services"
+      "services",
+      "caf"
     ],
-    "ex": {
-      "fr": "Une aide peut être attribuée selon les conditions.",
-      "ar": "يمكن منح مساعدة حسب الشروط.",
-      "en": "Assistance can be granted according to conditions."
-    },
+    "ex": [
+      {
+        "fr": "Une aide peut être attribuée selon les conditions.",
+        "ar": "يمكن منح مساعدة حسب الشروط.",
+        "en": "Assistance can be granted according to conditions."
+      },
+      {
+        "fr": "La CAF m'a attribué une aide.",
+        "ar": "الـ CAF منحتني مساعدة.",
+        "en": "CAF granted me an allowance."
+      }
+    ],
     "usage": "المساعدات، السكن، المناصب | الحقوق، المساعدات، السكن | السكن، المساعدات، الحقوق",
     "pos": "verb"
   },
@@ -11388,7 +11446,8 @@ window.VOCAB_DATA = [
     "contexts": [
       "school",
       "services",
-      "work"
+      "work",
+      "caf"
     ],
     "ex": [
       {
@@ -11400,6 +11459,16 @@ window.VOCAB_DATA = [
         "fr": "La CAF calcule mes droits.",
         "ar": "CAF تحسب حقوقي.",
         "en": "CAF calculates my entitlements."
+      },
+      {
+        "fr": "La CAF calcule le montant de mon aide.",
+        "ar": "الـ CAF بتحسب قيمة المساعدة.",
+        "en": "CAF calculates the amount of my benefit."
+      },
+      {
+        "fr": "La CAF calcule vos droits.",
+        "ar": "الـ CAF بتحسب استحقاقاتك.",
+        "en": "CAF calculates your entitlements."
       }
     ]
   },
@@ -12023,19 +12092,27 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Clôturer",
-    "ar": "يغلق / ينهي",
+    "ar": "يغلق / ينهي / ينهي (ملف)",
     "en": "To close / Finalize",
     "level": "B1",
     "pos": "verb",
     "contexts": [
       "work",
-      "services"
+      "services",
+      "caf"
     ],
-    "ex": {
-      "fr": "Nous allons clôturer le dossier.",
-      "ar": "سنغلق الملف.",
-      "en": "We are going to close the file."
-    }
+    "ex": [
+      {
+        "fr": "Nous allons clôturer le dossier.",
+        "ar": "سنغلق الملف.",
+        "en": "We are going to close the file."
+      },
+      {
+        "fr": "La CAF a clôturé mon dossier.",
+        "ar": "الـ CAF سكّرت ملفي.",
+        "en": "CAF closed my file."
+      }
+    ]
   },
   {
     "fr": "Contrat",
@@ -12055,13 +12132,14 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Contrôler",
-    "ar": "يفحص / يراقب",
-    "en": "To check / Control",
+    "ar": "يفحص / يراقب / يتحقق",
+    "en": "To check / Control / control",
     "level": "A2",
     "pos": "verb",
     "contexts": [
       "daily",
-      "work"
+      "work",
+      "caf"
     ],
     "ex": [
       {
@@ -12073,6 +12151,11 @@ window.VOCAB_DATA = [
         "fr": "Le responsable contrôle la qualité.",
         "ar": "المسؤول يفحص الجودة.",
         "en": "The manager checks the quality."
+      },
+      {
+        "fr": "La CAF peut contrôler les informations déclarées.",
+        "ar": "الـ CAF ممكن تتحقق من المعلومات المصرّح عنها.",
+        "en": "CAF can check the declared information."
       }
     ]
   },
@@ -12292,13 +12375,14 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Créer",
-    "ar": "ينشئ / يخلق",
+    "ar": "ينشئ / يخلق / ينشئ (حسابًا)",
     "en": "To create",
     "level": "A2",
     "pos": "verb",
     "contexts": [
       "daily",
-      "work"
+      "work",
+      "caf"
     ],
     "ex": [
       {
@@ -12315,6 +12399,11 @@ window.VOCAB_DATA = [
         "fr": "Je veux créer une application.",
         "ar": "أريد إنشاء تطبيق.",
         "en": "I want to create an application."
+      },
+      {
+        "fr": "Je dois créer un compte CAF.",
+        "ar": "لازم أعمل حساب CAF.",
+        "en": "I need to create a CAF account."
       }
     ]
   },
@@ -14278,12 +14367,13 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Compléter",
-    "ar": "يكمل",
+    "ar": "يكمل / يتمّم",
     "en": "To complete",
     "pos": "verb",
     "level": "A2",
     "contexts": [
-      "services"
+      "services",
+      "caf"
     ],
     "ex": [
       {
@@ -14295,6 +14385,11 @@ window.VOCAB_DATA = [
         "fr": "Veuillez compléter ce formulaire.",
         "ar": "يرجى إكمال هذا الاستمارة.",
         "en": "Please complete this form."
+      },
+      {
+        "fr": "Il faut compléter votre dossier.",
+        "ar": "لازم تكمل ملفك.",
+        "en": "You need to complete your application."
       }
     ]
   },
@@ -14350,13 +14445,21 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "A2",
     "contexts": [
-      "services"
+      "services",
+      "caf"
     ],
-    "ex": {
-      "fr": "Je confirme mon rendez-vous.",
-      "ar": "أؤكد موعدي.",
-      "en": "I confirm my appointment."
-    }
+    "ex": [
+      {
+        "fr": "Je confirme mon rendez-vous.",
+        "ar": "أؤكد موعدي.",
+        "en": "I confirm my appointment."
+      },
+      {
+        "fr": "Pouvez-vous confirmer la réception de mes documents ?",
+        "ar": "ممكن تأكدوا وصول أوراقي؟",
+        "en": "Can you confirm receipt of my documents?"
+      }
+    ]
   },
   {
     "fr": "Connexion",
@@ -14597,7 +14700,8 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "school",
-      "work"
+      "work",
+      "caf"
     ],
     "ex": [
       {
@@ -14614,6 +14718,11 @@ window.VOCAB_DATA = [
         "fr": "Je voudrais corriger une erreur.",
         "ar": "أريد تصحيح خطأ.",
         "en": "I would like to correct a mistake."
+      },
+      {
+        "fr": "Je dois corriger une erreur dans mon dossier.",
+        "ar": "لازم صحح خطأ بملفي.",
+        "en": "I need to correct an error in my file."
       }
     ]
   },
@@ -17907,12 +18016,13 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Consulter",
-    "ar": "يستشير / يراجع",
-    "en": "To consult",
+    "ar": "يستشير / يراجع / يطّلع على",
+    "en": "To consult / check / To check / consult",
     "pos": "verb",
     "level": "A2",
     "contexts": [
-      "health"
+      "health",
+      "caf"
     ],
     "ex": [
       {
@@ -17924,6 +18034,16 @@ window.VOCAB_DATA = [
         "fr": "Je dois consulter un spécialiste.",
         "ar": "يجب أن أراجع اختصاصيًا.",
         "en": "I need to consult a specialist."
+      },
+      {
+        "fr": "Je consulte mon compte CAF.",
+        "ar": "عم أطلع على حسابي بالـ CAF.",
+        "en": "I check my CAF account."
+      },
+      {
+        "fr": "Je consulte mes paiements sur mon compte CAF.",
+        "ar": "عم راجع دفعاتي بحساب الـ CAF.",
+        "en": "I check my payments on my CAF account."
       }
     ]
   },
@@ -21998,18 +22118,31 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Transmettre",
-    "ar": "يرسل / يحوّل",
-    "en": "To submit / Forward",
+    "ar": "يرسل / يحوّل / يحوّل (معلومة أو وثيقة)",
+    "en": "To submit / Forward / To transmit / forward",
     "pos": "verb",
     "level": "B1",
     "contexts": [
-      "services"
+      "services",
+      "caf"
     ],
-    "ex": {
-      "fr": "Je vais transmettre les documents demandés.",
-      "ar": "سأرسل الوثائق المطلوبة.",
-      "en": "I will submit the requested documents."
-    }
+    "ex": [
+      {
+        "fr": "Je vais transmettre les documents demandés.",
+        "ar": "سأرسل الوثائق المطلوبة.",
+        "en": "I will submit the requested documents."
+      },
+      {
+        "fr": "Je transmets les justificatifs demandés.",
+        "ar": "عم أرسل الإثباتات المطلوبة.",
+        "en": "I am sending the requested documents."
+      },
+      {
+        "fr": "Je transmets les documents demandés.",
+        "ar": "عم أرسل الأوراق المطلوبة.",
+        "en": "I transmit the requested documents."
+      }
+    ]
   },
   {
     "fr": "Logement",
@@ -22565,7 +22698,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Suspendre",
-    "ar": "يوقف / يعلّق / يوقف مؤقتاً",
+    "ar": "يوقف / يعلّق / يوقف مؤقتاً / يوقف مؤقتًا",
     "en": "To suspend",
     "pos": "verb",
     "level": "B1",
@@ -22582,6 +22715,11 @@ window.VOCAB_DATA = [
         "fr": "La CAF a suspendu mon versement par erreur.",
         "ar": "الـ CAF وقفت الدفع تبعي بالغلط.",
         "en": "The CAF suspended my payment by mistake."
+      },
+      {
+        "fr": "Mes droits ont été suspendus.",
+        "ar": "تم إيقاف استحقاقاتي مؤقتًا.",
+        "en": "My benefits have been suspended."
       }
     ]
   },
@@ -22613,16 +22751,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Débloquer",
-    "ar": "يفتح / يحل المشكلة",
+    "ar": "يفتح / يحل المشكلة / يفك الحظر",
     "en": "To unblock",
     "pos": "verb",
     "level": "B1",
-    "contexts": [],
-    "ex": {
-      "fr": "Pouvez-vous débloquer mon dossier ?",
-      "ar": "هل يمكنكم حل مشكلة ملفي؟",
-      "en": "Can you unblock my file?"
-    }
+    "contexts": [
+      "caf"
+    ],
+    "ex": [
+      {
+        "fr": "Pouvez-vous débloquer mon dossier ?",
+        "ar": "هل يمكنكم حل مشكلة ملفي؟",
+        "en": "Can you unblock my file?"
+      },
+      {
+        "fr": "La CAF doit débloquer mon dossier.",
+        "ar": "لازم الـ CAF تفتح ملفي.",
+        "en": "CAF needs to unblock my file."
+      }
+    ]
   },
   {
     "fr": "Mise à jour",
@@ -22639,16 +22786,30 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Modifier",
-    "ar": "يعدّل",
+    "ar": "يعدّل / يغيّر",
     "en": "To modify",
     "pos": "verb",
     "level": "A2",
-    "contexts": [],
-    "ex": {
-      "fr": "Je veux modifier mes informations personnelles.",
-      "ar": "أريد تعديل معلوماتي الشخصية.",
-      "en": "I want to modify my personal information."
-    }
+    "contexts": [
+      "caf"
+    ],
+    "ex": [
+      {
+        "fr": "Je veux modifier mes informations personnelles.",
+        "ar": "أريد تعديل معلوماتي الشخصية.",
+        "en": "I want to modify my personal information."
+      },
+      {
+        "fr": "Je dois modifier mes informations personnelles.",
+        "ar": "لازم عدّل معلوماتي الشخصية.",
+        "en": "I have to modify my personal information."
+      },
+      {
+        "fr": "Je peux modifier mes informations en ligne.",
+        "ar": "فيني عدّل معلوماتي أونلاين.",
+        "en": "I can modify my information online."
+      }
+    ]
   },
   {
     "fr": "Erreur",
@@ -22678,7 +22839,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Relancer",
-    "ar": "يذكّر / يتابع الطلب",
+    "ar": "يذكّر / يتابع الطلب / يتابع",
     "en": "To follow up",
     "pos": "verb",
     "level": "B1",
@@ -22686,11 +22847,13 @@ window.VOCAB_DATA = [
       "caf",
       "services"
     ],
-    "ex": {
-      "fr": "Je vais relancer la CAF concernant mon dossier.",
-      "ar": "سأتابع مع CAF بخصوص ملفي.",
-      "en": "I will follow up with CAF about my file."
-    }
+    "ex": [
+      {
+        "fr": "Je vais relancer la CAF concernant mon dossier.",
+        "ar": "سأتابع مع CAF بخصوص ملفي.",
+        "en": "I will follow up with CAF about my file."
+      }
+    ]
   },
   {
     "fr": "Suivi",
@@ -22732,16 +22895,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Traiter",
-    "ar": "يعالج / يدرس",
+    "ar": "يعالج / يدرس / يدرس (ملف)",
     "en": "To process",
     "pos": "verb",
     "level": "B1",
-    "contexts": [],
-    "ex": {
-      "fr": "Votre demande est en train d'être traitée.",
-      "ar": "طلبك قيد المعالجة.",
-      "en": "Your request is being processed."
-    }
+    "contexts": [
+      "caf"
+    ],
+    "ex": [
+      {
+        "fr": "Votre demande est en train d'être traitée.",
+        "ar": "طلبك قيد المعالجة.",
+        "en": "Your request is being processed."
+      },
+      {
+        "fr": "La CAF traite mon dossier actuellement.",
+        "ar": "الـ CAF عم تعالج ملفي حاليًا.",
+        "en": "CAF is processing my application."
+      }
+    ]
   },
   {
     "fr": "Envoyer",
@@ -22750,28 +22922,44 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "A1",
     "contexts": [
-      "services"
+      "services",
+      "caf"
     ],
-    "ex": {
-      "fr": "J'ai envoyé les documents demandés.",
-      "ar": "أرسلت الوثائق المطلوبة.",
-      "en": "I sent the requested documents."
-    }
+    "ex": [
+      {
+        "fr": "J'ai envoyé les documents demandés.",
+        "ar": "أرسلت الوثائق المطلوبة.",
+        "en": "I sent the requested documents."
+      }
+    ]
   },
   {
     "fr": "Joindre",
-    "ar": "يرفق / يتصل",
+    "ar": "يرفق / يتصل / يضيف مع الملف",
     "en": "To attach / Contact",
     "pos": "verb",
     "level": "B1",
     "contexts": [
-      "services"
+      "services",
+      "caf"
     ],
-    "ex": {
-      "fr": "Je joins les documents à mon message.",
-      "ar": "أرفق الوثائق برسالتي.",
-      "en": "I attach the documents to my message."
-    }
+    "ex": [
+      {
+        "fr": "Je joins les documents à mon message.",
+        "ar": "أرفق الوثائق برسالتي.",
+        "en": "I attach the documents to my message."
+      },
+      {
+        "fr": "Je joins les documents à ma demande.",
+        "ar": "أرفقت الأوراق مع طلبي.",
+        "en": "I attached the documents to my request."
+      },
+      {
+        "fr": "N'oubliez pas de joindre les justificatifs.",
+        "ar": "لا تنسى ترفق الإثباتات.",
+        "en": "Don't forget to attach the supporting documents."
+      }
+    ]
   },
   {
     "fr": "Messagerie",
@@ -24796,16 +24984,25 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Remplir",
-    "ar": "يملأ",
+    "ar": "يملأ / يملأ (استمارة)",
     "en": "To fill in",
     "pos": "verb",
     "level": "A1",
-    "contexts": [],
-    "ex": {
-      "fr": "J'ai rempli le formulaire en ligne.",
-      "ar": "ملأت الاستمارة عبر الإنترنت.",
-      "en": "I filled out the online form."
-    }
+    "contexts": [
+      "caf"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai rempli le formulaire en ligne.",
+        "ar": "ملأت الاستمارة عبر الإنترنت.",
+        "en": "I filled out the online form."
+      },
+      {
+        "fr": "Je dois remplir le formulaire.",
+        "ar": "لازم عبّي الاستمارة.",
+        "en": "I have to fill in the form."
+      }
+    ]
   },
   {
     "fr": "Déposer une demande",
@@ -25065,18 +25262,26 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Renouveler",
-    "ar": "يجدد",
+    "ar": "يجدد / يجدّد",
     "en": "To renew",
     "pos": "verb",
     "level": "A1",
     "contexts": [
-      "health"
+      "health",
+      "caf"
     ],
-    "ex": {
-      "fr": "Le médecin doit renouveler mon ordonnance.",
-      "ar": "يجب على الطبيب تجديد وصفتي.",
-      "en": "The doctor must renew my prescription."
-    }
+    "ex": [
+      {
+        "fr": "Le médecin doit renouveler mon ordonnance.",
+        "ar": "يجب على الطبيب تجديد وصفتي.",
+        "en": "The doctor must renew my prescription."
+      },
+      {
+        "fr": "Je dois renouveler ma demande.",
+        "ar": "لازم جدّد طلبي.",
+        "en": "I need to renew my request."
+      }
+    ]
   },
   {
     "fr": "Feuille de soins",
@@ -27881,13 +28086,20 @@ window.VOCAB_DATA = [
     "contexts": [
       "caf"
     ],
-    "ar": "يبلّغ رسمياً",
-    "en": "To notify officially",
-    "ex": {
-      "fr": "La CAF m'a notifié un changement de montant.",
-      "ar": "الـ CAF بلغتني رسمياً بتغيير بالمبلغ.",
-      "en": "The CAF officially notified me of a change in amount."
-    }
+    "ar": "يبلّغ رسمياً / يبلّغ رسميًا",
+    "en": "To notify officially / To notify",
+    "ex": [
+      {
+        "fr": "La CAF m'a notifié un changement de montant.",
+        "ar": "الـ CAF بلغتني رسمياً بتغيير بالمبلغ.",
+        "en": "The CAF officially notified me of a change in amount."
+      },
+      {
+        "fr": "La CAF m'a notifié sa décision.",
+        "ar": "الـ CAF بلّغتني بقرارها.",
+        "en": "CAF notified me of its decision."
+      }
+    ]
   },
   {
     "fr": "Instruire (un dossier)",
@@ -29603,5 +29815,627 @@ window.VOCAB_DATA = [
     "ar": "رح توصلك رسالة على حسابك.",
     "en": "A notification will be sent to your account.",
     "ex": null
+  },
+  {
+    "fr": "Recouvrer",
+    "ar": "يسترد / يحصّل مبلغًا",
+    "en": "To recover",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": [
+      {
+        "fr": "La CAF recouvre les sommes dues.",
+        "ar": "الـ CAF تسترجع المبالغ المستحقة.",
+        "en": "CAF recovers the amounts owed."
+      }
+    ]
+  },
+  {
+    "fr": "Demander",
+    "ar": "يطلب / يقدّم طلب",
+    "en": "To request / apply for",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je demande une aide auprès de la CAF.",
+      "ar": "عم قدّم طلب مساعدة عند الـ CAF.",
+      "en": "I am requesting assistance from CAF."
+    }
+  },
+  {
+    "fr": "Déposer (un dossier / une demande)",
+    "ar": "يودع / يقدّم (ملف أو طلب)",
+    "en": "To submit / file",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "J'ai déposé mon dossier à la CAF.",
+      "ar": "قدّمت ملفي عند الـ CAF.",
+      "en": "I submitted my application to CAF."
+    }
+  },
+  {
+    "fr": "Fournir",
+    "ar": "يقدّم / يوفّر (وثيقة أو معلومة)",
+    "en": "To provide",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je dois fournir un justificatif.",
+      "ar": "لازم قدّم إثبات.",
+      "en": "I have to provide proof."
+    }
+  },
+  {
+    "fr": "Télécharger",
+    "ar": "يحمّل / ينزّل ملف / ينزّل",
+    "en": "To download",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": [
+      {
+        "fr": "Je télécharge mon attestation de paiement.",
+        "ar": "عم نزّل إثبات الدفعات.",
+        "en": "I am downloading my payment certificate."
+      },
+      {
+        "fr": "Je télécharge mon attestation CAF.",
+        "ar": "عم نزّل شهادة الـ CAF.",
+        "en": "I download my CAF certificate."
+      }
+    ]
+  },
+  {
+    "fr": "Vérifier",
+    "ar": "يتحقق / يتأكد / يراجع",
+    "en": "To check / verify / To verify",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": [
+      {
+        "fr": "La CAF vérifie mes informations.",
+        "ar": "الـ CAF عم تتأكد من معلوماتي.",
+        "en": "CAF is checking my information."
+      },
+      {
+        "fr": "Pouvez-vous vérifier mon dossier ?",
+        "ar": "فيك تتأكد من ملفي؟",
+        "en": "Can you check my file?"
+      }
+    ]
+  },
+  {
+    "fr": "Réévaluer",
+    "ar": "يعيد التقييم / يعيد الحساب",
+    "en": "To reassess",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "La CAF va réévaluer mes droits.",
+      "ar": "الـ CAF رح تعيد حساب استحقاقي.",
+      "en": "CAF will reassess my entitlement."
+    }
+  },
+  {
+    "fr": "Refuser",
+    "ar": "يرفض",
+    "en": "To refuse / reject",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "La CAF a refusé ma demande.",
+      "ar": "الـ CAF رفضت طلبي.",
+      "en": "CAF refused my request."
+    }
+  },
+  {
+    "fr": "Signaler",
+    "ar": "يبلّغ عن / يخبر بـ",
+    "en": "To report",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je dois signaler un changement de situation.",
+      "ar": "لازم بلّغ عن تغيير بوضعتي.",
+      "en": "I have to report a change of situation."
+    }
+  },
+  {
+    "fr": "Recevoir",
+    "ar": "يستلم / يتلقى",
+    "en": "To receive",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "J'ai reçu une notification de la CAF.",
+      "ar": "وصلتني رسالة من الـ CAF.",
+      "en": "I received a notification from CAF."
+    }
+  },
+  {
+    "fr": "Mettre à jour",
+    "ar": "يحدّث",
+    "en": "To update",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je dois mettre à jour ma situation.",
+      "ar": "لازم حدّث وضعي.",
+      "en": "I need to update my situation."
+    }
+  },
+  {
+    "fr": "Réclamer",
+    "ar": "يطالب بـ / يطلب رسميًا",
+    "en": "To claim / request",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je réclame le paiement qui manque.",
+      "ar": "عم طالب بالدفعة الناقصة.",
+      "en": "I am claiming the missing payment."
+    }
+  },
+  {
+    "fr": "Signer",
+    "ar": "يوقّع",
+    "en": "To sign",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je dois signer le document.",
+      "ar": "لازم وقّع الورقة.",
+      "en": "I have to sign the document."
+    }
+  },
+  {
+    "fr": "Scanner",
+    "ar": "يمسح ضوئيًا",
+    "en": "To scan",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je dois scanner mes documents.",
+      "ar": "لازم صوّر أوراقي سكانر.",
+      "en": "I need to scan my documents."
+    }
+  },
+  {
+    "fr": "Imprimer",
+    "ar": "يطبع",
+    "en": "To print",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je dois imprimer le document.",
+      "ar": "لازم اطبع الورقة.",
+      "en": "I need to print the document."
+    }
+  },
+  {
+    "fr": "Prolonger",
+    "ar": "يمدّد",
+    "en": "To extend",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "La CAF peut prolonger mes droits.",
+      "ar": "ممكن الـ CAF تمدد استحقاقي.",
+      "en": "CAF can extend my entitlement."
+    }
+  },
+  {
+    "fr": "Justifier",
+    "ar": "يثبت / يبرّر",
+    "en": "To justify / provide proof",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je dois justifier mes ressources.",
+      "ar": "لازم أثبت دخلي.",
+      "en": "I have to justify my income."
+    }
+  },
+  {
+    "fr": "Répondre",
+    "ar": "يجيب / يرد",
+    "en": "To answer / reply",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je dois répondre au message de la CAF.",
+      "ar": "لازم رد على رسالة الـ CAF.",
+      "en": "I have to answer CAF's message."
+    }
+  },
+  {
+    "fr": "Enregistrer",
+    "ar": "يسجّل / يدوّن / يسجل",
+    "en": "To register / record / To record / register",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": [
+      {
+        "fr": "La CAF a enregistré ma demande.",
+        "ar": "الـ CAF سجّلت طلبي.",
+        "en": "CAF registered my request."
+      },
+      {
+        "fr": "Votre demande est enregistrée.",
+        "ar": "تم تسجيل طلبك.",
+        "en": "Your request is registered."
+      }
+    ]
+  },
+  {
+    "fr": "Valider",
+    "ar": "يعتمد / يصادق / يؤكد",
+    "en": "To validate / approve",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Votre demande a été validée.",
+      "ar": "تم اعتماد طلبك.",
+      "en": "Your request has been validated."
+    }
+  },
+  {
+    "fr": "Réexaminer",
+    "ar": "يعيد دراسة / مراجعة",
+    "en": "To review again",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "La CAF va réexaminer votre dossier.",
+      "ar": "الـ CAF رح تعيد دراسة ملفك.",
+      "en": "CAF will review your file again."
+    }
+  },
+  {
+    "fr": "Réviser",
+    "ar": "يراجع / يعيد النظر",
+    "en": "To revise / review",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Le montant sera révisé prochainement.",
+      "ar": "رح تتم مراجعة المبلغ قريبًا.",
+      "en": "The amount will be reviewed soon."
+    }
+  },
+  {
+    "fr": "Détecter",
+    "ar": "يكتشف / يرصد",
+    "en": "To detect",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "La CAF a détecté une erreur.",
+      "ar": "الـ CAF اكتشفت خطأ.",
+      "en": "CAF detected an error."
+    }
+  },
+  {
+    "fr": "Retirer",
+    "ar": "يسحب / يلغي",
+    "en": "To withdraw",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je souhaite retirer ma demande.",
+      "ar": "بدي أسحب طلبي.",
+      "en": "I want to withdraw my request."
+    }
+  },
+  {
+    "fr": "Maintenir",
+    "ar": "يحافظ على / يبقي",
+    "en": "To maintain",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": [
+      {
+        "fr": "La CAF maintient mes droits.",
+        "ar": "الـ CAF أبقت على استحقاقي.",
+        "en": "CAF maintains my entitlement."
+      },
+      {
+        "fr": "La CAF maintient le versement de l'aide.",
+        "ar": "الـ CAF مستمرة بدفع المساعدة.",
+        "en": "CAF maintains the payment of the benefit."
+      }
+    ]
+  },
+  {
+    "fr": "Récupérer",
+    "ar": "يسترجع / يستعيد",
+    "en": "To recover / retrieve",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "La CAF récupère un trop-perçu.",
+      "ar": "الـ CAF عم تسترجع مبلغ زائد.",
+      "en": "CAF is recovering an overpayment."
+    }
+  },
+  {
+    "fr": "Déduire",
+    "ar": "يخصم",
+    "en": "To deduct",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": [
+      {
+        "fr": "La somme sera déduite de mes prochains paiements.",
+        "ar": "رح ينخصم المبلغ من الدفعات الجاية.",
+        "en": "The amount will be deducted from my next payments."
+      },
+      {
+        "fr": "La CAF déduit le trop-perçu.",
+        "ar": "الـ CAF تخصم المبلغ الزائد.",
+        "en": "CAF deducts the overpayment."
+      }
+    ]
+  },
+  {
+    "fr": "Réactiver",
+    "ar": "يعيد التفعيل",
+    "en": "To reactivate",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "La CAF a réactivé mes droits.",
+      "ar": "الـ CAF فعّلت استحقاقاتي من جديد.",
+      "en": "CAF reactivated my benefits."
+    }
+  },
+  {
+    "fr": "Informer",
+    "ar": "يُعلم / يخبر",
+    "en": "To inform",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je dois informer la CAF de mon changement.",
+      "ar": "لازم أخبر الـ CAF عن التغيير.",
+      "en": "I must inform CAF about the change."
+    }
+  },
+  {
+    "fr": "Examiner",
+    "ar": "يفحص / يدرس",
+    "en": "To examine / review",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Votre demande sera examinée.",
+      "ar": "رح يتم دراسة طلبك.",
+      "en": "Your request will be examined."
+    }
+  },
+  {
+    "fr": "Percevoir",
+    "ar": "يتلقى / يحصل على (مبلغ)",
+    "en": "To receive / collect",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je perçois une aide de la CAF.",
+      "ar": "عم آخد مساعدة من الـ CAF.",
+      "en": "I receive a benefit from CAF."
+    }
+  },
+  {
+    "fr": "Ouvrir",
+    "ar": "يفتح",
+    "en": "To open",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "La CAF a ouvert mes droits.",
+      "ar": "الـ CAF فتحتلي الاستحقاق.",
+      "en": "CAF opened my entitlement."
+    }
+  },
+  {
+    "fr": "Perdre",
+    "ar": "يفقد",
+    "en": "To lose",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je risque de perdre mes droits.",
+      "ar": "ممكن أخسر استحقاقاتي.",
+      "en": "I may lose my entitlements."
+    }
+  },
+  {
+    "fr": "Régler",
+    "ar": "يسوّي / يحل",
+    "en": "To settle / resolve",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je voudrais régler ce problème.",
+      "ar": "بدي حل هالمشكلة.",
+      "en": "I would like to resolve this problem."
+    }
+  },
+  {
+    "fr": "Résoudre",
+    "ar": "يحل",
+    "en": "To solve",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "La CAF a résolu l'erreur de paiement.",
+      "ar": "الـ CAF حلّت مشكلة الدفع.",
+      "en": "CAF solved the payment issue."
+    }
+  },
+  {
+    "fr": "Réceptionner",
+    "ar": "يستلم (رسميًا)",
+    "en": "To receive officially",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "La CAF a réceptionné mes justificatifs.",
+      "ar": "الـ CAF استلمت إثباتاتي.",
+      "en": "CAF officially received my documents."
+    }
+  },
+  {
+    "fr": "Déclarer sur l'honneur",
+    "ar": "يصرّح على الشرف",
+    "en": "To declare on one's honor",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je déclare sur l'honneur que les informations sont exactes.",
+      "ar": "أصرّح على الشرف أن المعلومات صحيحة.",
+      "en": "I declare on my honor that the information is correct."
+    }
+  },
+  {
+    "fr": "Saisir",
+    "ar": "يُدخل / يعبّي (بيانات)",
+    "en": "To enter / input",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je saisis mes revenus en ligne.",
+      "ar": "عم أدخل دخلي عالإنترنت.",
+      "en": "I enter my income online."
+    }
+  },
+  {
+    "fr": "Perfectionner (un dossier)",
+    "ar": "يكمل / يحسّن الملف",
+    "en": "To complete/improve a file",
+    "level": "A1",
+    "pos": "verb",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Il faut perfectionner votre dossier.",
+      "ar": "لازم تكمل ملفك بشكل أفضل.",
+      "en": "You need to complete your file."
+    }
   }
-];
+]
