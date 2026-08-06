@@ -257,6 +257,41 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   - `Bénéficier` → 1 result; example `Je bénéficie de l'aide au logement.`
   - Arabic `يشرب` finds `Boire`.
 
+## Work / health / MDPH / CAF phrases batch (dross-v114)
+
+- `data/vocab.js` now contains **1430** entries and `data/vocab-batch-02.js` is still empty.
+- Cache name is `dross-v114`.
+- Letter chip counts: `A (566)`, `B (146)`, `C (573)`, `D (25)`, `E (14)`, `F (6)`, `G (1)`, `H (4)`, `I (8)`, `J (12)`, `L (5)`, `M (13)`, `N (3)`, `O (4)`, `P (8)`, `Q (2)`, `R (17)`, `S (13)`, `T (6)`, `V (4)`, all other letters `0`.
+- POS counts: `noun 593`, `verb 303`, `adjective 232`, `phrase 194`, `other 108`.
+- Context counts: `daily 687`, `services 327`, `work 260`, `health 83`, `housing 70`, `bank 42`, `shop 45`, `transport 38`, `school 27`, `phone 18`, `caf 17`, `car 14`, `family 14`, `france_travail 11`, `weather 7`, `restaurant 7`, `food 8`, `prefecture 6`, `post 4`, `cpam 4`, `mairie 2`, `office 2`, `geography 1`.
+- 79 new entries added and 7 existing entries merged, focusing on work/health/MDPH and CAF phrases. Sample entries:
+  - `Emploi` → noun (A1), context `work`
+  - `Sans emploi` → other (A2), context `work`
+  - `CDD` → noun (A1), context `work`
+  - `CDI` → noun (A1), context `work`
+  - `Salaire` → noun (A1), contexts `bank`, `work`
+  - `Bulletin de salaire` → noun (B1), contexts `bank`, `work`
+  - `Contrat de travail` → noun (A2), context `work`, 2 trilingual examples
+  - `MDPH` → noun (A1), context `services`
+  - `Handicap` → noun (A2), context `health`
+  - `Fatigue` → noun (A1), context `health`
+  - `Douleur` → noun (A2), context `health`
+  - `Symptôme` → noun (B1), context `health`
+  - `Maladie chronique` → noun (A1), context `health`
+  - `Suivi médical` → noun (A1), contexts `services`, `health`
+  - `Traitement médical` → noun (A1), contexts `services`, `health`
+  - `Avis médical` → noun (A1), contexts `services`, `health`
+  - `Décision défavorable` → other (A1), context `services`
+- Useful CAF phrases (all `other` A1, context `services`):
+  - `Je souhaite expliquer ma situation`
+  - `Je voudrais savoir où en est mon dossier`
+  - `Mon dossier est toujours en attente`
+  - `J'ai envoyé tous les documents`
+  - `Je n'ai pas reçu de réponse`
+  - `Je souhaite faire un recours`
+- Searching short work/health terms (`Emploi`, `CDI`, `Salaire`, `MDPH`, `Fatigue`) returns multiple substring matches; exact entries are present in the result list.
+- TTS loop on `Contrat de travail` (2 examples) emits 9 unique `fr/ar/en` utterances per cycle.
+
 ## Modernized `vocab.html` UI (dross-v95)
 
 - `vocab.html` now uses a refreshed dark/light palette, glass-morphism sticky `header` (`backdrop-filter: blur(12px)`), a `.hero` section with a gradient top accent line, and a `.toolbar` grid layout.
@@ -269,7 +304,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v113`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v114`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
