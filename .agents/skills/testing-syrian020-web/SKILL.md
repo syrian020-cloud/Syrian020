@@ -472,6 +472,29 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   8. Verify Google Images link includes `udm=2&q=<fr>` and Google AI link includes `udm=50`.
 - The debug APK was rebuilt after this batch.
 
+## Sushi batch 126–208 (dross-v127)
+
+- `data/vocab.js` now contains **2095** entries; `sw.js` cache bumped to `dross-v127`.
+- Parsed and merged the user's second sushi/restaurant vocabulary batch (126–208, 83 entries) into `data/vocab.js`; all 83 were added/merged.
+- `sushi` context count increased from **122** to **204**; `restaurant` context count increased from **24** to **76**.
+- POS distribution after merge: `noun 929`, `verb 388`, `phrase 358`, `adjective 262`, `other 158`.
+- New sample entries:
+  - `Rouler` → Verb A2, contexts `sushi` + `restaurant`, example `Je roule le maki avec le tapis de bambou.`
+  - `Le thon rouge` → Noun A2, `sushi`, example `Le thon rouge est très apprécié pour les sushis.`
+  - `Croustillant / Croustillante` → Adjective A1, `sushi`, example `La tempura est bien croustillante.`
+  - `La quantité suffisante` → Phrase A1, `sushi`, example `Ajoute une quantité suffisante de riz.`
+  - `La qualité` → Noun A1, contexts `stage` + `work` + `sushi` after merge; added example `La qualité est très importante en cuisine.`
+- E2E verification steps:
+  1. Open `http://localhost:8080/vocab.html` in a fresh Chrome incognito/profile and hard-refresh to ensure `dross-v127` is active.
+  2. Confirm `#stats` shows `2095 result(s)` and context chips show `Sushi (204)` and `Restaurant (76)`.
+  3. Click the `Sushi (204)` context chip and verify filtered results show `204 result(s)` and cards like `Rouler` and `Le poulpe` render correctly.
+  4. Search `Rouler` and verify it returns the `Rouler` verb card with `Sushi` and `Restaurant` contexts and example `Je roule le maki avec le tapis de bambou.`.
+  5. Search `Croustillant` and verify the adjective card with `Sushi` context appears.
+  6. Click `Loop` on `Rouler` and verify the button toggles to the pause state with no JS runtime errors.
+  7. Toggle dark/light mode and verify `<html data-theme>` flips without errors.
+  8. Verify Google Images link includes `udm=2&q=<fr>` and Google AI link includes `udm=50`.
+- The debug APK was rebuilt after this batch.
+
 ## Known data-quality issues (last observed)
 
-- None. All 1908 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`) when a separate example was provided. Situation sentences use `fr`/`ar`/`en` directly and may not have a separate `ex` block. Administrative entries may also include a `usage` field.
+- None. All 2095 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`) when a separate example was provided. Situation sentences use `fr`/`ar`/`en` directly and may not have a separate `ex` block. Administrative entries may also include a `usage` field.

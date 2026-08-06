@@ -13392,19 +13392,28 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Carotte",
-    "ar": "جزرة",
+    "fr": "La carotte",
+    "ar": "جزرة / الجزر",
     "en": "Carrot",
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "sushi",
+      "restaurant"
     ],
-    "ex": {
-      "fr": "Je mange une carotte.",
-      "ar": "آكل جزرة.",
-      "en": "I eat a carrot."
-    }
+    "ex": [
+      {
+        "fr": "Je mange une carotte.",
+        "ar": "آكل جزرة.",
+        "en": "I eat a carrot."
+      },
+      {
+        "fr": "J’ajoute de la carotte au maki.",
+        "ar": "أضيف الجزر إلى الماكي.",
+        "en": "I add carrot to the maki."
+      }
+    ]
   },
   {
     "fr": "Cas",
@@ -21226,17 +21235,27 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Caviar",
-    "ar": "كافيار",
+    "fr": "Le caviar",
+    "ar": "كافيار / الكافيار",
     "en": "Caviar",
     "pos": "noun",
     "level": "B2",
-    "contexts": [],
-    "ex": {
-      "fr": "Le caviar est un produit de luxe.",
-      "ar": "الكافيار منتج فاخر.",
-      "en": "Caviar is a luxury product."
-    }
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": [
+      {
+        "fr": "Le caviar est un produit de luxe.",
+        "ar": "الكافيار منتج فاخر.",
+        "en": "Caviar is a luxury product."
+      },
+      {
+        "fr": "Ce sushi est garni de caviar.",
+        "ar": "هذا السوشي مزين بالكافيار.",
+        "en": "This sushi is topped with caviar."
+      }
+    ]
   },
   {
     "fr": "Ceinture",
@@ -31565,13 +31584,21 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "contexts": [
       "stage",
-      "work"
+      "work",
+      "sushi"
     ],
-    "ex": {
-      "fr": "La qualité des aliments est importante.",
-      "ar": "جودة الطعام مهمة.",
-      "en": "The quality of food is important."
-    }
+    "ex": [
+      {
+        "fr": "La qualité des aliments est importante.",
+        "ar": "جودة الطعام مهمة.",
+        "en": "The quality of food is important."
+      },
+      {
+        "fr": "La qualité est très importante en cuisine.",
+        "ar": "الجودة مهمة جدًا في المطبخ.",
+        "en": "Quality is very important in the kitchen."
+      }
+    ]
   },
   {
     "fr": "Le produit",
@@ -32659,11 +32686,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "sushi"
     ],
-    "ex": {
-      "fr": "La fraîcheur du poisson est essentielle.",
-      "ar": "طزاجة السمك ضرورية.",
-      "en": "The freshness of the fish is essential."
-    }
+    "ex": [
+      {
+        "fr": "La fraîcheur du poisson est essentielle.",
+        "ar": "طزاجة السمك ضرورية.",
+        "en": "The freshness of the fish is essential."
+      },
+      {
+        "fr": "Il faut vérifier la fraîcheur du poisson.",
+        "ar": "يجب التحقق من طزاجة السمك.",
+        "en": "You must check the freshness of the fish."
+      }
+    ]
   },
   {
     "fr": "La date de péremption",
@@ -33767,6 +33801,1241 @@ window.VOCAB_DATA = [
       "fr": "La présentation du sushi doit être soignée.",
       "ar": "يجب أن يكون شكل تقديم السوشي مرتبًا.",
       "en": "The presentation of sushi must be neat."
+    }
+  },
+  {
+    "fr": "Rouler",
+    "ar": "يلفّ",
+    "en": "To roll",
+    "level": "A2",
+    "pos": "verb",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Je roule le maki avec le tapis de bambou.",
+      "ar": "ألفّ الماكي باستعمال حصيرة الخيزران.",
+      "en": "I roll the maki using the bamboo mat."
+    }
+  },
+  {
+    "fr": "Étaler",
+    "ar": "يفرد / ينشر",
+    "en": "To spread",
+    "level": "A2",
+    "pos": "verb",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "J’étale le riz sur la feuille de nori.",
+      "ar": "أفرد الأرز على ورقة النوري.",
+      "en": "I spread the rice on the nori sheet."
+    }
+  },
+  {
+    "fr": "Répartir",
+    "ar": "يوزّع / يوزّع بالتساوي",
+    "en": "To distribute / To spread evenly",
+    "level": "A2",
+    "pos": "verb",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Je répartis le riz uniformément.",
+      "ar": "أوزع الأرز بشكل متساوٍ.",
+      "en": "I spread the rice evenly."
+    }
+  },
+  {
+    "fr": "Uniforme",
+    "ar": "متساوٍ / موحّد",
+    "en": "Uniform / Even",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Les morceaux doivent être de taille uniforme.",
+      "ar": "يجب أن تكون القطع بنفس الحجم.",
+      "en": "The pieces must be the same size."
+    }
+  },
+  {
+    "fr": "La quantité suffisante",
+    "ar": "الكمية الكافية",
+    "en": "Sufficient amount",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Ajoute une quantité suffisante de riz.",
+      "ar": "أضف كمية كافية من الأرز.",
+      "en": "Add a sufficient amount of rice."
+    }
+  },
+  {
+    "fr": "Presser",
+    "ar": "يضغط",
+    "en": "To press",
+    "level": "A2",
+    "pos": "verb",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Je presse légèrement le rouleau.",
+      "ar": "أضغط قليلًا على الرول.",
+      "en": "I press the roll lightly."
+    }
+  },
+  {
+    "fr": "Couper en morceaux",
+    "ar": "يقطع إلى قطع",
+    "en": "To cut into pieces",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Je coupe le maki en huit morceaux.",
+      "ar": "أقطع الماكي إلى ثماني قطع.",
+      "en": "I cut the maki into eight pieces."
+    }
+  },
+  {
+    "fr": "Une portion",
+    "ar": "حصة / كمية",
+    "en": "Portion / Serving",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Cette portion est pour un client.",
+      "ar": "هذه الحصة لزبون واحد.",
+      "en": "This portion is for one customer."
+    }
+  },
+  {
+    "fr": "Peser correctement",
+    "ar": "يزن بشكل صحيح",
+    "en": "To weigh correctly",
+    "level": "A2",
+    "pos": "phrase",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Il faut peser correctement les ingrédients.",
+      "ar": "يجب وزن المكونات بشكل صحيح.",
+      "en": "The ingredients must be weighed correctly."
+    }
+  },
+  {
+    "fr": "La préparation",
+    "ar": "التحضير",
+    "en": "Preparation",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "La préparation des sushis demande de la précision.",
+      "ar": "تحضير السوشي يحتاج إلى الدقة.",
+      "en": "Sushi preparation requires precision."
+    }
+  },
+  {
+    "fr": "La précision",
+    "ar": "الدقة",
+    "en": "Precision / Accuracy",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Il faut travailler avec précision.",
+      "ar": "يجب العمل بدقة.",
+      "en": "You have to work with precision."
+    }
+  },
+  {
+    "fr": "Rapide",
+    "ar": "سريع",
+    "en": "Fast / Quick",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Il faut être rapide pendant le service.",
+      "ar": "يجب أن تكون سريعًا أثناء فترة الخدمة.",
+      "en": "You must be fast during service."
+    }
+  },
+  {
+    "fr": "Soigneux / Soigneuse",
+    "ar": "دقيق / حريص / مرتب",
+    "en": "Careful / Neat",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Un bon cuisinier doit être soigneux.",
+      "ar": "يجب أن يكون الطاهي الجيد حريصًا.",
+      "en": "A good cook must be careful."
+    }
+  },
+  {
+    "fr": "Propre",
+    "ar": "نظيف",
+    "en": "Clean",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le poste de travail doit rester propre.",
+      "ar": "يجب أن يبقى مكان العمل نظيفًا.",
+      "en": "The workstation must remain clean."
+    }
+  },
+  {
+    "fr": "Sale",
+    "ar": "متسخ",
+    "en": "Dirty",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Cette table est sale, il faut la nettoyer.",
+      "ar": "هذه الطاولة متسخة، يجب تنظيفها.",
+      "en": "This table is dirty, it must be cleaned."
+    }
+  },
+  {
+    "fr": "Garder",
+    "ar": "يحافظ على / يحتفظ بـ",
+    "en": "To keep",
+    "level": "A2",
+    "pos": "verb",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Il faut garder les aliments au frais.",
+      "ar": "يجب الحفاظ على الطعام باردًا.",
+      "en": "Food must be kept fresh."
+    }
+  },
+  {
+    "fr": "Respecter la recette",
+    "ar": "يلتزم بالوصفة",
+    "en": "Follow the recipe",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Je respecte la recette du chef.",
+      "ar": "ألتزم بوصفة الشيف.",
+      "en": "I follow the chef’s recipe."
+    }
+  },
+  {
+    "fr": "Le temaki",
+    "ar": "تيماكي (سوشي ملفوف على شكل مخروط)",
+    "en": "Temaki (hand roll)",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le temaki se mange avec les mains.",
+      "ar": "يؤكل التيماكي باليدين.",
+      "en": "Temaki is eaten with your hands."
+    }
+  },
+  {
+    "fr": "L’uramaki",
+    "ar": "أوراماكي (الرز من الخارج)",
+    "en": "Uramaki (inside-out roll)",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "L’uramaki a le riz à l’extérieur.",
+      "ar": "الأوراماكي يكون الأرز فيه من الخارج.",
+      "en": "Uramaki has rice on the outside."
+    }
+  },
+  {
+    "fr": "Le futomaki",
+    "ar": "فوتوماكي (لفافة سوشي كبيرة)",
+    "en": "Futomaki",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le futomaki contient plusieurs ingrédients.",
+      "ar": "يحتوي الفوتوماكي على عدة مكونات.",
+      "en": "Futomaki contains several ingredients."
+    }
+  },
+  {
+    "fr": "L’hosomaki",
+    "ar": "هوسوماكي (لفافة سوشي رفيعة)",
+    "en": "Hosomaki",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "L’hosomaki est plus fin que le futomaki.",
+      "ar": "الهوسوماكي أرفع من الفوتوماكي.",
+      "en": "Hosomaki is thinner than futomaki."
+    }
+  },
+  {
+    "fr": "Les graines de sésame",
+    "ar": "بذور السمسم",
+    "en": "Sesame seeds",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "J’ajoute des graines de sésame sur les makis.",
+      "ar": "أضيف بذور السمسم على الماكي.",
+      "en": "I add sesame seeds to the maki."
+    }
+  },
+  {
+    "fr": "Le fromage à la crème",
+    "ar": "جبنة كريمية",
+    "en": "Cream cheese",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Ce maki contient du fromage à la crème.",
+      "ar": "هذا الماكي يحتوي على جبنة كريمية.",
+      "en": "This maki contains cream cheese."
+    }
+  },
+  {
+    "fr": "Le crabe",
+    "ar": "سلطعون / لحم السلطعون",
+    "en": "Crab",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le california roll contient souvent du crabe.",
+      "ar": "غالبًا ما يحتوي الكاليفورنيا رول على السلطعون.",
+      "en": "California rolls often contain crab."
+    }
+  },
+  {
+    "fr": "Le surimi",
+    "ar": "سوريمي (لحم سمك معالج)",
+    "en": "Surimi",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le surimi est utilisé dans certains makis.",
+      "ar": "يُستخدم السوريمي في بعض أنواع الماكي.",
+      "en": "Surimi is used in some maki."
+    }
+  },
+  {
+    "fr": "Le poulpe",
+    "ar": "أخطبوط",
+    "en": "Octopus",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le poulpe est coupé en fines tranches.",
+      "ar": "يُقطع الأخطبوط إلى شرائح رقيقة.",
+      "en": "The octopus is cut into thin slices."
+    }
+  },
+  {
+    "fr": "L’anguille",
+    "ar": "ثعبان البحر",
+    "en": "Eel",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "L’anguille est souvent servie avec une sauce sucrée.",
+      "ar": "غالبًا ما يُقدم ثعبان البحر مع صلصة حلوة.",
+      "en": "Eel is often served with a sweet sauce."
+    }
+  },
+  {
+    "fr": "Le thon rouge",
+    "ar": "التونة الحمراء",
+    "en": "Bluefin tuna",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le thon rouge est très apprécié pour les sushis.",
+      "ar": "التونة الحمراء محبوبة جدًا في السوشي.",
+      "en": "Bluefin tuna is highly valued for sushi."
+    }
+  },
+  {
+    "fr": "La mayonnaise japonaise",
+    "ar": "المايونيز الياباني",
+    "en": "Japanese mayonnaise",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "On ajoute un peu de mayonnaise japonaise.",
+      "ar": "نضيف قليلًا من المايونيز الياباني.",
+      "en": "We add a little Japanese mayonnaise."
+    }
+  },
+  {
+    "fr": "La sauce teriyaki",
+    "ar": "صلصة الترياكي",
+    "en": "Teriyaki sauce",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "La sauce teriyaki donne une saveur sucrée.",
+      "ar": "تعطي صلصة الترياكي نكهة حلوة.",
+      "en": "Teriyaki sauce gives a sweet flavor."
+    }
+  },
+  {
+    "fr": "Le piment",
+    "ar": "الفلفل الحار",
+    "en": "Chili pepper",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Ce sushi contient du piment.",
+      "ar": "هذا السوشي يحتوي على فلفل حار.",
+      "en": "This sushi contains chili."
+    }
+  },
+  {
+    "fr": "Les oignons frits",
+    "ar": "البصل المقلي",
+    "en": "Fried onions",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "J’ajoute des oignons frits sur le roll.",
+      "ar": "أضيف بصلًا مقليًا فوق الرول.",
+      "en": "I add fried onions on the roll."
+    }
+  },
+  {
+    "fr": "La ciboulette",
+    "ar": "الثوم المعمر",
+    "en": "Chives",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "La ciboulette apporte une saveur fraîche.",
+      "ar": "يضيف الثوم المعمر نكهة طازجة.",
+      "en": "Chives add a fresh flavor."
+    }
+  },
+  {
+    "fr": "La mangue",
+    "ar": "المانجو",
+    "en": "Mango",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Ce sushi contient de la mangue.",
+      "ar": "هذا السوشي يحتوي على المانجو.",
+      "en": "This sushi contains mango."
+    }
+  },
+  {
+    "fr": "Le fromage de chèvre",
+    "ar": "جبن الماعز",
+    "en": "Goat cheese",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Ce roll est préparé avec du fromage de chèvre.",
+      "ar": "هذا الرول محضر بجبن الماعز.",
+      "en": "This roll is prepared with goat cheese."
+    }
+  },
+  {
+    "fr": "Le poulet",
+    "ar": "الدجاج",
+    "en": "Chicken",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Je prépare un maki au poulet.",
+      "ar": "أحضر ماكي بالدجاج.",
+      "en": "I prepare a chicken maki."
+    }
+  },
+  {
+    "fr": "Le bœuf",
+    "ar": "لحم البقر",
+    "en": "Beef",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le bœuf est bien cuit.",
+      "ar": "لحم البقر مطهو جيدًا.",
+      "en": "The beef is well cooked."
+    }
+  },
+  {
+    "fr": "Le fromage",
+    "ar": "الجبن",
+    "en": "Cheese",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le client ne veut pas de fromage.",
+      "ar": "الزبون لا يريد جبنًا.",
+      "en": "The customer doesn't want cheese."
+    }
+  },
+  {
+    "fr": "Les légumes",
+    "ar": "الخضروات",
+    "en": "Vegetables",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Je coupe les légumes avant la préparation.",
+      "ar": "أقطع الخضروات قبل التحضير.",
+      "en": "I cut the vegetables before preparation."
+    }
+  },
+  {
+    "fr": "Le poivron",
+    "ar": "الفليفلة / الفلفل الحلو",
+    "en": "Bell pepper",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le poivron est coupé en fines lamelles.",
+      "ar": "تُقطع الفليفلة إلى شرائح رفيعة.",
+      "en": "The bell pepper is cut into thin strips."
+    }
+  },
+  {
+    "fr": "La salade",
+    "ar": "الخس",
+    "en": "Lettuce",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "La salade est bien fraîche.",
+      "ar": "الخس طازج جدًا.",
+      "en": "The lettuce is very fresh."
+    }
+  },
+  {
+    "fr": "Le maïs",
+    "ar": "الذرة",
+    "en": "Corn",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le maïs est utilisé dans certains rolls.",
+      "ar": "تُستخدم الذرة في بعض أنواع الرول.",
+      "en": "Corn is used in some rolls."
+    }
+  },
+  {
+    "fr": "Le sésame noir",
+    "ar": "السمسم الأسود",
+    "en": "Black sesame",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "J’ajoute du sésame noir sur les sushis.",
+      "ar": "أضيف السمسم الأسود على السوشي.",
+      "en": "I add black sesame to the sushi."
+    }
+  },
+  {
+    "fr": "Le sésame blanc",
+    "ar": "السمسم الأبيض",
+    "en": "White sesame",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le sésame blanc donne un bon goût.",
+      "ar": "السمسم الأبيض يعطي طعمًا جيدًا.",
+      "en": "White sesame gives a good taste."
+    }
+  },
+  {
+    "fr": "La sauce piquante",
+    "ar": "الصلصة الحارة",
+    "en": "Hot sauce / Spicy sauce",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le client veut une sauce piquante.",
+      "ar": "الزبون يريد صلصة حارة.",
+      "en": "The customer wants a spicy sauce."
+    }
+  },
+  {
+    "fr": "La sauce sucrée",
+    "ar": "الصلصة الحلوة",
+    "en": "Sweet sauce",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Cette sauce est légèrement sucrée.",
+      "ar": "هذه الصلصة حلوة قليلًا.",
+      "en": "This sauce is slightly sweet."
+    }
+  },
+  {
+    "fr": "La sauce épicée",
+    "ar": "الصلصة المتبلة / الحارة",
+    "en": "Spicy sauce",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Ajoutez un peu de sauce épicée.",
+      "ar": "أضف قليلًا من الصلصة الحارة.",
+      "en": "Add a little spicy sauce."
+    }
+  },
+  {
+    "fr": "Le rouleau de printemps",
+    "ar": "لفافة الربيع (سبرينغ رول)",
+    "en": "Spring roll",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le rouleau de printemps est très populaire.",
+      "ar": "لفافة الربيع مشهورة جدًا.",
+      "en": "Spring rolls are very popular."
+    }
+  },
+  {
+    "fr": "Les gyozas",
+    "ar": "جيوزا (زلابية يابانية)",
+    "en": "Gyoza / Japanese dumplings",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Les gyozas sont servis bien chauds.",
+      "ar": "تُقدَّم الجيوزا ساخنة.",
+      "en": "Gyozas are served hot."
+    }
+  },
+  {
+    "fr": "L’omelette japonaise (tamago)",
+    "ar": "الأومليت الياباني (تاماغو)",
+    "en": "Japanese omelet (Tamago)",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le tamago est légèrement sucré.",
+      "ar": "التاماغو حلو قليلًا.",
+      "en": "Tamago is slightly sweet."
+    }
+  },
+  {
+    "fr": "Le tofu",
+    "ar": "التوفو",
+    "en": "Tofu",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le tofu est une bonne option végétarienne.",
+      "ar": "التوفو خيار نباتي جيد.",
+      "en": "Tofu is a good vegetarian option."
+    }
+  },
+  {
+    "fr": "Les œufs de poisson",
+    "ar": "بيض السمك",
+    "en": "Fish roe",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Les œufs de poisson décorent les sushis.",
+      "ar": "يزين بيض السمك السوشي.",
+      "en": "Fish roe decorates the sushi."
+    }
+  },
+  {
+    "fr": "Le citron",
+    "ar": "الليمون",
+    "en": "Lemon",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Ajoutez un peu de citron.",
+      "ar": "أضف قليلًا من الليمون.",
+      "en": "Add a little lemon."
+    }
+  },
+  {
+    "fr": "Le citron vert",
+    "ar": "الليمون الأخضر (لايم)",
+    "en": "Lime",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le citron vert apporte une saveur fraîche.",
+      "ar": "الليمون الأخضر يضيف نكهة منعشة.",
+      "en": "Lime adds a fresh flavor."
+    }
+  },
+  {
+    "fr": "La coriandre",
+    "ar": "الكزبرة",
+    "en": "Coriander / Cilantro",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le client ne veut pas de coriandre.",
+      "ar": "الزبون لا يريد كزبرة.",
+      "en": "The customer doesn't want coriander."
+    }
+  },
+  {
+    "fr": "Le persil",
+    "ar": "البقدونس",
+    "en": "Parsley",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le persil est utilisé comme garniture.",
+      "ar": "يُستخدم البقدونس للتزيين.",
+      "en": "Parsley is used as a garnish."
+    }
+  },
+  {
+    "fr": "La menthe",
+    "ar": "النعناع",
+    "en": "Mint",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "La menthe donne un goût frais.",
+      "ar": "النعناع يعطي طعمًا منعشًا.",
+      "en": "Mint gives a fresh taste."
+    }
+  },
+  {
+    "fr": "Le sel",
+    "ar": "الملح",
+    "en": "Salt",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Ajoutez un peu de sel.",
+      "ar": "أضف قليلًا من الملح.",
+      "en": "Add a little salt."
+    }
+  },
+  {
+    "fr": "Le sucre",
+    "ar": "السكر",
+    "en": "Sugar",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le riz contient un peu de sucre.",
+      "ar": "يحتوي الأرز على قليل من السكر.",
+      "en": "The rice contains a little sugar."
+    }
+  },
+  {
+    "fr": "L’huile de sésame",
+    "ar": "زيت السمسم",
+    "en": "Sesame oil",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "J’ajoute quelques gouttes d’huile de sésame.",
+      "ar": "أضيف بضع قطرات من زيت السمسم.",
+      "en": "I add a few drops of sesame oil."
+    }
+  },
+  {
+    "fr": "La farine",
+    "ar": "الطحين",
+    "en": "Flour",
+    "level": "A1",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "La farine est utilisée pour certaines recettes.",
+      "ar": "يُستخدم الطحين في بعض الوصفات.",
+      "en": "Flour is used in some recipes."
+    }
+  },
+  {
+    "fr": "La chapelure (panko)",
+    "ar": "بقسماط ياباني (بانكو)",
+    "en": "Panko breadcrumbs",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Le poulet est recouvert de panko.",
+      "ar": "الدجاج مغطى ببقسماط البانكو.",
+      "en": "The chicken is coated with panko breadcrumbs."
+    }
+  },
+  {
+    "fr": "La tempura",
+    "ar": "تيمبورا (مقلي ياباني خفيف)",
+    "en": "Tempura",
+    "level": "A2",
+    "pos": "noun",
+    "contexts": [
+      "sushi",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "La tempura est croustillante.",
+      "ar": "التيمبورا مقرمشة.",
+      "en": "Tempura is crispy."
+    }
+  },
+  {
+    "fr": "Croustillant / Croustillante",
+    "ar": "مقرمش",
+    "en": "Crispy",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "La tempura est bien croustillante.",
+      "ar": "التيمبورا مقرمشة جدًا.",
+      "en": "The tempura is very crispy."
+    }
+  },
+  {
+    "fr": "Croquant / Croquante",
+    "ar": "مقرمش عند القضم",
+    "en": "Crunchy",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le concombre est croquant.",
+      "ar": "الخيار مقرمش.",
+      "en": "The cucumber is crunchy."
+    }
+  },
+  {
+    "fr": "Fondant / Fondante",
+    "ar": "طري ويذوب في الفم",
+    "en": "Tender / Melting",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le saumon est fondant.",
+      "ar": "السلمون طري ويذوب في الفم.",
+      "en": "The salmon is tender and melts in the mouth."
+    }
+  },
+  {
+    "fr": "Frais / Fraîche",
+    "ar": "طازج",
+    "en": "Fresh",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le poisson est très frais.",
+      "ar": "السمك طازج جدًا.",
+      "en": "The fish is very fresh."
+    }
+  },
+  {
+    "fr": "Congelé / Congelée",
+    "ar": "مجمّد",
+    "en": "Frozen",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Ce produit est congelé.",
+      "ar": "هذا المنتج مجمد.",
+      "en": "This product is frozen."
+    }
+  },
+  {
+    "fr": "Délicieux / Délicieuse",
+    "ar": "لذيذ",
+    "en": "Delicious",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Ces sushis sont délicieux.",
+      "ar": "هذا السوشي لذيذ.",
+      "en": "These sushi are delicious."
+    }
+  },
+  {
+    "fr": "Savoureux / Savoureuse",
+    "ar": "شهي / غني بالنكهة",
+    "en": "Tasty / Flavorful",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Ce roll est très savoureux.",
+      "ar": "هذا الرول شهي جدًا.",
+      "en": "This roll is very tasty."
+    }
+  },
+  {
+    "fr": "Salé / Salée",
+    "ar": "مالح",
+    "en": "Salty",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "La sauce soja est salée.",
+      "ar": "صلصة الصويا مالحة.",
+      "en": "Soy sauce is salty."
+    }
+  },
+  {
+    "fr": "Sucré / Sucrée",
+    "ar": "حلو",
+    "en": "Sweet",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Cette sauce est légèrement sucrée.",
+      "ar": "هذه الصلصة حلوة قليلًا.",
+      "en": "This sauce is slightly sweet."
+    }
+  },
+  {
+    "fr": "Acide",
+    "ar": "حامض",
+    "en": "Sour / Acidic",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le vinaigre de riz est un peu acide.",
+      "ar": "خل الأرز حامض قليلًا.",
+      "en": "Rice vinegar is slightly sour."
+    }
+  },
+  {
+    "fr": "Amer / Amère",
+    "ar": "مُرّ",
+    "en": "Bitter",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le wasabi n’est pas amer, il est piquant.",
+      "ar": "الوسابي ليس مرًا، بل حار.",
+      "en": "Wasabi is not bitter; it is spicy."
+    }
+  },
+  {
+    "fr": "Piquant / Piquante",
+    "ar": "حار (لاذع)",
+    "en": "Hot / Pungent",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le wasabi est très piquant.",
+      "ar": "الوسابي حار جدًا.",
+      "en": "Wasabi is very pungent."
+    }
+  },
+  {
+    "fr": "Parfumé / Parfumée",
+    "ar": "عطِر / ذو رائحة طيبة",
+    "en": "Fragrant / Aromatic",
+    "level": "A1",
+    "pos": "adjective",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le riz est bien parfumé.",
+      "ar": "الأرز ذو رائحة طيبة.",
+      "en": "The rice is very fragrant."
+    }
+  },
+  {
+    "fr": "Une odeur",
+    "ar": "رائحة",
+    "en": "Smell / Odor",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le poisson a une bonne odeur.",
+      "ar": "للسمك رائحة جيدة.",
+      "en": "The fish has a good smell."
+    }
+  },
+  {
+    "fr": "Une mauvaise odeur",
+    "ar": "رائحة كريهة",
+    "en": "Bad smell / Bad odor",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Ce poisson a une mauvaise odeur.",
+      "ar": "لهذا السمك رائحة كريهة.",
+      "en": "This fish has a bad smell."
+    }
+  },
+  {
+    "fr": "Le couteau est bien aiguisé",
+    "ar": "السكين حاد جيدًا",
+    "en": "The knife is very sharp",
+    "level": "A1",
+    "pos": "phrase",
+    "contexts": [
+      "sushi"
+    ],
+    "ex": {
+      "fr": "Le couteau est bien aiguisé pour couper le saumon.",
+      "ar": "السكين حاد جيدًا لتقطيع السلمون.",
+      "en": "The knife is very sharp for cutting salmon."
     }
   }
 ]
