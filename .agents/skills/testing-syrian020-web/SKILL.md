@@ -292,6 +292,28 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 - Searching short work/health terms (`Emploi`, `CDI`, `Salaire`, `MDPH`, `Fatigue`) returns multiple substring matches; exact entries are present in the result list.
 - TTS loop on `Contrat de travail` (2 examples) emits 9 unique `fr/ar/en` utterances per cycle.
 
+## AAH / CPAM / hospital / pharmacy / work / admin batch (dross-v115)
+
+- `data/vocab.js` contains **1535** entries.
+- Cache name is `dross-v115`.
+- Letter chip counts: `A (578)`, `B (148)`, `C (584)`, `D (34)`, `E (19)`, `F (11)`, `G (3)`, `H (7)`, `I (12)`, `J (12)`, `L (6)`, `M (17)`, `N (4)`, `O (9)`, `P (25)`, `Q (2)`, `R (28)`, `S (20)`, `T (10)`, `U (2)`, `V (4)`.
+- POS counts: `noun 680`, `verb 311`, `adjective 234`, `phrase 193`, `other 117`.
+- Context counts: `daily 687`, `services 361`, `work 280`, `health 157`, `housing 70`, `bank 43` (other contexts unchanged from dross-v114).
+- Sample entries: `AAH (Allocation aux adultes handicapés)`, `CPAM (Caisse Primaire d'Assurance Maladie)`, `Carte Vitale`, `Hôpital`, `Pharmacie`, `Médicament`, `Traitement` (2 examples, health+services), `CV (Curriculum vitae)`, `Lettre de motivation`, `Entretien d'embauche`, `Administration` (2 examples, daily only at this point), `Démarche` (B1, no contexts at this point), `Formulaire` (A1, no contexts at this point), `Décision`, `Contester`.
+- TTS loop on `Traitement` (2 examples) emits 9 unique `fr/ar/en` utterances per cycle.
+
+## dross-v116 context patch
+
+- `data/vocab.js` still contains **1535** entries; `sw.js` cache bumped to `dross-v116`.
+- The patch adds the `services` context to `Démarche`, `Formulaire`, and `Administration`.
+- After the patch:
+  - `services` context count is **364** (was 361).
+  - `Démarche` → noun B1, contexts `services`, 1 example.
+  - `Formulaire` → noun A1, contexts `services`, 1 example.
+  - `Administration` → noun A2, contexts `daily`, `services`, 2 examples.
+  - `work`, `health`, `bank`, `housing`, and all other context counts remain unchanged from dross-v115.
+- All other entries from dross-v115 remain unchanged.
+
 ## Modernized `vocab.html` UI (dross-v95)
 
 - `vocab.html` now uses a refreshed dark/light palette, glass-morphism sticky `header` (`backdrop-filter: blur(12px)`), a `.hero` section with a gradient top accent line, and a `.toolbar` grid layout.
@@ -304,7 +326,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v114`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v116`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
