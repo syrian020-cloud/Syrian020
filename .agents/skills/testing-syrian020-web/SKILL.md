@@ -173,6 +173,29 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   - `Contacter` → verb (A2), 3 trilingual examples
 - Search `Créer` also returns `Créer une entreprise` because the phrase contains the substring `Créer`; this is expected substring search behavior.
 - Search `Contacter` still matches `À défaut de` first due to its example containing `contacterai`.
+
+## CAF / housing / admin batch (dross-v113)
+
+- `data/vocab.js` now contains **1351** entries and `data/vocab-batch-02.js` is still empty.
+- Cache name is `dross-v113`.
+- Letter chip counts: `A (561)`, `B (143)`, `C (565)`, `D (13)`, `E (11)`, `F (3)`, `G (1)`, `H (3)`, `I (2)`, `J (4)`, `L (4)`, `M (5)`, `N (1)`, `O (4)`, `P (5)`, `Q (2)`, `R (13)`, `S (6)`, `T (3)`, `V (2)`, all other letters `0`.
+- POS counts: `noun 548`, `verb 299`, `adjective 231`, `phrase 194`, `other 79`.
+- Context counts: `daily 687`, `services 284`, `work 245`, `housing 70`, `health 55`, `transport 38`, `shop 45`, `bank 35`, `school 27`, `phone 18`, `caf 17`, `car 14`, `family 14`, `france_travail 11`, `weather 7`, `restaurant 7`, `food 8`, `prefecture 6`, `post 4`, `cpam 4`, `mairie 2`, `office 2`, `geography 1`.
+- 108 new entries added and 19 existing entries merged (focus on CAF/housing/admin terms). Sample entries:
+  - `CAF` → noun (A1), context `services`
+  - `APL (Aide personnalisée au logement)` → noun (A1), contexts `services`, `housing`
+  - `RSA (Revenu de solidarité active)` → noun (A1), contexts `services`, `bank`
+  - `Logement` → noun (A1), context `housing`
+  - `Loyer` → noun (A1), contexts `housing`, `bank`
+  - `Demande` → noun (A1), context `services`
+  - `Dossier` → noun (A1), context `services`
+  - `Faire une demande` → other (A1), context `services`
+  - `Bail` → noun (A2), context `housing`
+  - `Allocations` → noun (A1), context `services`
+- New administrative terms often appear with `CAF` or `services`/`housing` context chips.
+- Searching short administrative words (`CAF`, `Demande`, `Dossier`, `Logement`, `Loyer`) returns many results because the substring also matches contexts and examples; exact entries are present in the result list.
+- TTS loop on a single-example entry (e.g. `Bail`) emits 6 unique `fr/ar/en` utterances per cycle (headword + 1 example × 3 languages).
+
 - Sample B nouns/adjectives/phrases (each returns 1 result):
   - `Bureau` → noun
   - `Banque` → noun
@@ -246,7 +269,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v112`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v113`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
