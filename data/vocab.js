@@ -2979,7 +2979,6 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "services",
-      "stage",
       "work"
     ],
     "ex": [
@@ -2987,11 +2986,6 @@ window.VOCAB_DATA = [
         "fr": "Je voudrais ajouter un document à mon dossier.",
         "ar": "أريد إضافة وثيقة إلى ملفي.",
         "en": "I would like to add a document to my file."
-      },
-      {
-        "fr": "J’ajoute la sauce sur le sushi.",
-        "ar": "أضيف الصلصة على السوشي.",
-        "en": "I add the sauce to the sushi."
       }
     ],
     "usage": "الملفات والوثائق | الملفات والوثائق | الملفات، المعلومات",
@@ -12330,8 +12324,7 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "contexts": [
       "daily",
-      "work",
-      "stage"
+      "work"
     ],
     "ex": [
       {
@@ -14993,7 +14986,6 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily",
-      "stage",
       "work"
     ],
     "ex": [

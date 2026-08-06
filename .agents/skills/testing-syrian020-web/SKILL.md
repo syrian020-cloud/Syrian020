@@ -432,6 +432,23 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   9. Verify Google Images link includes `udm=2&q=<fr>` and Google AI link includes `udm=50`.
 - The debug APK was rebuilt after this batch.
 
+## Stage context cleanup (dross-v125)
+
+- `data/vocab.js` still contains **1908** entries; `sw.js` cache bumped to `dross-v125`.
+- Removed the `stage` context from `Ajouter`, `Couper`, and `Le couteau`.
+- Removed the `J’ajoute la sauce sur le sushi.` example from `Ajouter`; remaining example is `Je voudrais ajouter un document à mon dossier.`.
+- `stage` context count decreased from 99 to **96**; `work` context count remains **380**.
+- E2E verification steps:
+  1. Open `http://localhost:8080/vocab.html` in a fresh Chrome incognito/profile.
+  2. Confirm active service worker cache is `dross-v125`.
+  3. Confirm `#stats` shows `1908 result(s)` and context chips show `Internship (96)` and `Work (380)`.
+  4. Search `Ajouter` and verify no `Stage`/`Internship` pill and the sushi example is gone.
+  5. Search `Couper` and `Le couteau` and verify no `Stage`/`Internship` pill.
+  6. Click `Loop` on `Remplir` and verify no JS errors.
+  7. Toggle dark/light mode and verify `<html data-theme>` flips without errors.
+  8. Verify Google Images link includes `udm=2&q=<fr>` and Google AI link includes `udm=50`.
+- The debug APK was rebuilt after this cleanup.
+
 ## Known data-quality issues (last observed)
 
 - None. All 1908 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`) when a separate example was provided. Situation sentences use `fr`/`ar`/`en` directly and may not have a separate `ex` block. Administrative entries may also include a `usage` field.
