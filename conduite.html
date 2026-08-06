@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#1a3a52">
+<title>Conduite</title>
+<link rel="manifest" href="manifest-conduite.json">
+<style>
+  :root {
+    --bg-primary: #0f2439;
+    --bg-secondary: #1a3a52;
+    --bg-tertiary: #264d66;
+    --text-primary: #e8f4ff;
+    --text-secondary: #a8c9e8;
+    --accent: #4facfe;
+    --accent-hover: #00c6fb;
+    --danger: #ff6b81;
+    --success: #00e676;
+    --gold: #ffc857;
+    --border: #2a5a7a;
+    --shadow: 0 4px 16px rgba(0,0,0,0.35);
+    --radius: 16px;
+  }
+  [data-theme="light"] {
+    --bg-primary: #f2f7fb;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #e4eef6;
+    --text-primary: #1c2e3e;
+    --text-secondary: #4a6276;
+    --accent: #0077c2;
+    --accent-hover: #005fa3;
+    --border: #c9dce8;
+    --shadow: 0 4px 16px rgba(0,0,0,0.1);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; min-height: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", sans-serif;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    color: var(--text-primary);
+    line-height: 1.65;
+    padding-bottom: 6rem;
+  }
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(26,58,82,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .header-inner {
+    max-width: 960px; margin: 0 auto; padding: 0.7rem 1rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .logo { font-weight: 800; color: var(--accent); font-size: 1.05rem; white-space: nowrap; }
+  .spacer { flex: 1; }
+  .icon-btn {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 50%;
+    width: 40px; height: 40px; font-size: 1.1rem; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .lang-switch { display: flex; gap: 0.25rem; }
+  .lang-btn {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 0.35rem 0.7rem; font-size: 0.78rem; font-weight: 700; cursor: pointer;
+  }
+  .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  main { max-width: 960px; margin: 0 auto; padding: 1rem; }
+  .hero {
+    text-align: center; padding: 1.2rem 0.5rem 1rem;
+  }
+  .hero h1 { margin: 0; font-size: 1.35rem; }
+  .hero p { margin: 0.4rem 0 0; color: var(--text-secondary); font-size: 0.95rem; }
+  .toolbar {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 1.2rem;
+    background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 0.8rem; box-shadow: var(--shadow);
+  }
+  select.ctl, .btn-ctl {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 0.55rem 0.8rem; font-size: 0.9rem; cursor: pointer; font-weight: 600;
+  }
+  .btn-ctl { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn-ctl:hover { background: var(--accent-hover); }
+  .btn-ctl.secondary { background: var(--bg-tertiary); color: var(--text-primary); }
+  .question {
+    background: var(--bg-secondary); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1rem; margin-bottom: 1rem;
+    box-shadow: var(--shadow); transition: transform 0.15s, border-color 0.2s;
+  }
+  .question:hover { border-color: var(--accent); }
+  .question.playing { border-color: var(--success); box-shadow: 0 0 0 2px var(--success); }
+  .q-head {
+    display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.9rem;
+    padding-bottom: 0.7rem; border-bottom: 1px solid var(--border);
+  }
+  .q-num {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 1.1rem; flex-shrink: 0;
+  }
+  .q-title { flex: 1; font-weight: 700; font-size: 1.05rem; }
+  .q-actions { display: flex; gap: 0.4rem; flex-shrink: 0; }
+  .q-actions button {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 50%;
+    width: 38px; height: 38px; font-size: 1rem; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .q-actions button:hover { border-color: var(--accent); color: var(--accent); }
+  .q-actions button.active { background: var(--success); color: #1a1a1a; border-color: var(--success); }
+  .section { margin-bottom: 0.85rem; }
+  .section:last-child { margin-bottom: 0; }
+  .section-label {
+    display: inline-block; background: var(--bg-tertiary); color: var(--accent);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 0.15rem 0.65rem; font-size: 0.72rem; font-weight: 700; margin-bottom: 0.35rem;
+  }
+  .line { padding: 0.55rem 0.7rem; border-radius: 10px; margin-bottom: 0.35rem; }
+  .line:last-child { margin-bottom: 0; }
+  .line.fr { background: rgba(79,172,254,0.12); direction: ltr; text-align: left; }
+  .line.en { background: rgba(0,230,118,0.1); direction: ltr; text-align: left; color: var(--text-secondary); }
+  .line.ar { background: rgba(255,200,87,0.12); direction: rtl; text-align: right; }
+  .line .line-btn {
+    font-size: 0.75rem; font-weight: 800; margin-inline-end: 0.45rem;
+    width: 26px; height: 26px; border-radius: 50%;
+    border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-primary);
+    display: inline-flex; align-items: center; justify-content: center; cursor: pointer; padding: 0;
+    vertical-align: middle;
+  }
+  .line .line-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .line .line-btn.active { background: var(--success); color: #1a1a1a; border-color: var(--success); }
+  .line .tag { font-size: 0.7rem; font-weight: 800; margin-inline-end: 0.4rem; opacity: 0.7; }
+  .line.active { outline: 2px solid var(--success); }
+  .word { cursor: pointer; border-radius: 3px; padding: 0 1px; }
+  .word:hover { text-decoration: underline; color: var(--accent); }
+  .word.active { background: var(--success); color: #1a1a1a; }
+  .drawer-fab {
+    position: fixed; bottom: 1.2rem; left: 1.2rem; z-index: 60;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b81, #ff8c61); color: #fff;
+    border: none; font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 14px rgba(255,107,129,0.45);
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .drawer-overlay {
+    position: fixed; inset: 0; z-index: 100;
+    background: var(--bg-primary); display: none; flex-direction: column;
+  }
+  .drawer-overlay.open { display: flex; }
+  .drawer-toolbar {
+    display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem;
+    background: var(--bg-secondary); border-bottom: 1px solid var(--border); flex-wrap: wrap;
+  }
+  .drawer-toolbar button, .drawer-toolbar input, .drawer-toolbar select {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 0.45rem 0.65rem; font-size: 0.9rem; cursor: pointer;
+  }
+  .drawer-toolbar input[type="color"] { padding: 0.15rem; width: 42px; height: 34px; }
+  .drawer-canvas { flex: 1; touch-action: none; cursor: crosshair; background: #fff; }
+  footer { text-align: center; color: var(--text-secondary); font-size: 0.8rem; padding: 1.5rem 1rem; }
+  footer a { color: var(--accent); text-decoration: none; display: inline-block; padding: 0.25rem 0.5rem; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <span class="logo"><span data-t="appName">Conduite</span></span>
+    <span class="spacer"></span>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ar">AR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
+    <button class="icon-btn" id="btn-theme" title="Dark / light mode">🌙</button>
+    <button class="icon-btn" id="btn-stop" title="Stop audio">⏹</button>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <h1 data-t="title">امتحان القيادة العملي</h1>
+    <p data-t="subtitle">100 سؤالًا بالفرنسية · الإنجليزية · العربية</p>
+  </div>
+
+  <div class="toolbar">
+    <select class="ctl" id="rate" title="Speech rate">
+      <option value="0.6">0.6×</option>
+      <option value="0.8">0.8×</option>
+      <option value="1" selected>1×</option>
+      <option value="1.2">1.2×</option>
+    </select>
+    <select class="ctl" id="loopmode" title="Loop content">
+      <option value="fr,en,ar" data-t="loopAll" selected>🔁 FR + EN + AR</option>
+      <option value="fr,ar" data-t="loopFrAr">🔁 FR + AR</option>
+      <option value="fr" data-t="loopFr">🔁 FR</option>
+    </select>
+    <button class="btn-ctl secondary" id="btn-global-loop" title="Play all questions">▶ <span data-t="playAll">تشغيل الكل</span></button>
+    <button class="btn-ctl" id="btn-draw" title="Open drawing board">🎨 <span data-t="draw">الرسام</span></button>
+  </div>
+
+  <div id="questions"></div>
+</main>
+
+<footer>
+  <span data-t="footerText">تطبيق امتحان القيادة العملي · </span>
+  <a href="index.html" data-t="videoLink">دروسي المرئية</a> ·
+  <a href="french.html" data-t="frenchLink">تعلم الفرنسية</a>
+</footer>
+
+<button class="drawer-fab" id="fab-draw" title="Open drawing board">🎨</button>
+
+<div class="drawer-overlay" id="drawer">
+  <div class="drawer-toolbar">
+    <button id="draw-close" title="Close">✕</button>
+    <input type="color" id="draw-color" value="#1a1a1a" title="Color">
+    <select id="draw-size" title="Brush size">
+      <option value="2">2px</option>
+      <option value="4" selected>4px</option>
+      <option value="8">8px</option>
+      <option value="16">16px</option>
+    </select>
+    <button id="draw-eraser" title="Eraser">🧼</button>
+    <button id="draw-pen" title="Pen">✏️</button>
+    <button id="draw-clear" title="Clear">🗑️</button>
+    <button id="draw-save" title="Save image">💾</button>
+    <span class="spacer"></span>
+  </div>
+  <canvas id="draw-canvas" class="drawer-canvas"></canvas>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var UI = {
+    appName: { ar: 'Conduite', en: 'Conduite', fr: 'Conduite' },
+    title: { ar: 'امتحان القيادة العملي', en: 'Practical Driving Exam', fr: 'Examen Pratique de Conduite' },
+    subtitle: { ar: '100 سؤالًا بالفرنسية · الإنجليزية · العربية', en: '100 questions in French · English · Arabic', fr: '100 questions en Français · Anglais · Arabe' },
+    playAll: { ar: 'تشغيل الكل', en: 'Play all', fr: 'Tout lire' },
+    draw: { ar: 'الرسام', en: 'Draw', fr: 'Dessiner' },
+    loopAll: { ar: '🔁 فرنسي + إنجليزي + عربي', en: '🔁 French + English + Arabic', fr: '🔁 Français + Anglais + Arabe' },
+    loopFrAr: { ar: '🔁 فرنسي + عربي', en: '🔁 French + Arabic', fr: '🔁 Français + Arabe' },
+    loopFr: { ar: '🔁 فرنسي فقط', en: '🔁 French only', fr: '🔁 Français seulement' },
+    searchImages: { ar: 'بحث صور Google', en: 'Google Images', fr: 'Google Images' },
+    askAi: { ar: 'اسأل Google AI', en: 'Ask Google AI', fr: 'Demander à Google AI' },
+    loop: { ar: 'تكرار السطر', en: 'Loop line', fr: 'Boucle la ligne' },
+    footerText: { ar: 'تطبيق امتحان القيادة العملي · ', en: 'Practical driving exam app · ', fr: 'Application examen pratique de conduite · ' },
+    videoLink: { ar: 'دروسي المرئية', en: 'My video lessons', fr: 'Mes cours vidéo' },
+    frenchLink: { ar: 'تعلم الفرنسية', en: 'Learn French', fr: 'Apprendre le français' },
+    vi: { ar: 'التحقق', en: 'Vehicle check', fr: 'Vérification' },
+    qser: { ar: 'السلامة المرورية', en: 'Road safety', fr: 'Sécurité routière' },
+    secours: { ar: 'الإسعافات الأولية', en: 'First aid', fr: 'Premiers secours' },
+    question: { ar: 'السؤال', en: 'Question', fr: 'Question' },
+    answer: { ar: 'الجواب', en: 'Answer', fr: 'Réponse' }
+  };
+
+  var VOICE_LANG = { fr: 'fr-FR', en: 'en-US', ar: 'ar-SA' };
+  var speechRun = 0;
+
+  var state = {
+    uiLang: localStorage.getItem('conduite_ui_lang') || 'ar',
+    langs: (localStorage.getItem('conduite_langs') || 'fr,en,ar').split(','),
+    rate: parseFloat(localStorage.getItem('conduite_rate') || '1'),
+    loop: null,
+    globalLoop: false
+  };
+
+  function t(key) {
+    var v = UI[key];
+    return (v && v[state.uiLang]) || (v && v.en) || key;
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function nativeTTS() {
+    if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech) return window.Capacitor.Plugins.TextToSpeech;
+    if (window.Capacitor && window.Capacitor.registerPlugin) {
+      window.Capacitor.Plugins = window.Capacitor.Plugins || {};
+      window.Capacitor.Plugins.TextToSpeech = window.Capacitor.registerPlugin('TextToSpeech');
+      return window.Capacitor.Plugins.TextToSpeech;
+    }
+    return null;
+  }
+
+  function nativeSpeak(text, lang) {
+    var tts = nativeTTS();
+    if (!tts) return Promise.reject('no tts');
+    return tts.speak({ text: text, lang: VOICE_LANG[lang] || 'en-US', rate: state.rate || 1, queueStrategy: 1 });
+  }
+
+  function nativeStop() {
+    var tts = nativeTTS(); if (!tts) return Promise.resolve(); return tts.stop();
+  }
+
+  function pickVoice(lang) {
+    if (!('speechSynthesis' in window)) return null;
+    var voices = window.speechSynthesis.getVoices() || [];
+    var code = VOICE_LANG[lang];
+    var exact = voices.filter(function (v) { return v.lang && v.lang.replace('_', '-') === code; })[0];
+    if (exact) return exact;
+    var prefix = code.split('-')[0];
+    return voices.filter(function (v) { return v.lang && v.lang.toLowerCase().indexOf(prefix) === 0; })[0] || null;
+  }
+
+  function utter(text, lang) {
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = VOICE_LANG[lang];
+    u.rate = lang === 'fr' ? state.rate * 0.95 : state.rate;
+    var v = pickVoice(lang);
+    if (v) u.voice = v;
+    return u;
+  }
+
+  function stopSpeech() {
+    state.loop = null; state.globalLoop = false;
+    speechRun++;
+    if (nativeTTS()) nativeStop();
+    else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    document.querySelectorAll('.question').forEach(function (el) { el.classList.remove('playing'); });
+    document.querySelectorAll('.line').forEach(function (el) { el.classList.remove('active'); });
+    document.querySelectorAll('.word').forEach(function (el) { el.classList.remove('active'); });
+    document.querySelectorAll('.line-speak').forEach(function (b) { b.classList.remove('active'); b.textContent = '🔁'; });
+    document.getElementById('btn-global-loop').textContent = '▶ ' + t('playAll');
+    document.querySelectorAll('.loop-btn').forEach(function (b) { b.classList.remove('active'); b.textContent = '🔁'; });
+  }
+
+  function speakText(text, lang, onDone, run) {
+    if (run !== speechRun) return;
+    if (nativeTTS()) {
+      nativeSpeak(text, lang).then(function () { if (run === speechRun && onDone) onDone(); }).catch(function () { if (run === speechRun && onDone) onDone(); });
+      return;
+    }
+    if (!('speechSynthesis' in window)) { if (onDone) onDone(); return; }
+    var u = utter(text, lang);
+    u.onend = function () { if (run === speechRun && onDone) onDone(); };
+    u.onerror = function () { if (run === speechRun && onDone) onDone(); };
+    window.speechSynthesis.speak(u);
+  }
+
+  function speakSection(lines, idx, key, run, onDone) {
+    if (run !== speechRun) return;
+    if (idx >= lines.length) { if (onDone) onDone(); return; }
+    var item = lines[idx];
+    var el = document.querySelector('.question[data-key="' + key + '"] .line[data-lang="' + item.lang + '"][data-type="' + item.type + '"][data-index="' + item.index + '"]');
+    if (el) el.classList.add('active');
+    speakText(item.text, item.lang, function () {
+      if (el) el.classList.remove('active');
+      if (run !== speechRun) return;
+      setTimeout(function () { speakSection(lines, idx + 1, key, run, onDone); }, 180);
+    }, run);
+  }
+
+  function getQuestionLines(q, langs) {
+    var lines = [];
+    function add(text, lang, type, index) {
+      if (text) lines.push({ text: text, lang: lang, type: type, index: index });
+    }
+    langs.forEach(function (lang) {
+      add(q.vi[lang], lang, 'vi', 0);
+      add(q.qser.q[lang], lang, 'qser-q', 0);
+      add(q.qser.a[lang], lang, 'qser-a', 0);
+      add(q.secours.q[lang], lang, 'secours-q', 0);
+      add(q.secours.a[lang], lang, 'secours-a', 0);
+    });
+    return lines;
+  }
+
+  function speakQuestion(q, key, onDone) {
+    var run = ++speechRun;
+    var el = document.querySelector('.question[data-key="' + key + '"]');
+    if (el) { el.scrollIntoView({ block: 'center', behavior: 'smooth' }); el.classList.add('playing'); }
+    var lines = getQuestionLines(q, state.langs);
+    speakSection(lines, 0, key, run, function () {
+      if (el) el.classList.remove('playing');
+      if (onDone) onDone();
+    });
+  }
+
+  function toggleLoop(q, key) {
+    if (state.loop && state.loop.key === key && !state.loop.line && !state.loop.word) { stopSpeech(); return; }
+    stopSpeech();
+    state.loop = { key: key };
+    var btn = document.querySelector('.question[data-key="' + key + '"] .loop-btn');
+    if (btn) { btn.classList.add('active'); btn.textContent = '⏸'; }
+    (function cycle() {
+      if (!state.loop || state.loop.key !== key || state.loop.line || state.loop.word) return;
+      speakQuestion(q, key, function () {
+        if (!state.loop || state.loop.key !== key || state.loop.line || state.loop.word) return;
+        setTimeout(cycle, 700);
+      });
+    })();
+  }
+
+  function toggleLineLoop(lineEl, q, key, type, lang, index) {
+    var text = lineEl.dataset.text || '';
+    if (state.loop && state.loop.key === key && state.loop.line &&
+        state.loop.line.type === type && state.loop.line.lang === lang && state.loop.line.index === index) {
+      stopSpeech(); return;
+    }
+    stopSpeech();
+    state.loop = { key: key, line: { type: type, lang: lang, index: index, text: text } };
+    var btn = lineEl.querySelector('.line-speak');
+    if (btn) { btn.classList.add('active'); btn.textContent = '⏸'; }
+    var run = speechRun;
+    (function cycle() {
+      if (!state.loop || state.loop.key !== key || !state.loop.line ||
+          state.loop.line.type !== type || state.loop.line.lang !== lang || state.loop.line.index !== index) return;
+      lineEl.classList.add('active');
+      speakText(text, lang, function () {
+        lineEl.classList.remove('active');
+        if (!state.loop || state.loop.key !== key || !state.loop.line ||
+            state.loop.line.type !== type || state.loop.line.lang !== lang || state.loop.line.index !== index) return;
+        setTimeout(cycle, 500);
+      }, run);
+    })();
+  }
+
+  function toggleWordLoop(wordEl, q, key, type, lang, index) {
+    var text = wordEl.textContent || '';
+    if (state.loop && state.loop.key === key && state.loop.word &&
+        state.loop.word.type === type && state.loop.word.lang === lang &&
+        state.loop.word.index === index && state.loop.word.el === wordEl) {
+      stopSpeech(); return;
+    }
+    stopSpeech();
+    state.loop = { key: key, word: { type: type, lang: lang, index: index, text: text, el: wordEl } };
+    wordEl.classList.add('active');
+    var run = speechRun;
+    (function cycle() {
+      if (!state.loop || state.loop.key !== key || !state.loop.word ||
+          state.loop.word.type !== type || state.loop.word.lang !== lang || state.loop.word.index !== index ||
+          state.loop.word.el !== wordEl) return;
+      speakText(text, lang, function () {
+        if (!state.loop || state.loop.key !== key || !state.loop.word ||
+            state.loop.word.type !== type || state.loop.word.lang !== lang || state.loop.word.index !== index ||
+            state.loop.word.el !== wordEl) return;
+        setTimeout(cycle, 500);
+      }, run);
+    })();
+  }
+
+  function askAiLine(q, type, lang) {
+    var text;
+    if (type === 'vi') {
+      text = q.vi[lang];
+    } else {
+      var parts = type.split('-');
+      var obj = parts[0] === 'qser' ? q.qser : (parts[0] === 'secours' ? q.secours : null);
+      var sub = parts[1] === 'q' ? 'q' : (parts[1] === 'a' ? 'a' : null);
+      if (!obj || !sub) return;
+      text = obj[sub][lang];
+    }
+    if (!text) return;
+    var prompt;
+    if (lang === 'en') {
+      prompt = text + ' answer in English with French then Arabic translation';
+    } else if (lang === 'ar') {
+      prompt = text + ' أجب بالعربية مع الترجمة الإنجليزية ثم الفرنسية';
+    } else {
+      prompt = text + ' réponse en français avec traduction arabe puis anglaise';
+    }
+    window.open('https://www.google.com/search?q=' + encodeURIComponent(prompt), '_blank');
+  }
+
+  var QUESTIONS = [
+    {
+      id: 1,
+      vi: { fr: 'Montrez la commande de réglage de hauteur des feux. (Dispositif situé en général à gauche du volant.)', en: 'Show the headlight height adjustment control. (Device usually located to the left of the steering wheel.)', ar: 'أشر إلى أداة التحكم في ضبط ارتفاع الأضواء. (الجهاز يقع عادةً على يسار عجلة القيادة.)' },
+      qser: { q: { fr: 'Pourquoi doit-on régler la hauteur des feux ?', en: 'Why must the headlight height be adjusted?', ar: 'لماذا يجب ضبط ارتفاع الأضواء؟' }, a: { fr: 'Pour ne pas éblouir les autres usagers.', en: 'In order not to dazzle other road users.', ar: 'لعدم إبهار مستخدمي الطريق الآخرين.' } },
+      secours: { q: { fr: "Comment et pourquoi protéger une zone de danger en cas d'accident de la route ?", en: 'How and why should a danger zone be protected in the event of a road accident?', ar: 'كيف ولماذا نحمي منطقة الخطر في حالة وقوع حادث سير؟' }, a: { fr: 'En délimitant clairement et largement la zone de danger de façon visible pour protéger les victimes et éviter un sur-accident.', en: 'By clearly and broadly delimiting the danger zone in a visible way to protect the victims and prevent a secondary accident.', ar: 'من خلال تحديد منطقة الخطر بوضوح وسعة وبطريقة مرئية لحماية الضحايا وتجنب وقوع حادث ثانٍ.' } }
+    },
+    {
+      id: 2,
+      vi: { fr: 'Montrez où s\'effectue le remplissage du produit lave-glace.', en: 'Show where the windshield washer fluid is filled.', ar: 'أشر إلى مكان سكب سائل غسيل الزجاج.' },
+      qser: { q: { fr: 'Pourquoi est-il préférable d\'utiliser un liquide spécial en hiver ?', en: 'Why is it preferable to use a special fluid in winter?', ar: 'لماذا يُفضل استخدام سائل خاص في فصل الشتاء؟' }, a: { fr: 'Pour éviter le gel du liquide.', en: 'To prevent the fluid from freezing.', ar: 'لتجنب تجمد السائل.' } },
+      secours: { q: { fr: 'Quels comportements adopter en cas de diffusion du signal d\'alerte du Système d\'Alerte et d\'Information des Populations (SAIP) ?', en: 'What actions should be taken if the SAIP alert signal is broadcast?', ar: 'ما هي التصرفات الواجب اتخاذها عند بث إشارة الإنذار الخاصة بنظام الإنذار وإعلام السكان (SAIP)؟' }, a: { fr: 'Se mettre en sécurité. S\'informer grâce aux médias et sites internet des autorités dès que leur consultation est possible. Respecter les consignes des autorités.', en: 'Go to a safe place. Stay informed through the media and authority websites as soon as available. Follow authority instructions.', ar: 'التوجه إلى مكان آمن. الاطلاع على الأخبار عبر وسائل الإعلام ومواقع السلطات الإلكترونية بمجرد إمكانية ذلك. الالتزام بتعليمات السلطات.' } }
+    },
+    {
+      id: 3,
+      vi: { fr: 'Mettez le rétroviseur intérieur en position "nuit".', en: 'Set the interior rear-view mirror to the "night" position.', ar: 'اضبط المرآة العاكسة الداخلية على الوضع "الليلي".' },
+      qser: { q: { fr: 'Quel est l\'intérêt de la position nuit ?', en: 'What is the benefit of the night position?', ar: 'ما هي فائدة الوضع الليلي؟' }, a: { fr: 'Ne pas être ébloui par les feux du véhicule suiveur.', en: 'Not to be dazzled by the headlights of the vehicle behind.', ar: 'عدم التعرض للإبهار بفعل أضواء السيارة الخلفية.' } },
+      secours: { q: { fr: 'Comment est composé le signal d\'alerte du Système d\'Alerte et d\'Information des Populations (SAIP) diffusé par les sirènes ?', en: 'How is the SAIP alert signal broadcast by sirens composed?', ar: 'كيف تتكون إشارة الإنذار الصادرة عن صفارات نظام (SAIP)؟' }, a: { fr: 'Il se compose de deux codes distincts : le Signal National d\'Alerte (SNA), variation du signal sur trois cycles successifs. Le signal de fin d\'alerte, signal continu.', en: 'It consists of two distinct signals: The National Alert Signal (SNA), a modulated sound over three successive cycles. The end-of-alert signal, a continuous tone.', ar: 'تتكون من رمزين منفصلين: إشارة الإنذار الوطنية (SNA)، وتغير في الصوت عبر ثلاث دورات متتالية. ثم إشارة انتهاء الإنذار، وهي صوت مستمر.' } }
+    },
+    {
+      id: 4,
+      vi: { fr: 'Contrôlez l\'état du flanc sur l\'un des pneumatiques.', en: 'Check the condition of the sidewall on one of the tires.', ar: 'افحص حالة الجانب (الحافة) لأحد الإطارات.' },
+      qser: { q: { fr: 'Citez un endroit où l\'on peut trouver les pressions préconisées pour les pneumatiques ?', en: 'Name a location where you can find the recommended tire pressures.', ar: 'اذكر مكانًا يمكن فيه العثور على ضغط الإطارات الموصى به؟' }, a: { fr: 'Sur une plaque sur une portière, dans la notice d\'utilisation du véhicule, ou au niveau de la trappe à carburant.', en: 'On a sticker on a door frame, in the vehicle owner\'s manual, or inside the fuel filler flap.', ar: 'هي مدونة إما: على لوحة ملصقة على أحد الأبواب، أو في كتيب دليل استخدام السيارة، أو عند غطاء باب خزان الوقود.' } },
+      secours: { q: { fr: 'Sur autoroute, comment indiquer avec précision les lieux de l\'accident depuis un téléphone portable ?', en: 'On a highway, how can you precisely indicate the location of the accident from a cell phone?', ar: 'على الطريق السريع، كيف تحدد مكان الحادث بدقة عبر الهاتف المحمول؟' }, a: { fr: 'En indiquant le numéro de l\'autoroute, le sens de circulation et le point kilométrique.', en: 'By providing the highway number, driving direction, and the kilometer marker.', ar: 'بذكر رقم الطريق السريع، اتجاه السير، والعلامة الكيلومترية.' } }
+    },
+    {
+      id: 5,
+      vi: { fr: 'Faites fonctionner les essuie-glaces avants du véhicule sur la position la plus rapide.', en: 'Operate the vehicle\'s front windshield wipers on the fastest setting.', ar: 'شَغِّل مساحات الزجاج الأمامي للسيارة على السرعة القصوى.' },
+      qser: { q: { fr: 'Comment détecter leur usure en circulation ?', en: 'How can you detect their wear while driving?', ar: 'كيف تكتشف تلفها/تآكلها أثناء القيادة؟' }, a: { fr: 'En cas de pluie, lorsqu\'ils laissent des traces sur le pare-brise.', en: 'In rainy weather, when they leave streaks on the windshield.', ar: 'في حالة المطر، عندما تترك أثرًا أو خطوطًا على الزجاج الأمامي.' } },
+      secours: { q: { fr: 'Comment vérifier la respiration d\'une victime ?', en: 'How do you check a victim\'s breathing?', ar: 'كيف تتحقق من تنفس المصاب؟' }, a: { fr: 'Regarder si le ventre et la poitrine se soulèvent et sentir de l\'air à l\'expiration.', en: 'Look if the stomach and chest rise, and feel for air during exhalation.', ar: 'ملاحظة ما إذا كان البطن والصدر يرتفعان وشعور بخروج الهواء عند الزفير.' } }
+    },
+    {
+      id: 6,
+      vi: { fr: 'Vérifiez l\'état et la propreté des plaques d\'immatriculation.', en: 'Check the condition and cleanliness of the license plates.', ar: 'تحقق من حالة ونظافة لوحات الترقيم (اللوحات المعدنية).' },
+      qser: { q: { fr: 'Quelles sont les précautions à prendre en cas d\'installation d\'un porte-vélo ?', en: 'What precautions should be taken when installing a bike rack?', ar: 'ما هي الاحتياطات الواجب اتخاذها عند تركيب حامل الدراجات؟' }, a: { fr: 'La plaque d\'immatriculation et les feux doivent être visibles.', en: 'The license plate and lights must remain visible.', ar: 'يجب أن تظل لوحة الترقيم والأضواء مرئية.' } },
+      secours: { q: { fr: 'Qu\'est-ce qu\'une perte de connaissance ?', en: 'What is loss of consciousness?', ar: 'ما هو فقدان الوعي؟' }, a: { fr: 'C\'est lorsque la victime ne répond pas et ne réagit pas mais respire.', en: 'It is when the victim does not answer or react, but is still breathing.', ar: 'هو عندما لا يستجيب المصاب ولا يتفاعل، ولكنه يتنفس.' } }
+    },
+    {
+      id: 7,
+      vi: { fr: 'Vérifiez la présence du gilet de haute visibilité.', en: 'Verify the presence of the high-visibility safety vest.', ar: 'تحقق من وجود سترة السلامة عالية الرؤية.' },
+      qser: { q: { fr: 'En cas de panne ou d\'accident, quel autre accessoire de sécurité est obligatoire ?', en: 'In case of breakdown or accident, what other safety accessory is mandatory?', ar: 'في حالة العطل أو الحادث، ما هو ملحق السلامة الآخر الإجباري؟' }, a: { fr: 'Le triangle de pré-signalisation.', en: 'The warning triangle.', ar: 'مثلث التحذير المسبق.' } },
+      secours: { q: { fr: 'Si un dégagement d\'urgence de la victime est nécessaire, où doit-elle être déplacée ?', en: 'If an emergency evacuation of the victim is necessary, where should they be moved?', ar: 'إذا كان الإخلاء الطارئ للمصاب ضروريًا، إلى أين يجب نقله؟' }, a: { fr: 'Dans un endroit suffisamment éloigné du danger et de ses conséquences.', en: 'To a location sufficiently far from the danger and its consequences.', ar: 'إلى مكان بعيد بدرجة كافية عن الخطر وتبعاته.' } }
+    },
+    {
+      id: 8,
+      vi: { fr: 'Montrez où s\'effectue le contrôle du niveau du liquide de frein.', en: 'Show where the brake fluid level is checked.', ar: 'أشر إلى مكان فحص مستوى سائل الفرامل.' },
+      qser: { q: { fr: 'Quelle est la conséquence d\'un niveau insuffisant du liquide de frein ?', en: 'What is the consequence of an insufficient brake fluid level?', ar: 'ما هي نتيجة انخفاض مستوى سائل الفرامل؟' }, a: { fr: 'Une perte d\'efficacité du freinage.', en: 'A loss of braking efficiency.', ar: 'فقدان كفاءة الفرملة.' } },
+      secours: { q: { fr: 'En cas de panne ou d\'accident, quel équipement de sécurité doit être porté avant de quitter le véhicule ?', en: 'In case of breakdown or accident, what safety equipment must be worn before leaving the vehicle?', ar: 'في حالة العطل أو الحادث، ما هو تجهيز السلامة الذي يجب ارتداؤه قبل مغادرة السيارة؟' }, a: { fr: 'Il faut porter le gilet de haute visibilité avant de sortir du véhicule.', en: 'You must wear the high-visibility vest before getting out of the vehicle.', ar: 'يجب ارتداء سترة السلامة عالية الرؤية قبل الخروج من السيارة.' } }
+    },
+    {
+      id: 9,
+      vi: { fr: 'Vérifiez la présence du certificat d\'immatriculation du véhicule (ou carte grise).', en: 'Check for the presence of the vehicle registration certificate (carte grise).', ar: 'تحقق من وجود شهادة تسجيل السيارة (أو البطاقة الرمادية).' },
+      qser: { q: { fr: 'Quels sont les deux autres documents obligatoires à présenter en cas de contrôle par les forces de l\'ordre ?', en: 'What are the two other mandatory documents to present during a police check?', ar: 'ما هما الوثيقتان الإلزاميتان الأخريان الواجب إبرازهما عند التفتيش من قبل رجال الأمن؟' }, a: { fr: 'L\'attestation d\'assurance et le permis de conduire.', en: 'Insurance certificate and driver\'s license.', ar: 'شهادة التأمين ورخصة القيادة.' } },
+      secours: { q: { fr: 'Pourquoi l\'alerte auprès des services de secours doit-elle être rapide et précise ?', en: 'Why must the call to emergency services be fast and accurate?', ar: 'لماذا يجب أن يكون الإبلاغ لخدمات الطوارئ سريعًا ودقيقًا؟' }, a: { fr: 'Pour permettre aux services de secours d\'apporter les moyens adaptés aux victimes dans le délai le plus court.', en: 'To allow emergency services to send the appropriate resources to victims in the shortest time.', ar: 'لتمكين خدمات الطوارئ من تقديم الوسائل المناسبة للضحايا في أسرع وقت ممكن.' } }
+    },
+    {
+      id: 10,
+      vi: { fr: 'Contrôlez l\'état de tous les balais d\'essuie-glace du véhicule.', en: 'Check the condition of all windshield wiper blades on the vehicle.', ar: 'افحص حالة جميع شفرات مساحات الزجاج بالسيارة.' },
+      qser: { q: { fr: 'Quel est le risque de circuler avec des balais d\'essuie-glace défectueux ?', en: 'What is the risk of driving with defective wiper blades?', ar: 'ما هو خطر السير بشفرات مساحات زجاج تالفة؟' }, a: { fr: 'Une mauvaise visibilité en cas d\'intempéries.', en: 'Poor visibility in bad weather conditions.', ar: 'رداءة الرؤية في حالة سوء الأحوال الجوية.' } },
+      secours: { q: { fr: 'Quels sont les numéros d\'urgence à composer ?', en: 'What emergency numbers should be dialed?', ar: 'ما هي أرقام الطوارئ التي يجب الاتصال بها؟' }, a: { fr: 'Le 18 (sapeurs-pompiers), le 15 (SAMU), le 112 (numéro européen d\'urgence).', en: '18 (Fire department), 15 (Medical Emergency / SAMU), 112 (European emergency number).', ar: '18 لرجال الإطفاء، 15 للإسعاف الطبي السريع (SAMU)، و112 للاتصالات الإسعافية الطارئة داخل الاتحاد الأوروبي.' } }
+    },
+    {
+      id: 11,
+      vi: { fr: 'Montrez l\'indicateur de niveau de carburant.', en: 'Show the fuel level gauge.', ar: 'أشر إلى مؤشر مستوى الوقود.' },
+      qser: { q: { fr: 'Quelles sont les précautions à prendre lors du remplissage du réservoir ?', en: 'What precautions should be taken when refueling?', ar: 'ما هي الاحتياطات الواجب اتخاذها عند تزويد الخزان بالوقود؟' }, a: { fr: 'Arrêter le moteur, ne pas fumer, ne pas téléphoner.', en: 'Turn off the engine, do not smoke, do not use a phone.', ar: 'إيقاف تشغيل المحرك، عدم التدخين، وعدم استخدام الهاتف.' } },
+      secours: { q: { fr: 'Quels comportements adopter en présence d\'une victime qui ne répond pas et ne réagit pas, mais respire ?', en: 'How should you act if a victim is unresponsive and unreactive, but breathing?', ar: 'ما هي التصرفات الواجب اتخاذها أمام مصاب لا يستجيب ولا يتفاعل ولكنه يتنفس؟' }, a: { fr: 'La placer en position stable sur le côté (PLS). Alerter les secours. Surveiller la respiration de la victime jusqu\'à l\'arrivée des secours.', en: 'Place them in the recovery position (PLS). Call emergency services. Monitor their breathing until help arrives.', ar: 'وضعه في وضعية استقرار على الجانب (وضعية الأمان الجانبية PLS). الاتصال بالطوارئ. ومراقبة تنفس المصاب حتى وصول الطوارئ.' } }
+    },
+    {
+      id: 12,
+      vi: { fr: 'Montrez où s\'effectue le remplissage du liquide de refroidissement.', en: 'Show where the engine coolant is filled.', ar: 'أشر إلى مكان ملء سائل التبريد.' },
+      qser: { q: { fr: 'Quel est le danger si l\'on complète le niveau du liquide lorsque le moteur est chaud ?', en: 'What is the danger of topping up coolant when the engine is hot?', ar: 'ما هو الخطر إذا تم تزويد السائل والمحرك ساخن؟' }, a: { fr: 'Un risque de brûlure.', en: 'A risk of severe burns.', ar: 'خطر التعرض للحروق.' } },
+      secours: { q: { fr: 'Comment arrêter une hémorragie ?', en: 'How do you stop heavy bleeding (hemorrhage)?', ar: 'كيف يتم إيقاف النزيف؟' }, a: { fr: 'En appuyant fortement sur l\'endroit qui saigne avec les doigts ou avec la paume de la main en mettant un tissu propre sur la plaie.', en: 'By applying firm direct pressure on the bleeding area with fingers or palm using a clean cloth on the wound.', ar: 'الضغط بقوة على موضع النزيف بالأصابع أو بكف اليد مع وضع قطعة قماش نظيفة على الجرح.' } }
+    },
+    {
+      id: 13,
+      vi: { fr: 'Dommande d\'éclairage : Allumez le(s) feu(x) de brouillard arrière et vérifiez son fonctionnement.', en: 'Lighting control: Switch on the rear fog light(s) and check its operation.', ar: 'التحقق الداخلي: تشغيل أضواء الضباب الخلفية والتحقق من عملها.' },
+      qser: { q: { fr: 'Dans quel cas les utilise-t-on ?', en: 'In which conditions are they used?', ar: 'في أي حالة نستخدمها؟' }, a: { fr: 'Par temps de brouillard et neige.', en: 'In foggy and snowy conditions.', ar: 'في حالات الضباب والثلج.' } },
+      secours: { q: { fr: 'Par quels moyens appropriés peut-on réaliser l\'extinction d\'un début d\'incendie dans un véhicule ?', en: 'By what appropriate means can an initial fire in a vehicle be extinguished?', ar: 'ما هي الوسائل المناسبة لإطفاء بداية حريق في سيارة؟' }, a: { fr: 'Extincteur, couverture...', en: 'Extinguisher, fire blanket...', ar: 'مطفأة الحريق، غطاء الحريق...' } }
+    },
+    {
+      id: 14,
+      vi: { fr: 'Contrôlez l\'état, la propreté et le fonctionnement du ou des feux de marche arrière.', en: 'Check the condition, cleanliness, and operation of the reverse light(s).', ar: 'التحقق الخارجي: افحص حالة ونظافة وعمل ضوء (أو أضواء) الرجوع للخلف.' },
+      qser: { q: { fr: 'Quelle est leur utilité ?', en: 'What is their purpose?', ar: 'ما هي فائدتها؟' }, a: { fr: 'Eclairer la zone de manoeuvre la nuit و Avertir les autres usagers de la manoeuvre.', en: 'Illuminate the maneuvering area at night and warn other road users of the maneuver.', ar: 'إضاءة منطقة المناورة ليلاً وتنبيه مستخدمي الطريق الآخرين بالمناورة.' } },
+      secours: { q: { fr: 'Hors autoroute ou voie rapide, en cas de panne ou d\'accident, où doit être placé le triangle de pré-signalisation ?', en: 'Outside motorways or expressways, in case of breakdown or accident, where should the warning triangle be placed?', ar: 'خارج الطرق السريعة أو السريعة، في حالة العطل أو الحادث، أين يجب وضع مثلث التحذير المسبق؟' }, a: { fr: 'Le triangle de pré-signalisation doit être placé à une distance d\'environ 30 mètres de l\'accident ou du véhicule en panne, ou avant un virage, ou un sommet de côte.', en: 'The warning triangle must be placed approximately 30 meters before the accident or stalled vehicle, or before a bend/crest of a hill.', ar: 'يجب وضع مثلث التحذير المسبق على مسافة حوالي 30 مترًا من الحادث أو المركبة المعطلة، أو قبل المنعطف، أو قمة التلة.' } }
+    },
+    {
+      id: 15,
+      vi: { fr: 'Montrez le voyant d\'alerte signalant un défaut de pression d\'huile moteur.', en: 'Show the warning light indicating low engine oil pressure.', ar: 'التحقق الداخلي: أشر إلى ضوء التحذير الذي يشير إلى انخفاض ضغط زيت المحرك.' },
+      qser: { q: { fr: 'Que faites-vous si ce voyant s\'allume en circulation ?', en: 'What do you do if this light comes on while driving?', ar: 'ماذا تفعل إذا أضاء هذا الضوء أثناء القيادة؟' }, a: { fr: 'Je m\'arrête dès que possible et j\'arrête le moteur.', en: 'Stop as soon as safely possible and turn off the engine.', ar: 'التوقف في أسرع وقت ممكن وإيقاف المحرك.' } },
+      secours: { q: { fr: 'Dans quelle situation peut-on déplacer une victime ?', en: 'In what situation can a victim be moved?', ar: 'في أي حالة يمكن نقل الضحية؟' }, a: { fr: 'En cas de danger réel, immédiat, non contrôlable et vital.', en: 'In the event of a real, immediate, uncontrollable, and life-threatening danger.', ar: 'في حالة وجود خطر حقيقي ومباشر ولا يمكن السيطرة عليه ويهدد الحياة.' } }
+    },
+    {
+      id: 16,
+      vi: { fr: 'Contrôlez l\'état, la propreté et le fonctionnement des feux de détresse à l\'avant et à l\'arrière.', en: 'Check the condition, cleanliness, and operation of the hazard warning lights at the front and rear.', ar: 'التحقق الخارجي: افحص حالة ونظافة وعمل أضواء التحذير من الخطر (الرباعي) في الأمام والخلف.' },
+      qser: { q: { fr: 'Dans quel cas doit-on les utiliser ?', en: 'When should they be used?', ar: 'متى يجب استخدامها؟' }, a: { fr: 'En cas de panne, d\'accident أو de ralentissement fort.', en: 'In case of breakdown, accident, or sharp sudden slowing down of traffic.', ar: 'في حالة العطل، أو الحادث، أو التباطؤ الشديد في الحركة.' } },
+      secours: { q: { fr: 'En cas de détresse respiratoire, que faut-il faire ?', en: 'In case of respiratory distress, what should be done?', ar: 'في حالة الضائقة التنفسية، ماذا يجب أن تفعل؟' }, a: { fr: 'Desserrer les vêtements, installer la personne en position demi-assise et alerter les secours.', en: 'Loosen tight clothing, place the person in a semi-seated position, and call emergency services.', ar: 'إرخاء الملابس الضيقة، وضع الشخص في وضعية شبه جالس، والاتصال بالإسعاف.' } }
+    },
+    {
+      id: 17,
+      vi: { fr: 'Vérifiez la présence du constat amiable dans le véhicule.', en: 'Check for the presence of the European Accident Statement form in the vehicle.', ar: 'التحقق الداخلي: تحقق من وجود نموذج تقرير الحادث الودي في المركبة.' },
+      qser: { q: { fr: 'Quel est l\'intérêt de ce document ?', en: 'What is the purpose of this document?', ar: 'ما هي فائدة هذه الوثيقة؟' }, a: { fr: 'Il permet de décrire les circonstances d\'un accident afin de le transmettre à l\'assureur.', en: 'It allows describing the circumstances of an accident to forward to the insurer.', ar: 'تسمح بتوضيح ظروف الحادث وإرسالها إلى شركة التأمين.' } },
+      secours: { q: { fr: 'Pourquoi ne faut-il pas donner à boire à une victime d\'accident ?', en: 'Why should you not give water/drinks to an accident victim?', ar: 'لماذا لا ينبغي إعطاء الشراب لمصاب الحادث؟' }, a: { fr: 'Cela peut provoquer des étouffements ou compliquer une éventuelle anesthésie à l\'hôpital.', en: 'It can cause choking or complicate possible anesthesia at the hospital.', ar: 'قد يؤدي ذلك إلى الاختناق أو تعقيد عملية التخدير المحتملة في المستشفى.' } }
+    },
+    {
+      id: 18,
+      vi: { fr: 'Contrôlez l\'état, la propreté et le fonctionnement des feux de croisement.', en: 'Check the condition, cleanliness, and operation of the dipped beam headlights (low beams).', ar: 'التحقق الخارجي: افحص حالة ونظافة وعمل أضواء التقاطع (الضوء المنخفض).' },
+      qser: { q: { fr: 'Quelles sont les précautions à prendre pour remplacer une ampoule grillée ?', en: 'What precautions should be taken when replacing a blown light bulb?', ar: 'ما هي الاحتياطات الواجب اتخاذها عند استبدال مصباح محترق؟' }, a: { fr: 'Couper le contact et utiliser une ampoule de même type.', en: 'Switch off the ignition and use a bulb of the same specification/type.', ar: 'إيقاف تشغيل المحرك/إطفاء السيارة واستخدام مصباح من نفس النوع.' } },
+      secours: { q: { fr: 'Quels sont les risques pour une personne inconsciente allongée sur le dos ?', en: 'What are the risks for an unconscious person lying on their back?', ar: 'ما هي المخاطر بالنسبة لشخص فاقد للوعي مستلقٍ على ظهره؟' }, a: { fr: 'L\'étouffement par la langue ou par des vomissements.', en: 'Choking caused by the tongue dropping back or by vomit.', ar: 'الاختناق بسبب انسداد المجاري التنفسية باللسان أو بالقيء.' } }
+    },
+    {
+      id: 19,
+      vi: { fr: 'Positionnez le système de ventilation sur le désembuage du pare-brise.', en: 'Set the ventilation system to windshield demisting/defrosting.', ar: 'التحقق الداخلي: اضبط نظام التهوية على وضع إزالة الضباب عن الزجاج الأمامي.' },
+      qser: { q: { fr: 'Quel est l\'intérêt de la climatisation pour le désembuage ?', en: 'What is the advantage of using air conditioning for demisting?', ar: 'ما هي فائدة المكيف في إزالة الضباب؟' }, a: { fr: 'Elle assèche l\'air et permet un désembuage plus rapide.', en: 'It dries the air, allowing faster demisting.', ar: 'يعمل على تجفيف الهواء مما يسهم في إزالة الضباب بشكل أسرع.' } },
+      secours: { q: { fr: 'Qu\'est-ce qu\'un défibrillateur automatisé externe (DAE) ?', en: 'What is an automated external defibrillator (AED)?', ar: 'ما هو جهاز إلغاء الترجفان الخارجي الآلي (DAE)؟' }, a: { fr: 'C\'est un appareil médical qui délivre un choc électrique pour rétablir un rythme cardiaque normal.', en: 'It is a medical device that delivers an electric shock to restore a normal heart rhythm.', ar: 'هو جهاز طبي يعطي صدمة كهربائية لاستعادة النبض الطبيعي للقلب.' } }
+    },
+    {
+      id: 20,
+      vi: { fr: 'Vérifiez l\'état des balais d\'essuie-glace arrière.', en: 'Check the condition of the rear wiper blade.', ar: 'التحقق الخارجي: افحص حالة شفرة مساحة الزجاج الخلفي.' },
+      qser: { q: { fr: 'Comment entretenir les balais d\'essuie-glace ?', en: 'How do you maintain wiper blades?', ar: 'كيف يتم صيانة شفرات المساحات؟' }, a: { fr: 'En les nettoyant régulièrement avec un chiffon humide.', en: 'By cleaning them regularly with a damp cloth.', ar: 'بتنظيفها بانتظام باستخدام قطعة قماش رطبة.' } },
+      secours: { q: { fr: 'Que faire en cas de brûlure grave ?', en: 'What should be done in case of a severe burn?', ar: 'ماذا تفعل في حالة الحروق الخطيرة؟' }, a: { fr: 'Arroser la brûlure à l\'eau froide, ne pas retirer les vêtements collés et alerter les secours.', en: 'Cool the burn with cold water, do not remove stuck clothing, and call emergency services.', ar: 'تبريد الحرق بالماء البارد، عدم نزع الملابس الملتصقة بالجسم، والاتصال بالإسعاف.' } }
+    },
+    {
+      id: 21,
+      vi: { fr: 'Actionnez le lave-glace avant.', en: 'Activate the front windshield washer.', ar: 'التحقق الداخلي: تشغيل غاسل الزجاج الأمامي.' },
+      qser: { q: { fr: 'Quel est le risque de conduire sans liquide lave-glace ?', en: 'What is the risk of driving without washer fluid?', ar: 'ما هو خطر القيادة بدون سائل غسيل الزجاج؟' }, a: { fr: 'Une mauvaise visibilité en cas de salissures sur le pare-brise.', en: 'Poor visibility if the windshield becomes dirty.', ar: 'ضعف الرؤية في حال اتساخ الزجاج الأمامي.' } },
+      secours: { q: { fr: 'Comment reconnaître une personne en arrêt cardiaque ?', en: 'How do you recognize a person in cardiac arrest?', ar: 'كيف تتعرف على شخص مصاب بالسكتة القلبية؟' }, a: { fr: 'La personne ne répond pas, ne réagit pas et ne respire pas (ou respire de façon anormale).', en: 'The person is unresponsive, unreactive, and not breathing (or breathing abnormally/gasping).', ar: 'الشخص لا يستجيب، لا يتفاعل، ولا يتنفس (أو يتنفس بشكل غير طبيعي).' } }
+    },
+    {
+      id: 22,
+      vi: { fr: 'Contrôlez l\'état et la propreté du pare-brise.', en: 'Check the condition and cleanliness of the windshield.', ar: 'التحقق الخارجي: افحص حالة ونظافة الزجاج الأمامي.' },
+      qser: { q: { fr: 'Dans quel cas doit-on faire réparer ou remplacer le pare-brise ?', en: 'When must the windshield be repaired or replaced?', ar: 'متى يجب إصلاح أو استبدال الزجاج الأمامي؟' }, a: { fr: 'En cas d\'impact dans le champ de vision du conducteur ou de fissure importante.', en: 'In case of a crack or an impact located in the driver\'s field of vision.', ar: 'في حال وجود صدمة/شرح في مجال رؤية السائق أو وجود شق كبير.' } },
+      secours: { q: { fr: 'Que faire si un corps étranger est enfoncé dans une plaie ?', en: 'What should be done if a foreign object is embedded in a wound?', ar: 'ماذا تفعل إذا كان هناك جسم غريب مغروس في الجرح؟' }, a: { fr: 'Ne pas le retirer et alerter les secours.', en: 'Do not remove it and call emergency services.', ar: 'عدم نزعه أو تحريكه والاتصال بالإسعاف مباشرة.' } }
+    },
+    {
+      id: 23,
+      vi: { fr: 'Vérifiez le fonctionnement du klaxon (avertisseur sonore).', en: 'Check the operation of the horn.', ar: 'التحقق الداخلي: تحقق من عمل البوق (المنبه الصوتي).' },
+      qser: { q: { fr: 'Dans quel cas l\'utilisation du klaxon est-elle autorisée en agglomération ?', en: 'In built-up areas, when is horn usage permitted?', ar: 'متى يُسمح باستخدام البوق داخل المناطق السكنية/المدن؟' }, a: { fr: 'Uniquement en cas de danger immédiat.', en: 'Only in cases of immediate danger.', ar: 'فقط في حالات الخطر المباشر والشديد.' } },
+      secours: { q: { fr: 'Quel est le rôle d\'un témoin d\'accident de la route ?', en: 'What is the role of a witness to a road accident?', ar: 'ما هو دور شاهد عيان في حادث سير؟' }, a: { fr: 'Protéger la zone, alerter les secours et secourir les victimes selon ses capacités.', en: 'Protect the area, alert emergency services, and provide aid according to capabilities.', ar: 'حماية المنطقة، الاتصال بالإسعاف، وتقديم المساعدة للضحايا حسب قدراته.' } }
+    },
+    {
+      id: 24,
+      vi: { fr: 'Vérifiez le niveau d\'huile moteur à l\'aide de la jauge manuelle.', en: 'Check the engine oil level using the dipstick.', ar: 'التحقق الخارجي: افحص مستوى زيت المحرك باستخدام العصا المقياسية اليدوية.' },
+      qser: { q: { fr: 'Quelles sont les conditions pour mesurer correctement ce niveau ?', en: 'What conditions are required to measure this level correctly?', ar: 'ما هي الشروط الصحيحة لقياس هذا المستوى؟' }, a: { fr: 'Moteur froid et véhicule sur un sol plat.', en: 'Engine cold and vehicle parked on flat ground.', ar: 'أن يكون المحرك باردًا والسيارة متوقفة على أرض مستوية.' } },
+      secours: { q: { fr: 'Quelle est la fréquence des compressions thoraciques lors d\'une réanimation cardiopulmonaire ?', en: 'What is the rate of chest compressions during CPR?', ar: 'ما هو معدل الضغطات الصدرية أثناء الإنقاذ القلبي الرئوي؟' }, a: { fr: 'Entre 100 et 120 compressions par minute.', en: 'Between 100 and 120 compressions per minute.', ar: 'بين 100 و120 ضغطة في الدقيقة.' } }
+    },
+    {
+      id: 25,
+      vi: { fr: 'De nuit, si vous suivez un autre véhicule, quels feux devez-vous utiliser ?', en: 'At night, if you are following another vehicle, which lights should you use?', ar: 'في الليل، إذا كنت تسير خلف سيارة أخرى، ما هي الأضواء التي يجب استخدامها؟' },
+      qser: { q: { fr: 'Pourquoi ?', en: 'Why?', ar: 'لماذا؟' }, a: { fr: 'Les feux de croisement, pour ne pas éblouir le conducteur qui précède.', en: 'Dipped beam headlights (low beams), so as not to dazzle the driver ahead.', ar: 'أضواء التقاطع (الضوء المنخفض)، لعدم إبصار/إبهار السائق الذي أمامك.' } },
+      secours: { q: { fr: 'Pourquoi faut-il maintenir la tête d\'une victime inconsciente en arrière ?', en: 'Why must the head of an unconscious victim be kept tilted back?', ar: 'لماذا يجب إبقاء رأس المصاب الفاقد للوعي مائلاً إلى الخلف؟' }, a: { fr: 'Pour dégager les voies aériennes et faciliter la respiration.', en: 'To clear the airways and facilitate breathing.', ar: 'لفتح مجاري الهواء وتسهيل عملية التنفس.' } }
+    },
+    {
+      id: 26,
+      vi: { fr: 'Contrôlez l\'état et la propreté des feux de croisement.', en: 'Check the condition and cleanliness of the dipped beam headlights.', ar: 'التحقق الخارجي: افحص حالة ونظافة أضواء التقاطع.' },
+      qser: { q: { fr: 'Quelle est la portée minimale des feux de croisement ?', en: 'What is the minimum range of dipped beam headlights?', ar: 'ما هو المدى الأدنى لإضاءة أضواء التقاطع؟' }, a: { fr: '30 mètres.', en: '30 meters.', ar: '30 مترًا.' } },
+      secours: { q: { fr: 'Comment agir face à une personne victime d\'un étouffement total ?', en: 'How to act when facing a person who is completely choking?', ar: 'كيف تتصرف مع شخص يعاني من اختناق كلي؟' }, a: { fr: 'Donner 5 claques dans le dos puis effectuer des compressions abdominales (méthode de Heimlich).', en: 'Give 5 back blows followed by abdominal thrusts (Heimlich maneuver).', ar: 'توجيه 5 ضربات على الظهر ثم إجراء ضغطات على البطن (مناورة هايمليش).' } }
+    },
+    {
+      id: 27,
+      vi: { fr: 'Allumez les feux de route et vérifiez le témoin lumineux correspondant.', en: 'Switch on the main beam headlights (high beams) and check the corresponding indicator light.', ar: 'التحقق الداخلي: شغل أضواء الطريق (الضوء العالي) وتحقق من ضوء المؤشر المخصص لها.' },
+      qser: { q: { fr: 'Quelle est la couleur de ce témoin lumineux ?', en: 'What color is this indicator light?', ar: 'ما هو لون ضوء هذا المؤشر؟' }, a: { fr: 'Bleu.', en: 'Blue.', ar: 'أزرق.' } },
+      secours: { q: { fr: 'Que faire si une victime présente une plaie grave au thorax ?', en: 'What should be done if a victim has a severe chest wound?', ar: 'ماذا تفعل إذا كان لدى المصاب جرح خطير في الصدر؟' }, a: { fr: 'La maintenir en position demi-assise pour faciliter sa respiration.', en: 'Keep them in a semi-seated position to help them breathe.', ar: 'إبقاؤها في وضعية شبه جالس لتسهيل تنفسها.' } }
+    },
+    {
+      id: 28,
+      vi: { fr: 'Contrôlez l\'état et la propreté des feux de route.', en: 'Check the condition and cleanliness of the main beam headlights.', ar: 'التحقق الخارجي: افحص حالة ونظافة أضواء الطريق (الضوء العالي).' },
+      qser: { q: { fr: 'Quelle est la portée minimale des feux de route ?', en: 'What is the minimum range of main beam headlights?', ar: 'ما هو المدى الأدنى لإضاءة أضواء الطريق؟' }, a: { fr: '100 mètres.', en: '100 meters.', ar: '100 متر.' } },
+      secours: { q: { fr: 'Quelles informations transmettre en priorité lors d\'un appel aux secours ?', en: 'What key information should be given first when calling emergency services?', ar: 'ما هي المعلومات الرئيسية التي يجب إبلاغها أولاً عند الاتصال بالطوارئ؟' }, a: { fr: 'Le lieu précis, la nature du problème, le nombre et l\'état des victimes.', en: 'The precise location, nature of the accident, number and condition of victims.', ar: 'الموقع الدقيق، طبيعة الحادث، عدد المصابين وحالتهم الصحّية.' } }
+    },
+    {
+      id: 29,
+      vi: { fr: 'Actionnez la commande du désamorçage / fermeture centralisée des portes.', en: 'Operate the central locking control for the doors.', ar: 'التحقق الداخلي: تشغيل أداة القفل المركزي للأبواب.' },
+      qser: { q: { fr: 'Quel est le risque de rouler avec des portes mal fermées ?', en: 'What is the risk of driving with improperly closed doors?', ar: 'ما هو خطر القيادة بأبواب غير محكمة الإغلاق؟' }, a: { fr: 'Un risque d\'ouverture intempestive en circulation.', en: 'Risk of a door popping open unexpectedly while driving.', ar: 'خطر انفتاح الباب المفاجئ أثناء سير المركبة.' } },
+      secours: { q: { fr: 'À quel moment peut-on raccrocher lors d\'un appel d\'urgence ?', en: 'When can you hang up during an emergency call?', ar: 'متى يمكنك إنهاء المكالمة عند الاتصال بالطوارئ؟' }, a: { fr: 'Uniquement lorsque le service de secours nous l\'indique.', en: 'Only when told to do so by the emergency dispatch operator.', ar: 'فقط عندما يطلب منك موظف استقبال الطوارئ ذلك.' } }
+    },
+    {
+      id: 30,
+      vi: { fr: 'Contrôlez l\'état, la propreté et le fonctionnement des feux de position à l\'avant et à l\'arrière.', en: 'Check the condition, cleanliness, and operation of the sidelights (position lights) front and rear.', ar: 'التحقق الخارجي: افحص حالة ونظافة وعمل أضواء الوضعية (الأضواء الصغيرة) في الأمام والخلف.' },
+      qser: { q: { fr: 'Par temps clair, à quelle distance minimale doivent-ils être visibles ?', en: 'In clear weather, from what minimum distance must they be visible?', ar: 'في الطقس الصافي، من أي مسافة دنيا يجب أن تكون هذه الأضواء مرئية؟' }, a: { fr: '150 mètres.', en: '150 meters.', ar: '150 مترًا.' } },
+      secours: { q: { fr: 'Que faire si une personne fait un malaise et demande son médicament ?', en: 'What to do if someone feels unwell and asks for their medication?', ar: 'ماذا تفعل إذا شعر شخص بوعكة واستأذن في تناول دوائه؟' }, a: { fr: 'L\'aider à le prendre si c\'est un traitement habituel prescrit.', en: 'Assist them in taking it if it is a prescribed regular medication.', ar: 'مساعدته في تناوله إذا كان علاجًا عاديًا وموصوفًا له طبيًا.' } }
+    },
+    {
+      id: 31,
+      vi: { fr: 'Vérifiez la présence du gilet réfléchissant et sa disponibilité immédiate.', en: 'Check the presence of the reflective vest and its immediate accessibility.', ar: 'التحقق الداخلي: تحقق من وجود السترة العاكسة وإمكانية الوصول إليها فورًا.' },
+      qser: { q: { fr: 'Où doit-il être rangé ?', en: 'Where should it be stored?', ar: 'أين يجب حفظها/تخزينها؟' }, a: { fr: 'Dans l\'habitacle, à portée de main du conducteur.', en: 'Inside the passenger compartment, within easy reach of the driver.', ar: 'داخل مقصورة الركاب، في متناول يد السائق.' } },
+      secours: { q: { fr: 'Comment protéger une personne victime d\'une crise d\'épilepsie ?', en: 'How do you protect someone having an epileptic seizure?', ar: 'كيف تحمي شخصًا يعاني من نوبة صرع؟' }, a: { fr: 'Écarter les objets dangereux autour d\'elle et protéger sa tête.', en: 'Move dangerous objects away and cushion their head.', ar: 'إبعاد الأجسام الحادة أو الخطرة من حوله وحماية رأسه.' } }
+    },
+    {
+      id: 32,
+      vi: { fr: 'Vérifiez la présence du triangle de pré-signalisation dans le véhicule.', en: 'Check for the presence of the warning triangle in the vehicle.', ar: 'التحقق الخارجي: تحقق من وجود مثلث التحذير المسبق داخل المركبة.' },
+      qser: { q: { fr: 'Est-il obligatoire sur autoroute lors d\'un arrêt d\'urgence ?', en: 'Is it mandatory on motorways during an emergency stop?', ar: 'هل هو إجباري على الطريق السريع عند التوقف الاضطراري؟' }, a: { fr: 'Non, si sa pose met en danger la vie du conducteur.', en: 'No, if putting it out endangers the driver\'s life.', ar: 'لا، إذا كان وضعه يعرض حياة السائق للخطر.' } },
+      secours: { q: { fr: 'Qu\'est-ce qu\'une hypothermie ?', en: 'What is hypothermia?', ar: 'ما هي حالة انخفاض حرارة الجسم (Hypothermia)؟' }, a: { fr: 'Une baisse dangereuse de la température corporelle en dessous de 35°C.', en: 'A dangerous drop in body temperature below 35°C (95°F).', ar: 'انخفاض خطير في درجة حرارة الجسم إلى ما دون 35 درجة مئوية.' } }
+    },
+    {
+      id: 33,
+      vi: { fr: 'Montrez le témoin d\'alerte de frein à main (ou frein de stationnement).', en: 'Point to the handbrake (parking brake) warning light.', ar: 'التحقق الداخلي: أشر إلى ضوء تحذير مكبح اليد (مكبح التوقف).' },
+      qser: { q: { fr: 'De quelle couleur est ce témoin ?', en: 'What color is this light?', ar: 'ما هو لون هذا المؤشر؟' }, a: { fr: 'Rouge.', en: 'Red.', ar: 'أحمر.' } },
+      secours: { q: { fr: 'Que faire en cas de traumatisme du dos ou du cou ?', en: 'What should be done in case of a back or neck trauma?', ar: 'ماذا تفعل في حالة إصابة الظهر أو الرقبة؟' }, a: { fr: 'Ne pas déplacer la victime et lui conseiller de rester immobile.', en: 'Do not move the victim and tell them to stay completely still.', ar: 'عدم تحريك المصاب مطلقًا ونصحه بالبقاء دون حراك.' } }
+    },
+    {
+      id: 34,
+      vi: { fr: 'Contrôlez l\'état et la propreté des répétiteurs latéraux de clignotant.', en: 'Check the condition and cleanliness of the side indicator repeaters.', ar: 'التحقق الخارجي: افحص حالة ونظافة مؤشرات الاتجاه الجانبية (الغمازات الجانبية).' },
+      qser: { q: { fr: 'Quel est leur rôle ?', en: 'What is their role?', ar: 'ما هو دورها؟' }, a: { fr: 'Avertir les usagers situés sur les côtés d\'un changement de direction.', en: 'Warn users on the sides of an intended change of direction.', ar: 'تنبيه مستخدمي الطريق الموجودين على الجانبين بالتغيير المزمع للاتجاه.' } },
+      secours: { q: { fr: 'Que faire si une personne inconsciente vomi ?', en: 'What to do if an unconscious person vomits?', ar: 'ماذا تفعل إذا تقيأ شخص فاقد للوعي؟' }, a: { fr: 'La tourner en PLS (Position Latérale de Sécurité) pour éviter qu\'elle s\'étouffe.', en: 'Turn them onto their side (recovery position) to prevent choking.', ar: 'تدويره إلى وضعية الأمان الجانبية (PLS) لمنع اختناقه بالقيء.' } }
+    },
+    {
+      id: 35,
+      vi: { fr: 'Montrez le témoin d\'alerte relatif à la batterie.', en: 'Point to the battery warning light.', ar: 'التحقق الداخلي: أشر إلى ضوء التحذير الخاص بالبطارية.' },
+      qser: { q: { fr: 'Que signifie son allumage en roulant ?', en: 'What does it mean if it turns on while driving?', ar: 'ماذا يعني إضاءته أثناء السير؟' }, a: { fr: 'Un dysfonctionnement du circuit de charge ou de l\'alternateur.', en: 'A fault in the charging system or alternator.', ar: 'خلل في نظام الشحن أو في المولد الكهربائي (الدينامو).' } },
+      secours: { q: { fr: 'Comment vérifier si une victime réagit ?', en: 'How do you check if a victim is responsive?', ar: 'كيف تتحقق مما إذا كان المصاب يستجيب؟' }, a: { fr: 'Lui poser une question simple et lui demander de serrer les mains.', en: 'Ask a simple question and ask them to squeeze your hands.', ar: 'طرح سؤال بسيط عليه والطلب منه الضغط على يديك.' } }
+    },
+    {
+      id: 36,
+      vi: { fr: 'Vérifiez le niveau du liquide de lave-glace.', en: 'Check the windshield washer fluid level.', ar: 'التحقق الخارجي: افحص مستوى سائل غسيل الزجاج.' },
+      qser: { q: { fr: 'Peut-on utiliser de l\'eau pure en été ?', en: 'Can pure water be used in summer?', ar: 'هل يمكن استخدام الماء الصافي في الصيف؟' }, a: { fr: 'Ce n\'est pas recommandé car l\'eau ne nettoie pas bien les traces d\'insectes.', en: 'Not recommended because water does not efficiently clean insect residue.', ar: 'لا يُنصح بذلك لأن الماء لا ينظف آثار الحشرات بفعالية.' } },
+      secours: { q: { fr: 'Quel est l\'objectif principal de la Position Latérale de Sécurité (PLS) ?', en: 'What is the main objective of the Recovery Position (PLS)?', ar: 'ما هو الهدف الرئيسي من وضعية الأمان الجانبية (PLS)؟' }, a: { fr: 'Maintenir les voies aériennes libres et éviter l\'étouffement.', en: 'Keep airways clear and prevent choking.', ar: 'إبقاء مجاري الهواء مفتوحة ومنع الاختناق.' } }
+    },
+    {
+      id: 37,
+      vi: { fr: 'Montrez la commande de désembuage de la lunette arrière.', en: 'Show the rear window demisting/defrosting control.', ar: 'التحقق الداخلي: أشر إلى أداة التحكم في إزالة الضباب عن الزجاج الخلفي.' },
+      qser: { q: { fr: 'Quelle est la conséquence d\'une lunette arrière couverte de buée ?', en: 'What is the consequence of a fogged-up rear window?', ar: 'ما هي نتيجة تغطية الزجاج الخلفي بالضباب؟' }, a: { fr: 'Une réduction de la visibilité vers l\'arrière du véhicule.', en: 'Reduced visibility towards the rear of the vehicle.', ar: 'انخفاض مستوى الرؤية نحو الخلف.' } },
+      secours: { q: { fr: 'Pourquoi faut-il éviter de toucher le sang d\'une victime ?', en: 'Why should you avoid direct contact with a victim\'s blood?', ar: 'لماذا يجب تجنب ملامسة دم المصاب مباشرة؟' }, a: { fr: 'Pour éviter la transmission de maladies transmissibles par le sang.', en: 'To prevent the transmission of blood-borne diseases.', ar: 'لتجنب انتقال الأمراض التي تنتقل عن طريق الدم.' } }
+    },
+    {
+      id: 38,
+      vi: { fr: 'Contrôlez l\'état, la propreté et le fonctionnement des feux de stop.', en: 'Check the condition, cleanliness, and operation of the brake lights.', ar: 'التحقق الخارجي: افحص حالة ونظافة وعمل أضواء الفرامل (الستوب).' },
+      qser: { q: { fr: 'Quelle est leur couleur et leur fonction ?', en: 'What color are they and what is their function?', ar: 'ما هو لونها وما هي وظيفتها؟' }, a: { fr: 'De couleur rouge, ils avertissent les usagers suiveurs d\'un ralentissement ou d\'un arrêt.', en: 'Red, they warn following drivers of slowing down or stopping.', ar: 'لونها أحمر، وتعمل على تنبيه السائقين في الخلف عند التباطؤ أو التوقف.' } },
+      secours: { q: { fr: 'Que faire si une personne a un objet enfoncé dans l\'œil ?', en: 'What to do if someone has an object embedded in their eye?', ar: 'ماذا تفعل إذا كان هناك جسم غريب مغروس في عين المصاب؟' }, a: { fr: 'Ne pas retirer l\'objet, maintenir la tête immobile et alerter les secours.', en: 'Do not remove the object, keep the head still, and call emergency services.', ar: 'عدم إزالة الجسم الغريب، إبقاء الرأس ثابتًا والاتصال بالإسعاف.' } }
+    },
+    {
+      id: 39,
+      vi: { fr: 'Montrez le témoin d\'alerte de température du liquide de refroidissement.', en: 'Point to the engine coolant temperature warning light.', ar: 'التحقق الداخلي: أشر إلى ضوء تحذير حرارة سائل التبريد.' },
+      qser: { q: { fr: 'Que faut-il faire s\'il s\'allume en roulant ?', en: 'What should you do if it lights up while driving?', ar: 'ماذا يجب أن تفعل إذا أضاء أثناء القيادة؟' }, a: { fr: 'S\'arrêter immédiatement en sécurité et couper le moteur.', en: 'Stop immediately safely and turn off the engine.', ar: 'التوقف فورًا في مكان آمن وإيقاف المحرك.' } },
+      secours: { q: { fr: 'Quel est le numéro d\'urgence à composer depuis un téléphone mobile dans toute l\'Union Européenne ?', en: 'What emergency number should be called from a mobile phone anywhere in the European Union?', ar: 'ما هو رقم الطوارئ الموحد الذي يمكن الاتصال به عبر الجوال في الاتحاد الأوروبي؟' }, a: { fr: 'Le 112.', en: '112.', ar: 'الرقم 112.' } }
+    },
+    {
+      id: 40,
+      vi: { fr: 'Contrôlez l\'état et la propreté de la plaque d\'immatriculation arrière et de son éclairage.', en: 'Check the condition and cleanliness of the rear license plate and its light.', ar: 'التحقق الخارجي: افحص حالة ونظافة لوحة الترقيم الخلفية وإضاءتها.' },
+      qser: { q: { fr: 'À quelle distance minimale la plaque doit-elle être lisible la nuit ?', en: 'From what minimum distance must the license plate be readable at night?', ar: 'ما هي المسافة الدنيا التي يجب أن تكون اللوحة عندها قابلة للقراءة ليلاً؟' }, a: { fr: '20 mètres.', en: '20 meters.', ar: '20 مترًا.' } },
+      secours: { q: { fr: 'Que faut-il faire si une personne fait une crise d\'asthme ?', en: 'What should be done if someone has an asthma attack?', ar: 'ماذا تفعل إذا أصيب شخص بنوبة ربو؟' }, a: { fr: 'L\'installer en position assise et lui donner son inhalateur habituel.', en: 'Help them sit up and assist them with taking their prescribed inhaler.', ar: 'إجلاسه في وضعية مريحة ومساعدته في استخدام البخاخ الخاص به.' } }
+    },
+    {
+      id: 41,
+      vi: { fr: 'Vérifiez le bon fonctionnement du système d\'avertisseur sonore (klaxon).', en: 'Check the proper operation of the horn.', ar: 'التحقق الداخلي: تحقق من سلامة عمل البوق الصوتي.' },
+      qser: { q: { fr: 'Quand peut-on l\'utiliser hors agglomération ?', en: 'When can it be used outside built-up areas?', ar: 'متى يُسمح باستخدام البوق خارج المدن؟' }, a: { fr: 'Pour avertir les autres usagers de sa présence, notamment dans les virages sans visibilité.', en: 'To warn other road users of your presence, especially around blind bends.', ar: 'لتنبيه مستخدمي الطريق بوجودك، خاصة عند المنعطفات غير الكاشفة للرؤية.' } },
+      secours: { q: { fr: 'Que signifie le sigle SAMU ?', en: 'What does the acronym SAMU stand for?', ar: 'ما الذي يرمز إليه اختصار (SAMU)؟' }, a: { fr: 'Service d\'Aide Médicale Urgente.', en: 'Urgent Medical Aid Service.', ar: 'خدمة المساعدة الطبية العاجلة.' } }
+    },
+    {
+      id: 42,
+      vi: { fr: 'Contrôlez l\'état des pneumatiques (profondeur des rainures).', en: 'Check tire condition (tread depth).', ar: 'التحقق الخارجي: افحص حالة الإطارات (عمق الأخدود/النَقشة).' },
+      qser: { q: { fr: 'Quelle est la profondeur minimale légale des rainures des pneumatiques ?', en: 'What is the legal minimum tire tread depth?', ar: 'ما هو الحد الأدنى القانوني لعمق النقشة على الإطار؟' }, a: { fr: '1,6 millimètre.', en: '1.6 millimeters.', ar: '1.6 مليمتر.' } },
+      secours: { q: { fr: 'Comment agir si une victime saigne du nez suite à un choc ?', en: 'How to treat a victim with a nosebleed after an impact/blow?', ar: 'كيف تتصرف إذا كان المصاب ينزف من الأنف إثر ضربة أو حادث؟' }, a: { fr: 'La faire asseoir, pencher la tête en avant et comprimer les narines.', en: 'Seat them, tilt their head slightly forward, and pinch the nostrils together.', ar: 'إجلاسه وإمالة رأسه قليلاً نحو الأمام والضغط على جانبي الأنف.' } }
+    },
+    {
+      id: 43,
+      vi: { fr: 'Montrez la commande de régulateur / limiteur de vitesse.', en: 'Show the cruise control / speed limiter control.', ar: 'التحقق الداخلي: أشر إلى أداة التحكم في مثبت أو محدد السرعة.' },
+      qser: { q: { fr: 'Quelle est la différence entre un limiteur et un régulateur de vitesse ?', en: 'What is the difference between a speed limiter and cruise control?', ar: 'ما الفرق بين محدد السرعة ومثبت السرعة؟' }, a: { fr: 'Le limiteur empêche de dépasser une vitesse fixée; le régulateur maintient une vitesse constante sans appuyer sur l\'accélérateur.', en: 'The speed limiter prevents exceeding a preset speed; cruise control maintains a set speed without pressing the accelerator pedal.', ar: 'يمنع المحدد تجاوز سرعة معينة، بينما يحافظ المثبت على سرعة ثابتة دون الضغط على دواسة البنزين.' } },
+      secours: { q: { fr: 'Pourquoi ne faut-il pas déplacer un blessé sauf danger immédiat ?', en: 'Why should an injured person not be moved unless there is an immediate danger?', ar: 'لماذا لا يجب نقل المصاب إلا في حالات الخطر المباشر؟' }, a: { fr: 'Pour ne pas aggraver de potentielles lésions, notamment à la colonne vertébrale.', en: 'To avoid worsening potential injuries, especially to the spine.', ar: 'تجنبًا لتفاقم الإصابات المحتملة، خاصة في العمود الفقري.' } }
+    },
+    {
+      id: 44,
+      vi: { fr: 'Vérifiez l\'état des rétroviseurs extérieurs.', en: 'Check the condition of the exterior mirrors.', ar: 'التحقق الخارجي: افحص حالة المرايا الخارجية.' },
+      qser: { q: { fr: 'Quel est le risque de conduire avec un rétroviseur cassé ?', en: 'What is the risk of driving with a broken side mirror?', ar: 'ما هو خطر القيادة بمشاهد/مرآة جانبية مكسورة؟' }, a: { fr: 'Une réduction de la visibilité et l\'augmentation des angles morts.', en: 'Reduced visibility and an increase in blind spots.', ar: 'انخفاض نطاق الرؤية واتساع الزوايا الميتة.' } },
+      secours: { q: { fr: 'Que faire si une personne fait une insolation / coup de chaleur ?', en: 'What to do if someone suffers from sunstroke / heat stroke?', ar: 'ماذا تفعل إذا أصيب شخص ضربة شمس / إجهاد حراري؟' }, a: { fr: 'La placer à l\'ombre, la rafraîchir avec de l\'eau et lui donner à boire si elle est consciente.', en: 'Move them to the shade, cool them with water, and offer drinks if they are conscious.', ar: 'نقله إلى الظل، وتبريد جسده بالماء، وإعطاؤه ماءً للشرب إذا كان واعيًا.' } }
+    },
+    {
+      id: 45,
+      vi: { fr: 'Actionnez le système de fermeture des vitres électriques.', en: 'Operate the power window control.', ar: 'التحقق الداخلي: تشغيل نظام إغلاق النوافذ الكهربائية.' },
+      qser: { q: { fr: 'Quel système de sécurité empêche le coincement des doigts lors de la fermeture automatique ?', en: 'What safety feature prevents fingers from getting trapped during automatic closing?', ar: 'ما هو نظام السلامة الذي يمنع انحصار الأصابع أثناء الإغلاق التلقائي للنوافذ؟' }, a: { fr: 'Le système antipincement.', en: 'The anti-pinch safety mechanism.', ar: 'نظام المانع للانحصار (Anti-pinch).' } },
+      secours: { q: { fr: 'Qu\'est-ce qu\'une fracture ouverte ?', en: 'What is an open fracture?', ar: 'ما هو الكسر المفتوح؟' }, a: { fr: 'Une fracture où l\'os traverse la peau, créant une plaie.', en: 'A fracture where the bone breaks through the skin, creating an open wound.', ar: 'كسر يمتد فيه العظام ليخترق الجلد مسببًا جرحًا خارجيًا.' } }
+    },
+    {
+      id: 46,
+      vi: { fr: 'Contrôlez le fonctionnement des feux antibrouillard avant.', en: 'Check the operation of the front fog lights.', ar: 'التحقق الخارجي: افحص عمل أضواء الضباب الأمامية.' },
+      qser: { q: { fr: 'Dans quelles conditions météo peut-on les utiliser en plus du brouillard ?', en: 'In what weather conditions besides fog can they be used?', ar: 'ما هي الأحوال الجوية الأخرى التي يمكن استخدامها فيها إضافة إلى الضباب؟' }, a: { fr: 'En cas de forte pluie ou de chute de neige.', en: 'During heavy rain or snowfall.', ar: 'في حالات الأمطار الغزيرة أو تساقط الثلوج.' } },
+      secours: { q: { fr: 'Que faire si une personne s\'évanouit devant vous ?', en: 'What should you do if someone faints in front of you?', ar: 'ماذا تفعل إذا أغمي على شخص أمامك؟' }, a: { fr: 'Allonger la personne sur le dos, surélever ses jambes et vérifier sa respiration.', en: 'Lay the person flat on their back, raise their legs, and check their breathing.', ar: 'استلقاء الشخص على ظهره، رفع رجليه قليلاً للأعلى، والتحقق من تنفسه.' } }
+    },
+    {
+      id: 47,
+      vi: { fr: 'Vérifiez le témoin d\'oubli de bouclage de la ceinture de sécurité.', en: 'Check the seatbelt unfastened warning light.', ar: 'التحقق الداخلي: تحقق من ضوء تحذير عدم ربط حزام الأمان.' },
+      qser: { q: { fr: 'L\'usage de la ceinture est-il obligatoire pour tous les passagers ?', en: 'Is seatbelt use mandatory for all passengers?', ar: 'هل استخدام حزام الأمان إجباري لجميع الركاب؟' }, a: { fr: 'Oui, pour tous les occupants du véhicule, à l\'avant comme à l\'arrière.', en: 'Yes, for all vehicle occupants, both in the front and rear.', ar: 'نعم، لجميع ركاب السيارة في المقاعد الأمامية والخلفية.' } },
+      secours: { q: { fr: 'Quels sont les signes d\'un AVC (Accident Vasculaire Cérébral) ?', en: 'What are the signs of a stroke (CVA)?', ar: 'ما هي أعراض السكتة الدماغية (AVC)؟' }, a: { fr: 'Déformation du visage, faiblesse d\'un bras/jambe, troubles de la parole.', en: 'Facial drooping, arm/leg weakness, speech difficulty.', ar: 'شلل أو اعوجاج الوجه، ضعف في ذراع أو رجل، وصعوبة في النطق.' } }
+    },
+    {
+      id: 48,
+      vi: { fr: 'Vérifiez l\'état de la trappe à carburant et la fermeture du bouchon.', en: 'Check the condition of the fuel flap and that the cap is properly secured.', ar: 'التحقق الخارجي: افحص حالة باب خزان الوقود وإحكام إغلاق الغطاء.' },
+      qser: { q: { fr: 'Quel est le risque si le bouchon est mal fermé ?', en: 'What is the risk if the fuel cap is not closed properly?', ar: 'ما هو الخطر إذا كان غطاء خزان الوقود غير مغلق بشكل جيد؟' }, a: { fr: 'Risque de fuite de carburant et de pollution / risque d\'incendie.', en: 'Risk of fuel leakage, environmental pollution, and fire hazard.', ar: 'خطر تسرب الوقود وتلوث البيئة / نشوب حريق.' } },
+      secours: { q: { fr: 'Que faire si une personne présente une plaie simple (égratignure/coupure superficielle) ?', en: 'What should be done for a simple minor wound (scratch/superficial cut)?', ar: 'ماذا تفعل إذا كان لدى شخص جرح بسيط (خدش أو قطع سطحي)؟' }, a: { fr: 'Laver à l\'eau et au savon, désinfecter et protéger avec un pansement.', en: 'Wash with soap and water, apply disinfectant, and protect with a bandage.', ar: 'غسل الجرح بالماء والصابون، تطهيره بمطهر، وتغطيته بضمادة نظيفة.' } }
+    },
+    {
+      id: 49,
+      vi: { fr: 'Montrez la commande de réglage de la hauteur des phares.', en: 'Show the headlight height adjustment control.', ar: 'التحقق الداخلي: أشر إلى أداة ضبط ارتفاع المصابيح الأمامية.' },
+      qser: { q: { fr: 'Pourquoi doit-on régler la hauteur des phares en cas de chargement du véhicule ?', en: 'Why must headlight height be adjusted when the vehicle is heavily loaded?', ar: 'لماذا يجب ضبط ارتفاع أضواء السيارة عند حمولتها الزائدة؟' }, a: { fr: 'Pour éviter d\'éblouir les autres usagers.', en: 'To avoid dazzling other road users.', ar: 'لتجنب إبهار/إزعاج مستخدمي الطريق الآخرين بالأضواء.' } },
+      secours: { q: { fr: 'Comment reconnaître une victime qui ne respire plus ?', en: 'How do you identify a victim who is not breathing?', ar: 'كيف تتعرف على مصاب لا يتنفس؟' }, a: { fr: 'Aucun mouvement de la poitrine ni souffle d\'air constaté pendant 10 secondes.', en: 'No chest movement or air breath felt/heard for 10 seconds.', ar: 'عدم ملاحظة أي حركة للصدر أو خروج هواء لمدة 10 ثوانٍ.' } }
+    },
+    {
+      id: 50,
+      vi: { fr: 'Contrôlez l\'état et le fonctionnement du feu antibrouillard arrière.', en: 'Check the condition and operation of the rear fog light.', ar: 'التحقق الخارجي: افحص حالة وعمل ضوء الضباب الخلفي.' },
+      qser: { q: { fr: 'Dans quelle situation météo est-il strictement interdit de l\'utiliser ?', en: 'In which weather condition is its use strictly prohibited?', ar: 'ما هي الحالة الجوية التي يُمنع فيها استخدام هذا الضوء كليًا؟' }, a: { fr: 'Par temps de pluie.', en: 'In rainy weather.', ar: 'في حالة هطول الأمطار.' } },
+      secours: { q: { fr: 'Quel est le rythme des compressions thoraciques lors d\'une réanimation cardiopulmonaire (RCP) ?', en: 'What is the rate of chest compressions during CPR?', ar: 'ما هو معدل الضغطات الصدرية أثناء عملية الإنقاش القلبي الرئوي (RCP)؟' }, a: { fr: 'Entre 100 et 120 compressions par minute.', en: 'Between 100 and 120 compressions per minute.', ar: 'بين 100 و120 ضغطة في الدقيقة.' } }
+    },
+    {
+      id: 51,
+      vi: { fr: 'Positionnez le rétroviseur intérieur en position nuit.', en: 'Set the interior rearview mirror to night mode.', ar: 'التحقق الداخلي: اضبط المرآة العاكسة الداخلية على وضعية الليل.' },
+      qser: { q: { fr: 'Quel est l\'intérêt de cette position ?', en: 'What is the benefit of this setting?', ar: 'ما هي الفائدة من هذه الوضعية؟' }, a: { fr: 'Ne pas être ébloui par les feux des véhicules qui suivent.', en: 'Not to be dazzled by the headlights of following vehicles.', ar: 'تجنب الإبصار بأضواء السيارات القادمة من الخلف.' } },
+      secours: { q: { fr: 'Que faut-il faire en cas de brûlure thermique simple (brûlure légère) ?', en: 'What should be done for a minor thermal burn?', ar: 'ماذا تفعل في حالة حرق حراري بسيط؟' }, a: { fr: 'Arroser immédiatement la brûlure à l\'eau froide/tiède pendant plusieurs minutes.', en: 'Cool the burn immediately under cold/lukewarm running water for several minutes.', ar: 'سكب الماء البارد/الفاتر فورًا على موضع الحرق لعدة دقائق.' } }
+    },
+    {
+      id: 52,
+      vi: { fr: 'Contrôlez le niveau du liquide de frein.', en: 'Check the brake fluid level.', ar: 'التحقق الخارجي: افحص مستوى سائل الفرامل.' },
+      qser: { q: { fr: 'Que indique une baisse importante du niveau du liquide de frein ?', en: 'What does a significant drop in brake fluid level indicate?', ar: 'علام يدل انخفاض كبير في مستوى سائل الفرامل؟' }, a: { fr: 'Une usure des plaquettes ou une fuite dans le circuit de freinage.', en: 'Brake pad wear or a leak in the braking system.', ar: 'تآكل الصفائح (فحمات الفرامل) أو وجود تسرب في دورة الفرامل.' } },
+      secours: { q: { fr: 'Que faire si une victime est en arrêt cardiorespiratoire et qu\'un défibrillateur (DAE) est disponible ?', en: 'What to do if a victim is in cardiac arrest and an AED is available?', ar: 'ماذا تفعل إذا كان المصاب في حالة توقف قلبي تنفسي وكان الجهاز الآلي لإنعاش القلب (DAE) متوفرًا؟' }, a: { fr: 'Allumer le défibrillateur et suivre ses instructions vocales sans interrompre la RCP.', en: 'Turn on the AED and follow its voice prompts without stopping CPR unnecessarily.', ar: 'تشغيل جهاز الصدمات الكهربائية ومتابعة توجيهاته الصوتية فورًا.' } }
+    },
+    {
+      id: 53,
+      vi: { fr: 'Montrez le témoin d\'alerte de niveau d\'huile moteur.', en: 'Point to the engine oil level warning light.', ar: 'التحقق الداخلي: أشر إلى ضوء تحذير مستوى زيت المحرك.' },
+      qser: { q: { fr: 'Que faut-il faire si ce témoin s\'allume en roulant ?', en: 'What should you do if this light comes on while driving?', ar: 'ماذا يجب أن تفعل إذا أضاء هذا المؤشر أثناء السير؟' }, a: { fr: 'S\'arrêter dès que possible et couper le moteur pour vérifier le niveau d\'huile.', en: 'Stop as soon as possible and turn off the engine to check the oil level.', ar: 'التوقف في أسرع وقت آمن وإيقاف المحرك للتحقق من مستوى الزيت.' } },
+      secours: { q: { fr: 'Pourquoi ne faut-il pas donner à boire à une victime inconsciente ou blessée grave ?', en: 'Why should you not offer fluids to an unconscious or seriously injured person?', ar: 'لماذا لا يجب إعطاء الماء أو السوائل لمصاب فاقد للوعي أو مصاب بجروح خطيرة؟' }, a: { fr: 'Risque d\'étouffement et de passage de liquide dans les poumons.', en: 'Risk of choking and fluids entering the lungs.', ar: 'خطر الاختناق ودخول السائل إلى الرئتين.' } }
+    },
+    {
+      id: 54,
+      vi: { fr: 'Contrôlez le niveau d\'huile moteur à l\'aide de la jauge.', en: 'Check the engine oil level using the dipstick.', ar: 'التحقق الخارجي: افحص مستوى زيت المحرك باستخدام مقياس الزيت (السيخ).' },
+      qser: { q: { fr: 'Où doit se situer le niveau d\'huile sur la jauge ?', en: 'Where should the oil level be on the dipstick?', ar: 'أين يجب أن يكون مستوى الزيت على المقياس؟' }, a: { fr: 'Entre les repères "MIN" et "MAX".', en: 'Between the "MIN" and "MAX" marks.', ar: 'بين علامتي الحد الأدنى (MIN) والحد الأقصى (MAX).' } },
+      secours: { q: { fr: 'Que faire en cas de morsure d\'animal sauvage ou domestique ?', en: 'What should be done in case of an animal bite?', ar: 'ماذا تفعل عند التعرض لعضة حيوان؟' }, a: { fr: 'Nettoyer abondamment à l\'eau et au savon, désinfecter et consulter un médecin.', en: 'Wash thoroughly with soap and water, disinfect, and seek medical advice.', ar: 'غسل مكان العضة جلياً بالماء والصابون، تطهيرها واستشارة الطبيب.' } }
+    },
+    {
+      id: 55,
+      vi: { fr: 'Montrez la commande d\'activation du régulateur de vitesse.', en: 'Point to the switch for enabling the cruise control.', ar: 'التحقق الداخلي: أشر إلى أداة تفعيل نظام تثبيت السرعة.' },
+      qser: { q: { fr: 'Est-il conseillé d\'utiliser le régulateur de vitesse sous une forte pluie ?', en: 'Is it recommended to use cruise control during heavy rain?', ar: 'هل ينصح باستخدام مثبت السرعة أثناء الأمطار الغزيرة؟' }, a: { fr: 'Non, à cause des risques d\'aquaplanage.', en: 'No, because of the risk of aquaplaning.', ar: 'لا، بسبب مخاطر الانزلاق المائي (Aquaplaning).' } },
+      secours: { q: { fr: 'Quels sont les risques liés à l\'inhalation de fumées lors d\'un incendie ?', en: 'What are the risks associated with smoke inhalation during a fire?', ar: 'ما هي المخاطر المرتبطة باستنشاق الدخان أثناء الحريق؟' }, a: { fr: 'Risque de brûlure des voies respiratoires et d\'intoxication au monoxyde de carbone.', en: 'Risk of airway burns and carbon monoxide poisoning.', ar: 'خطر حرق المسالك التنفسية والتسمم بأول أكسيد الكربون.' } }
+    },
+    {
+      id: 56,
+      vi: { fr: 'Contrôlez l\'état des balais d\'essuie-glace.', en: 'Check the condition of the windshield wiper blades.', ar: 'التحقق الخارجي: افحص حالة شفرات مساحات الزجاج.' },
+      qser: { q: { fr: 'Quel est le signe d\'usure des balais d\'essuie-glace ?', en: 'What is a sign of worn wiper blades?', ar: 'ما هي علامة تآكل أو تلف مساحات الزجاج؟' }, a: { fr: 'Traces d\'eau laissées sur le pare-brise ou bruits de grincement.', en: 'Water streaks left on the windshield or squeaking noises.', ar: 'ترك آثار للماء على الزجاج الأمامي أو صدور أصوات احتكاك/صرير.' } },
+      secours: { q: { fr: 'Que faire si une personne présente une réaction allergique grave (choc anaphylactique) ?', en: 'What to do if someone suffers a severe allergic reaction (anaphylactic shock)?', ar: 'ماذا تفعل إذا أصيب شخص بستجابة حساسية خطيرة (صدمة حساسية مفرطة)؟' }, a: { fr: 'Appeler d\'urgence les secours et l\'aider à injecter son stylo d\'adrénaline s\'il en a un.', en: 'Call emergency services immediately and assist them with using their auto-injector if available.', ar: 'الاتصال بالطوارئ فورًا ومساعدته في استخدام قلم الأدرينالين التلقائي إن وجد.' } }
+    },
+    {
+      id: 57,
+      vi: { fr: 'Montrez le témoin d\'alerte du système ABS (antiblocage des roues).', en: 'Point to the ABS warning light.', ar: 'التحقق الداخلي: أشر إلى ضوء تحذير نظام منع إغلاق المكابح (ABS).' },
+      qser: { q: { fr: 'À quoi sert le système ABS ?', en: 'What is the purpose of the ABS system?', ar: 'ما هو هدف نظام (ABS)؟' }, a: { fr: 'Permettre de maintenir le contrôle de la trajectoire lors d\'un freinage d\'urgence.', en: 'Helps maintain steering control during emergency braking.', ar: 'الحفاظ على التحكم في توجيه السيارة أثناء الفرملة الشديدة/الاضطرارية.' } },
+      secours: { q: { fr: 'Que faire en cas d\'électrocution ?', en: 'What should be done in case of electrocution?', ar: 'ماذا تفعل عند حدوث صعق كهربائي؟' }, a: { fr: 'Couper le courant avant de toucher la victime et alerter les secours.', en: 'Turn off the power source before touching the victim and call emergency services.', ar: 'قطع التيار الكهربائي قبل ملامسة المصاب ثم الاتصال بالطوارئ.' } }
+    },
+    {
+      id: 58,
+      vi: { fr: 'Vérifiez la présence du gilet de sécurité et du triangle dans le véhicule.', en: 'Check for the safety vest and warning triangle in the vehicle.', ar: 'التحقق الخارجي: تحقق من وجود سترة السلامة ومثلث التحذير داخل المركبة.' },
+      qser: { q: { fr: 'À quelle distance minimale faut-il poser le triangle derrière le véhicule en panne ?', en: 'At what minimum distance should the warning triangle be placed behind a broken-down vehicle?', ar: 'ما هي المسافة الأدنى لوضع مثلث التحذير خلف المركبة المعطلة؟' }, a: { fr: 'À 30 mètres au moins.', en: 'At least 30 meters away.', ar: 'على بعد 30 مترًا على الأقل.' } },
+      secours: { q: { fr: 'Quelle est la première précaution à prendre avant de porter secours sur un accident ?', en: 'What is the first safety measure before giving aid at an accident scene?', ar: 'ما هي الخطوة الأولى للسلامة قبل تقديم المساعدة في موقع حادث؟' }, a: { fr: 'Protéger la zone pour éviter un suraccident.', en: 'Secure/protect the area to prevent further accidents.', ar: 'تأمين وتغطية المكان لتجنب وقوع حادث ثانٍ.' } }
+    },
+    {
+      id: 59,
+      vi: { fr: 'Montrez la commande de désembuage du pare-brise avant.', en: 'Show the front windshield demisting/defrosting control.', ar: 'التحقق الداخلي: أشر إلى أداة إزالة الضباب عن الزجاج الأمامي.' },
+      qser: { q: { fr: 'Quel système permet d\'éliminer efficacement la buée ?', en: 'What system effectively removes condensation from the glass?', ar: 'ما هو النظام الذي يساعد في إزالة التكثف/الضباب بفعالية؟' }, a: { fr: 'Le système de climatisation.', en: 'The air conditioning system.', ar: 'نظام التكييف الهوائي.' } },
+      secours: { q: { fr: 'Que faire si une personne inconsciente respire normalement ?', en: 'What to do if an unconscious person is breathing normally?', ar: 'ماذا تفعل إذا كان الشخص الفاقد للوعي يتنفس بشكل طبيعي؟' }, a: { fr: 'La placer en Position Latérale de Sécurité (PLS) et appeler les secours.', en: 'Place them in the recovery position (PLS) and call emergency services.', ar: 'وضعه في وضعية الأمان الجانبية (PLS) والاتصال بالإسعاف.' } }
+    },
+    {
+      id: 60,
+      vi: { fr: 'Contrôlez l\'état de la carrosserie et des pare-chocs.', en: 'Check the condition of the bodywork and bumpers.', ar: 'التحقق الخارجي: افحص حالة جسم السيارة (الهيكل) والمصدات (البومبر).' },
+      qser: { q: { fr: 'Quel danger présente une partie de carrosserie saillante ou déchirée ?', en: 'What danger does a sharp or torn piece of bodywork present?', ar: 'ما الخطر الذي يشكله جزء حاد أو متمزق من هيكل السيارة؟' }, a: { fr: 'Un risque de blessure grave pour les piétons ou les usagers vulnérables.', en: 'Risk of severe injury to pedestrians or vulnerable road users.', ar: 'خطر إلحاق إصابات بالغة بالمشاة أو مستخدمي الطريق الأكثر عرضة للخطر.' } },
+      secours: { q: { fr: 'Comment agir face à une personne victime d\'un malaise cardiaque ?', en: 'How to act when someone shows signs of a heart attack?', ar: 'كيف تتصرف مع شخص يعاني من أزمة قلبية؟' }, a: { fr: 'L\'installer au repos (assis ou allongé), la rassurer et contacter le 15 / 112 sans tarder.', en: 'Rest the person (sitting or lying down), reassure them, and immediately call emergency services (15/112).', ar: 'إراحتها (جالسة أو مستلقية)، طمأنتها والاتصال فورًا بالطوارئ (15 / 112).' } }
+    },,
+    {
+      id: 61,
+      vi: { fr: 'Montrez le témoin d\'alerte de niveau de carburant (réserve).', en: 'Point to the fuel reserve warning light.', ar: 'التحقق الداخلي: أشر إلى ضوء تحذير انخفاض مستوى الوقود (الاحتياطي).' },
+      qser: { q: { fr: 'Quel est le risque de rouler sur la réserve de carburant ?', en: 'What is the risk of driving on the fuel reserve?', ar: 'ما هو خطر القيادة بالوقود الاحتياطي؟' }, a: { fr: 'Risque de panne sèche et d\'encrassement du filtre à carburant par les dépôts du réservoir.', en: 'Risk of running out of fuel and clogging the fuel filter with tank sediment.', ar: 'خطر نفاد الوقود بالكامل وانسداد مرشح (فلتر) الوقود بسبب الرواسب المستقرة في القاع.' } },
+      secours: { q: { fr: 'Que faire en cas de traumatisme crânien suite à une chute ?', en: 'What to do in case of head trauma following a fall?', ar: 'ماذا تفعل في حالة إصابة في الرأس إثر سقوط؟' }, a: { fr: 'Maintenir la victime immobile, surveiller sa conscience et appeler les secours.', en: 'Keep the victim still, monitor their consciousness, and call emergency services.', ar: 'إبقاء المصاب ثابتًا دون حراك، مراقبة مستوى وعيه والاتصال بالطوارئ.' } }
+    },
+    {
+      id: 62,
+      vi: { fr: 'Contrôlez l\'état et la propreté des catadioptres arrière.', en: 'Check the condition and cleanliness of the rear reflectors.', ar: 'التحقق الخارجي: افحص حالة ونظافة العواكس الخلفية (الكاثاديوبتر).' },
+      qser: { q: { fr: 'Quelle est leur couleur et leur utilité ?', en: 'What color are they and what is their purpose?', ar: 'ما هو لونها وما هي فائدتها؟' }, a: { fr: 'Rouges, ils rendent le véhicule visible de nuit lorsque ses feux sont éteints.', en: 'Red, they make the vehicle visible at night when its lights are off.', ar: 'لونها أحمر، وتجعل المركبة مرئية ليلاً حتى عندما تكون أضواؤها مطفأة.' } },
+      secours: { q: { fr: 'Comment agir si une victime inconsciente vomit en étant allongée sur le dos ?', en: 'How to act if an unconscious victim lying on their back starts vomiting?', ar: 'كيف تتصرف إذا تقيأ مصاب فاقد للوعي وهو مستلقٍ على ظهره؟' }, a: { fr: 'La tourner immédiatement sur le côté (PLS) pour dégager ses voies respiratoires.', en: 'Turn them onto their side immediately (recovery position) to clear their airways.', ar: 'تدويره فورًا على جانبه (وضعية الأمان الجانبية) لفتح مجاري الهواء.' } }
+    },
+    {
+      id: 63,
+      vi: { fr: 'Montrez la commande de réglage des rétroviseurs extérieurs.', en: 'Point to the exterior mirror adjustment control.', ar: 'التحقق الداخلي: أشر إلى أداة ضبط المرايا الخارجية.' },
+      qser: { q: { fr: 'Quand doit-on effectuer le réglage des rétroviseurs ?', en: 'When should mirror adjustment be performed?', ar: 'متى يجب إجراء ضبط المرايا؟' }, a: { fr: 'À l\'arrêt, après avoir réglé le siège et le volant.', en: 'While stationary, after adjusting the seat and steering wheel.', ar: 'أثناء التوقف، بعد ضبط المقعد وعجلة القيادة.' } },
+      secours: { q: { fr: 'Qu\'est-ce qu\'une hémorragie interne ?', en: 'What is internal bleeding?', ar: 'ما هو النزيف الداخلي؟' }, a: { fr: 'Saignement invisible à l\'extérieur, se déroulant à l\'intérieur du corps.', en: 'Bleeding that occurs inside the body and is not visible externally.', ar: 'نزيف غير مرئي من الخارج يحدث داخل الجسم.' } }
+    },
+    {
+      id: 64,
+      vi: { fr: 'Contrôlez l\'état et la propreté du pare-brise.', en: 'Check the condition and cleanliness of the windshield.', ar: 'التحقق الخارجي: افحص حالة ونظافة الزجاج الأمامي.' },
+      qser: { q: { fr: 'Quel est le risque de rouler avec un pare-brise fissuré dans le champ de vision ?', en: 'What is the risk of driving with a windshield crack in your line of sight?', ar: 'ما هو خطر القيادة بزجاج أمامي مشقوق في مجال الرؤية؟' }, a: { fr: 'Altération de la visibilité et risque de casse accrue en cas de choc.', en: 'Impaired visibility and increased risk of shattering upon impact.', ar: 'ضعف الرؤية وزيادة خطر انكسار الزجاج عند حدوث اصطدام.' } },
+      secours: { q: { fr: 'Que faire si une personne souffre d\'une brûlure chimique (produit corrosif) ?', en: 'What to do if someone suffers a chemical burn?', ar: 'ماذا تفعل إذا أصيب شخص بحرق كيميائي (مادة كاوية)؟' }, a: { fr: 'Rincer abondamment à l\'eau tiède pendant au moins 15-20 minutes et alerter les secours.', en: 'Rinse thoroughly with lukewarm water for at least 15–20 minutes and call emergency services.', ar: 'غسل موضع الحرق بكميات كبيرة من الماء الفاتر لمدة 15 إلى 20 دقيقة على الأقل والاتصال بالطوارئ.' } }
+    },
+    {
+      id: 65,
+      vi: { fr: 'Montrez le témoin d\'alerte de pression des pneumatiques.', en: 'Point to the tire pressure warning light.', ar: 'التحقق الداخلي: أشر إلى ضوء تحذير ضغط الإطارات.' },
+      qser: { q: { fr: 'Quelle est la conséquence d\'un sous-gonflage des pneus ?', en: 'What is the consequence of under-inflated tires?', ar: 'ما هي نتيجة انخفاض ضغط الهواء في الإطارات؟' }, a: { fr: 'Augmentation de la consommation, risque d\'éclatement et mauvaise tenue de route.', en: 'Increased fuel consumption, risk of tire blowout, and poor handling.', ar: 'زيادة استهلاك الوقود، خطر انفجار الإطار، وضعف الثبات على الطريق.' } },
+      secours: { q: { fr: 'Comment installer une victime qui présente une plaie grave au niveau du ventre ?', en: 'How should a victim with a severe abdominal wound be positioned?', ar: 'كيف تضع مصابًا يعاني من جرح خطير في البطن؟' }, a: { fr: 'Allongée sur le dos, les jambes fléchies pour relâcher les muscles abdominaux.', en: 'Lying on their back with knees bent to relax the abdominal muscles.', ar: 'استلقاء على الظَّهر مع ثني الركبتين لتخفيف الضغط على عضلات البطن.' } }
+    },
+    {
+      id: 66,
+      vi: { fr: 'Contrôlez le fonctionnement des feux de détresse (warning).', en: 'Check the operation of the hazard warning lights.', ar: 'التحقق الخارجي: افحص عمل أضواء التحذير من الخطر (الغمازات الرباعية).' },
+      qser: { q: { fr: 'Quand doit-on les utiliser en circulation ?', en: 'When should they be used while driving?', ar: 'متى يجب استخدامها أثناء حركة السير؟' }, a: { fr: 'En cas d\'arrêt d\'urgence, de panne, ou pour avertir d\'un ralentissement soudain.', en: 'In case of emergency stop, breakdown, or to signal a sudden slowdown.', ar: 'عند التوقف الاضطراري، أو التعطل، أو لتنبيه السيارات خلفك بتباطؤ مفاجئ.' } },
+      secours: { q: { fr: 'Que faire en cas de morsure de serpent ?', en: 'What should be done in case of a snake bite?', ar: 'ماذا تفعل عند التعرض لعضة ثعبان؟' }, a: { fr: 'Rassurer la victime, la garder immobile et appeler les secours sans poser de garrot.', en: 'Reassure the victim, keep them calm and still, call emergency services without applying a tourniquet.', ar: 'طمأنة المصاب، إبقاؤه هادئًا ودون حراك، والاتصال بالإسعاف دون استخدام رباط ضاغط.' } }
+    },
+    {
+      id: 67,
+      vi: { fr: 'Vérifiez l\'indicateur du niveau de liquide de refroidissement sur le tableau de bord.', en: 'Check the coolant temperature gauge on the dashboard.', ar: 'التحقق الداخلي: تحقق من مؤشر مستوى حرارة سائل التبريد على لوحة القيادة.' },
+      qser: { q: { fr: 'Peut-on ouvrir le bouchon du vase d\'expansion si le moteur est chaud ?', en: 'Can you open the coolant expansion tank cap while the engine is hot?', ar: 'هل يمكن فتح غطاء خزان سائل التبريد عندما يكون المحرك ساخنًا؟' }, a: { fr: 'Non, risque de projection de liquide brûlant et de graves brûlures.', en: 'No, risk of boiling liquid splashing and causing severe burns.', ar: 'لا، هناك خطر اندفاع السائل المغلي والتعرض لحروق خطيرة.' } },
+      secours: { q: { fr: 'Comment traiter une personne victime d\'un début d\'hypothermie ?', en: 'How to treat someone showing early signs of hypothermia?', ar: 'كيف تتصرف مع شخص يبدأ في التعرض لانخفاض حرارة الجسم؟' }, a: { fr: 'La couvrir avec une couverture isolante/isotherme et la réchauffer progressivement.', en: 'Wrap them in a warm/thermal blanket and warm them up gradually.', ar: 'تغطيته ببطانية دافئة/عازلة وتدفئته بشكل تدريجي.' } }
+    },
+    {
+      id: 68,
+      vi: { fr: 'Contrôlez l\'état et le fonctionnement des feux de recul.', en: 'Check the condition and operation of the reverse lights.', ar: 'التحقق الخارجي: افحص حالة وعمل أضواء الرجوع إلى الخلف (الريفرس).' },
+      qser: { q: { fr: 'Quelle est leur couleur et leur rôle ?', en: 'What color are they and what is their role?', ar: 'ما هو لونها وما هو دورها؟' }, a: { fr: 'Blancs, ils éclairent la zone arrière et avertissent d\'une manoeuvre en marche arrière.', en: 'White, they illuminate the rear area and signal that the vehicle is reversing.', ar: 'بيضاء، وتضيء المنطقة الخلفية وتنبه الآخرين بالتحرك إلى الخلف.' } },
+      secours: { q: { fr: 'Que faire si une victime s\'étouffe mais réussit encore à tousser ?', en: 'What to do if a victim is choking but can still cough?', ar: 'ماذا تفعل إذا كان المصاب يختنق ولكنه ما زال قادرًا على السعال؟' }, a: { fr: 'L\'encourager à tousser et ne pas lui donner de claques dans le dos.', en: 'Encourage them to keep coughing and do not give back blows.', ar: 'تشجيعه على مواصلة السعال وعدم توجيه ضربات على ظهره.' } }
+    },
+    {
+      id: 69,
+      vi: { fr: 'Montrez la commande d\'ajustement du volant (hauteur / profondeur).', en: 'Point to the steering wheel adjustment control (height / reach).', ar: 'التحقق الداخلي: أشر إلى أداة ضبط عجلة القيادة (الارتفاع / العمق).' },
+      qser: { q: { fr: 'Pourquoi est-il important de bien régler le volant avant de conduire ?', en: 'Why is it important to properly adjust the steering wheel before driving?', ar: 'لماذا من المهم ضبط عجلة القيادة جيدًا قبل البدء بالقيادة؟' }, a: { fr: 'Pour garantir le confort, le contrôle du véhicule et une bonne lisibilité du tableau de bord.', en: 'To ensure driving comfort, full vehicle control, and clear dashboard visibility.', ar: 'لضمان الراحة، والتحكم الكامل بالسيارة، ووضوح قراءة لوحة القيادة.' } },
+      secours: { q: { fr: 'Qu\'est-ce qu\'une insolation ?', en: 'What is sunstroke?', ar: 'ما هي ضربة الشمس؟' }, a: { fr: 'Une surchauffe de l\'organisme due à une exposition prolongée au soleil direct.', en: 'Overheating of the body caused by prolonged direct exposure to the sun.', ar: 'ارتفاع شديد في حرارة الجسم ناتج عن التعرض المباشر والطويل لشمس الصيف.' } }
+    },
+    {
+      id: 70,
+      vi: { fr: 'Vérifiez le niveau du liquide de direction assistée (si réservoir visible).', en: 'Check the power steering fluid level (if reservoir is visible).', ar: 'التحقق الخارجي: افحص مستوى سائل توجيه المقود (الهيدروليك/باور) إن كان الخزان مرئيًا.' },
+      qser: { q: { fr: 'Quel est le risque d\'un manque de liquide de direction assistée ?', en: 'What is the risk of low power steering fluid?', ar: 'ما هو خطر نقص سائل توجيه المقود؟' }, a: { fr: 'Une lourdeur du volant et un risque d\'endommagement de la pompe de direction.', en: 'Heavy/stiff steering wheel and risk of damaging the steering pump.', ar: 'صعوبة وثقل في تدوير المقود وخطر تلف مضخة التوجيه.' } },
+      secours: { q: { fr: 'Que faut-il faire si une personne a une crampe musculaire sévère ?', en: 'What should be done if someone experiences a severe muscle cramp?', ar: 'ماذا تفعل إذا أصيب شخص بتشنج عضلي شديد؟' }, a: { fr: 'Étirer doucement le muscle touché et l\'hydrater.', en: 'Gently stretch the affected muscle and hydrate them.', ar: 'تمديد العضلة المصابة بلطف وإعطاء الشخص كمية كافية من الماء.' } }
+    },
+    {
+      id: 71,
+      vi: { fr: 'Montrez le témoin d\'alerte de disfonctionnement du système d\'airbag.', en: 'Point to the airbag system fault warning light.', ar: 'التحقق الداخلي: أشر إلى ضوء تحذير وجود عطل في نظام الوسائد الهوائية (الإيرباج).' },
+      qser: { q: { fr: 'Que risque-t-il de se passer en cas d\'accident si ce témoin est allumé ?', en: 'What might happen during an accident if this light is on?', ar: 'ما الذي قد يحدث في حالة وقوع حادث إذا كان هذا المؤشر مضاءً؟' }, a: { fr: 'L\'airbag risque de ne pas se déclencher ou de se déclencher de manière intempestive.', en: 'The airbag may fail to deploy or deploy unexpectedly.', ar: 'احتمال عدم انتفاخ الوسادة الهوائية عند الاصطدام أو انتفاخها بشكل مفاجئ وغير متوقع.' } },
+      secours: { q: { fr: 'Comment aider une victime d\'intoxication par fumée ?', en: 'How to help a victim of smoke inhalation?', ar: 'كيف تساعد مصابًا بتسمم الدخان؟' }, a: { fr: 'L\'évacuer immédiatement à l\'air libre et alerter d\'urgence les secours.', en: 'Move them immediately to fresh air and call emergency services right away.', ar: 'إخراجه فورًا إلى الهواء الطلق والاتصال السريع بالطوارئ.' } }
+    },
+    {
+      id: 72,
+      vi: { fr: 'Contrôlez la fixation et l\'état de la batterie.', en: 'Check the battery mounting security and condition.', ar: 'التحقق الخارجي: افحص تثبيت وحالة البطارية.' },
+      qser: { q: { fr: 'Quel est le risque si la batterie est mal fixée ?', en: 'What is the risk if the battery is not securely fastened?', ar: 'ما الخطر الناجم عن عدم تثبيت البطارية بشكل جيد؟' }, a: { fr: 'Risque de court-circuit, d\'étincelles ou d\'incendie en cas de choc.', en: 'Risk of short circuit, sparks, or fire in the event of an impact.', ar: 'خطر حدوث تماس كهربائي، شرارة أو نشوب حريق في حالة الاصطدام.' } },
+      secours: { q: { fr: 'Quelle est la première chose à faire si un vêtement prend feu sur une personne ?', en: 'What is the first thing to do if a person\'s clothing catches fire?', ar: 'ما هي الخطوة الأولى التي يجب اتخاذها إذا اشتعلت النار في ملابس شخص ما؟' }, a: { fr: 'Empêcher la personne de courir, la rouler au sol et étouffer les flammes avec une couverture.', en: 'Stop the person from running, roll them on the ground, and smother flames with a blanket.', ar: 'منع الشخص من الركض، تدويره على الأرض، وإخماد النيران باستخدام بطانية.' } }
+    },,
+    {
+      id: 73,
+      vi: { fr: 'Allumez les feux de croisement et vérifiez le témoin lumineux correspondant.', en: 'Switch on the dipped beam headlights (low beams) and check the corresponding indicator light.', ar: 'التحقق الداخلي: شغل أضواء التقاطع (الضوء المنخفض) وتحقق من ضوء المؤشر المخصص لها.' },
+      qser: { q: { fr: 'Quelle est la couleur de ce témoin lumineux ?', en: 'What color is this indicator light?', ar: 'ما هو لون ضوء هذا المؤشر؟' }, a: { fr: 'Vert.', en: 'Green.', ar: 'أخضر.' } },
+      secours: { q: { fr: 'Comment savoir si une victime inconsciente respire ?', en: 'How can you tell if an unconscious victim is breathing?', ar: 'كيف تعرف ما إذا كان المصاب الفاقد للوعي يتنفس؟' }, a: { fr: 'En observant le gonflement de la poitrine et en sentant le souffle sur sa joue pendant 10 secondes.', en: 'By watching for chest movement and feeling for breath on your cheek for 10 seconds.', ar: 'بملاحظة ارتفاع وانخفاض الصدر والاستشعار بالهواء على الخد لمدة 10 ثوانٍ.' } }
+    },
+    {
+      id: 74,
+      vi: { fr: 'Contrôlez l\'état et la propreté des feux antibrouillard arrière.', en: 'Check the condition and cleanliness of the rear fog lights.', ar: 'التحقق الخارجي: افحص حالة ونظافة أضواء الضباب الخلفية.' },
+      qser: { q: { fr: 'Combien de feux antibrouillard arrière sont au minimum obligatoires ?', en: 'What is the minimum number of mandatory rear fog lights?', ar: 'ما هو الحد الأدنى الإجباري لعدد أضواء الضباب الخلفية؟' }, a: { fr: 'Au moins un feu, situé du côté gauche ou au centre.', en: 'At least one light, located on the left side or in the center.', ar: 'ضوء واحد على الأقل، ويقع في الجانب الأيسر أو في المنتصف.' } },
+      secours: { q: { fr: 'Que faire si une personne inconsciente ne respire pas ?', en: 'What should you do if an unconscious person is not breathing?', ar: 'ماذا تفعل إذا كان الشخص الفاقد للوعي لا يتنفس؟' }, a: { fr: 'Alerter immédiatement les secours et débuter la réanimation cardiopulmonaire (RCP).', en: 'Immediately alert emergency services and start CPR.', ar: 'الاتصال الفوري بالإسعاف والبدء في إجراء الإنعاش القلبي الرئوي (RCP).' } }
+    },
+    {
+      id: 75,
+      vi: { fr: 'Montrez le voyant d\'alerte de baisse de pression d\'huile moteur.', en: 'Point to the engine oil pressure warning light.', ar: 'التحقق الداخلي: أشر إلى ضوء تحذير انخفاض ضغط زيت المحرك.' },
+      qser: { q: { fr: 'Que risque le moteur si vous continuez de rouler malgré ce voyant ?', en: 'What is the risk to the engine if you continue driving with this light on?', ar: 'ما الخطر الذي يتعرض له المحرك إذا واصلت القيادة رغم إضاءة هذا المؤشر؟' }, a: { fr: 'Une casse moteur irrémédiable (serrage moteur).', en: 'Irreparable engine damage (engine seizure).', ar: 'تلف كامل للمحرك لا يمكن إصلاحه (تصلب المحرك/جيمور).' } },
+      secours: { q: { fr: 'Que faire en cas de morsure d\'insecte avec réaction allergique locale importante ?', en: 'What to do for an insect bite with a severe local allergic reaction?', ar: 'ماذا تفعل عند التعرض لقرصة حشرة مع رد فعل تحسسي موضعي شديد؟' }, a: { fr: 'Appliquer du froid sur la zone touchée et surveiller l\'apparition de signes généraux.', en: 'Apply a cold compress to the area and monitor for systemic symptoms.', ar: 'وضع كمادات باردة على موضع القرصة ومراقبة ظهور أي أعراض عامة.' } }
+    },
+    {
+      id: 76,
+      vi: { fr: 'Contrôlez la présence et la fixation du bouchon de réservoir d\'huile moteur.', en: 'Check the presence and secure fit of the engine oil filler cap.', ar: 'التحقق الخارجي: افحص وجود وإحكام تثبيت غطاء خزان زيت المحرك.' },
+      qser: { q: { fr: 'Quel est le risque si ce bouchon est absent ou mal fermé ?', en: 'What is the risk if this cap is missing or improperly closed?', ar: 'ما الخطر إذا كان الغطاء مفقودًا أو غير مغلق بشكل جيد؟' }, a: { fr: 'Projections d\'huile sur le moteur chaud, pouvant provoquer un incendie.', en: 'Oil splashing onto the hot engine, which could cause a fire.', ar: 'تناثر الزيت على أجزاء المحرك الساخنة، مما قد يؤدي إلى نشوب حريق.' } },
+      secours: { q: { fr: 'Qu\'est-ce que la règle des "3P" en secourisme ?', en: 'What is the "3Ps" rule in first aid?', ar: 'ما هي قاعدة الـ "3P" في الإسعافات الأولية؟' }, a: { fr: 'Protéger, Prévenir (Alerter), Secourir (Protéger / Penser / Panser).', en: 'Preserve life, Prevent deterioration, Promote recovery (Protect, Inform, Rescue).', ar: 'الحماية (Protéger)، التنبيه/الإبلاغ (Prévenir)، والإسعاف/الإنقاذ (Secourir).' } }
+    },
+    {
+      id: 77,
+      vi: { fr: 'Vérifiez l\'état et le fonctionnement des essuie-glaces avant.', en: 'Check the condition and operation of the front windshield wipers.', ar: 'التحقق الداخلي: تحقق من حالة وعمل مساحات الزجاج الأمامي.' },
+      qser: { q: { fr: 'Comment détecter l\'usure des balais sans les activer ?', en: 'How can you check for wiper blade wear without turning them on?', ar: 'كيف يمكنك كشف تآكل شفرات المساحات دون تشغيلها؟' }, a: { fr: 'En vérifiant que le caoutchouc n\'est ni craquelé ni déchiré.', en: 'By checking that the rubber is not cracked or torn.', ar: 'بالتحقق من أن المطاط غير متشقق أو متمزق.' } },
+      secours: { q: { fr: 'Comment positionner une personne victime d\'un malaise sans perte de conscience ?', en: 'How should you position a conscious person feeling unwell?', ar: 'كيف تضع شخصًا يصاب بوعكة دون فقدان الوعي؟' }, a: { fr: 'La mettre au repos dans la position où elle se sent le mieux (souvent assise ou semi-assise).', en: 'Place them at rest in the position they feel most comfortable (often sitting or semi-reclined).', ar: 'إراحتها في الوضعية التي تشعر فيها بالارتياح (عادة جالسًا أو شبه جالس).' } }
+    },
+    {
+      id: 78,
+      vi: { fr: 'Contrôlez la propreté et l\'état des rétroviseurs intérieurs et extérieurs.', en: 'Check the cleanliness and condition of the interior and exterior mirrors.', ar: 'التحقق الخارجي: افحص نظافة وحالة المرايا الداخلية والخارجية.' },
+      qser: { q: { fr: 'Que devez-vous faire si un rétroviseur extérieur est flou ou couvert de givre ?', en: 'What should you do if an exterior mirror is blurry or covered in frost?', ar: 'ماذا يجب أن تفعل إذا كانت المرآة الجانبية ضبابية أو مغطاة بالصقيع؟' }, a: { fr: 'La nettoyer ou activer le dégivrage avant de prendre la route.', en: 'Clean it or turn on the mirror defrosting before driving.', ar: 'تنظيفها أو تفعيل نظام إزالة الصقيع قبل الانطلاق على الطريق.' } },
+      secours: { q: { fr: 'Quel est le danger principal d\'un saignement abondant non contrôlé ?', en: 'What is the main danger of uncontrolled heavy bleeding?', ar: 'ما هو الخطر الرئيسي للنزيف الشديد غير المسيطر عليه؟' }, a: { fr: 'La chute de la tension artérielle et le risque de choc hémorragique mortel.', en: 'Drop in blood pressure and the risk of fatal hemorrhagic shock.', ar: 'هبوط ضغط الدم وخطر التعرض لصدمة نزفية قاتلة.' } }
+    },
+    {
+      id: 79,
+      vi: { fr: 'Montrez la commande de chauffage et de ventilation.', en: 'Point to the heating and ventilation control.', ar: 'التحقق الداخلي: أشر إلى أداة التحكم في التدفئة والتهوية.' },
+      qser: { q: { fr: 'Pourquoi est-il important de maintenir une bonne ventilation dans l\'habitacle ?', en: 'Why is it important to maintain good ventilation inside the cabin?', ar: 'لماذا من المهم الحفاظ على تهوية جيدة داخل مقصورة المركبة؟' }, a: { fr: 'Pour éviter la buée et renouveler l\'air afin d\'éviter la somnolence.', en: 'To prevent fogging and refresh the air to avoid drowsiness.', ar: 'لتجنب تشكل الضباب وتجديد الهواء لتفادي النعاس أثناء القيادة.' } },
+      secours: { q: { fr: 'Que faire si une personne s\'est brûlée avec un produit acide ?', en: 'What to do if someone is burned by an acid?', ar: 'ماذا تفعل إذا تعرض شخص لحرق بسبب مادة حمضية؟' }, a: { fr: 'Rincer à l\'eau courante pendant au moins 20 minutes sans chercher à neutraliser le produit.', en: 'Rinse with running water for at least 20 minutes without trying to neutralize the chemical.', ar: 'غسل مكان الحرق بالماء الجاري لمدة 20 دقيقة على الأقل دون محاولة معالجة المادة الكيميائية بمواد أخرى.' } }
+    },
+    {
+      id: 80,
+      vi: { fr: 'Contrôlez l\'état et le fonctionnement des feux de plaque d\'immatriculation.', en: 'Check the condition and operation of the license plate lights.', ar: 'التحقق الخارجي: افحص حالة وعمل أضواء لوحة الترقيم.' },
+      qser: { q: { fr: 'À quel moment ces feux s\'allument-ils automatiquement ?', en: 'When do these lights turn on automatically?', ar: 'متى تضيء هذه الأضواء تلقائيًا؟' }, a: { fr: 'Dès l\'allumage des feux de position, de croisement ou de route.', en: 'As soon as the position lights, low beams, or high beams are turned on.', ar: 'بمجرد تشغيل أضواء الوضعية، أضواء التقاطع، أو أضواء الطريق.' } },
+      secours: { q: { fr: 'Que faire en cas de piqûre d\'insecte dans la bouche ou la gorge ?', en: 'What to do in case of an insect sting in the mouth or throat?', ar: 'ماذا تفعل عند التعرض لقرصة حشرة داخل الفم أو الحلق؟' }, a: { fr: 'Donner un glaçon à sucer et appeler immédiatement les secours d\'urgence.', en: 'Give the person an ice cube to suck on and call emergency services immediately.', ar: 'إعطاء المصاب مكعب ثلج لامتصاصه والاتصال بالطوارئ فورًا.' } }
+    },
+    {
+      id: 81,
+      vi: { fr: 'Montrez le témoin d\'alerte du freinage (niveau de liquide ou défaillance).', en: 'Point to the brake system warning light (low fluid or system fault).', ar: 'التحقق الداخلي: أشر إلى ضوء تحذير نظام المكابح (انخفاض السائل أو وجود خلل).' },
+      qser: { q: { fr: 'Que devez-vous faire si ce voyant reste allumé après avoir desserré le frein à main ?', en: 'What must you do if this light stays on after releasing the handbrake?', ar: 'ماذا يجب أن تفعل إذا ظل هذا الضوء مضاءً بعد إنزال مكبح اليد؟' }, a: { fr: 'S\'arrêter immédiatement car il y a un risque de perte d\'efficacité du freinage.', en: 'Stop immediately as there is a risk of losing braking efficiency.', ar: 'التوقف فورًا لأن هناك خطر فقدان فعالية المكابح.' } },
+      secours: { q: { fr: 'Pourquoi faut-il couvrir une victime d\'accident ?', en: 'Why should an accident victim be covered?', ar: 'لماذا يجب تغطية المصاب في حادث؟' }, a: { fr: 'Pour éviter l\'hypothermie et le choc thermique.', en: 'To prevent hypothermia and thermal shock.', ar: 'لتجنب انخفاض درجة حرارة الجسم والصدمة الحرارية.' } }
+    },
+    {
+      id: 82,
+      vi: { fr: 'Contrôlez l\'état des amortisseurs (absence de fuite visuelle).', en: 'Check the condition of the shock absorbers (no visible leaks).', ar: 'التحقق الخارجي: افحص حالة ممتصات الصدمات (عدم وجود تسرب مرئي).' },
+      qser: { q: { fr: 'Quel est l\'impact d\'amortisseurs usés sur la conduite ?', en: 'What is the impact of worn shock absorbers on driving?', ar: 'ما هو تأثير ممتصات الصدمات المتهالكة على القيادة؟' }, a: { fr: 'Augmentation des distances de freinage et perte d\'adhérence dans les virages.', en: 'Increased braking distance and loss of grip in curves.', ar: 'زيادة مسافة الفرملة وفقدان الثبات/الالتصاق في المنعطفات.' } },
+      secours: { q: { fr: 'Comment effectuer la compression directe sur une plaie qui saigne abondamment ?', en: 'How do you perform direct pressure on a heavily bleeding wound?', ar: 'كيف تقوم بالضغط المباشر على جرح ينزف بغزارة؟' }, a: { fr: 'Appuyer fermement sur la plaie avec un tissu propre ou la main gantée jusqu\'à l\'arrivée des secours.', en: 'Press firmly on the wound with a clean cloth or gloved hand until help arrives.', ar: 'الضغط بقوة على الجرح باستخدام قماش نظيف أو بكتلة اليد (مع ارتداء قفاز) حتى وصول الإسعاف.' } }
+    },
+    {
+      id: 83,
+      vi: { fr: 'Montrez le témoin d\'alerte de ceinture non attachée aux places arrière (si équipé).', en: 'Point to the rear seatbelt unfastened warning light (if equipped).', ar: 'التحقق الداخلي: أشر إلى ضوء تحذير عدم ربط حزام الأمان في المقاعد الخلفية (إن وجد).' },
+      qser: { q: { fr: 'Qui est responsable du port de la ceinture pour un passager mineur ?', en: 'Who is responsible for ensuring a minor passenger wears a seatbelt?', ar: 'من هو المسؤول عن ربط حزام الأمان بالنسبة للراكب القاصر؟' }, a: { fr: 'Le conducteur du véhicule.', en: 'The driver of the vehicle.', ar: 'سائق المركبة.' } },
+      secours: { q: { fr: 'Que faire si une personne s\'évanouit et reprend connaissance rapidement ?', en: 'What to do if a person faints and quickly regains consciousness?', ar: 'ماذا تفعل إذا أغمي على شخص واستعاد وعيه بسرعة؟' }, a: { fr: 'La maintenir allongée quelques minutes, la rassurer et demander un avis médical.', en: 'Keep them lying down for a few minutes, reassure them, and seek medical advice.', ar: 'إبقاؤه مستلقيًا لعدة دقائق، طمأنته وطلب استشارة طبية.' } }
+    },
+    {
+      id: 84,
+      vi: { fr: 'Contrôlez l\'état général des balais d\'essuie-glace arrière.', en: 'Check the general condition of the rear wiper blade.', ar: 'التحقق الخارجي: افحص الحالة العامة لشفرة مساحة الزجاج الخلفي.' },
+      qser: { q: { fr: 'Est-il obligatoire d\'avoir un essuie-glace arrière sur toutes les voitures ?', en: 'Is it mandatory to have a rear windshield wiper on all cars?', ar: 'هل وجود مساحة الزجاج الخلفي إجباري في جميع السيارات؟' }, a: { fr: 'Non, ce n\'est pas une obligation légale.', en: 'No, it is not a legal requirement.', ar: 'لا، ليس التزامًا قانونيًا.' } },
+      secours: { q: { fr: 'Quels sont les premiers gestes devant une personne prise de convulsion ?', en: 'What are the first steps when facing someone having convulsions?', ar: 'ما هي الخطوات الأولى عند التعامل مع شخص يصاب بتشنجات/اختلاج؟' }, a: { fr: 'Ne pas la maintenir de force, protéger sa tête et sécuriser l\'environnement jusqu\'à l\'arrêt des convulsions.', en: 'Do not restrain them forcefully, protect their head, and secure the surroundings until convulsions stop.', ar: 'عدم تقييده بالقوة، حماية رأسه وتأمين المحيط حتى تتوقف التشنجات.' } }
+    },,
+    {
+      id: 85,
+      vi: { fr: 'Montrez la commande de déblocage du capot moteur.', en: 'Show the engine bonnet release lever.', ar: 'التحقق الداخلي: أشر إلى مقبض/أداة فتح غطاء المحرك.' },
+      qser: { q: { fr: 'Que faut-il faire si le capot s\'ouvre légèrement en roulant ?', en: 'What should you do if the bonnet opens slightly while driving?', ar: 'ماذا يجب أن تفعل إذا انفتح غطاء المحرك جزئيًا أثناء القيادة؟' }, a: { fr: 'S\'arrêter immédiatement en sécurité pour le refermer correctement.', en: 'Stop immediately safely to close it properly.', ar: 'التوقف فورًا في مكان آمن لإعادة إغلاقه بشكل صحيح.' } },
+      secours: { q: { fr: 'Que faire si une personne a un corps étranger coincé dans l\'oreille ?', en: 'What to do if someone has a foreign object stuck in their ear?', ar: 'ماذا تفعل إذا كان هناك جسم غريب محشور في أذن شخص ما؟' }, a: { fr: 'Ne rien introduire dans l\'oreille et consulter un médecin.', en: 'Do not insert anything into the ear and seek medical advice.', ar: 'عدم إدخال أي شيء في الأذن ومراجعة الطبيب.' } }
+    },
+    {
+      id: 86,
+      vi: { fr: 'Contrôlez la présence et le bon état de la roue de secours (ou du kit anti-crevaison).', en: 'Check the presence and condition of the spare wheel (or puncture repair kit).', ar: 'التحقق الخارجي: تحقق من وجود وحالة العجلة الاحتياطية (أو طقم إصلاح الثقوب).' },
+      qser: { q: { fr: 'Quelle est la pression recommandée pour la roue de secours ?', en: 'What is the recommended pressure for the spare wheel?', ar: 'ما هو الضغط الموصى به للعجلة الاحتياطية؟' }, a: { fr: 'La pression la plus élevée recommandée par le constructeur.', en: 'The highest pressure recommended by the manufacturer.', ar: 'أعلى ضغط موصى به من قِبل الشركة المصنعة.' } },
+      secours: { q: { fr: 'Comment agir face à une personne ayant des vertiges importants ?', en: 'How to act when someone is experiencing severe dizziness?', ar: 'كيف تتصرف مع شخص يعاني من دوار شديد؟' }, a: { fr: 'L\'installer allongée ou assise pour éviter une chute et la rassurer.', en: 'Have them lie down or sit to prevent a fall and reassure them.', ar: 'إجلاسه أو تمديده لتجنب السقوط وطمأنته.' } }
+    },
+    {
+      id: 87,
+      vi: { fr: 'Montrez la commande d\'allumage des feux de route (pleins phares).', en: 'Show the high beam headlights switch.', ar: 'التحقق الداخلي: أشر إلى أداة تشغيل أضواء الطريق (الضوء العالي).' },
+      qser: { q: { fr: 'Quand doit-on passer des feux de route aux feux de croisement ?', en: 'When must you switch from high beams to low beams?', ar: 'متى يجب التغيير من الضوء العالي إلى الضوء المنخفض؟' }, a: { fr: 'Lors du croisement ou du suivi d\'un autre usager, pour ne pas l\'éblouir.', en: 'When crossing or following another road user, to avoid dazzling them.', ar: 'عند التلاق مع سائق آخر أو السير خلفه، لتجنب إبهاره بالضوء.' } },
+      secours: { q: { fr: 'Que faire si une personne fait une crise d\'épilepsie ?', en: 'What to do if someone has an epileptic seizure?', ar: 'ماذا تفعل إذا أصيب شخص بنوبة صرع؟' }, a: { fr: 'Éloigner les objets dangereux, ne pas entraver ses mouvements et protéger sa tête.', en: 'Clear away dangerous objects, do not restrain them, and protect their head.', ar: 'إبعاد الأشياء الخطرة من حوله، عدم تقييد حركته، وحماية رأسه.' } }
+    },
+    {
+      id: 88,
+      vi: { fr: 'Contrôlez l\'état des feux de croisement.', en: 'Check the condition of the low beam headlights.', ar: 'التحقق الخارجي: افحص حالة أضواء التقاطع (الضوء المنخفض).' },
+      qser: { q: { fr: 'Quelle est la portée minimale des feux de croisement la nuit ?', en: 'What is the minimum range of low beam headlights at night?', ar: 'ما هو الحد الأدنى لمدى إنارة أضواء التقاطع ليلاً؟' }, a: { fr: '30 mètres.', en: '30 meters.', ar: '30 مترًا.' } },
+      secours: { q: { fr: 'Que faire si une personne a reçu un coup violent au ventre ?', en: 'What to do if someone received a severe blow to the abdomen?', ar: 'ماذا تفعل إذا تعرض شخص لضربة قوية في البطن؟' }, a: { fr: 'La mettre au repos allongée, surveiller l\'apparition de douleurs ou malaises et alerter les secours.', en: 'Lay them down to rest, monitor for pain or dizziness, and call emergency services.', ar: 'إجلاؤه واستلقاؤه، مراقبة ظهور آلام أو وعكة صحية، والاتصال بالطوارئ.' } }
+    },
+    {
+      id: 89,
+      vi: { fr: 'Montrez le témoin d\'alerte du système de frein à main appliqué.', en: 'Point to the handbrake engaged warning light.', ar: 'التحقق الداخلي: أشر إلى ضوء تحذير رفع مكبح اليد.' },
+      qser: { q: { fr: 'Quel est le risque de rouler avec le frein à main légèrement serré ?', en: 'What is the risk of driving with the handbrake partially engaged?', ar: 'ما هو خطر القيادة مع رفع مكبح اليد جزئيًا؟' }, a: { fr: 'Surchauffe et usure prématurée du système de freinage.', en: 'Overheating and premature wear of the braking system.', ar: 'ارتفاع حرارة نظام الفرامل وتآكله بشكل مبكر.' } },
+      secours: { q: { fr: 'Comment stabiliser le col de la tête d\'une victime suspectée d\'avoir une lésion cervicale ?', en: 'How to stabilize the head/neck of a victim suspected of a spinal injury?', ar: 'كيف تثبت رأس ورقبة مصاب يُشتبه في تعرضه لإصابة في الفقرات العنقوية؟' }, a: { fr: 'Maintenir fermement sa tête à deux mains dans la position où elle se trouve.', en: 'Hold their head firmly with both hands in the position it was found.', ar: 'إمساك الرأس بثبات بكلا اليدين في الوضعية التي وجد عليها.' } }
+    },
+    {
+      id: 90,
+      vi: { fr: 'Contrôlez le niveau du liquide lave-glace.', en: 'Check the windshield washer fluid level.', ar: 'التحقق الخارجي: افحص مستوى سائل غسيل الزجاج.' },
+      qser: { q: { fr: 'Pourquoi est-il recommandé d\'utiliser un liquide lave-glace spécifique en hiver ?', en: 'Why is it recommended to use specific washer fluid in winter?', ar: 'لماذا يُنصح باستخدام سائل غسيل زجاج مخصص للشتاء؟' }, a: { fr: 'Pour éviter le gel du liquide dans le réservoir et sur le pare-brise.', en: 'To prevent the fluid from freezing in the reservoir and on the windshield.', ar: 'لتجنب تجمد السائل داخل الخزان وعلى الزجاج الأمامي.' } },
+      secours: { q: { fr: 'Que faire si une personne consciente étouffe complètement (obstruction totale) ?', en: 'What to do if a conscious person is choking completely (total obstruction)?', ar: 'ماذا تفعل إذا كان شخص واعي يختنق كليًا (انسداد كامل لمجرى الهواء)؟' }, a: { fr: 'Donner 5 claques dans le dos puis effectuer des compressions abdominales (méthode de Heimlich).', en: 'Give up to 5 back blows then perform abdominal thrusts (Heimlich maneuver).', ar: 'توجيه 5 ضربات على الظهر ثم إجراء ضغطات بطنية (مناورة هايمليش).' } }
+    },
+    {
+      id: 91,
+      vi: { fr: 'Montrez la commande de désactivation de l\'airbag passager avant.', en: 'Show the front passenger airbag deactivation switch.', ar: 'التحقق الداخلي: أشر إلى أداة تعطيل الوسادة الهوائية للراكب الأمامي.' },
+      qser: { q: { fr: 'Dans quel cas doit-on absolument désactiver l\'airbag passager ?', en: 'When MUST the passenger airbag be deactivated?', ar: 'في أي حالة يجب عليك حتمًا تعطيل الوسادة الهوائية للراكب؟' }, a: { fr: 'Lors de l\'installation d\'un siège bébé dos à la route sur le siège passager avant.', en: 'When installing a rear-facing child seat on the front passenger seat.', ar: 'عند تركيب مقعد أطفال موجه للخلف في المقعد الأمامي.' } },
+      secours: { q: { fr: 'Quels sont les risques de déplacer une victime d\'un accident de la route ?', en: 'What are the risks of moving a road accident victim?', ar: 'ما هي مخاطر تحريك مصاب في حادث طريق؟' }, a: { fr: 'Risque de paralysie définitive en cas de fracture de la colonne vertébrale.', en: 'Risk of permanent paralysis in case of a spinal fracture.', ar: 'خطر الإصابة بالشلل الدائم في حالة وجود كسر في العمود الفقري.' } }
+    },
+    {
+      id: 92,
+      vi: { fr: 'Contrôlez l\'état des feux de route (pleins phares).', en: 'Check the condition of the high beam headlights.', ar: 'التحقق الخارجي: افحص حالة أضواء الطريق (الضوء العالي).' },
+      qser: { q: { fr: 'Quelle est la portée minimale des feux de route la nuit ?', en: 'What is the minimum range of high beam headlights at night?', ar: 'ما هو الحد الأدنى لمدى إنارة أضواء الطريق ليلاً؟' }, a: { fr: '100 mètres.', en: '100 meters.', ar: '100 متر.' } },
+      secours: { q: { fr: 'Que faire si une personne s\'est brûlée la main avec de l\'eau bouillante ?', en: 'What to do if someone burned their hand with boiling water?', ar: 'ماذا تفعل إذا أصيب شخص بحرق في يده بسبب ماء مغلي؟' }, a: { fr: 'Arroser immédiatement la brûlure à l\'eau froide/tiède pendant 10 à 15 minutes.', en: 'Immediately run cold/lukewarm water over the burn for 10 to 15 minutes.', ar: 'سكب الماء البارد/الفاتر فورًا على موضع الحرق لمدة 10 إلى 15 دقيقة.' } }
+    },
+    {
+      id: 93,
+      vi: { fr: 'Montrez l\'emplacement du gilet de sécurité dans l\'habitacle.', en: 'Show where the high-visibility safety vest is stored in the cabin.', ar: 'التحقق الداخلي: أشر إلى مكان حفظ سترة السلامة داخل مقصورة المركبة.' },
+      qser: { q: { fr: 'Où doit être rangé le gilet de sécurité ?', en: 'Where should the safety vest be stored?', ar: 'أين يجب حفظ سترة السلامة؟' }, a: { fr: 'À portée de main du conducteur (boîte à gants, vide-poche).', en: 'Within easy reach of the driver (glove box, door pocket).', ar: 'في متناول يد السائق (صندوق القفازات، جيب الباب).' } },
+      secours: { q: { fr: 'Que faire si une personne a une crampe sévère au niveau du mollet ?', en: 'What to do if someone has a severe calf cramp?', ar: 'ماذا تفعل إذا أصيب شخص بتشنج عضلي شديد في ربلة الساق (السمانة)؟' }, a: { fr: 'Étirer le mollet en ramenant les orteils vers le haut et masser doucement.', en: 'Stretch the calf by pulling toes upward and gently massage.', ar: 'تمديد الساق عبر سحب أصابع القدم للأعلى وتدليك المنطقة بلطف.' } }
+    },
+    {
+      id: 94,
+      vi: { fr: 'Contrôlez le fonctionnement du feu de recul.', en: 'Check the operation of the reverse light.', ar: 'التحقق الخارجي: افحص عمل ضوء الرجوع إلى الخلف.' },
+      qser: { q: { fr: 'Comment pouvez-vous le contrôler seul sans l\'aide d\'une autre personne ?', en: 'How can you check it alone without assistance?', ar: 'كيف يمكنك فحص هذا الضوء بمفردك دون مساعدة شخص آخر؟' }, a: { fr: 'En mettant le contact, en enclenchant la marche arrière et en observant le reflet sur un obstacle.', en: 'Turn the ignition on, engage reverse gear, and look for reflection on a wall or obstacle.', ar: 'بفتح تشغيل السيارة، تعشيق غيار الرجوع للخلف، وملاحظة انعكاس الضوء على جدار أو عائق.' } },
+      secours: { q: { fr: 'Que faire si une personne inconsciente présente des signes de convulsions ?', en: 'What to do if an unconscious person is having convulsions?', ar: 'ماذا تفعل إذا كان الشخص الفاقد للوعي يعاني من تشنجات؟' }, a: { fr: 'Protéger sa tête des chocs, ne rien mettre dans sa bouche et contacter les secours.', en: 'Protect their head from impacts, do not put anything in their mouth, and call help.', ar: 'حماية رأسه من الصدمات، عدم وضع أي شيء في فمه والاتصال بالخدمات الطبية.' } }
+    },
+    {
+      id: 95,
+      vi: { fr: 'Montrez l\'indicateur de vitesse sur le tableau de bord.', en: 'Point to the speedometer on the dashboard.', ar: 'التحقق الداخلي: أشر إلى عداد السرعة في لوحة القيادة.' },
+      qser: { q: { fr: 'Quelle est la marge d\'erreur tolerated de l\'indicateur de vitesse ?', en: 'What is the tolerance/margin of error of the speedometer?', ar: 'ما هي نسبة الخطأ المسموح بها في عداد السرعة؟' }, a: { fr: 'L\'indicateur indique une vitesse légèrement supérieure à la vitesse réelle (jamais inférieure).', en: 'It displays a speed slightly higher than the actual speed (never lower).', ar: 'يظهر العداد سرعة أعلى قليلاً من السرعة الفعلية (ولا يظهر أقل منها أبداً).' } },
+      secours: { q: { fr: 'Comment retenir une hémorragie externe abondante au niveau d\'un membre si la compression directe est impossible ?', en: 'How to stop severe limb bleeding if direct pressure is impossible?', ar: 'كيف توقف نزيفًا خارجيًا شديدًا في أحد الأطراف إذا كان الضغط المباشر غير ممكن؟' }, a: { fr: 'Poser un garrot tourniquet au-dessus de la plaie et noter l\'heure de pose.', en: 'Apply a tourniquet above the wound and note the application time.', ar: 'وضع رباط ضاغط (Garrot) أعلى الجرح وتسجيل وقت وضعه.' } }
+    },
+    {
+      id: 96,
+      vi: { fr: 'Contrôlez l\'état et la propreté des répétiteurs latéraux de clignotant.', en: 'Check the condition and cleanliness of the side indicator repeaters.', ar: 'التحقق الخارجي: افحص حالة ونظافة الغمازات الجانبية.' },
+      qser: { q: { fr: 'Quel est leur rôle principal ?', en: 'What is their primary role?', ar: 'ما هو دورها الرئيسي؟' }, a: { fr: 'Rendre le changement de direction visible pour les usagers situés sur les côtés du véhicule.', en: 'Make direction changes visible to road users alongside the vehicle.', ar: 'إظهار تغيير الاتجاه لمستخدمي الطريق المتواجدين على جانبي المركبة.' } },
+      secours: { q: { fr: 'Que faire si une personne s\'évanouit suite à une forte chaleur ?', en: 'What to do if someone faints due to extreme heat?', ar: 'ماذا تفعل إذا أغمي على شخص نتيجة الحرارة الشديدة؟' }, a: { fr: 'La déplacer dans un endroit frais/ombragé, surélever ses jambes et la rafraîchir.', en: 'Move them to a cool/shaded area, raise their legs, and cool them down.', ar: 'نقله إلى مكان بارد/مظلل، رفع رجليه وتبريد جسده.' } }
+    },,
+    {
+      id: 97,
+      vi: { fr: 'Montrez le témoin d\'alerte de température du liquide de refroidissement.', en: 'Point to the coolant temperature warning light.', ar: 'التحقق الداخلي: أشر إلى ضوء تحذير حرارة سائل التبريد.' },
+      qser: { q: { fr: 'Que faut-il faire si ce témoin s\'allume en rouge pendant la conduite ?', en: 'What must you do if this light turns red while driving?', ar: 'ماذا يجب أن تفعل إذا أضاء هذا المؤشر باللون الأحمر أثناء القيادة؟' }, a: { fr: 'S\'arrêter immédiatement en sécurité, couper le moteur et attendre qu\'il refroidisse.', en: 'Stop immediately safely, turn off the engine, and wait for it to cool down.', ar: 'التوقف فورًا في مكان آمن، إيقاف المحرك والانتظار حتى يبرد.' } },
+      secours: { q: { fr: 'Que faire si une personne a une protrusion d\'organes suite à une plaie abdominale grave ?', en: 'What to do if an abdominal wound causes organ protrusion?', ar: 'ماذا تفعل إذا خرجت بعض الأعضاء الداخلية لمصاب نتيجة جرح بطني خطير؟' }, a: { fr: 'Ne pas tenter de réintégrer les organes, couvrir d\'un pansement humide et alerter les secours.', en: 'Do not attempt to push organs back, cover with a moist sterile dressing, and call emergency services.', ar: 'عدم محاولة إعادة الأعضاء إلى الداخل، تغطيتها بضمادة رطبة والاتصال بالإسعاف.' } }
+    },
+    {
+      id: 98,
+      vi: { fr: 'Contrôlez l\'état et la propreté du pare-brise et des balais d\'essuie-glace.', en: 'Check the cleanliness and condition of the windshield and wiper blades.', ar: 'التحقق الخارجي: افحص حالة ونظافة الزجاج الأمامي وشفرات المساحات.' },
+      qser: { q: { fr: 'Quelle est la conséquence principale d\'un pare-brise sale en conduite nocturne ?', en: 'What is the main consequence of a dirty windshield during night driving?', ar: 'ما هي النتيجة الرئيسية لزجاج أمامي متسخ أثناء القيادة الليلية؟' }, a: { fr: 'Risque d\'éblouissement accru par la réfraction des feux des autres véhicules.', en: 'Increased risk of glare due to light refraction from oncoming headlights.', ar: 'زيادة خطر الإبهار بالضوء بسبب انكسار أضواء السيارات الأخرى على الاتساخات.' } },
+      secours: { q: { fr: 'Comment agir si une personne a du produit toxique projeté dans les yeux ?', en: 'How to act if a toxic chemical gets splashed into someone\'s eyes?', ar: 'كيف تتصرف إذا تناثرت مادة سامة في عين شخص ما؟' }, a: { fr: 'Rincer immédiatement à l\'eau claire pendant au moins 15 minutes en gardant l\'œil ouvert.', en: 'Rinse immediately with clean water for at least 15 minutes while keeping the eye open.', ar: 'غسل العين فورًا بالماء النظيف لمدة 15 دقيقة على الأقل مع إبقاء العين مفتوحة.' } }
+    },
+    {
+      id: 99,
+      vi: { fr: 'Montrez la commande de vérification de la pression des pneus (système TPMS si équipé).', en: 'Show the tire pressure monitoring reset/check button (TPMS if equipped).', ar: 'التحقق الداخلي: أشر إلى أداة فحص/إعادة ضبط ضغط الإطارات (نظام TPMS إن وجد).' },
+      qser: { q: { fr: 'Quand doit-on ré-initialiser ce système ?', en: 'When should this system be reset?', ar: 'متى يجب إعادة ضبط هذا النظام؟' }, a: { fr: 'Après avoir réajusté la pression des pneus ou changé une roue.', en: 'After adjusting tire pressure or changing a wheel.', ar: 'بعد تعديل ضغط هواء الإطارات أو تغيير إحدى العجلات.' } },
+      secours: { q: { fr: 'Que faire si une victime d\'accident présente une hémorragie du nez suite à un choc à la tête ?', en: 'What to do if an accident victim has nosebleeding following a head trauma?', ar: 'ماذا تفعل إذا كان مصاب الحادث يعاني من نزيف في الأنف إثر ضربة على الرأس؟' }, a: { fr: 'Ne pas chercher à arrêter le saignement, maintenir la victime immobile et contacter d\'urgence les secours.', en: 'Do not try to stop the bleeding, keep the victim still, and call emergency services immediately.', ar: 'عدم محاولة إيقاف النزيف، إبقاء المصاب ثابتًا والاتصال الفوري بالطوارئ.' } }
+    },
+    {
+      id: 100,
+      vi: { fr: 'Contrôlez l\'état, la pression visuelle et la conformité des pneumatiques.', en: 'Check the condition, visual pressure, and compliance of the tires.', ar: 'التحقق الخارجي: افحص حالة والضغط الظاهري ومطابقة الإطارات للمواصفات.' },
+      qser: { q: { fr: 'Quelle est la profondeur minimale légale des rainures du pneu ?', en: 'What is the legal minimum tread depth for tires?', ar: 'ما هو الحد الأدنى القانوني لعمق نقشة/حفر الإطار؟' }, a: { fr: '1,6 millimètre.', en: '1.6 millimeters.', ar: '1.6 مليمتر.' } },
+      secours: { q: { fr: 'Quel est l\'objectif principal des premiers secours ?', en: 'What is the main objective of first aid?', ar: 'ما هو الهدف الرئيسي من الإسعافات الأولية؟' }, a: { fr: 'Préserver la vie, éviter l\'aggravation de l\'état de la victime et favoriser sa guérison en attendant les secours.', en: 'Preserve life, prevent condition from worsening, and promote recovery while waiting for professional help.', ar: 'الحفاظ على الحياة، منع تدهور حالة المصاب، وتعزيز الشفاء لحين وصول الخدمات الطبية المتخصصة.' } }
+    }
+  ];
+
+  function wordSpans(text) {
+    return String(text == null ? '' : text).split(/\s+/).map(function (w) {
+      return w ? '<span class="word">' + esc(w) + '</span>' : '';
+    }).join(' ');
+  }
+
+  function lineHtml(text, lang, type, index, label) {
+    return '<div class="line ' + lang + '" data-lang="' + lang + '" data-type="' + type + '" data-index="' + index + '" data-text="' + esc(text) + '">' +
+      '<button class="line-btn line-speak" title="' + t('loop') + '">🔁</button>' +
+      '<button class="line-btn line-ai" title="' + t('askAi') + '">🤖</button>' + wordSpans(text) + '</div>';
+  }
+
+  function render() {
+    var html = '';
+    QUESTIONS.forEach(function (q) {
+      var key = 'q' + q.id;
+      html += '<div class="question" data-key="' + key + '">';
+      html += '<div class="q-head">';
+      html += '<div class="q-num">' + q.id + '</div>';
+      html += '<div class="q-title">' + t('question') + ' ' + q.id + '</div>';
+      html += '<div class="q-actions">';
+      html += '<button class="loop-btn" title="Loop">🔁</button>';
+      html += '</div></div>';
+
+      html += '<div class="section"><div class="section-label">' + t('vi') + '</div>';
+      ['fr','en','ar'].forEach(function (lang) { html += lineHtml(q.vi[lang], lang, 'vi', 0, lang.toUpperCase()); });
+      html += '</div>';
+
+      html += '<div class="section"><div class="section-label">' + t('qser') + '</div>';
+      html += '<div class="section-label" style="margin-inline-start:0.6rem;background:var(--bg-primary);color:var(--text-secondary)">' + t('question') + '</div>';
+      ['fr','en','ar'].forEach(function (lang) { html += lineHtml(q.qser.q[lang], lang, 'qser-q', 0, lang.toUpperCase()); });
+      html += '<div class="section-label" style="margin-inline-start:0.6rem;background:var(--bg-primary);color:var(--success)">' + t('answer') + '</div>';
+      ['fr','en','ar'].forEach(function (lang) { html += lineHtml(q.qser.a[lang], lang, 'qser-a', 0, lang.toUpperCase()); });
+      html += '</div>';
+
+      html += '<div class="section"><div class="section-label">' + t('secours') + '</div>';
+      html += '<div class="section-label" style="margin-inline-start:0.6rem;background:var(--bg-primary);color:var(--text-secondary)">' + t('question') + '</div>';
+      ['fr','en','ar'].forEach(function (lang) { html += lineHtml(q.secours.q[lang], lang, 'secours-q', 0, lang.toUpperCase()); });
+      html += '<div class="section-label" style="margin-inline-start:0.6rem;background:var(--bg-primary);color:var(--success)">' + t('answer') + '</div>';
+      ['fr','en','ar'].forEach(function (lang) { html += lineHtml(q.secours.a[lang], lang, 'secours-a', 0, lang.toUpperCase()); });
+      html += '</div>';
+
+      html += '</div>';
+    });
+    document.getElementById('questions').innerHTML = html;
+  }
+
+  function setUILang(lang) {
+    state.uiLang = lang;
+    localStorage.setItem('conduite_ui_lang', lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    render();
+    document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      var key = el.dataset.t;
+      if (el.tagName === 'OPTION') el.textContent = t(key);
+      else if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') el.title = t(key);
+      else el.textContent = t(key);
+    });
+    document.querySelectorAll('[data-t-title]').forEach(function (el) { el.title = t(el.dataset.tTitle); });
+    if (!state.globalLoop) document.getElementById('btn-global-loop').textContent = '▶ ' + t('playAll');
+    document.getElementById('btn-draw').childNodes[1].textContent = ' ' + t('draw');
+  }
+
+  document.getElementById('questions').addEventListener('click', function (e) {
+    var qEl = e.target.closest('.question');
+    if (!qEl) return;
+    var key = qEl.dataset.key;
+    var id = parseInt(key.replace('q', ''), 10);
+    var q = QUESTIONS[id - 1];
+
+    var lineEl = e.target.closest('.line');
+    var wordEl = e.target.closest('.word');
+    if (wordEl && lineEl) {
+      toggleWordLoop(wordEl, q, key, lineEl.dataset.type, lineEl.dataset.lang, parseInt(lineEl.dataset.index, 10));
+      return;
+    }
+    if (lineEl) {
+      if (e.target.closest('.line-speak')) { toggleLineLoop(lineEl, q, key, lineEl.dataset.type, lineEl.dataset.lang, parseInt(lineEl.dataset.index, 10)); return; }
+      if (e.target.closest('.line-ai')) { askAiLine(q, lineEl.dataset.type, lineEl.dataset.lang); return; }
+    }
+
+    if (e.target.closest('.loop-btn')) { toggleLoop(q, key); return; }
+  });
+
+  document.getElementById('btn-global-loop').addEventListener('click', function () {
+    if (state.globalLoop) { stopSpeech(); return; }
+    stopSpeech();
+    state.globalLoop = true;
+    this.textContent = '⏸ ' + t('playAll');
+    var i = 0;
+    (function next() {
+      if (!state.globalLoop) return;
+      if (i >= QUESTIONS.length) { stopSpeech(); return; }
+      var q = QUESTIONS[i];
+      var key = 'q' + q.id;
+      i++;
+      speakQuestion(q, key, function () {
+        if (!state.globalLoop) return;
+        setTimeout(next, 700);
+      });
+    })();
+  });
+
+  document.getElementById('rate').addEventListener('change', function (e) {
+    state.rate = parseFloat(e.target.value);
+    localStorage.setItem('conduite_rate', e.target.value);
+  });
+
+  document.getElementById('loopmode').addEventListener('change', function (e) {
+    state.langs = e.target.value.split(',');
+    localStorage.setItem('conduite_langs', e.target.value);
+  });
+
+  document.getElementById('btn-stop').addEventListener('click', stopSpeech);
+
+  document.getElementById('btn-theme').addEventListener('click', function () {
+    var next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('conduite_theme', next);
+  });
+
+  document.querySelector('.lang-switch').addEventListener('click', function (e) {
+    var btn = e.target.closest('.lang-btn');
+    if (btn) setUILang(btn.dataset.lang);
+  });
+
+  /* ---- drawing board ---- */
+  var drawer = document.getElementById('drawer');
+  var canvas = document.getElementById('draw-canvas');
+  var ctx = canvas.getContext('2d');
+  var drawing = false, tool = 'pen';
+
+  function resizeCanvas() {
+    canvas.width = drawer.clientWidth;
+    canvas.height = drawer.clientHeight;
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  }
+
+  function getPos(e) {
+    var rect = canvas.getBoundingClientRect();
+    var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    var clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return { x: clientX - rect.left, y: clientY - rect.top };
+  }
+
+  function startDraw(e) {
+    e.preventDefault(); drawing = true;
+    var p = getPos(e);
+    ctx.beginPath(); ctx.moveTo(p.x, p.y);
+  }
+  function moveDraw(e) {
+    e.preventDefault();
+    if (!drawing) return;
+    var p = getPos(e);
+    ctx.globalCompositeOperation = tool === 'eraser' ? 'destination-out' : 'source-over';
+    ctx.strokeStyle = tool === 'eraser' ? 'rgba(0,0,0,1)' : document.getElementById('draw-color').value;
+    ctx.lineWidth = parseInt(document.getElementById('draw-size').value, 10) * (tool === 'eraser' ? 3 : 1);
+    ctx.lineTo(p.x, p.y); ctx.stroke();
+  }
+  function endDraw() { drawing = false; ctx.beginPath(); }
+
+  function openDrawer() { drawer.classList.add('open'); setTimeout(resizeCanvas, 50); }
+  function closeDrawer() { drawer.classList.remove('open'); }
+
+  canvas.addEventListener('mousedown', startDraw);
+  canvas.addEventListener('mousemove', moveDraw);
+  canvas.addEventListener('mouseup', endDraw);
+  canvas.addEventListener('mouseout', endDraw);
+  canvas.addEventListener('touchstart', startDraw, { passive: false });
+  canvas.addEventListener('touchmove', moveDraw, { passive: false });
+  canvas.addEventListener('touchend', endDraw);
+
+  document.getElementById('btn-draw').addEventListener('click', openDrawer);
+  document.getElementById('fab-draw').addEventListener('click', openDrawer);
+  document.getElementById('draw-close').addEventListener('click', closeDrawer);
+  document.getElementById('draw-pen').addEventListener('click', function () { tool = 'pen'; });
+  document.getElementById('draw-eraser').addEventListener('click', function () { tool = 'eraser'; });
+  document.getElementById('draw-clear').addEventListener('click', function () { ctx.clearRect(0, 0, canvas.width, canvas.height); });
+  document.getElementById('draw-save').addEventListener('click', function () {
+    var link = document.createElement('a');
+    link.download = 'driving-exam-drawing-' + Date.now() + '.png';
+    link.href = canvas.toDataURL(); link.click();
+  });
+
+  /* ---- init ---- */
+  document.documentElement.dataset.theme = localStorage.getItem('conduite_theme') || 'dark';
+  document.getElementById('rate').value = state.rate;
+  var savedLangs = localStorage.getItem('conduite_langs');
+  if (savedLangs) document.getElementById('loopmode').value = savedLangs;
+  else document.getElementById('loopmode').value = 'fr,en,ar';
+
+  render();
+  setUILang(state.uiLang);
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  }
+  if (!nativeTTS() && 'speechSynthesis' in window) window.speechSynthesis.getVoices();
+  window.addEventListener('beforeunload', function () { if (nativeTTS() || 'speechSynthesis' in window) stopSpeech(); });
+
+  var AppPlugin = (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) || null;
+  if (AppPlugin && AppPlugin.addListener) {
+    AppPlugin.addListener('backButton', function () {
+      if (drawer.classList.contains('open')) { closeDrawer(); return; }
+      stopSpeech();
+    });
+  }
+})();
+</script>
+</body>
+</html>
