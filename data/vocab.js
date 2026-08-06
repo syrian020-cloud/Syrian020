@@ -12722,10 +12722,10 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Cabine",
-    "ar": "مقصورة / كابينة",
-    "en": "Cabin",
+    "ar": "مقصورة",
+    "en": "Cabin / Booth",
     "pos": "noun",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
       "services",
       "transport"
@@ -12753,11 +12753,18 @@ window.VOCAB_DATA = [
       "daily",
       "work"
     ],
-    "ex": {
-      "fr": "Le câble est trop long.",
-      "ar": "الكابل طويل جدًا.",
-      "en": "The cable is too long."
-    }
+    "ex": [
+      {
+        "fr": "Le câble est trop long.",
+        "ar": "الكابل طويل جدًا.",
+        "en": "The cable is too long."
+      },
+      {
+        "fr": "Le câble est trop court.",
+        "ar": "الكابل قصير جدًا.",
+        "en": "The cable is too short."
+      }
+    ]
   },
   {
     "fr": "Cabinet",
@@ -12792,11 +12799,18 @@ window.VOCAB_DATA = [
       "daily",
       "work"
     ],
-    "ex": {
-      "fr": "Le cadre est accroché au mur.",
-      "ar": "الإطار معلق على الحائط.",
-      "en": "The frame is hanging on the wall."
-    }
+    "ex": [
+      {
+        "fr": "Le cadre est accroché au mur.",
+        "ar": "الإطار معلق على الحائط.",
+        "en": "The frame is hanging on the wall."
+      },
+      {
+        "fr": "Il est cadre dans une entreprise.",
+        "ar": "هو مدير في شركة.",
+        "en": "He is an executive in a company."
+      }
+    ]
   },
   {
     "fr": "Cahier",
@@ -12885,15 +12899,22 @@ window.VOCAB_DATA = [
     "ar": "بطة",
     "en": "Duck",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Les enfants regardent les canards.",
-      "ar": "الأطفال ينظرون إلى البط.",
-      "en": "The children are watching the ducks."
-    }
+    "ex": [
+      {
+        "fr": "Les enfants regardent les canards.",
+        "ar": "الأطفال ينظرون إلى البط.",
+        "en": "The children are watching the ducks."
+      },
+      {
+        "fr": "Les canards nagent sur le lac.",
+        "ar": "البط يسبح في البحيرة.",
+        "en": "The ducks are swimming on the lake."
+      }
+    ]
   },
   {
     "fr": "Canette",
@@ -12905,16 +12926,23 @@ window.VOCAB_DATA = [
       "daily",
       "shop"
     ],
-    "ex": {
-      "fr": "J'achète une canette de soda.",
-      "ar": "أشتري علبة مشروب غازي.",
-      "en": "I buy a can of soda."
-    }
+    "ex": [
+      {
+        "fr": "J'achète une canette de soda.",
+        "ar": "أشتري علبة مشروب غازي.",
+        "en": "I buy a can of soda."
+      },
+      {
+        "fr": "Il boit une canette de soda.",
+        "ar": "يشرب علبة مشروب غازي.",
+        "en": "He drinks a can of soda."
+      }
+    ]
   },
   {
     "fr": "Capot",
     "ar": "غطاء المحرك",
-    "en": "Hood",
+    "en": "Car hood",
     "pos": "noun",
     "level": "B1",
     "contexts": [
@@ -12970,7 +12998,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Casier",
-    "ar": "خزانة صغيرة / صندوق",
+    "ar": "خزانة / قفل تخزين",
     "en": "Locker",
     "pos": "noun",
     "level": "A2",
@@ -12988,38 +13016,57 @@ window.VOCAB_DATA = [
         "fr": "Je mets mes affaires dans mon casier.",
         "ar": "أضع أغراضي في خزانتي.",
         "en": "I put my things in my locker."
+      },
+      {
+        "fr": "Je range mes affaires dans mon casier.",
+        "ar": "أضع أغراضي في خزانتي.",
+        "en": "I put my belongings in my locker."
       }
     ]
   },
   {
     "fr": "Casque",
-    "ar": "خوذة / سماعات",
-    "en": "Helmet / Headphones",
+    "ar": "خوذة / سماعة رأس",
+    "en": "Helmet / Headset",
     "pos": "noun",
-    "level": "A2",
+    "level": "A1",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Porte ton casque.",
-      "ar": "ارتدِ خوذتك.",
-      "en": "Wear your helmet."
-    }
+    "ex": [
+      {
+        "fr": "Porte ton casque.",
+        "ar": "ارتدِ خوذتك.",
+        "en": "Wear your helmet."
+      },
+      {
+        "fr": "Porte un casque à vélo.",
+        "ar": "ارتدِ خوذة عند ركوب الدراجة.",
+        "en": "Wear a helmet when riding a bicycle."
+      }
+    ]
   },
   {
     "fr": "Catalogue",
     "ar": "كتالوج",
-    "en": "Catalogue",
+    "en": "Catalog",
     "pos": "noun",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
       "shop"
     ],
-    "ex": {
-      "fr": "Regardez le catalogue.",
-      "ar": "انظر إلى الكتالوج.",
-      "en": "Look at the catalogue."
-    }
+    "ex": [
+      {
+        "fr": "Regardez le catalogue.",
+        "ar": "انظر إلى الكتالوج.",
+        "en": "Look at the catalogue."
+      },
+      {
+        "fr": "Consultez le catalogue des produits.",
+        "ar": "اطلع على كتالوج المنتجات.",
+        "en": "Browse the product catalog."
+      }
+    ]
   },
   {
     "fr": "Catégorie",
@@ -13068,15 +13115,20 @@ window.VOCAB_DATA = [
         "fr": "J'ai fait un cauchemar cette nuit.",
         "ar": "رأيت كابوسًا الليلة الماضية.",
         "en": "I had a nightmare last night."
+      },
+      {
+        "fr": "J'ai fait un cauchemar cette nuit.",
+        "ar": "رأيت كابوسًا الليلة.",
+        "en": "I had a nightmare last night."
       }
     ]
   },
   {
     "fr": "Caution",
-    "ar": "تأمين / ضمان",
-    "en": "Deposit / Guarantee",
+    "ar": "كفالة / تأمين",
+    "en": "Deposit",
     "pos": "noun",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
       "housing"
     ],
@@ -13090,6 +13142,11 @@ window.VOCAB_DATA = [
         "fr": "J'ai payé une caution pour l'appartement.",
         "ar": "دفعت تأمينًا للشقة.",
         "en": "I paid a deposit for the apartment."
+      },
+      {
+        "fr": "J'ai payé la caution de l'appartement.",
+        "ar": "دفعت تأمين الشقة.",
+        "en": "I paid the apartment deposit."
       }
     ]
   },
@@ -13241,6 +13298,11 @@ window.VOCAB_DATA = [
         "fr": "Je m'assois sur la chaise.",
         "ar": "أجلس على الكرسي.",
         "en": "I sit on the chair."
+      },
+      {
+        "fr": "La chaise est confortable.",
+        "ar": "الكرسي مريح.",
+        "en": "The chair is comfortable."
       }
     ]
   },
@@ -14710,6 +14772,11 @@ window.VOCAB_DATA = [
         "fr": "La voiture manque de carburant.",
         "ar": "السيارة ينقصها الوقود.",
         "en": "The car is low on fuel."
+      },
+      {
+        "fr": "Le prix du carburant augmente.",
+        "ar": "يرتفع سعر الوقود.",
+        "en": "Fuel prices are increasing."
       }
     ]
   },
@@ -14812,6 +14879,11 @@ window.VOCAB_DATA = [
         "fr": "La cendre est restée après le feu.",
         "ar": "بقي الرماد بعد الحريق.",
         "en": "The ash remained after the fire."
+      },
+      {
+        "fr": "Il reste de la cendre dans la cheminée.",
+        "ar": "بقي رماد في المدفأة.",
+        "en": "There is ash left in the fireplace."
       }
     ]
   },
@@ -14839,11 +14911,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "J'aime les cerises.",
-      "ar": "أحب الكرز.",
-      "en": "I like cherries."
-    }
+    "ex": [
+      {
+        "fr": "J'aime les cerises.",
+        "ar": "أحب الكرز.",
+        "en": "I like cherries."
+      },
+      {
+        "fr": "Les cerises sont délicieuses.",
+        "ar": "الكرز لذيذ.",
+        "en": "Cherries are delicious."
+      }
+    ]
   },
   {
     "fr": "Chaleureux",
@@ -15264,15 +15343,22 @@ window.VOCAB_DATA = [
     "ar": "شاحنة صغيرة",
     "en": "Van",
     "pos": "noun",
-    "level": "A2",
+    "level": "B1",
     "contexts": [
       "transport"
     ],
-    "ex": {
-      "fr": "La camionnette transporte des marchandises.",
-      "ar": "الشاحنة الصغيرة تنقل البضائع.",
-      "en": "The van transports goods."
-    }
+    "ex": [
+      {
+        "fr": "La camionnette transporte des marchandises.",
+        "ar": "الشاحنة الصغيرة تنقل البضائع.",
+        "en": "The van transports goods."
+      },
+      {
+        "fr": "La camionnette est garée devant la maison.",
+        "ar": "الشاحنة الصغيرة متوقفة أمام المنزل.",
+        "en": "The van is parked in front of the house."
+      }
+    ]
   },
   {
     "fr": "Canal",
@@ -15439,15 +15525,22 @@ window.VOCAB_DATA = [
     "ar": "كارثة",
     "en": "Disaster",
     "pos": "noun",
-    "level": "B1",
+    "level": "A2",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "C'est une catastrophe.",
-      "ar": "إنها كارثة.",
-      "en": "It is a disaster."
-    }
+    "ex": [
+      {
+        "fr": "C'est une catastrophe.",
+        "ar": "إنها كارثة.",
+        "en": "It is a disaster."
+      },
+      {
+        "fr": "Le village a subi une catastrophe.",
+        "ar": "تعرضت القرية لكارثة.",
+        "en": "The village suffered a disaster."
+      }
+    ]
   },
   {
     "fr": "Cause médicale",
@@ -18164,11 +18257,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "health"
     ],
-    "ex": {
-      "fr": "Le cerveau contrôle le corps.",
-      "ar": "الدماغ يتحكم بالجسم.",
-      "en": "The brain controls the body."
-    }
+    "ex": [
+      {
+        "fr": "Le cerveau contrôle le corps.",
+        "ar": "الدماغ يتحكم بالجسم.",
+        "en": "The brain controls the body."
+      },
+      {
+        "fr": "Le cerveau contrôle le corps.",
+        "ar": "الدماغ يتحكم في الجسم.",
+        "en": "The brain controls the body."
+      }
+    ]
   },
   {
     "fr": "Chaleureux / Chaleureuse",
@@ -20119,6 +20219,513 @@ window.VOCAB_DATA = [
       "fr": "Il faut conserver ce produit au frais.",
       "ar": "يجب حفظ هذا المنتج في مكان بارد.",
       "en": "This product must be kept refrigerated."
+    }
+  },
+  {
+    "fr": "Cabane",
+    "ar": "كوخ",
+    "en": "Cabin",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Ils passent la nuit dans une cabane.",
+      "ar": "يقضون الليل في كوخ.",
+      "en": "They spend the night in a cabin."
+    }
+  },
+  {
+    "fr": "Caduc",
+    "ar": "منتهي الصلاحية / لاغٍ",
+    "en": "Invalid / Expired",
+    "pos": "adjective",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "Ce document est caduc.",
+      "ar": "هذه الوثيقة لم تعد صالحة.",
+      "en": "This document is no longer valid."
+    }
+  },
+  {
+    "fr": "Cage",
+    "ar": "قفص",
+    "en": "Cage",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "L'oiseau est dans une cage.",
+      "ar": "الطائر في قفص.",
+      "en": "The bird is in a cage."
+    }
+  },
+  {
+    "fr": "Caillou",
+    "ar": "حصاة",
+    "en": "Pebble",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Il y a un caillou dans ma chaussure.",
+      "ar": "هناك حصاة في حذائي.",
+      "en": "There is a pebble in my shoe."
+    }
+  },
+  {
+    "fr": "Caissier / Caissière",
+    "ar": "أمين صندوق",
+    "en": "Cashier",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "La caissière est très gentille.",
+      "ar": "أمينة الصندوق لطيفة جدًا.",
+      "en": "The cashier is very kind."
+    }
+  },
+  {
+    "fr": "Calcaire",
+    "ar": "كلسي / جير",
+    "en": "Limestone / Limescale",
+    "pos": "noun",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "Il y a du calcaire dans l'eau.",
+      "ar": "يوجد كلس في الماء.",
+      "en": "There is limescale in the water."
+    }
+  },
+  {
+    "fr": "Calendrier scolaire",
+    "ar": "التقويم الدراسي",
+    "en": "School calendar",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Le calendrier scolaire est publié.",
+      "ar": "تم نشر التقويم الدراسي.",
+      "en": "The school calendar has been published."
+    }
+  },
+  {
+    "fr": "Calorie",
+    "ar": "سعرة حرارية",
+    "en": "Calorie",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Cette boisson contient peu de calories.",
+      "ar": "هذا المشروب يحتوي على سعرات قليلة.",
+      "en": "This drink contains few calories."
+    }
+  },
+  {
+    "fr": "Cannette de recyclage",
+    "ar": "حاوية إعادة التدوير",
+    "en": "Recycling bin",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Jette la bouteille dans le bac de recyclage.",
+      "ar": "ارمِ الزجاجة في حاوية إعادة التدوير.",
+      "en": "Throw the bottle into the recycling bin."
+    }
+  },
+  {
+    "fr": "Canne",
+    "ar": "عصا",
+    "en": "Walking stick / Cane",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Mon grand-père marche avec une canne.",
+      "ar": "جدي يمشي بعصا.",
+      "en": "My grandfather walks with a cane."
+    }
+  },
+  {
+    "fr": "Canot",
+    "ar": "قارب صغير",
+    "en": "Canoe / Small boat",
+    "pos": "noun",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "Ils traversent la rivière en canot.",
+      "ar": "يعبرون النهر بقارب صغير.",
+      "en": "They cross the river in a canoe."
+    }
+  },
+  {
+    "fr": "Cantine",
+    "ar": "مقصف",
+    "en": "Cafeteria",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Nous déjeunons à la cantine.",
+      "ar": "نتناول الغداء في المقصف.",
+      "en": "We have lunch in the cafeteria."
+    }
+  },
+  {
+    "fr": "Canyon",
+    "ar": "وادٍ سحيق",
+    "en": "Canyon",
+    "pos": "noun",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "Ce canyon est très profond.",
+      "ar": "هذا الوادي السحيق عميق جدًا.",
+      "en": "This canyon is very deep."
+    }
+  },
+  {
+    "fr": "Caravane",
+    "ar": "عربة سكن متنقلة",
+    "en": "Caravan",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Ils voyagent en caravane.",
+      "ar": "يسافرون بعربة سكن متنقلة.",
+      "en": "They travel in a caravan."
+    }
+  },
+  {
+    "fr": "Carence",
+    "ar": "نقص",
+    "en": "Deficiency",
+    "pos": "noun",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "Il souffre d'une carence en fer.",
+      "ar": "يعاني من نقص الحديد.",
+      "en": "He suffers from an iron deficiency."
+    }
+  },
+  {
+    "fr": "Carnet",
+    "ar": "دفتر",
+    "en": "Notebook",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "J'écris dans mon carnet.",
+      "ar": "أكتب في دفتري.",
+      "en": "I write in my notebook."
+    }
+  },
+  {
+    "fr": "Carnivore",
+    "ar": "آكل اللحوم",
+    "en": "Carnivore",
+    "pos": "other",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "Le lion est un animal carnivore.",
+      "ar": "الأسد حيوان آكل للحوم.",
+      "en": "The lion is a carnivorous animal."
+    }
+  },
+  {
+    "fr": "Cartable",
+    "ar": "حقيبة مدرسية",
+    "en": "School bag",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "L'enfant porte son cartable.",
+      "ar": "يحمل الطفل حقيبته المدرسية.",
+      "en": "The child carries his school bag."
+    }
+  },
+  {
+    "fr": "Carton",
+    "ar": "كرتون / صندوق",
+    "en": "Cardboard box",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Le carton est lourd.",
+      "ar": "الصندوق الكرتوني ثقيل.",
+      "en": "The cardboard box is heavy."
+    }
+  },
+  {
+    "fr": "Cascade",
+    "ar": "شلال",
+    "en": "Waterfall",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Cette cascade est magnifique.",
+      "ar": "هذا الشلال رائع.",
+      "en": "This waterfall is beautiful."
+    }
+  },
+  {
+    "fr": "Casquette",
+    "ar": "قبعة بواقٍ",
+    "en": "Cap",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Il porte une casquette noire.",
+      "ar": "يرتدي قبعة سوداء.",
+      "en": "He is wearing a black cap."
+    }
+  },
+  {
+    "fr": "Cassette",
+    "ar": "شريط كاسيت",
+    "en": "Cassette",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "J'ai retrouvé une vieille cassette.",
+      "ar": "وجدت شريط كاسيت قديمًا.",
+      "en": "I found an old cassette."
+    }
+  },
+  {
+    "fr": "Castor",
+    "ar": "قندس",
+    "en": "Beaver",
+    "pos": "noun",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "Le castor construit un barrage.",
+      "ar": "يبني القندس سدًا.",
+      "en": "The beaver builds a dam."
+    }
+  },
+  {
+    "fr": "Catholique",
+    "ar": "كاثوليكي",
+    "en": "Catholic",
+    "pos": "other",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Cette église est catholique.",
+      "ar": "هذه الكنيسة كاثوليكية.",
+      "en": "This church is Catholic."
+    }
+  },
+  {
+    "fr": "Causer",
+    "ar": "يسبب",
+    "en": "To cause",
+    "pos": "verb",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Cela peut causer des problèmes.",
+      "ar": "قد يسبب ذلك مشاكل.",
+      "en": "That can cause problems."
+    }
+  },
+  {
+    "fr": "Caverne",
+    "ar": "كهف",
+    "en": "Cave",
+    "pos": "noun",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "La caverne est très profonde.",
+      "ar": "الكهف عميق جدًا.",
+      "en": "The cave is very deep."
+    }
+  },
+  {
+    "fr": "Caviar",
+    "ar": "كافيار",
+    "en": "Caviar",
+    "pos": "noun",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "Le caviar est un produit de luxe.",
+      "ar": "الكافيار منتج فاخر.",
+      "en": "Caviar is a luxury product."
+    }
+  },
+  {
+    "fr": "Ceinture",
+    "ar": "حزام",
+    "en": "Belt",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Attache ta ceinture.",
+      "ar": "اربط حزام الأمان.",
+      "en": "Fasten your seat belt."
+    }
+  },
+  {
+    "fr": "Cellule",
+    "ar": "خلية",
+    "en": "Cell",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Le corps est composé de cellules.",
+      "ar": "يتكون الجسم من خلايا.",
+      "en": "The body is made up of cells."
+    }
+  },
+  {
+    "fr": "Censurer",
+    "ar": "يفرض رقابة",
+    "en": "To censor",
+    "pos": "verb",
+    "level": "B2",
+    "contexts": [],
+    "ex": {
+      "fr": "Certains articles ont été censurés.",
+      "ar": "تم فرض الرقابة على بعض المقالات.",
+      "en": "Some articles were censored."
+    }
+  },
+  {
+    "fr": "Centaine",
+    "ar": "مئة تقريبًا",
+    "en": "Hundred (about a hundred)",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Une centaine de personnes sont venues.",
+      "ar": "حضر حوالي مئة شخص.",
+      "en": "About a hundred people came."
+    }
+  },
+  {
+    "fr": "Centimètre",
+    "ar": "سنتيمتر",
+    "en": "Centimeter",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Cette planche mesure cinquante centimètres.",
+      "ar": "يبلغ طول هذه اللوحة خمسين سنتيمترًا.",
+      "en": "This board measures fifty centimeters."
+    }
+  },
+  {
+    "fr": "Centre commercial",
+    "ar": "مركز تجاري",
+    "en": "Shopping mall",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "Nous allons au centre commercial.",
+      "ar": "سنذهب إلى المركز التجاري.",
+      "en": "We are going to the shopping mall."
+    }
+  },
+  {
+    "fr": "Centre-ville",
+    "ar": "وسط المدينة",
+    "en": "City center",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [],
+    "ex": {
+      "fr": "J'habite près du centre-ville.",
+      "ar": "أسكن بالقرب من وسط المدينة.",
+      "en": "I live near the city center."
+    }
+  },
+  {
+    "fr": "Céréale",
+    "ar": "حبوب",
+    "en": "Cereal",
+    "pos": "noun",
+    "level": "A2",
+    "contexts": [],
+    "ex": {
+      "fr": "Je mange des céréales le matin.",
+      "ar": "أتناول حبوب الإفطار صباحًا.",
+      "en": "I eat cereal in the morning."
+    }
+  },
+  {
+    "fr": "Cerf",
+    "ar": "أيل",
+    "en": "Deer",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Un cerf traverse la forêt.",
+      "ar": "يعبر أيل الغابة.",
+      "en": "A deer crosses the forest."
+    }
+  },
+  {
+    "fr": "Cesser immédiatement",
+    "ar": "يتوقف فورًا",
+    "en": "To stop immediately",
+    "pos": "other",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Il faut cesser immédiatement cette activité.",
+      "ar": "يجب التوقف عن هذا النشاط فورًا.",
+      "en": "This activity must stop immediately."
+    }
+  },
+  {
+    "fr": "Chalet",
+    "ar": "شاليه / كوخ جبلي",
+    "en": "Chalet",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Ils passent leurs vacances dans un chalet.",
+      "ar": "يقضون عطلتهم في شاليه.",
+      "en": "They spend their holidays in a chalet."
+    }
+  },
+  {
+    "fr": "Championnat",
+    "ar": "بطولة",
+    "en": "Championship",
+    "pos": "noun",
+    "level": "B1",
+    "contexts": [],
+    "ex": {
+      "fr": "Son équipe a gagné le championnat.",
+      "ar": "فاز فريقه بالبطولة.",
+      "en": "His team won the championship."
     }
   }
 ];

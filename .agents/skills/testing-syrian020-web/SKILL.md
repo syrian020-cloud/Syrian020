@@ -155,8 +155,24 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   - `Contacter` → verb (A2), 3 trilingual examples
 - Search `Contacter` also matches `À défaut de` (its example contains `contacterai`) before matching `Contacter`; this is expected substring search behavior.
 - Each new idiom uses the `ex` array with 2 trilingual example objects.
-- `vocab.html` now supports `ex` as either a single object or an array of objects. `render()` creates one `.example` block per array item, and `speakEntry()` enqueues each example in each loop language. So `Faire du bénévolat` (4 examples × 3 languages + headword × 3 languages = 15 utterances) works end-to-end.
-- The `firstLetter()` function in `vocab.html` strips leading non-letters, then `Se ` / `s'` / `S'` reflexive prefixes, then `Le ` / `La ` / `Les ` / `L'` and `Être ` / `Etre ` / `être ` article/copula prefixes, then normalizes the first character. `Le bénévolat` and `Être bénévole` therefore group under `B`.
+
+## C-words batch (dross-v112)
+
+- `data/vocab.js` now contains **1243** entries and `data/vocab-batch-02.js` is still empty.
+- Cache name is `dross-v112`.
+- Letter chip counts: `A (550)`, `B (138)`, `C (554)`, `F (1)`, all other letters `0`.
+- POS counts: `verb` **287**, `adjective` **227**, `noun` **465**, `phrase` **195**, `other` **69**.
+- 39 new C entries added and 21 existing C entries merged, increasing `C` from 515 to 554. Sample entries:
+  - `Cabane` → noun (B1)
+  - `Caissier / Caissière` → noun (A2)
+  - `Centre commercial` → noun (A1)
+  - `Carnivore` → other (B2)
+  - `Championnat` → noun (B1)
+  - `Créer` → verb (A2), 3 trilingual examples
+  - `Climatiseur` → noun (A2), context `housing` (`سكن`), 2 trilingual examples
+  - `Contacter` → verb (A2), 3 trilingual examples
+- Search `Créer` also returns `Créer une entreprise` because the phrase contains the substring `Créer`; this is expected substring search behavior.
+- Search `Contacter` still matches `À défaut de` first due to its example containing `contacterai`.
 - Sample B nouns/adjectives/phrases (each returns 1 result):
   - `Bureau` → noun
   - `Banque` → noun
@@ -230,7 +246,7 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
 
 ## Service worker and caching
 
-- `sw.js` is currently on cache **`dross-v111`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
+- `sw.js` is currently on cache **`dross-v112`** and uses `new Request(url, { cache: 'reload' })` during `cache.addAll()` to force fresh network fetches.
 - When testing SW updates, use a fresh incognito/profile. You can inspect the active cache with:
   ```js
   (async () => { console.log(await caches.keys()); })();
