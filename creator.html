@@ -184,7 +184,10 @@
     themeMode: { ar: 'الوضع الليلي/النهاري', en: 'Dark / light mode', fr: 'Mode sombre / clair' },
     mediaHint: { ar: 'اضغط لاختيار صورة أو فيديو من الهاتف', en: 'Tap to choose an image or video from your phone', fr: 'Appuyez pour choisir une image ou une vidéo depuis votre téléphone' },
     exampleLabel: { ar: 'نموذج', en: 'Example', fr: 'Exemple' },
-    exitConfirm: { ar: 'هل تريد الخروج من التطبيق؟', en: 'Do you want to exit the app?', fr: 'Voulez-vous quitter l\'application ?' }
+    exitConfirm: { ar: 'هل تريد الخروج من التطبيق؟', en: 'Do you want to exit the app?', fr: 'Voulez-vous quitter l\'application ?' },
+    bulkAddLabel: { ar: 'إضافة عبارات متعددة (فرنسي | عربي | إنجليزي)', en: 'Add multiple phrases (French | Arabic | English)', fr: 'Ajouter plusieurs phrases (français | arabe | anglais)' },
+    bulkAddButton: { ar: '+ إضافة', en: '+ Add', fr: '+ Ajouter' },
+    noBulkPhrases: { ar: 'لا توجد عبارات صالحة. استخدم الشكل: فرنسي | عربي | إنجليزي', en: 'No valid phrases. Use format: French | Arabic | English', fr: 'Aucune phrase valide. Format : français | arabe | anglais' }
   };
 
   function t(key) {
@@ -296,6 +299,32 @@
     lesson.phrases.push({ id: uuid(), fr: '', ar: '', en: '' });
     saveCurrentLesson();
     renderLessonEditor();
+  }
+
+  function addBulkPhrases(lesson) {
+    var el = document.getElementById('bulk-input');
+    if (!el) return;
+    var lines = (el.value || '').split('\n');
+    var added = 0;
+    lines.forEach(function (line) {
+      line = line.trim();
+      if (!line) return;
+      var parts = line.split('|');
+      if (parts.length < 3) return;
+      lesson.phrases.push({
+        id: uuid(),
+        fr: (parts[0] || '').trim(),
+        ar: (parts[1] || '').trim(),
+        en: (parts[2] || '').trim()
+      });
+      added++;
+    });
+    if (added) {
+      saveCurrentLesson();
+      renderLessonEditor();
+    } else {
+      toast(t('noBulkPhrases') || 'No valid phrases');
+    }
   }
 
   function deletePhrase(lesson, phraseId) {
@@ -478,6 +507,17 @@
       '</div>';
     app.appendChild(hint);
 
+    var bulk = document.createElement('div');
+    bulk.className = 'card';
+    bulk.innerHTML =
+      '<div class="field-label" data-t="bulkAddLabel"></div>' +
+      '<textarea class="textarea" id="bulk-input" dir="auto" rows="3" placeholder="Bonjour | مرحبا | Hello">' +
+      '</textarea>' +
+      '<div class="btn-row" style="margin-top:0.6rem">' +
+        '<button class="btn" id="btn-bulk-add" data-t="bulkAddButton"></button>' +
+      '</div>';
+    app.appendChild(bulk);
+
     var phrasesDiv = document.createElement('div');
     phrasesDiv.id = 'phrases-list';
     lesson.phrases.forEach(function (p, idx) {
@@ -526,6 +566,7 @@
   function bindEditorEvents(lesson) {
     document.getElementById('btn-back').onclick = function () { stopSpeech(); setView('lessons'); };
     document.getElementById('btn-add-phrase').onclick = function () { addPhrase(lesson); };
+    document.getElementById('btn-bulk-add').onclick = function () { addBulkPhrases(lesson); };
     document.getElementById('btn-play-all').onclick = function () { playLesson(lesson); };
     document.getElementById('btn-stop-all').onclick = stopSpeech;
 
