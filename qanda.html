@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#0b0d1f">
-<title>أسئلة وأجوبة السياقة</title>
+<title>دروس أسئلة وأجوبة السياقة</title>
 <link rel="manifest" href="manifest.json">
 <style>
   :root {
@@ -17,6 +17,7 @@
     --accent-hover: #5c5bdb;
     --success: #00e676;
     --gold: #ffc857;
+    --danger: #ff6b6b;
     --border: rgba(255,255,255,0.08);
     --radius: 18px;
     --radius-sm: 12px;
@@ -50,15 +51,20 @@
   .filter-chip { background: var(--bg-tertiary); color: var(--text-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.75rem; font-size: 0.82rem; cursor: pointer; user-select: none; }
   .filter-chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
   .stats { color: var(--text-secondary); font-size: 0.88rem; margin: 0 0 0.9rem; }
-  .qa-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; margin-bottom: 0.85rem; box-shadow: var(--shadow-sm); }
-  .qa-card.playing { border-color: var(--success); box-shadow: 0 0 0 2px rgba(0,230,118,0.18); }
-  .qa-meta { display: flex; gap: 0.4rem; margin-bottom: 0.6rem; align-items: center; }
-  .qa-num { background: rgba(123,121,255,0.12); color: var(--accent); border: 1px solid rgba(123,121,255,0.3); border-radius: 999px; padding: 0.1rem 0.55rem; font-size: 0.72rem; font-weight: 700; }
-  .qa-cat { background: var(--bg-tertiary); color: var(--text-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 0.1rem 0.55rem; font-size: 0.72rem; }
-  .qa-block { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.75rem; margin-bottom: 0.65rem; position: relative; }
+  .lesson-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; margin-bottom: 0.95rem; box-shadow: var(--shadow-sm); }
+  .lesson-card.playing { border-color: var(--success); box-shadow: 0 0 0 2px rgba(0,230,118,0.18); }
+  .lesson-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.85rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
+  .lesson-num { background: rgba(123,121,255,0.12); color: var(--accent); border: 1px solid rgba(123,121,255,0.3); border-radius: 999px; padding: 0.2rem 0.65rem; font-size: 0.85rem; font-weight: 700; }
+  .lesson-cats { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+  .lesson-cat { background: var(--bg-tertiary); color: var(--text-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 0.15rem 0.55rem; font-size: 0.75rem; }
+  .cat-section { margin-bottom: 0.75rem; }
+  .cat-section:last-child { margin-bottom: 0; }
+  .cat-title { font-size: 0.8rem; color: var(--gold); font-weight: 700; margin-bottom: 0.45rem; }
+  .qa-block { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.75rem; margin-bottom: 0.55rem; position: relative; }
+  .qa-block:last-child { margin-bottom: 0; }
   .qa-label { font-size: 0.75rem; color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; }
+  .qa-label.answer { color: var(--success); }
   .qa-text { direction: ltr; text-align: left; font-size: 1.05rem; color: var(--text-primary); font-weight: 600; white-space: pre-wrap; }
-  .qa-text.ar { direction: rtl; text-align: right; color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.35rem; }
   .qa-actions { display: flex; gap: 0.4rem; margin-top: 0.55rem; }
   .qa-actions button, .qa-actions a { flex: 1; background: var(--bg-primary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 10px; padding: 0.45rem; font-size: 0.8rem; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.25rem; font-weight: 600; }
   .qa-actions button:hover, .qa-actions a:hover { border-color: var(--accent); }
@@ -72,7 +78,7 @@
 <body>
 <header>
   <div class="header-inner">
-    <span class="logo">أسئلة السياقة</span>
+    <span class="logo">دروس السياقة</span>
     <span class="spacer"></span>
     <button class="icon-btn" id="btn-stop" title="إيقاف الصوت">🔇</button>
   </div>
@@ -80,12 +86,12 @@
 
 <main>
   <div class="hero">
-    <h1>أسئلة وأجوبة امتحان السياقة الفرنسي</h1>
-    <p>اضغط 🔁 للنطق بالتكرار، و🔍 للبحث في Google AI مع الترجمة والتحليل.</p>
+    <h1>دروس أسئلة وأجوبة امتحان السياقة الفرنسي</h1>
+    <p>كل درس يجمع السؤال وجوابه من الفئات الثلاث: فحص المركبة، السلامة المرورية، الإسعافات الأولية. اضغط 🔁 للنطق بالتكرار، و🔍 للبحث في Google AI.</p>
   </div>
 
   <div class="toolbar">
-    <input id="search" type="search" placeholder="ابحث في الأسئلة أو الأجوبة...">
+    <input id="search" type="search" placeholder="ابحث في الدروس والأسئلة والأجوبة...">
     <select class="ctl" id="rate" title="سرعة النطق">
       <option value="0.7">0.7×</option>
       <option value="0.9" selected>0.9×</option>
@@ -123,57 +129,108 @@
   var speechRun = 0;
 
   var CAT_LABELS = { 'VE': 'فحص المركبة', 'QSER': 'السلامة المرورية', '1ers secours': 'الإسعافات الأولية' };
+  var KEYS = { 'VE': 've', 'QSER': 'qser', '1ers secours': 'sec' };
+  var CATS = ['VE', 'QSER', '1ers secours'];
 
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
   function showToast(msg){ toast.textContent = msg; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 2000); }
 
-  function buildFilters(){
-    var cats = {};
-    DATA.forEach(function(d){ cats[d.cat] = (cats[d.cat] || 0) + 1; });
-    var html = '<button class="filter-chip' + (state.cat === '' ? ' active' : '') + '" data-cat="">الكل (' + DATA.length + ')</button>';
-    Object.keys(cats).forEach(function(c){ html += '<button class="filter-chip' + (state.cat === c ? ' active' : '') + '" data-cat="' + esc(c) + '">' + esc(CAT_LABELS[c] || c) + ' (' + cats[c] + ')</button>'; });
-    filters.innerHTML = html;
+  function groupLessons(){
+    var lessons = [];
+    var cur = { num: null, ve: null, qser: null, sec: null };
+    function flush(){ if(cur.ve || cur.qser || cur.sec){ lessons.push({ num: cur.num || String(lessons.length+1), ve: cur.ve, qser: cur.qser, sec: cur.sec }); } }
+    DATA.forEach(function(d){
+      var k = KEYS[d.cat];
+      if(!k) return;
+      if(cur[k]){ flush(); cur = { num: null, ve: null, qser: null, sec: null }; }
+      cur[k] = d;
+      if(!cur.num && d.n) cur.num = d.n;
+    });
+    flush();
+    lessons.forEach(function(l, i){ l.num = String(l.num || (i+1)); });
+    return lessons;
   }
 
-  function filtered(){
-    var q = state.q.trim().toLowerCase();
-    return DATA.filter(function(d){
-      if(state.cat && d.cat !== state.cat) return false;
-      if(!q) return true;
-      return (d.q + ' ' + d.a + ' ' + d.cat).toLowerCase().indexOf(q) !== -1;
+  var LESSONS = groupLessons();
+
+  function lessonMatches(l){
+    if(state.cat){
+      if(state.cat === 'VE' && !l.ve) return false;
+      if(state.cat === 'QSER' && !l.qser) return false;
+      if(state.cat === '1ers secours' && !l.sec) return false;
+    }
+    if(!state.q) return true;
+    var q = state.q.toLowerCase();
+    if(l.num.indexOf(q) !== -1) return true;
+    return CATS.some(function(c){
+      var d = l[KEYS[c]];
+      if(!d) return false;
+      return ((d.q || '') + ' ' + (d.a || '') + ' ' + (CAT_LABELS[c] || c)).toLowerCase().indexOf(q) !== -1;
     });
   }
 
-  function aiQuery(text){
-    return 'ترجم هذه الجملة الفرنسية إلى العربية واشرح معناها وتحليلها: ' + text;
+  function filtered(){ return LESSONS.filter(lessonMatches); }
+
+  function buildFilters(){
+    var cats = { 'VE': 0, 'QSER': 0, '1ers secours': 0 };
+    LESSONS.forEach(function(l){ CATS.forEach(function(c){ if(l[KEYS[c]]) cats[c]++; }); });
+    var html = '<button class="filter-chip' + (state.cat === '' ? ' active' : '') + '" data-cat="">الكل (' + LESSONS.length + ')</button>';
+    CATS.forEach(function(c){ html += '<button class="filter-chip' + (state.cat === c ? ' active' : '') + '" data-cat="' + esc(c) + '">' + esc(CAT_LABELS[c]) + ' (' + cats[c] + ')</button>'; });
+    filters.innerHTML = html;
+  }
+
+  function aiQueryQuestion(text){
+    return 'ترجم هذه الجملة الفرنسية إلى العربية، واشرح معناها، وترجم كل كلمة فيها إلى العربية، ثم أجب على السؤال التالي: ' + text;
+  }
+  function aiQueryAnswer(text){
+    return 'ترجم هذه الجملة الفرنسية إلى العربية، واشرح معناها، وترجم كل كلمة فيها إلى العربية: ' + text;
+  }
+  function googleAiLink(text, isQuestion){
+    return 'https://www.google.com/search?udm=50&q=' + encodeURIComponent(isQuestion ? aiQueryQuestion(text) : aiQueryAnswer(text));
+  }
+
+  function renderBlock(label, cls, text, loopId, aiUrl){
+    if(!text) return '';
+    return '<div class="qa-block">' +
+      '<div class="qa-label ' + cls + '">' + label + '</div>' +
+      '<div class="qa-text" dir="ltr">' + esc(text).replace(/\n/g, '<br>') + '</div>' +
+      '<div class="qa-actions">' +
+        '<button class="loop-btn" data-id="' + esc(loopId) + '">🔁 تكرار</button>' +
+        '<a href="' + esc(aiUrl) + '" target="_blank" rel="noopener">🔍 Google AI</a>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function renderCatSection(l, cat){
+    var d = l[KEYS[cat]];
+    if(!d) return '';
+    var qId = l.num + '-' + KEYS[cat] + '-q';
+    var aId = l.num + '-' + KEYS[cat] + '-a';
+    return '<div class="cat-section">' +
+      '<div class="cat-title">' + esc(CAT_LABELS[cat]) + '</div>' +
+      renderBlock('السؤال', '', d.q, qId, googleAiLink(d.q, true)) +
+      renderBlock('الجواب', 'answer', d.a, aId, googleAiLink(d.a, false)) +
+    '</div>';
   }
 
   function render(){
     var items = filtered();
-    stats.textContent = items.length + ' سؤال/جواب' + (state.q ? ' · "' + esc(state.q) + '"' : '');
+    stats.textContent = items.length + ' درس' + (state.q ? ' · "' + esc(state.q) + '"' : '');
     if(!items.length){ list.innerHTML = '<div class="empty">لا توجد نتائج</div>'; return; }
-    list.innerHTML = items.map(function(d, idx){
-      var aiQ = 'https://www.google.com/search?udm=50&q=' + encodeURIComponent(aiQuery(d.q));
-      var aiA = d.a ? 'https://www.google.com/search?udm=50&q=' + encodeURIComponent(aiQuery(d.a)) : null;
-      return '<div class="qa-card" data-idx="' + idx + '" data-id="' + esc(d.n + '-' + d.cat) + '">' +
-        '<div class="qa-meta"><span class="qa-num">#' + esc(d.n || (idx+1)) + '</span><span class="qa-cat">' + esc(CAT_LABELS[d.cat] || d.cat) + '</span></div>' +
-        '<div class="qa-block">' +
-          '<div class="qa-label">السؤال</div>' +
-          '<div class="qa-text" dir="ltr">' + esc(d.q) + '</div>' +
-          '<div class="qa-actions">' +
-            '<button class="loop-btn" data-idx="' + idx + '" data-type="q">🔁 تكرار</button>' +
-            '<a href="' + esc(aiQ) + '" target="_blank" rel="noopener">🔍 Google AI</a>' +
-          '</div>' +
+    list.innerHTML = items.map(function(l){
+      var catsHtml = CATS.map(function(c){
+        if(state.cat && state.cat !== c) return '';
+        return l[KEYS[c]] ? '<span class="lesson-cat">' + esc(CAT_LABELS[c]) + '</span>' : '';
+      }).join('');
+      return '<div class="lesson-card" data-lesson="' + esc(l.num) + '">' +
+        '<div class="lesson-header">' +
+          '<span class="lesson-num">درس ' + esc(l.num) + '</span>' +
+          '<div class="lesson-cats">' + catsHtml + '</div>' +
         '</div>' +
-        (d.a ? '<div class="qa-block">' +
-          '<div class="qa-label">الجواب</div>' +
-          '<div class="qa-text" dir="ltr">' + esc(d.a).replace(/\n/g, '<br>') + '</div>' +
-          '<div class="qa-actions">' +
-            '<button class="loop-btn" data-idx="' + idx + '" data-type="a">🔁 تكرار</button>' +
-            '<a href="' + esc(aiA) + '" target="_blank" rel="noopener">🔍 Google AI</a>' +
-          '</div>' +
-        '</div>' : '') +
+        (!state.cat || state.cat === 'VE' ? renderCatSection(l, 'VE') : '') +
+        (!state.cat || state.cat === 'QSER' ? renderCatSection(l, 'QSER') : '') +
+        (!state.cat || state.cat === '1ers secours' ? renderCatSection(l, '1ers secours') : '') +
       '</div>';
     }).join('');
   }
@@ -195,7 +252,20 @@
     if(nativeTTS()) nativeTTS().stop();
     if('speechSynthesis' in window) window.speechSynthesis.cancel();
     document.querySelectorAll('.loop-btn').forEach(function(b){ b.classList.remove('active'); b.textContent = '🔁 تكرار'; });
-    document.querySelectorAll('.qa-card').forEach(function(c){ c.classList.remove('playing'); });
+    document.querySelectorAll('.lesson-card').forEach(function(c){ c.classList.remove('playing'); });
+  }
+
+  function findText(id){
+    var parts = id.split('-');
+    if(parts.length < 3) return '';
+    var lessonNum = parts[0];
+    var catKey = parts[1];
+    var type = parts[2];
+    var lesson = LESSONS.find(function(l){ return l.num === lessonNum; });
+    if(!lesson) return '';
+    var d = lesson[catKey];
+    if(!d) return '';
+    return type === 'q' ? d.q : d.a;
   }
 
   function playText(text, btn, card){
@@ -207,6 +277,8 @@
     if(card) card.classList.add('playing');
     var count = parseInt(loopcount.value, 10) || 1;
     var i = 0;
+
+    function finish(){ if(run === speechRun) stopSpeech(); }
 
     function nativePlay(){
       var tts = nativeTTS(); if(!tts){ webPlay(); return; }
@@ -235,10 +307,6 @@
       next();
     }
 
-    function finish(){
-      if(run === speechRun) stopSpeech();
-    }
-
     nativePlay();
   }
 
@@ -256,13 +324,10 @@
     list.addEventListener('click', function(e){
       var btn = e.target.closest('.loop-btn');
       if(!btn) return;
-      var idx = parseInt(btn.dataset.idx, 10);
-      var type = btn.dataset.type;
-      var items = filtered();
-      var d = items[idx];
-      if(!d) return;
-      var text = type === 'q' ? d.q : d.a;
-      var card = btn.closest('.qa-card');
+      if(state.playing === btn){ stopSpeech(); return; }
+      var id = btn.dataset.id;
+      var text = findText(id);
+      var card = btn.closest('.lesson-card');
       playText(text, btn, card);
     });
   }
