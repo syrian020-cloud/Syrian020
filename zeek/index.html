@@ -241,7 +241,7 @@
   .btns .note-btn:hover { border-color: var(--accent); color: var(--accent); }
   .btns .note-btn.note-on { color: var(--success); border-color: var(--success); }
   .btns .media-btn.on { color: var(--accent); border-color: var(--accent); }
-  .phrase-media { margin-top: 0.75rem; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+  .phrase-media { margin-bottom: 0.75rem; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
   .phrase-media img, .phrase-media video, .phrase-media iframe { display: block; width: 100%; max-height: 320px; object-fit: contain; background: #000; }
   .phrase-media iframe { height: 240px; }
   .phrase-media video { max-height: 360px; }
@@ -747,6 +747,7 @@
     deleteLesson: { ar: 'حذف الدرس', en: 'Delete lesson', fr: 'Supprimer la leçon' },
     deleteConfirm: { ar: 'هل تريد حذف هذا الدرس؟', en: 'Delete this lesson?', fr: 'Supprimer cette leçon ?' },
     deleteFolderConfirm: { ar: 'هل تريد حذف هذا المجلد ودروسه؟', en: 'Delete this folder and its lessons?', fr: 'Supprimer ce dossier et ses leçons ?' },
+    confirmRemoveMedia: { ar: 'هل تريد حذف الصورة أو الفيديو المرفق؟', en: 'Remove the attached image or video?', fr: 'Supprimer l’image ou la vidéo jointe ?' },
     noPhrasesError: { ar: 'لم يتم التعرف على أي عبارة. تأكد من التنسيق: فرنسي | عربي | إنجليزي', en: 'No phrases recognized. Use format: French | Arabic | English', fr: 'Aucune phrase reconnue. Format : Français | Arabe | Anglais' },
     fillTitleError: { ar: 'أدخل العنوان بلغة واحدة (فرنسي أو عربي أو إنجليزي)', en: 'Enter the title in one language (French, Arabic, or English)', fr: 'Entrez le titre dans une seule langue (français, arabe ou anglais)' },
     actions: { ar: 'إجراءات', en: 'Actions', fr: 'Actions' },
@@ -1290,6 +1291,7 @@
 
   function phraseHTML(p, key) {
     return `<div class="phrase" data-key="${key}">
+      ${mediaHTML(p.media)}
       <div class="phrase-top">
         <div class="lines">
           <div class="line fr" data-lang="fr" dir="ltr">${wordSpans(p.fr, 'fr')}<button class="loop-lang" data-lang="fr" title="🔁 FR">🔁</button></div>
@@ -1305,7 +1307,6 @@
           <button class="fav-btn ${isFav(key) ? 'fav-on' : ''}" title="${t('favTitle')}">${isFav(key) ? '★' : '☆'}</button>
         </div>
       </div>
-      ${mediaHTML(p.media)}
     </div>`;
   }
 
@@ -1858,6 +1859,7 @@
 
   function removeMedia() {
     if (!mediaKey) return;
+    if (!confirm(t('confirmRemoveMedia'))) return;
     const [lessonId, idx] = mediaKey.split('.').map(Number);
     const found = findLesson(lessonId);
     if (found) {
