@@ -112,6 +112,8 @@
   .ex-fr { direction: ltr; text-align: left; color: var(--text-primary); font-weight: 600; font-size: 0.96rem; }
   .ex-ar { direction: rtl; text-align: right; color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.2rem; }
   .ex-en { direction: ltr; text-align: left; color: var(--text-secondary); font-size: 0.88rem; margin-top: 0.12rem; }
+  .word-loop { cursor: pointer; border-radius: 3px; transition: color .1s, background .1s; }
+  .word-loop:hover { color: var(--accent); background: rgba(123,121,255,0.08); }
 
   .card-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.45rem; margin-top: 0.85rem; }
   .card-actions button, .card-actions a { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem 0.2rem; font-size: 0.82rem; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.25rem; font-weight: 600; transition: all .12s; }
@@ -388,6 +390,12 @@
   function posLabel(key){ var p = POS_LABELS[key]; return p ? p[state.uiLang] || p.en : key; }
   function posLabelsText(key){ var p = POS_LABELS[key]; return p ? (p.ar + ' ' + p.en + ' ' + p.fr) : key; }
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function wrapWords(text, lang){
+    if(!text) return '';
+    return String(text).replace(/([A-Za-z0-9_\u00C0-\u024F\u0621-\u064A\u0750-\u077F]+(?:'[A-Za-z0-9_\u00C0-\u024F\u0621-\u064A\u0750-\u077F]+)?)/g, function(m){
+      return '<span class="word-loop" data-lang="' + esc(lang) + '" data-text="' + esc(m) + '">' + esc(m) + '</span>';
+    });
+  }
   function firstLetter(fr){
     var s = String(fr || '').replace(/^[^A-Za-z\u00C0-\u024F]+/,'');
     s = s.replace(/^(Se |s'|S'|Le |La |Les |L'|Être |Etre |être )/i,'');
@@ -514,14 +522,14 @@
     var html = items.slice(0, end).map(function(v, idx){
       var key = 'v' + idx;
       var exArr = Array.isArray(v.ex) ? v.ex : (v.ex ? [v.ex] : []);
-      var ex = exArr.map(function(e, ei){ return '<div class="example" data-ex="' + ei + '"><button class="loop-ex-btn" data-ex="' + ei + '" title="' + esc(t('loop')) + '">🔁</button><div class="line-wrap"><div class="ex-fr" dir="ltr">' + esc(e.fr||'') + '</div><button class="line-loop-btn" data-lang="fr" data-ex="' + ei + '" title="' + esc(t('loop')) + '">🔁</button></div><div class="ex-ar">' + esc(e.ar||'') + '</div>' + (e.en ? '<div class="line-wrap"><div class="ex-en" dir="ltr">' + esc(e.en) + '</div><button class="line-loop-btn" data-lang="en" data-ex="' + ei + '" title="' + esc(t('loop')) + '">🔁</button></div>' : '') + '</div>'; }).join('');
+      var ex = exArr.map(function(e, ei){ return '<div class="example" data-ex="' + ei + '"><button class="loop-ex-btn" data-ex="' + ei + '" title="' + esc(t('loop')) + '">🔁</button><div class="line-wrap"><div class="ex-fr" dir="ltr">' + wrapWords(e.fr, 'fr') + '</div><button class="line-loop-btn" data-lang="fr" data-ex="' + ei + '" title="' + esc(t('loop')) + '">🔁</button></div><div class="ex-ar" dir="rtl">' + wrapWords(e.ar, 'ar') + '</div>' + (e.en ? '<div class="line-wrap"><div class="ex-en" dir="ltr">' + wrapWords(e.en, 'en') + '</div><button class="line-loop-btn" data-lang="en" data-ex="' + ei + '" title="' + esc(t('loop')) + '">🔁</button></div>' : '') + '</div>'; }).join('');
       var usage = v.usage ? '<div class="usage" dir="rtl">' + esc(v.usage) + '</div>' : '';
       return '<div class="vocab-card" data-key="' + esc(key) + '" data-idx="' + idx + '">' +
         '<div class="vocab-head">' +
           '<div class="vocab-main">' +
-            '<div class="line-wrap"><div class="fr-line" dir="ltr">' + esc(v.fr) + '</div><button class="line-loop-btn" data-lang="fr" data-line="word" title="' + esc(t('loop')) + '">🔁</button></div>' +
-            '<div class="ar-line">' + esc(v.ar) + '</div>' +
-            (v.en ? '<div class="line-wrap"><div class="en-line" dir="ltr">' + esc(v.en) + '</div><button class="line-loop-btn" data-lang="en" data-line="word" title="' + esc(t('loop')) + '">🔁</button></div>' : '') +
+            '<div class="line-wrap"><div class="fr-line" dir="ltr">' + wrapWords(v.fr, 'fr') + '</div><button class="line-loop-btn" data-lang="fr" data-line="word" title="' + esc(t('loop')) + '">🔁</button></div>' +
+            '<div class="ar-line" dir="rtl">' + wrapWords(v.ar, 'ar') + '</div>' +
+            (v.en ? '<div class="line-wrap"><div class="en-line" dir="ltr">' + wrapWords(v.en, 'en') + '</div><button class="line-loop-btn" data-lang="en" data-line="word" title="' + esc(t('loop')) + '">🔁</button></div>' : '') +
             '<div class="meta">' +
               '<span class="level-pill">' + esc(v.level) + '</span>' +
               (v.pos ? '<span class="pos-pill">' + esc(posLabel(v.pos)) + '</span>' : '') +
@@ -712,6 +720,38 @@
     })();
   }
 
+  function speakWord(text, lang, onDone){
+    var run = ++speechRun;
+    function finish(){ if(onDone) onDone(); }
+    document.getElementById('btn-stop').classList.add('active');
+    if(nativeTTS()){
+      nativeStop().then(function(){
+        if(run !== speechRun) return;
+        nativeSpeak(text, lang).then(function(){ if(run===speechRun) finish(); }).catch(function(){ if(run===speechRun) finish(); });
+      }).catch(function(){ if(run===speechRun) finish(); });
+      return;
+    }
+    if(!('speechSynthesis' in window)){ finish(); return; }
+    window.speechSynthesis.cancel();
+    var u = utter(text, lang);
+    u.onend = function(){ if(run===speechRun) finish(); };
+    u.onerror = function(){ if(run===speechRun) finish(); };
+    window.speechSynthesis.speak(u);
+  }
+
+  function toggleWordLoop(text, lang, key){
+    if(state.loop && state.loop.key === key && state.loop.lang === lang && state.loop.word === text){ stopSpeech(); return; }
+    stopSpeech();
+    state.loop = { key: key, word: text, lang: lang };
+    (function cycle(){
+      if(!state.loop || state.loop.key !== key || state.loop.lang !== lang || state.loop.word !== text) return;
+      speakWord(text, lang, function(){
+        if(!state.loop || state.loop.key !== key || state.loop.lang !== lang || state.loop.word !== text) return;
+        setTimeout(cycle, 700);
+      });
+    })();
+  }
+
   function toggleLineLoop(entry, lang, line, exIndex, key){
     var same = state.loop && state.loop.key === key && state.loop.lang === lang;
     if(same){
@@ -804,6 +844,8 @@
         toggleLineLoop(entry, lineBtn.dataset.lang, ex == null ? 'word' : 'ex', ex, card.dataset.key);
         return;
       }
+      var wordEl = e.target.closest('.word-loop');
+      if(wordEl){ toggleWordLoop(wordEl.dataset.text, wordEl.dataset.lang, card.dataset.key); return; }
       /* image and AI search are <a> links; no extra click handling needed */
     });
 
