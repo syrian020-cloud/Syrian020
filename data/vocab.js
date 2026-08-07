@@ -1,3 +1,4 @@
+/* French vocabulary for daily life in France — starter dataset with matched trilingual examples. */
 window.VOCAB_DATA = [
   {
     "fr": "À côté",
@@ -2824,7 +2825,8 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "services",
-      "work"
+      "work",
+      "daily"
     ],
     "ex": {
       "fr": "J'ai reçu votre accord.",
@@ -4278,35 +4280,19 @@ window.VOCAB_DATA = [
     "pos": "other"
   },
   {
-    "fr": "Autonomie",
-    "ar": "الاستقلالية",
-    "en": "Independence / Autonomy",
-    "level": "A1",
+    "fr": "L'autonomie",
+    "ar": "الاستقلالية / القدرة على الاعتماد على النفس",
+    "en": "Independence / autonomy",
+    "level": "A2",
     "contexts": [
-      "health",
-      "mdph",
-      "services",
-      "work"
+      "mdph"
     ],
-    "ex": [
-      {
-        "fr": "Je cherche plus d'autonomie dans mon travail.",
-        "ar": "أبحث عن استقلالية أكبر في عملي.",
-        "en": "I seek more autonomy in my work."
-      },
-      {
-        "fr": "Cette aide améliore mon autonomie.",
-        "ar": "هذه المساعدة تحسن استقلاليتي.",
-        "en": "This assistance improves my independence."
-      },
-      {
-        "fr": "Ma maladie réduit mon autonomie.",
-        "ar": "مرضي يقلل من استقلاليتي.",
-        "en": "My illness reduces my independence."
-      }
-    ],
-    "usage": "العمل، المساعدة الاجتماعية، الحياة اليومية",
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Mes difficultés réduisent mon autonomie.",
+      "ar": "صعوباتي بتخفف من استقلاليتي.",
+      "en": "My difficulties reduce my independence."
+    }
   },
   {
     "fr": "Autonome",
@@ -21588,7 +21574,11 @@ window.VOCAB_DATA = [
       "caf",
       "services",
       "stage",
-      "work"
+      "work",
+      "daily",
+      "health",
+      "school",
+      "prefecture"
     ],
     "ex": [
       {
@@ -21613,7 +21603,8 @@ window.VOCAB_DATA = [
       "caf",
       "services",
       "stage",
-      "work"
+      "work",
+      "daily"
     ],
     "ex": [
       {
@@ -22345,7 +22336,9 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "A1",
     "contexts": [
-      "caf"
+      "caf",
+      "daily",
+      "services"
     ],
     "ex": [
       {
@@ -22372,7 +22365,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
-      "services"
+      "services",
+      "daily"
     ],
     "ex": {
       "fr": "J'ai envoyé ma déclaration.",
@@ -23136,7 +23130,9 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "B1",
     "contexts": [
-      "caf"
+      "caf",
+      "daily",
+      "bank"
     ],
     "ex": [
       {
@@ -24351,7 +24347,8 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "health",
-      "mdph"
+      "mdph",
+      "daily"
     ],
     "ex": {
       "fr": "J'ai des difficultés pour travailler.",
@@ -25454,7 +25451,8 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "caf",
-      "services"
+      "services",
+      "daily"
     ],
     "ex": {
       "fr": "Quelle est la démarche à suivre ?",
@@ -25548,7 +25546,8 @@ window.VOCAB_DATA = [
     "contexts": [
       "caf",
       "services",
-      "prefecture"
+      "prefecture",
+      "daily"
     ],
     "ex": [
       {
@@ -25594,7 +25593,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A2",
     "contexts": [
-      "services"
+      "services",
+      "daily"
     ],
     "ex": {
       "fr": "Je conteste cette décision.",
@@ -25611,7 +25611,9 @@ window.VOCAB_DATA = [
     "contexts": [
       "services",
       "stage",
-      "work"
+      "work",
+      "daily",
+      "health"
     ],
     "ex": [
       {
@@ -28691,19 +28693,21 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "Instruire (un dossier)",
-    "pos": "verb",
-    "level": "A1",
+    "fr": "Instruire un dossier",
+    "ar": "يدرس ملفًا / يعالج ملفًا",
+    "en": "Process an application",
+    "pos": "phrase",
+    "level": "B1",
     "contexts": [
-      "caf"
+      "prefecture"
     ],
-    "ar": "يدرس / يعالج (ملف)",
-    "en": "To process / To review (a file)",
-    "ex": {
-      "fr": "Votre dossier est en cours d'instruction.",
-      "ar": "ملفك قيد المعالجة هلأ.",
-      "en": "Your file is currently being processed."
-    }
+    "ex": [
+      {
+        "fr": "Mon dossier est en cours d'instruction.",
+        "ar": "ملفي قيد الدراسة.",
+        "en": "My application is being processed."
+      }
+    ]
   },
   {
     "fr": "Avoir droit à",
@@ -28927,7 +28931,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "caf"
+      "caf",
+      "daily"
     ],
     "ar": "الاستحقاق",
     "en": "Entitlement / Eligibility",
@@ -29749,15 +29754,21 @@ window.VOCAB_DATA = [
     "ex": null
   },
   {
-    "fr": "Merci pour votre aide.",
+    "fr": "Merci pour votre aide",
+    "ar": "شكرًا لمساعدتك",
+    "en": "Thank you for your help",
     "pos": "phrase",
-    "level": "A1",
+    "level": "B1",
     "contexts": [
-      "caf"
+      "prefecture"
     ],
-    "ar": "شكراً على مساعدتك.",
-    "en": "Thank you for your help.",
-    "ex": null
+    "ex": [
+      {
+        "fr": "Merci pour votre aide et vos explications.",
+        "ar": "شكرًا لمساعدتك وشرحك.",
+        "en": "Thank you for your help and explanations."
+      }
+    ]
   },
   {
     "fr": "Bonne journée.",
@@ -30456,7 +30467,9 @@ window.VOCAB_DATA = [
     "contexts": [
       "caf",
       "stage",
-      "work"
+      "work",
+      "daily",
+      "school"
     ],
     "ex": [
       {
@@ -30854,7 +30867,8 @@ window.VOCAB_DATA = [
     "level": "A1",
     "pos": "verb",
     "contexts": [
-      "caf"
+      "caf",
+      "daily"
     ],
     "ex": {
       "fr": "La CAF a détecté une erreur.",
@@ -31449,7 +31463,9 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "contexts": [
       "stage",
-      "work"
+      "work",
+      "daily",
+      "services"
     ],
     "ex": {
       "fr": "Je dois envoyer le document demain.",
@@ -31481,7 +31497,10 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "contexts": [
       "stage",
-      "work"
+      "work",
+      "daily",
+      "services",
+      "prefecture"
     ],
     "ex": [
       {
@@ -32723,7 +32742,9 @@ window.VOCAB_DATA = [
     "level": "A2",
     "pos": "verb",
     "contexts": [
-      "sushi"
+      "sushi",
+      "daily",
+      "transport"
     ],
     "ex": {
       "fr": "Je découpe le saumon en fines tranches.",
@@ -35797,7 +35818,9 @@ window.VOCAB_DATA = [
     "en": "To determine",
     "level": "A2",
     "contexts": [
-      "mdph"
+      "mdph",
+      "daily",
+      "health"
     ],
     "pos": "verb",
     "ex": {
@@ -35909,21 +35932,6 @@ window.VOCAB_DATA = [
       "fr": "J'ai des difficultés dans ma vie quotidienne.",
       "ar": "عندي صعوبات بحياتي اليومية.",
       "en": "I have difficulties in my daily life."
-    }
-  },
-  {
-    "fr": "L'autonomie",
-    "ar": "الاستقلالية / القدرة على الاعتماد على النفس",
-    "en": "Independence / autonomy",
-    "level": "A2",
-    "contexts": [
-      "mdph"
-    ],
-    "pos": "noun",
-    "ex": {
-      "fr": "Mes difficultés réduisent mon autonomie.",
-      "ar": "صعوباتي بتخفف من استقلاليتي.",
-      "en": "My difficulties reduce my independence."
     }
   },
   {
@@ -36620,23 +36628,6 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "Instruire un dossier",
-    "ar": "يدرس ملفًا / يعالج ملفًا",
-    "en": "Process an application",
-    "pos": "phrase",
-    "level": "B1",
-    "contexts": [
-      "prefecture"
-    ],
-    "ex": [
-      {
-        "fr": "Mon dossier est en cours d'instruction.",
-        "ar": "ملفي قيد الدراسة.",
-        "en": "My application is being processed."
-      }
-    ]
-  },
-  {
     "fr": "Examiner une demande",
     "ar": "يدرس طلبًا",
     "en": "Examine an application",
@@ -37249,20 +37240,13 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "Je n'ai toujours pas reçu de réponse",
-    "ar": "لسا ما وصلني أي جواب",
-    "en": "I still haven't received an answer",
+    "fr": "Je n'ai toujours pas reçu de réponse.",
+    "ar": "لسا ما وصلني جواب.",
+    "en": "",
     "pos": "phrase",
     "level": "B1",
     "contexts": [
       "prefecture"
-    ],
-    "ex": [
-      {
-        "fr": "J'ai déposé ma demande il y a plusieurs mois et je n'ai toujours pas reçu de réponse.",
-        "ar": "قدّمت طلبي من كم شهر ولسا ما وصلني جواب.",
-        "en": "I submitted my application several months ago and still haven't received an answer."
-      }
     ]
   },
   {
@@ -37521,20 +37505,13 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "Je viens retirer mon titre de séjour",
-    "ar": "جاي استلم بطاقة إقامتي",
-    "en": "I'm here to collect my residence permit",
+    "fr": "Je viens retirer mon titre de séjour.",
+    "ar": "جاي استلم بطاقة إقامتي.",
+    "en": "I came to collect my residence permit.",
     "pos": "phrase",
     "level": "B1",
     "contexts": [
       "prefecture"
-    ],
-    "ex": [
-      {
-        "fr": "Bonjour, je viens retirer mon titre de séjour.",
-        "ar": "مرحبا، جاي استلم بطاقة إقامتي.",
-        "en": "Hello, I'm here to collect my residence permit."
-      }
     ]
   },
   {
@@ -37691,23 +37668,6 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "Merci pour votre aide",
-    "ar": "شكرًا لمساعدتك",
-    "en": "Thank you for your help",
-    "pos": "phrase",
-    "level": "B1",
-    "contexts": [
-      "prefecture"
-    ],
-    "ex": [
-      {
-        "fr": "Merci pour votre aide et vos explications.",
-        "ar": "شكرًا لمساعدتك وشرحك.",
-        "en": "Thank you for your help and explanations."
-      }
-    ]
-  },
-  {
     "fr": "Mon dossier est-il complet ?",
     "ar": "ملفي كامل؟",
     "en": "",
@@ -37721,16 +37681,6 @@ window.VOCAB_DATA = [
     "fr": "Quel document manque-t-il ?",
     "ar": "أي ورقة ناقصة؟",
     "en": "Which document is missing?",
-    "pos": "phrase",
-    "level": "B1",
-    "contexts": [
-      "prefecture"
-    ]
-  },
-  {
-    "fr": "Je n'ai toujours pas reçu de réponse.",
-    "ar": "لسا ما وصلني جواب.",
-    "en": "",
     "pos": "phrase",
     "level": "B1",
     "contexts": [
@@ -37758,13 +37708,1523 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "Je viens retirer mon titre de séjour.",
-    "ar": "جاي استلم بطاقة إقامتي.",
-    "en": "I came to collect my residence permit.",
-    "pos": "phrase",
-    "level": "B1",
+    "fr": "D'abord",
+    "ar": "أول شي / بالبداية",
+    "en": "first / firstly",
+    "level": "A1",
     "contexts": [
+      "daily"
+    ],
+    "pos": "other",
+    "ex": {
+      "fr": "D'abord, je vais vérifier.",
+      "en": "First, I'm going to check.",
+      "ar": "أول شي، رح أتأكد."
+    }
+  },
+  {
+    "fr": "D'ailleurs",
+    "ar": "بالمناسبة / على فكرة",
+    "en": "besides / by the way",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "other",
+    "ex": {
+      "fr": "D'ailleurs, j'ai une question.",
+      "en": "By the way, I have a question.",
+      "ar": "على فكرة، عندي سؤال."
+    }
+  },
+  {
+    "fr": "D'habitude",
+    "ar": "عادةً",
+    "en": "usually / normally",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "pos": "other",
+    "ex": {
+      "fr": "D'habitude, je prends le bus.",
+      "en": "Usually, I take the bus.",
+      "ar": "عادةً باخد الباص."
+    }
+  },
+  {
+    "fr": "Danger",
+    "ar": "خطر",
+    "en": "danger",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Attention, c'est dangereux.",
+      "en": "Be careful, it's dangerous.",
+      "ar": "دير بالك، هاد خطر."
+    }
+  },
+  {
+    "fr": "Date",
+    "ar": "تاريخ / موعد",
+    "en": "date",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "adjective",
+    "ex": {
+      "fr": "Quelle est la date du rendez-vous ?",
+      "en": "What is the date of the appointment?",
+      "ar": "شو تاريخ الموعد؟"
+    }
+  },
+  {
+    "fr": "Début",
+    "ar": "بداية",
+    "en": "beginning / start",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Le début du travail est à huit heures.",
+      "en": "Work starts at eight o'clock.",
+      "ar": "بداية الشغل الساعة تمانية."
+    }
+  },
+  {
+    "fr": "Départ",
+    "ar": "مغادرة / انطلاق",
+    "en": "departure / departure point",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "L'heure de départ est à neuf heures.",
+      "en": "The departure time is nine o'clock.",
+      "ar": "وقت الانطلاق الساعة تسعة."
+    }
+  },
+  {
+    "fr": "Domicile",
+    "ar": "محل السكن / مكان الإقامة",
+    "en": "home / residence",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Je dois justifier mon domicile.",
+      "en": "I have to prove my address.",
+      "ar": "لازم أثبت عنوان سكني."
+    }
+  },
+  {
+    "fr": "Dépense",
+    "ar": "مصروف / نفقة",
+    "en": "expense / expenditure",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Mes dépenses sont trop élevées.",
+      "en": "My expenses are too high.",
+      "ar": "مصاريفي عالية كتير."
+    }
+  },
+  {
+    "fr": "Dette",
+    "ar": "دَين",
+    "en": "debt",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "J'ai une dette à payer.",
+      "en": "I have a debt to pay.",
+      "ar": "عليّي دين لازم ادفعو."
+    }
+  },
+  {
+    "fr": "Déplacement",
+    "ar": "يكتشف",
+    "en": "to discover",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "restaurant"
+    ],
+    "pos": "adjective",
+    "ex": {
+      "fr": "J'ai découvert un nouveau restaurant.",
+      "en": "I discovered a new restaurant.",
+      "ar": "اكتشفت مطعم جديد."
+    }
+  },
+  {
+    "fr": "Décider",
+    "ar": "يقرر",
+    "en": "to decide",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je dois décider aujourd'hui.",
+      "en": "I have to decide today.",
+      "ar": "لازم قرر اليوم."
+    }
+  },
+  {
+    "fr": "Décrire",
+    "ar": "يصف",
+    "en": "to describe",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Pouvez-vous décrire le problème ?",
+      "en": "Can you describe the problem?",
+      "ar": "فيك توصفلي المشكلة؟"
+    }
+  },
+  {
+    "fr": "Défendre",
+    "ar": "يدافع",
+    "en": "to defend",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il faut défendre ses droits.",
+      "en": "You have to defend your rights.",
+      "ar": "لازم تدافع عن حقوقك."
+    }
+  },
+  {
+    "fr": "Définir",
+    "ar": "يحدد / يعرّف",
+    "en": "to define / determine",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il faut définir les objectifs.",
+      "en": "We need to define the objectives.",
+      "ar": "لازم نحدد الأهداف."
+    }
+  },
+  {
+    "fr": "Dépenser",
+    "ar": "يصرف / ينفق",
+    "en": "to spend",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je ne veux pas trop dépenser.",
+      "en": "I don't want to spend too much.",
+      "ar": "ما بدي اصرف كتير."
+    }
+  },
+  {
+    "fr": "Déposer",
+    "ar": "يقدّم / يودع",
+    "en": "to submit / file / deposit",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
       "prefecture"
-    ]
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je vais déposer mon dossier demain.",
+      "en": "I'm going to submit my application tomorrow.",
+      "ar": "رح قدّم ملفي بكرا."
+    }
+  },
+  {
+    "fr": "Dépendre",
+    "ar": "يعتمد",
+    "en": "to depend",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Ça dépend de la situation.",
+      "en": "It depends on the situation.",
+      "ar": "هاد بيعتمد عالوضع."
+    }
+  },
+  {
+    "fr": "Déplacer",
+    "ar": "ينقل / يحرّك",
+    "en": "to move",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je dois déplacer le rendez-vous.",
+      "en": "I have to reschedule the appointment.",
+      "ar": "لازم غيّر موعد الموعد."
+    }
+  },
+  {
+    "fr": "Déménager",
+    "ar": "ينقل بيته / ينتقل",
+    "en": "to move house",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je vais déménager bientôt.",
+      "en": "I'm moving house soon.",
+      "ar": "رح انقل بيت قريب."
+    }
+  },
+  {
+    "fr": "Démontrer",
+    "ar": "يثبت / يبرهن",
+    "en": "to demonstrate / prove",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je dois démontrer mon niveau de français.",
+      "en": "I have to demonstrate my level of French.",
+      "ar": "لازم أثبت مستوى الفرنسي تبعي."
+    }
+  },
+  {
+    "fr": "Développer",
+    "ar": "يطوّر / ينمّي",
+    "en": "to develop",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work",
+      "school"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je veux développer mes compétences.",
+      "en": "I want to develop my skills.",
+      "ar": "بدي طوّر مهاراتي."
+    }
+  },
+  {
+    "fr": "Devenir",
+    "ar": "يصبح / يصير",
+    "en": "to become",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je veux devenir meilleur en français.",
+      "en": "I want to become better at French.",
+      "ar": "بدي صير أحسن بالفرنسي."
+    }
+  },
+  {
+    "fr": "Devoir",
+    "ar": "يجب / لازم / يكون عليه",
+    "en": "to have to / must / owe",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je dois envoyer ce document.",
+      "en": "I have to send this document.",
+      "ar": "لازم ابعت هالورقة."
+    }
+  },
+  {
+    "fr": "Dire",
+    "ar": "يقول / يخبر",
+    "en": "to say / tell",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je voulais vous dire quelque chose.",
+      "en": "I wanted to tell you something.",
+      "ar": "كنت بدي قلك شغلة."
+    }
+  },
+  {
+    "fr": "Donner",
+    "ar": "يعطي",
+    "en": "to give",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Pouvez-vous me donner une copie ?",
+      "en": "Can you give me a copy?",
+      "ar": "فيك تعطيني نسخة؟"
+    }
+  },
+  {
+    "fr": "Dormir",
+    "ar": "ينام",
+    "en": "to sleep",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je dois dormir tôt ce soir.",
+      "en": "I have to sleep early tonight.",
+      "ar": "لازم نام بكير الليلة."
+    }
+  },
+  {
+    "fr": "Durer",
+    "ar": "يدوم / يستغرق",
+    "en": "to last",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Combien de temps ça va durer ?",
+      "en": "How long will it last?",
+      "ar": "قديش رح يستغرق؟"
+    }
+  },
+  {
+    "fr": "Distinguer",
+    "ar": "يميّز",
+    "en": "to distinguish / tell apart",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je n'arrive pas à distinguer les deux.",
+      "en": "I can't tell the two apart.",
+      "ar": "مو قادر ميّز بين التنين."
+    }
+  },
+  {
+    "fr": "Diviser",
+    "ar": "يقسم",
+    "en": "to divide",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "shop"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Pouvez-vous diviser la quantité en deux ?",
+      "en": "Can you divide the quantity into two?",
+      "ar": "فيك تقسم الكمية لقسمين؟"
+    }
+  },
+  {
+    "fr": "Donner rendez-vous",
+    "ar": "يكتشف",
+    "en": "to discover",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "restaurant"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "J'ai découvert un nouveau restaurant.",
+      "en": "I discovered a new restaurant.",
+      "ar": "اكتشفت مطعم جديد."
+    }
+  },
+  {
+    "fr": "Désigner",
+    "ar": "يعيّن / يحدّد",
+    "en": "to designate / appoint",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le responsable désigne une personne.",
+      "en": "The manager appoints a person.",
+      "ar": "المسؤول عيّن شخص."
+    }
+  },
+  {
+    "fr": "Désactiver",
+    "ar": "يعطّل / يوقف التفعيل",
+    "en": "to deactivate / disable",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "bank"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je veux désactiver mon compte.",
+      "en": "I want to deactivate my account.",
+      "ar": "بدي عطّل حسابي."
+    }
+  },
+  {
+    "fr": "Déconnecter",
+    "ar": "يفصل / يسجّل الخروج",
+    "en": "to disconnect / log out",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "N'oubliez pas de vous déconnecter.",
+      "en": "Don't forget to log out.",
+      "ar": "لا تنسى تعمل تسجيل خروج."
+    }
+  },
+  {
+    "fr": "Débrancher",
+    "ar": "يفصل عن الكهرباء",
+    "en": "to unplug / disconnect",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il faut débrancher la machine.",
+      "en": "You need to unplug the machine.",
+      "ar": "لازم تفصل الماكينة عن الكهربا."
+    }
+  },
+  {
+    "fr": "Décharger",
+    "ar": "يفرّغ / ينزّل الحمولة",
+    "en": "to unload",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Nous devons décharger le camion.",
+      "en": "We have to unload the truck.",
+      "ar": "لازم نفرّغ الشاحنة."
+    }
+  },
+  {
+    "fr": "Déposer une plainte",
+    "ar": "يقدّم شكوى",
+    "en": "to file a complaint",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je souhaite déposer une plainte.",
+      "en": "I want to file a complaint.",
+      "ar": "بدي قدّم شكوى."
+    }
+  },
+  {
+    "fr": "Diminuer",
+    "ar": "ينقص / يخفّض",
+    "en": "to decrease / reduce",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je veux diminuer mes dépenses.",
+      "en": "I want to reduce my expenses.",
+      "ar": "بدي خفّض مصاريفي."
+    }
+  },
+  {
+    "fr": "Discuter",
+    "ar": "يناقش / يحكي",
+    "en": "to discuss / talk",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "prefecture"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je voudrais discuter de mon dossier.",
+      "en": "I would like to discuss my application.",
+      "ar": "بدي احكي عن ملفي."
+    }
+  },
+  {
+    "fr": "Disposer de",
+    "ar": "يتوفر لديه / يملك",
+    "en": "to have / possess",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je dispose de tous les documents nécessaires.",
+      "en": "I have all the necessary documents.",
+      "ar": "معي كل الأوراق اللازمة."
+    }
+  },
+  {
+    "fr": "Distribuer",
+    "ar": "يوزّع",
+    "en": "to distribute / hand out",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "On distribue les documents à l'accueil.",
+      "en": "The documents are handed out at reception.",
+      "ar": "بيوزعوا الأوراق عند الاستقبال."
+    }
+  },
+  {
+    "fr": "Dommager",
+    "ar": "يتلف / يضر",
+    "en": "to damage",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "shop"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "La machine a endommagé le produit.",
+      "en": "The machine damaged the product.",
+      "ar": "الماكينة أضرت بالمنتج."
+    }
+  },
+  {
+    "fr": "Doubler",
+    "ar": "يضاعف / يضرب باثنين",
+    "en": "to double",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "shop"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le prix a doublé.",
+      "en": "The price doubled.",
+      "ar": "السعر تضاعف."
+    }
+  },
+  {
+    "fr": "Douter",
+    "ar": "يشك",
+    "en": "to doubt",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je doute que ce soit possible.",
+      "en": "I doubt that it's possible.",
+      "ar": "بشك إنو هالشي ممكن."
+    }
+  },
+  {
+    "fr": "Délivrer",
+    "ar": "يصدر / يسلّم",
+    "en": "to issue / deliver",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "housing",
+      "services",
+      "prefecture"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "La préfecture délivre le titre de séjour.",
+      "en": "The prefecture issues the residence permit.",
+      "ar": "البريفكتور بتصدر بطاقة الإقامة."
+    }
+  },
+  {
+    "fr": "Détenir",
+    "ar": "يملك / بحوزته",
+    "en": "to hold / possess",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport",
+      "housing"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je détiens une carte de séjour valide.",
+      "en": "I hold a valid residence permit.",
+      "ar": "معي بطاقة إقامة سارية."
+    }
+  },
+  {
+    "fr": "Désinfecter",
+    "ar": "يعقّم",
+    "en": "to disinfect",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il faut désinfecter la surface.",
+      "en": "The surface needs to be disinfected.",
+      "ar": "لازم نعقّم السطح."
+    }
+  },
+  {
+    "fr": "Déplacer une charge",
+    "ar": "تعريف",
+    "en": "definition",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je cherche la définition de ce mot.",
+      "en": "I am looking for the definition of this word.",
+      "ar": "عم دور على تعريف هالكلمة."
+    }
+  },
+  {
+    "fr": "Défi",
+    "ar": "تحدّي",
+    "en": "challenge",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "school"
+    ],
+    "pos": "adjective",
+    "ex": {
+      "fr": "Apprendre le français est un défi.",
+      "en": "Learning French is a challenge.",
+      "ar": "تعلم الفرنسي تحدّي."
+    }
+  },
+  {
+    "fr": "Défaut",
+    "ar": "عيب / خلل",
+    "en": "defect / fault",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "La machine a un défaut.",
+      "en": "The machine has a defect.",
+      "ar": "الماكينة فيها عطل."
+    }
+  },
+  {
+    "fr": "Définitif",
+    "ar": "نهائي / دائم",
+    "en": "final / permanent",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "adjective",
+    "ex": {
+      "fr": "J'attends une réponse définitive.",
+      "en": "I'm waiting for a final answer.",
+      "ar": "ناطر جواب نهائي."
+    }
+  },
+  {
+    "fr": "Déformation",
+    "ar": "تشوّه / تغيير الشكل",
+    "en": "deformation / distortion",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "shop",
+      "school"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Il y a une déformation du produit.",
+      "en": "There is a deformation of the product.",
+      "ar": "في تشوّه بالمنتج."
+    }
+  },
+  {
+    "fr": "Dégât",
+    "ar": "ضرر / أضرار",
+    "en": "damage",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "car"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Il y a des dégâts après l'accident.",
+      "en": "There is damage after the accident.",
+      "ar": "في أضرار بعد الحادث."
+    }
+  },
+  {
+    "fr": "Dégager",
+    "ar": "يزيل / يفرّغ",
+    "en": "to clear / remove",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il faut dégager le passage.",
+      "en": "We need to clear the way.",
+      "ar": "لازم نفتح الطريق."
+    }
+  },
+  {
+    "fr": "Démarrer",
+    "ar": "يبدأ / يشغّل",
+    "en": "to start / start up",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "La machine démarre automatiquement.",
+      "en": "The machine starts automatically.",
+      "ar": "الماكينة بتشتغل لحالها."
+    }
+  },
+  {
+    "fr": "Déplacer un rendez-vous",
+    "ar": "يغيّر موعد",
+    "en": "reschedule an appointment",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je voudrais déplacer mon rendez-vous.",
+      "en": "I would like to reschedule my appointment.",
+      "ar": "بدي غيّر موعدي."
+    }
+  },
+  {
+    "fr": "Déposer un chèque",
+    "ar": "يودع شيك",
+    "en": "deposit a cheque",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services",
+      "bank"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je vais déposer un chèque à la banque.",
+      "en": "I will deposit a cheque at the bank.",
+      "ar": "رح أودع شيك بالبنك."
+    }
+  },
+  {
+    "fr": "Déroulement",
+    "ar": "سير / مجريات",
+    "en": "progress / course / process",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "school"
+    ],
+    "pos": "adjective",
+    "ex": {
+      "fr": "Comment se passe le déroulement de la procédure ?",
+      "en": "How does the procedure go?",
+      "ar": "كيف بتمشي الإجراءات؟"
+    }
+  },
+  {
+    "fr": "Désormais",
+    "ar": "من الآن فصاعدًا",
+    "en": "from now on",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "pos": "other",
+    "ex": {
+      "fr": "Désormais, je ferai attention.",
+      "en": "From now on, I will be careful.",
+      "ar": "من هلق ورايح رح انتبه."
+    }
+  },
+  {
+    "fr": "Dessiner",
+    "ar": "يرسم",
+    "en": "to draw",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "family"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Mon enfant aime dessiner.",
+      "en": "My child likes drawing.",
+      "ar": "ابني بيحب يرسم."
+    }
+  },
+  {
+    "fr": "Détecteur",
+    "ar": "كاشف / جهاز كشف",
+    "en": "detector",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "adjective",
+    "ex": {
+      "fr": "Le détecteur de fumée fonctionne.",
+      "en": "The smoke detector works.",
+      "ar": "كاشف الدخان شغال."
+    }
+  },
+  {
+    "fr": "Détail",
+    "ar": "تفصيل",
+    "en": "detail",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Je veux connaître tous les détails.",
+      "en": "I want to know all the details.",
+      "ar": "بدي أعرف كل التفاصيل."
+    }
+  },
+  {
+    "fr": "Déterminé",
+    "ar": "مصمم / مصرّ",
+    "en": "determined",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "adjective",
+    "ex": {
+      "fr": "Je suis déterminé à réussir.",
+      "en": "I am determined to succeed.",
+      "ar": "أنا مصمم إني أنجح."
+    }
+  },
+  {
+    "fr": "Détruire",
+    "ar": "يدمّر",
+    "en": "to destroy",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Ne pas détruire ce document.",
+      "en": "Do not destroy this document.",
+      "ar": "لا تتلف هالوثيقة."
+    }
+  },
+  {
+    "fr": "Déclencher",
+    "ar": "يفعّل / يسبّب",
+    "en": "to trigger / activate",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le bouton déclenche l'alarme.",
+      "en": "The button triggers the alarm.",
+      "ar": "الزر يفعّل الإنذار."
+    }
+  },
+  {
+    "fr": "Décoller",
+    "ar": "يقلع / ينفصل",
+    "en": "to take off / come off",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "L'étiquette se décolle.",
+      "en": "The label is coming off.",
+      "ar": "اللاصقة عم تنفصل."
+    }
+  },
+  {
+    "fr": "Déconseiller",
+    "ar": "ينصح بعدم",
+    "en": "to advise against",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Le médecin déconseille ce médicament.",
+      "en": "The doctor advises against this medicine.",
+      "ar": "الدكتور ما بينصح بهالدواء."
+    }
+  },
+  {
+    "fr": "Décourager",
+    "ar": "يثبّط / يحبط",
+    "en": "to discourage",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "weather"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Les difficultés ne doivent pas me décourager.",
+      "en": "Difficulties should not discourage me.",
+      "ar": "الصعوبات ما لازم تحبطني."
+    }
+  },
+  {
+    "fr": "Défiler",
+    "ar": "يمرّ / يمرّر",
+    "en": "to scroll / pass by",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je fais défiler la page.",
+      "en": "I scroll the page.",
+      "ar": "عم مرّر الصفحة."
+    }
+  },
+  {
+    "fr": "Déformer",
+    "ar": "يشوّه / يغيّر الشكل",
+    "en": "to deform / distort",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "La chaleur peut déformer le plastique.",
+      "en": "Heat can deform plastic.",
+      "ar": "الحرارة ممكن تغيّر شكل البلاستيك."
+    }
+  },
+  {
+    "fr": "Déjeuner",
+    "ar": "يتغدى",
+    "en": "to have lunch",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "restaurant"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je déjeune à midi.",
+      "en": "I have lunch at noon.",
+      "ar": "بتغدى الساعة 12."
+    }
+  },
+  {
+    "fr": "Délai supplémentaire",
+    "ar": "مهلة إضافية",
+    "en": "additional time / extension",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services",
+      "restaurant"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "J'ai besoin d'un délai supplémentaire.",
+      "en": "I need additional time.",
+      "ar": "بحتاج مهلة إضافية."
+    }
+  },
+  {
+    "fr": "Déléguer",
+    "ar": "يفوّض / يوكّل",
+    "en": "to delegate",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le responsable délègue cette tâche.",
+      "en": "The manager delegates this task.",
+      "ar": "المسؤول فوّض هالمهمة."
+    }
+  },
+  {
+    "fr": "Demandeur",
+    "ar": "طالب / مقدّم الطلب",
+    "en": "applicant / requester",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Le demandeur doit fournir les documents.",
+      "en": "The applicant must provide the documents.",
+      "ar": "طالب الطلب لازم يقدّم الأوراق."
+    }
+  },
+  {
+    "fr": "Démissionner",
+    "ar": "يستقيل",
+    "en": "to resign",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il a décidé de démissionner.",
+      "en": "He decided to resign.",
+      "ar": "قرر يستقيل."
+    }
+  },
+  {
+    "fr": "Dépendance",
+    "ar": "اعتماد / تبعية",
+    "en": "dependence",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "La dépendance peut limiter l'autonomie.",
+      "en": "Dependence can limit independence.",
+      "ar": "الاعتماد على الآخرين ممكن يحدّ من الاستقلالية."
+    }
+  },
+  {
+    "fr": "Déposer une candidature",
+    "ar": "يقدّم طلب توظيف",
+    "en": "to apply / submit an application",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "J'ai déposé ma candidature pour ce poste.",
+      "en": "I applied for this position.",
+      "ar": "قدّمت طلب توظيف لهالمنصب."
+    }
+  },
+  {
+    "fr": "Déranger",
+    "ar": "يزعج",
+    "en": "to disturb / bother",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Excusez-moi de vous déranger.",
+      "en": "Sorry to bother you.",
+      "ar": "عذرًا إذا أزعجتك."
+    }
+  },
+  {
+    "fr": "Descendre",
+    "ar": "ينزل",
+    "en": "to go down / get off",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je descends à la prochaine station.",
+      "en": "I get off at the next stop.",
+      "ar": "بنزل بالمحطة الجاية."
+    }
+  },
+  {
+    "fr": "Décrire une situation",
+    "ar": "يصف وضعًا",
+    "en": "to describe a situation",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je vais décrire ma situation personnelle.",
+      "en": "I will describe my personal situation.",
+      "ar": "رح أوصف وضعي الشخصي."
+    }
+  },
+  {
+    "fr": "Déposer un dossier",
+    "ar": "يقدّم ملف",
+    "en": "to submit a file",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services",
+      "prefecture"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "J'ai déposé mon dossier à la préfecture.",
+      "en": "I submitted my file to the prefecture.",
+      "ar": "قدّمت ملفي بالبريفكتور."
+    }
+  },
+  {
+    "fr": "Détenir une carte",
+    "ar": "يحمل بطاقة / يملك بطاقة",
+    "en": "to hold a card / possess a card",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "transport",
+      "housing"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je détiens une carte de séjour valide.",
+      "en": "I hold a valid residence card.",
+      "ar": "معي بطاقة إقامة سارية."
+    }
+  },
+  {
+    "fr": "Déterminer un montant",
+    "ar": "يحدد مبلغ",
+    "en": "determine an amount",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "caf"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "La CAF détermine le montant de l'aide.",
+      "en": "CAF determines the amount of the benefit.",
+      "ar": "الـ CAF بتحدد مبلغ المساعدة."
+    }
+  },
+  {
+    "fr": "Développer une compétence",
+    "ar": "يطوّر مهارة",
+    "en": "develop a skill",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work",
+      "school"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je veux développer mes compétences professionnelles.",
+      "en": "I want to develop my professional skills.",
+      "ar": "بدي طوّر مهاراتي المهنية."
+    }
+  },
+  {
+    "fr": "Devenir autonome",
+    "ar": "يصبح مستقلًا",
+    "en": "become independent",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je veux devenir autonome en français.",
+      "en": "I want to become independent in French.",
+      "ar": "بدي صير مستقل بالفرنسي."
+    }
+  },
+  {
+    "fr": "Diagnostiquer",
+    "ar": "يشخّص",
+    "en": "diagnose",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le médecin a diagnostiqué un problème.",
+      "en": "The doctor diagnosed a problem.",
+      "ar": "الدكتور شخّص مشكلة."
+    }
+  },
+  {
+    "fr": "Différer",
+    "ar": "يؤجل / يختلف",
+    "en": "to postpone / differ",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "La décision est différée.",
+      "en": "The decision is postponed.",
+      "ar": "القرار تأجّل."
+    }
+  },
+  {
+    "fr": "Diffuser",
+    "ar": "ينشر / يوزّع",
+    "en": "to broadcast / spread",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "school"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "L'information est diffusée en ligne.",
+      "en": "The information is shared online.",
+      "ar": "المعلومة منشورة أونلاين."
+    }
+  },
+  {
+    "fr": "Digérer",
+    "ar": "يهضم",
+    "en": "to digest",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "J'ai des difficultés à digérer certains aliments.",
+      "en": "I have difficulty digesting some foods.",
+      "ar": "عندي صعوبة بهضم بعض الأطعمة."
+    }
+  },
+  {
+    "fr": "Diriger",
+    "ar": "يدير / يوجّه",
+    "en": "to direct / manage",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il dirige une équipe.",
+      "en": "He manages a team.",
+      "ar": "هو يدير فريق."
+    }
+  },
+  {
+    "fr": "Disparaître",
+    "ar": "يختفي",
+    "en": "to disappear",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "La douleur a disparu.",
+      "en": "The pain disappeared.",
+      "ar": "الألم اختفى."
+    }
+  },
+  {
+    "fr": "Disponible",
+    "ar": "متوفر / جاهز",
+    "en": "available",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "adjective",
+    "ex": {
+      "fr": "Le document est disponible sur votre espace.",
+      "en": "The document is available in your account.",
+      "ar": "الوثيقة موجودة بحسابك."
+    }
+  },
+  {
+    "fr": "Dresser",
+    "ar": "يجهّز / يُعدّ",
+    "en": "to prepare / draw up / set up",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le médecin dresse un bilan.",
+      "en": "The doctor prepares an assessment.",
+      "ar": "الدكتور بيعمل تقييم."
+    }
+  },
+  {
+    "fr": "Dépasser",
+    "ar": "يتجاوز",
+    "en": "to exceed / go beyond",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le montant dépasse mon budget.",
+      "en": "The amount exceeds my budget.",
+      "ar": "المبلغ تجاوز ميزانيتي."
+    }
+  },
+  {
+    "fr": "Désactiver un service",
+    "ar": "يلغي تفعيل خدمة",
+    "en": "deactivate a service",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je veux désactiver ce service.",
+      "en": "I want to deactivate this service.",
+      "ar": "بدي ألغي هالخدمة."
+    }
+  },
+  {
+    "fr": "Détendre",
+    "ar": "يرخّي / يخفف التوتر",
+    "en": "to relax / loosen",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Cette activité me détend.",
+      "en": "This activity relaxes me.",
+      "ar": "هالنشاط بيرخيني."
+    }
+  },
+  {
+    "fr": "Deviner",
+    "ar": "يخمّن",
+    "en": "to guess",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je ne peux pas deviner la réponse.",
+      "en": "I can't guess the answer.",
+      "ar": "ما فيني خمن الجواب."
+    }
   }
 ];
