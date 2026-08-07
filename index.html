@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#1a1a1a">
-  <title id="app-title">VidCap</title>
+  <title id="app-title">Motsy</title>
   <link rel="manifest" href="manifest.json">
   <style>
     :root {
@@ -1000,7 +1000,7 @@
 <body>
   <header>
     <div class="header-inner">
-      <div class="logo" id="app-name">VidCap</div>
+      <div class="logo" id="app-name">Motsy</div>
       <nav>
         <button id="nav-lessons" data-page="lessons" class="active" data-i18n="lessons">Lessons</button>
         <button id="nav-editor" data-page="editor" data-i18n="editor">New lesson</button>
@@ -1606,8 +1606,8 @@
         if (i18n[lang][key]) el.title = i18n[lang][key];
       });
       document.getElementById('btn-lang').textContent = lang.toUpperCase();
-      document.getElementById('app-name').textContent = 'VidCap';
-      document.title = 'VidCap';
+      document.getElementById('app-name').textContent = 'Motsy';
+      document.title = 'Motsy';
       document.getElementById('settings-language').value = lang;
       updateDownloadLinks();
       if (state.currentCues.length) {

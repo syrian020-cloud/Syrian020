@@ -2,8 +2,8 @@ const CACHE_NAME = 'procap-v2';
 const FILES_TO_CACHE = [
   './procap.html',
   './manifest-procap.json',
-  './icon-192.png',
-  './icon-512.png',
+  './icon-procap-192.png',
+  './icon-procap-512.png',
   './bienvenue-lesson.jpg',
   './whatsapp-icon.png'
 ];
