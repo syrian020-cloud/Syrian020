@@ -647,7 +647,9 @@
     const existing = LESSONS.find(it => it.type === 'lesson' && it.protected);
     if (existing) {
       existing.title = builtIn.title;
+      const oldMedia = existing.phrases.map(p => p.media);
       existing.phrases = builtIn.phrases;
+      existing.phrases.forEach((p, i) => { if (oldMedia[i]) p.media = oldMedia[i]; });
       if (!existing.image) existing.image = builtIn.image;
     } else {
       builtIn.id = nextId();
@@ -1282,7 +1284,7 @@
     if (!media) return '';
     const yt = youtubeId(media);
     if (yt) return `<div class="phrase-media"><iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe></div>`;
-    if (isVideoUrl(media)) return `<div class="phrase-media"><video src="${esc(media)}" controls playsinline poster=""></video></div>`;
+    if (isVideoUrl(media)) return `<div class="phrase-media"><video src="${esc(media)}" controls playsinline></video></div>`;
     return `<div class="phrase-media"><img src="${esc(media)}" alt="" onerror="this.style.display='none'"></div>`;
   }
 
