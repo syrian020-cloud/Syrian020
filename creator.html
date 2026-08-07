@@ -99,7 +99,9 @@
   .media-placeholder { color: var(--text-secondary); font-size: 0.9rem; padding: 1rem; }
   .media-btns { display: flex; gap: 0.4rem; justify-content: center; margin-top: 0.5rem; }
 
+  ::placeholder { color: var(--text-secondary); opacity: 0.7; }
   .empty { color: var(--text-secondary); text-align: center; padding: 2rem 1rem; }
+  .hint { background: var(--bg-tertiary); border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 0.75rem 1rem; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.85rem; }
   .toast { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.6rem 1rem; box-shadow: var(--shadow); z-index: 100; font-size: 0.9rem; }
   .hidden { display: none !important; }
 
@@ -180,7 +182,9 @@
     export: { ar: 'تصدير', en: 'Export', fr: 'Exporter' },
     import: { ar: 'استيراد', en: 'Import', fr: 'Importer' },
     themeMode: { ar: 'الوضع الليلي/النهاري', en: 'Dark / light mode', fr: 'Mode sombre / clair' },
-    mediaHint: { ar: 'اضغط لاختيار صورة أو فيديو من الهاتف', en: 'Tap to choose an image or video from your phone', fr: 'Appuyez pour choisir une image ou une vidéo depuis votre téléphone' }
+    mediaHint: { ar: 'اضغط لاختيار صورة أو فيديو من الهاتف', en: 'Tap to choose an image or video from your phone', fr: 'Appuyez pour choisir une image ou une vidéo depuis votre téléphone' },
+    exampleLabel: { ar: 'نموذج', en: 'Example', fr: 'Exemple' },
+    exitConfirm: { ar: 'هل تريد الخروج من التطبيق؟', en: 'Do you want to exit the app?', fr: 'Voulez-vous quitter l\'application ?' }
   };
 
   function t(key) {
@@ -466,6 +470,14 @@
       '</div>';
     app.appendChild(form);
 
+    var hint = document.createElement('div');
+    hint.className = 'hint';
+    hint.innerHTML = '<div class="field-label" data-t="exampleLabel"></div>' +
+      '<div dir="ltr" style="margin-top:0.35rem; font-size:1.05rem;">' +
+        '<bdi>Bonjour</bdi> | <bdi>مرحبا</bdi> | <bdi>Hello</bdi>' +
+      '</div>';
+    app.appendChild(hint);
+
     var phrasesDiv = document.createElement('div');
     phrasesDiv.id = 'phrases-list';
     lesson.phrases.forEach(function (p, idx) {
@@ -495,11 +507,11 @@
         '</div>' +
       '</div>' +
       '<div class="field-label" data-t="phraseFr"></div>' +
-      '<textarea class="textarea" dir="ltr" data-field="fr">' + esc(p.fr || '') + '</textarea>' +
+      '<textarea class="textarea" dir="ltr" data-field="fr" placeholder="Bonjour">' + esc(p.fr || '') + '</textarea>' +
       '<div class="field-label" data-t="phraseAr"></div>' +
-      '<textarea class="textarea" data-field="ar">' + esc(p.ar || '') + '</textarea>' +
+      '<textarea class="textarea" data-field="ar" placeholder="مرحبا">' + esc(p.ar || '') + '</textarea>' +
       '<div class="field-label" data-t="phraseEn"></div>' +
-      '<textarea class="textarea" dir="ltr" data-field="en">' + esc(p.en || '') + '</textarea>' +
+      '<textarea class="textarea" dir="ltr" data-field="en" placeholder="Hello">' + esc(p.en || '') + '</textarea>' +
       '<div class="media-box" id="media-box-' + p.id + '">' +
         '<div class="media-placeholder" data-t="noMedia"></div>' +
         '<div class="media-btns">' +
@@ -661,6 +673,13 @@
     var v = pickVoice(lang);
     if (v) u.voice = v;
     return u;
+  }
+
+  function handleBackButton() {
+    if (state.view === 'lesson') { stopSpeech(); setView('lessons'); return; }
+    if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) {
+      if (confirm(t('exitConfirm'))) window.Capacitor.Plugins.App.exitApp();
+    }
   }
 
   function stopSpeech() {
@@ -863,6 +882,14 @@
       window.speechSynthesis.onvoiceschanged = function () {};
       window.speechSynthesis.getVoices();
     }
+
+    if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) {
+      window.Capacitor.Plugins.App.addListener('backButton', handleBackButton);
+    }
+
+    window.onbeforeunload = function () {
+      return t('exitConfirm');
+    };
   }
 
   dbReady.then(function () {
