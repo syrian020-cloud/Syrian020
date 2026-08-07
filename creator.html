@@ -3,34 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="theme-color" content="#0b0d1f">
+<meta name="theme-color" content="#0a0f1f">
 <title>Lang</title>
 <link rel="manifest" href="manifest-creator.json">
 <style>
   :root {
-    --bg-primary: #0b0d1f;
-    --bg-secondary: rgba(19,22,43,0.86);
-    --bg-tertiary: #1e213d;
-    --text-primary: #f7f8ff;
-    --text-secondary: #9ba0c9;
-    --accent: #8b5cf6;
-    --accent-hover: #7c3aed;
-    --accent-teal: #00d4aa;
-    --danger: #ff6b81;
-    --success: #00d4aa;
-    --gold: #ffc857;
+    --bg-primary: #0a0f1f;
+    --bg-secondary: rgba(15,23,42,0.88);
+    --bg-tertiary: #17234d;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-gold: #f59e0b;
+    --danger: #ef4444;
+    --success: #22c55e;
+    --gold: #f59e0b;
     --border: rgba(255,255,255,0.10);
-    --radius: 22px;
+    --radius: 20px;
     --radius-sm: 999px;
     --shadow: 0 20px 50px rgba(0,0,0,0.45);
     --shadow-sm: 0 6px 20px rgba(0,0,0,0.25);
   }
   [data-theme="light"] {
-    --bg-primary: #f4f6fb;
-    --bg-secondary: rgba(255,255,255,0.92);
-    --bg-tertiary: #eef0f7;
-    --text-primary: #181a2e;
-    --text-secondary: #5e627d;
+    --bg-primary: #f4f7fb;
+    --bg-secondary: rgba(255,255,255,0.94);
+    --bg-tertiary: #eef2f7;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
     --border: rgba(0,0,0,0.08);
     --shadow: 0 12px 32px rgba(0,0,0,0.10);
     --shadow-sm: 0 4px 12px rgba(0,0,0,0.06);
@@ -39,47 +39,49 @@
   html, body { margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", sans-serif;
-    background: radial-gradient(1200px 600px at 10% -10%, rgba(139,92,246,0.18), transparent), radial-gradient(1200px 600px at 110% 10%, rgba(0,212,170,0.14), transparent), var(--bg-primary);
+    background: radial-gradient(1200px 600px at 10% -10%, rgba(37,99,235,0.18), transparent), radial-gradient(1200px 600px at 110% 10%, rgba(245,158,11,0.12), transparent), var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
     padding-bottom: 3rem;
   }
-  header { position: sticky; top: 0; z-index: 60; background: rgba(11,13,31,0.72); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+  header { position: sticky; top: 0; z-index: 60; background: rgba(10,15,31,0.72); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
   [data-theme="light"] header { background: rgba(255,255,255,0.72); }
   .header-inner { max-width: 960px; margin: 0 auto; padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
-  .logo { font-weight: 900; font-size: 1.15rem; white-space: nowrap; letter-spacing: -0.03em; background: linear-gradient(90deg, var(--accent), var(--accent-teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .logo { font-weight: 900; font-size: 1.15rem; white-space: nowrap; letter-spacing: -0.03em; background: linear-gradient(90deg, var(--accent), var(--accent-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
   .spacer { flex: 1; }
   .icon-btn { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 14px; padding: 0.45rem 0.65rem; font-size: 0.95rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 600; transition: transform .12s, border-color .15s, background .15s, box-shadow .15s; }
-  .icon-btn:hover { border-color: var(--accent); background: var(--bg-secondary); transform: translateY(-1px); box-shadow: 0 4px 10px rgba(139,92,246,0.18); }
-  .icon-btn.active { background: linear-gradient(135deg, var(--success), #0ac2a1); color: #0b0d1f; border-color: transparent; }
+  .icon-btn:hover { border-color: var(--accent); background: var(--bg-secondary); transform: translateY(-1px); box-shadow: 0 4px 10px rgba(37,99,235,0.18); }
+  .icon-btn.active { background: linear-gradient(135deg, var(--success), #16a34a); color: #0b0d1f; border-color: transparent; }
+  .icon { width: 1.1em; height: 1.1em; fill: currentColor; vertical-align: middle; display: inline-block; }
+  .btn-icon { display: inline-flex; align-items: center; }
   .lang-switch { display: flex; gap: 0.3rem; }
   .lang-btn { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.6rem; font-size: 0.78rem; font-weight: 700; cursor: pointer; min-width: 2.2rem; transition: transform .12s, background .15s; }
   .lang-btn:hover { border-color: var(--accent); }
-  .lang-btn.active { background: linear-gradient(135deg, var(--accent), #6d28d9); color: #fff; border-color: transparent; box-shadow: 0 4px 12px rgba(139,92,246,0.3); }
+  .lang-btn.active { background: linear-gradient(135deg, var(--accent), #1e40af); color: #fff; border-color: transparent; box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
   main { max-width: 960px; margin: 0 auto; padding: 1rem; }
 
-  .hero { background: linear-gradient(135deg, rgba(139,92,246,0.22), rgba(0,212,170,0.12)); border: 1px solid var(--border); border-radius: 24px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; position: relative; overflow: hidden; box-shadow: var(--shadow-sm); }
-  .hero::before { content: ''; position: absolute; top:0; left:0; right:0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent-teal)); }
+  .hero { background: linear-gradient(135deg, rgba(37,99,235,0.22), rgba(245,158,11,0.10)); border: 1px solid var(--border); border-radius: 24px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; position: relative; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .hero::before { content: ''; position: absolute; top:0; left:0; right:0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent-gold)); }
   .hero h1 { margin: 0 0 0.4rem; font-size: 1.45rem; font-weight: 900; letter-spacing: -0.02em; }
   .hero p { margin: 0; color: var(--text-secondary); font-size: 0.95rem; }
 
-  .btn { background: linear-gradient(135deg, var(--accent), #6d28d9); color: #fff; border: none; border-radius: 999px; padding: 0.7rem 1.1rem; font-size: 0.95rem; font-weight: 800; cursor: pointer; box-shadow: 0 6px 16px rgba(139,92,246,0.25); transition: transform .12s, filter .15s, box-shadow .15s; }
-  .btn:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 8px 22px rgba(139,92,246,0.35); }
+  .btn { background: linear-gradient(135deg, var(--accent), #1e40af); color: #fff; border: none; border-radius: 999px; padding: 0.7rem 1.1rem; font-size: 0.95rem; font-weight: 800; cursor: pointer; box-shadow: 0 6px 16px rgba(37,99,235,0.25); transition: transform .12s, filter .15s, box-shadow .15s; display: inline-flex; align-items: center; gap: 0.4rem; }
+  .btn:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 8px 22px rgba(37,99,235,0.35); }
   .btn:active { transform: translateY(0); }
   .btn.ghost { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); box-shadow: none; }
   .btn.ghost:hover { border-color: var(--accent); background: var(--bg-secondary); }
-  .btn.danger { background: linear-gradient(135deg, #ff6b81, #f43f5e); }
-  .btn.success { background: linear-gradient(135deg, var(--success), #0ac2a1); color: #0b0d1f; box-shadow: 0 6px 16px rgba(0,212,170,0.25); }
+  .btn.danger { background: linear-gradient(135deg, #ef4444, #dc2626); }
+  .btn.success { background: linear-gradient(135deg, var(--success), #16a34a); color: #0b0d1f; box-shadow: 0 6px 16px rgba(34,197,94,0.25); }
   .btn-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.9rem; }
 
   .card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 22px; padding: 1.1rem; margin-bottom: 1rem; box-shadow: var(--shadow-sm); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: transform .12s, box-shadow .15s, border-color .15s; }
-  .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.18); border-color: rgba(139,92,246,0.25); }
+  .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.18); border-color: rgba(37,99,235,0.25); }
   .card-title { font-weight: 800; font-size: 1.08rem; margin-bottom: 0.3rem; }
   .card-sub { color: var(--text-secondary); font-size: 0.85rem; }
 
   .lesson-card { display: flex; align-items: center; gap: 0.9rem; cursor: pointer; }
   .lesson-card:hover { border-color: var(--accent); transform: translateY(-2px) scale(1.005); }
-  .lesson-card .num { min-width: 2.6rem; height: 2.6rem; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-teal)); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; box-shadow: 0 4px 12px rgba(139,92,246,0.25); }
+  .lesson-card .num { min-width: 2.6rem; height: 2.6rem; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-gold)); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; box-shadow: 0 4px 12px rgba(37,99,235,0.25); }
   .lesson-card .body { flex: 1; min-width: 0; }
 
   .input, .textarea {
@@ -88,7 +90,7 @@
     padding: 0.75rem 1rem; font-size: 1rem; font-family: inherit;
     transition: border-color .15s, box-shadow .15s;
   }
-  .input:focus, .textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(139,92,246,0.18); }
+  .input:focus, .textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.18); }
   .textarea { min-height: 3.4rem; resize: vertical; }
   .field-label { display: block; color: var(--text-secondary); font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em; margin: 0.7rem 0 0.3rem; }
   .field-label-row { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-top: 0.7rem; }
@@ -111,11 +113,11 @@
 
   ::placeholder { color: var(--text-secondary); opacity: 0.65; }
   .empty { color: var(--text-secondary); text-align: center; padding: 2.5rem 1rem; }
-  .hint { background: linear-gradient(135deg, rgba(139,92,246,0.10), rgba(0,212,170,0.08)); border: 1px dashed rgba(139,92,246,0.35); border-radius: 18px; padding: 0.9rem 1.1rem; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem; }
+  .hint { background: linear-gradient(135deg, rgba(37,99,235,0.10), rgba(245,158,11,0.08)); border: 1px dashed rgba(37,99,235,0.35); border-radius: 18px; padding: 0.9rem 1.1rem; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem; }
   .toast { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%); background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.7rem 1.2rem; box-shadow: var(--shadow); z-index: 100; font-size: 0.92rem; font-weight: 600; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
   .hidden { display: none !important; }
 
-  .playing { border-color: var(--success); box-shadow: 0 0 0 3px rgba(0,212,170,0.22); }
+  .playing { border-color: var(--success); box-shadow: 0 0 0 3px rgba(34,197,94,0.22); }
 
   @media (max-width: 480px) {
     .header-inner { padding: 0.65rem; }
@@ -131,15 +133,15 @@
   <div class="header-inner">
     <span class="logo" data-t="appName">Motsy Creator</span>
     <span class="spacer"></span>
-    <button class="icon-btn" id="btn-export" data-t-title="export" title="Export">⬆️</button>
-    <button class="icon-btn" id="btn-import" data-t-title="import" title="Import">⬇️</button>
+    <button class="icon-btn" id="btn-export" data-t-title="export" title="Export"><svg class="icon" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></button>
+    <button class="icon-btn" id="btn-import" data-t-title="import" title="Import"><svg class="icon" viewBox="0 0 24 24"><path d="M19 15h-4v6H9v-6H5l7-7 7 7zM5 10V8h14v2H5z"/></svg></button>
     <input type="file" id="import-file" accept="application/json" class="hidden">
     <div class="lang-switch">
       <button class="lang-btn" data-lang="en">EN</button>
       <button class="lang-btn" data-lang="ar">AR</button>
       <button class="lang-btn" data-lang="fr">FR</button>
     </div>
-    <button class="icon-btn" id="btn-theme" data-t-title="themeMode" title="Dark / light">🌙</button>
+    <button class="icon-btn" id="btn-theme" data-t-title="themeMode" title="Dark / light"><svg class="icon" viewBox="0 0 24 24" id="theme-icon"><path d="M9 2c-1.05 0-2.05.22-2.95.63C7.58 5.49 9.94 8 13 8c3.31 0 6-2.69 6-6 0-.34-.03-.67-.09-1A7.98 7.98 0 0 1 21 12c0 4.97-4.03 9-9 9S3 16.97 3 12A9 9 0 0 1 9 2z"/></svg></button>
   </div>
 </header>
 
@@ -169,27 +171,28 @@
     title: { ar: 'Lang', en: 'Lang', fr: 'Lang' },
     subtitle: { ar: 'أنشئ دروساً بجمل فرنسية مترجمة، مع صور أو فيديو، وأزرار نطق.', en: 'Create lessons with translated French phrases, images or video, and speak/loop buttons.', fr: 'Créez des leçons avec des phrases françaises traduites, images ou vidéos, et boutons de lecture.' },
     lesson: { ar: 'درس', en: 'Lesson', fr: 'Leçon' },
-    addLesson: { ar: '+ درس جديد', en: '+ New lesson', fr: '+ Nouvelle leçon' },
+    addLesson: { ar: 'درس جديد', en: 'New lesson', fr: 'Nouvelle leçon' },
     noLessons: { ar: 'لا توجد دروس بعد. ابدأ بإضافة درس جديد.', en: 'No lessons yet. Add a new lesson to start.', fr: 'Aucune leçon pour le moment. Ajoutez une nouvelle leçon.' },
     phrases: { ar: 'عبارات', en: 'phrases', fr: 'phrases' },
-    addPhrase: { ar: '+ إضافة عبارة', en: '+ Add phrase', fr: '+ Ajouter une phrase' },
-    playAll: { ar: '▶ تشغيل الكل', en: '▶ Play all', fr: '▶ Tout lire' },
-    stopAll: { ar: '⏹ إيقاف', en: '⏹ Stop', fr: '⏹ Arrêter' },
-    back: { ar: '‹ رجوع', en: '‹ Back', fr: '‹ Retour' },
+    addPhrase: { ar: 'إضافة عبارة', en: 'Add phrase', fr: 'Ajouter une phrase' },
+    playAll: { ar: 'تشغيل الكل', en: 'Play all', fr: 'Tout lire' },
+    stopAll: { ar: 'إيقاف', en: 'Stop', fr: 'Arrêter' },
+    back: { ar: 'رجوع', en: 'Back', fr: 'Retour' },
     phraseFr: { ar: 'الجملة الفرنسية', en: 'French sentence', fr: 'Phrase française' },
     phraseAr: { ar: 'الترجمة العربية', en: 'Arabic translation', fr: 'Traduction arabe' },
     phraseEn: { ar: 'الترجمة الإنجليزية', en: 'English translation', fr: 'Traduction anglaise' },
-    attachMedia: { ar: '📎 صورة / فيديو', en: '📎 Image / video', fr: '📎 Image / vidéo' },
-    removeMedia: { ar: '❌ إزالة الوسائط', en: '❌ Remove media', fr: '❌ Supprimer le média' },
-    speak: { ar: '🔊 نطق', en: '🔊 Speak', fr: '🔊 Écouter' },
-    loop: { ar: '🔁 تكرار', en: '🔁 Loop', fr: '🔁 Répéter' },
-    stop: { ar: '⏹ إيقاف', en: '⏹ Stop', fr: '⏹ Arrêter' },
-    delete: { ar: '🗑', en: '🗑', fr: '🗑' },
-    moveUp: { ar: '⬆', en: '⬆', fr: '⬆' },
-    moveDown: { ar: '⬇', en: '⬇', fr: '⬇' },
+    attachMedia: { ar: 'صورة / فيديو', en: 'Image / video', fr: 'Image / vidéo' },
+    removeMedia: { ar: 'إزالة الوسائط', en: 'Remove media', fr: 'Supprimer le média' },
+    speak: { ar: 'نطق', en: 'Speak', fr: 'Écouter' },
+    loop: { ar: 'تكرار', en: 'Loop', fr: 'Répéter' },
+    stop: { ar: 'إيقاف', en: 'Stop', fr: 'Arrêter' },
+    delete: { ar: 'حذف', en: 'Delete', fr: 'Supprimer' },
+    moveUp: { ar: 'أعلى', en: 'Up', fr: 'Monter' },
+    moveDown: { ar: 'أسفل', en: 'Down', fr: 'Descendre' },
     noMedia: { ar: 'لا توجد وسائط مرفقة', en: 'No media attached', fr: 'Aucun média joint' },
     saved: { ar: 'تم الحفظ', en: 'Saved', fr: 'Enregistré' },
-    export: { ar: 'تصدير', en: 'Export', fr: 'Exporter' },
+    export: { ar: 'تصدير الكل', en: 'Export all', fr: 'Tout exporter' },
+    exportLesson: { ar: 'تصدير الدرس', en: 'Export lesson', fr: 'Exporter la leçon' },
     import: { ar: 'استيراد', en: 'Import', fr: 'Importer' },
     themeMode: { ar: 'الوضع الليلي/النهاري', en: 'Dark / light mode', fr: 'Mode sombre / clair' },
     mediaHint: { ar: 'اضغط لاختيار صورة أو فيديو من الهاتف', en: 'Tap to choose an image or video from your phone', fr: 'Appuyez pour choisir une image ou une vidéo depuis votre téléphone' },
@@ -199,13 +202,43 @@
     deletePhraseConfirm: { ar: 'هل تريد حذف هذه العبارة؟', en: 'Delete this phrase?', fr: 'Supprimer cette phrase ?' },
     deleteMediaConfirm: { ar: 'هل تريد إزالة الوسائط المرفقة؟', en: 'Remove attached media?', fr: 'Supprimer le média joint ?' },
     bulkAddLabel: { ar: 'إضافة عبارات متعددة (فرنسي | عربي | إنجليزي)', en: 'Add multiple phrases (French | Arabic | English)', fr: 'Ajouter plusieurs phrases (français | arabe | anglais)' },
-    bulkAddButton: { ar: '+ إضافة', en: '+ Add', fr: '+ Ajouter' },
+    bulkAddButton: { ar: 'إضافة', en: 'Add', fr: 'Ajouter' },
     noBulkPhrases: { ar: 'لا توجد عبارات صالحة. استخدم الشكل: فرنسي | عربي | إنجليزي', en: 'No valid phrases. Use format: French | Arabic | English', fr: 'Aucune phrase valide. Format : français | arabe | anglais' }
   };
 
   function t(key) {
     var v = UI[key];
     return (v && v[state.uiLang]) || (v && v.en) || key;
+  }
+
+  function icon(name) {
+    var paths = {
+      play: 'M8 5v14l11-7z',
+      stop: 'M6 6h12v12H6z',
+      volume: 'M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z',
+      loop: 'M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.59 20 13.86 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L4.24 7.74C4.46 8.41 4.55 9.2 4.55 10c0 4.42 3.58 8 8 8v3l4-4-4-4v3z',
+      trash: 'M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z',
+      up: 'M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z',
+      down: 'M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z',
+      plus: 'M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z',
+      back: 'M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z',
+      export: 'M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z',
+      import: 'M19 15h-4v6H9v-6H5l7-7 7 7zM5 10V8h14v2H5z',
+      moon: 'M9 2c-1.05 0-2.05.22-2.95.63C7.58 5.49 9.94 8 13 8c3.31 0 6-2.69 6-6 0-.34-.03-.67-.09-1A7.98 7.98 0 0 1 21 12c0 4.97-4.03 9-9 9S3 16.97 3 12A9 9 0 0 1 9 2z',
+      sun: 'M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10H1v2h3v-2zm13-4.2V1h-2v4.8l1.46 1.46 1.41-1.41-1.87-1.87zm5.24 14.04l-1.79-1.79-1.41 1.41 1.79 1.79 1.41-1.41zM20 10v2h3v-2h-3zM12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16h2v-3h-2v3zM6.76 19.16l1.79 1.79 1.41-1.41-1.79-1.79-1.41 1.41z',
+      image: 'M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z',
+      close: 'M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'
+    };
+    var d = paths[name] || '';
+    return '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="' + d + '" /></svg>';
+  }
+
+  function iconText(key, iconName) {
+    return '<span class="btn-icon">' + icon(iconName) + '</span><span data-t="' + key + '">' + esc(t(key)) + '</span>';
+  }
+
+  function btnIcon(name) {
+    return icon(name);
   }
 
   /* ---------------- IndexedDB ---------------- */
@@ -406,8 +439,12 @@
 
   function applyTheme() {
     document.documentElement.setAttribute('data-theme', state.theme === 'light' ? 'light' : 'dark');
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', state.theme === 'light' ? '#f4f6fb' : '#0b0d1f');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', state.theme === 'light' ? '#f4f7fb' : '#0a0f1f');
     localStorage.setItem('creator_theme', state.theme);
+    var iconPath = document.querySelector('#theme-icon path');
+    if (iconPath) iconPath.setAttribute('d', state.theme === 'light'
+      ? 'M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10H1v2h3v-2zm13-4.2V1h-2v4.8l1.46 1.46 1.41-1.41-1.87-1.87zm5.24 14.04l-1.79-1.79-1.41 1.41 1.79 1.79 1.41-1.41zM20 10v2h3v-2h-3zM12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16h2v-3h-2v3zM6.76 19.16l1.79 1.79 1.41-1.41-1.79-1.79-1.41 1.41z'
+      : 'M9 2c-1.05 0-2.05.22-2.95.63C7.58 5.49 9.94 8 13 8c3.31 0 6-2.69 6-6 0-.34-.03-.67-.09-1A7.98 7.98 0 0 1 21 12c0 4.97-4.03 9-9 9S3 16.97 3 12A9 9 0 0 1 9 2z');
   }
 
   function setUILang(lang) {
@@ -452,7 +489,7 @@
   function renderLessonList() {
     var app = document.getElementById('app');
     var html = '<div class="hero"><h1 data-t="appName"></h1><p data-t="subtitle"></p></div>' +
-      '<div class="btn-row"><button class="btn" id="add-lesson" data-t="addLesson"></button></div>';
+      '<div class="btn-row"><button class="btn" id="add-lesson">' + iconText('addLesson', 'plus') + '</button></div>';
     if (!state.lessons.length) {
       html += '<div class="empty" data-t="noLessons"></div>';
     } else {
@@ -465,7 +502,7 @@
           '<div class="num">' + (i + 1) + '</div>' +
           '<div class="body"><div class="card-title">' + title + '</div>' +
           '<div class="card-sub">' + l.phrases.length + ' ' + t('phrases') + '</div></div>' +
-          '<button class="icon-btn delete-lesson" data-lesson="' + l.id + '" data-t-title="delete">' + t('delete') + '</button>' +
+          '<button class="icon-btn delete-lesson" data-lesson="' + l.id + '" data-t-title="delete">' + icon('trash') + '</button>' +
           '</div>';
       }).join('');
     }
@@ -500,8 +537,9 @@
     var controls = document.createElement('div');
     controls.className = 'btn-row';
     controls.innerHTML =
-      '<button class="btn success" id="btn-play-all" data-t="playAll"></button>' +
-      '<button class="btn ghost" id="btn-stop-all" data-t="stopAll"></button>';
+      '<button class="btn success" id="btn-play-all">' + iconText('playAll', 'play') + '</button>' +
+      '<button class="btn ghost" id="btn-stop-all">' + iconText('stopAll', 'stop') + '</button>' +
+      '<button class="btn" id="btn-export-lesson">' + iconText('exportLesson', 'export') + '</button>';
     app.appendChild(controls);
 
     var hint = document.createElement('div');
@@ -519,7 +557,7 @@
       '<textarea class="textarea" id="bulk-input" dir="auto" rows="3" placeholder="Bonjour | مرحبا | Hello">' +
       '</textarea>' +
       '<div class="btn-row" style="margin-top:0.6rem">' +
-        '<button class="btn" id="btn-bulk-add" data-t="bulkAddButton"></button>' +
+        '<button class="btn" id="btn-bulk-add">' + iconText('bulkAddButton', 'plus') + '</button>' +
       '</div>';
     app.appendChild(bulk);
 
@@ -532,7 +570,7 @@
 
     var addFooter = document.createElement('div');
     addFooter.className = 'btn-row';
-    addFooter.innerHTML = '<button class="btn" id="btn-add-phrase" data-t="addPhrase"></button>';
+    addFooter.innerHTML = '<button class="btn" id="btn-add-phrase">' + iconText('addPhrase', 'plus') + '</button>';
     app.appendChild(addFooter);
 
     bindEditorEvents(lesson);
@@ -542,8 +580,8 @@
 
   function lineControls(lang) {
     return '<span class="row-actions">' +
-      '<button class="icon-btn speak-line" data-lang="' + lang + '" data-t-title="speak" title="' + t('speak') + '">🔊</button>' +
-      '<button class="icon-btn loop-line" data-lang="' + lang + '" data-t-title="loop" title="' + t('loop') + '">🔁</button>' +
+      '<button class="icon-btn speak-line" data-lang="' + lang + '" data-t-title="speak">' + icon('volume') + '</button>' +
+      '<button class="icon-btn loop-line" data-lang="' + lang + '" data-t-title="loop">' + icon('loop') + '</button>' +
     '</span>';
   }
 
@@ -555,9 +593,11 @@
       '<div class="phrase-header">' +
         '<span class="phrase-num">#' + (idx + 1) + '</span>' +
         '<div class="phrase-actions">' +
-          '<button class="icon-btn move-up" data-t-title="moveUp">' + t('moveUp') + '</button>' +
-          '<button class="icon-btn move-down" data-t-title="moveDown">' + t('moveDown') + '</button>' +
-          '<button class="icon-btn delete-phrase" data-t-title="delete">' + t('delete') + '</button>' +
+          '<button class="icon-btn speak-btn" data-t-title="speak">' + icon('volume') + '</button>' +
+          '<button class="icon-btn loop-btn" data-t-title="loop">' + icon('loop') + '</button>' +
+          '<button class="icon-btn move-up" data-t-title="moveUp">' + icon('up') + '</button>' +
+          '<button class="icon-btn move-down" data-t-title="moveDown">' + icon('down') + '</button>' +
+          '<button class="icon-btn delete-phrase" data-t-title="delete">' + icon('trash') + '</button>' +
         '</div>' +
       '</div>' +
       '<div class="field-label-row"><span class="field-label" data-t="phraseFr"></span>' + lineControls('fr') + '</div>' +
@@ -569,8 +609,8 @@
       '<div class="media-box" id="media-box-' + p.id + '">' +
         '<div class="media-placeholder" data-t="noMedia"></div>' +
         '<div class="media-btns">' +
-          '<button class="btn ghost attach-media" data-t="attachMedia"></button>' +
-          '<button class="btn danger remove-media hidden" data-t="removeMedia"></button>' +
+          '<button class="btn ghost attach-media">' + iconText('attachMedia', 'image') + '</button>' +
+          '<button class="btn danger remove-media hidden">' + iconText('removeMedia', 'close') + '</button>' +
         '</div>' +
       '</div>' +
       '<input type="file" class="file-input hidden" id="file-' + p.id + '" accept="image/*,video/*">';
@@ -582,6 +622,7 @@
     document.getElementById('btn-bulk-add').onclick = function () { addBulkPhrases(lesson); };
     document.getElementById('btn-play-all').onclick = function () { playLesson(lesson); };
     document.getElementById('btn-stop-all').onclick = stopSpeech;
+    document.getElementById('btn-export-lesson').onclick = function () { exportLesson(lesson); };
 
     var app = document.getElementById('app');
     app.oninput = function (e) {
@@ -602,7 +643,12 @@
       if (!phrase) return;
 
       var lineLang = btn.dataset.lang;
-      if (btn.classList.contains('speak-line')) {
+      if (btn.classList.contains('speak-btn')) {
+        stopSpeech();
+        speakOnce(phrase, ['fr', 'ar', 'en'], phraseId);
+      } else if (btn.classList.contains('loop-btn')) {
+        toggleLoop(phrase, phraseId);
+      } else if (btn.classList.contains('speak-line')) {
         speakLine(phrase, lineLang, phraseId);
       } else if (btn.classList.contains('loop-line')) {
         toggleLoop(phrase, phraseId + ':' + lineLang, [lineLang]);
@@ -829,56 +875,55 @@
       var key = card.dataset.phraseId;
       if (btn.dataset.lang) key += ':' + btn.dataset.lang;
       var on = state.loopKey === key;
-      if (btn.classList.contains('loop-line')) {
-        btn.textContent = on ? '⏹' : '🔁';
-      } else {
-        btn.textContent = on ? t('stop') : t('loop');
-      }
+      btn.innerHTML = icon(on ? 'stop' : 'loop');
       btn.classList.toggle('active', !!on);
     });
   }
 
   /* ---------------- Import / Export ---------------- */
 
-  function exportData() {
-    var out = { lessons: [] };
-    var pending = 0;
-    function finish() {
-      var blob = new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' });
+  function exportLessons(lessons, filename) {
+    var clone = JSON.parse(JSON.stringify(lessons));
+    var jobs = [];
+    clone.forEach(function (l) {
+      (l.phrases || []).forEach(function (p) {
+        if (p.mediaId) {
+          jobs.push(dbGet('media', p.mediaId).then(function (m) {
+            if (!m || !m.blob) return;
+            return new Promise(function (resolve) {
+              var reader = new FileReader();
+              reader.onloadend = function () {
+                p.mediaBase64 = reader.result;
+                p.mediaType = m.type;
+                resolve();
+              };
+              reader.onerror = function () { resolve(); };
+              reader.readAsDataURL(m.blob);
+            });
+          }).catch(function () {}));
+        }
+      });
+    });
+    Promise.all(jobs).then(function () {
+      var blob = new Blob([JSON.stringify({ lessons: clone }, null, 2)], { type: 'application/json' });
       var url = URL.createObjectURL(blob);
       var a = document.createElement('a');
       a.href = url;
-      a.download = 'motsy-lessons.json';
+      a.download = filename;
       a.click();
       URL.revokeObjectURL(url);
-    }
-    state.lessons.forEach(function (lesson) {
-      var l = JSON.parse(JSON.stringify(lesson));
-      out.lessons.push(l);
-      if (l.phrases) {
-        l.phrases.forEach(function (p) {
-          if (p.mediaId) {
-            pending++;
-            dbGet('media', p.mediaId).then(function (m) {
-              if (m) {
-                var reader = new FileReader();
-                reader.onloadend = function () {
-                  p.mediaBase64 = reader.result;
-                  p.mediaType = m.type;
-                  pending--;
-                  if (pending === 0) finish();
-                };
-                reader.readAsDataURL(m.blob);
-              } else {
-                pending--;
-                if (pending === 0) finish();
-              }
-            });
-          }
-        });
-      }
     });
-    if (pending === 0) finish();
+  }
+
+  function exportData() {
+    exportLessons(state.lessons, 'lang-lessons.json');
+  }
+
+  function exportLesson(lesson) {
+    var first = lesson.phrases && lesson.phrases[0];
+    var name = (first && (first.fr || first.ar || first.en || 'lesson')) || 'lesson';
+    name = name.replace(/[^a-zA-Z0-9\u0600-\u06FF]/g, '_').slice(0, 30) || 'lesson';
+    exportLessons([lesson], 'lang-lesson-' + name + '.json');
   }
 
   function importData(file) {
