@@ -90,7 +90,7 @@
 <main>
   <div class="hero">
     <h1>دروس أسئلة وأجوبة امتحان السياقة الفرنسي</h1>
-    <p>كل درس يجمع السؤال وجوابه من الفئات الثلاث: فحص المركبة، السلامة المرورية، الإسعافات الأولية. اضغط 🔁 للنطق بالتكرار، و🔍 للبحث في Google AI.</p>
+    <p>كل درس يجمع السؤال وجوابه من الفئات الثلاث: فحص المركبة، السلامة المرورية، الإسعافات الأولية. اضغط 🔁 للتكرار المستمر (يتوقف بالضغط مجددًا أو على زر 🔇)، واضغط على أي كلمة لنطقها متكررًا، و🔍 للبحث في Google AI.</p>
   </div>
 
   <div class="toolbar">
@@ -101,11 +101,7 @@
       <option value="1">1×</option>
       <option value="1.2">1.2×</option>
     </select>
-    <select class="ctl" id="loopcount" title="عدد التكرارات">
-      <option value="1">1×</option>
-      <option value="3" selected>3×</option>
-      <option value="5">5×</option>
-    </select>
+
   </div>
 
   <div class="filters" id="filters"></div>
@@ -124,7 +120,7 @@
   var list = document.getElementById('list');
   var search = document.getElementById('search');
   var rate = document.getElementById('rate');
-  var loopcount = document.getElementById('loopcount');
+
   var stats = document.getElementById('stats');
   var filters = document.getElementById('filters');
   var toast = document.getElementById('toast');
@@ -282,7 +278,6 @@
     state.playing = btn;
     btn.classList.add('active'); btn.textContent = '⏸ إيقاف';
     if(card) card.classList.add('playing');
-    var count = parseInt(loopcount.value, 10) || 1;
     var i = 0;
 
     function finish(){ if(run === speechRun) stopSpeech(); }
@@ -291,7 +286,6 @@
       var tts = nativeTTS(); if(!tts){ webPlay(); return; }
       function next(){
         if(run !== speechRun) return;
-        if(i >= count){ finish(); return; }
         i++;
         tts.speak({ text: text, lang: 'fr-FR', rate: parseFloat(rate.value) || 0.9, queueStrategy: 1 }).then(function(){ setTimeout(next, 250); }).catch(function(){ setTimeout(next, 250); });
       }
@@ -302,7 +296,6 @@
       if(!('speechSynthesis' in window)){ finish(); showToast('النطق غير مدعوم'); return; }
       function next(){
         if(run !== speechRun) return;
-        if(i >= count){ finish(); return; }
         i++;
         var u = new SpeechSynthesisUtterance(text);
         u.lang = 'fr-FR'; u.rate = (parseFloat(rate.value) || 0.9) * 0.95;
@@ -324,7 +317,6 @@
     state.playing = span;
     span.classList.add('active');
     if(card) card.classList.add('playing');
-    var count = parseInt(loopcount.value, 10) || 1;
     var i = 0;
 
     function finish(){ if(run === speechRun) stopSpeech(); }
@@ -333,7 +325,6 @@
       var tts = nativeTTS(); if(!tts){ webPlay(); return; }
       function next(){
         if(run !== speechRun) return;
-        if(i >= count){ finish(); return; }
         i++;
         tts.speak({ text: text, lang: 'fr-FR', rate: parseFloat(rate.value) || 0.9, queueStrategy: 1 }).then(function(){ setTimeout(next, 250); }).catch(function(){ setTimeout(next, 250); });
       }
@@ -344,7 +335,6 @@
       if(!('speechSynthesis' in window)){ finish(); showToast('النطق غير مدعوم'); return; }
       function next(){
         if(run !== speechRun) return;
-        if(i >= count){ finish(); return; }
         i++;
         var u = new SpeechSynthesisUtterance(text);
         u.lang = 'fr-FR'; u.rate = (parseFloat(rate.value) || 0.9) * 0.95;
@@ -362,7 +352,6 @@
   function bind(){
     search.addEventListener('input', function(){ state.q = this.value; render(); });
     rate.addEventListener('change', function(){ localStorage.setItem('qanda_rate', this.value); });
-    loopcount.addEventListener('change', function(){ localStorage.setItem('qanda_loopcount', this.value); });
     document.getElementById('btn-stop').addEventListener('click', stopSpeech);
     filters.addEventListener('click', function(e){
       if(e.target.classList.contains('filter-chip')){
@@ -390,9 +379,7 @@
   }
 
   var savedRate = localStorage.getItem('qanda_rate');
-  var savedLoop = localStorage.getItem('qanda_loopcount');
   if(savedRate) rate.value = savedRate;
-  if(savedLoop) loopcount.value = savedLoop;
 
   buildFilters();
   render();
