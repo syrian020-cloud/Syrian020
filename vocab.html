@@ -3,152 +3,138 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="theme-color" content="#12142b">
+<meta name="theme-color" content="#0b0d1f">
 <title>مفردات الحياة اليومية في فرنسا</title>
 <link rel="manifest" href="manifest.json">
 <style>
   :root {
-    --bg-primary: #12142b;
-    --bg-secondary: #1d1f3d;
-    --bg-tertiary: #2a2d55;
-    --text-primary: #eceffc;
-    --text-secondary: #9fa2c7;
+    --bg-primary: #0b0d1f;
+    --bg-secondary: #13162b;
+    --bg-tertiary: #1e213d;
+    --text-primary: #f0f1ff;
+    --text-secondary: #8c90b5;
     --accent: #7b79ff;
     --accent-hover: #5c5bdb;
     --danger: #ff6b81;
     --success: #00e676;
     --gold: #ffc857;
-    --border: #3a3d6e;
-    --radius: 16px;
-    --shadow: 0 6px 18px rgba(0,0,0,0.35);
+    --border: rgba(255,255,255,0.08);
+    --radius: 18px;
+    --radius-sm: 12px;
+    --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    --shadow-sm: 0 4px 14px rgba(0,0,0,0.25);
   }
   [data-theme="light"] {
-    --bg-primary: #f7f7fb;
+    --bg-primary: #f4f6fb;
     --bg-secondary: #ffffff;
-    --bg-tertiary: #e9eaf5;
-    --text-primary: #1c1c2e;
-    --text-secondary: #565a7b;
-    --border: #d7d9e8;
-    --shadow: 0 6px 18px rgba(0,0,0,0.08);
+    --bg-tertiary: #eef0f7;
+    --text-primary: #181a2e;
+    --text-secondary: #5e627d;
+    --border: rgba(0,0,0,0.08);
+    --shadow: 0 8px 24px rgba(0,0,0,0.08);
+    --shadow-sm: 0 3px 10px rgba(0,0,0,0.06);
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
   html, body { margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", sans-serif;
     background: var(--bg-primary);
     color: var(--text-primary);
-    line-height: 1.65;
+    line-height: 1.55;
     padding-bottom: 3rem;
+    -webkit-font-smoothing: antialiased;
   }
-  header {
-    position: sticky; top: 0; z-index: 60;
-    background: rgba(18,20,43,0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-    box-shadow: var(--shadow);
-  }
-  [data-theme="light"] header { background: rgba(255,255,255,0.92); }
-  .header-inner {
-    max-width: 960px; margin: 0 auto; padding: 0.6rem 1rem;
-    display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
-  }
-  .logo { font-weight: 800; color: var(--accent); font-size: 1rem; white-space: nowrap; display: flex; align-items: center; gap: 0.35rem; }
+  header { position: sticky; top: 0; z-index: 60; background: rgba(11,13,31,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  [data-theme="light"] header { background: rgba(255,255,255,0.85); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0.7rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
+  .logo { font-weight: 800; color: var(--accent); font-size: 1.05rem; white-space: nowrap; display: flex; align-items: center; gap: 0.35rem; letter-spacing: -0.02em; }
   .spacer { flex: 1; }
-  .icon-btn {
-    background: var(--bg-tertiary); color: var(--text-primary);
-    border: 1px solid var(--border); border-radius: 12px;
-    padding: 0.45rem 0.7rem; font-size: 1rem; cursor: pointer;
-    display: inline-flex; align-items: center; gap: 0.3rem;
-    font-weight: 600;
-  }
-  .icon-btn:hover { border-color: var(--accent); }
-  .icon-btn.active { background: var(--success); color: #12142b; border-color: var(--success); }
+  .icon-btn { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 12px; padding: 0.45rem 0.65rem; font-size: 0.95rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 600; transition: transform .1s, border-color .15s, background .15s; }
+  .icon-btn:hover { border-color: var(--accent); background: var(--bg-secondary); }
+  .icon-btn.active { background: var(--success); color: #0b0d1f; border-color: var(--success); }
   main { max-width: 960px; margin: 0 auto; padding: 0.9rem; }
 
-  .hero {
-    background: linear-gradient(135deg, rgba(123,121,255,0.18), rgba(0,230,118,0.08));
-    border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 1rem 1.2rem; margin-bottom: 1rem;
-  }
-  .hero h1 { margin: 0 0 0.3rem; font-size: 1.25rem; }
-  .hero p { margin: 0; color: var(--text-secondary); font-size: 0.92rem; }
+  .hero { background: linear-gradient(135deg, rgba(123,121,255,0.18), rgba(0,230,118,0.08)); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.25rem; margin-bottom: 0.9rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top:0; left:0; right:0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--success)); opacity: .7; }
+  .hero h1 { margin: 0 0 0.35rem; font-size: 1.22rem; position: relative; }
+  .hero p { margin: 0; color: var(--text-secondary); font-size: 0.9rem; position: relative; }
 
-  .toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.8rem; }
-  #search {
-    flex: 1; min-width: 220px;
-    background: var(--bg-secondary); color: var(--text-primary);
-    border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 0.7rem 0.9rem; font-size: 1rem; font-family: inherit;
-  }
-  #search:focus { outline: none; border-color: var(--accent); }
-  select.ctl {
-    background: var(--bg-secondary); color: var(--text-primary);
-    border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 0.65rem 0.6rem; font-size: 0.9rem; font-family: inherit;
-  }
+  .toolbar { display: grid; grid-template-columns: 1fr auto auto auto; gap: 0.5rem; align-items: stretch; margin-bottom: 0.85rem; }
+  #search { width: 100%; min-width: 0; background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.75rem 1rem; font-size: 0.98rem; font-family: inherit; box-shadow: var(--shadow-sm); }
+  #search:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(123,121,255,0.18); }
+  select.ctl { background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.65rem 0.55rem; font-size: 0.88rem; font-family: inherit; min-width: 3.2rem; box-shadow: var(--shadow-sm); }
+  select.ctl:focus { border-color: var(--accent); outline: none; }
 
-  .filters { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1rem; }
-  .filter-chip {
-    background: var(--bg-secondary); color: var(--text-secondary);
-    border: 1px solid var(--border); border-radius: 999px;
-    padding: 0.35rem 0.7rem; font-size: 0.82rem; cursor: pointer;
-    user-select: none; transition: all 0.15s;
-  }
-  .filter-chip:hover { border-color: var(--accent); color: var(--text-primary); }
-  .filter-chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .filters { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.1rem; }
+  .filter-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.55rem 0.6rem; }
+  .filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; }
+  .filter-label { color: var(--text-secondary); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0 0.15rem; white-space: nowrap; font-weight: 700; margin-bottom: 0.2rem; }
+  .letters-row { display: flex; flex-wrap: wrap; gap: 0.35rem; direction: ltr; }
+  .letters-row .filter-chip { min-width: 2.7rem; padding: 0.35rem 0.2rem; text-align: center; font-weight: 700; border-radius: 10px; font-size: 0.78rem; display: inline-flex; align-items: center; justify-content: center; }
+  .contexts-strip { display: flex; flex-wrap: nowrap; gap: 0.4rem; overflow-x: auto; padding: 0.2rem 1px; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
+  .contexts-strip::-webkit-scrollbar { display: none; }
+  .filter-chip { background: var(--bg-tertiary); color: var(--text-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.65rem; font-size: 0.82rem; cursor: pointer; user-select: none; transition: all 0.15s; white-space: nowrap; box-shadow: var(--shadow-sm); }
+  .filter-chip:hover { border-color: var(--accent); color: var(--text-primary); transform: translateY(-1px); }
+  .filter-chip.active { background: var(--accent); color: #fff; border-color: var(--accent); box-shadow: 0 4px 14px rgba(123,121,255,0.25); }
+  .filter-chip.empty { opacity: 0.5; }
 
-  .stats { color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.9rem; }
+  .stats { color: var(--text-secondary); font-size: 0.88rem; margin: 0 0 0.9rem; display: flex; align-items: center; gap: 0.35rem; }
+  .stats strong { color: var(--accent); font-weight: 800; }
 
-  .vocab-card {
-    background: var(--bg-secondary); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 1rem; margin-bottom: 0.7rem;
-    transition: border-color 0.2s, transform 0.1s;
-  }
-  .vocab-card.playing { border-color: var(--success); box-shadow: 0 0 0 1px var(--success); }
-  .vocab-head { display: flex; align-items: flex-start; gap: 0.7rem; }
+  .vocab-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.05rem; margin-bottom: 0.85rem; position: relative; overflow: hidden; transition: transform .12s, box-shadow .15s; box-shadow: var(--shadow-sm); }
+  .vocab-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .vocab-card::before { content: ''; position: absolute; top:0; left:0; right:0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--success)); opacity: 0.75; }
+  .vocab-card.playing { border-color: var(--success); box-shadow: 0 0 0 2px rgba(0,230,118,0.18); }
+  .vocab-head { display: flex; align-items: flex-start; gap: 0.65rem; }
   .vocab-main { flex: 1; min-width: 0; }
-  .fr-line { direction: ltr; text-align: left; font-size: 1.25rem; font-weight: 800; color: var(--accent); word-wrap: break-word; }
-  .ar-line { direction: rtl; text-align: right; font-size: 1.08rem; color: var(--text-primary); margin-top: 0.25rem; }
-  .en-line { direction: ltr; text-align: left; font-size: 0.95rem; color: var(--text-secondary); margin-top: 0.15rem; }
-  .meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; align-items: center; }
-  .level-pill { background: rgba(0,230,118,0.16); color: var(--success); border: 1px solid rgba(0,230,118,0.35); border-radius: 999px; padding: 0.1rem 0.5rem; font-size: 0.72rem; font-weight: 700; }
-  .ctx-pill { background: var(--bg-tertiary); color: var(--text-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 0.1rem 0.5rem; font-size: 0.72rem; }
-  .pos-pill { background: rgba(123,121,255,0.12); color: var(--accent); border: 1px solid rgba(123,121,255,0.35); border-radius: 999px; padding: 0.1rem 0.5rem; font-size: 0.72rem; }
-  .usage { color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.45rem; padding: 0.25rem 0.4rem; border-right: 3px solid var(--accent); background: rgba(123,121,255,0.08); border-radius: 0 8px 8px 0; }
+  .fr-line { direction: ltr; text-align: left; font-size: 1.35rem; font-weight: 800; color: var(--accent); word-wrap: break-word; letter-spacing: -0.02em; }
+  .ar-line { direction: rtl; text-align: right; font-size: 1.1rem; color: var(--text-primary); margin-top: 0.2rem; font-weight: 600; }
+  .en-line { direction: ltr; text-align: left; font-size: 0.92rem; color: var(--text-secondary); margin-top: 0.1rem; }
+  .meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.55rem; align-items: center; }
+  .level-pill { background: rgba(0,230,118,0.14); color: var(--success); border: 1px solid rgba(0,230,118,0.3); border-radius: 999px; padding: 0.1rem 0.55rem; font-size: 0.72rem; font-weight: 700; }
+  .ctx-pill { background: var(--bg-tertiary); color: var(--text-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 0.1rem 0.55rem; font-size: 0.72rem; }
+  .pos-pill { background: rgba(123,121,255,0.12); color: var(--accent); border: 1px solid rgba(123,121,255,0.3); border-radius: 999px; padding: 0.1rem 0.55rem; font-size: 0.72rem; }
+  .usage { color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; padding: 0.35rem 0.55rem; border-right: 3px solid var(--accent); background: rgba(123,121,255,0.06); border-radius: 0 10px 10px 0; }
 
-  .example {
-    background: var(--bg-tertiary); border: 1px solid var(--border);
-    border-radius: 12px; padding: 0.7rem 0.9rem; margin-top: 0.65rem;
-  }
-  .ex-fr { direction: ltr; text-align: left; color: var(--text-primary); font-weight: 600; }
-  .ex-ar { direction: rtl; text-align: right; color: var(--text-secondary); font-size: 0.93rem; margin-top: 0.2rem; }
-  .ex-en { direction: ltr; text-align: left; color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.15rem; }
+  .example { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 12px; padding: 0.7rem 0.9rem; margin-top: 0.65rem; position: relative; overflow: hidden; }
+  .example { padding-top: 1.25rem; }
+  .example.playing { border-color: var(--success); box-shadow: 0 0 0 2px rgba(0,230,118,0.18); }
+  .loop-ex-btn { position: absolute; top: 0.45rem; right: 0.45rem; background: var(--bg-primary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; width: 1.9rem; height: 1.9rem; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; cursor: pointer; padding: 0; transition: all .12s; }
+  .loop-ex-btn:hover { border-color: var(--accent); background: var(--bg-secondary); }
+  .loop-ex-btn.active { background: var(--success); border-color: var(--success); color: #0b0d1f; }
+  .example::before { content: ''; position: absolute; top:0; left:0; width: 3px; height: 100%; background: linear-gradient(180deg, var(--accent), var(--success)); opacity: 0.7; }
+  .line-wrap { position: relative; direction: ltr; }
+  .line-loop-btn { position: absolute; top: 50%; right: 0.3rem; transform: translateY(-50%); background: transparent; color: var(--text-secondary); border: 1px solid var(--border); border-radius: 999px; width: 1.65rem; height: 1.65rem; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; cursor: pointer; padding: 0; opacity: 0.85; transition: all .12s; }
+  .line-loop-btn:hover { border-color: var(--accent); color: var(--accent); opacity: 1; background: rgba(123,121,255,0.08); }
+  .line-loop-btn.active { background: var(--success); border-color: var(--success); color: #0b0d1f; opacity: 1; }
+  .fr-line, .en-line, .ex-fr, .ex-en { padding-inline-end: 2.2rem; }
+  .ex-fr { direction: ltr; text-align: left; color: var(--text-primary); font-weight: 600; font-size: 0.96rem; }
+  .ex-ar { direction: rtl; text-align: right; color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.2rem; }
+  .ex-en { direction: ltr; text-align: left; color: var(--text-secondary); font-size: 0.88rem; margin-top: 0.12rem; }
 
-  .card-actions { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.7rem; }
-  .card-actions button, .card-actions a {
-    background: var(--bg-tertiary); color: var(--text-primary);
-    border: 1px solid var(--border); border-radius: 10px;
-    padding: 0.4rem 0.7rem; font-size: 0.9rem; cursor: pointer; text-decoration: none;
-    display: inline-flex; align-items: center; gap: 0.3rem;
-  }
-  .card-actions button:hover, .card-actions a:hover { border-color: var(--accent); }
-  .card-actions button.active { background: var(--success); color: #12142b; border-color: var(--success); }
+  .card-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.45rem; margin-top: 0.85rem; }
+  .card-actions button, .card-actions a { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem 0.2rem; font-size: 0.82rem; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.25rem; font-weight: 600; transition: all .12s; }
+  .card-actions button:hover, .card-actions a:hover { border-color: var(--accent); background: rgba(123,121,255,0.08); color: var(--text-primary); transform: translateY(-1px); }
+  .card-actions button.active { background: var(--success); color: #0b0d1f; border-color: var(--success); }
 
   .empty { text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); }
-  .load-more-btn { display: block; width: 100%; margin: 1rem 0; padding: 0.8rem; background: var(--bg-secondary); color: var(--accent); border: 1px dashed var(--accent); border-radius: var(--radius); cursor: pointer; font-size: 0.95rem; }
-  .load-more-btn:hover { background: var(--bg-tertiary); }
-  footer { text-align: center; padding: 1.5rem 1rem; color: var(--text-secondary); font-size: 0.82rem; }
+  .load-more-btn { display: block; width: 100%; margin: 1.2rem 0; padding: 0.85rem; background: var(--bg-secondary); color: var(--accent); border: 1px dashed var(--accent); border-radius: var(--radius); cursor: pointer; font-size: 0.95rem; font-weight: 700; transition: all .15s; }
+  .load-more-btn:hover { background: var(--bg-tertiary); border-style: solid; }
+  footer { text-align: center; padding: 1.5rem 1rem; color: var(--text-secondary); font-size: 0.8rem; }
   footer a { color: var(--accent); text-decoration: none; }
 
   .top-actions { display: flex; gap: 0.4rem; align-items: center; }
-  .toast {
-    position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%);
-    background: var(--bg-tertiary); color: var(--text-primary);
-    border: 1px solid var(--border); border-radius: 999px;
-    padding: 0.6rem 1rem; box-shadow: var(--shadow); z-index: 100;
-    opacity: 0; transition: opacity 0.2s; pointer-events: none;
-  }
+  .toast { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.6rem 1.1rem; box-shadow: var(--shadow); z-index: 100; opacity: 0; transition: opacity 0.2s; pointer-events: none; font-weight: 600; }
   .toast.show { opacity: 1; }
+
+  @media (max-width: 640px) {
+    .toolbar { grid-template-columns: 1fr 1fr; }
+    #search { grid-column: 1 / -1; border-radius: var(--radius-sm); }
+    .fr-line { font-size: 1.2rem; }
+    .ar-line { font-size: 1rem; }
+    .card-actions button, .card-actions a { font-size: 0.75rem; padding: 0.45rem 0.1rem; }
+  }
 </style>
 </head>
 <body>
@@ -217,11 +203,14 @@
   var sortSelect = document.getElementById('sort');
   var toast = document.getElementById('toast');
 
+  var savedLetters;
+  try { savedLetters = JSON.parse(localStorage.getItem('vocab_letters') || '[]'); } catch(e){ savedLetters = []; }
   var state = {
     q: '',
     levels: [],
     contexts: [],
     pos: [],
+    letters: Array.isArray(savedLetters) ? savedLetters : [],
     rate: parseFloat(localStorage.getItem('vocab_rate') || '1'),
     sort: localStorage.getItem('vocab_sort') || '',
     page: 1,
@@ -251,6 +240,7 @@
       level: 'المستوى',
       context: 'السياق',
       pos: 'نوع الكلمة',
+      letters: 'الحروف',
       all: 'الكل',
       pos_verb: 'فعل',
       pos_adjective: 'صفة',
@@ -286,6 +276,7 @@
       level: 'Level',
       context: 'Context',
       pos: 'Word type',
+      letters: 'Letters',
       all: 'All',
       pos_verb: 'Verb',
       pos_adjective: 'Adjective',
@@ -321,6 +312,7 @@
       level: 'Niveau',
       context: 'Contexte',
       pos: 'Type de mot',
+      letters: 'Lettres',
       all: 'Tout',
       pos_verb: 'Verbe',
       pos_adjective: 'Adjectif',
@@ -362,7 +354,10 @@
     daily: { ar: 'يومي', en: 'Daily', fr: 'Quotidien' },
     cafe: { ar: 'مقهى', en: 'Café', fr: 'Café' },
     restaurant: { ar: 'مطعم', en: 'Restaurant', fr: 'Restaurant' },
+    food: { ar: 'طعام', en: 'Food', fr: 'Alimentation' },
+    sushi: { ar: 'سوشي', en: 'Sushi', fr: 'Sushi' },
     work: { ar: 'عمل', en: 'Work', fr: 'Travail' },
+    stage: { ar: 'تدريب', en: 'Internship', fr: 'Stage' },
     office: { ar: 'مكتب', en: 'Office', fr: 'Bureau' },
     taxes: { ar: 'ضرائب', en: 'Taxes', fr: 'Impôts' },
     prefecture: { ar: 'محافظة', en: 'Prefecture', fr: 'Préfecture' },
@@ -382,6 +377,7 @@
     france_travail: { ar: 'France Travail', en: 'France Travail', fr: 'France Travail' },
     caf: { ar: 'CAF', en: 'CAF', fr: 'CAF' },
     cpam: { ar: 'CPAM', en: 'CPAM', fr: 'CPAM' },
+    mdph: { ar: 'MDPH', en: 'MDPH', fr: 'MDPH' },
     mairie: { ar: 'البلدية', en: 'Town hall', fr: 'Mairie' },
     family: { ar: 'عائلة', en: 'Family', fr: 'Famille' },
     weather: { ar: 'طقس', en: 'Weather', fr: 'Météo' }
@@ -392,6 +388,14 @@
   function posLabel(key){ var p = POS_LABELS[key]; return p ? p[state.uiLang] || p.en : key; }
   function posLabelsText(key){ var p = POS_LABELS[key]; return p ? (p.ar + ' ' + p.en + ' ' + p.fr) : key; }
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function firstLetter(fr){
+    var s = String(fr || '').replace(/^[^A-Za-z\u00C0-\u024F]+/,'');
+    s = s.replace(/^(Se |s'|S'|Le |La |Les |L'|Être |Etre |être )/i,'');
+    if(!s) return '#';
+    var base = s.charAt(0).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();
+    if(/[A-Z]/.test(base)) return base;
+    return '#';
+  }
 
   function init(){
     document.documentElement.dataset.theme = state.theme;
@@ -438,20 +442,38 @@
     var posCounts = {};
     VOCAB.forEach(function(v){ var p = v.pos || 'other'; posCounts[p] = (posCounts[p]||0)+1; });
 
+    var letterCounts = {};
+    VOCAB.forEach(function(v){ letterCounts[firstLetter(v.fr)] = (letterCounts[firstLetter(v.fr)]||0)+1; });
+    var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
     var html = '';
-    html += '<span style="color:var(--text-secondary);font-size:0.82rem;align-self:center;">' + t('level') + ':</span>';
+
+    // Letter chips: A-Z + all
+    html += '<div class="filter-section"><div class="filter-label">' + esc(t('letters')) + '</div><div class="letters-row">';
+    html += chipHtml('letter', '', t('all') + ' (' + VOCAB.length + ')', state.letters.length === 0, true);
+    letters.forEach(function(l){ html += chipHtml('letter', l, l + ' (' + (letterCounts[l]||0) + ')', state.letters.indexOf(l) !== -1, true); });
+    html += '</div></div>';
+
+    // Context strip (horizontally scrollable)
+    html += '<div class="filter-section"><div class="filter-label">' + esc(t('context')) + '</div><div class="contexts-strip">';
+    sortedCtxs.forEach(function(c){ html += chipHtml('context', c, ctxLabel(c) + ' (' + ctxs[c] + ')', state.contexts.indexOf(c) !== -1); });
+    html += '</div></div>';
+
+    // Levels and POS
+    html += '<div class="filter-section"><div class="filter-row">';
+    html += '<span class="filter-label">' + esc(t('level')) + ':</span>';
     levels.forEach(function(l){ html += chipHtml('level', l, l, state.levels.indexOf(l) !== -1); });
     html += '<span style="width:0.4rem"></span>';
-    html += '<span style="color:var(--text-secondary);font-size:0.82rem;align-self:center;">' + t('context') + ':</span>';
-    sortedCtxs.forEach(function(c){ html += chipHtml('context', c, ctxLabel(c), state.contexts.indexOf(c) !== -1); });
-    html += '<span style="width:0.4rem"></span>';
-    html += '<span style="color:var(--text-secondary);font-size:0.82rem;align-self:center;">' + t('pos') + ':</span>';
+    html += '<span class="filter-label">' + esc(t('pos')) + ':</span>';
     poss.forEach(function(p){ if((posCounts[p]||0) > 0){ html += chipHtml('pos', p, posLabel(p) + ' (' + posCounts[p] + ')', state.pos.indexOf(p) !== -1); } });
+    html += '</div></div>';
+
     filters.innerHTML = html;
   }
 
-  function chipHtml(type, key, label, active){
-    return '<button class="filter-chip ' + (active?'active':'') + '" data-type="' + type + '" data-key="' + esc(key) + '">' + esc(label) + '</button>';
+  function chipHtml(type, key, label, active, isLetter){
+    var cls = 'filter-chip' + (active?' active':'') + (isLetter?' letter':'');
+    return '<button class="' + cls + '" data-type="' + type + '" data-key="' + esc(key) + '">' + esc(label) + '</button>';
   }
 
   function filtered(){
@@ -461,10 +483,12 @@
       if(state.levels.length && state.levels.indexOf(v.level) === -1) return false;
       if(state.contexts.length && !v.contexts.some(function(c){ return state.contexts.indexOf(c) !== -1; })) return false;
       if(state.pos.length && state.pos.indexOf(v.pos || 'other') === -1) return false;
+      if(state.letters.length && state.letters.indexOf(firstLetter(v.fr)) === -1) return false;
       if(!q) return true;
       if(posMatchKey) return v.pos === posMatchKey;
-      var ex = v.ex || {};
-      var hay = (v.fr + ' ' + (v.ar||'') + ' ' + (v.en||'') + ' ' + (v.usage||'') + ' ' + (v.contexts||[]).join(' ') + ' ' + (ex.fr||'') + ' ' + (ex.ar||'') + ' ' + (ex.en||'')).toLowerCase();
+      var exArr = Array.isArray(v.ex) ? v.ex : (v.ex ? [v.ex] : []);
+      var exText = exArr.map(function(e){ return (e.fr||'') + ' ' + (e.ar||'') + ' ' + (e.en||''); }).join(' ');
+      var hay = (v.fr + ' ' + (v.ar||'') + ' ' + (v.en||'') + ' ' + (v.usage||'') + ' ' + (v.contexts||[]).join(' ') + ' ' + exText).toLowerCase();
       return hay.indexOf(q) !== -1;
     });
     if(state.sort === 'az') items.sort(function(a,b){ return a.fr.localeCompare(b.fr, 'fr'); });
@@ -474,9 +498,9 @@
 
   function aiQuery(v){
     var prompts = {
-      ar: 'تصحيح وتحليل العبارة الفرنسية "' + v.fr + '" كلمة كلمة مع ترجمة كل كلمة والجملة كاملة إلى العربية والإنجليزية والفرنسية',
-      en: 'Correct and analyze the French phrase "' + v.fr + '" word by word, translate each word and the full phrase into Arabic, English, and French',
-      fr: 'Corriger et analyser la phrase française "' + v.fr + '" mot par mot, traduire chaque mot et la phrase complète en arabe, anglais et français'
+      ar: 'تصحيح العبارة الفرنسية "' + v.fr + '" وتحليلها كلمة كلمة مع ترجمة الكلمات والجملة إلى العربية والإنجليزية والفرنسية وإعطاء أمثلة شائعة في الحياة اليومية في فرنسا',
+      en: 'Correct and analyze the French phrase "' + v.fr + '" word by word, translate the words and the phrase into Arabic, English, and French, and give common examples used in daily life in France',
+      fr: 'Corriger et analyser la phrase française "' + v.fr + '" mot par mot, traduire les mots et la phrase en arabe, anglais et français, et donner des exemples courants de la vie quotidienne en France'
     };
     return prompts[state.uiLang] || prompts.en;
   }
@@ -489,14 +513,15 @@
     var end = Math.min(items.length, state.page * state.pageSize);
     var html = items.slice(0, end).map(function(v, idx){
       var key = 'v' + idx;
-      var ex = v.ex ? '<div class="example"><div class="ex-fr" dir="ltr">' + esc(v.ex.fr) + '</div><div class="ex-ar">' + esc(v.ex.ar) + '</div>' + (v.ex.en ? '<div class="ex-en" dir="ltr">' + esc(v.ex.en) + '</div>' : '') + '</div>' : '';
+      var exArr = Array.isArray(v.ex) ? v.ex : (v.ex ? [v.ex] : []);
+      var ex = exArr.map(function(e, ei){ return '<div class="example" data-ex="' + ei + '"><button class="loop-ex-btn" data-ex="' + ei + '" title="' + esc(t('loop')) + '">🔁</button><div class="line-wrap"><div class="ex-fr" dir="ltr">' + esc(e.fr||'') + '</div><button class="line-loop-btn" data-lang="fr" data-ex="' + ei + '" title="' + esc(t('loop')) + '">🔁</button></div><div class="ex-ar">' + esc(e.ar||'') + '</div>' + (e.en ? '<div class="line-wrap"><div class="ex-en" dir="ltr">' + esc(e.en) + '</div><button class="line-loop-btn" data-lang="en" data-ex="' + ei + '" title="' + esc(t('loop')) + '">🔁</button></div>' : '') + '</div>'; }).join('');
       var usage = v.usage ? '<div class="usage" dir="rtl">' + esc(v.usage) + '</div>' : '';
       return '<div class="vocab-card" data-key="' + esc(key) + '" data-idx="' + idx + '">' +
         '<div class="vocab-head">' +
           '<div class="vocab-main">' +
-            '<div class="fr-line" dir="ltr">' + esc(v.fr) + '</div>' +
+            '<div class="line-wrap"><div class="fr-line" dir="ltr">' + esc(v.fr) + '</div><button class="line-loop-btn" data-lang="fr" data-line="word" title="' + esc(t('loop')) + '">🔁</button></div>' +
             '<div class="ar-line">' + esc(v.ar) + '</div>' +
-            '<div class="en-line" dir="ltr">' + esc(v.en||'') + '</div>' +
+            (v.en ? '<div class="line-wrap"><div class="en-line" dir="ltr">' + esc(v.en) + '</div><button class="line-loop-btn" data-lang="en" data-line="word" title="' + esc(t('loop')) + '">🔁</button></div>' : '') +
             '<div class="meta">' +
               '<span class="level-pill">' + esc(v.level) + '</span>' +
               (v.pos ? '<span class="pos-pill">' + esc(posLabel(v.pos)) + '</span>' : '') +
@@ -562,35 +587,62 @@
     speechRun++;
     if(nativeTTS()) nativeStop();
     else if('speechSynthesis' in window) window.speechSynthesis.cancel();
-    highlight(null);
+    highlight();
     document.getElementById('btn-stop').classList.remove('active');
   }
 
-  function highlight(key){
-    document.querySelectorAll('.vocab-card').forEach(function(el){ el.classList.toggle('playing', key && el.dataset.key === key); });
+  function highlight(){
+    var loop = state.loop;
+    document.querySelectorAll('.vocab-card').forEach(function(el){ el.classList.toggle('playing', loop && loop.key === el.dataset.key && loop.lang == null && loop.ex == null); });
+    document.querySelectorAll('.example').forEach(function(el){ el.classList.toggle('playing', loop && loop.key === el.closest('.vocab-card').dataset.key && loop.ex === parseInt(el.dataset.ex, 10) && loop.lang == null); });
     document.querySelectorAll('.loop-btn').forEach(function(btn){
-      var on = state.loop && state.loop.key === btn.closest('.vocab-card').dataset.key;
+      var on = loop && loop.key === btn.closest('.vocab-card').dataset.key && loop.lang == null && loop.ex == null;
       btn.classList.toggle('active', !!on);
       btn.textContent = (on ? '⏸ ' : '🔁 ') + t('loop');
     });
+    document.querySelectorAll('.loop-ex-btn').forEach(function(btn){
+      var ex = parseInt(btn.dataset.ex, 10);
+      var on = loop && loop.key === btn.closest('.vocab-card').dataset.key && loop.lang == null && loop.ex === ex;
+      btn.classList.toggle('active', !!on);
+      btn.textContent = on ? '⏸' : '🔁';
+    });
+    document.querySelectorAll('.line-loop-btn').forEach(function(btn){
+      var on = loop && loop.key === btn.closest('.vocab-card').dataset.key && loop.lang === btn.dataset.lang;
+      if(on){
+        if(btn.dataset.line === 'word') on = loop.ex == null;
+        else if(btn.dataset.ex) on = loop.ex === parseInt(btn.dataset.ex, 10);
+        else on = false;
+      }
+      btn.classList.toggle('active', !!on);
+    });
   }
 
-  function speakEntry(entry, langs, key, onDone){
-    var seq = [];
-    langs.forEach(function(l){ if(entry[l]) seq.push({ lang: l, text: entry[l] }); });
-    if(entry.ex){
-      langs.forEach(function(l){ var t = entry.ex[l]; if(t) seq.push({ lang: l, text: t }); });
-    }
+  function playSeq(seq, key, exIndex, lang, onDone){
     var i = 0;
     var run = ++speechRun;
+    function step(){
+      state.loop = { key: key, ex: exIndex, lang: lang };
+      highlight();
+      document.getElementById('btn-stop').classList.add('active');
+    }
+    function finish(){
+      if(onDone) onDone();
+      else { state.loop = null; highlight(); document.getElementById('btn-stop').classList.remove('active'); }
+    }
+    function cycleGuard(){
+      if(!state.loop || state.loop.key !== key || state.loop.lang !== lang) return false;
+      if(lang != null) return true;
+      if(exIndex == null) return state.loop.ex == null;
+      return state.loop.ex === exIndex;
+    }
     if(nativeTTS()){
       nativeStop();
       (function next(){
         if(run !== speechRun) return;
-        if(i >= seq.length){ highlight(null); if(onDone) onDone(); return; }
-        var step = seq[i++];
-        highlight(key);
-        nativeSpeak(step.text, step.lang).then(function(){ if(run===speechRun) setTimeout(next, 200); }).catch(function(){ if(run===speechRun) setTimeout(next, 200); });
+        if(i >= seq.length){ finish(); return; }
+        var s = seq[i++];
+        step();
+        nativeSpeak(s.text, s.lang).then(function(){ if(run===speechRun && cycleGuard()) setTimeout(next, 200); }).catch(function(){ if(run===speechRun && cycleGuard()) setTimeout(next, 200); });
       })();
       return;
     }
@@ -598,25 +650,94 @@
     window.speechSynthesis.cancel();
     (function next(){
       if(run !== speechRun) return;
-      if(i >= seq.length){ highlight(null); if(onDone) onDone(); return; }
-      var step = seq[i++];
-      var u = utter(step.text, step.lang);
-      highlight(key);
-      u.onend = function(){ if(run===speechRun) setTimeout(next, 200); };
-      u.onerror = function(){ if(run===speechRun) setTimeout(next, 200); };
+      if(i >= seq.length){ finish(); return; }
+      var s = seq[i++];
+      step();
+      var u = utter(s.text, s.lang);
+      u.onend = function(){ if(run===speechRun && cycleGuard()) setTimeout(next, 200); };
+      u.onerror = function(){ if(run===speechRun && cycleGuard()) setTimeout(next, 200); };
       window.speechSynthesis.speak(u);
     })();
   }
 
+  function lineText(entry, lang, line, exIndex){
+    if(line === 'word') return entry[lang] || '';
+    var exArr = Array.isArray(entry.ex) ? entry.ex : (entry.ex ? [entry.ex] : []);
+    var e = exArr[exIndex];
+    return e ? (e[lang] || '') : '';
+  }
+
+  function speakEntry(entry, langs, key, onDone){
+    var seq = [];
+    langs.forEach(function(l){ if(entry[l]) seq.push({ lang: l, text: entry[l] }); });
+    var exArr = Array.isArray(entry.ex) ? entry.ex : (entry.ex ? [entry.ex] : []);
+    exArr.forEach(function(e){
+      langs.forEach(function(l){ if(e[l]) seq.push({ lang: l, text: e[l] }); });
+    });
+    playSeq(seq, key, null, null, onDone);
+  }
+
+  function speakExample(entry, exIndex, langs, key, onDone){
+    var exArr = Array.isArray(entry.ex) ? entry.ex : (entry.ex ? [entry.ex] : []);
+    var e = exArr[exIndex];
+    if(!e){ if(onDone) onDone(); return; }
+    var seq = [];
+    langs.forEach(function(l){ if(e[l]) seq.push({ lang: l, text: e[l] }); });
+    playSeq(seq, key, exIndex, null, onDone);
+  }
+
   function toggleLoop(entry, key){
-    if(state.loop && state.loop.key === key){ stopSpeech(); return; }
-    state.loop = { key: key };
-    document.getElementById('btn-stop').classList.add('active');
-    highlight(key);
+    if(state.loop && state.loop.key === key && state.loop.lang == null && state.loop.ex == null){ stopSpeech(); return; }
+    stopSpeech();
+    state.loop = { key: key, ex: null, lang: null };
     (function cycle(){
-      if(!state.loop || state.loop.key !== key) return;
+      if(!state.loop || state.loop.key !== key || state.loop.lang != null || state.loop.ex != null) return;
       speakEntry(entry, state.langs, key, function(){
-        if(!state.loop || state.loop.key !== key) return;
+        if(!state.loop || state.loop.key !== key || state.loop.lang != null || state.loop.ex != null) return;
+        setTimeout(cycle, 700);
+      });
+    })();
+  }
+
+  function toggleExampleLoop(entry, exIndex, key){
+    if(state.loop && state.loop.key === key && state.loop.lang == null && state.loop.ex === exIndex){ stopSpeech(); return; }
+    stopSpeech();
+    state.loop = { key: key, ex: exIndex, lang: null };
+    (function cycle(){
+      if(!state.loop || state.loop.key !== key || state.loop.lang != null || state.loop.ex !== exIndex) return;
+      speakExample(entry, exIndex, state.langs, key, function(){
+        if(!state.loop || state.loop.key !== key || state.loop.lang != null || state.loop.ex !== exIndex) return;
+        setTimeout(cycle, 700);
+      });
+    })();
+  }
+
+  function toggleLineLoop(entry, lang, line, exIndex, key){
+    var same = state.loop && state.loop.key === key && state.loop.lang === lang;
+    if(same){
+      if(line === 'word') same = state.loop.ex == null;
+      else if(exIndex != null) same = state.loop.ex === exIndex;
+      else same = false;
+    }
+    if(same){ stopSpeech(); return; }
+    var text = lineText(entry, lang, line, exIndex);
+    if(!text) return;
+    stopSpeech();
+    state.loop = { key: key, ex: line === 'word' ? null : exIndex, lang: lang };
+    (function cycle(){
+      var guard = state.loop && state.loop.key === key && state.loop.lang === lang;
+      if(guard){
+        if(line === 'word') guard = state.loop.ex == null;
+        else guard = state.loop.ex === exIndex;
+      }
+      if(!guard) return;
+      playSeq([{ lang: lang, text: text }], key, line === 'word' ? null : exIndex, lang, function(){
+        guard = state.loop && state.loop.key === key && state.loop.lang === lang;
+        if(guard){
+          if(line === 'word') guard = state.loop.ex == null;
+          else guard = state.loop.ex === exIndex;
+        }
+        if(!guard) return;
         setTimeout(cycle, 700);
       });
     })();
@@ -648,6 +769,16 @@
     filters.addEventListener('click', function(e){
       var chip = e.target.closest('.filter-chip'); if(!chip) return;
       var type = chip.dataset.type, key = chip.dataset.key;
+      if(type === 'letter'){
+        if(key === ''){ state.letters = []; }
+        else if(state.letters.length === 1 && state.letters[0] === key){ state.letters = []; }
+        else { state.letters = [key]; }
+        localStorage.setItem('vocab_letters', JSON.stringify(state.letters));
+        buildFilters();
+        state.page = 1;
+        render();
+        return;
+      }
       var arr = type === 'level' ? state.levels : type === 'context' ? state.contexts : state.pos;
       var i = arr.indexOf(key);
       if(i === -1) arr.push(key); else arr.splice(i, 1);
@@ -665,6 +796,14 @@
 
       if(e.target.closest('.speak-btn')){ stopSpeech(); speakEntry(entry, state.langs, null); return; }
       if(e.target.closest('.loop-btn')){ toggleLoop(entry, card.dataset.key); return; }
+      var exBtn = e.target.closest('.loop-ex-btn');
+      if(exBtn){ toggleExampleLoop(entry, parseInt(exBtn.dataset.ex, 10), card.dataset.key); return; }
+      var lineBtn = e.target.closest('.line-loop-btn');
+      if(lineBtn){
+        var ex = lineBtn.dataset.ex ? parseInt(lineBtn.dataset.ex, 10) : null;
+        toggleLineLoop(entry, lineBtn.dataset.lang, ex == null ? 'word' : 'ex', ex, card.dataset.key);
+        return;
+      }
       /* image and AI search are <a> links; no extra click handling needed */
     });
 
