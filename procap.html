@@ -195,8 +195,18 @@
   .phrase.playing { border-color: var(--success); box-shadow: 0 0 0 1px var(--success), 0 0 14px rgba(52,211,153,0.18); }
   .phrase-top { display: flex; gap: 0.7rem; align-items: flex-start; }
   .lines { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.35rem; }
-  .line { padding: 0.25rem 0.45rem; border-radius: 8px; transition: background 0.2s; }
+  .line { padding: 0.25rem 0.45rem; border-radius: 8px; transition: background 0.2s; position: relative; padding-inline-end: 2rem; }
   .line.active { background: rgba(52,211,153,0.12); }
+  .loop-lang {
+    position: absolute; inset-inline-end: 0.15rem; top: 0.22rem;
+    background: var(--bg-tertiary); color: var(--text-secondary);
+    border: 1px solid var(--border); border-radius: 6px;
+    width: 1.5rem; height: 1.5rem; font-size: 0.75rem; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0; line-height: 1;
+  }
+  .loop-lang:hover { border-color: var(--accent); color: var(--accent); }
+  .loop-lang.active { background: var(--success); color: #081c15; border-color: var(--success); }
   .fr {
     direction: ltr; text-align: left; font-size: 1.13rem; font-weight: 700;
     color: var(--accent); word-wrap: break-word;
@@ -1009,6 +1019,31 @@
     })();
   }
 
+  async function toggleLangLoop(lang, key) {
+    if (!lang) return;
+    const [lessonId, idx] = key.split('.').map(Number);
+    const found = findLesson(lessonId);
+    if (!found) return;
+    const p = found.lesson.phrases[idx];
+    const text = p[lang];
+    if (!text) return;
+    const loopKey = 'lang:' + key + ':' + lang;
+    if (state.loop && state.loop.key === loopKey) { stopSpeech(); return; }
+    const ready = await prepareTTS();
+    if (!ready) return;
+    state.loop = { key: loopKey, phraseKey: key, lang };
+    refreshButtons();
+    const pseudo = { [lang]: text };
+    highlight(key, lang);
+    (function cycle() {
+      if (!state.loop || state.loop.key !== loopKey) return;
+      speakOnce(pseudo, [lang], key, () => {
+        if (!state.loop || state.loop.key !== loopKey) return;
+        setTimeout(cycle, 600);
+      });
+    })();
+  }
+
   async function toggleWordLoop(word, lang, key) {
     if (!word || !lang) return;
     const loopKey = 'word:' + key + ':' + lang + ':' + word;
@@ -1040,12 +1075,17 @@
 
   function refreshButtons() {
     document.querySelectorAll('.word').forEach(w => w.classList.remove('active'));
+    document.querySelectorAll('.loop-lang').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.phrase').forEach(el => {
       const btn = el.querySelector('.loop-btn');
       if (!btn) return;
       const on = state.loop && state.loop.key === el.dataset.key;
       btn.classList.toggle('active', !!on);
       btn.textContent = on ? '⏸' : '🔁';
+      if (state.loop && state.loop.phraseKey === el.dataset.key && state.loop.lang && !state.loop.word) {
+        const langBtn = el.querySelector('.loop-lang[data-lang="' + state.loop.lang + '"]');
+        if (langBtn) langBtn.classList.add('active');
+      }
     });
     if (state.loop && state.loop.word) {
       const p = document.querySelector(`.phrase[data-key="${state.loop.phraseKey}"]`);
@@ -1201,9 +1241,9 @@
     return `<div class="phrase" data-key="${key}">
       <div class="phrase-top">
         <div class="lines">
-          <div class="line fr" data-lang="fr" dir="ltr">${wordSpans(p.fr, 'fr')}</div>
-          <div class="line ar" data-lang="ar" dir="rtl">${wordSpans(p.ar, 'ar')}</div>
-          <div class="line en" data-lang="en" dir="ltr">${wordSpans(p.en, 'en')}</div>
+          <div class="line fr" data-lang="fr" dir="ltr">${wordSpans(p.fr, 'fr')}<button class="loop-lang" data-lang="fr" title="🔁 FR">🔁</button></div>
+          <div class="line ar" data-lang="ar" dir="rtl">${wordSpans(p.ar, 'ar')}<button class="loop-lang" data-lang="ar" title="🔁 AR">🔁</button></div>
+          <div class="line en" data-lang="en" dir="ltr">${wordSpans(p.en, 'en')}<button class="loop-lang" data-lang="en" title="🔁 EN">🔁</button></div>
         </div>
         <div class="btns">
           <button class="speak-btn" title="${t('speakOnce')}">🔊</button>
@@ -1617,6 +1657,13 @@
       const phrase = e.target.closest('.phrase');
       if (!phrase) return;
       const key = phrase.dataset.key;
+
+      const langLoopBtn = e.target.closest('.loop-lang');
+      if (langLoopBtn) {
+        e.stopPropagation();
+        toggleLangLoop(langLoopBtn.dataset.lang, key);
+        return;
+      }
 
       const word = e.target.closest('.word');
       if (word) {
