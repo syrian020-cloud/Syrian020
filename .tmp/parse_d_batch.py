@@ -15,12 +15,17 @@ def load_js_array(path):
 existing = load_js_array(vocab_path)
 existing_batch2 = load_js_array(batch2_path)
 
+ARTICLE_PREFIX = re.compile(r"^(le |la |les |l'|un |une |des )+", re.IGNORECASE)
+
 def normalize(fr):
     s = fr.lower().strip()
-    # strip leading articles / d' / l' for matching
-    s = re.sub(r"^(d'|l'|le |la |les |un |une |des |se |s')+", "", s)
+    # strip leading articles only (not d'/se/s' which are not articles and can change meaning)
+    s = ARTICLE_PREFIX.sub("", s)
     s = re.sub(r"[^\w\s\u00C0-\u024F\u0600-\u06FF']", "", s)
     return s.strip()
+
+def has_article_prefix(fr):
+    return bool(ARTICLE_PREFIX.match(fr.strip()))
 
 entries_by_fr = OrderedDict()
 for d in existing + existing_batch2:
@@ -189,10 +194,19 @@ print(f"Parsed {len(new_list)} unique D entries from {len(blocks)} blocks.")
 # Merge with existing
 added = 0
 merged = 0
+replaced = 0
 for entry in new_list:
     key = normalize(entry["fr"])
     if key in entries_by_fr:
         existing = entries_by_fr[key]
+        # If one version has an article prefix and the other is bare, prefer the bare form
+        if has_article_prefix(existing["fr"]) and not has_article_prefix(entry["fr"]):
+            entry["contexts"] = list(dict.fromkeys((existing.get("contexts") or []) + entry.get("contexts", [])))
+            if not entry.get("ex") and existing.get("ex"):
+                entry["ex"] = existing["ex"]
+            entries_by_fr[key] = entry
+            replaced += 1
+            continue
         # merge contexts
         existing["contexts"] = list(dict.fromkeys((existing.get("contexts") or []) + entry.get("contexts", [])))
         # merge example if missing
@@ -209,7 +223,7 @@ for entry in new_list:
         added += 1
 
 final = list(entries_by_fr.values())
-print(f"Added {added} new, merged {merged} duplicates. Total now {len(final)}.")
+print(f"Added {added} new, merged {merged} duplicates, replaced {replaced} article forms. Total now {len(final)}.")
 
 # Counts
 from collections import Counter

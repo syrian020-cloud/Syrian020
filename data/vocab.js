@@ -21565,10 +21565,9 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "Un dossier",
+    "fr": "Dossier",
     "ar": "ملف",
-    "en": "File / Application / Application file",
-    "pos": "noun",
+    "en": "file / application",
     "level": "A1",
     "contexts": [
       "caf",
@@ -21580,24 +21579,17 @@ window.VOCAB_DATA = [
       "school",
       "prefecture"
     ],
-    "ex": [
-      {
-        "fr": "Mon dossier est en cours de traitement.",
-        "ar": "ملفي قيد المعالجة.",
-        "en": "My file is being processed."
-      },
-      {
-        "fr": "Mon dossier est complet.",
-        "ar": "ملفي مكتمل.",
-        "en": "My file is complete."
-      }
-    ]
+    "pos": "verb",
+    "ex": {
+      "fr": "Mon dossier est en cours de traitement.",
+      "en": "My application is being processed.",
+      "ar": "ملفي قيد المعالجة."
+    }
   },
   {
-    "fr": "Une demande",
+    "fr": "Demande",
     "ar": "طلب",
-    "en": "Request / Application",
-    "pos": "noun",
+    "en": "request / application",
     "level": "A1",
     "contexts": [
       "caf",
@@ -21606,18 +21598,12 @@ window.VOCAB_DATA = [
       "work",
       "daily"
     ],
-    "ex": [
-      {
-        "fr": "J'ai envoyé ma demande.",
-        "ar": "أرسلت طلبي.",
-        "en": "I sent my application."
-      },
-      {
-        "fr": "Je veux faire une demande pour une convention.",
-        "ar": "أريد تقديم طلب للحصول على اتفاقية.",
-        "en": "I want to make a request for an agreement."
-      }
-    ]
+    "pos": "noun",
+    "ex": {
+      "fr": "J'ai envoyé ma demande.",
+      "en": "I sent my application.",
+      "ar": "بعت طلبي."
+    }
   },
   {
     "fr": "Faire une demande",
@@ -25603,11 +25589,10 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Un délai",
-    "ar": "مهلة / مدة / مدة انتظار",
-    "en": "Deadline / Time limit / Waiting time",
-    "pos": "noun",
-    "level": "B1",
+    "fr": "Délai",
+    "ar": "مهلة / مدة",
+    "en": "deadline / time period",
+    "level": "A1",
     "contexts": [
       "services",
       "stage",
@@ -25615,13 +25600,12 @@ window.VOCAB_DATA = [
       "daily",
       "health"
     ],
-    "ex": [
-      {
-        "fr": "Quel est le délai de réponse ?",
-        "ar": "ما هي مدة الرد؟",
-        "en": "What is the response time?"
-      }
-    ]
+    "pos": "adjective",
+    "ex": {
+      "fr": "Quel est le délai de traitement ?",
+      "en": "What is the processing time?",
+      "ar": "قديش مدة معالجة الطلب؟"
+    }
   },
   {
     "fr": "Respecter un délai",
@@ -28927,19 +28911,19 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Le droit",
-    "pos": "noun",
+    "fr": "Droit",
+    "ar": "حق / استحقاق",
+    "en": "right / entitlement",
     "level": "A1",
     "contexts": [
       "caf",
       "daily"
     ],
-    "ar": "الاستحقاق",
-    "en": "Entitlement / Eligibility",
+    "pos": "adjective",
     "ex": {
-      "fr": "Vous avez droit à cette aide.",
-      "ar": "إلك حق بهاد الدعم.",
-      "en": "You are entitled to this benefit."
+      "fr": "J'ai droit à cette aide.",
+      "en": "I'm entitled to this benefit.",
+      "ar": "إلي حق بهالمساعدة."
     }
   },
   {
@@ -31459,21 +31443,21 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "Le document",
-    "ar": "الوثيقة",
-    "en": "Document",
+    "fr": "Document",
+    "ar": "وثيقة / ورقة",
+    "en": "document",
     "level": "A1",
-    "pos": "noun",
     "contexts": [
       "stage",
       "work",
       "daily",
       "services"
     ],
+    "pos": "adjective",
     "ex": {
-      "fr": "Je dois envoyer le document demain.",
-      "ar": "يجب أن أرسل الوثيقة غدًا.",
-      "en": "I have to send the document tomorrow."
+      "fr": "Il me manque un document.",
+      "en": "I'm missing a document.",
+      "ar": "ناقصني ورقة."
     }
   },
   {
@@ -31914,11 +31898,10 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "La durée",
-    "ar": "المدة",
-    "en": "Duration / Length",
-    "level": "A1",
-    "pos": "noun",
+    "fr": "Durée",
+    "ar": "مدة",
+    "en": "duration",
+    "level": "A2",
     "contexts": [
       "stage",
       "work",
@@ -31926,10 +31909,11 @@ window.VOCAB_DATA = [
       "transport",
       "school"
     ],
+    "pos": "adjective",
     "ex": {
-      "fr": "Quelle est la durée de l’immersion ?",
-      "ar": "ما مدة فترة التجربة؟",
-      "en": "What is the duration of the immersion?"
+      "fr": "Quelle est la durée de la formation ?",
+      "en": "What is the duration of the training?",
+      "ar": "قديش مدة التدريب؟"
     }
   },
   {
@@ -40285,6 +40269,21 @@ window.VOCAB_DATA = [
       "fr": "Il a une réponse diplomatique.",
       "en": "He has a diplomatic answer.",
       "ar": "عنده جواب لبق."
+    }
+  },
+  {
+    "fr": "D'accord",
+    "ar": "تمام / موافق",
+    "en": "okay / alright",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "D'accord, je comprends.",
+      "en": "Okay, I understand.",
+      "ar": "تمام، فهمت."
     }
   }
 ];
