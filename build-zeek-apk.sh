@@ -41,6 +41,12 @@ fi
 
 npx cap sync android
 
+# Add largeHeap for handling image/video files in memory
+MANIFEST="$ROOT/android/app/src/main/AndroidManifest.xml"
+if [ -f "$MANIFEST" ] && ! grep -q 'android:largeHeap' "$MANIFEST"; then
+  sed -i 's/<application\s/<application android:largeHeap="true" /' "$MANIFEST"
+fi
+
 # Sync the PWA icon into the Android mipmap launcher icons
 ICON_SRC="$ROOT/zeek/icon-512.png"
 MIPMAP="$ROOT/android/app/src/main/res"

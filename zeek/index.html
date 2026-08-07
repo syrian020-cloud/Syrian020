@@ -758,6 +758,7 @@
     mediaUrl: { ar: 'رابط الصورة/الفيديو', en: 'Image/video URL', fr: 'URL image/vidéo' },
     chooseMediaFile: { ar: 'اختر ملف صورة/فيديو', en: 'Choose image/video file', fr: 'Choisir un fichier image/vidéo' },
     mediaInvalid: { ar: 'ملف غير صالح. يجب أن يكون صورة أو فيديو.', en: 'Invalid file. Must be an image or video.', fr: 'Fichier invalide. Doit être une image ou une vidéo.' },
+    mediaSaveError: { ar: 'تعذر حفظ الوسائط في التطبيق', en: 'Could not save media to the app', fr: 'Impossible d\'enregistrer le média dans l\'application' },
     editFolderTitle: { ar: 'تعديل عنوان المجلد', en: 'Edit folder title', fr: 'Modifier le titre du dossier' },
     editLessonTitle: { ar: 'تعديل الدرس', en: 'Edit lesson', fr: 'Modifier la leçon' },
     invalidImage: { ar: 'الملف ليس صورة', en: 'File is not an image', fr: 'Le fichier n\'est pas une image' },
@@ -870,6 +871,48 @@
     if (!window.Capacitor) return null;
     if (window.Capacitor.getPlatform && window.Capacitor.getPlatform() !== 'android') return null;
     return window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech;
+  }
+
+  function nativeFilesystem() {
+    return !!(window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Filesystem);
+  }
+
+  function toWebUrl(url) {
+    if (typeof Capacitor === 'undefined' || !Capacitor.convertFileSrc) return url;
+    if (typeof url !== 'string') return url;
+    if (url.startsWith('file://') || url.startsWith('content://')) return Capacitor.convertFileSrc(url);
+    return url;
+  }
+
+  async function saveFileToAppStorage(file, subdir) {
+    if (!file || !nativeFilesystem()) return null;
+    const dataUrl = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = e => resolve(e.target.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+    const base64 = dataUrl.includes(',') ? dataUrl.split(',')[1] : dataUrl;
+    const ext = (file.name && file.name.split('.').pop()) || (file.type.startsWith('video/') ? 'mp4' : 'jpg');
+    const filename = Date.now() + '_' + Math.random().toString(36).slice(2, 10) + '.' + ext;
+    const { Filesystem, Directory } = Capacitor.Plugins;
+    try { await Filesystem.mkdir({ path: subdir, directory: Directory.Data, recursive: true }); } catch (e) {}
+    await Filesystem.writeFile({ path: subdir + '/' + filename, data: base64, directory: Directory.Data, encoding: 'base64', recursive: true });
+    const { uri } = await Filesystem.getUri({ path: subdir + '/' + filename, directory: Directory.Data });
+    return uri;
+  }
+
+  async function deleteLocalFile(uri) {
+    if (!uri || typeof uri !== 'string' || !uri.startsWith('file://')) return;
+    if (!nativeFilesystem()) return;
+    try { await Capacitor.Plugins.Filesystem.deleteFile({ path: uri }); } catch (e) { console.error('deleteLocalFile', uri, e); }
+  }
+
+  async function deleteItemMedia(it) {
+    if (!it) return;
+    if (it.image) { await deleteLocalFile(it.image); }
+    if (it.lessons) { for (const l of it.lessons) await deleteItemMedia(l); }
+    if (it.phrases) { for (const p of it.phrases) { if (p.media) await deleteLocalFile(p.media); } }
   }
 
   function showTTSBanner(msg, btnText) {
@@ -1157,22 +1200,24 @@
 
   function phraseKey(lessonId, idx) { return lessonId + '.' + idx; }
 
-  function deleteRootItem(id) {
+  async function deleteRootItem(id) {
     const it = findItem(id);
     if (!it) return;
     if (it.protected) { showToast(t('protected')); return; }
     if (!confirm(it.type === 'folder' ? t('deleteFolderConfirm') : t('deleteConfirm'))) return;
+    await deleteItemMedia(it);
     LESSONS = LESSONS.filter(x => x.id !== id);
     saveLessons();
     showToast(t('deleted'));
     go({ name: 'home' }, false);
   }
 
-  function deleteLesson(id) {
+  async function deleteLesson(id) {
     const found = findLesson(id);
     if (!found) return;
     if (found.lesson.protected) { showToast(t('protected')); return; }
     if (!confirm(t('deleteConfirm'))) return;
+    await deleteItemMedia(found.lesson);
     if (found.parent) {
       found.parent.lessons = found.parent.lessons.filter(l => l.id !== id);
     } else {
@@ -1185,7 +1230,7 @@
   }
 
   function cardThumb(it, idx) {
-    if (it.image) return `<div class="card-thumb"><img src="${esc(it.image)}" alt=""></div>`;
+    if (it.image) return `<div class="card-thumb"><img src="${esc(toWebUrl(it.image))}" alt=""></div>`;
     if (it.type === 'folder') return `<div class="card-thumb" style="color:#fff; background:var(--accent-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M2 6a2 2 0 0 1 2-2h5l2 2h9a2 2 0 0 1 2 2v1H2V6zm0 3h20v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9z"/></svg></div>`;
     return `<div class="num">${idx || it.id}</div>`;
   }
@@ -1213,21 +1258,29 @@
     document.getElementById('action-sheet').classList.remove('show');
   }
 
-  function setItemImage(id, type, file) {
+  async function setItemImage(id, type, file) {
     if (!file || !file.type.startsWith('image/')) { showToast(t('invalidImage')); return; }
     let it;
     if (type === 'folder') it = findFolder(id);
     else { const found = findLesson(id); it = found ? found.lesson : null; }
     if (!it) return;
     if (it.protected) { showToast(t('protected')); return; }
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      it.image = e.target.result;
+    try {
+      const uri = await saveFileToAppStorage(file, 'images') || await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = e => resolve(e.target.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+      if (it.image) await deleteLocalFile(it.image);
+      it.image = uri;
       saveLessons();
       showToast(t('saved'));
       go(state.route, false);
-    };
-    reader.readAsDataURL(file);
+    } catch (e) {
+      console.error('setItemImage', e);
+      showToast(t('mediaSaveError'));
+    }
   }
 
   function editItem(id, type) {
@@ -1284,10 +1337,11 @@
 
   function mediaHTML(media) {
     if (!media) return '';
-    const yt = youtubeId(media);
+    const src = toWebUrl(media);
+    const yt = youtubeId(src);
     if (yt) return `<div class="phrase-media"><iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe></div>`;
-    if (isVideoUrl(media)) return `<div class="phrase-media"><video src="${esc(media)}" controls playsinline></video></div>`;
-    return `<div class="phrase-media"><img src="${esc(media)}" alt="" onerror="this.style.display='none'"></div>`;
+    if (isVideoUrl(src)) return `<div class="phrase-media"><video src="${esc(src)}" controls playsinline></video></div>`;
+    return `<div class="phrase-media"><img src="${esc(src)}" alt="" onerror="this.style.display='none'"></div>`;
   }
 
   function phraseHTML(p, key) {
@@ -1796,11 +1850,12 @@
     const vid = document.getElementById('media-preview-video');
     if (!url) { wrap.style.display = 'none'; img.style.display = 'none'; vid.style.display = 'none'; img.src = ''; vid.src = ''; return; }
     wrap.style.display = 'block';
-    const yt = youtubeId(url);
-    if (isVideoUrl(url)) {
+    const src = toWebUrl(url);
+    const yt = youtubeId(src);
+    if (isVideoUrl(src)) {
       img.style.display = 'none';
       vid.style.display = 'block';
-      vid.src = url;
+      vid.src = src;
       img.src = '';
     } else if (yt) {
       img.style.display = 'block';
@@ -1810,7 +1865,7 @@
     } else {
       img.style.display = 'block';
       vid.style.display = 'none';
-      img.src = url;
+      img.src = src;
       vid.src = '';
     }
   }
@@ -1825,7 +1880,7 @@
     const urlInput = document.getElementById('media-url');
     const removeBtn = document.getElementById('btn-remove-media');
     const fileInput = document.getElementById('media-file');
-    urlInput.value = (p && p.media && !/^data:/.test(p.media)) ? p.media : '';
+    urlInput.value = (p && p.media && !/^data:/.test(p.media) && !/^file:\/\//.test(p.media)) ? p.media : '';
     removeBtn.style.display = (p && p.media) ? 'inline-block' : 'none';
     fileInput.value = '';
     updateMediaPreview(p ? p.media : null);
@@ -1839,7 +1894,7 @@
     updateMediaPreview(null);
   }
 
-  function saveMedia() {
+  async function saveMedia() {
     if (!mediaKey) return;
     const [lessonId, idx] = mediaKey.split('.').map(Number);
     const found = findLesson(lessonId);
@@ -1847,9 +1902,12 @@
     const p = found.lesson.phrases[idx];
     let url = mediaFileData || document.getElementById('media-url').value.trim();
     if (!url) { closeMedia(); return; }
-    if (!/^https?:\/\//.test(url) && !/^data:/.test(url) && !/^[\/]/.test(url)) {
+    if (!/^https?:\/\//.test(url) && !/^data:/.test(url) && !/^file:\/\//.test(url)) {
       showToast(t('mediaInvalid'));
       return;
+    }
+    if (p.media && p.media !== url && p.media.startsWith('file://')) {
+      await deleteLocalFile(p.media);
     }
     p.media = url;
     saveLessons();
@@ -1858,13 +1916,14 @@
     showToast(t('saved'));
   }
 
-  function removeMedia() {
+  async function removeMedia() {
     if (!mediaKey) return;
     if (!confirm(t('confirmRemoveMedia'))) return;
     const [lessonId, idx] = mediaKey.split('.').map(Number);
     const found = findLesson(lessonId);
     if (found) {
       const p = found.lesson.phrases[idx];
+      if (p && p.media) await deleteLocalFile(p.media);
       delete p.media;
       saveLessons();
       go(state.route, false);
@@ -1882,7 +1941,7 @@
     document.getElementById('btn-save-media').onclick = saveMedia;
     document.getElementById('btn-remove-media').onclick = removeMedia;
     chooseBtn.onclick = () => fileInput.click();
-    fileInput.onchange = () => {
+    fileInput.onchange = async () => {
       const file = fileInput.files && fileInput.files[0];
       if (!file) return;
       if (!file.type.startsWith('image/') && !file.type.startsWith('video/')) {
@@ -1890,13 +1949,25 @@
         fileInput.value = '';
         return;
       }
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        mediaFileData = e.target.result;
-        updateMediaPreview(mediaFileData);
-        urlInput.value = '';
-      };
-      reader.readAsDataURL(file);
+      try {
+        const uri = await saveFileToAppStorage(file, 'media');
+        if (uri) {
+          mediaFileData = uri;
+          updateMediaPreview(uri);
+          urlInput.value = '';
+        } else {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            mediaFileData = e.target.result;
+            updateMediaPreview(mediaFileData);
+            urlInput.value = '';
+          };
+          reader.readAsDataURL(file);
+        }
+      } catch (e) {
+        console.error('fileInput onchange', e);
+        showToast(t('mediaSaveError'));
+      }
     };
     urlInput.oninput = (e) => { mediaFileData = null; updateMediaPreview(e.target.value.trim()); };
     modal.addEventListener('click', e => { if (e.target === modal) closeMedia(); });
