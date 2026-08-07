@@ -399,10 +399,8 @@
   /* ---------------- Rendering ---------------- */
 
   function render() {
-    var app = document.getElementById('app');
     if (state.view === 'lesson') renderLessonEditor();
     else renderLessonList();
-    applyTranslations();
   }
 
   function renderLessonList() {
@@ -424,6 +422,7 @@
     }
     app.innerHTML = html;
     bindListEvents();
+    applyTranslations();
   }
 
   function bindListEvents() {
@@ -440,6 +439,11 @@
         if (confirm('Delete this lesson?')) deleteLesson(b.dataset.lesson);
       };
     });
+  }
+
+  function updateHeroTitle(lesson) {
+    var h = document.querySelector('.hero h1');
+    if (h) h.textContent = esc(lesson.title[state.uiLang] || lesson.title.en || lesson.title.fr || lesson.title.ar || '');
   }
 
   function renderLessonEditor() {
@@ -471,6 +475,8 @@
 
     bindEditorEvents(lesson);
     renderMediaPreviews();
+    applyTranslations();
+    updateHeroTitle(lesson);
   }
 
   function createPhraseCard(lesson, p, idx) {
@@ -519,6 +525,7 @@
         if (phrase) { phrase[target.dataset.field] = target.value; queueSave(); }
       } else if (target.dataset.lessonField) {
         lesson.title[target.dataset.lessonField] = target.value;
+        updateHeroTitle(lesson);
         queueSave();
       }
     };
