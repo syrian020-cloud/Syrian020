@@ -1,6 +1,6 @@
 {
-  "appId": "com.syrian020.vocabfrance",
-  "appName": "مفردات فرنسا",
+  "appId": "com.syrian020.motsy.vocab",
+  "appName": "Motsy",
   "webDir": "www",
   "server": {
     "androidScheme": "https"
