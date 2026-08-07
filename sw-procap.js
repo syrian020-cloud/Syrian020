@@ -1,4 +1,4 @@
-const CACHE_NAME = 'procap-v1';
+const CACHE_NAME = 'procap-v2';
 const FILES_TO_CACHE = [
   './procap.html',
   './manifest-procap.json',
