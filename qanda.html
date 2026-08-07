@@ -65,6 +65,9 @@
   .qa-label { font-size: 0.75rem; color: var(--accent); font-weight: 700; margin-bottom: 0.25rem; }
   .qa-label.answer { color: var(--success); }
   .qa-text { direction: ltr; text-align: left; font-size: 1.05rem; color: var(--text-primary); font-weight: 600; white-space: pre-wrap; }
+  .word { cursor: pointer; border-bottom: 1px dotted rgba(255,255,255,0.2); transition: color 0.1s; }
+  .word:hover { color: var(--accent); }
+  .word.active { color: var(--success); border-bottom-color: var(--success); }
   .qa-actions { display: flex; gap: 0.4rem; margin-top: 0.55rem; }
   .qa-actions button, .qa-actions a { flex: 1; background: var(--bg-primary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 10px; padding: 0.45rem; font-size: 0.8rem; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 0.25rem; font-weight: 600; }
   .qa-actions button:hover, .qa-actions a:hover { border-color: var(--accent); }
@@ -145,10 +148,9 @@
       if(!k) return;
       if(cur[k]){ flush(); cur = { num: null, ve: null, qser: null, sec: null }; }
       cur[k] = d;
-      if(!cur.num && d.n) cur.num = d.n;
     });
     flush();
-    lessons.forEach(function(l, i){ l.num = String(l.num || (i+1)); });
+    lessons.forEach(function(l, i){ l.num = String(i+1).padStart(2, '0'); });
     return lessons;
   }
 
@@ -190,11 +192,15 @@
     return 'https://www.google.com/search?udm=50&q=' + encodeURIComponent(isQuestion ? aiQueryQuestion(text) : aiQueryAnswer(text));
   }
 
+  function renderWords(text){
+    return esc(text).replace(/\n/g, '<br>').replace(/[A-Za-zÀ-ÿ0-9]+(?:['’\-][A-Za-zÀ-ÿ0-9]+)*/g, function(m){ return '<span class="word" dir="ltr">' + m + '</span>'; });
+  }
+
   function renderBlock(label, cls, text, loopId, aiUrl){
     if(!text) return '';
     return '<div class="qa-block">' +
       '<div class="qa-label ' + cls + '">' + label + '</div>' +
-      '<div class="qa-text" dir="ltr">' + esc(text).replace(/\n/g, '<br>') + '</div>' +
+      '<div class="qa-text" dir="ltr">' + renderWords(text) + '</div>' +
       '<div class="qa-actions">' +
         '<button class="loop-btn" data-id="' + esc(loopId) + '">🔁 تكرار</button>' +
         '<a href="' + esc(aiUrl) + '" target="_blank" rel="noopener">🔍 Google AI</a>' +
@@ -252,6 +258,7 @@
     if(nativeTTS()) nativeTTS().stop();
     if('speechSynthesis' in window) window.speechSynthesis.cancel();
     document.querySelectorAll('.loop-btn').forEach(function(b){ b.classList.remove('active'); b.textContent = '🔁 تكرار'; });
+    document.querySelectorAll('.word.active').forEach(function(w){ w.classList.remove('active'); });
     document.querySelectorAll('.lesson-card').forEach(function(c){ c.classList.remove('playing'); });
   }
 
@@ -310,6 +317,48 @@
     nativePlay();
   }
 
+  function playWord(text, span, card){
+    if(!text) return;
+    stopSpeech();
+    var run = ++speechRun;
+    state.playing = span;
+    span.classList.add('active');
+    if(card) card.classList.add('playing');
+    var count = parseInt(loopcount.value, 10) || 1;
+    var i = 0;
+
+    function finish(){ if(run === speechRun) stopSpeech(); }
+
+    function nativePlay(){
+      var tts = nativeTTS(); if(!tts){ webPlay(); return; }
+      function next(){
+        if(run !== speechRun) return;
+        if(i >= count){ finish(); return; }
+        i++;
+        tts.speak({ text: text, lang: 'fr-FR', rate: parseFloat(rate.value) || 0.9, queueStrategy: 1 }).then(function(){ setTimeout(next, 250); }).catch(function(){ setTimeout(next, 250); });
+      }
+      next();
+    }
+
+    function webPlay(){
+      if(!('speechSynthesis' in window)){ finish(); showToast('النطق غير مدعوم'); return; }
+      function next(){
+        if(run !== speechRun) return;
+        if(i >= count){ finish(); return; }
+        i++;
+        var u = new SpeechSynthesisUtterance(text);
+        u.lang = 'fr-FR'; u.rate = (parseFloat(rate.value) || 0.9) * 0.95;
+        var v = pickVoice(); if(v) u.voice = v;
+        u.onend = function(){ setTimeout(next, 250); };
+        u.onerror = function(){ setTimeout(next, 250); };
+        window.speechSynthesis.speak(u);
+      }
+      next();
+    }
+
+    nativePlay();
+  }
+
   function bind(){
     search.addEventListener('input', function(){ state.q = this.value; render(); });
     rate.addEventListener('change', function(){ localStorage.setItem('qanda_rate', this.value); });
@@ -322,6 +371,14 @@
       }
     });
     list.addEventListener('click', function(e){
+      var word = e.target.closest('.word');
+      if(word){
+        if(state.playing === word){ stopSpeech(); return; }
+        var text = word.textContent.trim();
+        var card = word.closest('.lesson-card');
+        playWord(text, word, card);
+        return;
+      }
       var btn = e.target.closest('.loop-btn');
       if(!btn) return;
       if(state.playing === btn){ stopSpeech(); return; }
