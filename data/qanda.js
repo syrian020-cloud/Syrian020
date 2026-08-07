@@ -964,5 +964,17 @@ window.QANDA_DATA = [
     "cat": "VE",
     "q": "Montrez où se situent les gicleurs de lave-glace avant ?",
     "a": ""
+  },
+  {
+    "n": "282",
+    "cat": "QSER",
+    "q": "Quelle est la principale conséquence d’un dispositif de lave-glace défaillant ?",
+    "a": "Une mauvaise visibilité due à l’impossibilité de nettoyer le pare-brise."
+  },
+  {
+    "n": "283",
+    "cat": "1ers secours",
+    "q": "Qu’est ce qu’un défibrillateur automatisé externe (DAE) ?",
+    "a": "C’est un appareil qui peut permettre de rétablir une activité cardiaque normale à une victime en arrêt cardiaque."
   }
 ];
