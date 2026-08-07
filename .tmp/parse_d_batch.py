@@ -145,7 +145,7 @@ for block in blocks:
     fr = lines[0]
     fields = {"en":"", "ar":"", "ex_fr":"", "ex_en":"", "ex_ar":""}
     for l in lines[1:]:
-        m = re.match(r"·\s*(en|ar|ex fr|ex en|ex ar)\s*:\s*(.*)", l)
+        m = re.match(r"^·?\s*(en|ar|ex fr|ex en|ex ar)\s*:\s*(.*)", l)
         if m:
             k, v = m.group(1).strip(), m.group(2).strip()
             if k == "ex fr":

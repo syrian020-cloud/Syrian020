@@ -31922,7 +31922,9 @@ window.VOCAB_DATA = [
     "contexts": [
       "stage",
       "work",
-      "daily"
+      "daily",
+      "transport",
+      "school"
     ],
     "ex": {
       "fr": "Quelle est la durée de l’immersion ?",
@@ -34025,7 +34027,8 @@ window.VOCAB_DATA = [
     "pos": "adjective",
     "contexts": [
       "sushi",
-      "daily"
+      "daily",
+      "shop"
     ],
     "ex": {
       "fr": "Cette sauce a un goût doux.",
@@ -37967,7 +37970,8 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "services",
-      "prefecture"
+      "prefecture",
+      "caf"
     ],
     "pos": "verb",
     "ex": {
@@ -38387,7 +38391,8 @@ window.VOCAB_DATA = [
     "en": "to doubt",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "school"
     ],
     "pos": "verb",
     "ex": {
@@ -39586,7 +39591,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "C'est dommage de perdre cette chance.",
+      "en": "It's a pity to lose this opportunity.",
+      "ar": "خسارة نضيّع هالفرصة."
+    }
   },
   {
     "fr": "Difficile",
@@ -39596,7 +39606,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "C'est difficile pour moi.",
+      "en": "It is difficult for me.",
+      "ar": "هاد صعب عليّ."
+    }
   },
   {
     "fr": "Différent(e)",
@@ -39606,7 +39621,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Cette situation est différente.",
+      "en": "This situation is different.",
+      "ar": "هالوضع مختلف."
+    }
   },
   {
     "fr": "Dernier / Dernière",
@@ -39616,7 +39636,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "phrase"
+    "pos": "phrase",
+    "ex": {
+      "fr": "C'est mon dernier rendez-vous.",
+      "en": "This is my last appointment.",
+      "ar": "هذا آخر موعد إلي."
+    }
   },
   {
     "fr": "Direct(e)",
@@ -39626,7 +39651,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Je veux une réponse directe.",
+      "en": "I want a direct answer.",
+      "ar": "بدي جواب مباشر."
+    }
   },
   {
     "fr": "Dur / Dure",
@@ -39634,9 +39664,15 @@ window.VOCAB_DATA = [
     "en": "hard / difficult / tough",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "work"
     ],
-    "pos": "phrase"
+    "pos": "phrase",
+    "ex": {
+      "fr": "Le travail est dur aujourd'hui.",
+      "en": "The work is hard today.",
+      "ar": "الشغل صعب اليوم."
+    }
   },
   {
     "fr": "Dangereux / Dangereuse",
@@ -39646,7 +39682,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "phrase"
+    "pos": "phrase",
+    "ex": {
+      "fr": "Cette machine est dangereuse.",
+      "en": "This machine is dangerous.",
+      "ar": "هالماكينة خطيرة."
+    }
   },
   {
     "fr": "Déçu(e)",
@@ -39656,7 +39697,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Je suis déçu du résultat.",
+      "en": "I am disappointed with the result.",
+      "ar": "أنا خاب أملي بالنتيجة."
+    }
   },
   {
     "fr": "Déterminé(e)",
@@ -39664,9 +39710,15 @@ window.VOCAB_DATA = [
     "en": "determined",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "school"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Je suis déterminé à apprendre le français.",
+      "en": "I am determined to learn French.",
+      "ar": "أنا مصمم أتعلم الفرنسي."
+    }
   },
   {
     "fr": "Dernier cri",
@@ -39676,7 +39728,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "phrase"
+    "pos": "phrase",
+    "ex": {
+      "fr": "C'est un modèle dernier cri.",
+      "en": "It is a state-of-the-art model.",
+      "ar": "هاد موديل حديث جدًا."
+    }
   },
   {
     "fr": "Déclaré(e)",
@@ -39686,7 +39743,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Le montant déclaré est correct.",
+      "en": "The declared amount is correct.",
+      "ar": "المبلغ المصرّح عنه صحيح."
+    }
   },
   {
     "fr": "Définitif / Définitive",
@@ -39696,7 +39758,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "phrase"
+    "pos": "phrase",
+    "ex": {
+      "fr": "J'attends une réponse définitive.",
+      "en": "I am waiting for a final answer.",
+      "ar": "ناطر جواب نهائي."
+    }
   },
   {
     "fr": "Délicat(e)",
@@ -39706,7 +39773,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "C'est une situation délicate.",
+      "en": "It is a delicate situation.",
+      "ar": "هاد وضع حساس."
+    }
   },
   {
     "fr": "Dépendant(e)",
@@ -39714,9 +39786,15 @@ window.VOCAB_DATA = [
     "en": "dependent",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "caf"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Il est dépendant de cette aide.",
+      "en": "He is dependent on this assistance.",
+      "ar": "هو معتمد على هالمساعدة."
+    }
   },
   {
     "fr": "Déterminant(e)",
@@ -39726,7 +39804,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "C'est un facteur déterminant.",
+      "en": "It is a determining factor.",
+      "ar": "هذا عامل حاسم."
+    }
   },
   {
     "fr": "Développé(e)",
@@ -39736,7 +39819,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "C'est un pays développé.",
+      "en": "It is a developed country.",
+      "ar": "هذه دولة متطورة."
+    }
   },
   {
     "fr": "Défavorable",
@@ -39746,7 +39834,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "adjective"
+    "pos": "adjective",
+    "ex": {
+      "fr": "La réponse est défavorable.",
+      "en": "The answer is unfavorable.",
+      "ar": "الجواب غير مناسب."
+    }
   },
   {
     "fr": "Défini(e)",
@@ -39756,7 +39849,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Il faut avoir un objectif défini.",
+      "en": "You need to have a defined goal.",
+      "ar": "لازم يكون عندك هدف محدد."
+    }
   },
   {
     "fr": "Défectueux / Défectueuse",
@@ -39764,9 +39862,15 @@ window.VOCAB_DATA = [
     "en": "defective / faulty",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "shop"
     ],
-    "pos": "phrase"
+    "pos": "phrase",
+    "ex": {
+      "fr": "Le produit est défectueux.",
+      "en": "The product is defective.",
+      "ar": "المنتج فيه عيب."
+    }
   },
   {
     "fr": "Dense",
@@ -39776,7 +39880,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "La circulation est dense.",
+      "en": "The traffic is heavy.",
+      "ar": "السير كثيف."
+    }
   },
   {
     "fr": "Dernièrement (ظرف وليس صفة، لكنه مهم)",
@@ -39784,9 +39893,15 @@ window.VOCAB_DATA = [
     "en": "recently",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "work"
     ],
-    "pos": "phrase"
+    "pos": "phrase",
+    "ex": {
+      "fr": "J'ai changé de travail dernièrement.",
+      "en": "I changed jobs recently.",
+      "ar": "غيرت شغلي مؤخرًا."
+    }
   },
   {
     "fr": "Discret / Discrète",
@@ -39796,7 +39911,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "phrase"
+    "pos": "phrase",
+    "ex": {
+      "fr": "C'est une personne discrète.",
+      "en": "He is a discreet person.",
+      "ar": "هو شخص كتوم."
+    }
   },
   {
     "fr": "Disponible immédiatement",
@@ -39804,9 +39924,15 @@ window.VOCAB_DATA = [
     "en": "available immediately",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "work"
     ],
-    "pos": "phrase"
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je suis disponible immédiatement pour travailler.",
+      "en": "I am available immediately to work.",
+      "ar": "أنا جاهز للعمل فورًا."
+    }
   },
   {
     "fr": "Désagréable",
@@ -39816,7 +39942,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "adjective"
+    "pos": "adjective",
+    "ex": {
+      "fr": "J'ai eu une expérience désagréable.",
+      "en": "I had an unpleasant experience.",
+      "ar": "كانت عندي تجربة غير لطيفة."
+    }
   },
   {
     "fr": "Désolé(e)",
@@ -39826,7 +39957,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Je suis désolé pour le retard.",
+      "en": "I am sorry for the delay.",
+      "ar": "آسف على التأخير."
+    }
   },
   {
     "fr": "Désert(e)",
@@ -39836,7 +39972,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "La rue est déserte le soir.",
+      "en": "The street is deserted in the evening.",
+      "ar": "الشارع فاضي بالمساء."
+    }
   },
   {
     "fr": "Déséquilibré(e)",
@@ -39846,7 +39987,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Une alimentation déséquilibrée peut poser problème.",
+      "en": "An unbalanced diet can cause problems.",
+      "ar": "الأكل غير المتوازن ممكن يسبب مشاكل."
+    }
   },
   {
     "fr": "Détaillé(e)",
@@ -39857,7 +40003,12 @@ window.VOCAB_DATA = [
       "daily",
       "services"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "J'ai besoin d'une explication détaillée.",
+      "en": "I need a detailed explanation.",
+      "ar": "بدي شرح مفصل."
+    }
   },
   {
     "fr": "Détestable",
@@ -39866,9 +40017,15 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "daily",
-      "restaurant"
+      "restaurant",
+      "housing"
     ],
-    "pos": "adjective"
+    "pos": "adjective",
+    "ex": {
+      "fr": "Ce comportement est détestable.",
+      "en": "This behavior is unacceptable.",
+      "ar": "هالتصرف سيئ جدًا."
+    }
   },
   {
     "fr": "Digne",
@@ -39878,7 +40035,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "C'est une personne digne de confiance.",
+      "en": "He is a trustworthy person.",
+      "ar": "هو شخص جدير بالثقة."
+    }
   },
   {
     "fr": "Diligent(e)",
@@ -39888,7 +40050,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "C'est un employé diligent.",
+      "en": "He is a diligent employee.",
+      "ar": "هو موظف مجتهد."
+    }
   },
   {
     "fr": "Divers / Diverse",
@@ -39898,7 +40065,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "phrase"
+    "pos": "phrase",
+    "ex": {
+      "fr": "Il existe diverses solutions.",
+      "en": "There are various solutions.",
+      "ar": "يوجد حلول متنوعة."
+    }
   },
   {
     "fr": "Divisé(e)",
@@ -39906,9 +40078,15 @@ window.VOCAB_DATA = [
     "en": "divided",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "work"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Le travail est divisé en plusieurs étapes.",
+      "en": "The work is divided into several steps.",
+      "ar": "العمل مقسّم لعدة مراحل."
+    }
   },
   {
     "fr": "Dommageable",
@@ -39916,9 +40094,15 @@ window.VOCAB_DATA = [
     "en": "harmful / damaging",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "health"
     ],
-    "pos": "adjective"
+    "pos": "adjective",
+    "ex": {
+      "fr": "Cette habitude est dommageable pour la santé.",
+      "en": "This habit is harmful to health.",
+      "ar": "هالعادة مضرة للصحة."
+    }
   },
   {
     "fr": "Doué(e)",
@@ -39928,7 +40112,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Il est doué en langues.",
+      "en": "He is talented in languages.",
+      "ar": "هو موهوب باللغات."
+    }
   },
   {
     "fr": "Durable",
@@ -39938,7 +40127,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "adjective"
+    "pos": "adjective",
+    "ex": {
+      "fr": "Nous cherchons une solution durable.",
+      "en": "We are looking for a lasting solution.",
+      "ar": "عم ندور على حل دائم."
+    }
   },
   {
     "fr": "Défavorisé(e)",
@@ -39946,9 +40140,15 @@ window.VOCAB_DATA = [
     "en": "disadvantaged",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "caf"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Cette aide est destinée aux personnes défavorisées.",
+      "en": "This assistance is for disadvantaged people.",
+      "ar": "هالمساعدة مخصصة للأشخاص الأقل حظًا."
+    }
   },
   {
     "fr": "Démodé(e)",
@@ -39956,9 +40156,15 @@ window.VOCAB_DATA = [
     "en": "outdated / old-fashioned",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "phone"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Ce téléphone est démodé.",
+      "en": "This phone is outdated.",
+      "ar": "هالموبايل صار قديم."
+    }
   },
   {
     "fr": "Déplacé(e)",
@@ -39968,7 +40174,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Cette remarque est déplacée.",
+      "en": "This comment is inappropriate.",
+      "ar": "هالتعليق مو بمحلّه."
+    }
   },
   {
     "fr": "Déprimé(e)",
@@ -39978,7 +40189,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Il se sent déprimé en ce moment.",
+      "en": "He feels depressed at the moment.",
+      "ar": "هو حاسس بالإحباط هالفترة."
+    }
   },
   {
     "fr": "Dérangeant(e)",
@@ -39988,7 +40204,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "Il y a un bruit dérangeant.",
+      "en": "There is an annoying noise.",
+      "ar": "في صوت مزعج."
+    }
   },
   {
     "fr": "Désertique",
@@ -39998,7 +40219,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "adjective"
+    "pos": "adjective",
+    "ex": {
+      "fr": "Une région désertique.",
+      "en": "A desert region.",
+      "ar": "منطقة صحراوية."
+    }
   },
   {
     "fr": "Dévasté(e)",
@@ -40006,9 +40232,15 @@ window.VOCAB_DATA = [
     "en": "devastated / destroyed",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "weather"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "La région est dévastée après la tempête.",
+      "en": "The area is devastated after the storm.",
+      "ar": "المنطقة مدمّرة بعد العاصفة."
+    }
   },
   {
     "fr": "Difficilement (حال لكنه مهم)",
@@ -40018,7 +40250,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "phrase"
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je marche difficilement aujourd'hui.",
+      "en": "I walk with difficulty today.",
+      "ar": "عم امشي بصعوبة اليوم."
+    }
   },
   {
     "fr": "Digital(e)",
@@ -40028,7 +40265,12 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "noun"
+    "pos": "noun",
+    "ex": {
+      "fr": "La signature digitale est acceptée.",
+      "en": "The digital signature is accepted.",
+      "ar": "التوقيع الرقمي مقبول."
+    }
   },
   {
     "fr": "Diplomatique",
@@ -40038,6 +40280,11 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "pos": "adjective"
+    "pos": "adjective",
+    "ex": {
+      "fr": "Il a une réponse diplomatique.",
+      "en": "He has a diplomatic answer.",
+      "ar": "عنده جواب لبق."
+    }
   }
 ];
