@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#2a0a2e">
 <meta name="description" content="تعلم الفرنسية مع ترجمة عربية وإنجليزية">
-<title>Procap — Français / العربية / English</title>
-<link rel="manifest" href="manifest-procap.json">
-<link rel="apple-touch-icon" href="icon-procap-192.png">
+<title>Zeek — Français / العربية / English</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
 <style>
   :root {
     --bg-primary: #1a0b1e;
@@ -310,7 +310,7 @@
 <body>
 <header>
   <div class="header-inner">
-    <span class="logo"><img src="icon-procap-192.png" alt="" class="logo-icon"> <span data-t="appName">Procap</span></span>
+    <span class="logo"><img src="icon-192.png" alt="" class="logo-icon"> <span data-t="appName">Zeek</span></span>
     <span class="spacer"></span>
     <div class="lang-switch">
       <button class="lang-btn" data-lang="ar">AR</button>
@@ -420,7 +420,7 @@
 
   function loadLessons() {
     try {
-      const raw = JSON.parse(localStorage.getItem('sexed_lessons') || '[]');
+      const raw = JSON.parse(localStorage.getItem('zeek_lessons') || '[]');
       if (Array.isArray(raw)) {
         if (raw.length && raw[0].phrases && !raw[0].type) {
           return raw.map((l, i) => ({ id: l.id || i + 1, type: 'lesson', custom: true, title: l.title, phrases: l.phrases }));
@@ -431,18 +431,18 @@
     } catch (e) { return []; }
   }
 
-  function saveLessons() { localStorage.setItem('sexed_lessons', JSON.stringify(LESSONS)); }
+  function saveLessons() { localStorage.setItem('zeek_lessons', JSON.stringify(LESSONS)); }
 
   async function exportLessons() {
     const data = JSON.stringify(LESSONS, null, 2);
-    const filename = 'sexed-lessons.json';
+    const filename = 'zeek-lessons.json';
     if (typeof Capacitor !== 'undefined' && Capacitor.Plugins && Capacitor.Plugins.Filesystem && Capacitor.Plugins.Share) {
       try {
         const { Filesystem, Share } = Capacitor.Plugins;
         const dir = (Filesystem.Directory && Filesystem.Directory.Cache) ? Filesystem.Directory.Cache : 'CACHE';
         await Filesystem.writeFile({ path: filename, data: data, directory: dir, encoding: 'utf8' });
         const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
-        await Share.share({ title: 'Procap lessons', files: [uri], dialogTitle: 'Procap JSON' });
+        await Share.share({ title: 'Zeek lessons', files: [uri], dialogTitle: 'Zeek JSON' });
         showToast(t('exportSuccess'));
         return;
       } catch (e) { console.error('Capacitor export failed', e); }
@@ -694,8 +694,8 @@
   }
 
   const UI = {
-    appName: { ar: 'Procap', en: 'Procap', fr: 'Procap' },
-    appTitle: { ar: 'Procap — فرنسي / عربي / إنجليزي', en: 'Procap — French / Arabic / English', fr: 'Procap — Français / Arabe / Anglais' },
+    appName: { ar: 'Zeek', en: 'Zeek', fr: 'Zeek' },
+    appTitle: { ar: 'Zeek — فرنسي / عربي / إنجليزي', en: 'Zeek — French / Arabic / English', fr: 'Zeek — Français / Arabe / Anglais' },
     searchPlaceholder: { ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', en: 'Search in Arabic, French, or English…', fr: 'Rechercher en arabe, français ou anglais…' },
     rateTitle: { ar: 'سرعة النطق', en: 'Speech rate', fr: 'Vitesse de la voix' },
     loopModeTitle: { ar: 'محتوى التكرار', en: 'Loop content', fr: 'Contenu de la répétition' },
@@ -775,7 +775,7 @@
     lessonLabel: { ar: 'الدرس', en: 'Lesson', fr: 'Leçon' },
     folderLabel: { ar: 'المجلد', en: 'Folder', fr: 'Dossier' },
     emptyFolder: { ar: 'لا توجد دروس في هذا المجلد. أضف درساً جديداً.', en: 'No lessons in this folder. Add a new lesson.', fr: 'Aucune leçon dans ce dossier. Ajoutez-en une nouvelle.' },
-    footerText: { ar: 'Procap · ', en: 'Procap · ', fr: 'Procap · ' },
+    footerText: { ar: 'Zeek · ', en: 'Zeek · ', fr: 'Zeek · ' },
     footerLink: { ar: 'تطبيقاتي الأخرى', en: 'My other apps', fr: 'Mes autres applications' },
     heroTitle: { ar: 'تعلم الفرنسية', en: 'Learn French', fr: 'Apprenez le français' },
     heroSub: { ar: 'عبارات مترجمة إلى العربية والإنجليزية', en: 'Phrases translated into Arabic and English', fr: 'Phrases traduites en arabe et en anglais' },
@@ -796,12 +796,12 @@
   const state = {
     route: { name: 'home' },
     loop: null,
-    favs: JSON.parse(localStorage.getItem('sexed_favs') || '[]'),
-    notes: JSON.parse(localStorage.getItem('sexed_notes') || '{}'),
+    favs: JSON.parse(localStorage.getItem('zeek_favs') || '[]'),
+    notes: JSON.parse(localStorage.getItem('zeek_notes') || '{}'),
     rate: 1,
     langs: ['fr', 'ar', 'en'],
-    uiLang: localStorage.getItem('sexed_ui_lang') || 'ar',
-    theme: localStorage.getItem('sexed_theme') || 'dark',
+    uiLang: localStorage.getItem('zeek_ui_lang') || 'ar',
+    theme: localStorage.getItem('zeek_theme') || 'dark',
     voiceLang: { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' },
     ttsAvailable: false
   };
@@ -842,7 +842,7 @@
 
   function setUILang(lang) {
     state.uiLang = lang;
-    localStorage.setItem('sexed_ui_lang', lang);
+    localStorage.setItem('zeek_ui_lang', lang);
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
@@ -852,7 +852,7 @@
 
   function setTheme(theme) {
     state.theme = theme;
-    localStorage.setItem('sexed_theme', theme);
+    localStorage.setItem('zeek_theme', theme);
     document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : '');
     const btn = document.getElementById('btn-theme');
     if (btn) btn.textContent = theme === 'light' ? '☀️' : '🌙';
@@ -1133,12 +1133,12 @@
 
   function isFav(key) { return state.favs.includes(key); }
   function hasNote(key) { return !!state.notes[key]; }
-  function saveNotes() { localStorage.setItem('sexed_notes', JSON.stringify(state.notes)); }
+  function saveNotes() { localStorage.setItem('zeek_notes', JSON.stringify(state.notes)); }
 
   function toggleFav(key) {
     const i = state.favs.indexOf(key);
     if (i === -1) state.favs.push(key); else state.favs.splice(i, 1);
-    localStorage.setItem('sexed_favs', JSON.stringify(state.favs));
+    localStorage.setItem('zeek_favs', JSON.stringify(state.favs));
   }
 
   function esc(s) {
@@ -2008,7 +2008,7 @@
   else init();
 
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw-procap.js').catch(() => {});
+    navigator.serviceWorker.register('sw.js').catch(() => {});
   }
 })();
 </script>
