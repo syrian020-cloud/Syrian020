@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0b0d1f">
+<title>Motsy Creator</title>
+<link rel="manifest" href="manifest.json">
+<style>
+  :root {
+    --bg-primary: #0b0d1f;
+    --bg-secondary: #13162b;
+    --bg-tertiary: #1e213d;
+    --text-primary: #f0f1ff;
+    --text-secondary: #8c90b5;
+    --accent: #7b79ff;
+    --accent-hover: #5c5bdb;
+    --danger: #ff6b81;
+    --success: #00e676;
+    --gold: #ffc857;
+    --border: rgba(255,255,255,0.08);
+    --radius: 18px;
+    --radius-sm: 12px;
+    --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    --shadow-sm: 0 4px 14px rgba(0,0,0,0.25);
+  }
+  [data-theme="light"] {
+    --bg-primary: #f4f6fb;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #eef0f7;
+    --text-primary: #181a2e;
+    --text-secondary: #5e627d;
+    --border: rgba(0,0,0,0.08);
+    --shadow: 0 8px 24px rgba(0,0,0,0.08);
+    --shadow-sm: 0 3px 10px rgba(0,0,0,0.06);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.55;
+    padding-bottom: 3rem;
+  }
+  header { position: sticky; top: 0; z-index: 60; background: rgba(11,13,31,0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  [data-theme="light"] header { background: rgba(255,255,255,0.9); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0.7rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
+  .logo { font-weight: 800; color: var(--accent); font-size: 1.05rem; white-space: nowrap; letter-spacing: -0.02em; }
+  .spacer { flex: 1; }
+  .icon-btn { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 12px; padding: 0.45rem 0.65rem; font-size: 0.95rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 600; transition: transform .1s, border-color .15s, background .15s; }
+  .icon-btn:hover { border-color: var(--accent); background: var(--bg-secondary); }
+  .icon-btn.active { background: var(--success); color: #0b0d1f; border-color: var(--success); }
+  .lang-switch { display: flex; gap: 0.25rem; }
+  .lang-btn { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 10px; padding: 0.35rem 0.55rem; font-size: 0.78rem; font-weight: 700; cursor: pointer; min-width: 2.2rem; }
+  .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  main { max-width: 960px; margin: 0 auto; padding: 0.9rem; }
+
+  .hero { background: linear-gradient(135deg, rgba(123,121,255,0.18), rgba(0,230,118,0.08)); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.25rem; margin-bottom: 0.9rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top:0; left:0; right:0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--success)); opacity: .7; }
+  .hero h1 { margin: 0 0 0.35rem; font-size: 1.22rem; }
+  .hero p { margin: 0; color: var(--text-secondary); font-size: 0.9rem; }
+
+  .btn { background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm); padding: 0.65rem 0.9rem; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: filter .15s; }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); }
+  .btn.danger { background: var(--danger); }
+  .btn.success { background: var(--success); color: #0b0d1f; }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.9rem; }
+
+  .card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; margin-bottom: 0.85rem; box-shadow: var(--shadow-sm); }
+  .card-title { font-weight: 800; font-size: 1.05rem; margin-bottom: 0.3rem; }
+  .card-sub { color: var(--text-secondary); font-size: 0.85rem; }
+
+  .lesson-card { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; transition: transform .1s, border-color .15s; }
+  .lesson-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .lesson-card .num { min-width: 2.4rem; height: 2.4rem; border-radius: 50%; background: var(--bg-tertiary); color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 800; }
+  .lesson-card .body { flex: 1; min-width: 0; }
+
+  .input, .textarea {
+    width: 100%; background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 0.65rem 0.8rem; font-size: 1rem; font-family: inherit;
+  }
+  .input:focus, .textarea:focus { outline: none; border-color: var(--accent); }
+  .textarea { min-height: 3.2rem; resize: vertical; }
+  .field-label { display: block; color: var(--text-secondary); font-size: 0.75rem; font-weight: 700; margin: 0.6rem 0 0.25rem; }
+
+  .phrase-card { margin-bottom: 0.85rem; position: relative; }
+  .phrase-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem; }
+  .phrase-num { color: var(--text-secondary); font-size: 0.85rem; font-weight: 700; }
+  .phrase-actions { margin-left: auto; display: flex; gap: 0.35rem; }
+  .phrase-actions .icon-btn { padding: 0.35rem 0.5rem; font-size: 0.85rem; }
+
+  .media-box { background: var(--bg-tertiary); border: 2px dashed var(--border); border-radius: var(--radius-sm); padding: 0.8rem; text-align: center; margin: 0.6rem 0; }
+  .media-box.has-media { border-style: solid; border-color: var(--success); padding: 0; overflow: hidden; }
+  .media-preview { width: 100%; max-height: 360px; object-fit: contain; display: block; }
+  .media-preview video { width: 100%; max-height: 360px; }
+  .media-placeholder { color: var(--text-secondary); font-size: 0.9rem; padding: 1rem; }
+  .media-btns { display: flex; gap: 0.4rem; justify-content: center; margin-top: 0.5rem; }
+
+  .empty { color: var(--text-secondary); text-align: center; padding: 2rem 1rem; }
+  .toast { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.6rem 1rem; box-shadow: var(--shadow); z-index: 100; font-size: 0.9rem; }
+  .hidden { display: none !important; }
+
+  .playing { border-color: var(--success); box-shadow: 0 0 0 2px rgba(0,230,118,0.18); }
+
+  @media (max-width: 480px) {
+    .header-inner { padding: 0.6rem; }
+    .hero h1 { font-size: 1.05rem; }
+    main { padding: 0.6rem; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <span class="logo" data-t="appName">Motsy Creator</span>
+    <span class="spacer"></span>
+    <button class="icon-btn" id="btn-export" data-t-title="export" title="Export">⬆️</button>
+    <button class="icon-btn" id="btn-import" data-t-title="import" title="Import">⬇️</button>
+    <input type="file" id="import-file" accept="application/json" class="hidden">
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="ar">AR</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
+    <button class="icon-btn" id="btn-theme" data-t-title="themeMode" title="Dark / light">🌙</button>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<script>
+(function () {
+  'use strict';
+
+  var DB_NAME = 'MotsyCreatorDB', DB_VERSION = 1;
+  var db = null;
+  var dbReady = openDB();
+
+  var state = {
+    view: 'lessons', // 'lessons' | 'lesson'
+    lessons: [],
+    currentLessonId: null,
+    uiLang: localStorage.getItem('creator_ui_lang') || 'ar',
+    theme: localStorage.getItem('creator_theme') || 'dark',
+    loopKey: null,
+    mediaUrls: {}, // mediaId -> objectUrl
+    saveTimer: null
+  };
+
+  var UI = {
+    appName: { ar: 'Motsy Creator', en: 'Motsy Creator', fr: 'Motsy Creator' },
+    title: { ar: 'منشئ الدروس', en: 'Lesson Creator', fr: 'Créateur de leçons' },
+    subtitle: { ar: 'أنشئ دروساً بجمل فرنسية مترجمة، مع صور أو فيديو، وزر تكرار.', en: 'Create lessons with translated French phrases, plus images or video, and a loop button.', fr: 'Créez des leçons avec des phrases françaises traduites, images ou vidéos, et un bouton de répétition.' },
+    addLesson: { ar: '+ درس جديد', en: '+ New lesson', fr: '+ Nouvelle leçon' },
+    noLessons: { ar: 'لا توجد دروس بعد. ابدأ بإضافة درس جديد.', en: 'No lessons yet. Add a new lesson to start.', fr: 'Aucune leçon pour le moment. Ajoutez une nouvelle leçon.' },
+    lessonTitleAr: { ar: 'عنوان الدرس (عربي)', en: 'Lesson title (Arabic)', fr: 'Titre de la leçon (arabe)' },
+    lessonTitleFr: { ar: 'عنوان الدرس (فرنسي)', en: 'Lesson title (French)', fr: 'Titre de la leçon (français)' },
+    lessonTitleEn: { ar: 'عنوان الدرس (إنجليزي)', en: 'Lesson title (English)', fr: 'Titre de la leçon (anglais)' },
+    phrases: { ar: 'عبارات', en: 'phrases', fr: 'phrases' },
+    addPhrase: { ar: '+ إضافة عبارة', en: '+ Add phrase', fr: '+ Ajouter une phrase' },
+    playAll: { ar: '▶ تشغيل الكل', en: '▶ Play all', fr: '▶ Tout lire' },
+    stopAll: { ar: '⏹ إيقاف', en: '⏹ Stop', fr: '⏹ Arrêter' },
+    back: { ar: '‹ رجوع', en: '‹ Back', fr: '‹ Retour' },
+    phraseFr: { ar: 'الجملة الفرنسية', en: 'French sentence', fr: 'Phrase française' },
+    phraseAr: { ar: 'الترجمة العربية', en: 'Arabic translation', fr: 'Traduction arabe' },
+    phraseEn: { ar: 'الترجمة الإنجليزية', en: 'English translation', fr: 'Traduction anglaise' },
+    attachMedia: { ar: '📎 صورة / فيديو', en: '📎 Image / video', fr: '📎 Image / vidéo' },
+    removeMedia: { ar: '❌ إزالة الوسائط', en: '❌ Remove media', fr: '❌ Supprimer le média' },
+    speak: { ar: '🔊 نطق', en: '🔊 Speak', fr: '🔊 Écouter' },
+    loop: { ar: '🔁 تكرار', en: '🔁 Loop', fr: '🔁 Répéter' },
+    stop: { ar: '⏹ إيقاف', en: '⏹ Stop', fr: '⏹ Arrêter' },
+    delete: { ar: '🗑', en: '🗑', fr: '🗑' },
+    moveUp: { ar: '⬆', en: '⬆', fr: '⬆' },
+    moveDown: { ar: '⬇', en: '⬇', fr: '⬇' },
+    noMedia: { ar: 'لا توجد وسائط مرفقة', en: 'No media attached', fr: 'Aucun média joint' },
+    saved: { ar: 'تم الحفظ', en: 'Saved', fr: 'Enregistré' },
+    export: { ar: 'تصدير', en: 'Export', fr: 'Exporter' },
+    import: { ar: 'استيراد', en: 'Import', fr: 'Importer' },
+    themeMode: { ar: 'الوضع الليلي/النهاري', en: 'Dark / light mode', fr: 'Mode sombre / clair' },
+    mediaHint: { ar: 'اضغط لاختيار صورة أو فيديو من الهاتف', en: 'Tap to choose an image or video from your phone', fr: 'Appuyez pour choisir une image ou une vidéo depuis votre téléphone' }
+  };
+
+  function t(key) {
+    var v = UI[key];
+    return (v && v[state.uiLang]) || (v && v.en) || key;
+  }
+
+  /* ---------------- IndexedDB ---------------- */
+
+  function openDB() {
+    return new Promise(function (resolve, reject) {
+      var req = indexedDB.open(DB_NAME, DB_VERSION);
+      req.onerror = function () { reject(req.error); };
+      req.onsuccess = function () { db = req.result; resolve(db); };
+      req.onupgradeneeded = function (e) {
+        var d = e.target.result;
+        if (!d.objectStoreNames.contains('lessons')) d.createObjectStore('lessons', { keyPath: 'id' });
+        if (!d.objectStoreNames.contains('media')) d.createObjectStore('media', { keyPath: 'id' });
+      };
+    });
+  }
+
+  function txStore(store, mode) {
+    return db.transaction([store], mode).objectStore(store);
+  }
+
+  function dbPut(store, obj) {
+    return new Promise(function (resolve, reject) {
+      var req = txStore(store, 'readwrite').put(obj);
+      req.onsuccess = function () { resolve(req.result); };
+      req.onerror = function () { reject(req.error); };
+    });
+  }
+
+  function dbGet(store, id) {
+    return new Promise(function (resolve, reject) {
+      var req = txStore(store, 'readonly').get(id);
+      req.onsuccess = function () { resolve(req.result); };
+      req.onerror = function () { reject(req.error); };
+    });
+  }
+
+  function dbDel(store, id) {
+    return new Promise(function (resolve, reject) {
+      var req = txStore(store, 'readwrite').delete(id);
+      req.onsuccess = function () { resolve(); };
+      req.onerror = function () { reject(req.error); };
+    });
+  }
+
+  function dbGetAll(store) {
+    return new Promise(function (resolve, reject) {
+      var req = txStore(store, 'readonly').getAll();
+      req.onsuccess = function () { resolve(req.result || []); };
+      req.onerror = function () { reject(req.error); };
+    });
+  }
+
+  function uuid() {
+    return 'id-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 9);
+  }
+
+  /* ---------------- State & persistence ---------------- */
+
+  function loadLessons() {
+    return dbGetAll('lessons').then(function (list) {
+      state.lessons = list || [];
+    });
+  }
+
+  function getLesson(id) {
+    return state.lessons.filter(function (l) { return l.id === id; })[0];
+  }
+
+  function queueSave() {
+    if (state.saveTimer) clearTimeout(state.saveTimer);
+    state.saveTimer = setTimeout(saveCurrentLesson, 400);
+  }
+
+  function saveCurrentLesson() {
+    var lesson = getLesson(state.currentLessonId);
+    if (!lesson) return;
+    dbPut('lessons', lesson).catch(function (e) { console.error('save failed', e); });
+  }
+
+  function addLesson() {
+    var lesson = {
+      id: uuid(),
+      title: { ar: t('addLesson'), fr: 'Nouvelle leçon', en: 'New lesson' },
+      phrases: []
+    };
+    state.lessons.push(lesson);
+    dbPut('lessons', lesson).then(function () {
+      openLesson(lesson.id);
+    });
+  }
+
+  function deleteLesson(id) {
+    var lesson = getLesson(id);
+    if (!lesson) return;
+    if (lesson.phrases) {
+      lesson.phrases.forEach(function (p) { if (p.mediaId) deleteMedia(p.mediaId); });
+    }
+    state.lessons = state.lessons.filter(function (l) { return l.id !== id; });
+    dbDel('lessons', id).then(render);
+  }
+
+  function addPhrase(lesson) {
+    lesson.phrases.push({ id: uuid(), fr: '', ar: '', en: '' });
+    saveCurrentLesson();
+    renderLessonEditor();
+  }
+
+  function deletePhrase(lesson, phraseId) {
+    var p = lesson.phrases.filter(function (x) { return x.id === phraseId; })[0];
+    if (p && p.mediaId) deleteMedia(p.mediaId);
+    lesson.phrases = lesson.phrases.filter(function (x) { return x.id !== phraseId; });
+    saveCurrentLesson();
+    renderLessonEditor();
+  }
+
+  function movePhrase(lesson, phraseId, dir) {
+    var idx = lesson.phrases.findIndex(function (x) { return x.id === phraseId; });
+    if (idx === -1) return;
+    var newIdx = idx + dir;
+    if (newIdx < 0 || newIdx >= lesson.phrases.length) return;
+    var tmp = lesson.phrases[idx];
+    lesson.phrases[idx] = lesson.phrases[newIdx];
+    lesson.phrases[newIdx] = tmp;
+    saveCurrentLesson();
+    renderLessonEditor();
+  }
+
+  function saveMedia(mediaId, file) {
+    return dbPut('media', { id: mediaId, blob: file, type: file.type });
+  }
+
+  function deleteMedia(mediaId) {
+    if (state.mediaUrls[mediaId]) { URL.revokeObjectURL(state.mediaUrls[mediaId]); delete state.mediaUrls[mediaId]; }
+    return dbDel('media', mediaId);
+  }
+
+  function getMediaUrl(mediaId) {
+    if (state.mediaUrls[mediaId]) return Promise.resolve(state.mediaUrls[mediaId]);
+    return dbGet('media', mediaId).then(function (m) {
+      if (!m) return null;
+      var url = URL.createObjectURL(m.blob);
+      state.mediaUrls[mediaId] = url;
+      return url;
+    });
+  }
+
+  function dataURLToBlob(dataURL) {
+    var parts = dataURL.split(',');
+    var base64 = parts[1];
+    var mime = parts[0].match(/:(.*?);/)[1];
+    var bin = atob(base64);
+    var arr = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+    return new Blob([arr], { type: mime });
+  }
+
+  /* ---------------- UI helpers ---------------- */
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function toast(msg) {
+    var el = document.createElement('div');
+    el.className = 'toast';
+    el.textContent = msg;
+    document.body.appendChild(el);
+    setTimeout(function () { el.remove(); }, 2000);
+  }
+
+  function applyTheme() {
+    document.documentElement.setAttribute('data-theme', state.theme === 'light' ? 'light' : 'dark');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', state.theme === 'light' ? '#f4f6fb' : '#0b0d1f');
+    localStorage.setItem('creator_theme', state.theme);
+  }
+
+  function setUILang(lang) {
+    state.uiLang = lang;
+    localStorage.setItem('creator_ui_lang', lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+    applyTranslations();
+    render();
+  }
+
+  function applyTranslations() {
+    document.title = t('appName');
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      var key = el.dataset.t;
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = t(key);
+      else el.textContent = t(key);
+    });
+    document.querySelectorAll('[data-t-title]').forEach(function (el) { el.title = t(el.dataset.tTitle); });
+  }
+
+  function setView(name, lessonId) {
+    state.view = name;
+    state.currentLessonId = lessonId || null;
+    render();
+  }
+
+  function openLesson(id) {
+    state.view = 'lesson';
+    state.currentLessonId = id;
+    render();
+  }
+
+  /* ---------------- Rendering ---------------- */
+
+  function render() {
+    var app = document.getElementById('app');
+    if (state.view === 'lesson') renderLessonEditor();
+    else renderLessonList();
+    applyTranslations();
+  }
+
+  function renderLessonList() {
+    var app = document.getElementById('app');
+    var html = '<div class="hero"><h1 data-t="title"></h1><p data-t="subtitle"></p></div>' +
+      '<div class="btn-row"><button class="btn" id="add-lesson" data-t="addLesson"></button></div>';
+    if (!state.lessons.length) {
+      html += '<div class="empty" data-t="noLessons"></div>';
+    } else {
+      html += state.lessons.map(function (l, i) {
+        var title = esc(l.title[state.uiLang] || l.title.en || l.title.fr || l.title.ar || '');
+        return '<div class="card lesson-card" data-lesson="' + l.id + '">' +
+          '<div class="num">' + (i + 1) + '</div>' +
+          '<div class="body"><div class="card-title">' + title + '</div>' +
+          '<div class="card-sub">' + l.phrases.length + ' ' + t('phrases') + '</div></div>' +
+          '<button class="icon-btn delete-lesson" data-lesson="' + l.id + '" data-t-title="delete">' + t('delete') + '</button>' +
+          '</div>';
+      }).join('');
+    }
+    app.innerHTML = html;
+    bindListEvents();
+  }
+
+  function bindListEvents() {
+    document.getElementById('add-lesson').onclick = addLesson;
+    document.querySelectorAll('.lesson-card').forEach(function (c) {
+      c.onclick = function (e) {
+        if (e.target.closest('.delete-lesson')) return;
+        openLesson(c.dataset.lesson);
+      };
+    });
+    document.querySelectorAll('.delete-lesson').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        if (confirm('Delete this lesson?')) deleteLesson(b.dataset.lesson);
+      };
+    });
+  }
+
+  function renderLessonEditor() {
+    var app = document.getElementById('app');
+    var lesson = getLesson(state.currentLessonId);
+    if (!lesson) { setView('lessons'); return; }
+    app.innerHTML = '<div class="hero"><h1>' + esc(lesson.title[state.uiLang] || lesson.title.en || '') + '</h1></div>';
+
+    var form = document.createElement('div');
+    form.className = 'card';
+    form.innerHTML =
+      '<div class="field-label" data-t="lessonTitleAr"></div><input class="input" data-lesson-field="ar" value="' + esc(lesson.title.ar || '') + '">' +
+      '<div class="field-label" data-t="lessonTitleFr"></div><input class="input" dir="ltr" data-lesson-field="fr" value="' + esc(lesson.title.fr || '') + '">' +
+      '<div class="field-label" data-t="lessonTitleEn"></div><input class="input" dir="ltr" data-lesson-field="en" value="' + esc(lesson.title.en || '') + '">' +
+      '<div class="btn-row" style="margin-top:0.8rem">' +
+        '<button class="btn ghost" id="btn-back" data-t="back"></button>' +
+        '<button class="btn" id="btn-add-phrase" data-t="addPhrase"></button>' +
+        '<button class="btn success" id="btn-play-all" data-t="playAll"></button>' +
+        '<button class="btn ghost" id="btn-stop-all" data-t="stopAll"></button>' +
+      '</div>';
+    app.appendChild(form);
+
+    var phrasesDiv = document.createElement('div');
+    phrasesDiv.id = 'phrases-list';
+    lesson.phrases.forEach(function (p, idx) {
+      phrasesDiv.appendChild(createPhraseCard(lesson, p, idx));
+    });
+    app.appendChild(phrasesDiv);
+
+    bindEditorEvents(lesson);
+    renderMediaPreviews();
+  }
+
+  function createPhraseCard(lesson, p, idx) {
+    var card = document.createElement('div');
+    card.className = 'card phrase-card';
+    card.dataset.phraseId = p.id;
+    card.innerHTML =
+      '<div class="phrase-header">' +
+        '<span class="phrase-num">#' + (idx + 1) + '</span>' +
+        '<div class="phrase-actions">' +
+          '<button class="icon-btn speak-btn" data-t-title="speak">' + t('speak') + '</button>' +
+          '<button class="icon-btn loop-btn" data-t-title="loop">' + t('loop') + '</button>' +
+          '<button class="icon-btn move-up" data-t-title="moveUp">' + t('moveUp') + '</button>' +
+          '<button class="icon-btn move-down" data-t-title="moveDown">' + t('moveDown') + '</button>' +
+          '<button class="icon-btn delete-phrase" data-t-title="delete">' + t('delete') + '</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="field-label" data-t="phraseFr"></div>' +
+      '<textarea class="textarea" dir="ltr" data-field="fr">' + esc(p.fr || '') + '</textarea>' +
+      '<div class="field-label" data-t="phraseAr"></div>' +
+      '<textarea class="textarea" data-field="ar">' + esc(p.ar || '') + '</textarea>' +
+      '<div class="field-label" data-t="phraseEn"></div>' +
+      '<textarea class="textarea" dir="ltr" data-field="en">' + esc(p.en || '') + '</textarea>' +
+      '<div class="media-box" id="media-box-' + p.id + '">' +
+        '<div class="media-placeholder" data-t="noMedia"></div>' +
+        '<div class="media-btns">' +
+          '<button class="btn ghost attach-media" data-t="attachMedia"></button>' +
+          '<button class="btn danger remove-media hidden" data-t="removeMedia"></button>' +
+        '</div>' +
+      '</div>' +
+      '<input type="file" class="file-input hidden" id="file-' + p.id + '" accept="image/*,video/*">';
+    return card;
+  }
+
+  function bindEditorEvents(lesson) {
+    document.getElementById('btn-back').onclick = function () { stopSpeech(); setView('lessons'); };
+    document.getElementById('btn-add-phrase').onclick = function () { addPhrase(lesson); };
+    document.getElementById('btn-play-all').onclick = function () { playLesson(lesson); };
+    document.getElementById('btn-stop-all').onclick = stopSpeech;
+
+    var app = document.getElementById('app');
+    app.oninput = function (e) {
+      var target = e.target;
+      if (target.dataset.field) {
+        var phrase = lesson.phrases.filter(function (x) { return x.id === target.closest('.phrase-card').dataset.phraseId; })[0];
+        if (phrase) { phrase[target.dataset.field] = target.value; queueSave(); }
+      } else if (target.dataset.lessonField) {
+        lesson.title[target.dataset.lessonField] = target.value;
+        queueSave();
+      }
+    };
+
+    app.onclick = function (e) {
+      var btn = e.target.closest('button');
+      if (!btn) return;
+      var card = btn.closest('.phrase-card');
+      if (!card) return;
+      var phraseId = card.dataset.phraseId;
+      var phrase = lesson.phrases.filter(function (x) { return x.id === phraseId; })[0];
+      if (!phrase) return;
+
+      if (btn.classList.contains('speak-btn')) {
+        stopSpeech();
+        speakOnce(phrase, ['fr', 'ar', 'en'], phraseId);
+      } else if (btn.classList.contains('loop-btn')) {
+        toggleLoop(phrase, phraseId);
+      } else if (btn.classList.contains('move-up')) {
+        movePhrase(lesson, phraseId, -1);
+      } else if (btn.classList.contains('move-down')) {
+        movePhrase(lesson, phraseId, 1);
+      } else if (btn.classList.contains('delete-phrase')) {
+        deletePhrase(lesson, phraseId);
+      } else if (btn.classList.contains('attach-media')) {
+        document.getElementById('file-' + phraseId).click();
+      } else if (btn.classList.contains('remove-media')) {
+        if (phrase.mediaId) { deleteMedia(phrase.mediaId); phrase.mediaId = null; phrase.mediaType = null; }
+        saveCurrentLesson();
+        renderMediaForPhrase(phrase);
+      }
+    };
+
+    app.onchange = function (e) {
+      var target = e.target;
+      if (target.classList.contains('file-input') && target.files && target.files[0]) {
+        var card = target.closest('.phrase-card');
+        var phrase = lesson.phrases.filter(function (x) { return x.id === card.dataset.phraseId; })[0];
+        var file = target.files[0];
+        var mediaId = uuid();
+        if (phrase.mediaId) deleteMedia(phrase.mediaId);
+        saveMedia(mediaId, file).then(function () {
+          phrase.mediaId = mediaId;
+          phrase.mediaType = file.type;
+          saveCurrentLesson();
+          renderMediaForPhrase(phrase);
+        });
+        target.value = '';
+      }
+    };
+  }
+
+  function renderMediaPreviews() {
+    var lesson = getLesson(state.currentLessonId);
+    if (!lesson) return;
+    lesson.phrases.forEach(renderMediaForPhrase);
+  }
+
+  function renderMediaForPhrase(phrase) {
+    var box = document.getElementById('media-box-' + phrase.id);
+    if (!box) return;
+    var placeholder = box.querySelector('.media-placeholder');
+    var attach = box.querySelector('.attach-media');
+    var remove = box.querySelector('.remove-media');
+    var existing = box.querySelector('.media-preview');
+    if (existing) existing.remove();
+
+    if (!phrase.mediaId) {
+      placeholder.classList.remove('hidden');
+      remove.classList.add('hidden');
+      box.classList.remove('has-media');
+      return;
+    }
+    placeholder.classList.add('hidden');
+    remove.classList.remove('hidden');
+    box.classList.add('has-media');
+
+    getMediaUrl(phrase.mediaId).then(function (url) {
+      if (!url) return;
+      var el;
+      if (phrase.mediaType && phrase.mediaType.indexOf('video/') === 0) {
+        el = document.createElement('video');
+        el.controls = true;
+        el.playsInline = true;
+      } else {
+        el = document.createElement('img');
+      }
+      el.className = 'media-preview';
+      el.src = url;
+      box.insertBefore(el, box.firstChild);
+    });
+  }
+
+  /* ---------------- Speech ---------------- */
+
+  var VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
+  var speechRun = 0;
+
+  function nativeTTS() {
+    if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech) return window.Capacitor.Plugins.TextToSpeech;
+    if (window.Capacitor && window.Capacitor.registerPlugin) {
+      window.Capacitor.Plugins = window.Capacitor.Plugins || {};
+      window.Capacitor.Plugins.TextToSpeech = window.Capacitor.registerPlugin('TextToSpeech');
+      return window.Capacitor.Plugins.TextToSpeech;
+    }
+    return null;
+  }
+
+  function nativeSpeak(text, lang) {
+    var tts = nativeTTS();
+    if (!tts) return Promise.reject('no tts');
+    return tts.speak({ text: text, lang: VOICE_LANG[lang] || 'en-US', rate: 1, queueStrategy: 1 });
+  }
+
+  function nativeStop() {
+    var tts = nativeTTS(); if (!tts) return Promise.resolve(); return tts.stop();
+  }
+
+  function pickVoice(lang) {
+    if (!('speechSynthesis' in window)) return null;
+    var voices = window.speechSynthesis.getVoices() || [];
+    var code = VOICE_LANG[lang];
+    var exact = voices.filter(function (v) { return v.lang && v.lang.replace(/_/g, '-') === code; })[0];
+    if (exact) return exact;
+    var prefix = code.split('-')[0];
+    return voices.filter(function (v) { return v.lang && v.lang.toLowerCase().indexOf(prefix) === 0; })[0] || null;
+  }
+
+  function utter(text, lang) {
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = VOICE_LANG[lang];
+    u.rate = lang === 'fr' ? 0.95 : 1;
+    var v = pickVoice(lang);
+    if (v) u.voice = v;
+    return u;
+  }
+
+  function stopSpeech() {
+    state.loopKey = null;
+    speechRun++;
+    if (nativeTTS()) nativeStop();
+    else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    document.querySelectorAll('.phrase-card').forEach(function (el) { el.classList.remove('playing'); });
+    refreshLoopButtons();
+  }
+
+  function speakOnce(phrase, langs, key, onDone) {
+    var seq = langs.filter(function (l) { return phrase[l]; });
+    var i = 0;
+    var run = ++speechRun;
+    highlightPhrase(key, true);
+    if (nativeTTS()) {
+      nativeStop();
+      (function next() {
+        if (run !== speechRun) return;
+        if (i >= seq.length) { highlightPhrase(key, false); if (onDone) onDone(); return; }
+        var lang = seq[i++];
+        nativeSpeak(phrase[lang], lang).then(function () {
+          if (run !== speechRun) return;
+          setTimeout(next, 300);
+        }).catch(function () {
+          if (run !== speechRun) return;
+          setTimeout(next, 300);
+        });
+      })();
+      return;
+    }
+    if (!('speechSynthesis' in window)) { if (onDone) onDone(); return; }
+    window.speechSynthesis.cancel();
+    (function next() {
+      if (run !== speechRun) return;
+      if (i >= seq.length) { highlightPhrase(key, false); if (onDone) onDone(); return; }
+      var lang = seq[i++];
+      var u = utter(phrase[lang], lang);
+      u.onend = function () { if (run !== speechRun) return; setTimeout(next, 300); };
+      u.onerror = function () { if (run !== speechRun) return; setTimeout(next, 300); };
+      window.speechSynthesis.speak(u);
+    })();
+  }
+
+  function toggleLoop(phrase, key) {
+    if (state.loopKey === key) { stopSpeech(); return; }
+    state.loopKey = key;
+    refreshLoopButtons();
+    (function cycle() {
+      if (state.loopKey !== key) return;
+      speakOnce(phrase, ['fr', 'ar', 'en'], key, function () {
+        if (state.loopKey !== key) return;
+        setTimeout(cycle, 700);
+      });
+    })();
+  }
+
+  function playLesson(lesson) {
+    stopSpeech();
+    var i = 0;
+    var runKey = 'lesson:' + lesson.id;
+    state.loopKey = runKey;
+    refreshLoopButtons();
+    (function next() {
+      if (state.loopKey !== runKey) return;
+      if (i >= lesson.phrases.length) { stopSpeech(); return; }
+      var p = lesson.phrases[i];
+      i++;
+      var card = document.querySelector('.phrase-card[data-phrase-id="' + p.id + '"]');
+      if (card) card.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      speakOnce(p, ['fr', 'ar', 'en'], p.id, function () {
+        if (state.loopKey !== runKey) return;
+        setTimeout(next, 400);
+      });
+    })();
+  }
+
+  function highlightPhrase(key, on) {
+    var card = document.querySelector('.phrase-card[data-phrase-id="' + key + '"]');
+    if (card) card.classList.toggle('playing', on);
+  }
+
+  function refreshLoopButtons() {
+    document.querySelectorAll('.loop-btn').forEach(function (btn) {
+      var card = btn.closest('.phrase-card');
+      var on = state.loopKey && card && card.dataset.phraseId === state.loopKey;
+      btn.textContent = on ? t('stop') : t('loop');
+      btn.classList.toggle('active', !!on);
+    });
+  }
+
+  /* ---------------- Import / Export ---------------- */
+
+  function exportData() {
+    var out = { lessons: [] };
+    var pending = 0;
+    function finish() {
+      var blob = new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'motsy-lessons.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    state.lessons.forEach(function (lesson) {
+      var l = JSON.parse(JSON.stringify(lesson));
+      out.lessons.push(l);
+      if (l.phrases) {
+        l.phrases.forEach(function (p) {
+          if (p.mediaId) {
+            pending++;
+            dbGet('media', p.mediaId).then(function (m) {
+              if (m) {
+                var reader = new FileReader();
+                reader.onloadend = function () {
+                  p.mediaBase64 = reader.result;
+                  p.mediaType = m.type;
+                  pending--;
+                  if (pending === 0) finish();
+                };
+                reader.readAsDataURL(m.blob);
+              } else {
+                pending--;
+                if (pending === 0) finish();
+              }
+            });
+          }
+        });
+      }
+    });
+    if (pending === 0) finish();
+  }
+
+  function importData(file) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      try {
+        var data = JSON.parse(reader.result);
+        if (!data || !Array.isArray(data.lessons)) { throw new Error('invalid'); }
+        state.lessons = [];
+        var pending = 0;
+        data.lessons.forEach(function (l) {
+          l.id = uuid();
+          if (l.phrases) {
+            l.phrases.forEach(function (p) {
+              p.id = uuid();
+              if (p.mediaBase64) {
+                pending++;
+                var mediaId = uuid();
+                var blob = dataURLToBlob(p.mediaBase64);
+                p.mediaId = mediaId;
+                p.mediaType = p.mediaType || blob.type;
+                saveMedia(mediaId, blob).then(function () {
+                  pending--;
+                  if (pending === 0) importSave();
+                });
+                delete p.mediaBase64;
+              }
+            });
+          }
+          state.lessons.push(l);
+          dbPut('lessons', l);
+        });
+        if (pending === 0) importSave();
+      } catch (e) {
+        toast('Import failed');
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  function importSave() {
+    toast(t('saved'));
+    renderLessonList();
+  }
+
+  /* ---------------- Init ---------------- */
+
+  function init() {
+    applyTheme();
+    setUILang(state.uiLang);
+
+    document.getElementById('btn-theme').onclick = function () {
+      state.theme = state.theme === 'dark' ? 'light' : 'dark';
+      applyTheme();
+    };
+
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.onclick = function () { setUILang(b.dataset.lang); };
+    });
+
+    document.getElementById('btn-export').onclick = exportData;
+    var importInput = document.getElementById('import-file');
+    document.getElementById('btn-import').onclick = function () { importInput.click(); };
+    importInput.onchange = function () { if (importInput.files && importInput.files[0]) importData(importInput.files[0]); importInput.value = ''; };
+
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.onvoiceschanged = function () {};
+      window.speechSynthesis.getVoices();
+    }
+  }
+
+  dbReady.then(function () {
+    return loadLessons();
+  }).then(function () {
+    init();
+    render();
+  }).catch(function (e) {
+    console.error('init error', e);
+    document.getElementById('app').innerHTML = '<div class="empty">Failed to load database.</div>';
+  });
+
+})();
+</script>
+</body>
+</html>
