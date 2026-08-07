@@ -30935,7 +30935,9 @@ window.VOCAB_DATA = [
     "level": "A1",
     "pos": "verb",
     "contexts": [
-      "caf"
+      "caf",
+      "daily",
+      "work"
     ],
     "ex": [
       {
@@ -31233,7 +31235,8 @@ window.VOCAB_DATA = [
     "level": "A1",
     "pos": "phrase",
     "contexts": [
-      "caf"
+      "caf",
+      "daily"
     ],
     "ex": {
       "fr": "Le montant dépend de vos ressources.",
@@ -31918,7 +31921,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "contexts": [
       "stage",
-      "work"
+      "work",
+      "daily"
     ],
     "ex": {
       "fr": "Quelle est la durée de l’immersion ?",
@@ -34020,7 +34024,8 @@ window.VOCAB_DATA = [
     "level": "A1",
     "pos": "adjective",
     "contexts": [
-      "sushi"
+      "sushi",
+      "daily"
     ],
     "ex": {
       "fr": "Cette sauce a un goût doux.",
@@ -35120,7 +35125,8 @@ window.VOCAB_DATA = [
     "level": "A1",
     "pos": "adjective",
     "contexts": [
-      "sushi"
+      "sushi",
+      "daily"
     ],
     "ex": {
       "fr": "Ces sushis sont délicieux.",
@@ -38253,7 +38259,8 @@ window.VOCAB_DATA = [
     "en": "to unload",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "bank"
     ],
     "pos": "verb",
     "ex": {
@@ -38477,7 +38484,8 @@ window.VOCAB_DATA = [
     "en": "defect / fault",
     "level": "A2",
     "contexts": [
-      "daily"
+      "daily",
+      "shop"
     ],
     "pos": "noun",
     "ex": {
@@ -38540,7 +38548,8 @@ window.VOCAB_DATA = [
     "en": "to clear / remove",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "work"
     ],
     "pos": "verb",
     "ex": {
@@ -38555,7 +38564,9 @@ window.VOCAB_DATA = [
     "en": "to start / start up",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "transport",
+      "car"
     ],
     "pos": "verb",
     "ex": {
@@ -39226,5 +39237,807 @@ window.VOCAB_DATA = [
       "en": "I can't guess the answer.",
       "ar": "ما فيني خمن الجواب."
     }
+  },
+  {
+    "fr": "Débarrasser",
+    "ar": "يزيل / يفرّغ",
+    "en": "to clear / remove",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "restaurant"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je vais débarrasser la table.",
+      "en": "I will clear the table.",
+      "ar": "رح شيل الأغراض عن الطاولة."
+    }
+  },
+  {
+    "fr": "Décomposer",
+    "ar": "يحلّل / يفكك",
+    "en": "to break down / decompose",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je vais décomposer le problème en plusieurs étapes.",
+      "en": "I will break down the problem into steps.",
+      "ar": "رح قسّم المشكلة لعدة مراحل."
+    }
+  },
+  {
+    "fr": "Dégrader",
+    "ar": "يسيء / يتدهور",
+    "en": "to damage / deteriorate",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "La qualité s'est dégradée.",
+      "en": "The quality has deteriorated.",
+      "ar": "الجودة تراجعت."
+    }
+  },
+  {
+    "fr": "Desservir",
+    "ar": "يخدم / يزيل الصحون",
+    "en": "to serve / clear (table)",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "restaurant"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le serveur dessert les tables.",
+      "en": "The waiter clears the tables.",
+      "ar": "النادل يشيل الصحون عن الطاولات."
+    }
+  },
+  {
+    "fr": "Détester",
+    "ar": "يكره",
+    "en": "to hate / dislike",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je déteste attendre longtemps.",
+      "en": "I hate waiting a long time.",
+      "ar": "بكره ناطر وقت طويل."
+    }
+  },
+  {
+    "fr": "Détacher",
+    "ar": "يفصل / ينزع",
+    "en": "to detach / remove",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il faut détacher cette pièce.",
+      "en": "This part needs to be removed.",
+      "ar": "لازم نشيل هالقطعة."
+    }
+  },
+  {
+    "fr": "Débattre",
+    "ar": "يناقش / يجادل",
+    "en": "to debate / discuss",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Nous allons débattre de cette question.",
+      "en": "We will debate this issue.",
+      "ar": "رح نناقش هالموضوع."
+    }
+  },
+  {
+    "fr": "Déclaratif",
+    "ar": "تصريحي",
+    "en": "declarative / statement-based",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "adjective",
+    "ex": {
+      "fr": "Il faut remplir un formulaire déclaratif.",
+      "en": "You must complete a declaration form.",
+      "ar": "لازم تعبي نموذج تصريح."
+    }
+  },
+  {
+    "fr": "Décliner",
+    "ar": "يرفض / ينخفض",
+    "en": "to decline / refuse",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Je dois décliner cette proposition.",
+      "en": "I have to decline this offer.",
+      "ar": "لازم أرفض هالعرض."
+    }
+  },
+  {
+    "fr": "Décrocher",
+    "ar": "يرد على الهاتف / يحصل على",
+    "en": "to pick up / obtain / come off",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "J'ai décroché un nouvel emploi.",
+      "en": "I got a new job.",
+      "ar": "حصلت على شغل جديد."
+    }
+  },
+  {
+    "fr": "Dédommager",
+    "ar": "يعوّض",
+    "en": "to compensate",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "shop"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "L'entreprise va dédommager le client.",
+      "en": "The company will compensate the customer.",
+      "ar": "الشركة رح تعوّض الزبون."
+    }
+  },
+  {
+    "fr": "Défaillance",
+    "ar": "عطل / خلل",
+    "en": "failure / malfunction",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Il y a une défaillance technique.",
+      "en": "There is a technical failure.",
+      "ar": "في عطل تقني."
+    }
+  },
+  {
+    "fr": "Définitivement",
+    "ar": "نهائيًا",
+    "en": "permanently / definitely",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "adjective",
+    "ex": {
+      "fr": "Je veux régler ce problème définitivement.",
+      "en": "I want to solve this problem permanently.",
+      "ar": "بدي حل هالمشكلة نهائيًا."
+    }
+  },
+  {
+    "fr": "Démarcheur",
+    "ar": "مندوب مبيعات",
+    "en": "salesperson / canvasser",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services",
+      "phone"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Un démarcheur m'a appelé.",
+      "en": "A salesperson called me.",
+      "ar": "اتصل فيني مندوب مبيعات."
+    }
+  },
+  {
+    "fr": "Démarquer",
+    "ar": "يميّز نفسه",
+    "en": "to stand out / distinguish",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Cette entreprise se démarque par sa qualité.",
+      "en": "This company stands out for its quality.",
+      "ar": "هالشركة تتميّز بجودتها."
+    }
+  },
+  {
+    "fr": "Démolir",
+    "ar": "يهدم / يدمّر",
+    "en": "to demolish / destroy",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Ils vont démolir l'ancien bâtiment.",
+      "en": "They will demolish the old building.",
+      "ar": "رح يهدموا البناء القديم."
+    }
+  },
+  {
+    "fr": "Démonstration",
+    "ar": "شرح عملي / عرض",
+    "en": "demonstration",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "shop"
+    ],
+    "pos": "noun",
+    "ex": {
+      "fr": "Le vendeur fait une démonstration du produit.",
+      "en": "The seller gives a demonstration of the product.",
+      "ar": "البائع يعمل شرح للمنتج."
+    }
+  },
+  {
+    "fr": "Dénoncer",
+    "ar": "يبلّغ / يشتكي",
+    "en": "to report / denounce",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Il a dénoncé un problème.",
+      "en": "He reported a problem.",
+      "ar": "بلّغ عن مشكلة."
+    }
+  },
+  {
+    "fr": "Départager",
+    "ar": "يفصل بين / يحسم",
+    "en": "to decide between / separate",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": {
+      "fr": "Le jury doit départager les candidats.",
+      "en": "The jury must choose between the candidates.",
+      "ar": "اللجنة لازم تختار بين المتقدمين."
+    }
+  },
+  {
+    "fr": "Dépenser inutilement",
+    "ar": "يصرف بدون فائدة",
+    "en": "to waste money",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Je ne veux pas dépenser inutilement.",
+      "en": "I don't want to waste money.",
+      "ar": "ما بدي ضيّع مصاري بدون فائدة."
+    }
+  },
+  {
+    "fr": "Déplacer un objet",
+    "ar": "ينقل غرض",
+    "en": "move an object",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Il faut déplacer cet objet.",
+      "en": "This object needs to be moved.",
+      "ar": "لازم ننقل هالغرض."
+    }
+  },
+  {
+    "fr": "Désigner un responsable",
+    "ar": "يناقش / يحكي",
+    "en": "to discuss",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase",
+    "ex": {
+      "fr": "Ils ont désigné un responsable.",
+      "en": "They appointed a person in charge.",
+      "ar": "عيّنوا مسؤول."
+    }
+  },
+  {
+    "fr": "Dommage",
+    "ar": "ضرر / خسارة / يا للأسف",
+    "en": "damage / pity",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Difficile",
+    "ar": "صعب",
+    "en": "difficult",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Différent(e)",
+    "ar": "مختلف",
+    "en": "different",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Dernier / Dernière",
+    "ar": "الأخير / الأخيرَة",
+    "en": "last / latest",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase"
+  },
+  {
+    "fr": "Direct(e)",
+    "ar": "مباشر",
+    "en": "direct / straightforward",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Dur / Dure",
+    "ar": "قاسٍ / صعب",
+    "en": "hard / difficult / tough",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase"
+  },
+  {
+    "fr": "Dangereux / Dangereuse",
+    "ar": "خطير",
+    "en": "dangerous",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase"
+  },
+  {
+    "fr": "Déçu(e)",
+    "ar": "خائب الأمل / زعلان",
+    "en": "disappointed",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Déterminé(e)",
+    "ar": "مصمم / مصرّ",
+    "en": "determined",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Dernier cri",
+    "ar": "حديث جدًا / آخر طراز",
+    "en": "latest / state-of-the-art",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase"
+  },
+  {
+    "fr": "Déclaré(e)",
+    "ar": "مُصرّح عنه",
+    "en": "declared / stated",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Définitif / Définitive",
+    "ar": "نهائي",
+    "en": "final / definitive",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase"
+  },
+  {
+    "fr": "Délicat(e)",
+    "ar": "حساس / دقيق",
+    "en": "delicate / sensitive",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Dépendant(e)",
+    "ar": "معتمد على / تابع",
+    "en": "dependent",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Déterminant(e)",
+    "ar": "حاسم / مهم",
+    "en": "decisive / determining",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Développé(e)",
+    "ar": "متطور",
+    "en": "developed / advanced",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Défavorable",
+    "ar": "غير مناسب / سلبي",
+    "en": "unfavorable / negative",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "adjective"
+  },
+  {
+    "fr": "Défini(e)",
+    "ar": "محدد / معيّن",
+    "en": "defined / specified",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Défectueux / Défectueuse",
+    "ar": "معطّل / فيه عيب",
+    "en": "defective / faulty",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase"
+  },
+  {
+    "fr": "Dense",
+    "ar": "كثيف / مكتظ",
+    "en": "dense / thick",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Dernièrement (ظرف وليس صفة، لكنه مهم)",
+    "ar": "مؤخرًا",
+    "en": "recently",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase"
+  },
+  {
+    "fr": "Discret / Discrète",
+    "ar": "كتوم / هادئ",
+    "en": "discreet / quiet",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase"
+  },
+  {
+    "fr": "Disponible immédiatement",
+    "ar": "متوفر فورًا",
+    "en": "available immediately",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase"
+  },
+  {
+    "fr": "Désagréable",
+    "ar": "مزعج / غير لطيف",
+    "en": "unpleasant / unpleasant person",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "adjective"
+  },
+  {
+    "fr": "Désolé(e)",
+    "ar": "آسف / متأسف",
+    "en": "sorry",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Désert(e)",
+    "ar": "فارغ / مهجور",
+    "en": "empty / deserted",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Déséquilibré(e)",
+    "ar": "غير متوازن",
+    "en": "unbalanced",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Détaillé(e)",
+    "ar": "مفصل / بالتفصيل",
+    "en": "detailed",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Détestable",
+    "ar": "سيئ جدًا / مكروه",
+    "en": "hateful / unbearable",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "restaurant"
+    ],
+    "pos": "adjective"
+  },
+  {
+    "fr": "Digne",
+    "ar": "جدير / محترم",
+    "en": "worthy / dignified",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Diligent(e)",
+    "ar": "مجتهد / نشيط",
+    "en": "diligent / hardworking",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Divers / Diverse",
+    "ar": "متنوع / مختلف",
+    "en": "various / different",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase"
+  },
+  {
+    "fr": "Divisé(e)",
+    "ar": "مقسّم / منقسم",
+    "en": "divided",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Dommageable",
+    "ar": "ضار",
+    "en": "harmful / damaging",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "adjective"
+  },
+  {
+    "fr": "Doué(e)",
+    "ar": "موهوب",
+    "en": "talented / gifted",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Durable",
+    "ar": "دائم / مستمر",
+    "en": "lasting / sustainable",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "adjective"
+  },
+  {
+    "fr": "Défavorisé(e)",
+    "ar": "محروم / أقل حظًا",
+    "en": "disadvantaged",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Démodé(e)",
+    "ar": "قديم الطراز",
+    "en": "outdated / old-fashioned",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Déplacé(e)",
+    "ar": "غير مناسب / منقول",
+    "en": "inappropriate / moved",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Déprimé(e)",
+    "ar": "محبط / مكتئب",
+    "en": "depressed / low",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Dérangeant(e)",
+    "ar": "مزعج",
+    "en": "disturbing / annoying",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Désertique",
+    "ar": "صحراوي / قاحل",
+    "en": "desert-like",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "adjective"
+  },
+  {
+    "fr": "Dévasté(e)",
+    "ar": "مدمّر / محطم",
+    "en": "devastated / destroyed",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Difficilement (حال لكنه مهم)",
+    "ar": "بصعوبة",
+    "en": "with difficulty",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase"
+  },
+  {
+    "fr": "Digital(e)",
+    "ar": "رقمي",
+    "en": "digital",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun"
+  },
+  {
+    "fr": "Diplomatique",
+    "ar": "دبلوماسي / لبق",
+    "en": "diplomatic",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "adjective"
   }
 ];

@@ -1,9 +1,9 @@
-import json, re, os
+import json, re, os, sys
 from collections import OrderedDict
 
 vocab_path = "/home/ubuntu/repos/Syrian020/data/vocab.js"
 batch2_path = "/home/ubuntu/repos/Syrian020/data/vocab-batch-02.js"
-src = "/tmp/d_batch_raw.txt"
+src = sys.argv[1] if len(sys.argv) > 1 else "/tmp/d_batch_raw.txt"
 
 def load_js_array(path):
     with open(path, "r", encoding="utf-8") as f:
