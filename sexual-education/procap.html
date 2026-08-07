@@ -240,6 +240,11 @@
   .btns .ai-btn .ai-sparkle { color: #fbbf24; font-size: 0.9rem; }
   .btns .note-btn:hover { border-color: var(--accent); color: var(--accent); }
   .btns .note-btn.note-on { color: var(--success); border-color: var(--success); }
+  .btns .media-btn.on { color: var(--accent); border-color: var(--accent); }
+  .phrase-media { margin-top: 0.75rem; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+  .phrase-media img, .phrase-media video, .phrase-media iframe { display: block; width: 100%; max-height: 320px; object-fit: contain; background: #000; }
+  .phrase-media iframe { height: 240px; }
+  .phrase-media video { max-height: 360px; }
   .no-lessons { text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); }
   .no-lessons .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
   .no-lessons .card-title { color: var(--text-primary); margin-bottom: 0.3rem; }
@@ -382,6 +387,29 @@
     <div class="form-actions" style="margin-top:0.75rem">
       <button type="button" class="btn" id="btn-save-note" data-t="save">حفظ</button>
       <button type="button" class="btn ghost" id="btn-close-note" data-t="cancel">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<div id="media-modal" class="modal" style="z-index:97">
+  <div class="modal-content" style="max-width:520px">
+    <h3 data-t="addMedia">Add media</h3>
+    <div class="form-group">
+      <button type="button" class="btn" id="btn-choose-media-file" data-t="chooseMediaFile">Choose image/video file</button>
+      <input type="file" id="media-file" accept="image/*,video/*" style="display:none">
+    </div>
+    <div class="form-group" style="margin-top:0.75rem">
+      <label data-t="mediaUrl">Or media URL</label>
+      <input type="text" id="media-url" placeholder="https://..." style="width:100%">
+    </div>
+    <div class="form-group" id="media-preview" style="display:none;margin-top:0.75rem">
+      <img id="media-preview-img" style="width:100%;border-radius:var(--radius);display:none">
+      <video id="media-preview-video" controls style="width:100%;border-radius:var(--radius);display:none;max-height:240px;background:#000"></video>
+    </div>
+    <div class="form-actions" style="margin-top:0.75rem">
+      <button type="button" class="btn" id="btn-save-media" data-t="save">حفظ</button>
+      <button type="button" class="btn ghost" id="btn-remove-media" data-t="delete" style="display:none;color:var(--danger);border-color:var(--danger)">حذف</button>
+      <button type="button" class="btn ghost" id="btn-close-media" data-t="cancel">إلغاء</button>
     </div>
   </div>
 </div>
@@ -723,6 +751,10 @@
     edit: { ar: 'تعديل', en: 'Edit', fr: 'Modifier' },
     setImage: { ar: 'ضبط صورة', en: 'Set image', fr: 'Définir l’image' },
     chooseImage: { ar: 'اختر صورة', en: 'Choose an image', fr: 'Choisir une image' },
+    addMedia: { ar: 'إضافة وسائط', en: 'Add media', fr: 'Ajouter un média' },
+    mediaUrl: { ar: 'رابط الصورة/الفيديو', en: 'Image/video URL', fr: 'URL image/vidéo' },
+    chooseMediaFile: { ar: 'اختر ملف صورة/فيديو', en: 'Choose image/video file', fr: 'Choisir un fichier image/vidéo' },
+    mediaInvalid: { ar: 'ملف غير صالح. يجب أن يكون صورة أو فيديو.', en: 'Invalid file. Must be an image or video.', fr: 'Fichier invalide. Doit être une image ou une vidéo.' },
     editFolderTitle: { ar: 'تعديل عنوان المجلد', en: 'Edit folder title', fr: 'Modifier le titre du dossier' },
     editLessonTitle: { ar: 'تعديل الدرس', en: 'Edit lesson', fr: 'Modifier la leçon' },
     invalidImage: { ar: 'الملف ليس صورة', en: 'File is not an image', fr: 'Le fichier n\'est pas une image' },
@@ -1237,6 +1269,23 @@
     go(folder ? { name: 'folder', folder: folder.id } : { name: 'home' });
   }
 
+  function youtubeId(url) {
+    const m = String(url).match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/);
+    return m ? m[1] : null;
+  }
+
+  function isVideoUrl(url) {
+    return /^data:video|\.(mp4|webm|mov|ogv)(\?|$)/i.test(url);
+  }
+
+  function mediaHTML(media) {
+    if (!media) return '';
+    const yt = youtubeId(media);
+    if (yt) return `<div class="phrase-media"><iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe></div>`;
+    if (isVideoUrl(media)) return `<div class="phrase-media"><video src="${esc(media)}" controls playsinline poster=""></video></div>`;
+    return `<div class="phrase-media"><img src="${esc(media)}" alt="" onerror="this.style.display='none'"></div>`;
+  }
+
   function phraseHTML(p, key) {
     return `<div class="phrase" data-key="${key}">
       <div class="phrase-top">
@@ -1249,10 +1298,12 @@
           <button class="speak-btn" title="${t('speakOnce')}">🔊</button>
           <button class="loop-btn" title="${t('loopTitle')}">🔁</button>
           <button class="ai-btn" title="${t('aiTitle')}"><span class="ai-label">Google AI</span><span class="ai-sparkle">✨</span></button>
+          <button class="media-btn ${p.media ? 'on' : ''}" title="${t('addMedia')}">${p.media ? '📎' : '📷'}</button>
           <button class="note-btn ${hasNote(key) ? 'note-on' : ''}" title="${t('noteTitle')}">${hasNote(key) ? '📔' : '📓'}</button>
           <button class="fav-btn ${isFav(key) ? 'fav-on' : ''}" title="${t('favTitle')}">${isFav(key) ? '★' : '☆'}</button>
         </div>
       </div>
+      ${mediaHTML(p.media)}
     </div>`;
   }
 
@@ -1529,6 +1580,8 @@
 
   let noteKey = null;
   let noteCtx = null;
+  let mediaKey = null;
+  let mediaFileData = null;
   let noteDrawing = false;
   let noteErasing = false;
   let noteColor = '#000000';
@@ -1685,6 +1738,8 @@
       } else if (e.target.closest('.ai-btn')) {
         const query = 'Explain the phrase "' + p.fr + '" in French, Arabic and English. French: ' + p.fr + ' / Arabic: ' + p.ar + ' / English: ' + p.en + ' (without tables)';
         window.open('https://www.google.com/search?q=' + encodeURIComponent(query) + '&udm=50&hl=' + state.uiLang, '_blank');
+      } else if (e.target.closest('.media-btn')) {
+        openMedia(key);
       } else if (e.target.closest('.note-btn')) {
         openNote(key);
       } else if (e.target.closest('.fav-btn')) {
@@ -1729,6 +1784,117 @@
         return;
       }
     });
+  }
+
+  function updateMediaPreview(url) {
+    const wrap = document.getElementById('media-preview');
+    const img = document.getElementById('media-preview-img');
+    const vid = document.getElementById('media-preview-video');
+    if (!url) { wrap.style.display = 'none'; img.style.display = 'none'; vid.style.display = 'none'; img.src = ''; vid.src = ''; return; }
+    wrap.style.display = 'block';
+    const yt = youtubeId(url);
+    if (isVideoUrl(url)) {
+      img.style.display = 'none';
+      vid.style.display = 'block';
+      vid.src = url;
+      img.src = '';
+    } else if (yt) {
+      img.style.display = 'block';
+      vid.style.display = 'none';
+      img.src = 'https://img.youtube.com/vi/' + yt + '/0.jpg';
+      vid.src = '';
+    } else {
+      img.style.display = 'block';
+      vid.style.display = 'none';
+      img.src = url;
+      vid.src = '';
+    }
+  }
+
+  function openMedia(key) {
+    mediaKey = key;
+    mediaFileData = null;
+    const [lessonId, idx] = key.split('.').map(Number);
+    const found = findLesson(lessonId);
+    const p = found ? found.lesson.phrases[idx] : null;
+    const modal = document.getElementById('media-modal');
+    const urlInput = document.getElementById('media-url');
+    const removeBtn = document.getElementById('btn-remove-media');
+    const fileInput = document.getElementById('media-file');
+    urlInput.value = (p && p.media && !/^data:/.test(p.media)) ? p.media : '';
+    removeBtn.style.display = (p && p.media) ? 'inline-block' : 'none';
+    fileInput.value = '';
+    updateMediaPreview(p ? p.media : null);
+    modal.classList.add('show');
+  }
+
+  function closeMedia() {
+    document.getElementById('media-modal').classList.remove('show');
+    mediaKey = null;
+    mediaFileData = null;
+    updateMediaPreview(null);
+  }
+
+  function saveMedia() {
+    if (!mediaKey) return;
+    const [lessonId, idx] = mediaKey.split('.').map(Number);
+    const found = findLesson(lessonId);
+    if (!found) { closeMedia(); return; }
+    const p = found.lesson.phrases[idx];
+    let url = mediaFileData || document.getElementById('media-url').value.trim();
+    if (!url) { closeMedia(); return; }
+    if (!/^https?:\/\//.test(url) && !/^data:/.test(url) && !/^[\/]/.test(url)) {
+      showToast(t('mediaInvalid'));
+      return;
+    }
+    p.media = url;
+    saveLessons();
+    closeMedia();
+    go(state.route, false);
+    showToast(t('saved'));
+  }
+
+  function removeMedia() {
+    if (!mediaKey) return;
+    const [lessonId, idx] = mediaKey.split('.').map(Number);
+    const found = findLesson(lessonId);
+    if (found) {
+      const p = found.lesson.phrases[idx];
+      delete p.media;
+      saveLessons();
+      go(state.route, false);
+      showToast(t('deleted'));
+    }
+    closeMedia();
+  }
+
+  function bindMediaModal() {
+    const modal = document.getElementById('media-modal');
+    const fileInput = document.getElementById('media-file');
+    const chooseBtn = document.getElementById('btn-choose-media-file');
+    const urlInput = document.getElementById('media-url');
+    document.getElementById('btn-close-media').onclick = closeMedia;
+    document.getElementById('btn-save-media').onclick = saveMedia;
+    document.getElementById('btn-remove-media').onclick = removeMedia;
+    chooseBtn.onclick = () => fileInput.click();
+    fileInput.onchange = () => {
+      const file = fileInput.files && fileInput.files[0];
+      if (!file) return;
+      if (!file.type.startsWith('image/') && !file.type.startsWith('video/')) {
+        showToast(t('mediaInvalid'));
+        fileInput.value = '';
+        return;
+      }
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        mediaFileData = e.target.result;
+        updateMediaPreview(mediaFileData);
+        urlInput.value = '';
+      };
+      reader.readAsDataURL(file);
+    };
+    urlInput.oninput = (e) => { mediaFileData = null; updateMediaPreview(e.target.value.trim()); };
+    modal.addEventListener('click', e => { if (e.target === modal) closeMedia(); });
   }
 
   function go(route, push = true) {
@@ -1813,6 +1979,7 @@
     bindViewEvents();
     bindActionSheet();
     bindNoteCanvas();
+    bindMediaModal();
     document.getElementById('btn-save-note').onclick = saveNote;
     document.getElementById('btn-close-note').onclick = closeNote;
     document.getElementById('note-clear').onclick = clearNote;
