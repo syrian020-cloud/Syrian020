@@ -543,6 +543,20 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   4. Confirm the `MDPH` context chip shows `109` results and no JS runtime errors in DevTools.
 - The debug APK was rebuilt after this batch.
 
+## Préfecture verbs and phrases batch (dross-v131)
+
+- Parsed and merged a large Préfecture/OQTF/naturalisation/residence-permit batch from the user's message into `data/vocab.js`.
+- Added ~104 new entries and merged ~18 existing entries into the `prefecture` context. Total vocab increased from **2145** to **2249**; `prefecture` context increased from 6 to **122**.
+- POS and level were assigned heuristically: single infinitives → `verb A2`; article-led phrases → `noun A2`; multi-word infinitive/object/sentence phrases → `phrase B1`. Merged duplicates were updated with the new POS/level and translations where applicable.
+- Duplicate entries were merged by normalizing the French headword (removing leading `Le/La/L'/Les/Un/Une/Des`, lowercasing, and stripping accents). Existing duplicates like `Déposer une demande`, `Prendre rendez-vous`, and `Être disponible` had the new `prefecture` context and examples merged in.
+- Bumped service worker cache to `dross-v131` and rebuilt the debug APK.
+- E2E verification steps:
+  1. Open `vocab.html` fresh and search `Déposer une demande` — verify the card shows `Phrase`, Arabic `يقدّم طلبًا`, and contexts `CAF`, `Services`, `Prefecture`.
+  2. Search `Renouveler un titre de séjour` — verify the phrase card renders with the prefecture example.
+  3. Search `Où en est mon dossier ?` — verify the sentence card appears in the `Prefecture` context.
+  4. Confirm the `Prefecture` context chip shows `122` results and no JS runtime errors in DevTools.
+- The debug APK was rebuilt after this batch.
+
 ## Known data-quality issues (last observed)
 
-- None. All 2095 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`) when a separate example was provided. Situation sentences use `fr`/`ar`/`en` directly and may not have a separate `ex` block. Administrative entries may also include a `usage` field.
+- None. All 2249 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`) when a separate example was provided. Situation sentences use `fr`/`ar`/`en` directly and may not have a separate `ex` block. Administrative entries may also include a `usage` field.

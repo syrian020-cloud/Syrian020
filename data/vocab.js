@@ -24882,35 +24882,51 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Pouvez-vous vérifier mon dossier ?",
-    "ar": "هل يمكنكم التحقق من ملفي؟",
+    "ar": "فيك تتأكد من ملفي؟",
     "en": "Can you check my file?",
-    "pos": "other",
-    "level": "A1",
+    "pos": "phrase",
+    "level": "B1",
     "contexts": [
       "caf",
-      "services"
+      "services",
+      "prefecture"
     ],
-    "ex": {
-      "fr": "Pouvez-vous vérifier l'état de mon dossier ?",
-      "ar": "هل يمكنكم التحقق من حالة ملفي؟",
-      "en": "Can you check my file status?"
-    }
+    "ex": [
+      {
+        "fr": "Pouvez-vous vérifier l'état de mon dossier ?",
+        "ar": "هل يمكنكم التحقق من حالة ملفي؟",
+        "en": "Can you check my file status?"
+      },
+      {
+        "fr": "Pouvez-vous vérifier si mon dossier est complet ?",
+        "ar": "فيك تتأكد إذا ملفي كامل؟",
+        "en": "Could you check whether my application is complete?"
+      }
+    ]
   },
   {
     "fr": "Il manque un document",
-    "ar": "هناك وثيقة ناقصة",
+    "ar": "في ورقة ناقصة",
     "en": "A document is missing",
-    "pos": "other",
-    "level": "A1",
+    "pos": "phrase",
+    "level": "B1",
     "contexts": [
       "caf",
-      "services"
+      "services",
+      "prefecture"
     ],
-    "ex": {
-      "fr": "Pouvez-vous me dire quel document manque ?",
-      "ar": "هل يمكنكم إخباري ما هي الوثيقة الناقصة؟",
-      "en": "Can you tell me which document is missing?"
-    }
+    "ex": [
+      {
+        "fr": "Pouvez-vous me dire quel document manque ?",
+        "ar": "هل يمكنكم إخباري ما هي الوثيقة الناقصة؟",
+        "en": "Can you tell me which document is missing?"
+      },
+      {
+        "fr": "Quel document manque-t-il ?",
+        "ar": "أي ورقة ناقصة؟",
+        "en": "Which document is missing?"
+      }
+    ]
   },
   {
     "fr": "J'ai envoyé tous les documents",
@@ -25525,19 +25541,27 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Déposer une demande",
-    "ar": "تقديم طلب",
+    "ar": "يقدّم طلبًا",
     "en": "Submit an application",
-    "pos": "other",
-    "level": "A1",
+    "pos": "phrase",
+    "level": "B1",
     "contexts": [
       "caf",
-      "services"
+      "services",
+      "prefecture"
     ],
-    "ex": {
-      "fr": "Je souhaite déposer une demande.",
-      "ar": "أريد تقديم طلب.",
-      "en": "I would like to submit an application."
-    }
+    "ex": [
+      {
+        "fr": "Je souhaite déposer une demande.",
+        "ar": "أريد تقديم طلب.",
+        "en": "I would like to submit an application."
+      },
+      {
+        "fr": "J'ai déposé une demande de titre de séjour.",
+        "ar": "قدّمت طلب إقامة.",
+        "en": "I submitted a residence permit application."
+      }
+    ]
   },
   {
     "fr": "Recevoir une notification",
@@ -25599,18 +25623,26 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Respecter un délai",
-    "ar": "احترام المهلة",
-    "en": "Meet a deadline",
-    "pos": "other",
-    "level": "A1",
+    "ar": "يحترم مهلة",
+    "en": "Respect a deadline",
+    "pos": "phrase",
+    "level": "B1",
     "contexts": [
-      "services"
+      "services",
+      "prefecture"
     ],
-    "ex": {
-      "fr": "Il faut respecter le délai.",
-      "ar": "يجب احترام المهلة.",
-      "en": "The deadline must be respected."
-    }
+    "ex": [
+      {
+        "fr": "Il faut respecter le délai.",
+        "ar": "يجب احترام المهلة.",
+        "en": "The deadline must be respected."
+      },
+      {
+        "fr": "Je dois respecter le délai de recours.",
+        "ar": "لازم التزم بمهلة الطعن.",
+        "en": "I must respect the appeal deadline."
+      }
+    ]
   },
   {
     "fr": "Urgent",
@@ -25924,14 +25956,15 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Prendre rendez-vous",
-    "ar": "يحجز موعد",
-    "en": "To make an appointment",
+    "ar": "يحجز موعدًا",
+    "en": "Make an appointment",
     "pos": "phrase",
-    "level": "A1",
+    "level": "B1",
     "contexts": [
       "caf",
       "health",
-      "services"
+      "services",
+      "prefecture"
     ],
     "ex": [
       {
@@ -25943,6 +25976,11 @@ window.VOCAB_DATA = [
         "fr": "J'ai pris rendez-vous à la CAF pour la semaine prochaine.",
         "ar": "حجزت موعد بالـ CAF للأسبوع الجاي.",
         "en": "I made an appointment at the CAF for next week."
+      },
+      {
+        "fr": "Je voudrais prendre rendez-vous à la préfecture.",
+        "ar": "بدي احجز موعد بالبريفكتور.",
+        "en": "I would like to make an appointment at the prefecture."
       }
     ]
   },
@@ -28962,17 +29000,20 @@ window.VOCAB_DATA = [
   {
     "fr": "Mettre à jour son dossier",
     "pos": "phrase",
-    "level": "A1",
+    "level": "B1",
     "contexts": [
-      "caf"
+      "caf",
+      "prefecture"
     ],
-    "ar": "تحديث الملف",
-    "en": "Update the application",
-    "ex": {
-      "fr": "Je dois mettre à jour mon dossier.",
-      "ar": "لازم حدّث ملفي.",
-      "en": "I have to update my application."
-    }
+    "ar": "يحدّث ملفه",
+    "en": "Update one's file",
+    "ex": [
+      {
+        "fr": "Je dois mettre à jour mon dossier.",
+        "ar": "لازم حدّث ملفي.",
+        "en": "I have to update my application."
+      }
+    ]
   },
   {
     "fr": "Changement de situation professionnelle",
@@ -29494,13 +29535,20 @@ window.VOCAB_DATA = [
   {
     "fr": "Où en est mon dossier ?",
     "pos": "phrase",
-    "level": "A1",
+    "level": "B1",
     "contexts": [
-      "caf"
+      "caf",
+      "prefecture"
     ],
     "ar": "لوين وصل ملفي؟",
     "en": "What's the status of my application?",
-    "ex": null
+    "ex": [
+      {
+        "fr": "Bonjour, je voudrais savoir où en est mon dossier.",
+        "ar": "مرحبا، بدي أعرف لوين وصل ملفي.",
+        "en": "Hello, I'd like to know the status of my application."
+      }
+    ]
   },
   {
     "fr": "Mon dossier est-il traité ?",
@@ -31196,18 +31244,21 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Justifier ses ressources",
-    "ar": "يثبت دخله",
-    "en": "To justify one's income",
-    "level": "A1",
+    "ar": "يثبت موارده المالية",
+    "en": "Prove one's resources",
+    "level": "B1",
     "pos": "phrase",
     "contexts": [
-      "caf"
+      "caf",
+      "prefecture"
     ],
-    "ex": {
-      "fr": "Je dois justifier mes ressources.",
-      "ar": "لازم أثبت مواردي المالية.",
-      "en": "I have to justify my income."
-    }
+    "ex": [
+      {
+        "fr": "Je dois justifier mes ressources.",
+        "ar": "لازم أثبت مواردي المالية.",
+        "en": "I have to justify my income."
+      }
+    ]
   },
   {
     "fr": "Être éligible",
@@ -32066,19 +32117,27 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Être disponible",
-    "ar": "يكون متاحًا",
-    "en": "To be available",
-    "level": "A1",
+    "ar": "يكون جاهزًا / متاحًا",
+    "en": "Be available",
+    "level": "B1",
     "pos": "phrase",
     "contexts": [
       "stage",
-      "work"
+      "work",
+      "prefecture"
     ],
-    "ex": {
-      "fr": "Je suis disponible pour commencer la semaine prochaine.",
-      "ar": "أنا متاح للبدء الأسبوع القادم.",
-      "en": "I am available to start next week."
-    }
+    "ex": [
+      {
+        "fr": "Je suis disponible pour commencer la semaine prochaine.",
+        "ar": "أنا متاح للبدء الأسبوع القادم.",
+        "en": "I am available to start next week."
+      },
+      {
+        "fr": "Votre titre de séjour est disponible.",
+        "ar": "بطاقة إقامتك صارت جاهزة.",
+        "en": "Your residence permit is available."
+      }
+    ]
   },
   {
     "fr": "Une période",
@@ -35234,14 +35293,22 @@ window.VOCAB_DATA = [
     "en": "Fill in a form",
     "level": "B1",
     "contexts": [
-      "mdph"
+      "mdph",
+      "prefecture"
     ],
     "pos": "phrase",
-    "ex": {
-      "fr": "Je dois remplir le formulaire MDPH.",
-      "ar": "لازم عبّي استمارة MDPH.",
-      "en": "I have to fill in the MDPH form."
-    }
+    "ex": [
+      {
+        "fr": "Je dois remplir le formulaire MDPH.",
+        "ar": "لازم عبّي استمارة MDPH.",
+        "en": "I have to fill in the MDPH form."
+      },
+      {
+        "fr": "Je dois remplir ce formulaire.",
+        "ar": "لازم عبّي هالاستمارة.",
+        "en": "I have to fill in this form."
+      }
+    ]
   },
   {
     "fr": "Joindre un certificat médical",
@@ -35485,18 +35552,26 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Déposer un recours",
-    "ar": "يقدّم اعتراضًا",
+    "ar": "يقدّم طعنًا / اعتراضًا",
     "en": "File an appeal",
     "level": "B1",
     "contexts": [
-      "mdph"
+      "mdph",
+      "prefecture"
     ],
     "pos": "phrase",
-    "ex": {
-      "fr": "Je vais déposer un recours contre la décision.",
-      "ar": "رح قدّم اعتراض على القرار.",
-      "en": "I will file an appeal against the decision."
-    }
+    "ex": [
+      {
+        "fr": "Je vais déposer un recours contre la décision.",
+        "ar": "رح قدّم اعتراض على القرار.",
+        "en": "I will file an appeal against the decision."
+      },
+      {
+        "fr": "J'ai déposé un recours auprès du tribunal.",
+        "ar": "قدّمت طعن عند المحكمة.",
+        "en": "I filed an appeal with the court."
+      }
+    ]
   },
   {
     "fr": "Faire appel d'une décision",
@@ -35654,14 +35729,22 @@ window.VOCAB_DATA = [
     "en": "Notify a decision",
     "level": "B1",
     "contexts": [
-      "mdph"
+      "mdph",
+      "prefecture"
     ],
     "pos": "phrase",
-    "ex": {
-      "fr": "La MDPH va notifier sa décision.",
-      "ar": "الـ MDPH رح تبلغني بالقرار.",
-      "en": "MDPH will notify its decision."
-    }
+    "ex": [
+      {
+        "fr": "La MDPH va notifier sa décision.",
+        "ar": "الـ MDPH رح تبلغني بالقرار.",
+        "en": "MDPH will notify its decision."
+      },
+      {
+        "fr": "J'ai reçu la notification de la décision.",
+        "ar": "وصلتني رسالة القرار.",
+        "en": "I received the notification of the decision."
+      }
+    ]
   },
   {
     "fr": "Accorder l'AAH",
@@ -35947,5 +36030,1741 @@ window.VOCAB_DATA = [
       "ar": "ملفي رح تدرسه لجنة CDAPH.",
       "en": "My file will be reviewed by the CDAPH."
     }
+  },
+  {
+    "fr": "Faire une demande de titre de séjour",
+    "ar": "يقدّم طلب بطاقة إقامة",
+    "en": "Apply for a residence permit",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je souhaite faire une demande de titre de séjour.",
+        "ar": "بدي قدّم على بطاقة إقامة.",
+        "en": "I want to apply for a residence permit."
+      }
+    ]
+  },
+  {
+    "fr": "Renouveler un titre de séjour",
+    "ar": "يجدّد بطاقة الإقامة",
+    "en": "Renew a residence permit",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois renouveler mon titre de séjour.",
+        "ar": "لازم جدّد إقامتي.",
+        "en": "I have to renew my residence permit."
+      }
+    ]
+  },
+  {
+    "fr": "Retirer un titre de séjour",
+    "ar": "يستلم بطاقة الإقامة",
+    "en": "Collect a residence permit",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je viens retirer mon titre de séjour.",
+        "ar": "جاي استلم بطاقة الإقامة.",
+        "en": "I came to collect my residence permit."
+      }
+    ]
+  },
+  {
+    "fr": "Se présenter à la préfecture",
+    "ar": "يحضر إلى البريفكتور",
+    "en": "Attend an appointment at the prefecture",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je me présente à la préfecture pour mon dossier.",
+        "ar": "حضرت عالبريفكتور بخصوص ملفي.",
+        "en": "I came to the prefecture for my application."
+      }
+    ]
+  },
+  {
+    "fr": "Fournir des documents",
+    "ar": "يقدّم أوراقًا",
+    "en": "Provide documents",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois fournir les documents demandés.",
+        "ar": "لازم قدّم الأوراق المطلوبة.",
+        "en": "I have to provide the requested documents."
+      }
+    ]
+  },
+  {
+    "fr": "Joindre une pièce justificative",
+    "ar": "يرفق وثيقة إثبات",
+    "en": "Attach a supporting document",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai joint les pièces justificatives.",
+        "ar": "أرفقت أوراق الإثبات.",
+        "en": "I attached the supporting documents."
+      }
+    ]
+  },
+  {
+    "fr": "Suivre son dossier",
+    "ar": "يتابع ملفه",
+    "en": "Follow up on an application",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je voudrais suivre l'avancement de mon dossier.",
+        "ar": "بدي تابع وين وصل ملفي.",
+        "en": "I want to follow the progress of my application."
+      }
+    ]
+  },
+  {
+    "fr": "Consulter son espace personnel",
+    "ar": "يطّلع على حسابه الشخصي",
+    "en": "Check personal account",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je consulte mon espace personnel en ligne.",
+        "ar": "عم شوف حسابي أونلاين.",
+        "en": "I check my online personal account."
+      }
+    ]
+  },
+  {
+    "fr": "Recevoir une convocation",
+    "ar": "يستلم استدعاء",
+    "en": "Receive a summons / appointment notice",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai reçu une convocation de la préfecture.",
+        "ar": "وصلتني دعوة من البريفكتور.",
+        "en": "I received an appointment notice from the prefecture."
+      }
+    ]
+  },
+  {
+    "fr": "Être convoqué",
+    "ar": "يتم استدعاؤه",
+    "en": "Be summoned",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je suis convoqué pour un entretien.",
+        "ar": "تم استدعائي لمقابلة.",
+        "en": "I was summoned for an interview."
+      },
+      {
+        "fr": "Je suis convoqué par la préfecture.",
+        "ar": "استدعوني من البريفكتور.",
+        "en": "I am summoned by the prefecture."
+      }
+    ]
+  },
+  {
+    "fr": "Passer un entretien",
+    "ar": "يجري مقابلة",
+    "en": "Attend an interview",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois passer un entretien à la préfecture.",
+        "ar": "لازم أعمل مقابلة بالبريفكتور.",
+        "en": "I have to attend an interview at the prefecture."
+      }
+    ]
+  },
+  {
+    "fr": "Être en attente",
+    "ar": "يكون قيد الانتظار",
+    "en": "Be pending",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Mon dossier est toujours en attente.",
+        "ar": "ملفي لسا قيد الانتظار.",
+        "en": "My application is still pending."
+      }
+    ]
+  },
+  {
+    "fr": "Être accepté / refusé",
+    "ar": "يتم قبوله / رفضه",
+    "en": "Be accepted / rejected",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Ma demande a été acceptée.",
+        "ar": "تم قبول طلبي.",
+        "en": "My application was accepted."
+      }
+    ]
+  },
+  {
+    "fr": "Faire un recours",
+    "ar": "يقدّم اعتراضًا",
+    "en": "Appeal",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je veux faire un recours contre la décision.",
+        "ar": "بدي اعترض على القرار.",
+        "en": "I want to appeal the decision."
+      }
+    ]
+  },
+  {
+    "fr": "Présenter un dossier",
+    "ar": "يقدّم ملفًا",
+    "en": "Present / submit a file",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois présenter mon dossier complet.",
+        "ar": "لازم قدّم ملفي كامل.",
+        "en": "I have to submit my complete file."
+      }
+    ]
+  },
+  {
+    "fr": "Constituer un dossier",
+    "ar": "يجهّز / يشكّل ملفًا",
+    "en": "Build / prepare an application file",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois constituer un dossier de demande.",
+        "ar": "لازم جهّز ملف الطلب.",
+        "en": "I have to prepare an application file."
+      }
+    ]
+  },
+  {
+    "fr": "Vérifier les documents",
+    "ar": "يتحقق من الأوراق",
+    "en": "Check documents",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "L'agent vérifie mes documents.",
+        "ar": "الموظف عم يتأكد من أوراقي.",
+        "en": "The officer checks my documents."
+      }
+    ]
+  },
+  {
+    "fr": "Contrôler l'identité",
+    "ar": "يتحقق من الهوية",
+    "en": "Check identity",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "L'agent contrôle mon identité.",
+        "ar": "الموظف يتأكد من هويتي.",
+        "en": "The officer checks my identity."
+      }
+    ]
+  },
+  {
+    "fr": "Présenter son passeport",
+    "ar": "يقدّم جواز سفره",
+    "en": "Present one's passport",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je présente mon passeport à l'accueil.",
+        "ar": "قدّمت جواز سفري عند الاستقبال.",
+        "en": "I presented my passport at reception."
+      }
+    ]
+  },
+  {
+    "fr": "Justifier son domicile",
+    "ar": "يثبت السكن / العنوان",
+    "en": "Prove one's address",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois justifier mon domicile.",
+        "ar": "لازم أثبت عنواني.",
+        "en": "I have to prove my address."
+      }
+    ]
+  },
+  {
+    "fr": "Fournir une attestation d'hébergement",
+    "ar": "يقدّم شهادة استضافة",
+    "en": "Provide accommodation certificate",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai fourni une attestation d'hébergement.",
+        "ar": "قدّمت شهادة سكن.",
+        "en": "I provided an accommodation certificate."
+      }
+    ]
+  },
+  {
+    "fr": "Déclarer un changement d'adresse",
+    "ar": "يصرّح بتغيير العنوان",
+    "en": "Report a change of address",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois déclarer mon changement d'adresse.",
+        "ar": "لازم بلّغ عن تغيير عنواني.",
+        "en": "I must report my change of address."
+      }
+    ]
+  },
+  {
+    "fr": "Demander un récépissé",
+    "ar": "يطلب وصل إقامة مؤقت",
+    "en": "Request a receipt (temporary permit)",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je demande un récépissé de renouvellement.",
+        "ar": "عم اطلب وصل تجديد.",
+        "en": "I am requesting a renewal receipt."
+      }
+    ]
+  },
+  {
+    "fr": "Recevoir un récépissé",
+    "ar": "يستلم وصلًا مؤقتًا",
+    "en": "Receive a receipt",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai reçu mon récépissé.",
+        "ar": "استلمت الوصل.",
+        "en": "I received my receipt."
+      }
+    ]
+  },
+  {
+    "fr": "Prolonger un récépissé",
+    "ar": "يمدّد الوصل",
+    "en": "Extend a receipt",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je souhaite prolonger mon récépissé.",
+        "ar": "بدي مدّد الوصل.",
+        "en": "I want to extend my receipt."
+      }
+    ]
+  },
+  {
+    "fr": "Fabriquer un titre de séjour",
+    "ar": "يصنع بطاقة الإقامة",
+    "en": "Produce a residence permit",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Votre titre de séjour est en fabrication.",
+        "ar": "بطاقة إقامتك قيد التصنيع.",
+        "en": "Your residence permit is being produced."
+      }
+    ]
+  },
+  {
+    "fr": "Déposer une demande de naturalisation",
+    "ar": "يقدّم طلب الجنسية",
+    "en": "Apply for naturalization",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je souhaite déposer une demande de naturalisation.",
+        "ar": "بدي قدّم طلب جنسية.",
+        "en": "I want to apply for naturalization."
+      }
+    ]
+  },
+  {
+    "fr": "Être convoqué à un entretien",
+    "ar": "يُستدعى لمقابلة",
+    "en": "Be called for an interview",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je suis convoqué à un entretien de naturalisation.",
+        "ar": "استدعوني لمقابلة الجنسية.",
+        "en": "I was called for a naturalization interview."
+      }
+    ]
+  },
+  {
+    "fr": "Répondre aux questions",
+    "ar": "يجيب على الأسئلة",
+    "en": "Answer questions",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois répondre aux questions de l'agent.",
+        "ar": "لازم جاوب على أسئلة الموظف.",
+        "en": "I have to answer the officer's questions."
+      },
+      {
+        "fr": "Je réponds aux questions de l'agent.",
+        "ar": "جاوبت على أسئلة الموظف.",
+        "en": "I answer the officer's questions."
+      }
+    ]
+  },
+  {
+    "fr": "Signer un document",
+    "ar": "يوقّع وثيقة",
+    "en": "Sign a document",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois signer ce document.",
+        "ar": "لازم وقّع هالورقة.",
+        "en": "I have to sign this document."
+      }
+    ]
+  },
+  {
+    "fr": "Retirer un document",
+    "ar": "يستلم وثيقة",
+    "en": "Collect a document",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je viens retirer mon titre de séjour.",
+        "ar": "جاي استلم بطاقة إقامتي.",
+        "en": "I came to collect my residence permit."
+      }
+    ]
+  },
+  {
+    "fr": "Être convoqué par la préfecture",
+    "ar": "يتم استدعاؤه من البريفكتور",
+    "en": "Be summoned by the prefecture",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai été convoqué par la préfecture.",
+        "ar": "استدعوني من البريفكتور.",
+        "en": "I was summoned by the prefecture."
+      }
+    ]
+  },
+  {
+    "fr": "Accuser réception",
+    "ar": "يؤكد استلام",
+    "en": "Acknowledge receipt",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "La préfecture a accusé réception de ma demande.",
+        "ar": "البريفكتور أكدت استلام طلبي.",
+        "en": "The prefecture acknowledged receipt of my request."
+      }
+    ]
+  },
+  {
+    "fr": "Enregistrer une demande",
+    "ar": "يسجّل طلبًا",
+    "en": "Register an application",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "La préfecture a enregistré ma demande.",
+        "ar": "البريفكتور سجّلت طلبي.",
+        "en": "The prefecture registered my application."
+      }
+    ]
+  },
+  {
+    "fr": "Instruire un dossier",
+    "ar": "يدرس ملفًا / يعالج ملفًا",
+    "en": "Process an application",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Mon dossier est en cours d'instruction.",
+        "ar": "ملفي قيد الدراسة.",
+        "en": "My application is being processed."
+      }
+    ]
+  },
+  {
+    "fr": "Examiner une demande",
+    "ar": "يدرس طلبًا",
+    "en": "Examine an application",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "La préfecture examine ma demande.",
+        "ar": "البريفكتور تدرس طلبي.",
+        "en": "The prefecture examines my application."
+      }
+    ]
+  },
+  {
+    "fr": "Statuer sur une demande",
+    "ar": "يتخذ قرارًا بشأن طلب",
+    "en": "Make a decision on an application",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "La préfecture va statuer sur mon dossier.",
+        "ar": "البريفكتور رح تقرر بشأن ملفي.",
+        "en": "The prefecture will decide on my file."
+      }
+    ]
+  },
+  {
+    "fr": "Accorder un titre de séjour",
+    "ar": "يمنح بطاقة إقامة",
+    "en": "Grant a residence permit",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "La préfecture m'a accordé un titre de séjour.",
+        "ar": "البريفكتور منحتني إقامة.",
+        "en": "The prefecture granted me a residence permit."
+      }
+    ]
+  },
+  {
+    "fr": "Refuser une demande",
+    "ar": "يرفض طلبًا",
+    "en": "Reject an application",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Ma demande a été refusée.",
+        "ar": "تم رفض طلبي.",
+        "en": "My application was rejected."
+      }
+    ]
+  },
+  {
+    "fr": "Motiver une décision",
+    "ar": "يشرح أسباب القرار",
+    "en": "Give reasons for a decision",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "La préfecture doit motiver sa décision.",
+        "ar": "لازم البريفكتور تشرح سبب القرار.",
+        "en": "The prefecture must give reasons for its decision."
+      }
+    ]
+  },
+  {
+    "fr": "Obtenir un titre de séjour",
+    "ar": "يحصل على بطاقة إقامة",
+    "en": "Obtain a residence permit",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai obtenu mon titre de séjour.",
+        "ar": "حصلت على بطاقة إقامتي.",
+        "en": "I obtained my residence permit."
+      }
+    ]
+  },
+  {
+    "fr": "Renouveler son titre",
+    "ar": "يجدّد إقامته",
+    "en": "Renew a permit",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois renouveler mon titre de séjour.",
+        "ar": "لازم جدّد إقامتي.",
+        "en": "I have to renew my residence permit."
+      }
+    ]
+  },
+  {
+    "fr": "Expirer",
+    "ar": "تنتهي صلاحيته",
+    "en": "Expire",
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Mon titre de séjour expire bientôt.",
+        "ar": "إقامتي بتنتهي قريب.",
+        "en": "My residence permit expires soon."
+      }
+    ]
+  },
+  {
+    "fr": "Arriver à expiration",
+    "ar": "يصل إلى تاريخ الانتهاء",
+    "en": "Reach expiry date",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Mon document arrive à expiration.",
+        "ar": "وثيقتي وصلت لنهاية الصلاحية.",
+        "en": "My document has reached its expiry date."
+      }
+    ]
+  },
+  {
+    "fr": "Demander un duplicata",
+    "ar": "يطلب نسخة بديلة",
+    "en": "Request a duplicate",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai perdu ma carte, je demande un duplicata.",
+        "ar": "ضيّعت بطاقتي وبدي نسخة بديلة.",
+        "en": "I lost my card and I request a duplicate."
+      }
+    ]
+  },
+  {
+    "fr": "Déclarer une perte",
+    "ar": "يصرّح عن ضياع",
+    "en": "Report a loss",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois déclarer la perte de mon titre.",
+        "ar": "لازم أبلّغ عن ضياع إقامتي.",
+        "en": "I must report the loss of my permit."
+      }
+    ]
+  },
+  {
+    "fr": "Déclarer un vol",
+    "ar": "يصرّح عن سرقة",
+    "en": "Report a theft",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai déclaré le vol de mes documents.",
+        "ar": "بلّغت عن سرقة أوراقي.",
+        "en": "I reported the theft of my documents."
+      }
+    ]
+  },
+  {
+    "fr": "Régulariser sa situation",
+    "ar": "يسوّي وضعه القانوني",
+    "en": "Regularize one's status",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je souhaite régulariser ma situation.",
+        "ar": "بدي سوّي وضعي القانوني.",
+        "en": "I want to regularize my status."
+      }
+    ]
+  },
+  {
+    "fr": "Être en situation régulière",
+    "ar": "يكون وضعه قانونيًا",
+    "en": "Have legal status",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je suis en situation régulière en France.",
+        "ar": "وضعي قانوني بفرنسا.",
+        "en": "I have legal status in France."
+      }
+    ]
+  },
+  {
+    "fr": "Recevoir une obligation de quitter le territoire (OQTF)",
+    "ar": "يستلم قرار مغادرة فرنسا",
+    "en": "Receive an order to leave France",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Il a reçu une OQTF.",
+        "ar": "استلم قرار مغادرة.",
+        "en": "He received an OQTF."
+      }
+    ]
+  },
+  {
+    "fr": "Faire l'objet d'une OQTF",
+    "ar": "يكون موضوع قرار مغادرة فرنسا",
+    "en": "Be subject to an OQTF",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Il fait l'objet d'une OQTF.",
+        "ar": "صدر بحقه قرار مغادرة.",
+        "en": "He is subject to an OQTF."
+      }
+    ]
+  },
+  {
+    "fr": "Contester une OQTF",
+    "ar": "يعترض على قرار المغادرة",
+    "en": "Challenge an OQTF",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je souhaite contester l'OQTF.",
+        "ar": "بدي اعترض على قرار المغادرة.",
+        "en": "I want to challenge the OQTF."
+      }
+    ]
+  },
+  {
+    "fr": "Se présenter à un entretien",
+    "ar": "يحضر مقابلة",
+    "en": "Attend an interview",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je me présente à l'entretien.",
+        "ar": "حضرت للمقابلة.",
+        "en": "I attend the interview."
+      }
+    ]
+  },
+  {
+    "fr": "Justifier son intégration",
+    "ar": "يثبت اندماجه",
+    "en": "Prove integration",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois justifier mon intégration en France.",
+        "ar": "لازم أثبت اندماجي بفرنسا.",
+        "en": "I must prove my integration in France."
+      }
+    ]
+  },
+  {
+    "fr": "Démontrer son niveau de français",
+    "ar": "يثبت مستوى اللغة الفرنسية",
+    "en": "Demonstrate French level",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois démontrer mon niveau de français.",
+        "ar": "لازم أثبت مستوى الفرنسي عندي.",
+        "en": "I must demonstrate my French level."
+      }
+    ]
+  },
+  {
+    "fr": "Fournir une attestation de langue",
+    "ar": "يقدّم شهادة لغة",
+    "en": "Provide a language certificate",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai fourni une attestation de français.",
+        "ar": "قدّمت شهادة لغة فرنسية.",
+        "en": "I provided a French certificate."
+      }
+    ]
+  },
+  {
+    "fr": "Demander la nationalité française",
+    "ar": "يطلب الجنسية الفرنسية",
+    "en": "Apply for French nationality",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je souhaite demander la nationalité française.",
+        "ar": "بدي قدّم على الجنسية الفرنسية.",
+        "en": "I want to apply for French nationality."
+      }
+    ]
+  },
+  {
+    "fr": "Être naturalisé",
+    "ar": "يحصل على الجنسية بالتجنّس",
+    "en": "Be naturalized",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Il a été naturalisé français.",
+        "ar": "حصل على الجنسية الفرنسية.",
+        "en": "He was naturalized French."
+      }
+    ]
+  },
+  {
+    "fr": "Acquérir la nationalité",
+    "ar": "يكتسب الجنسية",
+    "en": "Acquire nationality",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai acquis la nationalité française.",
+        "ar": "اكتسبت الجنسية الفرنسية.",
+        "en": "I acquired French nationality."
+      }
+    ]
+  },
+  {
+    "fr": "Déposer un dossier de naturalisation",
+    "ar": "يقدّم ملف الجنسية",
+    "en": "Submit a naturalization file",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai déposé mon dossier de naturalisation.",
+        "ar": "قدّمت ملف الجنسية.",
+        "en": "I submitted my naturalization file."
+      }
+    ]
+  },
+  {
+    "fr": "Passer un entretien de naturalisation",
+    "ar": "يجري مقابلة الجنسية",
+    "en": "Attend a naturalization interview",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais passer un entretien de naturalisation.",
+        "ar": "رح أعمل مقابلة الجنسية.",
+        "en": "I will attend a naturalization interview."
+      }
+    ]
+  },
+  {
+    "fr": "Connaître les valeurs de la République",
+    "ar": "يعرف قيم الجمهورية",
+    "en": "Know the values of the Republic",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut connaître les valeurs de la République française.",
+        "ar": "لازم تعرف قيم الجمهورية الفرنسية.",
+        "en": "You need to know the values of the French Republic."
+      }
+    ]
+  },
+  {
+    "fr": "Signer le contrat d'intégration républicaine (CIR)",
+    "ar": "يوقّع عقد الاندماج الجمهوري",
+    "en": "Sign the Republican Integration Contract",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai signé le CIR.",
+        "ar": "وقّعت عقد الاندماج.",
+        "en": "I signed the CIR."
+      }
+    ]
+  },
+  {
+    "fr": "Participer à une formation",
+    "ar": "يشارك في تدريب / دورة",
+    "en": "Attend a training course",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai participé à une formation civique.",
+        "ar": "شاركت بدورة مدنية.",
+        "en": "I attended a civic training course."
+      }
+    ]
+  },
+  {
+    "fr": "Présenter un contrat de travail",
+    "ar": "يقدّم عقد عمل",
+    "en": "Present an employment contract",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai présenté mon contrat de travail.",
+        "ar": "قدّمت عقد عملي.",
+        "en": "I presented my employment contract."
+      }
+    ]
+  },
+  {
+    "fr": "Prouver sa résidence habituelle",
+    "ar": "يثبت إقامته المعتادة",
+    "en": "Prove habitual residence",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois prouver ma résidence en France.",
+        "ar": "لازم أثبت إقامتي بفرنسا.",
+        "en": "I must prove my residence in France."
+      }
+    ]
+  },
+  {
+    "fr": "Mon dossier est incomplet",
+    "ar": "ملفي ناقص",
+    "en": "My application is incomplete",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "On m'a dit que mon dossier est incomplet.",
+        "ar": "قالولي إنو ملفي ناقص.",
+        "en": "They told me my application is incomplete."
+      }
+    ]
+  },
+  {
+    "fr": "Quel document dois-je fournir ?",
+    "ar": "أي ورقة لازم قدّم؟",
+    "en": "Which document do I need to provide?",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Quel document dois-je fournir pour compléter mon dossier ?",
+        "ar": "أي ورقة لازم قدّم حتى كمّل ملفي؟",
+        "en": "Which document do I need to provide to complete my application?"
+      }
+    ]
+  },
+  {
+    "fr": "Mon dossier est complet",
+    "ar": "ملفي كامل",
+    "en": "My application is complete",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Est-ce que mon dossier est complet ?",
+        "ar": "ملفي كامل؟",
+        "en": "Is my application complete?"
+      }
+    ]
+  },
+  {
+    "fr": "Mon dossier est en cours d'instruction",
+    "ar": "ملفي قيد الدراسة",
+    "en": "My application is being processed",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Mon dossier est toujours en cours d'instruction.",
+        "ar": "ملفي لسا قيد الدراسة.",
+        "en": "My application is still being processed."
+      }
+    ]
+  },
+  {
+    "fr": "Je voudrais connaître l'état d'avancement de mon dossier",
+    "ar": "بدي أعرف وين وصل ملفي / شو صار فيه",
+    "en": "I would like to know the progress of my application",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je voudrais connaître l'état d'avancement de mon dossier.",
+        "ar": "بدي أعرف وين وصل ملفي.",
+        "en": "I would like to know the progress of my application."
+      }
+    ]
+  },
+  {
+    "fr": "Je n'ai toujours pas reçu de réponse",
+    "ar": "لسا ما وصلني أي جواب",
+    "en": "I still haven't received an answer",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai déposé ma demande il y a plusieurs mois et je n'ai toujours pas reçu de réponse.",
+        "ar": "قدّمت طلبي من كم شهر ولسا ما وصلني جواب.",
+        "en": "I submitted my application several months ago and still haven't received an answer."
+      }
+    ]
+  },
+  {
+    "fr": "Ma demande est toujours en attente",
+    "ar": "طلبي لسا قيد الانتظار",
+    "en": "My application is still pending",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Ma demande est toujours en attente.",
+        "ar": "طلبي لسا ناطر.",
+        "en": "My application is still pending."
+      }
+    ]
+  },
+  {
+    "fr": "Le délai de traitement est long",
+    "ar": "مدة معالجة الطلب طويلة",
+    "en": "The processing time is long",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Le délai de traitement est très long.",
+        "ar": "مدة معالجة الطلب طويلة كتير.",
+        "en": "The processing time is very long."
+      }
+    ]
+  },
+  {
+    "fr": "Quel est le délai de traitement ?",
+    "ar": "قديش مدة المعالجة؟",
+    "en": "What is the processing time?",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Quel est le délai de traitement de ma demande ?",
+        "ar": "قديش بتاخد معالجة طلبي؟",
+        "en": "What is the processing time for my application?"
+      }
+    ]
+  },
+  {
+    "fr": "Est-ce que je dois attendre ?",
+    "ar": "لازم ناطر؟",
+    "en": "Do I have to wait?",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Est-ce que je dois simplement attendre la réponse ?",
+        "ar": "يعني لازم بس ناطر الجواب؟",
+        "en": "Do I simply have to wait for the answer?"
+      }
+    ]
+  },
+  {
+    "fr": "Dois-je prendre un autre rendez-vous ?",
+    "ar": "لازم احجز موعد تاني؟",
+    "en": "Do I need to make another appointment?",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Dois-je prendre un autre rendez-vous pour compléter mon dossier ?",
+        "ar": "لازم احجز موعد تاني حتى كمّل ملفي؟",
+        "en": "Do I need another appointment to complete my application?"
+      }
+    ]
+  },
+  {
+    "fr": "J'ai reçu une demande de documents complémentaires",
+    "ar": "وصلتني مطالبة بأوراق إضافية",
+    "en": "I received a request for additional documents",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai reçu une demande de documents complémentaires.",
+        "ar": "وصلتني رسالة إنو بدهن أوراق إضافية.",
+        "en": "I received a request for additional documents."
+      }
+    ]
+  },
+  {
+    "fr": "Je viens déposer les documents demandés",
+    "ar": "جاي قدّم الأوراق المطلوبة",
+    "en": "I'm here to submit the requested documents",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je viens déposer les documents demandés par la préfecture.",
+        "ar": "جاي قدّم الأوراق اللي طلبتها البريفكتور.",
+        "en": "I'm here to submit the documents requested by the prefecture."
+      }
+    ]
+  },
+  {
+    "fr": "Pouvez-vous me confirmer la réception ?",
+    "ar": "فيك تأكدلي إنكم استلمتوا؟",
+    "en": "Could you confirm receipt?",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Pouvez-vous me confirmer la réception de mes documents ?",
+        "ar": "فيك تأكدلي إنكم استلمتوا أوراقي؟",
+        "en": "Could you confirm receipt of my documents?"
+      }
+    ]
+  },
+  {
+    "fr": "J'ai envoyé les documents en ligne",
+    "ar": "بعت الأوراق أونلاين",
+    "en": "I sent the documents online",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai envoyé les documents demandés en ligne.",
+        "ar": "بعت الأوراق المطلوبة أونلاين.",
+        "en": "I sent the requested documents online."
+      }
+    ]
+  },
+  {
+    "fr": "Je n'arrive pas à déposer le document",
+    "ar": "مو قادر أرفع / أقدّم الورقة",
+    "en": "I can't submit/upload the document",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je n'arrive pas à déposer le document sur le site.",
+        "ar": "مو عم اقدر ارفع الورقة عالموقع.",
+        "en": "I can't upload the document on the website."
+      }
+    ]
+  },
+  {
+    "fr": "J'ai reçu un récépissé",
+    "ar": "استلمت وصل مؤقت",
+    "en": "I received a receipt",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai reçu mon récépissé de demande de titre de séjour.",
+        "ar": "استلمت وصل طلب الإقامة.",
+        "en": "I received my residence permit application receipt."
+      }
+    ]
+  },
+  {
+    "fr": "Mon récépissé arrive à expiration",
+    "ar": "الوصل تبعي قرب تنتهي صلاحيته",
+    "en": "My receipt is about to expire",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Mon récépissé arrive bientôt à expiration.",
+        "ar": "الوصل تبعي قرب يخلص.",
+        "en": "My receipt is about to expire."
+      }
+    ]
+  },
+  {
+    "fr": "Je souhaite renouveler mon récépissé",
+    "ar": "بدي جدّد الوصل",
+    "en": "I want to renew my receipt",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je souhaite renouveler mon récépissé en attendant la décision.",
+        "ar": "بدي جدّد الوصل ريثما يطلع القرار.",
+        "en": "I want to renew my receipt while waiting for the decision."
+      }
+    ]
+  },
+  {
+    "fr": "Mon titre est expiré",
+    "ar": "إقامتي منتهية",
+    "en": "My residence permit has expired",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Mon titre de séjour est expiré.",
+        "ar": "إقامتي منتهية.",
+        "en": "My residence permit has expired."
+      }
+    ]
+  },
+  {
+    "fr": "Mon titre expire bientôt",
+    "ar": "إقامتي قربت تخلص",
+    "en": "My residence permit expires soon",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Mon titre de séjour expire le mois prochain.",
+        "ar": "إقامتي بتنتهي الشهر الجاي.",
+        "en": "My residence permit expires next month."
+      }
+    ]
+  },
+  {
+    "fr": "Je viens retirer mon titre de séjour",
+    "ar": "جاي استلم بطاقة إقامتي",
+    "en": "I'm here to collect my residence permit",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Bonjour, je viens retirer mon titre de séjour.",
+        "ar": "مرحبا، جاي استلم بطاقة إقامتي.",
+        "en": "Hello, I'm here to collect my residence permit."
+      }
+    ]
+  },
+  {
+    "fr": "Mon titre est-il prêt ?",
+    "ar": "إقامتي صارت جاهزة؟",
+    "en": "Is my residence permit ready?",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Bonjour, je voudrais savoir si mon titre de séjour est prêt.",
+        "ar": "مرحبا، بدي أعرف إذا إقامتي صارت جاهزة.",
+        "en": "Hello, I'd like to know if my residence permit is ready."
+      }
+    ]
+  },
+  {
+    "fr": "Je n'ai reçu aucune convocation",
+    "ar": "ما وصلني أي استدعاء",
+    "en": "I haven't received any appointment notice",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je n'ai reçu aucune convocation de la préfecture.",
+        "ar": "ما وصلني أي استدعاء من البريفكتور.",
+        "en": "I haven't received any appointment notice from the prefecture."
+      }
+    ]
+  },
+  {
+    "fr": "J'ai changé d'adresse",
+    "ar": "غيّرت عنواني",
+    "en": "I changed my address",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai changé d'adresse depuis ma dernière demande.",
+        "ar": "غيّرت عنواني من وقت آخر طلب.",
+        "en": "I changed my address since my last application."
+      }
+    ]
+  },
+  {
+    "fr": "Je souhaite signaler un changement de situation",
+    "ar": "بدي بلّغ عن تغيير بوضعي",
+    "en": "I want to report a change in my situation",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je souhaite signaler un changement de situation personnelle.",
+        "ar": "بدي بلّغ عن تغيير بوضعي الشخصي.",
+        "en": "I want to report a change in my personal situation."
+      }
+    ]
+  },
+  {
+    "fr": "Je voudrais savoir pourquoi ma demande a été refusée",
+    "ar": "بدي أعرف ليش انرفض طلبي",
+    "en": "I would like to know why my application was refused",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je voudrais connaître le motif du refus de ma demande.",
+        "ar": "بدي أعرف سبب رفض طلبي.",
+        "en": "I would like to know the reason for the refusal of my application."
+      }
+    ]
+  },
+  {
+    "fr": "Je souhaite contester cette décision",
+    "ar": "بدي اعترض على هالقرار",
+    "en": "I want to challenge this decision",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Je souhaite contester cette décision.",
+        "ar": "بدي اعترض على هالقرار.",
+        "en": "I want to challenge this decision."
+      }
+    ]
+  },
+  {
+    "fr": "Où dois-je déposer mon recours ?",
+    "ar": "وين لازم قدّم الاعتراض؟",
+    "en": "Where should I file my appeal?",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Où dois-je déposer mon recours contre cette décision ?",
+        "ar": "وين لازم قدّم الاعتراض على هالقرار؟",
+        "en": "Where should I file my appeal against this decision?"
+      }
+    ]
+  },
+  {
+    "fr": "Pouvez-vous m'expliquer la procédure ?",
+    "ar": "فيك تشرحلي الإجراءات؟",
+    "en": "Can you explain the procedure to me?",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Pouvez-vous m'expliquer la procédure à suivre ?",
+        "ar": "فيك تشرحلي شو الإجراءات اللي لازم اتبعها؟",
+        "en": "Can you explain the procedure I need to follow?"
+      }
+    ]
+  },
+  {
+    "fr": "Quelle est la prochaine étape ?",
+    "ar": "شو الخطوة الجاية؟",
+    "en": "What is the next step?",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Quelle est la prochaine étape pour mon dossier ?",
+        "ar": "شو الخطوة الجاية بخصوص ملفي؟",
+        "en": "What is the next step for my application?"
+      }
+    ]
+  },
+  {
+    "fr": "Merci pour votre aide",
+    "ar": "شكرًا لمساعدتك",
+    "en": "Thank you for your help",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ],
+    "ex": [
+      {
+        "fr": "Merci pour votre aide et vos explications.",
+        "ar": "شكرًا لمساعدتك وشرحك.",
+        "en": "Thank you for your help and explanations."
+      }
+    ]
+  },
+  {
+    "fr": "Mon dossier est-il complet ?",
+    "ar": "ملفي كامل؟",
+    "en": "",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ]
+  },
+  {
+    "fr": "Quel document manque-t-il ?",
+    "ar": "أي ورقة ناقصة؟",
+    "en": "Which document is missing?",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ]
+  },
+  {
+    "fr": "Je n'ai toujours pas reçu de réponse.",
+    "ar": "لسا ما وصلني جواب.",
+    "en": "",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ]
+  },
+  {
+    "fr": "Pouvez-vous confirmer la réception de mes documents ?",
+    "ar": "فيك تأكدلي إنكم استلمتوا أوراقي؟",
+    "en": "",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ]
+  },
+  {
+    "fr": "Je souhaite renouveler mon titre de séjour.",
+    "ar": "بدي جدّد إقامتي.",
+    "en": "",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ]
+  },
+  {
+    "fr": "Je viens retirer mon titre de séjour.",
+    "ar": "جاي استلم بطاقة إقامتي.",
+    "en": "I came to collect my residence permit.",
+    "pos": "phrase",
+    "level": "B1",
+    "contexts": [
+      "prefecture"
+    ]
   }
 ];
