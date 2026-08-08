@@ -21888,6 +21888,11 @@ window.VOCAB_DATA = [
         "fr": "Je n'ai pas reçu le virement.",
         "en": "I haven't received the transfer.",
         "ar": "ما وصلني التحويل."
+      },
+      {
+        "fr": "Le loyer est payé par virement.",
+        "en": "The rent is paid by bank transfer.",
+        "ar": "الإيجار بيندفع عن طريق تحويل بنكي."
       }
     ]
   },
@@ -28741,6 +28746,11 @@ window.VOCAB_DATA = [
         "fr": "L'aide sera versée sur votre compte.",
         "en": "The benefit will be paid into your account.",
         "ar": "المساعدة رح تنزل بحسابك."
+      },
+      {
+        "fr": "L'employeur verse le salaire sur mon compte.",
+        "en": "The employer pays the salary into my account.",
+        "ar": "صاحب العمل بينزّل الراتب بحسابي."
       }
     ]
   },
@@ -30699,6 +30709,11 @@ window.VOCAB_DATA = [
         "fr": "Je vais vérifier auprès de la CAF.",
         "en": "I'll check with CAF.",
         "ar": "رح أتأكد من الـCAF."
+      },
+      {
+        "fr": "Vérifiez que votre adresse est correcte.",
+        "en": "Check that your address is correct.",
+        "ar": "تأكد إنو عنوانك صحيح."
       }
     ]
   },
@@ -32163,13 +32178,27 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "contexts": [
       "stage",
-      "work"
+      "work",
+      "daily",
+      "services"
     ],
-    "ex": {
-      "fr": "J’attends la validation de France Travail.",
-      "ar": "أنتظر موافقة France Travail.",
-      "en": "I am waiting for approval from France Travail."
-    }
+    "ex": [
+      {
+        "fr": "J’attends la validation de France Travail.",
+        "ar": "أنتظر موافقة France Travail.",
+        "en": "I am waiting for approval from France Travail."
+      },
+      {
+        "fr": "J'attends la validation de ma demande.",
+        "en": "I'm waiting for approval of my request.",
+        "ar": "ناطر الموافقة على طلبي."
+      },
+      {
+        "fr": "J'attends la validation de mon dossier.",
+        "en": "I'm waiting for my application to be approved.",
+        "ar": "ناطر الموافقة على ملفي."
+      }
+    ]
   },
   {
     "fr": "Une étape",
@@ -42475,6 +42504,11 @@ window.VOCAB_DATA = [
         "fr": "Je veux comprendre la situation.",
         "en": "I want to understand the situation.",
         "ar": "بدي أفهم الوضع."
+      },
+      {
+        "fr": "Je voudrais prendre rendez-vous.",
+        "en": "I would like to make an appointment.",
+        "ar": "بدي آخد موعد."
       }
     ]
   },
@@ -42497,6 +42531,11 @@ window.VOCAB_DATA = [
         "fr": "Je viens pour un rendez-vous.",
         "en": "I'm here for an appointment.",
         "ar": "أنا جاي على موعد."
+      },
+      {
+        "fr": "Je peux venir demain matin ?",
+        "en": "Can I come tomorrow morning?",
+        "ar": "فيني أجي بكرا الصبح؟"
       }
     ]
   },
@@ -42525,6 +42564,11 @@ window.VOCAB_DATA = [
         "fr": "Je vis actuellement en France.",
         "en": "I currently live in France.",
         "ar": "أنا حاليًا عايش بفرنسا."
+      },
+      {
+        "fr": "Je vis seul en France.",
+        "en": "I live alone in France.",
+        "ar": "أنا عايش لحالي بفرنسا."
       }
     ]
   },
@@ -42633,6 +42677,11 @@ window.VOCAB_DATA = [
         "fr": "J'ai besoin d'une voiture pour travailler.",
         "en": "I need a car to work.",
         "ar": "بدي سيارة مشان الشغل."
+      },
+      {
+        "fr": "Ma voiture est au garage.",
+        "en": "My car is at the garage.",
+        "ar": "سيارتي عند الميكانيكي."
       }
     ]
   },
@@ -42668,6 +42717,16 @@ window.VOCAB_DATA = [
         "fr": "J'ai une visite de l'appartement demain.",
         "en": "I have an apartment viewing tomorrow.",
         "ar": "عندي معاينة للشقة بكرا."
+      },
+      {
+        "fr": "La visite du logement est prévue demain.",
+        "en": "The property viewing is scheduled for tomorrow.",
+        "ar": "معاينة السكن مقررة لبكرا."
+      },
+      {
+        "fr": "La visite est confirmée pour mardi.",
+        "en": "The viewing is confirmed for Tuesday.",
+        "ar": "المعاينة تأكدت ليوم التلاتا."
       }
     ]
   },
@@ -42697,6 +42756,11 @@ window.VOCAB_DATA = [
         "fr": "Le véhicule est garé devant l'immeuble.",
         "en": "The vehicle is parked in front of the building.",
         "ar": "المركبة مصفوفة قدام البناية."
+      },
+      {
+        "fr": "Vérifiez le véhicule avant de partir.",
+        "en": "Check the vehicle before leaving.",
+        "ar": "تأكد من المركبة قبل ما تطلع."
       }
     ]
   },
@@ -42740,6 +42804,11 @@ window.VOCAB_DATA = [
         "fr": "Vous devez réduire votre vitesse.",
         "en": "You must reduce your speed.",
         "ar": "لازم تخفف سرعتك."
+      },
+      {
+        "fr": "Réduisez votre vitesse.",
+        "en": "Reduce your speed.",
+        "ar": "خفف سرعتك."
       }
     ]
   },
@@ -42750,7 +42819,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "services"
     ],
     "ex": [
       {
@@ -42762,6 +42832,16 @@ window.VOCAB_DATA = [
         "fr": "Une vérification de votre identité est nécessaire.",
         "en": "An identity check is necessary.",
         "ar": "لازم التحقق من هويتك."
+      },
+      {
+        "fr": "Mon dossier est en cours de vérification.",
+        "en": "My application is being checked.",
+        "ar": "ملفي قيد التحقق."
+      },
+      {
+        "fr": "Le dossier est en cours de vérification.",
+        "en": "The application is being reviewed.",
+        "ar": "الملف قيد التحقق."
       }
     ]
   },
@@ -42779,6 +42859,11 @@ window.VOCAB_DATA = [
         "fr": "Est-ce que cette information est vraie ?",
         "en": "Is this information true?",
         "ar": "هالمعلومة صحيحة؟"
+      },
+      {
+        "fr": "C'est la vraie adresse ?",
+        "en": "Is this the correct address?",
+        "ar": "هاد العنوان الصحيح؟"
       }
     ]
   },
@@ -42848,6 +42933,11 @@ window.VOCAB_DATA = [
         "fr": "Cette voiture est vieille.",
         "en": "This car is old.",
         "ar": "هالسيارة قديمة."
+      },
+      {
+        "fr": "Cet immeuble est vieux.",
+        "en": "This building is old.",
+        "ar": "هالبناية قديمة."
       }
     ]
   },
@@ -42875,7 +42965,8 @@ window.VOCAB_DATA = [
     "pos": "adjective",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "services"
     ],
     "ex": [
       {
@@ -42887,6 +42978,11 @@ window.VOCAB_DATA = [
         "fr": "Ce billet est valable aujourd'hui.",
         "en": "This ticket is valid today.",
         "ar": "هالتذكرة صالحة اليوم."
+      },
+      {
+        "fr": "Ce document est valable jusqu'au 31 décembre.",
+        "en": "This document is valid until December 31.",
+        "ar": "هالوثيقة سارية لحد 31 كانون الأول."
       }
     ]
   },
@@ -42914,6 +43010,11 @@ window.VOCAB_DATA = [
         "fr": "La démarche est volontaire.",
         "en": "The procedure is voluntary.",
         "ar": "هالإجراء اختياري."
+      },
+      {
+        "fr": "La démarche est volontaire.",
+        "en": "The procedure is voluntary.",
+        "ar": "الإجراء اختياري."
       }
     ]
   },
@@ -42932,6 +43033,11 @@ window.VOCAB_DATA = [
         "fr": "Il faut rester vigilant sur la route.",
         "en": "You need to stay alert on the road.",
         "ar": "لازم تضل منتبه عالطريق."
+      },
+      {
+        "fr": "Soyez vigilant lorsque vous conduisez.",
+        "en": "Stay alert when driving.",
+        "ar": "خليك منتبه وقت تسوق."
       }
     ]
   },
@@ -43445,6 +43551,11 @@ window.VOCAB_DATA = [
         "fr": "La vente est terminée.",
         "en": "The sale is over.",
         "ar": "خلص البيع / خلصت التخفيضات."
+      },
+      {
+        "fr": "La vente s'est faite hier.",
+        "en": "The sale took place yesterday.",
+        "ar": "عملية البيع صارت مبارح."
       }
     ]
   },
@@ -43659,6 +43770,11 @@ window.VOCAB_DATA = [
         "fr": "Il faut valoriser votre expérience professionnelle.",
         "en": "You should highlight your professional experience.",
         "ar": "لازم تبرز خبرتك المهنية."
+      },
+      {
+        "fr": "Il faut valoriser votre expérience.",
+        "en": "You should highlight your experience.",
+        "ar": "لازم تبرز خبرتك."
       }
     ]
   },
@@ -43677,6 +43793,11 @@ window.VOCAB_DATA = [
       {
         "fr": "Je voudrais vérifier la disponibilité du logement.",
         "en": "I would like to check whether the accommodation is available.",
+        "ar": "بدي أتأكد إذا السكن متاح."
+      },
+      {
+        "fr": "Je voudrais vérifier la disponibilité du logement.",
+        "en": "I'd like to check whether the accommodation is available.",
         "ar": "بدي أتأكد إذا السكن متاح."
       }
     ]
@@ -43822,6 +43943,11 @@ window.VOCAB_DATA = [
         "fr": "Le billet est valide jusqu'à demain.",
         "en": "The ticket is valid until tomorrow.",
         "ar": "التذكرة صالحة لحد بكرا."
+      },
+      {
+        "fr": "Votre titre de séjour est toujours valide.",
+        "en": "Your residence permit is still valid.",
+        "ar": "إقامتك لسا سارية."
       }
     ]
   },
@@ -44149,6 +44275,11 @@ window.VOCAB_DATA = [
         "fr": "L'appartement est vaste.",
         "en": "The apartment is spacious.",
         "ar": "الشقة واسعة."
+      },
+      {
+        "fr": "Le logement est assez vaste.",
+        "en": "The accommodation is quite spacious.",
+        "ar": "السكن واسع نوعًا ما."
       }
     ]
   },
@@ -44431,6 +44562,513 @@ window.VOCAB_DATA = [
         "fr": "Restez vigilant.",
         "en": "Stay alert.",
         "ar": "خليك منتبه."
+      }
+    ]
+  },
+  {
+    "fr": "Véhiculer",
+    "en": "to convey / carry",
+    "ar": "ينقل / يوصّل",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Ce message véhicule une information importante.",
+        "en": "This message conveys important information.",
+        "ar": "هالرسالة بتنقل معلومة مهمة."
+      }
+    ]
+  },
+  {
+    "fr": "Veiller à",
+    "en": "to make sure / ensure",
+    "ar": "يحرص على / يتأكد من",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Veillez à respecter les règles.",
+        "en": "Make sure to follow the rules.",
+        "ar": "احرص على الالتزام بالقوانين."
+      }
+    ]
+  },
+  {
+    "fr": "Vulgariser",
+    "en": "to simplify / explain in simple terms",
+    "ar": "يبسّط / يشرح بطريقة سهلة",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Pouvez-vous vulgariser cette information ?",
+        "en": "Can you explain this information simply?",
+        "ar": "فيك تشرحلي هالمعلومة بطريقة بسيطة؟"
+      }
+    ]
+  },
+  {
+    "fr": "Une vigilance",
+    "en": "vigilance / caution",
+    "ar": "يقظة / انتباه",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Une grande vigilance est nécessaire sur la route.",
+        "en": "Great vigilance is necessary on the road.",
+        "ar": "لازم نكون منتبهين كتير عالطريق."
+      }
+    ]
+  },
+  {
+    "fr": "Une voiture de location",
+    "en": "rental car",
+    "ar": "سيارة مستأجرة",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai besoin d'une voiture de location.",
+        "en": "I need a rental car.",
+        "ar": "بدي سيارة للإيجار."
+      }
+    ]
+  },
+  {
+    "fr": "Un volant",
+    "en": "steering wheel",
+    "ar": "مقود / دركسيون",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Tenez bien le volant.",
+        "en": "Hold the steering wheel properly.",
+        "ar": "مسك الدركسيون منيح."
+      },
+      {
+        "fr": "Tournez le volant à droite.",
+        "en": "Turn the steering wheel to the right.",
+        "ar": "لف الدركسيون لليمين."
+      }
+    ]
+  },
+  {
+    "fr": "Une visibilité",
+    "en": "visibility",
+    "ar": "وضوح الرؤية / الرؤية",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "La visibilité est mauvaise à cause du brouillard.",
+        "en": "Visibility is poor because of the fog.",
+        "ar": "الرؤية سيئة بسبب الضباب."
+      },
+      {
+        "fr": "La visibilité est réduite.",
+        "en": "Visibility is reduced.",
+        "ar": "الرؤية ضعيفة."
+      }
+    ]
+  },
+  {
+    "fr": "Un virage",
+    "en": "turn / bend",
+    "ar": "منعطف / لَفّة",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Ralentissez avant le virage.",
+        "en": "Slow down before the turn.",
+        "ar": "خفف السرعة قبل المنعطف."
+      },
+      {
+        "fr": "Attention au virage !",
+        "en": "Watch out for the bend!",
+        "ar": "انتبه للمنعطف!"
+      }
+    ]
+  },
+  {
+    "fr": "Variable",
+    "en": "variable / changing",
+    "ar": "متغيّر",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Le montant peut être variable.",
+        "en": "The amount may vary.",
+        "ar": "المبلغ ممكن يتغيّر."
+      }
+    ]
+  },
+  {
+    "fr": "Un vendeur / une vendeuse",
+    "en": "salesperson / seller",
+    "ar": "بائع / بائعة",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "shop"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais demander au vendeur.",
+        "en": "I'll ask the salesperson.",
+        "ar": "رح اسأل البائع."
+      }
+    ]
+  },
+  {
+    "fr": "Un visiteur / une visiteuse",
+    "en": "visitor",
+    "ar": "زائر / زائرة",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Les visiteurs doivent présenter une pièce d'identité.",
+        "en": "Visitors must show an ID.",
+        "ar": "الزوار لازم يفرجوا عن الهوية."
+      }
+    ]
+  },
+  {
+    "fr": "Un vestiaire",
+    "en": "locker room / cloakroom",
+    "ar": "غرفة تبديل الملابس / غرفة حفظ الأغراض",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Les employés doivent laisser leurs affaires au vestiaire.",
+        "en": "Employees must leave their belongings in the locker room.",
+        "ar": "الموظفين لازم يتركوا أغراضهم بغرفة تبديل الملابس."
+      }
+    ]
+  },
+  {
+    "fr": "Un vêtement",
+    "en": "piece of clothing",
+    "ar": "قطعة ملابس",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut porter des vêtements propres au travail.",
+        "en": "You have to wear clean clothes at work.",
+        "ar": "لازم تلبس تياب نظيفة بالشغل."
+      }
+    ]
+  },
+  {
+    "fr": "Une veste",
+    "en": "jacket",
+    "ar": "جاكيت",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Où est ma veste ?",
+        "en": "Where is my jacket?",
+        "ar": "وين جاكيتي؟"
+      }
+    ]
+  },
+  {
+    "fr": "Une vitre",
+    "en": "window pane / glass",
+    "ar": "زجاج النافذة",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "La vitre est cassée.",
+        "en": "The window pane is broken.",
+        "ar": "زجاج الشباك مكسور."
+      }
+    ]
+  },
+  {
+    "fr": "Une vidéo",
+    "en": "video",
+    "ar": "فيديو",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai envoyé une vidéo.",
+        "en": "I sent a video.",
+        "ar": "بعت فيديو."
+      }
+    ]
+  },
+  {
+    "fr": "Une voix",
+    "en": "voice",
+    "ar": "صوت",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je reconnais sa voix.",
+        "en": "I recognize his voice.",
+        "ar": "بعرف صوته."
+      }
+    ]
+  },
+  {
+    "fr": "Un volume",
+    "en": "volume / amount",
+    "ar": "مستوى الصوت / حجم / كمية",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Baissez le volume, s'il vous plaît.",
+        "en": "Turn down the volume, please.",
+        "ar": "وطي الصوت، لو سمحت."
+      }
+    ]
+  },
+  {
+    "fr": "Un vol",
+    "en": "theft / flight",
+    "ar": "سرقة / رحلة جوية",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Mon téléphone a été volé.",
+        "en": "My phone was stolen.",
+        "ar": "انسرق موبايلي."
+      },
+      {
+        "fr": "Mon vol est à 20 heures.",
+        "en": "My flight is at 8 p.m.",
+        "ar": "رحلتي الساعة 8."
+      }
+    ]
+  },
+  {
+    "fr": "Un voyage",
+    "en": "trip / journey",
+    "ar": "رحلة / سفر",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Je prépare mon voyage.",
+        "en": "I'm preparing my trip.",
+        "ar": "عم حضّر لسفرتي."
+      }
+    ]
+  },
+  {
+    "fr": "Vif / Vive",
+    "en": "lively / quick",
+    "ar": "نشيط / حيوي / سريع",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il a un esprit vif.",
+        "en": "He has a quick mind.",
+        "ar": "عنده عقل سريع."
+      }
+    ]
+  },
+  {
+    "fr": "Vierge",
+    "en": "blank / unused / virgin",
+    "ar": "فارغ / غير مستخدم",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai besoin d'une feuille vierge.",
+        "en": "I need a blank sheet of paper.",
+        "ar": "بدي ورقة فاضية."
+      }
+    ]
+  },
+  {
+    "fr": "Vulgaire",
+    "en": "vulgar / rude",
+    "ar": "بذيء / سوقي",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Ce mot est vulgaire.",
+        "en": "This word is vulgar.",
+        "ar": "هالكلمة بذيئة."
+      }
+    ]
+  },
+  {
+    "fr": "Vraiment pas",
+    "en": "really not",
+    "ar": "أبدًا / فعلًا لا",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je ne comprends vraiment pas.",
+        "en": "I really don't understand.",
+        "ar": "عنجد ما عم أفهم أبدًا."
+      }
+    ]
+  },
+  {
+    "fr": "Voir si",
+    "en": "to see if",
+    "ar": "يشوف إذا / يتأكد إذا",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais voir si c'est possible.",
+        "en": "I'll see if it's possible.",
+        "ar": "رح شوف إذا ممكن."
+      }
+    ]
+  },
+  {
+    "fr": "Voir avec quelqu'un",
+    "en": "to check with / discuss with someone",
+    "ar": "يحكي مع شخص / يتأكد من شخص",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais voir avec mon conseiller.",
+        "en": "I'll check with my advisor.",
+        "ar": "رح شوف مع المرشد تبعي."
+      }
+    ]
+  },
+  {
+    "fr": "Voir pour",
+    "en": "to look into / arrange",
+    "ar": "يشوف موضوع / يدبّر",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais voir pour un rendez-vous.",
+        "en": "I'll look into getting an appointment.",
+        "ar": "رح شوف موضوع الموعد."
+      }
+    ]
+  },
+  {
+    "fr": "Vous voyez ?",
+    "en": "Do you see? / You see?",
+    "ar": "شايف؟ / فهمت؟",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Vous voyez ce que je veux dire ?",
+        "en": "Do you see what I mean?",
+        "ar": "فهمت عليي شو قصدي؟"
       }
     ]
   }
