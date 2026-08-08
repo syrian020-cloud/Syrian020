@@ -8,5 +8,10 @@
   "android": {
     "allowMixedContent": true,
     "captureInput": false
+  },
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    }
   }
 }

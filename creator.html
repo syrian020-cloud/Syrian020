@@ -120,6 +120,9 @@
   .media-preview video { width: 100%; max-height: 360px; }
   .media-placeholder { color: var(--text-secondary); font-size: 0.9rem; padding: 1rem; }
   .media-btns { display: flex; gap: 0.5rem; justify-content: center; margin-top: 0.6rem; }
+  .url-input-row { display: flex; gap: 0.5rem; margin-top: 0.75rem; }
+  .url-input-row .input { flex: 1; font-size: 0.9rem; padding: 0.55rem 0.85rem; }
+  .url-input-row .btn { padding: 0.55rem 0.8rem; font-size: 0.85rem; }
 
   ::placeholder { color: var(--text-secondary); opacity: 0.65; }
   .empty { color: var(--text-secondary); text-align: center; padding: 2.5rem 1rem; }
@@ -208,6 +211,9 @@
     editLesson: { ar: 'تعديل اسم الدرس', en: 'Edit lesson name', fr: 'Modifier le nom de la leçon' },
     attachCover: { ar: 'صورة غلاف', en: 'Cover image', fr: 'Image de couverture' },
     more: { ar: 'المزيد', en: 'More', fr: 'Plus' },
+    downloadImage: { ar: 'تحميل صورة', en: 'Load image', fr: 'Charger l\'image' },
+    imageUrlPlaceholder: { ar: 'https://...', en: 'https://...', fr: 'https://...' },
+    imageDownloadFailed: { ar: 'تعذر تحميل الصورة. جرّب رابطًا آخر.', en: 'Could not load image. Try another link.', fr: 'Impossible de charger l\'image. Essayez un autre lien.' },
     themeMode: { ar: 'الوضع الليلي/النهاري', en: 'Dark / light mode', fr: 'Mode sombre / clair' },
     mediaHint: { ar: 'اضغط لاختيار صورة أو فيديو من الهاتف', en: 'Tap to choose an image or video from your phone', fr: 'Appuyez pour choisir une image ou une vidéo depuis votre téléphone' },
     exampleLabel: { ar: 'نموذج', en: 'Example', fr: 'Exemple' },
@@ -465,6 +471,58 @@
     return new Blob([arr], { type: mime });
   }
 
+  function urlToBlob(url) {
+    return new Promise(function (resolve, reject) {
+      var http = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.CapacitorHttp;
+      if (http) {
+        http.get({ url: url, responseType: 'blob' })
+          .then(function (res) {
+            var ct = (res.headers && (res.headers['content-type'] || res.headers['Content-Type'])) || 'image/jpeg';
+            if (typeof res.data === 'string') {
+              resolve(dataURLToBlob('data:' + ct + ';base64,' + res.data));
+            } else if (res.data instanceof Blob) {
+              resolve(res.data);
+            } else if (res.data && res.data.byteLength !== undefined) {
+              resolve(new Blob([res.data], { type: ct }));
+            } else {
+              reject(new Error('Unexpected response'));
+            }
+          })
+          .catch(reject);
+        return;
+      }
+      function tryFetch(u) {
+        return fetch(u).then(function (r) { if (!r.ok) throw new Error('fetch failed'); return r.blob(); });
+      }
+      tryFetch(url)
+        .then(resolve)
+        .catch(function () {
+          tryFetch('https://corsproxy.io/?' + encodeURIComponent(url))
+            .then(resolve)
+            .catch(reject);
+        });
+    });
+  }
+
+  function downloadImageForPhrase(phrase, url) {
+    urlToBlob(url)
+      .then(function (blob) {
+        var mediaId = uuid();
+        if (phrase.mediaId) deleteMedia(phrase.mediaId);
+        return saveMedia(mediaId, blob).then(function () {
+          phrase.mediaId = mediaId;
+          phrase.mediaType = blob.type;
+          saveCurrentLesson();
+          renderMediaForPhrase(phrase);
+          toast(t('saved'));
+        });
+      })
+      .catch(function (e) {
+        console.error('Image download failed', e);
+        toast(t('imageDownloadFailed'));
+      });
+  }
+
   /* ---------------- UI helpers ---------------- */
 
   function esc(s) {
@@ -718,6 +776,10 @@
           '<button class="btn ghost attach-media">' + iconText('attachMedia', 'image') + '</button>' +
           '<button class="btn danger remove-media hidden">' + iconText('removeMedia', 'close') + '</button>' +
         '</div>' +
+        '<div class="url-input-row">' +
+          '<input type="text" class="input image-url" id="image-url-' + p.id + '" data-t="imageUrlPlaceholder" placeholder="https://...">' +
+          '<button class="btn ghost download-image" data-t-title="downloadImage">' + icon('import') + '</button>' +
+        '</div>' +
       '</div>' +
       '<input type="file" class="file-input hidden" id="file-' + p.id + '" accept="image/*,video/*">';
     return card;
@@ -771,6 +833,9 @@
           saveCurrentLesson();
           renderMediaForPhrase(phrase);
         }
+      } else if (btn.classList.contains('download-image')) {
+        var urlInput = document.getElementById('image-url-' + phraseId);
+        if (urlInput && urlInput.value.trim()) downloadImageForPhrase(phrase, urlInput.value.trim());
       }
     };
 
