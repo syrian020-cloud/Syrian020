@@ -1,6 +1,6 @@
 {
-  "name": "Langpic",
-  "short_name": "Langpic",
+  "name": "VocaPic",
+  "short_name": "VocaPic",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#0a0f1f",

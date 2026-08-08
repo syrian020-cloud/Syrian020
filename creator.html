@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#f6effc">
-<title>Langpic</title>
+<title>VocaPic</title>
 <link rel="manifest" href="manifest-creator.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
     --accent-gold: #f59e0b;
     --danger: #ef4444;
     --success: #22c55e;
-    --gold: #facc15;
+    --gold: #22c55e;
     --border: rgba(255,255,255,0.10);
     --fr-color: #e879f9;
     --ar-color: #d1d5db;
@@ -51,7 +51,7 @@
   html, body { margin: 0; padding: 0; }
   body {
     font-family: 'Inter', 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: radial-gradient(1200px 600px at 10% -10%, rgba(192,38,211,0.08), transparent), radial-gradient(1200px 600px at 110% 10%, rgba(250,204,21,0.06), transparent), var(--bg-primary);
+    background: radial-gradient(1200px 600px at 10% -10%, rgba(192,38,211,0.08), transparent), radial-gradient(1200px 600px at 110% 10%, rgba(34,197,94,0.06), transparent), var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
     padding-bottom: 3rem;
@@ -66,10 +66,9 @@
   .icon-btn.active { background: linear-gradient(135deg, var(--success), #16a34a); color: #0b0d1f; border-color: transparent; }
   .icon { width: 1.1em; height: 1.1em; fill: currentColor; vertical-align: middle; display: inline-block; }
   .btn-icon { display: inline-flex; align-items: center; }
-  .lang-switch { display: flex; gap: 0.3rem; }
-  .lang-btn { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.6rem; font-size: 0.78rem; font-weight: 700; cursor: pointer; min-width: 2.2rem; transition: transform .12s, background .15s; }
-  .lang-btn:hover { border-color: var(--accent); }
-  .lang-btn.active { background: linear-gradient(135deg, var(--accent), #c026d3); color: #fff; border-color: transparent; box-shadow: 0 4px 12px rgba(147,51,234,0.3); }
+  .lang-menu { position: relative; }
+  #btn-lang { min-width: 2.6rem; justify-content: center; }
+  .dropdown-item.active { background: linear-gradient(135deg, var(--accent), #c026d3); color: #fff; }
   main { max-width: 960px; margin: 0 auto; padding: 1rem; }
 
   .hero { background: linear-gradient(135deg, rgba(14,165,233,0.20), rgba(14,165,233,0.06)); border: 1px solid rgba(14,165,233,0.22); border-radius: 24px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; position: relative; overflow: hidden; box-shadow: 0 8px 24px rgba(14,165,233,0.10); }
@@ -130,10 +129,10 @@
   .phrase-display[data-field="fr"] { font-family: 'Inter', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--fr-color); font-size: 1.3rem; font-weight: 700; line-height: 1.35; min-height: 2.6rem; padding: 0.6rem 0.9rem; letter-spacing: -0.01em; background: linear-gradient(135deg, rgba(192,38,211,0.10), rgba(192,38,211,0.02)); border-color: rgba(192,38,211,0.20); border-inline-start-color: #c026d3; }
   .phrase-display[data-field="ar"] { font-family: 'Noto Sans Arabic', 'Tajawal', 'Segoe UI', Tahoma, system-ui, sans-serif; color: var(--ar-color); font-size: 1.1rem; font-weight: 500; line-height: 1.65; text-align: right; direction: rtl; min-height: 2.2rem; padding: 0.5rem 0.9rem; background: linear-gradient(135deg, rgba(245,158,11,0.10), rgba(245,158,11,0.02)); border-color: rgba(245,158,11,0.20); border-inline-start-color: #f59e0b; }
   .phrase-display[data-field="en"] { font-family: 'Inter', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--en-color); font-size: 1.05rem; font-weight: 500; line-height: 1.45; min-height: 2.2rem; padding: 0.5rem 0.9rem; background: linear-gradient(135deg, rgba(14,165,233,0.10), rgba(14,165,233,0.02)); border-color: rgba(14,165,233,0.20); border-inline-start-color: #0ea5e9; }
-  .phrase-display.speaking-line { color: var(--gold) !important; text-shadow: 0 0 10px rgba(255,255,100,1), 0 0 22px rgba(250,204,21,0.85), 0 0 38px rgba(250,204,21,0.5); box-shadow: 0 0 0 4px rgba(250,204,21,0.15), 0 0 28px rgba(250,204,21,0.25), 0 0 12px rgba(250,204,21,0.35) inset; border-color: rgba(250,204,21,0.45); }
+  .phrase-display.speaking-line { color: var(--gold) !important; text-shadow: 0 0 10px rgba(74,222,128,1), 0 0 22px rgba(34,197,94,0.85), 0 0 38px rgba(34,197,94,0.5); box-shadow: 0 0 0 4px rgba(34,197,94,0.15), 0 0 28px rgba(34,197,94,0.25), 0 0 12px rgba(34,197,94,0.35) inset; border-color: rgba(34,197,94,0.45); }
   .word { display: inline-block; padding: 0.12rem 0.25rem; margin: 0.05rem; border-radius: 8px; transition: background .15s, color .15s, box-shadow .15s; cursor: pointer; }
   .word:hover { background: rgba(14,165,233,0.12); }
-  .word.speaking-line { color: var(--gold) !important; background: rgba(250,204,21,0.15); box-shadow: 0 0 12px rgba(250,204,21,0.65); text-shadow: 0 0 10px rgba(255,255,100,1), 0 0 22px rgba(250,204,21,0.85), 0 0 38px rgba(250,204,21,0.5); font-weight: 700; }
+  .word.speaking-line { color: var(--gold) !important; background: rgba(34,197,94,0.15); box-shadow: 0 0 12px rgba(34,197,94,0.65); text-shadow: 0 0 10px rgba(74,222,128,1), 0 0 22px rgba(34,197,94,0.85), 0 0 38px rgba(34,197,94,0.5); font-weight: 700; }
   .field-label { display: block; color: var(--text-secondary); font-size: 0.74rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin: 0.8rem 0 0.35rem; }
   .field-label-row { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; margin-top: 0.75rem; }
   .field-label-row .field-label { margin: 0; }
@@ -164,9 +163,9 @@
   .toast { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%); background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.7rem 1.2rem; box-shadow: var(--shadow); z-index: 100; font-size: 0.92rem; font-weight: 600; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
   .hidden { display: none !important; }
 
-  .playing { border-color: rgba(250,204,21,0.45); box-shadow: 0 0 0 4px rgba(250,204,21,0.15), 0 0 28px rgba(250,204,21,0.25), 0 12px 30px rgba(250,204,21,0.12); }
-  .playing .textarea { text-shadow: 0 0 8px rgba(255,255,100,0.9), 0 0 16px rgba(250,204,21,0.65), 0 0 28px rgba(250,204,21,0.35); transition: text-shadow .2s, color .2s; }
-  .textarea.speaking-line { color: var(--gold) !important; text-shadow: 0 0 10px rgba(255,255,100,1), 0 0 22px rgba(250,204,21,0.85), 0 0 38px rgba(250,204,21,0.5); font-weight: 700; }
+  .playing { border-color: rgba(34,197,94,0.45); box-shadow: 0 0 0 4px rgba(34,197,94,0.15), 0 0 28px rgba(34,197,94,0.25), 0 12px 30px rgba(34,197,94,0.12); }
+  .playing .textarea { text-shadow: 0 0 8px rgba(74,222,128,0.9), 0 0 16px rgba(34,197,94,0.65), 0 0 28px rgba(34,197,94,0.35); transition: text-shadow .2s, color .2s; }
+  .textarea.speaking-line { color: var(--gold) !important; text-shadow: 0 0 10px rgba(74,222,128,1), 0 0 22px rgba(34,197,94,0.85), 0 0 38px rgba(34,197,94,0.5); font-weight: 700; }
 
   @media (max-width: 480px) {
     .header-inner { padding: 0.65rem; }
@@ -180,16 +179,19 @@
 <body>
 <header>
   <div class="header-inner">
-    <span class="logo" data-t="appName">Langpic</span>
+    <span class="logo" data-t="appName">VocaPic</span>
     <span class="spacer"></span>
     <button class="icon-btn" id="btn-export" data-t-title="export" title="Share"><svg class="icon" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg></button>
     <button class="icon-btn" id="btn-stop-all" data-t-title="stop" title="Stop"><svg class="icon" viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg></button>
     <button class="icon-btn" id="btn-import" data-t-title="import" title="Import"><svg class="icon" viewBox="0 0 24 24"><path d="M19 15h-4v6H9v-6H5l7-7 7 7zM5 10V8h14v2H5z"/></svg></button>
     <input type="file" id="import-file" accept="application/json" class="hidden">
-    <div class="lang-switch">
-      <button class="lang-btn" data-lang="en">EN</button>
-      <button class="lang-btn" data-lang="ar">AR</button>
-      <button class="lang-btn" data-lang="fr">FR</button>
+    <div class="lang-menu">
+      <button class="icon-btn" id="btn-lang" data-t-title="selectLang" title="Language"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.07 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></button>
+      <div class="dropdown hidden" id="lang-dropdown">
+        <button class="dropdown-item" data-lang="en">English</button>
+        <button class="dropdown-item" data-lang="ar">العربية</button>
+        <button class="dropdown-item" data-lang="fr">Français</button>
+      </div>
     </div>
     <button class="icon-btn" id="btn-theme" data-t-title="themeMode" title="Dark / light"><svg class="icon" viewBox="0 0 24 24" id="theme-icon"><path d="M9 2c-1.05 0-2.05.22-2.95.63C7.58 5.49 9.94 8 13 8c3.31 0 6-2.69 6-6 0-.34-.03-.67-.09-1A7.98 7.98 0 0 1 21 12c0 4.97-4.03 9-9 9S3 16.97 3 12A9 9 0 0 1 9 2z"/></svg></button>
   </div>
@@ -217,8 +219,8 @@
   };
 
   var UI = {
-    appName: { ar: 'Langpic', en: 'Langpic', fr: 'Langpic' },
-    title: { ar: 'Langpic', en: 'Langpic', fr: 'Langpic' },
+    appName: { ar: 'VocaPic', en: 'VocaPic', fr: 'VocaPic' },
+    title: { ar: 'VocaPic', en: 'VocaPic', fr: 'VocaPic' },
     subtitle: { ar: 'أنشئ دروساً بجمل فرنسية مترجمة، مع صور أو فيديو، وأزرار نطق.', en: 'Create lessons with translated French phrases, images or video, and speak/loop buttons.', fr: 'Créez des leçons avec des phrases françaises traduites, images ou vidéos, et boutons de lecture.' },
     lesson: { ar: 'درس', en: 'Lesson', fr: 'Leçon' },
     addLesson: { ar: 'درس جديد', en: 'New lesson', fr: 'Nouvelle leçon' },
@@ -262,7 +264,8 @@
     deleteMediaConfirm: { ar: 'هل تريد إزالة الوسائط المرفقة؟', en: 'Remove attached media?', fr: 'Supprimer le média joint ?' },
     bulkAddLabel: { ar: 'إضافة عبارات متعددة (فرنسي | عربي | إنجليزي)', en: 'Add multiple phrases (French | Arabic | English)', fr: 'Ajouter plusieurs phrases (français | arabe | anglais)' },
     bulkAddButton: { ar: 'إضافة', en: 'Add', fr: 'Ajouter' },
-    noBulkPhrases: { ar: 'لا توجد عبارات صالحة. استخدم الشكل: فرنسي | عربي | إنجليزي', en: 'No valid phrases. Use format: French | Arabic | English', fr: 'Aucune phrase valide. Format : français | arabe | anglais' }
+    noBulkPhrases: { ar: 'لا توجد عبارات صالحة. استخدم الشكل: فرنسي | عربي | إنجليزي', en: 'No valid phrases. Use format: French | Arabic | English', fr: 'Aucune phrase valide. Format : français | arabe | anglais' },
+    selectLang: { ar: 'اختر اللغة', en: 'Select language', fr: 'Choisir la langue' }
   };
 
   function t(key) {
@@ -654,7 +657,7 @@
     localStorage.setItem('creator_ui_lang', lang);
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+    document.querySelectorAll('#lang-dropdown .dropdown-item').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
     applyTranslations();
     render();
   }
@@ -1358,8 +1361,19 @@
       applyTheme();
     };
 
-    document.querySelectorAll('.lang-btn').forEach(function (b) {
-      b.onclick = function () { setUILang(b.dataset.lang); };
+    document.getElementById('btn-lang').onclick = function (e) {
+      e.stopPropagation();
+      var dropdown = document.getElementById('lang-dropdown');
+      var wasHidden = dropdown.classList.contains('hidden');
+      closeAllDropdowns();
+      if (wasHidden) dropdown.classList.remove('hidden');
+    };
+    document.querySelectorAll('#lang-dropdown .dropdown-item').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        setUILang(b.dataset.lang);
+        closeAllDropdowns();
+      };
     });
 
     document.getElementById('btn-export').onclick = exportData;
