@@ -99,6 +99,23 @@
   .filter-chip.letter:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.12); }
   .filter-chip.letter.active { background: linear-gradient(135deg, hsl(var(--letter-hue, 260), 75%, 58%), hsl(var(--letter-hue, 260), 75%, 48%)); color: #fff; border-color: transparent; box-shadow: 0 5px 16px hsla(var(--letter-hue, 260), 75%, 50%, 0.35); }
 
+  .filter-section.context { border-top: 3px solid var(--accent-2); }
+  .filter-section.level { border-top: 3px solid var(--success); }
+  .filter-section.pos { border-top: 3px solid var(--accent); }
+
+  .filter-chip.context, .filter-chip.level, .filter-chip.pos { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.38rem 0.65rem; border-radius: 999px; font-size: 0.82rem; font-weight: 600; }
+  .filter-chip.context { background: rgba(45,212,191,0.08); color: #99f6e4; border-color: rgba(45,212,191,0.2); }
+  [data-theme="light"] .filter-chip.context { color: #0f766e; background: rgba(45,212,191,0.08); }
+  .filter-chip.level { background: rgba(16,185,129,0.08); color: #6ee7b7; border-color: rgba(16,185,129,0.2); }
+  [data-theme="light"] .filter-chip.level { color: #047857; background: rgba(16,185,129,0.08); }
+  .filter-chip.pos { background: rgba(99,102,241,0.08); color: #a5b4fc; border-color: rgba(99,102,241,0.2); }
+  [data-theme="light"] .filter-chip.pos { color: #4338ca; background: rgba(99,102,241,0.08); }
+  .filter-chip.context:hover, .filter-chip.level:hover, .filter-chip.pos:hover { transform: translateY(-1px); }
+  .filter-chip.context.active { background: linear-gradient(135deg, #2dd4bf, #0d9488); color: #fff; border-color: transparent; box-shadow: 0 4px 14px rgba(45,212,191,0.28); }
+  .filter-chip.level.active { background: linear-gradient(135deg, #34d399, #059669); color: #fff; border-color: transparent; box-shadow: 0 4px 14px rgba(16,185,129,0.28); }
+  .filter-chip.pos.active { background: linear-gradient(135deg, #818cf8, #4f46e5); color: #fff; border-color: transparent; box-shadow: 0 4px 14px rgba(99,102,241,0.28); }
+  .chip-icon { font-size: 0.92em; line-height: 1; }
+
   .stats { color: var(--text-secondary); font-size: 0.92rem; margin: 0 0 1rem; display: flex; align-items: center; gap: 0.4rem; font-weight: 600; }
   .stats strong { color: var(--accent); font-weight: 800; }
 
@@ -495,16 +512,17 @@
     html += '</div></div>';
 
     // Context strip (horizontally scrollable)
-    html += '<div class="filter-section"><div class="filter-label">' + esc(t('context')) + '</div><div class="contexts-strip">';
+    html += '<div class="filter-section context"><div class="filter-label">' + esc(t('context')) + '</div><div class="contexts-strip">';
     sortedCtxs.forEach(function(c){ html += chipHtml('context', c, ctxLabel(c) + ' (' + ctxs[c] + ')', state.contexts.indexOf(c) !== -1); });
     html += '</div></div>';
 
-    // Levels and POS
-    html += '<div class="filter-section"><div class="filter-row">';
-    html += '<span class="filter-label">' + esc(t('level')) + ':</span>';
+    // Level chips
+    html += '<div class="filter-section level"><div class="filter-label">' + esc(t('level')) + '</div><div class="filter-row">';
     levels.forEach(function(l){ html += chipHtml('level', l, l, state.levels.indexOf(l) !== -1); });
-    html += '<span style="width:0.4rem"></span>';
-    html += '<span class="filter-label">' + esc(t('pos')) + ':</span>';
+    html += '</div></div>';
+
+    // POS chips
+    html += '<div class="filter-section pos"><div class="filter-label">' + esc(t('pos')) + '</div><div class="filter-row">';
     poss.forEach(function(p){ if((posCounts[p]||0) > 0){ html += chipHtml('pos', p, posLabel(p) + ' (' + posCounts[p] + ')', state.pos.indexOf(p) !== -1); } });
     html += '</div></div>';
 
@@ -512,16 +530,47 @@
   }
 
   function chipHtml(type, key, label, active, isLetter, count, hueIndex){
-    var cls = 'filter-chip' + (active?' active':'') + (isLetter?' letter':'');
+    var cls = 'filter-chip' + (active?' active':'') + (isLetter?' letter':' ' + type);
     var style = '';
     if(isLetter && hueIndex != null){
       style = ' style="--letter-hue:' + (hueIndex * 14) + '"';
     }
-    var inner = esc(label);
+    var icon = isLetter ? '' : '<span class="chip-icon">' + chipIcon(type, key) + '</span>';
+    var inner = icon + esc(label);
     if(isLetter && count != null){
       inner = '<span class="letter-char">' + esc(label) + '</span><span class="letter-count">' + (count || 0) + '</span>';
     }
     return '<button class="' + cls + '"' + style + ' data-type="' + type + '" data-key="' + esc(key) + '">' + inner + '</button>';
+  }
+
+  function chipIcon(type, key){
+    if(type === 'level') return levelIcon(key);
+    if(type === 'pos') return posIcon(key);
+    if(type === 'context') return ctxIcon(key);
+    return '';
+  }
+  function levelIcon(key){
+    if(key === 'A1') return '🥉';
+    if(key === 'A2') return '🥈';
+    if(key === 'B1') return '🥇';
+    if(key === 'B2') return '🏆';
+    return '📊';
+  }
+  function posIcon(key){
+    if(key === 'verb') return '🏃';
+    if(key === 'noun') return '📦';
+    if(key === 'adjective') return '🎨';
+    if(key === 'phrase') return '💬';
+    return '🔹';
+  }
+  function ctxIcon(key){
+    var map = {
+      daily:'🏠', work:'💼', services:'🏢', caf:'💶', cpam:'💊', health:'🏥', housing:'🏡',
+      transport:'🚌', car:'🚗', shop:'🛒', food:'🍽', school:'🎓', bank:'🏦', prefecture:'📜',
+      admin:'📋', sushi:'🍣', travel:'✈️', hotel:'🛎', weather:'🌤', time:'⏰', emergency:'🚨',
+      body:'🫀', family:'👨‍👩‍👧‍👦', directions:'🧭', phone:'📱', post:'📮', stage:'🎭', culture:'🎭'
+    };
+    return map[key] || '🏷️';
   }
 
   function filtered(){
