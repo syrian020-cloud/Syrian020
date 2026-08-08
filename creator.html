@@ -211,9 +211,9 @@
     editLesson: { ar: 'تعديل اسم الدرس', en: 'Edit lesson name', fr: 'Modifier le nom de la leçon' },
     attachCover: { ar: 'صورة غلاف', en: 'Cover image', fr: 'Image de couverture' },
     more: { ar: 'المزيد', en: 'More', fr: 'Plus' },
-    downloadImage: { ar: 'تحميل صورة', en: 'Load image', fr: 'Charger l\'image' },
-    imageUrlPlaceholder: { ar: 'https://...', en: 'https://...', fr: 'https://...' },
-    imageDownloadFailed: { ar: 'تعذر تحميل الصورة. جرّب رابطًا آخر.', en: 'Could not load image. Try another link.', fr: 'Impossible de charger l\'image. Essayez un autre lien.' },
+    downloadMedia: { ar: 'تحميل وسائط', en: 'Load media', fr: 'Charger le média' },
+    mediaUrlPlaceholder: { ar: 'https://...', en: 'https://...', fr: 'https://...' },
+    mediaDownloadFailed: { ar: 'تعذر تحميل الوسائط. جرّب رابطًا مباشرًا آخر.', en: 'Could not load media. Try another direct link.', fr: 'Impossible de charger le média. Essayez un autre lien direct.' },
     themeMode: { ar: 'الوضع الليلي/النهاري', en: 'Dark / light mode', fr: 'Mode sombre / clair' },
     mediaHint: { ar: 'اضغط لاختيار صورة أو فيديو من الهاتف', en: 'Tap to choose an image or video from your phone', fr: 'Appuyez pour choisir une image ou une vidéo depuis votre téléphone' },
     exampleLabel: { ar: 'نموذج', en: 'Example', fr: 'Exemple' },
@@ -491,7 +491,7 @@
     } catch (e) { return null; }
   }
 
-  function resolveImageUrl(input) {
+  function resolveMediaUrl(input) {
     return new Promise(function (resolve, reject) {
       var direct = getParam(input, 'imgurl');
       if (direct) { resolve(fullyDecode(direct)); return; }
@@ -515,13 +515,13 @@
     });
   }
 
-  function fetchImageBlob(url) {
+  function fetchMediaBlob(url) {
     return new Promise(function (resolve, reject) {
       var http = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.CapacitorHttp;
       if (http) {
         http.get({ url: url, responseType: 'blob' })
           .then(function (res) {
-            var ct = (res.headers && (res.headers['content-type'] || res.headers['Content-Type'])) || 'image/jpeg';
+            var ct = (res.headers && (res.headers['content-type'] || res.headers['Content-Type'])) || 'application/octet-stream';
             if (typeof res.data === 'string') {
               resolve(dataURLToBlob('data:' + ct + ';base64,' + res.data));
             } else if (res.data instanceof Blob) {
@@ -548,9 +548,9 @@
     });
   }
 
-  function downloadImageForPhrase(phrase, url) {
-    resolveImageUrl(url)
-      .then(fetchImageBlob)
+  function downloadMediaForPhrase(phrase, url) {
+    resolveMediaUrl(url)
+      .then(fetchMediaBlob)
       .then(function (blob) {
         var mediaId = uuid();
         if (phrase.mediaId) deleteMedia(phrase.mediaId);
@@ -563,8 +563,8 @@
         });
       })
       .catch(function (e) {
-        console.error('Image download failed', e);
-        toast(t('imageDownloadFailed'));
+        console.error('Media download failed', e);
+        toast(t('mediaDownloadFailed'));
       });
   }
 
@@ -822,8 +822,8 @@
           '<button class="btn danger remove-media hidden">' + iconText('removeMedia', 'close') + '</button>' +
         '</div>' +
         '<div class="url-input-row">' +
-          '<input type="text" class="input image-url" id="image-url-' + p.id + '" data-t="imageUrlPlaceholder" placeholder="https://...">' +
-          '<button class="btn ghost download-image" data-t-title="downloadImage">' + icon('import') + '</button>' +
+          '<input type="text" class="input media-url" id="media-url-' + p.id + '" data-t="mediaUrlPlaceholder" placeholder="https://...">' +
+          '<button class="btn ghost download-media" data-t-title="downloadMedia">' + icon('import') + '</button>' +
         '</div>' +
       '</div>' +
       '<input type="file" class="file-input hidden" id="file-' + p.id + '" accept="image/*,video/*">';
@@ -878,9 +878,9 @@
           saveCurrentLesson();
           renderMediaForPhrase(phrase);
         }
-      } else if (btn.classList.contains('download-image')) {
-        var urlInput = document.getElementById('image-url-' + phraseId);
-        if (urlInput && urlInput.value.trim()) downloadImageForPhrase(phrase, urlInput.value.trim());
+      } else if (btn.classList.contains('download-media')) {
+        var urlInput = document.getElementById('media-url-' + phraseId);
+        if (urlInput && urlInput.value.trim()) downloadMediaForPhrase(phrase, urlInput.value.trim());
       }
     };
 
