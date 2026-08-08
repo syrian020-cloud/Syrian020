@@ -557,6 +557,30 @@ Use a fresh `--user-data-dir` or an incognito window when testing service worker
   4. Confirm the `Prefecture` context chip shows `122` results and no JS runtime errors in DevTools.
 - The debug APK was rebuilt after this batch.
 
+## Y/X vocabulary batch (dross-v142)
+
+- Added 42 new Y/X entries and merged 2 existing entries (`Examiner` and `Examen médical`) with new examples. No existing entries were deleted.
+- Total vocab increased from **2452** to **2494**.
+- Service worker cache bumped to `dross-v142` and the debug APK was rebuilt.
+- Letter chip counts include `Y (8)` and `Z (26)`. Note that the batch's X entries (`Examen`, `Expérience`, `Exemple`, etc.) start with `E`/`É`, so they contribute to the `E (82)` letter chip rather than a separate `X` chip. Only `Xeroxer` contributes to `X`.
+- Sample Y entries:
+  - `Y aller` → Phrase A1, `to go there`, `يروح لهنيك / يذهب إلى هناك`, contexts `Daily`/`Transport`/`Work`/`CAF`/`Services`.
+  - `Yaourt` → Noun A1, `yogurt`, `لبن / زبادي`, contexts `Daily`/`Food`.
+  - `Il y a` / `Il n'y a pas` / `Il y en a` / `Il n'y a plus` / `Il n'y a que` → Phrase A1.
+- Sample X/batch entries:
+  - `Examen` → Noun A1, `exam / examination`, `امتحان / فحص`.
+  - `Expérience` → Noun A1, `experience`, `خبرة / تجربة`.
+  - `Expliquer` → Verb A1, `to explain`, `يشرح / يوضّح`.
+  - `Examen médical` → Noun A1, `Medical examination`, `فحص طبي`, contexts `Health`/`Daily`/`Work`/`Services`.
+  - `Extrait de compte` → Phrase A1, `bank statement`, `كشف حساب`, contexts `Daily`/`Bank`.
+- E2E verification steps:
+  1. Open `vocab.html` fresh and confirm `2494 result(s)` and cache `dross-v142`.
+  2. Confirm the `Y (8)` letter chip.
+  3. Search `Il y a`, `Il n'y a pas`, `Y aller`, and `Yaourt` — verify each returns the correct POS/level/contexts and trilingual examples.
+  4. Search `Examen`, `Expérience`, `Expliquer`, `Examen médical`, and `Extrait de compte` — verify correct cards.
+  5. Confirm no JS runtime errors in the browser console.
+
 ## Known data-quality issues (last observed)
 
-- None. All 2249 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`) when a separate example was provided. Situation sentences use `fr`/`ar`/`en` directly and may not have a separate `ex` block. Administrative entries may also include a `usage` field.
+- The `Sushi` context has **204** entries and appears on the context chip list. It looks like a leftover/placeholder tag applied to many unrelated entries (e.g. `Attention`, `Le chef`, `Commander`, `La carte bancaire`). Consider cleaning it up in a future data pass.
+- All 2494 entries have `fr`, `ar`, `en`, `level`, `contexts`, and a complete `ex` object or array (`ex.fr`, `ex.ar`, `ex.en`) when a separate example was provided. Situation sentences use `fr`/`ar`/`en` directly and may not have a separate `ex` block. Administrative entries may also include a `usage` field.
