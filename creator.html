@@ -218,6 +218,7 @@
     uiLang: localStorage.getItem('creator_ui_lang') || 'ar',
     theme: localStorage.getItem('creator_theme') || 'light',
     rate: Number(localStorage.getItem('creator_rate')) || 1,
+    lessonLoopMode: localStorage.getItem('creator_loop_mode') || 'all',
     loopKey: null,
     mediaUrls: {}, // mediaId -> objectUrl
     saveTimer: null
@@ -271,7 +272,10 @@
     bulkAddButton: { ar: 'إضافة', en: 'Add', fr: 'Ajouter' },
     noBulkPhrases: { ar: 'لا توجد عبارات صالحة. استخدم الشكل: فرنسي | عربي | إنجليزي', en: 'No valid phrases. Use format: French | Arabic | English', fr: 'Aucune phrase valide. Format : français | arabe | anglais' },
     selectLang: { ar: 'اختر اللغة', en: 'Select language', fr: 'Choisir la langue' },
-    speechRate: { ar: 'سرعة النطق', en: 'Speech rate', fr: 'Vitesse de parole' }
+    speechRate: { ar: 'سرعة النطق', en: 'Speech rate', fr: 'Vitesse de parole' },
+    playMode: { ar: 'وضع التشغيل', en: 'Play mode', fr: 'Mode lecture' },
+    playModeFrench: { ar: 'فرنسي فقط', en: 'French only', fr: 'Français seul' },
+    playModeAll: { ar: 'فرنسي + عربي + إنجليزي', en: 'French + Arabic + English', fr: 'Français + Arabe + Anglais' }
   };
 
   function t(key) {
@@ -813,11 +817,18 @@
     controls.className = 'btn-row';
     controls.innerHTML =
       '<button class="btn" id="btn-play-all">' + iconText('playAll', 'play') + '</button>' +
-      '<button class="btn ghost" id="btn-stop-all">' + iconText('stopAll', 'stop') + '</button>' +
+      '<button class="btn ghost" id="btn-stop-lesson">' + iconText('stopAll', 'stop') + '</button>' +
       '<div class="rate-control">' +
         '<span class="rate-label" data-t="speechRate"></span>' +
         '<input type="range" id="rate-slider" min="0.5" max="2" step="0.1" value="' + state.rate + '">' +
         '<span class="rate-value" id="rate-value">' + state.rate.toFixed(1) + 'x</span>' +
+      '</div>' +
+      '<div class="rate-control">' +
+        '<span class="rate-label" data-t="playMode"></span>' +
+        '<select id="play-mode" class="input play-mode-select" style="width:auto;min-width:9rem;font-size:0.85rem;padding:0.35rem 0.6rem;">' +
+          '<option value="fr" ' + (state.lessonLoopMode === 'fr' ? 'selected' : '') + '>' + esc(t('playModeFrench')) + '</option>' +
+          '<option value="all" ' + (state.lessonLoopMode === 'all' ? 'selected' : '') + '>' + esc(t('playModeAll')) + '</option>' +
+        '</select>' +
       '</div>';
     app.appendChild(controls);
 
@@ -913,7 +924,7 @@
     document.getElementById('btn-add-phrase').onclick = function () { addPhrase(lesson); };
     document.getElementById('btn-bulk-add').onclick = function () { addBulkPhrases(lesson); };
     document.getElementById('btn-play-all').onclick = function () { playLesson(lesson); };
-    document.getElementById('btn-stop-all').onclick = stopSpeech;
+    document.getElementById('btn-stop-lesson').onclick = stopAllMedia;
 
     var rateSlider = document.getElementById('rate-slider');
     var rateValue = document.getElementById('rate-value');
@@ -922,6 +933,14 @@
         state.rate = Number(rateSlider.value);
         localStorage.setItem('creator_rate', state.rate);
         if (rateValue) rateValue.textContent = state.rate.toFixed(1) + 'x';
+      };
+    }
+
+    var playMode = document.getElementById('play-mode');
+    if (playMode) {
+      playMode.onchange = function () {
+        state.lessonLoopMode = playMode.value;
+        localStorage.setItem('creator_loop_mode', state.lessonLoopMode);
       };
     }
 
@@ -1190,20 +1209,29 @@
     toggleLoop(fake, key, [lang]);
   }
 
+  function getLessonLoopLangs() {
+    return state.lessonLoopMode === 'fr' ? ['fr'] : ['fr', 'ar', 'en'];
+  }
+
   function playLesson(lesson) {
-    stopSpeech();
-    var i = 0;
     var runKey = 'lesson:' + lesson.id;
+    if (state.loopKey === runKey) { stopSpeech(); return; }
+    stopSpeech();
     state.loopKey = runKey;
     refreshLoopButtons();
+    var i = 0;
     (function next() {
       if (state.loopKey !== runKey) return;
-      if (i >= lesson.phrases.length) { stopSpeech(); return; }
+      if (i >= lesson.phrases.length) {
+        i = 0;
+        setTimeout(next, 1200);
+        return;
+      }
       var p = lesson.phrases[i];
       i++;
       var card = document.querySelector('.phrase-card[data-phrase-id="' + p.id + '"]');
       if (card) card.scrollIntoView({ block: 'center', behavior: 'smooth' });
-      speakOnce(p, ['fr', 'ar', 'en'], p.id, function () {
+      speakOnce(p, getLessonLoopLangs(), p.id, function () {
         if (state.loopKey !== runKey) return;
         setTimeout(next, 400);
       });
