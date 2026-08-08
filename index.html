@@ -997,6 +997,117 @@
       main { padding-top: 8.5rem; }
       .logo { font-size: 1rem; }
     }
+
+    /* Floating Screen Reader */
+    #floating-reader-btn {
+      position: fixed;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+      font-size: 1.4rem;
+      z-index: 10000;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .15s, background .15s;
+      padding: 0;
+    }
+    [dir="rtl"] #floating-reader-btn { right: auto; left: 1.25rem; }
+    #floating-reader-btn:hover { transform: scale(1.06); }
+    #floating-reader-btn.active { background: var(--danger); }
+
+    #region-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.25);
+      z-index: 9998;
+      cursor: crosshair;
+      display: none;
+      touch-action: none;
+    }
+    #region-overlay.active { display: block; }
+
+    #region-hint {
+      position: absolute;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      pointer-events: none;
+      box-shadow: var(--shadow);
+      white-space: nowrap;
+      z-index: 9999;
+    }
+    #region-box {
+      position: absolute;
+      border: 2px dashed var(--accent);
+      background: rgba(74, 158, 255, 0.18);
+      pointer-events: none;
+    }
+
+    #reader-panel {
+      position: fixed;
+      bottom: 5.5rem;
+      right: 1rem;
+      width: min(90vw, 24rem);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 0.9rem;
+      z-index: 9997;
+      display: none;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    [dir="rtl"] #reader-panel { right: auto; left: 1rem; }
+    #reader-panel.active { display: flex; }
+    #reader-panel textarea {
+      width: 100%;
+      min-height: 5.5rem;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.5rem;
+      font: inherit;
+      resize: vertical;
+    }
+    #reader-panel .reader-actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    #reader-panel .reader-actions button {
+      flex: 1;
+      min-width: 4.5rem;
+      padding: 0.55rem;
+      border: none;
+      border-radius: var(--radius);
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 600;
+    }
+    #reader-panel .reader-actions button.primary { background: var(--accent); color: #fff; }
+    #reader-panel .reader-actions button.danger { background: var(--danger); color: #fff; }
+
+    @media (max-width: 500px) {
+      #reader-panel { bottom: 5rem; right: 0.5rem; left: 0.5rem; width: auto; }
+      [dir="rtl"] #reader-panel { right: 0.5rem; left: 0.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -3317,6 +3428,197 @@
 
       renderLessons();
     });
+  </script>
+
+  <!-- Floating Screen Reader -->
+  <button id="floating-reader-btn" title="قارئ الشاشة (تحديد منطقة)">🎤</button>
+  <div id="region-overlay">
+    <div id="region-hint">اسحب لتحديد منطقة النص على الشاشة</div>
+    <div id="region-box"></div>
+  </div>
+  <div id="reader-panel">
+    <textarea id="reader-text" placeholder="سيظهر النص المحدد هنا..."></textarea>
+    <div class="reader-actions">
+      <button id="reader-speak" class="primary">🔊 نطق</button>
+      <button id="reader-loop" class="primary">🔁 تكرار</button>
+      <button id="reader-stop" class="danger">⏹ إيقاف</button>
+    </div>
+  </div>
+  <script>
+    (function() {
+      const btn = document.getElementById('floating-reader-btn');
+      const overlay = document.getElementById('region-overlay');
+      const box = document.getElementById('region-box');
+      const panel = document.getElementById('reader-panel');
+      const textarea = document.getElementById('reader-text');
+      const speakBtn = document.getElementById('reader-speak');
+      const loopBtn = document.getElementById('reader-loop');
+      const stopBtn = document.getElementById('reader-stop');
+
+      let selecting = false, startX, startY, region = null;
+      let loopActive = false, loopTimer = null;
+
+      function getTTSLang(text) {
+        if (/[\u0600-\u06FF]/.test(text)) return 'ar-SA';
+        if (/[\u00C0-\u024F\u0153\u0152]/.test(text)) return 'fr-FR';
+        return 'en-US';
+      }
+
+      function tts(text, onend) {
+        const lang = getTTSLang(text);
+        if (typeof ttsSpeak === 'function') {
+          ttsSpeak({ text, lang, onend });
+        } else if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          const u = new SpeechSynthesisUtterance(text);
+          u.lang = lang;
+          u.onend = onend;
+          window.speechSynthesis.speak(u);
+        }
+      }
+
+      function stopTTS() {
+        loopActive = false;
+        if (loopTimer) { clearTimeout(loopTimer); loopTimer = null; }
+        if (typeof ttsStop === 'function') ttsStop();
+        else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      }
+
+      function speakOnce() {
+        stopTTS();
+        const text = textarea.value.trim();
+        if (!text) return;
+        tts(text);
+      }
+
+      function speakLoop() {
+        stopTTS();
+        const text = textarea.value.trim();
+        if (!text) return;
+        loopActive = true;
+        (function next() {
+          if (!loopActive) return;
+          tts(text, function() {
+            if (!loopActive) return;
+            loopTimer = setTimeout(next, 1200);
+          });
+        })();
+      }
+
+      function updateBox(x1, y1, x2, y2) {
+        const left = Math.min(x1, x2);
+        const top = Math.min(y1, y2);
+        const width = Math.abs(x2 - x1);
+        const height = Math.abs(y2 - y1);
+        box.style.left = left + 'px';
+        box.style.top = top + 'px';
+        box.style.width = width + 'px';
+        box.style.height = height + 'px';
+        return { left, top, width, height, right: left + width, bottom: top + height };
+      }
+
+      function getPoint(e) {
+        if (e.touches && e.touches.length) {
+          return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        }
+        return { x: e.clientX, y: e.clientY };
+      }
+
+      function startSelect(e) {
+        if (e.target && e.target.closest && e.target.closest('#reader-panel, #floating-reader-btn')) return;
+        selecting = true;
+        const p = getPoint(e);
+        startX = p.x; startY = p.y;
+        box.style.display = 'block';
+        region = updateBox(startX, startY, startX, startY);
+      }
+
+      function moveSelect(e) {
+        if (!selecting) return;
+        const p = getPoint(e);
+        region = updateBox(startX, startY, p.x, p.y);
+      }
+
+      function endSelect() {
+        if (!selecting) return;
+        selecting = false;
+        box.style.display = 'none';
+        if (region && region.width > 8 && region.height > 8) {
+          textarea.value = extractText(region);
+          panel.classList.add('active');
+        }
+        overlay.classList.remove('active');
+        btn.classList.remove('active');
+      }
+
+      function extractText(rect) {
+        const result = [];
+        const seen = new Set();
+        const range = document.createRange();
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+          acceptNode: function(node) {
+            const parent = node.parentElement;
+            if (!parent) return NodeFilter.FILTER_REJECT;
+            if (parent.closest('#floating-reader-btn, #reader-panel, #region-overlay, #region-box, script, style, noscript')) {
+              return NodeFilter.FILTER_REJECT;
+            }
+            return NodeFilter.FILTER_ACCEPT;
+          }
+        });
+        let node;
+        while ((node = walker.nextNode())) {
+          const text = node.textContent.trim();
+          if (!text || text.length > 400) continue;
+          range.selectNodeContents(node);
+          const rects = range.getClientRects();
+          if (!rects.length) continue;
+          const r = rects[0];
+          if (r.width === 0 || r.height === 0) continue;
+          if (r.left < rect.left + rect.width &&
+              r.right > rect.left &&
+              r.top < rect.top + rect.height &&
+              r.bottom > rect.top) {
+            if (seen.has(text)) continue;
+            seen.add(text);
+            result.push({ text, top: r.top, left: r.left });
+          }
+        }
+        result.sort((a, b) => a.top - b.top || a.left - b.left);
+        return result.map(i => i.text).join(' ').replace(/\s+/g, ' ').trim();
+      }
+
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (overlay.classList.contains('active')) {
+          overlay.classList.remove('active');
+          btn.classList.remove('active');
+          selecting = false;
+          box.style.display = 'none';
+          return;
+        }
+        overlay.classList.add('active');
+        btn.classList.add('active');
+        selecting = false;
+        box.style.display = 'none';
+      });
+
+      overlay.addEventListener('mousedown', startSelect);
+      overlay.addEventListener('mousemove', moveSelect);
+      overlay.addEventListener('mouseup', endSelect);
+      overlay.addEventListener('touchstart', startSelect, { passive: false });
+      overlay.addEventListener('touchmove', moveSelect, { passive: false });
+      overlay.addEventListener('touchend', endSelect);
+
+      speakBtn.addEventListener('click', speakOnce);
+      loopBtn.addEventListener('click', speakLoop);
+      stopBtn.addEventListener('click', stopTTS);
+
+      document.addEventListener('click', function(e) {
+        if (!panel.classList.contains('active')) return;
+        if (panel.contains(e.target) || btn.contains(e.target) || overlay.contains(e.target)) return;
+        panel.classList.remove('active');
+      });
+    })();
   </script>
 </body>
 </html>
