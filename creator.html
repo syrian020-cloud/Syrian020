@@ -471,7 +471,51 @@
     return new Blob([arr], { type: mime });
   }
 
-  function urlToBlob(url) {
+  function fullyDecode(v) {
+    if (v == null) return v;
+    for (var i = 0; i < 5; i++) {
+      if (v.indexOf('%') === -1) break;
+      try {
+        var d = decodeURIComponent(v);
+        if (d === v) break;
+        v = d;
+      } catch (e) { break; }
+    }
+    return v;
+  }
+
+  function getParam(url, name) {
+    try {
+      var u = new URL(url);
+      return u.searchParams.get(name);
+    } catch (e) { return null; }
+  }
+
+  function resolveImageUrl(input) {
+    return new Promise(function (resolve, reject) {
+      var direct = getParam(input, 'imgurl');
+      if (direct) { resolve(fullyDecode(direct)); return; }
+      var needsResolve = /^(https?:\/\/)?(share\.google\/|g\.co\/|www\.google\.com\/imgres|www\.google\.com\/share\.google)/i.test(input);
+      if (!needsResolve) { resolve(input); return; }
+
+      var http = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.CapacitorHttp;
+      function webFollow(u) {
+        return fetch(u, { redirect: 'follow' }).then(function (r) { return r.url; });
+      }
+      function nativeFollow(u) {
+        return http.get({ url: u, responseType: 'text' }).then(function (r) { return r.url || u; });
+      }
+      var follow = http ? nativeFollow : webFollow;
+      follow(input)
+        .then(function (finalUrl) {
+          var img = finalUrl && getParam(finalUrl, 'imgurl');
+          resolve(img ? fullyDecode(img) : input);
+        })
+        .catch(function (err) { reject(err); });
+    });
+  }
+
+  function fetchImageBlob(url) {
     return new Promise(function (resolve, reject) {
       var http = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.CapacitorHttp;
       if (http) {
@@ -505,7 +549,8 @@
   }
 
   function downloadImageForPhrase(phrase, url) {
-    urlToBlob(url)
+    resolveImageUrl(url)
+      .then(fetchImageBlob)
       .then(function (blob) {
         var mediaId = uuid();
         if (phrase.mediaId) deleteMedia(phrase.mediaId);
