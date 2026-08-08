@@ -6,13 +6,43 @@ window.VOCAB_DATA = [
     "en": "Nearby / Next to",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "transport",
+      "health",
+      "car"
     ],
-    "ex": {
-      "fr": "Je suis assis à côté de toi.",
-      "ar": "أنا جالس بجانبك.",
-      "en": "I am sitting next to you."
-    },
+    "ex": [
+      {
+        "fr": "Je suis assis à côté de toi.",
+        "ar": "أنا جالس بجانبك.",
+        "en": "I am sitting next to you."
+      },
+      {
+        "fr": "Je suis à côté",
+        "en": "I'm nearby / next door.",
+        "ar": "أنا عالجنب"
+      },
+      {
+        "fr": "Il y a une pharmacie à côté",
+        "en": "There is a pharmacy nearby.",
+        "ar": "في صيدلية عالجنب"
+      },
+      {
+        "fr": "Viens à côté",
+        "en": "Come next to (me).",
+        "ar": "تعال عالجنب"
+      },
+      {
+        "fr": "Le parking est juste à côté",
+        "en": "The parking is right next door.",
+        "ar": "الباركينغ عالجنب هيك مباشرة"
+      },
+      {
+        "fr": "Assieds-toi à côté",
+        "en": "Sit next to (me/it).",
+        "ar": "اقعد عالجنب"
+      }
+    ],
     "pos": "phrase"
   },
   {
@@ -40285,5 +40315,512 @@ window.VOCAB_DATA = [
       "en": "Okay, I understand.",
       "ar": "تمام، فهمت."
     }
+  },
+  {
+    "fr": "En bas",
+    "ar": "في الأسفل / بالأسفل / لتحت",
+    "en": "downstairs / down / below",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "shop"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Je suis en bas",
+        "en": "I'm downstairs.",
+        "ar": "أنا بالأسفل / أنا لتحت"
+      },
+      {
+        "fr": "Attends-moi en bas",
+        "en": "Wait for me downstairs.",
+        "ar": "ناطرني لتحت"
+      },
+      {
+        "fr": "Il y a quelqu'un en bas",
+        "en": "There is someone downstairs.",
+        "ar": "في حدا لتحت"
+      },
+      {
+        "fr": "Descends en bas",
+        "en": "Come downstairs.",
+        "ar": "انزل لتحت"
+      },
+      {
+        "fr": "Le magasin est en bas",
+        "en": "The shop is downstairs.",
+        "ar": "المحل بالأسفل"
+      },
+      {
+        "fr": "Va en bas, s'il te plaît",
+        "en": "Go downstairs, please.",
+        "ar": "روح لتحت، لو سمحت"
+      }
+    ]
+  },
+  {
+    "fr": "En dessous",
+    "ar": "تحت / أسفل / بالأسفل",
+    "en": "underneath / below",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing",
+      "restaurant"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Le sac est en dessous de la table",
+        "en": "The bag is underneath the table.",
+        "ar": "الشنطة تحت الطاولة"
+      },
+      {
+        "fr": "L'appartement est juste en dessous",
+        "en": "The apartment is right below.",
+        "ar": "الشقة تحت هون بالضبط"
+      },
+      {
+        "fr": "Regardez en dessous",
+        "en": "Look underneath.",
+        "ar": "شوفوا تحت"
+      },
+      {
+        "fr": "Il y a une boîte en dessous",
+        "en": "There is a box underneath.",
+        "ar": "في علبة تحت"
+      }
+    ]
+  },
+  {
+    "fr": "En dessous de",
+    "ar": "تحت / أقل من",
+    "en": "below / under / less than",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "weather"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "C'est en dessous de 100 euros",
+        "en": "It's under 100 euros.",
+        "ar": "سعره أقل من 100 يورو"
+      },
+      {
+        "fr": "La température est en dessous de zéro",
+        "en": "The temperature is below zero.",
+        "ar": "درجة الحرارة تحت الصفر"
+      }
+    ]
+  },
+  {
+    "fr": "Au-dessus",
+    "ar": "فوق / بالأعلى",
+    "en": "above / upstairs / on top",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Je suis au-dessus",
+        "en": "I'm above / upstairs.",
+        "ar": "أنا فوق"
+      },
+      {
+        "fr": "L'appartement au-dessus est vide",
+        "en": "The apartment above is empty.",
+        "ar": "الشقة يلي فوق فاضية"
+      },
+      {
+        "fr": "Regarde au-dessus",
+        "en": "Look above.",
+        "ar": "شوف فوق"
+      },
+      {
+        "fr": "Il y a un balcon au-dessus",
+        "en": "There is a balcony above.",
+        "ar": "في بلكون فوق"
+      },
+      {
+        "fr": "Mets le sac au-dessus",
+        "en": "Put the bag on top.",
+        "ar": "حط الشنطة فوق"
+      }
+    ]
+  },
+  {
+    "fr": "Au-dessus de",
+    "ar": "فوق (شيء محدد)",
+    "en": "above / over / on top of",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport",
+      "housing",
+      "restaurant"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Le tableau est au-dessus du canapé",
+        "en": "The painting is above the sofa.",
+        "ar": "اللوحة فوق الكنبة"
+      },
+      {
+        "fr": "L'avion vole au-dessus de la ville",
+        "en": "The plane flies above the city.",
+        "ar": "الطيارة عم تطير فوق المدينة"
+      },
+      {
+        "fr": "C'est au-dessus de 100 euros",
+        "en": "It's over 100 euros.",
+        "ar": "سعره فوق 100 يورو"
+      },
+      {
+        "fr": "Sa chambre est juste au-dessus de la mienne",
+        "en": "His room is right above mine.",
+        "ar": "غرفته فوق غرفتي هيك مباشرة"
+      }
+    ]
+  },
+  {
+    "fr": "Devant",
+    "ar": "قدام / أمام",
+    "en": "in front / ahead",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport",
+      "restaurant",
+      "car",
+      "caf"
+    ],
+    "pos": "other",
+    "ex": [
+      {
+        "fr": "Je suis devant",
+        "en": "I'm in front.",
+        "ar": "أنا قدام"
+      },
+      {
+        "fr": "Attends-moi devant",
+        "en": "Wait for me in front.",
+        "ar": "ناطرني قدام"
+      },
+      {
+        "fr": "Il y a une voiture devant",
+        "en": "There is a car in front.",
+        "ar": "في سيارة قدام"
+      },
+      {
+        "fr": "Passe devant",
+        "en": "Go ahead / pass in front.",
+        "ar": "روح قدام / فوت قدام"
+      },
+      {
+        "fr": "Le café est juste devant",
+        "en": "The café is right in front.",
+        "ar": "القهوة قدام هيك مباشرة"
+      },
+      {
+        "fr": "La voiture est devant la maison",
+        "en": "The car is in front of the house.",
+        "ar": "السيارة قدام البيت"
+      },
+      {
+        "fr": "Il attend devant l'école",
+        "en": "He's waiting in front of the school.",
+        "ar": "عم يستنى قدام المدرسة"
+      },
+      {
+        "fr": "Ne reste pas devant la porte",
+        "en": "Don't stay in front of the door.",
+        "ar": "لا تضل واقف قدام الباب"
+      }
+    ]
+  },
+  {
+    "fr": "Derrière",
+    "ar": "ورا / خلف",
+    "en": "behind / in back",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "pos": "other",
+    "ex": [
+      {
+        "fr": "Je suis derrière",
+        "en": "I'm behind.",
+        "ar": "أنا ورا"
+      },
+      {
+        "fr": "Regarde derrière",
+        "en": "Look behind.",
+        "ar": "شوف ورا"
+      },
+      {
+        "fr": "Il y a un jardin derrière",
+        "en": "There is a garden behind.",
+        "ar": "في جنينة ورا"
+      },
+      {
+        "fr": "Reste derrière",
+        "en": "Stay behind.",
+        "ar": "ضل ورا"
+      },
+      {
+        "fr": "La maison derrière est belle",
+        "en": "The house behind is beautiful.",
+        "ar": "البيت يلي ورا حلو"
+      },
+      {
+        "fr": "Le chat est derrière la porte",
+        "en": "The cat is behind the door.",
+        "ar": "القطة ورا الباب"
+      },
+      {
+        "fr": "Il se cache derrière l'arbre",
+        "en": "He's hiding behind the tree.",
+        "ar": "عم يختبي ورا الشجرة"
+      },
+      {
+        "fr": "Gare-toi derrière le bâtiment",
+        "en": "Park behind the building.",
+        "ar": "بارك ورا البناية"
+      }
+    ]
+  },
+  {
+    "fr": "À côté de",
+    "ar": "جنب / بجانب (شيء محدد)",
+    "en": "next to / beside",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport",
+      "health",
+      "housing",
+      "services",
+      "school",
+      "car",
+      "bank"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "La pharmacie est à côté de la banque",
+        "en": "The pharmacy is next to the bank.",
+        "ar": "الصيدلية جنب البنك"
+      },
+      {
+        "fr": "Assieds-toi à côté de moi",
+        "en": "Sit next to me.",
+        "ar": "اقعد جنبي"
+      },
+      {
+        "fr": "Il a garé la voiture à côté de l'école",
+        "en": "He parked the car next to the school.",
+        "ar": "ركن السيارة جنب المدرسة"
+      },
+      {
+        "fr": "Mets le sac à côté de la porte",
+        "en": "Put the bag next to the door.",
+        "ar": "حط الشنطة جنب الباب"
+      }
+    ]
+  },
+  {
+    "fr": "Entre",
+    "ar": "بين",
+    "en": "between",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health",
+      "housing",
+      "services",
+      "school",
+      "bank"
+    ],
+    "pos": "other",
+    "ex": [
+      {
+        "fr": "Il est assis entre les deux",
+        "en": "He's sitting between the two.",
+        "ar": "قاعد بين الاثنين"
+      },
+      {
+        "fr": "La pharmacie est entre la banque et l'école",
+        "en": "The pharmacy is between the bank and the school.",
+        "ar": "الصيدلية بين البنك والمدرسة"
+      },
+      {
+        "fr": "Choisis entre les deux",
+        "en": "Choose between the two.",
+        "ar": "اختار بين الاثنين"
+      },
+      {
+        "fr": "Il y a un mur entre les deux maisons",
+        "en": "There is a wall between the two houses.",
+        "ar": "في حيط بين البيتين"
+      }
+    ]
+  },
+  {
+    "fr": "Parmi",
+    "ar": "من ضمن / بين (مجموعة)",
+    "en": "among",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "other",
+    "ex": [
+      {
+        "fr": "Il est parmi les meilleurs",
+        "en": "He's among the best.",
+        "ar": "هو من ضمن الأحسن"
+      },
+      {
+        "fr": "Elle était parmi les invités",
+        "en": "She was among the guests.",
+        "ar": "كانت من ضمن المدعوين"
+      },
+      {
+        "fr": "Choisis un livre parmi ceux-là",
+        "en": "Choose a book among those.",
+        "ar": "اختار كتاب من ضمن هدول"
+      }
+    ]
+  },
+  {
+    "fr": "Loin",
+    "ar": "بعيد",
+    "en": "far",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "other",
+    "ex": [
+      {
+        "fr": "Je suis loin",
+        "en": "I'm far.",
+        "ar": "أنا بعيد"
+      },
+      {
+        "fr": "C'est loin d'ici",
+        "en": "It's far from here.",
+        "ar": "هاد بعيد من هون"
+      },
+      {
+        "fr": "Ne va pas loin",
+        "en": "Don't go far.",
+        "ar": "لا تروح بعيد"
+      },
+      {
+        "fr": "Il habite loin",
+        "en": "He lives far away.",
+        "ar": "عايش بعيد"
+      }
+    ]
+  },
+  {
+    "fr": "Loin de",
+    "ar": "بعيد عن (شيء محدد)",
+    "en": "far from",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work",
+      "housing"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "La maison est loin de la ville",
+        "en": "The house is far from the city.",
+        "ar": "البيت بعيد عن المدينة"
+      },
+      {
+        "fr": "Il travaille loin de chez lui",
+        "en": "He works far from his home.",
+        "ar": "عم يشتغل بعيد عن بيته"
+      },
+      {
+        "fr": "Reste loin de moi",
+        "en": "Stay far from me.",
+        "ar": "ضل بعيد عني"
+      }
+    ]
+  },
+  {
+    "fr": "Près",
+    "ar": "قريب",
+    "en": "near / close by",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "shop"
+    ],
+    "pos": "other",
+    "ex": [
+      {
+        "fr": "Je suis près",
+        "en": "I'm close by.",
+        "ar": "أنا قريب"
+      },
+      {
+        "fr": "Il y a un magasin près",
+        "en": "There is a shop nearby.",
+        "ar": "في محل قريب"
+      },
+      {
+        "fr": "Viens plus près",
+        "en": "Come closer.",
+        "ar": "تعال أقرب"
+      }
+    ]
+  },
+  {
+    "fr": "Près de",
+    "ar": "قريب من (شيء محدد)",
+    "en": "near / close to",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing",
+      "services",
+      "restaurant",
+      "school",
+      "bank",
+      "caf"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "La maison est près de l'école",
+        "en": "The house is near the school.",
+        "ar": "البيت قريب من المدرسة"
+      },
+      {
+        "fr": "Il habite près de moi",
+        "en": "He lives near me.",
+        "ar": "عايش قريبي"
+      },
+      {
+        "fr": "Le café est près de la banque",
+        "en": "The café is near the bank.",
+        "ar": "القهوة قريبة من البنك"
+      }
+    ]
   }
 ];
