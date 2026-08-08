@@ -79,10 +79,20 @@
   .card-title { font-weight: 800; font-size: 1.08rem; margin-bottom: 0.3rem; }
   .card-sub { color: var(--text-secondary); font-size: 0.85rem; }
 
-  .lesson-card { display: flex; align-items: center; gap: 0.9rem; cursor: pointer; }
+  .lesson-card { display: flex; align-items: center; gap: 0.9rem; cursor: pointer; position: relative; overflow: visible; padding: 0.9rem 1.1rem; }
   .lesson-card:hover { border-color: var(--accent); transform: translateY(-2px) scale(1.005); }
-  .lesson-card .num { min-width: 2.6rem; height: 2.6rem; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent-gold)); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; box-shadow: 0 4px 12px rgba(37,99,235,0.25); }
+  .lesson-cover { width: 3.2rem; height: 3.2rem; min-width: 3.2rem; border-radius: 14px; background: linear-gradient(135deg, var(--bg-tertiary), #1e293b); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-secondary); overflow: hidden; }
+  .lesson-cover img { width: 100%; height: 100%; object-fit: cover; }
+  .lesson-cover .icon { width: 1.4rem; height: 1.4rem; opacity: 0.5; }
   .lesson-card .body { flex: 1; min-width: 0; }
+
+  .lesson-menu { position: relative; }
+  .dropdown { position: absolute; top: 120%; left: auto; right: 0; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 14px; padding: 0.4rem; min-width: 11rem; box-shadow: var(--shadow); z-index: 10; display: flex; flex-direction: column; gap: 0.2rem; }
+  html[dir="rtl"] .dropdown { right: auto; left: 0; }
+  .dropdown-item { background: transparent; color: var(--text-primary); border: none; border-radius: 10px; padding: 0.55rem 0.7rem; font-size: 0.92rem; font-weight: 600; text-align: start; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; }
+  .dropdown-item:hover { background: var(--bg-tertiary); }
+  .dropdown-item.danger { color: var(--danger); }
+  .dropdown-item .icon { width: 1.1rem; height: 1.1rem; }
 
   .input, .textarea {
     width: 100%; background: var(--bg-tertiary); color: var(--text-primary);
@@ -195,6 +205,9 @@
     exportLesson: { ar: 'مشاركة الدرس', en: 'Share lesson', fr: 'Partager la leçon' },
     import: { ar: 'استيراد', en: 'Import', fr: 'Importer' },
     shareFailed: { ar: 'لا تتوفر المشاركة، تم تحميل الملف.', en: 'Sharing not available, file downloaded.', fr: 'Partage indisponible, fichier téléchargé.' },
+    editLesson: { ar: 'تعديل اسم الدرس', en: 'Edit lesson name', fr: 'Modifier le nom de la leçon' },
+    attachCover: { ar: 'صورة غلاف', en: 'Cover image', fr: 'Image de couverture' },
+    more: { ar: 'المزيد', en: 'More', fr: 'Plus' },
     themeMode: { ar: 'الوضع الليلي/النهاري', en: 'Dark / light mode', fr: 'Mode sombre / clair' },
     mediaHint: { ar: 'اضغط لاختيار صورة أو فيديو من الهاتف', en: 'Tap to choose an image or video from your phone', fr: 'Appuyez pour choisir une image ou une vidéo depuis votre téléphone' },
     exampleLabel: { ar: 'نموذج', en: 'Example', fr: 'Exemple' },
@@ -229,6 +242,8 @@
       moon: 'M9 2c-1.05 0-2.05.22-2.95.63C7.58 5.49 9.94 8 13 8c3.31 0 6-2.69 6-6 0-.34-.03-.67-.09-1A7.98 7.98 0 0 1 21 12c0 4.97-4.03 9-9 9S3 16.97 3 12A9 9 0 0 1 9 2z',
       sun: 'M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10H1v2h3v-2zm13-4.2V1h-2v4.8l1.46 1.46 1.41-1.41-1.87-1.87zm5.24 14.04l-1.79-1.79-1.41 1.41 1.79 1.79 1.41-1.41zM20 10v2h3v-2h-3zM12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16h2v-3h-2v3zM6.76 19.16l1.79 1.79 1.41-1.41-1.79-1.79-1.41 1.41z',
       image: 'M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z',
+      more: 'M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z',
+      edit: 'M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z',
       close: 'M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'
     };
     var d = paths[name] || '';
@@ -339,8 +354,34 @@
     if (lesson.phrases) {
       lesson.phrases.forEach(function (p) { if (p.mediaId) deleteMedia(p.mediaId); });
     }
+    if (lesson.coverMediaId) deleteMedia(lesson.coverMediaId);
     state.lessons = state.lessons.filter(function (l) { return l.id !== id; });
     dbDel('lessons', id).then(render);
+  }
+
+  function editLessonName(id) {
+    var lesson = getLesson(id);
+    if (!lesson) return;
+    var first = lesson.phrases && lesson.phrases[0];
+    var current = lesson.title[state.uiLang] || lesson.title.en || lesson.title.fr || lesson.title.ar ||
+      (first && (first[state.uiLang] || first.fr || first.ar || first.en)) || '';
+    var name = prompt(t('editLesson'), current);
+    if (name === null) return;
+    name = name.trim();
+    if (!name) return;
+    lesson.title = { ar: name, fr: name, en: name };
+    dbPut('lessons', lesson).then(render);
+  }
+
+  function attachCoverImage(id, file) {
+    var lesson = getLesson(id);
+    if (!lesson || !file) return;
+    var mediaId = uuid();
+    if (lesson.coverMediaId) deleteMedia(lesson.coverMediaId);
+    saveMedia(mediaId, file).then(function () {
+      lesson.coverMediaId = mediaId;
+      dbPut('lessons', lesson).then(render);
+    });
   }
 
   function addPhrase(lesson) {
@@ -500,33 +541,97 @@
         var title = esc(l.title[state.uiLang] || l.title.en || l.title.fr || l.title.ar ||
           (first && (first[state.uiLang] || first.fr || first.ar || first.en)) ||
           t('lesson') + ' ' + (i + 1));
+        var coverAttr = l.coverMediaId ? ' data-cover="' + l.coverMediaId + '"' : '';
         return '<div class="card lesson-card" data-lesson="' + l.id + '">' +
-          '<div class="num">' + (i + 1) + '</div>' +
+          '<div class="lesson-cover"' + coverAttr + '>' + icon('image') + '</div>' +
           '<div class="body"><div class="card-title">' + title + '</div>' +
           '<div class="card-sub">' + l.phrases.length + ' ' + t('phrases') + '</div></div>' +
-          '<button class="icon-btn delete-lesson" data-lesson="' + l.id + '" data-t-title="delete">' + icon('trash') + '</button>' +
+          '<div class="lesson-menu">' +
+            '<button class="icon-btn menu-btn" data-t-title="more">' + icon('more') + '</button>' +
+            '<div class="dropdown hidden">' +
+              '<button class="dropdown-item edit-lesson">' + iconText('editLesson', 'edit') + '</button>' +
+              '<button class="dropdown-item attach-cover">' + iconText('attachCover', 'image') + '</button>' +
+              '<button class="dropdown-item delete-lesson danger">' + iconText('delete', 'trash') + '</button>' +
+            '</div>' +
+          '</div>' +
           '</div>';
       }).join('');
+      html += '<input type="file" id="cover-input" accept="image/*" class="hidden">';
     }
     app.innerHTML = html;
+    renderLessonCovers();
     bindListEvents();
     applyTranslations();
+  }
+
+  function renderLessonCovers() {
+    document.querySelectorAll('.lesson-cover[data-cover]').forEach(function (el) {
+      var mediaId = el.dataset.cover;
+      getMediaUrl(mediaId).then(function (url) {
+        if (url) el.innerHTML = '<img src="' + url + '" alt="">';
+      });
+    });
+  }
+
+  function closeAllDropdowns() {
+    document.querySelectorAll('.dropdown').forEach(function (d) { d.classList.add('hidden'); });
   }
 
   function bindListEvents() {
     document.getElementById('add-lesson').onclick = addLesson;
     document.querySelectorAll('.lesson-card').forEach(function (c) {
       c.onclick = function (e) {
-        if (e.target.closest('.delete-lesson')) return;
+        if (e.target.closest('.lesson-menu')) return;
         openLesson(c.dataset.lesson);
+      };
+    });
+    document.querySelectorAll('.menu-btn').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        var dropdown = b.closest('.lesson-menu').querySelector('.dropdown');
+        var wasHidden = dropdown.classList.contains('hidden');
+        closeAllDropdowns();
+        if (wasHidden) dropdown.classList.remove('hidden');
+      };
+    });
+    document.querySelectorAll('.edit-lesson').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        editLessonName(b.closest('.lesson-card').dataset.lesson);
+        closeAllDropdowns();
+      };
+    });
+    document.querySelectorAll('.attach-cover').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        var input = document.getElementById('cover-input');
+        if (input) {
+          input.dataset.lesson = b.closest('.lesson-card').dataset.lesson;
+          input.click();
+        }
+        closeAllDropdowns();
       };
     });
     document.querySelectorAll('.delete-lesson').forEach(function (b) {
       b.onclick = function (e) {
         e.stopPropagation();
-        if (confirm(t('deleteConfirm'))) deleteLesson(b.dataset.lesson);
+        if (confirm(t('deleteConfirm'))) deleteLesson(b.closest('.lesson-card').dataset.lesson);
+        closeAllDropdowns();
       };
     });
+    var coverInput = document.getElementById('cover-input');
+    if (coverInput) {
+      coverInput.onchange = function (e) {
+        if (e.target.files && e.target.files[0]) {
+          attachCoverImage(e.target.dataset.lesson, e.target.files[0]);
+          e.target.value = '';
+        }
+      };
+    }
+    if (!window.__dropdownCloser) {
+      window.__dropdownCloser = true;
+      document.addEventListener('click', closeAllDropdowns);
+    }
   }
 
   function renderLessonEditor() {
@@ -540,8 +645,7 @@
     controls.className = 'btn-row';
     controls.innerHTML =
       '<button class="btn success" id="btn-play-all">' + iconText('playAll', 'play') + '</button>' +
-      '<button class="btn ghost" id="btn-stop-all">' + iconText('stopAll', 'stop') + '</button>' +
-      '<button class="btn" id="btn-export-lesson">' + iconText('exportLesson', 'share') + '</button>';
+      '<button class="btn ghost" id="btn-stop-all">' + iconText('stopAll', 'stop') + '</button>';
     app.appendChild(controls);
 
     var hint = document.createElement('div');
@@ -624,7 +728,6 @@
     document.getElementById('btn-bulk-add').onclick = function () { addBulkPhrases(lesson); };
     document.getElementById('btn-play-all').onclick = function () { playLesson(lesson); };
     document.getElementById('btn-stop-all').onclick = stopSpeech;
-    document.getElementById('btn-export-lesson').onclick = function () { exportLesson(lesson); };
 
     var app = document.getElementById('app');
     app.oninput = function (e) {
@@ -884,18 +987,6 @@
 
   /* ---------------- Import / Export ---------------- */
 
-  function shareOrDownload(blob, filename) {
-    var file = new File([blob], filename, { type: 'application/json' });
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      navigator.share({ files: [file], title: filename, text: filename })
-        .catch(function (err) {
-          if (err && err.name !== 'AbortError') { downloadFile(blob, filename); toast(t('shareFailed')); }
-        });
-      return;
-    }
-    downloadFile(blob, filename);
-  }
-
   function downloadFile(blob, filename) {
     var url = URL.createObjectURL(blob);
     var a = document.createElement('a');
@@ -904,6 +995,34 @@
     document.body.appendChild(a);
     a.click();
     setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 200);
+  }
+
+  function shareOrDownload(jsonString, filename) {
+    var blob = new Blob([jsonString], { type: 'application/json' });
+    var file = new File([blob], filename, { type: 'application/json' });
+
+    if (window.Capacitor && window.Capacitor.Plugins) {
+      var FS = window.Capacitor.Plugins.Filesystem;
+      var ShareP = window.Capacitor.Plugins.Share;
+      if (FS && ShareP) {
+        FS.writeFile({ path: filename, data: jsonString, directory: 'CACHE', encoding: 'utf8' })
+          .then(function () { return FS.getUri({ path: filename, directory: 'CACHE' }); })
+          .then(function (res) {
+            return ShareP.share({ files: [res.uri], title: filename, text: filename, dialogTitle: t('export') });
+          })
+          .catch(function () { downloadFile(blob, filename); });
+        return;
+      }
+    }
+
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      navigator.share({ files: [file], title: filename, text: filename })
+        .catch(function (err) {
+          if (err && err.name !== 'AbortError') { downloadFile(blob, filename); toast(t('shareFailed')); }
+        });
+      return;
+    }
+    downloadFile(blob, filename);
   }
 
   function exportLessons(lessons, filename) {
@@ -929,8 +1048,8 @@
       });
     });
     Promise.all(jobs).then(function () {
-      var blob = new Blob([JSON.stringify({ lessons: clone }, null, 2)], { type: 'application/json' });
-      shareOrDownload(blob, filename);
+      var jsonString = JSON.stringify({ lessons: clone }, null, 2);
+      shareOrDownload(jsonString, filename);
     });
   }
 
