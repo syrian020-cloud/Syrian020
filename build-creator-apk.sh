@@ -39,6 +39,13 @@ npx cap sync android
 # Sync the PWA icon into the Android mipmap launcher icons
 ICON_SRC="$ROOT/lang-icon-512.png"
 MIPMAP="$ROOT/android/app/src/main/res"
+
+# Ensure the Android app label matches the Capacitor config appName
+APP_NAME=$(node -p "try { require('./capacitor.config.json').appName } catch(e){''}")
+if [ -n "$APP_NAME" ]; then
+  sed -i "s|<string name=\"app_name\">.*</string>|<string name=\"app_name\">$APP_NAME</string>|" "$MIPMAP/values/strings.xml"
+  sed -i "s|<string name=\"title_activity_main\">.*</string>|<string name=\"title_activity_main\">$APP_NAME</string>|" "$MIPMAP/values/strings.xml"
+fi
 if [ -f "$ICON_SRC" ] && command -v convert >/dev/null 2>&1; then
   mkdir -p "$MIPMAP/mipmap-mdpi" "$MIPMAP/mipmap-hdpi" "$MIPMAP/mipmap-xhdpi" "$MIPMAP/mipmap-xxhdpi" "$MIPMAP/mipmap-xxxhdpi"
   convert "$ICON_SRC" -resize 48x48   "$MIPMAP/mipmap-mdpi/ic_launcher.png"
