@@ -398,11 +398,18 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "À vrai dire, je ne sais pas.",
-      "ar": "بصراحة، لا أعرف.",
-      "en": "To tell the truth, I don't know."
-    },
+    "ex": [
+      {
+        "fr": "À vrai dire, je ne sais pas.",
+        "ar": "بصراحة، لا أعرف.",
+        "en": "To tell the truth, I don't know."
+      },
+      {
+        "fr": "À vrai dire, je ne sais pas.",
+        "en": "To tell the truth, I don't know.",
+        "ar": "بصراحة، ما بعرف."
+      }
+    ],
     "pos": "phrase"
   },
   {
@@ -21863,13 +21870,26 @@ window.VOCAB_DATA = [
     "contexts": [
       "bank",
       "caf",
-      "services"
+      "services",
+      "daily"
     ],
-    "ex": {
-      "fr": "Le virement sera effectué demain.",
-      "ar": "سيتم التحويل غدًا.",
-      "en": "The transfer will be made tomorrow."
-    }
+    "ex": [
+      {
+        "fr": "Le virement sera effectué demain.",
+        "ar": "سيتم التحويل غدًا.",
+        "en": "The transfer will be made tomorrow."
+      },
+      {
+        "fr": "J'ai fait un virement hier.",
+        "en": "I made a bank transfer yesterday.",
+        "ar": "عملت تحويل بنكي مبارح."
+      },
+      {
+        "fr": "Je n'ai pas reçu le virement.",
+        "en": "I haven't received the transfer.",
+        "ar": "ما وصلني التحويل."
+      }
+    ]
   },
   {
     "fr": "Le compte CAF (Mon compte)",
@@ -22160,13 +22180,22 @@ window.VOCAB_DATA = [
     "contexts": [
       "bank",
       "caf",
-      "services"
+      "services",
+      "daily",
+      "work"
     ],
-    "ex": {
-      "fr": "La CAF demande un justificatif de revenus.",
-      "ar": "CAF تطلب إثبات الدخل.",
-      "en": "CAF requests proof of income."
-    }
+    "ex": [
+      {
+        "fr": "La CAF demande un justificatif de revenus.",
+        "ar": "CAF تطلب إثبات الدخل.",
+        "en": "CAF requests proof of income."
+      },
+      {
+        "fr": "On me demande un justificatif de revenus.",
+        "en": "They are asking me for proof of income.",
+        "ar": "طالبين مني إثبات دخل."
+      }
+    ]
   },
   {
     "fr": "Pièce jointe",
@@ -22770,7 +22799,8 @@ window.VOCAB_DATA = [
     "contexts": [
       "caf",
       "housing",
-      "services"
+      "services",
+      "daily"
     ],
     "ex": [
       {
@@ -22782,6 +22812,11 @@ window.VOCAB_DATA = [
         "fr": "Il me faut un justificatif de domicile récent.",
         "ar": "بدي إثبات سكن حديث.",
         "en": "I need a recent proof of address."
+      },
+      {
+        "fr": "J'ai besoin d'un justificatif de domicile.",
+        "en": "I need proof of address.",
+        "ar": "بدي إثبات سكن."
       }
     ]
   },
@@ -23837,7 +23872,8 @@ window.VOCAB_DATA = [
     "contexts": [
       "bank",
       "caf",
-      "services"
+      "services",
+      "daily"
     ],
     "ex": [
       {
@@ -23849,6 +23885,16 @@ window.VOCAB_DATA = [
         "fr": "Le versement tombe le 5 du mois.",
         "ar": "الدفعة بتنزّل بتاريخ 5 كل شهر.",
         "en": "The payment goes through on the 5th of each month."
+      },
+      {
+        "fr": "Je n'ai pas reçu le versement.",
+        "en": "I haven't received the payment.",
+        "ar": "ما وصلتني الدفعة."
+      },
+      {
+        "fr": "Le prochain versement est prévu le mois prochain.",
+        "en": "The next payment is scheduled for next month.",
+        "ar": "الدفعة الجاية مقررة الشهر الجاي."
       }
     ]
   },
@@ -28282,13 +28328,22 @@ window.VOCAB_DATA = [
       "health",
       "mdph",
       "services",
-      "work"
+      "work",
+      "daily",
+      "housing"
     ],
-    "ex": {
-      "fr": "J'ai une visite médicale obligatoire.",
-      "ar": "لدي زيارة طبية إجبارية.",
-      "en": "I have a mandatory medical visit."
-    }
+    "ex": [
+      {
+        "fr": "J'ai une visite médicale obligatoire.",
+        "ar": "لدي زيارة طبية إجبارية.",
+        "en": "I have a mandatory medical visit."
+      },
+      {
+        "fr": "J'ai une visite médicale demain.",
+        "en": "I have a medical examination tomorrow.",
+        "ar": "عندي فحص طبي بكرا."
+      }
+    ]
   },
   {
     "fr": "Aptitude au travail",
@@ -28654,15 +28709,40 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "A1",
     "contexts": [
-      "caf"
+      "caf",
+      "bank",
+      "daily",
+      "work"
     ],
     "ar": "يحوّل (مبلغ مالي)",
     "en": "To pay / To transfer (money)",
-    "ex": {
-      "fr": "La CAF verse l'allocation le 5 de chaque mois.",
-      "ar": "الـ CAF بتحول المخصصات يوم الخامس من كل شهر.",
-      "en": "The CAF pays the benefit on the 5th of each month."
-    }
+    "ex": [
+      {
+        "fr": "La CAF verse l'allocation le 5 de chaque mois.",
+        "ar": "الـ CAF بتحول المخصصات يوم الخامس من كل شهر.",
+        "en": "The CAF pays the benefit on the 5th of each month."
+      },
+      {
+        "fr": "La CAF verse l'aide chaque mois.",
+        "en": "CAF pays the benefit every month.",
+        "ar": "الـCAF بتحوّل المساعدة كل شهر."
+      },
+      {
+        "fr": "Mon salaire est versé sur mon compte.",
+        "en": "My salary is paid into my account.",
+        "ar": "راتبي بينزل بحسابي."
+      },
+      {
+        "fr": "Le salaire sera versé vendredi.",
+        "en": "The salary will be paid on Friday.",
+        "ar": "الراتب رح ينزل يوم الجمعة."
+      },
+      {
+        "fr": "L'aide sera versée sur votre compte.",
+        "en": "The benefit will be paid into your account.",
+        "ar": "المساعدة رح تنزل بحسابك."
+      }
+    ]
   },
   {
     "fr": "Régulariser",
@@ -30585,7 +30665,9 @@ window.VOCAB_DATA = [
     "contexts": [
       "caf",
       "stage",
-      "work"
+      "work",
+      "daily",
+      "services"
     ],
     "ex": [
       {
@@ -30602,6 +30684,21 @@ window.VOCAB_DATA = [
         "fr": "Je vérifie la qualité des produits.",
         "ar": "أتحقق من جودة المنتجات.",
         "en": "I check the quality of the products."
+      },
+      {
+        "fr": "Je vais vérifier les informations.",
+        "en": "I will check the information.",
+        "ar": "رح أتأكد من المعلومات."
+      },
+      {
+        "fr": "Vérifiez bien les informations avant d'envoyer le formulaire.",
+        "en": "Check the information carefully before sending the form.",
+        "ar": "تأكد منيح من المعلومات قبل ما تبعت الاستمارة."
+      },
+      {
+        "fr": "Je vais vérifier auprès de la CAF.",
+        "en": "I'll check with CAF.",
+        "ar": "رح أتأكد من الـCAF."
       }
     ]
   },
@@ -30846,13 +30943,37 @@ window.VOCAB_DATA = [
     "level": "A1",
     "pos": "verb",
     "contexts": [
-      "caf"
+      "caf",
+      "daily",
+      "services"
     ],
-    "ex": {
-      "fr": "Votre demande a été validée.",
-      "ar": "تم اعتماد طلبك.",
-      "en": "Your request has been validated."
-    }
+    "ex": [
+      {
+        "fr": "Votre demande a été validée.",
+        "ar": "تم اعتماد طلبك.",
+        "en": "Your request has been validated."
+      },
+      {
+        "fr": "Je dois valider ma demande.",
+        "en": "I have to validate my request.",
+        "ar": "لازم أكد طلبي."
+      },
+      {
+        "fr": "Ma demande a été validée.",
+        "en": "My request was approved.",
+        "ar": "تمت الموافقة على طلبي."
+      },
+      {
+        "fr": "N'oubliez pas de valider votre demande.",
+        "en": "Don't forget to validate your request.",
+        "ar": "لا تنسى تأكد طلبك."
+      },
+      {
+        "fr": "Votre demande doit être validée.",
+        "en": "Your request must be validated.",
+        "ar": "لازم يتم اعتماد طلبك."
+      }
+    ]
   },
   {
     "fr": "Réexaminer",
@@ -42332,6 +42453,1984 @@ window.VOCAB_DATA = [
         "fr": "Je passe l'examen du permis bientôt.",
         "en": "I'm taking the driving test soon.",
         "ar": "رح قدّم امتحان السواقة قريب."
+      }
+    ]
+  },
+  {
+    "fr": "Vouloir",
+    "en": "to want",
+    "ar": "يريد / بدّه",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je voudrais un rendez-vous, s'il vous plaît.",
+        "en": "I would like an appointment, please.",
+        "ar": "بدي موعد، لو سمحت."
+      },
+      {
+        "fr": "Je veux comprendre la situation.",
+        "en": "I want to understand the situation.",
+        "ar": "بدي أفهم الوضع."
+      }
+    ]
+  },
+  {
+    "fr": "Venir",
+    "en": "to come",
+    "ar": "يأتي / يجي",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je peux venir demain ?",
+        "en": "Can I come tomorrow?",
+        "ar": "فيني أجي بكرا؟"
+      },
+      {
+        "fr": "Je viens pour un rendez-vous.",
+        "en": "I'm here for an appointment.",
+        "ar": "أنا جاي على موعد."
+      }
+    ]
+  },
+  {
+    "fr": "Vivre",
+    "en": "to live",
+    "ar": "يعيش / يسكن",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Je vis en France.",
+        "en": "I live in France.",
+        "ar": "أنا عايش بفرنسا."
+      },
+      {
+        "fr": "Je vis dans cet appartement depuis deux ans.",
+        "en": "I've been living in this apartment for two years.",
+        "ar": "إلي سنتين ساكن بهالشقة."
+      },
+      {
+        "fr": "Je vis actuellement en France.",
+        "en": "I currently live in France.",
+        "ar": "أنا حاليًا عايش بفرنسا."
+      }
+    ]
+  },
+  {
+    "fr": "Visiter",
+    "en": "to visit",
+    "ar": "يزور / يتفقد",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Je voudrais visiter l'appartement.",
+        "en": "I would like to visit the apartment.",
+        "ar": "بدي شوف الشقة."
+      }
+    ]
+  },
+  {
+    "fr": "Vendre",
+    "en": "to sell",
+    "ar": "يبيع",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Je veux vendre ma voiture.",
+        "en": "I want to sell my car.",
+        "ar": "بدي بيع سيارتي."
+      },
+      {
+        "fr": "Je voudrais vendre ma voiture.",
+        "en": "I would like to sell my car.",
+        "ar": "بدي بيع سيارتي."
+      },
+      {
+        "fr": "Je voudrais vendre cette voiture.",
+        "en": "I would like to sell this car.",
+        "ar": "بدي بيع هالسيارة."
+      }
+    ]
+  },
+  {
+    "fr": "Voir",
+    "en": "to see",
+    "ar": "يرى / يشوف",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je voudrais voir le responsable.",
+        "en": "I would like to see the manager.",
+        "ar": "بدي شوف المسؤول."
+      },
+      {
+        "fr": "On verra demain.",
+        "en": "We'll see tomorrow.",
+        "ar": "منشوف بكرا."
+      }
+    ]
+  },
+  {
+    "fr": "Valoir",
+    "en": "to be worth",
+    "ar": "يساوي / يستحق",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Ça vaut combien ?",
+        "en": "How much is it worth?",
+        "ar": "قديش سعره؟"
+      },
+      {
+        "fr": "Ça vaut le coup.",
+        "en": "It's worth it.",
+        "ar": "بيستاهل."
+      }
+    ]
+  },
+  {
+    "fr": "Une voiture",
+    "en": "car",
+    "ar": "سيارة",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai besoin d'une voiture pour travailler.",
+        "en": "I need a car to work.",
+        "ar": "بدي سيارة مشان الشغل."
+      }
+    ]
+  },
+  {
+    "fr": "Une ville",
+    "en": "city / town",
+    "ar": "مدينة",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "J'habite dans cette ville.",
+        "en": "I live in this city.",
+        "ar": "أنا ساكن بهالمدينة."
+      }
+    ]
+  },
+  {
+    "fr": "Une visite",
+    "en": "visit / viewing",
+    "ar": "زيارة / معاينة",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai une visite de l'appartement demain.",
+        "en": "I have an apartment viewing tomorrow.",
+        "ar": "عندي معاينة للشقة بكرا."
+      }
+    ]
+  },
+  {
+    "fr": "Un véhicule",
+    "en": "vehicle",
+    "ar": "مركبة",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Ce véhicule est en bon état.",
+        "en": "This vehicle is in good condition.",
+        "ar": "هالمركبة بحالة منيحة."
+      },
+      {
+        "fr": "Le véhicule doit être assuré.",
+        "en": "The vehicle must be insured.",
+        "ar": "لازم المركبة تكون مأمّنة."
+      },
+      {
+        "fr": "Le véhicule est garé devant l'immeuble.",
+        "en": "The vehicle is parked in front of the building.",
+        "ar": "المركبة مصفوفة قدام البناية."
+      }
+    ]
+  },
+  {
+    "fr": "Un permis de conduire",
+    "en": "driving licence",
+    "ar": "رخصة قيادة",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai obtenu mon permis de conduire.",
+        "en": "I got my driving licence.",
+        "ar": "أخدت رخصة السواقة."
+      }
+    ]
+  },
+  {
+    "fr": "Une vitesse",
+    "en": "speed",
+    "ar": "سرعة",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Quelle est la vitesse maximale ici ?",
+        "en": "What is the maximum speed here?",
+        "ar": "قديش السرعة القصوى هون؟"
+      },
+      {
+        "fr": "Vous devez réduire votre vitesse.",
+        "en": "You must reduce your speed.",
+        "ar": "لازم تخفف سرعتك."
+      }
+    ]
+  },
+  {
+    "fr": "Une vérification",
+    "en": "check / verification",
+    "ar": "تحقق / فحص",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Une vérification est nécessaire.",
+        "en": "A check is necessary.",
+        "ar": "لازم نعمل تحقق."
+      },
+      {
+        "fr": "Une vérification de votre identité est nécessaire.",
+        "en": "An identity check is necessary.",
+        "ar": "لازم التحقق من هويتك."
+      }
+    ]
+  },
+  {
+    "fr": "Vrai / Vraie",
+    "en": "true / real",
+    "ar": "صحيح / حقيقي",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Est-ce que cette information est vraie ?",
+        "en": "Is this information true?",
+        "ar": "هالمعلومة صحيحة؟"
+      }
+    ]
+  },
+  {
+    "fr": "Vide",
+    "en": "empty",
+    "ar": "فارغ",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Le logement est vide.",
+        "en": "The accommodation is empty.",
+        "ar": "السكن فاضي."
+      },
+      {
+        "fr": "La bouteille est vide.",
+        "en": "The bottle is empty.",
+        "ar": "القنينة فاضية."
+      },
+      {
+        "fr": "Le logement est actuellement vide.",
+        "en": "The accommodation is currently empty.",
+        "ar": "السكن حاليًا فاضي."
+      },
+      {
+        "fr": "Le logement est encore vide.",
+        "en": "The accommodation is still empty.",
+        "ar": "السكن لسا فاضي."
+      }
+    ]
+  },
+  {
+    "fr": "Vert / Verte",
+    "en": "green",
+    "ar": "أخضر",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Le feu est vert.",
+        "en": "The light is green.",
+        "ar": "الإشارة خضرا."
+      }
+    ]
+  },
+  {
+    "fr": "Vieux / Vieille",
+    "en": "old",
+    "ar": "قديم / كبير بالعمر",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Cette voiture est vieille.",
+        "en": "This car is old.",
+        "ar": "هالسيارة قديمة."
+      }
+    ]
+  },
+  {
+    "fr": "Vivant / Vivante",
+    "en": "alive / living",
+    "ar": "حيّ / على قيد الحياة",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il est toujours vivant.",
+        "en": "He is still alive.",
+        "ar": "هو لسا عايش."
+      }
+    ]
+  },
+  {
+    "fr": "Valable",
+    "en": "valid / valid until",
+    "ar": "صالح / ساري المفعول",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Mon titre de séjour est valable jusqu'en 2027.",
+        "en": "My residence permit is valid until 2027.",
+        "ar": "بطاقة إقامتي سارية لحد 2027."
+      },
+      {
+        "fr": "Ce billet est valable aujourd'hui.",
+        "en": "This ticket is valid today.",
+        "ar": "هالتذكرة صالحة اليوم."
+      }
+    ]
+  },
+  {
+    "fr": "Volontaire",
+    "en": "voluntary / willing",
+    "ar": "طوعي / راغب",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "C'est une démarche volontaire.",
+        "en": "It is a voluntary procedure.",
+        "ar": "هاد إجراء طوعي."
+      },
+      {
+        "fr": "La participation est volontaire.",
+        "en": "Participation is voluntary.",
+        "ar": "المشاركة اختيارية."
+      },
+      {
+        "fr": "La démarche est volontaire.",
+        "en": "The procedure is voluntary.",
+        "ar": "هالإجراء اختياري."
+      }
+    ]
+  },
+  {
+    "fr": "Vigilant / Vigilante",
+    "en": "vigilant / alert",
+    "ar": "منتبه / حذر",
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut rester vigilant sur la route.",
+        "en": "You need to stay alert on the road.",
+        "ar": "لازم تضل منتبه عالطريق."
+      }
+    ]
+  },
+  {
+    "fr": "Vraiment",
+    "en": "really / truly",
+    "ar": "فعلًا / عنجد",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "C'est vraiment important.",
+        "en": "It's really important.",
+        "ar": "هاد مهم عنجد."
+      }
+    ]
+  },
+  {
+    "fr": "Vite",
+    "en": "quickly / fast",
+    "ar": "بسرعة",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut agir vite.",
+        "en": "We need to act quickly.",
+        "ar": "لازم نتصرف بسرعة."
+      },
+      {
+        "fr": "Faites vite, s'il vous plaît.",
+        "en": "Please hurry.",
+        "ar": "أسرع، لو سمحت."
+      }
+    ]
+  },
+  {
+    "fr": "Volontiers",
+    "en": "gladly / willingly",
+    "ar": "بكل سرور / أكيد",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "food"
+    ],
+    "ex": [
+      {
+        "fr": "Vous voulez un café ? — Volontiers !",
+        "en": "Would you like a coffee? — Gladly!",
+        "ar": "بدك قهوة؟ — إي، بكل سرور!"
+      },
+      {
+        "fr": "Vous pouvez m'aider ? — Volontiers.",
+        "en": "Can you help me? — Gladly.",
+        "ar": "فيك تساعدني؟ — إي، بكل سرور."
+      }
+    ]
+  },
+  {
+    "fr": "Vers",
+    "en": "towards / around",
+    "ar": "باتجاه / حوالي",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais vers la gare.",
+        "en": "I'm going towards the station.",
+        "ar": "رايح باتجاه المحطة."
+      },
+      {
+        "fr": "Je serai là vers 18 heures.",
+        "en": "I'll be there around 6 p.m.",
+        "ar": "رح كون هنيك حوالي الساعة 6."
+      },
+      {
+        "fr": "J'arrive vers 18 heures.",
+        "en": "I'll arrive around 6 p.m.",
+        "ar": "رح أوصل حوالي الساعة 6."
+      }
+    ]
+  },
+  {
+    "fr": "Voici",
+    "en": "here is / here are",
+    "ar": "ها هو / ها هي / تفضل",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Voici mon dossier.",
+        "en": "Here is my file.",
+        "ar": "تفضل، هاد ملفي."
+      },
+      {
+        "fr": "Voici les documents demandés.",
+        "en": "Here are the requested documents.",
+        "ar": "تفضل، هاي الأوراق المطلوبة."
+      },
+      {
+        "fr": "Voici mon attestation.",
+        "en": "Here is my certificate.",
+        "ar": "تفضل، هاي شهادتي."
+      }
+    ]
+  },
+  {
+    "fr": "Voilà",
+    "en": "there you go / that's it / there is",
+    "ar": "هيك / تفضل / هاد هو",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Voilà mon numéro de téléphone.",
+        "en": "Here's my phone number.",
+        "ar": "هاد رقم تلفوني."
+      },
+      {
+        "fr": "Voilà, c'est terminé.",
+        "en": "There, it's finished.",
+        "ar": "هيك، خلصنا."
+      },
+      {
+        "fr": "Voilà les documents demandés.",
+        "en": "Here are the requested documents.",
+        "ar": "تفضل، هاي الأوراق المطلوبة."
+      }
+    ]
+  },
+  {
+    "fr": "Je voudrais visiter le logement.",
+    "en": "I would like to view the accommodation.",
+    "ar": "بدي عاين السكن.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Je voudrais visiter le logement.",
+        "en": "I would like to view the accommodation.",
+        "ar": "بدي شوف السكن."
+      },
+      {
+        "fr": "Je voudrais visiter le logement.",
+        "en": "I would like to view the accommodation.",
+        "ar": "بدي عاين السكن."
+      }
+    ]
+  },
+  {
+    "fr": "Le logement est vacant.",
+    "en": "The accommodation is vacant.",
+    "ar": "السكن شاغر.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Le logement est vacant.",
+        "en": "The accommodation is vacant.",
+        "ar": "السكن شاغر."
+      }
+    ]
+  },
+  {
+    "fr": "Le logement est disponible.",
+    "en": "The accommodation is available.",
+    "ar": "السكن متاح.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Le logement est disponible.",
+        "en": "The accommodation is available.",
+        "ar": "السكن متاح."
+      }
+    ]
+  },
+  {
+    "fr": "Je vérifie l'état du logement.",
+    "en": "I'm checking the condition of the accommodation.",
+    "ar": "عم أتأكد من حالة السكن.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Je vérifie l'état du logement.",
+        "en": "I'm checking the condition of the accommodation.",
+        "ar": "عم أتأكد من حالة السكن."
+      }
+    ]
+  },
+  {
+    "fr": "Je voudrais vérifier mon dossier.",
+    "en": "I would like to check my application.",
+    "ar": "بدي أتأكد من ملفي.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Je voudrais vérifier mon dossier.",
+        "en": "I would like to check my application.",
+        "ar": "بدي أتأكد من ملفي."
+      }
+    ]
+  },
+  {
+    "fr": "Ma demande a été validée.",
+    "en": "My application has been approved.",
+    "ar": "تمت الموافقة على طلبي.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Ma demande a été validée.",
+        "en": "My application has been approved.",
+        "ar": "تمت الموافقة على طلبي."
+      }
+    ]
+  },
+  {
+    "fr": "Je voudrais savoir si j'ai droit à cette aide.",
+    "en": "I would like to know if I'm entitled to this benefit.",
+    "ar": "بدي أعرف إذا إلي حق بهالمساعدة.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je voudrais savoir si j'ai droit à cette aide.",
+        "en": "I would like to know if I'm entitled to this benefit.",
+        "ar": "بدي أعرف إذا إلي حق بهالمساعدة."
+      }
+    ]
+  },
+  {
+    "fr": "La CAF verse l'aide sur mon compte.",
+    "en": "CAF pays the benefit into my account.",
+    "ar": "الـCAF بتحوّل المساعدة عحسابي.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "caf",
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "La CAF verse l'aide sur mon compte.",
+        "en": "CAF pays the benefit into my account.",
+        "ar": "الـCAF بتحوّل المساعدة عحسابي."
+      }
+    ]
+  },
+  {
+    "fr": "Je dois vérifier le véhicule.",
+    "en": "I have to check the vehicle.",
+    "ar": "لازم أتأكد من المركبة.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "services",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois vérifier le véhicule.",
+        "en": "I have to check the vehicle.",
+        "ar": "لازم أتأكد من المركبة."
+      }
+    ]
+  },
+  {
+    "fr": "Il faut respecter la vitesse.",
+    "en": "You must respect the speed limit.",
+    "ar": "لازم تلتزم بالسرعة.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut respecter la vitesse.",
+        "en": "You must respect the speed limit.",
+        "ar": "لازم تلتزم بالسرعة."
+      }
+    ]
+  },
+  {
+    "fr": "Le feu est vert.",
+    "en": "The light is green.",
+    "ar": "الإشارة خضرا.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Le feu est vert.",
+        "en": "The light is green.",
+        "ar": "الإشارة خضرا."
+      }
+    ]
+  },
+  {
+    "fr": "Soyez vigilant.",
+    "en": "Stay alert / Be vigilant.",
+    "ar": "خليك منتبه.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Soyez vigilant.",
+        "en": "Stay alert / Be vigilant.",
+        "ar": "خليك منتبه."
+      }
+    ]
+  },
+  {
+    "fr": "Vider",
+    "en": "to empty",
+    "ar": "يفرّغ",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut vider la poubelle.",
+        "en": "The bin needs to be emptied.",
+        "ar": "لازم نفرّغ الزبالة."
+      },
+      {
+        "fr": "Videz vos poches, s'il vous plaît.",
+        "en": "Empty your pockets, please.",
+        "ar": "فرّغ جيابك، لو سمحت."
+      },
+      {
+        "fr": "Il faut vider le lave-vaisselle.",
+        "en": "The dishwasher needs to be emptied.",
+        "ar": "لازم نفرّغ غسالة الصحون."
+      }
+    ]
+  },
+  {
+    "fr": "Vieillir",
+    "en": "to age / grow old",
+    "ar": "يكبر بالعمر / يهرم",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Cette voiture a vieilli.",
+        "en": "This car has aged.",
+        "ar": "هالسيارة صارت قديمة."
+      }
+    ]
+  },
+  {
+    "fr": "Voler",
+    "en": "to steal / to fly",
+    "ar": "يسرق / يطير",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Quelqu'un a volé mon téléphone.",
+        "en": "Someone stole my phone.",
+        "ar": "حدا سرق موبايلي."
+      },
+      {
+        "fr": "L'avion va voler pendant deux heures.",
+        "en": "The plane will fly for two hours.",
+        "ar": "الطيارة رح تطير ساعتين."
+      }
+    ]
+  },
+  {
+    "fr": "Voter",
+    "en": "to vote",
+    "ar": "يصوّت / ينتخب",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais voter dimanche.",
+        "en": "I'm going to vote on Sunday.",
+        "ar": "رح صوّت يوم الأحد."
+      }
+    ]
+  },
+  {
+    "fr": "Vérifier l'état de",
+    "en": "to check the condition of",
+    "ar": "يتأكد من حالة",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois vérifier l'état de la voiture.",
+        "en": "I need to check the condition of the car.",
+        "ar": "لازم أتأكد من حالة السيارة."
+      }
+    ]
+  },
+  {
+    "fr": "Une valeur",
+    "en": "value",
+    "ar": "قيمة",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Quelle est la valeur de ce logement ?",
+        "en": "What is the value of this accommodation?",
+        "ar": "قديش قيمة هالسكن؟"
+      },
+      {
+        "fr": "Quelle est la valeur du bien ?",
+        "en": "What is the value of the property?",
+        "ar": "قديش قيمة العقار؟"
+      }
+    ]
+  },
+  {
+    "fr": "Une vente",
+    "en": "sale",
+    "ar": "بيع / تخفيضات",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "shop"
+    ],
+    "ex": [
+      {
+        "fr": "La vente est terminée.",
+        "en": "The sale is over.",
+        "ar": "خلص البيع / خلصت التخفيضات."
+      }
+    ]
+  },
+  {
+    "fr": "Une validité",
+    "en": "validity",
+    "ar": "صلاحية / سريان",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Quelle est la durée de validité du document ?",
+        "en": "How long is the document valid for?",
+        "ar": "قديش مدة صلاحية الوثيقة؟"
+      }
+    ]
+  },
+  {
+    "fr": "Un visa",
+    "en": "visa",
+    "ar": "تأشيرة / فيزا",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Mon visa expire bientôt.",
+        "en": "My visa expires soon.",
+        "ar": "الفيزا تبعي رح تنتهي قريب."
+      }
+    ]
+  },
+  {
+    "fr": "Une visite d'appartement",
+    "en": "apartment viewing",
+    "ar": "معاينة شقة",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai une visite d'appartement demain.",
+        "en": "I have an apartment viewing tomorrow.",
+        "ar": "عندي معاينة شقة بكرا."
+      }
+    ]
+  },
+  {
+    "fr": "Un voisin / une voisine",
+    "en": "neighbor",
+    "ar": "جار / جارة",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Mon voisin fait beaucoup de bruit.",
+        "en": "My neighbor makes a lot of noise.",
+        "ar": "جاري عم يعمل ضجة كتير."
+      },
+      {
+        "fr": "Je dois parler à mon voisin.",
+        "en": "I have to talk to my neighbor.",
+        "ar": "لازم احكي مع جاري."
+      }
+    ]
+  },
+  {
+    "fr": "Vulnérable",
+    "en": "vulnerable",
+    "ar": "ضعيف / معرّض للخطر",
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Cette personne est vulnérable.",
+        "en": "This person is vulnerable.",
+        "ar": "هالشخص وضعه حساس."
+      },
+      {
+        "fr": "Certaines personnes sont plus vulnérables.",
+        "en": "Some people are more vulnerable.",
+        "ar": "في أشخاص وضعهم أكثر هشاشة."
+      }
+    ]
+  },
+  {
+    "fr": "Visible",
+    "en": "visible",
+    "ar": "ظاهر / مرئي",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Le numéro doit être visible.",
+        "en": "The number must be visible.",
+        "ar": "لازم الرقم يكون واضح وظاهر."
+      },
+      {
+        "fr": "Le numéro doit être clairement visible.",
+        "en": "The number must be clearly visible.",
+        "ar": "لازم الرقم يكون واضح وظاهر."
+      }
+    ]
+  },
+  {
+    "fr": "Vérifiable",
+    "en": "verifiable",
+    "ar": "قابل للتحقق",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Les informations sont vérifiables.",
+        "en": "The information can be verified.",
+        "ar": "المعلومات فينا نتحقق منها."
+      }
+    ]
+  },
+  {
+    "fr": "Véritable",
+    "en": "real / genuine / true",
+    "ar": "حقيقي / فعلي",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "C'est une véritable opportunité.",
+        "en": "It's a real opportunity.",
+        "ar": "هاي فرصة حقيقية."
+      }
+    ]
+  },
+  {
+    "fr": "Veiller",
+    "en": "to make sure / take care",
+    "ar": "يحرص / ينتبه",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Veillez à bien remplir le formulaire.",
+        "en": "Make sure to fill out the form correctly.",
+        "ar": "انتبه تعبي الاستمارة بشكل صحيح."
+      }
+    ]
+  },
+  {
+    "fr": "Vérifier auprès de",
+    "en": "to check with",
+    "ar": "يتأكد من / يستفسر من",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais vérifier auprès de France Travail.",
+        "en": "I'll check with France Travail.",
+        "ar": "رح أتأكد من France Travail."
+      },
+      {
+        "fr": "Je vais vérifier auprès du service concerné.",
+        "en": "I'll check with the relevant department.",
+        "ar": "رح أتأكد من القسم المختص."
+      }
+    ]
+  },
+  {
+    "fr": "Valoriser",
+    "en": "to highlight / promote / value",
+    "ar": "يبرز / يقدّر / يثمّن",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut valoriser votre expérience professionnelle.",
+        "en": "You should highlight your professional experience.",
+        "ar": "لازم تبرز خبرتك المهنية."
+      }
+    ]
+  },
+  {
+    "fr": "Vérifier la disponibilité",
+    "en": "to check availability",
+    "ar": "يتأكد من التوفر",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Je voudrais vérifier la disponibilité du logement.",
+        "en": "I would like to check whether the accommodation is available.",
+        "ar": "بدي أتأكد إذا السكن متاح."
+      }
+    ]
+  },
+  {
+    "fr": "Un virement bancaire",
+    "en": "bank transfer",
+    "ar": "تحويل مصرفي",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Le paiement se fait par virement bancaire.",
+        "en": "Payment is made by bank transfer.",
+        "ar": "الدفع بيكون عن طريق تحويل بنكي."
+      }
+    ]
+  },
+  {
+    "fr": "Une verbalisation",
+    "en": "traffic/police citation",
+    "ar": "تحرير مخالفة / تسجيل مخالفة",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Il a reçu une verbalisation pour stationnement interdit.",
+        "en": "He received a ticket for illegal parking.",
+        "ar": "أخد مخالفة بسبب الوقوف الممنوع."
+      }
+    ]
+  },
+  {
+    "fr": "Une voie",
+    "en": "lane / way / route",
+    "ar": "مسار / طريق",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Restez sur votre voie.",
+        "en": "Stay in your lane.",
+        "ar": "خليك بمسارك."
+      },
+      {
+        "fr": "Cette voie est réservée aux bus.",
+        "en": "This lane is reserved for buses.",
+        "ar": "هالمسار مخصص للباصات."
+      },
+      {
+        "fr": "Changez de voie lorsque c'est nécessaire.",
+        "en": "Change lanes when necessary.",
+        "ar": "غيّر المسار لما يكون ضروري."
+      }
+    ]
+  },
+  {
+    "fr": "Une voie rapide",
+    "en": "expressway / fast road",
+    "ar": "طريق سريع",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Attention, vous entrez sur une voie rapide.",
+        "en": "Be careful, you are entering an expressway.",
+        "ar": "انتبه، عم تفوت على طريق سريع."
+      }
+    ]
+  },
+  {
+    "fr": "Une voie de circulation",
+    "en": "traffic lane",
+    "ar": "مسار مروري",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut changer de voie.",
+        "en": "You need to change lanes.",
+        "ar": "لازم تغيّر المسار."
+      }
+    ]
+  },
+  {
+    "fr": "Une vignette",
+    "en": "sticker / vehicle emissions sticker",
+    "ar": "ملصق / لصاقة",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "La vignette Crit'Air est obligatoire dans certaines zones.",
+        "en": "The Crit'Air sticker is mandatory in some areas.",
+        "ar": "لصاقة Crit'Air إلزامية ببعض المناطق."
+      }
+    ]
+  },
+  {
+    "fr": "Valide",
+    "en": "valid / valid person",
+    "ar": "صالح / ساري / صحيح",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Votre titre est toujours valide.",
+        "en": "Your permit/document is still valid.",
+        "ar": "وثيقتك لسا سارية."
+      },
+      {
+        "fr": "Le billet est valide jusqu'à demain.",
+        "en": "The ticket is valid until tomorrow.",
+        "ar": "التذكرة صالحة لحد بكرا."
+      }
+    ]
+  },
+  {
+    "fr": "Vérifié(e)",
+    "en": "verified / checked",
+    "ar": "تم التحقق منه / مؤكَّد",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Votre compte est vérifié.",
+        "en": "Your account is verified.",
+        "ar": "حسابك تم التحقق منه."
+      }
+    ]
+  },
+  {
+    "fr": "Vigilant(e)",
+    "en": "alert / vigilant",
+    "ar": "منتبه / حذر",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Soyez vigilant sur la route.",
+        "en": "Stay alert on the road.",
+        "ar": "خليك منتبه عالطريق."
+      }
+    ]
+  },
+  {
+    "fr": "Ça va ?",
+    "en": "How are you? / Is it okay?",
+    "ar": "كيفك؟ / الأمور منيحة؟",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Ça va ?",
+        "en": "How are you?",
+        "ar": "كيفك؟"
+      },
+      {
+        "fr": "Ça va, merci.",
+        "en": "I'm fine, thank you.",
+        "ar": "منيح، شكرًا."
+      }
+    ]
+  },
+  {
+    "fr": "Ça va aller.",
+    "en": "It will be okay.",
+    "ar": "رح يكون كل شي منيح.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Ne t'inquiète pas, ça va aller.",
+        "en": "Don't worry, it'll be okay.",
+        "ar": "لا تقلق، رح يكون كل شي منيح."
+      }
+    ]
+  },
+  {
+    "fr": "Ça vaut le coup.",
+    "en": "It's worth it.",
+    "ar": "بيستاهل.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Ce travail est difficile, mais ça vaut le coup.",
+        "en": "This job is difficult, but it's worth it.",
+        "ar": "هالشغل صعب، بس بيستاهل."
+      }
+    ]
+  },
+  {
+    "fr": "Ça vaut combien ?",
+    "en": "How much is it worth? / How much does it cost?",
+    "ar": "قديش سعره؟",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Cette voiture, ça vaut combien ?",
+        "en": "How much is this car worth?",
+        "ar": "هالسيارة قديش سعرها؟"
+      }
+    ]
+  },
+  {
+    "fr": "Vaciller",
+    "en": "to wobble / flicker",
+    "ar": "يهتز / يتذبذب",
+    "pos": "verb",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "La lumière vacille.",
+        "en": "The light is flickering.",
+        "ar": "الضو عم يومض."
+      }
+    ]
+  },
+  {
+    "fr": "Vérifier ses informations",
+    "en": "to check one's information",
+    "ar": "يتأكد من معلوماته",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Vérifiez vos informations avant de valider.",
+        "en": "Check your information before confirming.",
+        "ar": "تأكد من معلوماتك قبل ما تأكد الطلب."
+      }
+    ]
+  },
+  {
+    "fr": "Vérifier son identité",
+    "en": "to verify one's identity",
+    "ar": "يتحقق من هويته",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois vérifier mon identité en ligne.",
+        "en": "I have to verify my identity online.",
+        "ar": "لازم أتحقق من هويتي أونلاين."
+      }
+    ]
+  },
+  {
+    "fr": "Verser un salaire",
+    "en": "to pay a salary",
+    "ar": "يدفع / يحوّل راتبًا",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "L'entreprise verse le salaire chaque mois.",
+        "en": "The company pays the salary every month.",
+        "ar": "الشركة بتنزل الراتب كل شهر."
+      }
+    ]
+  },
+  {
+    "fr": "Verser une aide",
+    "en": "to pay a benefit",
+    "ar": "يحوّل مساعدة مالية",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "La CAF verse une aide au logement.",
+        "en": "CAF pays a housing benefit.",
+        "ar": "الـCAF بتحوّل مساعدة للسكن."
+      }
+    ]
+  },
+  {
+    "fr": "Vendre en ligne",
+    "en": "to sell online",
+    "ar": "يبيع أونلاين",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je veux vendre cet objet en ligne.",
+        "en": "I want to sell this item online.",
+        "ar": "بدي بيع هالغرض أونلاين."
+      }
+    ]
+  },
+  {
+    "fr": "Un virement permanent",
+    "en": "standing bank order",
+    "ar": "تحويل بنكي دائم",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai mis en place un virement permanent pour le loyer.",
+        "en": "I set up a standing bank order for the rent.",
+        "ar": "عملت تحويل بنكي دائم للإيجار."
+      }
+    ]
+  },
+  {
+    "fr": "Une vacance",
+    "en": "vacancy",
+    "ar": "شغور / خلو",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Il y a une vacance dans le logement.",
+        "en": "There is a vacancy in the housing unit.",
+        "ar": "في شغور بالسكن."
+      }
+    ]
+  },
+  {
+    "fr": "Un logement vacant",
+    "en": "vacant accommodation",
+    "ar": "سكن شاغر / فاضي",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Le logement est actuellement vacant.",
+        "en": "The accommodation is currently vacant.",
+        "ar": "السكن حاليًا شاغر."
+      }
+    ]
+  },
+  {
+    "fr": "Une valeur locative",
+    "en": "rental value",
+    "ar": "القيمة الإيجارية",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "La valeur locative du logement a été estimée.",
+        "en": "The rental value of the property was estimated.",
+        "ar": "تم تقدير القيمة الإيجارية للسكن."
+      }
+    ]
+  },
+  {
+    "fr": "Un voisinage",
+    "en": "neighborhood / neighborhood relations",
+    "ar": "الجوار / الحي المحيط",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Le voisinage est calme.",
+        "en": "The neighborhood is quiet.",
+        "ar": "المنطقة حواليّنا هادية."
+      }
+    ]
+  },
+  {
+    "fr": "Vaste",
+    "en": "spacious / vast",
+    "ar": "واسع / شاسع",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "L'appartement est vaste.",
+        "en": "The apartment is spacious.",
+        "ar": "الشقة واسعة."
+      }
+    ]
+  },
+  {
+    "fr": "Vécu / vécue",
+    "en": "experienced / lived",
+    "ar": "مُعاش / عاشه الشخص",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "C'est une expérience que j'ai vécue.",
+        "en": "It's an experience I went through.",
+        "ar": "هاي تجربة عشتها."
+      }
+    ]
+  },
+  {
+    "fr": "Véridique",
+    "en": "truthful / authentic",
+    "ar": "صحيح / حقيقي",
+    "pos": "adjective",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Cette information est-elle véridique ?",
+        "en": "Is this information true?",
+        "ar": "هالمعلومة صحيحة؟"
+      }
+    ]
+  },
+  {
+    "fr": "Vocal / vocale",
+    "en": "vocal / voice",
+    "ar": "صوتي",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai reçu un message vocal.",
+        "en": "I received a voice message.",
+        "ar": "وصلتني رسالة صوتية."
+      }
+    ]
+  },
+  {
+    "fr": "Virtuel / virtuelle",
+    "en": "virtual / online",
+    "ar": "افتراضي / إلكتروني",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Le rendez-vous est virtuel.",
+        "en": "The appointment is virtual.",
+        "ar": "الموعد أونلاين."
+      }
+    ]
+  },
+  {
+    "fr": "Votre demande est en cours de vérification.",
+    "en": "Your request is being checked.",
+    "ar": "طلبك قيد التحقق.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Votre demande est en cours de vérification.",
+        "en": "Your request is being checked.",
+        "ar": "طلبك قيد التحقق."
+      }
+    ]
+  },
+  {
+    "fr": "Votre dossier a été validé.",
+    "en": "Your application has been approved.",
+    "ar": "تم اعتماد ملفك.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Votre dossier a été validé.",
+        "en": "Your application has been approved.",
+        "ar": "تم اعتماد ملفك."
+      }
+    ]
+  },
+  {
+    "fr": "Votre dossier est toujours valide.",
+    "en": "Your application/file is still valid.",
+    "ar": "ملفك لسا ساري / صالح.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Votre dossier est toujours valide.",
+        "en": "Your application/file is still valid.",
+        "ar": "ملفك لسا ساري / صالح."
+      }
+    ]
+  },
+  {
+    "fr": "Veuillez vérifier vos informations.",
+    "en": "Please check your information.",
+    "ar": "يرجى التأكد من معلوماتك.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Veuillez vérifier vos informations.",
+        "en": "Please check your information.",
+        "ar": "يرجى التأكد من معلوماتك."
+      }
+    ]
+  },
+  {
+    "fr": "Veuillez joindre les documents demandés.",
+    "en": "Please attach the requested documents.",
+    "ar": "يرجى إرفاق الأوراق المطلوبة.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Veuillez joindre les documents demandés.",
+        "en": "Please attach the requested documents.",
+        "ar": "يرجى إرفاق الأوراق المطلوبة."
+      }
+    ]
+  },
+  {
+    "fr": "Veuillez patienter.",
+    "en": "Please wait.",
+    "ar": "يرجى الانتظار.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Veuillez patienter.",
+        "en": "Please wait.",
+        "ar": "يرجى الانتظار."
+      }
+    ]
+  },
+  {
+    "fr": "Veuillez vous présenter à l'accueil.",
+    "en": "Please go to reception.",
+    "ar": "يرجى التوجه إلى الاستقبال.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Veuillez vous présenter à l'accueil.",
+        "en": "Please go to reception.",
+        "ar": "يرجى التوجه إلى الاستقبال."
+      }
+    ]
+  },
+  {
+    "fr": "La visite est prévue vendredi.",
+    "en": "The viewing is scheduled for Friday.",
+    "ar": "المعاينة مقررة يوم الجمعة.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "La visite est prévue vendredi.",
+        "en": "The viewing is scheduled for Friday.",
+        "ar": "المعاينة مقررة يوم الجمعة."
+      }
+    ]
+  },
+  {
+    "fr": "Je voudrais vérifier la disponibilité du logement.",
+    "en": "I would like to check the availability of the accommodation.",
+    "ar": "بدي أتأكد إذا السكن متاح.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Je voudrais vérifier la disponibilité du logement.",
+        "en": "I would like to check the availability of the accommodation.",
+        "ar": "بدي أتأكد إذا السكن متاح."
+      }
+    ]
+  },
+  {
+    "fr": "Vérifiez vos rétroviseurs.",
+    "en": "Check your mirrors.",
+    "ar": "تأكد من المرايات.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Vérifiez vos rétroviseurs.",
+        "en": "Check your mirrors.",
+        "ar": "تأكد من المرايات."
+      }
+    ]
+  },
+  {
+    "fr": "Changez de voie.",
+    "en": "Change lanes.",
+    "ar": "غيّر المسار.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Changez de voie.",
+        "en": "Change lanes.",
+        "ar": "غيّر المسار."
+      }
+    ]
+  },
+  {
+    "fr": "Restez vigilant.",
+    "en": "Stay alert.",
+    "ar": "خليك منتبه.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Restez vigilant.",
+        "en": "Stay alert.",
+        "ar": "خليك منتبه."
       }
     ]
   }
