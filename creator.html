@@ -96,33 +96,37 @@
 
   .input, .textarea {
     width: 100%; background: var(--bg-tertiary); color: var(--text-primary);
-    border: 1px solid var(--border); border-radius: 16px;
-    padding: 0.75rem 1rem; font-size: 1rem; font-family: inherit;
-    transition: border-color .15s, box-shadow .15s;
+    border: 1px solid var(--border); border-radius: 18px;
+    padding: 0.9rem 1.1rem; font-size: 1.05rem; font-weight: 500; font-family: inherit;
+    transition: border-color .15s, box-shadow .15s, background .15s;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.08);
   }
-  .input:focus, .textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.18); }
-  .textarea { min-height: 3.4rem; resize: vertical; }
-  .field-label { display: block; color: var(--text-secondary); font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em; margin: 0.7rem 0 0.3rem; }
-  .field-label-row { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-top: 0.7rem; }
+  [data-theme="light"] .input, [data-theme="light"] .textarea { box-shadow: inset 0 1px 2px rgba(0,0,0,0.04); }
+  .input:focus, .textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(37,99,235,0.16), inset 0 1px 2px rgba(0,0,0,0.06); background: var(--bg-tertiary); }
+  .textarea { min-height: 4rem; resize: vertical; }
+  .field-label { display: block; color: var(--text-secondary); font-size: 0.74rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin: 0.8rem 0 0.35rem; }
+  .field-label-row { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; margin-top: 0.75rem; }
   .field-label-row .field-label { margin: 0; }
-  .row-actions { display: flex; gap: 0.35rem; }
-  .row-actions .icon-btn { padding: 0.22rem 0.4rem; font-size: 0.8rem; line-height: 1; border-radius: 10px; }
+  .row-actions { display: flex; gap: 0.45rem; }
+  .row-actions .icon-btn { padding: 0.4rem 0.55rem; font-size: 0.9rem; line-height: 1; border-radius: 12px; }
 
-  .phrase-card { margin-bottom: 1rem; position: relative; }
-  .phrase-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
-  .phrase-num { color: var(--accent); font-size: 0.85rem; font-weight: 900; }
-  .phrase-actions { margin-left: auto; display: flex; gap: 0.4rem; }
-  .phrase-actions .icon-btn { padding: 0.35rem 0.5rem; font-size: 0.85rem; border-radius: 10px; }
+  .phrase-card { margin-bottom: 1.1rem; position: relative; }
+  .phrase-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.85rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
+  .phrase-num { color: var(--accent); font-size: 0.9rem; font-weight: 900; }
+  .phrase-actions { margin-left: auto; display: flex; gap: 0.45rem; }
+  .phrase-actions .icon-btn { padding: 0.45rem 0.6rem; font-size: 0.92rem; border-radius: 12px; }
 
-  .media-box { background: var(--bg-tertiary); border: 2px dashed var(--border); border-radius: 18px; padding: 1rem; text-align: center; margin: 0.75rem 0; transition: border-color .15s, background .15s; }
+  .media-box { background: var(--bg-tertiary); border: 2px dashed var(--border); border-radius: 20px; padding: 1rem; text-align: center; margin: 0.85rem 0; transition: border-color .15s, background .15s; }
   .media-box.has-media { border-style: solid; border-color: var(--success); padding: 0; overflow: hidden; background: #000; }
   .media-preview { width: 100%; max-height: 360px; object-fit: contain; display: block; }
   .media-preview video { width: 100%; max-height: 360px; }
   .media-placeholder { color: var(--text-secondary); font-size: 0.9rem; padding: 1rem; }
-  .media-btns { display: flex; gap: 0.5rem; justify-content: center; margin-top: 0.6rem; }
-  .url-input-row { display: flex; gap: 0.5rem; margin-top: 0.75rem; }
-  .url-input-row .input { flex: 1; font-size: 0.9rem; padding: 0.55rem 0.85rem; }
-  .url-input-row .btn { padding: 0.55rem 0.8rem; font-size: 0.85rem; }
+  .media-btns { display: flex; gap: 0.55rem; justify-content: center; margin-top: 0.7rem; }
+  .url-input-row { display: flex; gap: 0.45rem; margin-top: 0.8rem; align-items: stretch; }
+  .url-input-row .input { flex: 1; font-size: 0.92rem; padding: 0.6rem 0.9rem; }
+  .url-input-row .icon-btn { display: inline-flex; align-items: center; justify-content: center; padding: 0 0.55rem; border-radius: 12px; }
+  .url-input-row .btn { padding: 0.55rem 0.85rem; font-size: 0.85rem; border-radius: 12px; }
+  .clear-bulk { padding: 0.35rem 0.5rem; font-size: 0.85rem; }
 
   ::placeholder { color: var(--text-secondary); opacity: 0.65; }
   .empty { color: var(--text-secondary); text-align: center; padding: 2.5rem 1rem; }
@@ -196,6 +200,7 @@
     phraseEn: { ar: 'الترجمة الإنجليزية', en: 'English translation', fr: 'Traduction anglaise' },
     attachMedia: { ar: 'صورة / فيديو', en: 'Image / video', fr: 'Image / vidéo' },
     removeMedia: { ar: 'إزالة الوسائط', en: 'Remove media', fr: 'Supprimer le média' },
+    clear: { ar: 'مسح', en: 'Clear', fr: 'Effacer' },
     speak: { ar: 'نطق', en: 'Speak', fr: 'Écouter' },
     loop: { ar: 'تكرار', en: 'Loop', fr: 'Répéter' },
     stop: { ar: 'إيقاف', en: 'Stop', fr: 'Arrêter' },
@@ -762,7 +767,10 @@
     var bulk = document.createElement('div');
     bulk.className = 'card';
     bulk.innerHTML =
-      '<div class="field-label" data-t="bulkAddLabel"></div>' +
+      '<div class="field-label-row">' +
+        '<span class="field-label" data-t="bulkAddLabel"></span>' +
+        '<button class="icon-btn clear-bulk" data-t-title="clear">' + icon('close') + '</button>' +
+      '</div>' +
       '<textarea class="textarea" id="bulk-input" dir="auto" rows="3" placeholder="Bonjour | مرحبا | Hello">' +
       '</textarea>' +
       '<div class="btn-row" style="margin-top:0.6rem">' +
@@ -823,6 +831,7 @@
         '</div>' +
         '<div class="url-input-row">' +
           '<input type="text" class="input media-url" id="media-url-' + p.id + '" data-t="mediaUrlPlaceholder" placeholder="https://...">' +
+          '<button class="icon-btn clear-media-url" data-t-title="clear">' + icon('close') + '</button>' +
           '<button class="btn ghost download-media" data-t-title="downloadMedia">' + icon('import') + '</button>' +
         '</div>' +
       '</div>' +
@@ -848,6 +857,11 @@
     app.onclick = function (e) {
       var btn = e.target.closest('button');
       if (!btn) return;
+      if (btn.classList.contains('clear-bulk')) {
+        var bulkInput = document.getElementById('bulk-input');
+        if (bulkInput) bulkInput.value = '';
+        return;
+      }
       var card = btn.closest('.phrase-card');
       if (!card) return;
       var phraseId = card.dataset.phraseId;
@@ -881,6 +895,9 @@
       } else if (btn.classList.contains('download-media')) {
         var urlInput = document.getElementById('media-url-' + phraseId);
         if (urlInput && urlInput.value.trim()) downloadMediaForPhrase(phrase, urlInput.value.trim());
+      } else if (btn.classList.contains('clear-media-url')) {
+        var mediaUrlInput = document.getElementById('media-url-' + phraseId);
+        if (mediaUrlInput) mediaUrlInput.value = '';
       }
     };
 
