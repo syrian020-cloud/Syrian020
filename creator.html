@@ -122,13 +122,14 @@
   .textarea[data-field="en"] { font-family: 'Inter', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--en-color); font-size: 1.05rem; font-weight: 500; line-height: 1.45; min-height: 2.2rem; padding: 0.5rem 0.9rem; }
   .phrase-card:not(.editing) .textarea { display: none; }
   .phrase-card.editing .phrase-display { display: none; }
-  .phrase-display { user-select: none; cursor: default; }
-  .phrase-display[data-field="fr"] { font-family: 'Inter', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--fr-color); font-size: 1.3rem; font-weight: 700; line-height: 1.35; min-height: 2.6rem; padding: 0.6rem 0.9rem; letter-spacing: -0.01em; }
-  .phrase-display[data-field="ar"] { font-family: 'Noto Sans Arabic', 'Tajawal', 'Segoe UI', Tahoma, system-ui, sans-serif; color: var(--ar-color); font-size: 1.1rem; font-weight: 500; line-height: 1.65; text-align: right; direction: rtl; min-height: 2.2rem; padding: 0.5rem 0.9rem; }
-  .phrase-display[data-field="en"] { font-family: 'Inter', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--en-color); font-size: 1.05rem; font-weight: 500; line-height: 1.45; min-height: 2.2rem; padding: 0.5rem 0.9rem; }
+  .phrase-display { user-select: none; cursor: default; border-radius: 18px; transition: border-color .15s, box-shadow .15s, background .15s; background: linear-gradient(135deg, rgba(14,165,233,0.08), rgba(14,165,233,0.02)); border: 1px solid rgba(14,165,233,0.15); border-inline-start: 4px solid #0ea5e9; }
+  .phrase-display[data-field="fr"] { font-family: 'Inter', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--fr-color); font-size: 1.3rem; font-weight: 700; line-height: 1.35; min-height: 2.6rem; padding: 0.6rem 0.9rem; letter-spacing: -0.01em; background: linear-gradient(135deg, rgba(192,38,211,0.10), rgba(192,38,211,0.02)); border-color: rgba(192,38,211,0.20); border-inline-start-color: #c026d3; }
+  .phrase-display[data-field="ar"] { font-family: 'Noto Sans Arabic', 'Tajawal', 'Segoe UI', Tahoma, system-ui, sans-serif; color: var(--ar-color); font-size: 1.1rem; font-weight: 500; line-height: 1.65; text-align: right; direction: rtl; min-height: 2.2rem; padding: 0.5rem 0.9rem; background: linear-gradient(135deg, rgba(245,158,11,0.10), rgba(245,158,11,0.02)); border-color: rgba(245,158,11,0.20); border-inline-start-color: #f59e0b; }
+  .phrase-display[data-field="en"] { font-family: 'Inter', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--en-color); font-size: 1.05rem; font-weight: 500; line-height: 1.45; min-height: 2.2rem; padding: 0.5rem 0.9rem; background: linear-gradient(135deg, rgba(14,165,233,0.10), rgba(14,165,233,0.02)); border-color: rgba(14,165,233,0.20); border-inline-start-color: #0ea5e9; }
+  .phrase-display.speaking-line { color: var(--gold) !important; text-shadow: 0 0 10px rgba(255,220,50,1), 0 0 22px rgba(245,158,11,0.85), 0 0 38px rgba(245,158,11,0.5); box-shadow: 0 0 0 4px rgba(245,158,11,0.15), 0 0 28px rgba(245,158,11,0.25), 0 0 12px rgba(250,204,21,0.35) inset; border-color: rgba(245,158,11,0.45); }
   .word { display: inline-block; padding: 0.12rem 0.25rem; margin: 0.05rem; border-radius: 8px; transition: background .15s, color .15s, box-shadow .15s; cursor: pointer; }
   .word:hover { background: rgba(14,165,233,0.12); }
-  .word.speaking-line { color: var(--gold) !important; background: rgba(245,158,11,0.15); box-shadow: 0 0 12px rgba(250,204,21,0.65); }
+  .word.speaking-line { color: var(--gold) !important; background: rgba(245,158,11,0.15); box-shadow: 0 0 12px rgba(250,204,21,0.65); text-shadow: 0 0 10px rgba(255,220,50,1), 0 0 22px rgba(245,158,11,0.85), 0 0 38px rgba(245,158,11,0.5); font-weight: 700; }
   .field-label { display: block; color: var(--text-secondary); font-size: 0.74rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin: 0.8rem 0 0.35rem; }
   .field-label-row { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; margin-top: 0.75rem; }
   .field-label-row .field-label { margin: 0; }
@@ -1188,6 +1189,7 @@
       card.classList.toggle('playing', on);
       if (lang || !on) {
         card.querySelectorAll('.textarea').forEach(function (ta) { ta.classList.remove('speaking-line'); });
+        card.querySelectorAll('.phrase-display').forEach(function (d) { d.classList.remove('speaking-line'); });
         card.querySelectorAll('.word').forEach(function (w) { w.classList.remove('speaking-line'); });
       }
       if (lang) {
@@ -1200,6 +1202,8 @@
         if (!matched) {
           var ta = card.querySelector('.textarea[data-field="' + lang + '"]');
           if (ta) ta.classList.toggle('speaking-line', on);
+          var disp = card.querySelector('.phrase-display[data-field="' + lang + '"]');
+          if (disp) disp.classList.toggle('speaking-line', on);
         }
       }
     }
