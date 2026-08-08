@@ -40822,5 +40822,573 @@ window.VOCAB_DATA = [
         "ar": "القهوة قريبة من البنك"
       }
     ]
+  },
+  {
+    "fr": "Zapper",
+    "ar": "يتخطّى / يغيّر القناة / يتجاهل",
+    "en": "to zap / skip / switch channels",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": [
+      {
+        "fr": "Je zappe cette publicité.",
+        "en": "I'm skipping this advertisement.",
+        "ar": "رح أتخطّى هالإعلان."
+      },
+      {
+        "fr": "Ne zappe pas cette étape.",
+        "en": "Don't skip this step.",
+        "ar": "لا تتخطّى هالخطوة."
+      }
+    ]
+  },
+  {
+    "fr": "Zipper",
+    "ar": "يسكّر السحّاب / يسحب السحّاب",
+    "en": "to zip up",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": [
+      {
+        "fr": "Zippe ta veste.",
+        "en": "Zip up your jacket.",
+        "ar": "سكّر جاكيتك بالسحّاب."
+      },
+      {
+        "fr": "Zippe ta veste, il fait froid.",
+        "en": "Zip up your jacket, it's cold.",
+        "ar": "سكّر جاكيتك، الجو برد."
+      }
+    ]
+  },
+  {
+    "fr": "Zigzaguer",
+    "ar": "يتحرك بشكل متعرّج",
+    "en": "to zigzag",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "car",
+      "transport"
+    ],
+    "pos": "verb",
+    "ex": [
+      {
+        "fr": "La voiture zigzague sur la route.",
+        "en": "The car is zigzagging on the road.",
+        "ar": "السيارة عم تمشي بشكل متعرّج بالطريق."
+      }
+    ]
+  },
+  {
+    "fr": "Zoner",
+    "ar": "يتسكّع / يضل بالمكان بدون هدف",
+    "en": "to hang around / loiter",
+    "level": "A2",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "verb",
+    "ex": [
+      {
+        "fr": "Il zone dans le quartier.",
+        "en": "He hangs around the neighborhood.",
+        "ar": "عم يضل يتسكّع بالحي."
+      }
+    ]
+  },
+  {
+    "fr": "Zéro",
+    "ar": "صفر / لا قيمة له / معدوم",
+    "en": "zero / nobody / no",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work",
+      "bank"
+    ],
+    "pos": "other",
+    "ex": [
+      {
+        "fr": "J'ai eu zéro erreur.",
+        "en": "I had zero mistakes.",
+        "ar": "ما كان عندي ولا غلطة."
+      },
+      {
+        "fr": "Il a eu zéro à l'examen.",
+        "en": "He got zero on the exam.",
+        "ar": "جاب صفر بالامتحان."
+      },
+      {
+        "fr": "J'ai zéro motivation aujourd'hui.",
+        "en": "I have zero motivation today.",
+        "ar": "ما عندي أي حماس اليوم."
+      },
+      {
+        "fr": "Je n'ai zéro envie de sortir.",
+        "en": "I have absolutely no desire to go out.",
+        "ar": "ما إلي أبدًا نفس اطلع."
+      },
+      {
+        "fr": "J'ai zéro euro sur mon compte.",
+        "en": "I have zero euros in my account.",
+        "ar": "ما معي ولا يورو بحسابي."
+      },
+      {
+        "fr": "Il n'y a zéro problème.",
+        "en": "There is absolutely no problem.",
+        "ar": "ما في أي مشكلة."
+      }
+    ]
+  },
+  {
+    "fr": "Zone",
+    "ar": "منطقة / نطاق",
+    "en": "area / zone",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing",
+      "transport"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "C'est une zone calme.",
+        "en": "It's a quiet area.",
+        "ar": "هاي منطقة هادية."
+      },
+      {
+        "fr": "J'habite dans cette zone.",
+        "en": "I live in this area.",
+        "ar": "أنا ساكن بهالمنطقة."
+      },
+      {
+        "fr": "Cette zone est réservée aux résidents.",
+        "en": "This area is reserved for residents.",
+        "ar": "هالمنطقة مخصصة للسكان."
+      }
+    ]
+  },
+  {
+    "fr": "Zoo",
+    "ar": "حديقة حيوانات",
+    "en": "zoo",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "Les enfants aiment aller au zoo.",
+        "en": "Children like going to the zoo.",
+        "ar": "الأطفال بيحبوا يروحوا عحديقة الحيوانات."
+      }
+    ]
+  },
+  {
+    "fr": "Zèbre",
+    "ar": "حمار وحشي",
+    "en": "zebra",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "Le zèbre est dans l'enclos.",
+        "en": "The zebra is in the enclosure.",
+        "ar": "الحمار الوحشي جوّا الحظيرة."
+      }
+    ]
+  },
+  {
+    "fr": "Zip",
+    "ar": "سحّاب",
+    "en": "zipper",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "Le zip de mon pantalon est cassé.",
+        "en": "The zipper on my trousers is broken.",
+        "ar": "سحّاب بنطلوني خربان."
+      }
+    ]
+  },
+  {
+    "fr": "Zen",
+    "ar": "هادئ / مرتاح",
+    "en": "calm / relaxed",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "pos": "adjective",
+    "ex": [
+      {
+        "fr": "Reste zen.",
+        "en": "Stay calm.",
+        "ar": "خليك هادي."
+      },
+      {
+        "fr": "Reste zen pendant l'examen.",
+        "en": "Stay calm during the exam.",
+        "ar": "خليك هادي أثناء الامتحان."
+      }
+    ]
+  },
+  {
+    "fr": "Zélé",
+    "ar": "مجتهد / متحمّس جدًا",
+    "en": "zealous / enthusiastic",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "adjective",
+    "ex": [
+      {
+        "fr": "C'est un employé très zélé.",
+        "en": "He is a very zealous employee.",
+        "ar": "هو موظف مجتهد ومتحمّس كتير."
+      }
+    ]
+  },
+  {
+    "fr": "Zigzag",
+    "ar": "بشكل متعرّج",
+    "en": "in a zigzag",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "car",
+      "transport"
+    ],
+    "pos": "other",
+    "ex": [
+      {
+        "fr": "Il avance en zigzag.",
+        "en": "He moves forward in a zigzag.",
+        "ar": "عم يتقدّم بشكل متعرّج."
+      }
+    ]
+  },
+  {
+    "fr": "Zone interdite",
+    "ar": "منطقة ممنوعة",
+    "en": "restricted area",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport",
+      "car"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Attention, zone interdite.",
+        "en": "Attention, restricted area.",
+        "ar": "انتبه، منطقة ممنوعة."
+      }
+    ]
+  },
+  {
+    "fr": "Zone piétonne",
+    "ar": "منطقة للمشاة",
+    "en": "pedestrian zone",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport",
+      "car"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Les voitures sont interdites dans cette zone piétonne.",
+        "en": "Cars are prohibited in this pedestrian zone.",
+        "ar": "السيارات ممنوعة بهالمنطقة المخصصة للمشاة."
+      },
+      {
+        "fr": "Il est interdit de circuler en voiture dans cette zone piétonne.",
+        "en": "Driving is prohibited in this pedestrian zone.",
+        "ar": "ممنوع تمشي بالسيارة بهالمنطقة المخصصة للمشاة."
+      }
+    ]
+  },
+  {
+    "fr": "Zone de travail",
+    "ar": "منطقة العمل / مكان العمل",
+    "en": "work area",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Gardez la zone de travail propre.",
+        "en": "Keep the work area clean.",
+        "ar": "خلّوا مكان العمل نظيف."
+      }
+    ]
+  },
+  {
+    "fr": "Zone commerciale",
+    "ar": "منطقة تجارية",
+    "en": "shopping area / commercial zone",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "shop"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Il y a plusieurs magasins dans cette zone commerciale.",
+        "en": "There are several shops in this shopping area.",
+        "ar": "في عدة محلات بهالمنطقة التجارية."
+      }
+    ]
+  },
+  {
+    "fr": "À zéro",
+    "ar": "إلى الصفر / من جديد",
+    "en": "back to zero",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Le compteur est revenu à zéro.",
+        "en": "The counter went back to zero.",
+        "ar": "العداد رجع للصفر."
+      }
+    ]
+  },
+  {
+    "fr": "Zéro problème !",
+    "ar": "ولا مشكلة!",
+    "en": "No problem!",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Tu peux venir demain ? — Zéro problème !",
+        "en": "Can you come tomorrow? — No problem!",
+        "ar": "فيك تجي بكرا؟ — ولا مشكلة!"
+      }
+    ]
+  },
+  {
+    "fr": "Rester zen",
+    "ar": "يبقى هادئ / ما يتوتر",
+    "en": "stay calm",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health",
+      "work"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Reste zen, tout va bien se passer.",
+        "en": "Stay calm, everything will be fine.",
+        "ar": "خليك هادي، كل شي رح يكون منيح."
+      }
+    ]
+  },
+  {
+    "fr": "Zone résidentielle",
+    "ar": "منطقة سكنية",
+    "en": "residential area",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing",
+      "car"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Il faut ralentir dans cette zone résidentielle.",
+        "en": "You have to slow down in this residential area.",
+        "ar": "لازم تهدي السرعة بهالمنطقة السكنية."
+      }
+    ]
+  },
+  {
+    "fr": "Zone à faibles émissions (ZFE)",
+    "ar": "منطقة منخفضة الانبعاثات",
+    "en": "low-emission zone",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "car",
+      "transport"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Cette ville est située dans une ZFE.",
+        "en": "This city is located in a low-emission zone.",
+        "ar": "هالمدينة ضمن منطقة منخفضة الانبعاثات."
+      },
+      {
+        "fr": "Ma voiture peut-elle circuler dans cette zone ?",
+        "en": "Can my car drive in this zone?",
+        "ar": "فيني سوق سيارتي بهالمنطقة؟"
+      }
+    ]
+  },
+  {
+    "fr": "Zone 30",
+    "ar": "منطقة السرعة فيها 30 كم/ساعة",
+    "en": "30 km/h zone",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "car",
+      "transport"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Attention, vous entrez dans une zone 30.",
+        "en": "Be careful, you are entering a 30 km/h zone.",
+        "ar": "انتبه، عم تفوت على منطقة سرعتها 30."
+      }
+    ]
+  },
+  {
+    "fr": "Zone bleue",
+    "ar": "منطقة وقوف زرقاء",
+    "en": "blue parking zone",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "car",
+      "transport"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Je peux stationner dans cette zone bleue ?",
+        "en": "Can I park in this blue zone?",
+        "ar": "فيني صف هون بهالمنطقة الزرقا؟"
+      }
+    ]
+  },
+  {
+    "fr": "Zone de stationnement",
+    "ar": "منطقة وقوف السيارات",
+    "en": "parking area",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "car",
+      "transport"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Où est la zone de stationnement ?",
+        "en": "Where is the parking area?",
+        "ar": "وين منطقة المواقف؟"
+      }
+    ]
+  },
+  {
+    "fr": "Zéro euro",
+    "ar": "صفر يورو",
+    "en": "zero euros",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "bank"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Cette démarche coûte zéro euro.",
+        "en": "This procedure costs zero euros.",
+        "ar": "هالمعاملة ما بتكلف ولا يورو."
+      }
+    ]
+  },
+  {
+    "fr": "Zéro frais",
+    "ar": "بدون أي رسوم",
+    "en": "no fees",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "bank"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Il n'y a zéro frais à payer.",
+        "en": "There are no fees to pay.",
+        "ar": "ما في أي رسوم للدفع."
+      }
+    ]
+  },
+  {
+    "fr": "Zéro défaut",
+    "ar": "بدون عيوب / صفر أخطاء",
+    "en": "zero defects / defect-free",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "L'objectif est zéro défaut.",
+        "en": "The goal is zero defects.",
+        "ar": "الهدف يكون بدون أي عيوب."
+      }
+    ]
+  },
+  {
+    "fr": "Zéro erreur",
+    "ar": "بدون أخطاء",
+    "en": "zero mistakes",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Il faut travailler avec zéro erreur.",
+        "en": "We have to work with zero mistakes.",
+        "ar": "لازم نشتغل بدون أخطاء."
+      }
+    ]
   }
 ];
