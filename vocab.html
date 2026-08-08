@@ -27,6 +27,8 @@
     --shadow: 0 24px 60px rgba(0,0,0,0.45);
     --shadow-sm: 0 8px 22px rgba(0,0,0,0.22);
     --glow: 0 0 28px rgba(139,92,246,0.22);
+    --letter-bg: rgba(200,215,255,0.12);
+    --letter-color: #e0e6ff;
   }
   [data-theme="light"] {
     --bg-primary: #f1f4fa;
@@ -38,12 +40,15 @@
     --shadow: 0 16px 45px rgba(0,0,0,0.12);
     --shadow-sm: 0 4px 16px rgba(0,0,0,0.08);
     --glow: 0 0 24px rgba(139,92,246,0.14);
+    --letter-bg: #e2e9f7;
+    --letter-color: #3d4663;
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html { scroll-behavior: smooth; }
   html, body { margin: 0; padding: 0; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", "Inter", sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans Arabic", "Noto Sans", sans-serif;
+    letter-spacing: -0.01em;
     background-color: var(--bg-primary);
     background-image: radial-gradient(ellipse 85% 55% at 50% -25%, rgba(139,92,246,0.16), transparent 70%), radial-gradient(ellipse 60% 40% at 100% 0%, rgba(34,211,238,0.06), transparent 60%);
     background-attachment: fixed;
@@ -76,10 +81,10 @@
   select.ctl:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 4px rgba(139,92,246,0.12); }
 
   .filters { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.1rem; }
-  .filter-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.75rem 0.8rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .filter-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 18px; padding: 0.55rem 0.65rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: var(--shadow-sm); }
   .filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem; }
-  .filter-label { color: var(--text-secondary); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 0 0.15rem; white-space: nowrap; font-weight: 800; margin-bottom: 0.25rem; }
-  .letters-row { display: flex; flex-wrap: wrap; gap: 0.45rem; direction: ltr; }
+  .filter-label { color: var(--text-secondary); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0 0.15rem; white-space: nowrap; font-weight: 800; margin-bottom: 0.15rem; }
+  .letters-row { display: flex; flex-wrap: wrap; gap: 0.32rem; direction: ltr; }
   .contexts-strip { display: flex; flex-wrap: nowrap; gap: 0.45rem; overflow-x: auto; padding: 0.25rem 1px; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; }
   .contexts-strip::-webkit-scrollbar { display: none; }
   .filter-chip { background: var(--bg-tertiary); color: var(--text-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 0.45rem 0.8rem; font-size: 0.85rem; cursor: pointer; user-select: none; transition: all 0.15s; white-space: nowrap; box-shadow: var(--shadow-sm); font-weight: 600; }
@@ -87,11 +92,11 @@
   .filter-chip.active { background: linear-gradient(135deg, var(--accent), var(--accent-hover)); color: #fff; border-color: transparent; box-shadow: 0 4px 18px rgba(139,92,246,0.32); }
   .filter-chip.empty { opacity: 0.45; }
 
-  .filter-chip.letter { min-width: 3.2rem; padding: 0.4rem 0.35rem; border-radius: 14px; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.05rem; background: var(--bg-tertiary); border: 1px solid var(--border); color: hsl(var(--letter-hue, 260), 80%, 70%); }
-  .filter-chip.letter .letter-char { font-size: 1rem; font-weight: 800; line-height: 1; }
-  .filter-chip.letter .letter-count { font-size: 0.62rem; font-weight: 700; opacity: 0.85; }
-  .filter-chip.letter:hover { border-color: hsl(var(--letter-hue, 260), 70%, 55%); color: hsl(var(--letter-hue, 260), 90%, 80%); background: hsla(var(--letter-hue, 260), 60%, 50%, 0.1); }
-  .filter-chip.letter.active { background: linear-gradient(135deg, hsl(var(--letter-hue, 260), 70%, 55%), hsl(var(--letter-hue, 260), 70%, 45%)); color: #fff; border-color: transparent; box-shadow: 0 5px 18px hsla(var(--letter-hue, 260), 70%, 50%, 0.32); }
+  .filter-chip.letter { min-width: 2.35rem; padding: 0.28rem 0.22rem; border-radius: 11px; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.04rem; background: var(--letter-bg); border: 1px solid var(--border); color: var(--letter-color); box-shadow: 0 2px 5px rgba(0,0,0,0.08); transition: all .12s; }
+  .filter-chip.letter .letter-char { font-family: "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif; font-size: 0.96rem; font-weight: 800; line-height: 1; letter-spacing: 0.04em; }
+  .filter-chip.letter .letter-count { font-size: 0.54rem; font-weight: 700; opacity: 0.8; line-height: 1; }
+  .filter-chip.letter:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.12); }
+  .filter-chip.letter.active { background: linear-gradient(135deg, hsl(var(--letter-hue, 260), 75%, 58%), hsl(var(--letter-hue, 260), 75%, 48%)); color: #fff; border-color: transparent; box-shadow: 0 5px 16px hsla(var(--letter-hue, 260), 75%, 50%, 0.35); }
 
   .stats { color: var(--text-secondary); font-size: 0.92rem; margin: 0 0 1rem; display: flex; align-items: center; gap: 0.4rem; font-weight: 600; }
   .stats strong { color: var(--accent); font-weight: 800; }
