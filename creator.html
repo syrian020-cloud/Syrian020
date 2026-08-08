@@ -943,6 +943,7 @@
         toggleLoop(phrase, phraseId + ':' + lineLang, [lineLang]);
       } else if (btn.classList.contains('edit-phrase')) {
         phrase.editing = !phrase.editing;
+        if (phrase.editing) stopSpeech();
         saveCurrentLesson();
         var idx = lesson.phrases.indexOf(phrase);
         var newCard = createPhraseCard(lesson, phrase, idx);
