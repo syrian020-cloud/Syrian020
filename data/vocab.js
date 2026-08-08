@@ -26071,13 +26071,23 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "health"
+      "health",
+      "daily",
+      "work",
+      "services"
     ],
-    "ex": {
-      "fr": "Je dois faire un examen médical.",
-      "ar": "يجب أن أجري فحصًا طبيًا.",
-      "en": "I have to do a medical examination."
-    }
+    "ex": [
+      {
+        "fr": "Je dois faire un examen médical.",
+        "ar": "يجب أن أجري فحصًا طبيًا.",
+        "en": "I have to do a medical examination."
+      },
+      {
+        "fr": "J'ai un examen médical demain.",
+        "en": "I have a medical examination tomorrow.",
+        "ar": "عندي فحص طبي بكرا."
+      }
+    ]
   },
   {
     "fr": "Analyse sanguine",
@@ -31004,7 +31014,11 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "contexts": [
       "caf",
-      "mdph"
+      "mdph",
+      "daily",
+      "health",
+      "services",
+      "work"
     ],
     "ex": [
       {
@@ -31016,6 +31030,16 @@ window.VOCAB_DATA = [
         "fr": "La commission examine mon dossier.",
         "ar": "اللجنة تدرس ملفي.",
         "en": "The committee examines my file."
+      },
+      {
+        "fr": "Le médecin va m'examiner.",
+        "en": "The doctor will examine me.",
+        "ar": "الدكتور رح يفحصني."
+      },
+      {
+        "fr": "La CAF examine mon dossier.",
+        "en": "CAF is reviewing my application.",
+        "ar": "الـCAF عم تدرس ملفي."
       }
     ]
   },
@@ -41388,6 +41412,926 @@ window.VOCAB_DATA = [
         "fr": "Il faut travailler avec zéro erreur.",
         "en": "We have to work with zero mistakes.",
         "ar": "لازم نشتغل بدون أخطاء."
+      }
+    ]
+  },
+  {
+    "fr": "Y aller",
+    "ar": "يروح لهنيك / يذهب إلى هناك",
+    "en": "to go there",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport",
+      "work",
+      "caf",
+      "services"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Je vais y aller demain.",
+        "en": "I'm going there tomorrow.",
+        "ar": "رح روح لهنيك بكرا."
+      },
+      {
+        "fr": "Je peux y aller maintenant ?",
+        "en": "Can I go there now?",
+        "ar": "فيني روح لهنيك هلق؟"
+      }
+    ]
+  },
+  {
+    "fr": "Y retourner",
+    "ar": "يرجع لهنيك",
+    "en": "to go back there",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Je dois y retourner demain.",
+        "en": "I have to go back there tomorrow.",
+        "ar": "لازم ارجع لهنيك بكرا."
+      },
+      {
+        "fr": "Je dois y retourner.",
+        "en": "I have to go back there.",
+        "ar": "لازم ارجع لهنيك."
+      }
+    ]
+  },
+  {
+    "fr": "Y rester",
+    "ar": "يبقى هناك",
+    "en": "to stay there",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Je vais y rester quelques jours.",
+        "en": "I'm going to stay there for a few days.",
+        "ar": "رح ضل هنيك كم يوم."
+      }
+    ]
+  },
+  {
+    "fr": "Yaourt",
+    "ar": "لبن / زبادي",
+    "en": "yogurt",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "food"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "Je prends un yaourt après le repas.",
+        "en": "I have a yogurt after the meal.",
+        "ar": "باخد لبن بعد الأكل."
+      }
+    ]
+  },
+  {
+    "fr": "Yacht",
+    "ar": "يخت",
+    "en": "yacht",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "Ils ont acheté un yacht.",
+        "en": "They bought a yacht.",
+        "ar": "اشتروا يخت."
+      }
+    ]
+  },
+  {
+    "fr": "Yoga",
+    "ar": "يوغا",
+    "en": "yoga",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "Je fais du yoga le week-end.",
+        "en": "I do yoga on weekends.",
+        "ar": "بعمل يوغا بعطلة نهاية الأسبوع."
+      }
+    ]
+  },
+  {
+    "fr": "Yémen",
+    "ar": "اليمن",
+    "en": "Yemen",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "geography"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "Il vient du Yémen.",
+        "en": "He comes from Yemen.",
+        "ar": "هو من اليمن."
+      }
+    ]
+  },
+  {
+    "fr": "Y compris",
+    "ar": "بما في ذلك / بما فيه",
+    "en": "including",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Le prix est de 50 euros, y compris les frais.",
+        "en": "The price is 50 euros, including the fees.",
+        "ar": "السعر 50 يورو، شامل الرسوم."
+      },
+      {
+        "fr": "Tout le monde est invité, y compris les enfants.",
+        "en": "Everyone is invited, including the children.",
+        "ar": "الكل معزوم، بما فيهم الأطفال."
+      }
+    ]
+  },
+  {
+    "fr": "Il y a",
+    "ar": "يوجد / هناك / منذ",
+    "en": "there is / there are / ago",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing",
+      "transport",
+      "work",
+      "caf",
+      "services",
+      "health"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Il y a un problème.",
+        "en": "There is a problem.",
+        "ar": "في مشكلة."
+      },
+      {
+        "fr": "Il y a deux personnes devant moi.",
+        "en": "There are two people in front of me.",
+        "ar": "في شخصين قدامي."
+      },
+      {
+        "fr": "J'habite ici depuis deux ans.",
+        "en": "I have lived here for two years.",
+        "ar": "إلي سنتين ساكن هون."
+      },
+      {
+        "fr": "Il y a deux ans.",
+        "en": "Two years ago.",
+        "ar": "منذ سنتين / قبل سنتين."
+      },
+      {
+        "fr": "Il y a un problème dans l'appartement.",
+        "en": "There is a problem in the apartment.",
+        "ar": "في مشكلة بالشقة."
+      },
+      {
+        "fr": "Il y a une fuite.",
+        "en": "There is a leak.",
+        "ar": "في تسرّب."
+      },
+      {
+        "fr": "Il y a un feu rouge.",
+        "en": "There is a red light.",
+        "ar": "في إشارة حمرا."
+      },
+      {
+        "fr": "Il y a un panneau.",
+        "en": "There is a sign.",
+        "ar": "في إشارة / لوحة."
+      },
+      {
+        "fr": "Il y a un problème avec mon dossier.",
+        "en": "There is a problem with my application.",
+        "ar": "في مشكلة بملفي."
+      }
+    ]
+  },
+  {
+    "fr": "Il y en a",
+    "ar": "في منه / في منهم",
+    "en": "there are some / there is some",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Tu as des documents ? — Oui, j'en ai.",
+        "en": "Do you have documents? — Yes, I have some.",
+        "ar": "معك أوراق؟ — إي، معي."
+      },
+      {
+        "fr": "Il y en a beaucoup.",
+        "en": "There are many of them.",
+        "ar": "في منهم كتير."
+      }
+    ]
+  },
+  {
+    "fr": "Il n'y a pas",
+    "ar": "ما في / لا يوجد",
+    "en": "there isn't / there aren't",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing",
+      "work",
+      "caf",
+      "services",
+      "transport"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Il n'y a pas de problème.",
+        "en": "There is no problem.",
+        "ar": "ما في مشكلة."
+      },
+      {
+        "fr": "Il n'y a pas de rendez-vous disponible.",
+        "en": "There is no appointment available.",
+        "ar": "ما في موعد متاح."
+      },
+      {
+        "fr": "Il n'y a pas d'eau chaude.",
+        "en": "There is no hot water.",
+        "ar": "ما في مي سخنة."
+      },
+      {
+        "fr": "Il n'y a pas de priorité.",
+        "en": "There is no right of way.",
+        "ar": "ما في أولوية."
+      },
+      {
+        "fr": "Il n'y a pas de mise à jour sur mon dossier.",
+        "en": "There is no update on my application.",
+        "ar": "ما في تحديث على ملفي."
+      }
+    ]
+  },
+  {
+    "fr": "Il n'y a plus",
+    "ar": "ما عاد في / ما بقي",
+    "en": "there is no longer / there aren't any more",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Il n'y a plus de place.",
+        "en": "There is no room left.",
+        "ar": "ما عاد في مكان."
+      },
+      {
+        "fr": "Il n'y a plus de paiement.",
+        "en": "There are no more payments.",
+        "ar": "ما عاد في دفعات."
+      },
+      {
+        "fr": "Il n'y a plus d'électricité.",
+        "en": "There is no electricity anymore.",
+        "ar": "ما عاد في كهربا."
+      }
+    ]
+  },
+  {
+    "fr": "Il n'y a que",
+    "ar": "ما في غير / يوجد فقط",
+    "en": "there is only",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Il n'y a que deux documents à fournir.",
+        "en": "There are only two documents to provide.",
+        "ar": "ما في غير ورقتين لازم تقدمهم."
+      }
+    ]
+  },
+  {
+    "fr": "Examen",
+    "ar": "امتحان / فحص",
+    "en": "exam / examination",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "school",
+      "work",
+      "health"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "J'ai un examen demain.",
+        "en": "I have an exam tomorrow.",
+        "ar": "عندي امتحان بكرا."
+      },
+      {
+        "fr": "Je dois passer un examen médical.",
+        "en": "I have to undergo a medical examination.",
+        "ar": "لازم اعمل فحص طبي."
+      }
+    ]
+  },
+  {
+    "fr": "Expérience",
+    "ar": "خبرة / تجربة",
+    "en": "experience",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "J'ai de l'expérience dans la restauration.",
+        "en": "I have experience in the restaurant industry.",
+        "ar": "عندي خبرة بالمطاعم."
+      },
+      {
+        "fr": "C'était une bonne expérience.",
+        "en": "It was a good experience.",
+        "ar": "كانت تجربة منيحة."
+      }
+    ]
+  },
+  {
+    "fr": "Exemple",
+    "ar": "مثال",
+    "en": "example",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work",
+      "school"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "Pouvez-vous me donner un exemple ?",
+        "en": "Can you give me an example?",
+        "ar": "فيك تعطيني مثال؟"
+      }
+    ]
+  },
+  {
+    "fr": "Explication",
+    "ar": "شرح / توضيح",
+    "en": "explanation",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "Je voudrais une explication, s'il vous plaît.",
+        "en": "I would like an explanation, please.",
+        "ar": "بدي شرح، لو سمحت."
+      }
+    ]
+  },
+  {
+    "fr": "Exception",
+    "ar": "استثناء",
+    "en": "exception",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "Il y a une exception.",
+        "en": "There is an exception.",
+        "ar": "في استثناء."
+      },
+      {
+        "fr": "Cette règle ne prévoit pas d'exception.",
+        "en": "This rule does not provide for an exception.",
+        "ar": "هالقانون ما فيه استثناء."
+      }
+    ]
+  },
+  {
+    "fr": "Excuse",
+    "ar": "عذر / اعتذار",
+    "en": "excuse / apology",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "Excusez-moi, j'ai une question.",
+        "en": "Excuse me, I have a question.",
+        "ar": "عفواً، عندي سؤال."
+      },
+      {
+        "fr": "Je vous présente mes excuses.",
+        "en": "I apologize.",
+        "ar": "بعتذر منكم."
+      },
+      {
+        "fr": "Je n'ai pas d'excuse.",
+        "en": "I have no excuse.",
+        "ar": "ما عندي عذر."
+      }
+    ]
+  },
+  {
+    "fr": "Échange",
+    "ar": "تبادل / استبدال",
+    "en": "exchange",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work",
+      "bank"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "Je voudrais faire un échange.",
+        "en": "I would like to make an exchange.",
+        "ar": "بدي أعمل تبديل."
+      }
+    ]
+  },
+  {
+    "fr": "Extension",
+    "ar": "تمديد / إضافة",
+    "en": "extension / extension period",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "Je demande une extension de mon contrat.",
+        "en": "I'm requesting an extension of my contract.",
+        "ar": "عم اطلب تمديد عقدي."
+      }
+    ]
+  },
+  {
+    "fr": "Expiration",
+    "ar": "انتهاء الصلاحية / الانتهاء",
+    "en": "expiration",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "Quelle est la date d'expiration ?",
+        "en": "What is the expiration date?",
+        "ar": "شو تاريخ انتهاء الصلاحية؟"
+      }
+    ]
+  },
+  {
+    "fr": "Expertise",
+    "ar": "خبرة فنية / تقييم خبير",
+    "en": "expert assessment / expertise",
+    "level": "B1",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "Une expertise est nécessaire.",
+        "en": "An expert assessment is necessary.",
+        "ar": "لازم تقييم من خبير."
+      }
+    ]
+  },
+  {
+    "fr": "Extrait",
+    "ar": "مستخرج / مقتطف",
+    "en": "extract / excerpt / official extract",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "bank",
+      "services"
+    ],
+    "pos": "noun",
+    "ex": [
+      {
+        "fr": "J'ai besoin d'un extrait de compte.",
+        "en": "I need a bank statement extract.",
+        "ar": "بدي كشف حساب."
+      },
+      {
+        "fr": "Je dois fournir un extrait de naissance.",
+        "en": "I have to provide a birth certificate extract.",
+        "ar": "لازم قدّم مستخرج ولادة."
+      }
+    ]
+  },
+  {
+    "fr": "Xeroxer",
+    "ar": "يصوّر نسخة / يعمل فوتوكوبي",
+    "en": "to photocopy",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": [
+      {
+        "fr": "Je dois xeroxer ce document.",
+        "en": "I have to photocopy this document.",
+        "ar": "لازم صوّر نسخة عن هالورقة."
+      }
+    ]
+  },
+  {
+    "fr": "Expliquer",
+    "ar": "يشرح / يوضّح",
+    "en": "to explain",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work",
+      "services",
+      "school"
+    ],
+    "pos": "verb",
+    "ex": [
+      {
+        "fr": "Pouvez-vous m'expliquer ?",
+        "en": "Can you explain it to me?",
+        "ar": "فيك تشرحلي؟"
+      }
+    ]
+  },
+  {
+    "fr": "Exister",
+    "ar": "يوجد / يكون موجودًا",
+    "en": "to exist",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": [
+      {
+        "fr": "Cette aide existe toujours ?",
+        "en": "Does this benefit still exist?",
+        "ar": "هالمساعدة لسا موجودة؟"
+      }
+    ]
+  },
+  {
+    "fr": "Exiger",
+    "ar": "يتطلب / يطالب بـ",
+    "en": "to require / demand",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": [
+      {
+        "fr": "Ce document est exigé.",
+        "en": "This document is required.",
+        "ar": "هالوثيقة مطلوبة."
+      },
+      {
+        "fr": "Ils exigent un justificatif.",
+        "en": "They require supporting documentation.",
+        "ar": "طالبين إثبات."
+      }
+    ]
+  },
+  {
+    "fr": "Exercer",
+    "ar": "يمارس / يزاول",
+    "en": "to practice / carry out",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": [
+      {
+        "fr": "J'exerce une activité professionnelle.",
+        "en": "I carry out a professional activity.",
+        "ar": "بمارس نشاط مهني."
+      },
+      {
+        "fr": "Il exerce le métier de cuisinier.",
+        "en": "He works as a cook.",
+        "ar": "بيشتغل طباخ."
+      }
+    ]
+  },
+  {
+    "fr": "Expédier",
+    "ar": "يرسل / يشحن",
+    "en": "to send / ship",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": [
+      {
+        "fr": "Je vais expédier le colis demain.",
+        "en": "I'll ship the package tomorrow.",
+        "ar": "رح ابعت الطرد بكرا."
+      }
+    ]
+  },
+  {
+    "fr": "Exporter",
+    "ar": "يصدّر",
+    "en": "to export",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "verb",
+    "ex": [
+      {
+        "fr": "Cette entreprise exporte ses produits.",
+        "en": "This company exports its products.",
+        "ar": "هالشركة بتصدّر منتجاتها."
+      }
+    ]
+  },
+  {
+    "fr": "Extraire",
+    "ar": "يستخرج / يزيل",
+    "en": "to extract / remove",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "verb",
+    "ex": [
+      {
+        "fr": "Je dois extraire ce document du dossier.",
+        "en": "I have to extract this document from the file.",
+        "ar": "لازم استخرج هالوثيقة من الملف."
+      }
+    ]
+  },
+  {
+    "fr": "Excellent / Excellente",
+    "ar": "ممتاز",
+    "en": "excellent",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "adjective",
+    "ex": [
+      {
+        "fr": "Votre travail est excellent.",
+        "en": "Your work is excellent.",
+        "ar": "شغلك ممتاز."
+      }
+    ]
+  },
+  {
+    "fr": "Exact / Exacte",
+    "ar": "دقيق / صحيح",
+    "en": "exact / accurate",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "adjective",
+    "ex": [
+      {
+        "fr": "Quelle est l'adresse exacte ?",
+        "en": "What is the exact address?",
+        "ar": "شو العنوان الدقيق؟"
+      }
+    ]
+  },
+  {
+    "fr": "Existant / Existante",
+    "ar": "موجود / قائم",
+    "en": "existing",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "adjective",
+    "ex": [
+      {
+        "fr": "Il faut vérifier les informations existantes.",
+        "en": "We need to check the existing information.",
+        "ar": "لازم نتأكد من المعلومات الموجودة."
+      }
+    ]
+  },
+  {
+    "fr": "Externe",
+    "ar": "خارجي",
+    "en": "external",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "adjective",
+    "ex": [
+      {
+        "fr": "C'est un service externe.",
+        "en": "It is an external service.",
+        "ar": "هاد قسم خارجي."
+      }
+    ]
+  },
+  {
+    "fr": "Expérimenté / Expérimentée",
+    "ar": "ذو خبرة / خبير",
+    "en": "experienced",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "adjective",
+    "ex": [
+      {
+        "fr": "Je suis expérimenté dans la restauration.",
+        "en": "I am experienced in the restaurant industry.",
+        "ar": "عندي خبرة بالمطاعم."
+      }
+    ]
+  },
+  {
+    "fr": "Explicite",
+    "ar": "واضح / صريح",
+    "en": "explicit / clear",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work",
+      "services"
+    ],
+    "pos": "adjective",
+    "ex": [
+      {
+        "fr": "Les instructions sont explicites.",
+        "en": "The instructions are clear.",
+        "ar": "التعليمات واضحة."
+      }
+    ]
+  },
+  {
+    "fr": "Expérience professionnelle",
+    "ar": "خبرة مهنية",
+    "en": "professional experience",
+    "level": "A2",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "J'ai plusieurs années d'expérience professionnelle.",
+        "en": "I have several years of professional experience.",
+        "ar": "عندي عدة سنين خبرة مهنية."
+      }
+    ]
+  },
+  {
+    "fr": "Extrait de compte",
+    "ar": "كشف حساب",
+    "en": "bank statement",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "bank"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "La banque me demande un extrait de compte.",
+        "en": "The bank asks me for a bank statement.",
+        "ar": "البنك طالب مني كشف حساب."
+      }
+    ]
+  },
+  {
+    "fr": "Extrait de naissance",
+    "ar": "مستخرج ولادة",
+    "en": "birth certificate extract",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Je dois fournir un extrait de naissance.",
+        "en": "I have to provide a birth certificate extract.",
+        "ar": "لازم قدّم مستخرج ولادة."
+      }
+    ]
+  },
+  {
+    "fr": "Examen du permis",
+    "ar": "امتحان القيادة",
+    "en": "driving test",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport",
+      "car"
+    ],
+    "pos": "phrase",
+    "ex": [
+      {
+        "fr": "Je passe l'examen du permis bientôt.",
+        "en": "I'm taking the driving test soon.",
+        "ar": "رح قدّم امتحان السواقة قريب."
       }
     ]
   }
