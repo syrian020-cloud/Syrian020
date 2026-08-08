@@ -6,6 +6,9 @@
 <meta name="theme-color" content="#f6effc">
 <title>Lang</title>
 <link rel="manifest" href="manifest-creator.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Noto+Sans+Arabic:wght@400;500;700&amp;display=swap" rel="stylesheet">
 <style>
   :root {
     --bg-primary: #0f0518;
@@ -47,7 +50,7 @@
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", sans-serif;
+    font-family: 'Inter', 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: radial-gradient(1200px 600px at 10% -10%, rgba(192,38,211,0.08), transparent), radial-gradient(1200px 600px at 110% 10%, rgba(245,158,11,0.06), transparent), var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
@@ -114,9 +117,9 @@
   .input:focus, .textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(14,165,233,0.16), inset 0 1px 2px rgba(0,0,0,0.06); background: var(--bg-tertiary); }
   .textarea { min-height: 4rem; resize: vertical; background: linear-gradient(135deg, rgba(14,165,233,0.10), rgba(14,165,233,0.02)); border: 1px solid rgba(14,165,233,0.20); border-inline-start: 4px solid #0ea5e9; box-shadow: none; }
   .textarea:focus { background: linear-gradient(135deg, rgba(14,165,233,0.13), rgba(14,165,233,0.04)); border-color: rgba(14,165,233,0.45); box-shadow: 0 0 0 4px rgba(14,165,233,0.18); }
-  .textarea[data-field="fr"] { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--fr-color); font-size: 1.35rem; font-weight: 700; line-height: 1.35; min-height: 2.6rem; padding: 0.6rem 0.9rem; }
-  .textarea[data-field="ar"] { font-family: 'Noto Sans Arabic', 'Segoe UI', Tahoma, system-ui, sans-serif; color: var(--ar-color); font-size: 1.1rem; line-height: 1.6; text-align: right; direction: rtl; min-height: 2.2rem; padding: 0.5rem 0.9rem; }
-  .textarea[data-field="en"] { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--en-color); font-size: 1.05rem; line-height: 1.45; min-height: 2.2rem; padding: 0.5rem 0.9rem; }
+  .textarea[data-field="fr"] { font-family: 'Inter', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--fr-color); font-size: 1.3rem; font-weight: 700; line-height: 1.35; min-height: 2.6rem; padding: 0.6rem 0.9rem; letter-spacing: -0.01em; }
+  .textarea[data-field="ar"] { font-family: 'Noto Sans Arabic', 'Tajawal', 'Segoe UI', Tahoma, system-ui, sans-serif; color: var(--ar-color); font-size: 1.1rem; font-weight: 500; line-height: 1.65; text-align: right; direction: rtl; min-height: 2.2rem; padding: 0.5rem 0.9rem; }
+  .textarea[data-field="en"] { font-family: 'Inter', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--en-color); font-size: 1.05rem; font-weight: 500; line-height: 1.45; min-height: 2.2rem; padding: 0.5rem 0.9rem; }
   .field-label { display: block; color: var(--text-secondary); font-size: 0.74rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin: 0.8rem 0 0.35rem; }
   .field-label-row { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; margin-top: 0.75rem; }
   .field-label-row .field-label { margin: 0; }
@@ -147,9 +150,9 @@
   .toast { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%); background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.7rem 1.2rem; box-shadow: var(--shadow); z-index: 100; font-size: 0.92rem; font-weight: 600; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
   .hidden { display: none !important; }
 
-  .playing { border-color: var(--gold); box-shadow: 0 0 0 4px rgba(245,158,11,0.28); }
-  .playing .textarea { text-shadow: 0 0 10px rgba(250,204,21,0.65), 0 0 2px rgba(250,204,21,0.35); transition: text-shadow .15s, color .15s; }
-  .textarea.speaking-line { color: var(--gold) !important; text-shadow: 0 0 12px rgba(250,204,21,0.8), 0 0 3px rgba(250,204,21,0.5); font-weight: 700; }
+  .playing { border-color: rgba(245,158,11,0.45); box-shadow: 0 0 0 4px rgba(245,158,11,0.15), 0 0 28px rgba(245,158,11,0.25), 0 12px 30px rgba(245,158,11,0.12); }
+  .playing .textarea { text-shadow: 0 0 8px rgba(250,204,21,0.9), 0 0 16px rgba(245,158,11,0.65), 0 0 28px rgba(245,158,11,0.35); transition: text-shadow .2s, color .2s; }
+  .textarea.speaking-line { color: var(--gold) !important; text-shadow: 0 0 10px rgba(255,220,50,1), 0 0 22px rgba(245,158,11,0.85), 0 0 38px rgba(245,158,11,0.5); font-weight: 700; }
 
   @media (max-width: 480px) {
     .header-inner { padding: 0.65rem; }
