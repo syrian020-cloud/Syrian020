@@ -501,6 +501,18 @@
     });
     if(state.sort === 'az') items.sort(function(a,b){ return a.fr.localeCompare(b.fr, 'fr'); });
     else if(state.sort === 'za') items.sort(function(a,b){ return b.fr.localeCompare(a.fr, 'fr'); });
+    else if(q){
+      items.sort(function(a,b){
+        var al = a.fr.toLowerCase(), bl = b.fr.toLowerCase();
+        var ae = al === q, be = bl === q;
+        if(ae !== be) return ae ? -1 : 1;
+        var as = al.startsWith(q), bs = bl.startsWith(q);
+        if(as !== bs) return as ? -1 : 1;
+        var ai = al.indexOf(q), bi = bl.indexOf(q);
+        if(ai !== bi) return ai - bi;
+        return al.localeCompare(bl, 'fr');
+      });
+    }
     return items;
   }
 
