@@ -398,7 +398,7 @@
   }
   function firstLetter(fr){
     var s = String(fr || '').replace(/^[^A-Za-z\u00C0-\u024F]+/,'');
-    s = s.replace(/^(Se |s'|S'|Le |La |Les |L'|Être |Etre |être )/i,'');
+    s = s.replace(/^(Se |s'|S'|Le |La |Les |L'|Un |Une |Des |Du |De la |De l'|Être |Etre |être )/i,'');
     if(!s) return '#';
     var base = s.charAt(0).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();
     if(/[A-Z]/.test(base)) return base;
