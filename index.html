@@ -3456,7 +3456,7 @@
       const stopBtn = document.getElementById('reader-stop');
 
       let selecting = false, startX, startY, region = null;
-      let loopActive = false, loopTimer = null;
+      let loopActive = false, loopTimer = null, loopToken = 0;
 
       function getTTSLang(text) {
         if (/[\u0600-\u06FF]/.test(text)) return 'ar-SA';
@@ -3479,6 +3479,7 @@
 
       function stopTTS() {
         loopActive = false;
+        loopToken++;
         if (loopTimer) { clearTimeout(loopTimer); loopTimer = null; }
         if (typeof ttsStop === 'function') ttsStop();
         else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
@@ -3496,10 +3497,11 @@
         const text = textarea.value.trim();
         if (!text) return;
         loopActive = true;
+        const token = loopToken;
         (function next() {
-          if (!loopActive) return;
+          if (!loopActive || loopToken !== token) return;
           tts(text, function() {
-            if (!loopActive) return;
+            if (!loopActive || loopToken !== token) return;
             loopTimer = setTimeout(next, 1200);
           });
         })();
