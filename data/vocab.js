@@ -52430,5 +52430,1516 @@ window.VOCAB_DATA = [
       "en": "We're looking for social housing.",
       "ar": "عم ندور على سكن اجتماعي."
     }
+  },
+  {
+    "fr": "Qualifier",
+    "ar": "يؤهّل / يصف",
+    "en": "to qualify / describe",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "school",
+      "work"
+    ],
+    "ex": {
+      "fr": "Cette formation me qualifie pour ce poste.",
+      "en": "This training qualifies me for this position.",
+      "ar": "هالتدريب بيؤهلني لهالوظيفة."
+    }
+  },
+  {
+    "fr": "Questionner",
+    "ar": "يسأل / يستجوب",
+    "en": "to question / ask",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Le conseiller va me questionner sur ma situation.",
+      "en": "The advisor will ask me about my situation.",
+      "ar": "الموظف رح يسألني عن وضعي."
+    }
+  },
+  {
+    "fr": "Quitter",
+    "ar": "يترك / يغادر",
+    "en": "to leave",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "housing",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois quitter mon logement.",
+        "en": "I have to leave my accommodation.",
+        "ar": "لازم اترك السكن."
+      },
+      {
+        "fr": "Je quitte le travail à 17 heures.",
+        "en": "I leave work at 5 p.m.",
+        "ar": "بطلع من الشغل الساعة 5."
+      }
+    ]
+  },
+  {
+    "fr": "Une question",
+    "ar": "سؤال",
+    "en": "question",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai une question.",
+      "en": "I have a question.",
+      "ar": "عندي سؤال."
+    }
+  },
+  {
+    "fr": "Un questionnaire",
+    "ar": "استبيان / مجموعة أسئلة",
+    "en": "questionnaire / survey",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je dois remplir un questionnaire.",
+      "en": "I have to fill out a questionnaire.",
+      "ar": "لازم عبّي استبيان."
+    }
+  },
+  {
+    "fr": "Une qualité",
+    "ar": "جودة / صفة جيدة",
+    "en": "quality",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "La qualité du service est bonne.",
+      "en": "The quality of the service is good.",
+      "ar": "جودة الخدمة منيحة."
+    }
+  },
+  {
+    "fr": "Une quantité",
+    "ar": "كمية",
+    "en": "quantity / amount",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle quantité voulez-vous ?",
+      "en": "What quantity do you want?",
+      "ar": "قديش الكمية اللي بدك ياها؟"
+    }
+  },
+  {
+    "fr": "Un quartier",
+    "ar": "حي / منطقة",
+    "en": "neighborhood / district",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'habite dans ce quartier.",
+      "en": "I live in this neighborhood.",
+      "ar": "أنا ساكن بهالحي."
+    }
+  },
+  {
+    "fr": "Un quotidien",
+    "ar": "الحياة اليومية / الروتين اليومي / صحيفة يومية",
+    "en": "daily life / daily routine / daily newspaper",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "C'est devenu mon quotidien.",
+        "en": "It has become my daily routine.",
+        "ar": "صار هاد روتيني اليومي."
+      },
+      {
+        "fr": "Je lis le quotidien dans le métro.",
+        "en": "I read the daily newspaper on the metro.",
+        "ar": "بقرأ الجريدة اليومية بالمترو."
+      }
+    ]
+  },
+  {
+    "fr": "Un quai",
+    "ar": "رصيف القطار / الترام / الحافلة",
+    "en": "platform / quay",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "transport"
+    ],
+    "ex": {
+      "fr": "Le train part du quai numéro 3.",
+      "en": "The train leaves from platform 3.",
+      "ar": "القطار بيطلع من الرصيف رقم 3."
+    }
+  },
+  {
+    "fr": "Une quittance",
+    "ar": "إيصال / إيصال الإيجار",
+    "en": "receipt / rent receipt",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "J'ai besoin d'une quittance de loyer.",
+      "en": "I need a rent receipt."
+    }
+  },
+  {
+    "fr": "Une quittance de loyer",
+    "ar": "إيصال دفع الإيجار / إيصال الإيجار",
+    "en": "rent receipt",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Pouvez-vous m'envoyer ma quittance de loyer ?",
+        "en": "Can you send me my rent receipt?",
+        "ar": "فيك تبعتلي إيصال الإيجار؟"
+      },
+      {
+        "fr": "Une quittance de loyer",
+        "en": "rent receipt",
+        "ar": "إيصال الإيجار"
+      }
+    ]
+  },
+  {
+    "fr": "Un quotient familial",
+    "ar": "المعامل العائلي",
+    "en": "family quotient",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Je voudrais connaître mon quotient familial.",
+      "en": "I'd like to know my family quotient.",
+      "ar": "بدي أعرف المعامل العائلي تبعي."
+    }
+  },
+  {
+    "fr": "Quel / Quelle",
+    "ar": "أي / ما هو / ما هي",
+    "en": "what / which",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quel document dois-je fournir ?",
+      "en": "Which document do I need to provide?",
+      "ar": "أي وثيقة لازم قدّم؟"
+    }
+  },
+  {
+    "fr": "Quelque",
+    "ar": "بعض / معيّن",
+    "en": "some / a certain",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai quelque chose à vous demander.",
+      "en": "I have something to ask you.",
+      "ar": "عندي شغلة بدي اسألك عنها."
+    }
+  },
+  {
+    "fr": "Quelconque",
+    "ar": "عادي / أيًّا كان",
+    "en": "ordinary / random / any",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ce n'est pas un problème quelconque.",
+      "en": "It's not an ordinary problem.",
+      "ar": "مو مشكلة عادية."
+    }
+  },
+  {
+    "fr": "Qualifié / Qualifiée",
+    "ar": "مؤهّل",
+    "en": "qualified",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je suis qualifié pour ce poste.",
+      "en": "I am qualified for this position.",
+      "ar": "أنا مؤهّل لهالوظيفة."
+    }
+  },
+  {
+    "fr": "Quand ?",
+    "ar": "إمتى؟",
+    "en": "When?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quand est-ce que je peux venir ?",
+      "en": "When can I come?",
+      "ar": "إمتى فيني أجي؟"
+    }
+  },
+  {
+    "fr": "Quand même",
+    "ar": "مع هيك / رغم ذلك / على كل حال",
+    "en": "anyway / nevertheless / still",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est difficile, mais je vais essayer quand même.",
+      "en": "It's difficult, but I'll try anyway.",
+      "ar": "صعب، بس رح جرّب مع هيك."
+    }
+  },
+  {
+    "fr": "Quelque part",
+    "ar": "بمكان ما / بمحل ما",
+    "en": "somewhere",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je l'ai mis quelque part.",
+      "en": "I put it somewhere.",
+      "ar": "حطيته بمحل ما."
+    }
+  },
+  {
+    "fr": "Quelquefois",
+    "ar": "أحيانًا",
+    "en": "sometimes",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "Quelquefois",
+      "en": "sometimes",
+      "ar": "أحيانًا"
+    }
+  },
+  {
+    "fr": "Quasiment",
+    "ar": "تقريبًا / تقريبًا تمامًا",
+    "en": "almost / practically",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai quasiment terminé.",
+      "en": "I've almost finished.",
+      "ar": "تقريبًا خلصت."
+    }
+  },
+  {
+    "fr": "Quantifier",
+    "ar": "يحدّد الكمية / يقيس",
+    "en": "to quantify / measure",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il faut quantifier les besoins.",
+      "en": "The needs have to be quantified.",
+      "ar": "لازم نحدد الاحتياجات والكمية."
+    }
+  },
+  {
+    "fr": "Quereller",
+    "ar": "يتشاجر / يتخاصم",
+    "en": "to quarrel / argue",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ils se querellent souvent.",
+      "en": "They often argue.",
+      "ar": "هنن بيتخانقوا كتير."
+    }
+  },
+  {
+    "fr": "Quêter",
+    "ar": "يجمع التبرعات / يستجدي",
+    "en": "to collect donations / beg",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Ils quêtent pour une association.",
+        "en": "They are collecting donations for an organization.",
+        "ar": "عم يجمعوا تبرعات لجمعية."
+      },
+      {
+        "fr": "Ils quêtent dans la rue pour l'association.",
+        "en": "They are collecting donations in the street for the organization.",
+        "ar": "عم يجمعوا تبرعات بالشارع للجمعية."
+      }
+    ]
+  },
+  {
+    "fr": "Un qualificatif",
+    "ar": "وصف / صفة",
+    "en": "qualifier / descriptive term",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ce qualificatif n'est pas approprié.",
+      "en": "This term is not appropriate.",
+      "ar": "هالوصف مو مناسب."
+    }
+  },
+  {
+    "fr": "Une qualification",
+    "ar": "مؤهل / شهادة مهنية / تأهيل",
+    "en": "qualification / professional qualification",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "france_travail",
+      "school",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je cherche une formation pour obtenir une qualification.",
+      "en": "I'm looking for training to obtain a qualification.",
+      "ar": "عم دور على تدريب لحتى أحصل على مؤهل مهني."
+    }
+  },
+  {
+    "fr": "Un qualificatif professionnel",
+    "ar": "وصف / مؤهل مهني",
+    "en": "professional qualification/descriptor",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Cette qualification est demandée pour le poste.",
+      "en": "This qualification is required for the position.",
+      "ar": "هالمؤهل مطلوب للوظيفة."
+    }
+  },
+  {
+    "fr": "Une quarantaine",
+    "ar": "حوالي أربعين",
+    "en": "about forty",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il y avait une quarantaine de personnes.",
+      "en": "There were about forty people.",
+      "ar": "كان في حوالي أربعين شخص."
+    }
+  },
+  {
+    "fr": "Un quart",
+    "ar": "ربع",
+    "en": "quarter / one fourth",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il est trois heures et quart.",
+      "en": "It's a quarter past three.",
+      "ar": "الساعة تلاتة وربع."
+    }
+  },
+  {
+    "fr": "Un quart d'heure",
+    "ar": "ربع ساعة",
+    "en": "quarter of an hour / 15 minutes",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'arrive dans un quart d'heure.",
+      "en": "I'll arrive in fifteen minutes.",
+      "ar": "بوصل بعد ربع ساعة."
+    }
+  },
+  {
+    "fr": "Un quart de travail",
+    "ar": "جزء من وقت العمل",
+    "en": "work quarter / shift portion",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Un quart de travail",
+      "en": "work quarter / shift portion",
+      "ar": "جزء من وقت العمل"
+    }
+  },
+  {
+    "fr": "Un quai de gare",
+    "ar": "رصيف محطة القطار",
+    "en": "railway platform",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "transport"
+    ],
+    "ex": {
+      "fr": "Le train arrive sur le quai 5.",
+      "en": "The train arrives at platform 5.",
+      "ar": "القطار رح يوصل عالرصيف 5."
+    }
+  },
+  {
+    "fr": "Un quiproquo",
+    "ar": "سوء تفاهم",
+    "en": "misunderstanding",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il y a eu un quiproquo.",
+      "en": "There was a misunderstanding.",
+      "ar": "صار سوء تفاهم."
+    }
+  },
+  {
+    "fr": "Une quête",
+    "ar": "بحث / جمع تبرعات",
+    "en": "quest / collection / search",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La quête de solutions continue.",
+      "en": "The search for solutions continues.",
+      "ar": "البحث عن حلول مستمر."
+    }
+  },
+  {
+    "fr": "Qualitatif / Qualitative",
+    "ar": "نوعي / متعلق بالجودة",
+    "en": "qualitative / high-quality",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Nous avons besoin d'un travail qualitatif.",
+      "en": "We need quality work.",
+      "ar": "بدنا شغل بجودة منيحة."
+    }
+  },
+  {
+    "fr": "Quantitatif / Quantitative",
+    "ar": "كمي",
+    "en": "quantitative",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "L'étude contient des données quantitatives.",
+      "en": "The study contains quantitative data.",
+      "ar": "الدراسة فيها بيانات كمية."
+    }
+  },
+  {
+    "fr": "Quotidien / Quotidienne",
+    "ar": "يومي",
+    "en": "daily / everyday",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est une dépense quotidienne.",
+      "en": "It's a daily expense.",
+      "ar": "هاد مصروف يومي."
+    }
+  },
+  {
+    "fr": "Quasi",
+    "ar": "شبه / تقريبًا",
+    "en": "almost / virtually",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est quasi impossible.",
+      "en": "It's almost impossible.",
+      "ar": "هالشي شبه مستحيل."
+    }
+  },
+  {
+    "fr": "Qu'est-ce que c'est ?",
+    "ar": "شو هاد؟",
+    "en": "What is it?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que c'est ?",
+      "en": "What is it?",
+      "ar": "شو هاد؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que vous voulez ?",
+    "ar": "شو بدك؟",
+    "en": "What do you want?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que vous voulez ?",
+      "en": "What do you want?",
+      "ar": "شو بدك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que je dois faire ?",
+    "ar": "شو لازم أعمل؟",
+    "en": "What should I do?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que je dois faire ?",
+      "en": "What should I do?",
+      "ar": "شو لازم أعمل؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que je dois fournir ?",
+    "ar": "شو لازم قدّم؟",
+    "en": "What do I need to provide?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "france_travail",
+      "work"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que je dois fournir ?",
+      "en": "What do I need to provide?",
+      "ar": "شو لازم قدّم؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qu'il manque ?",
+    "ar": "شو ناقص؟",
+    "en": "What's missing?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qu'il manque ?",
+      "en": "What's missing?",
+      "ar": "شو ناقص؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui manque ?",
+    "ar": "شو اللي ناقص؟",
+    "en": "What is missing?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui manque ?",
+      "en": "What is missing?",
+      "ar": "شو اللي ناقص؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui se passe ?",
+    "ar": "شو عم يصير؟",
+    "en": "What's happening?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui se passe ?",
+      "en": "What's happening?",
+      "ar": "شو عم يصير؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui s'est passé ?",
+    "ar": "شو اللي صار؟",
+    "en": "What happened?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui s'est passé ?",
+      "en": "What happened?",
+      "ar": "شو اللي صار؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que vous me conseillez ?",
+    "ar": "شو بتنصحني؟",
+    "en": "What do you recommend?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que vous me conseillez ?",
+      "en": "What do you recommend?",
+      "ar": "شو بتنصحني؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que ça veut dire ?",
+    "ar": "شو يعني هاد؟",
+    "en": "What does that mean?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que ça veut dire ?",
+      "en": "What does that mean?",
+      "ar": "شو يعني هاد؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que ça change ?",
+    "ar": "شو بيغيّر هالشي؟",
+    "en": "What difference does it make?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que ça change ?",
+      "en": "What difference does it make?",
+      "ar": "شو بيغيّر هالشي؟"
+    }
+  },
+  {
+    "fr": "Quoi de neuf ?",
+    "ar": "شو الأخبار؟",
+    "en": "What's new?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quoi de neuf ?",
+      "en": "What's new?",
+      "ar": "شو الأخبار؟"
+    }
+  },
+  {
+    "fr": "Quoi qu'il arrive",
+    "ar": "مهما صار",
+    "en": "Whatever happens",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quoi qu'il arrive, je viendrai.",
+      "en": "Whatever happens, I'll come.",
+      "ar": "مهما صار، رح أجي."
+    }
+  },
+  {
+    "fr": "Quoi qu'il en soit",
+    "ar": "على أي حال",
+    "en": "In any case / anyway / in any case",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Quoi qu'il en soit, il faut continuer.",
+        "en": "In any case, we have to continue.",
+        "ar": "على أي حال، لازم نكمل."
+      },
+      {
+        "fr": "Quoi qu'il en soit",
+        "en": "in any case / anyway",
+        "ar": "على أي حال"
+      }
+    ]
+  },
+  {
+    "fr": "Quereller quelqu'un",
+    "ar": "يتشاجر مع شخص",
+    "en": "to quarrel with someone",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il ne faut pas quereller les autres.",
+      "en": "You shouldn't quarrel with others.",
+      "ar": "ما لازم تتشاجر مع الآخرين."
+    }
+  },
+  {
+    "fr": "Un quinquagénaire / une quinquagénaire",
+    "ar": "شخص في الخمسينات",
+    "en": "person in their fifties",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un quinquagénaire a été interrogé.",
+      "en": "A man in his fifties was interviewed.",
+      "ar": "تم استجواب رجل بالخمسينات."
+    }
+  },
+  {
+    "fr": "Un quinquennat",
+    "ar": "فترة خمس سنوات",
+    "en": "five-year term",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le quinquennat dure cinq ans.",
+      "en": "The five-year term lasts five years."
+    }
+  },
+  {
+    "fr": "Une quinzaine",
+    "ar": "حوالي خمسة عشر / أسبوعان تقريبًا",
+    "en": "about fifteen / a fortnight",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je reviendrai dans une quinzaine de jours.",
+      "en": "I'll come back in about two weeks.",
+      "ar": "برجع بعد حوالي أسبوعين."
+    }
+  },
+  {
+    "fr": "Une quinzaine de personnes",
+    "ar": "حوالي خمسة عشر شخصًا",
+    "en": "about fifteen people",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il y avait une quinzaine de personnes.",
+      "en": "There were about fifteen people.",
+      "ar": "كان في حوالي 15 شخص."
+    }
+  },
+  {
+    "fr": "Une question de temps",
+    "ar": "مسألة وقت",
+    "en": "a matter of time",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ce n'est qu'une question de temps.",
+      "en": "It's only a matter of time.",
+      "ar": "هي مجرد مسألة وقت."
+    }
+  },
+  {
+    "fr": "Une question de sécurité",
+    "ar": "مسألة أمان / سلامة",
+    "en": "a matter of safety",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est une question de sécurité.",
+      "en": "It's a matter of safety.",
+      "ar": "هاد موضوع سلامة."
+    }
+  },
+  {
+    "fr": "Une question de principe",
+    "ar": "مسألة مبدأ",
+    "en": "a matter of principle",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est une question de principe.",
+      "en": "It's a matter of principle."
+    }
+  },
+  {
+    "fr": "Quel que soit…",
+    "ar": "مهما كان / بغض النظر عن",
+    "en": "whatever / regardless of",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel que soit le problème, contactez-nous.",
+      "en": "Whatever the problem, contact us.",
+      "ar": "مهما كانت المشكلة، تواصل معنا."
+    }
+  },
+  {
+    "fr": "Quelle que soit…",
+    "ar": "مهما كانت",
+    "en": "whatever / regardless of",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle que soit votre situation, nous pouvons vous aider.",
+      "en": "Whatever your situation, we can help you.",
+      "ar": "مهما كان وضعك، فينا نساعدك."
+    }
+  },
+  {
+    "fr": "Quels que soient…",
+    "ar": "مهما كانوا / مهما كانت",
+    "en": "whatever / regardless of",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quels que soient vos besoins, dites-le-nous.",
+      "en": "Whatever your needs, let us know.",
+      "ar": "مهما كانت احتياجاتك، خبرنا."
+    }
+  },
+  {
+    "fr": "Quelque chose",
+    "ar": "شيء / شغلة",
+    "en": "something",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai quelque chose à vous dire.",
+      "en": "I have something to tell you."
+    }
+  },
+  {
+    "fr": "Quelqu'un",
+    "ar": "شخص ما / حدا",
+    "en": "someone / somebody",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelqu'un",
+      "en": "someone / somebody",
+      "ar": "شخص ما / حدا"
+    }
+  },
+  {
+    "fr": "Quelques",
+    "ar": "بعض / عدة",
+    "en": "a few / some",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelques",
+      "en": "a few / some",
+      "ar": "بعض / عدة"
+    }
+  },
+  {
+    "fr": "Quelques jours",
+    "ar": "بضعة أيام / كم يوم",
+    "en": "a few days",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelques jours",
+      "en": "a few days",
+      "ar": "بضعة أيام / كم يوم"
+    }
+  },
+  {
+    "fr": "Quelques minutes",
+    "ar": "بضع دقائق / كم دقيقة",
+    "en": "a few minutes",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelques minutes",
+      "en": "a few minutes",
+      "ar": "بضع دقائق / كم دقيقة"
+    }
+  },
+  {
+    "fr": "Quelque peu",
+    "ar": "إلى حد ما / قليلًا",
+    "en": "somewhat / slightly",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelque peu",
+      "en": "somewhat / slightly",
+      "ar": "إلى حد ما / قليلًا"
+    }
+  },
+  {
+    "fr": "Quoi de plus ?",
+    "ar": "شو كمان؟",
+    "en": "What else?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quoi de plus ?",
+      "en": "What else?",
+      "ar": "شو كمان؟"
+    }
+  },
+  {
+    "fr": "Quoi d'autre ?",
+    "ar": "شو كمان؟",
+    "en": "What else?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quoi d'autre ?",
+      "en": "What else?",
+      "ar": "شو كمان؟"
+    }
+  },
+  {
+    "fr": "Quoi qu'on fasse",
+    "ar": "مهما عملنا",
+    "en": "whatever we do",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quoi qu'on fasse",
+      "en": "whatever we do",
+      "ar": "مهما عملنا"
+    }
+  },
+  {
+    "fr": "Quoi que vous fassiez",
+    "ar": "مهما فعلت / فعلتم",
+    "en": "whatever you do",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quoi que vous fassiez",
+      "en": "whatever you do",
+      "ar": "مهما فعلت / فعلتم"
+    }
+  },
+  {
+    "fr": "Une qualité de vie",
+    "ar": "جودة الحياة",
+    "en": "quality of life",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je cherche une meilleure qualité de vie.",
+      "en": "I'm looking for a better quality of life.",
+      "ar": "عم دور على جودة حياة أحسن."
+    }
+  },
+  {
+    "fr": "Une qualité professionnelle",
+    "ar": "كفاءة / جودة مهنية",
+    "en": "professional quality / skill",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La ponctualité est une qualité professionnelle importante.",
+      "en": "Punctuality is an important professional quality.",
+      "ar": "الالتزام بالمواعيد صفة مهنية مهمة."
+    }
+  },
+  {
+    "fr": "Une quantité suffisante",
+    "ar": "كمية كافية",
+    "en": "sufficient quantity",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il faut prévoir une quantité suffisante.",
+      "en": "A sufficient quantity must be provided.",
+      "ar": "لازم نأمّن كمية كافية."
+    }
+  },
+  {
+    "fr": "Une quantité limitée",
+    "ar": "كمية محدودة",
+    "en": "limited quantity",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Une quantité limitée",
+      "en": "limited quantity",
+      "ar": "كمية محدودة"
+    }
+  },
+  {
+    "fr": "Une quantité maximale",
+    "ar": "الكمية القصوى",
+    "en": "maximum quantity",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Une quantité maximale",
+      "en": "maximum quantity",
+      "ar": "الكمية القصوى"
+    }
+  },
+  {
+    "fr": "Une quantité minimale",
+    "ar": "الحد الأدنى للكمية",
+    "en": "minimum quantity",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Une quantité minimale",
+      "en": "minimum quantity",
+      "ar": "الحد الأدنى للكمية"
+    }
+  },
+  {
+    "fr": "Un quartier résidentiel",
+    "ar": "حي سكني",
+    "en": "residential neighborhood",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un quartier résidentiel",
+      "en": "residential neighborhood",
+      "ar": "حي سكني"
+    }
+  },
+  {
+    "fr": "Un quartier populaire",
+    "ar": "حي شعبي",
+    "en": "working-class / popular neighborhood",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un quartier populaire",
+      "en": "working-class / popular neighborhood",
+      "ar": "حي شعبي"
+    }
+  },
+  {
+    "fr": "Un quartier calme",
+    "ar": "حي هادي",
+    "en": "quiet neighborhood",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Un quartier calme",
+      "en": "quiet neighborhood",
+      "ar": "حي هادي"
+    }
+  },
+  {
+    "fr": "Quittance disponible",
+    "ar": "الإيصال متوفر",
+    "en": "receipt available",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "phone"
+    ],
+    "ex": {
+      "fr": "Quittance disponible",
+      "en": "receipt available",
+      "ar": "الإيصال متوفر"
+    }
+  },
+  {
+    "fr": "Quel quai ?",
+    "ar": "أي رصيف؟",
+    "en": "Which platform?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "transport"
+    ],
+    "ex": {
+      "fr": "Quel quai ?",
+      "en": "Which platform?",
+      "ar": "أي رصيف؟"
+    }
+  },
+  {
+    "fr": "Quel train ?",
+    "ar": "أي قطار؟",
+    "en": "Which train?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "transport"
+    ],
+    "ex": {
+      "fr": "Quel train ?",
+      "en": "Which train?",
+      "ar": "أي قطار؟"
+    }
+  },
+  {
+    "fr": "Quel arrêt ?",
+    "ar": "أي موقف / محطة؟",
+    "en": "Which stop?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "transport"
+    ],
+    "ex": {
+      "fr": "Quel arrêt ?",
+      "en": "Which stop?",
+      "ar": "أي موقف / محطة؟"
+    }
+  },
+  {
+    "fr": "Quel horaire ?",
+    "ar": "أي توقيت / أي موعد؟",
+    "en": "Which timetable / what time?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel horaire ?",
+      "en": "Which timetable / what time?",
+      "ar": "أي توقيت / أي موعد؟"
+    }
+  },
+  {
+    "fr": "Quel poste ?",
+    "ar": "أي وظيفة / منصب؟",
+    "en": "Which position?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Quel poste ?",
+      "en": "Which position?",
+      "ar": "أي وظيفة / منصب؟"
+    }
+  },
+  {
+    "fr": "Quelle expérience ?",
+    "ar": "أي خبرة / شو خبرتك؟",
+    "en": "What experience?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle expérience ?",
+      "en": "What experience?",
+      "ar": "أي خبرة / شو خبرتك؟"
+    }
+  },
+  {
+    "fr": "Quelle disponibilité ?",
+    "ar": "شو أوقات تفرغك؟",
+    "en": "What availability?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle disponibilité ?",
+      "en": "What availability?",
+      "ar": "شو أوقات تفرغك؟"
+    }
+  },
+  {
+    "fr": "Quelle qualification ?",
+    "ar": "شو المؤهل / الشهادة؟",
+    "en": "What qualification?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle qualification ?",
+      "en": "What qualification?",
+      "ar": "شو المؤهل / الشهادة؟"
+    }
+  },
+  {
+    "fr": "Quel document ?",
+    "ar": "أي وثيقة؟",
+    "en": "Which document?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quel document ?",
+      "en": "Which document?",
+      "ar": "أي وثيقة؟"
+    }
+  },
+  {
+    "fr": "Quelle pièce ?",
+    "ar": "أي وثيقة؟",
+    "en": "Which document?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quelle pièce ?",
+      "en": "Which document?",
+      "ar": "أي وثيقة؟"
+    }
+  },
+  {
+    "fr": "Quel justificatif ?",
+    "ar": "أي إثبات / مستند؟",
+    "en": "Which supporting document?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quel justificatif ?",
+      "en": "Which supporting document?",
+      "ar": "أي إثبات / مستند؟"
+    }
+  },
+  {
+    "fr": "Quel délai ?",
+    "ar": "قديش المدة / المهلة؟",
+    "en": "What is the time frame?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "work"
+    ],
+    "ex": {
+      "fr": "Quel délai ?",
+      "en": "What is the time frame?",
+      "ar": "قديش المدة / المهلة؟"
+    }
+  },
+  {
+    "fr": "Quel montant ?",
+    "ar": "قديش المبلغ؟",
+    "en": "What amount?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel montant ?",
+      "en": "What amount?",
+      "ar": "قديش المبلغ؟"
+    }
+  },
+  {
+    "fr": "Quel numéro ?",
+    "ar": "أي رقم؟",
+    "en": "Which number?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel numéro ?",
+      "en": "Which number?",
+      "ar": "أي رقم؟"
+    }
   }
 ]
