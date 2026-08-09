@@ -20,7 +20,7 @@ def normalize(fr):
 
 # Override part of speech for headwords that are not verbs
 HEAD_POS = {
-    'toujours': 'other', 'très': 'other', 'tôt': 'other', 'tard': 'other', 'tout': 'other',
+    'toujours': 'other', 'très': 'other', 'tôt': 'other', 'tard': 'other', 'tout': 'other', 'tous': 'other',
     'trop': 'other', 'tant': 'other', 'tellement': 'other', 'totalement': 'other', 'tranquillement': 'other',
     'tranquille': 'adjective', 'triste': 'adjective', 'total': 'adjective',
     'toute': 'adjective', 'tel': 'adjective', 'tarifaire': 'adjective',
@@ -282,6 +282,41 @@ def infer_contexts(fr, en, ar, examples, pos):
         ('transfert', ['bank', 'services']),
         ('transport', ['transport']),
         ('trancheuse', ['restaurant', 'food']),
+        ('tout', ['daily']),
+        ('tous', ['daily']),
+        ('très', ['daily']),
+        ('trop', ['daily']),
+        ('toujours', ['daily']),
+        ('tôt', ['daily', 'work']),
+        ('tard', ['daily', 'work']),
+        ('taper', ['daily', 'work']),
+        ('trier', ['daily', 'work']),
+        ('tester', ['daily', 'work']),
+        ('transporter', ['transport', 'work']),
+        ('traîner', ['daily']),
+        ('trembler', ['daily', 'health']),
+        ('trancher', ['daily', 'restaurant']),
+        ('truc', ['daily']),
+        ('trou', ['daily', 'housing']),
+        ('ticket', ['transport', 'daily']),
+        ('tarif', ['services', 'shopping']),
+        ('train', ['transport']),
+        ('trottoir', ['daily', 'transport']),
+        ('taxi', ['transport']),
+        ('trajet', ['transport']),
+        ('terrain', ['daily', 'work']),
+        ('terrasse', ['restaurant', 'housing', 'daily']),
+        ('toit', ['housing']),
+        ('tuyau', ['housing']),
+        ('tissu', ['shopping', 'daily']),
+        ('tasse', ['food', 'restaurant', 'daily']),
+        ('taille', ['shopping', 'daily']),
+        ('tête', ['health', 'daily']),
+        ('température', ['health', 'weather']),
+        ('thé', ['food', 'restaurant', 'daily']),
+        ('trousse', ['school', 'daily']),
+        ('taux', ['bank', 'services']),
+        ('total', ['bank', 'daily']),
     ]
     for kw, ctxs in mapping:
         if keyword_in_text(kw, text):
@@ -322,8 +357,8 @@ def merge_entry(old, new):
 
 
 def parse_blocks(text):
-    # Split by 🇫🇷 lines
-    pattern = re.compile(r'^🇫🇷\s*(.+)$', re.MULTILINE)
+    # Find explicit 🇫🇷 blocks, optionally prefixed by numbers like "7. 🇫🇷 Tout"
+    pattern = re.compile(r'^(?:\d+\.\s*)?🇫🇷\s*(.+)$', re.MULTILINE)
     matches = list(pattern.finditer(text))
     blocks = []
     for i, m in enumerate(matches):
@@ -332,6 +367,40 @@ def parse_blocks(text):
         headword = m.group(1).strip()
         body = text[start:end]
         blocks.append((headword, body))
+    # Also detect implicit headword blocks: a short all-letter Latin line followed by Arabic definition
+    implicit_pattern = re.compile(
+        r'^(?P<hw>[A-Z][A-Za-z\u00C0-\u024F\s\'/\-]+?)$\n'
+        r'(?P<ar>[^\n]*[\u0600-\u06FF][^\n]*)$\n'
+        r'(?P<en>[^\n]*[A-Za-z][^\n]*)$',
+        re.MULTILINE,
+    )
+    for m in implicit_pattern.finditer(text):
+        hw = m.group('hw').strip()
+        # skip if it looks like a sentence (contains punctuation)
+        if re.search(r'[.!?,:;]', hw):
+            continue
+        # avoid duplicates if an explicit block already started at this position
+        if any(abs(m.start() - pm.start()) < 5 for pm in matches):
+            continue
+        blocks.append((hw, text[m.end():]))
+    # Sort blocks by position and recompute bodies for implicit ones
+    # Re-parse with full positions:
+    all_matches = list(re.finditer(r'^(?:\d+\.\s*)?🇫🇷\s*(.+)$|^([A-Z][A-Za-z\u00C0-\u024F\s\'/\-]+?)$', text, re.MULTILINE))
+    # Filter valid implicit matches: must be followed by Arabic line and then English line
+    valid = []
+    for m in all_matches:
+        is_flag = bool(re.match(r'^(?:\d+\.\s*)?🇫🇷', m.group(0)))
+        if is_flag:
+            valid.append((m, m.group(1).strip()))
+        else:
+            lines = text[m.end():].splitlines()
+            non_empty = [l for l in lines if l.strip()]
+            if len(non_empty) >= 2 and re.search(r'[\u0600-\u06FF]', non_empty[0]) and re.search(r'[A-Za-z]', non_empty[1]):
+                valid.append((m, m.group(2).strip()))
+    blocks = []
+    for i, (m, headword) in enumerate(valid):
+        end = valid[i+1][0].start() if i + 1 < len(valid) else len(text)
+        blocks.append((headword, text[m.end():end]))
     return blocks
 
 

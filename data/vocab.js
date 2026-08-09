@@ -22513,7 +22513,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Transmettre",
     "ar": "يرسل / يحوّل / يحوّل (معلومة أو وثيقة) / ينقل / يمرر / يمرّر",
-    "en": "To submit / Forward / To transmit / forward / To forward / to transmit / to pass on / to forward",
+    "en": "To submit / Forward / To transmit / forward / To forward / to transmit / to pass on / to forward / To pass on",
     "pos": "verb",
     "level": "A2",
     "contexts": [
@@ -22658,6 +22658,11 @@ window.VOCAB_DATA = [
         "fr": "Merci de me transmettre votre réponse.",
         "ar": "شكرًا على إرسال ردكم لي.",
         "en": "Thank you for sending me your reply."
+      },
+      {
+        "fr": "Peux-tu me transmettre l'information ?",
+        "ar": "هل يمكنك إرسال المعلومة لي؟",
+        "en": "Can you pass the information on to me?"
       }
     ]
   },
@@ -23429,7 +23434,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Traitement",
     "ar": "علاج / معالجة / معالجة ملف",
-    "en": "Treatment / processing",
+    "en": "Treatment / processing / Processing",
     "pos": "noun",
     "level": "A2",
     "contexts": [
@@ -23473,18 +23478,34 @@ window.VOCAB_DATA = [
         "fr": "Le traitement de la demande a commencé.",
         "ar": "بدأت معالجة الطلب.",
         "en": "The processing of the request has started."
+      },
+      {
+        "fr": "Le traitement est terminé.",
+        "ar": "انتهت المعالجة.",
+        "en": "The processing is finished."
+      },
+      {
+        "fr": "Le traitement commence demain.",
+        "ar": "يبدأ العلاج/المعالجة غدًا.",
+        "en": "The treatment/processing starts tomorrow."
+      },
+      {
+        "fr": "Ce traitement doit être suivi régulièrement.",
+        "ar": "يجب اتباع هذا العلاج بانتظام.",
+        "en": "This treatment must be followed regularly."
       }
     ]
   },
   {
     "fr": "Traiter",
     "ar": "يعالج / يدرس / يدرس (ملف) / يتعامل مع / يدرس طلبًا / يعالج ملفًا / يعامل",
-    "en": "To process / to handle / to deal with / To treat / to process",
+    "en": "To process / to handle / to deal with / To treat / to process / To deal with",
     "pos": "verb",
     "level": "B1",
     "contexts": [
       "caf",
       "services",
+      "transport",
       "work"
     ],
     "ex": [
@@ -23642,6 +23663,16 @@ window.VOCAB_DATA = [
         "fr": "Il m'a bien traité.",
         "ar": "لقد عاملني بشكل جيد.",
         "en": "He treated me well."
+      },
+      {
+        "fr": "Je dois traiter ce dossier.",
+        "ar": "يجب أن أعالج هذا الملف.",
+        "en": "I have to process this file."
+      },
+      {
+        "fr": "Le dossier est en train d'être traité.",
+        "ar": "الملف قيد المعالجة.",
+        "en": "The file is being processed."
       }
     ]
   },
@@ -26794,6 +26825,26 @@ window.VOCAB_DATA = [
         "fr": "La température est de vingt degrés.",
         "ar": "درجة الحرارة 20 درجة.",
         "en": "The temperature is 20 degrees."
+      },
+      {
+        "fr": "Quelle est la température aujourd'hui ?",
+        "ar": "كم درجة الحرارة اليوم؟",
+        "en": "What's the temperature today?"
+      },
+      {
+        "fr": "La température baisse ce soir.",
+        "ar": "تنخفض درجة الحرارة هذا المساء.",
+        "en": "The temperature is dropping tonight."
+      },
+      {
+        "fr": "Il faut prendre la température.",
+        "ar": "يجب قياس درجة الحرارة.",
+        "en": "The temperature needs to be taken."
+      },
+      {
+        "fr": "La température est de vingt degrés.",
+        "ar": "درجة الحرارة عشرون درجة.",
+        "en": "The temperature is twenty degrees."
       }
     ]
   },
@@ -27850,6 +27901,26 @@ window.VOCAB_DATA = [
         "fr": "Quel est le taux de TVA ?",
         "ar": "ما نسبة ضريبة القيمة المضافة؟",
         "en": "What is the VAT rate?"
+      },
+      {
+        "fr": "Quel est le taux d'intérêt ?",
+        "ar": "ما معدل الفائدة؟",
+        "en": "What's the interest rate?"
+      },
+      {
+        "fr": "Le taux de chômage a augmenté.",
+        "ar": "ارتفع معدل البطالة.",
+        "en": "The unemployment rate increased."
+      },
+      {
+        "fr": "Quel est le taux de TVA ?",
+        "ar": "ما نسبة ضريبة القيمة المضافة؟",
+        "en": "What's the VAT rate?"
+      },
+      {
+        "fr": "Le taux dépend de la situation.",
+        "ar": "المعدل يعتمد على الوضع.",
+        "en": "The rate depends on the situation."
       }
     ]
   },
@@ -32026,8 +32097,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Toucher (recevoir)",
-    "ar": "استلام / يستلم / يلمس / يتلقى مالًا / يتقاضى / يؤثر على / يلمس عاطفيًا / يتلقى المال",
-    "en": "to receive / get (benefits) / To touch / to receive money / to affect",
+    "ar": "استلام / يستلم / يلمس / يتلقى مالًا / يتقاضى / يؤثر على / يلمس عاطفيًا / يتلقى المال / يؤثر في",
+    "en": "to receive / get (benefits) / To touch / to receive money / to affect / To affect",
     "level": "A1",
     "pos": "verb",
     "contexts": [
@@ -32125,6 +32196,16 @@ window.VOCAB_DATA = [
         "fr": "Il ne faut pas toucher aux affaires des autres.",
         "ar": "لا يجب لمس أغراض الآخرين.",
         "en": "You shouldn't touch other people's things."
+      },
+      {
+        "fr": "Ne touche pas mes affaires.",
+        "ar": "لا تلمس أغراضي.",
+        "en": "Don't touch my things."
+      },
+      {
+        "fr": "Il ne faut pas toucher à ça.",
+        "ar": "لا يجب لمس هذا.",
+        "en": "You mustn't touch that."
       }
     ]
   },
@@ -33628,11 +33709,12 @@ window.VOCAB_DATA = [
   {
     "fr": "Trancher",
     "ar": "يشرّح / يقطع شرائح / يقطع / يحسم",
-    "en": "To slice / To cut / to decide",
+    "en": "To slice / To cut / to decide / To decide",
     "level": "A2",
     "pos": "verb",
     "contexts": [
       "daily",
+      "restaurant",
       "sushi"
     ],
     "ex": [
@@ -33690,6 +33772,31 @@ window.VOCAB_DATA = [
         "fr": "Il est temps de trancher.",
         "ar": "حان وقت اتخاذ القرار.",
         "en": "It's time to make a decision."
+      },
+      {
+        "fr": "Il faut trancher le pain.",
+        "ar": "يجب قطع الخبز.",
+        "en": "The bread needs to be cut."
+      },
+      {
+        "fr": "Coupe avec un couteau bien tranchant.",
+        "ar": "اقطع بسكين حاد جيدًا.",
+        "en": "Cut with a sharp knife."
+      },
+      {
+        "fr": "Le juge doit trancher.",
+        "ar": "يجب على القاضي أن يحسم الأمر.",
+        "en": "The judge has to make a decision."
+      },
+      {
+        "fr": "Il faut trancher entre les deux options.",
+        "ar": "يجب الاختيار بين الخيارين.",
+        "en": "We have to choose between the two options."
+      },
+      {
+        "fr": "Elle a tranché la question.",
+        "ar": "حسمت المسألة.",
+        "en": "She settled the matter."
       }
     ]
   },
@@ -66992,6 +67099,8 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "france_travail",
+      "phone",
+      "services",
       "work"
     ],
     "ex": [
@@ -67069,16 +67178,27 @@ window.VOCAB_DATA = [
         "fr": "Je vous téléphonerai demain.",
         "ar": "سأتصل بكم غدًا.",
         "en": "I'll call you tomorrow."
+      },
+      {
+        "fr": "Elle m'a téléphoné hier.",
+        "ar": "اتصلت بي أمس.",
+        "en": "She called me yesterday."
+      },
+      {
+        "fr": "Téléphone-moi quand tu arrives.",
+        "ar": "اتصل بي عندما تصل.",
+        "en": "Call me when you arrive."
       }
     ]
   },
   {
     "fr": "Terminer",
-    "ar": "ينهي / يخلص / يختتم",
-    "en": "To finish / to end",
+    "ar": "ينهي / يخلص / يختتم / ينتهي",
+    "en": "To finish / to end / To end",
     "pos": "verb",
     "level": "A1",
     "contexts": [
+      "daily",
       "work"
     ],
     "ex": [
@@ -67156,13 +67276,28 @@ window.VOCAB_DATA = [
         "fr": "Le film se termine à dix heures.",
         "ar": "ينتهي الفيلم الساعة العاشرة.",
         "en": "The movie ends at ten."
+      },
+      {
+        "fr": "Je viens de terminer.",
+        "ar": "انتهيت للتو.",
+        "en": "I just finished."
+      },
+      {
+        "fr": "Le film va bientôt terminer.",
+        "ar": "الفيلم سينتهي قريبًا.",
+        "en": "The movie will end soon."
+      },
+      {
+        "fr": "Termine ton repas.",
+        "ar": "أنه وجبتك.",
+        "en": "Finish your meal."
       }
     ]
   },
   {
     "fr": "Tenir",
-    "ar": "يمسك / يحافظ على / يلتزم / يحمل / يستمر",
-    "en": "To hold / keep / to keep / to last",
+    "ar": "يمسك / يحافظ على / يلتزم / يحمل / يستمر / يتحمل",
+    "en": "To hold / keep / to keep / to last / To endure",
     "pos": "verb",
     "level": "A1",
     "contexts": [
@@ -67259,12 +67394,22 @@ window.VOCAB_DATA = [
         "fr": "Tiens bon !",
         "ar": "اصمد! / لا تستسلم!",
         "en": "Hang in there!"
+      },
+      {
+        "fr": "Tiens bon !",
+        "ar": "اصمد!",
+        "en": "Hang in there!"
+      },
+      {
+        "fr": "Ça va tenir ?",
+        "ar": "هل سيصمد/يتحمل؟",
+        "en": "Will it hold?"
       }
     ]
   },
   {
     "fr": "Tourner",
-    "ar": "ينعطف / يدور / يلتف",
+    "ar": "ينعطف / يدور / يلتف / يدير",
     "en": "To turn",
     "pos": "verb",
     "level": "A1",
@@ -67352,6 +67497,41 @@ window.VOCAB_DATA = [
         "fr": "La voiture tourne à droite.",
         "ar": "السيارة تنعطف إلى اليمين.",
         "en": "The car is turning right."
+      },
+      {
+        "fr": "Tourne à droite.",
+        "ar": "انعطف يمينًا.",
+        "en": "Turn right."
+      },
+      {
+        "fr": "Tourne à gauche.",
+        "ar": "انعطف يسارًا.",
+        "en": "Turn left."
+      },
+      {
+        "fr": "Tourne la clé.",
+        "ar": "أدر المفتاح.",
+        "en": "Turn the key."
+      },
+      {
+        "fr": "La machine tourne.",
+        "ar": "الآلة تعمل/تدور.",
+        "en": "The machine is running."
+      },
+      {
+        "fr": "Tourne-toi !",
+        "ar": "استدر!",
+        "en": "Turn around!"
+      },
+      {
+        "fr": "La machine tourne bien.",
+        "ar": "الآلة تعمل بشكل جيد.",
+        "en": "The machine is running well."
+      },
+      {
+        "fr": "Tourne-toi vers moi.",
+        "ar": "استدر نحوي.",
+        "en": "Turn toward me."
       }
     ]
   },
@@ -67787,13 +67967,16 @@ window.VOCAB_DATA = [
   {
     "fr": "Taper",
     "ar": "يكتب / ينقر / يضغط / يكتب على لوحة المفاتيح / يضرب / يطرق",
-    "en": "To type / to tap / to hit / to knock",
+    "en": "To type / to tap / to hit / to knock / To hit",
     "pos": "verb",
     "level": "A1",
     "contexts": [
       "daily",
+      "housing",
       "phone",
-      "services"
+      "restaurant",
+      "services",
+      "work"
     ],
     "ex": [
       {
@@ -67870,18 +68053,40 @@ window.VOCAB_DATA = [
         "fr": "Ne tape pas trop fort.",
         "ar": "لا تضرب بقوة كبيرة.",
         "en": "Don't hit too hard."
+      },
+      {
+        "fr": "Tape ton nom ici.",
+        "ar": "اكتب اسمك هنا.",
+        "en": "Type your name here."
+      },
+      {
+        "fr": "Ne tape pas sur la table.",
+        "ar": "لا تضرب الطاولة.",
+        "en": "Don't hit the table."
+      },
+      {
+        "fr": "Tape ton mot de passe.",
+        "ar": "اكتب كلمة المرور الخاصة بك.",
+        "en": "Type your password."
+      },
+      {
+        "fr": "J'ai tapé le mauvais numéro.",
+        "ar": "كتبت الرقم الخطأ.",
+        "en": "I typed the wrong number."
       }
     ]
   },
   {
     "fr": "Transporter",
     "ar": "ينقل / يحمل",
-    "en": "To transport / to carry",
+    "en": "To transport / to carry / To carry",
     "pos": "verb",
     "level": "A1",
     "contexts": [
       "car",
-      "daily"
+      "daily",
+      "transport",
+      "work"
     ],
     "ex": [
       {
@@ -67948,6 +68153,26 @@ window.VOCAB_DATA = [
         "fr": "Je vais transporter les cartons jusqu'au camion.",
         "ar": "سأنقل الصناديق إلى الشاحنة.",
         "en": "I'll carry the boxes to the truck."
+      },
+      {
+        "fr": "Je dois transporter les cartons.",
+        "ar": "يجب أن أنقل الصناديق.",
+        "en": "I have to transport the boxes."
+      },
+      {
+        "fr": "Comment transporter ça ?",
+        "ar": "كيف ننقل هذا؟",
+        "en": "How do we transport this?"
+      },
+      {
+        "fr": "Il transporte les marchandises.",
+        "ar": "هو ينقل البضائع.",
+        "en": "He transports the goods."
+      },
+      {
+        "fr": "Il est interdit de transporter certains produits.",
+        "ar": "يُمنع نقل بعض المنتجات.",
+        "en": "Transporting certain products is prohibited."
       }
     ]
   },
@@ -68141,8 +68366,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Traîner",
-    "ar": "يتسكع / يتأخر / يجرّ / يتباطأ / يستمر دون حسم",
-    "en": "drag / take one's time / To take one's time / to hang around / to drag on",
+    "ar": "يتسكع / يتأخر / يجرّ / يتباطأ / يستمر دون حسم / يجر",
+    "en": "drag / take one's time / To take one's time / to hang around / to drag on / To drag / To hang around / To take too long",
     "pos": "verb",
     "level": "A1",
     "contexts": [
@@ -68255,19 +68480,40 @@ window.VOCAB_DATA = [
         "fr": "Ne traînez pas dans le couloir.",
         "ar": "لا تتسكعوا في الممر.",
         "en": "Don't hang around in the hallway."
+      },
+      {
+        "fr": "Ne traîne pas !",
+        "ar": "لا تتأخر!",
+        "en": "Don't take too long!"
+      },
+      {
+        "fr": "Tu traînes trop, dépêche-toi !",
+        "ar": "أنت تتأخر كثيرًا، أسرع!",
+        "en": "You're taking too long, hurry up!"
+      },
+      {
+        "fr": "Le sac traîne par terre.",
+        "ar": "الحقيبة ملقاة على الأرض.",
+        "en": "The bag is lying on the floor."
+      },
+      {
+        "fr": "Ne laisse pas tes affaires traîner.",
+        "ar": "لا تترك أغراضك مبعثرة.",
+        "en": "Don't leave your things lying around."
       }
     ]
   },
   {
     "fr": "Tester",
     "ar": "يختبر / يجرب",
-    "en": "To test / to try",
+    "en": "To test / to try / To try",
     "pos": "verb",
     "level": "A1",
     "contexts": [
       "daily",
       "phone",
-      "restaurant"
+      "restaurant",
+      "work"
     ],
     "ex": [
       {
@@ -68329,13 +68575,38 @@ window.VOCAB_DATA = [
         "fr": "Le système doit être testé.",
         "ar": "يجب اختبار النظام.",
         "en": "The system needs to be tested."
+      },
+      {
+        "fr": "Je veux tester ce produit.",
+        "ar": "أريد تجربة هذا المنتج.",
+        "en": "I want to test this product."
+      },
+      {
+        "fr": "On peut tester cette méthode.",
+        "ar": "يمكننا تجربة هذه الطريقة.",
+        "en": "We can test this method."
+      },
+      {
+        "fr": "Tu as testé l'application ?",
+        "ar": "هل جربت التطبيق؟",
+        "en": "Did you test the app?"
+      },
+      {
+        "fr": "Il faut tester avant de commencer.",
+        "ar": "يجب الاختبار قبل البدء.",
+        "en": "You need to test before starting."
+      },
+      {
+        "fr": "Je vais tester une autre solution.",
+        "ar": "سأجرب حلًا آخر.",
+        "en": "I'll try another solution."
       }
     ]
   },
   {
     "fr": "Tâcher",
     "ar": "يحاول / يسعى إلى",
-    "en": "To try / to make an effort / to endeavor",
+    "en": "To try / to make an effort / to endeavor / To endeavor",
     "pos": "verb",
     "level": "A1",
     "contexts": [
@@ -68623,6 +68894,16 @@ window.VOCAB_DATA = [
         "fr": "Elle tolère mal certains aliments.",
         "ar": "هي لا تتحمل بعض الأطعمة جيدًا.",
         "en": "She doesn't tolerate certain foods well."
+      },
+      {
+        "fr": "Elle tolère mal le froid.",
+        "ar": "هي لا تتحمل البرد جيدًا.",
+        "en": "She doesn't tolerate the cold well."
+      },
+      {
+        "fr": "Je ne tolère pas le mensonge.",
+        "ar": "لا أتسامح مع الكذب.",
+        "en": "I don't tolerate lies."
       }
     ]
   },
@@ -68633,7 +68914,9 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "transport",
+      "work"
     ],
     "ex": [
       {
@@ -68685,6 +68968,31 @@ window.VOCAB_DATA = [
         "fr": "Je vais trier tout ça demain.",
         "ar": "سأرتب / أفرز كل هذا غدًا.",
         "en": "I'll sort all this tomorrow."
+      },
+      {
+        "fr": "Je dois trier les vêtements.",
+        "ar": "يجب أن أفرز الملابس.",
+        "en": "I have to sort the clothes."
+      },
+      {
+        "fr": "Trie les déchets.",
+        "ar": "افرز النفايات.",
+        "en": "Sort the waste."
+      },
+      {
+        "fr": "Je suis en train de trier les documents.",
+        "ar": "أنا أفرز الوثائق الآن.",
+        "en": "I'm sorting the documents."
+      },
+      {
+        "fr": "Il faut trier les produits.",
+        "ar": "يجب فرز المنتجات.",
+        "en": "The products need to be sorted."
+      },
+      {
+        "fr": "Tu peux trier ça par ordre alphabétique ?",
+        "ar": "هل يمكنك ترتيب هذا حسب الترتيب الأبجدي؟",
+        "en": "Can you sort this alphabetically?"
       }
     ]
   },
@@ -68752,13 +69060,14 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Trembler",
-    "ar": "يرتجف / يرتعش",
-    "en": "To tremble / to shake",
+    "ar": "يرتجف / يرتعش / يهتز",
+    "en": "To tremble / to shake / To shake",
     "pos": "verb",
     "level": "A1",
     "contexts": [
       "car",
-      "daily"
+      "daily",
+      "health"
     ],
     "ex": [
       {
@@ -68810,6 +69119,11 @@ window.VOCAB_DATA = [
         "fr": "J'ai les mains qui tremblent.",
         "ar": "يداي ترتجفان.",
         "en": "My hands are shaking."
+      },
+      {
+        "fr": "Je tremble de froid.",
+        "ar": "أنا أرتجف من البرد.",
+        "en": "I'm shaking from the cold."
       }
     ]
   },
@@ -69046,6 +69360,16 @@ window.VOCAB_DATA = [
         "fr": "Elle tousse depuis hier.",
         "ar": "هي تسعل منذ أمس.",
         "en": "She's been coughing since yesterday."
+      },
+      {
+        "fr": "Elle commence à tousser.",
+        "ar": "بدأت تسعل.",
+        "en": "She's starting to cough."
+      },
+      {
+        "fr": "Quand je parle, je tousse.",
+        "ar": "عندما أتكلم، أسعل.",
+        "en": "When I speak, I cough."
       }
     ]
   },
@@ -70393,6 +70717,31 @@ window.VOCAB_DATA = [
         "fr": "Elle est toujours disponible.",
         "ar": "هي دائمًا متاحة.",
         "en": "She is always available."
+      },
+      {
+        "fr": "Je suis toujours là.",
+        "ar": "أنا دائمًا هنا.",
+        "en": "I'm always here."
+      },
+      {
+        "fr": "Il arrive toujours en retard.",
+        "ar": "هو دائمًا يصل متأخرًا.",
+        "en": "He's always late."
+      },
+      {
+        "fr": "Tu fais toujours ça.",
+        "ar": "أنت تفعل ذلك دائمًا.",
+        "en": "You always do that."
+      },
+      {
+        "fr": "Je pense toujours à toi.",
+        "ar": "أفكر بك دائمًا.",
+        "en": "I always think about you."
+      },
+      {
+        "fr": "Elle travaille toujours ici.",
+        "ar": "هي ما زالت تعمل هنا دائمًا.",
+        "en": "She still works here."
       }
     ]
   },
@@ -70429,6 +70778,21 @@ window.VOCAB_DATA = [
       {
         "fr": "Merci beaucoup, c'est très gentil.",
         "ar": "شكرًا جزيلًا، هذا لطف كبير منك.",
+        "en": "Thank you very much, that's very kind."
+      },
+      {
+        "fr": "C'est très bien.",
+        "ar": "هذا جيد جدًا.",
+        "en": "That's very good."
+      },
+      {
+        "fr": "Il fait très chaud.",
+        "ar": "الجو حار جدًا.",
+        "en": "It's very hot."
+      },
+      {
+        "fr": "Merci beaucoup, c'est très gentil.",
+        "ar": "شكرًا جزيلًا، هذا لطف منك جدًا.",
         "en": "Thank you very much, that's very kind."
       }
     ]
@@ -70531,11 +70895,12 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Total",
-    "ar": "كامل / إجمالي / مجموع",
+    "ar": "كامل / إجمالي / مجموع / المجموع",
     "en": "Total / overall",
     "pos": "adjective",
     "level": "A1",
     "contexts": [
+      "bank",
       "daily"
     ],
     "ex": [
@@ -70561,6 +70926,31 @@ window.VOCAB_DATA = [
       },
       {
         "fr": "Combien ça fait au total ?",
+        "ar": "كم يصبح المجموع؟",
+        "en": "How much is it in total?"
+      },
+      {
+        "fr": "Quel est le total ?",
+        "ar": "كم المجموع؟",
+        "en": "What's the total?"
+      },
+      {
+        "fr": "Le total est de vingt euros.",
+        "ar": "المجموع عشرون يورو.",
+        "en": "The total is twenty euros."
+      },
+      {
+        "fr": "Je dois payer le total.",
+        "ar": "يجب أن أدفع المجموع.",
+        "en": "I have to pay the total."
+      },
+      {
+        "fr": "Le montant total est indiqué ici.",
+        "ar": "المبلغ الإجمالي مذكور هنا.",
+        "en": "The total amount is shown here."
+      },
+      {
+        "fr": "Ça fait combien au total ?",
         "ar": "كم يصبح المجموع؟",
         "en": "How much is it in total?"
       }
@@ -70601,6 +70991,21 @@ window.VOCAB_DATA = [
         "fr": "Je commence tôt aujourd'hui.",
         "ar": "أبدأ مبكرًا اليوم.",
         "en": "I start early today."
+      },
+      {
+        "fr": "Tu es arrivé tôt.",
+        "ar": "وصلت مبكرًا.",
+        "en": "You arrived early."
+      },
+      {
+        "fr": "Il est encore trop tôt.",
+        "ar": "ما زال الوقت مبكرًا جدًا.",
+        "en": "It's still too early."
+      },
+      {
+        "fr": "Je commence à travailler tôt.",
+        "ar": "أبدأ العمل مبكرًا.",
+        "en": "I start work early."
       }
     ]
   },
@@ -70639,13 +71044,23 @@ window.VOCAB_DATA = [
         "fr": "Ne rentre pas trop tard.",
         "ar": "لا تعد متأخرًا جدًا.",
         "en": "Don't come home too late."
+      },
+      {
+        "fr": "Je suis arrivé tard.",
+        "ar": "وصلت متأخرًا.",
+        "en": "I arrived late."
+      },
+      {
+        "fr": "Tu rentres tard ce soir ?",
+        "ar": "هل ستعود متأخرًا هذا المساء؟",
+        "en": "Are you coming home late tonight?"
       }
     ]
   },
   {
     "fr": "Tout",
     "ar": "كل / كل شيء / تمامًا",
-    "en": "All / everything / completely",
+    "en": "All / everything / completely / Everything",
     "pos": "other",
     "level": "A1",
     "contexts": [
@@ -70676,6 +71091,11 @@ window.VOCAB_DATA = [
         "fr": "C'est tout.",
         "ar": "هذا كل شيء.",
         "en": "That's all."
+      },
+      {
+        "fr": "J'ai tout oublié.",
+        "ar": "نسيت كل شيء.",
+        "en": "I forgot everything."
       }
     ]
   },
@@ -70793,12 +71213,32 @@ window.VOCAB_DATA = [
         "fr": "Ticket",
         "ar": "---",
         "en": "أكيد. هذه المرة كلمات T جديدة لم نستخدمها سابقًا، وبدون تكرار:"
+      },
+      {
+        "fr": "Où est mon ticket ?",
+        "ar": "أين تذكرتي؟",
+        "en": "Where is my ticket?"
+      },
+      {
+        "fr": "Il faut valider le ticket.",
+        "ar": "يجب التحقق من التذكرة.",
+        "en": "You need to validate the ticket."
+      },
+      {
+        "fr": "J'ai perdu mon ticket.",
+        "ar": "أضعت تذكرتي.",
+        "en": "I lost my ticket."
+      },
+      {
+        "fr": "Le ticket coûte deux euros.",
+        "ar": "التذكرة تكلف يورويْن.",
+        "en": "The ticket costs two euros."
       }
     ]
   },
   {
     "fr": "Taxi",
-    "ar": "سيارة أجرة",
+    "ar": "سيارة أجرة / تاكسي",
     "en": "Taxi",
     "pos": "noun",
     "level": "A1",
@@ -70831,17 +71271,43 @@ window.VOCAB_DATA = [
         "fr": "Je peux payer le taxi par carte ?",
         "ar": "هل يمكنني دفع أجرة التاكسي بالبطاقة؟",
         "en": "Can I pay for the taxi by card?"
+      },
+      {
+        "fr": "Je vais prendre un taxi.",
+        "ar": "سأستقل سيارة أجرة.",
+        "en": "I'm going to take a taxi."
+      },
+      {
+        "fr": "Appelez-moi un taxi, s'il vous plaît.",
+        "ar": "اتصلوا لي بسيارة أجرة، من فضلكم.",
+        "en": "Call me a taxi, please."
+      },
+      {
+        "fr": "Le taxi est arrivé.",
+        "ar": "وصل التاكسي.",
+        "en": "The taxi has arrived."
+      },
+      {
+        "fr": "Combien coûte le taxi ?",
+        "ar": "كم تكلفة التاكسي؟",
+        "en": "How much does the taxi cost?"
+      },
+      {
+        "fr": "Je descends ici, s'il vous plaît.",
+        "ar": "سأنزل هنا، من فضلك.",
+        "en": "I'll get out here, please."
       }
     ]
   },
   {
     "fr": "Tarif",
-    "ar": "سعر / تعرفة",
-    "en": "Rate / fare / price",
+    "ar": "سعر / تعرفة / أجرة",
+    "en": "Rate / fare / price / Fare",
     "pos": "noun",
     "level": "A1",
     "contexts": [
       "daily",
+      "services",
       "shopping",
       "transport"
     ],
@@ -70870,6 +71336,31 @@ window.VOCAB_DATA = [
         "fr": "Ce tarif comprend les frais.",
         "ar": "هذا السعر يشمل الرسوم.",
         "en": "This rate includes the fees."
+      },
+      {
+        "fr": "Quel est le tarif ?",
+        "ar": "ما السعر؟",
+        "en": "What is the rate?"
+      },
+      {
+        "fr": "Le tarif est trop élevé.",
+        "ar": "السعر مرتفع جدًا.",
+        "en": "The rate is too high."
+      },
+      {
+        "fr": "Quel est le tarif étudiant ?",
+        "ar": "ما سعر الطلاب؟",
+        "en": "What's the student rate?"
+      },
+      {
+        "fr": "Le tarif comprend le transport.",
+        "ar": "السعر يشمل النقل.",
+        "en": "The fare includes transportation."
+      },
+      {
+        "fr": "Les tarifs ont augmenté.",
+        "ar": "ارتفعت الأسعار.",
+        "en": "The rates have increased."
       }
     ]
   },
@@ -70910,6 +71401,26 @@ window.VOCAB_DATA = [
         "fr": "Tu veux une tasse de thé ?",
         "ar": "هل تريد فنجان شاي؟",
         "en": "Do you want a cup of tea?"
+      },
+      {
+        "fr": "La tasse est chaude.",
+        "ar": "الكوب ساخن.",
+        "en": "The cup is hot."
+      },
+      {
+        "fr": "J'ai cassé ma tasse.",
+        "ar": "كسرت فنجاني.",
+        "en": "I broke my cup."
+      },
+      {
+        "fr": "Mets le sucre dans la tasse.",
+        "ar": "ضع السكر في الكوب.",
+        "en": "Put the sugar in the cup."
+      },
+      {
+        "fr": "Cette tasse est à moi.",
+        "ar": "هذا الكوب لي.",
+        "en": "This cup is mine."
       }
     ]
   },
@@ -71029,7 +71540,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Trousse",
     "ar": "حقيبة صغيرة / مقلمة",
-    "en": "Pouch / pencil case / toiletry bag",
+    "en": "Pouch / pencil case / toiletry bag / Pencil case",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -71062,12 +71573,37 @@ window.VOCAB_DATA = [
         "fr": "Mets ça dans la trousse.",
         "ar": "ضع هذا في الحقيبة الصغيرة.",
         "en": "Put that in the pouch."
+      },
+      {
+        "fr": "Ma trousse est dans mon sac.",
+        "ar": "مقلمتي في حقيبتي.",
+        "en": "My pencil case is in my bag."
+      },
+      {
+        "fr": "J'ai oublié ma trousse.",
+        "ar": "نسيت مقلمتي.",
+        "en": "I forgot my pencil case."
+      },
+      {
+        "fr": "Mets les stylos dans la trousse.",
+        "ar": "ضع الأقلام في المقلمة.",
+        "en": "Put the pens in the pencil case."
+      },
+      {
+        "fr": "Cette trousse est pratique.",
+        "ar": "هذه الحقيبة الصغيرة عملية.",
+        "en": "This pouch is practical."
+      },
+      {
+        "fr": "Où est ma trousse ?",
+        "ar": "أين مقلمتي؟",
+        "en": "Where is my pencil case?"
       }
     ]
   },
   {
     "fr": "Trottoir",
-    "ar": "رصيف المشاة",
+    "ar": "رصيف المشاة / رصيف",
     "en": "Sidewalk / pavement",
     "pos": "noun",
     "level": "A1",
@@ -71121,6 +71657,16 @@ window.VOCAB_DATA = [
         "fr": "Ne laisse pas ton vélo sur le trottoir.",
         "ar": "لا تترك دراجتك على الرصيف.",
         "en": "Don't leave your bike on the sidewalk."
+      },
+      {
+        "fr": "Le trottoir est très étroit.",
+        "ar": "الرصيف ضيق جدًا.",
+        "en": "The sidewalk is very narrow."
+      },
+      {
+        "fr": "Attention au trottoir !",
+        "ar": "انتبه إلى الرصيف!",
+        "en": "Watch the curb!"
       }
     ]
   },
@@ -71131,7 +71677,8 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "housing"
     ],
     "ex": [
       {
@@ -71158,6 +71705,26 @@ window.VOCAB_DATA = [
         "fr": "Le trou est trop petit.",
         "ar": "الثقب صغير جدًا.",
         "en": "The hole is too small."
+      },
+      {
+        "fr": "Attention au trou !",
+        "ar": "انتبه إلى الحفرة!",
+        "en": "Watch out for the hole!"
+      },
+      {
+        "fr": "Le trou est trop grand.",
+        "ar": "الثقب كبير جدًا.",
+        "en": "The hole is too big."
+      },
+      {
+        "fr": "Il faut boucher le trou.",
+        "ar": "يجب سدّ الثقب.",
+        "en": "The hole needs to be filled."
+      },
+      {
+        "fr": "J'ai trouvé un trou dans ma poche.",
+        "ar": "وجدت ثقبًا في جيبي.",
+        "en": "I found a hole in my pocket."
       }
     ]
   },
@@ -71409,6 +71976,26 @@ window.VOCAB_DATA = [
         "fr": "Le chat est sur le toit.",
         "ar": "القطة على السطح.",
         "en": "The cat is on the roof."
+      },
+      {
+        "fr": "Le toit est cassé.",
+        "ar": "السقف مكسور.",
+        "en": "The roof is damaged."
+      },
+      {
+        "fr": "Il pleut sur le toit.",
+        "ar": "المطر يهطل على السقف.",
+        "en": "It's raining on the roof."
+      },
+      {
+        "fr": "Il faut réparer le toit.",
+        "ar": "يجب إصلاح السقف.",
+        "en": "The roof needs to be repaired."
+      },
+      {
+        "fr": "La neige est sur le toit.",
+        "ar": "الثلج على السطح.",
+        "en": "The snow is on the roof."
       }
     ]
   },
@@ -71467,6 +72054,21 @@ window.VOCAB_DATA = [
         "fr": "J'ai acheté un morceau de tissu.",
         "ar": "اشتريت قطعة قماش.",
         "en": "I bought a piece of fabric."
+      },
+      {
+        "fr": "J'aime la couleur de ce tissu.",
+        "ar": "أحب لون هذا القماش.",
+        "en": "I like the color of this fabric."
+      },
+      {
+        "fr": "Ce tissu se lave facilement.",
+        "ar": "هذا القماش يُغسل بسهولة.",
+        "en": "This fabric washes easily."
+      },
+      {
+        "fr": "Il faut choisir un tissu solide.",
+        "ar": "يجب اختيار قماش متين.",
+        "en": "We need to choose a strong fabric."
       }
     ]
   },
@@ -71542,6 +72144,31 @@ window.VOCAB_DATA = [
         "fr": "Le train arrive à huit heures.",
         "ar": "القطار يصل الساعة الثامنة.",
         "en": "The train arrives at eight."
+      },
+      {
+        "fr": "Je prends le train.",
+        "ar": "سأركب القطار.",
+        "en": "I'm taking the train."
+      },
+      {
+        "fr": "Le train arrive à quelle heure ?",
+        "ar": "في أي ساعة يصل القطار؟",
+        "en": "What time does the train arrive?"
+      },
+      {
+        "fr": "Mon train est en retard.",
+        "ar": "قطاري متأخر.",
+        "en": "My train is delayed."
+      },
+      {
+        "fr": "Le train part dans dix minutes.",
+        "ar": "القطار يغادر بعد عشر دقائق.",
+        "en": "The train leaves in ten minutes."
+      },
+      {
+        "fr": "Où est le quai du train ?",
+        "ar": "أين رصيف القطار؟",
+        "en": "Where is the train platform?"
       }
     ]
   },
@@ -71618,6 +72245,16 @@ window.VOCAB_DATA = [
         "fr": "Ça me passe par la tête.",
         "ar": "خطر هذا في بالي.",
         "en": "It crossed my mind."
+      },
+      {
+        "fr": "Lève la tête.",
+        "ar": "ارفع رأسك.",
+        "en": "Lift your head."
+      },
+      {
+        "fr": "Il s'est cogné la tête.",
+        "ar": "ضرب رأسه.",
+        "en": "He hit his head."
       }
     ]
   },
@@ -71657,6 +72294,26 @@ window.VOCAB_DATA = [
         "fr": "Mets un peu de sucre dans le thé.",
         "ar": "ضع قليلًا من السكر في الشاي.",
         "en": "Put some sugar in the tea."
+      },
+      {
+        "fr": "Je voudrais un thé, s'il vous plaît.",
+        "ar": "أريد شايًا، من فضلك.",
+        "en": "I'd like a tea, please."
+      },
+      {
+        "fr": "Le thé est chaud.",
+        "ar": "الشاي ساخن.",
+        "en": "The tea is hot."
+      },
+      {
+        "fr": "Je bois du thé le matin.",
+        "ar": "أشرب الشاي في الصباح.",
+        "en": "I drink tea in the morning."
+      },
+      {
+        "fr": "Ajoute un peu de sucre dans le thé.",
+        "ar": "أضف قليلًا من السكر إلى الشاي.",
+        "en": "Add a little sugar to the tea."
       }
     ]
   },
@@ -71740,7 +72397,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Taille",
     "ar": "مقاس / حجم / طول",
-    "en": "Size / height",
+    "en": "Size / height / Height / Waist",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -71772,6 +72429,26 @@ window.VOCAB_DATA = [
         "fr": "C'est trop grand pour ma taille.",
         "ar": "هذا كبير جدًا بالنسبة لمقاسي.",
         "en": "It's too big for my size."
+      },
+      {
+        "fr": "Quelle taille faites-vous ?",
+        "ar": "ما مقاسك؟",
+        "en": "What size are you?"
+      },
+      {
+        "fr": "Je cherche une taille M.",
+        "ar": "أبحث عن مقاس M.",
+        "en": "I'm looking for a size M."
+      },
+      {
+        "fr": "Vous avez une taille plus grande ?",
+        "ar": "هل لديكم مقاس أكبر؟",
+        "en": "Do you have a larger size?"
+      },
+      {
+        "fr": "Cette chemise est trop grande pour moi.",
+        "ar": "هذا القميص كبير جدًا بالنسبة لي.",
+        "en": "This shirt is too big for me."
       }
     ]
   },
@@ -71816,12 +72493,13 @@ window.VOCAB_DATA = [
   {
     "fr": "Terrain",
     "ar": "أرض / ملعب / قطعة أرض",
-    "en": "Land / ground / field",
+    "en": "Land / ground / field / Ground / Field",
     "pos": "noun",
     "level": "A1",
     "contexts": [
       "daily",
-      "housing"
+      "housing",
+      "work"
     ],
     "ex": [
       {
@@ -71848,13 +72526,33 @@ window.VOCAB_DATA = [
         "fr": "Le terrain est difficile d'accès.",
         "ar": "الوصول إلى المكان صعب.",
         "en": "The site is difficult to access."
+      },
+      {
+        "fr": "Le terrain est humide.",
+        "ar": "الأرض رطبة.",
+        "en": "The ground is wet."
+      },
+      {
+        "fr": "J'ai trouvé un terrain à vendre.",
+        "ar": "وجدت قطعة أرض للبيع.",
+        "en": "I found some land for sale."
+      },
+      {
+        "fr": "Le terrain est très grand.",
+        "ar": "الأرض كبيرة جدًا.",
+        "en": "The land is very large."
+      },
+      {
+        "fr": "On se retrouve sur le terrain.",
+        "ar": "سنلتقي في الملعب/في الميدان.",
+        "en": "We'll meet on the field."
       }
     ]
   },
   {
     "fr": "Trajet",
     "ar": "رحلة / مسافة الطريق",
-    "en": "Journey / trip / route",
+    "en": "Journey / trip / route / Trip",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -71887,6 +72585,26 @@ window.VOCAB_DATA = [
         "fr": "Le trajet en bus est plus long.",
         "ar": "الرحلة بالحافلة أطول.",
         "en": "The bus journey is longer."
+      },
+      {
+        "fr": "Le trajet est assez long.",
+        "ar": "الرحلة طويلة نوعًا ما.",
+        "en": "The journey is quite long."
+      },
+      {
+        "fr": "Bon trajet !",
+        "ar": "رحلة موفقة!",
+        "en": "Have a good journey!"
+      },
+      {
+        "fr": "Comment s'est passé le trajet ?",
+        "ar": "كيف كانت الرحلة؟",
+        "en": "How was the journey?"
+      },
+      {
+        "fr": "Je connais bien ce trajet.",
+        "ar": "أعرف هذا الطريق جيدًا.",
+        "en": "I know this route well."
       }
     ]
   },
@@ -72079,7 +72797,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Truc",
     "ar": "شيء / غرض / حيلة",
-    "en": "Thing / stuff / trick",
+    "en": "Thing / stuff / trick / Stuff / Trick",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -72110,6 +72828,21 @@ window.VOCAB_DATA = [
         "fr": "J'ai oublié un truc.",
         "ar": "نسيت شيئًا.",
         "en": "I forgot something."
+      },
+      {
+        "fr": "Tu connais un truc pour ça ?",
+        "ar": "هل تعرف حيلة لهذا؟",
+        "en": "Do you know a trick for that?"
+      },
+      {
+        "fr": "Ce truc fonctionne bien.",
+        "ar": "هذا الشيء يعمل جيدًا.",
+        "en": "This thing works well."
+      },
+      {
+        "fr": "J'ai oublié un truc à la maison.",
+        "ar": "نسيت شيئًا في المنزل.",
+        "en": "I forgot something at home."
       }
     ]
   },
@@ -72232,7 +72965,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Tuyau",
     "ar": "أنبوب / خرطوم / نصيحة أو معلومة مفيدة (عامية)",
-    "en": "Pipe / hose / tip",
+    "en": "Pipe / hose / tip / Hose",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -72289,6 +73022,26 @@ window.VOCAB_DATA = [
         "fr": "Il faut remplacer ce tuyau.",
         "ar": "يجب استبدال هذا الأنبوب.",
         "en": "This pipe needs to be replaced."
+      },
+      {
+        "fr": "Le tuyau fuit.",
+        "ar": "الأنبوب يتسرب.",
+        "en": "The pipe is leaking."
+      },
+      {
+        "fr": "Il faut changer le tuyau.",
+        "ar": "يجب تغيير الأنبوب.",
+        "en": "The pipe needs to be changed."
+      },
+      {
+        "fr": "L'eau passe dans le tuyau.",
+        "ar": "الماء يمر في الأنبوب.",
+        "en": "Water passes through the pipe."
+      },
+      {
+        "fr": "Où est le tuyau d'eau ?",
+        "ar": "أين خرطوم الماء؟",
+        "en": "Where is the water hose?"
       }
     ]
   },
@@ -72885,7 +73638,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Terrasse",
     "ar": "شرفة / تراس",
-    "en": "Terrace / patio",
+    "en": "Terrace / patio / Patio",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -72918,6 +73671,21 @@ window.VOCAB_DATA = [
         "fr": "La terrasse est ouverte.",
         "ar": "التراس مفتوح.",
         "en": "The terrace is open."
+      },
+      {
+        "fr": "Il fait bon sur la terrasse.",
+        "ar": "الجو لطيف على التراس.",
+        "en": "It's pleasant on the terrace."
+      },
+      {
+        "fr": "Je préfère m'asseoir en terrasse.",
+        "ar": "أفضل الجلوس على التراس.",
+        "en": "I prefer sitting outside on the terrace."
+      },
+      {
+        "fr": "Il y a une belle terrasse ici.",
+        "ar": "يوجد تراس جميل هنا.",
+        "en": "There's a nice terrace here."
       }
     ]
   },
@@ -73051,7 +73819,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Titre",
-    "ar": "عنوان / لقب",
+    "ar": "عنوان / لقب / اسم",
     "en": "Title",
     "pos": "noun",
     "level": "A1",
@@ -73084,6 +73852,26 @@ window.VOCAB_DATA = [
         "fr": "Écris le titre ici.",
         "ar": "اكتب العنوان هنا.",
         "en": "Write the title here."
+      },
+      {
+        "fr": "Je ne connais pas le titre.",
+        "ar": "لا أعرف العنوان.",
+        "en": "I don't know the title."
+      },
+      {
+        "fr": "Le titre est écrit en haut.",
+        "ar": "العنوان مكتوب في الأعلى.",
+        "en": "The title is written at the top."
+      },
+      {
+        "fr": "Quel est le titre de ce livre ?",
+        "ar": "ما عنوان هذا الكتاب؟",
+        "en": "What's the title of this book?"
+      },
+      {
+        "fr": "Il a obtenu le titre de champion.",
+        "ar": "حصل على لقب البطل.",
+        "en": "He won the title of champion."
       }
     ]
   },
@@ -73316,6 +74104,16 @@ window.VOCAB_DATA = [
         "fr": "J'aime découvrir les traditions françaises.",
         "ar": "أحب اكتشاف التقاليد الفرنسية.",
         "en": "I like discovering French traditions."
+      },
+      {
+        "fr": "Cette tradition est très ancienne.",
+        "ar": "هذا التقليد قديم جدًا.",
+        "en": "This tradition is very old."
+      },
+      {
+        "fr": "Cette tradition existe encore aujourd'hui.",
+        "ar": "هذا التقليد ما زال موجودًا حتى اليوم.",
+        "en": "This tradition still exists today."
       }
     ]
   },
@@ -73684,11 +74482,12 @@ window.VOCAB_DATA = [
   {
     "fr": "Trop",
     "ar": "جدًا / أكثر من اللازم",
-    "en": "Too / too much / too many",
+    "en": "Too / too much / too many / Too much",
     "pos": "other",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "work"
     ],
     "ex": [
       {
@@ -73715,6 +74514,21 @@ window.VOCAB_DATA = [
         "fr": "Tu vas trop vite.",
         "ar": "أنت تسير بسرعة كبيرة جدًا.",
         "en": "You're going too fast."
+      },
+      {
+        "fr": "Il y en a trop.",
+        "ar": "هناك الكثير منه.",
+        "en": "There's too much of it."
+      },
+      {
+        "fr": "Tu parles trop vite.",
+        "ar": "أنت تتكلم بسرعة كبيرة جدًا.",
+        "en": "You speak too fast."
+      },
+      {
+        "fr": "Il est trop tard.",
+        "ar": "لقد تأخر الوقت جدًا.",
+        "en": "It's too late."
       }
     ]
   },
@@ -73821,6 +74635,26 @@ window.VOCAB_DATA = [
         "fr": "Cette ville attire beaucoup de touristes.",
         "ar": "هذه المدينة تجذب الكثير من السياح.",
         "en": "This city attracts many tourists."
+      },
+      {
+        "fr": "Je suis ici comme touriste.",
+        "ar": "أنا هنا كسائح.",
+        "en": "I'm here as a tourist."
+      },
+      {
+        "fr": "Les touristes prennent des photos.",
+        "ar": "السياح يلتقطون الصور.",
+        "en": "The tourists are taking pictures."
+      },
+      {
+        "fr": "Ce quartier est très populaire auprès des touristes.",
+        "ar": "هذا الحي مشهور جدًا بين السياح.",
+        "en": "This neighborhood is very popular with tourists."
+      },
+      {
+        "fr": "Le touriste cherche un hôtel.",
+        "ar": "السائح يبحث عن فندق.",
+        "en": "The tourist is looking for a hotel."
       }
     ]
   },
@@ -73860,6 +74694,31 @@ window.VOCAB_DATA = [
         "fr": "Le tramway est plein ce matin.",
         "ar": "الترام ممتلئ هذا الصباح.",
         "en": "The tram is full this morning."
+      },
+      {
+        "fr": "Je prends le tramway tous les jours.",
+        "ar": "أركب الترام كل يوم.",
+        "en": "I take the tram every day."
+      },
+      {
+        "fr": "Le tramway arrive bientôt.",
+        "ar": "الترام سيصل قريبًا.",
+        "en": "The tram is arriving soon."
+      },
+      {
+        "fr": "Où est l'arrêt de tramway ?",
+        "ar": "أين موقف الترام؟",
+        "en": "Where is the tram stop?"
+      },
+      {
+        "fr": "Le tramway est plein.",
+        "ar": "الترام ممتلئ.",
+        "en": "The tram is full."
+      },
+      {
+        "fr": "Quel tramway dois-je prendre ?",
+        "ar": "أي ترام يجب أن أركب؟",
+        "en": "Which tram should I take?"
       }
     ]
   },
@@ -73938,13 +74797,28 @@ window.VOCAB_DATA = [
         "fr": "Il porte un vêtement traditionnel.",
         "ar": "يرتدي لباسًا تقليديًا.",
         "en": "He's wearing traditional clothing."
+      },
+      {
+        "fr": "C'est une méthode traditionnelle.",
+        "ar": "هذه طريقة تقليدية.",
+        "en": "It's a traditional method."
+      },
+      {
+        "fr": "Le marché traditionnel est ouvert.",
+        "ar": "السوق التقليدي مفتوح.",
+        "en": "The traditional market is open."
+      },
+      {
+        "fr": "Ils portent des vêtements traditionnels.",
+        "ar": "يرتدون ملابس تقليدية.",
+        "en": "They wear traditional clothes."
       }
     ]
   },
   {
     "fr": "Technique",
     "ar": "تقنية / طريقة / أسلوب",
-    "en": "Technique / method",
+    "en": "Technique / method / Method",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -73977,6 +74851,21 @@ window.VOCAB_DATA = [
         "fr": "Il connaît plusieurs techniques.",
         "ar": "هو يعرف عدة تقنيات.",
         "en": "He knows several techniques."
+      },
+      {
+        "fr": "Je connais cette technique.",
+        "ar": "أعرف هذه الطريقة.",
+        "en": "I know this technique."
+      },
+      {
+        "fr": "Il faut apprendre la bonne technique.",
+        "ar": "يجب تعلم التقنية الصحيحة.",
+        "en": "You need to learn the right technique."
+      },
+      {
+        "fr": "Quelle technique utilisez-vous ?",
+        "ar": "ما التقنية التي تستخدمونها؟",
+        "en": "What technique do you use?"
       }
     ]
   },
@@ -74330,7 +75219,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Tromper",
     "ar": "يخطئ / يخدع / يغش",
-    "en": "To make a mistake / to deceive / to cheat",
+    "en": "To make a mistake / to deceive / to cheat / To be mistaken / To deceive",
     "pos": "verb",
     "level": "A1",
     "contexts": [
@@ -74361,6 +75250,26 @@ window.VOCAB_DATA = [
         "fr": "Tout le monde peut se tromper.",
         "ar": "الجميع يمكن أن يخطئ.",
         "en": "Everyone can make mistakes."
+      },
+      {
+        "fr": "Tu te trompes.",
+        "ar": "أنت مخطئ.",
+        "en": "You're mistaken."
+      },
+      {
+        "fr": "Je me suis trompé de numéro.",
+        "ar": "أخطأت في الرقم.",
+        "en": "I got the wrong number."
+      },
+      {
+        "fr": "Ne te trompe pas d'adresse.",
+        "ar": "لا تخطئ في العنوان.",
+        "en": "Don't get the address wrong."
+      },
+      {
+        "fr": "Il m'a trompé.",
+        "ar": "لقد خدعني.",
+        "en": "He deceived me."
       }
     ]
   },
@@ -75169,7 +76078,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Terme",
     "ar": "مصطلح / نهاية / مدة",
-    "en": "Term / period / end",
+    "en": "Term / period / end / End",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -75203,6 +76112,21 @@ window.VOCAB_DATA = [
         "fr": "C'est un terme médical.",
         "ar": "إنه مصطلح طبي.",
         "en": "It's a medical term."
+      },
+      {
+        "fr": "C'est un terme médical.",
+        "ar": "هذا مصطلح طبي.",
+        "en": "It's a medical term."
+      },
+      {
+        "fr": "À court terme, c'est possible.",
+        "ar": "على المدى القصير، هذا ممكن.",
+        "en": "In the short term, it's possible."
+      },
+      {
+        "fr": "Quel terme utilise-t-on en français ?",
+        "ar": "ما المصطلح الذي نستخدمه بالفرنسية؟",
+        "en": "What term do we use in French?"
       }
     ]
   },
@@ -76461,6 +77385,16 @@ window.VOCAB_DATA = [
         "fr": "Le transport de marchandises coûte cher.",
         "ar": "نقل البضائع مكلف.",
         "en": "Transporting goods is expensive."
+      },
+      {
+        "fr": "Les transports sont en retard.",
+        "ar": "المواصلات متأخرة.",
+        "en": "Public transport is delayed."
+      },
+      {
+        "fr": "Le transport coûte cher.",
+        "ar": "النقل مكلف.",
+        "en": "Transportation is expensive."
       }
     ]
   },
@@ -76500,6 +77434,43 @@ window.VOCAB_DATA = [
         "fr": "La trancheuse ne coupe plus correctement.",
         "ar": "آلة التقطيع لم تعد تقطع بشكل صحيح.",
         "en": "The slicer no longer cuts properly."
+      }
+    ]
+  },
+  {
+    "fr": "Tous",
+    "ar": "كل / جميع",
+    "en": "All / Everyone",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Ils sont tous là.",
+        "ar": "هم جميعًا هنا.",
+        "en": "They're all here."
+      },
+      {
+        "fr": "On est tous prêts.",
+        "ar": "نحن جميعًا جاهزون.",
+        "en": "We're all ready."
+      },
+      {
+        "fr": "Je les connais tous.",
+        "ar": "أعرفهم جميعًا.",
+        "en": "I know them all."
+      },
+      {
+        "fr": "Ils travaillent tous ensemble.",
+        "ar": "هم جميعًا يعملون معًا.",
+        "en": "They all work together."
+      },
+      {
+        "fr": "Merci à tous.",
+        "ar": "شكرًا للجميع.",
+        "en": "Thank you, everyone."
       }
     ]
   }
