@@ -910,24 +910,25 @@
 
   async function saveFileToAppStorage(file, subdir) {
     if (!file || !nativeFilesystem()) return null;
-    const { Filesystem, Directory } = Capacitor.Plugins;
+    const { Filesystem } = Capacitor.Plugins;
     const ext = (file.name && file.name.split('.').pop()) || (file.type.startsWith('video/') ? 'mp4' : 'jpg');
     const filename = Date.now() + '_' + Math.random().toString(36).slice(2, 10) + '.' + ext;
     const fullPath = subdir + '/' + filename;
     const chunkSize = 1024 * 1024;
-    try { await Filesystem.mkdir({ path: subdir, directory: Directory.Data, recursive: true }); } catch (e) {}
+    const DATA_DIR = 'DATA';
+    try { await Filesystem.mkdir({ path: subdir, directory: DATA_DIR, recursive: true }); } catch (e) {}
     let isFirst = true;
     for (let offset = 0; offset < file.size; offset += chunkSize) {
       const buffer = await readFileChunk(file, offset, Math.min(offset + chunkSize, file.size));
       const base64 = arrayBufferToBase64(buffer);
       if (isFirst) {
-        await Filesystem.writeFile({ path: fullPath, data: base64, directory: Directory.Data, encoding: 'base64', recursive: true });
+        await Filesystem.writeFile({ path: fullPath, data: base64, directory: DATA_DIR, encoding: 'base64', recursive: true });
         isFirst = false;
       } else {
-        await Filesystem.appendFile({ path: fullPath, data: base64, directory: Directory.Data, encoding: 'base64' });
+        await Filesystem.appendFile({ path: fullPath, data: base64, directory: DATA_DIR, encoding: 'base64' });
       }
     }
-    const { uri } = await Filesystem.getUri({ path: fullPath, directory: Directory.Data });
+    const { uri } = await Filesystem.getUri({ path: fullPath, directory: DATA_DIR });
     return uri;
   }
 
