@@ -49542,7 +49542,10 @@ window.VOCAB_DATA = [
     "pos": "phrase",
     "level": "A1",
     "contexts": [
-      "daily"
+      "caf",
+      "daily",
+      "france_travail",
+      "work"
     ],
     "ex": [
       {
@@ -53277,23 +53280,30 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Quoi qu'il arrive",
-    "ar": "مهما صار",
-    "en": "Whatever happens",
+    "ar": "مهما صار / مهما صار.",
+    "en": "Whatever happens / Whatever happens.",
     "pos": "phrase",
     "level": "A1",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Quoi qu'il arrive, je viendrai.",
-      "en": "Whatever happens, I'll come.",
-      "ar": "مهما صار، رح أجي."
-    }
+    "ex": [
+      {
+        "fr": "Quoi qu'il arrive, je viendrai.",
+        "en": "Whatever happens, I'll come.",
+        "ar": "مهما صار، رح أجي."
+      },
+      {
+        "fr": "Quoi qu'il arrive.",
+        "en": "Whatever happens.",
+        "ar": "مهما صار."
+      }
+    ]
   },
   {
     "fr": "Quoi qu'il en soit",
-    "ar": "على أي حال",
-    "en": "In any case / anyway / in any case",
+    "ar": "على أي حال / على أي حال.",
+    "en": "In any case / anyway / in any case / In any case.",
     "pos": "phrase",
     "level": "A1",
     "contexts": [
@@ -53309,6 +53319,11 @@ window.VOCAB_DATA = [
         "fr": "Quoi qu'il en soit",
         "en": "in any case / anyway",
         "ar": "على أي حال"
+      },
+      {
+        "fr": "Quoi qu'il en soit.",
+        "en": "In any case.",
+        "ar": "على أي حال."
       }
     ]
   },
@@ -53603,33 +53618,47 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Quoi qu'on fasse",
-    "ar": "مهما عملنا",
-    "en": "whatever we do",
+    "ar": "مهما عملنا / مهما عملنا.",
+    "en": "whatever we do / Whatever we do.",
     "pos": "phrase",
     "level": "A1",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Quoi qu'on fasse",
-      "en": "whatever we do",
-      "ar": "مهما عملنا"
-    }
+    "ex": [
+      {
+        "fr": "Quoi qu'on fasse",
+        "en": "whatever we do",
+        "ar": "مهما عملنا"
+      },
+      {
+        "fr": "Quoi qu'on fasse.",
+        "en": "Whatever we do.",
+        "ar": "مهما عملنا."
+      }
+    ]
   },
   {
     "fr": "Quoi que vous fassiez",
-    "ar": "مهما فعلت / فعلتم",
-    "en": "whatever you do",
+    "ar": "مهما فعلت / فعلتم / مهما فعلت.",
+    "en": "whatever you do / Whatever you do.",
     "pos": "phrase",
     "level": "A1",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "Quoi que vous fassiez",
-      "en": "whatever you do",
-      "ar": "مهما فعلت / فعلتم"
-    }
+    "ex": [
+      {
+        "fr": "Quoi que vous fassiez",
+        "en": "whatever you do",
+        "ar": "مهما فعلت / فعلتم"
+      },
+      {
+        "fr": "Quoi que vous fassiez.",
+        "en": "Whatever you do.",
+        "ar": "مهما فعلت."
+      }
+    ]
   },
   {
     "fr": "Une qualité de vie",
@@ -56393,6 +56422,3650 @@ window.VOCAB_DATA = [
       "fr": "Quel est le prochain arrêt ?",
       "en": "What is the next stop?",
       "ar": "شو المحطة الجاية؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que ça donne ?",
+    "ar": "كيف طلع؟ / شو النتيجة؟",
+    "en": "How does it look? / What does it give?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que ça donne ?",
+      "en": "How does it look? / What does it give?",
+      "ar": "كيف طلع؟ / شو النتيجة؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que ça signifie ?",
+    "ar": "شو معنى هاد؟",
+    "en": "What does that mean?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que ça signifie ?",
+      "en": "What does that mean?",
+      "ar": "شو معنى هاد؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que ça fait ?",
+    "ar": "شو بيعمل هاد؟",
+    "en": "What does it do?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que ça fait ?",
+      "en": "What does it do?",
+      "ar": "شو بيعمل هاد؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que ça coûte ?",
+    "ar": "قديش سعره؟",
+    "en": "How much does it cost?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que ça coûte ?",
+      "en": "How much does it cost?",
+      "ar": "قديش سعره؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que ça prend ?",
+    "ar": "شو بيتطلب؟",
+    "en": "What does it take?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que ça prend ?",
+      "en": "What does it take?",
+      "ar": "شو بيتطلب؟"
+    }
+  },
+  {
+    "fr": "De quoi s'agit-il ?",
+    "ar": "عن شو الموضوع؟",
+    "en": "What is it about?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "De quoi s'agit-il ?",
+      "en": "What is it about?",
+      "ar": "عن شو الموضوع؟"
+    }
+  },
+  {
+    "fr": "De quoi avez-vous besoin ?",
+    "ar": "شو بحاجة إلو؟",
+    "en": "What do you need?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "De quoi avez-vous besoin ?",
+      "en": "What do you need?",
+      "ar": "شو بحاجة إلو؟"
+    }
+  },
+  {
+    "fr": "De quoi avez-vous besoin exactement ?",
+    "ar": "شو بالضبط بحاجة إلو؟",
+    "en": "What exactly do you need?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "De quoi avez-vous besoin exactement ?",
+      "en": "What exactly do you need?",
+      "ar": "شو بالضبط بحاجة إلو؟"
+    }
+  },
+  {
+    "fr": "De quoi parle-t-on ?",
+    "ar": "عن شو عم نحكي؟",
+    "en": "What are we talking about?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "De quoi parle-t-on ?",
+      "en": "What are we talking about?",
+      "ar": "عن شو عم نحكي؟"
+    }
+  },
+  {
+    "fr": "Avec quoi ?",
+    "ar": "بماذا؟ / بشو؟",
+    "en": "With what?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Avec quoi ?",
+      "en": "With what?",
+      "ar": "بماذا؟ / بشو؟"
+    }
+  },
+  {
+    "fr": "Pour quoi ?",
+    "ar": "لشو؟",
+    "en": "For what?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Pour quoi ?",
+      "en": "For what?",
+      "ar": "لشو؟"
+    }
+  },
+  {
+    "fr": "Grâce à quoi ?",
+    "ar": "بفضل شو؟",
+    "en": "Thanks to what?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Grâce à quoi ?",
+      "en": "Thanks to what?",
+      "ar": "بفضل شو؟"
+    }
+  },
+  {
+    "fr": "À cause de quoi ?",
+    "ar": "بسبب شو؟",
+    "en": "Because of what?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "À cause de quoi ?",
+      "en": "Because of what?",
+      "ar": "بسبب شو؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui est prévu ?",
+    "ar": "شو مخطط؟",
+    "en": "What's planned?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui est prévu ?",
+      "en": "What's planned?",
+      "ar": "شو مخطط؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui est demandé ?",
+    "ar": "شو المطلوب؟",
+    "en": "What is required?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui est demandé ?",
+      "en": "What is required?",
+      "ar": "شو المطلوب؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui est disponible ?",
+    "ar": "شو المتوفر؟",
+    "en": "What is available?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui est disponible ?",
+      "en": "What is available?",
+      "ar": "شو المتوفر؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui est possible ?",
+    "ar": "شو الممكن؟",
+    "en": "What is possible?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui est possible ?",
+      "en": "What is possible?",
+      "ar": "شو الممكن؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui est obligatoire ?",
+    "ar": "شو الإلزامي؟",
+    "en": "What is mandatory?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui est obligatoire ?",
+      "en": "What is mandatory?",
+      "ar": "شو الإلزامي؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui est inclus ?",
+    "ar": "شو المشمول؟",
+    "en": "What is included?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui est inclus ?",
+      "en": "What is included?",
+      "ar": "شو المشمول؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui est compris ?",
+    "ar": "شو داخل ضمن السعر/الخدمة؟",
+    "en": "What is included?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui est compris ?",
+      "en": "What is included?",
+      "ar": "شو داخل ضمن السعر/الخدمة؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui est nécessaire ?",
+    "ar": "شو الضروري؟",
+    "en": "What is necessary?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui est nécessaire ?",
+      "en": "What is necessary?",
+      "ar": "شو الضروري؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui manque exactement ?",
+    "ar": "شو بالضبط الناقص؟",
+    "en": "What exactly is missing?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui manque exactement ?",
+      "en": "What exactly is missing?",
+      "ar": "شو بالضبط الناقص؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui bloque mon dossier ?",
+    "ar": "شو اللي معطّل ملفي؟",
+    "en": "What is blocking my file?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui bloque mon dossier ?",
+      "en": "What is blocking my file?",
+      "ar": "شو اللي معطّل ملفي؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui retarde ma demande ?",
+    "ar": "شو اللي مأخر طلبي؟",
+    "en": "What is delaying my application?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui retarde ma demande ?",
+      "en": "What is delaying my application?",
+      "ar": "شو اللي مأخر طلبي؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui va se passer maintenant ?",
+    "ar": "شو رح يصير هلق؟",
+    "en": "What is going to happen now?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui va se passer maintenant ?",
+      "en": "What is going to happen now?",
+      "ar": "شو رح يصير هلق؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui doit être fait ?",
+    "ar": "شو لازم ينعمل؟",
+    "en": "What needs to be done?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui doit être fait ?",
+      "en": "What needs to be done?",
+      "ar": "شو لازم ينعمل؟"
+    }
+  },
+  {
+    "fr": "Qui puis-je appeler ?",
+    "ar": "مين فيني اتصل فيه؟",
+    "en": "Who can I call?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui puis-je appeler ?",
+      "en": "Who can I call?",
+      "ar": "مين فيني اتصل فيه؟"
+    }
+  },
+  {
+    "fr": "Qui dois-je joindre ?",
+    "ar": "مين لازم اتواصل معه؟",
+    "en": "Who should I contact?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui dois-je joindre ?",
+      "en": "Who should I contact?",
+      "ar": "مين لازم اتواصل معه؟"
+    }
+  },
+  {
+    "fr": "Qui est mon interlocuteur ?",
+    "ar": "مين الشخص المسؤول عن ملفي؟",
+    "en": "Who is my contact person?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "Qui est mon interlocuteur ?",
+      "en": "Who is my contact person?",
+      "ar": "مين الشخص المسؤول عن ملفي؟"
+    }
+  },
+  {
+    "fr": "Quel service est concerné ?",
+    "ar": "أي قسم معني بالموضوع؟",
+    "en": "Which department is concerned?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quel service est concerné ?",
+      "en": "Which department is concerned?",
+      "ar": "أي قسم معني بالموضوع؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui est compris dans les charges ?",
+    "ar": "شو داخل ضمن المصاريف؟",
+    "en": "What is included in the charges?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui est compris dans les charges ?",
+      "en": "What is included in the charges?",
+      "ar": "شو داخل ضمن المصاريف؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui est compris dans le loyer ?",
+    "ar": "شو داخل ضمن الإيجار؟",
+    "en": "What is included in the rent?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui est compris dans le loyer ?",
+      "en": "What is included in the rent?",
+      "ar": "شو داخل ضمن الإيجار؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui est à ma charge ?",
+    "ar": "شو اللي لازم أنا ادفعه؟",
+    "en": "What am I responsible for paying?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui est à ma charge ?",
+      "en": "What am I responsible for paying?",
+      "ar": "شو اللي لازم أنا ادفعه؟"
+    }
+  },
+  {
+    "fr": "Quel est le montant qui reste à ma charge ?",
+    "ar": "قديش ضل عليّي ادفع؟",
+    "en": "How much remains for me to pay?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel est le montant qui reste à ma charge ?",
+      "en": "How much remains for me to pay?",
+      "ar": "قديش ضل عليّي ادفع؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui indique la priorité ?",
+    "ar": "شو اللي بيدل على الأولوية؟",
+    "en": "What indicates priority?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui indique la priorité ?",
+      "en": "What indicates priority?",
+      "ar": "شو اللي بيدل على الأولوية؟"
+    }
+  },
+  {
+    "fr": "Quelle distance de sécurité ?",
+    "ar": "قديش مسافة الأمان؟",
+    "en": "What safety distance?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle distance de sécurité ?",
+      "en": "What safety distance?",
+      "ar": "قديش مسافة الأمان؟"
+    }
+  },
+  {
+    "fr": "Quel comportement faut-il adopter ?",
+    "ar": "شو التصرف اللي لازم نعمله؟",
+    "en": "What behavior should be adopted?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel comportement faut-il adopter ?",
+      "en": "What behavior should be adopted?",
+      "ar": "شو التصرف اللي لازم نعمله؟"
+    }
+  },
+  {
+    "fr": "Que faut-il vérifier avant de démarrer ?",
+    "ar": "شو لازم نتأكد منه قبل ما نتحرك؟",
+    "en": "What should be checked before starting?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Que faut-il vérifier avant de démarrer ?",
+      "en": "What should be checked before starting?",
+      "ar": "شو لازم نتأكد منه قبل ما نتحرك؟"
+    }
+  },
+  {
+    "fr": "Quoi de nouveau ?",
+    "ar": "شو الجديد؟",
+    "en": "What's new?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quoi de nouveau ?",
+      "en": "What's new?",
+      "ar": "شو الجديد؟"
+    }
+  },
+  {
+    "fr": "Quoi que tu dises.",
+    "ar": "مهما قلت.",
+    "en": "Whatever you say.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quoi que tu dises.",
+      "en": "Whatever you say.",
+      "ar": "مهما قلت."
+    }
+  },
+  {
+    "fr": "Qui sait ?",
+    "ar": "مين بيعرف؟",
+    "en": "Who knows?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui sait ?",
+      "en": "Who knows?",
+      "ar": "مين بيعرف؟"
+    }
+  },
+  {
+    "fr": "Qui sait ce qui va arriver ?",
+    "ar": "مين بيعرف شو رح يصير؟",
+    "en": "Who knows what will happen?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "transport"
+    ],
+    "ex": {
+      "fr": "Qui sait ce qui va arriver ?",
+      "en": "Who knows what will happen?",
+      "ar": "مين بيعرف شو رح يصير؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que tu veux dire ?",
+    "ar": "شو قصدك؟",
+    "en": "What do you mean?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que tu veux dire ?",
+      "en": "What do you mean?",
+      "ar": "شو قصدك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que vous voulez dire ?",
+    "ar": "شو قصدك؟",
+    "en": "What do you mean?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que vous voulez dire ?",
+      "en": "What do you mean?",
+      "ar": "شو قصدك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que tu veux que je fasse ?",
+    "ar": "شو بدك مني أعمل؟",
+    "en": "What do you want me to do?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que tu veux que je fasse ?",
+      "en": "What do you want me to do?",
+      "ar": "شو بدك مني أعمل؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que vous voulez que je fasse ?",
+    "ar": "شو بدك مني أعمل؟",
+    "en": "What do you want me to do?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que vous voulez que je fasse ?",
+      "en": "What do you want me to do?",
+      "ar": "شو بدك مني أعمل؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que tu en sais ?",
+    "ar": "شو بتعرف عنه؟",
+    "en": "What do you know about it?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que tu en sais ?",
+      "en": "What do you know about it?",
+      "ar": "شو بتعرف عنه؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que vous en savez ?",
+    "ar": "شو بتعرفوا عنه؟",
+    "en": "What do you know about it?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que vous en savez ?",
+      "en": "What do you know about it?",
+      "ar": "شو بتعرفوا عنه؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que tu veux de plus ?",
+    "ar": "شو بدك أكتر؟",
+    "en": "What more do you want?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que tu veux de plus ?",
+      "en": "What more do you want?",
+      "ar": "شو بدك أكتر؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que vous voulez de plus ?",
+    "ar": "شو بدك أكتر؟",
+    "en": "What more do you want?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que vous voulez de plus ?",
+      "en": "What more do you want?",
+      "ar": "شو بدك أكتر؟"
+    }
+  },
+  {
+    "fr": "Quel genre de travail cherchez-vous ?",
+    "ar": "شو نوع الشغل اللي عم تدور عليه؟",
+    "en": "What kind of work are you looking for?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Quel genre de travail cherchez-vous ?",
+      "en": "What kind of work are you looking for?",
+      "ar": "شو نوع الشغل اللي عم تدور عليه؟"
+    }
+  },
+  {
+    "fr": "Quel genre de logement cherchez-vous ?",
+    "ar": "شو نوع السكن اللي عم تدور عليه؟",
+    "en": "What kind of accommodation are you looking for?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "Quel genre de logement cherchez-vous ?",
+      "en": "What kind of accommodation are you looking for?",
+      "ar": "شو نوع السكن اللي عم تدور عليه؟"
+    }
+  },
+  {
+    "fr": "Quel genre de problème avez-vous ?",
+    "ar": "شو نوع المشكلة اللي عندك؟",
+    "en": "What kind of problem do you have?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel genre de problème avez-vous ?",
+      "en": "What kind of problem do you have?",
+      "ar": "شو نوع المشكلة اللي عندك؟"
+    }
+  },
+  {
+    "fr": "Quel genre de contrat proposez-vous ?",
+    "ar": "شو نوع العقد اللي بتعرضوه؟",
+    "en": "What kind of contract do you offer?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel genre de contrat proposez-vous ?",
+      "en": "What kind of contract do you offer?",
+      "ar": "شو نوع العقد اللي بتعرضوه؟"
+    }
+  },
+  {
+    "fr": "Quel genre de document faut-il ?",
+    "ar": "شو نوع الوثيقة المطلوبة؟",
+    "en": "What kind of document is needed?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quel genre de document faut-il ?",
+      "en": "What kind of document is needed?",
+      "ar": "شو نوع الوثيقة المطلوبة؟"
+    }
+  },
+  {
+    "fr": "Quel rythme de travail ?",
+    "ar": "شو نظام / وتيرة العمل؟",
+    "en": "What work schedule/rhythm?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Quel rythme de travail ?",
+      "en": "What work schedule/rhythm?",
+      "ar": "شو نظام / وتيرة العمل؟"
+    }
+  },
+  {
+    "fr": "Quel niveau de français faut-il ?",
+    "ar": "أي مستوى فرنسي مطلوب؟",
+    "en": "What level of French is required?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel niveau de français faut-il ?",
+      "en": "What level of French is required?",
+      "ar": "أي مستوى فرنسي مطلوب؟"
+    }
+  },
+  {
+    "fr": "Quel niveau d'expérience est demandé ?",
+    "ar": "شو مستوى الخبرة المطلوب؟",
+    "en": "What level of experience is required?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel niveau d'expérience est demandé ?",
+      "en": "What level of experience is required?",
+      "ar": "شو مستوى الخبرة المطلوب؟"
+    }
+  },
+  {
+    "fr": "Quelle formation faut-il suivre ?",
+    "ar": "أي تدريب لازم أعمل؟",
+    "en": "What training should be taken?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "school",
+      "work"
+    ],
+    "ex": {
+      "fr": "Quelle formation faut-il suivre ?",
+      "en": "What training should be taken?",
+      "ar": "أي تدريب لازم أعمل؟"
+    }
+  },
+  {
+    "fr": "Quelle expérience est nécessaire ?",
+    "ar": "شو الخبرة المطلوبة؟",
+    "en": "What experience is necessary?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle expérience est nécessaire ?",
+      "en": "What experience is necessary?",
+      "ar": "شو الخبرة المطلوبة؟"
+    }
+  },
+  {
+    "fr": "Quel matériel faut-il utiliser ?",
+    "ar": "أي معدات لازم نستخدم؟",
+    "en": "What equipment should be used?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel matériel faut-il utiliser ?",
+      "en": "What equipment should be used?",
+      "ar": "أي معدات لازم نستخدم؟"
+    }
+  },
+  {
+    "fr": "Quelle tenue faut-il porter ?",
+    "ar": "شو اللباس اللي لازم نلبسه؟",
+    "en": "What clothing/uniform must be worn?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle tenue faut-il porter ?",
+      "en": "What clothing/uniform must be worn?",
+      "ar": "شو اللباس اللي لازم نلبسه؟"
+    }
+  },
+  {
+    "fr": "Quel jour vous convient ?",
+    "ar": "أي يوم بناسبك؟",
+    "en": "Which day suits you?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel jour vous convient ?",
+      "en": "Which day suits you?",
+      "ar": "أي يوم بناسبك؟"
+    }
+  },
+  {
+    "fr": "Quelle date vous convient ?",
+    "ar": "أي تاريخ بناسبك؟",
+    "en": "Which date suits you?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle date vous convient ?",
+      "en": "Which date suits you?",
+      "ar": "أي تاريخ بناسبك؟"
+    }
+  },
+  {
+    "fr": "Quelle heure vous convient ?",
+    "ar": "أي ساعة بناسبك؟",
+    "en": "What time suits you?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle heure vous convient ?",
+      "en": "What time suits you?",
+      "ar": "أي ساعة بناسبك؟"
+    }
+  },
+  {
+    "fr": "Quel créneau vous convient ?",
+    "ar": "أي موعد بناسبك؟",
+    "en": "Which time slot suits you?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel créneau vous convient ?",
+      "en": "Which time slot suits you?",
+      "ar": "أي موعد بناسبك؟"
+    }
+  },
+  {
+    "fr": "Quel créneau est disponible ?",
+    "ar": "أي موعد متوفر؟",
+    "en": "Which time slot is available?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel créneau est disponible ?",
+      "en": "Which time slot is available?",
+      "ar": "أي موعد متوفر؟"
+    }
+  },
+  {
+    "fr": "Quand serait-il possible ?",
+    "ar": "إمتى بيكون ممكن؟",
+    "en": "When would it be possible?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quand serait-il possible ?",
+      "en": "When would it be possible?",
+      "ar": "إمتى بيكون ممكن؟"
+    }
+  },
+  {
+    "fr": "Quel formulaire dois-je remplir ?",
+    "ar": "أي استمارة لازم عبّي؟",
+    "en": "Which form do I need to fill out?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quel formulaire dois-je remplir ?",
+      "en": "Which form do I need to fill out?",
+      "ar": "أي استمارة لازم عبّي؟"
+    }
+  },
+  {
+    "fr": "Quel formulaire faut-il utiliser ?",
+    "ar": "أي استمارة لازم نستخدم؟",
+    "en": "Which form should be used?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quel formulaire faut-il utiliser ?",
+      "en": "Which form should be used?",
+      "ar": "أي استمارة لازم نستخدم؟"
+    }
+  },
+  {
+    "fr": "Quelle case dois-je cocher ?",
+    "ar": "أي خانة لازم علّم عليها؟",
+    "en": "Which box should I tick?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle case dois-je cocher ?",
+      "en": "Which box should I tick?",
+      "ar": "أي خانة لازم علّم عليها؟"
+    }
+  },
+  {
+    "fr": "Quelle information dois-je indiquer ?",
+    "ar": "شو المعلومات اللي لازم اكتبها؟",
+    "en": "What information should I enter/provide?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle information dois-je indiquer ?",
+      "en": "What information should I enter/provide?",
+      "ar": "شو المعلومات اللي لازم اكتبها؟"
+    }
+  },
+  {
+    "fr": "Quel renseignement dois-je donner ?",
+    "ar": "شو المعلومة اللي لازم أعطيها؟",
+    "en": "What information should I provide?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel renseignement dois-je donner ?",
+      "en": "What information should I provide?",
+      "ar": "شو المعلومة اللي لازم أعطيها؟"
+    }
+  },
+  {
+    "fr": "Quelle adresse dois-je indiquer ?",
+    "ar": "أي عنوان لازم اكتب؟",
+    "en": "Which address should I enter?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle adresse dois-je indiquer ?",
+      "en": "Which address should I enter?",
+      "ar": "أي عنوان لازم اكتب؟"
+    }
+  },
+  {
+    "fr": "Quel nom dois-je inscrire ?",
+    "ar": "أي اسم لازم اكتب؟",
+    "en": "Which name should I write down?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel nom dois-je inscrire ?",
+      "en": "Which name should I write down?",
+      "ar": "أي اسم لازم اكتب؟"
+    }
+  },
+  {
+    "fr": "Quel montant avez-vous déclaré ?",
+    "ar": "شو المبلغ اللي صرّحت عنه؟",
+    "en": "What amount did you declare?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel montant avez-vous déclaré ?",
+      "en": "What amount did you declare?",
+      "ar": "شو المبلغ اللي صرّحت عنه؟"
+    }
+  },
+  {
+    "fr": "Quel montant dois-je déclarer ?",
+    "ar": "شو المبلغ اللي لازم صرّح عنه؟",
+    "en": "What amount do I need to declare?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel montant dois-je déclarer ?",
+      "en": "What amount do I need to declare?",
+      "ar": "شو المبلغ اللي لازم صرّح عنه؟"
+    }
+  },
+  {
+    "fr": "Quelle somme avez-vous reçue ?",
+    "ar": "قديش المبلغ اللي استلمته؟",
+    "en": "What amount did you receive?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle somme avez-vous reçue ?",
+      "en": "What amount did you receive?",
+      "ar": "قديش المبلغ اللي استلمته؟"
+    }
+  },
+  {
+    "fr": "Quelle somme reste-t-il ?",
+    "ar": "قديش ضل؟",
+    "en": "How much remains?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle somme reste-t-il ?",
+      "en": "How much remains?",
+      "ar": "قديش ضل؟"
+    }
+  },
+  {
+    "fr": "Quel type de chauffage y a-t-il ?",
+    "ar": "شو نوع التدفئة الموجودة؟",
+    "en": "What type of heating is there?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "Quel type de chauffage y a-t-il ?",
+      "en": "What type of heating is there?",
+      "ar": "شو نوع التدفئة الموجودة؟"
+    }
+  },
+  {
+    "fr": "Quel est le montant des charges locatives ?",
+    "ar": "قديش مصاريف السكن؟",
+    "en": "How much are the rental charges?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel est le montant des charges locatives ?",
+      "en": "How much are the rental charges?",
+      "ar": "قديش مصاريف السكن؟"
+    }
+  },
+  {
+    "fr": "Quelle est la date de l'état des lieux ?",
+    "ar": "إمتى موعد معاينة السكن؟",
+    "en": "What is the date of the property inspection?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle est la date de l'état des lieux ?",
+      "en": "What is the date of the property inspection?",
+      "ar": "إمتى موعد معاينة السكن؟"
+    }
+  },
+  {
+    "fr": "Quelle clé correspond à quelle porte ?",
+    "ar": "أي مفتاح لأي باب؟",
+    "en": "Which key corresponds to which door?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle clé correspond à quelle porte ?",
+      "en": "Which key corresponds to which door?",
+      "ar": "أي مفتاح لأي باب؟"
+    }
+  },
+  {
+    "fr": "Quel est le sens de circulation ?",
+    "ar": "شو اتجاه السير؟",
+    "en": "What is the direction of traffic?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel est le sens de circulation ?",
+      "en": "What is the direction of traffic?",
+      "ar": "شو اتجاه السير؟"
+    }
+  },
+  {
+    "fr": "Quelle règle faut-il respecter ?",
+    "ar": "أي قاعدة لازم نلتزم فيها؟",
+    "en": "Which rule must be followed?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quelle règle faut-il respecter ?",
+      "en": "Which rule must be followed?",
+      "ar": "أي قاعدة لازم نلتزم فيها؟"
+    }
+  },
+  {
+    "fr": "Quel risque présente cette situation ?",
+    "ar": "شو الخطر بهالحالة؟",
+    "en": "What risk does this situation present?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel risque présente cette situation ?",
+      "en": "What risk does this situation present?",
+      "ar": "شو الخطر بهالحالة؟"
+    }
+  },
+  {
+    "fr": "Quelle manœuvre faut-il effectuer ?",
+    "ar": "أي مناورة لازم نعمل؟",
+    "en": "Which maneuver must be performed?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle manœuvre faut-il effectuer ?",
+      "en": "Which maneuver must be performed?",
+      "ar": "أي مناورة لازم نعمل؟"
+    }
+  },
+  {
+    "fr": "Quelle direction indique le panneau ?",
+    "ar": "أي اتجاه بتدل عليه الإشارة؟",
+    "en": "Which direction does the sign indicate?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle direction indique le panneau ?",
+      "en": "Which direction does the sign indicate?",
+      "ar": "أي اتجاه بتدل عليه الإشارة؟"
+    }
+  },
+  {
+    "fr": "Quel que soit le cas.",
+    "ar": "مهما كانت الحالة.",
+    "en": "Whatever the case.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel que soit le cas.",
+      "en": "Whatever the case.",
+      "ar": "مهما كانت الحالة."
+    }
+  },
+  {
+    "fr": "Quelle que soit la situation.",
+    "ar": "مهما كان الوضع. / مهما كان الوضع…",
+    "en": "Whatever the situation. / Whatever the situation…",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Quelle que soit la situation.",
+        "en": "Whatever the situation.",
+        "ar": "مهما كان الوضع."
+      },
+      {
+        "fr": "Quelle que soit la situation…",
+        "en": "Whatever the situation…",
+        "ar": "مهما كان الوضع…"
+      }
+    ]
+  },
+  {
+    "fr": "Quelle que soit la raison.",
+    "ar": "مهما كان السبب.",
+    "en": "Whatever the reason.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle que soit la raison.",
+      "en": "Whatever the reason.",
+      "ar": "مهما كان السبب."
+    }
+  },
+  {
+    "fr": "Quel que soit le problème.",
+    "ar": "مهما كانت المشكلة.",
+    "en": "Whatever the problem.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel que soit le problème.",
+      "en": "Whatever the problem.",
+      "ar": "مهما كانت المشكلة."
+    }
+  },
+  {
+    "fr": "Qui que ce soit.",
+    "ar": "أيًّا كان الشخص / مين ما كان.",
+    "en": "Whoever it may be.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui que ce soit.",
+      "en": "Whoever it may be.",
+      "ar": "أيًّا كان الشخص / مين ما كان."
+    }
+  },
+  {
+    "fr": "Qu'est-ce que tu deviens ?",
+    "ar": "شو أخبارك؟ / شو صار معك؟",
+    "en": "How have you been? / What have you been up to?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que tu deviens ?",
+      "en": "How have you been? / What have you been up to?",
+      "ar": "شو أخبارك؟ / شو صار معك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que vous devenez ?",
+    "ar": "شو أخبارك؟",
+    "en": "How have you been?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que vous devenez ?",
+      "en": "How have you been?",
+      "ar": "شو أخبارك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui t'arrive ?",
+    "ar": "شو صاير معك؟",
+    "en": "What's happening to you?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui t'arrive ?",
+      "en": "What's happening to you?",
+      "ar": "شو صاير معك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui vous arrive ?",
+    "ar": "شو صاير معك؟",
+    "en": "What's happening to you?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui vous arrive ?",
+      "en": "What's happening to you?",
+      "ar": "شو صاير معك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui te prend ?",
+    "ar": "شو صايرلك؟ / شو اللي أخدك؟",
+    "en": "What's gotten into you?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui te prend ?",
+      "en": "What's gotten into you?",
+      "ar": "شو صايرلك؟ / شو اللي أخدك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui t'a pris ?",
+    "ar": "شو اللي خلاك تعمل هيك؟",
+    "en": "What came over you?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui t'a pris ?",
+      "en": "What came over you?",
+      "ar": "شو اللي خلاك تعمل هيك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que j'en sais ?",
+    "ar": "من وين بدي أعرف؟",
+    "en": "How would I know?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que j'en sais ?",
+      "en": "How would I know?",
+      "ar": "من وين بدي أعرف؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que j'y peux ?",
+    "ar": "شو فيني أعمل؟ / شو خصني؟",
+    "en": "What can I do about it? / It's not my fault.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que j'y peux ?",
+      "en": "What can I do about it? / It's not my fault.",
+      "ar": "شو فيني أعمل؟ / شو خصني؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que ça peut faire ?",
+    "ar": "شو ممكن يفرق؟",
+    "en": "What difference can it make?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que ça peut faire ?",
+      "en": "What difference can it make?",
+      "ar": "شو ممكن يفرق؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que ça peut bien vouloir dire ?",
+    "ar": "شو ممكن يعني هالشي؟",
+    "en": "What could that possibly mean?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que ça peut bien vouloir dire ?",
+      "en": "What could that possibly mean?",
+      "ar": "شو ممكن يعني هالشي؟"
+    }
+  },
+  {
+    "fr": "C'est quoi ?",
+    "ar": "شو هاد؟",
+    "en": "What is it?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est quoi ?",
+      "en": "What is it?",
+      "ar": "شو هاد؟"
+    }
+  },
+  {
+    "fr": "C'est quoi ça ?",
+    "ar": "شو هاد؟",
+    "en": "What's this? / What's that?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "C'est quoi ça ?",
+        "en": "What's this?",
+        "ar": "شو هاد؟"
+      },
+      {
+        "fr": "C'est quoi, ça ?",
+        "en": "What's that?",
+        "ar": "شو هاد؟"
+      }
+    ]
+  },
+  {
+    "fr": "C'est quoi ton problème ?",
+    "ar": "شو مشكلتك؟",
+    "en": "What's your problem?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est quoi ton problème ?",
+      "en": "What's your problem?",
+      "ar": "شو مشكلتك؟"
+    }
+  },
+  {
+    "fr": "C'est quoi ton travail ?",
+    "ar": "شو شغلك؟",
+    "en": "What is your job?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "C'est quoi ton travail ?",
+      "en": "What is your job?",
+      "ar": "شو شغلك؟"
+    }
+  },
+  {
+    "fr": "C'est quoi ton métier ?",
+    "ar": "شو مهنتك؟",
+    "en": "What's your occupation?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "C'est quoi ton métier ?",
+      "en": "What's your occupation?",
+      "ar": "شو مهنتك؟"
+    }
+  },
+  {
+    "fr": "C'est quoi le problème ?",
+    "ar": "شو المشكلة؟",
+    "en": "What's the problem?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est quoi le problème ?",
+      "en": "What's the problem?",
+      "ar": "شو المشكلة؟"
+    }
+  },
+  {
+    "fr": "C'est quoi la différence ?",
+    "ar": "شو الفرق؟",
+    "en": "What's the difference?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est quoi la différence ?",
+      "en": "What's the difference?",
+      "ar": "شو الفرق؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui est prévu pour demain ?",
+    "ar": "شو مخطط لبكرا؟",
+    "en": "What's planned for tomorrow?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui est prévu pour demain ?",
+      "en": "What's planned for tomorrow?",
+      "ar": "شو مخطط لبكرا؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui est prévu cette semaine ?",
+    "ar": "شو مخطط هالأسبوع؟",
+    "en": "What's planned this week?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui est prévu cette semaine ?",
+      "en": "What's planned this week?",
+      "ar": "شو مخطط هالأسبوع؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui change à partir de demain ?",
+    "ar": "شو بيتغير من بكرا؟",
+    "en": "What changes starting tomorrow?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui change à partir de demain ?",
+      "en": "What changes starting tomorrow?",
+      "ar": "شو بيتغير من بكرا؟"
+    }
+  },
+  {
+    "fr": "Quel poste allez-vous occuper ?",
+    "ar": "أي منصب رح تشتغل؟",
+    "en": "What position will you hold?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "housing",
+      "work"
+    ],
+    "ex": {
+      "fr": "Quel poste allez-vous occuper ?",
+      "en": "What position will you hold?",
+      "ar": "أي منصب رح تشتغل؟"
+    }
+  },
+  {
+    "fr": "Quel service allez-vous rejoindre ?",
+    "ar": "بأي قسم رح تشتغل؟",
+    "en": "Which department will you join?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quel service allez-vous rejoindre ?",
+      "en": "Which department will you join?",
+      "ar": "بأي قسم رح تشتغل؟"
+    }
+  },
+  {
+    "fr": "Quel est le nombre d'heures prévu ?",
+    "ar": "قديش عدد الساعات المحددة؟",
+    "en": "How many hours are planned?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "france_travail",
+      "work"
+    ],
+    "ex": {
+      "fr": "Quel est le nombre d'heures prévu ?",
+      "en": "How many hours are planned?",
+      "ar": "قديش عدد الساعات المحددة؟"
+    }
+  },
+  {
+    "fr": "Quel est le nom de mon conseiller ?",
+    "ar": "شو اسم مستشاري؟",
+    "en": "What is the name of my advisor?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Quel est le nom de mon conseiller ?",
+      "en": "What is the name of my advisor?",
+      "ar": "شو اسم مستشاري؟"
+    }
+  },
+  {
+    "fr": "Quand puis-je contacter mon conseiller ?",
+    "ar": "إمتى فيني اتواصل مع مستشاري؟",
+    "en": "When can I contact my advisor?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Quand puis-je contacter mon conseiller ?",
+      "en": "When can I contact my advisor?",
+      "ar": "إمتى فيني اتواصل مع مستشاري؟"
+    }
+  },
+  {
+    "fr": "Quelle démarche dois-je effectuer ?",
+    "ar": "شو الإجراء اللي لازم أعمله؟",
+    "en": "What procedure do I need to carry out?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle démarche dois-je effectuer ?",
+      "en": "What procedure do I need to carry out?",
+      "ar": "شو الإجراء اللي لازم أعمله؟"
+    }
+  },
+  {
+    "fr": "Quel document dois-je transmettre ?",
+    "ar": "أي وثيقة لازم أرسل؟",
+    "en": "Which document do I need to submit?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quel document dois-je transmettre ?",
+      "en": "Which document do I need to submit?",
+      "ar": "أي وثيقة لازم أرسل؟"
+    }
+  },
+  {
+    "fr": "Quelle réponse avez-vous reçue ?",
+    "ar": "شو الرد اللي وصلك؟",
+    "en": "What response did you receive?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle réponse avez-vous reçue ?",
+      "en": "What response did you receive?",
+      "ar": "شو الرد اللي وصلك؟"
+    }
+  },
+  {
+    "fr": "Quand la demande sera-t-elle traitée ?",
+    "ar": "إمتى رح تتم معالجة الطلب؟",
+    "en": "When will the application be processed?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quand la demande sera-t-elle traitée ?",
+      "en": "When will the application be processed?",
+      "ar": "إمتى رح تتم معالجة الطلب؟"
+    }
+  },
+  {
+    "fr": "Quelle est la durée de traitement ?",
+    "ar": "قديش مدة معالجة الطلب؟",
+    "en": "What is the processing time?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle est la durée de traitement ?",
+      "en": "What is the processing time?",
+      "ar": "قديش مدة معالجة الطلب؟"
+    }
+  },
+  {
+    "fr": "Quel est le montant du loyer mensuel ?",
+    "ar": "قديش الإيجار الشهري؟",
+    "en": "What is the monthly rent?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "Quel est le montant du loyer mensuel ?",
+      "en": "What is the monthly rent?",
+      "ar": "قديش الإيجار الشهري؟"
+    }
+  },
+  {
+    "fr": "Quelle est la date limite de paiement ?",
+    "ar": "شو آخر موعد للدفع؟",
+    "en": "What is the payment deadline?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "bank"
+    ],
+    "ex": {
+      "fr": "Quelle est la date limite de paiement ?",
+      "en": "What is the payment deadline?",
+      "ar": "شو آخر موعد للدفع؟"
+    }
+  },
+  {
+    "fr": "Quelle est la durée du bail ?",
+    "ar": "قديش مدة عقد الإيجار؟",
+    "en": "What is the lease duration?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "Quelle est la durée du bail ?",
+      "en": "What is the lease duration?",
+      "ar": "قديش مدة عقد الإيجار؟"
+    }
+  },
+  {
+    "fr": "Quel est le montant de la caution ?",
+    "ar": "قديش مبلغ التأمين؟",
+    "en": "How much is the security deposit?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel est le montant de la caution ?",
+      "en": "How much is the security deposit?",
+      "ar": "قديش مبلغ التأمين؟"
+    }
+  },
+  {
+    "fr": "Quelle assurance faut-il fournir ?",
+    "ar": "أي تأمين لازم نقدّم؟",
+    "en": "Which insurance must be provided?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Quelle assurance faut-il fournir ?",
+      "en": "Which insurance must be provided?",
+      "ar": "أي تأمين لازم نقدّم؟"
+    }
+  },
+  {
+    "fr": "Quel est le montant de mes droits ?",
+    "ar": "قديش قيمة حقوقي/مساعداتي؟",
+    "en": "How much are my benefits?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel est le montant de mes droits ?",
+      "en": "How much are my benefits?",
+      "ar": "قديش قيمة حقوقي/مساعداتي؟"
+    }
+  },
+  {
+    "fr": "Quand mes droits seront-ils recalculés ?",
+    "ar": "إمتى رح تنعاد حساب حقوقي؟",
+    "en": "When will my benefits be recalculated?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quand mes droits seront-ils recalculés ?",
+      "en": "When will my benefits be recalculated?",
+      "ar": "إمتى رح تنعاد حساب حقوقي؟"
+    }
+  },
+  {
+    "fr": "Quelle déclaration dois-je faire ?",
+    "ar": "أي تصريح لازم أعمل؟",
+    "en": "Which declaration do I need to make?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "Quelle déclaration dois-je faire ?",
+      "en": "Which declaration do I need to make?",
+      "ar": "أي تصريح لازم أعمل؟"
+    }
+  },
+  {
+    "fr": "Quel changement dois-je déclarer ?",
+    "ar": "أي تغيير لازم صرّح عنه؟",
+    "en": "Which change do I need to report?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel changement dois-je déclarer ?",
+      "en": "Which change do I need to report?",
+      "ar": "أي تغيير لازم صرّح عنه؟"
+    }
+  },
+  {
+    "fr": "Quand dois-je actualiser ma situation ?",
+    "ar": "إمتى لازم حدّث وضعي؟",
+    "en": "When do I need to update my situation?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quand dois-je actualiser ma situation ?",
+      "en": "When do I need to update my situation?",
+      "ar": "إمتى لازم حدّث وضعي؟"
+    }
+  },
+  {
+    "fr": "Quel danger représente cette situation ?",
+    "ar": "شو الخطر اللي بتمثله هالحالة؟",
+    "en": "What danger does this situation present?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel danger représente cette situation ?",
+      "en": "What danger does this situation present?",
+      "ar": "شو الخطر اللي بتمثله هالحالة؟"
+    }
+  },
+  {
+    "fr": "Quelle distance faut-il respecter ?",
+    "ar": "شو المسافة اللي لازم نحافظ عليها؟",
+    "en": "What distance must be maintained?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle distance faut-il respecter ?",
+      "en": "What distance must be maintained?",
+      "ar": "شو المسافة اللي لازم نحافظ عليها؟"
+    }
+  },
+  {
+    "fr": "Quelle position dois-je prendre ?",
+    "ar": "أي وضعية لازم آخد؟",
+    "en": "What position should I take?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle position dois-je prendre ?",
+      "en": "What position should I take?",
+      "ar": "أي وضعية لازم آخد؟"
+    }
+  },
+  {
+    "fr": "Quel clignotant dois-je utiliser ?",
+    "ar": "أي غماز لازم استخدم؟",
+    "en": "Which turn signal should I use?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel clignotant dois-je utiliser ?",
+      "en": "Which turn signal should I use?",
+      "ar": "أي غماز لازم استخدم؟"
+    }
+  },
+  {
+    "fr": "Quelle priorité dois-je respecter ?",
+    "ar": "أي أولوية لازم احترم؟",
+    "en": "Which priority rule must I follow?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle priorité dois-je respecter ?",
+      "en": "Which priority rule must I follow?",
+      "ar": "أي أولوية لازم احترم؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui te fait dire ça ?",
+    "ar": "شو اللي خلاك تقول هيك؟",
+    "en": "What makes you say that?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui te fait dire ça ?",
+      "en": "What makes you say that?",
+      "ar": "شو اللي خلاك تقول هيك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui vous fait dire ça ?",
+    "ar": "شو اللي خلاك تقول هيك؟",
+    "en": "What makes you say that?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui vous fait dire ça ?",
+      "en": "What makes you say that?",
+      "ar": "شو اللي خلاك تقول هيك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui t'intéresse ?",
+    "ar": "شو اللي بهتمك؟",
+    "en": "What interests you?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui t'intéresse ?",
+      "en": "What interests you?",
+      "ar": "شو اللي بهتمك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui vous intéresse ?",
+    "ar": "شو اللي بهتمك؟",
+    "en": "What interests you?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui vous intéresse ?",
+      "en": "What interests you?",
+      "ar": "شو اللي بهتمك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui te plaît ?",
+    "ar": "شو اللي بيعجبك؟",
+    "en": "What do you like?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui te plaît ?",
+      "en": "What do you like?",
+      "ar": "شو اللي بيعجبك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui vous plaît ?",
+    "ar": "شو اللي بيعجبك؟",
+    "en": "What do you like?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui vous plaît ?",
+      "en": "What do you like?",
+      "ar": "شو اللي بيعجبك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui te convient ?",
+    "ar": "شو اللي بناسبك؟",
+    "en": "What suits you?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui te convient ?",
+      "en": "What suits you?",
+      "ar": "شو اللي بناسبك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui vous convient ?",
+    "ar": "شو اللي بناسبك؟",
+    "en": "What suits you?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui vous convient ?",
+      "en": "What suits you?",
+      "ar": "شو اللي بناسبك؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce qui est le mieux ?",
+    "ar": "شو الأفضل؟",
+    "en": "What's best?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce qui est le mieux ?",
+      "en": "What's best?",
+      "ar": "شو الأفضل؟"
+    }
+  },
+  {
+    "fr": "Quelle heure préférez-vous ?",
+    "ar": "أي ساعة بتفضل؟",
+    "en": "What time do you prefer?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle heure préférez-vous ?",
+      "en": "What time do you prefer?",
+      "ar": "أي ساعة بتفضل؟"
+    }
+  },
+  {
+    "fr": "Quel jour préférez-vous ?",
+    "ar": "أي يوم بتفضل؟",
+    "en": "Which day do you prefer?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel jour préférez-vous ?",
+      "en": "Which day do you prefer?",
+      "ar": "أي يوم بتفضل؟"
+    }
+  },
+  {
+    "fr": "Quelle date préférez-vous ?",
+    "ar": "أي تاريخ بتفضل؟",
+    "en": "Which date do you prefer?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle date préférez-vous ?",
+      "en": "Which date do you prefer?",
+      "ar": "أي تاريخ بتفضل؟"
+    }
+  },
+  {
+    "fr": "Quel moment vous arrange ?",
+    "ar": "أي وقت بناسبك؟",
+    "en": "What time works for you?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel moment vous arrange ?",
+      "en": "What time works for you?",
+      "ar": "أي وقت بناسبك؟"
+    }
+  },
+  {
+    "fr": "Quel moment vous conviendrait ?",
+    "ar": "أي وقت ممكن يناسبك؟",
+    "en": "What time would suit you?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel moment vous conviendrait ?",
+      "en": "What time would suit you?",
+      "ar": "أي وقت ممكن يناسبك؟"
+    }
+  },
+  {
+    "fr": "Quel type de contrat recherchez-vous ?",
+    "ar": "شو نوع العقد اللي عم تدور عليه؟",
+    "en": "What type of contract are you looking for?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel type de contrat recherchez-vous ?",
+      "en": "What type of contract are you looking for?",
+      "ar": "شو نوع العقد اللي عم تدور عليه؟"
+    }
+  },
+  {
+    "fr": "Quel type de poste recherchez-vous ?",
+    "ar": "شو نوع الوظيفة اللي عم تدور عليها؟",
+    "en": "What type of position are you looking for?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Quel type de poste recherchez-vous ?",
+      "en": "What type of position are you looking for?",
+      "ar": "شو نوع الوظيفة اللي عم تدور عليها؟"
+    }
+  },
+  {
+    "fr": "Quelle rémunération souhaitez-vous ?",
+    "ar": "قديش الراتب اللي بتتوقعه؟",
+    "en": "What salary/remuneration do you expect?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle rémunération souhaitez-vous ?",
+      "en": "What salary/remuneration do you expect?",
+      "ar": "قديش الراتب اللي بتتوقعه؟"
+    }
+  },
+  {
+    "fr": "Quelle est votre qualification principale ?",
+    "ar": "شو مؤهلك الأساسي؟",
+    "en": "What is your main qualification?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle est votre qualification principale ?",
+      "en": "What is your main qualification?",
+      "ar": "شو مؤهلك الأساسي؟"
+    }
+  },
+  {
+    "fr": "Quelle est votre expérience professionnelle ?",
+    "ar": "شو خبرتك المهنية؟",
+    "en": "What is your professional experience?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle est votre expérience professionnelle ?",
+      "en": "What is your professional experience?",
+      "ar": "شو خبرتك المهنية؟"
+    }
+  },
+  {
+    "fr": "Quel est votre niveau de français ?",
+    "ar": "شو مستوى الفرنسي عندك؟",
+    "en": "What is your level of French?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel est votre niveau de français ?",
+      "en": "What is your level of French?",
+      "ar": "شو مستوى الفرنسي عندك؟"
+    }
+  },
+  {
+    "fr": "Quelle langue parlez-vous ?",
+    "ar": "أي لغة بتحكي؟",
+    "en": "What language do you speak?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle langue parlez-vous ?",
+      "en": "What language do you speak?",
+      "ar": "أي لغة بتحكي؟"
+    }
+  },
+  {
+    "fr": "Quelles tâches devez-vous effectuer ?",
+    "ar": "شو المهام اللي لازم تعملها؟",
+    "en": "What tasks do you have to perform?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelles tâches devez-vous effectuer ?",
+      "en": "What tasks do you have to perform?",
+      "ar": "شو المهام اللي لازم تعملها؟"
+    }
+  },
+  {
+    "fr": "Quelles tâches sont prévues ?",
+    "ar": "شو المهام المحددة؟",
+    "en": "What tasks are planned?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelles tâches sont prévues ?",
+      "en": "What tasks are planned?",
+      "ar": "شو المهام المحددة؟"
+    }
+  },
+  {
+    "fr": "Quelle tâche dois-je faire en premier ?",
+    "ar": "أي مهمة لازم أعملها أول شي؟",
+    "en": "Which task should I do first?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle tâche dois-je faire en premier ?",
+      "en": "Which task should I do first?",
+      "ar": "أي مهمة لازم أعملها أول شي؟"
+    }
+  },
+  {
+    "fr": "Quel matériel dois-je préparer ?",
+    "ar": "شو المعدات اللي لازم حضّرها؟",
+    "en": "What equipment do I need to prepare?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "Quel matériel dois-je préparer ?",
+      "en": "What equipment do I need to prepare?",
+      "ar": "شو المعدات اللي لازم حضّرها؟"
+    }
+  },
+  {
+    "fr": "Quelle consigne dois-je suivre ?",
+    "ar": "أي تعليمات لازم اتبع؟",
+    "en": "Which instruction should I follow?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle consigne dois-je suivre ?",
+      "en": "Which instruction should I follow?",
+      "ar": "أي تعليمات لازم اتبع؟"
+    }
+  },
+  {
+    "fr": "Quel justificatif est accepté ?",
+    "ar": "أي إثبات مقبول؟",
+    "en": "Which supporting document is accepted?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quel justificatif est accepté ?",
+      "en": "Which supporting document is accepted?",
+      "ar": "أي إثبات مقبول؟"
+    }
+  },
+  {
+    "fr": "Quelle copie faut-il envoyer ?",
+    "ar": "أي نسخة لازم ابعت؟",
+    "en": "Which copy needs to be sent?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle copie faut-il envoyer ?",
+      "en": "Which copy needs to be sent?",
+      "ar": "أي نسخة لازم ابعت؟"
+    }
+  },
+  {
+    "fr": "Quel original faut-il présenter ?",
+    "ar": "أي أصل وثيقة لازم أقدّم؟",
+    "en": "Which original document must be presented?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quel original faut-il présenter ?",
+      "en": "Which original document must be presented?",
+      "ar": "أي أصل وثيقة لازم أقدّم؟"
+    }
+  },
+  {
+    "fr": "Quelle signature faut-il apposer ?",
+    "ar": "أي توقيع لازم نحط؟",
+    "en": "Which signature needs to be provided?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle signature faut-il apposer ?",
+      "en": "Which signature needs to be provided?",
+      "ar": "أي توقيع لازم نحط؟"
+    }
+  },
+  {
+    "fr": "Quel délai reste-t-il ?",
+    "ar": "قديش ضل وقت؟",
+    "en": "How much time remains?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel délai reste-t-il ?",
+      "en": "How much time remains?",
+      "ar": "قديش ضل وقت؟"
+    }
+  },
+  {
+    "fr": "Quelle date limite dois-je respecter ?",
+    "ar": "أي مهلة لازم التزم فيها؟",
+    "en": "What deadline must I meet?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle date limite dois-je respecter ?",
+      "en": "What deadline must I meet?",
+      "ar": "أي مهلة لازم التزم فيها؟"
+    }
+  },
+  {
+    "fr": "Quel logement est disponible ?",
+    "ar": "أي سكن متوفر؟",
+    "en": "Which accommodation is available?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "Quel logement est disponible ?",
+      "en": "Which accommodation is available?",
+      "ar": "أي سكن متوفر؟"
+    }
+  },
+  {
+    "fr": "Quel appartement est disponible ?",
+    "ar": "أي شقة متوفرة؟",
+    "en": "Which apartment is available?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "Quel appartement est disponible ?",
+      "en": "Which apartment is available?",
+      "ar": "أي شقة متوفرة؟"
+    }
+  },
+  {
+    "fr": "Quelle pièce est concernée ?",
+    "ar": "أي غرفة معنية؟",
+    "en": "Which room is concerned?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle pièce est concernée ?",
+      "en": "Which room is concerned?",
+      "ar": "أي غرفة معنية؟"
+    }
+  },
+  {
+    "fr": "Quel problème avez-vous constaté ?",
+    "ar": "شو المشكلة اللي لاحظتها؟",
+    "en": "What problem did you notice?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel problème avez-vous constaté ?",
+      "en": "What problem did you notice?",
+      "ar": "شو المشكلة اللي لاحظتها؟"
+    }
+  },
+  {
+    "fr": "Quelle réparation est nécessaire ?",
+    "ar": "شو التصليح المطلوب؟",
+    "en": "What repair is necessary?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle réparation est nécessaire ?",
+      "en": "What repair is necessary?",
+      "ar": "شو التصليح المطلوب؟"
+    }
+  },
+  {
+    "fr": "Quel technicien doit intervenir ?",
+    "ar": "أي فني لازم يجي؟",
+    "en": "Which technician needs to come?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel technicien doit intervenir ?",
+      "en": "Which technician needs to come?",
+      "ar": "أي فني لازم يجي؟"
+    }
+  },
+  {
+    "fr": "Quel numéro avez-vous appelé ?",
+    "ar": "أي رقم اتصلت فيه؟",
+    "en": "Which number did you call?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel numéro avez-vous appelé ?",
+      "en": "Which number did you call?",
+      "ar": "أي رقم اتصلت فيه؟"
+    }
+  },
+  {
+    "fr": "Quel numéro m'avez-vous donné ?",
+    "ar": "أي رقم عطيتني؟",
+    "en": "Which number did you give me?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel numéro m'avez-vous donné ?",
+      "en": "Which number did you give me?",
+      "ar": "أي رقم عطيتني؟"
+    }
+  },
+  {
+    "fr": "Quelle personne dois-je contacter ?",
+    "ar": "أي شخص لازم اتواصل معه؟",
+    "en": "Which person should I contact?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle personne dois-je contacter ?",
+      "en": "Which person should I contact?",
+      "ar": "أي شخص لازم اتواصل معه؟"
+    }
+  },
+  {
+    "fr": "Qui dois-je demander ?",
+    "ar": "مين لازم أطلب؟",
+    "en": "Who should I ask for?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Qui dois-je demander ?",
+      "en": "Who should I ask for?",
+      "ar": "مين لازم أطلب؟"
+    }
+  },
+  {
+    "fr": "Qui vivra verra.",
+    "ar": "الأيام بتكشف / منشوف شو بيصير.",
+    "en": "Time will tell.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui vivra verra.",
+      "en": "Time will tell.",
+      "ar": "الأيام بتكشف / منشوف شو بيصير."
+    }
+  },
+  {
+    "fr": "Qui peut le dire ?",
+    "ar": "مين بيقدر يقول؟",
+    "en": "Who can say?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui peut le dire ?",
+      "en": "Who can say?",
+      "ar": "مين بيقدر يقول؟"
+    }
+  },
+  {
+    "fr": "Que demander de plus ?",
+    "ar": "شو بدك أكتر من هيك؟",
+    "en": "What more could you ask for?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Que demander de plus ?",
+      "en": "What more could you ask for?",
+      "ar": "شو بدك أكتر من هيك؟"
+    }
+  },
+  {
+    "fr": "Que demander de mieux ?",
+    "ar": "شو في أحسن من هيك؟",
+    "en": "What more could one ask for?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Que demander de mieux ?",
+      "en": "What more could one ask for?",
+      "ar": "شو في أحسن من هيك؟"
+    }
+  },
+  {
+    "fr": "Que faire ?",
+    "ar": "شو نعمل؟",
+    "en": "What to do? / What should we do?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Que faire ?",
+      "en": "What to do? / What should we do?",
+      "ar": "شو نعمل؟"
+    }
+  },
+  {
+    "fr": "Que faire maintenant ?",
+    "ar": "شو نعمل هلق؟",
+    "en": "What should we do now?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Que faire maintenant ?",
+      "en": "What should we do now?",
+      "ar": "شو نعمل هلق؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que tu veux savoir ?",
+    "ar": "شو بدك تعرف؟",
+    "en": "What do you want to know?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que tu veux savoir ?",
+      "en": "What do you want to know?",
+      "ar": "شو بدك تعرف؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que vous voulez savoir ?",
+    "ar": "شو بدك تعرف؟",
+    "en": "What do you want to know?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que vous voulez savoir ?",
+      "en": "What do you want to know?",
+      "ar": "شو بدك تعرف؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que tu attends de moi ?",
+    "ar": "شو متوقع مني؟",
+    "en": "What do you expect from me?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que tu attends de moi ?",
+      "en": "What do you expect from me?",
+      "ar": "شو متوقع مني؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que vous attendez de moi ?",
+    "ar": "شو متوقع مني؟",
+    "en": "What do you expect from me?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que vous attendez de moi ?",
+      "en": "What do you expect from me?",
+      "ar": "شو متوقع مني؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que tu proposes ?",
+    "ar": "شو بتقترح؟",
+    "en": "What do you suggest?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que tu proposes ?",
+      "en": "What do you suggest?",
+      "ar": "شو بتقترح؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que vous proposez ?",
+    "ar": "شو بتقترحوا / شو بتعرضوا؟",
+    "en": "What do you suggest/offer?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que vous proposez ?",
+      "en": "What do you suggest/offer?",
+      "ar": "شو بتقترحوا / شو بتعرضوا؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que tu préfères ?",
+    "ar": "شو بتفضل؟",
+    "en": "What do you prefer?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que tu préfères ?",
+      "en": "What do you prefer?",
+      "ar": "شو بتفضل؟"
+    }
+  },
+  {
+    "fr": "Qu'est-ce que vous préférez ?",
+    "ar": "شو بتفضل؟",
+    "en": "What do you prefer?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qu'est-ce que vous préférez ?",
+      "en": "What do you prefer?",
+      "ar": "شو بتفضل؟"
+    }
+  },
+  {
+    "fr": "Qui t'a dit ça ?",
+    "ar": "مين قالك هاد؟",
+    "en": "Who told you that?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui t'a dit ça ?",
+      "en": "Who told you that?",
+      "ar": "مين قالك هاد؟"
+    }
+  },
+  {
+    "fr": "Qui vous a dit ça ?",
+    "ar": "مين قالك هاد؟",
+    "en": "Who told you that?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui vous a dit ça ?",
+      "en": "Who told you that?",
+      "ar": "مين قالك هاد؟"
+    }
+  },
+  {
+    "fr": "Qui l'a fait ?",
+    "ar": "مين عملها؟",
+    "en": "Who did it?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui l'a fait ?",
+      "en": "Who did it?",
+      "ar": "مين عملها؟"
+    }
+  },
+  {
+    "fr": "Qui l'a envoyé ?",
+    "ar": "مين بعتها؟",
+    "en": "Who sent it?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui l'a envoyé ?",
+      "en": "Who sent it?",
+      "ar": "مين بعتها؟"
+    }
+  },
+  {
+    "fr": "Qui l'a reçu ?",
+    "ar": "مين استلمها؟",
+    "en": "Who received it?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui l'a reçu ?",
+      "en": "Who received it?",
+      "ar": "مين استلمها؟"
+    }
+  },
+  {
+    "fr": "Qui peut confirmer ?",
+    "ar": "مين فيو يأكد؟",
+    "en": "Who can confirm?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui peut confirmer ?",
+      "en": "Who can confirm?",
+      "ar": "مين فيو يأكد؟"
+    }
+  },
+  {
+    "fr": "Qui doit signer ?",
+    "ar": "مين لازم يوقّع؟",
+    "en": "Who has to sign?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui doit signer ?",
+      "en": "Who has to sign?",
+      "ar": "مين لازم يوقّع؟"
+    }
+  },
+  {
+    "fr": "Qui doit payer ?",
+    "ar": "مين لازم يدفع؟",
+    "en": "Who has to pay?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui doit payer ?",
+      "en": "Who has to pay?",
+      "ar": "مين لازم يدفع؟"
+    }
+  },
+  {
+    "fr": "Qui est mon responsable ?",
+    "ar": "مين مسؤولي؟",
+    "en": "Who is my manager?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui est mon responsable ?",
+      "en": "Who is my manager?",
+      "ar": "مين مسؤولي؟"
+    }
+  },
+  {
+    "fr": "Qui est mon chef ?",
+    "ar": "مين مديري؟",
+    "en": "Who is my supervisor/boss?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui est mon chef ?",
+      "en": "Who is my supervisor/boss?",
+      "ar": "مين مديري؟"
+    }
+  },
+  {
+    "fr": "Qui dois-je prévenir ?",
+    "ar": "مين لازم خبر؟",
+    "en": "Who should I inform?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui dois-je prévenir ?",
+      "en": "Who should I inform?",
+      "ar": "مين لازم خبر؟"
+    }
+  },
+  {
+    "fr": "Qui dois-je prévenir en cas de problème ?",
+    "ar": "مين لازم خبر إذا صار مشكلة؟",
+    "en": "Who should I inform in case of a problem?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui dois-je prévenir en cas de problème ?",
+      "en": "Who should I inform in case of a problem?",
+      "ar": "مين لازم خبر إذا صار مشكلة؟"
+    }
+  },
+  {
+    "fr": "Quelle tâche est prioritaire ?",
+    "ar": "أي مهمة هي الأولوية؟",
+    "en": "Which task is a priority?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle tâche est prioritaire ?",
+      "en": "Which task is a priority?",
+      "ar": "أي مهمة هي الأولوية؟"
+    }
+  },
+  {
+    "fr": "Quelle tâche dois-je terminer aujourd'hui ?",
+    "ar": "أي مهمة لازم خلصها اليوم؟",
+    "en": "Which task do I need to finish today?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle tâche dois-je terminer aujourd'hui ?",
+      "en": "Which task do I need to finish today?",
+      "ar": "أي مهمة لازم خلصها اليوم؟"
+    }
+  },
+  {
+    "fr": "Quel équipement dois-je utiliser ?",
+    "ar": "أي معدات لازم استخدم؟",
+    "en": "Which equipment should I use?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel équipement dois-je utiliser ?",
+      "en": "Which equipment should I use?",
+      "ar": "أي معدات لازم استخدم؟"
+    }
+  },
+  {
+    "fr": "Quelle procédure dois-je suivre ?",
+    "ar": "أي إجراء لازم اتبع؟",
+    "en": "Which procedure should I follow?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle procédure dois-je suivre ?",
+      "en": "Which procedure should I follow?",
+      "ar": "أي إجراء لازم اتبع؟"
+    }
+  },
+  {
+    "fr": "Qui doit remplir ce formulaire ?",
+    "ar": "مين لازم يعبّي هالاستمارة؟",
+    "en": "Who has to fill out this form?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Qui doit remplir ce formulaire ?",
+      "en": "Who has to fill out this form?",
+      "ar": "مين لازم يعبّي هالاستمارة؟"
+    }
+  },
+  {
+    "fr": "Qui doit signer ce document ?",
+    "ar": "مين لازم يوقّع هالوثيقة؟",
+    "en": "Who has to sign this document?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Qui doit signer ce document ?",
+      "en": "Who has to sign this document?",
+      "ar": "مين لازم يوقّع هالوثيقة؟"
+    }
+  },
+  {
+    "fr": "Qui peut certifier ce document ?",
+    "ar": "مين فيو يصدّق هالوثيقة؟",
+    "en": "Who can certify this document?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Qui peut certifier ce document ?",
+      "en": "Who can certify this document?",
+      "ar": "مين فيو يصدّق هالوثيقة؟"
+    }
+  },
+  {
+    "fr": "Quelle information manque ?",
+    "ar": "شو المعلومة الناقصة؟",
+    "en": "What information is missing?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle information manque ?",
+      "en": "What information is missing?",
+      "ar": "شو المعلومة الناقصة؟"
+    }
+  },
+  {
+    "fr": "Quelle information dois-je ajouter ?",
+    "ar": "شو المعلومة اللي لازم أضيفها؟",
+    "en": "What information should I add?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle information dois-je ajouter ?",
+      "en": "What information should I add?",
+      "ar": "شو المعلومة اللي لازم أضيفها؟"
+    }
+  },
+  {
+    "fr": "Quelle erreur dois-je corriger ?",
+    "ar": "أي خطأ لازم صححه؟",
+    "en": "Which error do I need to correct?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle erreur dois-je corriger ?",
+      "en": "Which error do I need to correct?",
+      "ar": "أي خطأ لازم صححه؟"
+    }
+  },
+  {
+    "fr": "Quel champ dois-je remplir ?",
+    "ar": "أي خانة لازم عبّي؟",
+    "en": "Which field do I need to fill in?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel champ dois-je remplir ?",
+      "en": "Which field do I need to fill in?",
+      "ar": "أي خانة لازم عبّي؟"
+    }
+  },
+  {
+    "fr": "Quel jour sommes-nous ?",
+    "ar": "أي يوم اليوم؟",
+    "en": "What day is it?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel jour sommes-nous ?",
+      "en": "What day is it?",
+      "ar": "أي يوم اليوم؟"
+    }
+  },
+  {
+    "fr": "Quelle date sommes-nous ?",
+    "ar": "شو تاريخ اليوم؟",
+    "en": "What date is it?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle date sommes-nous ?",
+      "en": "What date is it?",
+      "ar": "شو تاريخ اليوم؟"
+    }
+  },
+  {
+    "fr": "Quel jour êtes-vous disponible ?",
+    "ar": "بأي يوم أنت متفرغ؟",
+    "en": "Which day are you available?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel jour êtes-vous disponible ?",
+      "en": "Which day are you available?",
+      "ar": "بأي يوم أنت متفرغ؟"
+    }
+  },
+  {
+    "fr": "Quelle heure est-il ?",
+    "ar": "قديش الساعة؟",
+    "en": "What time is it?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle heure est-il ?",
+      "en": "What time is it?",
+      "ar": "قديش الساعة؟"
+    }
+  },
+  {
+    "fr": "Quelle heure est prévue ?",
+    "ar": "أي ساعة محددة؟",
+    "en": "What time is scheduled?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle heure est prévue ?",
+      "en": "What time is scheduled?",
+      "ar": "أي ساعة محددة؟"
+    }
+  },
+  {
+    "fr": "Qui est responsable de l'entretien ?",
+    "ar": "مين مسؤول عن الصيانة؟",
+    "en": "Who is responsible for maintenance?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Qui est responsable de l'entretien ?",
+      "en": "Who is responsible for maintenance?",
+      "ar": "مين مسؤول عن الصيانة؟"
+    }
+  },
+  {
+    "fr": "Qui dois-je contacter pour une réparation ?",
+    "ar": "مين لازم اتواصل معه للتصليح؟",
+    "en": "Who should I contact for a repair?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui dois-je contacter pour une réparation ?",
+      "en": "Who should I contact for a repair?",
+      "ar": "مين لازم اتواصل معه للتصليح؟"
+    }
+  },
+  {
+    "fr": "Quel problème faut-il signaler ?",
+    "ar": "أي مشكلة لازم نبلغ عنها؟",
+    "en": "Which problem needs to be reported?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel problème faut-il signaler ?",
+      "en": "Which problem needs to be reported?",
+      "ar": "أي مشكلة لازم نبلغ عنها؟"
+    }
+  },
+  {
+    "fr": "Quelle intervention est prévue ?",
+    "ar": "شو الصيانة / التدخل المقرر؟",
+    "en": "What intervention/work is planned?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle intervention est prévue ?",
+      "en": "What intervention/work is planned?",
+      "ar": "شو الصيانة / التدخل المقرر؟"
+    }
+  },
+  {
+    "fr": "Quand le technicien doit-il venir ?",
+    "ar": "إمتى لازم يجي الفني؟",
+    "en": "When should the technician come?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Quand le technicien doit-il venir ?",
+      "en": "When should the technician come?",
+      "ar": "إمتى لازم يجي الفني؟"
+    }
+  },
+  {
+    "fr": "Quel changement dois-je signaler à la CAF ?",
+    "ar": "أي تغيير لازم أبلّغ عنه للـCAF؟",
+    "en": "Which change do I need to report to CAF?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Quel changement dois-je signaler à la CAF ?",
+      "en": "Which change do I need to report to CAF?",
+      "ar": "أي تغيير لازم أبلّغ عنه للـCAF؟"
+    }
+  },
+  {
+    "fr": "Qui dois-je contacter concernant mon dossier ?",
+    "ar": "مين لازم اتواصل معه بخصوص ملفي؟",
+    "en": "Who should I contact regarding my file?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "Qui dois-je contacter concernant mon dossier ?",
+      "en": "Who should I contact regarding my file?",
+      "ar": "مين لازم اتواصل معه بخصوص ملفي؟"
+    }
+  },
+  {
+    "fr": "Quelle démarche dois-je faire auprès de la CAF ?",
+    "ar": "شو الإجراء اللي لازم أعمله عند الـCAF؟",
+    "en": "What procedure do I need to follow with CAF?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf"
+    ],
+    "ex": {
+      "fr": "Quelle démarche dois-je faire auprès de la CAF ?",
+      "en": "What procedure do I need to follow with CAF?",
+      "ar": "شو الإجراء اللي لازم أعمله عند الـCAF؟"
+    }
+  },
+  {
+    "fr": "Quand dois-je faire ma déclaration ?",
+    "ar": "إمتى لازم أعمل التصريح؟",
+    "en": "When do I need to make my declaration?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "Quand dois-je faire ma déclaration ?",
+      "en": "When do I need to make my declaration?",
+      "ar": "إمتى لازم أعمل التصريح؟"
+    }
+  },
+  {
+    "fr": "Qui a la priorité ?",
+    "ar": "مين عنده الأولوية؟",
+    "en": "Who has priority?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui a la priorité ?",
+      "en": "Who has priority?",
+      "ar": "مين عنده الأولوية؟"
+    }
+  },
+  {
+    "fr": "Quel véhicule a la priorité ?",
+    "ar": "أي سيارة عندها الأولوية؟",
+    "en": "Which vehicle has priority?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "car"
+    ],
+    "ex": {
+      "fr": "Quel véhicule a la priorité ?",
+      "en": "Which vehicle has priority?",
+      "ar": "أي سيارة عندها الأولوية؟"
+    }
+  },
+  {
+    "fr": "Quelle direction faut-il prendre ?",
+    "ar": "بأي اتجاه لازم نروح؟",
+    "en": "Which direction should we take?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle direction faut-il prendre ?",
+      "en": "Which direction should we take?",
+      "ar": "بأي اتجاه لازم نروح؟"
+    }
+  },
+  {
+    "fr": "Quelle voie faut-il choisir ?",
+    "ar": "أي مسرب لازم نختار؟",
+    "en": "Which lane should we choose?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle voie faut-il choisir ?",
+      "en": "Which lane should we choose?",
+      "ar": "أي مسرب لازم نختار؟"
+    }
+  },
+  {
+    "fr": "Quel panneau faut-il respecter ?",
+    "ar": "أي إشارة لازم نلتزم فيها؟",
+    "en": "Which sign must be obeyed?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel panneau faut-il respecter ?",
+      "en": "Which sign must be obeyed?",
+      "ar": "أي إشارة لازم نلتزم فيها؟"
+    }
+  },
+  {
+    "fr": "Quoi qu'il arrive, je serai là.",
+    "ar": "مهما صار، رح كون موجود.",
+    "en": "Whatever happens, I'll be there.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quoi qu'il arrive, je serai là.",
+      "en": "Whatever happens, I'll be there.",
+      "ar": "مهما صار، رح كون موجود."
+    }
+  },
+  {
+    "fr": "Qui que vous soyez…",
+    "ar": "أيًّا كنت…",
+    "en": "Whoever you are…",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Qui que vous soyez…",
+      "en": "Whoever you are…",
+      "ar": "أيًّا كنت…"
+    }
+  },
+  {
+    "fr": "Quel que soit votre choix…",
+    "ar": "مهما كان اختيارك…",
+    "en": "Whatever your choice…",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quel que soit votre choix…",
+      "en": "Whatever your choice…",
+      "ar": "مهما كان اختيارك…"
+    }
+  },
+  {
+    "fr": "Quelle que soit la réponse…",
+    "ar": "مهما كانت الإجابة…",
+    "en": "Whatever the answer…",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quelle que soit la réponse…",
+      "en": "Whatever the answer…",
+      "ar": "مهما كانت الإجابة…"
+    }
+  },
+  {
+    "fr": "Quoi qu'il en soit, merci.",
+    "ar": "على أي حال، شكرًا.",
+    "en": "In any case, thank you.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Quoi qu'il en soit, merci.",
+      "en": "In any case, thank you.",
+      "ar": "على أي حال، شكرًا."
     }
   }
 ]
