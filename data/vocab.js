@@ -1724,16 +1724,23 @@ window.VOCAB_DATA = [
   {
     "fr": "À l'occasion de",
     "ar": "بمناسبة",
-    "en": "On the occasion of",
+    "en": "On the occasion of / on the occasion of",
     "level": "A2",
     "contexts": [
       "daily"
     ],
-    "ex": {
-      "fr": "À l'occasion de son anniversaire, on organise une fête.",
-      "ar": "بمناسبة عيد ميلاده، ننظم حفلة.",
-      "en": "On the occasion of his birthday, we organize a party."
-    },
+    "ex": [
+      {
+        "fr": "À l'occasion de son anniversaire, on organise une fête.",
+        "ar": "بمناسبة عيد ميلاده، ننظم حفلة.",
+        "en": "On the occasion of his birthday, we organize a party."
+      },
+      {
+        "fr": "À l'occasion de mon anniversaire, j'ai invité mes amis.",
+        "en": "On the occasion of my birthday, I invited my friends.",
+        "ar": "بمناسبة عيد ميلادي، عزمت رفقاتي."
+      }
+    ],
     "pos": "phrase"
   },
   {
@@ -4968,14 +4975,15 @@ window.VOCAB_DATA = [
     "pos": "noun"
   },
   {
-    "fr": "S’adapter",
-    "ar": "يكيّف / يتأقلم",
+    "fr": "Adapter",
+    "ar": "يكيّف / يتأقلم / يلاءم",
     "en": "To adapt",
     "level": "A2",
     "contexts": [
       "daily",
-      "work",
-      "stage"
+      "mdph",
+      "stage",
+      "work"
     ],
     "ex": [
       {
@@ -4987,6 +4995,11 @@ window.VOCAB_DATA = [
         "fr": "Je peux m’adapter rapidement au travail.",
         "ar": "أستطيع التأقلم بسرعة مع العمل.",
         "en": "I can adapt quickly to the work."
+      },
+      {
+        "fr": "Il faut adapter mon poste de travail.",
+        "ar": "لازم نكيّف مكان عملي.",
+        "en": "My workplace needs to be adapted."
       }
     ],
     "usage": "العمل، الحياة، القوانين",
@@ -5199,18 +5212,26 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Avantage",
-    "ar": "ميزة / فائدة",
-    "en": "Advantage / Benefit",
+    "ar": "ميزة / فائدة / محظوظ / مستفيد",
+    "en": "Advantage / Benefit / Advantaged",
     "level": "B1",
     "contexts": [
+      "daily",
       "services",
       "work"
     ],
-    "ex": {
-      "fr": "Quels sont les avantages de cette offre ?",
-      "ar": "ما هي مزايا هذا العرض؟",
-      "en": "What are the advantages of this offer?"
-    },
+    "ex": [
+      {
+        "fr": "Quels sont les avantages de cette offre ?",
+        "ar": "ما هي مزايا هذا العرض؟",
+        "en": "What are the advantages of this offer?"
+      },
+      {
+        "fr": "Un groupe avantagé par la situation.",
+        "ar": "مجموعة مستفيدة من الوضع.",
+        "en": "A group advantaged by the situation."
+      }
+    ],
     "usage": "العمل، العقود، الخدمات",
     "pos": "noun"
   },
@@ -5591,7 +5612,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Antérieur",
     "ar": "سابق / سابق الذكر",
-    "en": "Previous / Prior",
+    "en": "Previous / Prior / Earlier",
     "level": "B2",
     "contexts": [
       "daily",
@@ -5599,11 +5620,18 @@ window.VOCAB_DATA = [
       "services",
       "work"
     ],
-    "ex": {
-      "fr": "Selon les informations antérieures...",
-      "ar": "حسب المعلومات السابقة...",
-      "en": "According to previous information..."
-    },
+    "ex": [
+      {
+        "fr": "Selon les informations antérieures...",
+        "ar": "حسب المعلومات السابقة...",
+        "en": "According to previous information..."
+      },
+      {
+        "fr": "Une expérience antérieure est demandée.",
+        "ar": "مطلوب خبرة سابقة.",
+        "en": "Previous experience is required."
+      }
+    ],
     "usage": "التقارير والملفات",
     "pos": "adjective"
   },
@@ -7179,8 +7207,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Actif",
-    "ar": "نشيط / فعّال",
-    "en": "Active",
+    "ar": "نشيط / فعّال / نشط / ذو قيمة",
+    "en": "Active / Asset-related",
     "level": "A2",
     "contexts": [
       "bank",
@@ -7188,11 +7216,18 @@ window.VOCAB_DATA = [
       "services",
       "work"
     ],
-    "ex": {
-      "fr": "Je reste actif malgré mon âge.",
-      "ar": "أبقى نشيطًا رغم عمري.",
-      "en": "I stay active despite my age."
-    },
+    "ex": [
+      {
+        "fr": "Je reste actif malgré mon âge.",
+        "ar": "أبقى نشيطًا رغم عمري.",
+        "en": "I stay active despite my age."
+      },
+      {
+        "fr": "Un compte actif.",
+        "ar": "حساب نشط.",
+        "en": "An active account."
+      }
+    ],
     "pos": "adjective"
   },
   {
@@ -7742,21 +7777,6 @@ window.VOCAB_DATA = [
     "pos": "adjective"
   },
   {
-    "fr": "Antérieur(e)",
-    "ar": "سابق / سابق الذكر",
-    "en": "Earlier",
-    "level": "A2",
-    "contexts": [
-      "daily"
-    ],
-    "ex": {
-      "fr": "Une expérience antérieure est demandée.",
-      "ar": "مطلوب خبرة سابقة.",
-      "en": "Previous experience is required."
-    },
-    "pos": "adjective"
-  },
-  {
     "fr": "Apparent",
     "ar": "ظاهر / واضح",
     "en": "Apparent",
@@ -8016,21 +8036,6 @@ window.VOCAB_DATA = [
       "fr": "C'est une décision avisée.",
       "ar": "إنه قرار حكيم.",
       "en": "It is a wise decision."
-    },
-    "pos": "adjective"
-  },
-  {
-    "fr": "Actif (sens financier)",
-    "ar": "نشط / ذو قيمة",
-    "en": "Active / Asset-related",
-    "level": "A2",
-    "contexts": [
-      "bank"
-    ],
-    "ex": {
-      "fr": "Un compte actif.",
-      "ar": "حساب نشط.",
-      "en": "An active account."
     },
     "pos": "adjective"
   },
@@ -8800,21 +8805,6 @@ window.VOCAB_DATA = [
       "fr": "Un citoyen autrichien.",
       "ar": "مواطن نمساوي.",
       "en": "An Austrian citizen."
-    },
-    "pos": "adjective"
-  },
-  {
-    "fr": "Avantagé",
-    "ar": "محظوظ / مستفيد",
-    "en": "Advantaged",
-    "level": "A2",
-    "contexts": [
-      "daily"
-    ],
-    "ex": {
-      "fr": "Un groupe avantagé par la situation.",
-      "ar": "مجموعة مستفيدة من الوضع.",
-      "en": "A group advantaged by the situation."
     },
     "pos": "adjective"
   },
@@ -14978,8 +14968,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Côté",
-    "ar": "جهة / جانب",
-    "en": "Side",
+    "ar": "جهة / جانب / ساحل / ضلع",
+    "en": "Side / Coast",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -14995,6 +14985,11 @@ window.VOCAB_DATA = [
         "fr": "Je suis de ton côté.",
         "ar": "أنا في صفك.",
         "en": "I am on your side."
+      },
+      {
+        "fr": "Nous marchons près de la côte.",
+        "ar": "نمشي قرب الساحل.",
+        "en": "We walk near the coast."
       }
     ]
   },
@@ -15045,8 +15040,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Coucher",
-    "ar": "ينام / يضع",
-    "en": "To put to bed / Lie down",
+    "ar": "ينام / يضع / يذهب للنوم",
+    "en": "To put to bed / Lie down / To go to bed",
     "pos": "verb",
     "level": "A1",
     "contexts": [
@@ -15062,6 +15057,11 @@ window.VOCAB_DATA = [
         "fr": "Je couche les enfants à huit heures.",
         "ar": "أنيم الأطفال الساعة الثامنة.",
         "en": "I put the children to bed at eight."
+      },
+      {
+        "fr": "Je me couche tôt.",
+        "ar": "أذهب للنوم مبكرًا.",
+        "en": "I go to bed early."
       }
     ]
   },
@@ -18499,32 +18499,6 @@ window.VOCAB_DATA = [
       "fr": "Le professeur fait une correction.",
       "ar": "الأستاذ يقوم بالتصحيح.",
       "en": "The teacher makes a correction."
-    }
-  },
-  {
-    "fr": "Côte",
-    "ar": "ساحل / ضلع / جانب",
-    "en": "Coast / Side",
-    "pos": "noun",
-    "level": "A2",
-    "contexts": [],
-    "ex": {
-      "fr": "Nous marchons près de la côte.",
-      "ar": "نمشي قرب الساحل.",
-      "en": "We walk near the coast."
-    }
-  },
-  {
-    "fr": "Coucher (se)",
-    "ar": "يذهب للنوم",
-    "en": "To go to bed",
-    "pos": "verb",
-    "level": "A1",
-    "contexts": [],
-    "ex": {
-      "fr": "Je me couche tôt.",
-      "ar": "أذهب للنوم مبكرًا.",
-      "en": "I go to bed early."
     }
   },
   {
@@ -22271,19 +22245,37 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Validé",
-    "ar": "مقبول / تمت الموافقة عليه",
-    "en": "Approved",
+    "ar": "مقبول / تمت الموافقة عليه / صالح / ساري / صحيح",
+    "en": "Approved / valid / valid person",
     "pos": "adjective",
     "level": "A1",
     "contexts": [
       "caf",
+      "daily",
       "services"
     ],
-    "ex": {
-      "fr": "Ma demande a été validée.",
-      "ar": "تمت الموافقة على طلبي.",
-      "en": "My application has been approved."
-    }
+    "ex": [
+      {
+        "fr": "Ma demande a été validée.",
+        "ar": "تمت الموافقة على طلبي.",
+        "en": "My application has been approved."
+      },
+      {
+        "fr": "Votre titre est toujours valide.",
+        "en": "Your permit/document is still valid.",
+        "ar": "وثيقتك لسا سارية."
+      },
+      {
+        "fr": "Le billet est valide jusqu'à demain.",
+        "en": "The ticket is valid until tomorrow.",
+        "ar": "التذكرة صالحة لحد بكرا."
+      },
+      {
+        "fr": "Votre titre de séjour est toujours valide.",
+        "en": "Your residence permit is still valid.",
+        "ar": "إقامتك لسا سارية."
+      }
+    ]
   },
   {
     "fr": "Refusé",
@@ -23576,8 +23568,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Une orientation",
-    "ar": "توجيه",
-    "en": "Guidance / Referral / Career orientation",
+    "ar": "توجيه / إرشاد",
+    "en": "Guidance / Referral / Career orientation / guidance / direction",
     "pos": "noun",
     "level": "B1",
     "contexts": [
@@ -23595,21 +23587,40 @@ window.VOCAB_DATA = [
         "fr": "Je cherche une orientation professionnelle.",
         "ar": "أبحث عن توجيه مهني.",
         "en": "I am looking for career guidance."
+      },
+      {
+        "fr": "J'ai besoin d'une orientation professionnelle.",
+        "en": "I need career guidance.",
+        "ar": "بدي توجيه مهني."
       }
     ]
   },
   {
     "fr": "Organiser",
-    "ar": "ينظم",
-    "en": "To organize",
+    "ar": "ينظم / ينظّم",
+    "en": "To organize / to organize",
     "pos": "verb",
     "level": "A2",
-    "contexts": [],
-    "ex": {
-      "fr": "Je dois organiser un rendez-vous.",
-      "ar": "يجب أن أنظم موعدًا.",
-      "en": "I need to arrange an appointment."
-    }
+    "contexts": [
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois organiser un rendez-vous.",
+        "ar": "يجب أن أنظم موعدًا.",
+        "en": "I need to arrange an appointment."
+      },
+      {
+        "fr": "Je dois organiser mon emploi du temps.",
+        "en": "I have to organize my schedule.",
+        "ar": "لازم رتّب جدول وقتي."
+      },
+      {
+        "fr": "Je dois organiser mon emploi du temps.",
+        "en": "I have to organize my schedule.",
+        "ar": "لازم رتّب جدولي."
+      }
+    ]
   },
   {
     "fr": "Activité professionnelle",
@@ -29657,15 +29668,29 @@ window.VOCAB_DATA = [
     "level": "B1",
     "contexts": [
       "caf",
-      "prefecture"
+      "daily",
+      "france_travail",
+      "prefecture",
+      "services",
+      "work"
     ],
-    "ar": "لوين وصل ملفي؟",
-    "en": "What's the status of my application?",
+    "ar": "لوين وصل ملفي؟ / شو صار بملفي؟",
+    "en": "What's the status of my application? / What is the status of my application?",
     "ex": [
       {
         "fr": "Bonjour, je voudrais savoir où en est mon dossier.",
         "ar": "مرحبا، بدي أعرف لوين وصل ملفي.",
         "en": "Hello, I'd like to know the status of my application."
+      },
+      {
+        "fr": "Où en est mon dossier ?",
+        "en": "What is the status of my application?",
+        "ar": "لوين وصل ملفي؟ / شو صار بملفي؟"
+      },
+      {
+        "fr": "Où en est mon dossier ?",
+        "en": "What is the status of my application?",
+        "ar": "لوين وصل ملفي؟"
       }
     ]
   },
@@ -30599,13 +30624,16 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "Déposer (un dossier / une demande)",
+    "fr": "Déposer",
     "ar": "يودع / يقدّم (ملف أو طلب) / يقدّم",
-    "en": "To submit / file",
+    "en": "To submit / file / to submit / deposit",
     "level": "A1",
     "pos": "verb",
     "contexts": [
-      "caf"
+      "caf",
+      "daily",
+      "prefecture",
+      "services"
     ],
     "ex": [
       {
@@ -30617,6 +30645,11 @@ window.VOCAB_DATA = [
         "fr": "J'ai déposé une demande d'aide.",
         "ar": "قدّمت طلب مساعدة.",
         "en": "I submitted an assistance request."
+      },
+      {
+        "fr": "Je vais déposer mon dossier demain.",
+        "en": "I'm going to submit my application tomorrow.",
+        "ar": "رح قدّم ملفي بكرا."
       }
     ]
   },
@@ -31210,17 +31243,25 @@ window.VOCAB_DATA = [
   {
     "fr": "Ouvrir",
     "ar": "يفتح",
-    "en": "To open",
+    "en": "To open / to open",
     "level": "A1",
     "pos": "verb",
     "contexts": [
+      "bank",
       "caf"
     ],
-    "ex": {
-      "fr": "La CAF a ouvert mes droits.",
-      "ar": "الـ CAF فتحتلي الاستحقاق.",
-      "en": "CAF opened my entitlement."
-    }
+    "ex": [
+      {
+        "fr": "La CAF a ouvert mes droits.",
+        "ar": "الـ CAF فتحتلي الاستحقاق.",
+        "en": "CAF opened my entitlement."
+      },
+      {
+        "fr": "Je voudrais ouvrir un compte bancaire.",
+        "en": "I would like to open a bank account.",
+        "ar": "بدي افتح حساب بنكي."
+      }
+    ]
   },
   {
     "fr": "Perdre",
@@ -31652,19 +31693,32 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Obtenir",
-    "ar": "يحصل على",
-    "en": "To obtain / To get",
+    "ar": "يحصل على / ينال",
+    "en": "To obtain / To get / to obtain / get",
     "level": "A1",
     "pos": "verb",
     "contexts": [
+      "services",
       "stage",
       "work"
     ],
-    "ex": {
-      "fr": "Je veux obtenir une autorisation.",
-      "ar": "أريد الحصول على تصريح.",
-      "en": "I want to obtain an authorization."
-    }
+    "ex": [
+      {
+        "fr": "Je veux obtenir une autorisation.",
+        "ar": "أريد الحصول على تصريح.",
+        "en": "I want to obtain an authorization."
+      },
+      {
+        "fr": "Je voudrais obtenir une attestation.",
+        "en": "I would like to obtain a certificate.",
+        "ar": "بدي أحصل على شهادة."
+      },
+      {
+        "fr": "Je dois obtenir une attestation.",
+        "en": "I need to obtain a certificate.",
+        "ar": "لازم جيب شهادة."
+      }
+    ]
   },
   {
     "fr": "Découvrir",
@@ -32218,19 +32272,27 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Une obligation",
-    "ar": "إلزام / واجب",
-    "en": "Obligation / Requirement",
+    "ar": "إلزام / واجب / التزام",
+    "en": "Obligation / Requirement / obligation / requirement",
     "level": "A1",
     "pos": "noun",
     "contexts": [
+      "services",
       "stage",
       "work"
     ],
-    "ex": {
-      "fr": "Quelles sont mes obligations pendant l’immersion ?",
-      "ar": "ما هي واجباتي أثناء فترة التجربة؟",
-      "en": "What are my obligations during the immersion?"
-    }
+    "ex": [
+      {
+        "fr": "Quelles sont mes obligations pendant l’immersion ?",
+        "ar": "ما هي واجباتي أثناء فترة التجربة؟",
+        "en": "What are my obligations during the immersion?"
+      },
+      {
+        "fr": "C'est une obligation légale.",
+        "en": "It's a legal requirement.",
+        "ar": "هاد التزام قانوني."
+      }
+    ]
   },
   {
     "fr": "Une date de début",
@@ -32371,18 +32433,31 @@ window.VOCAB_DATA = [
   {
     "fr": "Une observation",
     "ar": "ملاحظة / مراقبة",
-    "en": "Observation",
+    "en": "Observation / observation / comment / remark",
     "level": "A1",
     "pos": "noun",
     "contexts": [
+      "services",
       "stage",
       "work"
     ],
-    "ex": {
-      "fr": "C’est une période d’observation du métier.",
-      "ar": "إنها فترة لمراقبة واكتشاف المهنة.",
-      "en": "It is a period of observing the job."
-    }
+    "ex": [
+      {
+        "fr": "C’est une période d’observation du métier.",
+        "ar": "إنها فترة لمراقبة واكتشاف المهنة.",
+        "en": "It is a period of observing the job."
+      },
+      {
+        "fr": "J'ai une observation concernant mon dossier.",
+        "en": "I have a comment regarding my application.",
+        "ar": "عندي ملاحظة بخصوص ملفي."
+      },
+      {
+        "fr": "Je voudrais ajouter une observation.",
+        "en": "I'd like to add a comment.",
+        "ar": "بدي أضيف ملاحظة."
+      }
+    ]
   },
   {
     "fr": "Une intégration",
@@ -32403,18 +32478,31 @@ window.VOCAB_DATA = [
   {
     "fr": "Un objectif",
     "ar": "هدف",
-    "en": "Objective / Goal",
+    "en": "Objective / Goal / goal / objective",
     "level": "A1",
     "pos": "noun",
     "contexts": [
+      "daily",
       "stage",
       "work"
     ],
-    "ex": {
-      "fr": "Mon objectif est de trouver un emploi en cuisine.",
-      "ar": "هدفي هو إيجاد عمل في المطبخ.",
-      "en": "My goal is to find a job in the kitchen."
-    }
+    "ex": [
+      {
+        "fr": "Mon objectif est de trouver un emploi en cuisine.",
+        "ar": "هدفي هو إيجاد عمل في المطبخ.",
+        "en": "My goal is to find a job in the kitchen."
+      },
+      {
+        "fr": "Mon objectif est de trouver un emploi stable.",
+        "en": "My goal is to find a stable job.",
+        "ar": "هدفي لاقي شغل مستقر."
+      },
+      {
+        "fr": "Nous devons atteindre notre objectif.",
+        "en": "We have to reach our goal.",
+        "ar": "لازم نوصل لهدفنا."
+      }
+    ]
   },
   {
     "fr": "Une motivation",
@@ -36042,34 +36130,35 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Adapter",
-    "ar": "يكيّف / يلاءم",
-    "en": "To adapt",
-    "level": "A2",
-    "contexts": [
-      "mdph"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Il faut adapter mon poste de travail.",
-      "ar": "لازم نكيّف مكان عملي.",
-      "en": "My workplace needs to be adapted."
-    }
-  },
-  {
     "fr": "Orienter",
-    "ar": "يوجّه",
-    "en": "To refer / guide",
+    "ar": "يوجّه / يرشد",
+    "en": "To refer / guide / to direct / to guide / direct",
     "level": "A2",
     "contexts": [
-      "mdph"
+      "france_travail",
+      "mdph",
+      "school",
+      "services",
+      "work"
     ],
     "pos": "verb",
-    "ex": {
-      "fr": "La MDPH m'oriente vers une structure spécialisée.",
-      "ar": "الـ MDPH وجهتني لمؤسسة مختصة.",
-      "en": "MDPH referred me to a specialized service."
-    }
+    "ex": [
+      {
+        "fr": "La MDPH m'oriente vers une structure spécialisée.",
+        "ar": "الـ MDPH وجهتني لمؤسسة مختصة.",
+        "en": "MDPH referred me to a specialized service."
+      },
+      {
+        "fr": "Pouvez-vous m'orienter vers le bon service ?",
+        "en": "Can you direct me to the right department?",
+        "ar": "فيك تدلّني عالقسم المختص؟"
+      },
+      {
+        "fr": "Mon conseiller m'a orienté vers une formation.",
+        "en": "My advisor directed me toward a training course.",
+        "ar": "المرشد وجّهني على دورة تدريبية."
+      }
+    ]
   },
   {
     "fr": "Reconduire",
@@ -38151,24 +38240,6 @@ window.VOCAB_DATA = [
     }
   },
   {
-    "fr": "Déposer",
-    "ar": "يقدّم / يودع",
-    "en": "to submit / file / deposit",
-    "level": "A1",
-    "contexts": [
-      "daily",
-      "services",
-      "prefecture",
-      "caf"
-    ],
-    "pos": "verb",
-    "ex": {
-      "fr": "Je vais déposer mon dossier demain.",
-      "en": "I'm going to submit my application tomorrow.",
-      "ar": "رح قدّم ملفي بكرا."
-    }
-  },
-  {
     "fr": "Dépendre",
     "ar": "يعتمد",
     "en": "to depend",
@@ -38886,14 +38957,22 @@ window.VOCAB_DATA = [
     "level": "A2",
     "contexts": [
       "daily",
+      "school",
       "work"
     ],
     "pos": "adjective",
-    "ex": {
-      "fr": "Je suis déterminé à réussir.",
-      "en": "I am determined to succeed.",
-      "ar": "أنا مصمم إني أنجح."
-    }
+    "ex": [
+      {
+        "fr": "Je suis déterminé à réussir.",
+        "en": "I am determined to succeed.",
+        "ar": "أنا مصمم إني أنجح."
+      },
+      {
+        "fr": "Je suis déterminé à apprendre le français.",
+        "en": "I am determined to learn French.",
+        "ar": "أنا مصمم أتعلم الفرنسي."
+      }
+    ]
   },
   {
     "fr": "Détruire",
@@ -39890,22 +39969,6 @@ window.VOCAB_DATA = [
       "fr": "Je suis déçu du résultat.",
       "en": "I am disappointed with the result.",
       "ar": "أنا خاب أملي بالنتيجة."
-    }
-  },
-  {
-    "fr": "Déterminé(e)",
-    "ar": "مصمم / مصرّ",
-    "en": "determined",
-    "level": "A2",
-    "contexts": [
-      "daily",
-      "school"
-    ],
-    "pos": "noun",
-    "ex": {
-      "fr": "Je suis déterminé à apprendre le français.",
-      "en": "I am determined to learn French.",
-      "ar": "أنا مصمم أتعلم الفرنسي."
     }
   },
   {
@@ -43924,34 +43987,6 @@ window.VOCAB_DATA = [
     ]
   },
   {
-    "fr": "Valide",
-    "en": "valid / valid person",
-    "ar": "صالح / ساري / صحيح",
-    "pos": "adjective",
-    "level": "A1",
-    "contexts": [
-      "daily",
-      "services"
-    ],
-    "ex": [
-      {
-        "fr": "Votre titre est toujours valide.",
-        "en": "Your permit/document is still valid.",
-        "ar": "وثيقتك لسا سارية."
-      },
-      {
-        "fr": "Le billet est valide jusqu'à demain.",
-        "en": "The ticket is valid until tomorrow.",
-        "ar": "التذكرة صالحة لحد بكرا."
-      },
-      {
-        "fr": "Votre titre de séjour est toujours valide.",
-        "en": "Your residence permit is still valid.",
-        "ar": "إقامتك لسا سارية."
-      }
-    ]
-  },
-  {
     "fr": "Vérifié(e)",
     "en": "verified / checked",
     "ar": "تم التحقق منه / مؤكَّد",
@@ -45071,5 +45106,7329 @@ window.VOCAB_DATA = [
         "ar": "فهمت عليي شو قصدي؟"
       }
     ]
+  },
+  {
+    "fr": "Occuper",
+    "ar": "يشغل / يسكن / يحتل / يتولى",
+    "en": "to occupy / live in / take up / hold a position",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "housing",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "J'occupe cet appartement depuis deux ans.",
+        "en": "I've been living in this apartment for two years.",
+        "ar": "أنا ساكن بهالشقة من سنتين."
+      },
+      {
+        "fr": "Ce travail occupe beaucoup de mon temps.",
+        "en": "This job takes up a lot of my time.",
+        "ar": "هالشغل بياخد كتير من وقتي."
+      },
+      {
+        "fr": "Il occupe un poste important.",
+        "en": "He holds an important position.",
+        "ar": "هو شاغل منصب مهم."
+      }
+    ]
+  },
+  {
+    "fr": "Oublier",
+    "ar": "ينسى",
+    "en": "to forget",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai oublié mon rendez-vous.",
+      "en": "I forgot my appointment.",
+      "ar": "نسيت موعدي."
+    }
+  },
+  {
+    "fr": "Observer",
+    "ar": "يراقب / يلاحظ",
+    "en": "to observe / watch / notice",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut observer les règles de sécurité.",
+        "en": "You must observe the safety rules.",
+        "ar": "لازم تلتزم بقواعد السلامة."
+      },
+      {
+        "fr": "J'ai observé une erreur dans le document.",
+        "en": "I noticed an error in the document.",
+        "ar": "لاحظت غلطة بالوثيقة."
+      }
+    ]
+  },
+  {
+    "fr": "Obliger",
+    "ar": "يجبر / يلزم / يُلزم",
+    "en": "to force / require",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Cette situation m'oblige à changer de travail.",
+        "en": "This situation forces me to change jobs.",
+        "ar": "هالوضع عم يجبرني غيّر شغلي."
+      },
+      {
+        "fr": "Cette situation m'oblige à changer de travail.",
+        "en": "This situation forces me to change jobs.",
+        "ar": "هالوضع مجبورني غيّر شغلي."
+      }
+    ]
+  },
+  {
+    "fr": "Obéir",
+    "ar": "يطيع / يلتزم",
+    "en": "to obey",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il faut obéir aux règles.",
+      "en": "You have to obey the rules.",
+      "ar": "لازم تلتزم بالقوانين."
+    }
+  },
+  {
+    "fr": "Occuper un poste",
+    "ar": "يشغل منصب / وظيفة",
+    "en": "to hold a position / job",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "housing",
+      "restaurant",
+      "work"
+    ],
+    "ex": {
+      "fr": "J'occupe actuellement un poste dans un restaurant.",
+      "en": "I currently hold a position in a restaurant.",
+      "ar": "حاليًا عم اشتغل بوظيفة بمطعم."
+    }
+  },
+  {
+    "fr": "Offrir",
+    "ar": "يقدّم / يعرض / يعطي",
+    "en": "to offer / give",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "school",
+      "work"
+    ],
+    "ex": {
+      "fr": "L'entreprise offre une formation.",
+      "en": "The company offers training.",
+      "ar": "الشركة بتقدّم تدريب."
+    }
+  },
+  {
+    "fr": "Opter pour",
+    "ar": "يختار",
+    "en": "to opt for / choose",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "school",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai opté pour cette formation.",
+        "en": "I chose this training course.",
+        "ar": "اخترت هالدورة التدريبية."
+      },
+      {
+        "fr": "Vous pouvez opter pour le paiement mensuel.",
+        "en": "You can opt for monthly payment.",
+        "ar": "فيك تختار الدفع الشهري."
+      }
+    ]
+  },
+  {
+    "fr": "Un ordinateur",
+    "ar": "كمبيوتر",
+    "en": "computer",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Mon ordinateur ne fonctionne plus.",
+      "en": "My computer doesn't work anymore.",
+      "ar": "الكمبيوتر تبعي ما عاد يشتغل."
+    }
+  },
+  {
+    "fr": "Un ordinateur portable",
+    "ar": "لابتوب / كمبيوتر محمول",
+    "en": "laptop",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'utilise mon ordinateur portable pour travailler.",
+      "en": "I use my laptop for work.",
+      "ar": "بستخدم اللابتوب للشغل."
+    }
+  },
+  {
+    "fr": "Une offre",
+    "ar": "عرض",
+    "en": "offer",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai trouvé une offre d'emploi intéressante.",
+        "en": "I found an interesting job offer.",
+        "ar": "لقيت عرض عمل حلو."
+      },
+      {
+        "fr": "Cette offre est valable jusqu'à vendredi.",
+        "en": "This offer is valid until Friday.",
+        "ar": "هالعرض ساري لحد الجمعة."
+      },
+      {
+        "fr": "Cette offre correspond à mon profil.",
+        "en": "This offer matches my profile.",
+        "ar": "هالعرض بناسب خبرتي."
+      }
+    ]
+  },
+  {
+    "fr": "Une offre d'emploi",
+    "ar": "عرض عمل",
+    "en": "job offer",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "france_travail",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je cherche une offre d'emploi.",
+        "en": "I'm looking for a job offer.",
+        "ar": "عم دور على عرض عمل."
+      },
+      {
+        "fr": "J'ai trouvé une offre d'emploi intéressante.",
+        "en": "I found an interesting job offer.",
+        "ar": "لقيت عرض شغل منيح."
+      }
+    ]
+  },
+  {
+    "fr": "Une occasion",
+    "ar": "فرصة / مناسبة",
+    "en": "opportunity / occasion / chance",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "C'est une bonne occasion.",
+        "en": "It's a good opportunity.",
+        "ar": "هاي فرصة منيحة."
+      },
+      {
+        "fr": "J'ai eu l'occasion de travailler en France.",
+        "en": "I had the opportunity to work in France.",
+        "ar": "سنحتلي الفرصة اشتغل بفرنسا."
+      },
+      {
+        "fr": "C'est une bonne occasion de progresser.",
+        "en": "It's a good opportunity to improve.",
+        "ar": "هاي فرصة منيحة لحتى أتطور."
+      }
+    ]
+  },
+  {
+    "fr": "Une ordonnance",
+    "ar": "وصفة طبية / أمر",
+    "en": "prescription / order",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "health",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai une ordonnance du médecin.",
+        "en": "I have a prescription from the doctor.",
+        "ar": "معي وصفة من الدكتور."
+      },
+      {
+        "fr": "La pharmacie demande l'ordonnance.",
+        "en": "The pharmacy asks for the prescription.",
+        "ar": "الصيدلية طالبة الوصفة."
+      },
+      {
+        "fr": "J'ai besoin de mon ordonnance.",
+        "en": "I need my prescription.",
+        "ar": "بدي وصفتي الطبية."
+      }
+    ]
+  },
+  {
+    "fr": "Un organisme",
+    "ar": "مؤسسة / هيئة / جهة",
+    "en": "organization / agency",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois contacter l'organisme concerné.",
+        "en": "I have to contact the relevant organization.",
+        "ar": "لازم أتواصل مع الجهة المختصة."
+      },
+      {
+        "fr": "Quel organisme dois-je contacter ?",
+        "en": "Which organization should I contact?",
+        "ar": "أي جهة لازم أتواصل معها؟"
+      }
+    ]
+  },
+  {
+    "fr": "Une ouverture",
+    "ar": "افتتاح / فتحة / فتح",
+    "en": "opening",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "shop"
+    ],
+    "ex": [
+      {
+        "fr": "L'ouverture du magasin est à 9 heures.",
+        "en": "The store opens at 9 a.m.",
+        "ar": "المحل بيفتح الساعة 9."
+      },
+      {
+        "fr": "L'ouverture des inscriptions commence demain.",
+        "en": "Registration opens tomorrow.",
+        "ar": "التسجيل بيفتح بكرا."
+      },
+      {
+        "fr": "L'ouverture des inscriptions est prévue lundi.",
+        "en": "Registration is scheduled to open on Monday.",
+        "ar": "فتح التسجيل مقرر يوم الاثنين."
+      }
+    ]
+  },
+  {
+    "fr": "Un oubli",
+    "ar": "نسيان / سهو",
+    "en": "oversight / forgetting / omission / forgetfulness",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "C'est un oubli de ma part.",
+        "en": "It was an oversight on my part.",
+        "ar": "هاد كان نسيان مني."
+      },
+      {
+        "fr": "Il y a eu un oubli dans mon dossier.",
+        "en": "There was an omission in my file.",
+        "ar": "صار في سهو بملفي."
+      },
+      {
+        "fr": "C'est simplement un oubli.",
+        "en": "It's simply an oversight.",
+        "ar": "مجرد نسيان."
+      }
+    ]
+  },
+  {
+    "fr": "Obligatoire",
+    "ar": "إلزامي / إجباري",
+    "en": "mandatory / compulsory",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Le document est obligatoire.",
+        "en": "The document is mandatory.",
+        "ar": "هالوثيقة إلزامية."
+      },
+      {
+        "fr": "Le port du casque est obligatoire.",
+        "en": "Wearing a helmet is mandatory.",
+        "ar": "لبس الخوذة إجباري."
+      },
+      {
+        "fr": "Le document est obligatoire.",
+        "en": "The document is mandatory.",
+        "ar": "الوثيقة إلزامية."
+      }
+    ]
+  },
+  {
+    "fr": "Officiel / Officielle",
+    "ar": "رسمي",
+    "en": "official",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "C'est un document officiel.",
+        "en": "It's an official document.",
+        "ar": "هاي وثيقة رسمية."
+      },
+      {
+        "fr": "J'attends la réponse officielle.",
+        "en": "I'm waiting for the official response.",
+        "ar": "ناطر الرد الرسمي."
+      }
+    ]
+  },
+  {
+    "fr": "Ouvert / Ouverte",
+    "ar": "مفتوح",
+    "en": "open",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "shop"
+    ],
+    "ex": {
+      "fr": "Le magasin est ouvert.",
+      "en": "The shop is open.",
+      "ar": "المحل مفتوح."
+    }
+  },
+  {
+    "fr": "Occupé / Occupée",
+    "ar": "مشغول / مشغولة",
+    "en": "occupied / busy",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "phone"
+    ],
+    "ex": {
+      "fr": "La ligne est occupée.",
+      "en": "The line is busy.",
+      "ar": "الخط مشغول."
+    }
+  },
+  {
+    "fr": "Original / Originale",
+    "ar": "أصلي / أصل",
+    "en": "original / genuine / authentic",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "restaurant",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai besoin du document original.",
+        "en": "I need the original document.",
+        "ar": "بدي الوثيقة الأصلية."
+      },
+      {
+        "fr": "Où est le document original ?",
+        "en": "Where is the original document?",
+        "ar": "وين الوثيقة الأصلية؟"
+      }
+    ]
+  },
+  {
+    "fr": "Ordinaire",
+    "ar": "عادي",
+    "en": "ordinary / regular",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "restaurant"
+    ],
+    "ex": [
+      {
+        "fr": "Je prends un café ordinaire.",
+        "en": "I'll have a regular coffee.",
+        "ar": "بدي قهوة عادية."
+      },
+      {
+        "fr": "C'est un jour ordinaire.",
+        "en": "It's an ordinary day.",
+        "ar": "هاد يوم عادي."
+      }
+    ]
+  },
+  {
+    "fr": "Optimiste",
+    "ar": "متفائل",
+    "en": "optimistic",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je reste optimiste.",
+      "en": "I remain optimistic.",
+      "ar": "لسا متفائل."
+    }
+  },
+  {
+    "fr": "Opposé / Opposée",
+    "ar": "معارض / معاكس",
+    "en": "opposed / opposite",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je suis opposé à cette décision.",
+      "en": "I am opposed to this decision.",
+      "ar": "أنا معارض لهالقرار."
+    }
+  },
+  {
+    "fr": "Oui",
+    "ar": "نعم / إي",
+    "en": "yes",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Oui, bien sûr.",
+      "en": "Yes, of course.",
+      "ar": "إي، أكيد."
+    }
+  },
+  {
+    "fr": "Officiellement",
+    "ar": "رسميًا",
+    "en": "officially",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je travaille officiellement depuis janvier.",
+      "en": "I've been officially working since January.",
+      "ar": "أنا عم اشتغل رسميًا من كانون التاني."
+    }
+  },
+  {
+    "fr": "Obligatoirement",
+    "ar": "إلزاميًا / بشكل إجباري",
+    "en": "obligatorily / necessarily",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "Le formulaire doit obligatoirement être signé.",
+      "en": "The form must be signed.",
+      "ar": "لازم الاستمارة تكون موقعة بشكل إلزامي."
+    }
+  },
+  {
+    "fr": "Occasionnellement",
+    "ar": "أحيانًا / من وقت للتاني",
+    "en": "occasionally",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je travaille occasionnellement le week-end.",
+      "en": "I occasionally work on weekends.",
+      "ar": "أحيانًا بشتغل بعطلة نهاية الأسبوع."
+    }
+  },
+  {
+    "fr": "Je souhaite obtenir une attestation.",
+    "ar": "بدي أحصل على شهادة.",
+    "en": "I would like to obtain a certificate.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je souhaite obtenir une attestation.",
+      "en": "I would like to obtain a certificate.",
+      "ar": "بدي أحصل على شهادة."
+    }
+  },
+  {
+    "fr": "Je voudrais ouvrir un dossier.",
+    "ar": "بدي افتح ملف.",
+    "en": "I would like to open a file/application.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je voudrais ouvrir un dossier.",
+      "en": "I would like to open a file/application.",
+      "ar": "بدي افتح ملف."
+    }
+  },
+  {
+    "fr": "Je voudrais obtenir des informations.",
+    "ar": "بدي أحصل على معلومات.",
+    "en": "I would like to get some information.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je voudrais obtenir des informations.",
+      "en": "I would like to get some information.",
+      "ar": "بدي أحصل على معلومات."
+    }
+  },
+  {
+    "fr": "Pouvez-vous m'orienter ?",
+    "ar": "فيك تدلّني؟",
+    "en": "Can you direct me?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Pouvez-vous m'orienter ?",
+      "en": "Can you direct me?",
+      "ar": "فيك تدلّني؟"
+    }
+  },
+  {
+    "fr": "Est-ce obligatoire ?",
+    "ar": "هاد إجباري؟",
+    "en": "Is it mandatory?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Est-ce obligatoire ?",
+      "en": "Is it mandatory?",
+      "ar": "هاد إجباري؟"
+    }
+  },
+  {
+    "fr": "Quels documents sont obligatoires ?",
+    "ar": "شو الأوراق الإلزامية؟",
+    "en": "Which documents are mandatory?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "france_travail",
+      "work"
+    ],
+    "ex": {
+      "fr": "Quels documents sont obligatoires ?",
+      "en": "Which documents are mandatory?",
+      "ar": "شو الأوراق الإلزامية؟"
+    }
+  },
+  {
+    "fr": "Un objectif professionnel",
+    "ar": "هدف مهني",
+    "en": "career goal",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "restaurant",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Mon objectif professionnel est de travailler dans la restauration.",
+        "en": "My professional goal is to work in the restaurant industry.",
+        "ar": "هدفي المهني اشتغل بمجال المطاعم."
+      },
+      {
+        "fr": "Mon objectif professionnel est de trouver un emploi stable.",
+        "en": "My career goal is to find a stable job.",
+        "ar": "هدفي المهني لاقي شغل مستقر."
+      }
+    ]
+  },
+  {
+    "fr": "Une orientation professionnelle",
+    "ar": "توجيه مهني",
+    "en": "career guidance",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai besoin d'une orientation professionnelle.",
+        "en": "I need career guidance.",
+        "ar": "بدي توجيه مهني."
+      },
+      {
+        "fr": "Mon conseiller m'a proposé une orientation professionnelle.",
+        "en": "My advisor offered me career guidance.",
+        "ar": "المرشد تبعي اقترح عليي توجيه مهني."
+      }
+    ]
+  },
+  {
+    "fr": "Occasionner",
+    "ar": "يسبّب",
+    "en": "to cause",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Ce retard peut occasionner des problèmes.",
+        "en": "This delay can cause problems.",
+        "ar": "هالتأخير ممكن يسبّب مشاكل."
+      },
+      {
+        "fr": "Cette erreur peut occasionner un retard.",
+        "en": "This mistake can cause a delay.",
+        "ar": "هالغلطة ممكن تسبّب تأخير."
+      }
+    ]
+  },
+  {
+    "fr": "Officialiser",
+    "ar": "يضفي طابعًا رسميًا / يثبت رسميًا",
+    "en": "to make official",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut officialiser la demande.",
+        "en": "The request needs to be made official.",
+        "ar": "لازم نثبّت الطلب بشكل رسمي."
+      },
+      {
+        "fr": "La décision sera officialisée prochainement.",
+        "en": "The decision will be made official soon.",
+        "ar": "رح يتم تثبيت القرار رسميًا قريبًا."
+      },
+      {
+        "fr": "Il faut officialiser le changement.",
+        "en": "The change needs to be made official.",
+        "ar": "لازم نثبت التغيير رسميًا."
+      }
+    ]
+  },
+  {
+    "fr": "Optimiser",
+    "ar": "يحسّن / يطوّر",
+    "en": "to optimize / improve",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je cherche à optimiser mon organisation.",
+        "en": "I'm trying to improve my organization.",
+        "ar": "عم حاول حسّن طريقة تنظيمي."
+      },
+      {
+        "fr": "Je veux optimiser mon temps.",
+        "en": "I want to optimize my time.",
+        "ar": "بدي حسّن طريقة استخدام وقتي."
+      }
+    ]
+  },
+  {
+    "fr": "Opérer",
+    "ar": "يشغّل / يجري",
+    "en": "to operate / perform",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "L'agent peut opérer une vérification.",
+      "en": "The agent can carry out a check.",
+      "ar": "الموظف ممكن يجري عملية تحقق."
+    }
+  },
+  {
+    "fr": "Ordonner",
+    "ar": "يأمر / يطلب / يصف",
+    "en": "to order / instruct / prescribe / to prescribe / order",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Le médecin a ordonné un examen.",
+        "en": "The doctor ordered a test.",
+        "ar": "الدكتور طلب فحص."
+      },
+      {
+        "fr": "Le médecin a ordonné une analyse.",
+        "en": "The doctor ordered a test.",
+        "ar": "الدكتور طلب تحليل."
+      },
+      {
+        "fr": "Le médecin m'a ordonné une prise de sang.",
+        "en": "The doctor ordered a blood test.",
+        "ar": "الدكتور طلب مني تحليل دم."
+      }
+    ]
+  },
+  {
+    "fr": "Oser",
+    "ar": "يجرؤ",
+    "en": "to dare",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Je n'ose pas demander.",
+        "en": "I don't dare ask.",
+        "ar": "ما بجرؤ اسأل."
+      },
+      {
+        "fr": "Je n'ose pas appeler.",
+        "en": "I don't dare call.",
+        "ar": "ما بجرؤ اتصل."
+      }
+    ]
+  },
+  {
+    "fr": "Ouvrir à nouveau",
+    "ar": "يعيد فتح",
+    "en": "to reopen",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Le dossier peut être ouvert à nouveau.",
+      "en": "The file can be reopened.",
+      "ar": "ممكن ينفتح الملف من جديد."
+    }
+  },
+  {
+    "fr": "Une opération",
+    "ar": "عملية / معاملة",
+    "en": "operation / transaction",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "bank"
+    ],
+    "ex": [
+      {
+        "fr": "L'opération bancaire a été effectuée.",
+        "en": "The banking transaction was completed.",
+        "ar": "تمت العملية البنكية."
+      },
+      {
+        "fr": "Je ne reconnais pas cette opération bancaire.",
+        "en": "I don't recognize this bank transaction.",
+        "ar": "ما بعرف هالمعاملة البنكية."
+      },
+      {
+        "fr": "Cette opération a été refusée par la banque.",
+        "en": "This transaction was rejected by the bank.",
+        "ar": "البنك رفض هالمعاملة."
+      }
+    ]
+  },
+  {
+    "fr": "Une opération bancaire",
+    "ar": "معاملة بنكية",
+    "en": "banking transaction",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cette opération apparaît sur mon compte.",
+      "en": "This transaction appears on my account.",
+      "ar": "هالمعاملة ظاهرة بحسابي."
+    }
+  },
+  {
+    "fr": "Un organisme public",
+    "ar": "مؤسسة / هيئة عامة",
+    "en": "public institution / agency",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je dois contacter un organisme public.",
+      "en": "I have to contact a public institution.",
+      "ar": "لازم أتواصل مع مؤسسة حكومية."
+    }
+  },
+  {
+    "fr": "Une opposition",
+    "ar": "اعتراض / معارضة",
+    "en": "opposition / objection",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai fait opposition à cette décision.",
+        "en": "I objected to this decision.",
+        "ar": "اعترضت على هالقرار."
+      },
+      {
+        "fr": "Je souhaite faire opposition.",
+        "en": "I wish to object.",
+        "ar": "بدي قدّم اعتراض."
+      }
+    ]
+  },
+  {
+    "fr": "Une option",
+    "ar": "خيار",
+    "en": "option / choice",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cette option me convient mieux.",
+      "en": "This option suits me better.",
+      "ar": "هالخيار بناسبني أكتر."
+    }
+  },
+  {
+    "fr": "Un outil",
+    "ar": "أداة",
+    "en": "tool",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Cet outil est très pratique.",
+        "en": "This tool is very useful.",
+        "ar": "هالأداة كتير عملية."
+      },
+      {
+        "fr": "Cet outil facilite le travail.",
+        "en": "This tool makes the work easier.",
+        "ar": "هالأداة بتسهّل الشغل."
+      }
+    ]
+  },
+  {
+    "fr": "Un avis",
+    "ar": "رأي / إشعار",
+    "en": "opinion / notice / official notice",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai reçu un avis de la CAF.",
+      "en": "I received a notice from CAF.",
+      "ar": "وصلني إشعار من الـCAF."
+    }
+  },
+  {
+    "fr": "Un avis d'imposition",
+    "ar": "إشعار ضريبي",
+    "en": "tax notice",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "On me demande mon avis d'imposition.",
+      "en": "They are asking me for my tax notice.",
+      "ar": "طالبين مني الإشعار الضريبي."
+    }
+  },
+  {
+    "fr": "Un avis de paiement",
+    "ar": "إشعار دفع",
+    "en": "payment notice",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai reçu un avis de paiement.",
+      "en": "I received a payment notice.",
+      "ar": "وصلني إشعار دفع."
+    }
+  },
+  {
+    "fr": "Opérationnel / Opérationnelle",
+    "ar": "جاهز للعمل / تشغيلي / شغّال",
+    "en": "operational / ready to operate / functioning",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Le système est opérationnel.",
+        "en": "The system is operational.",
+        "ar": "النظام صار جاهز يشتغل."
+      },
+      {
+        "fr": "Le service est à nouveau opérationnel.",
+        "en": "The service is operational again.",
+        "ar": "الخدمة رجعت شغالة."
+      },
+      {
+        "fr": "La machine est opérationnelle.",
+        "en": "The machine is operational.",
+        "ar": "الماكينة شغّالة وجاهزة."
+      }
+    ]
+  },
+  {
+    "fr": "Optimal / Optimale",
+    "ar": "أمثل / أفضل",
+    "en": "optimal",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "C'est la solution optimale.",
+      "en": "It's the optimal solution.",
+      "ar": "هاد أفضل حل."
+    }
+  },
+  {
+    "fr": "Offert / Offerte",
+    "ar": "مجاني / مقدَّم",
+    "en": "free / offered",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La livraison est offerte.",
+      "en": "Delivery is free.",
+      "ar": "التوصيل مجاني."
+    }
+  },
+  {
+    "fr": "Oral / Orale",
+    "ar": "شفهي",
+    "en": "oral / spoken",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai passé un examen oral.",
+        "en": "I took an oral exam.",
+        "ar": "قدمت امتحان شفهي."
+      },
+      {
+        "fr": "L'entretien sera oral.",
+        "en": "The interview will be oral.",
+        "ar": "المقابلة رح تكون شفهية."
+      }
+    ]
+  },
+  {
+    "fr": "Offensif / Offensive",
+    "ar": "هجومي / عدواني / مسيء",
+    "en": "offensive / aggressive",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Son comportement est offensif.",
+        "en": "His behavior is aggressive.",
+        "ar": "تصرفه هجومي."
+      },
+      {
+        "fr": "Ce commentaire est offensant.",
+        "en": "This comment is offensive.",
+        "ar": "هالتعليق مسيء."
+      }
+    ]
+  },
+  {
+    "fr": "Outre",
+    "ar": "بالإضافة إلى / فضلًا عن",
+    "en": "besides / in addition to",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "Outre le salaire, il y a des avantages.",
+      "en": "Besides the salary, there are benefits.",
+      "ar": "بالإضافة للراتب، في مزايا."
+    }
+  },
+  {
+    "fr": "Or",
+    "ar": "لكن / غير أن",
+    "en": "however / yet",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je voulais venir, or je n'avais pas le temps.",
+      "en": "I wanted to come, but I didn't have time.",
+      "ar": "كنت بدي أجي، بس ما كان عندي وقت."
+    }
+  },
+  {
+    "fr": "Ouvertement",
+    "ar": "علنًا / بصراحة",
+    "en": "openly",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il en parle ouvertement.",
+      "en": "He talks about it openly.",
+      "ar": "بيحكي عن الموضوع بصراحة."
+    }
+  },
+  {
+    "fr": "Opter",
+    "ar": "يختار",
+    "en": "to choose / opt",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Vous pouvez opter pour cette solution.",
+      "en": "You can choose this solution.",
+      "ar": "فيك تختار هالحل."
+    }
+  },
+  {
+    "fr": "Omettre",
+    "ar": "يغفل عن / يحذف",
+    "en": "to omit / leave out",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'ai omis de joindre le document.",
+      "en": "I forgot to attach the document.",
+      "ar": "نسيت أرفق الوثيقة."
+    }
+  },
+  {
+    "fr": "Octroyer",
+    "ar": "يمنح",
+    "en": "to grant / award",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "services"
+    ],
+    "ex": {
+      "fr": "Une aide peut être octroyée sous certaines conditions.",
+      "en": "Assistance may be granted under certain conditions.",
+      "ar": "ممكن تنمنح المساعدة بشروط معينة."
+    }
+  },
+  {
+    "fr": "Un interlocuteur",
+    "ar": "الشخص المسؤول / جهة الاتصال",
+    "en": "contact person / representative",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je voudrais parler à mon interlocuteur.",
+      "en": "I would like to speak to my contact person.",
+      "ar": "بدي احكي مع الشخص المسؤول عن ملفي."
+    }
+  },
+  {
+    "fr": "Une occupation",
+    "ar": "نشاط / عمل / انشغال / مهنة",
+    "en": "occupation / activity",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Quelle est votre occupation actuelle ?",
+        "en": "What is your current occupation?",
+        "ar": "شو شغلك الحالي؟"
+      },
+      {
+        "fr": "Quelle est votre occupation ?",
+        "en": "What is your occupation?",
+        "ar": "شو مهنتك؟"
+      }
+    ]
+  },
+  {
+    "fr": "Une omission",
+    "ar": "إغفال / سهو",
+    "en": "omission / omission error",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Il y a une omission dans le formulaire.",
+      "en": "There is an omission in the form.",
+      "ar": "في معلومة ناقصة بالاستمارة."
+    }
+  },
+  {
+    "fr": "Un octroi",
+    "ar": "منح / تخصيص",
+    "en": "granting / award",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "services"
+    ],
+    "ex": {
+      "fr": "L'octroi de l'aide dépend de certaines conditions.",
+      "en": "The granting of the benefit depends on certain conditions.",
+      "ar": "منح المساعدة بيعتمد على شروط معينة."
+    }
+  },
+  {
+    "fr": "Un opérateur / une opératrice",
+    "ar": "عامل تشغيل / مشغّل",
+    "en": "operator",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Je travaille comme opérateur de production.",
+      "en": "I work as a production operator.",
+      "ar": "بشتغل كعامل تشغيل بالإنتاج."
+    }
+  },
+  {
+    "fr": "Objectif / Objective",
+    "ar": "موضوعي",
+    "en": "objective / impartial / unbiased",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut rester objectif.",
+        "en": "You have to remain objective.",
+        "ar": "لازم تضل موضوعي."
+      },
+      {
+        "fr": "Essayez d'être objectif.",
+        "en": "Try to be objective.",
+        "ar": "حاول تكون موضوعي."
+      }
+    ]
+  },
+  {
+    "fr": "Obscur / Obscure",
+    "ar": "مظلم / غير واضح",
+    "en": "dark / unclear",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le texte est obscur.",
+      "en": "The text is unclear.",
+      "ar": "النص مو واضح."
+    }
+  },
+  {
+    "fr": "Obsolète",
+    "ar": "قديم وغير صالح للاستخدام",
+    "en": "obsolete / outdated",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cette information est obsolète.",
+      "en": "This information is outdated.",
+      "ar": "هالمعلومة قديمة وما عادت صالحة."
+    }
+  },
+  {
+    "fr": "Occasionnel / Occasionnelle",
+    "ar": "عرضي / من وقت لوقت / أحيانًا",
+    "en": "occasional",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai un travail occasionnel.",
+        "en": "I have occasional work.",
+        "ar": "عندي شغل من وقت للتاني."
+      },
+      {
+        "fr": "Je fais des missions occasionnelles.",
+        "en": "I do occasional assignments.",
+        "ar": "بعمل مهام من وقت للتاني."
+      }
+    ]
+  },
+  {
+    "fr": "Offensant / Offensante",
+    "ar": "مسيء / جارح",
+    "en": "offensive / insulting",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cette remarque est offensante.",
+      "en": "This remark is offensive.",
+      "ar": "هالملاحظة مسيئة."
+    }
+  },
+  {
+    "fr": "On dirait que...",
+    "ar": "شكله... / بيبين إنو...",
+    "en": "It seems that... / It looks like...",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "On dirait qu'il va pleuvoir.",
+        "en": "It looks like it's going to rain.",
+        "ar": "شكله رح تشتي."
+      },
+      {
+        "fr": "On dirait qu'il y a un problème.",
+        "en": "It looks like there's a problem.",
+        "ar": "شكله في مشكلة."
+      }
+    ]
+  },
+  {
+    "fr": "On verra.",
+    "ar": "منشوف / الله أعلم / منشوف.",
+    "en": "We'll see.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Tu peux venir demain ? — On verra.",
+      "en": "Can you come tomorrow? — We'll see.",
+      "ar": "فيك تجي بكرا؟ — منشوف."
+    }
+  },
+  {
+    "fr": "On ne sait jamais.",
+    "ar": "ما حدا بيعرف / يمكن / ما بتعرف / الواحد ما بيعرف.",
+    "en": "You never know.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Prends ton parapluie, on ne sait jamais.",
+        "en": "Take your umbrella, you never know.",
+        "ar": "خد شمسيتك، ما حدا بيعرف."
+      },
+      {
+        "fr": "On ne sait jamais.",
+        "en": "You never know.",
+        "ar": "ما بتعرف / الواحد ما بيعرف."
+      },
+      {
+        "fr": "On ne sait jamais.",
+        "en": "You never know.",
+        "ar": "الواحد ما بيعرف."
+      }
+    ]
+  },
+  {
+    "fr": "On s'occupe de ça.",
+    "ar": "نحنا منتصرف بهالموضوع.",
+    "en": "We'll take care of that.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Ne vous inquiétez pas, on s'occupe de ça.",
+        "en": "Don't worry, we'll take care of it.",
+        "ar": "لا تقلق، نحنا منتصرف بهالموضوع."
+      },
+      {
+        "fr": "On s'occupe de ça.",
+        "en": "We'll take care of that.",
+        "ar": "نحنا منتصرف بهالموضوع."
+      }
+    ]
+  },
+  {
+    "fr": "On fait le point.",
+    "ar": "منراجع الوضع / منشوف وين وصلنا. / خلينا نراجع الوضع.",
+    "en": "We'll review the situation. / Let's review / take stock.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Demain, on fait le point sur le dossier.",
+        "en": "Tomorrow, we'll review the application.",
+        "ar": "بكرا منراجع وضع الملف."
+      },
+      {
+        "fr": "On fait le point.",
+        "en": "Let's review / take stock.",
+        "ar": "خلينا نراجع الوضع."
+      }
+    ]
+  },
+  {
+    "fr": "Obtenir de",
+    "ar": "يحصل على من",
+    "en": "to obtain from",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "mairie",
+      "services"
+    ],
+    "ex": {
+      "fr": "Je dois obtenir ce document de la mairie.",
+      "en": "I have to obtain this document from the town hall.",
+      "ar": "لازم أحصل على هالوثيقة من البلدية."
+    }
+  },
+  {
+    "fr": "Obtenir auprès de",
+    "ar": "يحصل على من / يطلب من",
+    "en": "to obtain from / get from",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "services"
+    ],
+    "ex": {
+      "fr": "Vous pouvez obtenir cette attestation auprès de la CAF.",
+      "en": "You can obtain this certificate from CAF.",
+      "ar": "فيك تحصل على هالشهادة من الـCAF."
+    }
+  },
+  {
+    "fr": "Ouvrir droit à",
+    "ar": "يتيح الحق في / يعطي استحقاق",
+    "en": "to entitle someone to",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "services"
+    ],
+    "ex": {
+      "fr": "Cette situation peut ouvrir droit à une aide.",
+      "en": "This situation may entitle you to assistance.",
+      "ar": "هالوضع ممكن يعطيك حق بمساعدة."
+    }
+  },
+  {
+    "fr": "Ouvrir un compte",
+    "ar": "يفتح حساب",
+    "en": "to open an account",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "bank"
+    ],
+    "ex": {
+      "fr": "Je voudrais ouvrir un compte bancaire.",
+      "en": "I'd like to open a bank account.",
+      "ar": "بدي افتح حساب بنكي."
+    }
+  },
+  {
+    "fr": "Ouvrir une ligne",
+    "ar": "يفتح خط",
+    "en": "to open a phone line",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "phone",
+      "services"
+    ],
+    "ex": {
+      "fr": "Je voudrais ouvrir une ligne téléphonique.",
+      "en": "I'd like to open a phone line.",
+      "ar": "بدي افتح خط تلفون."
+    }
+  },
+  {
+    "fr": "Un organisme de formation",
+    "ar": "مؤسسة تدريب",
+    "en": "training organization",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "school",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je cherche un organisme de formation.",
+      "en": "I'm looking for a training organization.",
+      "ar": "عم دور على مؤسسة تدريب."
+    }
+  },
+  {
+    "fr": "Un organisme social",
+    "ar": "مؤسسة / جهة اجتماعية",
+    "en": "social services organization",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je dois contacter un organisme social.",
+      "en": "I have to contact a social services organization.",
+      "ar": "لازم أتواصل مع جهة اجتماعية."
+    }
+  },
+  {
+    "fr": "Un ordre",
+    "ar": "أمر / تعليمات",
+    "en": "order / instruction",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai reçu un ordre de mon responsable.",
+        "en": "I received an instruction from my manager.",
+        "ar": "أخدت تعليمات من مسؤولي."
+      },
+      {
+        "fr": "Suivez les ordres du responsable.",
+        "en": "Follow the manager's instructions.",
+        "ar": "اتبع تعليمات المسؤول."
+      }
+    ]
+  },
+  {
+    "fr": "Un ordre de mission",
+    "ar": "أمر مهمة / تكليف بمهمة",
+    "en": "assignment order / work assignment",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Il a reçu un ordre de mission.",
+      "en": "He received a work assignment.",
+      "ar": "أخد تكليف بمهمة."
+    }
+  },
+  {
+    "fr": "Une origine",
+    "ar": "أصل / منشأ",
+    "en": "origin",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Quelle est votre origine ?",
+      "en": "What is your origin?",
+      "ar": "شو أصلك؟"
+    }
+  },
+  {
+    "fr": "Une offre commerciale",
+    "ar": "عرض تجاري",
+    "en": "commercial offer",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "shop"
+    ],
+    "ex": {
+      "fr": "J'ai reçu une offre commerciale.",
+      "en": "I received a commercial offer.",
+      "ar": "وصلني عرض تجاري."
+    }
+  },
+  {
+    "fr": "Une offre de logement",
+    "ar": "عرض سكن",
+    "en": "housing offer",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "J'ai reçu une offre de logement.",
+      "en": "I received a housing offer.",
+      "ar": "وصلني عرض سكن."
+    }
+  },
+  {
+    "fr": "Une offre de service",
+    "ar": "عرض خدمة",
+    "en": "service offer",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Cette entreprise propose une offre de service intéressante.",
+      "en": "This company offers an interesting service package.",
+      "ar": "هالشركة عندها عرض خدمة منيح."
+    }
+  },
+  {
+    "fr": "Un outil informatique",
+    "ar": "أداة معلوماتية / برنامج",
+    "en": "computer tool / software tool",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Nous utilisons un outil informatique pour gérer les dossiers.",
+      "en": "We use a computer tool to manage applications.",
+      "ar": "منستخدم أداة إلكترونية لإدارة الملفات."
+    }
+  },
+  {
+    "fr": "Observé / Observée",
+    "ar": "ملاحظ / مرصود / ملحوظ",
+    "en": "observed",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Aucun problème n'a été observé.",
+        "en": "No problem was observed.",
+        "ar": "ما تم ملاحظة أي مشكلة."
+      },
+      {
+        "fr": "Une amélioration a été observée.",
+        "en": "An improvement was observed.",
+        "ar": "لوحظ تحسّن."
+      }
+    ]
+  },
+  {
+    "fr": "Obéissant / Obéissante",
+    "ar": "مطيع / ملتزم",
+    "en": "obedient",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il est obéissant et respecte les règles.",
+        "en": "He is obedient and follows the rules.",
+        "ar": "هو ملتزم وبيحترم القوانين."
+      },
+      {
+        "fr": "Il est obéissant aux règles.",
+        "en": "He follows the rules.",
+        "ar": "هو ملتزم بالقوانين."
+      }
+    ]
+  },
+  {
+    "fr": "Opportun / Opportun(e)",
+    "ar": "مناسب / في الوقت المناسب / ملائم",
+    "en": "timely / suitable / appropriate",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "C'est le moment opportun pour faire la demande.",
+        "en": "It's the right time to make the request.",
+        "ar": "هاد الوقت المناسب لتقديم الطلب."
+      },
+      {
+        "fr": "Ce n'est pas le moment opportun.",
+        "en": "This isn't the right time.",
+        "ar": "مو هاد الوقت المناسب."
+      },
+      {
+        "fr": "Ce n'est pas le moment opportun.",
+        "en": "This isn't the right time.",
+        "ar": "مو الوقت المناسب."
+      }
+    ]
+  },
+  {
+    "fr": "Organisé / Organisée",
+    "ar": "منظّم",
+    "en": "organized",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je suis quelqu'un de sérieux et organisé.",
+      "en": "I'm a serious and organized person.",
+      "ar": "أنا شخص جدي ومنظّم."
+    }
+  },
+  {
+    "fr": "Ouvert(e) d'esprit",
+    "ar": "منفتح الفكر",
+    "en": "open-minded",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je suis ouvert d'esprit et j'aime apprendre.",
+      "en": "I'm open-minded and I like learning.",
+      "ar": "أنا شخص منفتح وبحب اتعلم."
+    }
+  },
+  {
+    "fr": "On est d'accord.",
+    "ar": "متفقين / تمام. / نحنا متفقين.",
+    "en": "We agree / Agreed. / We agree.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "On se retrouve à 18 h ? — On est d'accord.",
+        "en": "Shall we meet at 6? — Agreed.",
+        "ar": "منلتقي الساعة 6؟ — تمام، متفقين."
+      },
+      {
+        "fr": "On est d'accord.",
+        "en": "We agree.",
+        "ar": "نحنا متفقين."
+      }
+    ]
+  },
+  {
+    "fr": "On verra bien.",
+    "ar": "منشوف شو بيصير. / منشوف.",
+    "en": "We'll see what happens. / We'll see.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je ne sais pas encore, on verra bien.",
+        "en": "I don't know yet, we'll see what happens.",
+        "ar": "لسا ما بعرف، منشوف شو بيصير."
+      },
+      {
+        "fr": "On verra bien.",
+        "en": "We'll see what happens.",
+        "ar": "منشوف شو بيصير."
+      },
+      {
+        "fr": "On verra bien.",
+        "en": "We'll see.",
+        "ar": "منشوف."
+      }
+    ]
+  },
+  {
+    "fr": "On peut s'arranger.",
+    "ar": "فينا نتفاهم / منلاقي حل.",
+    "en": "We can work something out.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "Pour les horaires, on peut s'arranger.",
+      "en": "We can work something out regarding the schedule.",
+      "ar": "بالنسبة للدوام، فينا نتفاهم."
+    }
+  },
+  {
+    "fr": "On fait comme ça.",
+    "ar": "منعمل هيك. / منعملها هيك.",
+    "en": "We'll do it this way. / We'll do it like this.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "D'accord, on fait comme ça.",
+        "en": "Okay, we'll do it this way.",
+        "ar": "تمام، منعمل هيك."
+      },
+      {
+        "fr": "On fait comme ça.",
+        "en": "We'll do it like this.",
+        "ar": "منعملها هيك."
+      }
+    ]
+  },
+  {
+    "fr": "On se tient au courant.",
+    "ar": "منضل على تواصل / منخبر بعض. / منضل نخبر بعض بالجديد.",
+    "en": "We'll keep each other updated. / We'll keep each other informed.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je vous tiens au courant.",
+        "en": "I'll keep you updated.",
+        "ar": "رح خبرك بأي جديد."
+      },
+      {
+        "fr": "On se tient au courant.",
+        "en": "We'll keep each other informed.",
+        "ar": "منضل نخبر بعض بالجديد."
+      }
+    ]
+  },
+  {
+    "fr": "On n'a pas le choix.",
+    "ar": "ما عنا خيار.",
+    "en": "We have no choice.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On n'a pas le choix, il faut attendre.",
+      "en": "We have no choice, we have to wait.",
+      "ar": "ما عنا خيار، لازم ننطر."
+    }
+  },
+  {
+    "fr": "Obtenir un rendez-vous",
+    "ar": "يحصل على موعد",
+    "en": "to get an appointment",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "J'essaie d'obtenir un rendez-vous.",
+      "en": "I'm trying to get an appointment.",
+      "ar": "عم حاول آخد موعد."
+    }
+  },
+  {
+    "fr": "Obtenir une réponse",
+    "ar": "يحصل على جواب",
+    "en": "to get an answer",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'attends toujours d'obtenir une réponse.",
+      "en": "I'm still waiting to get an answer.",
+      "ar": "لسا ناطر يجييني جواب."
+    }
+  },
+  {
+    "fr": "Obtenir un remboursement",
+    "ar": "يحصل على استرداد / تعويض",
+    "en": "to get a refund / reimbursement",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "health"
+    ],
+    "ex": {
+      "fr": "Je voudrais obtenir un remboursement.",
+      "en": "I would like to get a refund.",
+      "ar": "بدي استرجع المبلغ."
+    }
+  },
+  {
+    "fr": "Obtenir un justificatif",
+    "ar": "يحصل على إثبات / وثيقة",
+    "en": "to obtain proof / document",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Où puis-je obtenir ce justificatif ?",
+      "en": "Where can I obtain this document?",
+      "ar": "من وين فيني أجيب هالوثيقة؟"
+    }
+  },
+  {
+    "fr": "Obtenir une autorisation",
+    "ar": "يحصل على إذن",
+    "en": "to obtain permission",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Je dois obtenir une autorisation avant de commencer.",
+      "en": "I have to get permission before starting.",
+      "ar": "لازم آخد إذن قبل ما بلّش."
+    }
+  },
+  {
+    "fr": "Organiser un rendez-vous",
+    "ar": "يرتب موعد",
+    "en": "to arrange an appointment",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je voudrais organiser un rendez-vous avec mon conseiller.",
+      "en": "I'd like to arrange an appointment with my advisor.",
+      "ar": "بدي رتّب موعد مع المرشد تبعي."
+    }
+  },
+  {
+    "fr": "Organiser une visite",
+    "ar": "يرتب معاينة / زيارة",
+    "en": "to arrange a viewing",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Est-il possible d'organiser une visite ?",
+      "en": "Is it possible to arrange a viewing?",
+      "ar": "ممكن نرتب معاينة؟"
+    }
+  },
+  {
+    "fr": "Observer une règle",
+    "ar": "يلتزم بقاعدة",
+    "en": "to observe / follow a rule",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Il faut observer les règles de sécurité.",
+      "en": "You must follow the safety rules.",
+      "ar": "لازم تلتزم بقواعد السلامة."
+    }
+  },
+  {
+    "fr": "Opérer un changement",
+    "ar": "يجري تغييرًا",
+    "en": "to make a change",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Nous devons opérer un changement.",
+      "en": "We need to make a change.",
+      "ar": "لازم نعمل تغيير."
+    }
+  },
+  {
+    "fr": "Un occupant / une occupante",
+    "ar": "شاغل / ساكن",
+    "en": "occupant / resident",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "housing",
+      "services"
+    ],
+    "ex": {
+      "fr": "L'occupant doit respecter le règlement.",
+      "en": "The occupant must follow the rules.",
+      "ar": "الساكن لازم يلتزم بالقوانين."
+    }
+  },
+  {
+    "fr": "Un objectif personnel",
+    "ar": "هدف شخصي",
+    "en": "personal goal",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "J'ai plusieurs objectifs personnels.",
+      "en": "I have several personal goals.",
+      "ar": "عندي كم هدف شخصي."
+    }
+  },
+  {
+    "fr": "Un outil de travail",
+    "ar": "أداة عمل",
+    "en": "work tool",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "L'ordinateur est un outil de travail.",
+      "en": "The computer is a work tool.",
+      "ar": "الكمبيوتر أداة من أدوات الشغل."
+    }
+  },
+  {
+    "fr": "Un obstacle",
+    "ar": "عائق / عقبة",
+    "en": "obstacle / barrier",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "La langue peut être un obstacle.",
+      "en": "The language can be an obstacle.",
+      "ar": "اللغة ممكن تكون عائق."
+    }
+  },
+  {
+    "fr": "Une organisation",
+    "ar": "تنظيم / مؤسسة",
+    "en": "organization / arrangement",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "L'organisation du travail est importante.",
+      "en": "Work organization is important.",
+      "ar": "تنظيم الشغل مهم."
+    }
+  },
+  {
+    "fr": "Un opérateur",
+    "ar": "مشغّل / عامل تشغيل",
+    "en": "operator",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "L'opérateur vérifie la machine.",
+      "en": "The operator checks the machine.",
+      "ar": "عامل التشغيل بيتأكد من الماكينة."
+    }
+  },
+  {
+    "fr": "Observateur / Observatrice",
+    "ar": "ملاحظ / دقيق الملاحظة",
+    "en": "observant",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il est très observateur.",
+      "en": "He is very observant.",
+      "ar": "هو كتير دقيق بالملاحظة."
+    }
+  },
+  {
+    "fr": "Obligé / Obligée",
+    "ar": "مضطر / مجبور",
+    "en": "obliged / forced",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je suis obligé de partir tôt.",
+      "en": "I'm obliged to leave early.",
+      "ar": "أنا مضطر اطلع بكير."
+    }
+  },
+  {
+    "fr": "Officieux / Officieuse",
+    "ar": "غير رسمي",
+    "en": "unofficial / informal",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ce n'est pas encore officiel, c'est officieux.",
+      "en": "It's not official yet; it's unofficial.",
+      "ar": "لسا مو رسمي، مجرد خبر غير رسمي."
+    }
+  },
+  {
+    "fr": "Omniprésent / Omniprésente",
+    "ar": "موجود بكل مكان",
+    "en": "omnipresent / everywhere",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "phone",
+      "services"
+    ],
+    "ex": {
+      "fr": "Le téléphone est omniprésent dans notre vie.",
+      "en": "The phone is everywhere in our lives.",
+      "ar": "الموبايل صار موجود بكل حياتنا."
+    }
+  },
+  {
+    "fr": "On verra ça plus tard.",
+    "ar": "منشوف هالموضوع بعدين.",
+    "en": "We'll deal with that later.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On verra ça plus tard.",
+      "en": "We'll deal with that later.",
+      "ar": "منشوف هالموضوع بعدين."
+    }
+  },
+  {
+    "fr": "On s'en occupe.",
+    "ar": "نحنا منتصرف فيه.",
+    "en": "We'll take care of it.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On s'en occupe.",
+      "en": "We'll take care of it.",
+      "ar": "نحنا منتصرف فيه."
+    }
+  },
+  {
+    "fr": "On peut essayer.",
+    "ar": "فينا نجرب.",
+    "en": "We can try.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On peut essayer.",
+      "en": "We can try.",
+      "ar": "فينا نجرب."
+    }
+  },
+  {
+    "fr": "On ne sait pas encore.",
+    "ar": "لسا ما منعرف.",
+    "en": "We don't know yet.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On ne sait pas encore.",
+      "en": "We don't know yet.",
+      "ar": "لسا ما منعرف."
+    }
+  },
+  {
+    "fr": "On est presque arrivés.",
+    "ar": "قربنا نوصل.",
+    "en": "We're almost there.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On est presque arrivés.",
+      "en": "We're almost there.",
+      "ar": "قربنا نوصل."
+    }
+  },
+  {
+    "fr": "On fait quoi ?",
+    "ar": "شو منعمل؟",
+    "en": "What do we do? / What are we doing?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On fait quoi ?",
+      "en": "What do we do? / What are we doing?",
+      "ar": "شو منعمل؟"
+    }
+  },
+  {
+    "fr": "On se retrouve où ?",
+    "ar": "وين منلتقي؟",
+    "en": "Where shall we meet?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On se retrouve où ?",
+      "en": "Where shall we meet?",
+      "ar": "وين منلتقي؟"
+    }
+  },
+  {
+    "fr": "On commence ?",
+    "ar": "منبلّش؟",
+    "en": "Shall we start?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On commence ?",
+      "en": "Shall we start?",
+      "ar": "منبلّش؟"
+    }
+  },
+  {
+    "fr": "Oser demander",
+    "ar": "يجرؤ على السؤال",
+    "en": "to dare to ask",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "N'hésitez pas à demander.",
+      "en": "Don't hesitate to ask.",
+      "ar": "لا تتردد تسأل."
+    }
+  },
+  {
+    "fr": "Omettre de",
+    "ar": "يغفل عن / ينسى أن",
+    "en": "to fail to / omit to",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je n'ai pas voulu omettre cette information.",
+      "en": "I didn't want to omit this information.",
+      "ar": "ما بدي أغفل عن هالمعلومة."
+    }
+  },
+  {
+    "fr": "Outrepasser",
+    "ar": "يتجاوز",
+    "en": "to exceed / overstep",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il ne faut pas outrepasser ses droits.",
+      "en": "You must not exceed your rights.",
+      "ar": "ما لازم يتجاوز صلاحياته."
+    }
+  },
+  {
+    "fr": "Un oubli de paiement",
+    "ar": "نسيان / عدم دفع دفعة",
+    "en": "missed payment / payment omission",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "services"
+    ],
+    "ex": {
+      "fr": "Il y a eu un oubli de paiement.",
+      "en": "A payment was missed.",
+      "ar": "صار في دفعة ما اندفعت."
+    }
+  },
+  {
+    "fr": "Un ordre de paiement",
+    "ar": "أمر دفع",
+    "en": "payment order",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "services"
+    ],
+    "ex": {
+      "fr": "La banque a reçu un ordre de paiement.",
+      "en": "The bank received a payment order.",
+      "ar": "البنك استلم أمر دفع."
+    }
+  },
+  {
+    "fr": "Un ordre bancaire",
+    "ar": "أمر بنكي",
+    "en": "banking order",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "services"
+    ],
+    "ex": {
+      "fr": "L'ordre bancaire a été exécuté.",
+      "en": "The banking order was executed.",
+      "ar": "تم تنفيذ الأمر البنكي."
+    }
+  },
+  {
+    "fr": "Un opérateur téléphonique",
+    "ar": "شركة اتصالات",
+    "en": "telecom operator",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "phone",
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Je dois contacter mon opérateur téléphonique.",
+      "en": "I need to contact my telecom operator.",
+      "ar": "لازم أتواصل مع شركة الاتصالات تبعي."
+    }
+  },
+  {
+    "fr": "Une offre internet",
+    "ar": "عرض إنترنت / باقة",
+    "en": "internet offer / plan",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "phone",
+      "services"
+    ],
+    "ex": {
+      "fr": "Cette offre internet me convient.",
+      "en": "This internet plan suits me.",
+      "ar": "هالباقة تبع الإنترنت بتناسبني."
+    }
+  },
+  {
+    "fr": "Une offre mobile",
+    "ar": "عرض موبايل / باقة هاتف",
+    "en": "mobile phone plan",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "phone",
+      "services"
+    ],
+    "ex": {
+      "fr": "Je cherche une offre mobile moins chère.",
+      "en": "I'm looking for a cheaper mobile plan.",
+      "ar": "عم دور على باقة موبايل أرخص."
+    }
+  },
+  {
+    "fr": "Une option supplémentaire",
+    "ar": "خيار إضافي",
+    "en": "additional option",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cette option supplémentaire coûte cinq euros.",
+      "en": "This additional option costs five euros.",
+      "ar": "هالخيار الإضافي حقه خمس يورو."
+    }
+  },
+  {
+    "fr": "Un outil numérique",
+    "ar": "أداة رقمية",
+    "en": "digital tool",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "C'est un outil numérique très pratique.",
+      "en": "It's a very useful digital tool.",
+      "ar": "هاي أداة رقمية كتير عملية."
+    }
+  },
+  {
+    "fr": "Une opération automatique",
+    "ar": "عملية تلقائية",
+    "en": "automatic transaction / operation",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily"
+    ],
+    "ex": {
+      "fr": "Le paiement est effectué par une opération automatique.",
+      "en": "The payment is made automatically.",
+      "ar": "الدفع بينعمل بشكل تلقائي."
+    }
+  },
+  {
+    "fr": "Une opposition bancaire",
+    "ar": "اعتراض / إيقاف بنكي",
+    "en": "bank opposition / blocking",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je dois faire opposition sur ma carte.",
+      "en": "I need to block my card.",
+      "ar": "لازم أعمل إيقاف للبطاقة."
+    }
+  },
+  {
+    "fr": "Oculaire",
+    "ar": "عيني / متعلق بالعين",
+    "en": "ocular / eye-related",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "health"
+    ],
+    "ex": {
+      "fr": "Il faut faire un contrôle oculaire.",
+      "en": "An eye examination is needed.",
+      "ar": "لازم تعمل فحص للعين."
+    }
+  },
+  {
+    "fr": "À votre avis ?",
+    "ar": "برأيك؟",
+    "en": "In your opinion?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "À votre avis, quelle solution est la meilleure ?",
+      "en": "In your opinion, which solution is best?",
+      "ar": "برأيك، شو أحسن حل؟"
+    }
+  },
+  {
+    "fr": "Ou pas ?",
+    "ar": "أو لا؟",
+    "en": "or not?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Tu viens demain ou pas ?",
+      "en": "Are you coming tomorrow or not?",
+      "ar": "جاي بكرا ولا لا؟"
+    }
+  },
+  {
+    "fr": "Ou bien",
+    "ar": "أو / أو بالأحرى",
+    "en": "or / alternatively",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Vous préférez le matin ou bien l'après-midi ?",
+      "en": "Do you prefer the morning or the afternoon?",
+      "ar": "بتفضّل الصبح ولا بعد الظهر؟"
+    }
+  },
+  {
+    "fr": "Ou alors",
+    "ar": "أو بدل هيك",
+    "en": "or else / alternatively",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On peut venir demain, ou alors vendredi.",
+      "en": "We can come tomorrow, or alternatively Friday.",
+      "ar": "فينا نجي بكرا، أو بدل هيك الجمعة."
+    }
+  },
+  {
+    "fr": "Ouverture exceptionnelle",
+    "ar": "فتح استثنائي",
+    "en": "exceptional opening",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "shop",
+      "work"
+    ],
+    "ex": {
+      "fr": "Le magasin est ouvert exceptionnellement dimanche.",
+      "en": "The shop is exceptionally open on Sunday.",
+      "ar": "المحل فاتح يوم الأحد بشكل استثنائي."
+    }
+  },
+  {
+    "fr": "Obéir à",
+    "ar": "يطيع / يلتزم بـ",
+    "en": "to obey / follow",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Il faut obéir aux règles de sécurité.",
+      "en": "You have to follow the safety rules.",
+      "ar": "لازم تلتزم بقواعد السلامة."
+    }
+  },
+  {
+    "fr": "Orchestrer",
+    "ar": "ينسّق / ينظّم",
+    "en": "to coordinate / organize",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Il a orchestré toute l'organisation.",
+      "en": "He coordinated the whole organization.",
+      "ar": "هو نسّق كل عملية التنظيم."
+    }
+  },
+  {
+    "fr": "Un objet",
+    "ar": "غرض / شيء",
+    "en": "object / item",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "transport"
+    ],
+    "ex": {
+      "fr": "J'ai oublié un objet dans le bus.",
+      "en": "I forgot an item on the bus.",
+      "ar": "نسيت غرض بالباص."
+    }
+  },
+  {
+    "fr": "Un objet perdu",
+    "ar": "غرض مفقود",
+    "en": "lost item",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je voudrais signaler un objet perdu.",
+      "en": "I'd like to report a lost item.",
+      "ar": "بدي بلّغ عن غرض ضايع."
+    }
+  },
+  {
+    "fr": "Un occupant",
+    "ar": "شاغل / ساكن",
+    "en": "occupant / tenant / resident",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "housing",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "L'occupant du logement doit respecter le règlement.",
+        "en": "The occupant of the housing unit must follow the rules.",
+        "ar": "ساكن البيت لازم يلتزم بالقوانين."
+      },
+      {
+        "fr": "L'occupant doit signaler tout problème.",
+        "en": "The occupant must report any problem.",
+        "ar": "الساكن لازم يبلّغ عن أي مشكلة."
+      }
+    ]
+  },
+  {
+    "fr": "Un ordre professionnel",
+    "ar": "هيئة مهنية",
+    "en": "professional body / professional order",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Il est inscrit à un ordre professionnel.",
+      "en": "He is registered with a professional body.",
+      "ar": "هو مسجّل بهيئة مهنية."
+    }
+  },
+  {
+    "fr": "Une obligation légale",
+    "ar": "التزام قانوني",
+    "en": "legal obligation",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "Cette déclaration est une obligation légale.",
+      "en": "This declaration is a legal obligation.",
+      "ar": "هالتصريح التزام قانوني."
+    }
+  },
+  {
+    "fr": "On m'a dit que...",
+    "ar": "قالولي إنو...",
+    "en": "I was told that...",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On m'a dit que le dossier était prêt.",
+      "en": "I was told that the file was ready.",
+      "ar": "قالولي إنو الملف جاهز."
+    }
+  },
+  {
+    "fr": "On m'a demandé de...",
+    "ar": "طلبوا مني...",
+    "en": "I was asked to...",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On m'a demandé de fournir un justificatif.",
+      "en": "I was asked to provide proof.",
+      "ar": "طلبوا مني قدّم إثبات."
+    }
+  },
+  {
+    "fr": "On m'a refusé...",
+    "ar": "رفضولي...",
+    "en": "I was refused...",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On m'a refusé ma demande.",
+      "en": "My request was refused.",
+      "ar": "رفضولي طلبي."
+    }
+  },
+  {
+    "fr": "Ma demande a été acceptée.",
+    "ar": "تمت الموافقة على طلبي.",
+    "en": "My request was accepted.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Ma demande a été acceptée.",
+      "en": "My request was accepted.",
+      "ar": "تمت الموافقة على طلبي."
+    }
+  },
+  {
+    "fr": "On peut faire autrement.",
+    "ar": "فينا نعملها بطريقة تانية.",
+    "en": "We can do it differently.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On peut faire autrement.",
+      "en": "We can do it differently.",
+      "ar": "فينا نعملها بطريقة تانية."
+    }
+  },
+  {
+    "fr": "On peut vérifier ?",
+    "ar": "فينا نتأكد؟",
+    "en": "Can we check?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On peut vérifier ?",
+      "en": "Can we check?",
+      "ar": "فينا نتأكد؟"
+    }
+  },
+  {
+    "fr": "On peut attendre ?",
+    "ar": "فينا ننطر؟ / عرضي / من وقت لوقت",
+    "en": "Can we wait?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai un travail occasionnel.",
+      "en": "I have occasional work.",
+      "ar": "عندي شغل من وقت للتاني."
+    }
+  },
+  {
+    "fr": "Offrir un service",
+    "ar": "يقدّم خدمة",
+    "en": "to offer a service",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Cette entreprise offre plusieurs services.",
+      "en": "This company offers several services.",
+      "ar": "هالشركة بتقدّم عدة خدمات."
+    }
+  },
+  {
+    "fr": "Orienter vers",
+    "ar": "يوجّه إلى",
+    "en": "to refer / direct to",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services",
+      "work"
+    ],
+    "ex": {
+      "fr": "Ils m'ont orienté vers un autre service.",
+      "en": "They referred me to another department.",
+      "ar": "وجّهوني على قسم تاني."
+    }
+  },
+  {
+    "fr": "Un organisme de logement",
+    "ar": "جهة / مؤسسة سكنية",
+    "en": "housing organization",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "housing",
+      "services"
+    ],
+    "ex": {
+      "fr": "Je dois contacter l'organisme de logement.",
+      "en": "I need to contact the housing organization.",
+      "ar": "لازم أتواصل مع جهة السكن."
+    }
+  },
+  {
+    "fr": "Un office",
+    "ar": "مكتب / هيئة",
+    "en": "office / public housing office",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je dois contacter l'office HLM.",
+      "en": "I need to contact the social housing office.",
+      "ar": "لازم أتواصل مع مكتب السكن الاجتماعي."
+    }
+  },
+  {
+    "fr": "Un office public",
+    "ar": "هيئة / مكتب عام",
+    "en": "public office / authority",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Cet office gère les logements sociaux.",
+      "en": "This public office manages social housing.",
+      "ar": "هالهيئة بتدير السكن الاجتماعي."
+    }
+  },
+  {
+    "fr": "Un état des lieux",
+    "ar": "محضر معاينة السكن",
+    "en": "property inspection report",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "Nous avons fait l'état des lieux d'entrée.",
+      "en": "We completed the move-in inspection.",
+      "ar": "عملنا معاينة البيت وقت استلامه."
+    }
+  },
+  {
+    "fr": "Un état des lieux de sortie",
+    "ar": "معاينة عند الخروج من السكن",
+    "en": "move-out inspection",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "L'état des lieux de sortie aura lieu vendredi.",
+      "en": "The move-out inspection will take place on Friday.",
+      "ar": "معاينة البيت وقت الخروج رح تكون يوم الجمعة."
+    }
+  },
+  {
+    "fr": "Une offre de formation",
+    "ar": "عرض تدريب / دورة",
+    "en": "training offer",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "school",
+      "work"
+    ],
+    "ex": {
+      "fr": "J'ai reçu une offre de formation.",
+      "en": "I received a training offer.",
+      "ar": "وصلني عرض تدريب."
+    }
+  },
+  {
+    "fr": "Une offre de remboursement",
+    "ar": "عرض استرداد",
+    "en": "refund offer",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "health"
+    ],
+    "ex": {
+      "fr": "L'offre de remboursement est valable jusqu'à la fin du mois.",
+      "en": "The refund offer is valid until the end of the month.",
+      "ar": "عرض استرداد المبلغ ساري لنهاية الشهر."
+    }
+  },
+  {
+    "fr": "Une opportunité",
+    "ar": "فرصة",
+    "en": "opportunity",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "C'est une bonne opportunité professionnelle.",
+      "en": "It's a good career opportunity.",
+      "ar": "هاي فرصة مهنية منيحة."
+    }
+  },
+  {
+    "fr": "Organique",
+    "ar": "عضوي",
+    "en": "organic",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Je préfère les produits organiques.",
+      "en": "I prefer organic products.",
+      "ar": "بفضّل المنتجات العضوية."
+    }
+  },
+  {
+    "fr": "Ordinaires",
+    "ar": "عادية",
+    "en": "ordinary / regular",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": {
+      "fr": "Les horaires ordinaires sont différents.",
+      "en": "The regular hours are different.",
+      "ar": "أوقات الدوام العادية مختلفة."
+    }
+  },
+  {
+    "fr": "On s'en fiche.",
+    "ar": "ما بهمنا / ما فارقة معنا.",
+    "en": "We don't care.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On s'en fiche.",
+      "en": "We don't care.",
+      "ar": "ما بهمنا / ما فارقة معنا."
+    }
+  },
+  {
+    "fr": "On s'en fout.",
+    "ar": "ما بهمنا / ما فارقة معنا.",
+    "en": "We don't care / Whatever.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On s'en fout.",
+      "en": "We don't care / Whatever.",
+      "ar": "ما بهمنا / ما فارقة معنا."
+    }
+  },
+  {
+    "fr": "On est obligé de...",
+    "ar": "مضطرين...",
+    "en": "We have to... / We're obliged to...",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On est obligé d'attendre.",
+      "en": "We have to wait.",
+      "ar": "نحنا مضطرين ننطر."
+    }
+  },
+  {
+    "fr": "Où tu vas ?",
+    "ar": "لوين رايح؟",
+    "en": "Where are you going?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où tu vas ?",
+      "en": "Where are you going?",
+      "ar": "لوين رايح؟"
+    }
+  },
+  {
+    "fr": "Où tu habites ?",
+    "ar": "وين ساكن؟",
+    "en": "Where do you live?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où tu habites ?",
+      "en": "Where do you live?",
+      "ar": "وين ساكن؟"
+    }
+  },
+  {
+    "fr": "Où est-ce que je peux… ?",
+    "ar": "وين فيني…؟",
+    "en": "Where can I…?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où est-ce que je peux… ?",
+      "en": "Where can I…?",
+      "ar": "وين فيني…؟"
+    }
+  },
+  {
+    "fr": "Où est-ce que je dois aller ?",
+    "ar": "لوين لازم روح؟",
+    "en": "Where do I have to go?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où est-ce que je dois aller ?",
+      "en": "Where do I have to go?",
+      "ar": "لوين لازم روح؟"
+    }
+  },
+  {
+    "fr": "Où est mon dossier ?",
+    "ar": "وين صار ملفي؟",
+    "en": "Where is my file?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "Où est mon dossier ?",
+      "en": "Where is my file?",
+      "ar": "وين صار ملفي؟"
+    }
+  },
+  {
+    "fr": "Où dois-je signer ?",
+    "ar": "وين لازم وقّع؟",
+    "en": "Where should I sign?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où dois-je signer ?",
+      "en": "Where should I sign?",
+      "ar": "وين لازم وقّع؟"
+    }
+  },
+  {
+    "fr": "Où puis-je trouver… ?",
+    "ar": "وين فيني لاقي…؟",
+    "en": "Where can I find…?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où puis-je trouver… ?",
+      "en": "Where can I find…?",
+      "ar": "وين فيني لاقي…؟"
+    }
+  },
+  {
+    "fr": "Où se trouve… ?",
+    "ar": "وين موجود…؟",
+    "en": "Where is… located?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où se trouve… ?",
+      "en": "Where is… located?",
+      "ar": "وين موجود…؟"
+    }
+  },
+  {
+    "fr": "On y va ?",
+    "ar": "منروح؟ / يلا نروح!",
+    "en": "Shall we go? / Let's go!",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "On y va ?",
+        "en": "Shall we go?",
+        "ar": "منروح؟"
+      },
+      {
+        "fr": "On y va !",
+        "en": "Let's go!",
+        "ar": "يلا نروح!"
+      }
+    ]
+  },
+  {
+    "fr": "On arrive.",
+    "ar": "قربنا نوصل.",
+    "en": "We're arriving.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On arrive.",
+      "en": "We're arriving.",
+      "ar": "قربنا نوصل."
+    }
+  },
+  {
+    "fr": "On arrive bientôt.",
+    "ar": "رح نوصل قريب.",
+    "en": "We'll arrive soon.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On arrive bientôt.",
+      "en": "We'll arrive soon.",
+      "ar": "رح نوصل قريب."
+    }
+  },
+  {
+    "fr": "On attend.",
+    "ar": "نحنا ناطرين.",
+    "en": "We're waiting.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On attend.",
+      "en": "We're waiting.",
+      "ar": "نحنا ناطرين."
+    }
+  },
+  {
+    "fr": "On attend quoi ?",
+    "ar": "عشو ناطرين؟",
+    "en": "What are we waiting for?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On attend quoi ?",
+      "en": "What are we waiting for?",
+      "ar": "عشو ناطرين؟"
+    }
+  },
+  {
+    "fr": "On fait comment ?",
+    "ar": "كيف منعملها؟",
+    "en": "How do we do it?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On fait comment ?",
+      "en": "How do we do it?",
+      "ar": "كيف منعملها؟"
+    }
+  },
+  {
+    "fr": "On commence quand ?",
+    "ar": "إمتى منبلّش؟",
+    "en": "When do we start?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On commence quand ?",
+      "en": "When do we start?",
+      "ar": "إمتى منبلّش؟"
+    }
+  },
+  {
+    "fr": "On finit à quelle heure ?",
+    "ar": "عأي ساعة منخلص؟",
+    "en": "What time do we finish?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On finit à quelle heure ?",
+      "en": "What time do we finish?",
+      "ar": "عأي ساعة منخلص؟"
+    }
+  },
+  {
+    "fr": "On se voit demain ?",
+    "ar": "منشوف بعض بكرا؟",
+    "en": "See you tomorrow?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On se voit demain ?",
+      "en": "See you tomorrow?",
+      "ar": "منشوف بعض بكرا؟"
+    }
+  },
+  {
+    "fr": "On se retrouve demain.",
+    "ar": "منلتقي بكرا.",
+    "en": "We'll meet tomorrow.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On se retrouve demain.",
+      "en": "We'll meet tomorrow.",
+      "ar": "منلتقي بكرا."
+    }
+  },
+  {
+    "fr": "On reste ici.",
+    "ar": "منضل هون.",
+    "en": "We're staying here.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On reste ici.",
+      "en": "We're staying here.",
+      "ar": "منضل هون."
+    }
+  },
+  {
+    "fr": "On continue.",
+    "ar": "منكمل؟ / منكمل.",
+    "en": "Shall we continue? / We continue.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "On continue ?",
+        "en": "Shall we continue?",
+        "ar": "منكمل؟"
+      },
+      {
+        "fr": "On continue.",
+        "en": "We continue.",
+        "ar": "منكمل."
+      }
+    ]
+  },
+  {
+    "fr": "On peut entrer ?",
+    "ar": "فينا نفوت؟",
+    "en": "Can we come in?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On peut entrer ?",
+      "en": "Can we come in?",
+      "ar": "فينا نفوت؟"
+    }
+  },
+  {
+    "fr": "On peut sortir ?",
+    "ar": "فينا نطلع؟",
+    "en": "Can we go out?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On peut sortir ?",
+      "en": "Can we go out?",
+      "ar": "فينا نطلع؟"
+    }
+  },
+  {
+    "fr": "On peut faire ça demain.",
+    "ar": "فينا نعمل هالشي بكرا.",
+    "en": "We can do that tomorrow.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On peut faire ça demain.",
+      "en": "We can do that tomorrow.",
+      "ar": "فينا نعمل هالشي بكرا."
+    }
+  },
+  {
+    "fr": "On doit partir.",
+    "ar": "لازم نروح.",
+    "en": "We have to leave.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On doit partir.",
+      "en": "We have to leave.",
+      "ar": "لازم نروح."
+    }
+  },
+  {
+    "fr": "On doit attendre.",
+    "ar": "لازم ننطر.",
+    "en": "We have to wait.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On doit attendre.",
+      "en": "We have to wait.",
+      "ar": "لازم ننطر."
+    }
+  },
+  {
+    "fr": "On ne peut pas.",
+    "ar": "ما فينا.",
+    "en": "We can't.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On ne peut pas.",
+      "en": "We can't.",
+      "ar": "ما فينا."
+    }
+  },
+  {
+    "fr": "On verra demain.",
+    "ar": "منشوف بكرا.",
+    "en": "We'll see tomorrow.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On verra demain.",
+      "en": "We'll see tomorrow.",
+      "ar": "منشوف بكرا."
+    }
+  },
+  {
+    "fr": "Oui, bien sûr.",
+    "ar": "إي، طبعًا.",
+    "en": "Yes, of course.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Oui, bien sûr.",
+      "en": "Yes, of course.",
+      "ar": "إي، طبعًا."
+    }
+  },
+  {
+    "fr": "Oui, d'accord.",
+    "ar": "إي، تمام.",
+    "en": "Yes, okay.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Oui, d'accord.",
+      "en": "Yes, okay.",
+      "ar": "إي، تمام."
+    }
+  },
+  {
+    "fr": "Oui, c'est ça.",
+    "ar": "إي، هيك بالضبط.",
+    "en": "Yes, that's it.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Oui, c'est ça.",
+      "en": "Yes, that's it.",
+      "ar": "إي، هيك بالضبط."
+    }
+  },
+  {
+    "fr": "Oui, exactement.",
+    "ar": "إي، بالضبط.",
+    "en": "Yes, exactly.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Oui, exactement.",
+      "en": "Yes, exactly.",
+      "ar": "إي، بالضبط."
+    }
+  },
+  {
+    "fr": "Oui, je comprends.",
+    "ar": "إي، فهمت.",
+    "en": "Yes, I understand.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Oui, je comprends.",
+      "en": "Yes, I understand.",
+      "ar": "إي، فهمت."
+    }
+  },
+  {
+    "fr": "Oui, je vois.",
+    "ar": "إي، فهمت / شايف.",
+    "en": "Yes, I see / I understand.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Oui, je vois.",
+      "en": "Yes, I see / I understand.",
+      "ar": "إي، فهمت / شايف."
+    }
+  },
+  {
+    "fr": "Ou sinon…",
+    "ar": "أو غير هيك…",
+    "en": "Or otherwise…",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ou sinon…",
+      "en": "Or otherwise…",
+      "ar": "أو غير هيك…"
+    }
+  },
+  {
+    "fr": "Ou peut-être…",
+    "ar": "أو يمكن…",
+    "en": "Or maybe…",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ou peut-être…",
+      "en": "Or maybe…",
+      "ar": "أو يمكن…"
+    }
+  },
+  {
+    "fr": "Ou quelque chose comme ça.",
+    "ar": "أو شي من هالنوع.",
+    "en": "Or something like that.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ou quelque chose comme ça.",
+      "en": "Or something like that.",
+      "ar": "أو شي من هالنوع."
+    }
+  },
+  {
+    "fr": "Ou quoi ?",
+    "ar": "ولا شو؟",
+    "en": "Or what?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ou quoi ?",
+      "en": "Or what?",
+      "ar": "ولا شو؟"
+    }
+  },
+  {
+    "fr": "Ou pas du tout.",
+    "ar": "أو أبدًا.",
+    "en": "Or not at all.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ou pas du tout.",
+      "en": "Or not at all.",
+      "ar": "أو أبدًا."
+    }
+  },
+  {
+    "fr": "On y est.",
+    "ar": "وصلنا / خلص وصلنا.",
+    "en": "We're there / We've made it.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On y est.",
+      "en": "We're there / We've made it.",
+      "ar": "وصلنا / خلص وصلنا."
+    }
+  },
+  {
+    "fr": "On y est presque.",
+    "ar": "قربنا نوصل.",
+    "en": "We're almost there.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On y est presque.",
+      "en": "We're almost there.",
+      "ar": "قربنا نوصل."
+    }
+  },
+  {
+    "fr": "On verra ça.",
+    "ar": "منشوف هالموضوع.",
+    "en": "We'll see about that.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On verra ça.",
+      "en": "We'll see about that.",
+      "ar": "منشوف هالموضوع."
+    }
+  },
+  {
+    "fr": "On verra ça ensemble.",
+    "ar": "منشوف هالموضوع سوا.",
+    "en": "We'll see about it together.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On verra ça ensemble.",
+      "en": "We'll see about it together.",
+      "ar": "منشوف هالموضوع سوا."
+    }
+  },
+  {
+    "fr": "On s'en charge.",
+    "ar": "نحنا منتكفّل فيه.",
+    "en": "We'll take care of it.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On s'en charge.",
+      "en": "We'll take care of it.",
+      "ar": "نحنا منتكفّل فيه."
+    }
+  },
+  {
+    "fr": "On a un problème.",
+    "ar": "عنا مشكلة.",
+    "en": "We have a problem.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a un problème.",
+      "en": "We have a problem.",
+      "ar": "عنا مشكلة."
+    }
+  },
+  {
+    "fr": "On a un rendez-vous.",
+    "ar": "عنا موعد.",
+    "en": "We have an appointment.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On a un rendez-vous.",
+      "en": "We have an appointment.",
+      "ar": "عنا موعد."
+    }
+  },
+  {
+    "fr": "On a le temps.",
+    "ar": "معنا وقت.",
+    "en": "We have time.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a le temps.",
+      "en": "We have time.",
+      "ar": "معنا وقت."
+    }
+  },
+  {
+    "fr": "On n'a pas le temps.",
+    "ar": "ما معنا وقت.",
+    "en": "We don't have time.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On n'a pas le temps.",
+      "en": "We don't have time.",
+      "ar": "ما معنا وقت."
+    }
+  },
+  {
+    "fr": "On a besoin de…",
+    "ar": "نحنا بحاجة لـ...",
+    "en": "We need…",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a besoin de…",
+      "en": "We need…",
+      "ar": "نحنا بحاجة لـ..."
+    }
+  },
+  {
+    "fr": "On a oublié.",
+    "ar": "نسينا.",
+    "en": "We forgot.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a oublié.",
+      "en": "We forgot.",
+      "ar": "نسينا."
+    }
+  },
+  {
+    "fr": "On a compris.",
+    "ar": "فهمنا.",
+    "en": "We understood.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a compris.",
+      "en": "We understood.",
+      "ar": "فهمنا."
+    }
+  },
+  {
+    "fr": "On commence à quelle heure ?",
+    "ar": "عأي ساعة منبلّش؟",
+    "en": "What time do we start?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On commence à quelle heure ?",
+      "en": "What time do we start?",
+      "ar": "عأي ساعة منبلّش؟"
+    }
+  },
+  {
+    "fr": "On termine à quelle heure ?",
+    "ar": "عأي ساعة منخلص؟",
+    "en": "What time do we finish?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On termine à quelle heure ?",
+      "en": "What time do we finish?",
+      "ar": "عأي ساعة منخلص؟"
+    }
+  },
+  {
+    "fr": "On travaille demain ?",
+    "ar": "عنا شغل بكرا؟",
+    "en": "Are we working tomorrow?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "On travaille demain ?",
+      "en": "Are we working tomorrow?",
+      "ar": "عنا شغل بكرا؟"
+    }
+  },
+  {
+    "fr": "On travaille aujourd'hui ?",
+    "ar": "عنا شغل اليوم؟",
+    "en": "Are we working today?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "On travaille aujourd'hui ?",
+      "en": "Are we working today?",
+      "ar": "عنا شغل اليوم؟"
+    }
+  },
+  {
+    "fr": "On fait une pause ?",
+    "ar": "مناخد بريك؟",
+    "en": "Shall we take a break?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On fait une pause ?",
+      "en": "Shall we take a break?",
+      "ar": "مناخد بريك؟"
+    }
+  },
+  {
+    "fr": "On reprend à quelle heure ?",
+    "ar": "عأي ساعة منرجع نكمّل؟",
+    "en": "What time do we resume?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On reprend à quelle heure ?",
+      "en": "What time do we resume?",
+      "ar": "عأي ساعة منرجع نكمّل؟"
+    }
+  },
+  {
+    "fr": "On peut changer ?",
+    "ar": "فينا نغيّر؟",
+    "en": "Can we change?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On peut changer ?",
+      "en": "Can we change?",
+      "ar": "فينا نغيّر؟"
+    }
+  },
+  {
+    "fr": "On peut échanger les horaires ?",
+    "ar": "فينا نبدّل أوقات الدوام؟",
+    "en": "Can we swap shifts?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "On peut échanger les horaires ?",
+      "en": "Can we swap shifts?",
+      "ar": "فينا نبدّل أوقات الدوام؟"
+    }
+  },
+  {
+    "fr": "Où sont les clés ?",
+    "ar": "وين المفاتيح؟",
+    "en": "Where are the keys?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "Où sont les clés ?",
+      "en": "Where are the keys?",
+      "ar": "وين المفاتيح؟"
+    }
+  },
+  {
+    "fr": "Où est l'entrée ?",
+    "ar": "وين المدخل؟",
+    "en": "Where is the entrance?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "Où est l'entrée ?",
+      "en": "Where is the entrance?",
+      "ar": "وين المدخل؟"
+    }
+  },
+  {
+    "fr": "Où est la sortie ?",
+    "ar": "وين المخرج؟",
+    "en": "Where is the exit?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "Où est la sortie ?",
+      "en": "Where is the exit?",
+      "ar": "وين المخرج؟"
+    }
+  },
+  {
+    "fr": "Où sont les poubelles ?",
+    "ar": "وين الزبالة / حاويات القمامة؟",
+    "en": "Where are the bins?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "housing"
+    ],
+    "ex": {
+      "fr": "Où sont les poubelles ?",
+      "en": "Where are the bins?",
+      "ar": "وين الزبالة / حاويات القمامة؟"
+    }
+  },
+  {
+    "fr": "On a un problème avec l'appartement.",
+    "ar": "عنا مشكلة بالشقة.",
+    "en": "We have a problem with the apartment.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": {
+      "fr": "On a un problème avec l'appartement.",
+      "en": "We have a problem with the apartment.",
+      "ar": "عنا مشكلة بالشقة."
+    }
+  },
+  {
+    "fr": "On doit prévenir le propriétaire.",
+    "ar": "لازم نخبر صاحب البيت.",
+    "en": "We have to inform the landlord.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "daily",
+      "france_travail",
+      "housing",
+      "work"
+    ],
+    "ex": {
+      "fr": "On doit prévenir le propriétaire.",
+      "en": "We have to inform the landlord.",
+      "ar": "لازم نخبر صاحب البيت."
+    }
+  },
+  {
+    "fr": "Où en est ma demande ?",
+    "ar": "لوين وصل طلبي؟",
+    "en": "What is the status of my request?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "services"
+    ],
+    "ex": {
+      "fr": "Où en est ma demande ?",
+      "en": "What is the status of my request?",
+      "ar": "لوين وصل طلبي؟"
+    }
+  },
+  {
+    "fr": "On m'a demandé un document.",
+    "ar": "طلبوا مني ورقة.",
+    "en": "I was asked for a document.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On m'a demandé un document.",
+      "en": "I was asked for a document.",
+      "ar": "طلبوا مني ورقة."
+    }
+  },
+  {
+    "fr": "On m'a demandé un justificatif.",
+    "ar": "طلبوا مني إثبات.",
+    "en": "I was asked for supporting documentation.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On m'a demandé un justificatif.",
+      "en": "I was asked for supporting documentation.",
+      "ar": "طلبوا مني إثبات."
+    }
+  },
+  {
+    "fr": "On m'a dit d'attendre.",
+    "ar": "قالولي انطر.",
+    "en": "I was told to wait.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On m'a dit d'attendre.",
+      "en": "I was told to wait.",
+      "ar": "قالولي انطر."
+    }
+  },
+  {
+    "fr": "On m'a dit de revenir demain.",
+    "ar": "قالولي ارجع بكرا.",
+    "en": "I was told to come back tomorrow.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On m'a dit de revenir demain.",
+      "en": "I was told to come back tomorrow.",
+      "ar": "قالولي ارجع بكرا."
+    }
+  },
+  {
+    "fr": "On m'a envoyé un message.",
+    "ar": "بعتولي رسالة.",
+    "en": "They sent me a message.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On m'a envoyé un message.",
+      "en": "They sent me a message.",
+      "ar": "بعتولي رسالة."
+    }
+  },
+  {
+    "fr": "On m'a envoyé un courrier.",
+    "ar": "بعتولي رسالة بالبريد.",
+    "en": "They sent me a letter.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On m'a envoyé un courrier.",
+      "en": "They sent me a letter.",
+      "ar": "بعتولي رسالة بالبريد."
+    }
+  },
+  {
+    "fr": "On m'a refusé la demande.",
+    "ar": "رفضوا الطلب.",
+    "en": "The request was refused.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On m'a refusé la demande.",
+      "en": "The request was refused.",
+      "ar": "رفضوا الطلب."
+    }
+  },
+  {
+    "fr": "On m'a accordé l'aide.",
+    "ar": "وافقوا على المساعدة / عطوني الدعم.",
+    "en": "The assistance was granted to me.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On m'a accordé l'aide.",
+      "en": "The assistance was granted to me.",
+      "ar": "وافقوا على المساعدة / عطوني الدعم."
+    }
+  },
+  {
+    "fr": "On parle de quoi ?",
+    "ar": "عن شو عم نحكي؟",
+    "en": "What are we talking about?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On parle de quoi ?",
+      "en": "What are we talking about?",
+      "ar": "عن شو عم نحكي؟"
+    }
+  },
+  {
+    "fr": "On fait quoi maintenant ?",
+    "ar": "شو منعمل هلق؟",
+    "en": "What do we do now?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On fait quoi maintenant ?",
+      "en": "What do we do now?",
+      "ar": "شو منعمل هلق؟"
+    }
+  },
+  {
+    "fr": "On commence par quoi ?",
+    "ar": "من وين منبلّش؟",
+    "en": "What do we start with?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On commence par quoi ?",
+      "en": "What do we start with?",
+      "ar": "من وين منبلّش؟"
+    }
+  },
+  {
+    "fr": "On termine quand ?",
+    "ar": "إمتى منخلص؟",
+    "en": "When do we finish?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On termine quand ?",
+      "en": "When do we finish?",
+      "ar": "إمتى منخلص؟"
+    }
+  },
+  {
+    "fr": "On est où ?",
+    "ar": "وين نحنا؟",
+    "en": "Where are we?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On est où ?",
+      "en": "Where are we?",
+      "ar": "وين نحنا؟"
+    }
+  },
+  {
+    "fr": "On en est où ?",
+    "ar": "لوين وصلنا؟ / شو صار معنا؟",
+    "en": "Where are we at? / What's the situation?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On en est où ?",
+      "en": "Where are we at? / What's the situation?",
+      "ar": "لوين وصلنا؟ / شو صار معنا؟"
+    }
+  },
+  {
+    "fr": "On en parle après.",
+    "ar": "منحكي فيها بعدين.",
+    "en": "We'll talk about it later.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On en parle après.",
+      "en": "We'll talk about it later.",
+      "ar": "منحكي فيها بعدين."
+    }
+  },
+  {
+    "fr": "On en reparle demain.",
+    "ar": "منرجع منحكي فيها بكرا.",
+    "en": "We'll talk about it again tomorrow.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On en reparle demain.",
+      "en": "We'll talk about it again tomorrow.",
+      "ar": "منرجع منحكي فيها بكرا."
+    }
+  },
+  {
+    "fr": "Où que tu sois…",
+    "ar": "وين ما كنت... / وين ما كنت.",
+    "en": "Wherever you are… / Wherever you are.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Où que tu sois…",
+        "en": "Wherever you are…",
+        "ar": "وين ما كنت..."
+      },
+      {
+        "fr": "Où que tu sois.",
+        "en": "Wherever you are.",
+        "ar": "وين ما كنت."
+      }
+    ]
+  },
+  {
+    "fr": "Où que vous soyez…",
+    "ar": "وين ما كنتوا... / وين ما كنتوا.",
+    "en": "Wherever you are… / Wherever you are.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Où que vous soyez…",
+        "en": "Wherever you are…",
+        "ar": "وين ما كنتوا..."
+      },
+      {
+        "fr": "Où que vous soyez.",
+        "en": "Wherever you are.",
+        "ar": "وين ما كنتوا."
+      }
+    ]
+  },
+  {
+    "fr": "Où que j'aille…",
+    "ar": "وين ما رحت...",
+    "en": "Wherever I go…",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où que j'aille…",
+      "en": "Wherever I go…",
+      "ar": "وين ما رحت..."
+    }
+  },
+  {
+    "fr": "Ou bien quoi ?",
+    "ar": "ولا شو؟",
+    "en": "Or what?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ou bien quoi ?",
+      "en": "Or what?",
+      "ar": "ولا شو؟"
+    }
+  },
+  {
+    "fr": "Ou alors on attend.",
+    "ar": "أو مننطر.",
+    "en": "Or we wait.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ou alors on attend.",
+      "en": "Or we wait.",
+      "ar": "أو مننطر."
+    }
+  },
+  {
+    "fr": "Ou peut-être demain.",
+    "ar": "أو يمكن بكرا.",
+    "en": "Or maybe tomorrow.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Ou peut-être demain.",
+      "en": "Or maybe tomorrow.",
+      "ar": "أو يمكن بكرا."
+    }
+  },
+  {
+    "fr": "On est parti !",
+    "ar": "يلا مشينا!",
+    "en": "Let's go! / We're off!",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On est parti !",
+      "en": "Let's go! / We're off!",
+      "ar": "يلا مشينا!"
+    }
+  },
+  {
+    "fr": "On est partis ?",
+    "ar": "منمشي؟",
+    "en": "Shall we go?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On est partis ?",
+      "en": "Shall we go?",
+      "ar": "منمشي؟"
+    }
+  },
+  {
+    "fr": "On y retourne ?",
+    "ar": "منرجع؟",
+    "en": "Shall we go back?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On y retourne ?",
+      "en": "Shall we go back?",
+      "ar": "منرجع؟"
+    }
+  },
+  {
+    "fr": "On y retourne demain.",
+    "ar": "منرجع بكرا.",
+    "en": "We're going back tomorrow.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On y retourne demain.",
+      "en": "We're going back tomorrow.",
+      "ar": "منرجع بكرا."
+    }
+  },
+  {
+    "fr": "On fait ça demain.",
+    "ar": "منعملها بكرا.",
+    "en": "We'll do that tomorrow.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On fait ça demain.",
+      "en": "We'll do that tomorrow.",
+      "ar": "منعملها بكرا."
+    }
+  },
+  {
+    "fr": "On fait ça maintenant.",
+    "ar": "منعملها هلق.",
+    "en": "We'll do that now.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On fait ça maintenant.",
+      "en": "We'll do that now.",
+      "ar": "منعملها هلق."
+    }
+  },
+  {
+    "fr": "On fait au plus simple.",
+    "ar": "خلينا نعملها بأبسط طريقة.",
+    "en": "Let's keep it simple.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On fait au plus simple.",
+      "en": "Let's keep it simple.",
+      "ar": "خلينا نعملها بأبسط طريقة."
+    }
+  },
+  {
+    "fr": "On fait au mieux.",
+    "ar": "منعمل اللي علينا / منعمل أحسن ما فينا.",
+    "en": "We'll do our best.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On fait au mieux.",
+      "en": "We'll do our best.",
+      "ar": "منعمل اللي علينا / منعمل أحسن ما فينا."
+    }
+  },
+  {
+    "fr": "On verra après.",
+    "ar": "منشوف بعدين.",
+    "en": "We'll see later.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On verra après.",
+      "en": "We'll see later.",
+      "ar": "منشوف بعدين."
+    }
+  },
+  {
+    "fr": "On ne sait pas.",
+    "ar": "ما منعرف.",
+    "en": "We don't know.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On ne sait pas.",
+      "en": "We don't know.",
+      "ar": "ما منعرف."
+    }
+  },
+  {
+    "fr": "On ne comprend pas.",
+    "ar": "ما عم نفهم.",
+    "en": "We don't understand.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On ne comprend pas.",
+      "en": "We don't understand.",
+      "ar": "ما عم نفهم."
+    }
+  },
+  {
+    "fr": "On ne comprend rien.",
+    "ar": "ما عم نفهم ولا شي.",
+    "en": "We don't understand anything.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On ne comprend rien.",
+      "en": "We don't understand anything.",
+      "ar": "ما عم نفهم ولا شي."
+    }
+  },
+  {
+    "fr": "On ne peut pas savoir.",
+    "ar": "ما فينا نعرف.",
+    "en": "We can't know.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On ne peut pas savoir.",
+      "en": "We can't know.",
+      "ar": "ما فينا نعرف."
+    }
+  },
+  {
+    "fr": "On n'est pas sûr.",
+    "ar": "مو متأكدين.",
+    "en": "We're not sure.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On n'est pas sûr.",
+      "en": "We're not sure.",
+      "ar": "مو متأكدين."
+    }
+  },
+  {
+    "fr": "On n'est pas encore sûr.",
+    "ar": "لسا مو متأكدين.",
+    "en": "We're not sure yet.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On n'est pas encore sûr.",
+      "en": "We're not sure yet.",
+      "ar": "لسا مو متأكدين."
+    }
+  },
+  {
+    "fr": "On a fini ?",
+    "ar": "خلصنا؟",
+    "en": "Are we finished?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a fini ?",
+      "en": "Are we finished?",
+      "ar": "خلصنا؟"
+    }
+  },
+  {
+    "fr": "On a terminé.",
+    "ar": "خلصنا.",
+    "en": "We're finished.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a terminé.",
+      "en": "We're finished.",
+      "ar": "خلصنا."
+    }
+  },
+  {
+    "fr": "On n'a pas fini.",
+    "ar": "لسا ما خلصنا.",
+    "en": "We're not finished.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On n'a pas fini.",
+      "en": "We're not finished.",
+      "ar": "لسا ما خلصنا."
+    }
+  },
+  {
+    "fr": "On continue comme ça.",
+    "ar": "منكمل هيك.",
+    "en": "We continue like this.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On continue comme ça.",
+      "en": "We continue like this.",
+      "ar": "منكمل هيك."
+    }
+  },
+  {
+    "fr": "On change de poste ?",
+    "ar": "منغيّر المكان/المحطة؟",
+    "en": "Are we changing positions?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "On change de poste ?",
+      "en": "Are we changing positions?",
+      "ar": "منغيّر المكان/المحطة؟"
+    }
+  },
+  {
+    "fr": "On échange ?",
+    "ar": "منبدّل؟",
+    "en": "Shall we swap?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On échange ?",
+      "en": "Shall we swap?",
+      "ar": "منبدّل؟"
+    }
+  },
+  {
+    "fr": "On fait équipe ?",
+    "ar": "منشتغل سوا؟",
+    "en": "Shall we work as a team?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "On fait équipe ?",
+      "en": "Shall we work as a team?",
+      "ar": "منشتغل سوا؟"
+    }
+  },
+  {
+    "fr": "On travaille ensemble aujourd'hui.",
+    "ar": "اليوم منشتغل سوا.",
+    "en": "We're working together today.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": {
+      "fr": "On travaille ensemble aujourd'hui.",
+      "en": "We're working together today.",
+      "ar": "اليوم منشتغل سوا."
+    }
+  },
+  {
+    "fr": "On commence maintenant.",
+    "ar": "منبلّش هلق.",
+    "en": "We're starting now.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On commence maintenant.",
+      "en": "We're starting now.",
+      "ar": "منبلّش هلق."
+    }
+  },
+  {
+    "fr": "On a une commande.",
+    "ar": "عنا طلبية.",
+    "en": "We have an order.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "On a une commande.",
+      "en": "We have an order.",
+      "ar": "عنا طلبية."
+    }
+  },
+  {
+    "fr": "On prépare la commande.",
+    "ar": "عم نحضّر الطلبية.",
+    "en": "We're preparing the order.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "On prépare la commande.",
+      "en": "We're preparing the order.",
+      "ar": "عم نحضّر الطلبية."
+    }
+  },
+  {
+    "fr": "On attend la commande.",
+    "ar": "ناطرين الطلبية.",
+    "en": "We're waiting for the order.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "On attend la commande.",
+      "en": "We're waiting for the order.",
+      "ar": "ناطرين الطلبية."
+    }
+  },
+  {
+    "fr": "On a oublié quelque chose.",
+    "ar": "نسينا شي.",
+    "en": "We forgot something.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a oublié quelque chose.",
+      "en": "We forgot something.",
+      "ar": "نسينا شي."
+    }
+  },
+  {
+    "fr": "On a besoin de saumon.",
+    "ar": "بدنا سلمون.",
+    "en": "We need salmon.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "On a besoin de saumon.",
+      "en": "We need salmon.",
+      "ar": "بدنا سلمون."
+    }
+  },
+  {
+    "fr": "On manque de riz.",
+    "ar": "قرب يخلص الرز عنا.",
+    "en": "We're running low on rice.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "On manque de riz.",
+      "en": "We're running low on rice.",
+      "ar": "قرب يخلص الرز عنا."
+    }
+  },
+  {
+    "fr": "On n'a plus de riz.",
+    "ar": "ما عاد عنا رز.",
+    "en": "We don't have any rice left.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "restaurant"
+    ],
+    "ex": {
+      "fr": "On n'a plus de riz.",
+      "en": "We don't have any rice left.",
+      "ar": "ما عاد عنا رز."
+    }
+  },
+  {
+    "fr": "On en a encore ?",
+    "ar": "لسا عنا منه؟",
+    "en": "Do we still have some?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On en a encore ?",
+      "en": "Do we still have some?",
+      "ar": "لسا عنا منه؟"
+    }
+  },
+  {
+    "fr": "On est en retard.",
+    "ar": "تأخرنا.",
+    "en": "We're late.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": {
+      "fr": "On est en retard.",
+      "en": "We're late.",
+      "ar": "تأخرنا."
+    }
+  },
+  {
+    "fr": "On est à l'heure.",
+    "ar": "نحنا عالوقت.",
+    "en": "We're on time.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On est à l'heure.",
+      "en": "We're on time.",
+      "ar": "نحنا عالوقت."
+    }
+  },
+  {
+    "fr": "On arrive dans cinq minutes.",
+    "ar": "منوصل بعد خمس دقايق.",
+    "en": "We'll arrive in five minutes.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On arrive dans cinq minutes.",
+      "en": "We'll arrive in five minutes.",
+      "ar": "منوصل بعد خمس دقايق."
+    }
+  },
+  {
+    "fr": "On est presque arrivé.",
+    "ar": "قربنا نوصل.",
+    "en": "We're almost there.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": {
+      "fr": "On est presque arrivé.",
+      "en": "We're almost there.",
+      "ar": "قربنا نوصل."
+    }
+  },
+  {
+    "fr": "On prend quelle route ?",
+    "ar": "أي طريق مناخد؟",
+    "en": "Which road do we take?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "transport"
+    ],
+    "ex": {
+      "fr": "On prend quelle route ?",
+      "en": "Which road do we take?",
+      "ar": "أي طريق مناخد؟"
+    }
+  },
+  {
+    "fr": "On tourne où ?",
+    "ar": "وين منلف؟",
+    "en": "Where do we turn?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": {
+      "fr": "On tourne où ?",
+      "en": "Where do we turn?",
+      "ar": "وين منلف؟"
+    }
+  },
+  {
+    "fr": "On vous appelle dès que c'est prêt.",
+    "ar": "منتصل فيك أول ما يجهز.",
+    "en": "We'll call you as soon as it's ready.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On vous appelle dès que c'est prêt.",
+      "en": "We'll call you as soon as it's ready.",
+      "ar": "منتصل فيك أول ما يجهز."
+    }
+  },
+  {
+    "fr": "On vous tient au courant.",
+    "ar": "منخبرك بأي جديد.",
+    "en": "We'll keep you informed.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On vous tient au courant.",
+      "en": "We'll keep you informed.",
+      "ar": "منخبرك بأي جديد."
+    }
+  },
+  {
+    "fr": "On va vérifier.",
+    "ar": "رح نتأكد.",
+    "en": "We'll check.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On va vérifier.",
+      "en": "We'll check.",
+      "ar": "رح نتأكد."
+    }
+  },
+  {
+    "fr": "On va regarder.",
+    "ar": "رح نشوف.",
+    "en": "We'll take a look.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On va regarder.",
+      "en": "We'll take a look.",
+      "ar": "رح نشوف."
+    }
+  },
+  {
+    "fr": "On va voir ça.",
+    "ar": "رح نشوف هالموضوع.",
+    "en": "We'll look into that.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On va voir ça.",
+      "en": "We'll look into that.",
+      "ar": "رح نشوف هالموضوع."
+    }
+  },
+  {
+    "fr": "On va vous répondre.",
+    "ar": "رح نرد عليك.",
+    "en": "We'll get back to you.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On va vous répondre.",
+      "en": "We'll get back to you.",
+      "ar": "رح نرد عليك."
+    }
+  },
+  {
+    "fr": "On vous demande de patienter.",
+    "ar": "منطلب منك تنطر شوي.",
+    "en": "We're asking you to wait.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On vous demande de patienter.",
+      "en": "We're asking you to wait.",
+      "ar": "منطلب منك تنطر شوي."
+    }
+  },
+  {
+    "fr": "On vous propose un rendez-vous.",
+    "ar": "عم نعطيك / نقترح عليك موعد.",
+    "en": "We're offering you an appointment.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On vous propose un rendez-vous.",
+      "en": "We're offering you an appointment.",
+      "ar": "عم نعطيك / نقترح عليك موعد."
+    }
+  },
+  {
+    "fr": "On a trouvé un appartement.",
+    "ar": "لقينا شقة.",
+    "en": "We found an apartment.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": {
+      "fr": "On a trouvé un appartement.",
+      "en": "We found an apartment.",
+      "ar": "لقينا شقة."
+    }
+  },
+  {
+    "fr": "On cherche un logement.",
+    "ar": "عم ندور على سكن.",
+    "en": "We're looking for housing.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": {
+      "fr": "On cherche un logement.",
+      "en": "We're looking for housing.",
+      "ar": "عم ندور على سكن."
+    }
+  },
+  {
+    "fr": "On visite l'appartement demain.",
+    "ar": "رح نعاين الشقة بكرا.",
+    "en": "We're viewing the apartment tomorrow.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": {
+      "fr": "On visite l'appartement demain.",
+      "en": "We're viewing the apartment tomorrow.",
+      "ar": "رح نعاين الشقة بكرا."
+    }
+  },
+  {
+    "fr": "On doit faire l'état des lieux.",
+    "ar": "لازم نعمل معاينة البيت.",
+    "en": "We have to do the property inspection.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On doit faire l'état des lieux.",
+      "en": "We have to do the property inspection.",
+      "ar": "لازم نعمل معاينة البيت."
+    }
+  },
+  {
+    "fr": "On a un problème de chauffage.",
+    "ar": "عنا مشكلة بالتدفئة.",
+    "en": "We have a heating problem.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": {
+      "fr": "On a un problème de chauffage.",
+      "en": "We have a heating problem.",
+      "ar": "عنا مشكلة بالتدفئة."
+    }
+  },
+  {
+    "fr": "On a une fuite d'eau.",
+    "ar": "عنا تسرّب مي.",
+    "en": "We have a water leak.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": {
+      "fr": "On a une fuite d'eau.",
+      "en": "We have a water leak.",
+      "ar": "عنا تسرّب مي."
+    }
+  },
+  {
+    "fr": "On reste en contact.",
+    "ar": "منضل عتواصل.",
+    "en": "We'll stay in touch.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On reste en contact.",
+      "en": "We'll stay in touch.",
+      "ar": "منضل عتواصل."
+    }
+  },
+  {
+    "fr": "On garde le contact.",
+    "ar": "منضل عتواصل.",
+    "en": "We'll keep in touch.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On garde le contact.",
+      "en": "We'll keep in touch.",
+      "ar": "منضل عتواصل."
+    }
+  },
+  {
+    "fr": "On se voit plus tard.",
+    "ar": "منشوف بعض بعدين.",
+    "en": "See you later.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On se voit plus tard.",
+      "en": "See you later.",
+      "ar": "منشوف بعض بعدين."
+    }
+  },
+  {
+    "fr": "On se voit tout à l'heure.",
+    "ar": "منشوف بعض بعد شوي.",
+    "en": "See you later.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On se voit tout à l'heure.",
+      "en": "See you later.",
+      "ar": "منشوف بعض بعد شوي."
+    }
+  },
+  {
+    "fr": "On se retrouve sur place.",
+    "ar": "منلتقي هنيك.",
+    "en": "We'll meet there.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On se retrouve sur place.",
+      "en": "We'll meet there.",
+      "ar": "منلتقي هنيك."
+    }
+  },
+  {
+    "fr": "On se retrouve devant l'entrée.",
+    "ar": "منلتقي قدام المدخل.",
+    "en": "We'll meet in front of the entrance.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": {
+      "fr": "On se retrouve devant l'entrée.",
+      "en": "We'll meet in front of the entrance.",
+      "ar": "منلتقي قدام المدخل."
+    }
+  },
+  {
+    "fr": "On est d'accord pour demain ?",
+    "ar": "متفقين عَ بكرا؟",
+    "en": "Are we agreed for tomorrow?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On est d'accord pour demain ?",
+      "en": "Are we agreed for tomorrow?",
+      "ar": "متفقين عَ بكرا؟"
+    }
+  },
+  {
+    "fr": "On confirme pour demain ?",
+    "ar": "منأكد عَ بكرا؟",
+    "en": "Shall we confirm for tomorrow?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On confirme pour demain ?",
+      "en": "Shall we confirm for tomorrow?",
+      "ar": "منأكد عَ بكرا؟"
+    }
+  },
+  {
+    "fr": "On reporte à demain ?",
+    "ar": "منأجلها لبكرا؟",
+    "en": "Shall we postpone it until tomorrow?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On reporte à demain ?",
+      "en": "Shall we postpone it until tomorrow?",
+      "ar": "منأجلها لبكرا؟"
+    }
+  },
+  {
+    "fr": "On peut avancer le rendez-vous ?",
+    "ar": "فينا نقدّم الموعد؟",
+    "en": "Can we move the appointment earlier?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On peut avancer le rendez-vous ?",
+      "en": "Can we move the appointment earlier?",
+      "ar": "فينا نقدّم الموعد؟"
+    }
+  },
+  {
+    "fr": "On peut repousser le rendez-vous ?",
+    "ar": "فينا نأجل الموعد؟",
+    "en": "Can we postpone the appointment?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On peut repousser le rendez-vous ?",
+      "en": "Can we postpone the appointment?",
+      "ar": "فينا نأجل الموعد؟"
+    }
+  },
+  {
+    "fr": "On garde le rendez-vous ?",
+    "ar": "منخلي الموعد متل ما هو؟",
+    "en": "Are we keeping the appointment?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On garde le rendez-vous ?",
+      "en": "Are we keeping the appointment?",
+      "ar": "منخلي الموعد متل ما هو؟"
+    }
+  },
+  {
+    "fr": "On m'a informé que…",
+    "ar": "بلغوني إنو...",
+    "en": "I was informed that…",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On m'a informé que…",
+      "en": "I was informed that…",
+      "ar": "بلغوني إنو..."
+    }
+  },
+  {
+    "fr": "On m'a confirmé que…",
+    "ar": "أكدولي إنو...",
+    "en": "I was told/confirmed that…",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On m'a confirmé que…",
+      "en": "I was told/confirmed that…",
+      "ar": "أكدولي إنو..."
+    }
+  },
+  {
+    "fr": "On m'a expliqué que…",
+    "ar": "شرحولي إنو...",
+    "en": "They explained to me that…",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On m'a expliqué que…",
+      "en": "They explained to me that…",
+      "ar": "شرحولي إنو..."
+    }
+  },
+  {
+    "fr": "On m'a demandé de patienter.",
+    "ar": "طلبوا مني نطر.",
+    "en": "I was asked to wait.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On m'a demandé de patienter.",
+      "en": "I was asked to wait.",
+      "ar": "طلبوا مني نطر."
+    }
+  },
+  {
+    "fr": "On m'a demandé de revenir.",
+    "ar": "طلبوا مني ارجع.",
+    "en": "I was asked to come back.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On m'a demandé de revenir.",
+      "en": "I was asked to come back.",
+      "ar": "طلبوا مني ارجع."
+    }
+  },
+  {
+    "fr": "On m'a donné un rendez-vous.",
+    "ar": "عطوني موعد.",
+    "en": "I was given an appointment.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On m'a donné un rendez-vous.",
+      "en": "I was given an appointment.",
+      "ar": "عطوني موعد."
+    }
+  },
+  {
+    "fr": "On m'a envoyé le document.",
+    "ar": "بعتولي الوثيقة.",
+    "en": "They sent me the document.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On m'a envoyé le document.",
+      "en": "They sent me the document.",
+      "ar": "بعتولي الوثيقة."
+    }
+  },
+  {
+    "fr": "On m'a dit que c'était obligatoire.",
+    "ar": "قالولي إنو هالشي إجباري.",
+    "en": "I was told it was mandatory.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On m'a dit que c'était obligatoire.",
+      "en": "I was told it was mandatory.",
+      "ar": "قالولي إنو هالشي إجباري."
+    }
+  },
+  {
+    "fr": "On vérifie le dossier.",
+    "ar": "عم نتأكد من الملف.",
+    "en": "We're checking the file.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On vérifie le dossier.",
+      "en": "We're checking the file.",
+      "ar": "عم نتأكد من الملف."
+    }
+  },
+  {
+    "fr": "On traite votre demande.",
+    "ar": "عم نعالج طلبك.",
+    "en": "We're processing your request.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On traite votre demande.",
+      "en": "We're processing your request.",
+      "ar": "عم نعالج طلبك."
+    }
+  },
+  {
+    "fr": "On a reçu votre dossier.",
+    "ar": "استلمنا ملفك.",
+    "en": "We received your application.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On a reçu votre dossier.",
+      "en": "We received your application.",
+      "ar": "استلمنا ملفك."
+    }
+  },
+  {
+    "fr": "On attend les documents.",
+    "ar": "ناطرين الأوراق.",
+    "en": "We're waiting for the documents.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On attend les documents.",
+      "en": "We're waiting for the documents.",
+      "ar": "ناطرين الأوراق."
+    }
+  },
+  {
+    "fr": "On a besoin d'un document supplémentaire.",
+    "ar": "بدنا وثيقة إضافية.",
+    "en": "We need an additional document.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On a besoin d'un document supplémentaire.",
+      "en": "We need an additional document.",
+      "ar": "بدنا وثيقة إضافية."
+    }
+  },
+  {
+    "fr": "On vous demande une pièce d'identité.",
+    "ar": "بدنا منك وثيقة هوية.",
+    "en": "We're asking you for an ID document.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On vous demande une pièce d'identité.",
+      "en": "We're asking you for an ID document.",
+      "ar": "بدنا منك وثيقة هوية."
+    }
+  },
+  {
+    "fr": "On doit compléter le dossier.",
+    "ar": "لازم نكمّل الملف.",
+    "en": "We have to complete the file.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On doit compléter le dossier.",
+      "en": "We have to complete the file.",
+      "ar": "لازم نكمّل الملف."
+    }
+  },
+  {
+    "fr": "On a reçu le paiement.",
+    "ar": "استلمنا الدفعة.",
+    "en": "We received the payment.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a reçu le paiement.",
+      "en": "We received the payment.",
+      "ar": "استلمنا الدفعة."
+    }
+  },
+  {
+    "fr": "On attend le virement.",
+    "ar": "ناطرين التحويل البنكي.",
+    "en": "We're waiting for the bank transfer.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily"
+    ],
+    "ex": {
+      "fr": "On attend le virement.",
+      "en": "We're waiting for the bank transfer.",
+      "ar": "ناطرين التحويل البنكي."
+    }
+  },
+  {
+    "fr": "On fait le virement aujourd'hui.",
+    "ar": "منعمل التحويل اليوم.",
+    "en": "We'll make the transfer today.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily"
+    ],
+    "ex": {
+      "fr": "On fait le virement aujourd'hui.",
+      "en": "We'll make the transfer today.",
+      "ar": "منعمل التحويل اليوم."
+    }
+  },
+  {
+    "fr": "On a reçu le virement.",
+    "ar": "وصلنا التحويل.",
+    "en": "We received the transfer.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a reçu le virement.",
+      "en": "We received the transfer.",
+      "ar": "وصلنا التحويل."
+    }
+  },
+  {
+    "fr": "On doit payer aujourd'hui.",
+    "ar": "لازم ندفع اليوم.",
+    "en": "We have to pay today.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On doit payer aujourd'hui.",
+      "en": "We have to pay today.",
+      "ar": "لازم ندفع اليوم."
+    }
+  },
+  {
+    "fr": "On peut payer par carte ?",
+    "ar": "فينا ندفع بالبطاقة؟",
+    "en": "Can we pay by card?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On peut payer par carte ?",
+      "en": "Can we pay by card?",
+      "ar": "فينا ندفع بالبطاقة؟"
+    }
+  },
+  {
+    "fr": "On a beaucoup de commandes.",
+    "ar": "عنا طلبيات كتيرة.",
+    "en": "We have a lot of orders.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a beaucoup de commandes.",
+      "en": "We have a lot of orders.",
+      "ar": "عنا طلبيات كتيرة."
+    }
+  },
+  {
+    "fr": "On a trop de commandes.",
+    "ar": "عنا طلبيات كتيرة زيادة.",
+    "en": "We have too many orders.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a trop de commandes.",
+      "en": "We have too many orders.",
+      "ar": "عنا طلبيات كتيرة زيادة."
+    }
+  },
+  {
+    "fr": "On manque de personnel.",
+    "ar": "ناقصنا موظفين.",
+    "en": "We're short-staffed.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On manque de personnel.",
+      "en": "We're short-staffed.",
+      "ar": "ناقصنا موظفين."
+    }
+  },
+  {
+    "fr": "On manque de temps.",
+    "ar": "ما معنا وقت كافي.",
+    "en": "We're short on time.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On manque de temps.",
+      "en": "We're short on time.",
+      "ar": "ما معنا وقت كافي."
+    }
+  },
+  {
+    "fr": "On doit aller plus vite.",
+    "ar": "لازم نسرّع أكتر.",
+    "en": "We need to go faster.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On doit aller plus vite.",
+      "en": "We need to go faster.",
+      "ar": "لازم نسرّع أكتر."
+    }
+  },
+  {
+    "fr": "On peut faire plus vite ?",
+    "ar": "فينا نسرّع شوي؟",
+    "en": "Can we do it faster?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On peut faire plus vite ?",
+      "en": "Can we do it faster?",
+      "ar": "فينا نسرّع شوي؟"
+    }
+  },
+  {
+    "fr": "On a besoin d'aide.",
+    "ar": "بدنا مساعدة.",
+    "en": "We need help.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On a besoin d'aide.",
+      "en": "We need help.",
+      "ar": "بدنا مساعدة."
+    }
+  },
+  {
+    "fr": "On a un souci.",
+    "ar": "عنا مشكلة / شغلة.",
+    "en": "We have an issue.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a un souci.",
+      "en": "We have an issue.",
+      "ar": "عنا مشكلة / شغلة."
+    }
+  },
+  {
+    "fr": "On a un petit souci.",
+    "ar": "عنا شغلة صغيرة.",
+    "en": "We have a small issue.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a un petit souci.",
+      "en": "We have a small issue.",
+      "ar": "عنا شغلة صغيرة."
+    }
+  },
+  {
+    "fr": "On a eu un problème.",
+    "ar": "صار معنا مشكلة.",
+    "en": "We had a problem.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a eu un problème.",
+      "en": "We had a problem.",
+      "ar": "صار معنا مشكلة."
+    }
+  },
+  {
+    "fr": "On ne trouve pas.",
+    "ar": "ما عم نلاقيه.",
+    "en": "We can't find it.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On ne trouve pas.",
+      "en": "We can't find it.",
+      "ar": "ما عم نلاقيه."
+    }
+  },
+  {
+    "fr": "On ne trouve plus…",
+    "ar": "ما عاد عم نلاقي...",
+    "en": "We can't find … anymore.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On ne trouve plus…",
+      "en": "We can't find … anymore.",
+      "ar": "ما عاد عم نلاقي..."
+    }
+  },
+  {
+    "fr": "On ne peut plus attendre.",
+    "ar": "ما عاد فينا ننطر.",
+    "en": "We can't wait any longer.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On ne peut plus attendre.",
+      "en": "We can't wait any longer.",
+      "ar": "ما عاد فينا ننطر."
+    }
+  },
+  {
+    "fr": "On doit trouver une solution.",
+    "ar": "لازم نلاقي حل.",
+    "en": "We have to find a solution.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On doit trouver une solution.",
+      "en": "We have to find a solution.",
+      "ar": "لازم نلاقي حل."
+    }
+  },
+  {
+    "fr": "On dirait bien que…",
+    "ar": "شكله فعلًا إنو...",
+    "en": "It really looks like…",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On dirait bien qu'il va pleuvoir.",
+      "en": "It really looks like it's going to rain.",
+      "ar": "شكله فعلًا رح تشتي."
+    }
+  },
+  {
+    "fr": "On verra ce que ça donne.",
+    "ar": "منشوف شو رح تطلع النتيجة.",
+    "en": "We'll see how it turns out.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On verra ce que ça donne.",
+      "en": "We'll see how it turns out.",
+      "ar": "منشوف شو رح تطلع النتيجة."
+    }
+  },
+  {
+    "fr": "On fait comme prévu.",
+    "ar": "منعمل متل ما مخططين.",
+    "en": "We'll do as planned.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On fait comme prévu.",
+      "en": "We'll do as planned.",
+      "ar": "منعمل متل ما مخططين."
+    }
+  },
+  {
+    "fr": "On change de plan.",
+    "ar": "غيّرنا الخطة.",
+    "en": "We're changing the plan.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On change de plan.",
+      "en": "We're changing the plan.",
+      "ar": "غيّرنا الخطة."
+    }
+  },
+  {
+    "fr": "On garde ça pour plus tard.",
+    "ar": "منخلي هالشي لبعدين.",
+    "en": "We'll keep that for later.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On garde ça pour plus tard.",
+      "en": "We'll keep that for later.",
+      "ar": "منخلي هالشي لبعدين."
+    }
+  },
+  {
+    "fr": "On n'est pas d'accord.",
+    "ar": "نحنا مو متفقين.",
+    "en": "We don't agree.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On n'est pas d'accord.",
+      "en": "We don't agree.",
+      "ar": "نحنا مو متفقين."
+    }
+  },
+  {
+    "fr": "On est bien d'accord ?",
+    "ar": "متفقين، صح؟",
+    "en": "We're agreed, right?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On est bien d'accord ?",
+      "en": "We're agreed, right?",
+      "ar": "متفقين، صح؟"
+    }
+  },
+  {
+    "fr": "On est d'accord là-dessus.",
+    "ar": "متفقين على هالشي.",
+    "en": "We agree on that.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On est d'accord là-dessus.",
+      "en": "We agree on that.",
+      "ar": "متفقين على هالشي."
+    }
+  },
+  {
+    "fr": "On est sur la même longueur d'onde.",
+    "ar": "نحنا متفاهمين / تفكيرنا واحد.",
+    "en": "We're on the same wavelength.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On est sur la même longueur d'onde.",
+      "en": "We're on the same wavelength.",
+      "ar": "نحنا متفاهمين / تفكيرنا واحد."
+    }
+  },
+  {
+    "fr": "On s'organise comment ?",
+    "ar": "كيف منرتّب حالنا؟",
+    "en": "How are we going to organize ourselves?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On s'organise comment ?",
+      "en": "How are we going to organize ourselves?",
+      "ar": "كيف منرتّب حالنا؟"
+    }
+  },
+  {
+    "fr": "On s'organise pour demain.",
+    "ar": "منرتّب أمورنا لبكرا.",
+    "en": "We'll organize things for tomorrow.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On s'organise pour demain.",
+      "en": "We'll organize things for tomorrow.",
+      "ar": "منرتّب أمورنا لبكرا."
+    }
+  },
+  {
+    "fr": "On se répartit les tâches.",
+    "ar": "منقسّم المهام بيناتنا.",
+    "en": "We divide up the tasks.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On se répartit les tâches.",
+      "en": "We divide up the tasks.",
+      "ar": "منقسّم المهام بيناتنا."
+    }
+  },
+  {
+    "fr": "On s'occupe de quoi ?",
+    "ar": "بشو منتكفّل؟",
+    "en": "What are we taking care of?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On s'occupe de quoi ?",
+      "en": "What are we taking care of?",
+      "ar": "بشو منتكفّل؟"
+    }
+  },
+  {
+    "fr": "On s'occupe du reste.",
+    "ar": "نحنا منتكفّل بالباقي.",
+    "en": "We'll take care of the rest.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On s'occupe du reste.",
+      "en": "We'll take care of the rest.",
+      "ar": "نحنا منتكفّل بالباقي."
+    }
+  },
+  {
+    "fr": "On passe à autre chose.",
+    "ar": "خلينا ننتقل لشي تاني.",
+    "en": "Let's move on to something else.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On passe à autre chose.",
+      "en": "Let's move on to something else.",
+      "ar": "خلينا ننتقل لشي تاني."
+    }
+  },
+  {
+    "fr": "On vous rappelle plus tard.",
+    "ar": "منرجع منتصل فيك بعدين.",
+    "en": "We'll call you back later.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On vous rappelle plus tard.",
+      "en": "We'll call you back later.",
+      "ar": "منرجع منتصل فيك بعدين."
+    }
+  },
+  {
+    "fr": "On vous rappelle demain.",
+    "ar": "منرجع منتصل فيك بكرا.",
+    "en": "We'll call you back tomorrow.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On vous rappelle demain.",
+      "en": "We'll call you back tomorrow.",
+      "ar": "منرجع منتصل فيك بكرا."
+    }
+  },
+  {
+    "fr": "On vous met en relation avec le service concerné.",
+    "ar": "رح نوصلّك بالقسم المختص.",
+    "en": "We'll put you through to the relevant department.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On vous met en relation avec le service concerné.",
+      "en": "We'll put you through to the relevant department.",
+      "ar": "رح نوصلّك بالقسم المختص."
+    }
+  },
+  {
+    "fr": "On va vous passer le service concerné.",
+    "ar": "رح نحوّلك للقسم المختص.",
+    "en": "We'll put you through to the relevant department.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On va vous passer le service concerné.",
+      "en": "We'll put you through to the relevant department.",
+      "ar": "رح نحوّلك للقسم المختص."
+    }
+  },
+  {
+    "fr": "On prend votre demande en compte.",
+    "ar": "رح ناخد طلبك بعين الاعتبار.",
+    "en": "We'll take your request into account.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On prend votre demande en compte.",
+      "en": "We'll take your request into account.",
+      "ar": "رح ناخد طلبك بعين الاعتبار."
+    }
+  },
+  {
+    "fr": "On vous confirme par e-mail.",
+    "ar": "منأكدلك عبر الإيميل.",
+    "en": "We'll confirm by email.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On vous confirme par e-mail.",
+      "en": "We'll confirm by email.",
+      "ar": "منأكدلك عبر الإيميل."
+    }
+  },
+  {
+    "fr": "On a bien reçu votre demande.",
+    "ar": "استلمنا طلبك بشكل صحيح.",
+    "en": "We have received your request.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On a bien reçu votre demande.",
+      "en": "We have received your request.",
+      "ar": "استلمنا طلبك بشكل صحيح."
+    }
+  },
+  {
+    "fr": "On est en train de traiter votre dossier.",
+    "ar": "نحنا عم نعالج ملفك حاليًا.",
+    "en": "We're currently processing your file.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "transport"
+    ],
+    "ex": {
+      "fr": "On est en train de traiter votre dossier.",
+      "en": "We're currently processing your file.",
+      "ar": "نحنا عم نعالج ملفك حاليًا."
+    }
+  },
+  {
+    "fr": "On attend votre réponse.",
+    "ar": "ناطرين ردّك.",
+    "en": "We're waiting for your response.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On attend votre réponse.",
+      "en": "We're waiting for your response.",
+      "ar": "ناطرين ردّك."
+    }
+  },
+  {
+    "fr": "On attend votre justificatif.",
+    "ar": "ناطرين إثباتك / الوثيقة المطلوبة منك.",
+    "en": "We're waiting for your supporting document.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On attend votre justificatif.",
+      "en": "We're waiting for your supporting document.",
+      "ar": "ناطرين إثباتك / الوثيقة المطلوبة منك."
+    }
+  },
+  {
+    "fr": "On vous demande de compléter le formulaire.",
+    "ar": "منطلب منك تعبي الاستمارة.",
+    "en": "We're asking you to complete the form.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On vous demande de compléter le formulaire.",
+      "en": "We're asking you to complete the form.",
+      "ar": "منطلب منك تعبي الاستمارة."
+    }
+  },
+  {
+    "fr": "On vous demande de signer ici.",
+    "ar": "منطلب منك توقّع هون.",
+    "en": "We're asking you to sign here.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On vous demande de signer ici.",
+      "en": "We're asking you to sign here.",
+      "ar": "منطلب منك توقّع هون."
+    }
+  },
+  {
+    "fr": "On a trouvé un logement.",
+    "ar": "لقينا سكن.",
+    "en": "We found accommodation.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": {
+      "fr": "On a trouvé un logement.",
+      "en": "We found accommodation.",
+      "ar": "لقينا سكن."
+    }
+  },
+  {
+    "fr": "On cherche encore.",
+    "ar": "لسا عم ندور.",
+    "en": "We're still looking.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On cherche encore.",
+      "en": "We're still looking.",
+      "ar": "لسا عم ندور."
+    }
+  },
+  {
+    "fr": "On visite le logement demain.",
+    "ar": "رح نعاين السكن بكرا.",
+    "en": "We're viewing the accommodation tomorrow.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": {
+      "fr": "On visite le logement demain.",
+      "en": "We're viewing the accommodation tomorrow.",
+      "ar": "رح نعاين السكن بكرا."
+    }
+  },
+  {
+    "fr": "On doit quitter le logement.",
+    "ar": "لازم نترك السكن.",
+    "en": "We have to leave the accommodation.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": {
+      "fr": "On doit quitter le logement.",
+      "en": "We have to leave the accommodation.",
+      "ar": "لازم نترك السكن."
+    }
+  },
+  {
+    "fr": "On donne un préavis.",
+    "ar": "عم نعطي إشعار ترك السكن.",
+    "en": "We're giving notice.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On donne un préavis.",
+      "en": "We're giving notice.",
+      "ar": "عم نعطي إشعار ترك السكن."
+    }
+  },
+  {
+    "fr": "On a reçu le préavis.",
+    "ar": "وصلنا إشعار ترك السكن.",
+    "en": "We received the notice.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a reçu le préavis.",
+      "en": "We received the notice.",
+      "ar": "وصلنا إشعار ترك السكن."
+    }
+  },
+  {
+    "fr": "On a bloqué ma carte.",
+    "ar": "بطاقتي توقفت / انحظرت.",
+    "en": "My card was blocked.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a bloqué ma carte.",
+      "en": "My card was blocked.",
+      "ar": "بطاقتي توقفت / انحظرت."
+    }
+  },
+  {
+    "fr": "On a débité mon compte.",
+    "ar": "خصموا المبلغ من حسابي.",
+    "en": "My account was debited.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a débité mon compte.",
+      "en": "My account was debited.",
+      "ar": "خصموا المبلغ من حسابي."
+    }
+  },
+  {
+    "fr": "On m'a prélevé de l'argent.",
+    "ar": "سحبوا مصاري من حسابي.",
+    "en": "Money was taken from my account.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On m'a prélevé de l'argent.",
+      "en": "Money was taken from my account.",
+      "ar": "سحبوا مصاري من حسابي."
+    }
+  },
+  {
+    "fr": "On attend le remboursement.",
+    "ar": "ناطرين استرداد المصاري.",
+    "en": "We're waiting for the refund.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily",
+      "health"
+    ],
+    "ex": {
+      "fr": "On attend le remboursement.",
+      "en": "We're waiting for the refund.",
+      "ar": "ناطرين استرداد المصاري."
+    }
+  },
+  {
+    "fr": "Où ça ?",
+    "ar": "وين؟",
+    "en": "Where? / Where exactly?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où ça ?",
+      "en": "Where? / Where exactly?",
+      "ar": "وين؟"
+    }
+  },
+  {
+    "fr": "Où ça se passe ?",
+    "ar": "وين رح يصير؟",
+    "en": "Where does it take place?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où ça se passe ?",
+      "en": "Where does it take place?",
+      "ar": "وين رح يصير؟"
+    }
+  },
+  {
+    "fr": "Où ça ? À Strasbourg ?",
+    "ar": "وين؟ بستراسبورغ؟",
+    "en": "Where? In Strasbourg?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où ça ? À Strasbourg ?",
+      "en": "Where? In Strasbourg?",
+      "ar": "وين؟ بستراسبورغ؟"
+    }
+  },
+  {
+    "fr": "Où exactement ?",
+    "ar": "وين بالضبط؟",
+    "en": "Where exactly?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où exactement ?",
+      "en": "Where exactly?",
+      "ar": "وين بالضبط؟"
+    }
+  },
+  {
+    "fr": "Où est-ce que c'est ?",
+    "ar": "وين هاد؟",
+    "en": "Where is it?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où est-ce que c'est ?",
+      "en": "Where is it?",
+      "ar": "وين هاد؟"
+    }
+  },
+  {
+    "fr": "Où est-ce qu'on va ?",
+    "ar": "لوين رايحين؟",
+    "en": "Where are we going?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où est-ce qu'on va ?",
+      "en": "Where are we going?",
+      "ar": "لوين رايحين؟"
+    }
+  },
+  {
+    "fr": "Où est-ce qu'on se retrouve ?",
+    "ar": "وين منلتقي؟",
+    "en": "Where shall we meet?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où est-ce qu'on se retrouve ?",
+      "en": "Where shall we meet?",
+      "ar": "وين منلتقي؟"
+    }
+  },
+  {
+    "fr": "On s'en sort.",
+    "ar": "منمشي حالنا / منطلع منها.",
+    "en": "We'll manage / We're getting through it.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On s'en sort.",
+      "en": "We'll manage / We're getting through it.",
+      "ar": "منمشي حالنا / منطلع منها."
+    }
+  },
+  {
+    "fr": "On s'en sortira.",
+    "ar": "رح نتجاوزها.",
+    "en": "We'll get through it.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On s'en sortira.",
+      "en": "We'll get through it.",
+      "ar": "رح نتجاوزها."
+    }
+  },
+  {
+    "fr": "On n'y peut rien.",
+    "ar": "ما بإيدنا شي.",
+    "en": "There's nothing we can do about it.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On n'y peut rien.",
+      "en": "There's nothing we can do about it.",
+      "ar": "ما بإيدنا شي."
+    }
+  },
+  {
+    "fr": "On n'y peut plus rien.",
+    "ar": "ما عاد بإيدنا نعمل شي.",
+    "en": "There's nothing more we can do.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On n'y peut plus rien.",
+      "en": "There's nothing more we can do.",
+      "ar": "ما عاد بإيدنا نعمل شي."
+    }
+  },
+  {
+    "fr": "On n'en sait rien.",
+    "ar": "ما عنا أي فكرة.",
+    "en": "We have no idea.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On n'en sait rien.",
+      "en": "We have no idea.",
+      "ar": "ما عنا أي فكرة."
+    }
+  },
+  {
+    "fr": "On n'en parle plus.",
+    "ar": "خلينا ما عاد نحكي فيها.",
+    "en": "Let's not talk about it anymore.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On n'en parle plus.",
+      "en": "Let's not talk about it anymore.",
+      "ar": "خلينا ما عاد نحكي فيها."
+    }
+  },
+  {
+    "fr": "On n'en a pas besoin.",
+    "ar": "ما بدنا ياه.",
+    "en": "We don't need it.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On n'en a pas besoin.",
+      "en": "We don't need it.",
+      "ar": "ما بدنا ياه."
+    }
+  },
+  {
+    "fr": "On en a besoin.",
+    "ar": "نحنا بحاجة إلو.",
+    "en": "We need it.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On en a besoin.",
+      "en": "We need it.",
+      "ar": "نحنا بحاجة إلو."
+    }
+  },
+  {
+    "fr": "On en a assez.",
+    "ar": "طفح الكيل / بكفي.",
+    "en": "We've had enough.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On en a assez.",
+      "en": "We've had enough.",
+      "ar": "طفح الكيل / بكفي."
+    }
+  },
+  {
+    "fr": "On en a marre.",
+    "ar": "زهقنا / طفح الكيل.",
+    "en": "We're fed up.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On en a marre.",
+      "en": "We're fed up.",
+      "ar": "زهقنا / طفح الكيل."
+    }
+  },
+  {
+    "fr": "Oh oui !",
+    "ar": "إي طبعًا!",
+    "en": "Oh yes!",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Oh oui !",
+      "en": "Oh yes!",
+      "ar": "إي طبعًا!"
+    }
+  },
+  {
+    "fr": "Oh non !",
+    "ar": "أوف، لا!",
+    "en": "Oh no!",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Oh non !",
+      "en": "Oh no!",
+      "ar": "أوف، لا!"
+    }
+  },
+  {
+    "fr": "Oh là là !",
+    "ar": "يا لطيف! / يا الله!",
+    "en": "Oh my God! / Wow!",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Oh là là !",
+      "en": "Oh my God! / Wow!",
+      "ar": "يا لطيف! / يا الله!"
+    }
+  },
+  {
+    "fr": "Oh, d'accord.",
+    "ar": "آه، تمام.",
+    "en": "Oh, okay.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Oh, d'accord.",
+      "en": "Oh, okay.",
+      "ar": "آه، تمام."
+    }
+  },
+  {
+    "fr": "Oh, je vois.",
+    "ar": "آه، فهمت.",
+    "en": "Oh, I see.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Oh, je vois.",
+      "en": "Oh, I see.",
+      "ar": "آه، فهمت."
+    }
+  },
+  {
+    "fr": "Oh, c'est bon.",
+    "ar": "إي، تمام / خلص.",
+    "en": "Okay / It's fine.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Oh, c'est bon.",
+      "en": "Okay / It's fine.",
+      "ar": "إي، تمام / خلص."
+    }
+  },
+  {
+    "fr": "Oh, pas grave.",
+    "ar": "عادي، مو مشكلة.",
+    "en": "Oh, it's not a big deal.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Oh, pas grave.",
+      "en": "Oh, it's not a big deal.",
+      "ar": "عادي، مو مشكلة."
+    }
+  },
+  {
+    "fr": "Où que ce soit.",
+    "ar": "وين ما كان.",
+    "en": "Wherever it is.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où que ce soit.",
+      "en": "Wherever it is.",
+      "ar": "وين ما كان."
+    }
+  },
+  {
+    "fr": "Où que tu ailles.",
+    "ar": "وين ما تروح.",
+    "en": "Wherever you go.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où que tu ailles.",
+      "en": "Wherever you go.",
+      "ar": "وين ما تروح."
+    }
+  },
+  {
+    "fr": "Où que vous alliez.",
+    "ar": "وين ما تروحوا.",
+    "en": "Wherever you go.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "Où que vous alliez.",
+      "en": "Wherever you go.",
+      "ar": "وين ما تروحوا."
+    }
+  },
+  {
+    "fr": "On ouvre à quelle heure ?",
+    "ar": "عأي ساعة منفتح؟",
+    "en": "What time do we open?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On ouvre à quelle heure ?",
+      "en": "What time do we open?",
+      "ar": "عأي ساعة منفتح؟"
+    }
+  },
+  {
+    "fr": "On ouvre demain ?",
+    "ar": "منفتح بكرا؟",
+    "en": "Are we opening tomorrow?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On ouvre demain ?",
+      "en": "Are we opening tomorrow?",
+      "ar": "منفتح بكرا؟"
+    }
+  },
+  {
+    "fr": "On ferme à quelle heure ?",
+    "ar": "عأي ساعة منسكّر؟",
+    "en": "What time do we close?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On ferme à quelle heure ?",
+      "en": "What time do we close?",
+      "ar": "عأي ساعة منسكّر؟"
+    }
+  },
+  {
+    "fr": "On ferme bientôt.",
+    "ar": "رح نسكّر قريب.",
+    "en": "We're closing soon.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On ferme bientôt.",
+      "en": "We're closing soon.",
+      "ar": "رح نسكّر قريب."
+    }
+  },
+  {
+    "fr": "On offre une formation.",
+    "ar": "منقدّم تدريب.",
+    "en": "We offer training.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "school",
+      "work"
+    ],
+    "ex": {
+      "fr": "On offre une formation.",
+      "en": "We offer training.",
+      "ar": "منقدّم تدريب."
+    }
+  },
+  {
+    "fr": "On organise une réunion.",
+    "ar": "عم ننظّم اجتماع.",
+    "en": "We're organizing a meeting.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On organise une réunion.",
+      "en": "We're organizing a meeting.",
+      "ar": "عم ننظّم اجتماع."
+    }
+  },
+  {
+    "fr": "On organise ça demain.",
+    "ar": "منرتّب هالشي بكرا.",
+    "en": "We'll organize that tomorrow.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On organise ça demain.",
+      "en": "We'll organize that tomorrow.",
+      "ar": "منرتّب هالشي بكرا."
+    }
+  },
+  {
+    "fr": "On vous ouvre un dossier.",
+    "ar": "رح نفتحلك ملف.",
+    "en": "We'll open a file for you.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On vous ouvre un dossier.",
+      "en": "We'll open a file for you.",
+      "ar": "رح نفتحلك ملف."
+    }
+  },
+  {
+    "fr": "On ouvre vos droits.",
+    "ar": "منفتحلك الاستحقاقات.",
+    "en": "We open your entitlements.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "daily"
+    ],
+    "ex": {
+      "fr": "On ouvre vos droits.",
+      "en": "We open your entitlements.",
+      "ar": "منفتحلك الاستحقاقات."
+    }
+  },
+  {
+    "fr": "On vérifie vos droits.",
+    "ar": "عم نتأكد من استحقاقاتك.",
+    "en": "We're checking your eligibility/entitlements.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On vérifie vos droits.",
+      "en": "We're checking your eligibility/entitlements.",
+      "ar": "عم نتأكد من استحقاقاتك."
+    }
+  },
+  {
+    "fr": "On examine votre demande.",
+    "ar": "عم ندرس طلبك.",
+    "en": "We're reviewing your request.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On examine votre demande.",
+      "en": "We're reviewing your request.",
+      "ar": "عم ندرس طلبك."
+    }
+  },
+  {
+    "fr": "On vous informe de la décision.",
+    "ar": "منبلغك بالقرار.",
+    "en": "We'll inform you of the decision.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On vous informe de la décision.",
+      "en": "We'll inform you of the decision.",
+      "ar": "منبلغك بالقرار."
+    }
+  },
+  {
+    "fr": "On vous envoie la réponse.",
+    "ar": "منبعتلك الرد.",
+    "en": "We'll send you the response.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On vous envoie la réponse.",
+      "en": "We'll send you the response.",
+      "ar": "منبعتلك الرد."
+    }
+  },
+  {
+    "fr": "On vous rembourse.",
+    "ar": "منرجعلك المصاري.",
+    "en": "We'll refund you.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": {
+      "fr": "On vous rembourse.",
+      "en": "We'll refund you.",
+      "ar": "منرجعلك المصاري."
+    }
+  },
+  {
+    "fr": "On vous verse l'aide.",
+    "ar": "منحولك المساعدة.",
+    "en": "We'll pay you the benefit.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "caf",
+      "daily",
+      "services"
+    ],
+    "ex": {
+      "fr": "On vous verse l'aide.",
+      "en": "We'll pay you the benefit.",
+      "ar": "منحولك المساعدة."
+    }
+  },
+  {
+    "fr": "On a effectué le paiement.",
+    "ar": "تم إجراء الدفعة.",
+    "en": "The payment has been made.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily"
+    ],
+    "ex": {
+      "fr": "On a effectué le paiement.",
+      "en": "The payment has been made.",
+      "ar": "تم إجراء الدفعة."
+    }
+  },
+  {
+    "fr": "On attend le versement.",
+    "ar": "ناطرين الدفعة.",
+    "en": "We're waiting for the payment.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily"
+    ],
+    "ex": {
+      "fr": "On attend le versement.",
+      "en": "We're waiting for the payment.",
+      "ar": "ناطرين الدفعة."
+    }
+  },
+  {
+    "fr": "On occupe le logement depuis…",
+    "ar": "نحنا ساكنين بالسكن من...",
+    "en": "We've occupied/lived in the accommodation since…",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": {
+      "fr": "On occupe le logement depuis…",
+      "en": "We've occupied/lived in the accommodation since…",
+      "ar": "نحنا ساكنين بالسكن من..."
+    }
+  },
+  {
+    "fr": "On doit occuper le logement.",
+    "ar": "لازم نشغل/نسكن بالسكن.",
+    "en": "We have to occupy the accommodation.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": {
+      "fr": "On doit occuper le logement.",
+      "en": "We have to occupy the accommodation.",
+      "ar": "لازم نشغل/نسكن بالسكن."
+    }
+  },
+  {
+    "fr": "On a besoin d'un logement.",
+    "ar": "بدنا سكن.",
+    "en": "We need accommodation.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": {
+      "fr": "On a besoin d'un logement.",
+      "en": "We need accommodation.",
+      "ar": "بدنا سكن."
+    }
+  },
+  {
+    "fr": "On cherche un logement social.",
+    "ar": "عم ندور على سكن اجتماعي.",
+    "en": "We're looking for social housing.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": {
+      "fr": "On cherche un logement social.",
+      "en": "We're looking for social housing.",
+      "ar": "عم ندور على سكن اجتماعي."
+    }
   }
-];
+]
