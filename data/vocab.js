@@ -30798,7 +30798,9 @@ window.VOCAB_DATA = [
     "level": "A1",
     "pos": "verb",
     "contexts": [
-      "caf"
+      "caf",
+      "daily",
+      "services"
     ],
     "ex": [
       {
@@ -30810,21 +30812,71 @@ window.VOCAB_DATA = [
         "fr": "Je télécharge mon attestation CAF.",
         "ar": "عم نزّل شهادة الـ CAF.",
         "en": "I download my CAF certificate."
+      },
+      {
+        "fr": "Je veux télécharger l'application.",
+        "ar": "أريد تنزيل التطبيق.",
+        "en": "I want to download the app."
+      },
+      {
+        "fr": "Vous pouvez télécharger le document ici.",
+        "ar": "يمكنكم تنزيل الوثيقة من هنا.",
+        "en": "You can download the document here."
+      },
+      {
+        "fr": "Je dois télécharger le formulaire.",
+        "ar": "يجب أن أنزل الاستمارة.",
+        "en": "I have to download the form."
+      },
+      {
+        "fr": "Le fichier est en train de se télécharger.",
+        "ar": "الملف قيد التنزيل.",
+        "en": "The file is downloading."
+      },
+      {
+        "fr": "J'ai téléchargé le document.",
+        "ar": "لقد نزّلت الوثيقة.",
+        "en": "I downloaded the document."
+      },
+      {
+        "fr": "Tu peux télécharger l'application gratuitement.",
+        "ar": "يمكنك تنزيل التطبيق مجانًا.",
+        "en": "You can download the app for free."
+      },
+      {
+        "fr": "Je n'arrive pas à télécharger le fichier.",
+        "ar": "لا أستطيع تنزيل الملف.",
+        "en": "I can't download the file."
+      },
+      {
+        "fr": "Téléchargez le formulaire et remplissez-le.",
+        "ar": "نزّلوا الاستمارة واملؤوها.",
+        "en": "Download the form and fill it in."
+      },
+      {
+        "fr": "Le document est disponible à télécharger.",
+        "ar": "الوثيقة متاحة للتنزيل.",
+        "en": "The document is available to download."
+      },
+      {
+        "fr": "Je vais télécharger la pièce jointe.",
+        "ar": "سأنزّل المرفق.",
+        "en": "I'll download the attachment."
       }
     ]
   },
   {
     "fr": "Vérifier",
     "ar": "يتحقق / يتأكد / يراجع / يفحص",
-    "en": "To check / verify / To verify",
+    "en": "To check / verify / To verify / to verify",
     "level": "A1",
     "pos": "verb",
     "contexts": [
       "caf",
-      "stage",
-      "work",
       "daily",
-      "services"
+      "services",
+      "stage",
+      "work"
     ],
     "ex": [
       {
@@ -30861,6 +30913,56 @@ window.VOCAB_DATA = [
         "fr": "Vérifiez que votre adresse est correcte.",
         "en": "Check that your address is correct.",
         "ar": "تأكد إنو عنوانك صحيح."
+      },
+      {
+        "fr": "Je vais vérifier.",
+        "ar": "سأتحقق.",
+        "en": "I'll check."
+      },
+      {
+        "fr": "Pouvez-vous vérifier, s'il vous plaît ?",
+        "ar": "هل يمكنك التحقق، من فضلك؟",
+        "en": "Could you check, please?"
+      },
+      {
+        "fr": "Je dois vérifier mon dossier.",
+        "ar": "يجب أن أتحقق من ملفي.",
+        "en": "I need to check my application."
+      },
+      {
+        "fr": "Vérifiez bien les informations.",
+        "ar": "تحققوا جيدًا من المعلومات.",
+        "en": "Check the information carefully."
+      },
+      {
+        "fr": "Je vais vérifier mon e-mail.",
+        "ar": "سأتحقق من بريدي الإلكتروني.",
+        "en": "I'll check my email."
+      },
+      {
+        "fr": "Vous pouvez vérifier mon rendez-vous ?",
+        "ar": "هل يمكنك التحقق من موعدي؟",
+        "en": "Can you check my appointment?"
+      },
+      {
+        "fr": "J'ai vérifié le document.",
+        "ar": "تحققت من الوثيقة.",
+        "en": "I checked the document."
+      },
+      {
+        "fr": "Il faut vérifier avant de signer.",
+        "ar": "يجب التحقق قبل التوقيع.",
+        "en": "You need to check before signing."
+      },
+      {
+        "fr": "Tout est vérifié.",
+        "ar": "تم التحقق من كل شيء.",
+        "en": "Everything has been checked."
+      },
+      {
+        "fr": "Je vais vérifier ça tout de suite.",
+        "ar": "سأتحقق من ذلك حالًا.",
+        "en": "I'll check that right away."
       }
     ]
   },
@@ -31638,18 +31740,72 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Toucher (recevoir)",
-    "ar": "استلام / يستلم",
-    "en": "to receive / get (benefits)",
+    "ar": "استلام / يستلم / يلمس / يتلقى مالًا",
+    "en": "to receive / get (benefits) / To touch / to receive money",
     "level": "A1",
     "pos": "verb",
     "contexts": [
-      "caf"
+      "caf",
+      "daily",
+      "work"
     ],
-    "ex": {
-      "fr": "Je touche les allocations chaque mois.",
-      "ar": "بستلم المخصصات كل شهر.",
-      "en": "I receive the allowances every month."
-    }
+    "ex": [
+      {
+        "fr": "Je touche les allocations chaque mois.",
+        "ar": "بستلم المخصصات كل شهر.",
+        "en": "I receive the allowances every month."
+      },
+      {
+        "fr": "Ne touchez pas à ça.",
+        "ar": "لا تلمس هذا.",
+        "en": "Don't touch that."
+      },
+      {
+        "fr": "Vous pouvez toucher l'écran.",
+        "ar": "يمكنكم لمس الشاشة.",
+        "en": "You can touch the screen."
+      },
+      {
+        "fr": "Ne touche pas à mes affaires.",
+        "ar": "لا تلمس أغراضي.",
+        "en": "Don't touch my things."
+      },
+      {
+        "fr": "Ça ne touche pas le problème.",
+        "ar": "هذا لا يتعلق بالمشكلة مباشرة.",
+        "en": "That doesn't address the problem."
+      },
+      {
+        "fr": "Je touche mon salaire à la fin du mois.",
+        "ar": "أتقاضى راتبي في نهاية الشهر.",
+        "en": "I receive my salary at the end of the month."
+      },
+      {
+        "fr": "Quand est-ce que je vais toucher mon salaire ?",
+        "ar": "متى سأتقاضى راتبي؟",
+        "en": "When will I receive my salary?"
+      },
+      {
+        "fr": "Je n'ai pas encore touché mon salaire.",
+        "ar": "لم أتقاضَ راتبي بعد.",
+        "en": "I haven't received my salary yet."
+      },
+      {
+        "fr": "Ne touchez pas aux produits.",
+        "ar": "لا تلمسوا المنتجات.",
+        "en": "Don't touch the products."
+      },
+      {
+        "fr": "Ça touche directement mon travail.",
+        "ar": "هذا يؤثر مباشرة على عملي.",
+        "en": "This directly affects my work."
+      },
+      {
+        "fr": "Tu peux toucher, c'est bon.",
+        "ar": "يمكنك أن تلمس، لا مشكلة.",
+        "en": "You can touch it, it's okay."
+      }
+    ]
   },
   {
     "fr": "Toucher le RSA",
@@ -66975,6 +67131,575 @@ window.VOCAB_DATA = [
         "fr": "Je comprends, mais je ne sais pas le traduire.",
         "ar": "أفهم، لكن لا أعرف كيف أترجمه.",
         "en": "I understand, but I don't know how to translate it."
+      }
+    ]
+  },
+  {
+    "fr": "Taper",
+    "ar": "يكتب / ينقر / يضغط",
+    "en": "To type / to tap / to hit",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "phone",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Tapez votre nom ici.",
+        "ar": "اكتب اسمك هنا.",
+        "en": "Type your name here."
+      },
+      {
+        "fr": "Tapez votre mot de passe.",
+        "ar": "اكتب كلمة المرور الخاصة بك.",
+        "en": "Type your password."
+      },
+      {
+        "fr": "Tapez votre adresse e-mail.",
+        "ar": "اكتب عنوان بريدك الإلكتروني.",
+        "en": "Type your email address."
+      },
+      {
+        "fr": "Tapez le code ici.",
+        "ar": "اكتب الرمز هنا.",
+        "en": "Enter the code here."
+      },
+      {
+        "fr": "Je vais taper le document.",
+        "ar": "سأكتب الوثيقة على الكمبيوتر.",
+        "en": "I'll type the document."
+      },
+      {
+        "fr": "Tapez votre numéro de téléphone.",
+        "ar": "اكتب رقم هاتفك.",
+        "en": "Enter your phone number."
+      },
+      {
+        "fr": "Je tape rapidement au clavier.",
+        "ar": "أكتب بسرعة على لوحة المفاتيح.",
+        "en": "I type quickly on the keyboard."
+      },
+      {
+        "fr": "Tapez deux fois sur l'écran.",
+        "ar": "اضغط مرتين على الشاشة.",
+        "en": "Tap the screen twice."
+      },
+      {
+        "fr": "Il faut taper le code.",
+        "ar": "يجب إدخال الرمز.",
+        "en": "You need to enter the code."
+      },
+      {
+        "fr": "Je me suis trompé en tapant.",
+        "ar": "أخطأت أثناء الكتابة.",
+        "en": "I made a mistake while typing."
+      }
+    ]
+  },
+  {
+    "fr": "Transporter",
+    "ar": "ينقل / يحمل",
+    "en": "To transport / to carry",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut transporter les cartons.",
+        "ar": "يجب نقل الصناديق.",
+        "en": "The boxes need to be transported."
+      },
+      {
+        "fr": "Je dois transporter ces produits.",
+        "ar": "يجب أن أنقل هذه المنتجات.",
+        "en": "I have to transport these products."
+      },
+      {
+        "fr": "Tu peux transporter ça ?",
+        "ar": "هل يمكنك نقل هذا؟",
+        "en": "Can you carry this?"
+      },
+      {
+        "fr": "On doit transporter les marchandises.",
+        "ar": "يجب أن ننقل البضائع.",
+        "en": "We have to transport the goods."
+      },
+      {
+        "fr": "Cette voiture peut transporter cinq personnes.",
+        "ar": "هذه السيارة تستطيع نقل خمسة أشخاص.",
+        "en": "This car can carry five people."
+      },
+      {
+        "fr": "Il est difficile de transporter tout ça seul.",
+        "ar": "من الصعب نقل كل هذا وحدك.",
+        "en": "It's difficult to carry all this alone."
+      },
+      {
+        "fr": "Comment peut-on transporter ce matériel ?",
+        "ar": "كيف يمكننا نقل هذه المعدات؟",
+        "en": "How can we transport this equipment?"
+      },
+      {
+        "fr": "Les cartons sont prêts à être transportés.",
+        "ar": "الصناديق جاهزة للنقل.",
+        "en": "The boxes are ready to be transported."
+      },
+      {
+        "fr": "Il faut transporter les déchets.",
+        "ar": "يجب نقل النفايات.",
+        "en": "The waste needs to be transported."
+      },
+      {
+        "fr": "Je vais transporter les cartons jusqu'au camion.",
+        "ar": "سأنقل الصناديق حتى الشاحنة.",
+        "en": "I'll carry the boxes to the truck."
+      }
+    ]
+  },
+  {
+    "fr": "Tenir à",
+    "ar": "يحرص على / يعتبر شيئًا مهمًا / يريد بشدة",
+    "en": "To care about / to value",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je tiens beaucoup à ce travail.",
+        "ar": "هذا العمل مهم جدًا بالنسبة لي.",
+        "en": "I care a lot about this job."
+      },
+      {
+        "fr": "Je tiens à vous remercier.",
+        "ar": "أود أن أشكركم.",
+        "en": "I'd like to thank you."
+      },
+      {
+        "fr": "Je tiens à préciser quelque chose.",
+        "ar": "أود توضيح شيء ما.",
+        "en": "I'd like to clarify something."
+      },
+      {
+        "fr": "Je tiens à vous informer.",
+        "ar": "أود إبلاغكم.",
+        "en": "I'd like to inform you."
+      },
+      {
+        "fr": "Je tiens beaucoup à ma famille.",
+        "ar": "عائلتي مهمة جدًا بالنسبة لي.",
+        "en": "I care a lot about my family."
+      },
+      {
+        "fr": "Je tiens à garder ce travail.",
+        "ar": "أحرص على الاحتفاظ بهذا العمل.",
+        "en": "I want to keep this job."
+      },
+      {
+        "fr": "Il tient beaucoup à son travail.",
+        "ar": "عمله مهم جدًا بالنسبة له.",
+        "en": "His job means a lot to him."
+      },
+      {
+        "fr": "Je tiens à être honnête avec vous.",
+        "ar": "أحرص على أن أكون صريحًا معك.",
+        "en": "I want to be honest with you."
+      },
+      {
+        "fr": "Nous tenons à votre satisfaction.",
+        "ar": "نحن نهتم برضاكم.",
+        "en": "We care about your satisfaction."
+      },
+      {
+        "fr": "Je tiens à m'excuser.",
+        "ar": "أود أن أعتذر.",
+        "en": "I'd like to apologize."
+      }
+    ]
+  },
+  {
+    "fr": "Travailler avec",
+    "ar": "يعمل مع",
+    "en": "To work with",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je travaille avec lui.",
+        "ar": "أنا أعمل معه.",
+        "en": "I work with him."
+      },
+      {
+        "fr": "Je travaille avec une équipe.",
+        "ar": "أعمل مع فريق.",
+        "en": "I work with a team."
+      },
+      {
+        "fr": "Tu travailles avec qui ?",
+        "ar": "مع من تعمل؟",
+        "en": "Who do you work with?"
+      },
+      {
+        "fr": "Je travaille avec mes collègues.",
+        "ar": "أعمل مع زملائي.",
+        "en": "I work with my colleagues."
+      },
+      {
+        "fr": "J'aime travailler avec cette équipe.",
+        "ar": "أحب العمل مع هذا الفريق.",
+        "en": "I like working with this team."
+      },
+      {
+        "fr": "Je préfère travailler avec eux.",
+        "ar": "أفضل العمل معهم.",
+        "en": "I prefer working with them."
+      },
+      {
+        "fr": "On travaille ensemble.",
+        "ar": "نحن نعمل معًا.",
+        "en": "We work together."
+      },
+      {
+        "fr": "Je travaille avec le responsable.",
+        "ar": "أعمل مع المسؤول.",
+        "en": "I work with the manager."
+      },
+      {
+        "fr": "Nous travaillons avec plusieurs entreprises.",
+        "ar": "نعمل مع عدة شركات.",
+        "en": "We work with several companies."
+      },
+      {
+        "fr": "C'est agréable de travailler avec vous.",
+        "ar": "من الممتع العمل معكم.",
+        "en": "It's nice working with you."
+      }
+    ]
+  },
+  {
+    "fr": "Travailler sur",
+    "ar": "يعمل على",
+    "en": "To work on",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Je travaille sur ce projet.",
+        "ar": "أعمل على هذا المشروع.",
+        "en": "I'm working on this project."
+      },
+      {
+        "fr": "Je travaille sur mon dossier.",
+        "ar": "أعمل على ملفي.",
+        "en": "I'm working on my application."
+      },
+      {
+        "fr": "Je travaille sur une nouvelle idée.",
+        "ar": "أعمل على فكرة جديدة.",
+        "en": "I'm working on a new idea."
+      },
+      {
+        "fr": "Il travaille sur son ordinateur.",
+        "ar": "هو يعمل على جهاز الكمبيوتر.",
+        "en": "He's working on his computer."
+      },
+      {
+        "fr": "Nous travaillons sur une solution.",
+        "ar": "نعمل على حل.",
+        "en": "We're working on a solution."
+      },
+      {
+        "fr": "Je dois travailler sur ce problème.",
+        "ar": "يجب أن أعمل على هذه المشكلة.",
+        "en": "I have to work on this problem."
+      },
+      {
+        "fr": "Tu travailles sur quoi ?",
+        "ar": "على ماذا تعمل؟",
+        "en": "What are you working on?"
+      },
+      {
+        "fr": "Je suis en train de travailler sur ça.",
+        "ar": "أنا أعمل على ذلك الآن.",
+        "en": "I'm working on that right now."
+      },
+      {
+        "fr": "On travaille dessus.",
+        "ar": "نعمل عليه.",
+        "en": "We're working on it."
+      },
+      {
+        "fr": "Je vais travailler là-dessus demain.",
+        "ar": "سأعمل على ذلك غدًا.",
+        "en": "I'll work on it tomorrow."
+      }
+    ]
+  },
+  {
+    "fr": "Traîner",
+    "ar": "يتسكع / يتأخر / يجرّ",
+    "en": "drag / take one's time",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Ne traîne pas !",
+        "ar": "لا تتأخر! / لا تتباطأ!",
+        "en": "Don't take your time!"
+      },
+      {
+        "fr": "Pourquoi tu traînes ?",
+        "ar": "لماذا تتأخر؟",
+        "en": "Why are you taking so long?"
+      },
+      {
+        "fr": "Il traîne toujours le matin.",
+        "ar": "هو دائمًا يتباطأ في الصباح.",
+        "en": "He always takes his time in the morning."
+      },
+      {
+        "fr": "Ne traîne pas, on est en retard.",
+        "ar": "لا تتأخر، نحن متأخرون.",
+        "en": "Don't take your time, we're late."
+      },
+      {
+        "fr": "Je ne veux pas traîner ici.",
+        "ar": "لا أريد أن أتسكع هنا.",
+        "en": "I don't want to hang around here."
+      },
+      {
+        "fr": "On peut traîner un peu après le travail.",
+        "ar": "يمكننا أن نتسكع قليلًا بعد العمل.",
+        "en": "We can hang around a bit after work."
+      },
+      {
+        "fr": "Il traîne dans la rue.",
+        "ar": "هو يتسكع في الشارع.",
+        "en": "He's hanging around in the street."
+      },
+      {
+        "fr": "Ça traîne depuis longtemps.",
+        "ar": "هذا الأمر متأخر / مستمر منذ وقت طويل.",
+        "en": "It's been dragging on for a long time."
+      },
+      {
+        "fr": "Le dossier traîne encore.",
+        "ar": "الملف ما زال متعطلًا / لم يُحسم.",
+        "en": "The application is still dragging on."
+      },
+      {
+        "fr": "Il ne faut pas traîner.",
+        "ar": "لا يجب أن نتأخر.",
+        "en": "We shouldn't waste time."
+      }
+    ]
+  },
+  {
+    "fr": "Tester",
+    "ar": "يختبر / يجرب",
+    "en": "To test / to try",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "phone",
+      "restaurant"
+    ],
+    "ex": [
+      {
+        "fr": "Je veux tester cette application.",
+        "ar": "أريد تجربة هذا التطبيق.",
+        "en": "I want to test this app."
+      },
+      {
+        "fr": "Tu peux tester ça ?",
+        "ar": "هل يمكنك تجربة هذا؟",
+        "en": "Can you test this?"
+      },
+      {
+        "fr": "On va tester le matériel.",
+        "ar": "سنختبر المعدات.",
+        "en": "We're going to test the equipment."
+      },
+      {
+        "fr": "Il faut tester avant de commencer.",
+        "ar": "يجب الاختبار قبل البدء.",
+        "en": "We need to test before starting."
+      },
+      {
+        "fr": "J'ai testé le téléphone.",
+        "ar": "اختبرت الهاتف.",
+        "en": "I tested the phone."
+      },
+      {
+        "fr": "Ça a été testé.",
+        "ar": "تم اختباره.",
+        "en": "It has been tested."
+      },
+      {
+        "fr": "Je vais tester une autre méthode.",
+        "ar": "سأجرب طريقة أخرى.",
+        "en": "I'll try another method."
+      },
+      {
+        "fr": "Tu as déjà testé ce restaurant ?",
+        "ar": "هل جربت هذا المطعم من قبل؟",
+        "en": "Have you tried this restaurant before?"
+      },
+      {
+        "fr": "On peut tester gratuitement.",
+        "ar": "يمكننا التجربة مجانًا.",
+        "en": "We can try it for free."
+      },
+      {
+        "fr": "Je préfère tester avant d'acheter.",
+        "ar": "أفضل التجربة قبل الشراء.",
+        "en": "I prefer to test it before buying."
+      }
+    ]
+  },
+  {
+    "fr": "Tâcher",
+    "ar": "يحاول / يسعى إلى",
+    "en": "To try / to make an effort",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais tâcher de vous aider.",
+        "ar": "سأحاول مساعدتك.",
+        "en": "I'll try to help you."
+      },
+      {
+        "fr": "Tâche d'arriver à l'heure.",
+        "ar": "حاول أن تصل في الوقت المحدد.",
+        "en": "Try to arrive on time."
+      },
+      {
+        "fr": "Je tâcherai de venir demain.",
+        "ar": "سأحاول المجيء غدًا.",
+        "en": "I'll try to come tomorrow."
+      },
+      {
+        "fr": "Tâche de ne pas oublier.",
+        "ar": "حاول ألا تنسى.",
+        "en": "Try not to forget."
+      },
+      {
+        "fr": "Je vais tâcher de faire mieux.",
+        "ar": "سأحاول أن أفعل بشكل أفضل.",
+        "en": "I'll try to do better."
+      },
+      {
+        "fr": "Tâchez d'être prudent.",
+        "ar": "حاولوا أن تكونوا حذرين.",
+        "en": "Try to be careful."
+      },
+      {
+        "fr": "Je tâcherai d'être à l'heure.",
+        "ar": "سأحاول أن أكون في الموعد.",
+        "en": "I'll try to be on time."
+      },
+      {
+        "fr": "Tâche de comprendre.",
+        "ar": "حاول أن تفهم.",
+        "en": "Try to understand."
+      },
+      {
+        "fr": "Je vais tâcher de régler le problème.",
+        "ar": "سأحاول حل المشكلة.",
+        "en": "I'll try to solve the problem."
+      },
+      {
+        "fr": "Tâchez de répondre rapidement.",
+        "ar": "حاولوا الرد بسرعة.",
+        "en": "Try to reply quickly."
+      }
+    ]
+  },
+  {
+    "fr": "Transférer",
+    "ar": "ينقل / يحوّل / يعيد إرسال",
+    "en": "To transfer / to forward",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "phone",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais transférer votre e-mail.",
+        "ar": "سأعيد إرسال بريدكم الإلكتروني.",
+        "en": "I'll forward your email."
+      },
+      {
+        "fr": "Pouvez-vous transférer ce document ?",
+        "ar": "هل يمكنك تحويل / إرسال هذه الوثيقة؟",
+        "en": "Can you forward this document?"
+      },
+      {
+        "fr": "Je dois transférer l'argent.",
+        "ar": "يجب أن أحوّل المال.",
+        "en": "I have to transfer the money."
+      },
+      {
+        "fr": "J'ai transféré l'argent hier.",
+        "ar": "حوّلت المال أمس.",
+        "en": "I transferred the money yesterday."
+      },
+      {
+        "fr": "Je vais transférer le fichier sur mon téléphone.",
+        "ar": "سأنقل الملف إلى هاتفي.",
+        "en": "I'll transfer the file to my phone."
+      },
+      {
+        "fr": "Vous pouvez transférer l'appel ?",
+        "ar": "هل يمكنك تحويل المكالمة؟",
+        "en": "Can you transfer the call?"
+      },
+      {
+        "fr": "Le paiement a été transféré.",
+        "ar": "تم تحويل الدفعة.",
+        "en": "The payment has been transferred."
+      },
+      {
+        "fr": "Je vais transférer votre demande au service concerné.",
+        "ar": "سأحوّل طلبكم إلى القسم المعني.",
+        "en": "I'll forward your request to the relevant department."
+      },
+      {
+        "fr": "Comment transférer de l'argent ?",
+        "ar": "كيف أحوّل المال؟",
+        "en": "How do I transfer money?"
+      },
+      {
+        "fr": "Le fichier a été transféré avec succès.",
+        "ar": "تم نقل الملف بنجاح.",
+        "en": "The file was transferred successfully."
       }
     ]
   }
