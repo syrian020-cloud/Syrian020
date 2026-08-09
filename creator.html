@@ -107,6 +107,26 @@
   .rate-label { font-weight: 700; white-space: nowrap; }
   .rate-value { min-width: 2.2rem; font-weight: 800; color: var(--text-primary); text-align: center; }
   .rate-control input[type="range"] { width: 8rem; accent-color: var(--accent); cursor: pointer; }
+  .font-size-control .icon-btn { min-width: 2rem; justify-content: center; font-weight: 800; font-size: 0.85rem; padding: 0.35rem 0.5rem; }
+
+  .study-overlay { position: fixed; inset: 0; z-index: 1000; background: var(--bg-primary); display: flex; flex-direction: column; padding: 1rem; overflow-y: auto; }
+  .study-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+  .study-header h2 { flex: 1; margin: 0; font-size: 1.05rem; color: var(--text-primary); }
+  .study-content { flex: 1; display: flex; flex-direction: column; gap: 1rem; }
+  .study-card { margin-bottom: 0; }
+  .study-phrase { padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+  .study-phrase:last-child { border-bottom: none; }
+  .study-phrase.study-fr { font-size: 2rem; font-weight: 800; line-height: 1.35; text-align: center; }
+  .study-phrase.study-ar { font-size: 1.35rem; font-weight: 600; color: var(--text-secondary); text-align: right; direction: rtl; }
+  .study-phrase.study-en { font-size: 1.05rem; font-style: italic; color: var(--text-secondary); text-align: left; }
+  .study-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
+  .study-lang-grid { display: flex; flex-direction: column; gap: 0.6rem; }
+  .study-lang-row { display: flex; align-items: center; gap: 0.6rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px; padding: 0.7rem 0.9rem; }
+  .study-lang-label { font-weight: 700; font-size: 0.85rem; color: var(--accent); min-width: 4.5rem; }
+  .study-lang-text { flex: 1; font-size: 1rem; color: var(--text-primary); }
+  .study-lang-row[data-lang="ar"] .study-lang-text { text-align: right; direction: rtl; }
+  .study-lang-row[data-lang="en"] .study-lang-text { font-style: italic; color: var(--text-secondary); }
+  .study-overlay .media-box { margin: 0.5rem 0 0; }
 
   .card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 28px; padding: 1.25rem; margin-bottom: 1rem; box-shadow: var(--shadow-sm); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: transform .12s, box-shadow .15s, border-color .15s; }
   .card:hover { box-shadow: 0 8px 24px rgba(20,184,166,0.15); border-color: rgba(20,184,166,0.25); }
@@ -268,6 +288,7 @@
     uiLang: localStorage.getItem('creator_ui_lang') || 'ar',
     theme: localStorage.getItem('creator_theme') || 'light',
     rate: Number(localStorage.getItem('creator_rate')) || 1,
+    fontSize: Number(localStorage.getItem('creator_font_size')) || 100,
     lessonLoopMode: localStorage.getItem('creator_loop_mode') || 'all',
     loopKey: null,
     mediaUrls: {}, // mediaId -> objectUrl
@@ -295,6 +316,7 @@
     speak: { ar: 'نطق', en: 'Speak', fr: 'Écouter' },
     loop: { ar: 'تكرار', en: 'Loop', fr: 'Répéter' },
     googleSearch: { ar: 'بحث Google', en: 'Google search', fr: 'Rechercher Google' },
+    studyPhrase: { ar: 'دراسة العبارة', en: 'Study phrase', fr: 'Étudier la phrase' },
     stop: { ar: 'إيقاف', en: 'Stop', fr: 'Arrêter' },
     delete: { ar: 'حذف', en: 'Delete', fr: 'Supprimer' },
     moveUp: { ar: 'أعلى', en: 'Up', fr: 'Monter' },
@@ -327,6 +349,8 @@
     playMode: { ar: 'وضع التشغيل', en: 'Play mode', fr: 'Mode lecture' },
     playModeFrench: { ar: 'فرنسي فقط', en: 'French only', fr: 'Français seul' },
     playModeAll: { ar: 'فرنسي + عربي + إنجليزي', en: 'French + Arabic + English', fr: 'Français + Arabe + Anglais' },
+    decreaseFont: { ar: 'تصغير الخط', en: 'Decrease font', fr: 'Diminuer la police' },
+    increaseFont: { ar: 'تكبير الخط', en: 'Increase font', fr: 'Augmenter la police' },
     addFolder: { ar: 'مجلد جديد', en: 'New folder', fr: 'Nouveau dossier' },
     folderNamePrompt: { ar: 'اسم المجلد', en: 'Folder name', fr: 'Nom du dossier' },
     renameFolder: { ar: 'إعادة تسمية المجلد', en: 'Rename folder', fr: 'Renommer le dossier' },
@@ -366,7 +390,8 @@
       folder: 'M19.906 9c.382 0 .749.057 1.094.162V9a3 3 0 0 0-3-3h-3.879a.75.75 0 0 1-.53-.22L11.47 3.66A2.25 2.25 0 0 0 9.879 3H6a3 3 0 0 0-3 3v3.162A3.756 3.756 0 0 1 4.094 9h15.812ZM4.094 10.5a2.25 2.25 0 0 0-2.227 2.568l.857 6A2.25 2.25 0 0 0 4.951 21H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-2.227-2.568H4.094Z',
       lesson: 'M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z',
       chevron: 'M12 16.5a.75.75 0 0 1-.53-.22l-6-6a.75.75 0 0 1 1.06-1.06L12 14.69l5.47-5.47a.75.75 0 1 1 1.06 1.06l-6 6a.75.75 0 0 1-.53.22Z',
-      search: 'M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z'
+      search: 'M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z',
+      study: 'M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.994 8.994 0 0 1 6 18c3.972 0 7.286 2.503 8.878 6.036M12 6.042c1.592-3.533 4.906-6.036 8.878-6.036 1.052 0 2.062.18 3 .512v14.25A8.994 8.994 0 0 0 21 18c-3.972 0-7.286-2.503-8.878-6.036'
     };
     var d = paths[name] || '';
     return '<svg class="icon icon-' + name + '" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="' + d + '" /></svg>';
@@ -777,6 +802,124 @@
     }
   }
 
+  function studyLangRow(phrase, lang, dir, label) {
+    return '<div class="study-lang-row" data-lang="' + lang + '" dir="' + dir + '">' +
+      '<span class="study-lang-label">' + label + '</span>' +
+      '<button class="icon-btn study-speak" data-lang="' + lang + '" data-t-title="speak">' + icon('volume') + '</button>' +
+      '<div class="study-lang-text">' + esc(phrase[lang] || '') + '</div>' +
+    '</div>';
+  }
+
+  function closeStudy() {
+    stopAllMedia();
+    var overlay = document.getElementById('study-overlay');
+    if (overlay) overlay.remove();
+  }
+
+  function openStudy(phrase, idx) {
+    if (!phrase) return;
+    closeStudy();
+    var overlay = document.createElement('div');
+    overlay.className = 'study-overlay';
+    overlay.id = 'study-overlay';
+    overlay.innerHTML =
+      '<div class="study-header">' +
+        '<button class="icon-btn" id="study-close" data-t-title="back">' + icon('back') + '</button>' +
+        '<h2>' + esc(t('studyPhrase')) + ' #' + (idx + 1) + '</h2>' +
+      '</div>' +
+      '<div class="study-content">' +
+        '<div class="card phrase-card study-card" data-phrase-id="' + phrase.id + '">' +
+          '<div class="study-phrase study-fr" data-lang="fr">' + wordSpans(phrase.fr || '', 'fr', phrase.id) + '</div>' +
+          '<div class="study-phrase study-ar" dir="rtl" data-lang="ar">' + esc(phrase.ar || '') + '</div>' +
+          '<div class="study-phrase study-en" data-lang="en">' + esc(phrase.en || '') + '</div>' +
+          '<div class="media-box" id="study-media-box"></div>' +
+        '</div>' +
+        '<div class="study-actions">' +
+          '<button class="btn" id="study-play-all"><span class="btn-icon">' + icon('play') + '</span> ' + esc(t('playAll')) + '</button>' +
+          '<button class="btn" id="study-loop" data-phrase-id="' + phrase.id + '">' + icon('loop') + ' ' + esc(t('loop')) + '</button>' +
+          '<button class="btn ghost" id="study-stop">' + icon('stop') + ' ' + esc(t('stopAll')) + '</button>' +
+          '<div class="rate-control">' +
+            '<span class="rate-label" data-t="speechRate"></span>' +
+            '<input type="range" id="study-rate" min="0.5" max="2" step="0.1" value="' + state.rate + '">' +
+            '<span class="rate-value" id="study-rate-value">' + state.rate.toFixed(1) + 'x</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="study-lang-grid">' +
+          studyLangRow(phrase, 'fr', 'ltr', 'Français') +
+          studyLangRow(phrase, 'ar', 'rtl', 'العربية') +
+          studyLangRow(phrase, 'en', 'ltr', 'English') +
+        '</div>' +
+        '<button class="btn" id="study-search">' + icon('search') + ' ' + esc(t('googleSearch')) + '</button>' +
+      '</div>';
+    document.body.appendChild(overlay);
+    applyTranslations();
+
+    var rateInput = document.getElementById('study-rate');
+    var rateValue = document.getElementById('study-rate-value');
+    if (rateInput) {
+      rateInput.oninput = function () {
+        state.rate = Number(rateInput.value);
+        localStorage.setItem('creator_rate', state.rate);
+        if (rateValue) rateValue.textContent = state.rate.toFixed(1) + 'x';
+        var mainSlider = document.getElementById('rate-slider');
+        var mainVal = document.getElementById('rate-value');
+        if (mainSlider) mainSlider.value = state.rate;
+        if (mainVal) mainVal.textContent = state.rate.toFixed(1) + 'x';
+      };
+    }
+
+    document.getElementById('study-close').onclick = closeStudy;
+    document.getElementById('study-play-all').onclick = function () { stopSpeech(); speakOnce(phrase, ['fr', 'ar', 'en'], 'study:' + phrase.id); };
+    document.getElementById('study-loop').onclick = function () { toggleLoop(phrase, 'study:' + phrase.id, ['fr', 'ar', 'en']); };
+    document.getElementById('study-stop').onclick = stopAllMedia;
+
+    overlay.querySelectorAll('.study-speak').forEach(function (btn) {
+      btn.onclick = function () {
+        var lang = btn.dataset.lang;
+        if (lang) { stopSpeech(); speakLine(phrase, lang, 'study:' + phrase.id + ':' + lang); }
+      };
+    });
+
+    document.getElementById('study-search').onclick = function () { openSearch(phrase.fr || '', 'fr'); };
+
+    overlay.onclick = function (e) {
+      var wordEl = e.target.closest('.word');
+      if (wordEl) {
+        var lang = wordEl.dataset.lang;
+        var word = wordEl.dataset.word;
+        if (word) toggleWordLoop(word, lang, phrase.id + ':' + lang + ':' + word);
+      }
+    };
+
+    refreshStudyControls();
+
+    if (phrase.mediaId) {
+      getMediaUrl(phrase.mediaId).then(function (url) {
+        if (!url) return;
+        var box = document.getElementById('study-media-box');
+        if (!box) return;
+        var isVideo = phrase.mediaType && phrase.mediaType.indexOf('video/') === 0;
+        var el = document.createElement(isVideo ? 'video' : 'img');
+        el.className = 'media-preview';
+        el.src = url;
+        if (isVideo) { el.controls = true; el.loop = !!phrase.videoLoop; }
+        box.appendChild(el);
+      });
+    } else {
+      var mbox = document.getElementById('study-media-box');
+      if (mbox) mbox.style.display = 'none';
+    }
+  }
+
+  function refreshStudyControls() {
+    var loopBtn = document.getElementById('study-loop');
+    if (loopBtn) {
+      var on = state.loopKey === 'study:' + loopBtn.dataset.phraseId;
+      loopBtn.classList.toggle('active', on);
+      loopBtn.innerHTML = icon(on ? 'stop' : 'loop') + ' ' + esc(t(on ? 'stopAll' : 'loop'));
+    }
+  }
+
   /* ---------------- UI helpers ---------------- */
 
   function esc(s) {
@@ -816,6 +959,11 @@
     if (iconPath) iconPath.setAttribute('d', state.theme === 'light'
       ? 'M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z'
       : 'M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z');
+  }
+
+  function applyFontSize() {
+    document.documentElement.style.fontSize = state.fontSize + '%';
+    localStorage.setItem('creator_font_size', state.fontSize);
   }
 
   function setUILang(lang) {
@@ -1169,6 +1317,10 @@
           '<option value="fr" ' + (state.lessonLoopMode === 'fr' ? 'selected' : '') + '>' + esc(t('playModeFrench')) + '</option>' +
           '<option value="all" ' + (state.lessonLoopMode === 'all' ? 'selected' : '') + '>' + esc(t('playModeAll')) + '</option>' +
         '</select>' +
+      '</div>' +
+      '<div class="rate-control font-size-control">' +
+        '<button class="icon-btn" id="btn-font-minus" data-t-title="decreaseFont">A-</button>' +
+        '<button class="icon-btn" id="btn-font-plus" data-t-title="increaseFont">A+</button>' +
       '</div>';
     app.appendChild(controls);
 
@@ -1212,8 +1364,12 @@
   }
 
   function lineHTML(lang, text, dir, phraseId) {
+    var studyBtn = lang === 'fr'
+      ? '<button class="icon-btn study-line" data-lang="fr" data-t-title="studyPhrase">' + icon('study') + '</button>'
+      : '';
     return '<div class="phrase-line" data-lang="' + lang + '" dir="' + dir + '">' +
       '<div class="phrase-line-text" data-field="' + lang + '" dir="' + dir + '">' + wordSpans(text, lang, phraseId) + '</div>' +
+      studyBtn +
       '<button class="icon-btn search-line" data-lang="' + lang + '" data-t-title="googleSearch">' + icon('search') + '</button>' +
     '</div>';
   }
@@ -1287,6 +1443,21 @@
       };
     }
 
+    var fontMinus = document.getElementById('btn-font-minus');
+    var fontPlus = document.getElementById('btn-font-plus');
+    if (fontMinus) {
+      fontMinus.onclick = function () {
+        state.fontSize = Math.max(80, state.fontSize - 5);
+        applyFontSize();
+      };
+    }
+    if (fontPlus) {
+      fontPlus.onclick = function () {
+        state.fontSize = Math.min(130, state.fontSize + 5);
+        applyFontSize();
+      };
+    }
+
     var app = document.getElementById('app');
     app.oninput = function (e) {
       var target = e.target;
@@ -1348,6 +1519,8 @@
       } else if (btn.classList.contains('search-line')) {
         var query = (phrase[lineLang] || '').trim();
         if (query) openSearch(query, lineLang);
+      } else if (btn.classList.contains('study-line')) {
+        openStudy(phrase, lesson.phrases.indexOf(phrase));
       } else if (btn.classList.contains('loop-media')) {
         phrase.videoLoop = !phrase.videoLoop;
         var video = box ? box.querySelector('video.media-preview') : null;
@@ -1524,6 +1697,7 @@
     document.querySelectorAll('.phrase-card').forEach(function (el) { el.classList.remove('playing'); el.style.removeProperty('--glow'); });
     document.querySelectorAll('.speaking-line').forEach(function (el) { el.classList.remove('speaking-line'); });
     refreshLoopButtons();
+    refreshStudyControls();
   }
 
   function stopAllMedia() {
@@ -1578,6 +1752,7 @@
     if (state.loopKey === key) { stopSpeech(); return; }
     state.loopKey = key;
     refreshLoopButtons();
+    refreshStudyControls();
     (function cycle() {
       if (state.loopKey !== key) return;
       speakOnce(phrase, langs || ['fr', 'ar', 'en'], key, function () {
@@ -1790,6 +1965,7 @@
 
   function init() {
     applyTheme();
+    applyFontSize();
     setUILang(state.uiLang);
 
     document.getElementById('btn-theme').onclick = function () {
