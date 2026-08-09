@@ -22512,14 +22512,16 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Transmettre",
-    "ar": "يرسل / يحوّل / يحوّل (معلومة أو وثيقة)",
-    "en": "To submit / Forward / To transmit / forward",
+    "ar": "يرسل / يحوّل / يحوّل (معلومة أو وثيقة) / ينقل / يمرر",
+    "en": "To submit / Forward / To transmit / forward / To forward / to transmit",
     "pos": "verb",
     "level": "A2",
     "contexts": [
-      "services",
       "caf",
-      "mdph"
+      "france_travail",
+      "mdph",
+      "services",
+      "work"
     ],
     "ex": [
       {
@@ -22541,6 +22543,56 @@ window.VOCAB_DATA = [
         "fr": "Le médecin transmet le certificat médical.",
         "ar": "الطبيب يرسل الشهادة الطبية.",
         "en": "The doctor transmits the medical certificate."
+      },
+      {
+        "fr": "Je vais transmettre votre demande.",
+        "ar": "سأرسل طلبكم.",
+        "en": "I'll forward your request."
+      },
+      {
+        "fr": "Pouvez-vous me transmettre le document ?",
+        "ar": "هل يمكنك إرسال الوثيقة لي؟",
+        "en": "Can you send me the document?"
+      },
+      {
+        "fr": "Je vous transmets les informations demandées.",
+        "ar": "أرسل لكم المعلومات المطلوبة.",
+        "en": "I'm sending you the requested information."
+      },
+      {
+        "fr": "Je vais transmettre votre message.",
+        "ar": "سأنقل رسالتك.",
+        "en": "I'll pass on your message."
+      },
+      {
+        "fr": "Merci de me transmettre le formulaire.",
+        "ar": "شكرًا لإرسال الاستمارة لي.",
+        "en": "Thank you for sending me the form."
+      },
+      {
+        "fr": "Je dois transmettre ce document à France Travail.",
+        "ar": "يجب أن أرسل هذه الوثيقة إلى France Travail.",
+        "en": "I have to send this document to France Travail."
+      },
+      {
+        "fr": "Pouvez-vous me transmettre votre adresse e-mail ?",
+        "ar": "هل يمكنك إرسال عنوان بريدك الإلكتروني لي؟",
+        "en": "Can you send me your email address?"
+      },
+      {
+        "fr": "Le dossier a été transmis au service concerné.",
+        "ar": "تم إرسال الملف إلى القسم المعني.",
+        "en": "The application was forwarded to the relevant department."
+      },
+      {
+        "fr": "Je vous transmets le justificatif en pièce jointe.",
+        "ar": "أرسل لكم الإثبات مرفقًا.",
+        "en": "I'm sending you the supporting document attached."
+      },
+      {
+        "fr": "Je vais vous transmettre les documents dès que possible.",
+        "ar": "سأرسل لكم الوثائق في أقرب وقت ممكن.",
+        "en": "I'll send you the documents as soon as possible."
       }
     ]
   },
@@ -23334,12 +23386,14 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Traiter",
-    "ar": "يعالج / يدرس / يدرس (ملف)",
-    "en": "To process",
+    "ar": "يعالج / يدرس / يدرس (ملف) / يتعامل مع / يدرس طلبًا",
+    "en": "To process / to handle / to deal with",
     "pos": "verb",
     "level": "B1",
     "contexts": [
-      "caf"
+      "caf",
+      "services",
+      "work"
     ],
     "ex": [
       {
@@ -23351,6 +23405,56 @@ window.VOCAB_DATA = [
         "fr": "La CAF traite mon dossier actuellement.",
         "ar": "الـ CAF عم تعالج ملفي حاليًا.",
         "en": "CAF is processing my application."
+      },
+      {
+        "fr": "Votre dossier est en cours de traitement.",
+        "ar": "ملفكم قيد المعالجة.",
+        "en": "Your application is being processed."
+      },
+      {
+        "fr": "Ma demande est en cours de traitement.",
+        "ar": "طلبي قيد المعالجة.",
+        "en": "My request is being processed."
+      },
+      {
+        "fr": "Combien de temps faut-il pour traiter ma demande ?",
+        "ar": "كم من الوقت يلزم لمعالجة طلبي؟",
+        "en": "How long does it take to process my request?"
+      },
+      {
+        "fr": "Ils vont traiter mon dossier rapidement.",
+        "ar": "سيعالجون ملفي بسرعة.",
+        "en": "They will process my application quickly."
+      },
+      {
+        "fr": "Le dossier n'a pas encore été traité.",
+        "ar": "لم تتم معالجة الملف بعد.",
+        "en": "The application hasn't been processed yet."
+      },
+      {
+        "fr": "Qui traite ma demande ?",
+        "ar": "من يعالج طلبي؟",
+        "en": "Who is handling my request?"
+      },
+      {
+        "fr": "Le service traite les demandes.",
+        "ar": "القسم يعالج الطلبات.",
+        "en": "The department processes requests."
+      },
+      {
+        "fr": "Ma demande est toujours en cours de traitement.",
+        "ar": "طلبي لا يزال قيد المعالجة.",
+        "en": "My request is still being processed."
+      },
+      {
+        "fr": "Il faut traiter ce problème rapidement.",
+        "ar": "يجب معالجة هذه المشكلة بسرعة.",
+        "en": "This problem needs to be dealt with quickly."
+      },
+      {
+        "fr": "Merci de traiter ma demande dans les meilleurs délais.",
+        "ar": "شكرًا لمعالجة طلبي في أقرب وقت ممكن.",
+        "en": "Thank you for processing my request as soon as possible."
       }
     ]
   },
@@ -66169,5 +66273,709 @@ window.VOCAB_DATA = [
       "en": "Whatever the result, I will continue.",
       "ar": "مهما كانت النتيجة، رح أكمل."
     }
+  },
+  {
+    "fr": "Travailler",
+    "ar": "يعمل / يشتغل",
+    "en": "To work",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "restaurant",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je travaille dans un restaurant.",
+        "ar": "أنا أعمل في مطعم.",
+        "en": "I work in a restaurant."
+      },
+      {
+        "fr": "Je travaille aujourd'hui.",
+        "ar": "أنا أعمل اليوم.",
+        "en": "I'm working today."
+      },
+      {
+        "fr": "Tu travailles où ?",
+        "ar": "أين تعمل؟",
+        "en": "Where do you work?"
+      },
+      {
+        "fr": "Tu travailles demain ?",
+        "ar": "هل تعمل غدًا؟",
+        "en": "Are you working tomorrow?"
+      },
+      {
+        "fr": "Je travaille le matin.",
+        "ar": "أعمل في الصباح.",
+        "en": "I work in the morning."
+      },
+      {
+        "fr": "Je travaille le soir.",
+        "ar": "أعمل في المساء.",
+        "en": "I work in the evening."
+      },
+      {
+        "fr": "Je travaille à temps plein.",
+        "ar": "أعمل بدوام كامل.",
+        "en": "I work full-time."
+      },
+      {
+        "fr": "Je travaille à temps partiel.",
+        "ar": "أعمل بدوام جزئي.",
+        "en": "I work part-time."
+      },
+      {
+        "fr": "Depuis combien de temps tu travailles ici ?",
+        "ar": "منذ متى وأنت تعمل هنا؟",
+        "en": "How long have you been working here?"
+      },
+      {
+        "fr": "Je travaille beaucoup cette semaine.",
+        "ar": "أعمل كثيرًا هذا الأسبوع.",
+        "en": "I'm working a lot this week."
+      },
+      {
+        "fr": "Je préfère travailler le matin.",
+        "ar": "أفضل العمل في الصباح.",
+        "en": "I prefer working in the morning."
+      }
+    ]
+  },
+  {
+    "fr": "Trouver",
+    "ar": "يجد / يلاقي",
+    "en": "To find",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing",
+      "phone",
+      "restaurant",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je cherche à trouver un travail.",
+        "ar": "أحاول أن أجد عملًا.",
+        "en": "I'm trying to find a job."
+      },
+      {
+        "fr": "Je ne trouve pas mes clés.",
+        "ar": "لا أجد مفاتيحي.",
+        "en": "I can't find my keys."
+      },
+      {
+        "fr": "Tu as trouvé ton téléphone ?",
+        "ar": "هل وجدت هاتفك؟",
+        "en": "Did you find your phone?"
+      },
+      {
+        "fr": "J'ai trouvé un nouvel appartement.",
+        "ar": "وجدت شقة جديدة.",
+        "en": "I found a new apartment."
+      },
+      {
+        "fr": "Je trouve ça intéressant.",
+        "ar": "أجد هذا ممتعًا.",
+        "en": "I find that interesting."
+      },
+      {
+        "fr": "Tu trouves ça normal ?",
+        "ar": "هل تجد هذا طبيعيًا؟",
+        "en": "Do you find that normal?"
+      },
+      {
+        "fr": "Je trouve que c'est trop cher.",
+        "ar": "أجد أن هذا غالي جدًا.",
+        "en": "I think it's too expensive."
+      },
+      {
+        "fr": "Je trouve facilement mon chemin.",
+        "ar": "أجد طريقي بسهولة.",
+        "en": "I easily find my way."
+      },
+      {
+        "fr": "On doit trouver une solution.",
+        "ar": "يجب أن نجد حلًا.",
+        "en": "We have to find a solution."
+      },
+      {
+        "fr": "J'ai trouvé ce que je cherchais.",
+        "ar": "وجدت ما كنت أبحث عنه.",
+        "en": "I found what I was looking for."
+      },
+      {
+        "fr": "Tu trouves comment ce restaurant ?",
+        "ar": "ما رأيك بهذا المطعم؟",
+        "en": "What do you think of this restaurant?"
+      }
+    ]
+  },
+  {
+    "fr": "Téléphoner",
+    "ar": "يتصل هاتفيًا",
+    "en": "To call / to phone",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "france_travail",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais vous téléphoner demain.",
+        "ar": "سأتصل بكم غدًا.",
+        "en": "I'll call you tomorrow."
+      },
+      {
+        "fr": "Je dois téléphoner à France Travail.",
+        "ar": "يجب أن أتصل بـ France Travail.",
+        "en": "I have to call France Travail."
+      },
+      {
+        "fr": "Tu peux me téléphoner ce soir ?",
+        "ar": "هل يمكنك الاتصال بي هذا المساء؟",
+        "en": "Can you call me tonight?"
+      },
+      {
+        "fr": "Je vais lui téléphoner.",
+        "ar": "سأتصل به / بها.",
+        "en": "I'll call him / her."
+      },
+      {
+        "fr": "Je préfère téléphoner plutôt qu'envoyer un e-mail.",
+        "ar": "أفضل الاتصال بدلًا من إرسال بريد إلكتروني.",
+        "en": "I prefer calling rather than sending an email."
+      },
+      {
+        "fr": "Je vous téléphonerai dès que possible.",
+        "ar": "سأتصل بكم في أقرب وقت ممكن.",
+        "en": "I'll call you as soon as possible."
+      },
+      {
+        "fr": "Il faut téléphoner avant de venir.",
+        "ar": "يجب الاتصال قبل المجيء.",
+        "en": "You need to call before coming."
+      },
+      {
+        "fr": "J'ai essayé de vous téléphoner.",
+        "ar": "حاولت الاتصال بكم.",
+        "en": "I tried to call you."
+      },
+      {
+        "fr": "Pourquoi tu ne m'as pas téléphoné ?",
+        "ar": "لماذا لم تتصل بي؟",
+        "en": "Why didn't you call me?"
+      },
+      {
+        "fr": "Je peux vous téléphoner plus tard ?",
+        "ar": "هل يمكنني الاتصال بكم لاحقًا؟",
+        "en": "Can I call you later?"
+      }
+    ]
+  },
+  {
+    "fr": "Terminer",
+    "ar": "ينهي / يخلص",
+    "en": "To finish",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je termine à 14 heures.",
+        "ar": "أنتهي الساعة الثانية.",
+        "en": "I finish at 2 p.m."
+      },
+      {
+        "fr": "À quelle heure tu termines ?",
+        "ar": "في أي ساعة تنتهي؟",
+        "en": "What time do you finish?"
+      },
+      {
+        "fr": "Je termine bientôt.",
+        "ar": "سأنتهي قريبًا.",
+        "en": "I'll finish soon."
+      },
+      {
+        "fr": "J'ai terminé mon travail.",
+        "ar": "أنهيت عملي.",
+        "en": "I've finished my work."
+      },
+      {
+        "fr": "Je dois terminer ça aujourd'hui.",
+        "ar": "يجب أن أنهي هذا اليوم.",
+        "en": "I have to finish this today."
+      },
+      {
+        "fr": "Tu as terminé ?",
+        "ar": "هل انتهيت؟",
+        "en": "Have you finished?"
+      },
+      {
+        "fr": "Je n'ai pas encore terminé.",
+        "ar": "لم أنتهِ بعد.",
+        "en": "I haven't finished yet."
+      },
+      {
+        "fr": "On doit terminer avant midi.",
+        "ar": "يجب أن ننتهي قبل الظهر.",
+        "en": "We have to finish before noon."
+      },
+      {
+        "fr": "Quand est-ce que tu termines ?",
+        "ar": "متى تنتهي؟",
+        "en": "When do you finish?"
+      },
+      {
+        "fr": "Je vais terminer dans quelques minutes.",
+        "ar": "سأنتهي خلال بضع دقائق.",
+        "en": "I'll finish in a few minutes."
+      }
+    ]
+  },
+  {
+    "fr": "Tenir",
+    "ar": "يمسك / يحافظ على / يلتزم",
+    "en": "To hold / keep",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "phone"
+    ],
+    "ex": [
+      {
+        "fr": "Tenez bien le sac.",
+        "ar": "أمسك الحقيبة جيدًا.",
+        "en": "Hold the bag firmly."
+      },
+      {
+        "fr": "Tenez la porte, s'il vous plaît.",
+        "ar": "أمسك الباب، من فضلك.",
+        "en": "Hold the door, please."
+      },
+      {
+        "fr": "Je tiens mon téléphone dans ma main.",
+        "ar": "أمسك هاتفي بيدي.",
+        "en": "I hold my phone in my hand."
+      },
+      {
+        "fr": "Tiens, prends ça.",
+        "ar": "تفضل، خذ هذا.",
+        "en": "Here, take this."
+      },
+      {
+        "fr": "Tiens-moi au courant.",
+        "ar": "أبقني على اطلاع.",
+        "en": "Keep me informed."
+      },
+      {
+        "fr": "Tenez-moi au courant.",
+        "ar": "أبقوني على اطلاع.",
+        "en": "Keep me informed."
+      },
+      {
+        "fr": "Je tiens à vous remercier.",
+        "ar": "أود أن أشكركم.",
+        "en": "I'd like to thank you."
+      },
+      {
+        "fr": "Il faut tenir la porte ouverte.",
+        "ar": "يجب إبقاء الباب مفتوحًا.",
+        "en": "You have to keep the door open."
+      },
+      {
+        "fr": "Je ne tiens plus debout.",
+        "ar": "لم أعد قادرًا على الوقوف.",
+        "en": "I can't stand anymore."
+      },
+      {
+        "fr": "On se tient au courant.",
+        "ar": "نبقى على تواصل ونخبر بعضنا بالمستجدات.",
+        "en": "We'll keep each other posted."
+      }
+    ]
+  },
+  {
+    "fr": "Tourner",
+    "ar": "ينعطف / يدور",
+    "en": "To turn",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Tournez à droite.",
+        "ar": "انعطف يمينًا.",
+        "en": "Turn right."
+      },
+      {
+        "fr": "Tournez à gauche.",
+        "ar": "انعطف يسارًا.",
+        "en": "Turn left."
+      },
+      {
+        "fr": "Il faut tourner au prochain carrefour.",
+        "ar": "يجب أن تنعطف عند التقاطع القادم.",
+        "en": "You have to turn at the next intersection."
+      },
+      {
+        "fr": "Tournez tout de suite à droite.",
+        "ar": "انعطف فورًا إلى اليمين.",
+        "en": "Turn right immediately."
+      },
+      {
+        "fr": "Je dois tourner ici ?",
+        "ar": "هل يجب أن أنعطف هنا؟",
+        "en": "Do I have to turn here?"
+      },
+      {
+        "fr": "Ne tournez pas ici.",
+        "ar": "لا تنعطف هنا.",
+        "en": "Don't turn here."
+      },
+      {
+        "fr": "La voiture tourne à gauche.",
+        "ar": "السيارة تنعطف إلى اليسار.",
+        "en": "The car is turning left."
+      },
+      {
+        "fr": "Tournez après le feu.",
+        "ar": "انعطف بعد إشارة المرور.",
+        "en": "Turn after the traffic light."
+      },
+      {
+        "fr": "Il faut tourner autour du rond-point.",
+        "ar": "يجب الدوران حول الدوار.",
+        "en": "You have to go around the roundabout."
+      },
+      {
+        "fr": "La roue tourne rapidement.",
+        "ar": "العجلة تدور بسرعة.",
+        "en": "The wheel is turning quickly."
+      }
+    ]
+  },
+  {
+    "fr": "Traverser",
+    "ar": "يعبر / يجتاز",
+    "en": "To cross",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois traverser la route.",
+        "ar": "يجب أن أعبر الطريق.",
+        "en": "I have to cross the road."
+      },
+      {
+        "fr": "Traversez au passage piéton.",
+        "ar": "اعبر عند ممر المشاة.",
+        "en": "Cross at the pedestrian crossing."
+      },
+      {
+        "fr": "Regarde avant de traverser.",
+        "ar": "انظر قبل أن تعبر.",
+        "en": "Look before crossing."
+      },
+      {
+        "fr": "Ne traverse pas ici.",
+        "ar": "لا تعبر من هنا.",
+        "en": "Don't cross here."
+      },
+      {
+        "fr": "Nous devons traverser la rue.",
+        "ar": "يجب أن نعبر الشارع.",
+        "en": "We have to cross the street."
+      },
+      {
+        "fr": "La voiture traverse le carrefour.",
+        "ar": "السيارة تعبر التقاطع.",
+        "en": "The car crosses the intersection."
+      },
+      {
+        "fr": "J'ai traversé la rue rapidement.",
+        "ar": "عبرت الشارع بسرعة.",
+        "en": "I crossed the street quickly."
+      },
+      {
+        "fr": "Il faut attendre avant de traverser.",
+        "ar": "يجب الانتظار قبل العبور.",
+        "en": "You have to wait before crossing."
+      },
+      {
+        "fr": "Les enfants traversent la route.",
+        "ar": "الأطفال يعبرون الطريق.",
+        "en": "The children are crossing the road."
+      },
+      {
+        "fr": "Vous pouvez traverser maintenant.",
+        "ar": "يمكنكم العبور الآن.",
+        "en": "You can cross now."
+      }
+    ]
+  },
+  {
+    "fr": "Tirer",
+    "ar": "يسحب",
+    "en": "To pull",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut tirer la porte.",
+        "ar": "يجب سحب الباب.",
+        "en": "You have to pull the door."
+      },
+      {
+        "fr": "Tirez la porte vers vous.",
+        "ar": "اسحب الباب باتجاهك.",
+        "en": "Pull the door towards you."
+      },
+      {
+        "fr": "Ne tirez pas trop fort.",
+        "ar": "لا تسحب بقوة كبيرة.",
+        "en": "Don't pull too hard."
+      },
+      {
+        "fr": "Tire la poignée.",
+        "ar": "اسحب المقبض.",
+        "en": "Pull the handle."
+      },
+      {
+        "fr": "Je n'arrive pas à tirer la porte.",
+        "ar": "لا أستطيع سحب الباب.",
+        "en": "I can't pull the door."
+      },
+      {
+        "fr": "Il tire le chariot.",
+        "ar": "هو يسحب العربة.",
+        "en": "He's pulling the cart."
+      },
+      {
+        "fr": "Tirez doucement.",
+        "ar": "اسحب بلطف.",
+        "en": "Pull gently."
+      },
+      {
+        "fr": "Qui doit tirer ?",
+        "ar": "من يجب أن يسحب؟",
+        "en": "Who has to pull?"
+      },
+      {
+        "fr": "La porte doit être tirée.",
+        "ar": "يجب سحب الباب.",
+        "en": "The door has to be pulled."
+      },
+      {
+        "fr": "Tirez jusqu'au bout.",
+        "ar": "اسحب حتى النهاية.",
+        "en": "Pull all the way."
+      }
+    ]
+  },
+  {
+    "fr": "Tomber",
+    "ar": "يقع / يسقط",
+    "en": "To fall",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "phone"
+    ],
+    "ex": [
+      {
+        "fr": "Attention, tu vas tomber !",
+        "ar": "انتبه، ستقع!",
+        "en": "Careful, you're going to fall!"
+      },
+      {
+        "fr": "Je suis tombé dans la rue.",
+        "ar": "وقعت في الشارع.",
+        "en": "I fell in the street."
+      },
+      {
+        "fr": "Il est tombé par terre.",
+        "ar": "لقد وقع على الأرض.",
+        "en": "He fell on the ground."
+      },
+      {
+        "fr": "Ne tombe pas !",
+        "ar": "لا تقع!",
+        "en": "Don't fall!"
+      },
+      {
+        "fr": "Le téléphone est tombé.",
+        "ar": "سقط الهاتف.",
+        "en": "The phone fell."
+      },
+      {
+        "fr": "La bouteille est tombée par terre.",
+        "ar": "سقطت القنينة على الأرض.",
+        "en": "The bottle fell on the floor."
+      },
+      {
+        "fr": "Je suis tombé hier.",
+        "ar": "وقعت أمس.",
+        "en": "I fell yesterday."
+      },
+      {
+        "fr": "Ça peut tomber.",
+        "ar": "قد يسقط هذا.",
+        "en": "It could fall."
+      },
+      {
+        "fr": "Il est tombé de l'escalier.",
+        "ar": "سقط من الدرج.",
+        "en": "He fell down the stairs."
+      },
+      {
+        "fr": "Fais attention à ne pas tomber.",
+        "ar": "انتبه كي لا تقع.",
+        "en": "Be careful not to fall."
+      }
+    ]
+  },
+  {
+    "fr": "Tenter",
+    "ar": "يحاول / يجرب",
+    "en": "To try / to attempt",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais tenter de vous aider.",
+        "ar": "سأحاول مساعدتك.",
+        "en": "I'll try to help you."
+      },
+      {
+        "fr": "Je vais tenter ma chance.",
+        "ar": "سأجرب حظي.",
+        "en": "I'll try my luck."
+      },
+      {
+        "fr": "Tu peux tenter encore une fois.",
+        "ar": "يمكنك المحاولة مرة أخرى.",
+        "en": "You can try again."
+      },
+      {
+        "fr": "J'ai tenté de l'appeler.",
+        "ar": "حاولت الاتصال به.",
+        "en": "I tried to call him."
+      },
+      {
+        "fr": "Il faut tenter quelque chose.",
+        "ar": "يجب أن نجرب شيئًا.",
+        "en": "We have to try something."
+      },
+      {
+        "fr": "Ça vaut la peine de tenter.",
+        "ar": "يستحق الأمر المحاولة.",
+        "en": "It's worth trying."
+      },
+      {
+        "fr": "Je vais tenter une autre solution.",
+        "ar": "سأجرب حلًا آخر.",
+        "en": "I'll try another solution."
+      },
+      {
+        "fr": "Tu peux toujours tenter.",
+        "ar": "يمكنك دائمًا أن تحاول.",
+        "en": "You can always try."
+      },
+      {
+        "fr": "J'ai tenté plusieurs fois.",
+        "ar": "حاولت عدة مرات.",
+        "en": "I tried several times."
+      },
+      {
+        "fr": "On peut tenter le coup.",
+        "ar": "يمكننا أن نجرب.",
+        "en": "We can give it a try."
+      }
+    ]
+  },
+  {
+    "fr": "Traduire",
+    "ar": "يترجم",
+    "en": "To translate",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Pouvez-vous traduire ce document ?",
+        "ar": "هل يمكنك ترجمة هذه الوثيقة؟",
+        "en": "Can you translate this document?"
+      },
+      {
+        "fr": "Je dois traduire ce texte.",
+        "ar": "يجب أن أترجم هذا النص.",
+        "en": "I have to translate this text."
+      },
+      {
+        "fr": "Tu peux me traduire cette phrase ?",
+        "ar": "هل يمكنك ترجمة هذه الجملة لي؟",
+        "en": "Can you translate this sentence for me?"
+      },
+      {
+        "fr": "Je ne sais pas comment traduire ce mot.",
+        "ar": "لا أعرف كيف أترجم هذه الكلمة.",
+        "en": "I don't know how to translate this word."
+      },
+      {
+        "fr": "Comment on traduit ça en français ?",
+        "ar": "كيف نترجم هذا بالفرنسية؟",
+        "en": "How do you translate that into French?"
+      },
+      {
+        "fr": "Je vais traduire le document en arabe.",
+        "ar": "سأترجم الوثيقة إلى العربية.",
+        "en": "I'll translate the document into Arabic."
+      },
+      {
+        "fr": "Il faut traduire cette lettre.",
+        "ar": "يجب ترجمة هذه الرسالة.",
+        "en": "This letter needs to be translated."
+      },
+      {
+        "fr": "Tu peux traduire en anglais ?",
+        "ar": "هل يمكنك الترجمة إلى الإنجليزية؟",
+        "en": "Can you translate it into English?"
+      },
+      {
+        "fr": "Cette application traduit automatiquement.",
+        "ar": "هذا التطبيق يترجم تلقائيًا.",
+        "en": "This app translates automatically."
+      },
+      {
+        "fr": "Je comprends, mais je ne sais pas le traduire.",
+        "ar": "أفهم، لكن لا أعرف كيف أترجمه.",
+        "en": "I understand, but I don't know how to translate it."
+      }
+    ]
   }
 ]
