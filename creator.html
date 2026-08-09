@@ -206,6 +206,22 @@
   .folder-cover .icon { width: 1.6rem; height: 1.6rem; opacity: 0.85; }
   .section-label { color: var(--text-secondary); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin: 0.6rem 0.3rem 0.8rem; }
 
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+  .modal-overlay.hidden { display: none; }
+  .modal-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 28px; width: 100%; max-width: 640px; max-height: 85vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.35); padding: 1.25rem; position: relative; }
+  .modal-card h3 { margin: 0 0 0.6rem; font-size: 1.2rem; }
+  .modal-card h4 { margin: 1rem 0 0.5rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-secondary); }
+  .modal-close { position: absolute; top: 1rem; right: 1rem; background: transparent; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1.3rem; line-height: 1; padding: 0.25rem; }
+  html[dir="rtl"] .modal-close { right: auto; left: 1rem; }
+  .modal-loading { text-align: center; padding: 2rem; color: var(--text-secondary); }
+  .modal-row { display: flex; gap: 0.75rem; align-items: center; padding: 0.75rem; background: var(--bg-tertiary); border-radius: 16px; margin-bottom: 0.5rem; flex-wrap: wrap; }
+  .modal-row .lang { font-weight: 800; min-width: 4.5rem; color: var(--accent); }
+  .modal-row .text { flex: 1; min-width: 0; word-break: break-word; }
+  .modal-row .btn { padding: 0.45rem 0.7rem; font-size: 0.85rem; border-radius: 10px; }
+  .example-card { background: var(--bg-tertiary); border-radius: 16px; padding: 0.85rem; margin-bottom: 0.6rem; }
+  .example-source { font-weight: 700; margin-bottom: 0.35rem; color: var(--text-primary); }
+  .example-trans { color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 0.2rem; }
+
   @media (max-width: 480px) {
     .header-inner { padding: 0.65rem; }
     .hero h1 { font-size: 1.15rem; }
@@ -237,6 +253,12 @@
 </header>
 
 <main id="app"></main>
+<div id="translate-modal" class="modal-overlay hidden">
+  <div class="modal-card" id="translate-modal-card">
+    <button class="modal-close" id="translate-modal-close">&times;</button>
+    <div id="translate-modal-content"></div>
+  </div>
+</div>
 
 <script>
 (function () {
@@ -283,6 +305,13 @@
     speak: { ar: 'نطق', en: 'Speak', fr: 'Écouter' },
     loop: { ar: 'تكرار', en: 'Loop', fr: 'Répéter' },
     googleSearch: { ar: 'بحث Google', en: 'Google search', fr: 'Rechercher Google' },
+    translateSearch: { ar: 'ترجمة وبحث', en: 'Translate / search', fr: 'Traduire / rechercher' },
+    loading: { ar: 'جارٍ التحميل...', en: 'Loading...', fr: 'Chargement...' },
+    translations: { ar: 'الترجمات', en: 'Translations', fr: 'Traductions' },
+    examples: { ar: 'أمثلة', en: 'Examples', fr: 'Exemples' },
+    use: { ar: 'استخدام', en: 'Use', fr: 'Utiliser' },
+    noExamples: { ar: 'لا توجد أمثلة', en: 'No examples found', fr: 'Aucun exemple trouvé' },
+    searchError: { ar: 'تعذر تحميل الترجمة. حاول مرة أخرى.', en: 'Could not load translations. Please try again.', fr: 'Impossible de charger la traduction. Réessayez.' },
     stop: { ar: 'إيقاف', en: 'Stop', fr: 'Arrêter' },
     delete: { ar: 'حذف', en: 'Delete', fr: 'Supprimer' },
     moveUp: { ar: 'أعلى', en: 'Up', fr: 'Monter' },
@@ -743,25 +772,131 @@
       });
   }
 
-  function nativeAppLauncher() {
-    if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.AppLauncher) return window.Capacitor.Plugins.AppLauncher;
-    if (window.Capacitor && window.Capacitor.registerPlugin) {
-      window.Capacitor.Plugins = window.Capacitor.Plugins || {};
-      window.Capacitor.Plugins.AppLauncher = window.Capacitor.registerPlugin('AppLauncher');
-      return window.Capacitor.Plugins.AppLauncher;
-    }
-    return null;
+  function apiFetch(url) {
+    return new Promise(function (resolve, reject) {
+      var http = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.CapacitorHttp;
+      if (http) {
+        http.get({ url: url, responseType: 'text' })
+          .then(function (res) { resolve(res.data || res); })
+          .catch(reject);
+      } else {
+        fetch(url)
+          .then(function (r) { if (r.ok) return r.text(); throw new Error(r.status + ' ' + r.statusText); })
+          .then(resolve)
+          .catch(reject);
+      }
+    });
   }
 
-  function openSearch(text, lang) {
+  function myMemoryTranslate(text, from, to) {
+    var url = 'https://api.mymemory.translated.net/get?q=' + encodeURIComponent(text) + '&langpair=' + from + '|' + to;
+    return apiFetch(url)
+      .then(function (txt) {
+        var data = JSON.parse(txt);
+        return (data && data.responseData && data.responseData.translatedText) || '';
+      });
+  }
+
+  function tatoebaExamples(text, fromLang, targetLangs) {
+    var langMap = { fr: 'fra', ar: 'ara', en: 'eng' };
+    var fromCode = langMap[fromLang] || fromLang;
+    var url = 'https://api.tatoeba.org/v1/sentences?lang=' + fromCode + '&q=' + encodeURIComponent(text) + '&showtrans=all&sort=relevance&limit=20';
+    return apiFetch(url)
+      .then(function (txt) {
+        var data = JSON.parse(txt);
+        if (!data || !data.data) return [];
+        var lower = text.toLowerCase();
+        return data.data
+          .map(function (s) {
+            var tr = {};
+            targetLangs.forEach(function (t) {
+              var code = langMap[t] || t;
+              tr[t] = (s.translations || []).filter(function (x) { return x.lang === code; }).slice(0, 2);
+            });
+            return { text: s.text, translations: tr };
+          })
+          .filter(function (s) {
+            var hasTarget = targetLangs.some(function (t) { return s.translations[t] && s.translations[t].length; });
+            return hasTarget && s.text.toLowerCase().indexOf(lower) !== -1;
+          })
+          .slice(0, 5);
+      })
+      .catch(function () { return []; });
+  }
+
+  function useTranslation(phrase, lang, text) {
+    if (!phrase || !text) return;
+    phrase[lang] = text;
+    saveCurrentLesson();
+    renderLessonEditor();
+    closeTranslationModal();
+    toast(t('saved'));
+  }
+
+  function showTranslationModal(phrase, srcLang) {
+    var text = (phrase[srcLang] || '').trim();
     if (!text) return;
-    var url = 'https://www.google.com/search?udm=50&q=' + encodeURIComponent(text) + '&hl=' + (lang || 'en');
-    var launcher = nativeAppLauncher();
-    if (launcher && launcher.openUrl) {
-      launcher.openUrl({ url: url }).catch(function () { window.open(url, '_blank'); });
-    } else {
-      window.open(url, '_blank');
-    }
+    var modal = document.getElementById('translate-modal');
+    var content = document.getElementById('translate-modal-content');
+    var close = document.getElementById('translate-modal-close');
+    if (!modal || !content) return;
+
+    var langLabels = { fr: 'Français', ar: 'العربية', en: 'English' };
+    var targets = srcLang === 'fr' ? ['ar', 'en'] : (srcLang === 'ar' ? ['fr', 'en'] : ['fr', 'ar']);
+
+    content.innerHTML = '<div class="modal-loading" data-t="loading">' + esc(t('loading') || 'Loading...') + '</div>';
+    modal.classList.remove('hidden');
+    close.onclick = closeTranslationModal;
+    modal.onclick = function (e) { if (e.target === modal) closeTranslationModal(); };
+
+    Promise.all(targets.map(function (to) {
+      return myMemoryTranslate(text, srcLang, to).then(function (tr) { return { to: to, text: tr }; });
+    }))
+      .then(function (translations) {
+        return tatoebaExamples(text, srcLang, targets).then(function (examples) {
+          return { translations: translations, examples: examples };
+        });
+      })
+      .then(function (res) {
+        var html = '<h3>' + esc(t('translateSearch')) + '</h3>' +
+          '<div class="example-source">' + esc(langLabels[srcLang]) + ': ' + esc(text) + '</div>' +
+          '<h4>' + esc(t('translations') || 'Translations') + '</h4>';
+        res.translations.forEach(function (tr) {
+          html += '<div class="modal-row">' +
+            '<span class="lang">' + esc(langLabels[tr.to]) + '</span>' +
+            '<span class="text">' + esc(tr.text || '—') + '</span>' +
+            (tr.text ? '<button class="btn ghost use-translation" data-lang="' + tr.to + '">' + esc(t('use') || 'Use') + '</button>' : '') +
+          '</div>';
+        });
+        html += '<h4>' + esc(t('examples') || 'Examples') + '</h4>';
+        if (res.examples.length === 0) {
+          html += '<div class="example-card"><em>' + esc(t('noExamples') || 'No examples found') + '</em></div>';
+        } else {
+          res.examples.forEach(function (ex) {
+            html += '<div class="example-card">' +
+              '<div class="example-source">' + esc(ex.text) + '</div>';
+            targets.forEach(function (to) {
+              (ex.translations[to] || []).forEach(function (tr) {
+                html += '<div class="example-trans">' + esc(langLabels[to]) + ': ' + esc(tr.text) + '</div>';
+              });
+            });
+            html += '</div>';
+          });
+        }
+        content.innerHTML = html;
+        content.querySelectorAll('.use-translation').forEach(function (b) {
+          b.onclick = function () { useTranslation(phrase, b.dataset.lang, b.previousElementSibling ? b.previousElementSibling.textContent : ''); };
+        });
+      })
+      .catch(function (e) {
+        console.error('Translation search failed', e);
+        content.innerHTML = '<div class="modal-loading">' + esc(t('searchError') || 'Could not load translations. Please try again.') + '</div>';
+      });
+  }
+
+  function closeTranslationModal() {
+    var modal = document.getElementById('translate-modal');
+    if (modal) modal.classList.add('hidden');
   }
 
   /* ---------------- UI helpers ---------------- */
@@ -1202,7 +1337,7 @@
     return '<span class="row-actions">' +
       '<button class="icon-btn speak-line" data-lang="' + lang + '" data-t-title="speak">' + icon('volume') + '</button>' +
       '<button class="icon-btn loop-line" data-lang="' + lang + '" data-t-title="loop">' + icon('loop') + '</button>' +
-      '<button class="icon-btn search-line" data-lang="' + lang + '" data-t-title="googleSearch">' + icon('search') + '</button>' +
+      '<button class="icon-btn search-line" data-lang="' + lang + '" data-t-title="translateSearch">' + icon('search') + '</button>' +
     '</span>';
   }
 
@@ -1323,7 +1458,7 @@
         toggleLoop(phrase, phraseId + ':' + lineLang, [lineLang]);
       } else if (btn.classList.contains('search-line')) {
         var query = (phrase[lineLang] || '').trim();
-        if (query) openSearch(query, lineLang);
+        if (query) showTranslationModal(phrase, lineLang);
       } else if (btn.classList.contains('loop-media')) {
         phrase.videoLoop = !phrase.videoLoop;
         var video = box ? box.querySelector('video.media-preview') : null;
