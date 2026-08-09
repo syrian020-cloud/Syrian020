@@ -76,6 +76,7 @@
   .icon-trash, .icon-close { fill: var(--danger); }
   .icon-image { fill: var(--accent); }
   .icon-folder { fill: var(--gold); }
+  .icon-lesson { fill: var(--success); filter: drop-shadow(0 0 3px rgba(45,212,191,0.35)); }
   .icon-chevron, .icon-up, .icon-down, .icon-more { fill: var(--text-secondary); }
   .icon-edit, .icon-back, .icon-plus { fill: var(--text-primary); }
   .icon-share, .icon-export, .icon-import, .icon-globe { fill: var(--accent); }
@@ -118,7 +119,7 @@
   #add-lesson { background: linear-gradient(135deg, var(--accent), #2dd4bf); box-shadow: 0 6px 18px rgba(167,139,250,0.3); }
   #add-lesson:hover { box-shadow: 0 8px 24px rgba(167,139,250,0.4); }
   .empty { background: linear-gradient(135deg, rgba(167,139,250,0.06), rgba(244,114,182,0.02)); border: 1px dashed rgba(167,139,250,0.35); border-radius: 18px; }
-  .lesson-card .body { flex: 1; min-width: 0; }
+  .lesson-card .body, .folder .body { flex: 1; min-width: 0; }
 
   .lesson-menu { position: relative; }
   .dropdown { position: absolute; top: 120%; left: auto; right: 0; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 14px; padding: 0.4rem; min-width: 11rem; box-shadow: var(--shadow); z-index: 10; display: flex; flex-direction: column; gap: 0.2rem; }
@@ -343,7 +344,8 @@
       edit: 'M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z',
       close: 'M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z',
       globe: 'M21.721 12.752a9.711 9.711 0 0 0-.945-5.003 12.754 12.754 0 0 1-4.339 2.708 18.991 18.991 0 0 1-.214 4.772 17.165 17.165 0 0 0 5.498-2.477ZM14.634 15.55a17.324 17.324 0 0 0 .332-4.647c-.952.227-1.945.347-2.966.347-1.021 0-2.014-.12-2.966-.347a17.515 17.515 0 0 0 .332 4.647 17.385 17.385 0 0 0 5.268 0ZM9.772 17.119a18.963 18.963 0 0 0 4.456 0A17.182 17.182 0 0 1 12 21.724a17.18 17.18 0 0 1-2.228-4.605ZM7.777 15.23a18.87 18.87 0 0 1-.214-4.774 12.753 12.753 0 0 1-4.34-2.708 9.711 9.711 0 0 0-.944 5.004 17.165 17.165 0 0 0 5.498 2.477ZM21.356 14.752a9.765 9.765 0 0 1-7.478 6.817 18.64 18.64 0 0 0 1.988-4.718 18.627 18.627 0 0 0 5.49-2.098ZM2.644 14.752c1.682.971 3.53 1.688 5.49 2.099a18.64 18.64 0 0 0 1.988 4.718 9.765 9.765 0 0 1-7.478-6.816ZM13.878 2.43a9.755 9.755 0 0 1 6.116 3.986 11.267 11.267 0 0 1-3.746 2.504 18.63 18.63 0 0 0-2.37-6.49ZM12 2.276a17.152 17.152 0 0 1 2.805 7.121c-.897.23-1.837.353-2.805.353-.968 0-1.908-.122-2.805-.353A17.151 17.151 0 0 1 12 2.276ZM10.122 2.43a18.629 18.629 0 0 0-2.37 6.49 11.266 11.266 0 0 1-3.746-2.504 9.754 9.754 0 0 1 6.116-3.985Z',
-      folder: 'M19.5 21H4.5C3.119 21 2 19.881 2 18.5v-13C2 4.119 3.119 3 4.5 3h4.879a1.5 1.5 0 0 1 1.06.44l1.122 1.122h7.939c1.381 0 2.5 1.119 2.5 2.5v11c0 1.381-1.119 2.5-2.5 2.5ZM4.5 5.25a.25.25 0 0 0-.25.25v13c0 .138.112.25.25.25h15a.25.25 0 0 0 .25-.25V7.25a.25.25 0 0 0-.25-.25h-8.5a1.5 1.5 0 0 1-1.06-.44L8.561 5.25H4.5Z',
+      folder: 'M19.906 9c.382 0 .749.057 1.094.162V9a3 3 0 0 0-3-3h-3.879a.75.75 0 0 1-.53-.22L11.47 3.66A2.25 2.25 0 0 0 9.879 3H6a3 3 0 0 0-3 3v3.162A3.756 3.756 0 0 1 4.094 9h15.812ZM4.094 10.5a2.25 2.25 0 0 0-2.227 2.568l.857 6A2.25 2.25 0 0 0 4.951 21H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-2.227-2.568H4.094Z',
+      lesson: 'M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z',
       chevron: 'M12 16.5a.75.75 0 0 1-.53-.22l-6-6a.75.75 0 0 1 1.06-1.06L12 14.69l5.47-5.47a.75.75 0 1 1 1.06 1.06l-6 6a.75.75 0 0 1-.53.22Z'
     };
     var d = paths[name] || '';
@@ -828,7 +830,7 @@
       t('lesson') + ' ' + (i + 1));
     var coverAttr = l.coverMediaId ? ' data-cover="' + l.coverMediaId + '"' : '';
     return '<div class="card lesson-card" data-lesson="' + l.id + '">' +
-      '<div class="lesson-cover"' + coverAttr + '>' + icon('image') + '</div>' +
+      '<div class="lesson-cover"' + coverAttr + '>' + icon('lesson') + '</div>' +
       '<div class="body"><div class="card-title">' + title + '</div>' +
       '<div class="card-sub">' + l.phrases.length + ' ' + t('phrases') + '</div></div>' +
       '<div class="lesson-menu">' +
@@ -857,9 +859,6 @@
     var count = state.lessons.filter(function (l) { return l.folderId === f.id; }).length;
     var coverAttr = f.coverMediaId ? ' data-cover="' + f.coverMediaId + '"' : '';
     return '<div class="card folder" data-folder="' + f.id + '">' +
-      '<div class="folder-cover"' + coverAttr + '>' + icon('folder') + '</div>' +
-      '<div class="body"><div class="card-title">' + esc(f.name[state.uiLang] || f.name.en || f.name.fr || f.name.ar) + '</div>' +
-      '<div class="card-sub">' + count + ' ' + t('lesson') + '</div></div>' +
       '<div class="lesson-menu">' +
         '<button class="icon-btn folder-menu-btn" data-t-title="more">' + icon('more') + '</button>' +
         '<div class="dropdown hidden">' +
@@ -868,6 +867,9 @@
           '<button class="dropdown-item delete-folder danger">' + iconText('deleteFolder', 'trash') + '</button>' +
         '</div>' +
       '</div>' +
+      '<div class="body"><div class="card-title">' + esc(f.name[state.uiLang] || f.name.en || f.name.fr || f.name.ar) + '</div>' +
+      '<div class="card-sub">' + count + ' ' + t('lesson') + '</div></div>' +
+      '<div class="folder-cover"' + coverAttr + '>' + icon('folder') + '</div>' +
       '</div>';
   }
 
