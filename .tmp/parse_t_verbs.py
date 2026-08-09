@@ -90,8 +90,12 @@ def infer_contexts(fr, en, ar, examples, pos):
         ('caf', ['caf']),
         ('france travail', ['france_travail']),
         ('travail', ['work']),
+        ('travailler', ['work']),
+        ('télétravail', ['work']),
+        ('télétravailler', ['work']),
         ('emploi', ['work']),
         ('téléphone', ['phone']),
+        ('téléphoner', ['phone']),
         ('appel', ['phone']),
         ('restaurant', ['restaurant']),
         ('commande', ['restaurant']),
@@ -107,11 +111,15 @@ def infer_contexts(fr, en, ar, examples, pos):
         ('document', ['services']),
         ('formulaire', ['services']),
         ('justificatif', ['services']),
+        ('tamponner', ['services']),
         ('logement', ['housing']),
         ('appartement', ['housing']),
         ('clés', ['housing']),
         ('bouteille', ['daily']),
         ('téléphone', ['daily']),
+        ('transpirer', ['health', 'daily']),
+        ('tourmenter', ['health', 'daily']),
+        ('tousser', ['health', 'daily']),
     ]
     for kw, ctxs in mapping:
         if keyword_in_text(kw, text):
@@ -195,10 +203,12 @@ def parse_verb_block(headword, body):
                 current = {}
             continue
         m = re.match(r'^\s*(?:\d+\.)\s*(.+)$', line)
-        if m:
+        # Also allow unnumbered French example lines that start with a letter
+        if m or (not current and re.search(r'[A-Za-z\u00C0-\u024F]', line) and not re.search(r'[\u0600-\u06FF]', line)):
             if current and 'fr' in current:
                 examples.append(current)
-            current = {'fr': m.group(1).strip()}
+            fr_text = m.group(1).strip() if m else line
+            current = {'fr': fr_text}
             continue
         if current:
             if 'ar' not in current and re.search(r'[\u0600-\u06FF]', line):

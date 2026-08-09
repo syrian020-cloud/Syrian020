@@ -66960,8 +66960,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Tenir",
-    "ar": "يمسك / يحافظ على / يلتزم",
-    "en": "To hold / keep",
+    "ar": "يمسك / يحافظ على / يلتزم / يحمل",
+    "en": "To hold / keep / to keep",
     "pos": "verb",
     "level": "A1",
     "contexts": [
@@ -67018,12 +67018,32 @@ window.VOCAB_DATA = [
         "fr": "On se tient au courant.",
         "ar": "نبقى على تواصل ونخبر بعضنا بالمستجدات.",
         "en": "We'll keep each other posted."
+      },
+      {
+        "fr": "Tiens ça, s'il te plaît.",
+        "ar": "أمسك هذا، من فضلك.",
+        "en": "Hold this, please."
+      },
+      {
+        "fr": "Je tiens la porte.",
+        "ar": "أمسك الباب.",
+        "en": "I'm holding the door."
+      },
+      {
+        "fr": "Tu peux tenir mon sac ?",
+        "ar": "هل يمكنك حمل حقيبتي؟",
+        "en": "Can you hold my bag?"
+      },
+      {
+        "fr": "Je tiens ma promesse.",
+        "ar": "أفي بوعدي.",
+        "en": "I keep my promise."
       }
     ]
   },
   {
     "fr": "Tourner",
-    "ar": "ينعطف / يدور",
+    "ar": "ينعطف / يدور / يلتف",
     "en": "To turn",
     "pos": "verb",
     "level": "A1",
@@ -67101,6 +67121,16 @@ window.VOCAB_DATA = [
         "fr": "La machine tourne normalement.",
         "ar": "الآلة تعمل بشكل طبيعي.",
         "en": "The machine is running normally."
+      },
+      {
+        "fr": "Tournez au prochain carrefour.",
+        "ar": "انعطف عند التقاطع القادم.",
+        "en": "Turn at the next intersection."
+      },
+      {
+        "fr": "La voiture tourne à droite.",
+        "ar": "السيارة تنعطف إلى اليمين.",
+        "en": "The car is turning right."
       }
     ]
   },
@@ -67289,6 +67319,31 @@ window.VOCAB_DATA = [
         "fr": "Fais attention à ne pas tomber.",
         "ar": "انتبه كي لا تقع.",
         "en": "Be careful not to fall."
+      },
+      {
+        "fr": "Je suis tombé.",
+        "ar": "لقد وقعت.",
+        "en": "I fell."
+      },
+      {
+        "fr": "Attention, ne tombe pas !",
+        "ar": "انتبه، لا تقع!",
+        "en": "Careful, don't fall!"
+      },
+      {
+        "fr": "Le téléphone est tombé.",
+        "ar": "الهاتف سقط.",
+        "en": "The phone fell."
+      },
+      {
+        "fr": "Je suis tombé dans les escaliers.",
+        "ar": "وقعت على الدرج.",
+        "en": "I fell on the stairs."
+      },
+      {
+        "fr": "Il est tombé par terre.",
+        "ar": "لقد سقط على الأرض.",
+        "en": "He fell on the floor."
       }
     ]
   },
@@ -67419,8 +67474,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Taper",
-    "ar": "يكتب / ينقر / يضغط",
-    "en": "To type / to tap / to hit",
+    "ar": "يكتب / ينقر / يضغط / يكتب على لوحة المفاتيح / يضرب / يطرق",
+    "en": "To type / to tap / to hit / to knock",
     "pos": "verb",
     "level": "A1",
     "contexts": [
@@ -67478,6 +67533,31 @@ window.VOCAB_DATA = [
         "fr": "Je me suis trompé en tapant.",
         "ar": "أخطأت أثناء الكتابة.",
         "en": "I made a mistake while typing."
+      },
+      {
+        "fr": "Je vais taper le message.",
+        "ar": "سأكتب الرسالة.",
+        "en": "I'll type the message."
+      },
+      {
+        "fr": "Tapez votre mot de passe.",
+        "ar": "أدخل كلمة المرور.",
+        "en": "Type your password."
+      },
+      {
+        "fr": "Je tape sur mon clavier.",
+        "ar": "أكتب على لوحة المفاتيح.",
+        "en": "I'm typing on my keyboard."
+      },
+      {
+        "fr": "Tape à la porte.",
+        "ar": "اطرق الباب.",
+        "en": "Knock on the door."
+      },
+      {
+        "fr": "Ne tape pas trop fort.",
+        "ar": "لا تضرب بقوة كبيرة.",
+        "en": "Don't hit too hard."
       }
     ]
   },
@@ -67540,6 +67620,21 @@ window.VOCAB_DATA = [
       {
         "fr": "Je vais transporter les cartons jusqu'au camion.",
         "ar": "سأنقل الصناديق حتى الشاحنة.",
+        "en": "I'll carry the boxes to the truck."
+      },
+      {
+        "fr": "Je dois transporter ces cartons.",
+        "ar": "يجب أن أنقل هذه الصناديق.",
+        "en": "I have to transport these boxes."
+      },
+      {
+        "fr": "Il faut transporter les marchandises.",
+        "ar": "يجب نقل البضائع.",
+        "en": "The goods need to be transported."
+      },
+      {
+        "fr": "Je vais transporter les cartons jusqu'au camion.",
+        "ar": "سأنقل الصناديق إلى الشاحنة.",
         "en": "I'll carry the boxes to the truck."
       }
     ]
@@ -68939,6 +69034,716 @@ window.VOCAB_DATA = [
         "fr": "Je ne pourrais jamais le trahir.",
         "ar": "لا يمكنني أبدًا أن أخونه.",
         "en": "I could never betray him."
+      }
+    ]
+  },
+  {
+    "fr": "Transpirer",
+    "ar": "يتعرق",
+    "en": "To sweat",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je transpire beaucoup.",
+        "ar": "أنا أتعرق كثيرًا.",
+        "en": "I'm sweating a lot."
+      },
+      {
+        "fr": "Je transpire à cause de la chaleur.",
+        "ar": "أتعرق بسبب الحر.",
+        "en": "I'm sweating because of the heat."
+      },
+      {
+        "fr": "Il fait chaud, je transpire.",
+        "ar": "الجو حار، وأنا أتعرق.",
+        "en": "It's hot, I'm sweating."
+      },
+      {
+        "fr": "Je transpire quand je fais du sport.",
+        "ar": "أتعرق عندما أمارس الرياضة.",
+        "en": "I sweat when I exercise."
+      },
+      {
+        "fr": "Après le travail, je transpire beaucoup.",
+        "ar": "بعد العمل، أتعرق كثيرًا.",
+        "en": "After work, I sweat a lot."
+      }
+    ]
+  },
+  {
+    "fr": "Traquer",
+    "ar": "يطارد / يتعقب",
+    "en": "To track down / to hunt",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "La police traque le suspect.",
+        "ar": "الشرطة تطارد المشتبه به.",
+        "en": "The police are tracking down the suspect."
+      },
+      {
+        "fr": "Ils traquent les fraudeurs.",
+        "ar": "هم يلاحقون المحتالين.",
+        "en": "They track down fraudsters."
+      },
+      {
+        "fr": "Il est traqué par les médias.",
+        "ar": "وسائل الإعلام تلاحقه.",
+        "en": "He is being pursued by the media."
+      },
+      {
+        "fr": "La police le traque depuis plusieurs jours.",
+        "ar": "الشرطة تلاحقه منذ عدة أيام.",
+        "en": "The police have been tracking him for several days."
+      },
+      {
+        "fr": "Ils cherchent à traquer les erreurs.",
+        "ar": "يحاولون تعقب الأخطاء.",
+        "en": "They are trying to track down the errors."
+      }
+    ]
+  },
+  {
+    "fr": "Trébucher",
+    "ar": "يتعثر",
+    "en": "To trip / to stumble",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai trébuché dans l'escalier.",
+        "ar": "تعثرْت على الدرج.",
+        "en": "I tripped on the stairs."
+      },
+      {
+        "fr": "Attention à ne pas trébucher.",
+        "ar": "انتبه كي لا تتعثر.",
+        "en": "Be careful not to trip."
+      },
+      {
+        "fr": "Il a trébuché sur une pierre.",
+        "ar": "تعثر بحجر.",
+        "en": "He tripped over a stone."
+      },
+      {
+        "fr": "Elle a trébuché mais elle ne s'est pas fait mal.",
+        "ar": "تعثرَت لكنها لم تؤذِ نفسها.",
+        "en": "She tripped but didn't hurt herself."
+      },
+      {
+        "fr": "Je trébuche souvent dans le noir.",
+        "ar": "غالبًا ما أتعثر في الظلام.",
+        "en": "I often stumble in the dark."
+      }
+    ]
+  },
+  {
+    "fr": "Tituber",
+    "ar": "يترنح / يمشي مترنحًا",
+    "en": "To stagger / to stumble",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il titube en marchant.",
+        "ar": "هو يترنح أثناء المشي.",
+        "en": "He staggers while walking."
+      },
+      {
+        "fr": "Il est sorti en titubant.",
+        "ar": "خرج وهو يترنح.",
+        "en": "He walked out staggering."
+      },
+      {
+        "fr": "Elle titube après être tombée.",
+        "ar": "هي تترنح بعد سقوطها.",
+        "en": "She staggers after falling."
+      },
+      {
+        "fr": "Il avançait en titubant.",
+        "ar": "كان يتقدم مترنحًا.",
+        "en": "He was moving forward unsteadily."
+      },
+      {
+        "fr": "Il a commencé à tituber.",
+        "ar": "بدأ يترنح.",
+        "en": "He started to stagger."
+      }
+    ]
+  },
+  {
+    "fr": "Tressaillir",
+    "ar": "ينتفض / يرتجف فجأة",
+    "en": "To startle / to flinch",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai tressailli en entendant le bruit.",
+        "ar": "انتفضت عندما سمعت الصوت.",
+        "en": "I flinched when I heard the noise."
+      },
+      {
+        "fr": "Il a tressailli de peur.",
+        "ar": "انتفض من الخوف.",
+        "en": "He flinched with fear."
+      },
+      {
+        "fr": "Elle tressaille au moindre bruit.",
+        "ar": "تنتفض عند أقل صوت.",
+        "en": "She startles at the slightest noise."
+      },
+      {
+        "fr": "Je tressaille quand quelqu'un me touche par surprise.",
+        "ar": "أنتفض عندما يلمسني أحد فجأة.",
+        "en": "I flinch when someone touches me unexpectedly."
+      },
+      {
+        "fr": "Il a tressailli en voyant l'accident.",
+        "ar": "انتفض عندما رأى الحادث.",
+        "en": "He flinched when he saw the accident."
+      }
+    ]
+  },
+  {
+    "fr": "Tutoyer",
+    "ar": "يخاطب شخصًا بصيغة «tu» بدل «vous»",
+    "en": "To address someone using “tu”",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "On peut se tutoyer ?",
+        "ar": "هل يمكننا أن نخاطب بعضنا بصيغة «tu»؟",
+        "en": "Can we use “tu” with each other?"
+      },
+      {
+        "fr": "Tu peux me tutoyer.",
+        "ar": "يمكنك أن تخاطبني بصيغة «tu».",
+        "en": "You can use “tu” with me."
+      },
+      {
+        "fr": "Je préfère vous tutoyer.",
+        "ar": "أفضل أن أخاطبك بصيغة «tu».",
+        "en": "I prefer to use “tu” with you."
+      },
+      {
+        "fr": "Au travail, je tutoie mes collègues.",
+        "ar": "في العمل، أخاطب زملائي بصيغة «tu».",
+        "en": "At work, I use “tu” with my colleagues."
+      },
+      {
+        "fr": "Il ne me tutoie pas encore.",
+        "ar": "هو لا يخاطبني بصيغة «tu» بعد.",
+        "en": "He doesn't use “tu” with me yet."
+      }
+    ]
+  },
+  {
+    "fr": "Toquer",
+    "ar": "يطرق الباب",
+    "en": "To knock",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais toquer à la porte.",
+        "ar": "سأطرق الباب.",
+        "en": "I'll knock on the door."
+      },
+      {
+        "fr": "Toque avant d'entrer.",
+        "ar": "اطرق قبل الدخول.",
+        "en": "Knock before entering."
+      },
+      {
+        "fr": "Quelqu'un a toqué à la porte.",
+        "ar": "شخص ما طرق الباب.",
+        "en": "Someone knocked on the door."
+      },
+      {
+        "fr": "Tu peux toquer ?",
+        "ar": "هل يمكنك أن تطرق الباب؟",
+        "en": "Can you knock?"
+      },
+      {
+        "fr": "Il a toqué trois fois.",
+        "ar": "طرق الباب ثلاث مرات.",
+        "en": "He knocked three times."
+      }
+    ]
+  },
+  {
+    "fr": "Trotter",
+    "ar": "يركض بخطوات خفيفة / يخطر في البال",
+    "en": "To trot / to run lightly",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Le cheval trotte dans le champ.",
+        "ar": "الحصان يعدو بخطوات خفيفة في الحقل.",
+        "en": "The horse is trotting in the field."
+      },
+      {
+        "fr": "Cette chanson me trotte dans la tête.",
+        "ar": "هذه الأغنية لا تفارق ذهني.",
+        "en": "This song keeps running through my head."
+      },
+      {
+        "fr": "Cette idée me trotte dans la tête.",
+        "ar": "هذه الفكرة لا تفارق ذهني.",
+        "en": "This idea keeps running through my mind."
+      },
+      {
+        "fr": "Il trotte derrière son père.",
+        "ar": "يمشي بخطوات سريعة خلف والده.",
+        "en": "He trots behind his father."
+      },
+      {
+        "fr": "Ça me trotte dans la tête depuis hier.",
+        "ar": "هذا الأمر لا يفارق ذهني منذ أمس.",
+        "en": "It's been on my mind since yesterday."
+      }
+    ]
+  },
+  {
+    "fr": "Transiter",
+    "ar": "يمرّ / يعبر / يمر عبر مكان",
+    "en": "To transit / to pass through",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Les marchandises transitent par la France.",
+        "ar": "البضائع تمر عبر فرنسا.",
+        "en": "The goods transit through France."
+      },
+      {
+        "fr": "Le colis transite par Strasbourg.",
+        "ar": "الطرد يمر عبر ستراسبورغ.",
+        "en": "The parcel is passing through Strasbourg."
+      },
+      {
+        "fr": "Les voyageurs transitent par Paris.",
+        "ar": "المسافرون يمرون عبر باريس.",
+        "en": "The travelers transit through Paris."
+      },
+      {
+        "fr": "Le dossier transite par plusieurs services.",
+        "ar": "الملف يمر عبر عدة أقسام.",
+        "en": "The application passes through several departments."
+      },
+      {
+        "fr": "Le paiement transite par la banque.",
+        "ar": "الدفع يمر عبر البنك.",
+        "en": "The payment goes through the bank."
+      }
+    ]
+  },
+  {
+    "fr": "Tourmenter",
+    "ar": "يُقلق / يعذب / يزعج نفسيًا",
+    "en": "To torment / to trouble",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "ex": [
+      {
+        "fr": "Cette question me tourmente.",
+        "ar": "هذا السؤال يقلقني.",
+        "en": "This question is troubling me."
+      },
+      {
+        "fr": "Il est tourmenté par ses problèmes.",
+        "ar": "هو يعاني من مشاكله ويشعر بالقلق بسببها.",
+        "en": "He is troubled by his problems."
+      },
+      {
+        "fr": "Ne te laisse pas tourmenter par ça.",
+        "ar": "لا تدع هذا الأمر يقلقك.",
+        "en": "Don't let this trouble you."
+      },
+      {
+        "fr": "Cette situation me tourmente beaucoup.",
+        "ar": "هذا الوضع يقلقني كثيرًا.",
+        "en": "This situation troubles me a lot."
+      },
+      {
+        "fr": "Elle est tourmentée par le doute.",
+        "ar": "الشك يسبب لها قلقًا شديدًا.",
+        "en": "She is troubled by doubt."
+      }
+    ]
+  },
+  {
+    "fr": "Tabler",
+    "ar": "يعتمد على / يعوّل على",
+    "en": "To bank on / to count on",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je table sur votre aide.",
+        "ar": "أعتمد على مساعدتكم.",
+        "en": "I'm counting on your help."
+      },
+      {
+        "fr": "On peut tabler sur cette solution.",
+        "ar": "يمكننا الاعتماد على هذا الحل.",
+        "en": "We can count on this solution."
+      },
+      {
+        "fr": "Il table sur une amélioration.",
+        "ar": "هو يعوّل على تحسن الوضع.",
+        "en": "He's banking on an improvement."
+      },
+      {
+        "fr": "Ne table pas trop sur ça.",
+        "ar": "لا تعتمد كثيرًا على ذلك.",
+        "en": "Don't count on that too much."
+      },
+      {
+        "fr": "Nous tablons sur une réponse rapide.",
+        "ar": "نعوّل على رد سريع.",
+        "en": "We're counting on a quick response."
+      }
+    ]
+  },
+  {
+    "fr": "Transiger",
+    "ar": "يتوصل إلى تسوية / يساوم",
+    "en": "To compromise / to settle",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut transiger pour trouver un accord.",
+        "ar": "يجب التوصل إلى تسوية لإيجاد اتفاق.",
+        "en": "We need to compromise to reach an agreement."
+      },
+      {
+        "fr": "Je ne veux pas transiger sur ce point.",
+        "ar": "لا أريد التنازل عن هذه النقطة.",
+        "en": "I don't want to compromise on this point."
+      },
+      {
+        "fr": "Les deux parties ont accepté de transiger.",
+        "ar": "وافقتا الطرفان على التسوية.",
+        "en": "Both sides agreed to settle."
+      },
+      {
+        "fr": "On peut transiger sur le prix.",
+        "ar": "يمكننا التفاوض على السعر.",
+        "en": "We can compromise on the price."
+      },
+      {
+        "fr": "Il refuse de transiger.",
+        "ar": "يرفض التوصل إلى تسوية.",
+        "en": "He refuses to compromise."
+      }
+    ]
+  },
+  {
+    "fr": "Transcender",
+    "ar": "يتجاوز / يتخطى",
+    "en": "To transcend / to go beyond",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut transcender les difficultés.",
+        "ar": "يجب تجاوز الصعوبات.",
+        "en": "We need to overcome the difficulties."
+      },
+      {
+        "fr": "Cette expérience a transcendé sa façon de penser.",
+        "ar": "هذه التجربة غيّرت طريقة تفكيره وتجاوزتها.",
+        "en": "This experience transformed his way of thinking."
+      },
+      {
+        "fr": "Elle arrive à transcender ses problèmes.",
+        "ar": "تستطيع تجاوز مشاكلها.",
+        "en": "She manages to rise above her problems."
+      },
+      {
+        "fr": "Le sport peut transcender les différences.",
+        "ar": "يمكن للرياضة أن تتجاوز الاختلافات.",
+        "en": "Sport can transcend differences."
+      },
+      {
+        "fr": "Il cherche à transcender ses limites.",
+        "ar": "يسعى إلى تجاوز حدوده.",
+        "en": "He's trying to transcend his limits."
+      }
+    ]
+  },
+  {
+    "fr": "Transpercer",
+    "ar": "يخترق / يثقب",
+    "en": "To pierce / to penetrate",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "La balle a transpercé le mur.",
+        "ar": "اخترقت الرصاصة الجدار.",
+        "en": "The bullet pierced the wall."
+      },
+      {
+        "fr": "L'eau a transpercé mes chaussures.",
+        "ar": "تسرب الماء عبر حذائي وبلله بالكامل.",
+        "en": "The water soaked through my shoes."
+      },
+      {
+        "fr": "Le froid transperce les vêtements.",
+        "ar": "البرد يخترق الملابس.",
+        "en": "The cold cuts through the clothes."
+      },
+      {
+        "fr": "La lumière transperce les nuages.",
+        "ar": "الضوء يخترق الغيوم.",
+        "en": "The light pierces through the clouds."
+      },
+      {
+        "fr": "Une aiguille peut transpercer la peau.",
+        "ar": "يمكن للإبرة أن تخترق الجلد.",
+        "en": "A needle can pierce the skin."
+      }
+    ]
+  },
+  {
+    "fr": "Tamponner",
+    "ar": "يضع ختمًا / يختم / يصطدم",
+    "en": "To stamp / to seal / to bump into",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Pouvez-vous tamponner ce document ?",
+        "ar": "هل يمكنك ختم هذه الوثيقة؟",
+        "en": "Can you stamp this document?"
+      },
+      {
+        "fr": "Le formulaire doit être tamponné.",
+        "ar": "يجب أن تكون الاستمارة مختومة.",
+        "en": "The form must be stamped."
+      },
+      {
+        "fr": "J'ai fait tamponner mon dossier.",
+        "ar": "جعلت ملفي مختومًا.",
+        "en": "I had my application stamped."
+      },
+      {
+        "fr": "Il faut faire tamponner le document.",
+        "ar": "يجب ختم الوثيقة.",
+        "en": "The document needs to be stamped."
+      },
+      {
+        "fr": "N'oubliez pas de faire tamponner votre ticket.",
+        "ar": "لا تنسَ ختم تذكرتك.",
+        "en": "Don't forget to get your ticket stamped."
+      }
+    ]
+  },
+  {
+    "fr": "Télétravailler",
+    "ar": "يعمل عن بُعد",
+    "en": "To work remotely / to telework",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je travaille à distance aujourd'hui.",
+        "ar": "أعمل عن بُعد اليوم.",
+        "en": "I'm working remotely today."
+      },
+      {
+        "fr": "Je peux télétravailler demain.",
+        "ar": "يمكنني العمل عن بُعد غدًا.",
+        "en": "I can work remotely tomorrow."
+      },
+      {
+        "fr": "Tu télétravailles combien de jours par semaine ?",
+        "ar": "كم يومًا في الأسبوع تعمل عن بُعد؟",
+        "en": "How many days a week do you work remotely?"
+      },
+      {
+        "fr": "Il télétravaille depuis chez lui.",
+        "ar": "هو يعمل عن بُعد من منزله.",
+        "en": "He works remotely from home."
+      },
+      {
+        "fr": "Mon entreprise autorise le télétravail.",
+        "ar": "شركتي تسمح بالعمل عن بُعد.",
+        "en": "My company allows remote work."
+      }
+    ]
+  },
+  {
+    "fr": "Teinter",
+    "ar": "يصبغ / يلوّن / يعطي لونًا",
+    "en": "To tint / to color",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je voudrais teinter les vitres.",
+        "ar": "أريد تظليل زجاج النوافذ.",
+        "en": "I'd like to tint the windows."
+      },
+      {
+        "fr": "Les vitres sont teintées.",
+        "ar": "النوافذ الزجاجية مظللة.",
+        "en": "The windows are tinted."
+      },
+      {
+        "fr": "Cette crème teinte légèrement la peau.",
+        "ar": "هذا الكريم يعطي البشرة لونًا خفيفًا.",
+        "en": "This cream slightly tints the skin."
+      },
+      {
+        "fr": "Le soleil a teinté le mur.",
+        "ar": "الشمس أعطت الجدار لونًا.",
+        "en": "The sun tinted the wall."
+      },
+      {
+        "fr": "Je voudrais une couleur légèrement teintée.",
+        "ar": "أريد لونًا مائلًا قليلًا.",
+        "en": "I'd like a slightly tinted color."
+      }
+    ]
+  },
+  {
+    "fr": "Temporiser",
+    "ar": "يؤجل قليلًا / يماطل لكسب الوقت",
+    "en": "To stall / to buy time",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il essaie de temporiser.",
+        "ar": "إنه يحاول كسب الوقت.",
+        "en": "He's trying to buy time."
+      },
+      {
+        "fr": "Nous devons temporiser avant de décider.",
+        "ar": "علينا الانتظار قليلًا قبل اتخاذ القرار.",
+        "en": "We need to wait before deciding."
+      },
+      {
+        "fr": "Il vaut mieux temporiser.",
+        "ar": "من الأفضل الانتظار قليلًا.",
+        "en": "It's better to wait."
+      },
+      {
+        "fr": "Le responsable cherche à temporiser.",
+        "ar": "المسؤول يحاول كسب الوقت.",
+        "en": "The manager is trying to buy time."
+      },
+      {
+        "fr": "On peut temporiser jusqu'à demain.",
+        "ar": "يمكننا الانتظار حتى الغد.",
+        "en": "We can wait until tomorrow."
+      }
+    ]
+  },
+  {
+    "fr": "Tergiverser",
+    "ar": "يماطل / يتردد في اتخاذ القرار",
+    "en": "To hesitate / to prevaricate",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il ne faut pas tergiverser.",
+        "ar": "لا ينبغي أن نتردد.",
+        "en": "We shouldn't hesitate."
+      },
+      {
+        "fr": "Arrête de tergiverser !",
+        "ar": "توقف عن التردد!",
+        "en": "Stop hesitating!"
+      },
+      {
+        "fr": "Il tergiverse depuis plusieurs jours.",
+        "ar": "هو يتردد منذ عدة أيام.",
+        "en": "He's been hesitating for several days."
+      },
+      {
+        "fr": "Je ne veux pas tergiverser.",
+        "ar": "لا أريد أن أضيع الوقت في التردد.",
+        "en": "I don't want to hesitate."
+      },
+      {
+        "fr": "Il faut décider sans tergiverser.",
+        "ar": "يجب اتخاذ القرار دون تردد.",
+        "en": "We need to decide without hesitation."
       }
     ]
   }
