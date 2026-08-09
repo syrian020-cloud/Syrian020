@@ -1,6 +1,6 @@
 {
-  "appId": "com.syrian020.motsy",
-  "appName": "Motsy",
+  "appId": "com.syrian020.dross",
+  "appName": "VidCap",
   "webDir": "www",
   "server": {
     "androidScheme": "https"
