@@ -755,7 +755,8 @@
 
   function openSearch(text, lang) {
     if (!text) return;
-    var url = 'https://www.google.com/search?udm=50&q=' + encodeURIComponent(text) + '&hl=' + (lang || 'en');
+    var q = 'Explain the phrase ' + text + ' in French and Arabic and English';
+    var url = 'https://www.google.com/search?udm=50&q=' + encodeURIComponent(q) + '&hl=' + (lang || 'en');
     var launcher = nativeAppLauncher();
     if (launcher && launcher.openUrl) {
       launcher.openUrl({ url: url }).catch(function () { window.open(url, '_blank'); });
