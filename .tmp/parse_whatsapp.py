@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 
 VOCAB_PATH = Path('/home/ubuntu/repos/Syrian020/data/vocab.js')
-RAW_PATH = Path('/tmp/t_raw.txt')
+RAW_PATHS = [Path('/tmp/t_raw.txt'), Path('/tmp/t_raw2.txt')]
 
 
 def load_vocab_text(text):
@@ -28,6 +28,7 @@ def infer_pos(fr, en):
     en = en or ''
     fr = fr.strip()
     lowered = fr.lower()
+    en_lower = en.lower().strip()
     # Full sentences / imperative phrases / interjections are phrases
     if re.search(r'[.?¿!]$', fr):
         return 'phrase'
@@ -40,38 +41,96 @@ def infer_pos(fr, en):
     # Imperative-like phrase with hyphenated object pronoun
     if re.search(r'-(moi|toi|lui|nous|vous|leur|le|la|les|me|te|se|y|en)$', fr) and ' ' in fr:
         return 'phrase'
-    if en.lower().startswith('to '):
+    # Infinitive verb or verb-phrase indicator
+    if en_lower.startswith('to '):
+        return 'verb'
+    if en_lower in {'write', 'send', 'reply', 'forward', 'copy', 'delete', 'edit', 'mark', 'add', 'invite',
+                    'leave', 'block', 'unblock', 'report', 'post', 'view', 'back up', 'restore', 'free up',
+                    'use', 'link', 'scan', 'disappear', 'pin', 'unpin', 'create', 'vote', 'follow', 'unfollow',
+                    'join', 'enable', 'disable', 'mute', 'turn on', 'turn off', 'search', 'call back',
+                    'use less data'}:
+        return 'verb'
+    # Determiner / adjective-noun phrases
+    if re.match(r"^(un|une|le|la|les|l'|des|du|de|ce|cette|ces|mon|ton|son|ma|ta|sa|mes|tes|ses|cet|nouveau|nouvelle|nouveaux|nouvelles|tout|toute|tous|toutes)\b", lowered):
+        return 'noun'
+    # Adjective-like single words
+    if lowered in {'quotidien', 'quotidienne', 'hebdomadaire', 'mensuel', 'mensuelle', 'en ligne', 'hors ligne'}:
+        return 'other'
+    # If the French phrase starts with an infinitive verb and looks like an action, treat as verb
+    first = re.split(r"[ '\-’]", lowered)[0]
+    if re.search(r'(er|ir|re|oir)$', first) and first not in {'member', 'membre', 'nombre', 'timbre', 'cadre', 'ordre'}:
         return 'verb'
     if re.match(r'^(a|an|the)\b', en, re.IGNORECASE):
         return 'noun'
-    if en.lower() in {'online', 'seen', 'read', 'offline', 'no problem', 'okay', 'sounds good', 'call me back'}:
+    if en_lower in {'online', 'seen', 'read', 'offline', 'no problem', 'okay', 'sounds good', 'call me back',
+                    'maybe', 'later', 'not yet', 'as you want', 'go ahead', 'of course', 'with pleasure',
+                    'good night', 'good day', 'good evening', 'good luck', 'hang in there'}:
         return 'other'
     return 'noun'
 
 
 def parse_triple(line):
     parts = [p.strip() for p in line.split('|')]
-    return parts if len(parts) == 3 else None
+    if len(parts) != 3:
+        return None
+    fr = parts[0]
+    # Skip column header lines and non-French entries
+    if not re.search(r'[A-Za-z\u00C0-\u024F]', fr):
+        return None
+    if fr.lower() in ('français', 'francais'):
+        return None
+    return parts
+
+
+def is_example_sentence(fr):
+    # A French example is usually a complete sentence ending with . ? ! …
+    return bool(re.search(r'[.?!…]$', fr.strip()))
+
+
+def split_blocks(text):
+    """Split raw text into blocks separated by blank lines or non-triple headers."""
+    blocks = []
+    current = []
+    for line in text.splitlines():
+        triple = parse_triple(line)
+        if triple:
+            current.append(triple)
+        else:
+            if current:
+                blocks.append(current)
+                current = []
+    if current:
+        blocks.append(current)
+    return blocks
+
+
+def group_block(block):
+    """Turn a block of triples into one or more (headword, examples) groups.
+
+    If the block alternates headword/example, split it into pairs.
+    Otherwise treat the first triple as the headword and the rest as examples.
+    """
+    if len(block) <= 2:
+        return [block]
+    # Detect alternating headword/example pattern: headword not ending in punctuation, example ending in punctuation
+    pairs = []
+    i = 0
+    while i < len(block):
+        if i + 1 < len(block) and not is_example_sentence(block[i][0]) and is_example_sentence(block[i+1][0]):
+            pairs.append(block[i:i+2])
+            i += 2
+        else:
+            # No clear alternation; consume remaining as one group
+            pairs.append(block[i:])
+            break
+    return pairs
 
 
 def parse_raw(text):
-    lines = text.splitlines()
-    entries = []
-    current_group = []
-    # skip until first triple
-    started = False
-    for line in lines:
-        triple = parse_triple(line)
-        if triple:
-            started = True
-            current_group.append(triple)
-        else:
-            if started and current_group:
-                entries.append(current_group)
-                current_group = []
-    if current_group:
-        entries.append(current_group)
-    return entries
+    groups = []
+    for block in split_blocks(text):
+        groups.extend(group_block(block))
+    return groups
 
 
 def group_to_entry(group):
@@ -152,9 +211,11 @@ def merge_entry(old, new):
 
 
 def main():
-    raw = RAW_PATH.read_text(encoding='utf-8')
-    groups = parse_raw(raw)
-    new_entries = [group_to_entry(g) for g in groups]
+    new_entries = []
+    for raw_path in RAW_PATHS:
+        raw = raw_path.read_text(encoding='utf-8')
+        groups = parse_raw(raw)
+        new_entries.extend([group_to_entry(g) for g in groups])
 
     existing = get_original_vocab()
     by_key = {}
