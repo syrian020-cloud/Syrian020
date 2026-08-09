@@ -195,13 +195,14 @@
   .phrase.playing { border-color: var(--success); box-shadow: 0 0 0 1px var(--success), 0 0 14px rgba(52,211,153,0.18); }
   .phrase-top { display: flex; gap: 0.7rem; align-items: flex-start; }
   .lines { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.35rem; }
-  .line { padding: 0.25rem 0.45rem; border-radius: 8px; transition: background 0.2s; position: relative; padding-inline-end: 2rem; }
-  .line.active { background: rgba(52,211,153,0.12); }
+  .line { padding: 0.45rem 0.7rem; border-radius: 10px; transition: background 0.2s; position: relative; padding-inline-end: 2.2rem; background: #fff; color: #111; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.05); font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+  .line.active { background: #f0f9f4; }
+  .line.synced { background: #e8f5e9; border-inline-start: 3px solid var(--success); }
   .loop-lang {
-    position: absolute; inset-inline-end: 0.15rem; top: 0.22rem;
-    background: var(--bg-tertiary); color: var(--text-secondary);
-    border: 1px solid var(--border); border-radius: 6px;
-    width: 1.5rem; height: 1.5rem; font-size: 0.75rem; cursor: pointer;
+    position: absolute; inset-inline-end: 0.25rem; top: 0.25rem;
+    background: #f3f4f6; color: #111;
+    border: 1px solid #e5e5e5; border-radius: 6px;
+    width: 1.6rem; height: 1.6rem; font-size: 0.78rem; cursor: pointer;
     display: inline-flex; align-items: center; justify-content: center;
     padding: 0; line-height: 1;
   }
@@ -209,10 +210,10 @@
   .loop-lang.active { background: var(--success); color: #081c15; border-color: var(--success); }
   .fr {
     direction: ltr; text-align: left; font-size: 1.13rem; font-weight: 700;
-    color: var(--accent); word-wrap: break-word;
+    color: #111; word-wrap: break-word;
   }
-  .ar { direction: rtl; text-align: right; font-size: 1.02rem; }
-  .en { direction: ltr; text-align: left; color: var(--text-secondary); font-size: 0.95rem; }
+  .ar { direction: rtl; text-align: right; font-size: 1.05rem; color: #111; }
+  .en { direction: ltr; text-align: left; color: #111; font-size: 0.98rem; }
   .word { cursor: pointer; border-radius: 4px; padding: 0.05rem 0.12rem; margin: -0.05rem -0.12rem; transition: background 0.15s; -webkit-tap-highlight-color: transparent; }
   .word:hover { background: rgba(139,92,246,0.12); }
   .word.active { background: rgba(52,211,153,0.18); }
@@ -833,6 +834,7 @@
   };
 
   let speechRun = 0;
+  let loopTimer = null;
 
   function t(key) {
     const v = UI[key];
@@ -1053,7 +1055,16 @@
     return captions.sort((a, b) => a.start - b.start);
   }
 
-  async function attachCaptionSync(video, captionText) {
+  function highlightVideoPhrase(lessonId, idx) {
+    document.querySelectorAll('.phrase').forEach(el => {
+      const parts = el.dataset.key ? el.dataset.key.split('.').map(Number) : [];
+      const on = parts.length === 2 && parts[0] === lessonId && parts[1] === idx;
+      el.classList.toggle('synced', on);
+      el.querySelectorAll('.line').forEach(line => line.classList.toggle('synced', on));
+    });
+  }
+
+  async function attachCaptionSync(video, captionText, lessonId) {
     if (!video || video.dataset.captionSync === '1') return;
     let captions = [];
     try { captions = parseCaptions(captionText); } catch (e) { console.error('parse captions', e); }
@@ -1064,17 +1075,21 @@
     if (container) container.appendChild(overlay);
     const update = () => {
       const t = video.currentTime || 0;
-      const c = captions.find(c => t >= c.start && t < c.end);
-      if (!c) { overlay.style.display = 'none'; return; }
+      let activeIdx = -1;
+      const c = captions.find((c, i) => { if (t >= c.start && t < c.end) { activeIdx = i; return true; } return false; });
+      if (!c) { overlay.style.display = 'none'; if (lessonId != null) highlightVideoPhrase(lessonId, -1); return; }
       const txt = c[state.uiLang] || c.fr || c.en || c.ar || '';
       overlay.textContent = txt;
       overlay.style.display = 'block';
       overlay.dir = state.uiLang === 'ar' ? 'rtl' : 'ltr';
+      if (lessonId != null) highlightVideoPhrase(lessonId, activeIdx);
     };
     video.addEventListener('timeupdate', update);
     video.addEventListener('seeked', update);
     video.addEventListener('play', update);
     video.addEventListener('loadedmetadata', update);
+    video.addEventListener('pause', () => { if (lessonId != null) highlightVideoPhrase(lessonId, -1); });
+    video.addEventListener('ended', () => { if (lessonId != null) highlightVideoPhrase(lessonId, -1); });
     video.dataset.captionSync = '1';
     update();
   }
@@ -1110,9 +1125,13 @@
         }
       }
       const captionText = el.dataset.captionText || '';
+      const lessonId = el.dataset.lessonId ? +el.dataset.lessonId : null;
       if (captionText) {
         const video = el.querySelector('video');
-        if (video) await attachCaptionSync(video, captionText);
+        if (video) {
+          if (lessonId != null) video.dataset.lessonId = lessonId;
+          await attachCaptionSync(video, captionText, lessonId);
+        }
       }
       el.classList.remove('media-placeholder');
     }
@@ -1262,10 +1281,13 @@
 
   function stopSpeech() {
     state.loop = null;
+    if (loopTimer) { clearInterval(loopTimer); loopTimer = null; }
     speechRun++;
     anyStop();
     highlight(null);
     refreshButtons();
+    const video = document.querySelector('video');
+    if (video) { video.pause(); }
   }
 
   async function speakOnce(phrase, langs, key, onDone) {
@@ -1287,8 +1309,31 @@
     })();
   }
 
+  function getVideoForPhrase(key) {
+    const el = document.querySelector(`.phrase[data-key="${key}"]`);
+    if (el) { const v = el.querySelector('video'); if (v) return v; }
+    return document.querySelector('.lesson-media video') || document.querySelector('video');
+  }
+
   async function toggleLoop(phrase, key) {
     if (state.loop && state.loop.key === key) { stopSpeech(); return; }
+    const video = getVideoForPhrase(key);
+    if (video && typeof phrase.start === 'number' && typeof phrase.end === 'number') {
+      stopSpeech();
+      if (loopTimer) { clearInterval(loopTimer); loopTimer = null; }
+      state.loop = { key, type: 'video', start: phrase.start, end: phrase.end };
+      refreshButtons();
+      video.currentTime = phrase.start;
+      try { await video.play(); } catch (e) {}
+      loopTimer = setInterval(() => {
+        if (!state.loop || state.loop.key !== key) { clearInterval(loopTimer); loopTimer = null; return; }
+        if (video.currentTime >= phrase.end) {
+          video.currentTime = phrase.start;
+          try { video.play(); } catch (e) {}
+        }
+      }, 200);
+      return;
+    }
     const ready = await prepareTTS();
     if (!ready) { return; }
     state.loop = { key: key };
@@ -1568,7 +1613,7 @@
     if (captionText) {
       const captions = parseCaptions(captionText);
       if (!captions.length) { alert(t('captionParseError')); return; }
-      phrases = captions.map(c => ({ fr: c.fr, ar: c.ar, en: c.en }));
+      phrases = captions.map(c => ({ fr: c.fr, ar: c.ar, en: c.en, start: c.start, end: c.end }));
     } else {
       phrases = parsePhrases(form.elements.phrases.value, form.elements.order.value);
     }
@@ -1604,11 +1649,11 @@
 
   function lessonMediaHTML(lesson) {
     if (!lesson.media) return '';
-    return `<div class="lesson-media phrase-media media-placeholder" data-media-ref="${esc(lesson.media)}" data-caption-text="${esc(lesson.captionText || '')}"></div>`;
+    return `<div class="lesson-media phrase-media media-placeholder" data-media-ref="${esc(lesson.media)}" data-caption-text="${esc(lesson.captionText || '')}" data-lesson-id="${lesson.id}"></div>`;
   }
 
   function phraseHTML(p, key) {
-    return `<div class="phrase" data-key="${key}">
+    return `<div class="phrase" data-key="${key}" data-start="${p.start != null ? p.start : ''}" data-end="${p.end != null ? p.end : ''}">
       ${mediaHTML(p.media)}
       <div class="phrase-top">
         <div class="lines">
