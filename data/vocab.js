@@ -67011,6 +67011,21 @@ window.VOCAB_DATA = [
         "fr": "Je travaille sur ce projet.",
         "ar": "أعمل على هذا المشروع.",
         "en": "I'm working on this project."
+      },
+      {
+        "fr": "Je travaille demain.",
+        "ar": "أعمل غدًا.",
+        "en": "I work tomorrow."
+      },
+      {
+        "fr": "Il travaille beaucoup.",
+        "ar": "هو يعمل كثيرًا.",
+        "en": "He works a lot."
+      },
+      {
+        "fr": "Nous travaillons ensemble.",
+        "ar": "نحن نعمل معًا.",
+        "en": "We work together."
       }
     ]
   },
@@ -67102,6 +67117,26 @@ window.VOCAB_DATA = [
         "fr": "Je trouve ça bizarre.",
         "ar": "أجد هذا غريبًا.",
         "en": "I find that strange."
+      },
+      {
+        "fr": "Tu as trouvé une solution ?",
+        "ar": "هل وجدت حلًا؟",
+        "en": "Did you find a solution?"
+      },
+      {
+        "fr": "J'ai trouvé du travail.",
+        "ar": "وجدت عملًا.",
+        "en": "I found a job."
+      },
+      {
+        "fr": "Où peut-on trouver ça ?",
+        "ar": "أين يمكن أن نجد هذا؟",
+        "en": "Where can we find this?"
+      },
+      {
+        "fr": "Je trouve ça intéressant.",
+        "ar": "أجد هذا مثيرًا للاهتمام.",
+        "en": "I find that interesting."
       }
     ]
   },
@@ -67311,8 +67346,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Tenir",
-    "ar": "يمسك / يحافظ على / يلتزم / يحمل / يستمر / يتحمل",
-    "en": "To hold / keep / to keep / to last / To endure",
+    "ar": "يمسك / يحافظ على / يلتزم / يحمل / يستمر / يتحمل / يحتفظ / يصمد",
+    "en": "To hold / keep / to keep / to last / To endure / To keep / To last",
     "pos": "verb",
     "level": "A1",
     "contexts": [
@@ -67419,6 +67454,21 @@ window.VOCAB_DATA = [
         "fr": "Ça va tenir ?",
         "ar": "هل سيصمد/يتحمل؟",
         "en": "Will it hold?"
+      },
+      {
+        "fr": "Tiens bien la porte.",
+        "ar": "أمسك الباب جيدًا.",
+        "en": "Hold the door firmly."
+      },
+      {
+        "fr": "Je vais tenir ma promesse.",
+        "ar": "سأفي بوعدي.",
+        "en": "I'll keep my promise."
+      },
+      {
+        "fr": "Ça peut tenir dans mon sac.",
+        "ar": "يمكن أن يتسع هذا في حقيبتي.",
+        "en": "It can fit in my bag."
       }
     ]
   },
@@ -67553,7 +67603,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Traverser",
     "ar": "يعبر / يجتاز",
-    "en": "To cross / to go through",
+    "en": "To cross / to go through / To go through",
     "pos": "verb",
     "level": "A1",
     "contexts": [
@@ -67636,6 +67686,31 @@ window.VOCAB_DATA = [
         "fr": "J'ai traversé toute la ville.",
         "ar": "عبرت المدينة كلها.",
         "en": "I crossed the whole city."
+      },
+      {
+        "fr": "Traverse la rue.",
+        "ar": "اعبر الشارع.",
+        "en": "Cross the street."
+      },
+      {
+        "fr": "Je dois traverser la ville.",
+        "ar": "يجب أن أعبر المدينة.",
+        "en": "I have to cross the city."
+      },
+      {
+        "fr": "Attention avant de traverser.",
+        "ar": "انتبه قبل العبور.",
+        "en": "Be careful before crossing."
+      },
+      {
+        "fr": "On traverse le pont.",
+        "ar": "نعبر الجسر.",
+        "en": "We're crossing the bridge."
+      },
+      {
+        "fr": "La route traverse le village.",
+        "ar": "الطريق يمر عبر القرية.",
+        "en": "The road goes through the village."
       }
     ]
   },
@@ -68713,6 +68788,7 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "A1",
     "contexts": [
+      "bank",
       "daily",
       "phone",
       "services"
@@ -68817,6 +68893,26 @@ window.VOCAB_DATA = [
         "fr": "Je dois transférer l'appel.",
         "ar": "يجب أن أحوّل المكالمة.",
         "en": "I have to transfer the call."
+      },
+      {
+        "fr": "Peux-tu transférer ce fichier ?",
+        "ar": "هل يمكنك نقل هذا الملف؟",
+        "en": "Can you transfer this file?"
+      },
+      {
+        "fr": "Je dois transférer l'appel.",
+        "ar": "يجب أن أحوّل المكالمة.",
+        "en": "I need to transfer the call."
+      },
+      {
+        "fr": "Le dossier a été transféré.",
+        "ar": "تم نقل الملف.",
+        "en": "The file was transferred."
+      },
+      {
+        "fr": "Transfère-moi le document.",
+        "ar": "أرسل لي الوثيقة.",
+        "en": "Transfer the document to me."
       }
     ]
   },
@@ -69233,8 +69329,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Tendre",
-    "ar": "يمدّ / يمدد / يقدّم",
-    "en": "To stretch / to extend / to hand",
+    "ar": "يمدّ / يمدد / يقدّم / يمدّ يده / يحنو",
+    "en": "To stretch / to extend / to hand / To hold out / Tender",
     "pos": "verb",
     "level": "A1",
     "contexts": [
@@ -69292,6 +69388,31 @@ window.VOCAB_DATA = [
         "fr": "Je vous tends le formulaire.",
         "ar": "أنا أناولكم الاستمارة.",
         "en": "I'm handing you the form."
+      },
+      {
+        "fr": "Tends-moi la main.",
+        "ar": "مدّ لي يدك.",
+        "en": "Hold out your hand."
+      },
+      {
+        "fr": "Il me tend un verre.",
+        "ar": "يمدّ لي كأسًا.",
+        "en": "He holds out a glass to me."
+      },
+      {
+        "fr": "Tends l'oreille.",
+        "ar": "أنصت جيدًا.",
+        "en": "Listen carefully."
+      },
+      {
+        "fr": "Elle tend les bras vers son enfant.",
+        "ar": "تمد ذراعيها نحو طفلها.",
+        "en": "She holds out her arms toward her child."
+      },
+      {
+        "fr": "La viande est tendre.",
+        "ar": "اللحم طري.",
+        "en": "The meat is tender."
       }
     ]
   },
@@ -69540,6 +69661,26 @@ window.VOCAB_DATA = [
         "fr": "Ça me tue de rire.",
         "ar": "هذا يجعلني أضحك بشدة.",
         "en": "It kills me laughing."
+      },
+      {
+        "fr": "Ça peut tuer.",
+        "ar": "هذا يمكن أن يقتل.",
+        "en": "That can kill."
+      },
+      {
+        "fr": "Je suis mort de fatigue, ça me tue.",
+        "ar": "أنا متعب جدًا، هذا يقتلني.",
+        "en": "I'm exhausted; it's killing me."
+      },
+      {
+        "fr": "Ne fais pas ça, tu vas me tuer !",
+        "ar": "لا تفعل ذلك، ستقتلني!",
+        "en": "Don't do that, you'll kill me!"
+      },
+      {
+        "fr": "Il a failli me tuer de peur.",
+        "ar": "كدت أموت من الخوف بسببه.",
+        "en": "He nearly scared me to death."
       }
     ]
   },
@@ -69607,7 +69748,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Tâtonner",
-    "ar": "يتلمّس طريقه / يحاول دون معرفة مؤكدة / يجسّ / يبحث بالتجربة / يتصرف دون معرفة كاملة",
+    "ar": "يتلمّس طريقه / يحاول دون معرفة مؤكدة / يجسّ / يبحث بالتجربة / يتصرف دون معرفة كاملة / يتحسس / يجرب بطريقة غير مؤكدة",
     "en": "To feel one's way / to fumble / To grope / to feel one's way",
     "pos": "verb",
     "level": "A1",
@@ -69664,6 +69805,26 @@ window.VOCAB_DATA = [
         "fr": "Il faut parfois tâtonner au début.",
         "ar": "أحيانًا يجب التجربة في البداية.",
         "en": "Sometimes you have to feel your way at first."
+      },
+      {
+        "fr": "Je tâtonne encore avec cette méthode.",
+        "ar": "ما زلت أجرب هذه الطريقة دون يقين.",
+        "en": "I'm still feeling my way with this method."
+      },
+      {
+        "fr": "On tâtonne encore pour trouver une solution.",
+        "ar": "ما زلنا نجرب للوصول إلى حل.",
+        "en": "We're still feeling our way toward a solution."
+      },
+      {
+        "fr": "Je ne connais pas bien le système, je tâtonne.",
+        "ar": "لا أعرف النظام جيدًا، وما زلت أتعلم بالتجربة.",
+        "en": "I don't know the system well; I'm figuring it out."
+      },
+      {
+        "fr": "Au début, on tâtonne un peu.",
+        "ar": "في البداية، نجرب قليلًا حتى نفهم.",
+        "en": "At first, you feel your way a bit."
       }
     ]
   },
@@ -70700,8 +70861,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Toujours",
-    "ar": "دائمًا / لا يزال",
-    "en": "Always / still",
+    "ar": "دائمًا / لا يزال / ما زال",
+    "en": "Always / still / Still",
     "pos": "other",
     "level": "A1",
     "contexts": [
@@ -70757,6 +70918,26 @@ window.VOCAB_DATA = [
         "fr": "Elle travaille toujours ici.",
         "ar": "هي ما زالت تعمل هنا دائمًا.",
         "en": "She still works here."
+      },
+      {
+        "fr": "Je suis toujours là.",
+        "ar": "ما زلت هنا.",
+        "en": "I'm still here."
+      },
+      {
+        "fr": "Tu travailles toujours ici ?",
+        "ar": "هل ما زلت تعمل هنا؟",
+        "en": "Do you still work here?"
+      },
+      {
+        "fr": "Je pense toujours à toi.",
+        "ar": "ما زلت أفكر بك.",
+        "en": "I still think about you."
+      },
+      {
+        "fr": "Il pleut toujours.",
+        "ar": "ما زالت السماء تمطر.",
+        "en": "It's still raining."
       }
     ]
   },
@@ -71021,6 +71202,11 @@ window.VOCAB_DATA = [
         "fr": "Je commence à travailler tôt.",
         "ar": "أبدأ العمل مبكرًا.",
         "en": "I start work early."
+      },
+      {
+        "fr": "Je travaille tôt le matin.",
+        "ar": "أعمل في الصباح الباكر.",
+        "en": "I work early in the morning."
       }
     ]
   },
@@ -71069,13 +71255,18 @@ window.VOCAB_DATA = [
         "fr": "Tu rentres tard ce soir ?",
         "ar": "هل ستعود متأخرًا هذا المساء؟",
         "en": "Are you coming home late tonight?"
+      },
+      {
+        "fr": "Tu arrives tard aujourd'hui.",
+        "ar": "أنت تصل متأخرًا اليوم.",
+        "en": "You're arriving late today."
       }
     ]
   },
   {
     "fr": "Tout",
     "ar": "كل / كل شيء / تمامًا",
-    "en": "All / everything / completely / Everything",
+    "en": "All / everything / completely / Everything / Whole",
     "pos": "other",
     "level": "A1",
     "contexts": [
@@ -71117,11 +71308,12 @@ window.VOCAB_DATA = [
   {
     "fr": "Toute",
     "ar": "كل / كاملة",
-    "en": "Every / whole",
+    "en": "Every / whole / All / Whole",
     "pos": "adjective",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "work"
     ],
     "ex": [
       {
@@ -71148,13 +71340,23 @@ window.VOCAB_DATA = [
         "fr": "Toute la maison est propre.",
         "ar": "البيت كله نظيف.",
         "en": "The whole house is clean."
+      },
+      {
+        "fr": "J'ai passé toute la journée au travail.",
+        "ar": "قضيت اليوم كله في العمل.",
+        "en": "I spent the whole day at work."
+      },
+      {
+        "fr": "Toute la ville est au courant.",
+        "ar": "كل المدينة تعرف بالأمر.",
+        "en": "The whole city knows about it."
       }
     ]
   },
   {
     "fr": "Tel",
     "ar": "مثل هذا / كهذا / معين",
-    "en": "Such / such a / particular",
+    "en": "Such / such a / particular / Like this",
     "pos": "adjective",
     "level": "A1",
     "contexts": [
@@ -71185,6 +71387,26 @@ window.VOCAB_DATA = [
         "fr": "Dans un tel cas, appelez-nous.",
         "ar": "في حالة كهذه، اتصلوا بنا.",
         "en": "In such a case, call us."
+      },
+      {
+        "fr": "Je n'ai jamais vu un tel endroit.",
+        "ar": "لم أرَ مكانًا كهذا من قبل.",
+        "en": "I've never seen such a place."
+      },
+      {
+        "fr": "Pourquoi une telle réaction ?",
+        "ar": "لماذا رد فعل كهذا؟",
+        "en": "Why such a reaction?"
+      },
+      {
+        "fr": "Je n'accepte pas un tel comportement.",
+        "ar": "لا أقبل تصرفًا كهذا.",
+        "en": "I don't accept such behavior."
+      },
+      {
+        "fr": "Un tel problème peut arriver.",
+        "ar": "يمكن أن تحدث مشكلة كهذه.",
+        "en": "Such a problem can happen."
       }
     ]
   },
@@ -74648,6 +74870,21 @@ window.VOCAB_DATA = [
         "fr": "Le trafic est plus calme le dimanche.",
         "ar": "حركة المرور أهدأ يوم الأحد.",
         "en": "Traffic is quieter on Sundays."
+      },
+      {
+        "fr": "Il y a beaucoup de trafic aujourd'hui.",
+        "ar": "هناك ازدحام كبير اليوم.",
+        "en": "There's a lot of traffic today."
+      },
+      {
+        "fr": "À cette heure, il y a beaucoup de trafic.",
+        "ar": "في هذا الوقت يوجد ازدحام كبير.",
+        "en": "There's a lot of traffic at this time."
+      },
+      {
+        "fr": "Le trafic est fluide maintenant.",
+        "ar": "حركة المرور أصبحت سلسة الآن.",
+        "en": "Traffic is flowing smoothly now."
       }
     ]
   },
@@ -74819,11 +75056,12 @@ window.VOCAB_DATA = [
   {
     "fr": "Tant",
     "ar": "كثيرًا / إلى هذا الحد / طالما",
-    "en": "So much / so many / as long as",
+    "en": "So much / so many / as long as / So",
     "pos": "other",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "weather"
     ],
     "ex": [
       {
@@ -74845,13 +75083,28 @@ window.VOCAB_DATA = [
         "fr": "Tant mieux !",
         "ar": "هذا أفضل! / جيد جدًا!",
         "en": "That's good! / So much the better!"
+      },
+      {
+        "fr": "Je n'ai pas tant de temps.",
+        "ar": "ليس لدي كل هذا الوقت.",
+        "en": "I don't have that much time."
+      },
+      {
+        "fr": "Merci tant pour ton aide.",
+        "ar": "شكرًا جزيلًا على مساعدتك.",
+        "en": "Thank you so much for your help."
+      },
+      {
+        "fr": "Ça ne coûte pas tant que ça.",
+        "ar": "هذا لا يكلف إلى هذا الحد.",
+        "en": "It doesn't cost that much."
       }
     ]
   },
   {
     "fr": "Tellement",
     "ar": "للغاية / جدًا / إلى هذا الحد",
-    "en": "So / so much / so many",
+    "en": "So / so much / so many / So much / So much so",
     "pos": "other",
     "level": "A1",
     "contexts": [
@@ -74882,6 +75135,21 @@ window.VOCAB_DATA = [
         "fr": "Ça me fait tellement plaisir.",
         "ar": "هذا يسعدني جدًا.",
         "en": "That makes me so happy."
+      },
+      {
+        "fr": "Tu parles tellement vite !",
+        "ar": "أنت تتحدث بسرعة كبيرة جدًا!",
+        "en": "You speak so fast!"
+      },
+      {
+        "fr": "Merci tellement pour ton aide.",
+        "ar": "شكرًا جزيلًا على مساعدتك.",
+        "en": "Thank you so much for your help."
+      },
+      {
+        "fr": "Il travaille tellement.",
+        "ar": "هو يعمل كثيرًا جدًا.",
+        "en": "He works so much."
       }
     ]
   },
@@ -75234,7 +75502,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Totalement",
     "ar": "تمامًا / كليًا",
-    "en": "Totally / completely",
+    "en": "Totally / completely / Completely",
     "pos": "other",
     "level": "A1",
     "contexts": [
@@ -75265,13 +75533,23 @@ window.VOCAB_DATA = [
         "fr": "C'est totalement impossible.",
         "ar": "هذا مستحيل تمامًا.",
         "en": "It's totally impossible."
+      },
+      {
+        "fr": "J'ai totalement oublié.",
+        "ar": "نسيت تمامًا.",
+        "en": "I completely forgot."
+      },
+      {
+        "fr": "Je comprends totalement.",
+        "ar": "أفهم تمامًا.",
+        "en": "I completely understand."
       }
     ]
   },
   {
     "fr": "Tranquillement",
     "ar": "بهدوء / على مهل",
-    "en": "Calmly / quietly",
+    "en": "Calmly / quietly / Quietly",
     "pos": "other",
     "level": "A1",
     "contexts": [
@@ -75303,12 +75581,32 @@ window.VOCAB_DATA = [
         "fr": "Prenez votre temps et faites-le tranquillement.",
         "ar": "خذوا وقتكم وافعلوها بهدوء.",
         "en": "Take your time and do it calmly."
+      },
+      {
+        "fr": "On peut parler tranquillement.",
+        "ar": "يمكننا أن نتحدث بهدوء.",
+        "en": "We can talk calmly."
+      },
+      {
+        "fr": "Prends ton temps et fais-le tranquillement.",
+        "ar": "خذ وقتك وافعلها على مهل.",
+        "en": "Take your time and do it calmly."
+      },
+      {
+        "fr": "Il travaille tranquillement.",
+        "ar": "هو يعمل بهدوء.",
+        "en": "He's working quietly."
+      },
+      {
+        "fr": "Je veux manger tranquillement.",
+        "ar": "أريد أن آكل بهدوء.",
+        "en": "I want to eat peacefully."
       }
     ]
   },
   {
     "fr": "Typique",
-    "ar": "نموذجي / تقليدي / مميز لـ",
+    "ar": "نموذجي / تقليدي / مميز لـ / مميز",
     "en": "Typical",
     "pos": "adjective",
     "level": "A1",
@@ -75341,6 +75639,31 @@ window.VOCAB_DATA = [
       {
         "fr": "C'est typique chez lui.",
         "ar": "هذا أمر معتاد منه.",
+        "en": "That's typical of him."
+      },
+      {
+        "fr": "C'est typique de la France.",
+        "ar": "هذا نموذجي في فرنسا.",
+        "en": "That's typical of France."
+      },
+      {
+        "fr": "C'est un plat typique.",
+        "ar": "هذا طبق تقليدي مميز.",
+        "en": "It's a typical dish."
+      },
+      {
+        "fr": "C'est typique de cette région.",
+        "ar": "هذا مميز لهذه المنطقة.",
+        "en": "That's typical of this region."
+      },
+      {
+        "fr": "Ce comportement est typique.",
+        "ar": "هذا التصرف نموذجي.",
+        "en": "This behavior is typical."
+      },
+      {
+        "fr": "C'est typique chez lui.",
+        "ar": "هذا شيء معتاد منه.",
         "en": "That's typical of him."
       }
     ]
@@ -76811,8 +77134,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Tranquillité",
-    "ar": "هدوء / راحة بال",
-    "en": "Peace / tranquility",
+    "ar": "هدوء / راحة بال / راحة",
+    "en": "Peace / tranquility / Quiet / Tranquility",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -76844,6 +77167,26 @@ window.VOCAB_DATA = [
         "fr": "J'aime la tranquillité de ce quartier.",
         "ar": "أحب هدوء هذا الحي.",
         "en": "I like the peace and quiet of this neighborhood."
+      },
+      {
+        "fr": "Je cherche un endroit tranquille pour avoir un peu de tranquillité.",
+        "ar": "أبحث عن مكان هادئ لأحصل على بعض الهدوء.",
+        "en": "I'm looking for a quiet place to have some peace."
+      },
+      {
+        "fr": "Laisse-moi tranquille !",
+        "ar": "اتركني وشأني!",
+        "en": "Leave me alone!"
+      },
+      {
+        "fr": "J'aime la tranquillité de cet endroit.",
+        "ar": "أحب هدوء هذا المكان.",
+        "en": "I like the peace and quiet of this place."
+      },
+      {
+        "fr": "Enfin un peu de tranquillité !",
+        "ar": "أخيرًا بعض الهدوء!",
+        "en": "Finally, some peace and quiet!"
       }
     ]
   },
@@ -77805,6 +78148,26 @@ window.VOCAB_DATA = [
         "fr": "Merci à tous.",
         "ar": "شكرًا للجميع.",
         "en": "Thank you, everyone."
+      },
+      {
+        "fr": "Bonjour à tous !",
+        "ar": "مرحبًا بالجميع!",
+        "en": "Hello everyone!"
+      },
+      {
+        "fr": "Merci à tous.",
+        "ar": "شكرًا للجميع.",
+        "en": "Thanks everyone."
+      },
+      {
+        "fr": "On travaille tous ensemble.",
+        "ar": "نعمل جميعًا معًا.",
+        "en": "We all work together."
+      },
+      {
+        "fr": "Ils sont tous partis.",
+        "ar": "لقد غادروا جميعًا.",
+        "en": "They all left."
       }
     ]
   },
@@ -78035,6 +78398,758 @@ window.VOCAB_DATA = [
         "fr": "C'est un bon travailleur.",
         "ar": "إنه عامل جيد.",
         "en": "He's a good worker."
+      }
+    ]
+  },
+  {
+    "fr": "Tôt ou tard",
+    "ar": "عاجلًا أم آجلًا",
+    "en": "Sooner or later",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Tôt ou tard, il faut décider.",
+        "ar": "عاجلًا أم آجلًا، يجب أن تقرر.",
+        "en": "Sooner or later, you have to decide."
+      },
+      {
+        "fr": "Tôt ou tard, tu comprendras.",
+        "ar": "عاجلًا أم آجلًا، ستفهم.",
+        "en": "Sooner or later, you'll understand."
+      },
+      {
+        "fr": "On devra le faire tôt ou tard.",
+        "ar": "سيتعين علينا فعل ذلك عاجلًا أم آجلًا.",
+        "en": "We'll have to do it sooner or later."
+      },
+      {
+        "fr": "Tôt ou tard, ça arrivera.",
+        "ar": "عاجلًا أم آجلًا، سيحدث ذلك.",
+        "en": "Sooner or later, it will happen."
+      },
+      {
+        "fr": "Il faudra partir tôt ou tard.",
+        "ar": "سيجب علينا المغادرة عاجلًا أم آجلًا.",
+        "en": "We'll have to leave sooner or later."
+      }
+    ]
+  },
+  {
+    "fr": "Tant mieux",
+    "ar": "هذا أفضل / جيد إذن",
+    "en": "That's good / All the better",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Tu as trouvé un travail ? Tant mieux !",
+        "ar": "وجدت عملًا؟ هذا جيد!",
+        "en": "You found a job? That's great!"
+      },
+      {
+        "fr": "Si tu vas mieux, tant mieux.",
+        "ar": "إذا أصبحت أفضل، فهذا جيد.",
+        "en": "If you're feeling better, that's good."
+      },
+      {
+        "fr": "Tant mieux pour toi !",
+        "ar": "هذا جيد بالنسبة لك!",
+        "en": "Good for you!"
+      },
+      {
+        "fr": "Il peut venir ? Tant mieux !",
+        "ar": "يمكنه المجيء؟ ممتاز!",
+        "en": "He can come? Great!"
+      },
+      {
+        "fr": "Tant mieux si tout va bien.",
+        "ar": "جيد إذا كان كل شيء بخير.",
+        "en": "That's good if everything is fine."
+      }
+    ]
+  },
+  {
+    "fr": "Tant pis",
+    "ar": "لا بأس / يا للأسف / لا يهم",
+    "en": "Too bad / Never mind",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Tu ne peux pas venir ? Tant pis.",
+        "ar": "لا تستطيع المجيء؟ لا بأس.",
+        "en": "You can't come? Never mind."
+      },
+      {
+        "fr": "Tant pis pour moi.",
+        "ar": "لا بأس، هذا نصيبي.",
+        "en": "Too bad for me."
+      },
+      {
+        "fr": "J'ai oublié mon parapluie, tant pis.",
+        "ar": "نسيت مظلتي، لا بأس.",
+        "en": "I forgot my umbrella, never mind."
+      },
+      {
+        "fr": "Tant pis, on fera ça demain.",
+        "ar": "لا بأس، سنفعل ذلك غدًا.",
+        "en": "Never mind, we'll do it tomorrow."
+      },
+      {
+        "fr": "Il est trop tard, tant pis.",
+        "ar": "لقد تأخر الوقت، لا بأس.",
+        "en": "It's too late, never mind."
+      }
+    ]
+  },
+  {
+    "fr": "Malgré",
+    "ar": "رغم / بالرغم من",
+    "en": "Despite",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Malgré la pluie, je suis sorti.",
+        "ar": "رغم المطر، خرجت.",
+        "en": "Despite the rain, I went out."
+      },
+      {
+        "fr": "Malgré la fatigue, je travaille.",
+        "ar": "رغم التعب، أعمل.",
+        "en": "Despite the fatigue, I work."
+      },
+      {
+        "fr": "Malgré tout, ça va.",
+        "ar": "رغم كل شيء، أنا بخير.",
+        "en": "Despite everything, I'm fine."
+      },
+      {
+        "fr": "Malgré le problème, on continue.",
+        "ar": "رغم المشكلة، نتابع.",
+        "en": "Despite the problem, we continue."
+      },
+      {
+        "fr": "Malgré son âge, il travaille beaucoup.",
+        "ar": "رغم عمره، يعمل كثيرًا.",
+        "en": "Despite his age, he works a lot."
+      }
+    ]
+  },
+  {
+    "fr": "Toutefois",
+    "ar": "ومع ذلك / لكن",
+    "en": "However / Nevertheless",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "C'est difficile, toutefois c'est possible.",
+        "ar": "هذا صعب، ومع ذلك فهو ممكن.",
+        "en": "It's difficult; however, it's possible."
+      },
+      {
+        "fr": "Je comprends, toutefois je ne suis pas d'accord.",
+        "ar": "أفهم، ومع ذلك لست موافقًا.",
+        "en": "I understand; however, I don't agree."
+      },
+      {
+        "fr": "Il est fatigué, toutefois il continue.",
+        "ar": "هو متعب، ومع ذلك يستمر.",
+        "en": "He's tired; nevertheless, he continues."
+      },
+      {
+        "fr": "Le prix est élevé, toutefois la qualité est bonne.",
+        "ar": "السعر مرتفع، ومع ذلك الجودة جيدة.",
+        "en": "The price is high; however, the quality is good."
+      },
+      {
+        "fr": "C'est possible, toutefois il faut attendre.",
+        "ar": "هذا ممكن، لكن يجب الانتظار.",
+        "en": "It's possible; however, we have to wait."
+      }
+    ]
+  },
+  {
+    "fr": "Tantôt",
+    "ar": "قبل قليل / أحيانًا",
+    "en": "Earlier / Sometimes",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je l'ai vu tantôt.",
+        "ar": "رأيته قبل قليل.",
+        "en": "I saw him earlier."
+      },
+      {
+        "fr": "Il était ici tantôt.",
+        "ar": "كان هنا قبل قليل.",
+        "en": "He was here earlier."
+      },
+      {
+        "fr": "Je t'ai appelé tantôt.",
+        "ar": "اتصلت بك قبل قليل.",
+        "en": "I called you earlier."
+      },
+      {
+        "fr": "On en parlera tantôt.",
+        "ar": "سنتحدث عن ذلك لاحقًا.",
+        "en": "We'll talk about it later."
+      },
+      {
+        "fr": "Je l'ai rencontré tantôt.",
+        "ar": "قابلته قبل قليل.",
+        "en": "I met him earlier."
+      }
+    ]
+  },
+  {
+    "fr": "Travailler dur",
+    "ar": "يعمل بجد",
+    "en": "To work hard",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je travaille dur tous les jours.",
+        "ar": "أعمل بجد كل يوم.",
+        "en": "I work hard every day."
+      },
+      {
+        "fr": "Il travaille dur pour sa famille.",
+        "ar": "يعمل بجد من أجل عائلته.",
+        "en": "He works hard for his family."
+      },
+      {
+        "fr": "Il faut travailler dur pour réussir.",
+        "ar": "يجب العمل بجد للنجاح.",
+        "en": "You have to work hard to succeed."
+      },
+      {
+        "fr": "Elle travaille très dur.",
+        "ar": "هي تعمل بجد جدًا.",
+        "en": "She works very hard."
+      },
+      {
+        "fr": "Continue à travailler dur.",
+        "ar": "استمر في العمل بجد.",
+        "en": "Keep working hard."
+      }
+    ]
+  },
+  {
+    "fr": "Transformer",
+    "ar": "يحوّل / يغيّر",
+    "en": "To transform / To turn into",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je veux transformer cette pièce.",
+        "ar": "أريد تغيير هذه الغرفة.",
+        "en": "I want to transform this room."
+      },
+      {
+        "fr": "Ça peut transformer complètement la situation.",
+        "ar": "يمكن أن يغيّر الوضع بالكامل.",
+        "en": "It can completely transform the situation."
+      },
+      {
+        "fr": "Il transforme les légumes en soupe.",
+        "ar": "يحوّل الخضار إلى حساء.",
+        "en": "He turns the vegetables into soup."
+      },
+      {
+        "fr": "Cette expérience m'a transformé.",
+        "ar": "هذه التجربة غيّرتني.",
+        "en": "This experience changed me."
+      },
+      {
+        "fr": "On peut transformer cette idée en projet.",
+        "ar": "يمكننا تحويل هذه الفكرة إلى مشروع.",
+        "en": "We can turn this idea into a project."
+      }
+    ]
+  },
+  {
+    "fr": "Trouver ça",
+    "ar": "يجد أن / يرى أن",
+    "en": "To find it / To think",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Tu trouves ça normal ?",
+        "ar": "هل ترى أن هذا طبيعي؟",
+        "en": "Do you think that's normal?"
+      },
+      {
+        "fr": "Je trouve ça bizarre.",
+        "ar": "أرى أن هذا غريب.",
+        "en": "I find that strange."
+      },
+      {
+        "fr": "Je trouve ça très bien.",
+        "ar": "أرى أن هذا جيد جدًا.",
+        "en": "I think that's very good."
+      },
+      {
+        "fr": "Tu trouves ça cher ?",
+        "ar": "هل ترى أن هذا غالي؟",
+        "en": "Do you think it's expensive?"
+      },
+      {
+        "fr": "Je trouve ça difficile.",
+        "ar": "أجد هذا صعبًا.",
+        "en": "I find it difficult."
+      }
+    ]
+  },
+  {
+    "fr": "Tondre",
+    "ar": "يقص العشب / يجزّ",
+    "en": "To mow / To shear",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois tondre la pelouse.",
+        "ar": "يجب أن أقص العشب.",
+        "en": "I have to mow the lawn."
+      },
+      {
+        "fr": "Il tond la pelouse chaque semaine.",
+        "ar": "يقص العشب كل أسبوع.",
+        "en": "He mows the lawn every week."
+      },
+      {
+        "fr": "La pelouse doit être tondue.",
+        "ar": "يجب قص العشب.",
+        "en": "The lawn needs to be mowed."
+      },
+      {
+        "fr": "Tu peux tondre le jardin ?",
+        "ar": "هل يمكنك قص عشب الحديقة؟",
+        "en": "Can you mow the lawn?"
+      },
+      {
+        "fr": "La tondeuse ne fonctionne plus.",
+        "ar": "آلة قص العشب لم تعد تعمل.",
+        "en": "The lawn mower doesn't work anymore."
+      }
+    ]
+  },
+  {
+    "fr": "Tenter sa chance",
+    "ar": "يجرب حظه",
+    "en": "To try one's luck",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais tenter ma chance.",
+        "ar": "سأجرب حظي.",
+        "en": "I'll try my luck."
+      },
+      {
+        "fr": "Tu devrais tenter ta chance.",
+        "ar": "يجب أن تجرب حظك.",
+        "en": "You should try your luck."
+      },
+      {
+        "fr": "Il a tenté sa chance au concours.",
+        "ar": "جرب حظه في المسابقة.",
+        "en": "He tried his luck in the competition."
+      },
+      {
+        "fr": "Pourquoi ne pas tenter ta chance ?",
+        "ar": "لماذا لا تجرب حظك؟",
+        "en": "Why not try your luck?"
+      },
+      {
+        "fr": "Elle tente sa chance à Paris.",
+        "ar": "هي تجرب حظها في باريس.",
+        "en": "She's trying her luck in Paris."
+      }
+    ]
+  },
+  {
+    "fr": "Tourner autour",
+    "ar": "يدور حول / يراوغ حول الموضوع",
+    "en": "To go around / To beat around the bush",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "La Terre tourne autour du Soleil.",
+        "ar": "الأرض تدور حول الشمس.",
+        "en": "The Earth revolves around the Sun."
+      },
+      {
+        "fr": "Arrête de tourner autour du problème.",
+        "ar": "توقف عن الدوران حول المشكلة.",
+        "en": "Stop beating around the bush."
+      },
+      {
+        "fr": "Il tourne autour de la question.",
+        "ar": "هو يراوغ حول السؤال.",
+        "en": "He's avoiding the question."
+      },
+      {
+        "fr": "La voiture tourne autour du rond-point.",
+        "ar": "السيارة تدور حول الدوار.",
+        "en": "The car goes around the roundabout."
+      },
+      {
+        "fr": "Ne tourne pas autour du sujet.",
+        "ar": "لا تلتف حول الموضوع.",
+        "en": "Don't beat around the subject."
+      }
+    ]
+  },
+  {
+    "fr": "Tourner la page",
+    "ar": "يتجاوز الماضي / يبدأ صفحة جديدة",
+    "en": "To move on / To turn the page",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "weather"
+    ],
+    "ex": [
+      {
+        "fr": "Il est temps de tourner la page.",
+        "ar": "حان الوقت لنتجاوز الماضي.",
+        "en": "It's time to move on."
+      },
+      {
+        "fr": "Je veux tourner la page.",
+        "ar": "أريد أن أبدأ صفحة جديدة.",
+        "en": "I want to move on."
+      },
+      {
+        "fr": "Elle a réussi à tourner la page.",
+        "ar": "تمكنت من تجاوز الماضي.",
+        "en": "She managed to move on."
+      },
+      {
+        "fr": "Il faut tourner la page et avancer.",
+        "ar": "يجب أن نتجاوز الماضي ونتقدم.",
+        "en": "We need to move on and move forward."
+      },
+      {
+        "fr": "J'essaie de tourner la page.",
+        "ar": "أحاول تجاوز الماضي.",
+        "en": "I'm trying to move on."
+      }
+    ]
+  },
+  {
+    "fr": "Tirer parti de",
+    "ar": "يستفيد من",
+    "en": "To make use of / To take advantage of",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut tirer parti de cette occasion.",
+        "ar": "يجب الاستفادة من هذه الفرصة.",
+        "en": "We should take advantage of this opportunity."
+      },
+      {
+        "fr": "Je veux tirer parti de mon expérience.",
+        "ar": "أريد الاستفادة من خبرتي.",
+        "en": "I want to make use of my experience."
+      },
+      {
+        "fr": "On peut tirer parti de cette situation.",
+        "ar": "يمكننا الاستفادة من هذا الوضع.",
+        "en": "We can make use of this situation."
+      },
+      {
+        "fr": "Il sait tirer parti de ses compétences.",
+        "ar": "يعرف كيف يستفيد من مهاراته.",
+        "en": "He knows how to make use of his skills."
+      },
+      {
+        "fr": "Profite de cette occasion pour en tirer parti.",
+        "ar": "استفد من هذه الفرصة.",
+        "en": "Take advantage of this opportunity."
+      }
+    ]
+  },
+  {
+    "fr": "Tâcher de",
+    "ar": "يحاول أن",
+    "en": "To try to",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais tâcher de venir demain.",
+        "ar": "سأحاول المجيء غدًا.",
+        "en": "I'll try to come tomorrow."
+      },
+      {
+        "fr": "Tâche de faire attention.",
+        "ar": "حاول أن تنتبه.",
+        "en": "Try to be careful."
+      },
+      {
+        "fr": "Je tâcherai de ne pas être en retard.",
+        "ar": "سأحاول ألا أتأخر.",
+        "en": "I'll try not to be late."
+      },
+      {
+        "fr": "Tâche de comprendre.",
+        "ar": "حاول أن تفهم.",
+        "en": "Try to understand."
+      },
+      {
+        "fr": "Je vais tâcher de régler ça.",
+        "ar": "سأحاول حلّ هذا.",
+        "en": "I'll try to sort this out."
+      }
+    ]
+  },
+  {
+    "fr": "Tranche d'âge",
+    "ar": "فئة عمرية",
+    "en": "Age group",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Cette activité est pour quelle tranche d'âge ?",
+        "ar": "لأي فئة عمرية هذا النشاط؟",
+        "en": "What age group is this activity for?"
+      },
+      {
+        "fr": "Cette tranche d'âge est très représentée.",
+        "ar": "هذه الفئة العمرية ممثلة بشكل كبير.",
+        "en": "This age group is well represented."
+      },
+      {
+        "fr": "Je suis dans cette tranche d'âge.",
+        "ar": "أنا ضمن هذه الفئة العمرية.",
+        "en": "I'm in this age group."
+      },
+      {
+        "fr": "Le produit convient à cette tranche d'âge.",
+        "ar": "المنتج مناسب لهذه الفئة العمرية.",
+        "en": "The product is suitable for this age group."
+      },
+      {
+        "fr": "Quelle tranche d'âge recherchez-vous ?",
+        "ar": "ما الفئة العمرية التي تبحثون عنها؟",
+        "en": "What age group are you looking for?"
+      }
+    ]
+  },
+  {
+    "fr": "Toutes",
+    "ar": "كل / جميع",
+    "en": "All",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Toutes les portes sont fermées.",
+        "ar": "كل الأبواب مغلقة.",
+        "en": "All the doors are closed."
+      },
+      {
+        "fr": "J'ai lu toutes les informations.",
+        "ar": "قرأت جميع المعلومات.",
+        "en": "I read all the information."
+      },
+      {
+        "fr": "Toutes les places sont prises.",
+        "ar": "جميع المقاعد مشغولة.",
+        "en": "All the seats are taken."
+      },
+      {
+        "fr": "Elles sont toutes prêtes.",
+        "ar": "هن جميعًا جاهزات.",
+        "en": "They're all ready."
+      },
+      {
+        "fr": "Toutes les personnes sont présentes.",
+        "ar": "جميع الأشخاص موجودون.",
+        "en": "Everyone is present."
+      }
+    ]
+  },
+  {
+    "fr": "Tout à fait",
+    "ar": "تمامًا / بالتأكيد",
+    "en": "Absolutely / Exactly",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Oui, tout à fait.",
+        "ar": "نعم، بالتأكيد.",
+        "en": "Yes, absolutely."
+      },
+      {
+        "fr": "Je suis tout à fait d'accord.",
+        "ar": "أنا موافق تمامًا.",
+        "en": "I completely agree."
+      },
+      {
+        "fr": "C'est tout à fait normal.",
+        "ar": "هذا طبيعي تمامًا.",
+        "en": "That's perfectly normal."
+      },
+      {
+        "fr": "Tu as tout à fait raison.",
+        "ar": "أنت محق تمامًا.",
+        "en": "You're absolutely right."
+      },
+      {
+        "fr": "C'est tout à fait possible.",
+        "ar": "هذا ممكن تمامًا.",
+        "en": "That's absolutely possible."
+      }
+    ]
+  },
+  {
+    "fr": "Tout de suite",
+    "ar": "حالًا / فورًا",
+    "en": "Right away / Immediately",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "ex": [
+      {
+        "fr": "J'arrive tout de suite.",
+        "ar": "سآتي حالًا.",
+        "en": "I'll be right there."
+      },
+      {
+        "fr": "Je le fais tout de suite.",
+        "ar": "سأفعل ذلك فورًا.",
+        "en": "I'll do it right away."
+      },
+      {
+        "fr": "Réponds-moi tout de suite.",
+        "ar": "أجبني حالًا.",
+        "en": "Answer me right away."
+      },
+      {
+        "fr": "Je reviens tout de suite.",
+        "ar": "سأعود حالًا.",
+        "en": "I'll be right back."
+      },
+      {
+        "fr": "Appelez un médecin tout de suite !",
+        "ar": "اتصلوا بطبيب فورًا!",
+        "en": "Call a doctor immediately!"
+      }
+    ]
+  },
+  {
+    "fr": "Tout seul",
+    "ar": "وحده / بمفرده",
+    "en": "Alone / By oneself",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je peux le faire tout seul.",
+        "ar": "أستطيع فعل ذلك بمفردي.",
+        "en": "I can do it myself."
+      },
+      {
+        "fr": "Il habite tout seul.",
+        "ar": "هو يعيش بمفرده.",
+        "en": "He lives alone."
+      },
+      {
+        "fr": "Tu es venu tout seul ?",
+        "ar": "هل أتيت بمفردك؟",
+        "en": "Did you come alone?"
+      },
+      {
+        "fr": "Je vais y aller tout seul.",
+        "ar": "سأذهب إلى هناك بمفردي.",
+        "en": "I'll go there by myself."
+      },
+      {
+        "fr": "Elle a tout fait toute seule.",
+        "ar": "فعلت كل شيء بمفردها.",
+        "en": "She did everything by herself."
       }
     ]
   }
