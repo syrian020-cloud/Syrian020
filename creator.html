@@ -755,7 +755,7 @@
 
   function openSearch(text, lang) {
     if (!text) return;
-    var q = 'Explain the phrase ' + text + ' in French and Arabic and English. Add common French phrases with translation to Arabic and English';
+    var q = 'Explain the phrase ' + text + ' in French and Arabic and English. Add common French example phrases that use the phrase or word "' + text + '" with translation to Arabic and English';
     var url = 'https://www.google.com/search?udm=50&q=' + encodeURIComponent(q) + '&hl=' + (lang || 'en');
     var launcher = nativeAppLauncher();
     if (launcher && launcher.openUrl) {
