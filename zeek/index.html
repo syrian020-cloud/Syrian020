@@ -241,10 +241,11 @@
   .btns .note-btn:hover { border-color: var(--accent); color: var(--accent); }
   .btns .note-btn.note-on { color: var(--success); border-color: var(--success); }
   .btns .media-btn.on { color: var(--accent); border-color: var(--accent); }
-  .phrase-media { margin-bottom: 0.75rem; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+  .phrase-media { position: relative; margin-bottom: 0.75rem; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
   .phrase-media img, .phrase-media video, .phrase-media iframe { display: block; width: 100%; max-height: 320px; object-fit: contain; background: #000; }
   .phrase-media iframe { height: 240px; }
   .phrase-media video { max-height: 360px; }
+  .caption-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.75); color: #fff; padding: 0.45rem 0.7rem; font-size: 0.95rem; text-align: center; line-height: 1.4; z-index: 2; pointer-events: none; }
   .no-lessons { text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); }
   .no-lessons .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
   .no-lessons .card-title { color: var(--text-primary); margin-bottom: 0.3rem; }
@@ -401,6 +402,14 @@
     <div class="form-group" style="margin-top:0.75rem">
       <label data-t="mediaUrl">Or media URL</label>
       <input type="text" id="media-url" placeholder="https://..." style="width:100%">
+    </div>
+    <div class="form-group" style="margin-top:0.75rem">
+      <button type="button" class="btn ghost" id="btn-choose-caption-file" data-t="chooseCaptionFile">Choose caption file (SRT/text)</button>
+      <input type="file" id="caption-file" accept=".srt,.txt" style="display:none">
+    </div>
+    <div class="form-group" style="margin-top:0.75rem">
+      <label data-t="captionText">Or paste caption text</label>
+      <textarea id="caption-text" rows="4" data-t="captionTextPlaceholder" placeholder="00:00 French | Arabic | English" style="width:100%"></textarea>
     </div>
     <div class="form-group" id="media-preview" style="display:none;margin-top:0.75rem">
       <img id="media-preview-img" style="width:100%;border-radius:var(--radius);display:none">
@@ -648,8 +657,12 @@
     if (existing) {
       existing.title = builtIn.title;
       const oldMedia = existing.phrases.map(p => p.media);
+      const oldCaptions = existing.phrases.map(p => p.captionText);
       existing.phrases = builtIn.phrases;
-      existing.phrases.forEach((p, i) => { if (oldMedia[i]) p.media = oldMedia[i]; });
+      existing.phrases.forEach((p, i) => {
+        if (oldMedia[i]) p.media = oldMedia[i];
+        if (oldCaptions[i]) p.captionText = oldCaptions[i];
+      });
       if (!existing.image) existing.image = builtIn.image;
     } else {
       builtIn.id = nextId();
@@ -759,6 +772,10 @@
     chooseMediaFile: { ar: 'اختر ملف صورة/فيديو', en: 'Choose image/video file', fr: 'Choisir un fichier image/vidéo' },
     mediaInvalid: { ar: 'ملف غير صالح. يجب أن يكون صورة أو فيديو.', en: 'Invalid file. Must be an image or video.', fr: 'Fichier invalide. Doit être une image ou une vidéo.' },
     mediaSaveError: { ar: 'تعذر حفظ الوسائط في التطبيق', en: 'Could not save media to the app', fr: 'Impossible d\'enregistrer le média dans l\'application' },
+    chooseCaptionFile: { ar: 'اختر ملف ترجمة (SRT/نص)', en: 'Choose caption file (SRT/text)', fr: 'Choisir fichier sous-titres (SRT/texte)' },
+    captionText: { ar: 'أو ألصق نص الترجمة', en: 'Or paste caption text', fr: 'Ou coller le texte des sous-titres' },
+    captionTextPlaceholder: { ar: '00:00 فرنسي | عربي | إنجليزي', en: '00:00 French | Arabic | English', fr: '00:00 Français | Arabe | Anglais' },
+    captionParseError: { ar: 'تعذر تحليل نص الترجمة. تأكد من التنسيق.', en: 'Could not parse caption text. Check the format.', fr: 'Impossible d\'analyser le texte des sous-titres. Vérifiez le format.' },
     editFolderTitle: { ar: 'تعديل عنوان المجلد', en: 'Edit folder title', fr: 'Modifier le titre du dossier' },
     editLessonTitle: { ar: 'تعديل الدرس', en: 'Edit lesson', fr: 'Modifier la leçon' },
     invalidImage: { ar: 'الملف ليس صورة', en: 'File is not an image', fr: 'Le fichier n\'est pas une image' },
@@ -975,7 +992,95 @@
     if (!it) return;
     if (it.image) await deleteMediaRef(it.image);
     if (it.lessons) { for (const l of it.lessons) await deleteItemMedia(l); }
-    if (it.phrases) { for (const p of it.phrases) { if (p.media) await deleteMediaRef(p.media); } }
+    if (it.phrases) { for (const p of it.phrases) { if (p.media) await deleteMediaRef(p.media); if (p.captionText) delete p.captionText; } }
+  }
+
+  function findPhraseByKey(key) {
+    if (!key) return null;
+    const [lessonId, idx] = key.split('.').map(Number);
+    const found = findLesson(lessonId);
+    return found ? found.lesson.phrases[idx] : null;
+  }
+
+  function parseCaptions(text) {
+    text = (text || '').trim();
+    if (!text) return [];
+    if (text.includes('-->')) return parseSRT(text);
+    return parseCustomCaptions(text);
+  }
+
+  function parseCustomCaptions(text) {
+    const captions = [];
+    const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      if (line === 'الحوار' || /^\d+$/.test(line)) continue;
+      const m = line.match(/^(\d{1,2}):(\d{2})\s+(.+)$/);
+      if (!m) continue;
+      const start = parseInt(m[1], 10) * 60 + parseInt(m[2], 10);
+      const parts = m[3].split(/\s*\|\s*/);
+      captions.push({ start, end: start + 4, fr: parts[0] || '', ar: parts[1] || '', en: parts[2] || '' });
+    }
+    for (let i = 0; i < captions.length; i++) {
+      if (i + 1 < captions.length) captions[i].end = captions[i + 1].start;
+    }
+    return captions;
+  }
+
+  function parseSRT(text) {
+    const captions = [];
+    const blocks = text.split(/\n\s*\n/);
+    for (const block of blocks) {
+      const lines = block.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+      const timeIdx = lines.findIndex(l => l.includes('-->'));
+      if (timeIdx === -1 || timeIdx + 1 >= lines.length) continue;
+      const m = lines[timeIdx].match(/(\d{1,2}):(\d{2}):(\d{2})[,.](\d{3})\s*-->\s*(\d{1,2}):(\d{2}):(\d{2})[,.](\d{3})/);
+      if (!m) continue;
+      const start = parseInt(m[1],10)*3600 + parseInt(m[2],10)*60 + parseInt(m[3],10) + parseInt(m[4],10)/1000;
+      const end = parseInt(m[5],10)*3600 + parseInt(m[6],10)*60 + parseInt(m[7],10) + parseInt(m[8],10)/1000;
+      const text = lines.slice(timeIdx + 1).join(' ');
+      const parts = text.split(/\s*\|\s*/);
+      captions.push({ start, end, fr: parts[0] || '', ar: parts[1] || '', en: parts[2] || '' });
+    }
+    return captions.sort((a, b) => a.start - b.start);
+  }
+
+  async function attachCaptionSync(video, captionText) {
+    if (!video || video.dataset.captionSync === '1') return;
+    let captions = [];
+    try { captions = parseCaptions(captionText); } catch (e) { console.error('parse captions', e); }
+    if (!captions.length) return;
+    const container = video.closest('.phrase-media');
+    const overlay = document.createElement('div');
+    overlay.className = 'caption-overlay';
+    if (container) container.appendChild(overlay);
+    const update = () => {
+      const t = video.currentTime || 0;
+      const c = captions.find(c => t >= c.start && t < c.end);
+      if (!c) { overlay.style.display = 'none'; return; }
+      const txt = c[state.uiLang] || c.fr || c.en || c.ar || '';
+      overlay.textContent = txt;
+      overlay.style.display = 'block';
+      overlay.dir = state.uiLang === 'ar' ? 'rtl' : 'ltr';
+    };
+    video.addEventListener('timeupdate', update);
+    video.addEventListener('seeked', update);
+    video.addEventListener('play', update);
+    video.addEventListener('loadedmetadata', update);
+    video.dataset.captionSync = '1';
+    update();
+  }
+
+  async function syncAllCaptions() {
+    const phrases = document.querySelectorAll('.phrase');
+    for (const el of phrases) {
+      const key = el.dataset.key;
+      if (!key) continue;
+      const p = findPhraseByKey(key);
+      if (!p || !p.captionText) continue;
+      const video = el.querySelector('video');
+      if (video) await attachCaptionSync(video, p.captionText);
+    }
   }
 
   async function loadMedia() {
@@ -991,7 +1096,9 @@
       } else {
         el.innerHTML = `<img src="${esc(resolved.url)}" alt="" onerror="this.style.display='none'">`;
       }
+      el.classList.remove('media-placeholder');
     }
+    await syncAllCaptions();
   }
 
   function showTTSBanner(msg, btnText) {
@@ -1723,6 +1830,7 @@
   let noteCtx = null;
   let mediaKey = null;
   let mediaFileData = null;
+  let captionFileData = null;
   let noteDrawing = false;
   let noteErasing = false;
   let noteColor = '#000000';
@@ -1955,9 +2063,10 @@
     }
   }
 
-  function openMedia(key) {
+  async function openMedia(key) {
     mediaKey = key;
     mediaFileData = null;
+    captionFileData = null;
     const [lessonId, idx] = key.split('.').map(Number);
     const found = findLesson(lessonId);
     const p = found ? found.lesson.phrases[idx] : null;
@@ -1965,9 +2074,17 @@
     const urlInput = document.getElementById('media-url');
     const removeBtn = document.getElementById('btn-remove-media');
     const fileInput = document.getElementById('media-file');
+    const captionText = document.getElementById('caption-text');
+    const captionFileInput = document.getElementById('caption-file');
     urlInput.value = (p && p.media && !/^data:/.test(p.media) && !/^file:\/\//.test(p.media) && !/^idb:\/\//.test(p.media)) ? p.media : '';
     removeBtn.style.display = (p && p.media) ? 'inline-block' : 'none';
     fileInput.value = '';
+    captionFileInput.value = '';
+    captionText.value = '';
+    if (p && p.captionText) {
+      captionFileData = p.captionText;
+      captionText.value = p.captionText;
+    }
     updateMediaPreview(p ? p.media : null);
     modal.classList.add('show');
   }
@@ -1976,6 +2093,7 @@
     document.getElementById('media-modal').classList.remove('show');
     mediaKey = null;
     mediaFileData = null;
+    captionFileData = null;
     updateMediaPreview(null);
   }
 
@@ -1985,7 +2103,7 @@
     const found = findLesson(lessonId);
     if (!found) { closeMedia(); return; }
     const p = found.lesson.phrases[idx];
-    let url = mediaFileData || document.getElementById('media-url').value.trim();
+    let url = mediaFileData || document.getElementById('media-url').value.trim() || (p && p.media);
     if (!url) { closeMedia(); return; }
     if (!/^https?:\/\//.test(url) && !/^data:/.test(url) && !/^file:\/\//.test(url) && !/^idb:\/\//.test(url)) {
       showToast(t('mediaInvalid'));
@@ -1993,6 +2111,12 @@
     }
     if (p.media && p.media !== url) await deleteMediaRef(p.media);
     p.media = url;
+    const captionText = document.getElementById('caption-text').value.trim();
+    if (captionText) {
+      p.captionText = captionText;
+    } else if (p.captionText) {
+      delete p.captionText;
+    }
     saveLessons();
     closeMedia();
     go(state.route, false);
@@ -2008,6 +2132,7 @@
       const p = found.lesson.phrases[idx];
       if (p && p.media) await deleteMediaRef(p.media);
       delete p.media;
+      if (p && p.captionText) delete p.captionText;
       saveLessons();
       go(state.route, false);
       showToast(t('deleted'));
@@ -2020,10 +2145,14 @@
     const fileInput = document.getElementById('media-file');
     const chooseBtn = document.getElementById('btn-choose-media-file');
     const urlInput = document.getElementById('media-url');
+    const captionInput = document.getElementById('caption-file');
+    const chooseCaptionBtn = document.getElementById('btn-choose-caption-file');
+    const captionText = document.getElementById('caption-text');
     document.getElementById('btn-close-media').onclick = closeMedia;
     document.getElementById('btn-save-media').onclick = saveMedia;
     document.getElementById('btn-remove-media').onclick = removeMedia;
     chooseBtn.onclick = () => fileInput.click();
+    chooseCaptionBtn.onclick = () => captionInput.click();
     fileInput.onchange = async () => {
       const file = fileInput.files && fileInput.files[0];
       if (!file) return;
@@ -2052,6 +2181,18 @@
         showToast(t('mediaSaveError'));
       }
     };
+    captionInput.onchange = () => {
+      const file = captionInput.files && captionInput.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        captionFileData = e.target.result;
+        captionText.value = e.target.result;
+      };
+      reader.onerror = () => showToast(t('captionParseError'));
+      reader.readAsText(file);
+    };
+    captionText.oninput = (e) => { captionFileData = e.target.value; };
     urlInput.oninput = (e) => { mediaFileData = null; updateMediaPreview(e.target.value.trim()); };
     modal.addEventListener('click', e => { if (e.target === modal) closeMedia(); });
   }
