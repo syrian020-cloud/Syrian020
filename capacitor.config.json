@@ -1,6 +1,6 @@
 {
-  "appId": "com.syrian020.frenchphrasebook",
-  "appName": "تعلم الفرنسية",
+  "appId": "com.syrian020.motsy",
+  "appName": "Motsy",
   "webDir": "www",
   "server": {
     "androidScheme": "https"

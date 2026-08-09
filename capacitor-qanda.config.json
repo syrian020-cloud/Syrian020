@@ -1,6 +1,6 @@
 {
-  "appId": "com.syrian020.motsy.vocab",
-  "appName": "Motsy",
+  "appId": "com.syrian020.qanda",
+  "appName": "QandA",
   "webDir": "www",
   "server": {
     "androidScheme": "https"
