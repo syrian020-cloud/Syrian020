@@ -158,7 +158,11 @@
   .media-preview { width: 100%; max-height: 360px; object-fit: contain; display: block; }
   .media-preview video { width: 100%; max-height: 360px; }
   .media-placeholder { color: var(--text-secondary); font-size: 0.9rem; padding: 1rem; }
-  .media-btns { display: flex; gap: 0.55rem; justify-content: center; margin-top: 0.7rem; }
+  .media-btns { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-top: 0.7rem; }
+  .media-btns .btn { padding: 0.6rem 1rem; font-size: 0.95rem; border-radius: 14px; }
+  .media-btns .btn .icon { width: 1.25em; height: 1.25em; }
+  .media-box.has-media .media-btns { padding: 0.6rem; background: linear-gradient(180deg, transparent, var(--bg-secondary)); }
+  .media-btns .loop-media.active { background: linear-gradient(135deg, var(--success), #16a34a); color: #0b0d1f; border-color: transparent; }
   .url-input-row { display: flex; gap: 0.45rem; margin-top: 0.8rem; align-items: stretch; }
   .url-input-row .input { flex: 1; font-size: 0.92rem; padding: 0.6rem 0.9rem; }
   .url-input-row .icon-btn { display: inline-flex; align-items: center; justify-content: center; padding: 0 0.55rem; border-radius: 12px; }
@@ -913,7 +917,8 @@
         '<div class="media-placeholder" data-t="noMedia"></div>' +
         '<div class="media-btns">' +
           '<button class="btn ghost attach-media">' + iconText('attachMedia', 'image') + '</button>' +
-          '<button class="btn danger remove-media hidden">' + iconText('removeMedia', 'close') + '</button>' +
+          '<button class="btn ghost loop-media hidden" data-t-title="loop">' + iconText('loop', 'loop') + '</button>' +
+          '<button class="btn danger remove-media hidden">' + iconText('removeMedia', 'trash') + '</button>' +
         '</div>' +
         '<div class="url-input-row">' +
           '<input type="text" class="input media-url" id="media-url-' + p.id + '" data-t="mediaUrlPlaceholder" placeholder="https://...">' +
@@ -985,6 +990,7 @@
       if (!phrase) return;
 
       var lineLang = btn.dataset.lang;
+      var box = document.getElementById('media-box-' + phraseId);
       if (btn.classList.contains('speak-btn')) {
         stopSpeech();
         speakOnce(phrase, ['fr', 'ar', 'en'], phraseId);
@@ -994,6 +1000,12 @@
         speakLine(phrase, lineLang, phraseId);
       } else if (btn.classList.contains('loop-line')) {
         toggleLoop(phrase, phraseId + ':' + lineLang, [lineLang]);
+      } else if (btn.classList.contains('loop-media')) {
+        phrase.videoLoop = !phrase.videoLoop;
+        var video = box ? box.querySelector('video.media-preview') : null;
+        if (video) video.loop = phrase.videoLoop;
+        btn.classList.toggle('active', phrase.videoLoop);
+        saveCurrentLesson();
       } else if (btn.classList.contains('edit-phrase')) {
         phrase.editing = !phrase.editing;
         if (phrase.editing) stopSpeech();
@@ -1057,12 +1069,14 @@
     var placeholder = box.querySelector('.media-placeholder');
     var attach = box.querySelector('.attach-media');
     var remove = box.querySelector('.remove-media');
+    var loop = box.querySelector('.loop-media');
     var existing = box.querySelector('.media-preview');
     if (existing) existing.remove();
 
     if (!phrase.mediaId) {
       placeholder.classList.remove('hidden');
       remove.classList.add('hidden');
+      if (loop) loop.classList.add('hidden');
       box.classList.remove('has-media');
       return;
     }
@@ -1072,17 +1086,25 @@
 
     getMediaUrl(phrase.mediaId).then(function (url) {
       if (!url) return;
+      var isVideo = phrase.mediaType && phrase.mediaType.indexOf('video/') === 0;
+      if (isVideo) {
+        if (loop) loop.classList.remove('hidden');
+      } else {
+        if (loop) loop.classList.add('hidden');
+      }
       var el;
-      if (phrase.mediaType && phrase.mediaType.indexOf('video/') === 0) {
+      if (isVideo) {
         el = document.createElement('video');
         el.controls = true;
         el.playsInline = true;
+        el.loop = !!phrase.videoLoop;
       } else {
         el = document.createElement('img');
       }
       el.className = 'media-preview';
       el.src = url;
       box.insertBefore(el, box.firstChild);
+      if (loop) loop.classList.toggle('active', isVideo && !!phrase.videoLoop);
     });
   }
 
