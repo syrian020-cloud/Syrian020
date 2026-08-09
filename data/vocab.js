@@ -22512,7 +22512,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Transmettre",
-    "ar": "يرسل / يحوّل / يحوّل (معلومة أو وثيقة) / ينقل / يمرر / يمرّر",
+    "ar": "يرسل / يحوّل / يحوّل (معلومة أو وثيقة) / ينقل / يمرر / يمرّر / يبلّغ",
     "en": "To submit / Forward / To transmit / forward / To forward / to transmit / to pass on / to forward / To pass on",
     "pos": "verb",
     "level": "A2",
@@ -22663,6 +22663,26 @@ window.VOCAB_DATA = [
         "fr": "Peux-tu me transmettre l'information ?",
         "ar": "هل يمكنك إرسال المعلومة لي؟",
         "en": "Can you pass the information on to me?"
+      },
+      {
+        "fr": "Je vais transmettre votre message.",
+        "ar": "سأنقل رسالتكم.",
+        "en": "I'll pass on your message."
+      },
+      {
+        "fr": "Je vous transmets les informations.",
+        "ar": "أرسل لكم المعلومات.",
+        "en": "I'm forwarding you the information."
+      },
+      {
+        "fr": "Il faut transmettre la demande rapidement.",
+        "ar": "يجب إرسال الطلب بسرعة.",
+        "en": "The request must be forwarded quickly."
+      },
+      {
+        "fr": "Merci de me transmettre votre adresse.",
+        "ar": "شكرًا لإرسال عنوانك لي.",
+        "en": "Please send me your address."
       }
     ]
   },
@@ -23498,12 +23518,13 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Traiter",
-    "ar": "يعالج / يدرس / يدرس (ملف) / يتعامل مع / يدرس طلبًا / يعالج ملفًا / يعامل",
-    "en": "To process / to handle / to deal with / To treat / to process / To deal with",
+    "ar": "يعالج / يدرس / يدرس (ملف) / يتعامل مع / يدرس طلبًا / يعالج ملفًا / يعامل / يتناول",
+    "en": "To process / to handle / to deal with / To treat / to process / To deal with / To handle",
     "pos": "verb",
     "level": "B1",
     "contexts": [
       "caf",
+      "health",
       "services",
       "transport",
       "work"
@@ -23673,6 +23694,26 @@ window.VOCAB_DATA = [
         "fr": "Le dossier est en train d'être traité.",
         "ar": "الملف قيد المعالجة.",
         "en": "The file is being processed."
+      },
+      {
+        "fr": "Je dois traiter ce problème.",
+        "ar": "يجب أن أتعامل مع هذه المشكلة.",
+        "en": "I have to deal with this problem."
+      },
+      {
+        "fr": "Comment traiter cette demande ?",
+        "ar": "كيف نتعامل مع هذا الطلب؟",
+        "en": "How should we handle this request?"
+      },
+      {
+        "fr": "Il traite bien ses employés.",
+        "ar": "هو يعامل موظفيه جيدًا.",
+        "en": "He treats his employees well."
+      },
+      {
+        "fr": "On doit traiter ce sujet rapidement.",
+        "ar": "يجب أن نتناول هذا الموضوع بسرعة.",
+        "en": "We need to deal with this matter quickly."
       }
     ]
   },
@@ -26845,6 +26886,21 @@ window.VOCAB_DATA = [
         "fr": "La température est de vingt degrés.",
         "ar": "درجة الحرارة عشرون درجة.",
         "en": "The temperature is twenty degrees."
+      },
+      {
+        "fr": "La température baisse ce soir.",
+        "ar": "درجة الحرارة تنخفض هذا المساء.",
+        "en": "The temperature is dropping tonight."
+      },
+      {
+        "fr": "Vérifie la température.",
+        "ar": "تحقق من درجة الحرارة.",
+        "en": "Check the temperature."
+      },
+      {
+        "fr": "La température de l'eau est bonne.",
+        "ar": "درجة حرارة الماء مناسبة.",
+        "en": "The water temperature is good."
       }
     ]
   },
@@ -33723,14 +33779,15 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Trancher",
-    "ar": "يشرّح / يقطع شرائح / يقطع / يحسم",
+    "ar": "يشرّح / يقطع شرائح / يقطع / يحسم / يتخذ قرارًا",
     "en": "To slice / To cut / to decide / To decide",
     "level": "A2",
     "pos": "verb",
     "contexts": [
       "daily",
       "restaurant",
-      "sushi"
+      "sushi",
+      "work"
     ],
     "ex": [
       {
@@ -33812,6 +33869,31 @@ window.VOCAB_DATA = [
         "fr": "Elle a tranché la question.",
         "ar": "حسمت المسألة.",
         "en": "She settled the matter."
+      },
+      {
+        "fr": "Il faut trancher la viande.",
+        "ar": "يجب تقطيع اللحم.",
+        "en": "The meat needs to be sliced."
+      },
+      {
+        "fr": "Il faut trancher entre les deux options.",
+        "ar": "يجب الاختيار بين الخيارين.",
+        "en": "We need to decide between the two options."
+      },
+      {
+        "fr": "Le juge va trancher.",
+        "ar": "القاضي سيحسم الأمر.",
+        "en": "The judge will decide."
+      },
+      {
+        "fr": "Je n'arrive pas à trancher.",
+        "ar": "لا أستطيع اتخاذ القرار.",
+        "en": "I can't make up my mind."
+      },
+      {
+        "fr": "Il faut trancher rapidement.",
+        "ar": "يجب حسم الأمر بسرعة.",
+        "en": "We need to make a decision quickly."
       }
     ]
   },
@@ -67341,6 +67423,11 @@ window.VOCAB_DATA = [
         "fr": "Termine ton repas.",
         "ar": "أنه وجبتك.",
         "en": "Finish your meal."
+      },
+      {
+        "fr": "Termine ton repas.",
+        "ar": "أنه طعامك.",
+        "en": "Finish your meal."
       }
     ]
   },
@@ -67474,8 +67561,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Tourner",
-    "ar": "ينعطف / يدور / يلتف / يدير",
-    "en": "To turn",
+    "ar": "ينعطف / يدور / يلتف / يدير / يشغّل",
+    "en": "To turn / To rotate",
     "pos": "verb",
     "level": "A1",
     "contexts": [
@@ -67597,6 +67684,11 @@ window.VOCAB_DATA = [
         "fr": "Tourne-toi vers moi.",
         "ar": "استدر نحوي.",
         "en": "Turn toward me."
+      },
+      {
+        "fr": "Le ventilateur tourne rapidement.",
+        "ar": "المروحة تدور بسرعة.",
+        "en": "The fan is spinning quickly."
       }
     ]
   },
@@ -68268,9 +68360,9 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Tenir à",
-    "ar": "يحرص على / يعتبر شيئًا مهمًا / يريد بشدة",
-    "en": "To care about / to value",
-    "pos": "verb",
+    "ar": "يحرص على / يعتبر شيئًا مهمًا / يريد بشدة / يهتم بـ / يتمسك بـ",
+    "en": "To care about / to value / To insist on",
+    "pos": "phrase",
     "level": "A1",
     "contexts": [
       "daily",
@@ -68326,6 +68418,31 @@ window.VOCAB_DATA = [
         "fr": "Je tiens à m'excuser.",
         "ar": "أود أن أعتذر.",
         "en": "I'd like to apologize."
+      },
+      {
+        "fr": "Je tiens beaucoup à toi.",
+        "ar": "أنا أهتم بك كثيرًا.",
+        "en": "I care about you a lot."
+      },
+      {
+        "fr": "Je tiens à te remercier.",
+        "ar": "أود أن أشكرك.",
+        "en": "I'd like to thank you."
+      },
+      {
+        "fr": "Il tient à son travail.",
+        "ar": "هو متمسك بعمله.",
+        "en": "He cares about his job."
+      },
+      {
+        "fr": "Je tiens à cette idée.",
+        "ar": "أنا متمسك بهذه الفكرة.",
+        "en": "I care about this idea."
+      },
+      {
+        "fr": "Elle tient beaucoup à sa famille.",
+        "ar": "هي تهتم كثيرًا بعائلتها.",
+        "en": "She cares a lot about her family."
       }
     ]
   },
@@ -69026,7 +69143,6 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily",
-      "transport",
       "work"
     ],
     "ex": [
@@ -69104,6 +69220,16 @@ window.VOCAB_DATA = [
         "fr": "Tu peux trier ça par ordre alphabétique ?",
         "ar": "هل يمكنك ترتيب هذا حسب الترتيب الأبجدي؟",
         "en": "Can you sort this alphabetically?"
+      },
+      {
+        "fr": "Elle trie les documents.",
+        "ar": "هي ترتب الوثائق.",
+        "en": "She sorts the documents."
+      },
+      {
+        "fr": "Je suis en train de trier mes affaires.",
+        "ar": "أنا أرتب أغراضي الآن.",
+        "en": "I'm sorting my things."
       }
     ]
   },
@@ -69240,8 +69366,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Témoigner",
-    "ar": "يشهد / يدلي بشهادة / يعبّر عن",
-    "en": "To testify / to give evidence / to bear witness",
+    "ar": "يشهد / يدلي بشهادة / يعبّر عن / يدلي بشهادته",
+    "en": "To testify / to give evidence / to bear witness / To bear witness",
     "pos": "verb",
     "level": "A1",
     "contexts": [
@@ -69324,6 +69450,31 @@ window.VOCAB_DATA = [
         "fr": "Ce résultat témoigne de ses efforts.",
         "ar": "هذه النتيجة دليل على جهوده.",
         "en": "This result shows his efforts."
+      },
+      {
+        "fr": "Il va témoigner au tribunal.",
+        "ar": "سيدلي بشهادته في المحكمة.",
+        "en": "He will testify in court."
+      },
+      {
+        "fr": "Elle a témoigné contre lui.",
+        "ar": "شهدت ضده.",
+        "en": "She testified against him."
+      },
+      {
+        "fr": "Je peux témoigner de ce que j'ai vu.",
+        "ar": "يمكنني أن أشهد بما رأيته.",
+        "en": "I can testify to what I saw."
+      },
+      {
+        "fr": "Plusieurs personnes ont témoigné.",
+        "ar": "شهد عدة أشخاص.",
+        "en": "Several people testified."
+      },
+      {
+        "fr": "Il refuse de témoigner.",
+        "ar": "يرفض الإدلاء بشهادته.",
+        "en": "He refuses to testify."
       }
     ]
   },
@@ -71418,6 +71569,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily",
+      "services",
       "transport"
     ],
     "ex": [
@@ -71470,6 +71622,31 @@ window.VOCAB_DATA = [
         "fr": "Le ticket coûte deux euros.",
         "ar": "التذكرة تكلف يورويْن.",
         "en": "The ticket costs two euros."
+      },
+      {
+        "fr": "J'ai acheté mon ticket.",
+        "ar": "اشتريت تذكرتي.",
+        "en": "I bought my ticket."
+      },
+      {
+        "fr": "Où puis-je acheter un ticket ?",
+        "ar": "أين يمكنني شراء تذكرة؟",
+        "en": "Where can I buy a ticket?"
+      },
+      {
+        "fr": "Garde ton ticket.",
+        "ar": "احتفظ بتذكرتك.",
+        "en": "Keep your ticket."
+      },
+      {
+        "fr": "Le ticket coûte deux euros.",
+        "ar": "التذكرة تكلف يوروين.",
+        "en": "The ticket costs two euros."
+      },
+      {
+        "fr": "Je n'ai pas de ticket.",
+        "ar": "ليس لدي تذكرة.",
+        "en": "I don't have a ticket."
       }
     ]
   },
@@ -71604,7 +71781,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Tasse",
     "ar": "فنجان / كوب",
-    "en": "Cup / mug",
+    "en": "Cup / mug / Mug",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -71658,6 +71835,21 @@ window.VOCAB_DATA = [
         "fr": "Cette tasse est à moi.",
         "ar": "هذا الكوب لي.",
         "en": "This cup is mine."
+      },
+      {
+        "fr": "La tasse est vide.",
+        "ar": "الفنجان فارغ.",
+        "en": "The cup is empty."
+      },
+      {
+        "fr": "Attention, la tasse est chaude.",
+        "ar": "انتبه، الفنجان ساخن.",
+        "en": "Careful, the cup is hot."
+      },
+      {
+        "fr": "Mets la tasse sur la table.",
+        "ar": "ضع الفنجان على الطاولة.",
+        "en": "Put the cup on the table."
       }
     ]
   },
@@ -71929,7 +72121,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Trou",
-    "ar": "ثقب / حفرة",
+    "ar": "ثقب / حفرة / فتحة",
     "en": "Hole",
     "pos": "noun",
     "level": "A1",
@@ -71982,6 +72174,21 @@ window.VOCAB_DATA = [
         "fr": "J'ai trouvé un trou dans ma poche.",
         "ar": "وجدت ثقبًا في جيبي.",
         "en": "I found a hole in my pocket."
+      },
+      {
+        "fr": "Il faut réparer ce trou.",
+        "ar": "يجب إصلاح هذا الثقب.",
+        "en": "This hole needs to be repaired."
+      },
+      {
+        "fr": "La balle est tombée dans le trou.",
+        "ar": "سقطت الكرة في الحفرة.",
+        "en": "The ball fell into the hole."
+      },
+      {
+        "fr": "J'ai trouvé un trou dans ma chaussette.",
+        "ar": "وجدت ثقبًا في جوربي.",
+        "en": "I found a hole in my sock."
       }
     ]
   },
@@ -72586,6 +72793,21 @@ window.VOCAB_DATA = [
         "fr": "Ajoute un peu de sucre dans le thé.",
         "ar": "أضف قليلًا من السكر إلى الشاي.",
         "en": "Add a little sugar to the tea."
+      },
+      {
+        "fr": "Je voudrais un thé, s'il vous plaît.",
+        "ar": "أريد شايًا من فضلك.",
+        "en": "I'd like a tea, please."
+      },
+      {
+        "fr": "Le thé est encore chaud.",
+        "ar": "الشاي ما زال ساخنًا.",
+        "en": "The tea is still hot."
+      },
+      {
+        "fr": "Avec du sucre ou sans sucre ?",
+        "ar": "مع السكر أم بدون سكر؟",
+        "en": "With sugar or without sugar?"
       }
     ]
   },
@@ -72678,6 +72900,21 @@ window.VOCAB_DATA = [
         "fr": "Il y a quatre chaises autour de la table.",
         "ar": "هناك أربعة كراسٍ حول الطاولة.",
         "en": "There are four chairs around the table."
+      },
+      {
+        "fr": "On mange à table.",
+        "ar": "نأكل على الطاولة.",
+        "en": "We eat at the table."
+      },
+      {
+        "fr": "Réserve une table pour deux.",
+        "ar": "احجز طاولة لشخصين.",
+        "en": "Book a table for two."
+      },
+      {
+        "fr": "Cette table est libre ?",
+        "ar": "هل هذه الطاولة شاغرة؟",
+        "en": "Is this table free?"
       }
     ]
   },
@@ -72903,7 +73140,8 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily",
-      "post"
+      "post",
+      "services"
     ],
     "ex": [
       {
@@ -72930,17 +73168,38 @@ window.VOCAB_DATA = [
         "fr": "Le timbre est collé sur l'enveloppe.",
         "ar": "الطابع ملصق على الظرف.",
         "en": "The stamp is stuck on the envelope."
+      },
+      {
+        "fr": "Combien coûte un timbre ?",
+        "ar": "كم سعر الطابع؟",
+        "en": "How much does a stamp cost?"
+      },
+      {
+        "fr": "Colle le timbre sur l'enveloppe.",
+        "ar": "ألصق الطابع على الظرف.",
+        "en": "Stick the stamp on the envelope."
+      },
+      {
+        "fr": "Où puis-je acheter un timbre ?",
+        "ar": "أين يمكنني شراء طابع؟",
+        "en": "Where can I buy a stamp?"
+      },
+      {
+        "fr": "Il faut mettre un timbre ici.",
+        "ar": "يجب وضع طابع هنا.",
+        "en": "You need to put a stamp here."
       }
     ]
   },
   {
     "fr": "Toile",
-    "ar": "قماش / نسيج / لوحة قماشية",
-    "en": "Canvas / cloth",
+    "ar": "قماش / نسيج / لوحة قماشية / لوحة / شبكة العنكبوت",
+    "en": "Canvas / cloth / Cloth / Web",
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "housing"
     ],
     "ex": [
       {
@@ -72967,6 +73226,31 @@ window.VOCAB_DATA = [
         "fr": "Il faut nettoyer la toile.",
         "ar": "يجب تنظيف القماش.",
         "en": "The canvas needs to be cleaned."
+      },
+      {
+        "fr": "Cette toile est très belle.",
+        "ar": "هذه اللوحة جميلة جدًا.",
+        "en": "This canvas is very beautiful."
+      },
+      {
+        "fr": "La toile est faite en coton.",
+        "ar": "القماش مصنوع من القطن.",
+        "en": "The cloth is made of cotton."
+      },
+      {
+        "fr": "Il y a une toile d'araignée ici.",
+        "ar": "هناك شبكة عنكبوت هنا.",
+        "en": "There's a spider web here."
+      },
+      {
+        "fr": "J'ai nettoyé la toile.",
+        "ar": "نظفت القماش.",
+        "en": "I cleaned the cloth."
+      },
+      {
+        "fr": "L'artiste travaille sur une grande toile.",
+        "ar": "الفنان يعمل على لوحة كبيرة.",
+        "en": "The artist is working on a large canvas."
       }
     ]
   },
@@ -73156,6 +73440,26 @@ window.VOCAB_DATA = [
         "fr": "J'ai oublié un truc à la maison.",
         "ar": "نسيت شيئًا في المنزل.",
         "en": "I forgot something at home."
+      },
+      {
+        "fr": "C'est quoi ce truc ?",
+        "ar": "ما هذا الشيء؟",
+        "en": "What's this thing?"
+      },
+      {
+        "fr": "Où est mon truc ?",
+        "ar": "أين الشيء الخاص بي؟",
+        "en": "Where's my stuff?"
+      },
+      {
+        "fr": "Tu connais un truc pour ça ?",
+        "ar": "هل تعرف حيلة لهذا؟",
+        "en": "Do you know a trick for this?"
+      },
+      {
+        "fr": "Ce truc est vraiment pratique.",
+        "ar": "هذا الشيء عملي جدًا.",
+        "en": "This thing is really useful."
       }
     ]
   },
@@ -73264,8 +73568,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Tournée",
-    "ar": "جولة / دور / جولة توصيل",
-    "en": "Round / tour / delivery route",
+    "ar": "جولة / دور / جولة توصيل / جولة عمل / مشوار",
+    "en": "Round / tour / delivery route / Tour",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -73299,6 +73603,31 @@ window.VOCAB_DATA = [
         "fr": "Je suis en tournée aujourd'hui.",
         "ar": "أنا في جولة اليوم.",
         "en": "I'm on my round today."
+      },
+      {
+        "fr": "Je fais une tournée ce matin.",
+        "ar": "أقوم بجولة هذا الصباح.",
+        "en": "I'm doing a round this morning."
+      },
+      {
+        "fr": "La tournée commence à huit heures.",
+        "ar": "تبدأ الجولة الساعة الثامنة.",
+        "en": "The tour starts at eight."
+      },
+      {
+        "fr": "Il est en tournée en France.",
+        "ar": "هو في جولة في فرنسا.",
+        "en": "He's on tour in France."
+      },
+      {
+        "fr": "Je dois terminer ma tournée.",
+        "ar": "يجب أن أنهي جولتي.",
+        "en": "I have to finish my round."
+      },
+      {
+        "fr": "La tournée prend deux heures.",
+        "ar": "الجولة تستغرق ساعتين.",
+        "en": "The round takes two hours."
       }
     ]
   },
@@ -73821,12 +74150,13 @@ window.VOCAB_DATA = [
   {
     "fr": "Tension",
     "ar": "توتر / ضغط / جهد كهربائي",
-    "en": "Tension / stress / voltage",
+    "en": "Tension / stress / voltage / Stress / Voltage",
     "pos": "noun",
     "level": "A1",
     "contexts": [
       "daily",
-      "health"
+      "health",
+      "work"
     ],
     "ex": [
       {
@@ -73873,6 +74203,26 @@ window.VOCAB_DATA = [
         "fr": "Essaie de réduire la tension.",
         "ar": "حاول تخفيف التوتر.",
         "en": "Try to reduce the tension."
+      },
+      {
+        "fr": "Il y a beaucoup de tension au travail.",
+        "ar": "هناك الكثير من التوتر في العمل.",
+        "en": "There's a lot of tension at work."
+      },
+      {
+        "fr": "La tension monte entre eux.",
+        "ar": "التوتر يزداد بينهما.",
+        "en": "Tension is rising between them."
+      },
+      {
+        "fr": "La situation crée beaucoup de tension.",
+        "ar": "الوضع يسبب الكثير من التوتر.",
+        "en": "The situation creates a lot of tension."
+      },
+      {
+        "fr": "Il y a une tension entre les deux personnes.",
+        "ar": "هناك توتر بين الشخصين.",
+        "en": "There's tension between the two people."
       }
     ]
   },
@@ -74013,6 +74363,16 @@ window.VOCAB_DATA = [
         "fr": "Après la tempête, le temps s'est calmé.",
         "ar": "بعد العاصفة، هدأ الطقس.",
         "en": "After the storm, the weather calmed down."
+      },
+      {
+        "fr": "Il y a une tempête dehors.",
+        "ar": "هناك عاصفة في الخارج.",
+        "en": "There's a storm outside."
+      },
+      {
+        "fr": "La tempête est terminée.",
+        "ar": "انتهت العاصفة.",
+        "en": "The storm is over."
       }
     ]
   },
@@ -75496,6 +75856,31 @@ window.VOCAB_DATA = [
         "fr": "Je cherche un logement temporaire.",
         "ar": "أبحث عن سكن مؤقت.",
         "en": "I'm looking for temporary accommodation."
+      },
+      {
+        "fr": "C'est seulement temporaire.",
+        "ar": "هذا مؤقت فقط.",
+        "en": "It's only temporary."
+      },
+      {
+        "fr": "J'ai un travail temporaire.",
+        "ar": "لدي عمل مؤقت.",
+        "en": "I have a temporary job."
+      },
+      {
+        "fr": "La fermeture est temporaire.",
+        "ar": "الإغلاق مؤقت.",
+        "en": "The closure is temporary."
+      },
+      {
+        "fr": "Cette solution est temporaire.",
+        "ar": "هذا الحل مؤقت.",
+        "en": "This solution is temporary."
+      },
+      {
+        "fr": "Mon logement est temporaire.",
+        "ar": "مسكني مؤقت.",
+        "en": "My accommodation is temporary."
       }
     ]
   },
@@ -75877,6 +76262,11 @@ window.VOCAB_DATA = [
         "fr": "Il m'a trompé.",
         "ar": "لقد خدعني.",
         "en": "He deceived me."
+      },
+      {
+        "fr": "Ne te trompe pas de porte.",
+        "ar": "لا تخطئ في اختيار الباب.",
+        "en": "Don't choose the wrong door."
       }
     ]
   },
@@ -79150,6 +79540,1311 @@ window.VOCAB_DATA = [
         "fr": "Elle a tout fait toute seule.",
         "ar": "فعلت كل شيء بمفردها.",
         "en": "She did everything by herself."
+      }
+    ]
+  },
+  {
+    "fr": "Travers",
+    "ar": "عبر / من خلال / عرضًا",
+    "en": "Across / Through",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Il regarde à travers la fenêtre.",
+        "ar": "ينظر من خلال النافذة.",
+        "en": "He looks through the window."
+      },
+      {
+        "fr": "Je l'ai vu à travers la porte.",
+        "ar": "رأيته من خلال الباب.",
+        "en": "I saw him through the door."
+      },
+      {
+        "fr": "On apprend à travers l'expérience.",
+        "ar": "نتعلم من خلال التجربة.",
+        "en": "We learn through experience."
+      },
+      {
+        "fr": "La lumière passe à travers le verre.",
+        "ar": "الضوء يمر عبر الزجاج.",
+        "en": "Light passes through the glass."
+      },
+      {
+        "fr": "Je peux voir à travers.",
+        "ar": "أستطيع أن أرى من خلاله.",
+        "en": "I can see through it."
+      }
+    ]
+  },
+  {
+    "fr": "Trouver moyen",
+    "ar": "يجد طريقة / يجد وسيلة",
+    "en": "To find a way",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais trouver un moyen.",
+        "ar": "سأجد طريقة.",
+        "en": "I'll find a way."
+      },
+      {
+        "fr": "Il faut trouver un moyen de résoudre ça.",
+        "ar": "يجب إيجاد طريقة لحل هذا.",
+        "en": "We need to find a way to solve this."
+      },
+      {
+        "fr": "On trouvera un moyen.",
+        "ar": "سنجد طريقة.",
+        "en": "We'll find a way."
+      },
+      {
+        "fr": "Tu dois trouver un moyen de venir.",
+        "ar": "يجب أن تجد طريقة للمجيء.",
+        "en": "You have to find a way to come."
+      },
+      {
+        "fr": "J'essaie de trouver un moyen plus simple.",
+        "ar": "أحاول إيجاد طريقة أبسط.",
+        "en": "I'm trying to find a simpler way."
+      }
+    ]
+  },
+  {
+    "fr": "Tromper de",
+    "ar": "يخطئ في اختيار شيء",
+    "en": "To choose the wrong",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "restaurant",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Je me suis trompé de bus.",
+        "ar": "ركبت الحافلة الخطأ.",
+        "en": "I took the wrong bus."
+      },
+      {
+        "fr": "Tu t'es trompé de jour.",
+        "ar": "أخطأت في اليوم.",
+        "en": "You got the wrong day."
+      },
+      {
+        "fr": "Je me suis trompé de chemin.",
+        "ar": "سلكت الطريق الخطأ.",
+        "en": "I took the wrong way."
+      },
+      {
+        "fr": "Il s'est trompé de personne.",
+        "ar": "أخطأ في الشخص.",
+        "en": "He got the wrong person."
+      },
+      {
+        "fr": "On s'est trompés de restaurant.",
+        "ar": "ذهبنا إلى المطعم الخطأ.",
+        "en": "We went to the wrong restaurant."
+      }
+    ]
+  },
+  {
+    "fr": "Troublant",
+    "ar": "مقلق / محيّر / مثير للاضطراب",
+    "en": "Disturbing / Troubling",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "C'est assez troublant.",
+        "ar": "هذا مقلق نوعًا ما.",
+        "en": "That's quite disturbing."
+      },
+      {
+        "fr": "Cette histoire est troublante.",
+        "ar": "هذه القصة مقلقة.",
+        "en": "This story is disturbing."
+      },
+      {
+        "fr": "Son comportement est troublant.",
+        "ar": "تصرفه مقلق.",
+        "en": "His behavior is troubling."
+      },
+      {
+        "fr": "J'ai trouvé ça troublant.",
+        "ar": "وجدت ذلك مقلقًا.",
+        "en": "I found that disturbing."
+      },
+      {
+        "fr": "C'est une situation troublante.",
+        "ar": "إنه موقف مقلق.",
+        "en": "It's a troubling situation."
+      }
+    ]
+  },
+  {
+    "fr": "Tricherie",
+    "ar": "غش / احتيال",
+    "en": "Cheating / Fraud",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "school",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "La tricherie est interdite.",
+        "ar": "الغش ممنوع.",
+        "en": "Cheating is forbidden."
+      },
+      {
+        "fr": "Il a été accusé de tricherie.",
+        "ar": "اتُّهم بالغش.",
+        "en": "He was accused of cheating."
+      },
+      {
+        "fr": "La tricherie n'est pas acceptable.",
+        "ar": "الغش غير مقبول.",
+        "en": "Cheating is not acceptable."
+      },
+      {
+        "fr": "Ils veulent éviter la tricherie.",
+        "ar": "يريدون تجنب الغش.",
+        "en": "They want to prevent cheating."
+      },
+      {
+        "fr": "Il y a eu une tricherie pendant le jeu.",
+        "ar": "حدث غش أثناء اللعبة.",
+        "en": "There was cheating during the game."
+      }
+    ]
+  },
+  {
+    "fr": "Témoin de",
+    "ar": "شاهد على / شاهد لـ",
+    "en": "Witness to",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "prefecture",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "J'étais témoin de l'accident.",
+        "ar": "كنت شاهدًا على الحادث.",
+        "en": "I witnessed the accident."
+      },
+      {
+        "fr": "Il a été témoin de la scène.",
+        "ar": "كان شاهدًا على المشهد.",
+        "en": "He witnessed the scene."
+      },
+      {
+        "fr": "Elle a été témoin de cette situation.",
+        "ar": "كانت شاهدة على هذا الموقف.",
+        "en": "She witnessed this situation."
+      },
+      {
+        "fr": "Nous avons été témoins de la discussion.",
+        "ar": "كنا شهودًا على النقاش.",
+        "en": "We witnessed the discussion."
+      },
+      {
+        "fr": "Personne n'était témoin de l'incident.",
+        "ar": "لم يكن أحد شاهدًا على الحادثة.",
+        "en": "Nobody witnessed the incident."
+      }
+    ]
+  },
+  {
+    "fr": "Tenter le coup",
+    "ar": "يجرب الأمر / يحاول",
+    "en": "To give it a try",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais tenter le coup.",
+        "ar": "سأجرب الأمر.",
+        "en": "I'll give it a try."
+      },
+      {
+        "fr": "Pourquoi ne pas tenter le coup ?",
+        "ar": "لماذا لا نجرب؟",
+        "en": "Why not give it a try?"
+      },
+      {
+        "fr": "Ça vaut le coup de tenter.",
+        "ar": "يستحق الأمر التجربة.",
+        "en": "It's worth giving it a try."
+      },
+      {
+        "fr": "Il a tenté le coup.",
+        "ar": "لقد جرب الأمر.",
+        "en": "He gave it a try."
+      },
+      {
+        "fr": "On peut toujours tenter le coup.",
+        "ar": "يمكننا دائمًا أن نجرب.",
+        "en": "We can always give it a try."
+      }
+    ]
+  },
+  {
+    "fr": "Tout juste",
+    "ar": "بالضبط / للتو / بالكاد",
+    "en": "Exactly / Just / Barely",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je viens tout juste d'arriver.",
+        "ar": "وصلت للتو.",
+        "en": "I just arrived."
+      },
+      {
+        "fr": "Il vient tout juste de partir.",
+        "ar": "لقد غادر للتو.",
+        "en": "He just left."
+      },
+      {
+        "fr": "C'est tout juste suffisant.",
+        "ar": "هذا بالكاد كافٍ.",
+        "en": "It's barely enough."
+      },
+      {
+        "fr": "Tu as tout juste raison.",
+        "ar": "أنت محق تمامًا.",
+        "en": "You're exactly right."
+      },
+      {
+        "fr": "J'ai tout juste fini.",
+        "ar": "انتهيت للتو.",
+        "en": "I just finished."
+      }
+    ]
+  },
+  {
+    "fr": "Traiter quelqu'un",
+    "ar": "يعامل شخصًا",
+    "en": "To treat someone",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health",
+      "services",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Il me traite bien.",
+        "ar": "هو يعاملني جيدًا.",
+        "en": "He treats me well."
+      },
+      {
+        "fr": "Ne me traite pas comme ça.",
+        "ar": "لا تعاملني بهذه الطريقة.",
+        "en": "Don't treat me like that."
+      },
+      {
+        "fr": "Elle traite tout le monde avec respect.",
+        "ar": "هي تعامل الجميع باحترام.",
+        "en": "She treats everyone with respect."
+      },
+      {
+        "fr": "Comment il te traite au travail ?",
+        "ar": "كيف يعاملك في العمل؟",
+        "en": "How does he treat you at work?"
+      },
+      {
+        "fr": "Je veux être traité correctement.",
+        "ar": "أريد أن تتم معاملتي بشكل صحيح.",
+        "en": "I want to be treated properly."
+      }
+    ]
+  },
+  {
+    "fr": "Tranquille comme ça",
+    "ar": "هادئ هكذا / بهذه الطريقة",
+    "en": "Calm like this / Like this",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "On reste tranquille comme ça.",
+        "ar": "نبقى هكذا بهدوء.",
+        "en": "We'll stay like this calmly."
+      },
+      {
+        "fr": "Fais-le tranquille comme ça.",
+        "ar": "افعلها بهدوء هكذا.",
+        "en": "Do it calmly like this."
+      },
+      {
+        "fr": "Tu peux attendre tranquille comme ça.",
+        "ar": "يمكنك الانتظار هكذا بهدوء.",
+        "en": "You can wait like this calmly."
+      },
+      {
+        "fr": "Laisse-le tranquille comme ça.",
+        "ar": "اتركه هكذا وشأنه.",
+        "en": "Leave him alone like that."
+      },
+      {
+        "fr": "C'est mieux tranquille comme ça.",
+        "ar": "هكذا أفضل وأكثر هدوءًا.",
+        "en": "It's better this way."
+      }
+    ]
+  },
+  {
+    "fr": "Tribut",
+    "ar": "ضريبة / ثمن معنوي أو خسارة",
+    "en": "Toll / Price / Tribute",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Il a payé un lourd tribut.",
+        "ar": "دفع ثمنًا باهظًا.",
+        "en": "He paid a heavy price."
+      },
+      {
+        "fr": "La guerre a fait payer un lourd tribut à la population.",
+        "ar": "الحرب جعلت السكان يدفعون ثمنًا باهظًا.",
+        "en": "The war exacted a heavy toll on the population."
+      },
+      {
+        "fr": "Le travail demande parfois son tribut.",
+        "ar": "العمل يتطلب أحيانًا ثمنًا.",
+        "en": "Work sometimes takes its toll."
+      },
+      {
+        "fr": "La fatigue a fait payer son tribut.",
+        "ar": "التعب أخذ ثمنه.",
+        "en": "Fatigue took its toll."
+      },
+      {
+        "fr": "Il a payé le tribut de ses erreurs.",
+        "ar": "دفع ثمن أخطائه.",
+        "en": "He paid the price for his mistakes."
+      }
+    ]
+  },
+  {
+    "fr": "Tranche horaire",
+    "ar": "فترة زمنية / وقت محدد",
+    "en": "Time slot",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Quelle tranche horaire vous convient ?",
+        "ar": "أي فترة زمنية تناسبكم؟",
+        "en": "Which time slot suits you?"
+      },
+      {
+        "fr": "Je suis disponible dans cette tranche horaire.",
+        "ar": "أنا متاح في هذه الفترة.",
+        "en": "I'm available during this time slot."
+      },
+      {
+        "fr": "Choisissez une tranche horaire.",
+        "ar": "اختر فترة زمنية.",
+        "en": "Choose a time slot."
+      },
+      {
+        "fr": "Cette tranche horaire est complète.",
+        "ar": "هذه الفترة الزمنية ممتلئة.",
+        "en": "This time slot is full."
+      },
+      {
+        "fr": "Je préfère la tranche horaire du matin.",
+        "ar": "أفضل الفترة الصباحية.",
+        "en": "I prefer the morning time slot."
+      }
+    ]
+  },
+  {
+    "fr": "Ticket de caisse",
+    "ar": "إيصال الشراء",
+    "en": "Receipt",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "shopping"
+    ],
+    "ex": [
+      {
+        "fr": "Vous voulez le ticket de caisse ?",
+        "ar": "هل تريد الإيصال؟",
+        "en": "Do you want the receipt?"
+      },
+      {
+        "fr": "J'ai besoin du ticket de caisse.",
+        "ar": "أحتاج إلى الإيصال.",
+        "en": "I need the receipt."
+      },
+      {
+        "fr": "Gardez le ticket de caisse.",
+        "ar": "احتفظ بالإيصال.",
+        "en": "Keep the receipt."
+      },
+      {
+        "fr": "Le ticket de caisse est dans le sac.",
+        "ar": "الإيصال في الكيس.",
+        "en": "The receipt is in the bag."
+      },
+      {
+        "fr": "Je peux avoir le ticket de caisse, s'il vous plaît ?",
+        "ar": "هل يمكنني الحصول على الإيصال من فضلك؟",
+        "en": "Can I have the receipt, please?"
+      }
+    ]
+  },
+  {
+    "fr": "Tiroir-caisse",
+    "ar": "درج النقود في المتجر",
+    "en": "Cash register drawer",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing",
+      "services",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "L'argent est dans le tiroir-caisse.",
+        "ar": "المال في درج النقود.",
+        "en": "The money is in the cash drawer."
+      },
+      {
+        "fr": "Ferme le tiroir-caisse.",
+        "ar": "أغلق درج النقود.",
+        "en": "Close the cash drawer."
+      },
+      {
+        "fr": "Le tiroir-caisse est ouvert.",
+        "ar": "درج النقود مفتوح.",
+        "en": "The cash drawer is open."
+      },
+      {
+        "fr": "Vérifie le tiroir-caisse.",
+        "ar": "تحقق من درج النقود.",
+        "en": "Check the cash drawer."
+      },
+      {
+        "fr": "Il manque de l'argent dans le tiroir-caisse.",
+        "ar": "هناك نقص في المال في درج النقود.",
+        "en": "Some money is missing from the cash drawer."
+      }
+    ]
+  },
+  {
+    "fr": "Titre de transport",
+    "ar": "تذكرة / بطاقة نقل",
+    "en": "Transport ticket / Pass",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "transport",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Vous avez un titre de transport ?",
+        "ar": "هل لديك تذكرة نقل؟",
+        "en": "Do you have a transport ticket?"
+      },
+      {
+        "fr": "Je dois acheter un titre de transport.",
+        "ar": "يجب أن أشتري تذكرة نقل.",
+        "en": "I need to buy a transport ticket."
+      },
+      {
+        "fr": "Votre titre de transport est valable.",
+        "ar": "تذكرة نقلك صالحة.",
+        "en": "Your transport ticket is valid."
+      },
+      {
+        "fr": "N'oubliez pas votre titre de transport.",
+        "ar": "لا تنسَ تذكرة النقل الخاصة بك.",
+        "en": "Don't forget your transport ticket."
+      },
+      {
+        "fr": "Je n'ai pas de titre de transport.",
+        "ar": "ليس لدي تذكرة نقل.",
+        "en": "I don't have a transport ticket."
+      }
+    ]
+  },
+  {
+    "fr": "Transmettre un message",
+    "ar": "ينقل / يوصل رسالة",
+    "en": "To pass on a message",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais lui transmettre le message.",
+        "ar": "سأنقل له الرسالة.",
+        "en": "I'll pass on the message to him."
+      },
+      {
+        "fr": "Tu peux lui transmettre ce message ?",
+        "ar": "هل يمكنك نقل هذه الرسالة له؟",
+        "en": "Can you pass this message on to him?"
+      },
+      {
+        "fr": "Merci de lui transmettre mes salutations.",
+        "ar": "شكرًا لنقل تحياتي له.",
+        "en": "Please pass on my regards to him."
+      },
+      {
+        "fr": "Je lui ai transmis ton message.",
+        "ar": "نقلت له رسالتك.",
+        "en": "I passed on your message to him."
+      },
+      {
+        "fr": "Il faut transmettre le message au responsable.",
+        "ar": "يجب نقل الرسالة إلى المسؤول.",
+        "en": "The message must be passed on to the manager."
+      }
+    ]
+  },
+  {
+    "fr": "Tensionner",
+    "ar": "يشد / يجعل مشدودًا",
+    "en": "To tension / To tighten",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut tensionner le câble.",
+        "ar": "يجب شد الكابل.",
+        "en": "The cable needs to be tensioned."
+      },
+      {
+        "fr": "Tensionne bien la corde.",
+        "ar": "اشدد الحبل جيدًا.",
+        "en": "Tighten the rope properly."
+      },
+      {
+        "fr": "Le câble doit être bien tensionné.",
+        "ar": "يجب أن يكون الكابل مشدودًا جيدًا.",
+        "en": "The cable must be properly tensioned."
+      },
+      {
+        "fr": "Cette pièce permet de tensionner le câble.",
+        "ar": "هذه القطعة تسمح بشد الكابل.",
+        "en": "This part allows the cable to be tensioned."
+      },
+      {
+        "fr": "Ne tensionne pas trop la corde.",
+        "ar": "لا تشد الحبل أكثر من اللازم.",
+        "en": "Don't tighten the rope too much."
+      }
+    ]
+  },
+  {
+    "fr": "Tendre la main",
+    "ar": "يمد يده / يساعد",
+    "en": "To hold out a hand / To help",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Il m'a tendu la main.",
+        "ar": "مدّ لي يده.",
+        "en": "He held out his hand to me."
+      },
+      {
+        "fr": "Tends-moi la main.",
+        "ar": "مدّ لي يدك.",
+        "en": "Hold out your hand."
+      },
+      {
+        "fr": "Elle tend la main à son ami.",
+        "ar": "تمد يدها لصديقها.",
+        "en": "She holds out her hand to her friend."
+      },
+      {
+        "fr": "Il faut tendre la main aux autres.",
+        "ar": "يجب مساعدة الآخرين.",
+        "en": "We should lend a hand to others."
+      },
+      {
+        "fr": "Merci de m'avoir tendu la main.",
+        "ar": "شكرًا لأنك ساعدتني.",
+        "en": "Thank you for helping me."
+      }
+    ]
+  },
+  {
+    "fr": "Terminer par",
+    "ar": "ينتهي بـ",
+    "en": "To end with",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "school",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais terminer par cette question.",
+        "ar": "سأنهي بهذا السؤال.",
+        "en": "I'll finish with this question."
+      },
+      {
+        "fr": "Il termine par un dessert.",
+        "ar": "ينهي بقطعة حلوى.",
+        "en": "He finishes with a dessert."
+      },
+      {
+        "fr": "La réunion termine par une discussion.",
+        "ar": "ينتهي الاجتماع بنقاش.",
+        "en": "The meeting ends with a discussion."
+      },
+      {
+        "fr": "On va terminer par le plus important.",
+        "ar": "سننهي بالأهم.",
+        "en": "We'll finish with the most important thing."
+      },
+      {
+        "fr": "Elle termine par remercier tout le monde.",
+        "ar": "تنهي كلامها بشكر الجميع.",
+        "en": "She finishes by thanking everyone."
+      }
+    ]
+  },
+  {
+    "fr": "Tenue",
+    "ar": "ملابس / زي / مظهر",
+    "en": "Outfit / Clothing / Attire",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "shopping",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "J'aime ta tenue.",
+        "ar": "أحب ملابسك.",
+        "en": "I like your outfit."
+      },
+      {
+        "fr": "Quelle tenue dois-je porter ?",
+        "ar": "ما الملابس التي يجب أن أرتديها؟",
+        "en": "What should I wear?"
+      },
+      {
+        "fr": "C'est une tenue de travail.",
+        "ar": "هذا زي العمل.",
+        "en": "It's work attire."
+      },
+      {
+        "fr": "Cette tenue est très élégante.",
+        "ar": "هذه الملابس أنيقة جدًا.",
+        "en": "This outfit is very elegant."
+      },
+      {
+        "fr": "Il faut porter une tenue propre.",
+        "ar": "يجب ارتداء ملابس نظيفة.",
+        "en": "You need to wear clean clothes."
+      }
+    ]
+  },
+  {
+    "fr": "Tenir compte de",
+    "ar": "يأخذ بعين الاعتبار",
+    "en": "To take into account",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut tenir compte de la situation.",
+        "ar": "يجب أخذ الوضع بعين الاعتبار.",
+        "en": "We have to take the situation into account."
+      },
+      {
+        "fr": "Je vais tenir compte de ton avis.",
+        "ar": "سآخذ رأيك بعين الاعتبار.",
+        "en": "I'll take your opinion into account."
+      },
+      {
+        "fr": "Il faut tenir compte du prix.",
+        "ar": "يجب أخذ السعر بعين الاعتبار.",
+        "en": "We have to take the price into account."
+      },
+      {
+        "fr": "Merci d'en tenir compte.",
+        "ar": "شكرًا لأخذ ذلك بعين الاعتبار.",
+        "en": "Thank you for taking that into account."
+      },
+      {
+        "fr": "Il faut tenir compte de ses besoins.",
+        "ar": "يجب أخذ احتياجاته بعين الاعتبار.",
+        "en": "We need to take his needs into account."
+      }
+    ]
+  },
+  {
+    "fr": "Tenir au courant",
+    "ar": "يبقي على اطلاع",
+    "en": "To keep informed / To keep posted",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Tiens-moi au courant.",
+        "ar": "أبقني على اطلاع.",
+        "en": "Keep me posted."
+      },
+      {
+        "fr": "Je te tiens au courant.",
+        "ar": "سأبقيك على اطلاع.",
+        "en": "I'll keep you posted."
+      },
+      {
+        "fr": "Tiens-moi au courant de la situation.",
+        "ar": "أبقني على اطلاع بالوضع.",
+        "en": "Keep me informed about the situation."
+      },
+      {
+        "fr": "Je vous tiendrai au courant.",
+        "ar": "سأبقيكم على اطلاع.",
+        "en": "I'll keep you informed."
+      },
+      {
+        "fr": "Merci de me tenir au courant.",
+        "ar": "شكرًا لإبقائي على اطلاع.",
+        "en": "Thanks for keeping me posted."
+      }
+    ]
+  },
+  {
+    "fr": "Tenir debout",
+    "ar": "يقف / يبقى واقفًا",
+    "en": "To stand / To stay upright",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "ex": [
+      {
+        "fr": "Je peux encore tenir debout.",
+        "ar": "ما زلت أستطيع الوقوف.",
+        "en": "I can still stand."
+      },
+      {
+        "fr": "Cette chaise ne tient plus debout.",
+        "ar": "هذا الكرسي لم يعد ثابتًا.",
+        "en": "This chair no longer stands properly."
+      },
+      {
+        "fr": "Après cette journée, je tiens à peine debout.",
+        "ar": "بعد هذا اليوم، بالكاد أستطيع الوقوف.",
+        "en": "After this day, I can barely stand."
+      },
+      {
+        "fr": "Le mur tient encore debout.",
+        "ar": "الجدار ما زال قائمًا.",
+        "en": "The wall is still standing."
+      },
+      {
+        "fr": "Il ne peut plus tenir debout.",
+        "ar": "لم يعد يستطيع الوقوف.",
+        "en": "He can't stand anymore."
+      }
+    ]
+  },
+  {
+    "fr": "Tenir bon",
+    "ar": "يصمد / يتمسك / لا يستسلم",
+    "en": "To hold on / To hang in there",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Tiens bon !",
+        "ar": "اصمد!",
+        "en": "Hang in there!"
+      },
+      {
+        "fr": "Il faut tenir bon.",
+        "ar": "يجب أن نصمد.",
+        "en": "We have to hold on."
+      },
+      {
+        "fr": "Tiens bon, ça va passer.",
+        "ar": "اصمد، سيمر الأمر.",
+        "en": "Hang in there, it'll pass."
+      },
+      {
+        "fr": "Elle a tenu bon malgré les difficultés.",
+        "ar": "صمدت رغم الصعوبات.",
+        "en": "She held on despite the difficulties."
+      },
+      {
+        "fr": "On doit tenir bon jusqu'à la fin.",
+        "ar": "يجب أن نصمد حتى النهاية.",
+        "en": "We have to hold on until the end."
+      }
+    ]
+  },
+  {
+    "fr": "Tenir parole",
+    "ar": "يفي بوعده",
+    "en": "To keep one's word",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je tiens toujours parole.",
+        "ar": "أنا دائمًا أفي بوعدي.",
+        "en": "I always keep my word."
+      },
+      {
+        "fr": "Il tient sa parole.",
+        "ar": "هو يفي بوعده.",
+        "en": "He keeps his word."
+      },
+      {
+        "fr": "Tu dois tenir parole.",
+        "ar": "يجب أن تفي بوعدك.",
+        "en": "You must keep your word."
+      },
+      {
+        "fr": "Elle a tenu parole.",
+        "ar": "لقد أوفت بوعدها.",
+        "en": "She kept her word."
+      },
+      {
+        "fr": "Je compte sur toi pour tenir parole.",
+        "ar": "أعتمد عليك لتفي بوعدك.",
+        "en": "I count on you to keep your word."
+      }
+    ]
+  },
+  {
+    "fr": "Tenir prêt",
+    "ar": "يبقي جاهزًا / يكون مستعدًا",
+    "en": "To keep ready / To have ready",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "phone",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Tiens-toi prêt !",
+        "ar": "كن مستعدًا!",
+        "en": "Get ready!"
+      },
+      {
+        "fr": "Tiens ton téléphone prêt.",
+        "ar": "أبقِ هاتفك جاهزًا.",
+        "en": "Keep your phone ready."
+      },
+      {
+        "fr": "Je tiens tout prêt pour demain.",
+        "ar": "أجهز كل شيء للغد.",
+        "en": "I have everything ready for tomorrow."
+      },
+      {
+        "fr": "Tenez-vous prêts à partir.",
+        "ar": "كونوا مستعدين للمغادرة.",
+        "en": "Be ready to leave."
+      },
+      {
+        "fr": "Il faut tenir les documents prêts.",
+        "ar": "يجب إبقاء الوثائق جاهزة.",
+        "en": "The documents need to be kept ready."
+      }
+    ]
+  },
+  {
+    "fr": "Témoin",
+    "ar": "شاهد",
+    "en": "Witness",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "prefecture",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Avez-vous été témoin de l'accident ?",
+        "ar": "هل كنت شاهدًا على الحادث؟",
+        "en": "Were you a witness to the accident?"
+      },
+      {
+        "fr": "Il y avait plusieurs témoins.",
+        "ar": "كان هناك عدة شهود.",
+        "en": "There were several witnesses."
+      },
+      {
+        "fr": "Le témoin a appelé la police.",
+        "ar": "اتصل الشاهد بالشرطة.",
+        "en": "The witness called the police."
+      },
+      {
+        "fr": "Je suis témoin de la scène.",
+        "ar": "أنا شاهد على المشهد.",
+        "en": "I witnessed the scene."
+      },
+      {
+        "fr": "Elle est le seul témoin.",
+        "ar": "هي الشاهدة الوحيدة.",
+        "en": "She's the only witness."
+      }
+    ]
+  },
+  {
+    "fr": "Tomber amoureux",
+    "ar": "يقع في الحب",
+    "en": "To fall in love",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je suis tombé amoureux.",
+        "ar": "وقعت في الحب.",
+        "en": "I fell in love."
+      },
+      {
+        "fr": "Il est tombé amoureux d'elle.",
+        "ar": "وقع في حبها.",
+        "en": "He fell in love with her."
+      },
+      {
+        "fr": "Elle est tombée amoureuse de lui.",
+        "ar": "وقعت في حبه.",
+        "en": "She fell in love with him."
+      },
+      {
+        "fr": "On peut tomber amoureux rapidement.",
+        "ar": "يمكن أن يقع الإنسان في الحب بسرعة.",
+        "en": "You can fall in love quickly."
+      },
+      {
+        "fr": "Il ne voulait pas tomber amoureux.",
+        "ar": "لم يكن يريد الوقوع في الحب.",
+        "en": "He didn't want to fall in love."
+      }
+    ]
+  },
+  {
+    "fr": "Tomber malade",
+    "ar": "يمرض",
+    "en": "To get sick",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je suis tombé malade hier.",
+        "ar": "مرضت أمس.",
+        "en": "I got sick yesterday."
+      },
+      {
+        "fr": "Il ne veut pas tomber malade.",
+        "ar": "لا يريد أن يمرض.",
+        "en": "He doesn't want to get sick."
+      },
+      {
+        "fr": "Elle est tombée malade au travail.",
+        "ar": "مرضت في العمل.",
+        "en": "She got sick at work."
+      },
+      {
+        "fr": "J'ai peur de tomber malade.",
+        "ar": "أخاف أن أمرض.",
+        "en": "I'm afraid of getting sick."
+      },
+      {
+        "fr": "Il est facile de tomber malade en hiver.",
+        "ar": "من السهل أن يمرض الإنسان في الشتاء.",
+        "en": "It's easy to get sick in winter."
+      }
+    ]
+  },
+  {
+    "fr": "Tomber en panne",
+    "ar": "يتعطل",
+    "en": "To break down",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "phone"
+    ],
+    "ex": [
+      {
+        "fr": "Ma voiture est tombée en panne.",
+        "ar": "تعطلت سيارتي.",
+        "en": "My car broke down."
+      },
+      {
+        "fr": "Le bus est tombé en panne.",
+        "ar": "تعطلت الحافلة.",
+        "en": "The bus broke down."
+      },
+      {
+        "fr": "La machine est tombée en panne.",
+        "ar": "تعطلت الآلة.",
+        "en": "The machine broke down."
+      },
+      {
+        "fr": "Mon téléphone est tombé en panne.",
+        "ar": "تعطل هاتفي.",
+        "en": "My phone stopped working."
+      },
+      {
+        "fr": "Que faire si ça tombe en panne ?",
+        "ar": "ماذا أفعل إذا تعطل؟",
+        "en": "What should I do if it breaks down?"
+      }
+    ]
+  },
+  {
+    "fr": "Tomber sur",
+    "ar": "يصادف / يعثر على / يواجه",
+    "en": "To come across / To run into",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je suis tombé sur un ancien ami.",
+        "ar": "صادفت صديقًا قديمًا.",
+        "en": "I ran into an old friend."
+      },
+      {
+        "fr": "Je suis tombé sur cette vidéo.",
+        "ar": "صادفت هذا الفيديو.",
+        "en": "I came across this video."
+      },
+      {
+        "fr": "On est tombés sur un problème.",
+        "ar": "واجهنا مشكلة.",
+        "en": "We ran into a problem."
+      },
+      {
+        "fr": "Je suis tombé sur une bonne affaire.",
+        "ar": "عثرت على صفقة جيدة.",
+        "en": "I came across a good deal."
+      },
+      {
+        "fr": "Tu es tombé sur la bonne personne.",
+        "ar": "لقد صادفت الشخص المناسب.",
+        "en": "You came across the right person."
+      }
+    ]
+  },
+  {
+    "fr": "Toucher du bois",
+    "ar": "يتفاءل / يقول: إن شاء الله لا يحدث مكروه",
+    "en": "Knock on wood",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Tout va bien pour l'instant, je touche du bois.",
+        "ar": "كل شيء بخير حاليًا، إن شاء الله يستمر.",
+        "en": "Everything is fine so far, knock on wood."
+      },
+      {
+        "fr": "Je n'ai jamais eu d'accident, je touche du bois.",
+        "ar": "لم أتعرض لحادث من قبل، إن شاء الله لا يحدث.",
+        "en": "I've never had an accident, knock on wood."
+      },
+      {
+        "fr": "Il va bien, je touche du bois.",
+        "ar": "هو بخير، إن شاء الله يبقى كذلك.",
+        "en": "He's fine, knock on wood."
+      },
+      {
+        "fr": "On a eu de la chance jusqu'ici, touchons du bois.",
+        "ar": "كنا محظوظين حتى الآن، إن شاء الله يستمر.",
+        "en": "We've been lucky so far, knock on wood."
+      },
+      {
+        "fr": "J'espère que ça va continuer comme ça, touchons du bois.",
+        "ar": "أتمنى أن يستمر الأمر هكذا، إن شاء الله.",
+        "en": "I hope it stays this way, knock on wood."
+      }
+    ]
+  },
+  {
+    "fr": "Tri",
+    "ar": "فرز / ترتيب",
+    "en": "Sorting",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois faire le tri.",
+        "ar": "يجب أن أقوم بالفرز.",
+        "en": "I have to sort things out."
+      },
+      {
+        "fr": "Fais le tri entre les deux.",
+        "ar": "افرز بين الاثنين.",
+        "en": "Sort between the two."
+      },
+      {
+        "fr": "Le tri des déchets est important.",
+        "ar": "فرز النفايات مهم.",
+        "en": "Waste sorting is important."
+      },
+      {
+        "fr": "Je fais le tri dans mes affaires.",
+        "ar": "أفرز أغراضي.",
+        "en": "I'm sorting through my things."
+      },
+      {
+        "fr": "Il faut faire le tri avant de jeter.",
+        "ar": "يجب الفرز قبل الرمي.",
+        "en": "You need to sort before throwing things away."
+      }
+    ]
+  },
+  {
+    "fr": "Tutoriel",
+    "ar": "شرح تعليمي / درس تطبيقي",
+    "en": "Tutorial",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "school",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je regarde un tutoriel.",
+        "ar": "أشاهد شرحًا تعليميًا.",
+        "en": "I'm watching a tutorial."
+      },
+      {
+        "fr": "Tu as un tutoriel pour ça ?",
+        "ar": "هل لديك شرح لهذا؟",
+        "en": "Do you have a tutorial for this?"
+      },
+      {
+        "fr": "Ce tutoriel est facile à suivre.",
+        "ar": "هذا الشرح سهل المتابعة.",
+        "en": "This tutorial is easy to follow."
+      },
+      {
+        "fr": "J'ai appris ça grâce à un tutoriel.",
+        "ar": "تعلمت هذا بفضل شرح تعليمي.",
+        "en": "I learned this from a tutorial."
+      },
+      {
+        "fr": "Le tutoriel explique tout.",
+        "ar": "الشرح يوضح كل شيء.",
+        "en": "The tutorial explains everything."
       }
     ]
   }
