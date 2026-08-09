@@ -22513,7 +22513,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Transmettre",
     "ar": "يرسل / يحوّل / يحوّل (معلومة أو وثيقة) / ينقل / يمرر",
-    "en": "To submit / Forward / To transmit / forward / To forward / to transmit",
+    "en": "To submit / Forward / To transmit / forward / To forward / to transmit / to pass on",
     "pos": "verb",
     "level": "A2",
     "contexts": [
@@ -22591,6 +22591,26 @@ window.VOCAB_DATA = [
       },
       {
         "fr": "Je vais vous transmettre les documents dès que possible.",
+        "ar": "سأرسل لكم الوثائق في أقرب وقت ممكن.",
+        "en": "I'll send you the documents as soon as possible."
+      },
+      {
+        "fr": "Je vous transmets les informations.",
+        "ar": "أرسل لكم المعلومات.",
+        "en": "I'm sending you the information."
+      },
+      {
+        "fr": "Je vous transmets le justificatif.",
+        "ar": "أرسل لكم الإثبات.",
+        "en": "I'm sending you the supporting document."
+      },
+      {
+        "fr": "Pouvez-vous me transmettre votre adresse ?",
+        "ar": "هل يمكنك إرسال عنوانك لي؟",
+        "en": "Can you send me your address?"
+      },
+      {
+        "fr": "Je vous transmets les documents dès que possible.",
         "ar": "سأرسل لكم الوثائق في أقرب وقت ممكن.",
         "en": "I'll send you the documents as soon as possible."
       }
@@ -23386,7 +23406,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Traiter",
-    "ar": "يعالج / يدرس / يدرس (ملف) / يتعامل مع / يدرس طلبًا",
+    "ar": "يعالج / يدرس / يدرس (ملف) / يتعامل مع / يدرس طلبًا / يعالج ملفًا",
     "en": "To process / to handle / to deal with",
     "pos": "verb",
     "level": "B1",
@@ -23455,6 +23475,81 @@ window.VOCAB_DATA = [
         "fr": "Merci de traiter ma demande dans les meilleurs délais.",
         "ar": "شكرًا لمعالجة طلبي في أقرب وقت ممكن.",
         "en": "Thank you for processing my request as soon as possible."
+      },
+      {
+        "fr": "Mon dossier est en cours de traitement.",
+        "ar": "ملفي قيد المعالجة.",
+        "en": "My application is being processed."
+      },
+      {
+        "fr": "Quand allez-vous traiter ma demande ?",
+        "ar": "متى ستعالجون طلبي؟",
+        "en": "When will you process my request?"
+      },
+      {
+        "fr": "Ma demande n'a pas encore été traitée.",
+        "ar": "طلبي لم تتم معالجته بعد.",
+        "en": "My request hasn't been processed yet."
+      },
+      {
+        "fr": "Qui traite mon dossier ?",
+        "ar": "من يعالج ملفي؟",
+        "en": "Who is handling my application?"
+      },
+      {
+        "fr": "Votre demande sera traitée prochainement.",
+        "ar": "ستتم معالجة طلبكم قريبًا.",
+        "en": "Your request will be processed soon."
+      },
+      {
+        "fr": "Je voudrais savoir où en est le traitement de mon dossier.",
+        "ar": "أريد أن أعرف أين وصل ملفي في المعالجة.",
+        "en": "I'd like to know the status of my application."
+      },
+      {
+        "fr": "Le dossier est toujours en cours de traitement.",
+        "ar": "الملف لا يزال قيد المعالجة.",
+        "en": "The application is still being processed."
+      },
+      {
+        "fr": "Merci de traiter ma demande rapidement.",
+        "ar": "شكرًا لمعالجة طلبي بسرعة.",
+        "en": "Thank you for processing my request quickly."
+      },
+      {
+        "fr": "Je dois traiter ce problème.",
+        "ar": "يجب أن أعالج هذه المشكلة.",
+        "en": "I have to deal with this problem."
+      },
+      {
+        "fr": "Le service traite ma demande.",
+        "ar": "القسم يعالج طلبي.",
+        "en": "The department is processing my request."
+      },
+      {
+        "fr": "Ma demande n'est pas encore traitée.",
+        "ar": "طلبي لم تتم معالجته بعد.",
+        "en": "My request hasn't been processed yet."
+      },
+      {
+        "fr": "Quand allez-vous traiter mon dossier ?",
+        "ar": "متى ستعالجون ملفي؟",
+        "en": "When will you process my application?"
+      },
+      {
+        "fr": "Le dossier sera traité demain.",
+        "ar": "سيتم معالجة الملف غدًا.",
+        "en": "The application will be processed tomorrow."
+      },
+      {
+        "fr": "Qui traite les demandes ?",
+        "ar": "من يعالج الطلبات؟",
+        "en": "Who processes the requests?"
+      },
+      {
+        "fr": "Je dois traiter cette demande.",
+        "ar": "يجب أن أعالج هذا الطلب.",
+        "en": "I have to process this request."
       }
     ]
   },
@@ -30862,6 +30957,46 @@ window.VOCAB_DATA = [
         "fr": "Je vais télécharger la pièce jointe.",
         "ar": "سأنزّل المرفق.",
         "en": "I'll download the attachment."
+      },
+      {
+        "fr": "Téléchargez le formulaire ici.",
+        "ar": "نزّلوا الاستمارة من هنا.",
+        "en": "Download the form here."
+      },
+      {
+        "fr": "Je dois télécharger le document.",
+        "ar": "يجب أن أنزل الوثيقة.",
+        "en": "I have to download the document."
+      },
+      {
+        "fr": "J'ai téléchargé le fichier.",
+        "ar": "لقد نزّلت الملف.",
+        "en": "I downloaded the file."
+      },
+      {
+        "fr": "Je n'arrive pas à télécharger le document.",
+        "ar": "لا أستطيع تنزيل الوثيقة.",
+        "en": "I can't download the document."
+      },
+      {
+        "fr": "Tu peux télécharger l'application ?",
+        "ar": "هل يمكنك تنزيل التطبيق؟",
+        "en": "Can you download the app?"
+      },
+      {
+        "fr": "Téléchargez et remplissez le formulaire.",
+        "ar": "نزّلوا الاستمارة واملؤوها.",
+        "en": "Download and fill in the form."
+      },
+      {
+        "fr": "Je vais télécharger la pièce jointe.",
+        "ar": "سأنزل المرفق.",
+        "en": "I'll download the attachment."
+      },
+      {
+        "fr": "Le téléchargement est terminé.",
+        "ar": "اكتمل التنزيل.",
+        "en": "The download is complete."
       }
     ]
   },
@@ -31740,8 +31875,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Toucher (recevoir)",
-    "ar": "استلام / يستلم / يلمس / يتلقى مالًا",
-    "en": "to receive / get (benefits) / To touch / to receive money",
+    "ar": "استلام / يستلم / يلمس / يتلقى مالًا / يتقاضى / يؤثر على",
+    "en": "to receive / get (benefits) / To touch / to receive money / to affect",
     "level": "A1",
     "pos": "verb",
     "contexts": [
@@ -31804,6 +31939,16 @@ window.VOCAB_DATA = [
         "fr": "Tu peux toucher, c'est bon.",
         "ar": "يمكنك أن تلمس، لا مشكلة.",
         "en": "You can touch it, it's okay."
+      },
+      {
+        "fr": "Quand est-ce que je touche mon salaire ?",
+        "ar": "متى أتقاضى راتبي؟",
+        "en": "When do I receive my salary?"
+      },
+      {
+        "fr": "Cette décision me touche beaucoup.",
+        "ar": "هذا القرار يؤثر فيّ كثيرًا.",
+        "en": "This decision affects me a lot."
       }
     ]
   },
@@ -33306,18 +33451,71 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Trancher",
-    "ar": "يشرّح / يقطع شرائح",
-    "en": "To slice",
+    "ar": "يشرّح / يقطع شرائح / يقطع / يحسم",
+    "en": "To slice / To cut / to decide",
     "level": "A2",
     "pos": "verb",
     "contexts": [
+      "daily",
       "sushi"
     ],
-    "ex": {
-      "fr": "Il faut trancher le poisson correctement.",
-      "ar": "يجب تقطيع السمك بشكل صحيح.",
-      "en": "The fish must be sliced correctly."
-    }
+    "ex": [
+      {
+        "fr": "Il faut trancher le poisson correctement.",
+        "ar": "يجب تقطيع السمك بشكل صحيح.",
+        "en": "The fish must be sliced correctly."
+      },
+      {
+        "fr": "Je vais trancher le pain.",
+        "ar": "سأقطع الخبز.",
+        "en": "I'll cut the bread."
+      },
+      {
+        "fr": "Coupez la viande en tranches.",
+        "ar": "اقطعوا اللحم إلى شرائح.",
+        "en": "Cut the meat into slices."
+      },
+      {
+        "fr": "Il faut trancher la viande finement.",
+        "ar": "يجب تقطيع اللحم بشكل رفيع.",
+        "en": "The meat needs to be sliced thinly."
+      },
+      {
+        "fr": "Je vais trancher le problème.",
+        "ar": "سأحسم المشكلة.",
+        "en": "I'll settle the issue."
+      },
+      {
+        "fr": "Il faut trancher rapidement.",
+        "ar": "يجب اتخاذ قرار بسرعة.",
+        "en": "A decision needs to be made quickly."
+      },
+      {
+        "fr": "Le patron doit trancher.",
+        "ar": "يجب على المدير أن يحسم الأمر.",
+        "en": "The manager has to make the decision."
+      },
+      {
+        "fr": "On doit trancher entre les deux options.",
+        "ar": "يجب أن نختار بين الخيارين.",
+        "en": "We have to choose between the two options."
+      },
+      {
+        "fr": "Cette décision tranche avec les habitudes.",
+        "ar": "هذا القرار يختلف بشكل واضح عن العادات.",
+        "en": "This decision contrasts sharply with the usual practices."
+      },
+      {
+        "fr": "Le juge a tranché.",
+        "ar": "القاضي حسم الأمر.",
+        "en": "The judge made the decision."
+      },
+      {
+        "fr": "Il est temps de trancher.",
+        "ar": "حان وقت اتخاذ القرار.",
+        "en": "It's time to make a decision."
+      }
+    ]
   },
   {
     "fr": "Mélanger",
@@ -66495,12 +66693,32 @@ window.VOCAB_DATA = [
         "fr": "Je préfère travailler le matin.",
         "ar": "أفضل العمل في الصباح.",
         "en": "I prefer working in the morning."
+      },
+      {
+        "fr": "Je travaille aujourd'hui.",
+        "ar": "أعمل اليوم.",
+        "en": "I'm working today."
+      },
+      {
+        "fr": "Je travaille dans un restaurant.",
+        "ar": "أعمل في مطعم.",
+        "en": "I work in a restaurant."
+      },
+      {
+        "fr": "Je travaille avec une équipe.",
+        "ar": "أعمل مع فريق.",
+        "en": "I work with a team."
+      },
+      {
+        "fr": "Je travaille sur ce projet.",
+        "ar": "أعمل على هذا المشروع.",
+        "en": "I'm working on this project."
       }
     ]
   },
   {
     "fr": "Trouver",
-    "ar": "يجد / يلاقي",
+    "ar": "يجد / يلاقي / يعتبر / يرى",
     "en": "To find",
     "pos": "verb",
     "level": "A1",
@@ -66566,6 +66784,26 @@ window.VOCAB_DATA = [
         "fr": "Tu trouves comment ce restaurant ?",
         "ar": "ما رأيك بهذا المطعم؟",
         "en": "What do you think of this restaurant?"
+      },
+      {
+        "fr": "J'ai trouvé un appartement.",
+        "ar": "وجدت شقة.",
+        "en": "I found an apartment."
+      },
+      {
+        "fr": "Tu trouves ça normal ?",
+        "ar": "هل ترى هذا طبيعيًا؟",
+        "en": "Do you find that normal?"
+      },
+      {
+        "fr": "Tu trouves comment ce travail ?",
+        "ar": "ما رأيك بهذا العمل؟",
+        "en": "What do you think of this job?"
+      },
+      {
+        "fr": "Je trouve ça bizarre.",
+        "ar": "أجد هذا غريبًا.",
+        "en": "I find that strange."
       }
     ]
   },
@@ -66630,6 +66868,31 @@ window.VOCAB_DATA = [
         "fr": "Je peux vous téléphoner plus tard ?",
         "ar": "هل يمكنني الاتصال بكم لاحقًا؟",
         "en": "Can I call you later?"
+      },
+      {
+        "fr": "Je vais lui téléphoner.",
+        "ar": "سأتصل به.",
+        "en": "I'll call him."
+      },
+      {
+        "fr": "Je dois téléphoner au médecin.",
+        "ar": "يجب أن أتصل بالطبيب.",
+        "en": "I have to call the doctor."
+      },
+      {
+        "fr": "Tu peux me téléphoner plus tard ?",
+        "ar": "هل يمكنك الاتصال بي لاحقًا؟",
+        "en": "Can you call me later?"
+      },
+      {
+        "fr": "J'ai essayé de te téléphoner.",
+        "ar": "حاولت الاتصال بك.",
+        "en": "I tried to call you."
+      },
+      {
+        "fr": "Je vous téléphonerai demain.",
+        "ar": "سأتصل بكم غدًا.",
+        "en": "I'll call you tomorrow."
       }
     ]
   },
@@ -66818,6 +67081,26 @@ window.VOCAB_DATA = [
         "fr": "La roue tourne rapidement.",
         "ar": "العجلة تدور بسرعة.",
         "en": "The wheel is turning quickly."
+      },
+      {
+        "fr": "Tournez au prochain rond-point.",
+        "ar": "انعطف عند الدوار القادم.",
+        "en": "Turn at the next roundabout."
+      },
+      {
+        "fr": "Tournez tout droit.",
+        "ar": "تابع مباشرة.",
+        "en": "Go straight."
+      },
+      {
+        "fr": "La clé ne tourne pas.",
+        "ar": "المفتاح لا يدور.",
+        "en": "The key doesn't turn."
+      },
+      {
+        "fr": "La machine tourne normalement.",
+        "ar": "الآلة تعمل بشكل طبيعي.",
+        "en": "The machine is running normally."
       }
     ]
   },
@@ -67451,8 +67734,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Traîner",
-    "ar": "يتسكع / يتأخر / يجرّ",
-    "en": "drag / take one's time",
+    "ar": "يتسكع / يتأخر / يجرّ / يتباطأ / يستمر دون حسم",
+    "en": "drag / take one's time / To take one's time / to hang around / to drag on",
     "pos": "verb",
     "level": "A1",
     "contexts": [
@@ -67510,6 +67793,61 @@ window.VOCAB_DATA = [
         "fr": "Il ne faut pas traîner.",
         "ar": "لا يجب أن نتأخر.",
         "en": "We shouldn't waste time."
+      },
+      {
+        "fr": "Ne traîne pas !",
+        "ar": "لا تتأخر!",
+        "en": "Don't take your time!"
+      },
+      {
+        "fr": "On est en retard, ne traîne pas.",
+        "ar": "نحن متأخرون، لا تتأخر.",
+        "en": "We're late, don't take your time!"
+      },
+      {
+        "fr": "Le dossier traîne depuis longtemps.",
+        "ar": "الملف متعطل منذ وقت طويل.",
+        "en": "The application has been dragging on for a long time."
+      },
+      {
+        "fr": "Il traîne toujours après le travail.",
+        "ar": "هو دائمًا يتسكع بعد العمل.",
+        "en": "He always hangs around after work."
+      },
+      {
+        "fr": "Ça traîne encore.",
+        "ar": "ما زال الأمر متعطلًا.",
+        "en": "It's still dragging on."
+      },
+      {
+        "fr": "Ne traînez pas dans la rue.",
+        "ar": "لا تتسكعوا في الشارع.",
+        "en": "Don't hang around in the street."
+      },
+      {
+        "fr": "Dépêche-toi, ne traîne pas !",
+        "ar": "أسرع، لا تتأخر!",
+        "en": "Hurry up, don't take your time!"
+      },
+      {
+        "fr": "On est en retard, dépêche-toi !",
+        "ar": "نحن متأخرون، أسرع!",
+        "en": "We're late, hurry up!"
+      },
+      {
+        "fr": "Le dossier traîne depuis des semaines.",
+        "ar": "الملف متعطل منذ أسابيع.",
+        "en": "The application has been dragging on for weeks."
+      },
+      {
+        "fr": "Le paiement traîne.",
+        "ar": "الدفع متأخر.",
+        "en": "The payment is delayed."
+      },
+      {
+        "fr": "Ne traînez pas dans le couloir.",
+        "ar": "لا تتسكعوا في الممر.",
+        "en": "Don't hang around in the hallway."
       }
     ]
   },
@@ -67574,6 +67912,16 @@ window.VOCAB_DATA = [
         "fr": "Je préfère tester avant d'acheter.",
         "ar": "أفضل التجربة قبل الشراء.",
         "en": "I prefer to test it before buying."
+      },
+      {
+        "fr": "J'ai testé le produit.",
+        "ar": "اختبرت المنتج.",
+        "en": "I tested the product."
+      },
+      {
+        "fr": "Le système doit être testé.",
+        "ar": "يجب اختبار النظام.",
+        "en": "The system needs to be tested."
       }
     ]
   },
@@ -67636,6 +67984,11 @@ window.VOCAB_DATA = [
         "fr": "Tâchez de répondre rapidement.",
         "ar": "حاولوا الرد بسرعة.",
         "en": "Try to reply quickly."
+      },
+      {
+        "fr": "Je vais tâcher de venir demain.",
+        "ar": "سأحاول المجيء غدًا.",
+        "en": "I'll try to come tomorrow."
       }
     ]
   },
@@ -67700,6 +68053,892 @@ window.VOCAB_DATA = [
         "fr": "Le fichier a été transféré avec succès.",
         "ar": "تم نقل الملف بنجاح.",
         "en": "The file was transferred successfully."
+      },
+      {
+        "fr": "Je vais transférer l'argent.",
+        "ar": "سأحوّل المال.",
+        "en": "I'll transfer the money."
+      },
+      {
+        "fr": "Pouvez-vous transférer ce document ?",
+        "ar": "هل يمكنك إعادة إرسال هذه الوثيقة؟",
+        "en": "Can you forward this document?"
+      },
+      {
+        "fr": "Je vais transférer votre appel.",
+        "ar": "سأحوّل مكالمتكم.",
+        "en": "I'll transfer your call."
+      },
+      {
+        "fr": "Je dois transférer le fichier.",
+        "ar": "يجب أن أنقل الملف.",
+        "en": "I have to transfer the file."
+      },
+      {
+        "fr": "Je vais transférer votre demande.",
+        "ar": "سأحوّل طلبكم.",
+        "en": "I'll forward your request."
+      },
+      {
+        "fr": "Le fichier est transféré sur mon téléphone.",
+        "ar": "الملف منقول إلى هاتفي.",
+        "en": "The file is transferred to my phone."
+      },
+      {
+        "fr": "Merci de transférer mon message.",
+        "ar": "شكرًا لإعادة إرسال رسالتي.",
+        "en": "Thank you for forwarding my message."
+      },
+      {
+        "fr": "J'ai transféré le fichier.",
+        "ar": "نقلت الملف.",
+        "en": "I transferred the file."
+      },
+      {
+        "fr": "Pouvez-vous transférer cet e-mail ?",
+        "ar": "هل يمكنك إعادة إرسال هذا البريد الإلكتروني؟",
+        "en": "Can you forward this email?"
+      },
+      {
+        "fr": "Je dois transférer l'appel.",
+        "ar": "يجب أن أحوّل المكالمة.",
+        "en": "I have to transfer the call."
+      }
+    ]
+  },
+  {
+    "fr": "Tolérer",
+    "ar": "يتحمّل / يتسامح مع",
+    "en": "To tolerate",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je ne peux pas tolérer ça.",
+        "ar": "لا أستطيع تحمّل هذا.",
+        "en": "I can't tolerate this."
+      },
+      {
+        "fr": "Il ne tolère pas le bruit.",
+        "ar": "هو لا يتحمل الضجيج.",
+        "en": "He doesn't tolerate noise."
+      },
+      {
+        "fr": "Je tolère mal le froid.",
+        "ar": "لا أتحمل البرد جيدًا.",
+        "en": "I don't tolerate the cold well."
+      },
+      {
+        "fr": "Cette machine ne tolère pas beaucoup de poids.",
+        "ar": "هذه الآلة لا تتحمل وزنًا كبيرًا.",
+        "en": "This machine can't handle much weight."
+      },
+      {
+        "fr": "Il faut tolérer certaines différences.",
+        "ar": "يجب تقبّل بعض الاختلافات.",
+        "en": "We have to tolerate certain differences."
+      },
+      {
+        "fr": "Je ne tolère pas ce comportement.",
+        "ar": "لا أتقبل هذا التصرف.",
+        "en": "I don't tolerate this behavior."
+      },
+      {
+        "fr": "Elle tolère bien le stress.",
+        "ar": "هي تتحمل الضغط جيدًا.",
+        "en": "She handles stress well."
+      },
+      {
+        "fr": "Ce produit est bien toléré.",
+        "ar": "هذا المنتج جيد التحمل.",
+        "en": "This product is well tolerated."
+      },
+      {
+        "fr": "On ne peut pas tolérer ça longtemps.",
+        "ar": "لا يمكننا تحمل هذا طويلًا.",
+        "en": "We can't tolerate this for long."
+      },
+      {
+        "fr": "Il faut apprendre à tolérer les erreurs.",
+        "ar": "يجب أن نتعلم تقبل الأخطاء.",
+        "en": "We need to learn to tolerate mistakes."
+      },
+      {
+        "fr": "Je ne peux pas tolérer ça.",
+        "ar": "لا أستطيع تحمل هذا.",
+        "en": "I can't tolerate this."
+      },
+      {
+        "fr": "On ne peut pas tolérer ce comportement.",
+        "ar": "لا يمكننا تقبّل هذا التصرف.",
+        "en": "We can't tolerate this behavior."
+      }
+    ]
+  },
+  {
+    "fr": "Trier",
+    "ar": "يفرز / يرتب / يفرّق / يفصل",
+    "en": "To sort / to separate",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois trier les documents.",
+        "ar": "يجب أن أفرز الوثائق.",
+        "en": "I have to sort the documents."
+      },
+      {
+        "fr": "Il faut trier les déchets.",
+        "ar": "يجب فرز النفايات.",
+        "en": "We have to sort the waste."
+      },
+      {
+        "fr": "Je trie mes affaires.",
+        "ar": "أرتب / أفرز أغراضي.",
+        "en": "I'm sorting my things."
+      },
+      {
+        "fr": "Tu peux trier ces dossiers ?",
+        "ar": "هل يمكنك فرز هذه الملفات؟",
+        "en": "Can you sort these files?"
+      },
+      {
+        "fr": "Il faut trier le papier et le plastique.",
+        "ar": "يجب فصل الورق والبلاستيك.",
+        "en": "We need to separate paper and plastic."
+      },
+      {
+        "fr": "J'ai trié les documents importants.",
+        "ar": "فرزت الوثائق المهمة.",
+        "en": "I sorted the important documents."
+      },
+      {
+        "fr": "Je vais trier mes vêtements.",
+        "ar": "سأفرز ملابسي.",
+        "en": "I'll sort my clothes."
+      },
+      {
+        "fr": "Les déchets sont triés séparément.",
+        "ar": "يتم فرز النفايات بشكل منفصل.",
+        "en": "The waste is sorted separately."
+      },
+      {
+        "fr": "Il faut bien trier les produits.",
+        "ar": "يجب فرز المنتجات جيدًا.",
+        "en": "The products need to be sorted carefully."
+      },
+      {
+        "fr": "Je vais trier tout ça demain.",
+        "ar": "سأرتب / أفرز كل هذا غدًا.",
+        "en": "I'll sort all this tomorrow."
+      }
+    ]
+  },
+  {
+    "fr": "Traiter avec",
+    "ar": "يتعامل مع",
+    "en": "To deal with",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois traiter avec le responsable.",
+        "ar": "يجب أن أتعامل مع المسؤول.",
+        "en": "I have to deal with the manager."
+      },
+      {
+        "fr": "Je préfère traiter directement avec lui.",
+        "ar": "أفضل التعامل معه مباشرة.",
+        "en": "I prefer to deal with him directly."
+      },
+      {
+        "fr": "Nous traitons avec plusieurs entreprises.",
+        "ar": "نتعامل مع عدة شركات.",
+        "en": "We deal with several companies."
+      },
+      {
+        "fr": "C'est difficile de traiter avec lui.",
+        "ar": "من الصعب التعامل معه.",
+        "en": "It's difficult to deal with him."
+      },
+      {
+        "fr": "Je ne sais pas avec qui traiter.",
+        "ar": "لا أعرف مع من يجب أن أتعامل.",
+        "en": "I don't know who to deal with."
+      },
+      {
+        "fr": "Il faut traiter avec le service concerné.",
+        "ar": "يجب التعامل مع القسم المعني.",
+        "en": "You need to deal with the relevant department."
+      },
+      {
+        "fr": "Je préfère traiter ça directement.",
+        "ar": "أفضل التعامل مع هذا مباشرة.",
+        "en": "I prefer to deal with this directly."
+      },
+      {
+        "fr": "Ils savent bien traiter avec les clients.",
+        "ar": "هم يعرفون جيدًا كيف يتعاملون مع الزبائن.",
+        "en": "They know how to deal with customers."
+      },
+      {
+        "fr": "Je dois traiter avec l'agence.",
+        "ar": "يجب أن أتعامل مع الوكالة.",
+        "en": "I have to deal with the agency."
+      },
+      {
+        "fr": "On va traiter ça ensemble.",
+        "ar": "سنتعامل مع هذا معًا.",
+        "en": "We'll deal with this together."
+      }
+    ]
+  },
+  {
+    "fr": "Trembler",
+    "ar": "يرتجف / يرتعش",
+    "en": "To tremble / to shake",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je tremble de froid.",
+        "ar": "أرتجف من البرد.",
+        "en": "I'm shaking from the cold."
+      },
+      {
+        "fr": "Mes mains tremblent.",
+        "ar": "يداي ترتجفان.",
+        "en": "My hands are shaking."
+      },
+      {
+        "fr": "Il tremble de peur.",
+        "ar": "هو يرتجف من الخوف.",
+        "en": "He's trembling with fear."
+      },
+      {
+        "fr": "Pourquoi tu trembles ?",
+        "ar": "لماذا ترتجف؟",
+        "en": "Why are you shaking?"
+      },
+      {
+        "fr": "Je tremble un peu.",
+        "ar": "أنا أرتجف قليلًا.",
+        "en": "I'm shaking a little."
+      },
+      {
+        "fr": "La table tremble.",
+        "ar": "الطاولة تهتز.",
+        "en": "The table is shaking."
+      },
+      {
+        "fr": "Il tremble quand il parle.",
+        "ar": "يرتجف عندما يتحدث.",
+        "en": "He trembles when he speaks."
+      },
+      {
+        "fr": "Ne tremble pas.",
+        "ar": "لا ترتجف.",
+        "en": "Don't shake."
+      },
+      {
+        "fr": "La voiture tremble.",
+        "ar": "السيارة تهتز.",
+        "en": "The car is shaking."
+      },
+      {
+        "fr": "J'ai les mains qui tremblent.",
+        "ar": "يداي ترتجفان.",
+        "en": "My hands are shaking."
+      }
+    ]
+  },
+  {
+    "fr": "Témoigner",
+    "ar": "يشهد / يدلي بشهادة",
+    "en": "To testify / to give evidence",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il a accepté de témoigner.",
+        "ar": "وافق على الإدلاء بشهادته.",
+        "en": "He agreed to testify."
+      },
+      {
+        "fr": "Je peux témoigner de ce que j'ai vu.",
+        "ar": "يمكنني أن أشهد على ما رأيته.",
+        "en": "I can testify about what I saw."
+      },
+      {
+        "fr": "Elle a témoigné devant le tribunal.",
+        "ar": "أدلت بشهادتها أمام المحكمة.",
+        "en": "She testified before the court."
+      },
+      {
+        "fr": "Plusieurs personnes ont témoigné.",
+        "ar": "أدلى عدة أشخاص بشهاداتهم.",
+        "en": "Several people testified."
+      },
+      {
+        "fr": "Il est venu témoigner.",
+        "ar": "جاء للإدلاء بشهادته.",
+        "en": "He came to testify."
+      },
+      {
+        "fr": "Je ne veux pas témoigner.",
+        "ar": "لا أريد الإدلاء بشهادتي.",
+        "en": "I don't want to testify."
+      },
+      {
+        "fr": "Il a témoigné en faveur de son collègue.",
+        "ar": "شهد لصالح زميله.",
+        "en": "He testified in favor of his colleague."
+      },
+      {
+        "fr": "Son témoignage est important.",
+        "ar": "شهادته مهمة.",
+        "en": "His testimony is important."
+      },
+      {
+        "fr": "Elle a témoigné de son expérience.",
+        "ar": "تحدثت عن تجربتها / أدلت بشهادتها عن تجربتها.",
+        "en": "She shared her experience."
+      },
+      {
+        "fr": "Merci d'avoir témoigné.",
+        "ar": "شكرًا لإدلائك بشهادتك.",
+        "en": "Thank you for giving your testimony."
+      },
+      {
+        "fr": "Elle témoigne devant le tribunal.",
+        "ar": "هي تدلي بشهادتها أمام المحكمة.",
+        "en": "She is testifying before the court."
+      }
+    ]
+  },
+  {
+    "fr": "Tendre",
+    "ar": "يمدّ / يمدد / يقدّم",
+    "en": "To stretch / to extend / to hand",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "phone",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Tends-moi la main.",
+        "ar": "مدّ لي يدك.",
+        "en": "Give me your hand."
+      },
+      {
+        "fr": "Tends-moi le téléphone.",
+        "ar": "ناولني الهاتف.",
+        "en": "Hand me the phone."
+      },
+      {
+        "fr": "Il me tend un document.",
+        "ar": "ناولني وثيقة.",
+        "en": "He hands me a document."
+      },
+      {
+        "fr": "Tendez les bras.",
+        "ar": "مدّوا أذرعكم.",
+        "en": "Stretch out your arms."
+      },
+      {
+        "fr": "Je lui ai tendu la main.",
+        "ar": "مددت يدي له.",
+        "en": "I held out my hand to him."
+      },
+      {
+        "fr": "Tends-moi ça, s'il te plaît.",
+        "ar": "ناولني هذا، من فضلك.",
+        "en": "Hand me that, please."
+      },
+      {
+        "fr": "Il tend la main pour demander de l'aide.",
+        "ar": "يمد يده لطلب المساعدة.",
+        "en": "He holds out his hand to ask for help."
+      },
+      {
+        "fr": "La corde est bien tendue.",
+        "ar": "الحبل مشدود جيدًا.",
+        "en": "The rope is tight."
+      },
+      {
+        "fr": "Ne tends pas trop la corde.",
+        "ar": "لا تشد الحبل كثيرًا.",
+        "en": "Don't tighten the rope too much."
+      },
+      {
+        "fr": "Je vous tends le formulaire.",
+        "ar": "أنا أناولكم الاستمارة.",
+        "en": "I'm handing you the form."
+      }
+    ]
+  },
+  {
+    "fr": "Tousser",
+    "ar": "يسعل",
+    "en": "To cough",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je tousse beaucoup.",
+        "ar": "أنا أسعل كثيرًا.",
+        "en": "I'm coughing a lot."
+      },
+      {
+        "fr": "Je n'arrête pas de tousser.",
+        "ar": "لا أتوقف عن السعال.",
+        "en": "I can't stop coughing."
+      },
+      {
+        "fr": "Tu tousses ?",
+        "ar": "هل تسعل؟",
+        "en": "Are you coughing?"
+      },
+      {
+        "fr": "Il tousse depuis hier.",
+        "ar": "هو يسعل منذ أمس.",
+        "en": "He's been coughing since yesterday."
+      },
+      {
+        "fr": "Elle tousse beaucoup la nuit.",
+        "ar": "هي تسعل كثيرًا في الليل.",
+        "en": "She coughs a lot at night."
+      },
+      {
+        "fr": "J'ai commencé à tousser ce matin.",
+        "ar": "بدأت أسعل هذا الصباح.",
+        "en": "I started coughing this morning."
+      },
+      {
+        "fr": "Quand je parle, je tousse.",
+        "ar": "عندما أتكلم أسعل.",
+        "en": "When I speak, I cough."
+      },
+      {
+        "fr": "Il tousse à cause de la fumée.",
+        "ar": "يسعل بسبب الدخان.",
+        "en": "He's coughing because of the smoke."
+      },
+      {
+        "fr": "Tu tousses encore ?",
+        "ar": "هل ما زلت تسعل؟",
+        "en": "Are you still coughing?"
+      },
+      {
+        "fr": "Je tousse moins qu'hier.",
+        "ar": "أسعل أقل من أمس.",
+        "en": "I'm coughing less than yesterday."
+      }
+    ]
+  },
+  {
+    "fr": "Tailler",
+    "ar": "يقصّ / يشذّب / يحدد المقاس",
+    "en": "To trim / to cut / to size",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois tailler la haie.",
+        "ar": "يجب أن أقصّ السياج النباتي.",
+        "en": "I have to trim the hedge."
+      },
+      {
+        "fr": "Il faut tailler les branches.",
+        "ar": "يجب قص الأغصان.",
+        "en": "The branches need to be trimmed."
+      },
+      {
+        "fr": "Je vais tailler les arbres.",
+        "ar": "سأشذب الأشجار.",
+        "en": "I'll trim the trees."
+      },
+      {
+        "fr": "Cette veste est bien taillée.",
+        "ar": "هذه السترة مفصلة بشكل جيد.",
+        "en": "This jacket is well-cut."
+      },
+      {
+        "fr": "Il faut choisir la bonne taille.",
+        "ar": "يجب اختيار المقاس الصحيح.",
+        "en": "You need to choose the right size."
+      },
+      {
+        "fr": "Quelle taille faites-vous ?",
+        "ar": "ما مقاسك؟",
+        "en": "What size are you?"
+      },
+      {
+        "fr": "Cette chemise est trop grande, il faut la tailler.",
+        "ar": "هذا القميص كبير جدًا، يجب تعديله.",
+        "en": "This shirt is too big; it needs altering."
+      },
+      {
+        "fr": "Je vais faire tailler mon costume.",
+        "ar": "سأجعل بدلتي تُعدّل حسب المقاس.",
+        "en": "I'll have my suit altered."
+      },
+      {
+        "fr": "Il taille les branches avec soin.",
+        "ar": "يقص الأغصان بعناية.",
+        "en": "He trims the branches carefully."
+      },
+      {
+        "fr": "Cette coupe est facile à tailler.",
+        "ar": "هذا القص سهل التنفيذ.",
+        "en": "This cut is easy to trim."
+      }
+    ]
+  },
+  {
+    "fr": "Tuer",
+    "ar": "يقتل / يُرهق جدًا",
+    "en": "To kill",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Ne me tue pas !",
+        "ar": "لا تقتلني!",
+        "en": "Don't kill me!"
+      },
+      {
+        "fr": "Ça me tue !",
+        "ar": "هذا يقتلني! / هذا متعب جدًا!",
+        "en": "It's killing me!"
+      },
+      {
+        "fr": "Je meurs de faim.",
+        "ar": "أنا أموت من الجوع.",
+        "en": "I'm starving."
+      },
+      {
+        "fr": "Ça tue le temps.",
+        "ar": "هذا يضيّع الوقت.",
+        "en": "It kills time."
+      },
+      {
+        "fr": "Je fais ça pour tuer le temps.",
+        "ar": "أفعل هذا لتمضية الوقت.",
+        "en": "I do this to kill time."
+      },
+      {
+        "fr": "Le soleil peut tuer les plantes.",
+        "ar": "يمكن للشمس أن تقتل النباتات.",
+        "en": "The sun can kill plants."
+      },
+      {
+        "fr": "Cette chaleur me tue.",
+        "ar": "هذا الحر يقتلني.",
+        "en": "This heat is killing me."
+      },
+      {
+        "fr": "Le travail me tue.",
+        "ar": "العمل يرهقني جدًا.",
+        "en": "Work is killing me."
+      },
+      {
+        "fr": "Ça me tue de rire.",
+        "ar": "هذا يقتلني من الضحك.",
+        "en": "That kills me laughing."
+      },
+      {
+        "fr": "Il a été tué dans un accident.",
+        "ar": "قُتل في حادث.",
+        "en": "He was killed in an accident."
+      },
+      {
+        "fr": "Cette chaleur me tue.",
+        "ar": "هذا الحر يقتلني / يرهقني جدًا.",
+        "en": "This heat is killing me."
+      },
+      {
+        "fr": "Ça me tue de rire.",
+        "ar": "هذا يجعلني أضحك كثيرًا.",
+        "en": "That kills me laughing."
+      }
+    ]
+  },
+  {
+    "fr": "Tasser",
+    "ar": "يضغط / يكبس / يرصّ",
+    "en": "To pack down / to compress",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il faut tasser les déchets.",
+        "ar": "يجب ضغط النفايات.",
+        "en": "The waste needs to be compacted."
+      },
+      {
+        "fr": "Tasse bien les cartons.",
+        "ar": "اضغط الصناديق جيدًا.",
+        "en": "Pack the boxes down well."
+      },
+      {
+        "fr": "Je vais tasser ça.",
+        "ar": "سأضغط هذا.",
+        "en": "I'll compact this."
+      },
+      {
+        "fr": "Il faut tasser la terre.",
+        "ar": "يجب ضغط التربة.",
+        "en": "The soil needs to be compacted."
+      },
+      {
+        "fr": "Tassez bien les produits.",
+        "ar": "رصّوا المنتجات جيدًا.",
+        "en": "Pack the products tightly."
+      },
+      {
+        "fr": "Les vêtements sont bien tassés dans la valise.",
+        "ar": "الملابس مضغوطة جيدًا في الحقيبة.",
+        "en": "The clothes are packed tightly in the suitcase."
+      },
+      {
+        "fr": "On peut tasser encore un peu.",
+        "ar": "يمكننا ضغطه قليلًا أكثر.",
+        "en": "We can compact it a little more."
+      },
+      {
+        "fr": "Ne tasse pas trop.",
+        "ar": "لا تضغط كثيرًا.",
+        "en": "Don't pack it down too much."
+      },
+      {
+        "fr": "Tout est bien tassé.",
+        "ar": "كل شيء مرصوص جيدًا.",
+        "en": "Everything is packed tightly."
+      },
+      {
+        "fr": "Il faut tasser avant de fermer le carton.",
+        "ar": "يجب رصّ الأشياء قبل إغلاق الصندوق.",
+        "en": "You need to pack everything down before closing the box."
+      }
+    ]
+  },
+  {
+    "fr": "Tâtonner",
+    "ar": "يتلمّس طريقه / يحاول دون معرفة مؤكدة",
+    "en": "To feel one's way / to fumble",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je tâtonne encore.",
+        "ar": "ما زلت أحاول دون معرفة واضحة.",
+        "en": "I'm still feeling my way."
+      },
+      {
+        "fr": "Il tâtonne pour trouver la solution.",
+        "ar": "يحاول الوصول إلى الحل بطريقة غير مؤكدة.",
+        "en": "He's feeling his way toward a solution."
+      },
+      {
+        "fr": "Je tâtonne dans le noir.",
+        "ar": "أتلمّس طريقي في الظلام.",
+        "en": "I'm feeling my way in the dark."
+      },
+      {
+        "fr": "On tâtonne encore pour trouver la bonne méthode.",
+        "ar": "ما زلنا نحاول إيجاد الطريقة المناسبة.",
+        "en": "We're still trying to find the right method."
+      },
+      {
+        "fr": "Je ne connais pas bien le système, je tâtonne.",
+        "ar": "لا أعرف النظام جيدًا، وما زلت أحاول فهمه.",
+        "en": "I don't know the system well; I'm figuring it out."
+      }
+    ]
+  },
+  {
+    "fr": "Tricher",
+    "ar": "يغش / يتحايل",
+    "en": "To cheat",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il ne faut pas tricher.",
+        "ar": "لا يجب الغش.",
+        "en": "You mustn't cheat."
+      },
+      {
+        "fr": "Il a triché à l'examen.",
+        "ar": "لقد غش في الامتحان.",
+        "en": "He cheated on the exam."
+      },
+      {
+        "fr": "Ne triche pas !",
+        "ar": "لا تغش!",
+        "en": "Don't cheat!"
+      },
+      {
+        "fr": "Je ne veux pas tricher.",
+        "ar": "لا أريد أن أغش.",
+        "en": "I don't want to cheat."
+      },
+      {
+        "fr": "Il a été puni parce qu'il a triché.",
+        "ar": "تمت معاقبته لأنه غش.",
+        "en": "He was punished because he cheated."
+      }
+    ]
+  },
+  {
+    "fr": "Tremper",
+    "ar": "يغمّس / ينقع / يبتل",
+    "en": "To dip / to soak / to get wet",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je trempe le pain dans la sauce.",
+        "ar": "أغمّس الخبز في الصلصة.",
+        "en": "I dip the bread in the sauce."
+      },
+      {
+        "fr": "Ne trempe pas tes vêtements !",
+        "ar": "لا تبلل ملابسك!",
+        "en": "Don't get your clothes wet!"
+      },
+      {
+        "fr": "La pluie m'a trempé.",
+        "ar": "المطر بللني.",
+        "en": "The rain soaked me."
+      },
+      {
+        "fr": "Il faut tremper les légumes dans l'eau.",
+        "ar": "يجب نقع الخضار في الماء.",
+        "en": "You need to soak the vegetables in water."
+      },
+      {
+        "fr": "Trempe le pinceau dans la peinture.",
+        "ar": "اغمس الفرشاة في الطلاء.",
+        "en": "Dip the brush in the paint."
+      }
+    ]
+  },
+  {
+    "fr": "Tracer",
+    "ar": "يرسم خطًا / يحدد مسارًا / يذهب بسرعة",
+    "en": "To draw / to trace / to make a path",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Tracez une ligne ici.",
+        "ar": "ارسم خطًا هنا.",
+        "en": "Draw a line here."
+      },
+      {
+        "fr": "Je vais tracer un cercle.",
+        "ar": "سأرسم دائرة.",
+        "en": "I'll draw a circle."
+      },
+      {
+        "fr": "Il faut tracer le chemin.",
+        "ar": "يجب تحديد المسار.",
+        "en": "We need to mark out the route."
+      },
+      {
+        "fr": "Trace une ligne droite.",
+        "ar": "ارسم خطًا مستقيمًا.",
+        "en": "Draw a straight line."
+      },
+      {
+        "fr": "Il a tracé son chemin.",
+        "ar": "حدد طريقه.",
+        "en": "He mapped out his path."
+      }
+    ]
+  },
+  {
+    "fr": "Trahir",
+    "ar": "يخون / يخالف الثقة",
+    "en": "To betray",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je ne veux pas te trahir.",
+        "ar": "لا أريد أن أخونك.",
+        "en": "I don't want to betray you."
+      },
+      {
+        "fr": "Il a trahi son ami.",
+        "ar": "لقد خان صديقه.",
+        "en": "He betrayed his friend."
+      },
+      {
+        "fr": "Ne trahis pas ma confiance.",
+        "ar": "لا تخن ثقتي.",
+        "en": "Don't betray my trust."
+      },
+      {
+        "fr": "Elle se sent trahie.",
+        "ar": "هي تشعر بأنها تعرضت للخيانة.",
+        "en": "She feels betrayed."
+      },
+      {
+        "fr": "Je ne pourrais jamais le trahir.",
+        "ar": "لا يمكنني أبدًا أن أخونه.",
+        "en": "I could never betray him."
       }
     ]
   }
