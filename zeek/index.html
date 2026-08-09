@@ -884,21 +884,50 @@
     return url;
   }
 
-  async function saveFileToAppStorage(file, subdir) {
-    if (!file || !nativeFilesystem()) return null;
-    const dataUrl = await new Promise((resolve, reject) => {
+  function arrayBufferToBase64(buffer) {
+    const bytes = new Uint8Array(buffer);
+    let binary = '';
+    const len = bytes.length;
+    const chunk = 1024;
+    for (let i = 0; i < len; i += chunk) {
+      const end = Math.min(i + chunk, len);
+      let slice = '';
+      for (let j = i; j < end; j++) slice += String.fromCharCode(bytes[j]);
+      binary += slice;
+    }
+    return window.btoa(binary);
+  }
+
+  async function readFileChunk(file, start, end) {
+    const chunk = file.slice(start, end);
+    return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = e => resolve(e.target.result);
       reader.onerror = reject;
-      reader.readAsDataURL(file);
+      reader.readAsArrayBuffer(chunk);
     });
-    const base64 = dataUrl.includes(',') ? dataUrl.split(',')[1] : dataUrl;
+  }
+
+  async function saveFileToAppStorage(file, subdir) {
+    if (!file || !nativeFilesystem()) return null;
+    const { Filesystem, Directory } = Capacitor.Plugins;
     const ext = (file.name && file.name.split('.').pop()) || (file.type.startsWith('video/') ? 'mp4' : 'jpg');
     const filename = Date.now() + '_' + Math.random().toString(36).slice(2, 10) + '.' + ext;
-    const { Filesystem, Directory } = Capacitor.Plugins;
+    const fullPath = subdir + '/' + filename;
+    const chunkSize = 1024 * 1024;
     try { await Filesystem.mkdir({ path: subdir, directory: Directory.Data, recursive: true }); } catch (e) {}
-    await Filesystem.writeFile({ path: subdir + '/' + filename, data: base64, directory: Directory.Data, encoding: 'base64', recursive: true });
-    const { uri } = await Filesystem.getUri({ path: subdir + '/' + filename, directory: Directory.Data });
+    let isFirst = true;
+    for (let offset = 0; offset < file.size; offset += chunkSize) {
+      const buffer = await readFileChunk(file, offset, Math.min(offset + chunkSize, file.size));
+      const base64 = arrayBufferToBase64(buffer);
+      if (isFirst) {
+        await Filesystem.writeFile({ path: fullPath, data: base64, directory: Directory.Data, encoding: 'base64', recursive: true });
+        isFirst = false;
+      } else {
+        await Filesystem.appendFile({ path: fullPath, data: base64, directory: Directory.Data, encoding: 'base64' });
+      }
+    }
+    const { uri } = await Filesystem.getUri({ path: fullPath, directory: Directory.Data });
     return uri;
   }
 
