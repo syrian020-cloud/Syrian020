@@ -3,8 +3,8 @@
   "short_name": "VocaPic",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#02040a",
-  "theme_color": "#02040a",
+  "background_color": "#0a0715",
+  "theme_color": "#0a0715",
   "orientation": "portrait-primary",
   "icons": [
     {
