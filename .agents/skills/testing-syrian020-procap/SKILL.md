@@ -21,6 +21,8 @@ The relevant page is:
 
 **Note for media tests:** `python3 -m http.server` does not respond with `Accept-Ranges: bytes`, so Chrome may be slow to start loading a direct MP4/WebM. The video still loads once the full response is received. For faster local video tests, run a range-supporting server for the media asset or use small files.
 
+**Note for caption/video tests:** For `<video>` seeking to work reliably in Chrome, the media server must support `Range` requests. If you serve the fixture from `python3 -m http.server`, `video.currentTime` may not update and captions will not progress. Serve test MP4s from a simple range-aware server such as `/tmp/range_server.py` on a second port (e.g. `http://localhost:8090/test-video.mp4`).
+
 ## Browser launch
 
 `~/.local/bin/google-chrome` is a CDP wrapper, not the real binary. The actual Chrome for Testing binary is under `/opt/.devin/chrome/`, e.g.:
@@ -50,7 +52,7 @@ If Maven Central returns 429, the `USE_ALIYUN=1` flag uses Aliyun mirrors via `i
 - The VNC display is 1600x1200; Chrome maximizes to that size. Client coordinates from `getBoundingClientRect()` must be offset by the browser chrome height (`window.outerHeight - window.innerHeight`), typically ~192 px.
 - The `computer` mouse-click actions may not register in this environment. Use `xdotool mousemove <x> <y> click 1` from `exec`, passing actual screen coordinates (`rect.left + rect.width/2 + window.screenX`, `rect.top + rect.height/2 + window.screenY + chromeOffset`).
 - The app is RTL Arabic by default (`<html lang="ar" dir="rtl">`). Language buttons are `.lang-btn[data-lang="ar|en|fr"]`.
-- `localStorage` keys use the `zeek_` prefix (`zeek_lessons`, `zeek_ui_lang`, `zeek_theme`, `zeek_favs`, `zeek_notes`); the service-worker cache is `zeek-v2`.
+- `localStorage` keys use the `zeek_` prefix (`zeek_lessons`, `zeek_ui_lang`, `zeek_theme`, `zeek_favs`, `zeek_notes`); the service-worker cache is `zeek-v6` for the current captions/media build.
 - Chrome for Testing may crash when opening Google AI Mode (`udm=50`) links. To verify the Google AI button, either override `window.open` to capture the generated URL, or let it open and accept the crash risk.
 - The test VM typically has no `speechSynthesis` voices, so TTS buttons silently do nothing by default. To verify the TTS/loop UI feedback path, inject a fake voice (`window.speechSynthesis.getVoices = () => [{ name: 'Fake', lang: 'fr-FR', default: false, localService: true, voiceURI: '' }]`) and optionally make `speechSynthesis.speak` a no-op so the highlight state persists long enough to observe.
 - Testing the file picker for import requires the hidden `<input id="import-file" type="file">` to be visible before `xdotool` can click it. Use a single `browser_console` script to set `display:block; position:fixed; ...` on the input, then click it with `xdotool`.
