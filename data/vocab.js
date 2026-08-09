@@ -22512,7 +22512,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Transmettre",
-    "ar": "يرسل / يحوّل / يحوّل (معلومة أو وثيقة) / ينقل / يمرر",
+    "ar": "يرسل / يحوّل / يحوّل (معلومة أو وثيقة) / ينقل / يمرر / يمرّر",
     "en": "To submit / Forward / To transmit / forward / To forward / to transmit / to pass on / to forward",
     "pos": "verb",
     "level": "A2",
@@ -22633,6 +22633,31 @@ window.VOCAB_DATA = [
         "fr": "Cette maladie peut se transmettre.",
         "ar": "يمكن أن ينتقل هذا المرض.",
         "en": "This disease can be transmitted."
+      },
+      {
+        "fr": "Je vais vous transmettre le document.",
+        "ar": "سأرسل لكم الوثيقة.",
+        "en": "I will send you the document."
+      },
+      {
+        "fr": "Peux-tu me transmettre l'information ?",
+        "ar": "هل يمكنك أن ترسل لي المعلومة؟",
+        "en": "Can you pass the information on to me?"
+      },
+      {
+        "fr": "Il faut transmettre le message.",
+        "ar": "يجب نقل الرسالة.",
+        "en": "The message needs to be passed on."
+      },
+      {
+        "fr": "Elle m'a transmis son expérience.",
+        "ar": "نقلت لي خبرتها.",
+        "en": "She passed on her experience to me."
+      },
+      {
+        "fr": "Merci de me transmettre votre réponse.",
+        "ar": "شكرًا على إرسال ردكم لي.",
+        "en": "Thank you for sending me your reply."
       }
     ]
   },
@@ -23403,13 +23428,15 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Traitement",
-    "ar": "علاج",
-    "en": "Treatment",
+    "ar": "علاج / معالجة / معالجة ملف",
+    "en": "Treatment / processing",
     "pos": "noun",
     "level": "A2",
     "contexts": [
+      "daily",
       "health",
-      "services"
+      "services",
+      "weather"
     ],
     "ex": [
       {
@@ -23421,6 +23448,31 @@ window.VOCAB_DATA = [
         "fr": "Je suis un traitement depuis un an.",
         "ar": "أتابع علاجًا منذ سنة.",
         "en": "I have been on a treatment for one year."
+      },
+      {
+        "fr": "Le traitement du dossier prend du temps.",
+        "ar": "معالجة الملف تستغرق وقتًا.",
+        "en": "Processing the file takes time."
+      },
+      {
+        "fr": "Le traitement est terminé.",
+        "ar": "انتهت المعالجة.",
+        "en": "The processing is complete."
+      },
+      {
+        "fr": "Je suis en attente du traitement de ma demande.",
+        "ar": "أنتظر معالجة طلبي.",
+        "en": "I'm waiting for my request to be processed."
+      },
+      {
+        "fr": "Ce médicament nécessite un traitement régulier.",
+        "ar": "هذا الدواء يتطلب علاجًا منتظمًا.",
+        "en": "This medication requires regular treatment."
+      },
+      {
+        "fr": "Le traitement de la demande a commencé.",
+        "ar": "بدأت معالجة الطلب.",
+        "en": "The processing of the request has started."
       }
     ]
   },
@@ -68283,11 +68335,12 @@ window.VOCAB_DATA = [
   {
     "fr": "Tâcher",
     "ar": "يحاول / يسعى إلى",
-    "en": "To try / to make an effort",
+    "en": "To try / to make an effort / to endeavor",
     "pos": "verb",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "work"
     ],
     "ex": [
       {
@@ -68344,6 +68397,26 @@ window.VOCAB_DATA = [
         "fr": "Je vais tâcher de venir demain.",
         "ar": "سأحاول المجيء غدًا.",
         "en": "I'll try to come tomorrow."
+      },
+      {
+        "fr": "Je vais tâcher de venir demain.",
+        "ar": "سأحاول أن آتي غدًا.",
+        "en": "I'll try to come tomorrow."
+      },
+      {
+        "fr": "Tâche de faire attention.",
+        "ar": "حاول أن تنتبه.",
+        "en": "Try to be careful."
+      },
+      {
+        "fr": "Il tâche de comprendre.",
+        "ar": "يحاول أن يفهم.",
+        "en": "He's trying to understand."
+      },
+      {
+        "fr": "Tâchons de rester calmes.",
+        "ar": "لنحاول أن نبقى هادئين.",
+        "en": "Let's try to stay calm."
       }
     ]
   },
@@ -70362,12 +70435,13 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Tranquille",
-    "ar": "هادئ / مرتاح / لا مشكلة",
-    "en": "Quiet / calm / relaxed",
+    "ar": "هادئ / مرتاح / لا مشكلة / على مهل / لا تقلق",
+    "en": "Quiet / calm / relaxed / easy",
     "pos": "adjective",
     "level": "A1",
     "contexts": [
       "daily",
+      "weather",
       "work"
     ],
     "ex": [
@@ -70395,6 +70469,26 @@ window.VOCAB_DATA = [
         "fr": "On peut travailler tranquille.",
         "ar": "يمكننا العمل بهدوء.",
         "en": "We can work peacefully."
+      },
+      {
+        "fr": "Tout va bien, tranquille.",
+        "ar": "كل شيء بخير، لا تقلق.",
+        "en": "Everything is fine, don't worry."
+      },
+      {
+        "fr": "On peut faire ça tranquillement.",
+        "ar": "يمكننا فعل ذلك بهدوء وعلى مهل.",
+        "en": "We can do it calmly."
+      },
+      {
+        "fr": "C'est un endroit tranquille.",
+        "ar": "إنه مكان هادئ.",
+        "en": "It's a quiet place."
+      },
+      {
+        "fr": "Prends ton temps, tranquille.",
+        "ar": "خذ وقتك، لا مشكلة.",
+        "en": "Take your time, no worries."
       }
     ]
   },
@@ -72200,7 +72294,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Trésor",
-    "ar": "كنز / ثروة",
+    "ar": "كنز / ثروة / شيء ثمين",
     "en": "Treasure",
     "pos": "noun",
     "level": "A1",
@@ -72232,6 +72326,26 @@ window.VOCAB_DATA = [
         "fr": "C'est un trésor pour moi.",
         "ar": "إنه كنز بالنسبة لي.",
         "en": "It's a treasure to me."
+      },
+      {
+        "fr": "Ils ont trouvé un trésor.",
+        "ar": "وجدوا كنزًا.",
+        "en": "They found a treasure."
+      },
+      {
+        "fr": "Il garde ses souvenirs comme un trésor.",
+        "ar": "يحتفظ بذكرياته كأنها كنز.",
+        "en": "He treasures his memories."
+      },
+      {
+        "fr": "Le musée possède de nombreux trésors.",
+        "ar": "المتحف يمتلك كنوزًا كثيرة.",
+        "en": "The museum has many treasures."
+      },
+      {
+        "fr": "Pour moi, cette photo est un trésor.",
+        "ar": "بالنسبة لي، هذه الصورة كنز.",
+        "en": "For me, this photo is a treasure."
       }
     ]
   },
@@ -72501,7 +72615,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Tâtonnement",
-    "ar": "تجربة ومحاولة / البحث بطريقة تدريجية",
+    "ar": "تجربة ومحاولة / البحث بطريقة تدريجية / بحث بالتجربة والخطأ",
     "en": "Trial and error / groping",
     "pos": "noun",
     "level": "A1",
@@ -72535,6 +72649,26 @@ window.VOCAB_DATA = [
         "fr": "Il faut parfois procéder par tâtonnements.",
         "ar": "أحيانًا يجب التقدم بالتجربة والمحاولة.",
         "en": "Sometimes you have to proceed by trial and error."
+      },
+      {
+        "fr": "Cette méthode demande quelques tâtonnements.",
+        "ar": "هذه الطريقة تتطلب بعض التجربة والخطأ.",
+        "en": "This method requires some trial and error."
+      },
+      {
+        "fr": "Il a trouvé la solution après plusieurs tâtonnements.",
+        "ar": "وجد الحل بعد عدة محاولات.",
+        "en": "He found the solution after several attempts."
+      },
+      {
+        "fr": "On avance par tâtonnements.",
+        "ar": "نتقدم من خلال التجربة والخطأ.",
+        "en": "We're progressing through trial and error."
+      },
+      {
+        "fr": "Le début s'est fait par tâtonnement.",
+        "ar": "كانت البداية عن طريق التجربة والخطأ.",
+        "en": "The beginning involved trial and error."
       }
     ]
   },
@@ -72611,6 +72745,26 @@ window.VOCAB_DATA = [
         "fr": "La tension électrique est trop élevée.",
         "ar": "الجهد الكهربائي مرتفع جدًا.",
         "en": "The electrical voltage is too high."
+      },
+      {
+        "fr": "Je ressens beaucoup de tension.",
+        "ar": "أشعر بالكثير من التوتر.",
+        "en": "I feel a lot of tension."
+      },
+      {
+        "fr": "Il y a une tension entre eux.",
+        "ar": "هناك توتر بينهما.",
+        "en": "There is tension between them."
+      },
+      {
+        "fr": "Il faut mesurer la tension.",
+        "ar": "يجب قياس الجهد.",
+        "en": "The voltage needs to be measured."
+      },
+      {
+        "fr": "Essaie de réduire la tension.",
+        "ar": "حاول تخفيف التوتر.",
+        "en": "Try to reduce the tension."
       }
     ]
   },
@@ -72776,6 +72930,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "food",
+      "housing",
       "restaurant"
     ],
     "ex": [
@@ -72803,6 +72958,16 @@ window.VOCAB_DATA = [
         "fr": "J'ai acheté une nouvelle théière.",
         "ar": "اشتريت إبريق شاي جديدًا.",
         "en": "I bought a new teapot."
+      },
+      {
+        "fr": "La théière est sur la table.",
+        "ar": "إبريق الشاي على الطاولة.",
+        "en": "The teapot is on the table."
+      },
+      {
+        "fr": "Cette théière est très jolie.",
+        "ar": "إبريق الشاي هذا جميل جدًا.",
+        "en": "This teapot is very pretty."
       }
     ]
   },
@@ -73347,7 +73512,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Trafic",
-    "ar": "حركة المرور / ازدحام",
+    "ar": "حركة المرور / ازدحام / حركة",
     "en": "Traffic",
     "pos": "noun",
     "level": "A1",
@@ -73381,6 +73546,26 @@ window.VOCAB_DATA = [
         "fr": "Évite cette route à cause du trafic.",
         "ar": "تجنب هذا الطريق بسبب الازدحام.",
         "en": "Avoid this road because of the traffic."
+      },
+      {
+        "fr": "Il y a beaucoup de trafic aujourd'hui.",
+        "ar": "هناك حركة مرور كثيرة اليوم.",
+        "en": "There is a lot of traffic today."
+      },
+      {
+        "fr": "J'ai été retardé à cause du trafic.",
+        "ar": "تأخرت بسبب حركة المرور.",
+        "en": "I was delayed because of traffic."
+      },
+      {
+        "fr": "Évite le trafic aux heures de pointe.",
+        "ar": "تجنب الازدحام في ساعات الذروة.",
+        "en": "Avoid traffic during rush hour."
+      },
+      {
+        "fr": "Le trafic est plus calme le dimanche.",
+        "ar": "حركة المرور أهدأ يوم الأحد.",
+        "en": "Traffic is quieter on Sundays."
       }
     ]
   },
@@ -75514,6 +75699,807 @@ window.VOCAB_DATA = [
         "fr": "La traversée de la mer était difficile.",
         "ar": "كان عبور البحر صعبًا.",
         "en": "The sea crossing was difficult."
+      }
+    ]
+  },
+  {
+    "fr": "Tuteur",
+    "ar": "مُدرّس خصوصي / وصي",
+    "en": "Tutor / guardian",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "school"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai besoin d'un tuteur.",
+        "ar": "أحتاج إلى مدرس خصوصي.",
+        "en": "I need a tutor."
+      },
+      {
+        "fr": "Mon tuteur m'aide à apprendre le français.",
+        "ar": "مدرسي الخصوصي يساعدني على تعلم الفرنسية.",
+        "en": "My tutor helps me learn French."
+      },
+      {
+        "fr": "Le tuteur explique bien.",
+        "ar": "المدرس الخصوصي يشرح جيدًا.",
+        "en": "The tutor explains well."
+      },
+      {
+        "fr": "Elle est la tutrice de l'enfant.",
+        "ar": "هي وصية الطفل.",
+        "en": "She is the child's guardian."
+      },
+      {
+        "fr": "Je dois parler à mon tuteur.",
+        "ar": "يجب أن أتحدث مع مدرسي الخصوصي.",
+        "en": "I need to speak to my tutor."
+      }
+    ]
+  },
+  {
+    "fr": "Tactique",
+    "ar": "تكتيك / خطة",
+    "en": "Tactic / strategy",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "C'est une bonne tactique.",
+        "ar": "إنها خطة جيدة.",
+        "en": "It's a good tactic."
+      },
+      {
+        "fr": "Il faut changer de tactique.",
+        "ar": "يجب تغيير التكتيك.",
+        "en": "We need to change tactics."
+      },
+      {
+        "fr": "Cette tactique fonctionne bien.",
+        "ar": "هذه الخطة تعمل بشكل جيد.",
+        "en": "This tactic works well."
+      },
+      {
+        "fr": "Quelle tactique vas-tu utiliser ?",
+        "ar": "أي تكتيك ستستخدم؟",
+        "en": "What tactic are you going to use?"
+      },
+      {
+        "fr": "Il a utilisé une tactique différente.",
+        "ar": "استخدم تكتيكًا مختلفًا.",
+        "en": "He used a different tactic."
+      }
+    ]
+  },
+  {
+    "fr": "Témérité",
+    "ar": "جرأة مفرطة / تهور",
+    "en": "Recklessness / audacity",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "C'est de la témérité.",
+        "ar": "هذا تهور.",
+        "en": "That's recklessness."
+      },
+      {
+        "fr": "Sa témérité lui a causé des problèmes.",
+        "ar": "جرأته المتهورة سببت له مشاكل.",
+        "en": "His recklessness caused him problems."
+      },
+      {
+        "fr": "Il agit avec trop de témérité.",
+        "ar": "يتصرف بتهور شديد.",
+        "en": "He acts too recklessly."
+      },
+      {
+        "fr": "Cette décision montre une grande témérité.",
+        "ar": "هذا القرار يظهر جرأة مفرطة.",
+        "en": "This decision shows great recklessness."
+      },
+      {
+        "fr": "Il faut éviter toute témérité.",
+        "ar": "يجب تجنب أي تهور.",
+        "en": "All recklessness should be avoided."
+      }
+    ]
+  },
+  {
+    "fr": "Tige",
+    "ar": "ساق / عود رفيع / قضيب",
+    "en": "Stem / thin rod",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "La tige est trop longue.",
+        "ar": "الساق طويلة جدًا.",
+        "en": "The stem is too long."
+      },
+      {
+        "fr": "Coupe la tige.",
+        "ar": "اقطع الساق.",
+        "en": "Cut the stem."
+      },
+      {
+        "fr": "La fleur a une longue tige.",
+        "ar": "للزهرة ساق طويلة.",
+        "en": "The flower has a long stem."
+      },
+      {
+        "fr": "Cette tige est en métal.",
+        "ar": "هذا القضيب مصنوع من المعدن.",
+        "en": "This rod is made of metal."
+      },
+      {
+        "fr": "La tige est cassée.",
+        "ar": "الساق مكسورة.",
+        "en": "The stem is broken."
+      }
+    ]
+  },
+  {
+    "fr": "Tranchée",
+    "ar": "خندق / حفرة طويلة",
+    "en": "Trench",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Ils ont creusé une tranchée.",
+        "ar": "حفروا خندقًا.",
+        "en": "They dug a trench."
+      },
+      {
+        "fr": "La tranchée est profonde.",
+        "ar": "الخندق عميق.",
+        "en": "The trench is deep."
+      },
+      {
+        "fr": "Il faut traverser la tranchée.",
+        "ar": "يجب عبور الخندق.",
+        "en": "We have to cross the trench."
+      },
+      {
+        "fr": "Les ouvriers creusent une tranchée.",
+        "ar": "العمال يحفرون خندقًا.",
+        "en": "The workers are digging a trench."
+      },
+      {
+        "fr": "La tranchée sert à installer les câbles.",
+        "ar": "الخندق يُستخدم لتركيب الكابلات.",
+        "en": "The trench is used to install cables."
+      }
+    ]
+  },
+  {
+    "fr": "Tracteur",
+    "ar": "جرار زراعي",
+    "en": "Tractor",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Le tracteur travaille dans le champ.",
+        "ar": "الجرار يعمل في الحقل.",
+        "en": "The tractor is working in the field."
+      },
+      {
+        "fr": "Le tracteur est très puissant.",
+        "ar": "الجرار قوي جدًا.",
+        "en": "The tractor is very powerful."
+      },
+      {
+        "fr": "Il conduit un tracteur.",
+        "ar": "هو يقود جرارًا.",
+        "en": "He drives a tractor."
+      },
+      {
+        "fr": "Le tracteur est en panne.",
+        "ar": "الجرار معطل.",
+        "en": "The tractor has broken down."
+      },
+      {
+        "fr": "Le fermier utilise un tracteur.",
+        "ar": "المزارع يستخدم جرارًا.",
+        "en": "The farmer uses a tractor."
+      }
+    ]
+  },
+  {
+    "fr": "Traction",
+    "ar": "سحب / جرّ / قوة جر",
+    "en": "Traction / pulling force",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "La traction est difficile sur cette route.",
+        "ar": "قوة الجر صعبة على هذا الطريق.",
+        "en": "Traction is difficult on this road."
+      },
+      {
+        "fr": "Cette voiture a une bonne traction.",
+        "ar": "هذه السيارة لديها قوة جر جيدة.",
+        "en": "This car has good traction."
+      },
+      {
+        "fr": "La traction permet de déplacer la charge.",
+        "ar": "السحب يسمح بتحريك الحمولة.",
+        "en": "Traction allows the load to be moved."
+      },
+      {
+        "fr": "Il utilise une machine de traction.",
+        "ar": "يستخدم آلة للسحب.",
+        "en": "He uses a traction machine."
+      },
+      {
+        "fr": "La traction doit être régulière.",
+        "ar": "يجب أن يكون السحب منتظمًا.",
+        "en": "The pulling force must be steady."
+      }
+    ]
+  },
+  {
+    "fr": "Tremplin",
+    "ar": "منصة قفز / نقطة انطلاق",
+    "en": "Springboard / stepping stone",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Il saute depuis le tremplin.",
+        "ar": "يقفز من منصة القفز.",
+        "en": "He jumps from the springboard."
+      },
+      {
+        "fr": "Le tremplin est trop haut.",
+        "ar": "منصة القفز مرتفعة جدًا.",
+        "en": "The springboard is too high."
+      },
+      {
+        "fr": "Cette formation est un tremplin pour sa carrière.",
+        "ar": "هذا التدريب نقطة انطلاق لمسيرته المهنية.",
+        "en": "This training is a stepping stone for his career."
+      },
+      {
+        "fr": "Le projet peut servir de tremplin.",
+        "ar": "يمكن أن يكون المشروع نقطة انطلاق.",
+        "en": "The project can serve as a stepping stone."
+      },
+      {
+        "fr": "Il utilise cette expérience comme tremplin.",
+        "ar": "يستخدم هذه الخبرة كنقطة انطلاق.",
+        "en": "He uses this experience as a stepping stone."
+      }
+    ]
+  },
+  {
+    "fr": "Thermique",
+    "ar": "حراري / متعلق بالحرارة",
+    "en": "Thermal",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "L'isolation thermique est importante.",
+        "ar": "العزل الحراري مهم.",
+        "en": "Thermal insulation is important."
+      },
+      {
+        "fr": "Cette couverture offre une bonne protection thermique.",
+        "ar": "هذا الغطاء يوفر حماية حرارية جيدة.",
+        "en": "This blanket provides good thermal protection."
+      },
+      {
+        "fr": "Le moteur produit de l'énergie thermique.",
+        "ar": "المحرك ينتج طاقة حرارية.",
+        "en": "The engine produces thermal energy."
+      },
+      {
+        "fr": "Il existe plusieurs solutions thermiques.",
+        "ar": "هناك عدة حلول حرارية.",
+        "en": "There are several thermal solutions."
+      },
+      {
+        "fr": "La caméra détecte les variations thermiques.",
+        "ar": "الكاميرا تكتشف التغيرات الحرارية.",
+        "en": "The camera detects thermal variations."
+      }
+    ]
+  },
+  {
+    "fr": "Toupie",
+    "ar": "دوّامة / لعبة دوارة",
+    "en": "Spinning top",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "La toupie tourne très vite.",
+        "ar": "الدوامة تدور بسرعة كبيرة.",
+        "en": "The spinning top turns very fast."
+      },
+      {
+        "fr": "L'enfant joue avec une toupie.",
+        "ar": "الطفل يلعب بدوّامة.",
+        "en": "The child is playing with a spinning top."
+      },
+      {
+        "fr": "Ma toupie est tombée.",
+        "ar": "سقطت دوّامتي.",
+        "en": "My spinning top fell."
+      },
+      {
+        "fr": "Fais tourner la toupie.",
+        "ar": "أدر الدوّامة.",
+        "en": "Spin the top."
+      },
+      {
+        "fr": "La toupie s'arrête lentement.",
+        "ar": "تتوقف الدوّامة ببطء.",
+        "en": "The spinning top stops slowly."
+      }
+    ]
+  },
+  {
+    "fr": "Trousseau",
+    "ar": "مجموعة مفاتيح / طقم",
+    "en": "Keyring / set",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai perdu mon trousseau de clés.",
+        "ar": "لقد أضعت مجموعة مفاتيحي.",
+        "en": "I lost my set of keys."
+      },
+      {
+        "fr": "Où est mon trousseau ?",
+        "ar": "أين مجموعة مفاتيحي؟",
+        "en": "Where is my keyring?"
+      },
+      {
+        "fr": "Le trousseau est dans mon sac.",
+        "ar": "مجموعة المفاتيح في حقيبتي.",
+        "en": "The keyring is in my bag."
+      },
+      {
+        "fr": "Il m'a donné un nouveau trousseau de clés.",
+        "ar": "أعطاني مجموعة مفاتيح جديدة.",
+        "en": "He gave me a new set of keys."
+      },
+      {
+        "fr": "J'ai besoin du trousseau complet.",
+        "ar": "أحتاج إلى مجموعة المفاتيح كاملة.",
+        "en": "I need the complete set of keys."
+      }
+    ]
+  },
+  {
+    "fr": "Tumeur",
+    "ar": "ورم",
+    "en": "Tumor",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "ex": [
+      {
+        "fr": "Le médecin a détecté une tumeur.",
+        "ar": "اكتشف الطبيب ورمًا.",
+        "en": "The doctor detected a tumor."
+      },
+      {
+        "fr": "La tumeur doit être examinée.",
+        "ar": "يجب فحص الورم.",
+        "en": "The tumor needs to be examined."
+      },
+      {
+        "fr": "Les examens montrent une petite tumeur.",
+        "ar": "تُظهر الفحوصات ورمًا صغيرًا.",
+        "en": "The tests show a small tumor."
+      },
+      {
+        "fr": "Le médecin surveille la tumeur.",
+        "ar": "الطبيب يراقب الورم.",
+        "en": "The doctor is monitoring the tumor."
+      },
+      {
+        "fr": "Une nouvelle analyse est nécessaire.",
+        "ar": "هناك حاجة إلى تحليل جديد.",
+        "en": "A new test is necessary."
+      }
+    ]
+  },
+  {
+    "fr": "Tablée",
+    "ar": "مجموعة أشخاص حول مائدة / مائدة مليئة بالناس",
+    "en": "Group gathered around a table",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "food",
+      "housing",
+      "restaurant"
+    ],
+    "ex": [
+      {
+        "fr": "Une grande tablée est installée dehors.",
+        "ar": "مجموعة كبيرة من الناس جالسة في الخارج حول مائدة.",
+        "en": "A large group is seated outside around a table."
+      },
+      {
+        "fr": "La tablée commande plusieurs plats.",
+        "ar": "المجموعة حول المائدة تطلب عدة أطباق.",
+        "en": "The group orders several dishes."
+      },
+      {
+        "fr": "La tablée est très animée.",
+        "ar": "المجموعة حول المائدة صاخبة وحيوية جدًا.",
+        "en": "The group around the table is very lively."
+      },
+      {
+        "fr": "Une grande tablée arrive au restaurant.",
+        "ar": "تصل مجموعة كبيرة إلى المطعم.",
+        "en": "A large group arrives at the restaurant."
+      },
+      {
+        "fr": "La tablée partage les plats.",
+        "ar": "المجموعة تتشارك الأطباق.",
+        "en": "The group shares the dishes."
+      }
+    ]
+  },
+  {
+    "fr": "Tacler",
+    "ar": "يعرقل / يتدخل بقوة / يقوم بتدخل رياضي",
+    "en": "To tackle",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Le défenseur a taclé le joueur.",
+        "ar": "قام المدافع بعرقلة اللاعب.",
+        "en": "The defender tackled the player."
+      },
+      {
+        "fr": "Il a été sanctionné pour avoir taclé dangereusement.",
+        "ar": "تمت معاقبته بسبب قيامه بتدخل خطير.",
+        "en": "He was punished for making a dangerous tackle."
+      },
+      {
+        "fr": "Il faut tacler le problème rapidement.",
+        "ar": "يجب معالجة المشكلة بسرعة وحزم.",
+        "en": "The problem needs to be tackled quickly."
+      },
+      {
+        "fr": "Elle a taclé le sujet directement.",
+        "ar": "تناولت الموضوع مباشرة وبقوة.",
+        "en": "She tackled the issue directly."
+      },
+      {
+        "fr": "Il ne faut pas tacler quelqu'un sans raison.",
+        "ar": "لا ينبغي مهاجمة شخص أو انتقاده دون سبب.",
+        "en": "You shouldn't attack someone without a reason."
+      }
+    ]
+  },
+  {
+    "fr": "Tendeur",
+    "ar": "أداة شد / جهاز للشد",
+    "en": "Tensioner",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Le tendeur est cassé.",
+        "ar": "أداة الشد مكسورة.",
+        "en": "The tensioner is broken."
+      },
+      {
+        "fr": "Il faut remplacer le tendeur.",
+        "ar": "يجب استبدال أداة الشد.",
+        "en": "The tensioner needs to be replaced."
+      },
+      {
+        "fr": "Le tendeur maintient le câble.",
+        "ar": "أداة الشد تثبت الكابل.",
+        "en": "The tensioner holds the cable."
+      },
+      {
+        "fr": "Vérifie le tendeur avant de commencer.",
+        "ar": "تحقق من أداة الشد قبل البدء.",
+        "en": "Check the tensioner before starting."
+      },
+      {
+        "fr": "Le tendeur n'est pas assez serré.",
+        "ar": "أداة الشد ليست مشدودة بما يكفي.",
+        "en": "The tensioner isn't tight enough."
+      }
+    ]
+  },
+  {
+    "fr": "Teneur",
+    "ar": "محتوى / نسبة / مضمون",
+    "en": "Content / level",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "shopping"
+    ],
+    "ex": [
+      {
+        "fr": "La teneur en sucre est élevée.",
+        "ar": "نسبة السكر مرتفعة.",
+        "en": "The sugar content is high."
+      },
+      {
+        "fr": "Quelle est la teneur en sel ?",
+        "ar": "ما نسبة الملح؟",
+        "en": "What is the salt content?"
+      },
+      {
+        "fr": "La teneur en eau est faible.",
+        "ar": "محتوى الماء منخفض.",
+        "en": "The water content is low."
+      },
+      {
+        "fr": "Il faut vérifier la teneur du produit.",
+        "ar": "يجب التحقق من محتوى المنتج.",
+        "en": "The product's content needs to be checked."
+      },
+      {
+        "fr": "La teneur en matières grasses est indiquée sur l'étiquette.",
+        "ar": "نسبة الدهون مذكورة على الملصق.",
+        "en": "The fat content is shown on the label."
+      }
+    ]
+  },
+  {
+    "fr": "Tranchant",
+    "ar": "حاد / قاطع",
+    "en": "Sharp / cutting",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "restaurant"
+    ],
+    "ex": [
+      {
+        "fr": "Ce couteau est très tranchant.",
+        "ar": "هذا السكين حاد جدًا.",
+        "en": "This knife is very sharp."
+      },
+      {
+        "fr": "Attention, le bord est tranchant.",
+        "ar": "انتبه، الحافة حادة.",
+        "en": "Careful, the edge is sharp."
+      },
+      {
+        "fr": "Il faut éviter les objets tranchants.",
+        "ar": "يجب تجنب الأشياء الحادة.",
+        "en": "Sharp objects should be avoided."
+      },
+      {
+        "fr": "La lame est encore tranchante.",
+        "ar": "الشفرة لا تزال حادة.",
+        "en": "The blade is still sharp."
+      },
+      {
+        "fr": "Fais attention à la partie tranchante.",
+        "ar": "انتبه إلى الجزء الحاد.",
+        "en": "Be careful with the sharp part."
+      }
+    ]
+  },
+  {
+    "fr": "Trajectoire",
+    "ar": "مسار / خط سير",
+    "en": "Trajectory / path",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "La trajectoire de la balle a changé.",
+        "ar": "تغير مسار الكرة.",
+        "en": "The ball's trajectory changed."
+      },
+      {
+        "fr": "Il faut suivre la bonne trajectoire.",
+        "ar": "يجب اتباع المسار الصحيح.",
+        "en": "You have to follow the correct path."
+      },
+      {
+        "fr": "La voiture a quitté sa trajectoire.",
+        "ar": "خرجت السيارة عن مسارها.",
+        "en": "The car left its trajectory."
+      },
+      {
+        "fr": "La trajectoire est difficile à prévoir.",
+        "ar": "من الصعب توقع المسار.",
+        "en": "The trajectory is difficult to predict."
+      },
+      {
+        "fr": "Regarde la trajectoire du ballon.",
+        "ar": "انظر إلى مسار الكرة.",
+        "en": "Look at the ball's trajectory."
+      }
+    ]
+  },
+  {
+    "fr": "Transfert",
+    "ar": "نقل / تحويل / انتقال",
+    "en": "Transfer",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "bank",
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Le transfert d'argent est terminé.",
+        "ar": "تم تحويل المال.",
+        "en": "The money transfer is complete."
+      },
+      {
+        "fr": "J'attends le transfert bancaire.",
+        "ar": "أنتظر التحويل المصرفي.",
+        "en": "I'm waiting for the bank transfer."
+      },
+      {
+        "fr": "Le transfert prend quelques jours.",
+        "ar": "يستغرق التحويل بضعة أيام.",
+        "en": "The transfer takes a few days."
+      },
+      {
+        "fr": "Je dois faire un transfert.",
+        "ar": "يجب أن أقوم بتحويل.",
+        "en": "I need to make a transfer."
+      },
+      {
+        "fr": "Le transfert a été refusé.",
+        "ar": "تم رفض التحويل.",
+        "en": "The transfer was refused."
+      }
+    ]
+  },
+  {
+    "fr": "Transport",
+    "ar": "نقل / مواصلات",
+    "en": "Transport",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Les transports sont gratuits aujourd'hui.",
+        "ar": "المواصلات مجانية اليوم.",
+        "en": "Public transport is free today."
+      },
+      {
+        "fr": "Je prends les transports en commun.",
+        "ar": "أستخدم وسائل النقل العام.",
+        "en": "I take public transportation."
+      },
+      {
+        "fr": "Le transport est compris dans le prix.",
+        "ar": "النقل مشمول في السعر.",
+        "en": "Transport is included in the price."
+      },
+      {
+        "fr": "Il y a un problème de transport.",
+        "ar": "هناك مشكلة في النقل.",
+        "en": "There's a transportation problem."
+      },
+      {
+        "fr": "Le transport de marchandises coûte cher.",
+        "ar": "نقل البضائع مكلف.",
+        "en": "Transporting goods is expensive."
+      }
+    ]
+  },
+  {
+    "fr": "Trancheuse",
+    "ar": "آلة تقطيع",
+    "en": "Slicer",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "food",
+      "restaurant"
+    ],
+    "ex": [
+      {
+        "fr": "La trancheuse est dans la cuisine.",
+        "ar": "آلة التقطيع في المطبخ.",
+        "en": "The slicer is in the kitchen."
+      },
+      {
+        "fr": "Nettoie la trancheuse après utilisation.",
+        "ar": "نظف آلة التقطيع بعد الاستخدام.",
+        "en": "Clean the slicer after use."
+      },
+      {
+        "fr": "La trancheuse est très efficace.",
+        "ar": "آلة التقطيع فعالة جدًا.",
+        "en": "The slicer is very efficient."
+      },
+      {
+        "fr": "Attention à la lame de la trancheuse.",
+        "ar": "انتبه إلى شفرة آلة التقطيع.",
+        "en": "Be careful with the slicer's blade."
+      },
+      {
+        "fr": "La trancheuse ne coupe plus correctement.",
+        "ar": "آلة التقطيع لم تعد تقطع بشكل صحيح.",
+        "en": "The slicer no longer cuts properly."
       }
     ]
   }

@@ -26,6 +26,8 @@ HEAD_POS = {
     'toute': 'adjective', 'tel': 'adjective', 'tarifaire': 'adjective',
     'traditionnel': 'adjective', 'théorique': 'adjective', 'temporaire': 'adjective', 'typique': 'adjective',
     'tardif': 'adjective', 'théâtral': 'adjective', 'titulaire': 'adjective',
+    'thermique': 'adjective', 'tranchant': 'adjective',
+    'tacler': 'verb', 'tâcher': 'verb',
 }
 
 def infer_pos(headword, en):
@@ -258,6 +260,28 @@ def infer_contexts(fr, en, ar, examples, pos):
         ('trahison', ['daily']),
         ('traumatisme', ['health']),
         ('traversée', ['transport']),
+        ('tuteur', ['school', 'daily']),
+        ('tactique', ['daily', 'work']),
+        ('témérité', ['daily']),
+        ('tige', ['daily']),
+        ('tranchée', ['work', 'car']),
+        ('tracteur', ['work']),
+        ('traction', ['car', 'transport']),
+        ('tremplin', ['daily', 'work']),
+        ('thermique', ['daily', 'housing']),
+        ('toupie', ['daily']),
+        ('trousseau', ['daily', 'housing']),
+        ('tumeur', ['health']),
+        ('tâcher', ['daily', 'work']),
+        ('tablée', ['restaurant', 'food']),
+        ('tacler', ['daily']),
+        ('tendeur', ['work']),
+        ('teneur', ['daily', 'shopping']),
+        ('tranchant', ['daily', 'restaurant']),
+        ('trajectoire', ['car', 'transport']),
+        ('transfert', ['bank', 'services']),
+        ('transport', ['transport']),
+        ('trancheuse', ['restaurant', 'food']),
     ]
     for kw, ctxs in mapping:
         if keyword_in_text(kw, text):
