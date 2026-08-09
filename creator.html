@@ -66,6 +66,8 @@
   .icon-btn { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 14px; padding: 0.45rem 0.65rem; font-size: 0.95rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 600; transition: transform .12s, border-color .15s, background .15s, box-shadow .15s; }
   .icon-btn:hover { border-color: var(--accent); background: var(--bg-secondary); transform: translateY(-1px); box-shadow: 0 4px 10px rgba(14,165,233,0.18); }
   .icon-btn.active { background: linear-gradient(135deg, var(--success), #16a34a); color: #0b0d1f; border-color: transparent; }
+  .icon-btn.danger { background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; border-color: transparent; }
+  .icon-btn.danger:hover { filter: brightness(1.1); box-shadow: 0 4px 10px rgba(239,68,68,0.25); }
   .icon { width: 1.1em; height: 1.1em; fill: currentColor; vertical-align: middle; display: inline-block; }
   .btn-icon { display: inline-flex; align-items: center; }
   .lang-menu { position: relative; }
@@ -159,10 +161,9 @@
   .media-preview video { width: 100%; max-height: 360px; }
   .media-placeholder { color: var(--text-secondary); font-size: 0.9rem; padding: 1rem; }
   .media-btns { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-top: 0.7rem; }
-  .media-btns .btn { padding: 0.6rem 1rem; font-size: 0.95rem; border-radius: 14px; }
-  .media-btns .btn .icon { width: 1.25em; height: 1.25em; }
+  .media-btns .icon-btn { padding: 0.55rem; font-size: 1.05rem; border-radius: 14px; }
+  .media-btns .icon-btn .icon { width: 1.3em; height: 1.3em; }
   .media-box.has-media .media-btns { padding: 0.6rem; background: linear-gradient(180deg, transparent, var(--bg-secondary)); }
-  .media-btns .loop-media.active { background: linear-gradient(135deg, var(--success), #16a34a); color: #0b0d1f; border-color: transparent; }
   .url-input-row { display: flex; gap: 0.45rem; margin-top: 0.8rem; align-items: stretch; }
   .url-input-row .input { flex: 1; font-size: 0.92rem; padding: 0.6rem 0.9rem; }
   .url-input-row .icon-btn { display: inline-flex; align-items: center; justify-content: center; padding: 0 0.55rem; border-radius: 12px; }
@@ -916,9 +917,9 @@
       '<div class="media-box" id="media-box-' + p.id + '">' +
         '<div class="media-placeholder" data-t="noMedia"></div>' +
         '<div class="media-btns">' +
-          '<button class="btn ghost attach-media">' + iconText('attachMedia', 'image') + '</button>' +
-          '<button class="btn ghost loop-media hidden" data-t-title="loop">' + iconText('loop', 'loop') + '</button>' +
-          '<button class="btn danger remove-media hidden">' + iconText('removeMedia', 'trash') + '</button>' +
+          '<button class="icon-btn ghost attach-media" data-t-title="attachMedia">' + icon('image') + '</button>' +
+          '<button class="icon-btn ghost loop-media hidden" data-t-title="loop">' + icon('loop') + '</button>' +
+          '<button class="icon-btn danger remove-media hidden" data-t-title="removeMedia">' + icon('trash') + '</button>' +
         '</div>' +
         '<div class="url-input-row">' +
           '<input type="text" class="input media-url" id="media-url-' + p.id + '" data-t="mediaUrlPlaceholder" placeholder="https://...">' +
