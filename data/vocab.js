@@ -26668,13 +26668,42 @@ window.VOCAB_DATA = [
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "health"
+      "daily",
+      "health",
+      "weather"
     ],
-    "ex": {
-      "fr": "L'infirmière prend ma température.",
-      "ar": "الممرضة تقيس حرارتي.",
-      "en": "The nurse takes my temperature."
-    }
+    "ex": [
+      {
+        "fr": "L'infirmière prend ma température.",
+        "ar": "الممرضة تقيس حرارتي.",
+        "en": "The nurse takes my temperature."
+      },
+      {
+        "fr": "Quelle est la température aujourd'hui ?",
+        "ar": "ما درجة الحرارة اليوم؟",
+        "en": "What's the temperature today?"
+      },
+      {
+        "fr": "La température est élevée.",
+        "ar": "درجة الحرارة مرتفعة.",
+        "en": "The temperature is high."
+      },
+      {
+        "fr": "La température baisse ce soir.",
+        "ar": "درجة الحرارة تنخفض هذا المساء.",
+        "en": "The temperature is dropping this evening."
+      },
+      {
+        "fr": "Il faut vérifier la température.",
+        "ar": "يجب التحقق من درجة الحرارة.",
+        "en": "We need to check the temperature."
+      },
+      {
+        "fr": "La température est de vingt degrés.",
+        "ar": "درجة الحرارة 20 درجة.",
+        "en": "The temperature is 20 degrees."
+      }
+    ]
   },
   {
     "fr": "Perfusion",
@@ -68963,7 +68992,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Tracer",
-    "ar": "يرسم خطًا / يحدد مسارًا / يذهب بسرعة",
+    "ar": "يرسم خطًا / يحدد مسارًا / يذهب بسرعة / يرسم / يحدد / يتتبع خطًا",
     "en": "To draw / to trace / to make a path",
     "pos": "verb",
     "level": "A1",
@@ -68997,6 +69026,31 @@ window.VOCAB_DATA = [
         "fr": "Il a tracé son chemin.",
         "ar": "حدد طريقه.",
         "en": "He mapped out his path."
+      },
+      {
+        "fr": "Trace une ligne ici.",
+        "ar": "ارسم خطًا هنا.",
+        "en": "Draw a line here."
+      },
+      {
+        "fr": "Il faut tracer un cercle.",
+        "ar": "يجب رسم دائرة.",
+        "en": "We need to draw a circle."
+      },
+      {
+        "fr": "Tracez votre itinéraire sur la carte.",
+        "ar": "حددوا مساركم على الخريطة.",
+        "en": "Trace your route on the map."
+      },
+      {
+        "fr": "J'ai tracé une ligne droite.",
+        "ar": "رسمت خطًا مستقيمًا.",
+        "en": "I drew a straight line."
+      },
+      {
+        "fr": "Il trace un chemin sur la carte.",
+        "ar": "يحدد طريقًا على الخريطة.",
+        "en": "He's tracing a route on the map."
       }
     ]
   },
@@ -69226,8 +69280,8 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Tutoyer",
-    "ar": "يخاطب شخصًا بصيغة «tu» بدل «vous»",
-    "en": "To address someone using “tu”",
+    "ar": "يخاطب شخصًا بصيغة «tu» بدل «vous» / ❌ لن أكررها — ظهرت سابقًا.",
+    "en": "To address someone using “tu” / ---",
     "pos": "verb",
     "level": "A1",
     "contexts": [
@@ -69259,6 +69313,11 @@ window.VOCAB_DATA = [
         "fr": "Il ne me tutoie pas encore.",
         "ar": "هو لا يخاطبني بصيغة «tu» بعد.",
         "en": "He doesn't use “tu” with me yet."
+      },
+      {
+        "fr": "Tutoyer",
+        "ar": "❌ لن أكررها — ظهرت سابقًا.",
+        "en": "---"
       }
     ]
   },
@@ -69744,6 +69803,1939 @@ window.VOCAB_DATA = [
         "fr": "Il faut décider sans tergiverser.",
         "ar": "يجب اتخاذ القرار دون تردد.",
         "en": "We need to decide without hesitation."
+      }
+    ]
+  },
+  {
+    "fr": "Tricoter",
+    "ar": "يحاك / يحيك بالصوف",
+    "en": "To knit",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Elle aime tricoter.",
+        "ar": "هي تحب الحياكة.",
+        "en": "She likes knitting."
+      },
+      {
+        "fr": "Ma mère tricote un pull.",
+        "ar": "أمي تحيك كنزة.",
+        "en": "My mother is knitting a sweater."
+      },
+      {
+        "fr": "Je sais tricoter.",
+        "ar": "أعرف الحياكة.",
+        "en": "I know how to knit."
+      },
+      {
+        "fr": "Elle tricote tous les soirs.",
+        "ar": "هي تحيك كل مساء.",
+        "en": "She knits every evening."
+      },
+      {
+        "fr": "Tu sais tricoter ?",
+        "ar": "هل تعرف الحياكة؟",
+        "en": "Do you know how to knit?"
+      }
+    ]
+  },
+  {
+    "fr": "Transplanter",
+    "ar": "ينقل نباتًا من مكان إلى آخر",
+    "en": "To transplant",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais transplanter cette plante.",
+        "ar": "سأنقل هذه النبتة إلى مكان آخر.",
+        "en": "I'll transplant this plant."
+      },
+      {
+        "fr": "Il faut transplanter les fleurs au printemps.",
+        "ar": "يجب نقل الزهور في الربيع.",
+        "en": "The flowers should be transplanted in spring."
+      },
+      {
+        "fr": "Cette plante peut être transplantée.",
+        "ar": "يمكن نقل هذه النبتة.",
+        "en": "This plant can be transplanted."
+      },
+      {
+        "fr": "J'ai transplanté le petit arbre.",
+        "ar": "نقلت الشجرة الصغيرة إلى مكان آخر.",
+        "en": "I transplanted the small tree."
+      },
+      {
+        "fr": "On va transplanter les légumes.",
+        "ar": "سننقل الخضار المزروعة إلى مكان آخر.",
+        "en": "We're going to transplant the vegetables."
+      }
+    ]
+  },
+  {
+    "fr": "Trépasser",
+    "ar": "يموت / يفارق الحياة — تعبير قديم أو أدبي",
+    "en": "To pass away",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il est malheureusement trépassé.",
+        "ar": "توفي للأسف.",
+        "en": "He sadly passed away."
+      },
+      {
+        "fr": "Le roi est trépassé.",
+        "ar": "توفي الملك.",
+        "en": "The king passed away."
+      },
+      {
+        "fr": "Après avoir trépassé, il fut enterré.",
+        "ar": "بعد وفاته، دُفن.",
+        "en": "After he passed away, he was buried."
+      },
+      {
+        "fr": "On disait autrefois « trépasser ».",
+        "ar": "كانوا يقولون قديمًا «trépasser».",
+        "en": "People used to say “trépasser.”"
+      },
+      {
+        "fr": "Ce mot signifie « mourir ».",
+        "ar": "هذه الكلمة تعني «يموت».",
+        "en": "This word means “to die.”"
+      }
+    ]
+  },
+  {
+    "fr": "Toujours",
+    "ar": "دائمًا / لا يزال",
+    "en": "Always / still",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je suis toujours là.",
+        "ar": "أنا ما زلت هنا.",
+        "en": "I'm still here."
+      },
+      {
+        "fr": "Il travaille toujours ici.",
+        "ar": "هو ما زال يعمل هنا.",
+        "en": "He still works here."
+      },
+      {
+        "fr": "Tu arrives toujours en retard.",
+        "ar": "أنت تصل دائمًا متأخرًا.",
+        "en": "You always arrive late."
+      },
+      {
+        "fr": "Je pense toujours à ça.",
+        "ar": "ما زلت أفكر في ذلك.",
+        "en": "I still think about that."
+      },
+      {
+        "fr": "Elle est toujours disponible.",
+        "ar": "هي دائمًا متاحة.",
+        "en": "She is always available."
+      }
+    ]
+  },
+  {
+    "fr": "Très",
+    "ar": "جدًا",
+    "en": "Very",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "C'est très important.",
+        "ar": "هذا مهم جدًا.",
+        "en": "It's very important."
+      },
+      {
+        "fr": "Je suis très fatigué.",
+        "ar": "أنا متعب جدًا.",
+        "en": "I'm very tired."
+      },
+      {
+        "fr": "Il fait très froid.",
+        "ar": "الجو بارد جدًا.",
+        "en": "It's very cold."
+      },
+      {
+        "fr": "C'est très cher.",
+        "ar": "هذا غالٍ جدًا.",
+        "en": "It's very expensive."
+      },
+      {
+        "fr": "Merci beaucoup, c'est très gentil.",
+        "ar": "شكرًا جزيلًا، هذا لطف كبير منك.",
+        "en": "Thank you very much, that's very kind."
+      }
+    ]
+  },
+  {
+    "fr": "Tranquille",
+    "ar": "هادئ / مرتاح / لا مشكلة",
+    "en": "Quiet / calm / relaxed",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Reste tranquille.",
+        "ar": "ابقَ هادئًا.",
+        "en": "Stay calm."
+      },
+      {
+        "fr": "Tout est tranquille ici.",
+        "ar": "كل شيء هادئ هنا.",
+        "en": "Everything is quiet here."
+      },
+      {
+        "fr": "Je veux une soirée tranquille.",
+        "ar": "أريد أمسية هادئة.",
+        "en": "I want a quiet evening."
+      },
+      {
+        "fr": "Ne t'inquiète pas, tranquille.",
+        "ar": "لا تقلق، كل شيء بخير.",
+        "en": "Don't worry, it's all good."
+      },
+      {
+        "fr": "On peut travailler tranquille.",
+        "ar": "يمكننا العمل بهدوء.",
+        "en": "We can work peacefully."
+      }
+    ]
+  },
+  {
+    "fr": "Triste",
+    "ar": "حزين",
+    "en": "Sad",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je suis triste aujourd'hui.",
+        "ar": "أنا حزين اليوم.",
+        "en": "I'm sad today."
+      },
+      {
+        "fr": "Pourquoi tu es triste ?",
+        "ar": "لماذا أنت حزين؟",
+        "en": "Why are you sad?"
+      },
+      {
+        "fr": "C'est une histoire triste.",
+        "ar": "إنها قصة حزينة.",
+        "en": "It's a sad story."
+      },
+      {
+        "fr": "Il a l'air triste.",
+        "ar": "يبدو حزينًا.",
+        "en": "He looks sad."
+      },
+      {
+        "fr": "Ne sois pas triste.",
+        "ar": "لا تحزن.",
+        "en": "Don't be sad."
+      }
+    ]
+  },
+  {
+    "fr": "Total",
+    "ar": "كامل / إجمالي / مجموع",
+    "en": "Total / overall",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Quel est le prix total ?",
+        "ar": "ما السعر الإجمالي؟",
+        "en": "What is the total price?"
+      },
+      {
+        "fr": "Le montant total est de 50 euros.",
+        "ar": "المبلغ الإجمالي 50 يورو.",
+        "en": "The total amount is 50 euros."
+      },
+      {
+        "fr": "J'ai payé le montant total.",
+        "ar": "دفعت المبلغ كاملًا.",
+        "en": "I paid the total amount."
+      },
+      {
+        "fr": "Le total est correct.",
+        "ar": "المجموع صحيح.",
+        "en": "The total is correct."
+      },
+      {
+        "fr": "Combien ça fait au total ?",
+        "ar": "كم يصبح المجموع؟",
+        "en": "How much is it in total?"
+      }
+    ]
+  },
+  {
+    "fr": "Tôt",
+    "ar": "مبكرًا",
+    "en": "Early",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je me lève tôt.",
+        "ar": "أستيقظ مبكرًا.",
+        "en": "I get up early."
+      },
+      {
+        "fr": "Je dois partir tôt demain.",
+        "ar": "يجب أن أغادر مبكرًا غدًا.",
+        "en": "I have to leave early tomorrow."
+      },
+      {
+        "fr": "Tu es arrivé tôt.",
+        "ar": "لقد وصلت مبكرًا.",
+        "en": "You arrived early."
+      },
+      {
+        "fr": "Il faut venir tôt.",
+        "ar": "يجب أن تأتي مبكرًا.",
+        "en": "You need to come early."
+      },
+      {
+        "fr": "Je commence tôt aujourd'hui.",
+        "ar": "أبدأ مبكرًا اليوم.",
+        "en": "I start early today."
+      }
+    ]
+  },
+  {
+    "fr": "Tard",
+    "ar": "متأخرًا / في وقت متأخر",
+    "en": "Late",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je rentre tard.",
+        "ar": "أعود متأخرًا.",
+        "en": "I come home late."
+      },
+      {
+        "fr": "Il est trop tard.",
+        "ar": "لقد فات الأوان.",
+        "en": "It's too late."
+      },
+      {
+        "fr": "Tu travailles tard ce soir ?",
+        "ar": "هل تعمل حتى وقت متأخر الليلة؟",
+        "en": "Are you working late tonight?"
+      },
+      {
+        "fr": "Je me suis couché tard.",
+        "ar": "ذهبت إلى النوم متأخرًا.",
+        "en": "I went to bed late."
+      },
+      {
+        "fr": "Ne rentre pas trop tard.",
+        "ar": "لا تعد متأخرًا جدًا.",
+        "en": "Don't come home too late."
+      }
+    ]
+  },
+  {
+    "fr": "Tout",
+    "ar": "كل / كل شيء / تمامًا",
+    "en": "All / everything / completely",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Tout va bien.",
+        "ar": "كل شيء بخير.",
+        "en": "Everything is fine."
+      },
+      {
+        "fr": "J'ai tout compris.",
+        "ar": "فهمت كل شيء.",
+        "en": "I understood everything."
+      },
+      {
+        "fr": "Tout est prêt.",
+        "ar": "كل شيء جاهز.",
+        "en": "Everything is ready."
+      },
+      {
+        "fr": "Je veux tout savoir.",
+        "ar": "أريد أن أعرف كل شيء.",
+        "en": "I want to know everything."
+      },
+      {
+        "fr": "C'est tout.",
+        "ar": "هذا كل شيء.",
+        "en": "That's all."
+      }
+    ]
+  },
+  {
+    "fr": "Toute",
+    "ar": "كل / كاملة",
+    "en": "Every / whole",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Toute la journée.",
+        "ar": "طوال اليوم.",
+        "en": "All day."
+      },
+      {
+        "fr": "Toute la semaine.",
+        "ar": "طوال الأسبوع.",
+        "en": "All week."
+      },
+      {
+        "fr": "Toute la famille est là.",
+        "ar": "كل العائلة هنا.",
+        "en": "The whole family is here."
+      },
+      {
+        "fr": "J'ai travaillé toute la journée.",
+        "ar": "عملت طوال اليوم.",
+        "en": "I worked all day."
+      },
+      {
+        "fr": "Toute la maison est propre.",
+        "ar": "البيت كله نظيف.",
+        "en": "The whole house is clean."
+      }
+    ]
+  },
+  {
+    "fr": "Tel",
+    "ar": "مثل هذا / كهذا / معين",
+    "en": "Such / such a / particular",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Je n'ai jamais vu un tel problème.",
+        "ar": "لم أرَ مشكلة كهذه من قبل.",
+        "en": "I've never seen such a problem."
+      },
+      {
+        "fr": "Comment peut-on faire une telle erreur ?",
+        "ar": "كيف يمكن ارتكاب خطأ كهذا؟",
+        "en": "How can someone make such a mistake?"
+      },
+      {
+        "fr": "Un tel comportement n'est pas acceptable.",
+        "ar": "تصرف كهذا غير مقبول.",
+        "en": "Such behavior is not acceptable."
+      },
+      {
+        "fr": "Je n'ai jamais entendu une telle chose.",
+        "ar": "لم أسمع شيئًا كهذا من قبل.",
+        "en": "I've never heard such a thing."
+      },
+      {
+        "fr": "Dans un tel cas, appelez-nous.",
+        "ar": "في حالة كهذه، اتصلوا بنا.",
+        "en": "In such a case, call us."
+      }
+    ]
+  },
+  {
+    "fr": "Ticket",
+    "ar": "تذكرة / إيصال",
+    "en": "Ticket / receipt",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai acheté un ticket.",
+        "ar": "اشتريت تذكرة.",
+        "en": "I bought a ticket."
+      },
+      {
+        "fr": "Vous avez votre ticket ?",
+        "ar": "هل معك تذكرتك؟",
+        "en": "Do you have your ticket?"
+      },
+      {
+        "fr": "Gardez votre ticket.",
+        "ar": "احتفظ بتذكرتك.",
+        "en": "Keep your ticket."
+      },
+      {
+        "fr": "Je dois acheter un ticket de bus.",
+        "ar": "يجب أن أشتري تذكرة حافلة.",
+        "en": "I need to buy a bus ticket."
+      },
+      {
+        "fr": "Le ticket est valable une heure.",
+        "ar": "التذكرة صالحة لمدة ساعة.",
+        "en": "The ticket is valid for one hour."
+      }
+    ]
+  },
+  {
+    "fr": "Taxi",
+    "ar": "سيارة أجرة",
+    "en": "Taxi",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Je vais prendre un taxi.",
+        "ar": "سآخذ سيارة أجرة.",
+        "en": "I'll take a taxi."
+      },
+      {
+        "fr": "Appelez-moi un taxi, s'il vous plaît.",
+        "ar": "اطلبوا لي سيارة أجرة، من فضلكم.",
+        "en": "Please call me a taxi."
+      },
+      {
+        "fr": "Le taxi arrive dans cinq minutes.",
+        "ar": "سيارة الأجرة ستصل خلال خمس دقائق.",
+        "en": "The taxi will arrive in five minutes."
+      },
+      {
+        "fr": "Combien coûte le taxi ?",
+        "ar": "كم تكلف سيارة الأجرة؟",
+        "en": "How much does the taxi cost?"
+      },
+      {
+        "fr": "Je peux payer le taxi par carte ?",
+        "ar": "هل يمكنني دفع أجرة التاكسي بالبطاقة؟",
+        "en": "Can I pay for the taxi by card?"
+      }
+    ]
+  },
+  {
+    "fr": "Tarif",
+    "ar": "سعر / تعرفة",
+    "en": "Rate / fare / price",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "shopping",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Quel est le tarif ?",
+        "ar": "ما السعر؟",
+        "en": "What's the price?"
+      },
+      {
+        "fr": "Quel est le tarif mensuel ?",
+        "ar": "ما السعر الشهري؟",
+        "en": "What's the monthly rate?"
+      },
+      {
+        "fr": "Le tarif a augmenté.",
+        "ar": "ارتفع السعر.",
+        "en": "The rate has increased."
+      },
+      {
+        "fr": "Je voudrais connaître le tarif.",
+        "ar": "أريد معرفة السعر.",
+        "en": "I'd like to know the rate."
+      },
+      {
+        "fr": "Ce tarif comprend les frais.",
+        "ar": "هذا السعر يشمل الرسوم.",
+        "en": "This rate includes the fees."
+      }
+    ]
+  },
+  {
+    "fr": "Tasse",
+    "ar": "فنجان / كوب",
+    "en": "Cup / mug",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "food",
+      "housing",
+      "restaurant"
+    ],
+    "ex": [
+      {
+        "fr": "Je voudrais une tasse de café.",
+        "ar": "أريد فنجان قهوة.",
+        "en": "I'd like a cup of coffee."
+      },
+      {
+        "fr": "Ma tasse est pleine.",
+        "ar": "فنجاني ممتلئ.",
+        "en": "My cup is full."
+      },
+      {
+        "fr": "La tasse est cassée.",
+        "ar": "الفنجان مكسور.",
+        "en": "The cup is broken."
+      },
+      {
+        "fr": "Pose la tasse sur la table.",
+        "ar": "ضع الفنجان على الطاولة.",
+        "en": "Put the cup on the table."
+      },
+      {
+        "fr": "Tu veux une tasse de thé ?",
+        "ar": "هل تريد فنجان شاي؟",
+        "en": "Do you want a cup of tea?"
+      }
+    ]
+  },
+  {
+    "fr": "Toilette",
+    "ar": "مرحاض / دورة مياه",
+    "en": "Toilet / restroom",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Où sont les toilettes ?",
+        "ar": "أين دورة المياه؟",
+        "en": "Where is the restroom?"
+      },
+      {
+        "fr": "Je peux aller aux toilettes ?",
+        "ar": "هل يمكنني الذهاب إلى الحمام؟",
+        "en": "Can I go to the restroom?"
+      },
+      {
+        "fr": "Les toilettes sont à gauche.",
+        "ar": "الحمام على اليسار.",
+        "en": "The restroom is on the left."
+      },
+      {
+        "fr": "Les toilettes sont occupées.",
+        "ar": "الحمام مشغول.",
+        "en": "The restroom is occupied."
+      },
+      {
+        "fr": "Je cherche les toilettes.",
+        "ar": "أبحث عن الحمام.",
+        "en": "I'm looking for the restroom."
+      }
+    ]
+  },
+  {
+    "fr": "Travail",
+    "ar": "عمل / وظيفة",
+    "en": "Work / job",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je cherche du travail.",
+        "ar": "أبحث عن عمل.",
+        "en": "I'm looking for a job."
+      },
+      {
+        "fr": "Je vais au travail.",
+        "ar": "أذهب إلى العمل.",
+        "en": "I'm going to work."
+      },
+      {
+        "fr": "Je suis au travail.",
+        "ar": "أنا في العمل.",
+        "en": "I'm at work."
+      },
+      {
+        "fr": "J'ai beaucoup de travail aujourd'hui.",
+        "ar": "لدي الكثير من العمل اليوم.",
+        "en": "I have a lot of work today."
+      },
+      {
+        "fr": "Je termine le travail à dix-huit heures.",
+        "ar": "أنهي العمل الساعة السادسة مساءً.",
+        "en": "I finish work at 6 p.m."
+      }
+    ]
+  },
+  {
+    "fr": "Tranche",
+    "ar": "شريحة / جزء / فترة",
+    "en": "Slice / portion / time period",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Une tranche de pain, s'il vous plaît.",
+        "ar": "شريحة خبز، من فضلك.",
+        "en": "A slice of bread, please."
+      },
+      {
+        "fr": "Je voudrais deux tranches de jambon.",
+        "ar": "أريد شريحتين من لحم الخنزير.",
+        "en": "I'd like two slices of ham."
+      },
+      {
+        "fr": "Coupez-le en tranches.",
+        "ar": "قطّعه إلى شرائح.",
+        "en": "Cut it into slices."
+      },
+      {
+        "fr": "Une tranche de salaire.",
+        "ar": "شريحة من الراتب.",
+        "en": "A salary bracket."
+      },
+      {
+        "fr": "Dans cette tranche d'âge.",
+        "ar": "ضمن هذه الفئة العمرية.",
+        "en": "In this age group."
+      }
+    ]
+  },
+  {
+    "fr": "Trousse",
+    "ar": "حقيبة صغيرة / مقلمة",
+    "en": "Pouch / pencil case / toiletry bag",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing",
+      "school"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai oublié ma trousse.",
+        "ar": "نسيت حقيبتي الصغيرة.",
+        "en": "I forgot my pouch."
+      },
+      {
+        "fr": "Où est ma trousse ?",
+        "ar": "أين حقيبتي؟",
+        "en": "Where is my pouch?"
+      },
+      {
+        "fr": "Ma trousse est dans mon sac.",
+        "ar": "حقيبتي الصغيرة في حقيبتي.",
+        "en": "My pouch is in my bag."
+      },
+      {
+        "fr": "J'ai une trousse de toilette.",
+        "ar": "لدي حقيبة مستلزمات النظافة.",
+        "en": "I have a toiletry bag."
+      },
+      {
+        "fr": "Mets ça dans la trousse.",
+        "ar": "ضع هذا في الحقيبة الصغيرة.",
+        "en": "Put that in the pouch."
+      }
+    ]
+  },
+  {
+    "fr": "Trottoir",
+    "ar": "رصيف المشاة",
+    "en": "Sidewalk",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Marchez sur le trottoir.",
+        "ar": "امشِ على الرصيف.",
+        "en": "Walk on the sidewalk."
+      },
+      {
+        "fr": "La voiture est garée sur le trottoir.",
+        "ar": "السيارة متوقفة على الرصيف.",
+        "en": "The car is parked on the sidewalk."
+      },
+      {
+        "fr": "Attention au trottoir !",
+        "ar": "انتبه إلى الرصيف!",
+        "en": "Watch the sidewalk!"
+      },
+      {
+        "fr": "Le trottoir est glissant.",
+        "ar": "الرصيف زلق.",
+        "en": "The sidewalk is slippery."
+      },
+      {
+        "fr": "Traversez après le trottoir.",
+        "ar": "اعبروا بعد الرصيف.",
+        "en": "Cross after the sidewalk."
+      }
+    ]
+  },
+  {
+    "fr": "Trou",
+    "ar": "ثقب / حفرة",
+    "en": "Hole",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il y a un trou dans le mur.",
+        "ar": "هناك ثقب في الجدار.",
+        "en": "There's a hole in the wall."
+      },
+      {
+        "fr": "Il y a un trou dans mon pantalon.",
+        "ar": "هناك ثقب في سروالي.",
+        "en": "There's a hole in my pants."
+      },
+      {
+        "fr": "Fais un trou ici.",
+        "ar": "اصنع ثقبًا هنا.",
+        "en": "Make a hole here."
+      },
+      {
+        "fr": "Attention au trou !",
+        "ar": "انتبه للحفرة!",
+        "en": "Watch out for the hole!"
+      },
+      {
+        "fr": "Le trou est trop petit.",
+        "ar": "الثقب صغير جدًا.",
+        "en": "The hole is too small."
+      }
+    ]
+  },
+  {
+    "fr": "Tableau",
+    "ar": "جدول / لوحة",
+    "en": "Table / board / chart",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing",
+      "restaurant",
+      "school",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Regardez le tableau.",
+        "ar": "انظروا إلى اللوحة.",
+        "en": "Look at the board."
+      },
+      {
+        "fr": "Le tableau est complet.",
+        "ar": "الجدول ممتلئ.",
+        "en": "The schedule is full."
+      },
+      {
+        "fr": "J'ai noté ça sur le tableau.",
+        "ar": "دوّنت ذلك على اللوحة.",
+        "en": "I wrote that on the board."
+      },
+      {
+        "fr": "Le nom est sur le tableau.",
+        "ar": "الاسم موجود على اللوحة.",
+        "en": "The name is on the board."
+      },
+      {
+        "fr": "Consultez le tableau des horaires.",
+        "ar": "راجعوا جدول المواعيد.",
+        "en": "Check the timetable."
+      }
+    ]
+  },
+  {
+    "fr": "Tâche",
+    "ar": "مهمة / بقعة",
+    "en": "Task / stain",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai une nouvelle tâche à faire.",
+        "ar": "لدي مهمة جديدة يجب القيام بها.",
+        "en": "I have a new task to do."
+      },
+      {
+        "fr": "Cette tâche est importante.",
+        "ar": "هذه المهمة مهمة.",
+        "en": "This task is important."
+      },
+      {
+        "fr": "Quelle est ma prochaine tâche ?",
+        "ar": "ما مهمتي التالية؟",
+        "en": "What's my next task?"
+      },
+      {
+        "fr": "Il y a une tâche sur mon pantalon.",
+        "ar": "هناك بقعة على سروالي.",
+        "en": "There's a stain on my pants."
+      },
+      {
+        "fr": "Cette tâche est difficile à enlever.",
+        "ar": "هذه البقعة صعبة الإزالة.",
+        "en": "This stain is difficult to remove."
+      }
+    ]
+  },
+  {
+    "fr": "Temps",
+    "ar": "وقت / طقس",
+    "en": "Time / weather",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "weather"
+    ],
+    "ex": [
+      {
+        "fr": "Je n'ai pas le temps.",
+        "ar": "ليس لدي وقت.",
+        "en": "I don't have time."
+      },
+      {
+        "fr": "Tu as le temps ?",
+        "ar": "هل لديك وقت؟",
+        "en": "Do you have time?"
+      },
+      {
+        "fr": "Quel temps fait-il ?",
+        "ar": "كيف الطقس؟",
+        "en": "What's the weather like?"
+      },
+      {
+        "fr": "Il fait beau aujourd'hui.",
+        "ar": "الطقس جميل اليوم.",
+        "en": "The weather is nice today."
+      },
+      {
+        "fr": "Ça prend beaucoup de temps.",
+        "ar": "هذا يستغرق وقتًا طويلًا.",
+        "en": "It takes a lot of time."
+      }
+    ]
+  },
+  {
+    "fr": "Tapis",
+    "ar": "سجادة / بساط / حصيرة",
+    "en": "Carpet / rug / mat",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Le tapis est sale.",
+        "ar": "السجادة متسخة.",
+        "en": "The carpet is dirty."
+      },
+      {
+        "fr": "Mets tes chaussures sur le tapis.",
+        "ar": "ضع حذاءك على السجادة.",
+        "en": "Put your shoes on the mat."
+      },
+      {
+        "fr": "Il faut nettoyer le tapis.",
+        "ar": "يجب تنظيف السجادة.",
+        "en": "The carpet needs to be cleaned."
+      },
+      {
+        "fr": "J'ai acheté un nouveau tapis.",
+        "ar": "اشتريت سجادة جديدة.",
+        "en": "I bought a new rug."
+      },
+      {
+        "fr": "Le tapis est devant la porte.",
+        "ar": "السجادة أمام الباب.",
+        "en": "The mat is in front of the door."
+      }
+    ]
+  },
+  {
+    "fr": "Tiroir",
+    "ar": "درج",
+    "en": "Drawer",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Les clés sont dans le tiroir.",
+        "ar": "المفاتيح في الدرج.",
+        "en": "The keys are in the drawer."
+      },
+      {
+        "fr": "Ouvre le tiroir.",
+        "ar": "افتح الدرج.",
+        "en": "Open the drawer."
+      },
+      {
+        "fr": "Ferme le tiroir.",
+        "ar": "أغلق الدرج.",
+        "en": "Close the drawer."
+      },
+      {
+        "fr": "Je cherche ça dans le tiroir.",
+        "ar": "أبحث عن هذا في الدرج.",
+        "en": "I'm looking for it in the drawer."
+      },
+      {
+        "fr": "Le tiroir est plein.",
+        "ar": "الدرج ممتلئ.",
+        "en": "The drawer is full."
+      }
+    ]
+  },
+  {
+    "fr": "Toit",
+    "ar": "سقف / سطح المبنى",
+    "en": "Roof",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Le toit est en mauvais état.",
+        "ar": "السقف في حالة سيئة.",
+        "en": "The roof is in bad condition."
+      },
+      {
+        "fr": "Il y a de la neige sur le toit.",
+        "ar": "هناك ثلج على السطح.",
+        "en": "There's snow on the roof."
+      },
+      {
+        "fr": "L'eau coule du toit.",
+        "ar": "الماء يتسرب من السقف.",
+        "en": "Water is leaking from the roof."
+      },
+      {
+        "fr": "Le toit doit être réparé.",
+        "ar": "يجب إصلاح السقف.",
+        "en": "The roof needs to be repaired."
+      },
+      {
+        "fr": "Le chat est sur le toit.",
+        "ar": "القطة على السطح.",
+        "en": "The cat is on the roof."
+      }
+    ]
+  },
+  {
+    "fr": "Tissu",
+    "ar": "قماش / نسيج",
+    "en": "Fabric / cloth",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "shopping"
+    ],
+    "ex": [
+      {
+        "fr": "Ce tissu est très doux.",
+        "ar": "هذا القماش ناعم جدًا.",
+        "en": "This fabric is very soft."
+      },
+      {
+        "fr": "Quel tissu préférez-vous ?",
+        "ar": "أي قماش تفضل؟",
+        "en": "Which fabric do you prefer?"
+      },
+      {
+        "fr": "Ce tissu est de bonne qualité.",
+        "ar": "هذا القماش ذو جودة جيدة.",
+        "en": "This fabric is good quality."
+      },
+      {
+        "fr": "Le tissu est trop épais.",
+        "ar": "القماش سميك جدًا.",
+        "en": "The fabric is too thick."
+      },
+      {
+        "fr": "Je cherche un tissu noir.",
+        "ar": "أبحث عن قماش أسود.",
+        "en": "I'm looking for black fabric."
+      }
+    ]
+  },
+  {
+    "fr": "Tache",
+    "ar": "بقعة",
+    "en": "Stain / spot",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il y a une tache sur ma chemise.",
+        "ar": "هناك بقعة على قميصي.",
+        "en": "There's a stain on my shirt."
+      },
+      {
+        "fr": "Comment enlever cette tache ?",
+        "ar": "كيف أزيل هذه البقعة؟",
+        "en": "How do I remove this stain?"
+      },
+      {
+        "fr": "La tache ne part pas.",
+        "ar": "البقعة لا تزول.",
+        "en": "The stain won't come out."
+      },
+      {
+        "fr": "J'ai fait une tache.",
+        "ar": "تسببت ببقعة.",
+        "en": "I made a stain."
+      },
+      {
+        "fr": "Cette tache est difficile à nettoyer.",
+        "ar": "هذه البقعة صعبة التنظيف.",
+        "en": "This stain is difficult to clean."
+      }
+    ]
+  },
+  {
+    "fr": "Train",
+    "ar": "قطار",
+    "en": "Train",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Je prends le train demain.",
+        "ar": "سآخذ القطار غدًا.",
+        "en": "I'm taking the train tomorrow."
+      },
+      {
+        "fr": "Le train est en retard.",
+        "ar": "القطار متأخر.",
+        "en": "The train is late."
+      },
+      {
+        "fr": "À quelle heure part le train ?",
+        "ar": "في أي ساعة ينطلق القطار؟",
+        "en": "What time does the train leave?"
+      },
+      {
+        "fr": "J'ai raté le train.",
+        "ar": "فاتني القطار.",
+        "en": "I missed the train."
+      },
+      {
+        "fr": "Le train arrive à huit heures.",
+        "ar": "القطار يصل الساعة الثامنة.",
+        "en": "The train arrives at eight."
+      }
+    ]
+  },
+  {
+    "fr": "Télévision",
+    "ar": "تلفاز / تلفزيون",
+    "en": "Television / TV",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Je regarde la télévision.",
+        "ar": "أشاهد التلفاز.",
+        "en": "I'm watching TV."
+      },
+      {
+        "fr": "La télévision est allumée.",
+        "ar": "التلفاز مفتوح.",
+        "en": "The TV is on."
+      },
+      {
+        "fr": "Éteins la télévision, s'il te plaît.",
+        "ar": "أطفئ التلفاز، من فضلك.",
+        "en": "Turn off the TV, please."
+      },
+      {
+        "fr": "Il n'y a rien à la télévision.",
+        "ar": "لا يوجد شيء جيد على التلفاز.",
+        "en": "There's nothing on TV."
+      },
+      {
+        "fr": "Tu regardes quelle émission à la télévision ?",
+        "ar": "أي برنامج تشاهد على التلفاز؟",
+        "en": "What program are you watching on TV?"
+      }
+    ]
+  },
+  {
+    "fr": "Tête",
+    "ar": "رأس",
+    "en": "Head",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai mal à la tête.",
+        "ar": "رأسي يؤلمني.",
+        "en": "I have a headache."
+      },
+      {
+        "fr": "Lève la tête.",
+        "ar": "ارفع رأسك.",
+        "en": "Raise your head."
+      },
+      {
+        "fr": "Baisse la tête.",
+        "ar": "اخفض رأسك.",
+        "en": "Lower your head."
+      },
+      {
+        "fr": "J'ai quelque chose en tête.",
+        "ar": "لدي شيء في بالي.",
+        "en": "I have something on my mind."
+      },
+      {
+        "fr": "Ça me passe par la tête.",
+        "ar": "خطر هذا في بالي.",
+        "en": "It crossed my mind."
+      }
+    ]
+  },
+  {
+    "fr": "Thé",
+    "ar": "شاي",
+    "en": "Tea",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "food",
+      "restaurant"
+    ],
+    "ex": [
+      {
+        "fr": "Je voudrais un thé.",
+        "ar": "أريد شايًا.",
+        "en": "I'd like a tea."
+      },
+      {
+        "fr": "Tu veux du thé ?",
+        "ar": "هل تريد شايًا؟",
+        "en": "Do you want some tea?"
+      },
+      {
+        "fr": "Le thé est trop chaud.",
+        "ar": "الشاي ساخن جدًا.",
+        "en": "The tea is too hot."
+      },
+      {
+        "fr": "Je prends mon thé sans sucre.",
+        "ar": "أشرب الشاي بدون سكر.",
+        "en": "I have my tea without sugar."
+      },
+      {
+        "fr": "Mets un peu de sucre dans le thé.",
+        "ar": "ضع قليلًا من السكر في الشاي.",
+        "en": "Put some sugar in the tea."
+      }
+    ]
+  },
+  {
+    "fr": "Tante",
+    "ar": "عمة / خالة",
+    "en": "Aunt",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "family"
+    ],
+    "ex": [
+      {
+        "fr": "Ma tante habite en France.",
+        "ar": "خالتي/عمتي تعيش في فرنسا.",
+        "en": "My aunt lives in France."
+      },
+      {
+        "fr": "Je vais voir ma tante.",
+        "ar": "سأزور خالتي/عمتي.",
+        "en": "I'm going to see my aunt."
+      },
+      {
+        "fr": "Ma tante m'a appelé hier.",
+        "ar": "اتصلت بي خالتي/عمتي أمس.",
+        "en": "My aunt called me yesterday."
+      },
+      {
+        "fr": "C'est la sœur de ma mère, ma tante.",
+        "ar": "إنها أخت أمي، خالتي.",
+        "en": "She's my mother's sister, my aunt."
+      },
+      {
+        "fr": "Ma tante vient ce week-end.",
+        "ar": "خالتي/عمتي ستأتي في عطلة نهاية الأسبوع.",
+        "en": "My aunt is coming this weekend."
+      }
+    ]
+  },
+  {
+    "fr": "Table",
+    "ar": "طاولة",
+    "en": "Table",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing",
+      "restaurant"
+    ],
+    "ex": [
+      {
+        "fr": "La table est propre.",
+        "ar": "الطاولة نظيفة.",
+        "en": "The table is clean."
+      },
+      {
+        "fr": "Mets ça sur la table.",
+        "ar": "ضع هذا على الطاولة.",
+        "en": "Put that on the table."
+      },
+      {
+        "fr": "On mange à table.",
+        "ar": "نحن نأكل على الطاولة.",
+        "en": "We're eating at the table."
+      },
+      {
+        "fr": "La table est trop petite.",
+        "ar": "الطاولة صغيرة جدًا.",
+        "en": "The table is too small."
+      },
+      {
+        "fr": "Il y a quatre chaises autour de la table.",
+        "ar": "هناك أربعة كراسٍ حول الطاولة.",
+        "en": "There are four chairs around the table."
+      }
+    ]
+  },
+  {
+    "fr": "Taille",
+    "ar": "مقاس / حجم / طول",
+    "en": "Size / height",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "shopping"
+    ],
+    "ex": [
+      {
+        "fr": "Quelle est votre taille ?",
+        "ar": "ما مقاسك؟",
+        "en": "What is your size?"
+      },
+      {
+        "fr": "Je cherche une autre taille.",
+        "ar": "أبحث عن مقاس آخر.",
+        "en": "I'm looking for another size."
+      },
+      {
+        "fr": "Vous avez cette taille ?",
+        "ar": "هل لديكم هذا المقاس؟",
+        "en": "Do you have this size?"
+      },
+      {
+        "fr": "Cette taille me va bien.",
+        "ar": "هذا المقاس يناسبني جيدًا.",
+        "en": "This size fits me well."
+      },
+      {
+        "fr": "C'est trop grand pour ma taille.",
+        "ar": "هذا كبير جدًا بالنسبة لمقاسي.",
+        "en": "It's too big for my size."
+      }
+    ]
+  },
+  {
+    "fr": "Taxe",
+    "ar": "ضريبة / رسم",
+    "en": "Tax",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "services"
+    ],
+    "ex": [
+      {
+        "fr": "Je dois payer une taxe.",
+        "ar": "يجب أن أدفع ضريبة.",
+        "en": "I have to pay a tax."
+      },
+      {
+        "fr": "Cette taxe est obligatoire.",
+        "ar": "هذه الضريبة إلزامية.",
+        "en": "This tax is mandatory."
+      },
+      {
+        "fr": "La taxe est comprise dans le prix.",
+        "ar": "الضريبة مشمولة في السعر.",
+        "en": "The tax is included in the price."
+      },
+      {
+        "fr": "Combien coûte cette taxe ?",
+        "ar": "كم تبلغ هذه الضريبة؟",
+        "en": "How much is this tax?"
+      },
+      {
+        "fr": "Je voudrais comprendre cette taxe.",
+        "ar": "أريد أن أفهم هذه الضريبة.",
+        "en": "I'd like to understand this tax."
+      }
+    ]
+  },
+  {
+    "fr": "Terrain",
+    "ar": "أرض / ملعب / قطعة أرض",
+    "en": "Land / ground / field",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Le terrain est grand.",
+        "ar": "الأرض كبيرة.",
+        "en": "The land is large."
+      },
+      {
+        "fr": "Les enfants jouent sur le terrain.",
+        "ar": "الأطفال يلعبون في الملعب.",
+        "en": "The children are playing on the field."
+      },
+      {
+        "fr": "Il cherche un terrain à acheter.",
+        "ar": "إنه يبحث عن قطعة أرض ليشتريها.",
+        "en": "He's looking for land to buy."
+      },
+      {
+        "fr": "Le terrain est près de la maison.",
+        "ar": "الأرض قريبة من المنزل.",
+        "en": "The land is near the house."
+      },
+      {
+        "fr": "Le terrain est difficile d'accès.",
+        "ar": "الوصول إلى المكان صعب.",
+        "en": "The site is difficult to access."
+      }
+    ]
+  },
+  {
+    "fr": "Trajet",
+    "ar": "رحلة / مسافة الطريق",
+    "en": "Journey / trip / route",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "transport"
+    ],
+    "ex": [
+      {
+        "fr": "Le trajet dure trente minutes.",
+        "ar": "تستغرق الرحلة ثلاثين دقيقة.",
+        "en": "The journey takes thirty minutes."
+      },
+      {
+        "fr": "Quel est le trajet le plus rapide ?",
+        "ar": "ما أسرع طريق؟",
+        "en": "What's the fastest route?"
+      },
+      {
+        "fr": "Mon trajet est assez long.",
+        "ar": "طريقي طويل نوعًا ما.",
+        "en": "My commute is quite long."
+      },
+      {
+        "fr": "Je fais ce trajet tous les jours.",
+        "ar": "أقطع هذا الطريق كل يوم.",
+        "en": "I make this journey every day."
+      },
+      {
+        "fr": "Le trajet en bus est plus long.",
+        "ar": "الرحلة بالحافلة أطول.",
+        "en": "The bus journey is longer."
+      }
+    ]
+  },
+  {
+    "fr": "Timbre",
+    "ar": "طابع بريدي / ختم",
+    "en": "Stamp",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "post"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai besoin d'un timbre.",
+        "ar": "أحتاج إلى طابع بريدي.",
+        "en": "I need a stamp."
+      },
+      {
+        "fr": "Où puis-je acheter un timbre ?",
+        "ar": "أين يمكنني شراء طابع بريدي؟",
+        "en": "Where can I buy a stamp?"
+      },
+      {
+        "fr": "Il faut mettre un timbre sur l'enveloppe.",
+        "ar": "يجب وضع طابع على الظرف.",
+        "en": "You need to put a stamp on the envelope."
+      },
+      {
+        "fr": "Combien coûte un timbre ?",
+        "ar": "كم سعر الطابع؟",
+        "en": "How much is a stamp?"
+      },
+      {
+        "fr": "Le timbre est collé sur l'enveloppe.",
+        "ar": "الطابع ملصق على الظرف.",
+        "en": "The stamp is stuck on the envelope."
+      }
+    ]
+  },
+  {
+    "fr": "Toile",
+    "ar": "قماش / نسيج / لوحة قماشية",
+    "en": "Canvas / cloth",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "La toile est très solide.",
+        "ar": "القماش متين جدًا.",
+        "en": "The canvas is very strong."
+      },
+      {
+        "fr": "J'ai acheté une toile pour peindre.",
+        "ar": "اشتريت لوحة قماشية للرسم.",
+        "en": "I bought a canvas to paint on."
+      },
+      {
+        "fr": "Cette toile est magnifique.",
+        "ar": "هذه اللوحة القماشية رائعة.",
+        "en": "This canvas is beautiful."
+      },
+      {
+        "fr": "La toile est tendue sur le cadre.",
+        "ar": "القماش مشدود على الإطار.",
+        "en": "The canvas is stretched over the frame."
+      },
+      {
+        "fr": "Il faut nettoyer la toile.",
+        "ar": "يجب تنظيف القماش.",
+        "en": "The canvas needs to be cleaned."
+      }
+    ]
+  },
+  {
+    "fr": "Ton",
+    "ar": "نبرة / لون / أسلوب",
+    "en": "Tone / shade / tone of voice",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "J'aime le ton de sa voix.",
+        "ar": "أحب نبرة صوته.",
+        "en": "I like the tone of his voice."
+      },
+      {
+        "fr": "Ne prends pas ce ton avec moi.",
+        "ar": "لا تتحدث معي بهذه النبرة.",
+        "en": "Don't take that tone with me."
+      },
+      {
+        "fr": "Quel ton de bleu tu préfères ?",
+        "ar": "أي درجة من الأزرق تفضل؟",
+        "en": "Which shade of blue do you prefer?"
+      },
+      {
+        "fr": "Il parle sur un ton calme.",
+        "ar": "يتحدث بنبرة هادئة.",
+        "en": "He speaks in a calm tone."
+      },
+      {
+        "fr": "Change de ton, s'il te plaît.",
+        "ar": "غيّر نبرتك، من فضلك.",
+        "en": "Change your tone, please."
+      }
+    ]
+  },
+  {
+    "fr": "Tour",
+    "ar": "دور / جولة / برج",
+    "en": "Turn / tour / tower",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "C'est mon tour.",
+        "ar": "إنه دوري.",
+        "en": "It's my turn."
+      },
+      {
+        "fr": "À ton tour !",
+        "ar": "دورك!",
+        "en": "Your turn!"
+      },
+      {
+        "fr": "On fait un tour ?",
+        "ar": "هل نقوم بجولة؟",
+        "en": "Shall we go for a walk/ride?"
+      },
+      {
+        "fr": "Je vais faire un tour dehors.",
+        "ar": "سأخرج قليلًا.",
+        "en": "I'm going out for a bit."
+      },
+      {
+        "fr": "C'est à qui le tour ?",
+        "ar": "على من الدور؟",
+        "en": "Whose turn is it?"
+      }
+    ]
+  },
+  {
+    "fr": "Trace",
+    "ar": "أثر / علامة / بقايا",
+    "en": "Trace / mark / trace",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "Il y a une trace sur le mur.",
+        "ar": "هناك أثر على الجدار.",
+        "en": "There's a mark on the wall."
+      },
+      {
+        "fr": "Je ne vois aucune trace.",
+        "ar": "لا أرى أي أثر.",
+        "en": "I don't see any trace."
+      },
+      {
+        "fr": "Il reste des traces de peinture.",
+        "ar": "بقيت آثار من الطلاء.",
+        "en": "There are traces of paint left."
+      },
+      {
+        "fr": "Nettoie cette trace.",
+        "ar": "نظف هذا الأثر.",
+        "en": "Clean this mark."
+      },
+      {
+        "fr": "Il n'y a aucune trace de poussière.",
+        "ar": "لا توجد أي آثار للغبار.",
+        "en": "There isn't a trace of dust."
+      }
+    ]
+  },
+  {
+    "fr": "Truc",
+    "ar": "شيء / غرض / حيلة",
+    "en": "Thing / stuff / trick",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "C'est quoi, ce truc ?",
+        "ar": "ما هذا الشيء؟",
+        "en": "What's this thing?"
+      },
+      {
+        "fr": "J'ai un truc à te dire.",
+        "ar": "لدي شيء أريد أن أقوله لك.",
+        "en": "I have something to tell you."
+      },
+      {
+        "fr": "Tu connais un truc pour ça ?",
+        "ar": "هل تعرف حيلة لهذا الأمر؟",
+        "en": "Do you know a trick for that?"
+      },
+      {
+        "fr": "C'est un truc simple.",
+        "ar": "إنه شيء بسيط.",
+        "en": "It's a simple thing."
+      },
+      {
+        "fr": "J'ai oublié un truc.",
+        "ar": "نسيت شيئًا.",
+        "en": "I forgot something."
+      }
+    ]
+  },
+  {
+    "fr": "Trimestre",
+    "ar": "فصل دراسي / ثلاثة أشهر",
+    "en": "Term / quarter",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "school"
+    ],
+    "ex": [
+      {
+        "fr": "Le premier trimestre commence en septembre.",
+        "ar": "الفصل الدراسي الأول يبدأ في سبتمبر.",
+        "en": "The first term starts in September."
+      },
+      {
+        "fr": "J'ai payé pour le trimestre.",
+        "ar": "دفعت مقابل الفصل.",
+        "en": "I paid for the term."
+      },
+      {
+        "fr": "Le trimestre est bientôt terminé.",
+        "ar": "الفصل على وشك الانتهاء.",
+        "en": "The term is almost over."
+      },
+      {
+        "fr": "Le paiement est trimestriel.",
+        "ar": "الدفع يتم كل ثلاثة أشهر.",
+        "en": "Payment is quarterly."
+      },
+      {
+        "fr": "Les résultats du trimestre sont bons.",
+        "ar": "نتائج الفصل جيدة.",
+        "en": "The term results are good."
+      }
+    ]
+  },
+  {
+    "fr": "Trappe",
+    "ar": "فتحة / باب صغير / غطاء",
+    "en": "Hatch / trapdoor",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Ouvre la trappe.",
+        "ar": "افتح الفتحة.",
+        "en": "Open the hatch."
+      },
+      {
+        "fr": "La trappe est fermée.",
+        "ar": "الفتحة مغلقة.",
+        "en": "The hatch is closed."
+      },
+      {
+        "fr": "Il y a une trappe sous le sol.",
+        "ar": "هناك فتحة تحت الأرضية.",
+        "en": "There's a hatch under the floor."
+      },
+      {
+        "fr": "Attention à la trappe !",
+        "ar": "انتبه للفتحة!",
+        "en": "Watch out for the hatch!"
+      },
+      {
+        "fr": "Ferme bien la trappe.",
+        "ar": "أغلق الفتحة جيدًا.",
+        "en": "Close the hatch properly."
+      }
+    ]
+  },
+  {
+    "fr": "Tournée",
+    "ar": "جولة / دور / جولة توصيل",
+    "en": "Round / tour / delivery route",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "transport",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Je fais ma tournée.",
+        "ar": "أقوم بجولتي.",
+        "en": "I'm doing my round."
+      },
+      {
+        "fr": "La tournée commence à huit heures.",
+        "ar": "تبدأ الجولة الساعة الثامنة.",
+        "en": "The round starts at eight."
+      },
+      {
+        "fr": "Il termine sa tournée à midi.",
+        "ar": "ينهي جولته عند الظهر.",
+        "en": "He finishes his round at noon."
+      },
+      {
+        "fr": "La tournée de livraison est longue.",
+        "ar": "جولة التوصيل طويلة.",
+        "en": "The delivery route is long."
+      },
+      {
+        "fr": "Je suis en tournée aujourd'hui.",
+        "ar": "أنا في جولة اليوم.",
+        "en": "I'm on my round today."
+      }
+    ]
+  },
+  {
+    "fr": "Tuyau",
+    "ar": "أنبوب / خرطوم / نصيحة أو معلومة مفيدة (عامية)",
+    "en": "Pipe / hose / tip",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "housing"
+    ],
+    "ex": [
+      {
+        "fr": "Le tuyau est bouché.",
+        "ar": "الأنبوب مسدود.",
+        "en": "The pipe is blocked."
+      },
+      {
+        "fr": "Il y a une fuite dans le tuyau.",
+        "ar": "هناك تسرب في الأنبوب.",
+        "en": "There's a leak in the pipe."
+      },
+      {
+        "fr": "Le tuyau est trop court.",
+        "ar": "الأنبوب قصير جدًا.",
+        "en": "The pipe is too short."
+      },
+      {
+        "fr": "Tu peux réparer le tuyau ?",
+        "ar": "هل يمكنك إصلاح الأنبوب؟",
+        "en": "Can you fix the pipe?"
+      },
+      {
+        "fr": "Merci pour le tuyau !",
+        "ar": "شكرًا على المعلومة المفيدة!",
+        "en": "Thanks for the tip!"
       }
     ]
   }

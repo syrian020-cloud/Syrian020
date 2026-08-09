@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import json, re, unicodedata, subprocess
+import json, re, subprocess
 from pathlib import Path
 
 RAW_PATH = Path('/tmp/t_raw.txt')
@@ -10,14 +10,28 @@ OUT_PATH = Path('/tmp/t_parsed.json')
 
 def normalize(fr):
     s = fr.lower().strip()
-    s = unicodedata.normalize('NFD', s)
-    s = ''.join(c for c in s if unicodedata.category(c) != 'Mn')
     s = re.sub(r"\s*\([^)]*\)", '', s)
     s = re.sub(r"^(se |s'|s’|se/)", '', s)
     s = re.sub(r"['’]", '', s)
     s = re.sub(r'[^\w\s/]', ' ', s)
     s = re.sub(r'\s+', ' ', s).strip()
     return s
+
+
+# Override part of speech for headwords that are not verbs
+HEAD_POS = {
+    'toujours': 'other', 'très': 'other', 'tôt': 'other', 'tard': 'other', 'tout': 'other',
+    'tranquille': 'adjective', 'triste': 'adjective', 'total': 'adjective',
+    'toute': 'adjective', 'tel': 'adjective',
+}
+
+def infer_pos(headword, en):
+    key = headword.lower().strip()
+    if key in HEAD_POS:
+        return HEAD_POS[key]
+    if en and re.match(r'^to\b', en, re.IGNORECASE):
+        return 'verb'
+    return 'noun'
 
 
 def unique_concat(old, new, sep=' / '):
@@ -106,17 +120,61 @@ def infer_contexts(fr, en, ar, examples, pos):
         ('passage piéton', ['transport']),
         ('rond-point', ['transport']),
         ('métro', ['transport']),
+        ('train', ['transport']),
+        ('taxi', ['transport']),
+        ('ticket', ['transport']),
+        ('trottoir', ['transport']),
+        ('trajet', ['transport']),
+        ('tarif', ['transport', 'shopping']),
+        ('timbre', ['post']),
         ('dossier', ['services']),
         ('demande', ['services']),
         ('document', ['services']),
         ('formulaire', ['services']),
         ('justificatif', ['services']),
         ('tamponner', ['services']),
+        ('taxe', ['services']),
         ('logement', ['housing']),
         ('appartement', ['housing']),
         ('clés', ['housing']),
+        ('tapis', ['housing']),
+        ('tiroir', ['housing']),
+        ('toit', ['housing']),
+        ('toilette', ['housing', 'daily']),
+        ('terrain', ['housing']),
+        ('trappe', ['housing']),
+        ('tuyau', ['housing']),
+        ('télévision', ['daily', 'housing']),
+        ('température', ['health', 'weather']),
+        ('temps', ['daily', 'weather']),
+        ('tête', ['health']),
+        ('taille', ['shopping']),
+        ('tissu', ['shopping']),
+        ('tasse', ['restaurant', 'food']),
+        ('thé', ['restaurant', 'food']),
+        ('table', ['restaurant', 'housing']),
+        ('tante', ['family']),
+        ('trousse', ['school']),
+        ('tableau', ['school', 'work']),
+        ('trimestre', ['school']),
+        ('tâche', ['work']),
+        ('tournée', ['work']),
+        ('toujours', ['daily']),
+        ('tard', ['daily', 'work']),
+        ('tôt', ['daily', 'work']),
+        ('très', ['daily']),
+        ('tout', ['daily']),
+        ('toute', ['daily']),
+        ('tel', ['daily']),
+        ('tranquille', ['daily']),
+        ('triste', ['daily']),
+        ('total', ['daily']),
+        ('tache', ['daily']),
+        ('ton', ['daily']),
+        ('tour', ['daily']),
+        ('trace', ['daily']),
+        ('truc', ['daily']),
         ('bouteille', ['daily']),
-        ('téléphone', ['daily']),
         ('transpirer', ['health', 'daily']),
         ('tourmenter', ['health', 'daily']),
         ('tousser', ['health', 'daily']),
@@ -203,8 +261,11 @@ def parse_verb_block(headword, body):
                 current = {}
             continue
         m = re.match(r'^\s*(?:\d+\.)\s*(.+)$', line)
-        # Also allow unnumbered French example lines that start with a letter
-        if m or (not current and re.search(r'[A-Za-z\u00C0-\u024F]', line) and not re.search(r'[\u0600-\u06FF]', line)):
+        is_latin = re.search(r'[A-Za-z\u00C0-\u024F]', line) and not re.search(r'[\u0600-\u06FF]', line)
+        # New example starts with a numbered line, or when we see a new French/Latin
+        # line after the previous example is complete (has en), or when there is no current.
+        is_new_example = bool(m) or (is_latin and (not current or 'en' in current))
+        if is_new_example:
             if current and 'fr' in current:
                 examples.append(current)
             fr_text = m.group(1).strip() if m else line
@@ -215,9 +276,7 @@ def parse_verb_block(headword, body):
                 current['ar'] = line
             elif 'en' not in current and re.search(r'[A-Za-z]', line):
                 current['en'] = line
-            else:
-                # if both ar/en filled, append extra to existing or ignore
-                pass
+            # ignore extra lines once ar and en are both filled; next Latin starts a new example
     if current and 'fr' in current:
         examples.append(current)
 
@@ -227,9 +286,9 @@ def parse_verb_block(headword, body):
         'fr': headword,
         'ar': ar or '',
         'en': en or '',
-        'pos': 'verb',
+        'pos': infer_pos(headword, en or ''),
         'level': 'A1',
-        'contexts': infer_contexts(headword, en, ar, examples, 'verb'),
+        'contexts': infer_contexts(headword, en, ar, examples, infer_pos(headword, en or '')),
         'ex': examples if len(examples) > 1 else (examples[0] if examples else {'fr': headword, 'ar': ar or '', 'en': en or ''}),
     }
 
