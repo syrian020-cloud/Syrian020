@@ -873,10 +873,6 @@
     return window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech;
   }
 
-  function nativeFilesystem() {
-    return !!(window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Filesystem);
-  }
-
   function toWebUrl(url) {
     if (typeof Capacitor === 'undefined' || !Capacitor.convertFileSrc) return url;
     if (typeof url !== 'string') return url;
@@ -884,65 +880,118 @@
     return url;
   }
 
-  function arrayBufferToBase64(buffer) {
-    const bytes = new Uint8Array(buffer);
-    let binary = '';
-    const len = bytes.length;
-    const chunk = 1024;
-    for (let i = 0; i < len; i += chunk) {
-      const end = Math.min(i + chunk, len);
-      let slice = '';
-      for (let j = i; j < end; j++) slice += String.fromCharCode(bytes[j]);
-      binary += slice;
-    }
-    return window.btoa(binary);
+  const MEDIA_DB_NAME = 'zeek-media';
+  const MEDIA_DB_VERSION = 1;
+  const MEDIA_STORE_NAME = 'media';
+  let mediaDb = null;
+  const mediaUrlCache = new Map();
+
+  function isIDBMedia(url) {
+    return typeof url === 'string' && url.startsWith('idb://');
   }
 
-  async function readFileChunk(file, start, end) {
-    const chunk = file.slice(start, end);
+  function idbMediaId(url) {
+    return url.slice(6);
+  }
+
+  function idbMediaSupported() {
+    return 'indexedDB' in window;
+  }
+
+  async function openMediaDb() {
+    if (mediaDb) return mediaDb;
     return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = e => resolve(e.target.result);
-      reader.onerror = reject;
-      reader.readAsArrayBuffer(chunk);
+      const req = indexedDB.open(MEDIA_DB_NAME, MEDIA_DB_VERSION);
+      req.onerror = () => reject(req.error);
+      req.onupgradeneeded = (e) => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains(MEDIA_STORE_NAME)) {
+          db.createObjectStore(MEDIA_STORE_NAME);
+        }
+      };
+      req.onsuccess = () => { mediaDb = req.result; resolve(mediaDb); };
     });
   }
 
-  async function saveFileToAppStorage(file, subdir) {
-    if (!file || !nativeFilesystem()) return null;
-    const { Filesystem } = Capacitor.Plugins;
-    const ext = (file.name && file.name.split('.').pop()) || (file.type.startsWith('video/') ? 'mp4' : 'jpg');
-    const filename = Date.now() + '_' + Math.random().toString(36).slice(2, 10) + '.' + ext;
-    const fullPath = subdir + '/' + filename;
-    const chunkSize = 1024 * 1024;
-    const DATA_DIR = 'DATA';
-    try { await Filesystem.mkdir({ path: subdir, directory: DATA_DIR, recursive: true }); } catch (e) {}
-    let isFirst = true;
-    for (let offset = 0; offset < file.size; offset += chunkSize) {
-      const buffer = await readFileChunk(file, offset, Math.min(offset + chunkSize, file.size));
-      const base64 = arrayBufferToBase64(buffer);
-      if (isFirst) {
-        await Filesystem.writeFile({ path: fullPath, data: base64, directory: DATA_DIR, encoding: 'base64', recursive: true });
-        isFirst = false;
-      } else {
-        await Filesystem.appendFile({ path: fullPath, data: base64, directory: DATA_DIR, encoding: 'base64' });
-      }
+  async function storeMedia(file) {
+    if (!file || !idbMediaSupported()) return null;
+    const db = await openMediaDb();
+    const id = Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction([MEDIA_STORE_NAME], 'readwrite');
+      const req = tx.objectStore(MEDIA_STORE_NAME).put(file, id);
+      req.onsuccess = () => resolve('idb://' + id);
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  async function getMediaBlob(id) {
+    const db = await openMediaDb();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction([MEDIA_STORE_NAME], 'readonly');
+      const req = tx.objectStore(MEDIA_STORE_NAME).get(id);
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  async function deleteMediaById(id) {
+    const db = await openMediaDb();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction([MEDIA_STORE_NAME], 'readwrite');
+      const req = tx.objectStore(MEDIA_STORE_NAME).delete(id);
+      req.onsuccess = () => resolve();
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  async function resolveMediaRef(ref) {
+    if (!isIDBMedia(ref)) return { url: toWebUrl(ref), type: '', blob: null };
+    const id = idbMediaId(ref);
+    const blob = await getMediaBlob(id);
+    if (!blob) return { url: '', type: '', blob: null };
+    if (!mediaUrlCache.has(id)) mediaUrlCache.set(id, URL.createObjectURL(blob));
+    return { url: mediaUrlCache.get(id), type: blob.type || '', blob };
+  }
+
+  async function deleteMediaRef(ref) {
+    if (!ref || typeof ref !== 'string') return;
+    if (isIDBMedia(ref)) {
+      const id = idbMediaId(ref);
+      if (mediaUrlCache.has(id)) { URL.revokeObjectURL(mediaUrlCache.get(id)); mediaUrlCache.delete(id); }
+      try { await deleteMediaById(id); } catch (e) { console.error('deleteMediaById', id, e); }
+    } else if (ref.startsWith('file://')) {
+      await deleteLocalFile(ref);
     }
-    const { uri } = await Filesystem.getUri({ path: fullPath, directory: DATA_DIR });
-    return uri;
   }
 
   async function deleteLocalFile(uri) {
     if (!uri || typeof uri !== 'string' || !uri.startsWith('file://')) return;
-    if (!nativeFilesystem()) return;
-    try { await Capacitor.Plugins.Filesystem.deleteFile({ path: uri }); } catch (e) { console.error('deleteLocalFile', uri, e); }
+    if (!(window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Filesystem)) return;
+    try { await window.Capacitor.Plugins.Filesystem.deleteFile({ path: uri }); } catch (e) { console.error('deleteLocalFile', uri, e); }
   }
 
   async function deleteItemMedia(it) {
     if (!it) return;
-    if (it.image) { await deleteLocalFile(it.image); }
+    if (it.image) await deleteMediaRef(it.image);
     if (it.lessons) { for (const l of it.lessons) await deleteItemMedia(l); }
-    if (it.phrases) { for (const p of it.phrases) { if (p.media) await deleteLocalFile(p.media); } }
+    if (it.phrases) { for (const p of it.phrases) { if (p.media) await deleteMediaRef(p.media); } }
+  }
+
+  async function loadMedia() {
+    const placeholders = document.querySelectorAll('.media-placeholder');
+    for (const el of placeholders) {
+      const ref = el.dataset.mediaRef;
+      if (!ref) continue;
+      const resolved = await resolveMediaRef(ref);
+      if (!resolved.url) { el.remove(); continue; }
+      const isVideo = (resolved.type || '').startsWith('video/') || isVideoUrl(resolved.url);
+      if (isVideo) {
+        el.innerHTML = `<video src="${esc(resolved.url)}" controls playsinline></video>`;
+      } else {
+        el.innerHTML = `<img src="${esc(resolved.url)}" alt="" onerror="this.style.display='none'">`;
+      }
+    }
   }
 
   function showTTSBanner(msg, btnText) {
@@ -1260,7 +1309,10 @@
   }
 
   function cardThumb(it, idx) {
-    if (it.image) return `<div class="card-thumb"><img src="${esc(toWebUrl(it.image))}" alt=""></div>`;
+    if (it.image) {
+      if (isIDBMedia(it.image)) return `<div class="card-thumb media-placeholder" data-media-ref="${esc(it.image)}"></div>`;
+      return `<div class="card-thumb"><img src="${esc(toWebUrl(it.image))}" alt=""></div>`;
+    }
     if (it.type === 'folder') return `<div class="card-thumb" style="color:#fff; background:var(--accent-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M2 6a2 2 0 0 1 2-2h5l2 2h9a2 2 0 0 1 2 2v1H2V6zm0 3h20v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9z"/></svg></div>`;
     return `<div class="num">${idx || it.id}</div>`;
   }
@@ -1296,13 +1348,13 @@
     if (!it) return;
     if (it.protected) { showToast(t('protected')); return; }
     try {
-      const uri = await saveFileToAppStorage(file, 'images') || await new Promise((resolve, reject) => {
+      const uri = await storeMedia(file) || await new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.onload = e => resolve(e.target.result);
         reader.onerror = reject;
         reader.readAsDataURL(file);
       });
-      if (it.image) await deleteLocalFile(it.image);
+      if (it.image) await deleteMediaRef(it.image);
       it.image = uri;
       saveLessons();
       showToast(t('saved'));
@@ -1367,6 +1419,7 @@
 
   function mediaHTML(media) {
     if (!media) return '';
+    if (isIDBMedia(media)) return `<div class="phrase-media media-placeholder" data-media-ref="${esc(media)}"></div>`;
     const src = toWebUrl(media);
     const yt = youtubeId(src);
     if (yt) return `<div class="phrase-media"><iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe></div>`;
@@ -1874,29 +1927,31 @@
     });
   }
 
-  function updateMediaPreview(url) {
+  async function updateMediaPreview(url) {
     const wrap = document.getElementById('media-preview');
     const img = document.getElementById('media-preview-img');
     const vid = document.getElementById('media-preview-video');
     if (!url) { wrap.style.display = 'none'; img.style.display = 'none'; vid.style.display = 'none'; img.src = ''; vid.src = ''; return; }
     wrap.style.display = 'block';
+    if (isIDBMedia(url)) {
+      const resolved = await resolveMediaRef(url);
+      if (!resolved.url) { img.style.display = 'none'; vid.style.display = 'none'; return; }
+      const isVideo = (resolved.type || '').startsWith('video/') || isVideoUrl(resolved.url);
+      if (isVideo) {
+        img.style.display = 'none'; vid.style.display = 'block'; vid.src = resolved.url; img.src = '';
+      } else {
+        img.style.display = 'block'; vid.style.display = 'none'; img.src = resolved.url; vid.src = '';
+      }
+      return;
+    }
     const src = toWebUrl(url);
     const yt = youtubeId(src);
     if (isVideoUrl(src)) {
-      img.style.display = 'none';
-      vid.style.display = 'block';
-      vid.src = src;
-      img.src = '';
+      img.style.display = 'none'; vid.style.display = 'block'; vid.src = src; img.src = '';
     } else if (yt) {
-      img.style.display = 'block';
-      vid.style.display = 'none';
-      img.src = 'https://img.youtube.com/vi/' + yt + '/0.jpg';
-      vid.src = '';
+      img.style.display = 'block'; vid.style.display = 'none'; img.src = 'https://img.youtube.com/vi/' + yt + '/0.jpg'; vid.src = '';
     } else {
-      img.style.display = 'block';
-      vid.style.display = 'none';
-      img.src = src;
-      vid.src = '';
+      img.style.display = 'block'; vid.style.display = 'none'; img.src = src; vid.src = '';
     }
   }
 
@@ -1910,7 +1965,7 @@
     const urlInput = document.getElementById('media-url');
     const removeBtn = document.getElementById('btn-remove-media');
     const fileInput = document.getElementById('media-file');
-    urlInput.value = (p && p.media && !/^data:/.test(p.media) && !/^file:\/\//.test(p.media)) ? p.media : '';
+    urlInput.value = (p && p.media && !/^data:/.test(p.media) && !/^file:\/\//.test(p.media) && !/^idb:\/\//.test(p.media)) ? p.media : '';
     removeBtn.style.display = (p && p.media) ? 'inline-block' : 'none';
     fileInput.value = '';
     updateMediaPreview(p ? p.media : null);
@@ -1932,13 +1987,11 @@
     const p = found.lesson.phrases[idx];
     let url = mediaFileData || document.getElementById('media-url').value.trim();
     if (!url) { closeMedia(); return; }
-    if (!/^https?:\/\//.test(url) && !/^data:/.test(url) && !/^file:\/\//.test(url)) {
+    if (!/^https?:\/\//.test(url) && !/^data:/.test(url) && !/^file:\/\//.test(url) && !/^idb:\/\//.test(url)) {
       showToast(t('mediaInvalid'));
       return;
     }
-    if (p.media && p.media !== url && p.media.startsWith('file://')) {
-      await deleteLocalFile(p.media);
-    }
+    if (p.media && p.media !== url) await deleteMediaRef(p.media);
     p.media = url;
     saveLessons();
     closeMedia();
@@ -1953,7 +2006,7 @@
     const found = findLesson(lessonId);
     if (found) {
       const p = found.lesson.phrases[idx];
-      if (p && p.media) await deleteLocalFile(p.media);
+      if (p && p.media) await deleteMediaRef(p.media);
       delete p.media;
       saveLessons();
       go(state.route, false);
@@ -1980,10 +2033,10 @@
         return;
       }
       try {
-        const uri = await saveFileToAppStorage(file, 'media');
+        const uri = await storeMedia(file);
         if (uri) {
           mediaFileData = uri;
-          updateMediaPreview(uri);
+          await updateMediaPreview(uri);
           urlInput.value = '';
         } else {
           const reader = new FileReader();
@@ -2025,6 +2078,7 @@
     else if (route.name === 'add-folder') renderAddFolder();
     else if (route.name === 'add-lesson') renderAddLesson(route.folder);
     else if (route.name === 'edit-lesson') renderEditLesson(route.lesson);
+    loadMedia();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
