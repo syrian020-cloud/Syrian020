@@ -282,6 +282,7 @@
     clear: { ar: 'مسح', en: 'Clear', fr: 'Effacer' },
     speak: { ar: 'نطق', en: 'Speak', fr: 'Écouter' },
     loop: { ar: 'تكرار', en: 'Loop', fr: 'Répéter' },
+    googleSearch: { ar: 'بحث Google', en: 'Google search', fr: 'Rechercher Google' },
     stop: { ar: 'إيقاف', en: 'Stop', fr: 'Arrêter' },
     delete: { ar: 'حذف', en: 'Delete', fr: 'Supprimer' },
     moveUp: { ar: 'أعلى', en: 'Up', fr: 'Monter' },
@@ -352,7 +353,8 @@
       globe: 'M21.721 12.752a9.711 9.711 0 0 0-.945-5.003 12.754 12.754 0 0 1-4.339 2.708 18.991 18.991 0 0 1-.214 4.772 17.165 17.165 0 0 0 5.498-2.477ZM14.634 15.55a17.324 17.324 0 0 0 .332-4.647c-.952.227-1.945.347-2.966.347-1.021 0-2.014-.12-2.966-.347a17.515 17.515 0 0 0 .332 4.647 17.385 17.385 0 0 0 5.268 0ZM9.772 17.119a18.963 18.963 0 0 0 4.456 0A17.182 17.182 0 0 1 12 21.724a17.18 17.18 0 0 1-2.228-4.605ZM7.777 15.23a18.87 18.87 0 0 1-.214-4.774 12.753 12.753 0 0 1-4.34-2.708 9.711 9.711 0 0 0-.944 5.004 17.165 17.165 0 0 0 5.498 2.477ZM21.356 14.752a9.765 9.765 0 0 1-7.478 6.817 18.64 18.64 0 0 0 1.988-4.718 18.627 18.627 0 0 0 5.49-2.098ZM2.644 14.752c1.682.971 3.53 1.688 5.49 2.099a18.64 18.64 0 0 0 1.988 4.718 9.765 9.765 0 0 1-7.478-6.816ZM13.878 2.43a9.755 9.755 0 0 1 6.116 3.986 11.267 11.267 0 0 1-3.746 2.504 18.63 18.63 0 0 0-2.37-6.49ZM12 2.276a17.152 17.152 0 0 1 2.805 7.121c-.897.23-1.837.353-2.805.353-.968 0-1.908-.122-2.805-.353A17.151 17.151 0 0 1 12 2.276ZM10.122 2.43a18.629 18.629 0 0 0-2.37 6.49 11.266 11.266 0 0 1-3.746-2.504 9.754 9.754 0 0 1 6.116-3.985Z',
       folder: 'M19.906 9c.382 0 .749.057 1.094.162V9a3 3 0 0 0-3-3h-3.879a.75.75 0 0 1-.53-.22L11.47 3.66A2.25 2.25 0 0 0 9.879 3H6a3 3 0 0 0-3 3v3.162A3.756 3.756 0 0 1 4.094 9h15.812ZM4.094 10.5a2.25 2.25 0 0 0-2.227 2.568l.857 6A2.25 2.25 0 0 0 4.951 21H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-2.227-2.568H4.094Z',
       lesson: 'M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z',
-      chevron: 'M12 16.5a.75.75 0 0 1-.53-.22l-6-6a.75.75 0 0 1 1.06-1.06L12 14.69l5.47-5.47a.75.75 0 1 1 1.06 1.06l-6 6a.75.75 0 0 1-.53.22Z'
+      chevron: 'M12 16.5a.75.75 0 0 1-.53-.22l-6-6a.75.75 0 0 1 1.06-1.06L12 14.69l5.47-5.47a.75.75 0 1 1 1.06 1.06l-6 6a.75.75 0 0 1-.53.22Z',
+      search: 'M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z'
     };
     var d = paths[name] || '';
     return '<svg class="icon icon-' + name + '" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="' + d + '" /></svg>';
@@ -739,6 +741,27 @@
         console.error('Media download failed', e);
         toast(t('mediaDownloadFailed'));
       });
+  }
+
+  function nativeAppLauncher() {
+    if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.AppLauncher) return window.Capacitor.Plugins.AppLauncher;
+    if (window.Capacitor && window.Capacitor.registerPlugin) {
+      window.Capacitor.Plugins = window.Capacitor.Plugins || {};
+      window.Capacitor.Plugins.AppLauncher = window.Capacitor.registerPlugin('AppLauncher');
+      return window.Capacitor.Plugins.AppLauncher;
+    }
+    return null;
+  }
+
+  function openSearch(text, lang) {
+    if (!text) return;
+    var url = 'https://www.google.com/search?udm=50&q=' + encodeURIComponent(text) + '&hl=' + (lang || 'en');
+    var launcher = nativeAppLauncher();
+    if (launcher && launcher.openUrl) {
+      launcher.openUrl({ url: url }).catch(function () { window.open(url, '_blank'); });
+    } else {
+      window.open(url, '_blank');
+    }
   }
 
   /* ---------------- UI helpers ---------------- */
@@ -1179,6 +1202,7 @@
     return '<span class="row-actions">' +
       '<button class="icon-btn speak-line" data-lang="' + lang + '" data-t-title="speak">' + icon('volume') + '</button>' +
       '<button class="icon-btn loop-line" data-lang="' + lang + '" data-t-title="loop">' + icon('loop') + '</button>' +
+      '<button class="icon-btn search-line" data-lang="' + lang + '" data-t-title="googleSearch">' + icon('search') + '</button>' +
     '</span>';
   }
 
@@ -1297,6 +1321,9 @@
         speakLine(phrase, lineLang, phraseId);
       } else if (btn.classList.contains('loop-line')) {
         toggleLoop(phrase, phraseId + ':' + lineLang, [lineLang]);
+      } else if (btn.classList.contains('search-line')) {
+        var query = (phrase[lineLang] || '').trim();
+        if (query) openSearch(query, lineLang);
       } else if (btn.classList.contains('loop-media')) {
         phrase.videoLoop = !phrase.videoLoop;
         var video = box ? box.querySelector('video.media-preview') : null;
