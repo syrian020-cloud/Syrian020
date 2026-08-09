@@ -62,7 +62,12 @@ Lessons and media blobs are stored in IndexedDB (`MotsyCreatorDB`) and `localSto
 - Folder/rename/delete and lesson-rename actions use native `prompt()` / `confirm()` dialogs. For scripted testing, override them in the page (e.g. `window.prompt = ...; window.confirm = () => true;`) and re-apply after each reload.
 - The media URL input (`input.media-url`) + `Load media` button can attach an image by direct URL. Use a same-origin URL such as `http://localhost:8080/lang-icon-512.png` to avoid CORS issues on the test VM.
 - Speech rate is controlled by `#rate-slider`; play mode by `#play-mode`. Word-level speech works on `.phrase-display .word` after exiting phrase editing mode.
-- The lesson editor does **not** currently render a back button. To return to the list during automated testing, reload the page or set `window.onbeforeunload = null` first.
+- Folders are shown as cards on the main list; clicking a folder card opens a dedicated folder page (`renderFolder`) with its own hero, back button, `New lesson in folder` button, and a folder-level three-dot menu.
+- The folder-level menu is available both on the main-list folder card and inside the folder page; it supports Rename / Attach folder cover / Delete.
+- Per-lesson menu options (Edit name / Attach cover / Move to folder / Delete) work on the folder page as well as the main list.
+- The lesson editor has a `#btn-back` back button; when the lesson belongs to a folder it returns to that folder (`openFolder(lesson.folderId)`), otherwise it returns to the main list.
+- The folder page has `#btn-back-folder` which returns to the main list.
+- `handleBackButton()` (used for the Android hardware back button in the Capacitor build) now mirrors this logic: from a lesson it returns to the originating folder if one exists, from a folder it returns to the main list.
 - `state` is scoped inside the IIFE and is not available from the console; use `document.querySelectorAll` / element properties for assertions.
 
 ## APK build

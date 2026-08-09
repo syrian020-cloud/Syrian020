@@ -191,19 +191,12 @@
   .playing .textarea { color: #fff !important; background: linear-gradient(135deg, #0a0715, #2e1065); border-radius: 18px; transition: color .2s, background .2s; }
   .textarea.speaking-line { color: #fff !important; background: linear-gradient(135deg, #0a0715, #2e1065); border-radius: 18px; font-weight: 700; }
 
-  .folder { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 28px; padding: 0; margin-bottom: 1rem; overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .12s, box-shadow .15s, border-color .15s; }
-  .folder:hover { border-color: rgba(167,139,250,0.25); box-shadow: 0 8px 24px rgba(167,139,250,0.12); }
-  .folder-header { display: flex; align-items: center; gap: 0.6rem; padding: 0.95rem 1.1rem; cursor: pointer; background: linear-gradient(135deg, rgba(167,139,250,0.08), rgba(244,114,182,0.02)); border-bottom: 1px solid transparent; }
-  .folder.expanded .folder-header { border-bottom-color: var(--border); }
-  .folder-toggle { display: inline-flex; transition: transform .2s; color: var(--text-secondary); }
-  .folder.expanded .folder-toggle { transform: rotate(180deg); }
-  .folder-icon { color: var(--gold); display: inline-flex; }
-  .folder-icon .icon { width: 1.4rem; height: 1.4rem; }
-  .folder-title { font-weight: 800; font-size: 1.05rem; flex: 1; }
-  .folder-count { color: var(--text-secondary); font-size: 0.8rem; font-weight: 600; }
-  .folder-content { padding: 0.8rem 1rem 1rem; display: flex; flex-direction: column; gap: 0.7rem; }
-  .folder-content .lesson-card { margin-bottom: 0; }
-  .folder-menu { position: relative; margin-inline-start: auto; }
+  .folder { display: flex; align-items: center; gap: 0.9rem; cursor: pointer; position: relative; overflow: visible; padding: 0.95rem 1.2rem; background: linear-gradient(135deg, rgba(251,191,36,0.08), rgba(167,139,250,0.02)); border: 1px solid rgba(251,191,36,0.14); border-inline-start: 5px solid var(--gold); border-radius: 24px; box-shadow: 0 4px 14px rgba(251,191,36,0.06); transition: transform .12s, box-shadow .15s, border-color .15s; }
+  .folder:hover { border-color: rgba(251,191,36,0.35); border-inline-start-color: var(--gold); transform: translateY(-2px) scale(1.005); box-shadow: 0 8px 24px rgba(251,191,36,0.14); }
+  .folder .card-title { color: var(--text-primary); }
+  .folder-cover { width: 3.6rem; height: 3.6rem; min-width: 3.6rem; border-radius: 16px; background: linear-gradient(135deg, rgba(251,191,36,0.18), rgba(167,139,250,0.06)); border: 1px solid rgba(251,191,36,0.22); display: flex; align-items: center; justify-content: center; color: var(--gold); overflow: hidden; }
+  .folder-cover img { width: 100%; height: 100%; object-fit: cover; }
+  .folder-cover .icon { width: 1.6rem; height: 1.6rem; opacity: 0.85; }
   .section-label { color: var(--text-secondary); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin: 0.6rem 0.3rem 0.8rem; }
 
   @media (max-width: 480px) {
@@ -247,11 +240,12 @@
   var dbReady = openDB();
 
   var state = {
-    view: 'lessons', // 'lessons' | 'lesson'
+    view: 'lessons', // 'lessons' | 'lesson' | 'folder'
     lessons: [],
     folders: [],
     expandedFolders: JSON.parse(localStorage.getItem('creator_expanded_folders') || '{}'),
     currentLessonId: null,
+    currentFolderId: null,
     uiLang: localStorage.getItem('creator_ui_lang') || 'ar',
     theme: localStorage.getItem('creator_theme') || 'light',
     rate: Number(localStorage.getItem('creator_rate')) || 1,
@@ -549,6 +543,17 @@
     });
   }
 
+  function attachFolderCover(id, file) {
+    var folder = getFolder(id);
+    if (!folder || !file) return;
+    var mediaId = uuid();
+    if (folder.coverMediaId) deleteMedia(folder.coverMediaId);
+    saveMedia(mediaId, file).then(function () {
+      folder.coverMediaId = mediaId;
+      dbPut('folders', folder).then(render);
+    });
+  }
+
   function addPhrase(lesson) {
     lesson.phrases.push({ id: uuid(), fr: '', ar: '', en: '', editing: true });
     saveCurrentLesson();
@@ -792,6 +797,7 @@
   function setView(name, lessonId) {
     state.view = name;
     state.currentLessonId = lessonId || null;
+    if (name !== 'folder') state.currentFolderId = null;
     render();
   }
 
@@ -801,10 +807,17 @@
     render();
   }
 
+  function openFolder(id) {
+    state.view = 'folder';
+    state.currentFolderId = id;
+    render();
+  }
+
   /* ---------------- Rendering ---------------- */
 
   function render() {
     if (state.view === 'lesson') renderLessonEditor();
+    else if (state.view === 'folder') renderFolder();
     else renderLessonList();
   }
 
@@ -840,6 +853,24 @@
     return opts;
   }
 
+  function renderFolderCard(f) {
+    var count = state.lessons.filter(function (l) { return l.folderId === f.id; }).length;
+    var coverAttr = f.coverMediaId ? ' data-cover="' + f.coverMediaId + '"' : '';
+    return '<div class="card folder" data-folder="' + f.id + '">' +
+      '<div class="folder-cover"' + coverAttr + '>' + icon('folder') + '</div>' +
+      '<div class="body"><div class="card-title">' + esc(f.name[state.uiLang] || f.name.en || f.name.fr || f.name.ar) + '</div>' +
+      '<div class="card-sub">' + count + ' ' + t('lesson') + '</div></div>' +
+      '<div class="lesson-menu">' +
+        '<button class="icon-btn folder-menu-btn" data-t-title="more">' + icon('more') + '</button>' +
+        '<div class="dropdown hidden">' +
+          '<button class="dropdown-item rename-folder">' + iconText('renameFolder', 'edit') + '</button>' +
+          '<button class="dropdown-item attach-folder-cover">' + iconText('attachCover', 'image') + '</button>' +
+          '<button class="dropdown-item delete-folder danger">' + iconText('deleteFolder', 'trash') + '</button>' +
+        '</div>' +
+      '</div>' +
+      '</div>';
+  }
+
   function renderLessonList() {
     var app = document.getElementById('app');
     var html = '<div class="hero"><h1 data-t="appName"></h1><p data-t="subtitle"></p></div>' +
@@ -848,50 +879,63 @@
         '<button class="btn ghost" id="add-folder">' + iconText('addFolder', 'folder') + '</button>' +
       '</div>';
 
-    function lessonCards(list, startIdx) {
-      return list.map(function (l, i) { return renderLessonCard(l, startIdx + i); }).join('');
-    }
-
-    if (!state.lessons.length) {
+    if (!state.lessons.length && !state.folders.length) {
       html += '<div class="empty" data-t="noLessons"></div>';
     } else {
+      html += state.folders.map(renderFolderCard).join('');
       var ungrouped = state.lessons.filter(function (l) { return !l.folderId; });
-      var idxOffset = 0;
-
-      state.folders.forEach(function (f) {
-        var folderLessons = state.lessons.filter(function (l) { return l.folderId === f.id; });
-        var expanded = state.expandedFolders[f.id] !== false;
-        html += '<div class="card folder' + (expanded ? ' expanded' : '') + '" data-folder="' + f.id + '">' +
-          '<div class="folder-header">' +
-            '<span class="folder-toggle">' + icon('chevron') + '</span>' +
-            '<span class="folder-icon">' + icon('folder') + '</span>' +
-            '<span class="folder-title">' + esc(f.name[state.uiLang] || f.name.en || f.name.fr || f.name.ar) + '</span>' +
-            '<span class="folder-count">' + folderLessons.length + ' ' + t('lesson') + '</span>' +
-            '<div class="folder-menu">' +
-              '<button class="icon-btn folder-menu-btn" data-t-title="more">' + icon('more') + '</button>' +
-              '<div class="dropdown hidden">' +
-                '<button class="dropdown-item rename-folder">' + iconText('renameFolder', 'edit') + '</button>' +
-                '<button class="dropdown-item new-lesson-folder">' + iconText('newLessonInFolder', 'plus') + '</button>' +
-                '<button class="dropdown-item delete-folder danger">' + iconText('deleteFolder', 'trash') + '</button>' +
-              '</div>' +
-            '</div>' +
-          '</div>' +
-          '<div class="folder-content"' + (expanded ? '' : ' style="display:none"') + '>' +
-            lessonCards(folderLessons, idxOffset) +
-          '</div>' +
-        '</div>';
-        idxOffset += folderLessons.length;
-      });
-
       if (ungrouped.length) {
-        html += '<div class="section-label" data-t="noFolder"></div>' + lessonCards(ungrouped, idxOffset);
+        html += '<div class="section-label" data-t="noFolder"></div>' + ungrouped.map(function (l, i) { return renderLessonCard(l, i); }).join('');
       }
       html += '<input type="file" id="cover-input" accept="image/*" class="hidden">';
     }
     app.innerHTML = html;
     renderLessonCovers();
+    renderFolderCovers();
     bindListEvents();
     applyTranslations();
+  }
+
+  function renderFolder() {
+    var app = document.getElementById('app');
+    var folder = getFolder(state.currentFolderId);
+    if (!folder) { setView('lessons'); return; }
+    var folderLessons = state.lessons.filter(function (l) { return l.folderId === folder.id; });
+    var coverAttr = folder.coverMediaId ? ' data-cover="' + folder.coverMediaId + '"' : '';
+    var html = '<div class="hero"><h1 data-t="appName"></h1><p>' + esc(folder.name[state.uiLang] || folder.name.en || folder.name.fr || folder.name.ar) + ' · ' + folderLessons.length + ' ' + t('lesson') + '</p></div>' +
+      '<div class="btn-row">' +
+        '<button class="btn ghost" id="btn-back-folder">' + iconText('back', 'back') + '</button>' +
+        '<button class="btn" id="add-lesson-folder">' + iconText('addLesson', 'plus') + '</button>' +
+        '<div class="lesson-menu" style="margin-inline-start:auto">' +
+          '<button class="icon-btn menu-btn" data-t-title="more">' + icon('more') + '</button>' +
+          '<div class="dropdown hidden">' +
+            '<button class="dropdown-item rename-folder" data-folder="' + folder.id + '">' + iconText('renameFolder', 'edit') + '</button>' +
+            '<button class="dropdown-item attach-folder-cover" data-folder="' + folder.id + '">' + iconText('attachCover', 'image') + '</button>' +
+            '<button class="dropdown-item delete-folder danger" data-folder="' + folder.id + '">' + iconText('deleteFolder', 'trash') + '</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    if (!folderLessons.length) {
+      html += '<div class="empty" data-t="noLessons"></div>';
+    } else {
+      html += folderLessons.map(function (l, i) { return renderLessonCard(l, i); }).join('');
+    }
+    html += '<input type="file" id="cover-input" accept="image/*" class="hidden">';
+    app.innerHTML = html;
+    renderLessonCovers();
+    renderFolderCovers();
+    bindListEvents();
+    bindFolderViewEvents(folder);
+    applyTranslations();
+  }
+
+  function renderFolderCovers() {
+    document.querySelectorAll('.folder-cover[data-cover]').forEach(function (el) {
+      var mediaId = el.dataset.cover;
+      getMediaUrl(mediaId).then(function (url) {
+        if (url) el.innerHTML = '<img src="' + url + '" alt="">';
+      });
+    });
   }
 
   function renderLessonCovers() {
@@ -908,7 +952,8 @@
   }
 
   function bindListEvents() {
-    document.getElementById('add-lesson').onclick = addLesson;
+    var addLessonBtn = document.getElementById('add-lesson');
+    if (addLessonBtn) addLessonBtn.onclick = addLesson;
     var addFolderBtn = document.getElementById('add-folder');
     if (addFolderBtn) addFolderBtn.onclick = addFolder;
 
@@ -965,21 +1010,15 @@
     });
 
     document.querySelectorAll('.folder').forEach(function (folderEl) {
-      var header = folderEl.querySelector('.folder-header');
-      if (header) {
-        header.onclick = function (e) {
-          if (e.target.closest('.folder-menu') || e.target.closest('button')) return;
-          var fid = folderEl.dataset.folder;
-          state.expandedFolders[fid] = !state.expandedFolders[fid];
-          saveExpandedFolders();
-          render();
-        };
-      }
+      folderEl.onclick = function (e) {
+        if (e.target.closest('.lesson-menu') || e.target.closest('button')) return;
+        openFolder(folderEl.dataset.folder);
+      };
     });
     document.querySelectorAll('.folder-menu-btn').forEach(function (b) {
       b.onclick = function (e) {
         e.stopPropagation();
-        var dropdown = b.closest('.folder-menu').querySelector('.dropdown');
+        var dropdown = b.closest('.lesson-menu').querySelector('.dropdown');
         var wasHidden = dropdown.classList.contains('hidden');
         closeAllDropdowns();
         if (wasHidden) dropdown.classList.remove('hidden');
@@ -988,26 +1027,27 @@
     document.querySelectorAll('.rename-folder').forEach(function (b) {
       b.onclick = function (e) {
         e.stopPropagation();
-        renameFolder(b.closest('.folder').dataset.folder);
+        var fid = b.dataset.folder || b.closest('.folder').dataset.folder;
+        renameFolder(fid);
         closeAllDropdowns();
       };
     });
     document.querySelectorAll('.delete-folder').forEach(function (b) {
       b.onclick = function (e) {
         e.stopPropagation();
-        deleteFolder(b.closest('.folder').dataset.folder);
+        var fid = b.dataset.folder || b.closest('.folder').dataset.folder;
+        deleteFolder(fid);
         closeAllDropdowns();
       };
     });
-    document.querySelectorAll('.new-lesson-folder').forEach(function (b) {
+    document.querySelectorAll('.attach-folder-cover').forEach(function (b) {
       b.onclick = function (e) {
         e.stopPropagation();
-        var folderId = b.closest('.folder').dataset.folder;
-        var lesson = { id: uuid(), title: { ar: '', fr: '', en: '' }, phrases: [], folderId: folderId };
-        state.lessons.push(lesson);
-        state.expandedFolders[folderId] = true;
-        saveExpandedFolders();
-        dbPut('lessons', lesson).then(function () { openLesson(lesson.id); });
+        var input = document.getElementById('cover-input');
+        if (input) {
+          input.dataset.folder = b.dataset.folder || b.closest('.folder').dataset.folder;
+          input.click();
+        }
         closeAllDropdowns();
       };
     });
@@ -1016,8 +1056,11 @@
     if (coverInput) {
       coverInput.onchange = function (e) {
         if (e.target.files && e.target.files[0]) {
-          attachCoverImage(e.target.dataset.lesson, e.target.files[0]);
+          if (e.target.dataset.lesson) attachCoverImage(e.target.dataset.lesson, e.target.files[0]);
+          if (e.target.dataset.folder) attachFolderCover(e.target.dataset.folder, e.target.files[0]);
           e.target.value = '';
+          delete e.target.dataset.lesson;
+          delete e.target.dataset.folder;
         }
       };
     }
@@ -1025,6 +1068,17 @@
       window.__dropdownCloser = true;
       document.addEventListener('click', closeAllDropdowns);
     }
+  }
+
+  function bindFolderViewEvents(folder) {
+    var backBtn = document.getElementById('btn-back-folder');
+    if (backBtn) backBtn.onclick = function () { setView('lessons'); };
+    var addLessonFolderBtn = document.getElementById('add-lesson-folder');
+    if (addLessonFolderBtn) addLessonFolderBtn.onclick = function () {
+      var lesson = { id: uuid(), title: { ar: '', fr: '', en: '' }, phrases: [], folderId: folder.id };
+      state.lessons.push(lesson);
+      dbPut('lessons', lesson).then(function () { openLesson(lesson.id); });
+    };
   }
 
   function bindMoveToFolder() {
@@ -1156,7 +1210,7 @@
 
   function bindEditorEvents(lesson) {
     var backBtn = document.getElementById('btn-back');
-    if (backBtn) backBtn.onclick = function () { setView('lessons'); };
+    if (backBtn) backBtn.onclick = function () { stopSpeech(); if (lesson && lesson.folderId) openFolder(lesson.folderId); else setView('lessons'); };
     document.getElementById('btn-add-phrase').onclick = function () { addPhrase(lesson); };
     document.getElementById('btn-bulk-add').onclick = function () { addBulkPhrases(lesson); };
     document.getElementById('btn-play-all').onclick = function () { playLesson(lesson); };
@@ -1379,7 +1433,13 @@
   }
 
   function handleBackButton() {
-    if (state.view === 'lesson') { stopSpeech(); setView('lessons'); return; }
+    stopSpeech();
+    if (state.view === 'lesson') {
+      var lesson = getLesson(state.currentLessonId);
+      if (lesson && lesson.folderId) { openFolder(lesson.folderId); return; }
+      setView('lessons'); return;
+    }
+    if (state.view === 'folder') { setView('lessons'); return; }
     if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) {
       if (confirm(t('exitConfirm'))) window.Capacitor.Plugins.App.exitApp();
     }
