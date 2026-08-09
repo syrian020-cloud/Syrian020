@@ -1222,6 +1222,7 @@
           '<button class="icon-btn move-down" data-t-title="moveDown">' + icon('down') + '</button>' +
           '<button class="icon-btn edit-phrase" data-t-title="editPhrase">' + icon(editing ? 'close' : 'edit') + '</button>' +
           '<button class="icon-btn delete-phrase" data-t-title="delete">' + icon('trash') + '</button>' +
+          '<button class="icon-btn toggle-media" data-t-title="attachMedia">' + icon('image') + '</button>' +
         '</div>' +
       '</div>' +
       '<div class="field-label-row"><span class="field-label" data-t="phraseFr"></span>' + lineControls('fr') + '</div>' +
@@ -1233,7 +1234,7 @@
       '<div class="field-label-row"><span class="field-label" data-t="phraseEn"></span>' + lineControls('en') + '</div>' +
       '<div class="phrase-display" dir="ltr" data-field="en">' + wordSpans(p.en, 'en', p.id) + '</div>' +
       '<textarea class="textarea" dir="ltr" data-field="en" placeholder="Hello">' + esc(p.en || '') + '</textarea>' +
-      '<div class="media-box" id="media-box-' + p.id + '">' +
+      '<div class="media-box hidden" id="media-box-' + p.id + '">' +
         '<div class="media-placeholder" data-t="noMedia"></div>' +
         '<div class="media-btns">' +
           '<button class="icon-btn ghost attach-media" data-t-title="attachMedia">' + icon('image') + '</button>' +
@@ -1346,6 +1347,8 @@
         movePhrase(lesson, phraseId, 1);
       } else if (btn.classList.contains('delete-phrase')) {
         if (confirm(t('deletePhraseConfirm'))) deletePhrase(lesson, phraseId);
+      } else if (btn.classList.contains('toggle-media')) {
+        if (box) box.classList.toggle('hidden');
       } else if (btn.classList.contains('attach-media')) {
         document.getElementById('file-' + phraseId).click();
       } else if (btn.classList.contains('remove-media')) {
@@ -1408,6 +1411,7 @@
     placeholder.classList.add('hidden');
     remove.classList.remove('hidden');
     box.classList.add('has-media');
+    box.classList.remove('hidden');
 
     getMediaUrl(phrase.mediaId).then(function (url) {
       if (!url) return;
