@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import json, re, subprocess
+import json, re
 from pathlib import Path
 
 RAW_PATH = Path('/tmp/t_raw.txt')
@@ -21,8 +21,10 @@ def normalize(fr):
 # Override part of speech for headwords that are not verbs
 HEAD_POS = {
     'toujours': 'other', 'très': 'other', 'tôt': 'other', 'tard': 'other', 'tout': 'other',
+    'trop': 'other', 'tant': 'other', 'tellement': 'other', 'totalement': 'other', 'tranquillement': 'other',
     'tranquille': 'adjective', 'triste': 'adjective', 'total': 'adjective',
-    'toute': 'adjective', 'tel': 'adjective',
+    'toute': 'adjective', 'tel': 'adjective', 'tarifaire': 'adjective',
+    'traditionnel': 'adjective', 'théorique': 'adjective', 'temporaire': 'adjective', 'typique': 'adjective',
 }
 
 def infer_pos(headword, en):
@@ -61,15 +63,7 @@ def save_vocab(path, entries):
 
 
 def get_original_vocab():
-    result = subprocess.run(
-        ['git', 'show', 'HEAD:data/vocab.js'],
-        cwd=REPO_DIR,
-        capture_output=True,
-        text=True,
-    )
-    if result.returncode != 0:
-        raise RuntimeError(result.stderr)
-    return load_vocab_text(result.stdout)
+    return load_vocab_text(VOCAB_PATH.read_text(encoding='utf-8'))
 
 
 def keyword_in_text(kw, text):
@@ -177,6 +171,56 @@ def infer_contexts(fr, en, ar, examples, pos):
         ('bouteille', ['daily']),
         ('transpirer', ['health', 'daily']),
         ('tourmenter', ['health', 'daily']),
+        ('tousser', ['health', 'daily']),
+        ('trésor', ['daily']),
+        ('tristesse', ['daily']),
+        ('tentative', ['daily', 'work']),
+        ('témoignage', ['services']),
+        ('témoins', ['services']),
+        ('télécommande', ['daily', 'housing']),
+        ('tente', ['daily']),
+        ('tonneau', ['daily']),
+        ('tâtonnement', ['daily', 'work']),
+        ('talent', ['daily', 'work']),
+        ('tension', ['health', 'daily']),
+        ('tendance', ['daily']),
+        ('tarifaire', ['services', 'shopping']),
+        ('tempête', ['weather']),
+        ('terrasse', ['restaurant', 'housing']),
+        ('théière', ['restaurant', 'food']),
+        ('trotinette', ['transport']),
+        ('texte', ['school', 'work', 'daily']),
+        ('titre', ['daily', 'work']),
+        ('tomate', ['food', 'restaurant', 'shopping']),
+        ('tartine', ['food', 'restaurant']),
+        ('théorie', ['school', 'work']),
+        ('théâtre', ['daily']),
+        ('thème', ['school', 'work']),
+        ('tradition', ['daily', 'family']),
+        ('tribunal', ['services', 'prefecture']),
+        ('tunnel', ['transport']),
+        ('téléchargement', ['daily', 'work']),
+        ('traduction', ['daily', 'work', 'services']),
+        ('trafic', ['transport']),
+        ('tournage', ['work']),
+        ('tournant', ['daily']),
+        ('trop', ['daily']),
+        ('tant', ['daily']),
+        ('tellement', ['daily']),
+        ('touriste', ['daily']),
+        ('tramway', ['transport']),
+        ('thérapie', ['health']),
+        ('traditionnel', ['food', 'restaurant', 'daily']),
+        ('technique', ['school', 'work']),
+        ('théorique', ['school']),
+        ('temporaire', ['work', 'housing']),
+        ('totalement', ['daily']),
+        ('tranquillement', ['daily']),
+        ('typique', ['daily', 'restaurant', 'food']),
+        ('timbale', ['restaurant', 'food']),
+        ('tolérance', ['daily', 'health']),
+        ('tonnerre', ['weather']),
+        ('tournis', ['health']),
         ('tousser', ['health', 'daily']),
     ]
     for kw, ctxs in mapping:
