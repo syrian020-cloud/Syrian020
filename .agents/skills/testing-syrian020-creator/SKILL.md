@@ -55,6 +55,16 @@ Lessons and media blobs are stored in IndexedDB (`MotsyCreatorDB`) and `localSto
 
 `applyTranslations()` is called after every `renderLessonEditor()` and `renderLessonList()`, so field labels and media buttons should render in the active UI language immediately. Switch between EN/FR/AR to verify direction and labels.
 
+## VocaPic-specific UI notes (PR #72 update)
+
+- The VocaPic release uses an Aurora Violet palette and colored SVG icons with named classes (`icon-play`, `icon-folder`, `icon-loop`, etc.).
+- Folders are managed from the lesson list: `+ New folder` creates a folder, the folder menu has Rename / New lesson in folder / Delete, and each lesson card has a `Move to folder` option.
+- Folder/rename/delete and lesson-rename actions use native `prompt()` / `confirm()` dialogs. For scripted testing, override them in the page (e.g. `window.prompt = ...; window.confirm = () => true;`) and re-apply after each reload.
+- The media URL input (`input.media-url`) + `Load media` button can attach an image by direct URL. Use a same-origin URL such as `http://localhost:8080/lang-icon-512.png` to avoid CORS issues on the test VM.
+- Speech rate is controlled by `#rate-slider`; play mode by `#play-mode`. Word-level speech works on `.phrase-display .word` after exiting phrase editing mode.
+- The lesson editor does **not** currently render a back button. To return to the list during automated testing, reload the page or set `window.onbeforeunload = null` first.
+- `state` is scoped inside the IIFE and is not available from the console; use `document.querySelectorAll` / element properties for assertions.
+
 ## APK build
 
 ```bash
@@ -62,4 +72,4 @@ cd /home/ubuntu/repos/Syrian020
 USE_ALIYUN=1 ./build-creator-apk.sh
 ```
 
-The script swaps `capacitor-creator.config.json` into `capacitor.config.json`, syncs, and restores the original config on exit. The debug APK lands at `android/app/build/outputs/apk/debug/app-debug.apk`. The application id is `com.syrian020.motsy.creator`.
+The script swaps `capacitor-creator.config.json` into `capacitor.config.json`, syncs, and restores the original config on exit. The debug APK lands at `android/app/build/outputs/apk/debug/app-debug.apk`. The application id is `com.syrian020.motsy.creator` and the launcher name is `VocaPic`.
