@@ -578,33 +578,49 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "À plus tard",
-    "ar": "أراك لاحقًا",
-    "en": "See you later",
-    "level": "A1",
-    "contexts": [
-      "daily"
-    ],
-    "ex": {
-      "fr": "À plus tard, bonne journée !",
-      "ar": "أراك لاحقًا، يومًا سعيدًا!",
-      "en": "See you later, have a nice day!"
-    },
-    "pos": "phrase"
-  },
-  {
-    "fr": "À tout à l'heure",
-    "ar": "أراك بعد قليل",
+    "ar": "أراك لاحقًا / إلى وقت لاحق",
     "en": "See you later",
     "level": "A1",
     "contexts": [
       "daily",
+      "whatsapp"
+    ],
+    "ex": [
+      {
+        "fr": "À plus tard, bonne journée !",
+        "ar": "أراك لاحقًا، يومًا سعيدًا!",
+        "en": "See you later, have a nice day!"
+      },
+      {
+        "fr": "À plus tard, je dois travailler.",
+        "ar": "إلى لاحق، يجب أن أعمل.",
+        "en": "See you later, I have to work."
+      }
+    ],
+    "pos": "phrase"
+  },
+  {
+    "fr": "À tout à l'heure",
+    "ar": "أراك بعد قليل / أراك / أكلمك لاحقًا",
+    "en": "See you later",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "whatsapp",
       "work"
     ],
-    "ex": {
-      "fr": "À tout à l'heure au bureau.",
-      "ar": "أراك بعد قليل في المكتب.",
-      "en": "See you later at the office."
-    },
+    "ex": [
+      {
+        "fr": "À tout à l'heure au bureau.",
+        "ar": "أراك بعد قليل في المكتب.",
+        "en": "See you later at the office."
+      },
+      {
+        "fr": "À tout à l’heure sur WhatsApp.",
+        "ar": "أراك لاحقًا على واتساب.",
+        "en": "See you later on WhatsApp."
+      }
+    ],
     "pos": "phrase"
   },
   {
@@ -3051,6 +3067,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "daily",
       "services",
+      "whatsapp",
       "work"
     ],
     "ex": [
@@ -3058,6 +3075,11 @@ window.VOCAB_DATA = [
         "fr": "Je voudrais ajouter un document à mon dossier.",
         "ar": "أريد إضافة وثيقة إلى ملفي.",
         "en": "I would like to add a document to my file."
+      },
+      {
+        "fr": "Ajoute-moi sur WhatsApp.",
+        "ar": "أضفني على واتساب.",
+        "en": "Add me on WhatsApp."
       }
     ],
     "usage": "الملفات والوثائق | الملفات والوثائق | الملفات، المعلومات",
@@ -3628,13 +3650,21 @@ window.VOCAB_DATA = [
     "en": "To call",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "whatsapp"
     ],
-    "ex": {
-      "fr": "Je vais appeler la CAF demain.",
-      "ar": "سأتصل بالكاف غدًا.",
-      "en": "I will call CAF tomorrow."
-    },
+    "ex": [
+      {
+        "fr": "Je vais appeler la CAF demain.",
+        "ar": "سأتصل بالكاف غدًا.",
+        "en": "I will call CAF tomorrow."
+      },
+      {
+        "fr": "Appelle-moi sur WhatsApp.",
+        "ar": "اتصل بي على واتساب.",
+        "en": "Call me on WhatsApp."
+      }
+    ],
     "usage": "جميع المواقف",
     "pos": "verb"
   },
@@ -4074,13 +4104,21 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "daily",
-      "services"
+      "services",
+      "whatsapp"
     ],
-    "ex": {
-      "fr": "J'attends une réponse de la CAF.",
-      "ar": "أنتظر جوابًا من الكاف.",
-      "en": "I am waiting for a response from CAF."
-    },
+    "ex": [
+      {
+        "fr": "J'attends une réponse de la CAF.",
+        "ar": "أنتظر جوابًا من الكاف.",
+        "en": "I am waiting for a response from CAF."
+      },
+      {
+        "fr": "Attends-moi sur WhatsApp.",
+        "ar": "انتظرني على واتساب.",
+        "en": "Wait for me on WhatsApp."
+      }
+    ],
     "usage": "المواعيد، الإدارات، الحياة اليومية",
     "pos": "verb"
   },
@@ -9344,7 +9382,8 @@ window.VOCAB_DATA = [
       "bank",
       "daily",
       "phone",
-      "services"
+      "services",
+      "whatsapp"
     ],
     "pos": "verb",
     "ex": [
@@ -9357,6 +9396,11 @@ window.VOCAB_DATA = [
         "fr": "Mon dossier est bloqué.",
         "ar": "ملفي متوقف.",
         "en": "My file is blocked."
+      },
+      {
+        "fr": "Je l’ai bloqué sur WhatsApp.",
+        "ar": "حظرته على واتساب.",
+        "en": "I blocked him on WhatsApp."
       }
     ]
   },
@@ -12759,11 +12803,12 @@ window.VOCAB_DATA = [
   {
     "fr": "Charger",
     "ar": "يحمل / يشحن",
-    "en": "To load / Charge",
+    "en": "To load / Charge / to charge",
     "level": "A2",
     "pos": "verb",
     "contexts": [
       "daily",
+      "whatsapp",
       "work"
     ],
     "ex": [
@@ -12776,6 +12821,11 @@ window.VOCAB_DATA = [
         "fr": "Je charge le camion.",
         "ar": "أحمل الشاحنة.",
         "en": "I load the truck."
+      },
+      {
+        "fr": "Je dois charger mon téléphone.",
+        "ar": "يجب أن أشحن هاتفي.",
+        "en": "I need to charge my phone."
       }
     ]
   },
@@ -18362,11 +18412,12 @@ window.VOCAB_DATA = [
   {
     "fr": "Un contact",
     "ar": "اتصال / جهة اتصال / شخص للتواصل",
-    "en": "Contact",
+    "en": "Contact / a contact",
     "pos": "noun",
     "level": "A1",
     "contexts": [
       "stage",
+      "whatsapp",
       "work"
     ],
     "ex": [
@@ -18384,6 +18435,11 @@ window.VOCAB_DATA = [
         "fr": "Voici le contact du responsable.",
         "ar": "هذا هو رقم/معلومات اتصال المسؤول.",
         "en": "Here is the manager’s contact."
+      },
+      {
+        "fr": "Ajoute-moi à tes contacts.",
+        "ar": "أضفني إلى جهات اتصالك.",
+        "en": "Add me to your contacts."
       }
     ]
   },
@@ -23724,9 +23780,10 @@ window.VOCAB_DATA = [
     "pos": "verb",
     "level": "A1",
     "contexts": [
-      "services",
       "caf",
+      "services",
       "stage",
+      "whatsapp",
       "work"
     ],
     "ex": [
@@ -23739,6 +23796,16 @@ window.VOCAB_DATA = [
         "fr": "Je vais envoyer les documents par email.",
         "ar": "سأرسل الوثائق عبر البريد الإلكتروني.",
         "en": "I will send the documents by email."
+      },
+      {
+        "fr": "Je t’envoie un message.",
+        "ar": "سأرسل لك رسالة.",
+        "en": "I’ll send you a message."
+      },
+      {
+        "fr": "Tu peux me l’envoyer ?",
+        "ar": "هل يمكنك إرساله لي؟",
+        "en": "Can you send it to me?"
       }
     ]
   },
@@ -23810,12 +23877,13 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Se connecter",
-    "ar": "يسجل الدخول / تسجيل الدخول",
-    "en": "To log in",
+    "ar": "يسجل الدخول / تسجيل الدخول / يتصل / يسجّل الدخول",
+    "en": "To log in / to connect / log in",
     "pos": "verb",
     "level": "A1",
     "contexts": [
-      "caf"
+      "caf",
+      "whatsapp"
     ],
     "ex": [
       {
@@ -23827,6 +23895,11 @@ window.VOCAB_DATA = [
         "fr": "Je n'arrive pas à me connecter.",
         "ar": "مو عم يزبط معي تسجيل الدخول.",
         "en": "I can't log in."
+      },
+      {
+        "fr": "Connecte-toi sur WhatsApp.",
+        "ar": "اتصل بواتساب / افتح واتساب.",
+        "en": "Connect to WhatsApp."
       }
     ]
   },
@@ -31173,7 +31246,8 @@ window.VOCAB_DATA = [
     "contexts": [
       "caf",
       "daily",
-      "services"
+      "services",
+      "whatsapp"
     ],
     "ex": [
       {
@@ -31290,6 +31364,11 @@ window.VOCAB_DATA = [
         "fr": "Clique ici pour télécharger.",
         "ar": "اضغط هنا للتنزيل.",
         "en": "Click here to download."
+      },
+      {
+        "fr": "Télécharge la photo.",
+        "ar": "حمّل الصورة.",
+        "en": "Download the photo."
       }
     ]
   },
@@ -31471,6 +31550,7 @@ window.VOCAB_DATA = [
     "contexts": [
       "caf",
       "stage",
+      "whatsapp",
       "work"
     ],
     "ex": [
@@ -31483,6 +31563,11 @@ window.VOCAB_DATA = [
         "fr": "Je vais recevoir la convention par email.",
         "ar": "سأستلم الاتفاقية عبر البريد الإلكتروني.",
         "en": "I will receive the agreement by email."
+      },
+      {
+        "fr": "Tu as reçu mon message ?",
+        "ar": "هل استلمت رسالتي؟",
+        "en": "Did you receive my message?"
       }
     ]
   },
@@ -31594,17 +31679,25 @@ window.VOCAB_DATA = [
   {
     "fr": "Répondre",
     "ar": "يجيب / يرد",
-    "en": "To answer / reply",
+    "en": "To answer / reply / to reply",
     "level": "A1",
     "pos": "verb",
     "contexts": [
-      "caf"
+      "caf",
+      "whatsapp"
     ],
-    "ex": {
-      "fr": "Je dois répondre au message de la CAF.",
-      "ar": "لازم رد على رسالة الـ CAF.",
-      "en": "I have to answer CAF's message."
-    }
+    "ex": [
+      {
+        "fr": "Je dois répondre au message de la CAF.",
+        "ar": "لازم رد على رسالة الـ CAF.",
+        "en": "I have to answer CAF's message."
+      },
+      {
+        "fr": "Pourquoi tu ne réponds pas ?",
+        "ar": "لماذا لا ترد؟",
+        "en": "Why aren’t you replying?"
+      }
+    ]
   },
   {
     "fr": "Enregistrer",
@@ -31887,12 +31980,13 @@ window.VOCAB_DATA = [
   {
     "fr": "Ouvrir",
     "ar": "يفتح",
-    "en": "To open / to open",
+    "en": "To open",
     "level": "A1",
     "pos": "verb",
     "contexts": [
       "bank",
-      "caf"
+      "caf",
+      "whatsapp"
     ],
     "ex": [
       {
@@ -31904,6 +31998,11 @@ window.VOCAB_DATA = [
         "fr": "Je voudrais ouvrir un compte bancaire.",
         "en": "I would like to open a bank account.",
         "ar": "بدي افتح حساب بنكي."
+      },
+      {
+        "fr": "Ouvre le lien.",
+        "ar": "افتح الرابط.",
+        "en": "Open the link."
       }
     ]
   },
@@ -33135,14 +33234,15 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Être disponible",
-    "ar": "يكون جاهزًا / متاحًا",
-    "en": "Be available",
+    "ar": "يكون جاهزًا / متاحًا / يكون متاحًا",
+    "en": "Be available / to be available",
     "level": "B1",
     "pos": "phrase",
     "contexts": [
+      "prefecture",
       "stage",
-      "work",
-      "prefecture"
+      "whatsapp",
+      "work"
     ],
     "ex": [
       {
@@ -33154,6 +33254,11 @@ window.VOCAB_DATA = [
         "fr": "Votre titre de séjour est disponible.",
         "ar": "بطاقة إقامتك صارت جاهزة.",
         "en": "Your residence permit is available."
+      },
+      {
+        "fr": "Tu es disponible sur WhatsApp ?",
+        "ar": "هل أنت متاح على واتساب؟",
+        "en": "Are you available on WhatsApp?"
       }
     ]
   },
@@ -40503,20 +40608,28 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Décrocher",
-    "ar": "يرد على الهاتف / يحصل على",
-    "en": "to pick up / obtain / come off",
+    "ar": "يرد على الهاتف / يحصل على / يجيب على المكالمة",
+    "en": "to pick up / obtain / come off / to answer",
     "level": "A2",
     "contexts": [
       "daily",
-      "work",
-      "services"
+      "services",
+      "whatsapp",
+      "work"
     ],
     "pos": "verb",
-    "ex": {
-      "fr": "J'ai décroché un nouvel emploi.",
-      "en": "I got a new job.",
-      "ar": "حصلت على شغل جديد."
-    }
+    "ex": [
+      {
+        "fr": "J'ai décroché un nouvel emploi.",
+        "en": "I got a new job.",
+        "ar": "حصلت على شغل جديد."
+      },
+      {
+        "fr": "Pourquoi tu ne décroches pas ?",
+        "ar": "لماذا لا تجيب؟",
+        "en": "Why aren’t you answering?"
+      }
+    ]
   },
   {
     "fr": "Dédommager",
@@ -45736,18 +45849,24 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Une vidéo",
-    "en": "video",
+    "en": "video / a video",
     "ar": "فيديو",
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "whatsapp"
     ],
     "ex": [
       {
         "fr": "J'ai envoyé une vidéo.",
         "en": "I sent a video.",
         "ar": "بعت فيديو."
+      },
+      {
+        "fr": "Envoie-moi la vidéo.",
+        "ar": "أرسل لي الفيديو.",
+        "en": "Send me the video."
       }
     ]
   },
@@ -53333,6 +53452,7 @@ window.VOCAB_DATA = [
     "level": "A1",
     "contexts": [
       "housing",
+      "whatsapp",
       "work"
     ],
     "ex": [
@@ -53345,6 +53465,11 @@ window.VOCAB_DATA = [
         "fr": "Je quitte le travail à 17 heures.",
         "en": "I leave work at 5 p.m.",
         "ar": "بطلع من الشغل الساعة 5."
+      },
+      {
+        "fr": "Il a quitté le groupe.",
+        "ar": "لقد غادر المجموعة.",
+        "en": "He left the group."
       }
     ]
   },
@@ -55864,23 +55989,13 @@ window.VOCAB_DATA = [
         "fr": "Pour quoi faire ?",
         "en": "What for? / For what purpose?",
         "ar": "لشو؟ / لأي غرض؟"
+      },
+      {
+        "fr": "Pourquoi faire ?",
+        "en": "What for?",
+        "ar": "لشو؟"
       }
     ]
-  },
-  {
-    "fr": "Pourquoi faire ?",
-    "ar": "لشو؟",
-    "en": "What for?",
-    "pos": "phrase",
-    "level": "A1",
-    "contexts": [
-      "daily"
-    ],
-    "ex": {
-      "fr": "Pourquoi faire ?",
-      "en": "What for?",
-      "ar": "لشو؟"
-    }
   },
   {
     "fr": "À quoi ça sert ?",
@@ -68900,7 +69015,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Transférer",
-    "ar": "ينقل / يحوّل / يعيد إرسال",
+    "ar": "ينقل / يحوّل / يعيد إرسال / يعيد التوجيه",
     "en": "To transfer / to forward",
     "pos": "verb",
     "level": "A1",
@@ -68908,7 +69023,8 @@ window.VOCAB_DATA = [
       "bank",
       "daily",
       "phone",
-      "services"
+      "services",
+      "whatsapp"
     ],
     "ex": [
       {
@@ -69030,6 +69146,11 @@ window.VOCAB_DATA = [
         "fr": "Transfère-moi le document.",
         "ar": "أرسل لي الوثيقة.",
         "en": "Transfer the document to me."
+      },
+      {
+        "fr": "Transfère-moi le message.",
+        "ar": "أعد توجيه الرسالة لي.",
+        "en": "Forward me the message."
       }
     ]
   },
@@ -72236,7 +72357,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Tâche",
     "ar": "مهمة / بقعة",
-    "en": "Task / stain",
+    "en": "Task / stain / spot",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -72268,6 +72389,31 @@ window.VOCAB_DATA = [
         "fr": "Cette tâche est difficile à enlever.",
         "ar": "هذه البقعة صعبة الإزالة.",
         "en": "This stain is difficult to remove."
+      },
+      {
+        "fr": "Il y a une tache sur ma chemise.",
+        "ar": "هناك بقعة على قميصي.",
+        "en": "There's a stain on my shirt."
+      },
+      {
+        "fr": "Comment enlever cette tache ?",
+        "ar": "كيف أزيل هذه البقعة؟",
+        "en": "How do I remove this stain?"
+      },
+      {
+        "fr": "La tache ne part pas.",
+        "ar": "البقعة لا تزول.",
+        "en": "The stain won't come out."
+      },
+      {
+        "fr": "J'ai fait une tache.",
+        "ar": "تسببت ببقعة.",
+        "en": "I made a stain."
+      },
+      {
+        "fr": "Cette tache est difficile à nettoyer.",
+        "ar": "هذه البقعة صعبة التنظيف.",
+        "en": "This stain is difficult to clean."
       }
     ]
   },
@@ -72548,43 +72694,6 @@ window.VOCAB_DATA = [
         "fr": "Il faut choisir un tissu solide.",
         "ar": "يجب اختيار قماش متين.",
         "en": "We need to choose a strong fabric."
-      }
-    ]
-  },
-  {
-    "fr": "Tache",
-    "ar": "بقعة",
-    "en": "Stain / spot",
-    "pos": "noun",
-    "level": "A1",
-    "contexts": [
-      "daily"
-    ],
-    "ex": [
-      {
-        "fr": "Il y a une tache sur ma chemise.",
-        "ar": "هناك بقعة على قميصي.",
-        "en": "There's a stain on my shirt."
-      },
-      {
-        "fr": "Comment enlever cette tache ?",
-        "ar": "كيف أزيل هذه البقعة؟",
-        "en": "How do I remove this stain?"
-      },
-      {
-        "fr": "La tache ne part pas.",
-        "ar": "البقعة لا تزول.",
-        "en": "The stain won't come out."
-      },
-      {
-        "fr": "J'ai fait une tache.",
-        "ar": "تسببت ببقعة.",
-        "en": "I made a stain."
-      },
-      {
-        "fr": "Cette tache est difficile à nettoyer.",
-        "ar": "هذه البقعة صعبة التنظيف.",
-        "en": "This stain is difficult to clean."
       }
     ]
   },
@@ -80847,5 +80956,1347 @@ window.VOCAB_DATA = [
         "en": "The tutorial explains everything."
       }
     ]
+  },
+  {
+    "fr": "WhatsApp",
+    "ar": "واتساب",
+    "en": "WhatsApp",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "WhatsApp",
+      "ar": "واتساب",
+      "en": "WhatsApp"
+    }
+  },
+  {
+    "fr": "un message",
+    "ar": "رسالة",
+    "en": "a message",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Envoie-moi un message.",
+      "ar": "أرسل لي رسالة.",
+      "en": "Send me a message."
+    }
+  },
+  {
+    "fr": "écrire",
+    "ar": "يكتب",
+    "en": "to write",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Écris-moi sur WhatsApp.",
+      "ar": "اكتب لي على واتساب.",
+      "en": "Text me on WhatsApp."
+    }
+  },
+  {
+    "fr": "un appel",
+    "ar": "مكالمة",
+    "en": "a call",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je t’appelle sur WhatsApp.",
+      "ar": "سأتصل بك على واتساب.",
+      "en": "I’ll call you on WhatsApp."
+    }
+  },
+  {
+    "fr": "un vocal",
+    "ar": "رسالة صوتية",
+    "en": "a voice message",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Envoie-moi un vocal.",
+      "ar": "أرسل لي رسالة صوتية.",
+      "en": "Send me a voice message."
+    }
+  },
+  {
+    "fr": "une photo",
+    "ar": "صورة",
+    "en": "a photo",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Envoie-moi la photo.",
+      "ar": "أرسل لي الصورة.",
+      "en": "Send me the photo."
+    }
+  },
+  {
+    "fr": "un groupe",
+    "ar": "مجموعة",
+    "en": "a group",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Ajoute-moi au groupe.",
+      "ar": "أضفني إلى المجموعة.",
+      "en": "Add me to the group."
+    }
+  },
+  {
+    "fr": "en ligne",
+    "ar": "متصل",
+    "en": "online",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je suis en ligne.",
+      "ar": "أنا متصل.",
+      "en": "I’m online."
+    }
+  },
+  {
+    "fr": "vu",
+    "ar": "تمت المشاهدة",
+    "en": "seen",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "J’ai vu ton message.",
+      "ar": "رأيت رسالتك.",
+      "en": "I saw your message."
+    }
+  },
+  {
+    "fr": "lu",
+    "ar": "تمت القراءة",
+    "en": "read",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Le message est lu.",
+      "ar": "تمت قراءة الرسالة.",
+      "en": "The message has been read."
+    }
+  },
+  {
+    "fr": "supprimer",
+    "ar": "يحذف",
+    "en": "to delete",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "J’ai supprimé le message.",
+      "ar": "حذفت الرسالة.",
+      "en": "I deleted the message."
+    }
+  },
+  {
+    "fr": "partager",
+    "ar": "يشارك",
+    "en": "to share",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": [
+      {
+        "fr": "Partage-moi la photo.",
+        "ar": "شاركني الصورة.",
+        "en": "Share the photo with me."
+      },
+      {
+        "fr": "Tu peux partager le lien ?",
+        "ar": "هل يمكنك مشاركة الرابط؟",
+        "en": "Can you share the link?"
+      }
+    ]
+  },
+  {
+    "fr": "un texto",
+    "ar": "رسالة نصية",
+    "en": "a text message",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je t’envoie un texto.",
+      "ar": "سأرسل لك رسالة نصية.",
+      "en": "I’ll send you a text."
+    }
+  },
+  {
+    "fr": "un message vocal",
+    "ar": "رسالة صوتية",
+    "en": "a voice message",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je t’envoie un message vocal.",
+      "ar": "سأرسل لك رسالة صوتية.",
+      "en": "I’ll send you a voice message."
+    }
+  },
+  {
+    "fr": "un appel vidéo",
+    "ar": "مكالمة فيديو",
+    "en": "a video call",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "On fait un appel vidéo ?",
+      "ar": "هل نجري مكالمة فيديو؟",
+      "en": "Shall we have a video call?"
+    }
+  },
+  {
+    "fr": "rappeler",
+    "ar": "يعاود الاتصال",
+    "en": "to call back",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je te rappelle plus tard.",
+      "ar": "سأتصل بك لاحقًا.",
+      "en": "I’ll call you back later."
+    }
+  },
+  {
+    "fr": "raccrocher",
+    "ar": "يغلق المكالمة",
+    "en": "to hang up",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je dois raccrocher.",
+      "ar": "يجب أن أغلق المكالمة.",
+      "en": "I have to hang up."
+    }
+  },
+  {
+    "fr": "sonner",
+    "ar": "يرن",
+    "en": "to ring",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Mon téléphone sonne.",
+      "ar": "هاتفي يرن.",
+      "en": "My phone is ringing."
+    }
+  },
+  {
+    "fr": "une notification",
+    "ar": "إشعار",
+    "en": "a notification",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "J’ai reçu une notification.",
+      "ar": "تلقيت إشعارًا.",
+      "en": "I received a notification."
+    }
+  },
+  {
+    "fr": "une discussion",
+    "ar": "محادثة",
+    "en": "a chat",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Notre discussion est privée.",
+      "ar": "محادثتنا خاصة.",
+      "en": "Our chat is private."
+    }
+  },
+  {
+    "fr": "une conversation",
+    "ar": "محادثة",
+    "en": "a conversation",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "On continue la conversation sur WhatsApp.",
+      "ar": "نكمل المحادثة على واتساب.",
+      "en": "Let’s continue the conversation on WhatsApp."
+    }
+  },
+  {
+    "fr": "une pièce jointe",
+    "ar": "مرفق",
+    "en": "an attachment",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je t’envoie la pièce jointe.",
+      "ar": "سأرسل لك المرفق.",
+      "en": "I’ll send you the attachment."
+    }
+  },
+  {
+    "fr": "un document",
+    "ar": "مستند / ملف",
+    "en": "a document",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je t’envoie le document.",
+      "ar": "سأرسل لك الملف.",
+      "en": "I’ll send you the document."
+    }
+  },
+  {
+    "fr": "un lien",
+    "ar": "رابط",
+    "en": "a link",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Envoie-moi le lien.",
+      "ar": "أرسل لي الرابط.",
+      "en": "Send me the link."
+    }
+  },
+  {
+    "fr": "cliquer",
+    "ar": "ينقر / يضغط",
+    "en": "to click",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Clique sur le lien.",
+      "ar": "اضغط على الرابط.",
+      "en": "Click on the link."
+    }
+  },
+  {
+    "fr": "le statut",
+    "ar": "الحالة",
+    "en": "status",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "J’ai vu ton statut.",
+      "ar": "رأيت حالتك.",
+      "en": "I saw your status."
+    }
+  },
+  {
+    "fr": "mettre un statut",
+    "ar": "ينشر حالة",
+    "en": "to post a status",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je vais mettre un statut.",
+      "ar": "سأضع حالة.",
+      "en": "I’m going to post a status."
+    }
+  },
+  {
+    "fr": "une photo de profil",
+    "ar": "صورة الملف الشخصي",
+    "en": "profile picture",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "J’aime ta photo de profil.",
+      "ar": "تعجبني صورة ملفك الشخصي.",
+      "en": "I like your profile picture."
+    }
+  },
+  {
+    "fr": "changer la photo de profil",
+    "ar": "يغيّر صورة الملف الشخصي",
+    "en": "to change the profile picture",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "J’ai changé ma photo de profil.",
+      "ar": "غيّرت صورة ملفي الشخصي.",
+      "en": "I changed my profile picture."
+    }
+  },
+  {
+    "fr": "être occupé",
+    "ar": "يكون مشغولًا",
+    "en": "to be busy",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je suis occupé, je te réponds après.",
+      "ar": "أنا مشغول، سأرد عليك لاحقًا.",
+      "en": "I’m busy, I’ll reply later."
+    }
+  },
+  {
+    "fr": "rejoindre",
+    "ar": "ينضم / يلتحق",
+    "en": "to join",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Rejoins-moi sur WhatsApp.",
+      "ar": "تعال معي على واتساب.",
+      "en": "Join me on WhatsApp."
+    }
+  },
+  {
+    "fr": "déconnecté",
+    "ar": "غير متصل",
+    "en": "offline / disconnected",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Il est déconnecté.",
+      "ar": "هو غير متصل.",
+      "en": "He’s offline."
+    }
+  },
+  {
+    "fr": "la connexion",
+    "ar": "الاتصال / الإنترنت",
+    "en": "connection",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Ma connexion est mauvaise.",
+      "ar": "اتصالي بالإنترنت سيئ.",
+      "en": "My connection is bad."
+    }
+  },
+  {
+    "fr": "le réseau",
+    "ar": "الشبكة",
+    "en": "network / signal",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je n’ai pas de réseau.",
+      "ar": "ليس لدي شبكة.",
+      "en": "I have no signal."
+    }
+  },
+  {
+    "fr": "Internet",
+    "ar": "الإنترنت",
+    "en": "Internet",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je n’ai plus Internet.",
+      "ar": "لم يعد لدي إنترنت.",
+      "en": "I don’t have Internet anymore."
+    }
+  },
+  {
+    "fr": "la batterie",
+    "ar": "البطارية",
+    "en": "battery",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Ma batterie est presque vide.",
+      "ar": "بطاريتي شارفت على النفاد.",
+      "en": "My battery is almost dead."
+    }
+  },
+  {
+    "fr": "le téléphone est éteint",
+    "ar": "الهاتف مغلق",
+    "en": "the phone is off",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Son téléphone est éteint.",
+      "ar": "هاتفه مغلق.",
+      "en": "His phone is off."
+    }
+  },
+  {
+    "fr": "laisser un message",
+    "ar": "يترك رسالة",
+    "en": "to leave a message",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Laisse-moi un message.",
+      "ar": "اترك لي رسالة.",
+      "en": "Leave me a message."
+    }
+  },
+  {
+    "fr": "rappelle-moi",
+    "ar": "اتصل بي مجددًا",
+    "en": "call me back",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Rappelle-moi quand tu peux.",
+      "ar": "اتصل بي عندما تستطيع.",
+      "en": "Call me back when you can."
+    }
+  },
+  {
+    "fr": "je te rappelle",
+    "ar": "سأتصل بك مجددًا",
+    "en": "I’ll call you back",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je te rappelle dans cinq minutes.",
+      "ar": "سأتصل بك بعد خمس دقائق.",
+      "en": "I’ll call you back in five minutes."
+    }
+  },
+  {
+    "fr": "je te réponds",
+    "ar": "سأرد عليك",
+    "en": "I’ll reply to you",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je te réponds dès que possible.",
+      "ar": "سأرد عليك بأسرع ما يمكن.",
+      "en": "I’ll reply as soon as possible."
+    }
+  },
+  {
+    "fr": "pas de souci",
+    "ar": "لا مشكلة",
+    "en": "no problem",
+    "pos": "other",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Pas de souci, je t’envoie ça.",
+      "ar": "لا مشكلة، سأرسل لك ذلك.",
+      "en": "No problem, I’ll send it to you."
+    }
+  },
+  {
+    "fr": "ça marche",
+    "ar": "تمام / اتفقنا",
+    "en": "okay / sounds good",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Ça marche, je t’écris sur WhatsApp.",
+      "ar": "تمام، سأكتب لك على واتساب.",
+      "en": "Okay, I’ll text you on WhatsApp."
+    }
+  },
+  {
+    "fr": "une discussion de groupe",
+    "ar": "محادثة جماعية",
+    "en": "a group chat",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "On en parle dans la discussion de groupe.",
+      "ar": "نتحدث عن ذلك في المجموعة.",
+      "en": "We’ll talk about it in the group chat."
+    }
+  },
+  {
+    "fr": "un administrateur",
+    "ar": "مسؤول المجموعة",
+    "en": "an admin",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "L’administrateur a ajouté un nouveau membre.",
+      "ar": "مسؤول المجموعة أضاف عضوًا جديدًا.",
+      "en": "The admin added a new member."
+    }
+  },
+  {
+    "fr": "un membre",
+    "ar": "عضو",
+    "en": "a member",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Il y a beaucoup de membres dans le groupe.",
+      "ar": "يوجد أعضاء كثيرون في المجموعة.",
+      "en": "There are many members in the group."
+    }
+  },
+  {
+    "fr": "ajouter quelqu’un",
+    "ar": "إضافة شخص",
+    "en": "to add someone",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je vais ajouter mon frère au groupe.",
+      "ar": "سأضيف أخي إلى المجموعة.",
+      "en": "I’m going to add my brother to the group."
+    }
+  },
+  {
+    "fr": "retirer quelqu’un",
+    "ar": "إزالة شخص",
+    "en": "to remove someone",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "L’administrateur a retiré un membre.",
+      "ar": "مسؤول المجموعة أزال أحد الأعضاء.",
+      "en": "The admin removed a member."
+    }
+  },
+  {
+    "fr": "mettre en sourdine",
+    "ar": "كتم الإشعارات",
+    "en": "to mute",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "J’ai mis le groupe en sourdine.",
+      "ar": "كتمت إشعارات المجموعة.",
+      "en": "I muted the group."
+    }
+  },
+  {
+    "fr": "désactiver les notifications",
+    "ar": "إيقاف الإشعارات",
+    "en": "to disable notifications",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "J’ai désactivé les notifications.",
+      "ar": "أوقفت الإشعارات.",
+      "en": "I disabled the notifications."
+    }
+  },
+  {
+    "fr": "activer les notifications",
+    "ar": "تفعيل الإشعارات",
+    "en": "to enable notifications",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Active les notifications.",
+      "ar": "فعّل الإشعارات.",
+      "en": "Turn on the notifications."
+    }
+  },
+  {
+    "fr": "épingler",
+    "ar": "يثبّت",
+    "en": "to pin",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "J’ai épinglé la conversation.",
+      "ar": "ثبّتُّ المحادثة.",
+      "en": "I pinned the chat."
+    }
+  },
+  {
+    "fr": "archiver",
+    "ar": "يؤرشف",
+    "en": "to archive",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "J’ai archivé la conversation.",
+      "ar": "أرشفت المحادثة.",
+      "en": "I archived the chat."
+    }
+  },
+  {
+    "fr": "restaurer",
+    "ar": "يستعيد",
+    "en": "to restore",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je veux restaurer mes messages.",
+      "ar": "أريد استعادة رسائلي.",
+      "en": "I want to restore my messages."
+    }
+  },
+  {
+    "fr": "une sauvegarde",
+    "ar": "نسخة احتياطية",
+    "en": "a backup",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "J’ai fait une sauvegarde de mes messages.",
+      "ar": "أنشأت نسخة احتياطية من رسائلي.",
+      "en": "I backed up my messages."
+    }
+  },
+  {
+    "fr": "sauvegarder",
+    "ar": "يحفظ / ينشئ نسخة احتياطية",
+    "en": "to back up",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Sauvegarde tes photos.",
+      "ar": "احفظ نسخة احتياطية من صورك.",
+      "en": "Back up your photos."
+    }
+  },
+  {
+    "fr": "restaurer une sauvegarde",
+    "ar": "استعادة نسخة احتياطية",
+    "en": "restore a backup",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je vais restaurer la sauvegarde.",
+      "ar": "سأستعيد النسخة الاحتياطية.",
+      "en": "I’m going to restore the backup."
+    }
+  },
+  {
+    "fr": "un message éphémère",
+    "ar": "رسالة مؤقتة",
+    "en": "a disappearing message",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Ce message est éphémère.",
+      "ar": "هذه الرسالة مؤقتة.",
+      "en": "This message disappears."
+    }
+  },
+  {
+    "fr": "les messages temporaires",
+    "ar": "الرسائل المؤقتة",
+    "en": "disappearing messages",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "J’ai activé les messages temporaires.",
+      "ar": "فعّلت الرسائل المؤقتة.",
+      "en": "I enabled disappearing messages."
+    }
+  },
+  {
+    "fr": "une photo à vue unique",
+    "ar": "صورة للمشاهدة مرة واحدة",
+    "en": "a view-once photo",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je t’envoie une photo à vue unique.",
+      "ar": "سأرسل لك صورة تُشاهد مرة واحدة.",
+      "en": "I’m sending you a view-once photo."
+    }
+  },
+  {
+    "fr": "marquer comme non lu",
+    "ar": "وضع علامة كغير مقروء",
+    "en": "mark as unread",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je vais marquer le message comme non lu.",
+      "ar": "سأضع الرسالة كغير مقروءة.",
+      "en": "I’ll mark the message as unread."
+    }
+  },
+  {
+    "fr": "réagir à un message",
+    "ar": "يتفاعل مع رسالة",
+    "en": "to react to a message",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Tu peux réagir à mon message.",
+      "ar": "يمكنك التفاعل مع رسالتي.",
+      "en": "You can react to my message."
+    }
+  },
+  {
+    "fr": "une réaction",
+    "ar": "تفاعل",
+    "en": "a reaction",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "J’ai mis une réaction à ton message.",
+      "ar": "وضعت تفاعلًا على رسالتك.",
+      "en": "I reacted to your message."
+    }
+  },
+  {
+    "fr": "modifier un message",
+    "ar": "تعديل رسالة",
+    "en": "to edit a message",
+    "pos": "verb",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je veux modifier mon message.",
+      "ar": "أريد تعديل رسالتي.",
+      "en": "I want to edit my message."
+    }
+  },
+  {
+    "fr": "supprimer pour moi",
+    "ar": "حذف لدي فقط",
+    "en": "delete for me",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je l’ai supprimé pour moi.",
+      "ar": "حذفته عندي فقط.",
+      "en": "I deleted it for me."
+    }
+  },
+  {
+    "fr": "supprimer pour tout le monde",
+    "ar": "حذف لدى الجميع",
+    "en": "delete for everyone",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je l’ai supprimé pour tout le monde.",
+      "ar": "حذفته لدى الجميع.",
+      "en": "I deleted it for everyone."
+    }
+  },
+  {
+    "fr": "Tu es là ?",
+    "ar": "هل أنت موجود؟",
+    "en": "Are you there?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Tu es là sur WhatsApp ?",
+      "ar": "هل أنت موجود على واتساب؟",
+      "en": "Are you there on WhatsApp?"
+    }
+  },
+  {
+    "fr": "Tu peux parler ?",
+    "ar": "هل يمكنك التحدث؟",
+    "en": "Can you talk?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Tu peux parler maintenant ?",
+      "ar": "هل يمكنك التحدث الآن؟",
+      "en": "Can you talk now?"
+    }
+  },
+  {
+    "fr": "Tu peux m’appeler ?",
+    "ar": "هل يمكنك الاتصال بي؟",
+    "en": "Can you call me?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Tu peux m’appeler quand tu es libre ?",
+      "ar": "هل يمكنك الاتصال بي عندما تكون متفرغًا؟",
+      "en": "Can you call me when you’re free?"
+    }
+  },
+  {
+    "fr": "Je suis là.",
+    "ar": "أنا موجود.",
+    "en": "I’m here.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je suis là, tu peux m’appeler.",
+      "ar": "أنا موجود، يمكنك الاتصال بي.",
+      "en": "I’m here, you can call me."
+    }
+  },
+  {
+    "fr": "Je te contacte plus tard.",
+    "ar": "سأتواصل معك لاحقًا.",
+    "en": "I’ll contact you later.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je te contacte ce soir.",
+      "ar": "سأتواصل معك هذا المساء.",
+      "en": "I’ll contact you tonight."
+    }
+  },
+  {
+    "fr": "Je viens de t’écrire.",
+    "ar": "لقد كتبت لك للتو.",
+    "en": "I just texted you.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je viens de t’écrire sur WhatsApp.",
+      "ar": "لقد كتبت لك للتو على واتساب.",
+      "en": "I just texted you on WhatsApp."
+    }
+  },
+  {
+    "fr": "Je t’ai laissé un message.",
+    "ar": "تركت لك رسالة.",
+    "en": "I left you a message.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je t’ai laissé un message vocal.",
+      "ar": "تركت لك رسالة صوتية.",
+      "en": "I left you a voice message."
+    }
+  },
+  {
+    "fr": "Tu peux m’envoyer ça ?",
+    "ar": "هل يمكنك إرسال ذلك لي؟",
+    "en": "Can you send me that?",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Tu peux m’envoyer l’adresse ?",
+      "ar": "هل يمكنك إرسال العنوان لي؟",
+      "en": "Can you send me the address?"
+    }
+  },
+  {
+    "fr": "Envoie-moi ça quand tu peux.",
+    "ar": "أرسل لي ذلك عندما تستطيع.",
+    "en": "Send me that when you can.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Envoie-moi ça quand tu peux.",
+      "ar": "أرسل لي ذلك عندما تستطيع.",
+      "en": "Send me that when you can."
+    }
+  },
+  {
+    "fr": "Je te l’envoie tout de suite.",
+    "ar": "سأرسله لك فورًا.",
+    "en": "I’ll send it to you right away.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je te l’envoie tout de suite.",
+      "ar": "سأرسله لك فورًا.",
+      "en": "I’ll send it to you right away."
+    }
+  },
+  {
+    "fr": "Je te l’envoie dans un instant.",
+    "ar": "سأرسله لك بعد لحظة.",
+    "en": "I’ll send it to you in a moment.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je te l’envoie dans un instant.",
+      "ar": "سأرسله لك بعد لحظة.",
+      "en": "I’ll send it to you in a moment."
+    }
+  },
+  {
+    "fr": "Je n’arrive pas à envoyer le message.",
+    "ar": "لا أستطيع إرسال الرسالة.",
+    "en": "I can’t send the message.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je n’arrive pas à envoyer le message.",
+      "ar": "لا أستطيع إرسال الرسالة.",
+      "en": "I can’t send the message."
+    }
+  },
+  {
+    "fr": "Le message ne part pas.",
+    "ar": "الرسالة لا تُرسل.",
+    "en": "The message isn’t sending.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Le message ne part pas.",
+      "ar": "الرسالة لا تُرسل.",
+      "en": "The message isn’t sending."
+    }
+  },
+  {
+    "fr": "La photo ne s’envoie pas.",
+    "ar": "الصورة لا تُرسل.",
+    "en": "The photo won’t send.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "La photo ne s’envoie pas.",
+      "ar": "الصورة لا تُرسل.",
+      "en": "The photo won’t send."
+    }
+  },
+  {
+    "fr": "Ça ne marche pas.",
+    "ar": "هذا لا يعمل.",
+    "en": "It doesn’t work.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Ça ne marche pas.",
+      "ar": "هذا لا يعمل.",
+      "en": "It doesn’t work."
+    }
+  },
+  {
+    "fr": "WhatsApp ne fonctionne pas.",
+    "ar": "واتساب لا يعمل.",
+    "en": "WhatsApp isn’t working.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "WhatsApp ne fonctionne pas.",
+      "ar": "واتساب لا يعمل.",
+      "en": "WhatsApp isn’t working."
+    }
+  },
+  {
+    "fr": "Attends une seconde.",
+    "ar": "انتظر ثانية.",
+    "en": "Wait a second.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Attends une seconde.",
+      "ar": "انتظر ثانية.",
+      "en": "Wait a second."
+    }
+  },
+  {
+    "fr": "Attends, je regarde.",
+    "ar": "انتظر، سأتحقق.",
+    "en": "Wait, let me check.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Attends, je regarde.",
+      "ar": "انتظر، سأتحقق.",
+      "en": "Wait, let me check."
+    }
+  },
+  {
+    "fr": "Je regarde mes messages.",
+    "ar": "سأتحقق من رسائلي.",
+    "en": "I’m checking my messages.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je regarde mes messages.",
+      "ar": "سأتحقق من رسائلي.",
+      "en": "I’m checking my messages."
+    }
+  },
+  {
+    "fr": "Je n’ai pas le temps de répondre maintenant.",
+    "ar": "ليس لدي وقت للرد الآن.",
+    "en": "I don’t have time to reply now.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je n’ai pas le temps de répondre maintenant.",
+      "ar": "ليس لدي وقت للرد الآن.",
+      "en": "I don’t have time to reply now."
+    }
+  },
+  {
+    "fr": "Je te répondrai plus tard.",
+    "ar": "سأرد عليك لاحقًا.",
+    "en": "I’ll reply to you later.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Je te répondrai plus tard.",
+      "ar": "سأرد عليك لاحقًا.",
+      "en": "I’ll reply to you later."
+    }
+  },
+  {
+    "fr": "Désolé, je n’avais pas vu ton message.",
+    "ar": "آسف، لم أكن قد رأيت رسالتك.",
+    "en": "Sorry, I hadn’t seen your message.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Désolé, je n’avais pas vu ton message.",
+      "ar": "آسف، لم أكن قد رأيت رسالتك.",
+      "en": "Sorry, I hadn’t seen your message."
+    }
+  },
+  {
+    "fr": "Désolé, je n’ai pas entendu mon téléphone.",
+    "ar": "آسف، لم أسمع هاتفي.",
+    "en": "Sorry, I didn’t hear my phone.",
+    "pos": "phrase",
+    "level": "A1",
+    "contexts": [
+      "whatsapp"
+    ],
+    "ex": {
+      "fr": "Désolé, je n’ai pas entendu mon téléphone.",
+      "ar": "آسف، لم أسمع هاتفي.",
+      "en": "Sorry, I didn’t hear my phone."
+    }
   }
 ]
