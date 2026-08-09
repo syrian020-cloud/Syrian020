@@ -859,6 +859,7 @@
     var count = state.lessons.filter(function (l) { return l.folderId === f.id; }).length;
     var coverAttr = f.coverMediaId ? ' data-cover="' + f.coverMediaId + '"' : '';
     return '<div class="card folder" data-folder="' + f.id + '">' +
+      '<div class="folder-cover"' + coverAttr + '>' + icon('folder') + '</div>' +
       '<div class="lesson-menu">' +
         '<button class="icon-btn folder-menu-btn" data-t-title="more">' + icon('more') + '</button>' +
         '<div class="dropdown hidden">' +
@@ -869,7 +870,6 @@
       '</div>' +
       '<div class="body"><div class="card-title">' + esc(f.name[state.uiLang] || f.name.en || f.name.fr || f.name.ar) + '</div>' +
       '<div class="card-sub">' + count + ' ' + t('lesson') + '</div></div>' +
-      '<div class="folder-cover"' + coverAttr + '>' + icon('folder') + '</div>' +
       '</div>';
   }
 
