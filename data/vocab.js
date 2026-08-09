@@ -31219,6 +31219,21 @@ window.VOCAB_DATA = [
         "fr": "Le téléchargement est terminé.",
         "ar": "اكتمل التنزيل.",
         "en": "The download is complete."
+      },
+      {
+        "fr": "Tu peux télécharger le fichier ?",
+        "ar": "هل يمكنك تنزيل الملف؟",
+        "en": "Can you download the file?"
+      },
+      {
+        "fr": "Le fichier est trop gros pour être téléchargé.",
+        "ar": "الملف كبير جدًا بحيث لا يمكن تنزيله.",
+        "en": "The file is too large to download."
+      },
+      {
+        "fr": "Clique ici pour télécharger.",
+        "ar": "اضغط هنا للتنزيل.",
+        "en": "Click here to download."
       }
     ]
   },
@@ -71427,7 +71442,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Toilette",
     "ar": "مرحاض / دورة مياه",
-    "en": "Toilet / restroom",
+    "en": "Toilet / restroom / Restroom",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -71459,6 +71474,26 @@ window.VOCAB_DATA = [
         "fr": "Je cherche les toilettes.",
         "ar": "أبحث عن الحمام.",
         "en": "I'm looking for the restroom."
+      },
+      {
+        "fr": "Où sont les toilettes, s'il vous plaît ?",
+        "ar": "أين دورة المياه، من فضلك؟",
+        "en": "Where is the restroom, please?"
+      },
+      {
+        "fr": "Je vais aux toilettes.",
+        "ar": "سأذهب إلى الحمام.",
+        "en": "I'm going to the restroom."
+      },
+      {
+        "fr": "Les toilettes sont à gauche.",
+        "ar": "دورة المياه على اليسار.",
+        "en": "The restroom is on the left."
+      },
+      {
+        "fr": "Je dois aller aux toilettes.",
+        "ar": "يجب أن أذهب إلى الحمام.",
+        "en": "I need to go to the restroom."
       }
     ]
   },
@@ -71848,7 +71883,7 @@ window.VOCAB_DATA = [
   {
     "fr": "Tapis",
     "ar": "سجادة / بساط / حصيرة",
-    "en": "Carpet / rug / mat",
+    "en": "Carpet / rug / mat / Rug",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -71880,6 +71915,21 @@ window.VOCAB_DATA = [
         "fr": "Le tapis est devant la porte.",
         "ar": "السجادة أمام الباب.",
         "en": "The mat is in front of the door."
+      },
+      {
+        "fr": "Il y a un tapis dans le salon.",
+        "ar": "هناك سجادة في غرفة الجلوس.",
+        "en": "There is a rug in the living room."
+      },
+      {
+        "fr": "Nettoie le tapis, s'il te plaît.",
+        "ar": "نظف السجادة من فضلك.",
+        "en": "Clean the carpet, please."
+      },
+      {
+        "fr": "Ne marche pas sur le tapis avec tes chaussures.",
+        "ar": "لا تمشِ على السجادة بحذائك.",
+        "en": "Don't walk on the carpet with your shoes."
       }
     ]
   },
@@ -72352,6 +72402,21 @@ window.VOCAB_DATA = [
         "fr": "Ma tante vient ce week-end.",
         "ar": "خالتي/عمتي ستأتي في عطلة نهاية الأسبوع.",
         "en": "My aunt is coming this weekend."
+      },
+      {
+        "fr": "Je vais voir ma tante demain.",
+        "ar": "سأزور خالتي/عمتي غدًا.",
+        "en": "I'm going to see my aunt tomorrow."
+      },
+      {
+        "fr": "J'ai parlé avec ma tante.",
+        "ar": "تحدثت مع خالتي/عمتي.",
+        "en": "I spoke with my aunt."
+      },
+      {
+        "fr": "Ma tante prépare le repas.",
+        "ar": "خالتي/عمتي تحضر الطعام.",
+        "en": "My aunt is preparing the meal."
       }
     ]
   },
@@ -72685,12 +72750,13 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Ton",
-    "ar": "نبرة / لون / أسلوب",
-    "en": "Tone / shade / tone of voice",
+    "ar": "نبرة / لون / أسلوب / نبرتك / لهجتك / نغمة",
+    "en": "Tone / shade / tone of voice / Your",
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "phone"
     ],
     "ex": [
       {
@@ -72717,6 +72783,31 @@ window.VOCAB_DATA = [
         "fr": "Change de ton, s'il te plaît.",
         "ar": "غيّر نبرتك، من فضلك.",
         "en": "Change your tone, please."
+      },
+      {
+        "fr": "J'aime ton style.",
+        "ar": "أحب أسلوبك.",
+        "en": "I like your style."
+      },
+      {
+        "fr": "Pourquoi tu changes ton ton ?",
+        "ar": "لماذا تغيّر نبرتك؟",
+        "en": "Why are you changing your tone?"
+      },
+      {
+        "fr": "Parle avec ton médecin.",
+        "ar": "تحدث مع طبيبك.",
+        "en": "Talk to your doctor."
+      },
+      {
+        "fr": "Ton téléphone sonne.",
+        "ar": "هاتفك يرن.",
+        "en": "Your phone is ringing."
+      },
+      {
+        "fr": "C'est ton choix.",
+        "ar": "هذا خيارك.",
+        "en": "It's your choice."
       }
     ]
   },
@@ -72849,12 +72940,14 @@ window.VOCAB_DATA = [
   {
     "fr": "Trimestre",
     "ar": "فصل دراسي / ثلاثة أشهر",
-    "en": "Term / quarter",
+    "en": "Term / quarter / Quarter",
     "pos": "noun",
     "level": "A1",
     "contexts": [
+      "bank",
       "daily",
-      "school"
+      "school",
+      "work"
     ],
     "ex": [
       {
@@ -72881,6 +72974,31 @@ window.VOCAB_DATA = [
         "fr": "Les résultats du trimestre sont bons.",
         "ar": "نتائج الفصل جيدة.",
         "en": "The term results are good."
+      },
+      {
+        "fr": "Le premier trimestre est terminé.",
+        "ar": "انتهى الفصل الأول.",
+        "en": "The first term is over."
+      },
+      {
+        "fr": "Je paie chaque trimestre.",
+        "ar": "أدفع كل ثلاثة أشهر.",
+        "en": "I pay every quarter."
+      },
+      {
+        "fr": "Les résultats du trimestre sont bons.",
+        "ar": "نتائج هذا الفصل جيدة.",
+        "en": "The results for the term are good."
+      },
+      {
+        "fr": "Le prochain trimestre commence en janvier.",
+        "ar": "الفصل القادم يبدأ في يناير.",
+        "en": "The next term starts in January."
+      },
+      {
+        "fr": "Le contrat est renouvelé chaque trimestre.",
+        "ar": "يتم تجديد العقد كل ثلاثة أشهر.",
+        "en": "The contract is renewed every quarter."
       }
     ]
   },
@@ -73256,7 +73374,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Télécommande",
-    "ar": "جهاز التحكم عن بُعد",
+    "ar": "جهاز التحكم عن بُعد / جهاز التحكم عن بعد",
     "en": "Remote control",
     "pos": "noun",
     "level": "A1",
@@ -73289,6 +73407,11 @@ window.VOCAB_DATA = [
         "fr": "Change de chaîne avec la télécommande.",
         "ar": "غيّر القناة بجهاز التحكم.",
         "en": "Change the channel with the remote."
+      },
+      {
+        "fr": "Change la chaîne avec la télécommande.",
+        "ar": "غيّر القناة باستخدام جهاز التحكم.",
+        "en": "Change the channel with the remote control."
       }
     ]
   },
@@ -73460,6 +73583,16 @@ window.VOCAB_DATA = [
         "fr": "Son talent est impressionnant.",
         "ar": "موهبته مذهلة.",
         "en": "His talent is impressive."
+      },
+      {
+        "fr": "Tu as du talent !",
+        "ar": "لديك موهبة!",
+        "en": "You're talented!"
+      },
+      {
+        "fr": "Son talent est impressionnant.",
+        "ar": "موهبته مثيرة للإعجاب.",
+        "en": "His talent is impressive."
       }
     ]
   },
@@ -73523,12 +73656,13 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Tendance",
-    "ar": "اتجاه / موضة / ميل",
-    "en": "Trend / tendency",
+    "ar": "اتجاه / موضة / ميل / صيحة",
+    "en": "Trend / tendency / Tendency",
     "pos": "noun",
     "level": "A1",
     "contexts": [
-      "daily"
+      "daily",
+      "shopping"
     ],
     "ex": [
       {
@@ -73555,6 +73689,31 @@ window.VOCAB_DATA = [
         "fr": "Il suit les tendances.",
         "ar": "هو يتابع صيحات الموضة.",
         "en": "He follows trends."
+      },
+      {
+        "fr": "C'est une nouvelle tendance.",
+        "ar": "هذا اتجاه جديد.",
+        "en": "It's a new trend."
+      },
+      {
+        "fr": "Cette couleur est très tendance.",
+        "ar": "هذا اللون رائج جدًا.",
+        "en": "This color is very trendy."
+      },
+      {
+        "fr": "La tendance change rapidement.",
+        "ar": "الاتجاه يتغير بسرعة.",
+        "en": "The trend changes quickly."
+      },
+      {
+        "fr": "Il a tendance à parler trop vite.",
+        "ar": "يميل إلى التحدث بسرعة كبيرة.",
+        "en": "He tends to speak too fast."
+      },
+      {
+        "fr": "C'est à la mode en ce moment.",
+        "ar": "هذا رائج حاليًا.",
+        "en": "It's trendy at the moment."
       }
     ]
   },
@@ -73780,7 +73939,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Texte",
-    "ar": "نص",
+    "ar": "نص / رسالة مكتوبة",
     "en": "Text",
     "pos": "noun",
     "level": "A1",
@@ -73814,6 +73973,26 @@ window.VOCAB_DATA = [
         "fr": "Je n'ai pas compris le texte.",
         "ar": "لم أفهم النص.",
         "en": "I didn't understand the text."
+      },
+      {
+        "fr": "J'ai reçu ton texte.",
+        "ar": "وصلتني رسالتك.",
+        "en": "I received your text."
+      },
+      {
+        "fr": "Lis le texte, s'il te plaît.",
+        "ar": "اقرأ النص من فضلك.",
+        "en": "Read the text, please."
+      },
+      {
+        "fr": "Je vais écrire un texte.",
+        "ar": "سأكتب نصًا.",
+        "en": "I'm going to write a text."
+      },
+      {
+        "fr": "Je ne comprends pas ce texte.",
+        "ar": "لا أفهم هذا النص.",
+        "en": "I don't understand this text."
       }
     ]
   },
@@ -73912,6 +74091,21 @@ window.VOCAB_DATA = [
         "fr": "Il n'y a plus de tomates.",
         "ar": "لم تعد هناك طماطم.",
         "en": "There are no more tomatoes."
+      },
+      {
+        "fr": "Il n'y a plus de tomates.",
+        "ar": "لم تعد هناك طماطم.",
+        "en": "There are no tomatoes left."
+      },
+      {
+        "fr": "Ajoute une tomate dans la salade.",
+        "ar": "أضف حبة طماطم إلى السلطة.",
+        "en": "Add a tomato to the salad."
+      },
+      {
+        "fr": "Cette tomate est bien mûre.",
+        "ar": "هذه الطماطم ناضجة جيدًا.",
+        "en": "This tomato is ripe."
       }
     ]
   },
@@ -73990,13 +74184,33 @@ window.VOCAB_DATA = [
         "fr": "La théorie est différente de la pratique.",
         "ar": "النظرية مختلفة عن التطبيق.",
         "en": "Theory is different from practice."
+      },
+      {
+        "fr": "C'est seulement une théorie.",
+        "ar": "إنها مجرد نظرية.",
+        "en": "It's only a theory."
+      },
+      {
+        "fr": "La théorie est intéressante.",
+        "ar": "النظرية مثيرة للاهتمام.",
+        "en": "The theory is interesting."
+      },
+      {
+        "fr": "Je connais la théorie, mais pas la pratique.",
+        "ar": "أعرف النظرية، لكن ليس التطبيق العملي.",
+        "en": "I know the theory, but not the practical side."
+      },
+      {
+        "fr": "Cette théorie est difficile à comprendre.",
+        "ar": "هذه النظرية صعبة الفهم.",
+        "en": "This theory is difficult to understand."
       }
     ]
   },
   {
     "fr": "Théâtre",
     "ar": "مسرح",
-    "en": "Theater",
+    "en": "Theater / Theatre",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -74027,13 +74241,38 @@ window.VOCAB_DATA = [
         "fr": "J'ai réservé deux places au théâtre.",
         "ar": "حجزت مقعدين في المسرح.",
         "en": "I booked two seats at the theater."
+      },
+      {
+        "fr": "Je vais au théâtre ce soir.",
+        "ar": "سأذهب إلى المسرح هذا المساء.",
+        "en": "I'm going to the theatre tonight."
+      },
+      {
+        "fr": "J'aime beaucoup le théâtre.",
+        "ar": "أحب المسرح كثيرًا.",
+        "en": "I really like theatre."
+      },
+      {
+        "fr": "La pièce commence à huit heures.",
+        "ar": "المسرحية تبدأ الساعة الثامنة.",
+        "en": "The play starts at eight."
+      },
+      {
+        "fr": "Le théâtre est près d'ici.",
+        "ar": "المسرح قريب من هنا.",
+        "en": "The theatre is near here."
+      },
+      {
+        "fr": "Tu veux aller au théâtre avec moi ?",
+        "ar": "هل تريد الذهاب إلى المسرح معي؟",
+        "en": "Do you want to go to the theatre with me?"
       }
     ]
   },
   {
     "fr": "Thème",
     "ar": "موضوع",
-    "en": "Topic / theme",
+    "en": "Topic / theme / Theme",
     "pos": "noun",
     "level": "A1",
     "contexts": [
@@ -74066,6 +74305,26 @@ window.VOCAB_DATA = [
         "fr": "Le thème du film est intéressant.",
         "ar": "موضوع الفيلم مثير للاهتمام.",
         "en": "The theme of the movie is interesting."
+      },
+      {
+        "fr": "Quel est le thème de la réunion ?",
+        "ar": "ما موضوع الاجتماع؟",
+        "en": "What's the topic of the meeting?"
+      },
+      {
+        "fr": "C'est un thème intéressant.",
+        "ar": "إنه موضوع مثير للاهتمام.",
+        "en": "It's an interesting topic."
+      },
+      {
+        "fr": "On parle d'un thème important.",
+        "ar": "نتحدث عن موضوع مهم.",
+        "en": "We're talking about an important topic."
+      },
+      {
+        "fr": "Changeons de thème.",
+        "ar": "لنغيّر الموضوع.",
+        "en": "Let's change the subject."
       }
     ]
   },
@@ -74191,6 +74450,31 @@ window.VOCAB_DATA = [
         "fr": "Il y a beaucoup de circulation dans le tunnel.",
         "ar": "هناك حركة مرور كثيرة في النفق.",
         "en": "There's a lot of traffic in the tunnel."
+      },
+      {
+        "fr": "Le train passe dans le tunnel.",
+        "ar": "القطار يمر في النفق.",
+        "en": "The train passes through the tunnel."
+      },
+      {
+        "fr": "Il y a beaucoup de trafic dans le tunnel.",
+        "ar": "هناك ازدحام كبير في النفق.",
+        "en": "There's a lot of traffic in the tunnel."
+      },
+      {
+        "fr": "Le tunnel est fermé.",
+        "ar": "النفق مغلق.",
+        "en": "The tunnel is closed."
+      },
+      {
+        "fr": "On entre dans le tunnel.",
+        "ar": "نحن ندخل النفق.",
+        "en": "We're entering the tunnel."
+      },
+      {
+        "fr": "La sortie du tunnel est à droite.",
+        "ar": "مخرج النفق على اليمين.",
+        "en": "The tunnel exit is on the right."
       }
     ]
   },
@@ -75390,7 +75674,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Toiture",
-    "ar": "سقف المبنى / تغطية السطح",
+    "ar": "سقف المبنى / تغطية السطح / تغطية السقف",
     "en": "Roofing / roof",
     "pos": "noun",
     "level": "A1",
@@ -75423,6 +75707,16 @@ window.VOCAB_DATA = [
         "fr": "La toiture protège la maison.",
         "ar": "السقف يحمي المنزل.",
         "en": "The roof protects the house."
+      },
+      {
+        "fr": "La toiture est ancienne.",
+        "ar": "السقف قديم.",
+        "en": "The roofing is old."
+      },
+      {
+        "fr": "Il y a une fuite dans la toiture.",
+        "ar": "هناك تسرب في السقف.",
+        "en": "There's a leak in the roof."
       }
     ]
   },
@@ -75771,7 +76065,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Tabouret",
-    "ar": "مقعد مرتفع / كرسي صغير",
+    "ar": "مقعد مرتفع / كرسي صغير / مقعد صغير",
     "en": "Stool",
     "pos": "noun",
     "level": "A1",
@@ -75805,6 +76099,21 @@ window.VOCAB_DATA = [
         "fr": "Ce tabouret est très confortable.",
         "ar": "هذا المقعد مريح جدًا.",
         "en": "This stool is very comfortable."
+      },
+      {
+        "fr": "Le tabouret est trop haut.",
+        "ar": "المقعد مرتفع جدًا.",
+        "en": "The stool is too high."
+      },
+      {
+        "fr": "Il y a trois tabourets dans la cuisine.",
+        "ar": "هناك ثلاثة مقاعد في المطبخ.",
+        "en": "There are three stools in the kitchen."
+      },
+      {
+        "fr": "Prends un tabouret.",
+        "ar": "خذ مقعدًا.",
+        "en": "Take a stool."
       }
     ]
   },
@@ -75886,7 +76195,7 @@ window.VOCAB_DATA = [
   },
   {
     "fr": "Terminal",
-    "ar": "محطة نهائية / مبنى المسافرين / طرفية",
+    "ar": "محطة نهائية / مبنى المسافرين / طرفية / محطة / مبنى",
     "en": "Terminal",
     "pos": "noun",
     "level": "A1",
@@ -75919,6 +76228,31 @@ window.VOCAB_DATA = [
         "fr": "Le bus part du terminal.",
         "ar": "الحافلة تنطلق من المحطة النهائية.",
         "en": "The bus leaves from the terminal."
+      },
+      {
+        "fr": "Le terminal est très loin.",
+        "ar": "المحطة بعيدة جدًا.",
+        "en": "The terminal is very far."
+      },
+      {
+        "fr": "Je dois aller au terminal 2.",
+        "ar": "يجب أن أذهب إلى المبنى رقم 2.",
+        "en": "I have to go to Terminal 2."
+      },
+      {
+        "fr": "Quel terminal dois-je prendre ?",
+        "ar": "إلى أي مبنى يجب أن أذهب؟",
+        "en": "Which terminal should I go to?"
+      },
+      {
+        "fr": "Le bus arrive au terminal.",
+        "ar": "الحافلة تصل إلى المحطة.",
+        "en": "The bus arrives at the terminal."
+      },
+      {
+        "fr": "On se retrouve devant le terminal.",
+        "ar": "سنلتقي أمام المحطة.",
+        "en": "We'll meet in front of the terminal."
       }
     ]
   },
@@ -77471,6 +77805,236 @@ window.VOCAB_DATA = [
         "fr": "Merci à tous.",
         "ar": "شكرًا للجميع.",
         "en": "Thank you, everyone."
+      }
+    ]
+  },
+  {
+    "fr": "Talon",
+    "ar": "كعب",
+    "en": "Heel",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "shopping"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai mal au talon.",
+        "ar": "كعبي يؤلمني.",
+        "en": "My heel hurts."
+      },
+      {
+        "fr": "Cette chaussure me fait mal au talon.",
+        "ar": "هذا الحذاء يؤلمني عند الكعب.",
+        "en": "This shoe hurts my heel."
+      },
+      {
+        "fr": "Le talon de cette chaussure est cassé.",
+        "ar": "كعب هذا الحذاء مكسور.",
+        "en": "The heel of this shoe is broken."
+      },
+      {
+        "fr": "Il marche sur les talons.",
+        "ar": "هو يمشي على كعبيه.",
+        "en": "He walks on his heels."
+      },
+      {
+        "fr": "Mes chaussures ont un petit talon.",
+        "ar": "حذائي له كعب صغير.",
+        "en": "My shoes have a small heel."
+      }
+    ]
+  },
+  {
+    "fr": "Timide",
+    "ar": "خجول",
+    "en": "Shy",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "weather"
+    ],
+    "ex": [
+      {
+        "fr": "Il est un peu timide.",
+        "ar": "هو خجول قليلًا.",
+        "en": "He's a little shy."
+      },
+      {
+        "fr": "Je suis timide avec les inconnus.",
+        "ar": "أنا خجول مع الأشخاص الذين لا أعرفهم.",
+        "en": "I'm shy with strangers."
+      },
+      {
+        "fr": "Elle était très timide quand elle était petite.",
+        "ar": "كانت خجولة جدًا عندما كانت صغيرة.",
+        "en": "She was very shy when she was little."
+      },
+      {
+        "fr": "Ne sois pas timide.",
+        "ar": "لا تكن خجولًا.",
+        "en": "Don't be shy."
+      },
+      {
+        "fr": "Il devient moins timide avec le temps.",
+        "ar": "يصبح أقل خجلًا مع الوقت.",
+        "en": "He becomes less shy over time."
+      }
+    ]
+  },
+  {
+    "fr": "Terrible",
+    "ar": "فظيع / رهيب / سيئ جدًا",
+    "en": "Terrible / Awful",
+    "pos": "adjective",
+    "level": "A1",
+    "contexts": [
+      "daily"
+    ],
+    "ex": [
+      {
+        "fr": "C'est terrible !",
+        "ar": "هذا فظيع!",
+        "en": "That's terrible!"
+      },
+      {
+        "fr": "J'ai eu une journée terrible.",
+        "ar": "كان يومي سيئًا جدًا.",
+        "en": "I had a terrible day."
+      },
+      {
+        "fr": "Il y avait un bruit terrible.",
+        "ar": "كان هناك ضجيج رهيب.",
+        "en": "There was terrible noise."
+      },
+      {
+        "fr": "C'est une terrible nouvelle.",
+        "ar": "إنه خبر فظيع.",
+        "en": "It's terrible news."
+      },
+      {
+        "fr": "La circulation est terrible aujourd'hui.",
+        "ar": "حركة المرور سيئة جدًا اليوم.",
+        "en": "Traffic is terrible today."
+      }
+    ]
+  },
+  {
+    "fr": "Test",
+    "ar": "اختبار / فحص",
+    "en": "Test",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "health",
+      "school",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "J'ai un test demain.",
+        "ar": "لدي اختبار غدًا.",
+        "en": "I have a test tomorrow."
+      },
+      {
+        "fr": "Le test est facile.",
+        "ar": "الاختبار سهل.",
+        "en": "The test is easy."
+      },
+      {
+        "fr": "Je dois passer un test.",
+        "ar": "يجب أن أجتاز اختبارًا.",
+        "en": "I have to take a test."
+      },
+      {
+        "fr": "Les résultats du test sont prêts.",
+        "ar": "نتائج الاختبار جاهزة.",
+        "en": "The test results are ready."
+      },
+      {
+        "fr": "Le test commence à neuf heures.",
+        "ar": "يبدأ الاختبار الساعة التاسعة.",
+        "en": "The test starts at nine."
+      }
+    ]
+  },
+  {
+    "fr": "Type",
+    "ar": "نوع / شخص / نمط",
+    "en": "Type / Kind / Guy",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "car",
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "Quel type de voiture tu veux ?",
+        "ar": "أي نوع من السيارات تريد؟",
+        "en": "What type of car do you want?"
+      },
+      {
+        "fr": "C'est quel type de produit ?",
+        "ar": "ما نوع هذا المنتج؟",
+        "en": "What type of product is this?"
+      },
+      {
+        "fr": "Ce type de problème est fréquent.",
+        "ar": "هذا النوع من المشاكل شائع.",
+        "en": "This type of problem is common."
+      },
+      {
+        "fr": "Ce n'est pas mon type de musique.",
+        "ar": "هذا ليس نوع الموسيقى الذي أحبه.",
+        "en": "It's not my type of music."
+      },
+      {
+        "fr": "Il y a plusieurs types de billets.",
+        "ar": "هناك عدة أنواع من التذاكر.",
+        "en": "There are several types of tickets."
+      }
+    ]
+  },
+  {
+    "fr": "Travailleur",
+    "ar": "عامل / مجتهد",
+    "en": "Worker / Hard-working",
+    "pos": "noun",
+    "level": "A1",
+    "contexts": [
+      "daily",
+      "work"
+    ],
+    "ex": [
+      {
+        "fr": "C'est un travailleur sérieux.",
+        "ar": "إنه عامل جاد.",
+        "en": "He's a serious worker."
+      },
+      {
+        "fr": "Il est très travailleur.",
+        "ar": "إنه مجتهد جدًا.",
+        "en": "He's very hard-working."
+      },
+      {
+        "fr": "Les travailleurs commencent tôt.",
+        "ar": "العمال يبدأون مبكرًا.",
+        "en": "The workers start early."
+      },
+      {
+        "fr": "Je suis un travailleur indépendant.",
+        "ar": "أنا عامل مستقل.",
+        "en": "I'm self-employed."
+      },
+      {
+        "fr": "C'est un bon travailleur.",
+        "ar": "إنه عامل جيد.",
+        "en": "He's a good worker."
       }
     ]
   }

@@ -27,6 +27,7 @@ HEAD_POS = {
     'traditionnel': 'adjective', 'théorique': 'adjective', 'temporaire': 'adjective', 'typique': 'adjective',
     'tardif': 'adjective', 'théâtral': 'adjective', 'titulaire': 'adjective',
     'thermique': 'adjective', 'tranchant': 'adjective',
+    'timide': 'adjective', 'terrible': 'adjective',
     'tacler': 'verb', 'tâcher': 'verb',
 }
 
@@ -317,6 +318,28 @@ def infer_contexts(fr, en, ar, examples, pos):
         ('trousse', ['school', 'daily']),
         ('taux', ['bank', 'services']),
         ('total', ['bank', 'daily']),
+        ('tendance', ['daily', 'shopping']),
+        ('terminal', ['transport']),
+        ('tunnel', ['transport']),
+        ('toilette', ['housing', 'daily']),
+        ('tapis', ['housing', 'daily']),
+        ('talon', ['shopping', 'daily']),
+        ('talent', ['daily', 'work']),
+        ('tante', ['family']),
+        ('tomate', ['food', 'restaurant']),
+        ('télécharger', ['services', 'daily']),
+        ('télécommande', ['housing', 'daily']),
+        ('texte', ['school', 'work']),
+        ('théâtre', ['daily']),
+        ('timide', ['daily']),
+        ('terrible', ['daily']),
+        ('test', ['school', 'work', 'health']),
+        ('thème', ['school', 'work']),
+        ('théorie', ['school', 'work']),
+        ('ton', ['daily']),
+        ('type', ['daily', 'work']),
+        ('trimestre', ['school', 'work', 'bank']),
+        ('travailleur', ['work']),
     ]
     for kw, ctxs in mapping:
         if keyword_in_text(kw, text):
