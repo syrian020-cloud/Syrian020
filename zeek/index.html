@@ -1323,11 +1323,15 @@
       if (loopTimer) { clearInterval(loopTimer); loopTimer = null; }
       state.loop = { key, type: 'video', start: phrase.start, end: phrase.end };
       refreshButtons();
-      video.currentTime = phrase.start;
+      const seekToStart = () => {
+        try { video.currentTime = phrase.start; } catch (e) {}
+      };
+      if (video.readyState >= 1) seekToStart();
+      else video.addEventListener('loadedmetadata', seekToStart, { once: true });
       try { await video.play(); } catch (e) {}
       loopTimer = setInterval(() => {
         if (!state.loop || state.loop.key !== key) { clearInterval(loopTimer); loopTimer = null; return; }
-        if (video.currentTime >= phrase.end) {
+        if (video.currentTime >= phrase.end || video.currentTime < phrase.start - 0.1) {
           video.currentTime = phrase.start;
           try { video.play(); } catch (e) {}
         }
@@ -1662,7 +1666,6 @@
           <div class="line en" data-lang="en" dir="ltr">${wordSpans(p.en, 'en')}<button class="loop-lang" data-lang="en" title="🔁 EN">🔁</button></div>
         </div>
         <div class="btns">
-          <button class="speak-btn" title="${t('speakOnce')}">🔊</button>
           <button class="loop-btn" title="${t('loopTitle')}">🔁</button>
           <button class="ai-btn" title="${t('aiTitle')}"><span class="ai-label">Google AI</span><span class="ai-sparkle">✨</span></button>
           <button class="media-btn ${p.media ? 'on' : ''}" title="${t('addMedia')}">${p.media ? '📎' : '📷'}</button>
@@ -2121,10 +2124,7 @@
       if (!found) return;
       const p = found.lesson.phrases[idx];
 
-      if (e.target.closest('.speak-btn')) {
-        stopSpeech();
-        speakOnce(p, state.langs, key);
-      } else if (e.target.closest('.loop-btn')) {
+      if (e.target.closest('.loop-btn')) {
         toggleLoop(p, key);
       } else if (e.target.closest('.ai-btn')) {
         const query = 'Explain the phrase "' + p.fr + '" in French, Arabic and English. French: ' + p.fr + ' / Arabic: ' + p.ar + ' / English: ' + p.en + ' (without tables)';
