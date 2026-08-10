@@ -127,6 +127,17 @@
   .study-lang-row[data-lang="ar"] .study-lang-text { text-align: right; direction: rtl; }
   .study-lang-row[data-lang="en"] .study-lang-text { font-style: italic; color: var(--text-secondary); }
   .study-overlay .media-box { margin: 0.5rem 0 0; }
+  .study-video { width: 100%; border-radius: 18px; background: #000; margin-bottom: 1rem; }
+  .study-transcript { display: flex; flex-direction: column; gap: 0.7rem; }
+  .study-entry { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px; padding: 0.8rem; }
+  .study-entry.active { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(20,184,166,0.4); }
+  .study-entry-time { font-family: monospace; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.3rem; }
+  .study-entry-fr { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; }
+  .study-entry-ar { direction: rtl; text-align: right; color: var(--text-secondary); margin-bottom: 0.15rem; }
+  .study-entry-en { font-style: italic; color: var(--text-secondary); }
+  .study-entry-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 0.6rem; }
+  .study-entry-actions .icon-btn { color: var(--accent); }
+  .study-entry-actions .icon-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
 
   .draw-overlay { position: fixed; inset: 0; z-index: 1000; background: #fff; display: flex; flex-direction: column; }
   .draw-header { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 0.9rem; background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
@@ -1132,6 +1143,160 @@
     }
   }
 
+  function openLessonStudy(lesson) {
+    if (!lesson) return;
+    closeStudy();
+    stopAllMedia();
+    var transcript = lesson.transcript || [];
+    var overlay = document.createElement('div');
+    overlay.className = 'study-overlay';
+    overlay.id = 'study-overlay';
+    overlay.innerHTML =
+      '<div class="study-header">' +
+        '<button class="icon-btn" id="study-close" data-t-title="back">' + icon('back') + '</button>' +
+        '<h2>' + esc(t('studyPhrase')) + '</h2>' +
+      '</div>' +
+      '<div class="study-content">' +
+        (lesson.videoMediaId ? '<div class="video-box" id="study-video-box"></div>' : '') +
+        '<div class="study-actions">' +
+          '<button class="btn ghost" id="study-stop">' + icon('stop') + ' ' + esc(t('stopAll')) + '</button>' +
+          '<div class="rate-control">' +
+            '<span class="rate-label" data-t="speechRate"></span>' +
+            '<input type="range" id="study-rate" min="0.5" max="2" step="0.1" value="' + state.rate + '">' +
+            '<span class="rate-value" id="study-rate-value">' + state.rate.toFixed(1) + 'x</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="study-transcript" id="study-transcript"></div>' +
+      '</div>';
+    document.body.appendChild(overlay);
+    applyTranslations();
+
+    var rateInput = document.getElementById('study-rate');
+    var rateValue = document.getElementById('study-rate-value');
+    if (rateInput) {
+      rateInput.oninput = function () {
+        state.rate = Number(rateInput.value);
+        localStorage.setItem('creator_rate', state.rate);
+        if (rateValue) rateValue.textContent = state.rate.toFixed(1) + 'x';
+      };
+    }
+
+    document.getElementById('study-close').onclick = closeStudy;
+    document.getElementById('study-stop').onclick = stopAllMedia;
+
+    function renderStudyTranscript(activeId) {
+      var box = document.getElementById('study-transcript');
+      if (!box) return;
+      if (!transcript.length) { box.innerHTML = '<div class="hint" data-t="noSubtitles"></div>'; applyTranslations(); return; }
+      box.innerHTML = transcript.map(function (entry) {
+        var active = (state.videoLoopLine === entry.id || activeId === entry.id) ? ' active' : '';
+        return '<div class="study-entry' + active + '" data-id="' + entry.id + '" data-start="' + entry.start + '" data-end="' + entry.end + '">' +
+          '<div class="study-entry-time">' + formatTime(entry.start) + ' – ' + formatTime(entry.end) + '</div>' +
+          '<div class="study-entry-fr">' + esc(entry.fr) + '</div>' +
+          '<div class="study-entry-ar">' + esc(entry.ar) + '</div>' +
+          '<div class="study-entry-en">' + esc(entry.en) + '</div>' +
+          '<div class="study-entry-actions">' +
+            '<button class="icon-btn study-speak-fr" data-lang="fr" data-t-title="speak">' + icon('volume') + '</button>' +
+            '<button class="icon-btn study-speak-ar" data-lang="ar" data-t-title="speak">' + icon('volume') + '</button>' +
+            '<button class="icon-btn study-speak-en" data-lang="en" data-t-title="speak">' + icon('volume') + '</button>' +
+            '<button class="icon-btn transcript-loop" data-t-title="videoLoop">' + icon('loop') + '</button>' +
+            '<button class="icon-btn search-line" data-t-title="googleSearch">' + icon('ai') + '</button>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+      applyTranslations();
+      bindStudyTranscriptEvents(lesson);
+    }
+
+    function bindStudyTranscriptEvents(lesson) {
+      var video = document.getElementById('study-video');
+      document.querySelectorAll('#study-transcript .study-entry').forEach(function (entry) {
+        entry.onclick = function (e) {
+          if (e.target.closest('button')) return;
+          var start = Number(entry.dataset.start);
+          state.videoLoopLine = null;
+          state.videoLoopSegment = null;
+          renderStudyTranscript();
+          if (video && !isNaN(start)) { video.currentTime = start; video.play(); }
+        };
+      });
+      ['fr', 'ar', 'en'].forEach(function (lang) {
+        document.querySelectorAll('.study-speak-' + lang).forEach(function (btn) {
+          btn.onclick = function (e) {
+            e.stopPropagation();
+            var entry = btn.closest('.study-entry').dataset;
+            var phrase = { fr: '', ar: '', en: '' };
+            var id = entry.id;
+            transcript.forEach(function (t) { if (t.id === id) { phrase.fr = t.fr; phrase.ar = t.ar; phrase.en = t.en; } });
+            if (phrase[lang]) speakLine(phrase, lang, 'study:' + id + ':' + lang);
+          };
+        });
+      });
+      document.querySelectorAll('#study-transcript .transcript-loop').forEach(function (btn) {
+        btn.onclick = function (e) {
+          e.stopPropagation();
+          var entry = btn.closest('.study-entry');
+          var id = entry.dataset.id;
+          var video = document.getElementById('study-video');
+          if (state.videoLoopLine === id) {
+            state.videoLoopLine = null;
+            state.videoLoopSegment = null;
+            if (video) video.pause();
+          } else {
+            state.videoLoopLine = id;
+            state.videoLoopSegment = { start: Number(entry.dataset.start), end: Number(entry.dataset.end), id: id };
+            if (video) { video.currentTime = Number(entry.dataset.start); video.play(); }
+          }
+          renderStudyTranscript();
+        };
+      });
+      document.querySelectorAll('#study-transcript .search-line').forEach(function (btn) {
+        btn.onclick = function (e) {
+          e.stopPropagation();
+          var entry = btn.closest('.study-entry').dataset;
+          var phrase = {};
+          transcript.forEach(function (t) { if (t.id === entry.id) { phrase.fr = t.fr; phrase.ar = t.ar; phrase.en = t.en; } });
+          var lang = state.uiLang === 'fr' ? 'fr' : state.uiLang === 'ar' ? 'ar' : 'en';
+          openSearch(phrase[lang] || phrase.fr || '', lang);
+        };
+      });
+    }
+
+    if (lesson.videoMediaId) {
+      getMediaUrl(lesson.videoMediaId).then(function (url) {
+        var box = document.getElementById('study-video-box');
+        if (!box || !url) return;
+        var video = document.createElement('video');
+        video.id = 'study-video';
+        video.className = 'study-video';
+        video.controls = true;
+        video.playsInline = true;
+        video.src = url;
+        box.appendChild(video);
+        video.ontimeupdate = function () {
+          var time = video.currentTime;
+          document.querySelectorAll('#study-transcript .study-entry').forEach(function (el) {
+            var start = Number(el.dataset.start);
+            var end = Number(el.dataset.end);
+            el.classList.toggle('active', time >= start && time < end);
+          });
+          if (state.videoLoopSegment) {
+            if (time >= state.videoLoopSegment.end) { video.currentTime = state.videoLoopSegment.start; video.play(); }
+          } else if (state.videoLoopLine) {
+            var active = document.querySelector('#study-transcript .study-entry.active');
+            if (active) {
+              var start = Number(active.dataset.start);
+              var end = Number(active.dataset.end);
+              if (time >= end) { video.currentTime = start; video.play(); }
+            }
+          }
+        };
+      });
+    }
+
+    renderStudyTranscript();
+  }
+
   function closeDraw() {
     var overlay = document.getElementById('draw-overlay');
     if (overlay) overlay.remove();
@@ -1682,6 +1847,7 @@
       '<button class="btn ghost" id="btn-back">' + icon('back') + '</button>' +
       '<button class="btn" id="btn-play-all">' + iconText('playAll', 'play') + '</button>' +
       '<button class="btn ghost" id="btn-stop-lesson">' + iconText('stopAll', 'stop') + '</button>' +
+      '<button class="btn" id="btn-study">' + iconText('studyPhrase', 'study') + '</button>' +
       '<div class="rate-control">' +
         '<span class="rate-label" data-t="speechRate"></span>' +
         '<input type="range" id="rate-slider" min="0.5" max="2" step="0.1" value="' + state.rate + '">' +
@@ -1800,6 +1966,8 @@
     document.getElementById('btn-bulk-add').onclick = function () { addBulkPhrases(lesson); };
     document.getElementById('btn-play-all').onclick = function () { playLesson(lesson); };
     document.getElementById('btn-stop-lesson').onclick = stopAllMedia;
+    var studyBtn = document.getElementById('btn-study');
+    if (studyBtn) studyBtn.onclick = function () { openLessonStudy(lesson); };
 
     var rateSlider = document.getElementById('rate-slider');
     var rateValue = document.getElementById('rate-value');
