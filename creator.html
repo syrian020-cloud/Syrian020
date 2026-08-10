@@ -2156,10 +2156,9 @@
           state.videoLoopSegment = { start: phrase.start, end: phrase.end, id: phrase.id };
           document.querySelectorAll('.video-loop').forEach(function (b) { b.classList.remove('active'); });
           btn.classList.add('active');
+          if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
           video.currentTime = phrase.start;
           video.play();
-          var dialogCard = document.getElementById('video-dialog-card');
-          if (dialogCard) dialogCard.scrollIntoView({ behavior: 'smooth' });
         }
       } else if (btn.classList.contains('attach-media')) {
         document.getElementById('file-' + phraseId).click();
