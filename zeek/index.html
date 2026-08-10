@@ -727,6 +727,7 @@
     lessonsCount: { ar: 'درس', en: 'lessons', fr: 'leçons' },
     speakOnce: { ar: 'نطق مرة واحدة', en: 'Speak once', fr: 'Parler une fois' },
     loopTitle: { ar: 'تكرار: فرنسي ← عربي ← إنجليزي', en: 'Repeat: French ← Arabic ← English', fr: 'Répéter : Français ← Arabe ← Anglais' },
+    ttsLoopTitle: { ar: 'تكرار النطق', en: 'Repeat pronunciation', fr: 'Répéter la prononciation' },
     aiTitle: { ar: 'شرح العبارة بالذكاء الاصطناعي من Google', en: 'Explain phrase with Google AI', fr: 'Expliquer la phrase avec Google AI' },
     noteTitle: { ar: 'دفتر الملاحظات', en: 'Notebook', fr: 'Carnet' },
     favTitle: { ar: 'حفظ', en: 'Save', fr: 'Enregistrer' },
@@ -1319,6 +1320,22 @@
     return document.querySelector('.lesson-media video') || document.querySelector('video');
   }
 
+  async function toggleTTSLoop(phrase, key) {
+    if (state.loop && state.loop.key === key && state.loop.type === 'tts') { stopSpeech(); return; }
+    const ready = await prepareTTS();
+    if (!ready) return;
+    stopSpeech();
+    state.loop = { key, type: 'tts' };
+    refreshButtons();
+    (function cycle() {
+      if (!state.loop || state.loop.key !== key) return;
+      speakOnce(phrase, state.langs, key, () => {
+        if (!state.loop || state.loop.key !== key) return;
+        setTimeout(cycle, 600);
+      });
+    })();
+  }
+
   async function toggleLoop(phrase, key) {
     if (state.loop && state.loop.key === key) { stopSpeech(); return; }
     const video = getVideoForPhrase(key);
@@ -1414,12 +1431,19 @@
   function refreshButtons() {
     document.querySelectorAll('.word').forEach(w => w.classList.remove('active'));
     document.querySelectorAll('.loop-lang').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tts-loop-btn').forEach(b => { b.classList.remove('active'); b.textContent = '🔂'; });
     document.querySelectorAll('.phrase').forEach(el => {
-      const loopOn = state.loop && (state.loop.type === 'video' || state.loop.type === 'tts') && state.loop.key === el.dataset.key;
+      const videoOn = state.loop && state.loop.type === 'video' && state.loop.key === el.dataset.key;
+      const ttsOn = state.loop && state.loop.type === 'tts' && state.loop.key === el.dataset.key;
       const loopBtn = el.querySelector('.loop-btn');
       if (loopBtn) {
-        loopBtn.classList.toggle('active', !!loopOn);
-        loopBtn.textContent = loopOn ? '⏸' : '🔁';
+        loopBtn.classList.toggle('active', !!videoOn);
+        loopBtn.textContent = videoOn ? '⏸' : '🔁';
+      }
+      const ttsBtn = el.querySelector('.tts-loop-btn');
+      if (ttsBtn) {
+        ttsBtn.classList.toggle('active', !!ttsOn);
+        ttsBtn.textContent = ttsOn ? '⏸' : '🔂';
       }
       if (state.loop && state.loop.phraseKey === el.dataset.key && state.loop.lang && !state.loop.word) {
         const langBtn = el.querySelector('.loop-lang[data-lang="' + state.loop.lang + '"]');
@@ -1674,6 +1698,7 @@
         </div>
         <div class="btns">
           <button class="loop-btn" title="${t('loopTitle')}">🔁</button>
+          <button class="tts-loop-btn" title="${t('ttsLoopTitle')}">🔂</button>
           <button class="ai-btn" title="${t('aiTitle')}"><span class="ai-label">Google AI</span><span class="ai-sparkle">✨</span></button>
           <button class="media-btn ${p.media ? 'on' : ''}" title="${t('addMedia')}">${p.media ? '📎' : '📷'}</button>
           <button class="note-btn ${hasNote(key) ? 'note-on' : ''}" title="${t('noteTitle')}">${hasNote(key) ? '📔' : '📓'}</button>
@@ -2133,6 +2158,8 @@
 
       if (e.target.closest('.loop-btn')) {
         toggleLoop(p, key);
+      } else if (e.target.closest('.tts-loop-btn')) {
+        toggleTTSLoop(p, key);
       } else if (e.target.closest('.ai-btn')) {
         const query = 'Explain the phrase "' + p.fr + '" in French, Arabic and English. French: ' + p.fr + ' / Arabic: ' + p.ar + ' / English: ' + p.en + ' (without tables)';
         window.open('https://www.google.com/search?q=' + encodeURIComponent(query) + '&udm=50&hl=' + state.uiLang, '_blank');
