@@ -719,7 +719,7 @@
     appName: { ar: 'Zeek', en: 'Zeek', fr: 'Zeek' },
     appTitle: { ar: 'Zeek — فرنسي / عربي / إنجليزي', en: 'Zeek — French / Arabic / English', fr: 'Zeek — Français / Arabe / Anglais' },
     searchPlaceholder: { ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', en: 'Search in Arabic, French, or English…', fr: 'Rechercher en arabe, français ou anglais…' },
-    rateTitle: { ar: 'سرعة النطق', en: 'Speech rate', fr: 'Vitesse de la voix' },
+    rateTitle: { ar: 'سرعة الصوت والفيديو', en: 'Audio & video speed', fr: 'Vitesse audio et vidéo' },
     loopModeTitle: { ar: 'محتوى التكرار', en: 'Loop content', fr: 'Contenu de la répétition' },
     loopFrenchArabicEnglish: { ar: '🔁 فرنسي + عربي + إنجليزي', en: '🔁 French + Arabic + English', fr: '🔁 Français + Arabe + Anglais' },
     loopFrenchArabic: { ar: '🔁 فرنسي + عربي', en: '🔁 French + Arabic', fr: '🔁 Français + Arabe' },
@@ -1130,6 +1130,8 @@
         const isVideo = (resolved.type || '').startsWith('video/') || isVideoUrl(resolved.url);
         if (isVideo) {
           el.innerHTML = `<video src="${esc(resolved.url)}" controls playsinline></video>`;
+          const v = el.querySelector('video');
+          if (v) { try { v.playbackRate = state.rate || 1; } catch (e) {} }
         } else {
           el.innerHTML = `<img src="${esc(resolved.url)}" alt="" onerror="this.style.display='none'">`;
         }
@@ -1300,6 +1302,10 @@
     if (video) { video.pause(); }
   }
 
+  function updateVideoRate() {
+    document.querySelectorAll('video').forEach(v => { try { v.playbackRate = state.rate || 1; } catch (e) {} });
+  }
+
   async function speakOnce(phrase, langs, key, onDone) {
     const run = ++speechRun;
     anyStop();
@@ -1362,8 +1368,10 @@
     refreshButtons();
     const seekAndPlay = () => {
       try { video.currentTime = start; } catch (e) {}
+      updateVideoRate();
       try { video.play(); } catch (e) {}
     };
+    updateVideoRate();
     if (video.readyState >= 1) seekAndPlay();
     else {
       video.addEventListener('loadedmetadata', seekAndPlay, { once: true });
@@ -2439,7 +2447,7 @@
     document.getElementById('btn-stop').onclick = stopSpeech;
     document.getElementById('btn-fav').onclick = () => go({ name: 'favs' });
     document.querySelectorAll('.lang-btn').forEach(b => b.onclick = () => setUILang(b.dataset.lang));
-    document.getElementById('rate').onchange = e => { state.rate = +e.target.value; stopSpeech(); };
+    document.getElementById('rate').onchange = e => { state.rate = +e.target.value; stopSpeech(); updateVideoRate(); };
     document.getElementById('loopmode').onchange = e => { state.langs = e.target.value.split(','); stopSpeech(); };
     searchInput.addEventListener('input', e => {
       const q = e.target.value.trim();
