@@ -674,28 +674,34 @@
   function addBulkPhrases(lesson) {
     var el = document.getElementById('bulk-input');
     if (!el) return;
-    var lines = (el.value || '').split('\n');
-    var added = 0;
-    lines.forEach(function (line) {
+    var text = el.value || '';
+    var timedEntries = [];
+    if (text.indexOf('-->') !== -1) timedEntries = timedEntries.concat(parseSRT(text));
+    timedEntries = timedEntries.concat(parseTimedText(text));
+    var normalEntries = [];
+    text.split(/\r?\n/).forEach(function (line) {
       line = line.trim();
       if (!line) return;
+      if (/^[\d:.،,]+\s/.test(line)) return;
       var parts = line.split('|');
       if (parts.length < 3) return;
-      lesson.phrases.push({
-        id: uuid(),
-        fr: (parts[0] || '').trim(),
-        ar: (parts[1] || '').trim(),
-        en: (parts[2] || '').trim(),
-        editing: false
-      });
-      added++;
+      normalEntries.push({ fr: parts[0].trim(), ar: parts[1].trim(), en: parts[2].trim() });
     });
-    if (added) {
-      saveCurrentLesson();
-      renderLessonEditor();
-    } else {
+    timedEntries.forEach(function (e) { if (typeof e.end !== 'number' || isNaN(e.end)) e.end = e.start + 4; });
+    var entries = timedEntries.concat(normalEntries);
+    if (!entries.length) {
       toast(t('noBulkPhrases') || 'No valid phrases');
+      return;
     }
+    entries.forEach(function (p) {
+      lesson.phrases.push({ id: uuid(), fr: p.fr || '', ar: p.ar || '', en: p.en || '', start: p.start, end: p.end, editing: false });
+    });
+    if (timedEntries.length) {
+      lesson.transcript = (lesson.transcript || []).concat(timedEntries);
+    }
+    saveCurrentLesson();
+    renderLessonEditor();
+    el.value = '';
   }
 
   function deletePhrase(lesson, phraseId) {
@@ -958,10 +964,11 @@
     var box = document.getElementById('transcript-box');
     if (!box) return;
     if (!lesson.transcript || !lesson.transcript.length) {
-      box.innerHTML = '<div class="hint" data-t="noSubtitles"></div>';
-      applyTranslations();
+      box.innerHTML = '';
+      box.classList.add('hidden');
       return;
     }
+    box.classList.remove('hidden');
     box.innerHTML = '<div class="transcript-list">' + lesson.transcript.map(function (entry) {
       var active = state.videoLoopLine === entry.id ? ' active' : '';
       return '<div class="transcript-line' + active + '" data-id="' + entry.id + '" data-start="' + entry.start + '" data-end="' + entry.end + '">' +
@@ -1828,14 +1835,6 @@
         '<button class="btn ghost" id="btn-remove-lesson-video" data-t-title="removeMedia">' + icon('trash') + '</button>' +
       '</div>' +
       '<div class="video-box" id="lesson-video-box"></div>' +
-      '<div class="srt-import-row">' +
-        '<textarea class="srt-input" id="srt-input" dir="auto" placeholder="00:00 T’es un homme, pourquoi tu pleures ? | أنت رجل، لماذا تبكي؟ | You’re a man, why are you crying?"></textarea>' +
-        '<div class="btn-row" style="margin:0">' +
-          '<button class="btn" id="btn-import-srt">' + iconText('importSubtitles', 'import') + '</button>' +
-          '<label class="btn ghost"><input type="file" id="srt-file" accept=".srt,.txt" class="hidden">' + icon('import') + '</label>' +
-          '<button class="btn ghost" id="btn-create-phrases" data-t="createPhrasesFromSubtitles"></button>' +
-        '</div>' +
-      '</div>' +
       '<div class="transcript-box" id="transcript-box"></div>';
     app.appendChild(videoCard);
     renderVideoPreview(lesson);
@@ -1881,7 +1880,7 @@
         '<span class="field-label" data-t="bulkAddLabel"></span>' +
         '<button class="icon-btn clear-bulk" data-t-title="clear">' + icon('close') + '</button>' +
       '</div>' +
-      '<textarea class="textarea" id="bulk-input" dir="auto" rows="3" placeholder="Bonjour | مرحبا | Hello">' +
+      '<textarea class="textarea" id="bulk-input" dir="auto" rows="3" placeholder="00:00 Bonjour | مرحبا | Hello\nBonjour | مرحبا | Hello">' +
       '</textarea>' +
       '<div class="btn-row" style="margin-top:0.6rem">' +
         '<button class="btn" id="btn-bulk-add">' + iconText('bulkAddButton', 'plus') + '</button>' +
