@@ -246,7 +246,10 @@
   .phrase-media img, .phrase-media video, .phrase-media iframe { display: block; width: 100%; max-height: 320px; object-fit: contain; background: #000; }
   .phrase-media iframe { height: 240px; }
   .phrase-media video { max-height: 360px; }
-  .caption-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.75); color: #fff; padding: 0.45rem 0.7rem; font-size: 0.95rem; text-align: center; line-height: 1.4; z-index: 2; pointer-events: none; }
+  .caption-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.88); color: #fff; padding: 0.55rem 0.75rem; font-size: 0.9rem; text-align: center; line-height: 1.55; z-index: 2; pointer-events: none; border-top: 1px solid rgba(255,255,255,0.12); }
+  .cap-line { display: block; }
+  .cap-fr { font-weight: 700; }
+  .cap-ar { direction: rtl; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
   .no-lessons { text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); }
   .no-lessons .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
   .no-lessons .card-title { color: var(--text-primary); margin-bottom: 0.3rem; }
@@ -1078,10 +1081,11 @@
       let activeIdx = -1;
       const c = captions.find((c, i) => { if (t >= c.start && t < c.end) { activeIdx = i; return true; } return false; });
       if (!c) { overlay.style.display = 'none'; if (lessonId != null) highlightVideoPhrase(lessonId, -1); return; }
-      const txt = c[state.uiLang] || c.fr || c.en || c.ar || '';
-      overlay.textContent = txt;
+      const parts = ['<span class="cap-line cap-fr" dir="ltr">' + esc(c.fr) + '</span>',
+                     '<span class="cap-line cap-ar" dir="rtl">' + esc(c.ar) + '</span>',
+                     '<span class="cap-line cap-en" dir="ltr">' + esc(c.en) + '</span>'].filter(s => !s.includes('></span>'));
+      overlay.innerHTML = parts.join('<br>');
       overlay.style.display = 'block';
-      overlay.dir = state.uiLang === 'ar' ? 'rtl' : 'ltr';
       if (lessonId != null) highlightVideoPhrase(lessonId, activeIdx);
     };
     video.addEventListener('timeupdate', update);
