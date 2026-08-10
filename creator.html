@@ -1917,22 +1917,12 @@
       '</div>';
     app.appendChild(controls);
 
-    var hint = document.createElement('div');
-    hint.className = 'bulk-hint';
-    hint.innerHTML = icon('info') + '<span dir="ltr">00:00 Bonjour | مرحبا | Hello</span>';
-    app.appendChild(hint);
-
     var phrasesDiv = document.createElement('div');
     phrasesDiv.id = 'phrases-list';
     lesson.phrases.forEach(function (p, idx) {
       phrasesDiv.appendChild(createPhraseCard(lesson, p, idx));
     });
     app.appendChild(phrasesDiv);
-
-    var addFooter = document.createElement('div');
-    addFooter.className = 'btn-row';
-    addFooter.innerHTML = '<button class="btn" id="btn-add-phrase">' + iconText('addPhrase', 'plus') + '</button>';
-    app.appendChild(addFooter);
 
     var bulk = document.createElement('div');
     bulk.className = 'card';
@@ -1954,7 +1944,8 @@
   }
 
   function bulkCardHTML(inputId, btnId) {
-    return '<div class="field-label-row">' +
+    return '<div class="bulk-hint" style="margin:0 0 0.6rem;">' + icon('info') + '<span dir="ltr">00:00 Bonjour | مرحبا | Hello</span></div>' +
+      '<div class="field-label-row">' +
         '<span class="field-label" data-t="bulkAddLabel"></span>' +
         '<button class="icon-btn clear-bulk" data-t-title="clear">' + icon('close') + '</button>' +
       '</div>' +
@@ -2021,7 +2012,6 @@
   function bindEditorEvents(lesson) {
     var backBtn = document.getElementById('btn-back');
     if (backBtn) backBtn.onclick = function () { stopSpeech(); if (lesson && lesson.folderId) openFolder(lesson.folderId); else setView('lessons'); };
-    document.getElementById('btn-add-phrase').onclick = function () { addPhrase(lesson); };
     document.getElementById('btn-bulk-add').onclick = function () { addBulkPhrases(lesson, 'bulk-input'); };
     document.getElementById('btn-play-all').onclick = function () { playLesson(lesson); };
     document.getElementById('btn-stop-lesson').onclick = stopAllMedia;
