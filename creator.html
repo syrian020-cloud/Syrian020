@@ -160,11 +160,37 @@
   .video-box { position: relative; }
   .video-player-wrap { position: relative; display: block; }
   .video-box video { width: 100%; max-height: 60vh; border-radius: 18px; display: block; background: #000; object-fit: contain; }
-  .video-subtitle-overlay { position: absolute; bottom: 0.7rem; left: 0.7rem; right: 0.7rem; background: rgba(15, 23, 42, 0.88); color: #e2e8f0; padding: 0.7rem 1rem; border-radius: 18px; text-align: center; pointer-events: none; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .video-subtitle-overlay { position: absolute; bottom: 0.7rem; left: 0.7rem; right: 0.7rem; background: rgba(15, 23, 42, 0.88); color: #e2e8f0; padding: 0.7rem 1rem; border-radius: 18px; text-align: center; pointer-events: none; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: background .2s, color .2s, border-radius .2s; }
   .video-subtitle-hidden { display: none; }
   .video-subtitle-fr { font-weight: 700; font-size: 1.1rem; color: #fff; margin-bottom: 0.25rem; }
   .video-subtitle-ar { direction: rtl; text-align: right; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 0.15rem; }
   .video-subtitle-en { font-style: italic; color: #94a3b8; font-size: 0.9rem; }
+  .video-subtitle-overlay.bg-0 { background: rgba(15, 23, 42, 0.88); }
+  .video-subtitle-overlay.bg-1 { background: linear-gradient(90deg, rgba(185,28,28,0.95), rgba(220,38,38,0.85)); border-radius: 0 12px 12px 0; text-align: left; border-left: 4px solid #fca5a5; }
+  .video-subtitle-overlay.bg-1 .video-subtitle-fr, .video-subtitle-overlay.bg-1 .video-subtitle-ar, .video-subtitle-overlay.bg-1 .video-subtitle-en { color: #fff; }
+  .video-subtitle-overlay.bg-2 { background: rgba(255,255,255,0.82); color: #0f172a; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .video-subtitle-overlay.bg-2 .video-subtitle-fr { color: #0f172a; }
+  .video-subtitle-overlay.bg-2 .video-subtitle-ar { color: #334155; }
+  .video-subtitle-overlay.bg-2 .video-subtitle-en { color: #64748b; }
+  .video-subtitle-overlay.bg-3 { background: linear-gradient(135deg, rgba(236,72,153,0.92), rgba(168,85,247,0.92), rgba(59,130,246,0.92)); border: 2px solid rgba(255,255,255,0.4); }
+  .video-subtitle-overlay.bg-3 .video-subtitle-fr, .video-subtitle-overlay.bg-3 .video-subtitle-ar, .video-subtitle-overlay.bg-3 .video-subtitle-en { color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+  .video-subtitle-overlay.bg-4 { background: transparent; padding: 0.5rem; }
+  .video-subtitle-overlay.bg-4 .video-subtitle-fr { color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.8); font-size: 1.35rem; }
+  .video-subtitle-overlay.bg-4 .video-subtitle-ar { color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+  .video-subtitle-overlay.bg-4 .video-subtitle-en { color: #e2e8f0; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+  .video-subtitle-overlay.bg-5 { background: #facc15; border-radius: 12px; transform: rotate(-1deg); }
+  .video-subtitle-overlay.bg-5 .video-subtitle-fr, .video-subtitle-overlay.bg-5 .video-subtitle-ar, .video-subtitle-overlay.bg-5 .video-subtitle-en { color: #000; }
+  .video-subtitle-overlay.bg-6 { background: rgba(239,68,68,0.95); border: 2px solid #fff; border-radius: 4px; }
+  .video-subtitle-overlay.bg-6 .video-subtitle-fr, .video-subtitle-overlay.bg-6 .video-subtitle-ar, .video-subtitle-overlay.bg-6 .video-subtitle-en { color: #fff; }
+  .video-subtitle-overlay.bg-7 { background: rgba(15,23,42,0.9); border-left: 6px solid #38bdf8; text-align: left; border-radius: 0 18px 18px 0; }
+  .video-subtitle-overlay.bg-7 .video-subtitle-fr { color: #38bdf8; }
+  .video-subtitle-overlay.bg-7 .video-subtitle-ar { color: #e2e8f0; }
+  .video-subtitle-overlay.bg-7 .video-subtitle-en { color: #94a3b8; }
+  .video-subtitle-overlay.bg-8 { background: #fff; border-radius: 24px 24px 0 24px; }
+  .video-subtitle-overlay.bg-8 .video-subtitle-fr, .video-subtitle-overlay.bg-8 .video-subtitle-ar { color: #0f172a; }
+  .video-subtitle-overlay.bg-8 .video-subtitle-en { color: #64748b; }
+  .video-subtitle-overlay.bg-9 { background: linear-gradient(0deg, rgba(0,0,0,0.85), transparent); bottom: auto; top: 0.7rem; border-radius: 18px 18px 0 0; }
+  .video-subtitle-overlay.bg-9 .video-subtitle-fr, .video-subtitle-overlay.bg-9 .video-subtitle-ar, .video-subtitle-overlay.bg-9 .video-subtitle-en { color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
   .srt-input { width: 100%; min-height: 5.5rem; border-radius: 16px; padding: 0.7rem; border: 1px solid #cbd5e1; background: #fff; color: #0f172a; font-size: 0.95rem; margin-bottom: 0.5rem; resize: vertical; }
   .transcript-box { max-height: 320px; overflow-y: auto; border: 1px solid #334155; border-radius: 18px; background: #0b1220; padding: 0.5rem; margin-top: 0.7rem; }
   .transcript-line { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.6rem; border-bottom: 1px solid #1e293b; cursor: pointer; transition: background .12s; border-radius: 12px; }
@@ -382,6 +408,17 @@
     createPhrasesFromSubtitles: { ar: 'إنشاء عبارات من الترجمة', en: 'Create phrases from subtitles', fr: 'Créer des phrases depuis les sous-titres' },
     noSubtitles: { ar: 'لا توجد ترجمة مستوردة.', en: 'No subtitles imported.', fr: 'Aucun sous-titre importé.' },
     videoLoop: { ar: 'تكرار مقطع الفيديو', en: 'Loop video segment', fr: 'Boucler le segment vidéo' },
+    videoBackground: { ar: 'خلفية الفيديو', en: 'Video background', fr: 'Fond vidéo' },
+    bg0: { ar: 'زجاجي داكن', en: 'Dark glass', fr: 'Verre sombre' },
+    bg1: { ar: 'إخباري', en: 'News', fr: 'Actualités' },
+    bg2: { ar: 'عصري', en: 'Modern', fr: 'Moderne' },
+    bg3: { ar: 'ممتع', en: 'Fun', fr: 'Amusant' },
+    bg4: { ar: 'بسيط', en: 'Simple', fr: 'Simple' },
+    bg5: { ar: 'كوميدي', en: 'Comic', fr: 'Comique' },
+    bg6: { ar: 'عاجل', en: 'Breaking', fr: 'Urgent' },
+    bg7: { ar: 'مجلة', en: 'Magazine', fr: 'Magazine' },
+    bg8: { ar: 'فقاعة', en: 'Bubble', fr: 'Bulle' },
+    bg9: { ar: 'مظلم علوي', en: 'Dark top', fr: 'Haut sombre' },
     removeMedia: { ar: 'إزالة الوسائط', en: 'Remove media', fr: 'Supprimer le média' },
     drawPhrase: { ar: 'رسم العبارة', en: 'Draw phrase', fr: 'Dessiner la phrase' },
     pen: { ar: 'قلم', en: 'Pen', fr: 'Stylo' },
@@ -880,6 +917,15 @@
     document.querySelectorAll('video').forEach(function (v) { v.playbackRate = r; });
   }
 
+  function subtitleBgOptions(lesson) {
+    var current = lesson.subtitleBg || 0;
+    var html = '';
+    for (var i = 0; i < 10; i++) {
+      html += '<option value="' + i + '"' + (current === i ? ' selected' : '') + '>' + esc(t('bg' + i)) + '</option>';
+    }
+    return html;
+  }
+
   function parseTimeToSeconds(str) {
     if (typeof str !== 'string' || !str.trim()) return null;
     str = str.trim().replace(',', '.').replace('،', '.');
@@ -950,10 +996,11 @@
     if (!box) return;
     if (!lesson.videoMediaId) { box.innerHTML = ''; box.classList.add('hidden'); return; }
     box.classList.remove('hidden');
+    var bgClass = 'bg-' + (lesson.subtitleBg || 0);
     box.innerHTML =
       '<div class="video-player-wrap">' +
         '<video id="lesson-video" controls playsinline></video>' +
-        '<div id="video-subtitle" class="video-subtitle-overlay video-subtitle-hidden">' +
+        '<div id="video-subtitle" class="video-subtitle-overlay video-subtitle-hidden ' + bgClass + '">' +
           '<div class="video-subtitle-fr"></div>' +
           '<div class="video-subtitle-ar"></div>' +
           '<div class="video-subtitle-en"></div>' +
@@ -1900,6 +1947,10 @@
       '<button class="btn" id="btn-play-all">' + iconText('playAll', 'play') + '</button>' +
       '<button class="btn ghost" id="btn-stop-lesson">' + iconText('stopAll', 'stop') + '</button>' +
       '<div class="rate-control">' +
+        '<span class="rate-label" data-t="videoBackground"></span>' +
+        '<select id="video-bg" class="input play-mode-select" style="width:auto;min-width:7.5rem;font-size:0.85rem;padding:0.35rem 0.6rem;">' + subtitleBgOptions(lesson) + '</select>' +
+      '</div>' +
+      '<div class="rate-control">' +
         '<span class="rate-label" data-t="speechRate"></span>' +
         '<input type="range" id="rate-slider" min="0.5" max="2" step="0.1" value="' + state.rate + '">' +
         '<span class="rate-value" id="rate-value">' + state.rate.toFixed(1) + 'x</span>' +
@@ -2018,6 +2069,19 @@
     document.getElementById('btn-bulk-add').onclick = function () { addBulkPhrases(lesson, 'bulk-input'); };
     document.getElementById('btn-play-all').onclick = function () { playLesson(lesson); };
     document.getElementById('btn-stop-lesson').onclick = stopAllMedia;
+
+    var bgSelect = document.getElementById('video-bg');
+    if (bgSelect) {
+      bgSelect.onchange = function () {
+        lesson.subtitleBg = Number(bgSelect.value) || 0;
+        saveCurrentLesson();
+        var overlay = document.getElementById('video-subtitle');
+        if (overlay) {
+          for (var i = 0; i < 10; i++) overlay.classList.remove('bg-' + i);
+          overlay.classList.add('bg-' + lesson.subtitleBg);
+        }
+      };
+    }
 
     var rateSlider = document.getElementById('rate-slider');
     var rateValue = document.getElementById('rate-value');
