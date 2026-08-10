@@ -195,10 +195,11 @@
   .video-subtitle-overlay.bg-2 .video-subtitle-en { color: #64748b; }
   .video-subtitle-overlay.bg-3 { background: linear-gradient(135deg, rgba(236,72,153,0.92), rgba(168,85,247,0.92), rgba(59,130,246,0.92)); border: 2px solid rgba(255,255,255,0.4); }
   .video-subtitle-overlay.bg-3 .video-subtitle-fr, .video-subtitle-overlay.bg-3 .video-subtitle-ar, .video-subtitle-overlay.bg-3 .video-subtitle-en { color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
-  .video-subtitle-overlay.bg-4 { background: transparent; padding: 0.5rem; }
-  .video-subtitle-overlay.bg-4 .video-subtitle-fr { color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.8); font-size: 1.35rem; }
-  .video-subtitle-overlay.bg-4 .video-subtitle-ar { color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
-  .video-subtitle-overlay.bg-4 .video-subtitle-en { color: #e2e8f0; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+  .video-subtitle-overlay.bg-4 { background: rgba(255,255,255,0.96); border: 2px solid rgba(255,255,255,0.9); border-radius: 24px; color: #0f172a; position: relative; overflow: visible; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+  .video-subtitle-overlay.bg-4::after { content: ''; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); border-width: 12px 12px 0; border-style: solid; border-color: rgba(255,255,255,0.96) transparent transparent transparent; }
+  .video-subtitle-overlay.bg-4 .video-subtitle-fr { color: #0f172a; font-size: 1.15rem; }
+  .video-subtitle-overlay.bg-4 .video-subtitle-ar { color: #334155; }
+  .video-subtitle-overlay.bg-4 .video-subtitle-en { color: #64748b; }
   .video-subtitle-overlay.bg-5 { background: #facc15; border-radius: 12px; transform: rotate(-1deg); }
   .video-subtitle-overlay.bg-5 .video-subtitle-fr, .video-subtitle-overlay.bg-5 .video-subtitle-ar, .video-subtitle-overlay.bg-5 .video-subtitle-en { color: #000; }
   .video-subtitle-overlay.bg-6 { background: rgba(239,68,68,0.95); border: 2px solid #fff; border-radius: 4px; }
@@ -210,8 +211,9 @@
   .video-subtitle-overlay.bg-8 { background: #fff; border-radius: 24px 24px 0 24px; }
   .video-subtitle-overlay.bg-8 .video-subtitle-fr, .video-subtitle-overlay.bg-8 .video-subtitle-ar { color: #0f172a; }
   .video-subtitle-overlay.bg-8 .video-subtitle-en { color: #64748b; }
-  .video-subtitle-overlay.bg-9 { background: linear-gradient(0deg, rgba(0,0,0,0.85), transparent); bottom: auto; top: 0.7rem; border-radius: 18px 18px 0 0; }
-  .video-subtitle-overlay.bg-9 .video-subtitle-fr, .video-subtitle-overlay.bg-9 .video-subtitle-ar, .video-subtitle-overlay.bg-9 .video-subtitle-en { color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+  .video-subtitle-overlay.bg-9 { background: linear-gradient(180deg, rgba(56,189,248,0.95), rgba(168,85,247,0.95)); border: 2px solid rgba(255,255,255,0.35); border-radius: 28px; color: #fff; position: relative; overflow: visible; box-shadow: 0 12px 35px rgba(0,0,0,0.3); }
+  .video-subtitle-overlay.bg-9::after { content: ''; position: absolute; bottom: -14px; left: 50%; transform: translateX(-50%); border-width: 14px 14px 0; border-style: solid; border-color: rgba(168,85,247,0.95) transparent transparent transparent; }
+  .video-subtitle-overlay.bg-9 .video-subtitle-fr, .video-subtitle-overlay.bg-9 .video-subtitle-ar, .video-subtitle-overlay.bg-9 .video-subtitle-en { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
   .video-subtitle-overlay.font-0, .video-subtitle-overlay.font-0 .video-subtitle-fr, .video-subtitle-overlay.font-0 .video-subtitle-ar, .video-subtitle-overlay.font-0 .video-subtitle-en { font-family: 'Noto Sans Arabic','Tajawal','Segoe UI',Tahoma,system-ui,sans-serif; }
   .video-subtitle-overlay.font-1, .video-subtitle-overlay.font-1 .video-subtitle-fr, .video-subtitle-overlay.font-1 .video-subtitle-ar, .video-subtitle-overlay.font-1 .video-subtitle-en { font-family: 'Roboto','Noto Sans Arabic',sans-serif; }
   .video-subtitle-overlay.font-2, .video-subtitle-overlay.font-2 .video-subtitle-fr, .video-subtitle-overlay.font-2 .video-subtitle-ar, .video-subtitle-overlay.font-2 .video-subtitle-en { font-family: Georgia,'Amiri',serif; }
@@ -447,12 +449,12 @@
     bg1: { ar: 'إخباري', en: 'News', fr: 'Actualités' },
     bg2: { ar: 'عصري', en: 'Modern', fr: 'Moderne' },
     bg3: { ar: 'ممتع', en: 'Fun', fr: 'Amusant' },
-    bg4: { ar: 'بسيط', en: 'Simple', fr: 'Simple' },
+    bg4: { ar: 'فقاعة بيضاء', en: 'White bubble', fr: 'Bulle blanche' },
     bg5: { ar: 'كوميدي', en: 'Comic', fr: 'Comique' },
     bg6: { ar: 'عاجل', en: 'Breaking', fr: 'Urgent' },
     bg7: { ar: 'مجلة', en: 'Magazine', fr: 'Magazine' },
     bg8: { ar: 'فقاعة', en: 'Bubble', fr: 'Bulle' },
-    bg9: { ar: 'مظلم علوي', en: 'Dark top', fr: 'Haut sombre' },
+    bg9: { ar: 'فقاعة جميلة', en: 'Beautiful bubble', fr: 'Belle bulle' },
     videoFont: { ar: 'خط الفيديو', en: 'Video font', fr: 'Police vidéo' },
     font0: { ar: 'افتراضي', en: 'Default', fr: 'Défaut' },
     font1: { ar: 'عصري', en: 'Modern', fr: 'Moderne' },
