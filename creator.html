@@ -127,7 +127,7 @@
   .study-lang-row[data-lang="ar"] .study-lang-text { text-align: right; direction: rtl; }
   .study-lang-row[data-lang="en"] .study-lang-text { font-style: italic; color: var(--text-secondary); }
   .study-overlay .media-box { margin: 0.5rem 0 0; }
-  .study-video { width: 100%; border-radius: 18px; background: #000; margin-bottom: 1rem; }
+  .study-video { width: 100%; max-height: 70vh; border-radius: 18px; background: #000; margin-bottom: 1rem; object-fit: contain; }
   .study-transcript { display: flex; flex-direction: column; gap: 0.7rem; }
   .study-entry { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px; padding: 0.8rem; }
   .study-entry.active { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(20,184,166,0.4); }
@@ -157,7 +157,7 @@
   .video-dialog-card { background: linear-gradient(135deg, #0f172a, #1e293b); color: #e2e8f0; border: 1px solid #334155; border-radius: 28px; padding: 1rem; margin-bottom: 1.25rem; }
   .video-dialog-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 0.6rem; color: #fff; }
   .video-upload-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; }
-  .video-box video { width: 100%; border-radius: 18px; display: block; background: #000; }
+  .video-box video { width: 100%; max-height: 60vh; border-radius: 18px; display: block; background: #000; object-fit: contain; }
   .srt-input { width: 100%; min-height: 5.5rem; border-radius: 16px; padding: 0.7rem; border: 1px solid #cbd5e1; background: #fff; color: #0f172a; font-size: 0.95rem; margin-bottom: 0.5rem; resize: vertical; }
   .transcript-box { max-height: 320px; overflow-y: auto; border: 1px solid #334155; border-radius: 18px; background: #0b1220; padding: 0.5rem; margin-top: 0.7rem; }
   .transcript-line { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.6rem; border-bottom: 1px solid #1e293b; cursor: pointer; transition: background .12s; border-radius: 12px; }
@@ -1834,11 +1834,9 @@
         '<label class="btn">' + iconText('uploadVideo', 'image') + '<input type="file" id="lesson-video-file" accept="video/*" class="hidden"></label>' +
         '<button class="btn ghost" id="btn-remove-lesson-video" data-t-title="removeMedia">' + icon('trash') + '</button>' +
       '</div>' +
-      '<div class="video-box" id="lesson-video-box"></div>' +
-      '<div class="transcript-box" id="transcript-box"></div>';
+      '<div class="video-box" id="lesson-video-box"></div>';
     app.appendChild(videoCard);
     renderVideoPreview(lesson);
-    renderTranscript(lesson);
 
     var controls = document.createElement('div');
     controls.className = 'btn-row';
@@ -1846,7 +1844,6 @@
       '<button class="btn ghost" id="btn-back">' + icon('back') + '</button>' +
       '<button class="btn" id="btn-play-all">' + iconText('playAll', 'play') + '</button>' +
       '<button class="btn ghost" id="btn-stop-lesson">' + iconText('stopAll', 'stop') + '</button>' +
-      '<button class="btn" id="btn-study">' + iconText('studyPhrase', 'study') + '</button>' +
       '<div class="rate-control">' +
         '<span class="rate-label" data-t="speechRate"></span>' +
         '<input type="range" id="rate-slider" min="0.5" max="2" step="0.1" value="' + state.rate + '">' +
@@ -1965,8 +1962,6 @@
     document.getElementById('btn-bulk-add').onclick = function () { addBulkPhrases(lesson); };
     document.getElementById('btn-play-all').onclick = function () { playLesson(lesson); };
     document.getElementById('btn-stop-lesson').onclick = stopAllMedia;
-    var studyBtn = document.getElementById('btn-study');
-    if (studyBtn) studyBtn.onclick = function () { openLessonStudy(lesson); };
 
     var rateSlider = document.getElementById('rate-slider');
     var rateValue = document.getElementById('rate-value');
