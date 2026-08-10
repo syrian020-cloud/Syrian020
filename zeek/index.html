@@ -1318,25 +1318,39 @@
   async function toggleLoop(phrase, key) {
     if (state.loop && state.loop.key === key) { stopSpeech(); return; }
     const video = getVideoForPhrase(key);
-    if (video && typeof phrase.start === 'number' && typeof phrase.end === 'number') {
-      stopSpeech();
-      if (loopTimer) { clearInterval(loopTimer); loopTimer = null; }
-      state.loop = { key, type: 'video', start: phrase.start, end: phrase.end };
-      refreshButtons();
-      const seekToStart = () => {
-        try { video.currentTime = phrase.start; } catch (e) {}
-      };
-      if (video.readyState >= 1) seekToStart();
-      else video.addEventListener('loadedmetadata', seekToStart, { once: true });
-      try { await video.play(); } catch (e) {}
-      loopTimer = setInterval(() => {
-        if (!state.loop || state.loop.key !== key) { clearInterval(loopTimer); loopTimer = null; return; }
-        if (video.currentTime >= phrase.end || video.currentTime < phrase.start - 0.1) {
-          video.currentTime = phrase.start;
-          try { video.play(); } catch (e) {}
-        }
-      }, 200);
+    if (!video) return;
+    let start = phrase.start, end = phrase.end;
+    if ((typeof start !== 'number' || typeof end !== 'number') && key) {
+      const [lessonId, idx] = key.split('.').map(Number);
+      const found = findLesson(lessonId);
+      if (found && found.lesson.captionText) {
+        const caps = parseCaptions(found.lesson.captionText);
+        const c = caps[idx];
+        if (c) { start = c.start; end = c.end; }
+      }
     }
+    if (typeof start !== 'number' || typeof end !== 'number') return;
+    stopSpeech();
+    if (loopTimer) { clearInterval(loopTimer); loopTimer = null; }
+    state.loop = { key, type: 'video', start, end };
+    refreshButtons();
+    const seekAndPlay = () => {
+      try { video.currentTime = start; } catch (e) {}
+      try { video.play(); } catch (e) {}
+    };
+    if (video.readyState >= 1) seekAndPlay();
+    else {
+      video.addEventListener('loadedmetadata', seekAndPlay, { once: true });
+      try { video.play(); } catch (e) {}
+    }
+    loopTimer = setInterval(() => {
+      if (!state.loop || state.loop.key !== key) { clearInterval(loopTimer); loopTimer = null; return; }
+      if (video.paused) { try { video.play(); } catch (e) {} }
+      if (video.currentTime >= end || video.currentTime < start - 0.1) {
+        video.currentTime = start;
+        try { video.play(); } catch (e) {}
+      }
+    }, 200);
   }
 
   async function toggleLangLoop(lang, key) {
