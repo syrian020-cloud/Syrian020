@@ -208,12 +208,22 @@
   }
   .loop-lang:hover { border-color: var(--accent); color: var(--accent); }
   .loop-lang.active { background: var(--success); color: #081c15; border-color: var(--success); }
-  .fr {
+  .line.fr:not(.active):not(.synced) {
     direction: ltr; text-align: left; font-size: 1.13rem; font-weight: 700;
-    color: #111; word-wrap: break-word;
+    color: #2e1065; word-wrap: break-word;
+    background: #ede9fe; border-color: #ddd6fe;
+    font-family: 'Poppins', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
   }
-  .ar { direction: rtl; text-align: right; font-size: 1.05rem; color: #111; }
-  .en { direction: ltr; text-align: left; color: #111; font-size: 0.98rem; }
+  .line.ar:not(.active):not(.synced) {
+    direction: rtl; text-align: right; font-size: 1.06rem;
+    color: #881337; background: #ffe4e6; border-color: #fecdd3;
+    font-family: 'Noto Naskh Arabic', 'Amiri', 'Droid Arabic Naskh', 'Tahoma', 'Arial', sans-serif;
+  }
+  .line.en:not(.active):not(.synced) {
+    direction: ltr; text-align: left; color: #064e3b; font-size: 0.98rem;
+    background: #d1fae5; border-color: #a7f3d0;
+    font-family: 'Inter', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+  }
   .word { cursor: pointer; border-radius: 4px; padding: 0.05rem 0.12rem; margin: -0.05rem -0.12rem; transition: background 0.15s; -webkit-tap-highlight-color: transparent; }
   .word:hover { background: rgba(139,92,246,0.12); }
   .word.active { background: rgba(52,211,153,0.18); }
