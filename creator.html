@@ -688,8 +688,8 @@
     renderLessonEditor();
   }
 
-  function addBulkPhrases(lesson) {
-    var el = document.getElementById('bulk-input');
+  function addBulkPhrases(lesson, inputId) {
+    var el = document.getElementById(inputId || 'bulk-input');
     if (!el) return;
     var text = el.value || '';
     var timedEntries = [];
@@ -875,6 +875,11 @@
     return (m < 10 ? '0' : '') + m + ':' + (sec < 10 ? '0' : '') + sec + '.' + (ms < 100 ? '0' : '') + (ms < 10 ? '0' : '') + ms;
   }
 
+  function setVideoRate(rate) {
+    var r = rate || 1;
+    document.querySelectorAll('video').forEach(function (v) { v.playbackRate = r; });
+  }
+
   function parseTimeToSeconds(str) {
     if (typeof str !== 'string' || !str.trim()) return null;
     str = str.trim().replace(',', '.').replace('،', '.');
@@ -958,6 +963,7 @@
       var video = document.getElementById('lesson-video');
       if (!video || !url) return;
       video.src = url;
+      video.playbackRate = state.rate || 1;
       bindVideoPlayer(lesson);
     });
   }
@@ -1137,6 +1143,7 @@
         state.rate = Number(rateInput.value);
         localStorage.setItem('creator_rate', state.rate);
         if (rateValue) rateValue.textContent = state.rate.toFixed(1) + 'x';
+        setVideoRate(state.rate);
         var mainSlider = document.getElementById('rate-slider');
         var mainVal = document.getElementById('rate-value');
         if (mainSlider) mainSlider.value = state.rate;
@@ -1178,7 +1185,7 @@
         var el = document.createElement(isVideo ? 'video' : 'img');
         el.className = 'media-preview';
         el.src = url;
-        if (isVideo) { el.controls = true; el.loop = !!phrase.videoLoop; }
+        if (isVideo) { el.controls = true; el.loop = !!phrase.videoLoop; el.playbackRate = state.rate || 1; }
         box.appendChild(el);
       });
     } else {
@@ -1231,6 +1238,7 @@
         state.rate = Number(rateInput.value);
         localStorage.setItem('creator_rate', state.rate);
         if (rateValue) rateValue.textContent = state.rate.toFixed(1) + 'x';
+        setVideoRate(state.rate);
       };
     }
 
@@ -1325,6 +1333,7 @@
         video.controls = true;
         video.playsInline = true;
         video.src = url;
+        video.playbackRate = state.rate || 1;
         box.appendChild(video);
         video.ontimeupdate = function () {
           var time = video.currentTime;
@@ -1915,16 +1924,7 @@
 
     var bulk = document.createElement('div');
     bulk.className = 'card';
-    bulk.innerHTML =
-      '<div class="field-label-row">' +
-        '<span class="field-label" data-t="bulkAddLabel"></span>' +
-        '<button class="icon-btn clear-bulk" data-t-title="clear">' + icon('close') + '</button>' +
-      '</div>' +
-      '<textarea class="textarea" id="bulk-input" dir="auto" rows="3" placeholder="00:00 Bonjour | مرحبا | Hello\nBonjour | مرحبا | Hello">' +
-      '</textarea>' +
-      '<div class="btn-row" style="margin-top:0.6rem">' +
-        '<button class="btn" id="btn-bulk-add">' + iconText('bulkAddButton', 'plus') + '</button>' +
-      '</div>';
+    bulk.innerHTML = bulkCardHTML('bulk-input', 'btn-bulk-add');
     app.appendChild(bulk);
 
     var phrasesDiv = document.createElement('div');
@@ -1939,6 +1939,11 @@
     addFooter.innerHTML = '<button class="btn" id="btn-add-phrase">' + iconText('addPhrase', 'plus') + '</button>';
     app.appendChild(addFooter);
 
+    var bulkEnd = document.createElement('div');
+    bulkEnd.className = 'card';
+    bulkEnd.innerHTML = bulkCardHTML('bulk-input-end', 'btn-bulk-add-end');
+    app.appendChild(bulkEnd);
+
     bindEditorEvents(lesson);
     renderMediaPreviews();
     applyTranslations();
@@ -1951,6 +1956,17 @@
       '<button class="icon-btn loop-line" data-lang="' + lang + '" data-t-title="loop">' + icon('loop') + '</button>' +
       '<button class="icon-btn search-line" data-lang="' + lang + '" data-t-title="googleSearch">' + icon('ai') + '</button>' +
     '</div>';
+  }
+
+  function bulkCardHTML(inputId, btnId) {
+    return '<div class="field-label-row">' +
+        '<span class="field-label" data-t="bulkAddLabel"></span>' +
+        '<button class="icon-btn clear-bulk" data-t-title="clear">' + icon('close') + '</button>' +
+      '</div>' +
+      '<textarea class="textarea" id="' + inputId + '" dir="auto" rows="3" placeholder="00:00 Bonjour | مرحبا | Hello\nBonjour | مرحبا | Hello"></textarea>' +
+      '<div class="btn-row" style="margin-top:0.6rem">' +
+        '<button class="btn btn-bulk-add" data-input="' + inputId + '" id="' + btnId + '">' + iconText('bulkAddButton', 'plus') + '</button>' +
+      '</div>';
   }
 
   function editorLineHTML(lang, text, dir, phraseId, showVideoLoop) {
@@ -2011,7 +2027,8 @@
     var backBtn = document.getElementById('btn-back');
     if (backBtn) backBtn.onclick = function () { stopSpeech(); if (lesson && lesson.folderId) openFolder(lesson.folderId); else setView('lessons'); };
     document.getElementById('btn-add-phrase').onclick = function () { addPhrase(lesson); };
-    document.getElementById('btn-bulk-add').onclick = function () { addBulkPhrases(lesson); };
+    document.getElementById('btn-bulk-add').onclick = function () { addBulkPhrases(lesson, 'bulk-input'); };
+    document.getElementById('btn-bulk-add-end').onclick = function () { addBulkPhrases(lesson, 'bulk-input-end'); };
     document.getElementById('btn-play-all').onclick = function () { playLesson(lesson); };
     document.getElementById('btn-stop-lesson').onclick = stopAllMedia;
 
@@ -2022,6 +2039,7 @@
         state.rate = Number(rateSlider.value);
         localStorage.setItem('creator_rate', state.rate);
         if (rateValue) rateValue.textContent = state.rate.toFixed(1) + 'x';
+        setVideoRate(state.rate);
       };
     }
 
@@ -2085,7 +2103,8 @@
       var btn = e.target.closest('button');
       if (!btn) return;
       if (btn.classList.contains('clear-bulk')) {
-        var bulkInput = document.getElementById('bulk-input');
+        var bulkCard = btn.closest('.card');
+        var bulkInput = bulkCard ? bulkCard.querySelector('textarea') : null;
         if (bulkInput) bulkInput.value = '';
         return;
       }
@@ -2324,6 +2343,7 @@
         el.controls = true;
         el.playsInline = true;
         el.loop = !!phrase.videoLoop;
+        el.playbackRate = state.rate || 1;
       } else {
         el = document.createElement('img');
       }
