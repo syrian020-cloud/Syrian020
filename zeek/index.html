@@ -210,19 +210,13 @@
   .loop-lang.active { background: var(--success); color: #081c15; border-color: var(--success); }
   .line.fr:not(.active):not(.synced) {
     direction: ltr; text-align: left; font-size: 1.13rem; font-weight: 700;
-    color: #2e1065; word-wrap: break-word;
-    background: #ede9fe; border-color: #ddd6fe;
-    font-family: 'Poppins', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+    color: #111; word-wrap: break-word;
   }
   .line.ar:not(.active):not(.synced) {
-    direction: rtl; text-align: right; font-size: 1.06rem;
-    color: #881337; background: #ffe4e6; border-color: #fecdd3;
-    font-family: 'Noto Naskh Arabic', 'Amiri', 'Droid Arabic Naskh', 'Tahoma', 'Arial', sans-serif;
+    direction: rtl; text-align: right; font-size: 1.05rem; color: #111;
   }
   .line.en:not(.active):not(.synced) {
-    direction: ltr; text-align: left; color: #064e3b; font-size: 0.98rem;
-    background: #d1fae5; border-color: #a7f3d0;
-    font-family: 'Inter', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+    direction: ltr; text-align: left; color: #111; font-size: 0.98rem;
   }
   .word { cursor: pointer; border-radius: 4px; padding: 0.05rem 0.12rem; margin: -0.05rem -0.12rem; transition: background 0.15s; -webkit-tap-highlight-color: transparent; }
   .word:hover { background: rgba(139,92,246,0.12); }
@@ -256,10 +250,11 @@
   .phrase-media img, .phrase-media video, .phrase-media iframe { display: block; width: 100%; max-height: 320px; object-fit: contain; background: #000; }
   .phrase-media iframe { height: 240px; }
   .phrase-media video { max-height: 360px; }
-  .caption-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.88); color: #fff; padding: 0.55rem 0.75rem; font-size: 0.9rem; text-align: center; line-height: 1.55; z-index: 2; pointer-events: none; border-top: 1px solid rgba(255,255,255,0.12); }
-  .cap-line { display: block; }
-  .cap-fr { font-weight: 700; }
-  .cap-ar { direction: rtl; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  .caption-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.82); padding: 0.55rem 0.75rem; font-size: 0.9rem; text-align: center; line-height: 1.65; z-index: 2; pointer-events: none; border-top: 1px solid rgba(255,255,255,0.12); }
+  .cap-line { display: inline-block; padding: 0.18rem 0.65rem; margin: 0.12rem 0; border-radius: 8px; font-weight: 600; }
+  .cap-fr { background: #ede9fe; color: #2e1065; font-family: 'Poppins', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; }
+  .cap-ar { direction: rtl; background: #ffe4e6; color: #881337; font-family: 'Noto Naskh Arabic', 'Amiri', 'Droid Arabic Naskh', 'Tahoma', 'Arial', sans-serif; }
+  .cap-en { background: #d1fae5; color: #064e3b; font-family: 'Inter', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; }
   .no-lessons { text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); }
   .no-lessons .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
   .no-lessons .card-title { color: var(--text-primary); margin-bottom: 0.3rem; }
