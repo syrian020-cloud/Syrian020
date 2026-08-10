@@ -217,6 +217,12 @@
   .phrase-editors { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.75rem; }
   .phrase-card:not(.editing) .phrase-editors { display: none; }
   .phrase-card.editing .phrase-body { display: none; }
+  .editor-line { display: flex; align-items: center; gap: 0.4rem; }
+  .editor-line .textarea { flex: 1; }
+  .editor-line .icon-btn { padding: 0.3rem; font-size: 0.85rem; }
+  .editor-line .icon-btn.video-loop { color: #38bdf8; }
+  .editor-line .icon-btn.video-loop.active { background: #38bdf8; border-color: #38bdf8; color: #0f172a; }
+  .bulk-hint { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; padding: 0 0.2rem; }
   .textarea[data-field="fr"] { font-size: 1.15rem; font-weight: 700; }
   .textarea[data-field="ar"] { font-family: 'Noto Sans Arabic', 'Tajawal', 'Segoe UI', Tahoma, system-ui, sans-serif; font-size: 1.1rem; font-weight: 600; text-align: right; direction: rtl; }
   .textarea[data-field="en"] { font-size: 1rem; font-weight: 500; }
@@ -443,6 +449,7 @@
       volume: 'M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z',
       loop: 'M12 5.25c1.213 0 2.415.046 3.605.135a3.256 3.256 0 0 1 3.01 3.01c.044.583.077 1.17.1 1.759L17.03 8.47a.75.75 0 1 0-1.06 1.06l3 3a.75.75 0 0 0 1.06 0l3-3a.75.75 0 0 0-1.06-1.06l-1.752 1.751c-.023-.65-.06-1.296-.108-1.939a4.756 4.756 0 0 0-4.392-4.392 49.422 49.422 0 0 0-7.436 0A4.756 4.756 0 0 0 3.89 8.282c-.017.224-.033.447-.046.672a.75.75 0 1 0 1.497.092c.013-.217.028-.434.044-.651a3.256 3.256 0 0 1 3.01-3.01c1.19-.09 2.392-.135 3.605-.135Zm-6.97 6.22a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.752-1.751c.023.65.06 1.296.108 1.939a4.756 4.756 0 0 0 4.392 4.392 49.413 49.413 0 0 0 7.436 0 4.756 4.756 0 0 0 4.392-4.392c.017-.223.032-.447.046-.672a.75.75 0 0 0-1.497-.092c-.013.217-.028.434-.044.651a3.256 3.256 0 0 1-3.01 3.01 47.953 47.953 0 0 1-7.21 0 3.256 3.256 0 0 1-3.01-3.01 47.759 47.759 0 0 1-.1-1.759L6.97 15.53a.75.75 0 0 0 1.06-1.06l-3-3Z',
       videoLoop: 'M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3',
+      info: 'M12 2.25c5.385 0 9.75 4.365 9.75 9.75s-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12 6.615 2.25 12 2.25Zm-1.5 5.25a1.5 1.5 0 0 1 3 0 1.5 1.5 0 0 1-3 0Zm1.5 3.75v3a.75.75 0 0 1-1.5 0V11.25a.75.75 0 0 1 1.5 0Z',
       trash: 'M16.5 4.478v.227a48.816 48.816 0 0 1 3.878.512.75.75 0 1 1-.256 1.478l-.209-.035-1.005 13.07a3 3 0 0 1-2.991 2.77H8.084a3 3 0 0 1-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 0 1-.256-1.478A48.567 48.567 0 0 1 7.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 0 1 3.369 0c1.603.051 2.815 1.387 2.815 2.951Zm-6.136-1.452a51.196 51.196 0 0 1 3.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 0 0-6 0v-.113c0-.794.609-1.428 1.364-1.452Zm-.355 5.945a.75.75 0 1 0-1.5.058l.347 9a.75.75 0 1 0 1.499-.058l-.346-9Zm5.48.058a.75.75 0 1 0-1.498-.058l-.347 9a.75.75 0 0 0 1.5.058l.345-9Z',
       up: 'M11.47 7.72a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 1 1-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 0 1-1.06-1.06l7.5-7.5Z',
       down: 'M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z',
@@ -1901,6 +1908,11 @@
       '</div>';
     app.appendChild(controls);
 
+    var hint = document.createElement('div');
+    hint.className = 'bulk-hint';
+    hint.innerHTML = icon('info') + '<span dir="ltr">00:00 Bonjour | مرحبا | Hello</span>';
+    app.appendChild(hint);
+
     var bulk = document.createElement('div');
     bulk.className = 'card';
     bulk.innerHTML =
@@ -1941,6 +1953,15 @@
     '</div>';
   }
 
+  function editorLineHTML(lang, text, dir, phraseId, showVideoLoop) {
+    return '<div class="editor-line" data-lang="' + lang + '" dir="' + dir + '">' +
+      (showVideoLoop ? '<button class="icon-btn video-loop" data-t-title="videoLoop">' + icon('videoLoop') + '</button>' : '') +
+      '<textarea class="textarea" data-field="' + lang + '" dir="' + dir + '" placeholder="' + (lang === 'fr' ? 'Bonjour' : lang === 'ar' ? 'مرحبا' : 'Hello') + '">' + esc(text || '') + '</textarea>' +
+      '<button class="icon-btn loop-line" data-lang="' + lang + '" data-t-title="loop">' + icon('loop') + '</button>' +
+      '<button class="icon-btn search-line" data-lang="' + lang + '" data-t-title="googleSearch">' + icon('ai') + '</button>' +
+    '</div>';
+  }
+
   function createPhraseCard(lesson, p, idx) {
     var editing = !!p.editing;
     var hasVideoLoop = (lesson.videoMediaId && typeof p.start === 'number' && typeof p.end === 'number');
@@ -1965,9 +1986,9 @@
         lineHTML('en', p.en, 'ltr', p.id, false) +
       '</div>' +
       '<div class="phrase-editors">' +
-        '<textarea class="textarea" dir="ltr" data-field="fr" placeholder="Bonjour">' + esc(p.fr || '') + '</textarea>' +
-        '<textarea class="textarea" dir="rtl" data-field="ar" placeholder="مرحبا">' + esc(p.ar || '') + '</textarea>' +
-        '<textarea class="textarea" dir="ltr" data-field="en" placeholder="Hello">' + esc(p.en || '') + '</textarea>' +
+        editorLineHTML('fr', p.fr, 'ltr', p.id, hasVideoLoop) +
+        editorLineHTML('ar', p.ar, 'rtl', p.id, false) +
+        editorLineHTML('en', p.en, 'ltr', p.id, false) +
       '</div>' +
       '<div class="media-box hidden" id="media-box-' + p.id + '">' +
         '<div class="media-placeholder" data-t="noMedia"></div>' +
@@ -2084,9 +2105,15 @@
       } else if (btn.classList.contains('speak-line')) {
         speakLine(phrase, lineLang, phraseId);
       } else if (btn.classList.contains('loop-line')) {
-        toggleLoop(phrase, phraseId + ':' + lineLang, [lineLang]);
+        var phraseCopy = Object.assign({}, phrase);
+        var editorLine = btn.closest('.editor-line');
+        var editorTA = editorLine ? editorLine.querySelector('textarea[data-field="' + lineLang + '"]') : null;
+        if (editorTA) phraseCopy[lineLang] = editorTA.value;
+        toggleLoop(phraseCopy, phraseId + ':' + lineLang, [lineLang]);
       } else if (btn.classList.contains('search-line')) {
-        var query = (phrase[lineLang] || '').trim();
+        var editorLine2 = btn.closest('.editor-line');
+        var editorTA2 = editorLine2 ? editorLine2.querySelector('textarea[data-field="' + lineLang + '"]') : null;
+        var query = (editorTA2 ? editorTA2.value : phrase[lineLang] || '').trim();
         if (query) openSearch(query, lineLang);
       } else if (btn.classList.contains('loop-media')) {
         phrase.videoLoop = !phrase.videoLoop;
