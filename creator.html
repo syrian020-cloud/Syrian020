@@ -127,7 +127,7 @@
   .study-lang-row[data-lang="ar"] .study-lang-text { text-align: right; direction: rtl; }
   .study-lang-row[data-lang="en"] .study-lang-text { font-style: italic; color: var(--text-secondary); }
   .study-overlay .media-box { margin: 0.5rem 0 0; }
-  .study-video { width: 100%; max-height: 70vh; border-radius: 18px; background: #000; margin-bottom: 1rem; object-fit: contain; }
+  .study-video { aspect-ratio: 9 / 16; width: auto; max-width: 100%; max-height: 75vh; border-radius: 18px; background: #000; margin: 0 auto 1rem; display: block; object-fit: contain; }
   .study-transcript { display: flex; flex-direction: column; gap: 0.7rem; }
   .study-entry { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px; padding: 0.8rem; }
   .study-entry.active { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(20,184,166,0.4); }
@@ -158,8 +158,8 @@
   .video-dialog-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 0.6rem; color: #fff; }
   .video-upload-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; }
   .video-box { position: relative; }
-  .video-player-wrap { position: relative; display: block; }
-  .video-box video { width: 100%; max-height: 60vh; border-radius: 18px; display: block; background: #000; object-fit: contain; }
+  .video-player-wrap { position: relative; display: block; width: fit-content; margin: 0 auto; }
+  .video-box video { aspect-ratio: 9 / 16; width: auto; max-width: 100%; max-height: 75vh; border-radius: 18px; display: block; margin: 0 auto; background: #000; object-fit: contain; }
   .video-subtitle-overlay { position: absolute; bottom: 0.7rem; left: 0.7rem; right: 0.7rem; background: rgba(15, 23, 42, 0.88); color: #e2e8f0; padding: 0.7rem 1rem; border-radius: 18px; text-align: center; pointer-events: none; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: background .2s, color .2s, border-radius .2s; }
   .video-subtitle-hidden { display: none; }
   .video-subtitle-fr { font-weight: 700; font-size: 1.1rem; color: #fff; margin-bottom: 0.25rem; }
