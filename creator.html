@@ -157,7 +157,14 @@
   .video-dialog-card { background: linear-gradient(135deg, #0f172a, #1e293b); color: #e2e8f0; border: 1px solid #334155; border-radius: 28px; padding: 1rem; margin-bottom: 1.25rem; }
   .video-dialog-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 0.6rem; color: #fff; }
   .video-upload-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; }
+  .video-box { position: relative; }
+  .video-player-wrap { position: relative; display: block; }
   .video-box video { width: 100%; max-height: 60vh; border-radius: 18px; display: block; background: #000; object-fit: contain; }
+  .video-subtitle-overlay { position: absolute; bottom: 0.7rem; left: 0.7rem; right: 0.7rem; background: rgba(15, 23, 42, 0.88); color: #e2e8f0; padding: 0.7rem 1rem; border-radius: 18px; text-align: center; pointer-events: none; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  .video-subtitle-hidden { display: none; }
+  .video-subtitle-fr { font-weight: 700; font-size: 1.1rem; color: #fff; margin-bottom: 0.25rem; }
+  .video-subtitle-ar { direction: rtl; text-align: right; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 0.15rem; }
+  .video-subtitle-en { font-style: italic; color: #94a3b8; font-size: 0.9rem; }
   .srt-input { width: 100%; min-height: 5.5rem; border-radius: 16px; padding: 0.7rem; border: 1px solid #cbd5e1; background: #fff; color: #0f172a; font-size: 0.95rem; margin-bottom: 0.5rem; resize: vertical; }
   .transcript-box { max-height: 320px; overflow-y: auto; border: 1px solid #334155; border-radius: 18px; background: #0b1220; padding: 0.5rem; margin-top: 0.7rem; }
   .transcript-line { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.6rem; border-bottom: 1px solid #1e293b; cursor: pointer; transition: background .12s; border-radius: 12px; }
@@ -928,7 +935,15 @@
     if (!box) return;
     if (!lesson.videoMediaId) { box.innerHTML = ''; box.classList.add('hidden'); return; }
     box.classList.remove('hidden');
-    box.innerHTML = '<video id="lesson-video" controls playsinline></video>';
+    box.innerHTML =
+      '<div class="video-player-wrap">' +
+        '<video id="lesson-video" controls playsinline></video>' +
+        '<div id="video-subtitle" class="video-subtitle-overlay video-subtitle-hidden">' +
+          '<div class="video-subtitle-fr"></div>' +
+          '<div class="video-subtitle-ar"></div>' +
+          '<div class="video-subtitle-en"></div>' +
+        '</div>' +
+      '</div>';
     getMediaUrl(lesson.videoMediaId).then(function (url) {
       var video = document.getElementById('lesson-video');
       if (!video || !url) return;
@@ -947,17 +962,38 @@
         var end = Number(el.dataset.end);
         el.classList.toggle('active', time >= start && time < end);
       });
+      updateVideoSubtitle(lesson, time);
       if (state.videoLoopSegment) {
         if (time >= state.videoLoopSegment.end) { video.currentTime = state.videoLoopSegment.start; video.play(); }
       } else if (state.videoLoopLine) {
-        var active = document.querySelector('.transcript-line.active');
+        var active = document.querySelector('.transcript-line.active') || getActiveTimedEntry(lesson, time);
         if (active) {
-          var start = Number(active.dataset.start);
-          var end = Number(active.dataset.end);
+          var start = Number(active.dataset ? active.dataset.start : active.start);
+          var end = Number(active.dataset ? active.dataset.end : active.end);
           if (time >= end) { video.currentTime = start; video.play(); }
         }
       }
     };
+  }
+
+  function getActiveTimedEntry(lesson, time) {
+    var list = (lesson.phrases || []).concat(lesson.transcript || []);
+    for (var i = 0; i < list.length; i++) {
+      var e = list[i];
+      if (typeof e.start === 'number' && typeof e.end === 'number' && time >= e.start && time < e.end) return e;
+    }
+    return null;
+  }
+
+  function updateVideoSubtitle(lesson, time) {
+    var overlay = document.getElementById('video-subtitle');
+    if (!overlay) return;
+    var entry = getActiveTimedEntry(lesson, time);
+    if (!entry) { overlay.classList.add('video-subtitle-hidden'); return; }
+    overlay.querySelector('.video-subtitle-fr').textContent = entry.fr || '';
+    overlay.querySelector('.video-subtitle-ar').textContent = entry.ar || '';
+    overlay.querySelector('.video-subtitle-en').textContent = entry.en || '';
+    overlay.classList.remove('video-subtitle-hidden');
   }
 
   function renderTranscript(lesson) {
