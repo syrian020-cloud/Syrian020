@@ -71,6 +71,7 @@
   body.app-font-7 { font-family: 'Courier New',Courier,monospace; }
   body.app-font-8 { font-family: Poppins,'Tajawal',sans-serif; }
   body.app-font-9 { font-family: Nunito,'Noto Sans Arabic',sans-serif; }
+  body.app-font-10 { font-family: 'Noto Sans Arabic','Tajawal','Segoe UI',Tahoma,system-ui,sans-serif; }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; }
   body {
@@ -221,6 +222,7 @@
   .video-subtitle-overlay.font-7, .video-subtitle-overlay.font-7 .video-subtitle-fr, .video-subtitle-overlay.font-7 .video-subtitle-ar, .video-subtitle-overlay.font-7 .video-subtitle-en { font-family: 'Courier New',Courier,monospace; }
   .video-subtitle-overlay.font-8, .video-subtitle-overlay.font-8 .video-subtitle-fr, .video-subtitle-overlay.font-8 .video-subtitle-ar, .video-subtitle-overlay.font-8 .video-subtitle-en { font-family: Poppins,'Tajawal',sans-serif; }
   .video-subtitle-overlay.font-9, .video-subtitle-overlay.font-9 .video-subtitle-fr, .video-subtitle-overlay.font-9 .video-subtitle-ar, .video-subtitle-overlay.font-9 .video-subtitle-en { font-family: Nunito,'Noto Sans Arabic',sans-serif; }
+  .video-subtitle-overlay.font-10, .video-subtitle-overlay.font-10 .video-subtitle-fr, .video-subtitle-overlay.font-10 .video-subtitle-ar, .video-subtitle-overlay.font-10 .video-subtitle-en { font-family: 'Noto Sans Arabic','Tajawal','Segoe UI',Tahoma,system-ui,sans-serif; }
   .srt-input { width: 100%; min-height: 5.5rem; border-radius: 16px; padding: 0.7rem; border: 1px solid #cbd5e1; background: #fff; color: #0f172a; font-size: 0.95rem; margin-bottom: 0.5rem; resize: vertical; }
   .transcript-box { max-height: 320px; overflow-y: auto; border: 1px solid #334155; border-radius: 18px; background: #0b1220; padding: 0.5rem; margin-top: 0.7rem; }
   .transcript-line { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.6rem; border-bottom: 1px solid #1e293b; cursor: pointer; transition: background .12s; border-radius: 12px; }
@@ -462,6 +464,7 @@
     font7: { ar: 'آلة كاتبة', en: 'Typewriter', fr: 'Machine à écrire' },
     font8: { ar: 'أنيق', en: 'Elegant', fr: 'Élégant' },
     font9: { ar: 'مدوّر', en: 'Rounded', fr: 'Arrondi' },
+    font10: { ar: 'الخط الافتراضي القديم', en: 'Old default', fr: 'Ancienne police par défaut' },
     removeMedia: { ar: 'إزالة الوسائط', en: 'Remove media', fr: 'Supprimer le média' },
     drawPhrase: { ar: 'رسم العبارة', en: 'Draw phrase', fr: 'Dessiner la phrase' },
     pen: { ar: 'قلم', en: 'Pen', fr: 'Stylo' },
@@ -972,7 +975,7 @@
   function subtitleFontOptions(lesson) {
     var current = state.appFont || 0;
     var html = '';
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 11; i++) {
       html += '<option value="' + i + '"' + (current === i ? ' selected' : '') + '>' + esc(t('font' + i)) + '</option>';
     }
     return html;
@@ -984,11 +987,12 @@
       for (var i = 0; i < 10; i++) app.classList.remove('theme-' + i);
       app.classList.add('theme-' + (state.appBg || 0));
     }
-    for (var j = 0; j < 10; j++) document.body.classList.remove('app-font-' + j);
+    for (var j = 0; j < 11; j++) document.body.classList.remove('app-font-' + j);
     document.body.classList.add('app-font-' + (state.appFont || 0));
     var overlay = document.getElementById('video-subtitle');
     if (overlay) {
-      for (var k = 0; k < 10; k++) overlay.classList.remove('bg-' + k, 'font-' + k);
+      for (var k = 0; k < 10; k++) overlay.classList.remove('bg-' + k);
+      for (var f = 0; f < 11; f++) overlay.classList.remove('font-' + f);
       overlay.classList.add('bg-' + (state.appBg || 0), 'font-' + (state.appFont || 0));
     }
   }
