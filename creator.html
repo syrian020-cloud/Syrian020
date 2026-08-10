@@ -52,6 +52,25 @@
     --shadow-sm: 0 4px 12px rgba(15,23,42,0.05);
     --glow: rgba(13,148,136,0.35);
   }
+  #app.theme-1 { --bg-primary: #fff7ed; --bg-secondary: #ffffff; --bg-tertiary: #ffedd5; --text-primary: #7c2d12; --text-secondary: #9a3412; --accent: #ea580c; --accent-hover: #c2410c; --border: rgba(124,45,18,0.10); --glow: rgba(234,88,12,0.35); }
+  #app.theme-2 { --bg-primary: #f0fdf4; --bg-secondary: #ffffff; --bg-tertiary: #dcfce7; --text-primary: #14532d; --text-secondary: #166534; --accent: #16a34a; --accent-hover: #15803d; --border: rgba(20,83,45,0.10); --glow: rgba(22,163,74,0.35); }
+  #app.theme-3 { --bg-primary: #f0f9ff; --bg-secondary: #ffffff; --bg-tertiary: #e0f2fe; --text-primary: #0c4a6e; --text-secondary: #075985; --accent: #0284c7; --accent-hover: #0369a1; --border: rgba(12,74,110,0.10); --glow: rgba(2,132,199,0.35); }
+  #app.theme-4 { --bg-primary: #faf5ff; --bg-secondary: #ffffff; --bg-tertiary: #f3e8ff; --text-primary: #581c87; --text-secondary: #6b21a8; --accent: #9333ea; --accent-hover: #7e22ce; --border: rgba(88,28,135,0.10); --glow: rgba(147,51,234,0.35); }
+  #app.theme-5 { --bg-primary: #fefce8; --bg-secondary: #ffffff; --bg-tertiary: #fef9c3; --text-primary: #713f12; --text-secondary: #854d0e; --accent: #ca8a04; --accent-hover: #a16207; --border: rgba(113,63,18,0.10); --glow: rgba(202,138,4,0.35); }
+  #app.theme-6 { --bg-primary: #042f2e; --bg-secondary: #115e59; --bg-tertiary: #134e4a; --text-primary: #ccfbf1; --text-secondary: #99f6e4; --accent: #2dd4bf; --accent-hover: #14b8a6; --border: rgba(204,251,241,0.12); --glow: rgba(45,212,191,0.45); }
+  #app.theme-7 { --bg-primary: #0f172a; --bg-secondary: #1e293b; --bg-tertiary: #334155; --text-primary: #e2e8f0; --text-secondary: #94a3b8; --accent: #38bdf8; --accent-hover: #0ea5e9; --border: rgba(226,232,240,0.12); --glow: rgba(56,189,248,0.45); }
+  #app.theme-8 { --bg-primary: #2e1065; --bg-secondary: #4c1d95; --bg-tertiary: #5b21b6; --text-primary: #f3e8ff; --text-secondary: #d8b4fe; --accent: #a855f7; --accent-hover: #9333ea; --border: rgba(243,232,255,0.12); --glow: rgba(168,85,247,0.45); }
+  #app.theme-9 { --bg-primary: #881337; --bg-secondary: #9f1239; --bg-tertiary: #be123c; --text-primary: #ffe4e6; --text-secondary: #fecdd3; --accent: #fb7185; --accent-hover: #f43f5e; --border: rgba(255,228,230,0.12); --glow: rgba(251,113,133,0.45); }
+  body.app-font-0 { font-family: 'Inter','Noto Sans Arabic','Tajawal',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+  body.app-font-1 { font-family: 'Roboto','Noto Sans Arabic',sans-serif; }
+  body.app-font-2 { font-family: Georgia,'Amiri',serif; }
+  body.app-font-3 { font-family: 'Segoe UI','Noto Sans Arabic',Tahoma,sans-serif; }
+  body.app-font-4 { font-family: 'Times New Roman','Amiri',serif; }
+  body.app-font-5 { font-family: Impact,'Arial','Tahoma',sans-serif; }
+  body.app-font-6 { font-family: 'Comic Sans MS','Noto Sans Arabic','Tajawal',cursive; }
+  body.app-font-7 { font-family: 'Courier New',Courier,monospace; }
+  body.app-font-8 { font-family: Poppins,'Tajawal',sans-serif; }
+  body.app-font-9 { font-family: Nunito,'Noto Sans Arabic',sans-serif; }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; }
   body {
@@ -61,6 +80,7 @@
     line-height: 1.6;
     padding-bottom: 3rem;
   }
+  #app { min-height: 100vh; background: var(--bg-primary); transition: background .2s; }
   header { position: sticky; top: 0; z-index: 60; background: rgba(15,23,42,0.9); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
   [data-theme="light"] header { background: rgba(255,255,255,0.86); }
   .header-inner { max-width: 960px; margin: 0 auto; padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
@@ -386,6 +406,8 @@
     uiLang: localStorage.getItem('creator_ui_lang') || 'ar',
     theme: localStorage.getItem('creator_theme') || 'light',
     rate: Number(localStorage.getItem('creator_rate')) || 1,
+    appBg: Number(localStorage.getItem('creator_app_bg')) || 0,
+    appFont: Number(localStorage.getItem('creator_app_font')) || 0,
     fontSize: Number(localStorage.getItem('creator_font_size')) || 100,
     lessonLoopMode: localStorage.getItem('creator_loop_mode') || 'all',
     loopKey: null,
@@ -939,7 +961,7 @@
   }
 
   function subtitleBgOptions(lesson) {
-    var current = lesson.subtitleBg || 0;
+    var current = state.appBg || 0;
     var html = '';
     for (var i = 0; i < 10; i++) {
       html += '<option value="' + i + '"' + (current === i ? ' selected' : '') + '>' + esc(t('bg' + i)) + '</option>';
@@ -948,12 +970,27 @@
   }
 
   function subtitleFontOptions(lesson) {
-    var current = lesson.subtitleFont || 0;
+    var current = state.appFont || 0;
     var html = '';
     for (var i = 0; i < 10; i++) {
       html += '<option value="' + i + '"' + (current === i ? ' selected' : '') + '>' + esc(t('font' + i)) + '</option>';
     }
     return html;
+  }
+
+  function applyAppTheme() {
+    var app = document.getElementById('app');
+    if (app) {
+      for (var i = 0; i < 10; i++) app.classList.remove('theme-' + i);
+      app.classList.add('theme-' + (state.appBg || 0));
+    }
+    for (var j = 0; j < 10; j++) document.body.classList.remove('app-font-' + j);
+    document.body.classList.add('app-font-' + (state.appFont || 0));
+    var overlay = document.getElementById('video-subtitle');
+    if (overlay) {
+      for (var k = 0; k < 10; k++) overlay.classList.remove('bg-' + k, 'font-' + k);
+      overlay.classList.add('bg-' + (state.appBg || 0), 'font-' + (state.appFont || 0));
+    }
   }
 
   function parseTimeToSeconds(str) {
@@ -1026,8 +1063,8 @@
     if (!box) return;
     if (!lesson.videoMediaId) { box.innerHTML = ''; box.classList.add('hidden'); return; }
     box.classList.remove('hidden');
-    var bgClass = 'bg-' + (lesson.subtitleBg || 0);
-    var fontClass = 'font-' + (lesson.subtitleFont || 0);
+    var bgClass = 'bg-' + (state.appBg || 0);
+    var fontClass = 'font-' + (state.appFont || 0);
     box.innerHTML =
       '<div class="video-player-wrap">' +
         '<video id="lesson-video" controls playsinline></video>' +
@@ -1669,6 +1706,7 @@
     if (state.view === 'lesson') renderLessonEditor();
     else if (state.view === 'folder') renderFolder();
     else renderLessonList();
+    applyAppTheme();
   }
 
   function renderLessonCard(l, i) {
@@ -2108,26 +2146,18 @@
     var bgSelect = document.getElementById('video-bg');
     if (bgSelect) {
       bgSelect.onchange = function () {
-        lesson.subtitleBg = Number(bgSelect.value) || 0;
-        saveCurrentLesson();
-        var overlay = document.getElementById('video-subtitle');
-        if (overlay) {
-          for (var i = 0; i < 10; i++) overlay.classList.remove('bg-' + i);
-          overlay.classList.add('bg-' + lesson.subtitleBg);
-        }
+        state.appBg = Number(bgSelect.value) || 0;
+        localStorage.setItem('creator_app_bg', state.appBg);
+        applyAppTheme();
       };
     }
 
     var fontSelect = document.getElementById('video-font');
     if (fontSelect) {
       fontSelect.onchange = function () {
-        lesson.subtitleFont = Number(fontSelect.value) || 0;
-        saveCurrentLesson();
-        var overlay = document.getElementById('video-subtitle');
-        if (overlay) {
-          for (var i = 0; i < 10; i++) overlay.classList.remove('font-' + i);
-          overlay.classList.add('font-' + lesson.subtitleFont);
-        }
+        state.appFont = Number(fontSelect.value) || 0;
+        localStorage.setItem('creator_app_font', state.appFont);
+        applyAppTheme();
       };
     }
 
@@ -2789,6 +2819,7 @@
   function init() {
     applyTheme();
     applyFontSize();
+    applyAppTheme();
     setUILang(state.uiLang);
 
     document.getElementById('btn-theme').onclick = function () {
