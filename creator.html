@@ -143,6 +143,23 @@
   .draw-canvas-wrap { flex: 1; position: relative; min-height: 0; overflow: hidden; }
   .draw-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; touch-action: none; background: #fff; cursor: crosshair; }
 
+  .video-dialog-card { background: linear-gradient(135deg, #0f172a, #1e293b); color: #e2e8f0; border: 1px solid #334155; border-radius: 28px; padding: 1rem; margin-bottom: 1.25rem; }
+  .video-dialog-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 0.6rem; color: #fff; }
+  .video-upload-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; }
+  .video-box video { width: 100%; border-radius: 18px; display: block; background: #000; }
+  .srt-input { width: 100%; min-height: 5.5rem; border-radius: 16px; padding: 0.7rem; border: 1px solid #cbd5e1; background: #fff; color: #0f172a; font-size: 0.95rem; margin-bottom: 0.5rem; resize: vertical; }
+  .transcript-box { max-height: 320px; overflow-y: auto; border: 1px solid #334155; border-radius: 18px; background: #0b1220; padding: 0.5rem; margin-top: 0.7rem; }
+  .transcript-line { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.6rem; border-bottom: 1px solid #1e293b; cursor: pointer; transition: background .12s; border-radius: 12px; }
+  .transcript-line:last-child { border-bottom: none; }
+  .transcript-line:hover, .transcript-line.active { background: #162032; }
+  .transcript-time { font-family: monospace; font-size: 0.78rem; color: #94a3b8; min-width: 6.5rem; }
+  .transcript-texts { flex: 1; display: flex; flex-direction: column; gap: 0.25rem; }
+  .transcript-fr { font-weight: 700; color: #fff; }
+  .transcript-ar { direction: rtl; text-align: right; color: #cbd5e1; font-size: 0.95rem; }
+  .transcript-en { color: #94a3b8; font-size: 0.9rem; font-style: italic; }
+  .transcript-loop { color: #38bdf8; }
+  .transcript-loop.active { background: #38bdf8; border-color: #38bdf8; color: #0f172a; }
+
   .card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 28px; padding: 1.25rem; margin-bottom: 1rem; box-shadow: var(--shadow-sm); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: transform .12s, box-shadow .15s, border-color .15s; }
   .card:hover { box-shadow: 0 8px 24px rgba(20,184,166,0.15); border-color: rgba(20,184,166,0.25); }
   .card-title { font-weight: 800; font-size: 1.08rem; margin-bottom: 0.3rem; }
@@ -219,6 +236,8 @@
   .phrase-num { color: var(--accent); font-size: 0.9rem; font-weight: 900; }
   .phrase-actions { margin-left: auto; display: flex; gap: 0.45rem; }
   .phrase-actions .icon-btn { padding: 0.45rem 0.6rem; font-size: 0.92rem; border-radius: 12px; }
+  .phrase-actions .icon-btn.video-loop { color: #38bdf8; }
+  .phrase-actions .icon-btn.video-loop.active { background: #38bdf8; border-color: #38bdf8; color: #0f172a; }
 
   .media-box { background: var(--bg-tertiary); border: 2px dashed var(--border); border-radius: 20px; padding: 1rem; text-align: center; margin: 0.85rem 0; transition: border-color .15s, background .15s; }
   .media-box.has-media { border-style: solid; border-color: var(--success); padding: 0; overflow: hidden; background: #000; }
@@ -308,6 +327,8 @@
     fontSize: Number(localStorage.getItem('creator_font_size')) || 100,
     lessonLoopMode: localStorage.getItem('creator_loop_mode') || 'all',
     loopKey: null,
+    videoLoopLine: null,
+    videoLoopSegment: null,
     mediaUrls: {}, // mediaId -> objectUrl
     saveTimer: null
   };
@@ -328,6 +349,13 @@
     phraseAr: { ar: 'الترجمة العربية', en: 'Arabic translation', fr: 'Traduction arabe' },
     phraseEn: { ar: 'الترجمة الإنجليزية', en: 'English translation', fr: 'Traduction anglaise' },
     attachMedia: { ar: 'صورة / فيديو', en: 'Image / video', fr: 'Image / vidéo' },
+    videoDialog: { ar: 'حوار الفيديو', en: 'Video dialog', fr: 'Dialogue vidéo' },
+    uploadVideo: { ar: 'رفع فيديو', en: 'Upload video', fr: 'Télécharger la vidéo' },
+    importSubtitles: { ar: 'استيراد الترجمة (SRT)', en: 'Import subtitles (SRT)', fr: 'Importer les sous-titres (SRT)' },
+    subtitlePlaceholder: { ar: '00:00 نص فرنسي | نص عربي | English text', en: '00:00 French text | Arabic text | English text', fr: '00:00 Texte français | Texte arabe | Texte anglais' },
+    createPhrasesFromSubtitles: { ar: 'إنشاء عبارات من الترجمة', en: 'Create phrases from subtitles', fr: 'Créer des phrases depuis les sous-titres' },
+    noSubtitles: { ar: 'لا توجد ترجمة مستوردة.', en: 'No subtitles imported.', fr: 'Aucun sous-titre importé.' },
+    videoLoop: { ar: 'تكرار مقطع الفيديو', en: 'Loop video segment', fr: 'Boucler le segment vidéo' },
     removeMedia: { ar: 'إزالة الوسائط', en: 'Remove media', fr: 'Supprimer le média' },
     drawPhrase: { ar: 'رسم العبارة', en: 'Draw phrase', fr: 'Dessiner la phrase' },
     pen: { ar: 'قلم', en: 'Pen', fr: 'Stylo' },
@@ -585,6 +613,7 @@
       lesson.phrases.forEach(function (p) { if (p.mediaId) deleteMedia(p.mediaId); });
     }
     if (lesson.coverMediaId) deleteMedia(lesson.coverMediaId);
+    if (lesson.videoMediaId) deleteMedia(lesson.videoMediaId);
     state.lessons = state.lessons.filter(function (l) { return l.id !== id; });
     dbDel('lessons', id).then(render);
   }
@@ -802,6 +831,165 @@
         console.error('Media download failed', e);
         toast(t('mediaDownloadFailed'));
       });
+  }
+
+  function formatTime(s) {
+    if (!isFinite(s) || s < 0) s = 0;
+    var m = Math.floor(s / 60);
+    var sec = Math.floor(s % 60);
+    var ms = Math.floor((s % 1) * 1000);
+    return (m < 10 ? '0' : '') + m + ':' + (sec < 10 ? '0' : '') + sec + '.' + (ms < 100 ? '0' : '') + (ms < 10 ? '0' : '') + ms;
+  }
+
+  function parseTimeToSeconds(str) {
+    if (typeof str !== 'string' || !str.trim()) return null;
+    str = str.trim().replace(',', '.').replace('،', '.');
+    var parts = str.split(':').map(Number);
+    if (parts.length === 2) return parts[0] * 60 + parts[1];
+    if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+    if (parts.length === 1) return parts[0];
+    return null;
+  }
+
+  function parseTimedText(text) {
+    var lines = (text || '').split(/\r?\n/);
+    var entries = [];
+    lines.forEach(function (line) {
+      line = line.trim();
+      if (!line) return;
+      var m = line.match(/^([\d:.،,]+)\s+(.+)$/);
+      if (!m) return;
+      var start = parseTimeToSeconds(m[1]);
+      if (start === null || isNaN(start)) return;
+      var parts = m[2].split('|').map(function (s) { return s.trim(); });
+      var fr = parts[0] || '';
+      var ar = parts[1] || '';
+      var en = parts[2] || '';
+      entries.push({ id: uuid(), start: start, end: start + 2, fr: fr, ar: ar, en: en });
+    });
+    for (var i = 0; i < entries.length - 1; i++) {
+      entries[i].end = Math.min(entries[i + 1].start - 0.05, entries[i].start + 4);
+    }
+    return entries;
+  }
+
+  function parseSRT(text) {
+    var blocks = (text || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n').split(/\n\s*\n/);
+    var entries = [];
+    blocks.forEach(function (block) {
+      var lines = block.split('\n').map(function (s) { return s.trim(); }).filter(Boolean);
+      if (lines.length < 2) return;
+      var timeLine = '';
+      var textStart = 1;
+      for (var i = 0; i < lines.length; i++) {
+        if (lines[i].indexOf('-->') !== -1) { timeLine = lines[i]; textStart = i + 1; break; }
+      }
+      if (!timeLine) return;
+      var match = timeLine.match(/([\d:.،,]+)\s*-->\s*([\d:.،,]+)/);
+      if (!match) return;
+      var start = parseTimeToSeconds(match[1]);
+      var end = parseTimeToSeconds(match[2]);
+      if (start === null || end === null) return;
+      var body = lines.slice(textStart).join(' ');
+      var parts = body.split('|').map(function (s) { return s.trim(); });
+      var fr = parts[0] || '';
+      var ar = parts[1] || '';
+      var en = parts[2] || '';
+      entries.push({ id: uuid(), start: start, end: end, fr: fr, ar: ar, en: en });
+    });
+    return entries;
+  }
+
+  function parseSubtitles(text) {
+    if (!text || !text.trim()) return [];
+    if (text.indexOf('-->') !== -1) return parseSRT(text);
+    return parseTimedText(text);
+  }
+
+  function renderVideoPreview(lesson) {
+    var box = document.getElementById('lesson-video-box');
+    if (!box) return;
+    if (!lesson.videoMediaId) { box.innerHTML = ''; box.classList.add('hidden'); return; }
+    box.classList.remove('hidden');
+    box.innerHTML = '<video id="lesson-video" controls playsinline></video>';
+    getMediaUrl(lesson.videoMediaId).then(function (url) {
+      var video = document.getElementById('lesson-video');
+      if (!video || !url) return;
+      video.src = url;
+      bindVideoPlayer(lesson);
+    });
+  }
+
+  function bindVideoPlayer(lesson) {
+    var video = document.getElementById('lesson-video');
+    if (!video) return;
+    video.ontimeupdate = function () {
+      var time = video.currentTime;
+      document.querySelectorAll('.transcript-line').forEach(function (el) {
+        var start = Number(el.dataset.start);
+        var end = Number(el.dataset.end);
+        el.classList.toggle('active', time >= start && time < end);
+      });
+      if (state.videoLoopSegment) {
+        if (time >= state.videoLoopSegment.end) { video.currentTime = state.videoLoopSegment.start; video.play(); }
+      } else if (state.videoLoopLine) {
+        var active = document.querySelector('.transcript-line.active');
+        if (active) {
+          var start = Number(active.dataset.start);
+          var end = Number(active.dataset.end);
+          if (time >= end) { video.currentTime = start; video.play(); }
+        }
+      }
+    };
+  }
+
+  function renderTranscript(lesson) {
+    var box = document.getElementById('transcript-box');
+    if (!box) return;
+    if (!lesson.transcript || !lesson.transcript.length) {
+      box.innerHTML = '<div class="hint" data-t="noSubtitles"></div>';
+      applyTranslations();
+      return;
+    }
+    box.innerHTML = '<div class="transcript-list">' + lesson.transcript.map(function (entry) {
+      var active = state.videoLoopLine === entry.id ? ' active' : '';
+      return '<div class="transcript-line' + active + '" data-id="' + entry.id + '" data-start="' + entry.start + '" data-end="' + entry.end + '">' +
+        '<span class="transcript-time">' + formatTime(entry.start) + ' – ' + formatTime(entry.end) + '</span>' +
+        '<span class="transcript-texts">' +
+          '<span class="transcript-fr">' + esc(entry.fr) + '</span>' +
+          '<span class="transcript-ar">' + esc(entry.ar) + '</span>' +
+          '<span class="transcript-en">' + esc(entry.en) + '</span>' +
+        '</span>' +
+        '<button class="icon-btn transcript-loop" data-t-title="videoLoop">' + icon('loop') + '</button>' +
+      '</div>';
+    }).join('') + '</div>';
+    applyTranslations();
+    bindTranscriptEvents(lesson);
+  }
+
+  function bindTranscriptEvents(lesson) {
+    var video = document.getElementById('lesson-video');
+    document.querySelectorAll('.transcript-line').forEach(function (line) {
+      line.onclick = function (e) {
+        if (e.target.closest('button')) return;
+        var start = Number(line.dataset.start);
+        if (video && !isNaN(start)) { video.currentTime = start; video.play(); }
+      };
+    });
+    document.querySelectorAll('.transcript-loop').forEach(function (btn) {
+      btn.onclick = function (e) {
+        e.stopPropagation();
+        var line = btn.closest('.transcript-line');
+        var id = line.dataset.id;
+        if (state.videoLoopLine === id) { state.videoLoopLine = null; } else { state.videoLoopLine = id; }
+        if (video) {
+          var start = Number(line.dataset.start);
+          video.currentTime = start;
+          video.play();
+        }
+        renderTranscript(lesson);
+      };
+    });
   }
 
   function nativeAppLauncher() {
@@ -1465,6 +1653,29 @@
     var lessonIndex = state.lessons.findIndex(function (l) { return l.id === lesson.id; }) + 1;
     app.innerHTML = '<div class="hero"><h1 data-t="appName"></h1><p>' + esc(t('lesson') + ' ' + lessonIndex + ' · ' + lesson.phrases.length + ' ' + t('phrases')) + '</p></div>';
 
+    var videoCard = document.createElement('div');
+    videoCard.className = 'video-dialog-card';
+    videoCard.id = 'video-dialog-card';
+    videoCard.innerHTML =
+      '<div class="video-dialog-title" data-t="videoDialog"></div>' +
+      '<div class="video-upload-row">' +
+        '<label class="btn">' + iconText('uploadVideo', 'image') + '<input type="file" id="lesson-video-file" accept="video/*" class="hidden"></label>' +
+        '<button class="btn ghost" id="btn-remove-lesson-video" data-t-title="removeMedia">' + icon('trash') + '</button>' +
+      '</div>' +
+      '<div class="video-box" id="lesson-video-box"></div>' +
+      '<div class="srt-import-row">' +
+        '<textarea class="srt-input" id="srt-input" dir="auto" placeholder="00:00 T’es un homme, pourquoi tu pleures ? | أنت رجل، لماذا تبكي؟ | You’re a man, why are you crying?"></textarea>' +
+        '<div class="btn-row" style="margin:0">' +
+          '<button class="btn" id="btn-import-srt">' + iconText('importSubtitles', 'import') + '</button>' +
+          '<label class="btn ghost"><input type="file" id="srt-file" accept=".srt,.txt" class="hidden">' + icon('import') + '</label>' +
+          '<button class="btn ghost" id="btn-create-phrases" data-t="createPhrasesFromSubtitles"></button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="transcript-box" id="transcript-box"></div>';
+    app.appendChild(videoCard);
+    renderVideoPreview(lesson);
+    renderTranscript(lesson);
+
     var controls = document.createElement('div');
     controls.className = 'btn-row';
     controls.innerHTML =
@@ -1538,6 +1749,7 @@
 
   function createPhraseCard(lesson, p, idx) {
     var editing = !!p.editing;
+    var hasVideoLoop = (lesson.videoMediaId && typeof p.start === 'number' && typeof p.end === 'number');
     var card = document.createElement('div');
     card.className = 'card phrase-card' + (editing ? ' editing' : '');
     card.dataset.phraseId = p.id;
@@ -1547,6 +1759,7 @@
         '<div class="phrase-actions">' +
           '<button class="icon-btn speak-btn" data-t-title="speak">' + icon('volume') + '</button>' +
           '<button class="icon-btn loop-btn" data-t-title="loop">' + icon('loop') + '</button>' +
+          (hasVideoLoop ? '<button class="icon-btn video-loop" data-t-title="videoLoop">' + icon('loop') + '</button>' : '') +
           '<button class="icon-btn edit-phrase" data-t-title="editPhrase">' + icon(editing ? 'close' : 'edit') + '</button>' +
           '<button class="icon-btn delete-phrase" data-t-title="delete">' + icon('trash') + '</button>' +
           '<button class="icon-btn toggle-media" data-t-title="attachMedia">' + icon('image') + '</button>' +
@@ -1707,6 +1920,21 @@
         if (box) box.classList.toggle('hidden');
       } else if (btn.classList.contains('draw-phrase')) {
         openDraw(phrase);
+      } else if (btn.classList.contains('video-loop')) {
+        var video = document.getElementById('lesson-video');
+        if (state.videoLoopSegment && state.videoLoopSegment.id === phrase.id) {
+          state.videoLoopSegment = null;
+          if (video) video.pause();
+          document.querySelectorAll('.video-loop').forEach(function (b) { b.classList.remove('active'); });
+        } else if (video && typeof phrase.start === 'number') {
+          state.videoLoopSegment = { start: phrase.start, end: phrase.end, id: phrase.id };
+          document.querySelectorAll('.video-loop').forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          video.currentTime = phrase.start;
+          video.play();
+          var dialogCard = document.getElementById('video-dialog-card');
+          if (dialogCard) dialogCard.scrollIntoView({ behavior: 'smooth' });
+        }
       } else if (btn.classList.contains('attach-media')) {
         document.getElementById('file-' + phraseId).click();
       } else if (btn.classList.contains('remove-media')) {
@@ -1741,6 +1969,97 @@
         target.value = '';
       }
     };
+
+    bindVideoDialog(lesson);
+  }
+
+  function bindVideoDialog(lesson) {
+    var videoFileInput = document.getElementById('lesson-video-file');
+    if (videoFileInput) {
+      videoFileInput.onchange = function () {
+        var file = videoFileInput.files && videoFileInput.files[0];
+        if (!file) return;
+        var mediaId = uuid();
+        if (lesson.videoMediaId) deleteMedia(lesson.videoMediaId);
+        saveMedia(mediaId, file).then(function () {
+          lesson.videoMediaId = mediaId;
+          lesson.videoMediaType = file.type;
+          saveCurrentLesson();
+          renderVideoPreview(lesson);
+          renderTranscript(lesson);
+        });
+        videoFileInput.value = '';
+      };
+    }
+
+    var removeVideoBtn = document.getElementById('btn-remove-lesson-video');
+    if (removeVideoBtn) {
+      removeVideoBtn.onclick = function () {
+        if (!lesson.videoMediaId) return;
+        if (!confirm(t('deleteMediaConfirm') || 'Delete video?')) return;
+        deleteMedia(lesson.videoMediaId);
+        lesson.videoMediaId = null;
+        lesson.videoMediaType = null;
+        saveCurrentLesson();
+        renderVideoPreview(lesson);
+      };
+    }
+
+    var importSrtBtn = document.getElementById('btn-import-srt');
+    var srtInput = document.getElementById('srt-input');
+    if (importSrtBtn && srtInput) {
+      importSrtBtn.onclick = function () {
+        var text = srtInput.value;
+        var entries = parseSubtitles(text);
+        if (!entries.length) { toast(t('importFailed') || 'Could not parse'); return; }
+        lesson.transcript = entries;
+        saveCurrentLesson();
+        renderTranscript(lesson);
+        toast(t('saved'));
+      };
+    }
+
+    var srtFileInput = document.getElementById('srt-file');
+    if (srtFileInput) {
+      srtFileInput.onchange = function () {
+        var file = srtFileInput.files && srtFileInput.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          if (srtInput) srtInput.value = e.target.result;
+          var entries = parseSubtitles(e.target.result);
+          if (entries.length) {
+            lesson.transcript = entries;
+            saveCurrentLesson();
+            renderTranscript(lesson);
+            toast(t('saved'));
+          }
+        };
+        reader.readAsText(file);
+        srtFileInput.value = '';
+      };
+    }
+
+    var createPhrasesBtn = document.getElementById('btn-create-phrases');
+    if (createPhrasesBtn) {
+      createPhrasesBtn.onclick = function () {
+        if (!lesson.transcript || !lesson.transcript.length) { toast(t('noSubtitles')); return; }
+        lesson.transcript.forEach(function (entry) {
+          lesson.phrases.push({
+            id: uuid(),
+            fr: entry.fr,
+            ar: entry.ar,
+            en: entry.en,
+            start: entry.start,
+            end: entry.end,
+            editing: false
+          });
+        });
+        saveCurrentLesson();
+        render();
+        toast(t('saved'));
+      };
+    }
   }
 
   function renderMediaPreviews() {
@@ -1864,9 +2183,12 @@
   }
 
   function stopAllMedia() {
+    state.videoLoopLine = null;
+    state.videoLoopSegment = null;
     stopSpeech();
     document.querySelectorAll('video').forEach(function (v) { v.pause(); v.currentTime = 0; });
     document.querySelectorAll('audio').forEach(function (a) { a.pause(); a.currentTime = 0; });
+    document.querySelectorAll('.transcript-loop, .video-loop').forEach(function (b) { b.classList.remove('active'); });
   }
 
   function speakOnce(phrase, langs, key, onDone) {
