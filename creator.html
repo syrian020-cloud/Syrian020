@@ -985,10 +985,8 @@
     var app = document.getElementById('app');
     if (app) {
       for (var i = 0; i < 10; i++) app.classList.remove('theme-' + i);
-      app.classList.add('theme-' + (state.appBg || 0));
     }
     for (var j = 0; j < 11; j++) document.body.classList.remove('app-font-' + j);
-    document.body.classList.add('app-font-' + (state.appFont || 0));
     var overlay = document.getElementById('video-subtitle');
     if (overlay) {
       for (var k = 0; k < 10; k++) overlay.classList.remove('bg-' + k);
