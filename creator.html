@@ -1922,11 +1922,6 @@
     hint.innerHTML = icon('info') + '<span dir="ltr">00:00 Bonjour | مرحبا | Hello</span>';
     app.appendChild(hint);
 
-    var bulk = document.createElement('div');
-    bulk.className = 'card';
-    bulk.innerHTML = bulkCardHTML('bulk-input', 'btn-bulk-add');
-    app.appendChild(bulk);
-
     var phrasesDiv = document.createElement('div');
     phrasesDiv.id = 'phrases-list';
     lesson.phrases.forEach(function (p, idx) {
@@ -1939,10 +1934,10 @@
     addFooter.innerHTML = '<button class="btn" id="btn-add-phrase">' + iconText('addPhrase', 'plus') + '</button>';
     app.appendChild(addFooter);
 
-    var bulkEnd = document.createElement('div');
-    bulkEnd.className = 'card';
-    bulkEnd.innerHTML = bulkCardHTML('bulk-input-end', 'btn-bulk-add-end');
-    app.appendChild(bulkEnd);
+    var bulk = document.createElement('div');
+    bulk.className = 'card';
+    bulk.innerHTML = bulkCardHTML('bulk-input', 'btn-bulk-add');
+    app.appendChild(bulk);
 
     bindEditorEvents(lesson);
     renderMediaPreviews();
@@ -2028,7 +2023,6 @@
     if (backBtn) backBtn.onclick = function () { stopSpeech(); if (lesson && lesson.folderId) openFolder(lesson.folderId); else setView('lessons'); };
     document.getElementById('btn-add-phrase').onclick = function () { addPhrase(lesson); };
     document.getElementById('btn-bulk-add').onclick = function () { addBulkPhrases(lesson, 'bulk-input'); };
-    document.getElementById('btn-bulk-add-end').onclick = function () { addBulkPhrases(lesson, 'bulk-input-end'); };
     document.getElementById('btn-play-all').onclick = function () { playLesson(lesson); };
     document.getElementById('btn-stop-lesson').onclick = stopAllMedia;
 
