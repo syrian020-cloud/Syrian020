@@ -191,6 +191,16 @@
   .video-subtitle-overlay.bg-8 .video-subtitle-en { color: #64748b; }
   .video-subtitle-overlay.bg-9 { background: linear-gradient(0deg, rgba(0,0,0,0.85), transparent); bottom: auto; top: 0.7rem; border-radius: 18px 18px 0 0; }
   .video-subtitle-overlay.bg-9 .video-subtitle-fr, .video-subtitle-overlay.bg-9 .video-subtitle-ar, .video-subtitle-overlay.bg-9 .video-subtitle-en { color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
+  .video-subtitle-overlay.font-0, .video-subtitle-overlay.font-0 .video-subtitle-fr, .video-subtitle-overlay.font-0 .video-subtitle-ar, .video-subtitle-overlay.font-0 .video-subtitle-en { font-family: 'Noto Sans Arabic','Tajawal','Segoe UI',Tahoma,system-ui,sans-serif; }
+  .video-subtitle-overlay.font-1, .video-subtitle-overlay.font-1 .video-subtitle-fr, .video-subtitle-overlay.font-1 .video-subtitle-ar, .video-subtitle-overlay.font-1 .video-subtitle-en { font-family: 'Roboto','Noto Sans Arabic',sans-serif; }
+  .video-subtitle-overlay.font-2, .video-subtitle-overlay.font-2 .video-subtitle-fr, .video-subtitle-overlay.font-2 .video-subtitle-ar, .video-subtitle-overlay.font-2 .video-subtitle-en { font-family: Georgia,'Amiri',serif; }
+  .video-subtitle-overlay.font-3, .video-subtitle-overlay.font-3 .video-subtitle-fr, .video-subtitle-overlay.font-3 .video-subtitle-ar, .video-subtitle-overlay.font-3 .video-subtitle-en { font-family: 'Segoe UI','Noto Sans Arabic',Tahoma,sans-serif; }
+  .video-subtitle-overlay.font-4, .video-subtitle-overlay.font-4 .video-subtitle-fr, .video-subtitle-overlay.font-4 .video-subtitle-ar, .video-subtitle-overlay.font-4 .video-subtitle-en { font-family: 'Times New Roman','Amiri',serif; }
+  .video-subtitle-overlay.font-5, .video-subtitle-overlay.font-5 .video-subtitle-fr, .video-subtitle-overlay.font-5 .video-subtitle-ar, .video-subtitle-overlay.font-5 .video-subtitle-en { font-family: Impact,'Arial','Tahoma',sans-serif; }
+  .video-subtitle-overlay.font-6, .video-subtitle-overlay.font-6 .video-subtitle-fr, .video-subtitle-overlay.font-6 .video-subtitle-ar, .video-subtitle-overlay.font-6 .video-subtitle-en { font-family: 'Comic Sans MS','Noto Sans Arabic','Tajawal',cursive; }
+  .video-subtitle-overlay.font-7, .video-subtitle-overlay.font-7 .video-subtitle-fr, .video-subtitle-overlay.font-7 .video-subtitle-ar, .video-subtitle-overlay.font-7 .video-subtitle-en { font-family: 'Courier New',Courier,monospace; }
+  .video-subtitle-overlay.font-8, .video-subtitle-overlay.font-8 .video-subtitle-fr, .video-subtitle-overlay.font-8 .video-subtitle-ar, .video-subtitle-overlay.font-8 .video-subtitle-en { font-family: Poppins,'Tajawal',sans-serif; }
+  .video-subtitle-overlay.font-9, .video-subtitle-overlay.font-9 .video-subtitle-fr, .video-subtitle-overlay.font-9 .video-subtitle-ar, .video-subtitle-overlay.font-9 .video-subtitle-en { font-family: Nunito,'Noto Sans Arabic',sans-serif; }
   .srt-input { width: 100%; min-height: 5.5rem; border-radius: 16px; padding: 0.7rem; border: 1px solid #cbd5e1; background: #fff; color: #0f172a; font-size: 0.95rem; margin-bottom: 0.5rem; resize: vertical; }
   .transcript-box { max-height: 320px; overflow-y: auto; border: 1px solid #334155; border-radius: 18px; background: #0b1220; padding: 0.5rem; margin-top: 0.7rem; }
   .transcript-line { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.6rem; border-bottom: 1px solid #1e293b; cursor: pointer; transition: background .12s; border-radius: 12px; }
@@ -419,6 +429,17 @@
     bg7: { ar: 'مجلة', en: 'Magazine', fr: 'Magazine' },
     bg8: { ar: 'فقاعة', en: 'Bubble', fr: 'Bulle' },
     bg9: { ar: 'مظلم علوي', en: 'Dark top', fr: 'Haut sombre' },
+    videoFont: { ar: 'خط الفيديو', en: 'Video font', fr: 'Police vidéo' },
+    font0: { ar: 'افتراضي', en: 'Default', fr: 'Défaut' },
+    font1: { ar: 'عصري', en: 'Modern', fr: 'Moderne' },
+    font2: { ar: 'كلاسيكي', en: 'Classic', fr: 'Classique' },
+    font3: { ar: 'نظيف', en: 'Clean', fr: 'Propre' },
+    font4: { ar: 'إخباري', en: 'News', fr: 'Actualités' },
+    font5: { ar: 'عريض', en: 'Bold', fr: 'Gras' },
+    font6: { ar: 'عفوي', en: 'Casual', fr: 'Décontracté' },
+    font7: { ar: 'آلة كاتبة', en: 'Typewriter', fr: 'Machine à écrire' },
+    font8: { ar: 'أنيق', en: 'Elegant', fr: 'Élégant' },
+    font9: { ar: 'مدوّر', en: 'Rounded', fr: 'Arrondi' },
     removeMedia: { ar: 'إزالة الوسائط', en: 'Remove media', fr: 'Supprimer le média' },
     drawPhrase: { ar: 'رسم العبارة', en: 'Draw phrase', fr: 'Dessiner la phrase' },
     pen: { ar: 'قلم', en: 'Pen', fr: 'Stylo' },
@@ -926,6 +947,15 @@
     return html;
   }
 
+  function subtitleFontOptions(lesson) {
+    var current = lesson.subtitleFont || 0;
+    var html = '';
+    for (var i = 0; i < 10; i++) {
+      html += '<option value="' + i + '"' + (current === i ? ' selected' : '') + '>' + esc(t('font' + i)) + '</option>';
+    }
+    return html;
+  }
+
   function parseTimeToSeconds(str) {
     if (typeof str !== 'string' || !str.trim()) return null;
     str = str.trim().replace(',', '.').replace('،', '.');
@@ -997,10 +1027,11 @@
     if (!lesson.videoMediaId) { box.innerHTML = ''; box.classList.add('hidden'); return; }
     box.classList.remove('hidden');
     var bgClass = 'bg-' + (lesson.subtitleBg || 0);
+    var fontClass = 'font-' + (lesson.subtitleFont || 0);
     box.innerHTML =
       '<div class="video-player-wrap">' +
         '<video id="lesson-video" controls playsinline></video>' +
-        '<div id="video-subtitle" class="video-subtitle-overlay video-subtitle-hidden ' + bgClass + '">' +
+        '<div id="video-subtitle" class="video-subtitle-overlay video-subtitle-hidden ' + bgClass + ' ' + fontClass + '">' +
           '<div class="video-subtitle-fr"></div>' +
           '<div class="video-subtitle-ar"></div>' +
           '<div class="video-subtitle-en"></div>' +
@@ -1951,6 +1982,10 @@
         '<select id="video-bg" class="input play-mode-select" style="width:auto;min-width:7.5rem;font-size:0.85rem;padding:0.35rem 0.6rem;">' + subtitleBgOptions(lesson) + '</select>' +
       '</div>' +
       '<div class="rate-control">' +
+        '<span class="rate-label" data-t="videoFont"></span>' +
+        '<select id="video-font" class="input play-mode-select" style="width:auto;min-width:7.5rem;font-size:0.85rem;padding:0.35rem 0.6rem;">' + subtitleFontOptions(lesson) + '</select>' +
+      '</div>' +
+      '<div class="rate-control">' +
         '<span class="rate-label" data-t="speechRate"></span>' +
         '<input type="range" id="rate-slider" min="0.5" max="2" step="0.1" value="' + state.rate + '">' +
         '<span class="rate-value" id="rate-value">' + state.rate.toFixed(1) + 'x</span>' +
@@ -2079,6 +2114,19 @@
         if (overlay) {
           for (var i = 0; i < 10; i++) overlay.classList.remove('bg-' + i);
           overlay.classList.add('bg-' + lesson.subtitleBg);
+        }
+      };
+    }
+
+    var fontSelect = document.getElementById('video-font');
+    if (fontSelect) {
+      fontSelect.onchange = function () {
+        lesson.subtitleFont = Number(fontSelect.value) || 0;
+        saveCurrentLesson();
+        var overlay = document.getElementById('video-subtitle');
+        if (overlay) {
+          for (var i = 0; i < 10; i++) overlay.classList.remove('font-' + i);
+          overlay.classList.add('font-' + lesson.subtitleFont);
         }
       };
     }
