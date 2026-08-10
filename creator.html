@@ -1917,6 +1917,9 @@
       '</div>';
     app.appendChild(controls);
 
+    lesson.phrases.forEach(function (p) { p.editing = false; });
+    saveCurrentLesson();
+
     var phrasesDiv = document.createElement('div');
     phrasesDiv.id = 'phrases-list';
     lesson.phrases.forEach(function (p, idx) {
