@@ -742,6 +742,26 @@
     .subtitle-display.card-style-playful .subtitle-line.ar { background: #b71c1c; }
     .subtitle-display.card-style-playful .subtitle-line.en { background: #555555; }
 
+    /* Caption background presets */
+    .subtitle-display.caption-bg-black .subtitle-line { background: #111111 !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-black .subtitle-line .lang-label { background: rgba(255,255,255,0.2) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-white .subtitle-line { background: #ffffff !important; color: #1a1a1a !important; }
+    .subtitle-display.caption-bg-white .subtitle-line .lang-label { background: rgba(0,0,0,0.08) !important; color: #1a1a1a !important; }
+    .subtitle-display.caption-bg-yellow .subtitle-line { background: #f1c40f !important; color: #1a1a1a !important; }
+    .subtitle-display.caption-bg-yellow .subtitle-line .lang-label { background: rgba(0,0,0,0.1) !important; color: #1a1a1a !important; }
+    .subtitle-display.caption-bg-red .subtitle-line { background: linear-gradient(135deg, #e74c3c, #c0392b) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-red .subtitle-line .lang-label { background: rgba(0,0,0,0.2) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-blue .subtitle-line { background: linear-gradient(135deg, #3498db, #2980b9) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-blue .subtitle-line .lang-label { background: rgba(0,0,0,0.2) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-green .subtitle-line { background: linear-gradient(135deg, #2ecc71, #27ae60) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-green .subtitle-line .lang-label { background: rgba(0,0,0,0.2) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-purple .subtitle-line { background: linear-gradient(135deg, #9b59b6, #8e44ad) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-purple .subtitle-line .lang-label { background: rgba(0,0,0,0.2) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-orange .subtitle-line { background: linear-gradient(135deg, #e67e22, #d35400) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-orange .subtitle-line .lang-label { background: rgba(0,0,0,0.2) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-pink .subtitle-line { background: linear-gradient(135deg, #ff6b9d, #e91e63) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-pink .subtitle-line .lang-label { background: rgba(0,0,0,0.2) !important; color: #ffffff !important; }
+
     .sentence-words-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-top: 0.6rem; }
     .btn-words-toggle {
       background: var(--bg-tertiary);
@@ -1186,6 +1206,22 @@
         </div>
 
         <div class="settings-row">
+          <label data-i18n="captionBg">خلفية نص الفيديو</label>
+          <select id="settings-caption-bg">
+            <option value="default" data-i18n="captionBgDefault">افتراضي</option>
+            <option value="black" data-i18n="captionBgBlack">أسود</option>
+            <option value="white" data-i18n="captionBgWhite">أبيض</option>
+            <option value="yellow" data-i18n="captionBgYellow">أصفر</option>
+            <option value="red" data-i18n="captionBgRed">أحمر</option>
+            <option value="blue" data-i18n="captionBgBlue">أزرق</option>
+            <option value="green" data-i18n="captionBgGreen">أخضر</option>
+            <option value="purple" data-i18n="captionBgPurple">بنفسجي</option>
+            <option value="orange" data-i18n="captionBgOrange">برتقالي</option>
+            <option value="pink" data-i18n="captionBgPink">وردي</option>
+          </select>
+        </div>
+
+        <div class="settings-row">
           <label data-i18n="langOrder">ترتيب اللغات في الجمل</label>
           <select id="settings-lang-order">
             <option value="fr,ar,en">Français - العربية - English</option>
@@ -1295,6 +1331,7 @@
         preview: "معاينة", saveLesson: "حفظ الدرس", cancel: "إلغاء",
         language: "اللغة", theme: "الوضع", fontSize: "حجم الخط", langOrder: "ترتيب اللغات في الجمل",
         cardStyle: "ستايل البطاقات", cardClassic: "كلاسيكي", cardModern: "عصري داكن", cardPastel: "باستيل", cardElegant: "أنيق", cardPlayful: "نشرة أخبار",
+        captionBg: "خلفية نص الفيديو", captionBgDefault: "افتراضي", captionBgBlack: "أسود", captionBgWhite: "أبيض", captionBgYellow: "أصفر", captionBgRed: "أحمر", captionBgBlue: "أزرق", captionBgGreen: "أخضر", captionBgPurple: "بنفسجي", captionBgOrange: "برتقالي", captionBgPink: "وردي",
         dark: "داكن (مريح للعين)", light: "فاتح", themeOcean: "محيط", themeForest: "غابة", themeBerry: "توت", themeSunset: "غروب", themeMidnight: "منتصف الليل",
         storage: "مساحة التخزين", clearData: "مسح جميع الدروس",
         noLessons: "لا توجد دروس بعد. اضغط على تبويب \"درس جديد\" للبدء.",
@@ -1336,6 +1373,7 @@
         preview: "Aperçu", saveLesson: "Enregistrer", cancel: "Annuler",
         language: "Langue", theme: "Thème", fontSize: "Taille de police", langOrder: "Ordre des langues dans les phrases",
         cardStyle: "Style des cartes", cardClassic: "Classique", cardModern: "Moderne foncé", cardPastel: "Pastel", cardElegant: "Élégant", cardPlayful: "Journal",
+        captionBg: "Fond du texte vidéo", captionBgDefault: "Par défaut", captionBgBlack: "Noir", captionBgWhite: "Blanc", captionBgYellow: "Jaune", captionBgRed: "Rouge", captionBgBlue: "Bleu", captionBgGreen: "Vert", captionBgPurple: "Violet", captionBgOrange: "Orange", captionBgPink: "Rose",
         dark: "Sombre (repos pour les yeux)", light: "Clair", themeOcean: "Océan", themeForest: "Forêt", themeBerry: "Baie", themeSunset: "Coucher de soleil", themeMidnight: "Minuit",
         storage: "Stockage", clearData: "Supprimer toutes les leçons",
         noLessons: "Aucune leçon pour l'instant. Appuyez sur l'onglet \"Nouvelle leçon\" pour commencer.",
@@ -1377,6 +1415,7 @@
         preview: "Preview", saveLesson: "Save lesson", cancel: "Cancel",
         language: "Language", theme: "Theme", fontSize: "Font size", langOrder: "Language order in sentences",
         cardStyle: "Card style", cardClassic: "Classic", cardModern: "Modern dark", cardPastel: "Pastel", cardElegant: "Elegant", cardPlayful: "Newspaper",
+        captionBg: "Caption background", captionBgDefault: "Default", captionBgBlack: "Black", captionBgWhite: "White", captionBgYellow: "Yellow", captionBgRed: "Red", captionBgBlue: "Blue", captionBgGreen: "Green", captionBgPurple: "Purple", captionBgOrange: "Orange", captionBgPink: "Pink",
         dark: "Dark (eye-friendly)", light: "Light", themeOcean: "Ocean", themeForest: "Forest", themeBerry: "Berry", themeSunset: "Sunset", themeMidnight: "Midnight",
         storage: "Storage", clearData: "Delete all lessons",
         noLessons: "No lessons yet. Tap \"New lesson\" to start.",
@@ -1410,6 +1449,7 @@
       theme: localStorage.getItem('vs_theme') || 'dark',
       fontSize: parseInt(localStorage.getItem('vs_font_size') || '16', 10),
       cardStyle: localStorage.getItem('vs_card_style') || 'classic',
+      captionBg: localStorage.getItem('vs_caption_bg') || 'default',
       langOrder: (() => {
         const saved = localStorage.getItem('vs_lang_order');
         if (saved) {
@@ -1664,6 +1704,20 @@
         display.classList.remove(...classes);
         display.classList.add('card-style-' + style);
       }
+    }
+
+    function setCaptionBg(bg) {
+      state.captionBg = bg;
+      localStorage.setItem('vs_caption_bg', bg);
+      const select = document.getElementById('settings-caption-bg');
+      if (select) select.value = bg;
+      const display = document.getElementById('subtitle-display');
+      const classes = ['caption-bg-default','caption-bg-black','caption-bg-white','caption-bg-yellow','caption-bg-red','caption-bg-blue','caption-bg-green','caption-bg-purple','caption-bg-orange','caption-bg-pink'];
+      if (display) {
+        display.classList.remove(...classes);
+        if (bg && bg !== 'default') display.classList.add('caption-bg-' + bg);
+      }
+      if (state.currentCues.length) updateSubtitleOverlay();
     }
 
     // --- Utilities ---
@@ -3138,6 +3192,7 @@
       setTheme(state.theme);
       setFontSize(state.fontSize);
       setCardStyle(state.cardStyle);
+      setCaptionBg(state.captionBg);
       setLangOrder(state.langOrder);
 
       // Notebook canvas drawing
@@ -3258,6 +3313,7 @@
       document.getElementById('settings-theme').addEventListener('change', (e) => setTheme(e.target.value));
       document.getElementById('settings-font-size').addEventListener('input', (e) => setFontSize(parseInt(e.target.value, 10)));
       document.getElementById('settings-card-style').addEventListener('change', (e) => setCardStyle(e.target.value));
+      document.getElementById('settings-caption-bg').addEventListener('change', (e) => setCaptionBg(e.target.value));
       document.getElementById('settings-lang-order').addEventListener('change', (e) => setLangOrder(e.target.value.split(',')));
 
       document.getElementById('btn-clear-data').addEventListener('click', async () => {
