@@ -237,13 +237,13 @@
   // --- State ---
   const state = {
     cues: [], // { start, end, lines: [{lang, text}] }
-    src: { video: null, fr: '', ar: '', en: '' },
     currentIndex: -1,
     isPlaying: false,
     loopAll: false,
     loopLang: null,
     ttsChain: null,
-    duration: 0
+    duration: 0,
+    videoUrl: null
   };
 
   const LANG_ORDER = ['fr','ar','en'];
@@ -316,7 +316,8 @@
     function parseLineTime(line) {
       let m = line.match(/^\[(?:(\d{1,2}):)?(?:(\d{1,2}):)?(\d{1,2})(?:[.,](\d{1,3}))?\]\s*(.*)$/);
       if (m) {
-        const timeStr = (m[1] || '') + (m[2] || '') + m[3] + (m[4] ? '.' + m[4] : '');
+        const parts = [m[1], m[2], m[3]].filter(Boolean);
+        const timeStr = parts.join(':') + (m[4] ? '.' + m[4] : '');
         return { start: parseTime(timeStr), text: m[5].trim() };
       }
       m = line.match(/^((?:\d{1,2}:)?(?:\d{1,2}:)?\d{1,2}(?:[.,]\d{1,3})?)\s*-->?\s*((?:\d{1,2}:)?(?:\d{1,2}:)?\d{1,2}(?:[.,]\d{1,3})?)\s*(.*)$/);
@@ -612,14 +613,40 @@
     state.cues = [];
     state.currentIndex = -1;
 
-    if (videoFile.files[0]) {
-      const url = URL.createObjectURL(videoFile.files[0]);
-      player.src = url;
-      videoWrap.style.display = 'block';
-    } else {
-      player.src = '';
-      videoWrap.style.display = 'none';
+    // Revoke any previous object URL to avoid leaking memory
+    if (state.videoUrl) {
+      URL.revokeObjectURL(state.videoUrl);
+      state.videoUrl = null;
     }
+
+    // Attach media handlers before reading/parsing so loadedmetadata cannot be missed.
+    player.onloadedmetadata = () => {
+      state.duration = player.duration || 0;
+      progress.max = state.duration;
+      durationEl.textContent = formatDuration(state.duration);
+      if (state.cues.length && state.duration) {
+        const last = state.cues[state.cues.length - 1];
+        if (last.end > state.duration) last.end = state.duration;
+        for (let i = 0; i < state.cues.length - 1; i++) {
+          if (state.cues[i].end > state.cues[i+1].start) state.cues[i].end = state.cues[i+1].start;
+        }
+      }
+    };
+
+    player.ontimeupdate = () => {
+      setCurrentByTime(player.currentTime);
+      updateProgress();
+    };
+
+    player.onplay = () => { state.isPlaying = true; btnPlay.textContent = '⏸'; };
+    player.onpause = () => { state.isPlaying = false; btnPlay.textContent = '▶'; };
+    player.onended = () => { state.isPlaying = false; btnPlay.textContent = '▶'; };
+
+    progress.oninput = () => {
+      player.currentTime = parseFloat(progress.value);
+      setCurrentByTime(player.currentTime);
+      updateProgress();
+    };
 
     let frCues = [], arCues = [], enCues = [];
     try {
@@ -658,35 +685,15 @@
     currentTimeEl.textContent = '00:00';
     durationEl.textContent = '00:00';
 
-    player.onloadedmetadata = () => {
-      state.duration = player.duration || 0;
-      progress.max = state.duration;
-      durationEl.textContent = formatDuration(state.duration);
-      // Sync cues end time to video duration
-      if (state.cues.length && state.duration) {
-        const last = state.cues[state.cues.length - 1];
-        if (last.end > state.duration) last.end = state.duration;
-        // ensure no cue extends beyond video
-        for (let i = 0; i < state.cues.length - 1; i++) {
-          if (state.cues[i].end > state.cues[i+1].start) state.cues[i].end = state.cues[i+1].start;
-        }
-      }
-    };
-
-    player.ontimeupdate = () => {
-      setCurrentByTime(player.currentTime);
-      updateProgress();
-    };
-
-    player.onplay = () => { state.isPlaying = true; btnPlay.textContent = '⏸'; };
-    player.onpause = () => { state.isPlaying = false; btnPlay.textContent = '▶'; };
-    player.onended = () => { state.isPlaying = false; btnPlay.textContent = '▶'; };
-
-    progress.oninput = () => {
-      player.currentTime = parseFloat(progress.value);
-      setCurrentByTime(player.currentTime);
-      updateProgress();
-    };
+    // Set video source only after cues are parsed and handlers are in place.
+    if (videoFile.files[0]) {
+      state.videoUrl = URL.createObjectURL(videoFile.files[0]);
+      player.src = state.videoUrl;
+      videoWrap.style.display = 'block';
+    } else {
+      player.src = '';
+      videoWrap.style.display = 'none';
+    }
 
     goToCue(0);
     showToast(`تم تحميل ${state.cues.length} عبارة`);
@@ -696,6 +703,10 @@
     stopAllLoops();
     player.pause();
     player.src = '';
+    if (state.videoUrl) {
+      URL.revokeObjectURL(state.videoUrl);
+      state.videoUrl = null;
+    }
     videoWrap.style.display = 'none';
     controls.style.display = 'none';
     bubble.innerHTML = '';

@@ -6,7 +6,6 @@
     "androidScheme": "https"
   },
   "android": {
-    "allowMixedContent": true,
     "captureInput": false
   }
 }
