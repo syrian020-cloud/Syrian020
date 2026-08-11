@@ -48,6 +48,21 @@
   .file-row label { flex: 0 0 7rem; color: var(--text-secondary); font-size: 0.9rem; }
   .file-row input[type="file"] { flex: 1; min-width: 0; color: var(--text-primary); font-size: 0.9rem; }
   .file-row .file-name { color: var(--success); font-size: 0.85rem; }
+  .paste-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.7rem; align-items: flex-start; }
+  .paste-row label { flex: 0 0 7rem; color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.4rem; }
+  .file-row textarea, .paste-row textarea {
+    flex: 1;
+    min-width: 0;
+    min-height: 120px;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.6rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+    resize: vertical;
+  }
 
   .action-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
   button.primary { background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm); padding: 0.6rem 1.2rem; font-size: 1rem; font-weight: 700; cursor: pointer; }
@@ -148,8 +163,9 @@
   .toast.show { opacity: 1; }
 
   @media (max-width: 480px) {
-    .file-row label { flex: 0 0 100%; }
+    .file-row label, .paste-row label { flex: 0 0 100%; }
     .file-row input[type="file"] { flex: 1 0 100%; }
+    .file-row textarea, .paste-row textarea { flex: 1 0 100%; }
   }
 </style>
 </head>
@@ -185,6 +201,10 @@
       <label for="srt-en">الإنجليزية</label>
       <input type="file" id="srt-en" accept=".srt,.txt">
       <span class="file-name" id="name-en"></span>
+    </div>
+    <div class="paste-row">
+      <label for="srt-paste">أو ألصق النص</label>
+      <textarea id="srt-paste" placeholder="00:00 Je suis désolé.&#10;أنا آسف.&#10;I'm sorry."></textarea>
     </div>
     <div class="action-row">
       <button class="primary" id="btn-start">▶ ابدأ</button>
@@ -226,7 +246,7 @@
 
   // --- DOM refs ---
   const $ = id => document.getElementById(id);
-  const videoFile = $('video-file'), srtFr = $('srt-fr'), srtAr = $('srt-ar'), srtEn = $('srt-en');
+  const videoFile = $('video-file'), srtFr = $('srt-fr'), srtAr = $('srt-ar'), srtEn = $('srt-en'), srtPaste = $('srt-paste');
   const videoName = $('video-name'), nameFr = $('name-fr'), nameAr = $('name-ar'), nameEn = $('name-en');
   const btnStart = $('btn-start'), btnReset = $('btn-reset'), btnStop = $('btn-stop');
   const videoWrap = $('video-wrap'), player = $('player'), bubble = $('bubble');
@@ -658,6 +678,8 @@
       if (srtFr.files[0]) {
         const text = await readFile(srtFr.files[0]);
         frCues = parseSubtitle(text);
+      } else if (srtPaste.value.trim()) {
+        frCues = parseSubtitle(srtPaste.value.trim());
       }
       if (srtAr.files[0]) {
         const text = await readFile(srtAr.files[0]);
@@ -735,7 +757,7 @@
     state.currentIndex = -1;
     state.isPlaying = false;
     state.duration = 0;
-    videoFile.value = ''; srtFr.value = ''; srtAr.value = ''; srtEn.value = '';
+    videoFile.value = ''; srtFr.value = ''; srtAr.value = ''; srtEn.value = ''; srtPaste.value = '';
     handleFiles();
     progress.value = 0;
     currentTimeEl.textContent = '00:00'; durationEl.textContent = '00:00';
