@@ -132,6 +132,25 @@
     border-radius: 6px;
     text-transform: uppercase;
   }
+  .lang-line .loop {
+    position: absolute;
+    top: -0.45rem;
+    inset-inline-end: 0.6rem;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  .lang-line .loop:hover { background: rgba(0,0,0,0.65); }
+  .lang-line .loop.active { background: var(--success); color: #0b0d1f; }
   .lang-line.fr { background: linear-gradient(135deg, #ff9f43, #ff7f50); color: #1a1a1a; }
   .lang-line.ar { background: linear-gradient(135deg, #2dd4bf, #14b8a6); color: #1a1a1a; direction: rtl; }
   .lang-line.en { background: linear-gradient(135deg, #60a5fa, #3b82f6); color: #1a1a1a; direction: ltr; }
@@ -567,6 +586,10 @@
       const l = btn.dataset.lang;
       btn.classList.toggle('active', state.loopLang === l);
     });
+    document.querySelectorAll('.lang-line .loop').forEach(btn => {
+      const l = btn.dataset.lang;
+      btn.classList.toggle('active', state.loopLang === l);
+    });
   }
 
   function renderLangButtons() {
@@ -593,6 +616,7 @@
     bubble.innerHTML = loopBtn + cue.lines.map(line => `
       <div class="lang-line ${line.lang}" dir="${line.lang === 'ar' ? 'rtl' : 'ltr'}">
         <span class="badge">${LANG_LABELS[line.lang]}</span>
+        <button class="loop" data-lang="${line.lang}" title="نطق ${LANG_NAMES[line.lang]}" aria-label="نطق ${LANG_NAMES[line.lang]}">🔊</button>
         ${escapeHtml(line.text)}
       </div>
     `).join('');
@@ -600,6 +624,9 @@
     if (bubbleLoop) {
       bubbleLoop.addEventListener('click', e => { e.stopPropagation(); toggleLoopAll(); });
     }
+    bubble.querySelectorAll('.lang-line .loop').forEach(btn => {
+      btn.addEventListener('click', e => { e.stopPropagation(); toggleLoopLang(btn.dataset.lang); });
+    });
     renderLangButtons();
   }
 
