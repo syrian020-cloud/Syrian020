@@ -250,6 +250,8 @@
   .phrase-media img, .phrase-media video, .phrase-media iframe { display: block; width: 100%; max-height: 320px; object-fit: contain; background: #000; }
   .phrase-media iframe { height: 240px; }
   .phrase-media video { max-height: 360px; }
+  .video-loop-btn { position: absolute; top: 0.5rem; right: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .video-loop-btn.active { background: var(--success); color: #081c15; }
   .caption-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.82); padding: 0.55rem 0.75rem; font-size: 0.9rem; text-align: center; line-height: 1.65; z-index: 2; pointer-events: none; border-top: 1px solid rgba(255,255,255,0.12); }
   .cap-line { display: inline-block; padding: 0.18rem 0.65rem; margin: 0.12rem 0; border-radius: 8px; font-weight: 600; }
   .cap-fr { background: #ede9fe; color: #2e1065; font-family: 'Poppins', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; }
@@ -720,6 +722,7 @@
     appTitle: { ar: 'Zeek — فرنسي / عربي / إنجليزي', en: 'Zeek — French / Arabic / English', fr: 'Zeek — Français / Arabe / Anglais' },
     searchPlaceholder: { ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', en: 'Search in Arabic, French, or English…', fr: 'Rechercher en arabe, français ou anglais…' },
     rateTitle: { ar: 'سرعة الصوت والفيديو', en: 'Audio & video speed', fr: 'Vitesse audio et vidéo' },
+    videoLoopTitle: { ar: 'تكرار الفيديو', en: 'Loop video', fr: 'Boucler la vidéo' },
     loopModeTitle: { ar: 'محتوى التكرار', en: 'Loop content', fr: 'Contenu de la répétition' },
     loopFrenchArabicEnglish: { ar: '🔁 فرنسي + عربي + إنجليزي', en: '🔁 French + Arabic + English', fr: '🔁 Français + Arabe + Anglais' },
     loopFrenchArabic: { ar: '🔁 فرنسي + عربي', en: '🔁 French + Arabic', fr: '🔁 Français + Arabe' },
@@ -1129,7 +1132,7 @@
       } else {
         const isVideo = (resolved.type || '').startsWith('video/') || isVideoUrl(resolved.url);
         if (isVideo) {
-          el.innerHTML = `<video src="${esc(resolved.url)}" controls playsinline></video>`;
+          el.innerHTML = videoHTML(resolved.url);
           const v = el.querySelector('video');
           if (v) { try { v.playbackRate = state.rate || 1; } catch (e) {} }
         } else {
@@ -1685,13 +1688,21 @@
     return /^data:video|\.(mp4|webm|mov|ogv|3gp|3gpp|avi|mkv|flv|m4v|mpeg|mpg)(\?|$)/i.test(url);
   }
 
+  function videoLoopButtonHTML() {
+    return `<button class="video-loop-btn" title="${t('videoLoopTitle')}" type="button">🔁</button>`;
+  }
+
+  function videoHTML(src) {
+    return `${videoLoopButtonHTML()}<video src="${esc(src)}" controls playsinline></video>`;
+  }
+
   function mediaHTML(media) {
     if (!media) return '';
     if (isIDBMedia(media)) return `<div class="phrase-media media-placeholder" data-media-ref="${esc(media)}"></div>`;
     const src = toWebUrl(media);
     const yt = youtubeId(src);
     if (yt) return `<div class="phrase-media"><iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe></div>`;
-    if (isVideoUrl(src)) return `<div class="phrase-media"><video src="${esc(src)}" controls playsinline></video></div>`;
+    if (isVideoUrl(src)) return `<div class="phrase-media media-player">${videoHTML(src)}</div>`;
     return `<div class="phrase-media"><img src="${esc(src)}" alt="" onerror="this.style.display='none'"></div>`;
   }
 
@@ -2134,6 +2145,19 @@
 
   function bindViewEvents() {
     view.addEventListener('click', e => {
+      const videoLoopBtn = e.target.closest('.video-loop-btn');
+      if (videoLoopBtn) {
+        e.stopPropagation();
+        const media = videoLoopBtn.closest('.phrase-media');
+        const video = media && media.querySelector('video');
+        if (video) {
+          video.loop = !video.loop;
+          videoLoopBtn.classList.toggle('active', video.loop);
+          videoLoopBtn.textContent = video.loop ? '🔂' : '🔁';
+        }
+        return;
+      }
+
       const exportBtn = e.target.closest('#btn-export');
       if (exportBtn) { e.stopPropagation(); exportLessons(); return; }
 
