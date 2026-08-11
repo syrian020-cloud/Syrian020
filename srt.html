@@ -242,6 +242,7 @@
     loopAll: false,
     loopLang: null,
     ttsChain: null,
+    loopToken: 0,
     duration: 0,
     videoUrl: null
   };
@@ -463,11 +464,15 @@
     stopAllLoops();
     state.loopLang = lang;
     updateButtons();
+    const myToken = state.loopToken;
     const doSpeak = () => {
-      if (state.loopLang !== lang) return;
+      if (state.loopLang !== lang || state.loopToken !== myToken) return;
       const line = getCurrentLine(lang);
       if (!line || !line.text) { state.ttsChain = setTimeout(doSpeak, 500); return; }
-      ttsSpeak({ text: line.text, lang: line.lang, onend: () => { state.ttsChain = setTimeout(doSpeak, 600); } });
+      ttsSpeak({ text: line.text, lang: line.lang, onend: () => {
+        if (state.loopLang !== lang || state.loopToken !== myToken) return;
+        state.ttsChain = setTimeout(doSpeak, 600);
+      }});
     };
     doSpeak();
   }
@@ -481,16 +486,20 @@
     stopAllLoops();
     state.loopAll = true;
     updateButtons();
+    const myToken = state.loopToken;
     const available = () => {
       const cue = getCurrentCue();
       return cue ? LANG_ORDER.map(l => cue.lines.find(x => x.lang === l)).filter(Boolean) : [];
     };
     const doCycle = (idx) => {
-      if (!state.loopAll) return;
+      if (!state.loopAll || state.loopToken !== myToken) return;
       const lines = available();
       if (!lines.length) { state.ttsChain = setTimeout(() => doCycle(0), 500); return; }
       const i = idx % lines.length;
-      ttsSpeak({ text: lines[i].text, lang: lines[i].lang, onend: () => { state.ttsChain = setTimeout(() => doCycle(i+1), 800); } });
+      ttsSpeak({ text: lines[i].text, lang: lines[i].lang, onend: () => {
+        if (!state.loopAll || state.loopToken !== myToken) return;
+        state.ttsChain = setTimeout(() => doCycle(i+1), 800);
+      }});
     };
     doCycle(0);
   }
@@ -503,6 +512,7 @@
   function stopAllLoops() {
     state.loopAll = false;
     state.loopLang = null;
+    state.loopToken++;
     ttsStop();
     updateButtons();
   }
@@ -613,12 +623,6 @@
     state.cues = [];
     state.currentIndex = -1;
 
-    // Revoke any previous object URL to avoid leaking memory
-    if (state.videoUrl) {
-      URL.revokeObjectURL(state.videoUrl);
-      state.videoUrl = null;
-    }
-
     // Attach media handlers before reading/parsing so loadedmetadata cannot be missed.
     player.onloadedmetadata = () => {
       state.duration = player.duration || 0;
@@ -667,10 +671,18 @@
       return;
     }
 
-    // If only one file selected and it has multiple languages, treat as single source
-    const onlyOne = frCues.length && !arCues.length && !enCues.length ? frCues : null;
-    if (onlyOne) {
-      state.cues = onlyOne.map(c => ({ start: c.start, end: c.end, lines: getCueTexts(c) }));
+    // If only one subtitle file is selected, treat it as that file's language unless it contains a trilingual cue.
+    const activeSource = frCues.length ? 'fr' : (arCues.length ? 'ar' : (enCues.length ? 'en' : null));
+    const sourceCues = activeSource === 'fr' ? frCues : (activeSource === 'ar' ? arCues : enCues);
+    const onlyOneSource = [frCues, arCues, enCues].filter(arr => arr.length).length === 1;
+    if (activeSource && onlyOneSource) {
+      const hasAr = sourceCues.some(c => /[\u0600-\u06FF]/.test(c.text));
+      const hasNonAr = sourceCues.some(c => c.text.split('\n').some(l => !/[\u0600-\u06FF]/.test(l) && l.trim()));
+      if (hasAr && hasNonAr) {
+        state.cues = sourceCues.map(c => ({ start: c.start, end: c.end, lines: getCueTexts(c) }));
+      } else {
+        state.cues = sourceCues.map(c => ({ start: c.start, end: c.end, lines: [{ lang: activeSource, text: c.text.replace(/\n+/g, ' ').trim() }] }));
+      }
     } else {
       state.cues = buildCues(frCues, arCues, enCues);
     }
@@ -685,7 +697,11 @@
     currentTimeEl.textContent = '00:00';
     durationEl.textContent = '00:00';
 
-    // Set video source only after cues are parsed and handlers are in place.
+    // Revoke the old URL and set the new one only after parsing succeeds.
+    if (state.videoUrl) {
+      URL.revokeObjectURL(state.videoUrl);
+      state.videoUrl = null;
+    }
     if (videoFile.files[0]) {
       state.videoUrl = URL.createObjectURL(videoFile.files[0]);
       player.src = state.videoUrl;
