@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0b0f1f">
+<title>مشغّل SRT</title>
+<link rel="manifest" href="manifest-srt.json">
+<style>
+  :root {
+    --bg-primary: #0b0d1f;
+    --bg-secondary: #13162b;
+    --bg-tertiary: #1e213d;
+    --text-primary: #f0f1ff;
+    --text-secondary: #8c90b5;
+    --accent: #7b79ff;
+    --accent-hover: #5c5bdb;
+    --success: #00e676;
+    --gold: #ffc857;
+    --danger: #ff6b6b;
+    --border: rgba(255,255,255,0.08);
+    --radius: 18px;
+    --radius-sm: 12px;
+    --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    --shadow-sm: 0 4px 14px rgba(0,0,0,0.25);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  header { position: sticky; top: 0; z-index: 60; background: rgba(11,13,31,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0.7rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
+  .logo { font-weight: 800; color: var(--accent); font-size: 1.05rem; white-space: nowrap; }
+  .spacer { flex: 1; }
+  .icon-btn { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 12px; padding: 0.45rem 0.65rem; font-size: 0.95rem; cursor: pointer; font-weight: 600; }
+  main { max-width: 960px; margin: 0 auto; padding: 0.9rem; }
+
+  .panel { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; margin-bottom: 0.9rem; box-shadow: var(--shadow-sm); }
+  .panel h2 { margin: 0 0 0.7rem; font-size: 1.1rem; }
+  .panel p { margin: 0 0 0.7rem; color: var(--text-secondary); font-size: 0.9rem; }
+
+  .file-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.7rem; align-items: center; }
+  .file-row label { flex: 0 0 7rem; color: var(--text-secondary); font-size: 0.9rem; }
+  .file-row input[type="file"] { flex: 1; min-width: 0; color: var(--text-primary); font-size: 0.9rem; }
+  .file-row .file-name { color: var(--success); font-size: 0.85rem; }
+
+  .action-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+  button.primary { background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm); padding: 0.6rem 1.2rem; font-size: 1rem; font-weight: 700; cursor: pointer; }
+  button.primary:hover { background: var(--accent-hover); }
+  button.secondary { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem 1rem; font-size: 0.95rem; cursor: pointer; }
+  button.secondary:hover { border-color: var(--accent); }
+
+  .video-wrap { position: relative; background: #000; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 0.9rem; }
+  video { width: 100%; display: block; }
+
+  .bubble-wrap { display: flex; justify-content: center; padding: 0.5rem 0 1rem; }
+  .subtitle-bubble {
+    background: linear-gradient(135deg, rgba(123,121,255,0.18), rgba(0,230,118,0.08));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.2rem 1.4rem;
+    width: 100%;
+    max-width: 720px;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0.8rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.15s ease;
+  }
+  .subtitle-bubble:empty::before { content: "اختر ملف فيديو وملف (ملفات) ترجمة ثم اضغط ابدأ"; color: var(--text-secondary); font-size: 0.95rem; text-align: center; }
+  .lang-line {
+    border-radius: var(--radius-sm);
+    padding: 0.7rem 0.9rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.5;
+    position: relative;
+  }
+  .lang-line .badge {
+    position: absolute;
+    top: -0.45rem;
+    inset-inline-start: 0.6rem;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 0.15rem 0.45rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+  }
+  .lang-line.fr { background: linear-gradient(135deg, #ff9f43, #ff7f50); color: #1a1a1a; }
+  .lang-line.ar { background: linear-gradient(135deg, #2dd4bf, #14b8a6); color: #1a1a1a; direction: rtl; }
+  .lang-line.en { background: linear-gradient(135deg, #60a5fa, #3b82f6); color: #1a1a1a; direction: ltr; }
+
+  .controls { display: flex; flex-direction: column; gap: 0.7rem; align-items: center; margin-bottom: 0.9rem; }
+  .time-row { display: flex; align-items: center; gap: 0.5rem; width: 100%; max-width: 720px; color: var(--text-secondary); font-size: 0.85rem; }
+  #progress { flex: 1; -webkit-appearance: none; height: 6px; background: var(--bg-tertiary); border-radius: 3px; outline: none; }
+  #progress::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; background: var(--accent); border-radius: 50%; cursor: pointer; }
+
+  .btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+  .ctrl-btn {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .ctrl-btn:hover { border-color: var(--accent); }
+  .ctrl-btn.active { background: var(--success); color: #0b0d1f; border-color: var(--success); }
+
+  .lang-btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem; }
+  .lang-btn {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .lang-btn:hover { border-color: var(--accent); }
+  .lang-btn.active { background: var(--success); color: #0b0d1f; border-color: var(--success); }
+
+  .status { text-align: center; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; }
+
+  footer { text-align: center; padding: 1.5rem 1rem; color: var(--text-secondary); font-size: 0.8rem; }
+  .toast { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.6rem 1.1rem; z-index: 100; opacity: 0; transition: opacity 0.2s; pointer-events: none; font-weight: 600; direction: rtl; }
+  .toast.show { opacity: 1; }
+
+  @media (max-width: 480px) {
+    .file-row label { flex: 0 0 100%; }
+    .file-row input[type="file"] { flex: 1 0 100%; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <span class="logo">مشغّل SRT</span>
+    <span class="spacer"></span>
+    <button class="icon-btn" id="btn-stop" title="إيقاف الصوت">🔇</button>
+  </div>
+</header>
+
+<main>
+  <section class="panel" id="setup-panel">
+    <h2>اختر الفيديو والترجمة</h2>
+    <p>يمكنك اختيار ملف فيديو أو صوت، وملفات ترجمة منفصلة للفرنسية والعربية والإنجليزية. إذا كان لديك ملف SRT واحد يحتوي على الثلاث لغات (فرنسي + عربي + إنجليزي) في كل عبارة، اختره في خانة <strong>الفرنسية</strong> وسيتم التعرف عليها تلقائيًا.</p>
+    <div class="file-row">
+      <label for="video-file">فيديو/صوت</label>
+      <input type="file" id="video-file" accept="video/*,audio/*">
+      <span class="file-name" id="video-name"></span>
+    </div>
+    <div class="file-row">
+      <label for="srt-fr">الفرنسية</label>
+      <input type="file" id="srt-fr" accept=".srt,.txt">
+      <span class="file-name" id="name-fr"></span>
+    </div>
+    <div class="file-row">
+      <label for="srt-ar">العربية</label>
+      <input type="file" id="srt-ar" accept=".srt,.txt">
+      <span class="file-name" id="name-ar"></span>
+    </div>
+    <div class="file-row">
+      <label for="srt-en">الإنجليزية</label>
+      <input type="file" id="srt-en" accept=".srt,.txt">
+      <span class="file-name" id="name-en"></span>
+    </div>
+    <div class="action-row">
+      <button class="primary" id="btn-start">▶ ابدأ</button>
+      <button class="secondary" id="btn-reset">إعادة ضبط</button>
+    </div>
+  </section>
+
+  <div class="video-wrap" id="video-wrap" style="display:none;">
+    <video id="player" controls playsinline></video>
+  </div>
+
+  <div class="bubble-wrap">
+    <div class="subtitle-bubble" id="bubble"></div>
+  </div>
+
+  <section class="controls" id="controls" style="display:none;">
+    <div class="time-row">
+      <span id="current-time">00:00</span>
+      <input type="range" id="progress" min="0" max="100" value="0" step="0.1">
+      <span id="duration">00:00</span>
+    </div>
+    <div class="btn-row">
+      <button class="ctrl-btn" id="btn-prev" title="السطر السابق (←)">⏮</button>
+      <button class="ctrl-btn" id="btn-play" title="تشغيل/إيقاف (مسافة)">⏯</button>
+      <button class="ctrl-btn" id="btn-next" title="السطر التالي (→)">⏭</button>
+      <button class="ctrl-btn" id="btn-loop-all" title="تكرار العبارة بالثلاث لغات">🔁</button>
+    </div>
+    <div class="lang-btn-row" id="lang-btns"></div>
+    <div class="status" id="status"></div>
+  </section>
+</main>
+
+<footer>مشغّل SRT مصاحب للفيديو — يدعم الفرنسية والعربية والإنجليزية</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  'use strict';
+
+  // --- DOM refs ---
+  const $ = id => document.getElementById(id);
+  const videoFile = $('video-file'), srtFr = $('srt-fr'), srtAr = $('srt-ar'), srtEn = $('srt-en');
+  const videoName = $('video-name'), nameFr = $('name-fr'), nameAr = $('name-ar'), nameEn = $('name-en');
+  const btnStart = $('btn-start'), btnReset = $('btn-reset'), btnStop = $('btn-stop');
+  const videoWrap = $('video-wrap'), player = $('player'), bubble = $('bubble');
+  const controls = $('controls'), progress = $('progress'), currentTimeEl = $('current-time'), durationEl = $('duration');
+  const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next'), btnLoopAll = $('btn-loop-all');
+  const langBtns = $('lang-btns'), statusEl = $('status'), toast = $('toast');
+
+  // --- State ---
+  const state = {
+    cues: [], // { start, end, lines: [{lang, text}] }
+    src: { video: null, fr: '', ar: '', en: '' },
+    currentIndex: -1,
+    isPlaying: false,
+    loopAll: false,
+    loopLang: null,
+    ttsChain: null,
+    duration: 0
+  };
+
+  const LANG_ORDER = ['fr','ar','en'];
+  const LANG_LABELS = { fr: 'FR', ar: 'AR', en: 'EN' };
+  const LANG_NAMES = { fr: 'الفرنسية', ar: 'العربية', en: 'الإنجليزية' };
+
+  // --- Utilities ---
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  }
+  function formatTime(sec) {
+    const h = Math.floor(sec/3600);
+    const m = Math.floor((sec%3600)/60);
+    const s = Math.floor(sec%60);
+    const ms = Math.round((sec%1)*1000).toString().padStart(3,'0');
+    return `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}.${ms}`;
+  }
+  function formatDuration(sec) {
+    const m = Math.floor(sec/60);
+    const s = Math.floor(sec%60).toString().padStart(2,'0');
+    return `${m}:${s}`;
+  }
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  // --- Time parsing ---
+  function parseTime(t) {
+    t = t.trim().replace(',', '.');
+    const parts = t.split(':');
+    if (parts.length === 3) {
+      const [h, m, s] = parts;
+      const [sec, ms='0'] = s.split('.');
+      return (parseInt(h,10)*3600 + parseInt(m,10)*60 + parseInt(sec,10)) + parseFloat('0.' + ms.padEnd(3,'0'));
+    }
+    if (parts.length === 2) {
+      const [m, s] = parts;
+      const [sec, ms='0'] = s.split('.');
+      return (parseInt(m,10)*60 + parseInt(sec,10)) + parseFloat('0.' + ms.padEnd(3,'0'));
+    }
+    const [sec, ms='0'] = t.split('.');
+    return parseInt(sec,10) + parseFloat('0.' + ms.padEnd(3,'0'));
+  }
+
+  function parseSrt(srt) {
+    const cues = [];
+    const blocks = srt.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split(/\n\s*\n/);
+    for (const block of blocks) {
+      const lines = block.trim().split('\n');
+      if (lines.length < 2) continue;
+      const timeLine = lines.find(l => l.includes('-->'));
+      if (!timeLine) continue;
+      const [start, end] = timeLine.split('-->').map(s => parseTime(s.trim()));
+      const textLines = lines.slice(lines.indexOf(timeLine) + 1).filter(l => l.trim());
+      if (!isNaN(start) && !isNaN(end) && textLines.length) {
+        cues.push({ start, end, text: textLines.join('\n') });
+      }
+    }
+    return cues;
+  }
+
+  function parseTimedText(text) {
+    const cues = [];
+    const rawLines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+    const timedLines = [];
+    let currentEntry = null;
+
+    function parseLineTime(line) {
+      let m = line.match(/^\[(?:(\d{1,2}):)?(?:(\d{1,2}):)?(\d{1,2})(?:[.,](\d{1,3}))?\]\s*(.*)$/);
+      if (m) {
+        const timeStr = (m[1] || '') + (m[2] || '') + m[3] + (m[4] ? '.' + m[4] : '');
+        return { start: parseTime(timeStr), text: m[5].trim() };
+      }
+      m = line.match(/^((?:\d{1,2}:)?(?:\d{1,2}:)?\d{1,2}(?:[.,]\d{1,3})?)\s*-->?\s*((?:\d{1,2}:)?(?:\d{1,2}:)?\d{1,2}(?:[.,]\d{1,3})?)\s*(.*)$/);
+      if (m) return { start: parseTime(m[1]), end: parseTime(m[2]), text: m[3].trim() };
+      m = line.match(/^(\d{1,2}):(\d{2}):(\d{2})(?:[.,](\d{1,3}))?\s+(.+)$/);
+      if (m) {
+        const start = parseInt(m[1],10)*3600 + parseInt(m[2],10)*60 + parseInt(m[3],10) + (m[4] ? parseFloat('0.' + m[4].padEnd(3,'0')) : 0);
+        return { start, text: m[5].trim() };
+      }
+      m = line.match(/^(\d{1,2}):(\d{2})(?:[.,](\d{1,3}))?\s+(.+)$/);
+      if (m) {
+        const start = parseInt(m[1],10)*60 + parseInt(m[2],10) + (m[3] ? parseFloat('0.' + m[3].padEnd(3,'0')) : 0);
+        return { start, text: m[4].trim() };
+      }
+      return null;
+    }
+
+    for (const raw of rawLines) {
+      const line = raw.trim();
+      if (!line) continue;
+      const parsed = parseLineTime(line);
+      if (parsed) {
+        if (currentEntry) timedLines.push(currentEntry);
+        currentEntry = { start: parsed.start, end: parsed.end, text: parsed.text };
+      } else if (currentEntry) {
+        currentEntry.text += '\n' + line;
+      }
+    }
+    if (currentEntry) timedLines.push(currentEntry);
+
+    for (let i = 0; i < timedLines.length; i++) {
+      const entry = timedLines[i];
+      let end = entry.end;
+      if (end === undefined || isNaN(end)) {
+        const nextStart = timedLines[i+1] ? timedLines[i+1].start : null;
+        end = (nextStart && nextStart > entry.start) ? nextStart : entry.start + 4;
+      }
+      cues.push({ start: entry.start, end, text: entry.text });
+    }
+    for (let i = 0; i < cues.length - 1; i++) {
+      if (cues[i].end > cues[i+1].start) cues[i].end = cues[i+1].start;
+      if (cues[i].end <= cues[i].start) cues[i].end = cues[i].start + 1.5;
+    }
+    return cues;
+  }
+
+  function isSrtFormat(text) {
+    const blocks = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split(/\n\s*\n/);
+    return blocks.some(b => /^\s*\d+\s*\n\d{1,2}:\d{2}:\d{2}[,.]\d{1,3}\s*-->\s*\d{1,2}:\d{2}:\d{2}[,.]\d{1,3}/.test(b.trim()));
+  }
+
+  function parseSubtitle(text) {
+    return isSrtFormat(text) ? parseSrt(text) : parseTimedText(text);
+  }
+
+  function getCueTexts(cue) {
+    const lines = cue.text.split('\n').map(l => l.trim()).filter(Boolean);
+    const arLines = lines.filter(l => /[\u0600-\u06FF]/.test(l));
+    const nonArLines = lines.filter(l => !/[\u0600-\u06FF]/.test(l));
+    const result = [];
+    let nonArIdx = 0;
+    for (const lang of LANG_ORDER) {
+      if (lang === 'ar') {
+        if (arLines.length) result.push({ lang, text: arLines.shift() });
+      } else if (nonArIdx < nonArLines.length) {
+        result.push({ lang, text: nonArLines[nonArIdx++] });
+      }
+    }
+    arLines.forEach(text => result.push({ lang: 'ar', text }));
+    nonArLines.slice(nonArIdx).forEach((text, i) => {
+      const remaining = LANG_ORDER.filter(l => l !== 'ar' && !result.some(r => r.lang === l));
+      result.push({ lang: remaining[i] || 'fr', text });
+    });
+    return result;
+  }
+
+  // --- Cue building ---
+  function buildCues(frCues, arCues, enCues) {
+    // If separate SRT files: union all start times and pick matching text per language.
+    const allStarts = new Set();
+    const add = cues => cues.forEach(c => { allStarts.add(c.start); });
+    add(frCues); add(arCues); add(enCues);
+    if (allStarts.size === 0 && frCues.length) {
+      // Single file mode: already parsed as frCues; derive texts per cue
+      return frCues.map(c => ({ start: c.start, end: c.end, lines: getCueTexts(c) }));
+    }
+    const times = Array.from(allStarts).sort((a,b) => a-b);
+    const find = (cues, t) => cues.find(c => t >= c.start && t < c.end) || cues.find(c => Math.abs(c.start - t) < 0.05);
+    return times.map(t => {
+      const fr = find(frCues, t), ar = find(arCues, t), en = find(enCues, t);
+      const lines = [];
+      if (fr && fr.text.trim()) lines.push({ lang: 'fr', text: fr.text.trim() });
+      if (ar && ar.text.trim()) lines.push({ lang: 'ar', text: ar.text.trim() });
+      if (en && en.text.trim()) lines.push({ lang: 'en', text: en.text.trim() });
+      const end = (fr && fr.end) || (ar && ar.end) || (en && en.end) || t + 2;
+      return { start: t, end, lines };
+    });
+  }
+
+  // --- TTS ---
+  function isCapacitor() {
+    return typeof window !== 'undefined' && window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform();
+  }
+  function ttsStop() {
+    if (state.ttsChain) { clearTimeout(state.ttsChain); state.ttsChain = null; }
+    if (isCapacitor()) {
+      const plugin = window.Capacitor.Plugins.TextToSpeech;
+      if (plugin) plugin.stop().catch(()=>{});
+    } else if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+  }
+  function ttsSpeak({ text, lang, onend }) {
+    const ttsLang = lang === 'ar' ? 'ar-SA' : (lang === 'fr' ? 'fr-FR' : 'en-US');
+    if (isCapacitor()) {
+      const plugin = window.Capacitor.Plugins.TextToSpeech;
+      if (!plugin) { if (onend) onend(); return; }
+      plugin.stop().catch(()=>{})
+        .then(() => plugin.speak({ text, lang: ttsLang, rate: 1.0, pitch: 1.0, volume: 1.0, category: 'playback' }))
+        .then(() => { if (onend) onend(); })
+        .catch(() => { if (onend) onend(); });
+    } else if ('speechSynthesis' in window) {
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = ttsLang;
+      u.onend = onend;
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(u);
+    } else if (onend) {
+      onend();
+    }
+  }
+
+  function getCurrentCue() {
+    return state.cues[state.currentIndex];
+  }
+
+  function getCurrentLine(lang) {
+    const cue = getCurrentCue();
+    return cue ? (cue.lines.find(l => l.lang === lang) || cue.lines[0]) : null;
+  }
+
+  function speakLoopForLang(lang) {
+    if (state.loopLang === lang) { stopAllLoops(); return; }
+    stopAllLoops();
+    state.loopLang = lang;
+    updateButtons();
+    const doSpeak = () => {
+      if (state.loopLang !== lang) return;
+      const line = getCurrentLine(lang);
+      if (!line || !line.text) { state.ttsChain = setTimeout(doSpeak, 500); return; }
+      ttsSpeak({ text: line.text, lang: line.lang, onend: () => { state.ttsChain = setTimeout(doSpeak, 600); } });
+    };
+    doSpeak();
+  }
+
+  function speakLoopAll() {
+    if (state.loopAll) { stopAllLoops(); return; }
+    stopAllLoops();
+    state.loopAll = true;
+    updateButtons();
+    const available = () => {
+      const cue = getCurrentCue();
+      return cue ? LANG_ORDER.map(l => cue.lines.find(x => x.lang === l)).filter(Boolean) : [];
+    };
+    const doCycle = (idx) => {
+      if (!state.loopAll) return;
+      const lines = available();
+      if (!lines.length) { state.ttsChain = setTimeout(() => doCycle(0), 500); return; }
+      const i = idx % lines.length;
+      ttsSpeak({ text: lines[i].text, lang: lines[i].lang, onend: () => { state.ttsChain = setTimeout(() => doCycle(i+1), 800); } });
+    };
+    doCycle(0);
+  }
+
+  function stopAllLoops() {
+    state.loopAll = false;
+    state.loopLang = null;
+    ttsStop();
+    updateButtons();
+  }
+
+  // --- UI ---
+  function updateButtons() {
+    btnLoopAll.classList.toggle('active', state.loopAll);
+    Array.from(langBtns.children).forEach(btn => {
+      const l = btn.dataset.lang;
+      btn.classList.toggle('active', state.loopLang === l);
+    });
+  }
+
+  function renderLangButtons() {
+    const cue = getCurrentCue();
+    const present = cue ? LANG_ORDER.filter(l => cue.lines.some(x => x.lang === l)) : LANG_ORDER;
+    langBtns.innerHTML = present.map(l => `
+      <button class="lang-btn" data-lang="${l}" title="نطق ${LANG_NAMES[l]}">
+        ${LANG_LABELS[l]} 🔊
+      </button>
+    `).join('');
+    Array.from(langBtns.children).forEach(btn => {
+      btn.addEventListener('click', () => speakLoopForLang(btn.dataset.lang));
+    });
+    updateButtons();
+  }
+
+  function renderBubble() {
+    const cue = getCurrentCue();
+    if (!cue) {
+      bubble.innerHTML = '';
+      return;
+    }
+    bubble.innerHTML = cue.lines.map(line => `
+      <div class="lang-line ${line.lang}" dir="${line.lang === 'ar' ? 'rtl' : 'ltr'}">
+        <span class="badge">${LANG_LABELS[line.lang]}</span>
+        ${escapeHtml(line.text)}
+      </div>
+    `).join('');
+    renderLangButtons();
+  }
+
+  function updateStatus() {
+    const cue = getCurrentCue();
+    if (!cue) { statusEl.textContent = ''; return; }
+    statusEl.textContent = `العبارة ${state.currentIndex + 1} من ${state.cues.length} · ${formatDuration(cue.start)} - ${formatDuration(cue.end)}`;
+  }
+
+  function setCurrentByTime(t) {
+    if (!state.cues.length) return -1;
+    const idx = state.cues.findIndex(c => t >= c.start && t < c.end);
+    if (idx >= 0 && idx !== state.currentIndex) {
+      state.currentIndex = idx;
+      renderBubble();
+      updateStatus();
+    }
+    return state.currentIndex;
+  }
+
+  function goToCue(i) {
+    if (!state.cues.length || i < 0 || i >= state.cues.length) return;
+    state.currentIndex = i;
+    const cue = state.cues[i];
+    player.currentTime = cue.start;
+    if (state.isPlaying) player.play().catch(()=>{});
+    renderBubble();
+    updateStatus();
+    updateProgress();
+    if (state.loopAll) speakLoopAll();
+    else if (state.loopLang) speakLoopForLang(state.loopLang);
+  }
+
+  function prevCue() { if (state.currentIndex > 0) goToCue(state.currentIndex - 1); }
+  function nextCue() { if (state.currentIndex < state.cues.length - 1) goToCue(state.currentIndex + 1); }
+  function togglePlay() { if (player.paused) player.play(); else player.pause(); }
+
+  function updateProgress() {
+    if (!state.duration) return;
+    progress.value = player.currentTime;
+    currentTimeEl.textContent = formatDuration(player.currentTime);
+  }
+
+  // --- Event wiring ---
+  function handleFiles() {
+    videoName.textContent = videoFile.files[0] ? videoFile.files[0].name : '';
+    nameFr.textContent = srtFr.files[0] ? srtFr.files[0].name : '';
+    nameAr.textContent = srtAr.files[0] ? srtAr.files[0].name : '';
+    nameEn.textContent = srtEn.files[0] ? srtEn.files[0].name : '';
+  }
+  [videoFile, srtFr, srtAr, srtEn].forEach(el => el.addEventListener('change', handleFiles));
+
+  function readFile(file) {
+    return new Promise((resolve, reject) => {
+      const r = new FileReader();
+      r.onload = () => resolve(r.result);
+      r.onerror = reject;
+      r.readAsText(file, 'UTF-8');
+    });
+  }
+
+  async function start() {
+    if (!videoFile.files[0] && !srtFr.files[0] && !srtAr.files[0] && !srtEn.files[0]) {
+      showToast('الرجاء اختيار فيديو أو ملف ترجمة على الأقل');
+      return;
+    }
+
+    stopAllLoops();
+    state.cues = [];
+    state.currentIndex = -1;
+
+    if (videoFile.files[0]) {
+      const url = URL.createObjectURL(videoFile.files[0]);
+      player.src = url;
+      videoWrap.style.display = 'block';
+    } else {
+      player.src = '';
+      videoWrap.style.display = 'none';
+    }
+
+    let frCues = [], arCues = [], enCues = [];
+    try {
+      if (srtFr.files[0]) {
+        const text = await readFile(srtFr.files[0]);
+        frCues = parseSubtitle(text);
+      }
+      if (srtAr.files[0]) {
+        const text = await readFile(srtAr.files[0]);
+        arCues = parseSubtitle(text);
+      }
+      if (srtEn.files[0]) {
+        const text = await readFile(srtEn.files[0]);
+        enCues = parseSubtitle(text);
+      }
+    } catch (e) {
+      showToast('خطأ في قراءة ملف الترجمة');
+      return;
+    }
+
+    // If only one file selected and it has multiple languages, treat as single source
+    const onlyOne = frCues.length && !arCues.length && !enCues.length ? frCues : null;
+    if (onlyOne) {
+      state.cues = onlyOne.map(c => ({ start: c.start, end: c.end, lines: getCueTexts(c) }));
+    } else {
+      state.cues = buildCues(frCues, arCues, enCues);
+    }
+
+    if (!state.cues.length) {
+      showToast('لم يتم العثور على عبارات في ملفات الترجمة');
+      return;
+    }
+
+    controls.style.display = 'flex';
+    progress.max = 0;
+    currentTimeEl.textContent = '00:00';
+    durationEl.textContent = '00:00';
+
+    player.onloadedmetadata = () => {
+      state.duration = player.duration || 0;
+      progress.max = state.duration;
+      durationEl.textContent = formatDuration(state.duration);
+      // Sync cues end time to video duration
+      if (state.cues.length && state.duration) {
+        const last = state.cues[state.cues.length - 1];
+        if (last.end > state.duration) last.end = state.duration;
+        // ensure no cue extends beyond video
+        for (let i = 0; i < state.cues.length - 1; i++) {
+          if (state.cues[i].end > state.cues[i+1].start) state.cues[i].end = state.cues[i+1].start;
+        }
+      }
+    };
+
+    player.ontimeupdate = () => {
+      setCurrentByTime(player.currentTime);
+      updateProgress();
+    };
+
+    player.onplay = () => { state.isPlaying = true; btnPlay.textContent = '⏸'; };
+    player.onpause = () => { state.isPlaying = false; btnPlay.textContent = '▶'; };
+    player.onended = () => { state.isPlaying = false; btnPlay.textContent = '▶'; };
+
+    progress.oninput = () => {
+      player.currentTime = parseFloat(progress.value);
+      setCurrentByTime(player.currentTime);
+      updateProgress();
+    };
+
+    goToCue(0);
+    showToast(`تم تحميل ${state.cues.length} عبارة`);
+  }
+
+  function reset() {
+    stopAllLoops();
+    player.pause();
+    player.src = '';
+    videoWrap.style.display = 'none';
+    controls.style.display = 'none';
+    bubble.innerHTML = '';
+    state.cues = [];
+    state.currentIndex = -1;
+    state.isPlaying = false;
+    state.duration = 0;
+    videoFile.value = ''; srtFr.value = ''; srtAr.value = ''; srtEn.value = '';
+    handleFiles();
+    progress.value = 0;
+    currentTimeEl.textContent = '00:00'; durationEl.textContent = '00:00';
+  }
+
+  btnStart.addEventListener('click', start);
+  btnReset.addEventListener('click', reset);
+  btnStop.addEventListener('click', stopAllLoops);
+  btnPrev.addEventListener('click', prevCue);
+  btnPlay.addEventListener('click', togglePlay);
+  btnNext.addEventListener('click', nextCue);
+  btnLoopAll.addEventListener('click', speakLoopAll);
+
+  document.addEventListener('keydown', e => {
+    if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+    if (e.code === 'ArrowLeft') { e.preventDefault(); prevCue(); }
+    if (e.code === 'ArrowRight') { e.preventDefault(); nextCue(); }
+    if (e.code === 'Space') { e.preventDefault(); togglePlay(); }
+    if (e.code === 'Escape') { e.preventDefault(); stopAllLoops(); }
+  });
+
+  // Disable space scroll on range
+  progress.addEventListener('keydown', e => { if (e.code === 'Space') e.preventDefault(); });
+
+})();
+</script>
+</body>
+</html>

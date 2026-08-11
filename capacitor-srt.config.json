@@ -1,0 +1,12 @@
+{
+  "appId": "com.syrian020.srtplayer",
+  "appName": "SRT Player",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": false
+  }
+}
