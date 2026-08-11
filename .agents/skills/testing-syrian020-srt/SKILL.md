@@ -66,6 +66,8 @@ window.speechSynthesis.speak = function(u) {
 
 Active loop buttons use the `.active` class (green background). Check `__speakCount` to confirm TTS is firing, and that it increments at a steady single-loop rate after the TTS token fix.
 
+To test error recovery, trigger `u.onerror()` instead of `u.onend()` in the monkeypatch. The `srt.html` player now calls `u.onerror = () => { if (onend) onend(); };` so a Web Speech utterance error should not stall the loop.
+
 ## What to verify
 
 1. Trilingual user-format file in the French picker renders a bubble with three lines: FR (orange), AR (teal), EN (blue) with badges.
@@ -74,6 +76,8 @@ Active loop buttons use the `.active` class (green background). Check `__speakCo
 4. Per-language TTS buttons turn green, stay active across cue navigation, and `Esc` / `🔇` stops them.
 5. A single-language French SRT with a multi-line cue shows as one FR line, not split into FR+EN.
 6. `⏯` toggles play/pause and the button icon changes.
+7. (Video-only start) Selecting only a video file with no subtitle and clicking `▶ ابدأ` loads the video and hides the cue controls.
+8. (APK build idempotency) Running `./build-srt-apk.sh` a second time should NOT recreate the `android/` project (no `npx cap add android` or "recreating android project" output) when the current `applicationId` already matches the desired Capacitor `appId`.
 
 ## APK build
 
