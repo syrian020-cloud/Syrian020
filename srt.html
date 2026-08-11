@@ -89,7 +89,27 @@
     gap: 0.8rem;
     box-shadow: var(--shadow);
     transition: transform 0.15s ease;
+    position: relative;
   }
+  .bubble-loop {
+    position: absolute;
+    top: 0.7rem;
+    inset-inline-end: 0.8rem;
+    background: rgba(0,0,0,0.35);
+    color: var(--gold);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 5;
+  }
+  .bubble-loop:hover { background: rgba(0,0,0,0.55); border-color: var(--gold); }
+  .bubble-loop.active { background: var(--success); color: #0b0d1f; border-color: var(--success); }
   .subtitle-bubble:empty::before { content: "اختر ملف فيديو وملف (ملفات) ترجمة ثم اضغط ابدأ"; color: var(--text-secondary); font-size: 0.95rem; text-align: center; }
   .lang-line {
     border-radius: var(--radius-sm);
@@ -541,6 +561,8 @@
   // --- UI ---
   function updateButtons() {
     btnLoopAll.classList.toggle('active', state.loopAll);
+    const bubbleLoop = document.querySelector('.bubble-loop');
+    if (bubbleLoop) bubbleLoop.classList.toggle('active', state.loopAll);
     Array.from(langBtns.children).forEach(btn => {
       const l = btn.dataset.lang;
       btn.classList.toggle('active', state.loopLang === l);
@@ -567,12 +589,17 @@
       bubble.innerHTML = '';
       return;
     }
-    bubble.innerHTML = cue.lines.map(line => `
+    const loopBtn = `<button class="bubble-loop" title="تكرار نطق العبارة" aria-label="تكرار نطق العبارة">🔁</button>`;
+    bubble.innerHTML = loopBtn + cue.lines.map(line => `
       <div class="lang-line ${line.lang}" dir="${line.lang === 'ar' ? 'rtl' : 'ltr'}">
         <span class="badge">${LANG_LABELS[line.lang]}</span>
         ${escapeHtml(line.text)}
       </div>
     `).join('');
+    const bubbleLoop = bubble.querySelector('.bubble-loop');
+    if (bubbleLoop) {
+      bubbleLoop.addEventListener('click', e => { e.stopPropagation(); toggleLoopAll(); });
+    }
     renderLangButtons();
   }
 
