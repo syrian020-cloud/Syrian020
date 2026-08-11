@@ -9,6 +9,14 @@ VAULT="$ROOT/password-vault"
 WWW="$ROOT/www"
 APK_OUT="$VAULT/passvault-debug.apk"
 
+restore_config() {
+  if [ -f "$VAULT/capacitor.config.json.backup" ]; then
+    cp "$VAULT/capacitor.config.json.backup" "$ROOT/capacitor.config.json"
+    rm -f "$VAULT/capacitor.config.json.backup"
+  fi
+}
+trap restore_config EXIT
+
 export ANDROID_HOME=${ANDROID_HOME:-/home/ubuntu/android-sdk}
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator"
 
@@ -41,8 +49,5 @@ cd android
 ./gradlew assembleDebug
 
 cp "$ROOT/android/app/build/outputs/apk/debug/app-debug.apk" "$APK_OUT"
-
-# Restore original root config
-cp "$VAULT/capacitor.config.json.backup" "$ROOT/capacitor.config.json"
 
 echo "APK ready at: $APK_OUT"

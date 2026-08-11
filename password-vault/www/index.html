@@ -185,8 +185,8 @@ body.rtl .fab { right: auto; left: 20px; }
   <div class="lock-icon">🔒</div>
   <div class="lock-title" data-i18n="unlock">Unlock PassVault</div>
   <div class="lock-sub" data-i18n="enterPin">Enter your master password</div>
-  <div class="pin-row" id="pinDots"></div>
-  <div class="keypad" id="keypad"></div>
+  <input type="password" id="lockPass" data-i18n-placeholder="enterPin" placeholder="Enter your master password" style="width:100%;max-width:320px;padding:14px 16px;border-radius:14px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:16px;margin-bottom:16px;outline:none;">
+  <button class="btn" id="unlockBtn" data-i18n="unlock" style="max-width:320px;">Unlock</button>
 </div>
 
 <div id="app" class="hidden">
@@ -263,7 +263,7 @@ body.rtl .fab { right: auto; left: 20px; }
         <div class="setting-left"><div class="setting-icon">☁️</div><div><div class="setting-label" data-i18n="backupGoogle">Backup to Google</div><div class="setting-desc" data-i18n="backupGoogleDesc">Save encrypted vault to Drive</div></div></div>
         <span id="googleStatus">›</span>
       </div>
-      <div class="setting-item" id="restoreGoogleRow" class="hidden">
+      <div class="setting-item hidden" id="restoreGoogleRow">
         <div class="setting-left"><div class="setting-icon">🔄</div><div><div class="setting-label" data-i18n="restoreGoogle">Restore from Google</div></div></div>
         <span>›</span>
       </div>
@@ -304,7 +304,8 @@ const I18N = {
     pinError: 'Wrong password', entrySaved: 'Entry saved', entryDeleted: 'Entry deleted', copied: 'Copied to clipboard',
     backupSuccess: 'Backup saved to Google Drive', restoreSuccess: 'Backup restored', restoreError: 'Could not restore backup',
     empty: 'No entries yet. Tap + to add one.', changePassword: 'Change master password', currentPassword: 'Current password',
-    newPassword: 'New password', change: 'Change', generate: 'Generate', categories: { All: 'All', Social: 'Social', Work: 'Work', Finance: 'Finance', Shopping: 'Shopping', Email: 'Email', Other: 'Other' }
+    newPassword: 'New password', change: 'Change', generate: 'Generate', importPassword: 'Backup password',
+    importPasswordDesc: 'Enter the password used to encrypt this backup', categories: { All: 'All', Social: 'Social', Work: 'Work', Finance: 'Finance', Shopping: 'Shopping', Email: 'Email', Other: 'Other' }
   },
   ar: {
     unlock: 'فتح PassVault', enterPin: 'أدخل كلمة المرور الرئيسية', search: 'ابحث عن حساب...',
@@ -322,7 +323,8 @@ const I18N = {
     backupSuccess: 'تم حفظ النسخة الاحتياطية في Google Drive', restoreSuccess: 'تم استعادة النسخة الاحتياطية',
     restoreError: 'تعذر استعادة النسخة الاحتياطية', empty: 'لا توجد إدخالات بعد. اضغط + لإضافة واحد.',
     changePassword: 'تغيير كلمة المرور الرئيسية', currentPassword: 'كلمة المرور الحالية', newPassword: 'كلمة المرور الجديدة',
-    change: 'تغيير', generate: 'توليد', categories: { All: 'الكل', Social: 'اجتماعي', Work: 'عمل', Finance: 'مالي', Shopping: 'تسوق', Email: 'بريد', Other: 'أخرى' }
+    change: 'تغيير', generate: 'توليد', importPassword: 'كلمة مرور النسخة الاحتياطية',
+    importPasswordDesc: 'أدخل كلمة المرور المستخدمة لتشفير هذه النسخة', categories: { All: 'الكل', Social: 'اجتماعي', Work: 'عمل', Finance: 'مالي', Shopping: 'تسوق', Email: 'بريد', Other: 'أخرى' }
   },
   fr: {
     unlock: 'Déverrouiller PassVault', enterPin: 'Entrez votre mot de passe maître', search: 'Rechercher un compte...',
@@ -340,7 +342,8 @@ const I18N = {
     backupSuccess: 'Sauvegarde enregistrée sur Google Drive', restoreSuccess: 'Sauvegarde restaurée', restoreError: 'Impossible de restaurer',
     empty: 'Aucune entrée. Appuyez sur + pour en ajouter une.', changePassword: 'Changer le mot de passe maître',
     currentPassword: 'Mot de passe actuel', newPassword: 'Nouveau mot de passe', change: 'Changer', generate: 'Générer',
-    categories: { All: 'Tout', Social: 'Social', Work: 'Travail', Finance: 'Finance', Shopping: 'Achats', Email: 'E-mail', Other: 'Autre' }
+    importPassword: 'Mot de passe de la sauvegarde',
+    importPasswordDesc: 'Entrez le mot de passe utilisé pour chiffrer cette sauvegarde', categories: { All: 'Tout', Social: 'Social', Work: 'Travail', Finance: 'Finance', Shopping: 'Achats', Email: 'E-mail', Other: 'Autre' }
   }
 };
 let LANG = localStorage.getItem('lang') || (navigator.language.startsWith('ar') ? 'ar' : (navigator.language.startsWith('fr') ? 'fr' : 'en'));
@@ -350,11 +353,9 @@ let DARK = localStorage.getItem('theme') !== 'light';
 let entries = [];
 let editId = null;
 let masterKey = null;
-let masterHashSalt = null;
-let masterHash = null;
-let pinBuffer = '';
-let currentCategory = 'All';
 let googleAccessToken = null;
+let pauseTimer = null;
+let isSharing = false;
 const GOOGLE_CLIENT_ID_PLACEHOLDER = 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com';
 let GOOGLE_CLIENT_ID = localStorage.getItem('google_client_id') || GOOGLE_CLIENT_ID_PLACEHOLDER;
 
@@ -367,80 +368,75 @@ async function getPasswordKey(password, salt) {
   const enc = new TextEncoder();
   const keyMaterial = await crypto.subtle.importKey('raw', enc.encode(password), { name: 'PBKDF2' }, false, ['deriveBits', 'deriveKey']);
   return crypto.subtle.deriveKey(
-    { name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256' },
+    { name: 'PBKDF2', salt, iterations: 120000, hash: 'SHA-256' },
     keyMaterial,
     { name: 'AES-GCM', length: 256 },
     false,
     ['encrypt', 'decrypt']
   );
 }
-async function encryptWithPassword(text, password) {
-  const salt = crypto.getRandomValues(new Uint8Array(16));
+async function encryptWithKey(text, key) {
   const iv = crypto.getRandomValues(new Uint8Array(12));
-  const key = await getPasswordKey(password, salt);
   const cipher = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, new TextEncoder().encode(text));
-  return { salt: arrToBase64(salt), iv: arrToBase64(iv), data: arrToBase64(new Uint8Array(cipher)) };
+  return { iv: arrToBase64(iv), data: arrToBase64(new Uint8Array(cipher)) };
+}
+async function decryptWithKey(payload, key) {
+  const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: base64ToArr(payload.iv) }, key, base64ToArr(payload.data));
+  return new TextDecoder().decode(plain);
+}
+async function encryptWithPassword(text, password, salt) {
+  const key = await getPasswordKey(password, salt);
+  const result = await encryptWithKey(text, key);
+  return { salt: arrToBase64(salt), iv: result.iv, data: result.data };
 }
 async function decryptWithPassword(payload, password) {
   const key = await getPasswordKey(password, base64ToArr(payload.salt));
-  const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: base64ToArr(payload.iv) }, key, base64ToArr(payload.data));
-  return new TextDecoder().decode(plain);
+  return decryptWithKey(payload, key);
 }
 function arrToBase64(a) { let s=''; for(const b of a) s+=String.fromCharCode(b); return btoa(s); }
 function base64ToArr(s) { const bs=atob(s); const a=new Uint8Array(bs.length); for(let i=0;i<bs.length;i++) a[i]=bs.charCodeAt(i); return a; }
 async function hashPassword(password, salt) {
   const enc = new TextEncoder();
   const keyMaterial = await crypto.subtle.importKey('raw', enc.encode(password), { name: 'PBKDF2' }, false, ['deriveBits']);
-  const hash = await crypto.subtle.deriveBits({ name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256' }, keyMaterial, 256);
+  const hash = await crypto.subtle.deriveBits({ name: 'PBKDF2', salt, iterations: 120000, hash: 'SHA-256' }, keyMaterial, 256);
   return arrToBase64(new Uint8Array(hash));
 }
 
 /* ===== Storage ===== */
 async function loadVault() {
   const v = localStorage.getItem('vault');
-  masterHashSalt = localStorage.getItem('masterHashSalt');
-  masterHash = localStorage.getItem('masterHash');
-  if (!v) return [];
-  if (!masterKey) return [];
+  if (!v || !masterKey) return [];
   try {
-    const json = await decryptWithPassword(JSON.parse(v), await exportKey(masterKey));
-    return JSON.parse(json) || [];
+    const json = await decryptWithKey(JSON.parse(v), masterKey);
+    const parsed = JSON.parse(json);
+    return Array.isArray(parsed) ? parsed : [];
   } catch (e) { return []; }
 }
 async function saveVault(arr) {
   if (!masterKey) return;
-  const rawKey = await exportKey(masterKey);
-  const payload = await encryptWithPassword(JSON.stringify(arr), rawKey);
+  const payload = await encryptWithKey(JSON.stringify(arr), masterKey);
   localStorage.setItem('vault', JSON.stringify(payload));
 }
-async function exportKey(key) {
-  const raw = await crypto.subtle.exportKey('raw', key);
-  return arrToBase64(new Uint8Array(raw));
-}
-async function importKey(base64) {
-  const raw = base64ToArr(base64);
-  return crypto.subtle.importKey('raw', raw, { name: 'AES-GCM', length: 256 }, true, ['encrypt', 'decrypt']);
-}
 async function setupMaster(password) {
-  const rawKeyBytes = crypto.getRandomValues(new Uint8Array(32));
-  masterKey = await crypto.subtle.importKey('raw', rawKeyBytes, { name: 'AES-GCM', length: 256 }, true, ['encrypt', 'decrypt']);
   const hashSalt = crypto.getRandomValues(new Uint8Array(16));
-  masterHashSalt = arrToBase64(hashSalt);
-  masterHash = await hashPassword(password, hashSalt);
-  localStorage.setItem('masterHashSalt', masterHashSalt);
-  localStorage.setItem('masterHash', masterHash);
-  localStorage.setItem('keyData', await exportKey(masterKey));
-  await saveVault([]);
+  const keySalt = crypto.getRandomValues(new Uint8Array(16));
+  masterKey = await getPasswordKey(password, keySalt);
+  const hash = await hashPassword(password, hashSalt);
+  const emptyVault = await encryptWithKey('[]', masterKey);
+  localStorage.setItem('masterHashSalt', arrToBase64(hashSalt));
+  localStorage.setItem('masterHash', hash);
+  localStorage.setItem('keySalt', arrToBase64(keySalt));
+  localStorage.setItem('vault', JSON.stringify(emptyVault));
+  entries = [];
 }
 async function unlockMaster(password) {
   const salt = localStorage.getItem('masterHashSalt');
   const stored = localStorage.getItem('masterHash');
-  if (!salt || !stored) return false;
+  const keySalt = localStorage.getItem('keySalt');
+  if (!salt || !stored || !keySalt) return false;
   const hash = await hashPassword(password, base64ToArr(salt));
   if (hash !== stored) return false;
-  const keyData = localStorage.getItem('keyData');
-  if (!keyData) return false;
-  masterKey = await importKey(keyData);
+  masterKey = await getPasswordKey(password, base64ToArr(keySalt));
   entries = await loadVault();
   return true;
 }
@@ -458,7 +454,7 @@ function applyI18n() {
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { el.placeholder = t(el.dataset.i18nPlaceholder); });
   document.querySelectorAll('#fCategory option').forEach(opt => { if(I18N[LANG].categories[opt.value]) opt.textContent = I18N[LANG].categories[opt.value]; });
-  document.getElementById('langSelect').value = LANG;
+  const ls = $('langSelect'); if (ls) ls.value = LANG;
   renderChips(); renderList();
 }
 function showToast(msg) { const el=$('toast'); el.textContent=msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),2600); }
@@ -466,40 +462,42 @@ function showScreen(name) {
   ['homeScreen','formScreen','settingsScreen'].forEach(id => $(id).classList.toggle('hidden', id!==name));
   if (name==='homeScreen') { editId=null; renderList(); }
 }
+function escapeHtml(s) { var map={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":'&#39;'}; return (s||"").toString().replace(/[&<>"']/g, function(m){ return map[m]; }); }
 
 function getIcon(title) {
   const map = { gmail:'📧', google:'📧', yahoo:'📧', outlook:'📧', facebook:'👥', insta:'📷', instagram:'📷', twitter:'🐦', x:'🐦', tiktok:'🎵', snap:'👻', snapchat:'👻', whatsapp:'💬', telegram:'✈️', linkedin:'💼', github:'🐙', gitlab:'🦊', amazon:'🛒', ebay:'🛒', paypal:'💳', bank:'🏦', netflix:'🎬', spotify:'🎵', youtube:'🎥', apple:'🍎' };
-  const t = title.toLowerCase();
+  const t = (title||'').toLowerCase();
   for (const k in map) if (t.includes(k)) return map[k];
   return '🔑';
 }
 
+let currentCategory = 'All';
 function renderChips() {
   const cats = ['All','Social','Work','Finance','Shopping','Email','Other'];
   chipsEl.innerHTML = cats.map(c => `<button class="chip ${c===currentCategory?'active':''}" data-cat="${c}">${t(c, true)}</button>`).join('');
   chipsEl.querySelectorAll('.chip').forEach(b => b.onclick = () => { currentCategory = b.dataset.cat; renderChips(); renderList(); });
 }
 function renderList() {
-  const q = searchEl.value.toLowerCase();
+  const q = (searchEl.value||'').toLowerCase();
   const filtered = entries.filter(e => {
-    const matches = (e.title+' '+e.username+' '+e.email+' '+(e.notes||'')).toLowerCase().includes(q);
+    const text = ((e.title||'') + ' ' + (e.username||'') + ' ' + (e.email||'') + ' ' + (e.notes||'')).toLowerCase();
     const cat = currentCategory === 'All' || e.category === currentCategory;
-    return matches && cat;
+    return text.includes(q) && cat;
   });
   if (!filtered.length) {
-    listEl.innerHTML = `<div class="empty"><div class="empty-icon">🔒</div><div>${t('empty')}</div></div>`;
+    listEl.innerHTML = `<div class="empty"><div class="empty-icon">🔒</div><div>${escapeHtml(t('empty'))}</div></div>`;
     return;
   }
   listEl.innerHTML = filtered.map(e => `
-    <div class="card" data-id="${e.id}">
+    <div class="card" data-id="${escapeHtml(e.id)}">
       <div class="card-icon">${getIcon(e.title)}</div>
       <div class="card-body">
         <div class="card-title">${escapeHtml(e.title)}</div>
         <div class="card-meta">${escapeHtml(e.username || e.email || '')}</div>
       </div>
       <div class="card-actions">
-        <button class="btn-icon copy-user" data-id="${e.id}" title="Copy user">👤</button>
-        <button class="btn-icon copy-pass" data-id="${e.id}" title="Copy password">🔑</button>
+        <button class="btn-icon copy-user" data-id="${escapeHtml(e.id)}" title="Copy user">👤</button>
+        <button class="btn-icon copy-pass" data-id="${escapeHtml(e.id)}" title="Copy password">🔑</button>
       </div>
     </div>
   `).join('');
@@ -510,7 +508,6 @@ function renderList() {
   listEl.querySelectorAll('.copy-user').forEach(b => b.onclick = () => copyField(b.dataset.id, 'username'));
   listEl.querySelectorAll('.copy-pass').forEach(b => b.onclick = () => copyField(b.dataset.id, 'password'));
 }
-function escapeHtml(s) { var map={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;",'\'':"&#39;"}; return (s||"").replace(/[&<>"']/g, function(m){ return map[m]; }); }
 async function copyField(id, field) {
   const e = entries.find(x => x.id === id);
   if (!e || !e[field]) return;
@@ -533,14 +530,14 @@ function openEdit(id) {
 }
 async function saveEntry() {
   const obj = {
-    id: editId || Date.now().toString(36) + Math.random().toString(36).slice(2,7),
-    title: $('fTitle').value.trim() || 'Untitled',
-    category: $('fCategory').value,
-    username: $('fUsername').value.trim(),
-    password: $('fPassword').value,
-    email: $('fEmail').value.trim(),
-    phone: $('fPhone').value.trim(),
-    notes: $('fNotes').value.trim(),
+    id: editId || (Date.now().toString(36) + Math.random().toString(36).slice(2,7)),
+    title: String($('fTitle').value).trim() || 'Untitled',
+    category: String($('fCategory').value || 'Other'),
+    username: String($('fUsername').value).trim(),
+    password: String($('fPassword').value),
+    email: String($('fEmail').value).trim(),
+    phone: String($('fPhone').value).trim(),
+    notes: String($('fNotes').value).trim(),
     updated: Date.now()
   };
   if (editId) { const idx = entries.findIndex(x=>x.id===editId); if(idx>=0) entries[idx]=obj; }
@@ -558,46 +555,38 @@ async function deleteEntry() {
 }
 function generatePassword() {
   const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^&*';
-  let p = ''; for (let i=0;i<18;i++) p += chars[Math.floor(Math.random()*chars.length)];
+  const rand = crypto.getRandomValues(new Uint8Array(18));
+  let p = ''; for (let i=0;i<18;i++) p += chars[rand[i] % chars.length];
   $('fPassword').value = p; $('fPassword').type = 'text';
 }
 
 /* ===== Settings ===== */
 function openSettings() { showScreen('settingsScreen'); }
-function toggleTheme() {
-  DARK = !DARK; document.body.classList.toggle('light', !DARK); document.body.classList.toggle('dark', DARK);
-  $('themeBtn').textContent = DARK ? '🌙' : '☀️';
+function applyTheme() {
+  document.body.classList.toggle('light', !DARK);
+  document.body.classList.toggle('dark', DARK);
+  const themeBtn = $('themeBtn');
+  if (themeBtn) themeBtn.textContent = DARK ? '🌙' : '☀️';
+  const darkSwitch = $('darkSwitch');
+  if (darkSwitch) darkSwitch.classList.toggle('on', DARK);
   localStorage.setItem('theme', DARK?'dark':'light');
 }
+function toggleTheme() { DARK = !DARK; applyTheme(); }
 function setLang(l) { LANG=l; localStorage.setItem('lang', l); applyI18n(); }
 
 /* ===== Lock ===== */
-function renderPinDots() {
-  $('pinDots').innerHTML = '<span class="pin-dot"></span>'.repeat(6);
-}
-function updatePinDots() {
-  const dots = $('pinDots').children;
-  for (let i=0;i<6;i++) dots[i].classList.toggle('filled', i < pinBuffer.length);
-}
-async function submitPin() {
-  const pass = pinBuffer; pinBuffer=''; updatePinDots();
+async function submitUnlock() {
+  const pass = $('lockPass').value;
+  if (pass.length < 4) return showToast(t('passwordShort'));
   const ok = await unlockMaster(pass);
-  if (ok) { $('lock').classList.add('hidden'); $('app').classList.remove('hidden'); applyI18n(); renderChips(); renderList(); }
-  else { showToast(t('pinError')); }
-}
-function buildKeypad() {
-  const keys = [['1','2','3'],['4','5','6'],['7','8','9'],['⌫','0','✓']];
-  $('keypad').innerHTML = keys.flat().map(k => {
-    const cls = k === '⌫' || k === '✓' ? 'key small' : 'key';
-    return `<button class="${cls}" data-key="${k}">${k}</button>`;
-  }).join('');
-  $('keypad').onclick = e => {
-    const k = e.target.dataset.key; if (!k) return;
-    if (k === '⌫') { pinBuffer = pinBuffer.slice(0,-1); }
-    else if (k === '✓') { if (pinBuffer.length >= 4) submitPin(); else showToast(t('passwordShort')); }
-    else if (pinBuffer.length < 6) { pinBuffer += k; }
-    updatePinDots();
-  };
+  if (ok) {
+    $('lock').classList.add('hidden');
+    $('app').classList.remove('hidden');
+    $('lockPass').value = '';
+    applyI18n();
+  } else {
+    showToast(t('pinError'));
+  }
 }
 
 /* ===== Modals ===== */
@@ -606,8 +595,6 @@ function showModal(html) { $('modal').innerHTML = html; $('modal').classList.rem
 function modalContent(title, body, footer='') {
   return `<div class="modal"><div class="modal-title">${title}</div>${body}${footer}</div>`;
 }
-
-/* ===== Setup / Change password ===== */
 function setupPasswordModal() {
   const body = `
     <div class="form-group"><label>${t('setPassword')}</label><input id="setupPass" type="password" placeholder="****"></div>
@@ -622,7 +609,8 @@ function setupPasswordModal() {
     if (p !== p2) return showToast(t('passwordsNoMatch'));
     await setupMaster(p);
     closeModal();
-    $('lock').classList.add('hidden'); $('app').classList.remove('hidden'); applyI18n(); renderChips(); renderList();
+    $('lock').classList.add('hidden'); $('app').classList.remove('hidden');
+    applyI18n();
   };
 }
 function changePasswordModal() {
@@ -638,62 +626,98 @@ function changePasswordModal() {
     if (n.length < 4) return showToast(t('passwordShort'));
     if (n !== n2) return showToast(t('passwordsNoMatch'));
     if (!await unlockMaster(cur)) return showToast(t('pinError'));
+    const saved = entries.slice();
     await setupMaster(n);
+    entries = saved;
     await saveVault(entries);
-    closeModal(); showToast(t('entrySaved'));
+    closeModal(); showToast(t('changePassword'));
   };
 }
 
 /* ===== Import / Export ===== */
+function sanitizeEntry(e) {
+  return {
+    id: typeof e.id === 'string' && e.id ? e.id : (Date.now().toString(36)+Math.random().toString(36).slice(2,7)),
+    title: String(e.title||'').trim() || 'Untitled',
+    category: String(e.category||'Other'),
+    username: String(e.username||''),
+    password: String(e.password||''),
+    email: String(e.email||''),
+    phone: String(e.phone||''),
+    notes: String(e.notes||''),
+    updated: Number(e.updated) || Date.now()
+  };
+}
+async function makeBackupPayload() {
+  const keySalt = localStorage.getItem('keySalt');
+  const payload = await encryptWithKey(JSON.stringify(entries), masterKey);
+  return { salt: keySalt, ...payload };
+}
 async function exportJson() {
   if (!entries.length) return showToast('No entries');
-  const payload = await encryptWithPassword(JSON.stringify(entries), await exportKey(masterKey));
+  isSharing = true;
+  const payload = await makeBackupPayload();
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
   if (navigator.share) {
     const file = new File([blob], 'passvault-backup.json', { type: 'application/json' });
-    try { await navigator.share({ files: [file], title: 'PassVault backup' }); showToast(t('backupSuccess')); return; } catch(e) {}
+    try { await navigator.share({ files: [file], title: 'PassVault backup' }); showToast(t('backupSuccess')); isSharing=false; return; } catch(e) {}
   }
   const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'passvault-backup.json'; a.click();
+  isSharing = false;
   showToast(t('backupSuccess'));
 }
+async function decryptBackupPayload(payload, password) {
+  if (!payload || !payload.salt || !payload.iv || !payload.data) throw new Error('invalid');
+  const json = await decryptWithPassword(payload, password);
+  const imported = JSON.parse(json);
+  if (!Array.isArray(imported)) throw new Error('invalid');
+  return imported.map(sanitizeEntry);
+}
 async function importJsonFile(file) {
-  const text = await file.text();
+  const pass = prompt(t('importPassword') + '\n' + t('importPasswordDesc'));
+  if (!pass) return;
   try {
+    const text = await file.text();
     const payload = JSON.parse(text);
-    const json = await decryptWithPassword(payload, await exportKey(masterKey));
-    const imported = JSON.parse(json);
-    if (!Array.isArray(imported)) throw new Error('invalid');
+    const imported = await decryptBackupPayload(payload, pass);
+    if (payload.salt !== localStorage.getItem('keySalt')) {
+      // Backup was created with a different key salt (another device/password). Decrypt again with provided password is already done.
+      // We import and re-encrypt with current masterKey on save.
+    }
     entries = entries.concat(imported);
     await saveVault(entries); renderList(); showToast(t('restoreSuccess'));
-  } catch (e) { showToast(t('restoreError')); }
+  } catch (e) { showToast(t('restoreError') + (e.message ? ': '+e.message : '')); }
 }
 
 /* ===== Google Drive ===== */
 async function googleBackup() {
-  if (!googleAccessToken) { await googleSignIn(); if (!googleAccessToken) return; }
+  if (!googleAccessToken) { await googleSignIn('backup'); return; }
   try {
-    const payload = await encryptWithPassword(JSON.stringify(entries), await exportKey(masterKey));
+    isSharing = true;
+    const payload = await makeBackupPayload();
     const metadata = { name: 'passvault-backup.json', mimeType: 'application/json' };
-    const body = '--boundary\nContent-Type: application/json; charset=UTF-8\n\n' + JSON.stringify(metadata) +
-      '\n--boundary\nContent-Type: application/json\n\n' + JSON.stringify(payload) + '\n--boundary--';
+    const boundary = '----PassVaultBoundary' + Math.random().toString(36).slice(2);
+    const body = `--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n` + JSON.stringify(metadata) +
+      `\r\n--${boundary}\r\nContent-Type: application/json\r\n\r\n` + JSON.stringify(payload) + `\r\n--${boundary}--`;
     const existing = await findDriveFile('passvault-backup.json');
     const url = existing ? `https://www.googleapis.com/upload/drive/v3/files/${existing.id}?uploadType=multipart` : 'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart';
     const method = existing ? 'PATCH' : 'POST';
-    const res = await fetch(url, { method, headers: { 'Authorization': 'Bearer ' + googleAccessToken, 'Content-Type': 'multipart/related; boundary=boundary' }, body });
+    const res = await fetch(url, { method, headers: { 'Authorization': 'Bearer ' + googleAccessToken, 'Content-Type': 'multipart/related; boundary=' + boundary }, body });
+    isSharing = false;
     if (res.ok) showToast(t('backupSuccess')); else throw new Error(await res.text());
-  } catch (e) { console.error(e); showToast('Backup failed: ' + e.message); }
+  } catch (e) { isSharing=false; console.error(e); showToast('Backup failed: ' + e.message); }
 }
 async function googleRestore() {
-  if (!googleAccessToken) { await googleSignIn(); if (!googleAccessToken) return; }
+  const pass = prompt(t('importPassword') + '\n' + t('importPasswordDesc'));
+  if (!pass) return;
+  if (!googleAccessToken) { await googleSignIn('restore'); if (!googleAccessToken) return; }
   try {
     const file = await findDriveFile('passvault-backup.json');
     if (!file) return showToast(t('restoreError'));
     const res = await fetch(`https://www.googleapis.com/drive/v3/files/${file.id}?alt=media`, { headers: { 'Authorization': 'Bearer ' + googleAccessToken } });
     if (!res.ok) throw new Error(await res.text());
     const payload = await res.json();
-    const json = await decryptWithPassword(payload, await exportKey(masterKey));
-    const imported = JSON.parse(json);
-    if (!Array.isArray(imported)) throw new Error('invalid');
+    const imported = await decryptBackupPayload(payload, pass);
     entries = imported; await saveVault(entries); renderList(); showToast(t('restoreSuccess'));
   } catch (e) { showToast(t('restoreError')); }
 }
@@ -703,42 +727,57 @@ async function findDriveFile(name) {
   const data = await res.json();
   return data.files && data.files[0];
 }
-async function googleSignIn() {
+async function googleSignIn(action) {
   if (GOOGLE_CLIENT_ID.includes('YOUR_')) {
     const id = prompt('Enter Google OAuth Web Client ID (or configure in settings):');
     if (!id) return;
     GOOGLE_CLIENT_ID = id; localStorage.setItem('google_client_id', id);
   }
-  // Web OAuth popup flow
   const redirect = location.origin + location.pathname;
   const scope = encodeURIComponent('email profile https://www.googleapis.com/auth/drive.file');
   const state = Math.random().toString(36).slice(2);
   sessionStorage.setItem('oauth_state', state);
+  sessionStorage.setItem('googleAction', action || 'backup');
   const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirect)}&response_type=token&scope=${scope}&state=${state}&prompt=consent`;
   if (window.Capacitor) {
-    // In Capacitor WebView, try to use native GoogleAuth if installed, otherwise Browser plugin
     try {
       const { GoogleAuth } = window.Capacitor.Plugins;
       if (GoogleAuth) {
         const r = await GoogleAuth.signIn({ scopes: ['email','profile','https://www.googleapis.com/auth/drive.file'] });
-        googleAccessToken = r.authentication?.accessToken || r.accessToken; updateGoogleStatus(); return;
+        googleAccessToken = r.authentication?.accessToken || r.accessToken;
+        updateGoogleStatus();
+        handleSignedInAction();
+        return;
       }
     } catch (e) {}
   }
-  window.open(url, '_blank', 'width=500,height=600');
-  showToast('Complete sign-in in the popup, then return.');
+  isSharing = true;
+  window.location.href = url;
 }
 function updateGoogleStatus() {
-  $('googleStatus').textContent = googleAccessToken ? '✓' : '›';
-  $('restoreGoogleRow').classList.remove('hidden');
+  const s = $('googleStatus');
+  if (s) s.textContent = googleAccessToken ? '✓' : '›';
+  const row = $('restoreGoogleRow');
+  if (row) row.classList.toggle('hidden', !googleAccessToken);
 }
-function handleOAuthRedirect() {
+async function handleSignedInAction() {
+  const action = sessionStorage.getItem('googleAction');
+  sessionStorage.removeItem('googleAction');
+  sessionStorage.removeItem('oauth_state');
+  if (googleAccessToken && action === 'backup') await googleBackup();
+  else if (googleAccessToken && action === 'restore') await googleRestore();
+}
+async function handleOAuthRedirect() {
   const h = location.hash;
   if (h.includes('access_token=')) {
     const params = new URLSearchParams(h.slice(1));
+    const state = params.get('state');
+    const expected = sessionStorage.getItem('oauth_state');
+    if (expected && state !== expected) { showToast('Invalid OAuth state'); return; }
     googleAccessToken = params.get('access_token');
     history.replaceState(null, '', location.pathname + location.search);
     updateGoogleStatus(); showToast('Google signed in');
+    await handleSignedInAction();
   }
 }
 
@@ -748,7 +787,6 @@ async function tryBiometric() {
   if (!bioEnabled || !window.PublicKeyCredential) return;
   try {
     await navigator.credentials.get({ publicKey: { challenge: new Uint8Array(32), rp: { name: 'PassVault' }, user: { id: new Uint8Array(16), name: 'user', displayName: 'User' }, pubKeyCredParams: [{ alg: -7, type: 'public-key' }] } });
-    // Not a real check, just trigger. We still require PIN. Keep masterKey in session for biometric sessions? For security, don't.
   } catch(e) {}
 }
 
@@ -757,7 +795,7 @@ function onBackButton() {
   if (!$('modal').classList.contains('hidden')) { closeModal(); return; }
   if (!$('settingsScreen').classList.contains('hidden')) { showScreen('homeScreen'); return; }
   if (!$('formScreen').classList.contains('hidden')) { showScreen('homeScreen'); return; }
-  if (confirm(t('confirmExit'))) { if (window.Capacitor) window.Capacitor.Plugins.App.exitApp(); else window.close(); }
+  if (confirm(t('confirmExit'))) { if (window.Capacitor && window.Capacitor.Plugins.App) window.Capacitor.Plugins.App.exitApp(); }
 }
 
 /* ===== Event wiring ===== */
@@ -771,8 +809,10 @@ function wire() {
   $('deleteBtn').onclick = deleteEntry;
   $('genPass').onclick = generatePassword;
   $('togglePass').onclick = () => { const el=$('fPassword'); el.type = el.type==='password'?'text':'password'; };
+  $('unlockBtn').onclick = submitUnlock;
+  $('lockPass').onkeydown = e => { if (e.key === 'Enter') submitUnlock(); };
   searchEl.oninput = renderList;
-  $('lockNowBtn').onclick = () => location.reload();
+  $('lockNowBtn').onclick = () => { masterKey=null; entries=[]; location.reload(); };
   $('changePinRow').onclick = changePasswordModal;
   $('exportJsonRow').onclick = exportJson;
   $('importJsonRow').onclick = () => $('importFile').click();
@@ -780,11 +820,18 @@ function wire() {
   $('backupGoogleRow').onclick = googleBackup;
   $('restoreGoogleRow').onclick = googleRestore;
   $('langSelect').onchange = e => setLang(e.target.value);
-  $('darkSwitch').onclick = () => { const el=$('darkSwitch'); el.classList.toggle('on'); DARK=el.classList.contains('on'); toggleTheme(); };
+  $('darkSwitch').onclick = () => { DARK = !$('darkSwitch').classList.contains('on'); applyTheme(); };
   $('bioSwitch').onclick = () => { const el=$('bioSwitch'); el.classList.toggle('on'); bioEnabled=el.classList.contains('on'); localStorage.setItem('bio', bioEnabled?'1':'0'); };
   if (window.Capacitor && window.Capacitor.Plugins.App) {
     window.Capacitor.Plugins.App.addListener('backButton', onBackButton);
-    window.Capacitor.Plugins.App.addListener('pause', () => { masterKey = null; entries = []; location.reload(); });
+    window.Capacitor.Plugins.App.addListener('pause', () => {
+      if (isSharing) return;
+      pauseTimer = setTimeout(() => { masterKey=null; entries=[]; location.reload(); }, 2000);
+    });
+    window.Capacitor.Plugins.App.addListener('resume', () => {
+      if (pauseTimer) { clearTimeout(pauseTimer); pauseTimer = null; }
+      isSharing = false;
+    });
   } else { document.addEventListener('keydown', e => { if (e.key==='Escape') onBackButton(); }); }
   $('modal').onclick = e => { if (e.target.id==='modal') closeModal(); };
 }
@@ -792,13 +839,12 @@ function wire() {
 /* ===== Init ===== */
 async function init() {
   handleOAuthRedirect();
-  if (!DARK) document.body.classList.add('light'); else document.body.classList.add('dark');
-  $('themeBtn').textContent = DARK ? '🌙' : '☀️';
-  $('darkSwitch').classList.toggle('on', DARK);
-  $('bioSwitch').classList.toggle('on', bioEnabled);
+  DARK = localStorage.getItem('theme') !== 'light';
+  applyTheme();
+  bioEnabled = localStorage.getItem('bio') === '1';
+  const bioSwitch = $('bioSwitch'); if (bioSwitch) bioSwitch.classList.toggle('on', bioEnabled);
   applyI18n();
-  renderPinDots(); buildKeypad(); wire();
-  document.getElementById('langSelect').value = LANG;
+  wire();
   setTimeout(() => $('splash').classList.add('hidden'), 900);
   if (localStorage.getItem('masterHash')) {
     $('lock').classList.remove('hidden');
@@ -807,6 +853,7 @@ async function init() {
     setupPasswordModal();
   }
 }
+init();
 init();
 </script>
 </body>
