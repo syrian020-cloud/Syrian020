@@ -210,6 +210,30 @@
   .toast { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.6rem 1.1rem; z-index: 100; opacity: 0; transition: opacity 0.2s; pointer-events: none; font-weight: 600; direction: rtl; }
   .toast.show { opacity: 1; }
 
+  .view { display: none; }
+  .view.active { display: block; }
+
+  .lesson-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.8rem 0.9rem;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+  }
+  .lesson-card .title { font-weight: 700; font-size: 1rem; }
+  .lesson-card .date { color: var(--text-secondary); font-size: 0.75rem; }
+  .lesson-actions { display: flex; gap: 0.4rem; }
+  .empty-hint { color: var(--text-secondary); font-size: 0.9rem; text-align: center; padding: 1rem 0; }
+
+  .player-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; }
+  .player-header .lesson-title { color: var(--text-secondary); font-size: 0.9rem; }
+
+  #btn-save-lesson { white-space: nowrap; }
+
   @media (max-width: 480px) {
     .file-row label, .paste-row label { flex: 0 0 100%; }
     .file-row input[type="file"] { flex: 1 0 100%; }
@@ -222,89 +246,109 @@
   <div class="header-inner">
     <span class="logo">مشغّل SRT</span>
     <span class="spacer"></span>
+    <button class="icon-btn" id="btn-lessons" title="الدروس">📚</button>
+    <button class="icon-btn" id="btn-setup" title="إعداد درس جديد">➕</button>
     <button class="icon-btn" id="btn-stop" title="إيقاف الصوت">🔇</button>
   </div>
 </header>
 
 <main>
-  <section class="panel" id="setup-panel">
-    <h2>اختر الفيديو والترجمة</h2>
-
-    <div class="file-row">
-      <label for="video-file">فيديو/صوت</label>
-      <input type="file" id="video-file" accept="video/*,audio/*">
-      <span class="file-name" id="video-name"></span>
-    </div>
-
-    <div class="source-tabs">
-      <button class="source-tab active" data-tab="single" type="button">ملف ترجمة واحد</button>
-      <button class="source-tab" data-tab="separate" type="button">ملفات منفصلة</button>
-      <button class="source-tab" data-tab="paste" type="button">لصق نص</button>
-    </div>
-
-    <div class="tab-panel active" data-tab="single">
-      <div class="file-row">
-        <label for="srt-main">ملف الترجمة</label>
-        <input type="file" id="srt-main" accept=".srt,.txt">
-        <span class="file-name" id="name-main"></span>
+  <section class="view active" id="lessons-view">
+    <div class="panel">
+      <h2>دروسي</h2>
+      <div id="lessons-list">
+        <p class="empty-hint">لا توجد دروس محفوظة. اضغط على “➕” لإعداد درس جديد.</p>
       </div>
-      <p class="hint">اختر ملف SRT/TXT واحد يحتوي على الفرنسية والعربية والإنجليزية لكل عبارة.</p>
-    </div>
-
-    <div class="tab-panel" data-tab="separate">
-      <div class="file-row">
-        <label for="srt-fr">الفرنسية</label>
-        <input type="file" id="srt-fr" accept=".srt,.txt">
-        <span class="file-name" id="name-fr"></span>
-      </div>
-      <div class="file-row">
-        <label for="srt-ar">العربية</label>
-        <input type="file" id="srt-ar" accept=".srt,.txt">
-        <span class="file-name" id="name-ar"></span>
-      </div>
-      <div class="file-row">
-        <label for="srt-en">الإنجليزية</label>
-        <input type="file" id="srt-en" accept=".srt,.txt">
-        <span class="file-name" id="name-en"></span>
-      </div>
-    </div>
-
-    <div class="tab-panel" data-tab="paste">
-      <div class="paste-row">
-        <label for="srt-paste">النص المؤقت</label>
-        <textarea id="srt-paste" placeholder="00:00 Je suis désolé.&#10;أنا آسف.&#10;I'm sorry."></textarea>
-      </div>
-    </div>
-
-    <div class="action-row">
-      <button class="primary" id="btn-start">▶ ابدأ</button>
-      <button class="secondary" id="btn-reset">إعادة ضبط</button>
+      <button class="primary" id="btn-new-lesson" style="margin-top:0.8rem;">+ درس جديد</button>
     </div>
   </section>
 
-  <div class="video-wrap" id="video-wrap" style="display:none;">
-    <video id="player" controls playsinline></video>
-  </div>
+  <section class="view" id="setup-view">
+    <div class="panel" id="setup-panel">
+      <h2>إعداد درس جديد</h2>
 
-  <div class="bubble-wrap">
-    <div class="subtitle-bubble" id="bubble"></div>
-  </div>
+      <div class="file-row">
+        <label for="video-file">فيديو/صوت</label>
+        <input type="file" id="video-file" accept="video/*,audio/*">
+        <span class="file-name" id="video-name"></span>
+      </div>
 
-  <section class="controls" id="controls" style="display:none;">
-    <div class="time-row">
-      <span id="current-time">00:00</span>
-      <input type="range" id="progress" min="0" max="100" value="0" step="0.1">
-      <span id="duration">00:00</span>
+      <div class="source-tabs">
+        <button class="source-tab active" data-tab="single" type="button">ملف ترجمة واحد</button>
+        <button class="source-tab" data-tab="separate" type="button">ملفات منفصلة</button>
+        <button class="source-tab" data-tab="paste" type="button">لصق نص</button>
+      </div>
+
+      <div class="tab-panel active" data-tab="single">
+        <div class="file-row">
+          <label for="srt-main">ملف الترجمة</label>
+          <input type="file" id="srt-main" accept=".srt,.txt">
+          <span class="file-name" id="name-main"></span>
+        </div>
+        <p class="hint">اختر ملف SRT/TXT واحد يحتوي على الفرنسية والعربية والإنجليزية لكل عبارة.</p>
+      </div>
+
+      <div class="tab-panel" data-tab="separate">
+        <div class="file-row">
+          <label for="srt-fr">الفرنسية</label>
+          <input type="file" id="srt-fr" accept=".srt,.txt">
+          <span class="file-name" id="name-fr"></span>
+        </div>
+        <div class="file-row">
+          <label for="srt-ar">العربية</label>
+          <input type="file" id="srt-ar" accept=".srt,.txt">
+          <span class="file-name" id="name-ar"></span>
+        </div>
+        <div class="file-row">
+          <label for="srt-en">الإنجليزية</label>
+          <input type="file" id="srt-en" accept=".srt,.txt">
+          <span class="file-name" id="name-en"></span>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-tab="paste">
+        <div class="paste-row">
+          <label for="srt-paste">النص المؤقت</label>
+          <textarea id="srt-paste" placeholder="00:00 Je suis désolé.&#10;أنا آسف.&#10;I'm sorry."></textarea>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button class="primary" id="btn-start">▶ معاينة / بدء</button>
+        <button class="secondary" id="btn-save-lesson">💾 حفظ الدرس</button>
+        <button class="secondary" id="btn-reset">إعادة ضبط</button>
+      </div>
     </div>
-    <div class="btn-row">
-      <button class="ctrl-btn" id="btn-prev" title="السطر السابق (←)">⏮</button>
-      <button class="ctrl-btn" id="btn-play" title="تشغيل/إيقاف (مسافة)">⏯</button>
-      <button class="ctrl-btn" id="btn-next" title="السطر التالي (→)">⏭</button>
-      <button class="ctrl-btn" id="btn-video-loop" title="تكرار عبارة الفيديو">🔂</button>
-      <button class="ctrl-btn" id="btn-loop-all" title="تكرار النطق بالثلاث لغات">🔁</button>
+  </section>
+
+  <section class="view" id="player-view">
+    <div class="player-header">
+      <button class="icon-btn" id="btn-back-lessons">← الدروس</button>
+      <span class="spacer"></span>
+      <span class="lesson-title" id="lesson-title"></span>
     </div>
-    <div class="lang-btn-row" id="lang-btns"></div>
-    <div class="status" id="status"></div>
+    <div class="video-wrap" id="video-wrap" style="display:none;">
+      <video id="player" controls playsinline></video>
+    </div>
+    <div class="bubble-wrap">
+      <div class="subtitle-bubble" id="bubble"></div>
+    </div>
+    <section class="controls" id="controls" style="display:none;">
+      <div class="time-row">
+        <span id="current-time">00:00</span>
+        <input type="range" id="progress" min="0" max="100" value="0" step="0.1">
+        <span id="duration">00:00</span>
+      </div>
+      <div class="btn-row">
+        <button class="ctrl-btn" id="btn-prev" title="السطر السابق (←)">⏮</button>
+        <button class="ctrl-btn" id="btn-play" title="تشغيل/إيقاف (مسافة)">⏯</button>
+        <button class="ctrl-btn" id="btn-next" title="السطر التالي (→)">⏭</button>
+        <button class="ctrl-btn" id="btn-video-loop" title="تكرار عبارة الفيديو">🔂</button>
+        <button class="ctrl-btn" id="btn-loop-all" title="تكرار النطق بالثلاث لغات">🔁</button>
+      </div>
+      <div class="lang-btn-row" id="lang-btns"></div>
+      <div class="status" id="status"></div>
+    </section>
   </section>
 </main>
 
@@ -323,6 +367,8 @@
   const videoWrap = $('video-wrap'), player = $('player'), bubble = $('bubble');
   const controls = $('controls'), progress = $('progress'), currentTimeEl = $('current-time'), durationEl = $('duration');
   const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next'), btnVideoLoop = $('btn-video-loop'), btnLoopAll = $('btn-loop-all');
+  const btnLessons = $('btn-lessons'), btnSetup = $('btn-setup'), btnNewLesson = $('btn-new-lesson'), btnSaveLesson = $('btn-save-lesson'), btnBackLessons = $('btn-back-lessons');
+  const lessonsView = $('lessons-view'), setupView = $('setup-view'), playerView = $('player-view'), lessonsList = $('lessons-list'), lessonTitle = $('lesson-title');
   const langBtns = $('lang-btns'), statusEl = $('status'), toast = $('toast');
 
   // --- State ---
@@ -337,6 +383,7 @@
     videoLoop: false,
     loopStart: 0,
     loopEnd: 0,
+    pendingSeek: null,
     duration: 0,
     videoUrl: null
   };
@@ -365,6 +412,48 @@
   }
   function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  // --- Lessons DB ---
+  const DB_NAME = 'SrtLessonsDB', DB_VERSION = 1, STORE = 'lessons';
+  let _db = null;
+  function openLessonsDB() {
+    return new Promise((resolve, reject) => {
+      if (!window.indexedDB) { resolve(null); return; }
+      const req = indexedDB.open(DB_NAME, DB_VERSION);
+      req.onerror = () => reject(req.error);
+      req.onsuccess = () => resolve(req.result);
+      req.onupgradeneeded = e => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains(STORE)) db.createObjectStore(STORE, { keyPath: 'id' });
+      };
+    });
+  }
+  async function db() { if (!_db) _db = await openLessonsDB(); return _db; }
+  function withStore(mode, fn) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const d = await db();
+        if (!d) { resolve([]); return; }
+        const tx = d.transaction([STORE], mode);
+        const store = tx.objectStore(STORE);
+        const req = fn(store);
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      } catch (e) { reject(e); }
+    });
+  }
+  function saveLessonToDB(lesson) { return withStore('readwrite', store => store.put(lesson)); }
+  function getLessonsFromDB() { return withStore('readonly', store => store.getAll()); }
+  function getLessonById(id) { return withStore('readonly', store => store.get(id)); }
+  function deleteLessonFromDB(id) { return withStore('readwrite', store => store.delete(id)); }
+  function readFileAsArrayBuffer(file) {
+    return new Promise((resolve, reject) => {
+      const r = new FileReader();
+      r.onload = () => resolve(r.result);
+      r.onerror = reject;
+      r.readAsArrayBuffer(file);
+    });
   }
 
   // --- Time parsing ---
@@ -707,7 +796,8 @@
     if (!state.cues.length || i < 0 || i >= state.cues.length) return;
     state.currentIndex = i;
     const cue = state.cues[i];
-    player.currentTime = cue.start;
+    state.pendingSeek = cue.start;
+    if (player.src) player.currentTime = cue.start;
     if (state.isPlaying) player.play().catch(()=>{});
     renderBubble();
     updateStatus();
@@ -727,36 +817,15 @@
     currentTimeEl.textContent = formatDuration(player.currentTime);
   }
 
-  // --- Event wiring ---
-  function handleFiles() {
-    videoName.textContent = videoFile.files[0] ? videoFile.files[0].name : '';
-    nameMain.textContent = srtMain.files[0] ? srtMain.files[0].name : '';
-    nameFr.textContent = srtFr.files[0] ? srtFr.files[0].name : '';
-    nameAr.textContent = srtAr.files[0] ? srtAr.files[0].name : '';
-    nameEn.textContent = srtEn.files[0] ? srtEn.files[0].name : '';
-  }
-  [videoFile, srtMain, srtFr, srtAr, srtEn].forEach(el => el.addEventListener('change', handleFiles));
-
-  function readFile(file) {
-    return new Promise((resolve, reject) => {
-      const r = new FileReader();
-      r.onload = () => resolve(r.result);
-      r.onerror = reject;
-      r.readAsText(file, 'UTF-8');
-    });
+  function showView(viewName) {
+    [lessonsView, setupView, playerView].forEach(v => v.classList.remove('active'));
+    if (viewName === 'lessons') lessonsView.classList.add('active');
+    else if (viewName === 'setup') setupView.classList.add('active');
+    else if (viewName === 'player') playerView.classList.add('active');
+    if (viewName !== 'player') stopAllLoops();
   }
 
-  async function start() {
-    if (!videoFile.files[0] && !srtMain.files[0] && !srtFr.files[0] && !srtAr.files[0] && !srtEn.files[0] && !srtPaste.value.trim()) {
-      showToast('الرجاء اختيار فيديو أو ملف/نص ترجمة على الأقل');
-      return;
-    }
-
-    stopAllLoops();
-    state.cues = [];
-    state.currentIndex = -1;
-
-    // Attach media handlers before reading/parsing so loadedmetadata cannot be missed.
+  function attachPlayerEvents() {
     player.onloadedmetadata = () => {
       state.duration = player.duration || 0;
       progress.max = state.duration;
@@ -768,8 +837,11 @@
           if (state.cues[i].end > state.cues[i+1].start) state.cues[i].end = state.cues[i+1].start;
         }
       }
+      if (state.pendingSeek !== null && player.src) {
+        player.currentTime = state.pendingSeek;
+        state.pendingSeek = null;
+      }
     };
-
     player.ontimeupdate = () => {
       setCurrentByTime(player.currentTime);
       updateProgress();
@@ -777,17 +849,24 @@
         player.currentTime = state.loopStart;
       }
     };
-
     player.onplay = () => { state.isPlaying = true; btnPlay.textContent = '⏸'; };
     player.onpause = () => { state.isPlaying = false; btnPlay.textContent = '▶'; };
     player.onended = () => { state.isPlaying = false; btnPlay.textContent = '▶'; };
-
     progress.oninput = () => {
       player.currentTime = parseFloat(progress.value);
       setCurrentByTime(player.currentTime);
       updateProgress();
     };
+  }
 
+  async function loadCues() {
+    if (!videoFile.files[0] && !srtMain.files[0] && !srtFr.files[0] && !srtAr.files[0] && !srtEn.files[0] && !srtPaste.value.trim()) {
+      showToast('الرجاء اختيار فيديو أو ملف/نص ترجمة على الأقل');
+      return false;
+    }
+    stopAllLoops();
+    state.cues = [];
+    state.currentIndex = -1;
     let frCues = [], arCues = [], enCues = [];
     try {
       if (srtMain.files[0]) {
@@ -809,10 +888,8 @@
       }
     } catch (e) {
       showToast('خطأ في قراءة ملف الترجمة');
-      return;
+      return false;
     }
-
-    // If only one subtitle file is selected, treat it as that file's language unless it contains a trilingual cue.
     const activeSource = frCues.length ? 'fr' : (arCues.length ? 'ar' : (enCues.length ? 'en' : null));
     const sourceCues = activeSource === 'fr' ? frCues : (activeSource === 'ar' ? arCues : enCues);
     const onlyOneSource = [frCues, arCues, enCues].filter(arr => arr.length).length === 1;
@@ -827,18 +904,14 @@
     } else {
       state.cues = buildCues(frCues, arCues, enCues);
     }
-
     if (!state.cues.length && !videoFile.files[0]) {
       showToast('لم يتم العثور على عبارات في ملفات الترجمة');
-      return;
+      return false;
     }
-
     controls.style.display = state.cues.length ? 'flex' : 'none';
     progress.max = 0;
     currentTimeEl.textContent = '00:00';
     durationEl.textContent = '00:00';
-
-    // Revoke the old URL and set the new one only after parsing succeeds.
     if (state.videoUrl) {
       URL.revokeObjectURL(state.videoUrl);
       state.videoUrl = null;
@@ -851,14 +924,105 @@
       player.src = '';
       videoWrap.style.display = 'none';
     }
-
-    if (state.cues.length) {
-      goToCue(0);
-      showToast(`تم تحميل ${state.cues.length} عبارة`);
-    } else {
-      showToast('تم تحميل الفيديو فقط');
-    }
+    attachPlayerEvents();
+    if (state.cues.length) goToCue(0);
+    return true;
   }
+
+  async function start() {
+    const ok = await loadCues();
+    if (!ok) return;
+    showToast(`تم تحميل ${state.cues.length} عبارة`);
+    showView('player');
+  }
+
+  async function saveLesson() {
+    const ok = await loadCues();
+    if (!ok) return;
+    if (!state.cues.length && !videoFile.files[0]) {
+      showToast('لا يوجد محتوى للحفظ');
+      return;
+    }
+    const defaultName = new Date().toLocaleDateString('ar-EG');
+    const name = prompt('اسم الدرس:', `درس ${defaultName}`) || `درس ${defaultName}`;
+    let videoBlob = null;
+    if (videoFile.files[0]) {
+      try {
+        const ab = await readFileAsArrayBuffer(videoFile.files[0]);
+        videoBlob = new Blob([ab], { type: videoFile.files[0].type || 'video/mp4' });
+      } catch (e) { showToast('تعذّر قراءة ملف الفيديو'); return; }
+    }
+    const lesson = { id: Date.now().toString(36), name, createdAt: Date.now(), cues: state.cues, videoBlob };
+    try {
+      await saveLessonToDB(lesson);
+      showToast('تم حفظ الدرس');
+      await renderLessons();
+      showView('lessons');
+    } catch (e) { showToast('تعذّر حفظ الدرس'); }
+  }
+
+  async function loadLesson(id) {
+    stopAllLoops();
+    const lesson = await getLessonById(id);
+    if (!lesson) { showToast('الدرس غير موجود'); return; }
+    if (state.videoUrl) { URL.revokeObjectURL(state.videoUrl); state.videoUrl = null; }
+    state.cues = lesson.cues || [];
+    state.currentIndex = -1;
+    if (lesson.videoBlob) {
+      state.videoUrl = URL.createObjectURL(lesson.videoBlob);
+      player.src = state.videoUrl;
+      videoWrap.style.display = 'block';
+    } else {
+      player.src = '';
+      videoWrap.style.display = 'none';
+    }
+    attachPlayerEvents();
+    lessonTitle.textContent = lesson.name;
+    showView('player');
+    if (state.cues.length) goToCue(0);
+  }
+
+  async function renderLessons() {
+    let lessons = [];
+    try { lessons = await getLessonsFromDB(); } catch (e) {}
+    if (!lessons || !lessons.length) {
+      lessonsList.innerHTML = '<p class="empty-hint">لا توجد دروس محفوظة. اضغط على “➕” لإعداد درس جديد.</p>';
+      return;
+    }
+    lessonsList.innerHTML = lessons.sort((a,b) => b.createdAt - a.createdAt).map(l => `
+      <div class="lesson-card" data-id="${l.id}">
+        <div>
+          <div class="title">${escapeHtml(l.name)}</div>
+          <div class="date">${new Date(l.createdAt).toLocaleString('ar-EG')}</div>
+        </div>
+        <div class="lesson-actions">
+          <button class="icon-btn" data-action="play" data-id="${l.id}" title="عرض">▶</button>
+          <button class="icon-btn" data-action="delete" data-id="${l.id}" title="حذف">🗑</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // --- Event wiring ---
+  function handleFiles() {
+    videoName.textContent = videoFile.files[0] ? videoFile.files[0].name : '';
+    nameMain.textContent = srtMain.files[0] ? srtMain.files[0].name : '';
+    nameFr.textContent = srtFr.files[0] ? srtFr.files[0].name : '';
+    nameAr.textContent = srtAr.files[0] ? srtAr.files[0].name : '';
+    nameEn.textContent = srtEn.files[0] ? srtEn.files[0].name : '';
+  }
+  [videoFile, srtMain, srtFr, srtAr, srtEn].forEach(el => el.addEventListener('change', handleFiles));
+
+  function readFile(file) {
+    return new Promise((resolve, reject) => {
+      const r = new FileReader();
+      r.onload = () => resolve(r.result);
+      r.onerror = reject;
+      r.readAsText(file, 'UTF-8');
+    });
+  }
+
+  // start() and loadCues() are defined above
 
   function reset() {
     if (!confirm('هل تريد إعادة الضبط؟ سيتم مسح الملفات والنص.')) return;
@@ -880,16 +1044,31 @@
     handleFiles();
     progress.value = 0;
     currentTimeEl.textContent = '00:00'; durationEl.textContent = '00:00';
+    showView('lessons');
   }
 
   btnStart.addEventListener('click', start);
   btnReset.addEventListener('click', reset);
+  btnSaveLesson.addEventListener('click', saveLesson);
   btnStop.addEventListener('click', stopAllLoops);
   btnPrev.addEventListener('click', prevCue);
   btnPlay.addEventListener('click', togglePlay);
   btnNext.addEventListener('click', nextCue);
   btnVideoLoop.addEventListener('click', toggleVideoLoop);
   btnLoopAll.addEventListener('click', toggleLoopAll);
+
+  btnLessons.addEventListener('click', () => showView('lessons'));
+  btnSetup.addEventListener('click', () => showView('setup'));
+  btnNewLesson.addEventListener('click', () => showView('setup'));
+  btnBackLessons.addEventListener('click', () => showView('lessons'));
+
+  lessonsList.addEventListener('click', e => {
+    const action = e.target.closest('[data-action]');
+    if (!action) return;
+    const id = action.dataset.id;
+    if (action.dataset.action === 'play') loadLesson(id);
+    else if (action.dataset.action === 'delete') deleteLessonFromDB(id).then(renderLessons).catch(()=>{});
+  });
 
   document.addEventListener('keydown', e => {
     if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
@@ -912,6 +1091,9 @@
       if (panel) panel.classList.add('active');
     });
   });
+
+  renderLessons();
+  showView('lessons');
 
 })();
 </script>
