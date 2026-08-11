@@ -302,7 +302,7 @@ const I18N = {
     setPasswordDesc: 'This password protects your vault. Do not forget it.', confirmPassword: 'Confirm password', create: 'Create',
     passwordsNoMatch: 'Passwords do not match', passwordShort: 'Password must be at least 4 characters',
     pinError: 'Wrong password', entrySaved: 'Entry saved', entryDeleted: 'Entry deleted', copied: 'Copied to clipboard',
-    backupSuccess: 'Backup saved to Google Drive', restoreSuccess: 'Backup restored', restoreError: 'Could not restore backup',
+    backupSuccess: 'Backup saved to Google Drive', exportSuccess: 'Export saved', restoreSuccess: 'Backup restored', restoreError: 'Could not restore backup',
     empty: 'No entries yet. Tap + to add one.', changePassword: 'Change master password', currentPassword: 'Current password',
     newPassword: 'New password', change: 'Change', generate: 'Generate', importPassword: 'Backup password',
     importPasswordDesc: 'Enter the password used to encrypt this backup', categories: { All: 'All', Social: 'Social', Work: 'Work', Finance: 'Finance', Shopping: 'Shopping', Email: 'Email', Other: 'Other' }
@@ -320,7 +320,7 @@ const I18N = {
     setPasswordDesc: 'تحمي كلمة المرور هذه خزنتك. لا تنسها.', confirmPassword: 'تأكيد كلمة المرور', create: 'إنشاء',
     passwordsNoMatch: 'كلمتا المرور غير متطابقتين', passwordShort: 'كلمة المرور يجب أن تكون 4 أحرف على الأقل',
     pinError: 'كلمة المرور خاطئة', entrySaved: 'تم حفظ الإدخال', entryDeleted: 'تم حذف الإدخال', copied: 'تم النسخ إلى الحافظة',
-    backupSuccess: 'تم حفظ النسخة الاحتياطية في Google Drive', restoreSuccess: 'تم استعادة النسخة الاحتياطية',
+    backupSuccess: 'تم حفظ النسخة الاحتياطية في Google Drive', exportSuccess: 'تم حفظ التصدير', restoreSuccess: 'تم استعادة النسخة الاحتياطية',
     restoreError: 'تعذر استعادة النسخة الاحتياطية', empty: 'لا توجد إدخالات بعد. اضغط + لإضافة واحد.',
     changePassword: 'تغيير كلمة المرور الرئيسية', currentPassword: 'كلمة المرور الحالية', newPassword: 'كلمة المرور الجديدة',
     change: 'تغيير', generate: 'توليد', importPassword: 'كلمة مرور النسخة الاحتياطية',
@@ -339,7 +339,7 @@ const I18N = {
     setPasswordDesc: 'Ce mot de passe protège votre coffre. Ne l\'oubliez pas.', confirmPassword: 'Confirmer le mot de passe', create: 'Créer',
     passwordsNoMatch: 'Les mots de passe ne correspondent pas', passwordShort: 'Le mot de passe doit faire au moins 4 caractères',
     pinError: 'Mot de passe incorrect', entrySaved: 'Entrée enregistrée', entryDeleted: 'Entrée supprimée', copied: 'Copié dans le presse-papiers',
-    backupSuccess: 'Sauvegarde enregistrée sur Google Drive', restoreSuccess: 'Sauvegarde restaurée', restoreError: 'Impossible de restaurer',
+    backupSuccess: 'Sauvegarde enregistrée sur Google Drive', exportSuccess: 'Export enregistré', restoreSuccess: 'Sauvegarde restaurée', restoreError: 'Impossible de restaurer',
     empty: 'Aucune entrée. Appuyez sur + pour en ajouter une.', changePassword: 'Changer le mot de passe maître',
     currentPassword: 'Mot de passe actuel', newPassword: 'Nouveau mot de passe', change: 'Changer', generate: 'Générer',
     importPassword: 'Mot de passe de la sauvegarde',
@@ -660,11 +660,11 @@ async function exportJson() {
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
   if (navigator.share) {
     const file = new File([blob], 'passvault-backup.json', { type: 'application/json' });
-    try { await navigator.share({ files: [file], title: 'PassVault backup' }); showToast(t('backupSuccess')); isSharing=false; return; } catch(e) {}
+    try { await navigator.share({ files: [file], title: 'PassVault backup' }); showToast(t('exportSuccess')); isSharing=false; return; } catch(e) {}
   }
   const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'passvault-backup.json'; a.click();
   isSharing = false;
-  showToast(t('backupSuccess'));
+  showToast(t('exportSuccess'));
 }
 async function decryptBackupPayload(payload, password) {
   if (!payload || !payload.salt || !payload.iv || !payload.data) throw new Error('invalid');
@@ -853,7 +853,6 @@ async function init() {
     setupPasswordModal();
   }
 }
-init();
 init();
 </script>
 </body>
