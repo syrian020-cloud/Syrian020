@@ -303,7 +303,10 @@
     ttsChain: null,
     loopToken: 0,
     duration: 0,
-    videoUrl: null
+    videoUrl: null,
+    videoLoop: false,
+    loopStart: 0,
+    loopEnd: 0
   };
 
   const LANG_ORDER = ['fr','ar','en'];
@@ -522,6 +525,7 @@
 
   function startLoopLang(lang) {
     stopAllLoops();
+    state.videoLoop = false;
     state.loopLang = lang;
     updateButtons();
     const myToken = state.loopToken;
@@ -544,6 +548,7 @@
 
   function startLoopAll() {
     stopAllLoops();
+    state.videoLoop = false;
     state.loopAll = true;
     updateButtons();
     const myToken = state.loopToken;
@@ -569,11 +574,18 @@
     startLoopAll();
   }
 
-  function stopAllLoops() {
+  function stopTTSLoops() {
     state.loopAll = false;
     state.loopLang = null;
     state.loopToken++;
     ttsStop();
+    updateButtons();
+  }
+  function stopAllLoops() {
+    stopTTSLoops();
+    state.videoLoop = false;
+    state.loopStart = 0;
+    state.loopEnd = 0;
     updateButtons();
   }
 
@@ -581,7 +593,7 @@
   function updateButtons() {
     btnLoopAll.classList.toggle('active', state.loopAll);
     const bubbleLoop = document.querySelector('.bubble-loop');
-    if (bubbleLoop) bubbleLoop.classList.toggle('active', state.loopAll);
+    if (bubbleLoop) bubbleLoop.classList.toggle('active', state.videoLoop);
     Array.from(langBtns.children).forEach(btn => {
       const l = btn.dataset.lang;
       btn.classList.toggle('active', state.loopLang === l);
@@ -606,13 +618,27 @@
     updateButtons();
   }
 
+  function toggleVideoLoop() {
+    const cue = getCurrentCue();
+    if (!cue) { showToast('لا توجد عبارة حالية'); return; }
+    if (!player.src && !videoFile.files[0]) { showToast('اختر ملف فيديو/صوت أولاً'); return; }
+    if (state.videoLoop) { state.videoLoop = false; state.loopStart = 0; state.loopEnd = 0; updateButtons(); return; }
+    stopTTSLoops();
+    state.videoLoop = true;
+    state.loopStart = cue.start;
+    state.loopEnd = cue.end;
+    updateButtons();
+    player.currentTime = cue.start;
+    player.play().catch(()=>{});
+  }
+
   function renderBubble() {
     const cue = getCurrentCue();
     if (!cue) {
       bubble.innerHTML = '';
       return;
     }
-    const loopBtn = `<button class="bubble-loop" title="تكرار نطق العبارة" aria-label="تكرار نطق العبارة">🔁</button>`;
+    const loopBtn = `<button class="bubble-loop" title="تكرار عبارة الفيديو" aria-label="تكرار عبارة الفيديو">🔂</button>`;
     bubble.innerHTML = loopBtn + cue.lines.map(line => `
       <div class="lang-line ${line.lang}" dir="${line.lang === 'ar' ? 'rtl' : 'ltr'}">
         <span class="badge">${LANG_LABELS[line.lang]}</span>
@@ -622,7 +648,7 @@
     `).join('');
     const bubbleLoop = bubble.querySelector('.bubble-loop');
     if (bubbleLoop) {
-      bubbleLoop.addEventListener('click', e => { e.stopPropagation(); toggleLoopAll(); });
+      bubbleLoop.addEventListener('click', e => { e.stopPropagation(); toggleVideoLoop(); });
     }
     bubble.querySelectorAll('.lang-line .loop').forEach(btn => {
       btn.addEventListener('click', e => { e.stopPropagation(); toggleLoopLang(btn.dataset.lang); });
@@ -656,6 +682,10 @@
     renderBubble();
     updateStatus();
     updateProgress();
+    if (state.videoLoop) {
+      state.loopStart = cue.start;
+      state.loopEnd = cue.end;
+    }
     if (state.loopAll) startLoopAll();
     else if (state.loopLang) startLoopLang(state.loopLang);
   }
@@ -715,6 +745,9 @@
     player.ontimeupdate = () => {
       setCurrentByTime(player.currentTime);
       updateProgress();
+      if (state.videoLoop && !player.paused && player.currentTime >= state.loopEnd - 0.05) {
+        player.currentTime = state.loopStart;
+      }
     };
 
     player.onplay = () => { state.isPlaying = true; btnPlay.textContent = '⏸'; };
