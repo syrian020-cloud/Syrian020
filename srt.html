@@ -132,25 +132,6 @@
     border-radius: 6px;
     text-transform: uppercase;
   }
-  .lang-line .loop {
-    position: absolute;
-    top: -0.45rem;
-    inset-inline-end: 0.6rem;
-    background: rgba(0,0,0,0.45);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    font-size: 0.8rem;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-  }
-  .lang-line .loop:hover { background: rgba(0,0,0,0.65); }
-  .lang-line .loop.active { background: var(--success); color: #0b0d1f; }
   .lang-line.fr { background: linear-gradient(135deg, #ff9f43, #ff7f50); color: #1a1a1a; }
   .lang-line.ar { background: linear-gradient(135deg, #2dd4bf, #14b8a6); color: #1a1a1a; direction: rtl; }
   .lang-line.en { background: linear-gradient(135deg, #60a5fa, #3b82f6); color: #1a1a1a; direction: ltr; }
@@ -178,23 +159,6 @@
   .ctrl-btn:hover { border-color: var(--accent); }
   .ctrl-btn.active { background: var(--success); color: #0b0d1f; border-color: var(--success); }
 
-  .lang-btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem; }
-  .lang-btn {
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 0.45rem 0.9rem;
-    font-size: 0.9rem;
-    font-weight: 700;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-  }
-  .lang-btn:hover { border-color: var(--accent); }
-  .lang-btn.active { background: var(--success); color: #0b0d1f; border-color: var(--success); }
-
   .status { text-align: center; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; }
 
   footer { text-align: center; padding: 1.5rem 1rem; color: var(--text-secondary); font-size: 0.8rem; }
@@ -213,7 +177,7 @@
   <div class="header-inner">
     <span class="logo">مشغّل SRT</span>
     <span class="spacer"></span>
-    <button class="icon-btn" id="btn-stop" title="إيقاف الصوت">🔇</button>
+    <button class="icon-btn" id="btn-stop" title="إيقاف التكرار">🔇</button>
   </div>
 </header>
 
@@ -269,9 +233,7 @@
       <button class="ctrl-btn" id="btn-prev" title="السطر السابق (←)">⏮</button>
       <button class="ctrl-btn" id="btn-play" title="تشغيل/إيقاف (مسافة)">⏯</button>
       <button class="ctrl-btn" id="btn-next" title="السطر التالي (→)">⏭</button>
-      <button class="ctrl-btn" id="btn-loop-all" title="تكرار العبارة بالثلاث لغات">🔁</button>
     </div>
-    <div class="lang-btn-row" id="lang-btns"></div>
     <div class="status" id="status"></div>
   </section>
 </main>
@@ -290,18 +252,14 @@
   const btnStart = $('btn-start'), btnReset = $('btn-reset'), btnStop = $('btn-stop');
   const videoWrap = $('video-wrap'), player = $('player'), bubble = $('bubble');
   const controls = $('controls'), progress = $('progress'), currentTimeEl = $('current-time'), durationEl = $('duration');
-  const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next'), btnLoopAll = $('btn-loop-all');
-  const langBtns = $('lang-btns'), statusEl = $('status'), toast = $('toast');
+  const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next');
+  const statusEl = $('status'), toast = $('toast');
 
   // --- State ---
   const state = {
     cues: [], // { start, end, lines: [{lang, text}] }
     currentIndex: -1,
     isPlaying: false,
-    loopAll: false,
-    loopLang: null,
-    ttsChain: null,
-    loopToken: 0,
     duration: 0,
     videoUrl: null,
     videoLoop: false,
@@ -480,109 +438,11 @@
     });
   }
 
-  // --- TTS ---
-  function isCapacitor() {
-    return typeof window !== 'undefined' && window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform();
-  }
-  function ttsStop() {
-    if (state.ttsChain) { clearTimeout(state.ttsChain); state.ttsChain = null; }
-    if (isCapacitor()) {
-      const plugin = window.Capacitor.Plugins.TextToSpeech;
-      if (plugin) plugin.stop().catch(()=>{});
-    } else if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-    }
-  }
-  function ttsSpeak({ text, lang, onend }) {
-    const ttsLang = lang === 'ar' ? 'ar-SA' : (lang === 'fr' ? 'fr-FR' : 'en-US');
-    if (isCapacitor()) {
-      const plugin = window.Capacitor.Plugins.TextToSpeech;
-      if (!plugin) { if (onend) onend(); return; }
-      plugin.stop().catch(()=>{})
-        .then(() => plugin.speak({ text, lang: ttsLang, rate: 1.0, pitch: 1.0, volume: 1.0, category: 'playback' }))
-        .then(() => { if (onend) onend(); })
-        .catch(() => { if (onend) onend(); });
-    } else if ('speechSynthesis' in window) {
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = ttsLang;
-      u.onend = onend;
-      u.onerror = () => { if (onend) onend(); };
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(u);
-    } else if (onend) {
-      onend();
-    }
-  }
-
   function getCurrentCue() {
     return state.cues[state.currentIndex];
   }
 
-  function getCurrentLine(lang) {
-    const cue = getCurrentCue();
-    return cue ? (cue.lines.find(l => l.lang === lang) || cue.lines[0]) : null;
-  }
-
-  function startLoopLang(lang) {
-    stopAllLoops();
-    state.videoLoop = false;
-    state.loopLang = lang;
-    updateButtons();
-    const myToken = state.loopToken;
-    const doSpeak = () => {
-      if (state.loopLang !== lang || state.loopToken !== myToken) return;
-      const line = getCurrentLine(lang);
-      if (!line || !line.text) { state.ttsChain = setTimeout(doSpeak, 500); return; }
-      ttsSpeak({ text: line.text, lang: line.lang, onend: () => {
-        if (state.loopLang !== lang || state.loopToken !== myToken) return;
-        state.ttsChain = setTimeout(doSpeak, 600);
-      }});
-    };
-    doSpeak();
-  }
-
-  function toggleLoopLang(lang) {
-    if (state.loopLang === lang) { stopAllLoops(); return; }
-    startLoopLang(lang);
-  }
-
-  function startLoopAll() {
-    stopAllLoops();
-    state.videoLoop = false;
-    state.loopAll = true;
-    updateButtons();
-    const myToken = state.loopToken;
-    const available = () => {
-      const cue = getCurrentCue();
-      return cue ? LANG_ORDER.map(l => cue.lines.find(x => x.lang === l)).filter(Boolean) : [];
-    };
-    const doCycle = (idx) => {
-      if (!state.loopAll || state.loopToken !== myToken) return;
-      const lines = available();
-      if (!lines.length) { state.ttsChain = setTimeout(() => doCycle(0), 500); return; }
-      const i = idx % lines.length;
-      ttsSpeak({ text: lines[i].text, lang: lines[i].lang, onend: () => {
-        if (!state.loopAll || state.loopToken !== myToken) return;
-        state.ttsChain = setTimeout(() => doCycle(i+1), 800);
-      }});
-    };
-    doCycle(0);
-  }
-
-  function toggleLoopAll() {
-    if (state.loopAll) { stopAllLoops(); return; }
-    startLoopAll();
-  }
-
-  function stopTTSLoops() {
-    state.loopAll = false;
-    state.loopLang = null;
-    state.loopToken++;
-    ttsStop();
-    updateButtons();
-  }
   function stopAllLoops() {
-    stopTTSLoops();
     state.videoLoop = false;
     state.loopStart = 0;
     state.loopEnd = 0;
@@ -591,31 +451,8 @@
 
   // --- UI ---
   function updateButtons() {
-    btnLoopAll.classList.toggle('active', state.loopAll);
     const bubbleLoop = document.querySelector('.bubble-loop');
     if (bubbleLoop) bubbleLoop.classList.toggle('active', state.videoLoop);
-    Array.from(langBtns.children).forEach(btn => {
-      const l = btn.dataset.lang;
-      btn.classList.toggle('active', state.loopLang === l);
-    });
-    document.querySelectorAll('.lang-line .loop').forEach(btn => {
-      const l = btn.dataset.lang;
-      btn.classList.toggle('active', state.loopLang === l);
-    });
-  }
-
-  function renderLangButtons() {
-    const cue = getCurrentCue();
-    const present = cue ? LANG_ORDER.filter(l => cue.lines.some(x => x.lang === l)) : LANG_ORDER;
-    langBtns.innerHTML = present.map(l => `
-      <button class="lang-btn" data-lang="${l}" title="نطق ${LANG_NAMES[l]}">
-        ${LANG_LABELS[l]} 🔊
-      </button>
-    `).join('');
-    Array.from(langBtns.children).forEach(btn => {
-      btn.addEventListener('click', () => toggleLoopLang(btn.dataset.lang));
-    });
-    updateButtons();
   }
 
   function toggleVideoLoop() {
@@ -623,7 +460,6 @@
     if (!cue) { showToast('لا توجد عبارة حالية'); return; }
     if (!player.src && !videoFile.files[0]) { showToast('اختر ملف فيديو/صوت أولاً'); return; }
     if (state.videoLoop) { state.videoLoop = false; state.loopStart = 0; state.loopEnd = 0; updateButtons(); return; }
-    stopTTSLoops();
     state.videoLoop = true;
     state.loopStart = cue.start;
     state.loopEnd = cue.end;
@@ -642,7 +478,6 @@
     bubble.innerHTML = loopBtn + cue.lines.map(line => `
       <div class="lang-line ${line.lang}" dir="${line.lang === 'ar' ? 'rtl' : 'ltr'}">
         <span class="badge">${LANG_LABELS[line.lang]}</span>
-        <button class="loop" data-lang="${line.lang}" title="نطق ${LANG_NAMES[line.lang]}" aria-label="نطق ${LANG_NAMES[line.lang]}">🔊</button>
         ${escapeHtml(line.text)}
       </div>
     `).join('');
@@ -650,10 +485,6 @@
     if (bubbleLoop) {
       bubbleLoop.addEventListener('click', e => { e.stopPropagation(); toggleVideoLoop(); });
     }
-    bubble.querySelectorAll('.lang-line .loop').forEach(btn => {
-      btn.addEventListener('click', e => { e.stopPropagation(); toggleLoopLang(btn.dataset.lang); });
-    });
-    renderLangButtons();
   }
 
   function updateStatus() {
@@ -686,8 +517,6 @@
       state.loopStart = cue.start;
       state.loopEnd = cue.end;
     }
-    if (state.loopAll) startLoopAll();
-    else if (state.loopLang) startLoopLang(state.loopLang);
   }
 
   function prevCue() { if (state.currentIndex > 0) goToCue(state.currentIndex - 1); }
@@ -856,7 +685,6 @@
   btnPrev.addEventListener('click', prevCue);
   btnPlay.addEventListener('click', togglePlay);
   btnNext.addEventListener('click', nextCue);
-  btnLoopAll.addEventListener('click', toggleLoopAll);
 
   document.addEventListener('keydown', e => {
     if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
