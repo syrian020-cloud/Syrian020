@@ -71,6 +71,14 @@
   button.secondary { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem 1rem; font-size: 0.95rem; cursor: pointer; }
   button.secondary:hover { border-color: var(--accent); }
 
+  .source-tabs { display: flex; gap: 0.4rem; margin: 0.8rem 0 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+  .source-tab { background: transparent; color: var(--text-secondary); border: none; padding: 0.45rem 0.8rem; font-size: 0.9rem; font-weight: 600; cursor: pointer; border-radius: 999px; }
+  .source-tab:hover { color: var(--text-primary); }
+  .source-tab.active { background: var(--bg-tertiary); color: var(--text-primary); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .hint { color: var(--text-secondary); font-size: 0.85rem; margin: 0.2rem 0 0.5rem; }
+
   .video-wrap { position: relative; background: #000; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 0.9rem; }
   video { width: 100%; display: block; }
 
@@ -214,38 +222,60 @@
   <div class="header-inner">
     <span class="logo">مشغّل SRT</span>
     <span class="spacer"></span>
-    <button class="icon-btn" id="btn-stop" title="إيقاف التكرار">🔇</button>
+    <button class="icon-btn" id="btn-stop" title="إيقاف الصوت">🔇</button>
   </div>
 </header>
 
 <main>
   <section class="panel" id="setup-panel">
     <h2>اختر الفيديو والترجمة</h2>
-    <p>يمكنك اختيار ملف فيديو أو صوت، وملفات ترجمة منفصلة للفرنسية والعربية والإنجليزية. إذا كان لديك ملف SRT واحد يحتوي على الثلاث لغات (فرنسي + عربي + إنجليزي) في كل عبارة، اختره في خانة <strong>الفرنسية</strong> وسيتم التعرف عليها تلقائيًا.</p>
+
     <div class="file-row">
       <label for="video-file">فيديو/صوت</label>
       <input type="file" id="video-file" accept="video/*,audio/*">
       <span class="file-name" id="video-name"></span>
     </div>
-    <div class="file-row">
-      <label for="srt-fr">الفرنسية</label>
-      <input type="file" id="srt-fr" accept=".srt,.txt">
-      <span class="file-name" id="name-fr"></span>
+
+    <div class="source-tabs">
+      <button class="source-tab active" data-tab="single" type="button">ملف ترجمة واحد</button>
+      <button class="source-tab" data-tab="separate" type="button">ملفات منفصلة</button>
+      <button class="source-tab" data-tab="paste" type="button">لصق نص</button>
     </div>
-    <div class="file-row">
-      <label for="srt-ar">العربية</label>
-      <input type="file" id="srt-ar" accept=".srt,.txt">
-      <span class="file-name" id="name-ar"></span>
+
+    <div class="tab-panel active" data-tab="single">
+      <div class="file-row">
+        <label for="srt-main">ملف الترجمة</label>
+        <input type="file" id="srt-main" accept=".srt,.txt">
+        <span class="file-name" id="name-main"></span>
+      </div>
+      <p class="hint">اختر ملف SRT/TXT واحد يحتوي على الفرنسية والعربية والإنجليزية لكل عبارة.</p>
     </div>
-    <div class="file-row">
-      <label for="srt-en">الإنجليزية</label>
-      <input type="file" id="srt-en" accept=".srt,.txt">
-      <span class="file-name" id="name-en"></span>
+
+    <div class="tab-panel" data-tab="separate">
+      <div class="file-row">
+        <label for="srt-fr">الفرنسية</label>
+        <input type="file" id="srt-fr" accept=".srt,.txt">
+        <span class="file-name" id="name-fr"></span>
+      </div>
+      <div class="file-row">
+        <label for="srt-ar">العربية</label>
+        <input type="file" id="srt-ar" accept=".srt,.txt">
+        <span class="file-name" id="name-ar"></span>
+      </div>
+      <div class="file-row">
+        <label for="srt-en">الإنجليزية</label>
+        <input type="file" id="srt-en" accept=".srt,.txt">
+        <span class="file-name" id="name-en"></span>
+      </div>
     </div>
-    <div class="paste-row">
-      <label for="srt-paste">أو ألصق النص</label>
-      <textarea id="srt-paste" placeholder="00:00 Je suis désolé.&#10;أنا آسف.&#10;I'm sorry."></textarea>
+
+    <div class="tab-panel" data-tab="paste">
+      <div class="paste-row">
+        <label for="srt-paste">النص المؤقت</label>
+        <textarea id="srt-paste" placeholder="00:00 Je suis désolé.&#10;أنا آسف.&#10;I'm sorry."></textarea>
+      </div>
     </div>
+
     <div class="action-row">
       <button class="primary" id="btn-start">▶ ابدأ</button>
       <button class="secondary" id="btn-reset">إعادة ضبط</button>
@@ -270,7 +300,7 @@
       <button class="ctrl-btn" id="btn-prev" title="السطر السابق (←)">⏮</button>
       <button class="ctrl-btn" id="btn-play" title="تشغيل/إيقاف (مسافة)">⏯</button>
       <button class="ctrl-btn" id="btn-next" title="السطر التالي (→)">⏭</button>
-      <button class="ctrl-btn" id="btn-loop-all" title="تكرار عبارة الفيديو">🔂</button>
+      <button class="ctrl-btn" id="btn-loop-all" title="تكرار العبارة بالثلاث لغات">🔁</button>
     </div>
     <div class="lang-btn-row" id="lang-btns"></div>
     <div class="status" id="status"></div>
@@ -286,8 +316,8 @@
 
   // --- DOM refs ---
   const $ = id => document.getElementById(id);
-  const videoFile = $('video-file'), srtFr = $('srt-fr'), srtAr = $('srt-ar'), srtEn = $('srt-en'), srtPaste = $('srt-paste');
-  const videoName = $('video-name'), nameFr = $('name-fr'), nameAr = $('name-ar'), nameEn = $('name-en');
+  const videoFile = $('video-file'), srtMain = $('srt-main'), srtFr = $('srt-fr'), srtAr = $('srt-ar'), srtEn = $('srt-en'), srtPaste = $('srt-paste');
+  const videoName = $('video-name'), nameMain = $('name-main'), nameFr = $('name-fr'), nameAr = $('name-ar'), nameEn = $('name-en');
   const btnStart = $('btn-start'), btnReset = $('btn-reset'), btnStop = $('btn-stop');
   const videoWrap = $('video-wrap'), player = $('player'), bubble = $('bubble');
   const controls = $('controls'), progress = $('progress'), currentTimeEl = $('current-time'), durationEl = $('duration');
@@ -299,11 +329,12 @@
     cues: [], // { start, end, lines: [{lang, text}] }
     currentIndex: -1,
     isPlaying: false,
+    loopAll: false,
+    loopLang: null,
+    ttsChain: null,
+    loopToken: 0,
     duration: 0,
-    videoUrl: null,
-    videoLoop: false,
-    loopStart: 0,
-    loopEnd: 0
+    videoUrl: null
   };
 
   const LANG_ORDER = ['fr','ar','en'];
@@ -477,41 +508,137 @@
     });
   }
 
+  // --- TTS ---
+  function isCapacitor() {
+    return typeof window !== 'undefined' && window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform();
+  }
+  function ttsStop() {
+    if (state.ttsChain) { clearTimeout(state.ttsChain); state.ttsChain = null; }
+    if (isCapacitor()) {
+      const plugin = window.Capacitor.Plugins.TextToSpeech;
+      if (plugin) plugin.stop().catch(()=>{});
+    } else if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+  }
+  function ttsSpeak({ text, lang, onend }) {
+    const ttsLang = lang === 'ar' ? 'ar-SA' : (lang === 'fr' ? 'fr-FR' : 'en-US');
+    if (isCapacitor()) {
+      const plugin = window.Capacitor.Plugins.TextToSpeech;
+      if (!plugin) { if (onend) onend(); return; }
+      plugin.stop().catch(()=>{})
+        .then(() => plugin.speak({ text, lang: ttsLang, rate: 1.0, pitch: 1.0, volume: 1.0, category: 'playback' }))
+        .then(() => { if (onend) onend(); })
+        .catch(() => { if (onend) onend(); });
+    } else if ('speechSynthesis' in window) {
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = ttsLang;
+      u.onend = onend;
+      u.onerror = () => { if (onend) onend(); };
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(u);
+    } else if (onend) {
+      onend();
+    }
+  }
+
   function getCurrentCue() {
     return state.cues[state.currentIndex];
   }
 
+  function getCurrentLine(lang) {
+    const cue = getCurrentCue();
+    return cue ? (cue.lines.find(l => l.lang === lang) || cue.lines[0]) : null;
+  }
+
+  function startLoopLang(lang) {
+    stopAllLoops();
+    state.loopLang = lang;
+    updateButtons();
+    const myToken = state.loopToken;
+    const doSpeak = () => {
+      if (state.loopLang !== lang || state.loopToken !== myToken) return;
+      const line = getCurrentLine(lang);
+      if (!line || !line.text) { state.ttsChain = setTimeout(doSpeak, 500); return; }
+      ttsSpeak({ text: line.text, lang: line.lang, onend: () => {
+        if (state.loopLang !== lang || state.loopToken !== myToken) return;
+        state.ttsChain = setTimeout(doSpeak, 600);
+      }});
+    };
+    doSpeak();
+  }
+
+  function toggleLoopLang(lang) {
+    if (state.loopLang === lang) { stopAllLoops(); return; }
+    startLoopLang(lang);
+  }
+
+  function startLoopAll() {
+    stopAllLoops();
+    state.loopAll = true;
+    updateButtons();
+    const myToken = state.loopToken;
+    const available = () => {
+      const cue = getCurrentCue();
+      return cue ? LANG_ORDER.map(l => cue.lines.find(x => x.lang === l)).filter(Boolean) : [];
+    };
+    const doCycle = (idx) => {
+      if (!state.loopAll || state.loopToken !== myToken) return;
+      const lines = available();
+      if (!lines.length) { state.ttsChain = setTimeout(() => doCycle(0), 500); return; }
+      const i = idx % lines.length;
+      ttsSpeak({ text: lines[i].text, lang: lines[i].lang, onend: () => {
+        if (!state.loopAll || state.loopToken !== myToken) return;
+        state.ttsChain = setTimeout(() => doCycle(i+1), 800);
+      }});
+    };
+    doCycle(0);
+  }
+
+  function toggleLoopAll() {
+    if (state.loopAll) { stopAllLoops(); return; }
+    startLoopAll();
+  }
+
+  function stopTTSLoops() {
+    state.loopAll = false;
+    state.loopLang = null;
+    state.loopToken++;
+    ttsStop();
+    updateButtons();
+  }
   function stopAllLoops() {
-    state.videoLoop = false;
-    state.loopStart = 0;
-    state.loopEnd = 0;
+    stopTTSLoops();
     updateButtons();
   }
 
   // --- UI ---
   function updateButtons() {
-    btnLoopAll.classList.toggle('active', state.videoLoop);
+    btnLoopAll.classList.toggle('active', state.loopAll);
     const bubbleLoop = document.querySelector('.bubble-loop');
-    if (bubbleLoop) bubbleLoop.classList.toggle('active', state.videoLoop);
+    if (bubbleLoop) bubbleLoop.classList.toggle('active', state.loopAll);
     Array.from(langBtns.children).forEach(btn => {
-      btn.classList.toggle('active', state.videoLoop);
+      const l = btn.dataset.lang;
+      btn.classList.toggle('active', state.loopLang === l);
     });
     document.querySelectorAll('.lang-line .loop').forEach(btn => {
-      btn.classList.toggle('active', state.videoLoop);
+      const l = btn.dataset.lang;
+      btn.classList.toggle('active', state.loopLang === l);
     });
   }
 
-  function toggleVideoLoop() {
+  function renderLangButtons() {
     const cue = getCurrentCue();
-    if (!cue) { showToast('لا توجد عبارة حالية'); return; }
-    if (!player.src && !videoFile.files[0]) { showToast('اختر ملف فيديو/صوت أولاً'); return; }
-    if (state.videoLoop) { state.videoLoop = false; state.loopStart = 0; state.loopEnd = 0; updateButtons(); return; }
-    state.videoLoop = true;
-    state.loopStart = cue.start;
-    state.loopEnd = cue.end;
+    const present = cue ? LANG_ORDER.filter(l => cue.lines.some(x => x.lang === l)) : LANG_ORDER;
+    langBtns.innerHTML = present.map(l => `
+      <button class="lang-btn" data-lang="${l}" title="نطق ${LANG_NAMES[l]}">
+        ${LANG_LABELS[l]} 🔊
+      </button>
+    `).join('');
+    Array.from(langBtns.children).forEach(btn => {
+      btn.addEventListener('click', () => toggleLoopLang(btn.dataset.lang));
+    });
     updateButtons();
-    player.currentTime = cue.start;
-    player.play().catch(()=>{});
   }
 
   function renderBubble() {
@@ -520,36 +647,22 @@
       bubble.innerHTML = '';
       return;
     }
-    const loopBtn = `<button class="bubble-loop" title="تكرار عبارة الفيديو" aria-label="تكرار عبارة الفيديو">🔂</button>`;
+    const loopBtn = `<button class="bubble-loop" title="تكرار العبارة بالثلاث لغات" aria-label="تكرار العبارة بالثلاث لغات">🔁</button>`;
     bubble.innerHTML = loopBtn + cue.lines.map(line => `
       <div class="lang-line ${line.lang}" dir="${line.lang === 'ar' ? 'rtl' : 'ltr'}">
         <span class="badge">${LANG_LABELS[line.lang]}</span>
-        <button class="loop" data-lang="${line.lang}" title="تكرار عبارة الفيديو" aria-label="تكرار عبارة الفيديو">🔂</button>
+        <button class="loop" data-lang="${line.lang}" title="نطق ${LANG_NAMES[line.lang]}" aria-label="نطق ${LANG_NAMES[line.lang]}">🔊</button>
         ${escapeHtml(line.text)}
       </div>
     `).join('');
     const bubbleLoop = bubble.querySelector('.bubble-loop');
     if (bubbleLoop) {
-      bubbleLoop.addEventListener('click', e => { e.stopPropagation(); toggleVideoLoop(); });
+      bubbleLoop.addEventListener('click', e => { e.stopPropagation(); toggleLoopAll(); });
     }
     bubble.querySelectorAll('.lang-line .loop').forEach(btn => {
-      btn.addEventListener('click', e => { e.stopPropagation(); toggleVideoLoop(); });
+      btn.addEventListener('click', e => { e.stopPropagation(); toggleLoopLang(btn.dataset.lang); });
     });
     renderLangButtons();
-  }
-
-  function renderLangButtons() {
-    const cue = getCurrentCue();
-    const present = cue ? LANG_ORDER.filter(l => cue.lines.some(x => x.lang === l)) : LANG_ORDER;
-    langBtns.innerHTML = present.map(l => `
-      <button class="lang-btn" data-lang="${l}" title="تكرار عبارة الفيديو">
-        ${LANG_LABELS[l]} 🔂
-      </button>
-    `).join('');
-    Array.from(langBtns.children).forEach(btn => {
-      btn.addEventListener('click', () => toggleVideoLoop());
-    });
-    updateButtons();
   }
 
   function updateStatus() {
@@ -578,10 +691,8 @@
     renderBubble();
     updateStatus();
     updateProgress();
-    if (state.videoLoop) {
-      state.loopStart = cue.start;
-      state.loopEnd = cue.end;
-    }
+    if (state.loopAll) startLoopAll();
+    else if (state.loopLang) startLoopLang(state.loopLang);
   }
 
   function prevCue() { if (state.currentIndex > 0) goToCue(state.currentIndex - 1); }
@@ -597,11 +708,12 @@
   // --- Event wiring ---
   function handleFiles() {
     videoName.textContent = videoFile.files[0] ? videoFile.files[0].name : '';
+    nameMain.textContent = srtMain.files[0] ? srtMain.files[0].name : '';
     nameFr.textContent = srtFr.files[0] ? srtFr.files[0].name : '';
     nameAr.textContent = srtAr.files[0] ? srtAr.files[0].name : '';
     nameEn.textContent = srtEn.files[0] ? srtEn.files[0].name : '';
   }
-  [videoFile, srtFr, srtAr, srtEn].forEach(el => el.addEventListener('change', handleFiles));
+  [videoFile, srtMain, srtFr, srtAr, srtEn].forEach(el => el.addEventListener('change', handleFiles));
 
   function readFile(file) {
     return new Promise((resolve, reject) => {
@@ -613,7 +725,7 @@
   }
 
   async function start() {
-    if (!videoFile.files[0] && !srtFr.files[0] && !srtAr.files[0] && !srtEn.files[0] && !srtPaste.value.trim()) {
+    if (!videoFile.files[0] && !srtMain.files[0] && !srtFr.files[0] && !srtAr.files[0] && !srtEn.files[0] && !srtPaste.value.trim()) {
       showToast('الرجاء اختيار فيديو أو ملف/نص ترجمة على الأقل');
       return;
     }
@@ -639,9 +751,6 @@
     player.ontimeupdate = () => {
       setCurrentByTime(player.currentTime);
       updateProgress();
-      if (state.videoLoop && !player.paused && player.currentTime >= state.loopEnd - 0.05) {
-        player.currentTime = state.loopStart;
-      }
     };
 
     player.onplay = () => { state.isPlaying = true; btnPlay.textContent = '⏸'; };
@@ -656,7 +765,10 @@
 
     let frCues = [], arCues = [], enCues = [];
     try {
-      if (srtFr.files[0]) {
+      if (srtMain.files[0]) {
+        const text = await readFile(srtMain.files[0]);
+        frCues = parseSubtitle(text);
+      } else if (srtFr.files[0]) {
         const text = await readFile(srtFr.files[0]);
         frCues = parseSubtitle(text);
       } else if (srtPaste.value.trim()) {
@@ -739,7 +851,7 @@
     state.currentIndex = -1;
     state.isPlaying = false;
     state.duration = 0;
-    videoFile.value = ''; srtFr.value = ''; srtAr.value = ''; srtEn.value = ''; srtPaste.value = '';
+    videoFile.value = ''; srtMain.value = ''; srtFr.value = ''; srtAr.value = ''; srtEn.value = ''; srtPaste.value = '';
     handleFiles();
     progress.value = 0;
     currentTimeEl.textContent = '00:00'; durationEl.textContent = '00:00';
@@ -751,7 +863,7 @@
   btnPrev.addEventListener('click', prevCue);
   btnPlay.addEventListener('click', togglePlay);
   btnNext.addEventListener('click', nextCue);
-  btnLoopAll.addEventListener('click', toggleVideoLoop);
+  btnLoopAll.addEventListener('click', toggleLoopAll);
 
   document.addEventListener('keydown', e => {
     if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
@@ -763,6 +875,17 @@
 
   // Disable space scroll on range
   progress.addEventListener('keydown', e => { if (e.code === 'Space') e.preventDefault(); });
+
+  // Tab switching for subtitle source
+  document.querySelectorAll('.source-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.source-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      const panel = document.querySelector(`.tab-panel[data-tab="${tab.dataset.tab}"]`);
+      if (panel) panel.classList.add('active');
+    });
+  });
 
 })();
 </script>
