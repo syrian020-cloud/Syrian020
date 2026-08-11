@@ -444,6 +444,7 @@
       const u = new SpeechSynthesisUtterance(text);
       u.lang = ttsLang;
       u.onend = onend;
+      u.onerror = () => { if (onend) onend(); };
       window.speechSynthesis.cancel();
       window.speechSynthesis.speak(u);
     } else if (onend) {
@@ -687,12 +688,12 @@
       state.cues = buildCues(frCues, arCues, enCues);
     }
 
-    if (!state.cues.length) {
+    if (!state.cues.length && !videoFile.files[0]) {
       showToast('لم يتم العثور على عبارات في ملفات الترجمة');
       return;
     }
 
-    controls.style.display = 'flex';
+    controls.style.display = state.cues.length ? 'flex' : 'none';
     progress.max = 0;
     currentTimeEl.textContent = '00:00';
     durationEl.textContent = '00:00';
@@ -711,8 +712,12 @@
       videoWrap.style.display = 'none';
     }
 
-    goToCue(0);
-    showToast(`تم تحميل ${state.cues.length} عبارة`);
+    if (state.cues.length) {
+      goToCue(0);
+      showToast(`تم تحميل ${state.cues.length} عبارة`);
+    } else {
+      showToast('تم تحميل الفيديو فقط');
+    }
   }
 
   function reset() {
