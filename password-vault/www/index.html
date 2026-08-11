@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0f172a">
+<meta name="color-scheme" content="dark">
+<title>PassVault</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<style>
+:root {
+  --bg: #0b1020;
+  --surface: #111827;
+  --card: #1f2937;
+  --primary: #8b5cf6;
+  --primary-2: #6366f1;
+  --text: #f9fafb;
+  --muted: #9ca3af;
+  --border: rgba(255,255,255,0.08);
+  --danger: #ef4444;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --radius: 18px;
+  --shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; overflow: hidden; }
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background .3s, color .3s;
+  touch-action: manipulation;
+}
+body.light {
+  --bg: #f3f4f6;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: rgba(0,0,0,0.08);
+}
+body.rtl { direction: rtl; }
+#app { height: 100%; display: flex; flex-direction: column; }
+.hidden { display: none !important; }
+
+/* Screens */
+.screen { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+/* Lock screen */
+.lock-screen {
+  position: fixed; inset: 0; z-index: 2000;
+  background: linear-gradient(145deg, #111827 0%, #0b1020 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px;
+}
+.lock-icon { width: 72px; height: 72px; background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  border-radius: 24px; display: flex; align-items: center; justify-content: center; font-size: 34px;
+  box-shadow: var(--shadow); margin-bottom: 24px;
+}
+.lock-title { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+.lock-sub { color: var(--muted); margin-bottom: 24px; text-align: center; }
+.pin-row { display: flex; gap: 10px; margin-bottom: 24px; }
+.pin-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--border); background: transparent; transition: .2s; }
+.pin-dot.filled { background: var(--primary); border-color: var(--primary); }
+.keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 320px; width: 100%; direction: ltr; }
+.key { aspect-ratio: 1; border-radius: 50%; border: 1px solid var(--border); background: var(--surface);
+  color: var(--text); font-size: 22px; font-weight: 600; display: flex; align-items: center; justify-content: center;
+  user-select: none; transition: .15s; }
+.key:active { transform: scale(.92); background: var(--primary); }
+.key.small { font-size: 16px; }
+.key-icon { font-size: 22px; }
+
+/* Header */
+.header {
+  padding: 16px 20px; display: flex; align-items: center; justify-content: space-between;
+  background: var(--surface); border-bottom: 1px solid var(--border); flex-shrink: 0;
+}
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; }
+.logo img { width: 32px; height: 32px; border-radius: 10px; }
+.header-actions { display: flex; gap: 10px; }
+.btn-icon { width: 40px; height: 40px; border-radius: 12px; border: 1px solid var(--border); background: var(--card);
+  color: var(--text); font-size: 18px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+
+/* Search */
+.search-wrap { padding: 12px 20px; background: var(--surface); border-bottom: 1px solid var(--border); }
+.search-wrap input {
+  width: 100%; padding: 12px 16px; border-radius: 14px; border: 1px solid var(--border); background: var(--card);
+  color: var(--text); font-size: 15px; outline: none;
+}
+.search-wrap input::placeholder { color: var(--muted); }
+
+/* Lists */
+.list { flex: 1; overflow-y: auto; padding: 16px 20px; }
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 16px; margin-bottom: 12px; box-shadow: var(--shadow); display: flex; align-items: center; gap: 14px;
+}
+.card-icon { width: 46px; height: 46px; border-radius: 14px; background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.card-body { flex: 1; min-width: 0; }
+.card-title { font-weight: 600; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card-meta { color: var(--muted); font-size: 13px; margin-top: 4px; }
+.card-actions { display: flex; gap: 8px; }
+.empty { text-align: center; color: var(--muted); margin-top: 60px; padding: 0 20px; }
+.empty-icon { font-size: 54px; margin-bottom: 12px; opacity: .6; }
+
+/* Form */
+.form-screen { flex: 1; overflow-y: auto; padding: 20px; background: var(--bg); }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; font-weight: 500; }
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--border); background: var(--card);
+  color: var(--text); font-size: 15px; outline: none; font-family: inherit;
+}
+.form-group textarea { min-height: 90px; resize: vertical; }
+.pass-row { display: flex; gap: 8px; }
+.pass-row input { flex: 1; }
+.toggle-vis, .gen-btn { padding: 0 14px; border-radius: 14px; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; }
+
+/* Buttons */
+.btn {
+  width: 100%; padding: 15px; border-radius: 16px; border: none; background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: white; font-size: 16px; font-weight: 700; cursor: pointer; box-shadow: var(--shadow); transition: .2s;
+}
+.btn:active { transform: translateY(1px); }
+.btn.secondary { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+.btn.danger { background: var(--danger); }
+.btn-row { display: flex; gap: 10px; margin-top: 8px; }
+.btn-row .btn { flex: 1; }
+
+/* FAB */
+.fab {
+  position: fixed; right: 20px; bottom: 24px; width: 60px; height: 60px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2)); color: white; border: none;
+  font-size: 30px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); z-index: 100;
+  cursor: pointer;
+}
+
+/* Modal */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.7); z-index: 3000; display: flex; align-items: flex-end; justify-content: center; }
+.modal { background: var(--surface); width: 100%; max-height: 85vh; border-radius: var(--radius) var(--radius) 0 0; padding: 20px; overflow-y: auto; transform: translateY(100%); animation: slideUp .25s forwards; }
+@keyframes slideUp { to { transform: translateY(0); } }
+.modal-title { font-size: 20px; font-weight: 700; margin-bottom: 16px; }
+
+/* Settings */
+.setting-item { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-bottom: 1px solid var(--border); }
+.setting-left { display: flex; align-items: center; gap: 12px; }
+.setting-icon { width: 36px; height: 36px; border-radius: 10px; background: var(--card); display: flex; align-items: center; justify-content: center; }
+.setting-label { font-weight: 500; }
+.setting-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+/* Toggle */
+.switch { width: 48px; height: 26px; border-radius: 13px; background: var(--card); border: 1px solid var(--border); position: relative; cursor: pointer; transition: .2s; }
+.switch::after { content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: white; transition: .2s; }
+.switch.on { background: var(--primary); border-color: var(--primary); }
+.switch.on::after { left: 25px; }
+
+/* Toast */
+.toast { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%) translateY(120%); background: var(--card); color: var(--text); padding: 12px 20px; border-radius: 14px; border: 1px solid var(--border); z-index: 400; transition: .3s; box-shadow: var(--shadow); }
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* Category chips */
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.chip { padding: 7px 14px; border-radius: 20px; border: 1px solid var(--border); background: var(--card); color: var(--muted); font-size: 13px; cursor: pointer; }
+.chip.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+/* Typography RTL */
+body.rtl .card-title, body.rtl .setting-label, body.rtl .lock-title, body.rtl input, body.rtl textarea { text-align: right; }
+body.rtl .logo { direction: ltr; }
+body.rtl .fab { right: auto; left: 20px; }
+
+.splash { position: fixed; inset: 0; background: var(--bg); z-index: 5000; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.splash-logo { width: 100px; height: 100px; border-radius: 28px; background: linear-gradient(135deg, var(--primary), var(--primary-2)); display: flex; align-items: center; justify-content: center; font-size: 52px; margin-bottom: 20px; box-shadow: var(--shadow); }
+.splash-title { font-size: 28px; font-weight: 800; }
+</style>
+</head>
+<body class="dark">
+<div id="splash" class="splash">
+  <div class="splash-logo">🔒</div>
+  <div class="splash-title">PassVault</div>
+</div>
+
+<div id="lock" class="lock-screen hidden">
+  <div class="lock-icon">🔒</div>
+  <div class="lock-title" data-i18n="unlock">Unlock PassVault</div>
+  <div class="lock-sub" data-i18n="enterPin">Enter your master password</div>
+  <input type="password" id="lockPass" data-i18n-placeholder="enterPin" placeholder="Enter your master password" style="width:100%;max-width:320px;padding:14px 16px;border-radius:14px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:16px;margin-bottom:16px;outline:none;">
+  <button class="btn" id="unlockBtn" data-i18n="unlock" style="max-width:320px;">Unlock</button>
+</div>
+
+<div id="app" class="hidden">
+  <div id="homeScreen" class="screen">
+    <div class="header">
+      <div class="logo"><img src="icon-192.png" alt=""><span>PassVault</span></div>
+      <div class="header-actions">
+        <button class="btn-icon" id="themeBtn" title="Toggle theme">🌙</button>
+        <button class="btn-icon" id="settingsBtn" title="Settings">⚙️</button>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <input type="search" id="searchInput" data-i18n-placeholder="search" placeholder="Search accounts...">
+    </div>
+    <div class="chips" id="categoryChips"></div>
+    <div class="list" id="list"></div>
+    <button class="fab" id="addBtn">+</button>
+  </div>
+
+  <div id="formScreen" class="screen hidden">
+    <div class="header">
+      <button class="btn-icon" id="backBtn">←</button>
+      <div class="header-title" id="formTitle" data-i18n="newEntry">New entry</div>
+      <div style="width:40px"></div>
+    </div>
+    <div class="form-screen">
+      <div class="form-group"><label data-i18n="title">Title / Account name</label><input id="fTitle" type="text" data-i18n-placeholder="titlePh" placeholder="e.g. Gmail"></div>
+      <div class="form-group"><label data-i18n="category">Category</label><select id="fCategory">
+        <option value="Social">Social</option><option value="Work">Work</option><option value="Finance">Finance</option>
+        <option value="Shopping">Shopping</option><option value="Email">Email</option><option value="Other">Other</option>
+      </select></div>
+      <div class="form-group"><label data-i18n="username">Username / Name</label><input id="fUsername" type="text"></div>
+      <div class="form-group"><label data-i18n="password">Password</label>
+        <div class="pass-row">
+          <input id="fPassword" type="password">
+          <button class="toggle-vis" id="togglePass">👁</button>
+          <button class="gen-btn" id="genPass">⚡</button>
+        </div>
+      </div>
+      <div class="form-group"><label data-i18n="email">Email</label><input id="fEmail" type="email"></div>
+      <div class="form-group"><label data-i18n="phone">Phone</label><input id="fPhone" type="tel"></div>
+      <div class="form-group"><label data-i18n="notes">Additional info</label><textarea id="fNotes" data-i18n-placeholder="notesPh" placeholder="Notes, security questions, card numbers..."></textarea></div>
+      <button class="btn" id="saveBtn" data-i18n="save">Save</button>
+      <button class="btn secondary hidden" id="deleteBtn" data-i18n="delete" style="margin-top:10px">Delete</button>
+    </div>
+  </div>
+
+  <div id="settingsScreen" class="screen hidden">
+    <div class="header">
+      <button class="btn-icon" id="settingsBack">←</button>
+      <div class="header-title" data-i18n="settings">Settings</div>
+      <div style="width:40px"></div>
+    </div>
+    <div class="form-screen">
+      <div class="setting-item">
+        <div class="setting-left"><div class="setting-icon">🌐</div><div><div class="setting-label" data-i18n="language">Language</div><div class="setting-desc" data-i18n="languageDesc">Choose app language</div></div></div>
+        <select id="langSelect" style="padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);">
+          <option value="en">English</option><option value="ar">العربية</option><option value="fr">Français</option>
+        </select>
+      </div>
+      <div class="setting-item">
+        <div class="setting-left"><div class="setting-icon">🌙</div><div><div class="setting-label" data-i18n="darkMode">Dark mode</div><div class="setting-desc" data-i18n="darkModeDesc">Easier on the eyes</div></div></div>
+        <div class="switch on" id="darkSwitch"></div>
+      </div>
+      <div class="setting-item" id="biometricRow">
+        <div class="setting-left"><div class="setting-icon">👆</div><div><div class="setting-label" data-i18n="biometric">Biometric lock</div><div class="setting-desc" data-i18n="biometricDesc">Use fingerprint / face</div></div></div>
+        <div class="switch" id="bioSwitch"></div>
+      </div>
+      <div class="setting-item" id="changePinRow">
+        <div class="setting-left"><div class="setting-icon">🔑</div><div><div class="setting-label" data-i18n="changePin">Change master password</div></div></div>
+        <span>›</span>
+      </div>
+      <div class="setting-item" id="backupGoogleRow">
+        <div class="setting-left"><div class="setting-icon">☁️</div><div><div class="setting-label" data-i18n="backupGoogle">Backup to Google</div><div class="setting-desc" data-i18n="backupGoogleDesc">Save encrypted vault to Drive</div></div></div>
+        <span id="googleStatus">›</span>
+      </div>
+      <div class="setting-item hidden" id="restoreGoogleRow">
+        <div class="setting-left"><div class="setting-icon">🔄</div><div><div class="setting-label" data-i18n="restoreGoogle">Restore from Google</div></div></div>
+        <span>›</span>
+      </div>
+      <div class="setting-item" id="exportJsonRow">
+        <div class="setting-left"><div class="setting-icon">📤</div><div><div class="setting-label" data-i18n="exportJson">Export JSON</div></div></div>
+        <span>›</span>
+      </div>
+      <div class="setting-item" id="importJsonRow">
+        <div class="setting-left"><div class="setting-icon">📥</div><div><div class="setting-label" data-i18n="importJson">Import JSON</div></div></div>
+        <span>›</span>
+      </div>
+      <input type="file" id="importFile" accept="application/json,.json" class="hidden">
+      <div style="height:20px"></div>
+      <button class="btn secondary" id="lockNowBtn" data-i18n="lockNow">Lock now</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal" class="modal-overlay hidden"></div>
+<div id="toast" class="toast"></div>
+
+<script src="cordova.js"></script>
+<script>
+/* ===== i18n ===== */
+const I18N = {
+  en: {
+    unlock: 'Unlock PassVault', enterPin: 'Enter your master password', search: 'Search accounts...',
+    newEntry: 'New entry', editEntry: 'Edit entry', title: 'Title / Account name', titlePh: 'e.g. Gmail',
+    category: 'Category', username: 'Username / Name', password: 'Password', email: 'Email', phone: 'Phone',
+    notes: 'Additional info', notesPh: 'Notes, security questions, card numbers...', save: 'Save', delete: 'Delete',
+    settings: 'Settings', language: 'Language', languageDesc: 'Choose app language', darkMode: 'Dark mode',
+    darkModeDesc: 'Easier on the eyes', biometric: 'Biometric lock', biometricDesc: 'Use fingerprint / face',
+    changePin: 'Change master password', backupGoogle: 'Backup to Google', backupGoogleDesc: 'Save encrypted vault to Drive',
+    restoreGoogle: 'Restore from Google', exportJson: 'Export JSON', importJson: 'Import JSON', lockNow: 'Lock now',
+    confirmExit: 'Exit PassVault?', cancel: 'Cancel', exit: 'Exit', setPassword: 'Set master password',
+    setPasswordDesc: 'This password protects your vault. Do not forget it.', confirmPassword: 'Confirm password', create: 'Create',
+    passwordsNoMatch: 'Passwords do not match', passwordShort: 'Password must be at least 4 characters',
+    pinError: 'Wrong password', entrySaved: 'Entry saved', entryDeleted: 'Entry deleted', copied: 'Copied to clipboard',
+    backupSuccess: 'Backup saved to Google Drive', exportSuccess: 'Export saved', restoreSuccess: 'Backup restored', restoreError: 'Could not restore backup',
+    empty: 'No entries yet. Tap + to add one.', changePassword: 'Change master password', currentPassword: 'Current password',
+    newPassword: 'New password', change: 'Change', generate: 'Generate', importPassword: 'Backup password',
+    importPasswordDesc: 'Enter the password used to encrypt this backup', categories: { All: 'All', Social: 'Social', Work: 'Work', Finance: 'Finance', Shopping: 'Shopping', Email: 'Email', Other: 'Other' }
+  },
+  ar: {
+    unlock: 'فتح PassVault', enterPin: 'أدخل كلمة المرور الرئيسية', search: 'ابحث عن حساب...',
+    newEntry: 'إدخال جديد', editEntry: 'تعديل الإدخال', title: 'العنوان / اسم الحساب', titlePh: 'مثال: Gmail',
+    category: 'الفئة', username: 'اسم المستخدم / الاسم', password: 'كلمة المرور', email: 'البريد الإلكتروني', phone: 'الهاتف',
+    notes: 'معلومات إضافية', notesPh: 'ملاحظات، أسئلة أمان، أرقام بطاقات...', save: 'حفظ', delete: 'حذف',
+    settings: 'الإعدادات', language: 'اللغة', languageDesc: 'اختر لغة التطبيق', darkMode: 'الوضع المظلم',
+    darkModeDesc: 'سهل على العينين', biometric: 'قفل البصمة', biometricDesc: 'استخدم البصمة / الوجه',
+    changePin: 'تغيير كلمة المرور الرئيسية', backupGoogle: 'نسخ احتياطي إلى Google', backupGoogleDesc: 'احفظ الخزنة المشفرة في Drive',
+    restoreGoogle: 'استعادة من Google', exportJson: 'تصدير JSON', importJson: 'استيراد JSON', lockNow: 'قفل الآن',
+    confirmExit: 'الخروج من PassVault؟', cancel: 'إلغاء', exit: 'خروج', setPassword: 'تعيين كلمة المرور الرئيسية',
+    setPasswordDesc: 'تحمي كلمة المرور هذه خزنتك. لا تنسها.', confirmPassword: 'تأكيد كلمة المرور', create: 'إنشاء',
+    passwordsNoMatch: 'كلمتا المرور غير متطابقتين', passwordShort: 'كلمة المرور يجب أن تكون 4 أحرف على الأقل',
+    pinError: 'كلمة المرور خاطئة', entrySaved: 'تم حفظ الإدخال', entryDeleted: 'تم حذف الإدخال', copied: 'تم النسخ إلى الحافظة',
+    backupSuccess: 'تم حفظ النسخة الاحتياطية في Google Drive', exportSuccess: 'تم حفظ التصدير', restoreSuccess: 'تم استعادة النسخة الاحتياطية',
+    restoreError: 'تعذر استعادة النسخة الاحتياطية', empty: 'لا توجد إدخالات بعد. اضغط + لإضافة واحد.',
+    changePassword: 'تغيير كلمة المرور الرئيسية', currentPassword: 'كلمة المرور الحالية', newPassword: 'كلمة المرور الجديدة',
+    change: 'تغيير', generate: 'توليد', importPassword: 'كلمة مرور النسخة الاحتياطية',
+    importPasswordDesc: 'أدخل كلمة المرور المستخدمة لتشفير هذه النسخة', categories: { All: 'الكل', Social: 'اجتماعي', Work: 'عمل', Finance: 'مالي', Shopping: 'تسوق', Email: 'بريد', Other: 'أخرى' }
+  },
+  fr: {
+    unlock: 'Déverrouiller PassVault', enterPin: 'Entrez votre mot de passe maître', search: 'Rechercher un compte...',
+    newEntry: 'Nouvelle entrée', editEntry: 'Modifier l\'entrée', title: 'Titre / Nom du compte', titlePh: 'ex. Gmail',
+    category: 'Catégorie', username: 'Nom d\'utilisateur / Nom', password: 'Mot de passe', email: 'E-mail', phone: 'Téléphone',
+    notes: 'Infos supplémentaires', notesPh: 'Notes, questions de sécurité, numéros de cartes...', save: 'Enregistrer', delete: 'Supprimer',
+    settings: 'Paramètres', language: 'Langue', languageDesc: 'Choisir la langue', darkMode: 'Mode sombre',
+    darkModeDesc: 'Plus reposant pour les yeux', biometric: 'Verrou biométrique', biometricDesc: 'Utiliser empreinte / visage',
+    changePin: 'Changer le mot de passe maître', backupGoogle: 'Sauvegarder sur Google', backupGoogleDesc: 'Enregistrer le coffre chiffré sur Drive',
+    restoreGoogle: 'Restaurer depuis Google', exportJson: 'Exporter JSON', importJson: 'Importer JSON', lockNow: 'Verrouiller',
+    confirmExit: 'Quitter PassVault ?', cancel: 'Annuler', exit: 'Quitter', setPassword: 'Définir le mot de passe maître',
+    setPasswordDesc: 'Ce mot de passe protège votre coffre. Ne l\'oubliez pas.', confirmPassword: 'Confirmer le mot de passe', create: 'Créer',
+    passwordsNoMatch: 'Les mots de passe ne correspondent pas', passwordShort: 'Le mot de passe doit faire au moins 4 caractères',
+    pinError: 'Mot de passe incorrect', entrySaved: 'Entrée enregistrée', entryDeleted: 'Entrée supprimée', copied: 'Copié dans le presse-papiers',
+    backupSuccess: 'Sauvegarde enregistrée sur Google Drive', exportSuccess: 'Export enregistré', restoreSuccess: 'Sauvegarde restaurée', restoreError: 'Impossible de restaurer',
+    empty: 'Aucune entrée. Appuyez sur + pour en ajouter une.', changePassword: 'Changer le mot de passe maître',
+    currentPassword: 'Mot de passe actuel', newPassword: 'Nouveau mot de passe', change: 'Changer', generate: 'Générer',
+    importPassword: 'Mot de passe de la sauvegarde',
+    importPasswordDesc: 'Entrez le mot de passe utilisé pour chiffrer cette sauvegarde', categories: { All: 'Tout', Social: 'Social', Work: 'Travail', Finance: 'Finance', Shopping: 'Achats', Email: 'E-mail', Other: 'Autre' }
+  }
+};
+let LANG = localStorage.getItem('lang') || (navigator.language.startsWith('ar') ? 'ar' : (navigator.language.startsWith('fr') ? 'fr' : 'en'));
+let DARK = localStorage.getItem('theme') !== 'light';
+
+/* ===== State ===== */
+let entries = [];
+let editId = null;
+let masterKey = null;
+let googleAccessToken = null;
+let pauseTimer = null;
+let isSharing = false;
+const GOOGLE_CLIENT_ID_PLACEHOLDER = 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com';
+let GOOGLE_CLIENT_ID = localStorage.getItem('google_client_id') || GOOGLE_CLIENT_ID_PLACEHOLDER;
+
+/* ===== DOM refs ===== */
+const $ = id => document.getElementById(id);
+const listEl = $('list'), searchEl = $('searchInput'), chipsEl = $('categoryChips');
+
+/* ===== Crypto ===== */
+async function getPasswordKey(password, salt) {
+  const enc = new TextEncoder();
+  const keyMaterial = await crypto.subtle.importKey('raw', enc.encode(password), { name: 'PBKDF2' }, false, ['deriveBits', 'deriveKey']);
+  return crypto.subtle.deriveKey(
+    { name: 'PBKDF2', salt, iterations: 120000, hash: 'SHA-256' },
+    keyMaterial,
+    { name: 'AES-GCM', length: 256 },
+    false,
+    ['encrypt', 'decrypt']
+  );
+}
+async function encryptWithKey(text, key) {
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const cipher = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, new TextEncoder().encode(text));
+  return { iv: arrToBase64(iv), data: arrToBase64(new Uint8Array(cipher)) };
+}
+async function decryptWithKey(payload, key) {
+  const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: base64ToArr(payload.iv) }, key, base64ToArr(payload.data));
+  return new TextDecoder().decode(plain);
+}
+async function encryptWithPassword(text, password, salt) {
+  const key = await getPasswordKey(password, salt);
+  const result = await encryptWithKey(text, key);
+  return { salt: arrToBase64(salt), iv: result.iv, data: result.data };
+}
+async function decryptWithPassword(payload, password) {
+  const key = await getPasswordKey(password, base64ToArr(payload.salt));
+  return decryptWithKey(payload, key);
+}
+function arrToBase64(a) { let s=''; for(const b of a) s+=String.fromCharCode(b); return btoa(s); }
+function base64ToArr(s) { const bs=atob(s); const a=new Uint8Array(bs.length); for(let i=0;i<bs.length;i++) a[i]=bs.charCodeAt(i); return a; }
+async function hashPassword(password, salt) {
+  const enc = new TextEncoder();
+  const keyMaterial = await crypto.subtle.importKey('raw', enc.encode(password), { name: 'PBKDF2' }, false, ['deriveBits']);
+  const hash = await crypto.subtle.deriveBits({ name: 'PBKDF2', salt, iterations: 120000, hash: 'SHA-256' }, keyMaterial, 256);
+  return arrToBase64(new Uint8Array(hash));
+}
+
+/* ===== Storage ===== */
+async function loadVault() {
+  const v = localStorage.getItem('vault');
+  if (!v || !masterKey) return [];
+  try {
+    const json = await decryptWithKey(JSON.parse(v), masterKey);
+    const parsed = JSON.parse(json);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (e) { return []; }
+}
+async function saveVault(arr) {
+  if (!masterKey) return;
+  const payload = await encryptWithKey(JSON.stringify(arr), masterKey);
+  localStorage.setItem('vault', JSON.stringify(payload));
+}
+async function setupMaster(password) {
+  const hashSalt = crypto.getRandomValues(new Uint8Array(16));
+  const keySalt = crypto.getRandomValues(new Uint8Array(16));
+  masterKey = await getPasswordKey(password, keySalt);
+  const hash = await hashPassword(password, hashSalt);
+  const emptyVault = await encryptWithKey('[]', masterKey);
+  localStorage.setItem('masterHashSalt', arrToBase64(hashSalt));
+  localStorage.setItem('masterHash', hash);
+  localStorage.setItem('keySalt', arrToBase64(keySalt));
+  localStorage.setItem('vault', JSON.stringify(emptyVault));
+  entries = [];
+}
+async function unlockMaster(password) {
+  const salt = localStorage.getItem('masterHashSalt');
+  const stored = localStorage.getItem('masterHash');
+  const keySalt = localStorage.getItem('keySalt');
+  if (!salt || !stored || !keySalt) return false;
+  const hash = await hashPassword(password, base64ToArr(salt));
+  if (hash !== stored) return false;
+  masterKey = await getPasswordKey(password, base64ToArr(keySalt));
+  entries = await loadVault();
+  return true;
+}
+
+/* ===== UI helpers ===== */
+function t(key, category) {
+  const dict = I18N[LANG] || I18N.en;
+  if (category && dict.categories && dict.categories[key]) return dict.categories[key];
+  return dict[key] !== undefined ? dict[key] : (I18N.en[key] || key);
+}
+function applyI18n() {
+  document.documentElement.lang = LANG;
+  document.body.classList.toggle('rtl', LANG === 'ar');
+  document.dir = LANG === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { el.placeholder = t(el.dataset.i18nPlaceholder); });
+  document.querySelectorAll('#fCategory option').forEach(opt => { if(I18N[LANG].categories[opt.value]) opt.textContent = I18N[LANG].categories[opt.value]; });
+  const ls = $('langSelect'); if (ls) ls.value = LANG;
+  renderChips(); renderList();
+}
+function showToast(msg) { const el=$('toast'); el.textContent=msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),2600); }
+function showScreen(name) {
+  ['homeScreen','formScreen','settingsScreen'].forEach(id => $(id).classList.toggle('hidden', id!==name));
+  if (name==='homeScreen') { editId=null; renderList(); }
+}
+function escapeHtml(s) { var map={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":'&#39;'}; return (s||"").toString().replace(/[&<>"']/g, function(m){ return map[m]; }); }
+
+function getIcon(title) {
+  const map = { gmail:'📧', google:'📧', yahoo:'📧', outlook:'📧', facebook:'👥', insta:'📷', instagram:'📷', twitter:'🐦', x:'🐦', tiktok:'🎵', snap:'👻', snapchat:'👻', whatsapp:'💬', telegram:'✈️', linkedin:'💼', github:'🐙', gitlab:'🦊', amazon:'🛒', ebay:'🛒', paypal:'💳', bank:'🏦', netflix:'🎬', spotify:'🎵', youtube:'🎥', apple:'🍎' };
+  const t = (title||'').toLowerCase();
+  for (const k in map) if (t.includes(k)) return map[k];
+  return '🔑';
+}
+
+let currentCategory = 'All';
+function renderChips() {
+  const cats = ['All','Social','Work','Finance','Shopping','Email','Other'];
+  chipsEl.innerHTML = cats.map(c => `<button class="chip ${c===currentCategory?'active':''}" data-cat="${c}">${t(c, true)}</button>`).join('');
+  chipsEl.querySelectorAll('.chip').forEach(b => b.onclick = () => { currentCategory = b.dataset.cat; renderChips(); renderList(); });
+}
+function renderList() {
+  const q = (searchEl.value||'').toLowerCase();
+  const filtered = entries.filter(e => {
+    const text = ((e.title||'') + ' ' + (e.username||'') + ' ' + (e.email||'') + ' ' + (e.notes||'')).toLowerCase();
+    const cat = currentCategory === 'All' || e.category === currentCategory;
+    return text.includes(q) && cat;
+  });
+  if (!filtered.length) {
+    listEl.innerHTML = `<div class="empty"><div class="empty-icon">🔒</div><div>${escapeHtml(t('empty'))}</div></div>`;
+    return;
+  }
+  listEl.innerHTML = filtered.map(e => `
+    <div class="card" data-id="${escapeHtml(e.id)}">
+      <div class="card-icon">${getIcon(e.title)}</div>
+      <div class="card-body">
+        <div class="card-title">${escapeHtml(e.title)}</div>
+        <div class="card-meta">${escapeHtml(e.username || e.email || '')}</div>
+      </div>
+      <div class="card-actions">
+        <button class="btn-icon copy-user" data-id="${escapeHtml(e.id)}" title="Copy user">👤</button>
+        <button class="btn-icon copy-pass" data-id="${escapeHtml(e.id)}" title="Copy password">🔑</button>
+      </div>
+    </div>
+  `).join('');
+  listEl.querySelectorAll('.card').forEach(c => c.onclick = e => {
+    if (e.target.classList.contains('copy-user') || e.target.classList.contains('copy-pass')) return;
+    openEdit(c.dataset.id);
+  });
+  listEl.querySelectorAll('.copy-user').forEach(b => b.onclick = () => copyField(b.dataset.id, 'username'));
+  listEl.querySelectorAll('.copy-pass').forEach(b => b.onclick = () => copyField(b.dataset.id, 'password'));
+}
+async function copyField(id, field) {
+  const e = entries.find(x => x.id === id);
+  if (!e || !e[field]) return;
+  try { await navigator.clipboard.writeText(e[field]); showToast(t('copied')); } catch(err) { showToast('Copy failed'); }
+}
+
+function openEdit(id) {
+  editId = id;
+  const e = entries.find(x => x.id === id) || {};
+  $('formTitle').textContent = id ? t('editEntry') : t('newEntry');
+  $('fTitle').value = e.title || '';
+  $('fCategory').value = e.category || 'Social';
+  $('fUsername').value = e.username || '';
+  $('fPassword').value = e.password || '';
+  $('fEmail').value = e.email || '';
+  $('fPhone').value = e.phone || '';
+  $('fNotes').value = e.notes || '';
+  $('deleteBtn').classList.toggle('hidden', !id);
+  showScreen('formScreen');
+}
+async function saveEntry() {
+  const obj = {
+    id: editId || (Date.now().toString(36) + Math.random().toString(36).slice(2,7)),
+    title: String($('fTitle').value).trim() || 'Untitled',
+    category: String($('fCategory').value || 'Other'),
+    username: String($('fUsername').value).trim(),
+    password: String($('fPassword').value),
+    email: String($('fEmail').value).trim(),
+    phone: String($('fPhone').value).trim(),
+    notes: String($('fNotes').value).trim(),
+    updated: Date.now()
+  };
+  if (editId) { const idx = entries.findIndex(x=>x.id===editId); if(idx>=0) entries[idx]=obj; }
+  else entries.push(obj);
+  await saveVault(entries);
+  showToast(t('entrySaved'));
+  showScreen('homeScreen');
+}
+async function deleteEntry() {
+  if (!confirm(t('delete') + '?')) return;
+  entries = entries.filter(x => x.id !== editId);
+  await saveVault(entries);
+  showToast(t('entryDeleted'));
+  showScreen('homeScreen');
+}
+function generatePassword() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^&*';
+  const rand = crypto.getRandomValues(new Uint8Array(18));
+  let p = ''; for (let i=0;i<18;i++) p += chars[rand[i] % chars.length];
+  $('fPassword').value = p; $('fPassword').type = 'text';
+}
+
+/* ===== Settings ===== */
+function openSettings() { showScreen('settingsScreen'); }
+function applyTheme() {
+  document.body.classList.toggle('light', !DARK);
+  document.body.classList.toggle('dark', DARK);
+  const themeBtn = $('themeBtn');
+  if (themeBtn) themeBtn.textContent = DARK ? '🌙' : '☀️';
+  const darkSwitch = $('darkSwitch');
+  if (darkSwitch) darkSwitch.classList.toggle('on', DARK);
+  localStorage.setItem('theme', DARK?'dark':'light');
+}
+function toggleTheme() { DARK = !DARK; applyTheme(); }
+function setLang(l) { LANG=l; localStorage.setItem('lang', l); applyI18n(); }
+
+/* ===== Lock ===== */
+async function submitUnlock() {
+  const pass = $('lockPass').value;
+  if (pass.length < 4) return showToast(t('passwordShort'));
+  const ok = await unlockMaster(pass);
+  if (ok) {
+    $('lock').classList.add('hidden');
+    $('app').classList.remove('hidden');
+    $('lockPass').value = '';
+    applyI18n();
+  } else {
+    showToast(t('pinError'));
+  }
+}
+
+/* ===== Modals ===== */
+function closeModal() { $('modal').classList.add('hidden'); $('modal').innerHTML = ''; }
+function showModal(html) { $('modal').innerHTML = html; $('modal').classList.remove('hidden'); }
+function modalContent(title, body, footer='') {
+  return `<div class="modal"><div class="modal-title">${title}</div>${body}${footer}</div>`;
+}
+function setupPasswordModal() {
+  const body = `
+    <div class="form-group"><label>${t('setPassword')}</label><input id="setupPass" type="password" placeholder="****"></div>
+    <div class="form-group"><label>${t('confirmPassword')}</label><input id="setupPass2" type="password" placeholder="****"></div>
+    <div style="color:var(--muted);font-size:13px;margin-bottom:14px;">${t('setPasswordDesc')}</div>
+    <button class="btn" id="setupCreate">${t('create')}</button>
+  `;
+  showModal(modalContent(t('setPassword'), body));
+  $('setupCreate').onclick = async () => {
+    const p = $('setupPass').value, p2 = $('setupPass2').value;
+    if (p.length < 4) return showToast(t('passwordShort'));
+    if (p !== p2) return showToast(t('passwordsNoMatch'));
+    await setupMaster(p);
+    closeModal();
+    $('lock').classList.add('hidden'); $('app').classList.remove('hidden');
+    applyI18n();
+  };
+}
+function changePasswordModal() {
+  const body = `
+    <div class="form-group"><label>${t('currentPassword')}</label><input id="curPass" type="password"></div>
+    <div class="form-group"><label>${t('newPassword')}</label><input id="newPass" type="password"></div>
+    <div class="form-group"><label>${t('confirmPassword')}</label><input id="newPass2" type="password"></div>
+    <button class="btn" id="doChange">${t('change')}</button>
+  `;
+  showModal(modalContent(t('changePassword'), body));
+  $('doChange').onclick = async () => {
+    const cur = $('curPass').value, n = $('newPass').value, n2 = $('newPass2').value;
+    if (n.length < 4) return showToast(t('passwordShort'));
+    if (n !== n2) return showToast(t('passwordsNoMatch'));
+    if (!await unlockMaster(cur)) return showToast(t('pinError'));
+    const saved = entries.slice();
+    await setupMaster(n);
+    entries = saved;
+    await saveVault(entries);
+    closeModal(); showToast(t('changePassword'));
+  };
+}
+
+/* ===== Import / Export ===== */
+function sanitizeEntry(e) {
+  return {
+    id: typeof e.id === 'string' && e.id ? e.id : (Date.now().toString(36)+Math.random().toString(36).slice(2,7)),
+    title: String(e.title||'').trim() || 'Untitled',
+    category: String(e.category||'Other'),
+    username: String(e.username||''),
+    password: String(e.password||''),
+    email: String(e.email||''),
+    phone: String(e.phone||''),
+    notes: String(e.notes||''),
+    updated: Number(e.updated) || Date.now()
+  };
+}
+async function makeBackupPayload() {
+  const keySalt = localStorage.getItem('keySalt');
+  const payload = await encryptWithKey(JSON.stringify(entries), masterKey);
+  return { salt: keySalt, ...payload };
+}
+async function exportJson() {
+  if (!entries.length) return showToast('No entries');
+  isSharing = true;
+  const payload = await makeBackupPayload();
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  if (navigator.share) {
+    const file = new File([blob], 'passvault-backup.json', { type: 'application/json' });
+    try { await navigator.share({ files: [file], title: 'PassVault backup' }); showToast(t('exportSuccess')); isSharing=false; return; } catch(e) {}
+  }
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'passvault-backup.json'; a.click();
+  isSharing = false;
+  showToast(t('exportSuccess'));
+}
+async function decryptBackupPayload(payload, password) {
+  if (!payload || !payload.salt || !payload.iv || !payload.data) throw new Error('invalid');
+  const json = await decryptWithPassword(payload, password);
+  const imported = JSON.parse(json);
+  if (!Array.isArray(imported)) throw new Error('invalid');
+  return imported.map(sanitizeEntry);
+}
+async function importJsonFile(file) {
+  const pass = prompt(t('importPassword') + '\n' + t('importPasswordDesc'));
+  if (!pass) return;
+  try {
+    const text = await file.text();
+    const payload = JSON.parse(text);
+    const imported = await decryptBackupPayload(payload, pass);
+    if (payload.salt !== localStorage.getItem('keySalt')) {
+      // Backup was created with a different key salt (another device/password). Decrypt again with provided password is already done.
+      // We import and re-encrypt with current masterKey on save.
+    }
+    entries = entries.concat(imported);
+    await saveVault(entries); renderList(); showToast(t('restoreSuccess'));
+  } catch (e) { showToast(t('restoreError') + (e.message ? ': '+e.message : '')); }
+}
+
+/* ===== Google Drive ===== */
+async function googleBackup() {
+  if (!googleAccessToken) { await googleSignIn('backup'); return; }
+  try {
+    isSharing = true;
+    const payload = await makeBackupPayload();
+    const metadata = { name: 'passvault-backup.json', mimeType: 'application/json' };
+    const boundary = '----PassVaultBoundary' + Math.random().toString(36).slice(2);
+    const body = `--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n` + JSON.stringify(metadata) +
+      `\r\n--${boundary}\r\nContent-Type: application/json\r\n\r\n` + JSON.stringify(payload) + `\r\n--${boundary}--`;
+    const existing = await findDriveFile('passvault-backup.json');
+    const url = existing ? `https://www.googleapis.com/upload/drive/v3/files/${existing.id}?uploadType=multipart` : 'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart';
+    const method = existing ? 'PATCH' : 'POST';
+    const res = await fetch(url, { method, headers: { 'Authorization': 'Bearer ' + googleAccessToken, 'Content-Type': 'multipart/related; boundary=' + boundary }, body });
+    isSharing = false;
+    if (res.ok) showToast(t('backupSuccess')); else throw new Error(await res.text());
+  } catch (e) { isSharing=false; console.error(e); showToast('Backup failed: ' + e.message); }
+}
+async function googleRestore() {
+  const pass = prompt(t('importPassword') + '\n' + t('importPasswordDesc'));
+  if (!pass) return;
+  if (!googleAccessToken) { await googleSignIn('restore'); if (!googleAccessToken) return; }
+  try {
+    const file = await findDriveFile('passvault-backup.json');
+    if (!file) return showToast(t('restoreError'));
+    const res = await fetch(`https://www.googleapis.com/drive/v3/files/${file.id}?alt=media`, { headers: { 'Authorization': 'Bearer ' + googleAccessToken } });
+    if (!res.ok) throw new Error(await res.text());
+    const payload = await res.json();
+    const imported = await decryptBackupPayload(payload, pass);
+    entries = imported; await saveVault(entries); renderList(); showToast(t('restoreSuccess'));
+  } catch (e) { showToast(t('restoreError')); }
+}
+async function findDriveFile(name) {
+  const q = `name='${name.replace(/'/g,"\\'")}' and trashed=false and mimeType='application/json'`;
+  const res = await fetch(`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&spaces=drive`, { headers: { 'Authorization': 'Bearer ' + googleAccessToken } });
+  const data = await res.json();
+  return data.files && data.files[0];
+}
+async function googleSignIn(action) {
+  if (GOOGLE_CLIENT_ID.includes('YOUR_')) {
+    const id = prompt('Enter Google OAuth Web Client ID (or configure in settings):');
+    if (!id) return;
+    GOOGLE_CLIENT_ID = id; localStorage.setItem('google_client_id', id);
+  }
+  const redirect = location.origin + location.pathname;
+  const scope = encodeURIComponent('email profile https://www.googleapis.com/auth/drive.file');
+  const state = Math.random().toString(36).slice(2);
+  sessionStorage.setItem('oauth_state', state);
+  sessionStorage.setItem('googleAction', action || 'backup');
+  const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirect)}&response_type=token&scope=${scope}&state=${state}&prompt=consent`;
+  if (window.Capacitor) {
+    try {
+      const { GoogleAuth } = window.Capacitor.Plugins;
+      if (GoogleAuth) {
+        const r = await GoogleAuth.signIn({ scopes: ['email','profile','https://www.googleapis.com/auth/drive.file'] });
+        googleAccessToken = r.authentication?.accessToken || r.accessToken;
+        updateGoogleStatus();
+        handleSignedInAction();
+        return;
+      }
+    } catch (e) {}
+  }
+  isSharing = true;
+  window.location.href = url;
+}
+function updateGoogleStatus() {
+  const s = $('googleStatus');
+  if (s) s.textContent = googleAccessToken ? '✓' : '›';
+  const row = $('restoreGoogleRow');
+  if (row) row.classList.toggle('hidden', !googleAccessToken);
+}
+async function handleSignedInAction() {
+  const action = sessionStorage.getItem('googleAction');
+  sessionStorage.removeItem('googleAction');
+  sessionStorage.removeItem('oauth_state');
+  if (googleAccessToken && action === 'backup') await googleBackup();
+  else if (googleAccessToken && action === 'restore') await googleRestore();
+}
+async function handleOAuthRedirect() {
+  const h = location.hash;
+  if (h.includes('access_token=')) {
+    const params = new URLSearchParams(h.slice(1));
+    const state = params.get('state');
+    const expected = sessionStorage.getItem('oauth_state');
+    if (expected && state !== expected) { showToast('Invalid OAuth state'); return; }
+    googleAccessToken = params.get('access_token');
+    history.replaceState(null, '', location.pathname + location.search);
+    updateGoogleStatus(); showToast('Google signed in');
+    await handleSignedInAction();
+  }
+}
+
+/* ===== Biometric (best-effort web) ===== */
+let bioEnabled = localStorage.getItem('bio') === '1';
+async function tryBiometric() {
+  if (!bioEnabled || !window.PublicKeyCredential) return;
+  try {
+    await navigator.credentials.get({ publicKey: { challenge: new Uint8Array(32), rp: { name: 'PassVault' }, user: { id: new Uint8Array(16), name: 'user', displayName: 'User' }, pubKeyCredParams: [{ alg: -7, type: 'public-key' }] } });
+  } catch(e) {}
+}
+
+/* ===== Android back & exit ===== */
+function onBackButton() {
+  if (!$('modal').classList.contains('hidden')) { closeModal(); return; }
+  if (!$('settingsScreen').classList.contains('hidden')) { showScreen('homeScreen'); return; }
+  if (!$('formScreen').classList.contains('hidden')) { showScreen('homeScreen'); return; }
+  if (confirm(t('confirmExit'))) { if (window.Capacitor && window.Capacitor.Plugins.App) window.Capacitor.Plugins.App.exitApp(); }
+}
+
+/* ===== Event wiring ===== */
+function wire() {
+  $('addBtn').onclick = () => openEdit(null);
+  $('backBtn').onclick = () => showScreen('homeScreen');
+  $('settingsBack').onclick = () => showScreen('homeScreen');
+  $('settingsBtn').onclick = openSettings;
+  $('themeBtn').onclick = toggleTheme;
+  $('saveBtn').onclick = saveEntry;
+  $('deleteBtn').onclick = deleteEntry;
+  $('genPass').onclick = generatePassword;
+  $('togglePass').onclick = () => { const el=$('fPassword'); el.type = el.type==='password'?'text':'password'; };
+  $('unlockBtn').onclick = submitUnlock;
+  $('lockPass').onkeydown = e => { if (e.key === 'Enter') submitUnlock(); };
+  searchEl.oninput = renderList;
+  $('lockNowBtn').onclick = () => { masterKey=null; entries=[]; location.reload(); };
+  $('changePinRow').onclick = changePasswordModal;
+  $('exportJsonRow').onclick = exportJson;
+  $('importJsonRow').onclick = () => $('importFile').click();
+  $('importFile').onchange = e => { if (e.target.files[0]) importJsonFile(e.target.files[0]); e.target.value=''; };
+  $('backupGoogleRow').onclick = googleBackup;
+  $('restoreGoogleRow').onclick = googleRestore;
+  $('langSelect').onchange = e => setLang(e.target.value);
+  $('darkSwitch').onclick = () => { DARK = !$('darkSwitch').classList.contains('on'); applyTheme(); };
+  $('bioSwitch').onclick = () => { const el=$('bioSwitch'); el.classList.toggle('on'); bioEnabled=el.classList.contains('on'); localStorage.setItem('bio', bioEnabled?'1':'0'); };
+  if (window.Capacitor && window.Capacitor.Plugins.App) {
+    window.Capacitor.Plugins.App.addListener('backButton', onBackButton);
+    window.Capacitor.Plugins.App.addListener('pause', () => {
+      if (isSharing) return;
+      pauseTimer = setTimeout(() => { masterKey=null; entries=[]; location.reload(); }, 2000);
+    });
+    window.Capacitor.Plugins.App.addListener('resume', () => {
+      if (pauseTimer) { clearTimeout(pauseTimer); pauseTimer = null; }
+      isSharing = false;
+    });
+  } else { document.addEventListener('keydown', e => { if (e.key==='Escape') onBackButton(); }); }
+  $('modal').onclick = e => { if (e.target.id==='modal') closeModal(); };
+}
+
+/* ===== Init ===== */
+async function init() {
+  handleOAuthRedirect();
+  DARK = localStorage.getItem('theme') !== 'light';
+  applyTheme();
+  bioEnabled = localStorage.getItem('bio') === '1';
+  const bioSwitch = $('bioSwitch'); if (bioSwitch) bioSwitch.classList.toggle('on', bioEnabled);
+  applyI18n();
+  wire();
+  setTimeout(() => $('splash').classList.add('hidden'), 900);
+  if (localStorage.getItem('masterHash')) {
+    $('lock').classList.remove('hidden');
+  } else {
+    $('lock').classList.remove('hidden');
+    setupPasswordModal();
+  }
+}
+init();
+</script>
+</body>
+</html>
