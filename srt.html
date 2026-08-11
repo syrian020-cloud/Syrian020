@@ -229,6 +229,11 @@
   .lesson-actions { display: flex; gap: 0.4rem; }
   .empty-hint { color: var(--text-secondary); font-size: 0.9rem; text-align: center; padding: 1rem 0; }
 
+  .lesson-card { align-items: flex-start; }
+  .lesson-thumb { width: 64px; height: 64px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border); margin-inline-end: 0.8rem; background: var(--bg-secondary); flex: 0 0 auto; }
+  .lesson-info { flex: 1; min-width: 0; }
+  .lesson-card .title { word-break: break-word; }
+
   .player-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; }
   .player-header .lesson-title { color: var(--text-secondary); font-size: 0.9rem; }
 
@@ -271,6 +276,11 @@
         <label for="video-file">فيديو/صوت</label>
         <input type="file" id="video-file" accept="video/*,audio/*">
         <span class="file-name" id="video-name"></span>
+      </div>
+      <div class="file-row">
+        <label for="lesson-image">صورة الدرس (اختياري)</label>
+        <input type="file" id="lesson-image" accept="image/*">
+        <span class="file-name" id="image-name"></span>
       </div>
 
       <div class="source-tabs">
@@ -354,6 +364,7 @@
 
 <footer>مشغّل SRT مصاحب للفيديو — يدعم الفرنسية والعربية والإنجليزية</footer>
 <div class="toast" id="toast"></div>
+<input type="file" id="edit-image" accept="image/*" style="display:none">
 
 <script>
 (function(){
@@ -361,8 +372,8 @@
 
   // --- DOM refs ---
   const $ = id => document.getElementById(id);
-  const videoFile = $('video-file'), srtMain = $('srt-main'), srtFr = $('srt-fr'), srtAr = $('srt-ar'), srtEn = $('srt-en'), srtPaste = $('srt-paste');
-  const videoName = $('video-name'), nameMain = $('name-main'), nameFr = $('name-fr'), nameAr = $('name-ar'), nameEn = $('name-en');
+  const videoFile = $('video-file'), lessonImage = $('lesson-image'), editImage = $('edit-image'), srtMain = $('srt-main'), srtFr = $('srt-fr'), srtAr = $('srt-ar'), srtEn = $('srt-en'), srtPaste = $('srt-paste');
+  const videoName = $('video-name'), imageName = $('image-name'), nameMain = $('name-main'), nameFr = $('name-fr'), nameAr = $('name-ar'), nameEn = $('name-en');
   const btnStart = $('btn-start'), btnReset = $('btn-reset'), btnStop = $('btn-stop');
   const videoWrap = $('video-wrap'), player = $('player'), bubble = $('bubble');
   const controls = $('controls'), progress = $('progress'), currentTimeEl = $('current-time'), durationEl = $('duration');
@@ -385,7 +396,10 @@
     loopEnd: 0,
     pendingSeek: null,
     duration: 0,
-    videoUrl: null
+    videoUrl: null,
+    posterUrl: null,
+    thumbUrls: [],
+    editingImageId: null
   };
 
   const LANG_ORDER = ['fr','ar','en'];
@@ -945,14 +959,20 @@
     }
     const defaultName = new Date().toLocaleDateString('ar-EG');
     const name = prompt('اسم الدرس:', `درس ${defaultName}`) || `درس ${defaultName}`;
-    let videoBlob = null;
+    let videoBlob = null, imageBlob = null;
     if (videoFile.files[0]) {
       try {
         const ab = await readFileAsArrayBuffer(videoFile.files[0]);
         videoBlob = new Blob([ab], { type: videoFile.files[0].type || 'video/mp4' });
       } catch (e) { showToast('تعذّر قراءة ملف الفيديو'); return; }
     }
-    const lesson = { id: Date.now().toString(36), name, createdAt: Date.now(), cues: state.cues, videoBlob };
+    if (lessonImage.files[0]) {
+      try {
+        const ab = await readFileAsArrayBuffer(lessonImage.files[0]);
+        imageBlob = new Blob([ab], { type: lessonImage.files[0].type || 'image/jpeg' });
+      } catch (e) { showToast('تعذّر قراءة صورة الدرس'); }
+    }
+    const lesson = { id: Date.now().toString(36), name, createdAt: Date.now(), cues: state.cues, videoBlob, imageBlob };
     try {
       await saveLessonToDB(lesson);
       showToast('تم حفظ الدرس');
@@ -966,6 +986,7 @@
     const lesson = await getLessonById(id);
     if (!lesson) { showToast('الدرس غير موجود'); return; }
     if (state.videoUrl) { URL.revokeObjectURL(state.videoUrl); state.videoUrl = null; }
+    if (state.posterUrl) { URL.revokeObjectURL(state.posterUrl); state.posterUrl = null; }
     state.cues = lesson.cues || [];
     state.currentIndex = -1;
     if (lesson.videoBlob) {
@@ -976,6 +997,12 @@
       player.src = '';
       videoWrap.style.display = 'none';
     }
+    if (lesson.imageBlob) {
+      state.posterUrl = URL.createObjectURL(lesson.imageBlob);
+      player.poster = state.posterUrl;
+    } else {
+      player.poster = '';
+    }
     attachPlayerEvents();
     lessonTitle.textContent = lesson.name;
     showView('player');
@@ -985,33 +1012,53 @@
   async function renderLessons() {
     let lessons = [];
     try { lessons = await getLessonsFromDB(); } catch (e) {}
+    state.thumbUrls.forEach(u => URL.revokeObjectURL(u));
+    state.thumbUrls = [];
     if (!lessons || !lessons.length) {
       lessonsList.innerHTML = '<p class="empty-hint">لا توجد دروس محفوظة. اضغط على “➕” لإعداد درس جديد.</p>';
       return;
     }
-    lessonsList.innerHTML = lessons.sort((a,b) => b.createdAt - a.createdAt).map(l => `
+    lessonsList.innerHTML = lessons.sort((a,b) => b.createdAt - a.createdAt).map(l => {
+      let thumb = '';
+      if (l.imageBlob) {
+        const url = URL.createObjectURL(l.imageBlob);
+        state.thumbUrls.push(url);
+        thumb = `<img src="${url}" class="lesson-thumb" alt="">`;
+      }
+      return `
       <div class="lesson-card" data-id="${l.id}">
-        <div>
+        ${thumb}
+        <div class="lesson-info">
           <div class="title">${escapeHtml(l.name)}</div>
           <div class="date">${new Date(l.createdAt).toLocaleString('ar-EG')}</div>
         </div>
         <div class="lesson-actions">
+          <button class="icon-btn" data-action="rename" data-id="${l.id}" title="تعديل الاسم">✏️</button>
+          <button class="icon-btn" data-action="image" data-id="${l.id}" title="تغيير الصورة">🖼️</button>
           <button class="icon-btn" data-action="play" data-id="${l.id}" title="عرض">▶</button>
           <button class="icon-btn" data-action="delete" data-id="${l.id}" title="حذف">🗑</button>
         </div>
       </div>
-    `).join('');
+    `}).join('');
+  }
+
+  async function updateLesson(id, updates) {
+    const lesson = await getLessonById(id);
+    if (!lesson) return;
+    Object.assign(lesson, updates);
+    try { await saveLessonToDB(lesson); renderLessons(); showToast('تم تحديث الدرس'); } catch (e) { showToast('تعذّر تحديث الدرس'); }
   }
 
   // --- Event wiring ---
   function handleFiles() {
     videoName.textContent = videoFile.files[0] ? videoFile.files[0].name : '';
+    imageName.textContent = lessonImage.files[0] ? lessonImage.files[0].name : '';
     nameMain.textContent = srtMain.files[0] ? srtMain.files[0].name : '';
     nameFr.textContent = srtFr.files[0] ? srtFr.files[0].name : '';
     nameAr.textContent = srtAr.files[0] ? srtAr.files[0].name : '';
     nameEn.textContent = srtEn.files[0] ? srtEn.files[0].name : '';
   }
-  [videoFile, srtMain, srtFr, srtAr, srtEn].forEach(el => el.addEventListener('change', handleFiles));
+  [videoFile, lessonImage, srtMain, srtFr, srtAr, srtEn].forEach(el => el.addEventListener('change', handleFiles));
 
   function readFile(file) {
     return new Promise((resolve, reject) => {
@@ -1033,6 +1080,11 @@
       URL.revokeObjectURL(state.videoUrl);
       state.videoUrl = null;
     }
+    if (state.posterUrl) {
+      URL.revokeObjectURL(state.posterUrl);
+      state.posterUrl = null;
+    }
+    player.poster = '';
     videoWrap.style.display = 'none';
     controls.style.display = 'none';
     bubble.innerHTML = '';
@@ -1040,7 +1092,7 @@
     state.currentIndex = -1;
     state.isPlaying = false;
     state.duration = 0;
-    videoFile.value = ''; srtMain.value = ''; srtFr.value = ''; srtAr.value = ''; srtEn.value = ''; srtPaste.value = '';
+    videoFile.value = ''; lessonImage.value = ''; srtMain.value = ''; srtFr.value = ''; srtAr.value = ''; srtEn.value = ''; srtPaste.value = '';
     handleFiles();
     progress.value = 0;
     currentTimeEl.textContent = '00:00'; durationEl.textContent = '00:00';
@@ -1062,12 +1114,41 @@
   btnNewLesson.addEventListener('click', () => showView('setup'));
   btnBackLessons.addEventListener('click', () => showView('lessons'));
 
-  lessonsList.addEventListener('click', e => {
+  lessonsList.addEventListener('click', async e => {
     const action = e.target.closest('[data-action]');
     if (!action) return;
     const id = action.dataset.id;
-    if (action.dataset.action === 'play') loadLesson(id);
-    else if (action.dataset.action === 'delete') deleteLessonFromDB(id).then(renderLessons).catch(()=>{});
+    if (action.dataset.action === 'play') { loadLesson(id); return; }
+    if (action.dataset.action === 'delete') {
+      if (confirm('هل تريد حذف هذا الدرس؟')) {
+        try { await deleteLessonFromDB(id); renderLessons(); showToast('تم حذف الدرس'); } catch (e) { showToast('تعذّر حذف الدرس'); }
+      }
+      return;
+    }
+    if (action.dataset.action === 'rename') {
+      const lesson = await getLessonById(id);
+      const newName = prompt('اسم الدرس الجديد:', lesson ? lesson.name : '') || '';
+      if (newName.trim()) updateLesson(id, { name: newName.trim() });
+      return;
+    }
+    if (action.dataset.action === 'image') {
+      state.editingImageId = id;
+      editImage.click();
+      return;
+    }
+  });
+
+  editImage.addEventListener('change', async () => {
+    const id = state.editingImageId;
+    state.editingImageId = null;
+    const file = editImage.files[0];
+    if (!id || !file) return;
+    try {
+      const ab = await readFileAsArrayBuffer(file);
+      const imageBlob = new Blob([ab], { type: file.type || 'image/jpeg' });
+      await updateLesson(id, { imageBlob });
+    } catch (e) { showToast('تعذّر تحديث الصورة'); }
+    editImage.value = '';
   });
 
   document.addEventListener('keydown', e => {
@@ -1092,6 +1173,21 @@
     });
   });
 
+  function initBackButton() {
+    try {
+      if (isCapacitor() && window.Capacitor.Plugins.App && window.Capacitor.Plugins.App.addListener) {
+        window.Capacitor.Plugins.App.addListener('backButton', () => {
+          if (playerView.classList.contains('active') || setupView.classList.contains('active')) {
+            showView('lessons');
+          } else if (confirm('هل تريد الخروج من التطبيق؟')) {
+            window.Capacitor.Plugins.App.exitApp();
+          }
+        });
+      }
+    } catch (e) {}
+  }
+
+  initBackButton();
   renderLessons();
   showView('lessons');
 
