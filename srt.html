@@ -458,8 +458,7 @@
     return cue ? (cue.lines.find(l => l.lang === lang) || cue.lines[0]) : null;
   }
 
-  function speakLoopForLang(lang) {
-    if (state.loopLang === lang) { stopAllLoops(); return; }
+  function startLoopLang(lang) {
     stopAllLoops();
     state.loopLang = lang;
     updateButtons();
@@ -472,8 +471,12 @@
     doSpeak();
   }
 
-  function speakLoopAll() {
-    if (state.loopAll) { stopAllLoops(); return; }
+  function toggleLoopLang(lang) {
+    if (state.loopLang === lang) { stopAllLoops(); return; }
+    startLoopLang(lang);
+  }
+
+  function startLoopAll() {
     stopAllLoops();
     state.loopAll = true;
     updateButtons();
@@ -489,6 +492,11 @@
       ttsSpeak({ text: lines[i].text, lang: lines[i].lang, onend: () => { state.ttsChain = setTimeout(() => doCycle(i+1), 800); } });
     };
     doCycle(0);
+  }
+
+  function toggleLoopAll() {
+    if (state.loopAll) { stopAllLoops(); return; }
+    startLoopAll();
   }
 
   function stopAllLoops() {
@@ -516,7 +524,7 @@
       </button>
     `).join('');
     Array.from(langBtns.children).forEach(btn => {
-      btn.addEventListener('click', () => speakLoopForLang(btn.dataset.lang));
+      btn.addEventListener('click', () => toggleLoopLang(btn.dataset.lang));
     });
     updateButtons();
   }
@@ -562,8 +570,8 @@
     renderBubble();
     updateStatus();
     updateProgress();
-    if (state.loopAll) speakLoopAll();
-    else if (state.loopLang) speakLoopForLang(state.loopLang);
+    if (state.loopAll) startLoopAll();
+    else if (state.loopLang) startLoopLang(state.loopLang);
   }
 
   function prevCue() { if (state.currentIndex > 0) goToCue(state.currentIndex - 1); }
@@ -707,7 +715,7 @@
   btnPrev.addEventListener('click', prevCue);
   btnPlay.addEventListener('click', togglePlay);
   btnNext.addEventListener('click', nextCue);
-  btnLoopAll.addEventListener('click', speakLoopAll);
+  btnLoopAll.addEventListener('click', toggleLoopAll);
 
   document.addEventListener('keydown', e => {
     if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
