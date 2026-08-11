@@ -635,8 +635,8 @@
   }
 
   async function start() {
-    if (!videoFile.files[0] && !srtFr.files[0] && !srtAr.files[0] && !srtEn.files[0]) {
-      showToast('الرجاء اختيار فيديو أو ملف ترجمة على الأقل');
+    if (!videoFile.files[0] && !srtFr.files[0] && !srtAr.files[0] && !srtEn.files[0] && !srtPaste.value.trim()) {
+      showToast('الرجاء اختيار فيديو أو ملف/نص ترجمة على الأقل');
       return;
     }
 
