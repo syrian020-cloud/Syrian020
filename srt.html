@@ -44,9 +44,9 @@
   .panel h2 { margin: 0 0 0.7rem; font-size: 1.1rem; }
   .panel p { margin: 0 0 0.7rem; color: var(--text-secondary); font-size: 0.9rem; }
 
-  .file-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.7rem; align-items: center; }
-  .file-row label { flex: 0 0 7rem; color: var(--text-secondary); font-size: 0.9rem; }
-  .file-row input[type="file"] { flex: 1; min-width: 0; color: var(--text-primary); font-size: 0.9rem; }
+  .file-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.7rem; align-items: stretch; flex-direction: column; }
+  .file-row label { color: var(--text-secondary); font-size: 0.9rem; }
+  .file-row input[type="file"] { flex: 1; width: 100%; min-width: 0; color: var(--text-primary); font-size: 0.9rem; }
   .file-row .file-name { color: var(--success); font-size: 0.85rem; }
   .paste-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.7rem; align-items: flex-start; }
   .paste-row label { flex: 0 0 7rem; color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.4rem; }
@@ -62,10 +62,11 @@
     font-size: 0.95rem;
     font-family: inherit;
     resize: vertical;
+    unicode-bidi: plaintext;
   }
 
   .action-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
-  button.primary { background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm); padding: 0.6rem 1.2rem; font-size: 1rem; font-weight: 700; cursor: pointer; }
+  button.primary { background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm); padding: 0.75rem 1.6rem; font-size: 1.1rem; font-weight: 800; cursor: pointer; box-shadow: 0 4px 14px rgba(123,121,255,0.4); }
   button.primary:hover { background: var(--accent-hover); }
   button.secondary { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem 1rem; font-size: 0.95rem; cursor: pointer; }
   button.secondary:hover { border-color: var(--accent); }
@@ -723,6 +724,7 @@
   }
 
   function reset() {
+    if (!confirm('هل تريد إعادة الضبط؟ سيتم مسح الملفات والنص.')) return;
     stopAllLoops();
     player.pause();
     player.src = '';
