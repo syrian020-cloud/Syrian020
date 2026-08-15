@@ -567,8 +567,65 @@
     return blocks.some(b => /^\s*\d+\s*\n\d{1,2}:\d{2}:\d{2}[,.]\d{1,3}\s*-->\s*\d{1,2}:\d{2}:\d{2}[,.]\d{1,3}/.test(b.trim()));
   }
 
+  function isFlagFormat(text) {
+    return /^\p{Regional_Indicator}{2}/mu.test(text);
+  }
+
+  const FLAG_LANG_MAP = {
+    '🇫🇷':'fr','🇧🇪':'fr','🇨🇭':'fr','🇨🇦':'fr',
+    '🇸🇦':'ar','🇪🇬':'ar','🇸🇾':'ar','🇩🇿':'ar','🇮🇶':'ar','🇯🇴':'ar','🇱🇧':'ar','🇱🇾':'ar','🇲🇦':'ar','🇴🇲':'ar','🇵🇸':'ar','🇶🇦':'ar','🇸🇩':'ar','🇹🇳':'ar','🇦🇪':'ar','🇾🇪':'ar','🇰🇼':'ar','🇧🇭':'ar',
+    '🇬🇧':'en','🇺🇸':'en','🇦🇺':'en','🇮🇪':'en','🇳🇿':'en','🇿🇦':'en','🇮🇳':'en','🇵🇭':'en'
+  };
+
+  function detectLangFromText(text) {
+    if (/[\u0600-\u06FF]/.test(text)) return 'ar';
+    if (/[àâçéèêëïîôùûüœÀÂÇÉÈÊËÏÎÔÙÛÜŒ]/.test(text)) return 'fr';
+    if (/[a-zA-Z]/.test(text)) return 'en';
+    return 'fr';
+  }
+
+  function parseFlagLine(line) {
+    const m = line.match(/^(\p{Regional_Indicator}{2})\s*(.*)$/u);
+    if (!m) return null;
+    const flag = m[1];
+    const text = m[2].trim();
+    const lang = FLAG_LANG_MAP[flag] || detectLangFromText(text);
+    return { lang, text };
+  }
+
+  function parseFlagFormat(text) {
+    const cues = [];
+    const blocks = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split(/\n\s*\n/);
+    for (const block of blocks) {
+      const lines = block.trim().split('\n').filter(l => l.trim());
+      if (lines.length < 2) continue;
+      const start = parseTime(lines[0].trim());
+      if (isNaN(start)) continue;
+      const langLines = [];
+      for (let i = 1; i < lines.length; i++) {
+        const parsed = parseFlagLine(lines[i].trim());
+        if (parsed) langLines.push(parsed);
+      }
+      if (langLines.length === 0) continue;
+      cues.push({ start, end: null, lines: langLines });
+    }
+    for (let i = 0; i < cues.length; i++) {
+      if (cues[i].end === null || isNaN(cues[i].end)) {
+        const nextStart = cues[i+1] ? cues[i+1].start : null;
+        cues[i].end = (nextStart && nextStart > cues[i].start) ? nextStart : cues[i].start + 4;
+      }
+    }
+    for (let i = 0; i < cues.length - 1; i++) {
+      if (cues[i].end > cues[i+1].start) cues[i].end = cues[i+1].start;
+      if (cues[i].end <= cues[i].start) cues[i].end = cues[i].start + 1.5;
+    }
+    return cues;
+  }
+
   function parseSubtitle(text) {
-    return isSrtFormat(text) ? parseSrt(text) : parseTimedText(text);
+    if (isSrtFormat(text)) return parseSrt(text);
+    if (isFlagFormat(text)) return parseFlagFormat(text);
+    return parseTimedText(text);
   }
 
   function getCueTexts(cue) {
@@ -908,12 +965,16 @@
     const sourceCues = activeSource === 'fr' ? frCues : (activeSource === 'ar' ? arCues : enCues);
     const onlyOneSource = [frCues, arCues, enCues].filter(arr => arr.length).length === 1;
     if (activeSource && onlyOneSource) {
-      const hasAr = sourceCues.some(c => /[\u0600-\u06FF]/.test(c.text));
-      const hasNonAr = sourceCues.some(c => c.text.split('\n').some(l => !/[\u0600-\u06FF]/.test(l) && l.trim()));
-      if (hasAr && hasNonAr) {
-        state.cues = sourceCues.map(c => ({ start: c.start, end: c.end, lines: getCueTexts(c) }));
+      if (sourceCues[0] && sourceCues[0].lines) {
+        state.cues = sourceCues.map(c => ({ start: c.start, end: c.end, lines: c.lines }));
       } else {
-        state.cues = sourceCues.map(c => ({ start: c.start, end: c.end, lines: [{ lang: activeSource, text: c.text.replace(/\n+/g, ' ').trim() }] }));
+        const hasAr = sourceCues.some(c => /[\u0600-\u06FF]/.test(c.text));
+        const hasNonAr = sourceCues.some(c => c.text.split('\n').some(l => !/[\u0600-\u06FF]/.test(l) && l.trim()));
+        if (hasAr && hasNonAr) {
+          state.cues = sourceCues.map(c => ({ start: c.start, end: c.end, lines: getCueTexts(c) }));
+        } else {
+          state.cues = sourceCues.map(c => ({ start: c.start, end: c.end, lines: [{ lang: activeSource, text: c.text.replace(/\n+/g, ' ').trim() }] }));
+        }
       }
     } else {
       state.cues = buildCues(frCues, arCues, enCues);
