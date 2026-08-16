@@ -496,8 +496,8 @@
     notebookIndex: null,
     notebookScale: parseFloat(localStorage.getItem('nb_nb_scale')) || 1.25,
     notebookTool: localStorage.getItem('nb_nb_tool') || 'pencil',
-    notebookColor: localStorage.getItem('nb_nb_color') || '#111111',
-    notebookSelectedColor: localStorage.getItem('nb_nb_color') || '#111111',
+    notebookColor: localStorage.getItem('nb_nb_color') || (localStorage.getItem('nb_theme') === 'dark' ? '#eeeeee' : '#111111'),
+    notebookSelectedColor: localStorage.getItem('nb_nb_color') || (localStorage.getItem('nb_theme') === 'dark' ? '#eeeeee' : '#111111'),
     notebookGrid: true,
     notebookPalette: false,
     notebookHistory: [],
@@ -634,6 +634,11 @@
     document.documentElement.dataset.theme = th;
     localStorage.setItem('nb_theme', th);
     document.getElementById('btn-theme').textContent = th === 'dark' ? '🌙' : '☀️';
+    var bright = /^#(eeeeee|fff)/i.test(state.notebookColor);
+    if (th === 'dark' && /^#111111/.test(state.notebookColor)) state.notebookColor = '#eeeeee';
+    else if (th === 'light' && /^#(eeeeee|fff)/i.test(state.notebookColor)) state.notebookColor = '#111111';
+    if (th === 'dark' && /^#111111/.test(state.notebookSelectedColor)) state.notebookSelectedColor = '#eeeeee';
+    else if (th === 'light' && /^#(eeeeee|fff)/i.test(state.notebookSelectedColor)) state.notebookSelectedColor = '#111111';
   }
 
   function setUILang(lang) {
