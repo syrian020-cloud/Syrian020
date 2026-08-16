@@ -367,8 +367,9 @@
         <button class="ctrl-btn" id="btn-prev" title="السطر السابق (←)">⏮</button>
         <button class="ctrl-btn" id="btn-play" title="تشغيل/إيقاف (مسافة)">⏯</button>
         <button class="ctrl-btn" id="btn-next" title="السطر التالي (→)">⏭</button>
+        <button class="ctrl-btn" id="btn-full-loop" title="تكرار الفيديو كاملاً من البداية للنهاية">🔁</button>
         <button class="ctrl-btn" id="btn-video-loop" title="تكرار عبارة الفيديو">🔂</button>
-        <button class="ctrl-btn" id="btn-loop-all" title="تكرار النطق بالثلاث لغات">🔁</button>
+        <button class="ctrl-btn" id="btn-loop-all" title="تكرار النطق بالثلاث لغات">🔄</button>
       </div>
       <div class="lang-btn-row" id="lang-btns"></div>
       <div class="status" id="status"></div>
@@ -391,7 +392,7 @@
   const btnStart = $('btn-start'), btnReset = $('btn-reset'), btnStop = $('btn-stop');
   const videoWrap = $('video-wrap'), player = $('player'), bubble = $('bubble');
   const controls = $('controls'), progress = $('progress'), currentTimeEl = $('current-time'), durationEl = $('duration');
-  const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next'), btnVideoLoop = $('btn-video-loop'), btnLoopAll = $('btn-loop-all');
+  const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next'), btnFullLoop = $('btn-full-loop'), btnVideoLoop = $('btn-video-loop'), btnLoopAll = $('btn-loop-all');
   const btnLessons = $('btn-lessons'), btnSetup = $('btn-setup'), btnNewLesson = $('btn-new-lesson'), btnSaveLesson = $('btn-save-lesson'), btnBackLessons = $('btn-back-lessons');
   const lessonsView = $('lessons-view'), setupView = $('setup-view'), playerView = $('player-view'), lessonsList = $('lessons-list'), lessonTitle = $('lesson-title');
   const langBtns = $('lang-btns'), statusEl = $('status'), toast = $('toast'), rateSelect = $('rate');
@@ -408,6 +409,7 @@
     videoLoop: false,
     loopStart: 0,
     loopEnd: 0,
+    fullVideoLoop: false,
     pendingSeek: null,
     duration: 0,
     playbackRate: 1,
@@ -819,6 +821,15 @@
     startLoopAll();
   }
 
+  function applyVideoLoop() { player.loop = state.fullVideoLoop; }
+
+  function toggleFullVideoLoop() {
+    if (!player.src && !videoFile.files[0]) { showToast('اختر ملف فيديو/صوت أولاً'); return; }
+    state.fullVideoLoop = !state.fullVideoLoop;
+    applyVideoLoop();
+    updateButtons();
+  }
+
   function toggleVideoLoop() {
     const cue = getCurrentCue();
     if (!cue) { showToast('لا توجد عبارة حالية'); return; }
@@ -850,6 +861,7 @@
   // --- UI ---
   function updateButtons() {
     btnLoopAll.classList.toggle('active', state.loopAll);
+    btnFullLoop.classList.toggle('active', state.fullVideoLoop);
     btnVideoLoop.classList.toggle('active', state.videoLoop);
     const bubbleLoop = document.querySelector('.bubble-loop');
     if (bubbleLoop) bubbleLoop.classList.toggle('active', state.videoLoop);
@@ -955,6 +967,7 @@
     player.onloadedmetadata = () => {
       state.duration = player.duration || 0;
       player.playbackRate = state.playbackRate;
+      applyVideoLoop();
       progress.max = state.duration;
       durationEl.textContent = formatDuration(state.duration);
       if (state.cues.length && state.duration) {
@@ -1223,6 +1236,7 @@
   btnPrev.addEventListener('click', prevCue);
   btnPlay.addEventListener('click', togglePlay);
   btnNext.addEventListener('click', nextCue);
+  btnFullLoop.addEventListener('click', toggleFullVideoLoop);
   btnVideoLoop.addEventListener('click', toggleVideoLoop);
   btnLoopAll.addEventListener('click', toggleLoopAll);
   rateSelect.addEventListener('change', () => {
