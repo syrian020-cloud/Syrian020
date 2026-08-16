@@ -814,6 +814,19 @@
     player.style.filter = FILTER_MAP[state.filter] || '';
     if (filterSelect) filterSelect.value = state.filter;
   }
+  function setVideoBackground(url) {
+    if (url) {
+      videoWrap.style.backgroundImage = `url(${url})`;
+      videoWrap.style.backgroundSize = 'cover';
+      videoWrap.style.backgroundPosition = 'center';
+      videoWrap.style.backgroundRepeat = 'no-repeat';
+    } else {
+      videoWrap.style.backgroundImage = '';
+      videoWrap.style.backgroundSize = '';
+      videoWrap.style.backgroundPosition = '';
+      videoWrap.style.backgroundRepeat = '';
+    }
+  }
 
   // --- Lessons DB ---
   const DB_NAME = 'SrtLessonsDB', DB_VERSION = 1, STORE = 'lessons';
@@ -1486,6 +1499,7 @@
     } else {
       player.poster = '';
     }
+    setVideoBackground(hasImage ? state.posterUrl : null);
     videoWrap.style.display = (hasVideo || hasImage) ? 'block' : 'none';
     attachPlayerEvents();
     if (state.cues.length) goToCue(0);
@@ -1554,6 +1568,7 @@
     } else {
       player.poster = '';
     }
+    setVideoBackground(hasImage ? state.posterUrl : null);
     videoWrap.style.display = (hasVideo || hasImage) ? 'block' : 'none';
     attachPlayerEvents();
     controls.style.display = (state.cues.length || lesson.videoBlob) ? 'flex' : 'none';
@@ -1781,6 +1796,7 @@
       state.posterUrl = null;
     }
     player.poster = '';
+    setVideoBackground(null);
     videoWrap.style.display = 'none';
     controls.style.display = 'none';
     bubble.innerHTML = '';
