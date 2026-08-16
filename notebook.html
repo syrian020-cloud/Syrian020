@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-theme="dark">
+<html lang="en" dir="ltr" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -381,9 +381,9 @@
     </span>
     <span class="spacer"></span>
     <div class="lang-switch">
-      <button class="lang-btn" data-lang="ar">AR</button>
-      <button class="lang-btn" data-lang="fr">FR</button>
       <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="ar">AR</button>
     </div>
     <button class="icon-btn" id="btn-theme" title="Dark / light mode" data-t-title="darkMode">
       <svg class="icon" aria-hidden="true"><use href="#icon-moon"></use></svg>
@@ -575,7 +575,7 @@
   };
 
   var state = {
-    uiLang: localStorage.getItem('nb_ui_lang') || 'ar',
+    uiLang: localStorage.getItem('nb_ui_lang') || 'en',
     theme: localStorage.getItem('nb_theme') || 'dark',
     rate: parseFloat(localStorage.getItem('nb_rate')) || 1,
     langs: (localStorage.getItem('nb_langs') || 'fr,ar,en').split(','),
