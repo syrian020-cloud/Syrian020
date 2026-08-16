@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Screen Selection Speaker</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: #f5f5f5;
+        }
+        h1 { font-size: 1.3rem; text-align: center; padding: 0 1rem; }
+        #lang-label { margin: 0.5rem 0; font-weight: bold; }
+        .lang-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        button {
+            margin: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+        .lang-btn { background: #2196F3; color: white; }
+        .lang-btn.selected { background: #0D47A1; }
+        #start { background: #4CAF50; color: white; }
+        #stop { background: #f44336; color: white; }
+        #status { margin-top: 1rem; color: #555; text-align: center; padding: 0 1rem; }
+    </style>
+</head>
+<body>
+    <h1>Loop Screen Selection Speaker</h1>
+    <p id="lang-label">Choose TTS language / اختر لغة النطق / Choisissez la langue</p>
+    <div class="lang-group" id="lang-group">
+        <button class="lang-btn" data-lang="ar">العربية</button>
+        <button class="lang-btn selected" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="fr">Français</button>
+    </div>
+    <button id="start">Start / Select</button>
+    <button id="stop">Stop</button>
+    <p id="status">Tap Start, drag the small bubble, tap it to select, then tap READ.</p>
+
+    <script>
+        let selectedLang = 'en';
+        const status = document.getElementById('status');
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                selectedLang = btn.dataset.lang;
+            });
+        });
+
+        if (typeof Capacitor === 'undefined' || !Capacitor.Plugins || !Capacitor.Plugins.LoopScreenSpeaker) {
+            status.textContent = 'Capacitor native bridge is not available. Run this inside the Capacitor app.';
+        } else {
+            const LoopScreenSpeaker = Capacitor.Plugins.LoopScreenSpeaker;
+
+            document.getElementById('start').addEventListener('click', async () => {
+                try {
+                    await LoopScreenSpeaker.start({ lang: selectedLang });
+                    status.textContent = 'Overlay launched. Draw a rectangle and release.';
+                } catch (e) {
+                    status.textContent = 'Error: ' + e.message;
+                }
+            });
+
+            document.getElementById('stop').addEventListener('click', async () => {
+                try {
+                    await LoopScreenSpeaker.stop();
+                    status.textContent = 'Stopped.';
+                } catch (e) {
+                    status.textContent = 'Error: ' + e.message;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
