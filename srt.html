@@ -163,6 +163,9 @@
   .lang-line.fr { background: linear-gradient(135deg, #ff9f43, #ff7f50); color: #1a1a1a; }
   .lang-line.ar { background: linear-gradient(135deg, #2dd4bf, #14b8a6); color: #1a1a1a; direction: rtl; }
   .lang-line.en { background: linear-gradient(135deg, #60a5fa, #3b82f6); color: #1a1a1a; direction: ltr; }
+  .lang-line .word { cursor: pointer; border-radius: 4px; padding: 0.05em 0.1em; transition: background 0.12s; }
+  .lang-line .word:hover { background: rgba(0,0,0,0.15); }
+  .lang-line .word.active { background: rgba(0,0,0,0.35); box-shadow: 0 0 0 2px var(--text-primary); }
 
   .controls { display: flex; flex-direction: column; gap: 0.7rem; align-items: center; margin-bottom: 0.9rem; }
   .time-row { display: flex; align-items: center; gap: 0.5rem; width: 100%; max-width: 720px; color: var(--text-secondary); font-size: 0.85rem; }
@@ -418,7 +421,8 @@
     posterUrl: null,
     thumbUrls: [],
     editingImageId: null,
-    uiLang: localStorage.getItem('srt_ui_lang') || 'ar'
+    uiLang: localStorage.getItem('srt_ui_lang') || 'ar',
+    wordLoopEl: null
   };
 
   const LANG_ORDER = ['fr','ar','en'];
@@ -664,6 +668,12 @@
   }
   function escapeHtml(s) {
     return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function wrapWords(text, lang) {
+    return String(text).split(/(\s+)/).map(part => {
+      if (!part.trim()) return escapeHtml(part);
+      return `<span class="word" data-lang="${lang}">${escapeHtml(part)}</span>`;
+    }).join('');
   }
 
   // --- Lessons DB ---
@@ -1042,6 +1052,23 @@
     startLoopAll();
   }
 
+  function startWordLoop(word, lang, el) {
+    if (!word || !lang) return;
+    stopAllLoops();
+    if (state.wordLoopEl) state.wordLoopEl.classList.remove('active');
+    state.wordLoopEl = el;
+    if (el) el.classList.add('active');
+    const myToken = state.loopToken;
+    const speak = () => {
+      if (state.loopToken !== myToken) { if (state.wordLoopEl) state.wordLoopEl.classList.remove('active'); return; }
+      ttsSpeak({ text: word, lang, onend: () => {
+        if (state.loopToken !== myToken) { if (state.wordLoopEl) state.wordLoopEl.classList.remove('active'); return; }
+        state.ttsChain = setTimeout(speak, 700);
+      }});
+    };
+    speak();
+  }
+
   function applyVideoLoop() { player.loop = state.fullVideoLoop; }
 
   function toggleFullVideoLoop() {
@@ -1076,6 +1103,7 @@
     state.videoLoop = false;
     state.loopStart = 0;
     state.loopEnd = 0;
+    if (state.wordLoopEl) { state.wordLoopEl.classList.remove('active'); state.wordLoopEl = null; }
     updateButtons();
   }
 
@@ -1121,7 +1149,7 @@
       <div class="lang-line ${line.lang}" dir="${line.lang === 'ar' ? 'rtl' : 'ltr'}">
         <span class="badge">${LANG_LABELS[line.lang]}</span>
         <button class="loop" data-lang="${line.lang}" title="${escapeHtml(t('speakTitle', {lang: LANG_NAMES[line.lang]}))}" aria-label="${escapeHtml(t('speakTitle', {lang: LANG_NAMES[line.lang]}))}">🔊</button>
-        ${escapeHtml(line.text)}
+        ${wrapWords(line.text, line.lang)}
       </div>
     `).join('');
     const bubbleLoop = bubble.querySelector('.bubble-loop');
@@ -1130,6 +1158,9 @@
     }
     bubble.querySelectorAll('.lang-line .loop').forEach(btn => {
       btn.addEventListener('click', e => { e.stopPropagation(); toggleLoopLang(btn.dataset.lang); });
+    });
+    bubble.querySelectorAll('.word').forEach(w => {
+      w.addEventListener('click', e => { e.stopPropagation(); startWordLoop(w.textContent.trim(), w.dataset.lang, w); });
     });
     renderLangButtons();
   }
@@ -1153,6 +1184,7 @@
 
   function goToCue(i) {
     if (!state.cues.length || i < 0 || i >= state.cues.length) return;
+    if (state.wordLoopEl) { state.wordLoopEl.classList.remove('active'); state.wordLoopEl = null; state.loopToken++; ttsStop(); }
     state.currentIndex = i;
     const cue = state.cues[i];
     state.pendingSeek = cue.start;
