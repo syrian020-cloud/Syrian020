@@ -82,7 +82,7 @@
   .hint { color: var(--text-secondary); font-size: 0.85rem; margin: 0.2rem 0 0.5rem; }
 
   .video-wrap { position: relative; background: #000; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 0.9rem; width: 100%; max-width: 720px; margin-inline: auto; }
-  video { width: 100%; height: auto; display: block; }
+  video { width: 100%; height: auto; min-height: 220px; display: block; object-fit: contain; }
 
   .bubble-wrap { position: absolute; bottom: 0.5rem; left: 0.5rem; right: 0.5rem; z-index: 10; display: flex; justify-content: center; pointer-events: none; }
   .subtitle-bubble {
@@ -1467,15 +1467,26 @@
       URL.revokeObjectURL(state.videoUrl);
       state.videoUrl = null;
     }
-    if (videoFile.files[0]) {
+    if (state.posterUrl) {
+      URL.revokeObjectURL(state.posterUrl);
+      state.posterUrl = null;
+    }
+    const hasVideo = !!videoFile.files[0];
+    const hasImage = !!lessonImage.files[0];
+    if (hasVideo) {
       state.videoUrl = URL.createObjectURL(videoFile.files[0]);
       player.src = state.videoUrl;
       player.muted = state.muted;
-      videoWrap.style.display = 'block';
     } else {
       player.src = '';
-      videoWrap.style.display = 'none';
     }
+    if (hasImage) {
+      state.posterUrl = URL.createObjectURL(lessonImage.files[0]);
+      player.poster = state.posterUrl;
+    } else {
+      player.poster = '';
+    }
+    videoWrap.style.display = (hasVideo || hasImage) ? 'block' : 'none';
     attachPlayerEvents();
     if (state.cues.length) goToCue(0);
     return true;
@@ -1528,21 +1539,22 @@
     if (state.posterUrl) { URL.revokeObjectURL(state.posterUrl); state.posterUrl = null; }
     state.cues = lesson.cues || [];
     state.currentIndex = -1;
-    if (lesson.videoBlob) {
+    const hasVideo = !!lesson.videoBlob;
+    const hasImage = !!lesson.imageBlob;
+    if (hasVideo) {
       state.videoUrl = URL.createObjectURL(lesson.videoBlob);
       player.src = state.videoUrl;
       player.muted = state.muted;
-      videoWrap.style.display = 'block';
     } else {
       player.src = '';
-      videoWrap.style.display = 'none';
     }
-    if (lesson.imageBlob) {
+    if (hasImage) {
       state.posterUrl = URL.createObjectURL(lesson.imageBlob);
       player.poster = state.posterUrl;
     } else {
       player.poster = '';
     }
+    videoWrap.style.display = (hasVideo || hasImage) ? 'block' : 'none';
     attachPlayerEvents();
     controls.style.display = (state.cues.length || lesson.videoBlob) ? 'flex' : 'none';
     lessonTitle.textContent = lesson.name;
