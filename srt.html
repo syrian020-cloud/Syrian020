@@ -37,7 +37,7 @@
   .header-inner { max-width: 960px; margin: 0 auto; padding: 0.7rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
   .logo { font-weight: 800; color: var(--accent); font-size: 1.05rem; white-space: nowrap; }
   .spacer { flex: 1; }
-  .icon-btn { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 12px; padding: 0.45rem 0.65rem; font-size: 0.95rem; cursor: pointer; font-weight: 600; }
+  .icon-btn { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 10px; min-width: 38px; height: 38px; padding: 0 0.45rem; font-size: 0.95rem; cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; transition: all 0.12s; }
   main { max-width: 960px; margin: 0 auto; padding: 0.9rem; }
 
   .panel { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; margin-bottom: 0.9rem; box-shadow: var(--shadow-sm); }
@@ -158,31 +158,44 @@
   .lang-line .word:hover { background: rgba(0,0,0,0.15); }
   .lang-line .word.active { background: rgba(0,0,0,0.35); box-shadow: 0 0 0 2px var(--text-primary); }
 
-  .controls { display: flex; flex-direction: column; gap: 0.7rem; align-items: center; margin-bottom: 0.9rem; }
+  .controls { display: flex; flex-direction: column; gap: 0.7rem; align-items: center; margin-bottom: 0.9rem; padding: 0 0.5rem; }
   .time-row { display: flex; align-items: center; gap: 0.5rem; width: 100%; max-width: 720px; color: var(--text-secondary); font-size: 0.85rem; }
-  .rate-row, .filter-row { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; max-width: 720px; color: var(--text-secondary); font-size: 0.9rem; }
-  #rate, #filter-select { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.7rem; font-size: 0.9rem; font-family: inherit; cursor: pointer; }
-  #rate:focus { outline: none; border-color: var(--accent); }
+  .rate-row, .filter-row {
+    display: flex; align-items: center; flex-wrap: wrap;
+    justify-content: space-between; gap: 0.45rem;
+    width: 100%; max-width: 720px;
+    padding: 0.45rem 0.65rem;
+    background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-sm);
+    color: var(--text-secondary); font-size: 0.9rem;
+  }
+  #rate, #filter-select {
+    background: var(--bg-secondary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 0.35rem 0.7rem; font-size: 0.9rem; font-family: inherit; cursor: pointer;
+    min-width: 0; flex: 1 1 110px; max-width: 200px;
+  }
+  #rate:focus, #filter-select:focus { outline: none; border-color: var(--accent); }
   #progress { flex: 1; -webkit-appearance: none; height: 6px; background: var(--bg-tertiary); border-radius: 3px; outline: none; }
   #progress::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; background: var(--accent); border-radius: 50%; cursor: pointer; }
 
-  .btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; padding: 0 0.5rem; }
+  .btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; padding: 0.4rem; }
   .ctrl-btn {
-    background: var(--bg-tertiary);
+    background: linear-gradient(145deg, var(--bg-tertiary), #141629);
     color: var(--text-primary);
     border: 1px solid var(--border);
     border-radius: 50%;
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: all 0.12s;
     box-shadow: var(--shadow-sm);
   }
   .ctrl-btn:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .ctrl-btn:active { transform: scale(0.93); }
   .ctrl-btn.active { background: var(--success); color: #0b0d1f; border-color: var(--success); }
 
   .status { text-align: center; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; }
