@@ -104,27 +104,8 @@
     position: relative;
     pointer-events: auto;
   }
-  .bubble-loop {
-    position: absolute;
-    top: 0.25rem;
-    inset-inline-end: 0.25rem;
-    background: rgba(0,0,0,0.35);
-    color: var(--gold);
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    cursor: pointer;
-    z-index: 5;
-  }
-  .bubble-loop:hover { background: rgba(0,0,0,0.55); border-color: var(--gold); }
-  .bubble-loop.active { background: var(--success); color: #0b0d1f; border-color: var(--success); }
   .subtitle-bubble:empty { display: none; }
-  .subtitle-bubble { padding: 0.6rem 2.4rem 0.45rem 0.6rem; }
+  .subtitle-bubble { padding: 0.45rem 0.6rem; }
   .lang-line {
     border-radius: var(--radius-sm);
     padding: 0.45rem 0.55rem;
@@ -185,40 +166,24 @@
   #progress { flex: 1; -webkit-appearance: none; height: 6px; background: var(--bg-tertiary); border-radius: 3px; outline: none; }
   #progress::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; background: var(--accent); border-radius: 50%; cursor: pointer; }
 
-  .btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+  .btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; padding: 0 0.5rem; }
   .ctrl-btn {
     background: var(--bg-tertiary);
     color: var(--text-primary);
     border: 1px solid var(--border);
     border-radius: 50%;
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     cursor: pointer;
     transition: all 0.15s;
+    box-shadow: var(--shadow-sm);
   }
-  .ctrl-btn:hover { border-color: var(--accent); }
+  .ctrl-btn:hover { border-color: var(--accent); transform: translateY(-2px); }
   .ctrl-btn.active { background: var(--success); color: #0b0d1f; border-color: var(--success); }
-
-  .lang-btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem; }
-  .lang-btn {
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    padding: 0.45rem 0.9rem;
-    font-size: 0.9rem;
-    font-weight: 700;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-  }
-  .lang-btn:hover { border-color: var(--accent); }
-  .lang-btn.active { background: var(--success); color: #0b0d1f; border-color: var(--success); }
 
   .status { text-align: center; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; }
 
@@ -375,7 +340,7 @@
     <div class="video-wrap" id="video-wrap" style="display:none;">
       <video id="player" controls playsinline></video>
       <img id="bg-image" class="bg-image" alt="" style="display:none;">
-      <div class="bubble-wrap">
+      <div class="bubble-wrap" id="bubble-wrap">
         <div class="subtitle-bubble" id="bubble"></div>
       </div>
     </div>
@@ -425,7 +390,6 @@
         <button class="ctrl-btn" id="btn-video-loop" title="تكرار عبارة الفيديو" data-t-title="videoLoopTitle">🔂</button>
         <button class="ctrl-btn" id="btn-loop-all" title="تكرار النطق بالثلاث لغات" data-t-title="loopAllTitle">🔄</button>
       </div>
-      <div class="lang-btn-row" id="lang-btns"></div>
       <div class="status" id="status"></div>
     </section>
   </section>
@@ -444,13 +408,13 @@
   const videoFile = $('video-file'), lessonImage = $('lesson-image'), editImage = $('edit-image'), srtMain = $('srt-main'), srtFr = $('srt-fr'), srtAr = $('srt-ar'), srtEn = $('srt-en'), srtPaste = $('srt-paste');
   const videoName = $('video-name'), imageName = $('image-name'), nameMain = $('name-main'), nameFr = $('name-fr'), nameAr = $('name-ar'), nameEn = $('name-en');
   const btnStart = $('btn-start'), btnReset = $('btn-reset'), btnStop = $('btn-stop'), btnBgImage = $('btn-bg-image'), btnToggleBg = $('btn-toggle-bg'), btnCaptionMinus = $('btn-caption-minus'), btnCaptionPlus = $('btn-caption-plus'), bgImageInput = $('bg-image-input');
-  const videoWrap = $('video-wrap'), player = $('player'), bgImage = $('bg-image'), bubble = $('bubble');
+  const videoWrap = $('video-wrap'), player = $('player'), bgImage = $('bg-image'), bubbleWrap = $('bubble-wrap'), bubble = $('bubble');
   const controls = $('controls'), progress = $('progress'), currentTimeEl = $('current-time'), durationEl = $('duration');
   const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next'), btnFullLoop = $('btn-full-loop'), btnVideoLoop = $('btn-video-loop'), btnLoopAll = $('btn-loop-all');
   const filterSelect = $('filter-select');
   const btnLessons = $('btn-lessons'), btnSetup = $('btn-setup'), btnNewLesson = $('btn-new-lesson'), btnSaveLesson = $('btn-save-lesson'), btnBackLessons = $('btn-back-lessons'), btnLang = $('btn-lang'), btnImport = $('btn-import'), btnExportAll = $('btn-export-all'), importFile = $('import-file');
   const lessonsView = $('lessons-view'), setupView = $('setup-view'), playerView = $('player-view'), lessonsList = $('lessons-list'), lessonTitle = $('lesson-title');
-  const langBtns = $('lang-btns'), statusEl = $('status'), toast = $('toast'), rateSelect = $('rate');
+  const statusEl = $('status'), toast = $('toast'), rateSelect = $('rate');
 
   // --- State ---
   const state = {
@@ -781,7 +745,6 @@
     renderLessons();
     if (playerView.classList.contains('active')) updateStatus();
     if (bubble.innerHTML) renderBubble();
-    if (langBtns.children.length) renderLangButtons();
   }
 
   // --- Utilities ---
@@ -882,6 +845,35 @@
     } catch (e) {
       showToast(t('readImageError'));
     }
+  }
+  function makeBubbleDraggable() {
+    if (!bubbleWrap) return;
+    let startY = 0, startBottom = 0, hasDragged = false;
+    const getBottom = () => { const s = getComputedStyle(bubbleWrap).bottom; return s === 'auto' ? 8 : parseFloat(s); };
+    const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+    const onStart = y => { startY = y; startBottom = getBottom(); hasDragged = false; };
+    const onMove = (y, e) => {
+      if (!startY) return;
+      const delta = y - startY;
+      if (Math.abs(delta) > 10) hasDragged = true;
+      if (!hasDragged) return;
+      if (e && e.cancelable) e.preventDefault();
+      const maxBottom = Math.max(0, videoWrap.clientHeight - bubbleWrap.offsetHeight);
+      const newBottom = clamp(startBottom - delta, 0, maxBottom);
+      bubbleWrap.style.bottom = newBottom + 'px';
+    };
+    bubbleWrap.addEventListener('touchstart', e => {
+      if (e.target.closest('.loop, .word')) return;
+      onStart(e.touches[0].clientY);
+    }, { passive: true });
+    bubbleWrap.addEventListener('touchmove', e => { onMove(e.touches[0].clientY, e); }, { passive: false });
+    bubbleWrap.addEventListener('touchend', () => { startY = 0; });
+    bubbleWrap.addEventListener('mousedown', e => {
+      if (e.target.closest('.loop, .word')) return;
+      onStart(e.clientY);
+    });
+    window.addEventListener('mousemove', e => { onMove(e.clientY, e); });
+    window.addEventListener('mouseup', () => { startY = 0; });
   }
 
   // --- Lessons DB ---
@@ -1327,12 +1319,6 @@
     btnLoopAll.classList.toggle('active', state.loopAll);
     btnFullLoop.classList.toggle('active', state.fullVideoLoop);
     btnVideoLoop.classList.toggle('active', state.videoLoop);
-    const bubbleLoop = document.querySelector('.bubble-loop');
-    if (bubbleLoop) bubbleLoop.classList.toggle('active', state.videoLoop);
-    Array.from(langBtns.children).forEach(btn => {
-      const l = btn.dataset.lang;
-      btn.classList.toggle('active', state.loopLang === l);
-    });
     document.querySelectorAll('.lang-line .loop').forEach(btn => {
       const l = btn.dataset.lang;
       btn.classList.toggle('active', state.loopLang === l);
@@ -1343,29 +1329,14 @@
     }
   }
 
-  function renderLangButtons() {
-    const cue = getCurrentCue();
-    const present = cue ? LANG_ORDER.filter(l => cue.lines.some(x => x.lang === l)) : LANG_ORDER;
-    langBtns.innerHTML = present.map(l => `
-      <button class="lang-btn" data-lang="${l}" title="${escapeHtml(t('speakTitle', {lang: LANG_NAMES[l]}))}">
-        ${LANG_LABELS[l]} 🔊
-      </button>
-    `).join('');
-    Array.from(langBtns.children).forEach(btn => {
-      btn.addEventListener('click', () => toggleLoopLang(btn.dataset.lang));
-    });
-    updateButtons();
-  }
-
   function renderBubble() {
     const cue = getCurrentCue();
     if (!cue) {
       bubble.innerHTML = '';
       return;
     }
-    const loopBtn = `<button class="bubble-loop" title="${escapeHtml(t('videoLoopTitle'))}" aria-label="${escapeHtml(t('videoLoopTitle'))}">🔂</button>`;
     bubble.style.setProperty('--caption-scale', state.captionScale);
-    bubble.innerHTML = loopBtn + cue.lines.map(line => `
+    bubble.innerHTML = cue.lines.map(line => `
       <div class="lang-line ${line.lang}" dir="${line.lang === 'ar' ? 'rtl' : 'ltr'}">
         <div class="lang-line-header">
           <span class="badge">${LANG_LABELS[line.lang]}</span>
@@ -1374,17 +1345,12 @@
         <div class="lang-text">${wrapWords(line.text, line.lang)}</div>
       </div>
     `).join('');
-    const bubbleLoop = bubble.querySelector('.bubble-loop');
-    if (bubbleLoop) {
-      bubbleLoop.addEventListener('click', e => { e.stopPropagation(); toggleVideoLoop(); });
-    }
     bubble.querySelectorAll('.lang-line .loop').forEach(btn => {
       btn.addEventListener('click', e => { e.stopPropagation(); toggleLoopLang(btn.dataset.lang); });
     });
     bubble.querySelectorAll('.word').forEach(w => {
       w.addEventListener('click', e => { e.stopPropagation(); startWordLoop(w.textContent.trim(), w.dataset.lang, w); });
     });
-    renderLangButtons();
   }
 
   function updateStatus() {
@@ -1558,6 +1524,7 @@
     }
     setVideoBackground(hasImage ? state.posterUrl : null);
     videoWrap.style.display = (hasVideo || hasImage) ? 'block' : 'none';
+    if (bubbleWrap) bubbleWrap.style.bottom = '';
     attachPlayerEvents();
     if (state.cues.length) goToCue(0);
     return true;
@@ -1630,6 +1597,7 @@
     }
     setVideoBackground(hasImage ? state.posterUrl : null);
     videoWrap.style.display = (hasVideo || hasImage) ? 'block' : 'none';
+    if (bubbleWrap) bubbleWrap.style.bottom = '';
     attachPlayerEvents();
     controls.style.display = (state.cues.length || lesson.videoBlob) ? 'flex' : 'none';
     lessonTitle.textContent = lesson.name;
@@ -2009,6 +1977,7 @@
   }
 
   initBackButton();
+  makeBubbleDraggable();
   setUILang(state.uiLang);
   showView('lessons');
 
