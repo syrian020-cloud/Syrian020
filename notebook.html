@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0b0f1f">
-<title>دفتر الدراسة — Study Notebook</title>
+<title>Study Notebook</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -377,7 +377,7 @@
   <div class="header-inner">
     <span class="logo">
       <svg class="icon logo-icon" aria-hidden="true"><use href="#icon-logo"></use></svg>
-      <span data-t="appName">دفتر الدراسة</span>
+      <span data-t="appName">Study Notebook</span>
     </span>
     <span class="spacer"></span>
     <div class="lang-switch">
@@ -396,25 +396,25 @@
 
 <main>
   <div class="toolbar">
-    <button class="btn" id="btn-add-section" data-icon="plus" data-t="addSection">+ قسم</button>
+    <button class="btn" id="btn-add-section" data-icon="plus" data-t="addSection">New section</button>
     <button class="btn ghost" id="btn-sections" data-icon="sections" data-t="sectionsLabel">Sections</button>
-    <button class="btn ghost" id="btn-export" data-icon="export" data-t="exportJson">⬇ تصدير JSON</button>
-    <button class="btn ghost" id="btn-import-trigger" data-icon="import" data-t="importJson">⬆ استيراد JSON</button>
+    <button class="btn ghost" id="btn-export" data-icon="export" data-t="exportJson">Export JSON</button>
+    <button class="btn ghost" id="btn-import-trigger" data-icon="import" data-t="importJson">Import JSON</button>
     <input type="file" id="import-file" accept="application/json" style="display:none">
     <span class="spacer"></span>
     <div class="ctl-group">
-      <label for="rate" data-t="rateLabel">سرعة</label>
+      <label for="rate" data-t="rateLabel">Rate</label>
       <input type="range" id="rate" class="ctl" min="0.4" max="2" step="0.1" value="1">
       <span class="rate-value">1×</span>
     </div>
     <div class="ctl-group">
-      <label for="loopmode" data-t="loopLabel">تكرار</label>
+      <label for="loopmode" data-t="loopLabel">Loop</label>
       <select id="loopmode" class="ctl">
-        <option value="fr,ar,en" data-t="loopFrenchArabicEnglish" selected>فرنسي ← عربي ← إنجليزي</option>
-        <option value="fr,ar" data-t="loopFrenchArabic">فرنسي ← عربي</option>
-        <option value="fr" data-t="loopFrenchOnly">فرنسي فقط</option>
-        <option value="ar" data-t="loopArabicOnly">عربي فقط</option>
-        <option value="en" data-t="loopEnglishOnly">إنجليزي فقط</option>
+        <option value="fr,ar,en" data-t="loopFrenchArabicEnglish" selected>French ← Arabic ← English</option>
+        <option value="fr,ar" data-t="loopFrenchArabic">French ← Arabic</option>
+        <option value="fr" data-t="loopFrenchOnly">French only</option>
+        <option value="ar" data-t="loopArabicOnly">Arabic only</option>
+        <option value="en" data-t="loopEnglishOnly">English only</option>
       </select>
     </div>
   </div>
@@ -574,8 +574,11 @@
     dragHint: { ar: 'اسحب العبارة لإعادة الترتيب', fr: 'Glisser pour réordonner', en: 'Drag to reorder' }
   };
 
-  // Reset cached Arabic default from older installs so English becomes the primary UI language.
-  if (localStorage.getItem('nb_ui_lang') && !localStorage.getItem('nb_app_lang')) {
+  // Force English as the primary UI language on every app update, while preserving user choice afterwards.
+  var NB_UI_VERSION = '2';
+  if (localStorage.getItem('nb_ui_version') !== NB_UI_VERSION) {
+    localStorage.setItem('nb_app_lang', 'en');
+    localStorage.setItem('nb_ui_version', NB_UI_VERSION);
     localStorage.removeItem('nb_ui_lang');
   }
 
