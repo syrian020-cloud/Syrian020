@@ -251,7 +251,6 @@
       <button class="lang-btn" data-lang="fr">FR</button>
       <button class="lang-btn" data-lang="en">EN</button>
     </div>
-    <button class="icon-btn" id="btn-saved" title="Saved lessons">⭐</button>
     <button class="icon-btn" id="btn-theme" title="Dark / light mode">🌙</button>
     <button class="icon-btn" id="btn-stop" title="Stop audio">⏹</button>
   </div>
@@ -260,6 +259,7 @@
 <main>
   <div class="toolbar">
     <button class="btn" id="btn-add-section" data-t="addSection">+ قسم</button>
+    <button class="btn ghost" id="btn-classes" data-t="classes">Classes</button>
     <button class="btn ghost" id="btn-export" data-t="exportJson">⬇ تصدير JSON</button>
     <button class="btn ghost" id="btn-import-trigger" data-t="importJson">⬆ استيراد JSON</button>
     <input type="file" id="import-file" accept="application/json" style="display:none">
@@ -329,6 +329,8 @@
     changeImage: { ar: 'تغيير الصورة', fr: 'Modifier l’image', en: 'Change image' },
     actions: { ar: 'خيارات', fr: 'Options', en: 'Options' },
     exportDone: { ar: 'تم نسخ JSON إلى الحافظة', fr: 'JSON copié dans le presse-papiers', en: 'JSON copied to clipboard' },
+    classes: { ar: 'Classes', fr: 'Classes', en: 'Classes' },
+    noClasses: { ar: 'لا توجد دروس بعد.', fr: 'Aucune leçon pour l\'instant.', en: 'No lessons yet.' },
     savedLessons: { ar: 'الدروس المحفوظة', fr: 'Leçons enregistrées', en: 'Saved lessons' },
     save: { ar: 'حفظ', fr: 'Enregistrer', en: 'Save' },
     removeFromSaved: { ar: 'إزالة من المحفوظة', fr: 'Retirer des favoris', en: 'Remove from saved' },
@@ -793,11 +795,38 @@
     view.innerHTML = html;
   }
 
+  function renderClasses() {
+    var all = [];
+    state.data.sections.forEach(function (sec) {
+      sec.lessons.forEach(function (les) { all.push({ sec: sec, les: les }); });
+    });
+    var html = renderCrumbs([
+      { label: t('sectionsLabel'), route: { name: 'sections' } },
+      { label: t('classes') }
+    ]);
+    html += '<div class="lesson-head"><h2>' + esc(t('classes')) + '</h2></div>';
+    if (!all.length) { html += '<div class="empty"><div class="empty-icon">📚</div>' + t('noClasses') + '</div>'; view.innerHTML = html; return; }
+    html += all.map(function (it) {
+      return '<div class="card" data-section="' + esc(it.sec.id) + '" data-lesson="' + esc(it.les.id) + '">' +
+        cardImg(it.les.image, '📄') +
+        '<div class="card-body">' +
+          '<div class="card-title">' + titleHTML(it.les.title) + '</div>' +
+          '<div class="card-sub">' + titleObj(it.sec.title) + '</div>' +
+        '</div>' +
+        '<div class="card-actions">' +
+          '<button class="btn ghost menu-btn" data-section="' + esc(it.sec.id) + '" data-lesson="' + esc(it.les.id) + '">⋮</button>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+    view.innerHTML = html;
+  }
+
   function render() {
     if (state.route.name === 'sections') renderSections();
     else if (state.route.name === 'lessons') renderLessons(state.route.section);
     else if (state.route.name === 'lesson') renderLesson(state.route.section, state.route.lesson);
     else if (state.route.name === 'saved') renderSaved();
+    else if (state.route.name === 'classes') renderClasses();
     window.scrollTo(0, 0);
   }
 
@@ -809,6 +838,7 @@
       if (route.name === 'lessons') hash = '#/section/' + route.section;
       else if (route.name === 'lesson') hash = '#/section/' + route.section + '/lesson/' + route.lesson;
       else if (route.name === 'saved') hash = '#/saved';
+      else if (route.name === 'classes') hash = '#/classes';
       if (location.hash !== hash) location.hash = hash;
     }
     render();
@@ -820,6 +850,7 @@
     if ((m = h.match(/^section\/([^/]+)\/lesson\/([^/]+)$/))) return { name: 'lesson', section: m[1], lesson: m[2] };
     if ((m = h.match(/^section\/([^/]+)$/))) return { name: 'lessons', section: m[1] };
     if (h === 'saved') return { name: 'saved' };
+    if (h === 'classes') return { name: 'classes' };
     return { name: 'sections' };
   }
 
@@ -1000,7 +1031,7 @@
   document.addEventListener('click', function (e) {
     if (e.target.closest('#modal-cancel') || e.target.closest('#modal-close')) { closeModal(); return; }
 
-    if (e.target.closest('#btn-saved')) { go({ name: 'saved' }); return; }
+    if (e.target.closest('#btn-classes')) { go({ name: 'classes' }); return; }
 
     var menuBtn = e.target.closest('.menu-btn');
     if (menuBtn) {
@@ -1147,6 +1178,7 @@
       if (state.route.name === 'lesson') go({ name: 'lessons', section: state.route.section });
       else if (state.route.name === 'lessons') go({ name: 'sections' });
       else if (state.route.name === 'saved') go({ name: 'sections' });
+      else if (state.route.name === 'classes') go({ name: 'sections' });
       else if (confirm(t('exitConfirm'))) AppPlugin.exitApp();
     });
   }
