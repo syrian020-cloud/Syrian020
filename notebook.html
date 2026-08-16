@@ -141,6 +141,12 @@
   .card-title .en { color: var(--text-secondary); font-size: 0.95em; }
   .card-sub { color: var(--text-secondary); font-size: 0.86rem; }
   .card-actions { display: flex; gap: 0.35rem; flex-shrink: 0; }
+  .menu-btn { font-size: 1.2rem; padding: 0.2rem 0.5rem; line-height: 1; }
+  .menu-list { display: flex; flex-direction: column; gap: 0.5rem; padding: 0.2rem 0; }
+  .menu-item { width: 100%; text-align: start; background: var(--bg-primary); color: var(--text-primary); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.85rem 1rem; font-size: 1rem; cursor: pointer; }
+  .menu-item:hover { background: var(--accent); color: #fff; }
+  .menu-item.danger { color: var(--danger); }
+  .menu-item.danger:hover { background: var(--danger); color: #fff; }
   .section-count {
     display: inline-block; background: var(--accent); color: #fff;
     border-radius: 999px; padding: 0.15rem 0.55rem; font-size: 0.72rem; font-weight: 700;
@@ -278,10 +284,7 @@
 </main>
 
 <footer>
-  <span data-t="footerText">دفتر الدراسة · </span>
-  <a href="index.html" data-t="footerVideo">دروسي المرئية</a> ·
-  <a href="french.html" data-t="footerFrench">الدروس الفرنسية</a> ·
-  <a href="vocab.html" data-t="footerVocab">المفردات</a>
+  <span data-t="appName"></span>
 </footer>
 
 <div class="modal-overlay" id="modal">
@@ -322,12 +325,16 @@
     lessonText: { ar: 'نص الدرس', fr: 'Texte de la leçon', en: 'Lesson text' },
     lessonPasteHint: { ar: 'السطر الأول: عنوان FR — AR\nثم ثلاثة أسطر لكل عبارة: FR، AR، EN', fr: 'Première ligne : titre FR — AR\nPuis 3 lignes par phrase : FR, AR, EN', en: 'First line: title FR — AR\nThen 3 lines per phrase: FR, AR, EN' },
     imageLabel: { ar: 'صورة (اختياري)', fr: 'Image (optionnel)', en: 'Image (optional)' },
+    changeImage: { ar: 'تغيير الصورة', fr: 'Modifier l’image', en: 'Change image' },
+    actions: { ar: 'خيارات', fr: 'Options', en: 'Options' },
+    exportDone: { ar: 'تم نسخ JSON إلى الحافظة', fr: 'JSON copié dans le presse-papiers', en: 'JSON copied to clipboard' },
     chooseFile: { ar: 'اختر ملف', fr: 'Choisir un fichier', en: 'Choose file' },
     imageUrl: { ar: 'أو رابط صورة', fr: 'Ou URL d\'image', en: 'Or image URL' },
     noSections: { ar: 'لا توجد أقسام بعد. اضغط "+ قسم" لبدء دفتر دراستك.', fr: 'Aucune section pour l\'instant. Appuyez sur "+ Section" pour commencer.', en: 'No sections yet. Tap "+ Section" to start your notebook.' },
     noLessons: { ar: 'لا توجد دروس في هذا القسم بعد.', fr: 'Aucune leçon dans cette section pour l\'instant.', en: 'No lessons in this section yet.' },
     noPhrases: { ar: 'لا توجد عبارات في هذا الدرس بعد. اضغط "+ عبارة".', fr: 'Aucune phrase dans cette leçon pour l\'instant. Appuyez sur "+ Phrase".', en: 'No phrases in this lesson yet. Tap "+ Phrase".' },
     confirmDelete: { ar: 'هل أنت متأكد؟', fr: 'Confirmer la suppression ?', en: 'Are you sure?' },
+    exitConfirm: { ar: 'هل تريد الخروج من التطبيق؟', fr: 'Voulez-vous quitter l\'application ?', en: 'Do you want to exit the app?' },
     sectionCount: { ar: 'درس', fr: 'leçon', en: 'lesson' },
     sectionCountPlural: { ar: 'دروس', fr: 'leçons', en: 'lessons' },
     phraseCount: { ar: 'عبارة', fr: 'phrase', en: 'phrase' },
@@ -654,9 +661,8 @@
           '<div class="card-title">' + titleHTML(sec.title) + '</div>' +
           '<div class="card-sub"><span class="section-count">' + countText + '</span></div>' +
         '</div>' +
-        '<div class="card-actions" onclick="event.stopPropagation()">' +
-          '<button class="btn ghost edit-section" data-section="' + esc(sec.id) + '">' + t('edit') + '</button>' +
-          '<button class="btn danger delete-section" data-section="' + esc(sec.id) + '">' + t('delete') + '</button>' +
+        '<div class="card-actions">' +
+          '<button class="btn ghost menu-btn" data-section="' + esc(sec.id) + '">⋮</button>' +
         '</div>' +
       '</div>';
     }).join('');
@@ -684,9 +690,8 @@
           '<div class="card-title">' + titleHTML(les.title) + '</div>' +
           '<div class="card-sub">' + (les.phrases.length || 0) + ' ' + ((les.phrases.length === 1) ? t('phraseCount') : t('phraseCountPlural')) + '</div>' +
         '</div>' +
-        '<div class="card-actions" onclick="event.stopPropagation()">' +
-          '<button class="btn ghost edit-lesson" data-section="' + esc(sec.id) + '" data-lesson="' + esc(les.id) + '">' + t('edit') + '</button>' +
-          '<button class="btn danger delete-lesson" data-section="' + esc(sec.id) + '" data-lesson="' + esc(les.id) + '">' + t('delete') + '</button>' +
+        '<div class="card-actions">' +
+          '<button class="btn ghost menu-btn" data-section="' + esc(sec.id) + '" data-lesson="' + esc(les.id) + '">⋮</button>' +
         '</div>' +
       '</div>';
     }).join('');
@@ -888,10 +893,63 @@
     };
   }
 
+  function openActionMenu(title, items) {
+    var html = '<div class="menu-list">' + items.map(function (it, i) {
+      return '<button class="menu-item ' + (it.danger ? 'danger' : '') + '" data-i="' + i + '">' + esc(it.label) + '</button>';
+    }).join('') + '</div>';
+    openModal(title, html, '');
+    modalBody.querySelectorAll('.menu-item').forEach(function (btn, i) {
+      btn.onclick = function () { closeModal(); if (items[i]) items[i].handler(); };
+    });
+  }
+
+  function openSectionMenu(secId) {
+    var sec = findSection(secId); if (!sec) return;
+    openActionMenu(t('actions'), [
+      { label: t('edit'), handler: function () { editSectionModal(sec); } },
+      { label: t('changeImage'), handler: function () { editImageModal('section', secId); } },
+      { label: t('delete'), danger: true, handler: function () { if (confirm(t('confirmDelete'))) { state.data.sections = state.data.sections.filter(function (s) { return s.id !== secId; }); saveData(); render(); } } }
+    ]);
+  }
+
+  function openLessonMenu(secId, lesId) {
+    var sec = findSection(secId), les = findLesson(secId, lesId);
+    if (!sec || !les) return;
+    openActionMenu(t('actions'), [
+      { label: t('edit'), handler: function () { editLessonModal(secId, les); } },
+      { label: t('changeImage'), handler: function () { editImageModal('lesson', secId, lesId); } },
+      { label: t('delete'), danger: true, handler: function () { if (confirm(t('confirmDelete'))) { sec.lessons = sec.lessons.filter(function (l) { return l.id !== lesId; }); saveData(); go({ name: 'lessons', section: secId }); } } }
+    ]);
+  }
+
+  function editImageModal(type, secId, lesId) {
+    var target = type === 'section' ? findSection(secId) : findLesson(secId, lesId);
+    if (!target) return;
+    var body = '<form id="image-form">' + imageField('image', target.image || '') + '</form>';
+    openModal(t('changeImage'), body, '<button class="btn ghost" id="modal-cancel">' + t('cancel') + '</button><button class="btn" id="modal-save">' + t('save') + '</button>');
+    document.getElementById('modal-save').onclick = function () {
+      var form = document.getElementById('image-form');
+      readImageFile(form.image_file, function (imgData) {
+        var img = getFormImage(form, 'image');
+        if (imgData) img = imgData; else if (!img) img = '';
+        target.image = img;
+        saveData(); closeModal(); render();
+      });
+    };
+  }
+
   /* ---------- Events ---------- */
 
   document.addEventListener('click', function (e) {
     if (e.target.closest('#modal-cancel') || e.target.closest('#modal-close')) { closeModal(); return; }
+
+    var menuBtn = e.target.closest('.menu-btn');
+    if (menuBtn) {
+      e.stopPropagation();
+      if (menuBtn.dataset.lesson) openLessonMenu(menuBtn.dataset.section, menuBtn.dataset.lesson);
+      else openSectionMenu(menuBtn.dataset.section);
+      return;
+    }
 
     var routeBtn = e.target.closest('[data-route]');
     if (routeBtn) { go(JSON.parse(routeBtn.dataset.route)); return; }
@@ -904,22 +962,6 @@
     var lesCard = e.target.closest('[data-lesson]');
     if (lesCard && !e.target.closest('.card-actions')) {
       go({ name: 'lesson', section: lesCard.dataset.section, lesson: lesCard.dataset.lesson });
-      return;
-    }
-
-    if (e.target.closest('.edit-section')) { var sid = e.target.closest('.edit-section').dataset.section; editSectionModal(findSection(sid)); return; }
-    if (e.target.closest('.delete-section')) {
-      var sid = e.target.closest('.delete-section').dataset.section;
-      if (confirm(t('confirmDelete'))) { state.data.sections = state.data.sections.filter(function (s) { return s.id !== sid; }); saveData(); render(); }
-      return;
-    }
-    if (e.target.closest('.edit-lesson')) {
-      var el = e.target.closest('.edit-lesson'); editLessonModal(el.dataset.section, findLesson(el.dataset.section, el.dataset.lesson));
-      return;
-    }
-    if (e.target.closest('.delete-lesson')) {
-      var dl = e.target.closest('.delete-lesson'); var sec = findSection(dl.dataset.section);
-      if (confirm(t('confirmDelete'))) { sec.lessons = sec.lessons.filter(function (l) { return l.id !== dl.dataset.lesson; }); saveData(); go({ name: 'lessons', section: sec.id }); }
       return;
     }
 
@@ -1002,15 +1044,26 @@
 
   /* ---------- Import / Export ---------- */
 
-  document.getElementById('btn-export').addEventListener('click', function () {
-    var blob = new Blob([JSON.stringify(state.data, null, 2)], { type: 'application/json' });
+  function exportNotebook() {
+    var json = JSON.stringify(state.data, null, 2);
+    var filename = 'notebook_' + new Date().toISOString().slice(0, 10) + '.json';
+    if (window.Capacitor && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(json).then(function () { alert(t('exportDone')); }).catch(function () { fallbackExport(json, filename); });
+      return;
+    }
+    fallbackExport(json, filename);
+  }
+  function fallbackExport(json, filename) {
+    var blob = new Blob([json], { type: 'application/json' });
     var url = URL.createObjectURL(blob);
     var a = document.createElement('a');
     a.href = url;
-    a.download = 'notebook_' + new Date().toISOString().slice(0, 10) + '.json';
+    a.download = filename;
+    document.body.appendChild(a);
     a.click();
-    URL.revokeObjectURL(url);
-  });
+    setTimeout(function () { if (a.parentNode) a.parentNode.removeChild(a); URL.revokeObjectURL(url); }, 3000);
+  }
+  document.getElementById('btn-export').addEventListener('click', exportNotebook);
 
   document.getElementById('btn-import-trigger').addEventListener('click', function () { document.getElementById('import-file').click(); });
   document.getElementById('import-file').addEventListener('change', function (e) {
@@ -1028,6 +1081,15 @@
   });
 
   window.addEventListener('hashchange', function () { go(routeFromHash(), false); });
+
+  var AppPlugin = (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) || null;
+  if (AppPlugin) {
+    AppPlugin.addListener('backButton', function () {
+      if (state.route.name === 'lesson') go({ name: 'lessons', section: state.route.section });
+      else if (state.route.name === 'lessons') go({ name: 'sections' });
+      else if (confirm(t('exitConfirm'))) AppPlugin.exitApp();
+    });
+  }
 
   if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function () {}); }
   if (speakSupported()) window.speechSynthesis.getVoices();
