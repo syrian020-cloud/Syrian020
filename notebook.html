@@ -423,7 +423,7 @@
     var start = lines.findIndex(isTitleLine);
     if (start === -1) start = 0;
     var title = parseTitleLine(lines[start] || '');
-    var order = (state.langs && state.langs.length) ? state.langs : ['fr', 'ar', 'en'];
+    var order = ['fr', 'ar', 'en'];
     function looksLike(line, lang) {
       if (lang === 'ar') return /\p{Script=Arabic}/u.test(line);
       return /\p{Script=Latin}/u.test(line);
@@ -444,7 +444,7 @@
   }
 
   function lessonTextRepr(les) {
-    var order = (state.langs && state.langs.length) ? state.langs : ['fr', 'ar', 'en'];
+    var order = ['fr', 'ar', 'en'];
     var lines = [];
     if (les.title && les.title.mixed) lines.push(les.title.mixed);
     else if (les.title) lines.push(order.map(function (l) { return les.title[l] || ''; }).filter(function (s) { return s; }).join(' — '));
