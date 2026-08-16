@@ -430,7 +430,6 @@
     car: { ar: 'سيارة', en: 'Car', fr: 'Voiture' },
     services: { ar: 'خدمات', en: 'Services', fr: 'Services' },
     france_travail: { ar: 'France Travail', en: 'France Travail', fr: 'France Travail' },
-    caf: { ar: 'CAF', en: 'CAF', fr: 'CAF' },
     cpam: { ar: 'CPAM', en: 'CPAM', fr: 'CPAM' },
     mdph: { ar: 'MDPH', en: 'MDPH', fr: 'MDPH' },
     mairie: { ar: 'البلدية', en: 'Town hall', fr: 'Mairie' },
@@ -973,8 +972,17 @@
     window.addEventListener('beforeunload', stopSpeech);
 
     // Android back button / app exit confirmation
-    if(window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App){
-      var AppPlugin = window.Capacitor.Plugins.App;
+    function nativeApp(){
+      if(window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) return window.Capacitor.Plugins.App;
+      if(window.Capacitor && window.Capacitor.registerPlugin){
+        window.Capacitor.Plugins = window.Capacitor.Plugins || {};
+        window.Capacitor.Plugins.App = window.Capacitor.registerPlugin('App');
+        return window.Capacitor.Plugins.App;
+      }
+      return null;
+    }
+    var AppPlugin = nativeApp();
+    if(AppPlugin){
       AppPlugin.addListener('backButton', function(){
         if(confirm(t('exitConfirm'))){
           AppPlugin.exitApp();
