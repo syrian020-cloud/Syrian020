@@ -319,6 +319,8 @@
     loopEnglishOnly: { ar: 'إنجليزي فقط', fr: 'Anglais seulement', en: 'English only' },
     sectionTitle: { ar: 'عنوان القسم', fr: 'Titre de la section', en: 'Section title' },
     lessonTitle: { ar: 'عنوان الدرس', fr: 'Titre de la leçon', en: 'Lesson title' },
+    lessonText: { ar: 'نص الدرس', fr: 'Texte de la leçon', en: 'Lesson text' },
+    lessonPasteHint: { ar: 'السطر الأول: عنوان FR — AR\nثم ثلاثة أسطر لكل عبارة: FR، AR، EN', fr: 'Première ligne : titre FR — AR\nPuis 3 lignes par phrase : FR, AR, EN', en: 'First line: title FR — AR\nThen 3 lines per phrase: FR, AR, EN' },
     imageLabel: { ar: 'صورة (اختياري)', fr: 'Image (optionnel)', en: 'Image (optional)' },
     chooseFile: { ar: 'اختر ملف', fr: 'Choisir un fichier', en: 'Choose file' },
     imageUrl: { ar: 'أو رابط صورة', fr: 'Ou URL d\'image', en: 'Or image URL' },
@@ -374,7 +376,53 @@
   }
 
   function titleObj(obj) {
-    return (obj && (obj[state.uiLang] || obj.en || obj.ar || obj.fr)) || '';
+    return (obj && (obj.mixed || obj[state.uiLang] || obj.en || obj.ar || obj.fr)) || '';
+  }
+
+  function titleHTML(obj) {
+    if (!obj) return '';
+    var parts = ['fr', 'ar', 'en'].map(function (l) {
+      return obj[l] ? '<span class="' + l + '">' + esc(obj[l]) + '</span>' : '';
+    }).filter(function (s) { return s; });
+    if (parts.length) return parts.join(' <span class="sep">·</span> ');
+    if (obj.mixed) return '<span>' + esc(obj.mixed) + '</span>';
+    return '';
+  }
+
+  function parseTitleLine(line) {
+    line = String(line || '').trim();
+    var parts = line.split(/\s*[—–-]\s*/);
+    return { mixed: line, fr: (parts[0] || '').trim(), ar: (parts[1] || '').trim(), en: (parts[2] || '').trim() };
+  }
+
+  function parseLessonText(raw) {
+    var lines = String(raw || '').split(/\r?\n/).map(function (l) { return l.trim(); }).filter(function (l) { return l.length; });
+    function isTitleLine(line) {
+      return /[—–-]/.test(line) || (/\p{Script=Latin}/u.test(line) && /\p{Script=Arabic}/u.test(line));
+    }
+    var start = lines.findIndex(isTitleLine);
+    if (start === -1) start = 0;
+    var title = parseTitleLine(lines[start] || '');
+    var order = (state.langs && state.langs.length) ? state.langs : ['fr', 'ar', 'en'];
+    var phrases = [];
+    for (var i = start + 1; i < lines.length; i += order.length) {
+      var p = {};
+      for (var j = 0; j < order.length; j++) p[order[j]] = lines[i + j] || '';
+      phrases.push(p);
+    }
+    return { title: title, phrases: phrases };
+  }
+
+  function lessonTextRepr(les) {
+    var order = (state.langs && state.langs.length) ? state.langs : ['fr', 'ar', 'en'];
+    var lines = [];
+    if (les.title && les.title.mixed) lines.push(les.title.mixed);
+    else if (les.title) lines.push(order.map(function (l) { return les.title[l] || ''; }).filter(function (s) { return s; }).join(' — '));
+    else lines.push('');
+    les.phrases.forEach(function (p) {
+      order.forEach(function (l) { lines.push(p[l] || ''); });
+    });
+    return lines.join('\n');
   }
 
   function esc(s) {
@@ -603,11 +651,7 @@
       return '<div class="card" data-section="' + esc(sec.id) + '">' +
         cardImg(sec.image, '📁') +
         '<div class="card-body">' +
-          '<div class="card-title">' +
-            '<span class="ar">' + esc(titleObj({ ar: sec.title.ar })) + '</span> · ' +
-            '<span class="fr">' + esc(titleObj({ fr: sec.title.fr })) + '</span> · ' +
-            '<span class="en">' + esc(titleObj({ en: sec.title.en })) + '</span>' +
-          '</div>' +
+          '<div class="card-title">' + titleHTML(sec.title) + '</div>' +
           '<div class="card-sub"><span class="section-count">' + countText + '</span></div>' +
         '</div>' +
         '<div class="card-actions" onclick="event.stopPropagation()">' +
@@ -637,11 +681,7 @@
       return '<div class="card" data-section="' + esc(sec.id) + '" data-lesson="' + esc(les.id) + '">' +
         cardImg(les.image, '📄') +
         '<div class="card-body">' +
-          '<div class="card-title">' +
-            '<span class="ar">' + esc(les.title.ar || '') + '</span> · ' +
-            '<span class="fr">' + esc(les.title.fr || '') + '</span> · ' +
-            '<span class="en">' + esc(les.title.en || '') + '</span>' +
-          '</div>' +
+          '<div class="card-title">' + titleHTML(les.title) + '</div>' +
           '<div class="card-sub">' + (les.phrases.length || 0) + ' ' + ((les.phrases.length === 1) ? t('phraseCount') : t('phraseCountPlural')) + '</div>' +
         '</div>' +
         '<div class="card-actions" onclick="event.stopPropagation()">' +
@@ -777,8 +817,10 @@
     var isNew = !sec;
     var id = sec ? sec.id : generateId();
     var title = isNew ? t('newSection') : t('editSection');
+    var currentTitle = sec && sec.title ? (sec.title.mixed || titleObj(sec.title)) : '';
     var body = '<form id="section-form">' +
-      '<div class="form-group"><label>' + t('sectionTitle') + '</label>' + langInputs('title', sec ? sec.title : {}) + '</div>' +
+      '<div class="form-group"><label>' + t('sectionTitle') + '</label>' +
+      '<input name="title_mixed" value="' + esc(currentTitle) + '" placeholder="Français — العربية"></div>' +
       imageField('image', sec ? sec.image : '') +
     '</form>';
     openModal(title, body, '<button class="btn ghost" id="modal-cancel">' + t('cancel') + '</button><button class="btn" id="modal-save">' + t('save') + '</button>');
@@ -788,7 +830,7 @@
       readImageFile(form.image_file, function (imgData) {
         var img = getFormImage(form, 'image');
         if (imgData) img = imgData; else if (!img) img = '';
-        var data = { id: id, title: getFormTitle(form, 'title'), image: img, lessons: sec ? sec.lessons : [] };
+        var data = { id: id, title: parseTitleLine(form.title_mixed.value), image: img, lessons: sec ? sec.lessons : [] };
         if (isNew) state.data.sections.push(data);
         else {
           var idx = state.data.sections.findIndex(function (s) { return s.id === id; });
@@ -803,8 +845,10 @@
     var isNew = !les;
     var id = les ? les.id : generateId();
     var title = isNew ? t('newLesson') : t('editLesson');
+    var text = isNew ? '' : lessonTextRepr(les);
     var body = '<form id="lesson-form">' +
-      '<div class="form-group"><label>' + t('lessonTitle') + '</label>' + langInputs('title', les ? les.title : {}) + '</div>' +
+      '<div class="form-group"><label>' + t('lessonText') + '</label>' +
+      '<textarea name="lesson_text" rows="10" placeholder="' + esc(t('lessonPasteHint')) + '">' + esc(text) + '</textarea></div>' +
       imageField('image', les ? les.image : '') +
     '</form>';
     openModal(title, body, '<button class="btn ghost" id="modal-cancel">' + t('cancel') + '</button><button class="btn" id="modal-save">' + t('save') + '</button>');
@@ -814,12 +858,13 @@
       readImageFile(form.image_file, function (imgData) {
         var img = getFormImage(form, 'image');
         if (imgData) img = imgData; else if (!img) img = '';
-        var data = { id: id, title: getFormTitle(form, 'title'), image: img, phrases: les ? les.phrases : [] };
+        var parsed = parseLessonText(form.lesson_text.value);
+        var data = { id: id, title: parsed.title, image: img, phrases: parsed.phrases };
         var sec = findSection(secId);
         if (isNew) sec.lessons.push(data);
         else {
           var idx = sec.lessons.findIndex(function (l) { return l.id === id; });
-          if (idx !== -1) { sec.lessons[idx].title = data.title; sec.lessons[idx].image = data.image; }
+          if (idx !== -1) { sec.lessons[idx].title = data.title; sec.lessons[idx].image = data.image; sec.lessons[idx].phrases = data.phrases; }
         }
         saveData(); closeModal(); go({ name: 'lessons', section: secId });
       });
