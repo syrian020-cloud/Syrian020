@@ -1534,6 +1534,21 @@
     setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1000);
   }
   async function shareJson(json, filename, title) {
+    try {
+      if (isCapacitor() && window.Capacitor.Plugins.Filesystem && window.Capacitor.Plugins.Share) {
+        const fs = window.Capacitor.Plugins.Filesystem;
+        const result = await fs.writeFile({ path: filename, data: json, directory: 'CACHE', encoding: 'utf8' });
+        let uri = result && result.uri;
+        if (!uri) {
+          const uriRes = await fs.getUri({ path: filename, directory: 'CACHE' });
+          uri = uriRes && uriRes.uri;
+        }
+        if (uri) {
+          await window.Capacitor.Plugins.Share.share({ url: uri, title: title || filename, dialogTitle: title || filename });
+          return 'share';
+        }
+      }
+    } catch (e) { console.error('Capacitor share error', e); }
     if (navigator.share) {
       const blob = new Blob([json], { type: 'application/json' });
       const file = new File([blob], filename, { type: 'application/json' });
