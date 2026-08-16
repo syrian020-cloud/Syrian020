@@ -81,8 +81,8 @@
   .tab-panel.active { display: block; }
   .hint { color: var(--text-secondary); font-size: 0.85rem; margin: 0.2rem 0 0.5rem; }
 
-  .video-wrap { position: relative; background: #000; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 0.9rem; }
-  video { width: 100%; display: block; }
+  .video-wrap { position: relative; background: #000; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 0.9rem; width: 100%; }
+  video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   .bubble-wrap { display: flex; justify-content: center; padding: 0.5rem 0 1rem; }
   .subtitle-bubble {
@@ -1319,6 +1319,11 @@
       applyVideoLoop();
       progress.max = state.duration;
       durationEl.textContent = formatDuration(state.duration);
+      if (player.videoWidth && player.videoHeight) {
+        videoWrap.style.aspectRatio = `${player.videoWidth} / ${player.videoHeight}`;
+      } else {
+        videoWrap.style.aspectRatio = '';
+      }
       if (state.cues.length && state.duration) {
         const last = state.cues[state.cues.length - 1];
         if (last.end > state.duration) last.end = state.duration;
@@ -1712,6 +1717,7 @@
     }
     player.poster = '';
     videoWrap.style.display = 'none';
+    videoWrap.style.aspectRatio = '';
     controls.style.display = 'none';
     bubble.innerHTML = '';
     state.cues = [];
