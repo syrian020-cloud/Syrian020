@@ -1107,6 +1107,7 @@
 
   function startWordLoop(word, lang, el) {
     if (!word || !lang) return;
+    if (state.wordLoopEl === el) { stopAllLoops(); return; }
     stopAllLoops();
     if (state.wordLoopEl) state.wordLoopEl.classList.remove('active');
     state.wordLoopEl = el;
@@ -1535,15 +1536,28 @@
     a.click();
     setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1000);
   }
-  async function shareOrDownload(blob, filename, title) {
-    const file = new File([blob], filename, { type: blob.type || 'application/json' });
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      try {
-        await navigator.share({ files: [file], title: title || filename });
-        return 'share';
-      } catch (e) {}
+  async function shareJson(json, filename, title) {
+    try {
+      if (isCapacitor() && window.Capacitor.Plugins.Filesystem && window.Capacitor.Plugins.Share) {
+        const fs = window.Capacitor.Plugins.Filesystem;
+        const result = await fs.writeFile({ path: filename, data: json, directory: 'CACHE', encoding: 'utf8' });
+        let uri = result && result.uri;
+        if (!uri) {
+          const uriRes = await fs.getUri({ path: filename, directory: 'CACHE' });
+          uri = uriRes && uriRes.uri;
+        }
+        if (uri) {
+          await window.Capacitor.Plugins.Share.share({ url: uri, title: title || filename, dialogTitle: title || filename });
+          return 'share';
+        }
+      }
+    } catch (e) { console.error('Capacitor share error', e); }
+    const blob = new Blob([json], { type: 'application/json' });
+    const file = new File([blob], filename, { type: 'application/json' });
+    if (navigator.share) {
+      try { await navigator.share({ files: [file], title: title || filename }); return 'share'; } catch (e) {}
     }
-    downloadFile(blob, filename);
+    try { downloadFile(blob, filename); } catch (e) {}
     return 'download';
   }
   async function exportLesson(id) {
@@ -1552,9 +1566,8 @@
     try {
       const data = await serializeLesson(lesson);
       const json = JSON.stringify(data);
-      const blob = new Blob([json], { type: 'application/json' });
       const filename = `${sanitizeFilename(lesson.name)}.json`;
-      const method = await shareOrDownload(blob, filename, lesson.name);
+      await shareJson(json, filename, lesson.name);
       showToast(t('exportSuccess', {name: lesson.name}));
     } catch (e) { showToast(t('exportError')); }
   }
@@ -1565,9 +1578,8 @@
     try {
       const data = await Promise.all(lessons.map(serializeLesson));
       const json = JSON.stringify(data, null, 2);
-      const blob = new Blob([json], { type: 'application/json' });
       const filename = `srt-lessons.json`;
-      await shareOrDownload(blob, filename, 'SRT Lessons');
+      await shareJson(json, filename, 'SRT Lessons');
       showToast(t('exportSuccess', {name: filename}));
     } catch (e) { showToast(t('exportError')); }
   }
