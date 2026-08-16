@@ -329,7 +329,7 @@
     changeImage: { ar: 'تغيير الصورة', fr: 'Modifier l’image', en: 'Change image' },
     actions: { ar: 'خيارات', fr: 'Options', en: 'Options' },
     exportDone: { ar: 'تم نسخ JSON إلى الحافظة', fr: 'JSON copié dans le presse-papiers', en: 'JSON copied to clipboard' },
-    classes: { ar: 'Classes', fr: 'Classes', en: 'Classes' },
+    classes: { ar: 'الدروس', fr: 'Classes', en: 'Classes' },
     noClasses: { ar: 'لا توجد دروس بعد.', fr: 'Aucune leçon pour l\'instant.', en: 'No lessons yet.' },
     savedLessons: { ar: 'الدروس المحفوظة', fr: 'Leçons enregistrées', en: 'Saved lessons' },
     save: { ar: 'حفظ', fr: 'Enregistrer', en: 'Save' },
@@ -909,10 +909,13 @@
     var id = sec ? sec.id : generateId();
     var title = isNew ? t('newSection') : t('editSection');
     var currentTitle = sec && sec.title ? (sec.title.mixed || titleObj(sec.title)) : '';
+    var firstLessonField = isNew ? '<div class="form-group"><label>' + t('lessonText') + '</label>' +
+      '<textarea name="section_lesson_text" rows="6" placeholder="' + esc(t('lessonPasteHint')) + '"></textarea></div>' : '';
     var body = '<form id="section-form">' +
       '<div class="form-group"><label>' + t('sectionTitle') + '</label>' +
       '<input name="title_mixed" value="' + esc(currentTitle) + '" placeholder="Français — العربية"></div>' +
       imageField('image', sec ? sec.image : '') +
+      firstLessonField +
     '</form>';
     openModal(title, body, '<button class="btn ghost" id="modal-cancel">' + t('cancel') + '</button><button class="btn" id="modal-save">' + t('save') + '</button>');
 
@@ -922,6 +925,15 @@
         var img = getFormImage(form, 'image');
         if (imgData) img = imgData; else if (!img) img = '';
         var data = { id: id, title: parseTitleLine(form.title_mixed.value), image: img, lessons: sec ? sec.lessons : [] };
+        if (form.section_lesson_text && form.section_lesson_text.value.trim()) {
+          var parsed = parseLessonText(form.section_lesson_text.value);
+          if (!parsed.title.mixed && !parsed.title.fr && !parsed.title.ar && !parsed.title.en) {
+            parsed.title = data.title;
+          }
+          if (parsed.phrases.length) {
+            data.lessons.push({ id: generateId(), title: parsed.title, image: '', phrases: parsed.phrases, saved: false });
+          }
+        }
         if (isNew) state.data.sections.push(data);
         else {
           var idx = state.data.sections.findIndex(function (s) { return s.id === id; });
