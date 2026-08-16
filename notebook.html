@@ -328,6 +328,10 @@
     changeImage: { ar: 'تغيير الصورة', fr: 'Modifier l’image', en: 'Change image' },
     actions: { ar: 'خيارات', fr: 'Options', en: 'Options' },
     exportDone: { ar: 'تم نسخ JSON إلى الحافظة', fr: 'JSON copié dans le presse-papiers', en: 'JSON copied to clipboard' },
+    savedLessons: { ar: 'الدروس المحفوظة', fr: 'Leçons enregistrées', en: 'Saved lessons' },
+    save: { ar: 'حفظ', fr: 'Enregistrer', en: 'Save' },
+    removeFromSaved: { ar: 'إزالة من المحفوظة', fr: 'Retirer des favoris', en: 'Remove from saved' },
+    noSaved: { ar: 'لا توجد دروس محفوظة.', fr: 'Aucune leçon enregistrée.', en: 'No saved lessons yet.' },
     chooseFile: { ar: 'اختر ملف', fr: 'Choisir un fichier', en: 'Choose file' },
     imageUrl: { ar: 'أو رابط صورة', fr: 'Ou URL d\'image', en: 'Or image URL' },
     noSections: { ar: 'لا توجد أقسام بعد. اضغط "+ قسم" لبدء دفتر دراستك.', fr: 'Aucune section pour l\'instant. Appuyez sur "+ Section" pour commencer.', en: 'No sections yet. Tap "+ Section" to start your notebook.' },
@@ -664,11 +668,31 @@
     }).join('') + '</div>';
   }
 
+  function findSavedLessons() {
+    var all = [];
+    state.data.sections.forEach(function (sec) {
+      sec.lessons.forEach(function (les) { if (les.saved) all.push({ sec: sec, les: les }); });
+    });
+    return all;
+  }
+
+  function renderSavedCard() {
+    var saved = findSavedLessons();
+    return '<div class="card" data-route="' + esc(JSON.stringify({ name: 'saved' })) + '">' +
+      cardImg('', '⭐') +
+      '<div class="card-body">' +
+        '<div class="card-title">' + esc(t('savedLessons')) + '</div>' +
+        '<div class="card-sub">' + saved.length + ' ' + (saved.length === 1 ? t('sectionCount') : t('sectionCountPlural')) + '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
   function renderSections() {
     var secs = state.data.sections;
     var html = '<div class="hint">' + t('noSections') + '</div>';
     if (!secs.length) { view.innerHTML = html; return; }
     html = renderCrumbs([{ label: t('sectionsLabel') }]);
+    html += renderSavedCard();
     html += secs.map(function (sec) {
       var countText = sec.lessons.length + ' ' + (sec.lessons.length === 1 ? t('sectionCount') : t('sectionCountPlural'));
       return '<div class="card" data-section="' + esc(sec.id) + '">' +
@@ -757,10 +781,34 @@
     '</div>';
   }
 
+  function renderSaved() {
+    var saved = findSavedLessons();
+    var html = renderCrumbs([
+      { label: t('sectionsLabel'), route: { name: 'sections' } },
+      { label: t('savedLessons') }
+    ]);
+    html += '<div class="lesson-head"><h2>' + esc(t('savedLessons')) + '</h2></div>';
+    if (!saved.length) { html += '<div class="empty"><div class="empty-icon">⭐</div>' + t('noSaved') + '</div>'; view.innerHTML = html; return; }
+    html += saved.map(function (it) {
+      return '<div class="card" data-section="' + esc(it.sec.id) + '" data-lesson="' + esc(it.les.id) + '">' +
+        cardImg(it.les.image, '📄') +
+        '<div class="card-body">' +
+          '<div class="card-title">' + titleHTML(it.les.title) + '</div>' +
+          '<div class="card-sub">' + titleObj(it.sec.title) + '</div>' +
+        '</div>' +
+        '<div class="card-actions">' +
+          '<button class="btn ghost menu-btn" data-section="' + esc(it.sec.id) + '" data-lesson="' + esc(it.les.id) + '">⋮</button>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+    view.innerHTML = html;
+  }
+
   function render() {
     if (state.route.name === 'sections') renderSections();
     else if (state.route.name === 'lessons') renderLessons(state.route.section);
     else if (state.route.name === 'lesson') renderLesson(state.route.section, state.route.lesson);
+    else if (state.route.name === 'saved') renderSaved();
     window.scrollTo(0, 0);
   }
 
@@ -771,6 +819,7 @@
       var hash = '#/';
       if (route.name === 'lessons') hash = '#/section/' + route.section;
       else if (route.name === 'lesson') hash = '#/section/' + route.section + '/lesson/' + route.lesson;
+      else if (route.name === 'saved') hash = '#/saved';
       if (location.hash !== hash) location.hash = hash;
     }
     render();
@@ -781,6 +830,7 @@
     var m;
     if ((m = h.match(/^section\/([^/]+)\/lesson\/([^/]+)$/))) return { name: 'lesson', section: m[1], lesson: m[2] };
     if ((m = h.match(/^section\/([^/]+)$/))) return { name: 'lessons', section: m[1] };
+    if (h === 'saved') return { name: 'saved' };
     return { name: 'sections' };
   }
 
@@ -880,12 +930,13 @@
         var img = getFormImage(form, 'image');
         if (imgData) img = imgData; else if (!img) img = '';
         var parsed = parseLessonText(form.lesson_text.value);
-        var data = { id: id, title: parsed.title, image: img, phrases: parsed.phrases };
+        var savedVal = isNew ? false : !!les.saved;
+        var data = { id: id, title: parsed.title, image: img, phrases: parsed.phrases, saved: savedVal };
         var sec = findSection(secId);
         if (isNew) sec.lessons.push(data);
         else {
           var idx = sec.lessons.findIndex(function (l) { return l.id === id; });
-          if (idx !== -1) { sec.lessons[idx].title = data.title; sec.lessons[idx].image = data.image; sec.lessons[idx].phrases = data.phrases; }
+          if (idx !== -1) { sec.lessons[idx].title = data.title; sec.lessons[idx].image = data.image; sec.lessons[idx].phrases = data.phrases; sec.lessons[idx].saved = data.saved; }
         }
         saveData(); closeModal(); go({ name: 'lessons', section: secId });
       });
@@ -934,7 +985,8 @@
     openActionMenu(t('actions'), [
       { label: t('edit'), handler: function () { editLessonModal(secId, les); } },
       { label: t('changeImage'), handler: function () { editImageModal('lesson', secId, lesId); } },
-      { label: t('delete'), danger: true, handler: function () { if (confirm(t('confirmDelete'))) { sec.lessons = sec.lessons.filter(function (l) { return l.id !== lesId; }); saveData(); go({ name: 'lessons', section: secId }); } } }
+      { label: les.saved ? t('removeFromSaved') : t('save'), handler: function () { les.saved = !les.saved; saveData(); render(); } },
+      { label: t('delete'), danger: true, handler: function () { if (confirm(t('confirmDelete'))) { sec.lessons = sec.lessons.filter(function (l) { return l.id !== lesId; }); saveData(); render(); } } }
     ]);
   }
 
@@ -1103,6 +1155,7 @@
     AppPlugin.addListener('backButton', function () {
       if (state.route.name === 'lesson') go({ name: 'lessons', section: state.route.section });
       else if (state.route.name === 'lessons') go({ name: 'sections' });
+      else if (state.route.name === 'saved') go({ name: 'sections' });
       else if (confirm(t('exitConfirm'))) AppPlugin.exitApp();
     });
   }
