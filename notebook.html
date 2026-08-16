@@ -10,78 +10,88 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <style>
   :root {
-    --bg-primary: #0b0f1f;
-    --bg-secondary: #11152b;
-    --bg-tertiary: #1c2140;
-    --bg-input: #151a35;
-    --text-primary: #f1f2f6;
-    --text-secondary: #a0a8c3;
-    --accent: #8b5cf6;
-    --accent-hover: #7c3aed;
-    --accent-2: #06b6d4;
-    --danger: #f43f5e;
-    --success: #22c55e;
-    --gold: #fbbf24;
-    --border: #283055;
-    --radius: 14px;
-    --radius-sm: 8px;
-    --shadow: 0 10px 30px rgba(0,0,0,0.35);
-    --shadow-sm: 0 4px 12px rgba(0,0,0,0.2);
+    --bg-primary: #0a0e1f;
+    --bg-secondary: #11162e;
+    --bg-tertiary: #1c2247;
+    --bg-input: #161d3b;
+    --text-primary: #f5f7ff;
+    --text-secondary: #94a3c8;
+    --accent: #7c6cff;
+    --accent-hover: #6b5ce6;
+    --accent-2: #26d0e7;
+    --danger: #ff5c7e;
+    --success: #2fe6a8;
+    --gold: #ffd166;
+    --border: #283259;
+    --radius: 18px;
+    --radius-sm: 10px;
+    --shadow: 0 18px 40px rgba(0,0,0,0.4);
+    --shadow-sm: 0 6px 18px rgba(0,0,0,0.2);
     --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", sans-serif;
   }
   [data-theme="light"] {
-    --bg-primary: #f8f6ff;
+    --bg-primary: #f2f4ff;
     --bg-secondary: #ffffff;
     --bg-tertiary: #ede9fe;
-    --bg-input: #f5f3ff;
-    --text-primary: #1e1b4b;
-    --text-secondary: #5b5f80;
-    --accent: #7c3aed;
-    --accent-hover: #6d28d9;
-    --accent-2: #0891b2;
-    --border: #d6d3f0;
-    --shadow: 0 10px 30px rgba(99,102,241,0.12);
-    --shadow-sm: 0 4px 12px rgba(99,102,241,0.08);
+    --bg-input: #f6f5ff;
+    --text-primary: #151b3d;
+    --text-secondary: #5e6586;
+    --accent: #6d5de8;
+    --accent-hover: #5c4dd3;
+    --accent-2: #0fa3b8;
+    --border: #d8d5ef;
+    --shadow: 0 14px 34px rgba(109,93,232,0.14);
+    --shadow-sm: 0 6px 18px rgba(109,93,232,0.08);
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; }
   body {
     font-family: var(--font);
-    background: var(--bg-primary);
+    background: radial-gradient(1200px 600px at 20% -10%, rgba(124,108,255,0.12), transparent),
+                radial-gradient(1000px 500px at 100% 0%, rgba(38,208,231,0.08), transparent),
+                var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.7;
     padding-bottom: 4rem;
+    min-height: 100vh;
   }
+  [data-theme="light"] body {
+    background: radial-gradient(1200px 600px at 20% -10%, rgba(124,108,255,0.10), transparent),
+                radial-gradient(1000px 500px at 100% 0%, rgba(38,208,231,0.08), transparent),
+                var(--bg-primary);
+  }
+  .icon { width: 1.15em; height: 1.15em; fill: currentColor; flex-shrink: 0; vertical-align: middle; }
   header {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(17,21,43,0.92);
-    backdrop-filter: blur(10px);
+    background: rgba(10,14,31,0.82);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow-sm);
   }
-  [data-theme="light"] header { background: rgba(255,255,255,0.92); }
+  [data-theme="light"] header { background: rgba(255,255,255,0.82); }
   .header-inner {
-    max-width: 920px; margin: 0 auto; padding: 0.7rem 1rem;
+    max-width: 960px; margin: 0 auto; padding: 0.75rem 1rem;
     display: flex; align-items: center; gap: 0.6rem;
   }
-  .logo { font-weight: 800; color: var(--accent); font-size: 1.15rem; display: flex; align-items: center; gap: 0.4rem; }
-  .logo::before { content: "📓"; }
+  .logo { font-weight: 800; color: var(--accent); font-size: 1.15rem; display: flex; align-items: center; gap: 0.45rem; }
+  .logo-icon { width: 1.35em; height: 1.35em; color: var(--accent-2); }
   .spacer { flex: 1; }
   .icon-btn {
     background: var(--bg-tertiary); color: var(--text-primary);
     border: 1px solid var(--border); border-radius: var(--radius-sm);
-    padding: 0.45rem 0.65rem; font-size: 1rem; cursor: pointer;
-    transition: transform 0.1s, border-color 0.2s;
+    padding: 0.5rem; cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+    transition: transform 0.1s, border-color 0.2s, background 0.2s;
   }
-  .icon-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
-  .lang-switch { display: flex; gap: 0.25rem; }
+  .icon-btn:hover { border-color: var(--accent); transform: translateY(-1px); background: var(--bg-input); }
+  .lang-switch { display: flex; gap: 0.35rem; }
   .lang-btn {
-    background: var(--bg-tertiary); color: var(--text-primary);
-    border: 1px solid var(--border); border-radius: var(--radius-sm);
-    padding: 0.35rem 0.55rem; font-size: 0.75rem; font-weight: 800; cursor: pointer;
+    background: transparent; color: var(--text-secondary);
+    border: 1px solid transparent; border-radius: var(--radius-sm);
+    padding: 0.35rem 0.6rem; font-size: 0.75rem; font-weight: 800; cursor: pointer;
   }
+  .lang-btn:hover { color: var(--text-primary); }
   .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  main { max-width: 920px; margin: 0 auto; padding: 1rem; }
+  main { max-width: 960px; margin: 0 auto; padding: 1rem; }
   .toolbar {
     display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem;
     background: var(--bg-secondary); border: 1px solid var(--border);
@@ -89,16 +99,18 @@
     box-shadow: var(--shadow-sm);
   }
   .btn {
-    background: var(--accent); color: #fff; border: none;
-    border-radius: var(--radius-sm); padding: 0.55rem 0.9rem;
+    background: linear-gradient(135deg, var(--accent), #a18bfa); color: #fff; border: none;
+    border-radius: var(--radius-sm); padding: 0.6rem 1rem;
     font-size: 0.9rem; font-weight: 700; cursor: pointer;
-    box-shadow: 0 4px 14px rgba(139,92,246,0.25);
-    transition: transform 0.1s, background 0.2s;
+    box-shadow: 0 6px 18px rgba(124,108,255,0.32);
+    transition: transform 0.1s, box-shadow 0.2s, filter 0.2s;
+    display: inline-flex; align-items: center; gap: 0.35rem;
   }
-  .btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+  .btn:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(124,108,255,0.38); }
   .btn.ghost { background: var(--bg-tertiary); color: var(--text-primary); box-shadow: none; border: 1px solid var(--border); }
-  .btn.danger { background: var(--danger); box-shadow: 0 4px 14px rgba(244,63,94,0.25); }
-  .btn.success { background: var(--success); box-shadow: 0 4px 14px rgba(34,197,94,0.25); }
+  .btn.ghost:hover { border-color: var(--accent); background: var(--bg-input); }
+  .btn.danger { background: linear-gradient(135deg, var(--danger), #ff8fa3); box-shadow: 0 6px 18px rgba(255,92,126,0.28); }
+  .btn.success { background: linear-gradient(135deg, var(--success), #5af0b8); box-shadow: 0 6px 18px rgba(47,230,168,0.28); }
   .toolbar .spacer { flex: 1; min-width: 0.5rem; }
   .ctl-group { display: flex; align-items: center; gap: 0.4rem; }
   .ctl-group label { font-size: 0.78rem; color: var(--text-secondary); }
@@ -117,31 +129,39 @@
     background: none; border: none; color: var(--accent); cursor: pointer; padding: 0; font-size: 0.95rem;
   }
   .card {
-    background: var(--bg-secondary); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 1rem; margin-bottom: 0.8rem;
+    background: linear-gradient(145deg, var(--bg-secondary), var(--bg-tertiary)); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1rem 1.1rem; margin-bottom: 0.9rem;
     display: flex; align-items: center; gap: 1rem; cursor: pointer;
     box-shadow: var(--shadow-sm);
-    transition: transform 0.15s, border-color 0.2s;
+    transition: transform 0.18s, border-color 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
   }
-  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .card::before {
+    content: ''; position: absolute; top:0; left:0; right:0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2)); opacity: 0; transition: opacity 0.2s;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); }
+  .card:hover::before { opacity: 1; }
   .card-img {
-    width: 80px; height: 80px; border-radius: 12px; object-fit: cover;
-    background: var(--bg-tertiary); border: 1px solid var(--border); flex-shrink: 0;
+    width: 80px; height: 80px; border-radius: 14px; object-fit: cover;
+    background: var(--bg-input); border: 1px solid var(--border); flex-shrink: 0;
   }
   .card-img.placeholder {
-    display: flex; align-items: center; justify-content: center; font-size: 2rem;
+    display: flex; align-items: center; justify-content: center; color: var(--text-secondary);
   }
+  .card-img.placeholder .icon { width: 2.2rem; height: 2.2rem; opacity: 0.75; }
   .card-body { flex: 1; min-width: 0; }
   .card-title {
-    font-size: 1.2rem; font-weight: 800; color: var(--text-primary);
-    margin-bottom: 0.2rem; line-height: 1.4;
+    font-size: 1.22rem; font-weight: 800; color: var(--text-primary);
+    margin-bottom: 0.25rem; line-height: 1.45;
   }
   .card-title .fr { color: var(--accent); }
   .card-title .ar { color: var(--accent-2); }
   .card-title .en { color: var(--text-secondary); font-size: 0.95em; }
   .card-sub { color: var(--text-secondary); font-size: 0.86rem; }
   .card-actions { display: flex; gap: 0.35rem; flex-shrink: 0; }
-  .menu-btn { font-size: 1.2rem; padding: 0.2rem 0.5rem; line-height: 1; }
+  .menu-btn { padding: 0.45rem; display: inline-flex; align-items: center; justify-content: center; color: var(--text-secondary); }
+  .menu-btn:hover { color: var(--accent); }
   .menu-list { display: flex; flex-direction: column; gap: 0.5rem; padding: 0.2rem 0; }
   .menu-item { width: 100%; text-align: start; background: var(--bg-primary); color: var(--text-primary); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.85rem 1rem; font-size: 1rem; cursor: pointer; }
   .menu-item:hover { background: var(--accent); color: #fff; }
@@ -152,31 +172,31 @@
     border-radius: 999px; padding: 0.15rem 0.55rem; font-size: 0.72rem; font-weight: 700;
   }
   .empty {
-    text-align: center; color: var(--text-secondary); padding: 3rem 1rem; font-size: 1.05rem;
+    text-align: center; color: var(--text-secondary); padding: 3.5rem 1rem; font-size: 1.05rem;
   }
-  .empty-icon { font-size: 3rem; margin-bottom: 0.5rem; opacity: 0.8; }
+  .empty-icon { display: block; width: 4rem; height: 4rem; margin: 0 auto 0.75rem; opacity: 0.6; color: var(--accent); }
   .hint {
-    background: linear-gradient(90deg, rgba(139,92,246,0.12), rgba(6,182,212,0.12));
+    background: linear-gradient(90deg, rgba(124,108,255,0.12), rgba(38,208,231,0.12));
     border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 0.85rem 1rem; color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 1rem;
+    padding: 0.9rem 1.1rem; color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 1rem;
   }
   /* Phrase / word rows */
   .phrase {
-    background: var(--bg-secondary); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 1rem; margin-bottom: 0.8rem;
+    background: linear-gradient(145deg, var(--bg-secondary), var(--bg-tertiary)); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1rem 1.1rem; margin-bottom: 0.9rem;
     box-shadow: var(--shadow-sm);
-    transition: box-shadow 0.2s, border-color 0.2s;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
   }
-  .phrase.playing { border-color: var(--success); box-shadow: 0 0 0 2px rgba(34,197,94,0.18); }
-  .phrase-top { display: flex; gap: 0.8rem; align-items: flex-start; }
+  .phrase.playing { border-color: var(--success); box-shadow: 0 0 0 2px rgba(47,230,168,0.22); }
+  .phrase-top { display: flex; gap: 0.9rem; align-items: flex-start; }
   .lines { flex: 1; min-width: 0; }
   .line {
-    padding: 0.35rem 0.5rem; margin-bottom: 0.35rem; border-radius: 8px;
+    padding: 0.45rem 0.6rem; margin-bottom: 0.4rem; border-radius: 10px;
     font-size: 1.1rem; line-height: 1.8; cursor: pointer;
     transition: background 0.15s;
   }
-  .line:hover { background: var(--bg-tertiary); }
-  .line.active { background: rgba(34,197,94,0.18); }
+  .line:hover { background: var(--bg-input); }
+  .line.active { background: rgba(47,230,168,0.15); }
   .line .word {
     display: inline-block; padding: 0 0.15rem; border-radius: 4px;
     transition: background 0.1s, color 0.1s;
@@ -185,14 +205,17 @@
   .fr { direction: ltr; text-align: left; font-weight: 700; color: var(--accent); }
   .ar { direction: rtl; text-align: right; color: var(--accent-2); }
   .en { direction: ltr; text-align: left; color: var(--text-secondary); }
-  .btns { display: flex; flex-direction: column; gap: 0.4rem; flex-shrink: 0; }
+  .btns { display: flex; flex-direction: column; gap: 0.45rem; flex-shrink: 0; }
   .btns button {
     background: var(--bg-tertiary); color: var(--text-primary);
-    border: 1px solid var(--border); border-radius: 10px;
-    width: 2.6rem; height: 2.3rem; font-size: 1.05rem; cursor: pointer;
+    border: 1px solid var(--border); border-radius: 12px;
+    width: 2.5rem; height: 2.4rem; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
   }
-  .btns button:hover { border-color: var(--accent); }
-  .btns button.active { background: var(--success); color: #1a1a1a; border-color: var(--success); }
+  .btns button .icon { width: 1.25rem; height: 1.25rem; }
+  .btns button:hover { border-color: var(--accent); background: var(--bg-input); transform: translateY(-1px); }
+  .btns button.active { background: var(--success); color: #0f1a16; border-color: var(--success); }
   .lesson-head { margin-bottom: 1rem; }
   .lesson-head h2 { margin: 0 0 0.3rem; font-size: 1.35rem; }
   .lesson-head .sub { color: var(--text-secondary); font-size: 0.95rem; }
@@ -202,34 +225,35 @@
   }
   /* Dialog / forms */
   .modal-overlay {
-    position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.6);
+    position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.55);
     display: flex; align-items: center; justify-content: center; padding: 1rem;
     opacity: 0; pointer-events: none; transition: opacity 0.2s;
+    backdrop-filter: blur(4px);
   }
   .modal-overlay.open { opacity: 1; pointer-events: auto; }
   .modal {
-    background: var(--bg-secondary); border: 1px solid var(--border);
-    border-radius: var(--radius); width: 100%; max-width: 540px;
+    background: linear-gradient(145deg, var(--bg-secondary), var(--bg-tertiary)); border: 1px solid var(--border);
+    border-radius: 20px; width: 100%; max-width: 540px;
     max-height: 90vh; overflow-y: auto; box-shadow: var(--shadow);
   }
-  .modal-header { padding: 1rem 1.2rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-  .modal-header h3 { margin: 0; font-size: 1.1rem; }
-  .modal-body { padding: 1.2rem; }
-  .form-group { margin-bottom: 1rem; }
+  .modal-header { padding: 1.1rem 1.3rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .modal-header h3 { margin: 0; font-size: 1.15rem; }
+  .modal-body { padding: 1.3rem; }
+  .form-group { margin-bottom: 1.1rem; }
   .form-group label { display: block; font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.35rem; }
   .form-group input, .form-group textarea, .form-group select {
     width: 100%; background: var(--bg-input); color: var(--text-primary);
     border: 1px solid var(--border); border-radius: var(--radius-sm);
-    padding: 0.55rem 0.75rem; font-size: 1rem; font-family: var(--font);
+    padding: 0.6rem 0.85rem; font-size: 1rem; font-family: var(--font);
   }
-  .form-group textarea { min-height: 80px; resize: vertical; }
+  .form-group textarea { min-height: 90px; resize: vertical; }
   .form-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
   .lang-field .label { font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.2rem; }
-  .image-preview { max-width: 120px; max-height: 120px; border-radius: 10px; border: 1px solid var(--border); margin-top: 0.5rem; object-fit: cover; }
+  .image-preview { max-width: 120px; max-height: 120px; border-radius: 12px; border: 1px solid var(--border); margin-top: 0.5rem; object-fit: cover; }
   .phrase-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 0.6rem; align-items: center; }
   .phrase-row input { width: 100%; }
-  .phrase-row button { background: var(--danger); color: #fff; border: none; border-radius: var(--radius-sm); width: 2.2rem; height: 2.2rem; cursor: pointer; }
-  .modal-footer { padding: 1rem 1.2rem; border-top: 1px solid var(--border); display: flex; gap: 0.5rem; justify-content: flex-end; }
+  .phrase-row button { background: var(--danger); color: #fff; border: none; border-radius: var(--radius-sm); width: 2.2rem; height: 2.2rem; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+  .modal-footer { padding: 1rem 1.3rem; border-top: 1px solid var(--border); display: flex; gap: 0.6rem; justify-content: flex-end; }
   footer { text-align: center; color: var(--text-secondary); font-size: 0.82rem; padding: 2rem 1rem; }
   footer a { color: var(--accent); margin: 0 0.25rem; }
   @media (max-width: 640px) {
@@ -238,6 +262,7 @@
     .card-img { width: 64px; height: 64px; }
     .card-actions { width: 100%; justify-content: flex-end; margin-top: 0.5rem; }
     .toolbar { gap: 0.5rem; }
+    .btns { flex-direction: row; }
   }
 
   /* Notebook drawing overlay */
@@ -258,7 +283,8 @@
   }
   .notebook-header > button:first-child { background: #fff; border: 1px solid #eee; border-radius: 10px; width: 38px; height: 38px; font-size: 1.3rem; color: #666; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
   .notebook-header-tools { display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap; }
-  .notebook-header .nb-tool { width: 40px; height: 40px; background: #fff; border: 1px solid #eee; border-radius: 10px; font-size: 1.35rem; color: #666; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: transform 0.1s, background 0.1s, border-color 0.1s; }
+  .notebook-header .nb-tool { width: 40px; height: 40px; background: #fff; border: 1px solid #eee; border-radius: 10px; color: #666; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: transform 0.1s, background 0.1s, border-color 0.1s; }
+  .notebook-header .nb-tool .icon { width: 1.2rem; height: 1.2rem; }
   .notebook-header .nb-tool.active { background: #e3f2fd; border-color: #90caf9; color: #1565c0; transform: scale(1.08); }
   .notebook-palette {
     display: flex; flex-direction: column; gap: 0.6rem;
@@ -312,26 +338,64 @@
 </style>
 </head>
 <body>
+<svg aria-hidden="true" style="position:absolute; width:0; height:0; overflow:hidden;">
+  <defs>
+    <symbol id="icon-logo" viewBox="0 0 24 24"><path d="M4 4h7v16H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm9 0h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-7V4z"/></symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="icon-sections" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></symbol>
+    <symbol id="icon-export" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 10l-5 5-5-5M12 15V3"/></symbol>
+    <symbol id="icon-import" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="M5 3l18 9-18 9V3z"/></symbol>
+    <symbol id="icon-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/></symbol>
+    <symbol id="icon-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></symbol>
+    <symbol id="icon-loop" viewBox="0 0 24 24"><path d="M17 1l4 4-4 4M3 7V5a4 4 0 0 1 4-4h12M21 17v2a4 4 0 0 1-4 4H5M7 23l-4-4 4-4"/></symbol>
+    <symbol id="icon-ai" viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/><path d="M3 3l2 2M3 7l2-2M7 3l-2 2"/></symbol>
+    <symbol id="icon-notebook" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2a8 8 0 0 1 6.36 12.8L14 16.1V14h-4v2.1l-4.36-1.3A8 8 0 0 1 12 4z"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+    <symbol id="icon-pencil" viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></symbol>
+    <symbol id="icon-brush" viewBox="0 0 24 24"><path d="M19.4 6.6l-2-2a2 2 0 0 0-2.8 0L7 12.2V16h3.8l7.6-7.6a2 2 0 0 0 0-2.8zM3 21c0-2.8 2.2-5 5-5l-5 5z"/></symbol>
+    <symbol id="icon-eraser" viewBox="0 0 24 24"><path d="M16.5 2.5l5 5c.8.8.8 2.1 0 2.8L11.5 20.5c-.8.8-2.1.8-2.8 0l-5-5c-.8-.8-.8-2.1 0-2.8L13.7 2.5c.8-.8 2.1-.8 2.8 0zM2 22h20"/></symbol>
+    <symbol id="icon-undo" viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h8a7 7 0 0 1 7 7"/></symbol>
+    <symbol id="icon-grid" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h10"/></symbol>
+    <symbol id="icon-clear" viewBox="0 0 24 24"><path d="M19 7l-1 12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 7m5 4v6m4-6v6M3 7h18M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol>
+    <symbol id="icon-speaker" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a9 9 0 0 1 0 14.14"/></symbol>
+    <symbol id="icon-more" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></symbol>
+    <symbol id="icon-folder" viewBox="0 0 24 24"><path d="M20 7h-8l-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></symbol>
+    <symbol id="icon-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 2v6h6M8 13h8M8 17h8M8 9h5"/></symbol>
+    <symbol id="icon-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M21 16l-5-5-4 4-4-4-5 5"/><circle cx="17.5" cy="8.5" r="1.5"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+  </defs>
+</svg>
+
 <header>
   <div class="header-inner">
-    <span class="logo" data-t="appName">دفتر الدراسة</span>
+    <span class="logo">
+      <svg class="icon logo-icon" aria-hidden="true"><use href="#icon-logo"></use></svg>
+      <span data-t="appName">دفتر الدراسة</span>
+    </span>
     <span class="spacer"></span>
     <div class="lang-switch">
       <button class="lang-btn" data-lang="ar">AR</button>
       <button class="lang-btn" data-lang="fr">FR</button>
       <button class="lang-btn" data-lang="en">EN</button>
     </div>
-    <button class="icon-btn" id="btn-theme" title="Dark / light mode">🌙</button>
-    <button class="icon-btn" id="btn-stop" title="Stop audio">⏹</button>
+    <button class="icon-btn" id="btn-theme" title="Dark / light mode" data-t-title="darkMode">
+      <svg class="icon" aria-hidden="true"><use href="#icon-moon"></use></svg>
+    </button>
+    <button class="icon-btn" id="btn-stop" title="Stop audio" data-t-title="stopAll">
+      <svg class="icon" aria-hidden="true"><use href="#icon-stop"></use></svg>
+    </button>
   </div>
 </header>
 
 <main>
   <div class="toolbar">
-    <button class="btn" id="btn-add-section" data-t="addSection">+ قسم</button>
-    <button class="btn ghost" id="btn-sections" data-t="sectionsLabel">Sections</button>
-    <button class="btn ghost" id="btn-export" data-t="exportJson">⬇ تصدير JSON</button>
-    <button class="btn ghost" id="btn-import-trigger" data-t="importJson">⬆ استيراد JSON</button>
+    <button class="btn" id="btn-add-section" data-icon="plus" data-t="addSection">+ قسم</button>
+    <button class="btn ghost" id="btn-sections" data-icon="sections" data-t="sectionsLabel">Sections</button>
+    <button class="btn ghost" id="btn-export" data-icon="export" data-t="exportJson">⬇ تصدير JSON</button>
+    <button class="btn ghost" id="btn-import-trigger" data-icon="import" data-t="importJson">⬆ استيراد JSON</button>
     <input type="file" id="import-file" accept="application/json" style="display:none">
     <span class="spacer"></span>
     <div class="ctl-group">
@@ -362,7 +426,9 @@
   <div class="modal">
     <div class="modal-header">
       <h3 id="modal-title">Title</h3>
-      <button class="icon-btn" id="modal-close">✕</button>
+      <button class="icon-btn" id="modal-close">
+        <svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg>
+      </button>
     </div>
     <div class="modal-body" id="modal-body"></div>
     <div class="modal-footer" id="modal-footer"></div>
@@ -371,16 +437,34 @@
 
 <div id="notebook-overlay" class="notebook-overlay hidden">
   <div class="notebook-header">
-    <button id="nb-close" aria-label="Close">✕</button>
+    <button id="nb-close" aria-label="Close">
+      <svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg>
+    </button>
     <div class="notebook-header-tools" id="notebook-header-tools">
-      <button class="nb-tool active" data-tool="pencil" id="nb-pencil" aria-label="Pencil">🖊️</button>
-      <button class="nb-tool" data-tool="brush" id="nb-brush" aria-label="Brush">🖌️</button>
-      <button class="nb-tool" data-tool="eraser" id="nb-eraser" aria-label="Eraser">🧽</button>
-      <button class="nb-tool" id="nb-undo" aria-label="Undo">↩️</button>
-      <button class="nb-tool" id="nb-grid" aria-label="Grid">📐</button>
-      <button class="nb-tool" id="nb-clear" aria-label="Clear">🗑️</button>
-      <button class="nb-tool" id="nb-palette-toggle" aria-label="Palette">🎨</button>
-      <button class="nb-tool" id="nb-speak" aria-label="Listen">🔊</button>
+      <button class="nb-tool active" data-tool="pencil" id="nb-pencil" aria-label="Pencil">
+        <svg class="icon" aria-hidden="true"><use href="#icon-pencil"></use></svg>
+      </button>
+      <button class="nb-tool" data-tool="brush" id="nb-brush" aria-label="Brush">
+        <svg class="icon" aria-hidden="true"><use href="#icon-brush"></use></svg>
+      </button>
+      <button class="nb-tool" data-tool="eraser" id="nb-eraser" aria-label="Eraser">
+        <svg class="icon" aria-hidden="true"><use href="#icon-eraser"></use></svg>
+      </button>
+      <button class="nb-tool" id="nb-undo" aria-label="Undo">
+        <svg class="icon" aria-hidden="true"><use href="#icon-undo"></use></svg>
+      </button>
+      <button class="nb-tool" id="nb-grid" aria-label="Grid">
+        <svg class="icon" aria-hidden="true"><use href="#icon-grid"></use></svg>
+      </button>
+      <button class="nb-tool" id="nb-clear" aria-label="Clear">
+        <svg class="icon" aria-hidden="true"><use href="#icon-clear"></use></svg>
+      </button>
+      <button class="nb-tool" id="nb-palette-toggle" aria-label="Palette">
+        <svg class="icon" aria-hidden="true"><use href="#icon-notebook"></use></svg>
+      </button>
+      <button class="nb-tool" id="nb-speak" aria-label="Listen">
+        <svg class="icon" aria-hidden="true"><use href="#icon-speaker"></use></svg>
+      </button>
     </div>
   </div>
   <div id="notebook-palette" class="notebook-palette hidden">
@@ -415,15 +499,16 @@
 
   var UI = {
     appName: { ar: 'دفتر الدراسة', fr: 'Cahier d\'études', en: 'Study Notebook' },
-    addSection: { ar: '+ قسم', fr: '+ Section', en: '+ Section' },
-    addLesson: { ar: '+ درس', fr: '+ Leçon', en: '+ Lesson' },
-    addPhrase: { ar: '+ عبارة', fr: '+ Phrase', en: '+ Phrase' },
+    darkMode: { ar: 'الوضع المظلم / الفاتح', fr: 'Mode sombre / clair', en: 'Dark / light mode' },
+    addSection: { ar: 'قسم جديد', fr: 'Nouvelle section', en: 'New section' },
+    addLesson: { ar: 'درس جديد', fr: 'Nouvelle leçon', en: 'New lesson' },
+    addPhrase: { ar: 'عبارة جديدة', fr: 'Nouvelle phrase', en: 'New phrase' },
     edit: { ar: 'تعديل', fr: 'Modifier', en: 'Edit' },
     delete: { ar: 'حذف', fr: 'Supprimer', en: 'Delete' },
     save: { ar: 'حفظ', fr: 'Enregistrer', en: 'Save' },
     cancel: { ar: 'إلغاء', fr: 'Annuler', en: 'Cancel' },
-    exportJson: { ar: '⬇ تصدير JSON', fr: '⬇ Exporter JSON', en: '⬇ Export JSON' },
-    importJson: { ar: '⬆ استيراد JSON', fr: '⬆ Importer JSON', en: '⬆ Import JSON' },
+    exportJson: { ar: 'تصدير JSON', fr: 'Exporter JSON', en: 'Export JSON' },
+    importJson: { ar: 'استيراد JSON', fr: 'Importer JSON', en: 'Import JSON' },
     rateLabel: { ar: 'سرعة', fr: 'Vitesse', en: 'Rate' },
     loopLabel: { ar: 'تكرار', fr: 'Répéter', en: 'Loop' },
     loopFrenchArabicEnglish: { ar: 'فرنسي ← عربي ← إنجليزي', fr: 'Français ← Arabe ← Anglais', en: 'French ← Arabic ← English' },
@@ -447,9 +532,9 @@
     noSaved: { ar: 'لا توجد دروس محفوظة.', fr: 'Aucune leçon enregistrée.', en: 'No saved lessons yet.' },
     chooseFile: { ar: 'اختر ملف', fr: 'Choisir un fichier', en: 'Choose file' },
     imageUrl: { ar: 'أو رابط صورة', fr: 'Ou URL d\'image', en: 'Or image URL' },
-    noSections: { ar: 'لا توجد أقسام بعد. اضغط "+ قسم" لبدء دفتر دراستك.', fr: 'Aucune section pour l\'instant. Appuyez sur "+ Section" pour commencer.', en: 'No sections yet. Tap "+ Section" to start your notebook.' },
+    noSections: { ar: 'لا توجد أقسام بعد. اضغط "قسم جديد" لبدء دفتر دراستك.', fr: 'Aucune section pour l\'instant. Appuyez sur "Nouvelle section" pour commencer.', en: 'No sections yet. Tap "New section" to start your notebook.' },
     noLessons: { ar: 'لا توجد دروس في هذا القسم بعد.', fr: 'Aucune leçon dans cette section pour l\'instant.', en: 'No lessons in this section yet.' },
-    noPhrases: { ar: 'لا توجد عبارات في هذا الدرس بعد. اضغط "+ عبارة".', fr: 'Aucune phrase dans cette leçon pour l\'instant. Appuyez sur "+ Phrase".', en: 'No phrases in this lesson yet. Tap "+ Phrase".' },
+    noPhrases: { ar: 'لا توجد عبارات في هذا الدرس بعد. اضغط "عبارة جديدة".', fr: 'Aucune phrase dans cette leçon pour l\'instant. Appuyez sur "Nouvelle phrase".', en: 'No phrases in this lesson yet. Tap "New phrase".' },
     confirmDelete: { ar: 'هل أنت متأكد؟', fr: 'Confirmer la suppression ?', en: 'Are you sure?' },
     exitConfirm: { ar: 'هل تريد الخروج من التطبيق؟', fr: 'Voulez-vous quitter l\'application ?', en: 'Do you want to exit the app?' },
     sectionCount: { ar: 'درس', fr: 'leçon', en: 'lesson' },
@@ -471,8 +556,8 @@
     loopWord: { ar: 'تكرار الكلمة', fr: 'Répéter le mot', en: 'Loop word' },
     notebook: { ar: 'دفتر الرسم', fr: 'Cahier', en: 'Notebook' },
     aiSearch: { ar: 'بحث Google AI', fr: 'Google AI', en: 'Google AI' },
-    playAll: { ar: '▶ تشغيل الكل', fr: '▶ Tout lire', en: '▶ Play all' },
-    stopAll: { ar: '⏹ إيقاف', fr: '⏹ Arrêter', en: '⏹ Stop' },
+    playAll: { ar: 'تشغيل الكل', fr: 'Tout lire', en: 'Play all' },
+    stopAll: { ar: 'إيقاف', fr: 'Arrêter', en: 'Stop' },
     footerVideo: { ar: 'دروسي المرئية', fr: 'Vidéos', en: 'Video lessons' },
     footerFrench: { ar: 'الدروس الفرنسية', fr: 'Français', en: 'French lessons' },
     footerVocab: { ar: 'المفردات', fr: 'Vocabulaire', en: 'Vocabulary' },
@@ -512,6 +597,10 @@
   function t(key) {
     var v = UI[key];
     return (v && v[state.uiLang]) || (v && v.en) || (v && v.ar) || key;
+  }
+
+  function icon(name, cls) {
+    return '<svg class="icon' + (cls ? ' ' + cls : '') + '" aria-hidden="true"><use href="#icon-' + name + '"></use></svg>';
   }
 
   function titleObj(obj) {
@@ -633,8 +722,7 @@
     state.theme = th;
     document.documentElement.dataset.theme = th;
     localStorage.setItem('nb_theme', th);
-    document.getElementById('btn-theme').textContent = th === 'dark' ? '🌙' : '☀️';
-    var bright = /^#(eeeeee|fff)/i.test(state.notebookColor);
+    document.getElementById('btn-theme').innerHTML = icon(th === 'dark' ? 'moon' : 'sun');
     if (th === 'dark' && /^#111111/.test(state.notebookColor)) state.notebookColor = '#eeeeee';
     else if (th === 'light' && /^#(eeeeee|fff)/i.test(state.notebookColor)) state.notebookColor = '#111111';
     if (th === 'dark' && /^#111111/.test(state.notebookSelectedColor)) state.notebookSelectedColor = '#eeeeee';
@@ -654,9 +742,11 @@
   function applyTranslations() {
     document.querySelectorAll('[data-t]').forEach(function (el) {
       var key = el.dataset.t;
-      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = t(key);
-      else if (el.tagName === 'OPTION') el.textContent = t(key);
-      else el.textContent = t(key);
+      var text = t(key);
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = text;
+      else if (el.tagName === 'OPTION') el.textContent = text;
+      else if (el.dataset.icon) el.innerHTML = icon(el.dataset.icon) + '<span>' + text + '</span>';
+      else el.textContent = text;
     });
     document.querySelectorAll('[data-t-title]').forEach(function (el) { el.title = t(el.dataset.tTitle); });
     document.title = t('appName') + ' — Study Notebook';
@@ -706,7 +796,7 @@
     else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     document.querySelectorAll('.phrase').forEach(function (el) { el.classList.remove('playing'); });
     document.querySelectorAll('.line').forEach(function (el) { el.classList.remove('active'); });
-    document.querySelectorAll('.loop-btn').forEach(function (b) { b.classList.remove('active'); b.textContent = '🔁'; });
+    document.querySelectorAll('.loop-btn').forEach(function (b) { b.classList.remove('active'); b.innerHTML = icon('loop'); });
   }
 
   function speakOnce(text, lang, key, langClass, onDone) {
@@ -797,7 +887,7 @@
       var btn = el.querySelector('.loop-btn'); if (!btn) return;
       var on = state.loop && state.loop.key === el.dataset.key && !state.loop.word;
       btn.classList.toggle('active', on);
-      btn.textContent = on ? '⏸' : '🔁';
+      btn.innerHTML = icon(on ? 'pause' : 'loop');
     });
   }
 
@@ -813,9 +903,9 @@
 
   /* ---------- Rendering ---------- */
 
-  function cardImg(src, icon) {
+  function cardImg(src, iconName) {
     if (src) return '<img src="' + esc(src) + '" class="card-img" alt="">';
-    return '<div class="card-img placeholder">' + icon + '</div>';
+    return '<div class="card-img placeholder">' + icon(iconName, 'card-icon') + '</div>';
   }
 
   function renderCrumbs(items) {
@@ -842,13 +932,13 @@
     html += secs.map(function (sec) {
       var countText = sec.lessons.length + ' ' + (sec.lessons.length === 1 ? t('sectionCount') : t('sectionCountPlural'));
       return '<div class="card" data-section="' + esc(sec.id) + '">' +
-        cardImg(sec.image, '📁') +
+        cardImg(sec.image, 'folder') +
         '<div class="card-body">' +
           '<div class="card-title">' + titleHTML(sec.title) + '</div>' +
           '<div class="card-sub"><span class="section-count">' + countText + '</span></div>' +
         '</div>' +
         '<div class="card-actions">' +
-          '<button class="btn ghost menu-btn" data-section="' + esc(sec.id) + '">⋮</button>' +
+          '<button class="btn ghost menu-btn" data-section="' + esc(sec.id) + '">' + icon('more') + '</button>' +
         '</div>' +
       '</div>';
     }).join('');
@@ -864,20 +954,20 @@
     ]);
     html += '<div class="lesson-head"><h2>' + esc(titleObj(sec.title)) + '</h2>' +
       '<div class="sub">' + t('sectionTitle') + '</div></div>';
-    html += '<div class="toolbar" style="margin-bottom:1rem"><button class="btn" id="btn-add-lesson">' + t('addLesson') + '</button></div>';
+    html += '<div class="toolbar" style="margin-bottom:1rem"><button class="btn" id="btn-add-lesson">' + icon('plus') + '<span>' + t('addLesson') + '</span></button></div>';
     if (!sec.lessons.length) {
-      html += '<div class="empty"><div class="empty-icon">📝</div>' + t('noLessons') + '</div>';
+      html += '<div class="empty">' + icon('file', 'empty-icon') + '<div>' + t('noLessons') + '</div></div>';
       view.innerHTML = html; return;
     }
     html += sec.lessons.map(function (les) {
       return '<div class="card" data-section="' + esc(sec.id) + '" data-lesson="' + esc(les.id) + '">' +
-        cardImg(les.image, '📄') +
+        cardImg(les.image, 'file') +
         '<div class="card-body">' +
           '<div class="card-title">' + titleHTML(les.title) + '</div>' +
           '<div class="card-sub">' + (les.phrases.length || 0) + ' ' + ((les.phrases.length === 1) ? t('phraseCount') : t('phraseCountPlural')) + '</div>' +
         '</div>' +
         '<div class="card-actions">' +
-          '<button class="btn ghost menu-btn" data-section="' + esc(sec.id) + '" data-lesson="' + esc(les.id) + '">⋮</button>' +
+          '<button class="btn ghost menu-btn" data-section="' + esc(sec.id) + '" data-lesson="' + esc(les.id) + '">' + icon('more') + '</button>' +
         '</div>' +
       '</div>';
     }).join('');
@@ -896,12 +986,12 @@
       '<div class="sub">' + t('lessonTitle') + '</div></div>';
     if (les.image) html += '<img src="' + esc(les.image) + '" class="lesson-img" alt="">';
     html += '<div class="toolbar" style="margin-bottom:1rem">' +
-      '<button class="btn" id="btn-add-phrase">' + t('addPhrase') + '</button>' +
-      '<button class="btn ghost" id="play-all">' + t('playAll') + '</button>' +
-      '<button class="btn ghost" id="stop-all">' + t('stopAll') + '</button>' +
+      '<button class="btn" id="btn-add-phrase">' + icon('plus') + '<span>' + t('addPhrase') + '</span></button>' +
+      '<button class="btn ghost" id="play-all">' + icon('play') + '<span>' + t('playAll') + '</span></button>' +
+      '<button class="btn ghost" id="stop-all">' + icon('stop') + '<span>' + t('stopAll') + '</span></button>' +
       '</div>';
     if (!les.phrases.length) {
-      html += '<div class="empty"><div class="empty-icon">✍️</div>' + t('noPhrases') + '</div>';
+      html += '<div class="empty">' + icon('pencil', 'empty-icon') + '<div>' + t('noPhrases') + '</div></div>';
       view.innerHTML = html; return;
     }
     html += les.phrases.map(function (p, i) {
@@ -919,9 +1009,9 @@
           '<div class="line en" data-lang="en" data-key="' + esc(key) + '">' + clickableWords(p.en || '', 'en') + '</div>' +
         '</div>' +
         '<div class="btns">' +
-          '<button class="ai-search-btn" title="' + t('aiSearch') + '">🤖</button>' +
-          '<button class="loop-btn" title="' + t('loopPhrase') + '">🔁</button>' +
-          '<button class="notebook-btn" title="' + t('notebook') + '">🎨</button>' +
+          '<button class="ai-search-btn" title="' + t('aiSearch') + '">' + icon('ai') + '</button>' +
+          '<button class="loop-btn" title="' + t('loopPhrase') + '">' + icon('loop') + '</button>' +
+          '<button class="notebook-btn" title="' + t('notebook') + '">' + icon('notebook') + '</button>' +
         '</div>' +
       '</div>' +
     '</div>';
@@ -934,16 +1024,16 @@
       { label: t('savedLessons') }
     ]);
     html += '<div class="lesson-head"><h2>' + esc(t('savedLessons')) + '</h2></div>';
-    if (!saved.length) { html += '<div class="empty"><div class="empty-icon">⭐</div>' + t('noSaved') + '</div>'; view.innerHTML = html; return; }
+    if (!saved.length) { html += '<div class="empty">' + icon('file', 'empty-icon') + '<div>' + t('noSaved') + '</div></div>'; view.innerHTML = html; return; }
     html += saved.map(function (it) {
       return '<div class="card" data-section="' + esc(it.sec.id) + '" data-lesson="' + esc(it.les.id) + '">' +
-        cardImg(it.les.image, '📄') +
+        cardImg(it.les.image, 'file') +
         '<div class="card-body">' +
           '<div class="card-title">' + titleHTML(it.les.title) + '</div>' +
           '<div class="card-sub">' + titleObj(it.sec.title) + '</div>' +
         '</div>' +
         '<div class="card-actions">' +
-          '<button class="btn ghost menu-btn" data-section="' + esc(it.sec.id) + '" data-lesson="' + esc(it.les.id) + '">⋮</button>' +
+          '<button class="btn ghost menu-btn" data-section="' + esc(it.sec.id) + '" data-lesson="' + esc(it.les.id) + '">' + icon('more') + '</button>' +
         '</div>' +
       '</div>';
     }).join('');
