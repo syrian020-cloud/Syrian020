@@ -82,30 +82,30 @@
   .hint { color: var(--text-secondary); font-size: 0.85rem; margin: 0.2rem 0 0.5rem; }
 
   .video-wrap { position: relative; background: #000; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 0.9rem; width: 100%; }
-  video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  video { width: 100%; height: auto; display: block; }
 
-  .bubble-wrap { display: flex; justify-content: center; padding: 0.5rem 0 1rem; }
+  .bubble-wrap { display: flex; justify-content: center; padding: 0.25rem 0 0.6rem; }
   .subtitle-bubble {
     background: linear-gradient(135deg, rgba(123,121,255,0.18), rgba(0,230,118,0.08));
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 1.2rem 1.4rem;
+    padding: 0.7rem 0.85rem;
     width: 100%;
     max-width: 720px;
-    min-height: 120px;
+    min-height: auto;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
-    gap: 0.8rem;
+    gap: 0.45rem;
     box-shadow: var(--shadow);
     transition: transform 0.15s ease;
     position: relative;
   }
   .bubble-loop {
     position: absolute;
-    top: 0.7rem;
-    inset-inline-end: 0.8rem;
+    top: 0.4rem;
+    inset-inline-end: 0.5rem;
     background: rgba(0,0,0,0.35);
     color: var(--gold);
     border: 1px solid var(--border);
@@ -124,11 +124,11 @@
   .subtitle-bubble:empty::before { content: "اختر ملف فيديو وملف (ملفات) ترجمة ثم اضغط ابدأ"; color: var(--text-secondary); font-size: 0.95rem; text-align: center; }
   .lang-line {
     border-radius: var(--radius-sm);
-    padding: 0.7rem 0.9rem;
-    font-size: 1.15rem;
+    padding: 0.45rem 0.6rem;
+    font-size: 1rem;
     font-weight: 600;
     text-align: center;
-    line-height: 1.5;
+    line-height: 1.35;
     position: relative;
   }
   .lang-line .badge {
@@ -1367,11 +1367,7 @@
       applyVideoLoop();
       progress.max = state.duration;
       durationEl.textContent = formatDuration(state.duration);
-      if (player.videoWidth && player.videoHeight) {
-        videoWrap.style.aspectRatio = `${player.videoWidth} / ${player.videoHeight}`;
-      } else {
-        videoWrap.style.aspectRatio = '';
-      }
+      videoWrap.style.aspectRatio = '';
       if (state.cues.length && state.duration) {
         const last = state.cues[state.cues.length - 1];
         if (last.end > state.duration) last.end = state.duration;
@@ -1765,7 +1761,6 @@
     }
     player.poster = '';
     videoWrap.style.display = 'none';
-    videoWrap.style.aspectRatio = '';
     controls.style.display = 'none';
     bubble.innerHTML = '';
     state.cues = [];
