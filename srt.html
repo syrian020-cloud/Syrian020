@@ -398,6 +398,8 @@
           <option value="highBrightness" data-t="filterHighBrightness">سطوع عالي</option>
           <option value="cool" data-t="filterCool">بارد</option>
           <option value="warm" data-t="filterWarm">دافئ</option>
+          <option value="cartoon" data-t="filterCartoon">كرتون</option>
+          <option value="rotoscope" data-t="filterRotoscope">رسوم/Rotoscope</option>
         </select>
       </div>
 
@@ -541,6 +543,8 @@
       filterHighBrightness: 'سطوع عالي',
       filterCool: 'بارد',
       filterWarm: 'دافئ',
+      filterCartoon: 'كرتون',
+      filterRotoscope: 'رسوم/Rotoscope',
       importTitle: 'استيراد دروس JSON',
       exportAll: 'تصدير كل الدروس',
       actions: 'خيارات',
@@ -628,6 +632,8 @@
       filterHighBrightness: 'Luminosité élevée',
       filterCool: 'Froid',
       filterWarm: 'Chaud',
+      filterCartoon: 'Dessin animé',
+      filterRotoscope: 'Rotoscope',
       importTitle: 'Importer des leçons JSON',
       exportAll: 'Exporter toutes les leçons',
       actions: 'Options',
@@ -715,6 +721,8 @@
       filterHighBrightness: 'High brightness',
       filterCool: 'Cool',
       filterWarm: 'Warm',
+      filterCartoon: 'Cartoon',
+      filterRotoscope: 'Rotoscope',
       importTitle: 'Import lessons JSON',
       exportAll: 'Export all lessons',
       actions: 'Options',
@@ -790,7 +798,9 @@
     highContrast: 'contrast(1.5)',
     highBrightness: 'brightness(1.3)',
     cool: 'hue-rotate(180deg) saturate(1.3)',
-    warm: 'sepia(0.4) saturate(1.3) hue-rotate(-20deg)'
+    warm: 'sepia(0.4) saturate(1.3) hue-rotate(-20deg)',
+    cartoon: 'contrast(1.6) saturate(1.7) brightness(1.05) sepia(0.05) hue-rotate(3deg)',
+    rotoscope: 'grayscale(0.6) contrast(1.4) brightness(1.05) sepia(0.25)'
   };
   function applyFilter(v) {
     state.filter = v || '';
