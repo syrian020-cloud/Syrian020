@@ -324,7 +324,7 @@
     sectionTitle: { ar: 'عنوان القسم', fr: 'Titre de la section', en: 'Section title' },
     lessonTitle: { ar: 'عنوان الدرس', fr: 'Titre de la leçon', en: 'Lesson title' },
     lessonText: { ar: 'نص الدرس', fr: 'Texte de la leçon', en: 'Lesson text' },
-    lessonPasteHint: { ar: 'السطر الأول: عنوان FR — AR\nثم ثلاثة أسطر لكل عبارة: FR، AR، EN', fr: 'Première ligne : titre FR — AR\nPuis 3 lignes par phrase : FR, AR, EN', en: 'First line: title FR — AR\nThen 3 lines per phrase: FR, AR, EN' },
+    lessonPasteHint: { ar: 'نموذج بعنوان:\nعنوان FR — AR\nFR\nAR\nEN\n\nأو نموذج بوقت:\n00:00\nFR\nAR\nEN', fr: 'Avec titre :\ntitre FR — AR\nFR\nAR\nEN\n\nAvec horodatage :\n00:00\nFR\nAR\nEN', en: 'With title :\ntitle FR — AR\nFR\nAR\nEN\n\nWith timestamp :\n00:00\nFR\nAR\nEN' },
     imageLabel: { ar: 'صورة (اختياري)', fr: 'Image (optionnel)', en: 'Image (optional)' },
     changeImage: { ar: 'تغيير الصورة', fr: 'Modifier l’image', en: 'Change image' },
     actions: { ar: 'خيارات', fr: 'Options', en: 'Options' },
@@ -417,6 +417,30 @@
 
   function parseLessonText(raw) {
     var lines = String(raw || '').split(/\r?\n/).map(function (l) { return l.trim(); }).filter(function (l) { return l.length; });
+    function isTimestamp(line) { return /^\d{1,2}:\d{2}(?:\.\d+)?$/.test(line); }
+    var defaultTitle = { mixed: 'Lesson — درس', fr: 'Lesson', ar: 'درس', en: '' };
+
+    // Timed transcript: 00:00 FR-line AR-line EN-line ...
+    if (lines.length > 1 && isTimestamp(lines[0])) {
+      var order = ['fr', 'ar', 'en'];
+      var phrases = [];
+      for (var i = 0; i < lines.length; ) {
+        if (isTimestamp(lines[i])) {
+          var p = {};
+          i++;
+          var k = 0;
+          while (i < lines.length && !isTimestamp(lines[i]) && k < order.length) {
+            p[order[k]] = lines[i];
+            i++; k++;
+          }
+          if (p.fr || p.ar || p.en) phrases.push(p);
+        } else {
+          i++;
+        }
+      }
+      return { title: defaultTitle, phrases: phrases };
+    }
+
     function isTitleLine(line) {
       return /[—–-]/.test(line) || (/\p{Script=Latin}/u.test(line) && /\p{Script=Arabic}/u.test(line));
     }
@@ -440,6 +464,7 @@
         if (j === order.length) { phrases.push(p); p = {}; j = 0; }
       }
     }
+    if (!title.mixed && !title.fr && !title.ar && !title.en) title = defaultTitle;
     return { title: title, phrases: phrases };
   }
 
@@ -880,7 +905,9 @@
     var id = sec ? sec.id : generateId();
     var title = isNew ? t('newSection') : t('editSection');
     var currentTitle = sec && sec.title ? (sec.title.mixed || titleObj(sec.title)) : '';
-    var firstLessonField = isNew ? '<div class="form-group"><label>' + t('lessonText') + '</label>' +
+    var firstLessonField = isNew ? '<div class="form-group"><label>' + t('lessonTitle') + '</label>' +
+      '<input name="lesson_title_mixed" placeholder="Français — العربية"></div>' +
+      '<div class="form-group"><label>' + t('lessonText') + '</label>' +
       '<textarea name="section_lesson_text" rows="6" placeholder="' + esc(t('lessonPasteHint')) + '"></textarea></div>' : '';
     var body = '<form id="section-form">' +
       '<div class="form-group"><label>' + t('sectionTitle') + '</label>' +
@@ -898,6 +925,8 @@
         var data = { id: id, title: parseTitleLine(form.title_mixed.value), image: img, lessons: sec ? sec.lessons : [] };
         if (form.section_lesson_text && form.section_lesson_text.value.trim()) {
           var parsed = parseLessonText(form.section_lesson_text.value);
+          var lessonTitleInput = form.lesson_title_mixed && form.lesson_title_mixed.value.trim();
+          if (lessonTitleInput) parsed.title = parseTitleLine(lessonTitleInput);
           if (!parsed.title.mixed && !parsed.title.fr && !parsed.title.ar && !parsed.title.en) {
             parsed.title = data.title;
           }
@@ -920,7 +949,10 @@
     var id = les ? les.id : generateId();
     var title = isNew ? t('newLesson') : t('editLesson');
     var text = isNew ? '' : lessonTextRepr(les);
+    var currentLessonTitle = les && les.title ? (les.title.mixed || titleObj(les.title)) : '';
     var body = '<form id="lesson-form">' +
+      '<div class="form-group"><label>' + t('lessonTitle') + '</label>' +
+      '<input name="title_mixed" value="' + esc(currentLessonTitle) + '" placeholder="Français — العربية"></div>' +
       '<div class="form-group"><label>' + t('lessonText') + '</label>' +
       '<textarea name="lesson_text" rows="10" placeholder="' + esc(t('lessonPasteHint')) + '">' + esc(text) + '</textarea></div>' +
       imageField('image', les ? les.image : '') +
@@ -933,6 +965,9 @@
         var img = getFormImage(form, 'image');
         if (imgData) img = imgData; else if (!img) img = '';
         var parsed = parseLessonText(form.lesson_text.value);
+        var titleInput = form.title_mixed && form.title_mixed.value.trim();
+        if (titleInput) parsed.title = parseTitleLine(titleInput);
+        if (!parsed.title.mixed && !parsed.title.fr && !parsed.title.ar && !parsed.title.en) parsed.title = { mixed: 'Lesson — درس', fr: 'Lesson', ar: 'درس', en: '' };
         var savedVal = isNew ? false : !!les.saved;
         var data = { id: id, title: parsed.title, image: img, phrases: parsed.phrases, saved: savedVal };
         var sec = findSection(secId);
