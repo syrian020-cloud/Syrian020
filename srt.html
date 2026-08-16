@@ -84,12 +84,12 @@
   .video-wrap { position: relative; background: #000; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 0.9rem; width: 100%; max-width: 720px; margin-inline: auto; }
   video { width: 100%; height: auto; display: block; }
 
-  .bubble-wrap { display: flex; justify-content: center; padding: 0.25rem 0 0.6rem; }
+  .bubble-wrap { position: absolute; bottom: 0.5rem; left: 0.5rem; right: 0.5rem; z-index: 10; display: flex; justify-content: center; pointer-events: none; }
   .subtitle-bubble {
-    background: linear-gradient(135deg, rgba(123,121,255,0.18), rgba(0,230,118,0.08));
+    background: rgba(10,10,20,0.78);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 0.7rem 0.85rem;
+    padding: 0.45rem 0.6rem;
     width: 100%;
     max-width: 720px;
     min-height: auto;
@@ -97,10 +97,11 @@
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
-    gap: 0.45rem;
+    gap: 0.35rem;
     box-shadow: var(--shadow);
     transition: transform 0.15s ease;
     position: relative;
+    pointer-events: auto;
   }
   .bubble-loop {
     position: absolute;
@@ -121,10 +122,10 @@
   }
   .bubble-loop:hover { background: rgba(0,0,0,0.55); border-color: var(--gold); }
   .bubble-loop.active { background: var(--success); color: #0b0d1f; border-color: var(--success); }
-  .subtitle-bubble:empty::before { content: "اختر ملف فيديو وملف (ملفات) ترجمة ثم اضغط ابدأ"; color: var(--text-secondary); font-size: 0.95rem; text-align: center; }
+  .subtitle-bubble:empty { display: none; }
   .lang-line {
     border-radius: var(--radius-sm);
-    padding: 0.45rem 0.6rem;
+    padding: 0.85rem 0.6rem 0.45rem;
     font-size: 1rem;
     font-weight: 600;
     text-align: center;
@@ -133,7 +134,7 @@
   }
   .lang-line .badge {
     position: absolute;
-    top: -0.45rem;
+    top: 0.15rem;
     inset-inline-start: 0.6rem;
     background: rgba(0,0,0,0.45);
     color: #fff;
@@ -145,7 +146,7 @@
   }
   .lang-line .loop {
     position: absolute;
-    top: -0.45rem;
+    top: 0.15rem;
     inset-inline-end: 0.6rem;
     background: rgba(0,0,0,0.45);
     color: #fff;
@@ -366,9 +367,9 @@
     </div>
     <div class="video-wrap" id="video-wrap" style="display:none;">
       <video id="player" controls playsinline></video>
-    </div>
-    <div class="bubble-wrap">
-      <div class="subtitle-bubble" id="bubble"></div>
+      <div class="bubble-wrap">
+        <div class="subtitle-bubble" id="bubble"></div>
+      </div>
     </div>
     <section class="controls" id="controls" style="display:none;">
       <div class="time-row">
