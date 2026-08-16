@@ -171,8 +171,8 @@
 
   .controls { display: flex; flex-direction: column; gap: 0.7rem; align-items: center; margin-bottom: 0.9rem; }
   .time-row { display: flex; align-items: center; gap: 0.5rem; width: 100%; max-width: 720px; color: var(--text-secondary); font-size: 0.85rem; }
-  .rate-row { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; max-width: 720px; color: var(--text-secondary); font-size: 0.9rem; }
-  #rate { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.7rem; font-size: 0.9rem; font-family: inherit; cursor: pointer; }
+  .rate-row, .filter-row { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; max-width: 720px; color: var(--text-secondary); font-size: 0.9rem; }
+  #rate, #filter-select { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.7rem; font-size: 0.9rem; font-family: inherit; cursor: pointer; }
   #rate:focus { outline: none; border-color: var(--accent); }
   #progress { flex: 1; -webkit-appearance: none; height: 6px; background: var(--bg-tertiary); border-radius: 3px; outline: none; }
   #progress::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; background: var(--accent); border-radius: 50%; cursor: pointer; }
@@ -387,6 +387,19 @@
           <option value="2">2×</option>
         </select>
       </div>
+      <div class="filter-row">
+        <label for="filter-select" data-t="filterLabel">فلتر الفيديو</label>
+        <select id="filter-select">
+          <option value="" data-t="filterNone">بدون</option>
+          <option value="grayscale" data-t="filterGrayscale">أبيض وأسود</option>
+          <option value="sepia" data-t="filterSepia">سيبيا</option>
+          <option value="invert" data-t="filterInvert">عكس الألوان</option>
+          <option value="highContrast" data-t="filterHighContrast">تباين عالي</option>
+          <option value="highBrightness" data-t="filterHighBrightness">سطوع عالي</option>
+          <option value="cool" data-t="filterCool">بارد</option>
+          <option value="warm" data-t="filterWarm">دافئ</option>
+        </select>
+      </div>
 
       <div class="btn-row">
         <button class="ctrl-btn" id="btn-prev" title="السطر السابق (←)" data-t-title="prevTitle">⏮</button>
@@ -418,6 +431,7 @@
   const videoWrap = $('video-wrap'), player = $('player'), bubble = $('bubble');
   const controls = $('controls'), progress = $('progress'), currentTimeEl = $('current-time'), durationEl = $('duration');
   const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next'), btnFullLoop = $('btn-full-loop'), btnVideoLoop = $('btn-video-loop'), btnLoopAll = $('btn-loop-all');
+  const filterSelect = $('filter-select');
   const btnLessons = $('btn-lessons'), btnSetup = $('btn-setup'), btnNewLesson = $('btn-new-lesson'), btnSaveLesson = $('btn-save-lesson'), btnBackLessons = $('btn-back-lessons'), btnLang = $('btn-lang'), btnImport = $('btn-import'), btnExportAll = $('btn-export-all'), importFile = $('import-file');
   const lessonsView = $('lessons-view'), setupView = $('setup-view'), playerView = $('player-view'), lessonsList = $('lessons-list'), lessonTitle = $('lesson-title');
   const langBtns = $('lang-btns'), statusEl = $('status'), toast = $('toast'), rateSelect = $('rate');
@@ -434,6 +448,7 @@
     videoLoop: false,
     loopStart: 0,
     loopEnd: 0,
+    filter: '',
     fullVideoLoop: false,
     pendingSeek: null,
     duration: 0,
@@ -517,6 +532,15 @@
       readVideoError: 'تعذّر قراءة ملف الفيديو',
       readImageError: 'تعذّر قراءة صورة الدرس',
       unmuteAudio: 'تشغيل الصوت',
+      filterLabel: 'فلتر الفيديو',
+      filterNone: 'بدون',
+      filterGrayscale: 'أبيض وأسود',
+      filterSepia: 'سيبيا',
+      filterInvert: 'عكس الألوان',
+      filterHighContrast: 'تباين عالي',
+      filterHighBrightness: 'سطوع عالي',
+      filterCool: 'بارد',
+      filterWarm: 'دافئ',
       importTitle: 'استيراد دروس JSON',
       exportAll: 'تصدير كل الدروس',
       actions: 'خيارات',
@@ -595,6 +619,15 @@
       readVideoError: 'Échec de la lecture de la vidéo',
       readImageError: 'Échec de la lecture de l\'image',
       unmuteAudio: 'Réactiver l\'audio',
+      filterLabel: 'Filtre vidéo',
+      filterNone: 'Aucun',
+      filterGrayscale: 'Noir et blanc',
+      filterSepia: 'Sépia',
+      filterInvert: 'Inverser',
+      filterHighContrast: 'Contraste élevé',
+      filterHighBrightness: 'Luminosité élevée',
+      filterCool: 'Froid',
+      filterWarm: 'Chaud',
       importTitle: 'Importer des leçons JSON',
       exportAll: 'Exporter toutes les leçons',
       actions: 'Options',
@@ -673,6 +706,15 @@
       readVideoError: 'Failed to read video file',
       readImageError: 'Failed to read image',
       unmuteAudio: 'Unmute audio',
+      filterLabel: 'Video filter',
+      filterNone: 'None',
+      filterGrayscale: 'Grayscale',
+      filterSepia: 'Sepia',
+      filterInvert: 'Invert',
+      filterHighContrast: 'High contrast',
+      filterHighBrightness: 'High brightness',
+      filterCool: 'Cool',
+      filterWarm: 'Warm',
       importTitle: 'Import lessons JSON',
       exportAll: 'Export all lessons',
       actions: 'Options',
@@ -738,6 +780,22 @@
       if (!part.trim()) return escapeHtml(part);
       return `<span class="word" data-lang="${lang}">${escapeHtml(part)}</span>`;
     }).join('');
+  }
+
+  const FILTER_MAP = {
+    '': '',
+    grayscale: 'grayscale(1)',
+    sepia: 'sepia(1)',
+    invert: 'invert(1)',
+    highContrast: 'contrast(1.5)',
+    highBrightness: 'brightness(1.3)',
+    cool: 'hue-rotate(180deg) saturate(1.3)',
+    warm: 'sepia(0.4) saturate(1.3) hue-rotate(-20deg)'
+  };
+  function applyFilter(v) {
+    state.filter = v || '';
+    player.style.filter = FILTER_MAP[state.filter] || '';
+    if (filterSelect) filterSelect.value = state.filter;
   }
 
   // --- Lessons DB ---
@@ -1295,6 +1353,7 @@
     player.onloadedmetadata = () => {
       state.duration = player.duration || 0;
       player.playbackRate = state.playbackRate;
+      applyFilter(state.filter);
       applyVideoLoop();
       progress.max = state.duration;
       durationEl.textContent = formatDuration(state.duration);
@@ -1704,6 +1763,8 @@
     state.isPlaying = false;
     state.duration = 0;
     player.style.transform = '';
+    player.style.filter = '';
+    applyFilter('');
     videoFile.value = ''; lessonImage.value = ''; srtMain.value = ''; srtFr.value = ''; srtAr.value = ''; srtEn.value = ''; srtPaste.value = '';
     handleFiles();
     progress.value = 0;
@@ -1724,6 +1785,9 @@
   rateSelect.addEventListener('change', () => {
     state.playbackRate = parseFloat(rateSelect.value) || 1;
     player.playbackRate = state.playbackRate;
+  });
+  filterSelect.addEventListener('change', () => {
+    applyFilter(filterSelect.value);
   });
 
   btnLessons.addEventListener('click', () => showView('lessons'));
