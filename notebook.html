@@ -399,7 +399,13 @@
   function parseTitleLine(line) {
     line = String(line || '').trim();
     var parts = line.split(/\s*[—–-]\s*/);
-    return { mixed: line, fr: (parts[0] || '').trim(), ar: (parts[1] || '').trim(), en: (parts[2] || '').trim() };
+    if (parts.length > 1) {
+      return { mixed: line, fr: (parts[0] || '').trim(), ar: (parts[1] || '').trim(), en: (parts[2] || '').trim() };
+    }
+    var idx = line.search(/\p{Script=Arabic}/u);
+    if (idx > 0) return { mixed: line, fr: line.slice(0, idx).trim(), ar: line.slice(idx).trim(), en: '' };
+    if (idx === 0) return { mixed: line, fr: '', ar: line.trim(), en: '' };
+    return { mixed: line, fr: line, ar: '', en: '' };
   }
 
   function parseLessonText(raw) {
@@ -411,11 +417,21 @@
     if (start === -1) start = 0;
     var title = parseTitleLine(lines[start] || '');
     var order = (state.langs && state.langs.length) ? state.langs : ['fr', 'ar', 'en'];
+    function looksLike(line, lang) {
+      if (lang === 'ar') return /\p{Script=Arabic}/u.test(line);
+      return /\p{Script=Latin}/u.test(line);
+    }
     var phrases = [];
-    for (var i = start + 1; i < lines.length; i += order.length) {
-      var p = {};
-      for (var j = 0; j < order.length; j++) p[order[j]] = lines[i + j] || '';
-      phrases.push(p);
+    var p = {};
+    var j = 0;
+    for (var i = start + 1; i < lines.length; i++) {
+      var l = lines[i];
+      var expected = order[j];
+      if (looksLike(l, expected)) {
+        p[expected] = l;
+        j++;
+        if (j === order.length) { phrases.push(p); p = {}; j = 0; }
+      }
     }
     return { title: title, phrases: phrases };
   }
