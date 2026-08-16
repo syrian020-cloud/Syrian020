@@ -517,6 +517,8 @@
       importTitle: 'استيراد دروس JSON',
       exportAll: 'تصدير كل الدروس',
       actions: 'خيارات',
+      exportJson: 'مشاركة / تصدير JSON',
+      exportSrt: 'تصدير ملف SRT',
       share: 'مشاركة / تصدير JSON',
       importSuccess: 'تم استيراد $count درس',
       importError: 'تعذّر استيراد الدرس',
@@ -592,6 +594,8 @@
       importTitle: 'Importer des leçons JSON',
       exportAll: 'Exporter toutes les leçons',
       actions: 'Options',
+      exportJson: 'Partager / exporter JSON',
+      exportSrt: 'Exporter SRT',
       share: 'Partager / exporter JSON',
       importSuccess: '$count leçon(s) importée(s)',
       importError: 'Échec de l\'importation',
@@ -667,6 +671,8 @@
       importTitle: 'Import lessons JSON',
       exportAll: 'Export all lessons',
       actions: 'Options',
+      exportJson: 'Share / export JSON',
+      exportSrt: 'Export SRT',
       share: 'Share / export JSON',
       importSuccess: '$count lesson(s) imported',
       importError: 'Failed to import lesson',
@@ -1477,7 +1483,8 @@
           <div class="menu-dropdown" data-menu="${l.id}">
             <button class="menu-item" data-action="rename" data-id="${l.id}"><span class="menu-icon">✏️</span> ${escapeHtml(t('rename'))}</button>
             <button class="menu-item" data-action="image" data-id="${l.id}"><span class="menu-icon">🖼️</span> ${escapeHtml(t('changeImage'))}</button>
-            <button class="menu-item" data-action="share" data-id="${l.id}"><span class="menu-icon">⬆️</span> ${escapeHtml(t('share'))}</button>
+            <button class="menu-item" data-action="share" data-id="${l.id}"><span class="menu-icon">⬆️</span> ${escapeHtml(t('exportJson'))}</button>
+            <button class="menu-item" data-action="export-srt" data-id="${l.id}"><span class="menu-icon">📄</span> ${escapeHtml(t('exportSrt'))}</button>
             <button class="menu-item danger" data-action="delete" data-id="${l.id}"><span class="menu-icon">🗑</span> ${escapeHtml(t('delete'))}</button>
           </div>
         </div>
@@ -1534,11 +1541,11 @@
     a.click();
     setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1000);
   }
-  async function shareJson(json, filename, title) {
+  async function shareFile(content, filename, title, type = 'text/plain') {
     try {
       if (isCapacitor() && window.Capacitor.Plugins.Filesystem && window.Capacitor.Plugins.Share) {
         const fs = window.Capacitor.Plugins.Filesystem;
-        const result = await fs.writeFile({ path: filename, data: json, directory: 'CACHE', encoding: 'utf8' });
+        const result = await fs.writeFile({ path: filename, data: content, directory: 'CACHE', encoding: 'utf8' });
         let uri = result && result.uri;
         if (!uri) {
           const uriRes = await fs.getUri({ path: filename, directory: 'CACHE' });
@@ -1551,19 +1558,32 @@
       }
     } catch (e) { console.error('Capacitor share error', e); }
     if (navigator.share) {
-      const blob = new Blob([json], { type: 'application/json' });
-      const file = new File([blob], filename, { type: 'application/json' });
+      const blob = new Blob([content], { type });
+      const file = new File([blob], filename, { type });
       try {
         await navigator.share({ files: [file], title: title || filename });
         return 'share';
       } catch (e) {}
       try {
-        await navigator.share({ title: title || filename, text: json });
+        await navigator.share({ title: title || filename, text: content });
         return 'share-text';
       } catch (e) {}
     }
-    try { downloadFile(new Blob([json], { type: 'application/json' }), filename); } catch (e) {}
+    try { downloadFile(new Blob([content], { type }), filename); } catch (e) {}
     return 'download';
+  }
+  function formatSRTTime(seconds) {
+    const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
+    const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+    const s = Math.floor(seconds % 60).toString().padStart(2, '0');
+    const ms = Math.round((seconds % 1) * 1000).toString().padStart(3, '0');
+    return `${h}:${m}:${s},${ms}`;
+  }
+  function cuesToSRT(cues) {
+    return cues.map((cue, i) => {
+      const lines = (cue.lines || []).map(l => l.text).join('\n');
+      return `${i + 1}\n${formatSRTTime(cue.start)} --> ${formatSRTTime(cue.end)}\n${lines}`;
+    }).join('\n\n');
   }
   async function exportLesson(id) {
     const lesson = await getLessonById(id);
@@ -1572,8 +1592,18 @@
       const data = await serializeLesson(lesson);
       const json = JSON.stringify(data);
       const filename = `${sanitizeFilename(lesson.name)}.json`;
-      await shareJson(json, filename, lesson.name);
+      await shareFile(json, filename, lesson.name, 'application/json');
       showToast(t('exportSuccess', {name: lesson.name}));
+    } catch (e) { showToast(t('exportError')); }
+  }
+  async function exportLessonSRT(id) {
+    const lesson = await getLessonById(id);
+    if (!lesson) return;
+    try {
+      const srt = cuesToSRT(lesson.cues || []);
+      const filename = `${sanitizeFilename(lesson.name)}.srt`;
+      await shareFile(srt, filename, lesson.name, 'application/x-subrip');
+      showToast(t('exportSuccess', {name: filename}));
     } catch (e) { showToast(t('exportError')); }
   }
   async function exportAllLessons() {
@@ -1584,7 +1614,7 @@
       const data = await Promise.all(lessons.map(serializeLesson));
       const json = JSON.stringify(data, null, 2);
       const filename = `srt-lessons.json`;
-      await shareJson(json, filename, 'SRT Lessons');
+      await shareFile(json, filename, 'SRT Lessons', 'application/json');
       showToast(t('exportSuccess', {name: filename}));
     } catch (e) { showToast(t('exportError')); }
   }
@@ -1717,6 +1747,10 @@
       }
       if (action.dataset.action === 'share') {
         await exportLesson(id);
+        return;
+      }
+      if (action.dataset.action === 'export-srt') {
+        await exportLessonSRT(id);
         return;
       }
     }
