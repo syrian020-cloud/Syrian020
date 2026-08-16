@@ -400,6 +400,7 @@
         <label for="filter-select" data-t="filterLabel">فلتر الفيديو</label>
         <input type="file" id="bg-image-input" accept="image/*" style="display:none">
         <button class="icon-btn" id="btn-bg-image" title="خلفية" data-t-title="changeBackground">🖼️</button>
+        <button class="icon-btn" id="btn-toggle-bg" title="إظهار/إخفاء الصورة" data-t-title="toggleBackground">👁️</button>
         <select id="filter-select">
           <option value="" data-t="filterNone">بدون</option>
           <option value="grayscale" data-t="filterGrayscale">أبيض وأسود</option>
@@ -440,7 +441,7 @@
   const $ = id => document.getElementById(id);
   const videoFile = $('video-file'), lessonImage = $('lesson-image'), editImage = $('edit-image'), srtMain = $('srt-main'), srtFr = $('srt-fr'), srtAr = $('srt-ar'), srtEn = $('srt-en'), srtPaste = $('srt-paste');
   const videoName = $('video-name'), imageName = $('image-name'), nameMain = $('name-main'), nameFr = $('name-fr'), nameAr = $('name-ar'), nameEn = $('name-en');
-  const btnStart = $('btn-start'), btnReset = $('btn-reset'), btnStop = $('btn-stop'), btnBgImage = $('btn-bg-image'), bgImageInput = $('bg-image-input');
+  const btnStart = $('btn-start'), btnReset = $('btn-reset'), btnStop = $('btn-stop'), btnBgImage = $('btn-bg-image'), btnToggleBg = $('btn-toggle-bg'), bgImageInput = $('bg-image-input');
   const videoWrap = $('video-wrap'), player = $('player'), bgImage = $('bg-image'), bubble = $('bubble');
   const controls = $('controls'), progress = $('progress'), currentTimeEl = $('current-time'), durationEl = $('duration');
   const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next'), btnFullLoop = $('btn-full-loop'), btnVideoLoop = $('btn-video-loop'), btnLoopAll = $('btn-loop-all');
@@ -548,6 +549,7 @@
       unmuteAudio: 'تشغيل الصوت',
       filterLabel: 'فلتر الفيديو',
       changeBackground: 'تغيير الخلفية',
+      toggleBackground: 'إظهار/إخفاء الصورة',
       filterNone: 'بدون',
       filterGrayscale: 'أبيض وأسود',
       filterSepia: 'سيبيا',
@@ -638,6 +640,7 @@
       unmuteAudio: 'Réactiver l\'audio',
       filterLabel: 'Filtre vidéo',
       changeBackground: 'Changer l’arrière-plan',
+      toggleBackground: 'Afficher/masquer l’image',
       filterNone: 'Aucun',
       filterGrayscale: 'Noir et blanc',
       filterSepia: 'Sépia',
@@ -728,6 +731,7 @@
       unmuteAudio: 'Unmute audio',
       filterLabel: 'Video filter',
       changeBackground: 'Change background',
+      toggleBackground: 'Show/hide image',
       filterNone: 'None',
       filterGrayscale: 'Grayscale',
       filterSepia: 'Sepia',
@@ -828,11 +832,26 @@
       bgImage.style.display = 'block';
       player.style.visibility = 'hidden';
       videoWrap.style.backgroundImage = '';
+      if (btnToggleBg) btnToggleBg.textContent = '🙈';
     } else {
       bgImage.src = '';
       bgImage.style.display = 'none';
       player.style.visibility = '';
       videoWrap.style.backgroundImage = '';
+      if (btnToggleBg) btnToggleBg.textContent = '👁️';
+    }
+  }
+  function toggleBgImage() {
+    if (!state.posterUrl && bgImage.style.display === 'none') return;
+    const showing = bgImage.style.display !== 'none';
+    if (showing) {
+      bgImage.style.display = 'none';
+      player.style.visibility = '';
+      if (btnToggleBg) btnToggleBg.textContent = '👁️';
+    } else {
+      bgImage.style.display = 'block';
+      player.style.visibility = 'hidden';
+      if (btnToggleBg) btnToggleBg.textContent = '🙈';
     }
   }
   async function applyBackgroundImage(file) {
@@ -1866,6 +1885,7 @@
     applyFilter(filterSelect.value);
   });
   btnBgImage.addEventListener('click', () => bgImageInput.click());
+  btnToggleBg.addEventListener('click', toggleBgImage);
   bgImageInput.addEventListener('change', () => { applyBackgroundImage(bgImageInput.files[0]); bgImageInput.value = ''; });
 
   btnLessons.addEventListener('click', () => showView('lessons'));
