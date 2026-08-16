@@ -172,7 +172,6 @@
   .controls { display: flex; flex-direction: column; gap: 0.7rem; align-items: center; margin-bottom: 0.9rem; }
   .time-row { display: flex; align-items: center; gap: 0.5rem; width: 100%; max-width: 720px; color: var(--text-secondary); font-size: 0.85rem; }
   .rate-row { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; max-width: 720px; color: var(--text-secondary); font-size: 0.9rem; }
-  .zoom-row { display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; max-width: 720px; color: var(--text-secondary); font-size: 0.9rem; margin-top: -0.3rem; }
   #rate { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.7rem; font-size: 0.9rem; font-family: inherit; cursor: pointer; }
   #rate:focus { outline: none; border-color: var(--accent); }
   #progress { flex: 1; -webkit-appearance: none; height: 6px; background: var(--bg-tertiary); border-radius: 3px; outline: none; }
@@ -388,11 +387,7 @@
           <option value="2">2×</option>
         </select>
       </div>
-      <div class="zoom-row">
-        <button class="ctrl-btn" id="btn-zoom-out" title="" data-t-title="zoomOut">−</button>
-        <span id="zoom-level">100%</span>
-        <button class="ctrl-btn" id="btn-zoom-in" title="" data-t-title="zoomIn">+</button>
-      </div>
+
       <div class="btn-row">
         <button class="ctrl-btn" id="btn-prev" title="السطر السابق (←)" data-t-title="prevTitle">⏮</button>
         <button class="ctrl-btn" id="btn-play" title="تشغيل/إيقاف (مسافة)" data-t-title="playTitle">⏯</button>
@@ -423,7 +418,6 @@
   const videoWrap = $('video-wrap'), player = $('player'), bubble = $('bubble');
   const controls = $('controls'), progress = $('progress'), currentTimeEl = $('current-time'), durationEl = $('duration');
   const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next'), btnFullLoop = $('btn-full-loop'), btnVideoLoop = $('btn-video-loop'), btnLoopAll = $('btn-loop-all');
-  const btnZoomOut = $('btn-zoom-out'), btnZoomIn = $('btn-zoom-in'), zoomLevel = $('zoom-level');
   const btnLessons = $('btn-lessons'), btnSetup = $('btn-setup'), btnNewLesson = $('btn-new-lesson'), btnSaveLesson = $('btn-save-lesson'), btnBackLessons = $('btn-back-lessons'), btnLang = $('btn-lang'), btnImport = $('btn-import'), btnExportAll = $('btn-export-all'), importFile = $('import-file');
   const lessonsView = $('lessons-view'), setupView = $('setup-view'), playerView = $('player-view'), lessonsList = $('lessons-list'), lessonTitle = $('lesson-title');
   const langBtns = $('lang-btns'), statusEl = $('status'), toast = $('toast'), rateSelect = $('rate');
@@ -440,7 +434,6 @@
     videoLoop: false,
     loopStart: 0,
     loopEnd: 0,
-    zoom: 1,
     fullVideoLoop: false,
     pendingSeek: null,
     duration: 0,
@@ -524,8 +517,6 @@
       readVideoError: 'تعذّر قراءة ملف الفيديو',
       readImageError: 'تعذّر قراءة صورة الدرس',
       unmuteAudio: 'تشغيل الصوت',
-      zoomIn: 'تكبير الفيديو',
-      zoomOut: 'تصغير الفيديو',
       importTitle: 'استيراد دروس JSON',
       exportAll: 'تصدير كل الدروس',
       actions: 'خيارات',
@@ -604,8 +595,6 @@
       readVideoError: 'Échec de la lecture de la vidéo',
       readImageError: 'Échec de la lecture de l\'image',
       unmuteAudio: 'Réactiver l\'audio',
-      zoomIn: 'Zoom avant',
-      zoomOut: 'Zoom arrière',
       importTitle: 'Importer des leçons JSON',
       exportAll: 'Exporter toutes les leçons',
       actions: 'Options',
@@ -684,8 +673,6 @@
       readVideoError: 'Failed to read video file',
       readImageError: 'Failed to read image',
       unmuteAudio: 'Unmute audio',
-      zoomIn: 'Zoom in',
-      zoomOut: 'Zoom out',
       importTitle: 'Import lessons JSON',
       exportAll: 'Export all lessons',
       actions: 'Options',
@@ -1210,14 +1197,6 @@
       btnStop.textContent = state.muted ? '🔊' : '🔇';
       btnStop.title = t(state.muted ? 'unmuteAudio' : 'stopAudio');
     }
-    if (zoomLevel) zoomLevel.textContent = Math.round(state.zoom * 100) + '%';
-  }
-  function setZoom(v) {
-    const z = Math.min(Math.max(parseFloat(v) || 1, 0.5), 2.5);
-    state.zoom = z;
-    player.style.transform = `scale(${z})`;
-    player.style.transformOrigin = 'center';
-    updateButtons();
   }
 
   function renderLangButtons() {
@@ -1724,8 +1703,7 @@
     state.currentIndex = -1;
     state.isPlaying = false;
     state.duration = 0;
-    state.zoom = 1;
-    setZoom(1);
+    player.style.transform = '';
     videoFile.value = ''; lessonImage.value = ''; srtMain.value = ''; srtFr.value = ''; srtAr.value = ''; srtEn.value = ''; srtPaste.value = '';
     handleFiles();
     progress.value = 0;
@@ -1747,8 +1725,6 @@
     state.playbackRate = parseFloat(rateSelect.value) || 1;
     player.playbackRate = state.playbackRate;
   });
-  btnZoomOut.addEventListener('click', () => setZoom(state.zoom - 0.25));
-  btnZoomIn.addEventListener('click', () => setZoom(state.zoom + 0.25));
 
   btnLessons.addEventListener('click', () => showView('lessons'));
   btnSetup.addEventListener('click', () => showView('setup'));
