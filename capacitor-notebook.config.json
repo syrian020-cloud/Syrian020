@@ -1,0 +1,12 @@
+{
+  "appId": "com.syrian020.notebook",
+  "appName": "Study Notebook",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": false
+  }
+}

@@ -431,10 +431,25 @@
 
   /* ---------- TTS ---------- */
 
-  function speakSupported() { return 'speechSynthesis' in window; }
+  function nativeTTS() {
+    if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech) return window.Capacitor.Plugins.TextToSpeech;
+    if (window.Capacitor && window.Capacitor.registerPlugin) {
+      window.Capacitor.Plugins = window.Capacitor.Plugins || {};
+      window.Capacitor.Plugins.TextToSpeech = window.Capacitor.registerPlugin('TextToSpeech');
+      return window.Capacitor.Plugins.TextToSpeech;
+    }
+    return null;
+  }
+  function nativeSpeak(text, lang) {
+    var tts = nativeTTS(); if (!tts) return Promise.reject('no tts');
+    return tts.speak({ text: text, lang: VOICE_LANG[lang] || 'en-US', rate: state.rate || 1, queueStrategy: 1 });
+  }
+  function nativeStop() { var tts = nativeTTS(); if (!tts) return Promise.resolve(); return tts.stop(); }
+
+  function speakSupported() { return !!nativeTTS() || 'speechSynthesis' in window; }
 
   function pickVoice(lang) {
-    if (!speakSupported()) return null;
+    if (!('speechSynthesis' in window)) return null;
     var voices = window.speechSynthesis.getVoices() || [];
     var code = VOICE_LANG[lang];
     var exact = voices.find(function (v) { return v.lang && v.lang.replace('_', '-') === code; });
@@ -454,26 +469,42 @@
   function stopSpeech() {
     state.loop = null;
     state.speechRun++;
-    if (speakSupported()) window.speechSynthesis.cancel();
+    if (nativeTTS()) nativeStop();
+    else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     document.querySelectorAll('.phrase').forEach(function (el) { el.classList.remove('playing'); });
     document.querySelectorAll('.line').forEach(function (el) { el.classList.remove('active'); });
     document.querySelectorAll('.loop-btn').forEach(function (b) { b.classList.remove('active'); b.textContent = '🔁'; });
   }
 
   function speakOnce(text, lang, key, langClass, onDone) {
-    var run = ++state.speechRun;
-    if (!speakSupported()) { if (onDone) onDone(); return; }
-    highlight(key, langClass);
-    var u = utter(text, lang);
-    u.onend = function () { if (run !== state.speechRun) return; if (onDone) onDone(); };
-    u.onerror = function () { if (run !== state.speechRun) return; if (onDone) onDone(); };
-    window.speechSynthesis.speak(u);
+    speakSequence([{ text: text, lang: lang, langClass: langClass }], key, onDone);
   }
 
   function speakSequence(texts, key, onDone) {
     var run = ++state.speechRun;
     var i = 0;
     if (!speakSupported()) { if (onDone) onDone(); return; }
+
+    if (nativeTTS()) {
+      nativeStop();
+      (function next() {
+        if (run !== state.speechRun) return;
+        if (i >= texts.length) { highlight(null, null); if (onDone) onDone(); return; }
+        var item = texts[i++];
+        highlight(key, item.langClass);
+        nativeSpeak(item.text, item.lang).then(function () {
+          if (run !== state.speechRun) return;
+          setTimeout(next, 250);
+        }).catch(function () {
+          if (run !== state.speechRun) return;
+          setTimeout(next, 250);
+        });
+      })();
+      return;
+    }
+
+    if (!('speechSynthesis' in window)) { if (onDone) onDone(); return; }
+    window.speechSynthesis.cancel();
     (function next() {
       if (run !== state.speechRun) return;
       if (i >= texts.length) { highlight(null, null); if (onDone) onDone(); return; }
@@ -503,15 +534,16 @@
     })();
   }
 
-  function toggleWordLoop(text, lang, key, langClass) {
-    if (state.loop && state.loop.key === key && state.loop.word) { stopSpeech(); return; }
+  function toggleWordLoop(text, lang, phraseKey, langClass) {
+    var loopKey = phraseKey + ':word:' + lang;
+    if (state.loop && state.loop.key === loopKey && state.loop.word) { stopSpeech(); return; }
     stopSpeech();
-    state.loop = { key: key, word: true };
+    state.loop = { key: loopKey, word: true };
     refreshLoopButtons();
     (function cycle() {
-      if (!state.loop || state.loop.key !== key) return;
-      speakOnce(text, lang, key, langClass, function () {
-        if (!state.loop || state.loop.key !== key) return;
+      if (!state.loop || state.loop.key !== loopKey) return;
+      speakOnce(text, lang, phraseKey, langClass, function () {
+        if (!state.loop || state.loop.key !== loopKey) return;
         setTimeout(cycle, 600);
       });
     })();
@@ -862,7 +894,7 @@
       var word = e.target.closest('.word');
       if (word) {
         var lang = word.dataset.wordLang || word.closest('.line').dataset.lang;
-        toggleWordLoop(word.textContent.trim(), lang, key + ':' + lang, lang);
+        toggleWordLoop(word.textContent.trim(), lang, key, lang);
         return;
       }
     }
