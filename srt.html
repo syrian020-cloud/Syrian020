@@ -1359,7 +1359,7 @@
       showToast(t('noCues'));
       return false;
     }
-    controls.style.display = state.cues.length ? 'flex' : 'none';
+    controls.style.display = (state.cues.length || videoFile.files[0]) ? 'flex' : 'none';
     progress.max = 0;
     currentTimeEl.textContent = '00:00';
     durationEl.textContent = '00:00';
@@ -1442,6 +1442,7 @@
       player.poster = '';
     }
     attachPlayerEvents();
+    controls.style.display = (state.cues.length || lesson.videoBlob) ? 'flex' : 'none';
     lessonTitle.textContent = lesson.name;
     showView('player');
     if (state.cues.length) goToCue(0);
