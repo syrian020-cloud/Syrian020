@@ -251,6 +251,7 @@
       <button class="lang-btn" data-lang="fr">FR</button>
       <button class="lang-btn" data-lang="en">EN</button>
     </div>
+    <button class="icon-btn" id="btn-saved" title="Saved lessons">⭐</button>
     <button class="icon-btn" id="btn-theme" title="Dark / light mode">🌙</button>
     <button class="icon-btn" id="btn-stop" title="Stop audio">⏹</button>
   </div>
@@ -676,23 +677,11 @@
     return all;
   }
 
-  function renderSavedCard() {
-    var saved = findSavedLessons();
-    return '<div class="card" data-route="' + esc(JSON.stringify({ name: 'saved' })) + '">' +
-      cardImg('', '⭐') +
-      '<div class="card-body">' +
-        '<div class="card-title">' + esc(t('savedLessons')) + '</div>' +
-        '<div class="card-sub">' + saved.length + ' ' + (saved.length === 1 ? t('sectionCount') : t('sectionCountPlural')) + '</div>' +
-      '</div>' +
-    '</div>';
-  }
-
   function renderSections() {
     var secs = state.data.sections;
     var html = '<div class="hint">' + t('noSections') + '</div>';
     if (!secs.length) { view.innerHTML = html; return; }
     html = renderCrumbs([{ label: t('sectionsLabel') }]);
-    html += renderSavedCard();
     html += secs.map(function (sec) {
       var countText = sec.lessons.length + ' ' + (sec.lessons.length === 1 ? t('sectionCount') : t('sectionCountPlural'));
       return '<div class="card" data-section="' + esc(sec.id) + '">' +
@@ -1010,6 +999,8 @@
 
   document.addEventListener('click', function (e) {
     if (e.target.closest('#modal-cancel') || e.target.closest('#modal-close')) { closeModal(); return; }
+
+    if (e.target.closest('#btn-saved')) { go({ name: 'saved' }); return; }
 
     var menuBtn = e.target.closest('.menu-btn');
     if (menuBtn) {
