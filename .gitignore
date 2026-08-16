@@ -4,6 +4,7 @@ node_modules/
 # Build outputs
 android/
 www/
+procap-cap/
 .gradle/
 build/
 local.properties
