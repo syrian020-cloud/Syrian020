@@ -396,6 +396,8 @@
       </div>
       <div class="filter-row">
         <label for="filter-select" data-t="filterLabel">فلتر الفيديو</label>
+        <input type="file" id="bg-image-input" accept="image/*" style="display:none">
+        <button class="icon-btn" id="btn-bg-image" title="خلفية" data-t-title="changeBackground">🖼️</button>
         <select id="filter-select">
           <option value="" data-t="filterNone">بدون</option>
           <option value="grayscale" data-t="filterGrayscale">أبيض وأسود</option>
@@ -436,7 +438,7 @@
   const $ = id => document.getElementById(id);
   const videoFile = $('video-file'), lessonImage = $('lesson-image'), editImage = $('edit-image'), srtMain = $('srt-main'), srtFr = $('srt-fr'), srtAr = $('srt-ar'), srtEn = $('srt-en'), srtPaste = $('srt-paste');
   const videoName = $('video-name'), imageName = $('image-name'), nameMain = $('name-main'), nameFr = $('name-fr'), nameAr = $('name-ar'), nameEn = $('name-en');
-  const btnStart = $('btn-start'), btnReset = $('btn-reset'), btnStop = $('btn-stop');
+  const btnStart = $('btn-start'), btnReset = $('btn-reset'), btnStop = $('btn-stop'), btnBgImage = $('btn-bg-image'), bgImageInput = $('bg-image-input');
   const videoWrap = $('video-wrap'), player = $('player'), bubble = $('bubble');
   const controls = $('controls'), progress = $('progress'), currentTimeEl = $('current-time'), durationEl = $('duration');
   const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next'), btnFullLoop = $('btn-full-loop'), btnVideoLoop = $('btn-video-loop'), btnLoopAll = $('btn-loop-all');
@@ -466,6 +468,7 @@
     posterUrl: null,
     thumbUrls: [],
     editingImageId: null,
+    currentLessonId: null,
     uiLang: localStorage.getItem('srt_ui_lang') || 'ar',
     wordLoopEl: null,
     muted: false
@@ -542,6 +545,7 @@
       readImageError: 'تعذّر قراءة صورة الدرس',
       unmuteAudio: 'تشغيل الصوت',
       filterLabel: 'فلتر الفيديو',
+      changeBackground: 'تغيير الخلفية',
       filterNone: 'بدون',
       filterGrayscale: 'أبيض وأسود',
       filterSepia: 'سيبيا',
@@ -631,6 +635,7 @@
       readImageError: 'Échec de la lecture de l\'image',
       unmuteAudio: 'Réactiver l\'audio',
       filterLabel: 'Filtre vidéo',
+      changeBackground: 'Changer l’arrière-plan',
       filterNone: 'Aucun',
       filterGrayscale: 'Noir et blanc',
       filterSepia: 'Sépia',
@@ -720,6 +725,7 @@
       readImageError: 'Failed to read image',
       unmuteAudio: 'Unmute audio',
       filterLabel: 'Video filter',
+      changeBackground: 'Change background',
       filterNone: 'None',
       filterGrayscale: 'Grayscale',
       filterSepia: 'Sepia',
@@ -825,6 +831,28 @@
       videoWrap.style.backgroundSize = '';
       videoWrap.style.backgroundPosition = '';
       videoWrap.style.backgroundRepeat = '';
+    }
+  }
+  async function applyBackgroundImage(file) {
+    if (!file) return;
+    try {
+      if (state.posterUrl) { URL.revokeObjectURL(state.posterUrl); state.posterUrl = null; }
+      const url = URL.createObjectURL(file);
+      state.posterUrl = url;
+      player.poster = url;
+      setVideoBackground(url);
+      if (state.currentLessonId) {
+        const ab = await readFileAsArrayBuffer(file);
+        const imageBlob = new Blob([ab], { type: file.type || 'image/jpeg' });
+        const lesson = await getLessonById(state.currentLessonId);
+        if (lesson) {
+          lesson.imageBlob = imageBlob;
+          await saveLessonToDB(lesson);
+          showToast(t('updateSuccess'));
+        }
+      }
+    } catch (e) {
+      showToast(t('readImageError'));
     }
   }
 
@@ -1507,6 +1535,7 @@
   }
 
   async function start() {
+    state.currentLessonId = null;
     const ok = await loadCues();
     if (!ok) return;
     showToast(t('loadedCues', {count: state.cues.length}));
@@ -1537,6 +1566,7 @@
       } catch (e) { showToast(t('readImageError')); }
     }
     const lesson = { id: Date.now().toString(36), name, createdAt: Date.now(), cues: state.cues, videoBlob, imageBlob };
+    state.currentLessonId = lesson.id;
     try {
       await saveLessonToDB(lesson);
       showToast(t('saveSuccess'));
@@ -1549,6 +1579,7 @@
     stopAllLoops();
     const lesson = await getLessonById(id);
     if (!lesson) { showToast(t('notFound')); return; }
+    state.currentLessonId = lesson.id;
     if (state.videoUrl) { URL.revokeObjectURL(state.videoUrl); state.videoUrl = null; }
     if (state.posterUrl) { URL.revokeObjectURL(state.posterUrl); state.posterUrl = null; }
     state.cues = lesson.cues || [];
@@ -1804,6 +1835,7 @@
     state.currentIndex = -1;
     state.isPlaying = false;
     state.duration = 0;
+    state.currentLessonId = null;
     player.style.transform = '';
     player.style.filter = '';
     applyFilter('');
@@ -1831,6 +1863,8 @@
   filterSelect.addEventListener('change', () => {
     applyFilter(filterSelect.value);
   });
+  btnBgImage.addEventListener('click', () => bgImageInput.click());
+  bgImageInput.addEventListener('change', () => { applyBackgroundImage(bgImageInput.files[0]); bgImageInput.value = ''; });
 
   btnLessons.addEventListener('click', () => showView('lessons'));
   btnSetup.addEventListener('click', () => showView('setup'));
