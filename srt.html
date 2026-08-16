@@ -105,37 +105,47 @@
   }
   .bubble-loop {
     position: absolute;
-    top: 0.4rem;
-    inset-inline-end: 0.5rem;
+    top: 0.25rem;
+    inset-inline-end: 0.25rem;
     background: rgba(0,0,0,0.35);
     color: var(--gold);
     border: 1px solid var(--border);
     border-radius: 50%;
-    width: 38px;
-    height: 38px;
+    width: 30px;
+    height: 30px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     cursor: pointer;
     z-index: 5;
   }
   .bubble-loop:hover { background: rgba(0,0,0,0.55); border-color: var(--gold); }
   .bubble-loop.active { background: var(--success); color: #0b0d1f; border-color: var(--success); }
   .subtitle-bubble:empty { display: none; }
+  .subtitle-bubble { padding: 0.6rem 2.4rem 0.45rem 0.6rem; }
   .lang-line {
     border-radius: var(--radius-sm);
-    padding: 0.85rem 0.6rem 0.45rem;
+    padding: 0.45rem 0.55rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.2rem;
+  }
+  .lang-line-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 22px;
+  }
+  .lang-line .lang-text {
     font-size: 1rem;
     font-weight: 600;
     text-align: center;
     line-height: 1.35;
-    position: relative;
   }
   .lang-line .badge {
-    position: absolute;
-    top: 0.15rem;
-    inset-inline-start: 0.6rem;
     background: rgba(0,0,0,0.45);
     color: #fff;
     font-size: 0.65rem;
@@ -145,9 +155,6 @@
     text-transform: uppercase;
   }
   .lang-line .loop {
-    position: absolute;
-    top: 0.15rem;
-    inset-inline-end: 0.6rem;
     background: rgba(0,0,0,0.45);
     color: #fff;
     border: none;
@@ -159,7 +166,6 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    z-index: 2;
   }
   .lang-line .loop:hover { background: rgba(0,0,0,0.65); }
   .lang-line .loop.active { background: var(--success); color: #0b0d1f; }
@@ -1291,9 +1297,11 @@
     const loopBtn = `<button class="bubble-loop" title="${escapeHtml(t('videoLoopTitle'))}" aria-label="${escapeHtml(t('videoLoopTitle'))}">🔂</button>`;
     bubble.innerHTML = loopBtn + cue.lines.map(line => `
       <div class="lang-line ${line.lang}" dir="${line.lang === 'ar' ? 'rtl' : 'ltr'}">
-        <span class="badge">${LANG_LABELS[line.lang]}</span>
-        <button class="loop" data-lang="${line.lang}" title="${escapeHtml(t('speakTitle', {lang: LANG_NAMES[line.lang]}))}" aria-label="${escapeHtml(t('speakTitle', {lang: LANG_NAMES[line.lang]}))}">🔊</button>
-        ${wrapWords(line.text, line.lang)}
+        <div class="lang-line-header">
+          <span class="badge">${LANG_LABELS[line.lang]}</span>
+          <button class="loop" data-lang="${line.lang}" title="${escapeHtml(t('speakTitle', {lang: LANG_NAMES[line.lang]}))}" aria-label="${escapeHtml(t('speakTitle', {lang: LANG_NAMES[line.lang]}))}">🔊</button>
+        </div>
+        <div class="lang-text">${wrapWords(line.text, line.lang)}</div>
       </div>
     `).join('');
     const bubbleLoop = bubble.querySelector('.bubble-loop');
