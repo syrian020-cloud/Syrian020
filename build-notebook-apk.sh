@@ -44,8 +44,8 @@ npx cap sync android
 # Ensure the Android launcher label matches the notebook app
 STRINGS="$ROOT/android/app/src/main/res/values/strings.xml"
 if [ -f "$STRINGS" ]; then
-  sed -i 's|<string name="app_name">.*</string>|<string name="app_name">دفتر الدراسة</string>|' "$STRINGS"
-  sed -i 's|<string name="title_activity_main">.*</string>|<string name="title_activity_main">دفتر الدراسة</string>|' "$STRINGS"
+  sed -i 's|<string name="app_name">.*</string>|<string name="app_name">Study Notebook</string>|' "$STRINGS"
+  sed -i 's|<string name="title_activity_main">.*</string>|<string name="title_activity_main">Study Notebook</string>|' "$STRINGS"
 fi
 
 # Sync the PWA icon into the Android mipmap launcher icons

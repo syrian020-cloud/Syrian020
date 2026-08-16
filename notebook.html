@@ -574,8 +574,13 @@
     dragHint: { ar: 'اسحب العبارة لإعادة الترتيب', fr: 'Glisser pour réordonner', en: 'Drag to reorder' }
   };
 
+  // Reset cached Arabic default from older installs so English becomes the primary UI language.
+  if (localStorage.getItem('nb_ui_lang') && !localStorage.getItem('nb_app_lang')) {
+    localStorage.removeItem('nb_ui_lang');
+  }
+
   var state = {
-    uiLang: localStorage.getItem('nb_ui_lang') || 'en',
+    uiLang: localStorage.getItem('nb_app_lang') || 'en',
     theme: localStorage.getItem('nb_theme') || 'dark',
     rate: parseFloat(localStorage.getItem('nb_rate')) || 1,
     langs: (localStorage.getItem('nb_langs') || 'fr,ar,en').split(','),
@@ -739,7 +744,7 @@
 
   function setUILang(lang) {
     state.uiLang = lang;
-    localStorage.setItem('nb_ui_lang', lang);
+    localStorage.setItem('nb_app_lang', lang);
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
