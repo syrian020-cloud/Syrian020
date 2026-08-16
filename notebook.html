@@ -1075,7 +1075,7 @@
     state.loop = { key: keyBase + ':all', word: false };
     (function next() {
       if (!state.loop || state.loop.key !== keyBase + ':all') return;
-      if (i >= les.phrases.length) { stopSpeech(); return; }
+      if (i >= les.phrases.length) { i = 0; setTimeout(next, 1200); return; }
       var p = les.phrases[i];
       var key = keyBase + ':' + i;
       var el = document.querySelector('.phrase[data-key="' + key + '"]');
