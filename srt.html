@@ -442,7 +442,8 @@
     thumbUrls: [],
     editingImageId: null,
     uiLang: localStorage.getItem('srt_ui_lang') || 'ar',
-    wordLoopEl: null
+    wordLoopEl: null,
+    muted: false
   };
 
   const LANG_ORDER = ['fr','ar','en'];
@@ -514,6 +515,7 @@
       stopAudio: 'إيقاف الصوت',
       readVideoError: 'تعذّر قراءة ملف الفيديو',
       readImageError: 'تعذّر قراءة صورة الدرس',
+      unmuteAudio: 'تشغيل الصوت',
       importTitle: 'استيراد دروس JSON',
       exportAll: 'تصدير كل الدروس',
       actions: 'خيارات',
@@ -591,6 +593,7 @@
       stopAudio: 'Arrêter l\'audio',
       readVideoError: 'Échec de la lecture de la vidéo',
       readImageError: 'Échec de la lecture de l\'image',
+      unmuteAudio: 'Réactiver l\'audio',
       importTitle: 'Importer des leçons JSON',
       exportAll: 'Exporter toutes les leçons',
       actions: 'Options',
@@ -668,6 +671,7 @@
       stopAudio: 'Stop audio',
       readVideoError: 'Failed to read video file',
       readImageError: 'Failed to read image',
+      unmuteAudio: 'Unmute audio',
       importTitle: 'Import lessons JSON',
       exportAll: 'Export all lessons',
       actions: 'Options',
@@ -1166,6 +1170,12 @@
     if (state.wordLoopEl) { state.wordLoopEl.classList.remove('active'); state.wordLoopEl = null; }
     updateButtons();
   }
+  function toggleMute() {
+    state.muted = !state.muted;
+    player.muted = state.muted;
+    if (state.muted) stopAllLoops();
+    updateButtons();
+  }
 
   // --- UI ---
   function updateButtons() {
@@ -1182,6 +1192,10 @@
       const l = btn.dataset.lang;
       btn.classList.toggle('active', state.loopLang === l);
     });
+    if (btnStop) {
+      btnStop.textContent = state.muted ? '🔊' : '🔇';
+      btnStop.title = t(state.muted ? 'unmuteAudio' : 'stopAudio');
+    }
   }
 
   function renderLangButtons() {
@@ -1376,6 +1390,7 @@
     if (videoFile.files[0]) {
       state.videoUrl = URL.createObjectURL(videoFile.files[0]);
       player.src = state.videoUrl;
+      player.muted = state.muted;
       videoWrap.style.display = 'block';
     } else {
       player.src = '';
@@ -1436,6 +1451,7 @@
     if (lesson.videoBlob) {
       state.videoUrl = URL.createObjectURL(lesson.videoBlob);
       player.src = state.videoUrl;
+      player.muted = state.muted;
       videoWrap.style.display = 'block';
     } else {
       player.src = '';
@@ -1690,7 +1706,7 @@
   btnStart.addEventListener('click', start);
   btnReset.addEventListener('click', reset);
   btnSaveLesson.addEventListener('click', saveLesson);
-  btnStop.addEventListener('click', stopAllLoops);
+  btnStop.addEventListener('click', toggleMute);
   btnPrev.addEventListener('click', prevCue);
   btnPlay.addEventListener('click', togglePlay);
   btnNext.addEventListener('click', nextCue);
