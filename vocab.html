@@ -310,7 +310,8 @@
       backToFrench: '← العودة إلى دروس الفرنسية',
       footerText: 'VidCap',
       copied: 'تم نسخ النص',
-      loadMore: 'تحميل المزيد'
+      loadMore: 'تحميل المزيد',
+      exitConfirm: 'هل تريد حقاً الخروج من التطبيق؟'
     },
     en: {
       appName: 'VidCap',
@@ -346,7 +347,8 @@
       backToFrench: '← Back to French lessons',
       footerText: 'VidCap',
       copied: 'Copied',
-      loadMore: 'Load more'
+      loadMore: 'Load more',
+      exitConfirm: 'Do you really want to exit the app?'
     },
     fr: {
       appName: 'VidCap',
@@ -382,7 +384,8 @@
       backToFrench: '← Retour aux leçons',
       footerText: 'VidCap',
       copied: 'Copié',
-      loadMore: 'Charger plus'
+      loadMore: 'Charger plus',
+      exitConfirm: 'Voulez-vous vraiment quitter l\'application ?'
     }
   };
 
@@ -432,7 +435,23 @@
     mdph: { ar: 'MDPH', en: 'MDPH', fr: 'MDPH' },
     mairie: { ar: 'البلدية', en: 'Town hall', fr: 'Mairie' },
     family: { ar: 'عائلة', en: 'Family', fr: 'Famille' },
-    weather: { ar: 'طقس', en: 'Weather', fr: 'Météo' }
+    weather: { ar: 'طقس', en: 'Weather', fr: 'Météo' },
+    caf: { ar: "صندوق التخصيصات العائلية", en: "CAF", fr: "CAF" },
+    cafVerbs: { ar: "الأفعال المهمة لصندوق العائلة", en: "Verbes du CAF", fr: "Verbes du CAF" },
+    socialVerbs: { ar: "أفعال الحياة اليومية والمساعدات", en: "Verbes Sociaux", fr: "Verbes Sociaux" },
+    legalTerms: { ar: "المصطلحات القانونية والإدارية", en: "Termes Juridiques", fr: "Termes Juridiques" },
+    commonExpressions: { ar: "تعبيرات يومية مع موظفي CAF", en: "Expressions Courantes", fr: "Expressions Courantes" },
+    cafProcedures: { ar: "إجراءات CAF الأساسية", en: "Démarches CAF", fr: "Démarches CAF" },
+    cafVerbsPhrases: { ar: "الأفعال في جمل حقيقية مع CAF", en: "Verbes en Phrases", fr: "Verbes en Phrases" },
+    cafAdditionalVerbs: { ar: "أفعال إضافية مهمة للCAF", en: "Verbes Administratifs", fr: "Verbes Administratifs" },
+    aideLogement: { ar: "مفردات APL الأساسية", en: "Aide au Logement", fr: "Aide au Logement" },
+    rsaVocabulary: { ar: "مفردات الـ RSA الأساسية", en: "RSA", fr: "RSA" },
+    essentialPhrases: { ar: "أهم العبارات المتكررة", en: "Phrases Essentielles", fr: "Phrases Essentielles" },
+    sevenDayPlan: { ar: "خطة أسبوعية للتعلم السريع", en: "Plan 7 Jours", fr: "Plan 7 Jours" },
+    franceTravail: { ar: "كل ما تحتاج لمكتب العمل", en: "France Travail", fr: "France Travail" },
+    hepatiteB: { ar: "كل ما تحتاج معرفته عن التهاب الكبد B", en: "Hépatite B", fr: "Hépatite B" },
+    hepatiteBPractical: { ar: "جمل عملية للحياة اليومية", en: "Vie Quotidienne", fr: "Vie Quotidienne" },
+    medecinTravail: { ar: "عبارات طبيب العمل", en: "Médecin du Travail", fr: "Médecin du Travail" }
   };
 
   function t(key){ return UI[state.uiLang][key] || UI.en[key] || UI.ar[key] || key; }
@@ -952,6 +971,16 @@
     });
 
     window.addEventListener('beforeunload', stopSpeech);
+
+    // Android back button / app exit confirmation
+    if(window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App){
+      var AppPlugin = window.Capacitor.Plugins.App;
+      AppPlugin.addListener('backButton', function(){
+        if(confirm(t('exitConfirm'))){
+          AppPlugin.exitApp();
+        }
+      });
+    }
   }
 
   init();
