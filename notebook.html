@@ -1386,13 +1386,25 @@
     var json = JSON.stringify(state.data, null, 2);
     var filename = 'notebook_' + new Date().toISOString().slice(0, 10) + '.json';
     var fs = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Filesystem;
-    if (fs) {
-      fs.writeFile({ path: 'notebook/' + filename, data: json, directory: 'DOCUMENTS', encoding: 'utf8', recursive: true })
-        .then(function () { alert(t('exportDoneFile') + '\n' + filename); })
-        .catch(function (err) { alert(t('exportErrorFile') + (err && err.message ? ': ' + err.message : '')); });
+    var share = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Share;
+    if (share && share.canShare && fs) {
+      share.canShare().then(function (can) {
+        if (can.value) {
+          return fs.writeFile({ path: 'notebook/share/' + filename, data: json, directory: 'CACHE', encoding: 'utf8', recursive: true })
+            .then(function (res) { return share.share({ title: 'Study Notebook', files: [res.uri], dialogTitle: 'تصدير الأقسام' }); })
+            .then(function () { alert(t('exportDoneFile') + '\n' + filename); });
+        }
+        return saveExportToDocuments(fs, json, filename);
+      }).catch(function (err) { saveExportToDocuments(fs, json, filename); });
       return;
     }
+    if (fs) { saveExportToDocuments(fs, json, filename); return; }
     fallbackExport(json, filename);
+  }
+  function saveExportToDocuments(fs, json, filename) {
+    fs.writeFile({ path: 'notebook/' + filename, data: json, directory: 'DOCUMENTS', encoding: 'utf8', recursive: true })
+      .then(function () { alert(t('exportDoneFile') + '\n' + filename); })
+      .catch(function (err) { alert(t('exportErrorFile') + (err && err.message ? ': ' + err.message : '')); });
   }
   function fallbackExport(json, filename) {
     downloadExport(json, filename);
