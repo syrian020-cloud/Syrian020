@@ -329,6 +329,8 @@
     changeImage: { ar: 'تغيير الصورة', fr: 'Modifier l’image', en: 'Change image' },
     actions: { ar: 'خيارات', fr: 'Options', en: 'Options' },
     exportDone: { ar: 'تم نسخ JSON إلى الحافظة', fr: 'JSON copié dans le presse-papiers', en: 'JSON copied to clipboard' },
+    exportDoneFile: { ar: 'تم حفظ ملف JSON', fr: 'Fichier JSON enregistré', en: 'JSON file saved' },
+    exportErrorFile: { ar: 'تعذّر حفظ الملف', fr: 'Impossible d\'enregistrer le fichier', en: 'Could not save file' },
     savedLessons: { ar: 'الدروس المحفوظة', fr: 'Leçons enregistrées', en: 'Saved lessons' },
     save: { ar: 'حفظ', fr: 'Enregistrer', en: 'Save' },
     removeFromSaved: { ar: 'إزالة من المحفوظة', fr: 'Retirer des favoris', en: 'Remove from saved' },
@@ -1118,13 +1120,20 @@
   function exportNotebook() {
     var json = JSON.stringify(state.data, null, 2);
     var filename = 'notebook_' + new Date().toISOString().slice(0, 10) + '.json';
-    if (window.Capacitor && navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(json).then(function () { alert(t('exportDone')); }).catch(function () { fallbackExport(json, filename); });
+    var fs = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Filesystem;
+    if (fs) {
+      fs.writeFile({ path: 'notebook/' + filename, data: json, directory: 'DOCUMENTS', encoding: 'utf8', recursive: true })
+        .then(function () { alert(t('exportDoneFile') + '\n' + filename); })
+        .catch(function (err) { alert(t('exportErrorFile') + (err && err.message ? ': ' + err.message : '')); });
       return;
     }
     fallbackExport(json, filename);
   }
   function fallbackExport(json, filename) {
+    downloadExport(json, filename);
+    alert(t('exportDoneFile') + '\n' + filename);
+  }
+  function downloadExport(json, filename) {
     var blob = new Blob([json], { type: 'application/json' });
     var url = URL.createObjectURL(blob);
     var a = document.createElement('a');
