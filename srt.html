@@ -1516,10 +1516,7 @@
     return String(name).replace(/[^\p{L}\p{N}\s_-]/gu, '_').replace(/\s+/g, '_') || 'lesson';
   }
   async function serializeLesson(lesson) {
-    const obj = { name: lesson.name, createdAt: lesson.createdAt, cues: lesson.cues };
-    if (lesson.videoBlob) { obj.videoBase64 = await blobToBase64(lesson.videoBlob); obj.videoType = lesson.videoBlob.type || 'video/mp4'; }
-    if (lesson.imageBlob) { obj.imageBase64 = await blobToBase64(lesson.imageBlob); obj.imageType = lesson.imageBlob.type || 'image/jpeg'; }
-    return obj;
+    return { name: lesson.name, createdAt: lesson.createdAt, cues: lesson.cues };
   }
   function deserializeLesson(obj) {
     const lesson = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), name: obj.name || 'Lesson', createdAt: obj.createdAt || Date.now(), cues: Array.isArray(obj.cues) ? obj.cues : [] };
@@ -1537,27 +1534,19 @@
     setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1000);
   }
   async function shareJson(json, filename, title) {
-    try {
-      if (isCapacitor() && window.Capacitor.Plugins.Filesystem && window.Capacitor.Plugins.Share) {
-        const fs = window.Capacitor.Plugins.Filesystem;
-        const result = await fs.writeFile({ path: filename, data: json, directory: 'CACHE', encoding: 'utf8' });
-        let uri = result && result.uri;
-        if (!uri) {
-          const uriRes = await fs.getUri({ path: filename, directory: 'CACHE' });
-          uri = uriRes && uriRes.uri;
-        }
-        if (uri) {
-          await window.Capacitor.Plugins.Share.share({ url: uri, title: title || filename, dialogTitle: title || filename });
-          return 'share';
-        }
-      }
-    } catch (e) { console.error('Capacitor share error', e); }
-    const blob = new Blob([json], { type: 'application/json' });
-    const file = new File([blob], filename, { type: 'application/json' });
     if (navigator.share) {
-      try { await navigator.share({ files: [file], title: title || filename }); return 'share'; } catch (e) {}
+      const blob = new Blob([json], { type: 'application/json' });
+      const file = new File([blob], filename, { type: 'application/json' });
+      try {
+        await navigator.share({ files: [file], title: title || filename });
+        return 'share';
+      } catch (e) {}
+      try {
+        await navigator.share({ title: title || filename, text: json });
+        return 'share-text';
+      } catch (e) {}
     }
-    try { downloadFile(blob, filename); } catch (e) {}
+    try { downloadFile(new Blob([json], { type: 'application/json' }), filename); } catch (e) {}
     return 'download';
   }
   async function exportLesson(id) {
