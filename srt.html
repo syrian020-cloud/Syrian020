@@ -252,68 +252,69 @@
 <body>
 <header>
   <div class="header-inner">
-    <span class="logo">مشغّل SRT</span>
+    <span class="logo" data-t="logo">مشغّل SRT</span>
     <span class="spacer"></span>
-    <button class="icon-btn" id="btn-lessons" title="الدروس">📚</button>
-    <button class="icon-btn" id="btn-setup" title="إعداد درس جديد">➕</button>
-    <button class="icon-btn" id="btn-stop" title="إيقاف الصوت">🔇</button>
+    <button class="icon-btn" id="btn-lang" title="Language / Langue / اللغة">AR</button>
+    <button class="icon-btn" id="btn-lessons" title="الدروس" data-t-title="lessonsTitle">📚</button>
+    <button class="icon-btn" id="btn-setup" title="إعداد درس جديد" data-t-title="newLessonTitle">➕</button>
+    <button class="icon-btn" id="btn-stop" title="إيقاف الصوت" data-t-title="stopAudio">🔇</button>
   </div>
 </header>
 
 <main>
   <section class="view active" id="lessons-view">
     <div class="panel">
-      <h2>دروسي</h2>
+      <h2 data-t="lessonsTitle">دروسي</h2>
       <div id="lessons-list">
-        <p class="empty-hint">لا توجد دروس محفوظة. اضغط على “➕” لإعداد درس جديد.</p>
+        <p class="empty-hint" data-t="emptyHint">لا توجد دروس محفوظة. اضغط على “➕” لإعداد درس جديد.</p>
       </div>
-      <button class="primary" id="btn-new-lesson" style="margin-top:0.8rem;">+ درس جديد</button>
+      <button class="primary" id="btn-new-lesson" style="margin-top:0.8rem;" data-t="newLesson">+ درس جديد</button>
     </div>
   </section>
 
   <section class="view" id="setup-view">
     <div class="panel" id="setup-panel">
-      <h2>إعداد درس جديد</h2>
+      <h2 data-t="setupTitle">إعداد درس جديد</h2>
 
       <div class="file-row">
-        <label for="video-file">فيديو/صوت</label>
+        <label for="video-file" data-t="videoLabel">فيديو/صوت</label>
         <input type="file" id="video-file" accept="video/*,audio/*">
         <span class="file-name" id="video-name"></span>
       </div>
       <div class="file-row">
-        <label for="lesson-image">صورة الدرس (اختياري)</label>
+        <label for="lesson-image" data-t="imageLabel">صورة الدرس (اختياري)</label>
         <input type="file" id="lesson-image" accept="image/*">
         <span class="file-name" id="image-name"></span>
       </div>
 
       <div class="source-tabs">
-        <button class="source-tab active" data-tab="single" type="button">ملف ترجمة واحد</button>
-        <button class="source-tab" data-tab="separate" type="button">ملفات منفصلة</button>
-        <button class="source-tab" data-tab="paste" type="button">لصق نص</button>
+        <button class="source-tab active" data-tab="single" type="button" data-t="tabSingle">ملف ترجمة واحد</button>
+        <button class="source-tab" data-tab="separate" type="button" data-t="tabSeparate">ملفات منفصلة</button>
+        <button class="source-tab" data-tab="paste" type="button" data-t="tabPaste">لصق نص</button>
       </div>
 
       <div class="tab-panel active" data-tab="single">
         <div class="file-row">
-          <label for="srt-main">ملف الترجمة</label>
+          <label for="srt-main" data-t="mainFileLabel">ملف الترجمة</label>
           <input type="file" id="srt-main" accept=".srt,.txt">
           <span class="file-name" id="name-main"></span>
         </div>
-        <p class="hint">اختر ملف SRT/TXT واحد يحتوي على الفرنسية والعربية والإنجليزية لكل عبارة.</p>
+        <p class="hint" data-t="singleHint">اختر ملف SRT/TXT واحد يحتوي على الفرنسية والعربية والإنجليزية لكل عبارة.</p>
       </div>
 
       <div class="tab-panel" data-tab="separate">
         <div class="file-row">
-          <label for="srt-fr">الفرنسية</label>
+          <label for="srt-fr" data-t="langFrench">الفرنسية</label>
           <input type="file" id="srt-fr" accept=".srt,.txt">
           <span class="file-name" id="name-fr"></span>
         </div>
         <div class="file-row">
-          <label for="srt-ar">العربية</label>
+          <label for="srt-ar" data-t="langArabic">العربية</label>
           <input type="file" id="srt-ar" accept=".srt,.txt">
           <span class="file-name" id="name-ar"></span>
         </div>
         <div class="file-row">
-          <label for="srt-en">الإنجليزية</label>
+          <label for="srt-en" data-t="langEnglish">الإنجليزية</label>
           <input type="file" id="srt-en" accept=".srt,.txt">
           <span class="file-name" id="name-en"></span>
         </div>
@@ -321,22 +322,22 @@
 
       <div class="tab-panel" data-tab="paste">
         <div class="paste-row">
-          <label for="srt-paste">النص المؤقت</label>
+          <label for="srt-paste" data-t="pasteLabel">النص المؤقت</label>
           <textarea id="srt-paste" placeholder="00:00 Je suis désolé.&#10;أنا آسف.&#10;I'm sorry."></textarea>
         </div>
       </div>
 
       <div class="action-row">
-        <button class="primary" id="btn-start">▶ معاينة / بدء</button>
-        <button class="secondary" id="btn-save-lesson">💾 حفظ الدرس</button>
-        <button class="secondary" id="btn-reset">إعادة ضبط</button>
+        <button class="primary" id="btn-start" data-t="startBtn">▶ معاينة / بدء</button>
+        <button class="secondary" id="btn-save-lesson" data-t="saveBtn">💾 حفظ الدرس</button>
+        <button class="secondary" id="btn-reset" data-t="resetBtn">إعادة ضبط</button>
       </div>
     </div>
   </section>
 
   <section class="view" id="player-view">
     <div class="player-header">
-      <button class="icon-btn" id="btn-back-lessons">← الدروس</button>
+      <button class="icon-btn" id="btn-back-lessons" data-t="backToLessons">← الدروس</button>
       <span class="spacer"></span>
       <span class="lesson-title" id="lesson-title"></span>
     </div>
@@ -353,7 +354,7 @@
         <span id="duration">00:00</span>
       </div>
       <div class="rate-row">
-        <label for="rate">سرعة الفيديو</label>
+        <label for="rate" data-t="rateLabel">سرعة الفيديو</label>
         <select id="rate">
           <option value="0.5">0.5×</option>
           <option value="0.75">0.75×</option>
@@ -364,12 +365,12 @@
         </select>
       </div>
       <div class="btn-row">
-        <button class="ctrl-btn" id="btn-prev" title="السطر السابق (←)">⏮</button>
-        <button class="ctrl-btn" id="btn-play" title="تشغيل/إيقاف (مسافة)">⏯</button>
-        <button class="ctrl-btn" id="btn-next" title="السطر التالي (→)">⏭</button>
-        <button class="ctrl-btn" id="btn-full-loop" title="تكرار الفيديو كاملاً من البداية للنهاية">🔁</button>
-        <button class="ctrl-btn" id="btn-video-loop" title="تكرار عبارة الفيديو">🔂</button>
-        <button class="ctrl-btn" id="btn-loop-all" title="تكرار النطق بالثلاث لغات">🔄</button>
+        <button class="ctrl-btn" id="btn-prev" title="السطر السابق (←)" data-t-title="prevTitle">⏮</button>
+        <button class="ctrl-btn" id="btn-play" title="تشغيل/إيقاف (مسافة)" data-t-title="playTitle">⏯</button>
+        <button class="ctrl-btn" id="btn-next" title="السطر التالي (→)" data-t-title="nextTitle">⏭</button>
+        <button class="ctrl-btn" id="btn-full-loop" title="تكرار الفيديو كاملاً من البداية للنهاية" data-t-title="fullLoopTitle">🔁</button>
+        <button class="ctrl-btn" id="btn-video-loop" title="تكرار عبارة الفيديو" data-t-title="videoLoopTitle">🔂</button>
+        <button class="ctrl-btn" id="btn-loop-all" title="تكرار النطق بالثلاث لغات" data-t-title="loopAllTitle">🔄</button>
       </div>
       <div class="lang-btn-row" id="lang-btns"></div>
       <div class="status" id="status"></div>
@@ -377,7 +378,7 @@
   </section>
 </main>
 
-<footer>مشغّل SRT مصاحب للفيديو — يدعم الفرنسية والعربية والإنجليزية</footer>
+<footer data-t="footer">مشغّل SRT مصاحب للفيديو — يدعم الفرنسية والعربية والإنجليزية</footer>
 <div class="toast" id="toast"></div>
 <input type="file" id="edit-image" accept="image/*" style="display:none">
 
@@ -393,7 +394,7 @@
   const videoWrap = $('video-wrap'), player = $('player'), bubble = $('bubble');
   const controls = $('controls'), progress = $('progress'), currentTimeEl = $('current-time'), durationEl = $('duration');
   const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next'), btnFullLoop = $('btn-full-loop'), btnVideoLoop = $('btn-video-loop'), btnLoopAll = $('btn-loop-all');
-  const btnLessons = $('btn-lessons'), btnSetup = $('btn-setup'), btnNewLesson = $('btn-new-lesson'), btnSaveLesson = $('btn-save-lesson'), btnBackLessons = $('btn-back-lessons');
+  const btnLessons = $('btn-lessons'), btnSetup = $('btn-setup'), btnNewLesson = $('btn-new-lesson'), btnSaveLesson = $('btn-save-lesson'), btnBackLessons = $('btn-back-lessons'), btnLang = $('btn-lang');
   const lessonsView = $('lessons-view'), setupView = $('setup-view'), playerView = $('player-view'), lessonsList = $('lessons-list'), lessonTitle = $('lesson-title');
   const langBtns = $('lang-btns'), statusEl = $('status'), toast = $('toast'), rateSelect = $('rate');
 
@@ -416,12 +417,232 @@
     videoUrl: null,
     posterUrl: null,
     thumbUrls: [],
-    editingImageId: null
+    editingImageId: null,
+    uiLang: localStorage.getItem('srt_ui_lang') || 'ar'
   };
 
   const LANG_ORDER = ['fr','ar','en'];
   const LANG_LABELS = { fr: 'FR', ar: 'AR', en: 'EN' };
-  const LANG_NAMES = { fr: 'الفرنسية', ar: 'العربية', en: 'الإنجليزية' };
+  const LANG_NAMES = { fr: 'Français', ar: 'العربية', en: 'English' };
+
+  const UI_LANGS = ['ar','fr','en'];
+  const UI = {
+    ar: {
+      appName: 'SRT Player',
+      title: 'مشغّل SRT',
+      logo: 'مشغّل SRT',
+      lessonsTitle: 'دروسي',
+      emptyHint: 'لا توجد دروس محفوظة. اضغط على “➕” لإعداد درس جديد.',
+      newLesson: '+ درس جديد',
+      newLessonTitle: 'إعداد درس جديد',
+      setupTitle: 'إعداد درس جديد',
+      videoLabel: 'فيديو/صوت',
+      imageLabel: 'صورة الدرس (اختياري)',
+      tabSingle: 'ملف ترجمة واحد',
+      tabSeparate: 'ملفات منفصلة',
+      tabPaste: 'لصق نص',
+      mainFileLabel: 'ملف الترجمة',
+      langFrench: 'الفرنسية',
+      langArabic: 'العربية',
+      langEnglish: 'الإنجليزية',
+      pasteLabel: 'النص المؤقت',
+      singleHint: 'اختر ملف SRT/TXT واحد يحتوي على الفرنسية والعربية والإنجليزية لكل عبارة.',
+      startBtn: '▶ معاينة / بدء',
+      saveBtn: '💾 حفظ الدرس',
+      resetBtn: 'إعادة ضبط',
+      backToLessons: '← الدروس',
+      rateLabel: 'سرعة الفيديو',
+      prevTitle: 'السطر السابق (←)',
+      playTitle: 'تشغيل/إيقاف (مسافة)',
+      nextTitle: 'السطر التالي (→)',
+      fullLoopTitle: 'تكرار الفيديو كاملاً من البداية للنهاية',
+      videoLoopTitle: 'تكرار عبارة الفيديو',
+      loopAllTitle: 'تكرار النطق بالثلاث لغات',
+      speakTitle: 'نطق $lang',
+      footer: 'مشغّل SRT مصاحب للفيديو — يدعم الفرنسية والعربية والإنجليزية',
+      chooseVideoFirst: 'اختر ملف فيديو/صوت أولاً',
+      noCurrentCue: 'لا توجد عبارة حالية',
+      lessonNamePrompt: 'اسم الدرس:',
+      lessonDefaultName: 'درس $date',
+      saveSuccess: 'تم حفظ الدرس',
+      saveError: 'تعذّر حفظ الدرس',
+      updateSuccess: 'تم تحديث الدرس',
+      updateError: 'تعذّر تحديث الدرس',
+      deleteConfirm: 'هل تريد حذف هذا الدرس؟',
+      deleteSuccess: 'تم حذف الدرس',
+      deleteError: 'تعذّر حذف الدرس',
+      resetConfirm: 'هل تريد إعادة الضبط؟ سيتم مسح الملفات والنص.',
+      exitConfirm: 'هل تريد الخروج من التطبيق؟',
+      notFound: 'الدرس غير موجود',
+      loadedCues: 'تم تحميل $count عبارة',
+      renamePromptNew: 'اسم الدرس الجديد:',
+      noContent: 'لا يوجد محتوى للحفظ',
+      noCues: 'لم يتم العثور على عبارات في ملفات الترجمة',
+      chooseFiles: 'الرجاء اختيار فيديو أو ملف/نص ترجمة على الأقل',
+      readError: 'خطأ في قراءة ملف الترجمة',
+      language: 'AR',
+      languageName: 'العربية',
+      rename: 'تعديل الاسم',
+      changeImage: 'تغيير الصورة',
+      play: 'عرض',
+      delete: 'حذف',
+      status: 'العبارة $current من $total · $start - $end',
+      stopAudio: 'إيقاف الصوت',
+      readVideoError: 'تعذّر قراءة ملف الفيديو',
+      readImageError: 'تعذّر قراءة صورة الدرس'
+    },
+    fr: {
+      appName: 'SRT Player',
+      title: 'Lecteur SRT',
+      logo: 'Lecteur SRT',
+      lessonsTitle: 'Mes leçons',
+      emptyHint: 'Aucune leçon enregistrée. Appuyez sur “➕” pour créer une leçon.',
+      newLesson: '+ Nouvelle leçon',
+      newLessonTitle: 'Nouvelle leçon',
+      setupTitle: 'Configurer une nouvelle leçon',
+      videoLabel: 'Vidéo/Audio',
+      imageLabel: 'Image de la leçon (optionnel)',
+      tabSingle: 'Fichier unique',
+      tabSeparate: 'Fichiers séparés',
+      tabPaste: 'Coller le texte',
+      mainFileLabel: 'Fichier de sous-titres',
+      langFrench: 'Français',
+      langArabic: 'Arabe',
+      langEnglish: 'Anglais',
+      pasteLabel: 'Texte temporaire',
+      singleHint: 'Choisissez un fichier SRT/TXT contenant le français, l\'arabe et l\'anglais pour chaque phrase.',
+      startBtn: '▶ Aperçu / Démarrer',
+      saveBtn: '💾 Enregistrer la leçon',
+      resetBtn: 'Réinitialiser',
+      backToLessons: '← Leçons',
+      rateLabel: 'Vitesse vidéo',
+      prevTitle: 'Phrase précédente (←)',
+      playTitle: 'Lecture/Pause (espace)',
+      nextTitle: 'Phrase suivante (→)',
+      fullLoopTitle: 'Répéter la vidéo en entier',
+      videoLoopTitle: 'Répéter la phrase vidéo',
+      loopAllTitle: 'Répéter la prononciation FR→AR→EN',
+      speakTitle: 'Prononcer $lang',
+      footer: 'Lecteur SRT accompagnateur vidéo — supporte FR, AR et EN.',
+      chooseVideoFirst: 'Choisissez d\'abord un fichier vidéo/audio.',
+      noCurrentCue: 'Aucune phrase active',
+      lessonNamePrompt: 'Nom de la leçon :',
+      lessonDefaultName: 'Leçon du $date',
+      saveSuccess: 'Leçon enregistrée',
+      saveError: 'Échec de l\'enregistrement',
+      updateSuccess: 'Leçon mise à jour',
+      updateError: 'Échec de la mise à jour',
+      deleteConfirm: 'Supprimer cette leçon ?',
+      deleteSuccess: 'Leçon supprimée',
+      deleteError: 'Échec de la suppression',
+      resetConfirm: 'Réinitialiser ? Les fichiers et le texte seront effacés.',
+      exitConfirm: 'Quitter l\'application ?',
+      notFound: 'Leçon introuvable',
+      loadedCues: '$count phrases chargées',
+      renamePromptNew: 'Nouveau nom de la leçon :',
+      noContent: 'Aucun contenu à enregistrer',
+      noCues: 'Aucune phrase trouvée dans les fichiers de sous-titres',
+      chooseFiles: 'Veuillez choisir une vidéo ou un fichier/texte de sous-titres.',
+      readError: 'Erreur de lecture du fichier de sous-titres',
+      language: 'FR',
+      languageName: 'Français',
+      rename: 'Renommer',
+      changeImage: 'Changer l\'image',
+      play: 'Lire',
+      delete: 'Supprimer',
+      status: 'Phrase $current sur $total · $start - $end',
+      stopAudio: 'Arrêter l\'audio',
+      readVideoError: 'Échec de la lecture de la vidéo',
+      readImageError: 'Échec de la lecture de l\'image'
+    },
+    en: {
+      appName: 'SRT Player',
+      title: 'SRT Player',
+      logo: 'SRT Player',
+      lessonsTitle: 'My lessons',
+      emptyHint: 'No saved lessons. Press “➕” to set up a new lesson.',
+      newLesson: '+ New lesson',
+      newLessonTitle: 'Set up a new lesson',
+      setupTitle: 'Set up a new lesson',
+      videoLabel: 'Video/Audio',
+      imageLabel: 'Lesson image (optional)',
+      tabSingle: 'Single subtitle file',
+      tabSeparate: 'Separate files',
+      tabPaste: 'Paste text',
+      mainFileLabel: 'Subtitle file',
+      langFrench: 'French',
+      langArabic: 'Arabic',
+      langEnglish: 'English',
+      pasteLabel: 'Temporary text',
+      singleHint: 'Choose one SRT/TXT file containing French, Arabic and English for each phrase.',
+      startBtn: '▶ Preview / Start',
+      saveBtn: '💾 Save lesson',
+      resetBtn: 'Reset',
+      backToLessons: '← Lessons',
+      rateLabel: 'Video speed',
+      prevTitle: 'Previous phrase (←)',
+      playTitle: 'Play/Pause (space)',
+      nextTitle: 'Next phrase (→)',
+      fullLoopTitle: 'Repeat whole video',
+      videoLoopTitle: 'Repeat video phrase',
+      loopAllTitle: 'Repeat pronunciation FR→AR→EN',
+      speakTitle: 'Speak $lang',
+      footer: 'SRT video companion player — supports FR, AR and EN.',
+      chooseVideoFirst: 'Choose a video/audio file first.',
+      noCurrentCue: 'No active phrase',
+      lessonNamePrompt: 'Lesson name:',
+      lessonDefaultName: 'Lesson $date',
+      saveSuccess: 'Lesson saved',
+      saveError: 'Failed to save lesson',
+      updateSuccess: 'Lesson updated',
+      updateError: 'Failed to update lesson',
+      deleteConfirm: 'Delete this lesson?',
+      deleteSuccess: 'Lesson deleted',
+      deleteError: 'Failed to delete lesson',
+      resetConfirm: 'Reset? Files and text will be cleared.',
+      exitConfirm: 'Exit the app?',
+      notFound: 'Lesson not found',
+      loadedCues: '$count phrases loaded',
+      renamePromptNew: 'New lesson name:',
+      noContent: 'No content to save',
+      noCues: 'No phrases found in subtitle files',
+      chooseFiles: 'Please choose a video or subtitle file/text.',
+      readError: 'Error reading subtitle file',
+      language: 'EN',
+      languageName: 'English',
+      rename: 'Rename',
+      changeImage: 'Change image',
+      play: 'Play',
+      delete: 'Delete',
+      status: 'Phrase $current of $total · $start - $end',
+      stopAudio: 'Stop audio',
+      readVideoError: 'Failed to read video file',
+      readImageError: 'Failed to read image'
+    }
+  };
+
+  function t(key, vars) {
+    const text = UI[state.uiLang] && UI[state.uiLang][key] !== undefined ? UI[state.uiLang][key] : UI.en[key] || key;
+    return vars ? text.replace(/\$([a-zA-Z0-9_]+)/g, (m, k) => vars[k] !== undefined ? vars[k] : m) : text;
+  }
+  function setUILang(lang) {
+    if (!UI[lang]) lang = 'ar';
+    state.uiLang = lang;
+    localStorage.setItem('srt_ui_lang', lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    updateUI();
+  }
+  function updateUI() {
+    document.title = t('title');
+    document.querySelectorAll('[data-t]').forEach(el => { el.textContent = t(el.dataset.t); });
+    document.querySelectorAll('[data-t-title]').forEach(el => { el.title = t(el.dataset.tTitle); });
+    btnLang.textContent = t('language');
+    renderLessons();
+    if (playerView.classList.contains('active')) updateStatus();
+    if (bubble.innerHTML) renderBubble();
+    if (langBtns.children.length) renderLangButtons();
+  }
 
   // --- Utilities ---
   function showToast(msg) {
@@ -824,7 +1045,7 @@
   function applyVideoLoop() { player.loop = state.fullVideoLoop; }
 
   function toggleFullVideoLoop() {
-    if (!player.src && !videoFile.files[0]) { showToast('اختر ملف فيديو/صوت أولاً'); return; }
+    if (!player.src && !videoFile.files[0]) { showToast(t('chooseVideoFirst')); return; }
     state.fullVideoLoop = !state.fullVideoLoop;
     applyVideoLoop();
     updateButtons();
@@ -832,8 +1053,8 @@
 
   function toggleVideoLoop() {
     const cue = getCurrentCue();
-    if (!cue) { showToast('لا توجد عبارة حالية'); return; }
-    if (!player.src && !videoFile.files[0]) { showToast('اختر ملف فيديو/صوت أولاً'); return; }
+    if (!cue) { showToast(t('noCurrentCue')); return; }
+    if (!player.src && !videoFile.files[0]) { showToast(t('chooseVideoFirst')); return; }
     if (state.videoLoop) { state.videoLoop = false; state.loopStart = 0; state.loopEnd = 0; updateButtons(); return; }
     state.videoLoop = true;
     state.loopStart = cue.start;
@@ -879,7 +1100,7 @@
     const cue = getCurrentCue();
     const present = cue ? LANG_ORDER.filter(l => cue.lines.some(x => x.lang === l)) : LANG_ORDER;
     langBtns.innerHTML = present.map(l => `
-      <button class="lang-btn" data-lang="${l}" title="نطق ${LANG_NAMES[l]}">
+      <button class="lang-btn" data-lang="${l}" title="${escapeHtml(t('speakTitle', {lang: LANG_NAMES[l]}))}">
         ${LANG_LABELS[l]} 🔊
       </button>
     `).join('');
@@ -895,11 +1116,11 @@
       bubble.innerHTML = '';
       return;
     }
-    const loopBtn = `<button class="bubble-loop" title="تكرار عبارة الفيديو" aria-label="تكرار عبارة الفيديو">🔂</button>`;
+    const loopBtn = `<button class="bubble-loop" title="${escapeHtml(t('videoLoopTitle'))}" aria-label="${escapeHtml(t('videoLoopTitle'))}">🔂</button>`;
     bubble.innerHTML = loopBtn + cue.lines.map(line => `
       <div class="lang-line ${line.lang}" dir="${line.lang === 'ar' ? 'rtl' : 'ltr'}">
         <span class="badge">${LANG_LABELS[line.lang]}</span>
-        <button class="loop" data-lang="${line.lang}" title="نطق ${LANG_NAMES[line.lang]}" aria-label="نطق ${LANG_NAMES[line.lang]}">🔊</button>
+        <button class="loop" data-lang="${line.lang}" title="${escapeHtml(t('speakTitle', {lang: LANG_NAMES[line.lang]}))}" aria-label="${escapeHtml(t('speakTitle', {lang: LANG_NAMES[line.lang]}))}">🔊</button>
         ${escapeHtml(line.text)}
       </div>
     `).join('');
@@ -916,7 +1137,7 @@
   function updateStatus() {
     const cue = getCurrentCue();
     if (!cue) { statusEl.textContent = ''; return; }
-    statusEl.textContent = `العبارة ${state.currentIndex + 1} من ${state.cues.length} · ${formatDuration(cue.start)} - ${formatDuration(cue.end)}`;
+    statusEl.textContent = t('status', {current: state.currentIndex + 1, total: state.cues.length, start: formatDuration(cue.start), end: formatDuration(cue.end)});
   }
 
   function setCurrentByTime(t) {
@@ -1001,7 +1222,7 @@
 
   async function loadCues() {
     if (!videoFile.files[0] && !srtMain.files[0] && !srtFr.files[0] && !srtAr.files[0] && !srtEn.files[0] && !srtPaste.value.trim()) {
-      showToast('الرجاء اختيار فيديو أو ملف/نص ترجمة على الأقل');
+      showToast(t('chooseFiles'));
       return false;
     }
     stopAllLoops();
@@ -1027,7 +1248,7 @@
         enCues = parseSubtitle(text);
       }
     } catch (e) {
-      showToast('خطأ في قراءة ملف الترجمة');
+      showToast(t('readError'));
       return false;
     }
     const activeSource = frCues.length ? 'fr' : (arCues.length ? 'ar' : (enCues.length ? 'en' : null));
@@ -1049,7 +1270,7 @@
       state.cues = buildCues(frCues, arCues, enCues);
     }
     if (!state.cues.length && !videoFile.files[0]) {
-      showToast('لم يتم العثور على عبارات في ملفات الترجمة');
+      showToast(t('noCues'));
       return false;
     }
     controls.style.display = state.cues.length ? 'flex' : 'none';
@@ -1076,7 +1297,7 @@
   async function start() {
     const ok = await loadCues();
     if (!ok) return;
-    showToast(`تم تحميل ${state.cues.length} عبارة`);
+    showToast(t('loadedCues', {count: state.cues.length}));
     showView('player');
   }
 
@@ -1084,37 +1305,38 @@
     const ok = await loadCues();
     if (!ok) return;
     if (!state.cues.length && !videoFile.files[0]) {
-      showToast('لا يوجد محتوى للحفظ');
+      showToast(t('noContent'));
       return;
     }
-    const defaultName = new Date().toLocaleDateString('ar-EG');
-    const name = prompt('اسم الدرس:', `درس ${defaultName}`) || `درس ${defaultName}`;
+    const dateLocale = state.uiLang === 'ar' ? 'ar-EG' : state.uiLang === 'fr' ? 'fr-FR' : 'en-US';
+    const defaultName = new Date().toLocaleDateString(dateLocale);
+    const name = prompt(t('lessonNamePrompt'), t('lessonDefaultName', {date: defaultName})) || t('lessonDefaultName', {date: defaultName});
     let videoBlob = null, imageBlob = null;
     if (videoFile.files[0]) {
       try {
         const ab = await readFileAsArrayBuffer(videoFile.files[0]);
         videoBlob = new Blob([ab], { type: videoFile.files[0].type || 'video/mp4' });
-      } catch (e) { showToast('تعذّر قراءة ملف الفيديو'); return; }
+      } catch (e) { showToast(t('readVideoError')); return; }
     }
     if (lessonImage.files[0]) {
       try {
         const ab = await readFileAsArrayBuffer(lessonImage.files[0]);
         imageBlob = new Blob([ab], { type: lessonImage.files[0].type || 'image/jpeg' });
-      } catch (e) { showToast('تعذّر قراءة صورة الدرس'); }
+      } catch (e) { showToast(t('readImageError')); }
     }
     const lesson = { id: Date.now().toString(36), name, createdAt: Date.now(), cues: state.cues, videoBlob, imageBlob };
     try {
       await saveLessonToDB(lesson);
-      showToast('تم حفظ الدرس');
+      showToast(t('saveSuccess'));
       await renderLessons();
       showView('lessons');
-    } catch (e) { showToast('تعذّر حفظ الدرس'); }
+    } catch (e) { showToast(t('saveError')); }
   }
 
   async function loadLesson(id) {
     stopAllLoops();
     const lesson = await getLessonById(id);
-    if (!lesson) { showToast('الدرس غير موجود'); return; }
+    if (!lesson) { showToast(t('notFound')); return; }
     if (state.videoUrl) { URL.revokeObjectURL(state.videoUrl); state.videoUrl = null; }
     if (state.posterUrl) { URL.revokeObjectURL(state.posterUrl); state.posterUrl = null; }
     state.cues = lesson.cues || [];
@@ -1145,9 +1367,10 @@
     state.thumbUrls.forEach(u => URL.revokeObjectURL(u));
     state.thumbUrls = [];
     if (!lessons || !lessons.length) {
-      lessonsList.innerHTML = '<p class="empty-hint">لا توجد دروس محفوظة. اضغط على “➕” لإعداد درس جديد.</p>';
+      lessonsList.innerHTML = `<p class="empty-hint" data-t="emptyHint">${escapeHtml(t('emptyHint'))}</p>`;
       return;
     }
+    const dateLocale = state.uiLang === 'ar' ? 'ar-EG' : state.uiLang === 'fr' ? 'fr-FR' : 'en-US';
     lessonsList.innerHTML = lessons.sort((a,b) => b.createdAt - a.createdAt).map(l => {
       let thumb = '';
       if (l.imageBlob) {
@@ -1160,13 +1383,13 @@
         ${thumb}
         <div class="lesson-info">
           <div class="title">${escapeHtml(l.name)}</div>
-          <div class="date">${new Date(l.createdAt).toLocaleString('ar-EG')}</div>
+          <div class="date">${new Date(l.createdAt).toLocaleString(dateLocale)}</div>
         </div>
         <div class="lesson-actions">
-          <button class="icon-btn" data-action="rename" data-id="${l.id}" title="تعديل الاسم">✏️</button>
-          <button class="icon-btn" data-action="image" data-id="${l.id}" title="تغيير الصورة">🖼️</button>
-          <button class="icon-btn" data-action="play" data-id="${l.id}" title="عرض">▶</button>
-          <button class="icon-btn" data-action="delete" data-id="${l.id}" title="حذف">🗑</button>
+          <button class="icon-btn" data-action="rename" data-id="${l.id}" title="${escapeHtml(t('rename'))}">✏️</button>
+          <button class="icon-btn" data-action="image" data-id="${l.id}" title="${escapeHtml(t('changeImage'))}">🖼️</button>
+          <button class="icon-btn" data-action="play" data-id="${l.id}" title="${escapeHtml(t('play'))}">▶</button>
+          <button class="icon-btn" data-action="delete" data-id="${l.id}" title="${escapeHtml(t('delete'))}">🗑</button>
         </div>
       </div>
     `}).join('');
@@ -1176,7 +1399,7 @@
     const lesson = await getLessonById(id);
     if (!lesson) return;
     Object.assign(lesson, updates);
-    try { await saveLessonToDB(lesson); renderLessons(); showToast('تم تحديث الدرس'); } catch (e) { showToast('تعذّر تحديث الدرس'); }
+    try { await saveLessonToDB(lesson); renderLessons(); showToast(t('updateSuccess')); } catch (e) { showToast(t('updateError')); }
   }
 
   // --- Event wiring ---
@@ -1202,7 +1425,7 @@
   // start() and loadCues() are defined above
 
   function reset() {
-    if (!confirm('هل تريد إعادة الضبط؟ سيتم مسح الملفات والنص.')) return;
+    if (!confirm(t('resetConfirm'))) return;
     stopAllLoops();
     player.pause();
     player.src = '';
@@ -1248,6 +1471,11 @@
   btnSetup.addEventListener('click', () => showView('setup'));
   btnNewLesson.addEventListener('click', () => showView('setup'));
   btnBackLessons.addEventListener('click', () => showView('lessons'));
+  btnLang.addEventListener('click', () => {
+    const idx = UI_LANGS.indexOf(state.uiLang);
+    const next = UI_LANGS[(idx + 1) % UI_LANGS.length];
+    setUILang(next);
+  });
 
   lessonsList.addEventListener('click', async e => {
     const action = e.target.closest('[data-action]');
@@ -1255,14 +1483,14 @@
     const id = action.dataset.id;
     if (action.dataset.action === 'play') { loadLesson(id); return; }
     if (action.dataset.action === 'delete') {
-      if (confirm('هل تريد حذف هذا الدرس؟')) {
-        try { await deleteLessonFromDB(id); renderLessons(); showToast('تم حذف الدرس'); } catch (e) { showToast('تعذّر حذف الدرس'); }
+      if (confirm(t('deleteConfirm'))) {
+        try { await deleteLessonFromDB(id); renderLessons(); showToast(t('deleteSuccess')); } catch (e) { showToast(t('deleteError')); }
       }
       return;
     }
     if (action.dataset.action === 'rename') {
       const lesson = await getLessonById(id);
-      const newName = prompt('اسم الدرس الجديد:', lesson ? lesson.name : '') || '';
+      const newName = prompt(t('renamePromptNew'), lesson ? lesson.name : '') || '';
       if (newName.trim()) updateLesson(id, { name: newName.trim() });
       return;
     }
@@ -1282,7 +1510,7 @@
       const ab = await readFileAsArrayBuffer(file);
       const imageBlob = new Blob([ab], { type: file.type || 'image/jpeg' });
       await updateLesson(id, { imageBlob });
-    } catch (e) { showToast('تعذّر تحديث الصورة'); }
+    } catch (e) { showToast(t('readImageError')); }
     editImage.value = '';
   });
 
@@ -1314,7 +1542,7 @@
         window.Capacitor.Plugins.App.addListener('backButton', () => {
           if (playerView.classList.contains('active') || setupView.classList.contains('active')) {
             showView('lessons');
-          } else if (confirm('هل تريد الخروج من التطبيق؟')) {
+          } else if (confirm(t('exitConfirm'))) {
             window.Capacitor.Plugins.App.exitApp();
           }
         });
@@ -1323,7 +1551,7 @@
   }
 
   initBackButton();
-  renderLessons();
+  setUILang(state.uiLang);
   showView('lessons');
 
 })();
