@@ -82,7 +82,8 @@
   .hint { color: var(--text-secondary); font-size: 0.85rem; margin: 0.2rem 0 0.5rem; }
 
   .video-wrap { position: relative; background: #000; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 0.9rem; width: 100%; max-width: 720px; margin-inline: auto; }
-  video { width: 100%; height: auto; min-height: 220px; display: block; object-fit: contain; }
+  video { width: 100%; height: auto; min-height: 220px; display: block; object-fit: contain; position: relative; z-index: 0; }
+  .bg-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; display: none; }
 
   .bubble-wrap { position: absolute; bottom: 0.5rem; left: 0.5rem; right: 0.5rem; z-index: 10; display: flex; justify-content: center; pointer-events: none; }
   .subtitle-bubble {
@@ -373,6 +374,7 @@
     </div>
     <div class="video-wrap" id="video-wrap" style="display:none;">
       <video id="player" controls playsinline></video>
+      <img id="bg-image" class="bg-image" alt="" style="display:none;">
       <div class="bubble-wrap">
         <div class="subtitle-bubble" id="bubble"></div>
       </div>
@@ -439,7 +441,7 @@
   const videoFile = $('video-file'), lessonImage = $('lesson-image'), editImage = $('edit-image'), srtMain = $('srt-main'), srtFr = $('srt-fr'), srtAr = $('srt-ar'), srtEn = $('srt-en'), srtPaste = $('srt-paste');
   const videoName = $('video-name'), imageName = $('image-name'), nameMain = $('name-main'), nameFr = $('name-fr'), nameAr = $('name-ar'), nameEn = $('name-en');
   const btnStart = $('btn-start'), btnReset = $('btn-reset'), btnStop = $('btn-stop'), btnBgImage = $('btn-bg-image'), bgImageInput = $('bg-image-input');
-  const videoWrap = $('video-wrap'), player = $('player'), bubble = $('bubble');
+  const videoWrap = $('video-wrap'), player = $('player'), bgImage = $('bg-image'), bubble = $('bubble');
   const controls = $('controls'), progress = $('progress'), currentTimeEl = $('current-time'), durationEl = $('duration');
   const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next'), btnFullLoop = $('btn-full-loop'), btnVideoLoop = $('btn-video-loop'), btnLoopAll = $('btn-loop-all');
   const filterSelect = $('filter-select');
@@ -822,15 +824,15 @@
   }
   function setVideoBackground(url) {
     if (url) {
-      videoWrap.style.backgroundImage = `url(${url})`;
-      videoWrap.style.backgroundSize = 'cover';
-      videoWrap.style.backgroundPosition = 'center';
-      videoWrap.style.backgroundRepeat = 'no-repeat';
-    } else {
+      bgImage.src = url;
+      bgImage.style.display = 'block';
+      player.style.visibility = 'hidden';
       videoWrap.style.backgroundImage = '';
-      videoWrap.style.backgroundSize = '';
-      videoWrap.style.backgroundPosition = '';
-      videoWrap.style.backgroundRepeat = '';
+    } else {
+      bgImage.src = '';
+      bgImage.style.display = 'none';
+      player.style.visibility = '';
+      videoWrap.style.backgroundImage = '';
     }
   }
   async function applyBackgroundImage(file) {
