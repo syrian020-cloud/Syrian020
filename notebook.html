@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0f1f">
+<title>دفتر الدراسة — Study Notebook</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+  :root {
+    --bg-primary: #0b0f1f;
+    --bg-secondary: #11152b;
+    --bg-tertiary: #1c2140;
+    --bg-input: #151a35;
+    --text-primary: #f1f2f6;
+    --text-secondary: #a0a8c3;
+    --accent: #8b5cf6;
+    --accent-hover: #7c3aed;
+    --accent-2: #06b6d4;
+    --danger: #f43f5e;
+    --success: #22c55e;
+    --gold: #fbbf24;
+    --border: #283055;
+    --radius: 14px;
+    --radius-sm: 8px;
+    --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    --shadow-sm: 0 4px 12px rgba(0,0,0,0.2);
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", sans-serif;
+  }
+  [data-theme="light"] {
+    --bg-primary: #f8f6ff;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #ede9fe;
+    --bg-input: #f5f3ff;
+    --text-primary: #1e1b4b;
+    --text-secondary: #5b5f80;
+    --accent: #7c3aed;
+    --accent-hover: #6d28d9;
+    --accent-2: #0891b2;
+    --border: #d6d3f0;
+    --shadow: 0 10px 30px rgba(99,102,241,0.12);
+    --shadow-sm: 0 4px 12px rgba(99,102,241,0.08);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    padding-bottom: 4rem;
+  }
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(17,21,43,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+  }
+  [data-theme="light"] header { background: rgba(255,255,255,0.92); }
+  .header-inner {
+    max-width: 920px; margin: 0 auto; padding: 0.7rem 1rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .logo { font-weight: 800; color: var(--accent); font-size: 1.15rem; display: flex; align-items: center; gap: 0.4rem; }
+  .logo::before { content: "📓"; }
+  .spacer { flex: 1; }
+  .icon-btn {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 0.45rem 0.65rem; font-size: 1rem; cursor: pointer;
+    transition: transform 0.1s, border-color 0.2s;
+  }
+  .icon-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .lang-switch { display: flex; gap: 0.25rem; }
+  .lang-btn {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 0.35rem 0.55rem; font-size: 0.75rem; font-weight: 800; cursor: pointer;
+  }
+  .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  main { max-width: 920px; margin: 0 auto; padding: 1rem; }
+  .toolbar {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem;
+    background: var(--bg-secondary); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 0.75rem 1rem; margin-bottom: 1.1rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .btn {
+    background: var(--accent); color: #fff; border: none;
+    border-radius: var(--radius-sm); padding: 0.55rem 0.9rem;
+    font-size: 0.9rem; font-weight: 700; cursor: pointer;
+    box-shadow: 0 4px 14px rgba(139,92,246,0.25);
+    transition: transform 0.1s, background 0.2s;
+  }
+  .btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+  .btn.ghost { background: var(--bg-tertiary); color: var(--text-primary); box-shadow: none; border: 1px solid var(--border); }
+  .btn.danger { background: var(--danger); box-shadow: 0 4px 14px rgba(244,63,94,0.25); }
+  .btn.success { background: var(--success); box-shadow: 0 4px 14px rgba(34,197,94,0.25); }
+  .toolbar .spacer { flex: 1; min-width: 0.5rem; }
+  .ctl-group { display: flex; align-items: center; gap: 0.4rem; }
+  .ctl-group label { font-size: 0.78rem; color: var(--text-secondary); }
+  select.ctl, input.ctl {
+    background: var(--bg-input); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 0.45rem 0.5rem; font-size: 0.85rem;
+  }
+  input[type="range"].ctl { width: 90px; }
+  .rate-value { font-size: 0.8rem; color: var(--accent-2); min-width: 2.2rem; font-weight: 700; }
+  .breadcrumb {
+    display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+    color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;
+  }
+  .breadcrumb button {
+    background: none; border: none; color: var(--accent); cursor: pointer; padding: 0; font-size: 0.95rem;
+  }
+  .card {
+    background: var(--bg-secondary); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1rem; margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 1rem; cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.15s, border-color 0.2s;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .card-img {
+    width: 80px; height: 80px; border-radius: 12px; object-fit: cover;
+    background: var(--bg-tertiary); border: 1px solid var(--border); flex-shrink: 0;
+  }
+  .card-img.placeholder {
+    display: flex; align-items: center; justify-content: center; font-size: 2rem;
+  }
+  .card-body { flex: 1; min-width: 0; }
+  .card-title {
+    font-size: 1.2rem; font-weight: 800; color: var(--text-primary);
+    margin-bottom: 0.2rem; line-height: 1.4;
+  }
+  .card-title .fr { color: var(--accent); }
+  .card-title .ar { color: var(--accent-2); }
+  .card-title .en { color: var(--text-secondary); font-size: 0.95em; }
+  .card-sub { color: var(--text-secondary); font-size: 0.86rem; }
+  .card-actions { display: flex; gap: 0.35rem; flex-shrink: 0; }
+  .section-count {
+    display: inline-block; background: var(--accent); color: #fff;
+    border-radius: 999px; padding: 0.15rem 0.55rem; font-size: 0.72rem; font-weight: 700;
+  }
+  .empty {
+    text-align: center; color: var(--text-secondary); padding: 3rem 1rem; font-size: 1.05rem;
+  }
+  .empty-icon { font-size: 3rem; margin-bottom: 0.5rem; opacity: 0.8; }
+  .hint {
+    background: linear-gradient(90deg, rgba(139,92,246,0.12), rgba(6,182,212,0.12));
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 0.85rem 1rem; color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 1rem;
+  }
+  /* Phrase / word rows */
+  .phrase {
+    background: var(--bg-secondary); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1rem; margin-bottom: 0.8rem;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .phrase.playing { border-color: var(--success); box-shadow: 0 0 0 2px rgba(34,197,94,0.18); }
+  .phrase-top { display: flex; gap: 0.8rem; align-items: flex-start; }
+  .lines { flex: 1; min-width: 0; }
+  .line {
+    padding: 0.35rem 0.5rem; margin-bottom: 0.35rem; border-radius: 8px;
+    font-size: 1.1rem; line-height: 1.8; cursor: pointer;
+    transition: background 0.15s;
+  }
+  .line:hover { background: var(--bg-tertiary); }
+  .line.active { background: rgba(34,197,94,0.18); }
+  .line .word {
+    display: inline-block; padding: 0 0.15rem; border-radius: 4px;
+    transition: background 0.1s, color 0.1s;
+  }
+  .line .word:hover { background: var(--accent); color: #fff; }
+  .fr { direction: ltr; text-align: left; font-weight: 700; color: var(--accent); }
+  .ar { direction: rtl; text-align: right; color: var(--accent-2); }
+  .en { direction: ltr; text-align: left; color: var(--text-secondary); }
+  .btns { display: flex; flex-direction: column; gap: 0.4rem; flex-shrink: 0; }
+  .btns button {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 10px;
+    width: 2.6rem; height: 2.3rem; font-size: 1.05rem; cursor: pointer;
+  }
+  .btns button:hover { border-color: var(--accent); }
+  .btns button.active { background: var(--success); color: #1a1a1a; border-color: var(--success); }
+  .lesson-head { margin-bottom: 1rem; }
+  .lesson-head h2 { margin: 0 0 0.3rem; font-size: 1.35rem; }
+  .lesson-head .sub { color: var(--text-secondary); font-size: 0.95rem; }
+  .lesson-img {
+    width: 100%; max-height: 220px; object-fit: cover; border-radius: var(--radius);
+    margin-bottom: 1rem; border: 1px solid var(--border); background: var(--bg-tertiary);
+  }
+  /* Dialog / forms */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.6);
+    display: flex; align-items: center; justify-content: center; padding: 1rem;
+    opacity: 0; pointer-events: none; transition: opacity 0.2s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: auto; }
+  .modal {
+    background: var(--bg-secondary); border: 1px solid var(--border);
+    border-radius: var(--radius); width: 100%; max-width: 540px;
+    max-height: 90vh; overflow-y: auto; box-shadow: var(--shadow);
+  }
+  .modal-header { padding: 1rem 1.2rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .modal-header h3 { margin: 0; font-size: 1.1rem; }
+  .modal-body { padding: 1.2rem; }
+  .form-group { margin-bottom: 1rem; }
+  .form-group label { display: block; font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.35rem; }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; background: var(--bg-input); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: var(--radius-sm);
+    padding: 0.55rem 0.75rem; font-size: 1rem; font-family: var(--font);
+  }
+  .form-group textarea { min-height: 80px; resize: vertical; }
+  .form-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+  .lang-field .label { font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.2rem; }
+  .image-preview { max-width: 120px; max-height: 120px; border-radius: 10px; border: 1px solid var(--border); margin-top: 0.5rem; object-fit: cover; }
+  .phrase-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 0.6rem; align-items: center; }
+  .phrase-row input { width: 100%; }
+  .phrase-row button { background: var(--danger); color: #fff; border: none; border-radius: var(--radius-sm); width: 2.2rem; height: 2.2rem; cursor: pointer; }
+  .modal-footer { padding: 1rem 1.2rem; border-top: 1px solid var(--border); display: flex; gap: 0.5rem; justify-content: flex-end; }
+  footer { text-align: center; color: var(--text-secondary); font-size: 0.82rem; padding: 2rem 1rem; }
+  footer a { color: var(--accent); margin: 0 0.25rem; }
+  @media (max-width: 640px) {
+    .form-row, .phrase-row { grid-template-columns: 1fr; }
+    .card { flex-wrap: wrap; }
+    .card-img { width: 64px; height: 64px; }
+    .card-actions { width: 100%; justify-content: flex-end; margin-top: 0.5rem; }
+    .toolbar { gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <span class="logo" data-t="appName">دفتر الدراسة</span>
+    <span class="spacer"></span>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ar">AR</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <button class="icon-btn" id="btn-theme" title="Dark / light mode">🌙</button>
+    <button class="icon-btn" id="btn-stop" title="Stop audio">⏹</button>
+  </div>
+</header>
+
+<main>
+  <div class="toolbar">
+    <button class="btn" id="btn-add-section" data-t="addSection">+ قسم</button>
+    <button class="btn ghost" id="btn-export" data-t="exportJson">⬇ تصدير JSON</button>
+    <button class="btn ghost" id="btn-import-trigger" data-t="importJson">⬆ استيراد JSON</button>
+    <input type="file" id="import-file" accept="application/json" style="display:none">
+    <span class="spacer"></span>
+    <div class="ctl-group">
+      <label for="rate" data-t="rateLabel">سرعة</label>
+      <input type="range" id="rate" class="ctl" min="0.4" max="2" step="0.1" value="1">
+      <span class="rate-value">1×</span>
+    </div>
+    <div class="ctl-group">
+      <label for="loopmode" data-t="loopLabel">تكرار</label>
+      <select id="loopmode" class="ctl">
+        <option value="fr,ar,en" data-t="loopFrenchArabicEnglish" selected>فرنسي ← عربي ← إنجليزي</option>
+        <option value="fr,ar" data-t="loopFrenchArabic">فرنسي ← عربي</option>
+        <option value="fr" data-t="loopFrenchOnly">فرنسي فقط</option>
+        <option value="ar" data-t="loopArabicOnly">عربي فقط</option>
+        <option value="en" data-t="loopEnglishOnly">إنجليزي فقط</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="view"></div>
+</main>
+
+<footer>
+  <span data-t="footerText">دفتر الدراسة · </span>
+  <a href="index.html" data-t="footerVideo">دروسي المرئية</a> ·
+  <a href="french.html" data-t="footerFrench">الدروس الفرنسية</a> ·
+  <a href="vocab.html" data-t="footerVocab">المفردات</a>
+</footer>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="modal-title">Title</h3>
+      <button class="icon-btn" id="modal-close">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer" id="modal-footer"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var UI = {
+    appName: { ar: 'دفتر الدراسة', fr: 'Cahier d\'études', en: 'Study Notebook' },
+    addSection: { ar: '+ قسم', fr: '+ Section', en: '+ Section' },
+    addLesson: { ar: '+ درس', fr: '+ Leçon', en: '+ Lesson' },
+    addPhrase: { ar: '+ عبارة', fr: '+ Phrase', en: '+ Phrase' },
+    edit: { ar: 'تعديل', fr: 'Modifier', en: 'Edit' },
+    delete: { ar: 'حذف', fr: 'Supprimer', en: 'Delete' },
+    save: { ar: 'حفظ', fr: 'Enregistrer', en: 'Save' },
+    cancel: { ar: 'إلغاء', fr: 'Annuler', en: 'Cancel' },
+    exportJson: { ar: '⬇ تصدير JSON', fr: '⬇ Exporter JSON', en: '⬇ Export JSON' },
+    importJson: { ar: '⬆ استيراد JSON', fr: '⬆ Importer JSON', en: '⬆ Import JSON' },
+    rateLabel: { ar: 'سرعة', fr: 'Vitesse', en: 'Rate' },
+    loopLabel: { ar: 'تكرار', fr: 'Répéter', en: 'Loop' },
+    loopFrenchArabicEnglish: { ar: 'فرنسي ← عربي ← إنجليزي', fr: 'Français ← Arabe ← Anglais', en: 'French ← Arabic ← English' },
+    loopFrenchArabic: { ar: 'فرنسي ← عربي', fr: 'Français ← Arabe', en: 'French ← Arabic' },
+    loopFrenchOnly: { ar: 'فرنسي فقط', fr: 'Français seulement', en: 'French only' },
+    loopArabicOnly: { ar: 'عربي فقط', fr: 'Arabe seulement', en: 'Arabic only' },
+    loopEnglishOnly: { ar: 'إنجليزي فقط', fr: 'Anglais seulement', en: 'English only' },
+    sectionTitle: { ar: 'عنوان القسم', fr: 'Titre de la section', en: 'Section title' },
+    lessonTitle: { ar: 'عنوان الدرس', fr: 'Titre de la leçon', en: 'Lesson title' },
+    imageLabel: { ar: 'صورة (اختياري)', fr: 'Image (optionnel)', en: 'Image (optional)' },
+    chooseFile: { ar: 'اختر ملف', fr: 'Choisir un fichier', en: 'Choose file' },
+    imageUrl: { ar: 'أو رابط صورة', fr: 'Ou URL d\'image', en: 'Or image URL' },
+    noSections: { ar: 'لا توجد أقسام بعد. اضغط "+ قسم" لبدء دفتر دراستك.', fr: 'Aucune section pour l\'instant. Appuyez sur "+ Section" pour commencer.', en: 'No sections yet. Tap "+ Section" to start your notebook.' },
+    noLessons: { ar: 'لا توجد دروس في هذا القسم بعد.', fr: 'Aucune leçon dans cette section pour l\'instant.', en: 'No lessons in this section yet.' },
+    noPhrases: { ar: 'لا توجد عبارات في هذا الدرس بعد. اضغط "+ عبارة".', fr: 'Aucune phrase dans cette leçon pour l\'instant. Appuyez sur "+ Phrase".', en: 'No phrases in this lesson yet. Tap "+ Phrase".' },
+    confirmDelete: { ar: 'هل أنت متأكد؟', fr: 'Confirmer la suppression ?', en: 'Are you sure?' },
+    sectionCount: { ar: 'درس', fr: 'leçon', en: 'lesson' },
+    sectionCountPlural: { ar: 'دروس', fr: 'leçons', en: 'lessons' },
+    phraseCount: { ar: 'عبارة', fr: 'phrase', en: 'phrase' },
+    phraseCountPlural: { ar: 'عبارات', fr: 'phrases', en: 'phrases' },
+    sectionsLabel: { ar: 'الأقسام', fr: 'Sections', en: 'Sections' },
+    newSection: { ar: 'قسم جديد', fr: 'Nouvelle section', en: 'New section' },
+    newLesson: { ar: 'درس جديد', fr: 'Nouvelle leçon', en: 'New lesson' },
+    newPhrase: { ar: 'عبارة جديدة', fr: 'Nouvelle phrase', en: 'New phrase' },
+    editSection: { ar: 'تعديل القسم', fr: 'Modifier la section', en: 'Edit section' },
+    editLesson: { ar: 'تعديل الدرس', fr: 'Modifier la leçon', en: 'Edit lesson' },
+    editPhrase: { ar: 'تعديل العبارة', fr: 'Modifier la phrase', en: 'Edit phrase' },
+    french: { ar: 'الفرنسية', fr: 'Français', en: 'French' },
+    arabic: { ar: 'العربية', fr: 'Arabe', en: 'Arabic' },
+    english: { ar: 'الإنجليزية', fr: 'Anglais', en: 'English' },
+    speakOnce: { ar: 'نطق مرة', fr: 'Écouter', en: 'Speak' },
+    loopPhrase: { ar: 'تكرار العبارة', fr: 'Répéter la phrase', en: 'Loop phrase' },
+    loopWord: { ar: 'تكرار الكلمة', fr: 'Répéter le mot', en: 'Loop word' },
+    playAll: { ar: '▶ تشغيل الكل', fr: '▶ Tout lire', en: '▶ Play all' },
+    stopAll: { ar: '⏹ إيقاف', fr: '⏹ Arrêter', en: '⏹ Stop' },
+    footerVideo: { ar: 'دروسي المرئية', fr: 'Vidéos', en: 'Video lessons' },
+    footerFrench: { ar: 'الدروس الفرنسية', fr: 'Français', en: 'French lessons' },
+    footerVocab: { ar: 'المفردات', fr: 'Vocabulaire', en: 'Vocabulary' },
+    footerText: { ar: 'دفتر الدراسة · ', fr: 'Cahier d\'études · ', en: 'Study Notebook · ' },
+    importDone: { ar: 'تم الاستيراد', fr: 'Import terminé', en: 'Import complete' },
+    importError: { ar: 'خطأ في ملف JSON', fr: 'Erreur JSON', en: 'JSON error' },
+    dragHint: { ar: 'اسحب العبارة لإعادة الترتيب', fr: 'Glisser pour réordonner', en: 'Drag to reorder' }
+  };
+
+  var state = {
+    uiLang: localStorage.getItem('nb_ui_lang') || 'ar',
+    theme: localStorage.getItem('nb_theme') || 'dark',
+    rate: parseFloat(localStorage.getItem('nb_rate')) || 1,
+    langs: (localStorage.getItem('nb_langs') || 'fr,ar,en').split(','),
+    data: loadData(),
+    route: { name: 'sections' },
+    loop: null,
+    speechRun: 0
+  };
+
+  var VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
+  var view = document.getElementById('view');
+
+  function t(key) {
+    var v = UI[key];
+    return (v && v[state.uiLang]) || (v && v.en) || (v && v.ar) || key;
+  }
+
+  function titleObj(obj) {
+    return (obj && (obj[state.uiLang] || obj.en || obj.ar || obj.fr)) || '';
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function generateId() { return 'id_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8); }
+
+  function loadData() {
+    var raw = localStorage.getItem('notebook_data');
+    if (raw) {
+      try { return JSON.parse(raw); } catch (e) {}
+    }
+    return { sections: [] };
+  }
+
+  function saveData() {
+    localStorage.setItem('notebook_data', JSON.stringify(state.data));
+  }
+
+  function findSection(id) { return state.data.sections.find(function (s) { return s.id === id; }); }
+  function findLesson(secId, lesId) {
+    var sec = findSection(secId); return sec ? sec.lessons.find(function (l) { return l.id === lesId; }) : null;
+  }
+
+  function setTheme(th) {
+    state.theme = th;
+    document.documentElement.dataset.theme = th;
+    localStorage.setItem('nb_theme', th);
+    document.getElementById('btn-theme').textContent = th === 'dark' ? '🌙' : '☀️';
+  }
+
+  function setUILang(lang) {
+    state.uiLang = lang;
+    localStorage.setItem('nb_ui_lang', lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.querySelectorAll('.lang-btn').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+    applyTranslations();
+    render();
+  }
+
+  function applyTranslations() {
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      var key = el.dataset.t;
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = t(key);
+      else if (el.tagName === 'OPTION') el.textContent = t(key);
+      else el.textContent = t(key);
+    });
+    document.querySelectorAll('[data-t-title]').forEach(function (el) { el.title = t(el.dataset.tTitle); });
+    document.title = t('appName') + ' — Study Notebook';
+  }
+
+  /* ---------- TTS ---------- */
+
+  function speakSupported() { return 'speechSynthesis' in window; }
+
+  function pickVoice(lang) {
+    if (!speakSupported()) return null;
+    var voices = window.speechSynthesis.getVoices() || [];
+    var code = VOICE_LANG[lang];
+    var exact = voices.find(function (v) { return v.lang && v.lang.replace('_', '-') === code; });
+    if (exact) return exact;
+    var prefix = code.split('-')[0];
+    return voices.find(function (v) { return v.lang && v.lang.toLowerCase().startsWith(prefix); }) || null;
+  }
+
+  function utter(text, lang) {
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = VOICE_LANG[lang];
+    u.rate = state.rate;
+    var v = pickVoice(lang); if (v) u.voice = v;
+    return u;
+  }
+
+  function stopSpeech() {
+    state.loop = null;
+    state.speechRun++;
+    if (speakSupported()) window.speechSynthesis.cancel();
+    document.querySelectorAll('.phrase').forEach(function (el) { el.classList.remove('playing'); });
+    document.querySelectorAll('.line').forEach(function (el) { el.classList.remove('active'); });
+    document.querySelectorAll('.loop-btn').forEach(function (b) { b.classList.remove('active'); b.textContent = '🔁'; });
+  }
+
+  function speakOnce(text, lang, key, langClass, onDone) {
+    var run = ++state.speechRun;
+    if (!speakSupported()) { if (onDone) onDone(); return; }
+    highlight(key, langClass);
+    var u = utter(text, lang);
+    u.onend = function () { if (run !== state.speechRun) return; if (onDone) onDone(); };
+    u.onerror = function () { if (run !== state.speechRun) return; if (onDone) onDone(); };
+    window.speechSynthesis.speak(u);
+  }
+
+  function speakSequence(texts, key, onDone) {
+    var run = ++state.speechRun;
+    var i = 0;
+    if (!speakSupported()) { if (onDone) onDone(); return; }
+    (function next() {
+      if (run !== state.speechRun) return;
+      if (i >= texts.length) { highlight(null, null); if (onDone) onDone(); return; }
+      var item = texts[i++];
+      highlight(key, item.langClass);
+      var u = utter(item.text, item.lang);
+      u.onend = function () { if (run !== state.speechRun) return; setTimeout(next, 250); };
+      u.onerror = function () { if (run !== state.speechRun) return; setTimeout(next, 250); };
+      window.speechSynthesis.speak(u);
+    })();
+  }
+
+  function togglePhraseLoop(phrase, key) {
+    if (state.loop && state.loop.key === key) { stopSpeech(); return; }
+    state.loop = { key: key, word: false };
+    refreshLoopButtons();
+    (function cycle() {
+      if (!state.loop || state.loop.key !== key) return;
+      var seq = state.langs.filter(function (l) { return phrase[l]; }).map(function (l) {
+        return { text: phrase[l], lang: l, langClass: l };
+      });
+      if (!seq.length) return;
+      speakSequence(seq, key, function () {
+        if (!state.loop || state.loop.key !== key) return;
+        setTimeout(cycle, 700);
+      });
+    })();
+  }
+
+  function toggleWordLoop(text, lang, key, langClass) {
+    if (state.loop && state.loop.key === key && state.loop.word) { stopSpeech(); return; }
+    stopSpeech();
+    state.loop = { key: key, word: true };
+    refreshLoopButtons();
+    (function cycle() {
+      if (!state.loop || state.loop.key !== key) return;
+      speakOnce(text, lang, key, langClass, function () {
+        if (!state.loop || state.loop.key !== key) return;
+        setTimeout(cycle, 600);
+      });
+    })();
+  }
+
+  function highlight(key, langClass) {
+    document.querySelectorAll('.phrase').forEach(function (el) {
+      var on = key && el.dataset.key === key;
+      el.classList.toggle('playing', !!on);
+      el.querySelectorAll('.line').forEach(function (line) {
+        line.classList.toggle('active', !!on && line.classList.contains(langClass));
+      });
+    });
+  }
+
+  function refreshLoopButtons() {
+    document.querySelectorAll('.phrase').forEach(function (el) {
+      var btn = el.querySelector('.loop-btn'); if (!btn) return;
+      var on = state.loop && state.loop.key === el.dataset.key && !state.loop.word;
+      btn.classList.toggle('active', on);
+      btn.textContent = on ? '⏸' : '🔁';
+    });
+  }
+
+  /* ---------- Word click ---------- */
+
+  function clickableWords(text, lang) {
+    return String(text).split(/(\s+)/).map(function (part) {
+      if (/^\s+$/.test(part)) return esc(part);
+      if (/^[\p{P}\p{S}]+$/u.test(part)) return '<span class="word">' + esc(part) + '</span>';
+      return '<span class="word" data-word-lang="' + lang + '">' + esc(part) + '</span>';
+    }).join('');
+  }
+
+  /* ---------- Rendering ---------- */
+
+  function cardImg(src, icon) {
+    if (src) return '<img src="' + esc(src) + '" class="card-img" alt="">';
+    return '<div class="card-img placeholder">' + icon + '</div>';
+  }
+
+  function renderCrumbs(items) {
+    return '<div class="breadcrumb">' + items.map(function (it, i) {
+      var sep = i ? '<span>›</span>' : '';
+      if (it.route) return sep + '<button data-route="' + esc(JSON.stringify(it.route)) + '">' + esc(it.label) + '</button>';
+      return sep + '<span>' + esc(it.label) + '</span>';
+    }).join('') + '</div>';
+  }
+
+  function renderSections() {
+    var secs = state.data.sections;
+    var html = '<div class="hint">' + t('noSections') + '</div>';
+    if (!secs.length) { view.innerHTML = html; return; }
+    html = renderCrumbs([{ label: t('sectionsLabel') }]);
+    html += secs.map(function (sec) {
+      var countText = sec.lessons.length + ' ' + (sec.lessons.length === 1 ? t('sectionCount') : t('sectionCountPlural'));
+      return '<div class="card" data-section="' + esc(sec.id) + '">' +
+        cardImg(sec.image, '📁') +
+        '<div class="card-body">' +
+          '<div class="card-title">' +
+            '<span class="ar">' + esc(titleObj({ ar: sec.title.ar })) + '</span> · ' +
+            '<span class="fr">' + esc(titleObj({ fr: sec.title.fr })) + '</span> · ' +
+            '<span class="en">' + esc(titleObj({ en: sec.title.en })) + '</span>' +
+          '</div>' +
+          '<div class="card-sub"><span class="section-count">' + countText + '</span></div>' +
+        '</div>' +
+        '<div class="card-actions" onclick="event.stopPropagation()">' +
+          '<button class="btn ghost edit-section" data-section="' + esc(sec.id) + '">' + t('edit') + '</button>' +
+          '<button class="btn danger delete-section" data-section="' + esc(sec.id) + '">' + t('delete') + '</button>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+    view.innerHTML = html;
+  }
+
+  function renderLessons(secId) {
+    var sec = findSection(secId);
+    if (!sec) { go({ name: 'sections' }); return; }
+    var html = renderCrumbs([
+      { label: t('sectionsLabel'), route: { name: 'sections' } },
+      { label: titleObj(sec.title) }
+    ]);
+    html += '<div class="lesson-head"><h2>' + esc(titleObj(sec.title)) + '</h2>' +
+      '<div class="sub">' + t('sectionTitle') + '</div></div>';
+    html += '<div class="toolbar" style="margin-bottom:1rem"><button class="btn" id="btn-add-lesson">' + t('addLesson') + '</button></div>';
+    if (!sec.lessons.length) {
+      html += '<div class="empty"><div class="empty-icon">📝</div>' + t('noLessons') + '</div>';
+      view.innerHTML = html; return;
+    }
+    html += sec.lessons.map(function (les) {
+      return '<div class="card" data-section="' + esc(sec.id) + '" data-lesson="' + esc(les.id) + '">' +
+        cardImg(les.image, '📄') +
+        '<div class="card-body">' +
+          '<div class="card-title">' +
+            '<span class="ar">' + esc(les.title.ar || '') + '</span> · ' +
+            '<span class="fr">' + esc(les.title.fr || '') + '</span> · ' +
+            '<span class="en">' + esc(les.title.en || '') + '</span>' +
+          '</div>' +
+          '<div class="card-sub">' + (les.phrases.length || 0) + ' ' + ((les.phrases.length === 1) ? t('phraseCount') : t('phraseCountPlural')) + '</div>' +
+        '</div>' +
+        '<div class="card-actions" onclick="event.stopPropagation()">' +
+          '<button class="btn ghost edit-lesson" data-section="' + esc(sec.id) + '" data-lesson="' + esc(les.id) + '">' + t('edit') + '</button>' +
+          '<button class="btn danger delete-lesson" data-section="' + esc(sec.id) + '" data-lesson="' + esc(les.id) + '">' + t('delete') + '</button>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+    view.innerHTML = html;
+  }
+
+  function renderLesson(secId, lesId) {
+    var sec = findSection(secId), les = findLesson(secId, lesId);
+    if (!sec || !les) { go({ name: 'sections' }); return; }
+    var html = renderCrumbs([
+      { label: t('sectionsLabel'), route: { name: 'sections' } },
+      { label: titleObj(sec.title), route: { name: 'lessons', section: secId } },
+      { label: titleObj(les.title) }
+    ]);
+    html += '<div class="lesson-head"><h2>' + esc(titleObj(les.title)) + '</h2>' +
+      '<div class="sub">' + t('lessonTitle') + '</div></div>';
+    if (les.image) html += '<img src="' + esc(les.image) + '" class="lesson-img" alt="">';
+    html += '<div class="toolbar" style="margin-bottom:1rem">' +
+      '<button class="btn" id="btn-add-phrase">' + t('addPhrase') + '</button>' +
+      '<button class="btn ghost" id="play-all">' + t('playAll') + '</button>' +
+      '<button class="btn ghost" id="stop-all">' + t('stopAll') + '</button>' +
+      '</div>';
+    if (!les.phrases.length) {
+      html += '<div class="empty"><div class="empty-icon">✍️</div>' + t('noPhrases') + '</div>';
+      view.innerHTML = html; return;
+    }
+    html += les.phrases.map(function (p, i) {
+      return phraseHTML(p, secId + ':' + lesId + ':' + i, i);
+    }).join('');
+    view.innerHTML = html;
+  }
+
+  function phraseHTML(p, key, idx) {
+    return '<div class="phrase" data-key="' + esc(key) + '">' +
+      '<div class="phrase-top">' +
+        '<div class="lines">' +
+          '<div class="line fr" data-lang="fr" data-key="' + esc(key) + '">' + clickableWords(p.fr || '', 'fr') + '</div>' +
+          '<div class="line ar" data-lang="ar" data-key="' + esc(key) + '">' + clickableWords(p.ar || '', 'ar') + '</div>' +
+          '<div class="line en" data-lang="en" data-key="' + esc(key) + '">' + clickableWords(p.en || '', 'en') + '</div>' +
+        '</div>' +
+        '<div class="btns">' +
+          '<button class="speak-btn" title="' + t('speakOnce') + '">🔊</button>' +
+          '<button class="loop-btn" title="' + t('loopPhrase') + '">🔁</button>' +
+          '<button class="edit-phrase-btn" title="' + t('edit') + '">✎</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function render() {
+    if (state.route.name === 'sections') renderSections();
+    else if (state.route.name === 'lessons') renderLessons(state.route.section);
+    else if (state.route.name === 'lesson') renderLesson(state.route.section, state.route.lesson);
+    window.scrollTo(0, 0);
+  }
+
+  function go(route, push) {
+    stopSpeech();
+    state.route = route;
+    if (push !== false) {
+      var hash = '#/';
+      if (route.name === 'lessons') hash = '#/section/' + route.section;
+      else if (route.name === 'lesson') hash = '#/section/' + route.section + '/lesson/' + route.lesson;
+      if (location.hash !== hash) location.hash = hash;
+    }
+    render();
+  }
+
+  function routeFromHash() {
+    var h = location.hash.replace(/^#\/?/, '');
+    var m;
+    if ((m = h.match(/^section\/([^/]+)\/lesson\/([^/]+)$/))) return { name: 'lesson', section: m[1], lesson: m[2] };
+    if ((m = h.match(/^section\/([^/]+)$/))) return { name: 'lessons', section: m[1] };
+    return { name: 'sections' };
+  }
+
+  /* ---------- Modals & forms ---------- */
+
+  var modal = document.getElementById('modal');
+  var modalTitle = document.getElementById('modal-title');
+  var modalBody = document.getElementById('modal-body');
+  var modalFooter = document.getElementById('modal-footer');
+
+  function openModal(title, bodyHTML, footerHTML) {
+    modalTitle.textContent = title;
+    modalBody.innerHTML = bodyHTML;
+    modalFooter.innerHTML = footerHTML || '';
+    modal.classList.add('open');
+  }
+  function closeModal() { modal.classList.remove('open'); modalBody.innerHTML = ''; modalFooter.innerHTML = ''; }
+
+  function langInputs(name, value) {
+    value = value || {};
+    return '<div class="form-row">' +
+      '<div class="lang-field"><div class="label">' + t('french') + '</div><input name="' + name + '_fr" value="' + esc(value.fr || '') + '" placeholder="Français" dir="ltr"></div>' +
+      '<div class="lang-field"><div class="label">' + t('arabic') + '</div><input name="' + name + '_ar" value="' + esc(value.ar || '') + '" placeholder="العربية" dir="rtl"></div>' +
+      '<div class="lang-field"><div class="label">' + t('english') + '</div><input name="' + name + '_en" value="' + esc(value.en || '') + '" placeholder="English" dir="ltr"></div>' +
+    '</div>';
+  }
+
+  function imageField(name, current) {
+    return '<div class="form-group">' +
+      '<label>' + t('imageLabel') + '</label>' +
+      '<input type="file" name="' + name + '_file" accept="image/*">' +
+      '<input type="text" name="' + name + '_url" value="' + esc(current || '') + '" placeholder="' + t('imageUrl') + '">' +
+      (current ? '<img src="' + esc(current) + '" class="image-preview">' : '') +
+    '</div>';
+  }
+
+  function readImageFile(input, cb) {
+    if (!input.files || !input.files[0]) { cb(''); return; }
+    var reader = new FileReader();
+    reader.onload = function (e) { cb(e.target.result); };
+    reader.readAsDataURL(input.files[0]);
+  }
+
+  function getFormTitle(form, name) {
+    return { fr: form[name + '_fr'].value.trim(), ar: form[name + '_ar'].value.trim(), en: form[name + '_en'].value.trim() };
+  }
+
+  function getFormImage(form, name) {
+    var url = form[name + '_url'].value.trim();
+    if (url) return url;
+    return null; // handled async
+  }
+
+  function editSectionModal(sec) {
+    var isNew = !sec;
+    var id = sec ? sec.id : generateId();
+    var title = isNew ? t('newSection') : t('editSection');
+    var body = '<form id="section-form">' +
+      '<div class="form-group"><label>' + t('sectionTitle') + '</label>' + langInputs('title', sec ? sec.title : {}) + '</div>' +
+      imageField('image', sec ? sec.image : '') +
+    '</form>';
+    openModal(title, body, '<button class="btn ghost" id="modal-cancel">' + t('cancel') + '</button><button class="btn" id="modal-save">' + t('save') + '</button>');
+
+    document.getElementById('modal-save').onclick = function () {
+      var form = document.getElementById('section-form');
+      readImageFile(form.image_file, function (imgData) {
+        var img = getFormImage(form, 'image');
+        if (imgData) img = imgData; else if (!img) img = '';
+        var data = { id: id, title: getFormTitle(form, 'title'), image: img, lessons: sec ? sec.lessons : [] };
+        if (isNew) state.data.sections.push(data);
+        else {
+          var idx = state.data.sections.findIndex(function (s) { return s.id === id; });
+          if (idx !== -1) { state.data.sections[idx].title = data.title; state.data.sections[idx].image = data.image; }
+        }
+        saveData(); closeModal(); render();
+      });
+    };
+  }
+
+  function editLessonModal(secId, les) {
+    var isNew = !les;
+    var id = les ? les.id : generateId();
+    var title = isNew ? t('newLesson') : t('editLesson');
+    var body = '<form id="lesson-form">' +
+      '<div class="form-group"><label>' + t('lessonTitle') + '</label>' + langInputs('title', les ? les.title : {}) + '</div>' +
+      imageField('image', les ? les.image : '') +
+    '</form>';
+    openModal(title, body, '<button class="btn ghost" id="modal-cancel">' + t('cancel') + '</button><button class="btn" id="modal-save">' + t('save') + '</button>');
+
+    document.getElementById('modal-save').onclick = function () {
+      var form = document.getElementById('lesson-form');
+      readImageFile(form.image_file, function (imgData) {
+        var img = getFormImage(form, 'image');
+        if (imgData) img = imgData; else if (!img) img = '';
+        var data = { id: id, title: getFormTitle(form, 'title'), image: img, phrases: les ? les.phrases : [] };
+        var sec = findSection(secId);
+        if (isNew) sec.lessons.push(data);
+        else {
+          var idx = sec.lessons.findIndex(function (l) { return l.id === id; });
+          if (idx !== -1) { sec.lessons[idx].title = data.title; sec.lessons[idx].image = data.image; }
+        }
+        saveData(); closeModal(); go({ name: 'lessons', section: secId });
+      });
+    };
+  }
+
+  function editPhraseModal(secId, lesId, phrase, idx) {
+    var isNew = phrase == null;
+    var body = '<form id="phrase-form">' +
+      '<div class="form-group"><label>' + t('newPhrase') + '</label>' + langInputs('phrase', phrase || {}) + '</div>' +
+    '</form>';
+    openModal(isNew ? t('newPhrase') : t('editPhrase'), body, '<button class="btn ghost" id="modal-cancel">' + t('cancel') + '</button><button class="btn" id="modal-save">' + t('save') + '</button>');
+
+    document.getElementById('modal-save').onclick = function () {
+      var form = document.getElementById('phrase-form');
+      var data = getFormTitle(form, 'phrase');
+      var sec = findSection(secId), les = findLesson(secId, lesId);
+      if (isNew) les.phrases.push(data);
+      else les.phrases[idx] = data;
+      saveData(); closeModal(); go({ name: 'lesson', section: secId, lesson: lesId });
+    };
+  }
+
+  /* ---------- Events ---------- */
+
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#modal-cancel') || e.target.closest('#modal-close')) { closeModal(); return; }
+
+    var routeBtn = e.target.closest('[data-route]');
+    if (routeBtn) { go(JSON.parse(routeBtn.dataset.route)); return; }
+
+    var secCard = e.target.closest('[data-section]:not([data-lesson])');
+    if (secCard && !e.target.closest('.card-actions')) {
+      go({ name: 'lessons', section: secCard.dataset.section });
+      return;
+    }
+    var lesCard = e.target.closest('[data-lesson]');
+    if (lesCard && !e.target.closest('.card-actions')) {
+      go({ name: 'lesson', section: lesCard.dataset.section, lesson: lesCard.dataset.lesson });
+      return;
+    }
+
+    if (e.target.closest('.edit-section')) { var sid = e.target.closest('.edit-section').dataset.section; editSectionModal(findSection(sid)); return; }
+    if (e.target.closest('.delete-section')) {
+      var sid = e.target.closest('.delete-section').dataset.section;
+      if (confirm(t('confirmDelete'))) { state.data.sections = state.data.sections.filter(function (s) { return s.id !== sid; }); saveData(); render(); }
+      return;
+    }
+    if (e.target.closest('.edit-lesson')) {
+      var el = e.target.closest('.edit-lesson'); editLessonModal(el.dataset.section, findLesson(el.dataset.section, el.dataset.lesson));
+      return;
+    }
+    if (e.target.closest('.delete-lesson')) {
+      var dl = e.target.closest('.delete-lesson'); var sec = findSection(dl.dataset.section);
+      if (confirm(t('confirmDelete'))) { sec.lessons = sec.lessons.filter(function (l) { return l.id !== dl.dataset.lesson; }); saveData(); go({ name: 'lessons', section: sec.id }); }
+      return;
+    }
+
+    var phraseEl = e.target.closest('.phrase');
+    if (phraseEl) {
+      var key = phraseEl.dataset.key;
+      var parts = key.split(':');
+      var sec = findSection(parts[0]), les = findLesson(parts[0], parts[1]), p = les.phrases[+parts[2]];
+      if (e.target.closest('.speak-btn')) {
+        stopSpeech();
+        var seq = state.langs.filter(function (l) { return p[l]; }).map(function (l) { return { text: p[l], lang: l, langClass: l }; });
+        speakSequence(seq, key);
+        return;
+      }
+      if (e.target.closest('.loop-btn')) { togglePhraseLoop(p, key); return; }
+      if (e.target.closest('.edit-phrase-btn')) { editPhraseModal(parts[0], parts[1], p, +parts[2]); return; }
+      var word = e.target.closest('.word');
+      if (word) {
+        var lang = word.dataset.wordLang || word.closest('.line').dataset.lang;
+        toggleWordLoop(word.textContent.trim(), lang, key + ':' + lang, lang);
+        return;
+      }
+    }
+
+    if (e.target.closest('#btn-add-section')) { editSectionModal(null); return; }
+    if (e.target.closest('#btn-add-lesson')) { editLessonModal(state.route.section, null); return; }
+    if (e.target.closest('#btn-add-phrase')) { editPhraseModal(state.route.section, state.route.lesson, null, -1); return; }
+    if (e.target.closest('#play-all')) { playAllPhrases(); return; }
+    if (e.target.closest('#stop-all')) { stopSpeech(); return; }
+  });
+
+  function playAllPhrases() {
+    var sec = findSection(state.route.section), les = findLesson(state.route.section, state.route.lesson);
+    if (!sec || !les || !les.phrases.length) return;
+    stopSpeech();
+    var i = 0;
+    var keyBase = state.route.section + ':' + state.route.lesson;
+    state.loop = { key: keyBase + ':all', word: false };
+    (function next() {
+      if (!state.loop || state.loop.key !== keyBase + ':all') return;
+      if (i >= les.phrases.length) { stopSpeech(); return; }
+      var p = les.phrases[i];
+      var key = keyBase + ':' + i;
+      var el = document.querySelector('.phrase[data-key="' + key + '"]');
+      if (el) el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      var seq = state.langs.filter(function (l) { return p[l]; }).map(function (l) { return { text: p[l], lang: l, langClass: l }; });
+      i++;
+      speakSequence(seq, key, function () {
+        if (!state.loop || state.loop.key !== keyBase + ':all') return;
+        setTimeout(next, 500);
+      });
+    })();
+  }
+
+  /* ---------- Theme / lang / rate ---------- */
+
+  document.getElementById('btn-theme').addEventListener('click', function () {
+    setTheme(state.theme === 'dark' ? 'light' : 'dark');
+  });
+  document.getElementById('btn-stop').addEventListener('click', stopSpeech);
+  document.querySelector('.lang-switch').addEventListener('click', function (e) {
+    var btn = e.target.closest('.lang-btn'); if (btn) setUILang(btn.dataset.lang);
+  });
+
+  var rateInput = document.getElementById('rate');
+  rateInput.value = state.rate;
+  rateInput.addEventListener('input', function () {
+    state.rate = parseFloat(rateInput.value);
+    document.querySelector('.rate-value').textContent = state.rate.toFixed(1) + '×';
+    localStorage.setItem('nb_rate', state.rate);
+  });
+  document.querySelector('.rate-value').textContent = state.rate.toFixed(1) + '×';
+
+  var loopSelect = document.getElementById('loopmode');
+  loopSelect.value = state.langs.join(',');
+  loopSelect.addEventListener('change', function () {
+    state.langs = loopSelect.value.split(',');
+    localStorage.setItem('nb_langs', loopSelect.value);
+  });
+
+  /* ---------- Import / Export ---------- */
+
+  document.getElementById('btn-export').addEventListener('click', function () {
+    var blob = new Blob([JSON.stringify(state.data, null, 2)], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'notebook_' + new Date().toISOString().slice(0, 10) + '.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  document.getElementById('btn-import-trigger').addEventListener('click', function () { document.getElementById('import-file').click(); });
+  document.getElementById('import-file').addEventListener('change', function (e) {
+    var file = e.target.files[0]; if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function (ev) {
+      try {
+        var obj = JSON.parse(ev.target.result);
+        if (obj && Array.isArray(obj.sections)) { state.data = obj; saveData(); render(); alert(t('importDone')); }
+        else { alert(t('importError')); }
+      } catch (err) { alert(t('importError')); }
+      e.target.value = '';
+    };
+    reader.readAsText(file);
+  });
+
+  window.addEventListener('hashchange', function () { go(routeFromHash(), false); });
+
+  if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function () {}); }
+  if (speakSupported()) window.speechSynthesis.getVoices();
+
+  setTheme(state.theme);
+  setUILang(state.uiLang);
+  state.route = routeFromHash();
+  render();
+})();
+</script>
+</body>
+</html>
