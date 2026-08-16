@@ -239,6 +239,76 @@
     .card-actions { width: 100%; justify-content: flex-end; margin-top: 0.5rem; }
     .toolbar { gap: 0.5rem; }
   }
+
+  /* Notebook drawing overlay */
+  .hidden { display: none !important; }
+  .notebook-overlay {
+    position: fixed; inset: 0; z-index: 4000;
+    background: #fff; color: #111;
+    display: flex; flex-direction: column;
+    padding: 0.6rem;
+    transition: opacity 0.15s;
+  }
+  .notebook-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.4rem 0.6rem; margin: 0.2rem 0.4rem;
+    background: rgba(255,255,255,0.95); border: 1px solid #eee; border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    font-weight: 700; color: #555; font-size: 1rem;
+  }
+  .notebook-header > button:first-child { background: #fff; border: 1px solid #eee; border-radius: 10px; width: 38px; height: 38px; font-size: 1.3rem; color: #666; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+  .notebook-header-tools { display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap; }
+  .notebook-header .nb-tool { width: 40px; height: 40px; background: #fff; border: 1px solid #eee; border-radius: 10px; font-size: 1.35rem; color: #666; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: transform 0.1s, background 0.1s, border-color 0.1s; }
+  .notebook-header .nb-tool.active { background: #e3f2fd; border-color: #90caf9; color: #1565c0; transform: scale(1.08); }
+  .notebook-palette {
+    display: flex; flex-direction: column; gap: 0.6rem;
+    padding: 0.5rem 0.8rem; align-items: center;
+    background: rgba(248,249,250,0.95); border: 1px solid #eee; border-radius: 16px;
+    margin: 0 0.4rem; box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+  }
+  .notebook-palette.hidden { display: none; }
+  .notebook-colors, .notebook-size-preview { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; align-items: flex-end; }
+  .notebook-colors button { width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+  .notebook-colors button.active { border-color: #333; transform: scale(1.12); }
+  .notebook-size-preview button { width: 40px; height: 32px; border: 2px solid transparent; background: transparent; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; padding: 0.25rem; }
+  .notebook-size-preview button span { display: block; width: 26px; background: #333; border-radius: 2px; transition: height 0.1s; }
+  .notebook-size-preview button[data-size="0.85"] span { height: 2px; }
+  .notebook-size-preview button[data-size="1"] span { height: 3px; }
+  .notebook-size-preview button[data-size="1.25"] span { height: 5px; }
+  .notebook-size-preview button[data-size="1.5"] span { height: 7px; }
+  .notebook-size-preview button[data-size="2"] span { height: 11px; }
+  .notebook-size-preview button.active { border-color: #333; background: #f5f5f5; }
+  .notebook-canvas {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    padding: 0.6rem; position: relative; overflow: hidden;
+  }
+  .notebook-lines {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background: repeating-linear-gradient(to bottom, transparent 0 31px, #e0f0ff 31px 32px);
+    opacity: 1;
+  }
+  .notebook-lines.hidden { opacity: 0; }
+  .notebook-phrase-bg {
+    position: relative; z-index: 1;
+    font-size: calc(1.6rem * var(--notebook-scale, 1.25));
+    font-weight: 700; text-align: center; line-height: 1.7;
+    color: #e0e0e0; max-width: 100%; word-wrap: break-word;
+    user-select: none; pointer-events: none;
+    padding: 0 1rem;
+  }
+  .notebook-phrase-bg .fr { color: #8b5cf6; }
+  .notebook-phrase-bg .ar { color: #06b6d4; }
+  .notebook-phrase-bg .en { color: #9ca3af; }
+  .notebook-draw-canvas {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    touch-action: none; cursor: crosshair; z-index: 2;
+  }
+  [data-theme="dark"] .notebook-overlay { background: #1a1a2e; color: #eee; }
+  [data-theme="dark"] .notebook-header { background: rgba(30,30,46,0.95); border-color: #333; color: #eee; }
+  [data-theme="dark"] .notebook-header > button:first-child { background: #23233a; border-color: #333; color: #eee; }
+  [data-theme="dark"] .notebook-header .nb-tool { background: #23233a; border-color: #333; color: #eee; }
+  [data-theme="dark"] .notebook-header .nb-tool.active { background: #2a3a4a; border-color: #5c9bd6; color: #8ccfff; }
+  [data-theme="dark"] .notebook-palette { background: rgba(30,30,46,0.95); border-color: #333; }
 </style>
 </head>
 <body>
@@ -296,6 +366,46 @@
     </div>
     <div class="modal-body" id="modal-body"></div>
     <div class="modal-footer" id="modal-footer"></div>
+  </div>
+</div>
+
+<div id="notebook-overlay" class="notebook-overlay hidden">
+  <div class="notebook-header">
+    <button id="nb-close" aria-label="Close">✕</button>
+    <div class="notebook-header-tools" id="notebook-header-tools">
+      <button class="nb-tool active" data-tool="pencil" id="nb-pencil" aria-label="Pencil">🖊️</button>
+      <button class="nb-tool" data-tool="brush" id="nb-brush" aria-label="Brush">🖌️</button>
+      <button class="nb-tool" data-tool="eraser" id="nb-eraser" aria-label="Eraser">🧽</button>
+      <button class="nb-tool" id="nb-undo" aria-label="Undo">↩️</button>
+      <button class="nb-tool" id="nb-grid" aria-label="Grid">📐</button>
+      <button class="nb-tool" id="nb-clear" aria-label="Clear">🗑️</button>
+      <button class="nb-tool" id="nb-palette-toggle" aria-label="Palette">🎨</button>
+      <button class="nb-tool" id="nb-speak" aria-label="Listen">🔊</button>
+    </div>
+  </div>
+  <div id="notebook-palette" class="notebook-palette hidden">
+    <div class="notebook-colors" id="notebook-colors">
+      <button class="active" data-color="#111111" style="background:#111111" id="nb-c-111"></button>
+      <button data-color="#e74c3c" style="background:#e74c3c" id="nb-c-e74"></button>
+      <button data-color="#3498db" style="background:#3498db" id="nb-c-349"></button>
+      <button data-color="#2ecc71" style="background:#2ecc71" id="nb-c-2ec"></button>
+      <button data-color="#f1c40f" style="background:#f1c40f" id="nb-c-f1c"></button>
+      <button data-color="#9b59b6" style="background:#9b59b6" id="nb-c-9b5"></button>
+      <button data-color="#e67e22" style="background:#e67e22" id="nb-c-e67"></button>
+      <button data-color="#95a5a6" style="background:#95a5a6" id="nb-c-95a"></button>
+    </div>
+    <div class="notebook-size-preview" id="notebook-sizes">
+      <button data-size="0.85" id="nb-s-085"><span></span></button>
+      <button data-size="1" id="nb-s-1"><span></span></button>
+      <button data-size="1.25" class="active" id="nb-s-125"><span></span></button>
+      <button data-size="1.5" id="nb-s-15"><span></span></button>
+      <button data-size="2" id="nb-s-2"><span></span></button>
+    </div>
+  </div>
+  <div class="notebook-canvas" id="notebook-canvas-wrap">
+    <div class="notebook-lines" id="notebook-lines"></div>
+    <div class="notebook-phrase-bg" id="notebook-phrase-bg"></div>
+    <canvas id="notebook-canvas" class="notebook-draw-canvas"></canvas>
   </div>
 </div>
 
@@ -359,6 +469,8 @@
     speakOnce: { ar: 'نطق مرة', fr: 'Écouter', en: 'Speak' },
     loopPhrase: { ar: 'تكرار العبارة', fr: 'Répéter la phrase', en: 'Loop phrase' },
     loopWord: { ar: 'تكرار الكلمة', fr: 'Répéter le mot', en: 'Loop word' },
+    notebook: { ar: 'دفتر الرسم', fr: 'Cahier', en: 'Notebook' },
+    aiSearch: { ar: 'بحث Google AI', fr: 'Google AI', en: 'Google AI' },
     playAll: { ar: '▶ تشغيل الكل', fr: '▶ Tout lire', en: '▶ Play all' },
     stopAll: { ar: '⏹ إيقاف', fr: '⏹ Arrêter', en: '⏹ Stop' },
     footerVideo: { ar: 'دروسي المرئية', fr: 'Vidéos', en: 'Video lessons' },
@@ -378,7 +490,20 @@
     data: loadData(),
     route: { name: 'sections' },
     loop: null,
-    speechRun: 0
+    speechRun: 0,
+    notebookSecId: null,
+    notebookLesId: null,
+    notebookIndex: null,
+    notebookScale: parseFloat(localStorage.getItem('nb_nb_scale')) || 1.25,
+    notebookTool: localStorage.getItem('nb_nb_tool') || 'pencil',
+    notebookColor: localStorage.getItem('nb_nb_color') || '#111111',
+    notebookSelectedColor: localStorage.getItem('nb_nb_color') || '#111111',
+    notebookGrid: true,
+    notebookPalette: false,
+    notebookHistory: [],
+    notebookDrawing: false,
+    notebookLastX: 0,
+    notebookLastY: 0
   };
 
   var VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
@@ -789,9 +914,9 @@
           '<div class="line en" data-lang="en" data-key="' + esc(key) + '">' + clickableWords(p.en || '', 'en') + '</div>' +
         '</div>' +
         '<div class="btns">' +
-          '<button class="speak-btn" title="' + t('speakOnce') + '">🔊</button>' +
+          '<button class="ai-search-btn" title="' + t('aiSearch') + '">🤖</button>' +
           '<button class="loop-btn" title="' + t('loopPhrase') + '">🔁</button>' +
-          '<button class="edit-phrase-btn" title="' + t('edit') + '">✎</button>' +
+          '<button class="notebook-btn" title="' + t('notebook') + '">🎨</button>' +
         '</div>' +
       '</div>' +
     '</div>';
@@ -1078,13 +1203,15 @@
       var key = phraseEl.dataset.key;
       var parts = key.split(':');
       var sec = findSection(parts[0]), les = findLesson(parts[0], parts[1]), p = les.phrases[+parts[2]];
-      if (e.target.closest('.speak-btn')) {
-        stopSpeech();
-        var seq = state.langs.filter(function (l) { return p[l]; }).map(function (l) { return { text: p[l], lang: l, langClass: l }; });
-        speakSequence(seq, key);
+      if (e.target.closest('.ai-search-btn')) {
+        openGoogleAiMode(parts[0], parts[1], p, +parts[2]);
         return;
       }
       if (e.target.closest('.loop-btn')) { togglePhraseLoop(p, key); return; }
+      if (e.target.closest('.notebook-btn')) {
+        openNotebook(parts[0], parts[1], +parts[2]);
+        return;
+      }
       if (e.target.closest('.edit-phrase-btn')) { editPhraseModal(parts[0], parts[1], p, +parts[2]); return; }
       var word = e.target.closest('.word');
       if (word) {
@@ -1178,6 +1305,213 @@
     a.click();
     setTimeout(function () { if (a.parentNode) a.parentNode.removeChild(a); URL.revokeObjectURL(url); }, 3000);
   }
+
+  // --- Drawing notebook ---
+  function renderNotebookOverlay() {
+    var wrap = document.getElementById('notebook-canvas-wrap');
+    var phraseEl = document.getElementById('notebook-phrase-bg');
+    var linesEl = document.getElementById('notebook-lines');
+    if (!wrap || !phraseEl) return;
+    var p = null;
+    if (state.notebookSecId && state.notebookLesId && state.notebookIndex !== null) {
+      var les = findLesson(state.notebookSecId, state.notebookLesId);
+      p = les && les.phrases[state.notebookIndex];
+    }
+    phraseEl.innerHTML = p
+      ? '<div class="fr">' + esc(p.fr || '') + '</div>' +
+        '<div class="ar">' + esc(p.ar || '') + '</div>' +
+        '<div class="en">' + esc(p.en || '') + '</div>'
+      : '';
+    phraseEl.style.setProperty('--notebook-scale', state.notebookScale);
+    if (linesEl) linesEl.classList.toggle('hidden', !state.notebookGrid);
+    document.querySelectorAll('#notebook-header-tools .nb-tool[data-tool]').forEach(function (b) { b.classList.toggle('active', b.dataset.tool === state.notebookTool); });
+    document.querySelectorAll('#notebook-colors button').forEach(function (b) { b.classList.toggle('active', b.dataset.color === state.notebookColor); });
+    document.querySelectorAll('#notebook-sizes button').forEach(function (b) { b.classList.toggle('active', parseFloat(b.dataset.size) === state.notebookScale); });
+  }
+
+  function saveNotebookHistory() {
+    var canvas = document.getElementById('notebook-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    state.notebookHistory.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+    if (state.notebookHistory.length > 12) state.notebookHistory.shift();
+  }
+
+  function openNotebook(secId, lesId, idx) {
+    stopSpeech();
+    state.notebookSecId = secId;
+    state.notebookLesId = lesId;
+    state.notebookIndex = idx;
+    state.notebookHistory = [];
+    renderNotebookOverlay();
+    document.getElementById('notebook-overlay').classList.remove('hidden');
+    initNotebookCanvas();
+    clearNotebookCanvas();
+    requestAnimationFrame(saveNotebookHistory);
+  }
+  window.openNotebook = openNotebook;
+
+  function closeNotebook() {
+    document.getElementById('notebook-overlay').classList.add('hidden');
+    state.notebookSecId = null; state.notebookLesId = null; state.notebookIndex = null;
+  }
+  window.closeNotebook = closeNotebook;
+
+  function toggleNotebookPalette() {
+    state.notebookPalette = !state.notebookPalette;
+    document.getElementById('notebook-palette').classList.toggle('hidden', !state.notebookPalette);
+  }
+  window.toggleNotebookPalette = toggleNotebookPalette;
+
+  function setNotebookTool(tool) {
+    state.notebookTool = tool;
+    localStorage.setItem('nb_nb_tool', tool);
+    renderNotebookOverlay();
+  }
+  window.setNotebookTool = setNotebookTool;
+
+  function setNotebookColor(color) {
+    state.notebookColor = color;
+    state.notebookSelectedColor = color;
+    localStorage.setItem('nb_nb_color', color);
+    renderNotebookOverlay();
+  }
+  window.setNotebookColor = setNotebookColor;
+
+  function setNotebookSize(size) {
+    state.notebookScale = size;
+    localStorage.setItem('nb_nb_scale', size);
+    renderNotebookOverlay();
+    state.notebookHistory = [];
+    initNotebookCanvas();
+    requestAnimationFrame(saveNotebookHistory);
+  }
+  window.setNotebookSize = setNotebookSize;
+
+  function getCanvasPoint(e) {
+    var canvas = document.getElementById('notebook-canvas');
+    var rect = canvas.getBoundingClientRect();
+    var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    var clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return { x: clientX - rect.left, y: clientY - rect.top };
+  }
+
+  function startNotebookDraw(e) {
+    state.notebookDrawing = true;
+    var p = getCanvasPoint(e);
+    state.notebookLastX = p.x; state.notebookLastY = p.y;
+    var canvas = document.getElementById('notebook-canvas');
+    var ctx = canvas.getContext('2d');
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    if (state.notebookTool === 'eraser') {
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.strokeStyle = 'rgba(0,0,0,1)';
+    } else {
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.strokeStyle = state.notebookColor;
+    }
+    var factor = { pencil: 1, brush: 2.5, eraser: 5 }[state.notebookTool] || 1;
+    ctx.lineWidth = Math.max(2, 3 * state.notebookScale * factor);
+    ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y); ctx.stroke();
+    e.preventDefault();
+  }
+
+  function moveNotebookDraw(e) {
+    if (!state.notebookDrawing) return;
+    var p = getCanvasPoint(e);
+    var canvas = document.getElementById('notebook-canvas');
+    var ctx = canvas.getContext('2d');
+    ctx.beginPath();
+    ctx.moveTo(state.notebookLastX, state.notebookLastY);
+    ctx.lineTo(p.x, p.y);
+    ctx.stroke();
+    state.notebookLastX = p.x; state.notebookLastY = p.y;
+    e.preventDefault();
+  }
+
+  function stopNotebookDraw(e) {
+    if (!state.notebookDrawing) return;
+    state.notebookDrawing = false;
+    saveNotebookHistory();
+    if (e && e.cancelable) e.preventDefault();
+  }
+
+  function clearNotebookCanvas() {
+    var canvas = document.getElementById('notebook-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.globalCompositeOperation = 'source-over';
+    saveNotebookHistory();
+  }
+  window.clearNotebookCanvas = clearNotebookCanvas;
+
+  function undoNotebookCanvas() {
+    var canvas = document.getElementById('notebook-canvas');
+    if (!canvas || state.notebookHistory.length < 2) return;
+    state.notebookHistory.pop();
+    var data = state.notebookHistory[state.notebookHistory.length - 1];
+    var ctx = canvas.getContext('2d');
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.putImageData(data, 0, 0);
+  }
+  window.undoNotebookCanvas = undoNotebookCanvas;
+
+  function toggleNotebookGrid() {
+    state.notebookGrid = !state.notebookGrid;
+    var linesEl = document.getElementById('notebook-lines');
+    if (linesEl) linesEl.classList.toggle('hidden', !state.notebookGrid);
+  }
+  window.toggleNotebookGrid = toggleNotebookGrid;
+
+  function initNotebookCanvas() {
+    var canvas = document.getElementById('notebook-canvas');
+    if (!canvas) return;
+    var rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+  }
+
+  function notebookSpeakCurrent() {
+    if (state.notebookSecId && state.notebookLesId && state.notebookIndex !== null) {
+      var les = findLesson(state.notebookSecId, state.notebookLesId);
+      var p = les && les.phrases[state.notebookIndex];
+      if (p) {
+        stopSpeech();
+        var key = state.notebookSecId + ':' + state.notebookLesId + ':' + state.notebookIndex;
+        var seq = state.langs.filter(function (l) { return p[l]; }).map(function (l) { return { text: p[l], lang: l, langClass: l }; });
+        speakSequence(seq, key);
+      }
+    }
+  }
+  window.notebookSpeakCurrent = notebookSpeakCurrent;
+
+  function openGoogleAiMode(secId, lesId, p, idx) {
+    if (!p) return;
+    var fr = p.fr || '';
+    var ar = p.ar || '';
+    var en = p.en || '';
+    var prompt;
+    if (state.uiLang === 'ar') {
+      prompt = 'صحّح وأعطِ تحليلاً للعبارة الفرنسية "' + fr + '" كلمة كلمة مع الترجمة إلى العربية والفرنسية والإنجليزية.\nالترجمة العربية: "' + ar + '"\nالترجمة الإنجليزية: "' + en + '"\nقدّم معنى كاملاً وأمثلة شائعة تُستخدم في الحياة اليومية في فرنسا ونصائح نطق وقواعد.';
+    } else if (state.uiLang === 'fr') {
+      prompt = 'Corrige et analyse la phrase française "' + fr + '" mot à mot avec la traduction en arabe, en français et en anglais.\nArabe: "' + ar + '"\nAnglais: "' + en + '"\nDonne le sens complet, des exemples courants de la vie quotidienne en France, des conseils de prononciation et des notes de grammaire.';
+    } else {
+      prompt = 'Correct and analyze the French phrase "' + fr + '" word by word with translations into Arabic, French, and English.\nArabic: "' + ar + '"\nEnglish: "' + en + '"\nProvide full meaning, common examples used in daily life in France, pronunciation tips, and grammar notes.';
+    }
+    var hl = state.uiLang === 'ar' ? 'ar' : (state.uiLang === 'fr' ? 'fr' : 'en');
+    var url = 'https://www.google.com/search?udm=50&hl=' + hl + '&q=' + encodeURIComponent(prompt);
+    var Browser = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Browser;
+    if (Browser && Browser.open) {
+      Browser.open({ url: url });
+    } else if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App && window.Capacitor.Plugins.App.openUrl) {
+      window.Capacitor.Plugins.App.openUrl({ url: url });
+    } else {
+      window.open(url, '_blank');
+    }
+  }
+  window.openGoogleAiMode = openGoogleAiMode;
+
   document.getElementById('btn-export').addEventListener('click', exportNotebook);
 
   document.getElementById('btn-import-trigger').addEventListener('click', function () { document.getElementById('import-file').click(); });
@@ -1206,6 +1540,45 @@
       else if (confirm(t('exitConfirm'))) AppPlugin.exitApp();
     });
   }
+
+  // Notebook overlay controls
+  (function () {
+    function on(id, ev, fn) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener(ev, fn);
+    }
+    on('nb-close', 'click', closeNotebook);
+    on('nb-pencil', 'click', function () { setNotebookTool('pencil'); });
+    on('nb-brush', 'click', function () { setNotebookTool('brush'); });
+    on('nb-eraser', 'click', function () { setNotebookTool('eraser'); });
+    on('nb-undo', 'click', undoNotebookCanvas);
+    on('nb-grid', 'click', toggleNotebookGrid);
+    on('nb-clear', 'click', clearNotebookCanvas);
+    on('nb-palette-toggle', 'click', toggleNotebookPalette);
+    on('nb-speak', 'click', notebookSpeakCurrent);
+    document.querySelectorAll('#notebook-colors button').forEach(function (b) {
+      b.addEventListener('click', function () { setNotebookColor(b.dataset.color); });
+    });
+    document.querySelectorAll('#notebook-sizes button').forEach(function (b) {
+      b.addEventListener('click', function () { setNotebookSize(parseFloat(b.dataset.size)); });
+    });
+    var nbCanvas = document.getElementById('notebook-canvas');
+    if (nbCanvas) {
+      nbCanvas.addEventListener('mousedown', startNotebookDraw);
+      nbCanvas.addEventListener('mousemove', moveNotebookDraw);
+      nbCanvas.addEventListener('mouseup', stopNotebookDraw);
+      nbCanvas.addEventListener('mouseleave', stopNotebookDraw);
+      nbCanvas.addEventListener('touchstart', startNotebookDraw, { passive: false });
+      nbCanvas.addEventListener('touchmove', moveNotebookDraw, { passive: false });
+      nbCanvas.addEventListener('touchend', stopNotebookDraw);
+      nbCanvas.addEventListener('touchcancel', stopNotebookDraw);
+    }
+    window.addEventListener('resize', function () {
+      if (state.notebookIndex !== null && !document.getElementById('notebook-overlay').classList.contains('hidden')) {
+        initNotebookCanvas();
+      }
+    });
+  })();
 
   if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function () {}); }
   if (speakSupported()) window.speechSynthesis.getVoices();
