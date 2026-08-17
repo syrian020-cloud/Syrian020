@@ -5,68 +5,139 @@
     const STORAGE_KEY = "fwordsData_v1";
     const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-    const SAMPLE_BULK_TEXT = `1. se lever | ينهض / يستيقظ من السرير | to get up
+    const SAMPLE_TEMPLATES = {
+        1: `chercher
+العربية: يبحث عن
+English: to look for
 
-Je me lève à sept heures. | أنهض الساعة السابعة. | I get up at seven.
+Exemples:
+Je cherche mes clés.
+أبحث عن مفاتيحي.
+I’m looking for my keys.`,
 
-Je me lève tôt le matin. | أنهض باكرًا في الصباح. | I get up early in the morning.
+        2: `chercher | يبحث عن | to look for
+Type: Verbe
+Niveau: A1
+Prononciation: /ʃɛʁ.ʃe/
 
-2. se réveiller | يستيقظ | to wake up
+Exemples :
 
-Je me réveille à six heures. | أستيقظ الساعة السادسة. | I wake up at six.
+1. Je cherche mes clés.
+أبحث عن مفاتيحي.
+I’m looking for my keys.`,
 
-Elle se réveille tard le dimanche. | هي تستيقظ متأخرة يوم الأحد. | She wakes up late on Sunday.
+        3: `CHERCHER
+🔹 المعنى: يبحث عن
+🔹 English: to look for
+🔹 النوع: فعل
+🔹 المستوى: A1
 
-3. manger | يأكل | to eat
+جمل يومية:
 
-Je mange à midi. | آكل وقت الظهر. | I eat at noon.
+🇫🇷 Je cherche mes clés.
+🇸🇦 أبحث عن مفاتيحي.
+🇬🇧 I’m looking for my keys.
 
-Nous mangeons ensemble. | نحن نأكل معًا. | We eat together.
+🇫🇷 Tu cherches quoi ?
+🇸🇦 عمّ تبحث؟
+🇬🇧 What are you looking for?
 
-4. boire | يشرب | to drink
+🇫🇷 Je cherche du travail.
+🇸🇦 أبحث عن عمل.
+🇬🇧 I’m looking for a job.`,
 
-Je bois un café le matin. | أشرب قهوة في الصباح. | I drink coffee in the morning.
+        4: `chercher | يبحث عن | to look for | verbe | A1
+Exemple:
+Je cherche mes clés. | أبحث عن مفاتيحي. | I’m looking for my keys.`,
 
-Tu veux boire quelque chose ? | هل تريد أن تشرب شيئًا؟ | Do you want to drink something?
+        5: `🇫🇷 chercher
+🇸🇦 يبحث عن
+🇬🇧 to look for
+🗣️ Je cherche mon téléphone.
+أبحث عن هاتفي.
+I’m looking for my phone.
+🗣️ Je cherche du travail.
+أبحث عن عمل.
+I’m looking for a job.`,
 
-5. aller | يذهب | to go
+        6: `chercher | يبحث عن | to look for
+Présent:
+je cherche | أنا أبحث
+tu cherches | أنت تبحث
+il/elle cherche | هو/هي يبحث
+nous cherchons | نحن نبحث
+vous cherchez | أنتم تبحثون
+ils/elles cherchent | هم/هن يبحثون
+Exemple:
+Je cherche mon sac. | أبحث عن حقيبتي. | I’m looking for my bag.`,
 
-Je vais au travail. | أذهب إلى العمل. | I go to work.
+        7: `chercher | يبحث عن | to look for
+شائع مع:
+chercher quelqu'un | يبحث عن شخص | look for someone
+chercher quelque chose | يبحث عن شيء | look for something
+chercher du travail | يبحث عن عمل | look for a job
+chercher une adresse | يبحث عن عنوان | look for an address
+chercher une solution | يبحث عن حل | look for a solution`,
 
-Tu vas où ? | إلى أين تذهب؟ | Where are you going?
+        8: `chercher | يبحث عن | to look for
+Mots liés:
+trouver | يجد | to find
+rechercher | يبحث عن / يبحث في | to search
+recherche | بحث | search / research
+Exemple:
+Je cherche une solution. | أبحث عن حل. | I’m looking for a solution.`,
 
-6. venir | يأتي | to come
+        9: `01. chercher
+العربية: يبحث عن
+English: to look for
+النوع: Verbe
+المستوى: A1
+النطق: /ʃɛʁ.ʃe/
 
-Tu viens avec moi ? | هل تأتي معي؟ | Are you coming with me?
+Exemples:
+Je cherche mes clés.
+أبحث عن مفاتيحي.
+I’m looking for my keys.`
+    };
 
-Il vient ce soir. | هو يأتي هذا المساء. | He is coming tonight.
+    const TEMPLATE_LABELS = {
+        1: "نموذج 1 - بسيط",
+        2: "نموذج 2 - منظم",
+        3: "نموذج 3 - تعليمي ⭐",
+        4: "نموذج 4 - سطر واحد",
+        5: "نموذج 5 - بطاقات",
+        6: "نموذج 6 - تصريف",
+        7: "نموذج 7 - الاستعمال",
+        8: "نموذج 8 - كلمات مرتبطة",
+        9: "نموذج 9 - مناسب للتطبيق"
+    };
 
-7. partir | يغادر | to leave
+    function fillTemplate(key) {
+        if (bulkInput && SAMPLE_TEMPLATES[key]) {
+            bulkInput.value = SAMPLE_TEMPLATES[key];
+            try { bulkInput.select(); } catch (e) {}
+        }
+    }
 
-Je pars à huit heures. | أغادر الساعة الثامنة. | I leave at eight.
+    function copyTemplate(key) {
+        fillTemplate(key);
+        if (navigator.clipboard && bulkInput) {
+            try { navigator.clipboard.writeText(bulkInput.value); } catch (e) {}
+        }
+    }
 
-Le train part bientôt. | القطار سيغادر قريبًا. | The train leaves soon.
-
-8. rentrer | يعود إلى المنزل | to go back home
-
-Je rentre chez moi. | أعود إلى منزلي. | I go back home.
-
-Je rentre tard ce soir. | سأعود متأخرًا هذا المساء. | I'll get home late tonight.
-
-9. sortir | يخرج | to go out
-
-Je sors avec mes amis. | أخرج مع أصدقائي. | I go out with my friends.
-
-Tu veux sortir ce soir ? | هل تريد الخروج هذا المساء؟ | Do you want to go out tonight?
-
-10. acheter | يشتري | to buy
-
-Je vais acheter du pain. | سأذهب لشراء الخبز. | I'm going to buy some bread.
-
-J'achète des légumes au marché. | أشتري الخضار من السوق. | I buy vegetables at the market.`;
-
-    function fillBulkSample() {
-        if (bulkInput) bulkInput.value = SAMPLE_BULK_TEXT;
+    function buildTemplates() {
+        if (!templatesBar) return;
+        templatesBar.innerHTML = "";
+        Object.keys(SAMPLE_TEMPLATES).forEach(function (k) {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "template-btn";
+            btn.textContent = k;
+            btn.title = TEMPLATE_LABELS[k] || ("نموذج " + k);
+            btn.addEventListener("click", function () { copyTemplate(k); });
+            templatesBar.appendChild(btn);
+        });
     }
 
     let data = null;
@@ -90,7 +161,7 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
     const bulkTopic = document.getElementById("bulkTopic");
     const bulkInput = document.getElementById("bulkInput");
     const importFeedback = document.getElementById("importFeedback");
-    const fillSample = document.getElementById("fillSample");
+    const templatesBar = document.getElementById("templatesBar");
     const escapeDiv = document.createElement("div");
 
     function init() {
@@ -98,6 +169,7 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
         buildLetterNav();
         buildCategoryNav();
         bindEvents();
+        buildTemplates();
         initAppPlugin();
         loadWebVoices();
         render();
@@ -241,7 +313,7 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
         document.getElementById("cancelImport").addEventListener("click", closeAddModal);
 
         document.getElementById("importWords").addEventListener("click", importWords);
-        if (fillSample) fillSample.addEventListener("click", fillBulkSample);
+        // template icons are built by buildTemplates()
 
         addModal.addEventListener("click", function (e) {
             if (e.target === addModal) closeAddModal();
@@ -284,49 +356,246 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
         return "";
     }
 
+    function containsArabic(text) {
+        return /[\u0600-\u06FF\u0750-\u077F]/.test(text || "");
+    }
+
+    function isExampleMarkerStr(str) {
+        return /^(?:Exemples?|Examples?|جمل(?:\s+يومية)?|أمثلة|شائع\s+مع|Mots\s+liés|Présent|Passé\s+composé|Imparfait|Futur)\s*(?:[:：]\s*)?$/i.test((str || "").trim());
+    }
+
+    function stripLeadingNumberPrefix(s) {
+        return (s || "").replace(/^\s*\d+[\.\)\-]\s*/, "").trim();
+    }
+
+    function stripLeadingNumberAndBullets(s) {
+        return (s || "").replace(/^\s*(?:\d+[\.\)\-]\s*|🔹|⭐|\s)+/, "").trim();
+    }
+
+    function stripLeadingMarkers(s) {
+        if (!s) return "";
+        const re = /^\s*(?:\d+[\.\)\-]\s*|🔹|⭐|\u{1F5E3}\u{FE0F}?|(?:[\u{1F1E6}-\u{1F1FF}]{2}))\s*/gu;
+        let prev;
+        do {
+            prev = s;
+            s = s.replace(re, "");
+        } while (s !== prev);
+        return s.trim();
+    }
+
+    function isLanguageHeader(str) {
+        return /^(?:Français|Francais|French|الفرنسية|English|Anglais|الإنجليزية|Arabic|Arabe|العربية)$/i.test((str || "").trim());
+    }
+
     function looksLikeHeading(str) {
         const first = (str || "").split("|")[0].trim();
         if (!first) return false;
-        if (/[.!?؟]$/.test(first)) return false;
+        if (/[.!?؟:：]$/.test(first)) return false;
+        if (isExampleMarkerStr(first)) return false;
+        if (isLanguageHeader(first)) return false;
         const words = first.split(/\s+/).filter(function (w) { return w.length > 0; }).length;
         return words <= 5;
+    }
+
+    function parseMeta(line) {
+        const clean = stripLeadingNumberAndBullets(line);
+        const m = clean.match(/^(العربية|English|المعنى|Type|Niveau|Prononciation|النوع|المستوى|النطق|الإنجليزية|معنى|نوع|مستوى|نطق)\s*[:：]\s*(.*)$/i);
+        if (!m) return null;
+        const label = m[1].trim();
+        const value = m[2].trim();
+        const map = {
+            "العربية": "ar", "المعنى": "ar", "معنى": "ar", "الترجمة": "ar",
+            "English": "en", "الإنجليزية": "en", "الانجليزية": "en",
+            "Type": "type", "النوع": "type", "نوع": "type",
+            "Niveau": "level", "المستوى": "level", "مستوى": "level",
+            "Prononciation": "pronunciation", "النطق": "pronunciation", "نطق": "pronunciation"
+        };
+        return { field: map[label] || "", value: value };
+    }
+
+    function parseExampleMarker(line, currentExists) {
+        const trimmed = line.trim();
+        if (currentExists) {
+            const speakerMatch = /^\s*(?:\u{1F5E3}\u{FE0F}?)\s*(.*)$/u.exec(trimmed);
+            if (speakerMatch) return { isMarker: true, clean: speakerMatch[1].trim() };
+        }
+        const clean = stripLeadingMarkers(trimmed);
+        if (isExampleMarkerStr(clean)) return { isMarker: true, clean: "" };
+        return { isMarker: false, clean: "" };
+    }
+
+    function getHeadingInfo(line) {
+        const trimmed = line.trim();
+        if (!trimmed) return { isHeading: false };
+        const core = stripLeadingNumberAndBullets(trimmed);
+        if (core.includes("|")) {
+            const parts = core.split("|").map(function (s) { return s.trim(); });
+            const main = { fr: parts[0] || "", ar: parts[1] || "", en: parts[2] || "" };
+            if (looksLikeHeading(main.fr) && !isLanguageHeader(main.fr)) {
+                const info = { isHeading: true, main: main };
+                if (parts.length >= 5) { info.type = parts[3] || ""; info.level = parts[4] || ""; }
+                else if (parts.length === 4) {
+                    if (/^[A-C][1-2]$/i.test(parts[3])) info.level = parts[3];
+                    else info.type = parts[3];
+                }
+                return info;
+            }
+        } else if (looksLikeHeading(core) && !isExampleMarkerStr(core) && !isLanguageHeader(core)) {
+            return { isHeading: true, main: { fr: core, ar: "", en: "" } };
+        }
+        return { isHeading: false };
     }
 
     function parseBulkText(text) {
         const entries = [];
         if (!text) return entries;
-        const startIdx = text.search(/^\s*\d+[\.\)\-]\s*/m);
-        const body = startIdx >= 0 ? text.slice(startIdx) : text;
-        const lines = body.split(/\r?\n/);
+        const lines = text.split(/\r?\n/);
         let current = null;
-        let lastHeadingNum = -1;
-        for (let i = 0; i < lines.length; i++) {
-            const raw = lines[i];
-            const line = raw.trim();
-            if (!line) continue;
-            const m = line.match(/^\s*(\d+)[\.\)\-]\s*(.*)$/);
-            if (m) {
-                const num = parseInt(m[1], 10);
-                const rest = m[2];
-                const tri = parseTriField(rest);
-                if (looksLikeHeading(rest) && (!current || num > lastHeadingNum)) {
-                    if (current) entries.push(current);
-                    current = {
-                        main: tri,
-                        letter: autoLetterFromWord(tri.fr || tri.en),
-                        examples: []
-                    };
-                    lastHeadingNum = num;
-                } else if (current) {
-                    const ex = parseTriField(rest);
-                    if (ex.fr || ex.ar || ex.en) current.examples.push(ex);
-                }
-            } else if (current) {
-                const ex = parseTriField(line);
+        let inExamples = false;
+        let currentExample = null;
+        let foundFirstHeading = false;
+        let prevLineBlank = true;
+
+        function flushExample() {
+            if (current && currentExample) {
+                const ex = { fr: currentExample.fr || "", ar: currentExample.ar || "", en: currentExample.en || "" };
                 if (ex.fr || ex.ar || ex.en) current.examples.push(ex);
+                currentExample = null;
             }
         }
-        if (current) entries.push(current);
+
+        function flushEntry() {
+            flushExample();
+            if (current) entries.push(current);
+            current = null;
+            currentExample = null;
+            inExamples = false;
+        }
+
+        function startEntry(info) {
+            flushEntry();
+            current = {
+                main: info.main,
+                type: info.type || "",
+                level: info.level || "",
+                pronunciation: info.pronunciation || "",
+                letter: autoLetterFromWord(info.main.fr || info.main.en),
+                examples: []
+            };
+            foundFirstHeading = true;
+            inExamples = false;
+            prevLineBlank = false;
+        }
+
+        function processAsExample(line) {
+            inExamples = true;
+            const cleanLine = stripLeadingMarkers(line);
+            if (line.includes("|")) {
+                const ex = parseTriField(line);
+                flushExample();
+                currentExample = ex;
+                flushExample();
+                return;
+            }
+            if (/^\s*\d+[\.\)\-]\s*/.test(line)) {
+                flushExample();
+                currentExample = { fr: cleanLine, ar: "", en: "" };
+                return;
+            }
+            if (!currentExample) currentExample = { fr: "", ar: "", en: "" };
+            if (containsArabic(cleanLine)) {
+                currentExample.ar = cleanLine;
+            } else {
+                if (!currentExample.fr) currentExample.fr = cleanLine;
+                else if (!currentExample.en) currentExample.en = cleanLine;
+                else {
+                    flushExample();
+                    currentExample = { fr: cleanLine, ar: "", en: "" };
+                }
+            }
+        }
+
+        for (let i = 0; i < lines.length; i++) {
+            let line = lines[i].replace(/[\r\n]/g, "").trim();
+            if (!line) {
+                flushExample();
+                prevLineBlank = true;
+                continue;
+            }
+
+            const flagMatch = line.match(/^([\u{1F1E6}-\u{1F1FF}]{2})\s*(.*)$/u);
+            if (flagMatch) {
+                const flag = flagMatch[1];
+                const rest = flagMatch[2].trim();
+                if (!current) {
+                    if (flag === "\u{1F1EB}\u{1F1F7}" && looksLikeHeading(rest)) {
+                        startEntry({ isHeading: true, main: { fr: rest, ar: "", en: "" } });
+                    }
+                    prevLineBlank = false;
+                    continue;
+                }
+                if (!inExamples) {
+                    if (flag === "\u{1F1F8}\u{1F1E6}") { current.main.ar = current.main.ar || rest; prevLineBlank = false; continue; }
+                    if (flag === "\u{1F1EC}\u{1F1E7}") { current.main.en = current.main.en || rest; prevLineBlank = false; continue; }
+                }
+                if (flag === "\u{1F1EB}\u{1F1F7}") {
+                    flushExample();
+                    currentExample = { fr: rest, ar: "", en: "" };
+                    inExamples = true;
+                } else if (flag === "\u{1F1F8}\u{1F1E6}") {
+                    if (!currentExample) currentExample = { fr: "", ar: "", en: "" };
+                    currentExample.ar = rest;
+                    inExamples = true;
+                } else if (flag === "\u{1F1EC}\u{1F1E7}") {
+                    if (!currentExample) currentExample = { fr: "", ar: "", en: "" };
+                    currentExample.en = rest;
+                    inExamples = true;
+                }
+                prevLineBlank = false;
+                continue;
+            }
+
+            if (!foundFirstHeading) {
+                const hi = getHeadingInfo(line);
+                if (hi && hi.isHeading) startEntry(hi);
+                prevLineBlank = false;
+                continue;
+            }
+
+            const meta = parseMeta(line);
+            if (meta && meta.field) {
+                flushExample();
+                if (!inExamples) {
+                    if (meta.field === "ar") current.main.ar = current.main.ar || meta.value;
+                    else if (meta.field === "en") current.main.en = current.main.en || meta.value;
+                    else current[meta.field] = meta.value;
+                }
+                prevLineBlank = false;
+                continue;
+            }
+
+            const marker = parseExampleMarker(line, !!current);
+            if (marker.isMarker) {
+                flushExample();
+                inExamples = true;
+                if (marker.clean) currentExample = { fr: marker.clean, ar: "", en: "" };
+                prevLineBlank = false;
+                continue;
+            }
+
+            if (prevLineBlank) {
+                const hi = getHeadingInfo(line);
+                if (hi && hi.isHeading) {
+                    startEntry(hi);
+                    continue;
+                }
+            }
+
+            processAsExample(line);
+            prevLineBlank = false;
+        }
+        flushExample();
+        flushEntry();
         return entries;
     }
 
@@ -339,7 +608,7 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
         const topic = bulkTopic.value.trim() || "عام";
         let imported = 0;
         entries.forEach(function (entry) {
-            const letter = entry.letter || "A";
+            const letter = entry.letter || autoLetterFromWord(entry.main.fr || entry.main.en) || "A";
             const cat = data.categories.find(function (c) { return c.id === letter; });
             if (!cat) return;
             const word = {
@@ -347,6 +616,9 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
                 ar: entry.main.ar,
                 en: entry.main.en,
                 topic: topic,
+                type: entry.type || "",
+                level: entry.level || "",
+                pronunciation: entry.pronunciation || "",
                 ex: "",
                 ex_ar: "",
                 ex_en: ""
@@ -401,7 +673,7 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
 
     function matchesSearch(w) {
         if (!searchTerm) return true;
-        const fields = [w.fr, w.ar, w.en, w.ex, w.ex_ar, w.ex_en];
+        const fields = [w.fr, w.ar, w.en, w.type, w.level, w.pronunciation, w.ex, w.ex_ar, w.ex_en];
         if (Array.isArray(w.examples)) {
             w.examples.forEach(function (e) {
                 fields.push(e.fr, e.ar, e.en);
@@ -516,6 +788,15 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
         const ar = w.ar || "";
         const en = w.en || "";
 
+        let badgesHtml = "";
+        if (w.type || w.level || w.pronunciation) {
+            badgesHtml = '<div class="word-badges">';
+            if (w.type) badgesHtml += '<span class="badge badge-type">' + escapeHtml(w.type) + '</span>';
+            if (w.level) badgesHtml += '<span class="badge badge-level">' + escapeHtml(w.level) + '</span>';
+            if (w.pronunciation) badgesHtml += '<span class="badge badge-pronunciation">' + escapeHtml(w.pronunciation) + '</span>';
+            badgesHtml += '</div>';
+        }
+
         let exHtml = "";
         const examples = getExamples(w);
         if (examples.length > 0) {
@@ -558,7 +839,7 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
                 '<span class="word-ar">' + highlightText(ar, searchTerm) + '</span>' +
                 '<span class="word-en">' + highlightText(en, searchTerm) + '</span>' +
                 frSpeak + enSpeak +
-            '</div>' + exHtml + '</div>';
+            '</div>' + badgesHtml + exHtml + '</div>';
     }
 
     function getExamples(w) {
