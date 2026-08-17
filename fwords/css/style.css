@@ -1095,3 +1095,22 @@ main {
     border-top: 1px dashed #cbd5e1;
     margin: 6px 0;
 }
+
+.btn-sample {
+    display: inline-block;
+    margin: 8px 0 14px;
+    padding: 7px 14px;
+    border: 1px dashed var(--primary);
+    border-radius: 8px;
+    background: #eef3fc;
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+.btn-sample:hover {
+    background: var(--primary);
+    color: #fff;
+}

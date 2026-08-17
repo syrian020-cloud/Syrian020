@@ -5,6 +5,70 @@
     const STORAGE_KEY = "fwordsData_v1";
     const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
+    const SAMPLE_BULK_TEXT = `1. se lever | ينهض / يستيقظ من السرير | to get up
+
+Je me lève à sept heures. | أنهض الساعة السابعة. | I get up at seven.
+
+Je me lève tôt le matin. | أنهض باكرًا في الصباح. | I get up early in the morning.
+
+2. se réveiller | يستيقظ | to wake up
+
+Je me réveille à six heures. | أستيقظ الساعة السادسة. | I wake up at six.
+
+Elle se réveille tard le dimanche. | هي تستيقظ متأخرة يوم الأحد. | She wakes up late on Sunday.
+
+3. manger | يأكل | to eat
+
+Je mange à midi. | آكل وقت الظهر. | I eat at noon.
+
+Nous mangeons ensemble. | نحن نأكل معًا. | We eat together.
+
+4. boire | يشرب | to drink
+
+Je bois un café le matin. | أشرب قهوة في الصباح. | I drink coffee in the morning.
+
+Tu veux boire quelque chose ? | هل تريد أن تشرب شيئًا؟ | Do you want to drink something?
+
+5. aller | يذهب | to go
+
+Je vais au travail. | أذهب إلى العمل. | I go to work.
+
+Tu vas où ? | إلى أين تذهب؟ | Where are you going?
+
+6. venir | يأتي | to come
+
+Tu viens avec moi ? | هل تأتي معي؟ | Are you coming with me?
+
+Il vient ce soir. | هو يأتي هذا المساء. | He is coming tonight.
+
+7. partir | يغادر | to leave
+
+Je pars à huit heures. | أغادر الساعة الثامنة. | I leave at eight.
+
+Le train part bientôt. | القطار سيغادر قريبًا. | The train leaves soon.
+
+8. rentrer | يعود إلى المنزل | to go back home
+
+Je rentre chez moi. | أعود إلى منزلي. | I go back home.
+
+Je rentre tard ce soir. | سأعود متأخرًا هذا المساء. | I'll get home late tonight.
+
+9. sortir | يخرج | to go out
+
+Je sors avec mes amis. | أخرج مع أصدقائي. | I go out with my friends.
+
+Tu veux sortir ce soir ? | هل تريد الخروج هذا المساء؟ | Do you want to go out tonight?
+
+10. acheter | يشتري | to buy
+
+Je vais acheter du pain. | سأذهب لشراء الخبز. | I'm going to buy some bread.
+
+J'achète des légumes au marché. | أشتري الخضار من السوق. | I buy vegetables at the market.`;
+
+    function fillBulkSample() {
+        if (bulkInput) bulkInput.value = SAMPLE_BULK_TEXT;
+    }
+
     let data = null;
     let currentCategory = "all";
     let currentLetter = "all";
@@ -30,6 +94,7 @@
     const bulkPanel = document.getElementById("bulkPanel");
     const bulkInput = document.getElementById("bulkInput");
     const importFeedback = document.getElementById("importFeedback");
+    const fillSample = document.getElementById("fillSample");
     const escapeDiv = document.createElement("div");
 
     function init() {
@@ -173,6 +238,7 @@
         });
         document.getElementById("importWords").addEventListener("click", importWords);
         document.getElementById("cancelImport").addEventListener("click", closeAddModal);
+        if (fillSample) fillSample.addEventListener("click", fillBulkSample);
 
         addModal.addEventListener("click", function (e) {
             if (e.target === addModal) closeAddModal();
