@@ -232,6 +232,7 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
         document.getElementById("saveWord").addEventListener("click", addWord);
 
         wordInput.addEventListener("input", autoSelectLetter);
+        wordInput.addEventListener("paste", handleBulkPaste);
 
         document.querySelectorAll(".tab-btn").forEach(function (btn) {
             btn.addEventListener("click", function () { switchTab(btn.dataset.tab); });
@@ -293,6 +294,16 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
         if (l) letterSelect.value = l;
     }
 
+    function handleBulkPaste(e) {
+        const pasted = (e.clipboardData || window.clipboardData).getData("text");
+        if (/^\s*\d+[\.\)\-]\s*/m.test(pasted) && pasted.search(/\n\s*\d+[\.\)\-]\s*/m) > -1) {
+            e.preventDefault();
+            bulkInput.value = pasted;
+            switchTab("bulk");
+            bulkInput.focus();
+        }
+    }
+
     function autoLetterFromWord(text) {
         if (!text) return "";
         const l = getFirstLetter(text);
@@ -341,16 +352,19 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
 
     function parseBulkText(text) {
         const entries = [];
-        const lines = (text || "").split(/\r?\n/);
+        if (!text) return entries;
+        const startIdx = text.search(/^\s*\d+[\.\)\-]\s*/m);
+        const body = startIdx >= 0 ? text.slice(startIdx) : text;
+        const lines = body.split(/\r?\n/);
         let current = null;
         for (let i = 0; i < lines.length; i++) {
             const raw = lines[i];
             const line = raw.trim();
             if (!line) continue;
-            const headingMatch = line.match(/^\s*\d+\.\s*(.+)$/);
+            const headingMatch = line.match(/^\s*(\d+)[\.\)\-]\s*(.+)$/);
             if (headingMatch) {
                 if (current) entries.push(current);
-                const main = parseTriField(headingMatch[1]);
+                const main = parseTriField(headingMatch[2]);
                 current = {
                     main: main,
                     letter: autoLetterFromWord(main.fr || main.en),
