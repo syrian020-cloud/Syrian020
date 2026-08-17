@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a73e8">
+    <title>fwords</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>fwords <span class="subtitle">قاموس فرنسي · عربي · إنجليزي</span></h1>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="ابحث بالفرنسية أو العربية أو الإنجليزية..." autocomplete="off">
+                <button id="clearSearch" class="btn-clear" title="مسح">✕</button>
+            </div>
+            <div class="stats" id="stats"></div>
+        </div>
+    </header>
+
+    <nav id="letterNav">
+        <button class="letter-btn active" data-letter="all">الكل</button>
+        <button class="letter-btn" data-letter="A">A</button>
+        <button class="letter-btn" data-letter="B">B</button>
+        <button class="letter-btn" data-letter="C">C</button>
+        <button class="letter-btn" data-letter="D">D</button>
+        <button class="letter-btn" data-letter="E">E</button>
+        <button class="letter-btn" data-letter="F">F</button>
+        <button class="letter-btn" data-letter="G">G</button>
+        <button class="letter-btn" data-letter="H">H</button>
+        <button class="letter-btn" data-letter="I">I</button>
+        <button class="letter-btn" data-letter="J">J</button>
+        <button class="letter-btn" data-letter="K">K</button>
+        <button class="letter-btn" data-letter="L">L</button>
+        <button class="letter-btn" data-letter="M">M</button>
+        <button class="letter-btn" data-letter="N">N</button>
+        <button class="letter-btn" data-letter="O">O</button>
+        <button class="letter-btn" data-letter="P">P</button>
+        <button class="letter-btn" data-letter="Q">Q</button>
+        <button class="letter-btn" data-letter="R">R</button>
+        <button class="letter-btn" data-letter="S">S</button>
+        <button class="letter-btn" data-letter="T">T</button>
+        <button class="letter-btn" data-letter="U">U</button>
+        <button class="letter-btn" data-letter="V">V</button>
+        <button class="letter-btn" data-letter="W">W</button>
+        <button class="letter-btn" data-letter="X">X</button>
+        <button class="letter-btn" data-letter="Y">Y</button>
+        <button class="letter-btn" data-letter="Z">Z</button>
+    </nav>
+
+    <nav id="categoryNav">
+        <button class="cat-btn active" data-cat="all">الكل</button>
+    </nav>
+
+    <main id="wordList"></main>
+
+    <div id="scrollTop" class="scroll-top" title="العودة للأعلى">↑</div>
+
+    <button id="fabAdd" class="fab" title="إضافة كلمة أو عبارة">+</button>
+
+    <div id="addModal" class="modal-overlay">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="addModalTitle">
+            <div class="modal-header">
+                <h2 id="addModalTitle">إضافة كلمة أو عبارة</h2>
+                <button class="modal-close" id="closeAddModal" title="إغلاق">&times;</button>
+            </div>
+            <div class="modal-body">
+                <label for="wordInput">الكلمة / العبارة</label>
+                <input type="text" id="wordInput" class="modal-input" placeholder="FR | AR | EN" autocomplete="off">
+                <p class="hint">اكتب اللغات الثلاث مفصولة بعلامة | (اختياري)</p>
+
+                <label for="contextInput">السياق / مثال</label>
+                <input type="text" id="contextInput" class="modal-input" placeholder="FR | AR | EN" autocomplete="off">
+                <p class="hint">مثال للاستخدام مع اللغات الثلاث (اختياري)</p>
+
+                <label for="letterSelect">فئة الحرف</label>
+                <select id="letterSelect" class="modal-select"></select>
+
+                <div class="modal-actions">
+                    <button id="saveWord" class="btn-save">حفظ</button>
+                    <button id="cancelAdd" class="btn-cancel">إلغاء</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
