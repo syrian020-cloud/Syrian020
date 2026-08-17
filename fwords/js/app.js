@@ -346,7 +346,7 @@
 
         wordList.innerHTML = html;
 
-        if (searchTerm) {
+        if (searchTerm || currentLetter !== "all") {
             statsEl.textContent = matchCount + ' نتيجة من ' + data.totalWords + ' كلمة';
         } else {
             statsEl.textContent = data.totalWords + ' كلمة في ' + data.categories.length + ' حرف';
