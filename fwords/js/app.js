@@ -284,6 +284,14 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
         return "";
     }
 
+    function looksLikeHeading(str) {
+        const first = (str || "").split("|")[0].trim();
+        if (!first) return false;
+        if (/[.!?؟]$/.test(first)) return false;
+        const words = first.split(/\s+/).filter(function (w) { return w.length > 0; }).length;
+        return words <= 5;
+    }
+
     function parseBulkText(text) {
         const entries = [];
         if (!text) return entries;
@@ -291,19 +299,28 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
         const body = startIdx >= 0 ? text.slice(startIdx) : text;
         const lines = body.split(/\r?\n/);
         let current = null;
+        let lastHeadingNum = -1;
         for (let i = 0; i < lines.length; i++) {
             const raw = lines[i];
             const line = raw.trim();
             if (!line) continue;
-            const headingMatch = line.match(/^\s*(\d+)[\.\)\-]\s*(.+)$/);
-            if (headingMatch) {
-                if (current) entries.push(current);
-                const main = parseTriField(headingMatch[2]);
-                current = {
-                    main: main,
-                    letter: autoLetterFromWord(main.fr || main.en),
-                    examples: []
-                };
+            const m = line.match(/^\s*(\d+)[\.\)\-]\s*(.*)$/);
+            if (m) {
+                const num = parseInt(m[1], 10);
+                const rest = m[2];
+                const tri = parseTriField(rest);
+                if (looksLikeHeading(rest) && (!current || num > lastHeadingNum)) {
+                    if (current) entries.push(current);
+                    current = {
+                        main: tri,
+                        letter: autoLetterFromWord(tri.fr || tri.en),
+                        examples: []
+                    };
+                    lastHeadingNum = num;
+                } else if (current) {
+                    const ex = parseTriField(rest);
+                    if (ex.fr || ex.ar || ex.en) current.examples.push(ex);
+                }
             } else if (current) {
                 const ex = parseTriField(line);
                 if (ex.fr || ex.ar || ex.en) current.examples.push(ex);
