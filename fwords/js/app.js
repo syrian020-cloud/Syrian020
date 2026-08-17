@@ -238,6 +238,97 @@ I’m looking for my keys.`
         }
     }
 
+    function toast(message) {
+        const t = document.createElement("div");
+        t.className = "toast";
+        t.textContent = message;
+        document.body.appendChild(t);
+        setTimeout(function () { t.remove(); }, 3000);
+    }
+
+    async function exportData() {
+        try {
+            const payload = JSON.stringify(data, null, 2);
+            const FS = nativePlugin("Filesystem");
+            const SharePlugin = nativePlugin("Share");
+            const isNative = window.Capacitor && typeof window.Capacitor.isNativePlatform === "function" && window.Capacitor.isNativePlatform();
+            if (FS && SharePlugin && isNative) {
+                const fileName = "fwords-export.json";
+                const result = await FS.writeFile({
+                    path: fileName,
+                    data: payload,
+                    directory: "CACHE",
+                    encoding: "UTF8"
+                });
+                await SharePlugin.share({
+                    title: "fwords — تصدير القاموس",
+                    files: [result.uri]
+                });
+            } else {
+                const blob = new Blob([payload], { type: "application/json" });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "fwords-export.json";
+                document.body.appendChild(a);
+                a.click();
+                setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 100);
+                toast("تم تصدير القاموس");
+            }
+        } catch (e) {
+            console.error(e);
+            toast("فشل التصدير: " + e.message);
+        }
+    }
+
+    function importFile(e) {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function (ev) {
+            try {
+                const json = JSON.parse(ev.target.result);
+                if (json && Array.isArray(json.categories)) {
+                    data = json;
+                } else if (Array.isArray(json)) {
+                    const newData = createEmptyData();
+                    json.forEach(function (w) {
+                        if (!w || !w.fr) return;
+                        const letter = autoLetterFromWord((w.fr || "").toString()) || "A";
+                        const cat = newData.categories.find(function (c) { return c.id === letter; }) || newData.categories[0];
+                        cat.words.push({
+                            id: w.id || uid(),
+                            fr: w.fr || "",
+                            ar: w.ar || "",
+                            en: w.en || "",
+                            ex: w.ex || "",
+                            ex_ar: w.ex_ar || "",
+                            ex_en: w.ex_en || "",
+                            topic: w.topic || "عام",
+                            type: w.type || "",
+                            level: w.level || "",
+                            pron: w.pron || "",
+                            examples: w.examples || []
+                        });
+                    });
+                    data = newData;
+                } else {
+                    throw new Error("صيغة غير مدعومة");
+                }
+                validateData();
+                saveData();
+                rebuildCategoryButtons();
+                render();
+                toast("تم استيراد القاموس");
+            } catch (err) {
+                console.error(err);
+                toast("فشل الاستيراد: " + err.message);
+            }
+            e.target.value = "";
+        };
+        reader.readAsText(file);
+    }
+
     function buildLetterNav() {
         letterNav.querySelectorAll(".letter-btn").forEach(function (btn) {
             btn.addEventListener("click", function () {
@@ -313,6 +404,15 @@ I’m looking for my keys.`
             render();
             searchInput.focus();
         });
+
+        const exportBtn = document.getElementById("exportBtn");
+        const importBtn = document.getElementById("importBtn");
+        const importFileInput = document.getElementById("importFile");
+        if (exportBtn) exportBtn.addEventListener("click", exportData);
+        if (importBtn && importFileInput) {
+            importBtn.addEventListener("click", function () { importFileInput.click(); });
+            importFileInput.addEventListener("change", importFile);
+        }
 
         scrollTopBtn.addEventListener("click", function () {
             window.scrollTo({ top: 0, behavior: "smooth" });
