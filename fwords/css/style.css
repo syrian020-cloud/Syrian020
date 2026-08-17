@@ -455,6 +455,14 @@ main {
 .btn-loop-both:hover { background: linear-gradient(135deg, #90caf9, #ffcc80); }
 .btn-loop-both.active { background: linear-gradient(135deg, #1a73e8, #e65100); color: #fff; }
 
+.btn-loop-ar { background: #e8f5e9; color: #2e7d32; }
+.btn-loop-ar:hover { background: #c8e6c9; }
+.btn-loop-ar.active { background: #2e7d32; color: #fff; }
+
+.btn-loop-all { background: linear-gradient(135deg, #bbdefb, #c8e6c9, #ffe0b2); color: #333; }
+.btn-loop-all:hover { background: linear-gradient(135deg, #90caf9, #a5d6a7, #ffcc80); }
+.btn-loop-all.active { background: linear-gradient(135deg, #1a73e8, #2e7d32, #e65100); color: #fff; }
+
 .btn-stop {
     display: inline-flex;
     align-items: center;

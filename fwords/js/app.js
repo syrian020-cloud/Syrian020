@@ -947,9 +947,11 @@ I’m looking for my keys.`
                 }
 
                 const frLoop = ex.fr ? '<button class="btn-loop" onclick="window.toggleLoop(\'' + escapeQuote(ex.fr) + '\', \'fr-FR\', this)" title="تكرار النطق الفرنسي">🔁 FR</button>' : "";
+                const arLoop = ex.ar ? '<button class="btn-loop btn-loop-ar" onclick="window.toggleLoop(\'' + escapeQuote(ex.ar) + '\', \'ar-SA\', this)" title="تكرار النطق العربي">🔁 AR</button>' : "";
                 const enLoop = ex.en ? '<button class="btn-loop btn-loop-en" onclick="window.toggleLoop(\'' + escapeQuote(ex.en) + '\', \'en-US\', this)" title="تكرار النطق الإنجليزي">🔁 EN</button>' : "";
                 const bothLoop = (ex.fr && ex.en) ? '<button class="btn-loop btn-loop-both" onclick="window.toggleLoopBoth(\'' + escapeQuote(ex.fr) + '\', \'' + escapeQuote(ex.en) + '\', this)" title="تكرار فرنسي + إنجليزي">🔁 FR+EN</button>' : "";
-                const controls = frLoop + enLoop + bothLoop;
+                const allLoop = (ex.fr && ex.ar && ex.en) ? '<button class="btn-loop btn-loop-all" onclick="window.toggleLoopAll(\'' + escapeQuote(ex.fr) + '\', \'' + escapeQuote(ex.ar) + '\', \'' + escapeQuote(ex.en) + '\', this)" title="تكرار فرنسي + عربي + إنجليزي">🔁 FR+AR+EN</button>' : "";
+                const controls = allLoop + frLoop + arLoop + enLoop + bothLoop;
 
                 exHtml += '<div class="example-block">' + lines;
                 if (controls) {
@@ -960,8 +962,8 @@ I’m looking for my keys.`
             exHtml += '</div>';
         }
 
-        const frSpeak = fr ? '<button class="btn-speak" onclick="window.speakFr(\'' + escapeQuote(fr) + '\', this)" title="نطق الفرنسية">🔊 FR</button>' : "";
-        const enSpeak = en ? '<button class="btn-speak btn-speak-en" onclick="window.speakEn(\'' + escapeQuote(en) + '\', this)" title="نطق الإنجليزية">🔊 EN</button>' : "";
+        const frLoopBtn = fr ? '<button class="btn-loop" onclick="window.toggleLoop(\'' + escapeQuote(fr) + '\', \'fr-FR\', this)" title="تكرار النطق الفرنسي">🔁 FR</button>' : "";
+        const enLoopBtn = en ? '<button class="btn-loop btn-loop-en" onclick="window.toggleLoop(\'' + escapeQuote(en) + '\', \'en-US\', this)" title="تكرار النطق الإنجليزي">🔁 EN</button>' : "";
 
         const actionsHtml = '<div class="word-actions">' +
             '<button class="word-menu-btn" onclick="window.showWordMenu(\'' + escapeQuote(w.id) + '\', this)" title="خيارات">⋮</button>' +
@@ -977,7 +979,7 @@ I’m looking for my keys.`
                 '<span class="word-fr">' + highlightText(fr, searchTerm) + '</span>' +
                 '<span class="word-ar">' + highlightText(ar, searchTerm) + '</span>' +
                 '<span class="word-en">' + highlightText(en, searchTerm) + '</span>' +
-                frSpeak + enSpeak + actionsHtml +
+                frLoopBtn + enLoopBtn + actionsHtml +
             '</div>' + badgesHtml + exHtml + '</div>';
     }
 
@@ -1175,6 +1177,16 @@ I’m looking for my keys.`
         if (btn && btn.classList.contains("active")) { stopSpeech(); return; }
         const seq = [];
         if (frText) seq.push({ text: frText, lang: "fr-FR" });
+        if (enText) seq.push({ text: enText, lang: "en-US" });
+        startLoop(seq, btn);
+    };
+
+    window.toggleLoopAll = function (frText, arText, enText, btn) {
+        if (!frText && !arText && !enText) return;
+        if (btn && btn.classList.contains("active")) { stopSpeech(); return; }
+        const seq = [];
+        if (frText) seq.push({ text: frText, lang: "fr-FR" });
+        if (arText) seq.push({ text: arText, lang: "ar-SA" });
         if (enText) seq.push({ text: enText, lang: "en-US" });
         startLoop(seq, btn);
     };
