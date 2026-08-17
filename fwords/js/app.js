@@ -26,6 +26,10 @@
     const wordInput = document.getElementById("wordInput");
     const contextInput = document.getElementById("contextInput");
     const letterSelect = document.getElementById("letterSelect");
+    const singlePanel = document.getElementById("singlePanel");
+    const bulkPanel = document.getElementById("bulkPanel");
+    const bulkInput = document.getElementById("bulkInput");
+    const importFeedback = document.getElementById("importFeedback");
     const escapeDiv = document.createElement("div");
 
     function init() {
@@ -164,6 +168,12 @@
 
         wordInput.addEventListener("input", autoSelectLetter);
 
+        document.querySelectorAll(".tab-btn").forEach(function (btn) {
+            btn.addEventListener("click", function () { switchTab(btn.dataset.tab); });
+        });
+        document.getElementById("importWords").addEventListener("click", importWords);
+        document.getElementById("cancelImport").addEventListener("click", closeAddModal);
+
         addModal.addEventListener("click", function (e) {
             if (e.target === addModal) closeAddModal();
         });
@@ -179,12 +189,25 @@
         addModal.classList.add("active");
         wordInput.value = "";
         contextInput.value = "";
+        bulkInput.value = "";
+        importFeedback.textContent = "";
         letterSelect.value = "A";
+        switchTab("single");
         wordInput.focus();
     }
 
     function closeAddModal() {
         addModal.classList.remove("active");
+    }
+
+    function switchTab(tab) {
+        const isSingle = tab === "single";
+        singlePanel.classList.toggle("active", isSingle);
+        bulkPanel.classList.toggle("active", !isSingle);
+        document.querySelectorAll(".tab-btn").forEach(function (b) {
+            b.classList.toggle("active", b.dataset.tab === tab);
+        });
+        if (isSingle) wordInput.focus(); else bulkInput.focus();
     }
 
     function parseTriField(value) {
@@ -200,12 +223,15 @@
 
     function autoSelectLetter() {
         const w = parseTriField(wordInput.value);
-        const text = w.fr || w.en;
-        if (!text) return;
+        const l = autoLetterFromWord(w.fr || w.en);
+        if (l) letterSelect.value = l;
+    }
+
+    function autoLetterFromWord(text) {
+        if (!text) return "";
         const l = getFirstLetter(text);
-        if (LETTERS.indexOf(l) !== -1) {
-            letterSelect.value = l;
-        }
+        if (LETTERS.indexOf(l) !== -1) return l;
+        return "";
     }
 
     function addWord() {
@@ -247,6 +273,78 @@
         if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
+    function parseBulkText(text) {
+        const entries = [];
+        const lines = (text || "").split(/\r?\n/);
+        let current = null;
+        for (let i = 0; i < lines.length; i++) {
+            const raw = lines[i];
+            const line = raw.trim();
+            if (!line) continue;
+            const headingMatch = line.match(/^\s*\d+\.\s*(.+)$/);
+            if (headingMatch) {
+                if (current) entries.push(current);
+                const main = parseTriField(headingMatch[1]);
+                current = {
+                    main: main,
+                    letter: autoLetterFromWord(main.fr || main.en),
+                    examples: []
+                };
+            } else if (current) {
+                const ex = parseTriField(line);
+                if (ex.fr || ex.ar || ex.en) current.examples.push(ex);
+            }
+        }
+        if (current) entries.push(current);
+        return entries;
+    }
+
+    function importWords() {
+        const entries = parseBulkText(bulkInput.value);
+        if (entries.length === 0) {
+            importFeedback.textContent = "لا يوجد نص صالح للاستيراد";
+            return;
+        }
+        let imported = 0;
+        entries.forEach(function (entry) {
+            const letter = entry.letter || "A";
+            const cat = data.categories.find(function (c) { return c.id === letter; });
+            if (!cat) return;
+            const word = {
+                fr: entry.main.fr,
+                ar: entry.main.ar,
+                en: entry.main.en,
+                ex: "",
+                ex_ar: "",
+                ex_en: ""
+            };
+            if (entry.examples.length > 0) {
+                const first = entry.examples[0];
+                word.ex = first.fr;
+                word.ex_ar = first.ar;
+                word.ex_en = first.en;
+            }
+            if (entry.examples.length > 1) {
+                word.examples = entry.examples.slice(1).map(function (e) {
+                    return { fr: e.fr, ar: e.ar, en: e.en };
+                });
+            }
+            cat.words.push(word);
+            data.totalWords++;
+            imported++;
+        });
+        saveData();
+        importFeedback.textContent = "تم استيراد " + imported + " كلمة";
+        currentLetter = "all";
+        currentCategory = "all";
+        searchInput.value = "";
+        searchTerm = "";
+        clearBtn.style.display = "none";
+        updateActiveNav();
+        render();
+        setTimeout(closeAddModal, 600);
+    }
+
     function getFirstLetter(word) {
         const cleaned = (word || "").replace(/^(le |la |l'|les |un |une |des )/i, "");
         const ch = cleaned.charAt(0).toUpperCase();
@@ -266,14 +364,17 @@
 
     function matchesSearch(w) {
         if (!searchTerm) return true;
-        return (
-            (w.fr || "").toLowerCase().includes(searchTerm) ||
-            (w.ar || "").includes(searchTerm) ||
-            (w.en || "").toLowerCase().includes(searchTerm) ||
-            (w.ex || "").toLowerCase().includes(searchTerm) ||
-            (w.ex_ar || "").includes(searchTerm) ||
-            (w.ex_en || "").toLowerCase().includes(searchTerm)
-        );
+        const fields = [w.fr, w.ar, w.en, w.ex, w.ex_ar, w.ex_en];
+        if (Array.isArray(w.examples)) {
+            w.examples.forEach(function (e) {
+                fields.push(e.fr, e.ar, e.en);
+            });
+        }
+        for (let i = 0; i < fields.length; i++) {
+            const v = String(fields[i] || "");
+            if (v.toLowerCase().includes(searchTerm)) return true;
+        }
+        return false;
     }
 
     function escapeHtml(str) {
@@ -357,30 +458,36 @@
         const fr = w.fr || "";
         const ar = w.ar || "";
         const en = w.en || "";
-        const hasEx = w.ex || w.ex_ar || w.ex_en;
 
         let exHtml = "";
-        if (hasEx) {
-            let lines = "";
-            if (w.ex) {
-                lines += '<div class="ex-line"><span class="ex-label fr-label">FR</span><span class="ex-text ltr">' + highlightText(w.ex, searchTerm) + '</span></div>';
-            }
-            if (w.ex_ar) {
-                lines += '<div class="ex-line"><span class="ex-label ar-label">AR</span><span class="ex-text">' + highlightText(w.ex_ar, searchTerm) + '</span></div>';
-            }
-            if (w.ex_en) {
-                lines += '<div class="ex-line"><span class="ex-label en-label">EN</span><span class="ex-text ltr">' + highlightText(w.ex_en, searchTerm) + '</span></div>';
-            }
+        const examples = getExamples(w);
+        if (examples.length > 0) {
+            exHtml = '<div class="example-section">';
+            examples.forEach(function (ex, idx) {
+                const first = idx === 0;
+                if (!first) exHtml += '<hr class="ex-separator">';
+                let lines = "";
+                if (ex.fr) {
+                    lines += '<div class="ex-line"><span class="ex-label fr-label">FR</span><span class="ex-text ltr">' + highlightText(ex.fr, searchTerm) + '</span></div>';
+                }
+                if (ex.ar) {
+                    lines += '<div class="ex-line"><span class="ex-label ar-label">AR</span><span class="ex-text">' + highlightText(ex.ar, searchTerm) + '</span></div>';
+                }
+                if (ex.en) {
+                    lines += '<div class="ex-line"><span class="ex-label en-label">EN</span><span class="ex-text ltr">' + highlightText(ex.en, searchTerm) + '</span></div>';
+                }
 
-            const frLoop = w.ex ? '<button class="btn-loop" onclick="window.toggleLoop(\'' + escapeQuote(w.ex) + '\', \'fr-FR\', this)" title="تكرار النطق الفرنسي">🔁 FR</button>' : "";
-            const enLoop = w.ex_en ? '<button class="btn-loop btn-loop-en" onclick="window.toggleLoop(\'' + escapeQuote(w.ex_en) + '\', \'en-US\', this)" title="تكرار النطق الإنجليزي">🔁 EN</button>' : "";
-            const bothLoop = (w.ex && w.ex_en) ? '<button class="btn-loop btn-loop-both" onclick="window.toggleLoopBoth(\'' + escapeQuote(w.ex) + '\', \'' + escapeQuote(w.ex_en) + '\', this)" title="تكرار فرنسي + إنجليزي">🔁 FR+EN</button>' : "";
-            const controls = frLoop + enLoop + bothLoop;
+                const frLoop = ex.fr ? '<button class="btn-loop" onclick="window.toggleLoop(\'' + escapeQuote(ex.fr) + '\', \'fr-FR\', this)" title="تكرار النطق الفرنسي">🔁 FR</button>' : "";
+                const enLoop = ex.en ? '<button class="btn-loop btn-loop-en" onclick="window.toggleLoop(\'' + escapeQuote(ex.en) + '\', \'en-US\', this)" title="تكرار النطق الإنجليزي">🔁 EN</button>' : "";
+                const bothLoop = (ex.fr && ex.en) ? '<button class="btn-loop btn-loop-both" onclick="window.toggleLoopBoth(\'' + escapeQuote(ex.fr) + '\', \'' + escapeQuote(ex.en) + '\', this)" title="تكرار فرنسي + إنجليزي">🔁 FR+EN</button>' : "";
+                const controls = frLoop + enLoop + bothLoop;
 
-            exHtml = '<div class="example-section">' + lines;
-            if (controls) {
-                exHtml += '<div class="audio-controls">' + controls + '</div>';
-            }
+                exHtml += '<div class="example-block">' + lines;
+                if (controls) {
+                    exHtml += '<div class="audio-controls">' + controls + '</div>';
+                }
+                exHtml += '</div>';
+            });
             exHtml += '</div>';
         }
 
@@ -395,6 +502,17 @@
                 '<span class="word-en">' + highlightText(en, searchTerm) + '</span>' +
                 frSpeak + enSpeak +
             '</div>' + exHtml + '</div>';
+    }
+
+    function getExamples(w) {
+        const examples = [];
+        if (w.ex || w.ex_ar || w.ex_en) {
+            examples.push({ fr: w.ex || "", ar: w.ex_ar || "", en: w.ex_en || "" });
+        }
+        if (Array.isArray(w.examples)) {
+            w.examples.forEach(function (e) { examples.push({ fr: e.fr || "", ar: e.ar || "", en: e.en || "" }); });
+        }
+        return examples;
     }
 
     // ---- TTS / native Capacitor helpers ----
