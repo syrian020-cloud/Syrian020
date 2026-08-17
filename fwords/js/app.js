@@ -249,21 +249,29 @@ I’m looking for my keys.`
     async function exportData() {
         try {
             const payload = JSON.stringify(data, null, 2);
-            const FS = nativePlugin("Filesystem");
-            const SharePlugin = nativePlugin("Share");
-            const isNative = window.Capacitor && typeof window.Capacitor.isNativePlatform === "function" && window.Capacitor.isNativePlatform();
-            if (FS && SharePlugin && isNative) {
+            const cap = window.Capacitor;
+            const isNative = cap && typeof cap.isNativePlatform === "function" && cap.isNativePlatform();
+            const Plugins = cap && cap.Plugins ? cap.Plugins : {};
+            const FS = isNative && Plugins.Filesystem ? Plugins.Filesystem : null;
+            const SharePlugin = isNative && Plugins.Share ? Plugins.Share : null;
+            if (isNative && FS && typeof FS.writeFile === "function" && SharePlugin && typeof SharePlugin.share === "function") {
                 const fileName = "fwords-export.json";
                 const result = await FS.writeFile({
                     path: fileName,
                     data: payload,
                     directory: "CACHE",
-                    encoding: "UTF8"
+                    encoding: "utf8",
+                    recursive: true
                 });
-                await SharePlugin.share({
-                    title: "fwords — تصدير القاموس",
-                    files: [result.uri]
-                });
+                try {
+                    await SharePlugin.share({
+                        title: "fwords — تصدير القاموس",
+                        dialogTitle: "مشاركة القاموس",
+                        files: [result.uri]
+                    });
+                } catch (shareErr) {
+                    toast("تم حفظ الملف لكن فشلت المشاركة: " + (shareErr.message || ""));
+                }
             } else {
                 const blob = new Blob([payload], { type: "application/json" });
                 const url = URL.createObjectURL(blob);
