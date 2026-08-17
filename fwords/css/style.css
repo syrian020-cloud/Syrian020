@@ -238,6 +238,63 @@ main {
     margin-bottom: 6px;
 }
 
+.word-actions {
+    position: relative;
+    margin-inline-start: auto;
+    display: flex;
+    align-items: center;
+}
+
+.word-menu-btn {
+    background: transparent;
+    border: none;
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1;
+    padding: 4px 6px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.word-menu-btn:hover { background: #eef0f5; color: #333; }
+
+.word-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    inset-inline-end: 0;
+    margin-top: 4px;
+    min-width: 120px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    z-index: 10;
+    overflow: hidden;
+}
+
+.word-menu.show { display: block; }
+
+.word-menu-item {
+    display: block;
+    width: 100%;
+    text-align: start;
+    padding: 10px 14px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.word-menu-item:last-child { border-bottom: none; }
+
+.word-menu-item:hover { background: #f5f7ff; }
+
+.word-menu-delete { color: #c62828; }
+.word-menu-delete:hover { background: #ffebee; }
+
 .btn-word-loop {
     background: none;
     border: none;

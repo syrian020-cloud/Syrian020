@@ -8,7 +8,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="icon-192.png">
     <link rel="apple-touch-icon" href="icon-192.png">
-    <link rel="stylesheet" href="css/style.css?v=7">
+    <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body>
     <header>
@@ -90,6 +90,40 @@ Je me lève tôt le matin. | أنهض باكرًا في الصباح. | I get up
         </div>
     </div>
 
-    <script src="js/app.js?v=7"></script>
+    <div id="editModal" class="modal-overlay">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="editModalTitle">
+            <div class="modal-header">
+                <h2 id="editModalTitle">تعديل الكلمة أو العبارة</h2>
+                <button class="modal-close" id="closeEditModal" title="إغلاق">&times;</button>
+            </div>
+            <div class="modal-body">
+                <label for="editWord">الكلمة / العبارة (FR | AR | EN)</label>
+                <input type="text" id="editWord" class="modal-input" placeholder="FR | AR | EN" autocomplete="off">
+
+                <label for="editExample">مثال / سياق (اختياري)</label>
+                <input type="text" id="editExample" class="modal-input" placeholder="FR | AR | EN" autocomplete="off">
+
+                <label for="editTopic">الموضوع / التصنيف</label>
+                <input type="text" id="editTopic" class="modal-input" placeholder="عام" autocomplete="off">
+
+                <label for="editType">النوع</label>
+                <input type="text" id="editType" class="modal-input" placeholder="مثال: Verbe" autocomplete="off">
+
+                <label for="editLevel">المستوى</label>
+                <input type="text" id="editLevel" class="modal-input" placeholder="مثال: A1" autocomplete="off">
+
+                <label for="editPron">النطق</label>
+                <input type="text" id="editPron" class="modal-input" placeholder="مثال: /ʃɛʁ.ʃe/" autocomplete="off">
+
+                <div class="modal-actions">
+                    <button id="saveEdit" class="btn-save">حفظ التعديلات</button>
+                    <button id="cancelEdit" class="btn-cancel">إلغاء</button>
+                </div>
+                <p id="editFeedback" class="import-feedback"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js?v=8"></script>
 </body>
 </html>

@@ -5,6 +5,10 @@
     const STORAGE_KEY = "fwordsData_v1";
     const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
+    function uid() {
+        return Math.random().toString(36).slice(2) + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+    }
+
     const SAMPLE_TEMPLATES = {
         1: `chercher
 العربية: يبحث عن
@@ -164,6 +168,16 @@ I’m looking for my keys.`
     const templatesBar = document.getElementById("templatesBar");
     const escapeDiv = document.createElement("div");
 
+    const editModal = document.getElementById("editModal");
+    const editWordInput = document.getElementById("editWord");
+    const editExampleInput = document.getElementById("editExample");
+    const editTopicInput = document.getElementById("editTopic");
+    const editTypeInput = document.getElementById("editType");
+    const editLevelInput = document.getElementById("editLevel");
+    const editPronInput = document.getElementById("editPron");
+    const editFeedback = document.getElementById("editFeedback");
+    let editingWordId = null;
+
     function init() {
         loadData();
         buildLetterNav();
@@ -204,6 +218,13 @@ I’m looking for my keys.`
         if (!data || !Array.isArray(data.categories)) {
             data = createEmptyData();
         }
+        data.categories.forEach(function (cat) {
+            if (!Array.isArray(cat.words)) cat.words = [];
+            cat.words.forEach(function (w) {
+                if (!w.id) w.id = uid();
+                if (!w.topic) w.topic = "عام";
+            });
+        });
         data.totalWords = data.categories.reduce(function (sum, c) {
             return sum + (c.words ? c.words.length : 0);
         }, 0);
@@ -320,10 +341,27 @@ I’m looking for my keys.`
         });
 
         document.addEventListener("keydown", function (e) {
-            if (e.key === "Escape" && addModal.classList.contains("active")) {
-                closeAddModal();
+            if (e.key === "Escape") {
+                if (addModal.classList.contains("active")) closeAddModal();
+                if (editModal && editModal.classList.contains("active")) closeEditModal();
             }
         });
+
+        document.addEventListener("click", function (e) {
+            if (!e.target.closest(".word-actions")) closeAllWordMenus();
+        });
+
+        if (editModal) {
+            editModal.addEventListener("click", function (e) {
+                if (e.target === editModal) closeEditModal();
+            });
+            const closeEdit = document.getElementById("closeEditModal");
+            const cancelEdit = document.getElementById("cancelEdit");
+            const saveEditBtn = document.getElementById("saveEdit");
+            if (closeEdit) closeEdit.addEventListener("click", closeEditModal);
+            if (cancelEdit) cancelEdit.addEventListener("click", closeEditModal);
+            if (saveEditBtn) saveEditBtn.addEventListener("click", saveEdit);
+        }
     }
 
     function openAddModal() {
@@ -336,6 +374,98 @@ I’m looking for my keys.`
 
     function closeAddModal() {
         addModal.classList.remove("active");
+    }
+
+    function findWordById(id) {
+        if (!id) return null;
+        for (let i = 0; i < data.categories.length; i++) {
+            const cat = data.categories[i];
+            for (let j = 0; j < (cat.words || []).length; j++) {
+                if (cat.words[j].id === id) {
+                    return { word: cat.words[j], cat: cat, index: j };
+                }
+            }
+        }
+        return null;
+    }
+
+    function deleteWord(id) {
+        const found = findWordById(id);
+        if (!found) return;
+        if (!confirm("هل تريد حذف هذه الكلمة؟")) return;
+        found.cat.words.splice(found.index, 1);
+        data.totalWords = Math.max(0, data.totalWords - 1);
+        saveData();
+        render();
+    }
+
+    function openEditWord(id) {
+        closeAllWordMenus();
+        const found = findWordById(id);
+        if (!found || !editModal) return;
+        editingWordId = id;
+        const w = found.word;
+        editWordInput.value = [w.fr, w.ar, w.en].filter(Boolean).join(" | ");
+        editExampleInput.value = [w.ex, w.ex_ar, w.ex_en].filter(Boolean).join(" | ");
+        editTopicInput.value = w.topic || "";
+        editTypeInput.value = w.type || "";
+        editLevelInput.value = w.level || "";
+        editPronInput.value = w.pronunciation || "";
+        editFeedback.textContent = "";
+        editModal.classList.add("active");
+        editWordInput.focus();
+    }
+
+    function closeEditModal() {
+        if (editModal) editModal.classList.remove("active");
+        editingWordId = null;
+    }
+
+    function saveEdit() {
+        if (!editingWordId) return;
+        const found = findWordById(editingWordId);
+        if (!found) return;
+        const w = found.word;
+        const main = parseTriField(editWordInput.value);
+        const ex = parseTriField(editExampleInput.value);
+        if (!main.fr && !main.ar && !main.en) {
+            editFeedback.textContent = "الكلمة فارغة";
+            return;
+        }
+        w.fr = main.fr;
+        w.ar = main.ar;
+        w.en = main.en;
+        w.ex = ex.fr;
+        w.ex_ar = ex.ar;
+        w.ex_en = ex.en;
+        w.topic = editTopicInput.value.trim() || "عام";
+        w.type = editTypeInput.value.trim();
+        w.level = editLevelInput.value.trim();
+        w.pronunciation = editPronInput.value.trim();
+
+        const newLetter = autoLetterFromWord(w.fr || w.en) || "A";
+        if (newLetter !== found.cat.id) {
+            found.cat.words.splice(found.index, 1);
+            const newCat = data.categories.find(function (c) { return c.id === newLetter; });
+            if (newCat) newCat.words.push(w);
+        }
+
+        saveData();
+        render();
+        closeEditModal();
+    }
+
+    function showWordMenu(id, btn) {
+        const actions = btn.closest(".word-actions");
+        const menu = actions ? actions.querySelector(".word-menu") : null;
+        if (!menu) return;
+        const alreadyOpen = menu.classList.contains("show");
+        closeAllWordMenus();
+        if (!alreadyOpen) menu.classList.add("show");
+    }
+
+    function closeAllWordMenus() {
+        document.querySelectorAll(".word-menu.show").forEach(function (m) { m.classList.remove("show"); });
     }
 
     function parseTriField(value) {
@@ -612,6 +742,7 @@ I’m looking for my keys.`
             const cat = data.categories.find(function (c) { return c.id === letter; });
             if (!cat) return;
             const word = {
+                id: uid(),
                 fr: entry.main.fr,
                 ar: entry.main.ar,
                 en: entry.main.en,
@@ -832,13 +963,21 @@ I’m looking for my keys.`
         const frSpeak = fr ? '<button class="btn-speak" onclick="window.speakFr(\'' + escapeQuote(fr) + '\', this)" title="نطق الفرنسية">🔊 FR</button>' : "";
         const enSpeak = en ? '<button class="btn-speak btn-speak-en" onclick="window.speakEn(\'' + escapeQuote(en) + '\', this)" title="نطق الإنجليزية">🔊 EN</button>' : "";
 
-        return '<div class="word-card">' +
+        const actionsHtml = '<div class="word-actions">' +
+            '<button class="word-menu-btn" onclick="window.showWordMenu(\'' + escapeQuote(w.id) + '\', this)" title="خيارات">⋮</button>' +
+            '<div class="word-menu">' +
+                '<button class="word-menu-item" onclick="window.openEditWord(\'' + escapeQuote(w.id) + '\')">تعديل</button>' +
+                '<button class="word-menu-item word-menu-delete" onclick="window.deleteWord(\'' + escapeQuote(w.id) + '\')">حذف</button>' +
+            '</div>' +
+        '</div>';
+
+        return '<div class="word-card" data-id="' + escapeHtml(w.id) + '">' +
             '<div class="word-row">' +
                 '<button class="btn-word-loop" onclick="window.toggleLoopWord(\'' + escapeQuote(fr) + '\', \'' + escapeQuote(en) + '\', this)" title="تكرار نطق الكلمة فرنسي + إنجليزي">🔁</button>' +
                 '<span class="word-fr">' + highlightText(fr, searchTerm) + '</span>' +
                 '<span class="word-ar">' + highlightText(ar, searchTerm) + '</span>' +
                 '<span class="word-en">' + highlightText(en, searchTerm) + '</span>' +
-                frSpeak + enSpeak +
+                frSpeak + enSpeak + actionsHtml +
             '</div>' + badgesHtml + exHtml + '</div>';
     }
 
@@ -1039,6 +1178,10 @@ I’m looking for my keys.`
         if (enText) seq.push({ text: enText, lang: "en-US" });
         startLoop(seq, btn);
     };
+
+    window.openEditWord = openEditWord;
+    window.deleteWord = deleteWord;
+    window.showWordMenu = showWordMenu;
 
     init();
 })();
