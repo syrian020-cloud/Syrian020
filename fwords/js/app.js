@@ -87,11 +87,7 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
     const categoryNav = document.getElementById("categoryNav");
     const fabAdd = document.getElementById("fabAdd");
     const addModal = document.getElementById("addModal");
-    const wordInput = document.getElementById("wordInput");
-    const contextInput = document.getElementById("contextInput");
-    const letterSelect = document.getElementById("letterSelect");
-    const singlePanel = document.getElementById("singlePanel");
-    const bulkPanel = document.getElementById("bulkPanel");
+    const bulkTopic = document.getElementById("bulkTopic");
     const bulkInput = document.getElementById("bulkInput");
     const importFeedback = document.getElementById("importFeedback");
     const fillSample = document.getElementById("fillSample");
@@ -101,7 +97,6 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
         loadData();
         buildLetterNav();
         buildCategoryNav();
-        buildLetterSelect();
         bindEvents();
         initAppPlugin();
         loadWebVoices();
@@ -171,25 +166,40 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
     }
 
     function buildCategoryNav() {
-        const allBtn = categoryNav.querySelector('[data-cat="all"]');
-        if (allBtn) {
-            allBtn.addEventListener("click", function () {
-                currentCategory = "all";
-                updateActiveNav();
-                render();
-            });
-        }
+        categoryNav.addEventListener("click", function (e) {
+            const btn = e.target.closest(".cat-btn");
+            if (!btn) return;
+            currentCategory = btn.dataset.cat || "all";
+            currentLetter = "all";
+            updateActiveNav();
+            render();
+        });
     }
 
-    function buildLetterSelect() {
-        letterSelect.innerHTML = "";
-        LETTERS.forEach(function (l) {
-            const opt = document.createElement("option");
-            opt.value = l;
-            opt.textContent = "حرف " + l;
-            letterSelect.appendChild(opt);
+    function rebuildCategoryButtons() {
+        const allBtn = categoryNav.querySelector('[data-cat="all"]');
+        categoryNav.innerHTML = "";
+        if (allBtn) categoryNav.appendChild(allBtn);
+
+        const topics = new Set();
+        let currentTopicExists = currentCategory === "all";
+        data.categories.forEach(function (cat) {
+            (cat.words || []).forEach(function (w) {
+                const t = w.topic || "عام";
+                topics.add(t);
+                if (t === currentCategory) currentTopicExists = true;
+            });
         });
-        letterSelect.value = "A";
+        if (!currentTopicExists) currentCategory = "all";
+
+        Array.from(topics).sort().forEach(function (t) {
+            const btn = document.createElement("button");
+            btn.className = "cat-btn";
+            btn.dataset.cat = t;
+            btn.textContent = t;
+            if (currentCategory === t) btn.classList.add("active");
+            categoryNav.appendChild(btn);
+        });
     }
 
     function bindEvents() {
@@ -228,17 +238,9 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
 
         fabAdd.addEventListener("click", openAddModal);
         document.getElementById("closeAddModal").addEventListener("click", closeAddModal);
-        document.getElementById("cancelAdd").addEventListener("click", closeAddModal);
-        document.getElementById("saveWord").addEventListener("click", addWord);
-
-        wordInput.addEventListener("input", autoSelectLetter);
-        wordInput.addEventListener("paste", handleBulkPaste);
-
-        document.querySelectorAll(".tab-btn").forEach(function (btn) {
-            btn.addEventListener("click", function () { switchTab(btn.dataset.tab); });
-        });
-        document.getElementById("importWords").addEventListener("click", importWords);
         document.getElementById("cancelImport").addEventListener("click", closeAddModal);
+
+        document.getElementById("importWords").addEventListener("click", importWords);
         if (fillSample) fillSample.addEventListener("click", fillBulkSample);
 
         addModal.addEventListener("click", function (e) {
@@ -254,27 +256,14 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
 
     function openAddModal() {
         addModal.classList.add("active");
-        wordInput.value = "";
-        contextInput.value = "";
+        bulkTopic.value = "";
         bulkInput.value = "";
         importFeedback.textContent = "";
-        letterSelect.value = "A";
-        switchTab("single");
-        wordInput.focus();
+        bulkTopic.focus();
     }
 
     function closeAddModal() {
         addModal.classList.remove("active");
-    }
-
-    function switchTab(tab) {
-        const isSingle = tab === "single";
-        singlePanel.classList.toggle("active", isSingle);
-        bulkPanel.classList.toggle("active", !isSingle);
-        document.querySelectorAll(".tab-btn").forEach(function (b) {
-            b.classList.toggle("active", b.dataset.tab === tab);
-        });
-        if (isSingle) wordInput.focus(); else bulkInput.focus();
     }
 
     function parseTriField(value) {
@@ -288,66 +277,11 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
         return { fr: parts[0] || "", ar: parts[1] || "", en: parts[2] || "" };
     }
 
-    function autoSelectLetter() {
-        const w = parseTriField(wordInput.value);
-        const l = autoLetterFromWord(w.fr || w.en);
-        if (l) letterSelect.value = l;
-    }
-
-    function handleBulkPaste(e) {
-        const pasted = (e.clipboardData || window.clipboardData).getData("text");
-        if (/^\s*\d+[\.\)\-]\s*/m.test(pasted) && pasted.search(/\n\s*\d+[\.\)\-]\s*/m) > -1) {
-            e.preventDefault();
-            bulkInput.value = pasted;
-            switchTab("bulk");
-            bulkInput.focus();
-        }
-    }
-
     function autoLetterFromWord(text) {
         if (!text) return "";
         const l = getFirstLetter(text);
         if (LETTERS.indexOf(l) !== -1) return l;
         return "";
-    }
-
-    function addWord() {
-        const main = parseTriField(wordInput.value);
-        const ctx = parseTriField(contextInput.value);
-        const letter = letterSelect.value;
-
-        if (!main.fr && !main.ar && !main.en) {
-            alert("أدخل كلمة أو عبارة على الأقل");
-            return;
-        }
-
-        const cat = data.categories.find(function (c) { return c.id === letter; });
-        if (!cat) return;
-
-        cat.words.push({
-            fr: main.fr,
-            ar: main.ar,
-            en: main.en,
-            ex: ctx.fr,
-            ex_ar: ctx.ar,
-            ex_en: ctx.en
-        });
-
-        data.totalWords++;
-        saveData();
-
-        currentLetter = letter;
-        currentCategory = "all";
-        searchInput.value = "";
-        searchTerm = "";
-        clearBtn.style.display = "none";
-        updateActiveNav();
-        closeAddModal();
-        render();
-
-        // Scroll new section into view
-        const section = wordList.querySelector(".category-section");
-        if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     function parseBulkText(text) {
@@ -385,6 +319,7 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
             importFeedback.textContent = "لا يوجد نص صالح للاستيراد";
             return;
         }
+        const topic = bulkTopic.value.trim() || "عام";
         let imported = 0;
         entries.forEach(function (entry) {
             const letter = entry.letter || "A";
@@ -394,6 +329,7 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
                 fr: entry.main.fr,
                 ar: entry.main.ar,
                 en: entry.main.en,
+                topic: topic,
                 ex: "",
                 ex_ar: "",
                 ex_en: ""
@@ -416,11 +352,10 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
         saveData();
         importFeedback.textContent = "تم استيراد " + imported + " كلمة";
         currentLetter = "all";
-        currentCategory = "all";
+        currentCategory = topic;
         searchInput.value = "";
         searchTerm = "";
         clearBtn.style.display = "none";
-        updateActiveNav();
         render();
         setTimeout(closeAddModal, 600);
     }
@@ -440,6 +375,11 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
         if (currentLetter === "all") return true;
         const source = (w.fr || w.en || "").replace(/^(le |la |l'|les |un |une |des )/i, "");
         return getFirstLetter(source) === currentLetter;
+    }
+
+    function matchesTopic(w) {
+        if (currentCategory === "all") return true;
+        return (w.topic || "عام") === currentCategory;
     }
 
     function matchesSearch(w) {
@@ -481,15 +421,33 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
             return;
         }
 
+        rebuildCategoryButtons();
+        updateActiveNav();
+
         let html = "";
         let matchCount = 0;
-        const cats = currentCategory === "all"
-            ? data.categories
-            : data.categories.filter(function (c) { return c.id === currentCategory; });
 
-        if (currentLetter !== "all") {
+        if (currentCategory !== "all") {
             const allWords = [];
-            cats.forEach(function (cat) {
+            data.categories.forEach(function (cat) {
+                cat.words.forEach(function (w) {
+                    if (matchesSearch(w) && matchesTopic(w)) allWords.push(w);
+                });
+            });
+            allWords.sort(function (a, b) { return (a.fr || "").localeCompare(b.fr || "", "fr"); });
+            matchCount = allWords.length;
+            if (allWords.length > 0) {
+                html += '<div class="category-section">';
+                html += '<div class="category-header" onclick="this.classList.toggle(\'collapsed\');this.nextElementSibling.classList.toggle(\'collapsed\')">';
+                html += '<span>' + escapeHtml(currentCategory) + '</span>';
+                html += '<span><span class="cat-count">' + allWords.length + ' كلمة</span><span class="toggle-icon">▼</span></span></div>';
+                html += '<div class="category-words">';
+                allWords.forEach(function (w) { html += renderWordCard(w); });
+                html += '</div></div>';
+            }
+        } else if (currentLetter !== "all") {
+            const allWords = [];
+            data.categories.forEach(function (cat) {
                 cat.words.forEach(function (w) {
                     if (matchesSearch(w) && matchesLetter(w)) allWords.push(w);
                 });
@@ -506,8 +464,8 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
                 html += '</div></div>';
             }
         } else {
-            cats.forEach(function (cat) {
-                const filtered = cat.words.filter(matchesSearch);
+            data.categories.forEach(function (cat) {
+                const filtered = cat.words.filter(function (w) { return matchesSearch(w); });
                 if (filtered.length === 0) return;
                 matchCount += filtered.length;
 
@@ -529,6 +487,8 @@ J'achète des légumes au marché. | أشتري الخضار من السوق. | 
 
         if (searchTerm || currentLetter !== "all") {
             statsEl.textContent = matchCount + ' نتيجة من ' + data.totalWords + ' كلمة';
+        } else if (currentCategory !== "all") {
+            statsEl.textContent = matchCount + ' كلمة في تصنيف ' + currentCategory;
         } else {
             statsEl.textContent = data.totalWords + ' كلمة في ' + data.categories.length + ' حرف';
         }

@@ -8,7 +8,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="icon-192.png">
     <link rel="apple-touch-icon" href="icon-192.png">
-    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body>
     <header>
@@ -69,44 +69,27 @@
                 <button class="modal-close" id="closeAddModal" title="إغلاق">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="modal-tabs">
-                    <button class="tab-btn active" data-tab="single">إضافة واحدة</button>
-                    <button class="tab-btn" data-tab="bulk">استيراد قائمة</button>
+                <label for="bulkTopic">الموضوع / التصنيف</label>
+                <input type="text" id="bulkTopic" class="modal-input" placeholder="مثال: الروتين اليومي" autocomplete="off">
+                <p class="hint">اكتب اسم الموضوع لتصنيف هذه القائمة</p>
+
+                <label for="bulkInput">نص القائمة</label>
+                <textarea id="bulkInput" class="modal-textarea" rows="10" placeholder="1. se lever | ينهض / يستيقظ من السرير | to get up
+
+Je me lève à sept heures. | أنهض الساعة السابعة. | I get up at seven.
+
+Je me lève tôt le matin. | أنهض باكرًا في الصباح. | I get up early in the morning."></textarea>
+                <p class="hint">كل مدخل يبدأ برقم متبوع بنقطة، ثم أمثلة اختيارية تحته مفصولة بـ | وأسطر فارغة بين المدخلات.</p>
+                <button id="fillSample" class="btn-sample" type="button">ملء بنموذج الإدخال</button>
+                <div class="modal-actions">
+                    <button id="importWords" class="btn-save">استيراد</button>
+                    <button id="cancelImport" class="btn-cancel">إلغاء</button>
                 </div>
-
-                <div id="singlePanel" class="tab-panel active">
-                    <label for="wordInput">الكلمة / العبارة</label>
-                    <input type="text" id="wordInput" class="modal-input" placeholder="FR | AR | EN" autocomplete="off">
-                    <p class="hint">اكتب اللغات الثلاث مفصولة بعلامة | (اختياري)</p>
-
-                    <label for="contextInput">السياق / مثال</label>
-                    <input type="text" id="contextInput" class="modal-input" placeholder="FR | AR | EN" autocomplete="off">
-                    <p class="hint">مثال للاستخدام مع اللغات الثلاث (اختياري)</p>
-
-                    <label for="letterSelect">فئة الحرف</label>
-                    <select id="letterSelect" class="modal-select"></select>
-
-                    <div class="modal-actions">
-                        <button id="saveWord" class="btn-save">حفظ</button>
-                        <button id="cancelAdd" class="btn-cancel">إلغاء</button>
-                    </div>
-                </div>
-
-                <div id="bulkPanel" class="tab-panel">
-                    <label for="bulkInput">نص القائمة</label>
-                    <textarea id="bulkInput" class="modal-textarea" rows="10" placeholder="1. se lever | ينهض / يستيقظ من السرير | to get up\n\nJe me lève à sept heures. | أنهض الساعة السابعة. | I get up at seven.\n\nJe me lève tôt le matin. | أنهض باكرًا في الصباح. | I get up early in the morning."></textarea>
-                    <p class="hint">كل مدخل يبدأ برقم متبوع بنقطة، ثم أمثلة اختيارية تحته مفصولة بـ | وأسطر فارغة بين المدخلات.</p>
-                    <button id="fillSample" class="btn-sample" type="button">ملء بنموذج الإدخال</button>
-                    <div class="modal-actions">
-                        <button id="importWords" class="btn-save">استيراد</button>
-                        <button id="cancelImport" class="btn-cancel">إلغاء</button>
-                    </div>
-                    <p id="importFeedback" class="import-feedback"></p>
-                </div>
+                <p id="importFeedback" class="import-feedback"></p>
             </div>
         </div>
     </div>
 
-    <script src="js/app.js?v=3"></script>
+    <script src="js/app.js?v=4"></script>
 </body>
 </html>
