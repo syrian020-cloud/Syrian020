@@ -476,7 +476,7 @@ I’m looking for my keys.`
             if (ttsWord) {
                 e.stopPropagation();
                 e.preventDefault();
-                speakOnce([{ text: ttsWord.dataset.text, lang: ttsWord.dataset.lang || "fr-FR" }], null);
+                window.toggleLoop(ttsWord.dataset.text, ttsWord.dataset.lang || "fr-FR", ttsWord);
                 return;
             }
             const main = e.target.closest(".word-main");
