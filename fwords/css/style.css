@@ -441,6 +441,18 @@ main {
     text-align: left;
 }
 
+.tts-word {
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.15s;
+    user-select: none;
+    display: inline;
+}
+
+.tts-word:hover { background: #e3f2fd; }
+.tts-word:active { background: #bbdefb; }
+.highlight .tts-word:hover { background: #fff176; }
+
 .audio-controls {
     display: flex;
     gap: 6px;

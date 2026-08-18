@@ -470,6 +470,28 @@ I’m looking for my keys.`
             if (cancelEdit) cancelEdit.addEventListener("click", closeEditModal);
             if (saveEditBtn) saveEditBtn.addEventListener("click", saveEdit);
         }
+
+        wordList.addEventListener("click", function (e) {
+            const ttsWord = e.target.closest(".tts-word");
+            if (ttsWord) {
+                e.stopPropagation();
+                e.preventDefault();
+                speakOnce([{ text: ttsWord.dataset.text, lang: ttsWord.dataset.lang || "fr-FR" }], null);
+                return;
+            }
+            const main = e.target.closest(".word-main");
+            if (main) {
+                e.preventDefault();
+                window.toggleLoopAll(main.dataset.fr, main.dataset.ar, main.dataset.en, main);
+                return;
+            }
+            const imgBtn = e.target.closest(".btn-img-search");
+            if (imgBtn) {
+                e.preventDefault();
+                openImageSearch(imgBtn.dataset.query);
+                return;
+            }
+        });
     }
 
     function openAddModal() {
@@ -942,6 +964,41 @@ I’m looking for my keys.`
         return escaped.replace(regex, '<span class="highlight">$1</span>');
     }
 
+    function makeClickableText(html, lang) {
+        if (!html) return html;
+        const div = document.createElement("div");
+        div.innerHTML = html;
+        const textNodes = [];
+        (function collect(node) {
+            if (node.nodeType === 3) {
+                textNodes.push(node);
+            } else if (node.nodeType === 1) {
+                Array.from(node.childNodes).forEach(collect);
+            }
+        })(div);
+        textNodes.forEach(function (node) {
+            const text = node.textContent;
+            const regex = /(\s+|[.,;:!?؟،؛…"\(\)\[\]\{\}\/]+)/g;
+            const parts = text.split(regex).filter(function (p) { return p !== undefined && p !== ""; });
+            const frag = document.createDocumentFragment();
+            parts.forEach(function (part) {
+                const trimmed = part.replace(/^[\s.,;:!?؟،؛…"'\(\)\[\]\{\}\/]+|[\s.,;:!?؟،؛…"'\(\)\[\]\{\}\/]+$/g, "");
+                if (trimmed) {
+                    const span = document.createElement("span");
+                    span.className = "tts-word";
+                    span.dataset.text = trimmed;
+                    span.dataset.lang = lang;
+                    span.textContent = part;
+                    frag.appendChild(span);
+                } else {
+                    frag.appendChild(document.createTextNode(part));
+                }
+            });
+            if (node.parentNode) node.parentNode.replaceChild(frag, node);
+        });
+        return div.innerHTML;
+    }
+
     function render() {
         stopSpeech();
         if (!data) {
@@ -1045,13 +1102,13 @@ I’m looking for my keys.`
                 if (!first) exHtml += '<hr class="ex-separator">';
                 let lines = "";
                 if (ex.fr) {
-                    lines += '<div class="ex-line"><span class="ex-label fr-label">FR</span><span class="ex-text ltr">' + highlightText(ex.fr, searchTerm) + '</span></div>';
+                    lines += '<div class="ex-line"><span class="ex-label fr-label">FR</span><span class="ex-text ltr" data-lang="fr-FR">' + makeClickableText(highlightText(ex.fr, searchTerm), "fr-FR") + '</span></div>';
                 }
                 if (ex.ar) {
-                    lines += '<div class="ex-line"><span class="ex-label ar-label">AR</span><span class="ex-text">' + highlightText(ex.ar, searchTerm) + '</span></div>';
+                    lines += '<div class="ex-line"><span class="ex-label ar-label">AR</span><span class="ex-text" data-lang="ar-SA">' + makeClickableText(highlightText(ex.ar, searchTerm), "ar-SA") + '</span></div>';
                 }
                 if (ex.en) {
-                    lines += '<div class="ex-line"><span class="ex-label en-label">EN</span><span class="ex-text ltr">' + highlightText(ex.en, searchTerm) + '</span></div>';
+                    lines += '<div class="ex-line"><span class="ex-label en-label">EN</span><span class="ex-text ltr" data-lang="en-US">' + makeClickableText(highlightText(ex.en, searchTerm), "en-US") + '</span></div>';
                 }
 
                 const frLoop = ex.fr ? '<button class="btn-loop" onclick="window.toggleLoop(\'' + escapeQuote(ex.fr) + '\', \'fr-FR\', this)" title="تكرار النطق الفرنسي">🔁 FR</button>' : "";
@@ -1072,8 +1129,8 @@ I’m looking for my keys.`
 
         const frLoopBtn = fr ? '<button class="btn-loop" onclick="window.toggleLoop(\'' + escapeQuote(fr) + '\', \'fr-FR\', this)" title="تكرار النطق الفرنسي">🔁 FR</button>' : "";
         const enLoopBtn = en ? '<button class="btn-loop btn-loop-en" onclick="window.toggleLoop(\'' + escapeQuote(en) + '\', \'en-US\', this)" title="تكرار النطق الإنجليزي">🔁 EN</button>' : "";
-        const imgQuery = encodeURIComponent((fr + ' ' + (ar || '') + ' ' + (en || '')).trim());
-        const imgSearchBtn = '<button class="btn-img-search" onclick="window.openImageSearch(\'' + imgQuery + '\')" title="بحث صور Google">🖼</button>';
+        const imgQuery = (fr + ' ' + (ar || '') + ' ' + (en || '')).trim();
+        const imgSearchBtn = '<button class="btn-img-search" data-query="' + escapeHtml(imgQuery) + '" title="بحث صور Google">🖼</button>';
 
         const actionsHtml = '<div class="word-actions">' +
             '<button class="word-menu-btn" onclick="window.showWordMenu(\'' + escapeQuote(w.id) + '\', this)" title="خيارات">⋮</button>' +
@@ -1086,7 +1143,7 @@ I’m looking for my keys.`
         return '<div class="word-card" data-id="' + escapeHtml(w.id) + '">' +
             '<div class="word-row">' +
                 '<button class="btn-word-loop" onclick="window.toggleLoopWord(\'' + escapeQuote(fr) + '\', \'' + escapeQuote(en) + '\', this)" title="تكرار نطق الكلمة فرنسي + إنجليزي">🔁</button>' +
-                '<span class="word-main" onclick="window.toggleLoopAll(\'' + escapeQuote(fr) + '\', \'' + escapeQuote(ar) + '\', \'' + escapeQuote(en) + '\', this)" title="اضغط للنطق بثلاث لغات (loop)">' +
+                '<span class="word-main" data-fr="' + escapeHtml(fr) + '" data-ar="' + escapeHtml(ar) + '" data-en="' + escapeHtml(en) + '" title="اضغط للنطق بثلاث لغات (loop)">' +
                     '<span class="word-fr">' + highlightText(fr, searchTerm) + '</span>' +
                     '<span class="word-ar">' + highlightText(ar, searchTerm) + '</span>' +
                     '<span class="word-en">' + highlightText(en, searchTerm) + '</span>' +
@@ -1161,8 +1218,12 @@ I’m looking for my keys.`
         const tts = nativeTTS();
         if (tts && tts.speak) {
             try { await tts.stop(); } catch (e) {}
-            await tts.speak({ text: text, lang: lang, rate: rate || 0.85, queueStrategy: 1 });
-            return;
+            try {
+                await tts.speak({ text: text, lang: lang, rate: rate || 0.85, queueStrategy: 1 });
+                return;
+            } catch (e) {
+                // native TTS failed for this language, fall back to web speech below
+            }
         }
         return speakWeb(text, lang, rate);
     }
@@ -1218,7 +1279,9 @@ I’m looking for my keys.`
         try {
             for (let i = 0; i < seq.length; i++) {
                 if (run !== speechRun) break;
-                await ttsSpeak(seq[i].text, seq[i].lang, seq[i].rate || 0.85);
+                if (!seq[i].text) continue;
+                try { await ttsSpeak(seq[i].text, seq[i].lang, seq[i].rate || 0.85); } catch (e) {}
+                if (run !== speechRun) break;
             }
         } catch (e) {
             // ignore
@@ -1241,7 +1304,7 @@ I’m looking for my keys.`
                 for (let i = 0; i < seq.length; i++) {
                     if (run !== speechRun) break;
                     if (!seq[i].text) continue;
-                    await ttsSpeak(seq[i].text, seq[i].lang, seq[i].rate || 0.85);
+                    try { await ttsSpeak(seq[i].text, seq[i].lang, seq[i].rate || 0.85); } catch (e) {}
                     if (run !== speechRun) break;
                 }
                 if (run !== speechRun) break;
@@ -1308,16 +1371,14 @@ I’m looking for my keys.`
         startLoop(seq, btn);
     };
 
-    function openImageSearch(encodedQuery) {
+    function openImageSearch(query) {
         try {
-            const q = decodeURIComponent(encodedQuery || "");
+            const q = (query || "").trim();
             const url = "https://www.google.com/search?tbm=isch&q=" + encodeURIComponent(q);
-            if (window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform()) {
-                try {
-                    const intentUrl = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
-                    window.location.href = intentUrl;
-                    return;
-                } catch (e) {}
+            const Browser = nativePlugin("Browser");
+            if (Browser && Browser.open) {
+                Browser.open({ url: url });
+                return;
             }
             window.open(url, "_blank");
         } catch (e) {
