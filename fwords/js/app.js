@@ -1072,6 +1072,8 @@ I’m looking for my keys.`
 
         const frLoopBtn = fr ? '<button class="btn-loop" onclick="window.toggleLoop(\'' + escapeQuote(fr) + '\', \'fr-FR\', this)" title="تكرار النطق الفرنسي">🔁 FR</button>' : "";
         const enLoopBtn = en ? '<button class="btn-loop btn-loop-en" onclick="window.toggleLoop(\'' + escapeQuote(en) + '\', \'en-US\', this)" title="تكرار النطق الإنجليزي">🔁 EN</button>' : "";
+        const imgQuery = encodeURIComponent((fr + ' ' + (ar || '') + ' ' + (en || '')).trim());
+        const imgSearchBtn = '<button class="btn-img-search" onclick="window.openImageSearch(\'' + imgQuery + '\')" title="بحث صور Google">🖼</button>';
 
         const actionsHtml = '<div class="word-actions">' +
             '<button class="word-menu-btn" onclick="window.showWordMenu(\'' + escapeQuote(w.id) + '\', this)" title="خيارات">⋮</button>' +
@@ -1084,10 +1086,12 @@ I’m looking for my keys.`
         return '<div class="word-card" data-id="' + escapeHtml(w.id) + '">' +
             '<div class="word-row">' +
                 '<button class="btn-word-loop" onclick="window.toggleLoopWord(\'' + escapeQuote(fr) + '\', \'' + escapeQuote(en) + '\', this)" title="تكرار نطق الكلمة فرنسي + إنجليزي">🔁</button>' +
-                '<span class="word-fr">' + highlightText(fr, searchTerm) + '</span>' +
-                '<span class="word-ar">' + highlightText(ar, searchTerm) + '</span>' +
-                '<span class="word-en">' + highlightText(en, searchTerm) + '</span>' +
-                frLoopBtn + enLoopBtn + actionsHtml +
+                '<span class="word-main" onclick="window.toggleLoopAll(\'' + escapeQuote(fr) + '\', \'' + escapeQuote(ar) + '\', \'' + escapeQuote(en) + '\', this)" title="اضغط للنطق بثلاث لغات (loop)">' +
+                    '<span class="word-fr">' + highlightText(fr, searchTerm) + '</span>' +
+                    '<span class="word-ar">' + highlightText(ar, searchTerm) + '</span>' +
+                    '<span class="word-en">' + highlightText(en, searchTerm) + '</span>' +
+                '</span>' +
+                imgSearchBtn + frLoopBtn + enLoopBtn + actionsHtml +
             '</div>' + badgesHtml + exHtml + '</div>';
     }
 
@@ -1183,6 +1187,11 @@ I’m looking for my keys.`
 
     function setLoopBtn(btn, active) {
         if (!btn) return;
+        if (btn.tagName !== "BUTTON") {
+            if (active) btn.classList.add("active");
+            else btn.classList.remove("active");
+            return;
+        }
         if (active) {
             btn.classList.add("active");
             if (btn.classList.contains("btn-word-loop")) btn.innerHTML = "⏹";
@@ -1299,9 +1308,27 @@ I’m looking for my keys.`
         startLoop(seq, btn);
     };
 
+    function openImageSearch(encodedQuery) {
+        try {
+            const q = decodeURIComponent(encodedQuery || "");
+            const url = "https://www.google.com/search?tbm=isch&q=" + encodeURIComponent(q);
+            if (window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform()) {
+                try {
+                    const intentUrl = "intent://" + url.replace(/^https?:\/\//, "") + "#Intent;scheme=https;package=com.android.chrome;end";
+                    window.location.href = intentUrl;
+                    return;
+                } catch (e) {}
+            }
+            window.open(url, "_blank");
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
     window.openEditWord = openEditWord;
     window.deleteWord = deleteWord;
     window.showWordMenu = showWordMenu;
+    window.openImageSearch = openImageSearch;
 
     init();
 })();

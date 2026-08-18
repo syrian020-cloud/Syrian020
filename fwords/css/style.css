@@ -344,6 +344,8 @@ main {
 }
 
 .btn-img-search {
+    background: none;
+    border: none;
     text-decoration: none;
     font-size: 1rem;
     padding: 2px 6px;
@@ -356,6 +358,25 @@ main {
 .btn-img-search:hover {
     background: #fff9c4;
 }
+
+.word-main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 6px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+    user-select: none;
+}
+
+.word-main:hover { background: #e3f2fd; }
+
+.word-main.active { background: #ff6d00; }
+.word-main.active .word-fr,
+.word-main.active .word-ar,
+.word-main.active .word-en { color: #fff; }
 
 .word-fr {
     font-weight: 700;
