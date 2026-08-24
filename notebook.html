@@ -574,8 +574,8 @@
       <button class="nb-tool active" id="nb-toggle-text" aria-label="Toggle text">
         <svg class="icon" aria-hidden="true"><use href="#icon-eye"></use></svg>
       </button>
-      <button class="nb-tool" id="nb-speak" aria-label="Listen">
-        <svg class="icon" aria-hidden="true"><use href="#icon-speaker"></use></svg>
+      <button class="nb-tool" id="nb-speak" aria-label="Loop">
+        <svg class="icon" aria-hidden="true"><use href="#icon-loop"></use></svg>
       </button>
     </div>
   </div>
@@ -1001,6 +1001,7 @@
     document.querySelectorAll('.phrase').forEach(function (el) { el.classList.remove('playing'); });
     document.querySelectorAll('.line').forEach(function (el) { el.classList.remove('active'); });
     document.querySelectorAll('.loop-btn, .loop-lang-btn:not([data-video-loop]), .lesson-loop-btn').forEach(function (b) { b.classList.remove('active'); b.innerHTML = icon('loop'); });
+    updateNotebookSpeakIcon();
   }
 
   function speakOnce(text, lang, key, langClass, onDone) {
@@ -2086,6 +2087,7 @@
     document.querySelectorAll('#notebook-header-tools .nb-tool[data-tool]').forEach(function (b) { b.classList.toggle('active', b.dataset.tool === state.notebookTool); });
     document.querySelectorAll('#notebook-colors button').forEach(function (b) { b.classList.toggle('active', b.dataset.color === state.notebookColor); });
     document.querySelectorAll('#notebook-sizes button').forEach(function (b) { b.classList.toggle('active', parseFloat(b.dataset.size) === state.notebookScale); });
+    updateNotebookSpeakIcon();
   }
 
   function saveNotebookHistory() {
@@ -2111,6 +2113,7 @@
   window.openNotebook = openNotebook;
 
   function closeNotebook() {
+    stopSpeech();
     document.getElementById('notebook-overlay').classList.add('hidden');
     state.notebookSecId = null; state.notebookLesId = null; state.notebookIndex = null;
   }
@@ -2237,15 +2240,38 @@
     canvas.height = rect.height;
   }
 
+  function notebookLoopKey() {
+    return state.notebookSecId && state.notebookLesId && state.notebookIndex !== null
+      ? 'nb:' + state.notebookSecId + ':' + state.notebookLesId + ':' + state.notebookIndex
+      : null;
+  }
+  function updateNotebookSpeakIcon() {
+    var btn = document.getElementById('nb-speak');
+    if (!btn) return;
+    var key = notebookLoopKey();
+    var on = state.loop && state.loop.key === key;
+    btn.classList.toggle('active', on);
+    btn.innerHTML = icon(on ? 'pause' : 'loop');
+  }
   function notebookSpeakCurrent() {
     if (state.notebookSecId && state.notebookLesId && state.notebookIndex !== null) {
       var les = findLesson(state.notebookSecId, state.notebookLesId);
       var p = les && les.phrases[state.notebookIndex];
       if (p) {
+        var key = notebookLoopKey();
+        if (state.loop && state.loop.key === key) { stopSpeech(); return; }
         stopSpeech();
-        var key = state.notebookSecId + ':' + state.notebookLesId + ':' + state.notebookIndex;
-        var seq = state.langs.filter(function (l) { return p[l]; }).map(function (l) { return { text: p[l], lang: l, langClass: l }; });
-        speakSequence(seq, key);
+        state.loop = { key: key, word: false };
+        updateNotebookSpeakIcon();
+        (function cycle() {
+          if (!state.loop || state.loop.key !== key) return;
+          var seq = state.langs.filter(function (l) { return p[l]; }).map(function (l) { return { text: p[l], lang: l, langClass: l }; });
+          if (!seq.length) return;
+          speakSequence(seq, key, function () {
+            if (!state.loop || state.loop.key !== key) return;
+            setTimeout(cycle, 700);
+          });
+        })();
       }
     }
   }
