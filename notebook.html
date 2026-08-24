@@ -282,8 +282,10 @@
     opacity: 0; transition: opacity 0.2s; border-top: 1px solid rgba(0,0,0,0.08);
   }
   .lesson-subtitle.show { opacity: 1; }
-  .lesson-subtitle .sub-line { margin: 0.15rem 0; }
-  .lesson-subtitle .sub-line.ar { direction: rtl; }
+  .lesson-subtitle .sub-line { margin: 0.15rem 0; font-weight: 600; }
+  .lesson-subtitle .sub-line.ar { direction: rtl; color: #047481; }
+  .lesson-subtitle .sub-line.fr { color: #4338ca; }
+  .lesson-subtitle .sub-line.en { color: #374151; }
   .video-loop-btn {
     position: absolute; top: 6px; left: 6px; z-index: 2;
     background: rgba(0,0,0,0.55); color: #fff; border: 1px solid rgba(255,255,255,0.25);
@@ -606,6 +608,7 @@
     videoLabel: { ar: 'فيديو (اختياري)', fr: 'Vidéo (optionnel)', en: 'Video (optional)' },
     savingVideo: { ar: 'جارٍ حفظ الفيديو...', fr: 'Enregistrement de la vidéo...', en: 'Saving video...' },
     loopVideo: { ar: 'تكرار الفيديو', fr: 'Boucler la vidéo', en: 'Loop video' },
+    videoPhraseLoop: { ar: 'تكرار مقطع الفيديو', fr: 'Boucler le segment vidéo', en: 'Loop video segment' },
     subtitleLabel: { ar: 'ترجمة الفيديو', fr: 'Sous-titres de la vidéo', en: 'Video subtitles' },
     videoTooLarge: { ar: 'الفيديو كبير جدًا، اختر ملفًا أصغر من 5 ميغابايت.', fr: 'La vidéo est trop grande, choisissez un fichier de moins de 5 Mo.', en: 'Video too large, pick a file under 5 MB.' },
     actions: { ar: 'خيارات', fr: 'Options', en: 'Options' },
@@ -669,6 +672,7 @@
     data: loadData(),
     route: { name: 'sections' },
     loop: null,
+    videoLoop: null,
     speechRun: 0,
     notebookSecId: null,
     notebookLesId: null,
@@ -1089,6 +1093,34 @@
     }
   }
 
+  function updateVideoLoopButtons() {
+    var activeKey = state.videoLoop ? state.videoLoop.key : null;
+    document.querySelectorAll('.phrase').forEach(function (el) {
+      var key = el.dataset.key;
+      el.querySelectorAll('.phrase-video-loop-btn, [data-video-loop]').forEach(function (btn) {
+        var on = activeKey === key;
+        btn.classList.toggle('active', on);
+        btn.innerHTML = icon(on ? 'pause' : 'loop');
+      });
+    });
+  }
+
+  function stopVideoLoop() {
+    state.videoLoop = null;
+    updateVideoLoopButtons();
+  }
+
+  function toggleVideoPhraseLoop(p, key, btn) {
+    var video = document.getElementById('lesson-video');
+    if (!video || !p || p.start == null || p.end == null) return;
+    if (state.videoLoop && state.videoLoop.key === key) { stopVideoLoop(); return; }
+    stopSpeech();
+    state.videoLoop = { key: key, start: p.start, end: p.end };
+    video.currentTime = p.start / 1000;
+    video.play();
+    updateVideoLoopButtons();
+  }
+
   /* ---------- Word click ---------- */
 
   function clickableWords(text, lang) {
@@ -1196,7 +1228,7 @@
       view.innerHTML = html; return;
     }
     html += les.phrases.map(function (p, i) {
-      return phraseHTML(p, secId + ':' + lesId + ':' + i, i);
+      return phraseHTML(p, secId + ':' + lesId + ':' + i, i, les);
     }).join('');
     view.innerHTML = html;
     if (les.video) {
@@ -1226,7 +1258,12 @@
             subtitle.classList.remove('show');
           }
         }
-        video.addEventListener('timeupdate', updateSubtitle);
+        function checkVideoLoop() {
+          if (!state.videoLoop) return;
+          var ct = video.currentTime * 1000;
+          if (ct >= state.videoLoop.end) { video.currentTime = state.videoLoop.start / 1000; }
+        }
+        video.addEventListener('timeupdate', function () { updateSubtitle(); checkVideoLoop(); });
         video.addEventListener('seeked', updateSubtitle);
         video.addEventListener('play', updateSubtitle);
         updateSubtitle();
@@ -1234,12 +1271,16 @@
     }
   }
 
-  function phraseHTML(p, key, idx) {
+  function phraseHTML(p, key, idx, les) {
     var img = p.image ? '<img src="' + esc(p.image) + '" class="phrase-img" alt="">' : '';
     var vid = p.video ? '<div class="video-wrap"><button class="video-loop-btn" title="' + t('loopVideo') + '">' + icon('loop') + '</button><button class="video-delete-btn" title="' + t('delete') + '">' + icon('clear') + '</button><video controls playsinline class="phrase-video" src="' + esc(p.video) + '"></video></div>' : '';
+    var hasLessonVideo = !!(les && les.video);
     function langLoopBtn(lang) {
       var label = lang === 'fr' ? t('french') : (lang === 'ar' ? t('arabic') : t('english'));
-      return '<button class="loop-lang-btn" data-lang="' + lang + '" title="' + t('loopWord') + ' — ' + label + '">' + icon('loop') + '</button>';
+      var isVideoLoop = lang === 'fr' && hasLessonVideo && p.start != null && p.end != null;
+      var cls = isVideoLoop ? 'loop-lang-btn phrase-video-loop-btn' : 'loop-lang-btn';
+      var title = isVideoLoop ? t('videoPhraseLoop') : (t('loopWord') + ' — ' + label);
+      return '<button class="' + cls + '" data-lang="' + lang + '"' + (isVideoLoop ? ' data-video-loop="1"' : '') + ' title="' + title + '">' + icon('loop') + '</button>';
     }
     var startAttr = p.start != null ? ' data-start="' + p.start + '"' : '';
     var endAttr = p.end != null ? ' data-end="' + p.end + '"' : '';
@@ -1663,7 +1704,10 @@
         return;
       }
       var langBtn = e.target.closest('.loop-lang-btn');
-      if (langBtn) { toggleWordLoop(p[langBtn.dataset.lang] || '', langBtn.dataset.lang, key, langBtn.dataset.lang); return; }
+      if (langBtn) {
+        if (langBtn.dataset.videoLoop === '1') { toggleVideoPhraseLoop(p, key, langBtn); return; }
+        toggleWordLoop(p[langBtn.dataset.lang] || '', langBtn.dataset.lang, key, langBtn.dataset.lang); return;
+      }
       if (e.target.closest('.lesson-loop-btn')) { playTitle(); return; }
       if (e.target.closest('.loop-btn')) { togglePhraseLoop(p, key); return; }
       if (e.target.closest('.notebook-btn')) {
@@ -1678,6 +1722,7 @@
         return;
       }
       if (phraseEl.dataset.start) {
+        stopVideoLoop();
         var v = document.getElementById('lesson-video');
         if (v) { v.currentTime = (+phraseEl.dataset.start) / 1000; v.play(); }
         return;
