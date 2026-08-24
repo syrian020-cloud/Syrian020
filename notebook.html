@@ -196,7 +196,7 @@
     padding: 0.45rem 0.6rem; margin-bottom: 0.4rem; border-radius: 10px;
     font-size: 1.1rem; line-height: 1.8; cursor: pointer;
     transition: background 0.15s;
-    display: flex; align-items: center; gap: 0.5rem; justify-content: space-between;
+    display: flex; align-items: flex-start; gap: 0.5rem; justify-content: space-between;
   }
   .line:hover { background: var(--bg-input); }
   .line.active { background: rgba(47,230,168,0.15); }
@@ -206,6 +206,7 @@
     border-radius: 8px; width: 2rem; height: 2rem; cursor: pointer;
     display: inline-flex; align-items: center; justify-content: center;
     padding: 0; flex-shrink: 0; transition: background 0.15s, color 0.15s, border-color 0.15s;
+    margin-top: 0.3rem;
   }
   .loop-lang-btn .icon { width: 1rem; height: 1rem; }
   .loop-lang-btn:hover { color: var(--accent); border-color: var(--accent); background: var(--bg-input); }
@@ -279,7 +280,11 @@
     .card-img { width: 64px; height: 64px; }
     .card-actions { width: 100%; justify-content: flex-end; margin-top: 0.5rem; }
     .toolbar { gap: 0.5rem; }
-    .btns { flex-direction: row; }
+    .phrase-top { flex-direction: column; }
+    .btns { flex-direction: row; width: 100%; justify-content: flex-end; order: -1; margin-bottom: 0.5rem; gap: 0.4rem; }
+    .btns button { width: 2.2rem; height: 2.1rem; }
+    .line { font-size: 1rem; line-height: 1.65; padding: 0.35rem 0.45rem; }
+    .loop-lang-btn { width: 1.8rem; height: 1.8rem; margin-top: 0.15rem; }
   }
 
   /* Notebook drawing overlay */
@@ -1054,6 +1059,7 @@
           '<div class="line en" data-lang="en" data-key="' + esc(key) + '"><span class="line-text">' + clickableWords(p.en || '', 'en') + '</span>' + langLoopBtn('en') + '</div>' +
         '</div>' +
         '<div class="btns">' +
+          '<button class="image-btn" title="' + t('imageLabel') + '">' + icon('image') + '</button>' +
           '<button class="ai-search-btn" title="' + t('aiSearch') + '">' + icon('ai') + '</button>' +
           '<button class="loop-btn" title="' + t('loopPhrase') + '">' + icon('loop') + '</button>' +
           '<button class="notebook-btn" title="' + t('notebook') + '">' + icon('palette') + '</button>' +
@@ -1356,6 +1362,26 @@
       var sec = findSection(parts[0]), les = findLesson(parts[0], parts[1]), p = les.phrases[+parts[2]];
       if (e.target.closest('.ai-search-btn')) {
         openGoogleAiMode(parts[0], parts[1], p, +parts[2]);
+        return;
+      }
+      if (e.target.closest('.image-btn')) {
+        var fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = 'image/*';
+        fileInput.style.display = 'none';
+        fileInput.onchange = function () {
+          if (!fileInput.files || !fileInput.files[0]) { if (fileInput.parentNode) fileInput.parentNode.removeChild(fileInput); return; }
+          var reader = new FileReader();
+          reader.onload = function (ev) {
+            p.image = ev.target.result;
+            saveData();
+            render();
+            if (fileInput.parentNode) fileInput.parentNode.removeChild(fileInput);
+          };
+          reader.readAsDataURL(fileInput.files[0]);
+        };
+        document.body.appendChild(fileInput);
+        fileInput.click();
         return;
       }
       var langBtn = e.target.closest('.loop-lang-btn');
