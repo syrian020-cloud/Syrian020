@@ -278,9 +278,16 @@
   .lesson-subtitle {
     position: absolute; bottom: 0; left: 0; right: 0;
     padding: 0.8rem 1rem; background: rgba(255,255,255,0.97);
-    color: #111; text-align: center; font-size: 0.95rem; pointer-events: none;
+    color: #111; text-align: center; font-size: 0.95rem; pointer-events: auto;
     opacity: 0; transition: opacity 0.2s; border-top: 1px solid rgba(0,0,0,0.08);
+    cursor: grab; touch-action: none; user-select: none; z-index: 3;
   }
+  .lesson-subtitle:active { cursor: grabbing; }
+  .subtitle-handle {
+    position: absolute; left: 6px; top: 50%; transform: translateY(-50%);
+    color: #888; cursor: grab; display: inline-flex; align-items: center; justify-content: center;
+  }
+  .subtitle-handle .icon { width: 1rem; height: 1rem; }
   .lesson-subtitle.show { opacity: 1; }
   .lesson-subtitle .sub-line { margin: 0.15rem 0; font-weight: 600; }
   .lesson-subtitle .sub-line.ar { direction: rtl; color: #047481; }
@@ -294,6 +301,13 @@
   }
   .video-loop-btn.active { background: var(--success); color: #0f1a16; border-color: var(--success); }
   .video-loop-btn .icon { width: 1rem; height: 1rem; }
+  .video-poster-btn {
+    position: absolute; top: 6px; right: 6px; z-index: 2;
+    background: rgba(0,0,0,0.55); color: #fff; border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px; width: 2rem; height: 2rem; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .video-poster-btn .icon { width: 1rem; height: 1rem; }
   .video-preview-wrap { position: relative; margin-top: 0.5rem; }
   .video-preview { width: 100%; max-height: 180px; border-radius: var(--radius); display: block; background: #000; object-fit: cover; }
   /* Dialog / forms */
@@ -438,6 +452,8 @@
     <symbol id="icon-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
     <symbol id="icon-clear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6"/></symbol>
     <symbol id="icon-speaker" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a9 9 0 0 1 0 14.14"/></symbol>
+    <symbol id="icon-speed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/><path d="M17.5 6.5l1.4-1.4"/></symbol>
+    <symbol id="icon-grip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="1.5" style="fill:currentColor;stroke:none"/><circle cx="15" cy="6" r="1.5" style="fill:currentColor;stroke:none"/><circle cx="9" cy="12" r="1.5" style="fill:currentColor;stroke:none"/><circle cx="15" cy="12" r="1.5" style="fill:currentColor;stroke:none"/><circle cx="9" cy="18" r="1.5" style="fill:currentColor;stroke:none"/><circle cx="15" cy="18" r="1.5" style="fill:currentColor;stroke:none"/></symbol>
     <symbol id="icon-more" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="1.5" style="fill:currentColor;stroke:none"/><circle cx="12" cy="12" r="1.5" style="fill:currentColor;stroke:none"/><circle cx="12" cy="19" r="1.5" style="fill:currentColor;stroke:none"/></symbol>
     <symbol id="icon-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 2h9a2 2 0 0 1 2 2z"/></symbol>
     <symbol id="icon-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></symbol>
@@ -477,6 +493,7 @@
     <button class="btn ghost" id="btn-export" data-icon="export" data-t="exportJson">Export JSON</button>
     <button class="btn ghost" id="btn-import-trigger" data-icon="import" data-t="importJson">Import JSON</button>
     <input type="file" id="import-file" accept="application/json" style="display:none">
+    <input type="file" id="video-poster-input" accept="image/*" style="display:none">
     <span class="spacer"></span>
     <div class="ctl-group">
       <label for="rate" data-t="rateLabel">Rate</label>
@@ -593,6 +610,9 @@
     exportJson: { ar: 'تصدير JSON', fr: 'Exporter JSON', en: 'Export JSON' },
     importJson: { ar: 'استيراد JSON', fr: 'Importer JSON', en: 'Import JSON' },
     rateLabel: { ar: 'سرعة', fr: 'Vitesse', en: 'Rate' },
+    videoSpeed: { ar: 'سرعة الفيديو', fr: 'Vitesse vidéo', en: 'Video speed' },
+    ttsSpeed: { ar: 'سرعة الصوت', fr: 'Vitesse voix', en: 'TTS speed' },
+    videoCover: { ar: 'غلاف الفيديو', fr: 'Image de couverture', en: 'Video cover' },
     loopLabel: { ar: 'تكرار', fr: 'Répéter', en: 'Loop' },
     loopFrenchArabicEnglish: { ar: 'فرنسي ← عربي ← إنجليزي', fr: 'Français ← Arabe ← Anglais', en: 'French ← Arabic ← English' },
     loopFrenchArabic: { ar: 'فرنسي ← عربي', fr: 'Français ← Arabe', en: 'French ← Arabic' },
@@ -668,6 +688,7 @@
     uiLang: localStorage.getItem('nb_app_lang') || 'en',
     theme: localStorage.getItem('nb_theme') || 'dark',
     rate: parseFloat(localStorage.getItem('nb_rate')) || 1,
+    videoRate: parseFloat(localStorage.getItem('nb_video_rate')) || 1,
     langs: (localStorage.getItem('nb_langs') || 'fr,ar,en').split(','),
     data: loadData(),
     route: { name: 'sections' },
@@ -1116,6 +1137,76 @@
     document.querySelectorAll('.video-loop-btn').forEach(function (b) { b.classList.remove('active'); b.innerHTML = icon('loop'); });
   }
 
+  var SPEED_STEPS = [0.5, 0.75, 1, 1.25, 1.5, 2];
+  function nextSpeed(current) {
+    var idx = SPEED_STEPS.indexOf(current);
+    if (idx < 0) return 1;
+    return SPEED_STEPS[(idx + 1) % SPEED_STEPS.length];
+  }
+  function formatSpeed(r) { return (r || 1).toFixed(2).replace(/\.00$/, '').replace(/0$/, '') + '×'; }
+  function updateSpeedLabels() {
+    var vLabel = document.querySelector('.video-speed-label');
+    var tLabel = document.querySelector('.tts-speed-label');
+    if (vLabel) vLabel.textContent = formatSpeed(state.videoRate);
+    if (tLabel) tLabel.textContent = formatSpeed(state.rate);
+    var rateInput = document.getElementById('rate');
+    var rateValue = document.querySelector('.rate-value');
+    if (rateInput) rateInput.value = state.rate;
+    if (rateValue) rateValue.textContent = formatSpeed(state.rate);
+  }
+  function cycleVideoSpeed() {
+    state.videoRate = nextSpeed(state.videoRate);
+    localStorage.setItem('nb_video_rate', state.videoRate);
+    var video = document.getElementById('lesson-video');
+    if (video) video.playbackRate = state.videoRate;
+    updateSpeedLabels();
+  }
+  function cycleTTSSpeed() {
+    state.rate = nextSpeed(state.rate);
+    localStorage.setItem('nb_rate', state.rate);
+    updateSpeedLabels();
+  }
+  function makeSubtitleDraggable(wrap, el) {
+    if (!wrap || !el) return;
+    var dragging = false, start = { x: 0, y: 0, tx: 0, ty: 0 };
+    function getTranslate() {
+      var m = (el.style.transform || '').match(/translate3d\(([-\d.]+)px,\s*([-\d.]+)px/);
+      return m ? { x: parseFloat(m[1]), y: parseFloat(m[2]) } : { x: 0, y: 0 };
+    }
+    function clamp(nx, ny) {
+      var wr = wrap.getBoundingClientRect(), er = el.getBoundingClientRect();
+      var left = er.left - wr.left, top = er.top - wr.top;
+      var minX = -left, maxX = wr.width - left - er.width;
+      var minY = -top, maxY = wr.height - top - er.height;
+      return { x: Math.max(minX, Math.min(maxX, nx)), y: Math.max(minY, Math.min(maxY, ny)) };
+    }
+    function onDown(e) {
+      dragging = true;
+      var p = e.touches ? e.touches[0] : e;
+      start.x = p.clientX; start.y = p.clientY;
+      var t = getTranslate(); start.tx = t.x; start.ty = t.y;
+      el.setPointerCapture && el.setPointerCapture(e.pointerId);
+      e.preventDefault();
+    }
+    function onMove(e) {
+      if (!dragging) return;
+      var p = e.touches ? e.touches[0] : e;
+      var nx = start.tx + (p.clientX - start.x);
+      var ny = start.ty + (p.clientY - start.y);
+      var c = clamp(nx, ny);
+      el.style.transform = 'translate3d(' + c.x + 'px,' + c.y + 'px,0)';
+      e.preventDefault();
+    }
+    function onUp(e) {
+      dragging = false;
+      if (el.releasePointerCapture && e.pointerId) { try { el.releasePointerCapture(e.pointerId); } catch (err) {} }
+    }
+    el.addEventListener('pointerdown', onDown);
+    el.addEventListener('pointermove', onMove);
+    el.addEventListener('pointerup', onUp);
+    el.addEventListener('pointercancel', onUp);
+  }
+
   function toggleVideoPhraseLoop(p, key, btn) {
     var video = document.getElementById('lesson-video');
     if (!video || !p || p.start == null || p.end == null) return;
@@ -1217,7 +1308,7 @@
     var oldVideo = document.getElementById('lesson-video');
     var savedVideo = null;
     if (oldVideo && oldVideo.dataset.lessonKey === lessonKey) {
-      savedVideo = { currentTime: oldVideo.currentTime, paused: oldVideo.paused, volume: oldVideo.volume, loop: oldVideo.loop };
+      savedVideo = { currentTime: oldVideo.currentTime, paused: oldVideo.paused, volume: oldVideo.volume, loop: oldVideo.loop, playbackRate: oldVideo.playbackRate };
     }
     var html = renderCrumbs([
       { label: t('sectionsLabel'), route: { name: 'sections' } },
@@ -1227,13 +1318,15 @@
     html += '<div class="lesson-head"><div class="lesson-title-row"><div class="title-block" data-key="' + esc(lessonKey + ':title') + '">' + titleBlockHTML(les.title) + '</div><button class="lesson-loop-btn" id="lesson-loop" title="' + t('loopPhrase') + '">' + icon('loop') + '</button></div><div class="sub">' + t('lessonTitle') + '</div></div>';
     if (les.image) html += '<img src="' + esc(les.image) + '" class="lesson-img" alt="">';
     if (les.video) {
-      html += '<div class="lesson-video-wrap"><button class="video-loop-btn' + (savedVideo && savedVideo.loop ? ' active' : '') + '" id="lesson-video-loop" title="' + t('loopVideo') + '">' + icon('loop') + '</button><video id="lesson-video" data-lesson-key="' + esc(lessonKey) + '" controls playsinline class="lesson-video" src="' + esc(les.video) + '"></video>' +
-        '<div id="lesson-subtitle" class="lesson-subtitle"></div></div>';
+      html += '<div class="lesson-video-wrap"><button class="video-loop-btn' + (savedVideo && savedVideo.loop ? ' active' : '') + '" id="lesson-video-loop" title="' + t('loopVideo') + '">' + icon('loop') + '</button><button class="video-poster-btn" id="video-poster" title="' + t('videoCover') + '">' + icon('image') + '</button><video id="lesson-video" data-lesson-key="' + esc(lessonKey) + '" controls playsinline class="lesson-video" src="' + esc(les.video) + '" poster="' + esc(les.poster || '') + '"></video>' +
+        '<div id="lesson-subtitle" class="lesson-subtitle">' + icon('grip', 'subtitle-handle') + '</div></div>';
     }
     html += '<div class="toolbar" style="margin-bottom:1rem">' +
       '<button class="btn" id="btn-add-phrase">' + icon('plus') + '<span>' + t('addPhrase') + '</span></button>' +
       '<button class="btn ghost" id="play-all">' + icon('play') + '<span>' + t('playAll') + '</span></button>' +
       '<button class="btn ghost" id="stop-all">' + icon('stop') + '<span>' + t('stopAll') + '</span></button>' +
+      '<button class="btn ghost" id="video-speed" title="' + t('videoSpeed') + '">' + icon('speed') + '<span class="video-speed-label">1×</span></button>' +
+      '<button class="btn ghost" id="tts-speed" title="' + t('ttsSpeed') + '">' + icon('speaker') + '<span class="tts-speed-label">1×</span></button>' +
       '</div>';
     if (!les.phrases.length) {
       html += '<div class="empty">' + icon('pencil', 'empty-icon') + '<div>' + t('noPhrases') + '</div></div>';
@@ -1248,10 +1341,14 @@
       var subtitle = document.getElementById('lesson-subtitle');
       if (video && subtitle) {
         if (savedVideo) {
-          function restoreVideo() { video.currentTime = savedVideo.currentTime; if (!savedVideo.paused) video.play(); video.volume = savedVideo.volume; }
+          function restoreVideo() { video.currentTime = savedVideo.currentTime; if (!savedVideo.paused) video.play(); video.volume = savedVideo.volume; video.playbackRate = savedVideo.playbackRate || state.videoRate; }
           if (video.readyState >= 1) { try { restoreVideo(); } catch (e) {} }
           else { video.addEventListener('loadedmetadata', function once() { try { restoreVideo(); } catch (e) {} }, { once: true }); }
+        } else {
+          video.playbackRate = state.videoRate;
         }
+        updateSpeedLabels();
+        makeSubtitleDraggable(document.querySelector('.lesson-video-wrap'), subtitle);
         function updateSubtitle() {
           var ct = video.currentTime * 1000;
           var active = null;
@@ -1751,6 +1848,9 @@
     if (e.target.closest('#btn-add-phrase')) { editPhraseModal(state.route.section, state.route.lesson, null, -1); return; }
     if (e.target.closest('#play-all')) { playAllPhrases(); return; }
     if (e.target.closest('#stop-all')) { stopSpeech(); stopAllVideo(); return; }
+    if (e.target.closest('#video-speed')) { cycleVideoSpeed(); return; }
+    if (e.target.closest('#tts-speed')) { cycleTTSSpeed(); return; }
+    if (e.target.closest('#video-poster')) { document.getElementById('video-poster-input').click(); return; }
     if (e.target.closest('#lesson-loop')) {
       var titleKey = state.route.section + ':' + state.route.lesson + ':title';
       if (state.loop && state.loop.key === titleKey) { stopSpeech(); return; }
@@ -2156,6 +2256,17 @@
       e.target.value = '';
     };
     reader.readAsText(file);
+  });
+
+  document.getElementById('video-poster-input').addEventListener('change', function (e) {
+    var file = e.target.files[0]; if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function (ev) {
+      var sec = findSection(state.route.section), les = findLesson(state.route.section, state.route.lesson);
+      if (sec && les) { les.poster = ev.target.result; saveData(); render(); }
+      e.target.value = '';
+    };
+    reader.readAsDataURL(file);
   });
 
   window.addEventListener('hashchange', function () { go(routeFromHash(), false); });
