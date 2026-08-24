@@ -966,7 +966,7 @@
     else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     document.querySelectorAll('.phrase').forEach(function (el) { el.classList.remove('playing'); });
     document.querySelectorAll('.line').forEach(function (el) { el.classList.remove('active'); });
-    document.querySelectorAll('.loop-btn, .loop-lang-btn, .lesson-loop-btn').forEach(function (b) { b.classList.remove('active'); b.innerHTML = icon('loop'); });
+    document.querySelectorAll('.loop-btn, .loop-lang-btn:not([data-video-loop]), .lesson-loop-btn').forEach(function (b) { b.classList.remove('active'); b.innerHTML = icon('loop'); });
   }
 
   function speakOnce(text, lang, key, langClass, onDone) {
@@ -1067,7 +1067,7 @@
         mainBtn.classList.toggle('active', on);
         mainBtn.innerHTML = icon(on ? 'pause' : 'loop');
       }
-      el.querySelectorAll('.loop-lang-btn').forEach(function (btn) {
+      el.querySelectorAll('.loop-lang-btn:not([data-video-loop])').forEach(function (btn) {
         var lang = btn.dataset.lang;
         var on = state.loop && state.loop.word && state.loop.key === key + ':word:' + lang;
         btn.classList.toggle('active', on);
@@ -1084,7 +1084,7 @@
     var titleBlock = document.querySelector('.title-block');
     if (titleBlock) {
       var titleKey = state.route.section + ':' + state.route.lesson + ':title';
-      titleBlock.querySelectorAll('.loop-lang-btn').forEach(function (btn) {
+      titleBlock.querySelectorAll('.loop-lang-btn:not([data-video-loop])').forEach(function (btn) {
         var lang = btn.dataset.titleLang;
         var on = state.loop && state.loop.word && state.loop.key === titleKey + ':word:' + lang;
         btn.classList.toggle('active', on);
@@ -1110,10 +1110,16 @@
     updateVideoLoopButtons();
   }
 
+  function stopAllVideo() {
+    stopVideoLoop();
+    document.querySelectorAll('video').forEach(function (v) { v.pause(); v.loop = false; });
+    document.querySelectorAll('.video-loop-btn').forEach(function (b) { b.classList.remove('active'); b.innerHTML = icon('loop'); });
+  }
+
   function toggleVideoPhraseLoop(p, key, btn) {
     var video = document.getElementById('lesson-video');
     if (!video || !p || p.start == null || p.end == null) return;
-    if (state.videoLoop && state.videoLoop.key === key) { stopVideoLoop(); return; }
+    if (state.videoLoop && state.videoLoop.key === key) { stopAllVideo(); return; }
     stopSpeech();
     state.videoLoop = { key: key, start: p.start, end: p.end };
     video.currentTime = p.start / 1000;
@@ -1207,15 +1213,21 @@
   function renderLesson(secId, lesId) {
     var sec = findSection(secId), les = findLesson(secId, lesId);
     if (!sec || !les) { go({ name: 'sections' }); return; }
+    var lessonKey = secId + ':' + lesId;
+    var oldVideo = document.getElementById('lesson-video');
+    var savedVideo = null;
+    if (oldVideo && oldVideo.dataset.lessonKey === lessonKey) {
+      savedVideo = { currentTime: oldVideo.currentTime, paused: oldVideo.paused, volume: oldVideo.volume, loop: oldVideo.loop };
+    }
     var html = renderCrumbs([
       { label: t('sectionsLabel'), route: { name: 'sections' } },
       { label: titleObj(sec.title), route: { name: 'lessons', section: secId } },
       { label: titleObj(les.title) }
     ]);
-    html += '<div class="lesson-head"><div class="lesson-title-row"><div class="title-block" data-key="' + esc(secId + ':' + lesId + ':title') + '">' + titleBlockHTML(les.title) + '</div><button class="lesson-loop-btn" id="lesson-loop" title="' + t('loopPhrase') + '">' + icon('loop') + '</button></div><div class="sub">' + t('lessonTitle') + '</div></div>';
+    html += '<div class="lesson-head"><div class="lesson-title-row"><div class="title-block" data-key="' + esc(lessonKey + ':title') + '">' + titleBlockHTML(les.title) + '</div><button class="lesson-loop-btn" id="lesson-loop" title="' + t('loopPhrase') + '">' + icon('loop') + '</button></div><div class="sub">' + t('lessonTitle') + '</div></div>';
     if (les.image) html += '<img src="' + esc(les.image) + '" class="lesson-img" alt="">';
     if (les.video) {
-      html += '<div class="lesson-video-wrap"><button class="video-loop-btn" id="lesson-video-loop" title="' + t('loopVideo') + '">' + icon('loop') + '</button><video id="lesson-video" controls playsinline class="lesson-video" src="' + esc(les.video) + '"></video>' +
+      html += '<div class="lesson-video-wrap"><button class="video-loop-btn' + (savedVideo && savedVideo.loop ? ' active' : '') + '" id="lesson-video-loop" title="' + t('loopVideo') + '">' + icon('loop') + '</button><video id="lesson-video" data-lesson-key="' + esc(lessonKey) + '" controls playsinline class="lesson-video" src="' + esc(les.video) + '"></video>' +
         '<div id="lesson-subtitle" class="lesson-subtitle"></div></div>';
     }
     html += '<div class="toolbar" style="margin-bottom:1rem">' +
@@ -1228,13 +1240,18 @@
       view.innerHTML = html; return;
     }
     html += les.phrases.map(function (p, i) {
-      return phraseHTML(p, secId + ':' + lesId + ':' + i, i, les);
+      return phraseHTML(p, lessonKey + ':' + i, i, les);
     }).join('');
     view.innerHTML = html;
     if (les.video) {
       var video = document.getElementById('lesson-video');
       var subtitle = document.getElementById('lesson-subtitle');
       if (video && subtitle) {
+        if (savedVideo) {
+          function restoreVideo() { video.currentTime = savedVideo.currentTime; if (!savedVideo.paused) video.play(); video.volume = savedVideo.volume; }
+          if (video.readyState >= 1) { try { restoreVideo(); } catch (e) {} }
+          else { video.addEventListener('loadedmetadata', function once() { try { restoreVideo(); } catch (e) {} }, { once: true }); }
+        }
         function updateSubtitle() {
           var ct = video.currentTime * 1000;
           var active = null;
@@ -1733,7 +1750,7 @@
     if (e.target.closest('#btn-add-lesson')) { editLessonModal(state.route.section, null); return; }
     if (e.target.closest('#btn-add-phrase')) { editPhraseModal(state.route.section, state.route.lesson, null, -1); return; }
     if (e.target.closest('#play-all')) { playAllPhrases(); return; }
-    if (e.target.closest('#stop-all')) { stopSpeech(); return; }
+    if (e.target.closest('#stop-all')) { stopSpeech(); stopAllVideo(); return; }
     if (e.target.closest('#lesson-loop')) {
       var titleKey = state.route.section + ':' + state.route.lesson + ':title';
       if (state.loop && state.loop.key === titleKey) { stopSpeech(); return; }
