@@ -231,7 +231,17 @@
   .btns button:hover { border-color: var(--accent); background: var(--bg-input); transform: translateY(-1px); }
   .btns button.active { background: var(--success); color: #0f1a16; border-color: var(--success); }
   .lesson-head { margin-bottom: 1rem; }
-  .lesson-head h2 { margin: 0 0 0.3rem; font-size: 1.35rem; }
+  .lesson-title-row { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; margin-bottom: 0.3rem; }
+  .lesson-title-row h2 { margin: 0; font-size: 1.35rem; flex: 1; }
+  .lesson-loop-btn {
+    background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border);
+    border-radius: 12px; width: 2.5rem; height: 2.4rem; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  }
+  .lesson-loop-btn .icon { width: 1.25rem; height: 1.25rem; }
+  .lesson-loop-btn:hover { border-color: var(--accent); background: var(--bg-input); transform: translateY(-1px); }
+  .lesson-loop-btn.active { background: var(--success); color: #0f1a16; border-color: var(--success); }
   .lesson-head .sub { color: var(--text-secondary); font-size: 0.95rem; }
   .lesson-img {
     width: 100%; max-height: 320px; height: auto; object-fit: contain; border-radius: var(--radius);
@@ -839,7 +849,7 @@
     else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     document.querySelectorAll('.phrase').forEach(function (el) { el.classList.remove('playing'); });
     document.querySelectorAll('.line').forEach(function (el) { el.classList.remove('active'); });
-    document.querySelectorAll('.loop-btn, .loop-lang-btn').forEach(function (b) { b.classList.remove('active'); b.innerHTML = icon('loop'); });
+    document.querySelectorAll('.loop-btn, .loop-lang-btn, .lesson-loop-btn').forEach(function (b) { b.classList.remove('active'); b.innerHTML = icon('loop'); });
   }
 
   function speakOnce(text, lang, key, langClass, onDone) {
@@ -941,6 +951,13 @@
         btn.innerHTML = icon(on ? 'pause' : 'loop');
       });
     });
+    var lessonBtn = document.getElementById('lesson-loop');
+    if (lessonBtn) {
+      var keyBase = state.route.section + ':' + state.route.lesson + ':all';
+      var on = state.loop && state.loop.key === keyBase;
+      lessonBtn.classList.toggle('active', on);
+      lessonBtn.innerHTML = icon(on ? 'pause' : 'loop');
+    }
   }
 
   /* ---------- Word click ---------- */
@@ -1034,8 +1051,7 @@
       { label: titleObj(sec.title), route: { name: 'lessons', section: secId } },
       { label: titleObj(les.title) }
     ]);
-    html += '<div class="lesson-head"><h2>' + esc(titleObj(les.title)) + '</h2>' +
-      '<div class="sub">' + t('lessonTitle') + '</div></div>';
+    html += '<div class="lesson-head"><div class="lesson-title-row"><h2>' + esc(titleObj(les.title)) + '</h2><button class="lesson-loop-btn" id="lesson-loop" title="' + t('playAll') + '">' + icon('loop') + '</button></div><div class="sub">' + t('lessonTitle') + '</div></div>';
     if (les.image) html += '<img src="' + esc(les.image) + '" class="lesson-img" alt="">';
     html += '<div class="toolbar" style="margin-bottom:1rem">' +
       '<button class="btn" id="btn-add-phrase">' + icon('plus') + '<span>' + t('addPhrase') + '</span></button>' +
@@ -1437,6 +1453,10 @@
     if (e.target.closest('#btn-add-phrase')) { editPhraseModal(state.route.section, state.route.lesson, null, -1); return; }
     if (e.target.closest('#play-all')) { playAllPhrases(); return; }
     if (e.target.closest('#stop-all')) { stopSpeech(); return; }
+    if (e.target.closest('#lesson-loop')) {
+      if (state.loop && state.loop.key === state.route.section + ':' + state.route.lesson + ':all') { stopSpeech(); return; }
+      playAllPhrases(); return;
+    }
   });
 
   function playAllPhrases() {
@@ -1446,6 +1466,7 @@
     var i = 0;
     var keyBase = state.route.section + ':' + state.route.lesson;
     state.loop = { key: keyBase + ':all', word: false };
+    refreshLoopButtons();
     (function next() {
       if (!state.loop || state.loop.key !== keyBase + ':all') return;
       if (i >= les.phrases.length) { i = 0; setTimeout(next, 1200); return; }
@@ -1491,22 +1512,9 @@
   /* ---------- Import / Export ---------- */
 
   function saveVideoFile(file, callback) {
-    var fs = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Filesystem;
+    if (file.size > 5 * 1024 * 1024) { callback(null, { message: t('videoTooLarge') }); return; }
     var reader = new FileReader();
-    reader.onload = function (ev) {
-      var dataUrl = ev.target.result;
-      if (!fs) {
-        if (file.size > 5 * 1024 * 1024) { callback(null, { message: t('videoTooLarge') }); return; }
-        callback(dataUrl);
-        return;
-      }
-      var base64 = dataUrl.split(',')[1];
-      var ext = (file.name.split('.').pop() || 'mp4').replace(/[^a-z0-9]/gi, '').toLowerCase() || 'mp4';
-      var name = 'video_' + Date.now() + '.' + ext;
-      fs.writeFile({ path: 'notebook/videos/' + name, data: base64, directory: 'DOCUMENTS', encoding: 'base64', recursive: true })
-        .then(function (res) { callback(res.uri); })
-        .catch(function (err) { callback(null, err); });
-    };
+    reader.onload = function (ev) { callback(ev.target.result); };
     reader.onerror = function (err) { callback(null, err); };
     reader.readAsDataURL(file);
   }
