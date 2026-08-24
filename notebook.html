@@ -277,13 +277,21 @@
   }
   .lesson-subtitle {
     position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 0.8rem 1rem; background: linear-gradient(transparent, rgba(0,0,0,0.85));
-    color: #fff; text-align: center; font-size: 0.95rem; pointer-events: none;
-    opacity: 0; transition: opacity 0.2s;
+    padding: 0.8rem 1rem; background: rgba(255,255,255,0.97);
+    color: #111; text-align: center; font-size: 0.95rem; pointer-events: none;
+    opacity: 0; transition: opacity 0.2s; border-top: 1px solid rgba(0,0,0,0.08);
   }
   .lesson-subtitle.show { opacity: 1; }
   .lesson-subtitle .sub-line { margin: 0.15rem 0; }
   .lesson-subtitle .sub-line.ar { direction: rtl; }
+  .video-loop-btn {
+    position: absolute; top: 6px; left: 6px; z-index: 2;
+    background: rgba(0,0,0,0.55); color: #fff; border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px; width: 2rem; height: 2rem; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .video-loop-btn.active { background: var(--success); color: #0f1a16; border-color: var(--success); }
+  .video-loop-btn .icon { width: 1rem; height: 1rem; }
   .video-preview-wrap { position: relative; margin-top: 0.5rem; }
   .video-preview { width: 100%; max-height: 180px; border-radius: var(--radius); display: block; background: #000; object-fit: cover; }
   /* Dialog / forms */
@@ -597,6 +605,7 @@
     changeImage: { ar: 'تغيير الصورة', fr: 'Modifier l’image', en: 'Change image' },
     videoLabel: { ar: 'فيديو (اختياري)', fr: 'Vidéo (optionnel)', en: 'Video (optional)' },
     savingVideo: { ar: 'جارٍ حفظ الفيديو...', fr: 'Enregistrement de la vidéo...', en: 'Saving video...' },
+    loopVideo: { ar: 'تكرار الفيديو', fr: 'Boucler la vidéo', en: 'Loop video' },
     subtitleLabel: { ar: 'ترجمة الفيديو', fr: 'Sous-titres de la vidéo', en: 'Video subtitles' },
     videoTooLarge: { ar: 'الفيديو كبير جدًا، اختر ملفًا أصغر من 5 ميغابايت.', fr: 'La vidéo est trop grande, choisissez un fichier de moins de 5 Mo.', en: 'Video too large, pick a file under 5 MB.' },
     actions: { ar: 'خيارات', fr: 'Options', en: 'Options' },
@@ -1174,7 +1183,7 @@
     html += '<div class="lesson-head"><div class="lesson-title-row"><div class="title-block" data-key="' + esc(secId + ':' + lesId + ':title') + '">' + titleBlockHTML(les.title) + '</div><button class="lesson-loop-btn" id="lesson-loop" title="' + t('loopPhrase') + '">' + icon('loop') + '</button></div><div class="sub">' + t('lessonTitle') + '</div></div>';
     if (les.image) html += '<img src="' + esc(les.image) + '" class="lesson-img" alt="">';
     if (les.video) {
-      html += '<div class="lesson-video-wrap"><video id="lesson-video" controls playsinline class="lesson-video" src="' + esc(les.video) + '"></video>' +
+      html += '<div class="lesson-video-wrap"><button class="video-loop-btn" id="lesson-video-loop" title="' + t('loopVideo') + '">' + icon('loop') + '</button><video id="lesson-video" controls playsinline class="lesson-video" src="' + esc(les.video) + '"></video>' +
         '<div id="lesson-subtitle" class="lesson-subtitle"></div></div>';
     }
     html += '<div class="toolbar" style="margin-bottom:1rem">' +
@@ -1227,7 +1236,7 @@
 
   function phraseHTML(p, key, idx) {
     var img = p.image ? '<img src="' + esc(p.image) + '" class="phrase-img" alt="">' : '';
-    var vid = p.video ? '<div class="video-wrap"><button class="video-delete-btn" title="' + t('delete') + '">' + icon('clear') + '</button><video controls playsinline class="phrase-video" src="' + esc(p.video) + '"></video></div>' : '';
+    var vid = p.video ? '<div class="video-wrap"><button class="video-loop-btn" title="' + t('loopVideo') + '">' + icon('loop') + '</button><button class="video-delete-btn" title="' + t('delete') + '">' + icon('clear') + '</button><video controls playsinline class="phrase-video" src="' + esc(p.video) + '"></video></div>' : '';
     function langLoopBtn(lang) {
       var label = lang === 'fr' ? t('french') : (lang === 'ar' ? t('arabic') : t('english'));
       return '<button class="loop-lang-btn" data-lang="' + lang + '" title="' + t('loopWord') + ' — ' + label + '">' + icon('loop') + '</button>';
@@ -1566,6 +1575,14 @@
 
   document.addEventListener('click', function (e) {
     if (e.target.closest('#modal-cancel') || e.target.closest('#modal-close')) { closeModal(); return; }
+
+    var loopVideoBtn = e.target.closest('.video-loop-btn');
+    if (loopVideoBtn) {
+      var wrap = loopVideoBtn.closest('.video-wrap, .lesson-video-wrap');
+      var v = wrap && wrap.querySelector('video');
+      if (v) { v.loop = !v.loop; loopVideoBtn.classList.toggle('active', v.loop); }
+      return;
+    }
 
     if (e.target.closest('#btn-sections')) { go({ name: 'sections' }); return; }
 
