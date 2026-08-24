@@ -196,9 +196,20 @@
     padding: 0.45rem 0.6rem; margin-bottom: 0.4rem; border-radius: 10px;
     font-size: 1.1rem; line-height: 1.8; cursor: pointer;
     transition: background 0.15s;
+    display: flex; align-items: center; gap: 0.5rem; justify-content: space-between;
   }
   .line:hover { background: var(--bg-input); }
   .line.active { background: rgba(47,230,168,0.15); }
+  .line-text { flex: 1; min-width: 0; }
+  .loop-lang-btn {
+    background: transparent; color: var(--text-secondary); border: 1px solid var(--border);
+    border-radius: 8px; width: 2rem; height: 2rem; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0; flex-shrink: 0; transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .loop-lang-btn .icon { width: 1rem; height: 1rem; }
+  .loop-lang-btn:hover { color: var(--accent); border-color: var(--accent); background: var(--bg-input); }
+  .loop-lang-btn.active { color: var(--success); border-color: var(--success); background: rgba(47,230,168,0.12); }
   .line .word {
     display: inline-block; padding: 0 0.15rem; border-radius: 4px;
     transition: background 0.1s, color 0.1s;
@@ -224,6 +235,10 @@
   .lesson-img {
     width: 100%; max-height: 220px; object-fit: cover; border-radius: var(--radius);
     margin-bottom: 1rem; border: 1px solid var(--border); background: var(--bg-tertiary);
+  }
+  .phrase-img {
+    width: 100%; max-height: 180px; object-fit: cover; border-radius: var(--radius);
+    margin-bottom: 0.8rem; border: 1px solid var(--border); background: var(--bg-tertiary);
   }
   /* Dialog / forms */
   .modal-overlay {
@@ -812,7 +827,7 @@
     else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     document.querySelectorAll('.phrase').forEach(function (el) { el.classList.remove('playing'); });
     document.querySelectorAll('.line').forEach(function (el) { el.classList.remove('active'); });
-    document.querySelectorAll('.loop-btn').forEach(function (b) { b.classList.remove('active'); b.innerHTML = icon('loop'); });
+    document.querySelectorAll('.loop-btn, .loop-lang-btn').forEach(function (b) { b.classList.remove('active'); b.innerHTML = icon('loop'); });
   }
 
   function speakOnce(text, lang, key, langClass, onDone) {
@@ -900,10 +915,19 @@
 
   function refreshLoopButtons() {
     document.querySelectorAll('.phrase').forEach(function (el) {
-      var btn = el.querySelector('.loop-btn'); if (!btn) return;
-      var on = state.loop && state.loop.key === el.dataset.key && !state.loop.word;
-      btn.classList.toggle('active', on);
-      btn.innerHTML = icon(on ? 'pause' : 'loop');
+      var key = el.dataset.key;
+      var mainBtn = el.querySelector('.loop-btn');
+      if (mainBtn) {
+        var on = state.loop && state.loop.key === key && !state.loop.word;
+        mainBtn.classList.toggle('active', on);
+        mainBtn.innerHTML = icon(on ? 'pause' : 'loop');
+      }
+      el.querySelectorAll('.loop-lang-btn').forEach(function (btn) {
+        var lang = btn.dataset.lang;
+        var on = state.loop && state.loop.word && state.loop.key === key + ':word:' + lang;
+        btn.classList.toggle('active', on);
+        btn.innerHTML = icon(on ? 'pause' : 'loop');
+      });
     });
   }
 
@@ -1017,12 +1041,17 @@
   }
 
   function phraseHTML(p, key, idx) {
-    return '<div class="phrase" data-key="' + esc(key) + '">' +
+    var img = p.image ? '<img src="' + esc(p.image) + '" class="phrase-img" alt="">' : '';
+    function langLoopBtn(lang) {
+      var label = lang === 'fr' ? t('french') : (lang === 'ar' ? t('arabic') : t('english'));
+      return '<button class="loop-lang-btn" data-lang="' + lang + '" title="' + t('loopWord') + ' — ' + label + '">' + icon('loop') + '</button>';
+    }
+    return '<div class="phrase" data-key="' + esc(key) + '">' + img +
       '<div class="phrase-top">' +
         '<div class="lines">' +
-          '<div class="line fr" data-lang="fr" data-key="' + esc(key) + '">' + clickableWords(p.fr || '', 'fr') + '</div>' +
-          '<div class="line ar" data-lang="ar" data-key="' + esc(key) + '">' + clickableWords(p.ar || '', 'ar') + '</div>' +
-          '<div class="line en" data-lang="en" data-key="' + esc(key) + '">' + clickableWords(p.en || '', 'en') + '</div>' +
+          '<div class="line fr" data-lang="fr" data-key="' + esc(key) + '"><span class="line-text">' + clickableWords(p.fr || '', 'fr') + '</span>' + langLoopBtn('fr') + '</div>' +
+          '<div class="line ar" data-lang="ar" data-key="' + esc(key) + '"><span class="line-text">' + clickableWords(p.ar || '', 'ar') + '</span>' + langLoopBtn('ar') + '</div>' +
+          '<div class="line en" data-lang="en" data-key="' + esc(key) + '"><span class="line-text">' + clickableWords(p.en || '', 'en') + '</span>' + langLoopBtn('en') + '</div>' +
         '</div>' +
         '<div class="btns">' +
           '<button class="ai-search-btn" title="' + t('aiSearch') + '">' + icon('ai') + '</button>' +
@@ -1201,6 +1230,11 @@
         var img = getFormImage(form, 'image');
         if (imgData) img = imgData; else if (!img) img = '';
         var parsed = parseLessonText(form.lesson_text.value);
+        if (!isNew && les && les.phrases) {
+          parsed.phrases.forEach(function (p, i) {
+            if (les.phrases[i] && les.phrases[i].image) p.image = les.phrases[i].image;
+          });
+        }
         var titleInput = form.title_mixed && form.title_mixed.value.trim();
         if (titleInput) parsed.title = parseTitleLine(titleInput);
         if (!parsed.title.mixed && !parsed.title.fr && !parsed.title.ar && !parsed.title.en) parsed.title = { mixed: 'Lesson — درس', fr: 'Lesson', ar: 'درس', en: '' };
@@ -1221,16 +1255,22 @@
     var isNew = phrase == null;
     var body = '<form id="phrase-form">' +
       '<div class="form-group"><label>' + t('newPhrase') + '</label>' + langInputs('phrase', phrase || {}) + '</div>' +
+      imageField('phrase_image', phrase ? phrase.image : '') +
     '</form>';
     openModal(isNew ? t('newPhrase') : t('editPhrase'), body, '<button class="btn ghost" id="modal-cancel">' + t('cancel') + '</button><button class="btn" id="modal-save">' + t('save') + '</button>');
 
     document.getElementById('modal-save').onclick = function () {
       var form = document.getElementById('phrase-form');
-      var data = getFormTitle(form, 'phrase');
-      var sec = findSection(secId), les = findLesson(secId, lesId);
-      if (isNew) les.phrases.push(data);
-      else les.phrases[idx] = data;
-      saveData(); closeModal(); go({ name: 'lesson', section: secId, lesson: lesId });
+      readImageFile(form.phrase_image_file, function (imgData) {
+        var img = getFormImage(form, 'phrase_image');
+        if (imgData) img = imgData; else if (!img) img = '';
+        var data = getFormTitle(form, 'phrase');
+        data.image = img;
+        var sec = findSection(secId), les = findLesson(secId, lesId);
+        if (isNew) les.phrases.push(data);
+        else les.phrases[idx] = data;
+        saveData(); closeModal(); go({ name: 'lesson', section: secId, lesson: lesId });
+      });
     };
   }
 
@@ -1318,6 +1358,8 @@
         openGoogleAiMode(parts[0], parts[1], p, +parts[2]);
         return;
       }
+      var langBtn = e.target.closest('.loop-lang-btn');
+      if (langBtn) { toggleWordLoop(p[langBtn.dataset.lang] || '', langBtn.dataset.lang, key, langBtn.dataset.lang); return; }
       if (e.target.closest('.loop-btn')) { togglePhraseLoop(p, key); return; }
       if (e.target.closest('.notebook-btn')) {
         openNotebook(parts[0], parts[1], +parts[2]);
