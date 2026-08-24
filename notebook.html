@@ -267,6 +267,25 @@
     display: inline-flex; align-items: center; justify-content: center;
   }
   .video-delete-btn .icon { width: 1rem; height: 1rem; }
+  .lesson-video-wrap {
+    position: relative; border-radius: var(--radius); overflow: hidden;
+    margin-bottom: 1rem; border: 1px solid var(--border); background: #000;
+  }
+  .lesson-video {
+    width: 100%; height: auto; max-height: 420px; border-radius: var(--radius);
+    display: block; object-fit: cover; background: #000;
+  }
+  .lesson-subtitle {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 0.8rem 1rem; background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    color: #fff; text-align: center; font-size: 0.95rem; pointer-events: none;
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .lesson-subtitle.show { opacity: 1; }
+  .lesson-subtitle .sub-line { margin: 0.15rem 0; }
+  .lesson-subtitle .sub-line.ar { direction: rtl; }
+  .video-preview-wrap { position: relative; margin-top: 0.5rem; }
+  .video-preview { width: 100%; max-height: 180px; border-radius: var(--radius); display: block; background: #000; object-fit: cover; }
   /* Dialog / forms */
   .modal-overlay {
     position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.55);
@@ -577,6 +596,8 @@
     imageLabel: { ar: 'صورة (اختياري)', fr: 'Image (optionnel)', en: 'Image (optional)' },
     changeImage: { ar: 'تغيير الصورة', fr: 'Modifier l’image', en: 'Change image' },
     videoLabel: { ar: 'فيديو (اختياري)', fr: 'Vidéo (optionnel)', en: 'Video (optional)' },
+    savingVideo: { ar: 'جارٍ حفظ الفيديو...', fr: 'Enregistrement de la vidéo...', en: 'Saving video...' },
+    subtitleLabel: { ar: 'ترجمة الفيديو', fr: 'Sous-titres de la vidéo', en: 'Video subtitles' },
     videoTooLarge: { ar: 'الفيديو كبير جدًا، اختر ملفًا أصغر من 5 ميغابايت.', fr: 'La vidéo est trop grande, choisissez un fichier de moins de 5 Mo.', en: 'Video too large, pick a file under 5 MB.' },
     actions: { ar: 'خيارات', fr: 'Options', en: 'Options' },
     exportDone: { ar: 'تم نسخ JSON إلى الحافظة', fr: 'JSON copié dans le presse-papiers', en: 'JSON copied to clipboard' },
@@ -711,18 +732,67 @@
     return { mixed: line, fr: line, ar: '', en: '' };
   }
 
+  function timeToMs(t) {
+    t = String(t || '').replace(',', '.').trim();
+    var parts = t.split(':');
+    var s = 0, m = 0, h = 0, sec = 0;
+    if (parts.length === 1) { sec = parseFloat(parts[0]) || 0; }
+    else if (parts.length === 2) { m = parseInt(parts[0], 10) || 0; sec = parseFloat(parts[1]) || 0; }
+    else if (parts.length === 3) { h = parseInt(parts[0], 10) || 0; m = parseInt(parts[1], 10) || 0; sec = parseFloat(parts[2]) || 0; }
+    return Math.round(((h * 3600) + (m * 60) + sec) * 1000);
+  }
+  function msToTime(ms) {
+    var totalSec = Math.floor(ms / 1000);
+    var mm = Math.floor(totalSec / 60);
+    var ss = totalSec % 60;
+    var msPart = Math.floor((ms % 1000) / 10);
+    return (mm < 10 ? '0' : '') + mm + ':' + (ss < 10 ? '0' : '') + ss + (msPart ? '.' + (msPart < 10 ? '0' : '') + msPart : '');
+  }
+
   function parseLessonText(raw) {
-    var lines = String(raw || '').split(/\r?\n/).map(function (l) { return l.trim(); }).filter(function (l) { return l.length; });
-    function isTimestamp(line) { return /^\d{1,2}:\d{2}(?:\.\d+)?$/.test(line); }
+    var text = String(raw || '');
     var defaultTitle = { mixed: 'Lesson — درس', fr: 'Lesson', ar: 'درس', en: '' };
+
+    // SRT/VTT blocks: optional index, timecode, then 1-3 lines (fr/ar/en)
+    var blocks = text.split(/\r?\n\s*\r?\n/).filter(function (b) { return b.trim().length; });
+    var srtRe = /(\d{1,2}:\d{2}(?::\d{2})?[,.]\d+)\s*-->\s*(\d{1,2}:\d{2}(?::\d{2})?[,.]\d+)/;
+    if (blocks.some(function (b) { return srtRe.test(b); })) {
+      var order = ['fr', 'ar', 'en'];
+      var phrases = [];
+      blocks.forEach(function (block) {
+        var blockLines = block.split(/\r?\n/).map(function (l) { return l.trim(); }).filter(function (l) { return l.length; });
+        var timeIdx = -1, m = null;
+        for (var i = 0; i < blockLines.length; i++) { m = blockLines[i].match(srtRe); if (m) { timeIdx = i; break; } }
+        if (timeIdx === -1) return;
+        var textLines = blockLines.slice(timeIdx + 1);
+        if (!textLines.length) return;
+        var p = { start: timeToMs(m[1]), end: timeToMs(m[2]) };
+        if (textLines.length >= 3) { p.fr = textLines[0]; p.ar = textLines[1]; p.en = textLines[2]; }
+        else if (textLines.length === 2) {
+          p.fr = /\p{Script=Latin}/u.test(textLines[0]) ? textLines[0] : '';
+          p.ar = /\p{Script=Arabic}/u.test(textLines[0]) ? textLines[0] : ( /\p{Script=Arabic}/u.test(textLines[1]) ? textLines[1] : '');
+          p.en = /\p{Script=Latin}/u.test(textLines[1]) ? textLines[1] : '';
+        } else {
+          p.fr = /\p{Script=Latin}/u.test(textLines[0]) ? textLines[0] : '';
+          p.ar = /\p{Script=Arabic}/u.test(textLines[0]) ? textLines[0] : '';
+        }
+        if (p.fr || p.ar || p.en) phrases.push(p);
+      });
+      if (phrases.length) return { title: defaultTitle, phrases: phrases };
+    }
+
+    var lines = text.split(/\r?\n/).map(function (l) { return l.trim(); }).filter(function (l) { return l.length; });
+    function isTimestamp(line) { return /^\d{1,2}:\d{2}(?:[.,]\d+)?$/.test(line); }
 
     // Timed transcript: 00:00 FR-line AR-line EN-line ...
     if (lines.length > 1 && isTimestamp(lines[0])) {
       var order = ['fr', 'ar', 'en'];
       var phrases = [];
+      var times = [];
       for (var i = 0; i < lines.length; ) {
         if (isTimestamp(lines[i])) {
           var p = {};
+          times.push(timeToMs(lines[i]));
           i++;
           var k = 0;
           while (i < lines.length && !isTimestamp(lines[i]) && k < order.length) {
@@ -734,6 +804,10 @@
           i++;
         }
       }
+      phrases.forEach(function (p, idx) {
+        p.start = times[idx];
+        p.end = times[idx + 1] !== undefined ? times[idx + 1] - 200 : times[idx] + 5000;
+      });
       return { title: defaultTitle, phrases: phrases };
     }
 
@@ -771,6 +845,7 @@
     else if (les.title) lines.push(order.map(function (l) { return les.title[l] || ''; }).filter(function (s) { return s; }).join(' — '));
     else lines.push('');
     les.phrases.forEach(function (p) {
+      if (typeof p.start === 'number') lines.push(msToTime(p.start));
       order.forEach(function (l) { lines.push(p[l] || ''); });
     });
     return lines.join('\n');
@@ -1098,6 +1173,10 @@
     ]);
     html += '<div class="lesson-head"><div class="lesson-title-row"><div class="title-block" data-key="' + esc(secId + ':' + lesId + ':title') + '">' + titleBlockHTML(les.title) + '</div><button class="lesson-loop-btn" id="lesson-loop" title="' + t('loopPhrase') + '">' + icon('loop') + '</button></div><div class="sub">' + t('lessonTitle') + '</div></div>';
     if (les.image) html += '<img src="' + esc(les.image) + '" class="lesson-img" alt="">';
+    if (les.video) {
+      html += '<div class="lesson-video-wrap"><video id="lesson-video" controls playsinline class="lesson-video" src="' + esc(les.video) + '"></video>' +
+        '<div id="lesson-subtitle" class="lesson-subtitle"></div></div>';
+    }
     html += '<div class="toolbar" style="margin-bottom:1rem">' +
       '<button class="btn" id="btn-add-phrase">' + icon('plus') + '<span>' + t('addPhrase') + '</span></button>' +
       '<button class="btn ghost" id="play-all">' + icon('play') + '<span>' + t('playAll') + '</span></button>' +
@@ -1111,6 +1190,39 @@
       return phraseHTML(p, secId + ':' + lesId + ':' + i, i);
     }).join('');
     view.innerHTML = html;
+    if (les.video) {
+      var video = document.getElementById('lesson-video');
+      var subtitle = document.getElementById('lesson-subtitle');
+      if (video && subtitle) {
+        function updateSubtitle() {
+          var ct = video.currentTime * 1000;
+          var active = null;
+          for (var i = 0; i < les.phrases.length; i++) {
+            var p = les.phrases[i];
+            if (p.start != null && p.end != null && ct >= p.start && ct <= p.end) { active = p; break; }
+          }
+          if (!active && les.phrases.length && les.phrases[0].start != null) {
+            for (var i = les.phrases.length - 1; i >= 0; i--) {
+              var p = les.phrases[i];
+              if (p.start != null && ct >= p.start) { active = p; break; }
+            }
+          }
+          if (active) {
+            subtitle.innerHTML = ['fr', 'ar', 'en'].map(function (l) {
+              return active[l] ? '<div class="sub-line ' + l + '">' + esc(active[l]) + '</div>' : '';
+            }).join('');
+            subtitle.classList.add('show');
+          } else {
+            subtitle.innerHTML = '';
+            subtitle.classList.remove('show');
+          }
+        }
+        video.addEventListener('timeupdate', updateSubtitle);
+        video.addEventListener('seeked', updateSubtitle);
+        video.addEventListener('play', updateSubtitle);
+        updateSubtitle();
+      }
+    }
   }
 
   function phraseHTML(p, key, idx) {
@@ -1120,7 +1232,9 @@
       var label = lang === 'fr' ? t('french') : (lang === 'ar' ? t('arabic') : t('english'));
       return '<button class="loop-lang-btn" data-lang="' + lang + '" title="' + t('loopWord') + ' — ' + label + '">' + icon('loop') + '</button>';
     }
-    return '<div class="phrase" data-key="' + esc(key) + '">' + img + vid +
+    var startAttr = p.start != null ? ' data-start="' + p.start + '"' : '';
+    var endAttr = p.end != null ? ' data-end="' + p.end + '"' : '';
+    return '<div class="phrase" data-key="' + esc(key) + '"' + startAttr + endAttr + '>' + img + vid +
       '<div class="phrase-top">' +
         '<div class="lines">' +
           '<div class="line fr" data-lang="fr" data-key="' + esc(key) + '"><span class="line-text">' + clickableWords(p.fr || '', 'fr') + '</span>' + langLoopBtn('fr') + '</div>' +
@@ -1241,6 +1355,47 @@
     return null; // handled async
   }
 
+  function videoFieldHTML(name, current) {
+    return '<div class="form-group video-field" data-video-field="' + name + '">' +
+      '<label>' + t('videoLabel') + '</label>' +
+      '<input type="file" name="' + name + '_file" accept="video/*">' +
+      '<input type="hidden" name="' + name + '" value="' + esc(current || '') + '">' +
+      (current ? '<div class="video-preview-wrap"><button class="video-delete-btn" type="button" title="' + t('delete') + '">' + icon('clear') + '</button><video controls class="video-preview" src="' + esc(current) + '"></video></div>' : '') +
+    '</div>';
+  }
+
+  function bindVideoField(form, name) {
+    var fileInput = form[name + '_file'];
+    var hidden = form[name];
+    var field = form.closest('.video-field') || form.querySelector('[data-video-field="' + name + '"]');
+    if (fileInput) {
+      fileInput.addEventListener('change', function () {
+        if (!fileInput.files || !fileInput.files[0]) return;
+        var btn = form.closest('#modal') && form.closest('#modal').querySelector('#modal-save');
+        if (btn) { btn.disabled = true; btn.textContent = t('savingVideo') || '...'; }
+        saveVideoFile(fileInput.files[0], function (uri, err) {
+          if (btn) { btn.disabled = false; btn.textContent = t('save'); }
+          if (err || !uri) { alert((err && err.message) || t('videoTooLarge')); return; }
+          hidden.value = uri;
+          var wrap = field && field.querySelector('.video-preview-wrap');
+          if (wrap) wrap.remove();
+          var preview = document.createElement('div');
+          preview.className = 'video-preview-wrap';
+          preview.innerHTML = '<button class="video-delete-btn" type="button" title="' + t('delete') + '">' + icon('clear') + '</button><video controls class="video-preview" src="' + esc(uri) + '"></video>';
+          if (field) field.appendChild(preview);
+        });
+      });
+    }
+    if (field) {
+      field.addEventListener('click', function (e) {
+        if (e.target.closest('.video-delete-btn')) {
+          e.preventDefault();
+          if (confirm(t('confirmDelete'))) { hidden.value = ''; var wrap = field.querySelector('.video-preview-wrap'); if (wrap) wrap.remove(); }
+        }
+      });
+    }
+  }
+
   function editSectionModal(sec) {
     var isNew = !sec;
     var id = sec ? sec.id : generateId();
@@ -1249,7 +1404,8 @@
     var firstLessonField = isNew ? '<div class="form-group"><label>' + t('lessonTitle') + '</label>' +
       '<input name="lesson_title_mixed" placeholder="Français — العربية"></div>' +
       '<div class="form-group"><label>' + t('lessonText') + '</label>' +
-      '<textarea name="section_lesson_text" rows="6" placeholder="' + esc(t('lessonPasteHint')) + '"></textarea></div>' : '';
+      '<textarea name="section_lesson_text" rows="6" placeholder="' + esc(t('lessonPasteHint')) + '"></textarea></div>' +
+      videoFieldHTML('section_lesson_video', '') : '';
     var body = '<form id="section-form">' +
       '<div class="form-group"><label>' + t('sectionTitle') + '</label>' +
       '<input name="title_mixed" value="' + esc(currentTitle) + '" placeholder="Français — العربية"></div>' +
@@ -1257,6 +1413,8 @@
       firstLessonField +
     '</form>';
     openModal(title, body, '<button class="btn ghost" id="modal-cancel">' + t('cancel') + '</button><button class="btn" id="modal-save">' + t('save') + '</button>');
+
+    if (isNew) bindVideoField(document.getElementById('section-form'), 'section_lesson_video');
 
     document.getElementById('modal-save').onclick = function () {
       var form = document.getElementById('section-form');
@@ -1272,7 +1430,8 @@
             parsed.title = data.title;
           }
           if (parsed.phrases.length) {
-            data.lessons.push({ id: generateId(), title: parsed.title, image: '', phrases: parsed.phrases, saved: false });
+            var lessonVideo = form.section_lesson_video ? form.section_lesson_video.value.trim() : '';
+            data.lessons.push({ id: generateId(), title: parsed.title, image: '', video: lessonVideo, phrases: parsed.phrases, saved: false });
           }
         }
         if (isNew) state.data.sections.push(data);
@@ -1296,9 +1455,12 @@
       '<input name="title_mixed" value="' + esc(currentLessonTitle) + '" placeholder="Français — العربية"></div>' +
       '<div class="form-group"><label>' + t('lessonText') + '</label>' +
       '<textarea name="lesson_text" rows="10" placeholder="' + esc(t('lessonPasteHint')) + '">' + esc(text) + '</textarea></div>' +
+      videoFieldHTML('lesson_video', les ? les.video : '') +
       imageField('image', les ? les.image : '') +
     '</form>';
     openModal(title, body, '<button class="btn ghost" id="modal-cancel">' + t('cancel') + '</button><button class="btn" id="modal-save">' + t('save') + '</button>');
+
+    bindVideoField(document.getElementById('lesson-form'), 'lesson_video');
 
     document.getElementById('modal-save').onclick = function () {
       var form = document.getElementById('lesson-form');
@@ -1316,12 +1478,14 @@
         if (titleInput) parsed.title = parseTitleLine(titleInput);
         if (!parsed.title.mixed && !parsed.title.fr && !parsed.title.ar && !parsed.title.en) parsed.title = { mixed: 'Lesson — درس', fr: 'Lesson', ar: 'درس', en: '' };
         var savedVal = isNew ? false : !!les.saved;
-        var data = { id: id, title: parsed.title, image: img, phrases: parsed.phrases, saved: savedVal };
+        var lessonVideo = form.lesson_video ? form.lesson_video.value.trim() : '';
+        if (!isNew && les && les.video && !lessonVideo) lessonVideo = les.video;
+        var data = { id: id, title: parsed.title, image: img, video: lessonVideo, phrases: parsed.phrases, saved: savedVal };
         var sec = findSection(secId);
         if (isNew) sec.lessons.push(data);
         else {
           var idx = sec.lessons.findIndex(function (l) { return l.id === id; });
-          if (idx !== -1) { sec.lessons[idx].title = data.title; sec.lessons[idx].image = data.image; sec.lessons[idx].phrases = data.phrases; sec.lessons[idx].saved = data.saved; }
+          if (idx !== -1) { sec.lessons[idx].title = data.title; sec.lessons[idx].image = data.image; sec.lessons[idx].video = data.video; sec.lessons[idx].phrases = data.phrases; sec.lessons[idx].saved = data.saved; }
         }
         saveData(); closeModal(); go({ name: 'lessons', section: secId });
       });
@@ -1494,6 +1658,11 @@
       if (word) {
         var lang = word.dataset.wordLang || word.closest('.line').dataset.lang;
         toggleWordLoop(word.textContent.trim(), lang, key, lang);
+        return;
+      }
+      if (phraseEl.dataset.start) {
+        var v = document.getElementById('lesson-video');
+        if (v) { v.currentTime = (+phraseEl.dataset.start) / 1000; v.play(); }
         return;
       }
     }
