@@ -1512,9 +1512,25 @@
   /* ---------- Import / Export ---------- */
 
   function saveVideoFile(file, callback) {
-    if (file.size > 5 * 1024 * 1024) { callback(null, { message: t('videoTooLarge') }); return; }
     var reader = new FileReader();
-    reader.onload = function (ev) { callback(ev.target.result); };
+    reader.onload = function (ev) {
+      var dataUrl = ev.target.result;
+      var fs = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Filesystem;
+      if (!fs) {
+        if (file.size > 5 * 1024 * 1024) { callback(null, { message: t('videoTooLarge') }); return; }
+        callback(dataUrl);
+        return;
+      }
+      var base64 = dataUrl.split(',')[1];
+      var ext = (file.name.split('.').pop() || 'mp4').replace(/[^a-z0-9]/gi, '').toLowerCase() || 'mp4';
+      var name = 'video_' + Date.now() + '.' + ext;
+      fs.writeFile({ path: 'notebook/videos/' + name, data: base64, directory: 'DATA', recursive: true })
+        .then(function (res) {
+          var Cap = window.Capacitor;
+          callback(Cap && Cap.convertFileSrc ? Cap.convertFileSrc(res.uri) : res.uri);
+        })
+        .catch(function (err) { callback(null, err); });
+    };
     reader.onerror = function (err) { callback(null, err); };
     reader.readAsDataURL(file);
   }
