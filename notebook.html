@@ -1959,7 +1959,7 @@
   document.getElementById('btn-theme').addEventListener('click', function () {
     setTheme(state.theme === 'dark' ? 'light' : 'dark');
   });
-  document.getElementById('btn-stop').addEventListener('click', stopSpeech);
+  document.getElementById('btn-stop').addEventListener('click', function () { stopSpeech(); stopAllVideo(); });
   document.querySelector('.lang-switch').addEventListener('click', function (e) {
     var btn = e.target.closest('.lang-btn'); if (btn) setUILang(btn.dataset.lang);
   });
