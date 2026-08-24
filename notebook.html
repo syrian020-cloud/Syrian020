@@ -231,8 +231,9 @@
   .btns button:hover { border-color: var(--accent); background: var(--bg-input); transform: translateY(-1px); }
   .btns button.active { background: var(--success); color: #0f1a16; border-color: var(--success); }
   .lesson-head { margin-bottom: 1rem; }
-  .lesson-title-row { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; margin-bottom: 0.3rem; }
-  .lesson-title-row h2 { margin: 0; font-size: 1.35rem; flex: 1; }
+  .lesson-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.6rem; margin-bottom: 0.3rem; }
+  .title-block { flex: 1; min-width: 0; }
+  .title-block .line { font-size: 1.15rem; padding: 0.35rem 0.45rem; }
   .lesson-loop-btn {
     background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border);
     border-radius: 12px; width: 2.5rem; height: 2.4rem; cursor: pointer;
@@ -252,9 +253,20 @@
     margin-bottom: 0.8rem; border: 1px solid var(--border); background: var(--bg-tertiary); display: block;
   }
   .phrase-video {
-    width: 100%; max-height: 260px; border-radius: var(--radius);
-    margin-bottom: 0.8rem; border: 1px solid var(--border); background: #000; display: block;
+    width: 100%; height: auto; max-height: 420px; border-radius: var(--radius);
+    display: block; object-fit: cover; background: #000;
   }
+  .video-wrap {
+    position: relative; border-radius: var(--radius); overflow: hidden;
+    margin-bottom: 0.8rem; border: 1px solid var(--border); background: #000;
+  }
+  .video-delete-btn {
+    position: absolute; top: 6px; right: 6px; z-index: 2;
+    background: rgba(0,0,0,0.55); color: #fff; border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px; width: 2rem; height: 2rem; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .video-delete-btn .icon { width: 1rem; height: 1rem; }
   /* Dialog / forms */
   .modal-overlay {
     position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.55);
@@ -670,6 +682,23 @@
     return '';
   }
 
+  function titleBlockHTML(obj) {
+    if (!obj) return '';
+    if (obj.mixed && !obj.fr && !obj.ar && !obj.en) {
+      var parsed = parseTitleLine(obj.mixed);
+      if (parsed.fr || parsed.ar || parsed.en) obj = parsed;
+    }
+    var order = ['fr', 'ar', 'en'];
+    var out = order.map(function (l) {
+      if (!obj[l]) return '';
+      return '<div class="line ' + l + '" data-lang="' + l + '" data-title-lang="' + l + '"><span class="line-text">' + clickableWords(obj[l], l) + '</span><button class="loop-lang-btn" data-title-lang="' + l + '" title="' + t('loopWord') + '">' + icon('loop') + '</button></div>';
+    }).filter(function (s) { return s; }).join('');
+    if (!out && obj.mixed) {
+      return '<div class="line" data-lang="fr"><span class="line-text">' + clickableWords(obj.mixed, 'fr') + '</span></div>';
+    }
+    return out;
+  }
+
   function parseTitleLine(line) {
     line = String(line || '').trim();
     var parts = line.split(/\s*[—–-]\s*/);
@@ -933,6 +962,12 @@
         line.classList.toggle('active', !!on && line.classList.contains(langClass));
       });
     });
+    document.querySelectorAll('.title-block').forEach(function (el) {
+      var on = key && el.dataset.key === key;
+      el.querySelectorAll('.line').forEach(function (line) {
+        line.classList.toggle('active', !!on && line.classList.contains(langClass));
+      });
+    });
   }
 
   function refreshLoopButtons() {
@@ -953,10 +988,20 @@
     });
     var lessonBtn = document.getElementById('lesson-loop');
     if (lessonBtn) {
-      var keyBase = state.route.section + ':' + state.route.lesson + ':all';
-      var on = state.loop && state.loop.key === keyBase;
+      var keyBase = state.route.section + ':' + state.route.lesson;
+      var on = state.loop && (state.loop.key === keyBase + ':all' || state.loop.key === keyBase + ':title');
       lessonBtn.classList.toggle('active', on);
       lessonBtn.innerHTML = icon(on ? 'pause' : 'loop');
+    }
+    var titleBlock = document.querySelector('.title-block');
+    if (titleBlock) {
+      var titleKey = state.route.section + ':' + state.route.lesson + ':title';
+      titleBlock.querySelectorAll('.loop-lang-btn').forEach(function (btn) {
+        var lang = btn.dataset.titleLang;
+        var on = state.loop && state.loop.word && state.loop.key === titleKey + ':word:' + lang;
+        btn.classList.toggle('active', on);
+        btn.innerHTML = icon(on ? 'pause' : 'loop');
+      });
     }
   }
 
@@ -1051,7 +1096,7 @@
       { label: titleObj(sec.title), route: { name: 'lessons', section: secId } },
       { label: titleObj(les.title) }
     ]);
-    html += '<div class="lesson-head"><div class="lesson-title-row"><h2>' + esc(titleObj(les.title)) + '</h2><button class="lesson-loop-btn" id="lesson-loop" title="' + t('playAll') + '">' + icon('loop') + '</button></div><div class="sub">' + t('lessonTitle') + '</div></div>';
+    html += '<div class="lesson-head"><div class="lesson-title-row"><div class="title-block" data-key="' + esc(secId + ':' + lesId + ':title') + '">' + titleBlockHTML(les.title) + '</div><button class="lesson-loop-btn" id="lesson-loop" title="' + t('loopPhrase') + '">' + icon('loop') + '</button></div><div class="sub">' + t('lessonTitle') + '</div></div>';
     if (les.image) html += '<img src="' + esc(les.image) + '" class="lesson-img" alt="">';
     html += '<div class="toolbar" style="margin-bottom:1rem">' +
       '<button class="btn" id="btn-add-phrase">' + icon('plus') + '<span>' + t('addPhrase') + '</span></button>' +
@@ -1070,7 +1115,7 @@
 
   function phraseHTML(p, key, idx) {
     var img = p.image ? '<img src="' + esc(p.image) + '" class="phrase-img" alt="">' : '';
-    var vid = p.video ? '<video controls playsinline class="phrase-video" src="' + esc(p.video) + '"></video>' : '';
+    var vid = p.video ? '<div class="video-wrap"><button class="video-delete-btn" title="' + t('delete') + '">' + icon('clear') + '</button><video controls playsinline class="phrase-video" src="' + esc(p.video) + '"></video></div>' : '';
     function langLoopBtn(lang) {
       var label = lang === 'fr' ? t('french') : (lang === 'ar' ? t('arabic') : t('english'));
       return '<button class="loop-lang-btn" data-lang="' + lang + '" title="' + t('loopWord') + ' — ' + label + '">' + icon('loop') + '</button>';
@@ -1411,6 +1456,10 @@
         fileInput.click();
         return;
       }
+      if (e.target.closest('.video-delete-btn')) {
+        if (confirm(t('confirmDelete'))) { p.video = ''; saveData(); render(); }
+        return;
+      }
       if (e.target.closest('.video-btn')) {
         var vInput = document.createElement('input');
         vInput.type = 'file';
@@ -1434,6 +1483,7 @@
       }
       var langBtn = e.target.closest('.loop-lang-btn');
       if (langBtn) { toggleWordLoop(p[langBtn.dataset.lang] || '', langBtn.dataset.lang, key, langBtn.dataset.lang); return; }
+      if (e.target.closest('.lesson-loop-btn')) { playTitle(); return; }
       if (e.target.closest('.loop-btn')) { togglePhraseLoop(p, key); return; }
       if (e.target.closest('.notebook-btn')) {
         openNotebook(parts[0], parts[1], +parts[2]);
@@ -1454,8 +1504,22 @@
     if (e.target.closest('#play-all')) { playAllPhrases(); return; }
     if (e.target.closest('#stop-all')) { stopSpeech(); return; }
     if (e.target.closest('#lesson-loop')) {
-      if (state.loop && state.loop.key === state.route.section + ':' + state.route.lesson + ':all') { stopSpeech(); return; }
-      playAllPhrases(); return;
+      var titleKey = state.route.section + ':' + state.route.lesson + ':title';
+      if (state.loop && state.loop.key === titleKey) { stopSpeech(); return; }
+      playTitle(); return;
+    }
+
+    var titleBlock = e.target.closest('.title-block');
+    if (titleBlock) {
+      var titleKey = state.route.section + ':' + state.route.lesson + ':title';
+      var titleLangBtn = e.target.closest('.loop-lang-btn');
+      if (titleLangBtn && titleLangBtn.dataset.titleLang) { playTitleLangLoop(titleLangBtn.dataset.titleLang); return; }
+      var word = e.target.closest('.word');
+      if (word) {
+        var lang = word.dataset.wordLang || word.closest('.line').dataset.lang || 'fr';
+        toggleWordLoop(word.textContent.trim(), lang, titleKey, lang);
+        return;
+      }
     }
   });
 
@@ -1481,6 +1545,43 @@
         setTimeout(next, 500);
       });
     })();
+  }
+
+  function playTitle() {
+    var sec = findSection(state.route.section), les = findLesson(state.route.section, state.route.lesson);
+    if (!sec || !les) return;
+    var title = les.title || {};
+    if (title.mixed && !title.fr && !title.ar && !title.en) {
+      var parsed = parseTitleLine(title.mixed);
+      if (parsed.fr || parsed.ar || parsed.en) title = parsed;
+    }
+    stopSpeech();
+    var keyBase = state.route.section + ':' + state.route.lesson;
+    state.loop = { key: keyBase + ':title', word: false };
+    refreshLoopButtons();
+    (function cycle() {
+      if (!state.loop || state.loop.key !== keyBase + ':title') return;
+      var seq = state.langs.filter(function (l) { return title[l]; }).map(function (l) { return { text: title[l], lang: l, langClass: l }; });
+      if (!seq.length) return;
+      speakSequence(seq, keyBase + ':title', function () {
+        if (!state.loop || state.loop.key !== keyBase + ':title') return;
+        setTimeout(cycle, 700);
+      });
+    })();
+  }
+
+  function playTitleLangLoop(lang) {
+    var sec = findSection(state.route.section), les = findLesson(state.route.section, state.route.lesson);
+    if (!sec || !les) return;
+    var title = les.title || {};
+    if (title.mixed && !title.fr && !title.ar && !title.en) {
+      var parsed = parseTitleLine(title.mixed);
+      if (parsed.fr || parsed.ar || parsed.en) title = parsed;
+    }
+    var text = title[lang];
+    if (!text) return;
+    var keyBase = state.route.section + ':' + state.route.lesson + ':title';
+    toggleWordLoop(text, lang, keyBase, lang);
   }
 
   /* ---------- Theme / lang / rate ---------- */
