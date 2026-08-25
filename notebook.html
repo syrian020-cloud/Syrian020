@@ -3,52 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0b0f1f">
+<meta name="theme-color" content="#0b1220">
 <title>Study Notebook</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <style>
   :root {
-    --bg-primary: #0a0e1f;
-    --bg-secondary: #11162e;
-    --bg-tertiary: #1c2247;
-    --bg-input: #161d3b;
-    --text-primary: #f5f7ff;
-    --text-secondary: #94a3c8;
-    --accent: #7c6cff;
-    --accent-hover: #6b5ce6;
-    --accent-2: #26d0e7;
-    --danger: #ff5c7e;
-    --success: #2fe6a8;
-    --gold: #ffd166;
-    --border: #283259;
+    --bg-primary: #0b1220;
+    --bg-secondary: #111b2e;
+    --bg-tertiary: #1c2a47;
+    --bg-input: #162033;
+    --text-primary: #f0f4fa;
+    --text-secondary: #94b0d2;
+    --accent: #0ea5e9;
+    --accent-hover: #0284c7;
+    --accent-2: #22d3ee;
+    --danger: #f43f5e;
+    --success: #34d399;
+    --gold: #fbbf24;
+    --border: #1f334f;
     --radius: 18px;
     --radius-sm: 10px;
-    --shadow: 0 18px 40px rgba(0,0,0,0.4);
-    --shadow-sm: 0 6px 18px rgba(0,0,0,0.2);
+    --shadow: 0 18px 40px rgba(2,8,23,0.5);
+    --shadow-sm: 0 6px 18px rgba(2,8,23,0.25);
     --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", sans-serif;
   }
   [data-theme="light"] {
-    --bg-primary: #f2f4ff;
+    --bg-primary: #eef6ff;
     --bg-secondary: #ffffff;
-    --bg-tertiary: #ede9fe;
-    --bg-input: #f6f5ff;
-    --text-primary: #151b3d;
-    --text-secondary: #5e6586;
-    --accent: #6d5de8;
-    --accent-hover: #5c4dd3;
-    --accent-2: #0fa3b8;
-    --border: #d8d5ef;
-    --shadow: 0 14px 34px rgba(109,93,232,0.14);
-    --shadow-sm: 0 6px 18px rgba(109,93,232,0.08);
+    --bg-tertiary: #e0f2fe;
+    --bg-input: #f1f9ff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent: #0284c7;
+    --accent-hover: #0369a1;
+    --accent-2: #0891b2;
+    --border: #cbd5e1;
+    --shadow: 0 14px 34px rgba(2,132,199,0.12);
+    --shadow-sm: 0 6px 18px rgba(2,132,199,0.06);
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; }
   body {
     font-family: var(--font);
-    background: radial-gradient(1200px 600px at 20% -10%, rgba(124,108,255,0.12), transparent),
-                radial-gradient(1000px 500px at 100% 0%, rgba(38,208,231,0.08), transparent),
+    background: radial-gradient(1200px 600px at 20% -10%, rgba(14,165,233,0.14), transparent),
+                radial-gradient(1000px 500px at 100% 0%, rgba(34,211,238,0.10), transparent),
                 var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.7;
@@ -56,15 +56,15 @@
     min-height: 100vh;
   }
   [data-theme="light"] body {
-    background: radial-gradient(1200px 600px at 20% -10%, rgba(124,108,255,0.10), transparent),
-                radial-gradient(1000px 500px at 100% 0%, rgba(38,208,231,0.08), transparent),
+    background: radial-gradient(1200px 600px at 20% -10%, rgba(14,165,233,0.10), transparent),
+                radial-gradient(1000px 500px at 100% 0%, rgba(34,211,238,0.08), transparent),
                 var(--bg-primary);
   }
   .icon { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; vertical-align: middle; }
   header {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(10,14,31,0.82);
-    backdrop-filter: blur(12px);
+    background: rgba(11,18,32,0.82);
+    backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow-sm);
   }
@@ -677,6 +677,7 @@
     speakOnce: { ar: 'نطق مرة', fr: 'Écouter', en: 'Speak' },
     loopPhrase: { ar: 'تكرار العبارة', fr: 'Répéter la phrase', en: 'Loop phrase' },
     loopWord: { ar: 'تكرار الكلمة', fr: 'Répéter le mot', en: 'Loop word' },
+    playFull: { ar: 'تشغيل العنوان ثم جميع العبارات', fr: 'Lire le titre puis les phrases', en: 'Play title then all phrases' },
     notebook: { ar: 'دفتر الرسم', fr: 'Cahier', en: 'Notebook' },
     aiSearch: { ar: 'بحث Google AI', fr: 'Google AI', en: 'Google AI' },
     clipartSearch: { ar: 'صور Google', fr: 'Images Google', en: 'Google Clipart' },
@@ -1178,7 +1179,7 @@
     var lessonBtn = document.getElementById('lesson-loop');
     if (lessonBtn) {
       var keyBase = state.route.section + ':' + state.route.lesson;
-      var on = state.loop && (state.loop.key === keyBase + ':all' || state.loop.key === keyBase + ':title');
+      var on = state.loop && (state.loop.key === keyBase + ':all' || state.loop.key === keyBase + ':title' || state.loop.key === keyBase + ':full');
       lessonBtn.classList.toggle('active', on);
       lessonBtn.innerHTML = icon(on ? 'pause' : 'loop');
     }
@@ -1403,7 +1404,7 @@
       { label: titleObj(sec.title), route: { name: 'lessons', section: secId } },
       { label: titleObj(les.title) }
     ]);
-    html += '<div class="lesson-head"><div class="lesson-title-row"><div class="title-block" data-key="' + esc(lessonKey + ':title') + '">' + titleBlockHTML(les.title) + '</div><button class="lesson-loop-btn" id="lesson-loop" title="' + t('loopPhrase') + '">' + icon('loop') + '</button></div><div class="sub">' + t('lessonTitle') + '</div></div>';
+    html += '<div class="lesson-head"><div class="lesson-title-row"><div class="title-block" data-key="' + esc(lessonKey + ':title') + '">' + titleBlockHTML(les.title) + '</div><button class="lesson-loop-btn" id="lesson-loop" title="' + t('playFull') + '">' + icon('loop') + '</button></div><div class="sub">' + t('lessonTitle') + '</div></div>';
     if (les.image) html += '<img src="' + esc(les.image) + '" class="lesson-img" alt="">';
     if (les.video) {
       var coverShown = !!(les.poster && les.showCover);
@@ -1923,7 +1924,7 @@
         if (langBtn.dataset.videoLoop === '1') { toggleVideoPhraseLoop(p, key, langBtn); return; }
         toggleWordLoop(p[langBtn.dataset.lang] || '', langBtn.dataset.lang, key, langBtn.dataset.lang); return;
       }
-      if (e.target.closest('.lesson-loop-btn')) { playTitle(); return; }
+      if (e.target.closest('.lesson-loop-btn')) { playTitleThenPhrases(); return; }
       if (e.target.closest('.loop-btn')) { togglePhraseLoop(p, key); return; }
       if (e.target.closest('.notebook-btn')) {
         openNotebook(parts[0], parts[1], +parts[2]);
@@ -1960,9 +1961,9 @@
       return;
     }
     if (e.target.closest('#lesson-loop')) {
-      var titleKey = state.route.section + ':' + state.route.lesson + ':title';
-      if (state.loop && state.loop.key === titleKey) { stopSpeech(); return; }
-      playTitle(); return;
+      var fullKey = state.route.section + ':' + state.route.lesson + ':full';
+      if (state.loop && state.loop.key === fullKey) { stopSpeech(); return; }
+      playTitleThenPhrases(); return;
     }
 
     var titleBlock = e.target.closest('.title-block');
@@ -2024,6 +2025,43 @@
         setTimeout(cycle, 700);
       });
     })();
+  }
+
+  function playTitleThenPhrases() {
+    var sec = findSection(state.route.section), les = findLesson(state.route.section, state.route.lesson);
+    if (!sec || !les) return;
+    stopSpeech();
+    var keyBase = state.route.section + ':' + state.route.lesson;
+    var key = keyBase + ':full';
+    state.loop = { key: key, word: false };
+    refreshLoopButtons();
+    function titleSeq() {
+      if (!state.loop || state.loop.key !== key) return;
+      var title = les.title || {};
+      if (title.mixed && !title.fr && !title.ar && !title.en) {
+        var parsed = parseTitleLine(title.mixed);
+        if (parsed.fr || parsed.ar || parsed.en) title = parsed;
+      }
+      var seq = state.langs.filter(function (l) { return title[l]; }).map(function (l) { return { text: title[l], lang: l, langClass: l }; });
+      if (!seq.length) { setTimeout(phrases, 500); return; }
+      speakSequence(seq, keyBase + ':title', function () { setTimeout(phrases, 700); });
+    }
+    function phrases() {
+      if (!state.loop || state.loop.key !== key) return;
+      var i = 0;
+      (function next() {
+        if (!state.loop || state.loop.key !== key) return;
+        if (i >= les.phrases.length) { setTimeout(titleSeq, 1200); return; }
+        var p = les.phrases[i];
+        var pkey = keyBase + ':' + i;
+        var el = document.querySelector('.phrase[data-key="' + pkey + '"]');
+        if (el) el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        var seq = state.langs.filter(function (l) { return p[l]; }).map(function (l) { return { text: p[l], lang: l, langClass: l }; });
+        i++;
+        speakSequence(seq, pkey, function () { setTimeout(next, 500); });
+      })();
+    }
+    titleSeq();
   }
 
   function playTitleLangLoop(lang) {
