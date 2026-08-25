@@ -732,6 +732,7 @@
     notebookPalette: false,
     notebookTextVisible: true,
     notebookHistory: [],
+    dataLoaded: false,
     notebookDrawing: false,
     notebookLastX: 0,
     notebookLastY: 0
@@ -928,13 +929,26 @@
   function useNativeFS() { return !!(window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Filesystem); }
   function nativeFSRead() {
     var fs = window.Capacitor.Plugins.Filesystem;
-    return fs.readFile({ path: 'notebook/data.json', directory: 'DATA', encoding: 'utf8' })
-      .then(function (res) { return JSON.parse(res.data); })
+    function tryRead(path) {
+      return fs.readFile({ path: path, directory: 'DATA', encoding: 'utf8' })
+        .then(function (res) { return JSON.parse(res.data); });
+    }
+    return tryRead('notebook/data.json')
+      .catch(function () { return tryRead('notebook/data.json.new'); })
+      .catch(function () { return tryRead('notebook/data.json.bak'); })
       .catch(function () { return null; });
   }
   function nativeFSWrite(data) {
     var fs = window.Capacitor.Plugins.Filesystem;
-    return fs.writeFile({ path: 'notebook/data.json', data: JSON.stringify(data), directory: 'DATA', encoding: 'utf8', recursive: true });
+    var json = JSON.stringify(data);
+    // Backup current data file if it exists, then write to a temp file and rename.
+    // Renaming avoids leaving a truncated data.json if the app is killed mid-write.
+    var backup = fs.copy({ from: 'notebook/data.json', to: 'notebook/data.json.bak', directory: 'DATA', toDirectory: 'DATA' }).catch(function () { return Promise.resolve(); });
+    return backup.then(function () {
+      return fs.writeFile({ path: 'notebook/data.json.new', data: json, directory: 'DATA', encoding: 'utf8', recursive: true });
+    }).then(function () {
+      return fs.rename({ from: 'notebook/data.json.new', to: 'notebook/data.json', directory: 'DATA' });
+    });
   }
   function idbOpen() {
     return new Promise(function (resolve, reject) {
@@ -961,8 +975,9 @@
         var tx = db.transaction('data', 'readwrite');
         var store = tx.objectStore('data');
         var put = store.put(data, 'notebook_data');
-        put.onsuccess = function () { resolve(); };
-        put.onerror = reject;
+        tx.oncomplete = function () { resolve(); };
+        tx.onerror = function () { reject(tx.error); };
+        put.onerror = function () { reject(put.error); };
       });
     });
   }
@@ -986,27 +1001,30 @@
   }
   function loadData() { return { sections: [] }; }
   function saveData() {
+    if (!state.dataLoaded) return Promise.resolve();
     var p;
     try { p = persistWrite(state.data); } catch (e) { p = Promise.reject(e); }
-    return p.catch(function (e) {
+    return p.then(function () {
+      // Keep a synchronous localStorage mirror as an extra recovery path.
+      try { localWrite(state.data); } catch (e) { console.error('localStorage mirror failed', e); }
+    }).catch(function (e) {
       console.error('saveData failed, falling back to localStorage', e);
       try { localWrite(state.data); } catch (le) { console.error('localWrite failed', le); return Promise.reject(le); }
     });
   }
   function initData() {
     persistRead().then(function (data) {
-      if (!data || !Array.isArray(data.sections)) data = localRead();
-      // Recover data stored in localStorage if persisted store is still empty
       var localData = localRead();
-      if (data && data.sections.length === 0 && localData.sections.length > 0) data = localData;
+      if (!data || !Array.isArray(data.sections) || (data.sections.length === 0 && localData.sections.length > 0)) data = localData;
       if (!data || !Array.isArray(data.sections)) data = { sections: [] };
       state.data = data;
+      state.dataLoaded = true;
       saveData().catch(function () {});
       render();
     }).catch(function (e) {
       console.error('initData failed', e);
       var data = localRead();
-      if (data && Array.isArray(data.sections)) { state.data = data; render(); }
+      if (data && Array.isArray(data.sections)) { state.data = data; state.dataLoaded = true; render(); }
     });
   }
 
@@ -2573,7 +2591,6 @@
   setTheme(state.theme);
   setUILang(state.uiLang);
   state.route = routeFromHash();
-  render();
   initData();
 })();
 </script>
