@@ -952,8 +952,16 @@
   }
   function idbOpen() {
     return new Promise(function (resolve, reject) {
+      var req = indexedDB.open('SrtLessonsDB', 1);
+      req.onupgradeneeded = function (e) { var db = e.target.result; if (!db.objectStoreNames.contains('lessons')) db.createObjectStore('lessons'); };
+      req.onsuccess = function (e) { resolve(e.target.result); };
+      req.onerror = function () { reject(req.error); };
+    });
+  }
+  function oldIdbOpen() {
+    return new Promise(function (resolve, reject) {
       var req = indexedDB.open('StudyNotebook', 1);
-      req.onupgradeneeded = function (e) { var db = e.target.result; if (!db.objectStoreNames.contains('data')) db.createObjectStore('data'); };
+      req.onupgradeneeded = function () { /* no stores created; absence means nothing to migrate */ };
       req.onsuccess = function (e) { resolve(e.target.result); };
       req.onerror = function () { reject(req.error); };
     });
@@ -961,19 +969,36 @@
   function idbRead() {
     return idbOpen().then(function (db) {
       return new Promise(function (resolve, reject) {
-        var tx = db.transaction('data', 'readonly');
-        var store = tx.objectStore('data');
+        var tx = db.transaction('lessons', 'readonly');
+        var store = tx.objectStore('lessons');
         var get = store.get('notebook_data');
         get.onsuccess = function () { resolve(get.result); };
         get.onerror = reject;
+      });
+    }).then(function (data) {
+      if (data !== undefined) return data;
+      return oldIdbOpen().then(function (db) {
+        return new Promise(function (resolve, reject) {
+          if (!db.objectStoreNames.contains('data')) { db.close(); resolve(undefined); return; }
+          var tx = db.transaction('data', 'readonly');
+          var store = tx.objectStore('data');
+          var get = store.get('notebook_data');
+          get.onsuccess = function () {
+            var oldData = get.result;
+            db.close();
+            if (oldData !== undefined) idbWrite(oldData).catch(function () {});
+            resolve(oldData);
+          };
+          get.onerror = function () { db.close(); reject(get.error); };
+        });
       });
     });
   }
   function idbWrite(data) {
     return idbOpen().then(function (db) {
       return new Promise(function (resolve, reject) {
-        var tx = db.transaction('data', 'readwrite');
-        var store = tx.objectStore('data');
+        var tx = db.transaction('lessons', 'readwrite');
+        var store = tx.objectStore('lessons');
         var put = store.put(data, 'notebook_data');
         tx.oncomplete = function () { resolve(); };
         tx.onerror = function () { reject(tx.error); };
