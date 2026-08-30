@@ -545,7 +545,7 @@
 </header>
 
 <main>
-  <div class="toolbar">
+  <div class="toolbar" id="main-toolbar">
     <button class="btn ghost" id="btn-export" data-icon="export" data-t="exportJson">Export JSON</button>
     <button class="btn ghost" id="btn-import-trigger" data-icon="import" data-t="importJson">Import JSON</button>
     <input type="file" id="import-file" accept="application/json" style="display:none">
@@ -687,7 +687,7 @@
     loopVideo: { ar: 'تكرار الفيديو', fr: 'Boucler la vidéo', en: 'Loop video' },
     videoPhraseLoop: { ar: 'تكرار مقطع الفيديو', fr: 'Boucler le segment vidéo', en: 'Loop video segment' },
     subtitleLabel: { ar: 'ترجمة الفيديو', fr: 'Sous-titres de la vidéo', en: 'Video subtitles' },
-    videoTooLarge: { ar: 'الفيديو كبير جدًا، اختر ملفًا أصغر من 5 ميغابايت.', fr: 'La vidéo est trop grande, choisissez un fichier de moins de 5 Mo.', en: 'Video too large, pick a file under 5 MB.' },
+    videoTooLarge: { ar: 'الفيديو كبير جدًا، اختر ملفًا أصغر من 30 ميغابايت.', fr: 'La vidéo est trop grande, choisissez un fichier de moins de 30 Mo.', en: 'Video too large, pick a file under 30 MB.' },
     actions: { ar: 'خيارات', fr: 'Options', en: 'Options' },
     exportDone: { ar: 'تم نسخ JSON إلى الحافظة', fr: 'JSON copié dans le presse-papiers', en: 'JSON copied to clipboard' },
     exportDoneFile: { ar: 'تم حفظ ملف JSON', fr: 'Fichier JSON enregistré', en: 'JSON file saved' },
@@ -1050,13 +1050,19 @@
     try { localStorage.setItem('notebook_data', JSON.stringify(data)); return; } catch (e) { throw e; }
   }
   function persistRead() {
-    if (useNativeFS()) return nativeFSRead();
-    if ('indexedDB' in window) return idbRead();
-    return Promise.resolve(localRead());
+    var p = ('indexedDB' in window) ? idbRead() : Promise.resolve(undefined);
+    return p.then(function (data) {
+      if (data && Array.isArray(data.sections)) return data;
+      if (useNativeFS()) return nativeFSRead();
+      return Promise.resolve(localRead());
+    }).then(function (data) {
+      if (data && Array.isArray(data.sections)) return data;
+      return localRead();
+    });
   }
   function persistWrite(data) {
-    if (useNativeFS()) return nativeFSWrite(data);
     if ('indexedDB' in window) return idbWrite(data);
+    if (useNativeFS()) return nativeFSWrite(data);
     return Promise.resolve(localWrite(data));
   }
   function loadData() { return { sections: [] }; }
@@ -1700,6 +1706,8 @@
   }
 
   function render() {
+    var tb = document.getElementById('main-toolbar');
+    if (tb) tb.style.display = state.route.name === 'sections' ? 'none' : '';
     if (state.route.name === 'sections') renderSections();
     else if (state.route.name === 'lessons') renderLessons(state.route.section);
     else if (state.route.name === 'lesson') renderLesson(state.route.section, state.route.lesson);
@@ -2068,7 +2076,7 @@
         vInput.onchange = function () {
           if (!vInput.files || !vInput.files[0]) { if (vInput.parentNode) vInput.parentNode.removeChild(vInput); return; }
           var file = vInput.files[0];
-          if (!window.Capacitor && file.size > 5 * 1024 * 1024) { alert(t('videoTooLarge')); if (vInput.parentNode) vInput.parentNode.removeChild(vInput); return; }
+          if (file.size > 30 * 1024 * 1024) { alert(t('videoTooLarge')); if (vInput.parentNode) vInput.parentNode.removeChild(vInput); return; }
           saveVideoFile(file, function (uri, err) {
             if (err || !uri) { alert((err && err.message) || t('videoTooLarge')); if (vInput.parentNode) vInput.parentNode.removeChild(vInput); return; }
             p.video = uri;
@@ -2283,21 +2291,8 @@
     var reader = new FileReader();
     reader.onload = function (ev) {
       var dataUrl = ev.target.result;
-      var fs = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Filesystem;
-      if (!fs) {
-        if (file.size > 5 * 1024 * 1024) { callback(null, { message: t('videoTooLarge') }); return; }
-        callback(dataUrl);
-        return;
-      }
-      var base64 = dataUrl.split(',')[1];
-      var ext = (file.name.split('.').pop() || 'mp4').replace(/[^a-z0-9]/gi, '').toLowerCase() || 'mp4';
-      var name = 'video_' + Date.now() + '.' + ext;
-      fs.writeFile({ path: 'notebook/videos/' + name, data: base64, directory: 'DATA', recursive: true })
-        .then(function (res) {
-          var Cap = window.Capacitor;
-          callback(Cap && Cap.convertFileSrc ? Cap.convertFileSrc(res.uri) : res.uri);
-        })
-        .catch(function (err) { callback(null, err); });
+      if (file.size > 30 * 1024 * 1024) { callback(null, { message: t('videoTooLarge') }); return; }
+      callback(dataUrl);
     };
     reader.onerror = function (err) { callback(null, err); };
     reader.readAsDataURL(file);
