@@ -1,6 +1,6 @@
 {
-  "name": "Study Notebook",
-  "short_name": "Notebook",
+  "name": "Vivid",
+  "short_name": "Vivid",
   "start_url": "notebook.html",
   "display": "standalone",
   "background_color": "#0a0e1f",

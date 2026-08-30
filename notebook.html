@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0b1220">
-<title>Study Notebook</title>
+<title>Vivid</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -527,7 +527,7 @@
   <div class="header-inner">
     <span class="logo">
       <svg class="icon logo-icon" aria-hidden="true"><use href="#icon-logo"></use></svg>
-      <span data-t="appName">Study Notebook</span>
+      <span data-t="appName">Vivid</span>
     </span>
     <span class="spacer"></span>
     <div class="lang-switch">
@@ -654,7 +654,7 @@
   'use strict';
 
   var UI = {
-    appName: { ar: 'دفتر الدراسة', fr: 'Cahier d\'études', en: 'Study Notebook' },
+    appName: { ar: 'Vivid', fr: 'Vivid', en: 'Vivid' },
     darkMode: { ar: 'الوضع المظلم / الفاتح', fr: 'Mode sombre / clair', en: 'Dark / light mode' },
     addSection: { ar: 'قسم جديد', fr: 'Nouvelle section', en: 'New section' },
     addLesson: { ar: 'درس جديد', fr: 'Nouvelle leçon', en: 'New lesson' },
@@ -730,7 +730,7 @@
     footerVideo: { ar: 'دروسي المرئية', fr: 'Vidéos', en: 'Video lessons' },
     footerFrench: { ar: 'الدروس الفرنسية', fr: 'Français', en: 'French lessons' },
     footerVocab: { ar: 'المفردات', fr: 'Vocabulaire', en: 'Vocabulary' },
-    footerText: { ar: 'دفتر الدراسة · ', fr: 'Cahier d\'études · ', en: 'Study Notebook · ' },
+    footerText: { ar: 'Vivid · ', fr: 'Vivid · ', en: 'Vivid · ' },
     importDone: { ar: 'تم الاستيراد', fr: 'Import terminé', en: 'Import complete' },
     importError: { ar: 'خطأ في ملف JSON', fr: 'Erreur JSON', en: 'JSON error' },
     dragHint: { ar: 'اسحب العبارة لإعادة الترتيب', fr: 'Glisser pour réordonner', en: 'Drag to reorder' }
@@ -1130,7 +1130,7 @@
       else el.textContent = text;
     });
     document.querySelectorAll('[data-t-title]').forEach(function (el) { el.title = t(el.dataset.tTitle); });
-    document.title = t('appName') + ' — Study Notebook';
+    document.title = t('appName');
   }
 
   /* ---------- TTS ---------- */
@@ -2307,7 +2307,7 @@
       share.canShare().then(function (can) {
         if (can.value) {
           return fs.writeFile({ path: 'notebook/share/' + filename, data: json, directory: 'CACHE', encoding: 'utf8', recursive: true })
-            .then(function (res) { return share.share({ title: 'Study Notebook', files: [res.uri], dialogTitle: 'تصدير الأقسام' }); })
+            .then(function (res) { return share.share({ title: 'Vivid', files: [res.uri], dialogTitle: 'تصدير الأقسام' }); })
             .then(function () { alert(t('exportDoneFile') + '\n' + filename); });
         }
         return saveExportToDocuments(fs, json, filename);

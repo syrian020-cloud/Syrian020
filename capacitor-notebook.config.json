@@ -1,6 +1,6 @@
 {
-  "appId": "com.syrian020.notebook",
-  "appName": "Study Notebook",
+  "appId": "com.vivid.app",
+  "appName": "Vivid",
   "webDir": "www",
   "server": {
     "androidScheme": "https"
