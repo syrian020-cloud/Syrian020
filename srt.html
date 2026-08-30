@@ -49,6 +49,7 @@
   .file-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.7rem; align-items: stretch; flex-direction: column; }
   .file-row label { color: var(--text-secondary); font-size: 0.9rem; }
   .file-row input[type="file"] { flex: 1; width: 100%; min-width: 0; color: var(--text-primary); font-size: 0.9rem; }
+  .file-row input[type="text"] { width: 100%; background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.55rem 0.7rem; font-size: 0.95rem; font-family: inherit; }
   .file-row .file-name { color: var(--success); font-size: 0.85rem; }
   .paste-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.7rem; align-items: flex-start; }
   .paste-row label { flex: 0 0 7rem; color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.4rem; }
@@ -72,6 +73,31 @@
   button.primary:hover { background: var(--accent-hover); }
   button.secondary { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem 1rem; font-size: 0.95rem; cursor: pointer; }
   button.secondary:hover { border-color: var(--accent); }
+  .fab {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #2b9df1, #7b79ff);
+    color: #fff;
+    font-size: 2.1rem;
+    font-weight: 300;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 22px rgba(43,157,241,0.45);
+    cursor: pointer;
+    z-index: 80;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  html[dir="rtl"] .fab { right: auto; left: 1.5rem; }
+  .fab:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(43,157,241,0.55); }
+  .fab:active { transform: scale(0.92); }
+  #lessons-view .panel { padding-bottom: 5rem; }
 
   .source-tabs { display: flex; gap: 0.4rem; margin: 0.8rem 0 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
   .source-tab { background: transparent; color: var(--text-secondary); border: none; padding: 0.45rem 0.8rem; font-size: 0.9rem; font-weight: 600; cursor: pointer; border-radius: 999px; }
@@ -277,14 +303,18 @@
       <div id="lessons-list">
         <p class="empty-hint" data-t="emptyHint">لا توجد دروس محفوظة. اضغط على “➕” لإعداد درس جديد.</p>
       </div>
-      <button class="primary" id="btn-new-lesson" style="margin-top:0.8rem;" data-t="newLesson">+ درس جديد</button>
+      <button class="fab" id="btn-new-lesson" title="إعداد درس جديد" data-t-title="newLessonTitle" aria-label="إعداد درس جديد">⊕</button>
     </div>
   </section>
 
   <section class="view" id="setup-view">
     <div class="panel" id="setup-panel">
-      <h2 data-t="setupTitle">إعداد درس جديد</h2>
+      <h2 id="setup-title" data-t="setupTitle">إعداد درس جديد</h2>
 
+      <div class="file-row">
+        <label for="lesson-name" data-t="nameLabel">اسم الدرس</label>
+        <input type="text" id="lesson-name" placeholder="اسم الدرس">
+      </div>
       <div class="file-row">
         <label for="video-file" data-t="videoLabel">فيديو/صوت</label>
         <input type="file" id="video-file" accept="video/*,audio/*">
@@ -418,7 +448,7 @@
 
   // --- DOM refs ---
   const $ = id => document.getElementById(id);
-  const videoFile = $('video-file'), lessonImage = $('lesson-image'), editImage = $('edit-image'), srtMain = $('srt-main'), srtFr = $('srt-fr'), srtAr = $('srt-ar'), srtEn = $('srt-en'), srtPaste = $('srt-paste');
+  const videoFile = $('video-file'), lessonImage = $('lesson-image'), lessonName = $('lesson-name'), setupTitleEl = $('setup-title'), editImage = $('edit-image'), srtMain = $('srt-main'), srtFr = $('srt-fr'), srtAr = $('srt-ar'), srtEn = $('srt-en'), srtPaste = $('srt-paste');
   const videoName = $('video-name'), imageName = $('image-name'), nameMain = $('name-main'), nameFr = $('name-fr'), nameAr = $('name-ar'), nameEn = $('name-en');
   const btnStart = $('btn-start'), btnReset = $('btn-reset'), btnStop = $('btn-stop'), btnBgImage = $('btn-bg-image'), btnToggleBg = $('btn-toggle-bg'), btnCaptionMinus = $('btn-caption-minus'), btnCaptionPlus = $('btn-caption-plus'), bgImageInput = $('bg-image-input');
   const videoWrap = $('video-wrap'), player = $('player'), bgImage = $('bg-image'), bubbleWrap = $('bubble-wrap'), bubble = $('bubble');
@@ -450,6 +480,8 @@
     posterUrl: null,
     thumbUrls: [],
     editingImageId: null,
+    editingLessonId: null,
+    editingLesson: null,
     currentLessonId: null,
     uiLang: localStorage.getItem('srt_ui_lang') || 'ar',
     wordLoopEl: null,
@@ -472,6 +504,9 @@
       newLesson: '+ درس جديد',
       newLessonTitle: 'إعداد درس جديد',
       setupTitle: 'إعداد درس جديد',
+      edit: 'تعديل الدرس',
+      editTitle: 'تعديل الدرس',
+      nameLabel: 'اسم الدرس',
       videoLabel: 'فيديو/صوت',
       imageLabel: 'صورة الدرس (اختياري)',
       tabSingle: 'ملف ترجمة واحد',
@@ -518,7 +553,7 @@
       readError: 'خطأ في قراءة ملف الترجمة',
       language: 'AR',
       languageName: 'العربية',
-      rename: 'تعديل الاسم',
+      edit: 'تعديل الدرس',
       changeImage: 'تغيير الصورة',
       play: 'عرض',
       delete: 'حذف',
@@ -563,6 +598,9 @@
       newLesson: '+ Nouvelle leçon',
       newLessonTitle: 'Nouvelle leçon',
       setupTitle: 'Configurer une nouvelle leçon',
+      edit: 'Modifier la leçon',
+      editTitle: 'Modifier la leçon',
+      nameLabel: 'Nom de la leçon',
       videoLabel: 'Vidéo/Audio',
       imageLabel: 'Image de la leçon (optionnel)',
       tabSingle: 'Fichier unique',
@@ -609,7 +647,7 @@
       readError: 'Erreur de lecture du fichier de sous-titres',
       language: 'FR',
       languageName: 'Français',
-      rename: 'Renommer',
+      edit: 'Modifier la leçon',
       changeImage: 'Changer l\'image',
       play: 'Lire',
       delete: 'Supprimer',
@@ -654,6 +692,9 @@
       newLesson: '+ New lesson',
       newLessonTitle: 'Set up a new lesson',
       setupTitle: 'Set up a new lesson',
+      edit: 'Edit lesson',
+      editTitle: 'Edit lesson',
+      nameLabel: 'Lesson name',
       videoLabel: 'Video/Audio',
       imageLabel: 'Lesson image (optional)',
       tabSingle: 'Single subtitle file',
@@ -700,7 +741,7 @@
       readError: 'Error reading subtitle file',
       language: 'EN',
       languageName: 'English',
-      rename: 'Rename',
+      edit: 'Edit lesson',
       changeImage: 'Change image',
       play: 'Play',
       delete: 'Delete',
@@ -1504,11 +1545,13 @@
     } else {
       state.cues = buildCues(frCues, arCues, enCues);
     }
-    if (!state.cues.length && !videoFile.files[0]) {
+    const editVideoBlob = state.editingLesson ? state.editingLesson.videoBlob : null;
+    const editImageBlob = state.editingLesson ? state.editingLesson.imageBlob : null;
+    if (!state.cues.length && !videoFile.files[0] && !editVideoBlob) {
       showToast(t('noCues'));
       return false;
     }
-    controls.style.display = (state.cues.length || videoFile.files[0]) ? 'flex' : 'none';
+    controls.style.display = (state.cues.length || videoFile.files[0] || editVideoBlob) ? 'flex' : 'none';
     progress.max = 0;
     currentTimeEl.textContent = '00:00';
     durationEl.textContent = '00:00';
@@ -1520,17 +1563,21 @@
       URL.revokeObjectURL(state.posterUrl);
       state.posterUrl = null;
     }
-    const hasVideo = !!videoFile.files[0];
-    const hasImage = !!lessonImage.files[0];
+    const newVideoFile = videoFile.files[0];
+    const newImageFile = lessonImage.files[0];
+    const videoSource = newVideoFile || editVideoBlob;
+    const imageSource = newImageFile || editImageBlob;
+    const hasVideo = !!videoSource;
+    const hasImage = !!imageSource;
     if (hasVideo) {
-      state.videoUrl = URL.createObjectURL(videoFile.files[0]);
+      state.videoUrl = URL.createObjectURL(videoSource);
       player.src = state.videoUrl;
       player.muted = state.muted;
     } else {
       player.src = '';
     }
     if (hasImage) {
-      state.posterUrl = URL.createObjectURL(lessonImage.files[0]);
+      state.posterUrl = URL.createObjectURL(imageSource);
       player.poster = state.posterUrl;
     } else {
       player.poster = '';
@@ -1554,28 +1601,42 @@
   async function saveLesson() {
     const ok = await loadCues();
     if (!ok) return;
-    if (!state.cues.length && !videoFile.files[0]) {
+    const editVideoBlob = state.editingLesson ? state.editingLesson.videoBlob : null;
+    const editImageBlob = state.editingLesson ? state.editingLesson.imageBlob : null;
+    if (!state.cues.length && !videoFile.files[0] && !editVideoBlob) {
       showToast(t('noContent'));
       return;
     }
     const dateLocale = state.uiLang === 'ar' ? 'ar-EG' : state.uiLang === 'fr' ? 'fr-FR' : 'en-US';
     const defaultName = new Date().toLocaleDateString(dateLocale);
-    const name = prompt(t('lessonNamePrompt'), t('lessonDefaultName', {date: defaultName})) || t('lessonDefaultName', {date: defaultName});
+    let name = lessonName.value.trim();
+    if (!name) name = prompt(t('lessonNamePrompt'), t('lessonDefaultName', {date: defaultName})) || t('lessonDefaultName', {date: defaultName});
     let videoBlob = null, imageBlob = null;
     if (videoFile.files[0]) {
       try {
         const ab = await readFileAsArrayBuffer(videoFile.files[0]);
         videoBlob = new Blob([ab], { type: videoFile.files[0].type || 'video/mp4' });
       } catch (e) { showToast(t('readVideoError')); return; }
+    } else if (editVideoBlob) {
+      videoBlob = editVideoBlob;
     }
     if (lessonImage.files[0]) {
       try {
         const ab = await readFileAsArrayBuffer(lessonImage.files[0]);
         imageBlob = new Blob([ab], { type: lessonImage.files[0].type || 'image/jpeg' });
       } catch (e) { showToast(t('readImageError')); }
+    } else if (editImageBlob) {
+      imageBlob = editImageBlob;
     }
-    const lesson = { id: Date.now().toString(36), name, createdAt: Date.now(), cues: state.cues, videoBlob, imageBlob };
+    let lesson;
+    if (state.editingLessonId && state.editingLesson) {
+      lesson = { ...state.editingLesson, name, cues: state.cues, videoBlob, imageBlob };
+    } else {
+      lesson = { id: Date.now().toString(36), name, createdAt: Date.now(), cues: state.cues, videoBlob, imageBlob };
+    }
     state.currentLessonId = lesson.id;
+    state.editingLessonId = null;
+    state.editingLesson = null;
     try {
       await saveLessonToDB(lesson);
       showToast(t('saveSuccess'));
@@ -1645,7 +1706,7 @@
         <div class="lesson-menu">
           <button class="icon-btn menu-toggle" data-id="${l.id}" title="${escapeHtml(t('actions'))}">⋮</button>
           <div class="menu-dropdown" data-menu="${l.id}">
-            <button class="menu-item" data-action="rename" data-id="${l.id}"><span class="menu-icon">✏️</span> ${escapeHtml(t('rename'))}</button>
+            <button class="menu-item" data-action="edit" data-id="${l.id}"><span class="menu-icon">✏️</span> ${escapeHtml(t('edit'))}</button>
             <button class="menu-item" data-action="image" data-id="${l.id}"><span class="menu-icon">🖼️</span> ${escapeHtml(t('changeImage'))}</button>
             <button class="menu-item" data-action="share" data-id="${l.id}"><span class="menu-icon">⬆️</span> ${escapeHtml(t('exportJson'))}</button>
             <button class="menu-item" data-action="export-srt" data-id="${l.id}"><span class="menu-icon">📄</span> ${escapeHtml(t('exportSrt'))}</button>
@@ -1661,6 +1722,36 @@
     if (!lesson) return;
     Object.assign(lesson, updates);
     try { await saveLessonToDB(lesson); renderLessons(); showToast(t('updateSuccess')); } catch (e) { showToast(t('updateError')); }
+  }
+
+  function cuesToSrt(cues) {
+    return cues.map((c, i) => {
+      const fr = c.lines && c.lines.find(l => l.lang === 'fr');
+      const ar = c.lines && c.lines.find(l => l.lang === 'ar');
+      const en = c.lines && c.lines.find(l => l.lang === 'en');
+      const textLines = [fr && fr.text, ar && ar.text, en && en.text].filter(Boolean);
+      const start = c.start || 0;
+      const end = c.end || (start + 2);
+      return `${i+1}\n${formatTime(start)} --> ${formatTime(end)}\n${textLines.join('\n')}`;
+    }).join('\n\n');
+  }
+
+  async function editLesson(id) {
+    const lesson = await getLessonById(id);
+    if (!lesson) { showToast(t('notFound')); return; }
+    stopAllLoops();
+    state.editingLessonId = id;
+    state.editingLesson = lesson;
+    lessonName.value = lesson.name || '';
+    videoFile.value = ''; lessonImage.value = '';
+    srtMain.value = ''; srtFr.value = ''; srtAr.value = ''; srtEn.value = '';
+    srtPaste.value = cuesToSrt(lesson.cues || []);
+    videoName.textContent = lesson.videoBlob ? (t('videoLabel') + ' ✓') : '';
+    imageName.textContent = lesson.imageBlob ? (t('imageLabel') + ' ✓') : '';
+    switchTab('paste');
+    if (setupTitleEl) setupTitleEl.dataset.t = 'editTitle';
+    updateUI();
+    showView('setup');
   }
 
   // --- Import / Export ---
@@ -1852,9 +1943,28 @@
     applyFilter('');
     videoFile.value = ''; lessonImage.value = ''; srtMain.value = ''; srtFr.value = ''; srtAr.value = ''; srtEn.value = ''; srtPaste.value = '';
     handleFiles();
+    if (lessonName) lessonName.value = '';
+    if (setupTitleEl) setupTitleEl.dataset.t = 'setupTitle';
+    state.editingLessonId = null;
+    state.editingLesson = null;
     progress.value = 0;
     currentTimeEl.textContent = '00:00'; durationEl.textContent = '00:00';
     showView('lessons');
+  }
+
+  function newLessonSetup() {
+    stopAllLoops();
+    lessonName.value = '';
+    videoFile.value = ''; lessonImage.value = '';
+    srtMain.value = ''; srtFr.value = ''; srtAr.value = ''; srtEn.value = ''; srtPaste.value = '';
+    handleFiles();
+    state.editingLessonId = null;
+    state.editingLesson = null;
+    state.currentLessonId = null;
+    if (setupTitleEl) setupTitleEl.dataset.t = 'setupTitle';
+    switchTab('single');
+    updateUI();
+    showView('setup');
   }
 
   btnStart.addEventListener('click', start);
@@ -1881,8 +1991,8 @@
   bgImageInput.addEventListener('change', () => { applyBackgroundImage(bgImageInput.files[0]); bgImageInput.value = ''; });
 
   btnLessons.addEventListener('click', () => showView('lessons'));
-  btnSetup.addEventListener('click', () => showView('setup'));
-  btnNewLesson.addEventListener('click', () => showView('setup'));
+  btnSetup.addEventListener('click', () => newLessonSetup());
+  btnNewLesson.addEventListener('click', () => newLessonSetup());
   btnBackLessons.addEventListener('click', () => showView('lessons'));
   btnLang.addEventListener('click', () => {
     const idx = UI_LANGS.indexOf(state.uiLang);
@@ -1912,10 +2022,8 @@
         }
         return;
       }
-      if (action.dataset.action === 'rename') {
-        const lesson = await getLessonById(id);
-        const newName = prompt(t('renamePromptNew'), lesson ? lesson.name : '') || '';
-        if (newName.trim()) updateLesson(id, { name: newName.trim() });
+      if (action.dataset.action === 'edit') {
+        editLesson(id);
         return;
       }
       if (action.dataset.action === 'image') {
@@ -1965,14 +2073,12 @@
   progress.addEventListener('keydown', e => { if (e.code === 'Space') e.preventDefault(); });
 
   // Tab switching for subtitle source
+  function switchTab(name) {
+    document.querySelectorAll('.source-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.dataset.tab === name));
+  }
   document.querySelectorAll('.source-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.source-tab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-      tab.classList.add('active');
-      const panel = document.querySelector(`.tab-panel[data-tab="${tab.dataset.tab}"]`);
-      if (panel) panel.classList.add('active');
-    });
+    tab.addEventListener('click', () => switchTab(tab.dataset.tab));
   });
 
   function initBackButton() {
