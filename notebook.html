@@ -1050,7 +1050,7 @@
     try { localStorage.setItem('notebook_data', JSON.stringify(data)); return; } catch (e) { throw e; }
   }
   function persistRead() {
-    var p = ('indexedDB' in window) ? idbRead() : Promise.resolve(undefined);
+    var p = ('indexedDB' in window) ? idbRead().catch(function (e) { console.error('idbRead failed', e); return undefined; }) : Promise.resolve(undefined);
     return p.then(function (data) {
       if (data && Array.isArray(data.sections)) return data;
       if (useNativeFS()) return nativeFSRead();
@@ -1061,21 +1061,20 @@
     });
   }
   function persistWrite(data) {
-    if ('indexedDB' in window) return idbWrite(data);
-    if (useNativeFS()) return nativeFSWrite(data);
-    return Promise.resolve(localWrite(data));
+    var promises = [];
+    // Always keep a synchronous localStorage mirror for the fastest possible recovery.
+    try { localWrite(data); } catch (e) { console.error('localStorage mirror failed', e); }
+    if ('indexedDB' in window) promises.push(idbWrite(data));
+    if (useNativeFS()) promises.push(nativeFSWrite(data));
+    if (promises.length) return Promise.all(promises);
+    return Promise.resolve();
   }
   function loadData() { return { sections: [] }; }
   function saveData() {
     if (!state.dataLoaded) return Promise.resolve();
-    var p;
-    try { p = persistWrite(state.data); } catch (e) { p = Promise.reject(e); }
-    return p.then(function () {
-      // Keep a synchronous localStorage mirror as an extra recovery path.
-      try { localWrite(state.data); } catch (e) { console.error('localStorage mirror failed', e); }
-    }).catch(function (e) {
-      console.error('saveData failed, falling back to localStorage', e);
-      try { localWrite(state.data); } catch (le) { console.error('localWrite failed', le); return Promise.reject(le); }
+    return persistWrite(state.data).catch(function (e) {
+      console.error('saveData persist failed', e);
+      try { localWrite(state.data); } catch (le) { console.error('localWrite fallback failed', le); return Promise.reject(le); }
     });
   }
   function initData() {
@@ -1090,7 +1089,10 @@
     }).catch(function (e) {
       console.error('initData failed', e);
       var data = localRead();
-      if (data && Array.isArray(data.sections)) { state.data = data; state.dataLoaded = true; render(); }
+      if (!data || !Array.isArray(data.sections)) data = { sections: [] };
+      state.data = data;
+      state.dataLoaded = true;
+      render();
     });
   }
 
@@ -2676,6 +2678,13 @@
   setTheme(state.theme);
   setUILang(state.uiLang);
   state.route = routeFromHash();
+
+  // Persist on app background / page hide / close so data is not lost if the process is killed.
+  function onPersistEvent() { try { localWrite(state.data); } catch (e) {} saveData(); }
+  window.addEventListener('beforeunload', onPersistEvent);
+  window.addEventListener('pagehide', onPersistEvent);
+  document.addEventListener('visibilitychange', function () { if (document.hidden) onPersistEvent(); });
+
   initData();
 })();
 </script>
