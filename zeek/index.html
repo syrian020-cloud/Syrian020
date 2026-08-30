@@ -252,8 +252,14 @@
   .phrase-media video { max-height: 360px; }
   .video-loop-btn { position: absolute; top: 0.5rem; right: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
   .video-loop-btn.active { background: var(--success); color: #081c15; }
-  .caption-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.82); padding: 0.55rem 0.75rem; font-size: 0.9rem; text-align: center; line-height: 1.65; z-index: 2; pointer-events: none; border-top: 1px solid rgba(255,255,255,0.12); }
+  .phrase-loop-btn { position: absolute; top: 0.5rem; left: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .phrase-loop-btn.active { background: var(--success); color: #081c15; }
+  .caption-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.82); padding: 0.55rem 0.75rem; font-size: 0.9rem; line-height: 1.65; z-index: 2; pointer-events: none; border-top: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; gap: 0.5rem; }
+  .cap-text { flex: 1; min-width: 0; text-align: center; }
   .cap-line { display: inline-block; padding: 0.18rem 0.65rem; margin: 0.12rem 0; border-radius: 8px; font-weight: 600; }
+  .cap-flag { margin-inline-end: 0.35rem; }
+  .cap-loop-btn { pointer-events: auto; flex-shrink: 0; width: 1.85rem; height: 1.85rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 0.9rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .cap-loop-btn.active { background: var(--success); color: #081c15; }
   .cap-fr { background: #ede9fe; color: #2e1065; font-family: 'Poppins', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; }
   .cap-ar { direction: rtl; background: #ffe4e6; color: #881337; font-family: 'Noto Naskh Arabic', 'Amiri', 'Droid Arabic Naskh', 'Tahoma', 'Arial', sans-serif; }
   .cap-en { background: #d1fae5; color: #064e3b; font-family: 'Inter', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; }
@@ -734,7 +740,8 @@
     phrases: { ar: 'عبارة', en: 'phrases', fr: 'phrases' },
     lessonsCount: { ar: 'درس', en: 'lessons', fr: 'leçons' },
     speakOnce: { ar: 'نطق مرة واحدة', en: 'Speak once', fr: 'Parler une fois' },
-    loopTitle: { ar: 'تكرار: فرنسي ← عربي ← إنجليزي', en: 'Repeat: French ← Arabic ← English', fr: 'Répéter : Français ← Arabe ← Anglais' },
+    loopTitle: { ar: 'تكرار فيديو العبارة', en: 'Loop phrase video', fr: 'Boucler la vidéo de la phrase' },
+    videoAudioLoopTitle: { ar: 'تكرار صوت/فيديو العبارة', en: 'Loop phrase video audio', fr: 'Boucler l’audio/vidéo de la phrase' },
     ttsLoopTitle: { ar: 'تكرار النطق', en: 'Repeat pronunciation', fr: 'Répéter la prononciation' },
     aiTitle: { ar: 'شرح العبارة بالذكاء الاصطناعي من Google', en: 'Explain phrase with Google AI', fr: 'Expliquer la phrase avec Google AI' },
     noteTitle: { ar: 'دفتر الملاحظات', en: 'Notebook', fr: 'Carnet' },
@@ -927,6 +934,18 @@
     return typeof url === 'string' && url.startsWith('idb://');
   }
 
+  function isImageFile(file) {
+    if (!file) return false;
+    if (file.type && file.type.startsWith('image/')) return true;
+    return /\.(jpg|jpeg|png|gif|webp|bmp|svg|heic|heif|tiff?)$/i.test(file.name || '');
+  }
+  function isVideoFile(file) {
+    if (!file) return false;
+    if (file.type && file.type.startsWith('video/')) return true;
+    return /\.(mp4|webm|mov|ogv|3gp|3gpp|avi|mkv|flv|m4v|mpeg|mpg|m4p|m2v|ts)$/i.test(file.name || '');
+  }
+  function isMediaFile(file) { return isImageFile(file) || isVideoFile(file); }
+
   function idbMediaId(url) {
     return url.slice(6);
   }
@@ -1081,21 +1100,55 @@
     let captions = [];
     try { captions = parseCaptions(captionText); } catch (e) { console.error('parse captions', e); }
     if (!captions.length) return;
+    const FLAGS = { fr: '🇫🇷', ar: '🇸🇾', en: '🇬🇧' };
     const container = video.closest('.phrase-media');
     const overlay = document.createElement('div');
     overlay.className = 'caption-overlay';
     if (container) container.appendChild(overlay);
+    const textDiv = document.createElement('div');
+    textDiv.className = 'cap-text';
+    overlay.appendChild(textDiv);
+    const loopBtn = document.createElement('button');
+    loopBtn.className = 'cap-loop-btn';
+    loopBtn.type = 'button';
+    loopBtn.title = t('videoAudioLoopTitle');
+    loopBtn.textContent = '🔁';
+    loopBtn.onclick = (e) => {
+      e.stopPropagation();
+      const t = video.currentTime || 0;
+      const idx = captions.findIndex(c => t >= c.start && t < c.end);
+      if (idx === -1) return;
+      let phraseKey = '';
+      if (lessonId != null) {
+        phraseKey = lessonId + '.' + idx;
+      } else {
+        const phrase = video.closest('.phrase');
+        if (phrase) phraseKey = phrase.dataset.key || '';
+      }
+      if (!phraseKey) return;
+      const p = findPhraseByKey(phraseKey);
+      if (p) toggleLoop(p, phraseKey);
+    };
+    overlay.appendChild(loopBtn);
+    const makeCap = (text, lang) => {
+      if (!text) return '';
+      return `<span class="cap-line cap-${lang}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}"><span class="cap-flag">${FLAGS[lang]}</span>${esc(text)}</span>`;
+    };
     const update = () => {
       const t = video.currentTime || 0;
       let activeIdx = -1;
       const c = captions.find((c, i) => { if (t >= c.start && t < c.end) { activeIdx = i; return true; } return false; });
       if (!c) { overlay.style.display = 'none'; if (lessonId != null) highlightVideoPhrase(lessonId, -1); return; }
-      const parts = ['<span class="cap-line cap-fr" dir="ltr">' + esc(c.fr) + '</span>',
-                     '<span class="cap-line cap-ar" dir="rtl">' + esc(c.ar) + '</span>',
-                     '<span class="cap-line cap-en" dir="ltr">' + esc(c.en) + '</span>'].filter(s => !s.includes('></span>'));
-      overlay.innerHTML = parts.join('<br>');
-      overlay.style.display = 'block';
+      const parts = [makeCap(c.fr, 'fr'), makeCap(c.ar, 'ar'), makeCap(c.en, 'en')].filter(Boolean);
+      textDiv.innerHTML = parts.join('<br>');
+      overlay.style.display = 'flex';
       if (lessonId != null) highlightVideoPhrase(lessonId, activeIdx);
+      let phraseKey = '';
+      if (lessonId != null) phraseKey = lessonId + '.' + activeIdx;
+      else { const phrase = video.closest('.phrase'); if (phrase) phraseKey = phrase.dataset.key || ''; }
+      const active = !!(state.loop && state.loop.type === 'video' && state.loop.key === phraseKey);
+      loopBtn.classList.toggle('active', active);
+      loopBtn.textContent = active ? '⏸' : '🔁';
     };
     video.addEventListener('timeupdate', update);
     video.addEventListener('seeked', update);
@@ -1132,7 +1185,8 @@
       } else {
         const isVideo = (resolved.type || '').startsWith('video/') || isVideoUrl(resolved.url);
         if (isVideo) {
-          el.innerHTML = videoHTML(resolved.url);
+          const phraseKey = el.dataset.phraseKey || '';
+          el.innerHTML = videoHTML(resolved.url, phraseKey);
           const v = el.querySelector('video');
           if (v) { try { v.playbackRate = state.rate || 1; } catch (e) {} }
         } else {
@@ -1301,8 +1355,7 @@
     anyStop();
     highlight(null);
     refreshButtons();
-    const video = document.querySelector('video');
-    if (video) { video.pause(); }
+    document.querySelectorAll('video').forEach(v => { try { v.pause(); v.dispatchEvent(new Event('timeupdate')); } catch (e) {} });
   }
 
   function updateVideoRate() {
@@ -1369,6 +1422,7 @@
     if (loopTimer) { clearInterval(loopTimer); loopTimer = null; }
     state.loop = { key, type: 'video', start, end };
     refreshButtons();
+    try { video.dispatchEvent(new Event('timeupdate')); } catch (e) {}
     const seekAndPlay = () => {
       try { video.currentTime = start; } catch (e) {}
       updateVideoRate();
@@ -1455,6 +1509,11 @@
       if (loopBtn) {
         loopBtn.classList.toggle('active', !!videoOn);
         loopBtn.textContent = videoOn ? '⏸' : '🔁';
+      }
+      const phraseLoopBtn = el.querySelector('.phrase-loop-btn');
+      if (phraseLoopBtn) {
+        phraseLoopBtn.classList.toggle('active', !!videoOn);
+        phraseLoopBtn.textContent = videoOn ? '⏸' : '🔁';
       }
       const ttsBtn = el.querySelector('.tts-loop-btn');
       if (ttsBtn) {
@@ -1562,7 +1621,7 @@
   }
 
   async function setItemImage(id, type, file) {
-    if (!file || !file.type.startsWith('image/')) { showToast(t('invalidImage')); return; }
+    if (!file || !isImageFile(file)) { showToast(t('invalidImage')); return; }
     let it;
     if (type === 'folder') it = findFolder(id);
     else { const found = findLesson(id); it = found ? found.lesson : null; }
@@ -1692,18 +1751,22 @@
     return `<button class="video-loop-btn" title="${t('videoLoopTitle')}" type="button">🔁</button>`;
   }
 
-  function videoHTML(src) {
-    return `${videoLoopButtonHTML()}<video src="${esc(src)}" controls playsinline></video>`;
+  function phraseLoopButtonHTML(key) {
+    return key ? `<button class="phrase-loop-btn" data-phrase-key="${esc(key)}" title="${t('videoAudioLoopTitle')}" type="button">🔁</button>` : '';
   }
 
-  function mediaHTML(media) {
+  function videoHTML(src, key) {
+    return `${phraseLoopButtonHTML(key)}${videoLoopButtonHTML()}<video src="${esc(src)}" controls playsinline></video>`;
+  }
+
+  function mediaHTML(media, key) {
     if (!media) return '';
-    if (isIDBMedia(media)) return `<div class="phrase-media media-placeholder" data-media-ref="${esc(media)}"></div>`;
+    if (isIDBMedia(media)) return `<div class="phrase-media media-placeholder" data-media-ref="${esc(media)}" data-phrase-key="${esc(key || '')}"></div>`;
     const src = toWebUrl(media);
     const yt = youtubeId(src);
-    if (yt) return `<div class="phrase-media"><iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe></div>`;
-    if (isVideoUrl(src)) return `<div class="phrase-media media-player">${videoHTML(src)}</div>`;
-    return `<div class="phrase-media"><img src="${esc(src)}" alt="" onerror="this.style.display='none'"></div>`;
+    if (yt) return `<div class="phrase-media" data-phrase-key="${esc(key || '')}"><iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe></div>`;
+    if (isVideoUrl(src)) return `<div class="phrase-media media-player" data-phrase-key="${esc(key || '')}">${videoHTML(src, key)}</div>`;
+    return `<div class="phrase-media" data-phrase-key="${esc(key || '')}"><img src="${esc(src)}" alt="" onerror="this.style.display='none'"></div>`;
   }
 
   function lessonMediaHTML(lesson) {
@@ -1713,7 +1776,7 @@
 
   function phraseHTML(p, key) {
     return `<div class="phrase" data-key="${key}" data-start="${p.start != null ? p.start : ''}" data-end="${p.end != null ? p.end : ''}">
-      ${mediaHTML(p.media)}
+      ${mediaHTML(p.media, key)}
       <div class="phrase-top">
         <div class="lines">
           <div class="line fr" data-lang="fr" dir="ltr">${wordSpans(p.fr, 'fr')}<button class="loop-lang" data-lang="fr" title="🔁 FR">🔁</button></div>
@@ -2193,6 +2256,13 @@
       if (!found) return;
       const p = found.lesson.phrases[idx];
 
+      const phraseLoopBtn = e.target.closest('.phrase-loop-btn');
+      if (phraseLoopBtn) {
+        e.stopPropagation();
+        toggleLoop(p, key);
+        return;
+      }
+
       if (e.target.closest('.loop-btn')) {
         toggleLoop(p, key);
       } else if (e.target.closest('.tts-loop-btn')) {
@@ -2369,7 +2439,7 @@
     fileInput.onchange = async () => {
       const file = fileInput.files && fileInput.files[0];
       if (!file) return;
-      if (!file.type.startsWith('image/') && !file.type.startsWith('video/')) {
+      if (!isMediaFile(file)) {
         showToast(t('mediaInvalid'));
         fileInput.value = '';
         return;
@@ -2387,6 +2457,7 @@
             updateMediaPreview(mediaFileData);
             urlInput.value = '';
           };
+          reader.onerror = () => showToast(t('mediaSaveError'));
           reader.readAsDataURL(file);
         }
       } catch (e) {
