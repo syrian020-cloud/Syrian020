@@ -1,9 +1,10 @@
-const CACHE_NAME = 'dross-v176';
+const CACHE_NAME = 'dross-v228';
 const FILES_TO_CACHE = [
   './',
   './index.html',
   './french.html',
   './vocab.html',
+  './notebook.html',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
