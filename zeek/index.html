@@ -233,16 +233,10 @@
   .btns button:hover { border-color: var(--accent); transform: translateY(-1px); }
   .btns button.active { background: var(--success); color: #081c15; border-color: var(--success); }
   .btns button.fav-on { color: var(--gold); border-color: var(--gold); }
-  .btns .ai-btn {
-    width: auto; height: auto; min-height: 2.35rem; padding: 0.35rem 0.65rem;
-    border-radius: 999px; background: rgba(255,255,255,0.95); color: #1a73e8;
-    border: 1px solid #dadce0; font-size: 0.72rem; font-weight: 700;
-    display: inline-flex; align-items: center; gap: 0.25rem;
-    box-shadow: none; white-space: nowrap;
-  }
-  [data-theme="light"] .btns .ai-btn { background: #fff; color: #1a73e8; border-color: #c5c8cc; }
-  .btns .ai-btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
-  .btns .ai-btn .ai-sparkle { color: #fbbf24; font-size: 0.9rem; }
+  .btns .ai-btn, .btns .image-btn { width: 2.35rem; height: 2.35rem; padding: 0; border-radius: 10px; background: #f3f4f6; color: #111; border: 1px solid #e5e5e5; font-size: 1rem; }
+  .btns .ai-btn:hover, .btns .image-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .btns .ai-btn.on { color: #7c3aed; border-color: #7c3aed; background: #ede9fe; }
+  .btns .image-btn.on { color: #2563eb; border-color: #2563eb; background: #eff6ff; }
   .btns .note-btn:hover { border-color: var(--accent); color: var(--accent); }
   .btns .note-btn.note-on { color: var(--success); border-color: var(--success); }
   .btns .media-btn.on { color: var(--accent); border-color: var(--accent); }
@@ -411,13 +405,13 @@
 
 <div id="media-modal" class="modal" style="z-index:97">
   <div class="modal-content" style="max-width:520px">
-    <h3 data-t="addMedia">Add media</h3>
+    <h3 data-t="addVideoCaption">Add video & caption</h3>
     <div class="form-group">
-      <button type="button" class="btn" id="btn-choose-media-file" data-t="chooseMediaFile">Choose image/video file</button>
-      <input type="file" id="media-file" accept="image/*,video/*" style="display:none">
+      <button type="button" class="btn" id="btn-choose-media-file" data-t="chooseMediaFile">Choose video file</button>
+      <input type="file" id="media-file" accept="video/*" style="display:none">
     </div>
     <div class="form-group" style="margin-top:0.75rem">
-      <label data-t="mediaUrl">Or media URL</label>
+      <label data-t="mediaUrl">Video URL</label>
       <input type="text" id="media-url" placeholder="https://..." style="width:100%">
     </div>
     <div class="form-group" style="margin-top:0.75rem">
@@ -787,10 +781,11 @@
     edit: { ar: 'تعديل', en: 'Edit', fr: 'Modifier' },
     setImage: { ar: 'ضبط صورة', en: 'Set image', fr: 'Définir l’image' },
     chooseImage: { ar: 'اختر صورة', en: 'Choose an image', fr: 'Choisir une image' },
-    addMedia: { ar: 'إضافة وسائط', en: 'Add media', fr: 'Ajouter un média' },
-    mediaUrl: { ar: 'رابط الصورة/الفيديو', en: 'Image/video URL', fr: 'URL image/vidéo' },
-    chooseMediaFile: { ar: 'اختر ملف صورة/فيديو', en: 'Choose image/video file', fr: 'Choisir un fichier image/vidéo' },
-    mediaInvalid: { ar: 'ملف غير صالح. يجب أن يكون صورة أو فيديو.', en: 'Invalid file. Must be an image or video.', fr: 'Fichier invalide. Doit être une image ou une vidéo.' },
+    addMedia: { ar: 'إضافة فيديو/ترجمة', en: 'Add video/caption', fr: 'Ajouter une vidéo/sous-titre' },
+    addVideoCaption: { ar: 'إضافة فيديو وترجمة', en: 'Add video & caption', fr: 'Ajouter une vidéo et sous-titre' },
+    mediaUrl: { ar: 'رابط الفيديو', en: 'Video URL', fr: 'URL de la vidéo' },
+    chooseMediaFile: { ar: 'اختر ملف فيديو', en: 'Choose video file', fr: 'Choisir un fichier vidéo' },
+    mediaInvalid: { ar: 'ملف غير صالح. يجب أن يكون فيديو.', en: 'Invalid file. Must be a video.', fr: 'Fichier invalide. Doit être une vidéo.' },
     mediaSaveError: { ar: 'تعذر حفظ الوسائط في التطبيق', en: 'Could not save media to the app', fr: 'Impossible d\'enregistrer le média dans l\'application' },
     chooseCaptionFile: { ar: 'اختر ملف ترجمة (SRT/نص)', en: 'Choose caption file (SRT/text)', fr: 'Choisir fichier sous-titres (SRT/texte)' },
     captionText: { ar: 'أو ألصق نص الترجمة', en: 'Or paste caption text', fr: 'Ou coller le texte des sous-titres' },
@@ -1905,8 +1900,9 @@
         <div class="btns">
           <button class="loop-btn" title="${t('loopTitle')}">🔁</button>
           <button class="tts-loop-btn" title="${t('ttsLoopTitle')}">🔂</button>
-          <button class="ai-btn" title="${t('aiTitle')}"><span class="ai-label">Google AI</span><span class="ai-sparkle">✨</span></button>
-          <button class="media-btn ${p.media ? 'on' : ''}" title="${t('addMedia')}">${p.media ? '📎' : '📷'}</button>
+          <button class="ai-btn" title="${t('aiTitle')}">✨</button>
+          <button class="image-btn ${p.mediaType === 'image' ? 'on' : ''}" title="${t('chooseImage')}">🖼️</button>
+          <button class="media-btn ${p.media && p.mediaType !== 'image' ? 'on' : ''}" title="${t('addMedia')}">${p.media && p.mediaType !== 'image' ? '📎' : '🎬'}</button>
           <button class="note-btn ${hasNote(key) ? 'note-on' : ''}" title="${t('noteTitle')}">${hasNote(key) ? '📔' : '📓'}</button>
           <button class="fav-btn ${isFav(key) ? 'fav-on' : ''}" title="${t('favTitle')}">${isFav(key) ? '★' : '☆'}</button>
         </div>
@@ -2389,6 +2385,9 @@
       } else if (e.target.closest('.ai-btn')) {
         const query = 'Explain the phrase "' + p.fr + '" in French, Arabic and English. French: ' + p.fr + ' / Arabic: ' + p.ar + ' / English: ' + p.en + ' (without tables)';
         window.open('https://www.google.com/search?q=' + encodeURIComponent(query) + '&udm=50&hl=' + state.uiLang, '_blank');
+      } else if (e.target.closest('.image-btn')) {
+        e.stopPropagation();
+        openImageForPhrase(key);
       } else if (e.target.closest('.media-btn')) {
         openMedia(key);
       } else if (e.target.closest('.note-btn')) {
@@ -2505,15 +2504,20 @@
     const found = findLesson(lessonId);
     if (!found) { closeMedia(); return; }
     const p = found.lesson.phrases[idx];
-    let url = mediaFileData || document.getElementById('media-url').value.trim() || (p && p.media);
-    if (!url) { closeMedia(); return; }
-    if (!/^https?:\/\//.test(url) && !/^data:/.test(url) && !/^file:\/\//.test(url) && !/^idb:\/\//.test(url)) {
+    const urlInput = document.getElementById('media-url').value.trim();
+    const newVideo = mediaFileData || urlInput;
+    let url = newVideo || (p && p.media);
+    const captionText = document.getElementById('caption-text').value.trim();
+    if (!url && !captionText) { closeMedia(); return; }
+    if (url && !/^https?:\/\//.test(url) && !/^data:/.test(url) && !/^file:\/\//.test(url) && !/^idb:\/\//.test(url)) {
       showToast(t('mediaInvalid'));
       return;
     }
-    if (p.media && p.media !== url) await deleteMediaRef(p.media);
-    p.media = url;
-    const captionText = document.getElementById('caption-text').value.trim();
+    if (url) {
+      if (p.media && p.media !== url) await deleteMediaRef(p.media);
+      p.media = url;
+      if (newVideo) p.mediaType = 'video';
+    }
     if (captionText) {
       p.captionText = captionText;
     } else if (p.captionText) {
@@ -2534,12 +2538,48 @@
       const p = found.lesson.phrases[idx];
       if (p && p.media) await deleteMediaRef(p.media);
       delete p.media;
+      delete p.mediaType;
       if (p && p.captionText) delete p.captionText;
       saveLessons();
       go(state.route, false);
       showToast(t('deleted'));
     }
     closeMedia();
+  }
+
+  async function openImageForPhrase(key) {
+    const [lessonId, idx] = key.split('.').map(Number);
+    const found = findLesson(lessonId);
+    const p = found ? found.lesson.phrases[idx] : null;
+    if (!p) return;
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.style.display = 'none';
+    input.onchange = async () => {
+      const file = input.files && input.files[0];
+      input.remove();
+      if (!file || !isImageFile(file)) { showToast(t('invalidImage')); return; }
+      try {
+        const uri = await storeMedia(file) || await new Promise((resolve, reject) => {
+          const r = new FileReader();
+          r.onload = e => resolve(e.target.result);
+          r.onerror = reject;
+          r.readAsDataURL(file);
+        });
+        if (p.media) await deleteMediaRef(p.media);
+        p.media = uri;
+        p.mediaType = 'image';
+        saveLessons();
+        showToast(t('saved'));
+        go(state.route, false);
+      } catch (e) {
+        console.error('openImageForPhrase', e);
+        showToast(t('mediaSaveError'));
+      }
+    };
+    document.body.appendChild(input);
+    input.click();
   }
 
   function bindMediaModal() {
@@ -2558,7 +2598,7 @@
     fileInput.onchange = async () => {
       const file = fileInput.files && fileInput.files[0];
       if (!file) return;
-      if (!isMediaFile(file)) {
+      if (!isVideoFile(file)) {
         showToast(t('mediaInvalid'));
         fileInput.value = '';
         return;
