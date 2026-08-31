@@ -794,7 +794,7 @@
     mediaSaveError: { ar: 'تعذر حفظ الوسائط في التطبيق', en: 'Could not save media to the app', fr: 'Impossible d\'enregistrer le média dans l\'application' },
     chooseCaptionFile: { ar: 'اختر ملف ترجمة (SRT/نص)', en: 'Choose caption file (SRT/text)', fr: 'Choisir fichier sous-titres (SRT/texte)' },
     captionText: { ar: 'أو ألصق نص الترجمة', en: 'Or paste caption text', fr: 'Ou coller le texte des sous-titres' },
-    captionTextPlaceholder: { ar: '00:00 فرنسي | عربي | إنجليزي', en: '00:00 French | Arabic | English', fr: '00:00 Français | Arabe | Anglais' },
+    captionTextPlaceholder: { ar: '00:00 🇫🇷 فرنسي\n🇸🇾 عربي\n🇺🇸 إنجليزي', en: '00:00 🇫🇷 French\n🇸🇾 Arabic\n🇺🇸 English', fr: '00:00 🇫🇷 Français\n🇸🇾 Arabe\n🇺🇸 Anglais' },
     captionParseError: { ar: 'تعذر تحليل نص الترجمة. تأكد من التنسيق.', en: 'Could not parse caption text. Check the format.', fr: 'Impossible d\'analyser le texte des sous-titres. Vérifiez le format.' },
     lessonVideo: { ar: 'فيديو الدرس', en: 'Lesson video', fr: 'Vidéo de la leçon' },
     chooseVideoFile: { ar: 'اختر ملف فيديو', en: 'Choose video file', fr: 'Choisir un fichier vidéo' },
@@ -1050,18 +1050,93 @@
     return parseCustomCaptions(text);
   }
 
+  function countryCodeFromFlag(flag) {
+    const chars = [...flag];
+    if (chars.length !== 2) return null;
+    const cp1 = chars[0].codePointAt(0), cp2 = chars[1].codePointAt(0);
+    if (cp1 >= 0x1F1E6 && cp1 <= 0x1F1FF && cp2 >= 0x1F1E6 && cp2 <= 0x1F1FF) {
+      return String.fromCodePoint(cp1 - 0x1F1E6 + 0x41, cp2 - 0x1F1E6 + 0x41);
+    }
+    return null;
+  }
+
+  function langFromCountryCode(code) {
+    if (!code) return null;
+    if (['FR','BE','CA','CH','LU','MC'].includes(code)) return 'fr';
+    if (['SY','SA','AE','EG','IQ','JO','LB','LY','MA','OM','PS','QA','TN','YE','KW','BH','DZ','SD','MR','KM','TD','DJ','ER','SO'].includes(code)) return 'ar';
+    if (['US','GB','CA','AU','NZ','IE','ZA','IN','NG','KE','GH','JM','TT','BZ','BS','BB','SG','MY','PH','HK'].includes(code)) return 'en';
+    return null;
+  }
+
+  function langFromMarker(marker) {
+    if (!marker) return null;
+    marker = marker.trim();
+    if (/^[A-Za-z]{2}$/.test(marker)) {
+      const low = marker.toLowerCase();
+      if (low === 'fr') return 'fr';
+      if (low === 'ar' || low === 'sy' || low === 'sa' || low === 'ae' || low === 'eg') return 'ar';
+      if (low === 'en' || low === 'us' || low === 'uk' || low === 'gb') return 'en';
+    }
+    const cc = countryCodeFromFlag(marker);
+    if (cc) return langFromCountryCode(cc);
+    return null;
+  }
+
+  function parseFlagLine(line) {
+    let m = line.match(/^([\u{1F1E6}-\u{1F1FF}]{2})(?:\s+|\s*$)(.*)$/u);
+    if (!m) m = line.match(/^([A-Za-z]{2})[:\u2192\-]\s*(.*)$/);
+    if (!m) return null;
+    const lang = langFromMarker(m[1]);
+    if (!lang) return null;
+    const isFlag = /^[\u{1F1E6}-\u{1F1FF}]{2}$/u.test(m[1]);
+    const text = isFlag ? (m[1] + ' ' + m[2].trim()).trim() : m[2].trim();
+    return { lang, text };
+  }
+
+  function parseCaptionLines(lines) {
+    const parts = { fr: '', ar: '', en: '' };
+    const ordered = ['fr', 'ar', 'en'];
+    let orderIdx = 0;
+    for (const line of lines) {
+      if (!line || line === 'الحوار' || /^\d+$/.test(line)) continue;
+      if (line.includes('|')) {
+        const split = line.split(/\s*\|\s*/).map(s => s.trim()).filter(Boolean);
+        for (const s of split) {
+          const p = parseFlagLine(s);
+          if (p) { parts[p.lang] = p.text; }
+          else if (orderIdx < ordered.length) { parts[ordered[orderIdx++]] = s; }
+        }
+        continue;
+      }
+      const p = parseFlagLine(line);
+      if (p) { parts[p.lang] = p.text; continue; }
+      if (orderIdx < ordered.length) { parts[ordered[orderIdx++]] = line; }
+    }
+    return parts;
+  }
+
   function parseCustomCaptions(text) {
     const captions = [];
-    const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
+    let current = null;
+    function flush() {
+      if (!current || typeof current.start !== 'number') { current = null; return; }
+      const parts = parseCaptionLines(current.body);
+      captions.push({ start: current.start, end: current.start + 4, ...parts });
+      current = null;
+    }
+    const lines = text.split(/\r?\n/).map(l => l.trim());
+    for (const line of lines) {
+      if (!line) { flush(); continue; }
       if (line === 'الحوار' || /^\d+$/.test(line)) continue;
       const m = line.match(/^(\d{1,2}):(\d{2})\s+(.+)$/);
-      if (!m) continue;
-      const start = parseInt(m[1], 10) * 60 + parseInt(m[2], 10);
-      const parts = m[3].split(/\s*\|\s*/);
-      captions.push({ start, end: start + 4, fr: parts[0] || '', ar: parts[1] || '', en: parts[2] || '' });
+      if (m) {
+        flush();
+        current = { start: parseInt(m[1], 10) * 60 + parseInt(m[2], 10), body: [m[3].trim()] };
+      } else if (current) {
+        current.body.push(line);
+      }
     }
+    flush();
     for (let i = 0; i < captions.length; i++) {
       if (i + 1 < captions.length) captions[i].end = captions[i + 1].start;
     }
@@ -1079,9 +1154,8 @@
       if (!m) continue;
       const start = parseInt(m[1],10)*3600 + parseInt(m[2],10)*60 + parseInt(m[3],10) + parseInt(m[4],10)/1000;
       const end = parseInt(m[5],10)*3600 + parseInt(m[6],10)*60 + parseInt(m[7],10) + parseInt(m[8],10)/1000;
-      const text = lines.slice(timeIdx + 1).join(' ');
-      const parts = text.split(/\s*\|\s*/);
-      captions.push({ start, end, fr: parts[0] || '', ar: parts[1] || '', en: parts[2] || '' });
+      const parts = parseCaptionLines(lines.slice(timeIdx + 1));
+      captions.push({ start, end, ...parts });
     }
     return captions.sort((a, b) => a.start - b.start);
   }
@@ -1132,7 +1206,7 @@
     overlay.appendChild(loopBtn);
     const makeCap = (text, lang) => {
       if (!text) return '';
-      return `<span class="cap-line cap-${lang}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}"><span class="cap-flag">${FLAGS[lang]}</span>${esc(text)}</span>`;
+      return `<span class="cap-line cap-${lang}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">${esc(text)}</span>`;
     };
     const update = () => {
       const t = video.currentTime || 0;
@@ -1277,12 +1351,17 @@
     }
   }
 
+  function stripSpeechFlags(text) {
+    return String(text || '').replace(/[\u{1F1E6}-\u{1F1FF}]{2}/gu, '').replace(/\s+/g, ' ').trim();
+  }
+
   function estimatedSpeechTimeout(text, rate) {
     const words = String(text).trim().split(/\s+/).filter(Boolean).length;
     return Math.max(8000, Math.ceil(words * 900 / (rate || 1)) + 3000);
   }
 
   function nativeSpeak(text, lang) {
+    text = stripSpeechFlags(text);
     const tts = nativeTTS();
     if (!tts) return Promise.reject('no tts');
     const tag = (state.voiceLang && state.voiceLang[lang]);
@@ -1305,6 +1384,7 @@
   }
 
   function webSpeak(text, lang) {
+    text = stripSpeechFlags(text);
     const synth = webTTS();
     if (!synth) return Promise.reject('no web tts');
     const u = new SpeechSynthesisUtterance(text);
@@ -1320,8 +1400,10 @@
   }
 
   function anySpeak(text, lang) {
-    if (speakSupported()) return nativeSpeak(text, lang);
-    if (webTTS()) return webSpeak(text, lang);
+    const t = stripSpeechFlags(text);
+    if (!t) return Promise.reject('empty tts');
+    if (speakSupported()) return nativeSpeak(t, lang);
+    if (webTTS()) return webSpeak(t, lang);
     return Promise.reject('no tts');
   }
 
