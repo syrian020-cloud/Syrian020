@@ -1,0 +1,2106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0b0f1f">
+<title>مشغّل SRT</title>
+<link rel="manifest" href="manifest-srt.json">
+<style>
+  :root {
+    --bg-primary: #0b0d1f;
+    --bg-secondary: #13162b;
+    --bg-tertiary: #1e213d;
+    --text-primary: #f0f1ff;
+    --text-secondary: #8c90b5;
+    --accent: #7b79ff;
+    --accent-hover: #5c5bdb;
+    --success: #00e676;
+    --gold: #ffc857;
+    --danger: #ff6b6b;
+    --border: rgba(255,255,255,0.08);
+    --radius: 18px;
+    --radius-sm: 12px;
+    --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    --shadow-sm: 0 4px 14px rgba(0,0,0,0.25);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  header { position: sticky; top: 0; z-index: 60; background: rgba(11,13,31,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0.7rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
+  .logo { font-weight: 800; color: var(--accent); font-size: 1.05rem; white-space: nowrap; }
+  .spacer { flex: 1; }
+  .icon-btn { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 10px; min-width: 38px; height: 38px; padding: 0 0.45rem; font-size: 0.95rem; cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; transition: all 0.12s; }
+  main { max-width: 960px; margin: 0 auto; padding: 0.9rem; }
+
+  .panel { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; margin-bottom: 0.9rem; box-shadow: var(--shadow-sm); }
+  .panel h2 { margin: 0; font-size: 1.1rem; }
+  .panel-header { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.7rem; }
+  .panel-actions { display: flex; gap: 0.35rem; }
+  .panel p { margin: 0 0 0.7rem; color: var(--text-secondary); font-size: 0.9rem; }
+
+  .file-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.7rem; align-items: stretch; flex-direction: column; }
+  .file-row label { color: var(--text-secondary); font-size: 0.9rem; }
+  .file-row input[type="file"] { flex: 1; width: 100%; min-width: 0; color: var(--text-primary); font-size: 0.9rem; }
+  .file-row input[type="text"] { width: 100%; background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.55rem 0.7rem; font-size: 0.95rem; font-family: inherit; }
+  .file-row .file-name { color: var(--success); font-size: 0.85rem; }
+  .paste-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 0.7rem; align-items: flex-start; }
+  .paste-row label { flex: 0 0 7rem; color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.4rem; }
+  .file-row textarea, .paste-row textarea {
+    flex: 1;
+    min-width: 0;
+    min-height: 120px;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.6rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+    resize: vertical;
+    unicode-bidi: plaintext;
+  }
+
+  .action-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+  button.primary { background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm); padding: 0.75rem 1.6rem; font-size: 1.1rem; font-weight: 800; cursor: pointer; box-shadow: 0 4px 14px rgba(123,121,255,0.4); }
+  button.primary:hover { background: var(--accent-hover); }
+  button.secondary { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem 1rem; font-size: 0.95rem; cursor: pointer; }
+  button.secondary:hover { border-color: var(--accent); }
+  .fab {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #2b9df1, #7b79ff);
+    color: #fff;
+    font-size: 2.1rem;
+    font-weight: 300;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 22px rgba(43,157,241,0.45);
+    cursor: pointer;
+    z-index: 80;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  html[dir="rtl"] .fab { right: auto; left: 1.5rem; }
+  .fab:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(43,157,241,0.55); }
+  .fab:active { transform: scale(0.92); }
+  #lessons-view .panel { padding-bottom: 5rem; }
+
+  .source-tabs { display: flex; gap: 0.4rem; margin: 0.8rem 0 0.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+  .source-tab { background: transparent; color: var(--text-secondary); border: none; padding: 0.45rem 0.8rem; font-size: 0.9rem; font-weight: 600; cursor: pointer; border-radius: 999px; }
+  .source-tab:hover { color: var(--text-primary); }
+  .source-tab.active { background: var(--bg-tertiary); color: var(--text-primary); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .hint { color: var(--text-secondary); font-size: 0.85rem; margin: 0.2rem 0 0.5rem; }
+
+  .video-wrap { position: relative; background: #000; border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 0.9rem; width: 100%; max-width: 720px; margin-inline: auto; }
+  video { width: 100%; height: auto; min-height: 220px; display: block; object-fit: contain; position: relative; z-index: 0; }
+  .bg-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; display: none; }
+
+  .bubble-wrap { position: absolute; bottom: 0.5rem; left: 0.5rem; right: 0.5rem; z-index: 10; display: flex; justify-content: center; pointer-events: none; }
+  .subtitle-bubble {
+    background: rgba(10,10,20,0.78);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.45rem 0.6rem;
+    width: 100%;
+    max-width: 720px;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0.35rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.15s ease;
+    position: relative;
+    pointer-events: auto;
+  }
+  .subtitle-bubble:empty { display: none; }
+  .subtitle-bubble { padding: 0.45rem 0.6rem; }
+  .lang-line {
+    border-radius: var(--radius-sm);
+    padding: 0.45rem 0.55rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.2rem;
+  }
+  .lang-line-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 22px;
+  }
+  .lang-line .lang-text {
+    font-size: calc(1rem * var(--caption-scale, 1));
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.35;
+  }
+  .lang-line .badge {
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 0.15rem 0.45rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+  }
+  .lang-line .loop {
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lang-line .loop:hover { background: rgba(0,0,0,0.65); }
+  .lang-line .loop.active { background: var(--success); color: #0b0d1f; }
+  .lang-line.fr { background: linear-gradient(135deg, #ff9f43, #ff7f50); color: #1a1a1a; }
+  .lang-line.ar { background: linear-gradient(135deg, #2dd4bf, #14b8a6); color: #1a1a1a; direction: rtl; }
+  .lang-line.en { background: linear-gradient(135deg, #60a5fa, #3b82f6); color: #1a1a1a; direction: ltr; }
+  .lang-line .word { cursor: pointer; border-radius: 4px; padding: 0.05em 0.1em; transition: background 0.12s; }
+  .lang-line .word:hover { background: rgba(0,0,0,0.15); }
+  .lang-line .word.active { background: rgba(0,0,0,0.35); box-shadow: 0 0 0 2px var(--text-primary); }
+
+  .controls { display: flex; flex-direction: column; gap: 0.7rem; align-items: center; margin-bottom: 0.9rem; padding: 0 0.5rem; }
+  .time-row { display: flex; align-items: center; gap: 0.5rem; width: 100%; max-width: 720px; color: var(--text-secondary); font-size: 0.85rem; }
+  .rate-row, .filter-row {
+    display: flex; align-items: center; flex-wrap: wrap;
+    justify-content: space-between; gap: 0.45rem;
+    width: 100%; max-width: 720px;
+    padding: 0.45rem 0.65rem;
+    background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-sm);
+    color: var(--text-secondary); font-size: 0.9rem;
+  }
+  #rate, #filter-select {
+    background: var(--bg-secondary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 0.35rem 0.7rem; font-size: 0.9rem; font-family: inherit; cursor: pointer;
+    min-width: 0; flex: 1 1 110px; max-width: 200px;
+  }
+  #rate:focus, #filter-select:focus { outline: none; border-color: var(--accent); }
+  #progress { flex: 1; -webkit-appearance: none; height: 6px; background: var(--bg-tertiary); border-radius: 3px; outline: none; }
+  #progress::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; background: var(--accent); border-radius: 50%; cursor: pointer; }
+
+  .btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; padding: 0.4rem; }
+  .ctrl-btn {
+    background: linear-gradient(145deg, var(--bg-tertiary), #141629);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: all 0.12s;
+    box-shadow: var(--shadow-sm);
+  }
+  .ctrl-btn:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .ctrl-btn:active { transform: scale(0.93); }
+  .ctrl-btn.active { background: var(--success); color: #0b0d1f; border-color: var(--success); }
+
+  .status { text-align: center; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; }
+
+  footer { text-align: center; padding: 1.5rem 1rem; color: var(--text-secondary); font-size: 0.8rem; }
+  .toast { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.6rem 1.1rem; z-index: 100; opacity: 0; transition: opacity 0.2s; pointer-events: none; font-weight: 600; direction: rtl; }
+  .toast.show { opacity: 1; }
+
+  .view { display: none; }
+  .view.active { display: block; }
+
+  .lesson-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 0.85rem;
+    margin-bottom: 0.6rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.12s, border-color 0.12s;
+  }
+  .lesson-card:active { background: rgba(255,255,255,0.04); }
+  .lesson-card .title { font-weight: 700; font-size: 1rem; word-break: normal; overflow-wrap: break-word; }
+  .lesson-card .date { color: var(--text-secondary); font-size: 0.75rem; word-break: normal; overflow-wrap: break-word; }
+  .empty-hint { color: var(--text-secondary); font-size: 0.9rem; text-align: center; padding: 1rem 0; }
+
+  .lesson-thumb { width: 56px; height: 56px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg-secondary); flex: 0 0 auto; }
+  .lesson-info { flex: 1 1 0; min-width: 0; pointer-events: none; }
+  .lesson-menu { position: relative; flex: 0 0 auto; margin-inline-start: auto; }
+  .menu-toggle { padding: 0.45rem 0.55rem; font-size: 1.1rem; line-height: 1; }
+  .menu-dropdown { display: none; position: absolute; top: calc(100% + 6px); inset-inline-end: 0; min-width: 170px; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-sm); box-shadow: var(--shadow); z-index: 50; overflow: hidden; flex-direction: column; }
+  .menu-dropdown.show { display: flex; }
+  .menu-item { background: transparent; color: var(--text-primary); border: none; border-bottom: 1px solid var(--border); padding: 0.55rem 0.75rem; font-size: 0.9rem; font-family: inherit; text-align: start; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; }
+  .menu-item:last-child { border-bottom: none; }
+  .menu-item:hover { background: rgba(255,255,255,0.06); }
+  .menu-item.danger { color: var(--danger); }
+  .menu-icon { font-size: 1rem; }
+
+  .player-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; }
+  .player-header .lesson-title { color: var(--text-secondary); font-size: 0.9rem; }
+
+  #btn-save-lesson { white-space: nowrap; }
+
+  @media (max-width: 480px) {
+    .file-row label, .paste-row label { flex: 0 0 100%; }
+    .file-row input[type="file"] { flex: 1 0 100%; }
+    .file-row textarea, .paste-row textarea { flex: 1 0 100%; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <span class="logo" data-t="logo">مشغّل SRT</span>
+    <span class="spacer"></span>
+    <button class="icon-btn" id="btn-lang" title="Language / Langue / اللغة">AR</button>
+    <button class="icon-btn" id="btn-lessons" title="الدروس" data-t-title="lessonsTitle">📚</button>
+    <button class="icon-btn" id="btn-setup" title="إعداد درس جديد" data-t-title="newLessonTitle">➕</button>
+    <button class="icon-btn" id="btn-stop" title="إيقاف الصوت" data-t-title="stopAudio">🔇</button>
+  </div>
+</header>
+
+<main>
+  <section class="view active" id="lessons-view">
+    <div class="panel">
+      <div class="panel-header">
+        <h2 data-t="lessonsTitle">دروسي</h2>
+        <div class="panel-actions">
+          <button class="icon-btn" id="btn-import" title="استيراد دروس JSON" data-t-title="importTitle">📥</button>
+          <button class="icon-btn" id="btn-export-all" title="تصدير كل الدروس" data-t-title="exportAll">📤</button>
+        </div>
+      </div>
+      <input type="file" id="import-file" accept="application/json" style="display:none">
+      <div id="lessons-list">
+        <p class="empty-hint" data-t="emptyHint">لا توجد دروس محفوظة. اضغط على “➕” لإعداد درس جديد.</p>
+      </div>
+      <button class="fab" id="btn-new-lesson" title="إعداد درس جديد" data-t-title="newLessonTitle" aria-label="إعداد درس جديد">⊕</button>
+    </div>
+  </section>
+
+  <section class="view" id="setup-view">
+    <div class="panel" id="setup-panel">
+      <h2 id="setup-title" data-t="setupTitle">إعداد درس جديد</h2>
+
+      <div class="file-row">
+        <label for="lesson-name" data-t="nameLabel">اسم الدرس</label>
+        <input type="text" id="lesson-name" placeholder="اسم الدرس">
+      </div>
+      <div class="file-row">
+        <label for="video-file" data-t="videoLabel">فيديو/صوت</label>
+        <input type="file" id="video-file" accept="video/*,audio/*">
+        <span class="file-name" id="video-name"></span>
+      </div>
+      <div class="file-row">
+        <label for="lesson-image" data-t="imageLabel">صورة الدرس (اختياري)</label>
+        <input type="file" id="lesson-image" accept="image/*">
+        <span class="file-name" id="image-name"></span>
+      </div>
+
+      <div class="source-tabs">
+        <button class="source-tab active" data-tab="single" type="button" data-t="tabSingle">ملف ترجمة واحد</button>
+        <button class="source-tab" data-tab="separate" type="button" data-t="tabSeparate">ملفات منفصلة</button>
+        <button class="source-tab" data-tab="paste" type="button" data-t="tabPaste">لصق نص</button>
+      </div>
+
+      <div class="tab-panel active" data-tab="single">
+        <div class="file-row">
+          <label for="srt-main" data-t="mainFileLabel">ملف الترجمة</label>
+          <input type="file" id="srt-main" accept=".srt,.txt">
+          <span class="file-name" id="name-main"></span>
+        </div>
+        <p class="hint" data-t="singleHint">اختر ملف SRT/TXT واحد يحتوي على الفرنسية والعربية والإنجليزية لكل عبارة.</p>
+      </div>
+
+      <div class="tab-panel" data-tab="separate">
+        <div class="file-row">
+          <label for="srt-fr" data-t="langFrench">الفرنسية</label>
+          <input type="file" id="srt-fr" accept=".srt,.txt">
+          <span class="file-name" id="name-fr"></span>
+        </div>
+        <div class="file-row">
+          <label for="srt-ar" data-t="langArabic">العربية</label>
+          <input type="file" id="srt-ar" accept=".srt,.txt">
+          <span class="file-name" id="name-ar"></span>
+        </div>
+        <div class="file-row">
+          <label for="srt-en" data-t="langEnglish">الإنجليزية</label>
+          <input type="file" id="srt-en" accept=".srt,.txt">
+          <span class="file-name" id="name-en"></span>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-tab="paste">
+        <div class="paste-row">
+          <label for="srt-paste" data-t="pasteLabel">النص المؤقت</label>
+          <textarea id="srt-paste" placeholder="00:00 Je suis désolé.&#10;أنا آسف.&#10;I'm sorry."></textarea>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button class="primary" id="btn-start" data-t="startBtn">▶ معاينة / بدء</button>
+        <button class="secondary" id="btn-save-lesson" data-t="saveBtn">💾 حفظ الدرس</button>
+        <button class="secondary" id="btn-reset" data-t="resetBtn">إعادة ضبط</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="player-view">
+    <div class="player-header">
+      <button class="icon-btn" id="btn-back-lessons" data-t="backToLessons">← الدروس</button>
+      <span class="spacer"></span>
+      <span class="lesson-title" id="lesson-title"></span>
+    </div>
+    <div class="video-wrap" id="video-wrap" style="display:none;">
+      <video id="player" controls playsinline></video>
+      <img id="bg-image" class="bg-image" alt="" style="display:none;">
+      <div class="bubble-wrap" id="bubble-wrap">
+        <div class="subtitle-bubble" id="bubble"></div>
+      </div>
+    </div>
+    <section class="controls" id="controls" style="display:none;">
+      <div class="time-row">
+        <span id="current-time">00:00</span>
+        <input type="range" id="progress" min="0" max="100" value="0" step="0.1">
+        <span id="duration">00:00</span>
+      </div>
+      <div class="rate-row">
+        <label for="rate" data-t="rateLabel">سرعة الفيديو</label>
+        <select id="rate">
+          <option value="0.5">0.5×</option>
+          <option value="0.75">0.75×</option>
+          <option value="1" selected>1×</option>
+          <option value="1.25">1.25×</option>
+          <option value="1.5">1.5×</option>
+          <option value="2">2×</option>
+        </select>
+      </div>
+      <div class="filter-row">
+        <label for="filter-select" data-t="filterLabel">فلتر الفيديو</label>
+        <input type="file" id="bg-image-input" accept="image/*" style="display:none">
+        <button class="icon-btn" id="btn-bg-image" title="خلفية" data-t-title="changeBackground">🖼️</button>
+        <button class="icon-btn" id="btn-toggle-bg" title="إظهار/إخفاء الصورة" data-t-title="toggleBackground">👁️</button>
+        <button class="icon-btn" id="btn-caption-minus" title="تصغير العبارات">A−</button>
+        <button class="icon-btn" id="btn-caption-plus" title="تكبير العبارات">A+</button>
+        <select id="filter-select">
+          <option value="" data-t="filterNone">بدون</option>
+          <option value="grayscale" data-t="filterGrayscale">أبيض وأسود</option>
+          <option value="sepia" data-t="filterSepia">سيبيا</option>
+          <option value="invert" data-t="filterInvert">عكس الألوان</option>
+          <option value="highContrast" data-t="filterHighContrast">تباين عالي</option>
+          <option value="highBrightness" data-t="filterHighBrightness">سطوع عالي</option>
+          <option value="cool" data-t="filterCool">بارد</option>
+          <option value="warm" data-t="filterWarm">دافئ</option>
+          <option value="cartoon" data-t="filterCartoon">كرتون</option>
+          <option value="rotoscope" data-t="filterRotoscope">رسوم/Rotoscope</option>
+        </select>
+      </div>
+
+      <div class="btn-row">
+        <button class="ctrl-btn" id="btn-prev" title="السطر السابق (←)" data-t-title="prevTitle">⏮</button>
+        <button class="ctrl-btn" id="btn-play" title="تشغيل/إيقاف (مسافة)" data-t-title="playTitle">⏯</button>
+        <button class="ctrl-btn" id="btn-next" title="السطر التالي (→)" data-t-title="nextTitle">⏭</button>
+        <button class="ctrl-btn" id="btn-full-loop" title="تكرار الفيديو كاملاً من البداية للنهاية" data-t-title="fullLoopTitle">🔁</button>
+        <button class="ctrl-btn" id="btn-video-loop" title="تكرار عبارة الفيديو" data-t-title="videoLoopTitle">🔂</button>
+        <button class="ctrl-btn" id="btn-loop-all" title="تكرار النطق بالثلاث لغات" data-t-title="loopAllTitle">🔄</button>
+      </div>
+      <div class="status" id="status"></div>
+    </section>
+  </section>
+</main>
+
+<footer data-t="footer">مشغّل SRT مصاحب للفيديو — يدعم الفرنسية والعربية والإنجليزية</footer>
+<div class="toast" id="toast"></div>
+<input type="file" id="edit-image" accept="image/*" style="display:none">
+
+<script>
+(function(){
+  'use strict';
+
+  // --- DOM refs ---
+  const $ = id => document.getElementById(id);
+  const videoFile = $('video-file'), lessonImage = $('lesson-image'), lessonName = $('lesson-name'), setupTitleEl = $('setup-title'), editImage = $('edit-image'), srtMain = $('srt-main'), srtFr = $('srt-fr'), srtAr = $('srt-ar'), srtEn = $('srt-en'), srtPaste = $('srt-paste');
+  const videoName = $('video-name'), imageName = $('image-name'), nameMain = $('name-main'), nameFr = $('name-fr'), nameAr = $('name-ar'), nameEn = $('name-en');
+  const btnStart = $('btn-start'), btnReset = $('btn-reset'), btnStop = $('btn-stop'), btnBgImage = $('btn-bg-image'), btnToggleBg = $('btn-toggle-bg'), btnCaptionMinus = $('btn-caption-minus'), btnCaptionPlus = $('btn-caption-plus'), bgImageInput = $('bg-image-input');
+  const videoWrap = $('video-wrap'), player = $('player'), bgImage = $('bg-image'), bubbleWrap = $('bubble-wrap'), bubble = $('bubble');
+  const controls = $('controls'), progress = $('progress'), currentTimeEl = $('current-time'), durationEl = $('duration');
+  const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next'), btnFullLoop = $('btn-full-loop'), btnVideoLoop = $('btn-video-loop'), btnLoopAll = $('btn-loop-all');
+  const filterSelect = $('filter-select');
+  const btnLessons = $('btn-lessons'), btnSetup = $('btn-setup'), btnNewLesson = $('btn-new-lesson'), btnSaveLesson = $('btn-save-lesson'), btnBackLessons = $('btn-back-lessons'), btnLang = $('btn-lang'), btnImport = $('btn-import'), btnExportAll = $('btn-export-all'), importFile = $('import-file');
+  const lessonsView = $('lessons-view'), setupView = $('setup-view'), playerView = $('player-view'), lessonsList = $('lessons-list'), lessonTitle = $('lesson-title');
+  const statusEl = $('status'), toast = $('toast'), rateSelect = $('rate');
+
+  // --- State ---
+  const state = {
+    cues: [], // { start, end, lines: [{lang, text}] }
+    currentIndex: -1,
+    isPlaying: false,
+    loopAll: false,
+    loopLang: null,
+    ttsChain: null,
+    loopToken: 0,
+    videoLoop: false,
+    loopStart: 0,
+    loopEnd: 0,
+    filter: '',
+    fullVideoLoop: false,
+    pendingSeek: null,
+    duration: 0,
+    playbackRate: 1,
+    videoUrl: null,
+    posterUrl: null,
+    thumbUrls: [],
+    editingImageId: null,
+    editingLessonId: null,
+    editingLesson: null,
+    currentLessonId: null,
+    uiLang: localStorage.getItem('srt_ui_lang') || 'ar',
+    wordLoopEl: null,
+    muted: false,
+    captionScale: 1
+  };
+
+  const LANG_ORDER = ['fr','ar','en'];
+  const LANG_LABELS = { fr: 'FR', ar: 'AR', en: 'EN' };
+  const LANG_NAMES = { fr: 'Français', ar: 'العربية', en: 'English' };
+
+  const UI_LANGS = ['ar','fr','en'];
+  const UI = {
+    ar: {
+      appName: 'SRT Player',
+      title: 'مشغّل SRT',
+      logo: 'مشغّل SRT',
+      lessonsTitle: 'دروسي',
+      emptyHint: 'لا توجد دروس محفوظة. اضغط على “➕” لإعداد درس جديد.',
+      newLesson: '+ درس جديد',
+      newLessonTitle: 'إعداد درس جديد',
+      setupTitle: 'إعداد درس جديد',
+      edit: 'تعديل الدرس',
+      editTitle: 'تعديل الدرس',
+      nameLabel: 'اسم الدرس',
+      videoLabel: 'فيديو/صوت',
+      imageLabel: 'صورة الدرس (اختياري)',
+      tabSingle: 'ملف ترجمة واحد',
+      tabSeparate: 'ملفات منفصلة',
+      tabPaste: 'لصق نص',
+      mainFileLabel: 'ملف الترجمة',
+      langFrench: 'الفرنسية',
+      langArabic: 'العربية',
+      langEnglish: 'الإنجليزية',
+      pasteLabel: 'النص المؤقت',
+      singleHint: 'اختر ملف SRT/TXT واحد يحتوي على الفرنسية والعربية والإنجليزية لكل عبارة.',
+      startBtn: '▶ معاينة / بدء',
+      saveBtn: '💾 حفظ الدرس',
+      resetBtn: 'إعادة ضبط',
+      backToLessons: '← الدروس',
+      rateLabel: 'سرعة الفيديو',
+      prevTitle: 'السطر السابق (←)',
+      playTitle: 'تشغيل/إيقاف (مسافة)',
+      nextTitle: 'السطر التالي (→)',
+      fullLoopTitle: 'تكرار الفيديو كاملاً من البداية للنهاية',
+      videoLoopTitle: 'تكرار عبارة الفيديو',
+      loopAllTitle: 'تكرار النطق بالثلاث لغات',
+      speakTitle: 'نطق $lang',
+      footer: 'مشغّل SRT مصاحب للفيديو — يدعم الفرنسية والعربية والإنجليزية',
+      chooseVideoFirst: 'اختر ملف فيديو/صوت أولاً',
+      noCurrentCue: 'لا توجد عبارة حالية',
+      lessonNamePrompt: 'اسم الدرس:',
+      lessonDefaultName: 'درس $date',
+      saveSuccess: 'تم حفظ الدرس',
+      saveError: 'تعذّر حفظ الدرس',
+      updateSuccess: 'تم تحديث الدرس',
+      updateError: 'تعذّر تحديث الدرس',
+      deleteConfirm: 'هل تريد حذف هذا الدرس؟',
+      deleteSuccess: 'تم حذف الدرس',
+      deleteError: 'تعذّر حذف الدرس',
+      resetConfirm: 'هل تريد إعادة الضبط؟ سيتم مسح الملفات والنص.',
+      exitConfirm: 'هل تريد الخروج من التطبيق؟',
+      notFound: 'الدرس غير موجود',
+      loadedCues: 'تم تحميل $count عبارة',
+      renamePromptNew: 'اسم الدرس الجديد:',
+      noContent: 'لا يوجد محتوى للحفظ',
+      noCues: 'لم يتم العثور على عبارات في ملفات الترجمة',
+      chooseFiles: 'الرجاء اختيار فيديو أو ملف/نص ترجمة على الأقل',
+      readError: 'خطأ في قراءة ملف الترجمة',
+      language: 'AR',
+      languageName: 'العربية',
+      edit: 'تعديل الدرس',
+      changeImage: 'تغيير الصورة',
+      play: 'عرض',
+      delete: 'حذف',
+      status: 'العبارة $current من $total · $start - $end',
+      stopAudio: 'إيقاف الصوت',
+      readVideoError: 'تعذّر قراءة ملف الفيديو',
+      readImageError: 'تعذّر قراءة صورة الدرس',
+      unmuteAudio: 'تشغيل الصوت',
+      filterLabel: 'فلتر الفيديو',
+      changeBackground: 'تغيير الخلفية',
+      toggleBackground: 'إظهار/إخفاء الصورة',
+      filterNone: 'بدون',
+      filterGrayscale: 'أبيض وأسود',
+      filterSepia: 'سيبيا',
+      filterInvert: 'عكس الألوان',
+      filterHighContrast: 'تباين عالي',
+      filterHighBrightness: 'سطوع عالي',
+      filterCool: 'بارد',
+      filterWarm: 'دافئ',
+      filterCartoon: 'كرتون',
+      filterRotoscope: 'رسوم/Rotoscope',
+      importTitle: 'استيراد دروس JSON',
+      exportAll: 'تصدير كل الدروس',
+      actions: 'خيارات',
+      exportJson: 'مشاركة / تصدير JSON',
+      exportSrt: 'تصدير ملف SRT',
+      share: 'مشاركة / تصدير JSON',
+      importSuccess: 'تم استيراد $count درس',
+      importError: 'تعذّر استيراد الدرس',
+      importInvalid: 'ملف JSON غير صالح',
+      exportSuccess: 'تم تصدير $name',
+      exportError: 'تعذّر تصدير الدرس',
+      noLessonsToExport: 'لا توجد دروس للتصدير',
+      shareNotSupported: 'المشاركة غير مدعومة على هذا الجهاز، تم تحميل الملف'
+    },
+    fr: {
+      appName: 'SRT Player',
+      title: 'Lecteur SRT',
+      logo: 'Lecteur SRT',
+      lessonsTitle: 'Mes leçons',
+      emptyHint: 'Aucune leçon enregistrée. Appuyez sur “➕” pour créer une leçon.',
+      newLesson: '+ Nouvelle leçon',
+      newLessonTitle: 'Nouvelle leçon',
+      setupTitle: 'Configurer une nouvelle leçon',
+      edit: 'Modifier la leçon',
+      editTitle: 'Modifier la leçon',
+      nameLabel: 'Nom de la leçon',
+      videoLabel: 'Vidéo/Audio',
+      imageLabel: 'Image de la leçon (optionnel)',
+      tabSingle: 'Fichier unique',
+      tabSeparate: 'Fichiers séparés',
+      tabPaste: 'Coller le texte',
+      mainFileLabel: 'Fichier de sous-titres',
+      langFrench: 'Français',
+      langArabic: 'Arabe',
+      langEnglish: 'Anglais',
+      pasteLabel: 'Texte temporaire',
+      singleHint: 'Choisissez un fichier SRT/TXT contenant le français, l\'arabe et l\'anglais pour chaque phrase.',
+      startBtn: '▶ Aperçu / Démarrer',
+      saveBtn: '💾 Enregistrer la leçon',
+      resetBtn: 'Réinitialiser',
+      backToLessons: '← Leçons',
+      rateLabel: 'Vitesse vidéo',
+      prevTitle: 'Phrase précédente (←)',
+      playTitle: 'Lecture/Pause (espace)',
+      nextTitle: 'Phrase suivante (→)',
+      fullLoopTitle: 'Répéter la vidéo en entier',
+      videoLoopTitle: 'Répéter la phrase vidéo',
+      loopAllTitle: 'Répéter la prononciation FR→AR→EN',
+      speakTitle: 'Prononcer $lang',
+      footer: 'Lecteur SRT accompagnateur vidéo — supporte FR, AR et EN.',
+      chooseVideoFirst: 'Choisissez d\'abord un fichier vidéo/audio.',
+      noCurrentCue: 'Aucune phrase active',
+      lessonNamePrompt: 'Nom de la leçon :',
+      lessonDefaultName: 'Leçon du $date',
+      saveSuccess: 'Leçon enregistrée',
+      saveError: 'Échec de l\'enregistrement',
+      updateSuccess: 'Leçon mise à jour',
+      updateError: 'Échec de la mise à jour',
+      deleteConfirm: 'Supprimer cette leçon ?',
+      deleteSuccess: 'Leçon supprimée',
+      deleteError: 'Échec de la suppression',
+      resetConfirm: 'Réinitialiser ? Les fichiers et le texte seront effacés.',
+      exitConfirm: 'Quitter l\'application ?',
+      notFound: 'Leçon introuvable',
+      loadedCues: '$count phrases chargées',
+      renamePromptNew: 'Nouveau nom de la leçon :',
+      noContent: 'Aucun contenu à enregistrer',
+      noCues: 'Aucune phrase trouvée dans les fichiers de sous-titres',
+      chooseFiles: 'Veuillez choisir une vidéo ou un fichier/texte de sous-titres.',
+      readError: 'Erreur de lecture du fichier de sous-titres',
+      language: 'FR',
+      languageName: 'Français',
+      edit: 'Modifier la leçon',
+      changeImage: 'Changer l\'image',
+      play: 'Lire',
+      delete: 'Supprimer',
+      status: 'Phrase $current sur $total · $start - $end',
+      stopAudio: 'Arrêter l\'audio',
+      readVideoError: 'Échec de la lecture de la vidéo',
+      readImageError: 'Échec de la lecture de l\'image',
+      unmuteAudio: 'Réactiver l\'audio',
+      filterLabel: 'Filtre vidéo',
+      changeBackground: 'Changer l’arrière-plan',
+      toggleBackground: 'Afficher/masquer l’image',
+      filterNone: 'Aucun',
+      filterGrayscale: 'Noir et blanc',
+      filterSepia: 'Sépia',
+      filterInvert: 'Inverser',
+      filterHighContrast: 'Contraste élevé',
+      filterHighBrightness: 'Luminosité élevée',
+      filterCool: 'Froid',
+      filterWarm: 'Chaud',
+      filterCartoon: 'Dessin animé',
+      filterRotoscope: 'Rotoscope',
+      importTitle: 'Importer des leçons JSON',
+      exportAll: 'Exporter toutes les leçons',
+      actions: 'Options',
+      exportJson: 'Partager / exporter JSON',
+      exportSrt: 'Exporter SRT',
+      share: 'Partager / exporter JSON',
+      importSuccess: '$count leçon(s) importée(s)',
+      importError: 'Échec de l\'importation',
+      importInvalid: 'Fichier JSON invalide',
+      exportSuccess: '$name exporté',
+      exportError: 'Échec de l\'export',
+      noLessonsToExport: 'Aucune leçon à exporter',
+      shareNotSupported: 'Partage non supporté, fichier téléchargé'
+    },
+    en: {
+      appName: 'SRT Player',
+      title: 'SRT Player',
+      logo: 'SRT Player',
+      lessonsTitle: 'My lessons',
+      emptyHint: 'No saved lessons. Press “➕” to set up a new lesson.',
+      newLesson: '+ New lesson',
+      newLessonTitle: 'Set up a new lesson',
+      setupTitle: 'Set up a new lesson',
+      edit: 'Edit lesson',
+      editTitle: 'Edit lesson',
+      nameLabel: 'Lesson name',
+      videoLabel: 'Video/Audio',
+      imageLabel: 'Lesson image (optional)',
+      tabSingle: 'Single subtitle file',
+      tabSeparate: 'Separate files',
+      tabPaste: 'Paste text',
+      mainFileLabel: 'Subtitle file',
+      langFrench: 'French',
+      langArabic: 'Arabic',
+      langEnglish: 'English',
+      pasteLabel: 'Temporary text',
+      singleHint: 'Choose one SRT/TXT file containing French, Arabic and English for each phrase.',
+      startBtn: '▶ Preview / Start',
+      saveBtn: '💾 Save lesson',
+      resetBtn: 'Reset',
+      backToLessons: '← Lessons',
+      rateLabel: 'Video speed',
+      prevTitle: 'Previous phrase (←)',
+      playTitle: 'Play/Pause (space)',
+      nextTitle: 'Next phrase (→)',
+      fullLoopTitle: 'Repeat whole video',
+      videoLoopTitle: 'Repeat video phrase',
+      loopAllTitle: 'Repeat pronunciation FR→AR→EN',
+      speakTitle: 'Speak $lang',
+      footer: 'SRT video companion player — supports FR, AR and EN.',
+      chooseVideoFirst: 'Choose a video/audio file first.',
+      noCurrentCue: 'No active phrase',
+      lessonNamePrompt: 'Lesson name:',
+      lessonDefaultName: 'Lesson $date',
+      saveSuccess: 'Lesson saved',
+      saveError: 'Failed to save lesson',
+      updateSuccess: 'Lesson updated',
+      updateError: 'Failed to update lesson',
+      deleteConfirm: 'Delete this lesson?',
+      deleteSuccess: 'Lesson deleted',
+      deleteError: 'Failed to delete lesson',
+      resetConfirm: 'Reset? Files and text will be cleared.',
+      exitConfirm: 'Exit the app?',
+      notFound: 'Lesson not found',
+      loadedCues: '$count phrases loaded',
+      renamePromptNew: 'New lesson name:',
+      noContent: 'No content to save',
+      noCues: 'No phrases found in subtitle files',
+      chooseFiles: 'Please choose a video or subtitle file/text.',
+      readError: 'Error reading subtitle file',
+      language: 'EN',
+      languageName: 'English',
+      edit: 'Edit lesson',
+      changeImage: 'Change image',
+      play: 'Play',
+      delete: 'Delete',
+      status: 'Phrase $current of $total · $start - $end',
+      stopAudio: 'Stop audio',
+      readVideoError: 'Failed to read video file',
+      readImageError: 'Failed to read image',
+      unmuteAudio: 'Unmute audio',
+      filterLabel: 'Video filter',
+      changeBackground: 'Change background',
+      toggleBackground: 'Show/hide image',
+      filterNone: 'None',
+      filterGrayscale: 'Grayscale',
+      filterSepia: 'Sepia',
+      filterInvert: 'Invert',
+      filterHighContrast: 'High contrast',
+      filterHighBrightness: 'High brightness',
+      filterCool: 'Cool',
+      filterWarm: 'Warm',
+      filterCartoon: 'Cartoon',
+      filterRotoscope: 'Rotoscope',
+      importTitle: 'Import lessons JSON',
+      exportAll: 'Export all lessons',
+      actions: 'Options',
+      exportJson: 'Share / export JSON',
+      exportSrt: 'Export SRT',
+      share: 'Share / export JSON',
+      importSuccess: '$count lesson(s) imported',
+      importError: 'Failed to import lesson',
+      importInvalid: 'Invalid JSON file',
+      exportSuccess: '$name exported',
+      exportError: 'Failed to export lesson',
+      noLessonsToExport: 'No lessons to export',
+      shareNotSupported: 'Sharing not supported, file downloaded'
+    }
+  };
+
+  function t(key, vars) {
+    const text = UI[state.uiLang] && UI[state.uiLang][key] !== undefined ? UI[state.uiLang][key] : UI.en[key] || key;
+    return vars ? text.replace(/\$([a-zA-Z0-9_]+)/g, (m, k) => vars[k] !== undefined ? vars[k] : m) : text;
+  }
+  function setUILang(lang) {
+    if (!UI[lang]) lang = 'ar';
+    state.uiLang = lang;
+    localStorage.setItem('srt_ui_lang', lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    updateUI();
+  }
+  function updateUI() {
+    document.title = t('title');
+    document.querySelectorAll('[data-t]').forEach(el => { el.textContent = t(el.dataset.t); });
+    document.querySelectorAll('[data-t-title]').forEach(el => { el.title = t(el.dataset.tTitle); });
+    btnLang.textContent = t('language');
+    renderLessons();
+    if (playerView.classList.contains('active')) updateStatus();
+    if (bubble.innerHTML) renderBubble();
+  }
+
+  // --- Utilities ---
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  }
+  function formatTime(sec) {
+    const h = Math.floor(sec/3600);
+    const m = Math.floor((sec%3600)/60);
+    const s = Math.floor(sec%60);
+    const ms = Math.round((sec%1)*1000).toString().padStart(3,'0');
+    return `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}.${ms}`;
+  }
+  function formatDuration(sec) {
+    const m = Math.floor(sec/60);
+    const s = Math.floor(sec%60).toString().padStart(2,'0');
+    return `${m}:${s}`;
+  }
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function wrapWords(text, lang) {
+    return String(text).split(/(\s+)/).map(part => {
+      if (!part.trim()) return escapeHtml(part);
+      return `<span class="word" data-lang="${lang}">${escapeHtml(part)}</span>`;
+    }).join('');
+  }
+
+  const FILTER_MAP = {
+    '': '',
+    grayscale: 'grayscale(1)',
+    sepia: 'sepia(1)',
+    invert: 'invert(1)',
+    highContrast: 'contrast(1.5)',
+    highBrightness: 'brightness(1.3)',
+    cool: 'hue-rotate(180deg) saturate(1.3)',
+    warm: 'sepia(0.4) saturate(1.3) hue-rotate(-20deg)',
+    cartoon: 'contrast(1.6) saturate(1.7) brightness(1.05) sepia(0.05) hue-rotate(3deg)',
+    rotoscope: 'grayscale(0.6) contrast(1.4) brightness(1.05) sepia(0.25)'
+  };
+  function applyFilter(v) {
+    state.filter = v || '';
+    player.style.filter = FILTER_MAP[state.filter] || '';
+    if (filterSelect) filterSelect.value = state.filter;
+  }
+  function setVideoBackground(url) {
+    if (url) {
+      bgImage.src = url;
+      bgImage.style.display = 'block';
+      player.style.visibility = 'hidden';
+      videoWrap.style.backgroundImage = '';
+      if (btnToggleBg) btnToggleBg.textContent = '🙈';
+    } else {
+      bgImage.src = '';
+      bgImage.style.display = 'none';
+      player.style.visibility = '';
+      videoWrap.style.backgroundImage = '';
+      if (btnToggleBg) btnToggleBg.textContent = '👁️';
+    }
+  }
+  function updateCaptionScale(delta) {
+    state.captionScale = Math.min(2.5, Math.max(0.6, state.captionScale + delta));
+    if (bubble) bubble.style.setProperty('--caption-scale', state.captionScale);
+  }
+  function toggleBgImage() {
+    if (!state.posterUrl && bgImage.style.display === 'none') return;
+    const showing = bgImage.style.display !== 'none';
+    if (showing) {
+      bgImage.style.display = 'none';
+      player.style.visibility = '';
+      if (btnToggleBg) btnToggleBg.textContent = '👁️';
+    } else {
+      bgImage.style.display = 'block';
+      player.style.visibility = 'hidden';
+      if (btnToggleBg) btnToggleBg.textContent = '🙈';
+    }
+  }
+  async function applyBackgroundImage(file) {
+    if (!file) return;
+    try {
+      if (state.posterUrl) { URL.revokeObjectURL(state.posterUrl); state.posterUrl = null; }
+      const url = URL.createObjectURL(file);
+      state.posterUrl = url;
+      player.poster = url;
+      setVideoBackground(url);
+      if (state.currentLessonId) {
+        const ab = await readFileAsArrayBuffer(file);
+        const imageBlob = new Blob([ab], { type: file.type || 'image/jpeg' });
+        const lesson = await getLessonById(state.currentLessonId);
+        if (lesson) {
+          lesson.imageBlob = imageBlob;
+          await saveLessonToDB(lesson);
+          showToast(t('updateSuccess'));
+        }
+      }
+    } catch (e) {
+      showToast(t('readImageError'));
+    }
+  }
+  function makeBubbleDraggable() {
+    if (!bubbleWrap) return;
+    let startY = 0, startBottom = 0, hasDragged = false;
+    const getBottom = () => { const s = getComputedStyle(bubbleWrap).bottom; return s === 'auto' ? 8 : parseFloat(s); };
+    const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+    const onStart = y => { startY = y; startBottom = getBottom(); hasDragged = false; };
+    const onMove = (y, e) => {
+      if (!startY) return;
+      const delta = y - startY;
+      if (Math.abs(delta) > 10) hasDragged = true;
+      if (!hasDragged) return;
+      if (e && e.cancelable) e.preventDefault();
+      const maxBottom = Math.max(0, videoWrap.clientHeight - bubbleWrap.offsetHeight);
+      const newBottom = clamp(startBottom - delta, 0, maxBottom);
+      bubbleWrap.style.bottom = newBottom + 'px';
+    };
+    bubbleWrap.addEventListener('touchstart', e => {
+      if (e.target.closest('.loop, .word')) return;
+      onStart(e.touches[0].clientY);
+    }, { passive: true });
+    bubbleWrap.addEventListener('touchmove', e => { onMove(e.touches[0].clientY, e); }, { passive: false });
+    bubbleWrap.addEventListener('touchend', () => { startY = 0; });
+    bubbleWrap.addEventListener('mousedown', e => {
+      if (e.target.closest('.loop, .word')) return;
+      onStart(e.clientY);
+    });
+    window.addEventListener('mousemove', e => { onMove(e.clientY, e); });
+    window.addEventListener('mouseup', () => { startY = 0; });
+  }
+
+  // --- Lessons DB ---
+  const DB_NAME = 'SrtLessonsDB', DB_VERSION = 1, STORE = 'lessons';
+  let _db = null;
+  function openLessonsDB() {
+    return new Promise((resolve, reject) => {
+      if (!window.indexedDB) { resolve(null); return; }
+      const req = indexedDB.open(DB_NAME, DB_VERSION);
+      req.onerror = () => reject(req.error);
+      req.onsuccess = () => resolve(req.result);
+      req.onupgradeneeded = e => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains(STORE)) db.createObjectStore(STORE, { keyPath: 'id' });
+      };
+    });
+  }
+  async function db() { if (!_db) _db = await openLessonsDB(); return _db; }
+  function withStore(mode, fn) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const d = await db();
+        if (!d) { resolve([]); return; }
+        const tx = d.transaction([STORE], mode);
+        const store = tx.objectStore(STORE);
+        const req = fn(store);
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      } catch (e) { reject(e); }
+    });
+  }
+  function saveLessonToDB(lesson) { return withStore('readwrite', store => store.put(lesson)); }
+  function getLessonsFromDB() { return withStore('readonly', store => store.getAll()); }
+  function getLessonById(id) { return withStore('readonly', store => store.get(id)); }
+  function deleteLessonFromDB(id) { return withStore('readwrite', store => store.delete(id)); }
+  function readFileAsArrayBuffer(file) {
+    return new Promise((resolve, reject) => {
+      const r = new FileReader();
+      r.onload = () => resolve(r.result);
+      r.onerror = reject;
+      r.readAsArrayBuffer(file);
+    });
+  }
+
+  // --- Time parsing ---
+  function parseTime(t) {
+    t = t.trim().replace(',', '.');
+    const parts = t.split(':');
+    if (parts.length === 3) {
+      const [h, m, s] = parts;
+      const [sec, ms='0'] = s.split('.');
+      return (parseInt(h,10)*3600 + parseInt(m,10)*60 + parseInt(sec,10)) + parseFloat('0.' + ms.padEnd(3,'0'));
+    }
+    if (parts.length === 2) {
+      const [m, s] = parts;
+      const [sec, ms='0'] = s.split('.');
+      return (parseInt(m,10)*60 + parseInt(sec,10)) + parseFloat('0.' + ms.padEnd(3,'0'));
+    }
+    const [sec, ms='0'] = t.split('.');
+    return parseInt(sec,10) + parseFloat('0.' + ms.padEnd(3,'0'));
+  }
+
+  function parseSrt(srt) {
+    const cues = [];
+    const blocks = srt.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split(/\n\s*\n/);
+    for (const block of blocks) {
+      const lines = block.trim().split('\n');
+      if (lines.length < 2) continue;
+      const timeLine = lines.find(l => l.includes('-->'));
+      if (!timeLine) continue;
+      const [start, end] = timeLine.split('-->').map(s => parseTime(s.trim()));
+      const textLines = lines.slice(lines.indexOf(timeLine) + 1).filter(l => l.trim());
+      if (!isNaN(start) && !isNaN(end) && textLines.length) {
+        cues.push({ start, end, text: textLines.join('\n') });
+      }
+    }
+    return cues;
+  }
+
+  function parseTimedText(text) {
+    const cues = [];
+    const rawLines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+    const timedLines = [];
+    let currentEntry = null;
+
+    function parseLineTime(line) {
+      let m = line.match(/^\[(?:(\d{1,2}):)?(?:(\d{1,2}):)?(\d{1,2})(?:[.,](\d{1,3}))?\]\s*(.*)$/);
+      if (m) {
+        const parts = [m[1], m[2], m[3]].filter(Boolean);
+        const timeStr = parts.join(':') + (m[4] ? '.' + m[4] : '');
+        return { start: parseTime(timeStr), text: m[5].trim() };
+      }
+      m = line.match(/^((?:\d{1,2}:)?(?:\d{1,2}:)?\d{1,2}(?:[.,]\d{1,3})?)\s*-->?\s*((?:\d{1,2}:)?(?:\d{1,2}:)?\d{1,2}(?:[.,]\d{1,3})?)\s*(.*)$/);
+      if (m) return { start: parseTime(m[1]), end: parseTime(m[2]), text: m[3].trim() };
+      m = line.match(/^(\d{1,2}):(\d{2}):(\d{2})(?:[.,](\d{1,3}))?\s+(.+)$/);
+      if (m) {
+        const start = parseInt(m[1],10)*3600 + parseInt(m[2],10)*60 + parseInt(m[3],10) + (m[4] ? parseFloat('0.' + m[4].padEnd(3,'0')) : 0);
+        return { start, text: m[5].trim() };
+      }
+      m = line.match(/^(\d{1,2}):(\d{2})(?:[.,](\d{1,3}))?\s+(.+)$/);
+      if (m) {
+        const start = parseInt(m[1],10)*60 + parseInt(m[2],10) + (m[3] ? parseFloat('0.' + m[3].padEnd(3,'0')) : 0);
+        return { start, text: m[4].trim() };
+      }
+      return null;
+    }
+
+    for (const raw of rawLines) {
+      const line = raw.trim();
+      if (!line) continue;
+      const parsed = parseLineTime(line);
+      if (parsed) {
+        if (currentEntry) timedLines.push(currentEntry);
+        currentEntry = { start: parsed.start, end: parsed.end, text: parsed.text };
+      } else if (currentEntry) {
+        currentEntry.text += '\n' + line;
+      }
+    }
+    if (currentEntry) timedLines.push(currentEntry);
+
+    for (let i = 0; i < timedLines.length; i++) {
+      const entry = timedLines[i];
+      let end = entry.end;
+      if (end === undefined || isNaN(end)) {
+        const nextStart = timedLines[i+1] ? timedLines[i+1].start : null;
+        end = (nextStart && nextStart > entry.start) ? nextStart : entry.start + 4;
+      }
+      cues.push({ start: entry.start, end, text: entry.text });
+    }
+    for (let i = 0; i < cues.length - 1; i++) {
+      if (cues[i].end > cues[i+1].start) cues[i].end = cues[i+1].start;
+      if (cues[i].end <= cues[i].start) cues[i].end = cues[i].start + 1.5;
+    }
+    return cues;
+  }
+
+  function isSrtFormat(text) {
+    const blocks = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split(/\n\s*\n/);
+    return blocks.some(b => /^\s*\d+\s*\n\d{1,2}:\d{2}:\d{2}[,.]\d{1,3}\s*-->\s*\d{1,2}:\d{2}:\d{2}[,.]\d{1,3}/.test(b.trim()));
+  }
+
+  function isFlagFormat(text) {
+    return /^\p{Regional_Indicator}{2}/mu.test(text);
+  }
+
+  const FLAG_LANG_MAP = {
+    '🇫🇷':'fr','🇧🇪':'fr','🇨🇭':'fr','🇨🇦':'fr',
+    '🇸🇦':'ar','🇪🇬':'ar','🇸🇾':'ar','🇩🇿':'ar','🇮🇶':'ar','🇯🇴':'ar','🇱🇧':'ar','🇱🇾':'ar','🇲🇦':'ar','🇴🇲':'ar','🇵🇸':'ar','🇶🇦':'ar','🇸🇩':'ar','🇹🇳':'ar','🇦🇪':'ar','🇾🇪':'ar','🇰🇼':'ar','🇧🇭':'ar',
+    '🇬🇧':'en','🇺🇸':'en','🇦🇺':'en','🇮🇪':'en','🇳🇿':'en','🇿🇦':'en','🇮🇳':'en','🇵🇭':'en'
+  };
+
+  function detectLangFromText(text) {
+    if (/[\u0600-\u06FF]/.test(text)) return 'ar';
+    if (/[àâçéèêëïîôùûüœÀÂÇÉÈÊËÏÎÔÙÛÜŒ]/.test(text)) return 'fr';
+    if (/[a-zA-Z]/.test(text)) return 'en';
+    return 'fr';
+  }
+
+  function parseFlagLine(line) {
+    const m = line.match(/^(\p{Regional_Indicator}{2})\s*(.*)$/u);
+    if (!m) return null;
+    const flag = m[1];
+    const text = m[2].trim();
+    const lang = FLAG_LANG_MAP[flag] || detectLangFromText(text);
+    return { lang, text };
+  }
+
+  function parseFlagFormat(text) {
+    const cues = [];
+    const blocks = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split(/\n\s*\n/);
+    for (const block of blocks) {
+      const lines = block.trim().split('\n').filter(l => l.trim());
+      if (lines.length < 2) continue;
+      const start = parseTime(lines[0].trim());
+      if (isNaN(start)) continue;
+      const langLines = [];
+      for (let i = 1; i < lines.length; i++) {
+        const parsed = parseFlagLine(lines[i].trim());
+        if (parsed) langLines.push(parsed);
+      }
+      if (langLines.length === 0) continue;
+      cues.push({ start, end: null, lines: langLines });
+    }
+    for (let i = 0; i < cues.length; i++) {
+      if (cues[i].end === null || isNaN(cues[i].end)) {
+        const nextStart = cues[i+1] ? cues[i+1].start : null;
+        cues[i].end = (nextStart && nextStart > cues[i].start) ? nextStart : cues[i].start + 4;
+      }
+    }
+    for (let i = 0; i < cues.length - 1; i++) {
+      if (cues[i].end > cues[i+1].start) cues[i].end = cues[i+1].start;
+      if (cues[i].end <= cues[i].start) cues[i].end = cues[i].start + 1.5;
+    }
+    return cues;
+  }
+
+  function isBlockFormat(text) {
+    const blocks = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split(/\n\s*\n/);
+    return blocks.some(b => {
+      const lines = b.trim().split('\n').filter(Boolean);
+      if (lines.length < 2) return false;
+      return /^\d{1,2}:\d{2}$/.test(lines[0].trim());
+    });
+  }
+
+  function computeCueEnds(cues) {
+    for (let i = 0; i < cues.length; i++) {
+      if (cues[i].end === null || cues[i].end === undefined || isNaN(cues[i].end)) {
+        const nextStart = cues[i+1] ? cues[i+1].start : null;
+        cues[i].end = (nextStart && nextStart > cues[i].start) ? nextStart : cues[i].start + 4;
+      }
+    }
+    for (let i = 0; i < cues.length - 1; i++) {
+      if (cues[i].end > cues[i+1].start) cues[i].end = cues[i+1].start;
+      if (cues[i].end <= cues[i].start) cues[i].end = cues[i].start + 1.5;
+    }
+  }
+
+  function parseBlockFormat(text) {
+    const cues = [];
+    const blocks = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split(/\n\s*\n/);
+    for (const block of blocks) {
+      const lines = block.trim().split('\n').map(l => l.trim()).filter(Boolean);
+      if (lines.length < 2) continue;
+      const start = parseTime(lines[0]);
+      if (isNaN(start)) continue;
+      const cueText = lines.slice(1).join('\n');
+      const langLines = getCueTexts({ text: cueText });
+      if (langLines.length === 0) continue;
+      cues.push({ start, end: null, lines: langLines });
+    }
+    computeCueEnds(cues);
+    return cues;
+  }
+
+  function parseSubtitle(text) {
+    if (isSrtFormat(text)) return parseSrt(text);
+    if (isFlagFormat(text)) return parseFlagFormat(text);
+    if (isBlockFormat(text)) return parseBlockFormat(text);
+    return parseTimedText(text);
+  }
+
+  function getCueTexts(cue) {
+    const lines = cue.text.split('\n').map(l => l.trim()).filter(Boolean);
+    const arLines = lines.filter(l => /[\u0600-\u06FF]/.test(l));
+    const nonArLines = lines.filter(l => !/[\u0600-\u06FF]/.test(l));
+    const result = [];
+    let nonArIdx = 0;
+    for (const lang of LANG_ORDER) {
+      if (lang === 'ar') {
+        if (arLines.length) result.push({ lang, text: arLines.shift() });
+      } else if (nonArIdx < nonArLines.length) {
+        result.push({ lang, text: nonArLines[nonArIdx++] });
+      }
+    }
+    arLines.forEach(text => result.push({ lang: 'ar', text }));
+    nonArLines.slice(nonArIdx).forEach((text, i) => {
+      const remaining = LANG_ORDER.filter(l => l !== 'ar' && !result.some(r => r.lang === l));
+      result.push({ lang: remaining[i] || 'fr', text });
+    });
+    return result;
+  }
+
+  // --- Cue building ---
+  function buildCues(frCues, arCues, enCues) {
+    // If separate SRT files: union all start times and pick matching text per language.
+    const allStarts = new Set();
+    const add = cues => cues.forEach(c => { allStarts.add(c.start); });
+    add(frCues); add(arCues); add(enCues);
+    if (allStarts.size === 0 && frCues.length) {
+      // Single file mode: already parsed as frCues; derive texts per cue
+      return frCues.map(c => ({ start: c.start, end: c.end, lines: getCueTexts(c) }));
+    }
+    const times = Array.from(allStarts).sort((a,b) => a-b);
+    const find = (cues, t) => cues.find(c => t >= c.start && t < c.end) || cues.find(c => Math.abs(c.start - t) < 0.05);
+    return times.map(t => {
+      const fr = find(frCues, t), ar = find(arCues, t), en = find(enCues, t);
+      const lines = [];
+      if (fr && fr.text.trim()) lines.push({ lang: 'fr', text: fr.text.trim() });
+      if (ar && ar.text.trim()) lines.push({ lang: 'ar', text: ar.text.trim() });
+      if (en && en.text.trim()) lines.push({ lang: 'en', text: en.text.trim() });
+      const end = (fr && fr.end) || (ar && ar.end) || (en && en.end) || t + 2;
+      return { start: t, end, lines };
+    });
+  }
+
+  // --- TTS ---
+  function isCapacitor() {
+    return typeof window !== 'undefined' && window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform();
+  }
+  function ttsStop() {
+    if (state.ttsChain) { clearTimeout(state.ttsChain); state.ttsChain = null; }
+    if (isCapacitor()) {
+      const plugin = window.Capacitor.Plugins.TextToSpeech;
+      if (plugin) plugin.stop().catch(()=>{});
+    } else if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+  }
+  function ttsSpeak({ text, lang, onend }) {
+    const ttsLang = lang === 'ar' ? 'ar-SA' : (lang === 'fr' ? 'fr-FR' : 'en-US');
+    if (isCapacitor()) {
+      const plugin = window.Capacitor.Plugins.TextToSpeech;
+      if (!plugin) { if (onend) onend(); return; }
+      plugin.stop().catch(()=>{})
+        .then(() => plugin.speak({ text, lang: ttsLang, rate: 1.0, pitch: 1.0, volume: 1.0, category: 'playback' }))
+        .then(() => { if (onend) onend(); })
+        .catch(() => { if (onend) onend(); });
+    } else if ('speechSynthesis' in window) {
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = ttsLang;
+      u.onend = onend;
+      u.onerror = () => { if (onend) onend(); };
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(u);
+    } else if (onend) {
+      onend();
+    }
+  }
+
+  function getCurrentCue() {
+    return state.cues[state.currentIndex];
+  }
+
+  function getCurrentLine(lang) {
+    const cue = getCurrentCue();
+    return cue ? (cue.lines.find(l => l.lang === lang) || cue.lines[0]) : null;
+  }
+
+  function startLoopLang(lang) {
+    stopAllLoops();
+    state.loopLang = lang;
+    updateButtons();
+    const myToken = state.loopToken;
+    const doSpeak = () => {
+      if (state.loopLang !== lang || state.loopToken !== myToken) return;
+      const line = getCurrentLine(lang);
+      if (!line || !line.text) { state.ttsChain = setTimeout(doSpeak, 500); return; }
+      ttsSpeak({ text: line.text, lang: line.lang, onend: () => {
+        if (state.loopLang !== lang || state.loopToken !== myToken) return;
+        state.ttsChain = setTimeout(doSpeak, 600);
+      }});
+    };
+    doSpeak();
+  }
+
+  function toggleLoopLang(lang) {
+    if (state.loopLang === lang) { stopAllLoops(); return; }
+    startLoopLang(lang);
+  }
+
+  function startLoopAll() {
+    stopAllLoops();
+    state.loopAll = true;
+    updateButtons();
+    const myToken = state.loopToken;
+    const available = () => {
+      const cue = getCurrentCue();
+      return cue ? LANG_ORDER.map(l => cue.lines.find(x => x.lang === l)).filter(Boolean) : [];
+    };
+    const doCycle = (idx) => {
+      if (!state.loopAll || state.loopToken !== myToken) return;
+      const lines = available();
+      if (!lines.length) { state.ttsChain = setTimeout(() => doCycle(0), 500); return; }
+      const i = idx % lines.length;
+      ttsSpeak({ text: lines[i].text, lang: lines[i].lang, onend: () => {
+        if (!state.loopAll || state.loopToken !== myToken) return;
+        state.ttsChain = setTimeout(() => doCycle(i+1), 800);
+      }});
+    };
+    doCycle(0);
+  }
+
+  function toggleLoopAll() {
+    if (state.loopAll) { stopAllLoops(); return; }
+    startLoopAll();
+  }
+
+  function startWordLoop(word, lang, el) {
+    if (!word || !lang) return;
+    if (state.wordLoopEl === el) { stopAllLoops(); return; }
+    stopAllLoops();
+    if (state.wordLoopEl) state.wordLoopEl.classList.remove('active');
+    state.wordLoopEl = el;
+    if (el) el.classList.add('active');
+    const myToken = state.loopToken;
+    const speak = () => {
+      if (state.loopToken !== myToken) { if (state.wordLoopEl) state.wordLoopEl.classList.remove('active'); return; }
+      ttsSpeak({ text: word, lang, onend: () => {
+        if (state.loopToken !== myToken) { if (state.wordLoopEl) state.wordLoopEl.classList.remove('active'); return; }
+        state.ttsChain = setTimeout(speak, 700);
+      }});
+    };
+    speak();
+  }
+
+  function applyVideoLoop() { player.loop = state.fullVideoLoop; }
+
+  function toggleFullVideoLoop() {
+    if (!player.src && !videoFile.files[0]) { showToast(t('chooseVideoFirst')); return; }
+    state.fullVideoLoop = !state.fullVideoLoop;
+    applyVideoLoop();
+    updateButtons();
+  }
+
+  function toggleVideoLoop() {
+    const cue = getCurrentCue();
+    if (!cue) { showToast(t('noCurrentCue')); return; }
+    if (!player.src && !videoFile.files[0]) { showToast(t('chooseVideoFirst')); return; }
+    if (state.videoLoop) { state.videoLoop = false; state.loopStart = 0; state.loopEnd = 0; updateButtons(); return; }
+    state.videoLoop = true;
+    state.loopStart = cue.start;
+    state.loopEnd = cue.end;
+    updateButtons();
+    player.currentTime = cue.start;
+    player.play().catch(()=>{});
+  }
+
+  function stopTTSLoops() {
+    state.loopAll = false;
+    state.loopLang = null;
+    state.loopToken++;
+    ttsStop();
+    updateButtons();
+  }
+  function stopAllLoops() {
+    stopTTSLoops();
+    state.videoLoop = false;
+    state.loopStart = 0;
+    state.loopEnd = 0;
+    if (state.wordLoopEl) { state.wordLoopEl.classList.remove('active'); state.wordLoopEl = null; }
+    updateButtons();
+  }
+  function toggleMute() {
+    state.muted = !state.muted;
+    player.muted = state.muted;
+    if (state.muted) stopAllLoops();
+    updateButtons();
+  }
+
+  // --- UI ---
+  function updateButtons() {
+    btnLoopAll.classList.toggle('active', state.loopAll);
+    btnFullLoop.classList.toggle('active', state.fullVideoLoop);
+    btnVideoLoop.classList.toggle('active', state.videoLoop);
+    document.querySelectorAll('.lang-line .loop').forEach(btn => {
+      const l = btn.dataset.lang;
+      btn.classList.toggle('active', state.loopLang === l);
+    });
+    if (btnStop) {
+      btnStop.textContent = state.muted ? '🔊' : '🔇';
+      btnStop.title = t(state.muted ? 'unmuteAudio' : 'stopAudio');
+    }
+  }
+
+  function renderBubble() {
+    const cue = getCurrentCue();
+    if (!cue) {
+      bubble.innerHTML = '';
+      return;
+    }
+    bubble.style.setProperty('--caption-scale', state.captionScale);
+    bubble.innerHTML = cue.lines.map(line => `
+      <div class="lang-line ${line.lang}" dir="${line.lang === 'ar' ? 'rtl' : 'ltr'}">
+        <div class="lang-line-header">
+          <span class="badge">${LANG_LABELS[line.lang]}</span>
+          <button class="loop" data-lang="${line.lang}" title="${escapeHtml(t('speakTitle', {lang: LANG_NAMES[line.lang]}))}" aria-label="${escapeHtml(t('speakTitle', {lang: LANG_NAMES[line.lang]}))}">🔊</button>
+        </div>
+        <div class="lang-text">${wrapWords(line.text, line.lang)}</div>
+      </div>
+    `).join('');
+    bubble.querySelectorAll('.lang-line .loop').forEach(btn => {
+      btn.addEventListener('click', e => { e.stopPropagation(); toggleLoopLang(btn.dataset.lang); });
+    });
+    bubble.querySelectorAll('.word').forEach(w => {
+      w.addEventListener('click', e => { e.stopPropagation(); startWordLoop(w.textContent.trim(), w.dataset.lang, w); });
+    });
+  }
+
+  function updateStatus() {
+    const cue = getCurrentCue();
+    if (!cue) { statusEl.textContent = ''; return; }
+    statusEl.textContent = t('status', {current: state.currentIndex + 1, total: state.cues.length, start: formatDuration(cue.start), end: formatDuration(cue.end)});
+  }
+
+  function setCurrentByTime(t) {
+    if (!state.cues.length) return -1;
+    const idx = state.cues.findIndex(c => t >= c.start && t < c.end);
+    if (idx >= 0 && idx !== state.currentIndex) {
+      state.currentIndex = idx;
+      renderBubble();
+      updateStatus();
+    }
+    return state.currentIndex;
+  }
+
+  function goToCue(i) {
+    if (!state.cues.length || i < 0 || i >= state.cues.length) return;
+    if (state.wordLoopEl) { state.wordLoopEl.classList.remove('active'); state.wordLoopEl = null; state.loopToken++; ttsStop(); }
+    state.currentIndex = i;
+    const cue = state.cues[i];
+    state.pendingSeek = cue.start;
+    if (player.src) player.currentTime = cue.start;
+    if (state.isPlaying) player.play().catch(()=>{});
+    renderBubble();
+    updateStatus();
+    updateProgress();
+    if (state.videoLoop) { state.loopStart = cue.start; state.loopEnd = cue.end; }
+    if (state.loopAll) startLoopAll();
+    else if (state.loopLang) startLoopLang(state.loopLang);
+  }
+
+  function prevCue() { if (state.currentIndex > 0) goToCue(state.currentIndex - 1); }
+  function nextCue() { if (state.currentIndex < state.cues.length - 1) goToCue(state.currentIndex + 1); }
+  function togglePlay() { if (player.paused) player.play(); else player.pause(); }
+
+  function updateProgress() {
+    if (!state.duration) return;
+    progress.value = player.currentTime;
+    currentTimeEl.textContent = formatDuration(player.currentTime);
+  }
+
+  function showView(viewName) {
+    [lessonsView, setupView, playerView].forEach(v => v.classList.remove('active'));
+    if (viewName === 'lessons') lessonsView.classList.add('active');
+    else if (viewName === 'setup') setupView.classList.add('active');
+    else if (viewName === 'player') playerView.classList.add('active');
+    if (viewName !== 'player') stopAllLoops();
+  }
+
+  function attachPlayerEvents() {
+    player.onloadedmetadata = () => {
+      state.duration = player.duration || 0;
+      player.playbackRate = state.playbackRate;
+      applyFilter(state.filter);
+      applyVideoLoop();
+      progress.max = state.duration;
+      durationEl.textContent = formatDuration(state.duration);
+      videoWrap.style.aspectRatio = '';
+      if (state.cues.length && state.duration) {
+        const last = state.cues[state.cues.length - 1];
+        if (last.end > state.duration) last.end = state.duration;
+        for (let i = 0; i < state.cues.length - 1; i++) {
+          if (state.cues[i].end > state.cues[i+1].start) state.cues[i].end = state.cues[i+1].start;
+        }
+      }
+      if (state.pendingSeek !== null && player.src) {
+        player.currentTime = state.pendingSeek;
+        state.pendingSeek = null;
+      }
+    };
+    player.ontimeupdate = () => {
+      setCurrentByTime(player.currentTime);
+      updateProgress();
+      if (state.videoLoop && !player.paused && player.currentTime >= state.loopEnd - 0.05) {
+        player.currentTime = state.loopStart;
+      }
+    };
+    player.onplay = () => { state.isPlaying = true; btnPlay.textContent = '⏸'; };
+    player.onpause = () => { state.isPlaying = false; btnPlay.textContent = '▶'; };
+    player.onended = () => { state.isPlaying = false; btnPlay.textContent = '▶'; };
+    progress.oninput = () => {
+      player.currentTime = parseFloat(progress.value);
+      setCurrentByTime(player.currentTime);
+      updateProgress();
+    };
+  }
+
+  async function loadCues() {
+    if (!videoFile.files[0] && !srtMain.files[0] && !srtFr.files[0] && !srtAr.files[0] && !srtEn.files[0] && !srtPaste.value.trim()) {
+      showToast(t('chooseFiles'));
+      return false;
+    }
+    stopAllLoops();
+    state.cues = [];
+    state.currentIndex = -1;
+    let frCues = [], arCues = [], enCues = [];
+    try {
+      if (srtMain.files[0]) {
+        const text = await readFile(srtMain.files[0]);
+        frCues = parseSubtitle(text);
+      } else if (srtFr.files[0]) {
+        const text = await readFile(srtFr.files[0]);
+        frCues = parseSubtitle(text);
+      } else if (srtPaste.value.trim()) {
+        frCues = parseSubtitle(srtPaste.value.trim());
+      }
+      if (srtAr.files[0]) {
+        const text = await readFile(srtAr.files[0]);
+        arCues = parseSubtitle(text);
+      }
+      if (srtEn.files[0]) {
+        const text = await readFile(srtEn.files[0]);
+        enCues = parseSubtitle(text);
+      }
+    } catch (e) {
+      showToast(t('readError'));
+      return false;
+    }
+    const activeSource = frCues.length ? 'fr' : (arCues.length ? 'ar' : (enCues.length ? 'en' : null));
+    const sourceCues = activeSource === 'fr' ? frCues : (activeSource === 'ar' ? arCues : enCues);
+    const onlyOneSource = [frCues, arCues, enCues].filter(arr => arr.length).length === 1;
+    if (activeSource && onlyOneSource) {
+      if (sourceCues[0] && sourceCues[0].lines) {
+        state.cues = sourceCues.map(c => ({ start: c.start, end: c.end, lines: c.lines }));
+      } else {
+        const hasAr = sourceCues.some(c => /[\u0600-\u06FF]/.test(c.text));
+        const hasNonAr = sourceCues.some(c => c.text.split('\n').some(l => !/[\u0600-\u06FF]/.test(l) && l.trim()));
+        if (hasAr && hasNonAr) {
+          state.cues = sourceCues.map(c => ({ start: c.start, end: c.end, lines: getCueTexts(c) }));
+        } else {
+          state.cues = sourceCues.map(c => ({ start: c.start, end: c.end, lines: [{ lang: activeSource, text: c.text.replace(/\n+/g, ' ').trim() }] }));
+        }
+      }
+    } else {
+      state.cues = buildCues(frCues, arCues, enCues);
+    }
+    const editVideoBlob = state.editingLesson ? state.editingLesson.videoBlob : null;
+    const editImageBlob = state.editingLesson ? state.editingLesson.imageBlob : null;
+    if (!state.cues.length && !videoFile.files[0] && !editVideoBlob) {
+      showToast(t('noCues'));
+      return false;
+    }
+    controls.style.display = (state.cues.length || videoFile.files[0] || editVideoBlob) ? 'flex' : 'none';
+    progress.max = 0;
+    currentTimeEl.textContent = '00:00';
+    durationEl.textContent = '00:00';
+    if (state.videoUrl) {
+      URL.revokeObjectURL(state.videoUrl);
+      state.videoUrl = null;
+    }
+    if (state.posterUrl) {
+      URL.revokeObjectURL(state.posterUrl);
+      state.posterUrl = null;
+    }
+    const newVideoFile = videoFile.files[0];
+    const newImageFile = lessonImage.files[0];
+    const videoSource = newVideoFile || editVideoBlob;
+    const imageSource = newImageFile || editImageBlob;
+    const hasVideo = !!videoSource;
+    const hasImage = !!imageSource;
+    if (hasVideo) {
+      state.videoUrl = URL.createObjectURL(videoSource);
+      player.src = state.videoUrl;
+      player.muted = state.muted;
+    } else {
+      player.src = '';
+    }
+    if (hasImage) {
+      state.posterUrl = URL.createObjectURL(imageSource);
+      player.poster = state.posterUrl;
+    } else {
+      player.poster = '';
+    }
+    setVideoBackground(hasImage ? state.posterUrl : null);
+    videoWrap.style.display = (hasVideo || hasImage) ? 'block' : 'none';
+    if (bubbleWrap) bubbleWrap.style.bottom = '';
+    attachPlayerEvents();
+    if (state.cues.length) goToCue(0);
+    return true;
+  }
+
+  async function start() {
+    state.currentLessonId = null;
+    const ok = await loadCues();
+    if (!ok) return;
+    showToast(t('loadedCues', {count: state.cues.length}));
+    showView('player');
+  }
+
+  async function saveLesson() {
+    const ok = await loadCues();
+    if (!ok) return;
+    const editVideoBlob = state.editingLesson ? state.editingLesson.videoBlob : null;
+    const editImageBlob = state.editingLesson ? state.editingLesson.imageBlob : null;
+    if (!state.cues.length && !videoFile.files[0] && !editVideoBlob) {
+      showToast(t('noContent'));
+      return;
+    }
+    const dateLocale = state.uiLang === 'ar' ? 'ar-EG' : state.uiLang === 'fr' ? 'fr-FR' : 'en-US';
+    const defaultName = new Date().toLocaleDateString(dateLocale);
+    let name = lessonName.value.trim();
+    if (!name) name = prompt(t('lessonNamePrompt'), t('lessonDefaultName', {date: defaultName})) || t('lessonDefaultName', {date: defaultName});
+    let videoBlob = null, imageBlob = null;
+    if (videoFile.files[0]) {
+      try {
+        const ab = await readFileAsArrayBuffer(videoFile.files[0]);
+        videoBlob = new Blob([ab], { type: videoFile.files[0].type || 'video/mp4' });
+      } catch (e) { showToast(t('readVideoError')); return; }
+    } else if (editVideoBlob) {
+      videoBlob = editVideoBlob;
+    }
+    if (lessonImage.files[0]) {
+      try {
+        const ab = await readFileAsArrayBuffer(lessonImage.files[0]);
+        imageBlob = new Blob([ab], { type: lessonImage.files[0].type || 'image/jpeg' });
+      } catch (e) { showToast(t('readImageError')); }
+    } else if (editImageBlob) {
+      imageBlob = editImageBlob;
+    }
+    let lesson;
+    if (state.editingLessonId && state.editingLesson) {
+      lesson = { ...state.editingLesson, name, cues: state.cues, videoBlob, imageBlob };
+    } else {
+      lesson = { id: Date.now().toString(36), name, createdAt: Date.now(), cues: state.cues, videoBlob, imageBlob };
+    }
+    state.currentLessonId = lesson.id;
+    state.editingLessonId = null;
+    state.editingLesson = null;
+    try {
+      await saveLessonToDB(lesson);
+      showToast(t('saveSuccess'));
+      await renderLessons();
+      showView('lessons');
+    } catch (e) { showToast(t('saveError')); }
+  }
+
+  async function loadLesson(id) {
+    stopAllLoops();
+    const lesson = await getLessonById(id);
+    if (!lesson) { showToast(t('notFound')); return; }
+    state.currentLessonId = lesson.id;
+    if (state.videoUrl) { URL.revokeObjectURL(state.videoUrl); state.videoUrl = null; }
+    if (state.posterUrl) { URL.revokeObjectURL(state.posterUrl); state.posterUrl = null; }
+    state.cues = lesson.cues || [];
+    state.currentIndex = -1;
+    const hasVideo = !!lesson.videoBlob;
+    const hasImage = !!lesson.imageBlob;
+    if (hasVideo) {
+      state.videoUrl = URL.createObjectURL(lesson.videoBlob);
+      player.src = state.videoUrl;
+      player.muted = state.muted;
+    } else {
+      player.src = '';
+    }
+    if (hasImage) {
+      state.posterUrl = URL.createObjectURL(lesson.imageBlob);
+      player.poster = state.posterUrl;
+    } else {
+      player.poster = '';
+    }
+    setVideoBackground(hasImage ? state.posterUrl : null);
+    videoWrap.style.display = (hasVideo || hasImage) ? 'block' : 'none';
+    if (bubbleWrap) bubbleWrap.style.bottom = '';
+    attachPlayerEvents();
+    controls.style.display = (state.cues.length || lesson.videoBlob) ? 'flex' : 'none';
+    lessonTitle.textContent = lesson.name;
+    showView('player');
+    if (state.cues.length) goToCue(0);
+  }
+
+  async function renderLessons() {
+    let lessons = [];
+    try { lessons = await getLessonsFromDB(); } catch (e) {}
+    state.thumbUrls.forEach(u => URL.revokeObjectURL(u));
+    state.thumbUrls = [];
+    if (!lessons || !lessons.length) {
+      lessonsList.innerHTML = `<p class="empty-hint" data-t="emptyHint">${escapeHtml(t('emptyHint'))}</p>`;
+      return;
+    }
+    const dateLocale = state.uiLang === 'ar' ? 'ar-EG' : state.uiLang === 'fr' ? 'fr-FR' : 'en-US';
+    lessonsList.innerHTML = lessons.sort((a,b) => b.createdAt - a.createdAt).map(l => {
+      let thumb = '';
+      if (l.imageBlob) {
+        const url = URL.createObjectURL(l.imageBlob);
+        state.thumbUrls.push(url);
+        thumb = `<img src="${url}" class="lesson-thumb" alt="">`;
+      }
+      return `
+      <div class="lesson-card" data-id="${l.id}">
+        ${thumb}
+        <div class="lesson-info">
+          <div class="title">${escapeHtml(l.name)}</div>
+          <div class="date">${new Date(l.createdAt).toLocaleString(dateLocale)}</div>
+        </div>
+        <div class="lesson-menu">
+          <button class="icon-btn menu-toggle" data-id="${l.id}" title="${escapeHtml(t('actions'))}">⋮</button>
+          <div class="menu-dropdown" data-menu="${l.id}">
+            <button class="menu-item" data-action="edit" data-id="${l.id}"><span class="menu-icon">✏️</span> ${escapeHtml(t('edit'))}</button>
+            <button class="menu-item" data-action="image" data-id="${l.id}"><span class="menu-icon">🖼️</span> ${escapeHtml(t('changeImage'))}</button>
+            <button class="menu-item" data-action="share" data-id="${l.id}"><span class="menu-icon">⬆️</span> ${escapeHtml(t('exportJson'))}</button>
+            <button class="menu-item" data-action="export-srt" data-id="${l.id}"><span class="menu-icon">📄</span> ${escapeHtml(t('exportSrt'))}</button>
+            <button class="menu-item danger" data-action="delete" data-id="${l.id}"><span class="menu-icon">🗑</span> ${escapeHtml(t('delete'))}</button>
+          </div>
+        </div>
+      </div>
+    `}).join('');
+  }
+
+  async function updateLesson(id, updates) {
+    const lesson = await getLessonById(id);
+    if (!lesson) return;
+    Object.assign(lesson, updates);
+    try { await saveLessonToDB(lesson); renderLessons(); showToast(t('updateSuccess')); } catch (e) { showToast(t('updateError')); }
+  }
+
+  function cuesToSrt(cues) {
+    return cues.map((c, i) => {
+      const fr = c.lines && c.lines.find(l => l.lang === 'fr');
+      const ar = c.lines && c.lines.find(l => l.lang === 'ar');
+      const en = c.lines && c.lines.find(l => l.lang === 'en');
+      const textLines = [fr && fr.text, ar && ar.text, en && en.text].filter(Boolean);
+      const start = c.start || 0;
+      const end = c.end || (start + 2);
+      return `${i+1}\n${formatTime(start)} --> ${formatTime(end)}\n${textLines.join('\n')}`;
+    }).join('\n\n');
+  }
+
+  async function editLesson(id) {
+    const lesson = await getLessonById(id);
+    if (!lesson) { showToast(t('notFound')); return; }
+    stopAllLoops();
+    state.editingLessonId = id;
+    state.editingLesson = lesson;
+    lessonName.value = lesson.name || '';
+    videoFile.value = ''; lessonImage.value = '';
+    srtMain.value = ''; srtFr.value = ''; srtAr.value = ''; srtEn.value = '';
+    srtPaste.value = cuesToSrt(lesson.cues || []);
+    videoName.textContent = lesson.videoBlob ? (t('videoLabel') + ' ✓') : '';
+    imageName.textContent = lesson.imageBlob ? (t('imageLabel') + ' ✓') : '';
+    switchTab('paste');
+    if (setupTitleEl) setupTitleEl.dataset.t = 'editTitle';
+    updateUI();
+    showView('setup');
+  }
+
+  // --- Import / Export ---
+  function blobToBase64(blob) {
+    return new Promise((resolve, reject) => {
+      if (!blob) { resolve(null); return; }
+      const r = new FileReader();
+      r.onload = () => {
+        const dataUrl = r.result;
+        const base64 = dataUrl.split(',')[1];
+        resolve(base64);
+      };
+      r.onerror = reject;
+      r.readAsDataURL(blob);
+    });
+  }
+  function base64ToBlob(base64, type) {
+    if (!base64) return null;
+    const bin = atob(base64);
+    const bytes = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return new Blob([bytes], { type: type || 'application/octet-stream' });
+  }
+  function sanitizeFilename(name) {
+    return String(name).replace(/[^\p{L}\p{N}\s_-]/gu, '_').replace(/\s+/g, '_') || 'lesson';
+  }
+  async function serializeLesson(lesson) {
+    return { name: lesson.name, createdAt: lesson.createdAt, cues: lesson.cues };
+  }
+  function deserializeLesson(obj) {
+    const lesson = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), name: obj.name || 'Lesson', createdAt: obj.createdAt || Date.now(), cues: Array.isArray(obj.cues) ? obj.cues : [] };
+    if (obj.videoBase64) lesson.videoBlob = base64ToBlob(obj.videoBase64, obj.videoType);
+    if (obj.imageBase64) lesson.imageBlob = base64ToBlob(obj.imageBase64, obj.imageType);
+    return lesson;
+  }
+  function downloadFile(blob, filename) {
+    const a = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1000);
+  }
+  async function shareFile(content, filename, title, type = 'text/plain') {
+    try {
+      if (isCapacitor() && window.Capacitor.Plugins.Filesystem && window.Capacitor.Plugins.Share) {
+        const fs = window.Capacitor.Plugins.Filesystem;
+        const result = await fs.writeFile({ path: filename, data: content, directory: 'CACHE', encoding: 'utf8' });
+        let uri = result && result.uri;
+        if (!uri) {
+          const uriRes = await fs.getUri({ path: filename, directory: 'CACHE' });
+          uri = uriRes && uriRes.uri;
+        }
+        if (uri) {
+          await window.Capacitor.Plugins.Share.share({ url: uri, title: title || filename, dialogTitle: title || filename });
+          return 'share';
+        }
+      }
+    } catch (e) { console.error('Capacitor share error', e); }
+    if (navigator.share) {
+      const blob = new Blob([content], { type });
+      const file = new File([blob], filename, { type });
+      try {
+        await navigator.share({ files: [file], title: title || filename });
+        return 'share';
+      } catch (e) {}
+      try {
+        await navigator.share({ title: title || filename, text: content });
+        return 'share-text';
+      } catch (e) {}
+    }
+    try { downloadFile(new Blob([content], { type }), filename); } catch (e) {}
+    return 'download';
+  }
+  function formatSRTTime(seconds) {
+    const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
+    const m = Math.floor((seconds % 3600) / 60).toString().padStart(2, '0');
+    const s = Math.floor(seconds % 60).toString().padStart(2, '0');
+    const ms = Math.round((seconds % 1) * 1000).toString().padStart(3, '0');
+    return `${h}:${m}:${s},${ms}`;
+  }
+  function cuesToSRT(cues) {
+    return cues.map((cue, i) => {
+      const lines = (cue.lines || []).map(l => l.text).join('\n');
+      return `${i + 1}\n${formatSRTTime(cue.start)} --> ${formatSRTTime(cue.end)}\n${lines}`;
+    }).join('\n\n');
+  }
+  async function exportLesson(id) {
+    const lesson = await getLessonById(id);
+    if (!lesson) return;
+    try {
+      const data = await serializeLesson(lesson);
+      const json = JSON.stringify(data);
+      const filename = `${sanitizeFilename(lesson.name)}.json`;
+      await shareFile(json, filename, lesson.name, 'application/json');
+      showToast(t('exportSuccess', {name: lesson.name}));
+    } catch (e) { showToast(t('exportError')); }
+  }
+  async function exportLessonSRT(id) {
+    const lesson = await getLessonById(id);
+    if (!lesson) return;
+    try {
+      const srt = cuesToSRT(lesson.cues || []);
+      const filename = `${sanitizeFilename(lesson.name)}.srt`;
+      await shareFile(srt, filename, lesson.name, 'application/x-subrip');
+      showToast(t('exportSuccess', {name: filename}));
+    } catch (e) { showToast(t('exportError')); }
+  }
+  async function exportAllLessons() {
+    let lessons = [];
+    try { lessons = await getLessonsFromDB(); } catch (e) {}
+    if (!lessons || !lessons.length) { showToast(t('noLessonsToExport')); return; }
+    try {
+      const data = await Promise.all(lessons.map(serializeLesson));
+      const json = JSON.stringify(data, null, 2);
+      const filename = `srt-lessons.json`;
+      await shareFile(json, filename, 'SRT Lessons', 'application/json');
+      showToast(t('exportSuccess', {name: filename}));
+    } catch (e) { showToast(t('exportError')); }
+  }
+  async function importLessonsFromFile(file) {
+    let text;
+    try { text = await readFile(file); } catch (e) { showToast(t('importError')); return; }
+    let data;
+    try { data = JSON.parse(text); } catch (e) { showToast(t('importInvalid')); return; }
+    let list = Array.isArray(data) ? data : [data];
+    let count = 0;
+    for (const obj of list) {
+      if (!obj || !Array.isArray(obj.cues)) continue;
+      try {
+        const lesson = deserializeLesson(obj);
+        await saveLessonToDB(lesson);
+        count++;
+      } catch (e) {}
+    }
+    showToast(t('importSuccess', {count: count}));
+    await renderLessons();
+  }
+
+  // --- Event wiring ---
+  function handleFiles() {
+    videoName.textContent = videoFile.files[0] ? videoFile.files[0].name : '';
+    imageName.textContent = lessonImage.files[0] ? lessonImage.files[0].name : '';
+    nameMain.textContent = srtMain.files[0] ? srtMain.files[0].name : '';
+    nameFr.textContent = srtFr.files[0] ? srtFr.files[0].name : '';
+    nameAr.textContent = srtAr.files[0] ? srtAr.files[0].name : '';
+    nameEn.textContent = srtEn.files[0] ? srtEn.files[0].name : '';
+  }
+  [videoFile, lessonImage, srtMain, srtFr, srtAr, srtEn].forEach(el => el.addEventListener('change', handleFiles));
+
+  function readFile(file) {
+    return new Promise((resolve, reject) => {
+      const r = new FileReader();
+      r.onload = () => resolve(r.result);
+      r.onerror = reject;
+      r.readAsText(file, 'UTF-8');
+    });
+  }
+
+  // start() and loadCues() are defined above
+
+  function reset() {
+    if (!confirm(t('resetConfirm'))) return;
+    stopAllLoops();
+    player.pause();
+    player.src = '';
+    if (state.videoUrl) {
+      URL.revokeObjectURL(state.videoUrl);
+      state.videoUrl = null;
+    }
+    if (state.posterUrl) {
+      URL.revokeObjectURL(state.posterUrl);
+      state.posterUrl = null;
+    }
+    player.poster = '';
+    setVideoBackground(null);
+    videoWrap.style.display = 'none';
+    controls.style.display = 'none';
+    bubble.innerHTML = '';
+    state.cues = [];
+    state.currentIndex = -1;
+    state.isPlaying = false;
+    state.duration = 0;
+    state.currentLessonId = null;
+    state.captionScale = 1;
+    player.style.transform = '';
+    player.style.filter = '';
+    applyFilter('');
+    videoFile.value = ''; lessonImage.value = ''; srtMain.value = ''; srtFr.value = ''; srtAr.value = ''; srtEn.value = ''; srtPaste.value = '';
+    handleFiles();
+    if (lessonName) lessonName.value = '';
+    if (setupTitleEl) setupTitleEl.dataset.t = 'setupTitle';
+    state.editingLessonId = null;
+    state.editingLesson = null;
+    progress.value = 0;
+    currentTimeEl.textContent = '00:00'; durationEl.textContent = '00:00';
+    showView('lessons');
+  }
+
+  function newLessonSetup() {
+    stopAllLoops();
+    lessonName.value = '';
+    videoFile.value = ''; lessonImage.value = '';
+    srtMain.value = ''; srtFr.value = ''; srtAr.value = ''; srtEn.value = ''; srtPaste.value = '';
+    handleFiles();
+    state.editingLessonId = null;
+    state.editingLesson = null;
+    state.currentLessonId = null;
+    if (setupTitleEl) setupTitleEl.dataset.t = 'setupTitle';
+    switchTab('single');
+    updateUI();
+    showView('setup');
+  }
+
+  btnStart.addEventListener('click', start);
+  btnReset.addEventListener('click', reset);
+  btnSaveLesson.addEventListener('click', saveLesson);
+  btnStop.addEventListener('click', toggleMute);
+  btnPrev.addEventListener('click', prevCue);
+  btnPlay.addEventListener('click', togglePlay);
+  btnNext.addEventListener('click', nextCue);
+  btnFullLoop.addEventListener('click', toggleFullVideoLoop);
+  btnVideoLoop.addEventListener('click', toggleVideoLoop);
+  btnLoopAll.addEventListener('click', toggleLoopAll);
+  rateSelect.addEventListener('change', () => {
+    state.playbackRate = parseFloat(rateSelect.value) || 1;
+    player.playbackRate = state.playbackRate;
+  });
+  filterSelect.addEventListener('change', () => {
+    applyFilter(filterSelect.value);
+  });
+  btnBgImage.addEventListener('click', () => bgImageInput.click());
+  btnToggleBg.addEventListener('click', toggleBgImage);
+  btnCaptionMinus.addEventListener('click', () => updateCaptionScale(-0.1));
+  btnCaptionPlus.addEventListener('click', () => updateCaptionScale(0.1));
+  bgImageInput.addEventListener('change', () => { applyBackgroundImage(bgImageInput.files[0]); bgImageInput.value = ''; });
+
+  btnLessons.addEventListener('click', () => showView('lessons'));
+  btnSetup.addEventListener('click', () => newLessonSetup());
+  btnNewLesson.addEventListener('click', () => newLessonSetup());
+  btnBackLessons.addEventListener('click', () => showView('lessons'));
+  btnLang.addEventListener('click', () => {
+    const idx = UI_LANGS.indexOf(state.uiLang);
+    const next = UI_LANGS[(idx + 1) % UI_LANGS.length];
+    setUILang(next);
+  });
+  btnImport.addEventListener('click', () => importFile.click());
+  btnExportAll.addEventListener('click', exportAllLessons);
+  importFile.addEventListener('change', () => { if (importFile.files[0]) { importLessonsFromFile(importFile.files[0]); importFile.value = ''; } });
+
+  lessonsList.addEventListener('click', async e => {
+    const menuToggle = e.target.closest('.menu-toggle');
+    if (menuToggle) {
+      const menu = menuToggle.parentElement.querySelector('.menu-dropdown');
+      const willOpen = !menu.classList.contains('show');
+      document.querySelectorAll('.menu-dropdown').forEach(d => d.classList.remove('show'));
+      menu.classList.toggle('show', willOpen);
+      return;
+    }
+    const action = e.target.closest('[data-action]');
+    if (action) {
+      const id = action.dataset.id;
+      document.querySelectorAll('.menu-dropdown').forEach(d => d.classList.remove('show'));
+      if (action.dataset.action === 'delete') {
+        if (confirm(t('deleteConfirm'))) {
+          try { await deleteLessonFromDB(id); renderLessons(); showToast(t('deleteSuccess')); } catch (e) { showToast(t('deleteError')); }
+        }
+        return;
+      }
+      if (action.dataset.action === 'edit') {
+        editLesson(id);
+        return;
+      }
+      if (action.dataset.action === 'image') {
+        state.editingImageId = id;
+        editImage.click();
+        return;
+      }
+      if (action.dataset.action === 'share') {
+        await exportLesson(id);
+        return;
+      }
+      if (action.dataset.action === 'export-srt') {
+        await exportLessonSRT(id);
+        return;
+      }
+    }
+    const card = e.target.closest('.lesson-card');
+    if (card) loadLesson(card.dataset.id);
+  });
+
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.lesson-menu')) document.querySelectorAll('.menu-dropdown').forEach(d => d.classList.remove('show'));
+  });
+
+  editImage.addEventListener('change', async () => {
+    const id = state.editingImageId;
+    state.editingImageId = null;
+    const file = editImage.files[0];
+    if (!id || !file) return;
+    try {
+      const ab = await readFileAsArrayBuffer(file);
+      const imageBlob = new Blob([ab], { type: file.type || 'image/jpeg' });
+      await updateLesson(id, { imageBlob });
+    } catch (e) { showToast(t('readImageError')); }
+    editImage.value = '';
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
+    if (e.code === 'ArrowLeft') { e.preventDefault(); prevCue(); }
+    if (e.code === 'ArrowRight') { e.preventDefault(); nextCue(); }
+    if (e.code === 'Space') { e.preventDefault(); togglePlay(); }
+    if (e.code === 'Escape') { e.preventDefault(); stopAllLoops(); }
+  });
+
+  // Disable space scroll on range
+  progress.addEventListener('keydown', e => { if (e.code === 'Space') e.preventDefault(); });
+
+  // Tab switching for subtitle source
+  function switchTab(name) {
+    document.querySelectorAll('.source-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.dataset.tab === name));
+  }
+  document.querySelectorAll('.source-tab').forEach(tab => {
+    tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+  });
+
+  function initBackButton() {
+    try {
+      if (isCapacitor() && window.Capacitor.Plugins.App && window.Capacitor.Plugins.App.addListener) {
+        window.Capacitor.Plugins.App.addListener('backButton', () => {
+          if (playerView.classList.contains('active') || setupView.classList.contains('active')) {
+            showView('lessons');
+          } else if (confirm(t('exitConfirm'))) {
+            window.Capacitor.Plugins.App.exitApp();
+          }
+        });
+      }
+    } catch (e) {}
+  }
+
+  initBackButton();
+  makeBubbleDraggable();
+  setUILang(state.uiLang);
+  showView('lessons');
+
+})();
+</script>
+</body>
+</html>
