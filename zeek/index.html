@@ -1,0 +1,2780 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#2a0a2e">
+<meta name="description" content="تعلم الفرنسية مع ترجمة عربية وإنجليزية">
+<title>Zeek — Français / العربية / English</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+  :root {
+    --bg-primary: #1a0b1e;
+    --bg-secondary: #24122b;
+    --bg-tertiary: #321b3b;
+    --text-primary: #f8f0fa;
+    --text-secondary: #c9b8cf;
+    --accent: #e879c8;
+    --accent-2: #8b5cf6;
+    --accent-hover: #f0a8d8;
+    --danger: #ff6b7a;
+    --success: #34d399;
+    --gold: #fbbf24;
+    --border: #4a2d55;
+    --radius: 16px;
+    --shadow: 0 8px 24px rgba(0,0,0,0.35);
+    --max-width: 880px;
+  }
+  [data-theme="light"] {
+    --bg-primary: #fdf6fb;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f4e9f5;
+    --text-primary: #2d0f35;
+    --text-secondary: #6b4e73;
+    --accent: #b8459e;
+    --accent-2: #7c3aed;
+    --accent-hover: #d16bb6;
+    --border: #e9d5ee;
+    --shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; min-height: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", sans-serif;
+    background: radial-gradient(1200px 600px at 50% -10%, rgba(139,92,246,0.18), transparent 60%), var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.65;
+    transition: background 0.25s, color 0.25s;
+    padding-bottom: 2rem;
+  }
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: linear-gradient(135deg, rgba(232,121,200,0.18), rgba(139,92,246,0.18)), var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
+  }
+  .toast {
+    position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%);
+    background: var(--accent); color: #fff; padding: 0.65rem 1.1rem; border-radius: 999px;
+    font-size: 0.9rem; box-shadow: 0 8px 24px rgba(0,0,0,0.25); z-index: 100;
+    opacity: 0; transition: opacity 0.25s ease; pointer-events: none; max-width: 90%;
+  }
+  .toast.show { opacity: 1; }
+  .action-sheet {
+    position: fixed; inset: 0; z-index: 90; background: rgba(0,0,0,0.5);
+    display: none; align-items: flex-end; justify-content: center;
+  }
+  .action-sheet.show { display: flex; }
+  .action-sheet .sheet-content {
+    width: 100%; max-width: var(--max-width); background: var(--bg-secondary);
+    border-radius: var(--radius) var(--radius) 0 0; padding: 1rem;
+    box-shadow: 0 -8px 30px rgba(0,0,0,0.3); animation: sheetUp 0.2s ease;
+  }
+  @keyframes sheetUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+  .action-sheet .sheet-title { font-weight: 700; margin-bottom: 0.75rem; text-align: center; color: var(--text-secondary); }
+  .action-sheet .sheet-actions { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.75rem; }
+  .action-sheet .sheet-actions button { justify-content: center; }
+  .modal {
+    position: fixed; inset: 0; z-index: 95; background: rgba(0,0,0,0.6);
+    display: none; align-items: center; justify-content: center; padding: 1rem;
+  }
+  .modal.show { display: flex; }
+  .modal-content { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; width: 100%; max-width: 480px; box-shadow: var(--shadow); }
+  #note-modal.modal { padding: 1rem; background: rgba(0,0,0,0.75); }
+  #note-modal .modal-content { max-width: none; width: 100%; height: 100%; max-height: 100%; border-radius: var(--radius); padding: 0.6rem; display: flex; flex-direction: column; }
+  .modal-content h3 { margin: 0 0 0.75rem; color: var(--text-primary); }
+  .modal-content textarea { width: 100%; background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.65rem; font-size: 0.95rem; resize: vertical; }
+  .card .menu-btn {
+    background: transparent; color: var(--text-secondary); border: none; font-size: 1.2rem;
+    width: 2.2rem; height: 2.2rem; border-radius: 50%; cursor: pointer; margin-inline-start: auto;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .card .menu-btn:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+  .card-thumb {
+    min-width: 2.6rem; height: 2.6rem; border-radius: 50%; flex-shrink: 0;
+    background: var(--bg-tertiary); display: flex; align-items: center; justify-content: center;
+    overflow: hidden; object-fit: cover;
+  }
+  .card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .header-inner {
+    max-width: var(--max-width); margin: 0 auto; padding: 0.7rem 1rem;
+    display: flex; align-items: center; gap: 0.65rem;
+  }
+  .logo {
+    font-weight: 800; font-size: 1.05rem;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    white-space: nowrap; display: flex; align-items: center; gap: 0.4rem;
+  }
+  .logo-icon { width: 1.3rem; height: 1.3rem; border-radius: 6px; object-fit: cover; box-shadow: 0 0 8px rgba(232,121,200,0.35); }
+  .spacer { flex: 1; }
+  .icon-btn {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 50%;
+    width: 2.4rem; height: 2.4rem; font-size: 1.05rem; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: transform 0.12s, border-color 0.2s, background 0.2s;
+  }
+  .icon-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .icon-btn.active { background: var(--accent); color: #1a0b1e; border-color: var(--accent); }
+  .lang-switch { display: flex; gap: 0.3rem; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 999px; padding: 0.15rem; }
+  .lang-btn {
+    background: transparent; color: var(--text-secondary); border: none;
+    border-radius: 999px; padding: 0.35rem 0.65rem; font-size: 0.78rem; font-weight: 700;
+    cursor: pointer; min-width: 2.2rem; transition: background 0.2s, color 0.2s;
+  }
+  .lang-btn:hover { color: var(--text-primary); }
+  .lang-btn.active { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; }
+  main { max-width: var(--max-width); margin: 0 auto; padding: 1rem; }
+  .toolbar {
+    display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.1rem;
+    background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 0.7rem; box-shadow: var(--shadow);
+  }
+  #search {
+    flex: 1; min-width: 220px;
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 0.65rem 1rem; font-size: 1rem;
+  }
+  #search::placeholder { color: var(--text-secondary); }
+  .ctl {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 0.55rem 0.6rem; font-size: 0.88rem;
+  }
+  .contact-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 8px;
+    text-decoration: none; color: #fff; overflow: hidden;
+    border: 1px solid transparent; padding: 2px;
+  }
+  .contact-btn.whatsapp { background: transparent; }
+  .contact-btn.whatsapp img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; display: block; }
+  .contact-btn.gmail { background: #ea4335; }
+  .contact-btn:hover { filter: brightness(1.08); }
+  .breadcrumb {
+    display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+    color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.9rem;
+  }
+  .breadcrumb button {
+    background: none; border: none; color: var(--accent); cursor: pointer; padding: 0; font-size: 0.9rem;
+  }
+  .card {
+    background: var(--bg-secondary); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1rem 1.1rem; margin-bottom: 0.75rem;
+    cursor: pointer; display: flex; align-items: center; gap: 0.9rem;
+    transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .num {
+    min-width: 2.6rem; height: 2.6rem; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 0.95rem; flex-shrink: 0; box-shadow: 0 0 12px rgba(232,121,200,0.25);
+  }
+  .card-body { flex: 1; min-width: 0; }
+  .card-title { font-weight: 700; font-size: 1.05rem; }
+  .card-sub { color: var(--text-secondary); font-size: 0.86rem; }
+  .chev { color: var(--text-secondary); font-size: 1.1rem; }
+  .hero {
+    background: linear-gradient(135deg, rgba(232,121,200,0.12), rgba(139,92,246,0.12));
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.2rem; margin-bottom: 1.1rem; text-align: center;
+  }
+  .hero h1 { margin: 0 0 0.35rem; font-size: 1.35rem; }
+  .hero p { margin: 0; color: var(--text-secondary); font-size: 0.95rem; }
+  .phrase {
+    background: #fff; border: 1px solid #e5e5e5;
+    border-radius: var(--radius); padding: 0.9rem 1rem; margin-bottom: 0.75rem;
+    transition: border-color 0.2s, box-shadow 0.2s; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .phrase.playing { border-color: var(--success); box-shadow: 0 0 0 1px var(--success), 0 0 14px rgba(52,211,153,0.18); }
+  .phrase-top { display: flex; gap: 0.7rem; align-items: flex-start; }
+  .lines { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 0.35rem; }
+  .line { padding: 0.45rem 0.7rem; border-radius: 10px; transition: background 0.2s; position: relative; padding-inline-end: 2.2rem; background: #fff; color: #111; border: 1px solid #e5e5e5; box-shadow: 0 1px 3px rgba(0,0,0,0.05); font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+  .line.active { background: #f0f9f4; }
+  .line.synced { background: #e8f5e9; border-inline-start: 3px solid var(--success); }
+  .loop-lang {
+    position: absolute; inset-inline-end: 0.25rem; top: 0.25rem;
+    background: #f3f4f6; color: #111;
+    border: 1px solid #e5e5e5; border-radius: 6px;
+    width: 1.6rem; height: 1.6rem; font-size: 0.78rem; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0; line-height: 1;
+  }
+  .loop-lang:hover { border-color: var(--accent); color: var(--accent); }
+  .loop-lang.active { background: var(--success); color: #081c15; border-color: var(--success); }
+  .line.fr:not(.active):not(.synced) {
+    direction: ltr; text-align: left; font-size: 1.13rem; font-weight: 700;
+    color: #111; word-wrap: break-word;
+  }
+  .line.ar:not(.active):not(.synced) {
+    direction: rtl; text-align: right; font-size: 1.05rem; color: #111;
+  }
+  .line.en:not(.active):not(.synced) {
+    direction: ltr; text-align: left; color: #111; font-size: 0.98rem;
+  }
+  .word { cursor: pointer; border-radius: 4px; padding: 0.05rem 0.12rem; margin: -0.05rem -0.12rem; transition: background 0.15s; -webkit-tap-highlight-color: transparent; }
+  .word:hover { background: rgba(139,92,246,0.12); }
+  .word.active { background: rgba(52,211,153,0.18); }
+  .btns { display: flex; flex-wrap: wrap; gap: 0.35rem; flex-shrink: 0; max-width: 8.5rem; justify-content: flex-end; }
+  [dir="ltr"] .btns { justify-content: flex-start; }
+  .btns button {
+    background: #f3f4f6; color: #111;
+    border: 1px solid #e5e5e5; border-radius: 10px;
+    width: 2.35rem; height: 2.35rem; font-size: 1rem; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: border-color 0.2s, background 0.2s, transform 0.1s;
+  }
+  .btns button:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .btns button.active { background: var(--success); color: #081c15; border-color: var(--success); }
+  .btns button.fav-on { color: var(--gold); border-color: var(--gold); }
+  .btns .ai-btn, .btns .image-btn { width: 2.35rem; height: 2.35rem; padding: 0; border-radius: 10px; background: #f3f4f6; color: #111; border: 1px solid #e5e5e5; font-size: 1rem; }
+  .btns .ai-btn:hover, .btns .image-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .btns .ai-btn.on { color: #7c3aed; border-color: #7c3aed; background: #ede9fe; }
+  .btns .image-btn.on { color: #2563eb; border-color: #2563eb; background: #eff6ff; }
+  .btns .note-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btns .note-btn.note-on { color: var(--success); border-color: var(--success); }
+  .btns .media-btn.on { color: var(--accent); border-color: var(--accent); }
+  .phrase-media { position: relative; margin-bottom: 0.75rem; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+  .phrase-media img, .phrase-media video, .phrase-media iframe { display: block; width: 100%; max-height: 320px; object-fit: contain; background: #000; }
+  .phrase-media iframe { height: 240px; }
+  .phrase-media video { max-height: 360px; }
+  .video-loop-btn { position: absolute; top: 0.5rem; right: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .video-loop-btn.active { background: var(--success); color: #081c15; }
+  .phrase-loop-btn { position: absolute; top: 0.5rem; left: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .phrase-loop-btn.active { background: var(--success); color: #081c15; }
+  .caption-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.82); padding: 0.55rem 0.75rem; font-size: 0.9rem; line-height: 1.65; z-index: 2; pointer-events: none; border-top: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; gap: 0.5rem; }
+  .cap-text { flex: 1; min-width: 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+  .cap-line { display: block; padding: 0.18rem 0.65rem; border-radius: 8px; font-weight: 600; line-height: 1.5; }
+  .cap-flag { margin-inline-end: 0.35rem; }
+  .cap-loop-btn { pointer-events: auto; flex-shrink: 0; width: 1.85rem; height: 1.85rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 0.9rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .cap-loop-btn.active { background: var(--success); color: #081c15; }
+  .cap-fr { background: #ede9fe; color: #2e1065; font-family: 'Poppins', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; }
+  .cap-ar { direction: rtl; background: #ffe4e6; color: #881337; font-family: 'Noto Naskh Arabic', 'Amiri', 'Droid Arabic Naskh', 'Tahoma', 'Arial', sans-serif; }
+  .cap-en { background: #d1fae5; color: #064e3b; font-family: 'Inter', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; }
+  .no-lessons { text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); }
+  .no-lessons .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .no-lessons .card-title { color: var(--text-primary); margin-bottom: 0.3rem; }
+  .lesson-head { margin-bottom: 1rem; }
+  .lesson-head h2 { margin: 0 0 0.2rem; font-size: 1.25rem; }
+  .lesson-head .sub { color: var(--text-secondary); font-size: 0.95rem; }
+  .lesson-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.8rem 0; align-items: center; }
+  .top-bar { display: flex; align-items: center; justify-content: space-between; margin: 1rem 0 0.75rem; }
+  .section-title { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); }
+  .action-bar { display: flex; justify-content: space-around; gap: 0.25rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.6rem 0.5rem; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+  .action-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.3rem; background: transparent; color: var(--text-secondary); border: none; border-radius: 12px; padding: 0.5rem 0.2rem; font-size: 0.78rem; cursor: pointer; transition: background 0.2s, color 0.2s; }
+  .action-item:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+  .action-icon { font-size: 1.4rem; line-height: 1; }
+  .action-label { font-weight: 600; }
+  .btn {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #fff; border: none;
+    border-radius: 999px; padding: 0.6rem 1.1rem; font-size: 0.95rem; font-weight: 700;
+    cursor: pointer; transition: filter 0.2s, transform 0.1s;
+  }
+  .btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn.ghost { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); }
+  .pill {
+    display: inline-block; background: var(--bg-tertiary); border: 1px solid var(--border);
+    border-radius: 999px; padding: 0.15rem 0.65rem; font-size: 0.78rem; color: var(--text-secondary);
+  }
+  .empty { color: var(--text-secondary); text-align: center; padding: 2.5rem 1rem; }
+  footer { text-align: center; color: var(--text-secondary); font-size: 0.78rem; padding: 1.5rem 1rem; }
+  footer a { color: var(--accent); }
+
+  .add-card .num { background: var(--success); color: #081c15; }
+  .folder-card .num { background: var(--accent-2); font-size: 1.15rem; }
+  .form-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+  .form-group { margin-bottom: 0.9rem; }
+  .form-group label { display: block; font-size: 0.9rem; margin-bottom: 0.35rem; color: var(--text-secondary); }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: var(--radius); padding: 0.65rem;
+    font-size: 1rem; font-family: inherit;
+  }
+  .form-group textarea { resize: vertical; min-height: 180px; }
+  .form-group .hint { font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.3rem; }
+  .form-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .delete-btn {
+    background: var(--bg-tertiary); color: var(--danger); border: 1px solid var(--danger);
+    border-radius: 8px; width: 2.4rem; height: 2.4rem; cursor: pointer; font-size: 1rem;
+    display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+    margin-inline-start: auto;
+  }
+  .delete-btn:hover { background: var(--danger); color: #fff; }
+  .tts-banner {
+    display: none; align-items: center; gap: 0.6rem;
+    background: rgba(255,107,122,0.1); border: 1px solid var(--danger); color: var(--danger);
+    border-radius: var(--radius); padding: 0.7rem 1rem; margin-bottom: 0.9rem; font-size: 0.95rem;
+  }
+  @media (max-width: 520px) {
+    .header-inner { padding: 0.6rem 0.75rem; }
+    .logo { font-size: 0.95rem; }
+    .btns { max-width: none; width: 100%; justify-content: flex-start; margin-top: 0.5rem; }
+    .phrase-top { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <span class="logo"><img src="icon-192.png" alt="" class="logo-icon"> <span data-t="appName">Zeek</span></span>
+    <span class="spacer"></span>
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="ar">AR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="fr">FR</button>
+    </div>
+    <button class="icon-btn" id="btn-fav" data-t-title="favourites" title="Favourites">⭐</button>
+    <button class="icon-btn" id="btn-theme" data-t-title="themeMode" title="Dark / light mode">🌙</button>
+    <button class="icon-btn" id="btn-stop" data-t-title="stopAudio" title="Stop audio">⏹</button>
+  </div>
+</header>
+
+<main>
+  <div class="toolbar">
+    <input id="search" type="search" data-t="searchPlaceholder" placeholder="ابحث بالعربية أو الفرنسية أو الإنجليزية…">
+    <select class="ctl" id="rate" data-t-title="rateTitle" title="Speech rate">
+      <option value="0.6">0.6×</option>
+      <option value="0.8">0.8×</option>
+      <option value="1" selected>1×</option>
+      <option value="1.2">1.2×</option>
+    </select>
+    <select class="ctl" id="loopmode" data-t-title="loopModeTitle" title="Loop content">
+      <option value="fr,ar,en" data-t="loopFrenchArabicEnglish" selected>🔁 FR + AR + EN</option>
+      <option value="fr,ar" data-t="loopFrenchArabic">🔁 FR + AR</option>
+      <option value="fr" data-t="loopFrenchOnly">🔁 FR only</option>
+    </select>
+    <a class="contact-btn whatsapp" href="https://wa.me/33775813643" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp"><img src="whatsapp-icon.png" alt="WhatsApp" style="width:28px;height:28px;border-radius:6px;display:block"></a>
+    <a class="contact-btn gmail" href="mailto:Syrian020@gmail.com" title="Gmail" aria-label="Gmail"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2l-8 5.5L4 6h16zM4 18V8.5l7.5 5.1L20 8.5V18H4z"/></svg></a>
+  </div>
+  <div id="tts-banner" class="tts-banner">
+    <span id="tts-msg"></span>
+    <button id="tts-install" class="btn" style="font-size:0.85rem; padding:0.35rem 0.8rem; margin-inline-start:auto;"></button>
+  </div>
+  <div id="view"></div>
+</main>
+
+<div id="toast" class="toast"></div>
+
+<div id="action-sheet" class="action-sheet">
+  <div class="sheet-content">
+    <div class="sheet-title" id="sheet-title">--</div>
+    <div class="sheet-actions" id="sheet-actions"></div>
+    <button type="button" class="btn ghost" id="sheet-cancel" style="width:100%" data-t="cancel">إلغاء</button>
+  </div>
+</div>
+
+<div id="examples-modal" class="modal">
+  <div class="modal-content">
+    <h3 data-t="inputExamples">Examples</h3>
+    <textarea id="examples-text" rows="10" readonly></textarea>
+    <div class="form-actions" style="margin-top:0.75rem">
+      <button type="button" class="btn" id="btn-copy-examples" data-t="copy">نسخ</button>
+      <button type="button" class="btn ghost" id="btn-close-examples" data-t="cancel">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<div id="note-modal" class="modal" style="z-index:96">
+  <div class="modal-content" style="max-width:640px">
+    <h3 data-t="noteTitle">Notebook</h3>
+    <div id="note-tools" style="display:flex;gap:0.4rem;flex-wrap:wrap;align-items:center;margin-bottom:0.5rem">
+      <button type="button" class="note-tool active" data-color="#000000" style="background:#000;width:1.5rem;height:1.5rem;border-radius:50%;border:2px solid var(--border)"></button>
+      <button type="button" class="note-tool" data-color="#e53935" style="background:#e53935;width:1.5rem;height:1.5rem;border-radius:50%;border:2px solid var(--border)"></button>
+      <button type="button" class="note-tool" data-color="#1e88e5" style="background:#1e88e5;width:1.5rem;height:1.5rem;border-radius:50%;border:2px solid var(--border)"></button>
+      <button type="button" class="note-tool" data-color="#43a047" style="background:#43a047;width:1.5rem;height:1.5rem;border-radius:50%;border:2px solid var(--border)"></button>
+      <button type="button" class="note-tool" data-color="#fb8c00" style="background:#fb8c00;width:1.5rem;height:1.5rem;border-radius:50%;border:2px solid var(--border)"></button>
+      <button type="button" class="note-tool" data-color="#8e24aa" style="background:#8e24aa;width:1.5rem;height:1.5rem;border-radius:50%;border:2px solid var(--border)"></button>
+      <button type="button" class="note-tool" data-color="#ffffff" style="background:#ffffff;width:1.5rem;height:1.5rem;border-radius:50%;border:2px solid var(--border)"></button>
+      <input type="range" id="note-size" min="1" max="10" value="3" style="width:5rem">
+      <button type="button" class="btn ghost" id="note-erase" style="font-size:0.78rem;padding:0.3rem 0.6rem" data-t="cancel">ممحاة</button>
+      <button type="button" class="btn ghost" id="note-clear" style="font-size:0.78rem;padding:0.3rem 0.6rem" data-t="delete">حذف</button>
+    </div>
+    <canvas id="note-canvas" width="600" height="400" style="flex:1;min-height:0;width:100%;background:#fff;border-radius:var(--radius);border:1px solid var(--border);touch-action:none"></canvas>
+    <div class="form-actions" style="margin-top:0.75rem">
+      <button type="button" class="btn" id="btn-save-note" data-t="save">حفظ</button>
+      <button type="button" class="btn ghost" id="btn-close-note" data-t="cancel">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<div id="media-modal" class="modal" style="z-index:97">
+  <div class="modal-content" style="max-width:520px">
+    <h3 data-t="addVideoCaption">Add video & caption</h3>
+    <div class="form-group">
+      <button type="button" class="btn" id="btn-choose-media-file" data-t="chooseMediaFile">Choose video file</button>
+      <input type="file" id="media-file" accept="video/*" style="display:none">
+    </div>
+    <div class="form-group" style="margin-top:0.75rem">
+      <label data-t="mediaUrl">Video URL</label>
+      <input type="text" id="media-url" placeholder="https://..." style="width:100%">
+    </div>
+    <div class="form-group" style="margin-top:0.75rem">
+      <button type="button" class="btn ghost" id="btn-choose-caption-file" data-t="chooseCaptionFile">Choose caption file (SRT/text)</button>
+      <input type="file" id="caption-file" accept=".srt,.txt" style="display:none">
+    </div>
+    <div class="form-group" style="margin-top:0.75rem">
+      <label data-t="captionText">Or paste caption text</label>
+      <textarea id="caption-text" rows="4" data-t="captionTextPlaceholder" placeholder="00:00 French | Arabic | English" style="width:100%"></textarea>
+    </div>
+    <div class="form-group" id="media-preview" style="display:none;margin-top:0.75rem">
+      <img id="media-preview-img" style="width:100%;border-radius:var(--radius);display:none">
+      <video id="media-preview-video" controls style="width:100%;border-radius:var(--radius);display:none;max-height:240px;background:#000"></video>
+    </div>
+    <div class="form-actions" style="margin-top:0.75rem">
+      <button type="button" class="btn" id="btn-save-media" data-t="save">حفظ</button>
+      <button type="button" class="btn ghost" id="btn-remove-media" data-t="delete" style="display:none;color:var(--danger);border-color:var(--danger)">حذف</button>
+      <button type="button" class="btn ghost" id="btn-close-media" data-t="cancel">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  function loadLessons() {
+    try {
+      const raw = JSON.parse(localStorage.getItem('zeek_lessons') || '[]');
+      if (Array.isArray(raw)) {
+        if (raw.length && raw[0].phrases && !raw[0].type) {
+          return raw.map((l, i) => ({ id: l.id || i + 1, type: 'lesson', custom: true, title: l.title, phrases: l.phrases }));
+        }
+        return raw;
+      }
+      return [];
+    } catch (e) { return []; }
+  }
+
+  function saveLessons() { localStorage.setItem('zeek_lessons', JSON.stringify(LESSONS)); }
+
+  async function exportLessons() {
+    const data = JSON.stringify(LESSONS, null, 2);
+    const filename = 'zeek-lessons.json';
+    if (typeof Capacitor !== 'undefined' && Capacitor.Plugins && Capacitor.Plugins.Filesystem && Capacitor.Plugins.Share) {
+      try {
+        const { Filesystem, Share } = Capacitor.Plugins;
+        const dir = (Filesystem.Directory && Filesystem.Directory.Cache) ? Filesystem.Directory.Cache : 'CACHE';
+        await Filesystem.writeFile({ path: filename, data: data, directory: dir, encoding: 'utf8' });
+        const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
+        await Share.share({ title: 'Zeek lessons', files: [uri], dialogTitle: 'Zeek JSON' });
+        showToast(t('exportSuccess'));
+        return;
+      } catch (e) { console.error('Capacitor export failed', e); }
+    }
+    const blobUrl = URL.createObjectURL(new Blob([data], { type: 'application/json' }));
+    const a = document.createElement('a');
+    a.href = blobUrl;
+    a.download = filename;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+    showToast(t('exportSuccess'));
+  }
+
+  function importLessons(file) {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const data = JSON.parse(e.target.result);
+        if (!Array.isArray(data)) throw new Error('invalid');
+        if (confirm(t('importConfirm'))) {
+          LESSONS = data.map((it, i) => ({ ...it, id: it.id || (Date.now() + i) }));
+          ensureBuiltInLesson();
+          saveLessons();
+          go({ name: 'home' }, false);
+          showToast(t('importSuccess'));
+        }
+      } catch (err) {
+        showToast(t('importError'));
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  function showToast(msg, duration = 2200) {
+    const el = document.getElementById('toast');
+    if (!el) return;
+    el.textContent = msg;
+    el.classList.add('show');
+    if (el._timer) clearTimeout(el._timer);
+    el._timer = setTimeout(() => el.classList.remove('show'), duration);
+  }
+
+  function cleanPhrasePart(s) {
+    let r = String(s).trim();
+    const trim = '*–—-:=;';
+    while (r && trim.includes(r[0])) r = r.slice(1).trim();
+    while (r && trim.includes(r[r.length - 1])) r = r.slice(0, -1).trim();
+    return r;
+  }
+
+  function extractRawParts(line) {
+    const cleanLine = String(line).trim();
+    if (!cleanLine) return null;
+    const delims = /\s*(?:\|{1,2}|,|;|=>|->|→|=|:|\s+-\s+|\s+)\s*/;
+    const tokens = cleanLine.split(delims).map(s => s.trim()).filter(Boolean);
+    if (tokens.length < 3) return null;
+    const isAr = s => /[\u0600-\u06FF]/.test(s);
+    const firstAr = tokens.findIndex(isAr);
+    if (firstAr === -1) return null;
+    const lastAr = tokens.length - 1 - [...tokens].reverse().findIndex(isAr);
+    return {
+      first: tokens.slice(0, firstAr).join(' '),
+      ar: tokens.slice(firstAr, lastAr + 1).join(' '),
+      last: tokens.slice(lastAr + 1).join(' ')
+    };
+  }
+
+  function classifyLatinLang(s) {
+    const text = String(s).trim();
+    if (!text || /[\u0600-\u06FF]/.test(text)) return '';
+    const lower = text.toLowerCase();
+    if (/[éèêàâäæçíïîìôöòûüùœ]/.test(lower)) return 'fr';
+    const enMatch = lower.match(/\b(the|a|an|and|or|is|are|am|was|were|be|been|have|has|had|do|does|did|will|would|could|should|may|might|can|this|that|these|those|my|your|his|her|its|our|their|in|on|at|to|for|with|of|from|by|about|into|through|during|before|after|i|you|he|she|we|they|it|me|him|them|us|there|here|where|what|when|why|how|all|some|no|not|yes|please|thank|thanks|very|much|more|less)\b/g);
+    const frMatch = lower.match(/\b(le|la|les|l'|un|une|des|du|de|d'|et|ou|en|je|tu|il|elle|nous|vous|ils|elles|est|sont|ai|as|a|avons|avez|ont|avoir|faire|suis|es|sommes|etes|êtes|mon|ma|mes|ton|ta|tes|son|sa|ses|ce|cet|cette|ces|que|qui|quoi|pour|avec|dans|sur|par|sous|contre|vers|avant|après|plus|moins|très|bien|oui|non|merci|s'il|te|me|se|lui|y|en|où|dont|quand|comment|pourquoi|parce|car|si|quel|quelle|quels|quelles)\b/g);
+    const enWords = enMatch ? enMatch.length : 0;
+    const frWords = frMatch ? frMatch.length : 0;
+    if (enWords > frWords) return 'en';
+    if (frWords > enWords) return 'fr';
+    const words = lower.split(/[^a-z0-9'àâäæçéèêëïîôùûüœ'-]+/i).filter(Boolean);
+    const frHints = new Set(['vagin','vulve','clitoris','lèvres','grandes','petites','utérus','ovaires','seins','mamelons','col','hymen','mont','vénus','périnée','trompes','fallope','anus','pénis','gland','prépuce','testicules','scrotum','prostate','point']);
+    const enHints = new Set(['vagina','vulva','labia','majora','minora','uterus','womb','ovaries','breasts','nipples','cervix','mons','pubis','perineum','fallopian','tubes','penis','glans','foreskin','testicles','balls','scrotum','prostate','g-spot']);
+    let frAny = false, enAny = false;
+    words.forEach(w => { if (frHints.has(w)) frAny = true; if (enHints.has(w)) enAny = true; });
+    if (frAny && !enAny) return 'fr';
+    if (enAny && !frAny) return 'en';
+    return '';
+  }
+
+  function getLineOrder(first, last, blockOrder) {
+    const langFirst = classifyLatinLang(first);
+    const langLast = classifyLatinLang(last);
+    if (langFirst === 'fr' && langLast !== 'fr') return 'fr-ar-en';
+    if (langFirst === 'en' && langLast !== 'en') return 'en-ar-fr';
+    if (langLast === 'fr' && langFirst !== 'fr') return 'en-ar-fr';
+    if (langLast === 'en' && langFirst !== 'en') return 'fr-ar-en';
+    return blockOrder;
+  }
+
+  function detectBlockOrder(text) {
+    let firstFr = 0, firstEn = 0, lastFr = 0, lastEn = 0;
+    text.split('\n').forEach(raw => {
+      const parts = extractRawParts(raw);
+      if (!parts) return;
+      const first = cleanPhrasePart(parts.first);
+      const last = cleanPhrasePart(parts.last);
+      const langFirst = classifyLatinLang(first);
+      const langLast = classifyLatinLang(last);
+      if (langFirst === 'fr') firstFr++; else if (langFirst === 'en') firstEn++;
+      if (langLast === 'fr') lastFr++; else if (langLast === 'en') lastEn++;
+    });
+    if (firstEn > firstFr && lastFr >= lastEn) return 'en-ar-fr';
+    if (firstFr > firstEn && lastEn >= lastFr) return 'fr-ar-en';
+    if (firstEn > 0 && lastFr > 0) return 'en-ar-fr';
+    if (firstFr > 0 && lastEn > 0) return 'fr-ar-en';
+    return 'fr-ar-en';
+  }
+
+  function formatTitle(obj) {
+    if (!obj) return '';
+    const seen = new Set();
+    const parts = [];
+    [obj.fr, obj.ar, obj.en].forEach(v => { if (v && !seen.has(v)) { seen.add(v); parts.push(v); } });
+    return parts.join(' | ');
+  }
+
+  function parseTitle(text) {
+    const s = String(text).trim();
+    if (!s) return null;
+    const p = parsePhrases(s, 'auto');
+    if (p && p[0]) return p[0];
+    const tokens = s.split(/\s*(?:\|{1,2}|,|;|=>|->|→|=|:|\s+-\s+|\s+)\s*/).map(x => x.trim()).filter(Boolean);
+    if (!tokens.length) return null;
+    if (tokens.length === 1) {
+      const v = tokens[0];
+      return { fr: v, ar: v, en: v };
+    }
+    let fr = '', ar = '', en = '';
+    tokens.forEach(tok => {
+      if (/[\u0600-\u06FF]/.test(tok)) { if (!ar) ar = tok; }
+      else {
+        const lang = classifyLatinLang(tok);
+        if (lang === 'en' && !en) en = tok;
+        else if (lang === 'fr' && !fr) fr = tok;
+        else if (!fr) fr = tok;
+        else if (!en) en = tok;
+      }
+    });
+    if (!fr && !ar && !en) return null;
+    return { fr, ar, en };
+  }
+
+  function parsePhrases(text, userOrder = 'auto') {
+    const phrases = [];
+    const blockOrder = (userOrder === 'auto') ? detectBlockOrder(text) : userOrder;
+    text.split('\n').forEach(raw => {
+      const parts = extractRawParts(raw);
+      if (!parts) return;
+      const ar = cleanPhrasePart(parts.ar);
+      const first = cleanPhrasePart(parts.first);
+      const last = cleanPhrasePart(parts.last);
+      if (!ar || !first || !last) return;
+      const lineOrder = getLineOrder(first, last, blockOrder);
+      let fr, en;
+      if (lineOrder === 'en-ar-fr') { en = first; fr = last; }
+      else { fr = first; en = last; }
+      phrases.push({ fr, ar, en });
+    });
+    return phrases;
+  }
+
+  let LESSONS = loadLessons();
+
+  const BIENVENUE_LESSON = {
+    type: 'lesson',
+    protected: true,
+    title: { fr: 'Bienvenue', ar: 'أهلاً وسهلاً', en: 'Welcome' },
+    image: 'bienvenue-lesson.jpg',
+    phrases: [
+      { fr: "Bienvenue dans notre application d'apprentissage du français", ar: 'مرحبًا بك في تطبيقنا لتعلّم اللغة الفرنسية', en: 'Welcome to our French learning app' },
+      { fr: 'Je suis ravi de vous accueillir parmi nous.', ar: 'يسعدني أن أرحب بك بيننا.', en: 'I’m delighted to welcome you.' },
+      { fr: 'Cette application a été conçue pour vous aider à apprendre le français de manière simple, efficace et progressive.', ar: 'صُمم هذا التطبيق لمساعدتك على تعلم اللغة الفرنسية بطريقة سهلة وفعّالة وتدريجية.', en: 'This app was designed to help you learn French in a simple, effective, and progressive way.' },
+      { fr: 'Vous y trouverez des leçons, du vocabulaire, des expressions courantes et de nombreux outils pour améliorer votre compréhension, votre expression et votre communication au quotidien.', ar: 'ستجد فيه دروسًا ومفردات وعبارات شائعة والعديد من الأدوات لتحسين الفهم والتعبير والتواصل اليومي.', en: 'You will find lessons, vocabulary, common expressions, and many tools to improve your comprehension, speaking, and daily communication.' },
+      { fr: 'Mon objectif est de rendre l\'apprentissage du français accessible à tous, quel que soit votre niveau.', ar: 'هدفي هو جعل تعلم اللغة الفرنسية متاحًا للجميع مهما كان مستواهم.', en: 'My goal is to make learning French accessible to everyone, regardless of their level.' },
+      { fr: "Merci d'utiliser cette application.", ar: 'شكرًا لاستخدامك هذا التطبيق.', en: 'Thank you for using this app.' },
+      { fr: 'Je vous souhaite un excellent apprentissage et beaucoup de réussite dans votre parcours linguistique !', ar: 'أتمنى لك تعلمًا ممتعًا ونجاحًا كبيرًا في رحلتك اللغوية!', en: 'I wish you an enjoyable learning experience and great success in your language journey!' },
+      { fr: 'À propos du créateur', ar: 'نبذة عن المطور', en: 'About the creator' },
+      { fr: 'Je m\'appelle Mohammad.', ar: 'اسمي محمد.', en: 'My name is Mohammad.' },
+      { fr: 'Je suis né le 15 juillet 1989.', ar: 'وُلدت في 15 يوليو 1989.', en: 'I was born on July 15, 1989.' },
+      { fr: 'Je viens de Syrie.', ar: 'أنا من سوريا.', en: 'I am from Syria.' },
+      { fr: 'Pour me contacter', ar: 'للتواصل معي', en: 'Contact me' },
+      { fr: 'WhatsApp : +33 7 75 81 36 43', ar: 'واتساب: +33 7 75 81 36 43', en: 'WhatsApp: +33 7 75 81 36 43' },
+      { fr: 'E-mail : Syrian020@gmail.com', ar: 'البريد الإلكتروني: Syrian020@gmail.com', en: 'Email: Syrian020@gmail.com' }
+    ]
+  };
+
+  function ensureBuiltInLesson() {
+    const builtIn = JSON.parse(JSON.stringify(BIENVENUE_LESSON));
+    const existing = LESSONS.find(it => it.type === 'lesson' && it.protected);
+    if (existing) {
+      existing.title = builtIn.title;
+      const oldMedia = existing.phrases.map(p => p.media);
+      const oldCaptions = existing.phrases.map(p => p.captionText);
+      existing.phrases = builtIn.phrases;
+      existing.phrases.forEach((p, i) => {
+        if (oldMedia[i]) p.media = oldMedia[i];
+        if (oldCaptions[i]) p.captionText = oldCaptions[i];
+      });
+      if (!existing.image) existing.image = builtIn.image;
+    } else {
+      builtIn.id = nextId();
+      LESSONS.unshift(builtIn);
+    }
+    saveLessons();
+  }
+
+  function nextId() {
+    let max = 0;
+    LESSONS.forEach(it => {
+      if (it.id > max) max = it.id;
+      if (it.type === 'folder') (it.lessons || []).forEach(l => { if (l.id > max) max = l.id; });
+    });
+    return max + 1;
+  }
+
+  function findItem(id) { return LESSONS.find(it => it.id === id); }
+
+  function findFolder(id) { return LESSONS.find(it => it.type === 'folder' && it.id === id); }
+
+  function findLesson(id) {
+    const root = LESSONS.find(it => it.type === 'lesson' && it.id === id);
+    if (root) return { lesson: root, parent: null };
+    for (let i = 0; i < LESSONS.length; i++) {
+      const f = LESSONS[i];
+      if (f.type === 'folder') {
+        const l = (f.lessons || []).find(x => x.id === id);
+        if (l) return { lesson: l, parent: f };
+      }
+    }
+    return null;
+  }
+
+  function getAllLessons() {
+    const all = [];
+    LESSONS.forEach(it => {
+      if (it.type === 'lesson') all.push({ lesson: it, parent: null });
+      else if (it.type === 'folder') (it.lessons || []).forEach(l => all.push({ lesson: l, parent: it }));
+    });
+    return all;
+  }
+
+  const UI = {
+    appName: { ar: 'Zeek', en: 'Zeek', fr: 'Zeek' },
+    appTitle: { ar: 'Zeek — فرنسي / عربي / إنجليزي', en: 'Zeek — French / Arabic / English', fr: 'Zeek — Français / Arabe / Anglais' },
+    searchPlaceholder: { ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', en: 'Search in Arabic, French, or English…', fr: 'Rechercher en arabe, français ou anglais…' },
+    rateTitle: { ar: 'سرعة الصوت والفيديو', en: 'Audio & video speed', fr: 'Vitesse audio et vidéo' },
+    videoLoopTitle: { ar: 'تكرار الفيديو', en: 'Loop video', fr: 'Boucler la vidéo' },
+    loopModeTitle: { ar: 'محتوى التكرار', en: 'Loop content', fr: 'Contenu de la répétition' },
+    loopFrenchArabicEnglish: { ar: '🔁 فرنسي + عربي + إنجليزي', en: '🔁 French + Arabic + English', fr: '🔁 Français + Arabe + Anglais' },
+    loopFrenchArabic: { ar: '🔁 فرنسي + عربي', en: '🔁 French + Arabic', fr: '🔁 Français + Arabe' },
+    loopFrenchOnly: { ar: '🔁 فرنسي فقط', en: '🔁 French only', fr: '🔁 Français seulement' },
+    favourites: { ar: 'المحفوظات', en: 'Favourites', fr: 'Favoris' },
+    themeMode: { ar: 'الوضع الليلي/النهاري', en: 'Dark / light mode', fr: 'Mode sombre / clair' },
+    stopAudio: { ar: 'إيقاف الصوت', en: 'Stop audio', fr: 'Arrêter le son' },
+    library: { ar: 'المكتبة', en: 'Library', fr: 'Bibliothèque' },
+    phrases: { ar: 'عبارة', en: 'phrases', fr: 'phrases' },
+    lessonsCount: { ar: 'درس', en: 'lessons', fr: 'leçons' },
+    speakOnce: { ar: 'نطق مرة واحدة', en: 'Speak once', fr: 'Parler une fois' },
+    loopTitle: { ar: 'تكرار فيديو العبارة', en: 'Loop phrase video', fr: 'Boucler la vidéo de la phrase' },
+    videoAudioLoopTitle: { ar: 'تكرار صوت/فيديو العبارة', en: 'Loop phrase video audio', fr: 'Boucler l’audio/vidéo de la phrase' },
+    ttsLoopTitle: { ar: 'تكرار النطق', en: 'Repeat pronunciation', fr: 'Répéter la prononciation' },
+    aiTitle: { ar: 'شرح العبارة بالذكاء الاصطناعي من Google', en: 'Explain phrase with Google AI', fr: 'Expliquer la phrase avec Google AI' },
+    noteTitle: { ar: 'دفتر الملاحظات', en: 'Notebook', fr: 'Carnet' },
+    favTitle: { ar: 'حفظ', en: 'Save', fr: 'Enregistrer' },
+    playAll: { ar: '▶ تشغيل كل الدرس', en: '▶ Play whole lesson', fr: '▶ Lire toute la leçon' },
+    stopAll: { ar: '⏹ إيقاف', en: '⏹ Stop', fr: '⏹ Arrêter' },
+    loading: { ar: '…جاري التحميل', en: '…Loading', fr: '…Chargement' },
+    savedPhrasesTitle: { ar: '⭐ العبارات المحفوظة', en: '⭐ Saved phrases', fr: '⭐ Phrases enregistrées' },
+    noSavedPhrases: { ar: 'لا توجد عبارات محفوظة بعد.', en: 'No saved phrases yet.', fr: 'Aucune phrase enregistrée.' },
+    searchResults: { ar: 'نتائج البحث', en: 'Search results', fr: 'Résultats de recherche' },
+    noResults: { ar: 'لا نتائج', en: 'No results', fr: 'Aucun résultat' },
+    noItemsYetTitle: { ar: 'لا توجد عناصر بعد', en: 'No items yet', fr: 'Aucun élément pour le moment' },
+    noItemsYetSub: { ar: 'أنشئ مجلداً أو درساً جديداً', en: 'Create a new folder or lesson', fr: 'Créer un dossier ou une leçon' },
+    addFolder: { ar: 'إضافة مجلد', en: 'Add folder', fr: 'Ajouter un dossier' },
+    addFolderSub: { ar: 'مجلد لحفظ عدة دروس', en: 'A folder to hold several lessons', fr: 'Un dossier pour plusieurs leçons' },
+    addFolderTitle: { ar: 'مجلد جديد', en: 'New folder', fr: 'Nouveau dossier' },
+    addLesson: { ar: 'إضافة درس', en: 'Add lesson', fr: 'Ajouter une leçon' },
+    addLessonSub: { ar: 'أنشئ درساً جديداً', en: 'Create a new lesson', fr: 'Créer une nouvelle leçon' },
+    addLessonTitle: { ar: 'درس جديد', en: 'New lesson', fr: 'Nouvelle leçon' },
+    title: { ar: 'العنوان', en: 'Title', fr: 'Titre' },
+    titleHint: { ar: 'يمكن إدخال لغة واحدة أو أكثر (فرنسي | عربي | إنجليزي)', en: 'One or more languages (French | Arabic | English)', fr: 'Une ou plusieurs langues (Français | Arabe | Anglais)' },
+    titlePlaceholder: { ar: 'مثال: الدرس الأول', en: 'Ex: First lesson', fr: 'Ex: Première leçon' },
+    phrasesLabel: { ar: 'العبارات', en: 'Phrases', fr: 'Phrases' },
+    phrasesHint: { ar: 'كل سطر: فرنسي/إنجليزي ثم عربي ثم الآخر. يقبل | , = → : - ومسافات/Tab', en: 'One line: French/English then Arabic then the other. Supports | , = → : - and spaces/tabs', fr: 'Une ligne : Français/Anglais puis Arabe puis l\'autre. Accepte | , = → : - et espaces/tab' },
+    inputExamples: { ar: 'نماذج الإدخال', en: 'Input examples', fr: 'Exemples de saisie' },
+    copy: { ar: 'نسخ', en: 'Copy', fr: 'Copier' },
+    copied: { ar: 'تم النسخ', en: 'Copied', fr: 'Copié' },
+    pasteOrder: { ar: 'ترتيب الأعمدة', en: 'Column order', fr: 'Ordre des colonnes' },
+    orderAuto: { ar: 'تلقائي', en: 'Auto', fr: 'Auto' },
+    orderFrFirst: { ar: 'فرنسي | عربي | إنجليزي', en: 'French | Arabic | English', fr: 'Français | Arabe | Anglais' },
+    orderEnFirst: { ar: 'إنجليزي | عربي | فرنسي', en: 'English | Arabic | French', fr: 'Anglais | Arabe | Français' },
+    saveFolder: { ar: 'حفظ المجلد', en: 'Save folder', fr: 'Enregistrer le dossier' },
+    saveLesson: { ar: 'حفظ الدرس', en: 'Save lesson', fr: 'Enregistrer la leçon' },
+    cancel: { ar: 'إلغاء', en: 'Cancel', fr: 'Annuler' },
+    deleteFolder: { ar: 'حذف المجلد', en: 'Delete folder', fr: 'Supprimer le dossier' },
+    deleteLesson: { ar: 'حذف الدرس', en: 'Delete lesson', fr: 'Supprimer la leçon' },
+    deleteConfirm: { ar: 'هل تريد حذف هذا الدرس؟', en: 'Delete this lesson?', fr: 'Supprimer cette leçon ?' },
+    deleteFolderConfirm: { ar: 'هل تريد حذف هذا المجلد ودروسه؟', en: 'Delete this folder and its lessons?', fr: 'Supprimer ce dossier et ses leçons ?' },
+    confirmRemoveMedia: { ar: 'هل تريد حذف الصورة أو الفيديو المرفق؟', en: 'Remove the attached image or video?', fr: 'Supprimer l’image ou la vidéo jointe ?' },
+    noPhrasesError: { ar: 'لم يتم التعرف على أي عبارة. تأكد من التنسيق: فرنسي | عربي | إنجليزي', en: 'No phrases recognized. Use format: French | Arabic | English', fr: 'Aucune phrase reconnue. Format : Français | Arabe | Anglais' },
+    fillTitleError: { ar: 'أدخل العنوان بلغة واحدة (فرنسي أو عربي أو إنجليزي)', en: 'Enter the title in one language (French, Arabic, or English)', fr: 'Entrez le titre dans une seule langue (français, arabe ou anglais)' },
+    actions: { ar: 'إجراءات', en: 'Actions', fr: 'Actions' },
+    edit: { ar: 'تعديل', en: 'Edit', fr: 'Modifier' },
+    setImage: { ar: 'ضبط صورة', en: 'Set image', fr: 'Définir l’image' },
+    chooseImage: { ar: 'اختر صورة', en: 'Choose an image', fr: 'Choisir une image' },
+    addMedia: { ar: 'إضافة فيديو/ترجمة', en: 'Add video/caption', fr: 'Ajouter une vidéo/sous-titre' },
+    addVideoCaption: { ar: 'إضافة فيديو وترجمة', en: 'Add video & caption', fr: 'Ajouter une vidéo et sous-titre' },
+    mediaUrl: { ar: 'رابط الفيديو', en: 'Video URL', fr: 'URL de la vidéo' },
+    chooseMediaFile: { ar: 'اختر ملف فيديو', en: 'Choose video file', fr: 'Choisir un fichier vidéo' },
+    mediaInvalid: { ar: 'ملف غير صالح. يجب أن يكون فيديو.', en: 'Invalid file. Must be a video.', fr: 'Fichier invalide. Doit être une vidéo.' },
+    mediaSaveError: { ar: 'تعذر حفظ الوسائط في التطبيق', en: 'Could not save media to the app', fr: 'Impossible d\'enregistrer le média dans l\'application' },
+    chooseCaptionFile: { ar: 'اختر ملف ترجمة (SRT/نص)', en: 'Choose caption file (SRT/text)', fr: 'Choisir fichier sous-titres (SRT/texte)' },
+    captionText: { ar: 'أو ألصق نص الترجمة', en: 'Or paste caption text', fr: 'Ou coller le texte des sous-titres' },
+    captionTextPlaceholder: { ar: '00:00 Maria, j’ai plus de cigarettes.\nماريا، ما عاد معي دخان.\nMaria, I’m out of cigarettes.', en: '00:00 Maria, j’ai plus de cigarettes.\nماريا، ما عاد معي دخان.\nMaria, I’m out of cigarettes.', fr: '00:00 Maria, j’ai plus de cigarettes.\nماريا، ما عاد معي دخان.\nMaria, I’m out of cigarettes.' },
+    captionParseError: { ar: 'تعذر تحليل نص الترجمة. تأكد من التنسيق.', en: 'Could not parse caption text. Check the format.', fr: 'Impossible d\'analyser le texte des sous-titres. Vérifiez le format.' },
+    lessonVideo: { ar: 'فيديو الدرس', en: 'Lesson video', fr: 'Vidéo de la leçon' },
+    chooseVideoFile: { ar: 'اختر ملف فيديو', en: 'Choose video file', fr: 'Choisir un fichier vidéo' },
+    lessonVideoUrl: { ar: 'أو رابط الفيديو', en: 'Or video URL', fr: 'Ou URL de la vidéo' },
+    lessonCaptions: { ar: 'نص الترجمة (SRT/نص)', en: 'Caption text (SRT/text)', fr: 'Texte des sous-titres (SRT/texte)' },
+    generatePhrases: { ar: 'توليد العبارات من الترجمة', en: 'Generate phrases from captions', fr: 'Générer les phrases depuis les sous-titres' },
+    phrasesGenerated: { ar: 'تم توليد {n} عبارة', en: 'Generated {n} phrases', fr: '{n} phrases générées' },
+    editFolderTitle: { ar: 'تعديل عنوان المجلد', en: 'Edit folder title', fr: 'Modifier le titre du dossier' },
+    editLessonTitle: { ar: 'تعديل الدرس', en: 'Edit lesson', fr: 'Modifier la leçon' },
+    invalidImage: { ar: 'الملف ليس صورة', en: 'File is not an image', fr: 'Le fichier n\'est pas une image' },
+    save: { ar: 'حفظ', en: 'Save', fr: 'Enregistrer' },
+    export: { ar: 'تصدير', en: 'Export', fr: 'Exporter' },
+    import: { ar: 'استيراد', en: 'Import', fr: 'Importer' },
+    exportSuccess: { ar: 'تم تصدير الدروس', en: 'Lessons exported', fr: 'Leçons exportées' },
+    exportCopied: { ar: 'تم نسخ البيانات — الصقها في ملف نصي', en: 'Data copied — paste into a text file', fr: 'Données copiées — collez dans un fichier texte' },
+    importSuccess: { ar: 'تم استيراد الدروس', en: 'Lessons imported', fr: 'Leçons importées' },
+    importError: { ar: 'ملف غير صالح', en: 'Invalid file', fr: 'Fichier invalide' },
+    importConfirm: { ar: 'سيحل محتوى الملف محل الدروس الحالية. متابعة؟', en: 'This will replace current lessons. Continue?', fr: 'Cela remplacera les leçons actuelles. Continuer ?' },
+    exitConfirm: { ar: 'هل تريد الخروج من التطبيق؟', en: 'Exit the app?', fr: 'Quitter l\'application ?' },
+    saved: { ar: 'تم الحفظ', en: 'Saved', fr: 'Enregistré' },
+    deleted: { ar: 'تم الحذف', en: 'Deleted', fr: 'Supprimé' },
+    delete: { ar: 'حذف', en: 'Delete', fr: 'Supprimer' },
+    protected: { ar: 'لا يمكن تعديل أو حذف هذا الدرس', en: 'This lesson cannot be edited or deleted', fr: 'Cette leçon ne peut pas être modifiée ou supprimée' },
+    lessonLabel: { ar: 'الدرس', en: 'Lesson', fr: 'Leçon' },
+    folderLabel: { ar: 'المجلد', en: 'Folder', fr: 'Dossier' },
+    emptyFolder: { ar: 'لا توجد دروس في هذا المجلد. أضف درساً جديداً.', en: 'No lessons in this folder. Add a new lesson.', fr: 'Aucune leçon dans ce dossier. Ajoutez-en une nouvelle.' },
+    footerText: { ar: 'Zeek · ', en: 'Zeek · ', fr: 'Zeek · ' },
+    footerLink: { ar: 'تطبيقاتي الأخرى', en: 'My other apps', fr: 'Mes autres applications' },
+    heroTitle: { ar: 'تعلم الفرنسية', en: 'Learn French', fr: 'Apprenez le français' },
+    heroSub: { ar: 'عبارات مترجمة إلى العربية والإنجليزية', en: 'Phrases translated into Arabic and English', fr: 'Phrases traduites en arabe et en anglais' },
+    installTTS: { ar: 'تثبيت النطق', en: 'Install speech', fr: 'Installer la voix' },
+    ttsNotAvailable: { ar: 'محرك النطق غير متوفر على هذا الجهاز. اضغط لتثبيته.', en: 'Text-to-speech engine is not available on this device. Tap to install.', fr: 'Le moteur de synthèse vocale n\'est pas disponible. Appuyez pour installer.' },
+    ttsUnsupportedLanguage: { ar: 'اللغة المطلوبة غير مدعومة من محرك النطق.', en: 'The requested language is not supported by this TTS engine.', fr: 'La langue demandée n\'est pas prise en charge par ce moteur TTS.' },
+    ttsInstallMessage: { ar: 'التطبيق يحتاج إلى محرك نطق مثبت.\n1) تأكد من تثبيت Google Text-to-speech.\n2) افتح إعدادات الجهاز > النطق > اختر Google TTS.\n3) حمّل بيانات الصوت الفرنسي (fr-FR).\n4) أعد تشغيل التطبيق.', en: 'The app needs an installed TTS engine.\n1) Install Google Text-to-speech.\n2) Open device Settings > Speech > choose Google TTS.\n3) Download French (fr-FR) voice data.\n4) Restart the app.', fr: 'L\'application a besoin d\'un moteur TTS installé.\n1) Installez Google Text-to-speech.\n2) Paramètres > Synthèse vocale > choisissez Google TTS.\n3) Téléchargez les données vocales française (fr-FR).\n4) Redémarrez l\'application.' }
+  };
+
+  const VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
+
+  const view = document.getElementById('view');
+  const searchInput = document.getElementById('search');
+  const ttsBanner = document.getElementById('tts-banner');
+  const ttsMsg = document.getElementById('tts-msg');
+  const ttsInstall = document.getElementById('tts-install');
+
+  const state = {
+    route: { name: 'home' },
+    loop: null,
+    favs: JSON.parse(localStorage.getItem('zeek_favs') || '[]'),
+    notes: JSON.parse(localStorage.getItem('zeek_notes') || '{}'),
+    rate: 1,
+    langs: ['fr', 'ar', 'en'],
+    uiLang: localStorage.getItem('zeek_ui_lang') || 'ar',
+    theme: localStorage.getItem('zeek_theme') || 'dark',
+    voiceLang: { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' },
+    ttsAvailable: false
+  };
+
+  let speechRun = 0;
+  let loopTimer = null;
+
+  function t(key) {
+    const v = UI[key];
+    return (v && v[state.uiLang]) || (v && v.en) || (v && v.ar) || key;
+  }
+
+  function title(obj) {
+    return (obj && obj[state.uiLang]) || (obj && obj.fr) || (obj && obj.en) || (obj && obj.ar) || '';
+  }
+
+  function subtitle(obj) {
+    if (!obj) return '';
+    const seen = new Set();
+    const parts = [];
+    [obj.fr, obj.ar, obj.en].forEach(v => { if (v && !seen.has(v)) { seen.add(v); parts.push(esc(v)); } });
+    return parts.join(' · ');
+  }
+
+  function chevron() { return document.documentElement.dir === 'rtl' ? '‹' : '›'; }
+
+  function applyTranslations() {
+    document.title = t('appTitle');
+    document.querySelectorAll('[data-t]').forEach(el => {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = t(el.dataset.t);
+      else el.textContent = t(el.dataset.t);
+    });
+    document.querySelectorAll('[data-t-title]').forEach(el => { el.title = t(el.dataset.tTitle); });
+    const loopmode = document.getElementById('loopmode');
+    if (loopmode) {
+      Array.from(loopmode.options).forEach(opt => { opt.textContent = t(opt.dataset.t); });
+    }
+  }
+
+  function setUILang(lang) {
+    state.uiLang = lang;
+    localStorage.setItem('zeek_ui_lang', lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    applyTranslations();
+    go(state.route, false);
+  }
+
+  function setTheme(theme) {
+    state.theme = theme;
+    localStorage.setItem('zeek_theme', theme);
+    document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : '');
+    const btn = document.getElementById('btn-theme');
+    if (btn) btn.textContent = theme === 'light' ? '☀️' : '🌙';
+  }
+
+  function toggleTheme() { setTheme(state.theme === 'light' ? 'dark' : 'light'); }
+
+  function isAndroid() {
+    return !!(window.Capacitor && window.Capacitor.getPlatform && window.Capacitor.getPlatform() === 'android');
+  }
+
+  function nativeTTS() {
+    if (!window.Capacitor) return null;
+    if (window.Capacitor.getPlatform && window.Capacitor.getPlatform() !== 'android') return null;
+    return window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech;
+  }
+
+  function toWebUrl(url) {
+    if (typeof Capacitor === 'undefined' || !Capacitor.convertFileSrc) return url;
+    if (typeof url !== 'string') return url;
+    if (url.startsWith('file://') || url.startsWith('content://')) return Capacitor.convertFileSrc(url);
+    return url;
+  }
+
+  const MEDIA_DB_NAME = 'zeek-media';
+  const MEDIA_DB_VERSION = 1;
+  const MEDIA_STORE_NAME = 'media';
+  let mediaDb = null;
+  const mediaUrlCache = new Map();
+
+  function isIDBMedia(url) {
+    return typeof url === 'string' && url.startsWith('idb://');
+  }
+
+  function isImageFile(file) {
+    if (!file) return false;
+    if (file.type && file.type.startsWith('image/')) return true;
+    return /\.(jpg|jpeg|png|gif|webp|bmp|svg|heic|heif|tiff?)$/i.test(file.name || '');
+  }
+  function isVideoFile(file) {
+    if (!file) return false;
+    if (file.type && file.type.startsWith('video/')) return true;
+    return /\.(mp4|webm|mov|ogv|3gp|3gpp|avi|mkv|flv|m4v|mpeg|mpg|m4p|m2v|ts)$/i.test(file.name || '');
+  }
+  function isMediaFile(file) { return isImageFile(file) || isVideoFile(file); }
+
+  function mimeFromName(name) {
+    const ext = (String(name).split('.').pop() || '').toLowerCase();
+    const map = {
+      jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', gif: 'image/gif', webp: 'image/webp',
+      bmp: 'image/bmp', svg: 'image/svg+xml', heic: 'image/heic', heif: 'image/heif', tiff: 'image/tiff', tif: 'image/tiff',
+      mp4: 'video/mp4', webm: 'video/webm', mov: 'video/quicktime', ogv: 'video/ogg', '3gp': 'video/3gpp',
+      '3gpp': 'video/3gpp', avi: 'video/x-msvideo', mkv: 'video/x-matroska', flv: 'video/x-flv', m4v: 'video/mp4',
+      mpeg: 'video/mpeg', mpg: 'video/mpeg', m4p: 'video/mp4', m2v: 'video/mpeg', ts: 'video/mp2t'
+    };
+    return map[ext] || '';
+  }
+
+  function readFileArrayBuffer(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = e => resolve(e.target.result);
+      reader.onerror = () => reject(reader.error || 'read error');
+      reader.readAsArrayBuffer(file);
+    });
+  }
+
+  function idbMediaId(url) {
+    return url.slice(6);
+  }
+
+  function idbMediaSupported() {
+    return 'indexedDB' in window;
+  }
+
+  async function openMediaDb() {
+    if (mediaDb) return mediaDb;
+    return new Promise((resolve, reject) => {
+      const req = indexedDB.open(MEDIA_DB_NAME, MEDIA_DB_VERSION);
+      req.onerror = () => reject(req.error);
+      req.onupgradeneeded = (e) => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains(MEDIA_STORE_NAME)) {
+          db.createObjectStore(MEDIA_STORE_NAME);
+        }
+      };
+      req.onsuccess = () => { mediaDb = req.result; resolve(mediaDb); };
+    });
+  }
+
+  async function storeMedia(file) {
+    if (!file || !idbMediaSupported()) return null;
+    const db = await openMediaDb();
+    const id = Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+    let value = file;
+    if (isImageFile(file)) {
+      try {
+        const data = await readFileArrayBuffer(file);
+        value = { data, type: file.type || mimeFromName(file.name) || 'application/octet-stream', name: file.name };
+      } catch (e) {
+        console.error('storeMedia read image', e);
+        return null;
+      }
+    }
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction([MEDIA_STORE_NAME], 'readwrite');
+      const req = tx.objectStore(MEDIA_STORE_NAME).put(value, id);
+      req.onsuccess = () => resolve('idb://' + id);
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  async function getMediaBlob(id) {
+    const db = await openMediaDb();
+    const result = await new Promise((resolve, reject) => {
+      const tx = db.transaction([MEDIA_STORE_NAME], 'readonly');
+      const req = tx.objectStore(MEDIA_STORE_NAME).get(id);
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => reject(req.error);
+    });
+    if (!result) return null;
+    if (result && result.data && result.type) {
+      try { return new Blob([result.data], { type: result.type }); } catch (e) { return null; }
+    }
+    return result;
+  }
+
+  async function deleteMediaById(id) {
+    const db = await openMediaDb();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction([MEDIA_STORE_NAME], 'readwrite');
+      const req = tx.objectStore(MEDIA_STORE_NAME).delete(id);
+      req.onsuccess = () => resolve();
+      req.onerror = () => reject(req.error);
+    });
+  }
+
+  async function resolveMediaRef(ref) {
+    if (!isIDBMedia(ref)) return { url: toWebUrl(ref), type: '', blob: null };
+    const id = idbMediaId(ref);
+    const blob = await getMediaBlob(id);
+    if (!blob) return { url: '', type: '', blob: null };
+    if (!mediaUrlCache.has(id)) mediaUrlCache.set(id, URL.createObjectURL(blob));
+    const type = blob.type || mimeFromName(blob.name || '') || '';
+    return { url: mediaUrlCache.get(id), type, blob };
+  }
+
+  async function isImageMediaRef(ref) {
+    if (!ref) return false;
+    if (/^data:image\//i.test(ref)) return true;
+    if (isVideoUrl(ref)) return false;
+    if (/\.(jpg|jpeg|png|gif|webp|bmp|svg|heic|heif|tiff?)(\?|$)/i.test(ref)) return true;
+    if (isIDBMedia(ref)) {
+      const id = idbMediaId(ref);
+      const blob = await getMediaBlob(id);
+      if (!blob) return false;
+      const type = blob.type || mimeFromName(blob.name || '') || '';
+      return type.startsWith('image/');
+    }
+    return false;
+  }
+
+  async function deleteMediaRef(ref) {
+    if (!ref || typeof ref !== 'string') return;
+    if (isIDBMedia(ref)) {
+      const id = idbMediaId(ref);
+      if (mediaUrlCache.has(id)) { URL.revokeObjectURL(mediaUrlCache.get(id)); mediaUrlCache.delete(id); }
+      try { await deleteMediaById(id); } catch (e) { console.error('deleteMediaById', id, e); }
+    } else if (ref.startsWith('file://')) {
+      await deleteLocalFile(ref);
+    }
+  }
+
+  async function deleteLocalFile(uri) {
+    if (!uri || typeof uri !== 'string' || !uri.startsWith('file://')) return;
+    if (!(window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Filesystem)) return;
+    try { await window.Capacitor.Plugins.Filesystem.deleteFile({ path: uri }); } catch (e) { console.error('deleteLocalFile', uri, e); }
+  }
+
+  async function deleteItemMedia(it) {
+    if (!it) return;
+    if (it.image) await deleteMediaRef(it.image);
+    if (it.media) { await deleteMediaRef(it.media); it.media = ''; }
+    if (it.captionText) delete it.captionText;
+    if (it.lessons) { for (const l of it.lessons) await deleteItemMedia(l); }
+    if (it.phrases) { for (const p of it.phrases) { if (p.media) await deleteMediaRef(p.media); if (p.captionText) delete p.captionText; } }
+  }
+
+  function findPhraseByKey(key) {
+    if (!key) return null;
+    const [lessonId, idx] = key.split('.').map(Number);
+    const found = findLesson(lessonId);
+    return found ? found.lesson.phrases[idx] : null;
+  }
+
+  function parseCaptions(text) {
+    text = (text || '').trim();
+    if (!text) return [];
+    if (text.includes('-->')) return parseSRT(text);
+    return parseCustomCaptions(text);
+  }
+
+  function countryCodeFromFlag(flag) {
+    const chars = [...flag];
+    if (chars.length !== 2) return null;
+    const cp1 = chars[0].codePointAt(0), cp2 = chars[1].codePointAt(0);
+    if (cp1 >= 0x1F1E6 && cp1 <= 0x1F1FF && cp2 >= 0x1F1E6 && cp2 <= 0x1F1FF) {
+      return String.fromCodePoint(cp1 - 0x1F1E6 + 0x41, cp2 - 0x1F1E6 + 0x41);
+    }
+    return null;
+  }
+
+  function langFromCountryCode(code) {
+    if (!code) return null;
+    if (['FR','BE','CA','CH','LU','MC'].includes(code)) return 'fr';
+    if (['SY','SA','AE','EG','IQ','JO','LB','LY','MA','OM','PS','QA','TN','YE','KW','BH','DZ','SD','MR','KM','TD','DJ','ER','SO'].includes(code)) return 'ar';
+    if (['US','GB','CA','AU','NZ','IE','ZA','IN','NG','KE','GH','JM','TT','BZ','BS','BB','SG','MY','PH','HK'].includes(code)) return 'en';
+    return null;
+  }
+
+  function langFromMarker(marker) {
+    if (!marker) return null;
+    marker = marker.trim();
+    if (/^[A-Za-z]{2}$/.test(marker)) {
+      const low = marker.toLowerCase();
+      if (low === 'fr') return 'fr';
+      if (low === 'ar' || low === 'sy' || low === 'sa' || low === 'ae' || low === 'eg') return 'ar';
+      if (low === 'en' || low === 'us' || low === 'uk' || low === 'gb') return 'en';
+    }
+    const cc = countryCodeFromFlag(marker);
+    if (cc) return langFromCountryCode(cc);
+    return null;
+  }
+
+  function parseFlagLine(line) {
+    let m = line.match(/^([\u{1F1E6}-\u{1F1FF}]{2})(?:\s+|\s*$)(.*)$/u);
+    if (!m) m = line.match(/^([A-Za-z]{2})[:\u2192\-]\s*(.*)$/);
+    if (!m) return null;
+    const lang = langFromMarker(m[1]);
+    if (!lang) return null;
+    const isFlag = /^[\u{1F1E6}-\u{1F1FF}]{2}$/u.test(m[1]);
+    const text = isFlag ? (m[1] + ' ' + m[2].trim()).trim() : m[2].trim();
+    return { lang, text };
+  }
+
+  function parseCaptionLines(lines) {
+    const parts = { fr: '', ar: '', en: '' };
+    const ordered = ['fr', 'ar', 'en'];
+    let orderIdx = 0;
+    for (const line of lines) {
+      if (!line || line === 'الحوار' || /^\d+$/.test(line)) continue;
+      if (line.includes('|')) {
+        const split = line.split(/\s*\|\s*/).map(s => s.trim()).filter(Boolean);
+        for (const s of split) {
+          const p = parseFlagLine(s);
+          if (p) { parts[p.lang] = p.text; }
+          else if (orderIdx < ordered.length) { parts[ordered[orderIdx++]] = s; }
+        }
+        continue;
+      }
+      const p = parseFlagLine(line);
+      if (p) { parts[p.lang] = p.text; continue; }
+      if (orderIdx < ordered.length) { parts[ordered[orderIdx++]] = line; }
+    }
+    return parts;
+  }
+
+  function parseCustomCaptions(text) {
+    const captions = [];
+    let current = null;
+    function flush() {
+      if (!current || typeof current.start !== 'number') { current = null; return; }
+      const parts = parseCaptionLines(current.body);
+      captions.push({ start: current.start, end: current.start + 4, ...parts });
+      current = null;
+    }
+    const lines = text.split(/\r?\n/).map(l => l.trim());
+    for (const line of lines) {
+      if (!line) { flush(); continue; }
+      if (line === 'الحوار' || /^\d+$/.test(line)) continue;
+      const m = line.match(/^(\d{1,2}):(\d{2})\s+(.+)$/);
+      if (m) {
+        flush();
+        current = { start: parseInt(m[1], 10) * 60 + parseInt(m[2], 10), body: [m[3].trim()] };
+      } else if (current) {
+        current.body.push(line);
+      }
+    }
+    flush();
+    for (let i = 0; i < captions.length; i++) {
+      if (i + 1 < captions.length) captions[i].end = captions[i + 1].start;
+    }
+    return captions;
+  }
+
+  function parseSRT(text) {
+    const captions = [];
+    const blocks = text.split(/\n\s*\n/);
+    for (const block of blocks) {
+      const lines = block.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+      const timeIdx = lines.findIndex(l => l.includes('-->'));
+      if (timeIdx === -1 || timeIdx + 1 >= lines.length) continue;
+      const m = lines[timeIdx].match(/(\d{1,2}):(\d{2}):(\d{2})[,.](\d{3})\s*-->\s*(\d{1,2}):(\d{2}):(\d{2})[,.](\d{3})/);
+      if (!m) continue;
+      const start = parseInt(m[1],10)*3600 + parseInt(m[2],10)*60 + parseInt(m[3],10) + parseInt(m[4],10)/1000;
+      const end = parseInt(m[5],10)*3600 + parseInt(m[6],10)*60 + parseInt(m[7],10) + parseInt(m[8],10)/1000;
+      const parts = parseCaptionLines(lines.slice(timeIdx + 1));
+      captions.push({ start, end, ...parts });
+    }
+    return captions.sort((a, b) => a.start - b.start);
+  }
+
+  function highlightVideoPhrase(lessonId, idx) {
+    document.querySelectorAll('.phrase').forEach(el => {
+      const parts = el.dataset.key ? el.dataset.key.split('.').map(Number) : [];
+      const on = parts.length === 2 && parts[0] === lessonId && parts[1] === idx;
+      el.classList.toggle('synced', on);
+      el.querySelectorAll('.line').forEach(line => line.classList.toggle('synced', on));
+    });
+  }
+
+  async function attachCaptionSync(video, captionText, lessonId) {
+    if (!video || video.dataset.captionSync === '1') return;
+    let captions = [];
+    try { captions = parseCaptions(captionText); } catch (e) { console.error('parse captions', e); }
+    if (!captions.length) return;
+    const FLAGS = { fr: '🇫🇷', ar: '🇸🇾', en: '🇬🇧' };
+    const container = video.closest('.phrase-media');
+    const overlay = document.createElement('div');
+    overlay.className = 'caption-overlay';
+    if (container) container.appendChild(overlay);
+    const textDiv = document.createElement('div');
+    textDiv.className = 'cap-text';
+    overlay.appendChild(textDiv);
+    const loopBtn = document.createElement('button');
+    loopBtn.className = 'cap-loop-btn';
+    loopBtn.type = 'button';
+    loopBtn.title = t('videoAudioLoopTitle');
+    loopBtn.textContent = '🔁';
+    loopBtn.onclick = (e) => {
+      e.stopPropagation();
+      const t = video.currentTime || 0;
+      const idx = captions.findIndex(c => t >= c.start && t < c.end);
+      if (idx === -1) return;
+      let phraseKey = '';
+      if (lessonId != null) {
+        phraseKey = lessonId + '.' + idx;
+      } else {
+        const phrase = video.closest('.phrase');
+        if (phrase) phraseKey = phrase.dataset.key || '';
+      }
+      if (!phraseKey) return;
+      const p = findPhraseByKey(phraseKey);
+      if (p) toggleLoop(p, phraseKey);
+    };
+    overlay.appendChild(loopBtn);
+    const makeCap = (text, lang) => {
+      if (!text) return '';
+      return `<span class="cap-line cap-${lang}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">${esc(text)}</span>`;
+    };
+    const update = () => {
+      const t = video.currentTime || 0;
+      let activeIdx = -1;
+      const c = captions.find((c, i) => { if (t >= c.start && t < c.end) { activeIdx = i; return true; } return false; });
+      if (!c) { overlay.style.display = 'none'; if (lessonId != null) highlightVideoPhrase(lessonId, -1); return; }
+      const parts = [makeCap(c.fr, 'fr'), makeCap(c.ar, 'ar'), makeCap(c.en, 'en')].filter(Boolean);
+      textDiv.innerHTML = parts.join('<br>');
+      overlay.style.display = 'flex';
+      if (lessonId != null) highlightVideoPhrase(lessonId, activeIdx);
+      let phraseKey = '';
+      if (lessonId != null) phraseKey = lessonId + '.' + activeIdx;
+      else { const phrase = video.closest('.phrase'); if (phrase) phraseKey = phrase.dataset.key || ''; }
+      const active = !!(state.loop && state.loop.type === 'video' && state.loop.key === phraseKey);
+      loopBtn.classList.toggle('active', active);
+      loopBtn.textContent = active ? '⏸' : '🔁';
+    };
+    video.addEventListener('timeupdate', update);
+    video.addEventListener('seeked', update);
+    video.addEventListener('play', update);
+    video.addEventListener('loadedmetadata', update);
+    video.addEventListener('pause', () => { if (lessonId != null) highlightVideoPhrase(lessonId, -1); });
+    video.addEventListener('ended', () => { if (lessonId != null) highlightVideoPhrase(lessonId, -1); });
+    video.dataset.captionSync = '1';
+    update();
+  }
+
+  async function syncAllCaptions() {
+    const phrases = document.querySelectorAll('.phrase');
+    for (const el of phrases) {
+      const key = el.dataset.key;
+      if (!key) continue;
+      const p = findPhraseByKey(key);
+      if (!p || !p.captionText) continue;
+      const video = el.querySelector('video');
+      if (video) await attachCaptionSync(video, p.captionText);
+    }
+  }
+
+  async function loadMedia() {
+    const placeholders = document.querySelectorAll('.media-placeholder');
+    for (const el of placeholders) {
+      const ref = el.dataset.mediaRef;
+      if (!ref) continue;
+      const resolved = await resolveMediaRef(ref);
+      if (!resolved.url) { el.remove(); continue; }
+      const yt = youtubeId(resolved.url);
+      if (yt) {
+        el.innerHTML = `<iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe>`;
+      } else {
+        const isVideo = (resolved.type || '').startsWith('video/') || isVideoUrl(resolved.url) || isVideoFile({ name: (resolved.blob && resolved.blob.name) || '', type: resolved.type });
+        if (isVideo) {
+          const phraseKey = el.dataset.phraseKey || '';
+          el.innerHTML = videoHTML(resolved.url, phraseKey);
+          const v = el.querySelector('video');
+          if (v) { try { v.playbackRate = state.rate || 1; } catch (e) {} }
+        } else {
+          el.innerHTML = `<img src="${esc(resolved.url)}" alt="" onerror="this.style.display='none'">`;
+        }
+      }
+      const captionText = el.dataset.captionText || '';
+      const lessonId = el.dataset.lessonId ? +el.dataset.lessonId : null;
+      if (captionText) {
+        const video = el.querySelector('video');
+        if (video) {
+          if (lessonId != null) video.dataset.lessonId = lessonId;
+          await attachCaptionSync(video, captionText, lessonId);
+        }
+      }
+      el.classList.remove('media-placeholder');
+    }
+    await syncAllCaptions();
+  }
+
+  function showTTSBanner(msg, btnText) {
+    if (!ttsBanner) return;
+    ttsMsg.textContent = msg;
+    ttsInstall.textContent = btnText;
+    ttsInstall.onclick = () => { openTTSInstall(); };
+    ttsBanner.style.display = 'flex';
+  }
+
+  function hideTTSBanner() {
+    if (ttsBanner) ttsBanner.style.display = 'none';
+  }
+
+  function openTTSInstall() {
+    const tts = nativeTTS();
+    if (!tts || !tts.openInstall) return;
+    tts.openInstall().catch(() => {}).then(() => { setTimeout(checkNativeTTS, 3000); });
+  }
+
+  async function supportsLangTag(tts, tags) {
+    for (const tag of tags) {
+      try {
+        const r = await tts.isLanguageSupported({ lang: tag });
+        if (r && r.supported) return tag;
+      } catch (e) {}
+    }
+    return null;
+  }
+
+  async function checkNativeTTS(retry = 0) {
+    const tts = nativeTTS();
+    if (!tts) {
+      state.ttsAvailable = false;
+      if (!('speechSynthesis' in window)) showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
+      return;
+    }
+    try {
+      let frTag = await supportsLangTag(tts, ['fr-FR','fr','fra','fr-CA','fr-CH']);
+      let langs = [];
+      if (!frTag) {
+        const r = await tts.getSupportedLanguages().catch(() => ({}));
+        langs = ((r && r.languages) || []).map(l => String(l).toLowerCase());
+        const pick = (tags) => tags.find(tag => langs.includes(tag.toLowerCase()));
+        frTag = pick(['fr-FR','fr','fra','fr-CA','fr-CH']);
+      }
+      if (!frTag && retry < 8) {
+        setTimeout(() => checkNativeTTS(retry + 1), 600);
+        return;
+      }
+      if (!frTag) {
+        state.ttsAvailable = false;
+        if (!webTTS()) showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
+        return;
+      }
+      state.voiceLang = {
+        fr: frTag,
+        ar: await supportsLangTag(tts, ['ar-SA','ar','ara','ar-EG']),
+        en: await supportsLangTag(tts, ['en-US','en','eng','en-GB','en-CA'])
+      };
+      state.ttsAvailable = true;
+      hideTTSBanner();
+    } catch (e) {
+      if (retry < 8) {
+        setTimeout(() => checkNativeTTS(retry + 1), 600);
+      } else {
+        state.ttsAvailable = false;
+        showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
+      }
+    }
+  }
+
+  function stripSpeechFlags(text) {
+    return String(text || '').replace(/[\u{1F1E6}-\u{1F1FF}]{2}/gu, '').replace(/\s+/g, ' ').trim();
+  }
+
+  function estimatedSpeechTimeout(text, rate) {
+    const words = String(text).trim().split(/\s+/).filter(Boolean).length;
+    return Math.max(8000, Math.ceil(words * 900 / (rate || 1)) + 3000);
+  }
+
+  function nativeSpeak(text, lang) {
+    text = stripSpeechFlags(text);
+    const tts = nativeTTS();
+    if (!tts) return Promise.reject('no tts');
+    const tag = (state.voiceLang && state.voiceLang[lang]);
+    if (!tag) return Promise.reject('unsupported lang');
+    const p = tts.speak({ text: text, lang: tag, rate: state.rate || 1 });
+    const timeout = new Promise((_, reject) => setTimeout(() => reject('timeout'), estimatedSpeechTimeout(text, state.rate)));
+    return Promise.race([p, timeout]);
+  }
+
+  function nativeStop() {
+    const tts = nativeTTS();
+    if (tts) tts.stop().catch(() => {});
+  }
+
+  function webTTS() {
+    const synth = window.speechSynthesis;
+    if (!synth) return null;
+    const voices = synth.getVoices();
+    return (voices && voices.length) ? synth : null;
+  }
+
+  function webSpeak(text, lang) {
+    text = stripSpeechFlags(text);
+    const synth = webTTS();
+    if (!synth) return Promise.reject('no web tts');
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = (state.voiceLang && state.voiceLang[lang]) || VOICE_LANG[lang] || 'en-US';
+    u.rate = state.rate || 1;
+    return new Promise((resolve, reject) => {
+      let settled = false;
+      u.onend = () => { if (!settled) { settled = true; clearTimeout(timer); resolve(); } };
+      u.onerror = () => { if (!settled) { settled = true; clearTimeout(timer); reject('web tts error'); } };
+      const timer = setTimeout(() => { if (!settled) { settled = true; resolve(); } }, estimatedSpeechTimeout(text, state.rate) + 2000);
+      synth.speak(u);
+    });
+  }
+
+  function anySpeak(text, lang) {
+    const t = stripSpeechFlags(text);
+    if (!t) return Promise.reject('empty tts');
+    if (speakSupported()) return nativeSpeak(t, lang);
+    if (webTTS()) return webSpeak(t, lang);
+    return Promise.reject('no tts');
+  }
+
+  function anyStop() {
+    nativeStop();
+    const synth = webTTS();
+    if (synth) synth.cancel();
+  }
+
+  function anyTTSAvailable() {
+    return speakSupported() || !!webTTS();
+  }
+
+  async function prepareTTS() {
+    if (anyTTSAvailable()) { hideTTSBanner(); return true; }
+    if (!nativeTTS() && !('speechSynthesis' in window)) return false;
+    if (nativeTTS()) checkNativeTTS();
+    for (let i = 0; i < 15; i++) {
+      await new Promise(r => setTimeout(r, 400));
+      if (anyTTSAvailable()) { hideTTSBanner(); return true; }
+    }
+    return false;
+  }
+
+  function speakSupported() { return !!nativeTTS() && state.ttsAvailable; }
+
+  function stopSpeech() {
+    state.loop = null;
+    if (loopTimer) { clearInterval(loopTimer); loopTimer = null; }
+    speechRun++;
+    anyStop();
+    highlight(null);
+    refreshButtons();
+    document.querySelectorAll('video').forEach(v => { try { v.pause(); v.dispatchEvent(new Event('timeupdate')); } catch (e) {} });
+  }
+
+  function updateVideoRate() {
+    document.querySelectorAll('video').forEach(v => { try { v.playbackRate = state.rate || 1; } catch (e) {} });
+  }
+
+  async function speakOnce(phrase, langs, key, onDone) {
+    const run = ++speechRun;
+    anyStop();
+    const ready = await prepareTTS();
+    if (run !== speechRun) return;
+    if (!ready) { highlight(null); return; }
+    const seq = langs.filter(l => phrase[l] && state.voiceLang[l]);
+    let i = 0;
+    (function next() {
+      if (run !== speechRun) return;
+      if (i >= seq.length) { highlight(null); if (onDone) onDone(); return; }
+      const lang = seq[i++];
+      highlight(key, lang);
+      anySpeak(phrase[lang], lang).then(() => { if (run === speechRun) setTimeout(next, 250); }).catch(() => {
+        if (run === speechRun) setTimeout(next, 250);
+      });
+    })();
+  }
+
+  function getVideoForPhrase(key) {
+    const el = document.querySelector(`.phrase[data-key="${key}"]`);
+    if (el) { const v = el.querySelector('video'); if (v) return v; }
+    return document.querySelector('.lesson-media video') || document.querySelector('video');
+  }
+
+  async function toggleTTSLoop(phrase, key) {
+    if (state.loop && state.loop.key === key && state.loop.type === 'tts') { stopSpeech(); return; }
+    const ready = await prepareTTS();
+    if (!ready) return;
+    stopSpeech();
+    state.loop = { key, type: 'tts' };
+    refreshButtons();
+    (function cycle() {
+      if (!state.loop || state.loop.key !== key) return;
+      speakOnce(phrase, state.langs, key, () => {
+        if (!state.loop || state.loop.key !== key) return;
+        setTimeout(cycle, 600);
+      });
+    })();
+  }
+
+  async function toggleLoop(phrase, key) {
+    if (state.loop && state.loop.key === key) { stopSpeech(); return; }
+    const video = getVideoForPhrase(key);
+    if (!video) return;
+    let start = phrase.start, end = phrase.end;
+    if ((typeof start !== 'number' || typeof end !== 'number') && key) {
+      const [lessonId, idx] = key.split('.').map(Number);
+      const found = findLesson(lessonId);
+      if (found && found.lesson.captionText) {
+        const caps = parseCaptions(found.lesson.captionText);
+        const c = caps[idx];
+        if (c) { start = c.start; end = c.end; }
+      }
+    }
+    if (typeof start !== 'number' || typeof end !== 'number') return;
+    stopSpeech();
+    if (loopTimer) { clearInterval(loopTimer); loopTimer = null; }
+    state.loop = { key, type: 'video', start, end };
+    refreshButtons();
+    try { video.dispatchEvent(new Event('timeupdate')); } catch (e) {}
+    const seekAndPlay = () => {
+      try { video.currentTime = start; } catch (e) {}
+      updateVideoRate();
+      try { video.play(); } catch (e) {}
+    };
+    updateVideoRate();
+    if (video.readyState >= 1) seekAndPlay();
+    else {
+      video.addEventListener('loadedmetadata', seekAndPlay, { once: true });
+      try { video.play(); } catch (e) {}
+    }
+    loopTimer = setInterval(() => {
+      if (!state.loop || state.loop.key !== key) { clearInterval(loopTimer); loopTimer = null; return; }
+      if (video.paused) { try { video.play(); } catch (e) {} }
+      if (video.currentTime >= end || video.currentTime < start - 0.1) {
+        video.currentTime = start;
+        try { video.play(); } catch (e) {}
+      }
+    }, 200);
+  }
+
+  async function toggleLangLoop(lang, key) {
+    if (!lang) return;
+    const [lessonId, idx] = key.split('.').map(Number);
+    const found = findLesson(lessonId);
+    if (!found) return;
+    const p = found.lesson.phrases[idx];
+    const text = p[lang];
+    if (!text) return;
+    const loopKey = 'lang:' + key + ':' + lang;
+    if (state.loop && state.loop.key === loopKey) { stopSpeech(); return; }
+    const ready = await prepareTTS();
+    if (!ready) return;
+    state.loop = { key: loopKey, phraseKey: key, lang };
+    refreshButtons();
+    const pseudo = { [lang]: text };
+    highlight(key, lang);
+    (function cycle() {
+      if (!state.loop || state.loop.key !== loopKey) return;
+      speakOnce(pseudo, [lang], key, () => {
+        if (!state.loop || state.loop.key !== loopKey) return;
+        setTimeout(cycle, 600);
+      });
+    })();
+  }
+
+  async function toggleWordLoop(word, lang, key) {
+    if (!word || !lang) return;
+    const loopKey = 'word:' + key + ':' + lang + ':' + word;
+    if (state.loop && state.loop.key === loopKey) { stopSpeech(); return; }
+    const ready = await prepareTTS();
+    if (!ready) return;
+    state.loop = { key: loopKey, phraseKey: key, lang, word };
+    refreshButtons();
+    const pseudo = { [lang]: word };
+    highlight(key, lang);
+    (function cycle() {
+      if (!state.loop || state.loop.key !== loopKey) return;
+      speakOnce(pseudo, [lang], key, () => {
+        if (!state.loop || state.loop.key !== loopKey) return;
+        setTimeout(cycle, 600);
+      });
+    })();
+  }
+
+  function highlight(key, lang) {
+    document.querySelectorAll('.phrase').forEach(el => {
+      const on = key && el.dataset.key === key;
+      el.classList.toggle('playing', !!on);
+      el.querySelectorAll('.line').forEach(line => {
+        line.classList.toggle('active', !!on && (!lang || line.dataset.lang === lang));
+      });
+    });
+  }
+
+  function refreshButtons() {
+    document.querySelectorAll('.word').forEach(w => w.classList.remove('active'));
+    document.querySelectorAll('.loop-lang').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tts-loop-btn').forEach(b => { b.classList.remove('active'); b.textContent = '🔂'; });
+    document.querySelectorAll('.phrase').forEach(el => {
+      const videoOn = state.loop && state.loop.type === 'video' && state.loop.key === el.dataset.key;
+      const ttsOn = state.loop && state.loop.type === 'tts' && state.loop.key === el.dataset.key;
+      const loopBtn = el.querySelector('.loop-btn');
+      if (loopBtn) {
+        loopBtn.classList.toggle('active', !!videoOn);
+        loopBtn.textContent = videoOn ? '⏸' : '🔁';
+      }
+      const phraseLoopBtn = el.querySelector('.phrase-loop-btn');
+      if (phraseLoopBtn) {
+        phraseLoopBtn.classList.toggle('active', !!videoOn);
+        phraseLoopBtn.textContent = videoOn ? '⏸' : '🔁';
+      }
+      const ttsBtn = el.querySelector('.tts-loop-btn');
+      if (ttsBtn) {
+        ttsBtn.classList.toggle('active', !!ttsOn);
+        ttsBtn.textContent = ttsOn ? '⏸' : '🔂';
+      }
+      if (state.loop && state.loop.phraseKey === el.dataset.key && state.loop.lang && !state.loop.word) {
+        const langBtn = el.querySelector('.loop-lang[data-lang="' + state.loop.lang + '"]');
+        if (langBtn) langBtn.classList.add('active');
+      }
+    });
+    if (state.loop && state.loop.word) {
+      const p = document.querySelector(`.phrase[data-key="${state.loop.phraseKey}"]`);
+      if (p) {
+        p.querySelectorAll('.word').forEach(w => {
+          if (w.dataset.lang === state.loop.lang && w.dataset.word === state.loop.word) w.classList.add('active');
+        });
+      }
+    }
+  }
+
+  function isFav(key) { return state.favs.includes(key); }
+  function hasNote(key) { return !!state.notes[key]; }
+  function saveNotes() { localStorage.setItem('zeek_notes', JSON.stringify(state.notes)); }
+
+  function toggleFav(key) {
+    const i = state.favs.indexOf(key);
+    if (i === -1) state.favs.push(key); else state.favs.splice(i, 1);
+    localStorage.setItem('zeek_favs', JSON.stringify(state.favs));
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function wordSpans(text, lang) {
+    if (!text) return '';
+    return String(text).trim().split(/\s+/).map(w => {
+      const clean = w.replace(/^[\p{P}\p{S}]+|[\p{P}\p{S}]+$/gu, '');
+      return `<span class="word" data-lang="${esc(lang)}" data-word="${esc(clean || w)}">${esc(w)}</span>`;
+    }).join(' ');
+  }
+
+  function phraseKey(lessonId, idx) { return lessonId + '.' + idx; }
+
+  async function deleteRootItem(id) {
+    const it = findItem(id);
+    if (!it) return;
+    if (it.protected) { showToast(t('protected')); return; }
+    if (!confirm(it.type === 'folder' ? t('deleteFolderConfirm') : t('deleteConfirm'))) return;
+    await deleteItemMedia(it);
+    LESSONS = LESSONS.filter(x => x.id !== id);
+    saveLessons();
+    showToast(t('deleted'));
+    go({ name: 'home' }, false);
+  }
+
+  async function deleteLesson(id) {
+    const found = findLesson(id);
+    if (!found) return;
+    if (found.lesson.protected) { showToast(t('protected')); return; }
+    if (!confirm(t('deleteConfirm'))) return;
+    await deleteItemMedia(found.lesson);
+    if (found.parent) {
+      found.parent.lessons = found.parent.lessons.filter(l => l.id !== id);
+    } else {
+      LESSONS = LESSONS.filter(it => !(it.type === 'lesson' && it.id === id));
+    }
+    saveLessons();
+    showToast(t('deleted'));
+    if (state.route.name === 'lesson' && state.route.lesson === id) go({ name: 'home' }, false);
+    else go(state.route, false);
+  }
+
+  function cardThumb(it, idx) {
+    if (it.image) {
+      if (isIDBMedia(it.image)) return `<div class="card-thumb media-placeholder" data-media-ref="${esc(it.image)}"></div>`;
+      return `<div class="card-thumb"><img src="${esc(toWebUrl(it.image))}" alt=""></div>`;
+    }
+    if (it.type === 'folder') return `<div class="card-thumb" style="color:#fff; background:var(--accent-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M2 6a2 2 0 0 1 2-2h5l2 2h9a2 2 0 0 1 2 2v1H2V6zm0 3h20v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9z"/></svg></div>`;
+    return `<div class="num">${idx || it.id}</div>`;
+  }
+
+  function menuBtn(it, type) {
+    return it.protected ? '' : `<button class="menu-btn" data-menu="${it.id}" data-type="${type}" title="${t('actions')}">⋮</button>`;
+  }
+
+  function openActionSheet(id, type) {
+    const sheet = document.getElementById('action-sheet');
+    const titleEl = document.getElementById('sheet-title');
+    const actions = document.getElementById('sheet-actions');
+    const it = type === 'folder' ? findFolder(id) : (findLesson(id) || {}).lesson;
+    const label = it ? title(it.title) : '';
+    titleEl.textContent = esc(label);
+    actions.innerHTML = `
+      <button type="button" class="btn" data-edit="${id}" data-type="${type}">${t('edit')}</button>
+      <button type="button" class="btn ghost" data-set-image="${id}" data-type="${type}">${t('setImage')}</button>
+      <button type="button" class="btn ghost" style="color:var(--danger); border-color:var(--danger)" data-delete-sheet="${id}" data-type="${type}">${type === 'folder' ? t('deleteFolder') : t('deleteLesson')}</button>
+    `;
+    sheet.classList.add('show');
+  }
+
+  function closeActionSheet() {
+    document.getElementById('action-sheet').classList.remove('show');
+  }
+
+  async function setItemImage(id, type, file) {
+    if (!file || !isImageFile(file)) { showToast(t('invalidImage')); return; }
+    let it;
+    if (type === 'folder') it = findFolder(id);
+    else { const found = findLesson(id); it = found ? found.lesson : null; }
+    if (!it) return;
+    if (it.protected) { showToast(t('protected')); return; }
+    try {
+      const uri = await storeMedia(file) || await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = e => resolve(e.target.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+      if (it.image) await deleteMediaRef(it.image);
+      it.image = uri;
+      saveLessons();
+      showToast(t('saved'));
+      go(state.route, false);
+    } catch (e) {
+      console.error('setItemImage', e);
+      showToast(t('mediaSaveError'));
+    }
+  }
+
+  function editItem(id, type) {
+    if (type === 'folder') {
+      const folder = findFolder(id);
+      if (!folder) return;
+      if (folder.protected) { showToast(t('protected')); return; }
+      const ttl = parseTitle(prompt(t('editFolderTitle'), formatTitle(folder.title)) || '');
+      if (!ttl) return;
+      folder.title = ttl;
+      saveLessons();
+      showToast(t('saved'));
+      go(state.route, false);
+    } else {
+      const found = findLesson(id);
+      if (found && found.lesson.protected) { showToast(t('protected')); return; }
+      go({ name: 'edit-lesson', lesson: id });
+    }
+  }
+
+  function addFolder() {
+    const form = document.getElementById('add-folder-form');
+    const ttl = parseTitle(form.elements.title.value);
+    if (!ttl) { alert(t('fillTitleError')); return; }
+    LESSONS.push({ id: nextId(), type: 'folder', title: ttl, lessons: [] });
+    saveLessons();
+    showToast(t('saved'));
+    go({ name: 'home' });
+  }
+
+  function readFileText(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = e => resolve(e.target.result);
+      reader.onerror = e => reject(e);
+      reader.readAsText(file);
+    });
+  }
+
+  function generatePhrasesFromCaptions() {
+    const form = document.getElementById('add-lesson-form');
+    if (!form) return;
+    const text = form.elements.captions.value.trim();
+    if (!text) { alert(t('captionParseError')); return; }
+    const captions = parseCaptions(text);
+    if (!captions.length) { alert(t('captionParseError')); return; }
+    form.elements.phrases.value = captions.map(c => `${c.fr} | ${c.ar} | ${c.en}`).join('\n');
+    showToast(t('phrasesGenerated').replace('{n}', captions.length));
+  }
+
+  async function addLesson() {
+    const form = document.getElementById('add-lesson-form');
+    const ttl = parseTitle(form.elements.title.value);
+    if (!ttl) { alert(t('fillTitleError')); return; }
+    const folderId = +form.elements.folderId.value || 0;
+    const folder = folderId ? findFolder(folderId) : null;
+
+    let media = '';
+    const videoFile = document.getElementById('lesson-video-file').files[0];
+    const videoUrl = form.elements.videoUrl.value.trim();
+    if (videoFile) {
+      media = await storeMedia(videoFile);
+      if (!media) { alert(t('mediaSaveError')); return; }
+    } else if (videoUrl) {
+      const valid = /^https?:\/\//.test(videoUrl) || /^data:/.test(videoUrl) || /^file:\/\//.test(videoUrl) || /^idb:\/\//.test(videoUrl) || isVideoUrl(videoUrl);
+      if (!valid) { alert(t('mediaInvalid')); return; }
+      media = videoUrl;
+    }
+
+    let captionText = form.elements.captions.value.trim();
+    const captionFile = document.getElementById('lesson-captions-file').files[0];
+    if (captionFile) {
+      try { captionText = await readFileText(captionFile); }
+      catch (e) { alert(t('captionParseError')); return; }
+    }
+
+    let phrases = [];
+    if (captionText) {
+      const captions = parseCaptions(captionText);
+      if (!captions.length) { alert(t('captionParseError')); return; }
+      phrases = captions.map(c => ({ fr: c.fr, ar: c.ar, en: c.en, start: c.start, end: c.end }));
+    } else {
+      phrases = parsePhrases(form.elements.phrases.value, form.elements.order.value);
+    }
+    if (!phrases.length) { alert(t('noPhrasesError')); return; }
+
+    const lesson = { id: nextId(), type: 'lesson', title: ttl, phrases };
+    if (media) lesson.media = media;
+    if (captionText) lesson.captionText = captionText;
+    if (folder) folder.lessons.push(lesson); else LESSONS.push(lesson);
+    saveLessons();
+    showToast(t('saved'));
+    go(folder ? { name: 'folder', folder: folder.id } : { name: 'home' });
+  }
+
+  function youtubeId(url) {
+    const m = String(url).match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/);
+    return m ? m[1] : null;
+  }
+
+  function isVideoUrl(url) {
+    return /^data:video|\.(mp4|webm|mov|ogv|3gp|3gpp|avi|mkv|flv|m4v|mpeg|mpg)(\?|$)/i.test(url);
+  }
+
+  function videoLoopButtonHTML() {
+    return `<button class="video-loop-btn" title="${t('videoLoopTitle')}" type="button">🔁</button>`;
+  }
+
+  function phraseLoopButtonHTML(key) {
+    return key ? `<button class="phrase-loop-btn" data-phrase-key="${esc(key)}" title="${t('videoAudioLoopTitle')}" type="button">🔁</button>` : '';
+  }
+
+  function videoHTML(src, key) {
+    return `${phraseLoopButtonHTML(key)}${videoLoopButtonHTML()}<video src="${esc(src)}" controls playsinline></video>`;
+  }
+
+  function mediaHTML(media, key) {
+    if (!media) return '';
+    if (isIDBMedia(media)) return `<div class="phrase-media media-placeholder" data-media-ref="${esc(media)}" data-phrase-key="${esc(key || '')}"></div>`;
+    const src = toWebUrl(media);
+    const yt = youtubeId(src);
+    if (yt) return `<div class="phrase-media" data-phrase-key="${esc(key || '')}"><iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe></div>`;
+    if (isVideoUrl(src)) return `<div class="phrase-media media-player" data-phrase-key="${esc(key || '')}">${videoHTML(src, key)}</div>`;
+    return `<div class="phrase-media" data-phrase-key="${esc(key || '')}"><img src="${esc(src)}" alt="" onerror="this.style.display='none'"></div>`;
+  }
+
+  function lessonMediaHTML(lesson) {
+    if (!lesson.media) return '';
+    return `<div class="lesson-media phrase-media media-placeholder" data-media-ref="${esc(lesson.media)}" data-caption-text="${esc(lesson.captionText || '')}" data-lesson-id="${lesson.id}"></div>`;
+  }
+
+  function phraseHTML(p, key) {
+    const hasImage = p.mediaType === 'image' || (p.media && /^data:image\//i.test(p.media) && !isVideoUrl(p.media));
+    const hasVideo = p.media && !hasImage;
+    return `<div class="phrase" data-key="${key}" data-start="${p.start != null ? p.start : ''}" data-end="${p.end != null ? p.end : ''}">
+      ${mediaHTML(p.media, key)}
+      <div class="phrase-top">
+        <div class="lines">
+          <div class="line fr" data-lang="fr" dir="ltr">${wordSpans(p.fr, 'fr')}<button class="loop-lang" data-lang="fr" title="🔁 FR">🔁</button></div>
+          <div class="line ar" data-lang="ar" dir="rtl">${wordSpans(p.ar, 'ar')}<button class="loop-lang" data-lang="ar" title="🔁 AR">🔁</button></div>
+          <div class="line en" data-lang="en" dir="ltr">${wordSpans(p.en, 'en')}<button class="loop-lang" data-lang="en" title="🔁 EN">🔁</button></div>
+        </div>
+        <div class="btns">
+          <button class="loop-btn" title="${t('loopTitle')}">🔁</button>
+          <button class="tts-loop-btn" title="${t('ttsLoopTitle')}">🔂</button>
+          <button class="ai-btn" title="${t('aiTitle')}">✨</button>
+          <button class="image-btn ${hasImage ? 'on' : ''}" title="${t('chooseImage')}">🖼️</button>
+          <button class="media-btn ${hasVideo ? 'on' : ''}" title="${t('addMedia')}">${hasVideo ? '📎' : '🎬'}</button>
+          <button class="note-btn ${hasNote(key) ? 'note-on' : ''}" title="${t('noteTitle')}">${hasNote(key) ? '📔' : '📓'}</button>
+          <button class="fav-btn ${isFav(key) ? 'fav-on' : ''}" title="${t('favTitle')}">${isFav(key) ? '★' : '☆'}</button>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function renderHome() {
+    const empty = !LESSONS.length ? `<div class="no-lessons"><div class="icon">📝</div><div class="card-title">${t('noItemsYetTitle')}</div><div class="sub">${t('noItemsYetSub')}</div></div>` : '';
+    const actionBar = `<div class="action-bar">
+      <button class="action-item" data-route='${JSON.stringify({ name: 'add-folder' })}'>
+        <span class="action-icon">📁</span><span class="action-label">${t('addFolder')}</span>
+      </button>
+      <button class="action-item" data-route='${JSON.stringify({ name: 'add-lesson' })}'>
+        <span class="action-icon">📝</span><span class="action-label">${t('addLesson')}</span>
+      </button>
+      <button class="action-item" id="btn-export">
+        <span class="action-icon">📤</span><span class="action-label">${t('export')}</span>
+      </button>
+      <label class="action-item" for="import-file">
+        <span class="action-icon">📥</span><span class="action-label">${t('import')}</span>
+      </label>
+      <input type="file" id="import-file" accept=".json,application/json" style="display:none">
+    </div>`;
+    let lessonIdx = 0;
+    const html = `<div class="top-bar"><span class="section-title">${t('library')}</span></div>
+      ${actionBar}${empty}` +
+      LESSONS.map(it => {
+        if (it.type === 'lesson') lessonIdx++;
+        const num = it.type === 'lesson' ? lessonIdx : null;
+        if (it.type === 'folder') {
+          return `<div class="card folder-card" data-route='${JSON.stringify({ name: 'folder', folder: it.id })}'>
+            ${cardThumb(it, num)}
+            <div class="card-body">
+              <div class="card-title">${esc(title(it.title))}</div>
+              <div class="card-sub" dir="ltr">${subtitle(it.title)}</div>
+              <div class="card-sub">${(it.lessons || []).length} ${t('lessonsCount')}</div>
+            </div>
+            ${menuBtn(it, 'folder')}
+            <div class="chev">${chevron()}</div>
+          </div>`;
+        }
+        return `<div class="card lesson-card" data-route='${JSON.stringify({ name: 'lesson', lesson: it.id })}'>
+          ${cardThumb(it, num)}
+          <div class="card-body">
+            <div class="card-title">${esc(title(it.title))}</div>
+            <div class="card-sub" dir="ltr">${subtitle(it.title)}</div>
+            <div class="card-sub">${it.phrases.length} ${t('phrases')}</div>
+          </div>
+          ${menuBtn(it, 'lesson')}
+          <div class="chev">${chevron()}</div>
+        </div>`;
+      }).join('');
+    view.innerHTML = html;
+  }
+
+  function renderFolder(folderId) {
+    const folder = findFolder(folderId);
+    if (!folder) { go({ name: 'home' }); return; }
+    const addCard = `<div class="card add-card" data-route='${JSON.stringify({ name: 'add-lesson', folder: folderId })}'>
+      <div class="num">+</div>
+      <div class="card-body">
+        <div class="card-title">${t('addLesson')}</div>
+        <div class="card-sub">${t('addLessonSub')}</div>
+      </div>
+      <div class="chev">${chevron()}</div>
+    </div>`;
+    const empty = !(folder.lessons || []).length ? `<div class="empty">${t('emptyFolder')}</div>` : '';
+    let folderLessonIdx = 0;
+    const lessonsHtml = (folder.lessons || []).map(l => {
+      folderLessonIdx++;
+      return `<div class="card lesson-card" data-route='${JSON.stringify({ name: 'lesson', lesson: l.id })}'>
+        ${cardThumb(l, folderLessonIdx)}
+        <div class="card-body">
+          <div class="card-title">${esc(title(l.title))}</div>
+          <div class="card-sub" dir="ltr">${subtitle(l.title)}</div>
+          <div class="card-sub">${l.phrases.length} ${t('phrases')}</div>
+        </div>
+        ${menuBtn(l, 'lesson')}
+        <div class="chev">${chevron()}</div>
+      </div>`}).join('');
+    const html = `<div class="breadcrumb">
+        <button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button>
+        <span>›</span><span>${esc(title(folder.title))}</span>
+      </div>
+      <div class="lesson-head"><h2>${t('folderLabel')}: ${esc(title(folder.title))}</h2>
+        <div class="sub" dir="ltr">${subtitle(folder.title)}</div>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn" data-route='${JSON.stringify({ name: 'add-lesson', folder: folderId })}'>${t('addLesson')}</button>
+        ${folder.protected ? '' : `<button class="btn ghost menu-btn" data-menu="${folder.id}" data-type="folder" title="${t('actions')}">⋮ ${t('actions')}</button>`}
+      </div>` + addCard + empty + lessonsHtml;
+    view.innerHTML = html;
+  }
+
+  function renderLesson(lessonId) {
+    const found = findLesson(lessonId);
+    if (!found) { go({ name: 'home' }); return; }
+    const { lesson, parent } = found;
+    let breadcrumb = `<button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button>`;
+    if (parent) {
+      breadcrumb += `<span>›</span><button data-route='${JSON.stringify({ name: 'folder', folder: parent.id })}'>${esc(title(parent.title))}</button>`;
+    }
+    breadcrumb += `<span>›</span><span>${esc(title(lesson.title))}</span>`;
+    const html = `<div class="breadcrumb">${breadcrumb}</div>
+      <div class="lesson-head"><h2>${t('lessonLabel')}: ${esc(title(lesson.title))}</h2>
+        <div class="sub" dir="ltr">${subtitle(lesson.title)}</div>
+      </div>
+      <div class="lesson-actions">
+        <button class="btn" id="play-all">${t('playAll')}</button>
+        <button class="btn ghost" id="stop-all">${t('stopAll')}</button>
+        ${lesson.protected ? '' : `<button class="btn ghost menu-btn" data-menu="${lesson.id}" data-type="lesson" title="${t('actions')}">⋮ ${t('actions')}</button>`}
+        <span class="pill">${lesson.phrases.length} ${t('phrases')}</span>
+      </div>
+      ${lessonMediaHTML(lesson)}` +
+      lesson.phrases.map((p, i) => phraseHTML(p, phraseKey(lesson.id, i))).join('');
+    view.innerHTML = html;
+    document.getElementById('play-all').onclick = () => playLesson(lesson);
+    document.getElementById('stop-all').onclick = stopSpeech;
+  }
+
+  async function playLesson(lesson) {
+    const ready = await prepareTTS();
+    if (!ready) { return; }
+    stopSpeech();
+    let i = 0;
+    const runKey = 'lesson:' + lesson.id;
+    state.loop = { key: runKey };
+    (function next() {
+      if (!state.loop || state.loop.key !== runKey) return;
+      if (i >= lesson.phrases.length) { i = 0; }
+      const p = lesson.phrases[i];
+      const key = phraseKey(lesson.id, i);
+      i++;
+      const el = document.querySelector(`.phrase[data-key="${key}"]`);
+      if (el) el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      speakOnce(p, state.langs, key, () => {
+        if (!state.loop || state.loop.key !== runKey) return;
+        setTimeout(next, 400);
+      });
+    })();
+  }
+
+  function renderFavs() {
+    const items = [];
+    getAllLessons().forEach(({ lesson }) => {
+      lesson.phrases.forEach((p, i) => {
+        const key = phraseKey(lesson.id, i);
+        if (state.favs.includes(key)) items.push({ p, key, lesson });
+      });
+    });
+    const html = `<div class="breadcrumb"><button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button><span>›</span><span>${t('favourites')}</span></div>
+      <div class="lesson-head"><h2>${t('savedPhrasesTitle')}</h2></div>` +
+      (items.length ? items.map(it => `<div class="pill">${esc(title(it.lesson.title))}</div>${phraseHTML(it.p, it.key)}`).join('') : `<div class="empty">${t('noSavedPhrases')}</div>`);
+    view.innerHTML = html;
+  }
+
+  function renderSearch(q) {
+    const needle = q.trim().toLowerCase();
+    const results = [];
+    getAllLessons().forEach(({ lesson }) => {
+      lesson.phrases.forEach((p, i) => {
+        const hay = (p.fr + ' ' + p.ar + ' ' + p.en).toLowerCase();
+        if (hay.includes(needle)) results.push({ p, key: phraseKey(lesson.id, i), lesson });
+      });
+    });
+    const html = `<div class="breadcrumb"><button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button><span>›</span><span>${t('searchResults')}: ${esc(q)}</span></div>
+      <div class="lesson-head"><h2>${t('searchResults')}: ${esc(q)}</h2><div class="sub">${results.length} ${t('phrases')}</div></div>` +
+      (results.length ? results.map(r => `<div class="pill">${esc(title(r.lesson.title))}</div>${phraseHTML(r.p, r.key)}`).join('') : `<div class="empty">${t('noResults')}</div>`);
+    view.innerHTML = html;
+  }
+
+  function renderAddFolder() {
+    const html = `<div class="breadcrumb"><button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button><span>›</span><span>${t('addFolder')}</span></div>
+      <div class="lesson-head"><h2>${t('addFolderTitle')}</h2></div>
+      <form id="add-folder-form" class="form-card">
+        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required placeholder="${t('titlePlaceholder')}"><div class="hint" data-t="titleHint">${t('titleHint')}</div></div>
+        <div class="form-actions">
+          <button type="submit" class="btn" data-t="saveFolder">${t('saveFolder')}</button>
+          <button type="button" class="btn ghost" data-route='${JSON.stringify({ name: 'home' })}' data-t="cancel">${t('cancel')}</button>
+        </div>
+      </form>`;
+    view.innerHTML = html;
+    applyTranslations();
+  }
+
+  function renderAddLesson(folderId) {
+    const folder = folderId ? findFolder(folderId) : null;
+    let breadcrumb = `<button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button>`;
+    if (folder) breadcrumb += `<span>›</span><button data-route='${JSON.stringify({ name: 'folder', folder: folderId })}'>${esc(title(folder.title))}</button>`;
+    breadcrumb += `<span>›</span><span>${t('addLesson')}</span>`;
+    const cancelRoute = folder ? { name: 'folder', folder: folderId } : { name: 'home' };
+    const html = `<div class="breadcrumb">${breadcrumb}</div>
+      <div class="lesson-head"><h2>${t('addLessonTitle')}</h2></div>
+      <form id="add-lesson-form" class="form-card">
+        <input type="hidden" name="folderId" value="${folderId || ''}">
+        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required placeholder="${t('titlePlaceholder')}"><div class="hint" data-t="titleHint">${t('titleHint')}</div></div>
+        <div class="form-group"><label data-t="pasteOrder">${t('pasteOrder')}</label><select name="order" class="ctl"><option value="auto" data-t="orderAuto" selected>${t('orderAuto')}</option><option value="fr-ar-en" data-t="orderFrFirst">${t('orderFrFirst')}</option><option value="en-ar-fr" data-t="orderEnFirst">${t('orderEnFirst')}</option></select></div>
+        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonVideo">${t('lessonVideo')}</label><button type="button" class="btn" id="btn-choose-lesson-video" data-t="chooseVideoFile">${t('chooseVideoFile')}</button><input type="file" id="lesson-video-file" accept="video/*" style="display:none"></div>
+        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonVideoUrl">${t('lessonVideoUrl')}</label><input type="text" name="videoUrl" placeholder="https://..." style="width:100%"></div>
+        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonCaptions">${t('lessonCaptions')}</label><button type="button" class="btn ghost" id="btn-choose-lesson-captions" data-t="chooseCaptionFile">${t('chooseCaptionFile')}</button><input type="file" id="lesson-captions-file" accept=".srt,.txt" style="display:none"></div>
+        <div class="form-group" style="margin-top:0.75rem"><textarea name="captions" rows="5" data-t="captionTextPlaceholder" placeholder="${t('captionTextPlaceholder')}" style="width:100%"></textarea></div>
+        <div class="form-group" style="margin-top:0.75rem"><button type="button" class="btn ghost" id="btn-generate-phrases" data-t="generatePhrases">${t('generatePhrases')}</button></div>
+        <div class="form-group"><button type="button" class="btn ghost info-btn" data-info="phrases" style="font-size:0.85rem;padding:0.35rem 0.7rem;margin-bottom:0.4rem">ℹ ${t('inputExamples')}</button><label data-t="phrasesLabel">${t('phrasesLabel')}</label><textarea name="phrases" rows="10" placeholder="French | Arabic | English"></textarea><div class="hint" data-t="phrasesHint">${t('phrasesHint')}</div></div>
+        <div class="form-actions">
+          <button type="submit" class="btn" data-t="saveLesson">${t('saveLesson')}</button>
+          <button type="button" class="btn ghost" data-route='${JSON.stringify(cancelRoute)}' data-t="cancel">${t('cancel')}</button>
+        </div>
+      </form>`;
+    view.innerHTML = html;
+    bindAddLessonForm();
+    applyTranslations();
+  }
+
+  function bindAddLessonForm() {
+    const videoFile = document.getElementById('lesson-video-file');
+    const chooseVideoBtn = document.getElementById('btn-choose-lesson-video');
+    if (chooseVideoBtn && videoFile) chooseVideoBtn.onclick = () => videoFile.click();
+    const captionFile = document.getElementById('lesson-captions-file');
+    const chooseCaptionBtn = document.getElementById('btn-choose-lesson-captions');
+    if (chooseCaptionBtn && captionFile) chooseCaptionBtn.onclick = () => captionFile.click();
+    const generateBtn = document.getElementById('btn-generate-phrases');
+    if (generateBtn) generateBtn.onclick = generatePhrasesFromCaptions;
+    if (captionFile) captionFile.onchange = async () => {
+      const file = captionFile.files && captionFile.files[0];
+      if (!file) return;
+      try { document.getElementById('add-lesson-form').elements.captions.value = await readFileText(file); }
+      catch (e) { showToast(t('captionParseError')); }
+    };
+  }
+
+  function renderEditLesson(lessonId) {
+    const found = findLesson(lessonId);
+    if (!found || found.lesson.protected) { go({ name: 'home' }); return; }
+    const { lesson, parent } = found;
+    let breadcrumb = `<button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button>`;
+    if (parent) breadcrumb += `<span>›</span><button data-route='${JSON.stringify({ name: 'folder', folder: parent.id })}'>${esc(title(parent.title))}</button>`;
+    breadcrumb += `<span>›</span><span>${t('edit')}</span>`;
+    const cancelRoute = parent ? { name: 'folder', folder: parent.id } : { name: 'home' };
+    const phrasesText = lesson.phrases.map(p => `${p.fr} | ${p.ar} | ${p.en}`).join('\n');
+    const titleText = formatTitle(lesson.title);
+    const html = `<div class="breadcrumb">${breadcrumb}</div>
+      <div class="lesson-head"><h2>${t('editLessonTitle')}</h2></div>
+      <form id="edit-lesson-form" class="form-card" data-id="${lesson.id}" data-parent="${parent ? parent.id : ''}">
+        <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required value="${esc(titleText)}" placeholder="${t('titlePlaceholder')}"><div class="hint" data-t="titleHint">${t('titleHint')}</div></div>
+        <div class="form-group"><button type="button" class="btn ghost info-btn" data-info="phrases" style="font-size:0.85rem;padding:0.35rem 0.7rem;margin-bottom:0.4rem">ℹ ${t('inputExamples')}</button><label data-t="phrasesLabel">${t('phrasesLabel')}</label><textarea name="phrases" rows="10" required>${esc(phrasesText)}</textarea><div class="hint" data-t="phrasesHint">${t('phrasesHint')}</div></div>
+        <div class="form-actions">
+          <button type="submit" class="btn" data-t="save">${t('save')}</button>
+          <button type="button" class="btn ghost" data-route='${JSON.stringify(cancelRoute)}' data-t="cancel">${t('cancel')}</button>
+        </div>
+      </form>`;
+    view.innerHTML = html;
+    applyTranslations();
+  }
+
+  function updateLesson() {
+    const form = document.getElementById('edit-lesson-form');
+    const ttl = parseTitle(form.elements.title.value);
+    if (!ttl) { alert(t('fillTitleError')); return; }
+    const phrases = parsePhrases(form.elements.phrases.value, 'auto');
+    if (!phrases.length) { alert(t('noPhrasesError')); return; }
+    const id = +form.dataset.id;
+    const found = findLesson(id);
+    if (!found) return;
+    found.lesson.title = ttl;
+    found.lesson.phrases = phrases;
+    saveLessons();
+    showToast(t('saved'));
+    go({ name: 'lesson', lesson: id });
+  }
+
+  const PHRASE_EXAMPLES = [
+    'Bonjour | مرحبا | Hello',
+    'Comment allez-vous → كيف حالك → How are you',
+    'Je voudrais = أريد = I would like',
+    'Merci, شكرا, Thank you',
+    'Au revoir: مع السلامة: Goodbye',
+    'Pomme - تفاحة - Apple',
+    'Où sont les toilettes أين الحمام Where is the bathroom',
+    'English | Arabic | French'
+  ];
+
+  function showPhraseExamples() {
+    const modal = document.getElementById('examples-modal');
+    document.getElementById('examples-text').value = PHRASE_EXAMPLES.join('\n');
+    modal.classList.add('show');
+  }
+
+  function closePhraseExamples() {
+    document.getElementById('examples-modal').classList.remove('show');
+  }
+
+  function copyPhraseExamples() {
+    const ta = document.getElementById('examples-text');
+    ta.select();
+    try {
+      if (navigator.clipboard) { navigator.clipboard.writeText(ta.value); }
+      else { document.execCommand('copy'); }
+    } catch (e) {}
+    showToast(t('copied'));
+  }
+
+  let noteKey = null;
+  let noteCtx = null;
+  let mediaKey = null;
+  let mediaFileData = null;
+  let captionFileData = null;
+  let noteDrawing = false;
+  let noteErasing = false;
+  let noteColor = '#000000';
+  let noteSize = 3;
+
+  function setupNoteCanvas() {
+    const canvas = document.getElementById('note-canvas');
+    noteCtx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    const cssWidth = canvas.clientWidth || 600;
+    const cssHeight = canvas.clientHeight || 400;
+    canvas.width = Math.max(1, cssWidth * dpr);
+    canvas.height = Math.max(1, cssHeight * dpr);
+    noteCtx.setTransform(1, 0, 0, 1, 0, 0);
+    noteCtx.scale(dpr, dpr);
+    noteCtx.lineCap = 'round';
+    noteCtx.lineJoin = 'round';
+  }
+
+  function openNote(key) {
+    noteKey = key;
+    const modal = document.getElementById('note-modal');
+    modal.classList.add('show');
+    const canvas = document.getElementById('note-canvas');
+    setTimeout(() => {
+      setupNoteCanvas();
+      const dpr = window.devicePixelRatio || 1;
+      const w = canvas.width / dpr;
+      const h = canvas.height / dpr;
+      noteCtx.fillStyle = '#ffffff';
+      noteCtx.fillRect(0, 0, w, h);
+      if (state.notes[key]) {
+        const img = new Image();
+        img.onload = () => { noteCtx.drawImage(img, 0, 0, w, h); };
+        img.src = state.notes[key];
+      }
+    }, 50);
+    noteColor = '#000000';
+    noteErasing = false;
+    noteSize = 3;
+    document.getElementById('note-size').value = 3;
+    document.querySelectorAll('.note-tool').forEach(b => b.classList.toggle('active', b.dataset.color === noteColor));
+  }
+
+  function closeNote() {
+    document.getElementById('note-modal').classList.remove('show');
+    noteKey = null;
+    noteCtx = null;
+  }
+
+  function saveNote() {
+    if (!noteKey || !noteCtx) return;
+    const canvas = document.getElementById('note-canvas');
+    state.notes[noteKey] = canvas.toDataURL('image/png');
+    saveNotes();
+    const btn = document.querySelector(`.phrase[data-key="${noteKey}"] .note-btn`);
+    if (btn) { btn.classList.add('note-on'); btn.textContent = '📔'; }
+    closeNote();
+    showToast(t('saved'));
+  }
+
+  function clearNote() {
+    if (!noteCtx) return;
+    const canvas = document.getElementById('note-canvas');
+    noteCtx.fillStyle = '#ffffff';
+    noteCtx.fillRect(0, 0, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1));
+  }
+
+  function getNotePos(e) {
+    const canvas = document.getElementById('note-canvas');
+    const rect = canvas.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return { x: clientX - rect.left, y: clientY - rect.top };
+  }
+
+  function noteStart(e) {
+    if (!noteCtx) return;
+    e.preventDefault();
+    noteDrawing = true;
+    const p = getNotePos(e);
+    noteCtx.beginPath();
+    noteCtx.moveTo(p.x, p.y);
+    noteCtx.strokeStyle = noteErasing ? '#ffffff' : noteColor;
+    noteCtx.lineWidth = noteSize;
+  }
+
+  function noteMove(e) {
+    if (!noteDrawing || !noteCtx) return;
+    e.preventDefault();
+    const p = getNotePos(e);
+    noteCtx.lineTo(p.x, p.y);
+    noteCtx.stroke();
+  }
+
+  function noteEnd() {
+    if (!noteCtx) return;
+    noteDrawing = false;
+    noteCtx.closePath();
+  }
+
+  function bindNoteCanvas() {
+    const canvas = document.getElementById('note-canvas');
+    canvas.addEventListener('mousedown', noteStart);
+    canvas.addEventListener('mousemove', noteMove);
+    window.addEventListener('mouseup', noteEnd);
+    canvas.addEventListener('touchstart', noteStart, { passive: false });
+    canvas.addEventListener('touchmove', noteMove, { passive: false });
+    canvas.addEventListener('touchend', noteEnd);
+  }
+
+  function bindViewEvents() {
+    view.addEventListener('click', e => {
+      const videoLoopBtn = e.target.closest('.video-loop-btn');
+      if (videoLoopBtn) {
+        e.stopPropagation();
+        const media = videoLoopBtn.closest('.phrase-media');
+        const video = media && media.querySelector('video');
+        if (video) {
+          video.loop = !video.loop;
+          videoLoopBtn.classList.toggle('active', video.loop);
+          videoLoopBtn.textContent = video.loop ? '🔂' : '🔁';
+        }
+        return;
+      }
+
+      const exportBtn = e.target.closest('#btn-export');
+      if (exportBtn) { e.stopPropagation(); exportLessons(); return; }
+
+      const infoBtn = e.target.closest('[data-info]');
+      if (infoBtn) { e.stopPropagation(); showPhraseExamples(); return; }
+
+      const menuBtn = e.target.closest('[data-menu]');
+      if (menuBtn) { e.stopPropagation(); openActionSheet(+menuBtn.dataset.menu, menuBtn.dataset.type); return; }
+
+      const routeBtn = e.target.closest('[data-route]');
+      if (routeBtn) { go(JSON.parse(routeBtn.dataset.route)); return; }
+
+      const phrase = e.target.closest('.phrase');
+      if (!phrase) return;
+      const key = phrase.dataset.key;
+
+      const langLoopBtn = e.target.closest('.loop-lang');
+      if (langLoopBtn) {
+        e.stopPropagation();
+        toggleLangLoop(langLoopBtn.dataset.lang, key);
+        return;
+      }
+
+      const word = e.target.closest('.word');
+      if (word) {
+        e.stopPropagation();
+        toggleWordLoop(word.dataset.word, word.dataset.lang, key);
+        return;
+      }
+
+      const [lessonId, idx] = key.split('.').map(Number);
+      const found = findLesson(lessonId);
+      if (!found) return;
+      const p = found.lesson.phrases[idx];
+
+      const phraseLoopBtn = e.target.closest('.phrase-loop-btn');
+      if (phraseLoopBtn) {
+        e.stopPropagation();
+        toggleLoop(p, key);
+        return;
+      }
+
+      if (e.target.closest('.loop-btn')) {
+        toggleLoop(p, key);
+      } else if (e.target.closest('.tts-loop-btn')) {
+        toggleTTSLoop(p, key);
+      } else if (e.target.closest('.ai-btn')) {
+        const query = 'Explain the phrase "' + p.fr + '" in French, Arabic and English. French: ' + p.fr + ' / Arabic: ' + p.ar + ' / English: ' + p.en + ' (without tables)';
+        window.open('https://www.google.com/search?q=' + encodeURIComponent(query) + '&udm=50&hl=' + state.uiLang, '_blank');
+      } else if (e.target.closest('.image-btn')) {
+        e.stopPropagation();
+        openImageForPhrase(key);
+      } else if (e.target.closest('.media-btn')) {
+        openMedia(key);
+      } else if (e.target.closest('.note-btn')) {
+        openNote(key);
+      } else if (e.target.closest('.fav-btn')) {
+        toggleFav(key);
+        const favBtn = phrase.querySelector('.fav-btn');
+        const on = isFav(key);
+        favBtn.classList.toggle('fav-on', on);
+        favBtn.textContent = on ? '★' : '☆';
+      }
+    });
+  }
+
+  function bindActionSheet() {
+    const sheet = document.getElementById('action-sheet');
+    document.getElementById('sheet-cancel').onclick = closeActionSheet;
+    sheet.addEventListener('click', e => {
+      if (e.target === sheet) { closeActionSheet(); return; }
+      const edit = e.target.closest('[data-edit]');
+      if (edit) { closeActionSheet(); editItem(+edit.dataset.edit, edit.dataset.type); return; }
+      const del = e.target.closest('[data-delete-sheet]');
+      if (del) {
+        closeActionSheet();
+        const id = +del.dataset.deleteSheet;
+        if (del.dataset.type === 'folder') deleteRootItem(id); else deleteLesson(id);
+        return;
+      }
+      const setImg = e.target.closest('[data-set-image]');
+      if (setImg) {
+        closeActionSheet();
+        const id = +setImg.dataset.setImage;
+        const type = setImg.dataset.type;
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'image/*';
+        input.style.display = 'none';
+        input.onchange = () => {
+          if (input.files && input.files[0]) setItemImage(id, type, input.files[0]);
+          input.remove();
+        };
+        document.body.appendChild(input);
+        input.click();
+        return;
+      }
+    });
+  }
+
+  async function updateMediaPreview(url) {
+    const wrap = document.getElementById('media-preview');
+    const img = document.getElementById('media-preview-img');
+    const vid = document.getElementById('media-preview-video');
+    if (!url) { wrap.style.display = 'none'; img.style.display = 'none'; vid.style.display = 'none'; img.src = ''; vid.src = ''; return; }
+    wrap.style.display = 'block';
+    if (isIDBMedia(url)) {
+      const resolved = await resolveMediaRef(url);
+      if (!resolved.url) { img.style.display = 'none'; vid.style.display = 'none'; return; }
+      const isVideo = (resolved.type || '').startsWith('video/') || isVideoUrl(resolved.url);
+      if (isVideo) {
+        img.style.display = 'none'; vid.style.display = 'block'; vid.src = resolved.url; img.src = '';
+      } else {
+        img.style.display = 'block'; vid.style.display = 'none'; img.src = resolved.url; vid.src = '';
+      }
+      return;
+    }
+    const src = toWebUrl(url);
+    const yt = youtubeId(src);
+    if (isVideoUrl(src)) {
+      img.style.display = 'none'; vid.style.display = 'block'; vid.src = src; img.src = '';
+    } else if (yt) {
+      img.style.display = 'block'; vid.style.display = 'none'; img.src = 'https://img.youtube.com/vi/' + yt + '/0.jpg'; vid.src = '';
+    } else {
+      img.style.display = 'block'; vid.style.display = 'none'; img.src = src; vid.src = '';
+    }
+  }
+
+  async function openMedia(key) {
+    mediaKey = key;
+    mediaFileData = null;
+    captionFileData = null;
+    const [lessonId, idx] = key.split('.').map(Number);
+    const found = findLesson(lessonId);
+    const p = found ? found.lesson.phrases[idx] : null;
+    const isImage = p && p.media && (p.mediaType === 'image' || await isImageMediaRef(p.media));
+    const existingMedia = (p && p.media && !isImage) ? p.media : null;
+    const modal = document.getElementById('media-modal');
+    const urlInput = document.getElementById('media-url');
+    const removeBtn = document.getElementById('btn-remove-media');
+    const fileInput = document.getElementById('media-file');
+    const captionText = document.getElementById('caption-text');
+    const captionFileInput = document.getElementById('caption-file');
+    urlInput.value = (existingMedia && !/^data:/.test(existingMedia) && !/^file:\/\//.test(existingMedia) && !/^idb:\/\//.test(existingMedia)) ? existingMedia : '';
+    removeBtn.style.display = existingMedia ? 'inline-block' : 'none';
+    fileInput.value = '';
+    captionFileInput.value = '';
+    captionText.value = '';
+    if (p && p.captionText) {
+      captionFileData = p.captionText;
+      captionText.value = p.captionText;
+    }
+    await updateMediaPreview(existingMedia);
+    modal.classList.add('show');
+  }
+
+  function closeMedia() {
+    document.getElementById('media-modal').classList.remove('show');
+    mediaKey = null;
+    mediaFileData = null;
+    captionFileData = null;
+    updateMediaPreview(null);
+  }
+
+  async function saveMedia() {
+    if (!mediaKey) return;
+    const [lessonId, idx] = mediaKey.split('.').map(Number);
+    const found = findLesson(lessonId);
+    if (!found) { closeMedia(); return; }
+    const p = found.lesson.phrases[idx];
+    const urlInput = document.getElementById('media-url').value.trim();
+    const newVideo = mediaFileData || urlInput;
+    let url = newVideo || (p && p.media);
+    const captionText = document.getElementById('caption-text').value.trim();
+    if (!url && !captionText) { closeMedia(); return; }
+    if (url && !/^https?:\/\//.test(url) && !/^data:/.test(url) && !/^file:\/\//.test(url) && !/^idb:\/\//.test(url)) {
+      showToast(t('mediaInvalid'));
+      return;
+    }
+    if (url) {
+      if (p.media && p.media !== url) await deleteMediaRef(p.media);
+      p.media = url;
+      if (newVideo) p.mediaType = 'video';
+    }
+    if (captionText) {
+      p.captionText = captionText;
+    } else if (p.captionText) {
+      delete p.captionText;
+    }
+    saveLessons();
+    closeMedia();
+    go(state.route, false);
+    showToast(t('saved'));
+  }
+
+  async function removeMedia() {
+    if (!mediaKey) return;
+    if (!confirm(t('confirmRemoveMedia'))) return;
+    const [lessonId, idx] = mediaKey.split('.').map(Number);
+    const found = findLesson(lessonId);
+    if (found) {
+      const p = found.lesson.phrases[idx];
+      const isImage = p && p.media && (p.mediaType === 'image' || await isImageMediaRef(p.media));
+      if (p && p.media && !isImage) {
+        await deleteMediaRef(p.media);
+        delete p.media;
+        delete p.mediaType;
+      }
+      if (p && p.captionText) delete p.captionText;
+      saveLessons();
+      go(state.route, false);
+      showToast(t('deleted'));
+    }
+    closeMedia();
+  }
+
+  async function openImageForPhrase(key) {
+    const [lessonId, idx] = key.split('.').map(Number);
+    const found = findLesson(lessonId);
+    const p = found ? found.lesson.phrases[idx] : null;
+    if (!p) return;
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.style.display = 'none';
+    input.onchange = async () => {
+      const file = input.files && input.files[0];
+      input.remove();
+      if (!file || !isImageFile(file)) { showToast(t('invalidImage')); return; }
+      try {
+        const uri = await storeMedia(file) || await new Promise((resolve, reject) => {
+          const r = new FileReader();
+          r.onload = e => resolve(e.target.result);
+          r.onerror = reject;
+          r.readAsDataURL(file);
+        });
+        if (p.media) await deleteMediaRef(p.media);
+        p.media = uri;
+        p.mediaType = 'image';
+        saveLessons();
+        showToast(t('saved'));
+        go(state.route, false);
+      } catch (e) {
+        console.error('openImageForPhrase', e);
+        showToast(t('mediaSaveError'));
+      }
+    };
+    document.body.appendChild(input);
+    input.click();
+  }
+
+  function bindMediaModal() {
+    const modal = document.getElementById('media-modal');
+    const fileInput = document.getElementById('media-file');
+    const chooseBtn = document.getElementById('btn-choose-media-file');
+    const urlInput = document.getElementById('media-url');
+    const captionInput = document.getElementById('caption-file');
+    const chooseCaptionBtn = document.getElementById('btn-choose-caption-file');
+    const captionText = document.getElementById('caption-text');
+    document.getElementById('btn-close-media').onclick = closeMedia;
+    document.getElementById('btn-save-media').onclick = saveMedia;
+    document.getElementById('btn-remove-media').onclick = removeMedia;
+    chooseBtn.onclick = () => fileInput.click();
+    chooseCaptionBtn.onclick = () => captionInput.click();
+    fileInput.onchange = async () => {
+      const file = fileInput.files && fileInput.files[0];
+      if (!file) return;
+      if (!isVideoFile(file)) {
+        showToast(t('mediaInvalid'));
+        fileInput.value = '';
+        return;
+      }
+      try {
+        const uri = await storeMedia(file);
+        if (uri) {
+          mediaFileData = uri;
+          await updateMediaPreview(uri);
+          urlInput.value = '';
+        } else {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            mediaFileData = e.target.result;
+            updateMediaPreview(mediaFileData);
+            urlInput.value = '';
+          };
+          reader.onerror = () => showToast(t('mediaSaveError'));
+          reader.readAsDataURL(file);
+        }
+      } catch (e) {
+        console.error('fileInput onchange', e);
+        showToast(t('mediaSaveError'));
+      }
+    };
+    captionInput.onchange = () => {
+      const file = captionInput.files && captionInput.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        captionFileData = e.target.result;
+        captionText.value = e.target.result;
+      };
+      reader.onerror = () => showToast(t('captionParseError'));
+      reader.readAsText(file);
+    };
+    captionText.oninput = (e) => { captionFileData = e.target.value; };
+    urlInput.oninput = (e) => { mediaFileData = null; updateMediaPreview(e.target.value.trim()); };
+    modal.addEventListener('click', e => { if (e.target === modal) closeMedia(); });
+  }
+
+  function go(route, push = true) {
+    stopSpeech();
+    state.route = route;
+    if (push) {
+      let hash = '#/';
+      if (route.name === 'folder') hash = '#/folder/' + route.folder;
+      else if (route.name === 'lesson') hash = '#/lesson/' + route.lesson;
+      else if (route.name === 'add-folder') hash = '#/add-folder';
+      else if (route.name === 'add-lesson') hash = '#/add-lesson' + (route.folder ? '/' + route.folder : '');
+      else if (route.name === 'edit-lesson') hash = '#/edit-lesson/' + route.lesson;
+      else if (route.name === 'favs') hash = '#/favs';
+      else if (route.name === 'search') hash = '#/search/' + encodeURIComponent(route.q);
+      if (location.hash !== hash) location.hash = hash;
+    }
+    if (route.name === 'home') renderHome();
+    else if (route.name === 'folder') renderFolder(route.folder);
+    else if (route.name === 'lesson') renderLesson(route.lesson);
+    else if (route.name === 'favs') renderFavs();
+    else if (route.name === 'search') renderSearch(route.q);
+    else if (route.name === 'add-folder') renderAddFolder();
+    else if (route.name === 'add-lesson') renderAddLesson(route.folder);
+    else if (route.name === 'edit-lesson') renderEditLesson(route.lesson);
+    loadMedia();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function parseHash() {
+    const h = location.hash || '#/';
+    if (h === '#/favs') return { name: 'favs' };
+    if (h === '#/add-folder') return { name: 'add-folder' };
+    if (h === '#/add-lesson') return { name: 'add-lesson' };
+    let m = h.match(/^#\/folder\/(\d+)$/);
+    if (m) return { name: 'folder', folder: +m[1] };
+    m = h.match(/^#\/lesson\/(\d+)$/);
+    if (m) return { name: 'lesson', lesson: +m[1] };
+    m = h.match(/^#\/add-lesson\/(\d+)$/);
+    if (m) return { name: 'add-lesson', folder: +m[1] };
+    m = h.match(/^#\/edit-lesson\/(\d+)$/);
+    if (m) return { name: 'edit-lesson', lesson: +m[1] };
+    m = h.match(/^#\/search\/(.+)$/);
+    if (m) return { name: 'search', q: decodeURIComponent(m[1]) };
+    return { name: 'home' };
+  }
+
+  function bindBackButton() {
+    if (typeof Capacitor !== 'undefined' && Capacitor.Plugins && Capacitor.Plugins.App) {
+      Capacitor.Plugins.App.addListener('backButton', ({ canGoBack }) => {
+        if (canGoBack) { history.back(); }
+        else if (confirm(t('exitConfirm'))) { Capacitor.Plugins.App.exitApp(); }
+      });
+    }
+  }
+
+  function init() {
+    bindBackButton();
+    document.getElementById('btn-copy-examples').onclick = copyPhraseExamples;
+    document.getElementById('btn-close-examples').onclick = closePhraseExamples;
+    document.getElementById('btn-theme').onclick = toggleTheme;
+    document.getElementById('btn-stop').onclick = stopSpeech;
+    document.getElementById('btn-fav').onclick = () => go({ name: 'favs' });
+    document.querySelectorAll('.lang-btn').forEach(b => b.onclick = () => setUILang(b.dataset.lang));
+    document.getElementById('rate').onchange = e => { state.rate = +e.target.value; stopSpeech(); updateVideoRate(); };
+    document.getElementById('loopmode').onchange = e => { state.langs = e.target.value.split(','); stopSpeech(); };
+    searchInput.addEventListener('input', e => {
+      const q = e.target.value.trim();
+      if (q) go({ name: 'search', q: q }, false);
+      else go({ name: 'home' }, false);
+    });
+    window.addEventListener('hashchange', () => { go(parseHash(), false); });
+    view.addEventListener('submit', e => {
+      if (e.target.id === 'add-lesson-form') { e.preventDefault(); addLesson(); }
+      else if (e.target.id === 'add-folder-form') { e.preventDefault(); addFolder(); }
+      else if (e.target.id === 'edit-lesson-form') { e.preventDefault(); updateLesson(); }
+    });
+    view.addEventListener('change', e => {
+      if (e.target.id === 'import-file' && e.target.files && e.target.files[0]) {
+        importLessons(e.target.files[0]);
+        e.target.value = '';
+      }
+    });
+    bindViewEvents();
+    bindActionSheet();
+    bindNoteCanvas();
+    bindMediaModal();
+    document.getElementById('btn-save-note').onclick = saveNote;
+    document.getElementById('btn-close-note').onclick = closeNote;
+    document.getElementById('note-clear').onclick = clearNote;
+    document.getElementById('note-erase').onclick = () => { noteErasing = !noteErasing; document.getElementById('note-erase').classList.toggle('active', noteErasing); };
+    document.getElementById('note-size').oninput = e => { noteSize = +e.target.value; };
+    document.getElementById('note-tools').addEventListener('click', e => {
+      const t = e.target.closest('.note-tool');
+      if (t) {
+        noteColor = t.dataset.color;
+        noteErasing = false;
+        document.getElementById('note-erase').classList.remove('active');
+        document.querySelectorAll('.note-tool').forEach(b => b.classList.remove('active'));
+        t.classList.add('active');
+      }
+    });
+    setTheme(state.theme);
+    setUILang(state.uiLang);
+    ensureBuiltInLesson();
+    go(parseHash(), false);
+    if (nativeTTS()) checkNativeTTS();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  }
+})();
+</script>
+</body>
+</html>
