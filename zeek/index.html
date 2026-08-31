@@ -1042,6 +1042,21 @@
     return { url: mediaUrlCache.get(id), type, blob };
   }
 
+  async function isImageMediaRef(ref) {
+    if (!ref) return false;
+    if (/^data:image\//i.test(ref)) return true;
+    if (isVideoUrl(ref)) return false;
+    if (/\.(jpg|jpeg|png|gif|webp|bmp|svg|heic|heif|tiff?)(\?|$)/i.test(ref)) return true;
+    if (isIDBMedia(ref)) {
+      const id = idbMediaId(ref);
+      const blob = await getMediaBlob(id);
+      if (!blob) return false;
+      const type = blob.type || mimeFromName(blob.name || '') || '';
+      return type.startsWith('image/');
+    }
+    return false;
+  }
+
   async function deleteMediaRef(ref) {
     if (!ref || typeof ref !== 'string') return;
     if (isIDBMedia(ref)) {
@@ -1889,6 +1904,8 @@
   }
 
   function phraseHTML(p, key) {
+    const hasImage = p.mediaType === 'image' || (p.media && /^data:image\//i.test(p.media) && !isVideoUrl(p.media));
+    const hasVideo = p.media && !hasImage;
     return `<div class="phrase" data-key="${key}" data-start="${p.start != null ? p.start : ''}" data-end="${p.end != null ? p.end : ''}">
       ${mediaHTML(p.media, key)}
       <div class="phrase-top">
@@ -1901,8 +1918,8 @@
           <button class="loop-btn" title="${t('loopTitle')}">🔁</button>
           <button class="tts-loop-btn" title="${t('ttsLoopTitle')}">🔂</button>
           <button class="ai-btn" title="${t('aiTitle')}">✨</button>
-          <button class="image-btn ${p.mediaType === 'image' ? 'on' : ''}" title="${t('chooseImage')}">🖼️</button>
-          <button class="media-btn ${p.media && p.mediaType !== 'image' ? 'on' : ''}" title="${t('addMedia')}">${p.media && p.mediaType !== 'image' ? '📎' : '🎬'}</button>
+          <button class="image-btn ${hasImage ? 'on' : ''}" title="${t('chooseImage')}">🖼️</button>
+          <button class="media-btn ${hasVideo ? 'on' : ''}" title="${t('addMedia')}">${hasVideo ? '📎' : '🎬'}</button>
           <button class="note-btn ${hasNote(key) ? 'note-on' : ''}" title="${t('noteTitle')}">${hasNote(key) ? '📔' : '📓'}</button>
           <button class="fav-btn ${isFav(key) ? 'fav-on' : ''}" title="${t('favTitle')}">${isFav(key) ? '★' : '☆'}</button>
         </div>
@@ -2471,14 +2488,16 @@
     const [lessonId, idx] = key.split('.').map(Number);
     const found = findLesson(lessonId);
     const p = found ? found.lesson.phrases[idx] : null;
+    const isImage = p && p.media && (p.mediaType === 'image' || await isImageMediaRef(p.media));
+    const existingMedia = (p && p.media && !isImage) ? p.media : null;
     const modal = document.getElementById('media-modal');
     const urlInput = document.getElementById('media-url');
     const removeBtn = document.getElementById('btn-remove-media');
     const fileInput = document.getElementById('media-file');
     const captionText = document.getElementById('caption-text');
     const captionFileInput = document.getElementById('caption-file');
-    urlInput.value = (p && p.media && !/^data:/.test(p.media) && !/^file:\/\//.test(p.media) && !/^idb:\/\//.test(p.media)) ? p.media : '';
-    removeBtn.style.display = (p && p.media) ? 'inline-block' : 'none';
+    urlInput.value = (existingMedia && !/^data:/.test(existingMedia) && !/^file:\/\//.test(existingMedia) && !/^idb:\/\//.test(existingMedia)) ? existingMedia : '';
+    removeBtn.style.display = existingMedia ? 'inline-block' : 'none';
     fileInput.value = '';
     captionFileInput.value = '';
     captionText.value = '';
@@ -2486,7 +2505,7 @@
       captionFileData = p.captionText;
       captionText.value = p.captionText;
     }
-    updateMediaPreview(p ? p.media : null);
+    await updateMediaPreview(existingMedia);
     modal.classList.add('show');
   }
 
@@ -2536,9 +2555,12 @@
     const found = findLesson(lessonId);
     if (found) {
       const p = found.lesson.phrases[idx];
-      if (p && p.media) await deleteMediaRef(p.media);
-      delete p.media;
-      delete p.mediaType;
+      const isImage = p && p.media && (p.mediaType === 'image' || await isImageMediaRef(p.media));
+      if (p && p.media && !isImage) {
+        await deleteMediaRef(p.media);
+        delete p.media;
+        delete p.mediaType;
+      }
       if (p && p.captionText) delete p.captionText;
       saveLessons();
       go(state.route, false);
