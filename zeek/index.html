@@ -255,8 +255,8 @@
   .phrase-loop-btn { position: absolute; top: 0.5rem; left: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
   .phrase-loop-btn.active { background: var(--success); color: #081c15; }
   .caption-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.82); padding: 0.55rem 0.75rem; font-size: 0.9rem; line-height: 1.65; z-index: 2; pointer-events: none; border-top: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; gap: 0.5rem; }
-  .cap-text { flex: 1; min-width: 0; text-align: center; }
-  .cap-line { display: inline-block; padding: 0.18rem 0.65rem; margin: 0.12rem 0; border-radius: 8px; font-weight: 600; }
+  .cap-text { flex: 1; min-width: 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+  .cap-line { display: block; padding: 0.18rem 0.65rem; border-radius: 8px; font-weight: 600; line-height: 1.5; }
   .cap-flag { margin-inline-end: 0.35rem; }
   .cap-loop-btn { pointer-events: auto; flex-shrink: 0; width: 1.85rem; height: 1.85rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 0.9rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
   .cap-loop-btn.active { background: var(--success); color: #081c15; }
