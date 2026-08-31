@@ -2608,6 +2608,14 @@
       return typeof window !== 'undefined' && window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform();
     }
 
+    function stripEmojis(text) {
+      if (typeof text !== 'string') return text;
+      return text
+        .replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{200D}]/gu, '')
+        .replace(/[\u{1F1E6}-\u{1F1FF}]/g, '')
+        .trim();
+    }
+
     function ttsStop() {
       if (isCapacitor()) {
         const plugin = window.Capacitor.Plugins.TextToSpeech;
@@ -2619,15 +2627,20 @@
 
     function ttsSpeak({ text, lang, onend }) {
       const ttsLang = lang || getTTSLang(text);
+      const cleanText = stripEmojis(text);
+      if (!cleanText) {
+        if (onend) onend();
+        return;
+      }
       if (isCapacitor()) {
         const plugin = window.Capacitor.Plugins.TextToSpeech;
         if (!plugin) return;
         plugin.stop().catch(() => {})
-          .then(() => plugin.speak({ text, lang: ttsLang, rate: 1.0, pitch: 1.0, volume: 1.0, category: 'playback' }))
+          .then(() => plugin.speak({ text: cleanText, lang: ttsLang, rate: 1.0, pitch: 1.0, volume: 1.0, category: 'playback' }))
           .then(() => { if (onend) onend(); })
           .catch(() => { if (onend) onend(); });
       } else if ('speechSynthesis' in window) {
-        const u = new SpeechSynthesisUtterance(text);
+        const u = new SpeechSynthesisUtterance(cleanText);
         u.lang = ttsLang;
         if (onend) u.onend = onend;
         window.speechSynthesis.cancel();
