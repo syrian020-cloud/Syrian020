@@ -2608,6 +2608,16 @@
       return typeof window !== 'undefined' && window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform();
     }
 
+    function stripEmojis(text) {
+      if (typeof text !== 'string') return text;
+      // ES5-safe removal of emoji/flag/icon code points (surrogate pairs + common symbol blocks + ZWJ/variation selectors)
+      return text
+        .replace(/[\uD83C-\uD83F][\uDC00-\uDFFF]/g, '')
+        .replace(/[\u2600-\u26FF\u2700-\u27BF\uFE00-\uFE0F]|[\u200D]/g, '')
+        .replace(/\uD83C[\uDDE6-\uDDFF]\uD83C[\uDDE6-\uDDFF]/g, '')
+        .trim();
+    }
+
     function ttsStop() {
       if (isCapacitor()) {
         const plugin = window.Capacitor.Plugins.TextToSpeech;
@@ -2619,15 +2629,20 @@
 
     function ttsSpeak({ text, lang, onend }) {
       const ttsLang = lang || getTTSLang(text);
+      const cleanText = stripEmojis(text);
+      if (!cleanText) {
+        if (onend) onend();
+        return;
+      }
       if (isCapacitor()) {
         const plugin = window.Capacitor.Plugins.TextToSpeech;
         if (!plugin) return;
         plugin.stop().catch(() => {})
-          .then(() => plugin.speak({ text, lang: ttsLang, rate: 1.0, pitch: 1.0, volume: 1.0, category: 'playback' }))
+          .then(() => plugin.speak({ text: cleanText, lang: ttsLang, rate: 1.0, pitch: 1.0, volume: 1.0, category: 'playback' }))
           .then(() => { if (onend) onend(); })
           .catch(() => { if (onend) onend(); });
       } else if ('speechSynthesis' in window) {
-        const u = new SpeechSynthesisUtterance(text);
+        const u = new SpeechSynthesisUtterance(cleanText);
         u.lang = ttsLang;
         if (onend) u.onend = onend;
         window.speechSynthesis.cancel();
