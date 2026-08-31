@@ -387,6 +387,11 @@
       transition: opacity 0.2s;
     }
     .subtitle-display.hidden { opacity: 0; pointer-events: none; }
+    .video-image-overlay {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+      background: #000; z-index: 4; display: none; pointer-events: none;
+    }
+    .video-image-overlay.visible { display: block; }
     .subtitle-display .subtitle-current {
       width: 100%;
       display: flex;
@@ -1103,6 +1108,7 @@
 
         <div class="video-wrap hidden" id="preview-wrap">
           <video id="lesson-video" controls crossorigin="anonymous"></video>
+          <img id="video-image-overlay" class="video-image-overlay" alt="">
           <div class="subtitle-display hidden" id="subtitle-display">
             <div class="subtitle-current" id="subtitle-current"></div>
           </div>
@@ -1115,6 +1121,8 @@
           <button class="cue-loop" id="video-loop" title="تكرار الفيديو" onclick="toggleVideoLoop()">🔄</button>
           <button class="cue-loop" id="btn-caption-minus" title="تصغير الخط" onclick="changeCaptionSize(-0.1)">A-</button>
           <button class="cue-loop" id="btn-caption-plus" title="تكبير الخط" onclick="changeCaptionSize(0.1)">A+</button>
+          <button class="cue-loop" id="btn-select-video-image" data-i18n-title="chooseImage" title="اختر صورة للدرس" onclick="selectVideoImage()">🖼️</button>
+          <button class="cue-loop" id="btn-toggle-video-image" title="إخفاء الصورة" onclick="toggleVideoImageVisibility()">👁️</button>
         </div>
         <div class="playback-controls hidden" id="playback-controls">
           <div class="speed-buttons">
@@ -1261,6 +1269,7 @@
 
 
   <input type="file" id="lesson-image-file" accept="image/*" class="hidden">
+  <input type="file" id="video-overlay-image-file" accept="image/*" class="hidden">
 
   <div id="lesson-actions" class="action-sheet hidden">
     <div class="action-sheet-backdrop" onclick="closeLessonActions()"></div>
@@ -1352,7 +1361,7 @@
         back: "رجوع",
         confirmClearAll: "هل تريد مسح جميع الدروس؟ لا يمكن التراجع عن هذا الإجراء.",
         exportBackup: "تصدير نسخة احتياطية ☁️", importBackup: "استيراد نسخة احتياطية 📥",
-        setImage: "وضع صورة للدرس", exportSuccess: "تم تصدير النسخة الاحتياطية", importSuccess: "تم استيراد النسخة الاحتياطية",
+        setImage: "وضع صورة للدرس", chooseImage: "اختر صورة للدرس", hideImage: "إخفاء الصورة", showImage: "إظهار الصورة", exportSuccess: "تم تصدير النسخة الاحتياطية", importSuccess: "تم استيراد النسخة الاحتياطية",
         exporting: "جاري تصدير النسخة الاحتياطية...", exportingLesson: "جاري تصدير الدرس {0} من {1}",
         exportError: "فشل تصدير النسخة الاحتياطية. حاول تقليل عدد الدروس أو حجم الفيديوهات.",
         invalidBackup: "ملف النسخة الاحتياطية غير صالح",
@@ -1394,7 +1403,7 @@
         back: "Retour",
         confirmClearAll: "Supprimer toutes les leçons ? Cette action est irréversible.",
         exportBackup: "Exporter une sauvegarde ☁️", importBackup: "Importer une sauvegarde 📥",
-        setImage: "Définir l'image de la leçon", exportSuccess: "Sauvegarde exportée", importSuccess: "Sauvegarde importée",
+        setImage: "Définir l'image de la leçon", chooseImage: "Choisir une image", hideImage: "Masquer l'image", showImage: "Afficher l'image", exportSuccess: "Sauvegarde exportée", importSuccess: "Sauvegarde importée",
         exporting: "Export de la sauvegarde en cours...", exportingLesson: "Export de la leçon {0} sur {1}",
         exportError: "Échec de l'export. Essayez de réduire le nombre de leçons ou la taille des vidéos.",
         invalidBackup: "Fichier de sauvegarde invalide",
@@ -1436,7 +1445,7 @@
         back: "Back",
         confirmClearAll: "Delete all lessons? This cannot be undone.",
         exportBackup: "Export backup ☁️", importBackup: "Import backup 📥",
-        setImage: "Set lesson image", exportSuccess: "Backup exported", importSuccess: "Backup imported",
+        setImage: "Set lesson image", chooseImage: "Choose image", hideImage: "Hide image", showImage: "Show image", exportSuccess: "Backup exported", importSuccess: "Backup imported",
         exporting: "Exporting backup...", exportingLesson: "Exporting lesson {0} of {1}",
         exportError: "Export failed. Try reducing the number of lessons or video sizes.",
         invalidBackup: "Invalid backup file",
@@ -1472,6 +1481,9 @@
       sentenceLineLoop: null,
       videoLoop: false,
       captionsVisible: true,
+      videoImage: null,
+      videoImageVisible: true,
+      videoImageUrl: null,
       captionScale: parseFloat(localStorage.getItem('vs_caption_scale') || '1'),
       imageLessonId: null,
       actionLessonId: null,
@@ -1593,6 +1605,9 @@
         playerMode: state.playerMode,
         editingId: state.editingId || null,
         currentLesson: state.currentLesson || null,
+        videoImage: state.videoImage || null,
+        videoImageName: state.videoImage ? state.videoImage.name || '' : '',
+        videoImageVisible: state.videoImageVisible,
         updatedAt: Date.now()
       };
       try { await saveLessonToDB(draft); } catch (e) { console.error('saveDraft failed', e); }
@@ -1619,6 +1634,10 @@
         } else {
           document.getElementById('timed-text').value = draft.subtitleText || '';
         }
+        state.videoImage = draft.videoImage || (state.currentLesson && state.currentLesson.videoImage) || null;
+        state.videoImageVisible = draft.videoImageVisible !== false;
+        updateVideoImageOverlay();
+        updateVideoImageUI();
       } catch (e) { console.error('loadDraft failed', e); }
     }
     async function deleteDraft() {
@@ -1653,6 +1672,7 @@
         renderSentences();
         updateSubtitleOverlay();
       }
+      updateVideoImageUI();
     }
 
     function t(key) { return i18n[state.lang][key] || key; }
@@ -1994,6 +2014,51 @@
       }
     }
 
+    function selectVideoImage() {
+      document.getElementById('video-overlay-image-file').click();
+    }
+
+    function toggleVideoImageVisibility() {
+      if (!state.videoImage) {
+        selectVideoImage();
+        return;
+      }
+      state.videoImageVisible = !state.videoImageVisible;
+      updateVideoImageOverlay();
+      updateVideoImageUI();
+    }
+
+    function updateVideoImageOverlay() {
+      const img = document.getElementById('video-image-overlay');
+      if (state.videoImageUrl) { URL.revokeObjectURL(state.videoImageUrl); state.videoImageUrl = null; }
+      if (img) img.classList.remove('visible');
+      if (state.videoImage && state.videoImageVisible) {
+        const url = URL.createObjectURL(state.videoImage);
+        state.videoImageUrl = url;
+        if (img) { img.src = url; img.classList.add('visible'); }
+      } else if (img) {
+        img.removeAttribute('src');
+      }
+    }
+
+    function updateVideoImageUI() {
+      const toggle = document.getElementById('btn-toggle-video-image');
+      if (!toggle) return;
+      if (!state.videoImage) {
+        toggle.textContent = '👁️';
+        toggle.title = t('chooseImage');
+        toggle.disabled = false;
+        return;
+      }
+      if (state.videoImageVisible) {
+        toggle.textContent = '👁️';
+        toggle.title = t('hideImage');
+      } else {
+        toggle.textContent = '🙈';
+        toggle.title = t('showImage');
+      }
+    }
+
     function openLessonActions(id) {
       state.actionLessonId = id;
       document.getElementById('lesson-actions').classList.remove('hidden');
@@ -2013,6 +2078,7 @@
           if (l.videoFile && l.videoFile instanceof Blob) obj.videoFile = await blobToDataURL(l.videoFile);
           if (l.vttBlob && l.vttBlob instanceof Blob) obj.vttBlob = await blobToDataURL(l.vttBlob);
           if (l.coverImage && l.coverImage instanceof Blob) obj.coverImage = await blobToDataURL(l.coverImage);
+          if (l.videoImage && l.videoImage instanceof Blob) obj.videoImage = await blobToDataURL(l.videoImage);
           exported.push(obj);
         }
         const json = JSON.stringify(exported);
@@ -2047,6 +2113,9 @@
           if (l.coverImage && typeof l.coverImage === 'string' && l.coverImage.startsWith('data:')) {
             lesson.coverImage = dataURLtoBlob(l.coverImage);
           }
+          if (l.videoImage && typeof l.videoImage === 'string' && l.videoImage.startsWith('data:')) {
+            lesson.videoImage = dataURLtoBlob(l.videoImage);
+          }
           if (!lesson.id) lesson.id = Date.now() + Math.random();
           await saveLessonToDB(lesson);
         }
@@ -2070,6 +2139,11 @@
       state.currentCues = [];
       state.loopCue = null;
       state.playerMode = false;
+      state.videoImage = null;
+      state.videoImageVisible = true;
+      if (state.videoImageUrl) { URL.revokeObjectURL(state.videoImageUrl); state.videoImageUrl = null; }
+      updateVideoImageOverlay();
+      updateVideoImageUI();
       setPlayerMode(false);
       document.getElementById('lesson-title').value = '';
       document.getElementById('video-file').value = '';
@@ -2139,6 +2213,8 @@
       video.appendChild(track);
       track.mode = 'hidden';
       document.getElementById('preview-wrap').classList.remove('hidden');
+      updateVideoImageOverlay();
+      updateVideoImageUI();
 
       document.getElementById('subtitle-display').classList.remove('hidden');
       syncCaptionControls();
@@ -3126,6 +3202,7 @@
         vttBlob: new Blob([vtt], { type: 'text/vtt' }),
         duration,
         coverImage: existing && existing.coverImage ? existing.coverImage : null,
+        videoImage: state.videoImage || (existing && existing.videoImage) || null,
         createdAt: existing && existing.createdAt ? existing.createdAt : Date.now()
       };
 
@@ -3141,6 +3218,8 @@
       if (!lesson) return;
       resetEditor();
       state.currentLesson = lesson;
+      state.videoImage = lesson.videoImage || null;
+      state.videoImageVisible = true;
       document.getElementById('lesson-title').value = lesson.title;
       state.videoFile = lesson.videoFile;
       document.getElementById('video-name').textContent = lesson.videoName;
@@ -3170,6 +3249,8 @@
       video.appendChild(track);
       track.mode = 'hidden';
       document.getElementById('preview-wrap').classList.remove('hidden');
+      updateVideoImageOverlay();
+      updateVideoImageUI();
 
       document.getElementById('subtitle-display').classList.remove('hidden');
       syncCaptionControls();
@@ -3357,6 +3438,16 @@
         await saveLessonToDB(lesson);
         showToast(t('saved'));
         renderLessons();
+      });
+
+      document.getElementById('video-overlay-image-file').addEventListener('change', (e) => {
+        const f = e.target.files[0];
+        if (!f) return;
+        state.videoImage = f;
+        state.videoImageVisible = true;
+        updateVideoImageOverlay();
+        updateVideoImageUI();
+        scheduleSaveDraft();
       });
 
       document.getElementById('btn-lang').addEventListener('click', () => {
