@@ -602,8 +602,8 @@
   function parseTitle(text) {
     const s = String(text).trim();
     if (!s) return null;
-    const delims = /\s*(?:\|{1,2}|,|;|=>|->|→|=|:)\s*/;
-    const hasDelimiter = delims.test(s);
+    const delims = /\s*\|\s*/;
+    const hasDelimiter = s.includes('|');
     if (!hasDelimiter) return { fr: s, ar: s, en: s };
     const p = parsePhrases(s, 'auto');
     if (p && p[0]) return p[0];
