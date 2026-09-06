@@ -248,10 +248,11 @@
   .media-image-wrap img { display: block; width: 100%; max-height: 320px; object-fit: contain; background: #000; border-radius: var(--radius); }
   .media-del { position: absolute; top: 0.4rem; right: 0.4rem; width: 1.85rem; height: 1.85rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.65); color: #fff; font-size: 1.1rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; z-index: 4; -webkit-tap-highlight-color: transparent; }
   html[dir="rtl"] .media-del { left: 0.4rem; right: auto; }
-  .cap-controls { display: flex; justify-content: center; gap: 0.8rem; pointer-events: auto; padding-top: 0.15rem; }
-  .cap-controls button { width: 2.1rem; height: 2.1rem; border: 1px solid #e5e5e5; border-radius: 50%; background: #fff; color: #333; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .cap-controls { display: flex; justify-content: center; gap: 0.6rem; pointer-events: auto; padding-top: 0.05rem; }
+  .cap-controls button { width: 1.7rem; height: 1.7rem; border: 1px solid #e5e5e5; border-radius: 50%; background: #fff; color: #333; font-size: 0.85rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
   .cap-controls button:active { background: var(--accent); color: #1a0b1e; }
-  .cap-handle { position: absolute; top: 0.35rem; left: 50%; transform: translateX(-50%); width: 2.4rem; height: 0.25rem; background: rgba(0,0,0,0.12); border-radius: 4px; cursor: grab; pointer-events: auto; touch-action: none; }
+  .cap-handle { position: absolute; top: 0.45rem; left: 0.42rem; width: 0.85rem; height: 1.6rem; border-radius: 4px; cursor: grab; pointer-events: auto; touch-action: none; display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; color: rgba(0,0,0,0.22); user-select: none; -webkit-user-select: none; }
+  .cap-handle::before { content: '\2807\2807'; letter-spacing: -0.05em; }
   .cap-handle:active { cursor: grabbing; }
   .cap-word { pointer-events: auto; cursor: pointer; border-radius: 4px; padding: 0 1px; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; }
   .cap-word:hover { background: rgba(0,0,0,0.05); }
@@ -260,15 +261,15 @@
   .video-loop-btn.active { background: var(--success); color: #081c15; }
   .phrase-loop-btn { position: absolute; top: 0.5rem; left: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
   .phrase-loop-btn.active { background: var(--success); color: #081c15; }
-  .caption-overlay { position: absolute; left: 0.6rem; right: 0.6rem; bottom: 0.6rem; background: rgba(255,255,255,0.97); color: #111; padding: 0.7rem 0.9rem 0.55rem; font-size: 0.95rem; line-height: 1.65; z-index: 2; pointer-events: none; border-radius: 14px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 2px 14px rgba(0,0,0,0.22); display: flex; flex-direction: column; align-items: stretch; gap: 0.25rem; }
-  .cap-text { flex: 1; min-width: 0; text-align: start; display: flex; flex-direction: column; align-items: stretch; gap: 0; padding-inline-end: 2.6rem; padding-top: 0.35rem; }
-  .cap-line { display: block; padding: 0; margin: 0; border-radius: 6px; font-weight: 600; line-height: 1.45; }
-  .cap-flag { margin-inline-end: 0.45rem; font-size: 1.05em; }
-  .cap-loop-btn { pointer-events: auto; position: absolute; top: 0.7rem; inset-inline-end: 0.85rem; width: 2.1rem; height: 2.1rem; border: 1px solid #e5e5e5; border-radius: 10px; background: #fff; color: #333; font-size: 0.95rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .caption-overlay { position: absolute; left: 0.35rem; right: 0.35rem; bottom: 0.35rem; background: rgba(255,255,255,0.97); color: #111; padding: 0.35rem 0.55rem 0.3rem; font-size: 0.85rem; line-height: 1.25; z-index: 2; pointer-events: none; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 2px 14px rgba(0,0,0,0.22); display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+  .cap-text { flex: 1; min-width: 0; text-align: start; display: flex; flex-direction: column; align-items: stretch; gap: 0; padding-inline-start: 1.1rem; padding-inline-end: 2rem; padding-top: 0.15rem; }
+  .cap-line { display: block; padding: 0; margin: 0; border-radius: 4px; font-weight: 600; line-height: 1.3; }
+  .cap-flag { margin-inline-end: 0.35rem; font-size: 1em; }
+  .cap-loop-btn { pointer-events: auto; position: absolute; top: 0.35rem; inset-inline-end: 0.45rem; width: 1.7rem; height: 1.7rem; border: 1px solid #e5e5e5; border-radius: 8px; background: #fff; color: #333; font-size: 0.8rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
   .cap-loop-btn.active { background: var(--success); color: #081c15; border-color: var(--success); }
-  .cap-fr { color: #4c1d95; font-family: 'Poppins', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 1.05rem; text-align: left; }
-  .cap-ar { direction: rtl; color: #047857; font-family: 'Noto Naskh Arabic', 'Amiri', 'Droid Arabic Naskh', 'Tahoma', 'Arial', sans-serif; font-size: 1rem; text-align: right; }
-  .cap-en { color: #1f2937; font-family: 'Inter', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 0.95rem; text-align: left; }
+  .cap-fr { color: #4c1d95; font-family: 'Poppins', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 0.9rem; text-align: left; }
+  .cap-ar { direction: rtl; color: #047857; font-family: 'Noto Naskh Arabic', 'Amiri', 'Droid Arabic Naskh', 'Tahoma', 'Arial', sans-serif; font-size: 0.88rem; text-align: right; }
+  .cap-en { color: #1f2937; font-family: 'Inter', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 0.85rem; text-align: left; }
   .no-lessons { text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); }
   .no-lessons .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
   .no-lessons .card-title { color: var(--text-primary); margin-bottom: 0.3rem; }
@@ -1315,7 +1316,6 @@
     try { captions = parseCaptions(captionText); } catch (e) { console.error('parse captions', e); }
     if (!captions.length) return;
     video._captions = captions;
-    const FLAGS = { fr: '🇫🇷', ar: '🇸🇾', en: '🇬🇧' };
     const container = video.closest('.phrase-media');
     const overlay = document.createElement('div');
     overlay.className = 'caption-overlay';
@@ -1407,9 +1407,10 @@
 
     const makeCap = (text, lang) => {
       if (!text) return '';
-      const flag = FLAGS[lang] || '';
       let raw = text.trim();
-      if (flag && raw.startsWith(flag)) raw = raw.slice(flag.length).trim();
+      let flag = '';
+      const fm = raw.match(/^([\u{1F1E6}-\u{1F1FF}]{2})\s*(.*)$/u);
+      if (fm) { flag = fm[1]; raw = fm[2].trim(); }
       const tokens = raw.split(/(\s+|[^\p{L}\p{M}\p{N}'’-]+)/gu).filter(t => t !== '');
       let html = '';
       for (const token of tokens) {
@@ -1419,7 +1420,8 @@
           html += `<span class="cap-word" data-lang="${lang}" data-word="${esc(token)}">${esc(token)}</span>`;
         }
       }
-      return `<span class="cap-line cap-${lang}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}"><span class="cap-flag">${flag}</span>${html}</span>`;
+      const flagHtml = flag ? `<span class="cap-flag">${esc(flag)}</span>` : '';
+      return `<span class="cap-line cap-${lang}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">${flagHtml}${html}</span>`;
     };
     const update = () => {
       const t = video.currentTime || 0;
@@ -1427,7 +1429,7 @@
       const c = captions.find((c, i) => { if (t >= c.start && t < c.end) { activeIdx = i; return true; } return false; });
       if (!c) { overlay.style.display = 'none'; if (lessonId != null) highlightVideoPhrase(lessonId, -1); return; }
       const parts = [makeCap(c.fr, 'fr'), makeCap(c.ar, 'ar'), makeCap(c.en, 'en')].filter(Boolean);
-      textDiv.innerHTML = parts.join('<br>');
+      textDiv.innerHTML = parts.join('');
       overlay.style.display = 'flex';
       if (lessonId != null) highlightVideoPhrase(lessonId, activeIdx);
       let phraseKey = '';
@@ -1768,6 +1770,7 @@
     if (!word || !lang) return;
     const loopKey = 'word:' + key + ':' + lang + ':' + word;
     if (state.loop && state.loop.key === loopKey) { stopSpeech(); return; }
+    stopSpeech();
     const ready = await prepareTTS();
     if (!ready) return;
     state.loop = { key: loopKey, phraseKey: key, lang, word };
@@ -2291,7 +2294,13 @@
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonVideo">${t('lessonVideo')}</label><button type="button" class="btn" id="btn-choose-lesson-video" data-t="chooseVideoFile">${t('chooseVideoFile')}</button><input type="file" id="lesson-video-file" accept="video/*" style="display:none"></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonVideoUrl">${t('lessonVideoUrl')}</label><input type="text" name="videoUrl" placeholder="https://..." style="width:100%"></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonCaptions">${t('lessonCaptions')}</label><button type="button" class="btn ghost" id="btn-choose-lesson-captions" data-t="chooseCaptionFile">${t('chooseCaptionFile')}</button><input type="file" id="lesson-captions-file" accept=".srt,.txt" style="display:none"></div>
-        <div class="form-group" style="margin-top:0.75rem"><textarea name="captions" rows="5" data-t="captionTextPlaceholder" placeholder="${t('captionTextPlaceholder')}" style="width:100%"></textarea></div>
+        <div class="form-group" style="margin-top:0.35rem">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.25rem">
+            <span class="hint" style="margin:0" data-t="captionText">${t('captionText')}</span>
+            <button type="button" id="btn-lesson-caption-examples" class="icon-btn" data-t-title="captionExamples" style="width:1.7rem;height:1.7rem;font-size:0.85rem">📝</button>
+          </div>
+          <textarea name="captions" rows="5" data-t="captionTextPlaceholder" placeholder="${t('captionTextPlaceholder')}" style="width:100%"></textarea>
+        </div>
         <div class="form-group" style="margin-top:0.75rem"><button type="button" class="btn ghost" id="btn-generate-phrases" data-t="generatePhrases">${t('generatePhrases')}</button></div>
         <div class="form-group"><button type="button" class="btn ghost info-btn" data-info="phrases" style="font-size:0.85rem;padding:0.35rem 0.7rem;margin-bottom:0.4rem">ℹ ${t('inputExamples')}</button><label data-t="phrasesLabel">${t('phrasesLabel')}</label><textarea name="phrases" rows="10" placeholder="French | Arabic | English"></textarea><div class="hint" data-t="phrasesHint">${t('phrasesHint')}</div></div>
         <div class="form-actions">
@@ -2960,6 +2969,8 @@ Output in French, Arabic and English.`;
     document.getElementById('btn-copy-examples').onclick = copyPhraseExamples;
     document.getElementById('btn-close-examples').onclick = closePhraseExamples;
     document.getElementById('btn-caption-examples').onclick = showCaptionExamples;
+    const lessonCapExBtn = document.getElementById('btn-lesson-caption-examples');
+    if (lessonCapExBtn) lessonCapExBtn.onclick = showCaptionExamples;
     document.getElementById('btn-close-caption-examples').onclick = closeCaptionExamples;
     const captionExamplesModal = document.getElementById('caption-examples-modal');
     if (captionExamplesModal) {
