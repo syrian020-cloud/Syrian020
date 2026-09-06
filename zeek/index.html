@@ -305,6 +305,10 @@
   }
   .form-group textarea { resize: vertical; min-height: 180px; }
   .form-group .hint { font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.3rem; }
+  .caption-examples { max-height: 60vh; overflow-y: auto; display: flex; flex-direction: column; gap: 0.6rem; }
+  .caption-example { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.5rem; position: relative; }
+  .caption-example pre { margin: 0; white-space: pre-wrap; font-family: inherit; font-size: 0.85rem; color: var(--text-primary); padding-inline-end: 4.5rem; }
+  .caption-example .copy-ex { position: absolute; top: 0.45rem; inset-inline-end: 0.45rem; padding: 0.25rem 0.6rem; font-size: 0.78rem; border-radius: 8px; }
   .form-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
   .delete-btn {
     background: var(--bg-tertiary); color: var(--danger); border: 1px solid var(--danger);
@@ -426,7 +430,10 @@
       <input type="file" id="caption-file" accept=".srt,.txt" style="display:none">
     </div>
     <div class="form-group" style="margin-top:0.75rem">
-      <label data-t="captionText">Or paste caption text</label>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.35rem">
+        <label data-t="captionText" style="margin:0">Or paste caption text</label>
+        <button type="button" id="btn-caption-examples" class="icon-btn" data-t-title="captionExamples" style="width:1.7rem;height:1.7rem;font-size:0.85rem">📝</button>
+      </div>
       <textarea id="caption-text" rows="4" data-t="captionTextPlaceholder" placeholder="00:00 French | Arabic | English" style="width:100%"></textarea>
     </div>
     <div class="form-group" id="media-preview" style="display:none;margin-top:0.75rem">
@@ -437,6 +444,16 @@
       <button type="button" class="btn" id="btn-save-media" data-t="save">حفظ</button>
       <button type="button" class="btn ghost" id="btn-remove-media" data-t="delete" style="display:none;color:var(--danger);border-color:var(--danger)">حذف</button>
       <button type="button" class="btn ghost" id="btn-close-media" data-t="cancel">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<div id="caption-examples-modal" class="modal" style="z-index:98">
+  <div class="modal-content" style="max-width:520px">
+    <h3 data-t="captionExamples">Caption examples</h3>
+    <div id="caption-examples-list" class="caption-examples"></div>
+    <div class="form-actions" style="margin-top:0.75rem">
+      <button type="button" class="btn ghost" id="btn-close-caption-examples" data-t="cancel">إلغاء</button>
     </div>
   </div>
 </div>
@@ -803,6 +820,7 @@
     captionText: { ar: 'أو ألصق نص الترجمة', en: 'Or paste caption text', fr: 'Ou coller le texte des sous-titres' },
     captionTextPlaceholder: { ar: '00:00 Maria, j’ai plus de cigarettes.\nماريا، ما عاد معي دخان.\nMaria, I’m out of cigarettes.', en: '00:00 Maria, j’ai plus de cigarettes.\nماريا، ما عاد معي دخان.\nMaria, I’m out of cigarettes.', fr: '00:00 Maria, j’ai plus de cigarettes.\nماريا، ما عاد معي دخان.\nMaria, I’m out of cigarettes.' },
     captionParseError: { ar: 'تعذر تحليل نص الترجمة. تأكد من التنسيق.', en: 'Could not parse caption text. Check the format.', fr: 'Impossible d\'analyser le texte des sous-titres. Vérifiez le format.' },
+    captionExamples: { ar: 'نماذج الترجمة', en: 'Caption examples', fr: 'Exemples de sous-titres' },
     lessonVideo: { ar: 'فيديو الدرس', en: 'Lesson video', fr: 'Vidéo de la leçon' },
     chooseVideoFile: { ar: 'اختر ملف فيديو', en: 'Choose video file', fr: 'Choisir un fichier vidéo' },
     lessonVideoUrl: { ar: 'أو رابط الفيديو', en: 'Or video URL', fr: 'Ou URL de la vidéo' },
@@ -2270,6 +2288,35 @@
     'English | Arabic | French'
   ];
 
+  const CAPTION_EXAMPLES = [
+    `1
+00:00:00,000 --> 00:00:03,000
+Maria, j’ai plus de cigarettes. | ماريا، ما عاد معي دخان. | Maria, I’m out of cigarettes.
+
+2
+00:00:03,000 --> 00:00:05,000
+Donne-moi de l’argent. | أعطيني مصاري. | Give me some money.`,
+
+    `00:00 Maria, j’ai plus de cigarettes. | ماريا، ما عاد معي دخان. | Maria, I’m out of cigarettes.
+00:02 Donne-moi de l’argent. | أعطيني مصاري. | Give me some money.`,
+
+    `00:00 Maria, j’ai plus de cigarettes.
+ماريا، ما عاد معي دخان.
+Maria, I’m out of cigarettes.
+
+00:02 Donne-moi de l’argent.
+أعطيني مصاري.
+Give me some money.`,
+
+    `00:00 🇫🇷 Maria, j’ai plus de cigarettes.
+🇸🇾 ماريا، ما عاد معي دخان.
+🇺🇸 Maria, I’m out of cigarettes.`,
+
+    `00:00 FR: Maria, j’ai plus de cigarettes.
+AR: ماريا، ما عاد معي دخان.
+EN: Maria, I’m out of cigarettes.`
+  ];
+
   function showPhraseExamples() {
     const modal = document.getElementById('examples-modal');
     document.getElementById('examples-text').value = PHRASE_EXAMPLES.join('\n');
@@ -2280,15 +2327,38 @@
     document.getElementById('examples-modal').classList.remove('show');
   }
 
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+    } else { fallbackCopy(text); }
+  }
+  function fallbackCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
   function copyPhraseExamples() {
     const ta = document.getElementById('examples-text');
-    ta.select();
-    try {
-      if (navigator.clipboard) { navigator.clipboard.writeText(ta.value); }
-      else { document.execCommand('copy'); }
-    } catch (e) {}
+    copyText(ta.value);
     showToast(t('copied'));
   }
+
+  function showCaptionExamples() {
+    const list = document.getElementById('caption-examples-list');
+    if (!list.children.length) {
+      list.innerHTML = CAPTION_EXAMPLES.map((ex, i) => `<div class="caption-example"><pre>${esc(ex)}</pre><button type="button" class="btn ghost copy-ex" data-i="${i}" data-t="copy">${t('copy')}</button></div>`).join('');
+      applyTranslations();
+    }
+    document.getElementById('caption-examples-modal').classList.add('show');
+  }
+  function closeCaptionExamples() { document.getElementById('caption-examples-modal').classList.remove('show'); }
+  function copyCaptionExample(i) { copyText(CAPTION_EXAMPLES[i] || ''); showToast(t('copied')); }
 
   let noteKey = null;
   let noteCtx = null;
@@ -2480,7 +2550,13 @@
       } else if (e.target.closest('.tts-loop-btn')) {
         toggleTTSLoop(p, key);
       } else if (e.target.closest('.ai-btn')) {
-        const query = 'Explain the phrase "' + p.fr + '" in French, Arabic and English. French: ' + p.fr + ' / Arabic: ' + p.ar + ' / English: ' + p.en + ' (without tables)';
+        const query = `French phrase: "${p.fr}"
+Arabic translation: "${p.ar}"
+English translation: "${p.en}"
+1) Translate each individual word (French → Arabic → English).
+2) Explain the Arabic verb tense/grammar.
+3) Provide a short practical conversation in French, Arabic and English using this phrase so it can be memorized as a conversation.
+Output in French, Arabic and English.`;
         window.open('https://www.google.com/search?q=' + encodeURIComponent(query) + '&udm=50&hl=' + state.uiLang, '_blank');
       } else if (e.target.closest('.image-btn')) {
         e.stopPropagation();
@@ -2799,6 +2875,16 @@
     bindBackButton();
     document.getElementById('btn-copy-examples').onclick = copyPhraseExamples;
     document.getElementById('btn-close-examples').onclick = closePhraseExamples;
+    document.getElementById('btn-caption-examples').onclick = showCaptionExamples;
+    document.getElementById('btn-close-caption-examples').onclick = closeCaptionExamples;
+    const captionExamplesModal = document.getElementById('caption-examples-modal');
+    if (captionExamplesModal) {
+      captionExamplesModal.addEventListener('click', e => {
+        if (e.target === captionExamplesModal) { closeCaptionExamples(); return; }
+        const copyBtn = e.target.closest('.copy-ex');
+        if (copyBtn) { copyCaptionExample(+copyBtn.dataset.i); }
+      });
+    }
     document.getElementById('btn-theme').onclick = toggleTheme;
     document.getElementById('btn-stop').onclick = stopSpeech;
     document.getElementById('btn-fav').onclick = () => go({ name: 'favs' });
