@@ -255,15 +255,15 @@
   .video-loop-btn.active { background: var(--success); color: #081c15; }
   .phrase-loop-btn { position: absolute; top: 0.5rem; left: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
   .phrase-loop-btn.active { background: var(--success); color: #081c15; }
-  .caption-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.82); padding: 0.55rem 0.75rem; font-size: 0.9rem; line-height: 1.65; z-index: 2; pointer-events: none; border-top: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; gap: 0.5rem; }
-  .cap-text { flex: 1; min-width: 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
-  .cap-line { display: block; padding: 0.18rem 0.65rem; border-radius: 8px; font-weight: 600; line-height: 1.5; }
-  .cap-flag { margin-inline-end: 0.35rem; }
-  .cap-loop-btn { pointer-events: auto; flex-shrink: 0; width: 1.85rem; height: 1.85rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 0.9rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-  .cap-loop-btn.active { background: var(--success); color: #081c15; }
-  .cap-fr { background: #ede9fe; color: #2e1065; font-family: 'Poppins', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; }
-  .cap-ar { direction: rtl; background: #ffe4e6; color: #881337; font-family: 'Noto Naskh Arabic', 'Amiri', 'Droid Arabic Naskh', 'Tahoma', 'Arial', sans-serif; }
-  .cap-en { background: #d1fae5; color: #064e3b; font-family: 'Inter', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; }
+  .caption-overlay { position: absolute; left: 0.6rem; right: 0.6rem; bottom: 0.6rem; background: rgba(255,255,255,0.96); color: #111; padding: 0.75rem 0.9rem; font-size: 0.95rem; line-height: 1.65; z-index: 2; pointer-events: none; border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.22); display: flex; align-items: center; gap: 0.6rem; }
+  .cap-text { flex: 1; min-width: 0; text-align: start; display: flex; flex-direction: column; align-items: stretch; gap: 0.35rem; }
+  .cap-line { display: block; padding: 0.15rem 0.35rem; border-radius: 6px; font-weight: 600; line-height: 1.55; }
+  .cap-flag { margin-inline-end: 0.45rem; font-size: 1.05em; }
+  .cap-loop-btn { pointer-events: auto; flex-shrink: 0; width: 2.1rem; height: 2.1rem; border: 1px solid #e5e5e5; border-radius: 10px; background: #fff; color: #333; font-size: 0.95rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .cap-loop-btn.active { background: var(--success); color: #081c15; border-color: var(--success); }
+  .cap-fr { color: #4c1d95; font-family: 'Poppins', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 1.05rem; text-align: left; }
+  .cap-ar { direction: rtl; color: #047857; font-family: 'Noto Naskh Arabic', 'Amiri', 'Droid Arabic Naskh', 'Tahoma', 'Arial', sans-serif; font-size: 1rem; text-align: right; }
+  .cap-en { color: #1f2937; font-family: 'Inter', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 0.95rem; text-align: left; }
   .no-lessons { text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); }
   .no-lessons .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
   .no-lessons .card-title { color: var(--text-primary); margin-bottom: 0.3rem; }
@@ -1331,7 +1331,11 @@
     overlay.appendChild(loopBtn);
     const makeCap = (text, lang) => {
       if (!text) return '';
-      return `<span class="cap-line cap-${lang}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">${esc(text)}</span>`;
+      const flag = FLAGS[lang] || '';
+      const safe = esc(text.trim());
+      const hasFlag = flag && safe.startsWith(flag);
+      const prefix = hasFlag ? '' : `<span class="cap-flag">${flag}</span>`;
+      return `<span class="cap-line cap-${lang}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">${prefix}${safe}</span>`;
     };
     const update = () => {
       const t = video.currentTime || 0;
