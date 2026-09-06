@@ -246,9 +246,16 @@
   .note-phrase-card.ar { color: #047857; direction: rtl; font-family: 'Noto Naskh Arabic','Amiri','Droid Arabic Naskh','Tahoma',Arial,sans-serif; }
   .note-phrase-card.en { color: #1f2937; font-family: 'Inter','Segoe UI','Noto Sans','Helvetica Neue',Arial,sans-serif; }
   .phrase-media { position: relative; margin-bottom: 0.75rem; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: 0 4px 14px rgba(0,0,0,0.18); background: #000; }
-  .phrase-media img, .phrase-media video, .phrase-media iframe { display: block; width: 100%; max-height: 320px; object-fit: contain; background: #000; border-radius: var(--radius); }
+  .phrase-media.video-player { aspect-ratio: 9/16; max-height: 420px; }
+  .phrase-media img, .phrase-media iframe { display: block; width: 100%; max-height: 320px; object-fit: contain; background: #000; border-radius: var(--radius); }
   .phrase-media iframe { height: 240px; }
-  .phrase-media video { max-height: 360px; }
+  .phrase-media video { width: 100%; height: 100%; max-height: none; object-fit: cover; background: #000; border-radius: var(--radius); }
+  .phrase-media.video-player.ar-16-9 { aspect-ratio: 16/9; }
+  .phrase-media.video-player.ar-4-3 { aspect-ratio: 4/3; }
+  .phrase-media.video-player.ar-3-2 { aspect-ratio: 3/2; }
+  .phrase-media.video-player.ar-1-1 { aspect-ratio: 1/1; }
+  .phrase-media.video-player.ar-4-5 { aspect-ratio: 4/5; }
+  .aspect-select { position: absolute; top: 0.55rem; left: 50%; transform: translateX(-50%); z-index: 3; background: rgba(0,0,0,0.55); color: #fff; border: none; border-radius: 999px; padding: 0.25rem 0.55rem; font-size: 0.72rem; appearance: none; -webkit-appearance: none; text-align: center; cursor: pointer; }
   .media-image-wrap { position: relative; width: 100%; }
   .media-image-wrap img { display: block; width: 100%; max-height: 320px; object-fit: contain; background: #000; border-radius: var(--radius); }
   .media-del { position: absolute; top: 0.4rem; right: 0.4rem; width: 1.85rem; height: 1.85rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.65); color: #fff; font-size: 1.1rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; z-index: 4; -webkit-tap-highlight-color: transparent; }
@@ -761,6 +768,7 @@
     appTitle: { ar: 'Zeek — فرنسي / عربي / إنجليزي', en: 'Zeek — French / Arabic / English', fr: 'Zeek — Français / Arabe / Anglais' },
     searchPlaceholder: { ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', en: 'Search in Arabic, French, or English…', fr: 'Rechercher en arabe, français ou anglais…' },
     rateTitle: { ar: 'سرعة الصوت والفيديو', en: 'Audio & video speed', fr: 'Vitesse audio et vidéo' },
+    aspectRatioTitle: { ar: 'نسبة عرض الفيديو', en: 'Video aspect ratio', fr: 'Ratio d’aspect vidéo' },
     videoLoopTitle: { ar: 'تكرار الفيديو', en: 'Loop video', fr: 'Boucler la vidéo' },
     previousPhrase: { ar: 'العبارة السابقة', en: 'Previous phrase', fr: 'Phrase précédente' },
     nextPhrase: { ar: 'العبارة التالية', en: 'Next phrase', fr: 'Phrase suivante' },
@@ -882,6 +890,7 @@
     favs: JSON.parse(localStorage.getItem('zeek_favs') || '[]'),
     notes: JSON.parse(localStorage.getItem('zeek_notes') || '{}'),
     rate: 1,
+    videoAspects: JSON.parse(localStorage.getItem('zeek_video_aspects') || '{}'),
     langs: ['fr', 'ar', 'en'],
     uiLang: localStorage.getItem('zeek_ui_lang') || 'ar',
     theme: localStorage.getItem('zeek_theme') || 'dark',
@@ -1467,6 +1476,29 @@
     }
   }
 
+  function getVideoAspect(ref) { return (ref && state.videoAspects[ref]) || ''; }
+  function saveVideoAspect(ref, aspect) {
+    if (!ref) return;
+    if (aspect) state.videoAspects[ref] = aspect;
+    else delete state.videoAspects[ref];
+    localStorage.setItem('zeek_video_aspects', JSON.stringify(state.videoAspects));
+  }
+  function aspectClassFor(ratio) { return ratio ? 'ar-' + ratio.replace('/', '-') : ''; }
+  function applyVideoAspect(container, ref) {
+    const ratio = getVideoAspect(ref);
+    ['ar-9-16','ar-16-9','ar-4-3','ar-3-2','ar-1-1','ar-4-5'].forEach(c => container.classList.remove(c));
+    const cls = aspectClassFor(ratio);
+    if (cls) container.classList.add(cls);
+    const sel = container.querySelector('.aspect-select');
+    if (sel) sel.value = ratio || '9/16';
+  }
+  function setVideoAspect(container, ratio) {
+    if (!container) return;
+    const ref = container.dataset.mediaRef || container.dataset.mediaSrc || '';
+    saveVideoAspect(ref, ratio);
+    applyVideoAspect(container, ref);
+  }
+
   async function loadMedia() {
     const placeholders = document.querySelectorAll('.media-placeholder');
     for (const el of placeholders) {
@@ -1480,8 +1512,11 @@
       } else {
         const isVideo = (resolved.type || '').startsWith('video/') || isVideoUrl(resolved.url) || isVideoFile({ name: (resolved.blob && resolved.blob.name) || '', type: resolved.type });
         if (isVideo) {
+          el.classList.add('video-player');
           const phraseKey = el.dataset.phraseKey || '';
-          el.innerHTML = videoHTML(resolved.url, phraseKey);
+          const mediaKey = el.dataset.mediaRef || el.dataset.mediaSrc || resolved.url;
+          el.innerHTML = videoHTML(resolved.url, phraseKey, mediaKey);
+          applyVideoAspect(el, mediaKey);
           const v = el.querySelector('video');
           if (v) { try { v.playbackRate = state.rate || 1; } catch (e) {} }
         } else {
@@ -2064,8 +2099,20 @@
     return key ? `<button class="phrase-loop-btn" data-phrase-key="${esc(key)}" title="${t('videoAudioLoopTitle')}" type="button">🔁</button>` : '';
   }
 
-  function videoHTML(src, key) {
-    return `${phraseLoopButtonHTML(key)}${videoLoopButtonHTML()}<video src="${esc(src)}" controls playsinline></video>`;
+  function aspectSelectHTML(selected) {
+    const ratios = [
+      { v: '9/16', l: '9:16' },
+      { v: '16/9', l: '16:9' },
+      { v: '4/5', l: '4:5' },
+      { v: '1/1', l: '1:1' },
+      { v: '4/3', l: '4:3' },
+      { v: '3/2', l: '3:2' }
+    ];
+    return `<select class="aspect-select" title="${t('aspectRatioTitle') || 'Aspect ratio'}">${ratios.map(r => `<option value="${r.v}"${selected === r.v ? ' selected' : ''}>${r.l}</option>`).join('')}</select>`;
+  }
+
+  function videoHTML(src, key, mediaKey) {
+    return `${phraseLoopButtonHTML(key)}${videoLoopButtonHTML()}${aspectSelectHTML(getVideoAspect(mediaKey || src))}<video src="${esc(src)}" controls playsinline></video>`;
   }
 
   function imageMediaHTML(src, key) {
@@ -2074,17 +2121,17 @@
 
   function mediaHTML(media, key) {
     if (!media) return '';
-    if (isIDBMedia(media)) return `<div class="phrase-media media-placeholder" data-media-ref="${esc(media)}" data-phrase-key="${esc(key || '')}"></div>`;
+    if (isIDBMedia(media)) return `<div class="phrase-media media-placeholder" data-media-ref="${esc(media)}" data-media-src="${esc(toWebUrl(media))}" data-phrase-key="${esc(key || '')}"></div>`;
     const src = toWebUrl(media);
     const yt = youtubeId(src);
-    if (yt) return `<div class="phrase-media" data-phrase-key="${esc(key || '')}"><iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe></div>`;
-    if (isVideoUrl(src)) return `<div class="phrase-media media-player" data-phrase-key="${esc(key || '')}">${videoHTML(src, key)}</div>`;
+    if (yt) return `<div class="phrase-media" data-media-src="${esc(src)}" data-phrase-key="${esc(key || '')}"><iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe></div>`;
+    if (isVideoUrl(src)) return `<div class="phrase-media video-player ${aspectClassFor(getVideoAspect(src))}" data-media-src="${esc(src)}" data-phrase-key="${esc(key || '')}">${videoHTML(src, key, src)}</div>`;
     return `<div class="phrase-media" data-phrase-key="${esc(key || '')}">${imageMediaHTML(src, key)}</div>`;
   }
 
   function lessonMediaHTML(lesson) {
     if (!lesson.media) return '';
-    return `<div class="lesson-media phrase-media media-placeholder" data-media-ref="${esc(lesson.media)}" data-caption-text="${esc(lesson.captionText || '')}" data-lesson-id="${lesson.id}"></div>`;
+    return `<div class="lesson-media phrase-media media-placeholder" data-media-ref="${esc(lesson.media)}" data-media-src="${esc(toWebUrl(lesson.media))}" data-caption-text="${esc(lesson.captionText || '')}" data-lesson-id="${lesson.id}"></div>`;
   }
 
   function phraseHTML(p, key) {
@@ -3020,6 +3067,8 @@ Output in French, Arabic and English.`;
         importLessons(e.target.files[0]);
         e.target.value = '';
       }
+      const sel = e.target.closest('.aspect-select');
+      if (sel) setVideoAspect(sel.closest('.phrase-media'), sel.value);
     });
     bindViewEvents();
     bindActionSheet();
