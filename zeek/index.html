@@ -244,6 +244,13 @@
   .phrase-media img, .phrase-media video, .phrase-media iframe { display: block; width: 100%; max-height: 320px; object-fit: contain; background: #000; }
   .phrase-media iframe { height: 240px; }
   .phrase-media video { max-height: 360px; }
+  .media-image-wrap { position: relative; width: 100%; }
+  .media-image-wrap img { display: block; width: 100%; max-height: 320px; object-fit: contain; background: #000; border-radius: var(--radius); }
+  .media-del { position: absolute; top: 0.4rem; right: 0.4rem; width: 1.85rem; height: 1.85rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.65); color: #fff; font-size: 1.1rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; z-index: 4; -webkit-tap-highlight-color: transparent; }
+  html[dir="rtl"] .media-del { left: 0.4rem; right: auto; }
+  .video-controls { display: flex; justify-content: center; gap: 1rem; padding: 0.5rem; background: rgba(0,0,0,0.45); border-top: 1px solid rgba(255,255,255,0.08); }
+  .video-controls button { background: transparent; border: none; color: #fff; font-size: 1.3rem; cursor: pointer; padding: 0.3rem 0.6rem; border-radius: 8px; -webkit-tap-highlight-color: transparent; }
+  .video-controls button:hover { background: rgba(255,255,255,0.12); }
   .video-loop-btn { position: absolute; top: 0.5rem; right: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
   .video-loop-btn.active { background: var(--success); color: #081c15; }
   .phrase-loop-btn { position: absolute; top: 0.5rem; left: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
@@ -595,9 +602,12 @@
   function parseTitle(text) {
     const s = String(text).trim();
     if (!s) return null;
+    const delims = /\s*(?:\|{1,2}|,|;|=>|->|→|=|:)\s*/;
+    const hasDelimiter = delims.test(s);
+    if (!hasDelimiter) return { fr: s, ar: s, en: s };
     const p = parsePhrases(s, 'auto');
     if (p && p[0]) return p[0];
-    const tokens = s.split(/\s*(?:\|{1,2}|,|;|=>|->|→|=|:|\s+-\s+|\s+)\s*/).map(x => x.trim()).filter(Boolean);
+    const tokens = s.split(delims).map(x => x.trim()).filter(Boolean);
     if (!tokens.length) return null;
     if (tokens.length === 1) {
       const v = tokens[0];
@@ -723,6 +733,8 @@
     searchPlaceholder: { ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', en: 'Search in Arabic, French, or English…', fr: 'Rechercher en arabe, français ou anglais…' },
     rateTitle: { ar: 'سرعة الصوت والفيديو', en: 'Audio & video speed', fr: 'Vitesse audio et vidéo' },
     videoLoopTitle: { ar: 'تكرار الفيديو', en: 'Loop video', fr: 'Boucler la vidéo' },
+    previousPhrase: { ar: 'العبارة السابقة', en: 'Previous phrase', fr: 'Phrase précédente' },
+    nextPhrase: { ar: 'العبارة التالية', en: 'Next phrase', fr: 'Phrase suivante' },
     loopModeTitle: { ar: 'محتوى التكرار', en: 'Loop content', fr: 'Contenu de la répétition' },
     loopFrenchArabicEnglish: { ar: '🔁 فرنسي + عربي + إنجليزي', en: '🔁 French + Arabic + English', fr: '🔁 Français + Arabe + Anglais' },
     loopFrenchArabic: { ar: '🔁 فرنسي + عربي', en: '🔁 French + Arabic', fr: '🔁 Français + Arabe' },
@@ -1042,6 +1054,53 @@
     return { url: mediaUrlCache.get(id), type, blob };
   }
 
+  function cueIndex(captions, time) {
+    return captions.findIndex(c => time >= c.start && time < c.end);
+  }
+
+  function nextCueIndex(captions, time) {
+    for (let i = 0; i < captions.length; i++) if (captions[i].start > time) return i;
+    return -1;
+  }
+
+  function prevCueIndex(captions, time) {
+    for (let i = captions.length - 1; i >= 0; i--) if (captions[i].end <= time) return i;
+    return -1;
+  }
+
+  function seekVideoCue(video, dir) {
+    const captions = video && video._captions;
+    if (!captions || !captions.length) return;
+    const t = video.currentTime || 0;
+    let idx;
+    if (dir > 0) {
+      idx = nextCueIndex(captions, t);
+      if (idx === -1) idx = 0;
+    } else {
+      idx = prevCueIndex(captions, t);
+      if (idx === -1) idx = captions.length - 1;
+    }
+    video.currentTime = captions[idx].start;
+    video.play().catch(() => {});
+  }
+
+  async function deletePhraseImage(key) {
+    if (!confirm(t('confirmRemoveMedia'))) return;
+    const [lessonId, idx] = key.split('.').map(Number);
+    const found = findLesson(lessonId);
+    if (!found) return;
+    const p = found.lesson.phrases[idx];
+    const isImage = p && p.media && (p.mediaType === 'image' || await isImageMediaRef(p.media));
+    if (isImage) {
+      await deleteMediaRef(p.media);
+      delete p.media;
+      delete p.mediaType;
+      saveLessons();
+      go(state.route, false);
+      showToast(t('deleted'));
+    }
+  }
+
   async function isImageMediaRef(ref) {
     if (!ref) return false;
     if (/^data:image\//i.test(ref)) return true;
@@ -1221,6 +1280,7 @@
     let captions = [];
     try { captions = parseCaptions(captionText); } catch (e) { console.error('parse captions', e); }
     if (!captions.length) return;
+    video._captions = captions;
     const FLAGS = { fr: '🇫🇷', ar: '🇸🇾', en: '🇬🇧' };
     const container = video.closest('.phrase-media');
     const overlay = document.createElement('div');
@@ -1311,7 +1371,7 @@
           const v = el.querySelector('video');
           if (v) { try { v.playbackRate = state.rate || 1; } catch (e) {} }
         } else {
-          el.innerHTML = `<img src="${esc(resolved.url)}" alt="" onerror="this.style.display='none'">`;
+          el.innerHTML = imageMediaHTML(resolved.url, el.dataset.phraseKey || '');
         }
       }
       const captionText = el.dataset.captionText || '';
@@ -1885,7 +1945,15 @@
   }
 
   function videoHTML(src, key) {
-    return `${phraseLoopButtonHTML(key)}${videoLoopButtonHTML()}<video src="${esc(src)}" controls playsinline></video>`;
+    const controls = `<div class="video-controls">
+      <button class="video-prev" data-phrase-key="${esc(key || '')}" type="button" title="${t('previousPhrase')}">⏮</button>
+      <button class="video-next" data-phrase-key="${esc(key || '')}" type="button" title="${t('nextPhrase')}">⏭</button>
+    </div>`;
+    return `${phraseLoopButtonHTML(key)}${videoLoopButtonHTML()}<video src="${esc(src)}" controls playsinline></video>${controls}`;
+  }
+
+  function imageMediaHTML(src, key) {
+    return `<div class="media-image-wrap" data-phrase-key="${esc(key || '')}"><img src="${esc(src)}" alt="" onerror="this.style.display='none'"><button type="button" class="media-del" data-phrase-key="${esc(key || '')}" title="${t('delete')}">×</button></div>`;
   }
 
   function mediaHTML(media, key) {
@@ -1895,7 +1963,7 @@
     const yt = youtubeId(src);
     if (yt) return `<div class="phrase-media" data-phrase-key="${esc(key || '')}"><iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe></div>`;
     if (isVideoUrl(src)) return `<div class="phrase-media media-player" data-phrase-key="${esc(key || '')}">${videoHTML(src, key)}</div>`;
-    return `<div class="phrase-media" data-phrase-key="${esc(key || '')}"><img src="${esc(src)}" alt="" onerror="this.style.display='none'"></div>`;
+    return `<div class="phrase-media" data-phrase-key="${esc(key || '')}">${imageMediaHTML(src, key)}</div>`;
   }
 
   function lessonMediaHTML(lesson) {
@@ -2340,6 +2408,18 @@
 
   function bindViewEvents() {
     view.addEventListener('click', e => {
+      const delImgBtn = e.target.closest('.media-del');
+      if (delImgBtn) { e.stopPropagation(); deletePhraseImage(delImgBtn.dataset.phraseKey); return; }
+
+      const videoNavBtn = e.target.closest('.video-prev, .video-next');
+      if (videoNavBtn) {
+        e.stopPropagation();
+        const media = videoNavBtn.closest('.phrase-media');
+        const video = media && media.querySelector('video');
+        if (video) seekVideoCue(video, videoNavBtn.classList.contains('video-next') ? 1 : -1);
+        return;
+      }
+
       const videoLoopBtn = e.target.closest('.video-loop-btn');
       if (videoLoopBtn) {
         e.stopPropagation();
