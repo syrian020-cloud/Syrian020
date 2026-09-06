@@ -248,15 +248,20 @@
   .media-image-wrap img { display: block; width: 100%; max-height: 320px; object-fit: contain; background: #000; border-radius: var(--radius); }
   .media-del { position: absolute; top: 0.4rem; right: 0.4rem; width: 1.85rem; height: 1.85rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.65); color: #fff; font-size: 1.1rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; z-index: 4; -webkit-tap-highlight-color: transparent; }
   html[dir="rtl"] .media-del { left: 0.4rem; right: auto; }
-  .cap-controls { display: flex; justify-content: center; gap: 0.8rem; pointer-events: auto; padding-top: 0.25rem; }
+  .cap-controls { display: flex; justify-content: center; gap: 0.8rem; pointer-events: auto; padding-top: 0.15rem; }
   .cap-controls button { width: 2.1rem; height: 2.1rem; border: 1px solid #e5e5e5; border-radius: 50%; background: #fff; color: #333; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
   .cap-controls button:active { background: var(--accent); color: #1a0b1e; }
+  .cap-handle { position: absolute; top: 0.35rem; left: 50%; transform: translateX(-50%); width: 2.4rem; height: 0.25rem; background: rgba(0,0,0,0.12); border-radius: 4px; cursor: grab; pointer-events: auto; touch-action: none; }
+  .cap-handle:active { cursor: grabbing; }
+  .cap-word { pointer-events: auto; cursor: pointer; border-radius: 4px; padding: 0 1px; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; }
+  .cap-word:hover { background: rgba(0,0,0,0.05); }
+  .cap-word.active { background: var(--accent); color: #1a0b1e; }
   .video-loop-btn { position: absolute; top: 0.5rem; right: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
   .video-loop-btn.active { background: var(--success); color: #081c15; }
   .phrase-loop-btn { position: absolute; top: 0.5rem; left: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
   .phrase-loop-btn.active { background: var(--success); color: #081c15; }
   .caption-overlay { position: absolute; left: 0.6rem; right: 0.6rem; bottom: 0.6rem; background: rgba(255,255,255,0.97); color: #111; padding: 0.7rem 0.9rem 0.55rem; font-size: 0.95rem; line-height: 1.65; z-index: 2; pointer-events: none; border-radius: 14px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 2px 14px rgba(0,0,0,0.22); display: flex; flex-direction: column; align-items: stretch; gap: 0.25rem; }
-  .cap-text { flex: 1; min-width: 0; text-align: start; display: flex; flex-direction: column; align-items: stretch; gap: 0; padding-inline-end: 2.6rem; }
+  .cap-text { flex: 1; min-width: 0; text-align: start; display: flex; flex-direction: column; align-items: stretch; gap: 0; padding-inline-end: 2.6rem; padding-top: 0.35rem; }
   .cap-line { display: block; padding: 0; margin: 0; border-radius: 6px; font-weight: 600; line-height: 1.45; }
   .cap-flag { margin-inline-end: 0.45rem; font-size: 1.05em; }
   .cap-loop-btn { pointer-events: auto; position: absolute; top: 0.7rem; inset-inline-end: 0.85rem; width: 2.1rem; height: 2.1rem; border: 1px solid #e5e5e5; border-radius: 10px; background: #fff; color: #333; font-size: 0.95rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
@@ -1098,8 +1103,19 @@
       idx = prevCueIndex(captions, t);
       if (idx === -1) idx = captions.length - 1;
     }
-    video.currentTime = captions[idx].start;
-    video.play().catch(() => {});
+    const c = captions[idx];
+    video.currentTime = c.start;
+    // if a video loop is active, re-target it to the new cue
+    let phraseKey = '';
+    const lessonId = video.dataset.lessonId;
+    if (lessonId != null) phraseKey = lessonId + '.' + idx;
+    else { const phrase = video.closest('.phrase'); if (phrase) phraseKey = phrase.dataset.key || ''; }
+    const p = phraseKey ? findPhraseByKey(phraseKey) : null;
+    if (state.loop && state.loop.type === 'video' && p) {
+      toggleLoop(p, phraseKey);
+    } else {
+      video.play().catch(() => {});
+    }
   }
 
   async function deletePhraseImage(key) {
@@ -1333,13 +1349,77 @@
     controls.className = 'cap-controls';
     controls.innerHTML = `<button class="video-prev" type="button" title="${t('previousPhrase')}">⏮</button><button class="video-next" type="button" title="${t('nextPhrase')}">⏭</button>`;
     overlay.appendChild(controls);
+
+    const handle = document.createElement('div');
+    handle.className = 'cap-handle';
+    overlay.appendChild(handle);
+
+    // drag caption overlay inside its container
+    let drag = false, sx, sy, sl, st;
+    handle.addEventListener('pointerdown', e => {
+      e.preventDefault();
+      drag = true;
+      const rect = overlay.getBoundingClientRect();
+      const cRect = container.getBoundingClientRect();
+      sx = e.clientX; sy = e.clientY;
+      sl = rect.left - cRect.left;
+      st = rect.top - cRect.top;
+      overlay.style.width = rect.width + 'px';
+      overlay.style.right = 'auto';
+      overlay.style.bottom = 'auto';
+      overlay.style.left = sl + 'px';
+      overlay.style.top = st + 'px';
+      try { handle.setPointerCapture(e.pointerId); } catch (_) {}
+    });
+    handle.addEventListener('pointermove', e => {
+      if (!drag) return;
+      e.preventDefault();
+      const cRect = container.getBoundingClientRect();
+      let x = sl + (e.clientX - sx);
+      let y = st + (e.clientY - sy);
+      const maxX = cRect.width - overlay.offsetWidth;
+      const maxY = cRect.height - overlay.offsetHeight;
+      x = Math.max(0, Math.min(x, maxX));
+      y = Math.max(0, Math.min(y, maxY));
+      overlay.style.left = x + 'px';
+      overlay.style.top = y + 'px';
+    });
+    handle.addEventListener('pointerup', () => { drag = false; });
+    handle.addEventListener('pointercancel', () => { drag = false; });
+
+    textDiv.addEventListener('click', e => {
+      const w = e.target.closest('.cap-word');
+      if (!w) return;
+      e.stopPropagation();
+      const lang = w.dataset.lang;
+      const word = w.dataset.word;
+      if (!lang || !word) return;
+      let key = '';
+      const phrase = video.closest('.phrase');
+      if (phrase) key = phrase.dataset.key || '';
+      else if (video.dataset.lessonId != null) {
+        const t = video.currentTime || 0;
+        const idx = captions.findIndex(c => t >= c.start && t < c.end);
+        if (idx >= 0) key = video.dataset.lessonId + '.' + idx;
+      }
+      if (key) toggleWordLoop(word, lang, key);
+    });
+
     const makeCap = (text, lang) => {
       if (!text) return '';
       const flag = FLAGS[lang] || '';
-      const safe = esc(text.trim());
-      const hasFlag = flag && safe.startsWith(flag);
-      const prefix = hasFlag ? '' : `<span class="cap-flag">${flag}</span>`;
-      return `<span class="cap-line cap-${lang}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">${prefix}${safe}</span>`;
+      let raw = text.trim();
+      if (flag && raw.startsWith(flag)) raw = raw.slice(flag.length).trim();
+      const tokens = raw.split(/(\s+|[^\p{L}\p{M}\p{N}'’-]+)/gu).filter(t => t !== '');
+      let html = '';
+      for (const token of tokens) {
+        if (/^\s+$/.test(token) || /^[^\p{L}\p{M}\p{N}'’-]+$/u.test(token)) {
+          html += esc(token);
+        } else {
+          html += `<span class="cap-word" data-lang="${lang}" data-word="${esc(token)}">${esc(token)}</span>`;
+        }
+      }
+      return `<span class="cap-line cap-${lang}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}"><span class="cap-flag">${flag}</span>${html}</span>`;
     };
     const update = () => {
       const t = video.currentTime || 0;
