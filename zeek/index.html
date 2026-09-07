@@ -535,17 +535,21 @@
 
   async function exportLessons() {
     const data = JSON.stringify(LESSONS, null, 2);
-    const filename = 'zeek-lessons.json';
-    if (typeof Capacitor !== 'undefined' && Capacitor.Plugins && Capacitor.Plugins.Filesystem && Capacitor.Plugins.Share) {
+    const filename = 'zeek-lessons-' + new Date().toISOString().slice(0,10) + '.json';
+    if (typeof Capacitor !== 'undefined' && Capacitor.Plugins && Capacitor.Plugins.Filesystem) {
       try {
         const { Filesystem, Share } = Capacitor.Plugins;
-        const dir = (Filesystem.Directory && Filesystem.Directory.Cache) ? Filesystem.Directory.Cache : 'CACHE';
-        await Filesystem.writeFile({ path: filename, data: data, directory: dir, encoding: 'utf8' });
+        const Directory = Filesystem.Directory || {};
+        const dir = Directory.Cache || 'CACHE';
+        const encoding = Filesystem.Encoding && Filesystem.Encoding.UTF8 ? Filesystem.Encoding.UTF8 : 'utf8';
+        await Filesystem.writeFile({ path: filename, data: data, directory: dir, encoding: encoding });
         const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
-        await Share.share({ title: 'Zeek lessons', files: [uri], dialogTitle: 'Zeek JSON' });
+        if (Share && Share.share) {
+          await Share.share({ title: 'Zeek lessons', files: [uri], dialogTitle: 'Zeek JSON' });
+        }
         showToast(t('exportSuccess'));
         return;
-      } catch (e) { console.error('Capacitor export failed', e); }
+      } catch (e) { console.error('Capacitor export failed', e); showToast(e.message || 'Export failed'); return; }
     }
     const blobUrl = URL.createObjectURL(new Blob([data], { type: 'application/json' }));
     const a = document.createElement('a');
