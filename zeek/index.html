@@ -269,7 +269,8 @@
   .cap-handle:active { cursor: grabbing; }
   .cap-word { pointer-events: auto; cursor: pointer; border-radius: 6px; padding: 0 2px; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; transition: background 0.15s, box-shadow 0.15s; }
   .cap-word:hover { background: rgba(139,92,246,0.14); box-shadow: 0 2px 5px rgba(139,92,246,0.15); }
-  .cap-word.active { background: rgba(139,92,246,0.22); color: #1a0b1e; box-shadow: 0 3px 8px rgba(0,0,0,0.18); }
+  .cap-word.active { background: #7c3aed; color: #fff; box-shadow: 0 3px 10px rgba(124,58,237,0.45); }
+  .cap-line.active { background: #ede9fe; border-color: #7c3aed; }
   .video-loop-btn { position: absolute; top: 0.5rem; right: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
   .video-loop-btn.active { background: var(--success); color: #081c15; }
   .phrase-loop-btn { position: absolute; top: 0.5rem; left: 3.3rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
@@ -284,6 +285,14 @@
   .cap-fr { color: #111; font-family: 'Poppins', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 1.05rem; text-align: left; }
   .cap-ar { direction: rtl; color: #111; font-family: 'Noto Naskh Arabic', 'Amiri', 'Droid Arabic Naskh', 'Tahoma', 'Arial', sans-serif; font-size: 1.08rem; text-align: right; }
   .cap-en { color: #111; font-family: 'Inter', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 1.05rem; text-align: left; }
+  .lesson-image-overlay { position: absolute; inset: 0; z-index: 1; background: #000; border-radius: var(--radius); display: none; align-items: center; justify-content: center; pointer-events: none; overflow: hidden; }
+  .lesson-image-overlay.show { display: flex; }
+  .lesson-image-overlay img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; background: #000; pointer-events: none; }
+  .lesson-image-overlay button { position: absolute; top: 0.5rem; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; pointer-events: auto; -webkit-tap-highlight-color: transparent; z-index: 3; }
+  .lesson-image-overlay .lesson-image-toggle { left: 0.5rem; }
+  .lesson-image-overlay .lesson-image-del { right: 0.5rem; }
+  html[dir="rtl"] .lesson-image-overlay .lesson-image-toggle { left: auto; right: 0.5rem; }
+  html[dir="rtl"] .lesson-image-overlay .lesson-image-del { right: auto; left: 0.5rem; }
   .no-lessons { text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); }
   .no-lessons .icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
   .no-lessons .card-title { color: var(--text-primary); margin-bottom: 0.3rem; }
@@ -832,6 +841,10 @@
     edit: { ar: 'تعديل', en: 'Edit', fr: 'Modifier' },
     setImage: { ar: 'ضبط صورة', en: 'Set image', fr: 'Définir l’image' },
     chooseImage: { ar: 'اختر صورة', en: 'Choose an image', fr: 'Choisir une image' },
+    lessonImage: { ar: 'صورة الدرس', en: 'Lesson image', fr: 'Image de la leçon' },
+    showImage: { ar: 'إظهار الصورة', en: 'Show image', fr: 'Afficher l’image' },
+    hideImage: { ar: 'إخفاء الصورة', en: 'Hide image', fr: 'Masquer l’image' },
+    confirmDeleteImage: { ar: 'هل تريد حذف صورة الدرس؟', en: 'Delete this lesson image?', fr: 'Supprimer cette image de leçon ?' },
     addMedia: { ar: 'إضافة فيديو/ترجمة', en: 'Add video/caption', fr: 'Ajouter une vidéo/sous-titre' },
     addVideoCaption: { ar: 'إضافة فيديو وترجمة', en: 'Add video & caption', fr: 'Ajouter une vidéo et sous-titre' },
     mediaUrl: { ar: 'رابط الفيديو', en: 'Video URL', fr: 'URL de la vidéo' },
@@ -1440,13 +1453,33 @@
       const flagHtml = flag ? `<span class="cap-flag">${esc(flag)}</span>` : '';
       return `<span class="cap-line cap-${lang}" dir="${lang === 'ar' ? 'rtl' : 'ltr'}">${flagHtml}${html}</span>`;
     };
+    let lastIdx = -1;
     const update = () => {
       const t = video.currentTime || 0;
       let activeIdx = -1;
       const c = captions.find((c, i) => { if (t >= c.start && t < c.end) { activeIdx = i; return true; } return false; });
-      if (!c) { overlay.style.display = 'none'; if (lessonId != null) highlightVideoPhrase(lessonId, -1); return; }
-      const parts = [makeCap(c.fr, 'fr'), makeCap(c.ar, 'ar'), makeCap(c.en, 'en')].filter(Boolean);
-      textDiv.innerHTML = parts.join('');
+      if (!c) {
+        overlay.style.display = 'none';
+        if (lessonId != null) highlightVideoPhrase(lessonId, -1);
+        if (lastIdx !== -1 && state.loop && state.loop.word) stopSpeech();
+        lastIdx = -1;
+        return;
+      }
+      if (activeIdx !== lastIdx) {
+        const parts = [makeCap(c.fr, 'fr'), makeCap(c.ar, 'ar'), makeCap(c.en, 'en')].filter(Boolean);
+        textDiv.innerHTML = parts.join('');
+        lastIdx = activeIdx;
+        if (state.loop && state.loop.word) {
+          let phraseKey = '';
+          if (lessonId != null) phraseKey = lessonId + '.' + activeIdx;
+          else { const phrase = video.closest('.phrase'); if (phrase) phraseKey = phrase.dataset.key || ''; }
+          if (phraseKey && state.loop.phraseKey === phraseKey) {
+            highlight(phraseKey, state.loop.lang, state.loop.word);
+          } else {
+            stopSpeech();
+          }
+        }
+      }
       overlay.style.display = 'flex';
       if (lessonId != null) highlightVideoPhrase(lessonId, activeIdx);
       let phraseKey = '';
@@ -1521,6 +1554,7 @@
           applyVideoAspect(el, mediaKey);
           const v = el.querySelector('video');
           if (v) { try { v.playbackRate = state.rate || 1; } catch (e) {} }
+          if (el.dataset.imageRef) await addLessonImageOverlay(el);
         } else {
           el.innerHTML = imageMediaHTML(resolved.url, el.dataset.phraseKey || '');
         }
@@ -1702,7 +1736,7 @@
     document.querySelectorAll('video').forEach(v => { try { v.playbackRate = state.rate || 1; } catch (e) {} });
   }
 
-  async function speakOnce(phrase, langs, key, onDone) {
+  async function speakOnce(phrase, langs, key, onDone, activeWord) {
     const run = ++speechRun;
     anyStop();
     const ready = await prepareTTS();
@@ -1712,9 +1746,14 @@
     let i = 0;
     (function next() {
       if (run !== speechRun) return;
-      if (i >= seq.length) { highlight(null); if (onDone) onDone(); return; }
+      if (i >= seq.length) {
+        if (activeWord && seq.length) highlight(key, seq[seq.length - 1], activeWord);
+        else highlight(null);
+        if (onDone) onDone();
+        return;
+      }
       const lang = seq[i++];
-      highlight(key, lang);
+      highlight(key, lang, activeWord);
       anySpeak(phrase[lang], lang).then(() => { if (run === speechRun) setTimeout(next, 250); }).catch(() => {
         if (run === speechRun) setTimeout(next, 250);
       });
@@ -1819,13 +1858,12 @@
     state.loop = { key: loopKey, phraseKey: key, lang, word };
     refreshButtons();
     const pseudo = { [lang]: word };
-    highlight(key, lang, word);
     (function cycle() {
       if (!state.loop || state.loop.key !== loopKey) return;
       speakOnce(pseudo, [lang], key, () => {
         if (!state.loop || state.loop.key !== loopKey) return;
         setTimeout(cycle, 600);
-      });
+      }, word);
     })();
   }
 
@@ -1841,11 +1879,17 @@
       const on = word && w.dataset.word === word && w.dataset.lang === lang;
       w.classList.toggle('active', !!on);
     });
+    document.querySelectorAll('.cap-line').forEach(line => {
+      const hasActiveWord = !!line.querySelector('.cap-word.active');
+      const byLang = !word && lang && line.classList.contains('cap-' + lang);
+      line.classList.toggle('active', hasActiveWord || byLang);
+    });
   }
 
   function refreshButtons() {
     document.querySelectorAll('.word').forEach(w => w.classList.remove('active'));
     document.querySelectorAll('.cap-word').forEach(w => w.classList.remove('active'));
+    document.querySelectorAll('.cap-line').forEach(l => l.classList.remove('active'));
     document.querySelectorAll('.loop-lang').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.tts-loop-btn').forEach(b => { b.classList.remove('active'); b.textContent = '🔂'; });
     document.querySelectorAll('.phrase').forEach(el => {
@@ -1991,6 +2035,44 @@
     }
   }
 
+  async function addLessonImageOverlay(container) {
+    const ref = container.dataset.imageRef;
+    const lessonId = container.dataset.lessonId ? +container.dataset.lessonId : null;
+    if (!ref || lessonId == null) return;
+    const resolved = await resolveMediaRef(ref);
+    if (!resolved.url) return;
+    const overlay = document.createElement('div');
+    overlay.className = 'lesson-image-overlay show';
+    overlay.dataset.imageRef = ref;
+    overlay.innerHTML = `<img src="${esc(resolved.url)}" alt="" onerror="this.style.display='none'" draggable="false"><button type="button" class="lesson-image-toggle" title="${t('hideImage')}">🙈</button><button type="button" class="lesson-image-del" title="${t('delete')}" data-lesson-id="${lessonId}">×</button>`;
+    container.appendChild(overlay);
+    overlay.querySelector('.lesson-image-toggle').onclick = (e) => { e.stopPropagation(); toggleLessonImageOverlay(); };
+    overlay.querySelector('.lesson-image-del').onclick = (e) => { e.stopPropagation(); if (confirm(t('confirmDeleteImage'))) deleteLessonImage(lessonId); };
+    const btn = document.getElementById('lesson-image-toggle');
+    if (btn) { btn.textContent = '🙈'; btn.title = t('hideImage'); btn.onclick = toggleLessonImageOverlay; }
+  }
+
+  function toggleLessonImageOverlay() {
+    const overlay = document.querySelector('.lesson-image-overlay');
+    const btn = document.getElementById('lesson-image-toggle');
+    if (!overlay) return;
+    const show = !overlay.classList.contains('show');
+    overlay.classList.toggle('show', show);
+    if (btn) { btn.textContent = show ? '🙈' : '👁'; btn.title = show ? t('hideImage') : t('showImage'); }
+  }
+
+  async function deleteLessonImage(lessonId) {
+    const found = findLesson(lessonId);
+    if (!found) return;
+    if (found.lesson.image) {
+      if (isIDBMedia(found.lesson.image)) { try { await deleteMediaRef(found.lesson.image); } catch (e) {} }
+      delete found.lesson.image;
+      saveLessons();
+    }
+    showToast(t('deleted'));
+    go(state.route, false);
+  }
+
   function editItem(id, type) {
     if (type === 'folder') {
       const folder = findFolder(id);
@@ -2133,7 +2215,7 @@
 
   function lessonMediaHTML(lesson) {
     if (!lesson.media) return '';
-    return `<div class="lesson-media phrase-media media-placeholder" data-media-ref="${esc(lesson.media)}" data-media-src="${esc(toWebUrl(lesson.media))}" data-caption-text="${esc(lesson.captionText || '')}" data-lesson-id="${lesson.id}"></div>`;
+    return `<div class="lesson-media phrase-media media-placeholder" data-media-ref="${esc(lesson.media)}" data-media-src="${esc(toWebUrl(lesson.media))}" data-caption-text="${esc(lesson.captionText || '')}" data-lesson-id="${lesson.id}" data-image-ref="${esc(lesson.image || '')}" data-image-src="${esc(lesson.image ? toWebUrl(lesson.image) : '')}"></div>`;
   }
 
   function phraseHTML(p, key) {
@@ -2264,14 +2346,22 @@
       <div class="lesson-actions">
         <button class="btn" id="play-all">${t('playAll')}</button>
         <button class="btn ghost" id="stop-all">${t('stopAll')}</button>
+        ${lesson.image ? `<button class="btn ghost" id="lesson-image-toggle" title="${t('hideImage')}">🙈</button>` : `<button class="btn ghost" id="lesson-image-set" title="${t('chooseImage')}">🖼️</button>`}
         ${lesson.protected ? '' : `<button class="btn ghost menu-btn" data-menu="${lesson.id}" data-type="lesson" title="${t('actions')}">⋮ ${t('actions')}</button>`}
         <span class="pill">${lesson.phrases.length} ${t('phrases')}</span>
+        <input type="file" id="lesson-image-input" accept="image/*" style="display:none">
       </div>
       ${lessonMediaHTML(lesson)}` +
       lesson.phrases.map((p, i) => phraseHTML(p, phraseKey(lesson.id, i))).join('');
     view.innerHTML = html;
     document.getElementById('play-all').onclick = () => playLesson(lesson);
     document.getElementById('stop-all').onclick = stopSpeech;
+    const imgSet = document.getElementById('lesson-image-set');
+    const imgToggle = document.getElementById('lesson-image-toggle');
+    const imgInput = document.getElementById('lesson-image-input');
+    if (imgSet && imgInput) imgSet.onclick = () => imgInput.click();
+    if (imgToggle) imgToggle.onclick = toggleLessonImageOverlay;
+    if (imgInput) imgInput.onchange = () => { if (imgInput.files && imgInput.files[0]) setItemImage(lesson.id, 'lesson', imgInput.files[0]); };
   }
 
   async function playLesson(lesson) {
