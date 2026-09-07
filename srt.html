@@ -194,16 +194,7 @@
     background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-sm);
     color: var(--text-secondary); font-size: 0.9rem;
   }
-  .ai-row {
-    display: flex; align-items: center; flex-wrap: wrap;
-    justify-content: flex-start; gap: 0.45rem;
-    width: 100%; max-width: 720px;
-    padding: 0.45rem 0.65rem;
-    background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-sm);
-    color: var(--text-secondary); font-size: 0.9rem;
-  }
   .ai-btn { background: linear-gradient(135deg, #4285f4, #34a853); color: #fff; border: none; }
-  html[dir="rtl"] .ai-row { justify-content: flex-end; }
   #rate, #filter-select {
     background: var(--bg-secondary); color: var(--text-primary);
     border: 1px solid var(--border); border-radius: 999px;
@@ -421,6 +412,7 @@
         <button class="icon-btn" id="btn-toggle-bg" title="إظهار/إخفاء الصورة" data-t-title="toggleBackground">👁️</button>
         <button class="icon-btn" id="btn-caption-minus" title="تصغير العبارات">A−</button>
         <button class="icon-btn" id="btn-caption-plus" title="تكبير العبارات">A+</button>
+        <button class="icon-btn ai-btn" id="btn-ai-search" title="بحث في Google AI" data-t-title="googleAiTitle" aria-label="بحث في Google AI">🔍</button>
         <select id="filter-select">
           <option value="" data-t="filterNone">بدون</option>
           <option value="grayscale" data-t="filterGrayscale">أبيض وأسود</option>
@@ -433,9 +425,6 @@
           <option value="cartoon" data-t="filterCartoon">كرتون</option>
           <option value="rotoscope" data-t="filterRotoscope">رسوم/Rotoscope</option>
         </select>
-      </div>
-      <div class="ai-row">
-        <button class="icon-btn ai-btn" id="btn-ai-search" title="بحث في Google AI" data-t-title="googleAiTitle" aria-label="بحث في Google AI">🔍</button>
       </div>
 
       <div class="btn-row">
