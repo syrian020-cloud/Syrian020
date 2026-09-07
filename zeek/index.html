@@ -30,6 +30,9 @@
     --cap-text: #f8f0fa;
     --cap-card-bg: rgba(36,18,43,0.82);
     --cap-card-border: rgba(255,255,255,0.12);
+    --cap-fr-font: 'Poppins', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+    --cap-ar-font: 'Cairo', 'Noto Naskh Arabic', 'Amiri', 'Droid Arabic Naskh', 'Tahoma', 'Arial', sans-serif;
+    --cap-en-font: 'Inter', 'Roboto', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
   }
   [data-theme="light"] {
     --bg-primary: #fdf6fb;
@@ -290,9 +293,9 @@
   .cap-flag { margin-inline-end: 0.4rem; font-size: 1em; }
   .cap-loop-btn { pointer-events: auto; position: absolute; top: 0.45rem; inset-inline-end: 0.55rem; width: 1.85rem; height: 1.85rem; border: 1px solid var(--cap-card-border, var(--border)); border-radius: 9px; background: var(--cap-card-bg, var(--bg-secondary)); color: var(--cap-text, var(--text-primary)); font-size: 0.85rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
   .cap-loop-btn.active { background: var(--success); color: #081c1e; border-color: var(--success); }
-  .cap-fr { color: var(--cap-text, var(--text-primary)); font-family: 'Poppins', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 1.05em; text-align: left; }
-  .cap-ar { direction: rtl; color: var(--cap-text, var(--text-primary)); font-family: 'Noto Naskh Arabic', 'Amiri', 'Droid Arabic Naskh', 'Tahoma', 'Arial', sans-serif; font-size: 1.08em; text-align: right; }
-  .cap-en { color: var(--cap-text, var(--text-primary)); font-family: 'Inter', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 1.05em; text-align: left; }
+  .cap-fr { color: var(--cap-text, var(--text-primary)); font-family: var(--cap-fr-font, 'Poppins', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif); font-size: 1.05em; text-align: left; }
+  .cap-ar { direction: rtl; color: var(--cap-text, var(--text-primary)); font-family: var(--cap-ar-font, 'Cairo', 'Noto Naskh Arabic', 'Amiri', 'Droid Arabic Naskh', 'Tahoma', 'Arial', sans-serif); font-size: 1.08em; text-align: right; }
+  .cap-en { color: var(--cap-text, var(--text-primary)); font-family: var(--cap-en-font, 'Inter', 'Roboto', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif); font-size: 1.05em; text-align: left; }
   .lesson-image-overlay { position: absolute; inset: 0; z-index: 1; background: #000; border-radius: var(--radius); display: none; align-items: center; justify-content: center; pointer-events: none; overflow: hidden; }
   .lesson-image-overlay.show { display: flex; }
   .lesson-image-overlay img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; background: #000; pointer-events: none; }
@@ -970,12 +973,25 @@
 
   function chevron() { return document.documentElement.dir === 'rtl' ? '‹' : '›'; }
 
+  const CAPTION_FONTS = {
+    fr: "'Poppins', 'Raleway', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif",
+    ar: "'Cairo', 'Noto Naskh Arabic', 'Amiri', 'Droid Arabic Naskh', 'Tahoma', 'Arial', sans-serif",
+    en: "'Inter', 'Roboto', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif"
+  };
+
   const CAPTION_THEMES = [
-    { name: 'Violet', capBg: 'rgba(124,58,237,0.22)', capText: '#f8f0fa', capCardBg: 'rgba(36,18,43,0.82)', capCardBorder: 'rgba(255,255,255,0.12)' },
-    { name: 'Noir', capBg: 'rgba(0,0,0,0.55)', capText: '#ffffff', capCardBg: 'rgba(30,30,30,0.9)', capCardBorder: 'rgba(255,255,255,0.15)' },
-    { name: 'Cream', capBg: 'rgba(255,255,255,0.85)', capText: '#2d0f35', capCardBg: 'rgba(255,255,255,0.95)', capCardBorder: 'rgba(0,0,0,0.08)' },
-    { name: 'Sunset', capBg: 'rgba(251,191,36,0.22)', capText: '#fffbeb', capCardBg: 'rgba(120,53,15,0.85)', capCardBorder: 'rgba(251,191,36,0.35)' },
-    { name: 'Ocean', capBg: 'rgba(37,99,235,0.20)', capText: '#eff6ff', capCardBg: 'rgba(23,37,84,0.85)', capCardBorder: 'rgba(147,197,253,0.25)' }
+    { name: 'Violet', capBg: 'rgba(124,58,237,0.22)', capText: '#f8f0fa', capCardBg: 'rgba(36,18,43,0.82)', capCardBorder: 'rgba(255,255,255,0.12)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
+    { name: 'Noir', capBg: 'rgba(0,0,0,0.55)', capText: '#ffffff', capCardBg: 'rgba(30,30,30,0.9)', capCardBorder: 'rgba(255,255,255,0.15)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
+    { name: 'Cream', capBg: 'rgba(255,255,255,0.85)', capText: '#2d0f35', capCardBg: 'rgba(255,255,255,0.95)', capCardBorder: 'rgba(0,0,0,0.08)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
+    { name: 'Sunset', capBg: 'rgba(251,191,36,0.22)', capText: '#fffbeb', capCardBg: 'rgba(120,53,15,0.85)', capCardBorder: 'rgba(251,191,36,0.35)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
+    { name: 'Ocean', capBg: 'rgba(37,99,235,0.20)', capText: '#eff6ff', capCardBg: 'rgba(23,37,84,0.85)', capCardBorder: 'rgba(147,197,253,0.25)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
+    { name: 'Forest', capBg: 'rgba(16,185,129,0.18)', capText: '#ecfdf5', capCardBg: 'rgba(6,78,59,0.85)', capCardBorder: 'rgba(52,211,153,0.3)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
+    { name: 'Rose', capBg: 'rgba(244,63,94,0.18)', capText: '#fff1f2', capCardBg: 'rgba(136,19,55,0.85)', capCardBorder: 'rgba(251,113,133,0.3)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
+    { name: 'Midnight', capBg: 'rgba(99,102,241,0.15)', capText: '#e0e7ff', capCardBg: 'rgba(30,27,75,0.9)', capCardBorder: 'rgba(129,140,248,0.25)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
+    { name: 'Berry', capBg: 'rgba(192,38,211,0.18)', capText: '#fdf4ff', capCardBg: 'rgba(112,26,117,0.85)', capCardBorder: 'rgba(232,121,249,0.3)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
+    { name: 'Stone', capBg: 'rgba(120,113,108,0.2)', capText: '#fafaf9', capCardBg: 'rgba(41,37,36,0.9)', capCardBorder: 'rgba(168,162,158,0.2)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
+    { name: 'Gold', capBg: 'rgba(217,119,6,0.2)', capText: '#fffbeb', capCardBg: 'rgba(120,53,15,0.85)', capCardBorder: 'rgba(251,191,36,0.35)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
+    { name: 'Mint', capBg: 'rgba(13,148,136,0.18)', capText: '#f0fdfa', capCardBg: 'rgba(17,94,89,0.85)', capCardBorder: 'rgba(45,212,191,0.3)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en }
   ];
 
   function applyCaptionSettings() {
@@ -986,12 +1002,17 @@
     root.style.setProperty('--cap-text', theme.capText);
     root.style.setProperty('--cap-card-bg', theme.capCardBg);
     root.style.setProperty('--cap-card-border', theme.capCardBorder);
+    root.style.setProperty('--cap-fr-font', theme.frFont || CAPTION_FONTS.fr);
+    root.style.setProperty('--cap-ar-font', theme.arFont || CAPTION_FONTS.ar);
+    root.style.setProperty('--cap-en-font', theme.enFont || CAPTION_FONTS.en);
   }
 
   function cycleCaptionTheme() {
     state.captionTheme = (state.captionTheme + 1) % CAPTION_THEMES.length;
     localStorage.setItem('zeek_caption_theme', state.captionTheme);
     applyCaptionSettings();
+    const theme = CAPTION_THEMES[state.captionTheme];
+    if (theme) showToast(theme.name);
   }
 
   function adjustCaptionZoom(delta) {
