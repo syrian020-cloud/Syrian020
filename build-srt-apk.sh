@@ -6,26 +6,24 @@ export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform
 
 ROOT=$(pwd)
 
-# Build the Capacitor web assets for the vocabulary page
+# Build the Capacitor web assets for the SRT player
 rm -rf www
 mkdir -p www/data www/js
 
-cp data/* www/data/
-cp manifest.json icon-192.png icon-512.png sw.js www/
-
-# Use vocab.html as the main entry, keep french.html available for the back link
-cp vocab.html www/index.html
-cp french.html www/french.html
+cp srt.html www/index.html
+cp manifest-srt.json www/
+cp icon-192.png icon-512.png sw.js www/
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
-if [ "$USE_ALIYUN" = "1" ]; then
-  echo "Using Aliyun Maven mirrors..."
-  sed -i "s|repositories {\s*\n\s*google()|repositories {\n        maven { url 'https://maven.aliyun.com/repository/google' }\n        maven { url 'https://maven.aliyun.com/repository/public' }\n        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }\n        google|g" "$ROOT/android/build.gradle" 2>/dev/null || true
+GRADLE_INIT=""
+if [ "$USE_ALIYUN" = "1" ] && [ -f "$ROOT/init.gradle" ]; then
+  echo "Using Aliyun Maven mirrors via init.gradle..."
+  GRADLE_INIT="--init-script ../init.gradle"
 fi
 
-# Swap Capacitor config for the vocab package and restore after build
+# Swap Capacitor config for the SRT player package and restore after build
 cp "$ROOT/capacitor.config.json" "$ROOT/capacitor.config.json.bak"
-cp "$ROOT/capacitor-vocab.config.json" "$ROOT/capacitor.config.json"
+cp "$ROOT/capacitor-srt.config.json" "$ROOT/capacitor.config.json"
 restore_config() {
   cd "$ROOT"
   cp capacitor.config.json.bak capacitor.config.json
@@ -50,13 +48,6 @@ fi
 
 npx cap sync android
 
-# Ensure the Android launcher label matches the Capacitor appName
-STRINGS="$ROOT/android/app/src/main/res/values/strings.xml"
-if [ -f "$STRINGS" ]; then
-  sed -i 's|<string name="app_name">.*</string>|<string name="app_name">VidCap</string>|' "$STRINGS"
-  sed -i 's|<string name="title_activity_main">.*</string>|<string name="title_activity_main">VidCap</string>|' "$STRINGS"
-fi
-
 # Sync the PWA icon into the Android mipmap launcher icons
 ICON_SRC="$ROOT/icon-512.png"
 MIPMAP="$ROOT/android/app/src/main/res"
@@ -80,6 +71,6 @@ if [ -f "$ICON_SRC" ] && command -v convert >/dev/null 2>&1; then
 fi
 
 cd android
-./gradlew assembleDebug
+./gradlew $GRADLE_INIT assembleDebug
 
-echo "Vocab APK ready at: android/app/build/outputs/apk/debug/app-debug.apk"
+echo "SRT Player APK ready at: android/app/build/outputs/apk/debug/app-debug.apk"

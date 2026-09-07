@@ -1,0 +1,11 @@
+{
+  "appId": "com.syrian020.srtplayer",
+  "appName": "vid player",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "captureInput": false
+  }
+}
