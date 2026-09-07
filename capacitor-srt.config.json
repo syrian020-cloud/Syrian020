@@ -1,6 +1,6 @@
 {
   "appId": "com.syrian020.srtplayer",
-  "appName": "SRT Player",
+  "appName": "vid player",
   "webDir": "www",
   "server": {
     "androidScheme": "https"

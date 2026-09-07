@@ -1,6 +1,6 @@
 {
-  "name": "SRT Player",
-  "short_name": "SRT Player",
+  "name": "vid player",
+  "short_name": "vid player",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#0b0d1f",
