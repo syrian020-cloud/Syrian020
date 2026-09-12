@@ -17,6 +17,7 @@ cp zeek/icon-192.png www/
 cp zeek/icon-512.png www/
 cp zeek/bienvenue-lesson.jpg www/
 cp zeek/whatsapp-icon.png www/
+mkdir -p www/fonts && cp zeek/fonts/*.ttf www/fonts/
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
 GRADLE_INIT=""

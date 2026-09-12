@@ -1,11 +1,13 @@
-const CACHE_NAME = 'zeek-v46';
+const CACHE_NAME = 'zeek-v47';
 const FILES_TO_CACHE = [
   './index.html',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
   './bienvenue-lesson.jpg',
-  './whatsapp-icon.png'
+  './whatsapp-icon.png',
+  './fonts/simplified-arabic.ttf',
+  './fonts/geeza-pro.ttf'
 ];
 
 self.addEventListener('install', (event) => {
