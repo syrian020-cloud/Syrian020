@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0f172a">
+<title>Duroos — دروس متعددة اللغات</title>
+<link rel="manifest" href="manifest-lessons.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+  :root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent: #0d9488;
+    --accent2: #f97316;
+    --danger: #f87171;
+    --success: #34d399;
+    --border: rgba(255,255,255,0.10);
+    --radius: 20px;
+    --shadow: 0 18px 45px rgba(0,0,0,0.45);
+    --shadow-sm: 0 6px 18px rgba(0,0,0,0.25);
+  }
+  [data-theme="light"] {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --border: rgba(15,23,42,0.09);
+    --shadow: 0 10px 30px rgba(15,23,42,0.08);
+    --shadow-sm: 0 4px 12px rgba(15,23,42,0.05);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans Arabic', 'Tajawal', 'Segoe UI', Tahoma, system-ui, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.65;
+    padding-bottom: 4rem;
+    transition: background .2s;
+  }
+  header {
+    position: sticky; top: 0; z-index: 60;
+    background: rgba(15,23,42,0.88);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  [data-theme="light"] header { background: rgba(255,255,255,0.88); }
+  .header-inner {
+    max-width: 920px; margin: 0 auto; padding: 0.65rem 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .logo {
+    font-weight: 900; font-size: 1.15rem; white-space: nowrap; letter-spacing: -0.02em;
+    background: linear-gradient(90deg, #2dd4bf, #fb923c);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .spacer { flex: 1; }
+  .icon-btn {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 14px;
+    padding: 0.42rem 0.62rem; font-size: 0.95rem; cursor: pointer;
+    transition: transform .12s, border-color .15s;
+  }
+  .icon-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+  main { max-width: 920px; margin: 0 auto; padding: 1rem; }
+
+  .hero {
+    border-radius: var(--radius);
+    padding: 1.1rem 1.2rem; margin-bottom: 1rem;
+    background: linear-gradient(135deg, rgba(13,148,136,0.18), rgba(249,115,22,0.14));
+    border: 1px solid var(--border);
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0 0 auto 0; height: 3px;
+    background: linear-gradient(90deg, #2dd4bf, #fb923c);
+  }
+  .hero h1 { margin: 0 0 0.15rem; font-size: 1.35rem; }
+  .hero p { margin: 0; color: var(--text-secondary); font-size: 0.9rem; }
+
+  .btn {
+    background: linear-gradient(135deg, #0d9488, #14b8a6); color: #fff; border: none;
+    border-radius: 14px; padding: 0.6rem 1.1rem; font-size: 0.98rem; font-weight: 700;
+    cursor: pointer; font-family: inherit; transition: transform .12s, filter .15s;
+  }
+  .btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn.ghost { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); }
+  .btn.danger { background: linear-gradient(135deg, #ef4444, #dc2626); }
+  .btn.big { width: 100%; padding: 0.8rem; font-size: 1.05rem; }
+
+  .lesson-card {
+    background: var(--bg-secondary); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 0.9rem 1rem; margin-bottom: 0.7rem;
+    display: flex; align-items: center; gap: 0.8rem; cursor: pointer;
+    box-shadow: var(--shadow-sm); transition: transform .12s, border-color .15s;
+    position: relative; overflow: hidden;
+  }
+  .lesson-card::before {
+    content: ''; position: absolute; inset: 0 0 auto 0; height: 3px;
+    background: linear-gradient(90deg, #2dd4bf, #fb923c); opacity: 0.85;
+  }
+  .lesson-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .lesson-num {
+    min-width: 2.4rem; height: 2.4rem; border-radius: 14px;
+    background: linear-gradient(135deg, rgba(13,148,136,0.25), rgba(249,115,22,0.22));
+    color: var(--text-primary); display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 1rem; flex-shrink: 0; border: 1px solid var(--border);
+  }
+  .card-body { flex: 1; min-width: 0; }
+  .card-title { font-weight: 800; font-size: 1.02rem; }
+  .card-sub { color: var(--text-secondary); font-size: 0.82rem; }
+  .card-flags { font-size: 0.95rem; letter-spacing: 0.1rem; }
+  .card-actions { display: flex; gap: 0.3rem; flex-shrink: 0; }
+  .mini-btn {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 10px;
+    width: 2.15rem; height: 2.15rem; font-size: 0.95rem; cursor: pointer;
+  }
+  .mini-btn:hover { border-color: var(--accent); }
+  .mini-btn.danger:hover { border-color: var(--danger); color: var(--danger); }
+
+  .form-card {
+    background: var(--bg-secondary); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.1rem; box-shadow: var(--shadow-sm);
+  }
+  .field-label { font-weight: 700; font-size: 0.92rem; margin-bottom: 0.35rem; display: block; }
+  .text-input, .textarea {
+    width: 100%; background: var(--bg-primary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 14px;
+    padding: 0.7rem 0.9rem; font-size: 1rem; font-family: inherit;
+  }
+  .textarea {
+    min-height: 260px; resize: vertical; direction: ltr; text-align: left;
+    font-family: ui-monospace, 'Noto Sans Arabic', monospace; font-size: 0.92rem; line-height: 1.7;
+  }
+  .field { margin-bottom: 1rem; }
+  .parse-info { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.4rem; }
+  .parse-info.ok { color: var(--success); }
+  .parse-info.err { color: var(--danger); }
+  .form-actions { display: flex; gap: 0.6rem; margin-top: 1rem; }
+  .form-actions .btn { flex: 1; }
+
+  .breadcrumb {
+    display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+    color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 0.8rem;
+  }
+  .breadcrumb button {
+    background: none; border: none; color: var(--accent);
+    cursor: pointer; padding: 0; font-size: 0.88rem; font-family: inherit; font-weight: 700;
+  }
+
+  .lang-chips { display: flex; gap: 0.4rem; flex-wrap: wrap; margin: 0.7rem 0 1rem; }
+  .lang-chip {
+    background: var(--bg-tertiary); border: 1px solid var(--border); color: var(--text-primary);
+    border-radius: 999px; padding: 0.3rem 0.75rem; font-size: 0.85rem; cursor: pointer;
+    font-family: inherit; opacity: 0.45; transition: opacity .15s, border-color .15s;
+  }
+  .lang-chip.on { opacity: 1; border-color: var(--accent); background: rgba(13,148,136,0.15); }
+
+  .phrase {
+    background: var(--bg-secondary); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 0.85rem 1rem; margin-bottom: 0.8rem;
+    box-shadow: var(--shadow-sm); position: relative;
+  }
+  .phrase.playing { border-color: var(--success); box-shadow: 0 0 0 1px var(--success); }
+  .phrase-head {
+    display: flex; align-items: center; gap: 0.5rem;
+    margin-bottom: 0.4rem; padding-bottom: 0.4rem; border-bottom: 1px dashed var(--border);
+  }
+  .phrase-num { color: var(--text-secondary); font-size: 0.8rem; font-weight: 700; }
+  .phrase-head .spacer { flex: 1; }
+  .phrase-btn {
+    background: var(--bg-tertiary); border: 1px solid var(--border); color: var(--text-primary);
+    border-radius: 10px; padding: 0.22rem 0.6rem; font-size: 0.9rem; cursor: pointer;
+  }
+  .phrase-btn:hover { border-color: var(--accent); }
+  .phrase-btn.active { background: var(--success); color: #0f172a; border-color: var(--success); }
+
+  .lang-row { padding: 0.35rem 0; }
+  .lang-line { display: flex; align-items: flex-start; gap: 0.55rem; }
+  .flag { font-size: 1.25rem; flex-shrink: 0; line-height: 1.5; }
+  .sentence { flex: 1; min-width: 0; font-size: 1.08rem; font-weight: 600; }
+  .sentence.rtl { direction: rtl; text-align: right; }
+  .sentence.ltr { direction: ltr; text-align: left; }
+  .w { cursor: pointer; border-radius: 6px; padding: 0 2px; transition: background .12s; }
+  .w:hover { background: rgba(13,148,136,0.18); }
+  .w.speaking { background: rgba(52,211,153,0.3); color: var(--success); }
+  .pron {
+    display: flex; align-items: center; gap: 0.5rem;
+    color: var(--text-secondary); font-size: 0.88rem;
+    margin-inline-start: 1.85rem;
+  }
+  .pron-text { direction: ltr; }
+  .pron .spk-btn {
+    background: var(--bg-tertiary); border: 1px solid var(--border); color: var(--text-primary);
+    border-radius: 8px; width: 1.9rem; height: 1.9rem; font-size: 0.85rem; cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .pron .spk-btn:hover { border-color: var(--accent); }
+  .pron .spk-btn.active { background: var(--success); color: #0f172a; border-color: var(--success); }
+  .pron-text { font-family: ui-monospace, monospace; }
+  .lang-row.active { background: rgba(52,211,153,0.10); border-radius: 10px; }
+
+  .toolbar-row { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; margin-bottom: 0.8rem; }
+  select.ctl {
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 12px;
+    padding: 0.5rem 0.6rem; font-size: 0.88rem; font-family: inherit;
+  }
+  .pill {
+    display: inline-block; background: var(--bg-tertiary); border: 1px solid var(--border);
+    border-radius: 999px; padding: 0.15rem 0.7rem; font-size: 0.78rem; color: var(--text-secondary);
+  }
+  .empty {
+    color: var(--text-secondary); text-align: center; padding: 2.5rem 1rem;
+    background: var(--bg-secondary); border: 1px dashed var(--border); border-radius: var(--radius);
+  }
+  .hint {
+    background: var(--bg-tertiary); border: 1px solid var(--border);
+    border-radius: 14px; padding: 0.65rem 0.9rem;
+    font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;
+  }
+  .hint code {
+    direction: ltr; display: inline-block; background: var(--bg-primary);
+    border-radius: 6px; padding: 0 0.4rem; font-size: 0.8rem;
+  }
+
+  .modal-mask {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 90;
+    display: flex; align-items: center; justify-content: center; padding: 1rem;
+  }
+  .modal {
+    background: var(--bg-secondary); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.1rem; width: 100%; max-width: 560px;
+    box-shadow: var(--shadow);
+  }
+  .modal h3 { margin: 0 0 0.7rem; font-size: 1.05rem; }
+  .modal .textarea { min-height: 180px; }
+  .modal-actions { display: flex; gap: 0.5rem; margin-top: 0.8rem; }
+  .modal-actions .btn { flex: 1; }
+  .toast {
+    position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+    background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 999px;
+    padding: 0.5rem 1.1rem; font-size: 0.88rem; z-index: 100; box-shadow: var(--shadow-sm);
+  }
+  .meta-grid { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.5rem 0 0.8rem; }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <span class="logo">Duroos · دروس</span>
+    <span class="spacer"></span>
+    <button class="icon-btn" id="btn-export" title="تصدير كل الدروس">⬇</button>
+    <button class="icon-btn" id="btn-import" title="استيراد دروس">⬆</button>
+    <button class="icon-btn" id="btn-theme" title="الوضع الليلي/النهاري">🌙</button>
+    <button class="icon-btn" id="btn-stop" title="إيقاف الصوت">⏹</button>
+  </div>
+</header>
+
+<main>
+  <div id="view"></div>
+</main>
+
+<div id="modal-root"></div>
+<div id="toast-root"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------------- language registry ---------------- */
+
+  // country code -> [lang id, TTS locale, rtl?]
+  var CC = {
+    FR: ['fr', 'fr-FR', 0], GB: ['en', 'en-GB', 0], US: ['en', 'en-US', 0],
+    SY: ['ar', 'ar-SA', 1], SA: ['ar', 'ar-SA', 1], EG: ['ar', 'ar-EG', 1], AE: ['ar', 'ar-AE', 1],
+    DE: ['de', 'de-DE', 0], AT: ['de', 'de-AT', 0], CH: ['de', 'de-CH', 0],
+    RU: ['ru', 'ru-RU', 0], ES: ['es', 'es-ES', 0], MX: ['es', 'es-MX', 0],
+    PT: ['pt', 'pt-PT', 0], BR: ['pt', 'pt-BR', 0],
+    IR: ['fa', 'fa-IR', 1], AF: ['fa', 'fa-AF', 1],
+    TR: ['tr', 'tr-TR', 0], IT: ['it', 'it-IT', 0], NL: ['nl', 'nl-NL', 0],
+    CN: ['zh', 'zh-CN', 0], TW: ['zh', 'zh-TW', 0], JP: ['ja', 'ja-JP', 0],
+    KR: ['ko', 'ko-KR', 0], UA: ['uk', 'uk-UA', 0], PL: ['pl', 'pl-PL', 0],
+    SE: ['sv', 'sv-SE', 0], GR: ['el', 'el-GR', 0], IN: ['hi', 'hi-IN', 0],
+    IL: ['he', 'he-IL', 1], NO: ['no', 'nb-NO', 0], DK: ['da', 'da-DK', 0],
+    FI: ['fi', 'fi-FI', 0], CZ: ['cs', 'cs-CZ', 0], RO: ['ro', 'ro-RO', 0],
+    HU: ['hu', 'hu-HU', 0], TH: ['th', 'th-TH', 0], VN: ['vi', 'vi-VN', 0],
+    ID: ['id', 'id-ID', 0], PK: ['ur', 'ur-PK', 1]
+  };
+  var RTL_LANGS = { ar: 1, fa: 1, he: 1, ur: 1 };
+
+  /* regional indicator -> letter */
+  function flagToCC(pair) {
+    if (pair.length < 2) return null;
+    var a = pair.codePointAt(0), b = pair.codePointAt(2) || pair.codePointAt(1);
+    if (a >= 0x1F1E6 && a <= 0x1F1FF && b >= 0x1F1E6 && b <= 0x1F1FF) {
+      return String.fromCharCode(a - 0x1F1E6 + 65) + String.fromCharCode(b - 0x1F1E6 + 65);
+    }
+    return null;
+  }
+  function langForCC(cc) {
+    var e = CC[cc];
+    if (e) return { lang: e[0], tts: e[1], rtl: !!e[2] };
+    var lc = cc.toLowerCase();
+    return { lang: lc, tts: lc + '-' + cc, rtl: !!RTL_LANGS[lc] };
+  }
+
+  var PRON_RE = /^[\u{1F50A}\u{1F508}\u{1F509}\u{1F4E2}\u{1F3A7}\u{1F3B5}\u{1F3B6}\u{25B6}\u{FE0F}\s]+/u;
+
+  /* ---------------- template parser ----------------
+     Block (phrase) = lines separated by blank lines.
+     Flag line: "<flag> text" -> new language line.
+     "🔊 ..." line -> pronunciation attached to previous language line.
+     Other text -> appended to previous language line. */
+
+  function parseTemplate(raw) {
+    var blocks = String(raw || '').split(/\r?\n\s*\r?\n/);
+    var phrases = [];
+    blocks.forEach(function (block) {
+      var lines = block.split(/\r?\n/);
+      var phrase = { lines: [] };
+      var last = null;
+      lines.forEach(function (ln) {
+        var s = ln.trim();
+        if (!s) return;
+        var first2 = Array.from(s).slice(0, 2).join('');
+        var cc = flagToCC(first2);
+        if (cc) {
+          var info = langForCC(cc);
+          var text = Array.from(s).slice(2).join('').trim();
+          last = { cc: cc, lang: info.lang, tts: info.tts, rtl: info.rtl, flag: first2, text: text, pron: '' };
+          phrase.lines.push(last);
+          return;
+        }
+        if (PRON_RE.test(s)) {
+          if (last) { last.pron = s.replace(PRON_RE, '').trim(); return; }
+        }
+        if (last) last.text += ' ' + s;
+      });
+      if (phrase.lines.length) phrases.push(phrase);
+    });
+    return phrases;
+  }
+
+  /* ---------------- storage ---------------- */
+
+  var LS_KEY = 'duroos_lessons_v1';
+  function loadLessons() {
+    try { return JSON.parse(localStorage.getItem(LS_KEY) || '[]'); } catch (e) { return []; }
+  }
+  function saveLessons(list) { localStorage.setItem(LS_KEY, JSON.stringify(list)); }
+
+  var SAMPLE_RAW =
+    '🇫🇷 J\u2019ai faim.\n🔊 zhɛ fɛ̃\n' +
+    '🇬🇧 I\u2019m hungry.\n🔊 aɪm ˈhʌŋɡri\n' +
+    '🇸🇾 أنا جائع.\n🔊 ana jaːʔeʕ\n' +
+    '🇩🇪 Ich habe Hunger.\n🔊 ɪç ˈhaːbə ˈhʊŋɐ\n' +
+    '🇷🇺 Я голоден.\n🔊 ya ˈɡolədʲɪn\n' +
+    '🇪🇸 Tengo hambre.\n🔊 ˈteŋɡo ˈambɾe\n' +
+    '🇵🇹 Estou com fome.\n🔊 ɨʃˈto kõ ˈfomɨ\n' +
+    '🇮🇷 من گرسنه‌ام.\n🔊 man gorosne-am\n' +
+    '🇹🇷 Açım.\n🔊 aˈtʃɯm';
+
+  var lessons = loadLessons();
+  if (!localStorage.getItem(LS_KEY)) {
+    lessons = [{
+      id: 'sample1', name: 'مثال: أنا جائع / I\u2019m hungry',
+      raw: SAMPLE_RAW, createdAt: Date.now(), updatedAt: Date.now()
+    }];
+    saveLessons(lessons);
+  }
+
+  var parsedCache = {};
+  function lessonPhrases(l) {
+    if (!parsedCache[l.id] || parsedCache[l.id].raw !== l.raw) {
+      parsedCache[l.id] = { raw: l.raw, phrases: parseTemplate(l.raw) };
+    }
+    return parsedCache[l.id].phrases;
+  }
+  function lessonLangs(l) {
+    var seen = {}, out = [];
+    lessonPhrases(l).forEach(function (p) {
+      p.lines.forEach(function (ln) {
+        if (!seen[ln.cc]) { seen[ln.cc] = 1; out.push({ cc: ln.cc, flag: ln.flag, lang: ln.lang }); }
+      });
+    });
+    return out;
+  }
+
+  /* ---------------- speech ---------------- */
+
+  var speechRun = 0;
+  var state = {
+    route: { name: 'list' },
+    loop: null,          // {type:'line'|'word'|'phrase'|'lesson', lessonId, p, li, word}
+    rate: parseFloat(localStorage.getItem('duroos_rate') || '1'),
+    langs: null          // enabled cc list per open lesson (null = all)
+  };
+
+  function nativeTTS() {
+    if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech) return window.Capacitor.Plugins.TextToSpeech;
+    if (window.Capacitor && window.Capacitor.registerPlugin) {
+      window.Capacitor.Plugins = window.Capacitor.Plugins || {};
+      window.Capacitor.Plugins.TextToSpeech = window.Capacitor.registerPlugin('TextToSpeech');
+      return window.Capacitor.Plugins.TextToSpeech;
+    }
+    return null;
+  }
+  function nativeSpeak(text, ttsLang) {
+    var t = nativeTTS();
+    if (!t) return Promise.reject('no tts');
+    return t.speak({ text: text, lang: ttsLang, rate: state.rate || 1, queueStrategy: 1 });
+  }
+  function nativeStop() {
+    var t = nativeTTS(); if (!t) return Promise.resolve(); return t.stop();
+  }
+
+  function speakSupported() { return !!nativeTTS() || 'speechSynthesis' in window; }
+
+  function pickVoice(ttsLang) {
+    var voices = window.speechSynthesis.getVoices() || [];
+    var exact = voices.filter(function (v) { return v.lang && v.lang.replace('_', '-') === ttsLang; })[0];
+    if (exact) return exact;
+    var prefix = ttsLang.split('-')[0];
+    return voices.filter(function (v) { return v.lang && v.lang.toLowerCase().indexOf(prefix) === 0; })[0] || null;
+  }
+
+  function speakText(text, ttsLang, run) {
+    return new Promise(function (resolve) {
+      if (nativeTTS()) {
+        nativeSpeak(text, ttsLang).then(resolve).catch(resolve);
+        return;
+      }
+      if (!('speechSynthesis' in window)) { resolve(); return; }
+      var u = new SpeechSynthesisUtterance(text);
+      u.lang = ttsLang;
+      u.rate = state.rate;
+      var v = pickVoice(ttsLang);
+      if (v) u.voice = v;
+      u.onend = function () { setTimeout(resolve, 200); };
+      u.onerror = function () { setTimeout(resolve, 200); };
+      window.speechSynthesis.speak(u);
+    });
+  }
+
+  function stopSpeech() {
+    state.loop = null;
+    speechRun++;
+    if (nativeTTS()) nativeStop();
+    else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    highlightActive();
+  }
+
+  function delay(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  /* loop a single line */
+  function toggleLineLoop(lessonId, pi, li) {
+    if (state.loop && state.loop.type === 'line' && state.loop.p === pi && state.loop.li === li) { stopSpeech(); return; }
+    var lesson = findLesson(lessonId); if (!lesson) return;
+    var line = lessonPhrases(lesson)[pi].lines[li];
+    state.loop = { type: 'line', lessonId: lessonId, p: pi, li: li };
+    var run = ++speechRun;
+    if (nativeTTS()) nativeStop(); else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    highlightActive();
+    (function cycle() {
+      if (run !== speechRun) return;
+      speakText(line.text, line.tts, run).then(function () {
+        if (run !== speechRun) return;
+        delay(500).then(cycle);
+      });
+    })();
+  }
+
+  /* loop a single word */
+  function toggleWordLoop(lessonId, pi, li, word) {
+    if (state.loop && state.loop.type === 'word' && state.loop.p === pi && state.loop.li === li && state.loop.word === word) { stopSpeech(); return; }
+    var lesson = findLesson(lessonId); if (!lesson) return;
+    var line = lessonPhrases(lesson)[pi].lines[li];
+    state.loop = { type: 'word', lessonId: lessonId, p: pi, li: li, word: word };
+    var run = ++speechRun;
+    if (nativeTTS()) nativeStop(); else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    highlightActive();
+    (function cycle() {
+      if (run !== speechRun) return;
+      speakText(word, line.tts, run).then(function () {
+        if (run !== speechRun) return;
+        delay(450).then(cycle);
+      });
+    })();
+  }
+
+  function enabledLines(phrase) {
+    if (!state.langs) return phrase.lines;
+    var on = {};
+    state.langs.forEach(function (cc) { on[cc] = 1; });
+    return phrase.lines.filter(function (l) { return on[l.cc]; });
+  }
+
+  /* loop one phrase across enabled languages */
+  function togglePhraseLoop(lessonId, pi) {
+    if (state.loop && state.loop.type === 'phrase' && state.loop.p === pi) { stopSpeech(); return; }
+    var lesson = findLesson(lessonId); if (!lesson) return;
+    var phrase = lessonPhrases(lesson)[pi];
+    state.loop = { type: 'phrase', lessonId: lessonId, p: pi };
+    var run = ++speechRun;
+    if (nativeTTS()) nativeStop(); else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    (function cycle() {
+      if (run !== speechRun) return;
+      var seq = enabledLines(phrase);
+      var i = 0;
+      (function next() {
+        if (run !== speechRun) return;
+        if (!seq.length) { stopSpeech(); return; }
+        if (i >= seq.length) { delay(700).then(cycle); return; }
+        var ln = seq[i++];
+        state.loop.li = phrase.lines.indexOf(ln);
+        highlightActive();
+        speakText(ln.text, ln.tts, run).then(next);
+      })();
+    })();
+  }
+
+  /* loop whole lesson */
+  function toggleLessonLoop(lessonId) {
+    if (state.loop && state.loop.type === 'lesson') { stopSpeech(); return; }
+    var lesson = findLesson(lessonId); if (!lesson) return;
+    var phrases = lessonPhrases(lesson);
+    if (!phrases.some(function (p) { return enabledLines(p).length; })) return;
+    state.loop = { type: 'lesson', lessonId: lessonId };
+    var run = ++speechRun;
+    if (nativeTTS()) nativeStop(); else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    var pi = 0;
+    (function cycle() {
+      if (run !== speechRun) return;
+      if (pi >= phrases.length) pi = 0;
+      var phrase = phrases[pi];
+      var card = document.querySelector('.phrase[data-p="' + pi + '"]');
+      if (card) card.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      var seq = enabledLines(phrase);
+      var i = 0;
+      (function next() {
+        if (run !== speechRun) return;
+        if (i >= seq.length || !seq.length) { pi++; delay(500).then(cycle); return; }
+        var ln = seq[i++];
+        state.loop.p = phrases.indexOf(phrase);
+        state.loop.li = phrase.lines.indexOf(ln);
+        highlightActive();
+        speakText(ln.text, ln.tts, run).then(next);
+      })();
+    })();
+  }
+
+  function highlightActive() {
+    var lp = state.loop;
+    document.querySelectorAll('.phrase').forEach(function (el) {
+      var pi = +el.dataset.p;
+      var on = lp && (lp.type !== 'list') && lp.p === pi;
+      el.classList.toggle('playing', !!on && lp.type !== 'word');
+      el.querySelectorAll('.lang-row').forEach(function (row) {
+        var li = +row.dataset.li;
+        row.classList.toggle('active', !!on && lp.li === li && (lp.type === 'phrase' || lp.type === 'lesson'));
+      });
+      el.querySelectorAll('.spk-btn').forEach(function (b) {
+        var li = +b.dataset.li;
+        var active = lp && lp.type === 'line' && lp.p === pi && lp.li === li;
+        b.classList.toggle('active', !!active);
+        b.textContent = active ? '⏸' : '🔊';
+      });
+      el.querySelectorAll('.w').forEach(function (w) {
+        var active = lp && lp.type === 'word' && lp.p === pi && lp.li === +w.dataset.li && lp.word === w.textContent;
+        w.classList.toggle('speaking', !!active);
+      });
+      var pb = el.querySelector('.phrase-loop-btn');
+      if (pb) {
+        var pActive = lp && lp.type === 'phrase' && lp.p === pi;
+        pb.classList.toggle('active', !!pActive);
+        pb.textContent = pActive ? '⏸' : '🔁';
+      }
+    });
+    var lb = document.getElementById('lesson-loop-btn');
+    if (lb) {
+      var on = lp && lp.type === 'lesson';
+      lb.classList.toggle('ghost', !on);
+      lb.textContent = on ? '⏸ إيقاف التكرار' : '🔁 تكرار الدرس كاملاً';
+    }
+  }
+
+  /* ---------------- helpers ---------------- */
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function findLesson(id) {
+    return lessons.filter(function (l) { return l.id === id; })[0];
+  }
+  function fmtDate(ts) {
+    try { return new Date(ts).toLocaleDateString('ar', { year: 'numeric', month: 'short', day: 'numeric' }); }
+    catch (e) { return ''; }
+  }
+  function toast(msg) {
+    var root = document.getElementById('toast-root');
+    root.innerHTML = '<div class="toast">' + esc(msg) + '</div>';
+    setTimeout(function () { root.innerHTML = ''; }, 2200);
+  }
+
+  /* ---------------- rendering ---------------- */
+
+  var view = document.getElementById('view');
+
+  function flagsOf(l) {
+    return lessonLangs(l).map(function (x) { return x.flag; }).join(' ');
+  }
+
+  function renderList() {
+    state.langs = null;
+    var html = '<div class="hero"><h1>📚 الدروس</h1>' +
+      '<p>أضِف درساً: اكتب اسم الدرس ثم الصق نموذج العبارات متعددة اللغات واحفظ. اضغط 🔊 لتكرار السطر بلغته، واضغط أي كلمة لتكرارها.</p></div>';
+    html += '<button class="btn big" id="btn-new">＋ إضافة درس جديد</button>';
+    html += '<div style="height:0.9rem"></div>';
+    if (!lessons.length) {
+      html += '<div class="empty">لا توجد دروس بعد — اضغط «إضافة درس جديد» للبدء.</div>';
+    } else {
+      html += lessons.map(function (l, i) {
+        var n = lessonPhrases(l).length;
+        return '<div class="lesson-card" data-id="' + l.id + '">' +
+          '<div class="lesson-num">' + (i + 1) + '</div>' +
+          '<div class="card-body">' +
+            '<div class="card-title">' + esc(l.name) + '</div>' +
+            '<div class="card-sub">' + n + ' عبارة · ' + fmtDate(l.updatedAt) + '</div>' +
+            '<div class="card-flags" dir="ltr">' + flagsOf(l) + '</div>' +
+          '</div>' +
+          '<div class="card-actions">' +
+            '<button class="mini-btn edit-btn" data-id="' + l.id + '" title="تعديل">✏️</button>' +
+            '<button class="mini-btn danger del-btn" data-id="' + l.id + '" title="حذف">🗑</button>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    }
+    view.innerHTML = html;
+    var nb = document.getElementById('btn-new');
+    if (nb) nb.onclick = function () { go({ name: 'form' }); };
+  }
+
+  function renderForm(editId) {
+    var l = editId ? findLesson(editId) : null;
+    var html = '<div class="breadcrumb">' +
+      '<button data-route=\'{"name":"list"}\'>الدروس</button><span>›</span>' +
+      '<span>' + (l ? 'تعديل الدرس' : 'درس جديد') + '</span></div>';
+    html += '<div class="form-card">' +
+      '<div class="field"><label class="field-label" for="f-name">اسم الدرس</label>' +
+      '<input class="text-input" id="f-name" type="text" placeholder="مثال: في المطعم" value="' + esc(l ? l.name : '') + '"></div>' +
+      '<div class="field"><label class="field-label" for="f-raw">نموذج الدرس</label>' +
+      '<textarea class="textarea" id="f-raw" placeholder="🇫🇷 J\u2019ai faim.&#10;🔊 zhɛ fɛ̃&#10;🇬🇧 I\u2019m hungry.&#10;🔊 aɪm ˈhʌŋɡri&#10;...&#10;&#10;(سطر فارغ بين كل عبارة والأخرى)">' + esc(l ? l.raw : '') + '</textarea>' +
+      '<div class="parse-info" id="parse-info"></div></div>' +
+      '<div class="hint">الصيغة: كل عبارة تبدأ بسطر يحمل علم اللغة ثم النص، وتحته سطر <code>🔊 النطق</code>. افصل بين العبارات بسطر فارغ.</div>' +
+      '<div class="form-actions">' +
+        '<button class="btn" id="f-save">حفظ الدرس</button>' +
+        '<button class="btn ghost" id="f-cancel">إلغاء</button>' +
+      '</div></div>';
+    view.innerHTML = html;
+
+    var info = document.getElementById('parse-info');
+    var rawEl = document.getElementById('f-raw');
+    function refreshInfo() {
+      var ps = parseTemplate(rawEl.value);
+      if (!rawEl.value.trim()) { info.textContent = ''; info.className = 'parse-info'; return; }
+      if (!ps.length) { info.textContent = 'لم يتم التعرف على أي عبارة — تأكد من وضع العلم قبل كل سطر.'; info.className = 'parse-info err'; }
+      else { info.textContent = '✓ ' + ps.length + ' عبارة جاهزة'; info.className = 'parse-info ok'; }
+    }
+    rawEl.addEventListener('input', refreshInfo);
+    refreshInfo();
+
+    document.getElementById('f-cancel').onclick = function () { go(l ? { name: 'lesson', id: l.id } : { name: 'list' }); };
+    document.getElementById('f-save').onclick = function () {
+      var name = document.getElementById('f-name').value.trim();
+      var raw = rawEl.value.replace(/\r/g, '');
+      if (!name) { toast('اكتب اسم الدرس أولاً'); return; }
+      if (!parseTemplate(raw).length) { toast('النموذج فارغ أو غير مفهوم'); return; }
+      if (l) {
+        l.name = name; l.raw = raw; l.updatedAt = Date.now();
+        delete parsedCache[l.id];
+      } else {
+        l = { id: 'l' + Date.now(), name: name, raw: raw, createdAt: Date.now(), updatedAt: Date.now() };
+        lessons.push(l);
+      }
+      saveLessons(lessons);
+      toast('تم الحفظ ✓');
+      go({ name: 'lesson', id: l.id });
+    };
+  }
+
+  function renderLesson(id) {
+    var l = findLesson(id);
+    if (!l) { go({ name: 'list' }); return; }
+    var phrases = lessonPhrases(l);
+    var langs = lessonLangs(l);
+    if (!state.langs || state.langsLesson !== id) {
+      state.langs = langs.map(function (x) { return x.cc; });
+      state.langsLesson = id;
+    } else {
+      langs.forEach(function (x) { if (state.langs.indexOf(x.cc) === -1) state.langs.push(x.cc); });
+      state.langs = state.langs.filter(function (cc) {
+        return langs.some(function (x) { return x.cc === cc; });
+      });
+    }
+
+    var html = '<div class="breadcrumb">' +
+      '<button data-route=\'{"name":"list"}\'>الدروس</button><span>›</span><span>' + esc(l.name) + '</span></div>';
+    html += '<div class="hero"><h1>' + esc(l.name) + '</h1>' +
+      '<div class="meta-grid">' +
+        '<span class="pill">' + phrases.length + ' عبارة</span>' +
+        '<span class="pill">' + langs.length + ' لغة</span>' +
+        '<span class="pill">أُنشئ: ' + fmtDate(l.createdAt) + '</span>' +
+        '<span class="pill">آخر تعديل: ' + fmtDate(l.updatedAt) + '</span>' +
+      '</div></div>';
+
+    html += '<div class="toolbar-row">' +
+      '<button class="btn" id="lesson-loop-btn">🔁 تكرار الدرس كاملاً</button>' +
+      '<button class="btn ghost" id="lesson-edit">✏️ تعديل</button>' +
+      '<select class="ctl" id="rate"><option value="0.6">0.6×</option><option value="0.8">0.8×</option><option value="1">1×</option><option value="1.2">1.2×</option></select>' +
+    '</div>';
+
+    if (langs.length > 1) {
+      html += '<div class="lang-chips">' + langs.map(function (x) {
+        var on = state.langs.indexOf(x.cc) !== -1;
+        return '<button class="lang-chip' + (on ? ' on' : '') + '" data-cc="' + x.cc + '">' + x.flag + ' ' + x.lang.toUpperCase() + '</button>';
+      }).join('') + '</div>';
+    }
+
+    html += '<div class="hint">اضغط 🔊 لتكرار السطر بلغته · 🔁 لتكرار العبارة بكل اللغات المفعّلة · اضغط أي كلمة لتكرارها.</div>';
+
+    html += phrases.map(function (p, pi) {
+      var rows = p.lines.map(function (ln, li) {
+        var dir = ln.rtl ? 'rtl' : 'ltr';
+        var words = ln.text.split(/\s+/).filter(Boolean).map(function (w) {
+          return '<span class="w" data-li="' + li + '">' + esc(w) + '</span>';
+        }).join(' ');
+        return '<div class="lang-row" dir="' + dir + '" data-li="' + li + '">' +
+          '<div class="lang-line">' +
+            '<span class="flag">' + ln.flag + '</span>' +
+            '<span class="sentence ' + dir + '">' + words + '</span>' +
+          '</div>' +
+          '<div class="pron">' +
+            '<button class="spk-btn" data-p="' + pi + '" data-li="' + li + '" title="تكرار السطر">🔊</button>' +
+            '<span class="pron-text">' + esc(ln.pron || '') + '</span>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+      return '<div class="phrase" data-p="' + pi + '">' +
+        '<div class="phrase-head"><span class="phrase-num">عبارة ' + (pi + 1) + '</span><span class="spacer"></span>' +
+        '<button class="phrase-btn phrase-loop-btn" data-p="' + pi + '" title="تكرار العبارة بكل اللغات">🔁</button></div>' +
+        rows + '</div>';
+    }).join('');
+
+    if (!phrases.length) html += '<div class="empty">هذا الدرس لا يحتوي عبارات مفهومة — عدّل النموذج.</div>';
+
+    view.innerHTML = html;
+    document.getElementById('rate').value = String(state.rate);
+    document.getElementById('lesson-edit').onclick = function () { go({ name: 'form', id: id }); };
+    document.getElementById('lesson-loop-btn').onclick = function () { toggleLessonLoop(id); };
+    document.getElementById('rate').onchange = function (e) {
+      state.rate = parseFloat(e.target.value);
+      localStorage.setItem('duroos_rate', e.target.value);
+    };
+    highlightActive();
+  }
+
+  /* ---------------- modals ---------------- */
+
+  function openModal(html) {
+    document.getElementById('modal-root').innerHTML =
+      '<div class="modal-mask"><div class="modal">' + html + '</div></div>';
+  }
+  function closeModal() { document.getElementById('modal-root').innerHTML = ''; }
+
+  function exportAll() {
+    var data = JSON.stringify({ app: 'duroos', v: 1, lessons: lessons }, null, 2);
+    openModal('<h3>⬇ تصدير كل الدروس</h3>' +
+      '<textarea class="textarea" id="exp-text" readonly>' + esc(data) + '</textarea>' +
+      '<div class="modal-actions"><button class="btn" id="exp-copy">نسخ</button>' +
+      '<button class="btn ghost" id="exp-close">إغلاق</button></div>');
+    document.getElementById('exp-text').select();
+    document.getElementById('exp-close').onclick = closeModal;
+    document.getElementById('exp-copy').onclick = function () {
+      var ta = document.getElementById('exp-text');
+      ta.select();
+      var done = function () { toast('تم النسخ ✓'); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ta.value).then(done).catch(function () { document.execCommand('copy'); done(); });
+      } else { document.execCommand('copy'); done(); }
+    };
+  }
+
+  function importAll() {
+    openModal('<h3>⬆ استيراد دروس</h3>' +
+      '<textarea class="textarea" id="imp-text" placeholder="الصق JSON المُصدَّر هنا"></textarea>' +
+      '<div class="modal-actions"><button class="btn" id="imp-go">استيراد</button>' +
+      '<button class="btn ghost" id="imp-close">إلغاء</button></div>');
+    document.getElementById('imp-close').onclick = closeModal;
+    document.getElementById('imp-go').onclick = function () {
+      try {
+        var data = JSON.parse(document.getElementById('imp-text').value);
+        var arr = data.lessons || data;
+        if (!Array.isArray(arr)) throw 0;
+        var added = 0;
+        arr.forEach(function (l) {
+          if (!l || !l.name || !l.raw) return;
+          var ex = findLesson(l.id);
+          if (ex) { ex.name = l.name; ex.raw = l.raw; ex.updatedAt = Date.now(); delete parsedCache[ex.id]; }
+          else { lessons.push({ id: l.id || ('l' + Date.now() + added), name: l.name, raw: l.raw, createdAt: l.createdAt || Date.now(), updatedAt: Date.now() }); }
+          added++;
+        });
+        saveLessons(lessons);
+        closeModal();
+        toast('تم استيراد ' + added + ' درس ✓');
+        if (state.route.name === 'list') renderList();
+      } catch (e) { toast('صيغة غير صالحة'); }
+    };
+  }
+
+  /* ---------------- routing ---------------- */
+
+  function go(route, push) {
+    stopSpeech();
+    if (route.name !== 'lesson') { state.langs = null; state.langsLesson = null; }
+    state.route = route;
+    var hash = route.name === 'list' ? '#/'
+      : route.name === 'form' ? (route.id ? '#/edit/' + route.id : '#/new')
+      : '#/lesson/' + route.id;
+    if (push !== false && location.hash !== hash) location.hash = hash;
+    if (route.name === 'form') renderForm(route.id);
+    else if (route.name === 'lesson') renderLesson(route.id);
+    else renderList();
+    window.scrollTo(0, 0);
+  }
+
+  function routeFromHash() {
+    var h = location.hash.replace(/^#\/?/, '');
+    var m;
+    if ((m = h.match(/^lesson\/(.+)$/))) return { name: 'lesson', id: m[1] };
+    if ((m = h.match(/^edit\/(.+)$/))) return { name: 'form', id: m[1] };
+    if (h === 'new') return { name: 'form' };
+    return { name: 'list' };
+  }
+  window.addEventListener('hashchange', function () { go(routeFromHash(), false); });
+
+  function goBack() {
+    if (state.route.name === 'lesson') go({ name: 'list' });
+    else if (state.route.name === 'form') go(state.route.id ? { name: 'lesson', id: state.route.id } : { name: 'list' });
+    else {
+      var app = (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) || null;
+      if (window.confirm('هل تريد الخروج من التطبيق؟') && app && app.exitApp) app.exitApp();
+    }
+  }
+
+  /* ---------------- events ---------------- */
+
+  document.addEventListener('click', function (e) {
+    var routeBtn = e.target.closest('[data-route]');
+    if (routeBtn) { go(JSON.parse(routeBtn.dataset.route)); return; }
+
+    if (e.target.closest('.modal-mask') && !e.target.closest('.modal')) { closeModal(); return; }
+
+    var chip = e.target.closest('.lang-chip');
+    if (chip) {
+      var cc = chip.dataset.cc;
+      var i = state.langs.indexOf(cc);
+      if (i === -1) state.langs.push(cc); else state.langs.splice(i, 1);
+      chip.classList.toggle('on', i === -1);
+      return;
+    }
+
+    var spk = e.target.closest('.spk-btn');
+    if (spk && state.route.name === 'lesson') {
+      toggleLineLoop(state.route.id, +spk.dataset.p, +spk.dataset.li);
+      return;
+    }
+    var plb = e.target.closest('.phrase-loop-btn');
+    if (plb && state.route.name === 'lesson') {
+      togglePhraseLoop(state.route.id, +plb.dataset.p);
+      return;
+    }
+    var w = e.target.closest('.w');
+    if (w && state.route.name === 'lesson') {
+      var row = w.closest('.lang-row');
+      var pEl = w.closest('.phrase');
+      toggleWordLoop(state.route.id, +pEl.dataset.p, +w.dataset.li, w.textContent);
+      return;
+    }
+
+    var eb = e.target.closest('.edit-btn');
+    if (eb) { e.stopPropagation(); go({ name: 'form', id: eb.dataset.id }); return; }
+    var db = e.target.closest('.del-btn');
+    if (db) {
+      e.stopPropagation();
+      var l = findLesson(db.dataset.id);
+      if (l && window.confirm('حذف درس «' + l.name + '»؟')) {
+        lessons = lessons.filter(function (x) { return x.id !== l.id; });
+        saveLessons(lessons);
+        delete parsedCache[l.id];
+        renderList();
+        toast('تم الحذف');
+      }
+      return;
+    }
+    var card = e.target.closest('.lesson-card');
+    if (card) { go({ name: 'lesson', id: card.dataset.id }); return; }
+  });
+
+  document.getElementById('btn-stop').addEventListener('click', stopSpeech);
+  document.getElementById('btn-export').addEventListener('click', exportAll);
+  document.getElementById('btn-import').addEventListener('click', importAll);
+  document.getElementById('btn-theme').addEventListener('click', function () {
+    var next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('duroos_theme', next);
+  });
+
+  /* ---------------- init ---------------- */
+
+  document.documentElement.dataset.theme = localStorage.getItem('duroos_theme') || 'dark';
+  if (!nativeTTS() && 'speechSynthesis' in window) window.speechSynthesis.getVoices();
+  window.addEventListener('beforeunload', function () { if (speakSupported() && 'speechSynthesis' in window) window.speechSynthesis.cancel(); });
+
+  if ('serviceWorker' in navigator && !window.Capacitor) {
+    navigator.serviceWorker.register('sw-lessons.js').catch(function () {});
+  }
+
+  var AppPlugin = (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) || null;
+  if (AppPlugin && AppPlugin.addListener) {
+    AppPlugin.addListener('backButton', function () { goBack(); });
+  }
+
+  state.route = routeFromHash();
+  go(state.route, false);
+})();
+</script>
+</body>
+</html>
