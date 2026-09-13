@@ -289,9 +289,9 @@
   .phrase-loop-btn { position: absolute; top: 0.5rem; left: 3.3rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
   html[dir="rtl"] .phrase-loop-btn { left: auto; right: 3.3rem; }
   .phrase-loop-btn.active { background: var(--success); color: #081c15; }
-  .caption-overlay { position: absolute; left: 0.45rem; right: 0.45rem; bottom: 0.45rem; background: var(--cap-bg, rgba(124,58,237,0.22)); color: var(--cap-text, var(--text-primary)); padding: 0.45rem; font-size: calc(1rem * var(--cap-scale, 1)); line-height: 1.35; z-index: 2; pointer-events: none; border-radius: 18px; border: 1px solid var(--cap-card-border, rgba(255,255,255,0.12)); box-shadow: 0 2px 16px rgba(0,0,0,0.28); display: flex; flex-direction: column; align-items: stretch; gap: 0; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .caption-overlay { position: absolute; left: 0.45rem; right: 0.45rem; bottom: 0.45rem; background: var(--cap-bg, rgba(124,58,237,0.22)); color: var(--cap-text, var(--text-primary)); padding: 0.45rem; font-size: calc(1rem * var(--cap-scale, 1)); line-height: 1.35; z-index: 2; pointer-events: none; border-radius: var(--cap-frame-radius, 18px); border: var(--cap-frame-width, 1px) var(--cap-frame-style, solid) var(--cap-card-border, rgba(255,255,255,0.12)); box-shadow: var(--cap-frame-shadow, 0 2px 16px rgba(0,0,0,0.28)); display: flex; flex-direction: column; align-items: stretch; gap: 0; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
   .cap-text { flex: 1; min-width: 0; text-align: start; display: flex; flex-direction: column; align-items: stretch; gap: 0.35em; padding-inline-start: 1.1em; padding-inline-end: 2.4em; padding-top: 2.2em; padding-bottom: 0.4em; }
-  .cap-line { display: block; padding: 0.55em 0.65em; margin: 0; border-radius: 0.9em; font-weight: 600; line-height: 1.35; background: var(--cap-card-bg, var(--bg-secondary)); border: 1px solid var(--cap-card-border, var(--border)); color: var(--cap-text, var(--text-primary)); box-shadow: 0 1px 4px rgba(0,0,0,0.08); pointer-events: none; }
+  .cap-line { display: block; padding: 0.55em 0.65em; margin: 0; border-radius: var(--cap-line-radius, 0.9em); font-weight: 600; line-height: 1.35; background: var(--cap-card-bg, var(--bg-secondary)); border: var(--cap-frame-width, 1px) var(--cap-frame-style, solid) var(--cap-card-border, var(--border)); color: var(--cap-text, var(--text-primary)); box-shadow: 0 1px 4px rgba(0,0,0,0.08); pointer-events: none; }
   .cap-flag { margin-inline-end: 0.4rem; font-size: 1em; }
   .cap-loop-btn { pointer-events: auto; position: absolute; top: 0.45rem; inset-inline-end: 0.55rem; width: 1.85rem; height: 1.85rem; border: 1px solid var(--cap-card-border, var(--border)); border-radius: 9px; background: var(--cap-card-bg, var(--bg-secondary)); color: var(--cap-text, var(--text-primary)); font-size: 0.85rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
   .cap-loop-btn.active { background: var(--success); color: #081c1e; border-color: var(--success); }
@@ -881,6 +881,7 @@
     setImage: { ar: 'ضبط صورة', en: 'Set image', fr: 'Définir l’image' },
     chooseImage: { ar: 'اختر صورة', en: 'Choose an image', fr: 'Choisir une image' },
     captionTheme: { ar: 'تغيير خلفية/خط الترجمة', en: 'Change caption theme', fr: 'Changer le thème des sous-titres' },
+    captionFont: { ar: 'تغيير خطوط الترجمة', en: 'Change caption fonts', fr: 'Changer les polices' },
     captionZoomIn: { ar: 'تكبير الترجمة', en: 'Zoom in caption', fr: 'Agrandir les sous-titres' },
     captionZoomOut: { ar: 'تصغير الترجمة', en: 'Zoom out caption', fr: 'Réduire les sous-titres' },
     lessonImage: { ar: 'صورة الدرس', en: 'Lesson image', fr: 'Image de la leçon' },
@@ -950,6 +951,7 @@
     videoAspects: JSON.parse(localStorage.getItem('zeek_video_aspects') || '{}'),
     captionZoom: Math.max(0.5, Math.min(2, +(localStorage.getItem('zeek_caption_zoom') || '1'))),
     captionTheme: Math.max(0, +(localStorage.getItem('zeek_caption_theme') || '0')),
+    captionFont: Math.max(0, +(localStorage.getItem('zeek_caption_font') || '0')),
     langs: ['fr', 'ar', 'en'],
     uiLang: localStorage.getItem('zeek_ui_lang') || 'ar',
     theme: localStorage.getItem('zeek_theme') || 'dark',
@@ -979,30 +981,54 @@
 
   function chevron() { return document.documentElement.dir === 'rtl' ? '‹' : '›'; }
 
-  const CAPTION_FONTS = {
-    fr: "'Georgia', 'Merriweather', 'Times New Roman', 'Noto Serif', serif",
-    ar: "'Simplified Arabic', 'Geeza Pro', 'Noto Naskh Arabic', 'Amiri', 'Tahoma', 'Arial', sans-serif",
-    en: "'Georgia', 'Merriweather', 'Times New Roman', 'Noto Serif', serif"
-  };
-  const CAPTION_FONTS_SANS = {
-    fr: "'Roboto', 'Helvetica Neue', 'Segoe UI', 'Noto Sans', Arial, sans-serif",
-    ar: "'Geeza Pro', 'Simplified Arabic', 'Noto Naskh Arabic', 'Tahoma', 'Arial', sans-serif",
-    en: "'Roboto', 'Helvetica Neue', 'Segoe UI', 'Noto Sans', Arial, sans-serif"
-  };
+
+  const CAPTION_FONT_SETS = [
+    { name: 'News Serif', fr: "Georgia, 'Noto Serif', 'Times New Roman', serif", ar: "'Simplified Arabic', 'Geeza Pro', 'Noto Naskh Arabic', serif", en: "Georgia, 'Noto Serif', 'Times New Roman', serif" },
+    { name: 'Clean Sans', fr: "Roboto, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif", ar: "'Geeza Pro', 'Simplified Arabic', 'Noto Kufi Arabic', Tahoma, sans-serif", en: "Roboto, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif" },
+    { name: 'Classic Times', fr: "'Times New Roman', Georgia, serif", ar: "'Simplified Arabic', 'Traditional Arabic', 'Noto Naskh Arabic', serif", en: "'Times New Roman', Georgia, serif" },
+    { name: 'Modern Grotesk', fr: "'Helvetica Neue', Helvetica, Arial, sans-serif", ar: "'Geeza Pro', 'Noto Kufi Arabic', 'Simplified Arabic', Arial, sans-serif", en: "'Helvetica Neue', Helvetica, Arial, sans-serif" },
+    { name: 'Editorial', fr: "'Palatino Linotype', Palatino, Georgia, serif", ar: "'Simplified Arabic', 'Amiri', 'Noto Naskh Arabic', serif", en: "'Palatino Linotype', Palatino, Georgia, serif" },
+    { name: 'Broadcast', fr: "Verdana, 'Segoe UI', Tahoma, sans-serif", ar: "'Geeza Pro', Tahoma, 'Simplified Arabic', sans-serif", en: "Verdana, 'Segoe UI', Tahoma, sans-serif" },
+    { name: 'Documentary', fr: "'Book Antiqua', Georgia, 'Noto Serif', serif", ar: "'Simplified Arabic', 'Noto Naskh Arabic', 'Geeza Pro', serif", en: "'Book Antiqua', Georgia, 'Noto Serif', serif" },
+    { name: 'Compact UI', fr: "'Segoe UI', Roboto, 'Noto Sans', sans-serif", ar: "'Geeza Pro', 'Simplified Arabic', 'Noto Sans Arabic', sans-serif", en: "'Segoe UI', Roboto, 'Noto Sans', sans-serif" },
+    { name: 'Mono Subtitle', fr: "'Courier New', 'DejaVu Sans Mono', monospace", ar: "'Simplified Arabic', 'Geeza Pro', monospace", en: "'Courier New', 'DejaVu Sans Mono', monospace" },
+    { name: 'Elegant Mix', fr: "Georgia, 'Palatino Linotype', serif", ar: "'Geeza Pro', 'Simplified Arabic', 'Amiri', serif", en: "'Helvetica Neue', Arial, sans-serif" }
+  ];
+
+  const CAPTION_FRAMES = [
+    { radius: '18px', lineRadius: '0.9em', width: '1px', style: 'solid', shadow: '0 2px 16px rgba(0,0,0,0.28)' },
+    { radius: '4px', lineRadius: '0.25em', width: '1px', style: 'solid', shadow: '0 2px 10px rgba(0,0,0,0.3)' },
+    { radius: '28px', lineRadius: '1.4em', width: '2px', style: 'solid', shadow: '0 4px 20px rgba(0,0,0,0.32)' },
+    { radius: '14px', lineRadius: '0.7em', width: '2px', style: 'dashed', shadow: 'none' },
+    { radius: '10px', lineRadius: '0.5em', width: '3px', style: 'double', shadow: '0 2px 12px rgba(0,0,0,0.25)' },
+    { radius: '0px', lineRadius: '0px', width: '0px', style: 'solid', shadow: 'none' }
+  ];
 
   const CAPTION_THEMES = [
-    { name: 'Violet', capBg: 'rgba(124,58,237,0.22)', capText: '#f8f0fa', capCardBg: 'rgba(36,18,43,0.82)', capCardBorder: 'rgba(255,255,255,0.12)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
-    { name: 'Noir', capBg: 'rgba(0,0,0,0.55)', capText: '#ffffff', capCardBg: 'rgba(30,30,30,0.9)', capCardBorder: 'rgba(255,255,255,0.15)', frFont: CAPTION_FONTS_SANS.fr, arFont: CAPTION_FONTS_SANS.ar, enFont: CAPTION_FONTS_SANS.en },
-    { name: 'Cream', capBg: 'rgba(255,255,255,0.85)', capText: '#2d0f35', capCardBg: 'rgba(255,255,255,0.95)', capCardBorder: 'rgba(0,0,0,0.08)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
-    { name: 'Sunset', capBg: 'rgba(251,191,36,0.22)', capText: '#fffbeb', capCardBg: 'rgba(120,53,15,0.85)', capCardBorder: 'rgba(251,191,36,0.35)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
-    { name: 'Ocean', capBg: 'rgba(37,99,235,0.20)', capText: '#eff6ff', capCardBg: 'rgba(23,37,84,0.85)', capCardBorder: 'rgba(147,197,253,0.25)', frFont: CAPTION_FONTS_SANS.fr, arFont: CAPTION_FONTS_SANS.ar, enFont: CAPTION_FONTS_SANS.en },
-    { name: 'Forest', capBg: 'rgba(16,185,129,0.18)', capText: '#ecfdf5', capCardBg: 'rgba(6,78,59,0.85)', capCardBorder: 'rgba(52,211,153,0.3)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
-    { name: 'Rose', capBg: 'rgba(244,63,94,0.18)', capText: '#fff1f2', capCardBg: 'rgba(136,19,55,0.85)', capCardBorder: 'rgba(251,113,133,0.3)', frFont: CAPTION_FONTS_SANS.fr, arFont: CAPTION_FONTS_SANS.ar, enFont: CAPTION_FONTS_SANS.en },
-    { name: 'Midnight', capBg: 'rgba(99,102,241,0.15)', capText: '#e0e7ff', capCardBg: 'rgba(30,27,75,0.9)', capCardBorder: 'rgba(129,140,248,0.25)', frFont: CAPTION_FONTS_SANS.fr, arFont: CAPTION_FONTS_SANS.ar, enFont: CAPTION_FONTS_SANS.en },
-    { name: 'Berry', capBg: 'rgba(192,38,211,0.18)', capText: '#fdf4ff', capCardBg: 'rgba(112,26,117,0.85)', capCardBorder: 'rgba(232,121,249,0.3)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
-    { name: 'Stone', capBg: 'rgba(120,113,108,0.2)', capText: '#fafaf9', capCardBg: 'rgba(41,37,36,0.9)', capCardBorder: 'rgba(168,162,158,0.2)', frFont: CAPTION_FONTS_SANS.fr, arFont: CAPTION_FONTS_SANS.ar, enFont: CAPTION_FONTS_SANS.en },
-    { name: 'Gold', capBg: 'rgba(217,119,6,0.2)', capText: '#fffbeb', capCardBg: 'rgba(120,53,15,0.85)', capCardBorder: 'rgba(251,191,36,0.35)', frFont: CAPTION_FONTS.fr, arFont: CAPTION_FONTS.ar, enFont: CAPTION_FONTS.en },
-    { name: 'Mint', capBg: 'rgba(13,148,136,0.18)', capText: '#f0fdfa', capCardBg: 'rgba(17,94,89,0.85)', capCardBorder: 'rgba(45,212,191,0.3)', frFont: CAPTION_FONTS_SANS.fr, arFont: CAPTION_FONTS_SANS.ar, enFont: CAPTION_FONTS_SANS.en }
+    { name: 'Violet', capBg: 'rgba(124,58,237,0.22)', capText: '#f8f0fa', capCardBg: 'rgba(36,18,43,0.82)', capCardBorder: 'rgba(255,255,255,0.12)', frame: 0 },
+    { name: 'Noir', capBg: 'rgba(0,0,0,0.55)', capText: '#ffffff', capCardBg: 'rgba(30,30,30,0.9)', capCardBorder: 'rgba(255,255,255,0.15)', frame: 1 },
+    { name: 'Cream', capBg: 'rgba(255,255,255,0.85)', capText: '#2d0f35', capCardBg: 'rgba(255,255,255,0.95)', capCardBorder: 'rgba(0,0,0,0.08)', frame: 2 },
+    { name: 'Sunset', capBg: 'rgba(251,191,36,0.22)', capText: '#fffbeb', capCardBg: 'rgba(120,53,15,0.85)', capCardBorder: 'rgba(251,191,36,0.35)', frame: 0 },
+    { name: 'Ocean', capBg: 'rgba(37,99,235,0.20)', capText: '#eff6ff', capCardBg: 'rgba(23,37,84,0.85)', capCardBorder: 'rgba(147,197,253,0.25)', frame: 2 },
+    { name: 'Forest', capBg: 'rgba(16,185,129,0.18)', capText: '#ecfdf5', capCardBg: 'rgba(6,78,59,0.85)', capCardBorder: 'rgba(52,211,153,0.3)', frame: 3 },
+    { name: 'Rose', capBg: 'rgba(244,63,94,0.18)', capText: '#fff1f2', capCardBg: 'rgba(136,19,55,0.85)', capCardBorder: 'rgba(251,113,133,0.3)', frame: 2 },
+    { name: 'Midnight', capBg: 'rgba(99,102,241,0.15)', capText: '#e0e7ff', capCardBg: 'rgba(30,27,75,0.9)', capCardBorder: 'rgba(129,140,248,0.25)', frame: 0 },
+    { name: 'Berry', capBg: 'rgba(192,38,211,0.18)', capText: '#fdf4ff', capCardBg: 'rgba(112,26,117,0.85)', capCardBorder: 'rgba(232,121,249,0.3)', frame: 4 },
+    { name: 'Stone', capBg: 'rgba(120,113,108,0.2)', capText: '#fafaf9', capCardBg: 'rgba(41,37,36,0.9)', capCardBorder: 'rgba(168,162,158,0.2)', frame: 1 },
+    { name: 'Gold', capBg: 'rgba(217,119,6,0.2)', capText: '#fffbeb', capCardBg: 'rgba(120,53,15,0.85)', capCardBorder: 'rgba(251,191,36,0.35)', frame: 4 },
+    { name: 'Mint', capBg: 'rgba(13,148,136,0.18)', capText: '#f0fdfa', capCardBg: 'rgba(17,94,89,0.85)', capCardBorder: 'rgba(45,212,191,0.3)', frame: 2 },
+    { name: 'Netflix', capBg: 'rgba(0,0,0,0)', capText: '#ffffff', capCardBg: 'rgba(0,0,0,0.72)', capCardBorder: 'rgba(0,0,0,0)', frame: 5 },
+    { name: 'Cinema', capBg: 'rgba(0,0,0,0.35)', capText: '#fde68a', capCardBg: 'rgba(0,0,0,0.8)', capCardBorder: 'rgba(253,230,138,0.4)', frame: 1 },
+    { name: 'Snow', capBg: 'rgba(241,245,249,0.9)', capText: '#0f172a', capCardBg: '#ffffff', capCardBorder: 'rgba(15,23,42,0.12)', frame: 2 },
+    { name: 'Paper', capBg: 'rgba(253,246,227,0.92)', capText: '#3b2f14', capCardBg: '#fdf6e3', capCardBorder: 'rgba(120,86,34,0.3)', frame: 3 },
+    { name: 'Slate', capBg: 'rgba(51,65,85,0.55)', capText: '#f1f5f9', capCardBg: 'rgba(15,23,42,0.9)', capCardBorder: 'rgba(148,163,184,0.35)', frame: 1 },
+    { name: 'Neon', capBg: 'rgba(0,0,0,0.5)', capText: '#a7f3d0', capCardBg: 'rgba(4,47,46,0.88)', capCardBorder: '#34d399', frame: 4 },
+    { name: 'Coral', capBg: 'rgba(255,138,101,0.22)', capText: '#fff7ed', capCardBg: 'rgba(124,45,18,0.88)', capCardBorder: 'rgba(253,186,116,0.4)', frame: 0 },
+    { name: 'Lavender', capBg: 'rgba(196,181,253,0.3)', capText: '#2e1065', capCardBg: 'rgba(237,233,254,0.95)', capCardBorder: 'rgba(124,58,237,0.35)', frame: 2 },
+    { name: 'Sky', capBg: 'rgba(56,189,248,0.22)', capText: '#f0f9ff', capCardBg: 'rgba(8,47,73,0.88)', capCardBorder: 'rgba(125,211,252,0.35)', frame: 3 },
+    { name: 'Crimson', capBg: 'rgba(127,29,29,0.4)', capText: '#fee2e2', capCardBg: 'rgba(69,10,10,0.9)', capCardBorder: 'rgba(248,113,113,0.4)', frame: 1 },
+    { name: 'Olive', capBg: 'rgba(101,163,13,0.2)', capText: '#f7fee7', capCardBg: 'rgba(54,83,20,0.88)', capCardBorder: 'rgba(163,230,53,0.35)', frame: 4 },
+    { name: 'Ink', capBg: 'rgba(17,24,39,0.6)', capText: '#e5e7eb', capCardBg: 'rgba(17,24,39,0.94)', capCardBorder: 'rgba(75,85,99,0.5)', frame: 5 }
   ];
 
   function applyCaptionSettings() {
@@ -1013,9 +1039,16 @@
     root.style.setProperty('--cap-text', theme.capText);
     root.style.setProperty('--cap-card-bg', theme.capCardBg);
     root.style.setProperty('--cap-card-border', theme.capCardBorder);
-    root.style.setProperty('--cap-fr-font', theme.frFont || CAPTION_FONTS.fr);
-    root.style.setProperty('--cap-ar-font', theme.arFont || CAPTION_FONTS.ar);
-    root.style.setProperty('--cap-en-font', theme.enFont || CAPTION_FONTS.en);
+    const fset = CAPTION_FONT_SETS[state.captionFont] || CAPTION_FONT_SETS[0];
+    root.style.setProperty('--cap-fr-font', fset.fr);
+    root.style.setProperty('--cap-ar-font', fset.ar);
+    root.style.setProperty('--cap-en-font', fset.en);
+    const frame = CAPTION_FRAMES[theme.frame || 0] || CAPTION_FRAMES[0];
+    root.style.setProperty('--cap-frame-radius', frame.radius);
+    root.style.setProperty('--cap-line-radius', frame.lineRadius);
+    root.style.setProperty('--cap-frame-width', frame.width);
+    root.style.setProperty('--cap-frame-style', frame.style);
+    root.style.setProperty('--cap-frame-shadow', frame.shadow);
   }
 
   function cycleCaptionTheme() {
@@ -1024,6 +1057,14 @@
     applyCaptionSettings();
     const theme = CAPTION_THEMES[state.captionTheme];
     if (theme) showToast(theme.name);
+  }
+
+  function cycleCaptionFont() {
+    state.captionFont = (state.captionFont + 1) % CAPTION_FONT_SETS.length;
+    localStorage.setItem('zeek_caption_font', state.captionFont);
+    applyCaptionSettings();
+    const fset = CAPTION_FONT_SETS[state.captionFont];
+    if (fset) showToast(fset.name);
   }
 
   function adjustCaptionZoom(delta) {
@@ -1457,6 +1498,8 @@
     const frFont = cs.getPropertyValue('--cap-fr-font').trim() || 'Georgia, serif';
     const arFont = cs.getPropertyValue('--cap-ar-font').trim() || 'sans-serif';
     const enFont = cs.getPropertyValue('--cap-en-font').trim() || 'Georgia, serif';
+    const lineRadiusRaw = cs.getPropertyValue('--cap-line-radius').trim();
+    const lineRadiusFactor = lineRadiusRaw.endsWith('em') ? parseFloat(lineRadiusRaw) || 0 : (parseFloat(lineRadiusRaw) ? 0.35 : 0);
     const fs = Math.round(H * 0.048 * (state.captionZoom || 1));
     const padY = fs * 0.55, padX = fs * 0.9, gap = fs * 0.35;
     const lines = [
@@ -1492,8 +1535,7 @@
       ctx.fillStyle = cardBg;
       ctx.strokeStyle = borderCol;
       ctx.lineWidth = Math.max(1, fs * 0.05);
-      const r = fs * 0.7;
-      roundRectPath(ctx, x, y, blockW, blockH, r);
+      roundRectPath(ctx, x, y, blockW, blockH, fs * lineRadiusFactor);
       ctx.fill(); ctx.stroke();
       ctx.fillStyle = textCol;
       ctx.textAlign = 'center';
@@ -2633,6 +2675,7 @@
         <button class="btn ghost" id="stop-all" title="${t('stopAll')}">${t('stopAll')}</button>
         ${lesson.image ? `<button class="btn ghost icon" id="lesson-image-toggle" title="${t('hideImage')}">🙈</button><button class="btn ghost icon" id="lesson-image-del" title="${t('delete')}">🗑️</button>` : `<button class="btn ghost icon" id="lesson-image-set" title="${t('chooseImage')}">🖼️</button>`}
         <button class="btn ghost icon" id="cap-theme" title="${t('captionTheme')}">🎨</button>
+        <button class="btn ghost icon" id="cap-font" title="${t('captionFont')}">🔤</button>
         <button class="btn ghost icon" id="cap-zoom-out" title="${t('captionZoomOut')}">A−</button>
         <button class="btn ghost icon" id="cap-zoom-in" title="${t('captionZoomIn')}">A+</button>
         ${lesson.protected ? '' : `<button class="btn ghost icon menu-btn" data-menu="${lesson.id}" data-type="lesson" title="${t('actions')}">⋮</button>`}
@@ -2656,6 +2699,8 @@
     const capZoomIn = document.getElementById('cap-zoom-in');
     const capZoomOut = document.getElementById('cap-zoom-out');
     if (capTheme) capTheme.onclick = cycleCaptionTheme;
+    const capFont = document.getElementById('cap-font');
+    if (capFont) capFont.onclick = cycleCaptionFont;
     if (capZoomIn) capZoomIn.onclick = () => adjustCaptionZoom(0.15);
     if (capZoomOut) capZoomOut.onclick = () => adjustCaptionZoom(-0.15);
   }
