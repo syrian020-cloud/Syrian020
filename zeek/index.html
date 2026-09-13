@@ -293,6 +293,9 @@
   .cap-text { flex: 1; min-width: 0; text-align: start; display: flex; flex-direction: column; align-items: stretch; gap: 0.35em; padding-inline-start: 1.1em; padding-inline-end: 2.4em; padding-top: 2.2em; padding-bottom: 0.4em; }
   .cap-line { display: block; padding: 0.55em 0.65em; margin: 0; border-radius: var(--cap-line-radius, 0.9em); font-weight: 600; line-height: 1.35; background: var(--cap-card-bg, var(--bg-secondary)); border: var(--cap-frame-width, 1px) var(--cap-frame-style, solid) var(--cap-card-border, var(--border)); color: var(--cap-text, var(--text-primary)); box-shadow: 0 1px 4px rgba(0,0,0,0.08); pointer-events: none; }
   .cap-flag { margin-inline-end: 0.4rem; font-size: 1em; }
+  .audio-player { padding: 1rem 0.8rem; background: linear-gradient(135deg, #312e81, #1e1b4b); border-radius: var(--radius); min-height: 170px; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.5rem; }
+  .audio-player .audio-badge { font-size: 2rem; text-align: center; }
+  .audio-holder { position: relative; }
   .cap-loop-btn { pointer-events: auto; position: absolute; top: 0.45rem; inset-inline-end: 0.55rem; width: 1.85rem; height: 1.85rem; border: 1px solid var(--cap-card-border, var(--border)); border-radius: 9px; background: var(--cap-card-bg, var(--bg-secondary)); color: var(--cap-text, var(--text-primary)); font-size: 0.85rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
   .cap-loop-btn.active { background: var(--success); color: #081c1e; border-color: var(--success); }
   .cap-fr { color: var(--cap-text, var(--text-primary)); font-family: var(--cap-fr-font, 'Poppins', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif); font-size: 1.05em; text-align: left; }
@@ -901,6 +904,9 @@
     captionExamples: { ar: 'نماذج الترجمة', en: 'Caption examples', fr: 'Exemples de sous-titres' },
     lessonVideo: { ar: 'فيديو الدرس', en: 'Lesson video', fr: 'Vidéo de la leçon' },
     chooseVideoFile: { ar: 'اختر ملف فيديو', en: 'Choose video file', fr: 'Choisir un fichier vidéo' },
+    lessonAudio: { ar: 'صوت الدرس', en: 'Lesson audio', fr: 'Audio de la leçon' },
+    chooseAudioFile: { ar: 'اختر ملف صوت', en: 'Choose audio file', fr: 'Choisir un fichier audio' },
+    lessonAudioUrl: { ar: 'أو رابط الصوت', en: 'Or audio URL', fr: 'Ou URL de l’audio' },
     lessonVideoUrl: { ar: 'أو رابط الفيديو', en: 'Or video URL', fr: 'Ou URL de la vidéo' },
     lessonCaptions: { ar: 'نص الترجمة (SRT/نص)', en: 'Caption text (SRT/text)', fr: 'Texte des sous-titres (SRT/texte)' },
     generatePhrases: { ar: 'توليد العبارات من الترجمة', en: 'Generate phrases from captions', fr: 'Générer les phrases depuis les sous-titres' },
@@ -1143,7 +1149,12 @@
     if (file.type && file.type.startsWith('video/')) return true;
     return /\.(mp4|webm|mov|ogv|3gp|3gpp|avi|mkv|flv|m4v|mpeg|mpg|m4p|m2v|ts)$/i.test(file.name || '');
   }
-  function isMediaFile(file) { return isImageFile(file) || isVideoFile(file); }
+  function isAudioFile(file) {
+    if (!file) return false;
+    if (file.type && file.type.startsWith('audio/')) return true;
+    return /\.(mp3|wav|ogg|oga|m4a|aac|flac|opus|weba|wma)$/i.test(file.name || '');
+  }
+  function isMediaFile(file) { return isImageFile(file) || isVideoFile(file) || isAudioFile(file); }
 
   function mimeFromName(name) {
     const ext = (String(name).split('.').pop() || '').toLowerCase();
@@ -1152,7 +1163,9 @@
       bmp: 'image/bmp', svg: 'image/svg+xml', heic: 'image/heic', heif: 'image/heif', tiff: 'image/tiff', tif: 'image/tiff',
       mp4: 'video/mp4', webm: 'video/webm', mov: 'video/quicktime', ogv: 'video/ogg', '3gp': 'video/3gpp',
       '3gpp': 'video/3gpp', avi: 'video/x-msvideo', mkv: 'video/x-matroska', flv: 'video/x-flv', m4v: 'video/mp4',
-      mpeg: 'video/mpeg', mpg: 'video/mpeg', m4p: 'video/mp4', m2v: 'video/mpeg', ts: 'video/mp2t'
+      mpeg: 'video/mpeg', mpg: 'video/mpeg', m4p: 'video/mp4', m2v: 'video/mpeg', ts: 'video/mp2t',
+      mp3: 'audio/mpeg', wav: 'audio/wav', ogg: 'audio/ogg', oga: 'audio/ogg', m4a: 'audio/mp4',
+      aac: 'audio/aac', flac: 'audio/flac', opus: 'audio/ogg', weba: 'audio/webm', wma: 'audio/x-ms-wma'
     };
     return map[ext] || '';
   }
@@ -1694,6 +1707,7 @@
     controls.innerHTML = `<button class="video-prev" type="button" title="${t('previousPhrase')}">⏮</button><button class="video-next" type="button" title="${t('nextPhrase')}">⏭</button><button class="video-rec" type="button" title="${t('recordVideoTitle')}">⬇</button>`;
     overlay.appendChild(controls);
     const recBtn = controls.querySelector('.video-rec');
+    if (video.tagName !== 'VIDEO') recBtn.style.display = 'none';
     recBtn.onclick = (e) => { e.stopPropagation(); toggleCaptionRecording(video, captions, recBtn); };
 
     const handle = document.createElement('div');
@@ -1873,6 +1887,7 @@
         el.innerHTML = `<iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe>`;
       } else {
         const isVideo = (resolved.type || '').startsWith('video/') || isVideoUrl(resolved.url) || isVideoFile({ name: (resolved.blob && resolved.blob.name) || '', type: resolved.type });
+        const isAudio = !isVideo && ((resolved.type || '').startsWith('audio/') || isAudioUrl(resolved.url) || isAudioFile({ name: (resolved.blob && resolved.blob.name) || '', type: resolved.type }));
         if (isVideo) {
           el.classList.add('video-player');
           const phraseKey = el.dataset.phraseKey || '';
@@ -1882,6 +1897,8 @@
           const v = el.querySelector('video');
           if (v) { try { v.playbackRate = state.rate || 1; } catch (e) {} }
           if (el.dataset.imageRef) await addLessonImageOverlay(el);
+        } else if (isAudio) {
+          el.innerHTML = audioHTML(resolved.url);
         } else {
           el.innerHTML = imageMediaHTML(resolved.url, el.dataset.phraseKey || '');
         }
@@ -1889,7 +1906,7 @@
       const captionText = el.dataset.captionText || '';
       const lessonId = el.dataset.lessonId ? +el.dataset.lessonId : null;
       if (captionText) {
-        const video = el.querySelector('video');
+        const video = el.querySelector('video,audio');
         if (video) {
           if (lessonId != null) video.dataset.lessonId = lessonId;
           await attachCaptionSync(video, captionText, lessonId);
@@ -2466,6 +2483,18 @@
       if (!valid) { alert(t('mediaInvalid')); return; }
       media = videoUrl;
     }
+    if (!media) {
+      const audioFile = document.getElementById('lesson-audio-file').files[0];
+      const audioUrl = form.elements.audioUrl.value.trim();
+      if (audioFile) {
+        media = await storeMedia(audioFile);
+        if (!media) { alert(t('mediaSaveError')); return; }
+      } else if (audioUrl) {
+        const valid = /^https?:\/\//.test(audioUrl) || /^data:/.test(audioUrl) || /^file:\/\//.test(audioUrl) || /^idb:\/\//.test(audioUrl) || isAudioUrl(audioUrl);
+        if (!valid) { alert(t('mediaInvalid')); return; }
+        media = audioUrl;
+      }
+    }
 
     let captionText = form.elements.captions.value.trim();
     const captionFile = document.getElementById('lesson-captions-file').files[0];
@@ -2500,6 +2529,14 @@
 
   function isVideoUrl(url) {
     return /^data:video|\.(mp4|webm|mov|ogv|3gp|3gpp|avi|mkv|flv|m4v|mpeg|mpg)(\?|$)/i.test(url);
+  }
+
+  function isAudioUrl(url) {
+    return /^data:audio|\.(mp3|wav|ogg|oga|m4a|aac|flac|opus|weba|wma)(\?|$)/i.test(url);
+  }
+
+  function audioHTML(src) {
+    return `<div class="audio-player"><span class="audio-badge">🎧</span><audio src="${esc(src)}" controls style="width:100%"></audio></div>`;
   }
 
   function videoLoopButtonHTML() {
@@ -2537,6 +2574,7 @@
     const yt = youtubeId(src);
     if (yt) return `<div class="phrase-media" data-media-src="${esc(src)}" data-phrase-key="${esc(key || '')}"><iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe></div>`;
     if (isVideoUrl(src)) return `<div class="phrase-media video-player ${aspectClassFor(getVideoAspect(src))}" data-media-src="${esc(src)}" data-phrase-key="${esc(key || '')}">${videoHTML(src, key, src)}</div>`;
+    if (isAudioUrl(src)) return `<div class="phrase-media audio-holder" data-media-src="${esc(src)}" data-phrase-key="${esc(key || '')}">${audioHTML(src)}</div>`;
     return `<div class="phrase-media" data-phrase-key="${esc(key || '')}">${imageMediaHTML(src, key)}</div>`;
   }
 
@@ -2784,6 +2822,8 @@
         <div class="form-group"><label data-t="pasteOrder">${t('pasteOrder')}</label><select name="order" class="ctl"><option value="auto" data-t="orderAuto" selected>${t('orderAuto')}</option><option value="fr-ar-en" data-t="orderFrFirst">${t('orderFrFirst')}</option><option value="en-ar-fr" data-t="orderEnFirst">${t('orderEnFirst')}</option></select></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonVideo">${t('lessonVideo')}</label><button type="button" class="btn" id="btn-choose-lesson-video" data-t="chooseVideoFile">${t('chooseVideoFile')}</button><input type="file" id="lesson-video-file" accept="video/*" style="display:none"></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonVideoUrl">${t('lessonVideoUrl')}</label><input type="text" name="videoUrl" placeholder="https://..." style="width:100%"></div>
+        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudio">${t('lessonAudio')}</label><button type="button" class="btn" id="btn-choose-lesson-audio" data-t="chooseAudioFile">${t('chooseAudioFile')}</button><input type="file" id="lesson-audio-file" accept="audio/*" style="display:none"></div>
+        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudioUrl">${t('lessonAudioUrl')}</label><input type="text" name="audioUrl" placeholder="https://..." style="width:100%"></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonCaptions">${t('lessonCaptions')}</label><button type="button" class="btn ghost" id="btn-choose-lesson-captions" data-t="chooseCaptionFile">${t('chooseCaptionFile')}</button><input type="file" id="lesson-captions-file" accept=".srt,.txt" style="display:none"></div>
         <div class="form-group" style="margin-top:0.35rem">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.25rem">
@@ -2808,6 +2848,9 @@
     const videoFile = document.getElementById('lesson-video-file');
     const chooseVideoBtn = document.getElementById('btn-choose-lesson-video');
     if (chooseVideoBtn && videoFile) chooseVideoBtn.onclick = () => videoFile.click();
+    const audioFile = document.getElementById('lesson-audio-file');
+    const chooseAudioBtn = document.getElementById('btn-choose-lesson-audio');
+    if (chooseAudioBtn && audioFile) chooseAudioBtn.onclick = () => audioFile.click();
     const captionFile = document.getElementById('lesson-captions-file');
     const chooseCaptionBtn = document.getElementById('btn-choose-lesson-captions');
     if (chooseCaptionBtn && captionFile) chooseCaptionBtn.onclick = () => captionFile.click();
