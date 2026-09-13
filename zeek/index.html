@@ -1524,9 +1524,17 @@
       const vs = video.captureStream ? video.captureStream() : (video.mozCaptureStream ? video.mozCaptureStream() : null);
       if (vs) vs.getAudioTracks().forEach(tr => stream.addTrack(tr));
     } catch (e) { console.warn('audio capture failed', e); }
-    const mime = MediaRecorder.isTypeSupported('video/webm;codecs=vp9,opus') ? 'video/webm;codecs=vp9,opus'
-      : (MediaRecorder.isTypeSupported('video/webm') ? 'video/webm' : 'video/mp4');
-    const rec = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 8000000, audioBitsPerSecond: 128000 });
+    const mimeCandidates = [
+      'video/mp4;codecs=avc1.42E01E,mp4a.40.2',
+      'video/mp4;codecs=h264,aac',
+      'video/mp4',
+      'video/webm;codecs=vp9,opus',
+      'video/webm'
+    ];
+    const mime = mimeCandidates.find(m => MediaRecorder.isTypeSupported(m)) || '';
+    const recOpts = { videoBitsPerSecond: 8000000, audioBitsPerSecond: 128000 };
+    if (mime) recOpts.mimeType = mime;
+    const rec = new MediaRecorder(stream, recOpts);
     const chunks = [];
     rec.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
     rec.onstop = async () => {
@@ -1534,8 +1542,9 @@
       video._recRaf = null;
       btn.textContent = '⬇';
       btn.title = t('recordVideoTitle');
-      const ext = mime.includes('mp4') ? 'mp4' : 'webm';
-      const blob = new Blob(chunks, { type: mime.split(';')[0] });
+      const outMime = (rec.mimeType || mime || 'video/webm').split(';')[0];
+      const ext = outMime.includes('mp4') ? 'mp4' : 'webm';
+      const blob = new Blob(chunks, { type: outMime });
       await saveRecordedVideo(blob, ext);
     };
     const draw = () => {
@@ -1545,6 +1554,18 @@
       drawCaptionOnCanvas(ctx, captions, video.currentTime || 0, W, H);
       video._recRaf = requestAnimationFrame(draw);
     };
+    const tNow = video.currentTime || 0;
+    const cur = captions.find(c => tNow >= c.start && tNow < c.end);
+    const startAt = cur ? cur.start : (captions.find(c => c.start >= tNow) || captions[0] || { start: 0 }).start;
+    try {
+      video.pause();
+      video.currentTime = startAt;
+      await new Promise(res => {
+        if (Math.abs(video.currentTime - startAt) < 0.05) return res();
+        video.addEventListener('seeked', res, { once: true });
+        setTimeout(res, 800);
+      });
+    } catch (e) {}
     video._recorder = rec;
     video._recordStop = () => stopCaptionRecording(video);
     const onEnded = () => stopCaptionRecording(video);
@@ -1555,7 +1576,7 @@
     btn.textContent = '⏹';
     btn.title = t('recordStop');
     showToast(t('recordingToast'), 3000);
-    try { video.currentTime = 0; await video.play(); } catch (e) {}
+    try { await video.play(); } catch (e) {}
   }
 
   function canvasCaptureOK() {
