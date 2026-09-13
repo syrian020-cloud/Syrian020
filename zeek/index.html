@@ -815,6 +815,10 @@
     searchPlaceholder: { ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', en: 'Search in Arabic, French, or English…', fr: 'Rechercher en arabe, français ou anglais…' },
     rateTitle: { ar: 'سرعة الصوت والفيديو', en: 'Audio & video speed', fr: 'Vitesse audio et vidéo' },
     aspectRatioTitle: { ar: 'نسبة عرض الفيديو', en: 'Video aspect ratio', fr: 'Ratio d’aspect vidéo' },
+    recordVideoTitle: { ar: 'تسجيل الفيديو مع الترجمة', en: 'Record video with captions', fr: 'Enregistrer la vidéo avec sous-titres' },
+    recordStop: { ar: 'إيقاف التسجيل', en: 'Stop recording', fr: 'Arrêter l’enregistrement' },
+    recordingToast: { ar: '⏺ جاري تسجيل الفيديو مع الترجمة…', en: '⏺ Recording video with captions…', fr: '⏺ Enregistrement de la vidéo…' },
+    videoSaved: { ar: 'تم حفظ الفيديو', en: 'Video saved', fr: 'Vidéo enregistrée' },
     videoLoopTitle: { ar: 'تكرار الفيديو', en: 'Loop video', fr: 'Boucler la vidéo' },
     previousPhrase: { ar: 'العبارة السابقة', en: 'Previous phrase', fr: 'Phrase précédente' },
     nextPhrase: { ar: 'العبارة التالية', en: 'Next phrase', fr: 'Phrase suivante' },
@@ -1433,6 +1437,160 @@
     });
   }
 
+  function roundRectPath(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  function drawCaptionOnCanvas(ctx, captions, curTime, W, H) {
+    const c = captions.find(c => curTime >= c.start && curTime < c.end);
+    if (!c) return;
+    const cs = getComputedStyle(document.documentElement);
+    const cardBg = cs.getPropertyValue('--cap-card-bg').trim() || 'rgba(255,255,255,0.92)';
+    const textCol = cs.getPropertyValue('--cap-text').trim() || '#111';
+    const borderCol = cs.getPropertyValue('--cap-card-border').trim() || 'rgba(0,0,0,0.08)';
+    const frFont = cs.getPropertyValue('--cap-fr-font').trim() || 'Georgia, serif';
+    const arFont = cs.getPropertyValue('--cap-ar-font').trim() || 'sans-serif';
+    const enFont = cs.getPropertyValue('--cap-en-font').trim() || 'Georgia, serif';
+    const fs = Math.round(H * 0.048 * (state.captionZoom || 1));
+    const padY = fs * 0.55, padX = fs * 0.9, gap = fs * 0.35;
+    const lines = [
+      { txt: c.fr, font: frFont, dir: 'ltr' },
+      { txt: c.ar, font: arFont, dir: 'rtl' },
+      { txt: c.en, font: enFont, dir: 'ltr' }
+    ].filter(l => l.txt && l.txt.trim());
+    if (!lines.length) return;
+    const wrap = (txt, font, dir) => {
+      ctx.font = `600 ${fs}px ${font}`;
+      ctx.direction = dir;
+      const words = txt.trim().split(/\s+/);
+      const out = []; let cur = '';
+      const maxW = W * 0.86;
+      for (const w2 of words) {
+        const test = cur ? cur + ' ' + w2 : w2;
+        if (ctx.measureText(test).width > maxW && cur) { out.push(cur); cur = w2; }
+        else cur = test;
+      }
+      if (cur) out.push(cur);
+      return { font, dir, rows: out };
+    };
+    const blocks = lines.map(l => wrap(l.txt, l.font, l.dir));
+    const totalH = blocks.reduce((s, b) => s + b.rows.length * fs * 1.3 + padY * 2, 0) + gap * (blocks.length - 1);
+    let y = H - totalH - H * 0.045;
+    for (const b of blocks) {
+      ctx.font = `600 ${fs}px ${b.font}`;
+      ctx.direction = b.dir;
+      ctx.textBaseline = 'middle';
+      const blockW = Math.min(W * 0.94, Math.max(...b.rows.map(r => ctx.measureText(r).width)) + padX * 2);
+      const blockH = b.rows.length * fs * 1.3 + padY * 2;
+      const x = (W - blockW) / 2;
+      ctx.fillStyle = cardBg;
+      ctx.strokeStyle = borderCol;
+      ctx.lineWidth = Math.max(1, fs * 0.05);
+      const r = fs * 0.7;
+      roundRectPath(ctx, x, y, blockW, blockH, r);
+      ctx.fill(); ctx.stroke();
+      ctx.fillStyle = textCol;
+      ctx.textAlign = 'center';
+      b.rows.forEach((row, i) => {
+        ctx.fillText(row, W / 2, y + padY + fs * 0.65 + i * fs * 1.3);
+      });
+      y += blockH + gap;
+    }
+  }
+
+  function stopCaptionRecording(video) {
+    const rec = video._recorder;
+    if (!rec) return;
+    video._recorder = null;
+    video._recordStop = null;
+    try { rec.stop(); } catch (e) {}
+  }
+
+  async function toggleCaptionRecording(video, captions, btn) {
+    if (video._recorder) { stopCaptionRecording(video); return; }
+    if (typeof MediaRecorder === 'undefined' || !canvasCaptureOK()) { showToast('Recording not supported'); return; }
+    const W = video.videoWidth || 1280, H = video.videoHeight || 720;
+    const canvas = document.createElement('canvas');
+    canvas.width = W; canvas.height = H;
+    const ctx = canvas.getContext('2d');
+    const stream = canvas.captureStream(30);
+    try {
+      const vs = video.captureStream ? video.captureStream() : (video.mozCaptureStream ? video.mozCaptureStream() : null);
+      if (vs) vs.getAudioTracks().forEach(tr => stream.addTrack(tr));
+    } catch (e) { console.warn('audio capture failed', e); }
+    const mime = MediaRecorder.isTypeSupported('video/webm;codecs=vp9,opus') ? 'video/webm;codecs=vp9,opus'
+      : (MediaRecorder.isTypeSupported('video/webm') ? 'video/webm' : 'video/mp4');
+    const rec = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 8000000, audioBitsPerSecond: 128000 });
+    const chunks = [];
+    rec.ondataavailable = e => { if (e.data && e.data.size) chunks.push(e.data); };
+    rec.onstop = async () => {
+      cancelAnimationFrame(video._recRaf);
+      video._recRaf = null;
+      btn.textContent = '⬇';
+      btn.title = t('recordVideoTitle');
+      const ext = mime.includes('mp4') ? 'mp4' : 'webm';
+      const blob = new Blob(chunks, { type: mime.split(';')[0] });
+      await saveRecordedVideo(blob, ext);
+    };
+    const draw = () => {
+      if (!video._recorder) return;
+      ctx.direction = 'ltr'; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+      ctx.drawImage(video, 0, 0, W, H);
+      drawCaptionOnCanvas(ctx, captions, video.currentTime || 0, W, H);
+      video._recRaf = requestAnimationFrame(draw);
+    };
+    video._recorder = rec;
+    video._recordStop = () => stopCaptionRecording(video);
+    const onEnded = () => stopCaptionRecording(video);
+    video.addEventListener('ended', onEnded, { once: true });
+    rec.onstop = ((orig) => async () => { video.removeEventListener('ended', onEnded); await orig(); })(rec.onstop);
+    rec.start(250);
+    video._recRaf = requestAnimationFrame(draw);
+    btn.textContent = '⏹';
+    btn.title = t('recordStop');
+    showToast(t('recordingToast'), 3000);
+    try { video.currentTime = 0; await video.play(); } catch (e) {}
+  }
+
+  function canvasCaptureOK() {
+    const c = document.createElement('canvas');
+    return typeof c.captureStream === 'function';
+  }
+
+  async function saveRecordedVideo(blob, ext) {
+    const filename = 'zeek-video-' + new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-') + '.' + ext;
+    if (typeof Capacitor !== 'undefined' && Capacitor.Plugins && Capacitor.Plugins.Filesystem) {
+      try {
+        const { Filesystem, Share } = Capacitor.Plugins;
+        const Directory = Filesystem.Directory || {};
+        const dir = Directory.Cache || 'CACHE';
+        const base64 = await new Promise((res, rej) => {
+          const fr = new FileReader();
+          fr.onload = () => res(String(fr.result).split(',')[1]);
+          fr.onerror = rej;
+          fr.readAsDataURL(blob);
+        });
+        await Filesystem.writeFile({ path: filename, data: base64, directory: dir, recursive: true });
+        const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
+        if (Share && Share.share) await Share.share({ title: 'Zeek video', files: [uri], dialogTitle: 'Zeek video' });
+        showToast(t('videoSaved'));
+        return;
+      } catch (e) { console.error('save video failed', e); showToast(e.message || 'Save failed'); return; }
+    }
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = filename; a.style.display = 'none';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+    showToast(t('videoSaved'));
+  }
+
   async function attachCaptionSync(video, captionText, lessonId) {
     if (!video || video.dataset.captionSync === '1') return;
     let captions = [];
@@ -1470,8 +1628,10 @@
     overlay.appendChild(loopBtn);
     const controls = document.createElement('div');
     controls.className = 'cap-controls';
-    controls.innerHTML = `<button class="video-prev" type="button" title="${t('previousPhrase')}">⏮</button><button class="video-next" type="button" title="${t('nextPhrase')}">⏭</button>`;
+    controls.innerHTML = `<button class="video-prev" type="button" title="${t('previousPhrase')}">⏮</button><button class="video-next" type="button" title="${t('nextPhrase')}">⏭</button><button class="video-rec" type="button" title="${t('recordVideoTitle')}">⬇</button>`;
     overlay.appendChild(controls);
+    const recBtn = controls.querySelector('.video-rec');
+    recBtn.onclick = (e) => { e.stopPropagation(); toggleCaptionRecording(video, captions, recBtn); };
 
     const handle = document.createElement('div');
     handle.className = 'cap-handle';
