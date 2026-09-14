@@ -11,6 +11,7 @@ rm -rf www
 mkdir -p www
 
 cp lessons.html www/index.html
+cp lessons.html www/lessons.html
 cp manifest-lessons.json www/manifest-lessons.json
 cp sw-lessons.js www/sw-lessons.js
 cp icon-192.png icon-512.png www/
@@ -32,11 +33,26 @@ restore_config() {
 }
 trap 'restore_config' EXIT
 
+APP_ID=$(node -p "require('$ROOT/capacitor-lessons.config.json').appId")
+
+# `cap sync` never migrates the applicationId of an existing android/ project, and all
+# the build scripts here share that (git-ignored) directory, so recreate it whenever it
+# belongs to another app.
+if [ -d android ] && ! grep -q "applicationId \"\?$APP_ID\"\?" android/app/build.gradle 2>/dev/null; then
+  echo "Existing android/ project is not $APP_ID — recreating it..."
+  rm -rf android
+fi
+
 if [ ! -d android ]; then
   npx cap add android
 fi
 
 npx cap sync android
+
+if ! grep -q "applicationId \"\?$APP_ID\"\?" android/app/build.gradle; then
+  echo "ERROR: android/app/build.gradle applicationId is not $APP_ID" >&2
+  exit 1
+fi
 
 MIPMAP="$ROOT/android/app/src/main/res"
 

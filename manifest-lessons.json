@@ -1,7 +1,8 @@
 {
   "name": "Duroos — دروس متعددة اللغات",
   "short_name": "Duroos",
-  "start_url": ".",
+  "start_url": "./lessons.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#0d9488",

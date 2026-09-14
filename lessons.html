@@ -203,6 +203,7 @@
     display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
   .pron .spk-btn:hover { border-color: var(--accent); }
+  .pron .spk-btn[disabled] { opacity: 0.35; cursor: not-allowed; }
   .pron .spk-btn.active { background: var(--success); color: #0f172a; border-color: var(--success); }
   .pron-text { font-family: ui-monospace, monospace; }
   .lang-row.active { background: rgba(52,211,153,0.10); border-radius: 10px; }
@@ -293,7 +294,16 @@
     IL: ['he', 'he-IL', 1], NO: ['no', 'nb-NO', 0], DK: ['da', 'da-DK', 0],
     FI: ['fi', 'fi-FI', 0], CZ: ['cs', 'cs-CZ', 0], RO: ['ro', 'ro-RO', 0],
     HU: ['hu', 'hu-HU', 0], TH: ['th', 'th-TH', 0], VN: ['vi', 'vi-VN', 0],
-    ID: ['id', 'id-ID', 0], PK: ['ur', 'ur-PK', 1]
+    ID: ['id', 'id-ID', 0], PK: ['ur', 'ur-PK', 1],
+    CA: ['en', 'en-CA', 0], AU: ['en', 'en-AU', 0], NZ: ['en', 'en-NZ', 0],
+    IE: ['en', 'en-IE', 0], ZA: ['en', 'en-ZA', 0], BE: ['nl', 'nl-BE', 0],
+    AR: ['es', 'es-AR', 0], CL: ['es', 'es-CL', 0], CO: ['es', 'es-CO', 0],
+    PE: ['es', 'es-PE', 0], MA: ['ar', 'ar-MA', 1], DZ: ['ar', 'ar-DZ', 1],
+    TN: ['ar', 'ar-TN', 1], IQ: ['ar', 'ar-IQ', 1], JO: ['ar', 'ar-JO', 1],
+    LB: ['ar', 'ar-LB', 1], KW: ['ar', 'ar-KW', 1], QA: ['ar', 'ar-QA', 1],
+    BG: ['bg', 'bg-BG', 0], HR: ['hr', 'hr-HR', 0], SK: ['sk', 'sk-SK', 0],
+    RS: ['sr', 'sr-RS', 0], BD: ['bn', 'bn-BD', 0], MY: ['ms', 'ms-MY', 0],
+    PH: ['fil', 'fil-PH', 0], HK: ['zh', 'zh-HK', 0]
   };
   var RTL_LANGS = { ar: 1, fa: 1, he: 1, ur: 1 };
 
@@ -309,8 +319,8 @@
   function langForCC(cc) {
     var e = CC[cc];
     if (e) return { lang: e[0], tts: e[1], rtl: !!e[2] };
-    var lc = cc.toLowerCase();
-    return { lang: lc, tts: lc + '-' + cc, rtl: !!RTL_LANGS[lc] };
+    // a flag identifies a country, not a language: never guess a BCP 47 tag from it
+    return { lang: cc.toLowerCase(), tts: null, rtl: false };
   }
 
   var PRON_RE = /^[\u{1F50A}\u{1F508}\u{1F509}\u{1F4E2}\u{1F3A7}\u{1F3B5}\u{1F3B6}\u{25B6}\u{FE0F}\s]+/u;
@@ -435,6 +445,7 @@
 
   function speakText(text, ttsLang, run) {
     return new Promise(function (resolve) {
+      if (!ttsLang) { setTimeout(resolve, 200); return; }
       if (nativeTTS()) {
         nativeSpeak(text, ttsLang).then(resolve).catch(resolve);
         return;
@@ -466,6 +477,7 @@
     if (state.loop && state.loop.type === 'line' && state.loop.p === pi && state.loop.li === li) { stopSpeech(); return; }
     var lesson = findLesson(lessonId); if (!lesson) return;
     var line = lessonPhrases(lesson)[pi].lines[li];
+    if (!line.tts) { toast('لغة هذا العلم غير معروفة — لا يوجد نطق'); return; }
     state.loop = { type: 'line', lessonId: lessonId, p: pi, li: li };
     var run = ++speechRun;
     if (nativeTTS()) nativeStop(); else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
@@ -484,6 +496,7 @@
     if (state.loop && state.loop.type === 'word' && state.loop.p === pi && state.loop.li === li && state.loop.word === word) { stopSpeech(); return; }
     var lesson = findLesson(lessonId); if (!lesson) return;
     var line = lessonPhrases(lesson)[pi].lines[li];
+    if (!line.tts) { toast('لغة هذا العلم غير معروفة — لا يوجد نطق'); return; }
     state.loop = { type: 'word', lessonId: lessonId, p: pi, li: li, word: word };
     var run = ++speechRun;
     if (nativeTTS()) nativeStop(); else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
@@ -501,7 +514,7 @@
     if (!state.langs) return phrase.lines;
     var on = {};
     state.langs.forEach(function (cc) { on[cc] = 1; });
-    return phrase.lines.filter(function (l) { return on[l.cc]; });
+    return phrase.lines.filter(function (l) { return on[l.cc] && l.tts; });
   }
 
   /* loop one phrase across enabled languages */
@@ -548,7 +561,10 @@
       var i = 0;
       (function next() {
         if (run !== speechRun) return;
-        if (i >= seq.length || !seq.length) { pi++; delay(500).then(cycle); return; }
+        if (i >= seq.length || !seq.length) {
+          if (!phrases.some(function (p) { return enabledLines(p).length; })) { stopSpeech(); return; }
+          pi++; delay(500).then(cycle); return;
+        }
         var ln = seq[i++];
         state.loop.p = phrases.indexOf(phrase);
         state.loop.li = phrase.lines.indexOf(ln);
@@ -598,6 +614,12 @@
   function esc(s) {
     return String(s == null ? '' : s)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  var idSeq = 0;
+  // ids end up inside HTML attributes, so imported ones must stay a safe slug
+  function safeId(id) {
+    var s = String(id == null ? '' : id).replace(/[^A-Za-z0-9_-]/g, '');
+    return s || ('l' + Date.now() + (++idSeq));
   }
   function findLesson(id) {
     return lessons.filter(function (l) { return l.id === id; })[0];
@@ -750,7 +772,9 @@
             '<span class="sentence ' + dir + '">' + words + '</span>' +
           '</div>' +
           '<div class="pron">' +
-            '<button class="spk-btn" data-p="' + pi + '" data-li="' + li + '" title="تكرار السطر">🔊</button>' +
+            '<button class="spk-btn" data-p="' + pi + '" data-li="' + li + '"' +
+              (ln.tts ? '' : ' disabled title="لغة هذا العلم غير معروفة — لا يوجد نطق"') +
+              (ln.tts ? ' title="تكرار السطر"' : '') + '>🔊</button>' +
             '<span class="pron-text">' + esc(ln.pron || '') + '</span>' +
           '</div>' +
         '</div>';
@@ -816,7 +840,7 @@
           if (!l || !l.name || !l.raw) return;
           var ex = findLesson(l.id);
           if (ex) { ex.name = l.name; ex.raw = l.raw; ex.updatedAt = Date.now(); delete parsedCache[ex.id]; }
-          else { lessons.push({ id: l.id || ('l' + Date.now() + added), name: l.name, raw: l.raw, createdAt: l.createdAt || Date.now(), updatedAt: Date.now() }); }
+          else { lessons.push({ id: safeId(l.id), name: String(l.name), raw: String(l.raw), createdAt: Number(l.createdAt) || Date.now(), updatedAt: Date.now() }); }
           added++;
         });
         saveLessons(lessons);
