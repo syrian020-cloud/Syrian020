@@ -904,6 +904,10 @@
     captionExamples: { ar: 'نماذج الترجمة', en: 'Caption examples', fr: 'Exemples de sous-titres' },
     lessonVideo: { ar: 'فيديو الدرس', en: 'Lesson video', fr: 'Vidéo de la leçon' },
     chooseVideoFile: { ar: 'اختر ملف فيديو', en: 'Choose video file', fr: 'Choisir un fichier vidéo' },
+    currentMedia: { ar: 'الوسائط الحالية', en: 'Current media', fr: 'Média actuel' },
+    currentMediaFile: { ar: 'ملف محفوظ في التطبيق', en: 'File saved in app', fr: 'Fichier enregistré dans l’app' },
+    noMedia: { ar: 'لا يوجد فيديو/صوت', en: 'No video/audio', fr: 'Aucune vidéo/audio' },
+    confirmDeleteMedia: { ar: 'حذف الفيديو/الصوت من الدرس؟', en: 'Remove video/audio from this lesson?', fr: 'Supprimer la vidéo/audio de cette leçon ?' },
     lessonAudio: { ar: 'صوت الدرس', en: 'Lesson audio', fr: 'Audio de la leçon' },
     chooseAudioFile: { ar: 'اختر ملف صوت', en: 'Choose audio file', fr: 'Choisir un fichier audio' },
     lessonAudioUrl: { ar: 'أو رابط الصوت', en: 'Or audio URL', fr: 'Ou URL de l’audio' },
@@ -2455,7 +2459,7 @@
   }
 
   function generatePhrasesFromCaptions() {
-    const form = document.getElementById('add-lesson-form');
+    const form = document.getElementById('add-lesson-form') || document.getElementById('edit-lesson-form');
     if (!form) return;
     const text = form.elements.captions.value.trim();
     if (!text) { alert(t('captionParseError')); return; }
@@ -2861,7 +2865,7 @@
     if (captionFile) captionFile.onchange = async () => {
       const file = captionFile.files && captionFile.files[0];
       if (!file) return;
-      try { document.getElementById('add-lesson-form').elements.captions.value = await readFileText(file); }
+      try { (document.getElementById('add-lesson-form') || document.getElementById('edit-lesson-form')).elements.captions.value = await readFileText(file); }
       catch (e) { showToast(t('captionParseError')); }
     };
   }
@@ -2876,10 +2880,33 @@
     const cancelRoute = parent ? { name: 'folder', folder: parent.id } : { name: 'home' };
     const phrasesText = lesson.phrases.map(p => `${p.fr} | ${p.ar} | ${p.en}`).join('\n');
     const titleText = formatTitle(lesson.title);
+    const hasMedia = !!lesson.media;
+    const mediaIsUrl = hasMedia && /^https?:\/\//.test(lesson.media);
+    const mediaLabel = hasMedia ? (mediaIsUrl ? lesson.media : t('currentMediaFile')) : t('noMedia');
     const html = `<div class="breadcrumb">${breadcrumb}</div>
       <div class="lesson-head"><h2>${t('editLessonTitle')}</h2></div>
       <form id="edit-lesson-form" class="form-card" data-id="${lesson.id}" data-parent="${parent ? parent.id : ''}">
         <div class="form-group"><label data-t="title">${t('title')}</label><input name="title" required value="${esc(titleText)}" placeholder="${t('titlePlaceholder')}"><div class="hint" data-t="titleHint">${t('titleHint')}</div></div>
+        <div class="form-group" style="margin-top:0.75rem"><label>${t('currentMedia')}</label>
+          <div id="edit-current-media" style="display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap">
+            <span class="pill" style="max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${hasMedia ? '🎬 ' : ''}${esc(mediaLabel)}</span>
+            ${hasMedia ? `<button type="button" class="btn ghost icon" id="btn-edit-remove-media" title="${t('delete')}">🗑️</button>` : ''}
+          </div>
+          ${hasMedia ? `<div id="edit-media-preview" class="phrase-media media-placeholder" data-media-ref="${esc(lesson.media)}" data-media-src="${esc(toWebUrl(lesson.media))}" style="margin-top:0.5rem"></div>` : ''}
+        </div>
+        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonVideo">${t('lessonVideo')}</label><button type="button" class="btn" id="btn-choose-lesson-video" data-t="chooseVideoFile">${t('chooseVideoFile')}</button><input type="file" id="lesson-video-file" accept="video/*" style="display:none"><span id="edit-video-name" class="hint"></span></div>
+        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonVideoUrl">${t('lessonVideoUrl')}</label><input type="text" name="videoUrl" placeholder="https://..." style="width:100%" value="${mediaIsUrl && !isAudioUrl(lesson.media) ? esc(lesson.media) : ''}"></div>
+        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudio">${t('lessonAudio')}</label><button type="button" class="btn" id="btn-choose-lesson-audio" data-t="chooseAudioFile">${t('chooseAudioFile')}</button><input type="file" id="lesson-audio-file" accept="audio/*" style="display:none"><span id="edit-audio-name" class="hint"></span></div>
+        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudioUrl">${t('lessonAudioUrl')}</label><input type="text" name="audioUrl" placeholder="https://..." style="width:100%" value="${mediaIsUrl && isAudioUrl(lesson.media) ? esc(lesson.media) : ''}"></div>
+        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonCaptions">${t('lessonCaptions')}</label><button type="button" class="btn ghost" id="btn-choose-lesson-captions" data-t="chooseCaptionFile">${t('chooseCaptionFile')}</button><input type="file" id="lesson-captions-file" accept=".srt,.txt" style="display:none"></div>
+        <div class="form-group" style="margin-top:0.35rem">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.25rem">
+            <span class="hint" style="margin:0" data-t="captionText">${t('captionText')}</span>
+            <button type="button" id="btn-lesson-caption-examples" class="icon-btn" data-t-title="captionExamples" style="width:1.7rem;height:1.7rem;font-size:0.85rem">📝</button>
+          </div>
+          <textarea name="captions" rows="6" data-t="captionTextPlaceholder" placeholder="${t('captionTextPlaceholder')}" style="width:100%">${esc(lesson.captionText || '')}</textarea>
+        </div>
+        <div class="form-group" style="margin-top:0.75rem"><button type="button" class="btn ghost" id="btn-generate-phrases" data-t="generatePhrases">${t('generatePhrases')}</button></div>
         <div class="form-group"><button type="button" class="btn ghost info-btn" data-info="phrases" style="font-size:0.85rem;padding:0.35rem 0.7rem;margin-bottom:0.4rem">ℹ ${t('inputExamples')}</button><label data-t="phrasesLabel">${t('phrasesLabel')}</label><textarea name="phrases" rows="10" required>${esc(phrasesText)}</textarea><div class="hint" data-t="phrasesHint">${t('phrasesHint')}</div></div>
         <div class="form-actions">
           <button type="submit" class="btn" data-t="save">${t('save')}</button>
@@ -2887,20 +2914,81 @@
         </div>
       </form>`;
     view.innerHTML = html;
+    bindAddLessonForm();
+    const vf = document.getElementById('lesson-video-file');
+    const af = document.getElementById('lesson-audio-file');
+    if (vf) vf.onchange = () => { const n = document.getElementById('edit-video-name'); if (n) n.textContent = vf.files[0] ? vf.files[0].name : ''; };
+    if (af) af.onchange = () => { const n = document.getElementById('edit-audio-name'); if (n) n.textContent = af.files[0] ? af.files[0].name : ''; };
+    const rm = document.getElementById('btn-edit-remove-media');
+    if (rm) rm.onclick = () => {
+      if (!confirm(t('confirmDeleteMedia'))) return;
+      const form = document.getElementById('edit-lesson-form');
+      form.dataset.removeMedia = '1';
+      const holder = document.getElementById('edit-current-media');
+      if (holder) holder.innerHTML = `<span class="pill">${esc(t('noMedia'))}</span>`;
+      const prev = document.getElementById('edit-media-preview');
+      if (prev) prev.remove();
+      form.elements.videoUrl.value = '';
+      form.elements.audioUrl.value = '';
+    };
     applyTranslations();
+    loadMedia();
   }
 
-  function updateLesson() {
+  async function updateLesson() {
     const form = document.getElementById('edit-lesson-form');
     const ttl = parseTitle(form.elements.title.value);
     if (!ttl) { alert(t('fillTitleError')); return; }
-    const phrases = parsePhrases(form.elements.phrases.value, 'auto');
-    if (!phrases.length) { alert(t('noPhrasesError')); return; }
     const id = +form.dataset.id;
     const found = findLesson(id);
     if (!found) return;
-    found.lesson.title = ttl;
-    found.lesson.phrases = phrases;
+    const lesson = found.lesson;
+
+    let newMedia = null;
+    const videoFile = document.getElementById('lesson-video-file').files[0];
+    const audioFile = document.getElementById('lesson-audio-file').files[0];
+    const videoUrl = form.elements.videoUrl.value.trim();
+    const audioUrl = form.elements.audioUrl.value.trim();
+    if (videoFile || audioFile) {
+      newMedia = await storeMedia(videoFile || audioFile);
+      if (!newMedia) { alert(t('mediaSaveError')); return; }
+    } else if (videoUrl && videoUrl !== lesson.media) {
+      const valid = /^https?:\/\//.test(videoUrl) || /^data:/.test(videoUrl) || /^file:\/\//.test(videoUrl) || /^idb:\/\//.test(videoUrl) || isVideoUrl(videoUrl);
+      if (!valid) { alert(t('mediaInvalid')); return; }
+      newMedia = videoUrl;
+    } else if (audioUrl && audioUrl !== lesson.media) {
+      const valid = /^https?:\/\//.test(audioUrl) || /^data:/.test(audioUrl) || /^file:\/\//.test(audioUrl) || /^idb:\/\//.test(audioUrl) || isAudioUrl(audioUrl);
+      if (!valid) { alert(t('mediaInvalid')); return; }
+      newMedia = audioUrl;
+    }
+    const removeOld = form.dataset.removeMedia === '1' || (newMedia && newMedia !== lesson.media);
+    if (removeOld && lesson.media) { await deleteMediaRef(lesson.media); delete lesson.media; }
+    if (newMedia) lesson.media = newMedia;
+
+    let captionText = form.elements.captions.value.trim();
+    const captionFile = document.getElementById('lesson-captions-file').files[0];
+    if (captionFile) {
+      try { captionText = await readFileText(captionFile); }
+      catch (e) { alert(t('captionParseError')); return; }
+    }
+    let phrases;
+    const phrasesRaw = form.elements.phrases.value.trim();
+    if (captionText && captionText !== (lesson.captionText || '') && !phrasesRaw) {
+      const captions = parseCaptions(captionText);
+      if (!captions.length) { alert(t('captionParseError')); return; }
+      phrases = captions.map(c => ({ fr: c.fr, ar: c.ar, en: c.en, start: c.start, end: c.end }));
+    } else {
+      phrases = parsePhrases(phrasesRaw, 'auto');
+      if (captionText) {
+        const captions = parseCaptions(captionText);
+        if (captions.length === phrases.length) phrases.forEach((p, i) => { p.start = captions[i].start; p.end = captions[i].end; });
+      }
+    }
+    if (!phrases.length) { alert(t('noPhrasesError')); return; }
+    if (captionText) lesson.captionText = captionText; else delete lesson.captionText;
+
+    lesson.title = ttl;
+    lesson.phrases = phrases;
     saveLessons();
     showToast(t('saved'));
     go({ name: 'lesson', lesson: id });
