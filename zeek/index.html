@@ -3651,10 +3651,14 @@ Output in French, Arabic and English.`;
     modal.addEventListener('click', e => { if (e.target === modal) closeMedia(); });
   }
 
+  const scrollMemo = {};
+  const routeKey = r => JSON.stringify(r);
   function go(route, push = true) {
     stopSpeech();
-    const sameRoute = !push && JSON.stringify(route) === JSON.stringify(state.route);
-    const keepY = sameRoute ? window.scrollY : 0;
+    const prevKey = routeKey(state.route);
+    scrollMemo[prevKey] = window.scrollY;
+    const sameRoute = !push && routeKey(route) === prevKey;
+    const restoreY = sameRoute ? window.scrollY : (push ? 0 : (scrollMemo[routeKey(route)] || 0));
     state.route = route;
     if (push) {
       let hash = '#/';
@@ -3676,7 +3680,7 @@ Output in French, Arabic and English.`;
     else if (route.name === 'add-lesson') renderAddLesson(route.folder);
     else if (route.name === 'edit-lesson') renderEditLesson(route.lesson);
     loadMedia();
-    if (sameRoute) window.scrollTo({ top: keepY, behavior: 'auto' });
+    if (restoreY) requestAnimationFrame(() => window.scrollTo({ top: restoreY, behavior: 'auto' }));
     else window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
