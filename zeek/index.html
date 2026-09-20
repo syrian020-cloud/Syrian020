@@ -1665,6 +1665,13 @@
       if (!video._recorder) return;
       ctx.direction = 'ltr'; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
       ctx.drawImage(video, 0, 0, W, H);
+      const ov = video.closest('.phrase-media, .lesson-media') && video.closest('.phrase-media, .lesson-media').querySelector('.lesson-image-overlay.show img');
+      if (ov && ov.complete && ov.naturalWidth) {
+        ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+        const k = Math.min(W / ov.naturalWidth, H / ov.naturalHeight);
+        const iw = ov.naturalWidth * k, ih = ov.naturalHeight * k;
+        ctx.drawImage(ov, (W - iw) / 2, (H - ih) / 2, iw, ih);
+      }
       drawCaptionOnCanvas(ctx, captions, video.currentTime || 0, W, H);
       video._recRaf = requestAnimationFrame(draw);
     };
