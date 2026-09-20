@@ -406,7 +406,6 @@
       <button class="lang-btn" data-lang="en">EN</button>
       <button class="lang-btn" data-lang="fr">FR</button>
     </div>
-    <button class="icon-btn" id="btn-fav" data-t-title="favourites" title="Favourites">⭐</button>
     <button class="icon-btn" id="btn-theme" data-t-title="themeMode" title="Dark / light mode">🌙</button>
     <button class="icon-btn" id="btn-stop" data-t-title="stopAudio" title="Stop audio">⏹</button>
   </div>
@@ -2879,20 +2878,6 @@
     })();
   }
 
-  function renderFavs() {
-    const items = [];
-    getAllLessons().forEach(({ lesson }) => {
-      lesson.phrases.forEach((p, i) => {
-        const key = phraseKey(lesson.id, i);
-        if (state.favs.includes(key)) items.push({ p, key, lesson });
-      });
-    });
-    const html = `<div class="breadcrumb"><button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button><span>›</span><span>${t('favourites')}</span></div>
-      <div class="lesson-head"><h2>${t('savedPhrasesTitle')}</h2></div>` +
-      (items.length ? items.map(it => `<div class="pill">${esc(title(it.lesson.title))}</div>${phraseHTML(it.p, it.key)}`).join('') : `<div class="empty">${t('noSavedPhrases')}</div>`);
-    view.innerHTML = html;
-  }
-
   function renderSearch(q) {
     const needle = q.trim().toLowerCase();
     const results = [];
@@ -3667,14 +3652,12 @@ Output in French, Arabic and English.`;
       else if (route.name === 'add-folder') hash = '#/add-folder';
       else if (route.name === 'add-lesson') hash = '#/add-lesson' + (route.folder ? '/' + route.folder : '');
       else if (route.name === 'edit-lesson') hash = '#/edit-lesson/' + route.lesson;
-      else if (route.name === 'favs') hash = '#/favs';
       else if (route.name === 'search') hash = '#/search/' + encodeURIComponent(route.q);
       if (location.hash !== hash) location.hash = hash;
     }
     if (route.name === 'home') renderHome();
     else if (route.name === 'folder') renderFolder(route.folder);
     else if (route.name === 'lesson') renderLesson(route.lesson);
-    else if (route.name === 'favs') renderFavs();
     else if (route.name === 'search') renderSearch(route.q);
     else if (route.name === 'add-folder') renderAddFolder();
     else if (route.name === 'add-lesson') renderAddLesson(route.folder);
@@ -3686,7 +3669,6 @@ Output in French, Arabic and English.`;
 
   function parseHash() {
     const h = location.hash || '#/';
-    if (h === '#/favs') return { name: 'favs' };
     if (h === '#/add-folder') return { name: 'add-folder' };
     if (h === '#/add-lesson') return { name: 'add-lesson' };
     let m = h.match(/^#\/folder\/(\d+)$/);
@@ -3729,7 +3711,6 @@ Output in French, Arabic and English.`;
     }
     document.getElementById('btn-theme').onclick = toggleTheme;
     document.getElementById('btn-stop').onclick = stopSpeech;
-    document.getElementById('btn-fav').onclick = () => go({ name: 'favs' });
     document.querySelectorAll('.lang-btn').forEach(b => b.onclick = () => setUILang(b.dataset.lang));
     document.getElementById('rate').onchange = e => { state.rate = +e.target.value; stopSpeech(); updateVideoRate(); };
     document.getElementById('loopmode').onchange = e => { state.langs = e.target.value.split(','); stopSpeech(); };
