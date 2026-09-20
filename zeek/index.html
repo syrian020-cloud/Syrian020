@@ -722,10 +722,30 @@
     return { fr, ar, en };
   }
 
+  const FLAG_RE = /^\s*([\u{1F1E6}-\u{1F1FF}]{2})\s*/u;
+  function flagLang(flag, txt) {
+    if (/[\u0600-\u06FF]/.test(txt)) return 'ar';
+    if (flag === '🇫🇷' || flag === '🇧🇪' || flag === '🇨🇭' || flag === '🇨🇦') return 'fr';
+    if (flag === '🇺🇸' || flag === '🇬🇧' || flag === '🇦🇺') return 'en';
+    return classifyLatinLang(txt) || 'fr';
+  }
   function parsePhrases(text, userOrder = 'auto') {
     const phrases = [];
-    const blockOrder = (userOrder === 'auto') ? detectBlockOrder(text) : userOrder;
+    const plain = text.split('\n').filter(l => !FLAG_RE.test(l)).join('\n');
+    const blockOrder = (userOrder === 'auto') ? detectBlockOrder(plain) : userOrder;
+    let cur = {};
+    const flush = () => { if (cur.fr && cur.ar && cur.en) phrases.push(cur); cur = {}; };
     text.split('\n').forEach(raw => {
+      const m = raw.trim().match(FLAG_RE);
+      if (m) {
+        const body = cleanPhrasePart(raw.trim().slice(m[0].length));
+        if (!body) return;
+        const lang = flagLang(m[1], body);
+        if (cur[lang]) flush();
+        cur[lang] = m[1] + ' ' + body;
+        return;
+      }
+      flush();
       const parts = extractRawParts(raw);
       if (!parts) return;
       const ar = cleanPhrasePart(parts.ar);
@@ -738,6 +758,7 @@
       else { fr = first; en = last; }
       phrases.push({ fr, ar, en });
     });
+    flush();
     return phrases;
   }
 
@@ -856,6 +877,7 @@
     ttsLoopTitle: { ar: 'تكرار النطق', en: 'Repeat pronunciation', fr: 'Répéter la prononciation' },
     aiTitle: { ar: 'شرح العبارة بالذكاء الاصطناعي من Google', en: 'Explain phrase with Google AI', fr: 'Expliquer la phrase avec Google AI' },
     noteTitle: { ar: 'دفتر الملاحظات', en: 'Notebook', fr: 'Carnet' },
+    clipartTitle: { ar: 'بحث Google Clipart عن العبارة الفرنسية', en: 'Google Clipart search for the French phrase', fr: 'Recherche Google Clipart de la phrase française' },
     favTitle: { ar: 'حفظ', en: 'Save', fr: 'Enregistrer' },
     playAll: { ar: '▶ تشغيل كل الدرس', en: '▶ Play whole lesson', fr: '▶ Lire toute la leçon' },
     stopAll: { ar: '⏹ إيقاف', en: '⏹ Stop', fr: '⏹ Arrêter' },
@@ -876,7 +898,7 @@
     titleHint: { ar: 'يمكن إدخال لغة واحدة أو أكثر (فرنسي | عربي | إنجليزي)', en: 'One or more languages (French | Arabic | English)', fr: 'Une ou plusieurs langues (Français | Arabe | Anglais)' },
     titlePlaceholder: { ar: 'مثال: الدرس الأول', en: 'Ex: First lesson', fr: 'Ex: Première leçon' },
     phrasesLabel: { ar: 'العبارات', en: 'Phrases', fr: 'Phrases' },
-    phrasesHint: { ar: 'كل سطر: فرنسي/إنجليزي ثم عربي ثم الآخر. يقبل | , = → : - ومسافات/Tab', en: 'One line: French/English then Arabic then the other. Supports | , = → : - and spaces/tabs', fr: 'Une ligne : Français/Anglais puis Arabe puis l\'autre. Accepte | , = → : - et espaces/tab' },
+    phrasesHint: { ar: 'كل سطر: فرنسي/إنجليزي ثم عربي ثم الآخر. يقبل | , = → : - ومسافات/Tab — أو 3 أسطر تبدأ بالأعلام 🇫🇷 🇸🇾 🇺🇸', en: 'One line: French/English then Arabic then the other. Supports | , = → : - and spaces/tabs — or 3 lines starting with flags 🇫🇷 🇸🇾 🇺🇸', fr: 'Une ligne : Français/Anglais puis Arabe puis l\'autre. Accepte | , = → : - et espaces/tab — ou 3 lignes commençant par des drapeaux 🇫🇷 🇸🇾 🇺🇸' },
     inputExamples: { ar: 'نماذج الإدخال', en: 'Input examples', fr: 'Exemples de saisie' },
     copy: { ar: 'نسخ', en: 'Copy', fr: 'Copier' },
     copied: { ar: 'تم النسخ', en: 'Copied', fr: 'Copié' },
@@ -2686,7 +2708,7 @@
           <button class="image-btn ${hasImage ? 'on' : ''}" title="${t('chooseImage')}">🖼️</button>
           <button class="media-btn ${hasVideo ? 'on' : ''}" title="${t('addMedia')}">${hasVideo ? '📎' : '🎬'}</button>
           <button class="note-btn ${hasNote(key) ? 'note-on' : ''}" title="${t('noteTitle')}">${hasNote(key) ? '📔' : '📓'}</button>
-          <button class="fav-btn ${isFav(key) ? 'fav-on' : ''}" title="${t('favTitle')}">${isFav(key) ? '★' : '☆'}</button>
+          <button class="clipart-btn" title="${t('clipartTitle')}">🔍</button>
         </div>
       </div>
     </div>`;
@@ -3083,7 +3105,11 @@
     'Au revoir: مع السلامة: Goodbye',
     'Pomme - تفاحة - Apple',
     'Où sont les toilettes أين الحمام Where is the bathroom',
-    'English | Arabic | French'
+    'English | Arabic | French',
+    '',
+    '🇫🇷 Maria, j’ai plus de cigarettes.',
+    '🇸🇾 ماريا، ما عاد معي دخان.',
+    '🇺🇸 Maria, I’m out of cigarettes.'
   ];
 
   const CAPTION_EXAMPLES = [
@@ -3368,12 +3394,9 @@ Output in French, Arabic and English.`;
         openMedia(key);
       } else if (e.target.closest('.note-btn')) {
         openNote(key);
-      } else if (e.target.closest('.fav-btn')) {
-        toggleFav(key);
-        const favBtn = phrase.querySelector('.fav-btn');
-        const on = isFav(key);
-        favBtn.classList.toggle('fav-on', on);
-        favBtn.textContent = on ? '★' : '☆';
+      } else if (e.target.closest('.clipart-btn')) {
+        const q = stripSpeechFlags(p.fr) + ' clipart';
+        window.open('https://www.google.com/search?q=' + encodeURIComponent(q) + '&udm=2&hl=' + state.uiLang, '_blank');
       }
     });
   }
@@ -3623,6 +3646,8 @@ Output in French, Arabic and English.`;
 
   function go(route, push = true) {
     stopSpeech();
+    const sameRoute = !push && JSON.stringify(route) === JSON.stringify(state.route);
+    const keepY = sameRoute ? window.scrollY : 0;
     state.route = route;
     if (push) {
       let hash = '#/';
@@ -3644,7 +3669,8 @@ Output in French, Arabic and English.`;
     else if (route.name === 'add-lesson') renderAddLesson(route.folder);
     else if (route.name === 'edit-lesson') renderEditLesson(route.lesson);
     loadMedia();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (sameRoute) window.scrollTo({ top: keepY, behavior: 'auto' });
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function parseHash() {
