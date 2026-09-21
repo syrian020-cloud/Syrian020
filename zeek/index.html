@@ -528,6 +528,17 @@
   </div>
 </div>
 
+<div id="export-modal" class="modal" style="z-index:98">
+  <div class="modal-content" style="max-width:420px">
+    <h3>Export</h3>
+    <div class="form-actions" style="flex-direction:column;align-items:stretch;gap:0.5rem">
+      <button type="button" class="btn" id="btn-export-full"></button>
+      <button type="button" class="btn ghost" id="btn-export-lessons"></button>
+      <button type="button" class="btn ghost" id="btn-export-cancel"></button>
+    </div>
+  </div>
+</div>
+
 <div id="caption-examples-modal" class="modal" style="z-index:98">
   <div class="modal-content" style="max-width:520px">
     <h3 data-t="captionExamples">Caption examples</h3>
@@ -556,6 +567,131 @@
   }
 
   function saveLessons() { localStorage.setItem('zeek_lessons', JSON.stringify(LESSONS)); }
+
+  function chooseExport() {
+    const modal = document.getElementById('export-modal');
+    if (!modal) { exportLessons(); return; }
+    modal.querySelector('h3').textContent = t('exportChoiceTitle');
+    modal.querySelector('#btn-export-full').textContent = t('exportFull');
+    modal.querySelector('#btn-export-lessons').textContent = t('exportLessonsOnly');
+    modal.querySelector('#btn-export-cancel').textContent = t('cancel');
+    modal.classList.add('show');
+  }
+
+  function collectMediaRefs() {
+    const ids = new Set();
+    const add = r => { if (isIDBMedia(r)) ids.add(idbMediaId(r)); };
+    LESSONS.forEach(l => {
+      add(l.media); add(l.image);
+      (l.phrases || []).forEach(p => add(p.media));
+    });
+    return [...ids];
+  }
+
+  function blobToB64(part) {
+    return new Promise((res, rej) => {
+      const fr = new FileReader();
+      fr.onload = () => res(String(fr.result).split(',')[1] || '');
+      fr.onerror = rej;
+      fr.readAsDataURL(part);
+    });
+  }
+
+  function createTextSink(filename, mime) {
+    const native = typeof Capacitor !== 'undefined' && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
+    if (!native) {
+      const parts = [];
+      return {
+        write(str) { parts.push(str); },
+        async finish() {
+          const url = URL.createObjectURL(new Blob(parts, { type: mime }));
+          const a = document.createElement('a');
+          a.href = url; a.download = filename; a.style.display = 'none';
+          document.body.appendChild(a); a.click(); a.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 2000);
+        }
+      };
+    }
+    const { Filesystem, Share } = Capacitor.Plugins;
+    const Directory = Filesystem.Directory || {};
+    const dir = Directory.Cache || 'CACHE';
+    const encoding = Filesystem.Encoding && Filesystem.Encoding.UTF8 ? Filesystem.Encoding.UTF8 : 'utf8';
+    let queue = Promise.resolve(), started = false, failed = null, buf = '';
+    const FLUSH = 512 * 1024;
+    const flush = () => {
+      if (!buf) return;
+      const data = buf; buf = '';
+      queue = queue.then(async () => {
+        if (failed) return;
+        if (!started) { started = true; await Filesystem.writeFile({ path: filename, data, directory: dir, encoding, recursive: true }); }
+        else await Filesystem.appendFile({ path: filename, data, directory: dir, encoding });
+      }).catch(e => { failed = e; console.error('export write failed', e); });
+    };
+    return {
+      write(str) { buf += str; if (buf.length >= FLUSH) flush(); },
+      async finish() {
+        flush();
+        await queue;
+        if (failed) throw failed;
+        const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
+        if (Share && Share.share) await Share.share({ title: 'Zeek lessons', files: [uri], dialogTitle: 'Zeek export' });
+      }
+    };
+  }
+
+  async function exportLessonsFull() {
+    const filename = 'zeek-full-' + new Date().toISOString().slice(0,10) + '.json';
+    showToast(t('exportPreparing'), 60000);
+    try {
+      const sink = createTextSink(filename, 'application/json');
+      sink.write('{"zeekExport":1,"lessons":' + JSON.stringify(LESSONS) + ',"media":{');
+      const ids = collectMediaRefs();
+      let first = true;
+      for (const id of ids) {
+        let blob = null;
+        try { blob = await getMediaBlob(id); } catch (e) {}
+        if (!blob) continue;
+        const type = blob.type || mimeFromName(blob.name || '') || 'application/octet-stream';
+        sink.write((first ? '' : ',') + JSON.stringify(id) + ':{"type":' + JSON.stringify(type) + ',"name":' + JSON.stringify(blob.name || '') + ',"data":"');
+        first = false;
+        const STEP = 3 * 256 * 1024;
+        for (let off = 0; off < blob.size; off += STEP) {
+          sink.write(await blobToB64(blob.slice(off, Math.min(off + STEP, blob.size))));
+        }
+        sink.write('"}');
+      }
+      sink.write('}}');
+      await sink.finish();
+      showToast(t('exportSuccess'));
+    } catch (e) {
+      console.error('full export failed', e);
+      showToast(e.message || 'Export failed');
+    }
+  }
+
+  function b64ToBuffer(b64) {
+    const bin = atob(b64);
+    const out = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+    return out.buffer;
+  }
+
+  async function importMediaMap(media) {
+    if (!media || !idbMediaSupported()) return;
+    const db = await openMediaDb();
+    for (const id of Object.keys(media)) {
+      const m = media[id];
+      if (!m || typeof m.data !== 'string') continue;
+      const value = { data: b64ToBuffer(m.data), type: m.type || 'application/octet-stream', name: m.name || '' };
+      await new Promise((resolve, reject) => {
+        const tx = db.transaction([MEDIA_STORE_NAME], 'readwrite');
+        const req = tx.objectStore(MEDIA_STORE_NAME).put(value, id);
+        req.onsuccess = () => resolve();
+        req.onerror = () => reject(req.error);
+      });
+      mediaUrlCache.delete(id);
+    }
+  }
 
   async function exportLessons() {
     const data = JSON.stringify(LESSONS, null, 2);
@@ -592,14 +728,22 @@
     const reader = new FileReader();
     reader.onload = (e) => {
       try {
-        const data = JSON.parse(e.target.result);
+        const parsed = JSON.parse(e.target.result);
+        const full = parsed && !Array.isArray(parsed) && parsed.zeekExport && Array.isArray(parsed.lessons);
+        const data = full ? parsed.lessons : parsed;
         if (!Array.isArray(data)) throw new Error('invalid');
         if (confirm(t('importConfirm'))) {
-          LESSONS = data.map((it, i) => ({ ...it, id: it.id || (Date.now() + i) }));
-          ensureBuiltInLesson();
-          saveLessons();
-          go({ name: 'home' }, false);
-          showToast(t('importSuccess'));
+          const apply = () => {
+            LESSONS = data.map((it, i) => ({ ...it, id: it.id || (Date.now() + i) }));
+            ensureBuiltInLesson();
+            saveLessons();
+            go({ name: 'home' }, false);
+            showToast(t('importSuccess'));
+          };
+          if (full) {
+            showToast(t('exportPreparing'), 60000);
+            importMediaMap(parsed.media).then(apply).catch(err => { console.error('import media', err); apply(); });
+          } else apply();
         }
       } catch (err) {
         showToast(t('importError'));
@@ -965,6 +1109,10 @@
     save: { ar: 'حفظ', en: 'Save', fr: 'Enregistrer' },
     export: { ar: 'تصدير', en: 'Export', fr: 'Exporter' },
     import: { ar: 'استيراد', en: 'Import', fr: 'Importer' },
+    exportChoiceTitle: { ar: 'تصدير الدروس', en: 'Export lessons', fr: 'Exporter les leçons' },
+    exportFull: { ar: '📦 تصدير كامل (الدروس + الصور والفيديوهات والأصوات)', en: '📦 Full export (lessons + images, videos, audio)', fr: '📦 Export complet (leçons + images, vidéos, audio)' },
+    exportLessonsOnly: { ar: '📄 الدروس فقط (JSON كما هو الآن)', en: '📄 Lessons only (JSON as now)', fr: '📄 Leçons seulement (JSON actuel)' },
+    exportPreparing: { ar: 'جاري تجهيز الملف…', en: 'Preparing file…', fr: 'Préparation du fichier…' },
     exportSuccess: { ar: 'تم تصدير الدروس', en: 'Lessons exported', fr: 'Leçons exportées' },
     exportCopied: { ar: 'تم نسخ البيانات — الصقها في ملف نصي', en: 'Data copied — paste into a text file', fr: 'Données copiées — collez dans un fichier texte' },
     importSuccess: { ar: 'تم استيراد الدروس', en: 'Lessons imported', fr: 'Leçons importées' },
@@ -3342,7 +3490,7 @@ EN: Maria, I’m out of cigarettes.`
       }
 
       const exportBtn = e.target.closest('#btn-export');
-      if (exportBtn) { e.stopPropagation(); exportLessons(); return; }
+      if (exportBtn) { e.stopPropagation(); chooseExport(); return; }
 
       const infoBtn = e.target.closest('[data-info]');
       if (infoBtn) { e.stopPropagation(); showPhraseExamples(); return; }
@@ -3605,6 +3753,16 @@ Output in French, Arabic and English.`;
     input.click();
   }
 
+  function bindExportModal() {
+    const modal = document.getElementById('export-modal');
+    if (!modal) return;
+    const close = () => modal.classList.remove('show');
+    document.getElementById('btn-export-full').onclick = () => { close(); exportLessonsFull(); };
+    document.getElementById('btn-export-lessons').onclick = () => { close(); exportLessons(); };
+    document.getElementById('btn-export-cancel').onclick = close;
+    modal.addEventListener('click', e => { if (e.target === modal) close(); });
+  }
+
   function bindMediaModal() {
     const modal = document.getElementById('media-modal');
     const fileInput = document.getElementById('media-file');
@@ -3775,6 +3933,7 @@ Output in French, Arabic and English.`;
     bindActionSheet();
     bindNoteCanvas();
     bindMediaModal();
+    bindExportModal();
     document.getElementById('btn-save-note').onclick = saveNote;
     document.getElementById('btn-close-note').onclick = closeNote;
     document.getElementById('note-clear').onclick = clearNote;
