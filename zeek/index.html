@@ -91,7 +91,7 @@
     display: none; align-items: center; justify-content: center; padding: 1rem;
   }
   .modal.show { display: flex; }
-  .modal-content { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; width: 100%; max-width: 480px; box-shadow: var(--shadow); }
+  .modal-content { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; width: 100%; max-width: 480px; box-shadow: var(--shadow); max-height: calc(100vh - 2rem); max-height: calc(100dvh - 2rem); overflow-y: auto; -webkit-overflow-scrolling: touch; }
   #note-modal.modal { padding: 1rem; background: rgba(0,0,0,0.75); }
   #note-modal .modal-content { max-width: none; width: 100%; height: 100%; max-height: 100%; border-radius: var(--radius); padding: 0.6rem; display: flex; flex-direction: column; }
   .modal-content h3 { margin: 0 0 0.75rem; color: var(--text-primary); }
@@ -518,7 +518,7 @@
     </div>
     <div class="form-group" id="media-preview" style="display:none;margin-top:0.75rem">
       <img id="media-preview-img" style="width:100%;border-radius:var(--radius);display:none">
-      <video id="media-preview-video" controls style="width:100%;border-radius:var(--radius);display:none;max-height:240px;background:#000"></video>
+      <video id="media-preview-video" controls style="width:100%;border-radius:var(--radius);display:none;max-height:140px;background:#000"></video>
     </div>
     <div class="form-actions" style="margin-top:0.75rem">
       <button type="button" class="btn" id="btn-save-media" data-t="save">حفظ</button>
@@ -3189,6 +3189,14 @@ EN: Maria, I’m out of cigarettes.`
   let mediaKey = null;
   let mediaFileData = null;
   let mediaFileType = null;
+  let mediaScrollY = 0;
+  function restoreMediaScroll() {
+    const y = mediaScrollY;
+    const apply = () => window.scrollTo({ top: y, behavior: 'auto' });
+    requestAnimationFrame(apply);
+    setTimeout(apply, 250);
+    setTimeout(apply, 700);
+  }
   let captionFileData = null;
   let noteDrawing = false;
   let noteErasing = false;
@@ -3466,6 +3474,7 @@ Output in French, Arabic and English.`;
 
   async function openMedia(key) {
     mediaKey = key;
+    mediaScrollY = window.scrollY;
     mediaFileData = null;
     mediaFileType = null;
     captionFileData = null;
@@ -3535,6 +3544,7 @@ Output in French, Arabic and English.`;
     saveLessons();
     closeMedia();
     go(state.route, false);
+    restoreMediaScroll();
     showToast(t('saved'));
   }
 
@@ -3554,6 +3564,7 @@ Output in French, Arabic and English.`;
       if (p && p.captionText) delete p.captionText;
       saveLessons();
       go(state.route, false);
+      restoreMediaScroll();
       showToast(t('deleted'));
     }
     closeMedia();
