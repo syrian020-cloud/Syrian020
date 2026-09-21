@@ -498,6 +498,14 @@
       <input type="text" id="media-url" placeholder="https://..." style="width:100%">
     </div>
     <div class="form-group" style="margin-top:0.75rem">
+      <button type="button" class="btn" id="btn-choose-media-audio" data-t="chooseAudioFile">Choose audio file</button>
+      <input type="file" id="media-audio-file" accept="audio/*" style="display:none">
+    </div>
+    <div class="form-group" style="margin-top:0.75rem">
+      <label data-t="lessonAudioUrl">Audio URL</label>
+      <input type="text" id="media-audio-url" placeholder="https://..." style="width:100%">
+    </div>
+    <div class="form-group" style="margin-top:0.75rem">
       <button type="button" class="btn ghost" id="btn-choose-caption-file" data-t="chooseCaptionFile">Choose caption file (SRT/text)</button>
       <input type="file" id="caption-file" accept=".srt,.txt" style="display:none">
     </div>
@@ -3180,6 +3188,7 @@ EN: Maria, I’m out of cigarettes.`
   let noteCtx = null;
   let mediaKey = null;
   let mediaFileData = null;
+  let mediaFileType = null;
   let captionFileData = null;
   let noteDrawing = false;
   let noteErasing = false;
@@ -3436,7 +3445,7 @@ Output in French, Arabic and English.`;
     if (isIDBMedia(url)) {
       const resolved = await resolveMediaRef(url);
       if (!resolved.url) { img.style.display = 'none'; vid.style.display = 'none'; return; }
-      const isVideo = (resolved.type || '').startsWith('video/') || isVideoUrl(resolved.url);
+      const isVideo = (resolved.type || '').startsWith('video/') || (resolved.type || '').startsWith('audio/') || isVideoUrl(resolved.url) || isAudioUrl(resolved.url);
       if (isVideo) {
         img.style.display = 'none'; vid.style.display = 'block'; vid.src = resolved.url; img.src = '';
       } else {
@@ -3446,7 +3455,7 @@ Output in French, Arabic and English.`;
     }
     const src = toWebUrl(url);
     const yt = youtubeId(src);
-    if (isVideoUrl(src)) {
+    if (isVideoUrl(src) || isAudioUrl(src)) {
       img.style.display = 'none'; vid.style.display = 'block'; vid.src = src; img.src = '';
     } else if (yt) {
       img.style.display = 'block'; vid.style.display = 'none'; img.src = 'https://img.youtube.com/vi/' + yt + '/0.jpg'; vid.src = '';
@@ -3458,6 +3467,7 @@ Output in French, Arabic and English.`;
   async function openMedia(key) {
     mediaKey = key;
     mediaFileData = null;
+    mediaFileType = null;
     captionFileData = null;
     const [lessonId, idx] = key.split('.').map(Number);
     const found = findLesson(lessonId);
@@ -3470,9 +3480,14 @@ Output in French, Arabic and English.`;
     const fileInput = document.getElementById('media-file');
     const captionText = document.getElementById('caption-text');
     const captionFileInput = document.getElementById('caption-file');
-    urlInput.value = (existingMedia && !/^data:/.test(existingMedia) && !/^file:\/\//.test(existingMedia) && !/^idb:\/\//.test(existingMedia)) ? existingMedia : '';
+    const audioUrlInput = document.getElementById('media-audio-url');
+    const isPlainUrl = existingMedia && !/^data:/.test(existingMedia) && !/^file:\/\//.test(existingMedia) && !/^idb:\/\//.test(existingMedia);
+    const existingIsAudio = isPlainUrl && isAudioUrl(existingMedia);
+    urlInput.value = (isPlainUrl && !existingIsAudio) ? existingMedia : '';
+    audioUrlInput.value = existingIsAudio ? existingMedia : '';
     removeBtn.style.display = existingMedia ? 'inline-block' : 'none';
     fileInput.value = '';
+    document.getElementById('media-audio-file').value = '';
     captionFileInput.value = '';
     captionText.value = '';
     if (p && p.captionText) {
@@ -3487,6 +3502,7 @@ Output in French, Arabic and English.`;
     document.getElementById('media-modal').classList.remove('show');
     mediaKey = null;
     mediaFileData = null;
+    mediaFileType = null;
     captionFileData = null;
     updateMediaPreview(null);
   }
@@ -3497,7 +3513,7 @@ Output in French, Arabic and English.`;
     const found = findLesson(lessonId);
     if (!found) { closeMedia(); return; }
     const p = found.lesson.phrases[idx];
-    const urlInput = document.getElementById('media-url').value.trim();
+    const urlInput = document.getElementById('media-url').value.trim() || document.getElementById('media-audio-url').value.trim();
     const newVideo = mediaFileData || urlInput;
     let url = newVideo || (p && p.media);
     const captionText = document.getElementById('caption-text').value.trim();
@@ -3509,7 +3525,7 @@ Output in French, Arabic and English.`;
     if (url) {
       if (p.media && p.media !== url) await deleteMediaRef(p.media);
       p.media = url;
-      if (newVideo) p.mediaType = 'video';
+      if (newVideo) p.mediaType = (mediaFileType === 'audio' || (!mediaFileData && isAudioUrl(url))) ? 'audio' : 'video';
     }
     if (captionText) {
       p.captionText = captionText;
@@ -3583,6 +3599,9 @@ Output in French, Arabic and English.`;
     const fileInput = document.getElementById('media-file');
     const chooseBtn = document.getElementById('btn-choose-media-file');
     const urlInput = document.getElementById('media-url');
+    const audioFileInput = document.getElementById('media-audio-file');
+    const chooseAudioBtn = document.getElementById('btn-choose-media-audio');
+    const audioUrlInput = document.getElementById('media-audio-url');
     const captionInput = document.getElementById('caption-file');
     const chooseCaptionBtn = document.getElementById('btn-choose-caption-file');
     const captionText = document.getElementById('caption-text');
@@ -3590,27 +3609,32 @@ Output in French, Arabic and English.`;
     document.getElementById('btn-save-media').onclick = saveMedia;
     document.getElementById('btn-remove-media').onclick = removeMedia;
     chooseBtn.onclick = () => fileInput.click();
+    chooseAudioBtn.onclick = () => audioFileInput.click();
     chooseCaptionBtn.onclick = () => captionInput.click();
-    fileInput.onchange = async () => {
-      const file = fileInput.files && fileInput.files[0];
+    const onMediaFile = (input, check, kind) => async () => {
+      const file = input.files && input.files[0];
       if (!file) return;
-      if (!isVideoFile(file)) {
+      if (!check(file)) {
         showToast(t('mediaInvalid'));
-        fileInput.value = '';
+        input.value = '';
         return;
       }
       try {
         const uri = await storeMedia(file);
         if (uri) {
           mediaFileData = uri;
+          mediaFileType = kind;
           await updateMediaPreview(uri);
           urlInput.value = '';
+          audioUrlInput.value = '';
         } else {
           const reader = new FileReader();
           reader.onload = (e) => {
             mediaFileData = e.target.result;
+            mediaFileType = kind;
             updateMediaPreview(mediaFileData);
             urlInput.value = '';
+            audioUrlInput.value = '';
           };
           reader.onerror = () => showToast(t('mediaSaveError'));
           reader.readAsDataURL(file);
@@ -3620,6 +3644,8 @@ Output in French, Arabic and English.`;
         showToast(t('mediaSaveError'));
       }
     };
+    fileInput.onchange = onMediaFile(fileInput, isVideoFile, 'video');
+    audioFileInput.onchange = onMediaFile(audioFileInput, isAudioFile, 'audio');
     captionInput.onchange = () => {
       const file = captionInput.files && captionInput.files[0];
       if (!file) return;
@@ -3632,7 +3658,8 @@ Output in French, Arabic and English.`;
       reader.readAsText(file);
     };
     captionText.oninput = (e) => { captionFileData = e.target.value; };
-    urlInput.oninput = (e) => { mediaFileData = null; updateMediaPreview(e.target.value.trim()); };
+    urlInput.oninput = (e) => { mediaFileData = null; mediaFileType = null; audioUrlInput.value = ''; updateMediaPreview(e.target.value.trim()); };
+    audioUrlInput.oninput = (e) => { mediaFileData = null; mediaFileType = null; urlInput.value = ''; updateMediaPreview(e.target.value.trim()); };
     modal.addEventListener('click', e => { if (e.target === modal) closeMedia(); });
   }
 
