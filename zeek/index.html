@@ -817,7 +817,12 @@
   async function importLessons(file) {
     if (!file) return;
     const applyLessons = data => {
-      LESSONS = data.map((it, i) => ({ ...it, id: it.id || (Date.now() + i) }));
+      LESSONS = data.filter(it => it && typeof it === 'object').map((it, i) => {
+        const item = { ...it, id: it.id || (Date.now() + i) };
+        if (item.type === 'folder') item.lessons = (item.lessons || []).map(l => ({ ...l, phrases: l.phrases || [] }));
+        else item.phrases = item.phrases || [];
+        return item;
+      });
       ensureBuiltInLesson();
       saveLessons();
       go({ name: 'home' }, false);
@@ -829,9 +834,14 @@
       if (isFull) {
         if (!confirm(t('importConfirm'))) return;
         showToast(t('exportPreparing'), 600000);
-        const lessons = await importFullStream(file, p => showToast(t('exportPreparing') + ' ' + Math.round(p * 100) + '%', 600000));
-        applyLessons(lessons);
-        return;
+        try {
+          const lessons = await importFullStream(file, p => showToast(t('exportPreparing') + ' ' + Math.round(p * 100) + '%', 600000));
+          applyLessons(lessons);
+          return;
+        } catch (err) {
+          console.error('stream import failed, falling back', err);
+          if (file.size > 200 * 1024 * 1024) throw err;
+        }
       }
       const text = await new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -848,7 +858,8 @@
       applyLessons(data);
     } catch (err) {
       console.error('import failed', err);
-      showToast(t('importError') + (err && err.message ? ': ' + err.message : ''));
+      const where = err && err.stack ? String(err.stack).split('\n').slice(1, 2).join('').trim() : '';
+      showToast(t('importError') + (err && err.message ? ': ' + err.message : '') + (where ? ' @ ' + where : ''), 8000);
     }
   }
 
@@ -3016,7 +3027,7 @@
           <div class="card-body">
             <div class="card-title">${esc(title(it.title))}</div>
             <div class="card-sub" dir="ltr">${subtitle(it.title)}</div>
-            <div class="card-sub">${it.phrases.length} ${t('phrases')}</div>
+            <div class="card-sub">${(it.phrases || []).length} ${t('phrases')}</div>
           </div>
           ${menuBtn(it, 'lesson')}
           <div class="chev">${chevron()}</div>
@@ -3045,7 +3056,7 @@
         <div class="card-body">
           <div class="card-title">${esc(title(l.title))}</div>
           <div class="card-sub" dir="ltr">${subtitle(l.title)}</div>
-          <div class="card-sub">${l.phrases.length} ${t('phrases')}</div>
+          <div class="card-sub">${(l.phrases || []).length} ${t('phrases')}</div>
         </div>
         ${menuBtn(l, 'lesson')}
         <div class="chev">${chevron()}</div>
