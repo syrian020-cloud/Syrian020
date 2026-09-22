@@ -531,6 +531,11 @@
 <div id="export-modal" class="modal" style="z-index:98">
   <div class="modal-content" style="max-width:420px">
     <h3>Export</h3>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin:0.25rem 0">
+      <strong data-t="exportSelectLessons">Lessons</strong>
+      <button type="button" class="btn ghost" id="btn-export-toggle-all" style="padding:0.2rem 0.6rem;font-size:0.85rem"></button>
+    </div>
+    <div id="export-lessons-list" style="max-height:38vh;overflow:auto;border:1px solid var(--border,rgba(255,255,255,0.15));border-radius:10px;padding:0.4rem 0.6rem;margin-bottom:0.6rem;text-align:start"></div>
     <div id="export-kinds" style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin:0.25rem 0 0.75rem">
       <label style="display:flex;align-items:center;gap:0.35rem;cursor:pointer"><input type="checkbox" id="export-kind-image" checked> <span>🖼️ <span data-t="exportKindImages">Images</span></span></label>
       <label style="display:flex;align-items:center;gap:0.35rem;cursor:pointer"><input type="checkbox" id="export-kind-video" checked> <span>🎬 <span data-t="exportKindVideos">Videos</span></span></label>
@@ -595,16 +600,59 @@
     modal.querySelector('#btn-export-lessons').textContent = t('exportLessonsOnly');
     modal.querySelector('#btn-export-cancel').textContent = t('cancel');
     modal.querySelectorAll('[data-t]').forEach(el => { el.textContent = t(el.getAttribute('data-t')); });
+    const list = modal.querySelector('#export-lessons-list');
+    const row = (key, label, indent) => `<label style="display:flex;align-items:center;gap:0.5rem;padding:0.25rem 0;${indent ? 'padding-inline-start:1.4rem;' : ''}cursor:pointer"><input type="checkbox" class="export-pick" data-key="${key}" checked> <span>${label}</span></label>`;
+    list.innerHTML = LESSONS.map(it => {
+      if (it.type === 'folder') {
+        return row('f:' + it.id, '📁 ' + esc(title(it.title)), false) +
+          (it.lessons || []).map(l => row('f:' + it.id + ':' + l.id, '📝 ' + esc(title(l.title)), true)).join('');
+      }
+      return row('l:' + it.id, '📝 ' + esc(title(it.title)), false);
+    }).join('');
+    list.onchange = e => {
+      const cb = e.target;
+      if (!cb.classList.contains('export-pick')) return;
+      const key = cb.getAttribute('data-key');
+      if (/^f:[^:]+$/.test(key)) list.querySelectorAll(`.export-pick[data-key^="${key}:"]`).forEach(c => { c.checked = cb.checked; });
+      else if (key.startsWith('f:')) {
+        const fk = key.split(':').slice(0, 2).join(':');
+        const kids = [...list.querySelectorAll(`.export-pick[data-key^="${fk}:"]`)];
+        const parent = list.querySelector(`.export-pick[data-key="${fk}"]`);
+        if (parent) parent.checked = kids.some(c => c.checked);
+      }
+      updateExportToggle();
+    };
+    updateExportToggle();
     modal.classList.add('show');
   }
 
-  function collectMediaRefs() {
+  function updateExportToggle() {
+    const btn = document.getElementById('btn-export-toggle-all');
+    const picks = [...document.querySelectorAll('#export-lessons-list .export-pick')];
+    if (btn) btn.textContent = picks.length && picks.every(c => c.checked) ? t('exportSelectNone') : t('exportSelectAll');
+  }
+
+  function selectedExportLessons() {
+    const picked = new Set([...document.querySelectorAll('#export-lessons-list .export-pick:checked')].map(c => c.getAttribute('data-key')));
+    const out = [];
+    LESSONS.forEach(it => {
+      if (it.type === 'folder') {
+        const kids = (it.lessons || []).filter(l => picked.has('f:' + it.id + ':' + l.id));
+        if (kids.length || (picked.has('f:' + it.id) && !(it.lessons || []).length)) out.push({ ...it, lessons: kids });
+      } else if (picked.has('l:' + it.id)) out.push(it);
+    });
+    return out;
+  }
+
+  function collectMediaRefs(list) {
     const ids = new Set();
     const add = r => { if (isIDBMedia(r)) ids.add(idbMediaId(r)); };
-    LESSONS.forEach(l => {
+    const walk = l => {
       add(l.media); add(l.image);
       (l.phrases || []).forEach(p => add(p.media));
-    });
+      (l.lessons || []).forEach(walk);
+    };
+    (list || LESSONS).forEach(walk);
     return [...ids];
   }
 
@@ -667,13 +715,14 @@
     return '';
   }
 
-  async function exportLessonsFull(kinds) {
+  async function exportLessonsFull(kinds, list) {
+    list = list || LESSONS;
     const filename = 'zeek-full-' + new Date().toISOString().slice(0,10) + '.json';
     showToast(t('exportPreparing'), 60000);
     try {
       const sink = createTextSink(filename, 'application/json');
-      sink.write('{"zeekExport":1,"lessons":' + JSON.stringify(LESSONS) + ',"media":{');
-      const ids = collectMediaRefs();
+      sink.write('{"zeekExport":1,"lessons":' + JSON.stringify(list) + ',"media":{');
+      const ids = collectMediaRefs(list);
       let first = true;
       for (const id of ids) {
         let blob = null;
@@ -814,8 +863,8 @@
     return lessons;
   }
 
-  async function exportLessons() {
-    const data = JSON.stringify(LESSONS, null, 2);
+  async function exportLessons(list) {
+    const data = JSON.stringify(list || LESSONS, null, 2);
     const filename = 'zeek-lessons-' + new Date().toISOString().slice(0,10) + '.json';
     if (typeof Capacitor !== 'undefined' && Capacitor.Plugins && Capacitor.Plugins.Filesystem) {
       try {
@@ -847,7 +896,24 @@
   async function importLessons(file) {
     if (!file) return;
     const applyLessons = data => {
-      LESSONS = sanitizeLessons(data).map((it, i) => ({ ...it, id: it.id || (Date.now() + i) }));
+      const incoming = sanitizeLessons(data).map((it, i) => ({ ...it, id: it.id || (Date.now() + i) }));
+      const merged = LESSONS.slice();
+      incoming.forEach(it => {
+        const idx = it.protected
+          ? merged.findIndex(x => x.protected && (x.type || 'lesson') === 'lesson')
+          : merged.findIndex(x => x.id === it.id && (x.type || 'lesson') === (it.type || 'lesson'));
+        if (it.protected && idx !== -1) it.id = merged[idx].id;
+        if (idx === -1) { merged.push(it); return; }
+        if (it.type === 'folder') {
+          const kids = (merged[idx].lessons || []).slice();
+          (it.lessons || []).forEach(l => {
+            const k = kids.findIndex(x => x.id === l.id);
+            if (k === -1) kids.push(l); else kids[k] = l;
+          });
+          merged[idx] = { ...merged[idx], ...it, lessons: kids };
+        } else merged[idx] = it;
+      });
+      LESSONS = merged;
       ensureBuiltInLesson();
       saveLessons();
       go({ name: 'home' }, false);
@@ -1248,6 +1314,10 @@
     exportChoiceTitle: { ar: 'تصدير الدروس', en: 'Export lessons', fr: 'Exporter les leçons' },
     exportFull: { ar: '📦 تصدير مع وسائط', en: '📦 Export with media', fr: '📦 Exporter avec médias' },
     exportLessonsOnly: { ar: '📄 تصدير بدون وسائط', en: '📄 Export without media', fr: '📄 Exporter sans médias' },
+    exportSelectLessons: { ar: 'الدروس المُصدَّرة', en: 'Lessons to export', fr: 'Leçons à exporter' },
+    exportSelectAll: { ar: 'تحديد الكل', en: 'Select all', fr: 'Tout sélectionner' },
+    exportSelectNone: { ar: 'إلغاء الكل', en: 'Clear all', fr: 'Tout désélectionner' },
+    exportNothingSelected: { ar: 'اختر درسًا واحدًا على الأقل', en: 'Select at least one lesson', fr: 'Sélectionnez au moins une leçon' },
     exportKindImages: { ar: 'صور', en: 'Images', fr: 'Images' },
     exportKindVideos: { ar: 'فيديو', en: 'Videos', fr: 'Vidéos' },
     exportKindAudio: { ar: 'صوت', en: 'Audio', fr: 'Audio' },
@@ -1256,7 +1326,7 @@
     exportCopied: { ar: 'تم نسخ البيانات — الصقها في ملف نصي', en: 'Data copied — paste into a text file', fr: 'Données copiées — collez dans un fichier texte' },
     importSuccess: { ar: 'تم استيراد الدروس', en: 'Lessons imported', fr: 'Leçons importées' },
     importError: { ar: 'ملف غير صالح', en: 'Invalid file', fr: 'Fichier invalide' },
-    importConfirm: { ar: 'سيحل محتوى الملف محل الدروس الحالية. متابعة؟', en: 'This will replace current lessons. Continue?', fr: 'Cela remplacera les leçons actuelles. Continuer ?' },
+    importConfirm: { ar: 'سيتم إضافة دروس الملف وتحديث الدروس التي لها نفس المعرّف. متابعة؟', en: 'Lessons from the file will be added and existing ones with the same id updated. Continue?', fr: 'Les leçons du fichier seront ajoutées et celles ayant le même identifiant mises à jour. Continuer ?' },
     exitConfirm: { ar: 'هل تريد الخروج من التطبيق؟', en: 'Exit the app?', fr: 'Quitter l\'application ?' },
     saved: { ar: 'تم الحفظ', en: 'Saved', fr: 'Enregistré' },
     deleted: { ar: 'تم الحذف', en: 'Deleted', fr: 'Supprimé' },
@@ -3902,10 +3972,23 @@ Output in French, Arabic and English.`;
         video: document.getElementById('export-kind-video').checked,
         audio: document.getElementById('export-kind-audio').checked
       };
+      const list = selectedExportLessons();
+      if (!list.length) { showToast(t('exportNothingSelected')); return; }
       close();
-      exportLessonsFull(kinds);
+      exportLessonsFull(kinds, list);
     };
-    document.getElementById('btn-export-lessons').onclick = () => { close(); exportLessons(); };
+    document.getElementById('btn-export-lessons').onclick = () => {
+      const list = selectedExportLessons();
+      if (!list.length) { showToast(t('exportNothingSelected')); return; }
+      close();
+      exportLessons(list);
+    };
+    document.getElementById('btn-export-toggle-all').onclick = () => {
+      const picks = [...document.querySelectorAll('#export-lessons-list .export-pick')];
+      const all = picks.length && picks.every(c => c.checked);
+      picks.forEach(c => { c.checked = !all; });
+      updateExportToggle();
+    };
     document.getElementById('btn-export-cancel').onclick = close;
     modal.addEventListener('click', e => { if (e.target === modal) close(); });
   }
