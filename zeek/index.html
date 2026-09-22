@@ -617,7 +617,7 @@
     const dir = Directory.Cache || 'CACHE';
     const encoding = Filesystem.Encoding && Filesystem.Encoding.UTF8 ? Filesystem.Encoding.UTF8 : 'utf8';
     let queue = Promise.resolve(), started = false, failed = null, buf = '';
-    const FLUSH = 512 * 1024;
+    const FLUSH = 4 * 1024 * 1024;
     const flush = () => {
       if (!buf) return;
       const data = buf; buf = '';
@@ -654,7 +654,7 @@
         const type = blob.type || mimeFromName(blob.name || '') || 'application/octet-stream';
         sink.write((first ? '' : ',') + JSON.stringify(id) + ':{"type":' + JSON.stringify(type) + ',"name":' + JSON.stringify(blob.name || '') + ',"data":"');
         first = false;
-        const STEP = 3 * 256 * 1024;
+        const STEP = 3 * 1024 * 1024;
         for (let off = 0; off < blob.size; off += STEP) {
           sink.write(await blobToB64(blob.slice(off, Math.min(off + STEP, blob.size))));
         }
@@ -669,11 +669,16 @@
     }
   }
 
-  function b64ToBuffer(b64) {
-    const bin = atob(b64);
-    const out = new Uint8Array(bin.length);
-    for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
-    return out.buffer;
+  async function b64ToBuffer(b64) {
+    try {
+      const r = await fetch('data:application/octet-stream;base64,' + b64);
+      return await r.arrayBuffer();
+    } catch (e) {
+      const bin = atob(b64);
+      const out = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+      return out.buffer;
+    }
   }
 
   async function importMediaMap(media) {
@@ -682,7 +687,7 @@
     for (const id of Object.keys(media)) {
       const m = media[id];
       if (!m || typeof m.data !== 'string') continue;
-      const value = { data: b64ToBuffer(m.data), type: m.type || 'application/octet-stream', name: m.name || '' };
+      const value = { data: await b64ToBuffer(m.data), type: m.type || 'application/octet-stream', name: m.name || '' };
       await new Promise((resolve, reject) => {
         const tx = db.transaction([MEDIA_STORE_NAME], 'readwrite');
         const req = tx.objectStore(MEDIA_STORE_NAME).put(value, id);
@@ -1110,8 +1115,8 @@
     export: { ar: 'تصدير', en: 'Export', fr: 'Exporter' },
     import: { ar: 'استيراد', en: 'Import', fr: 'Importer' },
     exportChoiceTitle: { ar: 'تصدير الدروس', en: 'Export lessons', fr: 'Exporter les leçons' },
-    exportFull: { ar: '📦 تصدير كامل (الدروس + الصور والفيديوهات والأصوات)', en: '📦 Full export (lessons + images, videos, audio)', fr: '📦 Export complet (leçons + images, vidéos, audio)' },
-    exportLessonsOnly: { ar: '📄 الدروس فقط (JSON كما هو الآن)', en: '📄 Lessons only (JSON as now)', fr: '📄 Leçons seulement (JSON actuel)' },
+    exportFull: { ar: '📦 تصدير مع وسائط', en: '📦 Export with media', fr: '📦 Exporter avec médias' },
+    exportLessonsOnly: { ar: '📄 تصدير بدون وسائط', en: '📄 Export without media', fr: '📄 Exporter sans médias' },
     exportPreparing: { ar: 'جاري تجهيز الملف…', en: 'Preparing file…', fr: 'Préparation du fichier…' },
     exportSuccess: { ar: 'تم تصدير الدروس', en: 'Lessons exported', fr: 'Leçons exportées' },
     exportCopied: { ar: 'تم نسخ البيانات — الصقها في ملف نصي', en: 'Data copied — paste into a text file', fr: 'Données copiées — collez dans un fichier texte' },
