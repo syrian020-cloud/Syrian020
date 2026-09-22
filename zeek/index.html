@@ -681,6 +681,23 @@
     }
   }
 
+  function b64ChunkToBytes(str) {
+    const bin = atob(str);
+    const out = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+    return out;
+  }
+
+  async function putMediaRecord(db, id, value) {
+    await new Promise((resolve, reject) => {
+      const tx = db.transaction([MEDIA_STORE_NAME], 'readwrite');
+      const req = tx.objectStore(MEDIA_STORE_NAME).put(value, id);
+      req.onsuccess = () => resolve();
+      req.onerror = () => reject(req.error);
+    });
+    mediaUrlCache.delete(id);
+  }
+
   async function importMediaMap(media) {
     if (!media || !idbMediaSupported()) return;
     const db = await openMediaDb();
@@ -688,14 +705,83 @@
       const m = media[id];
       if (!m || typeof m.data !== 'string') continue;
       const value = { data: await b64ToBuffer(m.data), type: m.type || 'application/octet-stream', name: m.name || '' };
-      await new Promise((resolve, reject) => {
-        const tx = db.transaction([MEDIA_STORE_NAME], 'readwrite');
-        const req = tx.objectStore(MEDIA_STORE_NAME).put(value, id);
-        req.onsuccess = () => resolve();
-        req.onerror = () => reject(req.error);
-      });
-      mediaUrlCache.delete(id);
+      await putMediaRecord(db, id, value);
     }
+  }
+
+  // Streams a "with media" export from disk without loading the whole file in memory.
+  async function importFullStream(file, onProgress) {
+    const db = idbMediaSupported() ? await openMediaDb() : null;
+    const decoder = new TextDecoder('utf-8');
+    const CHUNK = 4 * 1024 * 1024;
+    let off = 0, buf = '', done = false;
+    const more = async () => {
+      if (off >= file.size) { if (!done) { buf += decoder.decode(); done = true; } return false; }
+      const ab = await readFileArrayBuffer(file.slice(off, Math.min(off + CHUNK, file.size)));
+      off += ab.byteLength;
+      buf += decoder.decode(ab, { stream: true });
+      if (onProgress) onProgress(off / file.size);
+      return true;
+    };
+    const needIndex = async (marker, from) => {
+      let idx;
+      while ((idx = buf.indexOf(marker, from)) === -1) { if (!(await more())) return -1; }
+      return idx;
+    };
+    const skipWs = async () => {
+      for (;;) {
+        buf = buf.replace(/^\s+/, '');
+        if (buf.length) return;
+        if (!(await more())) return;
+      }
+    };
+
+    // Header: {"zeekExport":1,"lessons":[...],"media":{
+    let lessons = null, searchFrom = 0;
+    for (;;) {
+      const idx = await needIndex(',"media":{', searchFrom);
+      if (idx === -1) throw new Error('invalid');
+      try {
+        const head = JSON.parse(buf.slice(0, idx) + '}');
+        if (!head || !Array.isArray(head.lessons)) throw new Error('invalid');
+        lessons = head.lessons;
+        buf = buf.slice(idx + ',"media":{'.length);
+        break;
+      } catch (e) { searchFrom = idx + 1; }
+    }
+
+    // Media entries: "id":{"type":"..","name":"..","data":"BASE64"}
+    for (;;) {
+      await skipWs();
+      if (buf[0] === '}') break;
+      if (buf[0] === ',') { buf = buf.slice(1); continue; }
+      const di = await needIndex(',"data":"', 0);
+      if (di === -1) throw new Error('invalid');
+      const metaObj = JSON.parse('{' + buf.slice(0, di) + '}}');
+      const id = Object.keys(metaObj)[0];
+      const meta = metaObj[id] || {};
+      buf = buf.slice(di + ',"data":"'.length);
+      const parts = [];
+      for (;;) {
+        const q = buf.indexOf('"');
+        if (q !== -1) {
+          if (q) parts.push(b64ChunkToBytes(buf.slice(0, q)));
+          buf = buf.slice(q + 1);
+          break;
+        }
+        const take = buf.length - (buf.length % 4);
+        if (take) { parts.push(b64ChunkToBytes(buf.slice(0, take))); buf = buf.slice(take); }
+        if (!(await more())) throw new Error('invalid');
+      }
+      await skipWs();
+      if (buf[0] === '}') buf = buf.slice(1);
+      if (db) {
+        const blob = new Blob(parts, { type: meta.type || 'application/octet-stream' });
+        await putMediaRecord(db, id, { data: blob, type: blob.type, name: meta.name || '' });
+      }
+      parts.length = 0;
+    }
+    return lessons;
   }
 
   async function exportLessons() {
@@ -728,33 +814,42 @@
     showToast(t('exportSuccess'));
   }
 
-  function importLessons(file) {
+  async function importLessons(file) {
     if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      try {
-        const parsed = JSON.parse(e.target.result);
-        const full = parsed && !Array.isArray(parsed) && parsed.zeekExport && Array.isArray(parsed.lessons);
-        const data = full ? parsed.lessons : parsed;
-        if (!Array.isArray(data)) throw new Error('invalid');
-        if (confirm(t('importConfirm'))) {
-          const apply = () => {
-            LESSONS = data.map((it, i) => ({ ...it, id: it.id || (Date.now() + i) }));
-            ensureBuiltInLesson();
-            saveLessons();
-            go({ name: 'home' }, false);
-            showToast(t('importSuccess'));
-          };
-          if (full) {
-            showToast(t('exportPreparing'), 60000);
-            importMediaMap(parsed.media).then(apply).catch(err => { console.error('import media', err); apply(); });
-          } else apply();
-        }
-      } catch (err) {
-        showToast(t('importError'));
-      }
+    const applyLessons = data => {
+      LESSONS = data.map((it, i) => ({ ...it, id: it.id || (Date.now() + i) }));
+      ensureBuiltInLesson();
+      saveLessons();
+      go({ name: 'home' }, false);
+      showToast(t('importSuccess'));
     };
-    reader.readAsText(file);
+    try {
+      const headText = new TextDecoder('utf-8').decode(await readFileArrayBuffer(file.slice(0, 64)));
+      const isFull = /^\s*\{\s*"zeekExport"/.test(headText);
+      if (isFull) {
+        if (!confirm(t('importConfirm'))) return;
+        showToast(t('exportPreparing'), 600000);
+        const lessons = await importFullStream(file, p => showToast(t('exportPreparing') + ' ' + Math.round(p * 100) + '%', 600000));
+        applyLessons(lessons);
+        return;
+      }
+      const text = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = e => resolve(e.target.result);
+        reader.onerror = () => reject(reader.error || 'read error');
+        reader.readAsText(file);
+      });
+      const parsed = JSON.parse(text);
+      const full = parsed && !Array.isArray(parsed) && parsed.zeekExport && Array.isArray(parsed.lessons);
+      const data = full ? parsed.lessons : parsed;
+      if (!Array.isArray(data)) throw new Error('invalid');
+      if (!confirm(t('importConfirm'))) return;
+      if (full) { try { await importMediaMap(parsed.media); } catch (err) { console.error('import media', err); } }
+      applyLessons(data);
+    } catch (err) {
+      console.error('import failed', err);
+      showToast(t('importError') + (err && err.message ? ': ' + err.message : ''));
+    }
   }
 
   function showToast(msg, duration = 2200) {
@@ -2896,7 +2991,7 @@
       <label class="action-item" for="import-file">
         <span class="action-icon">📥</span><span class="action-label">${t('import')}</span>
       </label>
-      <input type="file" id="import-file" accept=".json,application/json" style="display:none">
+      <input type="file" id="import-file" accept=".json,application/json,application/octet-stream,text/plain" style="display:none">
     </div>`;
     let lessonIdx = 0;
     const html = `<div class="top-bar"><span class="section-title">${t('library')}</span></div>
