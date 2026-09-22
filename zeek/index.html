@@ -531,6 +531,11 @@
 <div id="export-modal" class="modal" style="z-index:98">
   <div class="modal-content" style="max-width:420px">
     <h3>Export</h3>
+    <div id="export-kinds" style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin:0.25rem 0 0.75rem">
+      <label style="display:flex;align-items:center;gap:0.35rem;cursor:pointer"><input type="checkbox" id="export-kind-image" checked> <span>🖼️ <span data-t="exportKindImages">Images</span></span></label>
+      <label style="display:flex;align-items:center;gap:0.35rem;cursor:pointer"><input type="checkbox" id="export-kind-video" checked> <span>🎬 <span data-t="exportKindVideos">Videos</span></span></label>
+      <label style="display:flex;align-items:center;gap:0.35rem;cursor:pointer"><input type="checkbox" id="export-kind-audio" checked> <span>🎧 <span data-t="exportKindAudio">Audio</span></span></label>
+    </div>
     <div class="form-actions" style="flex-direction:column;align-items:stretch;gap:0.5rem">
       <button type="button" class="btn" id="btn-export-full"></button>
       <button type="button" class="btn ghost" id="btn-export-lessons"></button>
@@ -589,6 +594,7 @@
     modal.querySelector('#btn-export-full').textContent = t('exportFull');
     modal.querySelector('#btn-export-lessons').textContent = t('exportLessonsOnly');
     modal.querySelector('#btn-export-cancel').textContent = t('cancel');
+    modal.querySelectorAll('[data-t]').forEach(el => { el.textContent = t(el.getAttribute('data-t')); });
     modal.classList.add('show');
   }
 
@@ -653,7 +659,15 @@
     };
   }
 
-  async function exportLessonsFull() {
+  function mediaKind(blob) {
+    const type = (blob.type || mimeFromName(blob.name || '') || '').toLowerCase();
+    if (type.startsWith('image/')) return 'image';
+    if (type.startsWith('video/')) return 'video';
+    if (type.startsWith('audio/')) return 'audio';
+    return '';
+  }
+
+  async function exportLessonsFull(kinds) {
     const filename = 'zeek-full-' + new Date().toISOString().slice(0,10) + '.json';
     showToast(t('exportPreparing'), 60000);
     try {
@@ -665,6 +679,8 @@
         let blob = null;
         try { blob = await getMediaBlob(id); } catch (e) {}
         if (!blob) continue;
+        const kind = mediaKind(blob);
+        if (kinds && kind && kinds[kind] === false) continue;
         const type = blob.type || mimeFromName(blob.name || '') || 'application/octet-stream';
         sink.write((first ? '' : ',') + JSON.stringify(id) + ':{"type":' + JSON.stringify(type) + ',"name":' + JSON.stringify(blob.name || '') + ',"data":"');
         first = false;
@@ -1232,6 +1248,9 @@
     exportChoiceTitle: { ar: 'تصدير الدروس', en: 'Export lessons', fr: 'Exporter les leçons' },
     exportFull: { ar: '📦 تصدير مع وسائط', en: '📦 Export with media', fr: '📦 Exporter avec médias' },
     exportLessonsOnly: { ar: '📄 تصدير بدون وسائط', en: '📄 Export without media', fr: '📄 Exporter sans médias' },
+    exportKindImages: { ar: 'صور', en: 'Images', fr: 'Images' },
+    exportKindVideos: { ar: 'فيديو', en: 'Videos', fr: 'Vidéos' },
+    exportKindAudio: { ar: 'صوت', en: 'Audio', fr: 'Audio' },
     exportPreparing: { ar: 'جاري تجهيز الملف…', en: 'Preparing file…', fr: 'Préparation du fichier…' },
     exportSuccess: { ar: 'تم تصدير الدروس', en: 'Lessons exported', fr: 'Leçons exportées' },
     exportCopied: { ar: 'تم نسخ البيانات — الصقها في ملف نصي', en: 'Data copied — paste into a text file', fr: 'Données copiées — collez dans un fichier texte' },
@@ -3877,7 +3896,15 @@ Output in French, Arabic and English.`;
     const modal = document.getElementById('export-modal');
     if (!modal) return;
     const close = () => modal.classList.remove('show');
-    document.getElementById('btn-export-full').onclick = () => { close(); exportLessonsFull(); };
+    document.getElementById('btn-export-full').onclick = () => {
+      const kinds = {
+        image: document.getElementById('export-kind-image').checked,
+        video: document.getElementById('export-kind-video').checked,
+        audio: document.getElementById('export-kind-audio').checked
+      };
+      close();
+      exportLessonsFull(kinds);
+    };
     document.getElementById('btn-export-lessons').onclick = () => { close(); exportLessons(); };
     document.getElementById('btn-export-cancel').onclick = close;
     modal.addEventListener('click', e => { if (e.target === modal) close(); });
