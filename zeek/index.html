@@ -553,14 +553,28 @@
 (function () {
   'use strict';
 
+  function isValidLessonItem(it) {
+    if (!it || typeof it !== 'object') return false;
+    if (it.type === 'folder') return true;
+    const hasTitle = it.title && (typeof it.title === 'string' ? it.title.trim() : true);
+    return !!(hasTitle || (Array.isArray(it.phrases) && it.phrases.length));
+  }
+
+  function sanitizeLessons(list) {
+    return list.filter(isValidLessonItem).map(it => {
+      if (it.type === 'folder') return { ...it, lessons: (it.lessons || []).filter(isValidLessonItem).map(l => ({ ...l, phrases: l.phrases || [] })) };
+      return { ...it, type: it.type || 'lesson', phrases: Array.isArray(it.phrases) ? it.phrases : [] };
+    });
+  }
+
   function loadLessons() {
     try {
       const raw = JSON.parse(localStorage.getItem('zeek_lessons') || '[]');
       if (Array.isArray(raw)) {
         if (raw.length && raw[0].phrases && !raw[0].type) {
-          return raw.map((l, i) => ({ id: l.id || i + 1, type: 'lesson', custom: true, title: l.title, phrases: l.phrases }));
+          return sanitizeLessons(raw.map((l, i) => ({ id: l.id || i + 1, type: 'lesson', custom: true, title: l.title, phrases: l.phrases })));
         }
-        return raw;
+        return sanitizeLessons(raw);
       }
       return [];
     } catch (e) { return []; }
@@ -817,12 +831,7 @@
   async function importLessons(file) {
     if (!file) return;
     const applyLessons = data => {
-      LESSONS = data.filter(it => it && typeof it === 'object').map((it, i) => {
-        const item = { ...it, id: it.id || (Date.now() + i) };
-        if (item.type === 'folder') item.lessons = (item.lessons || []).map(l => ({ ...l, phrases: l.phrases || [] }));
-        else item.phrases = item.phrases || [];
-        return item;
-      });
+      LESSONS = sanitizeLessons(data).map((it, i) => ({ ...it, id: it.id || (Date.now() + i) }));
       ensureBuiltInLesson();
       saveLessons();
       go({ name: 'home' }, false);
