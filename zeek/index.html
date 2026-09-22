@@ -272,6 +272,15 @@
   html[dir="rtl"] .aspect-select { left: auto; right: 0.5rem; }
   .media-image-wrap { position: relative; width: 100%; }
   .media-image-wrap img { display: block; width: 100%; max-height: 320px; object-fit: contain; background: #000; border-radius: var(--radius); }
+  .media-image-wrap[class*="ar-"] img { max-height: 82vh; object-fit: cover; }
+  .media-image-wrap.ar-9-16 img { aspect-ratio: 9/16; }
+  .media-image-wrap.ar-16-9 img { aspect-ratio: 16/9; }
+  .media-image-wrap.ar-4-3 img { aspect-ratio: 4/3; }
+  .media-image-wrap.ar-3-4 img { aspect-ratio: 3/4; }
+  .media-image-wrap.ar-3-2 img { aspect-ratio: 3/2; }
+  .media-image-wrap.ar-1-1 img { aspect-ratio: 1/1; }
+  .media-image-wrap.ar-4-5 img { aspect-ratio: 4/5; }
+  .media-image-wrap .aspect-select { top: auto; bottom: 0.5rem; }
   .media-del { position: absolute; top: 0.4rem; right: 0.4rem; width: 1.85rem; height: 1.85rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.65); color: #fff; font-size: 1.1rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; z-index: 4; -webkit-tap-highlight-color: transparent; }
   html[dir="rtl"] .media-del { left: 0.4rem; right: auto; }
   .cap-controls { display: flex; justify-content: center; gap: 0.6rem; pointer-events: auto; padding-top: 0.05rem; }
@@ -1201,6 +1210,8 @@
     searchPlaceholder: { ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', en: 'Search in Arabic, French, or English…', fr: 'Rechercher en arabe, français ou anglais…' },
     rateTitle: { ar: 'سرعة الصوت والفيديو', en: 'Audio & video speed', fr: 'Vitesse audio et vidéo' },
     aspectRatioTitle: { ar: 'نسبة عرض الفيديو', en: 'Video aspect ratio', fr: 'Ratio d’aspect vidéo' },
+    imageAspectTitle: { ar: 'مقياس الصورة', en: 'Image aspect ratio', fr: 'Format de l’image' },
+    imageAspectOriginal: { ar: 'أصلي', en: 'Original', fr: 'Original' },
     recordVideoTitle: { ar: 'تسجيل الفيديو مع الترجمة', en: 'Record video with captions', fr: 'Enregistrer la vidéo avec sous-titres' },
     recordStop: { ar: 'إيقاف التسجيل', en: 'Stop recording', fr: 'Arrêter l’enregistrement' },
     recordingToast: { ar: '⏺ جاري تسجيل الفيديو مع الترجمة…', en: '⏺ Recording video with captions…', fr: '⏺ Enregistrement de la vidéo…' },
@@ -1277,6 +1288,10 @@
     captionFont: { ar: 'تغيير خطوط الترجمة', en: 'Change caption fonts', fr: 'Changer les polices' },
     captionZoomIn: { ar: 'تكبير الترجمة', en: 'Zoom in caption', fr: 'Agrandir les sous-titres' },
     captionZoomOut: { ar: 'تصغير الترجمة', en: 'Zoom out caption', fr: 'Réduire les sous-titres' },
+    moveToFolder: { ar: 'نقل إلى مجلد…', en: 'Move to folder…', fr: 'Déplacer vers un dossier…' },
+    moveToRoot: { ar: '🏠 الرئيسية (خارج المجلدات)', en: '🏠 Home (no folder)', fr: '🏠 Accueil (sans dossier)' },
+    noFolders: { ar: 'لا توجد مجلدات، أنشئ مجلدًا أولًا', en: 'No folders yet — create one first', fr: 'Aucun dossier — créez-en un d’abord' },
+    moved: { ar: 'تم النقل', en: 'Moved', fr: 'Déplacé' },
     lessonImage: { ar: 'صورة الدرس', en: 'Lesson image', fr: 'Image de la leçon' },
     showImage: { ar: 'إظهار الصورة', en: 'Show image', fr: 'Afficher l’image' },
     hideImage: { ar: 'إخفاء الصورة', en: 'Hide image', fr: 'Masquer l’image' },
@@ -2378,7 +2393,7 @@
         } else if (isAudio) {
           el.innerHTML = audioHTML(resolved.url);
         } else {
-          el.innerHTML = imageMediaHTML(resolved.url, el.dataset.phraseKey || '');
+          el.innerHTML = imageMediaHTML(resolved.url, el.dataset.phraseKey || '', el.dataset.mediaRef || el.dataset.mediaSrc || '');
         }
       }
       const captionText = el.dataset.captionText || '';
@@ -2823,9 +2838,41 @@
     actions.innerHTML = `
       <button type="button" class="btn" data-edit="${id}" data-type="${type}">${t('edit')}</button>
       <button type="button" class="btn ghost" data-set-image="${id}" data-type="${type}">${t('setImage')}</button>
+      ${type === 'folder' ? '' : `<button type="button" class="btn ghost" data-move="${id}">📁 ${t('moveToFolder')}</button>`}
       <button type="button" class="btn ghost" style="color:var(--danger); border-color:var(--danger)" data-delete-sheet="${id}" data-type="${type}">${type === 'folder' ? t('deleteFolder') : t('deleteLesson')}</button>
     `;
     sheet.classList.add('show');
+  }
+
+  function openMoveSheet(id) {
+    const found = findLesson(id);
+    if (!found) return;
+    const folders = LESSONS.filter(it => it.type === 'folder');
+    if (!folders.length && !found.parent) { showToast(t('noFolders')); return; }
+    const sheet = document.getElementById('action-sheet');
+    document.getElementById('sheet-title').textContent = t('moveToFolder');
+    const curId = found.parent ? found.parent.id : null;
+    document.getElementById('sheet-actions').innerHTML =
+      (found.parent ? `<button type="button" class="btn ghost" data-move-to="root" data-lesson="${id}">${t('moveToRoot')}</button>` : '') +
+      folders.filter(f => f.id !== curId).map(f => `<button type="button" class="btn ghost" data-move-to="${f.id}" data-lesson="${id}">📁 ${esc(title(f.title))}</button>`).join('');
+    sheet.classList.add('show');
+  }
+
+  function moveLesson(id, target) {
+    const found = findLesson(id);
+    if (!found) return;
+    const lesson = found.lesson;
+    if (found.parent) found.parent.lessons = (found.parent.lessons || []).filter(l => l.id !== id);
+    else LESSONS = LESSONS.filter(it => it !== lesson);
+    if (target === 'root') LESSONS.push(lesson);
+    else {
+      const folder = findFolder(target);
+      if (!folder) { LESSONS.push(lesson); }
+      else { folder.lessons = folder.lessons || []; folder.lessons.push(lesson); }
+    }
+    saveLessons();
+    showToast(t('moved'));
+    go(state.route, false);
   }
 
   function closeActionSheet() {
@@ -3041,8 +3088,23 @@
     return `${phraseLoopButtonHTML(key)}${videoLoopButtonHTML()}${aspectSelectHTML(getVideoAspect(mediaKey || src))}<video src="${esc(src)}" controls playsinline></video>`;
   }
 
-  function imageMediaHTML(src, key) {
-    return `<div class="media-image-wrap" data-phrase-key="${esc(key || '')}"><img src="${esc(src)}" alt="" onerror="this.style.display='none'"><button type="button" class="media-del" data-phrase-key="${esc(key || '')}" title="${t('delete')}">×</button></div>`;
+  function imageAspectSelectHTML(selected) {
+    const ratios = [
+      { v: '', l: t('imageAspectOriginal') },
+      { v: '1/1', l: '1:1' },
+      { v: '4/3', l: '4:3' },
+      { v: '3/4', l: '3:4' },
+      { v: '16/9', l: '16:9' },
+      { v: '9/16', l: '9:16' },
+      { v: '3/2', l: '3:2' },
+      { v: '4/5', l: '4:5' }
+    ];
+    return `<select class="aspect-select image-aspect" title="${t('imageAspectTitle')}">${ratios.map(r => `<option value="${r.v}"${(selected || '') === r.v ? ' selected' : ''}>${r.l}</option>`).join('')}</select>`;
+  }
+
+  function imageMediaHTML(src, key, ref) {
+    const ratio = getVideoAspect(ref || src);
+    return `<div class="media-image-wrap ${aspectClassFor(ratio)}" data-phrase-key="${esc(key || '')}" data-media-ref="${esc(ref || src)}"><img src="${esc(src)}" alt="" onerror="this.style.display='none'">${imageAspectSelectHTML(ratio)}<button type="button" class="media-del" data-phrase-key="${esc(key || '')}" title="${t('delete')}">×</button></div>`;
   }
 
   function mediaHTML(media, key) {
@@ -3774,6 +3836,10 @@ Output in French, Arabic and English.`;
       if (e.target === sheet) { closeActionSheet(); return; }
       const edit = e.target.closest('[data-edit]');
       if (edit) { closeActionSheet(); editItem(+edit.dataset.edit, edit.dataset.type); return; }
+      const mv = e.target.closest('[data-move]');
+      if (mv) { openMoveSheet(+mv.dataset.move); return; }
+      const mvTo = e.target.closest('[data-move-to]');
+      if (mvTo) { closeActionSheet(); moveLesson(+mvTo.dataset.lesson, mvTo.dataset.moveTo === 'root' ? 'root' : +mvTo.dataset.moveTo); return; }
       const del = e.target.closest('[data-delete-sheet]');
       if (del) {
         closeActionSheet();
@@ -4157,7 +4223,13 @@ Output in French, Arabic and English.`;
         e.target.value = '';
       }
       const sel = e.target.closest('.aspect-select');
-      if (sel) setVideoAspect(sel.closest('.phrase-media'), sel.value);
+      if (sel && sel.classList.contains('image-aspect')) {
+        const wrap = sel.closest('.media-image-wrap');
+        saveVideoAspect(wrap.dataset.mediaRef, sel.value);
+        ['ar-9-16','ar-16-9','ar-4-3','ar-3-4','ar-3-2','ar-1-1','ar-4-5'].forEach(c => wrap.classList.remove(c));
+        const cls = aspectClassFor(sel.value);
+        if (cls) wrap.classList.add(cls);
+      } else if (sel) setVideoAspect(sel.closest('.phrase-media'), sel.value);
     });
     bindViewEvents();
     bindActionSheet();
