@@ -508,7 +508,7 @@
     </div>
     <div class="form-group" style="margin-top:0.75rem">
       <button type="button" class="btn" id="btn-choose-media-audio" data-t="chooseAudioFile">Choose audio file</button>
-      <input type="file" id="media-audio-file" accept="audio/*" style="display:none">
+      <input type="file" id="media-audio-file" accept="audio/*,.mp3,.m4a,.aac,.ogg,.wav,.opus,.amr" style="display:none">
     </div>
     <div class="form-group" style="margin-top:0.75rem">
       <label data-t="lessonAudioUrl">Audio URL</label>
@@ -3061,7 +3061,7 @@
   }
 
   function audioHTML(src) {
-    return `<div class="audio-player"><span class="audio-badge">🎧</span><audio src="${esc(src)}" controls style="width:100%"></audio></div>`;
+    return `<div class="audio-player"><span class="audio-badge">🐓</span><audio src="${esc(src)}" controls loop style="width:100%"></audio></div>`;
   }
 
   function videoLoopButtonHTML() {
@@ -3348,7 +3348,7 @@
         <div class="form-group"><label data-t="pasteOrder">${t('pasteOrder')}</label><select name="order" class="ctl"><option value="auto" data-t="orderAuto" selected>${t('orderAuto')}</option><option value="fr-ar-en" data-t="orderFrFirst">${t('orderFrFirst')}</option><option value="en-ar-fr" data-t="orderEnFirst">${t('orderEnFirst')}</option></select></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonVideo">${t('lessonVideo')}</label><button type="button" class="btn" id="btn-choose-lesson-video" data-t="chooseVideoFile">${t('chooseVideoFile')}</button><input type="file" id="lesson-video-file" accept="video/*" style="display:none"></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonVideoUrl">${t('lessonVideoUrl')}</label><input type="text" name="videoUrl" placeholder="https://..." style="width:100%"></div>
-        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudio">${t('lessonAudio')}</label><button type="button" class="btn" id="btn-choose-lesson-audio" data-t="chooseAudioFile">${t('chooseAudioFile')}</button><input type="file" id="lesson-audio-file" accept="audio/*" style="display:none"></div>
+        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudio">${t('lessonAudio')}</label><button type="button" class="btn" id="btn-choose-lesson-audio" data-t="chooseAudioFile">${t('chooseAudioFile')}</button><input type="file" id="lesson-audio-file" accept="audio/*,.mp3,.m4a,.aac,.ogg,.wav,.opus,.amr" style="display:none"></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudioUrl">${t('lessonAudioUrl')}</label><input type="text" name="audioUrl" placeholder="https://..." style="width:100%"></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonCaptions">${t('lessonCaptions')}</label><button type="button" class="btn ghost" id="btn-choose-lesson-captions" data-t="chooseCaptionFile">${t('chooseCaptionFile')}</button><input type="file" id="lesson-captions-file" accept=".srt,.txt" style="display:none"></div>
         <div class="form-group" style="margin-top:0.35rem">
@@ -3418,7 +3418,7 @@
         </div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonVideo">${t('lessonVideo')}</label><button type="button" class="btn" id="btn-choose-lesson-video" data-t="chooseVideoFile">${t('chooseVideoFile')}</button><input type="file" id="lesson-video-file" accept="video/*" style="display:none"><span id="edit-video-name" class="hint"></span></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonVideoUrl">${t('lessonVideoUrl')}</label><input type="text" name="videoUrl" placeholder="https://..." style="width:100%" value="${mediaIsUrl && !isAudioUrl(lesson.media) ? esc(lesson.media) : ''}"></div>
-        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudio">${t('lessonAudio')}</label><button type="button" class="btn" id="btn-choose-lesson-audio" data-t="chooseAudioFile">${t('chooseAudioFile')}</button><input type="file" id="lesson-audio-file" accept="audio/*" style="display:none"><span id="edit-audio-name" class="hint"></span></div>
+        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudio">${t('lessonAudio')}</label><button type="button" class="btn" id="btn-choose-lesson-audio" data-t="chooseAudioFile">${t('chooseAudioFile')}</button><input type="file" id="lesson-audio-file" accept="audio/*,.mp3,.m4a,.aac,.ogg,.wav,.opus,.amr" style="display:none"><span id="edit-audio-name" class="hint"></span></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudioUrl">${t('lessonAudioUrl')}</label><input type="text" name="audioUrl" placeholder="https://..." style="width:100%" value="${mediaIsUrl && isAudioUrl(lesson.media) ? esc(lesson.media) : ''}"></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonCaptions">${t('lessonCaptions')}</label><button type="button" class="btn ghost" id="btn-choose-lesson-captions" data-t="chooseCaptionFile">${t('chooseCaptionFile')}</button><input type="file" id="lesson-captions-file" accept=".srt,.txt" style="display:none"></div>
         <div class="form-group" style="margin-top:0.35rem">
