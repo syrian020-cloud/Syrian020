@@ -2116,7 +2116,7 @@
     refreshButtons();
     try { video.loop = false; } catch (e) {}
     try {
-      video.pause();
+      pauseMediaByApp(video);
       video.currentTime = startAt;
       await new Promise(res => {
         if (Math.abs(video.currentTime - startAt) < 0.05) return res();
@@ -2299,7 +2299,7 @@
         if (idx >= 0) key = video.dataset.lessonId + '.' + idx;
       }
       if (!key) return;
-      if (lb) { try { video.pause(); } catch (err) {} if (state.loop && state.loop.type === 'video') state.loop = null; toggleLangLoop(lang, key); }
+      if (lb) { pauseMediaByApp(video); if (state.loop && state.loop.type === 'video') state.loop = null; toggleLangLoop(lang, key); }
       else toggleWordLoop(word, lang, key);
     });
 
@@ -2587,10 +2587,37 @@
   function anySpeak(text, lang) {
     const t = stripSpeechFlags(text);
     if (!t) return Promise.reject('empty tts');
-    if (speakSupported()) return nativeSpeak(t, lang);
-    if (webTTS()) return webSpeak(t, lang);
-    return Promise.reject('no tts');
+    let p;
+    if (speakSupported()) p = nativeSpeak(t, lang);
+    else if (webTTS()) p = webSpeak(t, lang);
+    else return Promise.reject('no tts');
+    ttsActive++;
+    const done = () => { ttsActive = Math.max(0, ttsActive - 1); resumeKeptMedia(); };
+    p.then(done, done);
+    return p;
   }
+
+  let ttsActive = 0;
+  const appPaused = new WeakSet();
+  const keepPlaying = new Set();
+  function pauseMediaByApp(m) { appPaused.add(m); keepPlaying.delete(m); try { m.pause(); } catch (e) {} }
+  function resumeKeptMedia() {
+    keepPlaying.forEach(m => {
+      if (!document.contains(m) || m.ended) { keepPlaying.delete(m); return; }
+      if (m.paused && !appPaused.has(m)) setTimeout(() => { if (keepPlaying.has(m) && m.paused) m.play().catch(() => {}); }, 150);
+    });
+  }
+  document.addEventListener('pause', e => {
+    const m = e.target;
+    if (!(m instanceof HTMLMediaElement)) return;
+    if (appPaused.has(m)) { appPaused.delete(m); keepPlaying.delete(m); return; }
+    if (m.ended) { keepPlaying.delete(m); return; }
+    if (ttsActive > 0 && keepPlaying.has(m)) {
+      setTimeout(() => { if (keepPlaying.has(m) && m.paused && !m.ended) m.play().catch(() => {}); }, 250);
+    } else {
+      keepPlaying.delete(m);
+    }
+  }, true);
 
   function anyStop() {
     nativeStop();
@@ -2622,7 +2649,7 @@
     anyStop();
     highlight(null);
     refreshButtons();
-    if (pauseMedia) document.querySelectorAll('video, audio').forEach(v => { try { v.pause(); v.dispatchEvent(new Event('timeupdate')); } catch (e) {} });
+    if (pauseMedia) document.querySelectorAll('video, audio').forEach(v => { try { pauseMediaByApp(v); v.dispatchEvent(new Event('timeupdate')); } catch (e) {} });
   }
 
   function stopAll() { stopSpeech(true); }
@@ -2640,7 +2667,9 @@
       if (loopTimer) { clearInterval(loopTimer); loopTimer = null; }
       refreshButtons();
     }
-    document.querySelectorAll('video, audio').forEach(m => { if (m !== el && !m.paused) { try { m.pause(); } catch (err) {} } });
+    appPaused.delete(el);
+    keepPlaying.add(el);
+    document.querySelectorAll('video, audio').forEach(m => { if (m !== el && !m.paused) pauseMediaByApp(m); });
   }, true);
 
   async function speakOnce(phrase, langs, key, onDone, activeWord) {
