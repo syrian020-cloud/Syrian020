@@ -490,9 +490,8 @@
 <div id="examples-modal" class="modal">
   <div class="modal-content">
     <h3 data-t="inputExamples">Examples</h3>
-    <textarea id="examples-text" rows="10" readonly></textarea>
+    <div id="examples-list" class="caption-examples"></div>
     <div class="form-actions" style="margin-top:0.75rem">
-      <button type="button" class="btn" id="btn-copy-examples" data-t="copy">نسخ</button>
       <button type="button" class="btn ghost" id="btn-close-examples" data-t="cancel">إلغاء</button>
     </div>
   </div>
@@ -3605,12 +3604,22 @@
     'Pomme - تفاحة - Apple',
     'Où sont les toilettes أين الحمام Where is the bathroom',
     'English | Arabic | French',
-    '',
-    '🇫🇷 Maria, j’ai plus de cigarettes.',
-    '🇸🇾 ماريا، ما عاد معي دخان.',
-    '🇺🇸 Maria, I’m out of cigarettes.'
-  ];
+    `Maria, j’ai plus de cigarettes. | ماريا، ما عاد معي دخان. | Maria, I’m out of cigarettes.
+Donne-moi de l’argent. | أعطيني مصاري. | Give me some money.`,
+    `Maria, j’ai plus de cigarettes.
+ماريا، ما عاد معي دخان.
+Maria, I’m out of cigarettes.
 
+Donne-moi de l’argent.
+أعطيني مصاري.
+Give me some money.`,
+    `🇫🇷 Maria, j’ai plus de cigarettes.
+🇸🇾 ماريا، ما عاد معي دخان.
+🇺🇸 Maria, I’m out of cigarettes.`,
+    `FR: Maria, j’ai plus de cigarettes.
+AR: ماريا، ما عاد معي دخان.
+EN: Maria, I’m out of cigarettes.`
+  ];
   const CAPTION_EXAMPLES = [
     `1
 00:00:00,000 --> 00:00:03,000
@@ -3642,7 +3651,11 @@ EN: Maria, I’m out of cigarettes.`
 
   function showPhraseExamples() {
     const modal = document.getElementById('examples-modal');
-    document.getElementById('examples-text').value = PHRASE_EXAMPLES.join('\n');
+    const list = document.getElementById('examples-list');
+    if (!list.children.length) {
+      list.innerHTML = PHRASE_EXAMPLES.map((ex, i) => `<div class="caption-example"><pre>${esc(ex)}</pre><button type="button" class="btn ghost copy-ex" data-i="${i}" data-t="copy">${t('copy')}</button></div>`).join('');
+      applyTranslations();
+    }
     modal.classList.add('show');
   }
 
@@ -3666,11 +3679,7 @@ EN: Maria, I’m out of cigarettes.`
     document.body.removeChild(ta);
   }
 
-  function copyPhraseExamples() {
-    const ta = document.getElementById('examples-text');
-    copyText(ta.value);
-    showToast(t('copied'));
-  }
+  function copyPhraseExample(i) { copyText(PHRASE_EXAMPLES[i] || ''); showToast(t('copied')); }
 
   function showCaptionExamples() {
     const list = document.getElementById('caption-examples-list');
@@ -4347,8 +4356,13 @@ Output in French, Arabic and English.`;
 
   function init() {
     bindBackButton();
-    document.getElementById('btn-copy-examples').onclick = copyPhraseExamples;
     document.getElementById('btn-close-examples').onclick = closePhraseExamples;
+    const examplesModal = document.getElementById('examples-modal');
+    examplesModal.addEventListener('click', e => {
+      if (e.target === examplesModal) { closePhraseExamples(); return; }
+      const copyBtn = e.target.closest('.copy-ex');
+      if (copyBtn) copyPhraseExample(+copyBtn.dataset.i);
+    });
     document.getElementById('btn-caption-examples').onclick = showCaptionExamples;
     const lessonCapExBtn = document.getElementById('btn-lesson-caption-examples');
     if (lessonCapExBtn) lessonCapExBtn.onclick = showCaptionExamples;
