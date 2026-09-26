@@ -98,6 +98,7 @@
   .note-title { font-weight: 800; font-size: 1rem; color: #111827; white-space: nowrap; }
   .note-icon { width: 2.15rem; height: 2.15rem; flex: 0 0 auto; border-radius: 50%; border: 1px solid #e5e7eb; background: #fff; color: #0f766e; font-size: 1.05rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
   .note-icon.active { background: #0f766e; color: #fff; border-color: #0f766e; }
+  .note-icon:disabled { opacity: 0.35; cursor: default; }
   .note-icon.danger { color: #e53935; }
   .note-palette { display: none; gap: 0.5rem; flex-wrap: wrap; padding: 0.5rem 0.6rem; background: #fff; border-bottom: 1px solid #e5e7eb; }
   .note-palette.show { display: flex; }
@@ -495,9 +496,14 @@
       <span style="flex:1"></span>
       <button type="button" class="note-icon" id="note-paper" title="Paper">📓</button>
       <button type="button" class="note-icon note-pen active" id="note-pen" title="Pen">✏️</button>
+      <button type="button" class="note-icon" id="note-hl" title="Highlighter">🖍️</button>
       <button type="button" class="note-icon" id="note-erase" title="Eraser">✕</button>
       <button type="button" class="note-icon" id="note-swatch" title="Colors"><span id="note-swatch-dot" style="display:block;width:1.3rem;height:1.3rem;border-radius:6px;background:#111827"></span></button>
+      <button type="button" class="note-icon" id="note-size-dec" title="Thinner">−</button>
       <input type="range" id="note-size" min="1" max="16" value="3" style="width:4rem">
+      <button type="button" class="note-icon" id="note-size-inc" title="Thicker">+</button>
+      <button type="button" class="note-icon" id="note-undo" title="Undo">↶</button>
+      <button type="button" class="note-icon" id="note-redo" title="Redo">↷</button>
       <button type="button" class="note-icon danger" id="note-clear" title="Clear">🗑</button>
       <button type="button" class="note-icon" id="btn-save-note" title="Save">⬇</button>
     </div>
@@ -2593,12 +2599,24 @@
     anyStop();
     highlight(null);
     refreshButtons();
-    document.querySelectorAll('video').forEach(v => { try { v.pause(); v.dispatchEvent(new Event('timeupdate')); } catch (e) {} });
+    document.querySelectorAll('video, audio').forEach(v => { try { v.pause(); v.dispatchEvent(new Event('timeupdate')); } catch (e) {} });
   }
 
   function updateVideoRate() {
-    document.querySelectorAll('video').forEach(v => { try { v.playbackRate = state.rate || 1; } catch (e) {} });
+    document.querySelectorAll('video, audio').forEach(v => { try { v.playbackRate = state.rate || 1; } catch (e) {} });
   }
+
+  document.addEventListener('play', e => {
+    const el = e.target;
+    if (!(el instanceof HTMLMediaElement)) return;
+    try { el.playbackRate = state.rate || 1; } catch (err) {}
+    if (el.tagName === 'AUDIO' && state.loop && state.loop.type === 'video') {
+      state.loop = null;
+      if (loopTimer) { clearInterval(loopTimer); loopTimer = null; }
+      refreshButtons();
+    }
+    document.querySelectorAll('video, audio').forEach(m => { if (m !== el && !m.paused) { try { m.pause(); } catch (err) {} } });
+  }, true);
 
   async function speakOnce(phrase, langs, key, onDone, activeWord) {
     const run = ++speechRun;
@@ -3646,8 +3664,59 @@ EN: Maria, I’m out of cigarettes.`
   let captionFileData = null;
   let noteDrawing = false;
   let noteErasing = false;
+  let noteHighlight = false;
   let noteColor = '#111827';
   let noteSize = 3;
+  let noteUndo = [];
+  let noteRedo = [];
+
+  function noteSnapshot() {
+    if (!noteCtx) return;
+    const canvas = document.getElementById('note-canvas');
+    noteUndo.push(noteCtx.getImageData(0, 0, canvas.width, canvas.height));
+    if (noteUndo.length > 30) noteUndo.shift();
+    noteRedo = [];
+    updateNoteHistoryButtons();
+  }
+
+  function noteRestore(img) {
+    noteCtx.save();
+    noteCtx.setTransform(1, 0, 0, 1, 0, 0);
+    noteCtx.globalCompositeOperation = 'source-over';
+    noteCtx.globalAlpha = 1;
+    noteCtx.clearRect(0, 0, img.width, img.height);
+    noteCtx.putImageData(img, 0, 0);
+    noteCtx.restore();
+  }
+
+  function undoNote() {
+    if (!noteCtx || !noteUndo.length) return;
+    const canvas = document.getElementById('note-canvas');
+    noteRedo.push(noteCtx.getImageData(0, 0, canvas.width, canvas.height));
+    noteRestore(noteUndo.pop());
+    updateNoteHistoryButtons();
+  }
+
+  function redoNote() {
+    if (!noteCtx || !noteRedo.length) return;
+    const canvas = document.getElementById('note-canvas');
+    noteUndo.push(noteCtx.getImageData(0, 0, canvas.width, canvas.height));
+    noteRestore(noteRedo.pop());
+    updateNoteHistoryButtons();
+  }
+
+  function updateNoteHistoryButtons() {
+    const u = document.getElementById('note-undo');
+    const r = document.getElementById('note-redo');
+    if (u) u.disabled = !noteUndo.length;
+    if (r) r.disabled = !noteRedo.length;
+  }
+
+  function setNoteSize(n) {
+    noteSize = Math.min(16, Math.max(1, n));
+    const s = document.getElementById('note-size');
+    if (s) s.value = noteSize;
+  }
 
   function setupNoteCanvas() {
     const canvas = document.getElementById('note-canvas');
@@ -3673,6 +3742,9 @@ EN: Maria, I’m out of cigarettes.`
       bar.innerHTML = ['fr','ar','en'].map(l => `<div class="note-phrase-card ${l}" dir="${l === 'ar' ? 'rtl' : 'ltr'}">${phrase ? esc(phrase[l] || '') : ''}</div>`).join('');
     }
     const canvas = document.getElementById('note-canvas');
+    noteUndo = [];
+    noteRedo = [];
+    updateNoteHistoryButtons();
     setTimeout(() => {
       setupNoteCanvas();
       const dpr = window.devicePixelRatio || 1;
@@ -3685,8 +3757,7 @@ EN: Maria, I’m out of cigarettes.`
         img.src = state.notes[key];
       }
     }, 50);
-    noteErasing = false;
-    setNoteTool(false);
+    setNoteTool('pen');
     document.getElementById('note-size').value = noteSize;
     document.querySelectorAll('.note-tool').forEach(b => b.classList.toggle('active', b.dataset.color === noteColor));
     document.getElementById('note-swatch-dot').style.background = noteColor;
@@ -3703,10 +3774,12 @@ EN: Maria, I’m out of cigarettes.`
     document.getElementById('note-paper').classList.toggle('active', lined);
   }
 
-  function setNoteTool(erase) {
-    noteErasing = erase;
-    document.getElementById('note-pen').classList.toggle('active', !erase);
-    document.getElementById('note-erase').classList.toggle('active', erase);
+  function setNoteTool(tool) {
+    noteErasing = tool === 'erase';
+    noteHighlight = tool === 'hl';
+    document.getElementById('note-pen').classList.toggle('active', tool === 'pen');
+    document.getElementById('note-hl').classList.toggle('active', tool === 'hl');
+    document.getElementById('note-erase').classList.toggle('active', tool === 'erase');
   }
 
   function closeNote() {
@@ -3728,6 +3801,7 @@ EN: Maria, I’m out of cigarettes.`
 
   function clearNote() {
     if (!noteCtx) return;
+    noteSnapshot();
     const canvas = document.getElementById('note-canvas');
     noteCtx.clearRect(0, 0, canvas.width / (window.devicePixelRatio || 1), canvas.height / (window.devicePixelRatio || 1));
   }
@@ -3743,13 +3817,16 @@ EN: Maria, I’m out of cigarettes.`
   function noteStart(e) {
     if (!noteCtx) return;
     e.preventDefault();
+    noteSnapshot();
     noteDrawing = true;
     const p = getNotePos(e);
     noteCtx.beginPath();
     noteCtx.moveTo(p.x, p.y);
     noteCtx.globalCompositeOperation = noteErasing ? 'destination-out' : 'source-over';
+    noteCtx.globalAlpha = noteHighlight ? 0.35 : 1;
+    noteCtx.lineCap = noteHighlight ? 'square' : 'round';
     noteCtx.strokeStyle = noteColor;
-    noteCtx.lineWidth = noteErasing ? noteSize * 4 : noteSize;
+    noteCtx.lineWidth = noteErasing ? noteSize * 4 : (noteHighlight ? noteSize * 3 : noteSize);
   }
 
   function noteMove(e) {
@@ -4222,6 +4299,11 @@ Output in French, Arabic and English.`;
   function bindBackButton() {
     if (typeof Capacitor !== 'undefined' && Capacitor.Plugins && Capacitor.Plugins.App) {
       Capacitor.Plugins.App.addListener('backButton', ({ canGoBack }) => {
+        const noteModal = document.getElementById('note-modal');
+        if (noteModal && noteModal.classList.contains('show')) {
+          if (noteKey && noteCtx) saveNote(); else closeNote();
+          return;
+        }
         if (canGoBack) { history.back(); }
         else if (confirm(t('exitConfirm'))) { Capacitor.Plugins.App.exitApp(); }
       });
@@ -4282,8 +4364,13 @@ Output in French, Arabic and English.`;
     document.getElementById('btn-save-note').onclick = saveNote;
     document.getElementById('btn-close-note').onclick = () => { if (noteKey && noteCtx) saveNote(); else closeNote(); };
     document.getElementById('note-clear').onclick = clearNote;
-    document.getElementById('note-erase').onclick = () => setNoteTool(true);
-    document.getElementById('note-pen').onclick = () => { setNoteTool(false); document.getElementById('note-palette').classList.toggle('show'); };
+    document.getElementById('note-erase').onclick = () => setNoteTool('erase');
+    document.getElementById('note-hl').onclick = () => setNoteTool('hl');
+    document.getElementById('note-undo').onclick = undoNote;
+    document.getElementById('note-redo').onclick = redoNote;
+    document.getElementById('note-size-dec').onclick = () => setNoteSize(noteSize - 1);
+    document.getElementById('note-size-inc').onclick = () => setNoteSize(noteSize + 1);
+    document.getElementById('note-pen').onclick = () => { setNoteTool('pen'); document.getElementById('note-palette').classList.toggle('show'); };
     document.getElementById('note-swatch').onclick = () => document.getElementById('note-palette').classList.toggle('show');
     document.getElementById('note-paper').onclick = () => {
       const lined = localStorage.getItem('zeek_note_paper') === 'lined';
@@ -4295,7 +4382,7 @@ Output in French, Arabic and English.`;
       const tool = e.target.closest('.note-tool');
       if (tool) {
         noteColor = tool.dataset.color;
-        setNoteTool(false);
+        if (noteErasing) setNoteTool('pen');
         document.querySelectorAll('.note-tool').forEach(b => b.classList.remove('active'));
         tool.classList.add('active');
         document.getElementById('note-swatch-dot').style.background = noteColor;
