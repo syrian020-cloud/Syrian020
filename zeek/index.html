@@ -36,7 +36,7 @@
   }
   @font-face { font-family: 'Simplified Arabic'; src: url('fonts/simplified-arabic.ttf') format('truetype'); font-display: swap; }
   @font-face { font-family: 'Geeza Pro'; src: url('fonts/geeza-pro.ttf') format('truetype'); font-display: swap; }
-  [data-theme="light"] {
+  [data-mode="light"] {
     --bg-primary: #fdf6fb;
     --bg-secondary: #ffffff;
     --bg-tertiary: #f4e9f5;
@@ -48,11 +48,21 @@
     --border: #e9d5ee;
     --shadow: 0 8px 24px rgba(0,0,0,0.08);
   }
+  [data-theme="sepia"] { --glow: transparent; --bg-primary: #f4ecd8; --bg-secondary: #fbf6ea; --bg-tertiary: #ece1c8; --text-primary: #3b2f1e; --text-secondary: #7a6a4f; --accent: #a0522d; --accent-2: #8b5e3c; --accent-hover: #b8653a; --border: #dccbb0; --shadow: 0 8px 24px rgba(0,0,0,0.08); }
+  [data-theme="paper"] { --glow: transparent; --bg-primary: #f7f7f2; --bg-secondary: #ffffff; --bg-tertiary: #ecece4; --text-primary: #1f2937; --text-secondary: #5b6472; --accent: #2563eb; --accent-2: #0f766e; --accent-hover: #3b82f6; --border: #e2e2d8; --shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  [data-theme="mint"] { --glow: transparent; --bg-primary: #eef7f2; --bg-secondary: #ffffff; --bg-tertiary: #dcefe4; --text-primary: #123524; --text-secondary: #3f6b55; --accent: #0f9d6e; --accent-2: #0e7490; --accent-hover: #22b784; --border: #cfe6d9; --shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  [data-theme="sky"] { --glow: transparent; --bg-primary: #eaf3fb; --bg-secondary: #ffffff; --bg-tertiary: #d9e8f6; --text-primary: #0f2540; --text-secondary: #4a6584; --accent: #0369a1; --accent-2: #2563eb; --accent-hover: #0ea5e9; --border: #cbdcec; --shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  [data-theme="lavender"] { --glow: transparent; --bg-primary: #f3effb; --bg-secondary: #ffffff; --bg-tertiary: #e6dff6; --text-primary: #2a1d4a; --text-secondary: #645a86; --accent: #7c3aed; --accent-2: #a855f7; --accent-hover: #9b64f5; --border: #dcd2f0; --shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  [data-theme="graphite"] { --glow: transparent; --bg-primary: #1c1f24; --bg-secondary: #25292f; --bg-tertiary: #2f343b; --text-primary: #eceff3; --text-secondary: #aab2bd; --accent: #60a5fa; --accent-2: #34d399; --accent-hover: #93c5fd; --border: #3a4149; --shadow: 0 8px 24px rgba(0,0,0,0.4); }
+  [data-theme="forest"] { --glow: transparent; --bg-primary: #0f1f17; --bg-secondary: #15291f; --bg-tertiary: #1d3529; --text-primary: #e7f3ea; --text-secondary: #a9c4b1; --accent: #4ade80; --accent-2: #facc15; --accent-hover: #86efac; --border: #2a4737; --shadow: 0 8px 24px rgba(0,0,0,0.4); }
+  [data-theme="ocean"] { --glow: transparent; --bg-primary: #0b1a2b; --bg-secondary: #102338; --bg-tertiary: #163049; --text-primary: #e6f0fa; --text-secondary: #a6bdd6; --accent: #38bdf8; --accent-2: #a78bfa; --accent-hover: #7dd3fc; --border: #22405e; --shadow: 0 8px 24px rgba(0,0,0,0.4); }
+  [data-theme="nord"] { --glow: transparent; --bg-primary: #2e3440; --bg-secondary: #3b4252; --bg-tertiary: #434c5e; --text-primary: #eceff4; --text-secondary: #d8dee9; --accent: #88c0d0; --accent-2: #b48ead; --accent-hover: #8fbcbb; --border: #4c566a; --shadow: 0 8px 24px rgba(0,0,0,0.35); }
+  [data-theme="coffee"] { --glow: transparent; --bg-primary: #2a1e18; --bg-secondary: #352822; --bg-tertiary: #43322a; --text-primary: #f5ebe0; --text-secondary: #cdb9a8; --accent: #e0a458; --accent-2: #c97b63; --accent-hover: #f0bd7a; --border: #54423a; --shadow: 0 8px 24px rgba(0,0,0,0.4); }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; min-height: 100%; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Arabic", "Noto Sans", sans-serif;
-    background: radial-gradient(1200px 600px at 50% -10%, rgba(139,92,246,0.18), transparent 60%), var(--bg-primary);
+    background: radial-gradient(1200px 600px at 50% -10%, var(--glow, rgba(139,92,246,0.18)), transparent 60%), var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.65;
     transition: background 0.25s, color 0.25s;
@@ -405,15 +415,15 @@
     background: rgba(255,107,122,0.1); border: 1px solid var(--danger); color: var(--danger);
     border-radius: var(--radius); padding: 0.7rem 1rem; margin-bottom: 0.9rem; font-size: 0.95rem;
   }
-  [data-theme="light"] .line.active { background: #f0f9f4; }
-  [data-theme="light"] .line.synced { background: #e8f5e9; }
-  [data-theme="light"] .btns .ai-btn.on { color: #7c3aed; border-color: #7c3aed; background: #ede9fe; }
-  [data-theme="light"] .btns .image-btn.on { color: #2563eb; border-color: #2563eb; background: #eff6ff; }
-  [data-theme="light"] .note-phrase-card.fr { color: #4c1d95; }
-  [data-theme="light"] .note-phrase-card.ar { color: #047857; }
-  [data-theme="light"] .note-phrase-card.en { color: #1f2937; }
-  [data-theme="light"] .cap-handle { color: rgba(0,0,0,0.22); }
-  [data-theme="light"] .cap-line.active { background: #ede9fe; border-color: #7c3aed; }
+  [data-mode="light"] .line.active { background: #f0f9f4; }
+  [data-mode="light"] .line.synced { background: #e8f5e9; }
+  [data-mode="light"] .btns .ai-btn.on { color: #7c3aed; border-color: #7c3aed; background: #ede9fe; }
+  [data-mode="light"] .btns .image-btn.on { color: #2563eb; border-color: #2563eb; background: #eff6ff; }
+  [data-mode="light"] .note-phrase-card.fr { color: #4c1d95; }
+  [data-mode="light"] .note-phrase-card.ar { color: #047857; }
+  [data-mode="light"] .note-phrase-card.en { color: #1f2937; }
+  [data-mode="light"] .cap-handle { color: rgba(0,0,0,0.22); }
+  [data-mode="light"] .cap-line.active { background: #ede9fe; border-color: #7c3aed; }
   @media (max-width: 520px) {
     .header-inner { padding: 0.6rem 0.75rem; }
     .logo { font-size: 0.95rem; }
@@ -1263,7 +1273,7 @@
     loopArabicOnly: { ar: '🔁 عربي فقط', en: '🔁 Arabic only', fr: '🔁 Arabe seulement' },
     loopEnglishOnly: { ar: '🔁 إنجليزي فقط', en: '🔁 English only', fr: '🔁 Anglais seulement' },
     favourites: { ar: 'المحفوظات', en: 'Favourites', fr: 'Favoris' },
-    themeMode: { ar: 'الوضع الليلي/النهاري', en: 'Dark / light mode', fr: 'Mode sombre / clair' },
+    themeMode: { ar: 'تبديل الثيم', en: 'Switch theme', fr: 'Changer de thème' },
     stopAudio: { ar: 'إيقاف الصوت', en: 'Stop audio', fr: 'Arrêter le son' },
     library: { ar: 'المكتبة', en: 'Library', fr: 'Bibliothèque' },
     phrases: { ar: 'عبارة', en: 'phrases', fr: 'phrases' },
@@ -1567,12 +1577,22 @@
   function setTheme(theme) {
     state.theme = theme;
     localStorage.setItem('zeek_theme', theme);
-    document.documentElement.setAttribute('data-theme', theme === 'light' ? 'light' : '');
+    const light = THEME_LIGHT.includes(theme);
+    document.documentElement.setAttribute('data-theme', theme === 'dark' ? '' : theme);
+    document.documentElement.setAttribute('data-mode', light ? 'light' : 'dark');
     const btn = document.getElementById('btn-theme');
-    if (btn) btn.textContent = theme === 'light' ? '☀️' : '🌙';
+    if (btn) btn.textContent = light ? '☀️' : '🌙';
   }
 
-  function toggleTheme() { setTheme(state.theme === 'light' ? 'dark' : 'light'); }
+  const THEME_ORDER = ['dark','light','sepia','paper','mint','sky','lavender','graphite','forest','ocean','nord','coffee'];
+  const THEME_LIGHT = ['light','sepia','paper','mint','sky','lavender'];
+  const THEME_NAMES = { dark: 'Dark', light: 'Light', sepia: 'Sepia', paper: 'Paper', mint: 'Mint', sky: 'Sky', lavender: 'Lavender', graphite: 'Graphite', forest: 'Forest', ocean: 'Ocean', nord: 'Nord', coffee: 'Coffee' };
+  function toggleTheme() {
+    const i = THEME_ORDER.indexOf(state.theme);
+    const next = THEME_ORDER[(i + 1) % THEME_ORDER.length];
+    setTheme(next);
+    showToast('🎨 ' + THEME_NAMES[next]);
+  }
 
   function isAndroid() {
     return !!(window.Capacitor && window.Capacitor.getPlatform && window.Capacitor.getPlatform() === 'android');
@@ -2514,7 +2534,10 @@
   }
 
   function stripSpeechFlags(text) {
-    return String(text || '').replace(/[\u{1F1E6}-\u{1F1FF}]{2}/gu, '').replace(/\s+/g, ' ').trim();
+    return String(text || '')
+      .replace(/[\u{1F1E6}-\u{1F1FF}]{2}/gu, '')
+      .replace(/[\p{Extended_Pictographic}\p{Emoji_Modifier}\u{FE0F}\u{FE0E}\u{200D}\u{20E3}\u{2190}-\u{21FF}\u{2300}-\u{23FF}\u{2460}-\u{27BF}\u{2900}-\u{2BFF}\u{1F000}-\u{1FAFF}]/gu, '')
+      .replace(/\s+/g, ' ').trim();
   }
 
   function estimatedSpeechTimeout(text, rate) {
@@ -2592,15 +2615,17 @@
 
   function speakSupported() { return !!nativeTTS() && state.ttsAvailable; }
 
-  function stopSpeech() {
+  function stopSpeech(pauseMedia) {
     state.loop = null;
     if (loopTimer) { clearInterval(loopTimer); loopTimer = null; }
     speechRun++;
     anyStop();
     highlight(null);
     refreshButtons();
-    document.querySelectorAll('video, audio').forEach(v => { try { v.pause(); v.dispatchEvent(new Event('timeupdate')); } catch (e) {} });
+    if (pauseMedia) document.querySelectorAll('video, audio').forEach(v => { try { v.pause(); v.dispatchEvent(new Event('timeupdate')); } catch (e) {} });
   }
+
+  function stopAll() { stopSpeech(true); }
 
   function updateVideoRate() {
     document.querySelectorAll('video, audio').forEach(v => { try { v.playbackRate = state.rate || 1; } catch (e) {} });
@@ -3309,7 +3334,7 @@
       lesson.phrases.map((p, i) => phraseHTML(p, phraseKey(lesson.id, i))).join('');
     view.innerHTML = html;
     document.getElementById('play-all').onclick = () => playLesson(lesson);
-    document.getElementById('stop-all').onclick = stopSpeech;
+    document.getElementById('stop-all').onclick = stopAll;
     const imgSet = document.getElementById('lesson-image-set');
     const imgToggle = document.getElementById('lesson-image-toggle');
     const imgDel = document.getElementById('lesson-image-del');
@@ -4251,7 +4276,7 @@ Output in French, Arabic and English.`;
   const scrollMemo = {};
   const routeKey = r => JSON.stringify(r);
   function go(route, push = true) {
-    stopSpeech();
+    stopSpeech(true);
     const prevKey = routeKey(state.route);
     scrollMemo[prevKey] = window.scrollY;
     const sameRoute = !push && routeKey(route) === prevKey;
@@ -4327,7 +4352,7 @@ Output in French, Arabic and English.`;
       });
     }
     document.getElementById('btn-theme').onclick = toggleTheme;
-    document.getElementById('btn-stop').onclick = stopSpeech;
+    document.getElementById('btn-stop').onclick = stopAll;
     document.querySelectorAll('.lang-btn').forEach(b => b.onclick = () => setUILang(b.dataset.lang));
     document.getElementById('rate').onchange = e => { state.rate = +e.target.value; stopSpeech(); updateVideoRate(); };
     document.getElementById('loopmode').onchange = e => { state.langs = e.target.value.split(','); stopSpeech(); };
