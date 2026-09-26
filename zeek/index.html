@@ -3270,7 +3270,6 @@
           ${cardThumb(it, num)}
           <div class="card-body">
             <div class="card-title">${esc(title(it.title))}</div>
-            <div class="card-sub" dir="ltr">${subtitle(it.title)}</div>
             <div class="card-sub">${(it.phrases || []).length} ${t('phrases')}</div>
           </div>
           ${menuBtn(it, 'lesson')}
@@ -3299,7 +3298,6 @@
         ${cardThumb(l, folderLessonIdx)}
         <div class="card-body">
           <div class="card-title">${esc(title(l.title))}</div>
-          <div class="card-sub" dir="ltr">${subtitle(l.title)}</div>
           <div class="card-sub">${(l.phrases || []).length} ${t('phrases')}</div>
         </div>
         ${menuBtn(l, 'lesson')}
@@ -3334,7 +3332,6 @@
       </div>
       <div class="lesson-actions">
         <button class="btn icon" id="play-all" title="${t('playAll')}">▶</button>
-        <button class="btn ghost" id="stop-all" title="${t('stopAll')}">${t('stopAll')}</button>
         ${lesson.image ? `<button class="btn ghost icon" id="lesson-image-toggle" title="${t('hideImage')}">🙈</button><button class="btn ghost icon" id="lesson-image-del" title="${t('delete')}">🗑️</button>` : `<button class="btn ghost icon" id="lesson-image-set" title="${t('chooseImage')}">🖼️</button>`}
         <button class="btn ghost icon" id="cap-theme" title="${t('captionTheme')}">🎨</button>
         <button class="btn ghost icon" id="cap-font" title="${t('captionFont')}">🔤</button>
@@ -3348,7 +3345,6 @@
       lesson.phrases.map((p, i) => phraseHTML(p, phraseKey(lesson.id, i))).join('');
     view.innerHTML = html;
     document.getElementById('play-all').onclick = () => playLesson(lesson);
-    document.getElementById('stop-all').onclick = stopAll;
     const imgSet = document.getElementById('lesson-image-set');
     const imgToggle = document.getElementById('lesson-image-toggle');
     const imgDel = document.getElementById('lesson-image-del');
