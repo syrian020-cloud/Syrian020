@@ -116,7 +116,10 @@ body.rtl { direction: rtl; }
 .form-group textarea { min-height: 90px; resize: vertical; }
 .pass-row { display: flex; gap: 8px; }
 .pass-row input { flex: 1; }
-.toggle-vis, .gen-btn { padding: 0 14px; border-radius: 14px; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; }
+.lock-error { color: var(--danger); font-size: 14px; min-height: 20px; margin: -8px 0 12px; text-align: center; }
+.shake { animation: shake .4s; }
+@keyframes shake { 0%,100% { transform: translateX(0); } 20%,60% { transform: translateX(-8px); } 40%,80% { transform: translateX(8px); } }
+.toggle-vis, .gen-btn, .copy-btn { padding: 0 14px; border-radius: 14px; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; }
 
 /* Buttons */
 .btn {
@@ -157,7 +160,7 @@ body.rtl { direction: rtl; }
 .switch.on::after { left: 25px; }
 
 /* Toast */
-.toast { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%) translateY(120%); background: var(--card); color: var(--text); padding: 12px 20px; border-radius: 14px; border: 1px solid var(--border); z-index: 400; transition: .3s; box-shadow: var(--shadow); }
+.toast { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%) translateY(120%); background: var(--card); color: var(--text); padding: 12px 20px; border-radius: 14px; border: 1px solid var(--border); z-index: 6000; transition: .3s; box-shadow: var(--shadow); }
 .toast.show { transform: translateX(-50%) translateY(0); }
 
 /* Category chips */
@@ -186,6 +189,7 @@ body.rtl .fab { right: auto; left: 20px; }
   <div class="lock-title" data-i18n="unlock">Unlock PassVault</div>
   <div class="lock-sub" data-i18n="enterPin">Enter your master password</div>
   <input type="password" id="lockPass" data-i18n-placeholder="enterPin" placeholder="Enter your master password" style="width:100%;max-width:320px;padding:14px 16px;border-radius:14px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:16px;margin-bottom:16px;outline:none;">
+  <div class="lock-error" id="lockError"></div>
   <button class="btn" id="unlockBtn" data-i18n="unlock" style="max-width:320px;">Unlock</button>
 </div>
 
@@ -218,12 +222,18 @@ body.rtl .fab { right: auto; left: 20px; }
         <option value="Social">Social</option><option value="Work">Work</option><option value="Finance">Finance</option>
         <option value="Shopping">Shopping</option><option value="Email">Email</option><option value="Other">Other</option>
       </select></div>
-      <div class="form-group"><label data-i18n="username">Username / Name</label><input id="fUsername" type="text"></div>
+      <div class="form-group"><label data-i18n="username">Username / Name</label>
+        <div class="pass-row">
+          <input id="fUsername" type="text">
+          <button class="copy-btn" id="copyUser" data-i18n-title="copyUser" title="Copy username">📋</button>
+        </div>
+      </div>
       <div class="form-group"><label data-i18n="password">Password</label>
         <div class="pass-row">
           <input id="fPassword" type="password">
           <button class="toggle-vis" id="togglePass">👁</button>
           <button class="gen-btn" id="genPass">⚡</button>
+          <button class="copy-btn" id="copyPass" data-i18n-title="copyPassword" title="Copy password">📋</button>
         </div>
       </div>
       <div class="form-group"><label data-i18n="email">Email</label><input id="fEmail" type="email"></div>
@@ -251,12 +261,16 @@ body.rtl .fab { right: auto; left: 20px; }
         <div class="setting-left"><div class="setting-icon">🌙</div><div><div class="setting-label" data-i18n="darkMode">Dark mode</div><div class="setting-desc" data-i18n="darkModeDesc">Easier on the eyes</div></div></div>
         <div class="switch on" id="darkSwitch"></div>
       </div>
-      <div class="setting-item" id="biometricRow">
-        <div class="setting-left"><div class="setting-icon">👆</div><div><div class="setting-label" data-i18n="biometric">Biometric lock</div><div class="setting-desc" data-i18n="biometricDesc">Use fingerprint / face</div></div></div>
-        <div class="switch" id="bioSwitch"></div>
-      </div>
       <div class="setting-item" id="changePinRow">
         <div class="setting-left"><div class="setting-icon">🔑</div><div><div class="setting-label" data-i18n="changePin">Change master password</div></div></div>
+        <span>›</span>
+      </div>
+      <div class="setting-item" id="removePinRow">
+        <div class="setting-left"><div class="setting-icon">🔓</div><div><div class="setting-label" data-i18n="removePin">Remove app password</div><div class="setting-desc" data-i18n="removePinDesc">Open the app without a password</div></div></div>
+        <span>›</span>
+      </div>
+      <div class="setting-item" id="setPinRow">
+        <div class="setting-left"><div class="setting-icon">🔐</div><div><div class="setting-label" data-i18n="setPassword">Set master password</div><div class="setting-desc" data-i18n="setPinDesc">Protect the app with a password</div></div></div>
         <span>›</span>
       </div>
       <div class="setting-item" id="exportJsonRow">
@@ -287,12 +301,14 @@ const I18N = {
     category: 'Category', username: 'Username / Name', password: 'Password', email: 'Email', phone: 'Phone',
     notes: 'Additional info', notesPh: 'Notes, security questions, card numbers...', save: 'Save', delete: 'Delete',
     settings: 'Settings', language: 'Language', languageDesc: 'Choose app language', darkMode: 'Dark mode',
-    darkModeDesc: 'Easier on the eyes', biometric: 'Biometric lock', biometricDesc: 'Use fingerprint / face',
+    darkModeDesc: 'Easier on the eyes', removePin: 'Remove app password', removePinDesc: 'Open the app without a password',
+    setPinDesc: 'Protect the app with a password', removePinConfirm: 'Enter your current password to remove app protection', remove: 'Remove',
+    pinRemoved: 'App password removed', skipPassword: 'Continue without password',
     changePin: 'Change master password', exportJson: 'Export JSON', importJson: 'Import JSON', lockNow: 'Lock now',
     confirmExit: 'Exit PassVault?', cancel: 'Cancel', exit: 'Exit', setPassword: 'Set master password',
     setPasswordDesc: 'This password protects your vault. Do not forget it.', confirmPassword: 'Confirm password', create: 'Create',
     passwordsNoMatch: 'Passwords do not match', passwordShort: 'Password must be at least 4 characters',
-    pinError: 'Wrong password', entrySaved: 'Entry saved', entryDeleted: 'Entry deleted', copied: 'Copied to clipboard',
+    pinError: 'Wrong password', entrySaved: 'Entry saved', entryDeleted: 'Entry deleted', copied: 'Copied to clipboard', passwordCopied: 'Password copied', usernameCopied: 'Username copied', copyBoth: 'Copy password then username', copyFailed: 'Copy failed', nothingToCopy: 'Nothing to copy', copyUser: 'Copy username', copyPassword: 'Copy password',
     exportSuccess: 'Export saved', exportError: 'Could not export backup', restoreSuccess: 'Backup restored', restoreError: 'Could not restore backup',
     empty: 'No entries yet. Tap + to add one.', changePassword: 'Change master password', currentPassword: 'Current password',
     newPassword: 'New password', change: 'Change', generate: 'Generate', importPassword: 'Backup password',
@@ -304,12 +320,14 @@ const I18N = {
     category: 'الفئة', username: 'اسم المستخدم / الاسم', password: 'كلمة المرور', email: 'البريد الإلكتروني', phone: 'الهاتف',
     notes: 'معلومات إضافية', notesPh: 'ملاحظات، أسئلة أمان، أرقام بطاقات...', save: 'حفظ', delete: 'حذف',
     settings: 'الإعدادات', language: 'اللغة', languageDesc: 'اختر لغة التطبيق', darkMode: 'الوضع المظلم',
-    darkModeDesc: 'سهل على العينين', biometric: 'قفل البصمة', biometricDesc: 'استخدم البصمة / الوجه',
+    darkModeDesc: 'سهل على العينين', removePin: 'حذف كلمة مرور التطبيق', removePinDesc: 'فتح التطبيق بدون كلمة مرور',
+    setPinDesc: 'حماية التطبيق بكلمة مرور', removePinConfirm: 'أدخل كلمة المرور الحالية لإزالة حماية التطبيق', remove: 'حذف',
+    pinRemoved: 'تم حذف كلمة مرور التطبيق', skipPassword: 'المتابعة بدون كلمة مرور',
     changePin: 'تغيير كلمة المرور الرئيسية', exportJson: 'تصدير JSON', importJson: 'استيراد JSON', lockNow: 'قفل الآن',
     confirmExit: 'الخروج من PassVault؟', cancel: 'إلغاء', exit: 'خروج', setPassword: 'تعيين كلمة المرور الرئيسية',
     setPasswordDesc: 'تحمي كلمة المرور هذه خزنتك. لا تنسها.', confirmPassword: 'تأكيد كلمة المرور', create: 'إنشاء',
     passwordsNoMatch: 'كلمتا المرور غير متطابقتين', passwordShort: 'كلمة المرور يجب أن تكون 4 أحرف على الأقل',
-    pinError: 'كلمة المرور خاطئة', entrySaved: 'تم حفظ الإدخال', entryDeleted: 'تم حذف الإدخال', copied: 'تم النسخ إلى الحافظة',
+    pinError: 'كلمة المرور خاطئة', entrySaved: 'تم حفظ الإدخال', entryDeleted: 'تم حذف الإدخال', copied: 'تم النسخ إلى الحافظة', passwordCopied: 'تم نسخ كلمة المرور', usernameCopied: 'تم نسخ اسم المستخدم', copyBoth: 'نسخ كلمة المرور ثم اسم المستخدم', copyFailed: 'فشل النسخ', nothingToCopy: 'لا يوجد ما يُنسخ', copyUser: 'نسخ اسم المستخدم', copyPassword: 'نسخ كلمة المرور',
     exportSuccess: 'تم حفظ التصدير', restoreSuccess: 'تم استعادة النسخة الاحتياطية',
     exportError: 'تعذر تصدير النسخة الاحتياطية', restoreError: 'تعذر استعادة النسخة الاحتياطية', empty: 'لا توجد إدخالات بعد. اضغط + لإضافة واحد.',
     changePassword: 'تغيير كلمة المرور الرئيسية', currentPassword: 'كلمة المرور الحالية', newPassword: 'كلمة المرور الجديدة',
@@ -322,12 +340,14 @@ const I18N = {
     category: 'Catégorie', username: 'Nom d\'utilisateur / Nom', password: 'Mot de passe', email: 'E-mail', phone: 'Téléphone',
     notes: 'Infos supplémentaires', notesPh: 'Notes, questions de sécurité, numéros de cartes...', save: 'Enregistrer', delete: 'Supprimer',
     settings: 'Paramètres', language: 'Langue', languageDesc: 'Choisir la langue', darkMode: 'Mode sombre',
-    darkModeDesc: 'Plus reposant pour les yeux', biometric: 'Verrou biométrique', biometricDesc: 'Utiliser empreinte / visage',
+    darkModeDesc: 'Plus reposant pour les yeux', removePin: 'Supprimer le mot de passe de l\'app', removePinDesc: 'Ouvrir l\'app sans mot de passe',
+    setPinDesc: 'Protéger l\'app avec un mot de passe', removePinConfirm: 'Entrez le mot de passe actuel pour retirer la protection', remove: 'Supprimer',
+    pinRemoved: 'Mot de passe de l\'app supprimé', skipPassword: 'Continuer sans mot de passe',
     changePin: 'Changer le mot de passe maître', exportJson: 'Exporter JSON', importJson: 'Importer JSON', lockNow: 'Verrouiller',
     confirmExit: 'Quitter PassVault ?', cancel: 'Annuler', exit: 'Quitter', setPassword: 'Définir le mot de passe maître',
     setPasswordDesc: 'Ce mot de passe protège votre coffre. Ne l\'oubliez pas.', confirmPassword: 'Confirmer le mot de passe', create: 'Créer',
     passwordsNoMatch: 'Les mots de passe ne correspondent pas', passwordShort: 'Le mot de passe doit faire au moins 4 caractères',
-    pinError: 'Mot de passe incorrect', entrySaved: 'Entrée enregistrée', entryDeleted: 'Entrée supprimée', copied: 'Copié dans le presse-papiers',
+    pinError: 'Mot de passe incorrect', entrySaved: 'Entrée enregistrée', entryDeleted: 'Entrée supprimée', copied: 'Copié dans le presse-papiers', passwordCopied: 'Mot de passe copié', usernameCopied: 'Nom d\'utilisateur copié', copyBoth: 'Copier le mot de passe puis le nom d\'utilisateur', copyFailed: 'Échec de la copie', nothingToCopy: 'Rien à copier', copyUser: 'Copier le nom d\'utilisateur', copyPassword: 'Copier le mot de passe',
     exportSuccess: 'Export enregistré', exportError: 'Impossible d\'exporter', restoreSuccess: 'Sauvegarde restaurée', restoreError: 'Impossible de restaurer',
     empty: 'Aucune entrée. Appuyez sur + pour en ajouter une.', changePassword: 'Changer le mot de passe maître',
     currentPassword: 'Mot de passe actuel', newPassword: 'Nouveau mot de passe', change: 'Changer', generate: 'Générer',
@@ -415,6 +435,24 @@ async function setupMaster(password) {
   localStorage.setItem('vault', JSON.stringify(emptyVault));
   entries = [];
 }
+const NO_PASS_KEY = 'noPassword';
+function hasAppPassword() { return !!localStorage.getItem('masterHash') && !localStorage.getItem(NO_PASS_KEY); }
+function randomPass() { return arrToBase64(crypto.getRandomValues(new Uint8Array(24))); }
+async function disableAppPassword() {
+  const saved = entries.slice();
+  const devicePass = randomPass();
+  await setupMaster(devicePass);
+  localStorage.setItem(NO_PASS_KEY, devicePass);
+  entries = saved;
+  await saveVault(entries);
+}
+async function enableAppPassword(password) {
+  const saved = entries.slice();
+  await setupMaster(password);
+  localStorage.removeItem(NO_PASS_KEY);
+  entries = saved;
+  await saveVault(entries);
+}
 async function unlockMaster(password) {
   const salt = localStorage.getItem('masterHashSalt');
   const stored = localStorage.getItem('masterHash');
@@ -439,11 +477,18 @@ function applyI18n() {
   document.dir = LANG === 'ar' ? 'rtl' : 'ltr';
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { el.placeholder = t(el.dataset.i18nPlaceholder); });
+  document.querySelectorAll('[data-i18n-title]').forEach(el => { el.title = t(el.dataset.i18nTitle); });
   document.querySelectorAll('#fCategory option').forEach(opt => { if(I18N[LANG].categories[opt.value]) opt.textContent = I18N[LANG].categories[opt.value]; });
   const ls = $('langSelect'); if (ls) ls.value = LANG;
   renderChips(); renderList();
 }
-function showToast(msg) { const el=$('toast'); el.textContent=msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),2600); }
+let toastTimer = null;
+function showToast(msg, ms = 1800) {
+  const el = $('toast');
+  if (toastTimer) clearTimeout(toastTimer);
+  el.textContent = msg; el.classList.add('show');
+  toastTimer = setTimeout(() => { el.classList.remove('show'); toastTimer = null; }, ms);
+}
 function showScreen(name) {
   ['homeScreen','formScreen','settingsScreen'].forEach(id => $(id).classList.toggle('hidden', id!==name));
   if (name==='homeScreen') { editId=null; renderList(); }
@@ -482,7 +527,7 @@ function renderList() {
         <div class="card-meta">${escapeHtml(e.username || e.email || '')}</div>
       </div>
       <div class="card-actions">
-        <button class="btn-icon copy-user" data-id="${escapeHtml(e.id)}" title="Copy user">👤</button>
+        <button class="btn-icon copy-user" data-id="${escapeHtml(e.id)}" title="${escapeHtml(t('copyBoth'))}">👤</button>
         <button class="btn-icon copy-pass" data-id="${escapeHtml(e.id)}" title="Copy password">🔑</button>
       </div>
     </div>
@@ -491,13 +536,40 @@ function renderList() {
     if (e.target.classList.contains('copy-user') || e.target.classList.contains('copy-pass')) return;
     openEdit(c.dataset.id);
   });
-  listEl.querySelectorAll('.copy-user').forEach(b => b.onclick = () => copyField(b.dataset.id, 'username'));
+  listEl.querySelectorAll('.copy-user').forEach(b => b.onclick = () => copyBoth(b.dataset.id));
   listEl.querySelectorAll('.copy-pass').forEach(b => b.onclick = () => copyField(b.dataset.id, 'password'));
+}
+async function writeClipboard(text) {
+  const cap = window.Capacitor;
+  if (cap && cap.isNativePlatform && cap.isNativePlatform() && cap.Plugins.Clipboard) {
+    await cap.Plugins.Clipboard.write({ string: text });
+  } else if (navigator.clipboard && navigator.clipboard.writeText) {
+    await navigator.clipboard.writeText(text);
+  } else {
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+  }
+}
+async function copyText(text, msg) {
+  if (!text) return showToast(t('nothingToCopy'));
+  try { await writeClipboard(text); showToast(msg || t('copied')); }
+  catch (err) { showToast(t('copyFailed')); }
+}
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+async function copyBoth(id) {
+  const e = entries.find(x => x.id === id);
+  if (!e) return;
+  if (!e.password && !e.username) return showToast(t('nothingToCopy'));
+  try {
+    if (e.password) { await writeClipboard(e.password); showToast(t('passwordCopied')); await sleep(1500); }
+    if (e.username) { await writeClipboard(e.username); showToast(t('usernameCopied')); }
+  } catch (err) { showToast(t('copyFailed')); }
 }
 async function copyField(id, field) {
   const e = entries.find(x => x.id === id);
-  if (!e || !e[field]) return;
-  try { await navigator.clipboard.writeText(e[field]); showToast(t('copied')); } catch(err) { showToast('Copy failed'); }
+  if (!e) return;
+  await copyText(e[field]);
 }
 
 function openEdit(id) {
@@ -547,7 +619,14 @@ function generatePassword() {
 }
 
 /* ===== Settings ===== */
-function openSettings() { showScreen('settingsScreen'); }
+function openSettings() {
+  const has = hasAppPassword();
+  $('changePinRow').classList.toggle('hidden', !has);
+  $('removePinRow').classList.toggle('hidden', !has);
+  $('lockNowBtn').classList.toggle('hidden', !has);
+  $('setPinRow').classList.toggle('hidden', has);
+  showScreen('settingsScreen');
+}
 function applyTheme() {
   document.body.classList.toggle('light', !DARK);
   document.body.classList.toggle('dark', DARK);
@@ -563,16 +642,24 @@ function setLang(l) { LANG=l; localStorage.setItem('lang', l); applyI18n(); }
 /* ===== Lock ===== */
 async function submitUnlock() {
   const pass = $('lockPass').value;
-  if (pass.length < 4) return showToast(t('passwordShort'));
+  if (pass.length < 4) return showLockError(t('passwordShort'));
   const ok = await unlockMaster(pass);
   if (ok) {
     $('lock').classList.add('hidden');
     $('app').classList.remove('hidden');
     $('lockPass').value = '';
+    $('lockError').textContent = '';
     applyI18n();
   } else {
-    showToast(t('pinError'));
+    showLockError(t('pinError'));
   }
+}
+function showLockError(msg) {
+  const err = $('lockError'), input = $('lockPass');
+  err.textContent = msg;
+  input.classList.remove('shake'); void input.offsetWidth; input.classList.add('shake');
+  input.value = ''; input.focus();
+  showToast(msg);
 }
 
 /* ===== Modals ===== */
@@ -581,22 +668,46 @@ function showModal(html) { $('modal').innerHTML = html; $('modal').classList.rem
 function modalContent(title, body, footer='') {
   return `<div class="modal"><div class="modal-title">${title}</div>${body}${footer}</div>`;
 }
-function setupPasswordModal() {
+function setupPasswordModal(fromSettings = false) {
   const body = `
     <div class="form-group"><label>${t('setPassword')}</label><input id="setupPass" type="password" placeholder="****"></div>
     <div class="form-group"><label>${t('confirmPassword')}</label><input id="setupPass2" type="password" placeholder="****"></div>
     <div style="color:var(--muted);font-size:13px;margin-bottom:14px;">${t('setPasswordDesc')}</div>
     <button class="btn" id="setupCreate">${t('create')}</button>
+    ${fromSettings ? '' : `<button class="btn secondary" id="setupSkip" style="margin-top:10px;">${t('skipPassword')}</button>`}
   `;
   showModal(modalContent(t('setPassword'), body));
   $('setupCreate').onclick = async () => {
     const p = $('setupPass').value, p2 = $('setupPass2').value;
     if (p.length < 4) return showToast(t('passwordShort'));
     if (p !== p2) return showToast(t('passwordsNoMatch'));
+    if (fromSettings) { await enableAppPassword(p); closeModal(); openSettings(); showToast(t('entrySaved')); return; }
     await setupMaster(p);
     closeModal();
     $('lock').classList.add('hidden'); $('app').classList.remove('hidden');
     applyI18n();
+  };
+  const skip = $('setupSkip');
+  if (skip) skip.onclick = async () => {
+    entries = [];
+    await disableAppPassword();
+    closeModal();
+    $('lock').classList.add('hidden'); $('app').classList.remove('hidden');
+    renderList(); applyI18n();
+  };
+}
+function removePasswordModal() {
+  const body = `
+    <div style="color:var(--muted);font-size:13px;margin-bottom:14px;">${t('removePinConfirm')}</div>
+    <div class="form-group"><label>${t('currentPassword')}</label><input id="curPass" type="password"></div>
+    <button class="btn danger" id="doRemove">${t('remove')}</button>
+  `;
+  showModal(modalContent(t('removePin'), body));
+  $('doRemove').onclick = async () => {
+    const cur = $('curPass').value;
+    if (!await unlockMaster(cur)) return showToast(t('pinError'));
+    await disableAppPassword();
+    closeModal(); openSettings(); renderList(); showToast(t('pinRemoved'));
   };
 }
 function changePasswordModal() {
@@ -690,15 +801,6 @@ async function importJsonFile(file) {
   } catch (e) { showToast(t('restoreError') + (e.message ? ': '+e.message : '')); }
 }
 
-/* ===== Biometric (best-effort web) ===== */
-let bioEnabled = localStorage.getItem('bio') === '1';
-async function tryBiometric() {
-  if (!bioEnabled || !window.PublicKeyCredential) return;
-  try {
-    await navigator.credentials.get({ publicKey: { challenge: new Uint8Array(32), rp: { name: 'PassVault' }, user: { id: new Uint8Array(16), name: 'user', displayName: 'User' }, pubKeyCredParams: [{ alg: -7, type: 'public-key' }] } });
-  } catch(e) {}
-}
-
 /* ===== Android back & exit ===== */
 function onBackButton() {
   if (!$('modal').classList.contains('hidden')) { closeModal(); return; }
@@ -717,22 +819,25 @@ function wire() {
   $('saveBtn').onclick = saveEntry;
   $('deleteBtn').onclick = deleteEntry;
   $('genPass').onclick = generatePassword;
+  $('copyUser').onclick = () => copyText($('fUsername').value.trim());
+  $('copyPass').onclick = () => copyText($('fPassword').value);
   $('togglePass').onclick = () => { const el=$('fPassword'); el.type = el.type==='password'?'text':'password'; };
   $('unlockBtn').onclick = submitUnlock;
   $('lockPass').onkeydown = e => { if (e.key === 'Enter') submitUnlock(); };
   searchEl.oninput = renderList;
   $('lockNowBtn').onclick = () => { masterKey=null; entries=[]; location.reload(); };
   $('changePinRow').onclick = changePasswordModal;
+  $('removePinRow').onclick = removePasswordModal;
+  $('setPinRow').onclick = () => setupPasswordModal(true);
   $('exportJsonRow').onclick = exportJson;
   $('importJsonRow').onclick = () => $('importFile').click();
   $('importFile').onchange = e => { if (e.target.files[0]) importJsonFile(e.target.files[0]); e.target.value=''; };
   $('langSelect').onchange = e => setLang(e.target.value);
   $('darkSwitch').onclick = () => { DARK = !$('darkSwitch').classList.contains('on'); applyTheme(); };
-  $('bioSwitch').onclick = () => { const el=$('bioSwitch'); el.classList.toggle('on'); bioEnabled=el.classList.contains('on'); localStorage.setItem('bio', bioEnabled?'1':'0'); };
   if (window.Capacitor && window.Capacitor.Plugins.App) {
     window.Capacitor.Plugins.App.addListener('backButton', onBackButton);
     window.Capacitor.Plugins.App.addListener('pause', () => {
-      if (isSharing) return;
+      if (isSharing || !hasAppPassword()) return;
       pauseTimer = setTimeout(() => { masterKey=null; entries=[]; location.reload(); }, 2000);
     });
     window.Capacitor.Plugins.App.addListener('resume', () => {
@@ -747,12 +852,15 @@ function wire() {
 async function init() {
   DARK = localStorage.getItem('theme') !== 'light';
   applyTheme();
-  bioEnabled = localStorage.getItem('bio') === '1';
-  const bioSwitch = $('bioSwitch'); if (bioSwitch) bioSwitch.classList.toggle('on', bioEnabled);
+  localStorage.removeItem('bio');
   applyI18n();
   wire();
   setTimeout(() => $('splash').classList.add('hidden'), 900);
-  if (localStorage.getItem('masterHash')) {
+  const devicePass = localStorage.getItem(NO_PASS_KEY);
+  if (localStorage.getItem('masterHash') && devicePass) {
+    if (await unlockMaster(devicePass)) { $('app').classList.remove('hidden'); renderList(); applyI18n(); }
+    else { localStorage.removeItem(NO_PASS_KEY); $('lock').classList.remove('hidden'); }
+  } else if (localStorage.getItem('masterHash')) {
     $('lock').classList.remove('hidden');
   } else {
     $('lock').classList.remove('hidden');
