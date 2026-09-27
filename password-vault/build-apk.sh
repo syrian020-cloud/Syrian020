@@ -46,7 +46,12 @@ for DENSITY in mdpi hdpi xhdpi xxhdpi xxxhdpi; do
   cp "$VAULT/icons/$SIZE_NAME" "$MIPMAP/ic_launcher_round.png"
 done
 cd android
-./gradlew assembleDebug
+GRADLE_ARGS=()
+if [ "$USE_ALIYUN" = "1" ] && [ -f "$ROOT/init.gradle" ]; then
+  echo "Using Aliyun Maven mirrors..."
+  GRADLE_ARGS+=(--init-script "$ROOT/init.gradle")
+fi
+./gradlew "${GRADLE_ARGS[@]}" assembleDebug
 
 cp "$ROOT/android/app/build/outputs/apk/debug/app-debug.apk" "$APK_OUT"
 
