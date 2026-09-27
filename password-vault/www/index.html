@@ -259,14 +259,6 @@ body.rtl .fab { right: auto; left: 20px; }
         <div class="setting-left"><div class="setting-icon">🔑</div><div><div class="setting-label" data-i18n="changePin">Change master password</div></div></div>
         <span>›</span>
       </div>
-      <div class="setting-item" id="backupGoogleRow">
-        <div class="setting-left"><div class="setting-icon">☁️</div><div><div class="setting-label" data-i18n="backupGoogle">Backup to Google</div><div class="setting-desc" data-i18n="backupGoogleDesc">Save encrypted vault to Drive</div></div></div>
-        <span id="googleStatus">›</span>
-      </div>
-      <div class="setting-item hidden" id="restoreGoogleRow">
-        <div class="setting-left"><div class="setting-icon">🔄</div><div><div class="setting-label" data-i18n="restoreGoogle">Restore from Google</div></div></div>
-        <span>›</span>
-      </div>
       <div class="setting-item" id="exportJsonRow">
         <div class="setting-left"><div class="setting-icon">📤</div><div><div class="setting-label" data-i18n="exportJson">Export JSON</div></div></div>
         <span>›</span>
@@ -296,13 +288,12 @@ const I18N = {
     notes: 'Additional info', notesPh: 'Notes, security questions, card numbers...', save: 'Save', delete: 'Delete',
     settings: 'Settings', language: 'Language', languageDesc: 'Choose app language', darkMode: 'Dark mode',
     darkModeDesc: 'Easier on the eyes', biometric: 'Biometric lock', biometricDesc: 'Use fingerprint / face',
-    changePin: 'Change master password', backupGoogle: 'Backup to Google', backupGoogleDesc: 'Save encrypted vault to Drive',
-    restoreGoogle: 'Restore from Google', exportJson: 'Export JSON', importJson: 'Import JSON', lockNow: 'Lock now',
+    changePin: 'Change master password', exportJson: 'Export JSON', importJson: 'Import JSON', lockNow: 'Lock now',
     confirmExit: 'Exit PassVault?', cancel: 'Cancel', exit: 'Exit', setPassword: 'Set master password',
     setPasswordDesc: 'This password protects your vault. Do not forget it.', confirmPassword: 'Confirm password', create: 'Create',
     passwordsNoMatch: 'Passwords do not match', passwordShort: 'Password must be at least 4 characters',
     pinError: 'Wrong password', entrySaved: 'Entry saved', entryDeleted: 'Entry deleted', copied: 'Copied to clipboard',
-    backupSuccess: 'Backup saved to Google Drive', exportSuccess: 'Export saved', exportError: 'Could not export backup', restoreSuccess: 'Backup restored', restoreError: 'Could not restore backup',
+    exportSuccess: 'Export saved', exportError: 'Could not export backup', restoreSuccess: 'Backup restored', restoreError: 'Could not restore backup',
     empty: 'No entries yet. Tap + to add one.', changePassword: 'Change master password', currentPassword: 'Current password',
     newPassword: 'New password', change: 'Change', generate: 'Generate', importPassword: 'Backup password',
     importPasswordDesc: 'Enter the password used to encrypt this backup', categories: { All: 'All', Social: 'Social', Work: 'Work', Finance: 'Finance', Shopping: 'Shopping', Email: 'Email', Other: 'Other' }
@@ -314,13 +305,12 @@ const I18N = {
     notes: 'معلومات إضافية', notesPh: 'ملاحظات، أسئلة أمان، أرقام بطاقات...', save: 'حفظ', delete: 'حذف',
     settings: 'الإعدادات', language: 'اللغة', languageDesc: 'اختر لغة التطبيق', darkMode: 'الوضع المظلم',
     darkModeDesc: 'سهل على العينين', biometric: 'قفل البصمة', biometricDesc: 'استخدم البصمة / الوجه',
-    changePin: 'تغيير كلمة المرور الرئيسية', backupGoogle: 'نسخ احتياطي إلى Google', backupGoogleDesc: 'احفظ الخزنة المشفرة في Drive',
-    restoreGoogle: 'استعادة من Google', exportJson: 'تصدير JSON', importJson: 'استيراد JSON', lockNow: 'قفل الآن',
+    changePin: 'تغيير كلمة المرور الرئيسية', exportJson: 'تصدير JSON', importJson: 'استيراد JSON', lockNow: 'قفل الآن',
     confirmExit: 'الخروج من PassVault؟', cancel: 'إلغاء', exit: 'خروج', setPassword: 'تعيين كلمة المرور الرئيسية',
     setPasswordDesc: 'تحمي كلمة المرور هذه خزنتك. لا تنسها.', confirmPassword: 'تأكيد كلمة المرور', create: 'إنشاء',
     passwordsNoMatch: 'كلمتا المرور غير متطابقتين', passwordShort: 'كلمة المرور يجب أن تكون 4 أحرف على الأقل',
     pinError: 'كلمة المرور خاطئة', entrySaved: 'تم حفظ الإدخال', entryDeleted: 'تم حذف الإدخال', copied: 'تم النسخ إلى الحافظة',
-    backupSuccess: 'تم حفظ النسخة الاحتياطية في Google Drive', exportSuccess: 'تم حفظ التصدير', restoreSuccess: 'تم استعادة النسخة الاحتياطية',
+    exportSuccess: 'تم حفظ التصدير', restoreSuccess: 'تم استعادة النسخة الاحتياطية',
     exportError: 'تعذر تصدير النسخة الاحتياطية', restoreError: 'تعذر استعادة النسخة الاحتياطية', empty: 'لا توجد إدخالات بعد. اضغط + لإضافة واحد.',
     changePassword: 'تغيير كلمة المرور الرئيسية', currentPassword: 'كلمة المرور الحالية', newPassword: 'كلمة المرور الجديدة',
     change: 'تغيير', generate: 'توليد', importPassword: 'كلمة مرور النسخة الاحتياطية',
@@ -333,13 +323,12 @@ const I18N = {
     notes: 'Infos supplémentaires', notesPh: 'Notes, questions de sécurité, numéros de cartes...', save: 'Enregistrer', delete: 'Supprimer',
     settings: 'Paramètres', language: 'Langue', languageDesc: 'Choisir la langue', darkMode: 'Mode sombre',
     darkModeDesc: 'Plus reposant pour les yeux', biometric: 'Verrou biométrique', biometricDesc: 'Utiliser empreinte / visage',
-    changePin: 'Changer le mot de passe maître', backupGoogle: 'Sauvegarder sur Google', backupGoogleDesc: 'Enregistrer le coffre chiffré sur Drive',
-    restoreGoogle: 'Restaurer depuis Google', exportJson: 'Exporter JSON', importJson: 'Importer JSON', lockNow: 'Verrouiller',
+    changePin: 'Changer le mot de passe maître', exportJson: 'Exporter JSON', importJson: 'Importer JSON', lockNow: 'Verrouiller',
     confirmExit: 'Quitter PassVault ?', cancel: 'Annuler', exit: 'Quitter', setPassword: 'Définir le mot de passe maître',
     setPasswordDesc: 'Ce mot de passe protège votre coffre. Ne l\'oubliez pas.', confirmPassword: 'Confirmer le mot de passe', create: 'Créer',
     passwordsNoMatch: 'Les mots de passe ne correspondent pas', passwordShort: 'Le mot de passe doit faire au moins 4 caractères',
     pinError: 'Mot de passe incorrect', entrySaved: 'Entrée enregistrée', entryDeleted: 'Entrée supprimée', copied: 'Copié dans le presse-papiers',
-    backupSuccess: 'Sauvegarde enregistrée sur Google Drive', exportSuccess: 'Export enregistré', exportError: 'Impossible d\'exporter', restoreSuccess: 'Sauvegarde restaurée', restoreError: 'Impossible de restaurer',
+    exportSuccess: 'Export enregistré', exportError: 'Impossible d\'exporter', restoreSuccess: 'Sauvegarde restaurée', restoreError: 'Impossible de restaurer',
     empty: 'Aucune entrée. Appuyez sur + pour en ajouter une.', changePassword: 'Changer le mot de passe maître',
     currentPassword: 'Mot de passe actuel', newPassword: 'Nouveau mot de passe', change: 'Changer', generate: 'Générer',
     importPassword: 'Mot de passe de la sauvegarde',
@@ -353,11 +342,8 @@ let DARK = localStorage.getItem('theme') !== 'light';
 let entries = [];
 let editId = null;
 let masterKey = null;
-let googleAccessToken = null;
 let pauseTimer = null;
 let isSharing = false;
-const GOOGLE_CLIENT_ID_PLACEHOLDER = 'YOUR_WEB_CLIENT_ID.apps.googleusercontent.com';
-let GOOGLE_CLIENT_ID = localStorage.getItem('google_client_id') || GOOGLE_CLIENT_ID_PLACEHOLDER;
 
 /* ===== DOM refs ===== */
 const $ = id => document.getElementById(id);
@@ -704,98 +690,6 @@ async function importJsonFile(file) {
   } catch (e) { showToast(t('restoreError') + (e.message ? ': '+e.message : '')); }
 }
 
-/* ===== Google Drive ===== */
-async function googleBackup() {
-  if (!googleAccessToken) { await googleSignIn('backup'); return; }
-  try {
-    isSharing = true;
-    const payload = await makeBackupPayload();
-    const metadata = { name: 'passvault-backup.json', mimeType: 'application/json' };
-    const boundary = '----PassVaultBoundary' + Math.random().toString(36).slice(2);
-    const body = `--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n` + JSON.stringify(metadata) +
-      `\r\n--${boundary}\r\nContent-Type: application/json\r\n\r\n` + JSON.stringify(payload) + `\r\n--${boundary}--`;
-    const existing = await findDriveFile('passvault-backup.json');
-    const url = existing ? `https://www.googleapis.com/upload/drive/v3/files/${existing.id}?uploadType=multipart` : 'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart';
-    const method = existing ? 'PATCH' : 'POST';
-    const res = await fetch(url, { method, headers: { 'Authorization': 'Bearer ' + googleAccessToken, 'Content-Type': 'multipart/related; boundary=' + boundary }, body });
-    isSharing = false;
-    if (res.ok) showToast(t('backupSuccess')); else throw new Error(await res.text());
-  } catch (e) { isSharing=false; console.error(e); showToast('Backup failed: ' + e.message); }
-}
-async function googleRestore() {
-  const pass = prompt(t('importPassword') + '\n' + t('importPasswordDesc'));
-  if (!pass) return;
-  if (!googleAccessToken) { await googleSignIn('restore'); if (!googleAccessToken) return; }
-  try {
-    const file = await findDriveFile('passvault-backup.json');
-    if (!file) return showToast(t('restoreError'));
-    const res = await fetch(`https://www.googleapis.com/drive/v3/files/${file.id}?alt=media`, { headers: { 'Authorization': 'Bearer ' + googleAccessToken } });
-    if (!res.ok) throw new Error(await res.text());
-    const payload = await res.json();
-    const imported = await decryptBackupPayload(payload, pass);
-    entries = imported; await saveVault(entries); renderList(); showToast(t('restoreSuccess'));
-  } catch (e) { showToast(t('restoreError')); }
-}
-async function findDriveFile(name) {
-  const q = `name='${name.replace(/'/g,"\\'")}' and trashed=false and mimeType='application/json'`;
-  const res = await fetch(`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&spaces=drive`, { headers: { 'Authorization': 'Bearer ' + googleAccessToken } });
-  const data = await res.json();
-  return data.files && data.files[0];
-}
-async function googleSignIn(action) {
-  if (GOOGLE_CLIENT_ID.includes('YOUR_')) {
-    const id = prompt('Enter Google OAuth Web Client ID (or configure in settings):');
-    if (!id) return;
-    GOOGLE_CLIENT_ID = id; localStorage.setItem('google_client_id', id);
-  }
-  const redirect = location.origin + location.pathname;
-  const scope = encodeURIComponent('email profile https://www.googleapis.com/auth/drive.file');
-  const state = Math.random().toString(36).slice(2);
-  sessionStorage.setItem('oauth_state', state);
-  sessionStorage.setItem('googleAction', action || 'backup');
-  const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${encodeURIComponent(redirect)}&response_type=token&scope=${scope}&state=${state}&prompt=consent`;
-  if (window.Capacitor) {
-    try {
-      const { GoogleAuth } = window.Capacitor.Plugins;
-      if (GoogleAuth) {
-        const r = await GoogleAuth.signIn({ scopes: ['email','profile','https://www.googleapis.com/auth/drive.file'] });
-        googleAccessToken = r.authentication?.accessToken || r.accessToken;
-        updateGoogleStatus();
-        handleSignedInAction();
-        return;
-      }
-    } catch (e) {}
-  }
-  isSharing = true;
-  window.location.href = url;
-}
-function updateGoogleStatus() {
-  const s = $('googleStatus');
-  if (s) s.textContent = googleAccessToken ? '✓' : '›';
-  const row = $('restoreGoogleRow');
-  if (row) row.classList.toggle('hidden', !googleAccessToken);
-}
-async function handleSignedInAction() {
-  const action = sessionStorage.getItem('googleAction');
-  sessionStorage.removeItem('googleAction');
-  sessionStorage.removeItem('oauth_state');
-  if (googleAccessToken && action === 'backup') await googleBackup();
-  else if (googleAccessToken && action === 'restore') await googleRestore();
-}
-async function handleOAuthRedirect() {
-  const h = location.hash;
-  if (h.includes('access_token=')) {
-    const params = new URLSearchParams(h.slice(1));
-    const state = params.get('state');
-    const expected = sessionStorage.getItem('oauth_state');
-    if (expected && state !== expected) { showToast('Invalid OAuth state'); return; }
-    googleAccessToken = params.get('access_token');
-    history.replaceState(null, '', location.pathname + location.search);
-    updateGoogleStatus(); showToast('Google signed in');
-    await handleSignedInAction();
-  }
-}
-
 /* ===== Biometric (best-effort web) ===== */
 let bioEnabled = localStorage.getItem('bio') === '1';
 async function tryBiometric() {
@@ -832,8 +726,6 @@ function wire() {
   $('exportJsonRow').onclick = exportJson;
   $('importJsonRow').onclick = () => $('importFile').click();
   $('importFile').onchange = e => { if (e.target.files[0]) importJsonFile(e.target.files[0]); e.target.value=''; };
-  $('backupGoogleRow').onclick = googleBackup;
-  $('restoreGoogleRow').onclick = googleRestore;
   $('langSelect').onchange = e => setLang(e.target.value);
   $('darkSwitch').onclick = () => { DARK = !$('darkSwitch').classList.contains('on'); applyTheme(); };
   $('bioSwitch').onclick = () => { const el=$('bioSwitch'); el.classList.toggle('on'); bioEnabled=el.classList.contains('on'); localStorage.setItem('bio', bioEnabled?'1':'0'); };
@@ -853,7 +745,6 @@ function wire() {
 
 /* ===== Init ===== */
 async function init() {
-  handleOAuthRedirect();
   DARK = localStorage.getItem('theme') !== 'light';
   applyTheme();
   bioEnabled = localStorage.getItem('bio') === '1';
