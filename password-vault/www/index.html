@@ -160,8 +160,8 @@ body.rtl { direction: rtl; }
 .switch.on::after { left: 25px; }
 
 /* Toast */
-.toast { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%) translateY(120%); background: var(--card); color: var(--text); padding: 12px 20px; border-radius: 14px; border: 1px solid var(--border); z-index: 6000; transition: .3s; box-shadow: var(--shadow); }
-.toast.show { transform: translateX(-50%) translateY(0); }
+.toast { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%) translateY(20px); opacity: 0; visibility: hidden; pointer-events: none; background: var(--card); color: var(--text); padding: 12px 20px; border-radius: 14px; border: 1px solid var(--border); z-index: 6000; transition: opacity .25s, transform .25s, visibility .25s; box-shadow: var(--shadow); }
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; visibility: visible; }
 
 /* Category chips */
 .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
