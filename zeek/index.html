@@ -3585,7 +3585,7 @@
         if (captions.length === phrases.length) phrases.forEach((p, i) => { p.start = captions[i].start; p.end = captions[i].end; });
       }
     }
-    if (!phrases.length) { alert(t('noPhrasesError')); return; }
+    if (!phrases.length) phrases = lesson.phrases || [];
     if (captionText) lesson.captionText = captionText; else delete lesson.captionText;
 
     lesson.title = ttl;
