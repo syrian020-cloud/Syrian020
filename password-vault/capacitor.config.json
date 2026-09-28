@@ -1,0 +1,12 @@
+{
+  "appId": "com.syrian020.passwordvault",
+  "appName": "PassVault",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": false,
+    "captureInput": false
+  }
+}
