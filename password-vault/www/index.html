@@ -232,7 +232,6 @@ body.rtl .fab { right: auto; left: 20px; }
         <div class="pass-row">
           <input id="fPassword" type="password">
           <button class="toggle-vis" id="togglePass">👁</button>
-          <button class="gen-btn" id="genPass">⚡</button>
           <button class="copy-btn" id="copyPass" data-i18n-title="copyPassword" title="Copy password">📋</button>
         </div>
       </div>
@@ -312,7 +311,7 @@ const I18N = {
     exportSuccess: 'Export saved', exportError: 'Could not export backup', restoreSuccess: 'Backup restored', restoreError: 'Could not restore backup',
     empty: 'No entries yet. Tap + to add one.', changePassword: 'Change master password', currentPassword: 'Current password',
     newPassword: 'New password', change: 'Change', generate: 'Generate', importPassword: 'Backup password',
-    importPasswordDesc: 'Enter the password used to encrypt this backup', categories: { All: 'All', Social: 'Social', Work: 'Work', Finance: 'Finance', Shopping: 'Shopping', Email: 'Email', Other: 'Other' }
+    importPasswordDesc: 'Enter the password used to encrypt this backup', discardChanges: 'Discard unsaved changes?', categories: { All: 'All', Social: 'Social', Work: 'Work', Finance: 'Finance', Shopping: 'Shopping', Email: 'Email', Other: 'Other' }
   },
   ar: {
     unlock: 'فتح PassVault', enterPin: 'أدخل كلمة المرور الرئيسية', search: 'ابحث عن حساب...',
@@ -332,7 +331,7 @@ const I18N = {
     exportError: 'تعذر تصدير النسخة الاحتياطية', restoreError: 'تعذر استعادة النسخة الاحتياطية', empty: 'لا توجد إدخالات بعد. اضغط + لإضافة واحد.',
     changePassword: 'تغيير كلمة المرور الرئيسية', currentPassword: 'كلمة المرور الحالية', newPassword: 'كلمة المرور الجديدة',
     change: 'تغيير', generate: 'توليد', importPassword: 'كلمة مرور النسخة الاحتياطية',
-    importPasswordDesc: 'أدخل كلمة المرور المستخدمة لتشفير هذه النسخة', categories: { All: 'الكل', Social: 'اجتماعي', Work: 'عمل', Finance: 'مالي', Shopping: 'تسوق', Email: 'بريد', Other: 'أخرى' }
+    importPasswordDesc: 'أدخل كلمة المرور المستخدمة لتشفير هذه النسخة', discardChanges: 'تجاهل التغييرات غير المحفوظة؟', categories: { All: 'الكل', Social: 'اجتماعي', Work: 'عمل', Finance: 'مالي', Shopping: 'تسوق', Email: 'بريد', Other: 'أخرى' }
   },
   fr: {
     unlock: 'Déverrouiller PassVault', enterPin: 'Entrez votre mot de passe maître', search: 'Rechercher un compte...',
@@ -352,7 +351,7 @@ const I18N = {
     empty: 'Aucune entrée. Appuyez sur + pour en ajouter une.', changePassword: 'Changer le mot de passe maître',
     currentPassword: 'Mot de passe actuel', newPassword: 'Nouveau mot de passe', change: 'Changer', generate: 'Générer',
     importPassword: 'Mot de passe de la sauvegarde',
-    importPasswordDesc: 'Entrez le mot de passe utilisé pour chiffrer cette sauvegarde', categories: { All: 'Tout', Social: 'Social', Work: 'Travail', Finance: 'Finance', Shopping: 'Achats', Email: 'E-mail', Other: 'Autre' }
+    importPasswordDesc: 'Entrez le mot de passe utilisé pour chiffrer cette sauvegarde', discardChanges: 'Ignorer les modifications non enregistrées ?', categories: { All: 'Tout', Social: 'Social', Work: 'Travail', Finance: 'Finance', Shopping: 'Achats', Email: 'E-mail', Other: 'Autre' }
   }
 };
 let LANG = localStorage.getItem('lang') || (navigator.language.startsWith('ar') ? 'ar' : (navigator.language.startsWith('fr') ? 'fr' : 'en'));
@@ -539,6 +538,10 @@ function renderList() {
   listEl.querySelectorAll('.copy-user').forEach(b => b.onclick = () => copyBoth(b.dataset.id));
   listEl.querySelectorAll('.copy-pass').forEach(b => b.onclick = () => copyField(b.dataset.id, 'password'));
 }
+function isNative() {
+  const cap = window.Capacitor;
+  return !!(cap && cap.isNativePlatform && cap.isNativePlatform());
+}
 async function writeClipboard(text) {
   const cap = window.Capacitor;
   if (cap && cap.isNativePlatform && cap.isNativePlatform() && cap.Plugins.Clipboard) {
@@ -553,7 +556,7 @@ async function writeClipboard(text) {
 }
 async function copyText(text, msg) {
   if (!text) return showToast(t('nothingToCopy'));
-  try { await writeClipboard(text); showToast(msg || t('copied')); }
+  try { await writeClipboard(text); if (!isNative()) showToast(msg || t('copied')); }
   catch (err) { showToast(t('copyFailed')); }
 }
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -562,8 +565,8 @@ async function copyBoth(id) {
   if (!e) return;
   if (!e.password && !e.username) return showToast(t('nothingToCopy'));
   try {
-    if (e.password) { await writeClipboard(e.password); showToast(t('passwordCopied')); await sleep(1500); }
-    if (e.username) { await writeClipboard(e.username); showToast(t('usernameCopied')); }
+    if (e.password) { await writeClipboard(e.password); if (!isNative()) showToast(t('passwordCopied')); await sleep(1500); }
+    if (e.username) { await writeClipboard(e.username); if (!isNative()) showToast(t('usernameCopied')); }
   } catch (err) { showToast(t('copyFailed')); }
 }
 async function copyField(id, field) {
@@ -584,6 +587,7 @@ function openEdit(id) {
   $('fPhone').value = e.phone || '';
   $('fNotes').value = e.notes || '';
   $('deleteBtn').classList.toggle('hidden', !id);
+  formDirty = false;
   showScreen('formScreen');
 }
 async function saveEntry() {
@@ -601,6 +605,7 @@ async function saveEntry() {
   if (editId) { const idx = entries.findIndex(x=>x.id===editId); if(idx>=0) entries[idx]=obj; }
   else entries.push(obj);
   await saveVault(entries);
+  formDirty = false;
   showToast(t('entrySaved'));
   showScreen('homeScreen');
 }
@@ -611,11 +616,11 @@ async function deleteEntry() {
   showToast(t('entryDeleted'));
   showScreen('homeScreen');
 }
-function generatePassword() {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^&*';
-  const rand = crypto.getRandomValues(new Uint8Array(18));
-  let p = ''; for (let i=0;i<18;i++) p += chars[rand[i] % chars.length];
-  $('fPassword').value = p; $('fPassword').type = 'text';
+let formDirty = false;
+function leaveForm() {
+  if (formDirty && !confirm(t('discardChanges'))) return;
+  formDirty = false;
+  showScreen('homeScreen');
 }
 
 /* ===== Settings ===== */
@@ -805,20 +810,21 @@ async function importJsonFile(file) {
 function onBackButton() {
   if (!$('modal').classList.contains('hidden')) { closeModal(); return; }
   if (!$('settingsScreen').classList.contains('hidden')) { showScreen('homeScreen'); return; }
-  if (!$('formScreen').classList.contains('hidden')) { showScreen('homeScreen'); return; }
+  if (!$('formScreen').classList.contains('hidden')) { leaveForm(); return; }
   if (confirm(t('confirmExit'))) { if (window.Capacitor && window.Capacitor.Plugins.App) window.Capacitor.Plugins.App.exitApp(); }
 }
 
 /* ===== Event wiring ===== */
 function wire() {
   $('addBtn').onclick = () => openEdit(null);
-  $('backBtn').onclick = () => showScreen('homeScreen');
+  $('backBtn').onclick = leaveForm;
   $('settingsBack').onclick = () => showScreen('homeScreen');
   $('settingsBtn').onclick = openSettings;
   $('themeBtn').onclick = toggleTheme;
   $('saveBtn').onclick = saveEntry;
   $('deleteBtn').onclick = deleteEntry;
-  $('genPass').onclick = generatePassword;
+  ['fTitle','fUsername','fPassword','fEmail','fPhone','fNotes'].forEach(id => $(id).addEventListener('input', () => { formDirty = true; }));
+  $('fCategory').addEventListener('change', () => { formDirty = true; });
   $('copyUser').onclick = () => copyText($('fUsername').value.trim());
   $('copyPass').onclick = () => copyText($('fPassword').value);
   $('togglePass').onclick = () => { const el=$('fPassword'); el.type = el.type==='password'?'text':'password'; };
