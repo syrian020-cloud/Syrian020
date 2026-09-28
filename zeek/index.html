@@ -1139,8 +1139,14 @@
     const blockOrder = (userOrder === 'auto') ? detectBlockOrder(plain) : userOrder;
     let cur = {};
     const flush = () => { if (cur.fr && cur.ar && cur.en) phrases.push(cur); cur = {}; };
-    text.split('\n').forEach(raw => {
-      const m = raw.trim().match(FLAG_RE);
+    text.split('\n').forEach(raw0 => {
+      let raw = raw0.trim()
+        .replace(/^\d+\s*$/, '')
+        .replace(/^\d{1,2}:\d{2}(?::\d{2})?(?:[,.]\d{1,3})?(?:\s*-->\s*\d{1,2}:\d{2}(?::\d{2})?(?:[,.]\d{1,3})?)?\s*/, '')
+        .replace(/-->.*/, '')
+        .trim();
+      if (!raw) return;
+      const m = raw.match(FLAG_RE);
       if (m) {
         const body = cleanPhrasePart(raw.trim().slice(m[0].length));
         if (!body) return;
