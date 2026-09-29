@@ -700,7 +700,7 @@
     const add = r => { if (isIDBMedia(r)) ids.add(idbMediaId(r)); };
     const walk = l => {
       add(l.media); add(l.image);
-      (l.phrases || []).forEach(p => add(p.media));
+      (l.phrases || []).forEach(p => { add(p.media); add(p.audio); });
       (l.lessons || []).forEach(walk);
     };
     (list || LESSONS).forEach(walk);
@@ -3154,7 +3154,7 @@
   }
 
   function videoLoopButtonHTML() {
-    return `<button class="video-loop-btn" title="${t('videoLoopTitle')}" type="button">🔁</button>`;
+    return `<button class="video-loop-btn active" title="${t('videoLoopTitle')}" type="button">🔂</button>`;
   }
 
   function phraseLoopButtonHTML(key) {
@@ -3174,7 +3174,7 @@
   }
 
   function videoHTML(src, key, mediaKey) {
-    return `${phraseLoopButtonHTML(key)}${videoLoopButtonHTML()}${aspectSelectHTML(getVideoAspect(mediaKey || src))}<video src="${esc(src)}" controls playsinline></video>`;
+    return `${phraseLoopButtonHTML(key)}${videoLoopButtonHTML()}${aspectSelectHTML(getVideoAspect(mediaKey || src))}<video src="${esc(src)}" controls playsinline loop></video>`;
   }
 
   function imageAspectSelectHTML(selected) {
@@ -3217,6 +3217,7 @@
     const hasVideo = p.media && !hasImage;
     return `<div class="phrase" data-key="${key}" data-start="${p.start != null ? p.start : ''}" data-end="${p.end != null ? p.end : ''}">
       ${mediaHTML(p.media, key)}
+      ${p.audio ? (isIDBMedia(p.audio) ? `<div class="phrase-media audio-holder media-placeholder" data-media-ref="${esc(p.audio)}" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}"></div>` : `<div class="phrase-media audio-holder" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}" data-media-ref="${esc(p.audio)}">${audioHTML(toWebUrl(p.audio))}</div>`) : ''}
       <div class="phrase-top">
         <div class="lines">
           <div class="line fr" data-lang="fr" dir="ltr">${wordSpans(p.fr, 'fr')}<button class="loop-lang" data-lang="fr" title="🔁 FR">🔁</button></div>
@@ -3703,6 +3704,7 @@ EN: Maria, I’m out of cigarettes.`
   let mediaKey = null;
   let mediaFileData = null;
   let mediaFileType = null;
+  let audioFileData = null;
   let mediaScrollY = 0;
   function restoreMediaScroll() {
     const y = mediaScrollY;
@@ -4086,7 +4088,10 @@ Output in French, Arabic and English.`;
     const isPlainUrl = existingMedia && !/^data:/.test(existingMedia) && !/^file:\/\//.test(existingMedia) && !/^idb:\/\//.test(existingMedia);
     const existingIsAudio = isPlainUrl && isAudioUrl(existingMedia);
     urlInput.value = (isPlainUrl && !existingIsAudio) ? existingMedia : '';
-    audioUrlInput.value = existingIsAudio ? existingMedia : '';
+    const existingAudio = p && p.audio;
+    const audioPlain = existingAudio && !/^data:/.test(existingAudio) && !/^file:\/\//.test(existingAudio) && !/^idb:\/\//.test(existingAudio);
+    audioUrlInput.value = audioPlain ? existingAudio : (existingIsAudio ? existingMedia : '');
+    audioFileData = null;
     removeBtn.style.display = existingMedia ? 'inline-block' : 'none';
     fileInput.value = '';
     document.getElementById('media-audio-file').value = '';
@@ -4105,6 +4110,7 @@ Output in French, Arabic and English.`;
     mediaKey = null;
     mediaFileData = null;
     mediaFileType = null;
+    audioFileData = null;
     captionFileData = null;
     updateMediaPreview(null);
   }
@@ -4115,12 +4121,15 @@ Output in French, Arabic and English.`;
     const found = findLesson(lessonId);
     if (!found) { closeMedia(); return; }
     const p = found.lesson.phrases[idx];
-    const urlInput = document.getElementById('media-url').value.trim() || document.getElementById('media-audio-url').value.trim();
+    const urlInput = document.getElementById('media-url').value.trim();
+    const audioUrlInput = document.getElementById('media-audio-url').value.trim();
     const newVideo = mediaFileData || urlInput;
+    const newAudio = audioFileData || audioUrlInput;
     let url = newVideo || (p && p.media);
     const captionText = document.getElementById('caption-text').value.trim();
-    if (!url && !captionText) { closeMedia(); return; }
-    if (url && !/^https?:\/\//.test(url) && !/^data:/.test(url) && !/^file:\/\//.test(url) && !/^idb:\/\//.test(url)) {
+    if (!url && !newAudio && !captionText) { closeMedia(); return; }
+    const okRef = u => !u || /^https?:\/\//.test(u) || /^data:/.test(u) || /^file:\/\//.test(u) || /^idb:\/\//.test(u);
+    if (!okRef(url) || !okRef(newAudio)) {
       showToast(t('mediaInvalid'));
       return;
     }
@@ -4128,6 +4137,10 @@ Output in French, Arabic and English.`;
       if (p.media && p.media !== url) await deleteMediaRef(p.media);
       p.media = url;
       if (newVideo) p.mediaType = (mediaFileType === 'audio' || (!mediaFileData && isAudioUrl(url))) ? 'audio' : 'video';
+    }
+    if (newAudio) {
+      if (p.audio && p.audio !== newAudio) await deleteMediaRef(p.audio);
+      p.audio = newAudio;
     }
     if (captionText) {
       p.captionText = captionText;
@@ -4155,6 +4168,7 @@ Output in French, Arabic and English.`;
         delete p.mediaType;
       }
       if (p && p.captionText) delete p.captionText;
+      if (p && p.audio) { await deleteMediaRef(p.audio); delete p.audio; }
       saveLessons();
       go(state.route, false);
       restoreMediaScroll();
@@ -4257,19 +4271,15 @@ Output in French, Arabic and English.`;
       try {
         const uri = await storeMedia(file);
         if (uri) {
-          mediaFileData = uri;
-          mediaFileType = kind;
+          if (kind === 'audio') audioFileData = uri; else { mediaFileData = uri; mediaFileType = kind; }
           await updateMediaPreview(uri);
-          urlInput.value = '';
-          audioUrlInput.value = '';
+          if (kind === 'audio') audioUrlInput.value = ''; else { urlInput.value = ''; audioUrlInput.value = ''; }
         } else {
           const reader = new FileReader();
           reader.onload = (e) => {
-            mediaFileData = e.target.result;
-            mediaFileType = kind;
-            updateMediaPreview(mediaFileData);
-            urlInput.value = '';
-            audioUrlInput.value = '';
+            if (kind === 'audio') audioFileData = e.target.result; else { mediaFileData = e.target.result; mediaFileType = kind; }
+            updateMediaPreview(kind === 'audio' ? audioFileData : mediaFileData);
+            if (kind === 'audio') audioUrlInput.value = ''; else { urlInput.value = ''; audioUrlInput.value = ''; }
           };
           reader.onerror = () => showToast(t('mediaSaveError'));
           reader.readAsDataURL(file);
@@ -4293,8 +4303,8 @@ Output in French, Arabic and English.`;
       reader.readAsText(file);
     };
     captionText.oninput = (e) => { captionFileData = e.target.value; };
-    urlInput.oninput = (e) => { mediaFileData = null; mediaFileType = null; audioUrlInput.value = ''; updateMediaPreview(e.target.value.trim()); };
-    audioUrlInput.oninput = (e) => { mediaFileData = null; mediaFileType = null; urlInput.value = ''; updateMediaPreview(e.target.value.trim()); };
+    urlInput.oninput = (e) => { mediaFileData = null; mediaFileType = null; updateMediaPreview(e.target.value.trim()); };
+    audioUrlInput.oninput = (e) => { audioFileData = null; };
     modal.addEventListener('click', e => { if (e.target === modal) closeMedia(); });
   }
 
