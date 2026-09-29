@@ -701,7 +701,7 @@
     const add = r => { if (isIDBMedia(r)) ids.add(idbMediaId(r)); };
     const walk = l => {
       add(l.media); add(l.image);
-      (l.phrases || []).forEach(p => { add(p.media); add(p.audio); });
+      (l.phrases || []).forEach(p => { add(p.media); add(p.audio); add(p.image); });
       (l.lessons || []).forEach(walk);
     };
     (list || LESSONS).forEach(walk);
@@ -1797,7 +1797,13 @@
     if (!found) return;
     const p = found.lesson.phrases[idx];
     const isImage = p && p.media && (p.mediaType === 'image' || await isImageMediaRef(p.media));
-    if (isImage) {
+    if (p && p.image) {
+      await deleteMediaRef(p.image);
+      delete p.image;
+      saveLessons();
+      go(state.route, false);
+      showToast(t('deleted'));
+    } else if (isImage) {
       await deleteMediaRef(p.media);
       delete p.media;
       delete p.mediaType;
@@ -1845,7 +1851,7 @@
     if (it.media) { await deleteMediaRef(it.media); it.media = ''; }
     if (it.captionText) delete it.captionText;
     if (it.lessons) { for (const l of it.lessons) await deleteItemMedia(l); }
-    if (it.phrases) { for (const p of it.phrases) { if (p.media) await deleteMediaRef(p.media); if (p.captionText) delete p.captionText; } }
+    if (it.phrases) { for (const p of it.phrases) { if (p.media) await deleteMediaRef(p.media); if (p.audio) await deleteMediaRef(p.audio); if (p.image) await deleteMediaRef(p.image); if (p.captionText) delete p.captionText; } }
   }
 
   function findPhraseByKey(key) {
@@ -3216,10 +3222,14 @@
   }
 
   function phraseHTML(p, key) {
-    const hasImage = p.mediaType === 'image' || (p.media && /^data:image\//i.test(p.media) && !isVideoUrl(p.media));
-    const hasVideo = p.media && !hasImage;
+    const legacyImage = p.mediaType === 'image' || (p.media && /^data:image\//i.test(p.media) && !isVideoUrl(p.media));
+    const imgRef = p.image || (legacyImage ? p.media : null);
+    const hasImage = !!imgRef;
+    const hasVideo = (p.media && !legacyImage) || p.audio;
+    const imgSrc = imgRef ? toWebUrl(imgRef) : '';
     return `<div class="phrase" data-key="${key}" data-start="${p.start != null ? p.start : ''}" data-end="${p.end != null ? p.end : ''}">
-      ${mediaHTML(p.media, key)}
+      ${legacyImage ? '' : mediaHTML(p.media, key)}
+      ${hasImage ? (isIDBMedia(imgRef) ? `<div class="phrase-media media-placeholder" data-media-ref="${esc(imgRef)}" data-media-src="${esc(imgSrc)}" data-phrase-key="${esc(key)}"></div>` : `<div class="phrase-media" data-phrase-key="${esc(key)}">${imageMediaHTML(imgSrc, key, imgRef)}</div>`) : ''}
       ${p.audio ? (isIDBMedia(p.audio) ? `<div class="phrase-media audio-holder media-placeholder" data-media-ref="${esc(p.audio)}" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}"></div>` : `<div class="phrase-media audio-holder" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}" data-media-ref="${esc(p.audio)}">${audioHTML(toWebUrl(p.audio))}</div>`) : ''}
       <div class="phrase-top">
         <div class="lines">
@@ -4217,9 +4227,8 @@ Output in French, Arabic and English.`;
           r.onerror = reject;
           r.readAsDataURL(file);
         });
-        if (p.media) await deleteMediaRef(p.media);
-        p.media = uri;
-        p.mediaType = 'image';
+        if (p.image) await deleteMediaRef(p.image);
+        p.image = uri;
         saveLessons();
         showToast(t('saved'));
         go(state.route, false);
