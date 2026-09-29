@@ -573,7 +573,8 @@
     </div>
     <div class="form-actions" style="margin-top:0.75rem">
       <button type="button" class="btn" id="btn-save-media" data-t="save">حفظ</button>
-      <button type="button" class="btn ghost" id="btn-remove-media" data-t="delete" style="display:none;color:var(--danger);border-color:var(--danger)">حذف</button>
+      <button type="button" class="btn ghost" id="btn-remove-media" data-t="deleteVideo" style="display:none;color:var(--danger);border-color:var(--danger)">حذف الفيديو</button>
+      <button type="button" class="btn ghost" id="btn-remove-audio" data-t="deleteAudio" style="display:none;color:var(--danger);border-color:var(--danger)">حذف الصوت</button>
       <button type="button" class="btn ghost" id="btn-close-media" data-t="cancel">إلغاء</button>
     </div>
   </div>
@@ -1392,6 +1393,8 @@
     importConfirm: { ar: 'سيتم إضافة دروس الملف وتحديث الدروس التي لها نفس المعرّف. متابعة؟', en: 'Lessons from the file will be added and existing ones with the same id updated. Continue?', fr: 'Les leçons du fichier seront ajoutées et celles ayant le même identifiant mises à jour. Continuer ?' },
     exitConfirm: { ar: 'هل تريد الخروج من التطبيق؟', en: 'Exit the app?', fr: 'Quitter l\'application ?' },
     saved: { ar: 'تم الحفظ', en: 'Saved', fr: 'Enregistré' },
+    deleteVideo: { ar: 'حذف الفيديو', en: 'Delete video', fr: 'Supprimer la vidéo' },
+    deleteAudio: { ar: 'حذف الصوت', en: 'Delete audio', fr: "Supprimer l'audio" },
     deleted: { ar: 'تم الحذف', en: 'Deleted', fr: 'Supprimé' },
     delete: { ar: 'حذف', en: 'Delete', fr: 'Supprimer' },
     protected: { ar: 'لا يمكن تعديل أو حذف هذا الدرس', en: 'This lesson cannot be edited or deleted', fr: 'Cette leçon ne peut pas être modifiée ou supprimée' },
@@ -4081,6 +4084,7 @@ Output in French, Arabic and English.`;
     const modal = document.getElementById('media-modal');
     const urlInput = document.getElementById('media-url');
     const removeBtn = document.getElementById('btn-remove-media');
+    const removeAudioBtn = document.getElementById('btn-remove-audio');
     const fileInput = document.getElementById('media-file');
     const captionText = document.getElementById('caption-text');
     const captionFileInput = document.getElementById('caption-file');
@@ -4093,6 +4097,7 @@ Output in French, Arabic and English.`;
     audioUrlInput.value = audioPlain ? existingAudio : (existingIsAudio ? existingMedia : '');
     audioFileData = null;
     removeBtn.style.display = existingMedia ? 'inline-block' : 'none';
+    if (removeAudioBtn) removeAudioBtn.style.display = (p && p.audio) ? 'inline-block' : 'none';
     fileInput.value = '';
     document.getElementById('media-audio-file').value = '';
     captionFileInput.value = '';
@@ -4168,6 +4173,21 @@ Output in French, Arabic and English.`;
         delete p.mediaType;
       }
       if (p && p.captionText) delete p.captionText;
+      saveLessons();
+      go(state.route, false);
+      restoreMediaScroll();
+      showToast(t('deleted'));
+    }
+    closeMedia();
+  }
+
+  async function removeAudio() {
+    if (!mediaKey) return;
+    if (!confirm(t('confirmRemoveMedia'))) return;
+    const [lessonId, idx] = mediaKey.split('.').map(Number);
+    const found = findLesson(lessonId);
+    if (found) {
+      const p = found.lesson.phrases[idx];
       if (p && p.audio) { await deleteMediaRef(p.audio); delete p.audio; }
       saveLessons();
       go(state.route, false);
@@ -4257,6 +4277,7 @@ Output in French, Arabic and English.`;
     document.getElementById('btn-close-media').onclick = closeMedia;
     document.getElementById('btn-save-media').onclick = saveMedia;
     document.getElementById('btn-remove-media').onclick = removeMedia;
+    document.getElementById('btn-remove-audio').onclick = removeAudio;
     chooseBtn.onclick = () => fileInput.click();
     chooseAudioBtn.onclick = () => audioFileInput.click();
     chooseCaptionBtn.onclick = () => captionInput.click();
