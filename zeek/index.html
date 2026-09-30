@@ -711,11 +711,11 @@
     const ids = collectMediaRefs(LESSONS);
     for (let i = 0; i < ids.length; i++) {
       say(t('publishProgress') + ' ' + (i + 1) + '/' + ids.length);
-      const head = await fetch(API_BASE + '/api/media/' + ids[i], { method: 'HEAD' });
+      const head = await fetch(API_BASE + '/api/media/' + encodeURIComponent(ids[i]), { method: 'HEAD' });
       if (!head.ok) {
         const blob = await getMediaBlob(ids[i]);
         if (blob) {
-          const put = await fetch(API_BASE + '/api/media/' + ids[i], {
+          const put = await fetch(API_BASE + '/api/media/' + encodeURIComponent(ids[i]), {
             method: 'PUT',
             headers: { 'X-Admin-Key': adminKey, 'Content-Type': blob.type || 'application/octet-stream' },
             body: blob
@@ -3233,10 +3233,11 @@
     const overlay = document.createElement('div');
     overlay.className = 'lesson-image-overlay show';
     overlay.dataset.imageRef = ref;
-    overlay.innerHTML = `<img src="${esc(resolved.url)}" alt="" onerror="this.style.display='none'" draggable="false"><button type="button" class="lesson-image-toggle" title="${t('hideImage')}">🙈</button><button type="button" class="lesson-image-del" title="${t('delete')}" data-lesson-id="${lessonId}">×</button>`;
+    overlay.innerHTML = `<img src="${esc(resolved.url)}" alt="" onerror="this.style.display='none'" draggable="false"><button type="button" class="lesson-image-toggle" title="${t('hideImage')}">🙈</button>${canEdit() ? `<button type="button" class="lesson-image-del" title="${t('delete')}" data-lesson-id="${lessonId}">×</button>` : ''}`;
     container.appendChild(overlay);
     overlay.querySelector('.lesson-image-toggle').onclick = (e) => { e.stopPropagation(); toggleLessonImageOverlay(); };
-    overlay.querySelector('.lesson-image-del').onclick = (e) => { e.stopPropagation(); if (confirm(t('confirmDeleteImage'))) deleteLessonImage(lessonId); };
+    const overlayDel = overlay.querySelector('.lesson-image-del');
+    if (overlayDel) overlayDel.onclick = (e) => { e.stopPropagation(); if (confirm(t('confirmDeleteImage'))) deleteLessonImage(lessonId); };
     const btn = document.getElementById('lesson-image-toggle');
     if (btn) { btn.textContent = '🙈'; btn.title = t('hideImage'); btn.onclick = toggleLessonImageOverlay; }
   }
