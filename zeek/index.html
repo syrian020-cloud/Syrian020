@@ -1327,6 +1327,9 @@
     deleteConfirm: { ar: 'هل تريد حذف هذا الدرس؟', en: 'Delete this lesson?', fr: 'Supprimer cette leçon ?' },
     deleteFolderConfirm: { ar: 'هل تريد حذف هذا المجلد ودروسه؟', en: 'Delete this folder and its lessons?', fr: 'Supprimer ce dossier et ses leçons ?' },
     confirmRemoveMedia: { ar: 'هل تريد حذف الصورة أو الفيديو المرفق؟', en: 'Remove the attached image or video?', fr: 'Supprimer l’image ou la vidéo jointe ?' },
+    confirmRemoveVideo: { ar: 'هل تريد حذف الفيديو المرفق؟', en: 'Remove the attached video?', fr: 'Supprimer la vidéo jointe ?' },
+    confirmRemoveAudio: { ar: 'هل تريد حذف الملف الصوتي المرفق؟', en: 'Remove the attached audio file?', fr: 'Supprimer le fichier audio joint ?' },
+    confirmRemoveImage: { ar: 'هل تريد حذف الصورة المرفقة؟', en: 'Remove the attached image?', fr: 'Supprimer l’image jointe ?' },
     noPhrasesError: { ar: 'لم يتم التعرف على أي عبارة. تأكد من التنسيق: فرنسي | عربي | إنجليزي', en: 'No phrases recognized. Use format: French | Arabic | English', fr: 'Aucune phrase reconnue. Format : Français | Arabe | Anglais' },
     fillTitleError: { ar: 'أدخل العنوان بلغة واحدة (فرنسي أو عربي أو إنجليزي)', en: 'Enter the title in one language (French, Arabic, or English)', fr: 'Entrez le titre dans une seule langue (français, arabe ou anglais)' },
     actions: { ar: 'إجراءات', en: 'Actions', fr: 'Actions' },
@@ -1791,7 +1794,7 @@
   }
 
   async function deletePhraseImage(key) {
-    if (!confirm(t('confirmRemoveMedia'))) return;
+    if (!confirm(t('confirmRemoveImage'))) return;
     const [lessonId, idx] = key.split('.').map(Number);
     const found = findLesson(lessonId);
     if (!found) return;
@@ -4171,7 +4174,7 @@ Output in French, Arabic and English.`;
 
   async function removeMedia() {
     if (!mediaKey) return;
-    if (!confirm(t('confirmRemoveMedia'))) return;
+    if (!confirm(t('confirmRemoveVideo'))) return;
     const [lessonId, idx] = mediaKey.split('.').map(Number);
     const found = findLesson(lessonId);
     if (found) {
@@ -4193,7 +4196,7 @@ Output in French, Arabic and English.`;
 
   async function removeAudio() {
     if (!mediaKey) return;
-    if (!confirm(t('confirmRemoveMedia'))) return;
+    if (!confirm(t('confirmRemoveAudio'))) return;
     const [lessonId, idx] = mediaKey.split('.').map(Number);
     const found = findLesson(lessonId);
     if (found) {
