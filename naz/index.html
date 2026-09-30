@@ -823,7 +823,7 @@
     const data = await fetchPublishedLessons();
     if (!data) throw new Error('lessons 404');
     if ((data.version || 0) < localVersion()) return; // stale read during Pages redeploy
-    if (isDirty()) return; // never clobber unpublished local work
+    if (canEdit() && isDirty()) return; // never clobber unpublished admin work
     applyServerLessons(data);
   }
 
@@ -855,7 +855,7 @@
       const data = await fetchPublishedLessons();
       if (data) {
         const v = data.version || 0;
-        if (v > localVersion() && !isDirty()) {
+        if (v > localVersion() && !(canEdit() && isDirty())) {
           applyServerLessons(data);
           go(state.route, false);
         } else if (v > localVersion()) {
@@ -869,7 +869,7 @@
   // Users get fresh lessons automatically: on resume/focus and every minute.
   let lastAutoPull = 0;
   async function autoPullLessons() {
-    if (isDirty()) return; // never clobber unpublished local edits
+    if (canEdit() && isDirty()) return; // never clobber unpublished admin edits
     if (Date.now() - lastAutoPull < 20000) return;
     lastAutoPull = Date.now();
     try {
