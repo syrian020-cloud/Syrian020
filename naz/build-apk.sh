@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Build the Zeek APK: ./build-apk.sh user|admin
+# Build the naz APK: ./build-apk.sh user|admin
 set -e
 VARIANT="${1:?usage: ./build-apk.sh user|admin}"
 CONFIG="capacitor-${VARIANT}.config.json"
-OUT="zeek-${VARIANT}-debug.apk"
+OUT="naz-${VARIANT}-debug.apk"
 
 export ANDROID_HOME=${ANDROID_HOME:-/home/ubuntu/android-sdk}
 export PATH="/home/ubuntu/nodejs/bin:$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools"
@@ -19,7 +19,7 @@ cp -r fonts www/ 2>/dev/null || true
 
 # Admin build: enable admin mode permanently on this device profile
 if [ "$VARIANT" = "admin" ]; then
-  sed -i '0,/<head>/s||<head><script>localStorage.setItem("zeek_admin_want","1");</script>|' www/index.html
+  sed -i '0,/<head>/s||<head><script>localStorage.setItem("naz_admin_want","1");</script>|' www/index.html
 fi
 
 # Swap in the variant's Capacitor config for the duration of the build

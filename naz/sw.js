@@ -1,4 +1,4 @@
-const CACHE_NAME = 'zeek-v100';
+const CACHE_NAME = 'naz-v100';
 const FILES_TO_CACHE = [
   './index.html',
   './admin.html',

@@ -1,6 +1,6 @@
 {
-  "appId": "com.syrian020.zeek.admin",
-  "appName": "Zeek Admin",
+  "appId": "com.syrian020.naz",
+  "appName": "naz",
   "webDir": "www",
   "server": {
     "androidScheme": "https"
