@@ -1,0 +1,17 @@
+{
+  "appId": "com.syrian020.zeek.admin",
+  "appName": "Zeek Admin",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": false
+  },
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    }
+  }
+}

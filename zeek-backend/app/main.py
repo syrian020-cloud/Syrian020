@@ -28,7 +28,7 @@ ALLOWED_ORIGIN_REGEX = r"^https://.*\.devinapps\.com$|^http://(localhost|127\.0\
 MEDIA_ID_RE = re.compile(r"^[A-Za-z0-9_\-\.]{1,120}$")
 MAX_MEDIA_BYTES = 500 * 1024 * 1024
 
-app = FastAPI(title="Zeek backend")
+app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=ALLOWED_ORIGINS,
