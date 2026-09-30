@@ -777,6 +777,19 @@
     } catch (e) { /* offline or nothing published yet: keep local copy */ }
   }
 
+  // Users get fresh lessons automatically: on resume/focus and every minute.
+  let lastAutoPull = 0;
+  async function autoPullLessons() {
+    if (ADMIN_REQUESTED && isDirty()) return; // never clobber unpublished admin edits
+    if (Date.now() - lastAutoPull < 20000) return;
+    lastAutoPull = Date.now();
+    try {
+      const before = localVersion();
+      await pullLessons();
+      if (localVersion() !== before) go(state.route, false);
+    } catch (e) { }
+  }
+
   // Publishes LESSONS + any missing media as ONE commit on gh-pages.
   async function publishLessons() {
     const s = document.getElementById('sync-status');
@@ -4853,6 +4866,9 @@ Output in French, Arabic and English.`;
     initSync();
     verifyStoredAdmin();
     if (nativeTTS()) checkNativeTTS();
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) autoPullLessons(); });
+    window.addEventListener('focus', autoPullLessons);
+    setInterval(autoPullLessons, 60000);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
