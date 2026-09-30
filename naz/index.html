@@ -800,7 +800,6 @@
   function applyServerLessons(data) {
     const isUpgrade = localVersion() > 0;
     LESSONS = sanitizeLessons(data.lessons || []);
-    ensureBuiltInLesson();
     saveLessons();
     NEWS = Array.isArray(data.news) ? data.news.filter(n => n && (n.title || n.body)) : [];
     saveNews();
@@ -1334,7 +1333,6 @@
         } else merged[idx] = it;
       });
       LESSONS = merged;
-      ensureBuiltInLesson();
       saveLessons();
       go({ name: 'home' }, false);
       showToast(t('importSuccess'));
@@ -1544,47 +1542,19 @@
   let LESSONS = loadLessons();
   let NEWS = loadNews();
 
-  const BIENVENUE_LESSON = {
-    type: 'lesson',
-    protected: true,
-    title: { fr: 'Bienvenue', ar: 'أهلاً وسهلاً', en: 'Welcome' },
-    image: 'bienvenue-lesson.jpg',
-    phrases: [
-      { fr: "Bienvenue dans notre application d'apprentissage du français", ar: 'مرحبًا بك في تطبيقنا لتعلّم اللغة الفرنسية', en: 'Welcome to our French learning app' },
-      { fr: 'Je suis ravi de vous accueillir parmi nous.', ar: 'يسعدني أن أرحب بك بيننا.', en: 'I’m delighted to welcome you.' },
-      { fr: 'Cette application a été conçue pour vous aider à apprendre le français de manière simple, efficace et progressive.', ar: 'صُمم هذا التطبيق لمساعدتك على تعلم اللغة الفرنسية بطريقة سهلة وفعّالة وتدريجية.', en: 'This app was designed to help you learn French in a simple, effective, and progressive way.' },
-      { fr: 'Vous y trouverez des leçons, du vocabulaire, des expressions courantes et de nombreux outils pour améliorer votre compréhension, votre expression et votre communication au quotidien.', ar: 'ستجد فيه دروسًا ومفردات وعبارات شائعة والعديد من الأدوات لتحسين الفهم والتعبير والتواصل اليومي.', en: 'You will find lessons, vocabulary, common expressions, and many tools to improve your comprehension, speaking, and daily communication.' },
-      { fr: 'Mon objectif est de rendre l\'apprentissage du français accessible à tous, quel que soit votre niveau.', ar: 'هدفي هو جعل تعلم اللغة الفرنسية متاحًا للجميع مهما كان مستواهم.', en: 'My goal is to make learning French accessible to everyone, regardless of their level.' },
-      { fr: "Merci d'utiliser cette application.", ar: 'شكرًا لاستخدامك هذا التطبيق.', en: 'Thank you for using this app.' },
-      { fr: 'Je vous souhaite un excellent apprentissage et beaucoup de réussite dans votre parcours linguistique !', ar: 'أتمنى لك تعلمًا ممتعًا ونجاحًا كبيرًا في رحلتك اللغوية!', en: 'I wish you an enjoyable learning experience and great success in your language journey!' },
-      { fr: 'À propos du créateur', ar: 'نبذة عن المطور', en: 'About the creator' },
-      { fr: 'Je m\'appelle Mohammad.', ar: 'اسمي محمد.', en: 'My name is Mohammad.' },
-      { fr: 'Je suis né le 15 juillet 1989.', ar: 'وُلدت في 15 يوليو 1989.', en: 'I was born on July 15, 1989.' },
-      { fr: 'Je viens de Syrie.', ar: 'أنا من سوريا.', en: 'I am from Syria.' },
-      { fr: 'Pour me contacter', ar: 'للتواصل معي', en: 'Contact me' },
-      { fr: 'WhatsApp : +33 7 75 81 36 43', ar: 'واتساب: +33 7 75 81 36 43', en: 'WhatsApp: +33 7 75 81 36 43' },
-      { fr: 'E-mail : Syrian020@gmail.com', ar: 'البريد الإلكتروني: Syrian020@gmail.com', en: 'Email: Syrian020@gmail.com' }
-    ]
-  };
-
-  function ensureBuiltInLesson() {
-    const builtIn = JSON.parse(JSON.stringify(BIENVENUE_LESSON));
-    const existing = LESSONS.find(it => it.type === 'lesson' && it.protected);
-    if (existing) {
-      existing.title = builtIn.title;
-      const oldMedia = existing.phrases.map(p => p.media);
-      const oldCaptions = existing.phrases.map(p => p.captionText);
-      existing.phrases = builtIn.phrases;
-      existing.phrases.forEach((p, i) => {
-        if (oldMedia[i]) p.media = oldMedia[i];
-        if (oldCaptions[i]) p.captionText = oldCaptions[i];
-      });
-      if (!existing.image) existing.image = builtIn.image;
+  // Legacy "protected" built-in lesson: admin keeps it as a normal editable
+  // lesson; on user installs it is bundled (not published) so it is stripped.
+  function migrateBuiltInLesson() {
+    const adminMode = ADMIN_REQUESTED || !!adminKey;
+    let changed = false;
+    if (adminMode) {
+      LESSONS.forEach(it => { if (it.protected) { it.protected = false; changed = true; } });
     } else {
-      builtIn.id = nextId();
-      LESSONS.unshift(builtIn);
+      const before = LESSONS.length;
+      LESSONS = LESSONS.filter(it => !it.protected);
+      changed = LESSONS.length !== before;
     }
-    saveLessons();
+    if (changed) saveLessons();
   }
 
   function nextId() {
@@ -5134,7 +5104,7 @@ Output in French, Arabic and English.`;
     setTheme(state.theme);
     setUILang(state.uiLang);
     applyCaptionSettings();
-    ensureBuiltInLesson();
+    migrateBuiltInLesson();
     go(parseHash(), false);
     updateAdminBar();
     initSync();
