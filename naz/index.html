@@ -800,6 +800,11 @@
   function applyServerLessons(data) {
     const isUpgrade = localVersion() > 0;
     LESSONS = sanitizeLessons(data.lessons || []);
+    if (!LESSONS.some(it => it.welcome)) {
+      const w = JSON.parse(JSON.stringify(BIENVENUE_LESSON));
+      w.id = nextId();
+      LESSONS.unshift(w);
+    }
     saveLessons();
     NEWS = Array.isArray(data.news) ? data.news.filter(n => n && (n.title || n.body)) : [];
     saveNews();
