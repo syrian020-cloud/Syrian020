@@ -637,6 +637,7 @@
   const GH_BRANCH = 'gh-pages';
   const GH_API = 'https://api.github.com';
   const LESSONS_PATH = 'zeek/data/lessons.json';
+  const LESSONS_URL_BASE = 'https://syrian020-cloud.github.io/Syrian020/' + LESSONS_PATH;
   const MEDIA_PATH_PREFIX = 'zeek/media/';
   const MEDIA_URL_BASE = 'https://syrian020-cloud.github.io/Syrian020/' + MEDIA_PATH_PREFIX;
   const ADMIN_KEY_STORE = 'zeek_admin_key';
@@ -729,6 +730,10 @@
   }
 
   async function fetchPublishedLessons() {
+    try {
+      const r = await fetch(LESSONS_URL_BASE + '?ts=' + Date.now());
+      if (r.ok) return r.json();
+    } catch (e) { /* fall through to API */ }
     const r = await ghGetRaw(LESSONS_PATH, adminKey || '');
     if (!r) return null;
     return r.json();
@@ -737,6 +742,7 @@
   async function pullLessons() {
     const data = await fetchPublishedLessons();
     if (!data) throw new Error('lessons 404');
+    if ((data.version || 0) < localVersion()) return; // stale read during Pages redeploy
     applyServerLessons(data);
   }
 
@@ -745,7 +751,7 @@
       const data = await fetchPublishedLessons();
       if (data) {
         const v = data.version || 0;
-        if (v !== localVersion() && (!ADMIN_REQUESTED || !isDirty())) {
+        if (v > localVersion() && (!ADMIN_REQUESTED || !isDirty())) {
           applyServerLessons(data);
           go(state.route, false);
         } else if (v > localVersion()) {
