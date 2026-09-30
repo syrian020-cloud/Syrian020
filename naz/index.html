@@ -227,9 +227,13 @@
   .news-item .media-placeholder { margin-top: 0.5rem; }
   .news-item .media-placeholder img, .news-item .media-placeholder video { width: 100%; border-radius: var(--radius); }
   .news-item .media-caption { color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.2rem; }
-  .news-attach-chip { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.4rem; padding: 0.3rem 0.5rem; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 8px; }
+  .news-attach-chip { display: block; margin-top: 0.4rem; padding: 0.35rem 0.5rem; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 8px; }
+  .news-attach-chip .chip-head { display: flex; align-items: center; gap: 0.4rem; }
   .news-attach-chip input { flex: 1; min-width: 0; border: none; background: transparent; color: var(--text-primary); font-size: 0.85rem; }
+  .news-attach-chip .chip-caps { width: 100%; margin-top: 0.3rem; border: 1px dashed var(--border); border-radius: 6px; background: transparent; color: var(--text-secondary); font-size: 0.78rem; padding: 0.3rem; font-family: monospace; }
   .news-attach-chip .chip-del { border: none; background: transparent; color: #ef4444; cursor: pointer; font-size: 1rem; }
+  .news-compose { display: block; }
+  .news-item .phrase-media { margin-top: 0.5rem; border-radius: var(--radius); overflow: hidden; }
   .breadcrumb {
     display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
     color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.9rem;
@@ -1695,6 +1699,9 @@
     newsAttachVideo: { ar: '🎬 فيديو', en: '🎬 Video', fr: '🎬 Vidéo' },
     newsAttachAudio: { ar: '🔊 صوت', en: '🔊 Audio', fr: '🔊 Audio' },
     newsCaptionPh: { ar: 'وصف (caption)', en: 'Caption', fr: 'Légende' },
+    newsCaptionTextPh: { ar: 'ترجمة مزامنة (اختياري): 00:05 French | عربي | English', en: 'Synced captions (optional): 00:05 French | Arabic | English', fr: 'Sous-titres synchronisés (facultatif): 00:05 French | Arabe | Anglais' },
+    newsAttachLabel: { ar: 'المرفقات', en: 'Attachments', fr: 'Pièces jointes' },
+    newsEditing: { ar: 'تعديل الخبر', en: 'Edit update', fr: 'Modifier l\'actualité' },
     newsPost: { ar: 'إضافة الخبر', en: 'Add update', fr: 'Ajouter' },
     newsEmpty: { ar: 'لا أخبار بعد', en: 'No updates yet', fr: 'Aucune actualité' },
     newsDeleteConfirm: { ar: 'حذف هذا الخبر؟', en: 'Delete this update?', fr: 'Supprimer cette actualité ?' },
@@ -3781,7 +3788,7 @@
 
   function newsItemHtml(n, withDelete) {
     const media = (n.media || []).map(m => `
-      <div class="media-placeholder" data-media-ref="${esc(m.ref)}"></div>
+      <div class="phrase-media media-placeholder" data-media-ref="${esc(m.ref)}" data-caption-text="${esc(m.captionText || '')}"></div>
       ${m.caption ? `<div class="media-caption">${esc(m.caption)}</div>` : ''}`).join('');
     return `<div class="card news-item">
       <div class="card-body" style="width:100%">
@@ -3790,7 +3797,10 @@
         ${n.body ? `<div class="news-body">${esc(n.body)}</div>` : ''}
         ${n.link ? `<a class="news-link" href="${esc(n.link)}" target="_blank" rel="noopener">🔗 ${t('openLink')}</a>` : ''}
         ${media}
-        ${withDelete ? `<button class="btn ghost news-del" data-news-id="${n.id}" style="margin-top:0.5rem">🗑️ ${t('delete')}</button>` : ''}
+        ${withDelete ? `<div class="form-actions" style="margin-top:0.5rem">
+          <button class="btn ghost news-edit" data-news-id="${n.id}">✏️ ${t('edit')}</button>
+          <button class="btn ghost news-del" data-news-id="${n.id}">🗑️ ${t('delete')}</button>
+        </div>` : ''}
       </div>
     </div>`;
   }
@@ -3807,33 +3817,43 @@
 
   let newsDraftMedia = [];
   let newsDraft = { title: '', body: '', link: '' };
+  let newsEditingId = null;
   function renderNewsAdmin() {
     if (!canEdit()) { go({ name: 'home' }); return; }
     const list = [...NEWS].sort((a, b) => (b.ts || 0) - (a.ts || 0));
     const draftChips = newsDraftMedia.map((m, i) => `<div class="news-attach-chip">
-        <span>${m.kind === 'image' ? '🖼️' : m.kind === 'video' ? '🎬' : '🔊'}</span>
-        <input type="text" class="chip-cap" data-i="${i}" placeholder="${t('newsCaptionPh')}" value="${esc(m.caption || '')}">
-        <button class="chip-del" data-i="${i}">✕</button>
+        <div class="chip-head">
+          <span>${m.kind === 'image' ? '🖼️' : m.kind === 'video' ? '🎬' : '🔊'}</span>
+          <input type="text" class="chip-cap" data-i="${i}" placeholder="${t('newsCaptionPh')}" value="${esc(m.caption || '')}">
+          <button class="chip-del" data-i="${i}">✕</button>
+        </div>
+        ${m.kind === 'video' ? `<textarea class="chip-caps" data-i="${i}" rows="2" dir="ltr" placeholder="${t('newsCaptionTextPh')}">${esc(m.captionText || '')}</textarea>` : ''}
       </div>`).join('');
     view.innerHTML = `<div class="breadcrumb">
         <button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button>
         <span>›</span><span>${t('newsAdminTitle')}</span>
       </div>
-      <div class="card" style="padding:0.9rem">
-        <div class="news-title" style="margin-bottom:0.5rem">${t('newsCompose')}</div>
-        <div class="form-group"><input id="news-title" type="text" placeholder="${t('newsTitlePh')}" value="${esc(newsDraft.title)}"></div>
-        <div class="form-group"><textarea id="news-body" rows="3" placeholder="${t('newsBodyPh')}" style="min-height:70px">${esc(newsDraft.body)}</textarea></div>
-        <div class="form-group"><input id="news-link" type="url" dir="ltr" placeholder="${t('newsLinkPh')}" value="${esc(newsDraft.link)}"></div>
-        <div class="form-actions" style="margin-top:0.4rem">
-          <button class="btn ghost" id="news-add-img">${t('newsAttachImage')}</button>
-          <button class="btn ghost" id="news-add-vid">${t('newsAttachVideo')}</button>
-          <button class="btn ghost" id="news-add-aud">${t('newsAttachAudio')}</button>
+      <div class="card news-compose" style="padding:0.9rem"><div style="width:100%">
+        <div class="news-title" style="margin-bottom:0.7rem">${newsEditingId ? t('newsEditing') : t('newsCompose')}</div>
+        <div class="form-group"><label for="news-title">${t('newsTitlePh')}</label>
+          <input id="news-title" type="text" value="${esc(newsDraft.title)}"></div>
+        <div class="form-group"><label for="news-body">${t('newsBodyPh')}</label>
+          <textarea id="news-body" rows="3" style="min-height:70px">${esc(newsDraft.body)}</textarea></div>
+        <div class="form-group"><label for="news-link">${t('newsLinkPh')}</label>
+          <input id="news-link" type="url" dir="ltr" value="${esc(newsDraft.link)}"></div>
+        <div class="form-group"><span class="news-label" style="display:block;font-size:0.9rem;margin-bottom:0.35rem;color:var(--text-secondary)">${t('newsAttachLabel')}</span>
+          <div class="form-actions" style="margin-top:0.3rem">
+            <button class="btn ghost" id="news-add-img">${t('newsAttachImage')}</button>
+            <button class="btn ghost" id="news-add-vid">${t('newsAttachVideo')}</button>
+            <button class="btn ghost" id="news-add-aud">${t('newsAttachAudio')}</button>
+          </div>
         </div>
         ${draftChips}
         <input type="file" id="news-file" style="display:none">
-        <div class="form-actions" style="margin-top:0.6rem"><button class="btn" id="news-post">${t('newsPost')}</button></div>
+        <div class="form-actions" style="margin-top:0.7rem"><button class="btn" id="news-post">${newsEditingId ? t('save') : t('newsPost')}</button>
+          ${newsEditingId ? `<button class="btn ghost" id="news-cancel-edit">${t('cancel')}</button>` : ''}</div>
         <div class="sub" style="margin-top:0.4rem">${t('newsPublishHint')}</div>
-      </div>` +
+      </div></div>` +
       (list.length ? list.map(n => newsItemHtml(n, true)).join('') : `<div class="empty">${t('newsEmpty')}</div>`);
 
     const fileInput = document.getElementById('news-file');
@@ -3843,7 +3863,7 @@
         const f = fileInput.files && fileInput.files[0];
         if (f) {
           const ref = await storeMedia(f);
-          if (ref) { newsDraftMedia.push({ ref, kind, caption: '' }); renderNewsAdmin(); }
+          if (ref) { newsDraftMedia.push({ ref, kind, caption: '', captionText: '' }); renderNewsAdmin(); }
         }
         fileInput.value = '';
       };
@@ -3855,6 +3875,9 @@
     view.querySelectorAll('.chip-cap').forEach(inp => {
       inp.oninput = () => { newsDraftMedia[+inp.dataset.i].caption = inp.value; };
     });
+    view.querySelectorAll('.chip-caps').forEach(inp => {
+      inp.oninput = () => { newsDraftMedia[+inp.dataset.i].captionText = inp.value; };
+    });
     view.querySelectorAll('.chip-del').forEach(btn => {
       btn.onclick = async () => {
         const m = newsDraftMedia.splice(+btn.dataset.i, 1)[0];
@@ -3865,16 +3888,35 @@
     ['title', 'body', 'link'].forEach(f => {
       document.getElementById('news-' + f).oninput = e => { newsDraft[f] = e.target.value; };
     });
+    const resetDraft = () => { newsDraftMedia = []; newsDraft = { title: '', body: '', link: '' }; newsEditingId = null; };
+    const cancelBtn = document.getElementById('news-cancel-edit');
+    if (cancelBtn) cancelBtn.onclick = () => { resetDraft(); renderNewsAdmin(); };
     document.getElementById('news-post').onclick = () => {
       const title = newsDraft.title.trim(), body = newsDraft.body.trim(), link = newsDraft.link.trim();
       if (!title && !body) { showToast(t('newsNeedTitle')); return; }
-      NEWS.unshift({ id: Date.now(), ts: Date.now(), title, body, link, media: newsDraftMedia.map(m => ({ ref: m.ref, kind: m.kind, caption: m.caption || '' })) });
-      newsDraftMedia = [];
-      newsDraft = { title: '', body: '', link: '' };
+      const media = newsDraftMedia.map(m => ({ ref: m.ref, kind: m.kind, caption: m.caption || '', captionText: m.captionText || '' }));
+      if (newsEditingId) {
+        const item = NEWS.find(n => n.id === newsEditingId);
+        if (item) Object.assign(item, { title, body, link, media });
+      } else {
+        NEWS.unshift({ id: Date.now(), ts: Date.now(), title, body, link, media });
+      }
+      resetDraft();
       saveNews();
       renderNewsAdmin();
       showToast(t('publish') + ' ⬆ ' + t('newsPublishHint'));
     };
+    view.querySelectorAll('.news-edit').forEach(btn => {
+      btn.onclick = () => {
+        const item = NEWS.find(n => n.id === +btn.dataset.newsId);
+        if (!item) return;
+        newsEditingId = item.id;
+        newsDraft = { title: item.title || '', body: item.body || '', link: item.link || '' };
+        newsDraftMedia = (item.media || []).map(m => ({ ...m }));
+        renderNewsAdmin();
+        view.querySelector('.news-compose')?.scrollIntoView({ behavior: 'smooth' });
+      };
+    });
     view.querySelectorAll('.news-del').forEach(btn => {
       btn.onclick = async () => {
         if (!confirm(t('newsDeleteConfirm'))) return;
@@ -3882,6 +3924,7 @@
         const item = NEWS.find(n => n.id === id);
         if (item) for (const m of (item.media || [])) { if (isIDBMedia(m.ref)) await deleteMediaById(idbMediaId(m.ref)).catch(() => {}); }
         NEWS = NEWS.filter(n => n.id !== id);
+        if (newsEditingId === id) resetDraft();
         saveNews();
         renderNewsAdmin();
       };
