@@ -194,7 +194,42 @@
   .contact-btn.whatsapp { background: transparent; }
   .contact-btn.whatsapp img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; display: block; }
   .contact-btn.gmail { background: #ea4335; }
+  .contact-btn.news-btn { background: linear-gradient(135deg,#f59e0b,#ef4444); border:none; font-size:1.05rem; cursor:pointer; }
   .contact-btn:hover { filter: brightness(1.08); }
+  .news-card {
+    display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.9rem;
+    padding: 0.9rem 1rem; border: none; border-radius: var(--radius);
+    background: linear-gradient(135deg, #7c3aed, #db2777 55%, #f59e0b);
+    color: #fff; cursor: pointer; text-align: start; width: 100%;
+    box-shadow: 0 4px 14px rgba(219,39,119,.4); position: relative; overflow: hidden;
+    font-family: inherit;
+  }
+  .news-card::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.28) 50%, transparent 70%);
+    animation: news-shine 2.8s linear infinite; pointer-events: none;
+  }
+  @keyframes news-shine { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+  .news-card .news-ico { font-size: 1.7rem; animation: news-ring 2.4s ease-in-out infinite; }
+  @keyframes news-ring { 0%,55%,100% { transform: rotate(0); } 5% { transform: rotate(14deg); } 12% { transform: rotate(-12deg); } 20% { transform: rotate(8deg); } 28% { transform: rotate(-6deg); } 36% { transform: rotate(0); } }
+  .news-card .news-card-title { font-weight: 700; font-size: 1.05rem; }
+  .news-card .news-card-sub { font-size: 0.78rem; opacity: .85; }
+  .news-card .news-badge {
+    margin-inline-start: auto; background: #fff; color: #db2777; font-weight: 700;
+    min-width: 26px; height: 26px; border-radius: 999px; display: inline-flex;
+    align-items: center; justify-content: center; padding: 0 8px; font-size: 0.9rem;
+  }
+  .news-item { display: block; cursor: default; }
+  .news-item .news-title { font-weight: 700; margin-bottom: 0.15rem; }
+  .news-item .news-date { color: var(--text-secondary); font-size: 0.75rem; margin-bottom: 0.35rem; }
+  .news-item .news-body { white-space: pre-wrap; }
+  .news-item .news-link { display: inline-block; margin-top: 0.4rem; color: var(--accent, #60a5fa); }
+  .news-item .media-placeholder { margin-top: 0.5rem; }
+  .news-item .media-placeholder img, .news-item .media-placeholder video { width: 100%; border-radius: var(--radius); }
+  .news-item .media-caption { color: var(--text-secondary); font-size: 0.8rem; margin-top: 0.2rem; }
+  .news-attach-chip { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.4rem; padding: 0.3rem 0.5rem; background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 8px; }
+  .news-attach-chip input { flex: 1; min-width: 0; border: none; background: transparent; color: var(--text-primary); font-size: 0.85rem; }
+  .news-attach-chip .chip-del { border: none; background: transparent; color: #ef4444; cursor: pointer; font-size: 1rem; }
   .breadcrumb {
     display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
     color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.9rem;
@@ -483,6 +518,7 @@
     </select>
     <a class="contact-btn whatsapp" href="https://wa.me/33775813643" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp"><img src="whatsapp-icon.png" alt="WhatsApp" style="width:28px;height:28px;border-radius:6px;display:block"></a>
     <a class="contact-btn gmail" href="mailto:Syrian020@gmail.com" title="Gmail" aria-label="Gmail"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2l-8 5.5L4 6h16zM4 18V8.5l7.5 5.1L20 8.5V18H4z"/></svg></a>
+    <button class="contact-btn news-btn" id="btn-news-admin" title="أخبار" style="display:none">📢</button>
   </div>
   <div id="tts-banner" class="tts-banner">
     <span id="tts-msg"></span>
@@ -730,18 +766,43 @@
 
   function saveLessons() { localStorage.setItem('naz_lessons', JSON.stringify(LESSONS)); updateSyncStatus(); }
 
+  // News/updates published alongside lessons in the same payload {version, lessons, news}.
+  const NEWS_SEEN_STORE = 'naz_news_seen';
+  function loadNews() {
+    try {
+      const raw = JSON.parse(localStorage.getItem('naz_news') || '[]');
+      return Array.isArray(raw) ? raw.filter(n => n && (n.title || n.body)) : [];
+    } catch (e) { return []; }
+  }
+  function saveNews() { localStorage.setItem('naz_news', JSON.stringify(NEWS)); updateSyncStatus(); }
+  function newsSeenTs() { return +(localStorage.getItem('naz_news_seen') || 0); }
+  function markNewsSeen() {
+    localStorage.setItem(NEWS_SEEN_STORE, String(Math.max(Date.now(), ...NEWS.map(n => n.ts || 0))));
+  }
+  function unreadNews() { return NEWS.filter(n => (n.ts || 0) > newsSeenTs()).length; }
+  function newsMediaIds() {
+    const ids = [];
+    NEWS.forEach(n => (n.media || []).forEach(m => { if (isIDBMedia(m.ref)) ids.push(idbMediaId(m.ref)); }));
+    return ids;
+  }
+
   function markSynced(version) {
     localStorage.setItem(VERSION_STORE, String(version));
-    localStorage.setItem(SNAPSHOT_STORE, JSON.stringify(LESSONS));
+    localStorage.setItem(SNAPSHOT_STORE, JSON.stringify({ l: LESSONS, n: NEWS }));
   }
   function localVersion() { return +(localStorage.getItem(VERSION_STORE) || 0); }
-  function isDirty() { return JSON.stringify(LESSONS) !== (localStorage.getItem(SNAPSHOT_STORE) || ''); }
+  function isDirty() { return JSON.stringify({ l: LESSONS, n: NEWS }) !== (localStorage.getItem(SNAPSHOT_STORE) || ''); }
 
   function applyServerLessons(data) {
+    const isUpgrade = localVersion() > 0;
     LESSONS = sanitizeLessons(data.lessons || []);
     ensureBuiltInLesson();
     saveLessons();
+    NEWS = Array.isArray(data.news) ? data.news.filter(n => n && (n.title || n.body)) : [];
+    saveNews();
     markSynced(data.version || 0);
+    if (isUpgrade) notifyNewNews();
+    if (state.route && state.route.name === 'news') markNewsSeen();
   }
 
   async function fetchPublishedLessons() {
@@ -759,6 +820,29 @@
     if (!data) throw new Error('lessons 404');
     if ((data.version || 0) < localVersion()) return; // stale read during Pages redeploy
     applyServerLessons(data);
+  }
+
+  function localNotifPlugin() {
+    return window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.LocalNotifications;
+  }
+
+  async function notifyNewNews() {
+    const fresh = NEWS.filter(n => (n.ts || 0) > newsSeenTs());
+    if (!fresh.length) return;
+    const LN = localNotifPlugin();
+    if (!LN) return;
+    try {
+      const perm = await LN.requestPermissions();
+      if (!perm || perm.display !== 'granted') return;
+      await LN.schedule({
+        notifications: fresh.slice(0, 3).map((n, i) => ({
+          id: 20000 + i,
+          title: n.title || t('news'),
+          body: n.body || '',
+          schedule: { at: new Date(Date.now() + 500) }
+        }))
+      });
+    } catch (e) { console.error('notifyNewNews', e); }
   }
 
   async function initSync() {
@@ -802,7 +886,7 @@
     const existing = new Set((treeList && treeList.tree || []).map(e => e.path));
 
     const tree = [];
-    const ids = collectMediaRefs(LESSONS);
+    const ids = [...new Set([...collectMediaRefs(LESSONS), ...newsMediaIds()])];
     for (let i = 0; i < ids.length; i++) {
       say(t('publishProgress') + ' ' + (i + 1) + '/' + ids.length);
       if (existing.has(MEDIA_PATH_PREFIX + ids[i])) continue;
@@ -817,7 +901,7 @@
     const cur = await ghGetRaw(LESSONS_PATH, adminKey);
     const version = cur ? (((await cur.json()).version || 0) + 1) : 1;
     const lb = await ghApi('POST', '/repos/' + GH_REPO + '/git/blobs', adminKey,
-      { content: textToB64(JSON.stringify({ version, lessons: LESSONS })), encoding: 'base64' });
+      { content: textToB64(JSON.stringify({ version, lessons: LESSONS, news: NEWS })), encoding: 'base64' });
     tree.push({ path: LESSONS_PATH, mode: '100644', type: 'blob', sha: lb.sha });
 
     const newTree = await ghApi('POST', '/repos/' + GH_REPO + '/git/trees', adminKey,
@@ -896,6 +980,8 @@
         <span id="sync-status" class="sync-status"></span>
         <span class="admin-spacer"></span>
         <button id="btn-admin-logout" class="admin-btn ghost">${esc(t('adminLogout'))}</button>`;
+      const nb = document.getElementById('btn-news-admin');
+      if (nb) { nb.style.display = ''; nb.onclick = () => go({ name: 'news-admin' }); }
       document.getElementById('btn-publish').onclick = async () => {
         try { await publishLessons(); } catch (e) { if (String(e) !== 'Error: 401') showToast(t('publishFailed')); }
       };
@@ -913,7 +999,10 @@
       bar.innerHTML = `<span class="admin-badge" style="opacity:.7">${esc(t('adminMode'))}</span>
         <button id="btn-admin-login" class="admin-btn">${esc(t('adminLogin'))}</button>`;
       document.getElementById('btn-admin-login').onclick = adminLogin;
+      const nb = document.getElementById('btn-news-admin');
+      if (nb) nb.style.display = 'none';
     }
+    if (!ADMIN_REQUESTED) { const nb = document.getElementById('btn-news-admin'); if (nb) nb.style.display = 'none'; }
   }
 
   function chooseExport() {
@@ -1448,6 +1537,7 @@
   }
 
   let LESSONS = loadLessons();
+  let NEWS = loadNews();
 
   const BIENVENUE_LESSON = {
     type: 'lesson',
@@ -1594,6 +1684,24 @@
     pullOverwriteWarn: { ar: 'لديك تغييرات غير منشورة وستُستبدل بنسخة الخادم. متابعة؟', en: 'You have unpublished changes that will be replaced by the server copy. Continue?', fr: 'Vous avez des modifications non publiées qui seront remplacées par la copie du serveur. Continuer ?' },
     unsyncedChanges: { ar: 'تغييرات غير منشورة', en: 'Unpublished changes', fr: 'Modifications non publiées' },
     serverNewer: { ar: 'نسخة أحدث على الخادم — اسحب للتحديث', en: 'Newer version on server — pull to update', fr: 'Version plus récente sur le serveur — tirez pour mettre à jour' },
+    news: { ar: 'أخبار', en: 'News', fr: 'Actualités' },
+    newsSub: { ar: 'آخر التحديثات من التطبيق', en: 'Latest updates', fr: 'Dernières nouvelles' },
+    newsAdminTitle: { ar: 'إدارة الأخبار والإشعارات', en: 'Manage news & notifications', fr: 'Gérer les actualités' },
+    newsCompose: { ar: 'خبر جديد', en: 'New update', fr: 'Nouvelle actualité' },
+    newsTitlePh: { ar: 'عنوان الإشعار', en: 'Notification title', fr: 'Titre de la notification' },
+    newsBodyPh: { ar: 'رسالة الإشعار', en: 'Notification message', fr: 'Message de la notification' },
+    newsLinkPh: { ar: 'رابط (اختياري)', en: 'Link (optional)', fr: 'Lien (facultatif)' },
+    newsAttachImage: { ar: '🖼️ صورة', en: '🖼️ Image', fr: '🖼️ Image' },
+    newsAttachVideo: { ar: '🎬 فيديو', en: '🎬 Video', fr: '🎬 Vidéo' },
+    newsAttachAudio: { ar: '🔊 صوت', en: '🔊 Audio', fr: '🔊 Audio' },
+    newsCaptionPh: { ar: 'وصف (caption)', en: 'Caption', fr: 'Légende' },
+    newsPost: { ar: 'إضافة الخبر', en: 'Add update', fr: 'Ajouter' },
+    newsEmpty: { ar: 'لا أخبار بعد', en: 'No updates yet', fr: 'Aucune actualité' },
+    newsDeleteConfirm: { ar: 'حذف هذا الخبر؟', en: 'Delete this update?', fr: 'Supprimer cette actualité ?' },
+    newsPublishHint: { ar: 'زر «نشر» في الأعلى يُرسلها للمستخدمين مع إشعار', en: 'The «Publish» button above sends them to users with a notification', fr: 'Le bouton «Publier» les envoie aux utilisateurs' },
+    newsNeedTitle: { ar: 'اكتب عنواناً أو رسالة أولاً', en: 'Write a title or message first', fr: 'Écrivez un titre ou un message' },
+    openLink: { ar: 'فتح الرابط', en: 'Open link', fr: 'Ouvrir le lien' },
+    delete: { ar: 'حذف', en: 'Delete', fr: 'Supprimer' },
     addLessonSub: { ar: 'أنشئ درساً جديداً', en: 'Create a new lesson', fr: 'Créer une nouvelle leçon' },
     addLessonTitle: { ar: 'درس جديد', en: 'New lesson', fr: 'Nouvelle leçon' },
     title: { ar: 'العنوان', en: 'Title', fr: 'Titre' },
@@ -3634,7 +3742,13 @@
       <input type="file" id="import-file" accept=".json,application/json,application/octet-stream,text/plain" style="display:none">
     </div>`;
     let lessonIdx = 0;
-    const html = `<div class="top-bar"><span class="section-title">${t('library')}</span></div>
+    const unread = unreadNews();
+    const newsCard = `<button class="news-card" data-route='${JSON.stringify({ name: 'news' })}'>
+      <span class="news-ico">🔔</span>
+      <span><span class="news-card-title">${t('news')}</span><br><span class="news-card-sub">${t('newsSub')}</span></span>
+      ${unread ? `<span class="news-badge">${unread}</span>` : ''}
+    </button>`;
+    const html = newsCard + `<div class="top-bar"><span class="section-title">${t('library')}</span></div>
       ${actionBar}${empty}` +
       LESSONS.map(it => {
         if (it.type === 'lesson') lessonIdx++;
@@ -3662,6 +3776,115 @@
         </div>`;
       }).join('');
     view.innerHTML = html;
+  }
+
+  function newsItemHtml(n, withDelete) {
+    const media = (n.media || []).map(m => `
+      <div class="media-placeholder" data-media-ref="${esc(m.ref)}"></div>
+      ${m.caption ? `<div class="media-caption">${esc(m.caption)}</div>` : ''}`).join('');
+    return `<div class="card news-item">
+      <div class="card-body" style="width:100%">
+        <div class="news-title">${esc(n.title || '')}</div>
+        <div class="news-date">${n.ts ? new Date(n.ts).toLocaleString() : ''}</div>
+        ${n.body ? `<div class="news-body">${esc(n.body)}</div>` : ''}
+        ${n.link ? `<a class="news-link" href="${esc(n.link)}" target="_blank" rel="noopener">🔗 ${t('openLink')}</a>` : ''}
+        ${media}
+        ${withDelete ? `<button class="btn ghost news-del" data-news-id="${n.id}" style="margin-top:0.5rem">🗑️ ${t('delete')}</button>` : ''}
+      </div>
+    </div>`;
+  }
+
+  function renderNews() {
+    const list = [...NEWS].sort((a, b) => (b.ts || 0) - (a.ts || 0));
+    const empty = !list.length ? `<div class="no-lessons"><div class="icon">🔔</div><div class="card-title">${t('newsEmpty')}</div></div>` : '';
+    view.innerHTML = `<div class="breadcrumb">
+        <button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button>
+        <span>›</span><span>${t('news')}</span>
+      </div>` + empty + list.map(n => newsItemHtml(n, false)).join('');
+    markNewsSeen();
+  }
+
+  let newsDraftMedia = [];
+  let newsDraft = { title: '', body: '', link: '' };
+  function renderNewsAdmin() {
+    if (!canEdit()) { go({ name: 'home' }); return; }
+    const list = [...NEWS].sort((a, b) => (b.ts || 0) - (a.ts || 0));
+    const draftChips = newsDraftMedia.map((m, i) => `<div class="news-attach-chip">
+        <span>${m.kind === 'image' ? '🖼️' : m.kind === 'video' ? '🎬' : '🔊'}</span>
+        <input type="text" class="chip-cap" data-i="${i}" placeholder="${t('newsCaptionPh')}" value="${esc(m.caption || '')}">
+        <button class="chip-del" data-i="${i}">✕</button>
+      </div>`).join('');
+    view.innerHTML = `<div class="breadcrumb">
+        <button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button>
+        <span>›</span><span>${t('newsAdminTitle')}</span>
+      </div>
+      <div class="card" style="padding:0.9rem">
+        <div class="news-title" style="margin-bottom:0.5rem">${t('newsCompose')}</div>
+        <div class="form-group"><input id="news-title" type="text" placeholder="${t('newsTitlePh')}" value="${esc(newsDraft.title)}"></div>
+        <div class="form-group"><textarea id="news-body" rows="3" placeholder="${t('newsBodyPh')}" style="min-height:70px">${esc(newsDraft.body)}</textarea></div>
+        <div class="form-group"><input id="news-link" type="url" dir="ltr" placeholder="${t('newsLinkPh')}" value="${esc(newsDraft.link)}"></div>
+        <div class="form-actions" style="margin-top:0.4rem">
+          <button class="btn ghost" id="news-add-img">${t('newsAttachImage')}</button>
+          <button class="btn ghost" id="news-add-vid">${t('newsAttachVideo')}</button>
+          <button class="btn ghost" id="news-add-aud">${t('newsAttachAudio')}</button>
+        </div>
+        ${draftChips}
+        <input type="file" id="news-file" style="display:none">
+        <div class="form-actions" style="margin-top:0.6rem"><button class="btn" id="news-post">${t('newsPost')}</button></div>
+        <div class="sub" style="margin-top:0.4rem">${t('newsPublishHint')}</div>
+      </div>` +
+      (list.length ? list.map(n => newsItemHtml(n, true)).join('') : `<div class="empty">${t('newsEmpty')}</div>`);
+
+    const fileInput = document.getElementById('news-file');
+    const attach = kind => {
+      fileInput.accept = kind === 'image' ? 'image/*' : kind === 'video' ? 'video/*' : 'audio/*';
+      fileInput.onchange = async () => {
+        const f = fileInput.files && fileInput.files[0];
+        if (f) {
+          const ref = await storeMedia(f);
+          if (ref) { newsDraftMedia.push({ ref, kind, caption: '' }); renderNewsAdmin(); }
+        }
+        fileInput.value = '';
+      };
+      fileInput.click();
+    };
+    document.getElementById('news-add-img').onclick = () => attach('image');
+    document.getElementById('news-add-vid').onclick = () => attach('video');
+    document.getElementById('news-add-aud').onclick = () => attach('audio');
+    view.querySelectorAll('.chip-cap').forEach(inp => {
+      inp.oninput = () => { newsDraftMedia[+inp.dataset.i].caption = inp.value; };
+    });
+    view.querySelectorAll('.chip-del').forEach(btn => {
+      btn.onclick = async () => {
+        const m = newsDraftMedia.splice(+btn.dataset.i, 1)[0];
+        if (m && isIDBMedia(m.ref)) await deleteMediaById(idbMediaId(m.ref)).catch(() => {});
+        renderNewsAdmin();
+      };
+    });
+    ['title', 'body', 'link'].forEach(f => {
+      document.getElementById('news-' + f).oninput = e => { newsDraft[f] = e.target.value; };
+    });
+    document.getElementById('news-post').onclick = () => {
+      const title = newsDraft.title.trim(), body = newsDraft.body.trim(), link = newsDraft.link.trim();
+      if (!title && !body) { showToast(t('newsNeedTitle')); return; }
+      NEWS.unshift({ id: Date.now(), ts: Date.now(), title, body, link, media: newsDraftMedia.map(m => ({ ref: m.ref, kind: m.kind, caption: m.caption || '' })) });
+      newsDraftMedia = [];
+      newsDraft = { title: '', body: '', link: '' };
+      saveNews();
+      renderNewsAdmin();
+      showToast(t('publish') + ' ⬆ ' + t('newsPublishHint'));
+    };
+    view.querySelectorAll('.news-del').forEach(btn => {
+      btn.onclick = async () => {
+        if (!confirm(t('newsDeleteConfirm'))) return;
+        const id = +btn.dataset.newsId;
+        const item = NEWS.find(n => n.id === id);
+        if (item) for (const m of (item.media || [])) { if (isIDBMedia(m.ref)) await deleteMediaById(idbMediaId(m.ref)).catch(() => {}); }
+        NEWS = NEWS.filter(n => n.id !== id);
+        saveNews();
+        renderNewsAdmin();
+      };
+    });
   }
 
   function renderFolder(folderId) {
@@ -4715,7 +4938,7 @@ Output in French, Arabic and English.`;
     scrollMemo[prevKey] = window.scrollY;
     const sameRoute = !push && routeKey(route) === prevKey;
     const restoreY = sameRoute ? window.scrollY : (push ? 0 : (scrollMemo[routeKey(route)] || 0));
-    if ((route.name === 'add-folder' || route.name === 'add-lesson' || route.name === 'edit-lesson') && !canEdit()) {
+    if ((route.name === 'add-folder' || route.name === 'add-lesson' || route.name === 'edit-lesson' || route.name === 'news-admin') && !canEdit()) {
       route = { name: 'home' };
       if (!push && location.hash !== '#/') history.replaceState(null, '', '#/');
     }
@@ -4727,6 +4950,8 @@ Output in French, Arabic and English.`;
       else if (route.name === 'add-folder') hash = '#/add-folder';
       else if (route.name === 'add-lesson') hash = '#/add-lesson' + (route.folder ? '/' + route.folder : '');
       else if (route.name === 'edit-lesson') hash = '#/edit-lesson/' + route.lesson;
+      else if (route.name === 'news') hash = '#/news';
+      else if (route.name === 'news-admin') hash = '#/news-admin';
       else if (route.name === 'search') hash = '#/search/' + encodeURIComponent(route.q);
       if (location.hash !== hash) location.hash = hash;
     }
@@ -4737,6 +4962,8 @@ Output in French, Arabic and English.`;
     else if (route.name === 'add-folder') renderAddFolder();
     else if (route.name === 'add-lesson') renderAddLesson(route.folder);
     else if (route.name === 'edit-lesson') renderEditLesson(route.lesson);
+    else if (route.name === 'news') renderNews();
+    else if (route.name === 'news-admin') renderNewsAdmin();
     loadMedia();
     if (restoreY) requestAnimationFrame(() => window.scrollTo({ top: restoreY, behavior: 'auto' }));
     else window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -4746,6 +4973,8 @@ Output in French, Arabic and English.`;
     const h = location.hash || '#/';
     if (h === '#/add-folder') return { name: 'add-folder' };
     if (h === '#/add-lesson') return { name: 'add-lesson' };
+    if (h === '#/news') return { name: 'news' };
+    if (h === '#/news-admin') return { name: 'news-admin' };
     let m = h.match(/^#\/folder\/(\d+)$/);
     if (m) return { name: 'folder', folder: +m[1] };
     m = h.match(/^#\/lesson\/(\d+)$/);
@@ -4866,6 +5095,8 @@ Output in French, Arabic and English.`;
     initSync();
     verifyStoredAdmin();
     if (nativeTTS()) checkNativeTTS();
+    const LN = localNotifPlugin();
+    if (LN) { try { LN.addListener('localNotificationActionPerformed', () => go({ name: 'news' })); } catch (e) {} }
     document.addEventListener('visibilitychange', () => { if (!document.hidden) autoPullLessons(); });
     window.addEventListener('focus', autoPullLessons);
     setInterval(autoPullLessons, 60000);
