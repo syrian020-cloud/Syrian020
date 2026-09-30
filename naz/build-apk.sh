@@ -14,7 +14,8 @@ cd "$ROOT"
 # Stage web assets into Capacitor's webDir
 rm -rf www && mkdir -p www
 cp index.html admin.html manifest.json sw.js \
-   icon-192.png icon-512.png whatsapp-icon.png bienvenue-lesson.jpg www/
+   icon-${VARIANT}-192.png icon-${VARIANT}-512.png whatsapp-icon.png bienvenue-lesson.jpg www/
+( cd www && mv icon-${VARIANT}-192.png icon-192.png && mv icon-${VARIANT}-512.png icon-512.png )
 cp -r fonts www/ 2>/dev/null || true
 
 # Admin build: enable admin mode permanently on this device profile
@@ -48,8 +49,8 @@ STRINGS=android/app/src/main/res/values/strings.xml
 sed -i "s|<string name=\"app_name\">.*</string>|<string name=\"app_name\">$APP_NAME</string>|" "$STRINGS"
 sed -i "s|<string name=\"title_activity_main\">.*</string>|<string name=\"title_activity_main\">$APP_NAME</string>|" "$STRINGS"
 
-# Launcher icons from the PWA icon
-ICON_SRC="$ROOT/icon-512.png"
+# Launcher icons from this variant's icon
+ICON_SRC="$ROOT/icon-${VARIANT}-512.png"
 MIPMAP="$ROOT/android/app/src/main/res"
 if [ -f "$ICON_SRC" ] && command -v convert >/dev/null 2>&1; then
   mkdir -p "$MIPMAP/mipmap-mdpi" "$MIPMAP/mipmap-hdpi" "$MIPMAP/mipmap-xhdpi" "$MIPMAP/mipmap-xxhdpi" "$MIPMAP/mipmap-xxxhdpi"
