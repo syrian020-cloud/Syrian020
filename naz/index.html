@@ -3676,7 +3676,8 @@
 
   function imageMediaHTML(src, key, ref) {
     const ratio = getVideoAspect(ref || src);
-    return `<div class="media-image-wrap ${aspectClassFor(ratio)}" data-phrase-key="${esc(key || '')}" data-media-ref="${esc(ref || src)}"><img src="${esc(src)}" alt="" onerror="this.style.display='none'">${imageAspectSelectHTML(ratio)}<button type="button" class="media-del" data-phrase-key="${esc(key || '')}" title="${t('delete')}">×</button></div>`;
+    const del = canEdit() ? `<button type="button" class="media-del" data-phrase-key="${esc(key || '')}" title="${t('delete')}">×</button>` : '';
+    return `<div class="media-image-wrap ${aspectClassFor(ratio)}" data-phrase-key="${esc(key || '')}" data-media-ref="${esc(ref || src)}"><img src="${esc(src)}" alt="" onerror="this.style.display='none'">${imageAspectSelectHTML(ratio)}${del}</div>`;
   }
 
   function mediaHTML(media, key) {
@@ -4511,7 +4512,7 @@ EN: Maria, I’m out of cigarettes.`
   function bindViewEvents() {
     view.addEventListener('click', e => {
       const delImgBtn = e.target.closest('.media-del');
-      if (delImgBtn) { e.stopPropagation(); deletePhraseImage(delImgBtn.dataset.phraseKey); return; }
+      if (delImgBtn && canEdit()) { e.stopPropagation(); deletePhraseImage(delImgBtn.dataset.phraseKey); return; }
 
       const videoNavBtn = e.target.closest('.video-prev, .video-next');
       if (videoNavBtn) {
