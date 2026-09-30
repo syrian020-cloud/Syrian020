@@ -629,7 +629,16 @@
 (function () {
   'use strict';
 
-  const API_BASE = (localStorage.getItem('zeek_api_base') || 'ZEEK_API_BASE').replace(/\/+$/, '');
+  // Sync backend: GitHub. Published lessons live in zeek/data/lessons.json and
+  // media in zeek/media/ on the gh-pages branch of GH_REPO. Users read them via
+  // the GitHub API (fresh, no CDN lag) or the Pages URL for media. The admin's
+  // GitHub token (PAT, contents:write on GH_REPO) is stored only on his device.
+  const GH_REPO = 'syrian020-cloud/Syrian020';
+  const GH_BRANCH = 'gh-pages';
+  const GH_API = 'https://api.github.com';
+  const LESSONS_PATH = 'zeek/data/lessons.json';
+  const MEDIA_PATH_PREFIX = 'zeek/media/';
+  const MEDIA_URL_BASE = 'https://syrian020-cloud.github.io/Syrian020/' + MEDIA_PATH_PREFIX;
   const ADMIN_KEY_STORE = 'zeek_admin_key';
   const ADMIN_WANT_STORE = 'zeek_admin_want';
   const VERSION_STORE = 'zeek_lessons_version';
@@ -638,6 +647,43 @@
   let ADMIN_REQUESTED = /[?&]admin=1\b/.test(location.search) || localStorage.getItem(ADMIN_WANT_STORE) === '1';
   let ADMIN = ADMIN_REQUESTED && !!adminKey;
   function canEdit() { return ADMIN; }
+
+  function ghHeaders(token, accept) {
+    const h = { 'Accept': accept || 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' };
+    if (token) h['Authorization'] = 'Bearer ' + token;
+    return h;
+  }
+
+  async function ghApi(method, path, token, body) {
+    const r = await fetch(GH_API + path, {
+      method,
+      headers: Object.assign(ghHeaders(token), body ? { 'Content-Type': 'application/json' } : {}),
+      body: body ? JSON.stringify(body) : undefined
+    });
+    if (r.status === 404) return null;
+    if (r.status === 401) { adminLogout(); throw new Error('401'); }
+    if (!r.ok) throw new Error('gh ' + r.status + ' ' + method + ' ' + path);
+    return r.json();
+  }
+
+  async function ghGetRaw(path, token) {
+    const r = await fetch(GH_API + '/repos/' + GH_REPO + '/contents/' + path + '?ref=' + GH_BRANCH,
+      { headers: ghHeaders(token, 'application/vnd.github.raw+json') });
+    if (r.status === 404) return null;
+    if (!r.ok) throw new Error('gh ' + r.status);
+    return r;
+  }
+
+  function textToB64(s) { return btoa(unescape(encodeURIComponent(s))); }
+
+  function blobToB64(blob) {
+    return new Promise((resolve, reject) => {
+      const r = new FileReader();
+      r.onload = () => resolve(String(r.result).split(',')[1] || '');
+      r.onerror = () => reject(r.error);
+      r.readAsDataURL(blob);
+    });
+  }
 
   function isValidLessonItem(it) {
     if (!it || typeof it !== 'object') return false;
@@ -682,17 +728,22 @@
     markSynced(data.version || 0);
   }
 
+  async function fetchPublishedLessons() {
+    const r = await ghGetRaw(LESSONS_PATH, adminKey || '');
+    if (!r) return null;
+    return r.json();
+  }
+
   async function pullLessons() {
-    const r = await fetch(API_BASE + '/api/lessons');
-    if (!r.ok) throw new Error('lessons ' + r.status);
-    applyServerLessons(await r.json());
+    const data = await fetchPublishedLessons();
+    if (!data) throw new Error('lessons 404');
+    applyServerLessons(data);
   }
 
   async function initSync() {
     try {
-      const r = await fetch(API_BASE + '/api/lessons');
-      if (r.ok) {
-        const data = await r.json();
+      const data = await fetchPublishedLessons();
+      if (data) {
         const v = data.version || 0;
         if (v !== localVersion() && (!ADMIN_REQUESTED || !isDirty())) {
           applyServerLessons(data);
@@ -702,56 +753,74 @@
           if (s) s.textContent = t('serverNewer');
         }
       }
-    } catch (e) { /* offline: keep local copy */ }
+    } catch (e) { /* offline or nothing published yet: keep local copy */ }
   }
 
+  // Publishes LESSONS + any missing media as ONE commit on gh-pages.
   async function publishLessons() {
     const s = document.getElementById('sync-status');
     const say = txt => { if (s) s.textContent = txt; };
+
+    const ref = await ghApi('GET', '/repos/' + GH_REPO + '/git/ref/heads/' + GH_BRANCH, adminKey);
+    if (!ref) throw new Error('branch missing');
+    const headSha = ref.object.sha;
+    const treeList = await ghApi('GET', '/repos/' + GH_REPO + '/git/trees/' + GH_BRANCH + '?recursive=1', adminKey);
+    const existing = new Set((treeList && treeList.tree || []).map(e => e.path));
+
+    const tree = [];
     const ids = collectMediaRefs(LESSONS);
     for (let i = 0; i < ids.length; i++) {
       say(t('publishProgress') + ' ' + (i + 1) + '/' + ids.length);
-      const head = await fetch(API_BASE + '/api/media/' + encodeURIComponent(ids[i]), { method: 'HEAD' });
-      if (!head.ok) {
-        const blob = await getMediaBlob(ids[i]);
-        if (blob) {
-          const put = await fetch(API_BASE + '/api/media/' + encodeURIComponent(ids[i]), {
-            method: 'PUT',
-            headers: { 'X-Admin-Key': adminKey, 'Content-Type': blob.type || 'application/octet-stream' },
-            body: blob
-          });
-          if (put.status === 401) { adminLogout(); throw new Error('401'); }
-          if (!put.ok) throw new Error('media ' + put.status);
-        }
-      }
+      if (existing.has(MEDIA_PATH_PREFIX + ids[i])) continue;
+      const blob = await getMediaBlob(ids[i]);
+      if (!blob) continue;
+      const b = await ghApi('POST', '/repos/' + GH_REPO + '/git/blobs', adminKey,
+        { content: await blobToB64(blob), encoding: 'base64' });
+      tree.push({ path: MEDIA_PATH_PREFIX + ids[i], mode: '100644', type: 'blob', sha: b.sha });
     }
+
     say(t('publishProgress'));
-    const r = await fetch(API_BASE + '/api/lessons', {
-      method: 'PUT',
-      headers: { 'X-Admin-Key': adminKey, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ lessons: LESSONS })
-    });
-    if (r.status === 401) { adminLogout(); throw new Error('401'); }
-    if (!r.ok) throw new Error('lessons ' + r.status);
-    markSynced((await r.json()).version);
+    const cur = await ghGetRaw(LESSONS_PATH, adminKey);
+    const version = cur ? (((await cur.json()).version || 0) + 1) : 1;
+    const lb = await ghApi('POST', '/repos/' + GH_REPO + '/git/blobs', adminKey,
+      { content: textToB64(JSON.stringify({ version, lessons: LESSONS })), encoding: 'base64' });
+    tree.push({ path: LESSONS_PATH, mode: '100644', type: 'blob', sha: lb.sha });
+
+    const newTree = await ghApi('POST', '/repos/' + GH_REPO + '/git/trees', adminKey,
+      { base_tree: treeList.sha, tree });
+    const commit = await ghApi('POST', '/repos/' + GH_REPO + '/git/commits', adminKey,
+      { message: 'Publish Zeek lessons', tree: newTree.sha, parents: [headSha] });
+    await ghApi('PATCH', '/repos/' + GH_REPO + '/git/refs/heads/' + GH_BRANCH, adminKey, { sha: commit.sha });
+
+    markSynced(version);
     say('');
     showToast(t('publishDone'));
   }
 
+  // true = contents:write confirmed (harmless empty blob probe),
+  // false = invalid or read-only, null = offline
+  async function verifyToken(token) {
+    try {
+      const r = await fetch(GH_API + '/repos/' + GH_REPO + '/git/blobs', {
+        method: 'POST',
+        headers: Object.assign(ghHeaders(token), { 'Content-Type': 'application/json' }),
+        body: JSON.stringify({ content: '', encoding: 'base64' })
+      });
+      return r.ok;
+    } catch (e) { return null; }
+  }
+
   async function verifyStoredAdmin() {
     if (!ADMIN || !adminKey) return;
-    try {
-      const r = await fetch(API_BASE + '/api/admin/verify', { headers: { 'X-Admin-Key': adminKey } });
-      if (r.status === 401) adminLogout();
-    } catch (e) { /* offline: keep optimistic admin mode */ }
+    const ok = await verifyToken(adminKey);
+    if (ok === false) adminLogout();
   }
 
   async function adminLogin() {
     const pin = prompt(t('adminPinPrompt'));
     if (!pin || !pin.trim()) return;
-    let r = null;
-    try { r = await fetch(API_BASE + '/api/admin/verify', { headers: { 'X-Admin-Key': pin.trim() } }); } catch (e) { r = null; }
-    if (r && r.status === 204) {
+    const ok = await verifyToken(pin.trim());
+    if (ok === true) {
       adminKey = pin.trim();
       localStorage.setItem(ADMIN_KEY_STORE, adminKey);
       localStorage.setItem(ADMIN_WANT_STORE, '1');
@@ -1479,8 +1548,8 @@
     adminMode: { ar: 'وضع الأدمن', en: 'Admin mode', fr: 'Mode admin' },
     adminLogin: { ar: 'دخول الأدمن', en: 'Admin login', fr: 'Connexion admin' },
     adminLogout: { ar: 'خروج', en: 'Log out', fr: 'Déconnexion' },
-    adminPinPrompt: { ar: 'أدخل رمز الأدمن', en: 'Enter admin PIN', fr: 'Entrez le code admin' },
-    adminBadPin: { ar: 'رمز غير صحيح', en: 'Wrong PIN', fr: 'Code incorrect' },
+    adminPinPrompt: { ar: 'أدخل رمز GitHub الشخصي (PAT) بصلاحية الكتابة', en: 'Enter your GitHub token (PAT) with write access', fr: 'Entrez votre jeton GitHub (PAT) avec accès en écriture' },
+    adminBadPin: { ar: 'الرمز غير صالح أو بلا صلاحية كتابة', en: 'Invalid token or no write access', fr: 'Jeton invalide ou sans accès en écriture' },
     publish: { ar: 'نشر', en: 'Publish', fr: 'Publier' },
     publishProgress: { ar: 'جارٍ النشر…', en: 'Publishing…', fr: 'Publication…' },
     publishDone: { ar: 'تم النشر — ظهر للمستخدمين', en: 'Published — live for users', fr: 'Publié — visible aux utilisateurs' },
@@ -1945,8 +2014,9 @@
     const blob = await getMediaBlob(id);
     if (blob) return blob;
     try {
-      const r = await fetch(API_BASE + '/api/media/' + encodeURIComponent(id));
-      if (!r.ok) return null;
+      let r = await fetch(MEDIA_URL_BASE + encodeURIComponent(id));
+      if (!r || !r.ok) r = await ghGetRaw(MEDIA_PATH_PREFIX + encodeURIComponent(id), adminKey || '');
+      if (!r || !r.ok) return null;
       const sb = await r.blob();
       cacheFetchedMedia(id, sb);
       return sb;
