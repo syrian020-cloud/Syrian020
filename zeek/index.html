@@ -4652,7 +4652,10 @@ Output in French, Arabic and English.`;
     scrollMemo[prevKey] = window.scrollY;
     const sameRoute = !push && routeKey(route) === prevKey;
     const restoreY = sameRoute ? window.scrollY : (push ? 0 : (scrollMemo[routeKey(route)] || 0));
-    if ((route.name === 'add-folder' || route.name === 'add-lesson' || route.name === 'edit-lesson') && !canEdit()) route = { name: 'home' };
+    if ((route.name === 'add-folder' || route.name === 'add-lesson' || route.name === 'edit-lesson') && !canEdit()) {
+      route = { name: 'home' };
+      if (!push && location.hash !== '#/') history.replaceState(null, '', '#/');
+    }
     state.route = route;
     if (push) {
       let hash = '#/';
