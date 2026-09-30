@@ -992,7 +992,7 @@
       const nb = document.getElementById('btn-news-admin');
       if (nb) { nb.style.display = ''; nb.onclick = () => go({ name: 'news-admin' }); }
       document.getElementById('btn-publish').onclick = async () => {
-        try { await publishLessons(); } catch (e) { if (String(e) !== 'Error: 401') showToast(t('publishFailed')); }
+        try { await publishLessons(); } catch (e) { showToast(t('publishFailed') + ' — ' + (e && e.message ? e.message : e)); }
       };
       document.getElementById('btn-sync-pull').onclick = async () => {
         try {
