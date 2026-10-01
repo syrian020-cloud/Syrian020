@@ -2064,7 +2064,28 @@
   function isAudioFile(file) {
     if (!file) return false;
     if (file.type && file.type.startsWith('audio/')) return true;
-    return /\.(mp3|wav|ogg|oga|m4a|aac|flac|opus|weba|wma)$/i.test(file.name || '');
+    return /\.(mp3|wav|ogg|oga|m4a|aac|flac|opus|weba|wma|amr|3ga)$/i.test(file.name || '');
+  }
+  async function sniffMediaKind(blob) {
+    if (!blob) return '';
+    try {
+      const buf = new Uint8Array(await blob.slice(0, 16).arrayBuffer());
+      const str = (o, n) => Array.from(buf.slice(o, o + n)).map(c => String.fromCharCode(c)).join('');
+      if (str(0, 3) === 'ID3' || (buf[0] === 0xFF && (buf[1] & 0xE0) === 0xE0)) return 'audio';
+      if (str(0, 4) === 'OggS' || str(0, 4) === 'fLaC') return 'audio';
+      if (str(0, 5) === '#!AMR') return 'audio';
+      if (str(0, 4) === 'RIFF' && str(8, 4) === 'WAVE') return 'audio';
+      if (str(0, 4) === 'RIFF' && str(8, 4) === 'WEBP') return 'image';
+      if (str(4, 4) === 'ftyp') {
+        const brand = str(8, 4);
+        if (/^M4A|^M4B|^3gp|^3g2/.test(brand)) return 'audio';
+        return 'video';
+      }
+      if (buf[0] === 0x89 && str(1, 3) === 'PNG') return 'image';
+      if (buf[0] === 0xFF && buf[1] === 0xD8) return 'image';
+      if (str(0, 3) === 'GIF') return 'image';
+    } catch (e) {}
+    return '';
   }
   function isMediaFile(file) { return isImageFile(file) || isVideoFile(file) || isAudioFile(file); }
 
@@ -2077,7 +2098,8 @@
       '3gpp': 'video/3gpp', avi: 'video/x-msvideo', mkv: 'video/x-matroska', flv: 'video/x-flv', m4v: 'video/mp4',
       mpeg: 'video/mpeg', mpg: 'video/mpeg', m4p: 'video/mp4', m2v: 'video/mpeg', ts: 'video/mp2t',
       mp3: 'audio/mpeg', wav: 'audio/wav', ogg: 'audio/ogg', oga: 'audio/ogg', m4a: 'audio/mp4',
-      aac: 'audio/aac', flac: 'audio/flac', opus: 'audio/ogg', weba: 'audio/webm', wma: 'audio/x-ms-wma'
+      aac: 'audio/aac', flac: 'audio/flac', opus: 'audio/ogg', weba: 'audio/webm', wma: 'audio/x-ms-wma',
+      amr: 'audio/amr', '3ga': 'audio/3gpp'
     };
     return map[ext] || '';
   }
@@ -2934,10 +2956,15 @@
         el.innerHTML = `<iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe>`;
       } else {
         const declared = (el.dataset.mediaType || '').toLowerCase();
-        const detectedVideo = (resolved.type || '').startsWith('video/') || isVideoUrl(resolved.url) || isVideoFile({ name: (resolved.blob && resolved.blob.name) || '', type: resolved.type });
-        const detectedAudio = !detectedVideo && ((resolved.type || '').startsWith('audio/') || isAudioUrl(resolved.url) || isAudioFile({ name: (resolved.blob && resolved.blob.name) || '', type: resolved.type }));
-        const isVideo = declared ? declared === 'video' : detectedVideo;
-        const isAudio = declared ? declared === 'audio' : detectedAudio;
+        const mime = resolved.type || '';
+        const mediaName = (resolved.blob && resolved.blob.name) || '';
+        let kind = declared || (mime.startsWith('audio/') ? 'audio' : '');
+        if (!kind) kind = await sniffMediaKind(resolved.blob);
+        if (!kind) kind = mime.startsWith('video/') ? 'video' : '';
+        if (!kind) kind = (isAudioUrl(resolved.url) || isAudioFile({ name: mediaName, type: '' })) ? 'audio'
+          : (isVideoUrl(resolved.url) || isVideoFile({ name: mediaName, type: '' })) ? 'video' : '';
+        const isVideo = kind === 'video';
+        const isAudio = kind === 'audio';
         if (isVideo) {
           el.classList.add('video-player');
           const phraseKey = el.dataset.phraseKey || '';
@@ -3675,7 +3702,7 @@
   }
 
   function isAudioUrl(url) {
-    return /^data:audio|\.(mp3|wav|ogg|oga|m4a|aac|flac|opus|weba|wma)(\?|$)/i.test(url);
+    return /^data:audio|\.(mp3|wav|ogg|oga|m4a|aac|flac|opus|weba|wma|amr|3ga)(\?|$)/i.test(url);
   }
 
   function audioHTML(src) {
