@@ -1763,6 +1763,7 @@
     noFolders: { ar: 'لا توجد مجلدات، أنشئ مجلدًا أولًا', en: 'No folders yet — create one first', fr: 'Aucun dossier — créez-en un d’abord' },
     moved: { ar: 'تم النقل', en: 'Moved', fr: 'Déplacé' },
     lessonImage: { ar: 'صورة الدرس', en: 'Lesson image', fr: 'Image de la leçon' },
+    lessonCover: { ar: 'صورة الغلاف', en: 'Cover image', fr: 'Image de couverture' },
     showImage: { ar: 'إظهار الصورة', en: 'Show image', fr: 'Afficher l’image' },
     hideImage: { ar: 'إخفاء الصورة', en: 'Hide image', fr: 'Masquer l’image' },
     confirmDeleteImage: { ar: 'هل تريد حذف صورة الدرس؟', en: 'Delete this lesson image?', fr: 'Supprimer cette image de leçon ?' },
@@ -2333,6 +2334,7 @@
   async function deleteItemMedia(it) {
     if (!it) return;
     if (it.image) await deleteMediaRef(it.image);
+    if (it.cover) await deleteMediaRef(it.cover);
     if (it.media) { await deleteMediaRef(it.media); it.media = ''; }
     if (it.captionText) delete it.captionText;
     if (it.lessons) { for (const l of it.lessons) await deleteItemMedia(l); }
@@ -3404,9 +3406,10 @@
   }
 
   function cardThumb(it, idx) {
-    if (it.image) {
-      if (isIDBMedia(it.image)) return `<div class="card-thumb media-placeholder" data-media-ref="${esc(it.image)}"></div>`;
-      return `<div class="card-thumb"><img src="${esc(toWebUrl(it.image))}" alt="" onerror="this.style.display='none'"></div>`;
+    const thumb = it.cover || it.image;
+    if (thumb) {
+      if (isIDBMedia(thumb)) return `<div class="card-thumb media-placeholder" data-media-ref="${esc(thumb)}"></div>`;
+      return `<div class="card-thumb"><img src="${esc(toWebUrl(thumb))}" alt="" onerror="this.style.display='none'"></div>`;
     }
     if (it.type === 'folder') return `<div class="card-thumb" style="color:#fff; background:var(--accent-2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M2 6a2 2 0 0 1 2-2h5l2 2h9a2 2 0 0 1 2 2v1H2V6zm0 3h20v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9z"/></svg></div>`;
     return `<div class="num">${idx || it.id}</div>`;
@@ -3627,6 +3630,12 @@
       image = await storeMedia(imageFile);
       if (!image) { alert(t('mediaSaveError')); return; }
     }
+    const coverFile = document.getElementById('lesson-cover-file') && document.getElementById('lesson-cover-file').files[0];
+    let cover = '';
+    if (coverFile) {
+      cover = await storeMedia(coverFile);
+      if (!cover) { alert(t('mediaSaveError')); return; }
+    }
 
     let captionText = form.elements.captions.value.trim();
     const captionFile = document.getElementById('lesson-captions-file').files[0];
@@ -3648,6 +3657,7 @@
     const lesson = { id: nextId(), type: 'lesson', title: ttl, phrases };
     if (media) { lesson.media = media; lesson.mediaType = mediaKind; }
     if (image) lesson.image = image;
+    if (cover) lesson.cover = cover;
     if (captionText) lesson.captionText = captionText;
     if (folder) folder.lessons.push(lesson); else LESSONS.push(lesson);
     saveLessons();
@@ -4112,6 +4122,7 @@
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudio">${t('lessonAudio')}</label><button type="button" class="btn" id="btn-choose-lesson-audio" data-t="chooseAudioFile">${t('chooseAudioFile')}</button><input type="file" id="lesson-audio-file" accept="audio/*,.mp3,.m4a,.aac,.ogg,.wav,.opus,.amr" style="display:none"></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudioUrl">${t('lessonAudioUrl')}</label><input type="text" name="audioUrl" placeholder="https://..." style="width:100%"></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonImage">${t('lessonImage')}</label><button type="button" class="btn" id="btn-choose-lesson-image" data-t="chooseImage">${t('chooseImage')}</button><input type="file" id="lesson-image-file" accept="image/*" style="display:none"><span id="lesson-image-name" class="hint"></span></div>
+        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonCover">${t('lessonCover')}</label><button type="button" class="btn" id="btn-choose-lesson-cover" data-t="chooseImage">${t('chooseImage')}</button><input type="file" id="lesson-cover-file" accept="image/*" style="display:none"><span id="lesson-cover-name" class="hint"></span></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonCaptions">${t('lessonCaptions')}</label><button type="button" class="btn ghost" id="btn-choose-lesson-captions" data-t="chooseCaptionFile">${t('chooseCaptionFile')}</button><input type="file" id="lesson-captions-file" accept=".srt,.txt" style="display:none"></div>
         <div class="form-group" style="margin-top:0.35rem">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.25rem">
@@ -4143,6 +4154,10 @@
     const chooseImageBtn = document.getElementById('btn-choose-lesson-image');
     if (chooseImageBtn && imageFile) chooseImageBtn.onclick = () => imageFile.click();
     if (imageFile) imageFile.onchange = () => { const n = document.getElementById('lesson-image-name'); if (n) n.textContent = imageFile.files[0] ? imageFile.files[0].name : ''; };
+    const coverFile = document.getElementById('lesson-cover-file');
+    const chooseCoverBtn = document.getElementById('btn-choose-lesson-cover');
+    if (chooseCoverBtn && coverFile) chooseCoverBtn.onclick = () => coverFile.click();
+    if (coverFile) coverFile.onchange = () => { const n = document.getElementById('lesson-cover-name'); if (n) n.textContent = coverFile.files[0] ? coverFile.files[0].name : ''; };
     const captionFile = document.getElementById('lesson-captions-file');
     const chooseCaptionBtn = document.getElementById('btn-choose-lesson-captions');
     if (chooseCaptionBtn && captionFile) chooseCaptionBtn.onclick = () => captionFile.click();
@@ -4187,6 +4202,7 @@
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudio">${t('lessonAudio')}</label><button type="button" class="btn" id="btn-choose-lesson-audio" data-t="chooseAudioFile">${t('chooseAudioFile')}</button><input type="file" id="lesson-audio-file" accept="audio/*,.mp3,.m4a,.aac,.ogg,.wav,.opus,.amr" style="display:none"><span id="edit-audio-name" class="hint"></span></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudioUrl">${t('lessonAudioUrl')}</label><input type="text" name="audioUrl" placeholder="https://..." style="width:100%" value="${mediaIsUrl && isAudioUrl(lesson.media) ? esc(lesson.media) : ''}"></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonImage">${t('lessonImage')}</label><button type="button" class="btn" id="btn-choose-lesson-image" data-t="chooseImage">${t('chooseImage')}</button><input type="file" id="lesson-image-file" accept="image/*" style="display:none"><span id="lesson-image-name" class="hint">${lesson.image ? esc(t('currentMediaFile')) : ''}</span></div>
+        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonCover">${t('lessonCover')}</label><button type="button" class="btn" id="btn-choose-lesson-cover" data-t="chooseImage">${t('chooseImage')}</button><input type="file" id="lesson-cover-file" accept="image/*" style="display:none"><span id="lesson-cover-name" class="hint">${lesson.cover ? esc(t('currentMediaFile')) : ''}</span></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonCaptions">${t('lessonCaptions')}</label><button type="button" class="btn ghost" id="btn-choose-lesson-captions" data-t="chooseCaptionFile">${t('chooseCaptionFile')}</button><input type="file" id="lesson-captions-file" accept=".srt,.txt" style="display:none"></div>
         <div class="form-group" style="margin-top:0.35rem">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.25rem">
@@ -4263,6 +4279,13 @@
       if (!imgRef) { alert(t('mediaSaveError')); return; }
       if (lesson.image && isIDBMedia(lesson.image)) { try { await deleteMediaRef(lesson.image); } catch (e) {} }
       lesson.image = imgRef;
+    }
+    const newCoverFile = document.getElementById('lesson-cover-file') && document.getElementById('lesson-cover-file').files[0];
+    if (newCoverFile) {
+      const covRef = await storeMedia(newCoverFile);
+      if (!covRef) { alert(t('mediaSaveError')); return; }
+      if (lesson.cover && isIDBMedia(lesson.cover)) { try { await deleteMediaRef(lesson.cover); } catch (e) {} }
+      lesson.cover = covRef;
     }
 
     let captionText = form.elements.captions.value.trim();
