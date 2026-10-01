@@ -1,0 +1,17 @@
+{
+  "appId": "com.syrian020.naz.admin",
+  "appName": "naz Admin",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": false
+  },
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    }
+  }
+}
