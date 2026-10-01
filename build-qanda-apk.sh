@@ -13,6 +13,8 @@ mkdir -p www/data www/js
 cp data/* www/data/
 cp manifest.json icon-192.png icon-512.png sw.js www/
 cp qanda.html www/index.html
+cp map.html www/
+cp -r vendor www/
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
 GRADLE_INIT=""

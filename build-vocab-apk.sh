@@ -16,6 +16,8 @@ cp manifest.json icon-192.png icon-512.png sw.js www/
 # Use vocab.html as the main entry, keep french.html available for the back link
 cp vocab.html www/index.html
 cp french.html www/french.html
+cp map.html www/
+cp -r vendor www/
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
 if [ "$USE_ALIYUN" = "1" ]; then

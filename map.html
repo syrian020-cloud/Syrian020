@@ -339,7 +339,7 @@
   var state = {
     uiLang: localStorage.getItem('map_ui_lang') || localStorage.getItem('vocab_ui_lang') || 'ar',
     theme: localStorage.getItem('map_theme') || localStorage.getItem('vocab_theme') || 'dark',
-    active: (savedActive && savedActive.length) ? savedActive : DEFAULT_ACTIVE.slice(),
+    active: Array.isArray(savedActive) ? savedActive : DEFAULT_ACTIVE.slice(),
     radius: parseInt(localStorage.getItem('map_radius') || '5000', 10),
     userLat: null,
     userLon: null,
@@ -424,7 +424,8 @@
     if (poi.hours) html += '<div class="popup-meta">🕒 ' + esc(poi.hours) + '</div>';
     html += '<div class="popup-links">';
     html += '<a href="' + directionsUrl(poi) + '" target="_blank" rel="noopener">🧭 ' + esc(t('directions')) + '</a>';
-    if (poi.phone) html += '<a href="tel:' + escAttr(poi.phone.replace(/\s/g, '')) + '">📞 ' + esc(t('call')) + '</a>';
+    var tel = poi.phone.replace(/[^+\d]/g, '');
+    if (tel) html += '<a href="tel:' + escAttr(tel) + '">📞 ' + esc(t('call')) + '</a>';
     html += '</div>';
     return html;
   }
@@ -465,25 +466,30 @@
   }
 
   function buildQuery(lat, lon) {
-    var clauses = [];
+    var stmts = [];
     state.active.forEach(function (k) {
       var cat = catByKey[k];
-      if (cat) clauses.push(cat.query(state.radius, lat, lon));
+      if (cat) stmts.push('(' + cat.query(state.radius, lat, lon) + ');out center tags ' + MAX_PER_CATEGORY + ';');
     });
-    if (!clauses.length) return null;
-    return '[out:json][timeout:25];(' + clauses.join('') + ');out center tags ' + (MAX_PER_CATEGORY * clauses.length) + ';';
+    if (!stmts.length) return null;
+    return '[out:json][timeout:25];' + stmts.join('');
   }
 
+  var searchSeq = 0;
+  var inflightCtrl = null;
+
   function search(lat, lon) {
-    if (state.searching) return;
     var q = buildQuery(lat, lon);
     if (!q) { toast(t('noResults')); return; }
+    if (inflightCtrl) inflightCtrl.abort();
+    var seq = ++searchSeq;
     state.searching = true;
     setStatus(t('searching'), true);
 
     var ep = 0;
     function tryFetch() {
       var ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+      inflightCtrl = ctrl;
       var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 20000) : null;
       fetch(OVERPASS_ENDPOINTS[ep], {
         method: 'POST',
@@ -495,13 +501,17 @@
         return res.json();
       }).then(function (json) {
         if (timer) clearTimeout(timer);
+        if (seq !== searchSeq) return;
+        inflightCtrl = null;
         state.searching = false;
         setStatus(null);
         handleResults(json.elements || []);
       }).catch(function () {
         if (timer) clearTimeout(timer);
+        if (seq !== searchSeq) return;
         ep++;
         if (ep < OVERPASS_ENDPOINTS.length) { tryFetch(); return; }
+        inflightCtrl = null;
         state.searching = false;
         setStatus(null);
         toast(t('searchError'));
