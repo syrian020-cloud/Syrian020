@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0b0f1f">
+<title>VidCap — الخريطة</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<style>
+  :root {
+    --bg-primary: #0b0f1f;
+    --bg-secondary: rgba(255,255,255,0.06);
+    --bg-tertiary: rgba(255,255,255,0.1);
+    --text-primary: #f8f7ff;
+    --text-secondary: #a3a3c2;
+    --accent: #8b5cf6;
+    --accent-2: #f43f5e;
+    --accent-hover: #7c3aed;
+    --success: #22d3ee;
+    --border: rgba(255,255,255,0.09);
+    --radius: 24px;
+    --radius-sm: 16px;
+    --shadow: 0 24px 60px rgba(0,0,0,0.45);
+    --shadow-sm: 0 8px 22px rgba(0,0,0,0.22);
+    --glow: 0 0 28px rgba(139,92,246,0.22);
+  }
+  [data-theme="light"] {
+    --bg-primary: #f7f5ff;
+    --bg-secondary: rgba(255,255,255,0.82);
+    --bg-tertiary: rgba(0,0,0,0.04);
+    --text-primary: #18122b;
+    --text-secondary: #6b7280;
+    --border: rgba(76,29,149,0.09);
+    --shadow: 0 16px 45px rgba(0,0,0,0.12);
+    --shadow-sm: 0 4px 16px rgba(0,0,0,0.08);
+    --glow: 0 0 24px rgba(139,92,246,0.14);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans Arabic", "Noto Sans", sans-serif;
+    letter-spacing: -0.01em;
+    font-weight: 450;
+    background-color: var(--bg-primary);
+    background-image: radial-gradient(ellipse 85% 55% at 50% -25%, rgba(139,92,246,0.16), transparent 70%), radial-gradient(ellipse 60% 40% at 100% 0%, rgba(244,63,94,0.06), transparent 60%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    line-height: 1.62;
+    padding-bottom: 3.5rem;
+    -webkit-font-smoothing: antialiased;
+  }
+  header { position: sticky; top: 0; z-index: 1100; background: rgba(11,15,31,0.78); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+  [data-theme="light"] header { background: rgba(255,255,255,0.78); }
+  .header-inner { max-width: 1000px; margin: 0 auto; padding: 0.9rem 1.1rem; display: flex; align-items: center; gap: 0.6rem; }
+  .logo { font-weight: 900; font-size: 1.3rem; white-space: nowrap; display: flex; align-items: center; gap: 0.35rem; letter-spacing: -0.03em; background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .spacer { flex: 1; }
+  .icon-btn { background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 14px; padding: 0.5rem 0.7rem; font-size: 0.95rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 700; transition: transform .12s, border-color .15s, background .15s, box-shadow .15s; box-shadow: var(--shadow-sm); font-family: inherit; }
+  .icon-btn:hover { border-color: var(--accent); background: var(--bg-tertiary); transform: translateY(-1px); }
+  main { max-width: 1000px; margin: 0 auto; padding: 1rem; }
+
+  .hero { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem 1.4rem; margin-bottom: 1rem; position: relative; overflow: hidden; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: var(--shadow-sm); }
+  .hero::before { content: ''; position: absolute; top:0; left:0; right:0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--success)); opacity: .9; }
+  .hero h1 { margin: 0 0 0.45rem; font-size: 1.35rem; position: relative; font-weight: 800; letter-spacing: -0.02em; }
+  .hero p { margin: 0; color: var(--text-secondary); font-size: 0.96rem; position: relative; max-width: 720px; }
+
+  .toolbar { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0.4rem; margin-bottom: 0.85rem; }
+  .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-hover)); color: #fff; border: none; border-radius: 14px; padding: 0.65rem 1rem; font-size: 0.9rem; cursor: pointer; font-weight: 800; font-family: inherit; display: inline-flex; align-items: center; gap: 0.35rem; box-shadow: 0 4px 18px rgba(139,92,246,0.32); transition: all .15s; }
+  .btn-primary:hover { transform: translateY(-1px); }
+  .btn-secondary { background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 14px; padding: 0.65rem 1rem; font-size: 0.9rem; cursor: pointer; font-weight: 700; font-family: inherit; display: inline-flex; align-items: center; gap: 0.35rem; box-shadow: var(--shadow-sm); transition: all .15s; }
+  .btn-secondary:hover { border-color: var(--accent); transform: translateY(-1px); }
+  select.ctl { background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 12px; padding: 0.55rem 0.5rem; font-size: 0.82rem; font-family: inherit; box-shadow: var(--shadow-sm); cursor: pointer; }
+  select.ctl:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 4px rgba(139,92,246,0.12); }
+
+  .filter-section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 18px; padding: 0.55rem 0.65rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: var(--shadow-sm); margin-bottom: 0.85rem; }
+  .filter-label { color: var(--text-secondary); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0 0.15rem; white-space: nowrap; font-weight: 800; margin-bottom: 0.15rem; }
+  .filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem; }
+  .filter-chip { background: var(--bg-tertiary); color: var(--text-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 0.42rem 0.75rem; font-size: 0.83rem; cursor: pointer; user-select: none; transition: all 0.15s; white-space: nowrap; box-shadow: var(--shadow-sm); font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem; font-family: inherit; }
+  .filter-chip:hover { border-color: var(--accent); color: var(--text-primary); transform: translateY(-1px); }
+  .filter-chip.active { background: linear-gradient(135deg, var(--accent), var(--accent-hover)); color: #fff; border-color: transparent; box-shadow: 0 4px 18px rgba(139,92,246,0.32); }
+  .chip-dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+
+  .map-wrap { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow-sm); margin-bottom: 0.85rem; }
+  #map { height: 55vh; min-height: 320px; width: 100%; background: #0b0f1f; }
+  .map-status { position: absolute; top: 0.6rem; left: 50%; transform: translateX(-50%); z-index: 800; background: rgba(11,15,31,0.85); color: #f8f7ff; border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; padding: 0.45rem 0.95rem; font-size: 0.82rem; font-weight: 700; display: none; align-items: center; gap: 0.45rem; backdrop-filter: blur(10px); max-width: 90%; text-align: center; }
+  .map-status.show { display: inline-flex; }
+  .spinner { width: 0.9rem; height: 0.9rem; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; flex-shrink: 0; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .leaflet-container { font-family: inherit; }
+  .poi-marker { display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+  .poi-marker span { transform: rotate(45deg); font-size: 14px; line-height: 1; }
+  .user-marker { width: 16px; height: 16px; border-radius: 50%; background: #22d3ee; border: 3px solid #fff; box-shadow: 0 0 0 6px rgba(34,211,238,0.3), 0 2px 8px rgba(0,0,0,0.4); }
+  .leaflet-popup-content-wrapper { border-radius: 14px; }
+  .leaflet-popup-content { font-family: inherit; font-size: 0.88rem; line-height: 1.5; margin: 0.7rem 0.9rem; }
+  .popup-title { font-weight: 800; font-size: 0.95rem; margin-bottom: 0.15rem; }
+  .popup-cat { color: #7c3aed; font-size: 0.75rem; font-weight: 700; }
+  .popup-meta { color: #555; font-size: 0.78rem; margin-top: 0.25rem; }
+  .popup-links { margin-top: 0.45rem; display: flex; gap: 0.7rem; }
+  .popup-links a { color: #7c3aed; font-weight: 700; font-size: 0.8rem; text-decoration: none; }
+
+  .stats { color: var(--text-secondary); font-size: 0.92rem; margin: 0 0 1rem; display: flex; align-items: center; gap: 0.4rem; font-weight: 600; }
+  .stats strong { color: var(--accent); font-weight: 800; }
+
+  .poi-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.85rem 1rem; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.75rem; cursor: pointer; transition: all .15s; box-shadow: var(--shadow-sm); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .poi-card:hover { transform: translateY(-2px); border-color: rgba(139,92,246,0.3); box-shadow: var(--shadow); }
+  .poi-icon { width: 2.4rem; height: 2.4rem; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; color: #fff; }
+  .poi-main { flex: 1; min-width: 0; }
+  .poi-name { font-weight: 800; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .poi-sub { color: var(--text-secondary); font-size: 0.78rem; margin-top: 0.1rem; display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+  .poi-dist { color: var(--success); font-weight: 800; font-size: 0.8rem; white-space: nowrap; }
+  .poi-actions { display: flex; flex-direction: column; gap: 0.3rem; flex-shrink: 0; }
+  .poi-actions a { color: var(--accent); font-size: 0.78rem; font-weight: 700; text-decoration: none; border: 1px solid var(--border); border-radius: 10px; padding: 0.25rem 0.55rem; text-align: center; background: var(--bg-tertiary); }
+  .poi-actions a:hover { border-color: var(--accent); }
+
+  .empty { text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); font-size: 1rem; }
+  footer { text-align: center; padding: 1.5rem 1rem; color: var(--text-secondary); font-size: 0.85rem; }
+  footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
+
+  .toast { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%); background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.7rem 1.2rem; box-shadow: var(--shadow); z-index: 2000; opacity: 0; transition: opacity 0.2s; pointer-events: none; font-weight: 700; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .toast.show { opacity: 1; }
+
+  @media (max-width: 640px) {
+    #map { height: 45vh; }
+    .hero h1 { font-size: 1.15rem; }
+    .btn-primary, .btn-secondary { flex: 1 1 auto; justify-content: center; }
+    .poi-card { padding: 0.7rem 0.8rem; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <span class="logo"><span data-t="appName">VidCap</span></span>
+    <span class="spacer"></span>
+    <div class="top-actions">
+      <button class="icon-btn" id="btn-lang" title="Language / اللغة">AR</button>
+      <button class="icon-btn" id="btn-theme" title="Dark / light mode">🌙</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <h1 data-t="title">الخريطة — أماكن مهمة في فرنسا</h1>
+    <p data-t="subtitle">اعثر على المكاتب والخدمات القريبة منك: OFII، CAF، البلدية، المستشفيات، الصيدليات وغيرها. اضغط 📍 لتحديد موقعك.</p>
+  </div>
+
+  <div class="toolbar">
+    <button class="btn-primary" id="btn-locate">📍 <span data-t="locateMe">بالقرب مني</span></button>
+    <button class="btn-secondary" id="btn-search">🔄 <span data-t="searchHere">ابحث في هذه المنطقة</span></button>
+    <select class="ctl" id="radius" data-t="radiusTitle" title="نطاق البحث">
+      <option value="2000">2 km</option>
+      <option value="5000" selected>5 km</option>
+      <option value="10000">10 km</option>
+      <option value="25000">25 km</option>
+    </select>
+  </div>
+
+  <div class="filter-section">
+    <div class="filter-label" data-t="categories">الفئات</div>
+    <div class="filter-row" id="cats"></div>
+  </div>
+
+  <div class="map-wrap">
+    <div id="map" dir="ltr"></div>
+    <div class="map-status" id="map-status"></div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+  <div id="list"></div>
+</main>
+
+<footer>
+  <a href="french.html" data-t="backToFrench">← العودة إلى دروس الفرنسية</a> · <a href="vocab.html">Vocabulary / مفردات</a> · <span>VidCap · OpenStreetMap</span>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="vendor/leaflet/leaflet.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var OVERPASS_ENDPOINTS = [
+    'https://overpass-api.de/api/interpreter',
+    'https://overpass.kumi.systems/api/interpreter',
+    'https://overpass.private.coffee/api/interpreter',
+    'https://overpass.nchc.org.tw/api/interpreter',
+    'https://overpass.osm.ch/api/interpreter'
+  ];
+  var MAX_PER_CATEGORY = 60;
+  var DEFAULT_CENTER = [46.65, 2.4];
+  var DEFAULT_ZOOM = 5;
+
+  var UI = {
+    ar: {
+      appName: 'VidCap',
+      title: 'الخريطة — أماكن مهمة في فرنسا',
+      subtitle: 'اعثر على المكاتب والخدمات القريبة منك: OFII، CAF، البلدية، المستشفيات، الصيدليات وغيرها. اضغط 📍 لتحديد موقعك.',
+      locateMe: 'بالقرب مني',
+      searchHere: 'ابحث في هذه المنطقة',
+      radiusTitle: 'نطاق البحث',
+      categories: 'الفئات',
+      backToFrench: '← العودة إلى دروس الفرنسية',
+      results: 'نتيجة',
+      noResults: 'لا توجد نتائج في هذه المنطقة — جرّب توسيع النطاق أو تحريك الخريطة',
+      searching: 'جارٍ البحث…',
+      locating: 'جارٍ تحديد موقعك…',
+      locationError: 'تعذّر تحديد الموقع — حرّك الخريطة واضغط «ابحث في هذه المنطقة»',
+      searchError: 'فشل البحث — تحقق من الاتصال بالإنترنت',
+      directions: 'الاتجاهات',
+      openOsm: 'فتح في الخريطة',
+      call: 'اتصال',
+      unnamed: 'بدون اسم',
+      tapHint: 'اضغط على نتيجة لعرضها على الخريطة',
+      cat_ofii: 'OFII',
+      cat_prefecture: 'المحافظة',
+      cat_caf: 'CAF',
+      cat_cpam: 'التأمين الصحي',
+      cat_france_travail: 'France Travail',
+      cat_mairie: 'البلدية',
+      cat_hospital: 'مستشفى',
+      cat_pharmacy: 'صيدلية',
+      cat_doctor: 'طبيب / عيادة',
+      cat_post: 'البريد',
+      cat_bank: 'بنك',
+      cat_supermarket: 'سوبرماركت',
+      cat_library: 'مكتبة',
+      cat_mosque: 'مسجد',
+      cat_solidarity: 'جمعيات ومساعدات',
+      cat_police: 'شرطة',
+      cat_school: 'مدرسة'
+    },
+    en: {
+      appName: 'VidCap',
+      title: 'Map — useful places in France',
+      subtitle: 'Find nearby offices and services: OFII, CAF, town halls, hospitals, pharmacies and more. Tap 📍 to locate yourself.',
+      locateMe: 'Near me',
+      searchHere: 'Search this area',
+      radiusTitle: 'Search radius',
+      categories: 'Categories',
+      backToFrench: '← Back to French lessons',
+      results: 'result(s)',
+      noResults: 'No results in this area — try a wider radius or move the map',
+      searching: 'Searching…',
+      locating: 'Locating you…',
+      locationError: 'Could not get your location — move the map and tap "Search this area"',
+      searchError: 'Search failed — check your internet connection',
+      directions: 'Directions',
+      openOsm: 'Open in map',
+      call: 'Call',
+      unnamed: 'Unnamed',
+      tapHint: 'Tap a result to show it on the map',
+      cat_ofii: 'OFII',
+      cat_prefecture: 'Prefecture',
+      cat_caf: 'CAF',
+      cat_cpam: 'Health insurance',
+      cat_france_travail: 'France Travail',
+      cat_mairie: 'Town hall',
+      cat_hospital: 'Hospital',
+      cat_pharmacy: 'Pharmacy',
+      cat_doctor: 'Doctor / clinic',
+      cat_post: 'Post office',
+      cat_bank: 'Bank',
+      cat_supermarket: 'Supermarket',
+      cat_library: 'Library',
+      cat_mosque: 'Mosque',
+      cat_solidarity: 'Charities & aid',
+      cat_police: 'Police',
+      cat_school: 'School'
+    },
+    fr: {
+      appName: 'VidCap',
+      title: 'Carte — lieux utiles en France',
+      subtitle: 'Trouvez les services proches : OFII, CAF, mairies, hôpitaux, pharmacies et plus. Touchez 📍 pour vous localiser.',
+      locateMe: 'Près de moi',
+      searchHere: 'Chercher dans cette zone',
+      radiusTitle: 'Rayon de recherche',
+      categories: 'Catégories',
+      backToFrench: '← Retour aux leçons',
+      results: 'résultat(s)',
+      noResults: 'Aucun résultat dans cette zone — élargissez le rayon ou déplacez la carte',
+      searching: 'Recherche en cours…',
+      locating: 'Localisation…',
+      locationError: 'Position introuvable — déplacez la carte puis touchez « Chercher dans cette zone »',
+      searchError: 'Recherche échouée — vérifiez la connexion internet',
+      directions: 'Itinéraire',
+      openOsm: 'Ouvrir la carte',
+      call: 'Appeler',
+      unnamed: 'Sans nom',
+      tapHint: 'Touchez un résultat pour le voir sur la carte',
+      cat_ofii: 'OFII',
+      cat_prefecture: 'Préfecture',
+      cat_caf: 'CAF',
+      cat_cpam: 'Assurance Maladie',
+      cat_france_travail: 'France Travail',
+      cat_mairie: 'Mairie',
+      cat_hospital: 'Hôpital',
+      cat_pharmacy: 'Pharmacie',
+      cat_doctor: 'Médecin / clinique',
+      cat_post: 'La Poste',
+      cat_bank: 'Banque',
+      cat_supermarket: 'Supermarché',
+      cat_library: 'Bibliothèque',
+      cat_mosque: 'Mosquée',
+      cat_solidarity: 'Associations & aides',
+      cat_police: 'Police',
+      cat_school: 'École'
+    }
+  };
+
+  var CATEGORIES = [
+    { key: 'ofii', icon: '🛂', color: '#7c3aed', query: function(r, la, lo) { return 'nwr["office"="government"]["name"~"OFII",i](around:' + r + ',' + la + ',' + lo + ');nwr["name"~"OFII",i]["office"](around:' + r + ',' + la + ',' + lo + ');'; } },
+    { key: 'prefecture', icon: '🏛️', color: '#6366f1', query: function(r, la, lo) { return 'nwr["government"="prefecture"](around:' + r + ',' + la + ',' + lo + ');nwr["office"="government"]["name"~"Préfecture|Sous-préfecture",i](around:' + r + ',' + la + ',' + lo + ');'; } },
+    { key: 'caf', icon: '💶', color: '#0891b2', query: function(r, la, lo) { return 'nwr["name"~"Allocations Familiales|^CAF$",i]["highway"!~"."](around:' + r + ',' + la + ',' + lo + ');'; } },
+    { key: 'cpam', icon: '🏥', color: '#0d9488', query: function(r, la, lo) { return 'nwr["name"~"Assurance Maladie|CPAM",i]["highway"!~"."](around:' + r + ',' + la + ',' + lo + ');'; } },
+    { key: 'france_travail', icon: '💼', color: '#2563eb', query: function(r, la, lo) { return 'nwr["name"~"France Travail|Pôle [Ee]mploi",i]["highway"!~"."](around:' + r + ',' + la + ',' + lo + ');nwr["government"="employment_agency"](around:' + r + ',' + la + ',' + lo + ');'; } },
+    { key: 'mairie', icon: '🏢', color: '#9333ea', query: function(r, la, lo) { return 'nwr["amenity"="townhall"](around:' + r + ',' + la + ',' + lo + ');'; } },
+    { key: 'hospital', icon: '🏥', color: '#e11d48', query: function(r, la, lo) { return 'nwr["amenity"="hospital"](around:' + r + ',' + la + ',' + lo + ');'; } },
+    { key: 'pharmacy', icon: '💊', color: '#16a34a', query: function(r, la, lo) { return 'nwr["amenity"="pharmacy"](around:' + r + ',' + la + ',' + lo + ');'; } },
+    { key: 'doctor', icon: '🩺', color: '#059669', query: function(r, la, lo) { return 'nwr["amenity"~"doctors|clinic"](around:' + r + ',' + la + ',' + lo + ');'; } },
+    { key: 'post', icon: '📮', color: '#eab308', query: function(r, la, lo) { return 'nwr["amenity"="post_office"](around:' + r + ',' + la + ',' + lo + ');'; } },
+    { key: 'bank', icon: '🏦', color: '#ca8a04', query: function(r, la, lo) { return 'nwr["amenity"="bank"](around:' + r + ',' + la + ',' + lo + ');'; } },
+    { key: 'supermarket', icon: '🛒', color: '#ea580c', query: function(r, la, lo) { return 'nwr["shop"="supermarket"](around:' + r + ',' + la + ',' + lo + ');'; } },
+    { key: 'library', icon: '📚', color: '#0284c7', query: function(r, la, lo) { return 'nwr["amenity"="library"](around:' + r + ',' + la + ',' + lo + ');'; } },
+    { key: 'mosque', icon: '🕌', color: '#15803d', query: function(r, la, lo) { return 'nwr["amenity"="place_of_worship"]["religion"="muslim"](around:' + r + ',' + la + ',' + lo + ');'; } },
+    { key: 'solidarity', icon: '🤝', color: '#db2777', query: function(r, la, lo) { return 'nwr["office"="ngo"](around:' + r + ',' + la + ',' + lo + ');nwr["social_facility:for"~"refugee|migrant|asylum",i](around:' + r + ',' + la + ',' + lo + ');nwr["name"~"Croix-Rouge|Secours Catholique|Emmaüs|Cimade|Secours Populaire|Restos? du C",i]["highway"!~"."](around:' + r + ',' + la + ',' + lo + ');'; } },
+    { key: 'police', icon: '🚓', color: '#475569', query: function(r, la, lo) { return 'nwr["amenity"="police"](around:' + r + ',' + la + ',' + lo + ');'; } },
+    { key: 'school', icon: '🏫', color: '#8b5cf6', query: function(r, la, lo) { return 'nwr["amenity"="school"](around:' + r + ',' + la + ',' + lo + ');'; } }
+  ];
+
+  var DEFAULT_ACTIVE = ['ofii', 'prefecture', 'caf', 'cpam', 'france_travail', 'mairie', 'hospital', 'pharmacy', 'solidarity'];
+
+  var savedActive = null;
+  try { savedActive = JSON.parse(localStorage.getItem('map_cats') || 'null'); } catch (e) { savedActive = null; }
+  var state = {
+    uiLang: localStorage.getItem('map_ui_lang') || localStorage.getItem('vocab_ui_lang') || 'ar',
+    theme: localStorage.getItem('map_theme') || localStorage.getItem('vocab_theme') || 'dark',
+    active: Array.isArray(savedActive) ? savedActive : DEFAULT_ACTIVE.slice(),
+    radius: parseInt(localStorage.getItem('map_radius') || '5000', 10),
+    userLat: null,
+    userLon: null,
+    searching: false,
+    results: []
+  };
+
+  var map, markersLayer, userMarker;
+  var poiById = {};
+  var catByKey = {};
+  CATEGORIES.forEach(function (c) { catByKey[c.key] = c; });
+
+  function t(key) { return UI[state.uiLang][key] || UI.en[key] || UI.ar[key] || key; }
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function escAttr(s) { return esc(s); }
+
+  function haversine(lat1, lon1, lat2, lon2) {
+    var R = 6371000;
+    var dLat = (lat2 - lat1) * Math.PI / 180;
+    var dLon = (lon2 - lon1) * Math.PI / 180;
+    var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+
+  function fmtDist(m) {
+    if (m == null) return '';
+    if (m < 1000) return Math.round(m) + ' m';
+    return (m / 1000).toFixed(m < 10000 ? 1 : 0) + ' km';
+  }
+
+  function toast(msg) {
+    var el = document.getElementById('toast');
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(toast._t);
+    toast._t = setTimeout(function () { el.classList.remove('show'); }, 2600);
+  }
+
+  function setStatus(msg, spin) {
+    var el = document.getElementById('map-status');
+    if (!msg) { el.classList.remove('show'); return; }
+    el.innerHTML = (spin ? '<span class="spinner"></span>' : '') + esc(msg);
+    el.classList.add('show');
+  }
+
+  function initMap() {
+    var last = null;
+    try { last = JSON.parse(localStorage.getItem('map_center') || 'null'); } catch (e) {}
+    var center = (last && last.lat != null) ? [last.lat, last.lon] : DEFAULT_CENTER;
+    var zoom = (last && last.zoom) ? last.zoom : DEFAULT_ZOOM;
+
+    map = L.map('map', { zoomControl: true, attributionControl: true }).setView(center, zoom);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    markersLayer = L.layerGroup().addTo(map);
+
+    map.on('moveend', function () {
+      var c = map.getCenter();
+      localStorage.setItem('map_center', JSON.stringify({ lat: c.lat, lon: c.lng, zoom: map.getZoom() }));
+    });
+  }
+
+  function makeIcon(cat) {
+    return L.divIcon({
+      className: '',
+      html: '<div class="poi-marker" style="background:' + cat.color + '"><span>' + cat.icon + '</span></div>',
+      iconSize: [30, 30],
+      iconAnchor: [15, 30],
+      popupAnchor: [0, -30]
+    });
+  }
+
+  function popupHtml(poi) {
+    var cat = catByKey[poi.cat];
+    var html = '<div class="popup-title">' + esc(poi.name) + '</div>';
+    html += '<div class="popup-cat">' + cat.icon + ' ' + esc(t('cat_' + poi.cat)) + (poi.dist != null ? ' · ' + fmtDist(poi.dist) : '') + '</div>';
+    if (poi.addr) html += '<div class="popup-meta">' + esc(poi.addr) + '</div>';
+    if (poi.hours) html += '<div class="popup-meta">🕒 ' + esc(poi.hours) + '</div>';
+    html += '<div class="popup-links">';
+    html += '<a href="' + directionsUrl(poi) + '" target="_blank" rel="noopener">🧭 ' + esc(t('directions')) + '</a>';
+    var tel = poi.phone.replace(/[^+\d]/g, '');
+    if (tel) html += '<a href="tel:' + escAttr(tel) + '">📞 ' + esc(t('call')) + '</a>';
+    html += '</div>';
+    return html;
+  }
+
+  function directionsUrl(poi) {
+    var to = poi.lat + '%2C' + poi.lon;
+    if (state.userLat != null) {
+      return 'https://www.openstreetmap.org/directions?from=' + state.userLat + '%2C' + state.userLon + '&to=' + to;
+    }
+    return 'https://www.openstreetmap.org/?mlat=' + poi.lat + '&mlon=' + poi.lon + '#map=18/' + poi.lat + '/' + poi.lon;
+  }
+
+  function extractPoi(el, catKey) {
+    var tags = el.tags || {};
+    var lat = el.lat, lon = el.lon;
+    if (lat == null && el.center) { lat = el.center.lat; lon = el.center.lon; }
+    if (lat == null) return null;
+    var name = tags.name || tags['name:fr'] || tags.operator || tags.brand || '';
+    var addr = '';
+    if (tags['addr:street']) {
+      addr = (tags['addr:housenumber'] ? tags['addr:housenumber'] + ' ' : '') + tags['addr:street'] + (tags['addr:city'] ? ', ' + tags['addr:city'] : '');
+    } else if (tags['addr:city']) {
+      addr = tags['addr:city'];
+    }
+    var dist = null;
+    var c = map.getCenter();
+    dist = haversine(c.lat, c.lng, lat, lon);
+    return {
+      id: el.type + '/' + el.id,
+      cat: catKey,
+      lat: lat, lon: lon,
+      name: name,
+      addr: addr,
+      phone: tags.phone || tags['contact:phone'] || '',
+      hours: tags.opening_hours || '',
+      dist: dist
+    };
+  }
+
+  function buildQuery(lat, lon) {
+    var stmts = [];
+    state.active.forEach(function (k) {
+      var cat = catByKey[k];
+      if (cat) stmts.push('(' + cat.query(state.radius, lat, lon) + ');out center tags ' + MAX_PER_CATEGORY + ';');
+    });
+    if (!stmts.length) return null;
+    return '[out:json][timeout:25];' + stmts.join('');
+  }
+
+  var searchSeq = 0;
+  var inflightCtrl = null;
+
+  function search(lat, lon) {
+    var q = buildQuery(lat, lon);
+    if (!q) { toast(t('noResults')); return; }
+    if (inflightCtrl) inflightCtrl.abort();
+    var seq = ++searchSeq;
+    state.searching = true;
+    setStatus(t('searching'), true);
+
+    var ep = 0;
+    function tryFetch() {
+      var ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+      inflightCtrl = ctrl;
+      var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 20000) : null;
+      fetch(OVERPASS_ENDPOINTS[ep], {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'data=' + encodeURIComponent(q),
+        signal: ctrl ? ctrl.signal : undefined
+      }).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      }).then(function (json) {
+        if (timer) clearTimeout(timer);
+        if (seq !== searchSeq) return;
+        inflightCtrl = null;
+        state.searching = false;
+        setStatus(null);
+        handleResults(json.elements || []);
+      }).catch(function () {
+        if (timer) clearTimeout(timer);
+        if (seq !== searchSeq) return;
+        ep++;
+        if (ep < OVERPASS_ENDPOINTS.length) { tryFetch(); return; }
+        inflightCtrl = null;
+        state.searching = false;
+        setStatus(null);
+        toast(t('searchError'));
+      });
+    }
+    tryFetch();
+  }
+
+  function handleResults(elements) {
+    markersLayer.clearLayers();
+    poiById = {};
+    var seen = {};
+    var pois = [];
+    elements.forEach(function (el) {
+      var catKey = guessCategory(el);
+      if (!catKey || seen[el.type + '/' + el.id]) return;
+      seen[el.type + '/' + el.id] = true;
+      var poi = extractPoi(el, catKey);
+      if (poi) pois.push(poi);
+    });
+    pois.sort(function (a, b) { return a.dist - b.dist; });
+    state.results = pois;
+
+    pois.forEach(function (poi) {
+      poiById[poi.id] = poi;
+      var cat = catByKey[poi.cat];
+      var m = L.marker([poi.lat, poi.lon], { icon: makeIcon(cat) });
+      m.bindPopup(popupHtml(poi));
+      m._poiId = poi.id;
+      markersLayer.addLayer(m);
+    });
+
+    renderList();
+    var stats = document.getElementById('stats');
+    if (pois.length) {
+      stats.innerHTML = '<strong>' + pois.length + '</strong> ' + esc(t('results')) + ' · ' + esc(t('tapHint'));
+    } else {
+      stats.innerHTML = '';
+    }
+  }
+
+  function guessCategory(el) {
+    var tags = el.tags || {};
+    var name = tags.name || tags.operator || '';
+    if (tags.amenity === 'townhall') return 'mairie';
+    if (tags.amenity === 'hospital') return 'hospital';
+    if (tags.amenity === 'pharmacy') return 'pharmacy';
+    if (tags.amenity === 'doctors' || tags.amenity === 'clinic') return 'doctor';
+    if (tags.amenity === 'post_office') return 'post';
+    if (tags.amenity === 'bank') return 'bank';
+    if (tags.amenity === 'library') return 'library';
+    if (tags.amenity === 'police') return 'police';
+    if (tags.amenity === 'school') return 'school';
+    if (tags.amenity === 'place_of_worship' && tags.religion === 'muslim') return 'mosque';
+    if (tags.shop === 'supermarket') return 'supermarket';
+    if (tags.government === 'prefecture' || (!tags.highway && /préfecture|sous-préfecture/i.test(name))) return 'prefecture';
+    if (tags.government === 'employment_agency' || (!tags.highway && /france travail|pôle emploi|pole emploi/i.test(name))) return 'france_travail';
+    if (!tags.highway && /OFII/i.test(name)) return 'ofii';
+    if (!tags.highway && /allocations familiales|^CAF$/i.test(name)) return 'caf';
+    if (!tags.highway && /assurance maladie|CPAM/i.test(name)) return 'cpam';
+    if (tags.office === 'ngo' || (!tags.highway && /croix-rouge|secours catholique|emmaüs|cimade|secours populaire|restos? du c/i.test(name)) || /refugee|migrant|asylum/i.test(tags['social_facility:for'] || '')) return 'solidarity';
+    return null;
+  }
+
+  function renderList() {
+    var list = document.getElementById('list');
+    if (!state.results.length) {
+      list.innerHTML = '<div class="empty">' + esc(t('noResults')) + '</div>';
+      return;
+    }
+    var html = '';
+    state.results.slice(0, 120).forEach(function (poi) {
+      var cat = catByKey[poi.cat];
+      html += '<div class="poi-card" data-id="' + escAttr(poi.id) + '">';
+      html += '<div class="poi-icon" style="background:' + cat.color + '">' + cat.icon + '</div>';
+      html += '<div class="poi-main">';
+      html += '<div class="poi-name">' + esc(poi.name || t('unnamed')) + '</div>';
+      html += '<div class="poi-sub">' + esc(t('cat_' + poi.cat)) + (poi.addr ? ' · ' + esc(poi.addr) : '') + '</div>';
+      html += '</div>';
+      html += '<div class="poi-actions">';
+      html += '<div class="poi-dist">' + fmtDist(poi.dist) + '</div>';
+      html += '<a href="' + directionsUrl(poi) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">🧭 ' + esc(t('directions')) + '</a>';
+      html += '</div>';
+      html += '</div>';
+    });
+    list.innerHTML = html;
+
+    list.querySelectorAll('.poi-card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        var poi = poiById[card.dataset.id];
+        if (!poi) return;
+        map.setView([poi.lat, poi.lon], Math.max(map.getZoom(), 15));
+        markersLayer.eachLayer(function (m) {
+          if (m._poiId === poi.id) m.openPopup();
+        });
+      });
+    });
+  }
+
+  function buildCats() {
+    var el = document.getElementById('cats');
+    var html = '';
+    CATEGORIES.forEach(function (c) {
+      var active = state.active.indexOf(c.key) !== -1;
+      html += '<button class="filter-chip' + (active ? ' active' : '') + '" data-cat="' + c.key + '">';
+      html += '<span class="chip-dot" style="background:' + c.color + '"></span>' + c.icon + ' ' + esc(t('cat_' + c.key));
+      html += '</button>';
+    });
+    el.innerHTML = html;
+    el.querySelectorAll('.filter-chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var key = chip.dataset.cat;
+        var i = state.active.indexOf(key);
+        if (i === -1) state.active.push(key); else state.active.splice(i, 1);
+        chip.classList.toggle('active');
+        localStorage.setItem('map_cats', JSON.stringify(state.active));
+        searchHere();
+      });
+    });
+  }
+
+  function searchHere() {
+    var c = map.getCenter();
+    search(c.lat, c.lng);
+  }
+
+  function locate() {
+    if (!navigator.geolocation) { toast(t('locationError')); return; }
+    setStatus(t('locating'), true);
+    navigator.geolocation.getCurrentPosition(function (pos) {
+      state.userLat = pos.coords.latitude;
+      state.userLon = pos.coords.longitude;
+      setStatus(null);
+      if (userMarker) map.removeLayer(userMarker);
+      userMarker = L.marker([state.userLat, state.userLon], {
+        icon: L.divIcon({ className: '', html: '<div class="user-marker"></div>', iconSize: [16, 16], iconAnchor: [8, 8] })
+      }).addTo(map);
+      map.setView([state.userLat, state.userLon], 14);
+      search(state.userLat, state.userLon);
+    }, function () {
+      setStatus(null);
+      toast(t('locationError'));
+    }, { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 });
+  }
+
+  function applyTranslations() {
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      var key = el.dataset.t;
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = t(key);
+      else if (el.tagName === 'SELECT') el.title = t(key);
+      else el.textContent = t(key);
+    });
+    buildCats();
+    renderList();
+  }
+
+  function setUILang(lang) {
+    state.uiLang = lang;
+    localStorage.setItem('map_ui_lang', lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.getElementById('btn-lang').textContent = lang.toUpperCase();
+    applyTranslations();
+  }
+
+  function init() {
+    document.documentElement.dataset.theme = state.theme;
+    document.documentElement.lang = state.uiLang;
+    document.documentElement.dir = state.uiLang === 'ar' ? 'rtl' : 'ltr';
+    document.getElementById('btn-lang').textContent = state.uiLang.toUpperCase();
+    document.getElementById('radius').value = String(state.radius);
+
+    applyTranslations();
+    initMap();
+
+    document.getElementById('btn-locate').addEventListener('click', locate);
+    document.getElementById('btn-search').addEventListener('click', searchHere);
+    document.getElementById('radius').addEventListener('change', function (e) {
+      state.radius = parseInt(e.target.value, 10);
+      localStorage.setItem('map_radius', String(state.radius));
+      searchHere();
+    });
+    document.getElementById('btn-lang').addEventListener('click', function () {
+      var order = ['ar', 'fr', 'en'];
+      var next = order[(order.indexOf(state.uiLang) + 1) % order.length];
+      setUILang(next);
+    });
+    document.getElementById('btn-theme').addEventListener('click', function () {
+      state.theme = state.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = state.theme;
+      localStorage.setItem('map_theme', state.theme);
+    });
+
+    // Auto-search once if we already know the user's area
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function () {});
+  }
+
+  init();
+})();
+</script>
+</body>
+</html>
