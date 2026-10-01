@@ -2995,6 +2995,7 @@
             applyVideoAspect(el, mediaKey);
             const a = el.querySelector('audio');
             if (a) { try { a.playbackRate = state.rate || 1; } catch (e) {} }
+            if (el.dataset.imageRef) await addLessonImageOverlay(el);
           } else {
             el.innerHTML = audioHTML(resolved.url);
           }
