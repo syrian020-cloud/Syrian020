@@ -41,6 +41,20 @@ fi
 
 npx cap sync android
 
+# Inject the full Android permission set (android-permissions.xml) into the generated manifest
+MANIFEST="$ROOT/android/app/src/main/AndroidManifest.xml"
+if [ -f "$MANIFEST" ] && ! grep -q 'ACCESS_FINE_LOCATION' "$MANIFEST"; then
+  python3 - "$MANIFEST" <<'PYEOF'
+import sys
+p = sys.argv[1]
+s = open(p).read()
+perms = open('android-permissions.xml').read().rstrip() + '\n'
+marker = '    <uses-permission android:name="android.permission.INTERNET" />\n'
+s = s.replace(marker, perms, 1) if marker in s else s.replace('</manifest>', perms + '</manifest>', 1)
+open(p, 'w').write(s)
+PYEOF
+fi
+
 # Ensure the Android launcher label matches the Capacitor appName
 STRINGS="$ROOT/android/app/src/main/res/values/strings.xml"
 if [ -f "$STRINGS" ]; then
