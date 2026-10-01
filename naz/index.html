@@ -2931,8 +2931,11 @@
       } else if (yt) {
         el.innerHTML = `<iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe>`;
       } else {
-        const isVideo = (resolved.type || '').startsWith('video/') || isVideoUrl(resolved.url) || isVideoFile({ name: (resolved.blob && resolved.blob.name) || '', type: resolved.type });
-        const isAudio = !isVideo && ((resolved.type || '').startsWith('audio/') || isAudioUrl(resolved.url) || isAudioFile({ name: (resolved.blob && resolved.blob.name) || '', type: resolved.type }));
+        const declared = (el.dataset.mediaType || '').toLowerCase();
+        const detectedVideo = (resolved.type || '').startsWith('video/') || isVideoUrl(resolved.url) || isVideoFile({ name: (resolved.blob && resolved.blob.name) || '', type: resolved.type });
+        const detectedAudio = !detectedVideo && ((resolved.type || '').startsWith('audio/') || isAudioUrl(resolved.url) || isAudioFile({ name: (resolved.blob && resolved.blob.name) || '', type: resolved.type }));
+        const isVideo = declared ? declared === 'video' : detectedVideo;
+        const isAudio = declared ? declared === 'audio' : detectedAudio;
         if (isVideo) {
           el.classList.add('video-player');
           const phraseKey = el.dataset.phraseKey || '';
@@ -3701,9 +3704,9 @@
     return `<div class="media-image-wrap ${aspectClassFor(ratio)}" data-phrase-key="${esc(key || '')}" data-media-ref="${esc(ref || src)}"><img src="${esc(src)}" alt="" onerror="this.style.display='none'">${imageAspectSelectHTML(ratio)}${del}</div>`;
   }
 
-  function mediaHTML(media, key) {
+  function mediaHTML(media, key, mediaType) {
     if (!media) return '';
-    if (isIDBMedia(media)) return `<div class="phrase-media media-placeholder" data-media-ref="${esc(media)}" data-media-src="${esc(toWebUrl(media))}" data-phrase-key="${esc(key || '')}"></div>`;
+    if (isIDBMedia(media)) return `<div class="phrase-media media-placeholder" data-media-ref="${esc(media)}" data-media-src="${esc(toWebUrl(media))}" data-media-type="${esc(mediaType || '')}" data-phrase-key="${esc(key || '')}"></div>`;
     const src = toWebUrl(media);
     const yt = youtubeId(src);
     if (yt) return `<div class="phrase-media" data-media-src="${esc(src)}" data-phrase-key="${esc(key || '')}"><iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe></div>`;
@@ -3714,7 +3717,7 @@
 
   function lessonMediaHTML(lesson) {
     if (!lesson.media) return '';
-    return `<div class="lesson-media phrase-media media-placeholder" data-media-ref="${esc(lesson.media)}" data-media-src="${esc(toWebUrl(lesson.media))}" data-caption-text="${esc(lesson.captionText || '')}" data-lesson-id="${lesson.id}" data-image-ref="${esc(lesson.image || '')}" data-image-src="${esc(lesson.image ? toWebUrl(lesson.image) : '')}"></div>`;
+    return `<div class="lesson-media phrase-media media-placeholder" data-media-ref="${esc(lesson.media)}" data-media-src="${esc(toWebUrl(lesson.media))}" data-media-type="${esc(lesson.mediaType || '')}" data-caption-text="${esc(lesson.captionText || '')}" data-lesson-id="${lesson.id}" data-image-ref="${esc(lesson.image || '')}" data-image-src="${esc(lesson.image ? toWebUrl(lesson.image) : '')}"></div>`;
   }
 
   function phraseHTML(p, key) {
@@ -3724,9 +3727,9 @@
     const hasVideo = (p.media && !legacyImage) || p.audio;
     const imgSrc = imgRef ? toWebUrl(imgRef) : '';
     return `<div class="phrase" data-key="${key}" data-start="${p.start != null ? p.start : ''}" data-end="${p.end != null ? p.end : ''}">
-      ${legacyImage ? '' : mediaHTML(p.media, key)}
+      ${legacyImage ? '' : mediaHTML(p.media, key, p.mediaType)}
       ${hasImage ? (isIDBMedia(imgRef) ? `<div class="phrase-media media-placeholder" data-media-ref="${esc(imgRef)}" data-media-src="${esc(imgSrc)}" data-phrase-key="${esc(key)}"></div>` : `<div class="phrase-media" data-phrase-key="${esc(key)}">${imageMediaHTML(imgSrc, key, imgRef)}</div>`) : ''}
-      ${p.audio ? (isIDBMedia(p.audio) ? `<div class="phrase-media audio-holder media-placeholder" data-media-ref="${esc(p.audio)}" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}"></div>` : `<div class="phrase-media audio-holder" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}" data-media-ref="${esc(p.audio)}">${audioHTML(toWebUrl(p.audio))}</div>`) : ''}
+      ${p.audio ? (isIDBMedia(p.audio) ? `<div class="phrase-media audio-holder media-placeholder" data-media-ref="${esc(p.audio)}" data-media-src="${esc(toWebUrl(p.audio))}" data-media-type="audio" data-phrase-key="${esc(key)}"></div>` : `<div class="phrase-media audio-holder" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}" data-media-ref="${esc(p.audio)}">${audioHTML(toWebUrl(p.audio))}</div>`) : ''}
       <div class="phrase-top">
         <div class="lines">
           <div class="line fr" data-lang="fr" dir="ltr">${wordSpans(p.fr, 'fr')}<button class="loop-lang" data-lang="fr" title="🔁 FR">🔁</button></div>
@@ -3802,7 +3805,7 @@
 
   function newsItemHtml(n, withDelete) {
     const media = (n.media || []).map(m => `
-      <div class="phrase-media media-placeholder" data-media-ref="${esc(m.ref)}" data-caption-text="${esc(m.captionText || '')}"></div>
+      <div class="phrase-media media-placeholder" data-media-ref="${esc(m.ref)}" data-media-type="${esc(m.kind || '')}" data-caption-text="${esc(m.captionText || '')}"></div>
       ${m.caption ? `<div class="media-caption">${esc(m.caption)}</div>` : ''}`).join('');
     return `<div class="card news-item">
       <div class="card-body" style="width:100%">
@@ -4232,7 +4235,10 @@
     }
     const removeOld = form.dataset.removeMedia === '1' || (newMedia && newMedia !== lesson.media);
     if (removeOld && lesson.media) { await deleteMediaRef(lesson.media); delete lesson.media; }
-    if (newMedia) lesson.media = newMedia;
+    if (newMedia) {
+      lesson.media = newMedia;
+      lesson.mediaType = audioFile ? 'audio' : videoFile ? 'video' : isAudioUrl(audioUrl) ? 'audio' : isVideoUrl(videoUrl) ? 'video' : undefined;
+    }
 
     let captionText = form.elements.captions.value.trim();
     const captionFile = document.getElementById('lesson-captions-file').files[0];
@@ -4951,14 +4957,16 @@ Output in French, Arabic and English.`;
       try {
         const uri = await storeMedia(file);
         if (uri) {
-          if (kind === 'audio') audioFileData = uri; else { mediaFileData = uri; mediaFileType = kind; }
+          const actualKind = kind !== 'audio' && isAudioFile(file) ? 'audio' : kind;
+          if (actualKind === 'audio') audioFileData = uri; else { mediaFileData = uri; mediaFileType = actualKind; }
           await updateMediaPreview(uri);
           if (kind === 'audio') audioUrlInput.value = ''; else { urlInput.value = ''; audioUrlInput.value = ''; }
         } else {
           const reader = new FileReader();
           reader.onload = (e) => {
-            if (kind === 'audio') audioFileData = e.target.result; else { mediaFileData = e.target.result; mediaFileType = kind; }
-            updateMediaPreview(kind === 'audio' ? audioFileData : mediaFileData);
+            const actualKind = kind !== 'audio' && isAudioFile(file) ? 'audio' : kind;
+            if (actualKind === 'audio') audioFileData = e.target.result; else { mediaFileData = e.target.result; mediaFileType = actualKind; }
+            updateMediaPreview(actualKind === 'audio' ? audioFileData : mediaFileData);
             if (kind === 'audio') audioUrlInput.value = ''; else { urlInput.value = ''; audioUrlInput.value = ''; }
           };
           reader.onerror = () => showToast(t('mediaSaveError'));
@@ -4969,7 +4977,7 @@ Output in French, Arabic and English.`;
         showToast(t('mediaSaveError'));
       }
     };
-    fileInput.onchange = onMediaFile(fileInput, isVideoFile, 'video');
+    fileInput.onchange = onMediaFile(fileInput, f => isVideoFile(f) || isAudioFile(f), 'video');
     audioFileInput.onchange = onMediaFile(audioFileInput, isAudioFile, 'audio');
     captionInput.onchange = () => {
       const file = captionInput.files && captionInput.files[0];
