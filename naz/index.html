@@ -376,6 +376,9 @@
   .cap-lang-loop.active { background: var(--success); color: #081c1e; box-shadow: 0 0 0 2px rgba(255,255,255,0.5); }
   .cap-flag { margin-inline-end: 0.4rem; font-size: 1em; }
   .audio-player { padding: 1rem 0.8rem; background: linear-gradient(135deg, #312e81, #1e1b4b); border-radius: var(--radius); min-height: 170px; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.5rem; }
+  .audio-stage { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 0.8rem; padding: 0.8rem; background: linear-gradient(135deg, #312e81, #1e1b4b); box-sizing: border-box; }
+  .audio-stage .audio-badge { font-size: 2.4rem; }
+  .audio-stage audio { width: 100%; }
   .audio-player .audio-badge { font-size: 2rem; text-align: center; }
   .audio-holder { position: relative; }
   .cap-loop-btn { pointer-events: auto; position: absolute; top: 0.45rem; inset-inline-end: 0.55rem; width: 1.85rem; height: 1.85rem; border: 1px solid var(--cap-card-border, var(--border)); border-radius: 9px; background: var(--cap-card-bg, var(--bg-secondary)); color: var(--cap-text, var(--text-primary)); font-size: 0.85rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
@@ -2975,7 +2978,16 @@
           if (v) { try { v.playbackRate = state.rate || 1; } catch (e) {} }
           if (el.dataset.imageRef) await addLessonImageOverlay(el);
         } else if (isAudio) {
-          el.innerHTML = audioHTML(resolved.url);
+          if (el.dataset.captionText) {
+            el.classList.add('video-player');
+            const mediaKey = el.dataset.mediaRef || el.dataset.mediaSrc || resolved.url;
+            el.innerHTML = audioStageHTML(resolved.url, el.dataset.phraseKey || '', mediaKey);
+            applyVideoAspect(el, mediaKey);
+            const a = el.querySelector('audio');
+            if (a) { try { a.playbackRate = state.rate || 1; } catch (e) {} }
+          } else {
+            el.innerHTML = audioHTML(resolved.url);
+          }
         } else {
           el.innerHTML = imageMediaHTML(resolved.url, el.dataset.phraseKey || '', el.dataset.mediaRef || el.dataset.mediaSrc || '');
         }
@@ -3707,6 +3719,10 @@
 
   function audioHTML(src) {
     return `<div class="audio-player"><span class="audio-badge">🐓</span><audio src="${esc(src)}" controls loop style="width:100%"></audio></div>`;
+  }
+
+  function audioStageHTML(src, key, mediaKey) {
+    return `${phraseLoopButtonHTML(key)}${videoLoopButtonHTML()}${aspectSelectHTML(getVideoAspect(mediaKey || src))}<div class="audio-stage"><span class="audio-badge">🎧</span><audio src="${esc(src)}" controls loop></audio></div>`;
   }
 
   function videoLoopButtonHTML() {
