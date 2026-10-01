@@ -1,0 +1,2893 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#f8fafc">
+<title>VocaPic</title>
+<link rel="manifest" href="manifest-creator.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Noto+Sans+Arabic:wght@400;500;700&amp;family=Noto+Sans:wght@400;700&amp;family=Noto+Kufi+Arabic:wght@400;700&amp;family=Cairo:wght@400;500;700&amp;family=Tajawal:wght@400;500;700&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;700&amp;family=Almarai:wght@400;700&amp;family=Readex+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent: #0d9488;
+    --accent-hover: #0f766e;
+    --accent-gold: #f97316;
+    --danger: #f87171;
+    --success: #34d399;
+    --gold: #f97316;
+    --border: rgba(255,255,255,0.10);
+    --fr-color: var(--text-primary);
+    --ar-color: var(--text-primary);
+    --en-color: var(--text-primary);
+    --radius: 24px;
+    --radius-sm: 999px;
+    --shadow: 0 20px 50px rgba(0,0,0,0.45);
+    --shadow-sm: 0 6px 20px rgba(0,0,0,0.25);
+    --glow: rgba(13,148,136,0.55);
+  }
+  [data-theme="light"] {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --accent: #0d9488;
+    --accent-hover: #0f766e;
+    --accent-gold: #f97316;
+    --danger: #ef4444;
+    --success: #10b981;
+    --gold: #f97316;
+    --border: rgba(15,23,42,0.09);
+    --fr-color: var(--text-primary);
+    --ar-color: var(--text-primary);
+    --en-color: var(--text-primary);
+    --shadow: 0 10px 30px rgba(15,23,42,0.08);
+    --shadow-sm: 0 4px 12px rgba(15,23,42,0.05);
+    --glow: rgba(13,148,136,0.35);
+  }
+  #app.theme-1 { --bg-primary: #fff7ed; --bg-secondary: #ffffff; --bg-tertiary: #ffedd5; --text-primary: #7c2d12; --text-secondary: #9a3412; --accent: #ea580c; --accent-hover: #c2410c; --border: rgba(124,45,18,0.10); --glow: rgba(234,88,12,0.35); }
+  #app.theme-2 { --bg-primary: #f0fdf4; --bg-secondary: #ffffff; --bg-tertiary: #dcfce7; --text-primary: #14532d; --text-secondary: #166534; --accent: #16a34a; --accent-hover: #15803d; --border: rgba(20,83,45,0.10); --glow: rgba(22,163,74,0.35); }
+  #app.theme-3 { --bg-primary: #f0f9ff; --bg-secondary: #ffffff; --bg-tertiary: #e0f2fe; --text-primary: #0c4a6e; --text-secondary: #075985; --accent: #0284c7; --accent-hover: #0369a1; --border: rgba(12,74,110,0.10); --glow: rgba(2,132,199,0.35); }
+  #app.theme-4 { --bg-primary: #faf5ff; --bg-secondary: #ffffff; --bg-tertiary: #f3e8ff; --text-primary: #581c87; --text-secondary: #6b21a8; --accent: #9333ea; --accent-hover: #7e22ce; --border: rgba(88,28,135,0.10); --glow: rgba(147,51,234,0.35); }
+  #app.theme-5 { --bg-primary: #fefce8; --bg-secondary: #ffffff; --bg-tertiary: #fef9c3; --text-primary: #713f12; --text-secondary: #854d0e; --accent: #ca8a04; --accent-hover: #a16207; --border: rgba(113,63,18,0.10); --glow: rgba(202,138,4,0.35); }
+  #app.theme-6 { --bg-primary: #042f2e; --bg-secondary: #115e59; --bg-tertiary: #134e4a; --text-primary: #ccfbf1; --text-secondary: #99f6e4; --accent: #2dd4bf; --accent-hover: #14b8a6; --border: rgba(204,251,241,0.12); --glow: rgba(45,212,191,0.45); }
+  #app.theme-7 { --bg-primary: #0f172a; --bg-secondary: #1e293b; --bg-tertiary: #334155; --text-primary: #e2e8f0; --text-secondary: #94a3b8; --accent: #38bdf8; --accent-hover: #0ea5e9; --border: rgba(226,232,240,0.12); --glow: rgba(56,189,248,0.45); }
+  #app.theme-8 { --bg-primary: #2e1065; --bg-secondary: #4c1d95; --bg-tertiary: #5b21b6; --text-primary: #f3e8ff; --text-secondary: #d8b4fe; --accent: #a855f7; --accent-hover: #9333ea; --border: rgba(243,232,255,0.12); --glow: rgba(168,85,247,0.45); }
+  #app.theme-9 { --bg-primary: #881337; --bg-secondary: #9f1239; --bg-tertiary: #be123c; --text-primary: #ffe4e6; --text-secondary: #fecdd3; --accent: #fb7185; --accent-hover: #f43f5e; --border: rgba(255,228,230,0.12); --glow: rgba(251,113,133,0.45); }
+  body.app-font-0 { font-family: 'Noto Sans Arabic','Tajawal','Noto Sans','Segoe UI',Tahoma,system-ui,sans-serif; }
+  body.app-font-1 { font-family: 'Noto Sans Arabic','Noto Sans',sans-serif; }
+  body.app-font-2 { font-family: 'Noto Sans','Noto Sans Arabic',sans-serif; }
+  body.app-font-3 { font-family: 'Noto Kufi Arabic','Noto Sans Arabic','Noto Sans',sans-serif; }
+  body.app-font-4 { font-family: 'Cairo','Noto Sans Arabic','Noto Sans',sans-serif; }
+  body.app-font-5 { font-family: 'Tajawal','Noto Sans Arabic','Noto Sans',sans-serif; }
+  body.app-font-6 { font-family: 'IBM Plex Sans Arabic','Noto Sans Arabic','Noto Sans',sans-serif; }
+  body.app-font-7 { font-family: 'Almarai','Noto Sans Arabic','Noto Sans',sans-serif; }
+  body.app-font-8 { font-family: 'Readex Pro','Noto Sans Arabic','Noto Sans',sans-serif; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding-bottom: 3rem;
+  }
+  #app { min-height: 100vh; background: var(--bg-primary); transition: background .2s; }
+  header { position: sticky; top: 0; z-index: 60; background: rgba(15,23,42,0.9); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+  [data-theme="light"] header { background: rgba(255,255,255,0.86); }
+  .header-inner { max-width: 960px; margin: 0 auto; padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.5rem; }
+  .logo { font-weight: 900; font-size: 1.15rem; white-space: nowrap; letter-spacing: -0.03em; background: linear-gradient(90deg, #0d9488, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .spacer { flex: 1; }
+  .icon-btn { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 14px; padding: 0.45rem 0.65rem; font-size: 0.95rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 600; transition: transform .12s, border-color .15s, background .15s, box-shadow .15s; }
+  .icon-btn:hover { border-color: var(--accent); background: var(--bg-secondary); transform: translateY(-1px); box-shadow: 0 4px 10px rgba(20,184,166,0.22); }
+  .icon-btn.active { background: linear-gradient(135deg, #f97316, #fb923c); color: #0f172a; border-color: transparent; }
+  .icon-btn.danger { background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; border-color: transparent; }
+  .icon-btn.danger:hover { filter: brightness(1.1); box-shadow: 0 4px 10px rgba(244,63,94,0.25); }
+  .icon { width: 1.1em; height: 1.1em; fill: currentColor; vertical-align: middle; display: inline-block; }
+  .btn-icon { display: inline-flex; align-items: center; }
+  .icon-play, .icon-volume { fill: var(--accent); filter: drop-shadow(0 0 3px rgba(13,148,136,0.45)); }
+  .icon-stop { fill: var(--danger); filter: drop-shadow(0 0 3px rgba(244,63,94,0.4)); }
+  .icon-loop { fill: var(--gold); filter: drop-shadow(0 0 3px rgba(249,115,22,0.4)); }
+  .icon-trash, .icon-close { fill: var(--danger); }
+  .icon-image { fill: var(--accent); }
+  .icon-folder { fill: var(--gold); }
+  .icon-lesson { fill: var(--accent); filter: drop-shadow(0 0 3px rgba(13,148,136,0.35)); }
+  .icon-chevron, .icon-up, .icon-down, .icon-more { fill: var(--text-secondary); }
+  .icon-edit, .icon-back, .icon-plus { fill: var(--text-primary); }
+  .icon-share, .icon-export, .icon-import, .icon-globe { fill: var(--accent); }
+  .icon-btn.active .icon, .btn .icon { fill: currentColor !important; filter: none !important; }
+  .icon-btn.danger .icon { fill: #fff !important; filter: none !important; }
+  .lang-menu { position: relative; }
+  #btn-lang { min-width: 2.6rem; justify-content: center; }
+  .dropdown-item.active { background: linear-gradient(135deg, #f97316, #fb923c); color: #0f172a; }
+  main { max-width: 960px; margin: 0 auto; padding: 1rem; }
+
+  .hero { background: linear-gradient(135deg, rgba(20,184,166,0.15), rgba(249,115,22,0.08)); border: 1px solid rgba(20,184,166,0.22); border-radius: 24px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; position: relative; overflow: hidden; box-shadow: 0 8px 24px rgba(20,184,166,0.10); }
+  .hero::before { content: ''; position: absolute; top:0; left:0; right:0; height: 4px; background: linear-gradient(90deg, #0d9488, #f97316); }
+  .hero h1 { margin: 0 0 0.4rem; font-size: 1.55rem; font-weight: 900; letter-spacing: -0.02em; }
+  .hero p { margin: 0; color: var(--text-secondary); font-size: 0.95rem; }
+
+  .btn { background: linear-gradient(135deg, #0d9488, #14b8a6); color: #fff; border: none; border-radius: 999px; padding: 0.7rem 1.1rem; font-size: 0.95rem; font-weight: 800; cursor: pointer; box-shadow: 0 6px 16px rgba(13,148,136,0.25); transition: transform .12s, filter .15s, box-shadow .15s; display: inline-flex; align-items: center; gap: 0.4rem; }
+  .btn:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 8px 22px rgba(13,148,136,0.35); }
+  .btn:active { transform: translateY(0); }
+  .btn.ghost { background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); box-shadow: none; }
+  .btn.ghost:hover { border-color: var(--accent); background: var(--bg-secondary); color: var(--text-primary); }
+  .btn.danger { background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; }
+  .btn.success { background: linear-gradient(135deg, #0d9488, #14b8a6); color: #fff; box-shadow: 0 6px 16px rgba(13,148,136,0.25); }
+  .btn-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin-bottom: 0.9rem; }
+  .rate-control { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.8rem; font-size: 0.85rem; color: var(--text-secondary); }
+  .rate-label { font-weight: 700; white-space: nowrap; }
+  .rate-value { min-width: 2.2rem; font-weight: 800; color: var(--text-primary); text-align: center; }
+  .rate-control input[type="range"] { width: 8rem; accent-color: var(--accent); cursor: pointer; }
+  .font-size-control .icon-btn { min-width: 2rem; justify-content: center; font-weight: 800; font-size: 0.85rem; padding: 0.35rem 0.5rem; }
+
+  .study-overlay { position: fixed; inset: 0; z-index: 1000; background: var(--bg-primary); display: flex; flex-direction: column; padding: 1rem; overflow-y: auto; }
+  .study-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+  .study-header h2 { flex: 1; margin: 0; font-size: 1.05rem; color: var(--text-primary); }
+  .study-content { flex: 1; display: flex; flex-direction: column; gap: 1rem; }
+  .study-card { margin-bottom: 0; }
+  .study-phrase { padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+  .study-phrase:last-child { border-bottom: none; }
+  .study-phrase.study-fr { font-size: 2rem; font-weight: 800; line-height: 1.35; text-align: center; }
+  .study-phrase.study-ar { font-size: 1.35rem; font-weight: 600; color: var(--text-secondary); text-align: right; direction: rtl; }
+  .study-phrase.study-en { font-size: 1.05rem; font-style: italic; color: var(--text-secondary); text-align: left; }
+  .study-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
+  .study-lang-grid { display: flex; flex-direction: column; gap: 0.6rem; }
+  .study-lang-row { display: flex; align-items: center; gap: 0.6rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px; padding: 0.7rem 0.9rem; }
+  .study-lang-label { font-weight: 700; font-size: 0.85rem; color: var(--accent); min-width: 4.5rem; }
+  .study-lang-text { flex: 1; font-size: 1rem; color: var(--text-primary); }
+  .study-lang-row[data-lang="ar"] .study-lang-text { text-align: right; direction: rtl; }
+  .study-lang-row[data-lang="en"] .study-lang-text { font-style: italic; color: var(--text-secondary); }
+  .study-overlay .media-box { margin: 0.5rem 0 0; }
+  .study-video { aspect-ratio: 9 / 16; width: auto; max-width: 100%; max-height: 75vh; border-radius: 18px; background: #000; margin: 0 auto 1rem; display: block; object-fit: contain; }
+  .study-transcript { display: flex; flex-direction: column; gap: 0.7rem; }
+  .study-entry { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px; padding: 0.8rem; }
+  .study-entry.active { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(20,184,166,0.4); }
+  .study-entry-time { font-family: monospace; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.3rem; }
+  .study-entry-fr { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; }
+  .study-entry-ar { direction: rtl; text-align: right; color: var(--text-secondary); margin-bottom: 0.15rem; }
+  .study-entry-en { font-style: italic; color: var(--text-secondary); }
+  .study-entry-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 0.6rem; }
+  .study-entry-actions .icon-btn { color: var(--accent); }
+  .study-entry-actions .icon-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .draw-overlay { position: fixed; inset: 0; z-index: 1000; background: #fff; display: flex; flex-direction: column; }
+  .draw-header { display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 0.9rem; background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
+  .draw-header h2 { flex: 1; margin: 0; font-size: 1rem; color: #0f172a; }
+  .draw-tools { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+  .draw-tools .icon-btn { background: #fff; border-color: #cbd5e1; color: #334155; }
+  .draw-tools .icon-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .draw-tools input[type="color"] { width: 2.2rem; height: 2.2rem; border: 1px solid #cbd5e1; border-radius: 12px; padding: 0; background: #fff; cursor: pointer; }
+  .draw-tools input[type="range"] { width: 5rem; accent-color: var(--accent); }
+  .draw-reference { padding: 0.6rem 0.9rem; background: #f1f5f9; border-bottom: 1px solid #e2e8f0; font-size: 1rem; color: #0f172a; }
+  .draw-reference-row { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+  .draw-ref { flex: 1; min-width: 0; padding: 0.35rem 0.6rem; border-radius: 12px; background: #fff; border: 1px solid #e2e8f0; text-align: center; }
+  .draw-ref.ar { direction: rtl; text-align: right; }
+  .draw-canvas-wrap { flex: 1; position: relative; min-height: 0; overflow: hidden; }
+  .draw-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; touch-action: none; background: #fff; cursor: crosshair; }
+
+  .video-dialog-card { background: linear-gradient(135deg, #0f172a, #1e293b); color: #e2e8f0; border: 1px solid #334155; border-radius: 28px; padding: 1rem; margin-bottom: 1.25rem; }
+  .video-dialog-title { font-weight: 800; font-size: 1.1rem; margin-bottom: 0.6rem; color: #fff; }
+  .video-upload-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; }
+  .video-box { position: relative; }
+  .video-player-wrap { position: relative; display: block; width: fit-content; margin: 0 auto; }
+  .video-box video { aspect-ratio: 9 / 16; width: auto; max-width: 100%; max-height: 75vh; border-radius: 18px; display: block; margin: 0 auto; background: #000; object-fit: contain; }
+  .video-subtitle-overlay { position: absolute; bottom: 0.7rem; left: 0.7rem; right: 0.7rem; background: rgba(15, 23, 42, 0.88); color: #e2e8f0; padding: 0.7rem 1rem; border-radius: 18px; text-align: center; pointer-events: none; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: background .2s, color .2s, border-radius .2s; }
+  .video-subtitle-hidden { display: none; }
+  .video-subtitle-fr { font-weight: 700; font-size: 1.1rem; color: #fff; margin-bottom: 0.25rem; }
+  .video-subtitle-ar { direction: rtl; text-align: right; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 0.15rem; }
+  .video-subtitle-en { font-style: italic; color: #94a3b8; font-size: 0.9rem; }
+  .video-subtitle-overlay.bg-0 { background: rgba(15, 23, 42, 0.88); }
+  .video-subtitle-overlay.bg-1 { background: linear-gradient(90deg, rgba(185,28,28,0.95), rgba(220,38,38,0.85)); border-radius: 0 12px 12px 0; text-align: left; border-left: 4px solid #fca5a5; }
+  .video-subtitle-overlay.bg-1 .video-subtitle-fr, .video-subtitle-overlay.bg-1 .video-subtitle-ar, .video-subtitle-overlay.bg-1 .video-subtitle-en { color: #fff; }
+  .video-subtitle-overlay.bg-2 { background: rgba(255,255,255,0.82); color: #0f172a; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .video-subtitle-overlay.bg-2 .video-subtitle-fr { color: #0f172a; }
+  .video-subtitle-overlay.bg-2 .video-subtitle-ar { color: #334155; }
+  .video-subtitle-overlay.bg-2 .video-subtitle-en { color: #64748b; }
+  .video-subtitle-overlay.bg-3 { background: linear-gradient(135deg, rgba(236,72,153,0.92), rgba(168,85,247,0.92), rgba(59,130,246,0.92)); border: 2px solid rgba(255,255,255,0.4); }
+  .video-subtitle-overlay.bg-3 .video-subtitle-fr, .video-subtitle-overlay.bg-3 .video-subtitle-ar, .video-subtitle-overlay.bg-3 .video-subtitle-en { color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+  .video-subtitle-overlay.bg-4 { background: rgba(255,255,255,0.96); border: 2px solid rgba(255,255,255,0.9); border-radius: 24px; color: #0f172a; position: relative; overflow: visible; box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+  .video-subtitle-overlay.bg-4::after { content: ''; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); border-width: 12px 12px 0; border-style: solid; border-color: rgba(255,255,255,0.96) transparent transparent transparent; }
+  .video-subtitle-overlay.bg-4 .video-subtitle-fr { color: #0f172a; font-size: 1.15rem; }
+  .video-subtitle-overlay.bg-4 .video-subtitle-ar { color: #334155; }
+  .video-subtitle-overlay.bg-4 .video-subtitle-en { color: #64748b; }
+  .video-subtitle-overlay.bg-5 { background: #facc15; border-radius: 12px; transform: rotate(-1deg); }
+  .video-subtitle-overlay.bg-5 .video-subtitle-fr, .video-subtitle-overlay.bg-5 .video-subtitle-ar, .video-subtitle-overlay.bg-5 .video-subtitle-en { color: #000; }
+  .video-subtitle-overlay.bg-6 { background: rgba(239,68,68,0.95); border: 2px solid #fff; border-radius: 4px; }
+  .video-subtitle-overlay.bg-6 .video-subtitle-fr, .video-subtitle-overlay.bg-6 .video-subtitle-ar, .video-subtitle-overlay.bg-6 .video-subtitle-en { color: #fff; }
+  .video-subtitle-overlay.bg-7 { background: rgba(15,23,42,0.9); border-left: 6px solid #38bdf8; text-align: left; border-radius: 0 18px 18px 0; }
+  .video-subtitle-overlay.bg-7 .video-subtitle-fr { color: #38bdf8; }
+  .video-subtitle-overlay.bg-7 .video-subtitle-ar { color: #e2e8f0; }
+  .video-subtitle-overlay.bg-7 .video-subtitle-en { color: #94a3b8; }
+  .video-subtitle-overlay.bg-8 { background: #fff; border-radius: 24px 24px 0 24px; }
+  .video-subtitle-overlay.bg-8 .video-subtitle-fr, .video-subtitle-overlay.bg-8 .video-subtitle-ar { color: #0f172a; }
+  .video-subtitle-overlay.bg-8 .video-subtitle-en { color: #64748b; }
+  .video-subtitle-overlay.bg-9 { background: linear-gradient(180deg, rgba(56,189,248,0.95), rgba(168,85,247,0.95)); border: 2px solid rgba(255,255,255,0.35); border-radius: 28px; color: #fff; position: relative; overflow: visible; box-shadow: 0 12px 35px rgba(0,0,0,0.3); }
+  .video-subtitle-overlay.bg-9::after { content: ''; position: absolute; bottom: -14px; left: 50%; transform: translateX(-50%); border-width: 14px 14px 0; border-style: solid; border-color: rgba(168,85,247,0.95) transparent transparent transparent; }
+  .video-subtitle-overlay.bg-9 .video-subtitle-fr, .video-subtitle-overlay.bg-9 .video-subtitle-ar, .video-subtitle-overlay.bg-9 .video-subtitle-en { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+  .video-subtitle-overlay.font-0, .video-subtitle-overlay.font-0 .video-subtitle-fr, .video-subtitle-overlay.font-0 .video-subtitle-ar, .video-subtitle-overlay.font-0 .video-subtitle-en { font-family: 'Noto Sans Arabic','Tajawal','Noto Sans','Segoe UI',Tahoma,system-ui,sans-serif; }
+  .video-subtitle-overlay.font-1, .video-subtitle-overlay.font-1 .video-subtitle-fr, .video-subtitle-overlay.font-1 .video-subtitle-ar, .video-subtitle-overlay.font-1 .video-subtitle-en { font-family: 'Noto Sans Arabic','Noto Sans',sans-serif; }
+  .video-subtitle-overlay.font-2, .video-subtitle-overlay.font-2 .video-subtitle-fr, .video-subtitle-overlay.font-2 .video-subtitle-ar, .video-subtitle-overlay.font-2 .video-subtitle-en { font-family: 'Noto Sans','Noto Sans Arabic',sans-serif; }
+  .video-subtitle-overlay.font-3, .video-subtitle-overlay.font-3 .video-subtitle-fr, .video-subtitle-overlay.font-3 .video-subtitle-ar, .video-subtitle-overlay.font-3 .video-subtitle-en { font-family: 'Noto Kufi Arabic','Noto Sans Arabic','Noto Sans',sans-serif; }
+  .video-subtitle-overlay.font-4, .video-subtitle-overlay.font-4 .video-subtitle-fr, .video-subtitle-overlay.font-4 .video-subtitle-ar, .video-subtitle-overlay.font-4 .video-subtitle-en { font-family: 'Cairo','Noto Sans Arabic','Noto Sans',sans-serif; }
+  .video-subtitle-overlay.font-5, .video-subtitle-overlay.font-5 .video-subtitle-fr, .video-subtitle-overlay.font-5 .video-subtitle-ar, .video-subtitle-overlay.font-5 .video-subtitle-en { font-family: 'Tajawal','Noto Sans Arabic','Noto Sans',sans-serif; }
+  .video-subtitle-overlay.font-6, .video-subtitle-overlay.font-6 .video-subtitle-fr, .video-subtitle-overlay.font-6 .video-subtitle-ar, .video-subtitle-overlay.font-6 .video-subtitle-en { font-family: 'IBM Plex Sans Arabic','Noto Sans Arabic','Noto Sans',sans-serif; }
+  .video-subtitle-overlay.font-7, .video-subtitle-overlay.font-7 .video-subtitle-fr, .video-subtitle-overlay.font-7 .video-subtitle-ar, .video-subtitle-overlay.font-7 .video-subtitle-en { font-family: 'Almarai','Noto Sans Arabic','Noto Sans',sans-serif; }
+  .video-subtitle-overlay.font-8, .video-subtitle-overlay.font-8 .video-subtitle-fr, .video-subtitle-overlay.font-8 .video-subtitle-ar, .video-subtitle-overlay.font-8 .video-subtitle-en { font-family: 'Readex Pro','Noto Sans Arabic','Noto Sans',sans-serif; }
+  .srt-input { width: 100%; min-height: 5.5rem; border-radius: 16px; padding: 0.7rem; border: 1px solid #cbd5e1; background: #fff; color: #0f172a; font-size: 0.95rem; margin-bottom: 0.5rem; resize: vertical; }
+  .transcript-box { max-height: 320px; overflow-y: auto; border: 1px solid #334155; border-radius: 18px; background: #0b1220; padding: 0.5rem; margin-top: 0.7rem; }
+  .transcript-line { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.6rem; border-bottom: 1px solid #1e293b; cursor: pointer; transition: background .12s; border-radius: 12px; }
+  .transcript-line:last-child { border-bottom: none; }
+  .transcript-line:hover, .transcript-line.active { background: #162032; }
+  .transcript-time { font-family: monospace; font-size: 0.78rem; color: #94a3b8; min-width: 6.5rem; }
+  .transcript-texts { flex: 1; display: flex; flex-direction: column; gap: 0.25rem; }
+  .transcript-fr { font-weight: 700; color: #fff; }
+  .transcript-ar { direction: rtl; text-align: right; color: #cbd5e1; font-size: 0.95rem; }
+  .transcript-en { color: #94a3b8; font-size: 0.9rem; font-style: italic; }
+  .transcript-loop { color: #38bdf8; }
+  .transcript-loop.active { background: #38bdf8; border-color: #38bdf8; color: #0f172a; }
+
+  .card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 28px; padding: 1.25rem; margin-bottom: 1rem; box-shadow: var(--shadow-sm); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: transform .12s, box-shadow .15s, border-color .15s; }
+  .card:hover { box-shadow: 0 8px 24px rgba(20,184,166,0.15); border-color: rgba(20,184,166,0.25); }
+  .card-title { font-weight: 800; font-size: 1.08rem; margin-bottom: 0.3rem; }
+  .card-sub { color: var(--text-secondary); font-size: 0.85rem; }
+
+  .lesson-card { display: flex; flex-direction: row; align-items: center; gap: 0.9rem; cursor: pointer; position: relative; z-index: 1; overflow: visible; padding: 0.95rem 1.2rem; background: linear-gradient(135deg, rgba(20,184,166,0.08), rgba(249,115,22,0.02)); border: 1px solid rgba(20,184,166,0.14); border-left: 5px solid var(--accent); border-radius: 24px; box-shadow: 0 4px 14px rgba(20,184,166,0.06); }
+  html[dir="rtl"] .lesson-card { flex-direction: row-reverse; }
+  .lesson-card:hover { z-index: 10; border-color: rgba(20,184,166,0.35); border-left-color: var(--accent-hover); transform: translateY(-2px) scale(1.005); box-shadow: 0 8px 24px rgba(20,184,166,0.14); }
+  .lesson-card.menu-open { z-index: 50; }
+  .lesson-card .card-title { color: var(--text-primary); }
+  .lesson-cover { width: 3.6rem; height: 3.6rem; min-width: 3.6rem; border-radius: 16px; background: linear-gradient(135deg, rgba(20,184,166,0.12), rgba(249,115,22,0.06)); border: 1px solid rgba(20,184,166,0.22); display: flex; align-items: center; justify-content: center; color: var(--accent); overflow: hidden; }
+  .lesson-cover img { width: 100%; height: 100%; object-fit: cover; }
+  .lesson-cover .icon { width: 1.6rem; height: 1.6rem; opacity: 0.85; }
+  #add-lesson { background: linear-gradient(135deg, #0d9488, #14b8a6); box-shadow: 0 6px 18px rgba(13,148,136,0.3); }
+  #add-lesson:hover { box-shadow: 0 8px 24px rgba(13,148,136,0.4); }
+  .empty { background: linear-gradient(135deg, rgba(20,184,166,0.06), rgba(249,115,22,0.02)); border: 1px dashed rgba(20,184,166,0.35); border-radius: 18px; }
+  .lesson-card .body, .folder .body { flex: 1; min-width: 0; }
+
+  .lesson-menu { position: relative; }
+  .dropdown { position: absolute; top: 120%; left: auto; right: 0; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 14px; padding: 0.4rem; min-width: 11rem; box-shadow: var(--shadow); z-index: 10; display: flex; flex-direction: column; gap: 0.2rem; }
+  html[dir="rtl"] .dropdown { right: auto; left: 0; }
+  html[dir="rtl"] .lesson-card .dropdown,
+  html[dir="rtl"] .folder .dropdown { right: 0; left: auto; }
+  .dropdown-item { background: transparent; color: var(--text-primary); border: none; border-radius: 10px; padding: 0.55rem 0.7rem; font-size: 0.92rem; font-weight: 600; text-align: start; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; }
+  .dropdown-item:hover { background: var(--bg-tertiary); }
+  .dropdown-item.danger { color: var(--danger); }
+  .dropdown-item .icon { width: 1.1rem; height: 1.1rem; }
+
+  .input, .textarea {
+    width: 100%; background: var(--bg-tertiary); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 14px;
+    padding: 0.75rem 1rem; font-size: 1rem; font-weight: 500; font-family: inherit;
+    transition: border-color .15s, box-shadow .15s, background .15s;
+  }
+  .input:focus, .textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(13,148,136,0.12); background: var(--bg-secondary); }
+  .textarea { min-height: 3rem; resize: vertical; }
+  .phrase-editors { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.75rem; }
+  .phrase-card:not(.editing) .phrase-editors { display: none; }
+  .phrase-card.editing .phrase-body { display: none; }
+  .editor-line { display: flex; align-items: center; gap: 0.4rem; }
+  .editor-line .textarea { flex: 1; }
+  .editor-line .icon-btn { padding: 0.3rem; font-size: 0.85rem; }
+  .editor-line .icon-btn.video-loop { color: #38bdf8; }
+  .editor-line .icon-btn.video-loop.active { background: #38bdf8; border-color: #38bdf8; color: #0f172a; }
+  .bulk-hint { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; padding: 0 0.2rem; }
+  .textarea[data-field="fr"] { font-size: 1.15rem; font-weight: 700; }
+  .textarea[data-field="ar"] { font-family: 'Noto Sans Arabic', 'Tajawal', 'Segoe UI', Tahoma, system-ui, sans-serif; font-size: 1.1rem; font-weight: 600; text-align: right; direction: rtl; }
+  .textarea[data-field="en"] { font-size: 1rem; font-weight: 500; }
+
+  .phrase-body { display: flex; flex-direction: column; gap: 0; padding: 0.2rem 0; }
+  .phrase-line { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; padding: 0.4rem 0; color: var(--text-primary); border-bottom: 1px solid var(--border); cursor: pointer; }
+  .phrase-line:last-child { border-bottom: none; }
+  .phrase-line-text { flex: 1; min-width: 0; line-height: 1.4; }
+  .phrase-line[data-lang="fr"] { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
+  .phrase-line[data-lang="fr"] .phrase-line-text { text-align: center; }
+  .phrase-line[data-lang="ar"] { font-size: 1.05rem; font-weight: 500; color: var(--text-secondary); direction: rtl; }
+  .phrase-line[data-lang="ar"] .phrase-line-text { text-align: right; }
+  .phrase-line[data-lang="en"] { font-size: 0.95rem; font-weight: 400; color: var(--text-secondary); font-style: italic; }
+  .phrase-line[data-lang="en"] .phrase-line-text { text-align: left; }
+  .phrase-line .icon-btn { padding: 0.25rem; font-size: 0.8rem; border-radius: 10px; opacity: 0.75; align-self: center; }
+  .phrase-line:hover .icon-btn { opacity: 1; }
+  .phrase-line .search-line { color: var(--accent); }
+  .phrase-line .search-line .icon, .phrase-line .loop-line .icon { width: 1.15em; height: 1.15em; }
+  .phrase-line.speaking-line { color: #fff !important; background: linear-gradient(135deg, #042f2e, #115e59); border-radius: 14px; padding-left: 0.7rem; padding-right: 0.7rem; box-shadow: 0 0 12px var(--glow); font-weight: 700; }
+  .phrase-line.speaking-line .phrase-line-text { color: #fff !important; }
+  .word { display: inline-block; padding: 0.1rem 0.2rem; margin: 0.05rem; border-radius: 6px; transition: background .15s, color .15s, box-shadow .15s; cursor: pointer; }
+  .word:hover { background: rgba(13,148,136,0.12); }
+  .word.speaking-line { color: #fff !important; background: linear-gradient(135deg, #042f2e, #115e59); border-radius: 10px; box-shadow: 0 0 8px var(--glow); font-weight: 700; }
+  .word-placeholder { color: var(--text-secondary); font-size: 0.9rem; font-style: italic; }
+  .field-label { display: block; color: var(--text-secondary); font-size: 0.74rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; margin: 0.8rem 0 0.35rem; }
+  .field-label-row { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; margin-top: 0.75rem; }
+  .field-label-row .field-label { margin: 0; }
+  .row-actions { display: flex; gap: 0.45rem; }
+  .row-actions .icon-btn { padding: 0.4rem 0.55rem; font-size: 0.9rem; line-height: 1; border-radius: 12px; }
+
+  .phrase-card { margin-bottom: 1.1rem; position: relative; background: var(--bg-secondary); border: 1px solid var(--border); border-inline-start: 5px solid var(--accent); border-top: 4px solid transparent; border-radius: 28px; box-shadow: var(--shadow-sm); transition: transform .12s, box-shadow .15s, border-color .15s; }
+  .phrase-card:hover { box-shadow: 0 8px 24px rgba(20,184,166,0.12); border-color: rgba(20,184,166,0.25); }
+  .phrase-card::before { content: ''; position: absolute; top: 0; left: 28px; right: 28px; height: 4px; border-radius: 0 0 4px 4px; background: linear-gradient(90deg, var(--accent), var(--gold)); opacity: 0.55; }
+  .phrase-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.85rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border); }
+  .phrase-num { color: var(--accent); font-size: 0.9rem; font-weight: 900; }
+  .phrase-actions { margin-left: auto; display: flex; gap: 0.45rem; }
+  .phrase-actions .icon-btn { padding: 0.45rem 0.6rem; font-size: 0.92rem; border-radius: 12px; }
+  .phrase-actions .icon-btn.video-loop { color: #38bdf8; }
+  .phrase-actions .icon-btn.video-loop.active { background: #38bdf8; border-color: #38bdf8; color: #0f172a; }
+  .phrase-line .icon-btn.video-loop { color: #38bdf8; padding: 0.3rem; margin-inline-end: 0.4rem; }
+  .phrase-line .icon-btn.video-loop.active { background: #38bdf8; border-color: #38bdf8; color: #0f172a; }
+
+  .media-box { background: var(--bg-tertiary); border: 2px dashed var(--border); border-radius: 20px; padding: 1rem; text-align: center; margin: 0.85rem 0; transition: border-color .15s, background .15s; }
+  .media-box.has-media { border-style: solid; border-color: var(--success); padding: 0; overflow: hidden; background: #000; }
+  .media-preview { width: 100%; max-height: 360px; object-fit: contain; display: block; }
+  .media-preview video { width: 100%; max-height: 360px; }
+  .media-placeholder { color: var(--text-secondary); font-size: 0.9rem; padding: 1rem; }
+  .media-btns { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-top: 0.7rem; }
+  .media-btns .icon-btn { padding: 0.55rem; font-size: 1.05rem; border-radius: 14px; }
+  .media-btns .icon-btn .icon { width: 1.3em; height: 1.3em; }
+  .media-box.has-media .media-btns { padding: 0.6rem; background: linear-gradient(180deg, transparent, var(--bg-secondary)); }
+  .url-input-row { display: flex; gap: 0.45rem; margin-top: 0.8rem; align-items: stretch; }
+  .url-input-row .input { flex: 1; font-size: 0.92rem; padding: 0.6rem 0.9rem; }
+  .url-input-row .icon-btn { display: inline-flex; align-items: center; justify-content: center; padding: 0 0.55rem; border-radius: 12px; }
+  .url-input-row .btn { padding: 0.55rem 0.85rem; font-size: 0.85rem; border-radius: 12px; }
+  .clear-bulk { padding: 0.35rem 0.5rem; font-size: 0.85rem; }
+
+  ::placeholder { color: var(--text-secondary); opacity: 0.65; }
+  .empty { color: var(--text-secondary); text-align: center; padding: 2.5rem 1rem; }
+  .hint { background: linear-gradient(135deg, rgba(249,115,22,0.08), rgba(249,115,22,0.02)); border: 1px dashed rgba(249,115,22,0.35); border-radius: 18px; padding: 0.9rem 1.1rem; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem; }
+  .toast { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%); background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.7rem 1.2rem; box-shadow: var(--shadow); z-index: 100; font-size: 0.92rem; font-weight: 600; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .hidden { display: none !important; }
+
+  .playing { border-color: rgba(20,184,166,0.70); box-shadow: 0 0 0 4px rgba(20,184,166,0.18), 0 0 28px var(--glow), 0 12px 30px rgba(20,184,166,0.15); }
+  .playing .textarea { color: #fff !important; background: linear-gradient(135deg, #042f2e, #115e59); border-radius: 18px; transition: color .2s, background .2s; }
+  .textarea.speaking-line { color: #fff !important; background: linear-gradient(135deg, #042f2e, #115e59); border-radius: 18px; font-weight: 700; }
+
+  .folder { display: flex; flex-direction: row; align-items: center; gap: 0.9rem; cursor: pointer; position: relative; z-index: 1; overflow: visible; padding: 0.95rem 1.2rem; background: linear-gradient(135deg, rgba(249,115,22,0.08), rgba(20,184,166,0.02)); border: 1px solid rgba(249,115,22,0.14); border-left: 5px solid var(--gold); border-radius: 24px; box-shadow: 0 4px 14px rgba(249,115,22,0.06); transition: transform .12s, box-shadow .15s, border-color .15s; }
+  html[dir="rtl"] .folder { flex-direction: row-reverse; }
+  .folder:hover { z-index: 10; border-color: rgba(249,115,22,0.35); border-left-color: var(--gold); transform: translateY(-2px) scale(1.005); box-shadow: 0 8px 24px rgba(249,115,22,0.14); }
+  .folder.menu-open { z-index: 50; }
+  .folder .card-title { color: var(--text-primary); }
+  .folder-cover { width: 3.6rem; height: 3.6rem; min-width: 3.6rem; border-radius: 16px; background: linear-gradient(135deg, rgba(249,115,22,0.18), rgba(20,184,166,0.06)); border: 1px solid rgba(249,115,22,0.22); display: flex; align-items: center; justify-content: center; color: var(--gold); overflow: hidden; }
+  .folder-cover img { width: 100%; height: 100%; object-fit: cover; }
+  .folder-cover .icon { width: 1.6rem; height: 1.6rem; opacity: 0.85; }
+  .section-label { color: var(--text-secondary); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin: 0.6rem 0.3rem 0.8rem; }
+
+  @media (max-width: 480px) {
+    .header-inner { padding: 0.65rem; }
+    .hero h1 { font-size: 1.15rem; }
+    main { padding: 0.75rem; }
+    .btn { padding: 0.65rem 0.9rem; }
+    .card { padding: 0.9rem; border-radius: 20px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <span class="logo" data-t="appName">VocaPic</span>
+    <span class="spacer"></span>
+    <button class="icon-btn" id="btn-export" data-t-title="export" title="Share"><svg class="icon icon-share" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M15.75 4.5a3 3 0 1 1 .825 2.066l-8.421 4.679a3.002 3.002 0 0 1 0 1.51l8.421 4.679a3 3 0 1 1-.729 1.31l-8.421-4.678a3 3 0 1 1 0-4.132l8.421-4.679a3 3 0 0 1-.096-.755Z"/></svg></button>
+    <button class="icon-btn" id="btn-stop-all" data-t-title="stop" title="Stop"><svg class="icon icon-stop" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M4.5 7.5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-9Z"/></svg></button>
+    <button class="icon-btn" id="btn-import" data-t-title="import" title="Import"><svg class="icon icon-import" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M11.47 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06l-3.22-3.22V16.5a.75.75 0 0 1-1.5 0V4.81L8.03 8.03a.75.75 0 0 1-1.06-1.06l4.5-4.5ZM3 15.75a.75.75 0 0 1 .75.75v2.25a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V16.5a.75.75 0 0 1 1.5 0v2.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V16.5a.75.75 0 0 1 .75-.75Z"/></svg></button>
+    <input type="file" id="import-file" accept="application/json" class="hidden">
+    <div class="lang-menu">
+      <button class="icon-btn" id="btn-lang" data-t-title="selectLang" title="Language"><svg class="icon icon-globe" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M21.721 12.752a9.711 9.711 0 0 0-.945-5.003 12.754 12.754 0 0 1-4.339 2.708 18.991 18.991 0 0 1-.214 4.772 17.165 17.165 0 0 0 5.498-2.477ZM14.634 15.55a17.324 17.324 0 0 0 .332-4.647c-.952.227-1.945.347-2.966.347-1.021 0-2.014-.12-2.966-.347a17.515 17.515 0 0 0 .332 4.647 17.385 17.385 0 0 0 5.268 0ZM9.772 17.119a18.963 18.963 0 0 0 4.456 0A17.182 17.182 0 0 1 12 21.724a17.18 17.18 0 0 1-2.228-4.605ZM7.777 15.23a18.87 18.87 0 0 1-.214-4.774 12.753 12.753 0 0 1-4.34-2.708 9.711 9.711 0 0 0-.944 5.004 17.165 17.165 0 0 0 5.498 2.477ZM21.356 14.752a9.765 9.765 0 0 1-7.478 6.817 18.64 18.64 0 0 0 1.988-4.718 18.627 18.627 0 0 0 5.49-2.098ZM2.644 14.752c1.682.971 3.53 1.688 5.49 2.099a18.64 18.64 0 0 0 1.988 4.718 9.765 9.765 0 0 1-7.478-6.816ZM13.878 2.43a9.755 9.755 0 0 1 6.116 3.986 11.267 11.267 0 0 1-3.746 2.504 18.63 18.63 0 0 0-2.37-6.49ZM12 2.276a17.152 17.152 0 0 1 2.805 7.121c-.897.23-1.837.353-2.805.353-.968 0-1.908-.122-2.805-.353A17.151 17.151 0 0 1 12 2.276ZM10.122 2.43a18.629 18.629 0 0 0-2.37 6.49 11.266 11.266 0 0 1-3.746-2.504 9.754 9.754 0 0 1 6.116-3.985Z"/></svg></button>
+      <div class="dropdown hidden" id="lang-dropdown">
+        <button class="dropdown-item" data-lang="en">English</button>
+        <button class="dropdown-item" data-lang="ar">العربية</button>
+        <button class="dropdown-item" data-lang="fr">Français</button>
+      </div>
+    </div>
+    <button class="icon-btn" id="btn-theme" data-t-title="themeMode" title="Dark / light"><svg class="icon icon-moon" viewBox="0 0 24 24" id="theme-icon"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z"/></svg></button>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<script>
+(function () {
+  'use strict';
+
+  var DB_NAME = 'MotsyCreatorDB', DB_VERSION = 2;
+  var db = null;
+  var dbReady = openDB();
+
+  var state = {
+    view: 'lessons', // 'lessons' | 'lesson' | 'folder'
+    lessons: [],
+    folders: [],
+    expandedFolders: JSON.parse(localStorage.getItem('creator_expanded_folders') || '{}'),
+    currentLessonId: null,
+    currentFolderId: null,
+    uiLang: localStorage.getItem('creator_ui_lang') || 'ar',
+    theme: localStorage.getItem('creator_theme') || 'light',
+    rate: Number(localStorage.getItem('creator_rate')) || 1,
+    appBg: Number(localStorage.getItem('creator_app_bg')) || 0,
+    appFont: Number(localStorage.getItem('creator_app_font')) || 0,
+    fontSize: Number(localStorage.getItem('creator_font_size')) || 100,
+    lessonLoopMode: localStorage.getItem('creator_loop_mode') || 'all',
+    videoLoop: localStorage.getItem('creator_video_loop') === '1',
+    loopKey: null,
+    videoLoopLine: null,
+    videoLoopSegment: null,
+    mediaUrls: {}, // mediaId -> objectUrl
+    saveTimer: null
+  };
+
+  var UI = {
+    appName: { ar: 'VocaPic', en: 'VocaPic', fr: 'VocaPic' },
+    title: { ar: 'VocaPic', en: 'VocaPic', fr: 'VocaPic' },
+    subtitle: { ar: 'أنشئ دروساً بجمل فرنسية مترجمة، مع صور أو فيديو، وأزرار نطق.', en: 'Create lessons with translated French phrases, images or video, and speak/loop buttons.', fr: 'Créez des leçons avec des phrases françaises traduites, images ou vidéos, et boutons de lecture.' },
+    lesson: { ar: 'درس', en: 'Lesson', fr: 'Leçon' },
+    addLesson: { ar: 'درس جديد', en: 'New lesson', fr: 'Nouvelle leçon' },
+    noLessons: { ar: 'لا توجد دروس بعد. ابدأ بإضافة درس جديد.', en: 'No lessons yet. Add a new lesson to start.', fr: 'Aucune leçon pour le moment. Ajoutez une nouvelle leçon.' },
+    phrases: { ar: 'عبارات', en: 'phrases', fr: 'phrases' },
+    addPhrase: { ar: 'إضافة عبارة', en: 'Add phrase', fr: 'Ajouter une phrase' },
+    playAll: { ar: 'تشغيل الكل', en: 'Play all', fr: 'Tout lire' },
+    stopAll: { ar: 'إيقاف', en: 'Stop', fr: 'Arrêter' },
+    back: { ar: 'رجوع', en: 'Back', fr: 'Retour' },
+    phraseFr: { ar: 'الجملة الفرنسية', en: 'French sentence', fr: 'Phrase française' },
+    phraseAr: { ar: 'الترجمة العربية', en: 'Arabic translation', fr: 'Traduction arabe' },
+    phraseEn: { ar: 'الترجمة الإنجليزية', en: 'English translation', fr: 'Traduction anglaise' },
+    attachMedia: { ar: 'صورة / فيديو', en: 'Image / video', fr: 'Image / vidéo' },
+    videoDialog: { ar: 'حوار الفيديو', en: 'Video dialog', fr: 'Dialogue vidéo' },
+    uploadVideo: { ar: 'رفع فيديو', en: 'Upload video', fr: 'Télécharger la vidéo' },
+    importSubtitles: { ar: 'استيراد الترجمة (SRT)', en: 'Import subtitles (SRT)', fr: 'Importer les sous-titres (SRT)' },
+    subtitlePlaceholder: { ar: '00:00 نص فرنسي | نص عربي | English text', en: '00:00 French text | Arabic text | English text', fr: '00:00 Texte français | Texte arabe | Texte anglais' },
+    createPhrasesFromSubtitles: { ar: 'إنشاء عبارات من الترجمة', en: 'Create phrases from subtitles', fr: 'Créer des phrases depuis les sous-titres' },
+    noSubtitles: { ar: 'لا توجد ترجمة مستوردة.', en: 'No subtitles imported.', fr: 'Aucun sous-titre importé.' },
+    videoLoop: { ar: 'تكرار مقطع الفيديو', en: 'Loop video segment', fr: 'Boucler le segment vidéo' },
+    loopVideo: { ar: 'تكرار الفيديو', en: 'Loop video', fr: 'Boucler la vidéo' },
+    videoBackground: { ar: 'خلفية الفيديو', en: 'Video background', fr: 'Fond vidéo' },
+    bg0: { ar: 'زجاجي داكن', en: 'Dark glass', fr: 'Verre sombre' },
+    bg1: { ar: 'إخباري', en: 'News', fr: 'Actualités' },
+    bg2: { ar: 'عصري', en: 'Modern', fr: 'Moderne' },
+    bg3: { ar: 'ممتع', en: 'Fun', fr: 'Amusant' },
+    bg4: { ar: 'فقاعة بيضاء', en: 'White bubble', fr: 'Bulle blanche' },
+    bg5: { ar: 'كوميدي', en: 'Comic', fr: 'Comique' },
+    bg6: { ar: 'عاجل', en: 'Breaking', fr: 'Urgent' },
+    bg7: { ar: 'مجلة', en: 'Magazine', fr: 'Magazine' },
+    bg8: { ar: 'فقاعة', en: 'Bubble', fr: 'Bulle' },
+    bg9: { ar: 'فقاعة جميلة', en: 'Beautiful bubble', fr: 'Belle bulle' },
+    videoFont: { ar: 'خط الفيديو', en: 'Video font', fr: 'Police vidéo' },
+    font0: { ar: 'افتراضي', en: 'Default', fr: 'Défaut' },
+    font1: { ar: 'Noto Sans Arabic', en: 'Noto Sans Arabic', fr: 'Noto Sans Arabic' },
+    font2: { ar: 'Noto Sans', en: 'Noto Sans', fr: 'Noto Sans' },
+    font3: { ar: 'Noto Kufi Arabic', en: 'Noto Kufi Arabic', fr: 'Noto Kufi Arabic' },
+    font4: { ar: 'Cairo', en: 'Cairo', fr: 'Cairo' },
+    font5: { ar: 'Tajawal', en: 'Tajawal', fr: 'Tajawal' },
+    font6: { ar: 'IBM Plex Sans Arabic', en: 'IBM Plex Sans Arabic', fr: 'IBM Plex Sans Arabic' },
+    font7: { ar: 'Almarai', en: 'Almarai', fr: 'Almarai' },
+    font8: { ar: 'Readex Pro', en: 'Readex Pro', fr: 'Readex Pro' },
+    removeMedia: { ar: 'إزالة الوسائط', en: 'Remove media', fr: 'Supprimer le média' },
+    drawPhrase: { ar: 'رسم العبارة', en: 'Draw phrase', fr: 'Dessiner la phrase' },
+    pen: { ar: 'قلم', en: 'Pen', fr: 'Stylo' },
+    eraser: { ar: 'ممحاة', en: 'Eraser', fr: 'Gomme' },
+    brushSize: { ar: 'حجم الفرشاة', en: 'Brush size', fr: 'Taille pinceau' },
+    saveDrawing: { ar: 'حفظ الرسم', en: 'Save drawing', fr: 'Sauvegarder' },
+    clear: { ar: 'مسح', en: 'Clear', fr: 'Effacer' },
+    speak: { ar: 'نطق', en: 'Speak', fr: 'Écouter' },
+    loop: { ar: 'تكرار', en: 'Loop', fr: 'Répéter' },
+    googleSearch: { ar: 'بحث Google', en: 'Google search', fr: 'Rechercher Google' },
+    studyPhrase: { ar: 'دراسة العبارة', en: 'Study phrase', fr: 'Étudier la phrase' },
+    stop: { ar: 'إيقاف', en: 'Stop', fr: 'Arrêter' },
+    delete: { ar: 'حذف', en: 'Delete', fr: 'Supprimer' },
+    moveUp: { ar: 'أعلى', en: 'Up', fr: 'Monter' },
+    moveDown: { ar: 'أسفل', en: 'Down', fr: 'Descendre' },
+    noMedia: { ar: 'لا توجد وسائط مرفقة', en: 'No media attached', fr: 'Aucun média joint' },
+    saved: { ar: 'تم الحفظ', en: 'Saved', fr: 'Enregistré' },
+    export: { ar: 'مشاركة الكل', en: 'Share all', fr: 'Tout partager' },
+    exportLesson: { ar: 'مشاركة الدرس', en: 'Share lesson', fr: 'Partager la leçon' },
+    import: { ar: 'استيراد', en: 'Import', fr: 'Importer' },
+    shareFailed: { ar: 'لا تتوفر المشاركة، تم تحميل الملف.', en: 'Sharing not available, file downloaded.', fr: 'Partage indisponible, fichier téléchargé.' },
+    editLesson: { ar: 'تعديل اسم الدرس', en: 'Edit lesson name', fr: 'Modifier le nom de la leçon' },
+    editPhrase: { ar: 'تعديل العبارة', en: 'Edit phrase', fr: 'Modifier la phrase' },
+    attachCover: { ar: 'صورة غلاف', en: 'Cover image', fr: 'Image de couverture' },
+    more: { ar: 'المزيد', en: 'More', fr: 'Plus' },
+    downloadMedia: { ar: 'تحميل وسائط', en: 'Load media', fr: 'Charger le média' },
+    mediaUrlPlaceholder: { ar: 'https://...', en: 'https://...', fr: 'https://...' },
+    mediaDownloadFailed: { ar: 'تعذر تحميل الوسائط. جرّب رابطًا مباشرًا آخر.', en: 'Could not load media. Try another direct link.', fr: 'Impossible de charger le média. Essayez un autre lien direct.' },
+    themeMode: { ar: 'الوضع الليلي/النهاري', en: 'Dark / light mode', fr: 'Mode sombre / clair' },
+    mediaHint: { ar: 'اضغط لاختيار صورة أو فيديو من الهاتف', en: 'Tap to choose an image or video from your phone', fr: 'Appuyez pour choisir une image ou une vidéo depuis votre téléphone' },
+    exampleLabel: { ar: 'نموذج', en: 'Example', fr: 'Exemple' },
+    exitConfirm: { ar: 'هل تريد الخروج من التطبيق؟', en: 'Do you want to exit the app?', fr: 'Voulez-vous quitter l\'application ?' },
+    deleteConfirm: { ar: 'هل تريد حذف هذا الدرس؟', en: 'Delete this lesson?', fr: 'Supprimer cette leçon ?' },
+    deletePhraseConfirm: { ar: 'هل تريد حذف هذه العبارة؟', en: 'Delete this phrase?', fr: 'Supprimer cette phrase ?' },
+    deleteMediaConfirm: { ar: 'هل تريد إزالة الوسائط المرفقة؟', en: 'Remove attached media?', fr: 'Supprimer le média joint ?' },
+    bulkAddLabel: { ar: 'إضافة عبارات متعددة (فرنسي | عربي | إنجليزي)', en: 'Add multiple phrases (French | Arabic | English)', fr: 'Ajouter plusieurs phrases (français | arabe | anglais)' },
+    bulkAddButton: { ar: 'إضافة', en: 'Add', fr: 'Ajouter' },
+    noBulkPhrases: { ar: 'لا توجد عبارات صالحة. استخدم الشكل: فرنسي | عربي | إنجليزي', en: 'No valid phrases. Use format: French | Arabic | English', fr: 'Aucune phrase valide. Format : français | arabe | anglais' },
+    selectLang: { ar: 'اختر اللغة', en: 'Select language', fr: 'Choisir la langue' },
+    speechRate: { ar: 'سرعة النطق', en: 'Speech rate', fr: 'Vitesse de parole' },
+    playMode: { ar: 'وضع التشغيل', en: 'Play mode', fr: 'Mode lecture' },
+    playModeFrench: { ar: 'فرنسي فقط', en: 'French only', fr: 'Français seul' },
+    playModeAll: { ar: 'فرنسي + عربي + إنجليزي', en: 'French + Arabic + English', fr: 'Français + Arabe + Anglais' },
+    decreaseFont: { ar: 'تصغير الخط', en: 'Decrease font', fr: 'Diminuer la police' },
+    increaseFont: { ar: 'تكبير الخط', en: 'Increase font', fr: 'Augmenter la police' },
+    addFolder: { ar: 'مجلد جديد', en: 'New folder', fr: 'Nouveau dossier' },
+    folderNamePrompt: { ar: 'اسم المجلد', en: 'Folder name', fr: 'Nom du dossier' },
+    renameFolder: { ar: 'إعادة تسمية المجلد', en: 'Rename folder', fr: 'Renommer le dossier' },
+    deleteFolder: { ar: 'حذف المجلد', en: 'Delete folder', fr: 'Supprimer le dossier' },
+    deleteFolderConfirm: { ar: 'هل تريد حذف هذا المجلد؟ تبقى الدروس بدون مجلد.', en: 'Delete this folder? Lessons will become ungrouped.', fr: 'Supprimer ce dossier ? Les leçons resteront non classées.' },
+    moveToFolder: { ar: 'نقل إلى مجلد', en: 'Move to folder', fr: 'Déplacer vers le dossier' },
+    noFolder: { ar: 'بلا مجلد', en: 'No folder', fr: 'Sans dossier' },
+    newLessonInFolder: { ar: 'درس جديد في المجلد', en: 'New lesson in folder', fr: 'Nouvelle leçon dans le dossier' }
+  };
+
+  function t(key) {
+    var v = UI[key];
+    return (v && v[state.uiLang]) || (v && v.en) || key;
+  }
+
+  function icon(name) {
+    var paths = {
+      play: 'M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z',
+      stop: 'M4.5 7.5a3 3 0 0 1 3-3h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3h-9a3 3 0 0 1-3-3v-9Z',
+      volume: 'M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06ZM18.584 5.106a.75.75 0 0 1 1.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 0 1-1.06-1.06 8.25 8.25 0 0 0 0-11.668.75.75 0 0 1 0-1.06Z',
+      loop: 'M12 5.25c1.213 0 2.415.046 3.605.135a3.256 3.256 0 0 1 3.01 3.01c.044.583.077 1.17.1 1.759L17.03 8.47a.75.75 0 1 0-1.06 1.06l3 3a.75.75 0 0 0 1.06 0l3-3a.75.75 0 0 0-1.06-1.06l-1.752 1.751c-.023-.65-.06-1.296-.108-1.939a4.756 4.756 0 0 0-4.392-4.392 49.422 49.422 0 0 0-7.436 0A4.756 4.756 0 0 0 3.89 8.282c-.017.224-.033.447-.046.672a.75.75 0 1 0 1.497.092c.013-.217.028-.434.044-.651a3.256 3.256 0 0 1 3.01-3.01c1.19-.09 2.392-.135 3.605-.135Zm-6.97 6.22a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.752-1.751c.023.65.06 1.296.108 1.939a4.756 4.756 0 0 0 4.392 4.392 49.413 49.413 0 0 0 7.436 0 4.756 4.756 0 0 0 4.392-4.392c.017-.223.032-.447.046-.672a.75.75 0 0 0-1.497-.092c-.013.217-.028.434-.044.651a3.256 3.256 0 0 1-3.01 3.01 47.953 47.953 0 0 1-7.21 0 3.256 3.256 0 0 1-3.01-3.01 47.759 47.759 0 0 1-.1-1.759L6.97 15.53a.75.75 0 0 0 1.06-1.06l-3-3Z',
+      videoLoop: 'M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3',
+      info: 'M12 2.25c5.385 0 9.75 4.365 9.75 9.75s-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12 6.615 2.25 12 2.25Zm-1.5 5.25a1.5 1.5 0 0 1 3 0 1.5 1.5 0 0 1-3 0Zm1.5 3.75v3a.75.75 0 0 1-1.5 0V11.25a.75.75 0 0 1 1.5 0Z',
+      trash: 'M16.5 4.478v.227a48.816 48.816 0 0 1 3.878.512.75.75 0 1 1-.256 1.478l-.209-.035-1.005 13.07a3 3 0 0 1-2.991 2.77H8.084a3 3 0 0 1-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 0 1-.256-1.478A48.567 48.567 0 0 1 7.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 0 1 3.369 0c1.603.051 2.815 1.387 2.815 2.951Zm-6.136-1.452a51.196 51.196 0 0 1 3.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 0 0-6 0v-.113c0-.794.609-1.428 1.364-1.452Zm-.355 5.945a.75.75 0 1 0-1.5.058l.347 9a.75.75 0 1 0 1.499-.058l-.346-9Zm5.48.058a.75.75 0 1 0-1.498-.058l-.347 9a.75.75 0 0 0 1.5.058l.345-9Z',
+      up: 'M11.47 7.72a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 1 1-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 0 1-1.06-1.06l7.5-7.5Z',
+      down: 'M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z',
+      plus: 'M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z',
+      back: 'M11.03 3.97a.75.75 0 0 1 0 1.06l-6.22 6.22H21a.75.75 0 0 1 0 1.5H4.81l6.22 6.22a.75.75 0 1 1-1.06 1.06l-7.5-7.5a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 0 1 1.06 0Z',
+      share: 'M15.75 4.5a3 3 0 1 1 .825 2.066l-8.421 4.679a3.002 3.002 0 0 1 0 1.51l8.421 4.679a3 3 0 1 1-.729 1.31l-8.421-4.678a3 3 0 1 1 0-4.132l8.421-4.679a3 3 0 0 1-.096-.755Z',
+      export: 'M12 2.25a.75.75 0 0 1 .75.75v11.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 1 1 1.06-1.06l3.22 3.22V3a.75.75 0 0 1 .75-.75Zm-9 13.5a.75.75 0 0 1 .75.75v2.25a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V16.5a.75.75 0 0 1 1.5 0v2.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V16.5a.75.75 0 0 1 .75-.75Z',
+      import: 'M11.47 2.47a.75.75 0 0 1 1.06 0l4.5 4.5a.75.75 0 0 1-1.06 1.06l-3.22-3.22V16.5a.75.75 0 0 1-1.5 0V4.81L8.03 8.03a.75.75 0 0 1-1.06-1.06l4.5-4.5ZM3 15.75a.75.75 0 0 1 .75.75v2.25a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V16.5a.75.75 0 0 1 1.5 0v2.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V16.5a.75.75 0 0 1 .75-.75Z',
+      moon: 'M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z',
+      sun: 'M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z',
+      image: 'M1.5 6a2.25 2.25 0 0 1 2.25-2.25h16.5A2.25 2.25 0 0 1 22.5 6v12a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5 18V6ZM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0 0 21 18v-1.94l-2.69-2.689a1.5 1.5 0 0 0-2.12 0l-.88.879.97.97a.75.75 0 1 1-1.06 1.06l-5.16-5.159a1.5 1.5 0 0 0-2.12 0L3 16.061Zm10.125-7.81a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Z',
+      more: 'M10.5 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Zm0 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z',
+      edit: 'M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z',
+      close: 'M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z',
+      globe: 'M21.721 12.752a9.711 9.711 0 0 0-.945-5.003 12.754 12.754 0 0 1-4.339 2.708 18.991 18.991 0 0 1-.214 4.772 17.165 17.165 0 0 0 5.498-2.477ZM14.634 15.55a17.324 17.324 0 0 0 .332-4.647c-.952.227-1.945.347-2.966.347-1.021 0-2.014-.12-2.966-.347a17.515 17.515 0 0 0 .332 4.647 17.385 17.385 0 0 0 5.268 0ZM9.772 17.119a18.963 18.963 0 0 0 4.456 0A17.182 17.182 0 0 1 12 21.724a17.18 17.18 0 0 1-2.228-4.605ZM7.777 15.23a18.87 18.87 0 0 1-.214-4.774 12.753 12.753 0 0 1-4.34-2.708 9.711 9.711 0 0 0-.944 5.004 17.165 17.165 0 0 0 5.498 2.477ZM21.356 14.752a9.765 9.765 0 0 1-7.478 6.817 18.64 18.64 0 0 0 1.988-4.718 18.627 18.627 0 0 0 5.49-2.098ZM2.644 14.752c1.682.971 3.53 1.688 5.49 2.099a18.64 18.64 0 0 0 1.988 4.718 9.765 9.765 0 0 1-7.478-6.816ZM13.878 2.43a9.755 9.755 0 0 1 6.116 3.986 11.267 11.267 0 0 1-3.746 2.504 18.63 18.63 0 0 0-2.37-6.49ZM12 2.276a17.152 17.152 0 0 1 2.805 7.121c-.897.23-1.837.353-2.805.353-.968 0-1.908-.122-2.805-.353A17.151 17.151 0 0 1 12 2.276ZM10.122 2.43a18.629 18.629 0 0 0-2.37 6.49 11.266 11.266 0 0 1-3.746-2.504 9.754 9.754 0 0 1 6.116-3.985Z',
+      folder: 'M19.906 9c.382 0 .749.057 1.094.162V9a3 3 0 0 0-3-3h-3.879a.75.75 0 0 1-.53-.22L11.47 3.66A2.25 2.25 0 0 0 9.879 3H6a3 3 0 0 0-3 3v3.162A3.756 3.756 0 0 1 4.094 9h15.812ZM4.094 10.5a2.25 2.25 0 0 0-2.227 2.568l.857 6A2.25 2.25 0 0 0 4.951 21H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-2.227-2.568H4.094Z',
+      lesson: 'M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z',
+      chevron: 'M12 16.5a.75.75 0 0 1-.53-.22l-6-6a.75.75 0 0 1 1.06-1.06L12 14.69l5.47-5.47a.75.75 0 1 1 1.06 1.06l-6 6a.75.75 0 0 1-.53.22Z',
+      search: 'M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z',
+      ai: 'M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z',
+      draw: 'M20.599 1.5c-.376 0-.743.111-1.055.32l-5.08 3.385a18.747 18.747 0 0 0-3.471 2.987 10.04 10.04 0 0 1 4.815 4.815 18.748 18.748 0 0 0 2.987-3.472l3.386-5.079A1.902 1.902 0 0 0 20.599 1.5Zm-8.3 14.025a18.76 18.76 0 0 0 1.896-1.207 8.026 8.026 0 0 0-4.513-4.513A18.75 18.75 0 0 0 8.475 11.7l-.278.5a5.26 5.26 0 0 1 3.601 3.602l.502-.278ZM6.75 13.5A3.75 3.75 0 0 0 3 17.25a1.5 1.5 0 0 1-1.601 1.497.75.75 0 0 0-.7 1.123 5.25 5.25 0 0 0 9.8-2.62 3.75 3.75 0 0 0-3.75-3.75Z',
+      study: 'M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.994 8.994 0 0 1 6 18c3.972 0 7.286 2.503 8.878 6.036M12 6.042c1.592-3.533 4.906-6.036 8.878-6.036 1.052 0 2.062.18 3 .512v14.25A8.994 8.994 0 0 0 21 18c-3.972 0-7.286-2.503-8.878-6.036'
+    };
+    var d = paths[name] || '';
+    return '<svg class="icon icon-' + name + '" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="' + d + '" /></svg>';
+  }
+
+  function iconText(key, iconName) {
+    return '<span class="btn-icon">' + icon(iconName) + '</span><span data-t="' + key + '">' + esc(t(key)) + '</span>';
+  }
+
+  function btnIcon(name) {
+    return icon(name);
+  }
+
+  /* ---------------- IndexedDB ---------------- */
+
+  function openDB() {
+    return new Promise(function (resolve, reject) {
+      var req = indexedDB.open(DB_NAME, DB_VERSION);
+      req.onerror = function () { reject(req.error); };
+      req.onsuccess = function () { db = req.result; resolve(db); };
+      req.onupgradeneeded = function (e) {
+        var d = e.target.result;
+        if (!d.objectStoreNames.contains('lessons')) d.createObjectStore('lessons', { keyPath: 'id' });
+        if (!d.objectStoreNames.contains('media')) d.createObjectStore('media', { keyPath: 'id' });
+        if (!d.objectStoreNames.contains('folders')) d.createObjectStore('folders', { keyPath: 'id' });
+      };
+    });
+  }
+
+  function txStore(store, mode) {
+    return db.transaction([store], mode).objectStore(store);
+  }
+
+  function dbPut(store, obj) {
+    return new Promise(function (resolve, reject) {
+      var req = txStore(store, 'readwrite').put(obj);
+      req.onsuccess = function () { resolve(req.result); };
+      req.onerror = function () { reject(req.error); };
+    });
+  }
+
+  function dbGet(store, id) {
+    return new Promise(function (resolve, reject) {
+      var req = txStore(store, 'readonly').get(id);
+      req.onsuccess = function () { resolve(req.result); };
+      req.onerror = function () { reject(req.error); };
+    });
+  }
+
+  function dbDel(store, id) {
+    return new Promise(function (resolve, reject) {
+      var req = txStore(store, 'readwrite').delete(id);
+      req.onsuccess = function () { resolve(); };
+      req.onerror = function () { reject(req.error); };
+    });
+  }
+
+  function dbGetAll(store) {
+    return new Promise(function (resolve, reject) {
+      var req = txStore(store, 'readonly').getAll();
+      req.onsuccess = function () { resolve(req.result || []); };
+      req.onerror = function () { reject(req.error); };
+    });
+  }
+
+  function uuid() {
+    return 'id-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 9);
+  }
+
+  /* ---------------- State & persistence ---------------- */
+
+  function loadLessons() {
+    return dbGetAll('lessons').then(function (list) {
+      state.lessons = list || [];
+    });
+  }
+
+  function loadFolders() {
+    return dbGetAll('folders').then(function (list) {
+      state.folders = list || [];
+    });
+  }
+
+  function getLesson(id) {
+    return state.lessons.filter(function (l) { return l.id === id; })[0];
+  }
+
+  function getFolder(id) {
+    return state.folders.filter(function (f) { return f.id === id; })[0];
+  }
+
+  function saveExpandedFolders() {
+    localStorage.setItem('creator_expanded_folders', JSON.stringify(state.expandedFolders));
+  }
+
+  function addFolder() {
+    var name = prompt(t('folderNamePrompt') || 'Folder name');
+    if (!name) return;
+    name = name.trim();
+    if (!name) return;
+    var folder = { id: uuid(), name: { ar: name, fr: name, en: name }, createdAt: Date.now() };
+    state.folders.push(folder);
+    state.expandedFolders[folder.id] = true;
+    saveExpandedFolders();
+    dbPut('folders', folder).then(render);
+  }
+
+  function renameFolder(id) {
+    var folder = getFolder(id);
+    if (!folder) return;
+    var current = folder.name[state.uiLang] || folder.name.en || folder.name.fr || folder.name.ar || '';
+    var name = prompt(t('renameFolder') || 'Rename folder', current);
+    if (name === null) return;
+    name = name.trim();
+    if (!name) return;
+    folder.name = { ar: name, fr: name, en: name };
+    dbPut('folders', folder).then(render);
+  }
+
+  function deleteFolder(id) {
+    var folder = getFolder(id);
+    if (!folder) return;
+    if (!confirm(t('deleteFolderConfirm') || 'Delete folder?')) return;
+    state.lessons.forEach(function (l) { if (l.folderId === id) { l.folderId = null; dbPut('lessons', l); } });
+    state.folders = state.folders.filter(function (f) { return f.id !== id; });
+    delete state.expandedFolders[id];
+    saveExpandedFolders();
+    dbDel('folders', id).then(render);
+  }
+
+  function setLessonFolder(lessonId, folderId) {
+    var lesson = getLesson(lessonId);
+    if (!lesson) return;
+    lesson.folderId = folderId || null;
+    if (folderId) state.expandedFolders[folderId] = true;
+    saveExpandedFolders();
+    dbPut('lessons', lesson).then(render);
+  }
+
+  function queueSave() {
+    if (state.saveTimer) clearTimeout(state.saveTimer);
+    state.saveTimer = setTimeout(saveCurrentLesson, 400);
+  }
+
+  function saveCurrentLesson() {
+    var lesson = getLesson(state.currentLessonId);
+    if (!lesson) return;
+    dbPut('lessons', lesson).catch(function (e) { console.error('save failed', e); });
+  }
+
+  function addLesson() {
+    var lesson = {
+      id: uuid(),
+      title: { ar: '', fr: '', en: '' },
+      phrases: []
+    };
+    state.lessons.push(lesson);
+    dbPut('lessons', lesson).then(function () {
+      openLesson(lesson.id);
+    });
+  }
+
+  function deleteLesson(id) {
+    var lesson = getLesson(id);
+    if (!lesson) return;
+    if (lesson.phrases) {
+      lesson.phrases.forEach(function (p) { if (p.mediaId) deleteMedia(p.mediaId); });
+    }
+    if (lesson.coverMediaId) deleteMedia(lesson.coverMediaId);
+    if (lesson.videoMediaId) deleteMedia(lesson.videoMediaId);
+    state.lessons = state.lessons.filter(function (l) { return l.id !== id; });
+    dbDel('lessons', id).then(render);
+  }
+
+  function editLessonName(id) {
+    var lesson = getLesson(id);
+    if (!lesson) return;
+    var first = lesson.phrases && lesson.phrases[0];
+    var current = lesson.title[state.uiLang] || lesson.title.en || lesson.title.fr || lesson.title.ar ||
+      (first && (first[state.uiLang] || first.fr || first.ar || first.en)) || '';
+    var name = prompt(t('editLesson'), current);
+    if (name === null) return;
+    name = name.trim();
+    if (!name) return;
+    lesson.title = { ar: name, fr: name, en: name };
+    dbPut('lessons', lesson).then(render);
+  }
+
+  function attachCoverImage(id, file) {
+    var lesson = getLesson(id);
+    if (!lesson || !file) return;
+    var mediaId = uuid();
+    if (lesson.coverMediaId) deleteMedia(lesson.coverMediaId);
+    saveMedia(mediaId, file).then(function () {
+      lesson.coverMediaId = mediaId;
+      dbPut('lessons', lesson).then(render);
+    });
+  }
+
+  function attachFolderCover(id, file) {
+    var folder = getFolder(id);
+    if (!folder || !file) return;
+    var mediaId = uuid();
+    if (folder.coverMediaId) deleteMedia(folder.coverMediaId);
+    saveMedia(mediaId, file).then(function () {
+      folder.coverMediaId = mediaId;
+      dbPut('folders', folder).then(render);
+    });
+  }
+
+  function addPhrase(lesson) {
+    lesson.phrases.push({ id: uuid(), fr: '', ar: '', en: '', editing: true });
+    saveCurrentLesson();
+    renderLessonEditor();
+  }
+
+  function addBulkPhrases(lesson, inputId) {
+    var el = document.getElementById(inputId || 'bulk-input');
+    if (!el) return;
+    var text = el.value || '';
+    var timedEntries = [];
+    if (text.indexOf('-->') !== -1) timedEntries = timedEntries.concat(parseSRT(text));
+    timedEntries = timedEntries.concat(parseTimedText(text));
+    var normalEntries = [];
+    text.split(/\r?\n/).forEach(function (line) {
+      line = line.trim();
+      if (!line) return;
+      if (/^[\d:.،,]+\s/.test(line)) return;
+      var parts = line.split('|');
+      if (parts.length < 3) return;
+      normalEntries.push({ fr: parts[0].trim(), ar: parts[1].trim(), en: parts[2].trim() });
+    });
+    timedEntries.forEach(function (e) { if (typeof e.end !== 'number' || isNaN(e.end)) e.end = e.start + 4; });
+    var entries = timedEntries.concat(normalEntries);
+    if (!entries.length) {
+      toast(t('noBulkPhrases') || 'No valid phrases');
+      return;
+    }
+    entries.forEach(function (p) {
+      lesson.phrases.push({ id: uuid(), fr: p.fr || '', ar: p.ar || '', en: p.en || '', start: p.start, end: p.end, editing: false });
+    });
+    if (timedEntries.length) {
+      lesson.transcript = (lesson.transcript || []).concat(timedEntries);
+    }
+    saveCurrentLesson();
+    renderLessonEditor();
+    el.value = '';
+  }
+
+  function deletePhrase(lesson, phraseId) {
+    var p = lesson.phrases.filter(function (x) { return x.id === phraseId; })[0];
+    if (p && p.mediaId) deleteMedia(p.mediaId);
+    lesson.phrases = lesson.phrases.filter(function (x) { return x.id !== phraseId; });
+    saveCurrentLesson();
+    renderLessonEditor();
+  }
+
+  function movePhrase(lesson, phraseId, dir) {
+    var idx = lesson.phrases.findIndex(function (x) { return x.id === phraseId; });
+    if (idx === -1) return;
+    var newIdx = idx + dir;
+    if (newIdx < 0 || newIdx >= lesson.phrases.length) return;
+    var tmp = lesson.phrases[idx];
+    lesson.phrases[idx] = lesson.phrases[newIdx];
+    lesson.phrases[newIdx] = tmp;
+    saveCurrentLesson();
+    renderLessonEditor();
+  }
+
+  function saveMedia(mediaId, file) {
+    return dbPut('media', { id: mediaId, blob: file, type: file.type });
+  }
+
+  function deleteMedia(mediaId) {
+    if (state.mediaUrls[mediaId]) { URL.revokeObjectURL(state.mediaUrls[mediaId]); delete state.mediaUrls[mediaId]; }
+    return dbDel('media', mediaId);
+  }
+
+  function getMediaUrl(mediaId) {
+    if (state.mediaUrls[mediaId]) return Promise.resolve(state.mediaUrls[mediaId]);
+    return dbGet('media', mediaId).then(function (m) {
+      if (!m) return null;
+      var url = URL.createObjectURL(m.blob);
+      state.mediaUrls[mediaId] = url;
+      return url;
+    });
+  }
+
+  function dataURLToBlob(dataURL) {
+    var parts = dataURL.split(',');
+    var base64 = parts[1];
+    var mime = parts[0].match(/:(.*?);/)[1];
+    var bin = atob(base64);
+    var arr = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+    return new Blob([arr], { type: mime });
+  }
+
+  function fullyDecode(v) {
+    if (v == null) return v;
+    for (var i = 0; i < 5; i++) {
+      if (v.indexOf('%') === -1) break;
+      try {
+        var d = decodeURIComponent(v);
+        if (d === v) break;
+        v = d;
+      } catch (e) { break; }
+    }
+    return v;
+  }
+
+  function getParam(url, name) {
+    try {
+      var u = new URL(url);
+      return u.searchParams.get(name);
+    } catch (e) { return null; }
+  }
+
+  function resolveMediaUrl(input) {
+    return new Promise(function (resolve, reject) {
+      var direct = getParam(input, 'imgurl');
+      if (direct) { resolve(fullyDecode(direct)); return; }
+      var needsResolve = /^(https?:\/\/)?(share\.google\/|g\.co\/|www\.google\.com\/imgres|www\.google\.com\/share\.google)/i.test(input);
+      if (!needsResolve) { resolve(input); return; }
+
+      var http = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.CapacitorHttp;
+      function webFollow(u) {
+        return fetch(u, { redirect: 'follow' }).then(function (r) { return r.url; });
+      }
+      function nativeFollow(u) {
+        return http.get({ url: u, responseType: 'text' }).then(function (r) { return r.url || u; });
+      }
+      var follow = http ? nativeFollow : webFollow;
+      follow(input)
+        .then(function (finalUrl) {
+          var img = finalUrl && getParam(finalUrl, 'imgurl');
+          resolve(img ? fullyDecode(img) : input);
+        })
+        .catch(function (err) { reject(err); });
+    });
+  }
+
+  function fetchMediaBlob(url) {
+    return new Promise(function (resolve, reject) {
+      var http = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.CapacitorHttp;
+      if (http) {
+        http.get({ url: url, responseType: 'blob' })
+          .then(function (res) {
+            var ct = (res.headers && (res.headers['content-type'] || res.headers['Content-Type'])) || 'application/octet-stream';
+            if (typeof res.data === 'string') {
+              resolve(dataURLToBlob('data:' + ct + ';base64,' + res.data));
+            } else if (res.data instanceof Blob) {
+              resolve(res.data);
+            } else if (res.data && res.data.byteLength !== undefined) {
+              resolve(new Blob([res.data], { type: ct }));
+            } else {
+              reject(new Error('Unexpected response'));
+            }
+          })
+          .catch(reject);
+        return;
+      }
+      function tryFetch(u) {
+        return fetch(u).then(function (r) { if (!r.ok) throw new Error('fetch failed'); return r.blob(); });
+      }
+      tryFetch(url)
+        .then(resolve)
+        .catch(function () {
+          tryFetch('https://corsproxy.io/?' + encodeURIComponent(url))
+            .then(resolve)
+            .catch(reject);
+        });
+    });
+  }
+
+  function downloadMediaForPhrase(phrase, url) {
+    resolveMediaUrl(url)
+      .then(fetchMediaBlob)
+      .then(function (blob) {
+        var mediaId = uuid();
+        if (phrase.mediaId) deleteMedia(phrase.mediaId);
+        return saveMedia(mediaId, blob).then(function () {
+          phrase.mediaId = mediaId;
+          phrase.mediaType = blob.type;
+          saveCurrentLesson();
+          renderMediaForPhrase(phrase);
+          toast(t('saved'));
+        });
+      })
+      .catch(function (e) {
+        console.error('Media download failed', e);
+        toast(t('mediaDownloadFailed'));
+      });
+  }
+
+  function formatTime(s) {
+    if (!isFinite(s) || s < 0) s = 0;
+    var m = Math.floor(s / 60);
+    var sec = Math.floor(s % 60);
+    var ms = Math.floor((s % 1) * 1000);
+    return (m < 10 ? '0' : '') + m + ':' + (sec < 10 ? '0' : '') + sec + '.' + (ms < 100 ? '0' : '') + (ms < 10 ? '0' : '') + ms;
+  }
+
+  function setVideoRate(rate) {
+    var r = rate || 1;
+    document.querySelectorAll('video').forEach(function (v) { v.playbackRate = r; });
+  }
+
+  function subtitleBgOptions(lesson) {
+    var current = state.appBg || 0;
+    var html = '';
+    for (var i = 0; i < 10; i++) {
+      html += '<option value="' + i + '"' + (current === i ? ' selected' : '') + '>' + esc(t('bg' + i)) + '</option>';
+    }
+    return html;
+  }
+
+  function subtitleFontOptions(lesson) {
+    var current = state.appFont || 0;
+    var html = '';
+    for (var i = 0; i < 9; i++) {
+      html += '<option value="' + i + '"' + (current === i ? ' selected' : '') + '>' + esc(t('font' + i)) + '</option>';
+    }
+    return html;
+  }
+
+  function applyAppTheme() {
+    var app = document.getElementById('app');
+    if (app) {
+      for (var i = 0; i < 10; i++) app.classList.remove('theme-' + i);
+    }
+    for (var j = 0; j < 11; j++) document.body.classList.remove('app-font-' + j);
+    document.body.classList.add('app-font-' + (state.appFont || 0));
+    var overlay = document.getElementById('video-subtitle');
+    if (overlay) {
+      for (var k = 0; k < 10; k++) overlay.classList.remove('bg-' + k);
+      for (var f = 0; f < 11; f++) overlay.classList.remove('font-' + f);
+      overlay.classList.add('bg-' + (state.appBg || 0), 'font-' + (state.appFont || 0));
+    }
+  }
+
+  function parseTimeToSeconds(str) {
+    if (typeof str !== 'string' || !str.trim()) return null;
+    str = str.trim().replace(',', '.').replace('،', '.');
+    var parts = str.split(':').map(Number);
+    if (parts.length === 2) return parts[0] * 60 + parts[1];
+    if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+    if (parts.length === 1) return parts[0];
+    return null;
+  }
+
+  function parseTimedText(text) {
+    var lines = (text || '').split(/\r?\n/);
+    var entries = [];
+    lines.forEach(function (line) {
+      line = line.trim();
+      if (!line) return;
+      var m = line.match(/^([\d:.،,]+)\s+(.+)$/);
+      if (!m) return;
+      var start = parseTimeToSeconds(m[1]);
+      if (start === null || isNaN(start)) return;
+      var parts = m[2].split('|').map(function (s) { return s.trim(); });
+      var fr = parts[0] || '';
+      var ar = parts[1] || '';
+      var en = parts[2] || '';
+      entries.push({ id: uuid(), start: start, end: start + 2, fr: fr, ar: ar, en: en });
+    });
+    for (var i = 0; i < entries.length - 1; i++) {
+      entries[i].end = Math.min(entries[i + 1].start - 0.05, entries[i].start + 4);
+    }
+    return entries;
+  }
+
+  function parseSRT(text) {
+    var blocks = (text || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n').split(/\n\s*\n/);
+    var entries = [];
+    blocks.forEach(function (block) {
+      var lines = block.split('\n').map(function (s) { return s.trim(); }).filter(Boolean);
+      if (lines.length < 2) return;
+      var timeLine = '';
+      var textStart = 1;
+      for (var i = 0; i < lines.length; i++) {
+        if (lines[i].indexOf('-->') !== -1) { timeLine = lines[i]; textStart = i + 1; break; }
+      }
+      if (!timeLine) return;
+      var match = timeLine.match(/([\d:.،,]+)\s*-->\s*([\d:.،,]+)/);
+      if (!match) return;
+      var start = parseTimeToSeconds(match[1]);
+      var end = parseTimeToSeconds(match[2]);
+      if (start === null || end === null) return;
+      var body = lines.slice(textStart).join(' ');
+      var parts = body.split('|').map(function (s) { return s.trim(); });
+      var fr = parts[0] || '';
+      var ar = parts[1] || '';
+      var en = parts[2] || '';
+      entries.push({ id: uuid(), start: start, end: end, fr: fr, ar: ar, en: en });
+    });
+    return entries;
+  }
+
+  function parseSubtitles(text) {
+    if (!text || !text.trim()) return [];
+    if (text.indexOf('-->') !== -1) return parseSRT(text);
+    return parseTimedText(text);
+  }
+
+  function renderVideoPreview(lesson) {
+    var box = document.getElementById('lesson-video-box');
+    if (!box) return;
+    if (!lesson.videoMediaId) { box.innerHTML = ''; box.classList.add('hidden'); return; }
+    box.classList.remove('hidden');
+    var bgClass = 'bg-' + (state.appBg || 0);
+    var fontClass = 'font-' + (state.appFont || 0);
+    box.innerHTML =
+      '<div class="video-player-wrap">' +
+        '<video id="lesson-video" controls playsinline></video>' +
+        '<div id="video-subtitle" class="video-subtitle-overlay video-subtitle-hidden ' + bgClass + ' ' + fontClass + '">' +
+          '<div class="video-subtitle-fr"></div>' +
+          '<div class="video-subtitle-ar"></div>' +
+          '<div class="video-subtitle-en"></div>' +
+        '</div>' +
+      '</div>';
+    getMediaUrl(lesson.videoMediaId).then(function (url) {
+      var video = document.getElementById('lesson-video');
+      if (!video || !url) return;
+      video.src = url;
+      video.playbackRate = state.rate || 1;
+      video.loop = !!state.videoLoop;
+      bindVideoPlayer(lesson);
+    });
+  }
+
+  function bindVideoPlayer(lesson) {
+    var video = document.getElementById('lesson-video');
+    if (!video) return;
+    video.ontimeupdate = function () {
+      var time = video.currentTime;
+      document.querySelectorAll('.transcript-line').forEach(function (el) {
+        var start = Number(el.dataset.start);
+        var end = Number(el.dataset.end);
+        el.classList.toggle('active', time >= start && time < end);
+      });
+      updateVideoSubtitle(lesson, time);
+      if (state.videoLoopSegment) {
+        if (time >= state.videoLoopSegment.end) { video.currentTime = state.videoLoopSegment.start; video.play(); }
+      } else if (state.videoLoopLine) {
+        var active = document.querySelector('.transcript-line.active') || getActiveTimedEntry(lesson, time);
+        if (active) {
+          var start = Number(active.dataset ? active.dataset.start : active.start);
+          var end = Number(active.dataset ? active.dataset.end : active.end);
+          if (time >= end) { video.currentTime = start; video.play(); }
+        }
+      }
+    };
+  }
+
+  function getActiveTimedEntry(lesson, time) {
+    var list = (lesson.phrases || []).concat(lesson.transcript || []);
+    for (var i = 0; i < list.length; i++) {
+      var e = list[i];
+      if (typeof e.start === 'number' && typeof e.end === 'number' && time >= e.start && time < e.end) return e;
+    }
+    return null;
+  }
+
+  function updateVideoSubtitle(lesson, time) {
+    var overlay = document.getElementById('video-subtitle');
+    if (!overlay) return;
+    var entry = getActiveTimedEntry(lesson, time);
+    if (!entry) { overlay.classList.add('video-subtitle-hidden'); return; }
+    overlay.querySelector('.video-subtitle-fr').textContent = entry.fr || '';
+    overlay.querySelector('.video-subtitle-ar').textContent = entry.ar || '';
+    overlay.querySelector('.video-subtitle-en').textContent = entry.en || '';
+    overlay.classList.remove('video-subtitle-hidden');
+  }
+
+  function renderTranscript(lesson) {
+    var box = document.getElementById('transcript-box');
+    if (!box) return;
+    if (!lesson.transcript || !lesson.transcript.length) {
+      box.innerHTML = '';
+      box.classList.add('hidden');
+      return;
+    }
+    box.classList.remove('hidden');
+    box.innerHTML = '<div class="transcript-list">' + lesson.transcript.map(function (entry) {
+      var active = state.videoLoopLine === entry.id ? ' active' : '';
+      return '<div class="transcript-line' + active + '" data-id="' + entry.id + '" data-start="' + entry.start + '" data-end="' + entry.end + '">' +
+        '<span class="transcript-time">' + formatTime(entry.start) + ' – ' + formatTime(entry.end) + '</span>' +
+        '<span class="transcript-texts">' +
+          '<span class="transcript-fr">' + esc(entry.fr) + '</span>' +
+          '<span class="transcript-ar">' + esc(entry.ar) + '</span>' +
+          '<span class="transcript-en">' + esc(entry.en) + '</span>' +
+        '</span>' +
+        '<button class="icon-btn transcript-loop" data-t-title="videoLoop">' + icon('loop') + '</button>' +
+      '</div>';
+    }).join('') + '</div>';
+    applyTranslations();
+    bindTranscriptEvents(lesson);
+  }
+
+  function bindTranscriptEvents(lesson) {
+    var video = document.getElementById('lesson-video');
+    document.querySelectorAll('.transcript-line').forEach(function (line) {
+      line.onclick = function (e) {
+        if (e.target.closest('button')) return;
+        var start = Number(line.dataset.start);
+        if (video && !isNaN(start)) { video.currentTime = start; video.play(); }
+      };
+    });
+    document.querySelectorAll('.transcript-loop').forEach(function (btn) {
+      btn.onclick = function (e) {
+        e.stopPropagation();
+        var line = btn.closest('.transcript-line');
+        var id = line.dataset.id;
+        if (state.videoLoopLine === id) { state.videoLoopLine = null; } else { state.videoLoopLine = id; }
+        if (video) {
+          var start = Number(line.dataset.start);
+          video.currentTime = start;
+          video.play();
+        }
+        renderTranscript(lesson);
+      };
+    });
+  }
+
+  function nativeAppLauncher() {
+    if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.AppLauncher) return window.Capacitor.Plugins.AppLauncher;
+    if (window.Capacitor && window.Capacitor.registerPlugin) {
+      window.Capacitor.Plugins = window.Capacitor.Plugins || {};
+      window.Capacitor.Plugins.AppLauncher = window.Capacitor.registerPlugin('AppLauncher');
+      return window.Capacitor.Plugins.AppLauncher;
+    }
+    return null;
+  }
+
+  function openSearch(text, lang) {
+    if (!text) return;
+    var q = 'Explain the phrase ' + text + ' in French and Arabic and English. Add common French example phrases that use the phrase or word "' + text + '" with translation to Arabic and English';
+    var url = 'https://www.google.com/search?udm=50&q=' + encodeURIComponent(q) + '&hl=' + (lang || 'en');
+    var launcher = nativeAppLauncher();
+    if (launcher && launcher.openUrl) {
+      launcher.openUrl({ url: url }).catch(function () { window.open(url, '_blank'); });
+    } else {
+      window.open(url, '_blank');
+    }
+  }
+
+  function studyLangRow(phrase, lang, dir, label) {
+    return '<div class="study-lang-row" data-lang="' + lang + '" dir="' + dir + '">' +
+      '<span class="study-lang-label">' + label + '</span>' +
+      '<button class="icon-btn study-speak" data-lang="' + lang + '" data-t-title="speak">' + icon('volume') + '</button>' +
+      '<div class="study-lang-text">' + esc(phrase[lang] || '') + '</div>' +
+    '</div>';
+  }
+
+  function closeStudy() {
+    stopAllMedia();
+    var overlay = document.getElementById('study-overlay');
+    if (overlay) overlay.remove();
+  }
+
+  function openStudy(phrase, idx) {
+    if (!phrase) return;
+    closeStudy();
+    var overlay = document.createElement('div');
+    overlay.className = 'study-overlay';
+    overlay.id = 'study-overlay';
+    overlay.innerHTML =
+      '<div class="study-header">' +
+        '<button class="icon-btn" id="study-close" data-t-title="back">' + icon('back') + '</button>' +
+        '<h2>' + esc(t('studyPhrase')) + ' #' + (idx + 1) + '</h2>' +
+      '</div>' +
+      '<div class="study-content">' +
+        '<div class="card phrase-card study-card" data-phrase-id="' + phrase.id + '">' +
+          '<div class="study-phrase study-fr" data-lang="fr">' + wordSpans(phrase.fr || '', 'fr', phrase.id) + '</div>' +
+          '<div class="study-phrase study-ar" dir="rtl" data-lang="ar">' + esc(phrase.ar || '') + '</div>' +
+          '<div class="study-phrase study-en" data-lang="en">' + esc(phrase.en || '') + '</div>' +
+          '<div class="media-box" id="study-media-box"></div>' +
+        '</div>' +
+        '<div class="study-actions">' +
+          '<button class="btn" id="study-play-all"><span class="btn-icon">' + icon('play') + '</span> ' + esc(t('playAll')) + '</button>' +
+          '<button class="btn" id="study-loop" data-phrase-id="' + phrase.id + '">' + icon('loop') + ' ' + esc(t('loop')) + '</button>' +
+          '<button class="btn ghost" id="study-stop">' + icon('stop') + ' ' + esc(t('stopAll')) + '</button>' +
+          '<div class="rate-control">' +
+            '<span class="rate-label" data-t="speechRate"></span>' +
+            '<input type="range" id="study-rate" min="0.5" max="2" step="0.1" value="' + state.rate + '">' +
+            '<span class="rate-value" id="study-rate-value">' + state.rate.toFixed(1) + 'x</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="study-lang-grid">' +
+          studyLangRow(phrase, 'fr', 'ltr', 'Français') +
+          studyLangRow(phrase, 'ar', 'rtl', 'العربية') +
+          studyLangRow(phrase, 'en', 'ltr', 'English') +
+        '</div>' +
+        '<button class="btn" id="study-search">' + icon('search') + ' ' + esc(t('googleSearch')) + '</button>' +
+      '</div>';
+    document.body.appendChild(overlay);
+    applyTranslations();
+
+    var rateInput = document.getElementById('study-rate');
+    var rateValue = document.getElementById('study-rate-value');
+    if (rateInput) {
+      rateInput.oninput = function () {
+        state.rate = Number(rateInput.value);
+        localStorage.setItem('creator_rate', state.rate);
+        if (rateValue) rateValue.textContent = state.rate.toFixed(1) + 'x';
+        setVideoRate(state.rate);
+        var mainSlider = document.getElementById('rate-slider');
+        var mainVal = document.getElementById('rate-value');
+        if (mainSlider) mainSlider.value = state.rate;
+        if (mainVal) mainVal.textContent = state.rate.toFixed(1) + 'x';
+      };
+    }
+
+    document.getElementById('study-close').onclick = closeStudy;
+    document.getElementById('study-play-all').onclick = function () { stopSpeech(); speakOnce(phrase, ['fr', 'ar', 'en'], 'study:' + phrase.id); };
+    document.getElementById('study-loop').onclick = function () { toggleLoop(phrase, 'study:' + phrase.id, ['fr', 'ar', 'en']); };
+    document.getElementById('study-stop').onclick = stopAllMedia;
+
+    overlay.querySelectorAll('.study-speak').forEach(function (btn) {
+      btn.onclick = function () {
+        var lang = btn.dataset.lang;
+        if (lang) { stopSpeech(); speakLine(phrase, lang, 'study:' + phrase.id + ':' + lang); }
+      };
+    });
+
+    document.getElementById('study-search').onclick = function () { openSearch(phrase.fr || '', 'fr'); };
+
+    overlay.onclick = function (e) {
+      var wordEl = e.target.closest('.word');
+      if (wordEl) {
+        var lang = wordEl.dataset.lang;
+        var word = wordEl.dataset.word;
+        if (word) toggleWordLoop(word, lang, phrase.id + ':' + lang + ':' + word);
+      }
+    };
+
+    refreshStudyControls();
+
+    if (phrase.mediaId) {
+      getMediaUrl(phrase.mediaId).then(function (url) {
+        if (!url) return;
+        var box = document.getElementById('study-media-box');
+        if (!box) return;
+        var isVideo = phrase.mediaType && phrase.mediaType.indexOf('video/') === 0;
+        var el = document.createElement(isVideo ? 'video' : 'img');
+        el.className = 'media-preview';
+        el.src = url;
+        if (isVideo) { el.controls = true; el.loop = !!phrase.videoLoop; el.playbackRate = state.rate || 1; }
+        box.appendChild(el);
+      });
+    } else {
+      var mbox = document.getElementById('study-media-box');
+      if (mbox) mbox.style.display = 'none';
+    }
+  }
+
+  function refreshStudyControls() {
+    var loopBtn = document.getElementById('study-loop');
+    if (loopBtn) {
+      var on = state.loopKey === 'study:' + loopBtn.dataset.phraseId;
+      loopBtn.classList.toggle('active', on);
+      loopBtn.innerHTML = icon(on ? 'stop' : 'loop') + ' ' + esc(t(on ? 'stopAll' : 'loop'));
+    }
+  }
+
+  function openLessonStudy(lesson) {
+    if (!lesson) return;
+    closeStudy();
+    stopAllMedia();
+    var transcript = lesson.transcript || [];
+    var overlay = document.createElement('div');
+    overlay.className = 'study-overlay';
+    overlay.id = 'study-overlay';
+    overlay.innerHTML =
+      '<div class="study-header">' +
+        '<button class="icon-btn" id="study-close" data-t-title="back">' + icon('back') + '</button>' +
+        '<h2>' + esc(t('studyPhrase')) + '</h2>' +
+      '</div>' +
+      '<div class="study-content">' +
+        (lesson.videoMediaId ? '<div class="video-box" id="study-video-box"></div>' : '') +
+        '<div class="study-actions">' +
+          '<button class="btn ghost" id="study-stop">' + icon('stop') + ' ' + esc(t('stopAll')) + '</button>' +
+          '<div class="rate-control">' +
+            '<span class="rate-label" data-t="speechRate"></span>' +
+            '<input type="range" id="study-rate" min="0.5" max="2" step="0.1" value="' + state.rate + '">' +
+            '<span class="rate-value" id="study-rate-value">' + state.rate.toFixed(1) + 'x</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="study-transcript" id="study-transcript"></div>' +
+      '</div>';
+    document.body.appendChild(overlay);
+    applyTranslations();
+
+    var rateInput = document.getElementById('study-rate');
+    var rateValue = document.getElementById('study-rate-value');
+    if (rateInput) {
+      rateInput.oninput = function () {
+        state.rate = Number(rateInput.value);
+        localStorage.setItem('creator_rate', state.rate);
+        if (rateValue) rateValue.textContent = state.rate.toFixed(1) + 'x';
+        setVideoRate(state.rate);
+      };
+    }
+
+    document.getElementById('study-close').onclick = closeStudy;
+    document.getElementById('study-stop').onclick = stopAllMedia;
+
+    function renderStudyTranscript(activeId) {
+      var box = document.getElementById('study-transcript');
+      if (!box) return;
+      if (!transcript.length) { box.innerHTML = '<div class="hint" data-t="noSubtitles"></div>'; applyTranslations(); return; }
+      box.innerHTML = transcript.map(function (entry) {
+        var active = (state.videoLoopLine === entry.id || activeId === entry.id) ? ' active' : '';
+        return '<div class="study-entry' + active + '" data-id="' + entry.id + '" data-start="' + entry.start + '" data-end="' + entry.end + '">' +
+          '<div class="study-entry-time">' + formatTime(entry.start) + ' – ' + formatTime(entry.end) + '</div>' +
+          '<div class="study-entry-fr">' + esc(entry.fr) + '</div>' +
+          '<div class="study-entry-ar">' + esc(entry.ar) + '</div>' +
+          '<div class="study-entry-en">' + esc(entry.en) + '</div>' +
+          '<div class="study-entry-actions">' +
+            '<button class="icon-btn study-speak-fr" data-lang="fr" data-t-title="speak">' + icon('volume') + '</button>' +
+            '<button class="icon-btn study-speak-ar" data-lang="ar" data-t-title="speak">' + icon('volume') + '</button>' +
+            '<button class="icon-btn study-speak-en" data-lang="en" data-t-title="speak">' + icon('volume') + '</button>' +
+            '<button class="icon-btn transcript-loop" data-t-title="videoLoop">' + icon('loop') + '</button>' +
+            '<button class="icon-btn search-line" data-t-title="googleSearch">' + icon('ai') + '</button>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+      applyTranslations();
+      bindStudyTranscriptEvents(lesson);
+    }
+
+    function bindStudyTranscriptEvents(lesson) {
+      var video = document.getElementById('study-video');
+      document.querySelectorAll('#study-transcript .study-entry').forEach(function (entry) {
+        entry.onclick = function (e) {
+          if (e.target.closest('button')) return;
+          var start = Number(entry.dataset.start);
+          state.videoLoopLine = null;
+          state.videoLoopSegment = null;
+          renderStudyTranscript();
+          if (video && !isNaN(start)) { video.currentTime = start; video.play(); }
+        };
+      });
+      ['fr', 'ar', 'en'].forEach(function (lang) {
+        document.querySelectorAll('.study-speak-' + lang).forEach(function (btn) {
+          btn.onclick = function (e) {
+            e.stopPropagation();
+            var entry = btn.closest('.study-entry').dataset;
+            var phrase = { fr: '', ar: '', en: '' };
+            var id = entry.id;
+            transcript.forEach(function (t) { if (t.id === id) { phrase.fr = t.fr; phrase.ar = t.ar; phrase.en = t.en; } });
+            if (phrase[lang]) speakLine(phrase, lang, 'study:' + id + ':' + lang);
+          };
+        });
+      });
+      document.querySelectorAll('#study-transcript .transcript-loop').forEach(function (btn) {
+        btn.onclick = function (e) {
+          e.stopPropagation();
+          var entry = btn.closest('.study-entry');
+          var id = entry.dataset.id;
+          var video = document.getElementById('study-video');
+          if (state.videoLoopLine === id) {
+            state.videoLoopLine = null;
+            state.videoLoopSegment = null;
+            if (video) video.pause();
+          } else {
+            state.videoLoopLine = id;
+            state.videoLoopSegment = { start: Number(entry.dataset.start), end: Number(entry.dataset.end), id: id };
+            if (video) { video.currentTime = Number(entry.dataset.start); video.play(); }
+          }
+          renderStudyTranscript();
+        };
+      });
+      document.querySelectorAll('#study-transcript .search-line').forEach(function (btn) {
+        btn.onclick = function (e) {
+          e.stopPropagation();
+          var entry = btn.closest('.study-entry').dataset;
+          var phrase = {};
+          transcript.forEach(function (t) { if (t.id === entry.id) { phrase.fr = t.fr; phrase.ar = t.ar; phrase.en = t.en; } });
+          var lang = state.uiLang === 'fr' ? 'fr' : state.uiLang === 'ar' ? 'ar' : 'en';
+          openSearch(phrase[lang] || phrase.fr || '', lang);
+        };
+      });
+    }
+
+    if (lesson.videoMediaId) {
+      getMediaUrl(lesson.videoMediaId).then(function (url) {
+        var box = document.getElementById('study-video-box');
+        if (!box || !url) return;
+        var video = document.createElement('video');
+        video.id = 'study-video';
+        video.className = 'study-video';
+        video.controls = true;
+        video.playsInline = true;
+        video.src = url;
+        video.playbackRate = state.rate || 1;
+        box.appendChild(video);
+        video.ontimeupdate = function () {
+          var time = video.currentTime;
+          document.querySelectorAll('#study-transcript .study-entry').forEach(function (el) {
+            var start = Number(el.dataset.start);
+            var end = Number(el.dataset.end);
+            el.classList.toggle('active', time >= start && time < end);
+          });
+          if (state.videoLoopSegment) {
+            if (time >= state.videoLoopSegment.end) { video.currentTime = state.videoLoopSegment.start; video.play(); }
+          } else if (state.videoLoopLine) {
+            var active = document.querySelector('#study-transcript .study-entry.active');
+            if (active) {
+              var start = Number(active.dataset.start);
+              var end = Number(active.dataset.end);
+              if (time >= end) { video.currentTime = start; video.play(); }
+            }
+          }
+        };
+      });
+    }
+
+    renderStudyTranscript();
+  }
+
+  function closeDraw() {
+    var overlay = document.getElementById('draw-overlay');
+    if (overlay) overlay.remove();
+  }
+
+  function openDraw(phrase) {
+    closeDraw();
+    var overlay = document.createElement('div');
+    overlay.className = 'draw-overlay';
+    overlay.id = 'draw-overlay';
+    overlay.innerHTML =
+      '<div class="draw-header">' +
+        '<button class="icon-btn" id="draw-close" data-t-title="back">' + icon('back') + '</button>' +
+        '<h2>' + esc(t('drawPhrase')) + '</h2>' +
+        '<div class="draw-tools">' +
+          '<button class="icon-btn active" id="draw-pen" data-t-title="pen">' + icon('edit') + '</button>' +
+          '<button class="icon-btn" id="draw-eraser" data-t-title="eraser">' + icon('close') + '</button>' +
+          '<input type="color" id="draw-color" value="#0f172a" data-t-title="pen">' +
+          '<input type="range" id="draw-size" min="1" max="30" value="4" data-t-title="brushSize">' +
+          '<button class="icon-btn" id="draw-clear" data-t-title="clear">' + icon('trash') + '</button>' +
+          '<button class="icon-btn" id="draw-save" data-t-title="saveDrawing">' + icon('export') + '</button>' +
+        '</div>' +
+      '</div>' +
+      (phrase
+        ? '<div class="draw-reference"><div class="draw-reference-row">' +
+            '<div class="draw-ref">' + esc(phrase.fr || '') + '</div>' +
+            '<div class="draw-ref ar">' + esc(phrase.ar || '') + '</div>' +
+            '<div class="draw-ref">' + esc(phrase.en || '') + '</div>' +
+          '</div></div>'
+        : '') +
+      '<div class="draw-canvas-wrap"><canvas class="draw-canvas" id="draw-canvas"></canvas></div>';
+    document.body.appendChild(overlay);
+    applyTranslations();
+
+    var canvas = document.getElementById('draw-canvas');
+    var wrap = canvas.parentNode;
+    var ctx = canvas.getContext('2d');
+    var drawing = false;
+    var isEraser = false;
+
+    function fitCanvas() {
+      var rect = wrap.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.lineWidth = Number(document.getElementById('draw-size').value);
+      ctx.strokeStyle = document.getElementById('draw-color').value;
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+    fitCanvas();
+
+    function getPos(e) {
+      var rect = canvas.getBoundingClientRect();
+      return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+    }
+
+    function startDraw(e) {
+      e.preventDefault();
+      drawing = true;
+      canvas.setPointerCapture(e.pointerId);
+      var p = getPos(e);
+      ctx.beginPath();
+      ctx.moveTo(p.x, p.y);
+      ctx.lineTo(p.x, p.y);
+      ctx.stroke();
+    }
+
+    function moveDraw(e) {
+      if (!drawing) return;
+      e.preventDefault();
+      var p = getPos(e);
+      ctx.lineTo(p.x, p.y);
+      ctx.stroke();
+    }
+
+    function endDraw(e) {
+      if (!drawing) return;
+      drawing = false;
+      try { canvas.releasePointerCapture(e.pointerId); } catch (ex) {}
+      ctx.beginPath();
+    }
+
+    canvas.addEventListener('pointerdown', startDraw);
+    canvas.addEventListener('pointermove', moveDraw);
+    canvas.addEventListener('pointerup', endDraw);
+    canvas.addEventListener('pointerleave', endDraw);
+
+    function updateTool() {
+      var penBtn = document.getElementById('draw-pen');
+      var eraserBtn = document.getElementById('draw-eraser');
+      if (penBtn) penBtn.classList.toggle('active', !isEraser);
+      if (eraserBtn) eraserBtn.classList.toggle('active', isEraser);
+      ctx.globalCompositeOperation = isEraser ? 'destination-out' : 'source-over';
+    }
+
+    document.getElementById('draw-pen').onclick = function () { isEraser = false; updateTool(); };
+    document.getElementById('draw-eraser').onclick = function () { isEraser = true; updateTool(); };
+
+    var colorInput = document.getElementById('draw-color');
+    colorInput.oninput = function () {
+      isEraser = false;
+      ctx.strokeStyle = colorInput.value;
+      updateTool();
+    };
+
+    var sizeInput = document.getElementById('draw-size');
+    sizeInput.oninput = function () { ctx.lineWidth = Number(sizeInput.value); };
+
+    document.getElementById('draw-clear').onclick = function () {
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      updateTool();
+    };
+
+    document.getElementById('draw-save').onclick = function () {
+      var temp = document.createElement('canvas');
+      temp.width = canvas.width;
+      temp.height = canvas.height;
+      var tctx = temp.getContext('2d');
+      tctx.fillStyle = '#fff';
+      tctx.fillRect(0, 0, temp.width, temp.height);
+      tctx.drawImage(canvas, 0, 0);
+      var dataURL = temp.toDataURL('image/png');
+      var blob = dataURLToBlob(dataURL);
+      var filename = 'vocapic-drawing-' + Date.now() + '.png';
+      downloadFile(blob, filename);
+      toast(t('saved'));
+    };
+
+    document.getElementById('draw-close').onclick = closeDraw;
+
+    window.addEventListener('resize', function () {
+      var image = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      fitCanvas();
+      ctx.putImageData(image, 0, 0);
+    }, { once: true });
+  }
+
+  /* ---------------- UI helpers ---------------- */
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function stripPunct(w) {
+    return w.replace(/^[^a-zA-Z0-9\u0600-\u06FF]+|[^a-zA-Z0-9\u0600-\u06FF]+$/g, '');
+  }
+
+  function wordSpans(text, lang, phraseId) {
+    var s = String(text || '').trim();
+    if (!s) return '<span class="word-placeholder" data-lang="' + lang + '">—</span>';
+    return s.split(/\s+/).map(function (w, i) {
+      var clean = stripPunct(w);
+      var key = phraseId + ':' + lang + ':' + clean;
+      return clean
+        ? '<span class="word" data-lang="' + lang + '" data-word="' + esc(clean) + '" data-loop-key="' + esc(key) + '">' + esc(w) + '</span>'
+        : '<span>' + esc(w) + '</span>';
+    }).join(' ');
+  }
+
+  function toast(msg) {
+    var el = document.createElement('div');
+    el.className = 'toast';
+    el.textContent = msg;
+    document.body.appendChild(el);
+    setTimeout(function () { el.remove(); }, 2000);
+  }
+
+  function applyTheme() {
+    document.documentElement.setAttribute('data-theme', state.theme === 'light' ? 'light' : 'dark');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', state.theme === 'light' ? '#f8fafc' : '#0f172a');
+    localStorage.setItem('creator_theme', state.theme);
+    var iconPath = document.querySelector('#theme-icon path');
+    if (iconPath) iconPath.setAttribute('d', state.theme === 'light'
+      ? 'M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z'
+      : 'M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z');
+  }
+
+  function applyFontSize() {
+    document.documentElement.style.fontSize = state.fontSize + '%';
+    localStorage.setItem('creator_font_size', state.fontSize);
+  }
+
+  function setUILang(lang) {
+    state.uiLang = lang;
+    localStorage.setItem('creator_ui_lang', lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.querySelectorAll('#lang-dropdown .dropdown-item').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === lang); });
+    applyTranslations();
+    render();
+  }
+
+  function applyTranslations() {
+    document.title = t('appName');
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      var key = el.dataset.t;
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.placeholder = t(key);
+      else el.textContent = t(key);
+    });
+    document.querySelectorAll('[data-t-title]').forEach(function (el) { el.title = t(el.dataset.tTitle); });
+  }
+
+  function setView(name, lessonId) {
+    state.view = name;
+    state.currentLessonId = lessonId || null;
+    if (name !== 'folder') state.currentFolderId = null;
+    render();
+  }
+
+  function openLesson(id) {
+    state.view = 'lesson';
+    state.currentLessonId = id;
+    render();
+  }
+
+  function openFolder(id) {
+    state.view = 'folder';
+    state.currentFolderId = id;
+    render();
+  }
+
+  /* ---------------- Rendering ---------------- */
+
+  function render() {
+    if (state.view === 'lesson') renderLessonEditor();
+    else if (state.view === 'folder') renderFolder();
+    else renderLessonList();
+    applyAppTheme();
+  }
+
+  function renderLessonCard(l, i) {
+    var first = l.phrases && l.phrases[0];
+    var title = esc(l.title[state.uiLang] || l.title.en || l.title.fr || l.title.ar ||
+      (first && (first[state.uiLang] || first.fr || first.ar || first.en)) ||
+      t('lesson') + ' ' + (i + 1));
+    var coverAttr = l.coverMediaId ? ' data-cover="' + l.coverMediaId + '"' : '';
+    return '<div class="card lesson-card" data-lesson="' + l.id + '">' +
+      '<div class="lesson-cover"' + coverAttr + '>' + icon('lesson') + '</div>' +
+      '<div class="body"><div class="card-title">' + title + '</div>' +
+      '<div class="card-sub">' + l.phrases.length + ' ' + t('phrases') + '</div></div>' +
+      '<div class="lesson-menu">' +
+        '<button class="icon-btn menu-btn" data-t-title="more">' + icon('more') + '</button>' +
+        '<div class="dropdown hidden">' +
+          '<button class="dropdown-item edit-lesson">' + iconText('editLesson', 'edit') + '</button>' +
+          '<button class="dropdown-item move-folder" data-t="moveToFolder">' + icon('folder') + ' <span data-t="moveToFolder"></span></button>' +
+          '<button class="dropdown-item attach-cover">' + iconText('attachCover', 'image') + '</button>' +
+          '<button class="dropdown-item delete-lesson danger">' + iconText('delete', 'trash') + '</button>' +
+        '</div>' +
+      '</div>' +
+      '</div>';
+  }
+
+  function folderMoveOptions(lessonId) {
+    var lesson = getLesson(lessonId);
+    var current = lesson ? lesson.folderId : null;
+    var opts = '<button class="dropdown-item move-to-folder" data-folder="">' + (current === null || current === undefined ? '✓ ' : '') + icon('folder') + ' <span data-t="noFolder"></span></button>';
+    state.folders.forEach(function (f) {
+      opts += '<button class="dropdown-item move-to-folder" data-folder="' + f.id + '">' + (current === f.id ? '✓ ' : '') + esc(f.name[state.uiLang] || f.name.en || f.name.fr || f.name.ar) + '</button>';
+    });
+    return opts;
+  }
+
+  function renderFolderCard(f) {
+    var count = state.lessons.filter(function (l) { return l.folderId === f.id; }).length;
+    var coverAttr = f.coverMediaId ? ' data-cover="' + f.coverMediaId + '"' : '';
+    return '<div class="card folder" data-folder="' + f.id + '">' +
+      '<div class="folder-cover"' + coverAttr + '>' + icon('folder') + '</div>' +
+      '<div class="body"><div class="card-title">' + esc(f.name[state.uiLang] || f.name.en || f.name.fr || f.name.ar) + '</div>' +
+      '<div class="card-sub">' + count + ' ' + t('lesson') + '</div></div>' +
+      '<div class="lesson-menu">' +
+        '<button class="icon-btn folder-menu-btn" data-t-title="more">' + icon('more') + '</button>' +
+        '<div class="dropdown hidden">' +
+          '<button class="dropdown-item rename-folder">' + iconText('renameFolder', 'edit') + '</button>' +
+          '<button class="dropdown-item attach-folder-cover">' + iconText('attachCover', 'image') + '</button>' +
+          '<button class="dropdown-item delete-folder danger">' + iconText('deleteFolder', 'trash') + '</button>' +
+        '</div>' +
+      '</div>' +
+      '</div>';
+  }
+
+  function renderLessonList() {
+    var app = document.getElementById('app');
+    var html = '<div class="hero"><h1 data-t="appName"></h1><p data-t="subtitle"></p></div>' +
+      '<div class="btn-row">' +
+        '<button class="btn" id="add-lesson">' + iconText('addLesson', 'plus') + '</button>' +
+        '<button class="btn ghost" id="add-folder">' + iconText('addFolder', 'folder') + '</button>' +
+      '</div>';
+
+    if (!state.lessons.length && !state.folders.length) {
+      html += '<div class="empty" data-t="noLessons"></div>';
+    } else {
+      html += state.folders.map(renderFolderCard).join('');
+      var ungrouped = state.lessons.filter(function (l) { return !l.folderId; });
+      if (ungrouped.length) {
+        html += '<div class="section-label" data-t="noFolder"></div>' + ungrouped.map(function (l, i) { return renderLessonCard(l, i); }).join('');
+      }
+      html += '<input type="file" id="cover-input" accept="image/*" class="hidden">';
+    }
+    app.innerHTML = html;
+    renderLessonCovers();
+    renderFolderCovers();
+    bindListEvents();
+    applyTranslations();
+  }
+
+  function renderFolder() {
+    var app = document.getElementById('app');
+    var folder = getFolder(state.currentFolderId);
+    if (!folder) { setView('lessons'); return; }
+    var folderLessons = state.lessons.filter(function (l) { return l.folderId === folder.id; });
+    var coverAttr = folder.coverMediaId ? ' data-cover="' + folder.coverMediaId + '"' : '';
+    var html = '<div class="hero"><h1 data-t="appName"></h1><p>' + esc(folder.name[state.uiLang] || folder.name.en || folder.name.fr || folder.name.ar) + ' · ' + folderLessons.length + ' ' + t('lesson') + '</p></div>' +
+      '<div class="btn-row">' +
+        '<button class="btn ghost" id="btn-back-folder">' + iconText('back', 'back') + '</button>' +
+        '<button class="btn" id="add-lesson-folder">' + iconText('addLesson', 'plus') + '</button>' +
+        '<div class="lesson-menu" style="margin-inline-start:auto">' +
+          '<button class="icon-btn menu-btn" data-t-title="more">' + icon('more') + '</button>' +
+          '<div class="dropdown hidden">' +
+            '<button class="dropdown-item rename-folder" data-folder="' + folder.id + '">' + iconText('renameFolder', 'edit') + '</button>' +
+            '<button class="dropdown-item attach-folder-cover" data-folder="' + folder.id + '">' + iconText('attachCover', 'image') + '</button>' +
+            '<button class="dropdown-item delete-folder danger" data-folder="' + folder.id + '">' + iconText('deleteFolder', 'trash') + '</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    if (!folderLessons.length) {
+      html += '<div class="empty" data-t="noLessons"></div>';
+    } else {
+      html += folderLessons.map(function (l, i) { return renderLessonCard(l, i); }).join('');
+    }
+    html += '<input type="file" id="cover-input" accept="image/*" class="hidden">';
+    app.innerHTML = html;
+    renderLessonCovers();
+    renderFolderCovers();
+    bindListEvents();
+    bindFolderViewEvents(folder);
+    applyTranslations();
+  }
+
+  function renderFolderCovers() {
+    document.querySelectorAll('.folder-cover[data-cover]').forEach(function (el) {
+      var mediaId = el.dataset.cover;
+      getMediaUrl(mediaId).then(function (url) {
+        if (url) el.innerHTML = '<img src="' + url + '" alt="">';
+      });
+    });
+  }
+
+  function renderLessonCovers() {
+    document.querySelectorAll('.lesson-cover[data-cover]').forEach(function (el) {
+      var mediaId = el.dataset.cover;
+      getMediaUrl(mediaId).then(function (url) {
+        if (url) el.innerHTML = '<img src="' + url + '" alt="">';
+      });
+    });
+  }
+
+  function closeAllDropdowns() {
+    document.querySelectorAll('.dropdown').forEach(function (d) { d.classList.add('hidden'); });
+    document.querySelectorAll('.lesson-card.menu-open, .folder.menu-open').forEach(function (c) { c.classList.remove('menu-open'); });
+  }
+
+  function bindListEvents() {
+    var addLessonBtn = document.getElementById('add-lesson');
+    if (addLessonBtn) addLessonBtn.onclick = addLesson;
+    var addFolderBtn = document.getElementById('add-folder');
+    if (addFolderBtn) addFolderBtn.onclick = addFolder;
+
+    document.querySelectorAll('.lesson-card').forEach(function (c) {
+      c.onclick = function (e) {
+        if (e.target.closest('.lesson-menu')) return;
+        openLesson(c.dataset.lesson);
+      };
+    });
+    document.querySelectorAll('.menu-btn').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        var dropdown = b.closest('.lesson-menu').querySelector('.dropdown');
+        var wasHidden = dropdown.classList.contains('hidden');
+        var card = b.closest('.lesson-card') || b.closest('.folder');
+        closeAllDropdowns();
+        if (wasHidden) {
+          dropdown.classList.remove('hidden');
+          if (card) card.classList.add('menu-open');
+        }
+      };
+    });
+    document.querySelectorAll('.edit-lesson').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        editLessonName(b.closest('.lesson-card').dataset.lesson);
+        closeAllDropdowns();
+      };
+    });
+    document.querySelectorAll('.attach-cover').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        var input = document.getElementById('cover-input');
+        if (input) {
+          input.dataset.lesson = b.closest('.lesson-card').dataset.lesson;
+          input.click();
+        }
+        closeAllDropdowns();
+      };
+    });
+    document.querySelectorAll('.delete-lesson').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        if (confirm(t('deleteConfirm'))) deleteLesson(b.closest('.lesson-card').dataset.lesson);
+        closeAllDropdowns();
+      };
+    });
+    document.querySelectorAll('.move-folder').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        var lessonId = b.closest('.lesson-card').dataset.lesson;
+        var dropdown = b.closest('.dropdown');
+        dropdown.innerHTML = folderMoveOptions(lessonId);
+        dropdown.classList.remove('hidden');
+        applyTranslations();
+        bindMoveToFolder();
+      };
+    });
+
+    document.querySelectorAll('.folder').forEach(function (folderEl) {
+      folderEl.onclick = function (e) {
+        if (e.target.closest('.lesson-menu') || e.target.closest('button')) return;
+        openFolder(folderEl.dataset.folder);
+      };
+    });
+    document.querySelectorAll('.folder-menu-btn').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        var dropdown = b.closest('.lesson-menu').querySelector('.dropdown');
+        var wasHidden = dropdown.classList.contains('hidden');
+        var card = b.closest('.folder');
+        closeAllDropdowns();
+        if (wasHidden) {
+          dropdown.classList.remove('hidden');
+          if (card) card.classList.add('menu-open');
+        }
+      };
+    });
+    document.querySelectorAll('.rename-folder').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        var fid = b.dataset.folder || b.closest('.folder').dataset.folder;
+        renameFolder(fid);
+        closeAllDropdowns();
+      };
+    });
+    document.querySelectorAll('.delete-folder').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        var fid = b.dataset.folder || b.closest('.folder').dataset.folder;
+        deleteFolder(fid);
+        closeAllDropdowns();
+      };
+    });
+    document.querySelectorAll('.attach-folder-cover').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        var input = document.getElementById('cover-input');
+        if (input) {
+          input.dataset.folder = b.dataset.folder || b.closest('.folder').dataset.folder;
+          input.click();
+        }
+        closeAllDropdowns();
+      };
+    });
+
+    var coverInput = document.getElementById('cover-input');
+    if (coverInput) {
+      coverInput.onchange = function (e) {
+        if (e.target.files && e.target.files[0]) {
+          if (e.target.dataset.lesson) attachCoverImage(e.target.dataset.lesson, e.target.files[0]);
+          if (e.target.dataset.folder) attachFolderCover(e.target.dataset.folder, e.target.files[0]);
+          e.target.value = '';
+          delete e.target.dataset.lesson;
+          delete e.target.dataset.folder;
+        }
+      };
+    }
+    if (!window.__dropdownCloser) {
+      window.__dropdownCloser = true;
+      document.addEventListener('click', closeAllDropdowns);
+    }
+  }
+
+  function bindFolderViewEvents(folder) {
+    var backBtn = document.getElementById('btn-back-folder');
+    if (backBtn) backBtn.onclick = function () { setView('lessons'); };
+    var addLessonFolderBtn = document.getElementById('add-lesson-folder');
+    if (addLessonFolderBtn) addLessonFolderBtn.onclick = function () {
+      var lesson = { id: uuid(), title: { ar: '', fr: '', en: '' }, phrases: [], folderId: folder.id };
+      state.lessons.push(lesson);
+      dbPut('lessons', lesson).then(function () { openLesson(lesson.id); });
+    };
+  }
+
+  function bindMoveToFolder() {
+    document.querySelectorAll('.move-to-folder').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        var lessonId = b.closest('.lesson-card').dataset.lesson;
+        var folderId = b.dataset.folder || null;
+        setLessonFolder(lessonId, folderId);
+      };
+    });
+  }
+
+  function renderLessonEditor() {
+    var app = document.getElementById('app');
+    var lesson = getLesson(state.currentLessonId);
+    if (!lesson) { setView('lessons'); return; }
+    var lessonIndex = state.lessons.findIndex(function (l) { return l.id === lesson.id; }) + 1;
+    app.innerHTML = '<div class="hero"><h1 data-t="appName"></h1><p>' + esc(t('lesson') + ' ' + lessonIndex + ' · ' + lesson.phrases.length + ' ' + t('phrases')) + '</p></div>';
+
+    var videoCard = document.createElement('div');
+    videoCard.className = 'video-dialog-card';
+    videoCard.id = 'video-dialog-card';
+    videoCard.innerHTML =
+      '<div class="video-dialog-title" data-t="videoDialog"></div>' +
+      '<div class="video-upload-row">' +
+        '<label class="btn">' + iconText('uploadVideo', 'image') + '<input type="file" id="lesson-video-file" accept="video/*" class="hidden"></label>' +
+        '<button class="btn ghost" id="btn-remove-lesson-video" data-t-title="removeMedia">' + icon('trash') + '</button>' +
+      '</div>' +
+      '<div class="video-box" id="lesson-video-box"></div>';
+    app.appendChild(videoCard);
+    renderVideoPreview(lesson);
+
+    var controls = document.createElement('div');
+    controls.className = 'btn-row';
+    controls.innerHTML =
+      '<button class="btn ghost" id="btn-back">' + icon('back') + '</button>' +
+      '<button class="btn" id="btn-play-all">' + iconText('playAll', 'play') + '</button>' +
+      '<button class="btn ghost" id="btn-stop-lesson">' + iconText('stopAll', 'stop') + '</button>' +
+      '<button class="icon-btn' + (state.videoLoop ? ' active' : '') + '" id="btn-loop-video" data-t-title="loopVideo">' + icon('loop') + '</button>' +
+      '<div class="rate-control">' +
+        '<span class="rate-label" data-t="videoBackground"></span>' +
+        '<select id="video-bg" class="input play-mode-select" style="width:auto;min-width:7.5rem;font-size:0.85rem;padding:0.35rem 0.6rem;">' + subtitleBgOptions(lesson) + '</select>' +
+      '</div>' +
+      '<div class="rate-control">' +
+        '<span class="rate-label" data-t="videoFont"></span>' +
+        '<select id="video-font" class="input play-mode-select" style="width:auto;min-width:7.5rem;font-size:0.85rem;padding:0.35rem 0.6rem;">' + subtitleFontOptions(lesson) + '</select>' +
+      '</div>' +
+      '<div class="rate-control">' +
+        '<span class="rate-label" data-t="speechRate"></span>' +
+        '<input type="range" id="rate-slider" min="0.5" max="2" step="0.1" value="' + state.rate + '">' +
+        '<span class="rate-value" id="rate-value">' + state.rate.toFixed(1) + 'x</span>' +
+      '</div>' +
+      '<div class="rate-control">' +
+        '<span class="rate-label" data-t="playMode"></span>' +
+        '<select id="play-mode" class="input play-mode-select" style="width:auto;min-width:9rem;font-size:0.85rem;padding:0.35rem 0.6rem;">' +
+          '<option value="fr" ' + (state.lessonLoopMode === 'fr' ? 'selected' : '') + '>' + esc(t('playModeFrench')) + '</option>' +
+          '<option value="all" ' + (state.lessonLoopMode === 'all' ? 'selected' : '') + '>' + esc(t('playModeAll')) + '</option>' +
+        '</select>' +
+      '</div>' +
+      '<div class="rate-control font-size-control">' +
+        '<button class="icon-btn" id="btn-font-minus" data-t-title="decreaseFont">A-</button>' +
+        '<button class="icon-btn" id="btn-font-plus" data-t-title="increaseFont">A+</button>' +
+      '</div>';
+    app.appendChild(controls);
+
+    lesson.phrases.forEach(function (p) { p.editing = false; });
+    saveCurrentLesson();
+
+    var phrasesDiv = document.createElement('div');
+    phrasesDiv.id = 'phrases-list';
+    lesson.phrases.forEach(function (p, idx) {
+      phrasesDiv.appendChild(createPhraseCard(lesson, p, idx));
+    });
+    app.appendChild(phrasesDiv);
+
+    var bulk = document.createElement('div');
+    bulk.className = 'card';
+    bulk.innerHTML = bulkCardHTML('bulk-input', 'btn-bulk-add');
+    app.appendChild(bulk);
+
+    bindEditorEvents(lesson);
+    renderMediaPreviews();
+    applyTranslations();
+  }
+
+  function lineHTML(lang, text, dir, phraseId, showVideoLoop) {
+    return '<div class="phrase-line" data-lang="' + lang + '" dir="' + dir + '">' +
+      (showVideoLoop ? '<button class="icon-btn video-loop" data-t-title="videoLoop">' + icon('videoLoop') + '</button>' : '') +
+      '<div class="phrase-line-text" data-field="' + lang + '" dir="' + dir + '">' + wordSpans(text, lang, phraseId) + '</div>' +
+      '<button class="icon-btn loop-line" data-lang="' + lang + '" data-t-title="loop">' + icon('loop') + '</button>' +
+      '<button class="icon-btn search-line" data-lang="' + lang + '" data-t-title="googleSearch">' + icon('ai') + '</button>' +
+    '</div>';
+  }
+
+  function bulkCardHTML(inputId, btnId) {
+    return '<div class="bulk-hint" style="margin:0 0 0.6rem;">' + icon('info') + '<span dir="ltr">00:00 Bonjour | مرحبا | Hello</span></div>' +
+      '<div class="field-label-row">' +
+        '<span class="field-label" data-t="bulkAddLabel"></span>' +
+        '<button class="icon-btn clear-bulk" data-t-title="clear">' + icon('close') + '</button>' +
+      '</div>' +
+      '<textarea class="textarea" id="' + inputId + '" dir="auto" rows="3" placeholder="00:00 Bonjour | مرحبا | Hello\nBonjour | مرحبا | Hello"></textarea>' +
+      '<div class="btn-row" style="margin-top:0.6rem">' +
+        '<button class="btn btn-bulk-add" data-input="' + inputId + '" id="' + btnId + '">' + iconText('bulkAddButton', 'plus') + '</button>' +
+      '</div>';
+  }
+
+  function editorLineHTML(lang, text, dir, phraseId, showVideoLoop) {
+    return '<div class="editor-line" data-lang="' + lang + '" dir="' + dir + '">' +
+      (showVideoLoop ? '<button class="icon-btn video-loop" data-t-title="videoLoop">' + icon('videoLoop') + '</button>' : '') +
+      '<textarea class="textarea" data-field="' + lang + '" dir="' + dir + '" placeholder="' + (lang === 'fr' ? 'Bonjour' : lang === 'ar' ? 'مرحبا' : 'Hello') + '">' + esc(text || '') + '</textarea>' +
+      '<button class="icon-btn loop-line" data-lang="' + lang + '" data-t-title="loop">' + icon('loop') + '</button>' +
+      '<button class="icon-btn search-line" data-lang="' + lang + '" data-t-title="googleSearch">' + icon('ai') + '</button>' +
+    '</div>';
+  }
+
+  function createPhraseCard(lesson, p, idx) {
+    var editing = !!p.editing;
+    var hasVideoLoop = (lesson.videoMediaId && typeof p.start === 'number' && typeof p.end === 'number');
+    var card = document.createElement('div');
+    card.className = 'card phrase-card' + (editing ? ' editing' : '');
+    card.dataset.phraseId = p.id;
+    card.innerHTML =
+      '<div class="phrase-header">' +
+        '<span class="phrase-num">#' + (idx + 1) + '</span>' +
+        '<div class="phrase-actions">' +
+          '<button class="icon-btn speak-btn" data-t-title="speak">' + icon('volume') + '</button>' +
+          '<button class="icon-btn loop-btn" data-t-title="loop">' + icon('loop') + '</button>' +
+          '<button class="icon-btn edit-phrase" data-t-title="editPhrase">' + icon(editing ? 'close' : 'edit') + '</button>' +
+          '<button class="icon-btn delete-phrase" data-t-title="delete">' + icon('trash') + '</button>' +
+          '<button class="icon-btn toggle-media" data-t-title="attachMedia">' + icon('image') + '</button>' +
+          '<button class="icon-btn draw-phrase" data-t-title="drawPhrase">' + icon('draw') + '</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="phrase-body">' +
+        lineHTML('fr', p.fr, 'ltr', p.id, hasVideoLoop) +
+        lineHTML('ar', p.ar, 'rtl', p.id, false) +
+        lineHTML('en', p.en, 'ltr', p.id, false) +
+      '</div>' +
+      '<div class="phrase-editors">' +
+        editorLineHTML('fr', p.fr, 'ltr', p.id, hasVideoLoop) +
+        editorLineHTML('ar', p.ar, 'rtl', p.id, false) +
+        editorLineHTML('en', p.en, 'ltr', p.id, false) +
+      '</div>' +
+      '<div class="media-box hidden" id="media-box-' + p.id + '">' +
+        '<div class="media-placeholder" data-t="noMedia"></div>' +
+        '<div class="media-btns">' +
+          '<button class="icon-btn ghost attach-media" data-t-title="attachMedia">' + icon('image') + '</button>' +
+          '<button class="icon-btn ghost loop-media hidden" data-t-title="loop">' + icon('loop') + '</button>' +
+          '<button class="icon-btn danger remove-media hidden" data-t-title="removeMedia">' + icon('trash') + '</button>' +
+        '</div>' +
+        '<div class="url-input-row">' +
+          '<input type="text" class="input media-url" id="media-url-' + p.id + '" data-t="mediaUrlPlaceholder" placeholder="https://...">' +
+          '<button class="icon-btn clear-media-url" data-t-title="clear">' + icon('close') + '</button>' +
+          '<button class="btn ghost download-media" data-t-title="downloadMedia">' + icon('import') + '</button>' +
+        '</div>' +
+      '</div>' +
+      '<input type="file" class="file-input hidden" id="file-' + p.id + '" accept="image/*,video/*">';
+    return card;
+  }
+
+  function bindEditorEvents(lesson) {
+    var backBtn = document.getElementById('btn-back');
+    if (backBtn) backBtn.onclick = function () { stopSpeech(); if (lesson && lesson.folderId) openFolder(lesson.folderId); else setView('lessons'); };
+    document.getElementById('btn-bulk-add').onclick = function () { addBulkPhrases(lesson, 'bulk-input'); };
+    document.getElementById('btn-play-all').onclick = function () { playLesson(lesson); };
+    document.getElementById('btn-stop-lesson').onclick = stopAllMedia;
+
+    var loopVideoBtn = document.getElementById('btn-loop-video');
+    if (loopVideoBtn) {
+      loopVideoBtn.onclick = function () {
+        state.videoLoop = !state.videoLoop;
+        localStorage.setItem('creator_video_loop', state.videoLoop ? '1' : '0');
+        var video = document.getElementById('lesson-video');
+        if (video) video.loop = state.videoLoop;
+        loopVideoBtn.classList.toggle('active', state.videoLoop);
+      };
+    }
+
+    var bgSelect = document.getElementById('video-bg');
+    if (bgSelect) {
+      bgSelect.onchange = function () {
+        state.appBg = Number(bgSelect.value) || 0;
+        localStorage.setItem('creator_app_bg', state.appBg);
+        applyAppTheme();
+      };
+    }
+
+    var fontSelect = document.getElementById('video-font');
+    if (fontSelect) {
+      fontSelect.onchange = function () {
+        state.appFont = Number(fontSelect.value) || 0;
+        localStorage.setItem('creator_app_font', state.appFont);
+        applyAppTheme();
+      };
+    }
+
+    var rateSlider = document.getElementById('rate-slider');
+    var rateValue = document.getElementById('rate-value');
+    if (rateSlider) {
+      rateSlider.oninput = function () {
+        state.rate = Number(rateSlider.value);
+        localStorage.setItem('creator_rate', state.rate);
+        if (rateValue) rateValue.textContent = state.rate.toFixed(1) + 'x';
+        setVideoRate(state.rate);
+      };
+    }
+
+    var playMode = document.getElementById('play-mode');
+    if (playMode) {
+      playMode.onchange = function () {
+        state.lessonLoopMode = playMode.value;
+        localStorage.setItem('creator_loop_mode', state.lessonLoopMode);
+      };
+    }
+
+    var fontMinus = document.getElementById('btn-font-minus');
+    var fontPlus = document.getElementById('btn-font-plus');
+    if (fontMinus) {
+      fontMinus.onclick = function () {
+        state.fontSize = Math.max(80, state.fontSize - 5);
+        applyFontSize();
+      };
+    }
+    if (fontPlus) {
+      fontPlus.onclick = function () {
+        state.fontSize = Math.min(130, state.fontSize + 5);
+        applyFontSize();
+      };
+    }
+
+    var app = document.getElementById('app');
+    app.oninput = function (e) {
+      var target = e.target;
+      if (target.dataset.field) {
+        var phrase = lesson.phrases.filter(function (x) { return x.id === target.closest('.phrase-card').dataset.phraseId; })[0];
+        if (phrase) { phrase[target.dataset.field] = target.value; queueSave(); }
+      }
+    };
+
+    app.onclick = function (e) {
+      var wordEl = e.target.closest('.word');
+      if (wordEl) {
+        var card = wordEl.closest('.phrase-card');
+        if (!card) return;
+        var phraseId = card.dataset.phraseId;
+        var lang = wordEl.dataset.lang;
+        var word = wordEl.dataset.word;
+        if (!word) return;
+        toggleWordLoop(word, lang, phraseId + ':' + lang + ':' + word);
+        return;
+      }
+
+      var lineEl = e.target.closest('.phrase-line');
+      if (lineEl && !e.target.closest('button')) {
+        var lineCard = lineEl.closest('.phrase-card');
+        if (lineCard) {
+          var linePhraseId = lineCard.dataset.phraseId;
+          var linePhrase = lesson.phrases.filter(function (x) { return x.id === linePhraseId; })[0];
+          var lineLang = lineEl.dataset.lang;
+          if (linePhrase && lineLang) speakLine(linePhrase, lineLang, linePhraseId);
+        }
+        return;
+      }
+
+      var btn = e.target.closest('button');
+      if (!btn) return;
+      if (btn.classList.contains('clear-bulk')) {
+        var bulkCard = btn.closest('.card');
+        var bulkInput = bulkCard ? bulkCard.querySelector('textarea') : null;
+        if (bulkInput) bulkInput.value = '';
+        return;
+      }
+      var card = btn.closest('.phrase-card');
+      if (!card) return;
+      var phraseId = card.dataset.phraseId;
+      var phrase = lesson.phrases.filter(function (x) { return x.id === phraseId; })[0];
+      if (!phrase) return;
+
+      var lineLang = btn.dataset.lang;
+      var box = document.getElementById('media-box-' + phraseId);
+      if (btn.classList.contains('speak-btn')) {
+        stopSpeech();
+        speakOnce(phrase, ['fr', 'ar', 'en'], phraseId);
+      } else if (btn.classList.contains('loop-btn')) {
+        toggleLoop(phrase, phraseId);
+      } else if (btn.classList.contains('speak-line')) {
+        speakLine(phrase, lineLang, phraseId);
+      } else if (btn.classList.contains('loop-line')) {
+        var phraseCopy = Object.assign({}, phrase);
+        var editorLine = btn.closest('.editor-line');
+        var editorTA = editorLine ? editorLine.querySelector('textarea[data-field="' + lineLang + '"]') : null;
+        if (editorTA) phraseCopy[lineLang] = editorTA.value;
+        toggleLoop(phraseCopy, phraseId + ':' + lineLang, [lineLang]);
+      } else if (btn.classList.contains('search-line')) {
+        var editorLine2 = btn.closest('.editor-line');
+        var editorTA2 = editorLine2 ? editorLine2.querySelector('textarea[data-field="' + lineLang + '"]') : null;
+        var query = (editorTA2 ? editorTA2.value : phrase[lineLang] || '').trim();
+        if (query) openSearch(query, lineLang);
+      } else if (btn.classList.contains('loop-media')) {
+        phrase.videoLoop = !phrase.videoLoop;
+        var video = box ? box.querySelector('video.media-preview') : null;
+        if (video) video.loop = phrase.videoLoop;
+        btn.classList.toggle('active', phrase.videoLoop);
+        saveCurrentLesson();
+      } else if (btn.classList.contains('edit-phrase')) {
+        phrase.editing = !phrase.editing;
+        if (phrase.editing) stopSpeech();
+        saveCurrentLesson();
+        var idx = lesson.phrases.indexOf(phrase);
+        var newCard = createPhraseCard(lesson, phrase, idx);
+        card.parentNode.replaceChild(newCard, card);
+        renderMediaForPhrase(phrase);
+        applyTranslations();
+      } else if (btn.classList.contains('move-up')) {
+        movePhrase(lesson, phraseId, -1);
+      } else if (btn.classList.contains('move-down')) {
+        movePhrase(lesson, phraseId, 1);
+      } else if (btn.classList.contains('delete-phrase')) {
+        if (confirm(t('deletePhraseConfirm'))) deletePhrase(lesson, phraseId);
+      } else if (btn.classList.contains('toggle-media')) {
+        if (box) box.classList.toggle('hidden');
+      } else if (btn.classList.contains('draw-phrase')) {
+        openDraw(phrase);
+      } else if (btn.classList.contains('video-loop')) {
+        var video = document.getElementById('lesson-video');
+        if (state.videoLoopSegment && state.videoLoopSegment.id === phrase.id) {
+          state.videoLoopSegment = null;
+          if (video) video.pause();
+          document.querySelectorAll('.video-loop').forEach(function (b) { b.classList.remove('active'); });
+        } else if (video && typeof phrase.start === 'number') {
+          state.videoLoopSegment = { start: phrase.start, end: phrase.end, id: phrase.id };
+          document.querySelectorAll('.video-loop').forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+          video.currentTime = phrase.start;
+          video.play();
+        }
+      } else if (btn.classList.contains('attach-media')) {
+        document.getElementById('file-' + phraseId).click();
+      } else if (btn.classList.contains('remove-media')) {
+        if (confirm(t('deleteMediaConfirm'))) {
+          if (phrase.mediaId) { deleteMedia(phrase.mediaId); phrase.mediaId = null; phrase.mediaType = null; }
+          saveCurrentLesson();
+          renderMediaForPhrase(phrase);
+        }
+      } else if (btn.classList.contains('download-media')) {
+        var urlInput = document.getElementById('media-url-' + phraseId);
+        if (urlInput && urlInput.value.trim()) downloadMediaForPhrase(phrase, urlInput.value.trim());
+      } else if (btn.classList.contains('clear-media-url')) {
+        var mediaUrlInput = document.getElementById('media-url-' + phraseId);
+        if (mediaUrlInput) mediaUrlInput.value = '';
+      }
+    };
+
+    app.onchange = function (e) {
+      var target = e.target;
+      if (target.classList.contains('file-input') && target.files && target.files[0]) {
+        var card = target.closest('.phrase-card');
+        var phrase = lesson.phrases.filter(function (x) { return x.id === card.dataset.phraseId; })[0];
+        var file = target.files[0];
+        var mediaId = uuid();
+        if (phrase.mediaId) deleteMedia(phrase.mediaId);
+        saveMedia(mediaId, file).then(function () {
+          phrase.mediaId = mediaId;
+          phrase.mediaType = file.type;
+          saveCurrentLesson();
+          renderMediaForPhrase(phrase);
+        });
+        target.value = '';
+      }
+    };
+
+    bindVideoDialog(lesson);
+  }
+
+  function bindVideoDialog(lesson) {
+    var videoFileInput = document.getElementById('lesson-video-file');
+    if (videoFileInput) {
+      videoFileInput.onchange = function () {
+        var file = videoFileInput.files && videoFileInput.files[0];
+        if (!file) return;
+        var mediaId = uuid();
+        if (lesson.videoMediaId) deleteMedia(lesson.videoMediaId);
+        saveMedia(mediaId, file).then(function () {
+          lesson.videoMediaId = mediaId;
+          lesson.videoMediaType = file.type;
+          saveCurrentLesson();
+          renderVideoPreview(lesson);
+          renderTranscript(lesson);
+        });
+        videoFileInput.value = '';
+      };
+    }
+
+    var removeVideoBtn = document.getElementById('btn-remove-lesson-video');
+    if (removeVideoBtn) {
+      removeVideoBtn.onclick = function () {
+        if (!lesson.videoMediaId) return;
+        if (!confirm(t('deleteMediaConfirm') || 'Delete video?')) return;
+        deleteMedia(lesson.videoMediaId);
+        lesson.videoMediaId = null;
+        lesson.videoMediaType = null;
+        saveCurrentLesson();
+        renderVideoPreview(lesson);
+      };
+    }
+
+    var importSrtBtn = document.getElementById('btn-import-srt');
+    var srtInput = document.getElementById('srt-input');
+    if (importSrtBtn && srtInput) {
+      importSrtBtn.onclick = function () {
+        var text = srtInput.value;
+        var entries = parseSubtitles(text);
+        if (!entries.length) { toast(t('importFailed') || 'Could not parse'); return; }
+        lesson.transcript = entries;
+        saveCurrentLesson();
+        renderTranscript(lesson);
+        toast(t('saved'));
+      };
+    }
+
+    var srtFileInput = document.getElementById('srt-file');
+    if (srtFileInput) {
+      srtFileInput.onchange = function () {
+        var file = srtFileInput.files && srtFileInput.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          if (srtInput) srtInput.value = e.target.result;
+          var entries = parseSubtitles(e.target.result);
+          if (entries.length) {
+            lesson.transcript = entries;
+            saveCurrentLesson();
+            renderTranscript(lesson);
+            toast(t('saved'));
+          }
+        };
+        reader.readAsText(file);
+        srtFileInput.value = '';
+      };
+    }
+
+    var createPhrasesBtn = document.getElementById('btn-create-phrases');
+    if (createPhrasesBtn) {
+      createPhrasesBtn.onclick = function () {
+        if (!lesson.transcript || !lesson.transcript.length) { toast(t('noSubtitles')); return; }
+        lesson.transcript.forEach(function (entry) {
+          lesson.phrases.push({
+            id: uuid(),
+            fr: entry.fr,
+            ar: entry.ar,
+            en: entry.en,
+            start: entry.start,
+            end: entry.end,
+            editing: false
+          });
+        });
+        saveCurrentLesson();
+        render();
+        toast(t('saved'));
+      };
+    }
+  }
+
+  function renderMediaPreviews() {
+    var lesson = getLesson(state.currentLessonId);
+    if (!lesson) return;
+    lesson.phrases.forEach(renderMediaForPhrase);
+  }
+
+  function renderMediaForPhrase(phrase) {
+    var box = document.getElementById('media-box-' + phrase.id);
+    if (!box) return;
+    var placeholder = box.querySelector('.media-placeholder');
+    var attach = box.querySelector('.attach-media');
+    var remove = box.querySelector('.remove-media');
+    var loop = box.querySelector('.loop-media');
+    var existing = box.querySelector('.media-preview');
+    if (existing) existing.remove();
+
+    if (!phrase.mediaId) {
+      placeholder.classList.remove('hidden');
+      remove.classList.add('hidden');
+      if (loop) loop.classList.add('hidden');
+      box.classList.remove('has-media');
+      return;
+    }
+    placeholder.classList.add('hidden');
+    remove.classList.remove('hidden');
+    box.classList.add('has-media');
+    box.classList.remove('hidden');
+
+    getMediaUrl(phrase.mediaId).then(function (url) {
+      if (!url) return;
+      var isVideo = phrase.mediaType && phrase.mediaType.indexOf('video/') === 0;
+      if (isVideo) {
+        if (loop) loop.classList.remove('hidden');
+      } else {
+        if (loop) loop.classList.add('hidden');
+      }
+      var el;
+      if (isVideo) {
+        el = document.createElement('video');
+        el.controls = true;
+        el.playsInline = true;
+        el.loop = !!phrase.videoLoop;
+        el.playbackRate = state.rate || 1;
+      } else {
+        el = document.createElement('img');
+      }
+      el.className = 'media-preview';
+      el.src = url;
+      box.insertBefore(el, box.firstChild);
+      if (loop) loop.classList.toggle('active', isVideo && !!phrase.videoLoop);
+    });
+  }
+
+  /* ---------------- Speech ---------------- */
+
+  var VOICE_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
+  var speechRun = 0;
+
+  function nativeTTS() {
+    if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech) return window.Capacitor.Plugins.TextToSpeech;
+    if (window.Capacitor && window.Capacitor.registerPlugin) {
+      window.Capacitor.Plugins = window.Capacitor.Plugins || {};
+      window.Capacitor.Plugins.TextToSpeech = window.Capacitor.registerPlugin('TextToSpeech');
+      return window.Capacitor.Plugins.TextToSpeech;
+    }
+    return null;
+  }
+
+  function nativeSpeak(text, lang) {
+    var tts = nativeTTS();
+    if (!tts) return Promise.reject('no tts');
+    return tts.speak({ text: text, lang: VOICE_LANG[lang] || 'en-US', rate: state.rate || 1, queueStrategy: 1 });
+  }
+
+  function nativeStop() {
+    var tts = nativeTTS(); if (!tts) return Promise.resolve(); return tts.stop();
+  }
+
+  function pickVoice(lang) {
+    if (!('speechSynthesis' in window)) return null;
+    var voices = window.speechSynthesis.getVoices() || [];
+    var code = VOICE_LANG[lang];
+    var exact = voices.filter(function (v) { return v.lang && v.lang.replace(/_/g, '-') === code; })[0];
+    if (exact) return exact;
+    var prefix = code.split('-')[0];
+    return voices.filter(function (v) { return v.lang && v.lang.toLowerCase().indexOf(prefix) === 0; })[0] || null;
+  }
+
+  function utter(text, lang) {
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = VOICE_LANG[lang];
+    u.rate = (state.rate || 1) * (lang === 'fr' ? 0.95 : 1);
+    var v = pickVoice(lang);
+    if (v) u.voice = v;
+    return u;
+  }
+
+  function handleBackButton() {
+    stopSpeech();
+    if (state.view === 'lesson') {
+      var lesson = getLesson(state.currentLessonId);
+      if (lesson && lesson.folderId) { openFolder(lesson.folderId); return; }
+      setView('lessons'); return;
+    }
+    if (state.view === 'folder') { setView('lessons'); return; }
+    if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) {
+      if (confirm(t('exitConfirm'))) window.Capacitor.Plugins.App.exitApp();
+    }
+  }
+
+  function stopSpeech() {
+    state.loopKey = null;
+    speechRun++;
+    if (nativeTTS()) nativeStop();
+    else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    document.querySelectorAll('.phrase-card').forEach(function (el) { el.classList.remove('playing'); el.style.removeProperty('--glow'); });
+    document.querySelectorAll('.speaking-line').forEach(function (el) { el.classList.remove('speaking-line'); });
+    refreshLoopButtons();
+    refreshStudyControls();
+  }
+
+  function stopAllMedia() {
+    state.videoLoopLine = null;
+    state.videoLoopSegment = null;
+    stopSpeech();
+    document.querySelectorAll('video').forEach(function (v) { v.pause(); v.currentTime = 0; });
+    document.querySelectorAll('audio').forEach(function (a) { a.pause(); a.currentTime = 0; });
+    document.querySelectorAll('.transcript-loop, .video-loop').forEach(function (b) { b.classList.remove('active'); });
+  }
+
+  function speakOnce(phrase, langs, key, onDone) {
+    var seq = langs.filter(function (l) { return phrase[l]; });
+    var i = 0;
+    var run = ++speechRun;
+    highlightPhrase(key, true);
+    if (nativeTTS()) {
+      nativeStop();
+      (function next() {
+        if (run !== speechRun) return;
+        if (i >= seq.length) { if (state.loopKey !== key) highlightPhrase(key, false); if (onDone) onDone(); return; }
+        var lang = seq[i++];
+        highlightPhrase(key, true, lang);
+        nativeSpeak(phrase[lang], lang).then(function () {
+          if (run !== speechRun) return;
+          setTimeout(next, 300);
+        }).catch(function () {
+          if (run !== speechRun) return;
+          setTimeout(next, 300);
+        });
+      })();
+      return;
+    }
+    if (!('speechSynthesis' in window)) { if (onDone) onDone(); return; }
+    window.speechSynthesis.cancel();
+    (function next() {
+      if (run !== speechRun) return;
+      if (i >= seq.length) { if (state.loopKey !== key) highlightPhrase(key, false); if (onDone) onDone(); return; }
+      var lang = seq[i++];
+      highlightPhrase(key, true, lang);
+      var u = utter(phrase[lang], lang);
+      u.onend = function () { if (run !== speechRun) return; setTimeout(next, 300); };
+      u.onerror = function () { if (run !== speechRun) return; setTimeout(next, 300); };
+      window.speechSynthesis.speak(u);
+    })();
+  }
+
+  function speakLine(phrase, lang, key) {
+    if (!phrase[lang]) return;
+    stopSpeech();
+    speakOnce(phrase, [lang], (key || phrase.id) + ':' + lang);
+  }
+
+  function toggleLoop(phrase, key, langs) {
+    if (state.loopKey === key) { stopSpeech(); return; }
+    state.loopKey = key;
+    refreshLoopButtons();
+    refreshStudyControls();
+    (function cycle() {
+      if (state.loopKey !== key) return;
+      speakOnce(phrase, langs || ['fr', 'ar', 'en'], key, function () {
+        if (state.loopKey !== key) return;
+        setTimeout(cycle, 700);
+      });
+    })();
+  }
+
+  function toggleWordLoop(word, lang, key) {
+    if (state.loopKey === key) { stopSpeech(); return; }
+    var fake = {}; fake[lang] = word;
+    toggleLoop(fake, key, [lang]);
+  }
+
+  function getLessonLoopLangs() {
+    return state.lessonLoopMode === 'fr' ? ['fr'] : ['fr', 'ar', 'en'];
+  }
+
+  function playLesson(lesson) {
+    var runKey = 'lesson:' + lesson.id;
+    if (state.loopKey === runKey) { stopSpeech(); return; }
+    stopSpeech();
+    state.loopKey = runKey;
+    refreshLoopButtons();
+    var i = 0;
+    (function next() {
+      if (state.loopKey !== runKey) return;
+      if (i >= lesson.phrases.length) {
+        i = 0;
+        setTimeout(next, 1200);
+        return;
+      }
+      var p = lesson.phrases[i];
+      i++;
+      var card = document.querySelector('.phrase-card[data-phrase-id="' + p.id + '"]');
+      if (card) card.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      speakOnce(p, getLessonLoopLangs(), p.id, function () {
+        if (state.loopKey !== runKey) return;
+        setTimeout(next, 400);
+      });
+    })();
+  }
+
+  function highlightPhrase(key, on, lang) {
+    var glow = 'rgba(13,148,136,0.55)';
+    var phraseId = String(key).split(':')[0];
+    var card = document.querySelector('.phrase-card[data-phrase-id="' + phraseId + '"]');
+    if (card) {
+      card.classList.toggle('playing', on);
+      if (on && lang) card.style.setProperty('--glow', glow);
+      else if (!on) card.style.removeProperty('--glow');
+      if (lang || !on) {
+        card.querySelectorAll('.textarea').forEach(function (ta) { ta.classList.remove('speaking-line'); });
+        card.querySelectorAll('.phrase-line').forEach(function (d) { d.classList.remove('speaking-line'); });
+        card.querySelectorAll('.word').forEach(function (w) { w.classList.remove('speaking-line'); });
+      }
+      if (lang) {
+        var wordKey = String(key);
+        var words = card.querySelectorAll('.word');
+        var matched = false;
+        words.forEach(function (w) {
+          if (w.dataset.loopKey === wordKey) { w.classList.toggle('speaking-line', on); matched = true; }
+        });
+        if (!matched) {
+          var ta = card.querySelector('.textarea[data-field="' + lang + '"]');
+          if (ta) ta.classList.toggle('speaking-line', on);
+          var line = card.querySelector('.phrase-line[data-lang="' + lang + '"]');
+          if (line) line.classList.toggle('speaking-line', on);
+        }
+      }
+    }
+  }
+
+  function refreshLoopButtons() {
+    document.querySelectorAll('.loop-btn, .loop-line').forEach(function (btn) {
+      var card = btn.closest('.phrase-card');
+      if (!card) return;
+      var key = card.dataset.phraseId;
+      if (btn.dataset.lang) key += ':' + btn.dataset.lang;
+      var on = state.loopKey === key;
+      btn.innerHTML = icon(on ? 'stop' : 'loop');
+      btn.classList.toggle('active', !!on);
+    });
+  }
+
+  /* ---------------- Import / Export ---------------- */
+
+  function downloadFile(blob, filename) {
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(url); a.remove(); }, 200);
+  }
+
+  function shareOrDownload(jsonString, filename) {
+    var blob = new Blob([jsonString], { type: 'application/json' });
+    var file = new File([blob], filename, { type: 'application/json' });
+
+    if (window.Capacitor && window.Capacitor.Plugins) {
+      var FS = window.Capacitor.Plugins.Filesystem;
+      var ShareP = window.Capacitor.Plugins.Share;
+      if (FS && ShareP) {
+        FS.writeFile({ path: filename, data: jsonString, directory: 'CACHE', encoding: 'utf8' })
+          .then(function () { return FS.getUri({ path: filename, directory: 'CACHE' }); })
+          .then(function (res) {
+            return ShareP.share({ files: [res.uri], title: filename, text: filename, dialogTitle: t('export') });
+          })
+          .catch(function () { downloadFile(blob, filename); });
+        return;
+      }
+    }
+
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      navigator.share({ files: [file], title: filename, text: filename })
+        .catch(function (err) {
+          if (err && err.name !== 'AbortError') { downloadFile(blob, filename); toast(t('shareFailed')); }
+        });
+      return;
+    }
+    downloadFile(blob, filename);
+  }
+
+  function exportLessons(lessons, filename) {
+    var clone = JSON.parse(JSON.stringify(lessons));
+    var jobs = [];
+    clone.forEach(function (l) {
+      (l.phrases || []).forEach(function (p) {
+        if (p.mediaId) {
+          jobs.push(dbGet('media', p.mediaId).then(function (m) {
+            if (!m || !m.blob) return;
+            return new Promise(function (resolve) {
+              var reader = new FileReader();
+              reader.onloadend = function () {
+                p.mediaBase64 = reader.result;
+                p.mediaType = m.type;
+                resolve();
+              };
+              reader.onerror = function () { resolve(); };
+              reader.readAsDataURL(m.blob);
+            });
+          }).catch(function () {}));
+        }
+      });
+    });
+    Promise.all(jobs).then(function () {
+      var jsonString = JSON.stringify({ lessons: clone }, null, 2);
+      shareOrDownload(jsonString, filename);
+    });
+  }
+
+  function exportData() {
+    exportLessons(state.lessons, 'lang-lessons.json');
+  }
+
+  function exportLesson(lesson) {
+    var first = lesson.phrases && lesson.phrases[0];
+    var name = (first && (first.fr || first.ar || first.en || 'lesson')) || 'lesson';
+    name = name.replace(/[^a-zA-Z0-9\u0600-\u06FF]/g, '_').slice(0, 30) || 'lesson';
+    exportLessons([lesson], 'lang-lesson-' + name + '.json');
+  }
+
+  function importData(file) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      try {
+        var data = JSON.parse(reader.result);
+        if (!data || !Array.isArray(data.lessons)) { throw new Error('invalid'); }
+        state.lessons = [];
+        var pending = 0;
+        data.lessons.forEach(function (l) {
+          l.id = uuid();
+          if (l.phrases) {
+            l.phrases.forEach(function (p) {
+              p.id = uuid();
+              if (p.mediaBase64) {
+                pending++;
+                var mediaId = uuid();
+                var blob = dataURLToBlob(p.mediaBase64);
+                p.mediaId = mediaId;
+                p.mediaType = p.mediaType || blob.type;
+                saveMedia(mediaId, blob).then(function () {
+                  pending--;
+                  if (pending === 0) importSave();
+                });
+                delete p.mediaBase64;
+              }
+            });
+          }
+          state.lessons.push(l);
+          dbPut('lessons', l);
+        });
+        if (pending === 0) importSave();
+      } catch (e) {
+        toast('Import failed');
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  function importSave() {
+    toast(t('saved'));
+    renderLessonList();
+  }
+
+  /* ---------------- Init ---------------- */
+
+  function init() {
+    applyTheme();
+    applyFontSize();
+    applyAppTheme();
+    setUILang(state.uiLang);
+
+    document.getElementById('btn-theme').onclick = function () {
+      state.theme = state.theme === 'dark' ? 'light' : 'dark';
+      applyTheme();
+    };
+
+    document.getElementById('btn-lang').onclick = function (e) {
+      e.stopPropagation();
+      var dropdown = document.getElementById('lang-dropdown');
+      var wasHidden = dropdown.classList.contains('hidden');
+      closeAllDropdowns();
+      if (wasHidden) dropdown.classList.remove('hidden');
+    };
+    document.querySelectorAll('#lang-dropdown .dropdown-item').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        setUILang(b.dataset.lang);
+        closeAllDropdowns();
+      };
+    });
+
+    document.getElementById('btn-export').onclick = exportData;
+    var stopBtn = document.getElementById('btn-stop-all');
+    if (stopBtn) stopBtn.onclick = stopAllMedia;
+    var importInput = document.getElementById('import-file');
+    document.getElementById('btn-import').onclick = function () { importInput.click(); };
+    importInput.onchange = function () { if (importInput.files && importInput.files[0]) importData(importInput.files[0]); importInput.value = ''; };
+
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.onvoiceschanged = function () {};
+      window.speechSynthesis.getVoices();
+    }
+
+    if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.App) {
+      window.Capacitor.Plugins.App.addListener('backButton', handleBackButton);
+    }
+
+    window.onbeforeunload = function () {
+      return t('exitConfirm');
+    };
+  }
+
+  dbReady.then(function () {
+    return Promise.all([loadLessons(), loadFolders()]);
+  }).then(function () {
+    init();
+    render();
+  }).catch(function (e) {
+    console.error('init error', e);
+    document.getElementById('app').innerHTML = '<div class="empty">Failed to load database.</div>';
+  });
+
+})();
+</script>
+</body>
+</html>

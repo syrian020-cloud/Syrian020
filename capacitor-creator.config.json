@@ -1,0 +1,17 @@
+{
+  "appId": "com.syrian020.motsy.creator",
+  "appName": "VocaPic",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": false
+  },
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    }
+  }
+}

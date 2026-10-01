@@ -1,0 +1,80 @@
+---
+name: testing-syrian020-creator
+description: How to end-to-end test the Motsy Creator lesson builder (creator.html) in Chrome and build its separate APK.
+---
+
+## Devin Secrets Needed
+
+None.
+
+## Local server
+
+Serve the repo root with:
+
+```bash
+cd /home/ubuntu/repos/Syrian020
+python3 -m http.server 8080
+```
+
+The page is at `http://localhost:8080/creator.html`.
+
+## Browser launch
+
+Use the actual Chrome for Testing binary (not `~/.local/bin/google-chrome`), with a clean profile on port `29229`:
+
+```bash
+rm -rf /tmp/creator-chrome
+mkdir -p /tmp/creator-chrome
+/opt/.devin/chrome/chrome/linux-137.0.7118.2/chrome-linux64/chrome-wrapper \
+  --no-sandbox --disable-gpu \
+  --remote-debugging-port=29229 --remote-allow-origins='*' \
+  --user-data-dir=/tmp/creator-chrome \
+  --no-first-run --no-default-browser-check \
+  --start-maximized http://localhost:8080/creator.html
+```
+
+The VNC display is `:1` but Chrome will use `:0` from its own launch. For `xdotool` commands, set:
+
+```bash
+export DISPLAY=:0
+export XAUTHORITY=/home/ubuntu/.Xauthority
+```
+
+## Known environment quirks
+
+- The Chrome for Testing and unsupported-flag banners take about 190–200 px of vertical space. Compute the click offset with `window.outerHeight - window.innerHeight` (~192 px) plus `getBoundingClientRect()`.
+- `xdotool` clicks are more reliable than the `computer` tool for this app; use CDP to get element rects and convert to screen coordinates.
+- Arabic text cannot be typed reliably with `xdotool` in this environment (glyphs may be reversed). Use CDP/JS to set `.value` and dispatch an `input` event, or paste from the clipboard if `xclip`/`xsel` are available.
+- The hidden `<input type="file">` inside each phrase card is triggered by the `.attach-media` button. To drive the file chooser with `xdotool`: click the button, press `Ctrl+L`, type the absolute path (e.g., `/home/ubuntu/repos/Syrian020/icon-512.png`), press `Return`, then click `Open`.
+
+## Lesson persistence
+
+Lessons and media blobs are stored in IndexedDB (`MotsyCreatorDB`) and `localStorage` for theme/language. Use a persistent `--user-data-dir` (not incognito) for reload persistence tests.
+
+## UI-language / labels
+
+`applyTranslations()` is called after every `renderLessonEditor()` and `renderLessonList()`, so field labels and media buttons should render in the active UI language immediately. Switch between EN/FR/AR to verify direction and labels.
+
+## VocaPic-specific UI notes (PR #72 update)
+
+- The VocaPic release uses an Aurora Violet palette and colored SVG icons with named classes (`icon-play`, `icon-folder`, `icon-loop`, etc.).
+- Folders are managed from the lesson list: `+ New folder` creates a folder, the folder menu has Rename / New lesson in folder / Delete, and each lesson card has a `Move to folder` option.
+- Folder/rename/delete and lesson-rename actions use native `prompt()` / `confirm()` dialogs. For scripted testing, override them in the page (e.g. `window.prompt = ...; window.confirm = () => true;`) and re-apply after each reload.
+- The media URL input (`input.media-url`) + `Load media` button can attach an image by direct URL. Use a same-origin URL such as `http://localhost:8080/lang-icon-512.png` to avoid CORS issues on the test VM.
+- Speech rate is controlled by `#rate-slider`; play mode by `#play-mode`. Word-level speech works on `.phrase-display .word` after exiting phrase editing mode.
+- Folders are shown as cards on the main list; clicking a folder card opens a dedicated folder page (`renderFolder`) with its own hero, back button, `New lesson in folder` button, and a folder-level three-dot menu.
+- The folder-level menu is available both on the main-list folder card and inside the folder page; it supports Rename / Attach folder cover / Delete.
+- Per-lesson menu options (Edit name / Attach cover / Move to folder / Delete) work on the folder page as well as the main list.
+- The lesson editor has a `#btn-back` back button; when the lesson belongs to a folder it returns to that folder (`openFolder(lesson.folderId)`), otherwise it returns to the main list.
+- The folder page has `#btn-back-folder` which returns to the main list.
+- `handleBackButton()` (used for the Android hardware back button in the Capacitor build) now mirrors this logic: from a lesson it returns to the originating folder if one exists, from a folder it returns to the main list.
+- `state` is scoped inside the IIFE and is not available from the console; use `document.querySelectorAll` / element properties for assertions.
+
+## APK build
+
+```bash
+cd /home/ubuntu/repos/Syrian020
+USE_ALIYUN=1 ./build-creator-apk.sh
+```
+
+The script swaps `capacitor-creator.config.json` into `capacitor.config.json`, syncs, and restores the original config on exit. The debug APK lands at `android/app/build/outputs/apk/debug/app-debug.apk`. The application id is `com.syrian020.motsy.creator` and the launcher name is `VocaPic`.
