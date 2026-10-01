@@ -391,7 +391,7 @@
   .cap-en { color: var(--cap-text, var(--text-primary)); font-family: var(--cap-en-font, 'Inter', 'Roboto', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif); font-size: 1.05em; text-align: left; }
   .lesson-image-overlay { position: absolute; inset: 0; z-index: 1; background: #000; border-radius: var(--radius); display: none; align-items: center; justify-content: center; pointer-events: none; overflow: hidden; }
   .lesson-image-overlay.show { display: flex; }
-  .lesson-image-overlay img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; background: #000; pointer-events: none; }
+  .lesson-image-overlay img { display: block; width: 100%; height: 100%; object-fit: cover; background: #000; pointer-events: none; }
   .lesson-image-overlay button { position: absolute; top: 0.5rem; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; pointer-events: auto; -webkit-tap-highlight-color: transparent; z-index: 3; }
   .lesson-image-overlay .lesson-image-toggle { left: 0.5rem; }
   .lesson-image-overlay .lesson-image-del { right: 0.5rem; }
@@ -3762,20 +3762,19 @@
 
   function imageAspectSelectHTML(selected) {
     const ratios = [
-      { v: '', l: t('imageAspectOriginal') },
+      { v: '9/16', l: '9:16' },
+      { v: '16/9', l: '16:9' },
+      { v: '4/5', l: '4:5' },
       { v: '1/1', l: '1:1' },
       { v: '4/3', l: '4:3' },
-      { v: '3/4', l: '3:4' },
-      { v: '16/9', l: '16:9' },
-      { v: '9/16', l: '9:16' },
-      { v: '3/2', l: '3:2' },
-      { v: '4/5', l: '4:5' }
+      { v: '3/2', l: '3:2' }
     ];
-    return `<select class="aspect-select image-aspect" title="${t('imageAspectTitle')}">${ratios.map(r => `<option value="${r.v}"${(selected || '') === r.v ? ' selected' : ''}>${r.l}</option>`).join('')}</select>`;
+    const cur = selected || '9/16';
+    return `<select class="aspect-select image-aspect" title="${t('imageAspectTitle')}">${ratios.map(r => `<option value="${r.v}"${cur === r.v ? ' selected' : ''}>${r.l}</option>`).join('')}</select>`;
   }
 
   function imageMediaHTML(src, key, ref) {
-    const ratio = getVideoAspect(ref || src);
+    const ratio = getVideoAspect(ref || src) || '9/16';
     const del = canEdit() ? `<button type="button" class="media-del" data-phrase-key="${esc(key || '')}" title="${t('delete')}">×</button>` : '';
     return `<div class="media-image-wrap ${aspectClassFor(ratio)}" data-phrase-key="${esc(key || '')}" data-media-ref="${esc(ref || src)}"><img src="${esc(src)}" alt="" onerror="this.style.display='none'">${imageAspectSelectHTML(ratio)}${del}</div>`;
   }
