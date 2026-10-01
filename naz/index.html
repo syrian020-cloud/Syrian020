@@ -741,6 +741,19 @@
     });
   }
 
+  // Encode in slices (multiple of 3 bytes keeps base64 aligned) so a large
+  // video never materializes as several giant strings at once — publishing
+  // big media was OOM-crashing the WebView mid-upload.
+  async function blobToB64Chunked(blob) {
+    const CHUNK = 3 * 1024 * 1024;
+    if (blob.size <= CHUNK) return blobToB64(blob);
+    const parts = [];
+    for (let off = 0; off < blob.size; off += CHUNK) {
+      parts.push(await blobToB64(blob.slice(off, off + CHUNK)));
+    }
+    return parts.join('');
+  }
+
   function isValidLessonItem(it) {
     if (!it || typeof it !== 'object') return false;
     if (it.type === 'folder') return true;
@@ -902,7 +915,7 @@
       const blob = await getMediaBlob(ids[i]);
       if (!blob) continue;
       const b = await ghApi('POST', '/repos/' + GH_REPO + '/git/blobs', adminKey,
-        { content: await blobToB64(blob), encoding: 'base64' });
+        { content: await blobToB64Chunked(blob), encoding: 'base64' });
       tree.push({ path: MEDIA_PATH_PREFIX + ids[i], mode: '100644', type: 'blob', sha: b.sha });
     }
 
