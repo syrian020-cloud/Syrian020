@@ -376,9 +376,9 @@
   .cap-lang-loop.active { background: var(--success); color: #081c1e; box-shadow: 0 0 0 2px rgba(255,255,255,0.5); }
   .cap-flag { margin-inline-end: 0.4rem; font-size: 1em; }
   .audio-player { padding: 1rem 0.8rem; background: linear-gradient(135deg, #312e81, #1e1b4b); border-radius: var(--radius); min-height: 170px; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.5rem; }
-  .audio-stage { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 0.8rem; padding: 0.8rem; background: linear-gradient(135deg, #312e81, #1e1b4b); box-sizing: border-box; }
+  .audio-stage { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; gap: 0.8rem; padding: 0.8rem; padding-top: 3rem; background: linear-gradient(135deg, #312e81, #1e1b4b); box-sizing: border-box; }
   .audio-stage .audio-badge { font-size: 2.4rem; }
-  .audio-stage audio { width: 100%; }
+  .audio-stage audio { width: 100%; position: relative; z-index: 3; }
   .audio-player .audio-badge { font-size: 2rem; text-align: center; }
   .audio-holder { position: relative; }
   .cap-loop-btn { pointer-events: auto; position: absolute; top: 0.45rem; inset-inline-end: 0.55rem; width: 1.85rem; height: 1.85rem; border: 1px solid var(--cap-card-border, var(--border)); border-radius: 9px; background: var(--cap-card-bg, var(--bg-secondary)); color: var(--cap-text, var(--text-primary)); font-size: 0.85rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
@@ -3227,8 +3227,8 @@
 
   function getVideoForPhrase(key) {
     const el = document.querySelector(`.phrase[data-key="${key}"]`);
-    if (el) { const v = el.querySelector('video'); if (v) return v; }
-    return document.querySelector('.lesson-media video') || document.querySelector('video');
+    if (el) { const v = el.querySelector('video,audio'); if (v) return v; }
+    return document.querySelector('.lesson-media video, .lesson-media audio') || document.querySelector('.phrase-media video, .phrase-media audio');
   }
 
   async function toggleTTSLoop(phrase, key) {
@@ -4674,7 +4674,7 @@ EN: Maria, I’m out of cigarettes.`
       if (videoNavBtn) {
         e.stopPropagation();
         const media = videoNavBtn.closest('.phrase-media');
-        const video = media && media.querySelector('video');
+        const video = media && media.querySelector('video,audio');
         if (video) seekVideoCue(video, videoNavBtn.classList.contains('video-next') ? 1 : -1);
         return;
       }
@@ -4683,7 +4683,7 @@ EN: Maria, I’m out of cigarettes.`
       if (videoLoopBtn) {
         e.stopPropagation();
         const media = videoLoopBtn.closest('.phrase-media');
-        const video = media && media.querySelector('video');
+        const video = media && media.querySelector('video,audio');
         if (video) {
           video.loop = !video.loop;
           videoLoopBtn.classList.toggle('active', video.loop);
