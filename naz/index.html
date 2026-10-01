@@ -2961,11 +2961,13 @@
         const declared = (el.dataset.mediaType || '').toLowerCase();
         const mime = resolved.type || '';
         const mediaName = (resolved.blob && resolved.blob.name) || '';
-        let kind = declared || (mime.startsWith('audio/') ? 'audio' : '');
-        if (!kind) kind = await sniffMediaKind(resolved.blob);
+        const sniffed = await sniffMediaKind(resolved.blob);
+        let kind = sniffed === 'image' ? '' : sniffed;
+        if (!kind) kind = declared;
+        if (!kind) kind = mime.startsWith('audio/') ? 'audio' : '';
         if (!kind) kind = mime.startsWith('video/') ? 'video' : '';
-        if (!kind) kind = (isAudioUrl(resolved.url) || isAudioFile({ name: mediaName, type: '' })) ? 'audio'
-          : (isVideoUrl(resolved.url) || isVideoFile({ name: mediaName, type: '' })) ? 'video' : '';
+        if (!kind) kind = (isVideoUrl(resolved.url) || isVideoFile({ name: mediaName, type: '' })) ? 'video'
+          : (isAudioUrl(resolved.url) || isAudioFile({ name: mediaName, type: '' })) ? 'audio' : '';
         const isVideo = kind === 'video';
         const isAudio = kind === 'audio';
         if (isVideo) {
@@ -3794,7 +3796,7 @@
     return `<div class="phrase" data-key="${key}" data-start="${p.start != null ? p.start : ''}" data-end="${p.end != null ? p.end : ''}">
       ${legacyImage ? '' : mediaHTML(p.media, key, p.mediaType)}
       ${hasImage ? (isIDBMedia(imgRef) ? `<div class="phrase-media media-placeholder" data-media-ref="${esc(imgRef)}" data-media-src="${esc(imgSrc)}" data-phrase-key="${esc(key)}"></div>` : `<div class="phrase-media" data-phrase-key="${esc(key)}">${imageMediaHTML(imgSrc, key, imgRef)}</div>`) : ''}
-      ${p.audio ? (isIDBMedia(p.audio) ? `<div class="phrase-media audio-holder media-placeholder" data-media-ref="${esc(p.audio)}" data-media-src="${esc(toWebUrl(p.audio))}" data-media-type="audio" data-phrase-key="${esc(key)}"></div>` : `<div class="phrase-media audio-holder" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}" data-media-ref="${esc(p.audio)}">${audioHTML(toWebUrl(p.audio))}</div>`) : ''}
+      ${p.audio ? (isIDBMedia(p.audio) ? `<div class="phrase-media audio-holder media-placeholder" data-media-ref="${esc(p.audio)}" data-media-src="${esc(toWebUrl(p.audio))}" data-media-type="audio" data-caption-text="${esc(p.captionText || '')}" data-phrase-key="${esc(key)}"></div>` : `<div class="phrase-media audio-holder" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}" data-media-ref="${esc(p.audio)}">${audioHTML(toWebUrl(p.audio))}</div>`) : ''}
       <div class="phrase-top">
         <div class="lines">
           <div class="line fr" data-lang="fr" dir="ltr">${wordSpans(p.fr, 'fr')}<button class="loop-lang" data-lang="fr" title="🔁 FR">🔁</button></div>
