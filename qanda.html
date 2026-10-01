@@ -76,6 +76,7 @@
   .toast { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.6rem 1.1rem; z-index: 100; opacity: 0; transition: opacity 0.2s; pointer-events: none; font-weight: 600; }
   .toast.show { opacity: 1; }
   footer { text-align: center; padding: 1.5rem 1rem; color: var(--text-secondary); font-size: 0.8rem; }
+  footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -109,7 +110,7 @@
   <div id="list"></div>
 </main>
 
-<footer>تطبيق تعليمي للأسئلة والأجوبة</footer>
+<footer>تطبيق تعليمي للأسئلة والأجوبة · <a href="map.html">🗺️ الخريطة</a></footer>
 <div class="toast" id="toast"></div>
 
 <script src="data/qanda.js"></script>
