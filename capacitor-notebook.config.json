@@ -1,0 +1,12 @@
+{
+  "appId": "com.vivid.app",
+  "appName": "Vivid",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": false
+  }
+}
