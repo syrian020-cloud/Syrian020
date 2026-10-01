@@ -4,14 +4,14 @@ set -e
 export ANDROID_HOME=${ANDROID_HOME:-/home/ubuntu/android-sdk}
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator"
 
-# Build the Capacitor web assets from the French phrasebook
+# Build the Capacitor web assets — the map page is the app entry point
 rm -rf www
 mkdir -p www/data www/js
-cp french.html www/index.html
+cp map.html www/index.html
 cp data/* www/data/
 cp manifest.json icon-192.png icon-512.png sw.js www/
 cp index.html www/videos.html
-cp vocab.html map.html www/
+cp french.html vocab.html map.html www/
 # inside the bundle the video editor lives at videos.html; fix links that target index.html
 sed -i 's|href="index.html"|href="videos.html"|g' www/*.html
 cp -r vendor www/
