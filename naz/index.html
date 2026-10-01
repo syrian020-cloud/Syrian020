@@ -196,6 +196,9 @@
   .contact-btn.gmail { background: #ea4335; }
   .contact-btn.news-btn { background: linear-gradient(135deg,#f59e0b,#ef4444); border:none; font-size:1.05rem; cursor:pointer; }
   .contact-btn:hover { filter: brightness(1.08); }
+  .contact-btn.refresh-btn { background: rgba(148,163,184,.14); border: 1px solid rgba(148,163,184,.25); font-size: 1.05rem; cursor: pointer; }
+  .home-sync { display: flex; align-items: center; gap: 0.45rem; }
+  .sync-ver { font-size: 0.72rem; opacity: .55; }
   .news-card {
     display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.9rem;
     padding: 0.9rem 1rem; border: none; border-radius: var(--radius);
@@ -1706,6 +1709,7 @@
     syncPull: { ar: 'سحب من الخادم', en: 'Pull from server', fr: 'Tirer du serveur' },
     syncDone: { ar: 'تمت المزامنة', en: 'Synced', fr: 'Synchronisé' },
     syncFailed: { ar: 'فشلت المزامنة', en: 'Sync failed', fr: 'Échec de la synchronisation' },
+    refresh: { ar: 'تحديث', en: 'Refresh', fr: 'Actualiser' },
     pullOverwriteWarn: { ar: 'لديك تغييرات غير منشورة وستُستبدل بنسخة الخادم. متابعة؟', en: 'You have unpublished changes that will be replaced by the server copy. Continue?', fr: 'Vous avez des modifications non publiées qui seront remplacées par la copie du serveur. Continuer ?' },
     unsyncedChanges: { ar: 'تغييرات غير منشورة', en: 'Unpublished changes', fr: 'Modifications non publiées' },
     serverNewer: { ar: 'نسخة أحدث على الخادم — اسحب للتحديث', en: 'Newer version on server — pull to update', fr: 'Version plus récente sur le serveur — tirez pour mettre à jour' },
@@ -3844,7 +3848,8 @@
       <span><span class="news-card-title">${t('news')}</span><br><span class="news-card-sub">${t('newsSub')}</span></span>
       ${unread ? `<span class="news-badge">${unread}</span>` : ''}
     </button>`;
-    const html = newsCard + `<div class="top-bar"><span class="section-title">${t('library')}</span></div>
+    const html = newsCard + `<div class="top-bar"><span class="section-title">${t('library')}</span>
+      ${canEdit() ? '' : `<span class="home-sync"><span class="sync-ver">${localVersion() ? 'v' + localVersion() : ''}</span><button class="contact-btn refresh-btn" data-pull title="${esc(t('refresh'))}">↻</button></span>`}</div>
       ${actionBar}${empty}` +
       LESSONS.map(it => {
         if (it.type === 'lesson') lessonIdx++;
@@ -4704,6 +4709,16 @@ EN: Maria, I’m out of cigarettes.`
 
       const menuBtn = e.target.closest('[data-menu]');
       if (menuBtn) { e.stopPropagation(); openActionSheet(+menuBtn.dataset.menu, menuBtn.dataset.type); return; }
+
+      const pullBtn = e.target.closest('[data-pull]');
+      if (pullBtn) {
+        e.stopPropagation();
+        pullLessons().then(() => {
+          if (state.route) go(state.route, false);
+          showToast(t('syncDone') + (localVersion() ? ' · v' + localVersion() : ''));
+        }).catch(() => showToast(t('syncFailed')));
+        return;
+      }
 
       const routeBtn = e.target.closest('[data-route]');
       if (routeBtn) { go(JSON.parse(routeBtn.dataset.route)); return; }
