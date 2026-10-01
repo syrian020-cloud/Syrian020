@@ -842,8 +842,11 @@
   async function pullLessons() {
     const data = await fetchPublishedLessons();
     if (!data) throw new Error('lessons 404');
-    if ((data.version || 0) < localVersion()) return; // stale read during Pages redeploy
-    if (canEdit() && isDirty()) return; // never clobber unpublished admin work
+    const v = data.version || 0;
+    if (canEdit()) {
+      if (v < localVersion()) return; // stale read during Pages redeploy
+      if (isDirty()) return; // never clobber unpublished admin work
+    } else if (v === localVersion() && !isDirty()) return;
     applyServerLessons(data);
   }
 
@@ -875,10 +878,11 @@
       const data = await fetchPublishedLessons();
       if (data) {
         const v = data.version || 0;
-        if (v > localVersion() && !(canEdit() && isDirty())) {
+        const shouldApply = canEdit() ? (v > localVersion() && !isDirty()) : (v !== localVersion() || isDirty());
+        if (shouldApply) {
           applyServerLessons(data);
           go(state.route, false);
-        } else if (v > localVersion()) {
+        } else if (canEdit() && v > localVersion()) {
           const s = document.getElementById('sync-status');
           if (s) s.textContent = t('serverNewer');
         }
