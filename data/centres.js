@@ -823,6 +823,159 @@ window.CENTRES_DATA = [
           { fr: 'Est-ce que je peux utiliser l’application bancaire ?', ar: 'فيني استخدم تطبيق البنك؟', en: 'Can I use the banking app?' },
           { fr: 'Comment puis-je consulter mon solde ?', ar: 'كيف فيني شوف رصيد حسابي؟', en: 'How can I check my account balance?' }
         ]
+      },
+      {
+        icon: '🪪',
+        title: { ar: 'الموظف يطلب وثيقة هوية', en: 'The employee asks for ID', fr: 'L’employé demande une pièce d’identité' },
+        phrases: [
+          { fr: 'Vous avez une pièce d’identité ?', ar: 'معك وثيقة هوية؟', en: 'Do you have an identity document?' },
+          { fr: 'Oui, voici mon document d’identité.', ar: 'إي، تفضل هاي وثيقة هويتي.', en: 'Yes, here is my identity document.' }
+        ]
+      },
+      {
+        icon: '🏠',
+        title: { ar: 'يطلب إثبات السكن', en: 'They ask for proof of address', fr: 'Il demande un justificatif de domicile' },
+        phrases: [
+          { fr: 'Vous avez un justificatif de domicile ?', ar: 'معك إثبات سكن؟', en: 'Do you have proof of address?' },
+          { fr: 'Oui, j’ai une attestation de domiciliation de la Croix-Rouge.', ar: 'إي، معي إثبات دوميسيلياسيون من الصليب الأحمر.', en: 'Yes, I have a domiciliation certificate from the Red Cross.' }
+        ]
+      },
+      {
+        icon: '📄',
+        title: { ar: 'الموظف يقول إن وثيقة ناقصة', en: 'The employee says a document is missing', fr: 'L’employé dit qu’un document manque' },
+        phrases: [
+          { fr: 'Il me manque un document ?', ar: 'ناقصني شي ورقة؟', en: 'Am I missing a document?' },
+          { fr: 'Quel document dois-je apporter ?', ar: 'شو الورقة اللي لازم جيبها؟', en: 'What document do I need to bring?' },
+          { fr: 'Pouvez-vous me donner la liste des documents nécessaires, s’il vous plaît ?', ar: 'فيك تعطيني قائمة الأوراق المطلوبة لو سمحت؟', en: 'Could you give me the list of required documents, please?' }
+        ]
+      },
+      {
+        icon: '❌',
+        title: { ar: 'البنك يرفض فتح الحساب — اطلب ورقة الرفض', en: 'The bank refuses — ask for written refusal', fr: 'La banque refuse — demandez le refus écrit' },
+        phrases: [
+          { fr: 'Nous ne pouvons pas ouvrir votre compte.', ar: 'ما فينا نفتحلك الحساب.', en: 'We cannot open your account.' },
+          { fr: 'Pouvez-vous me donner le refus par écrit, s’il vous plaît ?', ar: 'فيكم تعطوني الرفض خطيًا لو سمحت؟', en: 'Could you give me the refusal in writing, please?' },
+          { fr: 'Pouvez-vous me donner une attestation de refus d’ouverture de compte, s’il vous plaît ?', ar: 'فيكم تعطوني ورقة تثبت رفض فتح الحساب لو سمحت؟', en: 'Could you give me a document confirming the refusal to open the account, please?' }
+        ]
+      },
+      {
+        icon: '🏦',
+        title: { ar: 'البنك يطلب منك حسابًا سابقًا', en: 'The bank asks about a previous account', fr: 'La banque demande un compte précédent' },
+        phrases: [
+          { fr: 'Avez-vous déjà un compte bancaire en France ?', ar: 'عندك حساب بنكي من قبل بفرنسا؟', en: 'Do you already have a bank account in France?' },
+          { fr: 'Non, je n’ai pas de compte bancaire en France.', ar: 'لا، ما عندي حساب بنكي بفرنسا.', en: 'No, I don’t have a bank account in France.' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: 'يسألون عن مصدر الأموال', en: 'They ask about the source of funds', fr: 'Ils demandent la source des revenus' },
+        phrases: [
+          { fr: 'Quelle est votre source de revenus ?', ar: 'شو مصدر دخلك؟', en: 'What is your source of income?' },
+          { fr: 'Je travaille actuellement.', ar: 'أنا حاليًا بشتغل.', en: 'I am currently working.' },
+          { fr: 'Je n’ai pas de revenus professionnels actuellement.', ar: 'حاليًا ما عندي دخل من العمل.', en: 'I currently don’t have employment income.' }
+        ]
+      },
+      {
+        icon: '💳',
+        title: { ar: 'البطاقة لم تصل', en: 'The card hasn’t arrived', fr: 'La carte n’est pas arrivée' },
+        phrases: [
+          { fr: 'Je n’ai pas encore reçu ma carte bancaire.', ar: 'لسا ما وصلتني البطاقة البنكية.', en: 'I haven’t received my bank card yet.' },
+          { fr: 'Pouvez-vous vérifier où en est l’envoi de ma carte ?', ar: 'فيكم تتأكدوا وين صار إرسال بطاقتي؟', en: 'Could you check the status of my card delivery?' }
+        ]
+      },
+      {
+        icon: '🔢',
+        title: { ar: 'نسيت الرقم السري', en: 'Forgot the PIN', fr: 'Code PIN oublié' },
+        phrases: [
+          { fr: 'J’ai oublié mon code de carte bancaire.', ar: 'نسيت الرقم السري تبع البطاقة.', en: 'I forgot my bank card PIN.' },
+          { fr: 'Comment puis-je le récupérer ou le modifier ?', ar: 'كيف فيني استرجعه أو غيّره؟', en: 'How can I retrieve or change it?' }
+        ]
+      },
+      {
+        icon: '📱',
+        title: { ar: 'مشكلة تطبيق البنك', en: 'Banking app problems', fr: 'Problèmes avec l’application' },
+        phrases: [
+          { fr: 'Je n’arrive pas à me connecter à l’application.', ar: 'ما عم أقدر فوت على تطبيق البنك.', en: 'I can’t log into the banking app.' },
+          { fr: 'Mon code ne fonctionne pas.', ar: 'الكود تبعي ما عم يشتغل.', en: 'My code isn’t working.' }
+        ]
+      },
+      {
+        icon: '💸',
+        title: { ar: 'تحويل مالي لا يعمل', en: 'A transfer doesn’t work', fr: 'Un virement ne fonctionne pas' },
+        phrases: [
+          { fr: 'Je n’arrive pas à faire un virement.', ar: 'ما عم أقدر أعمل تحويل.', en: 'I can’t make a transfer.' },
+          { fr: 'Pouvez-vous m’expliquer comment faire un virement ?', ar: 'فيك تشرحلي كيف أعمل تحويل؟', en: 'Can you explain how to make a transfer?' }
+        ]
+      },
+      {
+        icon: '🔒',
+        title: { ar: 'الحساب أو البطاقة محظورة', en: 'Blocked account or card', fr: 'Compte ou carte bloqué' },
+        phrases: [
+          { fr: 'Ma carte est bloquée.', ar: 'بطاقتي انحظرت.', en: 'My card is blocked.' },
+          { fr: 'Mon compte est bloqué. Pouvez-vous m’expliquer pourquoi ?', ar: 'حسابي محظور، فيكم تشرحولي ليش؟', en: 'My account is blocked. Could you explain why?' }
+        ]
+      },
+      {
+        icon: '💰',
+        title: { ar: 'سحب من الصراف', en: 'Withdrawing at the ATM', fr: 'Retrait au distributeur' },
+        phrases: [
+          { fr: 'Je n’arrive pas à retirer de l’argent.', ar: 'ما عم أقدر اسحب مصاري.', en: 'I can’t withdraw money.' },
+          { fr: 'Le distributeur a refusé ma carte.', ar: 'الصراف رفض بطاقتي.', en: 'The ATM declined my card.' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: 'لا تفهم الموظف — عبارات أخرى', en: 'You don’t understand the employee — more phrases', fr: 'Vous ne comprenez pas l’employé — autres phrases' },
+        phrases: [
+          { fr: 'Je parle français, mais je ne comprends pas très bien. Pouvez-vous parler plus lentement ?', ar: 'بحكي فرنسي، بس ما عم أفهم منيح. فيك تحكي أبطأ؟', en: 'I speak French, but I don’t understand very well. Could you speak more slowly?' },
+          { fr: 'Pouvez-vous répéter, s’il vous plaît ?', ar: 'فيك تعيد لو سمحت؟', en: 'Could you repeat, please?' },
+          { fr: 'Pouvez-vous me l’écrire, s’il vous plaît ?', ar: 'فيك تكتبلي ياها لو سمحت؟', en: 'Could you write it down for me, please?' }
+        ]
+      },
+      {
+        icon: '🏛️',
+        title: { ar: 'Droit au compte — في البنك', en: 'Droit au compte — at the bank', fr: 'Droit au compte — à la banque' },
+        phrases: [
+          { fr: 'Bonjour, je voudrais ouvrir un compte bancaire, s’il vous plaît.', ar: 'مرحبا، بدي افتح حساب بنكي، لو سمحت.', en: 'Hello, I would like to open a bank account, please.' },
+          { fr: 'Je suis demandeur d’asile en France et je suis domicilié à la Croix-Rouge.', ar: 'أنا طالب لجوء بفرنسا وعندي توطين عند الصليب الأحمر.', en: 'I am an asylum seeker in France and I am domiciled with the Red Cross.' },
+          { fr: 'J’ai mon attestation de demande d’asile et mon attestation de domiciliation.', ar: 'معي إثبات طلب اللجوء وإثبات التوطين.', en: 'I have my asylum application certificate and my proof of domiciliation.' },
+          { fr: 'Quels documents dois-je fournir ?', ar: 'شو الأوراق اللي لازم أقدّمها؟', en: 'What documents do I need to provide?' },
+          { fr: 'Voici mon document d’identité.', ar: 'هاي وثيقة هويتي.', en: 'Here is my identity document.' },
+          { fr: 'Voici mon attestation de demande d’asile.', ar: 'هاي وثيقة طلب اللجوء تبعي.', en: 'Here is my asylum application certificate.' },
+          { fr: 'Et voici mon attestation de domiciliation de la Croix-Rouge.', ar: 'وهاي ورقة التوطين من الصليب الأحمر.', en: 'And here is my Red Cross domiciliation certificate.' },
+          { fr: 'Malheureusement, nous ne pouvons pas ouvrir un compte pour vous.', ar: 'للأسف، ما فينا نفتحلك حساب.', en: 'Unfortunately, we cannot open an account for you.' },
+          { fr: 'D’accord. Est-ce que vous pouvez me donner une attestation de refus d’ouverture de compte, s’il vous plaît ?', ar: 'طيب، فيكم تعطوني ورقة تثبت رفض فتح الحساب، لو سمحت؟', en: 'Okay. Could you give me a document confirming the refusal to open the account, please?' },
+          { fr: 'J’en ai besoin pour faire une demande de droit au compte auprès de la Banque de France.', ar: 'بحتاجها حتى قدّم طلب حق فتح حساب لدى بنك فرنسا.', en: 'I need it to apply for the right to an account with the Banque de France.' }
+        ]
+      },
+      {
+        icon: '🏛️',
+        title: { ar: 'Droit au compte — عند Banque de France', en: 'Droit au compte — at the Banque de France', fr: 'Droit au compte — à la Banque de France' },
+        phrases: [
+          { fr: 'Bonjour, je voudrais faire une demande de droit au compte.', ar: 'مرحبا، بدي قدّم طلب حق فتح حساب بنكي.', en: 'Hello, I would like to apply for the right to an account.' },
+          { fr: 'Une banque a refusé de m’ouvrir un compte.', ar: 'بنك رفض يفتحلي حساب.', en: 'A bank refused to open an account for me.' },
+          { fr: 'Voici l’attestation de refus de la banque.', ar: 'هاي ورقة رفض البنك.', en: 'Here is the bank’s refusal document.' },
+          { fr: 'Je suis demandeur d’asile et je suis domicilié à la Croix-Rouge.', ar: 'أنا طالب لجوء وعندي توطين عند الصليب الأحمر.', en: 'I am an asylum seeker and I am domiciled with the Red Cross.' },
+          { fr: 'Voici mon attestation de demande d’asile et mon attestation de domiciliation.', ar: 'هاي وثيقة طلب اللجوء وهاي وثيقة التوطين.', en: 'Here is my asylum application certificate and my domiciliation certificate.' },
+          { fr: 'Avez-vous déjà un compte bancaire en France ?', ar: 'عندك حساب بنكي حاليًا بفرنسا؟', en: 'Do you already have a bank account in France?' },
+          { fr: 'Non, je n’ai pas de compte bancaire en France.', ar: 'لا، ما عندي حساب بنكي بفرنسا.', en: 'No, I don’t have a bank account in France.' },
+          { fr: 'Quelle est votre situation en France ?', ar: 'شو وضعك بفرنسا؟', en: 'What is your situation in France?' },
+          { fr: 'Je suis demandeur d’asile.', ar: 'أنا طالب لجوء.', en: 'I am an asylum seeker.' },
+          { fr: 'Où êtes-vous domicilié ?', ar: 'وين عندك توطين؟', en: 'Where are you domiciled?' },
+          { fr: 'Je suis domicilié à la Croix-Rouge.', ar: 'عندي توطين عند الصليب الأحمر.', en: 'I am domiciled with the Red Cross.' }
+        ]
+      },
+      {
+        icon: '💳',
+        title: { ar: 'Droit au compte — بعد تعيين البنك', en: 'Droit au compte — after the bank is assigned', fr: 'Droit au compte — après la désignation de la banque' },
+        phrases: [
+          { fr: 'Est-ce que le compte aura un RIB ?', ar: 'هل الحساب رح يكون إلو RIB؟', en: 'Will the account have a RIB?' },
+          { fr: 'Est-ce que je pourrai recevoir mon salaire sur ce compte ?', ar: 'فيني استلم راتبي على هالحساب؟', en: 'Can I receive my salary into this account?' },
+          { fr: 'Est-ce que je pourrai recevoir des virements sur ce compte ?', ar: 'فيني استقبل تحويلات على هالحساب؟', en: 'Can I receive transfers into this account?' },
+          { fr: 'Est-ce que j’aurai une carte bancaire ?', ar: 'رح يكون عندي بطاقة بنكية؟', en: 'Will I have a bank card?' },
+          { fr: 'Quels services bancaires sont inclus ?', ar: 'شو الخدمات البنكية اللي بتكون متوفرة؟', en: 'What banking services are included?' },
+          { fr: 'Je voudrais simplement savoir quelles sont les démarches pour bénéficier du droit au compte.', ar: 'بدي بس أعرف شو الإجراءات حتى استفيد من حق فتح الحساب.', en: 'I would simply like to know what the steps are to benefit from the right to an account.' }
+        ]
       }
     ]
   }
