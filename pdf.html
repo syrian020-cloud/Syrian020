@@ -401,17 +401,6 @@
   }
   .ed-q { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
   .ed-q input { width: 90px; accent-color: var(--accent); }
-  .ed-opts input[type=password] {
-    flex: 1; min-width: 130px; border: 1px solid var(--border); background: var(--card);
-    color: var(--text); border-radius: var(--radius-sm); padding: 10px 12px;
-    font-family: inherit; font-size: 13px; outline: none;
-  }
-  .ed-chk { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--text); }
-  .ed-chk input { accent-color: var(--accent); width: 16px; height: 16px; }
-  .ed-body table { border-collapse: collapse; width: 100%; margin: 8px 0; }
-  .ed-body td, .ed-body th { border: 1px solid var(--border); padding: 6px 8px; min-width: 40px; }
-  .ed-body th { background: var(--card-2); }
-  .ed-img .mv { inset-inline-start: 4px; inset-inline-end: auto; }
   .pdf-menu-btn {
     position: absolute; top: 8px; inset-inline-end: 8px; width: 30px; height: 30px;
     border: 0; border-radius: 8px; background: transparent; color: var(--muted);
@@ -644,16 +633,6 @@
       <button class="tbtn" id="tLeft" title="محاذاة لليسار" data-i18n-title="tt_left">⇤</button>
       <button class="tbtn" id="tJust" title="ضبط" data-i18n-title="tt_just">☰</button>
       <button class="tbtn" id="tImg" title="صورة أو شعار داخل النص" data-i18n-title="tt_img">🖼</button>
-      <input type="color" id="tHl" value="#fff59d" title="تمييز النص" data-i18n-title="tt_hl">
-      <select id="tFont" data-i18n-title="tt_font">
-        <option value="'Noto Naskh Arabic','Amiri','Traditional Arabic',serif" data-i18n="f_naskh">نسخ عربي</option>
-        <option value="'Segoe UI','Noto Sans Arabic',Arial,sans-serif" selected data-i18n="f_sans">حديث</option>
-        <option value="Georgia,'Times New Roman','Traditional Arabic',serif" data-i18n="f_serif">كلاسيكي</option>
-        <option value="'Courier New',monospace" data-i18n="f_mono">أحادي</option>
-      </select>
-      <button class="tbtn" id="tUl" title="قائمة نقطية" data-i18n-title="tt_ul">•</button>
-      <button class="tbtn" id="tOl" title="قائمة رقمية" data-i18n-title="tt_ol">1.</button>
-      <button class="tbtn" id="tTable" title="جدول" data-i18n-title="tt_table">▦</button>
     </div>
     <div id="edBody" class="ed-body" contenteditable="true" data-ph="اكتب نص المستند هنا…"></div>
     <div class="ed-lbl" data-i18n="sec_imgs">صور تظهر تحت العنوان</div>
@@ -686,30 +665,6 @@
       </select>
       <label class="ed-q"><span data-i18n="quality">جودة الصور</span> <input type="range" id="edQuality" min="40" max="95" value="82"></label>
     </div>
-    <div class="ed-lbl" data-i18n="tpl_t">قوالب جاهزة</div>
-    <div class="ed-imgrow">
-      <button class="btn ghost" id="tplLetter" data-i18n="tpl_letter">📜 رسالة رسمية</button>
-      <button class="btn ghost" id="tplInv" data-i18n="tpl_inv">🧾 فاتورة</button>
-      <button class="btn ghost" id="tplCv" data-i18n="tpl_cv">👤 سيرة ذاتية</button>
-    </div>
-    <div class="ed-lbl" data-i18n="sec_adv">إعدادات متقدمة</div>
-    <div class="ed-opts">
-      <input id="edHeader" type="text" placeholder="رأس الصفحة — يظهر أعلى كل صفحة" data-i18n-ph="hdr_ph">
-      <input id="edFooter" type="text" placeholder="تذييل الصفحة — أسفل كل صفحة" data-i18n-ph="ftr_ph">
-      <select id="edMargin" data-i18n-title="mg_t">
-        <option value="10" data-i18n="mg_n">هوامش ضيقة</option>
-        <option value="16" selected data-i18n="mg_m">هوامش عادية</option>
-        <option value="24" data-i18n="mg_w">هوامش واسعة</option>
-      </select>
-      <input id="edWm" type="text" placeholder="علامة مائية نصية (اختياري)" data-i18n-ph="wm_ph">
-      <select id="edWmAng" data-i18n-title="wm_ang">
-        <option value="-45">-45°</option><option value="-30">-30°</option><option value="0">0°</option>
-      </select>
-      <label class="ed-q"><span data-i18n="wm_op">شفافية العلامة</span> <input type="range" id="edWmOp" min="5" max="35" value="14"></label>
-      <input id="edPw" type="password" placeholder="كلمة سر للملف (اختياري)" data-i18n-ph="pw_opt_ph" autocomplete="off">
-      <label class="ed-chk"><input type="checkbox" id="edPageNums"> <span data-i18n="pg_nums">ترقيم الصفحات (X / N)</span></label>
-      <label class="ed-chk"><input type="checkbox" id="edCompress"> <span data-i18n="compress">ضغط حجم الملف</span></label>
-    </div>
     <button class="btn ed-save" id="edSave" data-i18n="preview_save">معاينة وحفظ كـ PDF</button>
   </div>
   <input type="file" id="edImgInput" accept="image/*" multiple style="display:none">
@@ -740,7 +695,6 @@
 <div class="pv-veil" id="pvVeil">
   <div class="pv-top">
     <button class="btn ghost" id="pvClose" data-i18n="back_edit">رجوع للتحرير</button>
-    <button class="btn ghost" id="pvExport" data-i18n="save_export">تصدير إلى ملف</button>
     <button class="btn" id="pvPrint" data-i18n="save_print">حفظ / طباعة PDF</button>
   </div>
   <iframe class="pv-frame" id="pvFrame"></iframe>
@@ -774,7 +728,7 @@ function capPlugin(name) {
   }
   return null;
 }
-const BUILD_STAMP = 'v20 · ٢٠٢٦-١٠-٠٢';
+const BUILD_STAMP = 'v19 · ٢٠٢٦-١٠-٠٢';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -809,15 +763,6 @@ const STR = {
     sec_page: 'إعدادات الصفحة', fname_ph: 'اسم الملف', orient_p: 'عمودي', orient_l: 'أفقي',
     quality: 'جودة الصور', pf_t: 'حجم الخط المطبوع', pf_small: 'خط صغير', pf_mid: 'خط عادي', pf_big: 'خط كبير',
     st_t: 'نمط الصفحة', st_plain: 'عادي', st_note: 'دفتر مسطّر',
-    tt_hl: 'تمييز النص', tt_font: 'نوع الخط', tt_ul: 'قائمة نقطية', tt_ol: 'قائمة رقمية', tt_table: 'جدول',
-    f_naskh: 'نسخ عربي', f_sans: 'حديث', f_serif: 'كلاسيكي', f_mono: 'أحادي',
-    tpl_t: 'قوالب جاهزة', tpl_letter: '📜 رسالة رسمية', tpl_inv: '🧾 فاتورة', tpl_cv: '👤 سيرة ذاتية',
-    sec_adv: 'إعدادات متقدمة', hdr_ph: 'رأس الصفحة — يظهر أعلى كل صفحة',
-    ftr_ph: 'تذييل الصفحة — أسفل كل صفحة',
-    mg_t: 'الهوامش', mg_n: 'هوامش ضيقة', mg_m: 'هوامش عادية', mg_w: 'هوامش واسعة',
-    wm_ph: 'علامة مائية نصية (اختياري)', wm_op: 'شفافية العلامة', wm_ang: 'زاوية العلامة',
-    pw_opt_ph: 'كلمة سر للملف (اختياري)', pg_nums: 'ترقيم الصفحات (X / N)', compress: 'ضغط حجم الملف',
-    save_export: 'تصدير إلى ملف', saving: 'جارٍ إنشاء الملف…', saved_at: 'حُفظ في', export_fail: 'تعذّر التصدير',
     preview_save: 'معاينة وحفظ كـ PDF', back_edit: 'رجوع للتحرير', save_print: 'حفظ / طباعة PDF',
     sign_h: 'ارسم توقيعك بإصبعك', clear: 'مسح', cancel: 'إلغاء', insert: 'إدراج', ok: 'تأكيد', pw_ph: 'كلمة السر',
     menu_title: 'خيارات القراءة',
@@ -900,15 +845,6 @@ const STR = {
     sec_page: 'Mise en page', fname_ph: 'Nom du fichier', orient_p: 'Portrait', orient_l: 'Paysage',
     quality: 'Qualité images', pf_t: 'Taille du texte imprimé', pf_small: 'Petite police', pf_mid: 'Normale', pf_big: 'Grande police',
     st_t: 'Style de page', st_plain: 'Normal', st_note: 'Cahier ligné',
-    tt_hl: 'Surligner', tt_font: 'Police', tt_ul: 'Liste à puces', tt_ol: 'Liste numérotée', tt_table: 'Tableau',
-    f_naskh: 'Naskh arabe', f_sans: 'Moderne', f_serif: 'Classique', f_mono: 'Mono',
-    tpl_t: 'Modèles', tpl_letter: '📜 Lettre officielle', tpl_inv: '🧾 Facture', tpl_cv: '👤 CV',
-    sec_adv: 'Options avancées', hdr_ph: 'En-tête — haut de chaque page',
-    ftr_ph: 'Pied de page — bas de chaque page',
-    mg_t: 'Marges', mg_n: 'Marges étroites', mg_m: 'Marges normales', mg_w: 'Marges larges',
-    wm_ph: 'Filigrane texte (optionnel)', wm_op: 'Opacité', wm_ang: 'Angle',
-    pw_opt_ph: 'Mot de passe du fichier (optionnel)', pg_nums: 'Numérotation (X / N)', compress: 'Compresser',
-    save_export: 'Exporter en fichier', saving: 'Création du fichier…', saved_at: 'Enregistré dans', export_fail: 'Échec de l\u2019export',
     preview_save: 'Aperçu et enregistrer', back_edit: "Retour à l'édition", save_print: 'Enregistrer / Imprimer',
     sign_h: 'Dessinez votre signature', clear: 'Effacer', cancel: 'Annuler', insert: 'Insérer', ok: 'OK', pw_ph: 'Mot de passe',
     menu_title: 'Options de lecture',
@@ -991,15 +927,6 @@ const STR = {
     sec_page: 'Page setup', fname_ph: 'File name', orient_p: 'Portrait', orient_l: 'Landscape',
     quality: 'Image quality', pf_t: 'Printed text size', pf_small: 'Small text', pf_mid: 'Normal text', pf_big: 'Large text',
     st_t: 'Page style', st_plain: 'Plain', st_note: 'Lined notebook',
-    tt_hl: 'Highlight', tt_font: 'Font family', tt_ul: 'Bullet list', tt_ol: 'Numbered list', tt_table: 'Table',
-    f_naskh: 'Arabic Naskh', f_sans: 'Modern', f_serif: 'Classic', f_mono: 'Mono',
-    tpl_t: 'Templates', tpl_letter: '📜 Formal letter', tpl_inv: '🧾 Invoice', tpl_cv: '👤 Resume',
-    sec_adv: 'Advanced settings', hdr_ph: 'Header — top of every page',
-    ftr_ph: 'Footer — bottom of every page',
-    mg_t: 'Margins', mg_n: 'Narrow margins', mg_m: 'Normal margins', mg_w: 'Wide margins',
-    wm_ph: 'Text watermark (optional)', wm_op: 'Watermark opacity', wm_ang: 'Watermark angle',
-    pw_opt_ph: 'File password (optional)', pg_nums: 'Page numbers (X / N)', compress: 'Compress file',
-    save_export: 'Export to file', saving: 'Creating file…', saved_at: 'Saved to', export_fail: 'Export failed',
     preview_save: 'Preview & save PDF', back_edit: 'Back to editing', save_print: 'Save / Print PDF',
     sign_h: 'Draw your signature', clear: 'Clear', cancel: 'Cancel', insert: 'Insert', ok: 'OK', pw_ph: 'Password',
     menu_title: 'Reading options',
@@ -2262,56 +2189,21 @@ try {
       : esc(d.body).replace(/\n/g, '<br>');
   }
   if (Array.isArray(d.imgs)) edImages = d.imgs;
-  if (d.header != null) $('edHeader').value = d.header;
-  if (d.footer != null) $('edFooter').value = d.footer;
-  if (d.margin) $('edMargin').value = d.margin;
-  if (d.wm != null) $('edWm').value = d.wm;
-  if (d.wmAng) $('edWmAng').value = d.wmAng;
-  if (d.wmOp) $('edWmOp').value = d.wmOp;
-  if (d.pageNums) $('edPageNums').checked = true;
-  if (d.compress) $('edCompress').checked = true;
-  if (d.fontFam) { $('tFont').value = d.fontFam; $('edBody').style.fontFamily = d.fontFam; }
 } catch (e) {}
 try { document.execCommand('styleWithCSS', false, true); } catch (e) {}
 
 function edRenderImgs() {
   $('edImgs').innerHTML = edImages.map((u, i) =>
-    `<div class="ed-img"><img src="${u}">` +
-    (i > 0 ? `<button class="mv" data-i="${i}">◀</button>` : '') +
-    `<button data-i="${i}">×</button></div>`).join('');
-  $('edImgs').querySelectorAll('button').forEach(b => {
-    b.onclick = () => {
-      const i = +b.dataset.i;
-      if (b.classList.contains('mv')) {
-        [edImages[i - 1], edImages[i]] = [edImages[i], edImages[i - 1]];
-      } else {
-        edImages.splice(i, 1);
-      }
-      edRenderImgs(); edSaveDraft();
-    };
-  });
+    `<div class="ed-img"><img src="${u}"><button data-i="${i}">×</button></div>`).join('');
+  $('edImgs').querySelectorAll('button').forEach(b =>
+    b.onclick = () => { edImages.splice(+b.dataset.i, 1); edRenderImgs(); edSaveDraft(); });
 }
 function edSaveDraft() {
   try {
     localStorage.setItem('qari:draft', JSON.stringify({
-      title: $('edTitle').value, body: $('edBody').innerHTML, imgs: edImages,
-      header: $('edHeader').value, footer: $('edFooter').value,
-      margin: $('edMargin').value, wm: $('edWm').value,
-      wmAng: $('edWmAng').value, wmOp: $('edWmOp').value,
-      pageNums: $('edPageNums').checked, compress: $('edCompress').checked,
-      fontFam: $('tFont').value
+      title: $('edTitle').value, body: $('edBody').innerHTML, imgs: edImages
     }));
   } catch (e) {}
-  edLive();
-}
-let pvTimer = null;
-function edLive() {
-  if (!$('pvVeil').classList.contains('show')) return;
-  clearTimeout(pvTimer);
-  pvTimer = setTimeout(async () => {
-    pvHtml = await composeHtml();
-    $('pvFrame').srcdoc = pvHtml;
-  }, 650);
 }
 $('edTitle').oninput = edSaveDraft;
 $('edBody').oninput = edSaveDraft;
@@ -2365,11 +2257,6 @@ $('edCamInput').onchange = e => {
   e.target.value = '';
 };
 
-['edHeader','edFooter','edMargin','edWm','edWmAng','edWmOp','edPw','edPageNums','edCompress','edPaper','edOrient','edFont','edQuality'].forEach(id => {
-  $(id).addEventListener('change', edSaveDraft);
-  $(id).addEventListener('input', edSaveDraft);
-});
-
 const edCmd = (cmd, val) => {
   $('edBody').focus();
   try { document.execCommand(cmd, false, val); } catch (e) {}
@@ -2385,48 +2272,6 @@ $('tCenter').onclick = () => edCmd('justifyCenter');
 $('tLeft').onclick = () => edCmd('justifyLeft');
 $('tJust').onclick = () => edCmd('justifyFull');
 $('tImg').onclick = () => $('edInlineInput').click();
-$('tHl').oninput = e => edCmd('hiliteColor', e.target.value);
-$('tFont').onchange = e => {
-  $('edBody').style.fontFamily = e.target.value;
-  edCmd('fontName', e.target.value);
-};
-$('tUl').onclick = () => edCmd('insertUnorderedList');
-$('tOl').onclick = () => edCmd('insertOrderedList');
-$('tTable').onclick = () => edCmd('insertHTML',
-  '<table><tr><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th></tr>' +
-  '<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>' +
-  '<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></table><br>');
-
-const TPL = {
-  letter: () => {
-    $('edTitle').value = t('tpl_letter');
-    $('edBody').innerHTML =
-      '<p>التاريخ: </p><p>إلى السيد: </p><p>الموضوع: </p><p><br></p>' +
-      '<p>السلام عليكم ورحمة الله وبركاته،</p><p><br></p><p><br></p>' +
-      '<p>وتفضلوا بقبول فائق الاحترام،</p><p style="text-align:left">التوقيع: </p>';
-  },
-  invoice: () => {
-    $('edTitle').value = t('tpl_inv');
-    $('edBody').innerHTML =
-      '<p>رقم: … &nbsp;&nbsp; التاريخ: </p><p>العميل: </p>' +
-      '<table><tr><th>البند</th><th>الكمية</th><th>السعر</th><th>الإجمالي</th></tr>' +
-      '<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>' +
-      '<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>' +
-      '<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></table>' +
-      '<p style="text-align:left"><b>الإجمالي: </b></p>';
-  },
-  cv: () => {
-    $('edTitle').value = t('tpl_cv');
-    $('edBody').innerHTML =
-      '<p><b>المعلومات الشخصية</b></p><ul><li>الاسم: </li><li>الهاتف: </li><li>البريد: </li></ul>' +
-      '<p><b>الخبرة العملية</b></p><ul><li></li></ul>' +
-      '<p><b>التعليم</b></p><ul><li></li></ul>' +
-      '<p><b>المهارات</b></p><ul><li></li></ul>';
-  }
-};
-$('tplLetter').onclick = () => { TPL.letter(); edSaveDraft(); };
-$('tplInv').onclick = () => { TPL.invoice(); edSaveDraft(); };
-$('tplCv').onclick = () => { TPL.cv(); edSaveDraft(); };
 $('edInlineInput').onchange = e => {
   const f = e.target.files[0];
   e.target.value = '';
@@ -2500,28 +2345,13 @@ function edReencode(u, q) {
     img.src = u;
   });
 }
-const PAPER_MM = { A4: [210, 297], A5: [148, 210], Letter: [215.9, 279.4] };
-const MM2PX = 96 / 25.4;
-
-/* Paginate the composed blocks into fixed-size .sheet pages:
-   each sheet is a real page (margins inside) so preview, system print
-   and native export all share the exact same pagination. */
 async function composeHtml() {
   const title = $('edTitle').value.trim();
   const bodyHtml = $('edBody').innerHTML;
   const paper = $('edPaper').value;
   const orient = $('edOrient').value;
-  const compress = $('edCompress') && $('edCompress').checked;
-  const q = compress ? Math.min((+$('edQuality').value) / 100, 0.45) : (+$('edQuality').value) / 100;
+  const q = (+$('edQuality').value) / 100;
   const fs = $('edFont') ? $('edFont').value : '13';
-  const fontFam = ($('tFont') ? $('tFont').value : '') || "'Segoe UI',Arial,sans-serif";
-  const mm = +($('edMargin') ? $('edMargin').value : 16);
-  const hdr = $('edHeader') ? $('edHeader').value.trim() : '';
-  const ftr = $('edFooter') ? $('edFooter').value.trim() : '';
-  const wm = $('edWm') ? $('edWm').value.trim() : '';
-  const wmOp = (+($('edWmOp') ? $('edWmOp').value : 14)) / 100;
-  const wmAng = $('edWmAng') ? $('edWmAng').value : '-45';
-  const showNums = $('edPageNums') && $('edPageNums').checked;
   const dir = document.documentElement.dir === 'ltr' ? 'ltr' : 'rtl';
   const lang = settings.lang || 'ar';
   const nb = $('edStyle') && $('edStyle').value === 'notebook';
@@ -2530,78 +2360,23 @@ async function composeHtml() {
     : 'linear-gradient(270deg,transparent 0 5mm,#e07070 5mm 5.4mm,transparent 5.4mm)';
   const imgs = (await Promise.all(edImages.map(u => edReencode(u, q))))
     .map(u => '<img src="' + u + '">').join('');
-
-  let wmm = (PAPER_MM[paper] || PAPER_MM.A4)[0], hmm = (PAPER_MM[paper] || PAPER_MM.A4)[1];
-  if (orient === 'landscape') { const z = wmm; wmm = hmm; hmm = z; }
-  const pageW = Math.round(wmm * MM2PX), pageH = Math.round(hmm * MM2PX);
-  const pad = Math.round(mm * MM2PX);
-  const contentW = pageW - pad * 2, contentH = pageH - pad * 2;
-
-  // measure real block heights off-screen at the exact print width
-  const probe = document.createElement('div');
-  probe.style.cssText = 'position:fixed;left:-10000px;top:0;width:' + contentW + 'px;visibility:hidden;' +
-    'font-family:' + fontFam + ';font-size:' + fs + 'pt;line-height:' + (nb ? '2em' : '1.9') + ';text-align:justify';
-  probe.innerHTML =
-    (title ? '<h1 style="text-align:center;font-size:' + Math.round(+fs * 1.55) +
-      'pt;font-weight:700;margin:0 0 16px;letter-spacing:.5px">' + escHtml(title) + '</h1>' : '') +
-    imgs + bodyHtml;
-  probe.querySelectorAll('img').forEach(i => {
-    i.style.maxWidth = i.parentElement === probe ? '88%' : '60%';
-    i.style.display = 'block'; i.style.margin = '8px auto';
-  });
-  document.body.appendChild(probe);
-  await Promise.all(Array.from(probe.querySelectorAll('img'))
-    .map(i => i.decode ? i.decode().catch(() => {}) : Promise.resolve()));
-
-  const blocks = Array.from(probe.children);
-  const sheets = [];
-  let cur = null, acc = 0;
-  for (const el of blocks) {
-    const st = getComputedStyle(el);
-    const h = el.offsetHeight + parseFloat(st.marginTop || 0) + parseFloat(st.marginBottom || 0);
-    if (acc > 0 && acc + h > contentH) { sheets.push(cur); cur = null; acc = 0; }
-    if (!cur) cur = document.createElement('div');
-    cur.appendChild(el);
-    acc += h;
-  }
-  if (cur) sheets.push(cur);
-  probe.remove();
-  if (!sheets.length) sheets.push(document.createElement('div'));
-
-  const total = sheets.length;
-  const sheetsHtml = sheets.map((s, i) =>
-    '<div class="sheet">' +
-      (wm ? '<div class="wm"><span>' + escHtml(wm) + '</span></div>' : '') +
-      '<div class="doc' + (nb ? ' lines' : '') + '">' + s.innerHTML + '</div>' +
-      (hdr ? '<div class="hf top">' + escHtml(hdr) + '</div>' : '') +
-      (ftr ? '<div class="hf bot">' + escHtml(ftr) + '</div>' : '') +
-      (showNums ? '<div class="pgn">' + (i + 1) + ' / ' + total + '</div>' : '') +
-    '</div>').join('');
-
   return '<!doctype html><html dir="' + dir + '" lang="' + lang + '"><head><meta charset="utf-8"><style>' +
-    '@page{size:' + wmm + 'mm ' + hmm + 'mm;margin:0}' +
-    'html,body{margin:0;padding:0}' +
-    'body{background:#4a4f63;font-family:' + fontFam + ',"Noto Naskh Arabic","Amiri","Traditional Arabic",Arial,sans-serif;' +
-    'color:#1a1a1a;font-size:' + fs + 'pt;line-height:' + (nb ? '2em' : '1.9') + '}' +
-    '.sheet{position:relative;width:' + pageW + 'px;height:' + pageH + 'px;margin:14px auto;overflow:hidden;' +
-    'background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.4);box-sizing:border-box}' +
-    '.doc{position:absolute;left:' + pad + 'px;right:' + pad + 'px;top:' + pad + 'px;bottom:' + pad + 'px;' +
-    'text-align:justify;overflow:hidden}' +
-    '.doc p,.doc div{margin:0 0 10px;min-height:1em}' +
-    '.doc img{max-width:88%;display:block;margin:8px auto;border-radius:6px}' +
-    '.doc table{border-collapse:collapse;width:100%;margin:10px 0}' +
-    '.doc td,.doc th{border:1px solid #888;padding:4px 8px}' +
-    '.doc ul,.doc ol{margin:4px 0 10px;padding-inline-start:22px}' +
-    '.hf{position:absolute;left:' + pad + 'px;right:' + pad + 'px;text-align:center;font-size:9pt;color:#777}' +
-    '.hf.top{top:' + Math.round(pad * 0.35) + 'px}.hf.bot{bottom:' + Math.round(pad * 0.35) + 'px}' +
-    '.pgn{position:absolute;bottom:' + Math.round(pad * 0.35) + 'px;left:0;right:0;text-align:center;font-size:9pt;color:#777}' +
-    '.wm{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}' +
-    '.wm span{font-size:58pt;color:#999;opacity:' + wmOp + ';transform:rotate(' + wmAng + 'deg);white-space:nowrap}' +
+    '@page{size:' + paper + ' ' + orient + ';margin:16mm}' +
+    'body{font-family:"Noto Naskh Arabic","Amiri","Segoe UI","Traditional Arabic",Arial,sans-serif;' +
+    'color:#1a1a1a;font-size:' + fs + 'pt;line-height:1.9}' +
+    'h1{text-align:center;font-size:' + (Math.round(+fs * 1.55)) + 'pt;font-weight:700;margin:0 0 16px;letter-spacing:.5px}' +
+    'body>img{display:block;max-width:88%;margin:14px auto;border-radius:6px;' +
+    'box-shadow:0 1px 4px rgba(0,0,0,.25)}' +
+    '.doc{text-align:justify;font-size:' + fs + 'pt;line-height:1.9}' +
+    '.doc p{margin:0 0 10px;min-height:1em}' +
+    '.doc img{max-width:60%;display:block;margin:8px auto;border-radius:6px}' +
     (nb ?
-      '.doc.lines{-webkit-print-color-adjust:exact;print-color-adjust:exact;line-height:2em;padding-inline-start:9mm;box-sizing:border-box;' +
-      'background-image:' + mline + ',repeating-linear-gradient(white 0 calc(2em - .3mm),#9db3d6 calc(2em - .3mm) 2em)}' : '') +
-    '@media print{body{background:#fff}.sheet{margin:0;box-shadow:none;page-break-after:always}}' +
-    '</style></head><body>' + sheetsHtml + '</body></html>';
+      'body{line-height:2em;-webkit-print-color-adjust:exact;print-color-adjust:exact;background-image:' +
+      mline + ',repeating-linear-gradient(white 0 calc(2em - .3mm),#9db3d6 calc(2em - .3mm) 2em)}' +
+      '.doc{line-height:2em;padding-inline-start:9mm}h1{margin-inline-start:9mm}body>img{margin-inline-start:16mm}' : '') +
+    '</style></head><body>' +
+    (title ? '<h1>' + escHtml(title) + '</h1>' : '') +
+    imgs + '<div class="doc">' + bodyHtml + '</div></body></html>';
 }
 
 let pvHtml = '';
@@ -2611,24 +2386,6 @@ $('edSave').onclick = async () => {
   $('pvVeil').classList.add('show');
 };
 $('pvClose').onclick = () => $('pvVeil').classList.remove('show');
-$('pvExport').onclick = async () => {
-  const nm = ($('edName').value.trim() || $('edTitle').value.trim() || t('doc_default'));
-  if (!(isNative && Scanner && Scanner.exportPdf)) { toast(t('export_fail')); return; }
-  toast(t('saving'), 4000);
-  try {
-    const r = await Scanner.exportPdf({
-      html: pvHtml, name: nm,
-      password: $('edPw').value || '',
-      pageNumbers: $('edPageNums').checked,
-      paper: $('edPaper').value, orient: $('edOrient').value
-    });
-    if (r && r.path && !pdfFiles.some(f => f.path === r.path)) {
-      pdfFiles.unshift({ name: r.name, uri: 'file://' + r.path, path: r.path,
-        size: 0, modified: Math.floor(Date.now() / 1000) });
-    }
-    toast(t('saved_at') + ' ' + (r.public ? 'Download/PDFly' : r.path), 4500);
-  } catch (e) { toast(t('export_fail'), 3500); }
-};
 $('pvPrint').onclick = async () => {
   const nm = $('edName').value.trim() || $('edTitle').value.trim() || t('doc_default');
   $('pvVeil').classList.remove('show');
