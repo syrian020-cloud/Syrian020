@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dross-v178';
+const CACHE_NAME = 'dross-v179';
 const TILE_CACHE = 'osm-tiles-v1';
 const FILES_TO_CACHE = [
   './',
@@ -18,7 +18,10 @@ const FILES_TO_CACHE = [
   './vendor/leaflet/images/marker-icon-2x.png',
   './vendor/leaflet/images/marker-shadow.png',
   './vendor/leaflet/images/layers.png',
-  './vendor/leaflet/images/layers-2x.png'
+  './vendor/leaflet/images/layers-2x.png',
+  './vendor/leaflet-markercluster/MarkerCluster.css',
+  './vendor/leaflet-markercluster/MarkerCluster.Default.css',
+  './vendor/leaflet-markercluster/leaflet.markercluster.js'
 ];
 
 for (let i = 1; i <= 39; i++) {
@@ -48,7 +51,7 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
-  if (url.hostname.endsWith('tile.openstreetmap.org')) {
+  if (url.hostname.endsWith('tile.openstreetmap.org') || url.hostname.endsWith('basemaps.cartocdn.com')) {
     event.respondWith(
       caches.open(TILE_CACHE).then((cache) =>
         cache.match(event.request).then((cached) => {
