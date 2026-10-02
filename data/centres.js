@@ -1619,5 +1619,522 @@ window.CENTRES_DATA = [
         ]
       }
     ]
+  },
+  {
+    id: 'caf',
+    icon: '🤝',
+    name: { ar: 'CAF — المساعدات والإعانات', en: 'CAF — benefits and allowances', fr: 'La CAF — aides et prestations' },
+    desc: {
+      ar: 'فتح الملف، مساعدة السكن، RSA، Prime d’activité، التصريح الفصلي، تغيير العنوان والحساب البنكي',
+      en: 'Opening a file, housing assistance, RSA, Prime d’activité, quarterly declarations, address and bank changes',
+      fr: 'Ouverture de dossier, aide au logement, RSA, Prime d’activité, déclaration trimestrielle, changements d’adresse et de RIB'
+    },
+    sections: [
+      {
+        icon: '🏢',
+        title: { ar: 'عند الدخول إلى CAF', en: 'Entering CAF', fr: 'En entrant à la Caf' },
+        phrases: [
+          { fr: 'Bonjour, j’ai rendez-vous avec la Caf.', ar: 'مرحبا، عندي موعد مع الكاف.', en: 'Hello, I have an appointment with CAF.' },
+          { fr: 'Je viens pour faire une démarche auprès de la Caf.', ar: 'جاي أعمل معاملة عند الكاف.', en: 'I’m here to complete a procedure with CAF.' },
+          { fr: 'Voici ma convocation.', ar: 'هاي ورقة الموعد.', en: 'Here is my appointment notice.' },
+          { fr: 'Je voudrais avoir des informations sur mes droits.', ar: 'بدي معلومات عن حقوقي والمساعدات اللي ممكن آخدها.', en: 'I’d like information about the benefits I may be entitled to.' }
+        ]
+      },
+      {
+        icon: '👤',
+        title: { ar: 'إنشاء حساب CAF', en: 'Creating a CAF account', fr: 'Créer un compte Caf' },
+        phrases: [
+          { fr: 'Je voudrais créer un compte Caf.', ar: 'بدي أعمل حساب CAF.', en: 'I’d like to create a CAF account.' },
+          { fr: 'Comment puis-je créer mon compte ?', ar: 'كيف فيني أعمل حسابي؟', en: 'How can I create my account?' },
+          { fr: 'Je n’arrive pas à créer mon compte.', ar: 'ما عم اقدر أعمل حساب.', en: 'I can’t create my account.' },
+          { fr: 'Je n’arrive pas à me connecter à mon compte.', ar: 'ما عم اقدر فوت على حسابي.', en: 'I can’t log into my account.' },
+          { fr: 'J’ai oublié mon mot de passe.', ar: 'نسيت كلمة السر.', en: 'I forgot my password.' },
+          { fr: 'Je n’ai pas reçu le code de connexion.', ar: 'ما وصلني كود الدخول.', en: 'I didn’t receive the login code.' }
+        ]
+      },
+      {
+        icon: '🏠',
+        title: { ar: 'مساعدة السكن — Aide au logement', en: 'Housing assistance — Aide au logement', fr: 'Aide au logement' },
+        phrases: [
+          { fr: 'Je voudrais faire une demande d’aide au logement.', ar: 'بدي قدم على مساعدة السكن.', en: 'I’d like to apply for housing assistance.' },
+          { fr: 'Est-ce que j’ai droit à une aide au logement ?', ar: 'إلي حق بمساعدة للسكن؟', en: 'Am I eligible for housing assistance?' },
+          { fr: 'Je suis locataire.', ar: 'أنا مستأجر.', en: 'I’m a tenant.' },
+          { fr: 'Voici mon contrat de location.', ar: 'هاد عقد الإيجار تبعي.', en: 'Here is my rental agreement.' },
+          { fr: 'Voici ma quittance de loyer.', ar: 'هاي وصل الإيجار.', en: 'Here is my rent receipt.' },
+          { fr: 'Voici mon justificatif de domicile.', ar: 'هاد إثبات السكن.', en: 'Here is my proof of address.' },
+          { fr: 'Mon loyer est de 628 euros par mois.', ar: 'إيجاري 628 يورو بالشهر.', en: 'My rent is 628 euros per month.' },
+          { fr: 'Je ne reçois plus d’aide au logement.', ar: 'ما عاد عم آخد مساعدة سكن.', en: 'I’m no longer receiving housing assistance.' }
+        ]
+      },
+      {
+        icon: '📄',
+        title: { ar: 'إذا طلبوا وثائق', en: 'If they ask for documents', fr: 'Si on demande des documents' },
+        phrases: [
+          { fr: 'Quels documents dois-je fournir ?', ar: 'شو الأوراق اللي لازم قدمها؟', en: 'What documents do I need to provide?' },
+          { fr: 'Est-ce qu’il manque un document ?', ar: 'في شي ورقة ناقصة؟', en: 'Is any document missing?' },
+          { fr: 'Je peux vous envoyer le document en ligne ?', ar: 'فيني ابعتلكم الورقة أونلاين؟', en: 'Can I send you the document online?' },
+          { fr: 'Je viens de déposer le document sur mon compte Caf.', ar: 'هلأ رفعت الورقة على حسابي بالـCAF.', en: 'I just uploaded the document to my CAF account.' },
+          { fr: 'Pouvez-vous me confirmer que vous avez reçu le document ?', ar: 'فيكم تأكدولي إنكم استلمتوا الورقة؟', en: 'Can you confirm that you received the document?' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: 'RSA — نظرة عامة', en: 'RSA — overview', fr: 'RSA — aperçu' },
+        phrases: [
+          { fr: 'Je voudrais savoir si je peux bénéficier du RSA.', ar: 'بدي أعرف إذا إلي حق بالـRSA.', en: 'I’d like to know if I’m eligible for RSA.' },
+          { fr: 'Je voudrais faire une demande de RSA.', ar: 'بدي قدم على RSA.', en: 'I’d like to apply for RSA.' },
+          { fr: 'Pourquoi mon RSA a-t-il été arrêté ?', ar: 'ليش توقف الـRSA تبعي؟', en: 'Why was my RSA stopped?' },
+          { fr: 'Je ne reçois plus le RSA.', ar: 'ما عاد عم آخد RSA.', en: 'I’m no longer receiving RSA.' },
+          { fr: 'Est-ce que je peux refaire une demande de RSA ?', ar: 'فيني قدم طلب RSA من جديد؟', en: 'Can I apply for RSA again?' }
+        ]
+      },
+      {
+        icon: '💼',
+        title: { ar: 'Prime d’activité — نظرة عامة', en: 'Prime d’activité — overview', fr: 'Prime d’activité — aperçu' },
+        phrases: [
+          { fr: 'Je voudrais savoir si j’ai droit à la Prime d’activité.', ar: 'بدي أعرف إذا إلي حق بالـPrime d’activité.', en: 'I’d like to know if I’m eligible for the activity bonus.' },
+          { fr: 'Je travaille actuellement.', ar: 'أنا حالياً عم اشتغل.', en: 'I’m currently working.' },
+          { fr: 'Voici mes bulletins de salaire.', ar: 'هاي كشوفات راتبي.', en: 'Here are my payslips.' },
+          { fr: 'Comment déclarer mon salaire ?', ar: 'كيف لازم صرّح عن راتبي؟', en: 'How do I declare my salary?' },
+          { fr: 'Quel montant dois-je déclarer ?', ar: 'أي مبلغ لازم صرّح عنه؟', en: 'Which amount should I declare?' },
+          { fr: 'Est-ce que je dois déclarer le montant net social ?', ar: 'لازم صرّح عن الـmontant net social؟', en: 'Do I need to declare the net social amount?' }
+        ]
+      },
+      {
+        icon: '🔄',
+        title: { ar: 'التصريح كل 3 أشهر', en: 'The quarterly declaration', fr: 'La déclaration trimestrielle' },
+        phrases: [
+          { fr: 'Je dois faire ma déclaration trimestrielle.', ar: 'لازم أعمل التصريح كل 3 أشهر.', en: 'I need to complete my quarterly declaration.' },
+          { fr: 'Quand dois-je faire ma déclaration ?', ar: 'إمتى لازم أعمل التصريح؟', en: 'When do I need to make my declaration?' },
+          { fr: 'J’ai oublié de faire ma déclaration trimestrielle.', ar: 'نسيت أعمل التصريح الفصلي.', en: 'I forgot to complete my quarterly declaration.' },
+          { fr: 'Ma déclaration est préremplie.', ar: 'التصريح تبعي معبّى مسبقاً.', en: 'My declaration is pre-filled.' },
+          { fr: 'Je voudrais vérifier les montants préremplis.', ar: 'بدي أتأكد من المبالغ المعبّاية مسبقاً.', en: 'I’d like to check the pre-filled amounts.' }
+        ]
+      },
+      {
+        icon: '💳',
+        title: { ar: 'تغيير الحساب البنكي', en: 'Changing bank details', fr: 'Changer de RIB' },
+        phrases: [
+          { fr: 'Je voudrais changer mes coordonnées bancaires.', ar: 'بدي غيّر معلومات حسابي البنكي.', en: 'I’d like to change my bank details.' },
+          { fr: 'Voici mon nouveau RIB.', ar: 'هاد الـRIB الجديد تبعي.', en: 'Here are my new bank account details.' },
+          { fr: 'Sur quel compte allez-vous verser mes prestations ?', ar: 'على أي حساب رح تحولوا المساعدات؟', en: 'Which account will you pay my benefits into?' }
+        ]
+      },
+      {
+        icon: '📍',
+        title: { ar: 'تغيير العنوان والانتقال', en: 'Changing address and moving', fr: 'Changement d’adresse et déménagement' },
+        phrases: [
+          { fr: 'Je viens de changer d’adresse.', ar: 'أنا غيرت عنواني مؤخراً.', en: 'I recently changed my address.' },
+          { fr: 'Je voudrais déclarer mon changement d’adresse.', ar: 'بدي صرّح عن تغيير عنواني.', en: 'I’d like to report my change of address.' },
+          { fr: 'Je suis actuellement domicilié à la Croix-Rouge.', ar: 'حالياً أنا عامل توطين/دوميسيلياسيون عند الصليب الأحمر.', en: 'I’m currently domiciled with the Red Cross.' },
+          { fr: 'Est-ce que l’attestation de domiciliation de la Croix-Rouge est acceptée ?', ar: 'شهادة التوطين من الصليب الأحمر مقبولة؟', en: 'Is the Red Cross domiciliation certificate accepted?' },
+          { fr: 'Je viens de déménager.', ar: 'أنا نقلت بيت جديد.', en: 'I’ve just moved.' },
+          { fr: 'Je dois déclarer mon nouveau logement.', ar: 'لازم صرّح عن السكن الجديد.', en: 'I need to declare my new accommodation.' },
+          { fr: 'Mon nouveau loyer est de … euros.', ar: 'إيجاري الجديد … يورو.', en: 'My new rent is … euros.' },
+          { fr: 'Est-ce que mon aide au logement va changer ?', ar: 'هل مساعدة السكن رح تتغير؟', en: 'Will my housing assistance change?' }
+        ]
+      },
+      {
+        icon: '⏳',
+        title: { ar: 'إذا تأخرت المعاملة أو لم يصل الدفع', en: 'If the application is delayed or payment missing', fr: 'Si le dossier traîne ou le paiement manque' },
+        phrases: [
+          { fr: 'Mon dossier est toujours en cours de traitement.', ar: 'ملفي لسا قيد المعالجة.', en: 'My application is still being processed.' },
+          { fr: 'Depuis combien de temps mon dossier est-il en cours de traitement ?', ar: 'من إمتى وملفي قيد المعالجة؟', en: 'How long has my application been under review?' },
+          { fr: 'Est-ce que vous pouvez vérifier l’état de mon dossier ?', ar: 'فيكم تتأكدوا من وضع ملفي؟', en: 'Can you check the status of my application?' },
+          { fr: 'Je n’ai pas encore reçu de réponse.', ar: 'لسا ما وصلني جواب.', en: 'I haven’t received an answer yet.' },
+          { fr: 'Est-ce qu’il manque quelque chose à mon dossier ?', ar: 'في شي ناقص بملفي؟', en: 'Is anything missing from my application?' },
+          { fr: 'Je n’ai pas reçu mon paiement.', ar: 'ما وصلني الدفع.', en: 'I haven’t received my payment.' },
+          { fr: 'Je n’ai pas reçu mon allocation ce mois-ci.', ar: 'ما وصلتني المساعدة هالشهر.', en: 'I haven’t received my benefit this month.' },
+          { fr: 'Pouvez-vous vérifier mon dossier ?', ar: 'فيكم تتأكدوا من ملفي؟', en: 'Can you check my file?' },
+          { fr: 'Quand vais-je recevoir le paiement ?', ar: 'إمتى رح يوصلني الدفع؟', en: 'When will I receive the payment?' }
+        ]
+      },
+      {
+        icon: '📱',
+        title: { ar: 'رسالة من CAF وشهادات Attestation', en: 'Messages from CAF and certificates', fr: 'Courriers de la Caf et attestations' },
+        phrases: [
+          { fr: 'J’ai reçu un message de la Caf.', ar: 'وصلتني رسالة من الكاف.', en: 'I received a message from CAF.' },
+          { fr: 'Je ne comprends pas ce message.', ar: 'ما فهمت هالرسالة.', en: 'I don’t understand this message.' },
+          { fr: 'Pouvez-vous m’expliquer ce que je dois faire ?', ar: 'فيكم تشرحولي شو لازم أعمل؟', en: 'Can you explain what I need to do?' },
+          { fr: 'Est-ce que je dois répondre à ce message ?', ar: 'لازم رد على هالرسالة؟', en: 'Do I need to reply to this message?' },
+          { fr: 'Je voudrais télécharger une attestation.', ar: 'بدي نزّل شهادة من CAF.', en: 'I’d like to download a certificate.' },
+          { fr: 'J’ai besoin d’une attestation de paiement.', ar: 'بدي شهادة تثبت الدفعات.', en: 'I need a payment certificate.' },
+          { fr: 'J’ai besoin d’une attestation de quotient familial.', ar: 'بدي شهادة الـquotient familial.', en: 'I need a family quotient certificate.' },
+          { fr: 'J’ai besoin d’une attestation pour mon dossier.', ar: 'بدي شهادة لملفي.', en: 'I need a certificate for my application.' }
+        ]
+      },
+      {
+        icon: '🛑',
+        title: { ar: 'إذا توقف ملفك', en: 'If your file is suspended', fr: 'Si votre dossier est suspendu' },
+        phrases: [
+          { fr: 'Mon dossier a été suspendu.', ar: 'ملفي توقف.', en: 'My application has been suspended.' },
+          { fr: 'Pourquoi mes prestations ont-elles été suspendues ?', ar: 'ليش توقفت مساعداتي؟', en: 'Why have my benefits been suspended?' },
+          { fr: 'Que dois-je faire pour rétablir mes droits ?', ar: 'شو لازم أعمل ليرجعوا حقوقي؟', en: 'What do I need to do to restore my benefits?' }
+        ]
+      },
+      {
+        icon: '📞',
+        title: { ar: 'الاتصال بالـCAF', en: 'Calling CAF', fr: 'Appeler la Caf' },
+        phrases: [
+          { fr: 'Bonjour, j’appelle concernant mon dossier Caf.', ar: 'مرحبا، عم اتصل بخصوص ملفي بالـCAF.', en: 'Hello, I’m calling about my CAF file.' },
+          { fr: 'Je voudrais parler à quelqu’un concernant mon dossier.', ar: 'بدي احكي مع حدا بخصوص ملفي.', en: 'I’d like to speak to someone about my file.' },
+          { fr: 'Pouvez-vous vérifier mon dossier, s’il vous plaît ?', ar: 'فيكم تتأكدوا من ملفي لو سمحت؟', en: 'Could you check my file, please?' },
+          { fr: 'Je parle français, mais je ne comprends pas très bien.', ar: 'بحكي فرنسي، بس ما بفهم منيح.', en: 'I speak French, but I don’t understand very well.' },
+          { fr: 'Pouvez-vous parler plus lentement, s’il vous plaît ?', ar: 'فيك تحكي أبطأ شوي لو سمحت؟', en: 'Could you speak more slowly, please?' },
+          { fr: 'Pouvez-vous répéter, s’il vous plaît ?', ar: 'فيك تعيد لو سمحت؟', en: 'Could you repeat, please?' },
+          { fr: 'Pouvez-vous me l’écrire, s’il vous plaît ?', ar: 'فيك تكتبلي ياها لو سمحت؟', en: 'Could you write it down for me, please?' }
+        ]
+      },
+      {
+        icon: '⭐',
+        title: { ar: 'أهم كلمات CAF', en: 'Key CAF vocabulary', fr: 'Vocabulaire clé de la Caf' },
+        phrases: [
+          { fr: 'CAF', ar: 'الكاف / صندوق المخصصات العائلية', en: 'Family Allowance Fund' },
+          { fr: 'allocataire', ar: 'مستفيد من CAF', en: 'benefit recipient' },
+          { fr: 'prestation', ar: 'مساعدة / إعانة', en: 'benefit' },
+          { fr: 'aide au logement', ar: 'مساعدة السكن', en: 'housing assistance' },
+          { fr: 'APL', ar: 'مساعدة السكن APL', en: 'housing benefit' },
+          { fr: 'ALS', ar: 'مساعدة السكن ALS', en: 'housing allowance' },
+          { fr: 'RSA', ar: 'دخل التضامن النشط', en: 'minimum-income benefit' },
+          { fr: 'Prime d’activité', ar: 'منحة/مكافأة النشاط', en: 'activity bonus' },
+          { fr: 'déclaration trimestrielle', ar: 'تصريح كل 3 أشهر', en: 'quarterly declaration' },
+          { fr: 'ressources', ar: 'الموارد / الدخل', en: 'income / resources' },
+          { fr: 'montant net social', ar: 'المبلغ الصافي الاجتماعي', en: 'net social amount' },
+          { fr: 'dossier', ar: 'الملف', en: 'application / file' },
+          { fr: 'justificatif', ar: 'إثبات / وثيقة', en: 'supporting document' },
+          { fr: 'attestation', ar: 'شهادة / إثبات', en: 'certificate' },
+          { fr: 'versement', ar: 'الدفعة / التحويل', en: 'payment' },
+          { fr: 'droits', ar: 'الاستحقاقات / الحقوق', en: 'entitlements' },
+          { fr: 'suspendu', ar: 'متوقف', en: 'suspended' },
+          { fr: 'en cours de traitement', ar: 'قيد المعالجة', en: 'being processed' },
+          { fr: 'RIB', ar: 'معلومات الحساب البنكي', en: 'bank details' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: 'RSA — هل إلي حق', en: 'RSA — am I eligible', fr: 'RSA — ai-je droit' },
+        phrases: [
+          { fr: 'Est-ce que j’ai droit au RSA ?', ar: 'إلي حق بالـRSA؟', en: 'Am I entitled to RSA?' },
+          { fr: 'Je voudrais savoir si je peux bénéficier du RSA.', ar: 'بدي أعرف إذا فيني استفيد من الـRSA.', en: 'I’d like to know if I can receive RSA.' },
+          { fr: 'Quelles sont les conditions pour bénéficier du RSA ?', ar: 'شو شروط الحصول على RSA؟', en: 'What are the conditions for receiving RSA?' },
+          { fr: 'Est-ce que ma situation me permet de bénéficier du RSA ?', ar: 'وضعي بيسمحلي آخد RSA؟', en: 'Does my situation make me eligible for RSA?' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: 'RSA — تقديم الطلب', en: 'RSA — applying', fr: 'RSA — faire la demande' },
+        phrases: [
+          { fr: 'Je voudrais faire une demande de RSA.', ar: 'بدي قدّم طلب RSA.', en: 'I’d like to apply for RSA.' },
+          { fr: 'Comment puis-je faire une demande de RSA ?', ar: 'كيف فيني قدّم على RSA؟', en: 'How can I apply for RSA?' },
+          { fr: 'Est-ce que je peux faire la demande en ligne ?', ar: 'فيني قدّم الطلب أونلاين؟', en: 'Can I apply online?' },
+          { fr: 'Je n’arrive pas à faire ma demande en ligne.', ar: 'ما عم اقدر قدّم الطلب أونلاين.', en: 'I can’t complete my application online.' },
+          { fr: 'Je suis déjà allocataire.', ar: 'أنا أصلاً مستفيد من CAF.', en: 'I’m already a CAF beneficiary.' },
+          { fr: 'J’ai déjà un compte Caf.', ar: 'عندي حساب CAF من قبل.', en: 'I already have a CAF account.' },
+          { fr: 'Je voudrais ajouter une demande de RSA à mon dossier.', ar: 'بدي أضيف طلب RSA على ملفي.', en: 'I’d like to add an RSA application to my file.' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: 'RSA — الوثائق والدخل', en: 'RSA — documents and income', fr: 'RSA — documents et revenus' },
+        phrases: [
+          { fr: 'Quels documents dois-je fournir ?', ar: 'شو الأوراق اللي لازم قدمها؟', en: 'What documents do I need to provide?' },
+          { fr: 'Est-ce qu’il manque un document ?', ar: 'في شي ورقة ناقصة؟', en: 'Is any document missing?' },
+          { fr: 'Voici mes documents.', ar: 'هاي أوراقي.', en: 'Here are my documents.' },
+          { fr: 'Je peux envoyer les documents en ligne ?', ar: 'فيني ابعت الأوراق أونلاين؟', en: 'Can I send the documents online?' },
+          { fr: 'J’ai envoyé les documents sur mon compte Caf.', ar: 'بعت الأوراق على حسابي بالـCAF.', en: 'I sent the documents through my CAF account.' },
+          { fr: 'Quels revenus dois-je déclarer ?', ar: 'أي دخل لازم صرّح عنه؟', en: 'Which income do I need to declare?' },
+          { fr: 'Je dois déclarer mon salaire ?', ar: 'لازم صرّح عن راتبي؟', en: 'Do I have to declare my salary?' },
+          { fr: 'Je travaille actuellement.', ar: 'أنا حالياً عم اشتغل.', en: 'I’m currently working.' },
+          { fr: 'J’ai un petit salaire.', ar: 'راتبي قليل.', en: 'I have a low income.' },
+          { fr: 'Est-ce que je peux avoir le RSA même si je travaille ?', ar: 'فيني آخد RSA حتى لو عم اشتغل؟', en: 'Can I receive RSA even if I work?' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: 'RSA — انتهاء عقد العمل والـARE', en: 'RSA — contract ended and ARE', fr: 'RSA — fin de contrat et ARE' },
+        phrases: [
+          { fr: 'Mon contrat de travail est terminé.', ar: 'عقد عملي انتهى.', en: 'My employment contract has ended.' },
+          { fr: 'Mon contrat se termine bientôt.', ar: 'عقدي رح ينتهي قريب.', en: 'My contract is ending soon.' },
+          { fr: 'Je n’ai plus de revenus professionnels.', ar: 'ما عاد عندي دخل من العمل.', en: 'I no longer have employment income.' },
+          { fr: 'Je voudrais savoir si je peux demander le RSA maintenant.', ar: 'بدي أعرف إذا فيني قدّم على RSA هلق.', en: 'I’d like to know if I can apply for RSA now.' },
+          { fr: 'Est-ce que mes droits peuvent être réexaminés après la fin de mon contrat ?', ar: 'ممكن يعيدوا دراسة استحقاقي بعد انتهاء عقدي؟', en: 'Can my eligibility be reassessed after my contract ends?' },
+          { fr: 'Je perçois des allocations chômage.', ar: 'عم آخد تعويض بطالة.', en: 'I receive unemployment benefits.' },
+          { fr: 'Est-ce que je peux bénéficier du RSA en plus de l’ARE ?', ar: 'فيني آخد RSA بالإضافة لتعويض البطالة؟', en: 'Can I receive RSA in addition to unemployment benefits?' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: 'RSA — التصريح وmontant net social', en: 'RSA — declaration and net social amount', fr: 'RSA — déclaration et montant net social' },
+        phrases: [
+          { fr: 'Je dois faire ma déclaration trimestrielle.', ar: 'لازم أعمل التصريح كل 3 أشهر.', en: 'I have to complete my quarterly declaration.' },
+          { fr: 'Quand dois-je faire ma déclaration trimestrielle ?', ar: 'إمتى لازم أعمل التصريح كل 3 أشهر؟', en: 'When do I have to complete my quarterly declaration?' },
+          { fr: 'J’ai oublié de faire ma déclaration trimestrielle.', ar: 'نسيت أعمل التصريح الفصلي.', en: 'I forgot to complete my quarterly declaration.' },
+          { fr: 'Je voudrais vérifier ma déclaration.', ar: 'بدي أتأكد من التصريح تبعي.', en: 'I’d like to check my declaration.' },
+          { fr: 'Qu’est-ce que le montant net social ?', ar: 'شو يعني montant net social؟', en: 'What does “montant net social” mean?' },
+          { fr: 'Quel montant dois-je déclarer sur ma déclaration ?', ar: 'أي مبلغ لازم حط بالتصريح؟', en: 'Which amount should I enter on my declaration?' },
+          { fr: 'Je voudrais vérifier le montant prérempli.', ar: 'بدي أتأكد من المبلغ المعبّى مسبقاً.', en: 'I’d like to check the pre-filled amount.' },
+          { fr: 'Le montant prérempli est incorrect.', ar: 'المبلغ المعبّى مسبقاً غلط.', en: 'The pre-filled amount is incorrect.' },
+          { fr: 'Je voudrais modifier le montant.', ar: 'بدي عدّل المبلغ.', en: 'I’d like to change the amount.' },
+          { fr: 'J’ai un justificatif.', ar: 'عندي إثبات.', en: 'I have supporting documentation.' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: 'RSA — السكن وعلاقته بالمبلغ', en: 'RSA — housing and the amount', fr: 'RSA — logement et montant' },
+        phrases: [
+          { fr: 'Vous êtes locataire ?', ar: 'إنت مستأجر؟', en: 'Are you a tenant?' },
+          { fr: 'Oui, je suis locataire.', ar: 'إي، أنا مستأجر.', en: 'Yes, I’m a tenant.' },
+          { fr: 'Vous payez combien de loyer ?', ar: 'قديش بتدفع إيجار؟', en: 'How much rent do you pay?' },
+          { fr: 'Je paie … euros de loyer par mois.', ar: 'بدفع … يورو إيجار بالشهر.', en: 'I pay … euros in rent per month.' },
+          { fr: 'Je reçois une aide au logement.', ar: 'عم آخد مساعدة سكن.', en: 'I receive housing assistance.' },
+          { fr: 'Est-ce que l’aide au logement réduit mon RSA ?', ar: 'مساعدة السكن بتخفّض الـRSA تبعي؟', en: 'Does housing assistance reduce my RSA?' },
+          { fr: 'Comment mon aide au logement est-elle prise en compte pour le RSA ?', ar: 'كيف بينحسب دعم السكن ضمن RSA؟', en: 'How is my housing assistance taken into account for RSA?' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: 'RSA — التوقف وغياب الدفع', en: 'RSA — suspension and missing payment', fr: 'RSA — suspension et paiement manquant' },
+        phrases: [
+          { fr: 'Mon RSA a été suspendu.', ar: 'الـRSA تبعي توقف.', en: 'My RSA has been suspended.' },
+          { fr: 'Pourquoi mon RSA a-t-il été suspendu ?', ar: 'ليش توقف الـRSA تبعي؟', en: 'Why was my RSA suspended?' },
+          { fr: 'Je voudrais savoir pourquoi mon paiement a été suspendu.', ar: 'بدي أعرف ليش توقف الدفع.', en: 'I’d like to know why the payment was suspended.' },
+          { fr: 'Que dois-je faire pour rétablir mes droits ?', ar: 'شو لازم أعمل ليرجعوا حقوقي؟', en: 'What do I need to do to restore my benefits?' },
+          { fr: 'Je n’ai pas reçu mon RSA.', ar: 'ما وصلني الـRSA.', en: 'I haven’t received my RSA payment.' },
+          { fr: 'Je n’ai pas reçu mon paiement ce mois-ci.', ar: 'ما وصلني الدفع هالشهر.', en: 'I haven’t received my payment this month.' },
+          { fr: 'Pouvez-vous vérifier mon dossier, s’il vous plaît ?', ar: 'فيكم تتأكدوا من ملفي لو سمحت؟', en: 'Could you check my file, please?' },
+          { fr: 'Quand vais-je recevoir mon paiement ?', ar: 'إمتى رح يوصلني الدفع؟', en: 'When will I receive my payment?' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: 'RSA — تغيير الحساب والعنوان والانتقال', en: 'RSA — changing bank, address, moving', fr: 'RSA — changement de RIB, d’adresse, déménagement' },
+        phrases: [
+          { fr: 'Je voudrais changer mon RIB.', ar: 'بدي غيّر الـRIB تبعي.', en: 'I’d like to change my bank details.' },
+          { fr: 'Voici mon nouveau RIB.', ar: 'هاد الـRIB الجديد تبعي.', en: 'Here are my new bank details.' },
+          { fr: 'Est-ce que le prochain paiement sera versé sur ce compte ?', ar: 'الدفعة الجاية رح تنزل على هالحساب؟', en: 'Will the next payment be paid into this account?' },
+          { fr: 'J’ai changé d’adresse.', ar: 'غيرت عنواني.', en: 'I changed my address.' },
+          { fr: 'Je voudrais déclarer mon changement d’adresse.', ar: 'بدي صرّح عن تغيير عنواني.', en: 'I’d like to report my change of address.' },
+          { fr: 'Je suis domicilié à la Croix-Rouge.', ar: 'أنا عامل domiciliation عند الصليب الأحمر.', en: 'I’m domiciled with the Red Cross.' },
+          { fr: 'Voici mon attestation de domiciliation.', ar: 'هاي شهادة التوطين تبعي.', en: 'Here is my domiciliation certificate.' },
+          { fr: 'Je viens de déménager.', ar: 'هلأ نقلت بيت.', en: 'I’ve just moved.' },
+          { fr: 'Je dois déclarer mon nouveau logement.', ar: 'لازم صرّح عن بيتي الجديد.', en: 'I need to declare my new accommodation.' },
+          { fr: 'Est-ce que mon RSA va changer après mon déménagement ?', ar: 'هل الـRSA رح يتغير بعد نقلي؟', en: 'Will my RSA change after I move?' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: 'RSA — الملف قيد المعالجة والمقابلة', en: 'RSA — pending file and the interview', fr: 'RSA — dossier en cours et rendez-vous' },
+        phrases: [
+          { fr: 'Mon dossier est en cours de traitement.', ar: 'ملفي قيد المعالجة.', en: 'My application is being processed.' },
+          { fr: 'Depuis combien de temps mon dossier est-il en cours de traitement ?', ar: 'من إمتى وملفي قيد المعالجة؟', en: 'How long has my application been under review?' },
+          { fr: 'Est-ce qu’il manque quelque chose à mon dossier ?', ar: 'في شي ناقص بملفي؟', en: 'Is anything missing from my application?' },
+          { fr: 'Quand est-ce que j’aurai une réponse ?', ar: 'إمتى رح يوصلني جواب؟', en: 'When will I get an answer?' },
+          { fr: 'Bonjour, j’ai rendez-vous concernant mon dossier RSA.', ar: 'مرحبا، عندي موعد بخصوص ملف الـRSA تبعي.', en: 'Hello, I have an appointment regarding my RSA application.' },
+          { fr: 'Je voudrais faire le point sur mon dossier.', ar: 'بدي شوف وين وصل ملفي.', en: 'I’d like to review the status of my file.' },
+          { fr: 'Pouvez-vous m’expliquer ma situation ?', ar: 'فيكم تشرحولي وضعي؟', en: 'Can you explain my situation to me?' },
+          { fr: 'Est-ce que mes droits sont ouverts ?', ar: 'حقوقي/استحقاقي مفتوح؟', en: 'Are my benefits active?' },
+          { fr: 'Quel est le montant de mon RSA ?', ar: 'قديش مبلغ الـRSA تبعي؟', en: 'How much is my RSA?' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: 'RSA — الالتزامات والمرافقة (accompagnement)', en: 'RSA — obligations and support', fr: 'RSA — obligations et accompagnement' },
+        phrases: [
+          { fr: 'Quel accompagnement dois-je suivre ?', ar: 'شو نوع المتابعة اللي لازم أعملها؟', en: 'What support program do I need to follow?' },
+          { fr: 'Avec quel organisme dois-je prendre rendez-vous ?', ar: 'مع أي مؤسسة لازم آخد موعد؟', en: 'Which organization do I need to make an appointment with?' },
+          { fr: 'Est-ce que je dois m’inscrire à France Travail ?', ar: 'لازم سجّل بـFrance Travail؟', en: 'Do I need to register with France Travail?' },
+          { fr: 'Quelles sont mes obligations ?', ar: 'شو التزاماتي؟', en: 'What are my obligations?' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: 'RSA — إذا كنت لاجئاً أو طالب لجوء', en: 'RSA — if you are a refugee or asylum seeker', fr: 'RSA — réfugié ou demandeur d’asile' },
+        phrases: [
+          { fr: 'Je suis reconnu réfugié.', ar: 'أنا معترف فيني كلاجئ.', en: 'I have been recognized as a refugee.' },
+          { fr: 'J’ai obtenu la protection subsidiaire.', ar: 'حصلت على الحماية الفرعية.', en: 'I have been granted subsidiary protection.' },
+          { fr: 'Voici ma décision de l’OFPRA.', ar: 'هاي قراري من OFPRA.', en: 'Here is my OFPRA decision.' },
+          { fr: 'Voici mon titre de séjour.', ar: 'هاي بطاقة إقامتي.', en: 'Here is my residence permit.' },
+          { fr: 'Est-ce que je peux faire une demande de RSA avec mon nouveau statut ?', ar: 'فيني قدّم على RSA بعد ما تغير وضعي؟', en: 'Can I apply for RSA with my new status?' },
+          { fr: 'Je suis demandeur d’asile. Est-ce que j’ai droit au RSA ?', ar: 'أنا طالب لجوء، إلي حق بالـRSA؟', en: 'I’m an asylum seeker. Am I entitled to RSA?' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: 'RSA — أهم الأسئلة اللي تسألها للموظف', en: 'RSA — key questions to ask the officer', fr: 'RSA — questions clés à poser' },
+        phrases: [
+          { fr: 'Est-ce que j’ai droit au RSA ?', ar: 'إلي حق بالـRSA؟', en: 'Am I entitled to RSA?' },
+          { fr: 'Quel serait le montant de mon RSA ?', ar: 'قديش ممكن يكون مبلغ الـRSA تبعي؟', en: 'How much could my RSA be?' },
+          { fr: 'Quels documents dois-je fournir ?', ar: 'شو الأوراق المطلوبة؟', en: 'Which documents do I need to provide?' },
+          { fr: 'Est-ce que mon dossier est complet ?', ar: 'ملفي كامل؟', en: 'Is my application complete?' },
+          { fr: 'Est-ce qu’il manque un document ?', ar: 'في ورقة ناقصة؟', en: 'Is any document missing?' },
+          { fr: 'Quand vais-je recevoir une réponse ?', ar: 'إمتى رح يوصلني جواب؟', en: 'When will I get an answer?' },
+          { fr: 'Quand vais-je recevoir le premier paiement ?', ar: 'إمتى رح توصل أول دفعة؟', en: 'When will the first payment arrive?' },
+          { fr: 'Pourquoi mon RSA a-t-il été suspendu ?', ar: 'ليش توقف الـRSA؟', en: 'Why was my RSA suspended?' },
+          { fr: 'Que dois-je faire maintenant ?', ar: 'شو لازم أعمل هلق؟', en: 'What do I need to do now?' },
+          { fr: 'Quelles sont mes obligations ?', ar: 'شو التزاماتي؟', en: 'What are my obligations?' }
+        ]
+      },
+      {
+        icon: '⭐',
+        title: { ar: 'كلمات RSA لازم تحفظها', en: 'Key RSA vocabulary', fr: 'Vocabulaire clé du RSA' },
+        phrases: [
+          { fr: 'RSA', ar: 'دخل التضامن النشط', en: 'Active Solidarity Income' },
+          { fr: 'demande de RSA', ar: 'طلب RSA', en: 'RSA application' },
+          { fr: 'bénéficiaire', ar: 'مستفيد', en: 'beneficiary' },
+          { fr: 'ressources', ar: 'الموارد / الدخل', en: 'resources / income' },
+          { fr: 'revenus', ar: 'المداخيل', en: 'income' },
+          { fr: 'déclaration trimestrielle', ar: 'التصريح كل 3 أشهر', en: 'quarterly declaration' },
+          { fr: 'montant net social', ar: 'المبلغ الصافي الاجتماعي', en: 'net social amount' },
+          { fr: 'versement', ar: 'الدفعة', en: 'payment' },
+          { fr: 'droit ouvert', ar: 'الاستحقاق مفتوح', en: 'entitlement active' },
+          { fr: 'suspendu', ar: 'متوقف', en: 'suspended' },
+          { fr: 'en cours de traitement', ar: 'قيد المعالجة', en: 'being processed' },
+          { fr: 'justificatif', ar: 'إثبات', en: 'supporting document' },
+          { fr: 'RIB', ar: 'معلومات الحساب البنكي', en: 'bank details' },
+          { fr: 'accompagnement', ar: 'مرافقة/متابعة', en: 'support' },
+          { fr: 'insertion professionnelle', ar: 'الإدماج المهني', en: 'employment integration' },
+          { fr: 'changement de situation', ar: 'تغيير في الوضع', en: 'change of circumstances' },
+          { fr: 'déclarer', ar: 'يصرّح', en: 'to declare' },
+          { fr: 'réexaminer', ar: 'يعيد دراسة الملف', en: 'to reassess' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: 'كيف تقول "أنا أتلقى الـRSA"', en: 'How to say “I receive RSA”', fr: 'Dire « je perçois le RSA »' },
+        phrases: [
+          { fr: 'Je perçois le RSA.', ar: 'أنا أتلقى الـRSA.', en: 'I receive RSA.' },
+          { fr: 'Je bénéficie du RSA.', ar: 'أنا مستفيد من الـRSA.', en: 'I receive RSA / I benefit from RSA.' },
+          { fr: 'Je perçois actuellement le RSA.', ar: 'أنا حالياً عم أتلقى الـRSA.', en: 'I currently receive RSA.' },
+          { fr: 'Je touche le RSA.', ar: 'أنا عم آخد RSA.', en: 'I receive RSA.' },
+          { fr: 'Je touche le RSA actuellement.', ar: 'حالياً أنا عم آخد RSA.', en: 'I’m currently receiving RSA.' },
+          { fr: 'Je ne touche pas le RSA.', ar: 'أنا ما عم آخد RSA.', en: 'I don’t receive RSA.' },
+          { fr: 'Je ne touche plus le RSA.', ar: 'ما عاد عم آخد RSA.', en: 'I no longer receive RSA.' }
+        ]
+      },
+      {
+        icon: '💼',
+        title: { ar: 'Prime d’activité — الاستفسار', en: 'Prime d’activité — asking', fr: 'Prime d’activité — demande' },
+        phrases: [
+          { fr: 'Je voudrais savoir si j’ai droit à la Prime d’activité.', ar: 'بدي أعرف إذا إلي حق بمكافأة النشاط.', en: 'I’d like to know if I’m eligible for the activity bonus.' },
+          { fr: 'Je voudrais faire une demande de Prime d’activité.', ar: 'بدي قدّم طلب مكافأة النشاط.', en: 'I’d like to apply for the activity bonus.' },
+          { fr: 'Comment faire une demande de Prime d’activité ?', ar: 'كيف فيني قدّم على مكافأة النشاط؟', en: 'How can I apply for the activity bonus?' },
+          { fr: 'Est-ce que je peux bénéficier de la Prime d’activité si je travaille ?', ar: 'فيني استفيد من مكافأة النشاط إذا عم اشتغل؟', en: 'Can I receive the activity bonus if I work?' }
+        ]
+      },
+      {
+        icon: '💼',
+        title: { ar: 'Prime d’activité — عن العمل', en: 'Prime d’activité — about work', fr: 'Prime d’activité — le travail' },
+        phrases: [
+          { fr: 'Vous travaillez actuellement ?', ar: 'إنت حالياً عم تشتغل؟', en: 'Are you currently working?' },
+          { fr: 'Oui, je travaille actuellement.', ar: 'إي، أنا حالياً عم اشتغل.', en: 'Yes, I’m currently working.' },
+          { fr: 'Quel est votre emploi ?', ar: 'شو شغلك؟', en: 'What is your job?' },
+          { fr: 'Je travaille dans la préparation de commandes.', ar: 'أنا بشتغل بتحضير الطلبات.', en: 'I work in order preparation.' },
+          { fr: 'Je travaille dans le conditionnement.', ar: 'أنا بشتغل بالتوضيب والتغليف.', en: 'I work in packaging.' },
+          { fr: 'Vous travaillez à temps plein ou à temps partiel ?', ar: 'بتشتغل دوام كامل ولا جزئي؟', en: 'Do you work full-time or part-time?' },
+          { fr: 'Je travaille à temps plein.', ar: 'بشتغل دوام كامل.', en: 'I work full-time.' }
+        ]
+      },
+      {
+        icon: '💼',
+        title: { ar: 'Prime d’activité — الراتب', en: 'Prime d’activité — salary', fr: 'Prime d’activité — le salaire' },
+        phrases: [
+          { fr: 'Combien gagnez-vous par mois ?', ar: 'قديش راتبك بالشهر؟', en: 'How much do you earn per month?' },
+          { fr: 'Je gagne environ … euros par mois.', ar: 'باخد تقريباً … يورو بالشهر.', en: 'I earn about … euros per month.' },
+          { fr: 'Quel montant dois-je déclarer ?', ar: 'أي مبلغ لازم صرّح عنه؟', en: 'What amount do I need to declare?' },
+          { fr: 'Je dois déclarer le montant net social ?', ar: 'لازم صرّح عن الـ montant net social؟', en: 'Do I need to declare the net social amount?' },
+          { fr: 'Où puis-je trouver le montant net social ?', ar: 'وين فيني لاقي مبلغ الـmontant net social؟', en: 'Where can I find the net social amount?' }
+        ]
+      },
+      {
+        icon: '💼',
+        title: { ar: 'Prime d’activité — التصريح وتغيّر الراتب', en: 'Prime d’activité — declaration and salary change', fr: 'Prime d’activité — déclaration et changement de salaire' },
+        phrases: [
+          { fr: 'Je dois faire ma déclaration trimestrielle.', ar: 'لازم أعمل التصريح كل 3 أشهر.', en: 'I have to complete my quarterly declaration.' },
+          { fr: 'Quand dois-je faire ma déclaration ?', ar: 'إمتى لازم أعمل التصريح؟', en: 'When do I need to complete my declaration?' },
+          { fr: 'Je n’arrive pas à faire ma déclaration en ligne.', ar: 'ما عم اقدر أعمل التصريح أونلاين.', en: 'I can’t complete my declaration online.' },
+          { fr: 'Pouvez-vous m’aider à faire ma déclaration ?', ar: 'فيكم تساعدوني أعمل التصريح؟', en: 'Can you help me complete my declaration?' },
+          { fr: 'Mon salaire a changé.', ar: 'راتبي تغيّر.', en: 'My salary has changed.' },
+          { fr: 'Mon salaire a augmenté.', ar: 'راتبي زاد.', en: 'My salary increased.' },
+          { fr: 'Mon salaire a diminué.', ar: 'راتبي نقص.', en: 'My salary decreased.' },
+          { fr: 'J’ai changé d’emploi.', ar: 'غيّرت شغلي.', en: 'I changed jobs.' },
+          { fr: 'Mon contrat de travail se termine bientôt.', ar: 'عقد عملي رح ينتهي قريب.', en: 'My employment contract is ending soon.' },
+          { fr: 'Mon contrat de travail est terminé.', ar: 'عقد عملي انتهى.', en: 'My employment contract has ended.' }
+        ]
+      },
+      {
+        icon: '💼',
+        title: { ar: 'Prime d’activité — ما عاد عندك عمل', en: 'Prime d’activité — no longer working', fr: 'Prime d’activité — plus d’emploi' },
+        phrases: [
+          { fr: 'Je ne travaille plus.', ar: 'ما عاد عم اشتغل.', en: 'I’m no longer working.' },
+          { fr: 'Je n’ai plus de revenus professionnels.', ar: 'ما عاد عندي دخل من العمل.', en: 'I no longer have employment income.' },
+          { fr: 'Est-ce que je dois signaler la fin de mon contrat ?', ar: 'لازم خبّر CAF إنو عقدي انتهى؟', en: 'Do I need to report that my contract has ended?' }
+        ]
+      },
+      {
+        icon: '💼',
+        title: { ar: 'Prime d’activité — المبلغ والتوقف', en: 'Prime d’activité — amount and suspension', fr: 'Prime d’activité — montant et suspension' },
+        phrases: [
+          { fr: 'Quel sera le montant de ma Prime d’activité ?', ar: 'قديش رح يكون مبلغ مكافأة النشاط تبعي؟', en: 'How much will my activity bonus be?' },
+          { fr: 'Pourquoi le montant a changé ?', ar: 'ليش المبلغ تغيّر؟', en: 'Why did the amount change?' },
+          { fr: 'Pourquoi je ne reçois plus la Prime d’activité ?', ar: 'ليش ما عاد عم آخد مكافأة النشاط؟', en: 'Why am I no longer receiving the activity bonus?' },
+          { fr: 'Ma Prime d’activité a été suspendue.', ar: 'مكافأة النشاط تبعي توقفت.', en: 'My activity bonus has been suspended.' },
+          { fr: 'Je n’ai pas reçu mon paiement.', ar: 'ما وصلني الدفع.', en: 'I haven’t received my payment.' },
+          { fr: 'Quand vais-je recevoir mon paiement ?', ar: 'إمتى رح يوصلني المبلغ؟', en: 'When will I receive my payment?' }
+        ]
+      },
+      {
+        icon: '💼',
+        title: { ar: 'Prime d’activité — مع الـRSA', en: 'Prime d’activité — with RSA', fr: 'Prime d’activité — avec le RSA' },
+        phrases: [
+          { fr: 'Je touche le RSA. Est-ce que je peux aussi bénéficier de la Prime d’activité ?', ar: 'أنا عم آخد RSA، فيني كمان استفيد من مكافأة النشاط؟', en: 'I receive RSA. Can I also receive the activity bonus?' },
+          { fr: 'Je ne touche plus le RSA.', ar: 'ما عاد عم آخد RSA.', en: 'I no longer receive RSA.' },
+          { fr: 'Je touche uniquement la Prime d’activité.', ar: 'أنا عم آخد بس مكافأة النشاط.', en: 'I only receive the activity bonus.' }
+        ]
+      },
+      {
+        icon: '💼',
+        title: { ar: 'Prime d’activité — السكن والعنوان والمعالجة', en: 'Prime d’activité — housing, address, processing', fr: 'Prime d’activité — logement, adresse, traitement' },
+        phrases: [
+          { fr: 'Vous êtes locataire ?', ar: 'إنت مستأجر؟', en: 'Are you a tenant?' },
+          { fr: 'Oui, je suis locataire.', ar: 'إي، أنا مستأجر.', en: 'Yes, I’m a tenant.' },
+          { fr: 'Combien payez-vous de loyer ?', ar: 'قديش بتدفع إيجار؟', en: 'How much rent do you pay?' },
+          { fr: 'Je paie … euros de loyer par mois.', ar: 'بدفع … يورو إيجار بالشهر.', en: 'I pay … euros in rent per month.' },
+          { fr: 'Je reçois une aide au logement.', ar: 'عم آخد مساعدة سكن.', en: 'I receive housing assistance.' },
+          { fr: 'J’ai changé d’adresse.', ar: 'غيّرت عنواني.', en: 'I changed my address.' },
+          { fr: 'Je voudrais déclarer mon changement d’adresse.', ar: 'بدي صرّح عن تغيير عنواني.', en: 'I’d like to report my change of address.' },
+          { fr: 'Je suis domicilié à la Croix-Rouge.', ar: 'أنا عامل domiciliation عند الصليب الأحمر.', en: 'I’m domiciled with the Red Cross.' },
+          { fr: 'Voici mon attestation de domiciliation.', ar: 'هاي شهادة التوطين تبعي.', en: 'Here is my domiciliation certificate.' },
+          { fr: 'Ma demande est en cours de traitement.', ar: 'طلبي قيد المعالجة.', en: 'My application is being processed.' },
+          { fr: 'Depuis combien de temps mon dossier est-il en cours de traitement ?', ar: 'من إمتى وملفي قيد المعالجة؟', en: 'How long has my application been under review?' },
+          { fr: 'Est-ce qu’il manque un document ?', ar: 'في ورقة ناقصة؟', en: 'Is any document missing?' },
+          { fr: 'Pouvez-vous vérifier mon dossier, s’il vous plaît ?', ar: 'فيكم تتأكدوا من ملفي لو سمحتوا؟', en: 'Could you check my file, please?' },
+          { fr: 'Quand est-ce que j’aurai une réponse ?', ar: 'إمتى رح يوصلني جواب؟', en: 'When will I get an answer?' }
+        ]
+      },
+      {
+        icon: '💼',
+        title: { ar: 'Prime d’activité — جمل مهمة عند CAF', en: 'Prime d’activité — key phrases at CAF', fr: 'Prime d’activité — phrases clés à la Caf' },
+        phrases: [
+          { fr: 'Je voudrais faire le point sur mon dossier.', ar: 'بدي أعرف وين وصل ملفي.', en: 'I’d like to review the status of my file.' },
+          { fr: 'Je voudrais vérifier mes droits.', ar: 'بدي أتأكد من استحقاقاتي.', en: 'I’d like to check my benefits.' },
+          { fr: 'Est-ce que mes droits sont ouverts ?', ar: 'استحقاقي مفتوح؟', en: 'Are my benefits active?' },
+          { fr: 'Est-ce que mon dossier est à jour ?', ar: 'ملفي محدّث؟', en: 'Is my file up to date?' },
+          { fr: 'Est-ce que vous avez besoin d’un justificatif ?', ar: 'بدكم أي إثبات أو ورقة؟', en: 'Do you need any supporting document?' },
+          { fr: 'Voici mon justificatif.', ar: 'هاد الإثبات تبعي.', en: 'Here is my supporting document.' },
+          { fr: 'Je voudrais savoir pourquoi ma Prime d’activité a changé.', ar: 'بدي أعرف ليش مكافأة النشاط تبعي تغيّرت.', en: 'I’d like to know why my activity bonus changed.' }
+        ]
+      },
+      {
+        icon: '⭐',
+        title: { ar: 'أهم 5 عبارات للـCAF', en: 'Top 5 CAF phrases', fr: 'Top 5 des phrases pour la Caf' },
+        phrases: [
+          { fr: 'Je voudrais faire une demande de Prime d’activité.', ar: 'بدي قدّم على مكافأة النشاط.', en: 'I’d like to apply for the activity bonus.' },
+          { fr: 'Je touche le RSA.', ar: 'أنا عم آخد RSA.', en: 'I receive RSA.' },
+          { fr: 'Je ne touche plus le RSA.', ar: 'ما عاد عم آخد RSA.', en: 'I no longer receive RSA.' },
+          { fr: 'Je travaille actuellement.', ar: 'أنا حالياً عم اشتغل.', en: 'I’m currently working.' },
+          { fr: 'Pouvez-vous vérifier mon dossier, s’il vous plaît ?', ar: 'فيكم تتأكدوا من ملفي لو سمحتوا؟', en: 'Could you check my file, please?' }
+        ]
+      }
+    ]
   }
 ];
