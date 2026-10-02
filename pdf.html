@@ -725,7 +725,7 @@ function capPlugin(name) {
   }
   return null;
 }
-const BUILD_STAMP = 'v15 · ٢٠٢٦-١٠-٠٢';
+const BUILD_STAMP = 'v16 · ٢٠٢٦-١٠-٠٢';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -1022,7 +1022,18 @@ function detectLang(text) {
   return settings.latinLang || 'fr-FR';
 }
 let ttsFails = 0, ttsWarned = false;
+// keep only speakable text: letters, digits, marks and punctuation —
+// drops emoji, flags, dingbats and control chars TTS would read out oddly
+function speakable(text) {
+  return (text || '')
+    .replace(/[\p{S}\p{C}\uFE0F\u200D\u{1F1E6}-\u{1F1FF}]/gu, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 function speakOnce(text) {
+  text = speakable(text);
+  if (!text) return Promise.resolve(true);
   const lang = detectLang(text);
   const web = () => new Promise(res => {
     if (!('speechSynthesis' in window)) return res(false);
