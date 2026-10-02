@@ -207,9 +207,11 @@
   .page .ph { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #98a2b3; font-size: 12px; }
   .page canvas { display: block; width: 100%; height: 100%; direction: ltr; }
   body.night .page canvas { filter: invert(0.92) hue-rotate(180deg); }
-  .text-layer { position: absolute; inset: 0; overflow: hidden; line-height: 1; text-align: initial; }
-  .text-layer span { color: transparent; position: absolute; white-space: pre; transform-origin: 0 0; cursor: pointer; }
-  .text-layer .word { pointer-events: auto; }
+  .text-layer { position: absolute; inset: 0; overflow: hidden; line-height: 1; text-align: initial;
+    touch-action: manipulation; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+  .text-layer span { color: transparent; position: absolute; white-space: pre; transform-origin: 0 0; cursor: pointer;
+    user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+  .text-layer .word { pointer-events: auto; touch-action: manipulation; }
   .text-layer .word.speaking { background: rgba(139,92,246,0.45); outline: 2px solid var(--accent); border-radius: 3px; }
   .text-layer .word.hit { background: rgba(251,191,36,0.4); }
   .text-layer .word.hit-current { background: rgba(244,63,94,0.55); outline: 2px solid var(--accent-2); border-radius: 3px; }
@@ -492,19 +494,32 @@ function detectLang(text) {
   if (/[؀-ۿ]/.test(text)) return 'ar-SA';
   return settings.latinLang || 'fr-FR';
 }
+let ttsFails = 0, ttsWarned = false;
 function speakOnce(text) {
   const lang = detectLang(text);
-  if (isNative && TTS && TTS.speak) {
-    return TTS.speak({ text, lang, rate: settings.rate, pitch: settings.pitch, volume: 1, queueStrategy: 0 }).catch(() => {});
-  }
-  return new Promise(res => {
-    if (!('speechSynthesis' in window)) return res();
+  const web = () => new Promise(res => {
+    if (!('speechSynthesis' in window)) return res(false);
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
     u.lang = lang; u.rate = settings.rate; u.pitch = settings.pitch;
-    u.onend = u.onerror = () => res();
+    u.onend = () => res(true);
+    u.onerror = () => res(false);
     speechSynthesis.speak(u);
   });
+  const done = ok => {
+    if (ok) ttsFails = 0;
+    else if (++ttsFails >= 3 && !ttsWarned) {
+      ttsWarned = true;
+      toast('تعذّر النطق — فعّل محرك النص إلى كلام (TTS) في إعدادات الهاتف');
+    }
+    return ok;
+  };
+  if (isNative && TTS && TTS.speak) {
+    return TTS.speak({ text, lang, rate: settings.rate, pitch: settings.pitch, volume: 1, queueStrategy: 0 })
+      .then(() => done(true))
+      .catch(() => web().then(done));
+  }
+  return web().then(done);
 }
 async function speak(text, span) {
   stopSpeech();
@@ -889,12 +904,13 @@ function splitWords(tlDiv, items, pageNo) {
 }
 
 // light tap = read aloud from this word onward, long press = loop the word
+let lastLp = null;
 pagesEl.addEventListener('pointerdown', e => {
   const w = e.target.closest && e.target.closest('.word');
   if (!w) { if (e.target.closest('.page')) toggleUiOnTap(e); return; }
-  w._lp = false;
+  lastLp = null;
   w._lpTimer = setTimeout(() => {
-    w._lp = true;
+    lastLp = w;
     if (!settings.tapSpeak) { toast('فعّل «نطق عند الضغط على الكلمة» من القائمة'); return; }
     speakWordLooped(w.textContent, w);
     toast('تكرار النطق — اضغط كلمة أخرى للإيقاف');
@@ -902,13 +918,24 @@ pagesEl.addEventListener('pointerdown', e => {
 });
 pagesEl.addEventListener('pointerup', e => {
   const w = e.target.closest && e.target.closest('.word');
+  if (w) clearTimeout(w._lpTimer);
+});
+pagesEl.addEventListener('pointercancel', e => {
+  const w = e.target.closest && e.target.closest('.word');
+  if (w) clearTimeout(w._lpTimer);
+});
+// click fires only for real taps (finger wiggle = scroll = no click)
+pagesEl.addEventListener('click', e => {
+  const w = e.target.closest && e.target.closest('.word');
   if (!w) return;
-  clearTimeout(w._lpTimer);
-  if (w._lp) { w._lp = false; return; }
+  if (w === lastLp) { lastLp = null; return; }
   if (!settings.tapSpeak) return;
+  toast('قراءة من هنا…');
   startReadFrom(w);
 });
-pagesEl.addEventListener('pointercancel', () => {});
+pagesEl.addEventListener('contextmenu', e => {
+  if (e.target.closest && e.target.closest('.word')) e.preventDefault();
+});
 
 function toggleUiOnTap(e) {
   if (e.target.closest('.word')) return;
