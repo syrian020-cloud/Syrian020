@@ -725,7 +725,7 @@ function capPlugin(name) {
   }
   return null;
 }
-const BUILD_STAMP = 'v17 · ٢٠٢٦-١٠-٠٢';
+const BUILD_STAMP = 'v18 · ٢٠٢٦-١٠-٠٢';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -2354,9 +2354,7 @@ async function composeHtml() {
     '@page{size:' + paper + ' ' + orient + ';margin:16mm}' +
     'body{font-family:"Noto Naskh Arabic","Amiri","Segoe UI","Traditional Arabic",Arial,sans-serif;' +
     'color:#1a1a1a;font-size:' + fs + 'pt;line-height:1.9}' +
-    'h1{text-align:center;font-size:' + (Math.round(+fs * 1.55)) + 'pt;font-weight:700;margin:0 0 6px;padding-bottom:10px;' +
-    'border-bottom:2px solid #444;letter-spacing:.5px}' +
-    '.rule{width:60px;height:2px;background:#444;margin:14px auto 22px}' +
+    'h1{text-align:center;font-size:' + (Math.round(+fs * 1.55)) + 'pt;font-weight:700;margin:0 0 16px;letter-spacing:.5px}' +
     'body>img{display:block;max-width:88%;margin:14px auto;border-radius:6px;' +
     'box-shadow:0 1px 4px rgba(0,0,0,.25)}' +
     '.doc{text-align:justify;font-size:' + fs + 'pt;line-height:1.9}' +
@@ -2365,9 +2363,9 @@ async function composeHtml() {
     (nb ?
       'body{line-height:2em;-webkit-print-color-adjust:exact;print-color-adjust:exact;background-image:' +
       mline + ',repeating-linear-gradient(white 0 calc(2em - .3mm),#9db3d6 calc(2em - .3mm) 2em)}' +
-      '.doc{line-height:2em;padding-inline-start:9mm}h1,.rule{margin-inline-start:9mm}body>img{margin-inline-start:16mm}' : '') +
+      '.doc{line-height:2em;padding-inline-start:9mm}h1{margin-inline-start:9mm}body>img{margin-inline-start:16mm}' : '') +
     '</style></head><body>' +
-    (title ? '<h1>' + escHtml(title) + '</h1><div class="rule"></div>' : '') +
+    (title ? '<h1>' + escHtml(title) + '</h1>' : '') +
     imgs + '<div class="doc">' + bodyHtml + '</div></body></html>';
 }
 
