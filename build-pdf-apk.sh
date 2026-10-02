@@ -6,7 +6,7 @@ export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform
 
 ROOT=$(pwd)
 
-# Build the Capacitor web assets for the PDF reader (Qari)
+# Build the Capacitor web assets for PDFly
 rm -rf www
 mkdir -p www/pdfjs
 
@@ -22,7 +22,7 @@ if [ "$USE_ALIYUN" = "1" ] && [ -f "$ROOT/init.gradle" ]; then
   GRADLE_INIT="--init-script ../init.gradle"
 fi
 
-# Swap Capacitor config for the Qari package and restore after build
+# Swap Capacitor config for the PDFly package and restore after build
 cp "$ROOT/capacitor.config.json" "$ROOT/capacitor.config.json.bak"
 cp "$ROOT/capacitor-pdf.config.json" "$ROOT/capacitor.config.json"
 restore_config() {
@@ -41,8 +41,8 @@ npx cap sync android
 # Ensure the Android launcher label matches the Capacitor appName
 STRINGS="$ROOT/android/app/src/main/res/values/strings.xml"
 if [ -f "$STRINGS" ]; then
-  sed -i 's|<string name="app_name">.*</string>|<string name="app_name">Qari PDF</string>|' "$STRINGS"
-  sed -i 's|<string name="title_activity_main">.*</string>|<string name="title_activity_main">Qari PDF</string>|' "$STRINGS"
+  sed -i 's|<string name="app_name">.*</string>|<string name="app_name">PDFly</string>|' "$STRINGS"
+  sed -i 's|<string name="title_activity_main">.*</string>|<string name="title_activity_main">PDFly</string>|' "$STRINGS"
 fi
 
 # Sync the PWA icon into the Android mipmap launcher icons
@@ -70,4 +70,4 @@ fi
 cd android
 ./gradlew $GRADLE_INIT assembleDebug
 
-echo "Qari PDF APK ready at: android/app/build/outputs/apk/debug/app-debug.apk"
+echo "PDFly APK ready at: android/app/build/outputs/apk/debug/app-debug.apk"

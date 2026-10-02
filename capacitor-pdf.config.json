@@ -1,6 +1,6 @@
 {
   "appId": "com.syrian020.qari",
-  "appName": "Qari PDF",
+  "appName": "PDFly",
   "webDir": "www",
   "server": {
     "androidScheme": "https"

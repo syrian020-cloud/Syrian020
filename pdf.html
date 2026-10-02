@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#0b0f1f">
-<title>قارئ PDF</title>
+<title>PDFly</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" href="icon-192.png">
 <style>
@@ -724,7 +724,7 @@ function capPlugin(name) {
   }
   return null;
 }
-const BUILD_STAMP = 'v13 · ٢٠٢٦-١٠-٠٢';
+const BUILD_STAMP = 'v14 · ٢٠٢٦-١٠-٠٢';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -739,7 +739,7 @@ function saveSettings() { localStorage.setItem('qari:settings', JSON.stringify(s
 /* ================= Languages ================= */
 const STR = {
   ar: {
-    app_title: 'قارئ PDF', tagline: 'اضغط على أي كلمة لنطقها',
+    app_title: 'PDFly', tagline: 'اضغط على أي كلمة لنطقها',
     search_ph: 'ابحث في ملفات PDF…', sort_recent: 'الأحدث', sort_name: 'الاسم', sort_size: 'الحجم',
     perm_h: 'إذن الوصول إلى الملفات',
     perm_p: 'لعرض جميع ملفات PDF على هاتفك، امنح التطبيق صلاحية «الوصول إلى كل الملفات» من إعدادات النظام.',
@@ -815,7 +815,7 @@ const STR = {
     doc_default: 'مستند', choose_lang: 'اختر لغة الواجهة', kb: 'ك.ب', mb: 'م.ب', no_results: 'لا نتائج'
   },
   fr: {
-    app_title: 'Qari PDF', tagline: "Appuyez sur un mot pour l'entendre",
+    app_title: 'PDFly', tagline: "Appuyez sur un mot pour l'entendre",
     search_ph: 'Rechercher des PDF…', sort_recent: 'Récents', sort_name: 'Nom', sort_size: 'Taille',
     perm_h: 'Accès aux fichiers',
     perm_p: 'Pour afficher tous les PDF de votre téléphone, accordez « Accès à tous les fichiers » dans les paramètres.',
@@ -891,7 +891,7 @@ const STR = {
     doc_default: 'Document', choose_lang: "Langue de l'interface", kb: 'Ko', mb: 'Mo', no_results: 'Aucun résultat'
   },
   en: {
-    app_title: 'Qari PDF', tagline: 'Tap any word to hear it',
+    app_title: 'PDFly', tagline: 'Tap any word to hear it',
     search_ph: 'Search PDFs…', sort_recent: 'Recent', sort_name: 'Name', sort_size: 'Size',
     perm_h: 'File access permission',
     perm_p: 'To list every PDF on your phone, grant "All files access" in system settings.',
