@@ -710,6 +710,7 @@
 <div class="toast" id="toast"></div>
 <input type="file" id="fileInput" accept=".pdf,application/pdf">
 
+<script src="ocr/tesseract.min.js"></script>
 <script type="module">
 const $ = id => document.getElementById(id);
 const isNative = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
@@ -724,7 +725,7 @@ function capPlugin(name) {
   }
   return null;
 }
-const BUILD_STAMP = 'v14 · ٢٠٢٦-١٠-٠٢';
+const BUILD_STAMP = 'v15 · ٢٠٢٦-١٠-٠٢';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -770,6 +771,11 @@ const STR = {
     lang_fr: 'فرنسي', lang_en: 'إنجليزي', lang_de: 'ألماني', lang_tr: 'تركي',
     m_copyall: 'نسخ كل نص المستند', m_copyall_s: 'استخراج النص كاملاً إلى الحافظة',
     m_tts: 'اختبار النطق', m_tts_s: 'يتكلم جملة تجريبية للتحقق من محرك الصوت',
+    m_ocr: 'نطق الصفحة بالتعرّف الضوئي', m_ocr_s: 'يقرأ النص من صورة الصفحة — للملفات الممسوحة',
+    ocr_working: 'جارٍ التعرّف على نص الصفحة… (قد يستغرق لحظات)',
+    ocr_empty: 'لم يُعثر على نص في صورة الصفحة',
+    ocr_fail: 'تعذّر التعرّف الضوئي',
+    page_no_words: 'لا كلمات نصية في هذه الصفحة — الملف صور، استخدم «نطق الصفحة بالتعرّف الضوئي»',
     m_outline: 'فهرس المستند', m_outline_s: 'الفصول والعناوين إن وجدت',
     m_bms: 'الإشارات المرجعية', bm_saved: ' محفوظة', bm_none: 'لا توجد',
     m_bm_add: '★ إضافة إشارة للصفحة ', m_print: 'طباعة الملف', m_print_s: 'عبر نافذة طباعة النظام',
@@ -846,6 +852,11 @@ const STR = {
     lang_fr: 'Français', lang_en: 'Anglais', lang_de: 'Allemand', lang_tr: 'Turc',
     m_copyall: 'Copier tout le texte', m_copyall_s: 'Extrait tout le texte vers le presse-papiers',
     m_tts: 'Tester la voix', m_tts_s: 'Lit une phrase test du moteur vocal',
+    m_ocr: 'Lire la page (OCR)', m_ocr_s: 'Lit le texte de l\u2019image — pour les scans',
+    ocr_working: 'Reconnaissance du texte en cours…',
+    ocr_empty: 'Aucun texte détecté sur la page',
+    ocr_fail: 'Échec de l\u2019OCR',
+    page_no_words: 'Pas de mots ici — fichier image, essayez « Lire la page (OCR) »',
     m_outline: 'Sommaire', m_outline_s: 'Chapitres si présents',
     m_bms: 'Signets', bm_saved: ' enregistrés', bm_none: 'aucun',
     m_bm_add: '★ Signet page ', m_print: 'Imprimer', m_print_s: 'via la boîte système',
@@ -922,6 +933,11 @@ const STR = {
     lang_fr: 'French', lang_en: 'English', lang_de: 'German', lang_tr: 'Turkish',
     m_copyall: 'Copy all text', m_copyall_s: 'Extract the whole text to clipboard',
     m_tts: 'Test speech', m_tts_s: 'Speaks a test sentence to verify the engine',
+    m_ocr: 'Read page via OCR', m_ocr_s: 'Reads text from the page image — for scans',
+    ocr_working: 'Recognizing page text… (may take a moment)',
+    ocr_empty: 'No text found in the page image',
+    ocr_fail: 'OCR failed',
+    page_no_words: 'No tappable words on this page — image file, use «Read page via OCR»',
     m_outline: 'Outline', m_outline_s: 'Chapters if available',
     m_bms: 'Bookmarks', bm_saved: ' saved', bm_none: 'none',
     m_bm_add: '★ Bookmark page ', m_print: 'Print', m_print_s: 'Via the system print dialog',
@@ -1335,6 +1351,7 @@ async function loadDoc(bytes, name, key, uri, file) {
   pageCount = pdfDoc.numPages; currentPage = 1;
   destroyed = false;
   rendered.clear(); rendering.clear();
+  warnedPages.clear();
   pageItems = {}; pageHits = {};
   zoom = 1.0;
 
@@ -1498,9 +1515,21 @@ function applySelMode() {
   pagesEl.querySelectorAll('.text-layer').forEach(t => t.classList.toggle('sel', settings.selMode));
   const b = $('selBtn'); if (b) b.classList.toggle('on', settings.selMode);
 }
+const warnedPages = new Set();
 pagesEl.addEventListener('pointerdown', e => {
   const w = e.target.closest && e.target.closest('.word');
-  if (!w) { if (e.target.closest('.page')) toggleUiOnTap(e); return; }
+  if (!w) {
+    const pe = e.target.closest && e.target.closest('.page');
+    if (pe) {
+      const pg = +pe.dataset.page;
+      if (pe.querySelector('canvas') && !pe.querySelector('.word') && !warnedPages.has(pg)) {
+        warnedPages.add(pg);
+        toast(t('page_no_words'), 5000);
+      }
+      toggleUiOnTap(e);
+    }
+    return;
+  }
   if (settings.selMode) return;
   if (!docHasText && pageCount <= 4) { toast(t('scanned_doc'), 3000); }
   lastLp = null;
@@ -1714,6 +1743,34 @@ $('selBtn').onclick = () => {
   else toast(t('sel_off'));
 };
 $('selBtn').classList.toggle('on', settings.selMode);
+
+/* OCR: read the page image itself — works on scanned PDFs with no text layer */
+let ocrWorker = null;
+async function ocrReadPage() {
+  if (!pdfDoc) return;
+  if (!window.Tesseract || !Tesseract.createWorker) { toast(t('ocr_fail'), 4000); return; }
+  toast(t('ocr_working'), 4500);
+  try {
+    if (!ocrWorker) {
+      ocrWorker = await Tesseract.createWorker(['ara', 'eng', 'fra'], 1, {
+        workerPath: 'ocr/worker.min.js', corePath: 'ocr', langPath: 'ocr',
+        gzip: false, cacheMethod: 'none'
+      });
+    }
+    const page = await pdfDoc.getPage(currentPage);
+    const viewport = page.getViewport({ scale: 2.2 });
+    const c = document.createElement('canvas');
+    c.width = Math.floor(viewport.width); c.height = Math.floor(viewport.height);
+    const ctx = c.getContext('2d');
+    ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, c.width, c.height);
+    await page.render({ canvasContext: ctx, viewport }).promise;
+    const { data } = await ocrWorker.recognize(c);
+    const text = (data && data.text || '').trim();
+    if (!text) { toast(t('ocr_empty'), 4000); return; }
+    window.__ocrText = text;
+    speak(text);
+  } catch (err) { console.error('OCR failed', err); toast(t('ocr_fail'), 4000); }
+}
 
 async function copyAllText() {
   if (!pdfDoc) return;
@@ -1967,6 +2024,7 @@ $('menuBtn').onclick = () => {
       </select></div>
     <div class="set-row" style="cursor:pointer" id="sCopyAll"><div class="lbl">${t('m_copyall')}<small>${t('m_copyall_s')}</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sTtsTest"><div class="lbl">${t('m_tts')}<small>${t('m_tts_s')}</small></div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="sOcr"><div class="lbl">${t('m_ocr')}<small>${t('m_ocr_s')}</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sOutline"><div class="lbl">${t('m_outline')}<small>${t('m_outline_s')}</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sBms"><div class="lbl">${t('m_bms')}<small>${bms.length ? bms.length + t('bm_saved') : t('bm_none')}</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sBookmark"><div class="lbl" style="color:var(--gold)">${t('m_bm_add')}${currentPage}</div><span></span></div>
@@ -1999,6 +2057,7 @@ $('menuBtn').onclick = () => {
     speakOnce('هذا اختبار للنطق').then(ok =>
       toast(ok ? t('tts_ok') : t('tts_fail'), 4500));
   };
+  $('sOcr').onclick = () => { closeSheet(); ocrReadPage(); };
   $('sPrint').onclick = () => { closeSheet(); printDoc(); };
   $('sShare').onclick = () => { closeSheet(); $('shareBtn').click(); };
   $('sPages').onclick = pagesSheet;
