@@ -215,6 +215,7 @@
   .text-layer.sel { user-select: text; -webkit-user-select: text; }
   .text-layer.sel span, .text-layer.sel .word { user-select: text; -webkit-user-select: text; -webkit-touch-callout: default; }
   .text-layer.sel span::selection { background: rgba(139,92,246,.45); color: transparent; }
+  .text-layer.sel .word { cursor: text; }
   .text-layer .word.speaking { background: rgba(139,92,246,0.45); outline: 2px solid var(--accent); border-radius: 3px; }
   .text-layer .word.hit { background: rgba(251,191,36,0.4); }
   .text-layer .word.hit-current { background: rgba(244,63,94,0.55); outline: 2px solid var(--accent-2); border-radius: 3px; }
@@ -404,6 +405,9 @@
     <button class="icon-btn" id="readPageBtn" title="نطق الصفحة">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
     </button>
+    <button class="icon-btn" id="selBtn" title="تحديد النص">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 4h14M5 20h14M12 4v16"/></svg>
+    </button>
     <button class="icon-btn" id="docSearchBtn" title="بحث في المستند">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
     </button>
@@ -469,6 +473,7 @@ function capPlugin(name) {
   }
   return null;
 }
+const BUILD_STAMP = 'v8 · ٢٠٢٦-١٠-٠٢';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -793,6 +798,21 @@ async function loadDoc(bytes, name, key, uri, file) {
     setTimeout(() => goToPage(prog.page), 350);
   }
   veil(false);
+  probeText();
+}
+
+let docHasText = false;
+async function probeText() {
+  docHasText = false;
+  const n = Math.min(4, pageCount);
+  for (let i = 1; i <= n; i++) {
+    try {
+      const items = pageItems[i] || (await pdfDoc.getPage(i).then(p => p.getTextContent())).items;
+      pageItems[i] = items;
+      if (items.some(it => it.str && it.str.trim())) { docHasText = true; return; }
+    } catch (e) { /* keep probing */ }
+  }
+  toast('يبدو أن الملف صور ممسوحة — لا يحتوي نصاً قابلاً للنطق أو النسخ', 4200);
 }
 
 async function pageSize(n) {
@@ -911,11 +931,13 @@ let lastLp = null;
 function applySelMode() {
   pagesEl.classList.toggle('selmode', settings.selMode);
   pagesEl.querySelectorAll('.text-layer').forEach(t => t.classList.toggle('sel', settings.selMode));
+  const b = $('selBtn'); if (b) b.classList.toggle('on', settings.selMode);
 }
 pagesEl.addEventListener('pointerdown', e => {
   const w = e.target.closest && e.target.closest('.word');
   if (!w) { if (e.target.closest('.page')) toggleUiOnTap(e); return; }
   if (settings.selMode) return;
+  if (!docHasText && pageCount <= 4) { toast('هذه الصفحة بلا نص قابل للنطق — يبدو الملف صوراً ممسوحة', 3000); }
   lastLp = null;
   w._lpTimer = setTimeout(() => {
     lastLp = w;
@@ -1119,6 +1141,44 @@ $('readPageBtn').onclick = async () => {
   speak(text, null);
   toast(settings.loop ? 'نطق الصفحة مع التكرار' : 'نطق الصفحة');
 };
+$('selBtn').onclick = () => {
+  settings.selMode = !settings.selMode;
+  saveSettings(); applySelMode();
+  $('selBtn').classList.toggle('on', settings.selMode);
+  if (settings.selMode) { stopSpeech(); toast('وضع التحديد — اسحب فوق الكلمات لتحديدها ثم «نسخ»'); }
+  else toast('وضع النطق — ضغطة تقرأ، مطوّلة تكرّر');
+};
+$('selBtn').classList.toggle('on', settings.selMode);
+
+async function copyAllText() {
+  if (!pdfDoc) return;
+  toast('جاري استخراج النص…', 1200);
+  const parts = [];
+  for (let i = 1; i <= pageCount; i++) {
+    try {
+      const items = pageItems[i] || (await pdfDoc.getPage(i).then(p => p.getTextContent())).items;
+      pageItems[i] = items;
+      const t = items.map(it => it.str).join(' ').replace(/\s+/g, ' ').trim();
+      if (t) parts.push(t);
+    } catch (e) { /* skip page */ }
+  }
+  const all = parts.join('\n\n');
+  if (!all) { toast('لا يوجد نص قابل للنسخ — الملف صور ممسوحة', 3500); return; }
+  let ok = false;
+  if (isNative && Scanner && Scanner.copyText) {
+    try { await Scanner.copyText({ text: all }); ok = true; } catch (e) {}
+  }
+  if (!ok) try { await navigator.clipboard.writeText(all); ok = true; }
+  catch (e) {
+    const ta = document.createElement('textarea');
+    ta.value = all; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { ok = document.execCommand('copy'); } catch (e2) {}
+    ta.remove();
+  }
+  toast(ok ? 'نُسخ كل نص المستند (' + parts.length + ' صفحة)' : 'تعذر النسخ في هذا الجهاز');
+}
+
 $('loopBtn').onclick = () => {
   settings.loop = !settings.loop;
   saveSettings();
@@ -1208,16 +1268,20 @@ $('menuBtn').onclick = () => {
         <option value="de-DE" ${settings.latinLang === 'de-DE' ? 'selected' : ''}>ألماني</option>
         <option value="tr-TR" ${settings.latinLang === 'tr-TR' ? 'selected' : ''}>تركي</option>
       </select></div>
+    <div class="set-row" style="cursor:pointer" id="sCopyAll"><div class="lbl">نسخ كل نص المستند<small>استخراج النص كاملاً إلى الحافظة</small></div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="sTtsTest"><div class="lbl">اختبار النطق<small>يتكلم جملة تجريبية للتحقق من محرك الصوت</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sOutline"><div class="lbl">فهرس المستند<small>الفصول والعناوين إن وجدت</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sBms"><div class="lbl">الإشارات المرجعية<small>${bms.length ? bms.length + ' محفوظة' : 'لا توجد'}</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sBookmark"><div class="lbl" style="color:var(--gold)">★ إضافة إشارة للصفحة ${currentPage}</div><span></span></div>
     <div class="set-row" style="cursor:pointer" id="sPrint"><div class="lbl">طباعة الملف<small>عبر نافذة طباعة النظام</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sShare"><div class="lbl">تصدير / مشاركة<small>إرسال ملف PDF عبر التطبيقات</small></div><span>‹</span></div>
+    <div style="text-align:center;color:var(--muted);font-size:11px;padding-top:10px">إصدار ${BUILD_STAMP}</div>
   `);
   $('sTap').onchange = e => { settings.tapSpeak = e.target.checked; saveSettings(); };
   $('sSel').onchange = e => {
     settings.selMode = e.target.checked; saveSettings(); applySelMode();
     if (settings.selMode) { stopSpeech(); toast('وضع التحديد — اسحب فوق النص ثم «نسخ»'); }
+    $('selBtn').classList.toggle('on', settings.selMode);
   };
   $('sLoop').onchange = e => { settings.loop = e.target.checked; saveSettings(); $('loopBtn').classList.toggle('on', settings.loop); };
   $('sNight').onchange = e => { settings.night = e.target.checked; saveSettings(); document.body.classList.toggle('night', settings.night); };
@@ -1227,6 +1291,12 @@ $('menuBtn').onclick = () => {
   $('sOutline').onclick = showOutline;
   $('sBms').onclick = showBookmarks;
   $('sBookmark').onclick = () => { toggleBookmark(currentPage); showBookmarks(); };
+  $('sCopyAll').onclick = () => { closeSheet(); copyAllText(); };
+  $('sTtsTest').onclick = () => {
+    toast('اختبار النطق…');
+    speakOnce('هذا اختبار للنطق').then(ok =>
+      toast(ok ? 'النطق يعمل بشكل صحيح' : 'محرك النطق لا يستجيب — ثبّت أو فعّل «التحويل من نص إلى كلام» من إعدادات الهاتف', 4500));
+  };
   $('sPrint').onclick = () => { closeSheet(); printDoc(); };
   $('sShare').onclick = () => { closeSheet(); $('shareBtn').click(); };
 };

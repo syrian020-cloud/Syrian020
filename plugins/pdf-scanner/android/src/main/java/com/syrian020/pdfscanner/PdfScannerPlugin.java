@@ -1,6 +1,8 @@
 package com.syrian020.pdfscanner;
 
 import android.Manifest;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
@@ -313,6 +315,18 @@ public class PdfScannerPlugin extends Plugin {
         } catch (Exception e) {
             call.reject("Cannot print: " + e.getMessage(), e);
         }
+    }
+
+    @PluginMethod
+    public void copyText(PluginCall call) {
+        String text = call.getString("text");
+        if (text == null) {
+            call.reject("No text");
+            return;
+        }
+        ClipboardManager cm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
+        cm.setPrimaryClip(ClipData.newPlainText("PDF text", text));
+        call.resolve();
     }
 
     private File cachePdf(String base64, String name) throws IOException {
