@@ -2134,6 +2134,224 @@ window.CENTRES_DATA = [
           { fr: 'Je travaille actuellement.', ar: 'أنا حالياً عم اشتغل.', en: 'I’m currently working.' },
           { fr: 'Pouvez-vous vérifier mon dossier, s’il vous plaît ?', ar: 'فيكم تتأكدوا من ملفي لو سمحتوا؟', en: 'Could you check my file, please?' }
         ]
+      },
+      {
+        icon: '🏠',
+        title: { ar: 'APL — السؤال عن الاستحقاق', en: 'APL — asking about eligibility', fr: 'APL — demander l’éligibilité' },
+        phrases: [
+          { fr: 'Je voudrais savoir si j’ai droit à l’APL.', ar: 'بدي أعرف إذا إلي حق بالـAPL.', en: 'I’d like to know if I’m eligible for APL.' },
+          { fr: 'Est-ce que je peux bénéficier de l’APL ?', ar: 'فيني استفيد من الـAPL؟', en: 'Can I receive APL?' },
+          { fr: 'Je voudrais faire une demande d’aide au logement.', ar: 'بدي قدّم طلب مساعدة سكن.', en: 'I’d like to apply for housing assistance.' },
+          { fr: 'Comment faire une demande d’APL ?', ar: 'كيف فيني قدّم على APL؟', en: 'How can I apply for APL?' },
+          { fr: 'Je voudrais faire une simulation pour l’APL.', ar: 'بدي أعمل حساب تقريبي للـAPL.', en: 'I’d like to do an APL simulation.' }
+        ]
+      },
+      {
+        icon: '📝',
+        title: { ar: 'APL — تقديم الطلب', en: 'APL — applying', fr: 'APL — faire la demande' },
+        phrases: [
+          { fr: 'Je viens de signer mon bail.', ar: 'هلأ وقّعت عقد الإيجار.', en: 'I’ve just signed my lease.' },
+          { fr: 'Est-ce que je peux faire ma demande maintenant ?', ar: 'فيني قدّم الطلب هلق؟', en: 'Can I apply now?' },
+          { fr: 'J’ai déjà fait ma demande en ligne.', ar: 'أنا قدّمت الطلب أونلاين من قبل.', en: 'I’ve already applied online.' },
+          { fr: 'Je n’arrive pas à faire ma demande en ligne.', ar: 'ما عم اقدر قدّم الطلب أونلاين.', en: 'I can’t complete my application online.' },
+          { fr: 'Pouvez-vous m’aider à faire ma demande ?', ar: 'فيكم تساعدوني بتقديم الطلب؟', en: 'Can you help me with my application?' }
+        ]
+      },
+      {
+        icon: '🏢',
+        title: { ar: 'APL — عن نوع السكن', en: 'APL — type of accommodation', fr: 'APL — le type de logement' },
+        phrases: [
+          { fr: 'Est-ce que mon logement ouvre droit à l’APL ?', ar: 'هالبيت بيحقلي عليه APL؟', en: 'Is my accommodation eligible for APL?' },
+          { fr: 'Est-ce que le logement est conventionné ?', ar: 'هالبيت عليه conventionné؟', en: 'Is the accommodation conventioned?' },
+          { fr: 'Le logement est-il conventionné APL ?', ar: 'السكن مسجّل كـسكن conventionné للـAPL؟', en: 'Is the accommodation APL-conventioned?' },
+          { fr: 'C’est un logement social.', ar: 'هاد سكن اجتماعي.', en: 'It’s social housing.' },
+          { fr: 'Je suis locataire.', ar: 'أنا مستأجر.', en: 'I’m a tenant.' },
+          { fr: 'Je suis en colocation.', ar: 'أنا ساكن بالمشاركة.', en: 'I’m in shared accommodation.' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: 'APL — عن الإيجار', en: 'APL — about the rent', fr: 'APL — le loyer' },
+        phrases: [
+          { fr: 'Combien de loyer dois-je déclarer ?', ar: 'قديش من الإيجار لازم صرّح؟', en: 'How much rent do I need to declare?' },
+          { fr: 'Mon loyer est de 600 euros par mois.', ar: 'إيجاري 600 يورو بالشهر.', en: 'My rent is 600 euros per month.' },
+          { fr: 'Est-ce que les charges sont comprises dans le loyer ?', ar: 'المصاريف/الcharges داخلة بالإيجار؟', en: 'Are the charges included in the rent?' },
+          { fr: 'Mon loyer a augmenté.', ar: 'إيجاري زاد.', en: 'My rent has increased.' },
+          { fr: 'Mon loyer a changé.', ar: 'إيجاري تغيّر.', en: 'My rent has changed.' }
+        ]
+      },
+      {
+        icon: '📄',
+        title: { ar: 'APL — الأوراق المطلوبة', en: 'APL — required documents', fr: 'APL — documents requis' },
+        phrases: [
+          { fr: 'Quels documents dois-je fournir ?', ar: 'شو الأوراق اللي لازم قدّمها؟', en: 'What documents do I need to provide?' },
+          { fr: 'Vous avez besoin de mon bail ?', ar: 'بدكم عقد الإيجار تبعي؟', en: 'Do you need my lease?' },
+          { fr: 'Voici mon contrat de location.', ar: 'هاد عقد الإيجار تبعي.', en: 'Here is my rental agreement.' },
+          { fr: 'Voici mon attestation de loyer.', ar: 'هاي شهادة الإيجار تبعي.', en: 'Here is my rent certificate.' },
+          { fr: 'Voici mon RIB.', ar: 'هاد الـRIB تبعي.', en: 'Here are my bank details.' },
+          { fr: 'Est-ce qu’il manque un document ?', ar: 'في ورقة ناقصة؟', en: 'Is any document missing?' }
+        ]
+      },
+      {
+        icon: '👤',
+        title: { ar: 'APL — إذا سألوك عن وضعك', en: 'APL — questions about your situation', fr: 'APL — votre situation' },
+        phrases: [
+          { fr: 'Vous vivez seul ?', ar: 'إنت ساكن لحالك؟', en: 'Do you live alone?' },
+          { fr: 'Oui, je vis seul.', ar: 'إي، ساكن لحالي.', en: 'Yes, I live alone.' },
+          { fr: 'Vous êtes célibataire ?', ar: 'إنت أعزب؟', en: 'Are you single?' },
+          { fr: 'Oui, je suis célibataire.', ar: 'إي، أنا أعزب.', en: 'Yes, I’m single.' },
+          { fr: 'Vous avez des enfants ?', ar: 'عندك أولاد؟', en: 'Do you have children?' },
+          { fr: 'Non, je n’ai pas d’enfants.', ar: 'لا، ما عندي أولاد.', en: 'No, I don’t have children.' }
+        ]
+      },
+      {
+        icon: '💼',
+        title: { ar: 'APL — العمل والدخل', en: 'APL — work and income', fr: 'APL — travail et revenus' },
+        phrases: [
+          { fr: 'Vous travaillez actuellement ?', ar: 'إنت حالياً عم تشتغل؟', en: 'Are you currently working?' },
+          { fr: 'Oui, je travaille actuellement.', ar: 'إي، حالياً عم اشتغل.', en: 'Yes, I’m currently working.' },
+          { fr: 'Je travaille dans la préparation de commandes.', ar: 'بشتغل بتحضير الطلبات.', en: 'I work in order preparation.' },
+          { fr: 'Quels sont vos revenus ?', ar: 'شو دخلك؟', en: 'What is your income?' },
+          { fr: 'Mes revenus ont changé.', ar: 'دخلي تغيّر.', en: 'My income has changed.' },
+          { fr: 'J’ai perdu mon emploi.', ar: 'خسرت شغلي.', en: 'I lost my job.' },
+          { fr: 'Mon contrat de travail est terminé.', ar: 'عقد عملي انتهى.', en: 'My employment contract has ended.' }
+        ]
+      },
+      {
+        icon: '📊',
+        title: { ar: 'APL — لماذا تغيّر المبلغ', en: 'APL — why the amount changed', fr: 'APL — pourquoi le montant a changé' },
+        phrases: [
+          { fr: 'Pourquoi le montant de mon APL a changé ?', ar: 'ليش مبلغ الـAPL تبعي تغيّر؟', en: 'Why did my APL amount change?' },
+          { fr: 'Pourquoi mon APL a diminué ?', ar: 'ليش الـAPL تبعي نقصت؟', en: 'Why did my APL decrease?' },
+          { fr: 'Pourquoi je ne reçois plus d’aide au logement ?', ar: 'ليش ما عاد عم آخد مساعدة سكن؟', en: 'Why am I no longer receiving housing assistance?' },
+          { fr: 'Pouvez-vous m’expliquer le calcul de mon APL ?', ar: 'فيكم تشرحولي كيف انحسبت الـAPL تبعي؟', en: 'Could you explain how my APL was calculated?' }
+        ]
+      },
+      {
+        icon: '💳',
+        title: { ar: 'APL — كيف تُدفع', en: 'APL — how it is paid', fr: 'APL — comment elle est versée' },
+        phrases: [
+          { fr: 'À qui est versée l’APL ?', ar: 'لمين بيندفع الـAPL؟', en: 'Who is the APL paid to?' },
+          { fr: 'Est-ce que l’APL est versée directement au propriétaire ?', ar: 'الـAPL بتروح مباشرة للمالك؟', en: 'Is the APL paid directly to the landlord?' },
+          { fr: 'Est-ce que l’APL est déduite de mon loyer ?', ar: 'الـAPL بتنخصم من الإيجار؟', en: 'Is the APL deducted from my rent?' }
+        ]
+      },
+      {
+        icon: '📅',
+        title: { ar: 'APL — متى تبدأ', en: 'APL — when it starts', fr: 'APL — quand elle commence' },
+        phrases: [
+          { fr: 'Quand mes droits à l’APL commencent-ils ?', ar: 'إمتى بيبلش استحقاقي للـAPL؟', en: 'When does my APL entitlement start?' },
+          { fr: 'Quand vais-je recevoir mon premier paiement ?', ar: 'إمتى رح يوصلني أول دفع؟', en: 'When will I receive my first payment?' },
+          { fr: 'J’ai emménagé le …', ar: 'أنا سكنت بالبيت بتاريخ …', en: 'I moved in on …' },
+          { fr: 'J’ai fait ma demande dès mon entrée dans le logement.', ar: 'قدّمت الطلب من وقت ما دخلت على البيت.', en: 'I applied as soon as I moved in.' }
+        ]
+      },
+      {
+        icon: '🏚️',
+        title: { ar: 'APL — الانتقال وترك البيت', en: 'APL — moving and leaving', fr: 'APL — déménagement et départ' },
+        phrases: [
+          { fr: 'Je vais déménager.', ar: 'رح انقل بيت.', en: 'I’m going to move.' },
+          { fr: 'Je viens de déménager.', ar: 'هلأ نقلت بيت.', en: 'I’ve just moved.' },
+          { fr: 'Je change de logement.', ar: 'عم غيّر السكن.', en: 'I’m changing accommodation.' },
+          { fr: 'Je voudrais déclarer mon changement d’adresse.', ar: 'بدي صرّح عن تغيير عنواني.', en: 'I’d like to report my change of address.' },
+          { fr: 'Est-ce que je dois faire une nouvelle demande d’aide au logement ?', ar: 'لازم أعمل طلب جديد لمساعدة السكن؟', en: 'Do I need to make a new housing assistance application?' },
+          { fr: 'Je quitte mon logement.', ar: 'أنا تارك البيت.', en: 'I’m leaving my accommodation.' },
+          { fr: 'Je vais quitter mon logement le …', ar: 'رح اترك البيت بتاريخ …', en: 'I’m leaving my accommodation on …' },
+          { fr: 'Est-ce que je dois signaler mon départ à la CAF ?', ar: 'لازم خبر CAF إني تركت البيت؟', en: 'Do I need to report my move-out to CAF?' },
+          { fr: 'Je voudrais signaler mon déménagement.', ar: 'بدي بلّغ عن نقل السكن.', en: 'I’d like to report my move.' }
+        ]
+      },
+      {
+        icon: '🔴',
+        title: { ar: 'APL — إذا توقفت', en: 'APL — if it is suspended', fr: 'APL — si elle est suspendue' },
+        phrases: [
+          { fr: 'Mon aide au logement a été suspendue.', ar: 'مساعدة السكن تبعي توقفت.', en: 'My housing assistance has been suspended.' },
+          { fr: 'Pourquoi mon aide au logement a-t-elle été suspendue ?', ar: 'ليش توقفت مساعدة السكن تبعي؟', en: 'Why was my housing assistance suspended?' },
+          { fr: 'Je ne comprends pas pourquoi mon aide a été supprimée.', ar: 'ما فهمت ليش انلغت المساعدة تبعي.', en: 'I don’t understand why my assistance was stopped.' },
+          { fr: 'Que dois-je faire pour rétablir mes droits ?', ar: 'شو لازم أعمل ليرجع استحقاقي؟', en: 'What do I need to do to restore my benefits?' }
+        ]
+      },
+      {
+        icon: '📁',
+        title: { ar: 'APL — الملف قيد المعالجة', en: 'APL — pending application', fr: 'APL — dossier en cours' },
+        phrases: [
+          { fr: 'Mon dossier est en cours de traitement.', ar: 'ملفي قيد المعالجة.', en: 'My application is being processed.' },
+          { fr: 'Depuis combien de temps mon dossier est-il en cours de traitement ?', ar: 'من إمتى وملفي قيد المعالجة؟', en: 'How long has my application been under review?' },
+          { fr: 'Est-ce qu’il manque quelque chose à mon dossier ?', ar: 'في شي ناقص بملفي؟', en: 'Is anything missing from my file?' },
+          { fr: 'Quand est-ce que j’aurai une réponse ?', ar: 'إمتى رح يوصلني جواب؟', en: 'When will I get an answer?' },
+          { fr: 'Pouvez-vous vérifier mon dossier, s’il vous plaît ?', ar: 'فيكم تتأكدوا من ملفي لو سمحتوا؟', en: 'Could you check my file, please?' }
+        ]
+      },
+      {
+        icon: '🏠',
+        title: { ar: 'conventionné — تسأل المالك', en: 'conventionné — asking the landlord', fr: 'conventionné — demander au propriétaire' },
+        phrases: [
+          { fr: 'Est-ce que mon logement est conventionné ?', ar: 'هل بيتي خاضع لاتفاقية مع الدولة؟', en: 'Is my accommodation conventioned?' },
+          { fr: 'Est-ce que ce logement est conventionné APL ?', ar: 'هل هالسكن خاضع لاتفاقية APL؟', en: 'Is this accommodation APL-conventioned?' },
+          { fr: 'Votre logement est-il conventionné ?', ar: 'هل السكن خاضع لاتفاقية مع الدولة؟', en: 'Is the accommodation conventioned?' },
+          { fr: 'Pouvez-vous me confirmer que le logement est conventionné ?', ar: 'فيك تأكدلي إنو السكن خاضع لاتفاقية مع الدولة؟', en: 'Can you confirm that the accommodation is conventioned?' },
+          { fr: 'Pouvez-vous me donner un justificatif indiquant que le logement est conventionné ?', ar: 'فيك تعطيني إثبات إنو السكن خاضع لاتفاقية؟', en: 'Can you give me proof that the accommodation is conventioned?' }
+        ]
+      },
+      {
+        icon: '🏢',
+        title: { ar: 'conventionné — تسأل CAF', en: 'conventionné — asking CAF', fr: 'conventionné — demander à la Caf' },
+        phrases: [
+          { fr: 'Pouvez-vous vérifier si mon logement est conventionné ?', ar: 'فيكم تتأكدوا إذا بيتي خاضع لاتفاقية؟', en: 'Can you check whether my accommodation is conventioned?' },
+          { fr: 'Est-ce que mon logement ouvre droit à l’APL ?', ar: 'هل بيتي بيخليني استحق APL؟', en: 'Is my accommodation eligible for APL?' },
+          { fr: 'Mon logement est conventionné, mais je ne reçois pas d’APL. Pourquoi ?', ar: 'بيتي خاضع لاتفاقية، بس ما عم آخد APL. ليش؟', en: 'My accommodation is conventioned, but I’m not receiving APL. Why?' },
+          { fr: 'Si mon logement n’est pas conventionné, est-ce que je peux bénéficier d’une autre aide au logement ?', ar: 'إذا بيتي مو خاضع لاتفاقية، فيني استفيد من مساعدة سكن تانية؟', en: 'If my accommodation isn’t conventioned, can I receive another housing benefit?' },
+          { fr: 'Est-ce que le fait que le logement soit conventionné me permet de bénéficier de l’APL ?', ar: 'كون السكن خاضع لاتفاقية، هل بيعطيني حق بالـAPL؟', en: 'Does the accommodation being conventioned make me eligible for APL?' },
+          { fr: 'Est-ce que je peux demander l’APL pour ce logement ?', ar: 'فيني قدّم على APL لهالبيت؟', en: 'Can I apply for APL for this accommodation?' },
+          { fr: 'Quelle aide au logement puis-je recevoir ?', ar: 'أي مساعدة سكن فيني آخد؟', en: 'Which housing benefit can I receive?' },
+          { fr: 'Est-ce que j’aurai droit à l’APL ou à l’ALS ?', ar: 'إلي حق بـAPL ولا ALS؟', en: 'Am I eligible for APL or ALS?' }
+        ]
+      },
+      {
+        icon: '🏢',
+        title: { ar: 'conventionné — السكن الاجتماعي والأوراق', en: 'conventionné — social housing and documents', fr: 'conventionné — logement social et documents' },
+        phrases: [
+          { fr: 'C’est un logement social conventionné ?', ar: 'هاد سكن اجتماعي خاضع لاتفاقية مع الدولة؟', en: 'Is this conventioned social housing?' },
+          { fr: 'Est-ce que les logements de cet organisme sont conventionnés APL ?', ar: 'مساكن هالمؤسسة خاضعة لاتفاقية APL؟', en: 'Are this organization’s housing units APL-conventioned?' },
+          { fr: 'Je suis locataire d’un logement social.', ar: 'أنا مستأجر بسكن اجتماعي.', en: 'I’m a tenant in social housing.' },
+          { fr: 'Mon bailleur est un organisme HLM.', ar: 'مالك السكن مؤسسة HLM.', en: 'My landlord is an HLM organization.' },
+          { fr: 'Est-ce que c’est indiqué sur mon contrat de location ?', ar: 'هل هالشي مكتوب بعقد الإيجار تبعي؟', en: 'Is this indicated in my lease?' },
+          { fr: 'Où est-ce que je peux vérifier si le logement est conventionné ?', ar: 'وين فيني أتأكد إذا السكن خاضع لاتفاقية؟', en: 'Where can I check whether the accommodation is conventioned?' },
+          { fr: 'Est-ce que c’est indiqué sur l’attestation de loyer ?', ar: 'هل هالشي مكتوب بشهادة الإيجار؟', en: 'Is it indicated on the rent certificate?' },
+          { fr: 'Pouvez-vous me fournir l’attestation de loyer ?', ar: 'فيكم تعطوني شهادة الإيجار؟', en: 'Can you provide me with the rent certificate?' }
+        ]
+      },
+      {
+        icon: '❌',
+        title: { ar: 'conventionné — إذا السكن غير خاضع لاتفاقية', en: 'conventionné — if the accommodation isn’t conventioned', fr: 'conventionné — logement non conventionné' },
+        phrases: [
+          { fr: 'Le logement n’est pas conventionné.', ar: 'السكن مو خاضع لاتفاقية مع الدولة.', en: 'The accommodation isn’t conventioned.' },
+          { fr: 'Mon logement n’est pas conventionné APL.', ar: 'بيتي مو خاضع لاتفاقية APL.', en: 'My accommodation isn’t APL-conventioned.' },
+          { fr: 'Est-ce que je peux quand même bénéficier d’une aide au logement ?', ar: 'مع هيك فيني استفيد من مساعدة سكن؟', en: 'Can I still receive housing assistance?' },
+          { fr: 'Est-ce que je peux avoir l’ALS ?', ar: 'فيني آخد ALS؟', en: 'Can I receive ALS?' }
+        ]
+      },
+      {
+        icon: '🔄',
+        title: { ar: 'conventionné — قبل الانتقال لبيت جديد', en: 'conventionné — before moving', fr: 'conventionné — avant de déménager' },
+        phrases: [
+          { fr: 'Je vais déménager dans un nouveau logement.', ar: 'رح انقل على بيت جديد.', en: 'I’m going to move into new accommodation.' },
+          { fr: 'Je voudrais savoir si le nouveau logement est conventionné.', ar: 'بدي أعرف إذا البيت الجديد خاضع لاتفاقية مع الدولة.', en: 'I’d like to know if the new accommodation is conventioned.' },
+          { fr: 'Est-ce que je pourrai bénéficier de l’APL dans ce logement ?', ar: 'فيني استفيد من APL بهالبيت؟', en: 'Can I receive APL in this accommodation?' }
+        ]
+      },
+      {
+        icon: '⭐',
+        title: { ar: 'أهم عبارات APL وconventionné', en: 'Top APL and conventionné phrases', fr: 'Top des phrases APL et conventionné' },
+        phrases: [
+          { fr: 'Je voudrais savoir si j’ai droit à l’APL.', ar: 'بدي أعرف إذا إلي حق بالـAPL.', en: 'I’d like to know if I’m eligible for APL.' },
+          { fr: 'Je voudrais faire une demande d’aide au logement.', ar: 'بدي قدّم على مساعدة سكن.', en: 'I’d like to apply for housing assistance.' },
+          { fr: 'Est-ce que mon logement est conventionné ?', ar: 'هل السكن تبعي conventionné؟', en: 'Is my accommodation conventioned?' },
+          { fr: 'Pourquoi mon APL a changé ?', ar: 'ليش الـAPL تبعي تغيّرت؟', en: 'Why did my APL change?' },
+          { fr: 'Pourquoi je ne reçois plus d’aide au logement ?', ar: 'ليش ما عاد عم آخد مساعدة سكن؟', en: 'Why am I no longer receiving housing assistance?' },
+          { fr: 'Pouvez-vous vérifier si mon logement est conventionné ?', ar: 'فيكم تتأكدوا إذا بيتي خاضع لاتفاقية؟', en: 'Can you check whether my accommodation is conventioned?' },
+          { fr: 'Si mon logement n’est pas conventionné, est-ce que je peux bénéficier d’une autre aide au logement ?', ar: 'إذا بيتي مو خاضع لاتفاقية، فيني استفيد من مساعدة سكن تانية؟', en: 'If my accommodation isn’t conventioned, can I receive another housing benefit?' }
+        ]
       }
     ]
   }
