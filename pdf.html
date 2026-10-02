@@ -690,7 +690,7 @@ async function openPickedFile(file) {
 async function loadDoc(bytes, name, key, uri, file) {
   closeReader(true);
   const pdfjs = await ensurePdfjs();
-  pdfDoc = await pdfjs.getDocument({ data: bytes, useSystemFonts: false }).promise;
+  pdfDoc = await pdfjs.getDocument({ data: bytes.slice(), useSystemFonts: false }).promise;
   docKey = key; docName = name; docUri = uri || null; docBytes = bytes; pickedFile = file || null;
   pageCount = pdfDoc.numPages; currentPage = 1;
   destroyed = false;
