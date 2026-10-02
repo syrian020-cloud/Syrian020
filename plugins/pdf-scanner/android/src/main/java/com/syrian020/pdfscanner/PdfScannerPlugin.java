@@ -25,6 +25,7 @@ import android.print.PrintDocumentAdapter;
 import android.print.PrintDocumentInfo;
 import android.print.PrintManager;
 import android.print.pdf.PrintedPdfDocument;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.util.Base64;
@@ -45,16 +46,24 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 import com.getcapacitor.annotation.Permission;
 import com.getcapacitor.annotation.PermissionCallback;
 
+import com.tom_roush.pdfbox.io.MemoryUsageSetting;
+import com.tom_roush.pdfbox.multipdf.PDFMergerUtility;
 import com.tom_roush.pdfbox.pdmodel.PDDocument;
+import com.tom_roush.pdfbox.pdmodel.PDPage;
 import com.tom_roush.pdfbox.pdmodel.encryption.AccessPermission;
 import com.tom_roush.pdfbox.pdmodel.encryption.InvalidPasswordException;
 import com.tom_roush.pdfbox.pdmodel.encryption.StandardProtectionPolicy;
+import com.tom_roush.pdfbox.rendering.ImageType;
+import com.tom_roush.pdfbox.rendering.PDFRenderer;
+import com.tom_roush.pdfbox.android.PDFBoxResourceLoader;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -422,6 +431,273 @@ public class PdfScannerPlugin extends Plugin {
         ClipboardManager cm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
         cm.setPrimaryClip(ClipData.newPlainText("PDF text", text));
         call.resolve();
+    }
+
+    /** Renames a PDF in place. { uri, newName } -> { uri, path?, name }. */
+    @PluginMethod
+    public void renameFile(PluginCall call) {
+        String uri = call.getString("uri");
+        String newName = call.getString("newName", "").trim();
+        if (uri == null || newName.isEmpty()) {
+            call.reject("Missing uri/newName");
+            return;
+        }
+        if (!newName.toLowerCase().endsWith(".pdf")) newName += ".pdf";
+        try {
+            JSObject ret = new JSObject();
+            if (uri.startsWith("content://")) {
+                Uri out = DocumentsContract.renameDocument(
+                    getContext().getContentResolver(), Uri.parse(uri), newName);
+                ret.put("uri", out != null ? out.toString() : uri);
+            } else {
+                File f = new File(uri.startsWith("file://") ? uri.substring(7) : uri);
+                File dst = new File(f.getParentFile(), newName);
+                if (!f.renameTo(dst)) {
+                    call.reject("Rename failed");
+                    return;
+                }
+                ret.put("uri", "file://" + dst.getAbsolutePath());
+                ret.put("path", dst.getAbsolutePath());
+            }
+            ret.put("name", newName);
+            call.resolve(ret);
+        } catch (Exception e) {
+            call.reject("Rename failed: " + e.getMessage(), e);
+        }
+    }
+
+    /** Deletes a PDF. { uri }. */
+    @PluginMethod
+    public void deleteFile(PluginCall call) {
+        String uri = call.getString("uri");
+        if (uri == null) {
+            call.reject("Missing uri");
+            return;
+        }
+        try {
+            boolean ok;
+            if (uri.startsWith("content://")) {
+                ok = getContext().getContentResolver().delete(Uri.parse(uri), null, null) > 0;
+            } else {
+                ok = new File(uri.startsWith("file://") ? uri.substring(7) : uri).delete();
+            }
+            if (!ok) {
+                call.reject("Delete failed");
+                return;
+            }
+            call.resolve();
+        } catch (Exception e) {
+            call.reject("Delete failed: " + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Merges several PDFs into one. { uris: [..] and/or data: [base64..],
+     * name }. Saves to public Downloads when possible; resolves
+     * { path, name, public, count }.
+     */
+    @PluginMethod
+    public void mergePdfs(PluginCall call) {
+        String name = call.getString("name", "merged.pdf");
+        if (!name.toLowerCase().endsWith(".pdf")) name += ".pdf";
+        try {
+            List<InputStream> sources = new ArrayList<>();
+            JSArray uris = call.getArray("uris");
+            if (uris != null) {
+                for (int i = 0; i < uris.length(); i++) {
+                    InputStream in = openInput(uris.getString(i));
+                    if (in != null) sources.add(in);
+                }
+            }
+            JSArray datas = call.getArray("data");
+            if (datas != null) {
+                for (int i = 0; i < datas.length(); i++) {
+                    sources.add(new ByteArrayInputStream(
+                        Base64.decode(datas.getString(i), Base64.DEFAULT)));
+                }
+            }
+            if (sources.size() < 2) {
+                call.reject("need-2-files");
+                return;
+            }
+            File out = outFile(name, "-merged");
+            PDFMergerUtility mu = new PDFMergerUtility();
+            for (InputStream in : sources) mu.addSource(in);
+            mu.setDestinationFileName(out.getAbsolutePath());
+            mu.mergeDocuments(MemoryUsageSetting.setupMainMemoryOnly());
+            for (InputStream in : sources) {
+                try { in.close(); } catch (Exception e) {}
+            }
+            JSObject ret = new JSObject();
+            ret.put("path", out.getAbsolutePath());
+            ret.put("name", out.getName());
+            ret.put("public", isPublicDir());
+            ret.put("count", sources.size());
+            call.resolve(ret);
+        } catch (Exception e) {
+            call.reject("Merge failed: " + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Page surgery on a PDF. { uri|data, name, password,
+     * mode: 'extract'|'delete'|'rotate', pages: "1-3,5", degrees }.
+     * extract keeps only the listed pages in a new file; delete removes
+     * them; rotate adds `degrees` to their rotation. Resolves
+     * { path, name, public }.
+     */
+    @PluginMethod
+    public void editPdf(PluginCall call) {
+        String name = call.getString("name", "document.pdf");
+        String mode = call.getString("mode", "extract");
+        String spec = call.getString("pages", "");
+        int degrees = call.getInt("degrees", 90);
+        String password = call.getString("password", "");
+        try {
+            PDDocument doc = loadDoc(call, password);
+            if (doc == null) {
+                call.reject("Missing uri or data");
+                return;
+            }
+            int total = doc.getNumberOfPages();
+            Set<Integer> sel = parsePageSpec(spec, total);
+            if (sel.isEmpty()) {
+                doc.close();
+                call.reject("bad-pages");
+                return;
+            }
+            String suffix;
+            PDDocument src = null;
+            if ("delete".equals(mode)) {
+                for (int i = total - 1; i >= 0; i--) {
+                    if (sel.contains(i + 1)) doc.removePage(i);
+                }
+                suffix = "-trimmed";
+            } else if ("rotate".equals(mode)) {
+                for (int p : sel) {
+                    PDPage pg = doc.getPage(p - 1);
+                    pg.setRotation((pg.getRotation() + degrees) % 360);
+                }
+                suffix = "-rotated";
+            } else {
+                src = doc;
+                doc = new PDDocument();
+                for (int i = 0; i < total; i++) {
+                    if (sel.contains(i + 1)) doc.importPage(src.getPage(i));
+                }
+                suffix = "-pages";
+            }
+            File out = outFile(name, suffix);
+            doc.save(out);
+            doc.close();
+            if (src != null) src.close();
+            JSObject ret = new JSObject();
+            ret.put("path", out.getAbsolutePath());
+            ret.put("name", out.getName());
+            ret.put("public", isPublicDir());
+            call.resolve(ret);
+        } catch (InvalidPasswordException e) {
+            call.reject("wrong-password");
+        } catch (Exception e) {
+            call.reject("Edit failed: " + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Renders every page to a PNG image. { uri|data, name, password, dpi }.
+     * Saves to Pictures/QariPDF when possible; resolves { count, dir,
+     * public }.
+     */
+    @PluginMethod
+    public void pdfToImages(PluginCall call) {
+        String name = call.getString("name", "document.pdf");
+        String password = call.getString("password", "");
+        int dpi = call.getInt("dpi", 150);
+        try {
+            PDFBoxResourceLoader.init(getContext());
+            PDDocument doc = loadDoc(call, password);
+            if (doc == null) {
+                call.reject("Missing uri or data");
+                return;
+            }
+            String base = name.replaceAll("(?i)\\.pdf$", "")
+                .replaceAll("[^\\w.\\-\\u0600-\\u06FF]", "_");
+            File dir;
+            if (isPublicDir()) {
+                dir = new File(Environment.getExternalStoragePublicDirectory(
+                    Environment.DIRECTORY_PICTURES), "QariPDF");
+            } else {
+                dir = new File(getContext().getCacheDir(), "imgs");
+            }
+            dir.mkdirs();
+            PDFRenderer renderer = new PDFRenderer(doc);
+            int count = doc.getNumberOfPages();
+            for (int i = 0; i < count; i++) {
+                Bitmap bmp = renderer.renderImageWithDPI(i, dpi, ImageType.RGB);
+                File f = new File(dir, base + "-p" + (i + 1) + ".png");
+                try (FileOutputStream fos = new FileOutputStream(f)) {
+                    bmp.compress(Bitmap.CompressFormat.PNG, 100, fos);
+                }
+                bmp.recycle();
+            }
+            doc.close();
+            JSObject ret = new JSObject();
+            ret.put("count", count);
+            ret.put("dir", dir.getAbsolutePath());
+            ret.put("public", isPublicDir());
+            call.resolve(ret);
+        } catch (InvalidPasswordException e) {
+            call.reject("wrong-password");
+        } catch (Exception e) {
+            call.reject("Render failed: " + e.getMessage(), e);
+        }
+    }
+
+    private PDDocument loadDoc(PluginCall call, String password) throws Exception {
+        String uri = call.getString("uri");
+        String data = call.getString("data");
+        if (uri != null) return PDDocument.load(openInput(uri), password);
+        if (data != null) {
+            return PDDocument.load(
+                new ByteArrayInputStream(Base64.decode(data, Base64.DEFAULT)), password);
+        }
+        return null;
+    }
+
+    private boolean isPublicDir() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+            && Environment.isExternalStorageManager();
+    }
+
+    private File outFile(String name, String suffix) {
+        String base = name.replaceAll("(?i)\\.pdf$", "");
+        String outName = (base + suffix + ".pdf")
+            .replaceAll("[^\\w.\\-\\u0600-\\u06FF]", "_");
+        File dir = isPublicDir()
+            ? Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+            : new File(getContext().getCacheDir(), "pdfs");
+        dir.mkdirs();
+        return new File(dir, outName);
+    }
+
+    private static Set<Integer> parsePageSpec(String spec, int total) {
+        Set<Integer> out = new HashSet<>();
+        for (String part : spec.split(",")) {
+            part = part.trim();
+            if (part.isEmpty()) continue;
+            try {
+                if (part.contains("-")) {
+                    String[] ab = part.split("-", 2);
+                    int a = Integer.parseInt(ab[0].trim());
+                    int b = Integer.parseInt(ab[1].trim());
+                    for (int i = Math.max(1, a); i <= Math.min(total, b); i++) out.add(i);
+                } else {
+                    int p = Integer.parseInt(part);
+                    if (p >= 1 && p <= total) out.add(p);
+                }
+            } catch (NumberFormatException e) {}
+        }
+        return out;
     }
 
     private File cachePdf(String base64, String name) throws IOException {

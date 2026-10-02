@@ -339,6 +339,74 @@
   }
   .ed-save { padding: 14px; font-size: 15px; margin-bottom: 20px; }
   .ed-addimg { padding: 12px; font-size: 13px; }
+  .ed-tools { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .ed-tools .tbtn {
+    min-width: 34px; height: 34px; padding: 0 8px; border-radius: 8px;
+    border: 1px solid var(--border); background: var(--card); color: var(--text);
+    font-size: 14px; cursor: pointer; font-family: inherit;
+  }
+  .ed-tools input[type=color] {
+    width: 34px; height: 34px; padding: 2px; border: 1px solid var(--border);
+    border-radius: 8px; background: var(--card); cursor: pointer;
+  }
+  .ed-tools select {
+    height: 34px; border: 1px solid var(--border); border-radius: 8px;
+    background: var(--card); color: var(--text); font-family: inherit; font-size: 13px;
+  }
+  .ed-body[contenteditable] { white-space: normal; }
+  .ed-body:empty::before { content: attr(data-ph); color: var(--muted); }
+  .ed-body img { max-width: 60%; display: block; margin: 8px auto; border-radius: 6px; }
+  .ed-imgrow { display: flex; gap: 8px; }
+  .ed-imgrow .btn { flex: 1; padding: 12px 4px; font-size: 12.5px; }
+  .ed-opts { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .ed-opts input[type=text] {
+    flex: 1; min-width: 130px; border: 1px solid var(--border); background: var(--card);
+    color: var(--text); border-radius: var(--radius-sm); padding: 10px 12px;
+    font-family: inherit; font-size: 13px; outline: none;
+  }
+  .ed-opts select {
+    border: 1px solid var(--border); background: var(--card); color: var(--text);
+    border-radius: var(--radius-sm); padding: 9px 8px; font-family: inherit; font-size: 13px;
+  }
+  .ed-q { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+  .ed-q input { width: 90px; accent-color: var(--accent); }
+  .pdf-menu-btn {
+    position: absolute; top: 8px; inset-inline-end: 8px; width: 30px; height: 30px;
+    border: 0; border-radius: 8px; background: transparent; color: var(--muted);
+    font-size: 17px; cursor: pointer; z-index: 2; line-height: 1;
+  }
+  .pdf-menu-btn:active { background: var(--card-2); }
+  .pv-veil {
+    position: fixed; inset: 0; z-index: 45; display: none;
+    flex-direction: column; background: var(--bg);
+  }
+  .pv-veil.show { display: flex; }
+  .pv-top { display: flex; gap: 10px; padding: 12px 14px; }
+  .pv-top .btn { flex: 1; padding: 11px 0; font-size: 13px; }
+  .pv-frame { flex: 1; border: 0; background: #fff; }
+  .sg-veil {
+    position: fixed; inset: 0; z-index: 46; display: none; align-items: center;
+    justify-content: center; padding: 20px; background: rgba(0,0,0,.6); backdrop-filter: blur(6px);
+  }
+  .sg-veil.show { display: flex; }
+  .sg-card {
+    width: 100%; max-width: 420px; background: var(--bg-soft);
+    border: 1px solid var(--border); border-radius: var(--radius); padding: 16px;
+  }
+  .sg-card h3 { margin: 0 0 10px; font-size: 15px; }
+  .sg-canvas { width: 100%; height: 220px; background: #fff; border-radius: var(--radius-sm); touch-action: none; display: block; }
+  .sg-btns { display: flex; gap: 8px; margin-top: 12px; }
+  .sg-btns .btn { flex: 1; padding: 10px 0; font-size: 13px; }
+  .mg-item {
+    display: flex; align-items: center; gap: 10px; padding: 10px 4px;
+    border-bottom: 1px solid var(--border); font-size: 13px; cursor: pointer;
+  }
+  .mg-item input { accent-color: var(--accent); width: 18px; height: 18px; }
+  .mg-name {
+    width: 100%; box-sizing: border-box; border: 1px solid var(--border);
+    background: var(--card); color: var(--text); border-radius: var(--radius-sm);
+    padding: 11px 12px; font-family: inherit; font-size: 14px; margin: 12px 0 8px; outline: none;
+  }
 
   .pw-veil {
     position: fixed; inset: 0; z-index: 40; display: none;
@@ -512,12 +580,48 @@
   </div>
   <div class="ed-scroll">
     <input id="edTitle" class="ed-h1" placeholder="العنوان — يظهر بخط تحته">
-    <textarea id="edBody" class="ed-body" placeholder="اكتب نص المستند هنا…"></textarea>
+    <div class="ed-tools">
+      <button class="tbtn" id="tBold" title="غامق"><b>B</b></button>
+      <button class="tbtn" id="tItalic" title="مائل"><i>I</i></button>
+      <button class="tbtn" id="tUnder" title="تحته خط"><u>U</u></button>
+      <input type="color" id="tColor" value="#1a1a1a" title="لون النص">
+      <select id="tSize" title="حجم الخط">
+        <option value="2">صغير</option>
+        <option value="3" selected>متوسط</option>
+        <option value="5">كبير</option>
+        <option value="6">أكبر</option>
+      </select>
+      <button class="tbtn" id="tRight" title="محاذاة لليمين">⇥</button>
+      <button class="tbtn" id="tCenter" title="توسيط">≡</button>
+      <button class="tbtn" id="tLeft" title="محاذاة لليسار">⇤</button>
+      <button class="tbtn" id="tJust" title="ضبط">☰</button>
+      <button class="tbtn" id="tImg" title="صورة أو شعار داخل النص">🖼</button>
+    </div>
+    <div id="edBody" class="ed-body" contenteditable="true" data-ph="اكتب نص المستند هنا…"></div>
     <div class="ed-imgs" id="edImgs"></div>
-    <button class="btn ghost ed-addimg" id="edImgBtn">＋ إرفاق صور</button>
-    <button class="btn ed-save" id="edSave">حفظ كـ PDF</button>
+    <div class="ed-imgrow">
+      <button class="btn ghost" id="edImgBtn">＋ صور</button>
+      <button class="btn ghost" id="edCamBtn">📷 تصوير</button>
+      <button class="btn ghost" id="edSignBtn">✍ توقيع</button>
+    </div>
+    <div class="ed-opts">
+      <input id="edName" type="text" placeholder="اسم الملف">
+      <select id="edPaper">
+        <option value="A4">A4</option>
+        <option value="A5">A5</option>
+        <option value="Letter">Letter</option>
+      </select>
+      <select id="edOrient">
+        <option value="portrait">عمودي</option>
+        <option value="landscape">أفقي</option>
+      </select>
+      <label class="ed-q">جودة الصور <input type="range" id="edQuality" min="40" max="95" value="82"></label>
+    </div>
+    <button class="btn ed-save" id="edSave">معاينة وحفظ كـ PDF</button>
   </div>
   <input type="file" id="edImgInput" accept="image/*" multiple style="display:none">
+  <input type="file" id="edCamInput" accept="image/*" capture="environment" style="display:none">
+  <input type="file" id="edInlineInput" accept="image/*" style="display:none">
 </div>
 
 <!-- Sheets -->
@@ -540,6 +644,24 @@
     </div>
   </div>
 </div>
+<div class="pv-veil" id="pvVeil">
+  <div class="pv-top">
+    <button class="btn ghost" id="pvClose">رجوع للتحرير</button>
+    <button class="btn" id="pvPrint">حفظ / طباعة PDF</button>
+  </div>
+  <iframe class="pv-frame" id="pvFrame"></iframe>
+</div>
+<div class="sg-veil" id="sgVeil">
+  <div class="sg-card">
+    <h3>ارسم توقيعك بإصبعك</h3>
+    <canvas class="sg-canvas" id="sgCanvas"></canvas>
+    <div class="sg-btns">
+      <button class="btn ghost" id="sgClear">مسح</button>
+      <button class="btn ghost" id="sgCancel">إلغاء</button>
+      <button class="btn" id="sgSave">إدراج</button>
+    </div>
+  </div>
+</div>
 <div class="toast" id="toast"></div>
 <input type="file" id="fileInput" accept=".pdf,application/pdf">
 
@@ -557,7 +679,7 @@ function capPlugin(name) {
   }
   return null;
 }
-const BUILD_STAMP = 'v9 · ٢٠٢٦-١٠-٠٢';
+const BUILD_STAMP = 'v10 · ٢٠٢٦-١٠-٠٢';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -751,10 +873,53 @@ function renderLibrary() {
       <div class="pdf-meta"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;direction:ltr;text-align:end;flex:1">${esc(dir)}</span></div>
       <div class="pdf-prog"><div style="width:${prog ? Math.round(prog.page/prog.total*100) : 0}%"></div></div>`;
     card.onclick = () => openDevicePdf(f);
+    const mb = document.createElement('button');
+    mb.className = 'pdf-menu-btn';
+    mb.textContent = '⋮';
+    mb.onclick = e => { e.stopPropagation(); fileMenu(f); };
+    card.appendChild(mb);
     grid.appendChild(card);
   }
 }
 const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function fileMenu(f) {
+  if (!(isNative && Scanner)) { openDevicePdf(f); return; }
+  openSheet(f.name, `
+    <div class="set-row" style="cursor:pointer" id="fmOpen"><div class="lbl">فتح الملف</div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="fmRename"><div class="lbl">إعادة تسمية</div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="fmShare"><div class="lbl">مشاركة</div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="fmPrint"><div class="lbl">طباعة</div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="fmDel"><div class="lbl" style="color:#f43f5e">حذف الملف نهائياً</div><span>‹</span></div>`);
+  $('fmOpen').onclick = () => { closeSheet(); openDevicePdf(f); };
+  $('fmShare').onclick = async () => {
+    closeSheet();
+    try { await Scanner.sharePdf({ uri: f.uri, name: f.name, title: f.name }); }
+    catch (e) { toast('تعذّرت المشاركة'); }
+  };
+  $('fmPrint').onclick = async () => {
+    closeSheet();
+    try { await Scanner.printPdf({ uri: f.uri, name: f.name }); }
+    catch (e) { toast('تعذّرت الطباعة'); }
+  };
+  $('fmRename').onclick = async () => {
+    closeSheet();
+    const nn = await askText('إعادة تسمية الملف', '', { value: f.name.replace(/\.pdf$/i, ''), placeholder: 'الاسم الجديد' });
+    if (!nn || !nn.trim()) return;
+    try {
+      await Scanner.renameFile({ uri: f.uri, newName: nn.trim() });
+      toast('أُعيدت التسمية'); scanLibrary();
+    } catch (e) { toast('تعذّرت إعادة التسمية'); }
+  };
+  $('fmDel').onclick = async () => {
+    closeSheet();
+    if (!confirm('حذف «' + f.name + '» من الهاتف نهائياً؟')) return;
+    try {
+      await Scanner.deleteFile({ uri: f.uri });
+      toast('حُذف الملف'); scanLibrary();
+    } catch (e) { toast('تعذّر الحذف'); }
+  };
+}
 
 $('rescanBtn').onclick = scanLibrary;
 $('permBtn').onclick = requestAccess;
@@ -1341,16 +1506,20 @@ function closeSheet() {
 $('sheetBackdrop').onclick = closeSheet;
 
 let pwResolve = null;
-function askPassword(title, msg) {
+function askText(title, msg, opts = {}) {
   return new Promise(res => {
     pwResolve = res;
     $('pwTitle').textContent = title;
     $('pwMsg').textContent = msg || '';
-    $('pwInput').value = '';
+    const inp = $('pwInput');
+    inp.type = opts.secret ? 'password' : 'text';
+    inp.value = opts.value || '';
+    inp.placeholder = opts.placeholder || 'كلمة السر';
     $('pwVeil').classList.add('show');
-    setTimeout(() => $('pwInput').focus(), 150);
+    setTimeout(() => inp.focus(), 150);
   });
 }
+const askPassword = (title, msg) => askText(title, msg, { secret: true });
 function pwDone(v) {
   $('pwVeil').classList.remove('show');
   const r = pwResolve; pwResolve = null;
@@ -1390,6 +1559,86 @@ async function protectDoc(mode) {
   }
 }
 
+function docPayload() {
+  const p = { name: docName, password: docPassword || '' };
+  if (docUri) p.uri = docUri; else p.data = toBase64(docBytes);
+  return p;
+}
+function saveResultToast(r) {
+  if (r.public) toast('حُفظ في التنزيلات: ' + r.name, 4000);
+  else Scanner.sharePdf({ uri: 'file://' + r.path, name: r.name, title: r.name })
+    .then(() => toast('تم — افتحه من المشاركة')).catch(() => toast('حُفظ في مجلد التطبيق'));
+}
+
+function mergeSheet() {
+  if (!(isNative && Scanner && Scanner.mergePdfs)) { toast('متاح في التطبيق على الهاتف فقط'); return; }
+  const rows = pdfFiles.map((f, i) =>
+    `<label class="mg-item"><input type="checkbox" data-i="${i}"><span>${esc(f.name)}</span></label>`).join('');
+  openSheet('دمج ملفات PDF',
+    (rows || '<p style="color:var(--muted);font-size:13px;text-align:center;padding:16px">المكتبة فارغة — امسح الهاتف أولاً</p>') +
+    '<input class="mg-name" id="mgName" placeholder="اسم الملف الناتج" value="merged">' +
+    '<button class="btn" id="mgGo" style="width:100%;padding:12px">دمج المحدد</button>');
+  $('mgGo').onclick = async () => {
+    const uris = Array.from($('sheetBody').querySelectorAll('input[type=checkbox]:checked'))
+      .map(cb => pdfFiles[+cb.dataset.i].uri);
+    const nm = $('mgName').value.trim() || 'merged';
+    if (uris.length < 2) { toast('اختر ملفين على الأقل'); return; }
+    closeSheet(); toast('جاري الدمج…');
+    try {
+      const r = await Scanner.mergePdfs({ uris, name: nm });
+      saveResultToast(r);
+      scanLibrary();
+    } catch (e) { toast('تعذّر الدمج — قد يكون أحد الملفات محمياً بكلمة سر', 3500); }
+  };
+}
+
+function pagesSheet() {
+  if (!(isNative && Scanner && Scanner.editPdf)) { toast('متاح في التطبيق على الهاتف فقط'); return; }
+  if (!docUri && !docBytes) { toast('افتح ملفاً أولاً'); return; }
+  openSheet('أدوات الصفحات',
+    `<p style="font-size:12px;color:var(--muted);margin:0 0 6px">المستند فيه ${pageCount} صفحة — حدّد الصفحات مثل: 1-3,5</p>` +
+    '<input class="mg-name" id="pgSpec" placeholder="مثال: 1-3,5">' +
+    '<div style="display:flex;gap:8px;margin-top:6px">' +
+    '<button class="btn" id="pgExtract" style="flex:1;padding:11px 4px;font-size:12.5px">استخراج</button>' +
+    '<button class="btn" id="pgDelete" style="flex:1;padding:11px 4px;font-size:12.5px">حذف</button>' +
+    '<button class="btn" id="pgRotate" style="flex:1;padding:11px 4px;font-size:12.5px">تدوير 90°</button></div>');
+  const run = async mode => {
+    const spec = $('pgSpec').value.trim();
+    if (!spec) { toast('حدّد الصفحات أولاً'); return; }
+    closeSheet();
+    const payload = docPayload();
+    payload.mode = mode; payload.pages = spec;
+    toast('جاري المعالجة…');
+    try {
+      const r = await Scanner.editPdf(payload);
+      saveResultToast(r);
+      scanLibrary();
+    } catch (e) {
+      const m = (e && e.message) || '';
+      toast(/wrong-password/i.test(m) ? 'كلمة السر غير صحيحة'
+        : /bad-pages/i.test(m) ? 'صيغة الصفحات غير صحيحة' : 'تعذّرت العملية', 3000);
+    }
+  };
+  $('pgExtract').onclick = () => run('extract');
+  $('pgDelete').onclick = () => run('delete');
+  $('pgRotate').onclick = () => run('rotate');
+}
+
+async function pdfToImages() {
+  if (!(isNative && Scanner && Scanner.pdfToImages)) { toast('متاح في التطبيق على الهاتف فقط'); return; }
+  if (!docUri && !docBytes) { toast('افتح ملفاً أولاً'); return; }
+  closeSheet();
+  toast('جاري تحويل الصفحات إلى صور…');
+  try {
+    const r = await Scanner.pdfToImages(docPayload());
+    toast(r.public
+      ? 'حُفظت ' + r.count + ' صورة في معرض الصور (QariPDF)'
+      : 'حُفظت ' + r.count + ' صورة في مجلد التطبيق', 4000);
+  } catch (e) {
+    toast(/wrong-password/i.test((e && e.message) || '') ? 'كلمة السر غير صحيحة' : 'تعذّر التحويل', 3000);
+  }
+}
+
 $('menuBtn').onclick = () => {
   const bms = getBookmarks();
   openSheet('خيارات القراءة', `
@@ -1419,6 +1668,9 @@ $('menuBtn').onclick = () => {
     <div class="set-row" style="cursor:pointer" id="sBookmark"><div class="lbl" style="color:var(--gold)">★ إضافة إشارة للصفحة ${currentPage}</div><span></span></div>
     <div class="set-row" style="cursor:pointer" id="sPrint"><div class="lbl">طباعة الملف<small>عبر نافذة طباعة النظام</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sShare"><div class="lbl">تصدير / مشاركة<small>إرسال ملف PDF عبر التطبيقات</small></div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="sPages"><div class="lbl">أدوات الصفحات<small>استخراج أو حذف أو تدوير صفحات محددة</small></div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="sToImgs"><div class="lbl">تحويل الصفحات إلى صور<small>حفظ كل صفحة كصورة PNG</small></div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="sMerge"><div class="lbl">دمج ملفات PDF<small>جمع عدة ملفات من المكتبة في ملف واحد</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sLock"><div class="lbl">قفل الملف بكلمة سر<small>نسخة مشفّرة لا تُفتح إلا بكلمة السر</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sUnlock"><div class="lbl">فك حماية الملف<small>نسخة مفتوحة بلا كلمة سر</small></div><span>‹</span></div>
     <div style="text-align:center;color:var(--muted);font-size:11px;padding-top:10px">إصدار ${BUILD_STAMP}</div>
@@ -1445,6 +1697,9 @@ $('menuBtn').onclick = () => {
   };
   $('sPrint').onclick = () => { closeSheet(); printDoc(); };
   $('sShare').onclick = () => { closeSheet(); $('shareBtn').click(); };
+  $('sPages').onclick = pagesSheet;
+  $('sToImgs').onclick = pdfToImages;
+  $('sMerge').onclick = mergeSheet;
   $('sLock').onclick = () => { closeSheet(); protectDoc('lock'); };
   $('sUnlock').onclick = () => { closeSheet(); protectDoc('unlock'); };
 };
@@ -1529,9 +1784,14 @@ let edImages = [];
 try {
   const d = JSON.parse(localStorage.getItem('qari:draft') || '{}');
   if (d.title) $('edTitle').value = d.title;
-  if (d.body) $('edBody').value = d.body;
+  if (d.body) {
+    $('edBody').innerHTML = /<\w/.test(d.body)
+      ? d.body
+      : esc(d.body).replace(/\n/g, '<br>');
+  }
   if (Array.isArray(d.imgs)) edImages = d.imgs;
 } catch (e) {}
+try { document.execCommand('styleWithCSS', false, true); } catch (e) {}
 
 function edRenderImgs() {
   $('edImgs').innerHTML = edImages.map((u, i) =>
@@ -1542,7 +1802,7 @@ function edRenderImgs() {
 function edSaveDraft() {
   try {
     localStorage.setItem('qari:draft', JSON.stringify({
-      title: $('edTitle').value, body: $('edBody').value, imgs: edImages
+      title: $('edTitle').value, body: $('edBody').innerHTML, imgs: edImages
     }));
   } catch (e) {}
 }
@@ -1559,60 +1819,166 @@ $('edBack').onclick = () => {
   $('libraryView').classList.add('active');
   renderLibrary();
 };
+function edShrink(f, max, cb) {
+  const img = new Image();
+  img.onload = () => {
+    const k = Math.min(1, max / Math.max(img.width, img.height));
+    const c = document.createElement('canvas');
+    c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+    c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+    cb(c);
+    URL.revokeObjectURL(img.src);
+  };
+  img.src = URL.createObjectURL(f);
+}
+function edAddImgFile(f) {
+  edShrink(f, 1400, c => {
+    edImages.push(c.toDataURL('image/jpeg', 0.85));
+    edRenderImgs(); edSaveDraft();
+  });
+}
 $('edImgBtn').onclick = () => $('edImgInput').click();
 $('edImgInput').onchange = e => {
-  Array.from(e.target.files).forEach(f => {
-    const img = new Image();
-    img.onload = () => {
-      const max = 1400;
-      const k = Math.min(1, max / Math.max(img.width, img.height));
-      const c = document.createElement('canvas');
-      c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
-      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
-      edImages.push(c.toDataURL('image/jpeg', 0.85));
-      edRenderImgs(); edSaveDraft();
-      URL.revokeObjectURL(img.src);
-    };
-    img.src = URL.createObjectURL(f);
-  });
+  Array.from(e.target.files).forEach(edAddImgFile);
   e.target.value = '';
+};
+$('edCamBtn').onclick = () => $('edCamInput').click();
+$('edCamInput').onchange = e => {
+  Array.from(e.target.files).forEach(edAddImgFile);
+  e.target.value = '';
+};
+
+const edCmd = (cmd, val) => {
+  $('edBody').focus();
+  try { document.execCommand(cmd, false, val); } catch (e) {}
+  edSaveDraft();
+};
+$('tBold').onclick = () => edCmd('bold');
+$('tItalic').onclick = () => edCmd('italic');
+$('tUnder').onclick = () => edCmd('underline');
+$('tColor').oninput = e => edCmd('foreColor', e.target.value);
+$('tSize').onchange = e => edCmd('fontSize', e.target.value);
+$('tRight').onclick = () => edCmd('justifyRight');
+$('tCenter').onclick = () => edCmd('justifyCenter');
+$('tLeft').onclick = () => edCmd('justifyLeft');
+$('tJust').onclick = () => edCmd('justifyFull');
+$('tImg').onclick = () => $('edInlineInput').click();
+$('edInlineInput').onchange = e => {
+  const f = e.target.files[0];
+  e.target.value = '';
+  if (!f) return;
+  edShrink(f, 900, c => {
+    $('edBody').focus();
+    try { document.execCommand('insertImage', false, c.toDataURL('image/jpeg', 0.85)); } catch (err) {}
+    edSaveDraft();
+  });
+};
+
+let sgCtx = null, sgDrawing = false;
+$('edSignBtn').onclick = () => {
+  $('sgVeil').classList.add('show');
+  requestAnimationFrame(() => {
+    const c = $('sgCanvas');
+    const dpr = window.devicePixelRatio || 1;
+    c.width = c.offsetWidth * dpr;
+    c.height = c.offsetHeight * dpr;
+    sgCtx = c.getContext('2d');
+    sgCtx.scale(dpr, dpr);
+    sgCtx.lineWidth = 2.5;
+    sgCtx.lineCap = 'round';
+    sgCtx.lineJoin = 'round';
+    sgCtx.strokeStyle = '#12308f';
+  });
+};
+const sgPos = e => {
+  const r = $('sgCanvas').getBoundingClientRect();
+  return { x: e.clientX - r.left, y: e.clientY - r.top };
+};
+$('sgCanvas').onpointerdown = e => {
+  if (!sgCtx) return;
+  sgDrawing = true;
+  const p = sgPos(e);
+  sgCtx.beginPath(); sgCtx.moveTo(p.x, p.y);
+  e.preventDefault();
+};
+$('sgCanvas').onpointermove = e => {
+  if (!sgDrawing || !sgCtx) return;
+  const p = sgPos(e);
+  sgCtx.lineTo(p.x, p.y); sgCtx.stroke();
+};
+window.addEventListener('pointerup', () => { sgDrawing = false; });
+$('sgClear').onclick = () => {
+  const c = $('sgCanvas');
+  if (sgCtx) sgCtx.clearRect(0, 0, c.offsetWidth, c.offsetHeight);
+};
+$('sgCancel').onclick = () => $('sgVeil').classList.remove('show');
+$('sgSave').onclick = () => {
+  const url = $('sgCanvas').toDataURL('image/png');
+  $('sgVeil').classList.remove('show');
+  $('edBody').focus();
+  try { document.execCommand('insertImage', false, url); } catch (e) {}
+  edSaveDraft();
 };
 
 function escHtml(s) {
   return s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 }
-function composeHtml() {
+function edReencode(u, q) {
+  return new Promise(res => {
+    const img = new Image();
+    img.onload = () => {
+      const c = document.createElement('canvas');
+      c.width = img.naturalWidth; c.height = img.naturalHeight;
+      c.getContext('2d').drawImage(img, 0, 0);
+      res(c.toDataURL('image/jpeg', q));
+    };
+    img.onerror = () => res(u);
+    img.src = u;
+  });
+}
+async function composeHtml() {
   const t = $('edTitle').value.trim();
-  const body = $('edBody').value;
-  const paras = body.split(/\n{2,}/)
-    .map(p => p.trim() ? '<p>' + escHtml(p).replace(/\n/g, '<br>') + '</p>' : '').join('');
-  const imgs = edImages.map(u => '<img src="' + u + '">').join('');
+  const bodyHtml = $('edBody').innerHTML;
+  const paper = $('edPaper').value;
+  const orient = $('edOrient').value;
+  const q = (+$('edQuality').value) / 100;
+  const imgs = (await Promise.all(edImages.map(u => edReencode(u, q))))
+    .map(u => '<img src="' + u + '">').join('');
   return '<!doctype html><html dir="rtl" lang="ar"><head><meta charset="utf-8"><style>' +
-    '@page{margin:20mm}' +
+    '@page{size:' + paper + ' ' + orient + ';margin:16mm}' +
     'body{font-family:"Noto Naskh Arabic","Amiri","Segoe UI","Traditional Arabic",Arial,sans-serif;' +
-    'color:#1a1a1a;font-size:13pt;line-height:2;text-align:justify}' +
+    'color:#1a1a1a;font-size:13pt;line-height:2}' +
     'h1{text-align:center;font-size:20pt;font-weight:700;margin:0 0 6px;padding-bottom:10px;' +
     'border-bottom:2px solid #444;letter-spacing:.5px}' +
     '.rule{width:60px;height:2px;background:#444;margin:14px auto 22px}' +
-    'p{margin:0 0 12px;text-indent:1.5em}' +
-    'img{display:block;max-width:88%;margin:14px auto;border-radius:6px;' +
+    'body>img{display:block;max-width:88%;margin:14px auto;border-radius:6px;' +
     'box-shadow:0 1px 4px rgba(0,0,0,.25)}' +
+    '.doc{text-align:justify;font-size:13pt;line-height:2}' +
+    '.doc p{margin:0 0 10px;min-height:1em}' +
+    '.doc img{max-width:60%;display:block;margin:8px auto;border-radius:6px}' +
     '</style></head><body>' +
     (t ? '<h1>' + escHtml(t) + '</h1><div class="rule"></div>' : '') +
-    imgs + paras + '</body></html>';
+    imgs + '<div class="doc">' + bodyHtml + '</div></body></html>';
 }
 
+let pvHtml = '';
 $('edSave').onclick = async () => {
-  const title = $('edTitle').value.trim() || 'مستند';
-  const html = composeHtml();
+  pvHtml = await composeHtml();
+  $('pvFrame').srcdoc = pvHtml;
+  $('pvVeil').classList.add('show');
+};
+$('pvClose').onclick = () => $('pvVeil').classList.remove('show');
+$('pvPrint').onclick = async () => {
+  const nm = $('edName').value.trim() || $('edTitle').value.trim() || 'مستند';
+  $('pvVeil').classList.remove('show');
   if (isNative && Scanner && Scanner.printHtml) {
-    try { await Scanner.printHtml({ html, name: title }); }
+    try { await Scanner.printHtml({ html: pvHtml, name: nm }); }
     catch (e) { toast('تعذّر إنشاء الملف'); }
     return;
   }
   const w = window.open('', '_blank');
   if (!w) { toast('اسمح بالنوافذ المنبثقة'); return; }
-  w.document.write(html); w.document.close();
+  w.document.write(pvHtml); w.document.close();
   setTimeout(() => { w.print(); }, 400);
 };
 
