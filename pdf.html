@@ -1588,11 +1588,18 @@ function composeHtml() {
     .map(p => p.trim() ? '<p>' + escHtml(p).replace(/\n/g, '<br>') + '</p>' : '').join('');
   const imgs = edImages.map(u => '<img src="' + u + '">').join('');
   return '<!doctype html><html dir="rtl" lang="ar"><head><meta charset="utf-8"><style>' +
-    '@page{margin:18mm}body{font-family:sans-serif;color:#111;font-size:14px;line-height:1.9}' +
-    'h1{border-bottom:2.5px solid #222;padding-bottom:8px;margin:0 0 16px}' +
-    'p{margin:0 0 10px}img{display:block;max-width:100%;margin:12px auto;border-radius:6px}' +
+    '@page{margin:20mm}' +
+    'body{font-family:"Noto Naskh Arabic","Amiri","Segoe UI","Traditional Arabic",Arial,sans-serif;' +
+    'color:#1a1a1a;font-size:13pt;line-height:2;text-align:justify}' +
+    'h1{text-align:center;font-size:20pt;font-weight:700;margin:0 0 6px;padding-bottom:10px;' +
+    'border-bottom:2px solid #444;letter-spacing:.5px}' +
+    '.rule{width:60px;height:2px;background:#444;margin:14px auto 22px}' +
+    'p{margin:0 0 12px;text-indent:1.5em}' +
+    'img{display:block;max-width:88%;margin:14px auto;border-radius:6px;' +
+    'box-shadow:0 1px 4px rgba(0,0,0,.25)}' +
     '</style></head><body>' +
-    (t ? '<h1>' + escHtml(t) + '</h1>' : '') + paras + imgs + '</body></html>';
+    (t ? '<h1>' + escHtml(t) + '</h1><div class="rule"></div>' : '') +
+    imgs + paras + '</body></html>';
 }
 
 $('edSave').onclick = async () => {
