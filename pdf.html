@@ -518,6 +518,58 @@ async function speak(text, span) {
   } while (settings.loop);
   if (gen === loopGen) { speaking = false; if (span) span.classList.remove('speaking'); }
 }
+
+/* firm/long press: repeat the word until interrupted */
+async function speakWordLooped(text, span) {
+  stopSpeech();
+  speaking = true;
+  lastUtter = { text, span };
+  const gen = ++loopGen;
+  if (span) { clearWordHl(); span.classList.add('speaking'); }
+  while (gen === loopGen) {
+    await speakOnce(text);
+  }
+}
+
+function allWordSpans() { return Array.from(pagesEl.querySelectorAll('.word')); }
+
+/* light tap: continuous read-aloud starting at the tapped word, following
+   lazy-rendered pages until the end of the document */
+async function startReadFrom(span) {
+  stopSpeech();
+  speaking = true;
+  const gen = ++loopGen;
+  clearWordHl();
+  let last = null, from = span;
+  while (gen === loopGen) {
+    const words = allWordSpans();
+    let i = from ? words.indexOf(from) : (last ? words.indexOf(last) + 1 : -1);
+    if (i < 0 || i >= words.length) {
+      const pages = pagesEl.querySelectorAll('.page');
+      const lp = pages[pages.length - 1];
+      if (!lp) break;
+      lp.scrollIntoView({ block: 'end' });
+      await new Promise(r => setTimeout(r, 400));
+      if (gen !== loopGen) break;
+      if (allWordSpans().length === words.length) break;
+      continue;
+    }
+    const key = words[i].dataset.page + '|' + words[i].dataset.sentence;
+    const chunk = [words[i]];
+    for (let j = i + 1; j < words.length
+         && (words[j].dataset.page + '|' + words[j].dataset.sentence) === key; j++)
+      chunk.push(words[j]);
+    const text = chunk.map(w => w.textContent).join(' ');
+    chunk.forEach(w => w.classList.add('speaking'));
+    chunk[0].scrollIntoView({ block: 'center', behavior: 'smooth' });
+    await speakOnce(text);
+    chunk.forEach(w => w.classList.remove('speaking'));
+    last = chunk[chunk.length - 1];
+    from = null;
+  }
+  if (gen === loopGen) { speaking = false; clearWordHl(); }
+}
+
 function stopSpeech() {
   loopGen++;
   if (isNative && TTS && TTS.stop) TTS.stop().catch(() => {});
@@ -836,12 +888,17 @@ function splitWords(tlDiv, items, pageNo) {
   });
 }
 
-// tap = speak word, long-press = speak sentence
+// light tap = read aloud from this word onward, long press = loop the word
 pagesEl.addEventListener('pointerdown', e => {
   const w = e.target.closest && e.target.closest('.word');
   if (!w) { if (e.target.closest('.page')) toggleUiOnTap(e); return; }
-  const lp = setTimeout(() => { w._lp = true; speak(w.dataset.sentence || w.textContent, w); }, 550);
-  w._lpTimer = lp;
+  w._lp = false;
+  w._lpTimer = setTimeout(() => {
+    w._lp = true;
+    if (!settings.tapSpeak) { toast('فعّل «نطق عند الضغط على الكلمة» من القائمة'); return; }
+    speakWordLooped(w.textContent, w);
+    toast('تكرار النطق — اضغط كلمة أخرى للإيقاف');
+  }, 550);
 });
 pagesEl.addEventListener('pointerup', e => {
   const w = e.target.closest && e.target.closest('.word');
@@ -849,7 +906,7 @@ pagesEl.addEventListener('pointerup', e => {
   clearTimeout(w._lpTimer);
   if (w._lp) { w._lp = false; return; }
   if (!settings.tapSpeak) return;
-  speak(w.textContent, w);
+  startReadFrom(w);
 });
 pagesEl.addEventListener('pointercancel', () => {});
 
@@ -1097,7 +1154,7 @@ $('sheetBackdrop').onclick = closeSheet;
 $('menuBtn').onclick = () => {
   const bms = getBookmarks();
   openSheet('خيارات القراءة', `
-    <div class="set-row"><div class="lbl">نطق عند الضغط على الكلمة<small>اضغط مطولاً لنطق الجملة كاملة</small></div>
+    <div class="set-row"><div class="lbl">نطق عند الضغط على الكلمة<small>ضغطة خفيفة تقرأ من الكلمة حتى النهاية، ضغطة مطوّلة تكرّرها</small></div>
       <label class="switch"><input type="checkbox" id="sTap" ${settings.tapSpeak ? 'checked' : ''}><span class="trk"></span></label></div>
     <div class="set-row"><div class="lbl">تكرار النطق (Loop)<small>تتكرر الكلمة حتى تطفئه</small></div>
       <label class="switch"><input type="checkbox" id="sLoop" ${settings.loop ? 'checked' : ''}><span class="trk"></span></label></div>
