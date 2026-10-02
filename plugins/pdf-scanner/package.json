@@ -1,0 +1,15 @@
+{
+  "name": "pdf-scanner",
+  "version": "0.1.0",
+  "description": "Capacitor plugin to enumerate and read PDF files on Android",
+  "main": "index.js",
+  "capacitor": {
+    "android": {
+      "src": "android"
+    }
+  },
+  "files": [
+    "android/",
+    "index.js"
+  ]
+}
