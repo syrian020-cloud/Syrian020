@@ -212,6 +212,9 @@
   .text-layer span { color: transparent; position: absolute; white-space: pre; transform-origin: 0 0; cursor: pointer;
     user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
   .text-layer .word { pointer-events: auto; touch-action: manipulation; }
+  .text-layer.sel { user-select: text; -webkit-user-select: text; }
+  .text-layer.sel span, .text-layer.sel .word { user-select: text; -webkit-user-select: text; -webkit-touch-callout: default; }
+  .text-layer.sel span::selection { background: rgba(139,92,246,.45); color: transparent; }
   .text-layer .word.speaking { background: rgba(139,92,246,0.45); outline: 2px solid var(--accent); border-radius: 3px; }
   .text-layer .word.hit { background: rgba(251,191,36,0.4); }
   .text-layer .word.hit-current { background: rgba(244,63,94,0.55); outline: 2px solid var(--accent-2); border-radius: 3px; }
@@ -473,7 +476,7 @@ const AppP = capPlugin('App');
 /* ================= Settings ================= */
 const settings = Object.assign({
   theme: 'dark', rate: 1.0, pitch: 1.0, latinLang: 'fr-FR', loop: false,
-  night: false, tapSpeak: true, fitWidth: true
+  night: false, tapSpeak: true, fitWidth: true, selMode: false
 }, JSON.parse(localStorage.getItem('qari:settings') || '{}'));
 function saveSettings() { localStorage.setItem('qari:settings', JSON.stringify(settings)); }
 document.documentElement.dataset.theme = settings.theme;
@@ -844,7 +847,7 @@ async function renderPage(n) {
 
     // text layer with per-word tap targets
     const tlDiv = document.createElement('div');
-    tlDiv.className = 'text-layer';
+    tlDiv.className = 'text-layer' + (settings.selMode ? ' sel' : '');
     tlDiv.dir = 'ltr';
     div.appendChild(tlDiv);
     try {
@@ -905,9 +908,14 @@ function splitWords(tlDiv, items, pageNo) {
 
 // light tap = read aloud from this word onward, long press = loop the word
 let lastLp = null;
+function applySelMode() {
+  pagesEl.classList.toggle('selmode', settings.selMode);
+  pagesEl.querySelectorAll('.text-layer').forEach(t => t.classList.toggle('sel', settings.selMode));
+}
 pagesEl.addEventListener('pointerdown', e => {
   const w = e.target.closest && e.target.closest('.word');
   if (!w) { if (e.target.closest('.page')) toggleUiOnTap(e); return; }
+  if (settings.selMode) return;
   lastLp = null;
   w._lpTimer = setTimeout(() => {
     lastLp = w;
@@ -927,14 +935,14 @@ pagesEl.addEventListener('pointercancel', e => {
 // click fires only for real taps (finger wiggle = scroll = no click)
 pagesEl.addEventListener('click', e => {
   const w = e.target.closest && e.target.closest('.word');
-  if (!w) return;
+  if (!w || settings.selMode) return;
   if (w === lastLp) { lastLp = null; return; }
   if (!settings.tapSpeak) return;
   toast('قراءة من هنا…');
   startReadFrom(w);
 });
 pagesEl.addEventListener('contextmenu', e => {
-  if (e.target.closest && e.target.closest('.word')) e.preventDefault();
+  if (!settings.selMode && e.target.closest && e.target.closest('.word')) e.preventDefault();
 });
 
 function toggleUiOnTap(e) {
@@ -1181,6 +1189,8 @@ $('sheetBackdrop').onclick = closeSheet;
 $('menuBtn').onclick = () => {
   const bms = getBookmarks();
   openSheet('خيارات القراءة', `
+    <div class="set-row"><div class="lbl">تحديد النص ونسخه<small>اسحب فوق الكلمات لتحديدها ثم انسخ — يعطّل النطق بالضغط مؤقتاً</small></div>
+      <label class="switch"><input type="checkbox" id="sSel" ${settings.selMode ? 'checked' : ''}><span class="trk"></span></label></div>
     <div class="set-row"><div class="lbl">نطق عند الضغط على الكلمة<small>ضغطة خفيفة تقرأ من الكلمة حتى النهاية، ضغطة مطوّلة تكرّرها</small></div>
       <label class="switch"><input type="checkbox" id="sTap" ${settings.tapSpeak ? 'checked' : ''}><span class="trk"></span></label></div>
     <div class="set-row"><div class="lbl">تكرار النطق (Loop)<small>تتكرر الكلمة حتى تطفئه</small></div>
@@ -1205,6 +1215,10 @@ $('menuBtn').onclick = () => {
     <div class="set-row" style="cursor:pointer" id="sShare"><div class="lbl">تصدير / مشاركة<small>إرسال ملف PDF عبر التطبيقات</small></div><span>‹</span></div>
   `);
   $('sTap').onchange = e => { settings.tapSpeak = e.target.checked; saveSettings(); };
+  $('sSel').onchange = e => {
+    settings.selMode = e.target.checked; saveSettings(); applySelMode();
+    if (settings.selMode) { stopSpeech(); toast('وضع التحديد — اسحب فوق النص ثم «نسخ»'); }
+  };
   $('sLoop').onchange = e => { settings.loop = e.target.checked; saveSettings(); $('loopBtn').classList.toggle('on', settings.loop); };
   $('sNight').onchange = e => { settings.night = e.target.checked; saveSettings(); document.body.classList.toggle('night', settings.night); };
   $('sFit').onchange = e => { settings.fitWidth = e.target.checked; saveSettings(); rerenderAll(); };
@@ -1300,6 +1314,7 @@ pagesEl.addEventListener('dblclick', e => {
 });
 
 /* ================= Boot ================= */
+applySelMode();
 scanLibrary();
 if (!isNative) {
   // browser demo hint
