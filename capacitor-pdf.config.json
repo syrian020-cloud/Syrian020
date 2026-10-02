@@ -1,0 +1,12 @@
+{
+  "appId": "com.syrian020.qari",
+  "appName": "Qari PDF",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": false
+  }
+}
