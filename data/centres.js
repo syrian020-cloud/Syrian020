@@ -415,5 +415,182 @@ window.CENTRES_DATA = [
         ]
       }
     ]
+  },
+  {
+    id: 'ofpra-qa',
+    icon: '💬',
+    name: { ar: 'OFPRA — مقابلة كاملة (سؤال وجواب)', en: 'OFPRA — Full interview (Q&A)', fr: 'OFPRA — Entretien complet (questions-réponses)' },
+    desc: {
+      ar: 'أسئلة مقابلة اللجوء مع الأجوبة النموذجية — استبدل الأجوبة بين [ ] بوضعك الحقيقي',
+      en: 'Asylum interview questions with model answers — replace [ ] placeholders with your real answers',
+      fr: 'Questions d’entretien avec réponses types — remplacez les [ ] par votre vraie situation'
+    },
+    sections: [
+      {
+        icon: '🪪',
+        title: { ar: 'الهوية', en: 'Identity', fr: 'Identité' },
+        phrases: [
+          { fr: 'Comment vous appelez-vous ?', ar: 'شو اسمك؟', en: 'What is your name?' },
+          { fr: 'Je m’appelle Mohammad Haj Mohammad.', ar: 'اسمي محمد حاج محمد.', en: 'My name is Mohammad Haj Mohammad.' },
+          { fr: 'Quelle est votre date de naissance ?', ar: 'شو تاريخ ميلادك؟', en: 'What is your date of birth?' },
+          { fr: 'Je suis né le [date].', ar: 'أنا مولود بـ [التاريخ].', en: 'I was born on [date].' },
+          { fr: 'Où êtes-vous né ?', ar: 'وين مولود؟', en: 'Where were you born?' },
+          { fr: 'Je suis né à Hama, en Syrie.', ar: 'أنا مولود بحماة، بسوريا.', en: 'I was born in Hama, Syria.' },
+          { fr: 'Quelle est votre nationalité ?', ar: 'شو جنسيتك؟', en: 'What is your nationality?' },
+          { fr: 'Je suis de nationalité syrienne.', ar: 'أنا سوري الجنسية.', en: 'I am Syrian.' }
+        ]
+      },
+      {
+        icon: '👨‍👩‍👧',
+        title: { ar: 'العائلة', en: 'Family', fr: 'La famille' },
+        phrases: [
+          { fr: 'Êtes-vous marié ?', ar: 'إنت متزوج؟', en: 'Are you married?' },
+          { fr: 'Oui, je suis marié.', ar: 'إي، أنا متزوج.', en: 'Yes, I am married.' },
+          { fr: 'Non, je ne suis pas marié.', ar: 'لا، أنا مو متزوج.', en: 'No, I’m not married.' },
+          { fr: 'Avez-vous des enfants ?', ar: 'عندك أولاد؟', en: 'Do you have children?' },
+          { fr: 'Oui, j’ai [nombre] enfant(s).', ar: 'إي، عندي [العدد] أولاد.', en: 'Yes, I have [number] children.' },
+          { fr: 'Non, je n’ai pas d’enfants.', ar: 'لا، ما عندي أولاد.', en: 'No, I don’t have children.' },
+          { fr: 'Où se trouve votre famille actuellement ?', ar: 'وين عيلتك هلق؟', en: 'Where is your family currently?' },
+          { fr: 'Ma famille se trouve en Syrie.', ar: 'عيلتي موجودة بسوريا.', en: 'My family is in Syria.' }
+        ]
+      },
+      {
+        icon: '🎓',
+        title: { ar: 'الدراسة والعمل', en: 'Studies and work', fr: 'Études et travail' },
+        phrases: [
+          { fr: 'Quel est votre niveau d’études ?', ar: 'لشو وصلت بالدراسة؟', en: 'What is your level of education?' },
+          { fr: 'J’ai étudié à l’université pendant quatre ans.', ar: 'درست بالجامعة أربع سنين.', en: 'I studied at university for four years.' },
+          { fr: 'Qu’est-ce que vous faisiez en Syrie ?', ar: 'شو كنت تعمل بسوريا؟', en: 'What did you do in Syria?' },
+          { fr: 'J’étais étudiant / Je travaillais comme [métier].', ar: 'كنت طالب / كنت اشتغل كـ [المهنة].', en: 'I was a student / I worked as a [job].' },
+          { fr: 'Est-ce que vous travailliez avant de quitter la Syrie ?', ar: 'كنت تشتغل قبل ما تطلع من سوريا؟', en: 'Were you working before leaving Syria?' },
+          { fr: 'Oui, je travaillais comme [métier].', ar: 'إي، كنت اشتغل كـ [المهنة].', en: 'Yes, I worked as a [job].' }
+        ]
+      },
+      {
+        icon: '🚪',
+        title: { ar: 'مغادرة سوريا', en: 'Leaving Syria', fr: 'Le départ de la Syrie' },
+        phrases: [
+          { fr: 'Quand avez-vous quitté la Syrie ?', ar: 'إمتى تركت سوريا؟', en: 'When did you leave Syria?' },
+          { fr: 'J’ai quitté la Syrie en [année].', ar: 'تركت سوريا بسنة [السنة].', en: 'I left Syria in [year].' },
+          { fr: 'Pourquoi avez-vous quitté la Syrie ?', ar: 'ليش تركت سوريا؟', en: 'Why did you leave Syria?' },
+          { fr: 'J’ai quitté la Syrie parce que ma situation était devenue difficile et je ne me sentais plus en sécurité.', ar: 'تركت سوريا لأن وضعي صار صعب وما عدت حس حالي بأمان.', en: 'I left Syria because my situation had become difficult and I no longer felt safe.' }
+        ]
+      },
+      {
+        icon: '😨',
+        title: { ar: 'الخوف من العودة', en: 'Fear of returning', fr: 'La crainte du retour' },
+        phrases: [
+          { fr: 'Pourquoi ne pouvez-vous pas retourner en Syrie ?', ar: 'ليش ما فيك ترجع على سوريا؟', en: 'Why can’t you return to Syria?' },
+          { fr: 'Je crains pour ma sécurité si je retourne en Syrie.', ar: 'بخاف على سلامتي إذا رجعت على سوريا.', en: 'I fear for my safety if I return to Syria.' },
+          { fr: 'Qu’est-ce que vous craignez exactement ?', ar: 'شو بالضبط اللي بتخاف منو؟', en: 'What exactly are you afraid of?' },
+          { fr: 'Je crains [expliquer votre situation réelle].', ar: 'بخاف من [اشرح وضعك الحقيقي].', en: 'I fear [explain your real situation].' },
+          { fr: 'Est-ce que vous avez été menacé ?', ar: 'حدا هددك؟', en: 'Were you threatened?' },
+          { fr: 'Oui, j’ai reçu des menaces.', ar: 'إي، وصلتني تهديدات.', en: 'Yes, I received threats.' },
+          { fr: 'Non, je n’ai pas reçu de menaces directes.', ar: 'لا، ما وصلتني تهديدات مباشرة.', en: 'No, I did not receive direct threats.' }
+        ]
+      },
+      {
+        icon: '🔎',
+        title: { ar: 'تفاصيل الحادثة', en: 'Details of the incident', fr: 'Les détails de l’incident' },
+        phrases: [
+          { fr: 'Pouvez-vous me raconter ce qui s’est passé ?', ar: 'فيك تحكيلي شو صار؟', en: 'Can you tell me what happened?' },
+          { fr: 'Oui. Je vais vous expliquer ce qui s’est passé.', ar: 'إي، رح اشرحلك شو صار.', en: 'Yes. I’ll explain what happened.' },
+          { fr: 'Quand cela s’est-il passé ?', ar: 'إمتى صار هالشي؟', en: 'When did this happen?' },
+          { fr: 'Cela s’est passé en [mois/année].', ar: 'صار هالشي بـ [الشهر/السنة].', en: 'It happened in [month/year].' },
+          { fr: 'Où cela s’est-il passé ?', ar: 'وين صار هالشي؟', en: 'Where did this happen?' },
+          { fr: 'Cela s’est passé à [lieu].', ar: 'صار هالشي بـ [المكان].', en: 'It happened in [place].' },
+          { fr: 'Qui était présent ?', ar: 'مين كان موجود؟', en: 'Who was present?' },
+          { fr: 'Il y avait [personnes].', ar: 'كان في [الأشخاص].', en: 'There were [people].' },
+          { fr: 'Que s’est-il passé ensuite ?', ar: 'وشو صار بعدين؟', en: 'What happened afterwards?' },
+          { fr: 'Ensuite, je suis parti / je suis rentré chez moi / j’ai demandé de l’aide.', ar: 'بعدين رحت / رجعت عالبيت / طلبت مساعدة.', en: 'Afterwards, I left / went home / asked for help.' }
+        ]
+      },
+      {
+        icon: '🚓',
+        title: { ar: 'إذا سألك عن الشرطة أو السلطات', en: 'If asked about the police or authorities', fr: 'S’il vous interroge sur la police ou les autorités' },
+        phrases: [
+          { fr: 'Avez-vous signalé les faits à la police ?', ar: 'خبرت الشرطة باللي صار؟', en: 'Did you report what happened to the police?' },
+          { fr: 'Oui, j’ai signalé les faits à la police.', ar: 'إي، خبرت الشرطة باللي صار.', en: 'Yes, I reported what happened to the police.' },
+          { fr: 'Non, je n’ai pas signalé les faits à la police.', ar: 'لا، ما خبرت الشرطة.', en: 'No, I did not report what happened to the police.' },
+          { fr: 'Pourquoi n’avez-vous pas demandé la protection des autorités ?', ar: 'ليش ما طلبت حماية من السلطات؟', en: 'Why didn’t you ask the authorities for protection?' },
+          { fr: 'Je ne pensais pas pouvoir obtenir une protection suffisante.', ar: 'ما كنت مفكر إني رح أقدر أحصل على حماية كافية.', en: 'I did not think I could obtain sufficient protection.' }
+        ]
+      },
+      {
+        icon: '✈️',
+        title: { ar: 'طريق السفر إلى فرنسا', en: 'Your journey to France', fr: 'Le voyage jusqu’en France' },
+        phrases: [
+          { fr: 'Comment êtes-vous arrivé en France ?', ar: 'كيف وصلت على فرنسا؟', en: 'How did you arrive in France?' },
+          { fr: 'Je suis arrivé en France après être passé par [pays].', ar: 'وصلت على فرنسا بعد ما مريت عبر [الدولة].', en: 'I arrived in France after passing through [country].' },
+          { fr: 'Quels pays avez-vous traversés ?', ar: 'شو الدول اللي مريت فيها؟', en: 'Which countries did you pass through?' },
+          { fr: 'Je suis passé par [pays], puis je suis arrivé en France.', ar: 'مريت عبر [الدولة] وبعدين وصلت على فرنسا.', en: 'I passed through [country], then I arrived in France.' },
+          { fr: 'Avez-vous demandé l’asile dans un autre pays ?', ar: 'قدمت لجوء بدولة تانية؟', en: 'Did you apply for asylum in another country?' },
+          { fr: 'Non, je n’ai pas demandé l’asile dans un autre pays.', ar: 'لا، ما قدمت لجوء بدولة تانية.', en: 'No, I did not apply for asylum in another country.' }
+        ]
+      },
+      {
+        icon: '🖐️',
+        title: { ar: 'البصمات', en: 'Fingerprints', fr: 'Les empreintes' },
+        phrases: [
+          { fr: 'Avez-vous déjà donné vos empreintes digitales dans un autre pays européen ?', ar: 'أخدوا بصماتك قبل بدولة أوروبية تانية؟', en: 'Have your fingerprints already been taken in another European country?' },
+          { fr: 'Oui, mes empreintes ont été prises en [pays].', ar: 'إي، أخدوا بصماتي بـ [الدولة].', en: 'Yes, my fingerprints were taken in [country].' },
+          { fr: 'Non, mes empreintes n’ont pas été prises dans un autre pays européen.', ar: 'لا، ما أخدوا بصماتي بدولة أوروبية تانية.', en: 'No, my fingerprints were not taken in another European country.' }
+        ]
+      },
+      {
+        icon: '🇫🇷',
+        title: { ar: 'فرنسا', en: 'France', fr: 'La France' },
+        phrases: [
+          { fr: 'Pourquoi êtes-vous venu en France ?', ar: 'ليش جيت على فرنسا؟', en: 'Why did you come to France?' },
+          { fr: 'Je suis venu en France pour demander la protection et déposer ma demande d’asile.', ar: 'جيت على فرنسا مشان أطلب الحماية وقدّم طلب اللجوء.', en: 'I came to France to seek protection and apply for asylum.' },
+          { fr: 'Depuis quand êtes-vous en France ?', ar: 'من إمتى إنت بفرنسا؟', en: 'How long have you been in France?' },
+          { fr: 'Je suis en France depuis [date/période].', ar: 'أنا بفرنسا من [التاريخ/الفترة].', en: 'I have been in France since [date/period].' }
+        ]
+      },
+      {
+        icon: '🏠',
+        title: { ar: 'السكن', en: 'Housing', fr: 'Le logement' },
+        phrases: [
+          { fr: 'Où habitez-vous actuellement ?', ar: 'وين ساكن هلق؟', en: 'Where do you currently live?' },
+          { fr: 'Je suis hébergé chez quelqu’un.', ar: 'أنا مستضاف عند حدا.', en: 'I’m staying with someone.' },
+          { fr: 'Je n’ai pas de logement stable.', ar: 'ما عندي سكن ثابت.', en: 'I don’t have stable accommodation.' },
+          { fr: 'Avez-vous une adresse où recevoir votre courrier ?', ar: 'عندك عنوان تستلم عليه بريدك؟', en: 'Do you have an address where you can receive your mail?' },
+          { fr: 'Oui, je suis domicilié à la Croix-Rouge.', ar: 'إي، عندي دوميسيلياسيون عند الصليب الأحمر.', en: 'Yes, I have a mailing address with the Red Cross.' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: 'المترجم', en: 'The interpreter', fr: 'L’interprète' },
+        phrases: [
+          { fr: 'Vous comprenez bien l’interprète ?', ar: 'عم تفهم المترجم منيح؟', en: 'Do you understand the interpreter well?' },
+          { fr: 'Oui, je comprends bien.', ar: 'إي، عم أفهم منيح.', en: 'Yes, I understand well.' },
+          { fr: 'Avez-vous besoin que je répète la question ?', ar: 'بدك إني أعيد السؤال؟', en: 'Do you need me to repeat the question?' },
+          { fr: 'Oui, s’il vous plaît.', ar: 'إي، لو سمحت.', en: 'Yes, please.' },
+          { fr: 'Vous avez compris la traduction ?', ar: 'فهمت الترجمة؟', en: 'Did you understand the translation?' },
+          { fr: 'Je n’ai pas bien compris. Pouvez-vous répéter ?', ar: 'ما فهمت منيح، فيك تعيد؟', en: 'I didn’t understand well. Could you repeat?' }
+        ]
+      },
+      {
+        icon: '🤔',
+        title: { ar: 'إذا لم تتذكر', en: 'If you don’t remember', fr: 'Si vous ne vous souvenez pas' },
+        phrases: [
+          { fr: 'Vous vous souvenez de la date exacte ?', ar: 'بتتذكر التاريخ بالضبط؟', en: 'Do you remember the exact date?' },
+          { fr: 'Je ne me souviens pas exactement de la date.', ar: 'ما بتذكر التاريخ بالضبط.', en: 'I don’t remember the exact date.' },
+          { fr: 'Vous êtes sûr de cette information ?', ar: 'متأكد من هالمعلومة؟', en: 'Are you sure about this information?' },
+          { fr: 'Je ne suis pas complètement sûr, mais c’est approximativement à cette période.', ar: 'مو متأكد مية بالمية، بس تقريباً بهالفترة.', en: 'I’m not completely sure, but it was approximately around that time.' }
+        ]
+      },
+      {
+        icon: '🏁',
+        title: { ar: 'في نهاية المقابلة', en: 'At the end of the interview', fr: 'À la fin de l’entretien' },
+        phrases: [
+          { fr: 'Avez-vous quelque chose à ajouter ?', ar: 'عندك شي تاني بدك تضيفه؟', en: 'Is there anything else you would like to add?' },
+          { fr: 'Oui, je voudrais ajouter quelque chose d’important.', ar: 'إي، بدي أضيف شغلة مهمة.', en: 'Yes, I would like to add something important.' },
+          { fr: 'Non, je pense que j’ai expliqué tout ce qui était important.', ar: 'لا، بعتقد شرحت كل الأشياء المهمة.', en: 'No, I think I have explained everything important.' },
+          { fr: 'Avez-vous bien compris toutes les questions ?', ar: 'فهمت كل الأسئلة منيح؟', en: 'Did you understand all the questions?' },
+          { fr: 'Oui, j’ai bien compris.', ar: 'إي، فهمت منيح.', en: 'Yes, I understood well.' }
+        ]
+      }
+    ]
   }
 ];
