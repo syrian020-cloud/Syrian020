@@ -1,17 +1,14 @@
-const CACHE_NAME = 'dross-v179';
+const CACHE_NAME = 'dross-v70';
 const TILE_CACHE = 'osm-tiles-v1';
 const FILES_TO_CACHE = [
   './',
   './index.html',
   './french.html',
-  './vocab.html',
   './map.html',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
   './data/manifest.js',
-  './data/vocab.js',
-  './data/vocab-batch-02.js',
   './vendor/leaflet/leaflet.css',
   './vendor/leaflet/leaflet.js',
   './vendor/leaflet/images/marker-icon.png',
@@ -30,9 +27,7 @@ for (let i = 1; i <= 39; i++) {
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) =>
-      cache.addAll(FILES_TO_CACHE.map((url) => new Request(url, { cache: 'reload' })))
-    )
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
   );
   self.skipWaiting();
 });
@@ -43,7 +38,7 @@ self.addEventListener('activate', (event) => {
       Promise.all(
         names
           .filter((name) => name !== CACHE_NAME && name !== TILE_CACHE)
-        .map((name) => caches.delete(name))
+          .map((name) => caches.delete(name))
       )
     ).then(() => self.clients.claim())
   );
@@ -51,25 +46,31 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
+
   if (url.hostname.endsWith('tile.openstreetmap.org') || url.hostname.endsWith('basemaps.cartocdn.com')) {
     event.respondWith(
       caches.open(TILE_CACHE).then((cache) =>
-        cache.match(event.request).then((cached) => {
-          if (cached) return cached;
-          return fetch(event.request).then((response) => {
-            if (response.ok) {
-              const clone = response.clone();
-              cache.keys()
-                .then((keys) => (keys.length >= 800 ? cache.delete(keys[0]) : undefined))
-                .then(() => cache.put(event.request, clone));
-            }
-            return response;
-          });
-        })
+        cache.match(event.request).then(
+          (cached) =>
+            cached ||
+            fetch(event.request)
+              .then((response) => {
+                const clone = response.clone();
+                cache
+                  .keys()
+                  .then((keys) =>
+                    keys.length >= 800 ? cache.delete(keys[0]) : undefined
+                  )
+                  .then(() => cache.put(event.request, clone));
+                return response;
+              })
+              .catch(() => cached)
+        )
       )
     );
     return;
   }
+
   event.respondWith(
     caches.match(event.request).then((response) => {
       return response || fetch(event.request).catch(() => caches.match('./french.html'));
