@@ -28,6 +28,8 @@ import android.print.pdf.PrintedPdfDocument;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.util.Base64;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import androidx.activity.result.ActivityResult;
 import androidx.core.content.ContextCompat;
@@ -43,6 +45,12 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 import com.getcapacitor.annotation.Permission;
 import com.getcapacitor.annotation.PermissionCallback;
 
+import com.tom_roush.pdfbox.pdmodel.PDDocument;
+import com.tom_roush.pdfbox.pdmodel.encryption.AccessPermission;
+import com.tom_roush.pdfbox.pdmodel.encryption.InvalidPasswordException;
+import com.tom_roush.pdfbox.pdmodel.encryption.StandardProtectionPolicy;
+
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
@@ -315,6 +323,93 @@ public class PdfScannerPlugin extends Plugin {
         } catch (Exception e) {
             call.reject("Cannot print: " + e.getMessage(), e);
         }
+    }
+
+    /**
+     * Locks or unlocks a PDF. { uri | data, name, mode: 'lock'|'unlock',
+     * password, oldPassword }. Saves the result to public Downloads when
+     * all-files access is granted, otherwise to the app cache (shared out
+     * by the web layer). Resolves { path, public }.
+     */
+    @PluginMethod
+    public void protectPdf(PluginCall call) {
+        String name = call.getString("name", "document.pdf");
+        boolean unlock = "unlock".equals(call.getString("mode"));
+        String password = call.getString("password", "");
+        String oldPassword = call.getString("oldPassword", "");
+        try {
+            String uri = call.getString("uri");
+            String data = call.getString("data");
+            PDDocument doc;
+            if (uri != null) {
+                doc = PDDocument.load(openInput(uri), oldPassword);
+            } else if (data != null) {
+                doc = PDDocument.load(
+                    new ByteArrayInputStream(Base64.decode(data, Base64.DEFAULT)), oldPassword);
+            } else {
+                call.reject("Missing uri or data");
+                return;
+            }
+            if (unlock) {
+                doc.setAllSecurityToBeRemoved(true);
+            } else {
+                StandardProtectionPolicy spp = new StandardProtectionPolicy(
+                    password, password, new AccessPermission());
+                spp.setEncryptionKeyLength(256);
+                doc.protect(spp);
+            }
+            String base = name.replaceAll("(?i)\\.pdf$", "");
+            String outName = (base + (unlock ? "-unlocked" : "-locked") + ".pdf")
+                .replaceAll("[^\\w.\\-\\u0600-\\u06FF]", "_");
+            boolean publicDir = Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+                && Environment.isExternalStorageManager();
+            File dir = publicDir
+                ? Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+                : new File(getContext().getCacheDir(), "pdfs");
+            dir.mkdirs();
+            File out = new File(dir, outName);
+            doc.save(out);
+            doc.close();
+            JSObject ret = new JSObject();
+            ret.put("path", out.getAbsolutePath());
+            ret.put("name", outName);
+            ret.put("public", publicDir);
+            call.resolve(ret);
+        } catch (InvalidPasswordException e) {
+            call.reject("wrong-password");
+        } catch (Exception e) {
+            call.reject("Protect failed: " + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Prints arbitrary HTML through the system print framework — the user
+     * picks a printer or "Save as PDF". Used by the PDF composer.
+     */
+    @PluginMethod
+    public void printHtml(PluginCall call) {
+        String html = call.getString("html");
+        String name = call.getString("name", "document");
+        if (html == null) {
+            call.reject("Missing html");
+            return;
+        }
+        getActivity().runOnUiThread(() -> {
+            try {
+                WebView wv = new WebView(getContext());
+                wv.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public void onPageFinished(WebView view, String url) {
+                        PrintManager pm = (PrintManager) getContext().getSystemService(Context.PRINT_SERVICE);
+                        pm.print(name, view.createPrintDocumentAdapter(name), null);
+                        call.resolve();
+                    }
+                });
+                wv.loadDataWithBaseURL(null, html, "text/html", "utf-8", null);
+            } catch (Exception e) {
+                call.reject("Print failed: " + e.getMessage(), e);
+            }
+        });
     }
 
     @PluginMethod
