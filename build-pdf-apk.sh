@@ -39,6 +39,22 @@ fi
 
 npx cap sync android
 
+# Trim unused BouncyCastle post-quantum resources (~8MB) — PDFBox only needs classic crypto
+APP_GRADLE="$ROOT/android/app/build.gradle"
+if [ -f "$APP_GRADLE" ] && ! grep -q "bouncycastle/pqc" "$APP_GRADLE"; then
+  python3 - <<'EOF'
+p = 'android/app/build.gradle'
+s = open(p).read()
+s = s.replace('    buildTypes {', '''    packagingOptions {
+        resources {
+            excludes += ['org/bouncycastle/pqc/**']
+        }
+    }
+    buildTypes {''', 1)
+open(p, 'w').write(s)
+EOF
+fi
+
 # Ensure the Android launcher label matches the Capacitor appName
 STRINGS="$ROOT/android/app/src/main/res/values/strings.xml"
 if [ -f "$STRINGS" ]; then
