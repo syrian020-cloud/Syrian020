@@ -334,6 +334,23 @@
   .ed-body * { max-width: 100%; position: static !important; float: none !important; }
   .ed-body img, .ed-body video, .ed-body canvas { max-width: 60%; }
   .ed-body:focus { border-color: var(--accent); }
+  .ed-body.nb {
+    line-height: 1.9em;
+    background-image: repeating-linear-gradient(transparent 0 calc(1.9em - 1px), rgba(110,135,190,.55) calc(1.9em - 1px) 1.9em);
+    background-attachment: local;
+  }
+  [dir=ltr] .ed-body.nb {
+    padding-left: 52px;
+    background-image:
+      linear-gradient(90deg, transparent 0 42px, rgba(224,112,112,.85) 42px 43px, transparent 43px),
+      repeating-linear-gradient(transparent 0 calc(1.9em - 1px), rgba(110,135,190,.55) calc(1.9em - 1px) 1.9em);
+  }
+  [dir=rtl] .ed-body.nb {
+    padding-right: 52px;
+    background-image:
+      linear-gradient(270deg, transparent 0 42px, rgba(224,112,112,.85) 42px 43px, transparent 43px),
+      repeating-linear-gradient(transparent 0 calc(1.9em - 1px), rgba(110,135,190,.55) calc(1.9em - 1px) 1.9em);
+  }
   .ed-lbl { font-size: 11.5px; font-weight: 800; color: var(--muted); letter-spacing: .3px; margin-top: 2px; }
   .ed-imgs { display: flex; overflow-x: auto; gap: 8px; padding: 2px; min-height: 0; }
   .ed-imgs:empty { display: none; }
@@ -634,6 +651,10 @@
         <option value="portrait" data-i18n="orient_p">عمودي</option>
         <option value="landscape" data-i18n="orient_l">أفقي</option>
       </select>
+      <select id="edStyle" data-i18n-title="st_t">
+        <option value="plain" data-i18n="st_plain">عادي</option>
+        <option value="notebook" data-i18n="st_note">دفتر مسطّر</option>
+      </select>
       <select id="edFont" data-i18n-title="pf_t">
         <option value="11" data-i18n="pf_small">خط صغير</option>
         <option value="13" selected data-i18n="pf_mid">خط عادي</option>
@@ -703,7 +724,7 @@ function capPlugin(name) {
   }
   return null;
 }
-const BUILD_STAMP = 'v12 · ٢٠٢٦-١٠-٠٢';
+const BUILD_STAMP = 'v13 · ٢٠٢٦-١٠-٠٢';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -736,6 +757,7 @@ const STR = {
     sec_imgs: 'صور تظهر تحت العنوان', add_imgs: '＋ صور', camera: '📷 تصوير', sign: '✍ توقيع',
     sec_page: 'إعدادات الصفحة', fname_ph: 'اسم الملف', orient_p: 'عمودي', orient_l: 'أفقي',
     quality: 'جودة الصور', pf_t: 'حجم الخط المطبوع', pf_small: 'خط صغير', pf_mid: 'خط عادي', pf_big: 'خط كبير',
+    st_t: 'نمط الصفحة', st_plain: 'عادي', st_note: 'دفتر مسطّر',
     preview_save: 'معاينة وحفظ كـ PDF', back_edit: 'رجوع للتحرير', save_print: 'حفظ / طباعة PDF',
     sign_h: 'ارسم توقيعك بإصبعك', clear: 'مسح', cancel: 'إلغاء', insert: 'إدراج', ok: 'تأكيد', pw_ph: 'كلمة السر',
     menu_title: 'خيارات القراءة',
@@ -811,6 +833,7 @@ const STR = {
     sec_imgs: 'Images sous le titre', add_imgs: '＋ Images', camera: '📷 Caméra', sign: '✍ Signature',
     sec_page: 'Mise en page', fname_ph: 'Nom du fichier', orient_p: 'Portrait', orient_l: 'Paysage',
     quality: 'Qualité images', pf_t: 'Taille du texte imprimé', pf_small: 'Petite police', pf_mid: 'Normale', pf_big: 'Grande police',
+    st_t: 'Style de page', st_plain: 'Normal', st_note: 'Cahier ligné',
     preview_save: 'Aperçu et enregistrer', back_edit: "Retour à l'édition", save_print: 'Enregistrer / Imprimer',
     sign_h: 'Dessinez votre signature', clear: 'Effacer', cancel: 'Annuler', insert: 'Insérer', ok: 'OK', pw_ph: 'Mot de passe',
     menu_title: 'Options de lecture',
@@ -886,6 +909,7 @@ const STR = {
     sec_imgs: 'Images below the title', add_imgs: '＋ Images', camera: '📷 Camera', sign: '✍ Sign',
     sec_page: 'Page setup', fname_ph: 'File name', orient_p: 'Portrait', orient_l: 'Landscape',
     quality: 'Image quality', pf_t: 'Printed text size', pf_small: 'Small text', pf_mid: 'Normal text', pf_big: 'Large text',
+    st_t: 'Page style', st_plain: 'Plain', st_note: 'Lined notebook',
     preview_save: 'Preview & save PDF', back_edit: 'Back to editing', save_print: 'Save / Print PDF',
     sign_h: 'Draw your signature', clear: 'Clear', cancel: 'Cancel', insert: 'Insert', ok: 'OK', pw_ph: 'Password',
     menu_title: 'Reading options',
@@ -2088,6 +2112,10 @@ function edSaveDraft() {
 }
 $('edTitle').oninput = edSaveDraft;
 $('edBody').oninput = edSaveDraft;
+$('edStyle').onchange = () => {
+  $('edBody').classList.toggle('nb', $('edStyle').value === 'notebook');
+  edSaveDraft();
+};
 $('edBody').addEventListener('paste', e => {
   e.preventDefault();
   const txt = (e.clipboardData || window.clipboardData).getData('text/plain') || '';
@@ -2231,6 +2259,10 @@ async function composeHtml() {
   const fs = $('edFont') ? $('edFont').value : '13';
   const dir = document.documentElement.dir === 'ltr' ? 'ltr' : 'rtl';
   const lang = settings.lang || 'ar';
+  const nb = $('edStyle') && $('edStyle').value === 'notebook';
+  const mline = dir === 'ltr'
+    ? 'linear-gradient(90deg,transparent 0 5mm,#e07070 5mm 5.4mm,transparent 5.4mm)'
+    : 'linear-gradient(270deg,transparent 0 5mm,#e07070 5mm 5.4mm,transparent 5.4mm)';
   const imgs = (await Promise.all(edImages.map(u => edReencode(u, q))))
     .map(u => '<img src="' + u + '">').join('');
   return '<!doctype html><html dir="' + dir + '" lang="' + lang + '"><head><meta charset="utf-8"><style>' +
@@ -2245,6 +2277,10 @@ async function composeHtml() {
     '.doc{text-align:justify;font-size:' + fs + 'pt;line-height:1.9}' +
     '.doc p{margin:0 0 10px;min-height:1em}' +
     '.doc img{max-width:60%;display:block;margin:8px auto;border-radius:6px}' +
+    (nb ?
+      'body{line-height:2em;-webkit-print-color-adjust:exact;print-color-adjust:exact;background-image:' +
+      mline + ',repeating-linear-gradient(white 0 calc(2em - .3mm),#9db3d6 calc(2em - .3mm) 2em)}' +
+      '.doc{line-height:2em;padding-inline-start:9mm}h1,.rule{margin-inline-start:9mm}body>img{margin-inline-start:16mm}' : '') +
     '</style></head><body>' +
     (title ? '<h1>' + escHtml(title) + '</h1><div class="rule"></div>' : '') +
     imgs + '<div class="doc">' + bodyHtml + '</div></body></html>';
