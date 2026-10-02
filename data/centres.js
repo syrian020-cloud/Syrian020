@@ -1499,6 +1499,124 @@ window.CENTRES_DATA = [
           { fr: 'Est-ce que je dois prendre un autre rendez-vous ?', ar: 'لازم آخد موعد تاني؟', en: 'Do I need to make another appointment?' },
           { fr: 'Merci beaucoup. Bonne journée.', ar: 'شكراً كتير، نهارك سعيد.', en: 'Thank you very much. Have a nice day.' }
         ]
+      },
+      {
+        icon: '🏛️',
+        title: { ar: 'مواقف متكررة — عند الاستقبال', en: 'Recurring situations — at reception', fr: 'Situations fréquentes — à l’accueil' },
+        phrases: [
+          { fr: 'Bonjour, vous avez rendez-vous ?', ar: 'مرحبا، عندك موعد؟', en: 'Hello, do you have an appointment?' },
+          { fr: 'Oui, j’ai rendez-vous pour renouveler mon titre de séjour.', ar: 'إي، عندي موعد لتجديد بطاقة الإقامة.', en: 'Yes, I have an appointment to renew my residence permit.' },
+          { fr: 'Votre convocation, s’il vous plaît.', ar: 'ورقة الموعد لو سمحت.', en: 'Your appointment notice, please.' },
+          { fr: 'La voici.', ar: 'هاي هي.', en: 'Here it is.' }
+        ]
+      },
+      {
+        icon: '⏰',
+        title: { ar: 'مواقف متكررة — الوصول متأخراً', en: 'Recurring situations — arriving late', fr: 'Situations fréquentes — arriver en retard' },
+        phrases: [
+          { fr: 'Vous êtes en retard.', ar: 'إنت متأخر.', en: 'You’re late.' },
+          { fr: 'Je suis désolé, j’ai eu un problème de transport.', ar: 'آسف، صار معي مشكلة بالمواصلات.', en: 'I’m sorry, I had a transportation problem.' }
+        ]
+      },
+      {
+        icon: '📄',
+        title: { ar: 'مواقف متكررة — نسيان وثيقة', en: 'Recurring situations — a missing document', fr: 'Situations fréquentes — un document manquant' },
+        phrases: [
+          { fr: 'Il vous manque un document.', ar: 'ناقصك ورقة.', en: 'You’re missing a document.' },
+          { fr: 'Quel document me manque-t-il ?', ar: 'أي ورقة ناقصة؟', en: 'Which document am I missing?' },
+          { fr: 'Est-ce que je peux vous l’envoyer plus tard ?', ar: 'فيني ابعتلك ياها بعدين؟', en: 'Can I send it to you later?' },
+          { fr: 'Votre dossier n’est pas complet.', ar: 'ملفك مو كامل.', en: 'Your application is incomplete.' },
+          { fr: 'Qu’est-ce qui manque dans mon dossier ?', ar: 'شو ناقص بملفي؟', en: 'What is missing from my application?' },
+          { fr: 'Est-ce que je dois prendre un autre rendez-vous ?', ar: 'لازم آخد موعد تاني؟', en: 'Do I need another appointment?' }
+        ]
+      },
+      {
+        icon: '🏠',
+        title: { ar: 'مواقف متكررة — تغيير العنوان', en: 'Recurring situations — change of address', fr: 'Situations fréquentes — changement d’adresse' },
+        phrases: [
+          { fr: 'Vous avez changé d’adresse ?', ar: 'غيّرت عنوانك؟', en: 'Have you changed your address?' },
+          { fr: 'Oui, j’ai changé d’adresse.', ar: 'إي، غيّرت عنواني.', en: 'Yes, I changed my address.' },
+          { fr: 'Voici mon justificatif de domicile.', ar: 'هاد إثبات السكن تبعي.', en: 'Here is my proof of address.' }
+        ]
+      },
+      {
+        icon: '⚠️',
+        title: { ar: 'مواقف متكررة — مشكلة بالاسم أو تاريخ الميلاد', en: 'Recurring situations — name or birth-date error', fr: 'Situations fréquentes — erreur de nom ou de date' },
+        phrases: [
+          { fr: 'Vérifiez vos informations, s’il vous plaît.', ar: 'تأكد من معلوماتك لو سمحت.', en: 'Please check your information.' },
+          { fr: 'Il y a une erreur sur mon nom.', ar: 'في خطأ باسمي.', en: 'There is an error in my name.' },
+          { fr: 'Ma date de naissance est incorrecte.', ar: 'تاريخ ميلادي غلط.', en: 'My date of birth is incorrect.' },
+          { fr: 'Comment puis-je faire corriger cette erreur ?', ar: 'كيف فيني صحح هالخطأ؟', en: 'How can I correct this error?' }
+        ]
+      },
+      {
+        icon: '🖐️',
+        title: { ar: 'مواقف متكررة — البصمات والصورة', en: 'Recurring situations — fingerprints and photo', fr: 'Situations fréquentes — empreintes et photo' },
+        phrases: [
+          { fr: 'Nous allons prendre vos empreintes.', ar: 'رح ناخد بصماتك.', en: 'We’re going to take your fingerprints.' },
+          { fr: 'Posez votre doigt ici, s’il vous plaît.', ar: 'حط إصبعك هون لو سمحت.', en: 'Put your finger here, please.' },
+          { fr: 'Regardez l’appareil photo.', ar: 'تطلع بالكاميرا.', en: 'Look at the camera.' }
+        ]
+      },
+      {
+        icon: '✍️',
+        title: { ar: 'مواقف متكررة — طلب التوقيع', en: 'Recurring situations — signing', fr: 'Situations fréquentes — la signature' },
+        phrases: [
+          { fr: 'Vous devez signer ici.', ar: 'لازم توقّع هون.', en: 'You need to sign here.' },
+          { fr: 'Où dois-je signer ?', ar: 'وين لازم وقّع؟', en: 'Where do I need to sign?' },
+          { fr: 'Est-ce que je dois signer ici ?', ar: 'لازم وقّع هون؟', en: 'Do I need to sign here?' }
+        ]
+      },
+      {
+        icon: '🪙',
+        title: { ar: 'مواقف متكررة — طلب الطابع الضريبي', en: 'Recurring situations — the tax stamp', fr: 'Situations fréquentes — le timbre fiscal' },
+        phrases: [
+          { fr: 'Vous devez fournir un timbre fiscal.', ar: 'لازم تقدم طابع ضريبي.', en: 'You need to provide a tax stamp.' },
+          { fr: 'Combien dois-je payer ?', ar: 'قديش لازم ادفع؟', en: 'How much do I have to pay?' },
+          { fr: 'Voici mon timbre fiscal.', ar: 'هاد الطابع الضريبي تبعي.', en: 'Here is my tax stamp.' }
+        ]
+      },
+      {
+        icon: '⏳',
+        title: { ar: 'مواقف متكررة — البطاقة ليست جاهزة', en: 'Recurring situations — the card isn’t ready', fr: 'Situations fréquentes — la carte n’est pas prête' },
+        phrases: [
+          { fr: 'Votre carte n’est pas encore prête.', ar: 'بطاقتك لسا مو جاهزة.', en: 'Your card isn’t ready yet.' },
+          { fr: 'Comment saurai-je quand elle sera prête ?', ar: 'كيف رح أعرف وقت تصير جاهزة؟', en: 'How will I know when it’s ready?' },
+          { fr: 'Vous recevrez un SMS.', ar: 'رح يوصلك SMS.', en: 'You’ll receive a text message.' }
+        ]
+      },
+      {
+        icon: '🪪',
+        title: { ar: 'مواقف متكررة — استلام بطاقة الإقامة', en: 'Recurring situations — collecting the permit', fr: 'Situations fréquentes — récupérer le titre de séjour' },
+        phrases: [
+          { fr: 'Je viens récupérer mon titre de séjour.', ar: 'جاي استلم بطاقة إقامتي.', en: 'I’m here to collect my residence permit.' },
+          { fr: 'Votre pièce d’identité, s’il vous plaît.', ar: 'وثيقة هويتك لو سمحت.', en: 'Your ID, please.' },
+          { fr: 'Voici ma pièce d’identité.', ar: 'هاي وثيقة هويتي.', en: 'Here is my ID.' },
+          { fr: 'Signez ici, s’il vous plaît.', ar: 'وقّع هون لو سمحت.', en: 'Please sign here.' },
+          { fr: 'Voici votre titre de séjour.', ar: 'هاي بطاقة إقامتك.', en: 'Here is your residence permit.' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: 'مواقف متكررة — إذا ما فهمت الموظف', en: 'Recurring situations — if you don’t understand', fr: 'Situations fréquentes — si vous ne comprenez pas' },
+        phrases: [
+          { fr: 'Je n’ai pas bien compris.', ar: 'ما فهمت منيح.', en: 'I didn’t understand well.' },
+          { fr: 'Pouvez-vous répéter, s’il vous plaît ?', ar: 'فيك تعيد لو سمحت؟', en: 'Could you repeat, please?' },
+          { fr: 'Pouvez-vous parler plus lentement ?', ar: 'فيك تحكي أبطأ شوي؟', en: 'Could you speak more slowly?' },
+          { fr: 'Pouvez-vous me montrer où je dois signer ?', ar: 'فيك تفرجيني وين لازم وقّع؟', en: 'Could you show me where I need to sign?' },
+          { fr: 'Pouvez-vous me l’écrire, s’il vous plaît ?', ar: 'فيك تكتبلي ياها لو سمحت؟', en: 'Could you write it down for me, please?' }
+        ]
+      },
+      {
+        icon: '⭐',
+        title: { ar: 'أهم 5 جمل للمحافظة', en: 'Top 5 phrases for the prefecture', fr: 'Top 5 des phrases pour la préfecture' },
+        phrases: [
+          { fr: 'J’ai rendez-vous pour mon titre de séjour.', ar: 'عندي موعد بخصوص بطاقة إقامتي.', en: 'I have an appointment for my residence permit.' },
+          { fr: 'Voici ma convocation.', ar: 'هاي ورقة الموعد.', en: 'Here is my appointment notice.' },
+          { fr: 'Est-ce que mon dossier est complet ?', ar: 'هل ملفي كامل؟', en: 'Is my application complete?' },
+          { fr: 'Qu’est-ce qui manque ?', ar: 'شو الناقص؟', en: 'What is missing?' },
+          { fr: 'Pouvez-vous parler plus lentement, s’il vous plaît ?', ar: 'فيك تحكي أبطأ شوي لو سمحت؟', en: 'Could you speak more slowly, please?' }
+        ]
       }
     ]
   }
