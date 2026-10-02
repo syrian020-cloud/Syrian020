@@ -499,6 +499,9 @@
       <p data-i18n="tagline">اضغط على أي كلمة لنطقها</p>
     </div>
     <div class="lib-actions">
+      <button class="icon-btn" id="mailBtn" title="تواصل عبر البريد" data-i18n-title="contact_t">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+      </button>
       <button class="icon-btn" id="langBtn" title="Language" data-i18n-title="language">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       </button>
@@ -725,7 +728,7 @@ function capPlugin(name) {
   }
   return null;
 }
-const BUILD_STAMP = 'v18 · ٢٠٢٦-١٠-٠٢';
+const BUILD_STAMP = 'v19 · ٢٠٢٦-١٠-٠٢';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -747,6 +750,7 @@ const STR = {
     perm_btn: 'منح الإذن', scanning: 'جاري فحص الهاتف…', pdf_files: 'ملف PDF',
     empty_h: 'لا توجد ملفات PDF', empty_p: 'لم يتم العثور على ملفات PDF على هذا الجهاز.<br>يمكنك فتح ملف يدوياً بالضغط على الزر أدناه.',
     open_file: 'فتح ملف', new_doc: 'إنشاء PDF', rescan: 'إعادة الفحص', theme_t: 'المظهر', language: 'اللغة',
+    contact_t: 'تواصل مباشر عبر البريد',
     back: 'رجوع', loop_t: 'تكرار النطق', read_page: 'نطق الصفحة', sel_t: 'تحديد النص',
     doc_search_t: 'بحث في المستند', share_t: 'تصدير ومشاركة', options_t: 'خيارات',
     doc_search_ph: 'ابحث داخل المستند…',
@@ -828,6 +832,7 @@ const STR = {
     perm_btn: 'Autoriser', scanning: 'Analyse du téléphone…', pdf_files: 'fichiers PDF',
     empty_h: 'Aucun PDF', empty_p: "Aucun PDF trouvé sur cet appareil.<br>Ouvrez un fichier manuellement avec le bouton ci-dessous.",
     open_file: 'Ouvrir un fichier', new_doc: 'Créer un PDF', rescan: 'Rescanner', theme_t: 'Thème', language: 'Langue',
+    contact_t: 'Contact direct par e-mail',
     back: 'Retour', loop_t: 'Lecture en boucle', read_page: 'Lire la page', sel_t: 'Sélection de texte',
     doc_search_t: 'Rechercher', share_t: 'Exporter et partager', options_t: 'Options',
     doc_search_ph: 'Rechercher dans le document…',
@@ -909,6 +914,7 @@ const STR = {
     perm_btn: 'Grant', scanning: 'Scanning phone…', pdf_files: 'PDF files',
     empty_h: 'No PDF files', empty_p: 'No PDFs found on this device.<br>Open one manually with the button below.',
     open_file: 'Open file', new_doc: 'New PDF', rescan: 'Rescan', theme_t: 'Theme', language: 'Language',
+    contact_t: 'Direct contact by email',
     back: 'Back', loop_t: 'Loop speech', read_page: 'Read page', sel_t: 'Select text',
     doc_search_t: 'Search in document', share_t: 'Export & share', options_t: 'Options',
     doc_search_ph: 'Search in document…',
@@ -1245,6 +1251,10 @@ function fileMenu(f) {
   };
 }
 
+$('mailBtn').onclick = () => {
+  try { window.location.href = 'mailto:Syrien020@gmail.com?subject=PDFly'; }
+  catch (e) { toast('Syrien020@gmail.com', 3500); }
+};
 $('rescanBtn').onclick = scanLibrary;
 $('permBtn').onclick = requestAccess;
 $('libSearch').oninput = renderLibrary;
