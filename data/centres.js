@@ -978,5 +978,299 @@ window.CENTRES_DATA = [
         ]
       }
     ]
+  },
+  {
+    id: 'apres-asile',
+    icon: '📨',
+    name: { ar: 'بعد قبول اللجوء — استلام الوثائق', en: 'After asylum is granted — receiving documents', fr: 'Après l’acceptation de l’asile — recevoir les documents' },
+    desc: {
+      ar: 'من استلام ظرف قرار OFPRA حتى شهادة الميلاد واستخدامها بالمحافظة وCPAM وCAF والبنك',
+      en: 'From receiving the OFPRA decision envelope to the birth certificate and using it at the prefecture, CPAM, CAF and the bank',
+      fr: 'De la réception de la décision de l’OFPRA jusqu’à l’acte de naissance et son utilisation à la préfecture, la CPAM, la CAF et la banque'
+    },
+    sections: [
+      {
+        icon: '📨',
+        title: { ar: 'عند الاستقبال وانتظار الموظف', en: 'At reception, waiting for the officer', fr: 'À l’accueil, en attendant l’agent' },
+        phrases: [
+          { fr: 'Bonjour, je viens pour récupérer mon document.', ar: 'مرحبا، أنا جاي حتى استلم الوثيقة تبعي.', en: 'Hello, I’m here to collect my document.' },
+          { fr: 'J’ai reçu un message me demandant de venir.', ar: 'وصلتني رسالة تطلب مني أجي.', en: 'I received a message asking me to come.' },
+          { fr: 'Je dois attendre quelqu’un ?', ar: 'لازم استنى حدا؟', en: 'Do I have to wait for someone?' },
+          { fr: 'Oui, vous devez attendre un agent.', ar: 'إي، لازم تستنى موظف.', en: 'Yes, you need to wait for an officer.' },
+          { fr: 'D’accord, je vais attendre ici.', ar: 'طيب، رح استنى هون.', en: 'Okay, I’ll wait here.' }
+        ]
+      },
+      {
+        icon: '👨‍💼',
+        title: { ar: 'عندما يأتي الموظف ومعه الظرف', en: 'When the officer arrives with the envelope', fr: 'Quand l’agent arrive avec l’enveloppe' },
+        phrases: [
+          { fr: 'Bonjour, vous êtes Monsieur Haj Mohammad ?', ar: 'مرحبا، حضرتك السيد حاج محمد؟', en: 'Hello, are you Mr. Haj Mohammad?' },
+          { fr: 'Oui, c’est moi.', ar: 'إي، أنا.', en: 'Yes, that’s me.' },
+          { fr: 'Je vous apporte ce courrier.', ar: 'جبتلك هالظرف / هالرسالة.', en: 'I brought you this letter.' },
+          { fr: 'Merci beaucoup.', ar: 'شكرًا كتير.', en: 'Thank you very much.' },
+          { fr: 'Est-ce que je dois signer quelque chose ?', ar: 'لازم وقّع على شي؟', en: 'Do I need to sign anything?' },
+          { fr: 'Oui, veuillez signer ici, s’il vous plaît.', ar: 'إي، لو سمحت وقّع هون.', en: 'Yes, please sign here.' },
+          { fr: 'Est-ce que je peux ouvrir l’enveloppe maintenant ?', ar: 'فيني افتح الظرف هلأ؟', en: 'Can I open the envelope now?' },
+          { fr: 'Est-ce que vous pouvez m’expliquer ce document, s’il vous plaît ?', ar: 'فيك تشرحلي هالوثيقة، لو سمحت؟', en: 'Could you explain this document to me, please?' },
+          { fr: 'Je parle français, mais je ne comprends pas tout.', ar: 'أنا بحكي فرنسي، بس ما بفهم كل شي.', en: 'I speak French, but I don’t understand everything.' },
+          { fr: 'Pouvez-vous parler plus lentement, s’il vous plaît ?', ar: 'فيك تحكي أبطأ شوي، لو سمحت؟', en: 'Could you speak more slowly, please?' },
+          { fr: 'Qu’est-ce que je dois faire maintenant ?', ar: 'شو لازم أعمل هلأ؟', en: 'What do I need to do now?' }
+        ]
+      },
+      {
+        icon: '✉️',
+        title: { ar: 'فتح الظرف', en: 'Opening the envelope', fr: 'Ouvrir l’enveloppe' },
+        phrases: [
+          { fr: 'Je peux ouvrir l’enveloppe maintenant ?', ar: 'فيني افتح الظرف هلأ؟', en: 'Can I open the envelope now?' },
+          { fr: 'Oui, vous pouvez l’ouvrir.', ar: 'إي، فيك تفتحه.', en: 'Yes, you can open it.' },
+          { fr: 'Qu’est-ce que c’est comme document ?', ar: 'شو هالوثيقة؟', en: 'What document is this?' },
+          { fr: 'C’est la décision concernant votre demande d’asile.', ar: 'هاد القرار المتعلق بطلب اللجوء تبعك.', en: 'This is the decision concerning your asylum application.' },
+          { fr: 'Est-ce que ma demande d’asile a été acceptée ?', ar: 'هل تم قبول طلب اللجوء تبعي؟', en: 'Has my asylum application been accepted?' },
+          { fr: 'Oui, votre demande a été acceptée.', ar: 'إي، تم قبول طلبك.', en: 'Yes, your application has been accepted.' },
+          { fr: 'Je suis très soulagé. Merci beaucoup.', ar: 'أنا ارتحت كتير. شكرًا كتير.', en: 'I’m very relieved. Thank you very much.' }
+        ]
+      },
+      {
+        icon: '📄',
+        title: { ar: 'إذا وجدت عدة أوراق داخل الظرف', en: 'If the envelope contains several documents', fr: 'S’il y a plusieurs documents dans l’enveloppe' },
+        phrases: [
+          { fr: 'Il y a plusieurs documents dans l’enveloppe.', ar: 'في عدة أوراق جوّا الظرف.', en: 'There are several documents in the envelope.' },
+          { fr: 'Pouvez-vous me dire à quoi servent ces documents ?', ar: 'فيك تخبرني شو وظيفة هالأوراق؟', en: 'Could you tell me what these documents are for?' },
+          { fr: 'Est-ce que je dois conserver tous ces documents ?', ar: 'لازم احتفظ بكل هالأوراق؟', en: 'Do I need to keep all these documents?' },
+          { fr: 'Oui, gardez-les précieusement.', ar: 'إي، خليهُن عندك وحافظ عليهن منيح.', en: 'Yes, keep them carefully.' }
+        ]
+      },
+      {
+        icon: '🪪',
+        title: { ar: 'السؤال عن بطاقة الإقامة', en: 'Asking about the residence permit', fr: 'Questions sur le titre de séjour' },
+        phrases: [
+          { fr: 'Est-ce que je dois maintenant demander un titre de séjour ?', ar: 'هلأ لازم قدّم على بطاقة الإقامة؟', en: 'Do I now need to apply for a residence permit?' },
+          { fr: 'Quand est-ce que je pourrai recevoir mon titre de séjour ?', ar: 'إمتى ممكن استلم بطاقة الإقامة تبعي؟', en: 'When will I be able to receive my residence permit?' },
+          { fr: 'Est-ce que je dois prendre rendez-vous ?', ar: 'لازم آخد موعد؟', en: 'Do I need to make an appointment?' },
+          { fr: 'Où est-ce que je dois faire cette démarche ?', ar: 'وين لازم أعمل هالإجراء؟', en: 'Where do I need to do this procedure?' },
+          { fr: 'Quand est-ce que je recevrai ma carte de séjour ?', ar: 'إمتى رح استلم بطاقة الإقامة؟', en: 'When will I receive my residence permit?' },
+          { fr: 'Est-ce que je dois faire une démarche auprès de la préfecture ?', ar: 'لازم أعمل إجراء عند المحافظة؟', en: 'Do I need to complete a procedure with the prefecture?' }
+        ]
+      },
+      {
+        icon: '🧾',
+        title: { ar: 'إذا أعطاك الموظف تعليمات', en: 'If the officer gives you instructions', fr: 'Si l’agent vous donne des instructions' },
+        phrases: [
+          { fr: 'Vous devez suivre les instructions indiquées dans le document.', ar: 'لازم تتبع التعليمات المكتوبة بالوثيقة.', en: 'You need to follow the instructions indicated in the document.' },
+          { fr: 'D’accord. Est-ce que vous pouvez me montrer où je dois faire la démarche ?', ar: 'طيب، فيك تفرجيني وين لازم أعمل الإجراء؟', en: 'Okay. Could you show me where I need to complete the procedure?' },
+          { fr: 'Est-ce qu’il y a une date limite ?', ar: 'في مهلة أو آخر موعد؟', en: 'Is there a deadline?' },
+          { fr: 'Qu’est-ce que je dois faire en premier ?', ar: 'شو أول شي لازم أعمله؟', en: 'What do I need to do first?' }
+        ]
+      },
+      {
+        icon: '👋',
+        title: { ar: 'قبل أن تغادر', en: 'Before leaving', fr: 'Avant de partir' },
+        phrases: [
+          { fr: 'Est-ce que j’ai besoin d’autres documents ?', ar: 'بحتاج أوراق تانية؟', en: 'Do I need any other documents?' },
+          { fr: 'Est-ce que tout est terminé pour aujourd’hui ?', ar: 'يعني خلص كل شي لليوم؟', en: 'Is everything finished for today?' },
+          { fr: 'Merci pour votre aide. Bonne journée.', ar: 'شكرًا على مساعدتك. نهارك سعيد.', en: 'Thank you for your help. Have a nice day.' }
+        ]
+      },
+      {
+        icon: '📄',
+        title: { ar: 'قرار OFPRA', en: 'The OFPRA decision', fr: 'La décision de l’OFPRA' },
+        phrases: [
+          { fr: 'Voici la décision de l’OFPRA.', ar: 'هاي قرار الأوفبرا.', en: 'This is the OFPRA decision.' },
+          { fr: 'C’est la décision de l’OFPRA.', ar: 'هاد قرار الأوفبرا.', en: 'This is the OFPRA decision.' },
+          { fr: 'Est-ce que c’est la décision qui confirme que je suis protégé ?', ar: 'هاد القرار اللي بيأكد إني حصلت على الحماية؟', en: 'Is this the decision confirming that I have been granted protection?' },
+          { fr: 'Est-ce que cela signifie que je suis reconnu réfugié ?', ar: 'يعني هاد إنو تم الاعتراف فيني كلاجئ؟', en: 'Does this mean that I have been recognized as a refugee?' }
+        ]
+      },
+      {
+        icon: '✈️',
+        title: { ar: 'وثيقة السفر', en: 'The travel document', fr: 'Le titre de voyage' },
+        phrases: [
+          { fr: 'Est-ce que je peux demander un titre de voyage ?', ar: 'فيني أطلب وثيقة سفر؟', en: 'Can I apply for a travel document?' },
+          { fr: 'Est-ce que le titre de voyage est obligatoire ?', ar: 'وثيقة السفر إجبارية؟', en: 'Is the travel document mandatory?' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: 'جمل مهمة جداً مع الموظف', en: 'Very important phrases with the officer', fr: 'Phrases très importantes avec l’agent' },
+        phrases: [
+          { fr: 'Pouvez-vous m’expliquer tous les documents, s’il vous plaît ?', ar: 'فيك تشرحلي كل الأوراق، لو سمحت؟', en: 'Could you explain all the documents to me, please?' },
+          { fr: 'Qu’est-ce que je dois faire maintenant ?', ar: 'شو لازم أعمل هلأ؟', en: 'What do I need to do now?' },
+          { fr: 'Est-ce qu’il y a une démarche que je dois faire rapidement ?', ar: 'في إجراء لازم أعمله بسرعة؟', en: 'Is there any procedure I need to complete quickly?' },
+          { fr: 'Est-ce que je dois garder l’original ?', ar: 'لازم احتفظ بالأصل؟', en: 'Do I need to keep the original?' },
+          { fr: 'Pouvez-vous me dire quels documents je dois conserver ?', ar: 'فيك تخبرني أي أوراق لازم حافظ عليها؟', en: 'Could you tell me which documents I need to keep?' }
+        ]
+      },
+      {
+        icon: '🎂',
+        title: { ar: 'استلام شهادة الميلاد', en: 'Receiving the birth certificate', fr: 'Réception de l’acte de naissance' },
+        phrases: [
+          { fr: 'J’ai reçu mon acte de naissance.', ar: 'استلمت شهادة ميلادي.', en: 'I received my birth certificate.' },
+          { fr: 'Est-ce que c’est mon acte de naissance ?', ar: 'هاي شهادة ميلادي؟', en: 'Is this my birth certificate?' },
+          { fr: 'C’est mon acte de naissance établi par l’OFPRA ?', ar: 'هاي شهادة ميلادي اللي أعدّها الأوفبرا؟', en: 'Is this my birth certificate issued by OFPRA?' },
+          { fr: 'Est-ce que c’est une copie intégrale de mon acte de naissance ?', ar: 'هاي نسخة كاملة عن شهادة ميلادي؟', en: 'Is this a full copy of my birth certificate?' },
+          { fr: 'Est-ce que c’est un document original ?', ar: 'هاي وثيقة أصلية؟', en: 'Is this an original document?' }
+        ]
+      },
+      {
+        icon: '🔎',
+        title: { ar: 'التأكد من المعلومات', en: 'Checking the information', fr: 'Vérifier les informations' },
+        phrases: [
+          { fr: 'Je voudrais vérifier les informations.', ar: 'بدي أتأكد من المعلومات.', en: 'I would like to check the information.' },
+          { fr: 'Mon nom est-il correctement écrit ?', ar: 'اسمي مكتوب بشكل صحيح؟', en: 'Is my name written correctly?' },
+          { fr: 'Ma date de naissance est-elle correcte ?', ar: 'تاريخ ميلادي صحيح؟', en: 'Is my date of birth correct?' },
+          { fr: 'Mon lieu de naissance est-il correct ?', ar: 'مكان ولادتي صحيح؟', en: 'Is my place of birth correct?' },
+          { fr: 'Ma nationalité est-elle indiquée sur le document ?', ar: 'جنسيتي مذكورة بالوثيقة؟', en: 'Is my nationality indicated on the document?' }
+        ]
+      },
+      {
+        icon: '❗',
+        title: { ar: 'إذا وجدت خطأ', en: 'If you find an error', fr: 'Si vous trouvez une erreur' },
+        phrases: [
+          { fr: 'Il y a une erreur sur mon acte de naissance.', ar: 'في خطأ بشهادة ميلادي.', en: 'There is an error on my birth certificate.' },
+          { fr: 'Mon nom est mal écrit.', ar: 'اسمي مكتوب غلط.', en: 'My name is written incorrectly.' },
+          { fr: 'Ma date de naissance est incorrecte.', ar: 'تاريخ ميلادي غير صحيح.', en: 'My date of birth is incorrect.' },
+          { fr: 'Comment puis-je faire corriger cette erreur ?', ar: 'كيف فيني صحح هالخطأ؟', en: 'How can I have this error corrected?' },
+          { fr: 'À qui dois-je m’adresser ?', ar: 'لمين لازم راجع؟', en: 'Who should I contact?' }
+        ]
+      },
+      {
+        icon: '📑',
+        title: { ar: 'طلب نسخة', en: 'Requesting a copy', fr: 'Demander une copie' },
+        phrases: [
+          { fr: 'J’ai besoin d’une copie de mon acte de naissance.', ar: 'بحتاج نسخة عن شهادة ميلادي.', en: 'I need a copy of my birth certificate.' },
+          { fr: 'Comment puis-je obtenir une nouvelle copie ?', ar: 'كيف فيني أحصل على نسخة جديدة؟', en: 'How can I get a new copy?' },
+          { fr: 'Est-ce que je peux demander plusieurs copies ?', ar: 'فيني أطلب عدة نسخ؟', en: 'Can I request several copies?' },
+          { fr: 'Est-ce que cette copie est valable pour la préfecture ?', ar: 'هالنسخة مقبولة عند المحافظة؟', en: 'Is this copy valid for the prefecture?' }
+        ]
+      },
+      {
+        icon: '🏛️',
+        title: { ar: 'استخدامها في الإجراءات', en: 'Using it in procedures', fr: 'L’utiliser dans les démarches' },
+        phrases: [
+          { fr: 'J’ai besoin de mon acte de naissance pour une démarche administrative.', ar: 'بحتاج شهادة ميلادي لإجراء إداري.', en: 'I need my birth certificate for an administrative procedure.' },
+          { fr: 'On me demande mon acte de naissance pour mon dossier.', ar: 'طلبوا مني شهادة ميلادي لملفي.', en: 'They are asking me for my birth certificate for my file.' },
+          { fr: 'Est-ce que je dois envoyer l’original ou une copie ?', ar: 'لازم ابعت الأصل ولا نسخة؟', en: 'Do I need to send the original or a copy?' },
+          { fr: 'Est-ce que je peux utiliser ce document pour ouvrir un compte bancaire ?', ar: 'فيني استخدم هالوثيقة لفتح حساب بنكي؟', en: 'Can I use this document to open a bank account?' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: 'إذا ما فهمت الموظف — شهادة الميلاد', en: 'If you don’t understand — birth certificate', fr: 'Si vous ne comprenez pas — acte de naissance' },
+        phrases: [
+          { fr: 'Je ne comprends pas bien ce document.', ar: 'ما فهمت هالوثيقة منيح.', en: 'I don’t really understand this document.' },
+          { fr: 'Pouvez-vous m’expliquer ce document, s’il vous plaît ?', ar: 'فيك تشرحلي هالوثيقة، لو سمحت؟', en: 'Could you explain this document to me, please?' },
+          { fr: 'Pouvez-vous me dire ce que je dois faire maintenant ?', ar: 'فيك تخبرني شو لازم أعمل هلأ؟', en: 'Could you tell me what I need to do now?' },
+          { fr: 'Est-ce que je dois conserver ce document ?', ar: 'لازم حافظ على هالوثيقة؟', en: 'Do I need to keep this document?' }
+        ]
+      },
+      {
+        icon: '⭐',
+        title: { ar: 'أهم 5 عبارات', en: 'The 5 most important phrases', fr: 'Les 5 phrases les plus importantes' },
+        phrases: [
+          { fr: 'Voici mon acte de naissance.', ar: 'هاي شهادة ميلادي.', en: 'Here is my birth certificate.' },
+          { fr: 'Je voudrais vérifier les informations.', ar: 'بدي أتأكد من المعلومات.', en: 'I would like to check the information.' },
+          { fr: 'Il y a une erreur sur mon acte de naissance.', ar: 'في خطأ بشهادة ميلادي.', en: 'There is an error on my birth certificate.' },
+          { fr: 'Comment puis-je faire corriger cette erreur ?', ar: 'كيف فيني صحح هالخطأ؟', en: 'How can I have this error corrected?' },
+          { fr: 'Est-ce que je dois conserver ce document ?', ar: 'لازم حافظ على هالوثيقة؟', en: 'Do I need to keep this document?' }
+        ]
+      },
+      {
+        icon: '📬',
+        title: { ar: 'عندما تصل شهادة الميلاد بالبريد', en: 'When the birth certificate arrives by mail', fr: 'Quand l’acte de naissance arrive par courrier' },
+        phrases: [
+          { fr: 'J’ai reçu un courrier de l’OFPRA concernant mon état civil.', ar: 'وصلتني رسالة من الأوفبرا بخصوص الأحوال المدنية تبعي.', en: 'I received a letter from OFPRA concerning my civil status.' },
+          { fr: 'Il y a plusieurs documents dans l’enveloppe.', ar: 'في عدة أوراق بالظرف.', en: 'There are several documents in the envelope.' },
+          { fr: 'Est-ce que je dois signer quelque chose ?', ar: 'لازم وقّع على شي؟', en: 'Do I need to sign anything?' },
+          { fr: 'Est-ce que je dois répondre à cette lettre ?', ar: 'لازم رد على هالرسالة؟', en: 'Do I need to reply to this letter?' },
+          { fr: 'Est-ce qu’il y a une date limite ?', ar: 'في مهلة محددة؟', en: 'Is there a deadline?' }
+        ]
+      },
+      {
+        icon: '👤',
+        title: { ar: 'إذا كانت معلومات الأهل موجودة', en: 'If parents’ information is included', fr: 'Si les informations des parents figurent' },
+        phrases: [
+          { fr: 'Les noms de mes parents sont-ils indiqués ?', ar: 'أسماء أهلي مذكورة؟', en: 'Are my parents’ names indicated?' },
+          { fr: 'Le nom de mon père est-il correct ?', ar: 'اسم أبي صحيح؟', en: 'Is my father’s name correct?' },
+          { fr: 'Le nom de ma mère est-il correct ?', ar: 'اسم أمي صحيح؟', en: 'Is my mother’s name correct?' },
+          { fr: 'Les informations sur mes parents sont-elles correctes ?', ar: 'معلومات أهلي صحيحة؟', en: 'Is the information about my parents correct?' }
+        ]
+      },
+      {
+        icon: '📝',
+        title: { ar: 'إذا كان الاسم مكتوبًا بطريقة مختلفة', en: 'If the name is written differently', fr: 'Si le nom est écrit différemment' },
+        phrases: [
+          { fr: 'Mon nom est écrit différemment sur ce document.', ar: 'اسمي مكتوب بطريقة مختلفة بهالوثيقة.', en: 'My name is written differently on this document.' },
+          { fr: 'Est-ce que cela peut poser un problème ?', ar: 'ممكن هالشي يعمل مشكلة؟', en: 'Could this cause a problem?' },
+          { fr: 'Mon prénom est-il correctement indiqué ?', ar: 'اسمي الأول مكتوب بشكل صحيح؟', en: 'Is my first name correctly indicated?' },
+          { fr: 'Mon nom de famille est-il correctement indiqué ?', ar: 'اسم العائلة مكتوب بشكل صحيح؟', en: 'Is my surname correctly indicated?' }
+        ]
+      },
+      {
+        icon: '🏛️',
+        title: { ar: 'عند المحافظة — Préfecture', en: 'At the prefecture', fr: 'À la préfecture' },
+        phrases: [
+          { fr: 'On me demande un acte de naissance pour mon dossier.', ar: 'طلبوا مني شهادة ميلاد لملفي.', en: 'They are asking me for a birth certificate for my application.' },
+          { fr: 'Voici l’acte de naissance établi par l’OFPRA.', ar: 'هاي شهادة الميلاد اللي أعدّها الأوفبرا.', en: 'Here is the birth certificate issued by OFPRA.' },
+          { fr: 'Est-ce que ce document suffit pour mon dossier ?', ar: 'هالوثيقة بتكفي لملفي؟', en: 'Is this document enough for my application?' },
+          { fr: 'Avez-vous besoin d’une copie ou de l’original ?', ar: 'بدكم نسخة ولا الأصل؟', en: 'Do you need a copy or the original?' }
+        ]
+      },
+      {
+        icon: '🏥',
+        title: { ar: 'عند CPAM', en: 'At CPAM', fr: 'À la CPAM' },
+        phrases: [
+          { fr: 'La CPAM me demande un acte de naissance.', ar: 'الـCPAM طلبت مني شهادة ميلاد.', en: 'CPAM is asking me for a birth certificate.' },
+          { fr: 'Est-ce que je dois envoyer une copie ?', ar: 'لازم ابعت نسخة؟', en: 'Do I need to send a copy?' },
+          { fr: 'Est-ce que je peux envoyer ce document en ligne ?', ar: 'فيني ابعت هالوثيقة أونلاين؟', en: 'Can I send this document online?' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: 'عند CAF', en: 'At CAF', fr: 'À la CAF' },
+        phrases: [
+          { fr: 'La CAF me demande mon acte de naissance.', ar: 'الـCAF طلبت مني شهادة ميلادي.', en: 'CAF is asking me for my birth certificate.' },
+          { fr: 'Est-ce que cette copie est acceptée ?', ar: 'هالنسخة مقبولة؟', en: 'Is this copy accepted?' },
+          { fr: 'Est-ce que je dois fournir une traduction ?', ar: 'لازم أقدّم ترجمة؟', en: 'Do I need to provide a translation?' }
+        ]
+      },
+      {
+        icon: '📱',
+        title: { ar: 'إذا طلبوا منك إرسالها إلكترونيًا', en: 'If they ask you to send it electronically', fr: 'Si l’on vous demande de l’envoyer en ligne' },
+        phrases: [
+          { fr: 'Comment puis-je envoyer mon acte de naissance ?', ar: 'كيف فيني ابعت شهادة ميلادي؟', en: 'How can I send my birth certificate?' },
+          { fr: 'Est-ce que je peux l’envoyer par e-mail ?', ar: 'فيني ابعتها بالإيميل؟', en: 'Can I send it by email?' },
+          { fr: 'Est-ce que je dois scanner le document ?', ar: 'لازم أعمل سكان للوثيقة؟', en: 'Do I need to scan the document?' },
+          { fr: 'Est-ce qu’une photo du document suffit ?', ar: 'صورة عن الوثيقة بتكفي؟', en: 'Is a photo of the document enough?' }
+        ]
+      },
+      {
+        icon: '📂',
+        title: { ar: 'حفظ الوثيقة', en: 'Keeping the document', fr: 'Conserver le document' },
+        phrases: [
+          { fr: 'Je vais garder l’original et faire des copies.', ar: 'رح حافظ على الأصل وأعمل نسخ.', en: 'I’ll keep the original and make copies.' },
+          { fr: 'Je préfère garder l’original avec moi.', ar: 'بفضّل خلي الأصل معي.', en: 'I prefer to keep the original with me.' },
+          { fr: 'Est-ce que vous pouvez me rendre l’original, s’il vous plaît ?', ar: 'فيكم ترجعولي الأصل، لو سمحت؟', en: 'Could you return the original to me, please?' }
+        ]
+      },
+      {
+        icon: '🔴',
+        title: { ar: 'إذا ضاعت شهادة الميلاد', en: 'If the birth certificate is lost', fr: 'Si l’acte de naissance est perdu' },
+        phrases: [
+          { fr: 'J’ai perdu mon acte de naissance.', ar: 'ضيّعت شهادة ميلادي.', en: 'I lost my birth certificate.' },
+          { fr: 'Comment puis-je obtenir une nouvelle copie ?', ar: 'كيف فيني أحصل على نسخة جديدة؟', en: 'How can I get a new copy?' },
+          { fr: 'Est-ce que je dois contacter l’OFPRA ?', ar: 'لازم أتواصل مع الأوفبرا؟', en: 'Do I need to contact OFPRA?' }
+        ]
+      },
+      {
+        icon: '⭐',
+        title: { ar: 'عبارات مهمة جداً — شهادة الميلاد', en: 'Very important phrases — birth certificate', fr: 'Phrases très importantes — acte de naissance' },
+        phrases: [
+          { fr: 'Mon acte de naissance a été établi par l’OFPRA.', ar: 'شهادة ميلادي تم إعدادها من قبل الأوفبرا.', en: 'My birth certificate was issued by OFPRA.' },
+          { fr: 'Je voudrais une copie récente de mon acte de naissance.', ar: 'بدي نسخة حديثة من شهادة ميلادي.', en: 'I would like a recent copy of my birth certificate.' },
+          { fr: 'Pouvez-vous vérifier si mon acte de naissance est à jour ?', ar: 'فيك تتأكد إذا شهادة ميلادي محدثة؟', en: 'Could you check whether my birth certificate is up to date?' },
+          { fr: 'Je voudrais savoir si ce document est suffisant pour ma démarche.', ar: 'بدي أعرف إذا هالوثيقة بتكفي للإجراء تبعي.', en: 'I would like to know if this document is sufficient for my procedure.' }
+        ]
+      }
+    ]
   }
 ];
