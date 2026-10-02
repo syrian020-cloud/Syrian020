@@ -325,14 +325,17 @@
   }
   .ed-h1::placeholder { color: var(--muted); font-weight: 700; font-size: 18px; }
   .ed-body {
-    min-height: 28vh; border: 1px solid var(--border); background: var(--card);
+    min-height: 26vh; border: 1px solid var(--border); background: var(--card);
     color: var(--text); border-radius: var(--radius-sm); padding: 14px;
-    font-family: inherit; font-size: 15px; line-height: 1.9; outline: none; resize: vertical;
+    font-family: inherit; font-size: 16px; line-height: 1.9; outline: none;
+    overflow-wrap: break-word;
   }
   .ed-body:focus { border-color: var(--accent); }
-  .ed-imgs { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
-  .ed-img { position: relative; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
-  .ed-img img { width: 100%; height: 110px; object-fit: cover; display: block; }
+  .ed-lbl { font-size: 11.5px; font-weight: 800; color: var(--muted); letter-spacing: .3px; margin-top: 2px; }
+  .ed-imgs { display: flex; overflow-x: auto; gap: 8px; padding: 2px; min-height: 0; }
+  .ed-imgs:empty { display: none; }
+  .ed-img { position: relative; width: 86px; height: 86px; flex-shrink: 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .ed-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .ed-img button {
     position: absolute; top: 4px; inset-inline-end: 4px; width: 24px; height: 24px;
     border-radius: 50%; border: 0; background: rgba(0,0,0,0.65); color: #fff; font-size: 13px; cursor: pointer;
@@ -355,7 +358,7 @@
   }
   .ed-body[contenteditable] { white-space: normal; }
   .ed-body:empty::before { content: attr(data-ph); color: var(--muted); }
-  .ed-body img { max-width: 60%; display: block; margin: 8px auto; border-radius: 6px; }
+  .ed-body img { max-width: 60%; max-height: 200px; object-fit: contain; display: block; margin: 8px auto; border-radius: 6px; }
   .ed-imgrow { display: flex; gap: 8px; }
   .ed-imgrow .btn { flex: 1; padding: 12px 4px; font-size: 12.5px; }
   .ed-opts { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
@@ -464,52 +467,55 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
     </div>
     <div class="lib-title">
-      <h1>قارئ PDF</h1>
-      <p>اضغط على أي كلمة لنطقها</p>
+      <h1 data-i18n="app_title">قارئ PDF</h1>
+      <p data-i18n="tagline">اضغط على أي كلمة لنطقها</p>
     </div>
     <div class="lib-actions">
-      <button class="icon-btn" id="newDocBtn" title="إنشاء PDF">
+      <button class="icon-btn" id="langBtn" title="Language" data-i18n-title="language">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </button>
+      <button class="icon-btn" id="newDocBtn" title="إنشاء PDF" data-i18n-title="new_doc">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 12v6M9 15h6"/></svg>
       </button>
-      <button class="icon-btn" id="rescanBtn" title="إعادة الفحص">
+      <button class="icon-btn" id="rescanBtn" title="إعادة الفحص" data-i18n-title="rescan">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
       </button>
-      <button class="icon-btn" id="themeBtn" title="المظهر">
+      <button class="icon-btn" id="themeBtn" title="المظهر" data-i18n-title="theme_t">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
       </button>
     </div>
   </div>
 
   <div class="perm-card" id="permCard">
-    <h3>إذن الوصول إلى الملفات</h3>
-    <p>لعرض جميع ملفات PDF على هاتفك، امنح التطبيق صلاحية «الوصول إلى كل الملفات» من إعدادات النظام.</p>
-    <button class="btn" id="permBtn">منح الإذن</button>
+    <h3 data-i18n="perm_h">إذن الوصول إلى الملفات</h3>
+    <p data-i18n="perm_p">لعرض جميع ملفات PDF على هاتفك، امنح التطبيق صلاحية «الوصول إلى كل الملفات» من إعدادات النظام.</p>
+    <button class="btn" id="permBtn" data-i18n="perm_btn">منح الإذن</button>
   </div>
 
   <div class="lib-toolbar">
     <div class="search-wrap">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      <input id="libSearch" type="search" placeholder="ابحث في ملفات PDF…">
+      <input id="libSearch" type="search" placeholder="ابحث في ملفات PDF…" data-i18n-ph="search_ph">
     </div>
     <select class="sort-sel" id="sortSel">
-      <option value="recent">الأحدث</option>
-      <option value="name">الاسم</option>
-      <option value="size">الحجم</option>
+      <option value="recent" data-i18n="sort_recent">الأحدث</option>
+      <option value="name" data-i18n="sort_name">الاسم</option>
+      <option value="size" data-i18n="sort_size">الحجم</option>
     </select>
   </div>
 
   <div class="lib-scroll" id="libScroll">
     <div class="lib-count" id="libCount"></div>
-    <div class="lib-spinner" id="libSpinner"><div class="spin"></div>جاري فحص الهاتف…</div>
+    <div class="lib-spinner" id="libSpinner"><div class="spin"></div><span data-i18n="scanning">جاري فحص الهاتف…</span></div>
     <div class="pdf-grid" id="pdfGrid"></div>
     <div class="empty" id="emptyState" style="display:none">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-      <h3>لا توجد ملفات PDF</h3>
-      <p>لم يتم العثور على ملفات PDF على هذا الجهاز.<br>يمكنك فتح ملف يدوياً بالضغط على الزر أدناه.</p>
+      <h3 data-i18n="empty_h">لا توجد ملفات PDF</h3>
+      <p data-i18n="empty_p">لم يتم العثور على ملفات PDF على هذا الجهاز.<br>يمكنك فتح ملف يدوياً بالضغط على الزر أدناه.</p>
     </div>
   </div>
 
-  <button class="fab" id="openFileBtn" title="فتح ملف">
+  <button class="fab" id="openFileBtn" title="فتح ملف" data-i18n-title="open_file">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
   </button>
 </div>
@@ -517,33 +523,33 @@
 <!-- ================= READER ================= -->
 <div id="readerView" class="view">
   <div class="topbar" id="topbar">
-    <button class="icon-btn" id="backBtn" title="رجوع">
+    <button class="icon-btn" id="backBtn" title="رجوع" data-i18n-title="back">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
     </button>
     <div class="doc-title" id="docTitle"></div>
     <div class="page-chip" id="pageChip">1 / 1</div>
-    <button class="icon-btn" id="loopBtn" title="تكرار النطق">
+    <button class="icon-btn" id="loopBtn" title="تكرار النطق" data-i18n-title="loop_t">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
     </button>
-    <button class="icon-btn" id="readPageBtn" title="نطق الصفحة">
+    <button class="icon-btn" id="readPageBtn" title="نطق الصفحة" data-i18n-title="read_page">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
     </button>
-    <button class="icon-btn" id="selBtn" title="تحديد النص">
+    <button class="icon-btn" id="selBtn" title="تحديد النص" data-i18n-title="sel_t">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 4h14M5 20h14M12 4v16"/></svg>
     </button>
-    <button class="icon-btn" id="docSearchBtn" title="بحث في المستند">
+    <button class="icon-btn" id="docSearchBtn" title="بحث في المستند" data-i18n-title="doc_search_t">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
     </button>
-    <button class="icon-btn" id="shareBtn" title="تصدير ومشاركة">
+    <button class="icon-btn" id="shareBtn" title="تصدير ومشاركة" data-i18n-title="share_t">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="m16 6-4-4-4 4"/><path d="M12 2v13"/></svg>
     </button>
-    <button class="icon-btn" id="menuBtn" title="خيارات">
+    <button class="icon-btn" id="menuBtn" title="خيارات" data-i18n-title="options_t">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
     </button>
   </div>
 
   <div class="search-bar" id="searchBar">
-    <input id="docSearchInput" type="search" placeholder="ابحث داخل المستند…">
+    <input id="docSearchInput" type="search" placeholder="ابحث داخل المستند…" data-i18n-ph="doc_search_ph">
     <span class="hit-count" id="hitCount"></span>
     <button class="mini-btn" id="hitPrev">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m18 15-6-6-6 6"/></svg>
@@ -573,51 +579,58 @@
 <!-- ================= EDITOR ================= -->
 <div id="editorView" class="view">
   <div class="ed-top">
-    <button class="icon-btn" id="edBack" title="رجوع">
+    <button class="icon-btn" id="edBack" title="رجوع" data-i18n-title="back">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
     </button>
-    <div class="ed-head">إنشاء مستند PDF</div>
+    <div class="ed-head" data-i18n="ed_head">إنشاء مستند PDF</div>
   </div>
   <div class="ed-scroll">
-    <input id="edTitle" class="ed-h1" placeholder="العنوان — يظهر بخط تحته">
+    <input id="edTitle" class="ed-h1" placeholder="العنوان — يظهر بخط تحته" data-i18n-ph="ed_title_ph">
     <div class="ed-tools">
-      <button class="tbtn" id="tBold" title="غامق"><b>B</b></button>
-      <button class="tbtn" id="tItalic" title="مائل"><i>I</i></button>
-      <button class="tbtn" id="tUnder" title="تحته خط"><u>U</u></button>
-      <input type="color" id="tColor" value="#1a1a1a" title="لون النص">
-      <select id="tSize" title="حجم الخط">
-        <option value="2">صغير</option>
-        <option value="3" selected>متوسط</option>
-        <option value="5">كبير</option>
-        <option value="6">أكبر</option>
+      <button class="tbtn" id="tBold" title="غامق" data-i18n-title="tt_bold"><b>B</b></button>
+      <button class="tbtn" id="tItalic" title="مائل" data-i18n-title="tt_italic"><i>I</i></button>
+      <button class="tbtn" id="tUnder" title="تحته خط" data-i18n-title="tt_under"><u>U</u></button>
+      <input type="color" id="tColor" value="#1a1a1a" title="لون النص" data-i18n-title="tt_color">
+      <select id="tSize" title="حجم الخط" data-i18n-title="tt_size">
+        <option value="2" data-i18n="fs_small">صغير</option>
+        <option value="3" selected data-i18n="fs_mid">متوسط</option>
+        <option value="5" data-i18n="fs_big">كبير</option>
+        <option value="6" data-i18n="fs_huge">أكبر</option>
       </select>
-      <button class="tbtn" id="tRight" title="محاذاة لليمين">⇥</button>
-      <button class="tbtn" id="tCenter" title="توسيط">≡</button>
-      <button class="tbtn" id="tLeft" title="محاذاة لليسار">⇤</button>
-      <button class="tbtn" id="tJust" title="ضبط">☰</button>
-      <button class="tbtn" id="tImg" title="صورة أو شعار داخل النص">🖼</button>
+      <button class="tbtn" id="tRight" title="محاذاة لليمين" data-i18n-title="tt_right">⇥</button>
+      <button class="tbtn" id="tCenter" title="توسيط" data-i18n-title="tt_center">≡</button>
+      <button class="tbtn" id="tLeft" title="محاذاة لليسار" data-i18n-title="tt_left">⇤</button>
+      <button class="tbtn" id="tJust" title="ضبط" data-i18n-title="tt_just">☰</button>
+      <button class="tbtn" id="tImg" title="صورة أو شعار داخل النص" data-i18n-title="tt_img">🖼</button>
     </div>
     <div id="edBody" class="ed-body" contenteditable="true" data-ph="اكتب نص المستند هنا…"></div>
+    <div class="ed-lbl" data-i18n="sec_imgs">صور تظهر تحت العنوان</div>
     <div class="ed-imgs" id="edImgs"></div>
     <div class="ed-imgrow">
-      <button class="btn ghost" id="edImgBtn">＋ صور</button>
-      <button class="btn ghost" id="edCamBtn">📷 تصوير</button>
-      <button class="btn ghost" id="edSignBtn">✍ توقيع</button>
+      <button class="btn ghost" id="edImgBtn" data-i18n="add_imgs">＋ صور</button>
+      <button class="btn ghost" id="edCamBtn" data-i18n="camera">📷 تصوير</button>
+      <button class="btn ghost" id="edSignBtn" data-i18n="sign">✍ توقيع</button>
     </div>
+    <div class="ed-lbl" data-i18n="sec_page">إعدادات الصفحة</div>
     <div class="ed-opts">
-      <input id="edName" type="text" placeholder="اسم الملف">
+      <input id="edName" type="text" placeholder="اسم الملف" data-i18n-ph="fname_ph">
       <select id="edPaper">
         <option value="A4">A4</option>
         <option value="A5">A5</option>
         <option value="Letter">Letter</option>
       </select>
       <select id="edOrient">
-        <option value="portrait">عمودي</option>
-        <option value="landscape">أفقي</option>
+        <option value="portrait" data-i18n="orient_p">عمودي</option>
+        <option value="landscape" data-i18n="orient_l">أفقي</option>
       </select>
-      <label class="ed-q">جودة الصور <input type="range" id="edQuality" min="40" max="95" value="82"></label>
+      <select id="edFont" data-i18n-title="pf_t">
+        <option value="11" data-i18n="pf_small">خط صغير</option>
+        <option value="13" selected data-i18n="pf_mid">خط عادي</option>
+        <option value="15.5" data-i18n="pf_big">خط كبير</option>
+      </select>
+      <label class="ed-q"><span data-i18n="quality">جودة الصور</span> <input type="range" id="edQuality" min="40" max="95" value="82"></label>
     </div>
-    <button class="btn ed-save" id="edSave">معاينة وحفظ كـ PDF</button>
+    <button class="btn ed-save" id="edSave" data-i18n="preview_save">معاينة وحفظ كـ PDF</button>
   </div>
   <input type="file" id="edImgInput" accept="image/*" multiple style="display:none">
   <input type="file" id="edCamInput" accept="image/*" capture="environment" style="display:none">
@@ -637,28 +650,28 @@
   <div class="pw-card">
     <h3 id="pwTitle"></h3>
     <p id="pwMsg"></p>
-    <input id="pwInput" type="password" placeholder="كلمة السر" autocomplete="off">
+    <input id="pwInput" type="password" placeholder="كلمة السر" autocomplete="off" data-i18n-ph="pw_ph">
     <div class="pw-btns">
-      <button class="btn ghost" id="pwCancel">إلغاء</button>
-      <button class="btn" id="pwOk">تأكيد</button>
+      <button class="btn ghost" id="pwCancel" data-i18n="cancel">إلغاء</button>
+      <button class="btn" id="pwOk" data-i18n="ok">تأكيد</button>
     </div>
   </div>
 </div>
 <div class="pv-veil" id="pvVeil">
   <div class="pv-top">
-    <button class="btn ghost" id="pvClose">رجوع للتحرير</button>
-    <button class="btn" id="pvPrint">حفظ / طباعة PDF</button>
+    <button class="btn ghost" id="pvClose" data-i18n="back_edit">رجوع للتحرير</button>
+    <button class="btn" id="pvPrint" data-i18n="save_print">حفظ / طباعة PDF</button>
   </div>
   <iframe class="pv-frame" id="pvFrame"></iframe>
 </div>
 <div class="sg-veil" id="sgVeil">
   <div class="sg-card">
-    <h3>ارسم توقيعك بإصبعك</h3>
+    <h3 data-i18n="sign_h">ارسم توقيعك بإصبعك</h3>
     <canvas class="sg-canvas" id="sgCanvas"></canvas>
     <div class="sg-btns">
-      <button class="btn ghost" id="sgClear">مسح</button>
-      <button class="btn ghost" id="sgCancel">إلغاء</button>
-      <button class="btn" id="sgSave">إدراج</button>
+      <button class="btn ghost" id="sgClear" data-i18n="clear">مسح</button>
+      <button class="btn ghost" id="sgCancel" data-i18n="cancel">إلغاء</button>
+      <button class="btn" id="sgSave" data-i18n="insert">إدراج</button>
     </div>
   </div>
 </div>
@@ -679,7 +692,7 @@ function capPlugin(name) {
   }
   return null;
 }
-const BUILD_STAMP = 'v10 · ٢٠٢٦-١٠-٠٢';
+const BUILD_STAMP = 'v11 · ٢٠٢٦-١٠-٠٢';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -687,9 +700,258 @@ const AppP = capPlugin('App');
 /* ================= Settings ================= */
 const settings = Object.assign({
   theme: 'dark', rate: 1.0, pitch: 1.0, latinLang: 'fr-FR', loop: false,
-  night: false, tapSpeak: true, fitWidth: true, selMode: false
+  night: false, tapSpeak: true, fitWidth: true, selMode: false, lang: 'ar'
 }, JSON.parse(localStorage.getItem('qari:settings') || '{}'));
 function saveSettings() { localStorage.setItem('qari:settings', JSON.stringify(settings)); }
+
+/* ================= Languages ================= */
+const STR = {
+  ar: {
+    app_title: 'قارئ PDF', tagline: 'اضغط على أي كلمة لنطقها',
+    search_ph: 'ابحث في ملفات PDF…', sort_recent: 'الأحدث', sort_name: 'الاسم', sort_size: 'الحجم',
+    perm_h: 'إذن الوصول إلى الملفات',
+    perm_p: 'لعرض جميع ملفات PDF على هاتفك، امنح التطبيق صلاحية «الوصول إلى كل الملفات» من إعدادات النظام.',
+    perm_btn: 'منح الإذن', scanning: 'جاري فحص الهاتف…', pdf_files: 'ملف PDF',
+    empty_h: 'لا توجد ملفات PDF', empty_p: 'لم يتم العثور على ملفات PDF على هذا الجهاز.<br>يمكنك فتح ملف يدوياً بالضغط على الزر أدناه.',
+    open_file: 'فتح ملف', new_doc: 'إنشاء PDF', rescan: 'إعادة الفحص', theme_t: 'المظهر', language: 'اللغة',
+    back: 'رجوع', loop_t: 'تكرار النطق', read_page: 'نطق الصفحة', sel_t: 'تحديد النص',
+    doc_search_t: 'بحث في المستند', share_t: 'تصدير ومشاركة', options_t: 'خيارات',
+    doc_search_ph: 'ابحث داخل المستند…',
+    ed_head: 'إنشاء مستند PDF', ed_title_ph: 'العنوان — يظهر بخط تحته',
+    tt_bold: 'غامق', tt_italic: 'مائل', tt_under: 'تحته خط', tt_color: 'لون النص', tt_size: 'حجم الخط',
+    tt_right: 'محاذاة لليمين', tt_center: 'توسيط', tt_left: 'محاذاة لليسار', tt_just: 'ضبط', tt_img: 'صورة أو شعار داخل النص',
+    fs_small: 'صغير', fs_mid: 'متوسط', fs_big: 'كبير', fs_huge: 'أكبر',
+    ed_body_ph: 'اكتب نص المستند هنا…',
+    sec_imgs: 'صور تظهر تحت العنوان', add_imgs: '＋ صور', camera: '📷 تصوير', sign: '✍ توقيع',
+    sec_page: 'إعدادات الصفحة', fname_ph: 'اسم الملف', orient_p: 'عمودي', orient_l: 'أفقي',
+    quality: 'جودة الصور', pf_t: 'حجم الخط المطبوع', pf_small: 'خط صغير', pf_mid: 'خط عادي', pf_big: 'خط كبير',
+    preview_save: 'معاينة وحفظ كـ PDF', back_edit: 'رجوع للتحرير', save_print: 'حفظ / طباعة PDF',
+    sign_h: 'ارسم توقيعك بإصبعك', clear: 'مسح', cancel: 'إلغاء', insert: 'إدراج', ok: 'تأكيد', pw_ph: 'كلمة السر',
+    menu_title: 'خيارات القراءة',
+    m_sel: 'تحديد النص ونسخه', m_sel_s: 'اسحب فوق الكلمات لتحديدها ثم انسخ — يعطّل النطق بالضغط مؤقتاً',
+    m_tap: 'نطق عند الضغط على الكلمة', m_tap_s: 'ضغطة خفيفة تقرأ من الكلمة حتى النهاية، ضغطة مطوّلة تكرّرها',
+    m_loop: 'تكرار النطق (Loop)', m_loop_s: 'تتكرر الكلمة حتى تطفئه',
+    m_night: 'الوضع الليلي', m_night_s: 'عكس ألوان الصفحات',
+    m_fit: 'ملاءمة العرض', m_fit_s: 'الصفحة بعرض الشاشة دائماً',
+    m_rate: 'سرعة النطق', m_lang: 'لغة النص الأجنبي', m_lang_s: 'للكلمات غير العربية',
+    lang_fr: 'فرنسي', lang_en: 'إنجليزي', lang_de: 'ألماني', lang_tr: 'تركي',
+    m_copyall: 'نسخ كل نص المستند', m_copyall_s: 'استخراج النص كاملاً إلى الحافظة',
+    m_tts: 'اختبار النطق', m_tts_s: 'يتكلم جملة تجريبية للتحقق من محرك الصوت',
+    m_outline: 'فهرس المستند', m_outline_s: 'الفصول والعناوين إن وجدت',
+    m_bms: 'الإشارات المرجعية', bm_saved: ' محفوظة', bm_none: 'لا توجد',
+    m_bm_add: '★ إضافة إشارة للصفحة ', m_print: 'طباعة الملف', m_print_s: 'عبر نافذة طباعة النظام',
+    m_share: 'تصدير / مشاركة', m_share_s: 'إرسال ملف PDF عبر التطبيقات',
+    m_pages: 'أدوات الصفحات', m_pages_s: 'استخراج أو حذف أو تدوير صفحات محددة',
+    m_toimg: 'تحويل الصفحات إلى صور', m_toimg_s: 'حفظ كل صفحة كصورة PNG',
+    m_merge: 'دمج ملفات PDF', m_merge_s: 'جمع عدة ملفات من المكتبة في ملف واحد',
+    m_lock: 'قفل الملف بكلمة سر', m_lock_s: 'نسخة مشفّرة لا تُفتح إلا بكلمة السر',
+    m_unlock: 'فك حماية الملف', m_unlock_s: 'نسخة مفتوحة بلا كلمة سر',
+    version: 'إصدار',
+    fm_open: 'فتح الملف', fm_rename: 'إعادة تسمية', fm_share: 'مشاركة', fm_print: 'طباعة', fm_del: 'حذف الملف نهائياً',
+    merge_empty: 'المكتبة فارغة — امسح الهاتف أولاً', merge_name: 'اسم الملف الناتج', merge_go: 'دمج المحدد',
+    pages_has1: 'المستند فيه', pages_has2: 'صفحة — حدّد الصفحات مثل: 1-3,5', pg_spec_ph: 'مثال: 1-3,5',
+    pg_extract: 'استخراج', pg_delete: 'حذف', pg_rotate: 'تدوير 90°',
+    bm_t: 'الإشارات المرجعية', bm_empty: 'لا توجد إشارات مرجعية بعد.<br>أضفها من قائمة الخيارات.',
+    bm_page: 'صفحة ', bm_added: 'أُضيفت إشارة للصفحة ',
+    outline_t: 'فهرس المستند', outline_empty: 'هذا المستند لا يحتوي على فهرس.', outline_loading: 'جاري التحميل…',
+    native_only: 'متاح في التطبيق على الهاتف فقط', saved_dl: 'حُفظ في التنزيلات: ',
+    device: 'الجهاز', opening: 'جاري فتح الملف…', reading: 'جاري قراءة', open_fail: 'تعذر فتح الملف',
+    pw_title: 'ملف محمي بكلمة سر', pw_msg: 'أدخل كلمة سر',
+    scanned_doc: 'يبدو أن الملف صور ممسوحة — لا يحتوي نصاً قابلاً للنطق أو النسخ', page_no_text: 'صفحة بدون نص قابل للنطق',
+    tap_off: 'فعّل «نطق عند الضغط على الكلمة» من القائمة', looping: 'تكرار النطق — اضغط كلمة أخرى للإيقاف',
+    no_text_page: 'لا يوجد نص في هذه الصفحة', read_page_loop: 'نطق الصفحة مع التكرار',
+    sel_off: 'وضع النطق — ضغطة تقرأ، مطوّلة تكرّر', extracting: 'جاري استخراج النص…',
+    no_copyable: 'لا يوجد نص قابل للنسخ — الملف صور ممسوحة', copied: 'نُسخ كل نص المستند', copy_fail: 'تعذر النسخ في هذا الجهاز',
+    loop_on: 'التكرار مفعّل', loop_off: 'التكرار متوقف',
+    nothing_share: 'لا يوجد ملف للمشاركة', nothing_print: 'لا يوجد ملف للطباعة',
+    lock_msg: 'كل من يفتح النسخة المحمية سيحتاجها', unlock_msg: 'أدخل كلمة السر الحالية للملف',
+    del_q1: 'حذف «', del_q2: '» من الهاتف نهائياً؟',
+    pick2: 'اختر ملفين على الأقل', merging: 'جاري الدمج…',
+    merge_fail: 'تعذّر الدمج — قد يكون أحد الملفات محمياً بكلمة سر',
+    open_first: 'افتح ملفاً أولاً', pick_pages: 'حدّد الصفحات أولاً', processing: 'جاري المعالجة…',
+    bad_pages: 'صيغة الصفحات غير صحيحة', wrong_pw: 'كلمة السر غير صحيحة', op_fail: 'تعذّرت العملية',
+    rename_t: 'إعادة تسمية الملف', new_name_ph: 'الاسم الجديد', renamed: 'أُعيدت التسمية', deleted: 'حُذف الملف',
+    ren_fail: 'تعذّرت إعادة التسمية', del_fail: 'تعذّر الحذف', share_fail: 'تعذّرت المشاركة', print_fail: 'تعذّرت الطباعة',
+    imgs_saved1: 'حُفظت ', imgs_saved2: ' صورة في معرض الصور (QariPDF)', imgs_saved2b: ' صورة في مجلد التطبيق',
+    imgs_fail: 'تعذّر التحويل', scan_fail: 'تعذر فحص الملفات',
+    sel_on: 'وضع التحديد — اسحب فوق النص ثم «نسخ»',
+    tts_testing: 'اختبار النطق…', tts_ok: 'النطق يعمل بشكل صحيح',
+    tts_fail: 'محرك النطق لا يستجيب — ثبّت أو فعّل «التحويل من نص إلى كلام» من إعدادات الهاتف',
+    mk_fail: 'تعذّر إنشاء الملف', popup: 'اسمح بالنوافذ المنبثقة',
+    read_here: 'قراءة من هنا…', shared_done: 'تم — افتحه من المشاركة', saved_app: 'حُفظ في مجلد التطبيق',
+    doc_default: 'مستند', choose_lang: 'اختر لغة الواجهة', kb: 'ك.ب', mb: 'م.ب', no_results: 'لا نتائج'
+  },
+  fr: {
+    app_title: 'Qari PDF', tagline: "Appuyez sur un mot pour l'entendre",
+    search_ph: 'Rechercher des PDF…', sort_recent: 'Récents', sort_name: 'Nom', sort_size: 'Taille',
+    perm_h: 'Accès aux fichiers',
+    perm_p: 'Pour afficher tous les PDF de votre téléphone, accordez « Accès à tous les fichiers » dans les paramètres.',
+    perm_btn: 'Autoriser', scanning: 'Analyse du téléphone…', pdf_files: 'fichiers PDF',
+    empty_h: 'Aucun PDF', empty_p: "Aucun PDF trouvé sur cet appareil.<br>Ouvrez un fichier manuellement avec le bouton ci-dessous.",
+    open_file: 'Ouvrir un fichier', new_doc: 'Créer un PDF', rescan: 'Rescanner', theme_t: 'Thème', language: 'Langue',
+    back: 'Retour', loop_t: 'Lecture en boucle', read_page: 'Lire la page', sel_t: 'Sélection de texte',
+    doc_search_t: 'Rechercher', share_t: 'Exporter et partager', options_t: 'Options',
+    doc_search_ph: 'Rechercher dans le document…',
+    ed_head: 'Créer un document PDF', ed_title_ph: 'Titre — souligné',
+    tt_bold: 'Gras', tt_italic: 'Italique', tt_under: 'Souligné', tt_color: 'Couleur du texte', tt_size: 'Taille',
+    tt_right: 'Aligner à droite', tt_center: 'Centrer', tt_left: 'Aligner à gauche', tt_just: 'Justifier', tt_img: 'Image ou logo dans le texte',
+    fs_small: 'Petit', fs_mid: 'Moyen', fs_big: 'Grand', fs_huge: 'Très grand',
+    ed_body_ph: 'Écrivez le texte ici…',
+    sec_imgs: 'Images sous le titre', add_imgs: '＋ Images', camera: '📷 Caméra', sign: '✍ Signature',
+    sec_page: 'Mise en page', fname_ph: 'Nom du fichier', orient_p: 'Portrait', orient_l: 'Paysage',
+    quality: 'Qualité images', pf_t: 'Taille du texte imprimé', pf_small: 'Petite police', pf_mid: 'Normale', pf_big: 'Grande police',
+    preview_save: 'Aperçu et enregistrer', back_edit: "Retour à l'édition", save_print: 'Enregistrer / Imprimer',
+    sign_h: 'Dessinez votre signature', clear: 'Effacer', cancel: 'Annuler', insert: 'Insérer', ok: 'OK', pw_ph: 'Mot de passe',
+    menu_title: 'Options de lecture',
+    m_sel: 'Sélection et copie du texte', m_sel_s: 'Glissez sur les mots pour copier — pause la lecture au toucher',
+    m_tap: 'Lecture au toucher du mot', m_tap_s: "Toucher = lire la suite, appui long = répéter",
+    m_loop: 'Lecture en boucle', m_loop_s: "Répète le mot jusqu'à arrêt",
+    m_night: 'Mode nuit', m_night_s: 'Inverse les couleurs des pages',
+    m_fit: 'Ajuster à la largeur', m_fit_s: "La page tient toujours à l'écran",
+    m_rate: 'Vitesse de lecture', m_lang: 'Langue étrangère', m_lang_s: 'pour les mots non arabes',
+    lang_fr: 'Français', lang_en: 'Anglais', lang_de: 'Allemand', lang_tr: 'Turc',
+    m_copyall: 'Copier tout le texte', m_copyall_s: 'Extrait tout le texte vers le presse-papiers',
+    m_tts: 'Tester la voix', m_tts_s: 'Lit une phrase test du moteur vocal',
+    m_outline: 'Sommaire', m_outline_s: 'Chapitres si présents',
+    m_bms: 'Signets', bm_saved: ' enregistrés', bm_none: 'aucun',
+    m_bm_add: '★ Signet page ', m_print: 'Imprimer', m_print_s: 'via la boîte système',
+    m_share: 'Exporter / Partager', m_share_s: 'Envoyer le PDF aux applications',
+    m_pages: 'Outils de pages', m_pages_s: 'Extraire, supprimer ou pivoter des pages',
+    m_toimg: 'Pages en images', m_toimg_s: 'Chaque page en PNG',
+    m_merge: 'Fusionner des PDF', m_merge_s: 'Combiner plusieurs fichiers en un',
+    m_lock: 'Verrouiller par mot de passe', m_lock_s: 'Copie chiffrée',
+    m_unlock: 'Déverrouiller le fichier', m_unlock_s: 'Copie sans mot de passe',
+    version: 'Version',
+    fm_open: 'Ouvrir', fm_rename: 'Renommer', fm_share: 'Partager', fm_print: 'Imprimer', fm_del: 'Supprimer définitivement',
+    merge_empty: "Bibliothèque vide — scannez d'abord", merge_name: 'Nom du résultat', merge_go: 'Fusionner',
+    pages_has1: 'Le document a', pages_has2: 'pages — ex: 1-3,5', pg_spec_ph: 'ex: 1-3,5',
+    pg_extract: 'Extraire', pg_delete: 'Supprimer', pg_rotate: 'Pivoter 90°',
+    bm_t: 'Signets', bm_empty: "Aucun signet.<br>Ajoutez depuis le menu d'options.",
+    bm_page: 'Page ', bm_added: 'Signet ajouté page ',
+    outline_t: 'Sommaire', outline_empty: "Pas de sommaire dans ce document.", outline_loading: 'Chargement…',
+    native_only: "Disponible uniquement dans l'app", saved_dl: 'Enregistré dans Téléchargements : ',
+    device: 'Appareil', opening: 'Ouverture…', reading: 'Lecture de', open_fail: "Échec d'ouverture",
+    pw_title: 'Fichier protégé', pw_msg: 'Mot de passe de',
+    scanned_doc: 'Ce fichier semble être des images scannées — pas de texte lisible ou copiable', page_no_text: 'Page sans texte lisible',
+    tap_off: "Activez « Lecture au toucher » dans le menu", looping: 'Boucle — touchez un autre mot pour arrêter',
+    no_text_page: 'Pas de texte sur cette page', read_page_loop: 'Lecture de la page en boucle',
+    sel_off: 'Mode voix — toucher lit, appui long répète', extracting: 'Extraction du texte…',
+    no_copyable: 'Pas de texte copiable — images scannées', copied: 'Tout le texte copié', copy_fail: 'Copie impossible sur cet appareil',
+    loop_on: 'Boucle activée', loop_off: 'Boucle arrêtée',
+    nothing_share: 'Aucun fichier à partager', nothing_print: 'Aucun fichier à imprimer',
+    lock_msg: 'Quiconque ouvre la copie en aura besoin', unlock_msg: 'Mot de passe actuel du fichier',
+    del_q1: 'Supprimer « ', del_q2: ' » définitivement ?',
+    pick2: 'Choisissez au moins 2 fichiers', merging: 'Fusion…',
+    merge_fail: 'Échec — un fichier est peut-être protégé',
+    open_first: "Ouvrez d'abord un fichier", pick_pages: 'Indiquez les pages', processing: 'Traitement…',
+    bad_pages: 'Format de pages invalide', wrong_pw: 'Mot de passe incorrect', op_fail: "L'opération a échoué",
+    rename_t: 'Renommer le fichier', new_name_ph: 'Nouveau nom', renamed: 'Renommé', deleted: 'Supprimé',
+    ren_fail: 'Échec du renommage', del_fail: 'Échec de suppression', share_fail: 'Échec du partage', print_fail: "Échec d'impression",
+    imgs_saved1: 'Enregistré : ', imgs_saved2: ' images dans Pictures/QariPDF', imgs_saved2b: " images (dossier de l'app)",
+    imgs_fail: 'Échec de conversion', scan_fail: 'Échec du scan',
+    sel_on: 'Mode sélection — glissez puis « Copier »',
+    tts_testing: 'Test de la voix…', tts_ok: 'La voix fonctionne',
+    tts_fail: "Moteur vocal absent — installez/activez la synthèse vocale dans les paramètres",
+    mk_fail: 'Échec de création', popup: 'Autorisez les fenêtres pop-up',
+    read_here: 'Lecture…', shared_done: 'Fait — via le partage', saved_app: "Enregistré dans le dossier de l'app",
+    doc_default: 'Document', choose_lang: "Langue de l'interface", kb: 'Ko', mb: 'Mo', no_results: 'Aucun résultat'
+  },
+  en: {
+    app_title: 'Qari PDF', tagline: 'Tap any word to hear it',
+    search_ph: 'Search PDFs…', sort_recent: 'Recent', sort_name: 'Name', sort_size: 'Size',
+    perm_h: 'File access permission',
+    perm_p: 'To list every PDF on your phone, grant "All files access" in system settings.',
+    perm_btn: 'Grant', scanning: 'Scanning phone…', pdf_files: 'PDF files',
+    empty_h: 'No PDF files', empty_p: 'No PDFs found on this device.<br>Open one manually with the button below.',
+    open_file: 'Open file', new_doc: 'New PDF', rescan: 'Rescan', theme_t: 'Theme', language: 'Language',
+    back: 'Back', loop_t: 'Loop speech', read_page: 'Read page', sel_t: 'Select text',
+    doc_search_t: 'Search in document', share_t: 'Export & share', options_t: 'Options',
+    doc_search_ph: 'Search in document…',
+    ed_head: 'Create a PDF', ed_title_ph: 'Title — shown underlined',
+    tt_bold: 'Bold', tt_italic: 'Italic', tt_under: 'Underline', tt_color: 'Text color', tt_size: 'Font size',
+    tt_right: 'Align right', tt_center: 'Center', tt_left: 'Align left', tt_just: 'Justify', tt_img: 'Image or logo inline',
+    fs_small: 'Small', fs_mid: 'Medium', fs_big: 'Large', fs_huge: 'Larger',
+    ed_body_ph: 'Write your document here…',
+    sec_imgs: 'Images below the title', add_imgs: '＋ Images', camera: '📷 Camera', sign: '✍ Sign',
+    sec_page: 'Page setup', fname_ph: 'File name', orient_p: 'Portrait', orient_l: 'Landscape',
+    quality: 'Image quality', pf_t: 'Printed text size', pf_small: 'Small text', pf_mid: 'Normal text', pf_big: 'Large text',
+    preview_save: 'Preview & save PDF', back_edit: 'Back to editing', save_print: 'Save / Print PDF',
+    sign_h: 'Draw your signature', clear: 'Clear', cancel: 'Cancel', insert: 'Insert', ok: 'OK', pw_ph: 'Password',
+    menu_title: 'Reading options',
+    m_sel: 'Select & copy text', m_sel_s: 'Drag over words to copy — pauses tap speech',
+    m_tap: 'Speak on word tap', m_tap_s: 'Light tap reads onward, long press repeats the word',
+    m_loop: 'Loop speech', m_loop_s: 'Repeats the word until you stop it',
+    m_night: 'Night mode', m_night_s: 'Inverts page colors',
+    m_fit: 'Fit width', m_fit_s: 'Page always fits the screen',
+    m_rate: 'Speech rate', m_lang: 'Foreign text language', m_lang_s: 'for non-Arabic words',
+    lang_fr: 'French', lang_en: 'English', lang_de: 'German', lang_tr: 'Turkish',
+    m_copyall: 'Copy all text', m_copyall_s: 'Extract the whole text to clipboard',
+    m_tts: 'Test speech', m_tts_s: 'Speaks a test sentence to verify the engine',
+    m_outline: 'Outline', m_outline_s: 'Chapters if available',
+    m_bms: 'Bookmarks', bm_saved: ' saved', bm_none: 'none',
+    m_bm_add: '★ Bookmark page ', m_print: 'Print', m_print_s: 'Via the system print dialog',
+    m_share: 'Export / Share', m_share_s: 'Send the PDF via other apps',
+    m_pages: 'Page tools', m_pages_s: 'Extract, delete or rotate pages',
+    m_toimg: 'Pages to images', m_toimg_s: 'Save each page as PNG',
+    m_merge: 'Merge PDFs', m_merge_s: 'Combine several library files into one',
+    m_lock: 'Lock with password', m_lock_s: 'Encrypted copy needs the password',
+    m_unlock: 'Unlock the file', m_unlock_s: 'Open copy without password',
+    version: 'Version',
+    fm_open: 'Open', fm_rename: 'Rename', fm_share: 'Share', fm_print: 'Print', fm_del: 'Delete permanently',
+    merge_empty: 'Library is empty — scan first', merge_name: 'Output name', merge_go: 'Merge selected',
+    pages_has1: 'The document has', pages_has2: 'pages — e.g. 1-3,5', pg_spec_ph: 'e.g. 1-3,5',
+    pg_extract: 'Extract', pg_delete: 'Delete', pg_rotate: 'Rotate 90°',
+    bm_t: 'Bookmarks', bm_empty: 'No bookmarks yet.<br>Add one from the options menu.',
+    bm_page: 'Page ', bm_added: 'Bookmarked page ',
+    outline_t: 'Outline', outline_empty: 'No outline in this document.', outline_loading: 'Loading…',
+    native_only: 'Only available in the Android app', saved_dl: 'Saved to Downloads: ',
+    device: 'Device', opening: 'Opening…', reading: 'Reading', open_fail: 'Could not open the file',
+    pw_title: 'Password-protected file', pw_msg: 'Password for',
+    scanned_doc: 'This file looks like scanned images — no readable or copyable text', page_no_text: 'Page without readable text',
+    tap_off: 'Enable “Speak on word tap” in the menu', looping: 'Looping — tap another word to stop',
+    no_text_page: 'No text on this page', read_page_loop: 'Reading page on loop',
+    sel_off: 'Speech mode — tap reads, long press loops', extracting: 'Extracting text…',
+    no_copyable: 'No copyable text — scanned images', copied: 'Copied all text', copy_fail: 'Copy not possible on this device',
+    loop_on: 'Loop on', loop_off: 'Loop off',
+    nothing_share: 'No file to share', nothing_print: 'No file to print',
+    lock_msg: 'Anyone opening the locked copy will need it', unlock_msg: 'Enter the file’s current password',
+    del_q1: 'Delete «', del_q2: '» permanently?',
+    pick2: 'Pick at least 2 files', merging: 'Merging…',
+    merge_fail: 'Merge failed — a file may be password-protected',
+    open_first: 'Open a file first', pick_pages: 'Enter pages first', processing: 'Processing…',
+    bad_pages: 'Invalid page spec', wrong_pw: 'Wrong password', op_fail: 'Operation failed',
+    rename_t: 'Rename file', new_name_ph: 'New name', renamed: 'Renamed', deleted: 'Deleted',
+    ren_fail: 'Rename failed', del_fail: 'Delete failed', share_fail: 'Share failed', print_fail: 'Print failed',
+    imgs_saved1: 'Saved ', imgs_saved2: ' images to Pictures/QariPDF', imgs_saved2b: ' images to the app folder',
+    imgs_fail: 'Conversion failed', scan_fail: 'Scan failed',
+    sel_on: 'Selection mode — drag over text, then Copy',
+    tts_testing: 'Testing speech…', tts_ok: 'Speech works correctly',
+    tts_fail: 'Speech engine missing — install or enable text-to-speech in phone settings',
+    mk_fail: 'Could not create the file', popup: 'Allow popups',
+    read_here: 'Reading from here…', shared_done: 'Done — open it from the share sheet', saved_app: 'Saved to app folder',
+    doc_default: 'Document', choose_lang: 'Interface language', kb: 'KB', mb: 'MB', no_results: 'No results'
+  }
+};
+function t(k) {
+  const L = STR[settings.lang] || STR.ar;
+  return L[k] !== undefined ? L[k] : (STR.ar[k] !== undefined ? STR.ar[k] : k);
+}
+function applyLang() {
+  const l = settings.lang;
+  document.documentElement.lang = l;
+  document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const v = t(el.dataset.i18n);
+    if (v.includes('<br>')) el.innerHTML = v; else el.textContent = v;
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
+  document.querySelectorAll('[data-i18n-title]').forEach(el => { el.title = t(el.dataset.i18nTitle); });
+  $('edBody').dataset.ph = t('ed_body_ph');
+  document.title = t('app_title');
+  renderLibrary();
+}
+function setLang(l) { settings.lang = l; saveSettings(); applyLang(); }
+
 document.documentElement.dataset.theme = settings.theme;
 document.body.classList.toggle('night', settings.night);
 $('loopBtn').classList.toggle('on', settings.loop);
@@ -724,7 +986,7 @@ function speakOnce(text) {
     if (ok) ttsFails = 0;
     else if (++ttsFails >= 3 && !ttsWarned) {
       ttsWarned = true;
-      toast('تعذّر النطق — فعّل محرك النص إلى كلام (TTS) في إعدادات الهاتف');
+      toast(t('tts_fail'));
     }
     return ok;
   };
@@ -814,7 +1076,7 @@ function clearWordHl() {
 let pdfFiles = [];
 let sortMode = 'recent';
 
-const fmtSize = b => !b ? '' : b < 1024*1024 ? (b/1024).toFixed(0)+' ك.ب' : (b/1048576).toFixed(1)+' م.ب';
+const fmtSize = b => !b ? '' : b < 1024*1024 ? (b/1024).toFixed(0)+' '+t('kb') : (b/1048576).toFixed(1)+' '+t('mb');
 const fmtDate = t => { if (!t) return ''; const d = new Date(t*1000); return d.toLocaleDateString('ar', {year:'numeric', month:'short', day:'numeric'}); };
 const docKeyOf = f => f.uri || f.name;
 const progressOf = key => JSON.parse(localStorage.getItem('qari:prog:' + key) || 'null');
@@ -837,7 +1099,7 @@ async function scanLibrary() {
     const res = await Scanner.listPdfs();
     pdfFiles = (res && res.files) || [];
   } catch (e) {
-    toast('تعذر فحص الملفات');
+    toast(t('scan_fail'));
     pdfFiles = [];
   }
   $('libSpinner').classList.remove('show');
@@ -855,12 +1117,12 @@ function renderLibrary() {
   const list = sortedFiles();
   const grid = $('pdfGrid');
   grid.innerHTML = '';
-  $('libCount').textContent = pdfFiles.length ? pdfFiles.length + ' ملف PDF' : '';
+  $('libCount').textContent = pdfFiles.length ? pdfFiles.length + ' ' + t('pdf_files') : '';
   $('emptyState').style.display = list.length ? 'none' : 'block';
   for (const f of list) {
     const card = document.createElement('div');
     card.className = 'pdf-card';
-    const dir = (f.path || '').replace(/\/[^/]*$/, '').replace(/^\/storage\/emulated\/0\/?/, '') || 'الجهاز';
+    const dir = (f.path || '').replace(/\/[^/]*$/, '').replace(/^\/storage\/emulated\/0\/?/, '') || t('device');
     const prog = progressOf(docKeyOf(f));
     card.innerHTML = `
       <div style="display:flex;gap:10px;align-items:flex-start">
@@ -886,38 +1148,38 @@ const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;
 function fileMenu(f) {
   if (!(isNative && Scanner)) { openDevicePdf(f); return; }
   openSheet(f.name, `
-    <div class="set-row" style="cursor:pointer" id="fmOpen"><div class="lbl">فتح الملف</div><span>‹</span></div>
-    <div class="set-row" style="cursor:pointer" id="fmRename"><div class="lbl">إعادة تسمية</div><span>‹</span></div>
-    <div class="set-row" style="cursor:pointer" id="fmShare"><div class="lbl">مشاركة</div><span>‹</span></div>
-    <div class="set-row" style="cursor:pointer" id="fmPrint"><div class="lbl">طباعة</div><span>‹</span></div>
-    <div class="set-row" style="cursor:pointer" id="fmDel"><div class="lbl" style="color:#f43f5e">حذف الملف نهائياً</div><span>‹</span></div>`);
+    <div class="set-row" style="cursor:pointer" id="fmOpen"><div class="lbl">${t('fm_open')}</div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="fmRename"><div class="lbl">${t('fm_rename')}</div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="fmShare"><div class="lbl">${t('fm_share')}</div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="fmPrint"><div class="lbl">${t('fm_print')}</div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="fmDel"><div class="lbl" style="color:#f43f5e">${t('fm_del')}</div><span>‹</span></div>`);
   $('fmOpen').onclick = () => { closeSheet(); openDevicePdf(f); };
   $('fmShare').onclick = async () => {
     closeSheet();
     try { await Scanner.sharePdf({ uri: f.uri, name: f.name, title: f.name }); }
-    catch (e) { toast('تعذّرت المشاركة'); }
+    catch (e) { toast(t('share_fail')); }
   };
   $('fmPrint').onclick = async () => {
     closeSheet();
     try { await Scanner.printPdf({ uri: f.uri, name: f.name }); }
-    catch (e) { toast('تعذّرت الطباعة'); }
+    catch (e) { toast(t('print_fail')); }
   };
   $('fmRename').onclick = async () => {
     closeSheet();
-    const nn = await askText('إعادة تسمية الملف', '', { value: f.name.replace(/\.pdf$/i, ''), placeholder: 'الاسم الجديد' });
+    const nn = await askText(t('rename_t'), '', { value: f.name.replace(/\.pdf$/i, ''), placeholder: t('new_name_ph') });
     if (!nn || !nn.trim()) return;
     try {
       await Scanner.renameFile({ uri: f.uri, newName: nn.trim() });
-      toast('أُعيدت التسمية'); scanLibrary();
-    } catch (e) { toast('تعذّرت إعادة التسمية'); }
+      toast(t('renamed')); scanLibrary();
+    } catch (e) { toast(t('ren_fail')); }
   };
   $('fmDel').onclick = async () => {
     closeSheet();
-    if (!confirm('حذف «' + f.name + '» من الهاتف نهائياً؟')) return;
+    if (!confirm(t('del_q1') + f.name + t('del_q2'))) return;
     try {
       await Scanner.deleteFile({ uri: f.uri });
-      toast('حُذف الملف'); scanLibrary();
-    } catch (e) { toast('تعذّر الحذف'); }
+      toast(t('deleted')); scanLibrary();
+    } catch (e) { toast(t('del_fail')); }
   };
 }
 
@@ -929,6 +1191,15 @@ $('themeBtn').onclick = () => {
   settings.theme = settings.theme === 'dark' ? 'light' : 'dark';
   document.documentElement.dataset.theme = settings.theme;
   saveSettings();
+};
+$('langBtn').onclick = () => {
+  openSheet(t('choose_lang'),
+    [['ar', 'العربية'], ['fr', 'Français'], ['en', 'English']].map(l =>
+      `<div class="set-row" style="cursor:pointer" data-lang="${l[0]}">
+         <div class="lbl">${l[1]}</div>${settings.lang === l[0] ? '<span style="color:var(--accent)">✓</span>' : '<span>‹</span>'}</div>`).join(''));
+  $('sheetBody').querySelectorAll('[data-lang]').forEach(el => {
+    el.onclick = () => { setLang(el.dataset.lang); closeSheet(); };
+  });
 };
 $('openFileBtn').onclick = () => $('fileInput').click();
 $('fileInput').onchange = e => {
@@ -984,12 +1255,12 @@ const io = new IntersectionObserver(entries => {
 wrapEl.addEventListener('scroll', () => { updateCurrentPage(); scheduleSave(); }, { passive: true });
 
 function veil(show, text) {
-  $('veilText').textContent = text || 'جاري فتح الملف…';
+  $('veilText').textContent = text || t('opening');
   $('veil').classList.toggle('show', show);
 }
 
 async function openDevicePdf(f) {
-  veil(true, 'جاري قراءة ' + f.name + '…');
+  veil(true, t('reading') + ' ' + f.name + '…');
   try {
     const res = await Scanner.readPdf({ uri: f.uri || f.path });
     const bin = atob(res.data);
@@ -997,17 +1268,17 @@ async function openDevicePdf(f) {
     for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
     await loadDoc(bytes, f.name, docKeyOf(f), f.uri || f.path);
   } catch (e) {
-    toast('تعذر فتح الملف');
+    toast(t('open_fail'));
   }
   veil(false);
 }
 async function openPickedFile(file) {
-  veil(true, 'جاري فتح ' + file.name + '…');
+  veil(true, t('opening') + ' ' + file.name + '…');
   try {
     const buf = await file.arrayBuffer();
     await loadDoc(new Uint8Array(buf), file.name, 'picked:' + file.name + ':' + file.size, null, file);
   } catch (e) {
-    toast('تعذر فتح الملف');
+    toast(t('open_fail'));
   }
   veil(false);
 }
@@ -1018,8 +1289,8 @@ async function loadDoc(bytes, name, key, uri, file) {
   docPassword = null;
   const task = pdfjs.getDocument({ data: bytes.slice(), useSystemFonts: false });
   task.onPassword = (updatePw, reason) => {
-    const title = reason === 2 ? 'كلمة السر غير صحيحة' : 'ملف محمي بكلمة سر';
-    askPassword(title, 'أدخل كلمة سر «' + name + '»').then(pw => {
+    const title = reason === 2 ? t('wrong_pw') : t('pw_title');
+    askPassword(title, t('pw_msg') + ' «' + name + '»').then(pw => {
       if (pw == null) task.destroy();
       else { docPassword = pw; updatePw(pw); }
     });
@@ -1071,7 +1342,7 @@ async function probeText() {
       if (items.some(it => it.str && it.str.trim())) { docHasText = true; return; }
     } catch (e) { /* keep probing */ }
   }
-  toast('يبدو أن الملف صور ممسوحة — لا يحتوي نصاً قابلاً للنطق أو النسخ', 4200);
+  toast(t('scanned_doc'), 4200);
 }
 
 async function pageSize(n) {
@@ -1156,7 +1427,7 @@ function markScanned(div) {
   const ph = document.createElement('div');
   ph.className = 'ph'; ph.style.zIndex = '3'; ph.style.pointerEvents = 'none';
   ph.style.alignItems = 'flex-end'; ph.style.padding = '8px'; ph.style.fontSize = '10px';
-  ph.textContent = 'صفحة بدون نص قابل للنطق';
+  ph.textContent = t('page_no_text');
   div.appendChild(ph);
 }
 
@@ -1196,13 +1467,13 @@ pagesEl.addEventListener('pointerdown', e => {
   const w = e.target.closest && e.target.closest('.word');
   if (!w) { if (e.target.closest('.page')) toggleUiOnTap(e); return; }
   if (settings.selMode) return;
-  if (!docHasText && pageCount <= 4) { toast('هذه الصفحة بلا نص قابل للنطق — يبدو الملف صوراً ممسوحة', 3000); }
+  if (!docHasText && pageCount <= 4) { toast(t('scanned_doc'), 3000); }
   lastLp = null;
   w._lpTimer = setTimeout(() => {
     lastLp = w;
-    if (!settings.tapSpeak) { toast('فعّل «نطق عند الضغط على الكلمة» من القائمة'); return; }
+    if (!settings.tapSpeak) { toast(t('tap_off')); return; }
     speakWordLooped(w.textContent, w);
-    toast('تكرار النطق — اضغط كلمة أخرى للإيقاف');
+    toast(t('looping'));
   }, 550);
 });
 pagesEl.addEventListener('pointerup', e => {
@@ -1219,7 +1490,7 @@ pagesEl.addEventListener('click', e => {
   if (!w || settings.selMode) return;
   if (w === lastLp) { lastLp = null; return; }
   if (!settings.tapSpeak) return;
-  toast('قراءة من هنا…');
+  toast(t('read_here'));
   startReadFrom(w);
 });
 pagesEl.addEventListener('contextmenu', e => {
@@ -1355,7 +1626,7 @@ async function runSearch() {
     if (newHits.length > 400) break;
   }
   hits = newHits; hitIdx = -1;
-  $('hitCount').textContent = hits.length ? '0 / ' + hits.length : 'لا نتائج';
+  $('hitCount').textContent = hits.length ? '0 / ' + hits.length : t('no_results');
   for (const h of hits) (pageHits[h.page] = pageHits[h.page] || []).push(h);
   hits.forEach(h => applyHits(h.page));
   if (hits.length) stepHit(1);
@@ -1396,22 +1667,22 @@ $('readPageBtn').onclick = async () => {
     pageItems[currentPage] = items;
   }
   const text = items.map(i => i.str).join(' ').replace(/\s+/g, ' ').trim();
-  if (!text) { toast('لا يوجد نص في هذه الصفحة'); return; }
+  if (!text) { toast(t('no_text_page')); return; }
   speak(text, null);
-  toast(settings.loop ? 'نطق الصفحة مع التكرار' : 'نطق الصفحة');
+  toast(settings.loop ? t('read_page_loop') : t('read_page'));
 };
 $('selBtn').onclick = () => {
   settings.selMode = !settings.selMode;
   saveSettings(); applySelMode();
   $('selBtn').classList.toggle('on', settings.selMode);
-  if (settings.selMode) { stopSpeech(); toast('وضع التحديد — اسحب فوق الكلمات لتحديدها ثم «نسخ»'); }
-  else toast('وضع النطق — ضغطة تقرأ، مطوّلة تكرّر');
+  if (settings.selMode) { stopSpeech(); toast(t('sel_on')); }
+  else toast(t('sel_off'));
 };
 $('selBtn').classList.toggle('on', settings.selMode);
 
 async function copyAllText() {
   if (!pdfDoc) return;
-  toast('جاري استخراج النص…', 1200);
+  toast(t('extracting'), 1200);
   const parts = [];
   for (let i = 1; i <= pageCount; i++) {
     try {
@@ -1422,7 +1693,7 @@ async function copyAllText() {
     } catch (e) { /* skip page */ }
   }
   const all = parts.join('\n\n');
-  if (!all) { toast('لا يوجد نص قابل للنسخ — الملف صور ممسوحة', 3500); return; }
+  if (!all) { toast(t('no_copyable'), 3500); return; }
   let ok = false;
   if (isNative && Scanner && Scanner.copyText) {
     try { await Scanner.copyText({ text: all }); ok = true; } catch (e) {}
@@ -1435,7 +1706,7 @@ async function copyAllText() {
     try { ok = document.execCommand('copy'); } catch (e2) {}
     ta.remove();
   }
-  toast(ok ? 'نُسخ كل نص المستند (' + parts.length + ' صفحة)' : 'تعذر النسخ في هذا الجهاز');
+  toast(ok ? t('copied') + ' (' + parts.length + ')' : t('copy_fail'));
 }
 
 $('loopBtn').onclick = () => {
@@ -1444,7 +1715,7 @@ $('loopBtn').onclick = () => {
   $('loopBtn').classList.toggle('on', settings.loop);
   if (settings.loop && lastUtter && !speaking) speak(lastUtter.text, lastUtter.span);
   if (!settings.loop) stopSpeech();
-  toast(settings.loop ? 'التكرار مفعّل' : 'التكرار متوقف');
+  toast(settings.loop ? t('loop_on') : t('loop_off'));
 };
 
 /* ---------- print & share ---------- */
@@ -1459,8 +1730,8 @@ $('shareBtn').onclick = async () => {
     try {
       if (docUri) await Scanner.sharePdf({ uri: docUri, name: docName, title: docName });
       else if (docBytes) await Scanner.sharePdf({ data: toBase64(docBytes), name: docName, title: docName });
-      else toast('لا يوجد ملف للمشاركة');
-    } catch (e) { toast('تعذرت المشاركة'); }
+      else toast(t('nothing_share'));
+    } catch (e) { toast(t('share_fail')); }
     return;
   }
   if (navigator.share && pickedFile) {
@@ -1479,8 +1750,8 @@ async function printDoc() {
     try {
       if (docUri) await Scanner.printPdf({ uri: docUri, name: docName });
       else if (docBytes) await Scanner.printPdf({ data: toBase64(docBytes), name: docName });
-      else { toast('لا يوجد ملف للطباعة'); }
-    } catch (e) { toast('تعذرت الطباعة'); }
+      else { toast(t('nothing_print')); }
+    } catch (e) { toast(t('print_fail')); }
     return;
   }
   if (docBytes) {
@@ -1514,7 +1785,7 @@ function askText(title, msg, opts = {}) {
     const inp = $('pwInput');
     inp.type = opts.secret ? 'password' : 'text';
     inp.value = opts.value || '';
-    inp.placeholder = opts.placeholder || 'كلمة السر';
+    inp.placeholder = opts.placeholder || t('pw_ph');
     $('pwVeil').classList.add('show');
     setTimeout(() => inp.focus(), 150);
   });
@@ -1530,32 +1801,32 @@ $('pwCancel').onclick = () => pwDone(null);
 $('pwInput').onkeydown = e => { if (e.key === 'Enter') pwDone($('pwInput').value); };
 
 async function protectDoc(mode) {
-  if (!(isNative && Scanner && Scanner.protectPdf)) { toast('متاح في التطبيق على الهاتف فقط'); return; }
-  if (!docUri && !docBytes) { toast('لا يوجد ملف مفتوح'); return; }
+  if (!(isNative && Scanner && Scanner.protectPdf)) { toast(t('native_only')); return; }
+  if (!docUri && !docBytes) { toast(t('open_first')); return; }
   const payload = { name: docName, mode };
   if (docUri) payload.uri = docUri; else payload.data = toBase64(docBytes);
   if (mode === 'lock') {
-    const pw = await askPassword('قفل الملف بكلمة سر', 'كل من يفتح النسخة المحمية سيحتاجها');
+    const pw = await askPassword(t('m_lock'), t('lock_msg'));
     if (!pw) return;
     payload.password = pw;
   } else {
     let old = docPassword;
     if (old == null) {
-      old = await askPassword('فك حماية الملف', 'أدخل كلمة السر الحالية للملف');
+      old = await askPassword(t('m_unlock'), t('unlock_msg'));
       if (old == null) return;
     }
     payload.oldPassword = old;
   }
-  toast('جاري المعالجة…', 1500);
+  toast(t('processing'), 1500);
   try {
     const r = await Scanner.protectPdf(payload);
-    if (r.public) toast('حُفظ في التنزيلات: ' + r.name, 3500);
+    if (r.public) toast(t('saved_dl') + r.name, 3500);
     else {
-      toast('تم — جاري فتح المشاركة…');
+      toast(t('processing'));
       await Scanner.sharePdf({ uri: 'file://' + r.path, name: r.name, title: r.name });
     }
   } catch (e) {
-    toast(/wrong-password/i.test(e && e.message || '') ? 'كلمة السر غير صحيحة' : 'تعذّرت العملية', 3000);
+    toast(/wrong-password/i.test(e && e.message || '') ? t('wrong_pw') : t('op_fail'), 3000);
   }
 }
 
@@ -1565,58 +1836,58 @@ function docPayload() {
   return p;
 }
 function saveResultToast(r) {
-  if (r.public) toast('حُفظ في التنزيلات: ' + r.name, 4000);
+  if (r.public) toast(t('saved_dl') + r.name, 4000);
   else Scanner.sharePdf({ uri: 'file://' + r.path, name: r.name, title: r.name })
-    .then(() => toast('تم — افتحه من المشاركة')).catch(() => toast('حُفظ في مجلد التطبيق'));
+    .then(() => toast(t('shared_done'))).catch(() => toast(t('saved_app')));
 }
 
 function mergeSheet() {
-  if (!(isNative && Scanner && Scanner.mergePdfs)) { toast('متاح في التطبيق على الهاتف فقط'); return; }
+  if (!(isNative && Scanner && Scanner.mergePdfs)) { toast(t('native_only')); return; }
   const rows = pdfFiles.map((f, i) =>
     `<label class="mg-item"><input type="checkbox" data-i="${i}"><span>${esc(f.name)}</span></label>`).join('');
-  openSheet('دمج ملفات PDF',
-    (rows || '<p style="color:var(--muted);font-size:13px;text-align:center;padding:16px">المكتبة فارغة — امسح الهاتف أولاً</p>') +
-    '<input class="mg-name" id="mgName" placeholder="اسم الملف الناتج" value="merged">' +
-    '<button class="btn" id="mgGo" style="width:100%;padding:12px">دمج المحدد</button>');
+  openSheet(t('m_merge'),
+    (rows || '<p style="color:var(--muted);font-size:13px;text-align:center;padding:16px">' + t('merge_empty') + '</p>') +
+    '<input class="mg-name" id="mgName" placeholder="' + t('merge_name') + '" value="merged">' +
+    '<button class="btn" id="mgGo" style="width:100%;padding:12px">' + t('merge_go') + '</button>');
   $('mgGo').onclick = async () => {
     const uris = Array.from($('sheetBody').querySelectorAll('input[type=checkbox]:checked'))
       .map(cb => pdfFiles[+cb.dataset.i].uri);
     const nm = $('mgName').value.trim() || 'merged';
-    if (uris.length < 2) { toast('اختر ملفين على الأقل'); return; }
-    closeSheet(); toast('جاري الدمج…');
+    if (uris.length < 2) { toast(t('pick2')); return; }
+    closeSheet(); toast(t('merging'));
     try {
       const r = await Scanner.mergePdfs({ uris, name: nm });
       saveResultToast(r);
       scanLibrary();
-    } catch (e) { toast('تعذّر الدمج — قد يكون أحد الملفات محمياً بكلمة سر', 3500); }
+    } catch (e) { toast(t('merge_fail'), 3500); }
   };
 }
 
 function pagesSheet() {
-  if (!(isNative && Scanner && Scanner.editPdf)) { toast('متاح في التطبيق على الهاتف فقط'); return; }
-  if (!docUri && !docBytes) { toast('افتح ملفاً أولاً'); return; }
-  openSheet('أدوات الصفحات',
-    `<p style="font-size:12px;color:var(--muted);margin:0 0 6px">المستند فيه ${pageCount} صفحة — حدّد الصفحات مثل: 1-3,5</p>` +
-    '<input class="mg-name" id="pgSpec" placeholder="مثال: 1-3,5">' +
+  if (!(isNative && Scanner && Scanner.editPdf)) { toast(t('native_only')); return; }
+  if (!docUri && !docBytes) { toast(t('open_first')); return; }
+  openSheet(t('m_pages'),
+    `<p style="font-size:12px;color:var(--muted);margin:0 0 6px">${t('pages_has1')} ${pageCount} ${t('pages_has2')}</p>` +
+    '<input class="mg-name" id="pgSpec" placeholder="' + t('pg_spec_ph') + '">' +
     '<div style="display:flex;gap:8px;margin-top:6px">' +
-    '<button class="btn" id="pgExtract" style="flex:1;padding:11px 4px;font-size:12.5px">استخراج</button>' +
-    '<button class="btn" id="pgDelete" style="flex:1;padding:11px 4px;font-size:12.5px">حذف</button>' +
-    '<button class="btn" id="pgRotate" style="flex:1;padding:11px 4px;font-size:12.5px">تدوير 90°</button></div>');
+    '<button class="btn" id="pgExtract" style="flex:1;padding:11px 4px;font-size:12.5px">' + t('pg_extract') + '</button>' +
+    '<button class="btn" id="pgDelete" style="flex:1;padding:11px 4px;font-size:12.5px">' + t('pg_delete') + '</button>' +
+    '<button class="btn" id="pgRotate" style="flex:1;padding:11px 4px;font-size:12.5px">' + t('pg_rotate') + '</button></div>');
   const run = async mode => {
     const spec = $('pgSpec').value.trim();
-    if (!spec) { toast('حدّد الصفحات أولاً'); return; }
+    if (!spec) { toast(t('pick_pages')); return; }
     closeSheet();
     const payload = docPayload();
     payload.mode = mode; payload.pages = spec;
-    toast('جاري المعالجة…');
+    toast(t('processing'));
     try {
       const r = await Scanner.editPdf(payload);
       saveResultToast(r);
       scanLibrary();
     } catch (e) {
       const m = (e && e.message) || '';
-      toast(/wrong-password/i.test(m) ? 'كلمة السر غير صحيحة'
-        : /bad-pages/i.test(m) ? 'صيغة الصفحات غير صحيحة' : 'تعذّرت العملية', 3000);
+      toast(/wrong-password/i.test(m) ? t('wrong_pw')
+        : /bad-pages/i.test(m) ? t('bad_pages') : t('op_fail'), 3000);
     }
   };
   $('pgExtract').onclick = () => run('extract');
@@ -1625,60 +1896,58 @@ function pagesSheet() {
 }
 
 async function pdfToImages() {
-  if (!(isNative && Scanner && Scanner.pdfToImages)) { toast('متاح في التطبيق على الهاتف فقط'); return; }
-  if (!docUri && !docBytes) { toast('افتح ملفاً أولاً'); return; }
+  if (!(isNative && Scanner && Scanner.pdfToImages)) { toast(t('native_only')); return; }
+  if (!docUri && !docBytes) { toast(t('open_first')); return; }
   closeSheet();
-  toast('جاري تحويل الصفحات إلى صور…');
+  toast(t('processing'));
   try {
     const r = await Scanner.pdfToImages(docPayload());
-    toast(r.public
-      ? 'حُفظت ' + r.count + ' صورة في معرض الصور (QariPDF)'
-      : 'حُفظت ' + r.count + ' صورة في مجلد التطبيق', 4000);
+    toast(t('imgs_saved1') + r.count + (r.public ? t('imgs_saved2') : t('imgs_saved2b')), 4000);
   } catch (e) {
-    toast(/wrong-password/i.test((e && e.message) || '') ? 'كلمة السر غير صحيحة' : 'تعذّر التحويل', 3000);
+    toast(/wrong-password/i.test((e && e.message) || '') ? t('wrong_pw') : t('imgs_fail'), 3000);
   }
 }
 
 $('menuBtn').onclick = () => {
   const bms = getBookmarks();
-  openSheet('خيارات القراءة', `
-    <div class="set-row"><div class="lbl">تحديد النص ونسخه<small>اسحب فوق الكلمات لتحديدها ثم انسخ — يعطّل النطق بالضغط مؤقتاً</small></div>
+  openSheet(t('menu_title'), `
+    <div class="set-row"><div class="lbl">${t('m_sel')}<small>${t('m_sel_s')}</small></div>
       <label class="switch"><input type="checkbox" id="sSel" ${settings.selMode ? 'checked' : ''}><span class="trk"></span></label></div>
-    <div class="set-row"><div class="lbl">نطق عند الضغط على الكلمة<small>ضغطة خفيفة تقرأ من الكلمة حتى النهاية، ضغطة مطوّلة تكرّرها</small></div>
+    <div class="set-row"><div class="lbl">${t('m_tap')}<small>${t('m_tap_s')}</small></div>
       <label class="switch"><input type="checkbox" id="sTap" ${settings.tapSpeak ? 'checked' : ''}><span class="trk"></span></label></div>
-    <div class="set-row"><div class="lbl">تكرار النطق (Loop)<small>تتكرر الكلمة حتى تطفئه</small></div>
+    <div class="set-row"><div class="lbl">${t('m_loop')}<small>${t('m_loop_s')}</small></div>
       <label class="switch"><input type="checkbox" id="sLoop" ${settings.loop ? 'checked' : ''}><span class="trk"></span></label></div>
-    <div class="set-row"><div class="lbl">الوضع الليلي<small>عكس ألوان الصفحات</small></div>
+    <div class="set-row"><div class="lbl">${t('m_night')}<small>${t('m_night_s')}</small></div>
       <label class="switch"><input type="checkbox" id="sNight" ${settings.night ? 'checked' : ''}><span class="trk"></span></label></div>
-    <div class="set-row"><div class="lbl">ملاءمة العرض<small>الصفحة بعرض الشاشة دائماً</small></div>
+    <div class="set-row"><div class="lbl">${t('m_fit')}<small>${t('m_fit_s')}</small></div>
       <label class="switch"><input type="checkbox" id="sFit" ${settings.fitWidth ? 'checked' : ''}><span class="trk"></span></label></div>
-    <div class="set-row"><div class="lbl">سرعة النطق</div>
+    <div class="set-row"><div class="lbl">${t('m_rate')}</div>
       <input type="range" class="rng" id="sRate" min="0.5" max="2" step="0.1" value="${settings.rate}"><span class="rng-val" id="sRateV">${settings.rate}×</span></div>
-    <div class="set-row"><div class="lbl">لغة النص الأجنبي<small>للكلمات غير العربية</small></div>
+    <div class="set-row"><div class="lbl">${t('m_lang')}<small>${t('m_lang_s')}</small></div>
       <select class="lang-sel" id="sLang">
-        <option value="fr-FR" ${settings.latinLang === 'fr-FR' ? 'selected' : ''}>فرنسي</option>
-        <option value="en-US" ${settings.latinLang === 'en-US' ? 'selected' : ''}>إنجليزي</option>
-        <option value="de-DE" ${settings.latinLang === 'de-DE' ? 'selected' : ''}>ألماني</option>
-        <option value="tr-TR" ${settings.latinLang === 'tr-TR' ? 'selected' : ''}>تركي</option>
+        <option value="fr-FR" ${settings.latinLang === 'fr-FR' ? 'selected' : ''}>${t('lang_fr')}</option>
+        <option value="en-US" ${settings.latinLang === 'en-US' ? 'selected' : ''}>${t('lang_en')}</option>
+        <option value="de-DE" ${settings.latinLang === 'de-DE' ? 'selected' : ''}>${t('lang_de')}</option>
+        <option value="tr-TR" ${settings.latinLang === 'tr-TR' ? 'selected' : ''}>${t('lang_tr')}</option>
       </select></div>
-    <div class="set-row" style="cursor:pointer" id="sCopyAll"><div class="lbl">نسخ كل نص المستند<small>استخراج النص كاملاً إلى الحافظة</small></div><span>‹</span></div>
-    <div class="set-row" style="cursor:pointer" id="sTtsTest"><div class="lbl">اختبار النطق<small>يتكلم جملة تجريبية للتحقق من محرك الصوت</small></div><span>‹</span></div>
-    <div class="set-row" style="cursor:pointer" id="sOutline"><div class="lbl">فهرس المستند<small>الفصول والعناوين إن وجدت</small></div><span>‹</span></div>
-    <div class="set-row" style="cursor:pointer" id="sBms"><div class="lbl">الإشارات المرجعية<small>${bms.length ? bms.length + ' محفوظة' : 'لا توجد'}</small></div><span>‹</span></div>
-    <div class="set-row" style="cursor:pointer" id="sBookmark"><div class="lbl" style="color:var(--gold)">★ إضافة إشارة للصفحة ${currentPage}</div><span></span></div>
-    <div class="set-row" style="cursor:pointer" id="sPrint"><div class="lbl">طباعة الملف<small>عبر نافذة طباعة النظام</small></div><span>‹</span></div>
-    <div class="set-row" style="cursor:pointer" id="sShare"><div class="lbl">تصدير / مشاركة<small>إرسال ملف PDF عبر التطبيقات</small></div><span>‹</span></div>
-    <div class="set-row" style="cursor:pointer" id="sPages"><div class="lbl">أدوات الصفحات<small>استخراج أو حذف أو تدوير صفحات محددة</small></div><span>‹</span></div>
-    <div class="set-row" style="cursor:pointer" id="sToImgs"><div class="lbl">تحويل الصفحات إلى صور<small>حفظ كل صفحة كصورة PNG</small></div><span>‹</span></div>
-    <div class="set-row" style="cursor:pointer" id="sMerge"><div class="lbl">دمج ملفات PDF<small>جمع عدة ملفات من المكتبة في ملف واحد</small></div><span>‹</span></div>
-    <div class="set-row" style="cursor:pointer" id="sLock"><div class="lbl">قفل الملف بكلمة سر<small>نسخة مشفّرة لا تُفتح إلا بكلمة السر</small></div><span>‹</span></div>
-    <div class="set-row" style="cursor:pointer" id="sUnlock"><div class="lbl">فك حماية الملف<small>نسخة مفتوحة بلا كلمة سر</small></div><span>‹</span></div>
-    <div style="text-align:center;color:var(--muted);font-size:11px;padding-top:10px">إصدار ${BUILD_STAMP}</div>
+    <div class="set-row" style="cursor:pointer" id="sCopyAll"><div class="lbl">${t('m_copyall')}<small>${t('m_copyall_s')}</small></div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="sTtsTest"><div class="lbl">${t('m_tts')}<small>${t('m_tts_s')}</small></div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="sOutline"><div class="lbl">${t('m_outline')}<small>${t('m_outline_s')}</small></div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="sBms"><div class="lbl">${t('m_bms')}<small>${bms.length ? bms.length + t('bm_saved') : t('bm_none')}</small></div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="sBookmark"><div class="lbl" style="color:var(--gold)">${t('m_bm_add')}${currentPage}</div><span></span></div>
+    <div class="set-row" style="cursor:pointer" id="sPrint"><div class="lbl">${t('m_print')}<small>${t('m_print_s')}</small></div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="sShare"><div class="lbl">${t('m_share')}<small>${t('m_share_s')}</small></div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="sPages"><div class="lbl">${t('m_pages')}<small>${t('m_pages_s')}</small></div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="sToImgs"><div class="lbl">${t('m_toimg')}<small>${t('m_toimg_s')}</small></div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="sMerge"><div class="lbl">${t('m_merge')}<small>${t('m_merge_s')}</small></div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="sLock"><div class="lbl">${t('m_lock')}<small>${t('m_lock_s')}</small></div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="sUnlock"><div class="lbl">${t('m_unlock')}<small>${t('m_unlock_s')}</small></div><span>‹</span></div>
+    <div style="text-align:center;color:var(--muted);font-size:11px;padding-top:10px">${t('version')} ${BUILD_STAMP}</div>
   `);
   $('sTap').onchange = e => { settings.tapSpeak = e.target.checked; saveSettings(); };
   $('sSel').onchange = e => {
     settings.selMode = e.target.checked; saveSettings(); applySelMode();
-    if (settings.selMode) { stopSpeech(); toast('وضع التحديد — اسحب فوق النص ثم «نسخ»'); }
+    if (settings.selMode) { stopSpeech(); toast(t('sel_on')); }
     $('selBtn').classList.toggle('on', settings.selMode);
   };
   $('sLoop').onchange = e => { settings.loop = e.target.checked; saveSettings(); $('loopBtn').classList.toggle('on', settings.loop); };
@@ -1691,9 +1960,9 @@ $('menuBtn').onclick = () => {
   $('sBookmark').onclick = () => { toggleBookmark(currentPage); showBookmarks(); };
   $('sCopyAll').onclick = () => { closeSheet(); copyAllText(); };
   $('sTtsTest').onclick = () => {
-    toast('اختبار النطق…');
+    toast(t('tts_testing'));
     speakOnce('هذا اختبار للنطق').then(ok =>
-      toast(ok ? 'النطق يعمل بشكل صحيح' : 'محرك النطق لا يستجيب — ثبّت أو فعّل «التحويل من نص إلى كلام» من إعدادات الهاتف', 4500));
+      toast(ok ? t('tts_ok') : t('tts_fail'), 4500));
   };
   $('sPrint').onclick = () => { closeSheet(); printDoc(); };
   $('sShare').onclick = () => { closeSheet(); $('shareBtn').click(); };
@@ -1711,14 +1980,14 @@ function getBookmarks() {
 function toggleBookmark(p) {
   let bms = getBookmarks();
   if (bms.includes(p)) bms = bms.filter(x => x !== p);
-  else { bms.push(p); bms.sort((a, b) => a - b); toast('أُضيفت إشارة للصفحة ' + p); }
+  else { bms.push(p); bms.sort((a, b) => a - b); toast(t('bm_added') + p); }
   localStorage.setItem('qari:bm:' + docKey, JSON.stringify(bms));
 }
 function showBookmarks() {
   const bms = getBookmarks();
-  openSheet('الإشارات المرجعية', bms.length
-    ? bms.map(p => `<div class="bm-item" data-p="${p}"><span>صفحة ${p}</span><button data-del="${p}">✕</button></div>`).join('')
-    : '<p style="color:var(--muted);font-size:13px;text-align:center;padding:20px">لا توجد إشارات مرجعية بعد.<br>أضفها من قائمة الخيارات.</p>');
+  openSheet(t('bm_t'), bms.length
+    ? bms.map(p => `<div class="bm-item" data-p="${p}"><span>${t('bm_page')}${p}</span><button data-del="${p}">✕</button></div>`).join('')
+    : '<p style="color:var(--muted);font-size:13px;text-align:center;padding:20px">' + t('bm_empty') + '</p>');
   $('sheetBody').querySelectorAll('.bm-item').forEach(el => {
     el.onclick = e => {
       if (e.target.dataset.del) { toggleBookmark(+e.target.dataset.del); showBookmarks(); return; }
@@ -1727,11 +1996,11 @@ function showBookmarks() {
   });
 }
 async function showOutline() {
-  openSheet('فهرس المستند', '<p style="color:var(--muted);font-size:13px;text-align:center;padding:20px">جاري التحميل…</p>');
+  openSheet(t('outline_t'), '<p style="color:var(--muted);font-size:13px;text-align:center;padding:20px">' + t('outline_loading') + '</p>');
   let outline = [];
   try { outline = await pdfDoc.getOutline() || []; } catch (e) {}
   if (!outline.length) {
-    $('sheetBody').innerHTML = '<p style="color:var(--muted);font-size:13px;text-align:center;padding:20px">هذا المستند لا يحتوي على فهرس.</p>';
+    $('sheetBody').innerHTML = '<p style="color:var(--muted);font-size:13px;text-align:center;padding:20px">' + t('outline_empty') + '</p>';
     return;
   }
   const rows = [];
@@ -1937,27 +2206,30 @@ function edReencode(u, q) {
   });
 }
 async function composeHtml() {
-  const t = $('edTitle').value.trim();
+  const title = $('edTitle').value.trim();
   const bodyHtml = $('edBody').innerHTML;
   const paper = $('edPaper').value;
   const orient = $('edOrient').value;
   const q = (+$('edQuality').value) / 100;
+  const fs = $('edFont') ? $('edFont').value : '13';
+  const dir = document.documentElement.dir === 'ltr' ? 'ltr' : 'rtl';
+  const lang = settings.lang || 'ar';
   const imgs = (await Promise.all(edImages.map(u => edReencode(u, q))))
     .map(u => '<img src="' + u + '">').join('');
-  return '<!doctype html><html dir="rtl" lang="ar"><head><meta charset="utf-8"><style>' +
+  return '<!doctype html><html dir="' + dir + '" lang="' + lang + '"><head><meta charset="utf-8"><style>' +
     '@page{size:' + paper + ' ' + orient + ';margin:16mm}' +
     'body{font-family:"Noto Naskh Arabic","Amiri","Segoe UI","Traditional Arabic",Arial,sans-serif;' +
-    'color:#1a1a1a;font-size:13pt;line-height:2}' +
-    'h1{text-align:center;font-size:20pt;font-weight:700;margin:0 0 6px;padding-bottom:10px;' +
+    'color:#1a1a1a;font-size:' + fs + 'pt;line-height:1.9}' +
+    'h1{text-align:center;font-size:' + (Math.round(+fs * 1.55)) + 'pt;font-weight:700;margin:0 0 6px;padding-bottom:10px;' +
     'border-bottom:2px solid #444;letter-spacing:.5px}' +
     '.rule{width:60px;height:2px;background:#444;margin:14px auto 22px}' +
     'body>img{display:block;max-width:88%;margin:14px auto;border-radius:6px;' +
     'box-shadow:0 1px 4px rgba(0,0,0,.25)}' +
-    '.doc{text-align:justify;font-size:13pt;line-height:2}' +
+    '.doc{text-align:justify;font-size:' + fs + 'pt;line-height:1.9}' +
     '.doc p{margin:0 0 10px;min-height:1em}' +
     '.doc img{max-width:60%;display:block;margin:8px auto;border-radius:6px}' +
     '</style></head><body>' +
-    (t ? '<h1>' + escHtml(t) + '</h1><div class="rule"></div>' : '') +
+    (title ? '<h1>' + escHtml(title) + '</h1><div class="rule"></div>' : '') +
     imgs + '<div class="doc">' + bodyHtml + '</div></body></html>';
 }
 
@@ -1969,15 +2241,15 @@ $('edSave').onclick = async () => {
 };
 $('pvClose').onclick = () => $('pvVeil').classList.remove('show');
 $('pvPrint').onclick = async () => {
-  const nm = $('edName').value.trim() || $('edTitle').value.trim() || 'مستند';
+  const nm = $('edName').value.trim() || $('edTitle').value.trim() || t('doc_default');
   $('pvVeil').classList.remove('show');
   if (isNative && Scanner && Scanner.printHtml) {
     try { await Scanner.printHtml({ html: pvHtml, name: nm }); }
-    catch (e) { toast('تعذّر إنشاء الملف'); }
+    catch (e) { toast(t('mk_fail')); }
     return;
   }
   const w = window.open('', '_blank');
-  if (!w) { toast('اسمح بالنوافذ المنبثقة'); return; }
+  if (!w) { toast(t('popup')); return; }
   w.document.write(pvHtml); w.document.close();
   setTimeout(() => { w.print(); }, 400);
 };
@@ -1990,6 +2262,7 @@ pagesEl.addEventListener('dblclick', e => {
 });
 
 /* ================= Boot ================= */
+applyLang();
 applySelMode();
 scanLibrary();
 if (!isNative) {
