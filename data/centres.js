@@ -1272,5 +1272,234 @@ window.CENTRES_DATA = [
         ]
       }
     ]
+  },
+  {
+    id: 'prefecture',
+    icon: '🏛️',
+    name: { ar: 'المحافظة — Préfecture', en: 'The prefecture — Préfecture', fr: 'La préfecture' },
+    desc: {
+      ar: 'من تسليم الأوراق بعد قبول اللجوء حتى بطاقة المقيم، الطابع الضريبي، وتجديد الإقامة',
+      en: 'From submitting documents after asylum is granted to the resident card, the tax stamp, and permit renewal',
+      fr: 'Du dépôt des documents après l’asile jusqu’à la carte de résident, le timbre fiscal et le renouvellement'
+    },
+    sections: [
+      {
+        icon: '🏛️',
+        title: { ar: 'عند الاستقبال', en: 'At reception', fr: 'À l’accueil' },
+        phrases: [
+          { fr: 'Bonjour, j’ai rendez-vous pour une démarche concernant mon titre de séjour.', ar: 'مرحبا، عندي موعد بخصوص إجراء متعلق ببطاقة إقامتي.', en: 'Hello, I have an appointment for a procedure concerning my residence permit.' },
+          { fr: 'Voici ma convocation.', ar: 'هاي ورقة الموعد تبعي.', en: 'Here is my appointment notice.' },
+          { fr: 'Je suis reconnu réfugié.', ar: 'تم الاعتراف فيني كلاجئ.', en: 'I have been recognized as a refugee.' },
+          { fr: 'Voici la décision de l’OFPRA.', ar: 'هاي قرار الأوفبرا.', en: 'Here is the OFPRA decision.' }
+        ]
+      },
+      {
+        icon: '📄',
+        title: { ar: 'الموظف يطلب الوثائق', en: 'The officer asks for documents', fr: 'L’agent demande les documents' },
+        phrases: [
+          { fr: 'Pouvez-vous me donner vos documents, s’il vous plaît ?', ar: 'فيك تعطيني أوراقك، لو سمحت؟', en: 'Could you give me your documents, please?' },
+          { fr: 'Oui, bien sûr. Les voici.', ar: 'إي طبعًا، تفضل هاي هني.', en: 'Yes, of course. Here they are.' },
+          { fr: 'Vous avez votre passeport ?', ar: 'معك جواز سفرك؟', en: 'Do you have your passport?' },
+          { fr: 'J’ai mon document d’identité.', ar: 'معي وثيقة هويتي.', en: 'I have my identity document.' },
+          { fr: 'Voici mon attestation de demande d’asile.', ar: 'هاي وثيقة طلب اللجوء تبعي.', en: 'Here is my asylum application certificate.' }
+        ]
+      },
+      {
+        icon: '🪪',
+        title: { ar: 'الموظف يتأكد من معلوماتك', en: 'The officer checks your details', fr: 'L’agent vérifie vos informations' },
+        phrases: [
+          { fr: 'Pouvez-vous me confirmer votre nom et votre prénom ?', ar: 'فيك تأكدلي اسمك واسمك الأول؟', en: 'Can you confirm your surname and first name?' },
+          { fr: 'Je m’appelle Mohammad Haj.', ar: 'اسمي محمد حاج.', en: 'My name is Mohammad Haj.' },
+          { fr: 'Quelle est votre date de naissance ?', ar: 'شو تاريخ ميلادك؟', en: 'What is your date of birth?' },
+          { fr: 'Je suis né le 15 juillet 1989.', ar: 'انولدت بـ15 تموز 1989.', en: 'I was born on July 15, 1989.' },
+          { fr: 'Quel est votre lieu de naissance ?', ar: 'وين مكان ولادتك؟', en: 'What is your place of birth?' },
+          { fr: 'Je suis né à Hama, en Syrie.', ar: 'انولدت بحماة، بسوريا.', en: 'I was born in Hama, Syria.' }
+        ]
+      },
+      {
+        icon: '🎂',
+        title: { ar: 'الحديث عن شهادة الميلاد', en: 'Talking about the birth certificate', fr: 'À propos de l’acte de naissance' },
+        phrases: [
+          { fr: 'Vous avez reçu votre acte de naissance de l’OFPRA ?', ar: 'استلمت شهادة ميلادك من الأوفبرا؟', en: 'Have you received your birth certificate from OFPRA?' },
+          { fr: 'Oui, je l’ai reçu.', ar: 'إي، استلمتها.', en: 'Yes, I received it.' },
+          { fr: 'Non, je ne l’ai pas encore reçu.', ar: 'لا، لسا ما استلمتها.', en: 'No, I haven’t received it yet.' },
+          { fr: 'J’ai seulement la décision de l’OFPRA.', ar: 'معي بس قرار الأوفبرا.', en: 'I only have the OFPRA decision.' },
+          { fr: 'Je vais vérifier les informations sur votre acte de naissance.', ar: 'رح أتأكد من المعلومات الموجودة بشهادة ميلادك.', en: 'I’m going to check the information on your birth certificate.' },
+          { fr: 'Votre nom est correct ?', ar: 'اسمك صحيح؟', en: 'Is your name correct?' },
+          { fr: 'Oui, tout est correct.', ar: 'إي، كلشي صحيح.', en: 'Yes, everything is correct.' },
+          { fr: 'Il y a une erreur sur mon nom.', ar: 'في خطأ باسمي.', en: 'There is an error in my name.' },
+          { fr: 'Que dois-je faire pour corriger cette erreur ?', ar: 'شو لازم أعمل حتى صحح هالخطأ؟', en: 'What do I need to do to correct this error?' }
+        ]
+      },
+      {
+        icon: '🪪',
+        title: { ar: 'بطاقة الإقامة', en: 'The residence permit', fr: 'Le titre de séjour' },
+        phrases: [
+          { fr: 'Nous allons enregistrer votre demande de titre de séjour.', ar: 'رح نسجل طلب بطاقة إقامتك.', en: 'We are going to register your residence permit application.' },
+          { fr: 'Est-ce que je vais recevoir une carte de résident de dix ans ?', ar: 'رح استلم بطاقة مقيم لمدة عشر سنين؟', en: 'Will I receive a ten-year resident card?' },
+          { fr: 'Oui, vous êtes reconnu réfugié.', ar: 'إي، أنت معترف فيك كلاجئ.', en: 'Yes, you have been recognized as a refugee.' }
+        ]
+      },
+      {
+        icon: '🖐️',
+        title: { ar: 'الصورة والبصمات', en: 'Photo and fingerprints', fr: 'Photo et empreintes' },
+        phrases: [
+          { fr: 'Nous allons prendre vos empreintes.', ar: 'رح ناخد بصماتك.', en: 'We are going to take your fingerprints.' },
+          { fr: 'D’accord.', ar: 'طيب.', en: 'Okay.' },
+          { fr: 'Regardez l’appareil photo, s’il vous plaît.', ar: 'تطلع بالكاميرا، لو سمحت.', en: 'Look at the camera, please.' },
+          { fr: 'Est-ce que je dois enlever mes lunettes ?', ar: 'لازم شيل نظاراتي؟', en: 'Do I need to remove my glasses?' }
+        ]
+      },
+      {
+        icon: '📋',
+        title: { ar: 'الموظف يعطيك ورقة', en: 'The officer gives you a document', fr: 'L’agent vous remet un document' },
+        phrases: [
+          { fr: 'Voici le document qui confirme votre démarche.', ar: 'هاي الوثيقة اللي بتأكد إنك عملت الإجراء.', en: 'Here is the document confirming your procedure.' },
+          { fr: 'Est-ce que je dois garder ce document ?', ar: 'لازم حافظ على هالوثيقة؟', en: 'Do I need to keep this document?' },
+          { fr: 'Oui, gardez-le.', ar: 'إي، حافظ عليه.', en: 'Yes, keep it.' }
+        ]
+      },
+      {
+        icon: '📅',
+        title: { ar: 'السؤال عن موعد استلام البطاقة', en: 'Asking when to collect the card', fr: 'Demander quand récupérer la carte' },
+        phrases: [
+          { fr: 'Quand est-ce que je pourrai récupérer ma carte ?', ar: 'إمتى فيني استلم بطاقتي؟', en: 'When will I be able to collect my card?' },
+          { fr: 'Est-ce que je recevrai un SMS ou un courrier ?', ar: 'رح توصلني رسالة SMS أو رسالة بالبريد؟', en: 'Will I receive a text message or a letter?' },
+          { fr: 'Comment saurai-je que ma carte est prête ?', ar: 'كيف رح أعرف إنو بطاقتي صارت جاهزة؟', en: 'How will I know that my card is ready?' },
+          { fr: 'Vous recevrez une convocation pour récupérer votre carte.', ar: 'رح توصلك دعوة/موعد حتى تستلم البطاقة.', en: 'You will receive an appointment notice to collect your card.' },
+          { fr: 'D’accord. Est-ce que je dois prendre rendez-vous ?', ar: 'طيب، لازم آخد موعد؟', en: 'Okay. Do I need to make an appointment?' },
+          { fr: 'Est-ce que je dois apporter mon passeport ?', ar: 'لازم جيب جواز سفري؟', en: 'Do I need to bring my passport?' }
+        ]
+      },
+      {
+        icon: '✈️',
+        title: { ar: 'إذا أردت وثيقة سفر', en: 'If you want a travel document', fr: 'Si vous voulez un titre de voyage' },
+        phrases: [
+          { fr: 'Je voudrais aussi demander un titre de voyage.', ar: 'بدي كمان أطلب وثيقة سفر.', en: 'I would also like to apply for a travel document.' },
+          { fr: 'Est-ce que je peux faire cette demande maintenant ?', ar: 'فيني أعمل هالطلب هلأ؟', en: 'Can I make this application now?' },
+          { fr: 'Quelles sont les démarches pour obtenir un titre de voyage ?', ar: 'شو الإجراءات للحصول على وثيقة سفر؟', en: 'What are the steps to obtain a travel document?' }
+        ]
+      },
+      {
+        icon: '👋',
+        title: { ar: 'قبل ما تطلع', en: 'Before you leave', fr: 'Avant de partir' },
+        phrases: [
+          { fr: 'Est-ce que j’ai d’autres démarches à faire ?', ar: 'في إجراءات تانية لازم أعملها؟', en: 'Are there any other procedures I need to complete?' },
+          { fr: 'Est-ce que je dois faire quelque chose auprès de l’OFPRA ?', ar: 'لازم أعمل شي عند الأوفبرا؟', en: 'Do I need to do anything with OFPRA?' },
+          { fr: 'Est-ce que je dois garder tous ces documents ?', ar: 'لازم حافظ على كل هالأوراق؟', en: 'Do I need to keep all these documents?' },
+          { fr: 'Pouvez-vous me dire ce que je dois faire ensuite ?', ar: 'فيك تخبرني شو لازم أعمل بعدين؟', en: 'Could you tell me what I need to do next?' },
+          { fr: 'Merci beaucoup pour votre aide.', ar: 'شكرًا كتير على مساعدتك.', en: 'Thank you very much for your help.' },
+          { fr: 'Bonne journée.', ar: 'نهارك سعيد.', en: 'Have a nice day.' }
+        ]
+      },
+      {
+        icon: '📄',
+        title: { ar: 'نسخة كاملة أو مستخرج (copie intégrale / extrait)', en: 'Full copy or extract (copie intégrale / extrait)', fr: 'Copie intégrale ou extrait' },
+        phrases: [
+          { fr: 'Je voudrais une copie intégrale de mon acte de naissance.', ar: 'بدي نسخة كاملة عن شهادة ميلادي.', en: 'I would like a full copy of my birth certificate.' },
+          { fr: 'Je voudrais un extrait de mon acte de naissance.', ar: 'بدي مستخرج من شهادة ميلادي.', en: 'I would like an extract from my birth certificate.' },
+          { fr: 'Vous avez besoin d’une copie intégrale ou d’un extrait ?', ar: 'بدكم نسخة كاملة ولا مستخرج؟', en: 'Do you need a full copy or an extract?' },
+          { fr: 'Je ne sais pas. Quel document dois-je fournir ?', ar: 'ما بعرف. أي وثيقة لازم قدّم؟', en: 'I don’t know. Which document do I need to provide?' }
+        ]
+      },
+      {
+        icon: '✉️',
+        title: { ar: 'الطوابع البريدية', en: 'Postage stamps', fr: 'Les timbres postaux' },
+        phrases: [
+          { fr: 'Je voudrais acheter des timbres, s’il vous plaît.', ar: 'بدي اشتري طوابع، لو سمحت.', en: 'I’d like to buy some stamps, please.' },
+          { fr: 'Vous avez des timbres pour une lettre ?', ar: 'عندكم طوابع للرسائل؟', en: 'Do you have stamps for a letter?' },
+          { fr: 'Combien coûte un timbre ?', ar: 'قديش سعر الطابع؟', en: 'How much does a stamp cost?' },
+          { fr: 'Je voudrais un timbre pour une lettre en France.', ar: 'بدي طابع لرسالة داخل فرنسا.', en: 'I’d like a stamp for a letter within France.' },
+          { fr: 'Je voudrais envoyer cette lettre.', ar: 'بدي ابعت هالرسالة.', en: 'I’d like to send this letter.' },
+          { fr: 'Quel timbre dois-je mettre ?', ar: 'أي طابع لازم حط؟', en: 'Which stamp should I put on it?' },
+          { fr: 'Est-ce que ce timbre suffit ?', ar: 'هالطابع بيكفي؟', en: 'Is this stamp enough?' },
+          { fr: 'Je voudrais un timbre prioritaire.', ar: 'بدي طابع لإرسال سريع/أولوية.', en: 'I’d like a priority stamp.' },
+          { fr: 'Je voudrais un timbre pour l’étranger.', ar: 'بدي طابع لإرسال رسالة للخارج.', en: 'I’d like a stamp for sending a letter abroad.' },
+          { fr: 'Vous pouvez me dire où je dois mettre le timbre ?', ar: 'فيك تقلي وين لازم حط الطابع؟', en: 'Can you tell me where I should put the stamp?' },
+          { fr: 'Est-ce que je peux acheter des timbres ici ?', ar: 'فيني اشتري طوابع من هون؟', en: 'Can I buy stamps here?' }
+        ]
+      },
+      {
+        icon: '🪙',
+        title: { ar: 'الطابع الضريبي — timbre fiscal', en: 'The tax stamp — timbre fiscal', fr: 'Le timbre fiscal' },
+        phrases: [
+          { fr: 'Je dois acheter un timbre fiscal pour mon titre de séjour.', ar: 'لازم اشتري طابع ضريبي لبطاقة الإقامة.', en: 'I need to buy a tax stamp for my residence permit.' },
+          { fr: 'Où est-ce que je peux acheter un timbre fiscal ?', ar: 'وين فيني اشتري طابع ضريبي؟', en: 'Where can I buy a tax stamp?' },
+          { fr: 'Combien coûte le timbre fiscal ?', ar: 'قديش قيمة الطابع الضريبي؟', en: 'How much is the tax stamp?' },
+          { fr: 'Est-ce que je peux acheter le timbre fiscal en ligne ?', ar: 'فيني اشتري الطابع الضريبي أونلاين؟', en: 'Can I buy the tax stamp online?' },
+          { fr: 'J’ai acheté le timbre fiscal.', ar: 'اشتريت الطابع الضريبي.', en: 'I bought the tax stamp.' },
+          { fr: 'Voici mon timbre fiscal.', ar: 'هاد هو الطابع الضريبي تبعي.', en: 'Here is my tax stamp.' },
+          { fr: 'Est-ce que je dois payer le timbre fiscal maintenant ?', ar: 'لازم ادفع الطابع الضريبي هلق؟', en: 'Do I have to pay the tax stamp now?' }
+        ]
+      },
+      {
+        icon: '🔁',
+        title: { ar: 'تجديد الإقامة — عند الدخول', en: 'Permit renewal — on arrival', fr: 'Renouvellement — à l’entrée' },
+        phrases: [
+          { fr: 'Bonjour, j’ai rendez-vous pour le renouvellement de mon titre de séjour.', ar: 'مرحبا، عندي موعد لتجديد بطاقة الإقامة.', en: 'Hello, I have an appointment to renew my residence permit.' },
+          { fr: 'Voici ma convocation.', ar: 'هاي ورقة الموعد تبعي.', en: 'Here is my appointment notice.' },
+          { fr: 'Vous avez votre titre de séjour actuel ?', ar: 'معك بطاقة إقامتك الحالية؟', en: 'Do you have your current residence permit?' },
+          { fr: 'Oui, voici ma carte de séjour.', ar: 'إي، هاي بطاقة إقامتي.', en: 'Yes, here is my residence permit.' }
+        ]
+      },
+      {
+        icon: '🔁',
+        title: { ar: 'تجديد الإقامة — التحقق من المعلومات', en: 'Permit renewal — checking details', fr: 'Renouvellement — vérification' },
+        phrases: [
+          { fr: 'Pouvez-vous confirmer votre nom et votre prénom ?', ar: 'فيك تأكدلي اسمك وكنيتك؟', en: 'Can you confirm your first and last name?' },
+          { fr: 'Je m’appelle Mohammad Haj.', ar: 'اسمي محمد حاج.', en: 'My name is Mohammad Haj.' },
+          { fr: 'Quelle est votre date de naissance ?', ar: 'شو تاريخ ميلادك؟', en: 'What is your date of birth?' },
+          { fr: 'Je suis né le 15 juillet 1989.', ar: 'أنا مولود بـ15 تموز 1989.', en: 'I was born on July 15, 1989.' },
+          { fr: 'Quelle est votre adresse actuelle ?', ar: 'شو عنوانك الحالي؟', en: 'What is your current address?' },
+          { fr: 'J’ai changé d’adresse récemment.', ar: 'غيّرت عنواني مؤخراً.', en: 'I recently changed my address.' }
+        ]
+      },
+      {
+        icon: '🔁',
+        title: { ar: 'تجديد الإقامة — الوثائق', en: 'Permit renewal — documents', fr: 'Renouvellement — documents' },
+        phrases: [
+          { fr: 'Vous avez votre passeport ?', ar: 'معك جواز سفرك؟', en: 'Do you have your passport?' },
+          { fr: 'Oui, voici mon passeport.', ar: 'إي، هاد جواز سفري.', en: 'Yes, here is my passport.' },
+          { fr: 'Vous avez un justificatif de domicile ?', ar: 'معك إثبات سكن؟', en: 'Do you have proof of address?' },
+          { fr: 'Oui, voici mon justificatif de domicile.', ar: 'إي، هاد إثبات السكن.', en: 'Yes, here is my proof of address.' },
+          { fr: 'Vous avez votre acte de naissance ?', ar: 'معك شهادة الميلاد؟', en: 'Do you have your birth certificate?' },
+          { fr: 'Oui, voici mon acte de naissance.', ar: 'إي، هاي شهادة ميلادي.', en: 'Yes, here is my birth certificate.' },
+          { fr: 'Vous avez vos photos d’identité ?', ar: 'معك صور شخصية؟', en: 'Do you have your ID photos?' },
+          { fr: 'Oui, les voici.', ar: 'إي، هاي هني.', en: 'Yes, here they are.' },
+          { fr: 'Nous allons prendre vos empreintes.', ar: 'رح ناخد بصماتك.', en: 'We’re going to take your fingerprints.' },
+          { fr: 'Regardez l’appareil photo, s’il vous plaît.', ar: 'تطلع بالكاميرا لو سمحت.', en: 'Please look at the camera.' },
+          { fr: 'Est-ce que votre adresse a changé ?', ar: 'هل تغيّر عنوانك؟', en: 'Has your address changed?' },
+          { fr: 'Oui, mon adresse a changé.', ar: 'إي، عنواني تغيّر.', en: 'Yes, my address has changed.' },
+          { fr: 'Je suis actuellement domicilié à la Croix-Rouge.', ar: 'حالياً أنا مسجّل عنواني عند الصليب الأحمر.', en: 'I am currently domiciled with the Red Cross.' }
+        ]
+      },
+      {
+        icon: '🔁',
+        title: { ar: 'تجديد الإقامة — الدفع وعدم الفهم', en: 'Permit renewal — payment and comprehension', fr: 'Renouvellement — paiement et compréhension' },
+        phrases: [
+          { fr: 'Est-ce que je dois acheter un timbre fiscal ?', ar: 'لازم اشتري طابع ضريبي؟', en: 'Do I need to buy a tax stamp?' },
+          { fr: 'Combien dois-je payer ?', ar: 'قديش لازم ادفع؟', en: 'How much do I have to pay?' },
+          { fr: 'J’ai déjà acheté le timbre fiscal.', ar: 'أنا اشتريت الطابع الضريبي من قبل.', en: 'I have already bought the tax stamp.' },
+          { fr: 'Voici le justificatif du timbre fiscal.', ar: 'هاد إثبات دفع الطابع الضريبي.', en: 'Here is the tax-stamp payment receipt.' },
+          { fr: 'Je parle français, mais je ne comprends pas très bien.', ar: 'بحكي فرنسي، بس ما بفهم منيح.', en: 'I speak French, but I don’t understand very well.' },
+          { fr: 'Pouvez-vous parler plus lentement, s’il vous plaît ?', ar: 'فيك تحكي أبطأ شوي لو سمحت؟', en: 'Could you speak more slowly, please?' },
+          { fr: 'Pouvez-vous répéter, s’il vous plaît ?', ar: 'فيك تعيد لو سمحت؟', en: 'Could you repeat, please?' },
+          { fr: 'Pouvez-vous me l’écrire, s’il vous plaît ?', ar: 'فيك تكتبلي ياها لو سمحت؟', en: 'Could you write it down for me, please?' }
+        ]
+      },
+      {
+        icon: '🔁',
+        title: { ar: 'تجديد الإقامة — في نهاية الموعد', en: 'Permit renewal — end of the appointment', fr: 'Renouvellement — fin du rendez-vous' },
+        phrases: [
+          { fr: 'Est-ce que mon dossier est complet ?', ar: 'ملفي كامل؟', en: 'Is my application complete?' },
+          { fr: 'Est-ce qu’il manque un document ?', ar: 'ناقص شي ورقة؟', en: 'Is any document missing?' },
+          { fr: 'Quand est-ce que je recevrai ma nouvelle carte ?', ar: 'إمتى رح استلم بطاقتي الجديدة؟', en: 'When will I receive my new card?' },
+          { fr: 'Comment saurai-je que ma carte est prête ?', ar: 'كيف رح أعرف إنو البطاقة صارت جاهزة؟', en: 'How will I know that my card is ready?' },
+          { fr: 'Est-ce que je recevrai un SMS ou un courrier ?', ar: 'رح يوصلني SMS ولا رسالة بالبريد؟', en: 'Will I receive a text message or a letter?' },
+          { fr: 'Est-ce que je dois prendre un autre rendez-vous ?', ar: 'لازم آخد موعد تاني؟', en: 'Do I need to make another appointment?' },
+          { fr: 'Merci beaucoup. Bonne journée.', ar: 'شكراً كتير، نهارك سعيد.', en: 'Thank you very much. Have a nice day.' }
+        ]
+      }
+    ]
   }
 ];
