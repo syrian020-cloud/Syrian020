@@ -578,6 +578,163 @@ window.CENTRES_DATA = [
           { fr: 'Avez-vous bien compris toutes les questions ?', ar: 'فهمت كل الأسئلة منيح؟', en: 'Did you understand all the questions?' },
           { fr: 'Oui, j’ai bien compris.', ar: 'إي، فهمت منيح.', en: 'Yes, I understood well.' }
         ]
+      },
+      {
+        icon: '🪪',
+        title: { ar: 'المعلومات الشخصية — مثال كامل', en: 'Personal information — full example', fr: 'Informations personnelles — exemple complet' },
+        phrases: [
+          { fr: 'Comment vous appelez-vous ?', ar: 'شو اسمك؟', en: 'What is your name?' },
+          { fr: 'Je m’appelle Mohammad Haj.', ar: 'اسمي محمد حاج.', en: 'My name is Mohammad Haj.' },
+          { fr: 'Quelle est votre date de naissance ?', ar: 'شو تاريخ ميلادك؟', en: 'What is your date of birth?' },
+          { fr: 'Je suis né le 15 juillet 1989.', ar: 'أنا مولود بـ 15 تموز 1989.', en: 'I was born on July 15, 1989.' },
+          { fr: 'Où êtes-vous né ?', ar: 'وين مولود؟', en: 'Where were you born?' },
+          { fr: 'Je suis né à Hama, en Syrie.', ar: 'أنا مولود بحماة، بسوريا.', en: 'I was born in Hama, Syria.' },
+          { fr: 'Quelle est votre nationalité ?', ar: 'شو جنسيتك؟', en: 'What is your nationality?' },
+          { fr: 'Je suis Syrien.', ar: 'أنا سوري.', en: 'I am Syrian.' },
+          { fr: 'Quelle est votre situation familiale ?', ar: 'شو وضعك العائلي؟', en: 'What is your family situation?' },
+          { fr: 'Je suis célibataire.', ar: 'أنا عازب.', en: 'I am single.' },
+          { fr: 'Avez-vous des enfants ?', ar: 'عندك أولاد؟', en: 'Do you have children?' },
+          { fr: 'Non, je n’ai pas d’enfants.', ar: 'لا، ما عندي أولاد.', en: 'No, I don’t have children.' }
+        ]
+      },
+      {
+        icon: '🎓',
+        title: { ar: 'الدراسة والعمل — مثال كامل', en: 'Studies and work — full example', fr: 'Études et travail — exemple complet' },
+        phrases: [
+          { fr: 'Quel est votre niveau d’études ?', ar: 'لشو وصلت بالدراسة؟', en: 'What is your level of education?' },
+          { fr: 'J’ai étudié la littérature anglaise en Syrie et j’ai obtenu mon diplôme.', ar: 'درست الأدب الإنكليزي بسوريا وتخرجت.', en: 'I studied English literature in Syria and graduated.' },
+          { fr: 'Quel était votre métier en Syrie ?', ar: 'شو كانت مهنتك بسوريا؟', en: 'What was your occupation in Syria?' },
+          { fr: 'J’étais professeur d’anglais en Syrie.', ar: 'كنت مدرس لغة إنكليزية بسوريا.', en: 'I was an English teacher in Syria.' }
+        ]
+      },
+      {
+        icon: '🚪',
+        title: { ar: 'مغادرة سوريا — الخدمة العسكرية', en: 'Leaving Syria — military service', fr: 'Le départ de la Syrie — service militaire' },
+        phrases: [
+          { fr: 'Quand avez-vous quitté la Syrie ?', ar: 'إمتى تركت سوريا؟', en: 'When did you leave Syria?' },
+          { fr: 'J’ai quitté la Syrie en 2017.', ar: 'تركت سوريا سنة 2017.', en: 'I left Syria in 2017.' },
+          { fr: 'Pourquoi avez-vous quitté la Syrie ?', ar: 'ليش تركت سوريا؟', en: 'Why did you leave Syria?' },
+          { fr: 'J’ai quitté la Syrie parce que je voulais éviter le service militaire.', ar: 'تركت سوريا لأني كنت بدي أتجنب الخدمة العسكرية.', en: 'I left Syria because I wanted to avoid military service.' },
+          { fr: 'Avez-vous reçu une convocation pour le service militaire ?', ar: 'وصلك استدعاء للخدمة العسكرية؟', en: 'Did you receive a summons for military service?' },
+          { fr: 'Oui, j’ai reçu une convocation pour le service militaire.', ar: 'إي، وصلني استدعاء للخدمة العسكرية.', en: 'Yes, I received a summons for military service.' },
+          { fr: 'Quand avez-vous reçu cette convocation ?', ar: 'إمتى وصلك هالاستدعاء؟', en: 'When did you receive this summons?' },
+          { fr: 'J’ai reçu la convocation un mois avant de quitter la Syrie.', ar: 'وصلني الاستدعاء قبل شهر من ما تركت سوريا.', en: 'I received the summons one month before leaving Syria.' },
+          { fr: 'Pourquoi ne vouliez-vous pas faire votre service militaire ?', ar: 'ليش ما كنت بدك تعمل الخدمة العسكرية؟', en: 'Why didn’t you want to do your military service?' },
+          { fr: 'Je ne voulais pas faire mon service militaire parce que je n’aime pas la guerre.', ar: 'ما كنت بدي أعمل الخدمة العسكرية لأني ما بحب الحروب.', en: 'I didn’t want to do my military service because I don’t like wars.' }
+        ]
+      },
+      {
+        icon: '❓',
+        title: { ar: 'أسئلة متابعة محتملة', en: 'Possible follow-up questions', fr: 'Questions de suivi possibles' },
+        phrases: [
+          { fr: 'Que s’est-il passé après avoir reçu la convocation ?', ar: 'شو صار بعد ما وصلك الاستدعاء؟', en: 'What happened after you received the summons?' },
+          { fr: 'Après avoir reçu la convocation, j’ai décidé de quitter la Syrie.', ar: 'بعد ما وصلني الاستدعاء، قررت أترك سوريا.', en: 'After receiving the summons, I decided to leave Syria.' },
+          { fr: 'Pourquoi êtes-vous parti précisément à ce moment-là ?', ar: 'ليش طلعت بهداك الوقت تحديداً؟', en: 'Why did you leave at that particular time?' },
+          { fr: 'Je suis parti à ce moment-là parce que j’avais reçu la convocation militaire.', ar: 'طلعت بهداك الوقت لأني كنت استلمت استدعاء للخدمة العسكرية.', en: 'I left at that time because I had received a military summons.' },
+          { fr: 'Aviez-vous déjà effectué votre service militaire ?', ar: 'كنت عامل الخدمة العسكرية من قبل؟', en: 'Had you already completed your military service?' },
+          { fr: 'Non, je n’avais pas encore effectué mon service militaire.', ar: 'لا، ما كنت عامل الخدمة العسكرية من قبل.', en: 'No, I had not yet completed my military service.' }
+        ]
+      },
+      {
+        icon: '🔁',
+        title: { ar: 'العودة إلى سوريا — الخوف من العودة', en: 'Returning to Syria — fear of return', fr: 'Le retour en Syrie — la crainte du retour' },
+        phrases: [
+          { fr: 'Pourquoi ne pouvez-vous pas retourner en Syrie ?', ar: 'ليش ما فيك ترجع على سوريا؟', en: 'Why can’t you return to Syria?' },
+          { fr: 'Je crains de retourner en Syrie à cause de ma situation liée au service militaire.', ar: 'بخاف أرجع على سوريا بسبب وضعي المتعلق بالخدمة العسكرية.', en: 'I am afraid to return to Syria because of my situation related to military service.' },
+          { fr: 'Que craignez-vous en cas de retour en Syrie ?', ar: 'شو بتخاف يصير إذا رجعت على سوريا؟', en: 'What do you fear if you return to Syria?' },
+          { fr: 'Je crains d’avoir des problèmes à cause de mon refus de faire le service militaire.', ar: 'بخاف تصير معي مشاكل بسبب رفضي للخدمة العسكرية.', en: 'I fear having problems because I refused to do military service.' }
+        ]
+      },
+      {
+        icon: '🪖',
+        title: { ar: 'الخدمة العسكرية — أسئلة وأجوبة مفصلة', en: 'Military service — detailed Q&A', fr: 'Le service militaire — questions-réponses détaillées' },
+        phrases: [
+          { fr: 'Avez-vous effectué votre service militaire en Syrie ?', ar: 'هل أديت الخدمة العسكرية بسوريا؟', en: 'Did you complete your military service in Syria?' },
+          { fr: 'Non, je n’ai pas effectué mon service militaire en Syrie.', ar: 'لا، أنا ما أديت الخدمة العسكرية بسوريا.', en: 'No, I did not complete my military service in Syria.' },
+          { fr: 'Avez-vous reçu une convocation pour le service militaire ?', ar: 'هل وصلتك دعوة للخدمة العسكرية؟', en: 'Did you receive a summons for military service?' },
+          { fr: 'Oui, j’ai reçu une convocation pour le service militaire.', ar: 'إي، وصلتني دعوة للخدمة العسكرية.', en: 'Yes, I received a summons for military service.' },
+          { fr: 'Quand avez-vous reçu cette convocation ?', ar: 'إيمت وصلتك هالدعوة؟', en: 'When did you receive this summons?' },
+          { fr: 'J’ai reçu la convocation environ un mois avant de quitter la Syrie.', ar: 'وصلتني الدعوة تقريبًا قبل ما أترك سوريا بشهر.', en: 'I received the summons about one month before leaving Syria.' },
+          { fr: 'Pourquoi ne vouliez-vous pas faire votre service militaire ?', ar: 'ليش ما كنت بدك تعمل الخدمة العسكرية؟', en: 'Why did you not want to do your military service?' },
+          { fr: 'Je ne voulais pas faire mon service militaire parce que je n’aime pas la guerre.', ar: 'ما كنت بدي أعمل الخدمة العسكرية لأني ما بحب الحرب.', en: 'I did not want to do my military service because I do not like war.' },
+          { fr: 'Que s’est-il passé après avoir reçu la convocation ?', ar: 'شو صار بعد ما وصلتلك الدعوة؟', en: 'What happened after you received the summons?' },
+          { fr: 'Après avoir reçu la convocation, j’ai décidé de quitter la Syrie parce que je voulais éviter le service militaire.', ar: 'بعد ما وصلتني الدعوة، قررت أترك سوريا لأني كنت بدي أتجنب الخدمة العسكرية.', en: 'After receiving the summons, I decided to leave Syria because I wanted to avoid military service.' },
+          { fr: 'Pourquoi avez-vous quitté la Syrie à ce moment-là ?', ar: 'ليش تركت سوريا بهداك الوقت؟', en: 'Why did you leave Syria at that time?' },
+          { fr: 'J’ai quitté la Syrie à ce moment-là parce que j’avais reçu une convocation pour le service militaire.', ar: 'تركت سوريا بهداك الوقت لأنه وصلتني دعوة للخدمة العسكرية.', en: 'I left Syria at that time because I had received a summons for military service.' },
+          { fr: 'Est-ce que la convocation a été une raison de votre départ ?', ar: 'هل كانت الدعوة سبب بخروجك؟', en: 'Was the summons a reason for your departure?' },
+          { fr: 'Oui, la convocation pour le service militaire a été une raison importante de mon départ de Syrie.', ar: 'إي، دعوة الخدمة العسكرية كانت سبب مهم بخروجي من سوريا.', en: 'Yes, the military service summons was an important reason for my departure from Syria.' },
+          { fr: 'Aviez-vous peur de faire votre service militaire ?', ar: 'كنت خايف من أداء الخدمة العسكرية؟', en: 'Were you afraid of doing your military service?' },
+          { fr: 'Oui, j’avais peur de devoir participer à la guerre et aux combats.', ar: 'إي، كنت خايف إني اضطر شارك بالحرب والقتال.', en: 'Yes, I was afraid that I would have to participate in the war and fighting.' },
+          { fr: 'Pourquoi ne vouliez-vous pas participer aux combats ?', ar: 'ليش ما كنت بدك تشارك بالقتال؟', en: 'Why did you not want to participate in fighting?' },
+          { fr: 'Je ne voulais pas participer aux combats parce que je n’aime pas la guerre et que je ne voulais pas combattre.', ar: 'ما كنت بدي شارك بالقتال لأني ما بحب الحرب وما كنت بدي قاتل.', en: 'I did not want to participate in fighting because I do not like war and I did not want to fight.' },
+          { fr: 'Avez-vous refusé officiellement de faire votre service militaire ?', ar: 'هل رفضت رسميًا أداء الخدمة العسكرية؟', en: 'Did you officially refuse to do your military service?' },
+          { fr: 'Je n’ai pas fait de déclaration officielle de refus. J’ai quitté la Syrie parce que je voulais éviter le service militaire.', ar: 'أنا ما قدمت رفض رسمي. تركت سوريا لأني كنت بدي أتجنب الخدمة العسكرية.', en: 'I did not make an official declaration of refusal. I left Syria because I wanted to avoid military service.' },
+          { fr: 'Pourquoi n’avez-vous pas fait votre service militaire ?', ar: 'ليش ما أديت الخدمة العسكرية؟', en: 'Why did you not do your military service?' },
+          { fr: 'Je n’ai pas fait mon service militaire parce que je voulais éviter de participer à la guerre et aux combats.', ar: 'ما أديت الخدمة العسكرية لأني كنت بدي أتجنب المشاركة بالحرب والقتال.', en: 'I did not do my military service because I wanted to avoid participating in war and fighting.' },
+          { fr: 'Qu’avez-vous fait après avoir reçu la convocation ?', ar: 'شو عملت بعد ما استلمت الدعوة؟', en: 'What did you do after receiving the summons?' },
+          { fr: 'Après avoir reçu la convocation, j’ai décidé de quitter la Syrie.', ar: 'بعد ما استلمت الدعوة، قررت أترك سوريا.', en: 'After receiving the summons, I decided to leave Syria.' },
+          { fr: 'Combien de temps après la convocation avez-vous quitté la Syrie ?', ar: 'بعد قديش من استلام الدعوة تركت سوريا؟', en: 'How long after receiving the summons did you leave Syria?' },
+          { fr: 'J’ai quitté la Syrie environ un mois après avoir reçu la convocation.', ar: 'تركت سوريا تقريبًا بعد شهر من استلام الدعوة.', en: 'I left Syria about one month after receiving the summons.' },
+          { fr: 'Pourquoi avez-vous décidé de partir ?', ar: 'ليش قررت تترك؟', en: 'Why did you decide to leave?' },
+          { fr: 'J’ai décidé de partir parce que je voulais éviter le service militaire et que je ne voulais pas participer à la guerre.', ar: 'قررت أترك لأني كنت بدي أتجنب الخدمة العسكرية وما كنت بدي شارك بالحرب.', en: 'I decided to leave because I wanted to avoid military service and I did not want to participate in the war.' },
+          { fr: 'Êtes-vous parti à cause de cette convocation ?', ar: 'هل تركت بسبب هالدعوة؟', en: 'Did you leave because of this summons?' },
+          { fr: 'Oui, cette convocation a joué un rôle important dans ma décision de quitter la Syrie.', ar: 'إي، هالدعوة كان إلها دور مهم بقراري إني أترك سوريا.', en: 'Yes, this summons played an important role in my decision to leave Syria.' },
+          { fr: 'Que craignez-vous si vous retournez en Syrie ?', ar: 'شو بتخاف يصير معك إذا رجعت على سوريا؟', en: 'What do you fear if you return to Syria?' },
+          { fr: 'Je crains d’avoir des problèmes en raison de ma situation concernant le service militaire.', ar: 'بخاف يصير معي مشاكل بسبب وضعي المتعلق بالخدمة العسكرية.', en: 'I fear having problems because of my situation concerning military service.' },
+          { fr: 'Pourquoi ne pouvez-vous pas retourner en Syrie ?', ar: 'ليش ما فيك ترجع على سوريا؟', en: 'Why can’t you return to Syria?' },
+          { fr: 'Je crains les conséquences de ma situation concernant le service militaire après avoir quitté la Syrie.', ar: 'بخاف من عواقب وضعي المتعلق بالخدمة العسكرية بعد ما تركت سوريا.', en: 'I fear the consequences of my situation concerning military service after leaving Syria.' },
+          { fr: 'Étiez-vous déjà militaire avant de recevoir la convocation ?', ar: 'هل كنت عسكري من قبل ما توصلك الدعوة؟', en: 'Were you already a soldier before receiving the summons?' },
+          { fr: 'Non, je n’avais pas encore effectué mon service militaire.', ar: 'لا، ما كنت لسا أديت الخدمة العسكرية.', en: 'No, I had not yet completed my military service.' },
+          { fr: 'Avez-vous été recherché après votre départ de Syrie ?', ar: 'هل تم البحث عنك بعد ما تركت سوريا؟', en: 'Were you searched for after leaving Syria?' },
+          { fr: 'Avez-vous reçu une deuxième convocation ?', ar: 'هل وصلتك دعوة ثانية؟', en: 'Did you receive a second summons?' },
+          { fr: 'Non, je n’ai pas reçu de deuxième convocation.', ar: 'لا، ما وصلتني دعوة ثانية.', en: 'No, I did not receive a second summons.' },
+          { fr: 'Avez-vous essayé d’obtenir une exemption du service militaire ?', ar: 'هل حاولت تحصل على إعفاء من الخدمة العسكرية؟', en: 'Did you try to obtain an exemption from military service?' },
+          { fr: 'Êtes-vous allé à l’endroit indiqué sur la convocation ?', ar: 'هل رحت عالمكان المكتوب بالدعوة؟', en: 'Did you go to the place indicated on the summons?' },
+          { fr: 'Où avez-vous reçu la convocation ?', ar: 'وين استلمت الدعوة؟', en: 'Where did you receive the summons?' },
+          { fr: 'Qui vous a remis la convocation ?', ar: 'مين سلّمك الدعوة؟', en: 'Who gave you the summons?' },
+          { fr: 'Quelle était la date indiquée sur la convocation ?', ar: 'شو كان التاريخ المكتوب على الدعوة؟', en: 'What date was written on the summons?' },
+          { fr: 'Où deviez-vous vous présenter ?', ar: 'لوين كان لازم تروح؟', en: 'Where were you supposed to report?' },
+          { fr: 'À quelle date deviez-vous vous présenter ?', ar: 'بأي تاريخ كان لازم تروح؟', en: 'On what date were you supposed to report?' },
+          { fr: 'Qu’avez-vous fait lorsque vous avez compris que vous deviez faire votre service militaire ?', ar: 'شو عملت لما عرفت إنو لازم عليك تعمل الخدمة العسكرية؟', en: 'What did you do when you understood that you had to do your military service?' },
+          { fr: 'J’ai décidé de quitter la Syrie parce que je voulais éviter le service militaire.', ar: 'قررت أترك سوريا لأني كنت بدي أتجنب الخدمة العسكرية.', en: 'I decided to leave Syria because I wanted to avoid military service.' },
+          { fr: 'Pourquoi avez-vous attendu environ un mois avant de quitter la Syrie ?', ar: 'ليش نطرت تقريبًا شهر قبل ما تترك سوريا؟', en: 'Why did you wait about one month before leaving Syria?' },
+          { fr: 'Après avoir reçu la convocation, j’ai préparé mon départ et j’ai quitté la Syrie environ un mois plus tard.', ar: 'بعد ما وصلتني الدعوة، حضرت لخروجي وتركت سوريا تقريبًا بعد شهر.', en: 'After receiving the summons, I prepared to leave and left Syria about one month later.' },
+          { fr: 'Quelle était votre principale raison pour éviter le service militaire ?', ar: 'شو كان السبب الأساسي اللي خلاك تتجنب الخدمة العسكرية؟', en: 'What was your main reason for avoiding military service?' },
+          { fr: 'Ma principale raison était que je n’aime pas la guerre et que je ne voulais pas participer aux combats.', ar: 'السبب الأساسي كان إني ما بحب الحرب وما كنت بدي شارك بالقتال.', en: 'My main reason was that I do not like war and I did not want to participate in fighting.' }
+        ]
+      },
+      {
+        icon: '✈️',
+        title: { ar: 'طريق الخروج من سوريا — لبنان، البرازيل، غويانا', en: 'The journey out of Syria — Lebanon, Brazil, French Guiana', fr: 'Le parcours depuis la Syrie — Liban, Brésil, Guyane' },
+        phrases: [
+          { fr: 'Comment avez-vous quitté la Syrie ?', ar: 'كيف طلعت من سوريا؟', en: 'How did you leave Syria?' },
+          { fr: 'Je suis parti de Syrie pour aller au Liban.', ar: 'طلعت من سوريا ورحت على لبنان.', en: 'I left Syria and went to Lebanon.' },
+          { fr: 'Dans quel pays êtes-vous allé après avoir quitté la Syrie ?', ar: 'على أي بلد رحت بعد ما طلعت من سوريا؟', en: 'Which country did you go to after leaving Syria?' },
+          { fr: 'Je suis allé au Liban.', ar: 'رحت على لبنان.', en: 'I went to Lebanon.' },
+          { fr: 'Pourquoi êtes-vous allé au Liban ?', ar: 'ليش رحت على لبنان؟', en: 'Why did you go to Lebanon?' },
+          { fr: 'Je suis allé au Liban après avoir quitté la Syrie.', ar: 'رحت على لبنان بعد ما طلعت من سوريا.', en: 'I went to Lebanon after leaving Syria.' },
+          { fr: 'Comment avez-vous quitté le Liban ?', ar: 'كيف طلعت من لبنان؟', en: 'How did you leave Lebanon?' },
+          { fr: 'J’ai obtenu un visa humanitaire pour le Brésil, puis je suis parti du Liban pour aller au Brésil.', ar: 'حصلت على فيزا إنسانية للبرازيل، وبعدها طلعت من لبنان ورحت على البرازيل.', en: 'I obtained a humanitarian visa for Brazil, and then I left Lebanon and went to Brazil.' },
+          { fr: 'Quel type de visa avez-vous obtenu pour le Brésil ?', ar: 'شو نوع الفيزا اللي حصلت عليها للبرازيل؟', en: 'What type of visa did you obtain for Brazil?' },
+          { fr: 'J’ai obtenu un visa humanitaire pour le Brésil.', ar: 'حصلت على فيزا إنسانية للبرازيل.', en: 'I obtained a humanitarian visa for Brazil.' },
+          { fr: 'Êtes-vous allé au Brésil ?', ar: 'هل رحت على البرازيل؟', en: 'Did you go to Brazil?' },
+          { fr: 'Oui, je suis allé au Brésil avec mon visa humanitaire.', ar: 'إي، رحت على البرازيل عن طريق الفيزا الإنسانية.', en: 'Yes, I went to Brazil with my humanitarian visa.' },
+          { fr: 'Comment êtes-vous arrivé en Guyane française ?', ar: 'كيف وصلت لغويانا الفرنسية؟', en: 'How did you arrive in French Guiana?' },
+          { fr: 'Je suis entré en Guyane française depuis le Brésil.', ar: 'دخلت غويانا الفرنسية من البرازيل.', en: 'I entered French Guiana from Brazil.' },
+          { fr: 'Pourquoi êtes-vous allé en Guyane française ?', ar: 'ليش رحت على غويانا الفرنسية؟', en: 'Why did you go to French Guiana?' },
+          { fr: 'Je suis allé en Guyane française et j’y ai demandé l’asile.', ar: 'رحت على غويانا الفرنسية وهناك طلبت اللجوء.', en: 'I went to French Guiana and requested asylum there.' },
+          { fr: 'Avez-vous demandé l’asile en Guyane française ?', ar: 'هل طلبت اللجوء بغويانا الفرنسية؟', en: 'Did you apply for asylum in French Guiana?' },
+          { fr: 'Oui, j’ai demandé l’asile en Guyane française.', ar: 'إي، طلبت اللجوء بغويانا الفرنسية.', en: 'Yes, I applied for asylum in French Guiana.' },
+          { fr: 'Quel a été votre itinéraire depuis la Syrie ?', ar: 'شو كان طريق سفرك من سوريا؟', en: 'What was your route from Syria?' },
+          { fr: 'Je suis parti de Syrie, puis je suis allé au Liban. Ensuite, j’ai obtenu un visa humanitaire pour le Brésil. Après être arrivé au Brésil, je suis entré en Guyane française et j’y ai demandé l’asile.', ar: 'طلعت من سوريا، وبعدها رحت على لبنان. بعدين حصلت على فيزا إنسانية للبرازيل. وبعد ما وصلت للبرازيل، دخلت غويانا الفرنسية وهناك طلبت اللجوء.', en: 'I left Syria and went to Lebanon. Then I obtained a humanitarian visa for Brazil. After arriving in Brazil, I entered French Guiana and applied for asylum there.' }
+        ]
+      },
+      {
+        icon: '❗',
+        title: { ar: 'سؤال مهم جداً: اللجوء بالبرازيل', en: 'Very important question: asylum in Brazil', fr: 'Question très importante : l’asile au Brésil' },
+        phrases: [
+          { fr: 'Avez-vous demandé l’asile au Brésil ?', ar: 'هل طلبت اللجوء بالبرازيل؟', en: 'Did you apply for asylum in Brazil?' }
+        ]
       }
     ]
   }
