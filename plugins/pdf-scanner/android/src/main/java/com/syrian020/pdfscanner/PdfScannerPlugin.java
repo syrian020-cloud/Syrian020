@@ -29,6 +29,8 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.util.Base64;
+import android.graphics.Picture;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -50,6 +52,9 @@ import com.tom_roush.pdfbox.io.MemoryUsageSetting;
 import com.tom_roush.pdfbox.multipdf.PDFMergerUtility;
 import com.tom_roush.pdfbox.pdmodel.PDDocument;
 import com.tom_roush.pdfbox.pdmodel.PDPage;
+import com.tom_roush.pdfbox.pdmodel.PDPageContentStream;
+import com.tom_roush.pdfbox.pdmodel.common.PDRectangle;
+import com.tom_roush.pdfbox.pdmodel.font.PDType1Font;
 import com.tom_roush.pdfbox.pdmodel.encryption.AccessPermission;
 import com.tom_roush.pdfbox.pdmodel.encryption.InvalidPasswordException;
 import com.tom_roush.pdfbox.pdmodel.encryption.StandardProtectionPolicy;
@@ -68,6 +73,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 
 @CapacitorPlugin(
     name = "PdfScanner",
@@ -419,6 +425,185 @@ public class PdfScannerPlugin extends Plugin {
                 call.reject("Print failed: " + e.getMessage(), e);
             }
         });
+    }
+
+    /**
+     * Renders paginated HTML (.sheet divs = pages) to a real PDF file with
+     * no print dialog: an invisible WebView is zoomed so the sheet fits the
+     * screen, scrolled page by page (only rasterized tiles can be drawn),
+     * and each viewport region becomes one PDF page. Optional AES-256
+     * password via PDFBox. Saves to Download/PDFly.
+     * { html, name, paper, orient, password } -> { path, name, public }
+     */
+    @PluginMethod
+    public void exportPdf(PluginCall call) {
+        final String html = call.getString("html");
+        final String name = call.getString("name", "document");
+        final String paper = call.getString("paper", "A4");
+        final String orient = call.getString("orient", "portrait");
+        final String password = call.getString("password", "");
+        if (html == null) {
+            call.reject("Missing html");
+            return;
+        }
+        getActivity().runOnUiThread(() -> {
+            try {
+                final WebView wv = new WebView(getContext());
+                wv.getSettings().setJavaScriptEnabled(true);
+                wv.setAlpha(0.02f);
+                // zoom so the widest possible sheet fits the screen width —
+                // only rasterized (on-screen) tiles can be drawn to a canvas
+                float wmm = "A5".equalsIgnoreCase(paper) ? 148f
+                    : ("Letter".equalsIgnoreCase(paper) ? 215.9f : 210f);
+                float hmm = "A5".equalsIgnoreCase(paper) ? 210f
+                    : ("Letter".equalsIgnoreCase(paper) ? 279.4f : 297f);
+                if ("landscape".equalsIgnoreCase(orient)) { float z = wmm; wmm = hmm; hmm = z; }
+                int wCss = Math.round(wmm * 96f / 25.4f);
+                int scrW = getContext().getResources().getDisplayMetrics().widthPixels;
+                int zoomPct = Math.max(15, Math.min(100, (int) Math.floor(scrW / (wCss * 1.06f) * 100f)));
+                wv.setInitialScale(zoomPct);
+                wv.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public void onPageFinished(WebView view, String url) {
+                        view.evaluateJavascript(
+                            "(function(){var s=document.querySelectorAll('.sheet');" +
+                            "if(!s.length)return '0|0|0|0|0|0';" +
+                            "var r0=s[0].getBoundingClientRect();" +
+                            "var gap=s.length>1?Math.round(s[1].getBoundingClientRect().top-r0.bottom):0;" +
+                            "return s.length+'|'+Math.ceil(r0.width)+'|'+Math.ceil(r0.height)+'|'+gap+" +
+                            "'|'+Math.round(r0.left)+'|'+Math.round(r0.top)})()",
+                            res -> {
+                                try {
+                                    String[] parts = res == null ? new String[0]
+                                        : res.replace("\"", "").split("\\|");
+                                    final int n = parts.length > 0 ? Integer.parseInt(parts[0]) : 0;
+                                    final int w = parts.length > 1 ? Integer.parseInt(parts[1]) : 0;
+                                    final int h = parts.length > 2 ? Integer.parseInt(parts[2]) : 0;
+                                    final int gap = parts.length > 3 ? Integer.parseInt(parts[3]) : 0;
+                                    final int sx = parts.length > 4 ? Integer.parseInt(parts[4]) : 0;
+                                    final int sy = parts.length > 5 ? Integer.parseInt(parts[5]) : 0;
+                                    if (n <= 0 || w <= 0 || h <= 0) {
+                                        call.reject("Export failed: empty layout");
+                                        return;
+                                    }
+                                    renderNextPage(view, 0, n, w, h, gap, sx, sy, name, password, call,
+                                        new PrintedPdfDocument[1], new File[1]);
+                                } catch (Exception e) {
+                                    call.reject("Export failed: " + e.getMessage(), e);
+                                }
+                            });
+                    }
+                });
+                android.view.ViewGroup root = getActivity().getWindow().getDecorView()
+                    .findViewById(android.R.id.content);
+                wv.setLayoutParams(new android.widget.FrameLayout.LayoutParams(
+                    android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+                    android.view.ViewGroup.LayoutParams.MATCH_PARENT));
+                root.addView(wv);
+                wv.loadDataWithBaseURL(null, html, "text/html", "utf-8", null);
+            } catch (Exception e) {
+                call.reject("Export failed: " + e.getMessage(), e);
+            }
+        });
+    }
+
+    private void renderNextPage(final WebView wv, final int i, final int n,
+                                final int w, final int h, final int gap,
+                                final int sx, final int sy,
+                                final String name, final String password,
+                                final PluginCall call,
+                                final PrintedPdfDocument[] docH, final File[] rawH) {
+        try {
+            if (i == 0) {
+                File raw = File.createTempFile("exp", ".pdf", getContext().getCacheDir());
+                PrintAttributes attrs = new PrintAttributes.Builder()
+                    .setMediaSize(new PrintAttributes.MediaSize(
+                        "pdfly", "pdfly",
+                        (int) (w / 2.05f / 96f * 25.4f * 1000f),
+                        (int) (h / 2.05f / 96f * 25.4f * 1000f)))
+                    .setResolution(new PrintAttributes.Resolution("r", "r", 300, 300))
+                    .setMinMargins(new PrintAttributes.Margins(0, 0, 0, 0))
+                    .build();
+                docH[0] = new PrintedPdfDocument(getContext(), attrs);
+                rawH[0] = raw;
+            }
+            if (i >= n) {
+                PrintedPdfDocument doc = docH[0];
+                File raw = rawH[0];
+                try (FileOutputStream fos = new FileOutputStream(raw)) {
+                    doc.writeTo(fos);
+                }
+                doc.close();
+                try {
+                    ((android.view.ViewGroup) wv.getParent()).removeView(wv);
+                    wv.destroy();
+                } catch (Exception ignored) {}
+                finishExport(raw, name, password, call);
+                return;
+            }
+            final float zoom = wv.getScale();
+            // scroll so the target sheet's top is at the viewport top
+            wv.scrollTo(0, Math.round((sy + i * (h + gap)) * zoom));
+            new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() -> {
+                try {
+                    final float scale = 2.05f;
+                    Bitmap bmp = Bitmap.createBitmap(
+                        Math.round(w * scale), Math.round(h * scale), Bitmap.Config.ARGB_8888);
+                    bmp.eraseColor(Color.WHITE);
+                    Canvas bc = new Canvas(bmp);
+                    bc.scale(scale / zoom, scale / zoom);
+                    bc.translate(-Math.round(sx * zoom), 0);
+                    wv.draw(bc);
+                    PrintedPdfDocument.Page dst = docH[0].startPage(i);
+                    Rect box = new Rect(0, 0, dst.getInfo().getContentRect().width(),
+                        dst.getInfo().getContentRect().height());
+                    dst.getCanvas().drawBitmap(bmp, null, box, null);
+                    bmp.recycle();
+                    docH[0].finishPage(dst);
+                    renderNextPage(wv, i + 1, n, w, h, gap, sx, sy, name, password, call, docH, rawH);
+                } catch (Exception e) {
+                    call.reject("Export failed: " + e.getMessage(), e);
+                }
+            }, 350);
+        } catch (Exception e) {
+            call.reject("Export failed: " + e.getMessage(), e);
+        }
+    }
+
+    private void finishExport(File raw, String name, String password, PluginCall call) {
+        try {
+            String outName = name.replaceAll("(?i)\\.pdf$", "")
+                    .replaceAll("[^\\w.\\-\\u0600-\\u06FF]", "_") + ".pdf";
+            File dir = isPublicDir()
+                ? new File(Environment.getExternalStoragePublicDirectory(
+                    Environment.DIRECTORY_DOWNLOADS), "PDFly")
+                : new File(getContext().getCacheDir(), "pdfs");
+            dir.mkdirs();
+            File out = new File(dir, outName);
+            if (password != null && !password.isEmpty()) {
+                PDDocument doc = PDDocument.load(raw);
+                StandardProtectionPolicy spp = new StandardProtectionPolicy(
+                    password, password, new AccessPermission());
+                spp.setEncryptionKeyLength(256);
+                doc.protect(spp);
+                doc.save(out);
+                doc.close();
+                raw.delete();
+            } else {
+                if (out.exists()) out.delete();
+                if (!raw.renameTo(out)) {
+                    Files.copy(raw.toPath(), out.toPath());
+                    raw.delete();
+                }
+            }
+            JSObject ret = new JSObject();
+            ret.put("path", out.getAbsolutePath());
+            ret.put("name", outName);
+            ret.put("public", isPublicDir());
+            call.resolve(ret);
+        } catch (Exception e) {
+            call.reject("Export failed: " + e.getMessage(), e);
+        }
     }
 
     @PluginMethod
