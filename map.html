@@ -476,22 +476,32 @@
   }
 
   var searchSeq = 0;
-  var inflightCtrl = null;
+  var inflight = null;
+
+  function abortSearch() {
+    if (!inflight) return;
+    inflight.forEach(function (c) { if (c) c.abort(); });
+    inflight = null;
+  }
 
   function search(lat, lon) {
     var q = buildQuery(lat, lon);
     if (!q) { toast(t('noResults')); return; }
-    if (inflightCtrl) inflightCtrl.abort();
+    abortSearch();
     var seq = ++searchSeq;
     state.searching = true;
     setStatus(t('searching'), true);
 
-    var ep = 0;
-    function tryFetch() {
+    var ctrls = [];
+    var settled = false;
+    var failures = 0;
+    inflight = ctrls;
+
+    OVERPASS_ENDPOINTS.forEach(function (url) {
       var ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
-      inflightCtrl = ctrl;
-      var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 20000) : null;
-      fetch(OVERPASS_ENDPOINTS[ep], {
+      ctrls.push(ctrl);
+      var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 15000) : null;
+      fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: 'data=' + encodeURIComponent(q),
@@ -501,23 +511,23 @@
         return res.json();
       }).then(function (json) {
         if (timer) clearTimeout(timer);
-        if (seq !== searchSeq) return;
-        inflightCtrl = null;
+        if (seq !== searchSeq || settled) return;
+        settled = true;
+        abortSearch();
         state.searching = false;
         setStatus(null);
         handleResults(json.elements || []);
       }).catch(function () {
         if (timer) clearTimeout(timer);
-        if (seq !== searchSeq) return;
-        ep++;
-        if (ep < OVERPASS_ENDPOINTS.length) { tryFetch(); return; }
-        inflightCtrl = null;
+        if (seq !== searchSeq || settled) return;
+        failures++;
+        if (failures < OVERPASS_ENDPOINTS.length) return;
+        abortSearch();
         state.searching = false;
         setStatus(null);
         toast(t('searchError'));
       });
-    }
-    tryFetch();
+    });
   }
 
   function handleResults(elements) {
