@@ -291,9 +291,9 @@ window.CENTRES_DATA = [
     icon: '⚖️',
     name: { ar: 'OFPRA — مقابلة اللجوء', en: 'OFPRA — Asylum interview', fr: 'OFPRA — Entretien de demande d’asile' },
     desc: {
-      ar: 'مقابلة اللجوء مع OFPRA: الأسئلة الشائعة من بداية المقابلة حتى نهايتها',
-      en: 'The OFPRA asylum interview: common questions from start to finish',
-      fr: 'L’entretien OFPRA : les questions fréquentes du début à la fin'
+      ar: 'مقابلة اللجوء مع OFPRA: الأسئلة الشائعة ثم المقابلة الكاملة سؤال وجواب — استبدل الأجوبة بين [ ] بوضعك الحقيقي',
+      en: 'The OFPRA asylum interview: common questions then the full Q&A — replace [ ] placeholders with your real answers',
+      fr: 'L’entretien OFPRA : questions fréquentes puis entretien complet questions-réponses — remplacez les [ ] par votre vraie situation'
     },
     sections: [
       {
@@ -413,22 +413,10 @@ window.CENTRES_DATA = [
           { fr: 'Est-ce que vous avez bien compris mes réponses ?', ar: 'فهمت أجوبتي منيح؟', en: 'Did you understand my answers correctly?' },
           { fr: 'Merci pour votre temps.', ar: 'شكراً لوقتكم.', en: 'Thank you for your time.' }
         ]
-      }
-    ]
-  },
-  {
-    id: 'ofpra-qa',
-    icon: '💬',
-    name: { ar: 'OFPRA — مقابلة كاملة (سؤال وجواب)', en: 'OFPRA — Full interview (Q&A)', fr: 'OFPRA — Entretien complet (questions-réponses)' },
-    desc: {
-      ar: 'أسئلة مقابلة اللجوء مع الأجوبة النموذجية — استبدل الأجوبة بين [ ] بوضعك الحقيقي',
-      en: 'Asylum interview questions with model answers — replace [ ] placeholders with your real answers',
-      fr: 'Questions d’entretien avec réponses types — remplacez les [ ] par votre vraie situation'
-    },
-    sections: [
+      },
       {
         icon: '🪪',
-        title: { ar: 'الهوية', en: 'Identity', fr: 'Identité' },
+        title: { ar: 'الهوية — سؤال وجواب', en: 'Identity — Q&A', fr: 'Identité — questions-réponses' },
         phrases: [
           { fr: 'Comment vous appelez-vous ?', ar: 'شو اسمك؟', en: 'What is your name?' },
           { fr: 'Je m’appelle Mohammad Haj Mohammad.', ar: 'اسمي محمد حاج محمد.', en: 'My name is Mohammad Haj Mohammad.' },
