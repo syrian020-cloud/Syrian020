@@ -3203,6 +3203,196 @@ window.CENTRES_DATA = [
           { fr: 'Voici l’adresse de mon nouveau logement.', ar: 'هاد عنوان بيتي الجديد.', en: 'Here is the address of my new home.' },
           { fr: 'Je voudrais résilier l’ancien contrat et ouvrir un nouveau contrat.', ar: 'بدي ألغي العقد القديم وافتح عقد جديد.', en: 'I’d like to cancel the old contract and open a new one.' }
         ]
+      },
+      {
+        icon: '📶',
+        title: { ar: 'الإنترنت — تفعيل الـWi-Fi بالسكن الجديد', en: 'Internet — activating Wi-Fi in the new home', fr: 'Internet — activer le Wi-Fi' },
+        phrases: [
+          { fr: 'Bonjour, je viens d’emménager et je voudrais activer ma connexion Internet.', ar: 'مرحبا، هلأ نقلت عالسكن الجديد وبدي فعّل الإنترنت.', en: 'Hello, I’ve just moved in and I’d like to activate my internet connection.' },
+          { fr: 'Je voudrais installer Internet dans mon nouveau logement.', ar: 'بدي ركّب إنترنت بالبيت الجديد.', en: 'I’d like to install internet in my new home.' },
+          { fr: 'Je voudrais mettre ma ligne Internet en service.', ar: 'بدي فعّل خط الإنترنت.', en: 'I’d like to activate my internet line.' },
+          { fr: 'Je viens de déménager.', ar: 'أنا هلأ نقلت من بيتي القديم.', en: 'I’ve just moved.' },
+          { fr: 'Je déménage mon abonnement à ma nouvelle adresse.', ar: 'بدي انقل اشتراك الإنترنت لعنواني الجديد.', en: 'I’d like to transfer my internet subscription to my new address.' },
+          { fr: 'Je voudrais transférer ma ligne à ma nouvelle adresse.', ar: 'بدي انقل خط الإنترنت لعنواني الجديد.', en: 'I’d like to transfer my line to my new address.' },
+          { fr: 'Voici ma nouvelle adresse.', ar: 'هاد عنواني الجديد.', en: 'Here is my new address.' }
+        ]
+      },
+      {
+        icon: '📡',
+        title: { ar: 'الإنترنت — إذا الـWi-Fi ما عم يشتغل', en: 'Internet — if Wi-Fi isn’t working', fr: 'Internet — le Wi-Fi ne marche pas' },
+        phrases: [
+          { fr: 'Je n’ai pas de connexion Internet.', ar: 'ما عندي اتصال بالإنترنت.', en: 'I don’t have an internet connection.' },
+          { fr: 'Le Wi-Fi ne fonctionne pas.', ar: 'الواي فاي ما عم يشتغل.', en: 'The Wi-Fi isn’t working.' },
+          { fr: 'Je n’ai pas encore Internet dans le logement.', ar: 'لسا ما عندي إنترنت بالبيت.', en: 'I don’t have internet in the apartment yet.' },
+          { fr: 'La box est branchée, mais je n’ai pas Internet.', ar: 'الراوتر موصول، بس ما عندي إنترنت.', en: 'The router is connected, but I don’t have internet.' },
+          { fr: 'Est-ce qu’une intervention d’un technicien est nécessaire ?', ar: 'لازم يجي فني؟', en: 'Is a technician visit necessary?' },
+          { fr: 'Quand est-ce que la connexion sera activée ?', ar: 'إمتى رح يتفعّل الإنترنت؟', en: 'When will the connection be activated?' }
+        ]
+      },
+      {
+        icon: '🔐',
+        title: { ar: 'الإنترنت — اسم الشبكة وكلمة السر', en: 'Internet — network name and password', fr: 'Internet — nom du réseau et mot de passe' },
+        phrases: [
+          { fr: 'Quel est le nom du réseau Wi-Fi ?', ar: 'شو اسم شبكة الواي فاي؟', en: 'What is the Wi-Fi network name?' },
+          { fr: 'Quel est le mot de passe Wi-Fi ?', ar: 'شو كلمة سر الواي فاي؟', en: 'What is the Wi-Fi password?' },
+          { fr: 'Où puis-je trouver le mot de passe Wi-Fi ?', ar: 'وين فيني لاقي كلمة سر الواي فاي؟', en: 'Where can I find the Wi-Fi password?' }
+        ]
+      },
+      {
+        icon: '📶',
+        title: { ar: 'الإنترنت — الاشتراك بعرض جديد', en: 'Internet — subscribing to a plan', fr: 'Internet — souscrire à une offre' },
+        phrases: [
+          { fr: 'Bonjour, je voudrais souscrire à une offre Internet.', ar: 'مرحبا، بدي اشترك بعرض إنترنت.', en: 'Hello, I’d like to subscribe to an internet plan.' },
+          { fr: 'Je viens d’emménager dans un nouveau logement.', ar: 'هلأ نقلت عبيت جديد.', en: 'I’ve just moved into a new home.' },
+          { fr: 'Je voudrais avoir Internet et le Wi-Fi.', ar: 'بدي يكون عندي إنترنت وواي فاي.', en: 'I’d like to have internet and Wi-Fi.' },
+          { fr: 'Je voudrais savoir quelles offres vous proposez.', ar: 'بدي أعرف شو العروض اللي عندكم.', en: 'I’d like to know what plans you offer.' },
+          { fr: 'Quelle est votre nouvelle adresse ?', ar: 'شو عنوانك الجديد؟', en: 'What is your new address?' },
+          { fr: 'Voici ma nouvelle adresse.', ar: 'هاد عنواني الجديد.', en: 'Here is my new address.' }
+        ]
+      },
+      {
+        icon: '🏠',
+        title: { ar: 'الإنترنت — الفايبر والأهلية', en: 'Internet — fiber eligibility', fr: 'Internet — la fibre' },
+        phrases: [
+          { fr: 'Pouvez-vous vérifier si la fibre est disponible à cette adresse ?', ar: 'فيكم تتأكدوا إذا الفايبر متوفر بهالعنوان؟', en: 'Can you check if fiber is available at this address?' },
+          { fr: 'Est-ce que mon logement est éligible à la fibre ?', ar: 'بيتي مؤهل للفايبر؟', en: 'Is my home eligible for fiber?' },
+          { fr: 'La fibre est-elle déjà installée dans le logement ?', ar: 'الفايبر مركّب من قبل بالبيت؟', en: 'Is fiber already installed in the home?' },
+          { fr: 'La prise fibre est déjà installée dans le logement.', ar: 'في مأخذ فايبر مركّب بالبيت من قبل.', en: 'The fiber socket is already installed in the home.' },
+          { fr: 'J’ai déjà une prise fibre.', ar: 'عندي مأخذ فايبر من قبل.', en: 'I already have a fiber socket.' },
+          { fr: 'Est-ce que je peux simplement brancher la box ?', ar: 'فيني بس وصّل الراوتر؟', en: 'Can I just connect the router?' }
+        ]
+      },
+      {
+        icon: '💰',
+        title: { ar: 'الإنترنت — السعر والرسوم', en: 'Internet — price and fees', fr: 'Internet — prix et frais' },
+        phrases: [
+          { fr: 'Combien coûte l’abonnement par mois ?', ar: 'قديش الاشتراك بالشهر؟', en: 'How much is the subscription per month?' },
+          { fr: 'Quel est le prix total par mois ?', ar: 'قديش السعر الكامل بالشهر؟', en: 'What is the total monthly price?' },
+          { fr: 'Est-ce que les frais d’installation sont compris ?', ar: 'رسوم التركيب داخلة بالسعر؟', en: 'Are installation fees included?' },
+          { fr: 'Est-ce qu’il y a des frais supplémentaires ?', ar: 'في رسوم إضافية؟', en: 'Are there any additional fees?' },
+          { fr: 'Y a-t-il des frais de mise en service ?', ar: 'في رسوم لتفعيل الخدمة؟', en: 'Is there an activation fee?' },
+          { fr: 'Le prix va-t-il augmenter après quelques mois ?', ar: 'السعر رح يزيد بعد كم شهر؟', en: 'Will the price increase after a few months?' }
+        ]
+      },
+      {
+        icon: '📦',
+        title: { ar: 'الإنترنت — الـBox والتركيب', en: 'Internet — the box and installation', fr: 'Internet — la box et l’installation' },
+        phrases: [
+          { fr: 'Quelle box est incluse dans l’offre ?', ar: 'أي راوتر داخل بالعرض؟', en: 'Which router is included in the plan?' },
+          { fr: 'Est-ce que la box est incluse ?', ar: 'الراوتر داخل بالسعر؟', en: 'Is the router included?' },
+          { fr: 'Est-ce que la box sera livrée à mon domicile ?', ar: 'الراوتر رح يوصل لعندي عالبيت؟', en: 'Will the router be delivered to my home?' },
+          { fr: 'Quand vais-je recevoir la box ?', ar: 'إمتى رح يوصلني الراوتر؟', en: 'When will I receive the router?' },
+          { fr: 'Est-ce que je dois installer la box moi-même ?', ar: 'لازم ركّب الراوتر بنفسي؟', en: 'Do I have to install the router myself?' },
+          { fr: 'Quand est-ce que ma ligne sera activée ?', ar: 'إمتى رح يتفعّل خط الإنترنت؟', en: 'When will my line be activated?' },
+          { fr: 'Combien de temps faut-il pour avoir Internet ?', ar: 'قديش بياخد وقت لحتى يصير عندي إنترنت؟', en: 'How long does it take to get internet?' },
+          { fr: 'Quand le technicien peut-il intervenir ?', ar: 'إمتى بيقدر يجي الفني؟', en: 'When can the technician come?' },
+          { fr: 'Est-ce que je dois être présent lors du rendez-vous ?', ar: 'لازم كون موجود وقت الموعد؟', en: 'Do I need to be present for the appointment?' },
+          { fr: 'La connexion sera-t-elle disponible dès l’installation ?', ar: 'الإنترنت رح يشتغل مباشرة بعد التركيب؟', en: 'Will the connection be available immediately after installation?' }
+        ]
+      },
+      {
+        icon: '🪪',
+        title: { ar: 'الإنترنت — الوثائق والدفع والالتزام', en: 'Internet — documents, payment, commitment', fr: 'Internet — documents, paiement, engagement' },
+        phrases: [
+          { fr: 'Quels documents dois-je fournir ?', ar: 'شو الأوراق اللي لازم قدّمها؟', en: 'What documents do I need to provide?' },
+          { fr: 'Vous avez besoin de ma pièce d’identité ?', ar: 'بدكم هويتي؟', en: 'Do you need my ID?' },
+          { fr: 'Vous avez besoin d’un RIB ?', ar: 'بدكم RIB؟', en: 'Do you need a bank account statement?' },
+          { fr: 'Vous avez besoin d’un justificatif de domicile ?', ar: 'بدكم إثبات سكن؟', en: 'Do you need proof of address?' },
+          { fr: 'Voici ma pièce d’identité.', ar: 'هاي هويتي.', en: 'Here is my ID.' },
+          { fr: 'Voici mon RIB.', ar: 'هاد الـRIB تبعي.', en: 'Here is my bank account statement.' },
+          { fr: 'Comment vais-je payer mon abonnement ?', ar: 'كيف رح ادفع الاشتراك؟', en: 'How will I pay for my subscription?' },
+          { fr: 'Je voudrais payer par prélèvement automatique.', ar: 'بدي الدفع يكون سحب تلقائي من البنك.', en: 'I’d like to pay by direct debit.' },
+          { fr: 'À quelle date serai-je prélevé ?', ar: 'بأي تاريخ رح ينسحب المبلغ من حسابي؟', en: 'On what date will I be charged?' },
+          { fr: 'Quand vais-je recevoir ma première facture ?', ar: 'إمتى رح توصلني أول فاتورة؟', en: 'When will I receive my first bill?' },
+          { fr: 'Y a-t-il un engagement ?', ar: 'في مدة إلزام بالعقد؟', en: 'Is there a contract commitment?' },
+          { fr: 'Quelle est la durée de l’engagement ?', ar: 'قديش مدة الالتزام؟', en: 'How long is the commitment period?' },
+          { fr: 'Est-ce que l’offre est sans engagement ?', ar: 'العرض بدون التزام؟', en: 'Is the plan commitment-free?' },
+          { fr: 'Que se passe-t-il si je résilie mon abonnement ?', ar: 'شو بيصير إذا لغيت الاشتراك؟', en: 'What happens if I cancel my subscription?' }
+        ]
+      },
+      {
+        icon: '📺',
+        title: { ar: 'الإنترنت — التلفزيون ونهاية الاشتراك', en: 'Internet — TV and end of subscription', fr: 'Internet — TV et fin de l’abonnement' },
+        phrases: [
+          { fr: 'Est-ce que la télévision est incluse ?', ar: 'التلفزيون داخل بالاشتراك؟', en: 'Is TV included?' },
+          { fr: 'Est-ce que les appels sont inclus ?', ar: 'المكالمات داخلة بالاشتراك؟', en: 'Are calls included?' },
+          { fr: 'Est-ce que je peux utiliser le Wi-Fi sur plusieurs appareils ?', ar: 'فيني استخدم الواي فاي على عدة أجهزة؟', en: 'Can I use Wi-Fi on several devices?' },
+          { fr: 'Pouvez-vous me confirmer que mon abonnement est bien activé ?', ar: 'فيكم تأكدولي إنو اشتراكي تفعّل؟', en: 'Can you confirm that my subscription is activated?' },
+          { fr: 'Quand vais-je recevoir mes identifiants ?', ar: 'إمتى رح توصلني معلومات الدخول؟', en: 'When will I receive my login details?' },
+          { fr: 'Où puis-je trouver le nom et le mot de passe du Wi-Fi ?', ar: 'وين بلاقي اسم وكلمة سر الواي فاي؟', en: 'Where can I find the Wi-Fi name and password?' },
+          { fr: 'Pouvez-vous m’envoyer la confirmation par e-mail ?', ar: 'فيكم تبعتولي تأكيد عالإيميل؟', en: 'Can you send me the confirmation by email?' }
+        ]
+      },
+      {
+        icon: '📶',
+        title: { ar: 'الإنترنت — إلغاء الاشتراك عند الخروج', en: 'Internet — cancelling the subscription', fr: 'Internet — résilier l’abonnement' },
+        phrases: [
+          { fr: 'Bonjour, je vous appelle parce que je déménage.', ar: 'مرحبا، عم اتصل لأنّي رح انقل من البيت.', en: 'Hello, I’m calling because I’m moving.' },
+          { fr: 'Je souhaite résilier mon abonnement Internet.', ar: 'بدي ألغي اشتراك الإنترنت.', en: 'I’d like to cancel my internet subscription.' },
+          { fr: 'Je souhaite résilier ma box.', ar: 'بدي ألغي اشتراك الراوتر/الـBox.', en: 'I’d like to cancel my internet box subscription.' },
+          { fr: 'Je quitte mon logement.', ar: 'أنا تارك السكن.', en: 'I’m leaving my home.' },
+          { fr: 'Je quitte le logement le 7 octobre.', ar: 'رح اترك السكن بـ7 تشرين الأول.', en: 'I’m leaving the home on October 7.' },
+          { fr: 'Je voudrais résilier mon abonnement à cette date.', ar: 'بدي ألغي الاشتراك بهالتاريخ.', en: 'I’d like to cancel my subscription on that date.' },
+          { fr: 'Voici l’adresse du logement.', ar: 'هاد عنوان السكن.', en: 'Here is the address of the property.' },
+          { fr: 'À quelle date mon abonnement sera-t-il résilié ?', ar: 'بأي تاريخ رح ينتهي الاشتراك؟', en: 'On what date will my subscription be cancelled?' },
+          { fr: 'Pouvez-vous me confirmer la résiliation de mon abonnement ?', ar: 'فيكم تأكدولي إنو الاشتراك انلغى؟', en: 'Can you confirm the cancellation of my subscription?' },
+          { fr: 'Pouvez-vous me confirmer la résiliation par e-mail ?', ar: 'فيكم تأكدولي إلغاء العقد بالإيميل؟', en: 'Can you confirm the cancellation by email?' }
+        ]
+      },
+      {
+        icon: '📦',
+        title: { ar: 'الإنترنت — إرجاع الـBox والفاتورة الأخيرة', en: 'Internet — returning the box, final bill', fr: 'Internet — rendre la box, dernière facture' },
+        phrases: [
+          { fr: 'Est-ce que je dois rendre la box ?', ar: 'لازم رجّع الـBox؟', en: 'Do I have to return the box?' },
+          { fr: 'Comment dois-je retourner la box ?', ar: 'كيف لازم رجّع الـBox؟', en: 'How do I return the box?' },
+          { fr: 'Où dois-je déposer la box ?', ar: 'وين لازم سلّم الـBox؟', en: 'Where do I have to return the box?' },
+          { fr: 'Est-ce que je dois retourner tous les équipements ?', ar: 'لازم رجّع كل المعدات؟', en: 'Do I have to return all the equipment?' },
+          { fr: 'Est-ce que vous m’envoyez une étiquette de retour ?', ar: 'رح تبعتولي ملصق الإرجاع؟', en: 'Will you send me a return label?' },
+          { fr: 'Quand dois-je retourner la box ?', ar: 'إمتى لازم رجّع الـBox؟', en: 'When do I have to return the box?' },
+          { fr: 'Est-ce qu’il y a des frais de résiliation ?', ar: 'في رسوم على إلغاء الاشتراك؟', en: 'Is there a cancellation fee?' },
+          { fr: 'Est-ce que je dois encore payer quelque chose ?', ar: 'لسا لازم ادفع شي؟', en: 'Do I still have to pay anything?' },
+          { fr: 'Quand vais-je recevoir ma dernière facture ?', ar: 'إمتى رح توصلني آخر فاتورة؟', en: 'When will I receive my final bill?' },
+          { fr: 'Est-ce que je vais recevoir une facture de clôture ?', ar: 'رح توصلني فاتورة نهائية لإغلاق العقد؟', en: 'Will I receive a final closing bill?' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: 'الإنترنت — محادثة إلغاء كاملة', en: 'Internet — the full cancellation call', fr: 'Internet — l’appel de résiliation complet' },
+        phrases: [
+          { fr: 'Bonjour, je vous appelle parce que je déménage.', ar: 'مرحبا، عم اتصل لأنّي رح انقل من البيت.', en: 'Hello, I’m calling because I’m moving.' },
+          { fr: 'Je souhaite résilier mon abonnement Internet.', ar: 'بدي ألغي اشتراك الإنترنت.', en: 'I’d like to cancel my internet subscription.' },
+          { fr: 'Je quitte mon logement le 7 octobre.', ar: 'رح اترك السكن بـ7 تشرين الأول.', en: 'I’m leaving my home on October 7.' },
+          { fr: 'D’accord. Pouvez-vous me donner votre numéro de contrat ?', ar: 'تمام، فيك تعطيني رقم العقد؟', en: 'Okay. Can you give me your contract number?' },
+          { fr: 'Oui, bien sûr. Mon numéro de contrat est…', ar: 'إي طبعاً، رقم العقد تبعي هو…', en: 'Yes, of course. My contract number is…' },
+          { fr: 'Vous devrez retourner votre box.', ar: 'لازم ترجع الـBox.', en: 'You’ll need to return your box.' },
+          { fr: 'D’accord. Comment dois-je la retourner ?', ar: 'تمام، كيف لازم رجّعها؟', en: 'Okay. How do I return it?' },
+          { fr: 'Vous recevrez une étiquette de retour.', ar: 'رح يوصلك ملصق الإرجاع.', en: 'You’ll receive a return label.' },
+          { fr: 'Très bien. Et quand vais-je recevoir ma dernière facture ?', ar: 'تمام. وإمتى رح توصلني آخر فاتورة؟', en: 'Very good. And when will I receive my final bill?' },
+          { fr: 'Vous recevrez une facture de clôture après la résiliation.', ar: 'رح توصلك فاتورة نهائية بعد إلغاء العقد.', en: 'You’ll receive a final bill after the cancellation.' },
+          { fr: 'Pouvez-vous m’envoyer une confirmation par e-mail ?', ar: 'فيكم تبعتولي تأكيد عالإيميل؟', en: 'Can you send me a confirmation by email?' }
+        ]
+      },
+      {
+        icon: '⭐',
+        title: { ar: 'أهم جمل الإنترنت والـWi-Fi', en: 'Top internet and Wi-Fi phrases', fr: 'Top des phrases Internet' },
+        phrases: [
+          { fr: 'Je viens d’emménager et je voudrais activer ma connexion Internet.', ar: 'هلأ نقلت عالسكن الجديد وبدي فعّل الإنترنت.', en: 'I’ve just moved in and I’d like to activate my internet connection.' },
+          { fr: 'Je voudrais transférer ma ligne à ma nouvelle adresse.', ar: 'بدي انقل خط الإنترنت لعنواني الجديد.', en: 'I’d like to transfer my line to my new address.' },
+          { fr: 'Je n’ai pas encore de connexion Internet.', ar: 'لسا ما عندي اتصال بالإنترنت.', en: 'I don’t have an internet connection yet.' },
+          { fr: 'Est-ce que la fibre est disponible à cette adresse ?', ar: 'الفايبر متوفر بهالعنوان؟', en: 'Is fiber available at this address?' },
+          { fr: 'Combien coûte l’abonnement par mois ?', ar: 'قديش الاشتراك بالشهر؟', en: 'How much is the subscription per month?' },
+          { fr: 'Est-ce qu’il y a des frais supplémentaires ?', ar: 'في رسوم إضافية؟', en: 'Are there any additional fees?' },
+          { fr: 'Quand est-ce que ma ligne sera activée ?', ar: 'إمتى رح يتفعّل خط الإنترنت؟', en: 'When will my line be activated?' },
+          { fr: 'Est-ce qu’un technicien doit venir ?', ar: 'لازم يجي فني؟', en: 'Does a technician need to come?' },
+          { fr: 'Est-ce que l’offre est sans engagement ?', ar: 'العرض بدون التزام؟', en: 'Is the plan commitment-free?' },
+          { fr: 'Quand vais-je recevoir la box ?', ar: 'إمتى رح يوصلني الراوتر؟', en: 'When will I receive the router?' },
+          { fr: 'Je souhaite résilier mon abonnement Internet.', ar: 'بدي ألغي اشتراك الإنترنت.', en: 'I’d like to cancel my internet subscription.' },
+          { fr: 'Je déménage et je quitte mon logement.', ar: 'رح انقل وعم اترك السكن.', en: 'I’m moving and leaving my home.' },
+          { fr: 'Est-ce que je dois rendre la box ?', ar: 'لازم رجّع الـBox؟', en: 'Do I have to return the box?' },
+          { fr: 'Comment dois-je retourner la box ?', ar: 'كيف لازم رجّع الـBox؟', en: 'How do I return the box?' },
+          { fr: 'Est-ce qu’il y a des frais de résiliation ?', ar: 'في رسوم على الإلغاء؟', en: 'Is there a cancellation fee?' },
+          { fr: 'Pouvez-vous me confirmer la résiliation par e-mail ?', ar: 'فيكم تأكدولي إلغاء العقد بالإيميل؟', en: 'Can you confirm the cancellation by email?' }
+        ]
       }
     ]
   }
