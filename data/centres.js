@@ -737,5 +737,93 @@ window.CENTRES_DATA = [
         ]
       }
     ]
+  },
+  {
+    id: 'banque',
+    icon: '🏦',
+    name: { ar: 'البنك — فتح حساب', en: 'The bank — opening an account', fr: 'La banque — ouvrir un compte' },
+    desc: {
+      ar: 'فتح حساب بنكي كطالب لجوء: الوثائق، البطاقة، الرسوم، وماذا تفعل عند الرفض',
+      en: 'Opening a bank account as an asylum seeker: documents, card, fees, and what to do if refused',
+      fr: 'Ouvrir un compte bancaire en tant que demandeur d’asile : documents, carte, frais et que faire en cas de refus'
+    },
+    sections: [
+      {
+        icon: '🏦',
+        title: { ar: 'عند الدخول إلى البنك', en: 'Entering the bank', fr: 'En entrant à la banque' },
+        phrases: [
+          { fr: 'Bonjour, je voudrais ouvrir un compte bancaire, s’il vous plaît.', ar: 'مرحبا، بدي افتح حساب بنكي لو سمحت.', en: 'Hello, I would like to open a bank account, please.' },
+          { fr: 'Je suis demandeur d’asile en France et je suis domicilié à la Croix-Rouge.', ar: 'أنا طالب لجوء بفرنسا وعندي دوميسيلياسيون عند الصليب الأحمر.', en: 'I am an asylum seeker in France and I have a domiciliation address with the Red Cross.' },
+          { fr: 'Je voudrais savoir si je peux ouvrir un compte chez vous.', ar: 'بدي أعرف إذا فيني افتح حساب عندكم.', en: 'I would like to know if I can open an account with you.' }
+        ]
+      },
+      {
+        icon: '📄',
+        title: { ar: 'عن الوثائق', en: 'About the documents', fr: 'À propos des documents' },
+        phrases: [
+          { fr: 'Quels documents dois-je fournir pour ouvrir le compte ?', ar: 'شو الأوراق اللي لازم قدمها لفتح الحساب؟', en: 'What documents do I need to provide to open the account?' },
+          { fr: 'J’ai mon document d’identité avec moi.', ar: 'معي وثيقة هويتي.', en: 'I have my identity document with me.' },
+          { fr: 'J’ai aussi mon attestation de domiciliation de la Croix-Rouge.', ar: 'معي كمان إثبات الدوميصيلياسيون من الصليب الأحمر.', en: 'I also have my Red Cross proof of domiciliation.' },
+          { fr: 'Est-ce que cette attestation de domiciliation est acceptée comme justificatif de domicile ?', ar: 'هل هالإثبات من الصليب الأحمر مقبول كإثبات سكن؟', en: 'Is this Red Cross document accepted as proof of address?' }
+        ]
+      },
+      {
+        icon: '🪪',
+        title: { ar: 'إذا سألوك عن وضعك', en: 'If they ask about your status', fr: 'S’ils vous demandent votre statut' },
+        phrases: [
+          { fr: 'Quel est votre statut en France ?', ar: 'شو وضعك القانوني بفرنسا؟', en: 'What is your status in France?' },
+          { fr: 'Je suis demandeur d’asile.', ar: 'أنا طالب لجوء.', en: 'I am an asylum seeker.' },
+          { fr: 'Avez-vous un titre de séjour ?', ar: 'معك بطاقة إقامة؟', en: 'Do you have a residence permit?' },
+          { fr: 'Je n’ai pas encore de titre de séjour. Je suis demandeur d’asile.', ar: 'لسا ما عندي بطاقة إقامة، أنا طالب لجوء.', en: 'I do not have a residence permit yet. I am an asylum seeker.' }
+        ]
+      },
+      {
+        icon: '💳',
+        title: { ar: 'عن البطاقة', en: 'About the card', fr: 'À propos de la carte' },
+        phrases: [
+          { fr: 'Est-ce que je peux avoir une carte bancaire ?', ar: 'فيني آخد بطاقة بنكية؟', en: 'Can I get a bank card?' },
+          { fr: 'Est-ce que je peux utiliser la carte pour retirer de l’argent ?', ar: 'فيني استخدم البطاقة لسحب المصاري؟', en: 'Can I use the card to withdraw money?' },
+          { fr: 'Est-ce que je peux faire des virements avec ce compte ?', ar: 'فيني أعمل تحويلات من هالحساب؟', en: 'Can I make transfers with this account?' },
+          { fr: 'Est-ce que je peux recevoir mon salaire sur ce compte ?', ar: 'فيني استلم راتبي على هالحساب؟', en: 'Can I receive my salary into this account?' }
+        ]
+      },
+      {
+        icon: '💰',
+        title: { ar: 'عن الرسوم', en: 'About the fees', fr: 'À propos des frais' },
+        phrases: [
+          { fr: 'Quels sont les frais mensuels du compte ?', ar: 'قديش الرسوم الشهرية للحساب؟', en: 'What are the monthly account fees?' },
+          { fr: 'Est-ce que la carte bancaire est payante ?', ar: 'هل البطاقة البنكية عليها رسوم؟', en: 'Is the bank card charged?' },
+          { fr: 'Y a-t-il des frais pour les retraits ?', ar: 'في رسوم على سحب المصاري؟', en: 'Are there fees for withdrawals?' }
+        ]
+      },
+      {
+        icon: '❌',
+        title: { ar: 'إذا رفضوا فتح الحساب', en: 'If they refuse to open the account', fr: 'S’ils refusent d’ouvrir le compte' },
+        phrases: [
+          { fr: 'Pourquoi vous ne pouvez pas ouvrir mon compte ?', ar: 'ليش ما فيكم تفتحوا حسابي؟', en: 'Why can’t you open my account?' },
+          { fr: 'Est-ce que vous pouvez m’expliquer la raison, s’il vous plaît ?', ar: 'فيكم تشرحولي السبب لو سمحت؟', en: 'Could you explain the reason to me, please?' },
+          { fr: 'Pouvez-vous me donner un document écrit avec la raison du refus ?', ar: 'فيكم تعطوني ورقة مكتوب فيها سبب الرفض؟', en: 'Could you give me a written document stating the reason for the refusal?' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: 'إذا لم تفهم الموظف', en: 'If you don’t understand the employee', fr: 'Si vous ne comprenez pas l’employé' },
+        phrases: [
+          { fr: 'Excusez-moi, je ne parle pas très bien français. Pouvez-vous parler plus lentement, s’il vous plaît ?', ar: 'عذرًا، أنا ما بحكي فرنسي منيح. فيك تحكي أبطأ لو سمحت؟', en: 'Excuse me, I don’t speak French very well. Could you speak more slowly, please?' },
+          { fr: 'Pouvez-vous répéter, s’il vous plaît ?', ar: 'فيك تعيد لو سمحت؟', en: 'Could you repeat, please?' },
+          { fr: 'Pouvez-vous me l’écrire, s’il vous plaît ?', ar: 'فيك تكتبلي ياها لو سمحت؟', en: 'Could you write it down for me, please?' }
+        ]
+      },
+      {
+        icon: '📱',
+        title: { ar: 'في نهاية فتح الحساب', en: 'After opening the account', fr: 'Après l’ouverture du compte' },
+        phrases: [
+          { fr: 'Quand est-ce que je recevrai ma carte bancaire ?', ar: 'إيمت رح توصلني البطاقة البنكية؟', en: 'When will I receive my bank card?' },
+          { fr: 'Comment vais-je recevoir mon code PIN ?', ar: 'كيف رح استلم الرقم السري للبطاقة؟', en: 'How will I receive my PIN?' },
+          { fr: 'Est-ce que je peux utiliser l’application bancaire ?', ar: 'فيني استخدم تطبيق البنك؟', en: 'Can I use the banking app?' },
+          { fr: 'Comment puis-je consulter mon solde ?', ar: 'كيف فيني شوف رصيد حسابي؟', en: 'How can I check my account balance?' }
+        ]
+      }
+    ]
   }
 ];
