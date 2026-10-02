@@ -1,27 +1,18 @@
-const CACHE_NAME = 'dross-v179';
+const CACHE_NAME = 'dross-v180';
 const TILE_CACHE = 'osm-tiles-v1';
 const FILES_TO_CACHE = [
   './',
   './index.html',
   './french.html',
   './vocab.html',
-  './map.html',
+  './centres.html',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
   './data/manifest.js',
   './data/vocab.js',
   './data/vocab-batch-02.js',
-  './vendor/leaflet/leaflet.css',
-  './vendor/leaflet/leaflet.js',
-  './vendor/leaflet/images/marker-icon.png',
-  './vendor/leaflet/images/marker-icon-2x.png',
-  './vendor/leaflet/images/marker-shadow.png',
-  './vendor/leaflet/images/layers.png',
-  './vendor/leaflet/images/layers-2x.png',
-  './vendor/leaflet-markercluster/MarkerCluster.css',
-  './vendor/leaflet-markercluster/MarkerCluster.Default.css',
-  './vendor/leaflet-markercluster/leaflet.markercluster.js'
+  './data/centres.js'
 ];
 
 for (let i = 1; i <= 39; i++) {

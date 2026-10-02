@@ -17,10 +17,9 @@ cp manifest.json icon-192.png icon-512.png sw.js www/
 cp vocab.html www/index.html
 cp french.html www/french.html
 cp index.html www/videos.html
-cp map.html www/
+cp centres.html www/
 # inside the bundle the video editor lives at videos.html; fix links that target index.html
 sed -i 's|href="index.html"|href="videos.html"|g' www/*.html
-cp -r vendor www/
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
 if [ "$USE_ALIYUN" = "1" ]; then
