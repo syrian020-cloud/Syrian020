@@ -725,7 +725,7 @@ function capPlugin(name) {
   }
   return null;
 }
-const BUILD_STAMP = 'v16 · ٢٠٢٦-١٠-٠٢';
+const BUILD_STAMP = 'v17 · ٢٠٢٦-١٠-٠٢';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -1310,9 +1310,24 @@ const io = new IntersectionObserver(entries => {
     if (en.isIntersecting) {
       renderPage(n);
       updateCurrentPage();
+      // recycle far-away pages so canvases don't pile up and lag scrolling
+      if (!speaking) for (const r of Array.from(rendered)) {
+        if (Math.abs(r - n) > 2) unrenderPage(r);
+      }
     }
   }
 }, { root: wrapEl, rootMargin: '400px 0px' });
+
+function unrenderPage(n) {
+  const div = pagesEl.children[n - 1];
+  if (!div || !rendered.has(n)) return;
+  if (div.querySelector('.speaking')) return;   // don't drop the page being read aloud
+  rendered.delete(n);
+  div.innerHTML = '<div class="ph">' + n + '</div>';
+  div.style.width = '100%';
+  div.style.height = '70vh';
+  div.style.aspectRatio = '';
+}
 
 wrapEl.addEventListener('scroll', () => { updateCurrentPage(); scheduleSave(); }, { passive: true });
 
@@ -1433,7 +1448,7 @@ async function renderPage(n) {
     }
     const scale = targetScale();
     const viewport = page.getViewport({ scale });
-    const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     div.style.width = '100%';
     div.style.height = 'auto';
