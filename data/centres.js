@@ -6897,6 +6897,16 @@ window.CENTRES_DATA = [
         ]
       },
       {
+        icon: '🔒',
+        title: { ar: '⭐ تحذير الأمان بالمراسلة', en: 'Messaging safety warning', fr: 'Avertissement de sécurité' },
+        phrases: [
+          { fr: 'Vous prenez un risque en envoyant votre numéro de téléphone / e-mail.', ar: 'أنت بتعرّض حالك للخطر إذا بعتت رقم تلفونك أو إيميلك.', en: 'You take a risk sending your phone number / email.' },
+          { fr: 'Ici, nous garantissons la sécurité de vos échanges. / C’est pourquoi nous vous conseillons de rester sur la messagerie.', ar: 'هون منضمن أمان المحادثات / لذلك مننصحك تضل برسائل التطبيق.', en: 'We guarantee safe exchanges / so stay on the app’s messaging.' },
+          { fr: 'Pour discuter et passer par le paiement sécurisé pour vos transactions.', ar: 'ولحتى تحكوا وتستخدموا الدفع الآمن للمعاملات.', en: 'To chat and use secure payment for your transactions.' },
+          { fr: 'un risque / la sécurité / un échange / la messagerie / le paiement sécurisé / une transaction', ar: 'خطر / أمان / تبادل / المراسلة / الدفع الآمن / معاملة', en: 'risk / security / exchange / messaging / secure payment / transaction' }
+        ]
+      },
+      {
         icon: '🏷️',
         title: { ar: '⭐ عناوين إعلانات حقيقية', en: 'Real listing titles', fr: 'Titres d’annonces réels' },
         phrases: [
