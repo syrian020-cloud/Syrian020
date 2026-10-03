@@ -188,6 +188,59 @@ window.CENTRES_DATA = [
           { fr: 'Vous pouvez me prévenir quand j’ai du courrier ?', ar: 'فيكن تخبروني لما يوصلني بريد؟', en: 'Can you let me know when I have mail?' },
           { fr: 'faire → يعمل | demander → يطلب | remplir → يعبّي | signer → يوقّع | fournir → يقدّم | déposer → يسلّم | envoyer → يرسل | recevoir → يستلم | récupérer → يأخذ | déclarer → يصرّح | renouveler → يجدّد | modifier → يعدّل | prévenir → يخبر', ar: 'faire يعمل — demander يطلب — remplir يعبّي — signer يوقّع — fournir يقدّم — déposer يسلّم — envoyer يرسل — recevoir يستلم — récupérer يأخذ — déclarer يصرّح — renouveler يجدّد — modifier يعدّل — prévenir يخبر', en: 'key verbs list' }
         ]
+      },
+      {
+        icon: '⭐',
+        title: { ar: 'أفعال إضافية للإجراءات', en: 'More verbs for the process', fr: 'Autres verbes pour les démarches' },
+        phrases: [
+          { fr: 'Je dois présenter ma pièce d’identité.', ar: 'لازم أبرز هويتي.', en: 'I need to show my ID.' },
+          { fr: 'Je dois justifier ma situation. / Comment je peux justifier ma situation ?', ar: 'لازم أثبت وضعي / كيف فيني أثبت وضعي؟', en: 'Prove my situation / how?' },
+          { fr: 'Je dois constituer mon dossier.', ar: 'لازم جهّز ملفي.', en: 'Prepare my file.' },
+          { fr: 'Vous pouvez vérifier mon dossier ? / vérifier si ma domiciliation est toujours valable.', ar: 'فيكن تتأكدوا من ملفي؟ / إذا الدوميسيلياسيون لسا سارية.', en: 'Check my file / still valid.' },
+          { fr: 'Je dois prendre rendez-vous pour une domiciliation ? / Je dois attendre combien de temps ?', ar: 'لازم آخد موعد؟ / قديش استنى؟', en: 'Need an appointment? / wait how long?' },
+          { fr: 'Je viens retirer mon courrier. / Qui dois-je contacter pour ma domiciliation ?', ar: 'جيت استلم بريدي / مين أتواصل معه؟', en: 'Collect my mail / who to contact?' },
+          { fr: 'Je dois changer mon adresse auprès de la CAF. / signaler mon changement d’adresse. / communiquer cette adresse à la CAF.', ar: 'لازم غيّر عنواني عند الـCAF / بلّغ عن تغيير العنوان / أعطي هالعنوان للـCAF.', en: 'Change address at CAF / report / give address.' },
+          { fr: 'Est-ce que je peux utiliser cette adresse pour mes démarches ? / Cette adresse est-elle reconnue par les administrations ?', ar: 'فيني استخدم هالعنوان لمعاملاتي؟ / معترف فيه عند الإدارات؟', en: 'Use this address? / recognized?' },
+          { fr: 'présenter → يبرز | justifier → يثبت | constituer → يجهّز | vérifier → يتأكد | prendre rendez-vous → يحجز موعد | attendre → ينتظر | retirer → يستلم | contacter → يتواصل | changer → يغيّر | utiliser → يستخدم', ar: 'présenter يبرز — justifier يثبت — constituer يجهّز — vérifier يتأكد — prendre rendez-vous يحجز موعد — attendre ينتظر — retirer يستلم — contacter يتواصل — changer يغيّر — utiliser يستخدم', en: 'key verbs list 2' }
+        ]
+      },
+      {
+        icon: '📋',
+        title: { ar: '⭐ حالة الطلب والملف', en: 'Application status and file', fr: 'Suivi de la demande' },
+        phrases: [
+          { fr: 'Je souhaite faire une demande de domiciliation. / Je viens pour ma demande de domiciliation. / Je viens pour ma domiciliation.', ar: 'بدي قدّم طلب / جيت بخصوص طلبي / بخصوص الدوميسيلياسيون.', en: 'Apply / here about my request / my domiciliation.' },
+          { fr: 'J’ai déjà fait une demande. / Je voudrais savoir où en est ma demande.', ar: 'قدّمت طلب من قبل / بدي أعرف لوين وصل طلبي.', en: 'Already applied / status of my application.' },
+          { fr: 'Mon dossier est complet ? / Il manque un document ? / Quel document manque à mon dossier ? / Il manque quelque chose ? / C’est bon pour mon dossier ?', ar: 'ملفي كامل؟ / ناقص ورقة؟ / أي ورقة ناقصة؟ / ناقص شي؟ / هيك تمام؟', en: 'File complete? / missing doc? / which? / anything missing? / all good?' },
+          { fr: 'Votre demande a été acceptée. / est en cours de traitement.', ar: 'طلبك انقبل / قيد المعالجة.', en: 'Accepted / being processed.' },
+          { fr: 'Mon dossier a été refusé ? / Pourquoi ma demande a été refusée ? / Qu’est-ce que je dois faire maintenant ?', ar: 'ملفي انرفض؟ / ليش انرفض طلبي؟ / شو أعمل هلأ؟', en: 'Refused? / why refused? / what now?' },
+          { fr: 'Voici ma pièce d’identité. / mon justificatif de situation. / Je dois mettre quelle adresse ? / indiquer mon ancienne adresse ? / Mes coordonnées ont changé.', ar: 'هاي هويتي / إثبات وضعي / أي عنوان حط؟ / عنواني القديم؟ / معلوماتي تغيّرت.', en: 'My ID / proof / which address? / old address? / details changed.' },
+          { fr: 'J’ai une question concernant ma domiciliation. / Je dois revenir quand ?', ar: 'عندي سؤال عن الدوميسيلياسيون / إمتى أرجع؟', en: 'Question about it / when come back?' }
+        ]
+      },
+      {
+        icon: '📬',
+        title: { ar: '⭐ استلام البريد والتجديد', en: 'Mail pickup and renewal', fr: 'Courrier et renouvellement' },
+        phrases: [
+          { fr: 'Comment fonctionne la réception du courrier ? / Comment vais-je être informé de l’arrivée de mon courrier ?', ar: 'كيف بيشتغل استلام البريد؟ / كيف بعرف إنو وصلني بريد؟', en: 'How mail works / how informed?' },
+          { fr: 'Je peux venir chercher mon courrier quand je veux ? / Quels sont les horaires pour retirer mon courrier ?', ar: 'فيني آخده بأي وقت؟ / شو أوقات الاستلام؟', en: 'Any time? / pickup hours?' },
+          { fr: 'J’attends un courrier important. / Je n’ai pas reçu mon courrier / aucun courrier / la réponse. / Vous pouvez vérifier si j’ai reçu du courrier ? / Mon courrier a été retourné.', ar: 'ناطر رسالة مهمة / ما وصلني / ولا بريد / الإجابة / تتأكدوا إذا وصلني؟ / بريدي رجع.', en: 'Important letter / no mail / response / check? / returned.' },
+          { fr: 'Votre courrier est arrivé. / Vous avez reçu du courrier.', ar: 'وصلك بريد.', en: 'Your mail arrived.' },
+          { fr: 'Ma domiciliation est-elle toujours valable ? / Quand est-ce qu’elle expire ? / Votre domiciliation est valable un an. / arrive à expiration. / Il faut renouveler votre domiciliation. / Est-ce que le renouvellement est automatique ?', ar: 'لسا سارية؟ / إمتى بتنتهي؟ / صالحة لسنة / قربت تنتهي / لازم تجدّد / التجديد تلقائي؟', en: 'Still valid? / expires when? / one year / about to expire / must renew / automatic?' }
+        ]
+      },
+      {
+        icon: '🏷️',
+        title: { ar: '⭐ الصفات الشائعة', en: 'Common adjectives', fr: 'Adjectifs courants' },
+        phrases: [
+          { fr: 'Mon dossier est complet / incomplet / prêt / à jour / en attente.', ar: 'ملفي كامل / ناقص / جاهز / محدّث / قيد الانتظار.', en: 'File: complete/incomplete/ready/up-to-date/pending.' },
+          { fr: 'La demande est acceptée / refusée / en cours / en cours de traitement / valable.', ar: 'الطلب مقبول / مرفوض / قيد المعالجة / ساري.', en: 'Accepted / refused / in progress / valid.' },
+          { fr: 'Le document est obligatoire / nécessaire / valide / expiré / conforme / n’est plus valable. / La pièce d’identité est valide.', ar: 'الورقة إلزامية / ضرورية / سارية / منتهية / مطابقة / ما عادت سارية / الهوية سارية.', en: 'Required / necessary / valid / expired / compliant / no longer valid / ID valid.' },
+          { fr: 'C’est un courrier officiel / urgent / recommandé / confidentiel / personnel. / Le courrier est arrivé / disponible / important.', ar: 'بريد رسمي / مستعجل / مسجّل / سري / شخصي / وصل / متاح / مهم.', en: 'Official / urgent / registered / confidential / personal mail; arrived / available / important.' },
+          { fr: 'J’ai une adresse officielle. / Je n’ai pas d’adresse fixe. / Cette adresse est temporaire / administrative / correcte / incorrecte / complète / stable.', ar: 'عندي عنوان رسمي / ما عندي عنوان ثابت / مؤقت / إداري / صحيح / غلط / كامل / ثابت.', en: 'Official / no fixed / temporary / administrative / correct / incorrect / complete / stable address.' },
+          { fr: 'Ma situation est stable / particulière / compliquée. / Je suis actuellement sans domicile stable / sans adresse fixe.', ar: 'وضعي مستقر / خاص / معقّد / حاليًا بلا سكن ثابت / بلا عنوان ثابت.', en: 'Stable / particular / complicated situation / no stable home / no fixed address.' },
+          { fr: 'Le rendez-vous est confirmé / obligatoire / disponible / annulé.', ar: 'الموعد تأكّد / إجباري / متاح / انلغى.', en: 'Appointment confirmed / mandatory / available / cancelled.' },
+          { fr: 'complet/incomplet | prêt | à jour | conforme | en attente | valable | expiré | obligatoire | nécessaire | officiel | administratif | temporaire | fixe | urgent | important | accepté | refusé | disponible | en cours | correct/incorrect | stable | particulier | compliqué | personnel | confidentiel | confirmé | annulé', ar: 'كامل/ناقص | جاهز | محدّث | مطابق | قيد الانتظار | ساري | منتهي | إلزامي | ضروري | رسمي | إداري | مؤقت | ثابت | مستعجل | مهم | مقبول | مرفوض | متاح | قيد المعالجة | صحيح/غلط | مستقر | خاص | معقّد | شخصي | سري | مؤكّد | ملغى', en: 'key adjectives list' }
+        ]
       }
     ]
   },
