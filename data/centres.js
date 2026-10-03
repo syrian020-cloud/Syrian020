@@ -6895,6 +6895,62 @@ window.CENTRES_DATA = [
           { fr: 'Je suis intéressé. / Je peux venir aujourd’hui ? / passer ce soir ? / Vous faites un prix ? / Je prends. / C’est bon pour moi.', ar: 'أنا مهتم / فيني أجي اليوم؟ / مرق بالمساء؟ / بتعمل سعر أحسن؟ / باخدو / مناسب إلي.', en: 'Interested / come today? / by this evening? / better price? / I’ll take it / works for me.' },
           { fr: 'Je vous confirme. / Je vous tiens au courant.', ar: 'بأكدلك / بخبرك بالجديد.', en: 'I’ll confirm / keep you updated.' }
         ]
+      },
+      {
+        icon: '🏷️',
+        title: { ar: '⭐ عناوين إعلانات حقيقية', en: 'Real listing titles', fr: 'Titres d’annonces réels' },
+        phrases: [
+          { fr: 'Quel est le titre de votre annonce ?', ar: 'شو عنوان إعلانك؟', en: 'What is the title of your listing?' },
+          { fr: 'Four encastrable Valberg Noir AIRFRY – Très bon état (Sous garantie 1 an)', ar: 'فرن فالبرغ أسود مدمج AIRFRY – حالة ممتازة (باقي عليه ضمان سنة)', en: 'Black Valberg built-in AIRFRY oven – Very good condition (1-year warranty remaining)' },
+          { fr: 'Lave-linge Hisense 10 kg 1400 trs/min Wi-Fi – Sous garantie jusqu’en 2027', ar: 'غسالة Hisense سعة 10 كغ، 1400 دورة/دقيقة، Wi-Fi – تحت الضمان حتى 2027', en: 'Hisense 10 kg washing machine, 1400 rpm, Wi-Fi – Under warranty until 2027' },
+          { fr: 'Meuble de rangement blanc 4 portes avec plateau en verre', ar: 'خزانة تخزين بيضاء بأربعة أبواب مع سطح زجاجي', en: 'White storage cabinet with 4 doors and glass top' },
+          { fr: 'Cadre de lit 1 place en métal gris 90x200 – Modèle CHICAGO', ar: 'هيكل سرير مفرد معدني رمادي 90×200 – موديل CHICAGO', en: 'Grey metal single bed frame 90x200 – CHICAGO model' },
+          { fr: 'Ensemble table en bois clair + 4 chaises camel – Bon état', ar: 'طاولة خشب فاتح مع 4 كراسي لون كاميل – حالة جيدة', en: 'Light wood table + 4 camel-colored chairs – Good condition' },
+          { fr: 'Table en bois clair avec pieds métalliques – Bon état', ar: 'طاولة خشب فاتح مع أرجل معدنية – حالة جيدة', en: 'Light wood table with metal legs – Good condition' }
+        ]
+      },
+      {
+        icon: '🔥',
+        title: { ar: '⭐ أسئلة وأجوبة الفرن Valberg', en: 'Valberg oven Q&A', fr: 'Four Valberg : questions et réponses' },
+        phrases: [
+          { fr: 'Quelle est la marque et le modèle du four ? / C’est un Valberg MFO 72 C K TR 343C.', ar: 'شو ماركة وموديل الفرن؟ / هو Valberg MFO 72 C K TR 343C.', en: 'Brand and model? / Valberg MFO 72 C K TR 343C.' },
+          { fr: 'Le four est-il encore sous garantie ? / Oui, il est sous garantie jusqu’au 11/10/2027. J’ai la facture Electro Dépôt.', ar: 'الفرن لسا عليه ضمان؟ / إي لحد 11/10/2027، وعندي فاتورة Electro Dépôt.', en: 'Still under warranty? / until Oct 11, 2027, with the Electro Dépôt receipt.' },
+          { fr: 'Est-ce qu’il fonctionne correctement ? / Oui, il fonctionne parfaitement.', ar: 'بيشتغل بشكل صحيح؟ / إي تمام.', en: 'Works properly? / perfectly.' },
+          { fr: 'Quelles sont ses fonctions principales ? / Il possède notamment la fonction Airfry et une fonction de nettoyage automatique.', ar: 'شو أهم وظائفه؟ / خاصية Airfry والتنظيف التلقائي.', en: 'Main features? / Airfry and automatic cleaning.' },
+          { fr: 'Quelles sont les dimensions d’encastrement ? / Les dimensions sont de 59,5 × 59,5 × 55 cm.', ar: 'شو أبعاد التركيب؟ / 59.5 × 59.5 × 55 سم.', en: 'Built-in dimensions? / 59.5 × 59.5 × 55 cm.' }
+        ]
+      },
+      {
+        icon: '🧺',
+        title: { ar: '⭐ أسئلة وأجوبة الغسالة Hisense', en: 'Hisense washing machine Q&A', fr: 'Lave-linge Hisense : questions et réponses' },
+        phrases: [
+          { fr: 'Quelle est la capacité de la machine ? / Elle a une capacité de 10 kg.', ar: 'قديش سعة الغسالة؟ / سعتها 10 كيلو.', en: 'Capacity? / 10 kg.' },
+          { fr: 'Quelle est la vitesse d’essorage ? / Elle monte jusqu’à 1 400 tours par minute.', ar: 'قديش سرعة العصر؟ / بتوصل لـ1400 دورة بالدقيقة.', en: 'Spin speed? / up to 1,400 rpm.' },
+          { fr: 'Est-elle connectée en Wi-Fi ? / Oui, elle est compatible Wi-Fi.', ar: 'فيها Wi-Fi؟ / إي فيها.', en: 'Wi-Fi? / yes.' },
+          { fr: 'Est-elle encore sous garantie ? / Oui, elle est sous garantie jusqu’en octobre 2027.', ar: 'لسا عليها ضمان؟ / إي لحد أكتوبر 2027.', en: 'Still under warranty? / until October 2027.' }
+        ]
+      },
+      {
+        icon: '🗄️',
+        title: { ar: '⭐ أسئلة وأجوبة الخزانة والسرير', en: 'Cabinet and bed Q&A', fr: 'Meuble et lit : questions et réponses' },
+        phrases: [
+          { fr: 'Combien de portes a le meuble ? / Il a quatre portes avec des étagères à l’intérieur.', ar: 'كم باب عند الخزانة؟ / أربع أبواب ورفوف من جوا.', en: 'How many doors? / four, with shelves inside.' },
+          { fr: 'Quel est son état ? / Il est en très bon état général.', ar: 'شو حالته؟ / كتير منيحة.', en: 'Condition? / very good overall.' },
+          { fr: 'Y a-t-il des défauts ? / Il y a deux petits éclats sur deux coins du plateau en verre. / Cela ne gêne pas son utilisation.', ar: 'فيه عيوب؟ / كسرين صغيرين بزاويتين من السطح الزجاجي / ما بيأثر عالاستخدام.', en: 'Defects? / two small chips on glass corners / doesn’t affect use.' },
+          { fr: 'Quelle est la taille du lit ? / Il fait 90 × 200 cm.', ar: 'شو قياس السرير؟ / 90 × 200 سم.', en: 'Bed size? / 90 × 200 cm.' },
+          { fr: 'Le sommier est-il inclus ? / Oui, le sommier à lattes métalliques est intégré.', ar: 'قاعدة السرير معه؟ / إي، القاعدة المعدنية مدمجة.', en: 'Bed base included? / integrated metal slats.' },
+          { fr: 'Est-il facile à transporter ? / Oui, il est facile à démonter et à transporter.', ar: 'سهل للنقل؟ / إي، سهل الفك والنقل.', en: 'Easy to transport? / easy to disassemble and carry.' }
+        ]
+      },
+      {
+        icon: '🪑',
+        title: { ar: '⭐ أسئلة وأجوبة الطاولة والكراسي', en: 'Table and chairs Q&A', fr: 'Table et chaises : questions et réponses' },
+        phrases: [
+          { fr: 'La table est-elle vendue avec les chaises ? / Oui, elle est vendue avec quatre chaises.', ar: 'الطاولة مبيوعة مع الكراسي؟ / إي مع أربع كراسي.', en: 'Sold with the chairs? / yes, four.' },
+          { fr: 'Quelles sont les dimensions de la table ? / Elle mesure environ 120 × 75 × 75 cm.', ar: 'شو أبعاد الطاولة؟ / تقريبًا 120 × 75 × 75 سم.', en: 'Table dimensions? / about 120 × 75 × 75 cm.' },
+          { fr: 'De quelle couleur sont les chaises ? / Elles sont couleur camel, avec une assise et un dossier effet cuir.', ar: 'شو لون الكراسي؟ / كاميل، والمقعد والظهر مثل الجلد.', en: 'Chair color? / camel, leather-effect seat and back.' },
+          { fr: 'Les pieds sont-ils solides ? / Oui, la structure métallique est solide et stable.', ar: 'الأرجل قوية؟ / إي الهيكل المعدني قوي وثابت.', en: 'Legs sturdy? / strong and stable metal frame.' }
+        ]
       }
     ]
   },
