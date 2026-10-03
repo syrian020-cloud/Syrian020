@@ -7535,7 +7535,9 @@ window.CENTRES_DATA = [
         phrases: [
           { fr: 'Je voudrais échanger ce produit. / Je me suis trompé de modèle. / Ce n’est pas la bonne dimension. / Ce n’est pas compatible.', ar: 'بدي بدّل هالمنتج / أخدت الموديل الغلط / مو القياس المناسب / ما بيركب.', en: 'Exchange / wrong model / wrong size / not compatible.' },
           { fr: 'Il me faut le même modèle, mais dans une autre dimension.', ar: 'بدي نفس الموديل بس بقياس تاني.', en: 'Same model, another size.' },
-          { fr: 'J’ai perdu mon ticket de caisse. / Est-ce que vous pouvez retrouver mon achat ? / J’ai payé par carte.', ar: 'ضيّعت الإيصال / فيكم تلاقوا شرائي؟ / دفعت بالبطاقة.', en: 'Lost the receipt / find my purchase? / paid by card.' }
+          { fr: 'J’ai perdu mon ticket de caisse. / Est-ce que vous pouvez retrouver mon achat ? / J’ai payé par carte.', ar: 'ضيّعت الإيصال / فيكم تلاقوا شرائي؟ / دفعت بالبطاقة.', en: 'Lost the receipt / find my purchase? / paid by card.' },
+          { fr: 'Cette peinture ne convient pas à mon mur. / n’est pas adaptée à mon mur. / Est-ce que cette peinture convient pour mon mur ? / Je me suis trompé de peinture, elle ne convient pas à mon mur.', ar: 'هالدهان ما بيناسب حائطي / مو مناسب لحائطي / هالدهان مناسب لحائطي؟ / أخدت الدهان الغلط ما بيناسب حائطي.', en: 'Paint not suitable for my wall / is it suitable? / wrong paint, not suitable.' },
+          { fr: 'convient à / est adaptée à (pour la peinture) / compatible avec (pour les pièces et appareils)', ar: 'convient à / adaptée à (للدهان والمواد) / compatible (للقطع والأجهزة)', en: 'convient/adaptée for paint, compatible for parts' }
         ]
       },
       {
