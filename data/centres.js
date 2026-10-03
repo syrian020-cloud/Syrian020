@@ -5096,6 +5096,118 @@ window.CENTRES_DATA = [
           { fr: 'Je n’ai pas bien compris.', ar: 'ما فهمت منيح.', en: 'I didn’t understand well.' },
           { fr: 'Pouvez-vous parler plus lentement, s’il vous plaît ?', ar: 'فيك تحكي أبطأ لو سمحت؟', en: 'Could you speak more slowly, please?' }
         ]
+      },
+      {
+        icon: '🎓',
+        title: { ar: '⭐ CPF — المعنى والرصيد', en: 'CPF — meaning and balance', fr: 'CPF — solde' },
+        phrases: [
+          { fr: 'CPF = Compte Personnel de Formation', ar: 'الحساب الشخصي للتدريب', en: 'Personal Training Account' },
+          { fr: 'J’ai un compte CPF.', ar: 'عندي حساب CPF.', en: 'I have a CPF account.' },
+          { fr: 'J’ai des droits CPF.', ar: 'عندي رصيد/حقوق بـCPF.', en: 'I have CPF credits.' },
+          { fr: 'Je voudrais consulter mon solde CPF.', ar: 'بدي شوف رصيد الـCPF تبعي.', en: 'I would like to check my CPF balance.' },
+          { fr: 'Quel est mon solde CPF ?', ar: 'قديش رصيد الـCPF تبعي؟', en: 'What is my CPF balance?' },
+          { fr: 'J’ai 1 200 euros sur mon CPF.', ar: 'عندي 1200 يورو بحساب CPF.', en: 'I have €1,200 in my CPF.' },
+          { fr: 'Mes droits CPF sont insuffisants.', ar: 'رصيد الـCPF تبعي ما بكفي.', en: 'My CPF credits are insufficient.' },
+          { fr: 'Combien d’euros ai-je acquis sur mon CPF ?', ar: 'قديش يورو جمّعت بحساب CPF؟', en: 'How many euros have I accumulated in my CPF?' },
+          { fr: 'Pourquoi mon CPF n’a pas été crédité ?', ar: 'ليش ما انضاف الرصيد على CPF تبعي؟', en: 'Why hasn’t my CPF been credited?' },
+          { fr: 'Environ 500 € par an à temps plein, jusqu’à 5 000 € (jusqu’à 800 €/an et 8 000 € pour certains profils).', ar: 'حوالي 500 يورو سنويًا للدوام الكامل بحد أقصى 5000 (ولفئات معينة 800 سنويًا حتى 8000).', en: 'About €500/year full-time, capped at €5,000 (€800/year, cap €8,000 for certain profiles).' },
+          { fr: 'Mon contrat est terminé, est-ce que je garde mes droits CPF ?', ar: 'عقدي انتهى، هل بحتفظ برصيد CPF؟', en: 'My contract has ended. Do I keep my CPF credits?' },
+          { fr: 'Le CPF me suit toute ma vie professionnelle.', ar: 'الـCPF برافقني طول حياتي المهنية مو مربوط بالشركة.', en: 'The CPF follows me throughout my career — not tied to the employer.' },
+          { fr: 'Je suis demandeur d’emploi. Est-ce que je peux utiliser mon CPF ?', ar: 'أنا باحث عن عمل، فيني استخدم الـCPF؟', en: 'I am a job seeker. Can I use my CPF?' },
+          { fr: 'Je voudrais utiliser mon CPF pour financer une formation.', ar: 'بدي استخدم الـCPF لتمويل تدريب.', en: 'I would like to use my CPF to fund training.' }
+        ]
+      },
+      {
+        icon: '🔍',
+        title: { ar: 'CPF — التدريب المؤهل والبحث', en: 'CPF — eligible training and search', fr: 'CPF — formations éligibles' },
+        phrases: [
+          { fr: 'formation éligible au CPF', ar: 'تدريب مؤهل للـCPF', en: 'CPF-eligible training' },
+          { fr: 'formation certifiante', ar: 'تدريب يعطي شهادة معترف بها', en: 'certification training' },
+          { fr: 'certification professionnelle', ar: 'شهادة مهنية', en: 'professional certification' },
+          { fr: 'titre professionnel', ar: 'شهادة/مؤهل مهني', en: 'professional qualification' },
+          { fr: 'Je cherche une formation éligible au CPF.', ar: 'عم دوّر على تدريب مؤهل للـCPF.', en: 'I’m looking for CPF-eligible training.' },
+          { fr: 'Je voudrais comparer les formations.', ar: 'بدي قارن بين التدريبات.', en: 'I would like to compare the training courses.' },
+          { fr: 'Je voudrais connaître le prix de la formation.', ar: 'بدي أعرف سعر التدريب.', en: 'I would like to know the price of the training.' },
+          { fr: 'organisme de formation', ar: 'مؤسسة التدريب', en: 'training provider' },
+          { fr: 'session', ar: 'دورة/جلسة تدريب محددة', en: 'training session' },
+          { fr: 'date de début / date de fin', ar: 'تاريخ البداية / تاريخ النهاية', en: 'start date / end date' },
+          { fr: 'devis', ar: 'عرض سعر', en: 'quotation' },
+          { fr: 'demande d’inscription', ar: 'طلب التسجيل', en: 'registration request' },
+          { fr: 'validation / refus', ar: 'موافقة / رفض', en: 'approval / refusal' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: '⭐ CPF — reste à payer و abondement', en: 'CPF — remaining amount and top-up funding', fr: 'CPF — reste à payer et abondement' },
+        phrases: [
+          { fr: 'reste à payer', ar: 'المبلغ اللي بقي عليك تدفعه', en: 'amount left to pay' },
+          { fr: 'Il me reste 800 euros à payer.', ar: 'بقي عليّ 800 يورو أدفعها.', en: 'I have €800 left to pay.' },
+          { fr: 'Pourquoi ai-je un reste à payer ?', ar: 'ليش بقي عليّ مبلغ للدفع؟', en: 'Why do I have an amount left to pay?' },
+          { fr: 'abondement', ar: 'تمويل إضافي', en: 'additional funding' },
+          { fr: 'cofinancement', ar: 'تمويل مشترك', en: 'co-funding' },
+          { fr: 'financement', ar: 'تمويل', en: 'funding' },
+          { fr: 'Mes droits CPF ne suffisent pas.', ar: 'رصيد CPF تبعي ما بكفي.', en: 'My CPF credits are not enough.' },
+          { fr: 'Est-ce que France Travail peut financer le reste à payer ?', ar: 'هل France Travail فيهم يمولوا المبلغ المتبقي؟', en: 'Can France Travail fund the remaining amount?' },
+          { fr: 'Je voudrais demander un abondement de France Travail.', ar: 'بدي أطلب تمويل إضافي من France Travail.', en: 'I would like to request additional funding from France Travail.' },
+          { fr: 'Est-ce que France Travail peut compléter mon CPF ?', ar: 'هل France Travail فيهم يكملوا المبلغ الناقص بالـCPF؟', en: 'Can France Travail cover the remaining amount?' },
+          { fr: 'La formation doit commencer au moins 21 jours ouvrés après la demande.', ar: 'لازم التدريب يبدأ بعد 21 يوم عمل على الأقل من تاريخ طلب التمويل.', en: 'The training must start at least 21 working days after the request.' },
+          { fr: 'France Travail répond sous 10 jours ouvrés maximum.', ar: 'France Travail بيردوا بحد أقصى 10 أيام عمل من تاريخ الطلب.', en: 'France Travail answers within 10 working days at most.' }
+        ]
+      },
+      {
+        icon: '📝',
+        title: { ar: 'CPF — تبرير طلب التمويل والنتيجة', en: 'CPF — justifying the request, outcome', fr: 'CPF — justification et réponse' },
+        phrases: [
+          { fr: 'Cette formation va me permettre de retrouver un emploi.', ar: 'هالتدريب رح يساعدني لاقي شغل.', en: 'This training will help me find a job.' },
+          { fr: 'Cette formation correspond à mon projet professionnel.', ar: 'هالتدريب بيتوافق مع مشروعي المهني.', en: 'This training matches my career plan.' },
+          { fr: 'Cette formation me permettra d’acquérir de nouvelles compétences.', ar: 'هالتدريب رح يخليني اكتسب مهارات جديدة.', en: 'This training will allow me to gain new skills.' },
+          { fr: 'Quand vais-je recevoir la réponse de France Travail ?', ar: 'إمتى رح يوصلني جواب France Travail؟', en: 'When will I receive France Travail’s response?' },
+          { fr: 'Ma demande de financement est-elle en cours ?', ar: 'هل طلب التمويل تبعي قيد الدراسة؟', en: 'Is my funding request being processed?' },
+          { fr: 'Ma demande de financement a été acceptée.', ar: 'طلب التمويل تبعي انقبل.', en: 'My funding request was accepted.' },
+          { fr: 'La formation est financée par mon CPF et France Travail.', ar: 'التدريب ممول من CPF تبعي وFrance Travail.', en: 'The training is funded by my CPF and France Travail.' },
+          { fr: 'Ma demande de financement a été refusée.', ar: 'طلب التمويل تبعي انرفض.', en: 'My funding request was refused.' },
+          { fr: 'Pourquoi ma demande a-t-elle été refusée ?', ar: 'ليش انرفض طلبي؟', en: 'Why was my request refused?' },
+          { fr: 'Est-ce que je peux choisir une autre formation ?', ar: 'فيني اختار تدريب تاني؟', en: 'Can I choose another training course?' },
+          { fr: 'Est-ce que je peux payer le reste à payer moi-même ?', ar: 'فيني ادفع المبلغ المتبقي بنفسي؟', en: 'Can I pay the remaining amount myself?' },
+          { fr: 'Attention : une participation financière peut être obligatoire depuis octobre 2026.', ar: 'انتبه: في مساهمة مالية إلزامية ببعض الحالات حسب قواعد أكتوبر 2026 — شوف المبلغ النهائي قبل ما تسجّل.', en: 'Note: a mandatory financial contribution may apply under the October 2026 rules — check the final amount before enrolling.' }
+        ]
+      },
+      {
+        icon: '💰',
+        title: { ar: '⭐ أثناء التدريب — ARE-F و RFFT', en: 'During training — ARE-F and RFFT', fr: 'Pendant la formation — ARE-F et RFFT' },
+        phrases: [
+          { fr: 'ARE-F = ARE pendant la formation', ar: 'استمرار إعانة البطالة ARE أثناء التدريب المؤهل', en: 'ARE continued during eligible training' },
+          { fr: 'RFFT = rémunération de formation France Travail', ar: 'تعويض تدريب من France Travail لبعض الحالات', en: 'France Travail training allowance in some cases' },
+          { fr: 'Est-ce que je serai rémunéré pendant la formation ?', ar: 'هل رح آخد مصاري أثناء التدريب؟', en: 'Will I receive money during the training?' },
+          { fr: 'Est-ce que je conserverai mon ARE pendant la formation ?', ar: 'هل رح يضل الـARE تبعي مستمر أثناء التدريب؟', en: 'Will I continue receiving ARE during the training?' },
+          { fr: 'mobiliser ses droits CPF', ar: 'استخدام حقوق CPF', en: 'use CPF credits' },
+          { fr: 'acquérir des droits', ar: 'اكتساب حقوق', en: 'earn credits' },
+          { fr: 'cumuler des droits', ar: 'تجميع حقوق', en: 'accumulate credits' },
+          { fr: 'consulter son solde', ar: 'الاطلاع على الرصيد', en: 'check one’s balance' },
+          { fr: 'financer une formation', ar: 'تمويل تدريب', en: 'fund training' },
+          { fr: 'demander un abondement', ar: 'طلب تمويل إضافي', en: 'request additional funding' },
+          { fr: 'compléter le financement', ar: 'إكمال التمويل', en: 'complete the funding' },
+          { fr: 'payer le reste à payer', ar: 'دفع المبلغ المتبقي', en: 'pay the remaining amount' },
+          { fr: 's’inscrire à une formation', ar: 'التسجيل بتدريب', en: 'enroll in training' },
+          { fr: 'valider / annuler l’inscription', ar: 'تأكيد / إلغاء التسجيل', en: 'validate / cancel enrollment' },
+          { fr: 'être éligible / être financé', ar: 'يكون مؤهلًا / يكون ممولًا', en: 'be eligible / be funded' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: 'CPF — الحوار مع المستشار', en: 'CPF — talking to your advisor', fr: 'CPF — dialogue avec le conseiller' },
+        phrases: [
+          { fr: 'Bonjour, je voudrais parler de mon CPF.', ar: 'مرحبا، بدي أحكي عن الـCPF تبعي.', en: 'Hello, I would like to talk about my CPF.' },
+          { fr: 'J’ai trouvé une formation qui m’intéresse.', ar: 'لقيت تدريب مهتم فيه.', en: 'I found a training course I’m interested in.' },
+          { fr: 'La formation coûte 2 000 euros et j’ai 1 200 euros sur mon CPF.', ar: 'التدريب سعره 2000 يورو وعندي 1200 يورو بـCPF.', en: 'The training costs €2,000 and I have €1,200 in my CPF.' },
+          { fr: 'Il me reste donc 800 euros à payer.', ar: 'يعني بقي عليّ 800 يورو.', en: 'So I have €800 left to pay.' },
+          { fr: 'Est-ce que France Travail peut financer le reste ?', ar: 'هل France Travail فيهم يمولوا الباقي؟', en: 'Can France Travail fund the remaining amount?' },
+          { fr: 'Est-ce que cette formation correspond à mon projet professionnel ?', ar: 'هل هالتدريب مناسب لمشروعي المهني؟', en: 'Does this training fit my career plan?' },
+          { fr: 'Est-ce que je peux bénéficier d’un abondement ?', ar: 'فيني استفيد من تمويل إضافي؟', en: 'Can I receive additional funding?' },
+          { fr: 'Est-ce que je serai rémunéré pendant la formation ?', ar: 'هل رح آخد تعويض أثناء التدريب؟', en: 'Will I receive an allowance during the training?' },
+          { fr: 'Quelles démarches dois-je faire ?', ar: 'شو الإجراءات اللي لازم أعملها؟', en: 'What steps do I need to take?' },
+          { fr: 'Je souhaite suivre une formation SAP afin d’améliorer mes compétences et de faciliter mon retour à l’emploi. J’ai trouvé une formation sur Mon Compte Formation et je voudrais savoir si France Travail peut compléter mes droits CPF.', ar: 'بدي أعمل تدريب SAP حتى طوّر مهاراتي وسهّل رجعتي لسوق العمل. لقيت تدريب على Mon Compte Formation وبدي أعرف إذا France Travail فيهم يكملوا رصيد CPF تبعي.', en: 'I would like to take SAP training to improve my skills and facilitate my return to employment. I found a course on Mon Compte Formation and would like to know whether France Travail can supplement my CPF credits.' }
+        ]
       }
     ]
   }
