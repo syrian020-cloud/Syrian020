@@ -5293,6 +5293,467 @@ window.CENTRES_DATA = [
           { fr: 'Quelles démarches dois-je faire pour m’inscrire ?', ar: 'شو الإجراءات اللي لازم أعملها لسجّل؟', en: 'What steps do I need to take to register?' },
           { fr: 'Bonjour, je voudrais suivre une formation de français pour améliorer mon niveau et trouver un emploi. Je suis inscrit à France Travail comme demandeur d’emploi. Est-ce que vous pouvez me proposer une formation financée ?', ar: 'مرحبا، بدي أعمل تدريب لغة فرنسية حتى طوّر مستواي ولاقي شغل. أنا مسجل بـFrance Travail كباحث عن عمل. فيكم تقترحوا عليي تدريب ممول؟', en: 'Hello, I would like to take a French language course to improve my level and find a job. I am registered with France Travail as a job seeker. Can you offer me a funded training?' }
         ]
+      },
+      {
+        icon: '📜',
+        title: { ar: 'شهادة بالفرنسية — DELF / TCF', en: 'French certificate — DELF / TCF', fr: 'Certification — DELF / TCF' },
+        phrases: [
+          { fr: 'formation en français', ar: 'تدريب باللغة الفرنسية', en: 'training in French' },
+          { fr: 'examen', ar: 'امتحان', en: 'exam' },
+          { fr: 'Je voudrais préparer le DELF.', ar: 'بدي حضّر لامتحان DELF.', en: 'I would like to prepare for the DELF.' },
+          { fr: 'Je voudrais préparer le TCF.', ar: 'بدي حضّر لامتحان TCF.', en: 'I would like to prepare for the TCF.' },
+          { fr: 'Je voudrais obtenir une certification en français.', ar: 'بدي أحصل على شهادة باللغة الفرنسية.', en: 'I would like to obtain a French-language certification.' },
+          { fr: 'Cette formation prépare-t-elle au DELF ou au TCF ?', ar: 'هل هالدورة بتحضّر لـDELF أو TCF؟', en: 'Does this course prepare for the DELF or TCF?' },
+          { fr: 'Est-ce que cette formation est éligible au CPF ?', ar: 'هل هالدورة مؤهلة للـCPF؟', en: 'Is this course eligible for CPF?' },
+          { fr: 'Bonjour, je voudrais améliorer mon niveau de français. Je cherche une formation FLE et je voudrais savoir si je peux utiliser mon CPF ou bénéficier d’un financement de France Travail.', ar: 'مرحبا، بدي حسّن مستوى الفرنسي تبعي. عم دوّر على دورة FLE وبدي أعرف إذا فيني استخدم CPF أو استفيد من تمويل من France Travail.', en: 'Hello, I would like to improve my French. I am looking for an FLE course and would like to know whether I can use my CPF or receive funding from France Travail.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'traduction',
+    icon: '🗣️',
+    name: {
+      ar: 'المترجم والترجمة — Interprète et traduction',
+      en: 'Interpreter and translation',
+      fr: 'Interprète et traduction'
+    },
+    desc: {
+      ar: 'طلب مترجم بالإدارة والمستشفى، ترجمة الوثائق والمترجم المحلف، وما تقوله لما ما تفهم',
+      en: 'Requesting an interpreter at administrations and hospitals, document translation, sworn translators, and what to say when you don’t understand',
+      fr: 'Demander un interprète, faire traduire des documents, traducteur assermenté, et que dire quand on ne comprend pas'
+    },
+    sections: [
+      {
+        icon: '📖',
+        title: { ar: '⭐ مفردات الترجمة', en: 'Translation vocabulary', fr: 'Vocabulaire de la traduction' },
+        phrases: [
+          { fr: 'traduction', ar: 'ترجمة', en: 'translation' },
+          { fr: 'traduire', ar: 'يترجم', en: 'to translate' },
+          { fr: 'traducteur / traductrice', ar: 'مترجم / مترجمة', en: 'translator (m/f)' },
+          { fr: 'interprète', ar: 'مترجم شفهي / فوري', en: 'interpreter' },
+          { fr: 'interprétation', ar: 'ترجمة شفهية', en: 'interpreting' },
+          { fr: 'interpréter', ar: 'يترجم شفهيًا', en: 'to interpret' },
+          { fr: 'langue maternelle', ar: 'اللغة الأم', en: 'native language' },
+          { fr: 'langue étrangère', ar: 'لغة أجنبية', en: 'foreign language' },
+          { fr: 'bilingue', ar: 'ثنائي اللغة', en: 'bilingual' },
+          { fr: 'multilingue', ar: 'متعدد اللغات', en: 'multilingual' },
+          { fr: 'interprétation simultanée', ar: 'ترجمة فورية متزامنة', en: 'simultaneous interpreting' },
+          { fr: 'interprétation consécutive', ar: 'ترجمة تباعية', en: 'consecutive interpreting' },
+          { fr: 'traduction écrite', ar: 'ترجمة كتابية', en: 'written translation' },
+          { fr: 'traduction orale', ar: 'ترجمة شفهية', en: 'oral translation' },
+          { fr: 'traduction officielle', ar: 'ترجمة رسمية', en: 'official translation' },
+          { fr: 'traduction certifiée', ar: 'ترجمة مصدّقة', en: 'certified translation' },
+          { fr: 'traduction assermentée', ar: 'ترجمة محلفة', en: 'sworn translation' },
+          { fr: 'traducteur assermenté', ar: 'مترجم محلف', en: 'sworn translator' },
+          { fr: 'texte', ar: 'نص', en: 'text' },
+          { fr: 'phrase', ar: 'جملة', en: 'sentence' },
+          { fr: 'mot', ar: 'كلمة', en: 'word' },
+          { fr: 'sens', ar: 'معنى', en: 'meaning' },
+          { fr: 'prononciation', ar: 'لفظ', en: 'pronunciation' },
+          { fr: 'terminologie', ar: 'مصطلحات', en: 'terminology' },
+          { fr: 'version originale', ar: 'النسخة الأصلية', en: 'original version' },
+          { fr: 'version traduite', ar: 'النسخة المترجمة', en: 'translated version' }
+        ]
+      },
+      {
+        icon: '🔄',
+        title: { ar: 'مترجم شفهي أو كتابي؟', en: 'Interpreter or translator?', fr: 'Interprète ou traducteur ?' },
+        phrases: [
+          { fr: 'Le traducteur traduit les textes écrits, l’interprète traduit à l’oral.', ar: 'الـtraducteur للترجمة الكتابية، والـinterprète للترجمة الشفهية.', en: 'A translator works on written texts, an interpreter works orally.' },
+          { fr: 'J’ai besoin d’un interprète.', ar: 'بحتاج مترجم شفهي.', en: 'I need an interpreter.' },
+          { fr: 'J’ai besoin d’un traducteur pour ce document.', ar: 'بحتاج مترجم لهالوثيقة.', en: 'I need a translator for this document.' },
+          { fr: 'Je cherche un interprète arabe-français.', ar: 'عم دوّر على مترجم شفهي عربي-فرنسي.', en: 'I’m looking for an Arabic-French interpreter.' },
+          { fr: 'Je cherche un traducteur arabe-français.', ar: 'عم دوّر على مترجم عربي-فرنسي.', en: 'I’m looking for an Arabic-French translator.' }
+        ]
+      },
+      {
+        icon: '❓',
+        title: { ar: 'لما ما تفهم كلام الموظف', en: 'When you don’t understand', fr: 'Quand on ne comprend pas' },
+        phrases: [
+          { fr: 'Je ne comprends pas bien le français.', ar: 'ما بفهم الفرنسي منيح.', en: 'I don’t understand French well.' },
+          { fr: 'Je ne comprends pas bien.', ar: 'ما فهمت منيح.', en: 'I don’t understand well.' },
+          { fr: 'Pouvez-vous parler plus lentement, s’il vous plaît ?', ar: 'فيك تحكي أبطأ، لو سمحت؟', en: 'Could you speak more slowly, please?' },
+          { fr: 'Pouvez-vous répéter, s’il vous plaît ?', ar: 'فيك تعيد، لو سمحت؟', en: 'Could you repeat, please?' },
+          { fr: 'Pouvez-vous expliquer autrement ?', ar: 'فيك تشرح بطريقة تانية؟', en: 'Could you explain it differently?' },
+          { fr: 'Pouvez-vous me l’écrire ?', ar: 'فيك تكتبلي ياها؟', en: 'Could you write it down for me?' },
+          { fr: 'Je n’ai pas compris cette phrase.', ar: 'ما فهمت هالجملة.', en: 'I didn’t understand this sentence.' },
+          { fr: 'Je n’ai pas compris ce mot.', ar: 'ما فهمت هالكلمة.', en: 'I didn’t understand this word.' },
+          { fr: 'Qu’est-ce que cela veut dire ?', ar: 'شو يعني هاد؟', en: 'What does that mean?' },
+          { fr: 'Qu’est-ce que ce mot signifie ?', ar: 'شو معنى هالكلمة؟', en: 'What does this word mean?' }
+        ]
+      },
+      {
+        icon: '📅',
+        title: { ar: 'طلب مترجم بموعد', en: 'Requesting an interpreter for an appointment', fr: 'Demander un interprète' },
+        phrases: [
+          { fr: 'Est-ce qu’un interprète est disponible ?', ar: 'في مترجم شفهي متوفر؟', en: 'Is an interpreter available?' },
+          { fr: 'Est-ce que vous pouvez prévoir un interprète ?', ar: 'فيكن تأمّنوا مترجم؟', en: 'Can you arrange an interpreter?' },
+          { fr: 'Est-ce que je peux avoir un interprète arabe ?', ar: 'فيني يكون معي مترجم عربي؟', en: 'Can I have an Arabic interpreter?' },
+          { fr: 'J’aurais besoin d’un interprète arabe-français.', ar: 'بحتاج مترجم عربي-فرنسي.', en: 'I would need an Arabic-French interpreter.' },
+          { fr: 'Est-ce que le rendez-vous peut avoir lieu avec un interprète ?', ar: 'فينا نعمل الموعد مع مترجم؟', en: 'Can the appointment take place with an interpreter?' },
+          { fr: 'Je préfère avoir un interprète pour bien comprendre.', ar: 'بفضّل يكون معي مترجم حتى أفهم منيح.', en: 'I prefer to have an interpreter so I can understand properly.' }
+        ]
+      },
+      {
+        icon: '👥',
+        title: { ar: 'تجي مع حدا يترجملك', en: 'Coming with someone who translates', fr: 'Venir accompagné' },
+        phrases: [
+          { fr: 'Je viendrai avec quelqu’un qui parle français.', ar: 'رح أجي مع حدا بيحكي فرنسي.', en: 'I will come with someone who speaks French.' },
+          { fr: 'Cette personne va m’aider à traduire.', ar: 'هالشخص رح يساعدني بالترجمة.', en: 'This person will help me translate.' },
+          { fr: 'Il va traduire pour moi.', ar: 'هو رح يترجملي.', en: 'He will translate for me.' },
+          { fr: 'Elle va traduire pour moi.', ar: 'هي رح تترجملي.', en: 'She will translate for me.' },
+          { fr: 'Cette personne parle français et arabe.', ar: 'هالشخص بيحكي فرنسي وعربي.', en: 'This person speaks French and Arabic.' },
+          { fr: 'Je ne parle pas suffisamment français pour comprendre seul.', ar: 'ما بحكي فرنسي بشكل كافي حتى أفهم لحالي.', en: 'I don’t speak enough French to understand on my own.' }
+        ]
+      },
+      {
+        icon: '🏥',
+        title: { ar: 'الترجمة بالمستشفى', en: 'Interpreting at the hospital', fr: 'Interprète à l’hôpital' },
+        phrases: [
+          { fr: 'J’ai besoin d’un interprète pour mon rendez-vous médical.', ar: 'بحتاج مترجم لموعدي الطبي.', en: 'I need an interpreter for my medical appointment.' },
+          { fr: 'Est-ce que l’hôpital peut fournir un interprète ?', ar: 'هل المستشفى فيهم يأمّنوا مترجم؟', en: 'Can the hospital provide an interpreter?' },
+          { fr: 'Est-ce que l’interprète est gratuit ?', ar: 'هل المترجم مجاني؟', en: 'Is the interpreter free?' },
+          { fr: 'Est-ce que je dois réserver un interprète à l’avance ?', ar: 'لازم أحجز مترجم مسبقًا؟', en: 'Do I need to book an interpreter in advance?' },
+          { fr: 'Je voudrais être sûr de bien comprendre le médecin.', ar: 'بدي أتأكد إني فهمان الدكتور منيح.', en: 'I want to make sure I understand the doctor correctly.' },
+          { fr: 'Pouvez-vous expliquer cela à l’interprète ?', ar: 'فيك تشرح هالشي للمترجم؟', en: 'Could you explain that to the interpreter?' }
+        ]
+      },
+      {
+        icon: '🏛️',
+        title: { ar: 'الترجمة بالإدارات — Préfecture / CAF / France Travail', en: 'Interpreting at administrations', fr: 'Interprète en administration' },
+        phrases: [
+          { fr: 'Je ne maîtrise pas suffisamment le français.', ar: 'الفرنسي تبعي مو كافي.', en: 'I don’t have sufficient command of French.' },
+          { fr: 'Est-ce que je peux venir avec un interprète ?', ar: 'فيني أجي مع مترجم؟', en: 'Can I come with an interpreter?' },
+          { fr: 'Est-ce que je peux être accompagné par une personne qui traduit ?', ar: 'فيني أجي مع شخص يترجملي؟', en: 'Can I be accompanied by someone who translates for me?' },
+          { fr: 'Avez-vous besoin d’un interprète professionnel ?', ar: 'هل بدكن مترجم محترف؟', en: 'Do you need a professional interpreter?' },
+          { fr: 'Est-ce qu’une personne de ma famille peut traduire pour moi ?', ar: 'في حدا من عيلتي فيو يترجملي؟', en: 'Can someone from my family translate for me?' },
+          { fr: 'Est-ce que mon accompagnant peut traduire ?', ar: 'الشخص اللي معي فيو يترجم؟', en: 'Can the person accompanying me translate?' }
+        ]
+      },
+      {
+        icon: '📄',
+        title: { ar: 'ترجمة الوثائق', en: 'Translating documents', fr: 'Traduire des documents' },
+        phrases: [
+          { fr: 'Je voudrais faire traduire ce document.', ar: 'بدي ترجم هالوثيقة.', en: 'I would like to have this document translated.' },
+          { fr: 'Je voudrais faire traduire mon diplôme.', ar: 'بدي ترجم شهادتي.', en: 'I would like to have my diploma translated.' },
+          { fr: 'Je voudrais faire traduire mon acte de naissance.', ar: 'بدي ترجم شهادة ميلادي.', en: 'I would like to have my birth certificate translated.' },
+          { fr: 'Je voudrais faire traduire mon acte de mariage.', ar: 'بدي ترجم عقد الزواج / وثيقة الزواج.', en: 'I would like to have my marriage certificate translated.' },
+          { fr: 'Est-ce que la traduction doit être certifiée ?', ar: 'لازم الترجمة تكون مصدّقة؟', en: 'Does the translation need to be certified?' },
+          { fr: 'Est-ce qu’il faut une traduction assermentée ?', ar: 'لازم ترجمة محلفة؟', en: 'Does it need to be a sworn translation?' },
+          { fr: 'La traduction doit-elle être faite par un traducteur assermenté ?', ar: 'لازم الترجمة تكون من مترجم محلف؟', en: 'Does the translation have to be done by a sworn translator?' }
+        ]
+      },
+      {
+        icon: '⚖️',
+        title: { ar: 'المترجم المحلف — traducteur assermenté', en: 'Sworn translator', fr: 'Traducteur assermenté' },
+        phrases: [
+          { fr: 'Je cherche un traducteur assermenté.', ar: 'عم دوّر على مترجم محلف.', en: 'I’m looking for a sworn translator.' },
+          { fr: 'Je cherche un traducteur assermenté arabe-français.', ar: 'عم دوّر على مترجم محلف عربي-فرنسي.', en: 'I’m looking for an Arabic-French sworn translator.' },
+          { fr: 'Combien coûte la traduction ?', ar: 'قديش تكلفة الترجمة؟', en: 'How much does the translation cost?' },
+          { fr: 'Quel est le délai de traduction ?', ar: 'قديش مدة الترجمة؟', en: 'How long does the translation take?' },
+          { fr: 'Quand pourrai-je récupérer la traduction ?', ar: 'إمتى فيني استلم الترجمة؟', en: 'When can I collect the translation?' },
+          { fr: 'Pouvez-vous me remettre la traduction par e-mail ?', ar: 'فيك تبعتلي الترجمة بالإيميل؟', en: 'Can you send me the translation by email?' }
+        ]
+      },
+      {
+        icon: '💬',
+        title: { ar: 'ترجمة كلمة أو جملة', en: 'Translating a word or sentence', fr: 'Traduire un mot ou une phrase' },
+        phrases: [
+          { fr: 'Comment dit-on … en français ?', ar: 'كيف منقول … بالفرنسي؟', en: 'How do you say … in French?' },
+          { fr: 'Comment dit-on cela en arabe ?', ar: 'كيف منقول هاد بالعربي؟', en: 'How do you say this in Arabic?' },
+          { fr: 'Comment traduire ce mot en français ?', ar: 'كيف نترجم هالكلمة للفرنسي؟', en: 'How do you translate this word into French?' },
+          { fr: 'Quelle est la traduction de ce mot ?', ar: 'شو ترجمة هالكلمة؟', en: 'What is the translation of this word?' },
+          { fr: 'Quel est le sens de cette phrase ?', ar: 'شو معنى هالجملة؟', en: 'What does this sentence mean?' },
+          { fr: 'Pouvez-vous me donner un exemple ?', ar: 'فيك تعطيني مثال؟', en: 'Can you give me an example?' }
+        ]
+      },
+      {
+        icon: '🎙️',
+        title: { ar: 'أثناء الحوار وإذا الترجمة غلط', en: 'During dialogue / wrong translation', fr: 'Pendant l’échange / erreur de traduction' },
+        phrases: [
+          { fr: 'Je vais traduire.', ar: 'رح ترجم.', en: 'I will translate.' },
+          { fr: 'Je vais lui traduire votre question.', ar: 'رح ترجم له سؤالك.', en: 'I will translate your question for him.' },
+          { fr: 'Il demande si…', ar: 'هو عم يسأل إذا…', en: 'He asks whether…' },
+          { fr: 'Elle veut savoir si…', ar: 'هي بدها تعرف إذا…', en: 'She wants to know if…' },
+          { fr: 'Un moment, je vais lui traduire.', ar: 'لحظة، رح ترجم له.', en: 'One moment, I’ll translate it for him.' },
+          { fr: 'Je n’ai pas compris le dernier mot.', ar: 'ما فهمت آخر كلمة.', en: 'I didn’t understand the last word.' },
+          { fr: 'Pouvez-vous parler un peu plus lentement ?', ar: 'فيك تحكي أبطأ شوي؟', en: 'Could you speak a little more slowly?' },
+          { fr: 'Ce n’est pas exactement ce que j’ai dit.', ar: 'هاد مو تمامًا اللي قلته.', en: 'That’s not exactly what I said.' },
+          { fr: 'Je voudrais corriger la traduction.', ar: 'بدي صحح الترجمة.', en: 'I would like to correct the translation.' },
+          { fr: 'Il y a une erreur dans la traduction.', ar: 'في خطأ بالترجمة.', en: 'There is a mistake in the translation.' },
+          { fr: 'Cette traduction n’est pas correcte.', ar: 'هالترجمة مو صحيحة.', en: 'This translation isn’t correct.' },
+          { fr: 'Je voulais dire autre chose.', ar: 'كنت قصدي شي تاني.', en: 'I meant something else.' },
+          { fr: 'Ce mot n’a pas ce sens dans ce contexte.', ar: 'هالكلمة ما إلها هالمعنى بهالسياق.', en: 'This word doesn’t have that meaning in this context.' }
+        ]
+      },
+      {
+        icon: '🗂️',
+        title: { ar: 'مفردات الوثائق والخدمات', en: 'Documents and services vocabulary', fr: 'Documents et services' },
+        phrases: [
+          { fr: 'interprétariat', ar: 'خدمات الترجمة الشفهية', en: 'interpreting services' },
+          { fr: 'prestataire', ar: 'مقدم خدمة', en: 'service provider' },
+          { fr: 'agence de traduction / cabinet de traduction', ar: 'مكتب ترجمة', en: 'translation agency / firm' },
+          { fr: 'devis', ar: 'عرض سعر', en: 'quotation' },
+          { fr: 'tarif', ar: 'التعرفة / السعر', en: 'rate' },
+          { fr: 'page', ar: 'صفحة', en: 'page' },
+          { fr: 'délai', ar: 'مدة / مهلة', en: 'timeframe' },
+          { fr: 'urgence', ar: 'حالة مستعجلة', en: 'urgency' },
+          { fr: 'confidentialité', ar: 'السرية', en: 'confidentiality' },
+          { fr: 'document officiel', ar: 'وثيقة رسمية', en: 'official document' },
+          { fr: 'document administratif', ar: 'وثيقة إدارية', en: 'administrative document' },
+          { fr: 'document juridique', ar: 'وثيقة قانونية', en: 'legal document' },
+          { fr: 'document médical', ar: 'وثيقة طبية', en: 'medical document' },
+          { fr: 'certificat / attestation', ar: 'شهادة / إفادة', en: 'certificate' },
+          { fr: 'diplôme', ar: 'شهادة دراسية', en: 'diploma' },
+          { fr: 'acte de naissance', ar: 'شهادة ميلاد', en: 'birth certificate' },
+          { fr: 'acte de mariage', ar: 'وثيقة زواج', en: 'marriage certificate' },
+          { fr: 'jugement', ar: 'حكم قضائي', en: 'judgment' },
+          { fr: 'signature / cachet', ar: 'توقيع / ختم', en: 'signature / stamp' },
+          { fr: 'original / copie', ar: 'أصل / نسخة', en: 'original / copy' }
+        ]
+      },
+      {
+        icon: '🔑',
+        title: { ar: '⭐ أهم الأفعال + عبارات تحفظها', en: 'Key verbs + phrases to memorize', fr: 'Verbes clés + phrases à retenir' },
+        phrases: [
+          { fr: 'traduire / interpréter', ar: 'يترجم / يترجم شفهيًا', en: 'to translate / to interpret' },
+          { fr: 'expliquer / répéter / comprendre', ar: 'يشرح / يعيد / يفهم', en: 'to explain / to repeat / to understand' },
+          { fr: 'prononcer / corriger / vérifier', ar: 'يلفظ / يصحح / يتحقق', en: 'to pronounce / to correct / to check' },
+          { fr: 'transmettre / rédiger / reformuler', ar: 'يرسل / يصيغ / يعيد الصياغة', en: 'to transmit / to draft / to rephrase' },
+          { fr: 'résumer / préciser / communiquer', ar: 'يلخّص / يوضّح / يتواصل', en: 'to summarize / to clarify / to communicate' },
+          { fr: 'Je ne comprends pas bien le français.', ar: 'ما بفهم الفرنسي منيح.', en: 'I don’t understand French well.' },
+          { fr: 'J’ai besoin d’un interprète arabe-français.', ar: 'بحتاج مترجم عربي-فرنسي.', en: 'I need an Arabic-French interpreter.' },
+          { fr: 'Est-ce que vous pouvez prévoir un interprète ?', ar: 'فيكن تأمّنوا مترجم؟', en: 'Can you arrange an interpreter?' },
+          { fr: 'Je voudrais faire traduire ce document.', ar: 'بدي ترجم هالوثيقة.', en: 'I would like to have this document translated.' },
+          { fr: 'Est-ce qu’il faut une traduction assermentée ?', ar: 'لازم ترجمة محلفة؟', en: 'Does it need a sworn translation?' },
+          { fr: 'Pouvez-vous parler plus lentement, s’il vous plaît ?', ar: 'فيك تحكي أبطأ، لو سمحت؟', en: 'Could you speak more slowly, please?' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'doctolib',
+    icon: '🩺',
+    name: {
+      ar: 'Doctolib — حجز موعد طبي',
+      en: 'Doctolib — booking a doctor’s appointment',
+      fr: 'Doctolib — prendre rendez-vous'
+    },
+    desc: {
+      ar: 'كل عبارات Doctolib: البحث عن طبيب، الحجز والتعديل والإلغاء، الاستشارة بالفيديو، الوصفة، والدفع',
+      en: 'All Doctolib phrases: finding a doctor, booking/changing/cancelling, video consultation, prescriptions, and payment',
+      fr: 'Toutes les phrases Doctolib : trouver un médecin, réserver/modifier/annuler, téléconsultation, ordonnance et paiement'
+    },
+    sections: [
+      {
+        icon: '📖',
+        title: { ar: '⭐ مفردات Doctolib الأساسية', en: 'Doctolib vocabulary', fr: 'Vocabulaire Doctolib' },
+        phrases: [
+          { fr: 'prendre / réserver un rendez-vous', ar: 'حجز موعد', en: 'book an appointment' },
+          { fr: 'annuler / modifier / reporter un rendez-vous', ar: 'إلغاء / تعديل / تأجيل الموعد', en: 'cancel / change / postpone an appointment' },
+          { fr: 'confirmer / déplacer un rendez-vous', ar: 'تأكيد / تغيير وقت الموعد', en: 'confirm / move an appointment' },
+          { fr: 'médecin généraliste', ar: 'طبيب عام', en: 'general practitioner' },
+          { fr: 'spécialiste', ar: 'طبيب اختصاص', en: 'specialist' },
+          { fr: 'cabinet médical', ar: 'عيادة الطبيب', en: 'medical practice' },
+          { fr: 'clinique / hôpital', ar: 'عيادة / مستشفى', en: 'clinic / hospital' },
+          { fr: 'patient', ar: 'مريض', en: 'patient' },
+          { fr: 'consultation', ar: 'معاينة / استشارة', en: 'consultation' },
+          { fr: 'téléconsultation', ar: 'استشارة طبية عن بعد', en: 'teleconsultation' },
+          { fr: 'consultation vidéo', ar: 'استشارة بالفيديو', en: 'video consultation' },
+          { fr: 'ordonnance', ar: 'وصفة طبية', en: 'prescription' },
+          { fr: 'résultat d’analyse', ar: 'نتيجة التحليل', en: 'test result' },
+          { fr: 'compte rendu', ar: 'تقرير طبي', en: 'medical report' },
+          { fr: 'courrier médical', ar: 'رسالة طبية', en: 'medical letter' },
+          { fr: 'disponibilité', ar: 'موعد متاح', en: 'availability' },
+          { fr: 'créneau', ar: 'خانة زمنية / موعد متاح', en: 'time slot' },
+          { fr: 'motif de consultation', ar: 'سبب الزيارة', en: 'reason for consultation' },
+          { fr: 'patient déjà suivi', ar: 'مريض يتابع عند الطبيب من قبل', en: 'existing patient' },
+          { fr: 'nouveau patient', ar: 'مريض جديد', en: 'new patient' }
+        ]
+      },
+      {
+        icon: '🔎',
+        title: { ar: 'البحث عن طبيب', en: 'Finding a doctor', fr: 'Chercher un médecin' },
+        phrases: [
+          { fr: 'Je cherche un médecin généraliste.', ar: 'عم دوّر على طبيب عام.', en: 'I’m looking for a general practitioner.' },
+          { fr: 'Je cherche un spécialiste.', ar: 'عم دوّر على طبيب اختصاص.', en: 'I’m looking for a specialist.' },
+          { fr: 'Je cherche un médecin près de chez moi.', ar: 'عم دوّر على طبيب قريب من بيتي.', en: 'I’m looking for a doctor near my home.' },
+          { fr: 'Je cherche un médecin disponible rapidement.', ar: 'عم دوّر على طبيب عنده موعد قريب.', en: 'I’m looking for a doctor available soon.' },
+          { fr: 'Je cherche un médecin qui accepte de nouveaux patients.', ar: 'عم دوّر على طبيب بيقبل مرضى جدد.', en: 'I’m looking for a doctor who accepts new patients.' },
+          { fr: 'Est-ce que ce médecin accepte les nouveaux patients ?', ar: 'هل هالطبيب بيقبل مرضى جدد؟', en: 'Does this doctor accept new patients?' },
+          { fr: 'Quels sont les prochains rendez-vous disponibles ?', ar: 'شو أقرب المواعيد المتاحة؟', en: 'What are the next available appointments?' }
+        ]
+      },
+      {
+        icon: '📋',
+        title: { ar: 'نوع الموعد وسبب المعاينة', en: 'Appointment type and reason', fr: 'Motif de consultation' },
+        phrases: [
+          { fr: 'Je voudrais prendre rendez-vous avec ce médecin.', ar: 'بدي احجز موعد مع هالطبيب.', en: 'I would like to book an appointment with this doctor.' },
+          { fr: 'C’est pour une première consultation.', ar: 'هاد أول موعد إلي عند هالطبيب.', en: 'This is for a first consultation.' },
+          { fr: 'C’est pour un suivi. / C’est une consultation de suivi.', ar: 'الموعد للمتابعة / معاينة متابعة.', en: 'This is for a follow-up.' },
+          { fr: 'Je suis déjà patient chez ce médecin.', ar: 'أنا أصلًا مريض عند هالطبيب.', en: 'I’m already a patient of this doctor.' },
+          { fr: 'motif de consultation', ar: 'سبب المعاينة', en: 'reason for consultation' },
+          { fr: 'renouvellement d’ordonnance', ar: 'تجديد الوصفة الطبية', en: 'prescription renewal' },
+          { fr: 'bilan médical', ar: 'فحص / تقييم طبي شامل', en: 'medical check-up' },
+          { fr: 'résultats d’analyses', ar: 'نتائج التحاليل', en: 'test results' },
+          { fr: 'urgence', ar: 'حالة طارئة', en: 'emergency' },
+          { fr: 'suivi médical', ar: 'متابعة طبية', en: 'medical follow-up' }
+        ]
+      },
+      {
+        icon: '🕐',
+        title: { ar: 'اختيار الموعد', en: 'Choosing the slot', fr: 'Choisir le créneau' },
+        phrases: [
+          { fr: 'Quel créneau me conseillez-vous ?', ar: 'أي موعد بتنصحني فيه؟', en: 'Which time slot do you recommend?' },
+          { fr: 'Je suis disponible le matin.', ar: 'أنا متاح الصبح.', en: 'I’m available in the morning.' },
+          { fr: 'Je suis disponible l’après-midi.', ar: 'أنا متاح بعد الظهر.', en: 'I’m available in the afternoon.' },
+          { fr: 'Je suis disponible en fin de journée.', ar: 'أنا متاح بآخر النهار.', en: 'I’m available at the end of the day.' },
+          { fr: 'Je préfère le matin / l’après-midi.', ar: 'بفضّل الصبح / بعد الظهر.', en: 'I prefer the morning / afternoon.' },
+          { fr: 'Est-ce qu’il y a un rendez-vous plus tôt ?', ar: 'في موعد أبكر؟', en: 'Is there an earlier appointment?' },
+          { fr: 'Est-ce qu’il y a un rendez-vous plus tard ?', ar: 'في موعد أبعد؟', en: 'Is there a later appointment?' },
+          { fr: 'Avez-vous un créneau plus proche ?', ar: 'عندكم موعد أقرب؟', en: 'Do you have an earlier time slot?' }
+        ]
+      },
+      {
+        icon: '✏️',
+        title: { ar: 'تأكيد وتغيير وإلغاء الموعد', en: 'Confirm, change, cancel', fr: 'Confirmer, modifier, annuler' },
+        phrases: [
+          { fr: 'Je confirme mon rendez-vous. / Mon rendez-vous est confirmé.', ar: 'بأكد موعدي / موعدي تأكد.', en: 'I confirm my appointment / my appointment is confirmed.' },
+          { fr: 'Je viens de prendre rendez-vous sur Doctolib.', ar: 'هلأ حجزت موعد على دكتوليب.', en: 'I’ve just booked an appointment on Doctolib.' },
+          { fr: 'J’ai reçu la confirmation du rendez-vous.', ar: 'وصلتني رسالة تأكيد الموعد.', en: 'I received the appointment confirmation.' },
+          { fr: 'Pouvez-vous me confirmer l’heure du rendez-vous ?', ar: 'فيك تأكدلي وقت الموعد؟', en: 'Can you confirm the appointment time?' },
+          { fr: 'À quelle heure est mon rendez-vous ?', ar: 'الساعة قديش موعدي؟', en: 'What time is my appointment?' },
+          { fr: 'Je voudrais modifier / déplacer mon rendez-vous.', ar: 'بدي غيّر موعدي / لوقت تاني.', en: 'I would like to change / move my appointment.' },
+          { fr: 'Je voudrais reporter mon rendez-vous.', ar: 'بدي أجّل موعدي.', en: 'I would like to postpone my appointment.' },
+          { fr: 'Est-ce que je peux changer la date / l’heure ?', ar: 'فيني غيّر التاريخ / الساعة؟', en: 'Can I change the date / the time?' },
+          { fr: 'Je voudrais annuler mon rendez-vous.', ar: 'بدي ألغي موعدي.', en: 'I would like to cancel my appointment.' },
+          { fr: 'Je ne pourrai pas venir au rendez-vous.', ar: 'ما رح أقدر أجي ع الموعد.', en: 'I won’t be able to come to the appointment.' },
+          { fr: 'Je voudrais annuler et reprendre un autre rendez-vous.', ar: 'بدي ألغي واحجز موعد تاني.', en: 'I would like to cancel and book another appointment.' },
+          { fr: 'Est-ce que je peux annuler directement sur Doctolib ?', ar: 'فيني ألغي مباشرة من دكتوليب؟', en: 'Can I cancel directly on Doctolib?' }
+        ]
+      },
+      {
+        icon: '🔔',
+        title: { ar: 'نسيت الموعد والتذكير', en: 'Forgot the appointment, reminders', fr: 'Rendez-vous oublié, rappels' },
+        phrases: [
+          { fr: 'J’ai oublié la date / l’heure de mon rendez-vous.', ar: 'نسيت تاريخ / وقت موعدي.', en: 'I forgot the date / time of my appointment.' },
+          { fr: 'Où puis-je voir mon rendez-vous sur Doctolib ?', ar: 'وين فيني شوف موعدي على دكتوليب؟', en: 'Where can I see my appointment on Doctolib?' },
+          { fr: 'Je ne retrouve pas mon rendez-vous.', ar: 'ما عم لاقي موعدي.', en: 'I can’t find my appointment.' },
+          { fr: 'Je n’ai pas reçu de confirmation.', ar: 'ما وصلتني رسالة تأكيد.', en: 'I didn’t receive a confirmation.' },
+          { fr: 'J’ai reçu un rappel de rendez-vous.', ar: 'وصلتني رسالة تذكير بالموعد.', en: 'I received an appointment reminder.' },
+          { fr: 'Je n’ai pas reçu de rappel.', ar: 'ما وصلتني رسالة تذكير.', en: 'I didn’t receive a reminder.' },
+          { fr: 'Je voudrais activer les notifications.', ar: 'بدي فعّل الإشعارات.', en: 'I would like to enable notifications.' }
+        ]
+      },
+      {
+        icon: '📹',
+        title: { ar: 'Téléconsultation — الطبيب بالفيديو', en: 'Teleconsultation — video visit', fr: 'Téléconsultation' },
+        phrases: [
+          { fr: 'Je voudrais faire une téléconsultation.', ar: 'بدي أعمل استشارة طبية عن بعد.', en: 'I would like to have a teleconsultation.' },
+          { fr: 'La consultation se fait en visioconférence ?', ar: 'المعاينة بتكون بالفيديو؟', en: 'Is the consultation by video?' },
+          { fr: 'Comment rejoindre la téléconsultation ?', ar: 'كيف بفوت ع الاستشارة؟', en: 'How do I join the teleconsultation?' },
+          { fr: 'Où dois-je cliquer pour rejoindre la consultation ?', ar: 'وين لازم إكبس حتى فوت ع المعاينة؟', en: 'Where do I click to join the consultation?' },
+          { fr: 'Je n’arrive pas à rejoindre la consultation vidéo.', ar: 'ما عم أقدر فوت ع المعاينة بالفيديو.', en: 'I can’t join the video consultation.' },
+          { fr: 'Ma caméra ne fonctionne pas.', ar: 'الكاميرا تبعي ما عم تشتغل.', en: 'My camera isn’t working.' },
+          { fr: 'Mon microphone ne fonctionne pas.', ar: 'المايك تبعي ما عم يشتغل.', en: 'My microphone isn’t working.' },
+          { fr: 'Je n’ai pas de son.', ar: 'ما عندي صوت.', en: 'I have no sound.' },
+          { fr: 'La connexion est mauvaise.', ar: 'الاتصال سيئ.', en: 'The connection is poor.' },
+          { fr: 'La consultation a été interrompue.', ar: 'انقطعت المعاينة.', en: 'The consultation was interrupted.' }
+        ]
+      },
+      {
+        icon: '💊',
+        title: { ar: 'الوصفة والوثائق الطبية', en: 'Prescription and medical documents', fr: 'Ordonnance et documents' },
+        phrases: [
+          { fr: 'J’ai reçu une ordonnance.', ar: 'وصلتني وصفة طبية.', en: 'I received a prescription.' },
+          { fr: 'Où puis-je trouver mon ordonnance ?', ar: 'وين فيني لاقي الوصفة؟', en: 'Where can I find my prescription?' },
+          { fr: 'Le médecin m’a envoyé une ordonnance sur Doctolib.', ar: 'الدكتور بعتلي الوصفة على دكتوليب.', en: 'The doctor sent me a prescription on Doctolib.' },
+          { fr: 'Je voudrais télécharger mon ordonnance.', ar: 'بدي نزّل الوصفة.', en: 'I would like to download my prescription.' },
+          { fr: 'Je n’arrive pas à télécharger l’ordonnance. / Je n’ai pas reçu l’ordonnance.', ar: 'ما عم أقدر نزّل الوصفة / ما وصلتني الوصفة.', en: 'I can’t download / I didn’t receive the prescription.' },
+          { fr: 'Où puis-je trouver mes documents médicaux ?', ar: 'وين فيني لاقي وثائقي الطبية؟', en: 'Where can I find my medical documents?' },
+          { fr: 'Je voudrais télécharger mon compte rendu.', ar: 'بدي نزّل تقريري الطبي.', en: 'I would like to download my medical report.' },
+          { fr: 'Je voudrais envoyer un document au médecin.', ar: 'بدي ابعت وثيقة للدكتور.', en: 'I would like to send a document to the doctor.' },
+          { fr: 'Comment envoyer un document sur Doctolib ?', ar: 'كيف ببعت وثيقة على دكتوليب؟', en: 'How do I send a document on Doctolib?' },
+          { fr: 'J’ai ajouté mes résultats d’analyse. / Voici mes résultats d’analyses.', ar: 'أضفت نتائج تحاليلي / هاي نتائج تحاليلي.', en: 'I added / here are my test results.' }
+        ]
+      },
+      {
+        icon: '✉️',
+        title: { ar: 'التواصل مع الطبيب والحساب', en: 'Contacting the doctor, account', fr: 'Contacter le médecin, compte' },
+        phrases: [
+          { fr: 'Je voudrais contacter mon médecin.', ar: 'بدي أتواصل مع دكتوري.', en: 'I would like to contact my doctor.' },
+          { fr: 'Est-ce que je peux envoyer un message au médecin ?', ar: 'فيني ابعت رسالة للدكتور؟', en: 'Can I send the doctor a message?' },
+          { fr: 'Je voudrais envoyer un message au cabinet.', ar: 'بدي ابعت رسالة للعيادة.', en: 'I would like to send a message to the practice.' },
+          { fr: 'Le médecin m’a répondu. / Je n’ai pas encore reçu de réponse.', ar: 'الدكتور رد علي / لسا ما وصلني رد.', en: 'The doctor replied / I haven’t received a reply yet.' },
+          { fr: 'Pouvez-vous transmettre mon message au médecin ?', ar: 'فيك توصل رسالتي للدكتور؟', en: 'Can you forward my message to the doctor?' },
+          { fr: 'Je voudrais créer un compte. / J’ai déjà un compte Doctolib.', ar: 'بدي أعمل حساب / عندي حساب دكتوليب من قبل.', en: 'I would like to create an account / I already have a Doctolib account.' },
+          { fr: 'Je n’arrive pas à me connecter. / J’ai oublié mon mot de passe.', ar: 'ما عم أقدر فوت عالحساب / نسيت كلمة السر.', en: 'I can’t log in / I forgot my password.' },
+          { fr: 'Je voudrais modifier mes informations personnelles / mon numéro de téléphone / mon adresse e-mail.', ar: 'بدي عدّل معلوماتي / رقم تلفوني / إيميلي.', en: 'I would like to change my info / phone number / email.' },
+          { fr: 'Je ne trouve pas mon médecin sur Doctolib.', ar: 'ما عم لاقي دكتوري على دكتوليب.', en: 'I can’t find my doctor on Doctolib.' },
+          { fr: 'Est-ce que ce médecin utilise Doctolib ? / Est-ce que je peux prendre rendez-vous par téléphone ?', ar: 'هالدكتور بيستخدم دكتوليب؟ / فيني احجز موعد بالتلفون؟', en: 'Does this doctor use Doctolib? / Can I book by phone?' },
+          { fr: 'Le cabinet ne propose pas de rendez-vous en ligne.', ar: 'العيادة ما بتوفر حجز مواعيد أونلاين.', en: 'The practice doesn’t offer online appointments.' }
+        ]
+      },
+      {
+        icon: '💳',
+        title: { ar: '⭐ الدفع وconventionné / secteur', en: 'Payment — conventionné / secteur', fr: 'Paiement — conventionné / secteur' },
+        phrases: [
+          { fr: 'conventionné', ar: 'متعاقد مع التأمين الصحي الفرنسي', en: 'contracted with French health insurance' },
+          { fr: 'médecin conventionné', ar: 'طبيب متعاقد', en: 'contracted doctor' },
+          { fr: 'Secteur 1 / Secteur 2', ar: 'القطاع الأول / الثاني', en: 'Sector 1 / Sector 2' },
+          { fr: 'non conventionné / secteur 3', ar: 'غير متعاقد', en: 'non-contracted' },
+          { fr: 'honoraires', ar: 'أتعاب الطبيب', en: 'fees' },
+          { fr: 'dépassement d’honoraires', ar: 'مبلغ إضافي فوق التعرفة الرسمية', en: 'extra billing' },
+          { fr: 'tarif conventionnel', ar: 'التعرفة المعتمدة', en: 'standard regulated fee' },
+          { fr: 'tiers payant', ar: 'الدفع المباشر من التأمين في بعض الحالات', en: 'third-party payment' },
+          { fr: 'Conventionné secteur 1 / Conventionné secteur 2 / Non conventionné', ar: 'طبيب متعاقد – قطاع 1 / قطاع 2 / غير متعاقد', en: 'Contracted doctor – Sector 1 / Sector 2 / Non-contracted' },
+          { fr: 'Le médecin est-il conventionné ?', ar: 'هل الطبيب متعاقد مع التأمين الصحي؟', en: 'Is the doctor conventionné?' },
+          { fr: 'Le médecin est-il en secteur 1 ou secteur 2 ?', ar: 'الطبيب قطاع 1 أو قطاع 2؟', en: 'Is the doctor in Sector 1 or Sector 2?' },
+          { fr: 'Est-ce qu’il y a un dépassement d’honoraires ?', ar: 'هل في مبلغ إضافي على التعرفة؟', en: 'Is there an extra charge?' },
+          { fr: 'Combien coûte la consultation ? / Quel est le tarif ?', ar: 'قديش سعر المعاينة؟ / قديش التعرفة؟', en: 'How much is the consultation / the fee?' },
+          { fr: 'Quel montant sera remboursé par l’Assurance Maladie ?', ar: 'قديش رح يرجعلي التأمين الصحي؟', en: 'How much will Assurance Maladie reimburse?' },
+          { fr: 'Est-ce que la consultation est remboursée ?', ar: 'المعاينة بينردّ ثمنها؟', en: 'Is the consultation reimbursed?' },
+          { fr: 'Est-ce que le médecin accepte la carte Vitale ?', ar: 'الدكتور بيقبل كرت فيتال؟', en: 'Does the doctor accept the Carte Vitale?' },
+          { fr: 'Est-ce que le tiers payant est disponible ?', ar: 'في دفع مباشر بدون ما ادفع كامل المبلغ؟', en: 'Is third-party payment available?' },
+          { fr: 'Est-ce que je dois payer sur place ?', ar: 'لازم ادفع بالمكان؟', en: 'Do I have to pay on site?' }
+        ]
+      },
+      {
+        icon: '📍',
+        title: { ar: 'الوصول للعيادة + كلمات التطبيق', en: 'Getting there + in-app words', fr: 'Accès au cabinet + boutons' },
+        phrases: [
+          { fr: 'Quelle est l’adresse du cabinet ? / Où se trouve le cabinet ?', ar: 'شو عنوان العيادة؟ / وين العيادة؟', en: 'What is the practice’s address / where is it?' },
+          { fr: 'À quelle adresse dois-je me rendre ?', ar: 'على أي عنوان لازم روح؟', en: 'What address should I go to?' },
+          { fr: 'Est-ce que le cabinet est facilement accessible ? / Y a-t-il un ascenseur ?', ar: 'العيادة سهل الوصول إلها؟ / في مصعد؟', en: 'Is the practice easily accessible / is there an elevator?' },
+          { fr: 'Aucun créneau disponible.', ar: 'ما في أي موعد متاح.', en: 'No available time slots.' },
+          { fr: 'Prochain rendez-vous disponible. / Tous les créneaux.', ar: 'أقرب موعد متاح / كل المواعيد.', en: 'Next available appointment / all slots.' },
+          { fr: 'Confirmer / Continuer / Retour / Rechercher', ar: 'تأكيد / متابعة / رجوع / بحث', en: 'Confirm / Continue / Back / Search' },
+          { fr: 'Choisir / Sélectionner / Valider / Annuler / Modifier / Supprimer', ar: 'اختيار / تحديد / تأكيد / إلغاء / تعديل / حذف', en: 'Choose / Select / Confirm / Cancel / Edit / Delete' },
+          { fr: 'Prendre rendez-vous / Mes rendez-vous / Mes documents / Mes messages / Mon profil', ar: 'حجز موعد / مواعيدي / وثائقي / رسائلي / ملفي الشخصي', en: 'Book appointment / My appointments / My documents / My messages / My profile' },
+          { fr: 'Notifications / Disponibilités / Historique / Télécharger / Envoyer / Ajouter', ar: 'الإشعارات / المواعيد المتاحة / السجل / تنزيل / إرسال / إضافة', en: 'Notifications / Availability / History / Download / Send / Add' }
+        ]
+      },
+      {
+        icon: '⭐',
+        title: { ar: 'أهم 15 عبارة تحفظها', en: 'Top 15 phrases', fr: 'Top 15' },
+        phrases: [
+          { fr: 'Je voudrais prendre rendez-vous.', ar: 'بدي احجز موعد.', en: 'I would like to book an appointment.' },
+          { fr: 'Je cherche un médecin généraliste.', ar: 'عم دوّر على طبيب عام.', en: 'I’m looking for a general practitioner.' },
+          { fr: 'Je cherche un spécialiste.', ar: 'عم دوّر على طبيب اختصاص.', en: 'I’m looking for a specialist.' },
+          { fr: 'Est-ce que ce médecin accepte les nouveaux patients ?', ar: 'هل هالطبيب بيقبل مرضى جدد؟', en: 'Does this doctor accept new patients?' },
+          { fr: 'Quels sont les prochains rendez-vous disponibles ?', ar: 'شو أقرب المواعيد المتاحة؟', en: 'What are the next available appointments?' },
+          { fr: 'Je voudrais modifier mon rendez-vous.', ar: 'بدي غيّر موعدي.', en: 'I would like to change my appointment.' },
+          { fr: 'Je voudrais annuler mon rendez-vous.', ar: 'بدي ألغي موعدي.', en: 'I would like to cancel my appointment.' },
+          { fr: 'Je ne trouve pas mon rendez-vous sur Doctolib.', ar: 'ما عم لاقي موعدي على دكتوليب.', en: 'I can’t find my appointment on Doctolib.' },
+          { fr: 'Je n’ai pas reçu de confirmation.', ar: 'ما وصلتني رسالة تأكيد.', en: 'I didn’t receive a confirmation.' },
+          { fr: 'Je voudrais faire une téléconsultation.', ar: 'بدي أعمل معاينة عن بعد.', en: 'I would like to have a teleconsultation.' },
+          { fr: 'Je n’arrive pas à rejoindre la consultation vidéo.', ar: 'ما عم أقدر فوت ع المعاينة بالفيديو.', en: 'I can’t join the video consultation.' },
+          { fr: 'Je voudrais envoyer un document au médecin.', ar: 'بدي ابعت وثيقة للدكتور.', en: 'I would like to send a document to the doctor.' },
+          { fr: 'Où puis-je trouver mon ordonnance ?', ar: 'وين فيني لاقي الوصفة؟', en: 'Where can I find my prescription?' },
+          { fr: 'Je voudrais contacter mon médecin.', ar: 'بدي أتواصل مع دكتوري.', en: 'I would like to contact my doctor.' },
+          { fr: 'Je n’arrive pas à me connecter à mon compte.', ar: 'ما عم أقدر فوت ع حسابي.', en: 'I can’t log into my account.' }
+        ]
       }
     ]
   }
