@@ -8804,6 +8804,93 @@ window.CENTRES_DATA = [
           { fr: 'lisible', ar: 'واضح ومقروء', en: 'readable' },
           { fr: 'illisible', ar: 'غير مقروء', en: 'unreadable' }
         ]
+      },
+      {
+        icon: '⚙️',
+        title: { ar: '⭐ إعدادات الطابعة — تفاصيل', en: 'Printer settings — details', fr: 'Réglages de l’imprimante' },
+        phrases: [
+          { fr: 'Je voudrais imprimer recto verso.', ar: 'بدي اطبع على الوجهين.', en: 'I’d like double-sided printing.' },
+          { fr: 'Je peux choisir recto verso ?', ar: 'فيني اختار الطباعة على الوجهين؟', en: 'Can I choose double-sided printing?' },
+          { fr: 'Je voudrais retourner la page sur le bord long.', ar: 'بدي قلب الصفحة على الحافة الطويلة.', en: 'I’d like to flip on the long edge.' },
+          { fr: 'Je voudrais retourner la page sur le bord court.', ar: 'بدي قلب الصفحة على الحافة القصيرة.', en: 'I’d like to flip on the short edge.' },
+          { fr: 'L’orientation est correcte ?', ar: 'اتجاه الصفحة صحيح؟', en: 'Is the orientation correct?' },
+          { fr: 'Je voudrais changer l’orientation.', ar: 'بدي غيّر اتجاه الصفحة.', en: 'I’d like to change the orientation.' },
+          { fr: 'Je voudrais imprimer toutes les pages.', ar: 'بدي اطبع كل الصفحات.', en: 'I’d like to print all the pages.' },
+          { fr: 'Je voudrais imprimer les pages 3 à 7.', ar: 'بدي اطبع الصفحات من 3 لـ7.', en: 'I’d like to print pages 3 to 7.' },
+          { fr: 'Je voudrais imprimer à taille réelle.', ar: 'بدي اطبع بالحجم الحقيقي.', en: 'I’d like to print at actual size.' },
+          { fr: 'Je voudrais ajuster le document à la page.', ar: 'بدي خلّي الوثيقة تناسب حجم الصفحة.', en: 'I’d like to fit the document to the page.' },
+          { fr: 'Je peux imprimer deux pages par feuille ?', ar: 'فيني اطبع صفحتين على كل ورقة؟', en: 'Can I print two pages per sheet?' },
+          { fr: 'Je voudrais quatre pages par feuille.', ar: 'بدي أربع صفحات على كل ورقة.', en: 'I’d like four pages per sheet.' },
+          { fr: 'Je voudrais une page par feuille.', ar: 'بدي صفحة وحدة بكل ورقة.', en: 'I’d like one page per sheet.' },
+          { fr: 'Je peux changer les marges ?', ar: 'فيني غيّر الهوامش؟', en: 'Can I change the margins?' },
+          { fr: 'Je voudrais des marges normales.', ar: 'بدي هوامش عادية.', en: 'I’d like normal margins.' },
+          { fr: 'Quel format de papier dois-je choisir ?', ar: 'أي حجم ورق لازم اختار؟', en: 'Which paper size should I choose?' },
+          { fr: 'Le format A4 est sélectionné.', ar: 'حجم A4 محدد.', en: 'A4 is selected.' },
+          { fr: 'Le format A4 n’est pas disponible.', ar: 'ورق A4 مو متوفر.', en: 'A4 is not available.' },
+          { fr: 'Je voudrais une qualité normale.', ar: 'بدي جودة عادية.', en: 'I’d like normal quality.' },
+          { fr: 'Je voudrais une qualité élevée.', ar: 'بدي جودة عالية.', en: 'I’d like high quality.' },
+          { fr: 'Je peux changer la qualité d’impression ?', ar: 'فيني غيّر جودة الطباعة؟', en: 'Can I change the print quality?' }
+        ]
+      },
+      {
+        icon: '⌨️',
+        title: { ar: '⭐ مفردات إعدادات الطابعة', en: 'Printer settings vocabulary', fr: 'Vocabulaire des réglages' },
+        phrases: [
+          { fr: 'réglages', ar: 'إعدادات', en: 'settings' },
+          { fr: 'impression', ar: 'طباعة', en: 'printing' },
+          { fr: 'couleur', ar: 'ملوّن', en: 'color' },
+          { fr: 'noir et blanc', ar: 'أبيض وأسود', en: 'black and white' },
+          { fr: 'recto', ar: 'وجه واحد', en: 'one-sided' },
+          { fr: 'recto verso', ar: 'وجهين', en: 'double-sided' },
+          { fr: 'portrait', ar: 'بالطول', en: 'portrait' },
+          { fr: 'paysage', ar: 'بالعرض', en: 'landscape' },
+          { fr: 'format', ar: 'حجم / مقاس', en: 'format / size' },
+          { fr: 'orientation', ar: 'اتجاه', en: 'orientation' },
+          { fr: 'marges', ar: 'هوامش', en: 'margins' },
+          { fr: 'qualité', ar: 'جودة', en: 'quality' },
+          { fr: 'exemplaire', ar: 'نسخة', en: 'copy' },
+          { fr: 'pages par feuille', ar: 'صفحات بكل ورقة', en: 'pages per sheet' },
+          { fr: 'taille réelle', ar: 'الحجم الحقيقي', en: 'actual size' },
+          { fr: 'ajuster à la page', ar: 'ملاءمة للصفحة', en: 'fit to page' }
+        ]
+      },
+      {
+        icon: '🧳',
+        title: { ar: '⭐ أغراض منسية — المفقودات', en: 'Forgotten items — lost and found', fr: 'Objets oubliés' },
+        phrases: [
+          { fr: 'Bonjour, je suis venu hier et j’ai oublié quelque chose ici.', ar: 'مرحبا، إجيت مبارح ونسيت شغلة هون.', en: 'Hello, I came yesterday and forgot something here.' },
+          { fr: 'J’ai oublié ma clé USB ici.', ar: 'نسيت فلاشة الـUSB تبعي هون.', en: 'I forgot my USB drive here.' },
+          { fr: 'J’ai aussi oublié ma carte d’abonnement.', ar: 'وكمان نسيت بطاقة الاشتراك تبعي.', en: 'I also forgot my membership card.' },
+          { fr: 'Je pense que je les ai laissées ici.', ar: 'بعتقد إني تركتهن هون.', en: 'I think I left them here.' },
+          { fr: 'C’est une clé USB argentée.', ar: 'هي فلاشة USB لونها فضي.', en: 'It’s a silver USB drive.' },
+          { fr: 'Elle a deux connecteurs USB.', ar: 'إلها وصلتين USB.', en: 'It has two USB connectors.' },
+          { fr: 'Il y a un connecteur pour le téléphone et un pour l’ordinateur.', ar: 'فيها وصلة للموبايل ووصلة للكمبيوتر.', en: 'It has one connector for a phone and one for a computer.' },
+          { fr: 'Elle est assez petite.', ar: 'هي صغيرة نوعًا ما.', en: 'It’s quite small.' },
+          { fr: 'Elle est de couleur argentée.', ar: 'لونها فضي.', en: 'It’s silver-colored.' },
+          { fr: 'C’est une carte d’abonnement.', ar: 'هي بطاقة اشتراك.', en: 'It’s a membership card.' },
+          { fr: 'C’est la carte que j’utilise pour les photocopies.', ar: 'هي البطاقة اللي بستعملها للنسخ.', en: 'It’s the card I use for photocopies.' },
+          { fr: 'Je l’utilise pour imprimer et faire des photocopies.', ar: 'بستعملها للطباعة والنسخ.', en: 'I use it for printing and photocopying.' },
+          { fr: 'Est-ce que quelqu’un a trouvé une clé USB ?', ar: 'حدا لقى فلاشة USB؟', en: 'Has anyone found a USB drive?' },
+          { fr: 'Est-ce que vous avez trouvé une carte ?', ar: 'لقيتوا بطاقة؟', en: 'Did you find a card?' },
+          { fr: 'Est-ce que vous avez retrouvé mes affaires ?', ar: 'لقيتوا أغراضي؟', en: 'Did you find my things?' },
+          { fr: 'Vous avez un service des objets trouvés ?', ar: 'عندكم قسم للمفقودات؟', en: 'Do you have a lost-and-found?' },
+          { fr: 'Est-ce que quelqu’un vous a rapporté une clé USB ?', ar: 'حدا سلّمكن فلاشة USB؟', en: 'Has anyone handed in a USB drive?' },
+          { fr: 'Je pense que je l’ai oubliée près de l’imprimante.', ar: 'بعتقد نسيتها جنب الطابعة.', en: 'I think I left it near the printer.' },
+          { fr: 'Je l’ai probablement laissée sur la table.', ar: 'غالبًا تركتها عالطاولة.', en: 'I probably left it on the table.' },
+          { fr: 'Je l’ai peut-être laissée à côté de l’ordinateur.', ar: 'يمكن تركتها جنب الكمبيوتر.', en: 'I may have left it next to the computer.' },
+          { fr: 'J’étais assis ici hier.', ar: 'كنت قاعد هون مبارح.', en: 'I was sitting here yesterday.' },
+          { fr: 'J’ai utilisé l’imprimante hier.', ar: 'استعملت الطابعة مبارح.', en: 'I used the printer yesterday.' },
+          { fr: 'Vous êtes sûr qu’elle n’a pas été retrouvée ?', ar: 'متأكدين إنها ما انلقت؟', en: 'Are you sure it hasn’t been found?' },
+          { fr: 'Vous pouvez vérifier, s’il vous plaît ?', ar: 'فيكم تتأكدوا، لو سمحتوا؟', en: 'Could you check, please?' },
+          { fr: 'Je peux laisser mes coordonnées au cas où vous la retrouviez ?', ar: 'فيني اترك معلومات الاتصال تبعي إذا لقيتوها؟', en: 'Can I leave my contact details in case you find it?' },
+          { fr: 'Vous pouvez me contacter si vous la retrouvez ?', ar: 'فيكم تتصلوا فيني إذا لقيتوها؟', en: 'Can you contact me if you find it?' },
+          { fr: 'Je repasserai plus tard.', ar: 'برجع بمرق بعدين.', en: 'I’ll come back later.' },
+          { fr: 'Ah, c’est bien la mienne !', ar: 'إي، هي تبعي فعلًا!', en: 'Ah, that’s definitely mine!' },
+          { fr: 'Oui, c’est exactement celle-là.', ar: 'إي، هي نفسها بالضبط.', en: 'Yes, that’s exactly the one.' },
+          { fr: 'Merci de l’avoir gardée.', ar: 'شكرًا إنكم حافظتوا عليها.', en: 'Thank you for keeping it.' },
+          { fr: 'Vous me sauvez !', ar: 'أنقذتوني!', en: 'You’re a lifesaver!' },
+          { fr: 'Bonjour, je suis venu hier pour imprimer des documents et j’ai oublié ma clé USB et ma carte d’abonnement ici. La clé USB est argentée et elle a deux connecteurs, un pour le téléphone et un pour l’ordinateur. Est-ce que quelqu’un les a retrouvées ?', ar: 'مرحبا، إجيت مبارح لأطبع أوراق ونسيت فلاشة الـUSB وبطاقة الاشتراك تبعي هون. الفلاشة لونها فضي وفيها وصلتين، وحدة للموبايل ووحدة للكمبيوتر. حدا لقاهم؟', en: 'Hello, I came yesterday to print some documents and forgot my USB drive and membership card here. The USB drive is silver and has two connectors, one for the phone and one for the computer. Has anyone found them?' }
+        ]
       }
     ]
   }
