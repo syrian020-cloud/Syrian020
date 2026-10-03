@@ -7174,6 +7174,19 @@ window.CENTRES_DATA = [
         ]
       },
       {
+        icon: '🪑',
+        title: { ar: '⭐ المقاعد لكبار السن والأولوية', en: 'Seats for the elderly and priority', fr: 'Places pour les personnes âgées' },
+        phrases: [
+          { fr: 'Ces places sont réservées aux personnes âgées. / sont pour les personnes âgées. / Cette place est réservée.', ar: 'هالمقاعد مخصّصة لكبار السن / لكبار السن / هالمقعد مخصّص.', en: 'Seats reserved for / for the elderly / seat reserved.' },
+          { fr: 'Vous pouvez laisser cette place aux personnes âgées, s’il vous plaît ? / Il faut laisser cette place aux personnes âgées.', ar: 'فيكم تتركوا المقعد لكبار السن لو سمحتوا؟ / لازم نترك هالمقعد لهم.', en: 'Could you leave the seat for the elderly? / we should leave it.' },
+          { fr: 'Tu peux laisser la place, s’il te plaît ? / Tu peux te lever, s’il te plaît ? / Laisse cette place à la personne âgée, s’il te plaît.', ar: 'فيك تترك المقعد؟ / فيك تقوم؟ / اترك المقعد للشخص الكبير.', en: 'Give up the seat? / stand up? / leave it for the elderly person.' },
+          { fr: 'On laisse la place aux personnes âgées. / C’est plus gentil de laisser la place.', ar: 'منترك المقعد لكبار السن / ألطف منك تترك المقعد.', en: 'We give up the seat / it’s kinder to give it up.' },
+          { fr: 'Cette place est aussi réservée aux personnes à mobilité réduite. / Il faut laisser la place aux personnes qui en ont besoin. / Une personne âgée peut avoir besoin de s’asseoir.', ar: 'كمان مخصّص لصعوبة الحركة / للي محتاجين المقعد / ممكن شخص كبير يحتاج يقعد.', en: 'Also for reduced mobility / for people who need it / elderly may need to sit.' },
+          { fr: 'Regarde, cette personne a besoin de s’asseoir. / Tu peux lui laisser la place ? / Attention, laisse passer la personne. / On laisse passer les personnes âgées.', ar: 'شوف، هالشخص بحاجة يقعد / فيك تتركله المقعد؟ / خلي الشخص يمرق / منخليهم يمرقوا.', en: 'They need to sit / give them the seat? / let them pass.' },
+          { fr: 'Tu peux laisser la place à cette personne, s’il te plaît ?', ar: 'فيك تترك المقعد لهالشخص لو سمحت؟', en: 'Could you give up the seat for this person?' }
+        ]
+      },
+      {
         icon: '🪜',
         title: { ar: '⭐ الدرج ووقت الزحمة', en: 'Steps and rush hour', fr: 'Marches et heures de pointe' },
         phrases: [
