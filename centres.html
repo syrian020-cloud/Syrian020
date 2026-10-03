@@ -183,7 +183,7 @@
       heroTitle: 'عبارات المراكز الإدارية في فرنسا',
       heroDesc: 'حوارات وعبارات جاهزة لكل مركز إداري — اضغط على العلم لسماع العبارة بأي لغة.',
       centres: 'مراكز', sections: 'أقسام', phrases: 'عبارة',
-      searchPh: 'ابحث في العبارات…', noResults: 'لا توجد نتائج', stop: 'إيقاف',
+      wordsFr: 'كلمة فرنسية', searchPh: 'ابحث في العبارات…', noResults: 'لا توجد نتائج', stop: 'إيقاف',
       backToFrench: '← العودة إلى دروس الفرنسية'
     },
     en: {
@@ -191,7 +191,7 @@
       heroTitle: 'Phrases for administrative centres in France',
       heroDesc: 'Ready-made dialogues for every administrative centre — tap a flag to hear the phrase in that language.',
       centres: 'centres', sections: 'sections', phrases: 'phrases',
-      searchPh: 'Search phrases…', noResults: 'No results', stop: 'Stop',
+      wordsFr: 'French words', searchPh: 'Search phrases…', noResults: 'No results', stop: 'Stop',
       backToFrench: '← Back to French lessons'
     },
     fr: {
@@ -199,7 +199,7 @@
       heroTitle: 'Phrases pour les centres administratifs en France',
       heroDesc: 'Dialogues prêts pour chaque centre administratif — touchez un drapeau pour entendre la phrase.',
       centres: 'centres', sections: 'sections', phrases: 'phrases',
-      searchPh: 'Rechercher une phrase…', noResults: 'Aucun résultat', stop: 'Arrêter',
+      wordsFr: 'mots français', searchPh: 'Rechercher une phrase…', noResults: 'Aucun résultat', stop: 'Arrêter',
       backToFrench: '← Retour aux cours de français'
     }
   };
@@ -341,10 +341,11 @@
       });
       visible += phrases.length;
       if (q && !phrases.length) return '';
+      var wordsFr = phrases.reduce(function (n, p) { return n + p.fr.trim().split(/\s+/).length; }, 0);
       return '<div class="section' + (q ? ' open' : '') + '">' +
         '<div class="section-head" data-sec="' + si + '"><span class="sec-icon">' + sec.icon + '</span>' +
         '<span class="sec-title">' + esc(tside(sec.title)) + '</span>' +
-        '<span class="sec-count">' + phrases.length + '</span><span class="chev">▼</span></div>' +
+        '<span class="sec-count">' + phrases.length + ' ' + t('phrases') + ' · ' + wordsFr + ' ' + t('wordsFr') + '</span><span class="chev">▼</span></div>' +
         '<div class="section-body">' + phrases.map(phraseHtml).join('') + '</div></div>';
     }).join('');
 
