@@ -341,7 +341,7 @@
       });
       visible += phrases.length;
       if (q && !phrases.length) return '';
-      return '<div class="section open">' +
+      return '<div class="section' + (q ? ' open' : '') + '">' +
         '<div class="section-head" data-sec="' + si + '"><span class="sec-icon">' + sec.icon + '</span>' +
         '<span class="sec-title">' + esc(tside(sec.title)) + '</span>' +
         '<span class="sec-count">' + phrases.length + '</span><span class="chev">▼</span></div>' +
