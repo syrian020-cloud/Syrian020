@@ -3389,6 +3389,55 @@ window.CENTRES_DATA = [
           { fr: 'Je souhaite contester ce trop-perçu.', ar: 'بدي اعترض على هالمبلغ الزائد.', en: 'I want to dispute this overpayment.' },
           { fr: 'Je voudrais demander un réexamen de mon dossier.', ar: 'بدي أطلب إعادة دراسة ملفي.', en: 'I would like to request a review of my file.' }
         ]
+      },
+      {
+        icon: '⛔',
+        title: { ar: '⭐ توقفت عن العمل — إخبار الـCAF', en: 'Stopped working — telling CAF', fr: 'Fin d’activité — informer la CAF' },
+        phrases: [
+          { fr: 'J’ai arrêté de travailler.', ar: 'توقفت عن العمل.', en: 'I stopped working.' },
+          { fr: 'J’ai cessé mon activité.', ar: 'أوقفت عملي/نشاطي.', en: 'I stopped my activity.' },
+          { fr: 'Mon contrat de travail est terminé.', ar: 'عقد عملي انتهى.', en: 'My employment contract has ended.' },
+          { fr: 'Mon contrat a pris fin.', ar: 'عقدي انتهى.', en: 'My contract ended.' },
+          { fr: 'Mon contrat se termine aujourd’hui.', ar: 'عقدي ينتهي اليوم.', en: 'My contract ends today.' },
+          { fr: 'Je ne travaille plus depuis le…', ar: 'لم أعد أعمل منذ تاريخ...', en: 'I haven’t been working since...' },
+          { fr: 'Je viens de perdre mon emploi.', ar: 'خسرت عملي للتو.', en: 'I have just lost my job.' },
+          { fr: 'Je suis actuellement sans emploi.', ar: 'أنا حاليًا بدون عمل.', en: 'I am currently unemployed.' },
+          { fr: 'Mon CDD est arrivé à son terme.', ar: 'عقد الـCDD تبعي انتهى.', en: 'My fixed-term contract has ended.' },
+          { fr: 'Mon CDD n’a pas été renouvelé.', ar: 'ما تم تجديد عقد الـCDD تبعي.', en: 'My fixed-term contract was not renewed.' },
+          { fr: 'Mon contrat n’a pas été renouvelé.', ar: 'عقدي ما تجدد.', en: 'My contract was not renewed.' },
+          { fr: 'Mon dernier jour de travail était le…', ar: 'آخر يوم إلي بالشغل كان بتاريخ...', en: 'My last working day was...' },
+          { fr: 'Je voudrais signaler la fin de mon contrat de travail.', ar: 'بدي بلّغ عن انتهاء عقد عملي.', en: 'I would like to report the end of my employment contract.' },
+          { fr: 'Je voudrais signaler un changement de situation professionnelle.', ar: 'بدي بلّغ عن تغيير بوضعي المهني.', en: 'I would like to report a change in my employment situation.' },
+          { fr: 'Je voudrais mettre à jour ma situation.', ar: 'بدي حدّث وضعي.', en: 'I would like to update my situation.' },
+          { fr: 'Que dois-je déclarer à la CAF ?', ar: 'شو لازم صرّح للـCAF؟', en: 'What do I need to declare to CAF?' },
+          { fr: 'Est-ce que je dois faire une démarche particulière ?', ar: 'لازم أعمل إجراء معيّن؟', en: 'Do I need to take any specific steps?' }
+        ]
+      },
+      {
+        icon: '📉',
+        title: { ar: 'توقفت عن العمل — الدخل والحقوق والأوراق', en: 'Stopped working — income, rights, documents', fr: 'Fin d’activité — revenus, droits, documents' },
+        phrases: [
+          { fr: 'Mes revenus ont diminué.', ar: 'دخلي انخفض.', en: 'My income has decreased.' },
+          { fr: 'Je n’ai plus de salaire.', ar: 'ما عاد عندي راتب.', en: 'I no longer have a salary.' },
+          { fr: 'Je n’ai plus de revenus professionnels.', ar: 'ما عاد عندي دخل من العمل.', en: 'I no longer have employment income.' },
+          { fr: 'Je voudrais savoir si mes droits vont changer.', ar: 'بدي أعرف إذا حقوقي رح تتغير.', en: 'I would like to know if my benefits will change.' },
+          { fr: 'Est-ce que mon changement de situation va modifier mes droits ?', ar: 'هل تغيير وضعي رح يغيّر حقوقي؟', en: 'Will my change of situation affect my benefits?' },
+          { fr: 'Est-ce que mon aide au logement va changer ?', ar: 'هل مساعدة السكن رح تتغير؟', en: 'Will my housing benefit change?' },
+          { fr: 'Est-ce que j’ai droit à une autre aide ?', ar: 'هل إلي حق بمساعدة تانية؟', en: 'Am I entitled to another benefit?' },
+          { fr: 'Je suis à la recherche d’un emploi.', ar: 'أنا عم دوّر على شغل.', en: 'I am looking for a job.' },
+          { fr: 'Je vais m’inscrire à France Travail.', ar: 'رح سجّل بـFrance Travail.', en: 'I’m going to register with France Travail.' },
+          { fr: 'Est-ce que je dois déclarer mon inscription à France Travail ?', ar: 'لازم صرّح للـCAF إني سجلت بـFrance Travail؟', en: 'Do I need to report my registration with France Travail?' },
+          { fr: 'Je vais percevoir l’allocation chômage.', ar: 'رح أتلقى إعانة البطالة.', en: 'I will receive unemployment benefits.' },
+          { fr: 'Je ne sais pas encore si j’aurai droit au chômage.', ar: 'لسا ما بعرف إذا إلي حق بالبطالة.', en: 'I don’t know yet if I’ll be entitled to unemployment benefits.' },
+          { fr: 'Est-ce que ma situation me permet de bénéficier du RSA ?', ar: 'هل وضعي بيسمحلي استفيد من RSA؟', en: 'Does my situation make me eligible for RSA?' },
+          { fr: 'Je voudrais savoir si j’ai droit au RSA maintenant que je ne travaille plus.', ar: 'بدي أعرف إذا صار إلي حق بـRSA بعد ما وقفت شغل.', en: 'I would like to know if I’m entitled to RSA now that I no longer work.' },
+          { fr: 'Dois-je faire une nouvelle demande de RSA ?', ar: 'لازم أقدّم طلب RSA جديد؟', en: 'Do I need to submit a new RSA application?' },
+          { fr: 'Est-ce que vous avez besoin de mon attestation de fin de contrat ?', ar: 'بتحتاجوا شهادة انتهاء العقد؟', en: 'Do you need my proof of end of employment?' },
+          { fr: 'Est-ce que vous avez besoin de mon dernier bulletin de salaire ?', ar: 'بتحتاجوا آخر قسيمة راتب؟', en: 'Do you need my latest payslip?' },
+          { fr: 'Est-ce que je dois fournir mon attestation employeur ?', ar: 'لازم قدّم شهادة صاحب العمل؟', en: 'Do I need to provide my employer certificate?' },
+          { fr: 'Je peux vous envoyer les documents en ligne.', ar: 'فيني أبعتلكم الأوراق أونلاين.', en: 'I can send you the documents online.' },
+          { fr: 'Bonjour, je voudrais signaler un changement de situation professionnelle. Mon contrat de travail est terminé et je ne travaille plus actuellement. Je voudrais mettre à jour mon dossier et savoir si cela va modifier mes droits.', ar: 'مرحبا، بدي بلّغ عن تغيير بوضعي المهني. عقد عملي انتهى وحاليًا ما عاد عم اشتغل. بدي حدّث ملفي وأعرف إذا هالشي رح يغيّر حقوقي.', en: 'Hello, I would like to report a change in my employment situation. My employment contract has ended and I am currently no longer working. I would like to update my file and know whether this will affect my benefits.' }
+        ]
       }
     ]
   },
@@ -4751,6 +4800,301 @@ window.CENTRES_DATA = [
           { fr: 'Mon colis n’est toujours pas arrivé.', ar: 'طردي لسا ما وصل.', en: 'My parcel still hasn’t arrived.' },
           { fr: 'Il manque quelque chose dans le colis.', ar: 'في شي ناقص بالطرد.', en: 'Something is missing from the parcel.' },
           { fr: 'Le colis a été endommagé pendant le transport.', ar: 'الطرد انضرر أثناء النقل.', en: 'The parcel was damaged during transport.' }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'france-travail',
+    icon: '💼',
+    name: {
+      ar: 'France Travail — البحث عن عمل والبطالة',
+      en: 'France Travail — job search and unemployment',
+      fr: 'France Travail — recherche d’emploi et chômage'
+    },
+    desc: {
+      ar: 'كل العبارات مع مكتب العمل: التسجيل، التحديث الشهري، تعويض ARE، المستشار، التدريب والمواعيد',
+      en: 'All phrases for the job centre: registration, monthly update, ARE benefit, advisor, training and appointments',
+      fr: 'Toutes les phrases pour France Travail : inscription, actualisation, ARE, conseiller, formation et rendez-vous'
+    },
+    sections: [
+      {
+        icon: '📋',
+        title: { ar: '⭐ أهم المفردات', en: 'Key vocabulary', fr: 'Vocabulaire' },
+        phrases: [
+          { fr: 'demandeur d’emploi', ar: 'شخص باحث عن عمل', en: 'job seeker' },
+          { fr: 'inscription', ar: 'تسجيل', en: 'registration' },
+          { fr: 'réinscription', ar: 'إعادة التسجيل', en: 're-registration' },
+          { fr: 'recherche d’emploi', ar: 'البحث عن عمل', en: 'job search' },
+          { fr: 'offre d’emploi', ar: 'عرض عمل', en: 'job offer' },
+          { fr: 'candidature', ar: 'طلب توظيف', en: 'application' },
+          { fr: 'candidat', ar: 'متقدّم للوظيفة', en: 'candidate / applicant' },
+          { fr: 'employeur', ar: 'صاحب العمل', en: 'employer' },
+          { fr: 'salarié', ar: 'موظف / أجير', en: 'employee' },
+          { fr: 'conseiller', ar: 'مستشار', en: 'advisor' },
+          { fr: 'agence France Travail', ar: 'وكالة France Travail', en: 'France Travail office' },
+          { fr: 'rendez-vous', ar: 'موعد', en: 'appointment' },
+          { fr: 'accompagnement', ar: 'مرافقة / دعم', en: 'support' },
+          { fr: 'projet professionnel', ar: 'مشروع مهني', en: 'career project' },
+          { fr: 'formation', ar: 'تدريب / تكوين', en: 'training' },
+          { fr: 'compétence', ar: 'مهارة', en: 'skill' },
+          { fr: 'expérience professionnelle', ar: 'خبرة مهنية', en: 'work experience' },
+          { fr: 'CV', ar: 'سيرة ذاتية', en: 'CV / résumé' },
+          { fr: 'lettre de motivation', ar: 'رسالة تحفيزية', en: 'cover letter' },
+          { fr: 'entretien d’embauche', ar: 'مقابلة عمل', en: 'job interview' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: '⭐ البطالة والتعويض', en: 'Unemployment and benefits', fr: 'Chômage et indemnisation' },
+        phrases: [
+          { fr: 'chômage', ar: 'بطالة', en: 'unemployment' },
+          { fr: 'allocation chômage', ar: 'إعانة البطالة', en: 'unemployment benefit' },
+          { fr: 'ARE', ar: 'إعانة العودة إلى العمل', en: 'unemployment benefit' },
+          { fr: 'indemnisation', ar: 'تعويض مالي', en: 'compensation / benefit' },
+          { fr: 'droits', ar: 'حقوق', en: 'entitlements' },
+          { fr: 'ouverture des droits', ar: 'فتح الحقوق', en: 'opening of entitlement' },
+          { fr: 'reprise des droits', ar: 'استئناف الحقوق', en: 'resumption of entitlement' },
+          { fr: 'fin de droits', ar: 'انتهاء الحقوق', en: 'end of entitlement' },
+          { fr: 'montant', ar: 'المبلغ', en: 'amount' },
+          { fr: 'durée d’indemnisation', ar: 'مدة التعويض', en: 'benefit duration' },
+          { fr: 'versement', ar: 'صرف / تحويل المبلغ', en: 'payment' },
+          { fr: 'attestation employeur', ar: 'شهادة صاحب العمل', en: 'employer certificate' },
+          { fr: 'bulletin de salaire', ar: 'قسيمة الراتب', en: 'payslip' }
+        ]
+      },
+      {
+        icon: '🔑',
+        title: { ar: '⭐ أهم الأفعال', en: 'Key verbs', fr: 'Verbes clés' },
+        phrases: [
+          { fr: 's’inscrire', ar: 'يسجّل حاله', en: 'to register' },
+          { fr: 'se réinscrire', ar: 'يعيد التسجيل', en: 'to re-register' },
+          { fr: 'chercher', ar: 'يبحث', en: 'to look for' },
+          { fr: 'trouver', ar: 'يجد', en: 'to find' },
+          { fr: 'postuler', ar: 'يتقدّم لوظيفة', en: 'to apply' },
+          { fr: 'candidater', ar: 'يتقدّم لوظيفة', en: 'to apply' },
+          { fr: 'recruter', ar: 'يوظّف', en: 'to recruit' },
+          { fr: 'embaucher', ar: 'يوظّف', en: 'to hire' },
+          { fr: 'actualiser', ar: 'يحدّث وضعه', en: 'to update' },
+          { fr: 'signaler', ar: 'يبلّغ عن', en: 'to report' },
+          { fr: 'justifier', ar: 'يثبت / يبرهن', en: 'to provide proof' },
+          { fr: 'déposer', ar: 'يقدّم / يودع', en: 'to submit' },
+          { fr: 'consulter', ar: 'يطّلع على', en: 'to consult' },
+          { fr: 'contacter', ar: 'يتواصل مع', en: 'to contact' },
+          { fr: 'prendre rendez-vous', ar: 'يحجز موعد', en: 'to make an appointment' },
+          { fr: 'reporter', ar: 'يؤجّل', en: 'to postpone' },
+          { fr: 'accompagner', ar: 'يرافق / يدعم', en: 'to support' },
+          { fr: 'bénéficier de', ar: 'يستفيد من', en: 'to benefit from' },
+          { fr: 'percevoir', ar: 'يتلقى / يحصل على', en: 'to receive' },
+          { fr: 'être indemnisé', ar: 'يحصل على تعويض', en: 'to receive benefits' },
+          { fr: 'reprendre', ar: 'يستأنف', en: 'to resume' },
+          { fr: 'cesser', ar: 'يوقف', en: 'to cease' },
+          { fr: 'démissionner', ar: 'يستقيل', en: 'to resign' }
+        ]
+      },
+      {
+        icon: '📝',
+        title: { ar: 'التسجيل في France Travail', en: 'Registering with France Travail', fr: 'S’inscrire à France Travail' },
+        phrases: [
+          { fr: 'Je voudrais m’inscrire à France Travail.', ar: 'بدي سجّل بـFrance Travail.', en: 'I would like to register with France Travail.' },
+          { fr: 'Je souhaite m’inscrire comme demandeur d’emploi.', ar: 'بدي سجّل كباحث عن عمل.', en: 'I would like to register as a job seeker.' },
+          { fr: 'Je viens de terminer mon contrat de travail.', ar: 'خلص عقد عملي من جديد.', en: 'I have just finished my employment contract.' },
+          { fr: 'Mon contrat de travail est terminé.', ar: 'عقد عملي انتهى.', en: 'My employment contract has ended.' },
+          { fr: 'Je suis actuellement sans emploi.', ar: 'حاليًا أنا بدون شغل.', en: 'I am currently unemployed.' },
+          { fr: 'Je suis à la recherche d’un emploi.', ar: 'أنا عم دوّر على شغل.', en: 'I am looking for a job.' },
+          { fr: 'Je voudrais savoir comment m’inscrire.', ar: 'بدي أعرف كيف سجّل.', en: 'I would like to know how to register.' },
+          { fr: 'Est-ce que je peux m’inscrire en ligne ?', ar: 'فيني سجّل أونلاين؟', en: 'Can I register online?' },
+          { fr: 'Quand dois-je m’inscrire ?', ar: 'إمتى لازم سجّل؟', en: 'When should I register?' },
+          { fr: 'Mon CDD est arrivé à son terme.', ar: 'عقد الـCDD تبعي انتهى.', en: 'My fixed-term contract has ended.' },
+          { fr: 'Mon contrat n’a pas été renouvelé.', ar: 'عقدي ما تجدد.', en: 'My contract was not renewed.' },
+          { fr: 'Mon dernier jour de travail était le…', ar: 'آخر يوم إلي بالشغل كان...', en: 'My last working day was...' },
+          { fr: 'Je ne travaille plus depuis le…', ar: 'ما عدت عم اشتغل من تاريخ...', en: 'I haven’t worked since...' },
+          { fr: 'Je souhaite déclarer la fin de mon contrat.', ar: 'بدي صرّح بانتهاء عقدي.', en: 'I would like to report the end of my contract.' }
+        ]
+      },
+      {
+        icon: '🔄',
+        title: { ar: '⭐ التحديث الشهري — Actualisation', en: 'Monthly update — Actualisation', fr: 'Actualisation mensuelle' },
+        phrases: [
+          { fr: 'actualisation', ar: 'تحديث الوضع الشهري', en: 'monthly update' },
+          { fr: 's’actualiser', ar: 'يحدّث وضعه', en: 'to update one’s status' },
+          { fr: 'heures travaillées', ar: 'ساعات العمل', en: 'hours worked' },
+          { fr: 'salaire brut', ar: 'الراتب الإجمالي', en: 'gross salary' },
+          { fr: 'arrêt maladie', ar: 'إجازة مرضية', en: 'sick leave' },
+          { fr: 'Je dois faire mon actualisation.', ar: 'لازم أعمل التحديث الشهري.', en: 'I have to complete my monthly update.' },
+          { fr: 'Je voudrais faire mon actualisation.', ar: 'بدي أعمل التحديث الشهري.', en: 'I would like to complete my monthly update.' },
+          { fr: 'J’ai travaillé ce mois-ci.', ar: 'اشتغلت هالشهر.', en: 'I worked this month.' },
+          { fr: 'J’ai travaillé quelques heures.', ar: 'اشتغلت كم ساعة.', en: 'I worked a few hours.' },
+          { fr: 'Je n’ai pas travaillé ce mois-ci.', ar: 'ما اشتغلت هالشهر.', en: 'I didn’t work this month.' },
+          { fr: 'Je n’ai eu aucune activité.', ar: 'ما كان عندي أي نشاط.', en: 'I had no activity.' },
+          { fr: 'Je suis actuellement en formation.', ar: 'حاليًا أنا بتدريب.', en: 'I am currently in training.' },
+          { fr: 'Je suis en arrêt maladie.', ar: 'أنا بإجازة مرضية.', en: 'I am on sick leave.' },
+          { fr: 'J’ai repris le travail.', ar: 'رجعت عالشغل.', en: 'I went back to work.' },
+          { fr: 'J’ai cessé de travailler.', ar: 'وقفت عن العمل.', en: 'I stopped working.' },
+          { fr: 'Actualisation du 28 du mois au 15 du mois suivant.', ar: 'فترة التحديث عمومًا من 28 الشهر لـ15 الشهر التالي (ما عدا فبراير).', en: 'Update window is generally the 28th to the 15th of the following month (except February).' }
+        ]
+      },
+      {
+        icon: '🎉',
+        title: { ar: 'بلّشت شغل جديد', en: 'Started a new job', fr: 'Nouvel emploi' },
+        phrases: [
+          { fr: 'J’ai retrouvé un emploi.', ar: 'لقيت شغل جديد.', en: 'I found a new job.' },
+          { fr: 'J’ai commencé un nouvel emploi.', ar: 'بلشت شغل جديد.', en: 'I started a new job.' },
+          { fr: 'Je viens de reprendre le travail.', ar: 'رجعت للشغل من جديد.', en: 'I have just gone back to work.' },
+          { fr: 'J’ai commencé à travailler le…', ar: 'بلشت شغل بتاريخ...', en: 'I started working on...' },
+          { fr: 'Mon nouvel employeur est…', ar: 'صاحب عملي الجديد هو...', en: 'My new employer is...' },
+          { fr: 'Je dois déclarer ma reprise d’activité ?', ar: 'لازم صرّح إني رجعت عالشغل؟', en: 'Do I need to report that I have returned to work?' },
+          { fr: 'Est-ce que je dois continuer à m’actualiser ?', ar: 'لازم ضل أعمل التحديث الشهري؟', en: 'Do I still need to update my situation monthly?' }
+        ]
+      },
+      {
+        icon: '💰',
+        title: { ar: 'طلب الـchômage / ARE', en: 'Applying for chômage / ARE', fr: 'Demande d’ARE' },
+        phrases: [
+          { fr: 'Je voudrais faire une demande d’allocation chômage.', ar: 'بدي أقدّم طلب إعانة البطالة.', en: 'I would like to apply for unemployment benefits.' },
+          { fr: 'Est-ce que j’ai droit à l’allocation chômage ?', ar: 'إلي حق بإعانة البطالة؟', en: 'Am I entitled to unemployment benefits?' },
+          { fr: 'Est-ce que j’ai droit à l’ARE ?', ar: 'إلي حق بـARE؟', en: 'Am I entitled to ARE?' },
+          { fr: 'Je voudrais savoir si je suis indemnisé.', ar: 'بدي أعرف إذا إلي تعويض.', en: 'I would like to know if I am entitled to benefits.' },
+          { fr: 'Quel sera le montant de mon allocation ?', ar: 'قديش رح يكون مبلغ الإعانة؟', en: 'How much will my benefit be?' },
+          { fr: 'Pendant combien de temps serai-je indemnisé ?', ar: 'لمدة قديش رح آخد التعويض؟', en: 'How long will I receive benefits?' },
+          { fr: 'Quand vais-je recevoir mon premier paiement ?', ar: 'إمتى رح توصلني أول دفعة؟', en: 'When will I receive my first payment?' },
+          { fr: 'Pouvez-vous vérifier mes droits ?', ar: 'فيكم تتأكدوا من حقوقي؟', en: 'Can you check my entitlement?' },
+          { fr: 'Pouvez-vous étudier mon dossier ?', ar: 'فيكم تدرسوا ملفي؟', en: 'Can you review my file?' }
+        ]
+      },
+      {
+        icon: '📄',
+        title: { ar: 'الأوراق المطلوبة', en: 'Required documents', fr: 'Documents à fournir' },
+        phrases: [
+          { fr: 'Quels documents dois-je fournir ?', ar: 'شو الأوراق اللي لازم قدّمها؟', en: 'What documents do I need to provide?' },
+          { fr: 'Voici mon attestation employeur.', ar: 'هاي شهادة صاحب العمل.', en: 'Here is my employer certificate.' },
+          { fr: 'Voici mes bulletins de salaire.', ar: 'هاي قسائم راتبي.', en: 'Here are my payslips.' },
+          { fr: 'Je vous transmets les documents demandés.', ar: 'عم أرسللكم الأوراق المطلوبة.', en: 'I am sending you the requested documents.' },
+          { fr: 'Il me manque un document.', ar: 'ناقصني ورقة.', en: 'I am missing a document.' },
+          { fr: 'Quel document manque à mon dossier ?', ar: 'أي ورقة ناقصة من ملفي؟', en: 'Which document is missing from my file?' },
+          { fr: 'Est-ce que mon dossier est complet ?', ar: 'ملفي كامل؟', en: 'Is my file complete?' },
+          { fr: 'Est-ce que vous avez bien reçu mes documents ?', ar: 'وصلكن أوراقي بشكل صحيح؟', en: 'Did you receive my documents?' }
+        ]
+      },
+      {
+        icon: '📱',
+        title: { ar: 'Espace personnel — الحساب الإلكتروني', en: 'Online account', fr: 'Espace personnel' },
+        phrases: [
+          { fr: 'numéro France Travail', ar: 'رقم France Travail', en: 'France Travail number' },
+          { fr: 'Je n’arrive pas à me connecter.', ar: 'ما عم اقدر فوت عحسابي.', en: 'I can’t log in.' },
+          { fr: 'J’ai oublié mon mot de passe.', ar: 'نسيت كلمة المرور.', en: 'I forgot my password.' },
+          { fr: 'Je ne trouve pas mon document.', ar: 'ما عم لاقي الوثيقة.', en: 'I can’t find my document.' },
+          { fr: 'Où puis-je trouver mon attestation ?', ar: 'وين فيني لاقي الشهادة؟', en: 'Where can I find my certificate?' },
+          { fr: 'Je voudrais télécharger mon attestation.', ar: 'بدي نزّل الشهادة.', en: 'I would like to download my certificate.' },
+          { fr: 'Je voudrais envoyer un document.', ar: 'بدي أرسل وثيقة.', en: 'I would like to send a document.' },
+          { fr: 'Mon dossier est-il à jour ?', ar: 'ملفي محدّث؟', en: 'Is my file up to date?' }
+        ]
+      },
+      {
+        icon: '🧑‍💼',
+        title: { ar: 'المستشار — Conseiller', en: 'Your advisor', fr: 'Le conseiller' },
+        phrases: [
+          { fr: 'Je voudrais parler à mon conseiller.', ar: 'بدي أحكي مع مستشاري.', en: 'I would like to speak to my advisor.' },
+          { fr: 'Je voudrais prendre rendez-vous avec mon conseiller.', ar: 'بدي آخد موعد مع مستشاري.', en: 'I would like to make an appointment with my advisor.' },
+          { fr: 'Je voudrais faire le point sur ma situation.', ar: 'بدي راجع وضعي معكم.', en: 'I would like to review my situation.' },
+          { fr: 'J’ai besoin d’aide pour ma recherche d’emploi.', ar: 'بحتاج مساعدة بالبحث عن شغل.', en: 'I need help with my job search.' },
+          { fr: 'Pouvez-vous m’aider à trouver une formation ?', ar: 'فيكم تساعدوني لاقي تدريب؟', en: 'Can you help me find training?' },
+          { fr: 'Je voudrais changer de métier.', ar: 'بدي غيّر مهنتي.', en: 'I would like to change careers.' },
+          { fr: 'Je voudrais améliorer mes compétences.', ar: 'بدي طوّر مهاراتي.', en: 'I would like to improve my skills.' },
+          { fr: 'Je voudrais faire une formation professionnelle.', ar: 'بدي أعمل تدريب مهني.', en: 'I would like to do vocational training.' }
+        ]
+      },
+      {
+        icon: '🔎',
+        title: { ar: 'البحث عن عمل وعروض العمل', en: 'Job search and offers', fr: 'Recherche et offres d’emploi' },
+        phrases: [
+          { fr: 'Je cherche un emploi à temps plein.', ar: 'عم دوّر على شغل دوام كامل.', en: 'I am looking for a full-time job.' },
+          { fr: 'Je cherche un emploi à temps partiel.', ar: 'عم دوّر على شغل دوام جزئي.', en: 'I am looking for a part-time job.' },
+          { fr: 'Je suis disponible immédiatement.', ar: 'أنا متاح أبلّش فورًا.', en: 'I am available immediately.' },
+          { fr: 'Je peux travailler en équipe.', ar: 'فيني اشتغل ضمن فريق.', en: 'I can work in a team.' },
+          { fr: 'Je suis disponible pour un entretien.', ar: 'أنا متاح لمقابلة.', en: 'I am available for an interview.' },
+          { fr: 'Je voudrais postuler à cette offre.', ar: 'بدي قدّم على هالوظيفة.', en: 'I would like to apply for this job.' },
+          { fr: 'J’ai envoyé ma candidature.', ar: 'بعت طلب التوظيف تبعي.', en: 'I sent my application.' },
+          { fr: 'poste à pourvoir', ar: 'وظيفة شاغرة', en: 'position to fill' },
+          { fr: 'intérim', ar: 'عمل مؤقت', en: 'temporary work' },
+          { fr: 'horaires', ar: 'أوقات الدوام', en: 'working hours' },
+          { fr: 'lieu de travail', ar: 'مكان العمل', en: 'workplace' },
+          { fr: 'Cette offre m’intéresse.', ar: 'هالعرض بهمني.', en: 'I am interested in this offer.' },
+          { fr: 'Quels sont les horaires ?', ar: 'شو أوقات الدوام؟', en: 'What are the working hours?' },
+          { fr: 'Quel est le salaire ?', ar: 'قديش الراتب؟', en: 'What is the salary?' },
+          { fr: 'Quel type de contrat proposez-vous ?', ar: 'شو نوع العقد اللي بتقدموه؟', en: 'What type of contract do you offer?' },
+          { fr: 'Est-ce un CDI ou un CDD ?', ar: 'هو CDI ولا CDD؟', en: 'Is it a permanent or fixed-term contract?' }
+        ]
+      },
+      {
+        icon: '🎓',
+        title: { ar: 'التدريب — Formation', en: 'Training', fr: 'Formation' },
+        phrases: [
+          { fr: 'Je voudrais faire une formation.', ar: 'بدي أعمل تدريب.', en: 'I would like to take a training course.' },
+          { fr: 'Je cherche une formation dans le domaine de la logistique.', ar: 'عم دوّر على تدريب بمجال اللوجستيك.', en: 'I am looking for training in logistics.' },
+          { fr: 'Je cherche une formation SAP.', ar: 'عم دوّر على تدريب SAP.', en: 'I am looking for SAP training.' },
+          { fr: 'Cette formation est-elle financée ?', ar: 'هالتدريب ممول؟', en: 'Is this training funded?' },
+          { fr: 'Est-ce que France Travail peut financer cette formation ?', ar: 'France Travail فيهم يمولوا هالتدريب؟', en: 'Can France Travail fund this training?' },
+          { fr: 'Est-ce que je peux utiliser mon CPF ?', ar: 'فيني استخدم CPF تبعي؟', en: 'Can I use my CPF?' },
+          { fr: 'Quelle est la durée de la formation ?', ar: 'قديش مدة التدريب؟', en: 'How long is the training?' },
+          { fr: 'Quand commence la formation ?', ar: 'إمتى بيبدأ التدريب؟', en: 'When does the training start?' },
+          { fr: 'Est-ce que la formation est à distance ?', ar: 'التدريب أونلاين؟', en: 'Is the training online?' },
+          { fr: 'Est-ce qu’il y a un stage ?', ar: 'في تدريب عملي؟', en: 'Is there an internship?' }
+        ]
+      },
+      {
+        icon: '📅',
+        title: { ar: 'المواعيد', en: 'Appointments', fr: 'Rendez-vous' },
+        phrases: [
+          { fr: 'J’ai reçu une convocation.', ar: 'وصلتني دعوة/استدعاء.', en: 'I received an appointment notice.' },
+          { fr: 'J’ai rendez-vous avec mon conseiller.', ar: 'عندي موعد مع مستشاري.', en: 'I have an appointment with my advisor.' },
+          { fr: 'À quelle heure est le rendez-vous ?', ar: 'بأي ساعة الموعد؟', en: 'What time is the appointment?' },
+          { fr: 'Où a lieu le rendez-vous ?', ar: 'وين الموعد؟', en: 'Where is the appointment?' },
+          { fr: 'Je ne peux pas venir à ce rendez-vous.', ar: 'ما فيني أجي عهالموعد.', en: 'I can’t attend this appointment.' },
+          { fr: 'Je voudrais reporter le rendez-vous.', ar: 'بدي أجّل الموعد.', en: 'I would like to postpone the appointment.' },
+          { fr: 'Je voudrais annuler le rendez-vous.', ar: 'بدي ألغي الموعد.', en: 'I would like to cancel the appointment.' },
+          { fr: 'Est-ce que je peux avoir un rendez-vous en visioconférence ?', ar: 'فيني آخد الموعد فيديو؟', en: 'Can I have a video appointment?' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: 'إذا ما فهمت + الجملة الجاهزة', en: 'Not understanding + ready sentence', fr: 'Pas compris + phrase complète' },
+        phrases: [
+          { fr: 'Je n’ai pas bien compris.', ar: 'ما فهمت منيح.', en: 'I didn’t understand well.' },
+          { fr: 'Pouvez-vous répéter, s’il vous plaît ?', ar: 'فيك تعيد لو سمحت؟', en: 'Could you repeat, please?' },
+          { fr: 'Pouvez-vous parler plus lentement ?', ar: 'فيك تحكي أبطأ؟', en: 'Could you speak more slowly?' },
+          { fr: 'Pouvez-vous m’expliquer simplement ?', ar: 'فيك تشرحلي بطريقة بسيطة؟', en: 'Could you explain it simply?' },
+          { fr: 'Qu’est-ce que cela signifie ?', ar: 'شو يعني هاد؟', en: 'What does this mean?' },
+          { fr: 'Qu’est-ce que je dois faire ?', ar: 'شو لازم أعمل؟', en: 'What do I have to do?' },
+          { fr: 'Quelle est la prochaine étape ?', ar: 'شو الخطوة الجاية؟', en: 'What is the next step?' },
+          { fr: 'Est-ce que vous pouvez me l’écrire ?', ar: 'فيك تكتبلي ياها؟', en: 'Can you write it down for me?' },
+          { fr: 'Bonjour, je viens de terminer mon contrat de travail. Je ne travaille plus actuellement et je voudrais m’inscrire à France Travail. Je voudrais également savoir si j’ai droit à l’allocation chômage et quels documents je dois fournir.', ar: 'مرحبا، خلص عقد عملي للتو. حاليًا ما عاد عم اشتغل وبدي سجّل بـFrance Travail. وبدي كمان أعرف إذا إلي حق بإعانة البطالة وشو الأوراق اللي لازم قدّمها.', en: 'Hello, I have just finished my employment contract. I am currently no longer working and I would like to register with France Travail. I would also like to know whether I am entitled to unemployment benefits and which documents I need to provide.' }
+        ]
+      },
+      {
+        icon: '⭐',
+        title: { ar: 'أهم 20 جملة تحفظها أولًا', en: 'Top 20 phrases to learn first', fr: 'Top 20 à mémoriser' },
+        phrases: [
+          { fr: 'Je voudrais m’inscrire à France Travail.', ar: 'بدي سجّل بـFrance Travail.', en: 'I would like to register with France Travail.' },
+          { fr: 'Je suis à la recherche d’un emploi.', ar: 'عم دوّر على شغل.', en: 'I am looking for a job.' },
+          { fr: 'Mon contrat de travail est terminé.', ar: 'عقد عملي انتهى.', en: 'My employment contract has ended.' },
+          { fr: 'Je suis actuellement sans emploi.', ar: 'حاليًا أنا بدون شغل.', en: 'I am currently unemployed.' },
+          { fr: 'Je voudrais demander l’allocation chômage.', ar: 'بدي أطلب إعانة البطالة.', en: 'I would like to apply for unemployment benefits.' },
+          { fr: 'Est-ce que j’ai droit à l’ARE ?', ar: 'إلي حق بـARE؟', en: 'Am I entitled to ARE?' },
+          { fr: 'Quel sera le montant de mon allocation ?', ar: 'قديش رح يكون مبلغ الإعانة؟', en: 'How much will my benefit be?' },
+          { fr: 'Pendant combien de temps serai-je indemnisé ?', ar: 'لمدة قديش رح آخد تعويض؟', en: 'How long will I receive benefits?' },
+          { fr: 'Quels documents dois-je fournir ?', ar: 'شو الأوراق اللي لازم قدّمها؟', en: 'What documents do I need to provide?' },
+          { fr: 'Est-ce que mon dossier est complet ?', ar: 'ملفي كامل؟', en: 'Is my file complete?' },
+          { fr: 'Je voudrais parler à mon conseiller.', ar: 'بدي أحكي مع مستشاري.', en: 'I would like to speak to my advisor.' },
+          { fr: 'Je voudrais prendre rendez-vous.', ar: 'بدي آخد موعد.', en: 'I would like to make an appointment.' },
+          { fr: 'Je cherche une formation.', ar: 'عم دوّر على تدريب.', en: 'I am looking for training.' },
+          { fr: 'Est-ce que France Travail peut financer cette formation ?', ar: 'فيكم تموّلوا هالتدريب؟', en: 'Can France Travail fund this training?' },
+          { fr: 'Je dois faire mon actualisation.', ar: 'لازم أعمل التحديث الشهري.', en: 'I have to complete my monthly update.' },
+          { fr: 'J’ai repris le travail.', ar: 'رجعت عالشغل.', en: 'I went back to work.' },
+          { fr: 'J’ai commencé un nouvel emploi.', ar: 'بلشت شغل جديد.', en: 'I started a new job.' },
+          { fr: 'Je voudrais signaler un changement de situation.', ar: 'بدي بلّغ عن تغيير بوضعي.', en: 'I would like to report a change in my situation.' },
+          { fr: 'Je n’ai pas bien compris.', ar: 'ما فهمت منيح.', en: 'I didn’t understand well.' },
+          { fr: 'Pouvez-vous parler plus lentement, s’il vous plaît ?', ar: 'فيك تحكي أبطأ لو سمحت؟', en: 'Could you speak more slowly, please?' }
         ]
       }
     ]
