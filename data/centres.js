@@ -7972,5 +7972,137 @@ window.CENTRES_DATA = [
         ]
       }
     ]
+  },
+  {
+    id: 'vacances',
+    icon: '🌴',
+    name: { ar: 'الإجازة (Vacances)', en: 'Vacation', fr: 'Les vacances' },
+    desc: { ar: 'قبل الإجازة وبعدها، الرجوع للشغل والغياب الطويل', en: 'Before and after vacation, returning to work and long absences', fr: 'Avant et après les vacances, la reprise du travail' },
+    sections: [
+      {
+        icon: '🌴',
+        title: { ar: 'قبل الإجازة', en: 'Before vacation', fr: 'Avant les vacances' },
+        phrases: [
+          { fr: 'Tu pars en vacances quand ?', ar: 'إمتى رايح عالإجازة؟', en: 'When are you going on vacation?' },
+          { fr: 'Tu pars où en vacances ?', ar: 'لوين رايح عالإجازة؟', en: 'Where are you going on vacation?' },
+          { fr: 'Tu pars combien de temps ?', ar: 'قديش رح تطول بالإجازة؟', en: 'How long are you going for?' },
+          { fr: 'Tu prends combien de jours de vacances ?', ar: 'قديش يوم إجازة أخدت؟', en: 'How many days off are you taking?' },
+          { fr: 'Tu pars demain ?', ar: 'رايح بكرا؟', en: 'Are you leaving tomorrow?' },
+          { fr: 'Tu as prévu quelque chose pour les vacances ?', ar: 'مخطط تعمل شي بالإجازة؟', en: 'Have you planned anything for your vacation?' }
+        ]
+      },
+      {
+        icon: '☀️',
+        title: { ar: 'تمني إجازة حلوة', en: 'Wishing a good vacation', fr: 'Souhaiter de bonnes vacances' },
+        phrases: [
+          { fr: 'Bonnes vacances !', ar: 'عطلة سعيدة! / انبسط بالإجازة!', en: 'Have a good vacation!' },
+          { fr: 'Profite bien de tes vacances !', ar: 'انبسط واستمتع بإجازتك!', en: 'Enjoy your vacation!' },
+          { fr: 'Repose-toi bien !', ar: 'ارتاح منيح!', en: 'Get some good rest!' },
+          { fr: 'Profite bien !', ar: 'انبسط!', en: 'Enjoy!' },
+          { fr: 'Passe de bonnes vacances !', ar: 'اقضي إجازة حلوة!', en: 'Have a good vacation!' },
+          { fr: 'Bon voyage !', ar: 'رحلة موفقة / توصل بالسلامة!', en: 'Have a good trip!' },
+          { fr: 'Bonne route !', ar: 'طريق السلامة!', en: 'Have a safe trip!' },
+          { fr: 'Tu vas voyager ?', ar: 'رح تسافر؟', en: 'Are you going to travel?' },
+          { fr: 'Tu vas partir où ?', ar: 'لوين رح تروح؟', en: 'Where are you going?' }
+        ]
+      },
+      {
+        icon: '💼',
+        title: { ar: 'آخر يوم قبل الإجازة', en: 'Last day before vacation', fr: 'Dernier jour avant les vacances' },
+        phrases: [
+          { fr: 'C’est ton dernier jour aujourd’hui ?', ar: 'اليوم آخر يوم إلك؟', en: 'Is today your last day?' },
+          { fr: 'Tu finis aujourd’hui avant les vacances ?', ar: 'اليوم بتخلص قبل الإجازة؟', en: 'Are you finishing today before your vacation?' },
+          { fr: 'Tu reviens quand ?', ar: 'إمتى راجع؟', en: 'When are you coming back?' },
+          { fr: 'On se voit à ton retour !', ar: 'منشوف بعض لما ترجع!', en: 'See you when you’re back!' },
+          { fr: 'À bientôt, profite bien !', ar: 'منشوفك قريب، انبسط!', en: 'See you soon, enjoy!' },
+          { fr: 'La chance !', ar: 'يا بختك!', en: 'Lucky you!' },
+          { fr: 'Profite-en bien !', ar: 'استغلها وانبسط فيها!', en: 'Make the most of it!' },
+          { fr: 'Tu vas nous manquer !', ar: 'رح تشتقلنا!', en: 'We’re going to miss you!' },
+          { fr: 'N’oublie pas de penser à nous !', ar: 'لا تنسانا!', en: 'Don’t forget about us!' }
+        ]
+      },
+      {
+        icon: '👋',
+        title: { ar: 'أول ما يشوفوك بعد الرجوع', en: 'When they first see you back', fr: 'Au retour des vacances' },
+        phrases: [
+          { fr: 'Alors, ça s’est bien passé les vacances ?', ar: 'كيف كانت الإجازة؟', en: 'So, how was your vacation?' },
+          { fr: 'Alors, tes vacances se sont bien passées ?', ar: 'طيب، كيف كانت عطلتك؟', en: 'So, did you have a good vacation?' },
+          { fr: 'Tu as passé de bonnes vacances ?', ar: 'قضيت إجازة حلوة؟', en: 'Did you have a good vacation?' },
+          { fr: 'Bon retour !', ar: 'نورت ورجعت بالسلامة!', en: 'Welcome back!' },
+          { fr: 'Ça fait plaisir de te revoir !', ar: 'حلو إنو رجعنا شفناك!', en: 'It’s nice to see you again!' },
+          { fr: 'Tu as bien profité de tes vacances ?', ar: 'انبسطت واستفدت من إجازتك؟', en: 'Did you enjoy your vacation?' },
+          { fr: 'Tu es parti où ?', ar: 'لوين رحت؟', en: 'Where did you go?' },
+          { fr: 'Tu as fait quoi pendant tes vacances ?', ar: 'شو عملت بالإجازة؟', en: 'What did you do during your vacation?' },
+          { fr: 'Tu as voyagé ?', ar: 'سافرت؟', en: 'Did you travel?' },
+          { fr: 'Tu as passé du bon temps ?', ar: 'قضيت وقت حلو؟', en: 'Did you have a good time?' },
+          { fr: 'Il a fait beau ?', ar: 'كان الطقس حلو؟', en: 'Was the weather nice?' }
+        ]
+      },
+      {
+        icon: '😄',
+        title: { ar: 'ردود الشخص العائد', en: 'The returner’s replies', fr: 'Réponses du revenant' },
+        phrases: [
+          { fr: 'Oui, c’était super !', ar: 'إي، كانت كتير حلوة!', en: 'Yes, it was great!' },
+          { fr: 'Oui, ça s’est très bien passé.', ar: 'إي، مشت الأمور كتير منيح.', en: 'Yes, it went very well.' },
+          { fr: 'J’ai bien profité de mes vacances.', ar: 'انبسطت واستفدت من إجازتي.', en: 'I really enjoyed my vacation.' },
+          { fr: 'Ça m’a fait du bien.', ar: 'ريّحتني كتير / كانت منيحة إلي.', en: 'It did me good.' },
+          { fr: 'Je me suis bien reposé.', ar: 'ارتحت منيح.', en: 'I got a good rest.' },
+          { fr: 'Je suis parti quelques jours.', ar: 'رحت كم يوم.', en: 'I went away for a few days.' },
+          { fr: 'Ça passe trop vite, les vacances !', ar: 'الإجازة بتمر بسرعة كتير!', en: 'Vacation goes by too fast!' },
+          { fr: 'J’aurais bien aimé rester encore quelques jours.', ar: 'كنت بحب ضل كمان كم يوم.', en: 'I’d have liked to stay a few more days.' },
+          { fr: 'Je ne suis pas encore prêt à reprendre !', ar: 'لسا مو جاهز أرجع عالشغل!', en: 'I’m not ready to go back to work yet!' },
+          { fr: 'Il faut reprendre le rythme maintenant.', ar: 'هلأ لازم نرجع لروتين الشغل.', en: 'Now I have to get back into the routine.' }
+        ]
+      },
+      {
+        icon: '💼',
+        title: { ar: 'أول يوم رجعة للشغل + مزاح', en: 'First day back + jokes', fr: 'La reprise + blagues' },
+        phrases: [
+          { fr: 'Ça va, la reprise ?', ar: 'كيف الرجعة عالشغل؟', en: 'How’s it going getting back to work?' },
+          { fr: 'Pas trop dur, la reprise ?', ar: 'الرجعة مو صعبة كتير؟', en: 'Is getting back not too hard?' },
+          { fr: 'Tu arrives à reprendre le rythme ?', ar: 'عم تقدر ترجع لروتين الشغل؟', en: 'Managing to get back into the rhythm?' },
+          { fr: 'Tu as beaucoup de travail à rattraper ?', ar: 'عندك شغل كتير لازم تلحقه؟', en: 'A lot of work to catch up on?' },
+          { fr: 'Tout s’est bien passé pendant ton absence ?', ar: 'كل شي مشي منيح بغيابك؟', en: 'Did everything go well while away?' },
+          { fr: 'Alors, tu es revenu parmi nous !', ar: 'رجعت لعندنا أخيرًا!', en: 'So, you’re back with us!' },
+          { fr: 'Fini les vacances !', ar: 'خلصت الإجازة!', en: 'Vacation’s over!' },
+          { fr: 'Allez, au boulot !', ar: 'يلا عالشغل!', en: 'Come on, back to work!' },
+          { fr: 'Tu nous as manqué !', ar: 'اشتقنالك!', en: 'We missed you!' },
+          { fr: 'Bon retour ! Alors, ça s’est bien passé les vacances ?', ar: 'رجعت بالسلامة! كيف كانت الإجازة؟', en: 'Welcome back! How was your vacation?' }
+        ]
+      },
+      {
+        icon: '🔄',
+        title: { ar: 'الرجوع بعد غياب (مو إجازة)', en: 'Returning after absence (not vacation)', fr: 'Retour après une absence' },
+        phrases: [
+          { fr: 'Ça va mieux ?', ar: 'هلأ أحسن؟', en: 'Are you feeling better?' },
+          { fr: 'Tu reprends aujourd’hui ?', ar: 'اليوم رجعت عالشغل؟', en: 'Are you back at work today?' },
+          { fr: 'Tu reprends le travail aujourd’hui ?', ar: 'اليوم رجعت للشغل؟', en: 'Are you returning to work today?' },
+          { fr: 'Ça fait longtemps !', ar: 'صارلك زمان!', en: 'It’s been a long time!' },
+          { fr: 'Ça fait longtemps qu’on ne t’a pas vu !', ar: 'صارلنا زمان ما شفناك!', en: 'We haven’t seen you for a long time!' },
+          { fr: 'Content de te revoir !', ar: 'مبسوطين إنك رجعت!', en: 'Glad to see you again!' },
+          { fr: 'Tout va bien maintenant ?', ar: 'هلأ كل شي تمام؟', en: 'Is everything okay now?' },
+          { fr: 'Tu étais absent pendant combien de temps ?', ar: 'قديش كنت غايب؟', en: 'How long were you away?' },
+          { fr: 'Tu reprends normalement maintenant ?', ar: 'هلأ رجعت بشكل طبيعي؟', en: 'Are you back to work normally?' },
+          { fr: 'Ça se passe bien depuis ton retour ?', ar: 'الأمور ماشية منيح من وقت ما رجعت؟', en: 'Everything going well since you came back?' },
+          { fr: 'Pourquoi tu étais absent ?', ar: 'ليش كنت غايب؟ / ليش ما كنت موجود؟', en: 'Why were you absent?' }
+        ]
+      },
+      {
+        icon: '🏥',
+        title: { ar: 'رجوع بعد مرض أو توقيف', en: 'Return after illness or suspension', fr: 'Retour après maladie ou suspension' },
+        phrases: [
+          { fr: 'Bon courage pour la reprise !', ar: 'الله يعطيك العافية بالرجعة!', en: 'Good luck getting back to work!' },
+          { fr: 'Ça va mieux maintenant ?', ar: 'هلأ صرت أحسن؟', en: 'Are you feeling better now?' },
+          { fr: 'Tu te sens mieux ?', ar: 'حاسس حالك أحسن؟', en: 'Are you feeling better?' },
+          { fr: 'J’espère que tu vas mieux.', ar: 'إن شاء الله صرت أحسن.', en: 'I hope you’re feeling better.' },
+          { fr: 'Tu as repris le travail ?', ar: 'رجعت عالشغل؟', en: 'Did you go back to work?' },
+          { fr: 'Tu as été réintégré ?', ar: 'رجّعوك عالشغل؟', en: 'Were you reinstated?' },
+          { fr: 'Tu as repris normalement ?', ar: 'رجعت بشكل طبيعي؟', en: 'Did you return normally?' },
+          { fr: 'Il avait été suspendu, mais il a repris le travail.', ar: 'كان موقوف عن العمل، بس رجع للشغل.', en: 'He had been suspended, but returned to work.' },
+          { fr: 'Il a été suspendu, puis il a repris le travail.', ar: 'توقف عن العمل، وبعدين رجع للشغل.', en: 'He was suspended, then returned to work.' },
+          { fr: 'suspendu', ar: 'موقوف عن العمل', en: 'suspended' }
+        ]
+      }
+    ]
   }
 ];
