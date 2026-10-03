@@ -7125,6 +7125,34 @@ window.CENTRES_DATA = [
           { fr: 'Veuillez vous tenir aux poignées ou aux barres. / Attention, le tram va démarrer. Tenez-vous bien.', ar: 'بالبارات أو المقابض / الترام رح يتحرك، تمسّك منيح.', en: 'Handles or bars / about to move, hold tight.' },
           { fr: 'tenir = يمسك / se tenir à = يتمسّك بـ. Je tiens la barre. / Je me tiens à la barre.', ar: 'tenir يمسك، se tenir à يتمسّك / أنا ماسك البار / متمسّك بالبار.', en: 'tenir vs se tenir à / I hold / I hold onto the bar.' }
         ]
+      },
+      {
+        icon: '👮',
+        title: { ar: '⭐ حوار التفتيش مع المراقب', en: 'Ticket inspection dialogue', fr: 'Dialogue de contrôle' },
+        phrases: [
+          { fr: 'un contrôle / un contrôleur / contrôler / un titre de transport / une amende', ar: 'تفتيش / موظف تفتيش / يفتّش / تذكرة نقل / غرامة', en: 'inspection / inspector / to check / ticket / fine' },
+          { fr: 'Contrôleur : Bonjour, contrôle des titres de transport. Votre titre, s’il vous plaît. — Passager : Oui, voilà.', ar: 'المراقب: مرحبا، تفتيش. تذكرتك لو سمحت. — الراكب: تفضل.', en: 'Inspector: ticket inspection, please. — Passenger: here you go.' },
+          { fr: 'Contrôleur : Votre titre n’est pas valide. — Passager : Ah bon ? Pourquoi ?', ar: 'المراقب: تذكرتك مو صالحة. — الراكب: عنجد؟ ليش؟', en: 'Not valid. — Really? Why?' },
+          { fr: 'Contrôleur : Il n’a pas été validé. Vous devez valider votre titre avant de monter.', ar: 'المراقب: ما انفعّلت. لازم تفعّلها قبل ما تطلع.', en: 'Not validated. Validate before boarding.' },
+          { fr: 'Passager : Je ne savais pas qu’il fallait la valider. / Je suis désolé, c’est la première fois que ça m’arrive.', ar: 'الراكب: ما كنت بعرف / آسف، أول مرة بيصير معي.', en: 'I didn’t know / sorry, first time.' },
+          { fr: 'Contrôleur : Vous avez une pièce d’identité ? — Passager : Oui, voici ma carte d’identité.', ar: 'المراقب: معك إثبات؟ — الراكب: إي، هاي هويتي.', en: 'ID? — here it is.' },
+          { fr: 'Contrôleur : Vous allez recevoir une amende. — Passager : Combien je dois payer ? — Contrôleur : Je vais vous expliquer la procédure.', ar: 'المراقب: رح تاخد مخالفة. — الراكب: قديش؟ — المراقب: رح اشرحلك.', en: 'You’ll get a fine. — How much? — I’ll explain.' },
+          { fr: 'Vous avez un abonnement ? / Présentez votre titre. / Vous devez payer une amende. / Je suis en règle.', ar: 'معك اشتراك؟ / فرجيني تذكرتك / لازم تدفع غرامة / أنا نظامي.', en: 'Have a pass? / show it / pay a fine / I’m compliant.' },
+          { fr: 'Je n’ai pas de titre valide. / J’ai oublié de valider mon ticket. / Ma carte ne fonctionne pas. / Je pensais qu’elle était encore valable.', ar: 'ما معي تذكرة صالحة / نسيت فعّلها / بطاقتي ما بتشتغل / كنت مفكّر لسا صالحة.', en: 'No valid ticket / forgot to validate / card not working / thought still valid.' },
+          { fr: 'Est-ce que je peux payer maintenant ? / Est-ce que je peux contester l’amende ?', ar: 'فيني ادفع هلق؟ / فيني اعترض على المخالفة؟', en: 'Pay now? / contest the fine?' }
+        ]
+      },
+      {
+        icon: '🧾',
+        title: { ar: '⭐ إجراءات المخالفة والاعتراض', en: 'Fine procedure and appeal', fr: 'Procédure de l’amende et contestation' },
+        phrases: [
+          { fr: 'Contrôleur : Je vais établir un procès-verbal. — Vous avez une pièce d’identité ? — Pouvez-vous me donner votre adresse ?', ar: 'المراقب: رح حرّر محضر — معك هوية؟ — تعطيني عنوانك؟', en: 'I’ll write a report — ID? — your address?' },
+          { fr: 'Contrôleur : Voici le montant de l’amende. — Passager : Comment est-ce que je peux payer ?', ar: 'المراقب: هاد المبلغ. — الراكب: كيف ادفع؟', en: 'Here’s the amount. — How do I pay?' },
+          { fr: 'Contrôleur : Vous pouvez payer selon les modalités indiquées sur le procès-verbal. / Les modalités de contestation sont indiquées sur le document.', ar: 'المراقب: بتدفع حسب المكتوب بالمحضر / طريقة الاعتراض مكتوبة بالوثيقة.', en: 'Pay per the report’s terms / appeal terms are on the document.' },
+          { fr: 'une amende / un procès-verbal (PV) / un contrôle / un contrôleur / une pièce d’identité', ar: 'غرامة / محضر مخالفة / تفتيش / مراقب / إثبات شخصية', en: 'fine / violation report / inspection / inspector / ID' },
+          { fr: 'un titre de transport / valide / invalide / payer une amende / contester une amende / les modalités de paiement / de contestation', ar: 'تذكرة نقل / صالح / غير صالح / دفع غرامة / الاعتراض عليها / طريقة الدفع / الاعتراض', en: 'ticket / valid / invalid / pay / contest / payment terms / appeal terms' },
+          { fr: 'ملاحظة: مبلغ المخالفة وطريقة الاعتراض بتختلف حسب شركة النقل.', ar: 'المبلغ والاعتراض بيختلفوا حسب الشبكة.', en: 'Amount and appeal vary by transit network.' }
+        ]
       }
     ]
   }
