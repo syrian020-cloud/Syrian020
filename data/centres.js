@@ -6139,6 +6139,315 @@ window.CENTRES_DATA = [
           { fr: 'C’est plus net comme ça ? — Oui, c’est beaucoup plus net.', ar: 'أوضح هيك؟ — إي، أوضح بكتير.', en: 'Clearer like this? — yes, much clearer.' },
           { fr: 'Vous avez besoin d’une nouvelle correction. — Pouvez-vous me faire une ordonnance ? — Oui, bien sûr.', ar: 'بدك درجة جديدة — فيك تعطيني وصفة؟ — أكيد.', en: 'New prescription needed — glasses prescription? — of course.' }
         ]
+      },
+      {
+        icon: '🩺',
+        title: { ar: '⭐ الجهاز الهضمي والكبد — المفردات', en: 'Digestive system and liver — vocabulary', fr: 'Gastro — vocabulaire' },
+        phrases: [
+          { fr: 'gastro-entérologue / gastro-entérologie', ar: 'طبيب / طب الجهاز الهضمي', en: 'gastroenterologist / gastroenterology' },
+          { fr: 'hépatologue / hépato-gastro-entérologue', ar: 'طبيب كبد / جهاز هضمي وكبد', en: 'hepatologist / hepato-gastroenterologist' },
+          { fr: 'appareil digestif / tube digestif / système digestif', ar: 'الجهاز / القناة الهضمية', en: 'digestive system / tract' },
+          { fr: 'estomac / œsophage / duodénum', ar: 'معدة / مريء / اثنا عشر', en: 'stomach / esophagus / duodenum' },
+          { fr: 'intestin / intestin grêle / côlon / rectum / anus', ar: 'أمعاء / دقيقة / قولون / مستقيم / شرج', en: 'intestine / small intestine / colon / rectum / anus' },
+          { fr: 'foie / vésicule biliaire / pancréas', ar: 'كبد / مرارة / بنكرياس', en: 'liver / gallbladder / pancreas' },
+          { fr: 'Je voudrais consulter un gastro-entérologue / un hépatologue.', ar: 'بدي راجع طبيب جهاز هضمي / كبد.', en: 'See a gastroenterologist / hepatologist.' },
+          { fr: 'Je cherche un spécialiste de l’estomac et de l’intestin.', ar: 'عم دوّر على اختصاصي معدة وأمعاء.', en: 'Looking for a stomach/intestine specialist.' }
+        ]
+      },
+      {
+        icon: '🔥',
+        title: { ar: '⭐ الارتجاع وحرقة المعدة', en: 'Reflux and heartburn', fr: 'Reflux et brûlures' },
+        phrases: [
+          { fr: 'reflux gastro-œsophagien (RGO) / reflux', ar: 'ارتجاع معدي مريئي', en: 'GERD / reflux' },
+          { fr: 'brûlures d’estomac / remontées acides / régurgitations', ar: 'حرقة المعدة / صعود الحمض / رجوع للفم', en: 'heartburn / acid reflux / regurgitation' },
+          { fr: 'J’ai des brûlures d’estomac fréquentes.', ar: 'عندي حرقة معدة متكررة.', en: 'I frequently have heartburn.' },
+          { fr: 'J’ai des remontées acides dans la gorge. / un goût acide dans la bouche.', ar: 'الحمض بيرجع لحلقي / طعم حامض بفمي.', en: 'Acid in throat / sour taste.' },
+          { fr: 'J’ai une sensation de brûlure dans la poitrine.', ar: 'حاسس بحرقة بالصدر.', en: 'Burning sensation in my chest.' },
+          { fr: 'J’ai des brûlures surtout la nuit. / Le reflux me réveille la nuit.', ar: 'الحرقة خصوصًا بالليل / الارتجاع بيوقظني.', en: 'Heartburn at night / reflux wakes me.' },
+          { fr: 'J’ai des remontées acides quand je suis couché. / C’est pire quand je m’allonge.', ar: 'الحمض بيرجع لما أستلقي / أسوأ بالاستلقاء.', en: 'Reflux when lying down / worse lying.' },
+          { fr: 'J’ai mal après avoir mangé. / J’ai des brûlures après les repas.', ar: 'بيوجعني بعد الأكل / حرقة بعد الوجبات.', en: 'Pain after eating / heartburn after meals.' },
+          { fr: 'Certains aliments aggravent mes symptômes. / Les aliments gras aggravent le reflux.', ar: 'بعض الأطعمة بتزيد الأعراض / الدسمة بتزيد الارتجاع.', en: 'Some foods worsen symptoms / fatty foods worsen reflux.' }
+        ]
+      },
+      {
+        icon: '🚽',
+        title: { ar: 'المعدة والأمعاء والقولون', en: 'Stomach, intestines, colon', fr: 'Estomac, intestins, côlon' },
+        phrases: [
+          { fr: 'douleur abdominale / ballonnement / nausée / vomissement / indigestion / crampes', ar: 'ألم بطن / انتفاخ / غثيان / تقيؤ / عسر هضم / مغص', en: 'abdominal pain / bloating / nausea / vomiting / indigestion / cramps' },
+          { fr: 'J’ai mal à l’estomac. / J’ai des douleurs abdominales. / J’ai souvent des ballonnements.', ar: 'معدتي بيوجعني / آلام بطن / انتفاخ متكرر.', en: 'Stomach pain / abdominal pain / frequent bloating.' },
+          { fr: 'J’ai des nausées. / J’ai envie de vomir. / Je digère mal.', ar: 'غثيان / حاسس بدي تقيأ / هضمي سيئ.', en: 'Nausea / feel like vomiting / poor digestion.' },
+          { fr: 'J’ai beaucoup de gaz. / J’ai souvent le ventre gonflé.', ar: 'غازات كتير / بطني بينتفخ كتير.', en: 'Lots of gas / often bloated.' },
+          { fr: 'syndrome de l’intestin irritable (SII)', ar: 'متلازمة القولون العصبي', en: 'irritable bowel syndrome (IBS)' },
+          { fr: 'constipation / diarrhée / selles molles / selles liquides', ar: 'إمساك / إسهال / براز رخو / سائل', en: 'constipation / diarrhea / loose / watery stool' },
+          { fr: 'J’ai des diarrhées fréquentes. / Je suis souvent constipé. / J’ai besoin d’aller souvent aux toilettes.', ar: 'إسهال متكرر / إمساك دائم / لازم روح عالحمام كتير.', en: 'Frequent diarrhea / often constipated / toilet often.' },
+          { fr: 'J’ai parfois du sang dans les selles. / une envie urgente d’aller aux toilettes.', ar: 'أحيانًا دم بالبراز / رغبة ملحّة للحمام.', en: 'Blood in stool / urgent need for toilet.' },
+          { fr: 'J’ai remarqué du sang dans mes selles. / Le sang est rouge vif. / Mes selles sont noires.', ar: 'لاحظت دم بالبراز / أحمر فاتح / برازي أسود.', en: 'Noticed blood / bright red / black stools.' },
+          { fr: 'J’ai un saignement quand je vais aux toilettes.', ar: 'عندي نزيف لما روح عالحمام.', en: 'I bleed when I go to the toilet.' }
+        ]
+      },
+      {
+        icon: '🔬',
+        title: { ar: '⭐ تنظير المعدة والقولون + الخزعة', en: 'Gastroscopy, colonoscopy, biopsy', fr: 'Gastroscopie, coloscopie, biopsie' },
+        phrases: [
+          { fr: 'gastroscopie / endoscopie digestive haute / fibroscopie / endoscope', ar: 'تنظير المعدة / العلوي / منظار', en: 'gastroscopy / upper endoscopy / endoscope' },
+          { fr: 'coloscopie / endoscopie digestive basse', ar: 'تنظير القولون / السفلي', en: 'colonoscopy / lower endoscopy' },
+          { fr: 'Je dois faire une gastroscopie / une coloscopie.', ar: 'لازم أعمل تنظير معدة / قولون.', en: 'I need a gastroscopy / colonoscopy.' },
+          { fr: 'Comment se déroule la gastroscopie / la coloscopie ? / Combien de temps dure l’examen ?', ar: 'كيف بينعمل التنظير؟ / قديش بيطول؟', en: 'How is it done? / how long?' },
+          { fr: 'Est-ce que je serai endormi ? / sous sédation ? / une anesthésie ?', ar: 'رح أكون نايم؟ / تحت تهدئة؟ / في تخدير؟', en: 'Will I be asleep / sedated / anesthetized?' },
+          { fr: 'Est-ce que je dois être à jeun ? / À partir de quelle heure ?', ar: 'لازم أكون صايم؟ / من أي ساعة؟', en: 'Do I need to fast? / from what time?' },
+          { fr: 'Est-ce que vous allez faire une biopsie ? / Quand aurai-je les résultats ?', ar: 'رح تاخذوا خزعة؟ / إمتى النتائج؟', en: 'Will you take a biopsy? / when results?' },
+          { fr: 'biopsie / prélèvement / prélèvement de tissu', ar: 'خزعة / أخذ عينة', en: 'biopsy / sample / tissue sample' },
+          { fr: 'préparation colique / solution de préparation / laxatif / jeûne', ar: 'تحضير القولون / محلول التحضير / مليّن / صيام', en: 'bowel prep / prep solution / laxative / fasting' },
+          { fr: 'Quand dois-je prendre la solution ? / Qu’est-ce que je peux manger avant ? / Est-ce que je peux boire de l’eau ?', ar: 'إمتى أشرب المحلول؟ / شو فيني آكل قبل؟ / فيني أشرب مي؟', en: 'When take the solution? / what can I eat? / drink water?' },
+          { fr: 'Est-ce que je peux rentrer seul après l’examen ?', ar: 'فيني روح لحالي بعد الفحص؟', en: 'Can I go home alone after?' }
+        ]
+      },
+      {
+        icon: '📄',
+        title: { ar: 'نتائج التنظير وأمراض المعدة + الأدوية', en: 'Endoscopy results, stomach diseases, meds', fr: 'Résultats, maladies, traitement' },
+        phrases: [
+          { fr: 'compte rendu / lésion / polype / inflammation / ulcère', ar: 'تقرير طبي / آفة / سليلة / التهاب / قرحة', en: 'report / lesion / polyp / inflammation / ulcer' },
+          { fr: 'œsophagite / gastrite / ulcère gastrique / ulcère duodénal / hernie hiatale', ar: 'التهاب مريء / معدة / قرحة معدة / اثني عشر / فتق حجابي', en: 'esophagitis / gastritis / gastric/duodenal ulcer / hiatal hernia' },
+          { fr: 'infection à Helicobacter pylori', ar: 'عدوى جرثومة المعدة', en: 'H. pylori infection' },
+          { fr: 'Pouvez-vous m’expliquer le compte rendu ? / Est-ce que vous avez trouvé quelque chose ?', ar: 'فيك تشرحلي التقرير؟ / لقيتوا شي؟', en: 'Explain the report? / did you find anything?' },
+          { fr: 'Est-ce qu’il y a une inflammation / un ulcère / un polype ?', ar: 'في التهاب / قرحة / سليلة؟', en: 'Is there inflammation / ulcer / polyp?' },
+          { fr: 'J’ai déjà eu / été traité pour Helicobacter pylori. / Est-ce que je dois refaire un test ?', ar: 'أصبت / تعالجت من جرثومة المعدة / لازم أعيد الفحص؟', en: 'Had / treated for H. pylori / retest?' },
+          { fr: 'antiacide / inhibiteur de la pompe à protons (IPP) / oméprazole / pantoprazole', ar: 'مضاد حموضة / مثبط مضخة البروتون / أوميبرازول / بانتوبرازول', en: 'antacid / PPI / omeprazole / pantoprazole' },
+          { fr: 'Je prends déjà un traitement pour le reflux. / Le traitement ne fonctionne pas / ne soulage pas.', ar: 'عم آخد علاج للارتجاع / العلاج ما عم يفيد / ما بيخفف.', en: 'Already on reflux treatment / not working / not relieving.' },
+          { fr: 'J’ai toujours des brûlures malgré le traitement. / Est-ce que je dois changer de traitement ?', ar: 'لسا عندي حرقة رغم العلاج / لازم أغيّر العلاج؟', en: 'Still heartburn despite treatment / change it?' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: 'طبيب الجهاز الهضمي — أسئلة والحوار الكامل', en: 'Key phrases + full dialogue', fr: 'Phrases clés + dialogue' },
+        phrases: [
+          { fr: 'Depuis combien de temps avez-vous ces symptômes ? / À quelle fréquence ?', ar: 'من إمتى عندك هالأعراض؟ / كم مرة بتيجي؟', en: 'How long? / how often?' },
+          { fr: 'Est-ce que la douleur apparaît après les repas ? / Vous avez déjà fait une endoscopie ?', ar: 'الألم بعد الأكل؟ / عملت تنظير قبل؟', en: 'Pain after meals? / had an endoscopy?' },
+          { fr: 'Je voudrais vous expliquer mes symptômes. / Mes symptômes durent depuis plusieurs semaines.', ar: 'بدي اشرحلك أعراضي / مستمرة من عدة أسابيع.', en: 'Explain my symptoms / lasting weeks.' },
+          { fr: 'Je voudrais savoir quelle est la cause de mes symptômes. / Quels examens dois-je faire ?', ar: 'بدي أعرف سبب أعراضي / شو الفحوصات اللازمة؟', en: 'Know the cause / which tests?' },
+          { fr: 'Est-ce que j’ai besoin d’une gastroscopie / d’une coloscopie ?', ar: 'بحتاج تنظير معدة / قولون؟', en: 'Do I need a gastroscopy / colonoscopy?' },
+          { fr: 'J’ai des brûlures d’estomac et des remontées acides. — Depuis combien de temps ? — Plusieurs semaines, surtout la nuit.', ar: 'حرقة وارتجاع — من إمتى؟ — أسابيع، خصوصًا بالليل.', en: 'Heartburn + reflux — how long? — weeks, at night.' },
+          { fr: 'Est-ce que vous prenez un traitement ? — Oui, mais il ne me soulage pas suffisamment.', ar: 'عم تاخد علاج؟ — إي، بس ما بيخفف كفاية.', en: 'On treatment? — yes but insufficient.' },
+          { fr: 'Nous allons voir si une gastroscopie est nécessaire. — Est-ce que je dois être à jeun ? — Oui, vous aurez des consignes.', ar: 'رح نشوف إذا التنظير لازم — صايم؟ — إي، ورح تعطوك تعليمات.', en: 'See if gastroscopy needed — fast? — yes, instructions.' },
+          { fr: 'Est-ce que vous allez faire une biopsie ? — Si nécessaire. — Quand aurai-je les résultats ? — Après l’examen.', ar: 'خزعة؟ — إذا لزم — إمتى النتائج؟ — بعد الفحص.', en: 'Biopsy? — if needed — results? — after.' }
+        ]
+      },
+      {
+        icon: '🦠',
+        title: { ar: '⭐ التهاب الكبد B — المفردات والوضع', en: 'Hepatitis B — vocabulary and status', fr: 'Hépatite B — vocabulaire' },
+        phrases: [
+          { fr: 'hépatite B / virus de l’hépatite B (VHB) / infection par le VHB', ar: 'التهاب الكبد B / فيروسه / العدوى به', en: 'hepatitis B / HBV / HBV infection' },
+          { fr: 'hépatite B aiguë / chronique / porteur du VHB / infection chronique', ar: 'حاد / مزمن / حامل للفيروس / عدوى مزمنة', en: 'acute / chronic / carrier / chronic infection' },
+          { fr: 'J’ai une hépatite B chronique. / Je suis porteur du virus de l’hépatite B.', ar: 'عندي التهاب كبد B مزمن / أنا حامل للفيروس.', en: 'Chronic hep B / I’m a carrier.' },
+          { fr: 'Je suis suivi pour une hépatite B chronique.', ar: 'عم تابع طبيًا بسبب التهاب كبد B مزمن.', en: 'Being monitored for chronic hepatitis B.' },
+          { fr: 'foie / cellules du foie / inflammation du foie / lésion hépatique / fonction hépatique', ar: 'كبد / خلاياه / التهابه / أذية / وظيفته', en: 'liver / cells / inflammation / damage / function' },
+          { fr: 'charge virale / réplication virale / activité virale', ar: 'الحمل الفيروسي / تكاثر الفيروس / نشاطه', en: 'viral load / replication / activity' },
+          { fr: 'Quelle est ma charge virale ? / Est-ce que le virus se multiplie ?', ar: 'قديش الحمل الفيروسي؟ / الفيروس عم يتكاثر؟', en: 'My viral load? / is it multiplying?' },
+          { fr: 'Est-ce que le virus est détectable / indétectable ?', ar: 'الفيروس قابل للكشف / غير قابل؟', en: 'Detectable / undetectable?' }
+        ]
+      },
+      {
+        icon: '🧬',
+        title: { ar: '⭐ تحاليل التهاب الكبد B', en: 'Hepatitis B lab tests', fr: 'Analyses de l’hépatite B' },
+        phrases: [
+          { fr: 'sérologie / prise de sang / bilan sanguin / bilan hépatique', ar: 'سيرولوجيا / تحليل دم / تحاليل شاملة / وظائف كبد', en: 'serology / blood test / blood work / liver panel' },
+          { fr: 'marqueur / antigène / anticorps', ar: 'واسم مخبري / مستضد / أضداد', en: 'marker / antigen / antibodies' },
+          { fr: 'Ag HBs / anti-HBs / anti-HBc / IgM anti-HBc', ar: 'مستضد السطح / أضداد السطح / أضداد النواة / IgM', en: 'HBsAg / anti-HBs / anti-HBc / IgM anti-HBc' },
+          { fr: 'Ag HBe / anti-HBe / ADN du VHB / charge virale VHB', ar: 'مستضد e / أضداد e / DNA الفيروس / الحمل الفيروسي', en: 'HBeAg / anti-HBe / HBV DNA / viral load' },
+          { fr: 'Est-ce que l’Ag HBs est positif ? / Quel est mon taux d’ADN du VHB ?', ar: 'الـHBsAg إيجابي؟ / قديش مستوى DNA الفيروس؟', en: 'HBsAg positive? / my HBV DNA level?' },
+          { fr: 'Je dois faire une sérologie de l’hépatite B. / Je voudrais contrôler mon hépatite B.', ar: 'لازم أعمل تحاليل التهاب كبد B / بدي أراقب حالتي.', en: 'Need hep B serology / check my hep B.' },
+          { fr: 'ALAT / ASAT / GGT / phosphatases alcalines / bilirubine / albumine / TP / INR', ar: 'إنزيمات الكبد / الفوسفاتاز / البيليروبين / الألبومين / البروثرومبين / التخثر', en: 'ALT/AST/GGT/alkaline phosphatase/bilirubin/albumin/PT/INR' },
+          { fr: 'Mes enzymes hépatiques sont élevées. / Mes transaminases sont normales.', ar: 'إنزيمات الكبد مرتفعة / طبيعية.', en: 'Liver enzymes elevated / normal.' },
+          { fr: 'Est-ce que mon bilan hépatique est normal ?', ar: 'تحاليل وظائف الكبد طبيعية؟', en: 'Is my liver panel normal?' }
+        ]
+      },
+      {
+        icon: '📊',
+        title: { ar: 'التليف والتشمع + FibroScan والتصوير', en: 'Fibrosis, cirrhosis, FibroScan, imaging', fr: 'Fibrose, FibroScan, imagerie' },
+        phrases: [
+          { fr: 'fibrose hépatique / stade de fibrose / cirrhose / progression de la maladie', ar: 'تليف الكبد / درجته / تشمع / تطور المرض', en: 'fibrosis / stage / cirrhosis / progression' },
+          { fr: 'Est-ce que j’ai une fibrose ? / Quel est mon stade de fibrose ? / des signes de cirrhose ?', ar: 'عندي تليف؟ / شو درجته؟ / علامات تشمع؟', en: 'Fibrosis? / stage? / cirrhosis signs?' },
+          { fr: 'FibroScan / élastographie / élasticité du foie / mesure de la fibrose', ar: 'فيبروسكان / قياس مرونة الكبد', en: 'FibroScan / elastography / liver stiffness' },
+          { fr: 'Je dois faire un FibroScan. / Quel est mon résultat ? / montre-t-il une fibrose ?', ar: 'لازم أعمل فيبروسكان / شو نتيجتي؟ / بيبيّن تليف؟', en: 'Need a FibroScan / result? / shows fibrosis?' },
+          { fr: 'échographie abdominale / hépatique / IRM hépatique / scanner abdominal / imagerie médicale', ar: 'إيكو بطن / كبد / رنين كبد / طبقي بطن / تصوير طبي', en: 'abdominal/liver ultrasound / liver MRI / CT / imaging' },
+          { fr: 'Je dois faire une échographie du foie / une IRM du foie.', ar: 'لازم أعمل إيكو / رنين للكبد.', en: 'Liver ultrasound / MRI.' },
+          { fr: 'Pourquoi dois-je faire une IRM ? / Est-ce qu’il y a une anomalie au niveau du foie ?', ar: 'ليش لازم رنين؟ / في شي غير طبيعي بالكبد؟', en: 'Why an MRI? / liver abnormality?' }
+        ]
+      },
+      {
+        icon: '💊',
+        title: { ar: 'علاج التهاب الكبد B والمتابعة', en: 'Hepatitis B treatment and follow-up', fr: 'Traitement et suivi' },
+        phrases: [
+          { fr: 'traitement antiviral / ténofovir / entécavir / interféron pégylé', ar: 'علاج مضاد للفيروسات / تينوفوفير / إنتيكافير / إنترفيرون', en: 'antiviral / tenofovir / entecavir / pegylated interferon' },
+          { fr: 'Je prends du ténofovir. / Je suis sous traitement antiviral.', ar: 'عم آخد تينوفوفير / على علاج مضاد للفيروسات.', en: 'I take tenofovir / on antiviral treatment.' },
+          { fr: 'Est-ce que je dois continuer / peux arrêter le traitement ?', ar: 'لازم أستمر بالعلاج؟ / فيني أوقفه؟', en: 'Continue / can I stop treatment?' },
+          { fr: 'réponse au traitement / réponse virologique / suppression virale / virus indétectable', ar: 'الاستجابة للعلاج / الفيروسية / تثبيط الفيروس / غير قابل للكشف', en: 'treatment/virological response / suppression / undetectable' },
+          { fr: 'Le traitement a-t-il fait baisser ma charge virale ? / Ma charge virale est-elle indétectable ?', ar: 'العلاج خفّض الحمل الفيروسي؟ / صار غير قابل للكشف؟', en: 'Treatment lowered viral load? / undetectable?' },
+          { fr: 'suivi médical / suivi régulier / surveillance / contrôle / rendez-vous de suivi', ar: 'متابعة طبية / منتظمة / مراقبة / فحص متابعة / موعد متابعة', en: 'follow-up / regular / monitoring / check-up' },
+          { fr: 'Je suis suivi régulièrement par un spécialiste. / À quelle fréquence dois-je faire les analyses ?', ar: 'بتابع بانتظام عند اختصاصي / كل كم لازم أعمل تحاليل؟', en: 'Followed by a specialist / how often tests?' },
+          { fr: 'Quand dois-je refaire le bilan sanguin / le FibroScan / une échographie ?', ar: 'إمتى أعيد تحاليل الدم / الفيبروسكان / الإيكو؟', en: 'When repeat blood tests / FibroScan / ultrasound?' },
+          { fr: 'Est-ce que je dois faire un dépistage de l’hépatite D ?', ar: 'لازم أفحص التهاب الكبد D؟', en: 'Should I be tested for hepatitis D?' },
+          { fr: 'vaccin contre l’hépatite B / vaccination / immunisé / non immunisé', ar: 'لقاح التهاب كبد B / تطعيم / محصّن / غير محصّن', en: 'hep B vaccine / vaccination / immune / not immune' },
+          { fr: 'Mon entourage doit-il faire un dépistage ? / Ma famille doit-elle être vaccinée ?', ar: 'المحيطين فيي لازم يفحصوا؟ / عيلتي تتلقّح؟', en: 'Should contacts test? / family vaccinate?' },
+          { fr: 'Comment se transmet l’hépatite B ? / Est-ce que je peux transmettre le virus à ma famille ?', ar: 'كيف بينتقل التهاب الكبد B؟ / فيني أنقله لعيلتي؟', en: 'How is it transmitted? / can I infect family?' }
+        ]
+      },
+      {
+        icon: '🧑‍⚕️',
+        title: { ar: '⭐ أسئلة لطبيب الكبد + جملة الحالة الكاملة', en: 'Questions for the hepatologist + full sentence', fr: 'Questions + phrase complète' },
+        phrases: [
+          { fr: 'Est-ce que mon hépatite B est active ? / mon foie fonctionne normalement ?', ar: 'التهابي نشط؟ / كبدي عم يشتغل طبيعي؟', en: 'Is my hep B active? / liver working normally?' },
+          { fr: 'Est-ce que j’ai besoin d’un traitement ? / Est-ce que mon traitement fonctionne ?', ar: 'بحتاج علاج؟ / علاجي عم يفيد؟', en: 'Do I need treatment? / is it working?' },
+          { fr: 'Quels sont les effets secondaires du traitement ?', ar: 'شو الآثار الجانبية للعلاج؟', en: 'Treatment side effects?' },
+          { fr: 'À quelle fréquence dois-je être suivi ?', ar: 'كل كم لازم تابع طبيًا؟', en: 'How often should I be monitored?' },
+          { fr: 'fatigue / jaunisse (ictère) / urines foncées / perte d’appétit', ar: 'تعب / يرقان / بول غامق / فقدان شهية', en: 'fatigue / jaundice / dark urine / loss of appetite' },
+          { fr: 'Je suis très fatigué. / J’ai remarqué que mes urines sont foncées.', ar: 'متعب كتير / لاحظت بولي غامق.', en: 'Very tired / noticed dark urine.' },
+          { fr: 'J’ai une hépatite B chronique. Je suis suivi régulièrement par un spécialiste. Je prends un traitement antiviral. Je voudrais faire le point sur ma charge virale, mes analyses du foie et l’état de mon foie. Je voudrais aussi savoir si j’ai une fibrose et si mon traitement est efficace.', ar: 'عندي التهاب كبد B مزمن. بتابع بانتظام عند اختصاصي. عم آخد علاج مضاد للفيروسات. بدي راجع وضع الحمل الفيروسي وتحاليل الكبد وحالته. وبدي أعرف إذا عندي تليف وإذا العلاج فعّال.', en: 'Full self-summary: chronic hep B, followed, on antivirals, want viral load/liver status and fibrosis check.' }
+        ]
+      },
+      {
+        icon: '🩸',
+        title: { ar: '⭐ تحاليل الدم الشائعة — المختبر', en: 'Common blood tests — the lab', fr: 'Analyses courantes — laboratoire' },
+        phrases: [
+          { fr: 'NFS (numération formule sanguine) / hémoglobine / globules rouges / blancs / plaquettes', ar: 'تعداد دم كامل / خضاب / كريات حمراء / بيضاء / صفائح', en: 'CBC / hemoglobin / red/white cells / platelets' },
+          { fr: 'bilan de coagulation / TP / INR / TCA', ar: 'تحاليل التخثر / البروثرومبين / INR / TCA', en: 'coagulation tests / PT / INR / aPTT' },
+          { fr: 'ferritine / fer / transferrine / vitamine B12 / folates (B9) / vitamine D', ar: 'مخزون الحديد / حديد / ترانسفيرين / B12 / فوليك / فيتامين D', en: 'ferritin / iron / transferrin / B12 / folate / D' },
+          { fr: 'créatinine / urée / DFG (eGFR) / sodium / potassium / calcium', ar: 'كرياتينين / يوريا / معدل الترشيح / صوديوم / بوتاسيوم / كالسيوم', en: 'creatinine / urea / eGFR / sodium / potassium / calcium' },
+          { fr: 'glycémie à jeun / hémoglobine glyquée (HbA1c)', ar: 'سكر الدم صايم / السكر التراكمي', en: 'fasting glucose / HbA1c' },
+          { fr: 'cholestérol total / HDL / LDL / triglycérides', ar: 'الكوليسترول الكلي / الجيد / الضار / الدهون الثلاثية', en: 'total cholesterol / HDL / LDL / triglycerides' },
+          { fr: 'CRP / VS (vitesse de sédimentation) / marqueur inflammatoire', ar: 'بروتين الالتهاب CRP / سرعة الترسب / مؤشر التهاب', en: 'CRP / ESR / inflammatory marker' },
+          { fr: 'analyse des selles / coproculture / sang occulte / calprotectine fécale / échantillon de selles', ar: 'تحليل براز / زرع براز / دم خفي / كالبروتكتين / عينة براز', en: 'stool test / culture / occult blood / calprotectin / sample' },
+          { fr: 'test Helicobacter pylori / test respiratoire à l’urée / biopsie gastrique', ar: 'فحص جرثومة المعدة / اختبار التنفس / خزعة معدة', en: 'H. pylori test / urea breath test / gastric biopsy' },
+          { fr: 'Est-ce que ma ferritine / créatinine / CRP est normale / élevée ?', ar: 'الفيريتين / الكرياتينين / الـCRP طبيعية / مرتفعة؟', en: 'Is my ferritin / creatinine / CRP normal / elevated?' },
+          { fr: 'Je dois apporter un échantillon de selles. / Est-ce qu’il faut rechercher du sang dans les selles ?', ar: 'لازم أجيب عينة براز / لازم ندور على دم بالبراز؟', en: 'Bring a stool sample / check for blood?' }
+        ]
+      },
+      {
+        icon: '📄',
+        title: { ar: 'النتائج وعبارات المختبر', en: 'Results and lab phrases', fr: 'Résultats et labo' },
+        phrases: [
+          { fr: 'résultat / valeur / taux / norme / valeur normale', ar: 'نتيجة / قيمة / مستوى / المجال الطبيعي / قيمة طبيعية', en: 'result / value / level / range / normal value' },
+          { fr: 'élevé / bas / normal / anormal / positif / négatif', ar: 'مرتفع / منخفض / طبيعي / غير طبيعي / إيجابي / سلبي', en: 'high / low / normal / abnormal / positive / negative' },
+          { fr: 'Mon résultat est élevé / bas / dans la norme.', ar: 'نتيجتي مرتفعة / منخفضة / ضمن الطبيعي.', en: 'My result is high / low / within range.' },
+          { fr: 'Que signifie cette valeur ? / Quelle est la valeur normale ? / Est-ce que c’est inquiétant ?', ar: 'شو معنى هالقيمة؟ / شو الطبيعي؟ / مقلق؟', en: 'What does this value mean? / normal value? / concerning?' },
+          { fr: 'Est-ce que je dois refaire l’analyse ?', ar: 'لازم أعيد التحليل؟', en: 'Do I need to repeat the test?' },
+          { fr: 'Je viens pour une prise de sang. / J’ai une ordonnance pour des analyses. / Voici mon ordonnance.', ar: 'إجيت لتحليل دم / معي وصفة تحاليل / هاي وصفتي.', en: 'Here for a blood test / have a prescription / here it is.' },
+          { fr: 'Est-ce que je dois être à jeun ? / À quelle heure puis-je venir ?', ar: 'لازم أكون صايم؟ / بأي وقت فيني إجي؟', en: 'Fast? / what time can I come?' },
+          { fr: 'Quand aurai-je les résultats ? / par e-mail ? / disponibles en ligne ?', ar: 'إمتى النتائج؟ / عالإيميل؟ / أونلاين؟', en: 'When results? / by email? / online?' },
+          { fr: 'Je voudrais récupérer mes résultats de prise de sang. / Est-ce que mes résultats sont normaux ?', ar: 'بدي أستلم نتائجي / نتائجي طبيعية؟', en: 'Collect my results / are they normal?' }
+        ]
+      },
+      {
+        icon: '🧬',
+        title: { ar: 'أفعال الكبد والفيروس والتحاليل', en: 'Liver, virus and lab verbs', fr: 'Verbes foie/virus/analyses' },
+        phrases: [
+          { fr: 'être porteur de / attraper / transmettre', ar: 'يكون حاملًا / يُصاب / ينقل العدوى', en: 'be a carrier / contract / transmit' },
+          { fr: 'détecter / surveiller / contrôler / suivre', ar: 'يكشف / يراقب / يفحص / يتابع', en: 'detect / monitor / check / follow' },
+          { fr: 'analyser / mesurer / rechercher / vérifier / comparer / interpréter', ar: 'يحلل / يقيس / يبحث / يتحقق / يقارن / يفسّر', en: 'analyze / measure / test for / check / compare / interpret' },
+          { fr: 'augmenter / diminuer / baisser / devenir indétectable', ar: 'يرتفع / ينخفض / يصبح غير قابل للكشف', en: 'increase / decrease / go down / become undetectable' },
+          { fr: 'se multiplier / répliquer', ar: 'يتكاثر / ينسخ نفسه', en: 'multiply / replicate' },
+          { fr: 'fonctionner / s’enflammer / endommager / protéger / évaluer', ar: 'يعمل / يلتهب / يضر / يحمي / يقيّم', en: 'function / become inflamed / damage / protect / assess' },
+          { fr: 'commencer / continuer / arrêter / supporter / provoquer', ar: 'يبدأ / يستمر / يوقف / يتحمّل / يسبّب', en: 'start / continue / stop / tolerate / cause' },
+          { fr: 'apparaître / disparaître / s’aggraver / s’améliorer / récupérer', ar: 'يظهر / يختفي / يسوء / يتحسن / يتعافى', en: 'appear / disappear / worsen / improve / recover' },
+          { fr: 'développer / évoluer / progresser / prévenir / réduire', ar: 'يطوّر / يتطور / يتقدم / يقي / يقلل', en: 'develop / progress / prevent / reduce' },
+          { fr: 'expliquer / demander / répondre / comprendre / confirmer / diagnostiquer', ar: 'يشرح / يسأل / يجيب / يفهم / يؤكد / يشخّص', en: 'explain / ask / answer / understand / confirm / diagnose' },
+          { fr: 'Je ne comprends pas mon résultat. / Pouvez-vous confirmer le diagnostic ?', ar: 'ما عم افهم نتيجتي / فيك تأكد التشخيص؟', en: 'I don’t understand my result / confirm the diagnosis?' },
+          { fr: 'Le médecin a diagnostiqué une hépatite B. / Le FibroScan mesure la rigidité du foie.', ar: 'الطبيب شخّص التهاب كبد B / الفيبروسكان بيقيس صلابة الكبد.', en: 'Diagnosed hep B / FibroScan measures stiffness.' }
+        ]
+      },
+      {
+        icon: '🧪',
+        title: { ar: '⭐ في المختبر — الدخول والوصفة', en: 'At the lab — arrival and prescription', fr: 'Au laboratoire — arrivée' },
+        phrases: [
+          { fr: 'laboratoire d’analyses médicales / prise de sang / prélèvement sanguin', ar: 'مختبر تحاليل طبية / تحليل دم / سحب عينة دم', en: 'medical lab / blood test / blood collection' },
+          { fr: 'Bonjour, j’ai rendez-vous pour une prise de sang. / Je viens pour une prise de sang.', ar: 'مرحبا، عندي موعد لسحب دم / إجيت لتحليل دم.', en: 'Appointment / here for a blood test.' },
+          { fr: 'Je viens faire des analyses de sang. / J’ai une ordonnance pour des analyses. / Voici mon ordonnance.', ar: 'إجيت أعمل تحاليل دم / معي وصفة / هاي وصفتي.', en: 'Blood tests / have a prescription / here it is.' },
+          { fr: 'Voici ma carte Vitale / ma carte de mutuelle / ma pièce d’identité.', ar: 'هاي بطاقة فيتال / المتمّمة / هويتي.', en: 'Carte Vitale / mutuelle card / ID.' },
+          { fr: 'Je n’ai pas ma carte Vitale avec moi. / J’ai oublié ma carte Vitale.', ar: 'بطاقة فيتال مش معي / نسيتها.', en: 'Don’t have / forgot my Vitale card.' },
+          { fr: 'Quels examens sont prescrits ? / Pouvez-vous vérifier mon ordonnance ?', ar: 'شو الفحوصات المطلوبة؟ / فيك تتأكد من وصفتي؟', en: 'Which tests prescribed? / check my prescription?' },
+          { fr: 'Il faut faire toutes les analyses indiquées sur l’ordonnance.', ar: 'لازم تعمل كل التحاليل المكتوبة بالوصفة.', en: 'Do all tests on the prescription.' },
+          { fr: 'Est-ce que je dois être à jeun ? / Depuis combien de temps ? / Est-ce que je peux boire de l’eau / prendre mon médicament ?', ar: 'لازم أكون صايم؟ / من قديش؟ / فيني أشرب مي / آخد دوائي؟', en: 'Fast? / since when? / water? / my medication?' },
+          { fr: 'Je suis à jeun depuis hier soir. / Je n’ai rien mangé ce matin.', ar: 'صايم من مبارح المسا / ما أكلت شي الصبح.', en: 'Fasting since last night / ate nothing.' },
+          { fr: 'Où dois-je attendre ? / C’est bientôt mon tour ? / Je dois attendre combien de temps ?', ar: 'وين أستنى؟ / دوري قريب؟ / قديش لازم استنى؟', en: 'Where wait? / my turn soon? / how long?' }
+        ]
+      },
+      {
+        icon: '💉',
+        title: { ar: 'أثناء سحب الدم', en: 'During the blood draw', fr: 'Pendant le prélèvement' },
+        phrases: [
+          { fr: 'garrot / aiguille / tube / prélèvement / veine', ar: 'الرباط / إبرة / أنبوب / سحب العينة / وريد', en: 'tourniquet / needle / tube / draw / vein' },
+          { fr: 'Quel bras préférez-vous ? — Je préfère le bras gauche / droit.', ar: 'أي دراع بتفضّل؟ — اليسرى / اليمنى.', en: 'Which arm? — left / right.' },
+          { fr: 'Je vais mettre le garrot. / Serrez le poing. / Ne bougez pas.', ar: 'رح أحط الرباط / اقبض إيدك / لا تتحرك.', en: 'Tourniquet / clench fist / don’t move.' },
+          { fr: 'Je vais piquer. / Vous allez sentir une petite piqûre. / Respirez normalement.', ar: 'رح أدخل الإبرة / رح تحس بوخزة صغيرة / تنفّس طبيعي.', en: 'Needle going in / small prick / breathe normally.' },
+          { fr: 'J’ai peur des aiguilles. / Je me sens mal quand je vois du sang.', ar: 'بخاف من الإبر / بتوعّك لما شوف دم.', en: 'Afraid of needles / feel sick seeing blood.' },
+          { fr: 'Je peux m’allonger ? / Je préfère être allongé. / Je risque de faire un malaise.', ar: 'فيني أستلقي؟ / بفضّل أكون مستلقي / ممكن أغمى عليّي.', en: 'Lie down? / prefer lying / might faint.' },
+          { fr: 'Je suis un peu étourdi. / Je me sens faible.', ar: 'حاسس بدوخة / حاسس بضعف.', en: 'A bit dizzy / feel weak.' },
+          { fr: 'C’est terminé. / Appuyez ici. / Gardez le coton quelques minutes / le pansement quelques heures.', ar: 'خلصنا / اضغط هون / خلي القطن دقايق / الضماد ساعات.', en: 'Done / press here / keep cotton / dressing.' },
+          { fr: 'Combien de tubes allez-vous prendre ? / C’est beaucoup de sang ?', ar: 'كم أنبوب رح تاخدوا؟ / كمية الدم كبيرة؟', en: 'How many tubes? / a lot of blood?' }
+        ]
+      },
+      {
+        icon: '📱',
+        title: { ar: 'المختبر — النتائج والدفع', en: 'Lab — results and payment', fr: 'Résultats et paiement' },
+        phrases: [
+          { fr: 'Quand aurai-je les résultats ? / seront disponibles ?', ar: 'إمتى النتائج؟ / إمتى بتجهز؟', en: 'When results? / available?' },
+          { fr: 'Est-ce que je recevrai les résultats par e-mail / en ligne / un SMS ?', ar: 'النتائج عالإيميل؟ / أونلاين؟ / SMS؟', en: 'By email / online / SMS?' },
+          { fr: 'Comment récupérer mes résultats ? / Je voudrais récupérer mes résultats.', ar: 'كيف أستلم نتائجي؟ / بدي أستلمهم.', en: 'How to get results? / collect them.' },
+          { fr: 'Combien dois-je payer ? / Est-ce que je dois payer aujourd’hui ?', ar: 'قديش لازم ادفع؟ / لازم ادفع اليوم؟', en: 'How much? / pay today?' },
+          { fr: 'Est-ce que c’est pris en charge par l’Assurance Maladie ? / la mutuelle prend le reste ?', ar: 'التأمين الصحي بيغطي؟ / المتمّمة بتغطي الباقي؟', en: 'Covered by Assurance Maladie / mutuelle?' },
+          { fr: 'Vous faites le tiers payant ? / Je peux payer par carte ? / un reçu ?', ar: 'بتطبقوا tiers payant؟ / فيني ادفع بالبطاقة؟ / إيصال؟', en: 'Third-party payment? / card? / receipt?' },
+          { fr: 'Je n’ai pas d’ordonnance. / Est-ce que je peux quand même faire une prise de sang ? / Combien ça coûte sans ordonnance ?', ar: 'ما معي وصفة / فيني أعمل تحليل بدونها؟ / قديش بيكلف؟', en: 'No prescription / still do a test? / cost without?' },
+          { fr: 'Il me manque un document ? / Quel document dois-je fournir ? / Je peux vous l’envoyer par e-mail ?', ar: 'ناقصني وثيقة؟ / شو الوثيقة المطلوبة؟ / ابعتها عالإيميل؟', en: 'Missing a document? / which one? / email it?' },
+          { fr: 'Monsieur ? — Oui, c’est moi. — Installez-vous. — Je vais piquer. — Voilà, c’est terminé. — Les résultats seront disponibles en ligne. — Bonne journée.', ar: 'حوار كامل: اسمك؟ — أنا — تفضّل — رح أدخل الإبرة — خلصنا — النتائج أونلاين — نهارك سعيد.', en: 'Full dialogue: name? — sit down — needle — done — results online — good day.' }
+        ]
+      },
+      {
+        icon: '🏥',
+        title: { ar: '⭐ ALD — المفردات والطلب', en: 'ALD — vocabulary and request', fr: 'ALD — vocabulaire et demande' },
+        phrases: [
+          { fr: 'ALD (Affection Longue Durée)', ar: 'مرض طويل الأمد', en: 'long-term condition' },
+          { fr: 'ALD exonérante / non exonérante', ar: 'ALD مع إعفاء / غير معفية', en: 'exempting / non-exempting ALD' },
+          { fr: 'maladie chronique / prise en charge / prise en charge à 100 %', ar: 'مرض مزمن / التكفل / تغطية 100% من أساس التعرفة', en: 'chronic disease / coverage / 100% of base rate' },
+          { fr: 'Assurance Maladie / CPAM / médecin traitant / médecin conseil', ar: 'التأمين الصحي / صندوق التأمين / الطبيب الأساسي / طبيب التأمين', en: 'health insurance / CPAM / GP / medical advisor' },
+          { fr: 'protocole de soins / ticket modérateur / tiers payant / remboursement', ar: 'بروتوكول العلاج / الجزء على المريض / الدفع المباشر / التعويض', en: 'care protocol / co-payment / third-party / reimbursement' },
+          { fr: 'Je voudrais savoir si je peux bénéficier d’une ALD. / Est-ce que ma maladie peut être prise en charge en ALD ?', ar: 'بدي أعرف إذا فيني أستفيد من ALD / مرضي بينغطى بـALD؟', en: 'Can I get ALD? / does my illness qualify?' },
+          { fr: 'Est-ce que je peux faire une demande d’ALD ? / Pouvez-vous faire une demande pour moi ?', ar: 'فيني قدّم طلب ALD؟ / فيك تقدملي الطلب؟', en: 'Can I apply? / can you apply for me?' },
+          { fr: 'Pouvez-vous remplir le protocole de soins ? / Mon médecin traitant peut-il faire la demande ?', ar: 'فيك تعبّي بروتوكول العلاج؟ / دكتوري الأساسي بيقدر يقدمه؟', en: 'Fill the care protocol? / can my GP apply?' },
+          { fr: 'Est-ce que mon état de santé justifie une demande d’ALD ? / nécessite un traitement prolongé ?', ar: 'حالتي بتستاهل طلب ALD؟ / بدّا علاج طويل؟', en: 'Does my condition justify ALD / need long treatment?' },
+          { fr: 'Quels soins / examens / médicaments doivent être inclus dans mon ALD ?', ar: 'شو العلاجات / الفحوصات / الأدوية اللي لازم تنشمل؟', en: 'Which care / tests / meds should be covered?' }
+        ]
+      },
+      {
+        icon: '📋',
+        title: { ar: 'ALD — الرد والمعنى الحقيقي للـ100%', en: 'ALD — response and what 100% means', fr: 'ALD — réponse et 100%' },
+        phrases: [
+          { fr: 'protocole de soins / volet patient / durée de validité / date de début / date de fin', ar: 'بروتوكول العلاج / نسخة المريض / مدة الصلاحية / بداية / نهاية', en: 'care protocol / patient copy / validity / start / end' },
+          { fr: 'Est-ce que je dois signer le protocole ? / Où est mon protocole de soins ?', ar: 'لازم وقّع البروتوكول؟ / وين نسختي منه؟', en: 'Sign the protocol? / where is it?' },
+          { fr: 'Ma demande d’ALD a-t-elle été acceptée ? / est toujours en cours ? / Quand vais-je recevoir la réponse ?', ar: 'انقبل طلبي؟ / لسا قيد المعالجة؟ / إمتى الجواب؟', en: 'Accepted? / still processing? / when answer?' },
+          { fr: 'J’ai reçu l’accord pour mon ALD. / Ma demande a été refusée. / Pourquoi ?', ar: 'وصلتني الموافقة / اترفض طلبي / ليش؟', en: 'Got approval / refused / why?' },
+          { fr: 'Je suis pris en charge à 100 % pour les soins liés à mon ALD.', ar: 'أنا مشمول 100% للعلاجات المرتبطة بالـALD تبعي.', en: 'I’m covered at 100% for ALD-related care.' },
+          { fr: 'à 100 % de la base de remboursement de la Sécurité sociale', ar: '100% من أساس تعويض الضمان الاجتماعي', en: '100% of the social security base rate' },
+          { fr: 'L’ALD ne couvre pas tout. (dépassements, participation forfaitaire, franchise médicale)', ar: 'الـALD ما بتغطي كل شي (المبالغ الإضافية، المساهمة الثابتة، التحمل الطبي).', en: 'ALD doesn’t cover everything (extra fees, flat contribution, franchise).' },
+          { fr: 'Est-ce que cette analyse est liée à mon ALD ? / prise en charge à 100 % ?', ar: 'هالتحليل مرتبط بالـALD؟ / مغطى 100%؟', en: 'Is this test ALD-related? / 100% covered?' },
+          { fr: 'C’est un examen prescrit dans le cadre de mon ALD. / Je suis en ALD.', ar: 'هاد فحص ضمن الـALD تبعي / أنا مشمول بـALD.', en: 'Test prescribed under my ALD / I have ALD.' },
+          { fr: 'ALD ≠ AAH ≠ invalidité ≠ arrêt maladie', ar: 'الـALD تغطية صحية — مو اعتراف إعاقة ولا معاش عجز ولا إجازة مرضية.', en: 'ALD is health coverage — not disability recognition or sick leave.' }
+        ]
+      },
+      {
+        icon: '💳',
+        title: { ar: 'ALD — الوصفة المزدوجة وفيتال والتجديد', en: 'ALD — bizone prescription, Vitale, renewal', fr: 'ALD — bizone, Vitale, renouvellement' },
+        phrases: [
+          { fr: 'ordonnance bizone — zone 1 (liée à l’ALD) / zone 2 (non liée)', ar: 'وصفة مزدوجة — منطقة 1 مرتبطة بالـALD / منطقة 2 لا', en: 'two-part prescription — ALD / non-ALD zone' },
+          { fr: 'Est-ce que vous avez mis ce traitement en zone 1 ? / Ce médicament est-il en zone 1 ?', ar: 'حطيت هالعلاج بالمنطقة 1؟ / هالدواء بالمنطقة 1؟', en: 'Is this treatment / medication in zone 1?' },
+          { fr: 'Est-ce que ce médicament est pris en charge au titre de mon ALD ? / lié à mon ALD ?', ar: 'هالدواء مغطى بسبب الـALD؟ / مرتبط فيها؟', en: 'Covered under my ALD? / related?' },
+          { fr: 'Je dois mettre à jour ma carte Vitale. / Mon ALD apparaît-elle sur ma carte Vitale ?', ar: 'لازم أحدّث بطاقة فيتال / بتظهر الـALD عليها؟', en: 'Update Vitale card / does ALD show?' },
+          { fr: 'Où puis-je trouver mon attestation de droits ? / Mon ALD apparaît-elle dessus ?', ar: 'وين شهادة حقوقي؟ / بتظهر الـALD عليها؟', en: 'Where is my entitlement certificate / ALD on it?' },
+          { fr: 'Est-ce que j’ai droit au tiers payant ? / Je n’ai pas à avancer les frais ?', ar: 'إلي حق بالـtiers payant؟ / يعني ما ادفع مقدمًا؟', en: 'Entitled to tiers payant? / no upfront payment?' },
+          { fr: 'Cette consultation est-elle liée à mon ALD ? / Y a-t-il un dépassement d’honoraires ?', ar: 'هالمعاينة مرتبطة بالـALD؟ / في مبلغ إضافي؟', en: 'This visit ALD-related? / extra fee?' },
+          { fr: 'transport sanitaire / taxi conventionné / VSL / ambulance — Est-ce que mon transport peut être pris en charge ? / Ai-je besoin d’une prescription ?', ar: 'نقل طبي / تاكسي متعاقد / سيارة خفيفة / إسعاف — بينغطى نقلي؟ / بحتاج وصفة؟', en: 'medical transport — covered? / need prescription?' },
+          { fr: 'Quand mon ALD prend-elle fin ? / Est-ce qu’elle doit être renouvelée ? / Je voudrais renouveler mon ALD.', ar: 'إمتى بتخلص الـALD؟ / لازم تجديد؟ / بدي جدّدها.', en: 'When does ALD end? / renew? / I want to renew.' },
+          { fr: 'Je voudrais connaître le motif du refus. / Est-ce que je peux contester la décision ? / Quels sont les délais pour faire un recours ?', ar: 'بدي أعرف سبب الرفض / فيني أعترض؟ / شو مهلة الاعتراض؟', en: 'Reason for refusal? / contest? / appeal deadline?' }
+        ]
       }
     ]
   }
