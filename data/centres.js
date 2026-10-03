@@ -12151,6 +12151,186 @@ window.CENTRES_DATA = [
       { icon: '🔄', title: { ar: 'se raréfier — يصبح نادرًا / يقلّ', en: 'se raréfier', fr: 'se raréfier' }, phrases: [
         { fr: 'se raréfier', ar: 'يصبح نادرًا / يقلّ', en: 'to become scarce' },
         { fr: 'Les logements abordables se raréfient.', ar: 'السكنات ذات الأسعار المقبولة عم تقل.', en: 'Affordable housing is becoming scarce.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se maintenir — يحافظ على حالته / يبقى', en: 'se maintenir', fr: 'se maintenir' }, phrases: [
+        { fr: 'se maintenir', ar: 'يحافظ على حالته / يبقى', en: 'to remain' },
+        { fr: 'Le prix se maintient à 500 euros.', ar: 'السعر ضل ثابت على 500 يورو.', en: 'The price remains at €500.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se renouveler — يتجدّد / يتجدد', en: 'se renouveler', fr: 'se renouveler' }, phrases: [
+        { fr: 'se renouveler', ar: 'يتجدّد / يتجدد', en: 'to renew itself' },
+        { fr: 'Mon abonnement se renouvelle automatiquement.', ar: 'اشتراكي بيتجدد تلقائيًا.', en: 'My subscription renews automatically.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se réduire — ينخفض / يتقلّص', en: 'se réduire', fr: 'se réduire' }, phrases: [
+        { fr: 'se réduire', ar: 'ينخفض / يتقلّص', en: 'to decrease' },
+        { fr: 'Les dépenses doivent se réduire.', ar: 'لازم المصاريف تنخفض.', en: 'Expenses need to decrease.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se renforcer — يتعزّز / يقوى', en: 'se renforcer', fr: 'se renforcer' }, phrases: [
+        { fr: 'se renforcer', ar: 'يتعزّز / يقوى', en: 'to strengthen' },
+        { fr: 'La sécurité s’est renforcée.', ar: 'الأمن صار أقوى.', en: 'Security has been strengthened.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’accroître — يزداد / يتزايد (رسمي)', en: 's’accroître', fr: 's’accroître' }, phrases: [
+        { fr: 's’accroître', ar: 'يزداد / يتزايد (رسمي)', en: 'to grow' },
+        { fr: 'Les difficultés s’accroissent.', ar: 'الصعوبات عم تزيد.', en: 'The difficulties are increasing.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se stabiliser — يستقر', en: 'se stabiliser', fr: 'se stabiliser' }, phrases: [
+        { fr: 'se stabiliser', ar: 'يستقر', en: 'to stabilize' },
+        { fr: 'La situation commence à se stabiliser.', ar: 'الوضع بلّش يستقر.', en: 'The situation is starting to stabilize.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se dégrader — يتدهور / يسوء', en: 'se dégrader', fr: 'se dégrader' }, phrases: [
+        { fr: 'se dégrader', ar: 'يتدهور / يسوء', en: 'to deteriorate' },
+        { fr: 'Son état de santé s’est dégradé.', ar: 'حالته الصحية ساءت.', en: 'His health has deteriorated.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’aggraver — يتفاقم / يسوء', en: 's’aggraver', fr: 's’aggraver' }, phrases: [
+        { fr: 's’aggraver', ar: 'يتفاقم / يسوء', en: 'to worsen' },
+        { fr: 'La douleur s’est aggravée.', ar: 'الوجع ساء أكتر.', en: 'The pain got worse.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se résumer à — يقتصر على / يلخّص في', en: 'se résumer à', fr: 'se résumer à' }, phrases: [
+        { fr: 'se résumer à', ar: 'يقتصر على / يلخّص في', en: 'to come down to' },
+        { fr: 'Le problème se résume à un manque d’argent.', ar: 'المشكلة باختصار هي نقص بالمصاري.', en: 'The problem comes down to a lack of money.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se traduire par — ينتج عنه / يتجسّد بـ', en: 'se traduire par', fr: 'se traduire par' }, phrases: [
+        { fr: 'se traduire par', ar: 'ينتج عنه / يتجسّد بـ', en: 'to result in' },
+        { fr: 'Cette décision se traduit par une augmentation des prix.', ar: 'هالقرار نتج عنه ارتفاع بالأسعار.', en: 'This decision results in higher prices.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se caractériser par — يتميّز بـ', en: 'se caractériser par', fr: 'se caractériser par' }, phrases: [
+        { fr: 'se caractériser par', ar: 'يتميّز بـ', en: 'to be characterized by' },
+        { fr: 'Cette maladie se caractérise par une grande fatigue.', ar: 'هالمرض بيتميّز بتعب شديد.', en: 'This disease is characterized by severe fatigue.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se composer de — يتكوّن من', en: 'se composer de', fr: 'se composer de' }, phrases: [
+        { fr: 'se composer de', ar: 'يتكوّن من', en: 'to consist of' },
+        { fr: 'Le dossier se compose de trois documents.', ar: 'الملف بيتكوّن من تلات وثائق.', en: 'The file consists of three documents.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se diviser en — ينقسم إلى', en: 'se diviser en', fr: 'se diviser en' }, phrases: [
+        { fr: 'se diviser en', ar: 'ينقسم إلى', en: 'to be divided into' },
+        { fr: 'Le formulaire se divise en trois parties.', ar: 'الاستمارة بتنقسم لتلات أقسام.', en: 'The form is divided into three sections.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se répartir entre — يتوزّع بين', en: 'se répartir entre', fr: 'se répartir entre' }, phrases: [
+        { fr: 'se répartir entre', ar: 'يتوزّع بين', en: 'to be divided among' },
+        { fr: 'Les tâches se répartissent entre les employés.', ar: 'المهام بتتوزع بين الموظفين.', en: 'The tasks are divided among the employees.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se transmettre — ينتقل / يُنقل', en: 'se transmettre', fr: 'se transmettre' }, phrases: [
+        { fr: 'se transmettre', ar: 'ينتقل / يُنقل', en: 'to be transmitted' },
+        { fr: 'Certaines maladies peuvent se transmettre.', ar: 'بعض الأمراض ممكن تنتقل.', en: 'Some diseases can be transmitted.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se propager — ينتشر', en: 'se propager', fr: 'se propager' }, phrases: [
+        { fr: 'se propager', ar: 'ينتشر', en: 'to spread' },
+        { fr: 'Le virus peut se propager rapidement.', ar: 'الفيروس ممكن ينتشر بسرعة.', en: 'The virus can spread quickly.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’accomplir — يتحقق / يكتمل', en: 's’accomplir', fr: 's’accomplir' }, phrases: [
+        { fr: 's’accomplir', ar: 'يتحقق / يكتمل', en: 'to be fulfilled' },
+        { fr: 'Son rêve s’est enfin accompli.', ar: 'حلمه تحقق أخيرًا.', en: 'His dream finally came true.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’effondrer — ينهار', en: 's’effondrer', fr: 's’effondrer' }, phrases: [
+        { fr: 's’effondrer', ar: 'ينهار', en: 'to collapse' },
+        { fr: 'Le bâtiment risque de s’effondrer.', ar: 'البناية ممكن تنهار.', en: 'The building could collapse.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’écrouler — ينهار / يسقط', en: 's’écrouler', fr: 's’écrouler' }, phrases: [
+        { fr: 's’écrouler', ar: 'ينهار / يسقط', en: 'to collapse' },
+        { fr: 'Le mur s’est écroulé hier.', ar: 'الحيط انهار مبارح.', en: 'The wall collapsed yesterday.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’évanouir — يُغمى عليه', en: 's’évanouir', fr: 's’évanouir' }, phrases: [
+        { fr: 's’évanouir', ar: 'يُغمى عليه', en: 'to faint' },
+        { fr: 'Elle s’est évanouie dans la rue.', ar: 'أُغمي عليها بالشارع.', en: 'She fainted in the street.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’étouffer — يختنق', en: 's’étouffer', fr: 's’étouffer' }, phrases: [
+        { fr: 's’étouffer', ar: 'يختنق', en: 'to choke' },
+        { fr: 'Il s’est étouffé en mangeant.', ar: 'اختنق وهو عم ياكل.', en: 'He choked while eating.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’enfuir — يهرب', en: 's’enfuir', fr: 's’enfuir' }, phrases: [
+        { fr: 's’enfuir', ar: 'يهرب', en: 'to flee' },
+        { fr: 'Le voleur s’est enfui.', ar: 'الحرامي هرب.', en: 'The thief ran away.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’échapper — يهرب / يفلت', en: 's’échapper', fr: 's’échapper' }, phrases: [
+        { fr: 's’échapper', ar: 'يهرب / يفلت', en: 'to escape' },
+        { fr: 'Le chien s’est échappé.', ar: 'الكلب هرب.', en: 'The dog escaped.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’éteindre — ينطفئ', en: 's’éteindre', fr: 's’éteindre' }, phrases: [
+        { fr: 's’éteindre', ar: 'ينطفئ', en: 'to go out' },
+        { fr: 'La lumière s’est éteinte.', ar: 'الضو طفى.', en: 'The light went out.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’allumer — يشتغل / يضيء', en: 's’allumer', fr: 's’allumer' }, phrases: [
+        { fr: 's’allumer', ar: 'يشتغل / يضيء', en: 'to turn on' },
+        { fr: 'La lumière s’allume automatiquement.', ar: 'الضو بيشتغل لحاله.', en: 'The light turns on automatically.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’éteindre progressivement — ينطفئ تدريجيًا', en: 's’éteindre progressivement', fr: 's’éteindre progressivement' }, phrases: [
+        { fr: 's’éteindre progressivement', ar: 'ينطفئ تدريجيًا', en: 'to gradually go out' },
+        { fr: 'Le feu s’est éteint progressivement.', ar: 'النار طفت شوي شوي.', en: 'The fire gradually went out.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’écarter de — يبتعد عن / يحيد عن', en: 's’écarter de', fr: 's’écarter de' }, phrases: [
+        { fr: 's’écarter de', ar: 'يبتعد عن / يحيد عن', en: 'to stray from' },
+        { fr: 'Ne vous écartez pas du chemin.', ar: 'لا تبتعدوا عن الطريق.', en: 'Don’t stray from the path.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’écouler — يجري / يمرّ', en: 's’écouler', fr: 's’écouler' }, phrases: [
+        { fr: 's’écouler', ar: 'يجري / يمرّ', en: 'to flow / pass' },
+        { fr: 'Le temps s’écoule rapidement.', ar: 'الوقت عم يمر بسرعة.', en: 'Time passes quickly.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’écouler de — يتسرّب / يسيل من', en: 's’écouler de', fr: 's’écouler de' }, phrases: [
+        { fr: 's’écouler de', ar: 'يتسرّب / يسيل من', en: 'to flow out of' },
+        { fr: 'L’eau s’écoule du tuyau.', ar: 'المي عم تسيل من الأنبوب.', en: 'Water is flowing from the pipe.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’infiltrer — يتسرّب إلى الداخل', en: 's’infiltrer', fr: 's’infiltrer' }, phrases: [
+        { fr: 's’infiltrer', ar: 'يتسرّب إلى الداخل', en: 'to seep in' },
+        { fr: 'L’eau s’est infiltrée dans le mur.', ar: 'المي تسرّبت لجوا الحيط.', en: 'Water seeped into the wall.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’évaporer — يتبخّر', en: 's’évaporer', fr: 's’évaporer' }, phrases: [
+        { fr: 's’évaporer', ar: 'يتبخّر', en: 'to evaporate' },
+        { fr: 'L’eau s’évapore avec la chaleur.', ar: 'المي بتتبخر مع الحرارة.', en: 'Water evaporates with heat.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’accrocher à — يتمسّك بـ', en: 's’accrocher à', fr: 's’accrocher à' }, phrases: [
+        { fr: 's’accrocher à', ar: 'يتمسّك بـ', en: 'to cling to' },
+        { fr: 'Accroche-toi bien !', ar: 'تمسّك منيح!', en: 'Hold on tight!' }
+      ] },
+      { icon: '🔄', title: { ar: 's’agripper à — يتشبّث بـ', en: 's’agripper à', fr: 's’agripper à' }, phrases: [
+        { fr: 's’agripper à', ar: 'يتشبّث بـ', en: 'to grip onto' },
+        { fr: 'Il s’agrippe à la rambarde.', ar: 'عم يتشبّث بدرابزين الدرج.', en: 'He’s clinging to the railing.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’affirmer — يثبت نفسه / يعبّر عن نفسه بثقة', en: 's’affirmer', fr: 's’affirmer' }, phrases: [
+        { fr: 's’affirmer', ar: 'يثبت نفسه / يعبّر عن نفسه بثقة', en: 'to assert oneself' },
+        { fr: 'Il commence à s’affirmer au travail.', ar: 'بلّش يثبت حاله بالشغل.', en: 'He’s starting to assert himself at work.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’effacer — يتراجع / يختفي', en: 's’effacer', fr: 's’effacer' }, phrases: [
+        { fr: 's’effacer', ar: 'يتراجع / يختفي', en: 'to step back' },
+        { fr: 'Il préfère s’effacer et laisser parler les autres.', ar: 'بيفضّل يتراجع ويترك غيره يحكي.', en: 'He prefers to step back and let others speak.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’épanouir — يزدهر / يتطوّر بشكل جيد', en: 's’épanouir', fr: 's’épanouir' }, phrases: [
+        { fr: 's’épanouir', ar: 'يزدهر / يتطوّر بشكل جيد', en: 'to thrive' },
+        { fr: 'Elle s’épanouit dans son nouveau travail.', ar: 'عم تتطور وتنجح بشغلها الجديد.', en: 'She’s thriving in her new job.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’ennuyer — يشعر بالملل', en: 's’ennuyer', fr: 's’ennuyer' }, phrases: [
+        { fr: 's’ennuyer', ar: 'يشعر بالملل', en: 'to be bored' },
+        { fr: 'Je m’ennuie à la maison.', ar: 'عم ملّ بالبيت.', en: 'I’m bored at home.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’amuser — يستمتع / يتسلّى', en: 's’amuser', fr: 's’amuser' }, phrases: [
+        { fr: 's’amuser', ar: 'يستمتع / يتسلّى', en: 'to have fun' },
+        { fr: 'Amuse-toi bien !', ar: 'انبسط!', en: 'Have fun!' }
+      ] },
+      { icon: '🔄', title: { ar: 'se réjouir à l’avance — يفرح مسبقًا / يتطلّع بسعادة', en: 'se réjouir à l’avance', fr: 'se réjouir à l’avance' }, phrases: [
+        { fr: 'se réjouir à l’avance', ar: 'يفرح مسبقًا / يتطلّع بسعادة', en: 'to look forward to' },
+        { fr: 'Je me réjouis à l’avance de vous revoir.', ar: 'مبسوط من هلأ لأني رح شوفك من جديد.', en: 'I’m already looking forward to seeing you again.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se détendre — يسترخي', en: 'se détendre', fr: 'se détendre' }, phrases: [
+        { fr: 'se détendre', ar: 'يسترخي', en: 'to relax' },
+        { fr: 'J’ai besoin de me détendre après le travail.', ar: 'بحتاج ارتاح وأرخي أعصابي بعد الشغل.', en: 'I need to relax after work.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se défouler — يفرّغ طاقته / غضبه', en: 'se défouler', fr: 'se défouler' }, phrases: [
+        { fr: 'se défouler', ar: 'يفرّغ طاقته / غضبه', en: 'to let off steam' },
+        { fr: 'Je vais faire du sport pour me défouler.', ar: 'رح أعمل رياضة لفرّغ طاقتي.', en: 'I’m going to exercise to blow off some steam.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se réconcilier avec — يتصالح مع', en: 'se réconcilier avec', fr: 'se réconcilier avec' }, phrases: [
+        { fr: 'se réconcilier avec', ar: 'يتصالح مع', en: 'to make up with' },
+        { fr: 'Ils se sont réconciliés après leur dispute.', ar: 'تصالحوا بعد الخلاف.', en: 'They made up after their argument.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se mélanger — يختلط', en: 'se mélanger', fr: 'se mélanger' }, phrases: [
+        { fr: 'se mélanger', ar: 'يختلط', en: 'to mix' },
+        { fr: 'Les couleurs se mélangent.', ar: 'الألوان عم تختلط ببعض.', en: 'The colors are mixing together.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se mélanger à — يختلط بـ', en: 'se mélanger à', fr: 'se mélanger à' }, phrases: [
+        { fr: 'se mélanger à', ar: 'يختلط بـ', en: 'to mix with' },
+        { fr: 'Le sucre se mélange bien au café.', ar: 'السكر بينخلط منيح مع القهوة.', en: 'The sugar mixes well with the coffee.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se détacher de — ينفصل عن / يتخلّى عن', en: 'se détacher de', fr: 'se détacher de' }, phrases: [
+        { fr: 'se détacher de', ar: 'ينفصل عن / يتخلّى عن', en: 'to detach from' },
+        { fr: 'Il a du mal à se détacher de son téléphone.', ar: 'صعب عليه يبعد عن تلفونه.', en: 'He has trouble putting his phone aside.' }
       ] }
     ]
   }
