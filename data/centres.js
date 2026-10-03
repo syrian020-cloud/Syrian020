@@ -10982,6 +10982,307 @@ window.CENTRES_DATA = [
         { fr: 'hôtel', ar: 'فندق', en: 'hotel' },
         { fr: 'autel', ar: 'مذبح', en: 'altar' }
       ] }
+,
+      { icon: '💬', title: { ar: 'أمثلة — verre / ver / vert / vers', en: 'Examples — verre / ver / vert / vers', fr: 'Exemples — verre / ver / vert / vers' }, phrases: [
+        { fr: 'Je bois un verre d’eau.', ar: 'عم إشرب كاسة مي.', en: 'I’m drinking a glass of water.' },
+        { fr: 'J’ai trouvé un ver dans la pomme.', ar: 'لقيت دودة بالتفاحة.', en: 'I found a worm in the apple.' },
+        { fr: 'J’aime cette couleur verte.', ar: 'بحب هاللون الأخضر.', en: 'I like this green color.' },
+        { fr: 'Je vais vers la gare.', ar: 'رايح باتجاه المحطة.', en: 'I’m going toward the station.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — mer / mère / maire', en: 'Examples — mer / mère / maire', fr: 'Exemples — mer / mère / maire' }, phrases: [
+        { fr: 'J’aime nager dans la mer.', ar: 'بحب إسبح بالبحر.', en: 'I like swimming in the sea.' },
+        { fr: 'Ma mère travaille à Strasbourg.', ar: 'أمي بتشتغل بستراسبورغ.', en: 'My mother works in Strasbourg.' },
+        { fr: 'Le maire de la ville a parlé.', ar: 'عمدة المدينة حكى.', en: 'The mayor of the city spoke.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — sans / sang / cent / s’en', en: 'Examples — sans / sang / cent / s’en', fr: 'Exemples — sans / sang / cent / s’en' }, phrases: [
+        { fr: 'Je bois mon café sans sucre.', ar: 'بشرب قهوتي بلا سكر.', en: 'I drink my coffee without sugar.' },
+        { fr: 'Il y a du sang sur sa main.', ar: 'في دم على إيده.', en: 'There is blood on his hand.' },
+        { fr: 'J’ai cent euros.', ar: 'معي مية يورو.', en: 'I have one hundred euros.' },
+        { fr: 'Il s’en va maintenant.', ar: 'هو رايح هلق.', en: 'He’s leaving now.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — son / sont', en: 'Examples — son / sont', fr: 'Exemples — son / sont' }, phrases: [
+        { fr: 'J’écoute son message.', ar: 'عم اسمع رسالته.', en: 'I’m listening to his message.' },
+        { fr: 'Ils sont à la maison.', ar: 'هنن بالبيت.', en: 'They are at home.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — a / à', en: 'Examples — a / à', fr: 'Exemples — a / à' }, phrases: [
+        { fr: 'Il a une voiture.', ar: 'معه سيارة.', en: 'He has a car.' },
+        { fr: 'Je vais à Paris demain.', ar: 'رايح ع باريس بكرا.', en: 'I’m going to Paris tomorrow.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — ou / où', en: 'Examples — ou / où', fr: 'Exemples — ou / où' }, phrases: [
+        { fr: 'Tu veux du thé ou du café ?', ar: 'بدك شاي ولا قهوة؟', en: 'Do you want tea or coffee?' },
+        { fr: 'Où habites-tu ?', ar: 'وين ساكن؟', en: 'Where do you live?' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — ces / ses / c’est / s’est', en: 'Examples — ces / ses / c’est / s’est', fr: 'Exemples — ces / ses / c’est / s’est' }, phrases: [
+        { fr: 'J’aime ces chaussures.', ar: 'بحب هالأحذية.', en: 'I like these shoes.' },
+        { fr: 'Il cherche ses clés.', ar: 'عم يدور على مفاتيحه.', en: 'He is looking for his keys.' },
+        { fr: 'C’est mon téléphone.', ar: 'هاد تلفوني.', en: 'This is my phone.' },
+        { fr: 'Il s’est levé tôt.', ar: 'هو قام بكير.', en: 'He got up early.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — fois / foie / foi', en: 'Examples — fois / foie / foi', fr: 'Exemples — fois / foie / foi' }, phrases: [
+        { fr: 'Je suis déjà venu deux fois.', ar: 'أنا جيت مرتين من قبل.', en: 'I’ve already come twice.' },
+        { fr: 'Le foie est un organe important.', ar: 'الكبد عضو مهم.', en: 'The liver is an important organ.' },
+        { fr: 'Il a perdu la foi.', ar: 'فقد إيمانه.', en: 'He lost his faith.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — voie / voix / vois / voit', en: 'Examples — voie / voix / vois / voit', fr: 'Exemples — voie / voix / vois / voit' }, phrases: [
+        { fr: 'Cette voie est réservée aux bus.', ar: 'هالطريق مخصص للباصات.', en: 'This lane is reserved for buses.' },
+        { fr: 'J’aime ta voix.', ar: 'بحب صوتك.', en: 'I like your voice.' },
+        { fr: 'Je vois la gare.', ar: 'شايف المحطة.', en: 'I see the station.' },
+        { fr: 'Il voit son ami.', ar: 'هو شايف رفيقه.', en: 'He sees his friend.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — pain / pin / peint', en: 'Examples — pain / pin / peint', fr: 'Exemples — pain / pin / peint' }, phrases: [
+        { fr: 'J’achète du pain à la boulangerie.', ar: 'عم اشتري خبز من المخبز.', en: 'I’m buying bread at the bakery.' },
+        { fr: 'Il y a un grand pin dans le jardin.', ar: 'في شجرة صنوبر كبيرة بالحديقة.', en: 'There is a big pine tree in the garden.' },
+        { fr: 'Il peint sa chambre en blanc.', ar: 'عم يدهن غرفته بالأبيض.', en: 'He is painting his room white.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — seau / saut / sceau / sot', en: 'Examples — seau / saut / sceau / sot', fr: 'Exemples — seau / saut / sceau / sot' }, phrases: [
+        { fr: 'J’ai rempli le seau d’eau.', ar: 'عبيت الدلو مي.', en: 'I filled the bucket with water.' },
+        { fr: 'Il a fait un grand saut.', ar: 'عمل قفزة كبيرة.', en: 'He made a big jump.' },
+        { fr: 'Le document porte le sceau officiel.', ar: 'الوثيقة عليها الختم الرسمي.', en: 'The document bears the official seal.' },
+        { fr: 'Ne sois pas sot !', ar: 'لا تكون غبي!', en: 'Don’t be foolish!' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — cou / coup / coût', en: 'Examples — cou / coup / coût', fr: 'Exemples — cou / coup / coût' }, phrases: [
+        { fr: 'J’ai mal au cou.', ar: 'رقبتي عم توجعني.', en: 'My neck hurts.' },
+        { fr: 'Il a reçu un coup.', ar: 'تلقّى ضربة.', en: 'He got hit.' },
+        { fr: 'Quel est le coût de la livraison ?', ar: 'قديش تكلفة التوصيل؟', en: 'What is the cost of delivery?' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — air / aire / ère', en: 'Examples — air / aire / ère', fr: 'Exemples — air / aire / ère' }, phrases: [
+        { fr: 'Il y a beaucoup d’air ici.', ar: 'في هوا كتير هون.', en: 'There is a lot of air here.' },
+        { fr: 'Je me suis arrêté sur une aire de repos.', ar: 'وقفت بمنطقة استراحة.', en: 'I stopped at a rest area.' },
+        { fr: 'Nous vivons à une nouvelle ère.', ar: 'نحنا عايشين بعصر جديد.', en: 'We are living in a new era.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — chair / chère / cher', en: 'Examples — chair / chère / cher', fr: 'Exemples — chair / chère / cher' }, phrases: [
+        { fr: 'La chair de ce fruit est très tendre.', ar: 'لبّ هالفاكهة طري كتير.', en: 'The flesh of this fruit is very tender.' },
+        { fr: 'Cette voiture est trop chère.', ar: 'هالسيارة غالية كتير.', en: 'This car is too expensive.' },
+        { fr: 'Bonjour, cher ami !', ar: 'مرحبًا يا صديقي العزيز!', en: 'Hello, dear friend!' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — compte / conte / comte', en: 'Examples — compte / conte / comte', fr: 'Exemples — compte / conte / comte' }, phrases: [
+        { fr: 'Je vérifie mon compte bancaire.', ar: 'عم أتأكد من حسابي البنكي.', en: 'I’m checking my bank account.' },
+        { fr: 'Mon fils aime ce conte.', ar: 'ابني بيحب هالقصة.', en: 'My son likes this tale.' },
+        { fr: 'Le comte vivait dans un château.', ar: 'الكونت كان عايش بقصر.', en: 'The count lived in a castle.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — cour / cours / court', en: 'Examples — cour / cours / court', fr: 'Exemples — cour / cours / court' }, phrases: [
+        { fr: 'Les enfants jouent dans la cour.', ar: 'الولاد عم يلعبوا بالساحة.', en: 'The children are playing in the yard.' },
+        { fr: 'J’ai un cours de français.', ar: 'عندي درس فرنسي.', en: 'I have a French class.' },
+        { fr: 'Le film est très court.', ar: 'الفيلم قصير كتير.', en: 'The movie is very short.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — quand / quant / qu’en', en: 'Examples — quand / quant / qu’en', fr: 'Exemples — quand / quant / qu’en' }, phrases: [
+        { fr: 'Quand est-ce que tu arrives ?', ar: 'إمتى رح توصل؟', en: 'When are you arriving?' },
+        { fr: 'Quant à moi, je préfère rester ici.', ar: 'أما بالنسبة إلي، بفضّل ضل هون.', en: 'As for me, I prefer to stay here.' },
+        { fr: 'Qu’en penses-tu ?', ar: 'شو رأيك؟', en: 'What do you think about it?' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — tant / temps / taon', en: 'Examples — tant / temps / taon', fr: 'Exemples — tant / temps / taon' }, phrases: [
+        { fr: 'Je t’aime tant.', ar: 'أنا بحبك كتير.', en: 'I love you so much.' },
+        { fr: 'Je n’ai pas le temps.', ar: 'ما عندي وقت.', en: 'I don’t have time.' },
+        { fr: 'Un taon m’a piqué.', ar: 'حشرة ذباب الخيل قرصتني.', en: 'A horsefly bit me.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — fond / fonds / font', en: 'Examples — fond / fonds / font', fr: 'Exemples — fond / fonds / font' }, phrases: [
+        { fr: 'Il est tombé au fond de la piscine.', ar: 'وقع بقاع المسبح.', en: 'He fell to the bottom of the pool.' },
+        { fr: 'J’ai des fonds sur mon compte.', ar: 'عندي رصيد بحسابي.', en: 'I have funds in my account.' },
+        { fr: 'Ils font leurs courses.', ar: 'هنن عم يشتروا أغراضهم.', en: 'They are doing their shopping.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — près / prêt / prêts', en: 'Examples — près / prêt / prêts', fr: 'Exemples — près / prêt / prêts' }, phrases: [
+        { fr: 'J’habite près de la gare.', ar: 'ساكن قريب من المحطة.', en: 'I live near the station.' },
+        { fr: 'Je suis prêt à partir.', ar: 'أنا جاهز أطلع.', en: 'I’m ready to leave.' },
+        { fr: 'Vous êtes prêts ?', ar: 'إنتو جاهزين؟', en: 'Are you ready?' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — ma / m’a', en: 'Examples — ma / m’a', fr: 'Exemples — ma / m’a' }, phrases: [
+        { fr: 'Ma voiture est garée dehors.', ar: 'سيارتي مركونة لبرا.', en: 'My car is parked outside.' },
+        { fr: 'Il m’a appelé hier.', ar: 'هو اتصل فيني مبارح.', en: 'He called me yesterday.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — mes / mais / met / mets', en: 'Examples — mes / mais / met / mets', fr: 'Exemples — mes / mais / met / mets' }, phrases: [
+        { fr: 'Mes clés sont sur la table.', ar: 'مفاتيحي عالطاولة.', en: 'My keys are on the table.' },
+        { fr: 'Je veux venir, mais je travaille.', ar: 'بدي أجي، بس أنا عم اشتغل.', en: 'I want to come, but I’m working.' },
+        { fr: 'Il met sa veste.', ar: 'هو عم يلبس جاكيته.', en: 'He is putting on his jacket.' },
+        { fr: 'Mets ça sur la table.', ar: 'حط هاد عالطاولة.', en: 'Put that on the table.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — on / ont', en: 'Examples — on / ont', fr: 'Exemples — on / ont' }, phrases: [
+        { fr: 'On va au restaurant ce soir.', ar: 'رح نروح عالمطعم الليلة.', en: 'We’re going to the restaurant tonight.' },
+        { fr: 'Ils ont une voiture.', ar: 'عندهن سيارة.', en: 'They have a car.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — peu / peux / peut', en: 'Examples — peu / peux / peut', fr: 'Exemples — peu / peux / peut' }, phrases: [
+        { fr: 'Je parle un peu français.', ar: 'بحكي فرنسي شوي.', en: 'I speak a little French.' },
+        { fr: 'Tu peux m’aider ?', ar: 'فيك تساعدني؟', en: 'Can you help me?' },
+        { fr: 'Il peut venir demain.', ar: 'فيه يجي بكرا.', en: 'He can come tomorrow.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — la / l’a / là', en: 'Examples — la / l’a / là', fr: 'Exemples — la / l’a / là' }, phrases: [
+        { fr: 'La porte est ouverte.', ar: 'الباب مفتوح.', en: 'The door is open.' },
+        { fr: 'Il l’a acheté hier.', ar: 'هو اشتراه مبارح.', en: 'He bought it yesterday.' },
+        { fr: 'Pose-le là.', ar: 'حطّه هنيك.', en: 'Put it there.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — le / les / lait / laid', en: 'Examples — le / les / lait / laid', fr: 'Exemples — le / les / lait / laid' }, phrases: [
+        { fr: 'Le téléphone est sur la table.', ar: 'التلفون عالطاولة.', en: 'The phone is on the table.' },
+        { fr: 'Je les connais.', ar: 'أنا بعرفهن.', en: 'I know them.' },
+        { fr: 'Je bois du lait le matin.', ar: 'بشرب حليب الصبح.', en: 'I drink milk in the morning.' },
+        { fr: 'Ce bâtiment est vraiment laid.', ar: 'هالبناء بشع فعلًا.', en: 'This building is really ugly.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — nom / non / n’ont', en: 'Examples — nom / non / n’ont', fr: 'Exemples — nom / non / n’ont' }, phrases: [
+        { fr: 'Quel est votre nom ?', ar: 'شو اسمك؟', en: 'What is your name?' },
+        { fr: 'Non, merci.', ar: 'لا، شكرًا.', en: 'No, thank you.' },
+        { fr: 'Ils n’ont pas le temps.', ar: 'ما عندهن وقت.', en: 'They don’t have time.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — si / s’y / scie', en: 'Examples — si / s’y / scie', fr: 'Exemples — si / s’y / scie' }, phrases: [
+        { fr: 'Si tu veux, on peut partir.', ar: 'إذا بدك، فينا نطلع.', en: 'If you want, we can leave.' },
+        { fr: 'Il s’y connaît bien.', ar: 'هو عنده خبرة منيحة بهالموضوع.', en: 'He knows a lot about it.' },
+        { fr: 'Il coupe le bois avec une scie.', ar: 'عم يقطع الخشب بمنشار.', en: 'He is cutting the wood with a saw.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — quel / quelle / qu’elle', en: 'Examples — quel / quelle / qu’elle', fr: 'Exemples — quel / quelle / qu’elle' }, phrases: [
+        { fr: 'Quel âge as-tu ?', ar: 'قديش عمرك؟', en: 'How old are you?' },
+        { fr: 'Quelle heure est-il ?', ar: 'قديش الساعة؟', en: 'What time is it?' },
+        { fr: 'Je pense qu’elle viendra demain.', ar: 'بعتقد إنها رح تجي بكرا.', en: 'I think she will come tomorrow.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — peau / pot', en: 'Examples — peau / pot', fr: 'Exemples — peau / pot' }, phrases: [
+        { fr: 'J’ai la peau sèche.', ar: 'بشرتي ناشفة.', en: 'I have dry skin.' },
+        { fr: 'Le pot est sur la table.', ar: 'المرطبان عالطاولة.', en: 'The jar is on the table.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — dès / des / dé', en: 'Examples — dès / des / dé', fr: 'Exemples — dès / des / dé' }, phrases: [
+        { fr: 'Je pars dès demain.', ar: 'رح أطلع من بكرا.', en: 'I’m leaving starting tomorrow.' },
+        { fr: 'J’ai acheté des pommes.', ar: 'اشتريت تفاح.', en: 'I bought some apples.' },
+        { fr: 'Il lance le dé.', ar: 'هو عم يرمي حجر النرد.', en: 'He rolls the die.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — dans / dent / d’en', en: 'Examples — dans / dent / d’en', fr: 'Exemples — dans / dent / d’en' }, phrases: [
+        { fr: 'Le téléphone est dans mon sac.', ar: 'التلفون بشنتتي.', en: 'The phone is in my bag.' },
+        { fr: 'J’ai mal à une dent.', ar: 'عندي وجع بسنّي.', en: 'I have a toothache.' },
+        { fr: 'Je viens d’en acheter deux.', ar: 'هلأ اشتريت تنين منهن.', en: 'I just bought two of them.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — an / en / ans', en: 'Examples — an / en / ans', fr: 'Exemples — an / en / ans' }, phrases: [
+        { fr: 'Je travaille ici depuis un an.', ar: 'صارلي سنة عم اشتغل هون.', en: 'I’ve been working here for a year.' },
+        { fr: 'Je vais en France demain.', ar: 'رايح ع فرنسا بكرا.', en: 'I’m going to France tomorrow.' },
+        { fr: 'J’ai trente-six ans.', ar: 'عمري ٣٦ سنة.', en: 'I’m 36 years old.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — haut / eau / oh', en: 'Examples — haut / eau / oh', fr: 'Exemples — haut / eau / oh' }, phrases: [
+        { fr: 'Il habite en haut.', ar: 'هو ساكن فوق.', en: 'He lives upstairs.' },
+        { fr: 'Je voudrais un verre d’eau.', ar: 'بدي كاسة مي.', en: 'I’d like a glass of water.' },
+        { fr: 'Oh, c’est magnifique !', ar: 'أوه، هاد رائع!', en: 'Oh, that’s wonderful!' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — auteur / hauteur', en: 'Examples — auteur / hauteur', fr: 'Exemples — auteur / hauteur' }, phrases: [
+        { fr: 'C’est l’auteur de ce livre.', ar: 'هاد مؤلف هالكتاب.', en: 'He is the author of this book.' },
+        { fr: 'La hauteur de la porte est de deux mètres.', ar: 'ارتفاع الباب مترين.', en: 'The height of the door is two meters.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — peur / père / paire', en: 'Examples — peur / père / paire', fr: 'Exemples — peur / père / paire' }, phrases: [
+        { fr: 'J’ai peur du noir.', ar: 'بخاف من العتمة.', en: 'I’m afraid of the dark.' },
+        { fr: 'Mon père habite en France.', ar: 'أبي ساكن بفرنسا.', en: 'My father lives in France.' },
+        { fr: 'J’ai acheté une paire de chaussures.', ar: 'اشتريت زوج أحذية.', en: 'I bought a pair of shoes.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — selle / celle / sel', en: 'Examples — selle / celle / sel', fr: 'Exemples — selle / celle / sel' }, phrases: [
+        { fr: 'La selle du vélo est trop basse.', ar: 'كرسي الدراجة واطي كتير.', en: 'The bicycle seat is too low.' },
+        { fr: 'Je préfère celle-ci.', ar: 'بفضّل هاي.', en: 'I prefer this one.' },
+        { fr: 'Ajoute un peu de sel.', ar: 'حط شوي ملح.', en: 'Add a little salt.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — sale / salle / ça l’est', en: 'Examples — sale / salle / ça l’est', fr: 'Exemples — sale / salle / ça l’est' }, phrases: [
+        { fr: 'La cuisine est sale.', ar: 'المطبخ وسخ.', en: 'The kitchen is dirty.' },
+        { fr: 'La salle est pleine.', ar: 'القاعة مليانة.', en: 'The room is full.' },
+        { fr: 'C’est difficile ? Oui, ça l’est.', ar: 'صعب؟ إي، هو صعب.', en: 'Is it difficult? Yes, it is.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — cygne / signe', en: 'Examples — cygne / signe', fr: 'Exemples — cygne / signe' }, phrases: [
+        { fr: 'J’ai vu un cygne au bord du lac.', ar: 'شفت بجعة ع طرف البحيرة.', en: 'I saw a swan by the lake.' },
+        { fr: 'Il me fait un signe de la main.', ar: 'عم يشيرلي بإيده.', en: 'He is waving/signaling to me.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — doigt / doit / dois', en: 'Examples — doigt / doit / dois', fr: 'Exemples — doigt / doit / dois' }, phrases: [
+        { fr: 'Je me suis coupé le doigt.', ar: 'جرحت إصبعي.', en: 'I cut my finger.' },
+        { fr: 'Il doit partir maintenant.', ar: 'لازم يطلع هلق.', en: 'He has to leave now.' },
+        { fr: 'Tu dois travailler demain.', ar: 'لازم تشتغل بكرا.', en: 'You have to work tomorrow.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — faim / fin / feint', en: 'Examples — faim / fin / feint', fr: 'Exemples — faim / fin / feint' }, phrases: [
+        { fr: 'J’ai faim.', ar: 'أنا جوعان.', en: 'I’m hungry.' },
+        { fr: 'C’est la fin du film.', ar: 'هاي نهاية الفيلم.', en: 'It’s the end of the movie.' },
+        { fr: 'Il feint d’être malade.', ar: 'هو بيتظاهر إنه مريض.', en: 'He pretends to be sick.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — sein / sain / saint / ceint', en: 'Examples — sein / sain / saint / ceint', fr: 'Exemples — sein / sain / saint / ceint' }, phrases: [
+        { fr: 'Il travaille au sein de l’entreprise.', ar: 'هو بيشتغل ضمن الشركة.', en: 'He works within the company.' },
+        { fr: 'Je veux rester en bonne santé et manger sain.', ar: 'بدي ضل بصحة منيحة وآكل أكل صحي.', en: 'I want to stay healthy and eat healthy food.' },
+        { fr: 'Saint Paul est une figure historique.', ar: 'القديس بولس شخصية تاريخية.', en: 'Saint Paul is a historical figure.' },
+        { fr: 'La ville est ceinte de remparts.', ar: 'المدينة محاطة بأسوار.', en: 'The city is surrounded by walls.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — boue / bout', en: 'Examples — boue / bout', fr: 'Exemples — boue / bout' }, phrases: [
+        { fr: 'Mes chaussures sont pleines de boue.', ar: 'جزماتي مليانة طين.', en: 'My shoes are covered in mud.' },
+        { fr: 'Je suis arrivé au bout de la rue.', ar: 'وصلت لنهاية الشارع.', en: 'I reached the end of the street.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — cœur / chœur', en: 'Examples — cœur / chœur', fr: 'Exemples — cœur / chœur' }, phrases: [
+        { fr: 'Mon cœur bat très vite.', ar: 'قلبي عم يدق بسرعة كتير.', en: 'My heart is beating very fast.' },
+        { fr: 'Le chœur chante très bien.', ar: 'الجوقة عم تغني بشكل كتير حلو.', en: 'The choir sings very well.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — don / dont', en: 'Examples — don / dont', fr: 'Exemples — don / dont' }, phrases: [
+        { fr: 'Merci pour ce beau don.', ar: 'شكرًا على هالهدية/التبرع الحلو.', en: 'Thank you for this generous gift/donation.' },
+        { fr: 'C’est le livre dont je t’ai parlé.', ar: 'هاد الكتاب اللي حكيتلك عنه.', en: 'This is the book I told you about.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — lire / lyre', en: 'Examples — lire / lyre', fr: 'Exemples — lire / lyre' }, phrases: [
+        { fr: 'J’aime lire avant de dormir.', ar: 'بحب اقرأ قبل ما نام.', en: 'I like reading before going to sleep.' },
+        { fr: 'La lyre est un ancien instrument.', ar: 'القيثارة آلة موسيقية قديمة.', en: 'The lyre is an ancient instrument.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — mal / mâle / malle', en: 'Examples — mal / mâle / malle', fr: 'Exemples — mal / mâle / malle' }, phrases: [
+        { fr: 'J’ai mal au dos.', ar: 'ظهري عم يوجعني.', en: 'My back hurts.' },
+        { fr: 'C’est un chien mâle.', ar: 'هاد كلب ذكر.', en: 'It’s a male dog.' },
+        { fr: 'Ma valise est dans la malle.', ar: 'شنطتي بصندوق السيارة.', en: 'My suitcase is in the trunk.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — plaine / pleine', en: 'Examples — plaine / pleine', fr: 'Exemples — plaine / pleine' }, phrases: [
+        { fr: 'Ils habitent dans une grande plaine.', ar: 'هنن ساكنين بسهل كبير.', en: 'They live on a large plain.' },
+        { fr: 'La salle est pleine.', ar: 'القاعة مليانة.', en: 'The room is full.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — pou / poux', en: 'Examples — pou / poux', fr: 'Exemples — pou / poux' }, phrases: [
+        { fr: 'L’enfant a un pou dans les cheveux.', ar: 'الولد عنده قملة بشعره.', en: 'The child has a louse in his hair.' },
+        { fr: 'L’école a signalé des poux.', ar: 'المدرسة أخبرت عن وجود قمل.', en: 'The school reported lice.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — roue / roux', en: 'Examples — roue / roux', fr: 'Exemples — roue / roux' }, phrases: [
+        { fr: 'La roue de ma voiture est crevée.', ar: 'دولاب سيارتي مبنشر.', en: 'My car tire is flat.' },
+        { fr: 'Il a les cheveux roux.', ar: 'شعره أحمر مائل للبرتقالي.', en: 'He has red hair.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — casse / case', en: 'Examples — casse / case', fr: 'Exemples — casse / case' }, phrases: [
+        { fr: 'Attention, tu vas casser le verre !', ar: 'دير بالك، رح تكسر الكاس!', en: 'Careful, you’re going to break the glass!' },
+        { fr: 'Écris ton nom dans la case.', ar: 'اكتب اسمك بالخانة.', en: 'Write your name in the box.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — guerre / guère', en: 'Examples — guerre / guère', fr: 'Exemples — guerre / guère' }, phrases: [
+        { fr: 'La guerre a commencé il y a longtemps.', ar: 'الحرب بلشت من زمان.', en: 'The war started a long time ago.' },
+        { fr: 'Je ne connais guère cette personne.', ar: 'أنا بالكاد بعرف هالشخص.', en: 'I hardly know this person.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — courent / courant', en: 'Examples — courent / courant', fr: 'Exemples — courent / courant' }, phrases: [
+        { fr: 'Les enfants courent dans le parc.', ar: 'الولاد عم يركضوا بالحديقة.', en: 'The children are running in the park.' },
+        { fr: 'Il y a un courant d’air.', ar: 'في تيار هوا.', en: 'There is a draft.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — pair / paire', en: 'Examples — pair / paire', fr: 'Exemples — pair / paire' }, phrases: [
+        { fr: 'Ils travaillent en pair.', ar: 'هنن بيشتغلوا كاثنين مع بعض.', en: 'They work as a pair.' },
+        { fr: 'J’ai acheté une paire de chaussures.', ar: 'اشتريت زوج أحذية.', en: 'I bought a pair of shoes.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — fils / file', en: 'Examples — fils / file', fr: 'Exemples — fils / file' }, phrases: [
+        { fr: 'Mon fils habite à Paris.', ar: 'ابني ساكن بباريس.', en: 'My son lives in Paris.' },
+        { fr: 'Il y a une longue file devant le magasin.', ar: 'في طابور طويل قدام المحل.', en: 'There is a long line in front of the store.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — ris / riz', en: 'Examples — ris / riz', fr: 'Exemples — ris / riz' }, phrases: [
+        { fr: 'Tu ris beaucoup !', ar: 'إنت بتضحك كتير!', en: 'You laugh a lot!' },
+        { fr: 'Je mange du riz avec du poulet.', ar: 'عم آكل رز مع دجاج.', en: 'I’m eating rice with chicken.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — prix / prie', en: 'Examples — prix / prie', fr: 'Exemples — prix / prie' }, phrases: [
+        { fr: 'Quel est le prix de ce téléphone ?', ar: 'قديش سعر هالتلفون؟', en: 'What is the price of this phone?' },
+        { fr: 'Il prie tous les jours.', ar: 'هو بيصلّي كل يوم.', en: 'He prays every day.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — goutte / goûte', en: 'Examples — goutte / goûte', fr: 'Exemples — goutte / goûte' }, phrases: [
+        { fr: 'Une goutte d’eau est tombée sur la table.', ar: 'نزلت نقطة مي عالطاولة.', en: 'A drop of water fell on the table.' },
+        { fr: 'Goûte cette soupe !', ar: 'دوق هالشوربة!', en: 'Taste this soup!' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — somme / sommes', en: 'Examples — somme / sommes', fr: 'Exemples — somme / sommes' }, phrases: [
+        { fr: 'La somme totale est de 50 euros.', ar: 'المبلغ الإجمالي 50 يورو.', en: 'The total amount is 50 euros.' },
+        { fr: 'Nous sommes prêts.', ar: 'نحنا جاهزين.', en: 'We are ready.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — ville / vile', en: 'Examples — ville / vile', fr: 'Exemples — ville / vile' }, phrases: [
+        { fr: 'J’habite dans une grande ville.', ar: 'ساكن بمدينة كبيرة.', en: 'I live in a big city.' },
+        { fr: 'C’est une action vile.', ar: 'هاد تصرّف دنيء.', en: 'That is a vile act.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — conte / compte', en: 'Examples — conte / compte', fr: 'Exemples — conte / compte' }, phrases: [
+        { fr: 'Mon enfant aime ce conte.', ar: 'ابني بيحب هالقصة.', en: 'My child likes this tale.' },
+        { fr: 'Je regarde mon compte bancaire.', ar: 'عم شوف حسابي البنكي.', en: 'I’m checking my bank account.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — gêne / gène', en: 'Examples — gêne / gène', fr: 'Exemples — gêne / gène' }, phrases: [
+        { fr: 'Cela me gêne beaucoup.', ar: 'هالشي بيزعجني كتير.', en: 'This bothers me a lot.' },
+        { fr: 'Ce gène peut être transmis.', ar: 'هالجين ممكن ينتقل.', en: 'This gene can be transmitted.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — pause / pose', en: 'Examples — pause / pose', fr: 'Exemples — pause / pose' }, phrases: [
+        { fr: 'Je prends une pause de dix minutes.', ar: 'رح آخد استراحة عشر دقايق.', en: 'I’m taking a ten-minute break.' },
+        { fr: 'Elle pose pour une photo.', ar: 'هي عم تتصوّر للصورة.', en: 'She is posing for a photo.' }
+      ] },
+      { icon: '💬', title: { ar: 'أمثلة — tort / tord', en: 'Examples — tort / tord', fr: 'Exemples — tort / tord' }, phrases: [
+        { fr: 'Tu as tort.', ar: 'إنت غلطان.', en: 'You are wrong.' },
+        { fr: 'Il tord le métal avec ses mains.', ar: 'هو بيلوي المعدن بإيديه.', en: 'He bends the metal with his hands.' }
+      ] }
+
     ]
   }
 ];
