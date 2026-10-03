@@ -6858,6 +6858,43 @@ window.CENTRES_DATA = [
           { fr: 'Bon état général, avec quelques traces d’utilisation. / Produit propre et bien entretenu. / Aucun problème de fonctionnement.', ar: 'حالته جيدة مع آثار استعمال / نظيف ومحافظ عليه / ما فيه مشكلة بالتشغيل.', en: 'Good condition, signs of use / clean and maintained / no functional problems.' },
           { fr: 'Quelques petites rayures, mais rien de gênant. / Vendu avec sa facture d’origine / tous les accessoires. / Encore sous garantie.', ar: 'خدوش بسيطة ما بتأثر / مع الفاتورة الأصلية / كل الملحقات / لسا عليه ضمان.', en: 'Minor scratches / with original invoice / all accessories / still under warranty.' }
         ]
+      },
+      {
+        icon: '📩',
+        title: { ar: '⭐ بداية التواصل + السعر', en: 'First contact + price', fr: 'Premier contact + prix' },
+        phrases: [
+          { fr: 'Votre annonce m’intéresse ! Est-elle toujours disponible ? / Oui, l’article est toujours disponible.', ar: 'إعلانك عجبني! لسا متوفر؟ / إي، لسا متوفر.', en: 'Interested! Still available? / yes, still available.' },
+          { fr: 'Bonjour, est-ce que c’est toujours disponible ? / Oui, c’est toujours disponible.', ar: 'مرحبا، لسا متوفر؟ / إي، لسا متوفر.', en: 'Hello, still available? / yes.' },
+          { fr: 'Le prix est-il négociable ? / Oui, je peux faire un petit geste. / Le prix est ferme.', ar: 'السعر قابل للتفاوض؟ / فيني خفّض شوي / السعر نهائي.', en: 'Negotiable? / a small gesture / price firm.' },
+          { fr: 'Quel est votre dernier prix ? / Je peux vous le faire à 50 €.', ar: 'شو آخِر سعر؟ / فيني أعطيك ياه بـ50 يورو.', en: 'Your lowest price? / €50 for you.' },
+          { fr: 'Quel est le titre de votre annonce ? / Le titre est « Four encastrable Valberg ».', ar: 'شو عنوان الإعلان؟ / «فرن فالبرغ مدمج».', en: 'Listing title? / “Valberg built-in oven”.' }
+        ]
+      },
+      {
+        icon: '📍',
+        title: { ar: '⭐ المكان والموعد والحالة', en: 'Location, timing and condition', fr: 'Lieu, horaire et état' },
+        phrases: [
+          { fr: 'Où se trouve l’article ? / Il est à Strasbourg. / Vous pouvez venir le chercher ? / Oui, je peux venir le chercher.', ar: 'وين الغرض؟ / بستراسبورغ / فيك تجي تاخدو؟ / إي فيني.', en: 'Where? / in Strasbourg / can you pick up? / yes.' },
+          { fr: 'Quand pouvez-vous venir ? / Je peux venir ce soir. / À quelle heure ? / Je peux venir vers 19 h.', ar: 'إمتى فيك تجي؟ / اليوم بالمساء / بأي ساعة؟ / حوالي 7.', en: 'When? / this evening / what time? / around 7.' },
+          { fr: 'Je vous dirai un peu avant à quelle heure exacte. / Je serai là à 19 h.', ar: 'بخبرك قبلها بشوي بالضبط / رح كون هنيك الساعة 7.', en: 'I’ll tell you the exact time / I’ll be there at 7.' },
+          { fr: 'Quel est l’état de l’article ? / Il est en très bon état. / Est-ce qu’il fonctionne correctement ? / Oui, il fonctionne parfaitement.', ar: 'شو حالتو؟ / كتير منيحة / بيشتغل بشكل صحيح؟ / إي تمامًا.', en: 'Condition? / very good / works properly? / perfectly.' },
+          { fr: 'Y a-t-il des défauts ? / Il y a quelques petites traces d’utilisation.', ar: 'فيه عيوب؟ / في كم أثر استعمال صغير.', en: 'Any defects? / a few small signs of use.' },
+          { fr: 'Pouvez-vous m’envoyer d’autres photos ? / Avez-vous la facture ? / Oui, j’ai encore la facture.', ar: 'تبعتلي صور إضافية؟ / معك الفاتورة؟ / إي لسا معي.', en: 'More photos? / receipt? / still have it.' }
+        ]
+      },
+      {
+        icon: '📦',
+        title: { ar: '⭐ الحجز والدفع والاستلام', en: 'Reservation, payment and pickup', fr: 'Réservation, paiement et retrait' },
+        phrases: [
+          { fr: 'Est-ce que vous pouvez me le réserver ? / Oui, je vous le réserve jusqu’à ce soir.', ar: 'فيك تحجزلي ياه؟ / بحجزلك ياه لليوم بالليل.', en: 'Reserve it? / reserved until tonight.' },
+          { fr: 'Désolé, il est déjà réservé. / Si la personne ne vient pas, je vous préviens.', ar: 'آسف، انحجز / إذا ما إجا بخبرك.', en: 'Already reserved / I’ll tell you if they don’t come.' },
+          { fr: 'Quel moyen de paiement acceptez-vous ? / Vous pouvez payer en espèces. / Je préfère un paiement en espèces. / Vous avez l’appoint ?', ar: 'شو طريقة الدفع؟ / كاش / بفضّل كاش / معك المبلغ بالضبط؟', en: 'Payment method? / cash / prefer cash / exact amount?' },
+          { fr: 'Je suis devant l’immeuble. / Je suis arrivé. / Vous pouvez descendre ? / Je descends tout de suite.', ar: 'أنا قدام البناية / وصلت / فيك تنزل؟ / نازل هلأ.', en: 'In front of building / arrived / come down? / coming down.' },
+          { fr: 'Vous pouvez le tester si vous voulez. / vérifier qu’il fonctionne. / Tout fonctionne correctement. / Vous avez des questions ?', ar: 'فيك تجربو / تتأكد إنه بيشتغل / كلشي شغال / عندك سؤال؟', en: 'Test it / check it works / all works / questions?' },
+          { fr: 'Merci, bonne journée ! / Merci pour votre achat ! / Bonne continuation !', ar: 'شكرًا، نهارك سعيد! / شكرًا للشراء! / بالتوفيق!', en: 'Thanks, good day! / thanks for the purchase! / all the best!' },
+          { fr: 'Je suis intéressé. / Je peux venir aujourd’hui ? / passer ce soir ? / Vous faites un prix ? / Je prends. / C’est bon pour moi.', ar: 'أنا مهتم / فيني أجي اليوم؟ / مرق بالمساء؟ / بتعمل سعر أحسن؟ / باخدو / مناسب إلي.', en: 'Interested / come today? / by this evening? / better price? / I’ll take it / works for me.' },
+          { fr: 'Je vous confirme. / Je vous tiens au courant.', ar: 'بأكدلك / بخبرك بالجديد.', en: 'I’ll confirm / keep you updated.' }
+        ]
       }
     ]
   },
