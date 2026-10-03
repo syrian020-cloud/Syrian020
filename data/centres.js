@@ -3232,6 +3232,163 @@ window.CENTRES_DATA = [
           { fr: 'Est-ce que je dois faire une nouvelle demande ?', ar: 'لازم أقدّم طلب جديد؟', en: 'Do I need to submit a new application?' },
           { fr: 'Est-ce que mon dossier est toujours en cours de traitement ?', ar: 'ملفي لسا قيد المعالجة؟', en: 'Is my file still being processed?' }
         ]
+      },
+      {
+        icon: '💸',
+        title: { ar: '⭐ trop-perçu — المعنى والمفردات', en: 'trop-perçu — meaning and vocabulary', fr: 'trop-perçu — vocabulaire' },
+        phrases: [
+          { fr: 'trop-perçu', ar: 'مبلغ تم دفعه لك بالزيادة', en: 'overpayment' },
+          { fr: 'La CAF m’a versé un trop-perçu.', ar: 'الكاف حولتلي مبلغ زيادة.', en: 'CAF paid me an overpayment.' },
+          { fr: 'J’ai reçu un trop-perçu de 200 euros.', ar: 'استلمت 200 يورو زيادة.', en: 'I received a €200 overpayment.' },
+          { fr: 'un indu', ar: 'مبلغ مستحق على الشخص بسبب دفع زائد', en: 'an overpayment / debt' },
+          { fr: 'une dette', ar: 'دَين / مبلغ مستحق', en: 'a debt' },
+          { fr: 'une somme', ar: 'مبلغ مالي', en: 'a sum / amount' },
+          { fr: 'un montant', ar: 'قيمة / مبلغ', en: 'amount' },
+          { fr: 'un remboursement', ar: 'تسديد / إعادة المبلغ', en: 'repayment' },
+          { fr: 'une retenue', ar: 'اقتطاع / حسم', en: 'deduction / withholding' },
+          { fr: 'une échéance', ar: 'دفعة مستحقة / موعد دفع', en: 'installment / due date' },
+          { fr: 'un échéancier', ar: 'جدول تقسيط', en: 'repayment schedule' },
+          { fr: 'une notification', ar: 'إشعار رسمي', en: 'notification' },
+          { fr: 'une mise en demeure', ar: 'إنذار رسمي بالدفع', en: 'formal demand for payment' },
+          { fr: 'une régularisation', ar: 'تسوية / تصحيح الوضع المالي', en: 'adjustment / regularization' },
+          { fr: 'le solde', ar: 'الرصيد المتبقي', en: 'balance' },
+          { fr: 'le montant restant dû', ar: 'المبلغ المتبقي المستحق', en: 'remaining amount due' }
+        ]
+      },
+      {
+        icon: '🔑',
+        title: { ar: 'trop-perçu — أهم الأفعال', en: 'trop-perçu — key verbs', fr: 'trop-perçu — verbes' },
+        phrases: [
+          { fr: 'La CAF m’a versé 500 euros.', ar: 'الكاف حولتلي 500 يورو.', en: 'CAF paid me €500.' },
+          { fr: 'J’ai perçu une somme trop importante.', ar: 'استلمت مبلغًا أكبر من المفروض.', en: 'I received too much money.' },
+          { fr: 'La CAF a constaté un trop-perçu.', ar: 'الكاف اكتشفت وجود مبلغ مدفوع بالزيادة.', en: 'CAF identified an overpayment.' },
+          { fr: 'La CAF me réclame 300 euros.', ar: 'الكاف عم تطالبني بـ300 يورو.', en: 'CAF is asking me for €300.' },
+          { fr: 'La CAF récupère le trop-perçu.', ar: 'الكاف تسترد المبلغ المدفوع بالزيادة.', en: 'CAF recovers the overpayment.' },
+          { fr: 'Je dois rembourser le trop-perçu.', ar: 'لازم رجّع المبلغ الزائد.', en: 'I have to repay the overpayment.' },
+          { fr: 'La CAF retient une partie de mon aide.', ar: 'الكاف عم تحسم جزء من مساعدتي.', en: 'CAF is withholding part of my benefit.' },
+          { fr: 'La CAF déduit 50 euros chaque mois.', ar: 'الكاف بتخصم 50 يورو كل شهر.', en: 'CAF deducts €50 each month.' },
+          { fr: 'Je voudrais régulariser ma situation.', ar: 'بدي سوّي وضعي.', en: 'I would like to settle my situation.' },
+          { fr: 'Est-ce que je peux échelonner le remboursement ?', ar: 'فيني قسّط المبلغ؟', en: 'Can I pay the amount in installments?' },
+          { fr: 'Je souhaite contester ce trop-perçu.', ar: 'بدي اعترض على هالمبلغ الزائد.', en: 'I want to dispute this overpayment.' },
+          { fr: 'Je voudrais vérifier le calcul.', ar: 'بدي أتأكد من الحساب.', en: 'I would like to check the calculation.' },
+          { fr: 'Pouvez-vous m’expliquer ce trop-perçu ?', ar: 'فيكم تشرحولي ليش في مبلغ زيادة؟', en: 'Can you explain this overpayment?' }
+        ]
+      },
+      {
+        icon: '❓',
+        title: { ar: 'trop-perçu — الأسباب والأسئلة', en: 'trop-perçu — causes and questions', fr: 'trop-perçu — causes et questions' },
+        phrases: [
+          { fr: 'un changement de revenus', ar: 'تغيّر بالدخل', en: 'change in income' },
+          { fr: 'un changement de situation familiale', ar: 'تغيّر بالوضع العائلي', en: 'change in family situation' },
+          { fr: 'un changement de logement', ar: 'تغيّر السكن', en: 'change of accommodation' },
+          { fr: 'un déménagement', ar: 'انتقال من منزل', en: 'move' },
+          { fr: 'une reprise d’activité', ar: 'العودة إلى العمل', en: 'return to work' },
+          { fr: 'une fin de contrat', ar: 'انتهاء عقد العمل', en: 'end of employment contract' },
+          { fr: 'une erreur de déclaration', ar: 'خطأ بالتصريح', en: 'declaration error' },
+          { fr: 'une déclaration tardive', ar: 'تصريح متأخر', en: 'late declaration' },
+          { fr: 'une information non déclarée', ar: 'معلومة لم يتم التصريح عنها', en: 'undeclared information' },
+          { fr: 'une modification des droits', ar: 'تعديل الحقوق', en: 'change in benefit entitlement' },
+          { fr: 'Le trop-perçu est lié à un changement de revenus.', ar: 'المبلغ الزائد سببه تغيّر بالدخل.', en: 'The overpayment is related to a change in income.' },
+          { fr: 'Pourquoi ai-je un trop-perçu ?', ar: 'ليش عندي مبلغ مدفوع بالزيادة؟', en: 'Why do I have an overpayment?' },
+          { fr: 'À quoi correspond ce trop-perçu ?', ar: 'هالمبلغ الزائد متعلق بشو؟', en: 'What does this overpayment relate to?' },
+          { fr: 'Quel est le montant du trop-perçu ?', ar: 'قديش قيمة المبلغ الزائد؟', en: 'What is the amount of the overpayment?' },
+          { fr: 'Comment ce montant a-t-il été calculé ?', ar: 'كيف انحسب هالمبلغ؟', en: 'How was this amount calculated?' },
+          { fr: 'Sur quelle période porte le trop-perçu ?', ar: 'عن أي فترة محسوب هالمبلغ؟', en: 'What period does the overpayment cover?' },
+          { fr: 'Depuis quelle date ai-je un trop-perçu ?', ar: 'من أي تاريخ صار عندي مبلغ زائد؟', en: 'Since what date have I had an overpayment?' },
+          { fr: 'Quelle est l’origine de ce trop-perçu ?', ar: 'شو سبب هالمبلغ الزائد؟', en: 'What is the reason for this overpayment?' },
+          { fr: 'Est-ce une erreur de ma part ?', ar: 'هل الغلطة مني؟', en: 'Is it my mistake?' },
+          { fr: 'Est-ce que je dois vraiment rembourser cette somme ?', ar: 'لازم فعلًا رجّع هالمبلغ؟', en: 'Do I really have to repay this amount?' }
+        ]
+      },
+      {
+        icon: '🤔',
+        title: { ar: 'trop-perçu — ما فهمت السبب', en: 'trop-perçu — not understanding', fr: 'trop-perçu — ne pas comprendre' },
+        phrases: [
+          { fr: 'Je ne comprends pas pourquoi j’ai un trop-perçu.', ar: 'ما فهمت ليش عندي مبلغ مدفوع بالزيادة.', en: 'I don’t understand why I have an overpayment.' },
+          { fr: 'Je voudrais comprendre le calcul.', ar: 'بدي أفهم طريقة الحساب.', en: 'I would like to understand the calculation.' },
+          { fr: 'Pouvez-vous m’expliquer en détail ?', ar: 'فيكم تشرحولي بالتفصيل؟', en: 'Can you explain it to me in detail?' },
+          { fr: 'Pouvez-vous me dire quelle information a entraîné ce trop-perçu ?', ar: 'فيكم تخبروني أي معلومة سببت هالمبلغ الزائد؟', en: 'Can you tell me which information caused this overpayment?' },
+          { fr: 'Je voudrais vérifier s’il n’y a pas d’erreur.', ar: 'بدي أتأكد إنه ما في غلطة.', en: 'I would like to check that there isn’t a mistake.' }
+        ]
+      },
+      {
+        icon: '✅',
+        title: { ar: 'trop-perçu — إذا وافقت على المبلغ', en: 'trop-perçu — agreeing to repay', fr: 'trop-perçu — accepter de rembourser' },
+        phrases: [
+          { fr: 'Je reconnais le trop-perçu.', ar: 'أنا بوافق إن في مبلغ زائد.', en: 'I acknowledge the overpayment.' },
+          { fr: 'Je souhaite le rembourser.', ar: 'بدي سدده.', en: 'I want to repay it.' },
+          { fr: 'Comment puis-je rembourser cette somme ?', ar: 'كيف فيني سدّد هالمبلغ؟', en: 'How can I repay this amount?' },
+          { fr: 'Quel est le délai pour rembourser ?', ar: 'شو المهلة لتسديده؟', en: 'What is the deadline for repayment?' },
+          { fr: 'Puis-je payer en plusieurs fois ?', ar: 'فيني ادفعه على دفعات؟', en: 'Can I pay in installments?' }
+        ]
+      },
+      {
+        icon: '📅',
+        title: { ar: 'trop-perçu — التقسيط والخصم', en: 'trop-perçu — instalments and deductions', fr: 'trop-perçu — échéancier et retenues' },
+        phrases: [
+          { fr: 'Je ne peux pas payer cette somme en une seule fois.', ar: 'ما فيني ادفع هالمبلغ دفعة وحدة.', en: 'I can’t pay this amount all at once.' },
+          { fr: 'Est-ce que je peux bénéficier d’un échéancier ?', ar: 'فيني أعمل جدول تقسيط؟', en: 'Can I get a repayment plan?' },
+          { fr: 'Est-ce que je peux échelonner le remboursement ?', ar: 'فيني قسّط التسديد؟', en: 'Can I pay the repayment in installments?' },
+          { fr: 'Combien dois-je payer chaque mois ?', ar: 'قديش لازم ادفع كل شهر؟', en: 'How much do I have to pay each month?' },
+          { fr: 'Pendant combien de mois ?', ar: 'لمدة كم شهر؟', en: 'For how many months?' },
+          { fr: 'Quand commencera le remboursement ?', ar: 'إمتى بيبدأ التسديد؟', en: 'When will repayment start?' },
+          { fr: 'Est-ce que la CAF va retenir une partie de mes allocations ?', ar: 'الكاف رح تخصم جزء من مساعداتي؟', en: 'Will CAF withhold part of my benefits?' },
+          { fr: 'Combien allez-vous retenir chaque mois ?', ar: 'قديش رح تخصموا كل شهر؟', en: 'How much will you deduct each month?' },
+          { fr: 'Pendant combien de temps ?', ar: 'لمدة قديش؟', en: 'For how long?' },
+          { fr: 'Est-ce que le remboursement sera prélevé automatiquement ?', ar: 'التسديد رح ينسحب تلقائيًا؟', en: 'Will repayment be deducted automatically?' }
+        ]
+      },
+      {
+        icon: '⚖️',
+        title: { ar: 'trop-perçu — الاعتراض', en: 'trop-perçu — disputing', fr: 'trop-perçu — contester' },
+        phrases: [
+          { fr: 'Je conteste ce trop-perçu.', ar: 'أنا معترض على هالمبلغ الزائد.', en: 'I dispute this overpayment.' },
+          { fr: 'Je souhaite contester le montant réclamé.', ar: 'بدي اعترض على المبلغ المطلوب مني.', en: 'I want to dispute the amount being claimed.' },
+          { fr: 'Je ne suis pas d’accord avec ce calcul.', ar: 'أنا مو موافق على هالحساب.', en: 'I disagree with this calculation.' },
+          { fr: 'Je pense qu’il y a une erreur dans le calcul.', ar: 'بعتقد في غلطة بالحساب.', en: 'I think there is an error in the calculation.' },
+          { fr: 'Je voudrais demander un réexamen de mon dossier.', ar: 'بدي أطلب إعادة دراسة ملفي.', en: 'I would like to request a review of my file.' },
+          { fr: 'Pouvez-vous vérifier mon dossier avant que je rembourse ?', ar: 'فيكم تراجعوا ملفي قبل ما سدّد؟', en: 'Can you check my file before I repay?' }
+        ]
+      },
+      {
+        icon: '💳',
+        title: { ar: 'trop-perçu — بعد الدفع ورسائل CAF', en: 'trop-perçu — after paying, CAF letters', fr: 'trop-perçu — après paiement, courriers' },
+        phrases: [
+          { fr: 'J’ai déjà remboursé cette somme.', ar: 'أنا دفعت هالمبلغ من قبل.', en: 'I have already repaid this amount.' },
+          { fr: 'J’ai effectué le remboursement.', ar: 'قمت بالتسديد.', en: 'I made the repayment.' },
+          { fr: 'Le paiement a-t-il bien été enregistré ?', ar: 'هل تم تسجيل الدفعة بشكل صحيح؟', en: 'Was the payment properly recorded?' },
+          { fr: 'Pouvez-vous confirmer que mon remboursement a été reçu ?', ar: 'فيكم تأكدوا إنكم استلمتوا التسديد؟', en: 'Can you confirm that my repayment was received?' },
+          { fr: 'Quel est le solde restant ?', ar: 'قديش باقي عليّ؟', en: 'What is the remaining balance?' },
+          { fr: 'Vous avez un trop-perçu.', ar: 'عندكم مبلغ مدفوع بالزيادة.', en: 'You have an overpayment.' },
+          { fr: 'Vous êtes redevable de 300 €.', ar: 'عليك مبلغ 300 يورو.', en: 'You owe €300.' },
+          { fr: 'Vous devez rembourser cette somme.', ar: 'لازم تسدد هالمبلغ.', en: 'You must repay this amount.' },
+          { fr: 'Le montant restant dû est de 200 €.', ar: 'المبلغ المتبقي عليك هو 200 يورو.', en: 'The remaining amount due is €200.' },
+          { fr: 'Une retenue sera effectuée sur vos prestations.', ar: 'رح يتم حسم مبلغ من مساعداتك.', en: 'A deduction will be made from your benefits.' },
+          { fr: 'Le remboursement sera effectué par retenues.', ar: 'التسديد رح يتم عن طريق اقتطاعات.', en: 'Repayment will be made through deductions.' },
+          { fr: 'Votre dette est en cours de recouvrement.', ar: 'عم يتم تحصيل المبلغ المستحق عليكم.', en: 'Your debt is being recovered.' },
+          { fr: 'Votre dette est soldée.', ar: 'تم تسديد الدين بالكامل.', en: 'Your debt has been fully paid.' }
+        ]
+      },
+      {
+        icon: '⭐',
+        title: { ar: 'trop-perçu — أهم 15 جملة', en: 'trop-perçu — top 15 phrases', fr: 'trop-perçu — top 15' },
+        phrases: [
+          { fr: 'Pourquoi ai-je un trop-perçu ?', ar: 'ليش عندي مبلغ مدفوع بالزيادة؟', en: 'Why do I have an overpayment?' },
+          { fr: 'À quoi correspond ce trop-perçu ?', ar: 'هالمبلغ متعلق بشو؟', en: 'What does this overpayment relate to?' },
+          { fr: 'Quel est le montant exact ?', ar: 'شو المبلغ بالضبط؟', en: 'What is the exact amount?' },
+          { fr: 'Comment avez-vous calculé ce montant ?', ar: 'كيف حسبتوا هالمبلغ؟', en: 'How did you calculate this amount?' },
+          { fr: 'Sur quelle période porte-t-il ?', ar: 'عن أي فترة هو؟', en: 'What period does it cover?' },
+          { fr: 'Est-ce que je dois le rembourser ?', ar: 'لازم سدده؟', en: 'Do I have to repay it?' },
+          { fr: 'Comment puis-je le rembourser ?', ar: 'كيف فيني سدده؟', en: 'How can I repay it?' },
+          { fr: 'Puis-je payer en plusieurs fois ?', ar: 'فيني ادفعه على دفعات؟', en: 'Can I pay in installments?' },
+          { fr: 'Puis-je avoir un échéancier ?', ar: 'فيني آخد جدول تقسيط؟', en: 'Can I get a repayment plan?' },
+          { fr: 'Combien dois-je payer chaque mois ?', ar: 'قديش لازم ادفع كل شهر؟', en: 'How much do I have to pay each month?' },
+          { fr: 'Est-ce que vous allez retenir une partie de mes prestations ?', ar: 'رح تخصموا جزء من مساعداتي؟', en: 'Will you deduct part of my benefits?' },
+          { fr: 'Je ne comprends pas ce calcul.', ar: 'ما فهمت هالحساب.', en: 'I don’t understand this calculation.' },
+          { fr: 'Je pense qu’il y a une erreur.', ar: 'بعتقد في غلطة.', en: 'I think there is an error.' },
+          { fr: 'Je souhaite contester ce trop-perçu.', ar: 'بدي اعترض على هالمبلغ الزائد.', en: 'I want to dispute this overpayment.' },
+          { fr: 'Je voudrais demander un réexamen de mon dossier.', ar: 'بدي أطلب إعادة دراسة ملفي.', en: 'I would like to request a review of my file.' }
+        ]
       }
     ]
   },
