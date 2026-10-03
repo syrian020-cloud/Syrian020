@@ -7511,6 +7511,48 @@ window.CENTRES_DATA = [
           { fr: 'Vous avez les dimensions ? / Vous avez la référence du produit ? / C’est pour quel usage ? / Quel matériau voulez-vous réparer ?', ar: 'معك المقاسات؟ / رقم المنتج؟ / لشو بتستخدمه؟ / أي مادة بدك تصلّح؟', en: 'Dimensions? / product reference? / what use? / which material?' },
           { fr: 'Vous avez besoin de quoi exactement ? / Je vais vous montrer. / C’est juste ici. / C’est dans quel rayon ?', ar: 'شو بالضبط محتاجه؟ / رح فرجيك / هو هون بالضبط / بأي قسم؟', en: 'What exactly? / I’ll show you / right here / which aisle?' }
         ]
+      },
+      {
+        icon: '🔎',
+        title: { ar: 'ما بتعرف اسم القطعة', en: 'Don’t know the part’s name', fr: 'Pièce sans nom connu' },
+        phrases: [
+          { fr: 'Je ne connais pas le nom de cette pièce. / Je peux vous montrer une photo ?', ar: 'ما بعرف اسم هالقطعة / فيني فرجيك صورة؟', en: 'I don’t know the name / show you a photo?' },
+          { fr: 'Je cherche la même pièce que celle-ci. / C’est cette pièce qu’il me faut. / Vous avez quelque chose de similaire ?', ar: 'بدي نفس هالقطعة / هاي هي اللي بحتاجها / عندكم شي مشابه؟', en: 'Same part as this / this is the one / something similar?' },
+          { fr: 'Je cherche cette pièce, mais je ne connais pas son nom. Voici une photo.', ar: 'عم دور على هالقطعة بس ما بعرف اسمها، هاي صورتها.', en: 'Looking for this part, don’t know the name — here’s a photo.' }
+        ]
+      },
+      {
+        icon: '📦',
+        title: { ar: 'المنتج ناقص بالرف', en: 'Product not on the shelf', fr: 'Produit absent du rayon' },
+        phrases: [
+          { fr: 'Je ne trouve pas ce produit. / Il n’y en a plus en rayon ? / Vous en avez en stock ?', ar: 'ما عم لاقي هالمنتج / ما عاد في بالقسم؟ / عندكم بالمخزون؟', en: 'Can’t find it / none left? / in stock?' },
+          { fr: 'Quand est-ce que vous allez en recevoir ? / Il est disponible dans un autre magasin ?', ar: 'إمتى بتوصلكم كمية؟ / موجود بفرع تاني؟', en: 'When will you receive more? / another store?' }
+        ]
+      },
+      {
+        icon: '🔄',
+        title: { ar: 'تبديل وإرجاع بدون فاتورة', en: 'Exchange and return without receipt', fr: 'Échange et retour sans ticket' },
+        phrases: [
+          { fr: 'Je voudrais échanger ce produit. / Je me suis trompé de modèle. / Ce n’est pas la bonne dimension. / Ce n’est pas compatible.', ar: 'بدي بدّل هالمنتج / أخدت الموديل الغلط / مو القياس المناسب / ما بيركب.', en: 'Exchange / wrong model / wrong size / not compatible.' },
+          { fr: 'Il me faut le même modèle, mais dans une autre dimension.', ar: 'بدي نفس الموديل بس بقياس تاني.', en: 'Same model, another size.' },
+          { fr: 'J’ai perdu mon ticket de caisse. / Est-ce que vous pouvez retrouver mon achat ? / J’ai payé par carte.', ar: 'ضيّعت الإيصال / فيكم تلاقوا شرائي؟ / دفعت بالبطاقة.', en: 'Lost the receipt / find my purchase? / paid by card.' }
+        ]
+      },
+      {
+        icon: '🚚',
+        title: { ar: 'توصيل واستلام الطلب', en: 'Delivery and order pickup', fr: 'Livraison et retrait de commande' },
+        phrases: [
+          { fr: 'Est-ce que vous faites la livraison à domicile ? / Combien coûte la livraison ? / Quand est-ce que je peux être livré ?', ar: 'بتعملوا توصيل للبيت؟ / قديش التوصيل؟ / إمتى يوصلني؟', en: 'Home delivery? / delivery cost? / when delivered?' },
+          { fr: 'Je voudrais retirer ma commande. / Voici mon numéro de commande. / Je peux passer par cette caisse ? / Vous avez besoin de mon numéro de fidélité ? / Je voudrais le ticket par e-mail.', ar: 'بدي استلم طلبي / هاد رقم طلبي / ادفع من هالصندوق؟ / بدكم رقم البطاقة؟ / الإيصال على الإيميل.', en: 'Collect my order / order number / this checkout? / loyalty number? / receipt by email.' }
+        ]
+      },
+      {
+        icon: '🧑‍🔧',
+        title: { ar: 'طلب نصيحة', en: 'Asking for advice', fr: 'Demander conseil' },
+        phrases: [
+          { fr: 'Je ne sais pas lequel choisir. / Lequel est le plus adapté à mon besoin ? / Est-ce que vous pouvez me conseiller ?', ar: 'ما بعرف أي واحد اختار / أنسب لحاجتي؟ / فيك تنصحني؟', en: 'Don’t know which / most suitable? / advise me?' },
+          { fr: 'Est-ce que ça convient pour mon mur ? / Comment ça s’utilise ? / Il faut utiliser un outil particulier ?', ar: 'مناسب لحيطي؟ / كيف بينستعمل؟ / لازم أداة معينة؟', en: 'Suits my wall? / how to use it? / special tool?' }
+        ]
       }
     ]
   }
