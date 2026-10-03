@@ -7184,5 +7184,113 @@ window.CENTRES_DATA = [
         ]
       }
     ]
+  },
+  {
+    id: 'marche',
+    icon: '🛒',
+    name: { ar: 'السوق (Marché)', en: 'The Market (Marché)', fr: 'Le marché' },
+    desc: { ar: 'سوق الأحد: أسعار ومساومة، وزن وكمية، خضار وفواكه، لحوم، ملابس، دفع، عبارات البائع، الخلافات والزحمة.', en: 'Sunday market: prices, weights, produce, meat, clothes, payment, seller phrases, disputes and crowds.', fr: 'Marché du dimanche : prix, poids, fruits et légumes, viande, vêtements, paiement, disputes.' },
+    sections: [
+      {
+        icon: '🛒',
+        title: { ar: '⭐ الدخول والتجول', en: 'Entering and browsing', fr: 'Entrée et repérage' },
+        phrases: [
+          { fr: 'Bonjour ! / Vous cherchez quelque chose ? / Je regarde, merci. / Je cherche ça.', ar: 'مرحبا! / عم تدور على شي؟ / عم اتفرّج بس / عم دور على هاد.', en: 'Hello / looking for something? / just looking / looking for this.' },
+          { fr: 'C’est où, s’il vous plaît ? / Vous avez ça ? / Vous avez d’autres modèles ?', ar: 'وين هاد؟ / عندكم هاد؟ / عندكم موديلات تانية؟', en: 'Where is this? / have this? / other models?' },
+          { fr: 'C’est disponible ? / Il en reste ? / Je peux regarder ? / toucher ?', ar: 'متوفر؟ / ضلّ منه؟ / فيني شوف؟ / لمس؟', en: 'Available? / any left? / look / touch?' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: '⭐ الأسعار والمساومة والعروض', en: 'Prices, haggling and offers', fr: 'Prix, marchandage et promos' },
+        phrases: [
+          { fr: 'C’est combien ? / Ça coûte combien ? / Quel est le prix ? / C’est combien le kilo ? / Vous faites combien le kilo ?', ar: 'قديش؟ / شو السعر؟ / قديش الكيلو؟ / بتحسبوا الكيلو قديش؟', en: 'How much? / the price? / per kilo?' },
+          { fr: 'Vous pouvez faire un petit prix ? / Vous me faites combien ? / C’est votre dernier prix ? / C’est déjà le meilleur prix.', ar: 'تعمل سعر أحسن؟ / قديش بتحسبلي؟ / آخِر سعر؟ / هاد أصلًا أحسن سعر.', en: 'Better price? / how much for me? / final price? / already the best.' },
+          { fr: 'C’est le prix affiché ? / Ce n’est pas le prix affiché. / Pourquoi c’est aussi cher ? / C’est trop cher.', ar: 'هاد السعر المكتوب؟ / هاد مو المكتوب / ليش غالي هيك؟ / غالي كتير.', en: 'Displayed price? / not the displayed price / why so expensive / too expensive.' },
+          { fr: 'C’est en promotion ? / Vous faites une promotion ? / Il y a une réduction ? / des soldes ? / C’est moins cher aujourd’hui.', ar: 'عليه عرض؟ / في تخفيض؟ / تنزيلات؟ / أرخص اليوم.', en: 'On sale? / discount? / sales? / cheaper today.' },
+          { fr: 'Deux kilos pour cinq euros. / Trois pour cinq euros. / Profitez-en ! / C’est pas cher !', ar: 'كيلوين بخمسة يورو / تلاتة بخمسة / استفيدوا! / مو غالي!', en: 'Two kilos €5 / three €5 / take advantage / not expensive!' },
+          { fr: 'Je ne prends pas finalement. / Je prends ça.', ar: 'خلص ما عاد بدي / باخد هاد.', en: 'Not taking it / I’ll take this.' }
+        ]
+      },
+      {
+        icon: '⚖️',
+        title: { ar: '⭐ الوزن والكمية', en: 'Weight and quantity', fr: 'Poids et quantité' },
+        phrases: [
+          { fr: 'Vous en voulez combien ? / Je vous en mets combien ? / Je vous mets un kilo ?', ar: 'قديش بدك منه؟ / قديش حطلك؟ / حطلك كيلو؟', en: 'How much do you want / shall I put / a kilo?' },
+          { fr: 'Je voudrais un kilo. / Mettez-moi deux kilos, s’il vous plaît. / Un demi-kilo, s’il vous plaît.', ar: 'بدي كيلو / حطلي كيلوين / نص كيلو.', en: 'One kilo / two kilos / half a kilo.' },
+          { fr: 'Un peu plus, s’il vous plaît. / Un peu moins, s’il vous plaît.', ar: 'شوي زيادة / شوي أقل.', en: 'A little more / a little less.' },
+          { fr: 'Ça fait combien ? / Ça fait deux kilos. / Voilà, ça fait 8 euros.', ar: 'قديش طلع؟ / طلعوا كيلوين / تفضل، 8 يورو.', en: 'How much? / two kilos / that’s €8.' },
+          { fr: 'Ce n’est pas le bon poids. / Vous m’avez mis trop. / Il manque un peu. / Vous pouvez vérifier la balance ? / La balance n’est pas à zéro.', ar: 'مو الوزن الصح / حطيتلي زيادة / ناقص شوي / تتأكد من الميزان؟ / مو عالصفر.', en: 'Wrong weight / too much / a bit short / check the scale / not at zero.' }
+        ]
+      },
+      {
+        icon: '🍎',
+        title: { ar: '⭐ الخضار والفواكه', en: 'Fruit and vegetables', fr: 'Fruits et légumes' },
+        phrases: [
+          { fr: 'C’est frais ? / Ils sont frais ? / Ils sont mûrs ? / bons ? / sucrés ? / Ils viennent d’où ? / C’est français ?', ar: 'طازة؟ / مستويين؟ / طيبين؟ / حلوين؟ / من وين جايين؟ / فرنسي؟', en: 'Fresh? / ripe? / good? / sweet? / from where? / French?' },
+          { fr: 'Je peux choisir ? / prendre ceux-là ? / Vous pouvez m’en mettre de bons / choisir des bons ? / Prenez les plus mûrs.', ar: 'فيني اختار؟ / آخد هدول؟ / تحطلي المنيحة؟ / خد المستويين.', en: 'Can I choose? / take those? / pick good ones / the ripest.' },
+          { fr: 'des bananes / des pommes / des oranges / des mandarines / des raisins / des fraises / des pêches / des poires', ar: 'موز / تفاح / برتقال / مندلينا / عنب / فراولة / خوخ / إجاص', en: 'bananas / apples / oranges / mandarins / grapes / strawberries / peaches / pears' },
+          { fr: 'des tomates / des concombres / des courgettes / des aubergines / des poivrons / des pommes de terre / des oignons / de l’ail / de la salade / des carottes', ar: 'بندورة / خيار / كوسا / باذنجان / فليفلة / بطاطا / بصل / توم / خس / جزر', en: 'tomatoes / cucumbers / zucchini / eggplants / peppers / potatoes / onions / garlic / lettuce / carrots' },
+          { fr: 'Je voudrais des tomates / des fraises / de l’ail…', ar: 'بدي بندورة / فراولة / توم…', en: 'I’d like some…' }
+        ]
+      },
+      {
+        icon: '🥩',
+        title: { ar: '⭐ اللحوم والملابس والأغراض', en: 'Meat, clothes and goods', fr: 'Viande, vêtements et articles' },
+        phrases: [
+          { fr: 'C’est halal ? / Vous avez de la viande halal ? / C’est du bœuf ou de l’agneau ?', ar: 'هاد حلال؟ / عندكم لحمة حلال؟ / بقري ولا غنم؟', en: 'Halal? / halal meat? / beef or lamb?' },
+          { fr: 'Vous pouvez me couper ça ? / me le préparer ?', ar: 'تقطعلي هاد؟ / تجهزلي ياه؟', en: 'Cut this? / prepare it?' },
+          { fr: 'C’est quelle taille ? / Vous avez du L ? / une taille plus grande ? / une autre taille / couleur ? / Je peux essayer ?', ar: 'شو القياس؟ / عندكم L؟ / أكبر؟ / قياس/لون تاني؟ / فيني جرّبه؟', en: 'Size? / have L? / larger / another size/color / try on?' },
+          { fr: 'C’est neuf ? / Il y a un défaut ? / Quel est l’état ?', ar: 'هاد جديد؟ / فيه عيب؟ / شو حالتو؟', en: 'New? / defect? / condition?' }
+        ]
+      },
+      {
+        icon: '💳',
+        title: { ar: '⭐ الدفع والأكياس', en: 'Payment and bags', fr: 'Paiement et sacs' },
+        phrases: [
+          { fr: 'Vous acceptez la carte ? / Je peux payer par carte ? / Je vais payer par carte. / Je paie en espèces.', ar: 'بتقبلوا البطاقة؟ / فيني ادفع بطاقة؟ / رح ادفع بطاقة / كاش.', en: 'Cards accepted? / pay by card / in cash.' },
+          { fr: 'Vous avez de la monnaie ? / l’appoint ? / Voilà.', ar: 'معك فكة؟ / المبلغ بالضبط؟ / تفضل.', en: 'Change? / exact amount? / here.' },
+          { fr: 'Vous avez la carte de fidélité ? / Vous avez besoin du ticket ? / Je peux avoir le ticket, s’il vous plaît ?', ar: 'معك بطاقة الوفاء؟ / بدك الإيصال؟ / فيني آخد الإيصال؟', en: 'Loyalty card? / need the receipt? / can I have it?' },
+          { fr: 'Vous voulez un sac ? / Oui, s’il vous plaît. / Non merci / Pas de sac, merci. / Vous pouvez bien fermer le sac ?', ar: 'بدك كيس؟ / إي / لا شكرًا / بلا كيس / تسكّرو منيح؟', en: 'Want a bag? / yes / no thanks / close it well?' }
+        ]
+      },
+      {
+        icon: '📢',
+        title: { ar: '⭐ عبارات البائع والسوق', en: 'Seller and market phrases', fr: 'Phrases du vendeur' },
+        phrases: [
+          { fr: 'Vous voulez quoi ? / Vous en voulez combien ? / Je vous mets ça ? / Autre chose ? / C’est tout ?', ar: 'شو بدك؟ / قديش بدك؟ / حطلك هاد؟ / شي تاني؟ / هيك بس؟', en: 'What do you want / how much / this? / anything else? / that all?' },
+          { fr: 'Regardez ! / Venez voir ! / Profitez-en ! / Il ne m’en reste plus beaucoup. / encore. / C’est le dernier.', ar: 'شوفوا! / تعالوا! / اغتنموا! / ما ضل معي كتير / لسا في / آخر واحد.', en: 'Look! / come see! / take advantage! / few left / still have / the last.' },
+          { fr: 'Ne touchez pas, s’il vous plaît. / Vous pouvez choisir, mais doucement. / Ne mélangez pas les produits. / Attention, ça se casse.', ar: 'لا تلمس / اختار بالراحة / لا تخلط البضاعة / هاد بينكسر.', en: 'Don’t touch / choose gently / don’t mix / it breaks.' },
+          { fr: 'Tous les samedis, je vais au marché pour faire mes courses / acheter des fruits et des légumes.', ar: 'كل سبت بروح عالسوق لأشتري أغراض البيت / فواكه وخضار.', en: 'Every Saturday I go to the market to shop / buy produce.' },
+          { fr: 'Il y a beaucoup de monde au marché. / Le marché est très fréquenté / bondé. / Il y a énormément de monde aujourd’hui.', ar: 'في عالم كتير بالسوق / عليه حركة / مليان / اليوم كتير كتير.', en: 'Lots of people / very busy / packed / so many today.' },
+          { fr: 'Vous êtes ouverts le dimanche ? / Vous fermez à quelle heure aujourd’hui ? / C’est ouvert aujourd’hui ?', ar: 'فاتحين الأحد؟ / بأي ساعة بتسكروا اليوم؟ / مفتوح اليوم؟', en: 'Open Sundays? / what time do you close? / open today?' },
+          { fr: 'Merci, bonne journée ! / Bon dimanche ! / À bientôt !', ar: 'نهارك سعيد! / أحد سعيد! / بشوفك قريب!', en: 'Good day! / nice Sunday! / see you soon!' }
+        ]
+      },
+      {
+        icon: '😠',
+        title: { ar: '⭐ الخلافات والدور', en: 'Disputes and queueing', fr: 'Disputes et file d’attente' },
+        phrases: [
+          { fr: 'Vous m’aviez dit un autre prix. / Je vous ai demandé le prix. / Ce n’est pas ce que j’ai demandé.', ar: 'قلتلي سعر تاني / أنا سألتك عن السعر / هاد مو اللي طلبتو.', en: 'You said another price / I asked / not what I asked.' },
+          { fr: 'Faites la queue, s’il vous plaît. / C’était mon tour. / J’étais là avant vous. / Ne passez pas devant moi. / Attendez votre tour.', ar: 'وقفوا بالدور / كان دوري / كنت قبلك / لا تتجاوزني / استنى دورك.', en: 'Queue up / my turn / I was first / don’t cut / wait your turn.' },
+          { fr: 'Calmez-vous, s’il vous plaît. / Parlez calmement. / Je ne suis pas d’accord. / Laissez-moi expliquer. / On peut trouver une solution.', ar: 'هدي حالك / احكي بهدوء / مو موافق / خليني اشرح / فينا نلاقي حل.', en: 'Calm down / speak calmly / disagree / let me explain / find a solution.' },
+          { fr: 'Arrêtez de crier. / Pas besoin de s’énerver. / On peut parler tranquillement. / Laissez tomber. / Ce n’est pas la peine de se disputer.', ar: 'وقف صراخ / ما في داعي للعصبية / نحكي بهدوء / اتركها / ما في داعي نتخانق.', en: 'Stop shouting / no need to get angry / talk calmly / forget it / no point arguing.' },
+          { fr: 'Appelez le responsable, s’il vous plaît. / Qu’est-ce qui se passe ? / Laissez-les tranquilles. / Calmez-vous tous les deux. / Il faut se calmer.', ar: 'نادي المسؤول / شو عم يصير؟ / اتركون بحالن / هدو التنين / لازم نهدى.', en: 'Call the manager / what’s happening / leave them / both calm down.' },
+          { fr: 'C’était mon tour ! / Attendez votre tour ! / C’est trop cher ! / Calmez-vous ! / Pas besoin de s’énerver.', ar: 'كان دوري! / استنى دورك! / غالي كتير! / هدي حالك! / ما في داعي للعصبية.', en: 'My turn! / wait your turn! / too expensive! / calm down! / no need.' }
+        ]
+      },
+      {
+        icon: '🚶',
+        title: { ar: '⭐ الزحمة والاصطدام (bousculer)', en: 'Crowds and bumping (bousculer)', fr: 'Foule et bousculade' },
+        phrases: [
+          { fr: 'Pardon ! / Excusez-moi ! / Désolé, je ne vous avais pas vu. / Pardon, je vous ai bousculé. / c’était involontaire.', ar: 'آسف! / عفواً! / ما انتبهتلك / دفشتك بالغلط / مو قصد.', en: 'Sorry! / excuse me! / didn’t see you / bumped you / accidental.' },
+          { fr: 'Vous m’avez bousculé / poussé ! / Pourquoi vous me poussez ? / Ne me poussez pas ! / Arrêtez de me pousser !', ar: 'دفشتني! / ليش عم تدفشني؟ / لا تدفشني! / وقف دفش!', en: 'You bumped/pushed me / why pushing / don’t / stop pushing!' },
+          { fr: 'Faites attention ! / Faites attention où vous marchez. / Attention ! / Ce n’était pas volontaire. / Ce n’est pas grave.', ar: 'دير بالك! / وين عم تمشي / انتبه! / ما كان عن قصد / مو مشكلة.', en: 'Watch out / where you walk / not intentional / it’s okay.' },
+          { fr: 'Excusez-moi, je peux passer ? / Laissez-moi passer, s’il vous plaît. / Il y a trop de monde ici. / On est serrés.', ar: 'فيني مرق؟ / خلوني مرق / عالم كتير هون / مزنوقين.', en: 'Can I get through / let me pass / too crowded / packed in.' },
+          { fr: 'bousculer / une bousculade', ar: 'يدفع/يخبط بالزحمة / تدافع', en: 'to jostle / a scuffle' },
+          { fr: 'Attendez, j’ai oublié quelque chose ! / J’ai pris le mauvais sac. / Vous avez oublié votre monnaie / votre sac ! / C’est à vous ? / je pensais que c’était à moi.', ar: 'استنى نسيت شغلة! / أخدت الكيس الغلط / نسيت فكتك / كيسك! / هاد إلك؟ / فكرت إلي.', en: 'Forgot something / wrong bag / forgot change / your bag / is it yours? / thought it was mine.' }
+        ]
+      }
+    ]
   }
 ];
