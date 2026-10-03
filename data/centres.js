@@ -7778,5 +7778,76 @@ window.CENTRES_DATA = [
         ]
       }
     ]
+  },
+  {
+    id: 'aide-alimentaire',
+    icon: '🥫',
+    name: { ar: 'المساعدة الغذائية', en: 'Food assistance', fr: 'Aide alimentaire' },
+    desc: { ar: 'طلب واستلام السلة الغذائية عند الجمعيات والمراكز الاجتماعية', en: 'Requesting and collecting a food basket at charities and social centres', fr: 'Demander et récupérer un panier alimentaire' },
+    sections: [
+      {
+        icon: '🛒',
+        title: { ar: 'المصطلحات', en: 'The terms', fr: 'Les termes' },
+        phrases: [
+          { fr: 'panier alimentaire / aide alimentaire / colis alimentaire / distribution alimentaire / épicerie solidaire / denrées alimentaires', ar: 'سلة غذائية / مساعدة غذائية / طرد غذائي / توزيع مواد / بقالة تضامنية / مواد غذائية', en: 'food basket / food aid / parcel / distribution / solidarity grocery / foodstuffs' }
+        ]
+      },
+      {
+        icon: '🙏',
+        title: { ar: 'طلب المساعدة', en: 'Requesting assistance', fr: 'Demander l’aide' },
+        phrases: [
+          { fr: 'Bonjour, je voudrais savoir comment bénéficier d’une aide alimentaire.', ar: 'مرحبا، بدي أعرف كيف فيني استفيد من مساعدة غذائية.', en: 'Hello, I’d like to know how to receive food assistance.' },
+          { fr: 'Je voudrais demander un panier alimentaire. / Je peux bénéficier d’une aide alimentaire ?', ar: 'بدي أطلب سلة غذائية / فيني استفيد؟', en: 'Request a basket / can I benefit?' },
+          { fr: 'Comment faire pour avoir un panier alimentaire ? / où je peux récupérer un colis alimentaire ?', ar: 'كيف آخد سلة؟ / وين استلم الطرد؟', en: 'How to get a basket / where to collect a parcel?' },
+          { fr: 'Quels documents faut-il fournir ? / Est-ce qu’il faut prendre rendez-vous ?', ar: 'شو الأوراق المطلوبة؟ / لازم موعد؟', en: 'Which documents? / appointment needed?' },
+          { fr: 'À quelle date a lieu la distribution ? / Où se fait la distribution alimentaire ?', ar: 'بأي تاريخ التوزيع؟ / وين بيصير؟', en: 'When / where is the distribution?' }
+        ]
+      },
+      {
+        icon: '🏠',
+        title: { ar: 'عند الوصول والتسجيل', en: 'Arriving and registration', fr: 'Arrivée et inscription' },
+        phrases: [
+          { fr: 'Je viens pour l’aide alimentaire. / Je viens récupérer mon panier alimentaire.', ar: 'جيت للمساعدة الغذائية / استلم سلتي.', en: 'Here for food aid / collect my basket.' },
+          { fr: 'C’est bien ici pour la distribution alimentaire ? / J’ai rendez-vous pour récupérer un colis alimentaire.', ar: 'هون مكان التوزيع؟ / عندي موعد لاستلام طرد.', en: 'Is this the place? / appointment for a parcel.' },
+          { fr: 'Vous avez votre pièce d’identité ? / Oui, voici ma pièce d’identité. / Vous avez votre justificatif ? / Voici mon document.', ar: 'معك هويتك؟ / هاي هويتي / معك الإثبات؟ / هاي الورقة.', en: 'ID? / here it is / proof? / here.' },
+          { fr: 'Vous êtes inscrit pour aujourd’hui ? / Oui, je suis inscrit. / Je dois signer quelque chose ?', ar: 'مسجّل لليوم؟ / إي مسجّل / لازم وقّع؟', en: 'Registered today? / yes / sign something?' },
+          { fr: 'Vous pouvez vérifier mon nom ? / Il manque quelque chose à mon dossier ?', ar: 'تتأكد من اسمي؟ / ناقص شي بملفي؟', en: 'Check my name / anything missing?' }
+        ]
+      },
+      {
+        icon: '🧺',
+        title: { ar: 'استلام السلة', en: 'Receiving the basket', fr: 'Recevoir le panier' },
+        phrases: [
+          { fr: 'C’est pour combien de personnes ? / C’est pour une personne seule.', ar: 'لكم شخص؟ / لشخص واحد.', en: 'For how many? / one person.' },
+          { fr: 'Je peux prendre ce panier ? / Tout est compris dans le panier ? / Il y a quoi dans le panier aujourd’hui ?', ar: 'فيني آخد هالسلة؟ / كل شي مشمول؟ / شو فيها اليوم؟', en: 'Take this basket? / all included? / what’s inside?' },
+          { fr: 'C’est gratuit ? / Il faut payer quelque chose ?', ar: 'مجاني؟ / لازم أدفع شي؟', en: 'Free? / pay anything?' }
+        ]
+      },
+      {
+        icon: '🥜',
+        title: { ar: 'منتجات ما بتناسبك', en: 'Products that don’t suit you', fr: 'Produits qui ne conviennent pas' },
+        phrases: [
+          { fr: 'Je peux choisir certains produits ? / Je peux remplacer ce produit ?', ar: 'فيني اختار بعض المواد؟ / بدّل هالمنتج؟', en: 'Choose products? / replace this?' },
+          { fr: 'Je ne peux pas manger ça. / Je suis allergique à ça.', ar: 'ما فيني آكل هاد / عندي حساسية منه.', en: 'Can’t eat this / allergic.' },
+          { fr: 'La date est dépassée ? / La date limite est encore valable ?', ar: 'التاريخ منتهي؟ / لسا ساري؟', en: 'Date expired? / still valid?' }
+        ]
+      },
+      {
+        icon: '📦',
+        title: { ar: 'مشاكل بالسلة', en: 'Basket problems', fr: 'Problèmes dans le panier' },
+        phrases: [
+          { fr: 'Il manque un produit. / Il manque quelque chose dans mon panier.', ar: 'ناقص منتج / ناقص شي من سلتي.', en: 'A product missing / something missing.' },
+          { fr: 'Ce produit est abîmé. / L’emballage est ouvert. / Ce produit est périmé.', ar: 'المنتج خربان / التغليف مفتوح / منتهي الصلاحية.', en: 'Damaged / open packaging / expired.' }
+        ]
+      },
+      {
+        icon: '📅',
+        title: { ar: 'المرة القادمة والمغادرة', en: 'Next time and leaving', fr: 'La prochaine fois et le départ' },
+        phrases: [
+          { fr: 'Quand est la prochaine distribution ? / Je dois revenir quand ? / Est-ce que je dois prendre rendez-vous pour la prochaine fois ? / Comment ça se passe la prochaine fois ?', ar: 'إمتى التوزيع الجاي؟ / إمتى أرجع؟ / لازم موعد؟ / كيف بيصير المرة الجاية؟', en: 'Next distribution? / come back when? / appointment? / how next time?' },
+          { fr: 'Merci beaucoup pour votre aide. / Merci, bonne journée. / À la prochaine.', ar: 'شكرًا على مساعدتكم / نهاركم سعيد / منشوفكم المرة الجاية.', en: 'Thank you for your help / have a nice day / see you next time.' }
+        ]
+      }
+    ]
   }
 ];
