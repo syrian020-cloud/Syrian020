@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dross-v234';
+const CACHE_NAME = 'dross-v235';
 const TILE_CACHE = 'osm-tiles-v1';
 const FILES_TO_CACHE = [
   './',
