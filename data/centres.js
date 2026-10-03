@@ -7290,6 +7290,16 @@ window.CENTRES_DATA = [
           { fr: 'bousculer / une bousculade', ar: 'يدفع/يخبط بالزحمة / تدافع', en: 'to jostle / a scuffle' },
           { fr: 'Attendez, j’ai oublié quelque chose ! / J’ai pris le mauvais sac. / Vous avez oublié votre monnaie / votre sac ! / C’est à vous ? / je pensais que c’était à moi.', ar: 'استنى نسيت شغلة! / أخدت الكيس الغلط / نسيت فكتك / كيسك! / هاد إلك؟ / فكرت إلي.', en: 'Forgot something / wrong bag / forgot change / your bag / is it yours? / thought it was mine.' }
         ]
+      },
+      {
+        icon: '🚶',
+        title: { ar: '⭐ رايح / رحت / بالسوق (الأزمنة)', en: 'Going / went / at the market (tenses)', fr: 'Aller au marché (les temps)' },
+        phrases: [
+          { fr: 'Je suis allé au marché. / J’étais au marché.', ar: 'رحت عالسوق / أنا كنت بالسوق.', en: 'I went / I was at the market.' },
+          { fr: 'Je vais au marché. / Je suis au marché. / Je viens du marché.', ar: 'رايح عالسوق / أنا بالسوق / جاي من السوق.', en: 'I’m going / I’m at / coming from the market.' },
+          { fr: 'Je vais au marché. / Je vais acheter des fruits. / Je vais faire mes courses.', ar: 'رح روح عالسوق / رح اشتري فواكه / أغراض البيت.', en: 'I’m going to the market / buy fruit / do my shopping.' },
+          { fr: 'aller au marché / être au marché / venir du marché / faire mes courses / acheter des fruits et des légumes', ar: 'يروح عالسوق / يكون بالسوق / يجي من السوق / يشتري أغراض البيت / يشتري فواكه وخضار', en: 'go / be at / come from the market / shop / buy produce' }
+        ]
       }
     ]
   }
