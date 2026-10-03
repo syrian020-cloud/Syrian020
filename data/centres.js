@@ -7153,6 +7153,31 @@ window.CENTRES_DATA = [
           { fr: 'un titre de transport / valide / invalide / payer une amende / contester une amende / les modalités de paiement / de contestation', ar: 'تذكرة نقل / صالح / غير صالح / دفع غرامة / الاعتراض عليها / طريقة الدفع / الاعتراض', en: 'ticket / valid / invalid / pay / contest / payment terms / appeal terms' },
           { fr: 'ملاحظة: مبلغ المخالفة وطريقة الاعتراض بتختلف حسب شركة النقل.', ar: 'المبلغ والاعتراض بيختلفوا حسب الشبكة.', en: 'Amount and appeal vary by transit network.' }
         ]
+      },
+      {
+        icon: '🐕',
+        title: { ar: '⭐ الكلاب والدراجات', en: 'Dogs and bikes', fr: 'Chiens et vélos' },
+        phrases: [
+          { fr: 'Le chien doit être tenu en laisse. / Tenez votre chien en laisse. / Votre chien doit être tenu en laisse.', ar: 'لازم الكلب يضل مربوط / خلّي كلبك مربوط / لازم يكون مربوط.', en: 'Dog on a leash / keep it leashed.' },
+          { fr: 'Le chien doit être muselé. / Votre chien doit porter une muselière.', ar: 'لازم كمّامة / كلبك لازم يلبس كمّامة.', en: 'Must be muzzled / wear a muzzle.' },
+          { fr: 'Les chiens doivent être transportés dans un sac ou une caisse. / Le chien doit rester dans son sac.', ar: 'لازم تننقل بشنطة أو صندوق / يضل جوّا شنطته.', en: 'In a bag or carrier / stay inside.' },
+          { fr: 'Ne laissez pas votre chien se déplacer librement. / Gardez votre chien près de vous. / ne doit pas gêner les autres voyageurs.', ar: 'لا تخليه يتحرك لحاله / خلّيه قريب منك / ما يزعج الركاب.', en: 'Not roaming / keep close / don’t disturb passengers.' },
+          { fr: 'Votre chien dérange les autres voyageurs. / Veuillez garder votre chien près de vous / tenir votre chien. / Attention au chien.', ar: 'كلبك عم يزعجهم / خلّيه قريب / امسكه / انتبه للكلب.', en: 'Dog disturbing / keep it close / watch the dog.' },
+          { fr: 'un chien / un chien-guide / une laisse / une muselière / un sac / une caisse de transport', ar: 'كلب / كلب إرشاد / رباط / كمّامة / شنطة / صندوق نقل', en: 'dog / guide dog / leash / muzzle / pet carrier' },
+          { fr: 'tenir en laisse / museler / aboyer / mordre / gêner / voyageur', ar: 'يخلّيه مربوط / يحط كمّامة / ينبح / يعضّ / يزعج / راكب', en: 'leash / muzzle / bark / bite / disturb / passenger' },
+          { fr: 'Les vélos sont interdits / autorisés à bord. / Veuillez tenir votre vélo près de vous / ne pas gêner les autres voyageurs. / doivent être attachés.', ar: 'الدراجات ممنوعة / مسموحة / خلّيها قريبة / لا تزعج الركاب / لازم تكون مثبتة.', en: 'Bikes forbidden / allowed / keep close / secured.' },
+          { fr: 'un vélo / un cycliste / une bicyclette / un porte-vélos / Attention aux vélos.', ar: 'دراجة / راكب دراجة / دراجة / حامل دراجات / انتبهوا للدراجات.', en: 'bike / cyclist / bicycle / bike rack / watch out.' }
+        ]
+      },
+      {
+        icon: '🪜',
+        title: { ar: '⭐ الدرج ووقت الزحمة', en: 'Steps and rush hour', fr: 'Marches et heures de pointe' },
+        phrases: [
+          { fr: 'Attention aux marches. / Attention à la marche en descendant. / Faites attention en montant / en descendant.', ar: 'انتبهوا للدرجات / للدرجة وإنت نازل / وإنتو طالعين / نازلين.', en: 'Watch the steps / when getting off / getting on.' },
+          { fr: 'une marche / les marches / monter / descendre / faire attention', ar: 'درجة / الدرجات / يطلع / ينزل / ينتبه', en: 'step / steps / go up / go down / be careful' },
+          { fr: 'aux heures de pointe / C’est l’heure de pointe.', ar: 'وقت الزحمة / أوقات الذروة / هاد وقت الزحمة.', en: 'rush hour / it’s rush hour.' },
+          { fr: 'Le tram est très chargé aux heures de pointe. / est bondé. / Il y a beaucoup de monde dans le tram. / est très fréquenté à cette heure-ci.', ar: 'الترام كتير زحمة بالذروة / مليان / في عالم كتير / عليه ضغط بهالوقت.', en: 'Very crowded / packed / lots of people / very busy.' }
+        ]
       }
     ]
   }
