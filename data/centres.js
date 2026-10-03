@@ -6924,6 +6924,22 @@ window.CENTRES_DATA = [
           { fr: 'Bonjour, j’ai une ordonnance pour une prise de sang. — Est-ce que c’est pris en charge ? — Oui, une partie, et vous bénéficiez du tiers payant.', ar: 'معي وصفة تحليل — مغطّى؟ — جزء، وإلك tiers payant.', en: 'Prescription — covered? — partly, with tiers payant.' },
           { fr: 'Je suis en ALD. — Est-ce que ce soin est en rapport avec mon ALD ? — Oui. — Pris en charge à 100 % ? — Oui, au titre de votre ALD.', ar: 'عندي ALD — هالعلاج تبعها؟ — إي — مغطّى 100%؟ — إي، ضمن الـALD.', en: 'ALD — related? — yes — 100%? — yes under ALD.' }
         ]
+      },
+      {
+        icon: '📄',
+        title: { ar: '⭐ شهادة طبية وإجازة مرضية', en: 'Medical certificate and sick leave', fr: 'Certificat médical et arrêt de travail' },
+        phrases: [
+          { fr: 'J’aurais besoin d’un certificat médical pour le travail.', ar: 'بحتاج شهادة طبية للشغل.', en: 'I need a medical certificate for work.' },
+          { fr: 'J’ai besoin d’un certificat médical pour mon employeur.', ar: 'بحتاج شهادة طبية لأعطيها لصاحب العمل.', en: 'I need a medical certificate for my employer.' },
+          { fr: 'Est-ce que vous pouvez me faire un certificat médical pour le travail ?', ar: 'فيك تعمل لي شهادة طبية للشغل؟', en: 'Could you give me a medical certificate for work?' },
+          { fr: 'J’ai besoin d’un arrêt de travail.', ar: 'بحتاج إجازة/توقّف عن العمل بسبب المرض.', en: 'I need a sick leave.' },
+          { fr: 'Est-ce que vous pouvez me prescrire un arrêt de travail ?', ar: 'فيك تعطيني arrêt de travail؟', en: 'Could you prescribe a sick leave?' },
+          { fr: 'Je ne me sens pas bien et je ne peux pas travailler.', ar: 'ما عم حس حالي منيح وما بقدر اشتغل.', en: 'I don’t feel well and I can’t work.' },
+          { fr: 'J’aurais besoin d’un justificatif de consultation pour mon employeur.', ar: 'بحتاج إثبات إني جيت لعند الطبيب لأعطيه للشغل.', en: 'I need proof of my medical appointment for my employer.' },
+          { fr: 'certificat médical', ar: 'شهادة طبية', en: 'medical certificate' },
+          { fr: 'arrêt de travail', ar: 'إجازة مرضية / توقّف عن العمل', en: 'sick leave / medical leave' },
+          { fr: 'justificatif de consultation', ar: 'إثبات حضور موعد طبي', en: 'proof of medical appointment' }
+        ]
       }
     ]
   },
