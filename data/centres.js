@@ -5938,6 +5938,207 @@ window.CENTRES_DATA = [
           { fr: 'Pouvez-vous me prescrire une ordonnance ?', ar: 'فيك توصفلي / تعطيني وصفة؟', en: 'Can you prescribe me something?' },
           { fr: 'N’arrêtez pas le traitement sans avis médical.', ar: 'لا توقف العلاج بدون استشارة طبية.', en: 'Don’t stop treatment without medical advice.' }
         ]
+      },
+      {
+        icon: '🦷',
+        title: { ar: '⭐ طبيب الأسنان — المفردات', en: 'Dentist — vocabulary', fr: 'Dentiste — vocabulaire' },
+        phrases: [
+          { fr: 'dentiste / chirurgien-dentiste', ar: 'طبيب أسنان', en: 'dentist / dental surgeon' },
+          { fr: 'cabinet dentaire', ar: 'عيادة أسنان', en: 'dental practice' },
+          { fr: 'soins dentaires / soin dentaire', ar: 'علاج الأسنان / علاج سني', en: 'dental care / dental treatment' },
+          { fr: 'dent / dents', ar: 'سن / أسنان', en: 'tooth / teeth' },
+          { fr: 'dent de sagesse', ar: 'ضرس العقل', en: 'wisdom tooth' },
+          { fr: 'molaire / prémolaire', ar: 'ضرس / ضرس صغير', en: 'molar / premolar' },
+          { fr: 'incisive / canine', ar: 'سن أمامي / ناب', en: 'incisor / canine' },
+          { fr: 'gencive', ar: 'لثة', en: 'gum' },
+          { fr: 'bouche / langue / mâchoire / joue', ar: 'فم / لسان / فك / خد', en: 'mouth / tongue / jaw / cheek' },
+          { fr: 'émail', ar: 'مينا الأسنان', en: 'enamel' },
+          { fr: 'carie', ar: 'تسوس', en: 'cavity / tooth decay' },
+          { fr: 'plaque dentaire / tartre', ar: 'طبقة البلاك / جير الأسنان', en: 'plaque / tartar' },
+          { fr: 'abcès dentaire', ar: 'خراج سني', en: 'dental abscess' },
+          { fr: 'douleur dentaire / sensibilité dentaire', ar: 'ألم الأسنان / حساسية الأسنان', en: 'dental pain / tooth sensitivity' },
+          { fr: 'gingivite', ar: 'التهاب اللثة', en: 'gingivitis' },
+          { fr: 'mauvaise haleine', ar: 'رائحة فم كريهة', en: 'bad breath' },
+          { fr: 'dent cassée / fissurée', ar: 'سن مكسور / متشقق', en: 'broken / cracked tooth' },
+          { fr: 'dent mobile / manquante', ar: 'سن متحرك / مفقود', en: 'loose / missing tooth' },
+          { fr: 'détartrage', ar: 'إزالة جير الأسنان', en: 'scaling' },
+          { fr: 'plombage / obturation', ar: 'حشوة الأسنان', en: 'filling' },
+          { fr: 'extraction', ar: 'خلع', en: 'extraction' },
+          { fr: 'traitement de canal / dévitalisation', ar: 'علاج العصب / سحب العصب', en: 'root canal treatment' },
+          { fr: 'couronne', ar: 'تاج', en: 'crown' },
+          { fr: 'implant dentaire', ar: 'زرعة أسنان', en: 'dental implant' },
+          { fr: 'orthodontiste / appareil dentaire', ar: 'طبيب تقويم / جهاز تقويم', en: 'orthodontist / braces' },
+          { fr: 'radiographie dentaire / radio panoramique', ar: 'صورة أشعة / بانورامية للأسنان', en: 'dental / panoramic X-ray' },
+          { fr: 'anesthésie locale', ar: 'تخدير موضعي', en: 'local anesthesia' }
+        ]
+      },
+      {
+        icon: '📅',
+        title: { ar: 'طبيب الأسنان — الحجز والوصول', en: 'Dentist — booking and arrival', fr: 'Dentiste — rendez-vous' },
+        phrases: [
+          { fr: 'Je cherche un dentiste près de chez moi.', ar: 'عم دوّر على طبيب أسنان قريب مني.', en: 'I’m looking for a dentist near me.' },
+          { fr: 'Je voudrais prendre rendez-vous chez un dentiste.', ar: 'بدي احجز موعد عند طبيب أسنان.', en: 'I’d like to book an appointment with a dentist.' },
+          { fr: 'Est-ce que vous prenez les urgences dentaires ?', ar: 'بتستقبلوا حالات أسنان طارئة؟', en: 'Do you take dental emergencies?' },
+          { fr: 'Première consultation / Consultation dentaire / Urgence dentaire / Détartrage / Contrôle dentaire / Consultation de suivi', ar: 'أول معاينة / معاينة أسنان / طوارئ أسنان / تنظيف جير / فحص / متابعة', en: 'Doctolib appointment types' },
+          { fr: 'Bonjour, j’ai rendez-vous avec le dentiste à 10 heures.', ar: 'مرحبا، عندي موعد مع طبيب الأسنان الساعة 10.', en: 'I have an appointment with the dentist at 10.' },
+          { fr: 'Je suis un nouveau patient.', ar: 'أنا مريض جديد عندكم.', en: 'I’m a new patient.' },
+          { fr: 'Voici ma carte Vitale / ma carte de mutuelle.', ar: 'هاي بطاقة فيتال / بطاقة التأمين التكميلي.', en: 'Here is my Carte Vitale / mutuelle card.' },
+          { fr: 'J’ai oublié ma carte Vitale.', ar: 'نسيت بطاقة فيتال.', en: 'I forgot my Carte Vitale.' },
+          { fr: 'Je dois remplir un formulaire ?', ar: 'لازم عبّي استمارة؟', en: 'Do I need to fill out a form?' }
+        ]
+      },
+      {
+        icon: '😣',
+        title: { ar: '⭐ طبيب الأسنان — وصف الألم', en: 'Describing dental pain', fr: 'Décrire la douleur' },
+        phrases: [
+          { fr: 'Qu’est-ce qui vous amène ?', ar: 'شو المشكلة؟ (سؤال الطبيب)', en: 'What brings you in? (doctor’s question)' },
+          { fr: 'J’ai mal à une dent. / J’ai mal aux dents. / J’ai une douleur dentaire.', ar: 'عندي وجع بسن / سناني عم توجعني / ألم بالأسنان.', en: 'Toothache / my teeth hurt / dental pain.' },
+          { fr: 'Je suis venu pour un contrôle / un détartrage / une urgence dentaire.', ar: 'إجيت لفحص / تنظيف جير / طوارئ.', en: 'Came for a check-up / scaling / emergency.' },
+          { fr: 'J’ai mal ici. / J’ai très mal. / J’ai un peu mal.', ar: 'هون بيوجعني / وجع قوي / وجع خفيف.', en: 'It hurts here / a lot / a little.' },
+          { fr: 'La douleur est constante. / vient et repart. / augmente.', ar: 'الوجع مستمر / بيجي وبيروح / عم يزيد.', en: 'Constant / comes and goes / getting worse.' },
+          { fr: 'La douleur apparaît surtout la nuit.', ar: 'الوجع بيظهر خصوصًا بالليل.', en: 'The pain occurs especially at night.' },
+          { fr: 'J’ai mal quand je mange / mâche / bois froid / bois chaud.', ar: 'بيوجعني لما آكل / أمضغ / أشرب بارد / سخن.', en: 'Hurts when I eat / chew / drink cold / hot.' },
+          { fr: 'J’ai les dents sensibles. / une sensibilité au froid / au chaud.', ar: 'أسناني حساسة / حساسية من البارد / السخن.', en: 'Sensitive teeth / to cold / to heat.' },
+          { fr: 'J’ai mal quand je mange quelque chose de sucré.', ar: 'بيوجعني لما آكل شي حلو.', en: 'It hurts when I eat something sweet.' }
+        ]
+      },
+      {
+        icon: '🦠',
+        title: { ar: 'طبيب الأسنان — التسوس واللثة والسن المكسور', en: 'Cavities, gums, broken tooth', fr: 'Carie, gencives, dent cassée' },
+        phrases: [
+          { fr: 'J’ai une carie. / Je pense que j’ai une carie.', ar: 'عندي تسوس / أعتقد عندي تسوس.', en: 'I have / think I have a cavity.' },
+          { fr: 'Vous avez une carie. / Il faut soigner la carie. / Il faut faire un plombage.', ar: 'عندك تسوس / لازم نعالجها / لازم حشوة.', en: 'You have a cavity / must treat it / need a filling.' },
+          { fr: 'La dent a besoin d’une obturation. / La dent a été réparée.', ar: 'السن بحاجة لحشوة / تم إصلاحه.', en: 'The tooth needs a filling / was repaired.' },
+          { fr: 'Je voudrais faire un détartrage. / J’ai beaucoup de tartre.', ar: 'بدي أعمل تنظيف جير / عندي جير كتير.', en: 'I’d like scaling / lots of tartar.' },
+          { fr: 'Mes gencives saignent. / J’ai les gencives gonflées. / J’ai une inflammation des gencives.', ar: 'لثتي بتنزف / مورّمة / التهاب باللثة.', en: 'Gums bleed / swollen / inflamed.' },
+          { fr: 'Ma dent est cassée. / Je me suis cassé une dent.', ar: 'سني مكسور / انكسر معي سن.', en: 'My tooth is broken / I broke a tooth.' },
+          { fr: 'Une partie de ma dent est tombée. / J’ai perdu un morceau de dent.', ar: 'وقع جزء من سني / فقدت قطعة منه.', en: 'Part of my tooth fell out / lost a piece.' },
+          { fr: 'Ma dent bouge. / J’ai une dent qui bouge.', ar: 'سني عم يتحرك / سن متحرك.', en: 'My tooth is loose.' },
+          { fr: 'J’ai mal à ma dent de sagesse. / Ma dent de sagesse pousse. / est incluse.', ar: 'ضرس العقل بيوجعني / عم يطلع / مطمور.', en: 'Wisdom tooth hurts / coming in / impacted.' },
+          { fr: 'Il faut enlever la dent de sagesse. / Je dois me faire enlever une dent de sagesse.', ar: 'لازم نشيل ضرس العقل / لازم أشيل ضرس عقل.', en: 'The wisdom tooth needs removing / I need it removed.' }
+        ]
+      },
+      {
+        icon: '💉',
+        title: { ar: 'طبيب الأسنان — الأشعة والتخدير والخلع والعلاج', en: 'X-ray, anesthesia, extraction, treatment', fr: 'Radio, anesthésie, extraction' },
+        phrases: [
+          { fr: 'Il faut faire une radiographie / une radio panoramique.', ar: 'لازم نعمل أشعة / صورة بانورامية.', en: 'We need an X-ray / panoramic X-ray.' },
+          { fr: 'Est-ce que vous allez faire une anesthésie ? / Je préfère une anesthésie locale.', ar: 'رح تعمل تخدير؟ / بفضّل موضعي.', en: 'Anesthesia? / I prefer local.' },
+          { fr: 'Je ne sens plus ma dent. / Je sens encore la douleur. / L’anesthésie ne fait plus effet.', ar: 'ما عاد حاسس بسني / لسا حاسس بالوجع / مفعول التخدير راح.', en: 'Numb / still feel pain / anesthesia wore off.' },
+          { fr: 'Il faut extraire la dent. / Est-ce que l’extraction fait mal ?', ar: 'لازم نخلع السن / الخلع بيوجع؟', en: 'Tooth must be extracted / does it hurt?' },
+          { fr: 'Combien de temps dure l’extraction ? / Que dois-je faire après ?', ar: 'قديش بيطول الخلع؟ / شو أعمل بعده؟', en: 'How long does it take / what to do after?' },
+          { fr: 'Le nerf de la dent est atteint. / Il faut dévitaliser la dent. / J’ai besoin d’un traitement de canal.', ar: 'عصب السن متأثر / لازم نسحب العصب / بحتاج علاج عصب.', en: 'Nerve affected / needs root canal / I need root canal.' },
+          { fr: 'J’ai besoin d’une couronne. / La dent doit être protégée par une couronne.', ar: 'بحتاج تاج / لازم نحمي السن بتاج.', en: 'I need a crown / tooth needs a crown.' },
+          { fr: 'Je voudrais me renseigner sur un implant dentaire. / Combien coûte un implant ?', ar: 'بدي استفسر عن زرعة أسنان / قديش تكلفتها؟', en: 'Info on a dental implant / cost?' },
+          { fr: 'Je voudrais consulter un orthodontiste. / faire un traitement orthodontique.', ar: 'بدي راجع طبيب تقويم / علاج تقويم.', en: 'See an orthodontist / orthodontic treatment.' },
+          { fr: 'Je me brosse les dents deux fois par jour. / Quel dentifrice me conseillez-vous ? / Est-ce que je dois utiliser du fil dentaire ?', ar: 'بفرشي سناني مرتين باليوم / أي معجون تنصحني؟ / لازم خيط أسنان؟', en: 'Brush twice daily / toothpaste advice? / floss?' }
+        ]
+      },
+      {
+        icon: '🚨',
+        title: { ar: 'طبيب الأسنان — طوارئ + الأسعار + بعد العلاج', en: 'Emergencies, prices, aftercare', fr: 'Urgences, prix, après' },
+        phrases: [
+          { fr: 'J’ai une urgence dentaire. / J’ai très mal et je ne peux pas attendre.', ar: 'حالة طارئة / وجع قوي وما فيني انطر.', en: 'Dental emergency / severe pain, can’t wait.' },
+          { fr: 'Mon visage / ma joue est gonflé. / J’ai du pus. / J’ai de la fièvre. / Je saigne beaucoup.', ar: 'وجهي / خدي مورّم / قيح / حرارة / نزيف قوي.', en: 'Face/cheek swollen / pus / fever / bleeding heavily.' },
+          { fr: 'Combien coûte la consultation / le détartrage / le traitement ?', ar: 'قديش سعر المعاينة / تنظيف الجير / العلاج؟', en: 'Cost of consultation / scaling / treatment?' },
+          { fr: 'Est-ce que c’est remboursé ? / Est-ce que la mutuelle rembourse le reste ?', ar: 'بينردّ ثمنه؟ / المتمّمة بتغطي الباقي؟', en: 'Reimbursed? / mutuelle covers the rest?' },
+          { fr: 'Pouvez-vous me faire un devis ? / par écrit ?', ar: 'فيك تعطيني عرض سعر؟ / مكتوب؟', en: 'Can you give me a quote / in writing?' },
+          { fr: 'Quel sera mon reste à charge ? / Quel sera le remboursement ?', ar: 'قديش رح يطلع عليّي من جيبتي؟ / قديش يرجعولي؟', en: 'Out-of-pocket cost? / reimbursement?' },
+          { fr: 'plan de traitement / coût total / reste à charge', ar: 'خطة العلاج / التكلفة الإجمالية / المتبقي عليّي', en: 'treatment plan / total cost / out-of-pocket' },
+          { fr: 'Est-ce que je peux manger normalement ? / boire chaud ? / me brosser les dents ?', ar: 'فيني آكل طبيعي؟ / أشرب سخن؟ / أفرشي سناني؟', en: 'Eat / drink hot / brush normally?' },
+          { fr: 'Que dois-je éviter ? / Combien de temps la douleur va-t-elle durer ?', ar: 'شو أتجنب؟ / قديش يضل الوجع؟', en: 'What to avoid / how long will pain last?' },
+          { fr: 'Est-ce que c’est normal d’avoir mal après le traitement ? / Quand dois-je revenir ?', ar: 'طبيعي وجع بعد العلاج؟ / إمتى أرجع؟', en: 'Normal to hurt after? / when return?' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: 'طبيب الأسنان — الحوار الكامل', en: 'Full dentist dialogue', fr: 'Dialogue complet chez le dentiste' },
+        phrases: [
+          { fr: 'Bonjour, j’ai rendez-vous avec le dentiste à 10 heures. — C’est pour une première consultation ? — Oui.', ar: 'مرحبا، عندي موعد الساعة 10 — أول موعد إلك؟ — إي.', en: 'Appointment at 10 — first consultation? — yes.' },
+          { fr: 'Qu’est-ce qui vous amène ? — J’ai mal à une dent depuis quelques jours.', ar: 'شو المشكلة؟ — عندي وجع بسن من كم يوم.', en: 'What brings you in? — toothache for days.' },
+          { fr: 'Est-ce que vous avez mal quand vous mangez ? — Oui, surtout quelque chose de froid.', ar: 'بيوجعك لما تاكل؟ — إي، خصوصًا شي بارد.', en: 'Hurts when eating? — yes, especially cold.' },
+          { fr: 'Je vais examiner votre dent. — Est-ce que vous allez faire une radiographie ? — Oui.', ar: 'رح أفحص سنك — رح تعمل أشعة؟ — إي.', en: 'I’ll examine your tooth — X-ray? — yes.' },
+          { fr: 'Vous avez une carie. — Est-ce qu’il faut enlever la dent ? — Non, on peut la soigner.', ar: 'عندك تسوس — لازم نشيل السن؟ — لا، فينا نعالجها.', en: 'You have a cavity — extract it? — no, we can treat it.' },
+          { fr: 'Il faut faire une obturation. — Est-ce que ça va faire mal ? — Je vais faire une anesthésie locale.', ar: 'لازم حشوة — رح يوجع؟ — رح أعمل تخدير موضعي.', en: 'Need a filling — will it hurt? — local anesthesia.' },
+          { fr: 'Il faudra revenir pour un contrôle. — Quand ? — Dans deux semaines.', ar: 'لازم ترجع لمتابعة — إمتى؟ — بعد أسبوعين.', en: 'Come back for follow-up — when? — two weeks.' },
+          { fr: 'Combien dois-je payer ? — Vous allez recevoir la feuille de soins / le justificatif.', ar: 'قديش ادفع؟ — رح تستلم ورقة العلاج/الإثبات.', en: 'How much to pay? — you’ll get the treatment form/receipt.' }
+        ]
+      },
+      {
+        icon: '👁️',
+        title: { ar: '⭐ طبيب العيون — المفردات', en: 'Ophthalmologist — vocabulary', fr: 'Ophtalmologue — vocabulaire' },
+        phrases: [
+          { fr: 'ophtalmologue / ophtalmologiste', ar: 'طبيب عيون', en: 'ophthalmologist / eye doctor' },
+          { fr: 'examen de la vue / examen ophtalmologique', ar: 'فحص النظر / فحص العيون', en: 'eye examination' },
+          { fr: 'vue / vision', ar: 'النظر / الرؤية', en: 'eyesight / vision' },
+          { fr: 'œil / yeux', ar: 'عين / عيون', en: 'eye / eyes' },
+          { fr: 'paupière / cils / pupille / iris / cornée / rétine / cristallin / nerf optique', ar: 'جفن / رموش / بؤبؤ / قزحية / قرنية / شبكية / عدسة العين / العصب البصري', en: 'eyelid / eyelashes / pupil / iris / cornea / retina / lens / optic nerve' },
+          { fr: 'de loin / de près', ar: 'من بعيد / من قريب', en: 'from far / up close' },
+          { fr: 'vision de loin / de près / intermédiaire', ar: 'رؤية بعيدة / قريبة / متوسطة', en: 'distance / near / intermediate vision' },
+          { fr: 'lunettes / lunettes de vue / monture / verres / verres correcteurs', ar: 'نظارات / طبية / إطار / عدسات / عدسات تصحيح', en: 'glasses / frames / lenses / corrective lenses' },
+          { fr: 'correction / dioptrie', ar: 'تصحيح النظر / درجة العدسة', en: 'prescription / diopter' },
+          { fr: 'myopie / hypermétropie / astigmatisme / presbytie', ar: 'قصر نظر / طول نظر / استجماتيزم / طول نظر الشيخوخة', en: 'myopia / hyperopia / astigmatism / presbyopia' },
+          { fr: 'collyre / gouttes pour les yeux', ar: 'قطرة للعين', en: 'eye drops' },
+          { fr: 'lentilles de contact / produit pour lentilles', ar: 'عدسات لاصقة / محلول العدسات', en: 'contact lenses / lens solution' },
+          { fr: 'acuité visuelle / pression oculaire / tonométrie', ar: 'حدة النظر / ضغط العين / قياس الضغط', en: 'visual acuity / eye pressure / tonometry' },
+          { fr: 'fond d’œil / rétinographie / OCT / champ visuel / topographie cornéenne', ar: 'قاع العين / تصوير الشبكية / مقطعي / مجال الرؤية / خريطة القرنية', en: 'fundus / retinal photo / OCT / visual field / corneal topography' }
+        ]
+      },
+      {
+        icon: '👓',
+        title: { ar: 'طبيب العيون — وصف المشكلة', en: 'Describing vision problems', fr: 'Problèmes de vue' },
+        phrases: [
+          { fr: 'Je voudrais prendre rendez-vous chez l’ophtalmologue. / faire contrôler ma vue. / faire un examen de la vue.', ar: 'بدي موعد عند طبيب عيون / افحص نظري / فحص نظر.', en: 'Appointment / eyesight check / eye exam.' },
+          { fr: 'Je vois mal de loin. / Je vois mal de près.', ar: 'ما بشوف منيح من بعيد / من قريب.', en: 'Can’t see well far / near.' },
+          { fr: 'Ma vue a baissé. / Ma vision est floue. / Je vois flou.', ar: 'نظري ضعف / رؤيتي ضبابية / بشوف مبلبش.', en: 'Eyesight got worse / blurry vision.' },
+          { fr: 'J’ai du mal à lire / à voir les petits caractères.', ar: 'صعوبة بالقراءة / بالأحرف الصغيرة.', en: 'Trouble reading / small print.' },
+          { fr: 'Je plisse les yeux pour voir. / Je dois me rapprocher pour lire.', ar: 'بضيّق عيوني حتى شوف / لازم أقرّب حتى أقرأ.', en: 'I squint / must get closer to read.' },
+          { fr: 'Je vois bien de près, mais pas de loin. / bien de loin, mais mal de près.', ar: 'بشوف منيح من قريب مو من بعيد / العكس.', en: 'See well near not far / far not near.' },
+          { fr: 'J’ai besoin de nouvelles lunettes. / Mes lunettes ne sont plus adaptées. / Ma correction a changé.', ar: 'بحتاج نظارات جديدة / نظاراتي ما عاد مناسبة / درجتي تغيّرت.', en: 'Need new glasses / no longer suitable / prescription changed.' },
+          { fr: 'Pouvez-vous me faire une ordonnance pour des lunettes ?', ar: 'فيك تعطيني وصفة نظارات؟', en: 'Can you give me a glasses prescription?' }
+        ]
+      },
+      {
+        icon: '🧪',
+        title: { ar: 'أثناء فحص النظر', en: 'During the eye exam', fr: 'Pendant l’examen' },
+        phrases: [
+          { fr: 'Lisez les lettres, s’il vous plaît. / Pouvez-vous lire cette ligne ?', ar: 'اقرأ الأحرف / تقدر تقرأ هالسطر؟', en: 'Read the letters / this line.' },
+          { fr: 'Avec quel œil voyez-vous mieux ? / L’œil droit ou le gauche ?', ar: 'بأي عين بتشوف أحسن؟ / يمنى أو يسرى؟', en: 'Which eye sees better / right or left?' },
+          { fr: 'Je vois mieux avec l’œil droit / gauche. / la même chose.', ar: 'بشوف أحسن باليمنى / اليسرى / نفس الشي.', en: 'Better right / left / same.' },
+          { fr: 'C’est plus net. / moins net. / Je ne vois pas la différence.', ar: 'أوضح / أقل وضوح / ما بشوف الفرق.', en: 'Clearer / less clear / no difference.' },
+          { fr: 'Je n’arrive pas à lire les dernières lettres.', ar: 'ما بقدر أقرأ الأحرف الأخيرة.', en: 'I can’t read the last letters.' },
+          { fr: 'Nous allons essayer une autre correction. / Vous avez besoin d’une nouvelle correction.', ar: 'رح نجرّب درجة تانية / بدك درجة جديدة.', en: 'Try another prescription / need a new one.' },
+          { fr: 'Est-ce que vous allez mesurer la pression de mes yeux ? / dilater mes pupilles ?', ar: 'رح تقيسوا ضغط عيوني؟ / توسّعوا بؤبؤ العين؟', en: 'Measure eye pressure? / dilate pupils?' },
+          { fr: 'Est-ce que je dois faire un fond d’œil ?', ar: 'لازم أعمل فحص قاع العين؟', en: 'Do I need a fundus exam?' }
+        ]
+      },
+      {
+        icon: '⚫',
+        title: { ar: 'أعراض العين + قطرات وعدسات', en: 'Eye symptoms + drops and lenses', fr: 'Symptômes, gouttes, lentilles' },
+        phrases: [
+          { fr: 'J’ai mal aux yeux. / les yeux rouges / secs / qui piquent / qui brûlent / qui pleurent.', ar: 'عيوني بيوجعوني / حمراء / جافة / بتحرق / بتدمع.', en: 'Eyes hurt / red / dry / stinging / burning / watering.' },
+          { fr: 'J’ai des démangeaisons aux yeux. / Je suis sensible à la lumière. / La lumière me gêne.', ar: 'حكة بعيوني / الضوء بيزعجني / حساسية من الضوء.', en: 'Itchy eyes / light sensitivity.' },
+          { fr: 'J’ai mal quand je regarde un écran.', ar: 'بيوجعوني عيوني لما بص عالشاشة.', en: 'Eyes hurt looking at screens.' },
+          { fr: 'Je vois des points noirs / des taches / des éclairs lumineux.', ar: 'بشوف نقاط سوداء / بقع / ومضات ضوئية.', en: 'Black spots / spots / flashes of light.' },
+          { fr: 'J’ai une vision double. / Je vois comme un voile devant l’œil. / Ma vision est soudainement devenue floue.', ar: 'بشوف مزدوج / كأن ستار قدام العين / رؤيتي صارت ضبابية فجأة.', en: 'Double vision / curtain over eye / suddenly blurry.' },
+          { fr: 'Je dois mettre des gouttes ? / Combien de fois par jour ? / Pendant combien de jours ?', ar: 'لازم أحط قطرات؟ / كم مرة باليوم؟ / كم يوم؟', en: 'Eye drops? / how many times / how many days?' },
+          { fr: 'Je porte des lentilles. / Je voudrais porter des lentilles. / Mes lentilles me gênent.', ar: 'باستخدم عدسات / بدي أستخدم عدسات / العدسات بتزعجني.', en: 'I wear / want to wear / lenses bother me.' },
+          { fr: 'Est-ce que la consultation est remboursée ? / vous prenez la carte Vitale ? / un dépassement ?', ar: 'المعاينة معوّضة؟ / بتقبلوا فيتال؟ / مبلغ إضافي؟', en: 'Reimbursed? / Carte Vitale? / extra fee?' },
+          { fr: 'Quand dois-je revenir ?', ar: 'إمتى لازم أرجع؟', en: 'When should I come back?' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: 'طبيب العيون — الحوار الكامل', en: 'Full ophthalmologist dialogue', fr: 'Dialogue complet' },
+        phrases: [
+          { fr: 'Bonjour, j’ai rendez-vous pour un examen de la vue.', ar: 'مرحبا، عندي موعد لفحص النظر.', en: 'Appointment for an eye exam.' },
+          { fr: 'Qu’est-ce qui vous amène ? — Je trouve que ma vue a baissé.', ar: 'شو المشكلة؟ — حاسس نظري ضعف.', en: 'What brings you in? — eyesight got worse.' },
+          { fr: 'Vous voyez mal de loin ou de près ? — Surtout de loin.', ar: 'من بعيد أو من قريب؟ — خصوصًا من بعيد.', en: 'Far or near? — especially far.' },
+          { fr: 'Nous allons commencer par mesurer votre vue. — Lisez cette ligne, s’il vous plaît.', ar: 'رح نبدأ بقياس نظرك — اقرأ هالسطر.', en: 'Start by measuring — read this line.' },
+          { fr: 'Je n’arrive pas à lire les dernières lettres. — Nous allons essayer une autre correction.', ar: 'ما بقدر أقرأ الأخيرة — رح نجرّب درجة تانية.', en: 'Can’t read the last ones — try another correction.' },
+          { fr: 'C’est plus net comme ça ? — Oui, c’est beaucoup plus net.', ar: 'أوضح هيك؟ — إي، أوضح بكتير.', en: 'Clearer like this? — yes, much clearer.' },
+          { fr: 'Vous avez besoin d’une nouvelle correction. — Pouvez-vous me faire une ordonnance ? — Oui, bien sûr.', ar: 'بدك درجة جديدة — فيك تعطيني وصفة؟ — أكيد.', en: 'New prescription needed — glasses prescription? — of course.' }
+        ]
       }
     ]
   }
