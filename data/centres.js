@@ -6936,9 +6936,30 @@ window.CENTRES_DATA = [
           { fr: 'Est-ce que vous pouvez me prescrire un arrêt de travail ?', ar: 'فيك تعطيني arrêt de travail؟', en: 'Could you prescribe a sick leave?' },
           { fr: 'Je ne me sens pas bien et je ne peux pas travailler.', ar: 'ما عم حس حالي منيح وما بقدر اشتغل.', en: 'I don’t feel well and I can’t work.' },
           { fr: 'J’aurais besoin d’un justificatif de consultation pour mon employeur.', ar: 'بحتاج إثبات إني جيت لعند الطبيب لأعطيه للشغل.', en: 'I need proof of my medical appointment for my employer.' },
+          { fr: 'Mon employeur me demande un justificatif.', ar: 'صاحب العمل طالب مني إثبات.', en: 'My employer is asking for proof.' },
+          { fr: 'Vous pouvez me faire un certificat médical, s’il vous plaît ?', ar: 'فيك تعمل لي شهادة طبية، لو سمحت؟', en: 'Could you give me a medical certificate, please?' },
+          { fr: 'Vous pouvez me faire un justificatif de consultation ?', ar: 'فيك تعطيني إثبات إني كنت عند الطبيب؟', en: 'Could you give me proof of my appointment?' },
+          { fr: 'J’ai besoin d’un justificatif pour mon employeur.', ar: 'بحتاج إثبات أعطيه لصاحب العمل.', en: 'I need proof for my employer.' },
+          { fr: 'J’ai besoin d’une attestation pour mon travail.', ar: 'بحتاج إثبات/وثيقة للشغل.', en: 'I need a document for work.' },
+          { fr: 'Pour combien de jours ?', ar: 'لِكم يوم؟', en: 'For how many days?' },
+          { fr: 'Je dois donner le certificat à mon employeur.', ar: 'لازم أعطي الشهادة لصاحب العمل.', en: 'I have to give the certificate to my employer.' },
+          { fr: 'Je dois envoyer le document à mon employeur ?', ar: 'لازم أبعت الورقة لصاحب العمل؟', en: 'Do I need to send the document to my employer?' },
+          { fr: 'Je dois faire quoi avec ce document ?', ar: 'شو لازم أعمل بهالورقة؟', en: 'What do I do with this document?' },
+          { fr: 'Est-ce que je dois l’envoyer à la CPAM ?', ar: 'لازم أبعتها للـCPAM؟', en: 'Do I need to send it to CPAM?' },
+          { fr: 'Est-ce que vous pouvez me donner une copie ?', ar: 'فيك تعطيني نسخة؟', en: 'Could you give me a copy?' },
           { fr: 'certificat médical', ar: 'شهادة طبية', en: 'medical certificate' },
           { fr: 'arrêt de travail', ar: 'إجازة مرضية / توقّف عن العمل', en: 'sick leave / medical leave' },
-          { fr: 'justificatif de consultation', ar: 'إثبات حضور موعد طبي', en: 'proof of medical appointment' }
+          { fr: 'justificatif de consultation', ar: 'إثبات حضور موعد طبي', en: 'proof of medical appointment' },
+          { fr: 'attestation', ar: 'إثبات / شهادة حسب السياق', en: 'attestation / certificate' },
+          { fr: 'certificat d’aptitude', ar: 'شهادة اللياقة / الأهلية', en: 'fitness certificate' },
+          { fr: 'certificat d’aptitude au travail', ar: 'شهادة الأهلية للعمل', en: 'fitness-for-work certificate' },
+          { fr: 'certificat de non-contre-indication', ar: 'شهادة عدم وجود مانع طبي', en: 'certificate of no medical contraindication' },
+          { fr: 'certificat de vaccination', ar: 'شهادة التطعيم / اللقاح', en: 'vaccination certificate' },
+          { fr: 'certificat de grossesse', ar: 'شهادة الحمل', en: 'pregnancy certificate' },
+          { fr: 'certificat de reprise', ar: 'شهادة العودة إلى العمل', en: 'return-to-work certificate' },
+          { fr: 'prolongation d’arrêt de travail', ar: 'تمديد الإجازة المرضية', en: 'extension of sick leave' },
+          { fr: 'certificat de guérison', ar: 'شهادة الشفاء', en: 'certificate of recovery' },
+          { fr: 'certificat de décès', ar: 'شهادة الوفاة', en: 'death certificate' }
         ]
       }
     ]
