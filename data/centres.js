@@ -4071,6 +4071,32 @@ window.CENTRES_DATA = [
           { fr: 'Je voudrais donner mon préavis.', ar: 'بدي قدّم إشعار المغادرة.', en: 'I’d like to give notice.' },
           { fr: 'Quand dois-je rendre les clés ?', ar: 'إمتى لازم سلّم المفاتيح؟', en: 'When do I have to return the keys?' }
         ]
+      },
+      {
+        icon: '🤝',
+        title: { ar: '⭐ FSL — صندوق التضامن للسكن', en: 'FSL — Housing Solidarity Fund', fr: 'FSL — Fonds de solidarité pour le logement' },
+        phrases: [
+          { fr: 'FSL = Fonds de solidarité pour le logement — aide liée au logement (entrée dans le logement, dettes ou factures, garantie). Les conditions varient selon le département.', ar: 'FSL = صندوق التضامن للسكن — مساعدة سكنية (دخول السكن، ديون أو فواتير، ضمان). الشروط بتختلف حسب الـdépartement.', en: 'FSL = Housing Solidarity Fund — entry costs, debts/bills, deposit. Conditions vary by département.' },
+          { fr: 'Je voudrais faire une demande de FSL. / Comment faire une demande de FSL ?', ar: 'بدي قدّم طلب FSL / كيف فيني قدّم؟', en: 'I’d like to apply for FSL / how to apply?' },
+          { fr: 'Est-ce que j’ai droit au FSL ? / Quels documents dois-je fournir ?', ar: 'إلي حق بالـFSL؟ / شو الأوراق المطلوبة؟', en: 'Am I eligible? / which documents?' },
+          { fr: 'Mon dossier FSL est en cours. / Ma demande de FSL a été acceptée. / refusée.', ar: 'ملفي قيد المعالجة / انقبل طلبي / انرفض.', en: 'In progress / accepted / refused.' }
+        ]
+      },
+      {
+        icon: '❌',
+        title: { ar: '⭐ FSL — أسباب الرفض والاعتراض', en: 'FSL — refusal reasons and appeal', fr: 'FSL — motifs de refus et recours' },
+        phrases: [
+          { fr: 'Demande de FSL refusée. / Votre demande n’a pas été acceptée. / Décision de refus / Motif du refus', ar: 'انرفض طلب الـFSL / طلبك ما انقبل / قرار رفض / سبب الرفض', en: 'Refused / not accepted / refusal decision / reason' },
+          { fr: 'Vos ressources dépassent le plafond prévu / sont supérieures au plafond d’éligibilité. / Vous ne remplissez pas les conditions de ressources.', ar: 'دخلك بيتجاوز الحد / أعلى من سقف الاستحقاق / ما بتستوفي شروط الدخل.', en: 'Income exceeds the ceiling / doesn’t meet income conditions.' },
+          { fr: 'Vous ne remplissez pas les conditions d’éligibilité. / Le logement ne répond pas aux conditions requises / n’est pas éligible.', ar: 'ما بتستوفي شروط الاستحقاق / السكن ما بيستوفي الشروط / غير مؤهل.', en: 'Not eligible / housing doesn’t meet conditions / not eligible.' },
+          { fr: 'Le montant du loyer est trop élevé.', ar: 'الإيجار عالي كتير.', en: 'Rent is too high.' },
+          { fr: 'Votre dossier est incomplet. / Des pièces justificatives sont manquantes. / Nous vous invitons à fournir les documents manquants.', ar: 'ملفك ناقص / في أوراق ناقصة / منطلب تقدّم الناقص.', en: 'Incomplete file / missing documents / please provide them.' },
+          { fr: 'Les justificatifs fournis ne permettent pas d’instruire votre demande.', ar: 'الأوراق المقدمة ما بتكفي لدراسة طلبك.', en: 'Provided documents are insufficient.' },
+          { fr: 'Votre situation ne permet pas l’attribution de cette aide. / Une aide a déjà été accordée. / Vous avez déjà bénéficié d’une aide du FSL.', ar: 'وضعك ما بيسمح بالمساعدة / سبق وانعطيت مساعدة / سبق واستفدت من FSL.', en: 'Situation doesn’t allow it / already granted / already benefited.' },
+          { fr: 'Pouvez-vous m’expliquer le motif du refus ? / Pourquoi ma demande de FSL a-t-elle été refusée ?', ar: 'فيكن تشرحولي سبب الرفض؟ / ليش انرفض طلبي؟', en: 'Explain the reason? / why was it refused?' },
+          { fr: 'Est-ce que je peux faire un recours ? / déposer une nouvelle demande ? / Quels documents pour une nouvelle demande ?', ar: 'فيني اعترض؟ / قدّم طلب جديد؟ / شو الأوراق لطلب جديد؟', en: 'Can I appeal? / reapply? / documents for a new application?' },
+          { fr: '« refus » seul ne donne pas le motif — le motif figure sous « Motif du refus » dans la décision.', ar: 'كلمة refus لحالها ما كافية — السبب الحقيقي مكتوب بسطر Motif du refus بالقرار.', en: '«refus» alone says nothing — the real reason is under «Motif du refus».' }
+        ]
       }
     ]
   },
