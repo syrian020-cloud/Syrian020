@@ -148,6 +148,16 @@ window.CENTRES_DATA = [
           { fr: 'Merci, vous aussi.', ar: 'شكراً، وإنت كمان.', en: 'Thank you, you too.' },
           { fr: 'Au revoir.', ar: 'مع السلامة.', en: 'Goodbye.' }
         ]
+      },
+      {
+        icon: '⭐',
+        title: { ar: 'domiciliation — الكلمة والاستخدام', en: 'domiciliation — the word and its use', fr: 'domiciliation — le mot et son usage' },
+        phrases: [
+          { fr: 'Je voudrais faire une domiciliation. / Je voudrais faire une demande de domiciliation.', ar: 'بدي أعمل دوميسيلياسيون / بدي قدّم طلب عنوان للمراسلات.', en: 'I’d like a domiciliation / apply for one.' },
+          { fr: 'Je suis domicilié à la Croix-Rouge. / Je n’ai pas d’adresse stable. / Je n’ai pas d’adresse, je voudrais faire une domiciliation.', ar: 'عنوان مراسلاتي مسجّل عند الصليب الأحمر / ما عندي عنوان ثابت / ما عندي عنوان وبدي دوميسيلياسيون.', en: 'Registered at Croix-Rouge / no stable address / no address, I want domiciliation.' },
+          { fr: 'domiciliation = titre administratif : une adresse pour recevoir le courrier officiel (CAF, CPAM, Préfecture, MDPH, impôts) quand on n’a pas d’adresse fixe.', ar: 'domiciliation = مصطلح إداري: عنوان لاستلام البريد الرسمي (CAF، CPAM، Préfecture، MDPH، impôts) لمن ما عنده عنوان ثابت — بالعربي: «عنوان للمراسلات».', en: 'domiciliation = admin term: an address for official mail when you have no fixed address.' },
+          { fr: 'faire une domiciliation / être domicilié à / une adresse stable / une demande de domiciliation / recevoir le courrier', ar: 'يعمل دوميسيلياسيون / مسجّل عند / عنوان ثابت / طلب دوميسيلياسيون / يستلم البريد', en: 'get domiciliation / be registered / stable address / application / receive mail' }
+        ]
       }
     ]
   },
