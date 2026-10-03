@@ -10376,5 +10376,612 @@ window.CENTRES_DATA = [
         { fr: 'visiter', ar: 'يزور', en: 'to visit' }
       ] }
     ]
+  },
+  {
+    id: 'homophones',
+    icon: '🔊',
+    name: { ar: 'كلمات متشابهة النطق (Les homophones)', en: 'Homophones (Les homophones)', fr: 'Les homophones' },
+    desc: { ar: 'مجموعات كلمات فرنسية تُنطق بنفس الطريقة أو بشكل قريب جدًا — معانيها مختلفة تمامًا', en: 'Groups of French words pronounced the same or nearly — with completely different meanings', fr: 'Groupes de mots français homophones' },
+    sections: [
+      { icon: '⭐', title: { ar: 'verre / ver / vert / vers — أمثلة', en: 'verre / ver / vert / vers — examples', fr: 'verre / ver / vert / vers — exemples' }, phrases: [
+        { fr: 'Un verre d’eau.', ar: 'كاسة مي.', en: 'A glass of water.' },
+        { fr: 'Un ver de terre.', ar: 'دودة الأرض.', en: 'An earthworm.' },
+        { fr: 'Une voiture verte.', ar: 'سيارة خضرا.', en: 'A green car.' },
+        { fr: 'Je vais vers Paris.', ar: 'رايح باتجاه باريس.', en: 'I’m going toward Paris.' }
+      ] },
+      { icon: '🔊', title: { ar: 'verre / ver / vert / vers', en: 'Homophones 1', fr: 'Homophones 1' }, phrases: [
+        { fr: 'verre', ar: 'كأس أو زجاج', en: 'glass' },
+        { fr: 'ver', ar: 'دودة', en: 'worm' },
+        { fr: 'vert', ar: 'أخضر', en: 'green' },
+        { fr: 'vers', ar: 'نحو أو حوالي', en: 'toward or around' }
+      ] },
+      { icon: '🔊', title: { ar: 'mer / mère / maire', en: 'Homophones 2', fr: 'Homophones 2' }, phrases: [
+        { fr: 'mer', ar: 'بحر', en: 'sea' },
+        { fr: 'mère', ar: 'أم', en: 'mother' },
+        { fr: 'maire', ar: 'رئيس البلدية', en: 'mayor' }
+      ] },
+      { icon: '🔊', title: { ar: 'sans / sang / cent / s’en', en: 'Homophones 3', fr: 'Homophones 3' }, phrases: [
+        { fr: 'sans', ar: 'بدون', en: 'without' },
+        { fr: 'sang', ar: 'دم', en: 'blood' },
+        { fr: 'cent', ar: 'مئة', en: 'hundred' },
+        { fr: 's’en', ar: 'يـ... أو منها', en: 'oneself / from it' }
+      ] },
+      { icon: '🔊', title: { ar: 'son / sont', en: 'Homophones 4', fr: 'Homophones 4' }, phrases: [
+        { fr: 'son', ar: 'له / خاصته', en: 'his / her / its' },
+        { fr: 'sont', ar: 'هم يكونون', en: 'are' }
+      ] },
+      { icon: '🔊', title: { ar: 'a / à', en: 'Homophones 5', fr: 'Homophones 5' }, phrases: [
+        { fr: 'a', ar: 'لديه (فعل avoir)', en: 'has' },
+        { fr: 'à', ar: 'إلى أو في', en: 'to / at / in' }
+      ] },
+      { icon: '🔊', title: { ar: 'ou / où', en: 'Homophones 6', fr: 'Homophones 6' }, phrases: [
+        { fr: 'ou', ar: 'أو', en: 'or' },
+        { fr: 'où', ar: 'أين', en: 'where' }
+      ] },
+      { icon: '🔊', title: { ar: 'ces / ses / c’est / s’est', en: 'Homophones 7', fr: 'Homophones 7' }, phrases: [
+        { fr: 'ces', ar: 'هؤلاء / هذه', en: 'these' },
+        { fr: 'ses', ar: 'له / لها', en: 'his / her' },
+        { fr: 'c’est', ar: 'هذا هو', en: 'it is' },
+        { fr: 's’est', ar: 'قد... نفسه', en: 'has... itself' }
+      ] },
+      { icon: '🔊', title: { ar: 'fois / foie / foi', en: 'Homophones 8', fr: 'Homophones 8' }, phrases: [
+        { fr: 'fois', ar: 'مرة', en: 'time' },
+        { fr: 'foie', ar: 'كبد', en: 'liver' },
+        { fr: 'foi', ar: 'إيمان', en: 'faith' }
+      ] },
+      { icon: '🔊', title: { ar: 'voie / voix / voit / vois', en: 'Homophones 9', fr: 'Homophones 9' }, phrases: [
+        { fr: 'voie', ar: 'طريق', en: 'way' },
+        { fr: 'voix', ar: 'صوت', en: 'voice' },
+        { fr: 'voit', ar: 'يرى', en: 'sees' },
+        { fr: 'vois', ar: 'أرى أو ترى', en: 'see' }
+      ] },
+      { icon: '🔊', title: { ar: 'pain / pin / peint', en: 'Homophones 10', fr: 'Homophones 10' }, phrases: [
+        { fr: 'pain', ar: 'خبز', en: 'bread' },
+        { fr: 'pin', ar: 'صنوبر', en: 'pine tree' },
+        { fr: 'peint', ar: 'يرسم', en: 'paints' }
+      ] },
+      { icon: '🔊', title: { ar: 'seau / saut / sceau / sot', en: 'Homophones 11', fr: 'Homophones 11' }, phrases: [
+        { fr: 'seau', ar: 'دلو', en: 'bucket' },
+        { fr: 'saut', ar: 'قفزة', en: 'jump' },
+        { fr: 'sceau', ar: 'ختم', en: 'seal' },
+        { fr: 'sot', ar: 'أحمق', en: 'foolish' }
+      ] },
+      { icon: '🔊', title: { ar: 'cou / coup / coût', en: 'Homophones 12', fr: 'Homophones 12' }, phrases: [
+        { fr: 'cou', ar: 'رقبة', en: 'neck' },
+        { fr: 'coup', ar: 'ضربة', en: 'blow' },
+        { fr: 'coût', ar: 'تكلفة', en: 'cost' }
+      ] },
+      { icon: '🔊', title: { ar: 'sans / sang / cent / sens / sent', en: 'Homophones 13', fr: 'Homophones 13' }, phrases: [
+        { fr: 'sans', ar: 'بدون', en: 'without' },
+        { fr: 'sang', ar: 'دم', en: 'blood' },
+        { fr: 'cent', ar: 'مئة', en: 'hundred' },
+        { fr: 'sens', ar: 'معنى أو حاسة', en: 'sense' },
+        { fr: 'sent', ar: 'يشم أو يشعر', en: 'smells or feels' }
+      ] },
+      { icon: '🔊', title: { ar: 'air / aire / ère', en: 'Homophones 14', fr: 'Homophones 14' }, phrases: [
+        { fr: 'air', ar: 'هواء', en: 'air' },
+        { fr: 'aire', ar: 'مساحة', en: 'area' },
+        { fr: 'ère', ar: 'حقبة', en: 'era' }
+      ] },
+      { icon: '🔊', title: { ar: 'chair / chère / cher', en: 'Homophones 15', fr: 'Homophones 15' }, phrases: [
+        { fr: 'chair', ar: 'لحم', en: 'flesh / meat' },
+        { fr: 'chère', ar: 'غالية', en: 'expensive (fem.)' },
+        { fr: 'cher', ar: 'غالي', en: 'expensive' }
+      ] },
+      { icon: '🔊', title: { ar: 'compte / conte / comte', en: 'Homophones 16', fr: 'Homophones 16' }, phrases: [
+        { fr: 'compte', ar: 'حساب', en: 'account' },
+        { fr: 'conte', ar: 'حكاية', en: 'tale' },
+        { fr: 'comte', ar: 'كونت', en: 'count' }
+      ] },
+      { icon: '🔊', title: { ar: 'cour / cours / court', en: 'Homophones 17', fr: 'Homophones 17' }, phrases: [
+        { fr: 'cour', ar: 'ساحة', en: 'courtyard' },
+        { fr: 'cours', ar: 'درس أو مسار', en: 'course' },
+        { fr: 'court', ar: 'قصير أو يركض', en: 'short or runs' }
+      ] },
+      { icon: '🔊', title: { ar: 'quand / quant / qu’en', en: 'Homophones 18', fr: 'Homophones 18' }, phrases: [
+        { fr: 'quand', ar: 'متى', en: 'when' },
+        { fr: 'quant', ar: 'فيما يخص', en: 'as for' },
+        { fr: 'qu’en', ar: 'ماذا عن... أو في...', en: 'what about... / in...' }
+      ] },
+      { icon: '🔊', title: { ar: 'tant / temps / taon', en: 'Homophones 19', fr: 'Homophones 19' }, phrases: [
+        { fr: 'tant', ar: 'كثيرًا', en: 'so much' },
+        { fr: 'temps', ar: 'وقت', en: 'time' },
+        { fr: 'taon', ar: 'ذبابة الخيل', en: 'horsefly' }
+      ] },
+      { icon: '🔊', title: { ar: 'fond / fonds / font', en: 'Homophones 20', fr: 'Homophones 20' }, phrases: [
+        { fr: 'fond', ar: 'قاع أو عميق', en: 'bottom / deep' },
+        { fr: 'fonds', ar: 'أموال أو صندوق', en: 'funds' },
+        { fr: 'font', ar: 'يفعلون', en: 'they do' }
+      ] },
+      { icon: '🔊', title: { ar: 'près / prêt / prêts', en: 'Homophones 21', fr: 'Homophones 21' }, phrases: [
+        { fr: 'près', ar: 'قريب', en: 'near' },
+        { fr: 'prêt', ar: 'جاهز أو مُقرض', en: 'ready or lent' },
+        { fr: 'prêts', ar: 'جاهزون أو قروض', en: 'ready or loans' }
+      ] },
+      { icon: '🔊', title: { ar: 'ma / m’a / mâ', en: 'Homophones 22', fr: 'Homophones 22' }, phrases: [
+        { fr: 'ma', ar: 'لي / خاصتي', en: 'my' },
+        { fr: 'm’a', ar: 'لي... أو فعل معي', en: 'has me' },
+        { fr: 'mâ', ar: '«ما» (نادرة)', en: 'ma (rare)' }
+      ] },
+      { icon: '🔊', title: { ar: 'mes / mais / met / mets', en: 'Homophones 23', fr: 'Homophones 23' }, phrases: [
+        { fr: 'mes', ar: 'لي / خاصتي', en: 'my' },
+        { fr: 'mais', ar: 'لكن', en: 'but' },
+        { fr: 'met', ar: 'يضع', en: 'puts' },
+        { fr: 'mets', ar: 'أضع أو ضع', en: 'put' }
+      ] },
+      { icon: '🔊', title: { ar: 'on / ont', en: 'Homophones 24', fr: 'Homophones 24' }, phrases: [
+        { fr: 'on', ar: 'نحن / الناس', en: 'one / we / people' },
+        { fr: 'ont', ar: 'لديهم', en: 'have' }
+      ] },
+      { icon: '🔊', title: { ar: 'peu / peux / peut', en: 'Homophones 25', fr: 'Homophones 25' }, phrases: [
+        { fr: 'peu', ar: 'قليل', en: 'little' },
+        { fr: 'peux', ar: 'أستطيع أو تستطيع', en: 'can' },
+        { fr: 'peut', ar: 'يستطيع', en: 'can' }
+      ] },
+      { icon: '🔊', title: { ar: 'la / l’a / là', en: 'Homophones 26', fr: 'Homophones 26' }, phrases: [
+        { fr: 'la', ar: 'الـ', en: 'the' },
+        { fr: 'l’a', ar: 'لديه إياها', en: 'has it' },
+        { fr: 'là', ar: 'هناك', en: 'there' }
+      ] },
+      { icon: '🔊', title: { ar: 'le / les / lait / laid', en: 'Homophones 27', fr: 'Homophones 27' }, phrases: [
+        { fr: 'le', ar: 'الـ (مذكر)', en: 'the' },
+        { fr: 'les', ar: 'الـ (جمع)', en: 'the (plural)' },
+        { fr: 'lait', ar: 'حليب', en: 'milk' },
+        { fr: 'laid', ar: 'قبيح', en: 'ugly' }
+      ] },
+      { icon: '🔊', title: { ar: 'mère / mer / maire', en: 'Homophones 28', fr: 'Homophones 28' }, phrases: [
+        { fr: 'mère', ar: 'أم', en: 'mother' },
+        { fr: 'mer', ar: 'بحر', en: 'sea' },
+        { fr: 'maire', ar: 'رئيس بلدية', en: 'mayor' }
+      ] },
+      { icon: '🔊', title: { ar: 'nom / non / n’ont', en: 'Homophones 29', fr: 'Homophones 29' }, phrases: [
+        { fr: 'nom', ar: 'اسم', en: 'name' },
+        { fr: 'non', ar: 'لا', en: 'no' },
+        { fr: 'n’ont', ar: 'ليس لديهم', en: 'don’t have' }
+      ] },
+      { icon: '🔊', title: { ar: 'sans / s’en / cent / sang', en: 'Homophones 30', fr: 'Homophones 30' }, phrases: [
+        { fr: 'sans', ar: 'بدون', en: 'without' },
+        { fr: 's’en', ar: 'يذهب منه أو منها', en: 'from it / them' },
+        { fr: 'cent', ar: 'مئة', en: 'hundred' },
+        { fr: 'sang', ar: 'دم', en: 'blood' }
+      ] },
+      { icon: '🔊', title: { ar: 'si / s’y / scie', en: 'Homophones 31', fr: 'Homophones 31' }, phrases: [
+        { fr: 'si', ar: 'إذا', en: 'if' },
+        { fr: 's’y', ar: 'فيه أو إليها', en: 'there' },
+        { fr: 'scie', ar: 'منشار', en: 'saw' }
+      ] },
+      { icon: '🔊', title: { ar: 'c’est / ses / ces / sait', en: 'Homophones 32', fr: 'Homophones 32' }, phrases: [
+        { fr: 'c’est', ar: 'هذا هو', en: 'it is' },
+        { fr: 'ses', ar: 'له أو لها', en: 'his or her' },
+        { fr: 'ces', ar: 'هؤلاء', en: 'these' },
+        { fr: 'sait', ar: 'يعرف', en: 'knows' }
+      ] },
+      { icon: '🔊', title: { ar: 's’est / sait / c’est', en: 'Homophones 33', fr: 'Homophones 33' }, phrases: [
+        { fr: 's’est', ar: 'فعلَ... بنفسه', en: 'has... itself' },
+        { fr: 'sait', ar: 'يعرف', en: 'knows' },
+        { fr: 'c’est', ar: 'هذا هو', en: 'it is' }
+      ] },
+      { icon: '🔊', title: { ar: 'quel / quelle / qu’elle', en: 'Homophones 34', fr: 'Homophones 34' }, phrases: [
+        { fr: 'quel', ar: 'أيّ (مذكر)', en: 'which / what (masc.)' },
+        { fr: 'quelle', ar: 'أيّ (مؤنث)', en: 'which / what (fem.)' },
+        { fr: 'qu’elle', ar: 'أنها', en: 'that she' }
+      ] },
+      { icon: '🔊', title: { ar: 'mes / mets / mais', en: 'Homophones 35', fr: 'Homophones 35' }, phrases: [
+        { fr: 'mes', ar: 'لي / خاصتي', en: 'my' },
+        { fr: 'mets', ar: 'أضع أو ضع', en: 'put' },
+        { fr: 'mais', ar: 'لكن', en: 'but' }
+      ] },
+      { icon: '🔊', title: { ar: 'peau / pot / po', en: 'Homophones 36', fr: 'Homophones 36' }, phrases: [
+        { fr: 'peau', ar: 'جلد', en: 'skin' },
+        { fr: 'pot', ar: 'وعاء أو أصيص', en: 'pot / container' },
+        { fr: 'po', ar: 'حرف «بو»', en: '“po” (letter / name)' }
+      ] },
+      { icon: '🔊', title: { ar: 'dès / des / dé', en: 'Homophones 37', fr: 'Homophones 37' }, phrases: [
+        { fr: 'dès', ar: 'منذ', en: 'from / as soon as' },
+        { fr: 'des', ar: 'بعض أو من الـ', en: 'some / of the' },
+        { fr: 'dé', ar: 'نرد', en: 'die' }
+      ] },
+      { icon: '🔊', title: { ar: 'dans / dent / d’en', en: 'Homophones 38', fr: 'Homophones 38' }, phrases: [
+        { fr: 'dans', ar: 'في', en: 'in' },
+        { fr: 'dent', ar: 'سنّ', en: 'tooth' },
+        { fr: 'd’en', ar: 'من ذلك', en: 'from it' }
+      ] },
+      { icon: '🔊', title: { ar: 'an / en / ans', en: 'Homophones 39', fr: 'Homophones 39' }, phrases: [
+        { fr: 'an', ar: 'سنة', en: 'year' },
+        { fr: 'en', ar: 'في أو بـ', en: 'in / by' },
+        { fr: 'ans', ar: 'سنوات', en: 'years' }
+      ] },
+      { icon: '🔊', title: { ar: 'haut / eau / oh', en: 'Homophones 40', fr: 'Homophones 40' }, phrases: [
+        { fr: 'haut', ar: 'عالٍ', en: 'high' },
+        { fr: 'eau', ar: 'ماء', en: 'water' },
+        { fr: 'oh', ar: 'أوه', en: 'oh' }
+      ] },
+      { icon: '🔊', title: { ar: 'auteur / hauteur', en: 'Homophones 41', fr: 'Homophones 41' }, phrases: [
+        { fr: 'auteur', ar: 'مؤلف', en: 'author' },
+        { fr: 'hauteur', ar: 'ارتفاع', en: 'height' }
+      ] },
+      { icon: '🔊', title: { ar: 'peur / père / paire', en: 'Homophones 42', fr: 'Homophones 42' }, phrases: [
+        { fr: 'peur', ar: 'خوف', en: 'fear' },
+        { fr: 'père', ar: 'أب', en: 'father' },
+        { fr: 'paire', ar: 'زوج أو اثنان', en: 'pair' }
+      ] },
+      { icon: '🔊', title: { ar: 'selle / celle / sel', en: 'Homophones 43', fr: 'Homophones 43' }, phrases: [
+        { fr: 'selle', ar: 'سرج', en: 'saddle' },
+        { fr: 'celle', ar: 'تلك', en: 'that one' },
+        { fr: 'sel', ar: 'ملح', en: 'salt' }
+      ] },
+      { icon: '🔊', title: { ar: 'sale / salle / ça l’est', en: 'Homophones 44', fr: 'Homophones 44' }, phrases: [
+        { fr: 'sale', ar: 'وسخ', en: 'dirty' },
+        { fr: 'salle', ar: 'غرفة أو قاعة', en: 'room / hall' },
+        { fr: 'ça l’est', ar: 'هذا كذلك', en: 'it is' }
+      ] },
+      { icon: '🔊', title: { ar: 'mer / mère / maire / mets', en: 'Homophones 45', fr: 'Homophones 45' }, phrases: [
+        { fr: 'mer', ar: 'بحر', en: 'sea' },
+        { fr: 'mère', ar: 'أم', en: 'mother' },
+        { fr: 'maire', ar: 'رئيس بلدية', en: 'mayor' },
+        { fr: 'mets', ar: 'أضع أو ضع', en: 'put' }
+      ] },
+      { icon: '🔊', title: { ar: 'cher / chair / chaire', en: 'Homophones 46', fr: 'Homophones 46' }, phrases: [
+        { fr: 'cher', ar: 'غالي', en: 'expensive' },
+        { fr: 'chair', ar: 'لحم', en: 'flesh / meat' },
+        { fr: 'chaire', ar: 'كرسي أستاذ أو منبر', en: 'professor’s chair / pulpit' }
+      ] },
+      { icon: '🔊', title: { ar: 'cygne / signe / signe', en: 'Homophones 47', fr: 'Homophones 47' }, phrases: [
+        { fr: 'cygne', ar: 'بجعة', en: 'swan' },
+        { fr: 'signe', ar: 'علامة أو إشارة', en: 'sign' },
+        { fr: 'signe', ar: 'يوقّع', en: 'signs' }
+      ] },
+      { icon: '🔊', title: { ar: 'doigt / doit / dois', en: 'Homophones 48', fr: 'Homophones 48' }, phrases: [
+        { fr: 'doigt', ar: 'إصبع', en: 'finger' },
+        { fr: 'doit', ar: 'يجب عليه', en: 'must' },
+        { fr: 'dois', ar: 'يجب عليّ أو عليك', en: 'must' }
+      ] },
+      { icon: '🔊', title: { ar: 'faim / fin / feint', en: 'Homophones 49', fr: 'Homophones 49' }, phrases: [
+        { fr: 'faim', ar: 'جوع', en: 'hunger' },
+        { fr: 'fin', ar: 'نهاية أو نحيف', en: 'end or thin' },
+        { fr: 'feint', ar: 'حركة تمويه', en: 'feint' }
+      ] },
+      { icon: '🔊', title: { ar: 'foi / foie / fois', en: 'Homophones 50', fr: 'Homophones 50' }, phrases: [
+        { fr: 'foi', ar: 'إيمان', en: 'faith' },
+        { fr: 'foie', ar: 'كبد', en: 'liver' },
+        { fr: 'fois', ar: 'مرة', en: 'time' }
+      ] },
+      { icon: '🔊', title: { ar: 'sein / sain / saint / ceint', en: 'Homophones 51', fr: 'Homophones 51' }, phrases: [
+        { fr: 'sein', ar: 'صدر', en: 'breast' },
+        { fr: 'sain', ar: 'سليم', en: 'healthy' },
+        { fr: 'saint', ar: 'قديس', en: 'saint' },
+        { fr: 'ceint', ar: 'يحيط أو يطوّق', en: 'surrounds' }
+      ] },
+      { icon: '🔊', title: { ar: 'voie / voix / vois / voit', en: 'Homophones 52', fr: 'Homophones 52' }, phrases: [
+        { fr: 'voie', ar: 'طريق', en: 'way' },
+        { fr: 'voix', ar: 'صوت', en: 'voice' },
+        { fr: 'vois', ar: 'أرى أو ترى', en: 'see' },
+        { fr: 'voit', ar: 'يرى', en: 'sees' }
+      ] },
+      { icon: '🔊', title: { ar: 'seau / sceau / saut', en: 'Homophones 53', fr: 'Homophones 53' }, phrases: [
+        { fr: 'seau', ar: 'دلو', en: 'bucket' },
+        { fr: 'sceau', ar: 'ختم', en: 'seal' },
+        { fr: 'saut', ar: 'قفزة', en: 'jump' }
+      ] },
+      { icon: '🔊', title: { ar: 'date / datte', en: 'Homophones 54', fr: 'Homophones 54' }, phrases: [
+        { fr: 'date', ar: 'تاريخ', en: 'date' },
+        { fr: 'datte', ar: 'تمرة', en: 'date fruit' }
+      ] },
+      { icon: '🔊', title: { ar: 'reine / renne / rênes', en: 'Homophones 55', fr: 'Homophones 55' }, phrases: [
+        { fr: 'reine', ar: 'ملكة', en: 'queen' },
+        { fr: 'renne', ar: 'حيوان الرنّة', en: 'reindeer' },
+        { fr: 'rênes', ar: 'لجام', en: 'reins' }
+      ] },
+      { icon: '🔊', title: { ar: 'bal / balle', en: 'Homophones 56', fr: 'Homophones 56' }, phrases: [
+        { fr: 'bal', ar: 'حفلة راقصة', en: 'ball / dance' },
+        { fr: 'balle', ar: 'كرة', en: 'ball' }
+      ] },
+      { icon: '🔊', title: { ar: 'canal / cannelle', en: 'Homophones 57', fr: 'Homophones 57' }, phrases: [
+        { fr: 'canal', ar: 'قناة', en: 'canal' },
+        { fr: 'cannelle', ar: 'قرفة', en: 'cinnamon' }
+      ] },
+      { icon: '🔊', title: { ar: 'ancre / encre', en: 'Homophones 58', fr: 'Homophones 58' }, phrases: [
+        { fr: 'ancre', ar: 'مرساة', en: 'anchor' },
+        { fr: 'encre', ar: 'حبر', en: 'ink' }
+      ] },
+      { icon: '🔊', title: { ar: 'amande / amende', en: 'Homophones 59', fr: 'Homophones 59' }, phrases: [
+        { fr: 'amande', ar: 'لوز', en: 'almond' },
+        { fr: 'amende', ar: 'غرامة', en: 'fine' }
+      ] },
+      { icon: '🔊', title: { ar: 'pause / pose', en: 'Homophones 60', fr: 'Homophones 60' }, phrases: [
+        { fr: 'pause', ar: 'استراحة', en: 'break' },
+        { fr: 'pose', ar: 'وضع أو وضعية', en: 'pose' }
+      ] },
+      { icon: '🔊', title: { ar: 'tache / tâche', en: 'Homophones 61', fr: 'Homophones 61' }, phrases: [
+        { fr: 'tache', ar: 'بقعة', en: 'stain' },
+        { fr: 'tâche', ar: 'مهمّة', en: 'task' }
+      ] },
+      { icon: '🔊', title: { ar: 'mur / mûr', en: 'Homophones 62', fr: 'Homophones 62' }, phrases: [
+        { fr: 'mur', ar: 'جدار', en: 'wall' },
+        { fr: 'mûr', ar: 'ناضج', en: 'ripe' }
+      ] },
+      { icon: '🔊', title: { ar: 'sur / sûr', en: 'Homophones 63', fr: 'Homophones 63' }, phrases: [
+        { fr: 'sur', ar: 'على', en: 'on' },
+        { fr: 'sûr', ar: 'متأكد أو آمن', en: 'sure or safe' }
+      ] },
+      { icon: '🔊', title: { ar: 'du / dû', en: 'Homophones 64', fr: 'Homophones 64' }, phrases: [
+        { fr: 'du', ar: 'من الـ', en: 'of the' },
+        { fr: 'dû', ar: 'مستحق أو واجب', en: 'due' }
+      ] },
+      { icon: '🔊', title: { ar: 'cru / crû', en: 'Homophones 65', fr: 'Homophones 65' }, phrases: [
+        { fr: 'cru', ar: 'نيء', en: 'raw' },
+        { fr: 'crû', ar: 'نما أو ازداد', en: 'grew' }
+      ] },
+      { icon: '🔊', title: { ar: 'censé / sensé', en: 'Homophones 66', fr: 'Homophones 66' }, phrases: [
+        { fr: 'censé', ar: 'من المفترض أن', en: 'supposed to' },
+        { fr: 'sensé', ar: 'منطقي أو عاقل', en: 'sensible' }
+      ] },
+      { icon: '🔊', title: { ar: 'plutôt / plus tôt', en: 'Homophones 67', fr: 'Homophones 67' }, phrases: [
+        { fr: 'plutôt', ar: 'بالأحرى', en: 'rather' },
+        { fr: 'plus tôt', ar: 'في وقت أبكر', en: 'earlier' }
+      ] },
+      { icon: '🔊', title: { ar: 'davantage / d’avantage', en: 'Homophones 68', fr: 'Homophones 68' }, phrases: [
+        { fr: 'davantage', ar: 'أكثر', en: 'more' },
+        { fr: 'd’avantage', ar: 'من ميزة أو فائدة', en: 'of advantage' }
+      ] },
+      { icon: '🔊', title: { ar: 'quelquefois / quelques fois', en: 'Homophones 69', fr: 'Homophones 69' }, phrases: [
+        { fr: 'quelquefois', ar: 'أحيانًا', en: 'sometimes' },
+        { fr: 'quelques fois', ar: 'عدة مرات', en: 'several times' }
+      ] },
+      { icon: '🔊', title: { ar: 'peut-être / peut être', en: 'Homophones 70', fr: 'Homophones 70' }, phrases: [
+        { fr: 'peut-être', ar: 'ربما', en: 'maybe' },
+        { fr: 'peut être', ar: 'يمكن أن يكون', en: 'may be' }
+      ] },
+      { icon: '🔊', title: { ar: 'bar / barre', en: 'Homophones 71', fr: 'Homophones 71' }, phrases: [
+        { fr: 'bar', ar: 'بار', en: 'bar' },
+        { fr: 'barre', ar: 'قضيب أو عارضة', en: 'bar or rod' }
+      ] },
+      { icon: '🔊', title: { ar: 'boue / bout', en: 'Homophones 72', fr: 'Homophones 72' }, phrases: [
+        { fr: 'boue', ar: 'طين', en: 'mud' },
+        { fr: 'bout', ar: 'طرف أو نهاية', en: 'end' }
+      ] },
+      { icon: '🔊', title: { ar: 'bouc / boue / bout', en: 'Homophones 73', fr: 'Homophones 73' }, phrases: [
+        { fr: 'bouc', ar: 'تيس', en: 'male goat' },
+        { fr: 'boue', ar: 'طين', en: 'mud' },
+        { fr: 'bout', ar: 'طرف أو نهاية', en: 'end' }
+      ] },
+      { icon: '🔊', title: { ar: 'cœur / chœur', en: 'Homophones 74', fr: 'Homophones 74' }, phrases: [
+        { fr: 'cœur', ar: 'قلب', en: 'heart' },
+        { fr: 'chœur', ar: 'جوقة غنائية', en: 'choir' }
+      ] },
+      { icon: '🔊', title: { ar: 'don / dont', en: 'Homophones 75', fr: 'Homophones 75' }, phrases: [
+        { fr: 'don', ar: 'هدية', en: 'gift' },
+        { fr: 'dont', ar: 'الذي منه أو التي منه', en: 'of which' }
+      ] },
+      { icon: '🔊', title: { ar: 'lire / lyre', en: 'Homophones 76', fr: 'Homophones 76' }, phrases: [
+        { fr: 'lire', ar: 'يقرأ', en: 'read' },
+        { fr: 'lyre', ar: 'قيثارة', en: 'lyre' }
+      ] },
+      { icon: '🔊', title: { ar: 'mal / mâle / malle', en: 'Homophones 77', fr: 'Homophones 77' }, phrases: [
+        { fr: 'mal', ar: 'سيئ أو شر', en: 'bad or evil' },
+        { fr: 'mâle', ar: 'ذكر', en: 'male' },
+        { fr: 'malle', ar: 'صندوق أو حقيبة كبيرة', en: 'trunk' }
+      ] },
+      { icon: '🔊', title: { ar: 'plaine / pleine', en: 'Homophones 78', fr: 'Homophones 78' }, phrases: [
+        { fr: 'plaine', ar: 'سهل', en: 'plain' },
+        { fr: 'pleine', ar: 'ممتلئة', en: 'full' }
+      ] },
+      { icon: '🔊', title: { ar: 'poids / pois / poix', en: 'Homophones 79', fr: 'Homophones 79' }, phrases: [
+        { fr: 'poids', ar: 'وزن', en: 'weight' },
+        { fr: 'pois', ar: 'بازلاء', en: 'pea' },
+        { fr: 'poix', ar: 'مادة راتنجية', en: 'pitch' }
+      ] },
+      { icon: '🔊', title: { ar: 'port / porc', en: 'Homophones 80', fr: 'Homophones 80' }, phrases: [
+        { fr: 'port', ar: 'ميناء', en: 'port' },
+        { fr: 'porc', ar: 'خنزير', en: 'pig' }
+      ] },
+      { icon: '🔊', title: { ar: 'pou / poux', en: 'Homophones 81', fr: 'Homophones 81' }, phrases: [
+        { fr: 'pou', ar: 'قملة', en: 'louse' },
+        { fr: 'poux', ar: 'قمل', en: 'lice' }
+      ] },
+      { icon: '🔊', title: { ar: 'roue / roux', en: 'Homophones 82', fr: 'Homophones 82' }, phrases: [
+        { fr: 'roue', ar: 'عجلة', en: 'wheel' },
+        { fr: 'roux', ar: 'أشقر مائل للأحمر', en: 'red-haired' }
+      ] },
+      { icon: '🔊', title: { ar: 'tante / tente', en: 'Homophones 83', fr: 'Homophones 83' }, phrases: [
+        { fr: 'tante', ar: 'عمة أو خالة', en: 'aunt' },
+        { fr: 'tente', ar: 'خيمة', en: 'tent' }
+      ] },
+      { icon: '🔊', title: { ar: 'ton / thon', en: 'Homophones 84', fr: 'Homophones 84' }, phrases: [
+        { fr: 'ton', ar: 'ـك للمذكر', en: 'your' },
+        { fr: 'thon', ar: 'تونة', en: 'tuna' }
+      ] },
+      { icon: '🔊', title: { ar: 'teint / thym / tin', en: 'Homophones 85', fr: 'Homophones 85' }, phrases: [
+        { fr: 'teint', ar: 'لون البشرة', en: 'complexion' },
+        { fr: 'thym', ar: 'زعتر', en: 'thyme' },
+        { fr: 'tin', ar: 'قصدير', en: 'tin' }
+      ] },
+      { icon: '🔊', title: { ar: 'chant / champ', en: 'Homophones 86', fr: 'Homophones 86' }, phrases: [
+        { fr: 'chant', ar: 'أغنية', en: 'song' },
+        { fr: 'champ', ar: 'حقل', en: 'field' }
+      ] },
+      { icon: '🔊', title: { ar: 'tort / tord', en: 'Homophones 87', fr: 'Homophones 87' }, phrases: [
+        { fr: 'tort', ar: 'خطأ أو باطل', en: 'wrong' },
+        { fr: 'tord', ar: 'يلوي', en: 'twists' }
+      ] },
+      { icon: '🔊', title: { ar: 'mètre / mettre / maître', en: 'Homophones 88', fr: 'Homophones 88' }, phrases: [
+        { fr: 'mètre', ar: 'متر', en: 'meter' },
+        { fr: 'mettre', ar: 'يضع', en: 'put' },
+        { fr: 'maître', ar: 'معلّم أو سيد', en: 'master' }
+      ] },
+      { icon: '🔊', title: { ar: 'compter / conter', en: 'Homophones 89', fr: 'Homophones 89' }, phrases: [
+        { fr: 'compter', ar: 'يعدّ', en: 'count' },
+        { fr: 'conter', ar: 'يحكي قصة', en: 'tell a story' }
+      ] },
+      { icon: '🔊', title: { ar: 'dessin / dessein', en: 'Homophones 90', fr: 'Homophones 90' }, phrases: [
+        { fr: 'dessin', ar: 'رسم', en: 'drawing' },
+        { fr: 'dessein', ar: 'قصد أو مخطط', en: 'intention or plan' }
+      ] },
+      { icon: '🔊', title: { ar: 'cane / canne', en: 'Homophones 91', fr: 'Homophones 91' }, phrases: [
+        { fr: 'cane', ar: 'بطة أنثى', en: 'female duck' },
+        { fr: 'canne', ar: 'عصا للمشي', en: 'cane' }
+      ] },
+      { icon: '🔊', title: { ar: 'scène / Seine', en: 'Homophones 92', fr: 'Homophones 92' }, phrases: [
+        { fr: 'scène', ar: 'مسرح أو مشهد', en: 'scene' },
+        { fr: 'Seine', ar: 'نهر السين', en: 'Seine River' }
+      ] },
+      { icon: '🔊', title: { ar: 'hêtre / être', en: 'Homophones 93', fr: 'Homophones 93' }, phrases: [
+        { fr: 'hêtre', ar: 'شجرة الزان', en: 'beech tree' },
+        { fr: 'être', ar: 'يكون', en: 'to be' }
+      ] },
+      { icon: '🔊', title: { ar: 'cote / côte', en: 'Homophones 94', fr: 'Homophones 94' }, phrases: [
+        { fr: 'cote', ar: 'تقييم أو سعر مرجعي', en: 'rating' },
+        { fr: 'côte', ar: 'ساحل أو ضلع', en: 'coast or rib' }
+      ] },
+      { icon: '🔊', title: { ar: 'hôte / ôte', en: 'Homophones 95', fr: 'Homophones 95' }, phrases: [
+        { fr: 'hôte', ar: 'مضيف أو ضيف', en: 'host or guest' },
+        { fr: 'ôte', ar: 'يزيل', en: 'removes' }
+      ] },
+      { icon: '🔊', title: { ar: 'fée / fait / fais', en: 'Homophones 96', fr: 'Homophones 96' }, phrases: [
+        { fr: 'fée', ar: 'جنّية', en: 'fairy' },
+        { fr: 'fait', ar: 'يفعل أو حدث', en: 'does or fact' },
+        { fr: 'fais', ar: 'أفعل أو تفعل', en: 'do' }
+      ] },
+      { icon: '🔊', title: { ar: 'mai / mets', en: 'Homophones 97', fr: 'Homophones 97' }, phrases: [
+        { fr: 'mai', ar: 'شهر مايو', en: 'May' },
+        { fr: 'mets', ar: 'يضع أو طعام', en: 'puts or dish' }
+      ] },
+      { icon: '🔊', title: { ar: 'paon / pan', en: 'Homophones 98', fr: 'Homophones 98' }, phrases: [
+        { fr: 'paon', ar: 'طاووس', en: 'peacock' },
+        { fr: 'pan', ar: 'لوح أو جزء مسطّح', en: 'panel' }
+      ] },
+      { icon: '🔊', title: { ar: 'relais / relaie / relaient', en: 'Homophones 99', fr: 'Homophones 99' }, phrases: [
+        { fr: 'relais', ar: 'تناوب أو محطة تبديل', en: 'relay' },
+        { fr: 'relaie', ar: 'يحلّ محل', en: 'takes over' },
+        { fr: 'relaient', ar: 'يحلّون محل', en: 'take over' }
+      ] },
+      { icon: '🔊', title: { ar: 'aiguille / aigüe', en: 'Homophones 100', fr: 'Homophones 100' }, phrases: [
+        { fr: 'aiguille', ar: 'إبرة', en: 'needle' },
+        { fr: 'aigüe', ar: 'حادّة', en: 'sharp' }
+      ] },
+      { icon: '🔊', title: { ar: 'résonne / raisonne', en: 'Homophones 101', fr: 'Homophones 101' }, phrases: [
+        { fr: 'résonne', ar: 'يرنّ أو يتردد صوته', en: 'resonates' },
+        { fr: 'raisonne', ar: 'يفكّر أو يستدلّ', en: 'reasons' }
+      ] },
+      { icon: '🔊', title: { ar: 'balai / ballet', en: 'Homophones 102', fr: 'Homophones 102' }, phrases: [
+        { fr: 'balai', ar: 'مكنسة', en: 'broom' },
+        { fr: 'ballet', ar: 'باليه', en: 'ballet' }
+      ] },
+      { icon: '🔊', title: { ar: 'courant / courent', en: 'Homophones 103', fr: 'Homophones 103' }, phrases: [
+        { fr: 'courant', ar: 'تيار أو جارٍ', en: 'current or running' },
+        { fr: 'courent', ar: 'يركضون', en: 'they run' }
+      ] },
+      { icon: '🔊', title: { ar: 'appel / appelle', en: 'Homophones 104', fr: 'Homophones 104' }, phrases: [
+        { fr: 'appel', ar: 'اتصال أو نداء', en: 'call' },
+        { fr: 'appelle', ar: 'يتصل أو ينادي', en: 'calls' }
+      ] },
+      { icon: '🔊', title: { ar: 'rappel / rappelle', en: 'Homophones 105', fr: 'Homophones 105' }, phrases: [
+        { fr: 'rappel', ar: 'تذكير أو إعادة اتصال', en: 'reminder or callback' },
+        { fr: 'rappelle', ar: 'يذكّر أو يعاود الاتصال', en: 'reminds or calls back' }
+      ] },
+      { icon: '🔊', title: { ar: 'et / est', en: 'Homophones 106', fr: 'Homophones 106' }, phrases: [
+        { fr: 'et', ar: 'و', en: 'and' },
+        { fr: 'est', ar: 'يكون أو هو', en: 'is' }
+      ] },
+      { icon: '🔊', title: { ar: 'sa / ça', en: 'Homophones 107', fr: 'Homophones 107' }, phrases: [
+        { fr: 'sa', ar: 'ـه أو ـها', en: 'his / her' },
+        { fr: 'ça', ar: 'هذا أو ذلك', en: 'that or it' }
+      ] },
+      { icon: '🔊', title: { ar: 'geai / j’ai', en: 'Homophones 108', fr: 'Homophones 108' }, phrases: [
+        { fr: 'geai', ar: 'طائر القيق', en: 'jay' },
+        { fr: 'j’ai', ar: 'لديّ', en: 'I have' }
+      ] },
+      { icon: '🔊', title: { ar: 'jet / j’ai', en: 'Homophones 109', fr: 'Homophones 109' }, phrases: [
+        { fr: 'jet', ar: 'نفاثة أو قذف', en: 'jet' },
+        { fr: 'j’ai', ar: 'لديّ', en: 'I have' }
+      ] },
+      { icon: '🔊', title: { ar: 'gai / guet', en: 'Homophones 110', fr: 'Homophones 110' }, phrases: [
+        { fr: 'gai', ar: 'مرح', en: 'cheerful' },
+        { fr: 'guet', ar: 'مراقبة أو ترصّد', en: 'lookout' }
+      ] },
+      { icon: '🔊', title: { ar: 'haie / est', en: 'Homophones 111', fr: 'Homophones 111' }, phrases: [
+        { fr: 'haie', ar: 'سياج نباتي', en: 'hedge' },
+        { fr: 'est', ar: 'يكون أو هو', en: 'is' }
+      ] },
+      { icon: '🔊', title: { ar: 'poêle / poil', en: 'Homophones 112', fr: 'Homophones 112' }, phrases: [
+        { fr: 'poêle', ar: 'مقلاة أو موقد', en: 'frying pan or stove' },
+        { fr: 'poil', ar: 'شعرة', en: 'hair' }
+      ] },
+      { icon: '🔊', title: { ar: 'coing / coin', en: 'Homophones 113', fr: 'Homophones 113' }, phrases: [
+        { fr: 'coing', ar: 'سفرجل', en: 'quince' },
+        { fr: 'coin', ar: 'زاوية', en: 'corner' }
+      ] },
+      { icon: '🔊', title: { ar: 'sain / ceint', en: 'Homophones 114', fr: 'Homophones 114' }, phrases: [
+        { fr: 'sain', ar: 'سليم أو صحي', en: 'healthy' },
+        { fr: 'ceint', ar: 'يحيط أو يلفّ', en: 'surrounds' }
+      ] },
+      { icon: '🔊', title: { ar: 'clou / cloue', en: 'Homophones 115', fr: 'Homophones 115' }, phrases: [
+        { fr: 'clou', ar: 'مسمار', en: 'nail' },
+        { fr: 'cloue', ar: 'يثبّت بالمسامير', en: 'nails down' }
+      ] },
+      { icon: '🔊', title: { ar: 'scelle / selle', en: 'Homophones 116', fr: 'Homophones 116' }, phrases: [
+        { fr: 'scelle', ar: 'يختم', en: 'seals' },
+        { fr: 'selle', ar: 'سرج', en: 'saddle' }
+      ] },
+      { icon: '🔊', title: { ar: 'chaîne / chêne', en: 'Homophones 117', fr: 'Homophones 117' }, phrases: [
+        { fr: 'chaîne', ar: 'سلسلة', en: 'chain' },
+        { fr: 'chêne', ar: 'شجرة بلوط', en: 'oak tree' }
+      ] },
+      { icon: '🔊', title: { ar: 'doux / d’où', en: 'Homophones 118', fr: 'Homophones 118' }, phrases: [
+        { fr: 'doux', ar: 'ناعم أو لطيف', en: 'soft or gentle' },
+        { fr: 'd’où', ar: 'من أين', en: 'from where' }
+      ] },
+      { icon: '🔊', title: { ar: 'toux / tout / tous', en: 'Homophones 119', fr: 'Homophones 119' }, phrases: [
+        { fr: 'toux', ar: 'سعال', en: 'cough' },
+        { fr: 'tout', ar: 'كل أو كل شيء', en: 'all or everything' },
+        { fr: 'tous', ar: 'الجميع أو كلّ', en: 'everyone or all' }
+      ] },
+      { icon: '🔊', title: { ar: 'paie / paix / pet', en: 'Homophones 120', fr: 'Homophones 120' }, phrases: [
+        { fr: 'paie', ar: 'راتب أو يدفع', en: 'pay or salary' },
+        { fr: 'paix', ar: 'سلام', en: 'peace' },
+        { fr: 'pet', ar: 'ضرطة', en: 'fart' }
+      ] },
+      { icon: '🔊', title: { ar: 'cerf / serre / sert', en: 'Homophones 121', fr: 'Homophones 121' }, phrases: [
+        { fr: 'cerf', ar: 'أيل', en: 'deer' },
+        { fr: 'serre', ar: 'دفيئة أو يضغط', en: 'greenhouse or tightens' },
+        { fr: 'sert', ar: 'يخدم أو يقدّم', en: 'serves' }
+      ] },
+      { icon: '🔊', title: { ar: 'faux / faut', en: 'Homophones 122', fr: 'Homophones 122' }, phrases: [
+        { fr: 'faux', ar: 'مزيف أو خاطئ', en: 'false or fake' },
+        { fr: 'faut', ar: 'يجب أو يلزم', en: 'must or is necessary' }
+      ] },
+      { icon: '🔊', title: { ar: 'mot / maux', en: 'Homophones 123', fr: 'Homophones 123' }, phrases: [
+        { fr: 'mot', ar: 'كلمة', en: 'word' },
+        { fr: 'maux', ar: 'آلام أو أمراض', en: 'ailments' }
+      ] },
+      { icon: '🔊', title: { ar: 'pore / port', en: 'Homophones 124', fr: 'Homophones 124' }, phrases: [
+        { fr: 'pore', ar: 'مسام', en: 'pore' },
+        { fr: 'port', ar: 'ميناء', en: 'port' }
+      ] },
+      { icon: '🔊', title: { ar: 'chaud / show', en: 'Homophones 125', fr: 'Homophones 125' }, phrases: [
+        { fr: 'chaud', ar: 'ساخن', en: 'hot' },
+        { fr: 'show', ar: 'عرض', en: 'show' }
+      ] },
+      { icon: '🔊', title: { ar: 'lot / l’eau', en: 'Homophones 126', fr: 'Homophones 126' }, phrases: [
+        { fr: 'lot', ar: 'مجموعة أو حصة', en: 'lot' },
+        { fr: 'l’eau', ar: 'الماء', en: 'water' }
+      ] },
+      { icon: '🔊', title: { ar: 'mots / maux', en: 'Homophones 127', fr: 'Homophones 127' }, phrases: [
+        { fr: 'mots', ar: 'كلمات', en: 'words' },
+        { fr: 'maux', ar: 'آلام أو أمراض', en: 'ailments' }
+      ] },
+      { icon: '🔊', title: { ar: 'baie / baie', en: 'Homophones 128', fr: 'Homophones 128' }, phrases: [
+        { fr: 'baie', ar: 'خليج', en: 'bay' },
+        { fr: 'baie', ar: 'توت', en: 'berry' }
+      ] },
+      { icon: '🔊', title: { ar: 'gland / glande', en: 'Homophones 129', fr: 'Homophones 129' }, phrases: [
+        { fr: 'gland', ar: 'بلوطة', en: 'acorn' },
+        { fr: 'glande', ar: 'غدة', en: 'gland' }
+      ] },
+      { icon: '🔊', title: { ar: 'hôtel / autel', en: 'Homophones 130', fr: 'Homophones 130' }, phrases: [
+        { fr: 'hôtel', ar: 'فندق', en: 'hotel' },
+        { fr: 'autel', ar: 'مذبح', en: 'altar' }
+      ] }
+    ]
   }
 ];
