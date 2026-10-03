@@ -89,6 +89,9 @@
   .centre-head h2 { margin: 0 0 0.2rem; font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; }
   .centre-head p { margin: 0; color: var(--text-secondary); font-size: 0.88rem; }
 
+  .centre-group { display: flex; align-items: center; gap: 0.45rem; font-weight: 800; font-size: 0.9rem; color: var(--accent); margin: 1rem 0 0.6rem; }
+  .centre-group:first-child { margin-top: 0.2rem; }
+
   .section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 0.8rem; overflow: hidden; box-shadow: var(--shadow-sm); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
   .section-head { display: flex; align-items: center; gap: 0.55rem; padding: 0.85rem 1rem; cursor: pointer; user-select: none; }
   .section-head .sec-icon { font-size: 1.15rem; }
@@ -158,6 +161,7 @@
       <button data-loop="1">×1</button>
       <button data-loop="3" class="on">×3</button>
       <button data-loop="5">×5</button>
+      <button data-loop="0">∞</button>
     </div>
     <button class="stop-btn" id="stopBtn">🔇 <span data-t="stop">إيقاف</span></button>
   </div>
@@ -251,8 +255,9 @@
   function speakWeb(text, lang, times, done) {
     if (!window.speechSynthesis) { done(); return; }
     var n = 0;
+    var seq = speakSeq;
     function once() {
-      if (n >= times) { done(); return; }
+      if ((times > 0 && n >= times) || seq !== speakSeq) { done(); return; }
       var u = new SpeechSynthesisUtterance(text);
       u.lang = TTS_LANG[lang] || 'fr-FR';
       u.rate = lang === 'fr' ? 0.92 : 0.95;
@@ -271,7 +276,7 @@
     var n = 0;
     var seq = speakSeq;
     function once() {
-      if (n >= times || seq !== speakSeq) { done(); return; }
+      if ((times > 0 && n >= times) || seq !== speakSeq) { done(); return; }
       window.Capacitor.Plugins.TextToSpeech.speak({
         text: text,
         lang: TTS_LANG[lang] || 'fr-FR',
@@ -334,19 +339,25 @@
 
     var q = state.query.trim().toLowerCase();
     var visible = 0;
-    wrap.innerHTML = c.sections.map(function (sec, si) {
-      var phrases = sec.phrases.filter(function (p) {
-        if (!q) return true;
-        return (p.fr + ' ' + p.ar + ' ' + p.en).toLowerCase().indexOf(q) >= 0;
+    var list = q ? window.CENTRES_DATA : [c];
+    wrap.innerHTML = list.map(function (cc) {
+      var html = '';
+      cc.sections.forEach(function (sec, si) {
+        var phrases = sec.phrases.filter(function (p) {
+          if (!q) return true;
+          return (p.fr + ' ' + p.ar + ' ' + p.en).toLowerCase().indexOf(q) >= 0;
+        });
+        visible += phrases.length;
+        if (q && !phrases.length) return;
+        var wordsFr = phrases.reduce(function (n, p) { return n + p.fr.trim().split(/\s+/).length; }, 0);
+        html += '<div class="section' + (q ? ' open' : '') + '">' +
+          '<div class="section-head" data-sec="' + si + '"><span class="sec-icon">' + sec.icon + '</span>' +
+          '<span class="sec-title">' + esc(tside(sec.title)) + '</span>' +
+          '<span class="sec-count">' + phrases.length + ' ' + t('phrases') + ' · ' + wordsFr + ' ' + t('wordsFr') + '</span><span class="chev">▼</span></div>' +
+          '<div class="section-body">' + phrases.map(phraseHtml).join('') + '</div></div>';
       });
-      visible += phrases.length;
-      if (q && !phrases.length) return '';
-      var wordsFr = phrases.reduce(function (n, p) { return n + p.fr.trim().split(/\s+/).length; }, 0);
-      return '<div class="section' + (q ? ' open' : '') + '">' +
-        '<div class="section-head" data-sec="' + si + '"><span class="sec-icon">' + sec.icon + '</span>' +
-        '<span class="sec-title">' + esc(tside(sec.title)) + '</span>' +
-        '<span class="sec-count">' + phrases.length + ' ' + t('phrases') + ' · ' + wordsFr + ' ' + t('wordsFr') + '</span><span class="chev">▼</span></div>' +
-        '<div class="section-body">' + phrases.map(phraseHtml).join('') + '</div></div>';
+      if (q && !html) return '';
+      return (q ? '<div class="centre-group">' + cc.icon + ' ' + esc(tside(cc.name)) + '</div>' : '') + html;
     }).join('');
 
     document.getElementById('empty').style.display = (visible === 0) ? '' : 'none';
