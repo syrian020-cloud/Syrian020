@@ -7013,5 +7013,119 @@ window.CENTRES_DATA = [
         ]
       }
     ]
+  },
+  {
+    id: 'tram',
+    icon: '🚋',
+    name: { ar: 'الترام والباص (CTS)', en: 'Tram and Bus (CTS)', fr: 'Tram et Bus (CTS)' },
+    desc: { ar: 'إعلانات الترام والباص: الأبواب، المحطات، التذاكر، التبديل، الاضطرابات، السلامة وعبارات الركاب.', en: 'Tram announcements: doors, stops, tickets, connections, disruptions, safety and passenger phrases.', fr: 'Annonces du tram : portes, arrêts, titres, correspondances, perturbations, sécurité.' },
+    sections: [
+      {
+        icon: '🚋',
+        title: { ar: '⭐ داخل الترام والأبواب', en: 'Inside the tram and doors', fr: 'Dans le tram et les portes' },
+        phrases: [
+          { fr: 'Attention à la fermeture des portes. / Veuillez vous éloigner des portes. / Les portes vont se fermer.', ar: 'انتبهوا لإغلاق الأبواب / يرجى الابتعاد عنها / رح تسكّر.', en: 'Mind the doors / move away / doors about to close.' },
+          { fr: 'Ne retenez pas les portes. / Veuillez ne pas gêner la fermeture des portes. / Les portes se ferment automatiquement.', ar: 'لا تمسكوا الأبواب / لا تعاقوا الإغلاق / بتتسكر أوتوماتيك.', en: 'Don’t hold the doors / don’t obstruct / close automatically.' },
+          { fr: 'Le prochain arrêt est… / Prochain arrêt : Homme de Fer. / Arrêt suivant : … / Terminus de cette ligne.', ar: 'المحطة الجاية… / Prochain arrêt : Homme de Fer / المحطة التالية / هاي نهاية الخط.', en: 'Next stop… / Homme de Fer / following stop / final stop.' },
+          { fr: 'Nous arrivons à la prochaine station / à l’arrêt suivant. / Nous sommes arrivés à … / Veuillez descendre du véhicule.', ar: 'عم نوصل عالمحطة الجاية / وصلنا على… / يرجى النزول.', en: 'Arriving at next station / we have arrived / please exit.' },
+          { fr: 'Attention au départ du tram. / Le tram va repartir. / Veuillez tenir les barres.', ar: 'انتبهوا، الترام رح يتحرك / رح ينطلق / امسكوا البارات.', en: 'About to depart / departing again / hold the bars.' },
+          { fr: 'Le tram est à l’approche. / Le tram arrive en station. / Laissez les voyageurs descendre avant de monter.', ar: 'الترام قرب يوصل / عم يوصل / خلّوا الركاب ينزلوا قبل ما تطلعوا.', en: 'Approaching / arriving / let passengers off first.' },
+          { fr: 'Les portes sont ouvertes. / Les portes vont bientôt se fermer. / Veuillez patienter avant d’ouvrir les portes.', ar: 'الأبواب مفتوحة / رح تسكّر قريبًا / انتظروا قبل الفتح.', en: 'Doors open / closing soon / wait before opening.' },
+          { fr: 'Cette rame ne prend pas de voyageurs. / Ce tram ne circule pas. / Veuillez prendre le tram suivant.', ar: 'هالعربة ما بتاخد ركاب / هالترام ما رح يمشي / خذوا الترام اللي بعده.', en: 'Not taking passengers / not running / take the next tram.' }
+        ]
+      },
+      {
+        icon: '🎫',
+        title: { ar: '⭐ التذاكر والتفتيش', en: 'Tickets and inspection', fr: 'Titres de transport et contrôle' },
+        phrases: [
+          { fr: 'Vous avez un titre de transport ? / Je voudrais acheter un ticket. / Je dois valider mon ticket ?', ar: 'معك تذكرة؟ / بدي اشتري / لازم أختمها؟', en: 'Have a ticket? / buy one / must I validate?' },
+          { fr: 'Votre titre n’est pas valide. / Contrôle des titres de transport.', ar: 'تذكرتك مو صالحة / تفتيش تذاكر.', en: 'Not valid / ticket inspection.' },
+          { fr: 'Veuillez préparer votre titre de transport. / Merci de valider votre titre de transport. / Des contrôles sont effectués à bord.', ar: 'جهزوا التذكرة / فعّلوها / في تفتيش داخل الترام.', en: 'Have ticket ready / validate / inspections on board.' },
+          { fr: 'Bonjour, contrôle des titres de transport. / Votre titre de transport, s’il vous plaît. / Veuillez présenter votre titre.', ar: 'مرحبا، تفتيش / تذكرتك لو سمحت / أبرز تذكرتك.', en: 'Inspection / your ticket please / present it.' },
+          { fr: 'Vous avez bien validé votre ticket ? / Je n’ai pas encore validé mon ticket.', ar: 'فعّلتها بشكل صحيح؟ / لسا ما فعّلتها.', en: 'Did you validate? / not yet.' }
+        ]
+      },
+      {
+        icon: '📍',
+        title: { ar: '⭐ الاتجاه والتبديل', en: 'Direction and connections', fr: 'Direction et correspondances' },
+        phrases: [
+          { fr: 'Correspondance avec la ligne / les lignes A, B et C. / La correspondance se fait à cette station. / est possible ici.', ar: 'تبديل مع الخط/الخطوط / التبديل بهالمحطة / فيكم تبدّلوا من هون.', en: 'Connection with lines / connection here.' },
+          { fr: 'Pour la ligne C, veuillez descendre à la prochaine station. / Pour cette correspondance, veuillez descendre ici.', ar: 'للخط C انزلوا بالمحطة الجاية / لهالتبديل انزلوا هون.', en: 'For line C get off next / for this connection get off here.' },
+          { fr: 'Ce tram est en direction de … / à destination de … / Cette ligne dessert le centre-ville.', ar: 'هالترام باتجاه… / متجه إلى… / هالخط بيروح عالسنتر.', en: 'Heading to / bound for / serves city center.' },
+          { fr: 'Pour rejoindre le centre-ville, veuillez prendre la ligne A. / Pour le centre-ville, descendez à la prochaine station.', ar: 'للسنتر خذوا الخط A / انزلوا بالمحطة الجاية.', en: 'For center take line A / get off next stop.' },
+          { fr: 'Nous desservons la station suivante. / Cette station est desservie par la ligne B.', ar: 'رح نوقف بالمحطة الجاية / هالمحطة بيخدمها الخط B.', en: 'We serve next station / served by line B.' },
+          { fr: 'Attention, ce tram ne va pas dans cette direction. / Vous êtes dans le mauvais sens. / Il faut prendre l’autre quai / changer de ligne.', ar: 'انتبه، ما بيروح بهالاتجاه / إنت بالاتجاه الغلط / خد الرصيف التاني / بدّل الخط.', en: 'Wrong direction / other platform / change lines.' },
+          { fr: 'Pour votre correspondance, veuillez suivre les indications. / Correspondance avec le réseau de bus / les lignes de tram.', ar: 'للتبديل اتبعوا الإشارات / تبديل مع الباصات / خطوط الترام.', en: 'Follow the signs / bus network / tram lines.' }
+        ]
+      },
+      {
+        icon: '⚠️',
+        title: { ar: '⭐ الاضطرابات والتأخير والأعمال', en: 'Disruptions, delays and works', fr: 'Perturbations, retards et travaux' },
+        phrases: [
+          { fr: 'En raison d’un incident, le trafic est perturbé. / Le trafic est (momentanément) interrompu. / Le trafic reprend progressivement.', ar: 'بسبب مشكلة، الحركة متأثرة / متوقفة (مؤقتًا) / عم ترجع تدريجيًا.', en: 'Disrupted / interrupted / gradually resuming.' },
+          { fr: 'Des perturbations sont à prévoir. / Le service est momentanément perturbé. / Merci de votre compréhension.', ar: 'متوقع اضطرابات / اضطراب مؤقت / شكرًا لتفهمكم.', en: 'Disruptions expected / temporarily disrupted / thank you.' },
+          { fr: 'Votre ligne connaît actuellement des retards. / Le tram accuse un retard de cinq minutes. / Quelques minutes de retard sont à prévoir.', ar: 'خطكم فيه تأخير / متأخر خمس دقايق / متوقع كم دقيقة تأخير.', en: 'Delays / five minutes late / a few minutes expected.' },
+          { fr: 'Nous vous prions de bien vouloir patienter. / Merci de patienter quelques instants. / Nous vous prions de patienter à bord.', ar: 'منرجو الانتظار / انتظروا لحظات / انتظروا داخل الترام.', en: 'Please wait / a few moments / wait on board.' },
+          { fr: 'En raison de travaux, votre tram est dévié / l’itinéraire est modifié. / Des travaux sont en cours. / La circulation est modifiée.', ar: 'بسبب أعمال، المسار متغيّر / في أعمال جارية / الحركة تغيّرت.', en: 'Diverted / route changed / works underway / modified.' },
+          { fr: 'Cet arrêt n’est pas desservi. / L’arrêt est exceptionnellement déplacé. / La station est (exceptionnellement) fermée. / Veuillez utiliser la station suivante.', ar: 'هالمحطة ما بيخدمها / منقولة استثنائيًا / مسكّرة / استخدموا المحطة التالية.', en: 'Not served / relocated / closed / use next station.' },
+          { fr: 'Le prochain tram est prévu dans deux minutes / à 14 h 30. / Le prochain tram est dans quelques minutes.', ar: 'الترام الجاي بعد دقيقتين / الساعة 2:30 / بعد كم دقيقة.', en: 'Next tram in two minutes / at 2:30 / in a few minutes.' },
+          { fr: 'La circulation reprend normalement. / Le service est rétabli. / Tout est rentré dans l’ordre. / Service normal / perturbé.', ar: 'الحركة رجعت / الخدمة عادت / رجع كلشي طبيعي / خدمة طبيعية / مضطربة.', en: 'Back to normal / restored / normal / disrupted.' },
+          { fr: 'Un incident est en cours sur la ligne. / Nous sommes momentanément à l’arrêt. / La situation devrait revenir à la normale rapidement. / Nous vous informerons de la suite du trajet.', ar: 'في مشكلة على الخط / متوقفين مؤقتًا / المفروض ترجع بسرعة / رح نخبركم بالباقي.', en: 'Incident on the line / stopped / back to normal soon / we’ll inform you.' }
+        ]
+      },
+      {
+        icon: '🚌',
+        title: { ar: '⭐ الباص البديل', en: 'Replacement bus', fr: 'Bus de remplacement' },
+        phrases: [
+          { fr: 'Un service de remplacement est mis en place. / Des bus de remplacement sont disponibles.', ar: 'تم توفير خدمة بديلة / في باصات بديلة.', en: 'Replacement service provided / buses available.' },
+          { fr: 'Veuillez emprunter le bus de remplacement. / Le service est assuré par des bus. / La desserte est assurée par un bus.', ar: 'استخدموا الباص البديل / الخدمة بالباصات / المسار مخدوم بباص.', en: 'Take the replacement bus / service by bus.' }
+        ]
+      },
+      {
+        icon: '♿',
+        title: { ar: '⭐ السلامة والأغراض والأولوية', en: 'Safety, belongings and priority seats', fr: 'Sécurité, effets personnels et priorités' },
+        phrases: [
+          { fr: 'Pour votre sécurité, restez derrière la ligne / veuillez vous tenir aux barres. / Ne vous appuyez pas sur les portes.', ar: 'لسلامتكم، ورا الخط / امسكوا البارات / لا تتكئوا عالأبواب.', en: 'Stay behind the line / hold the bars / don’t lean on doors.' },
+          { fr: 'En cas d’urgence, veuillez utiliser le bouton d’alarme. / veuillez prévenir le conducteur. / Veuillez rester calme / à bord.', ar: 'بالطوارئ زر الإنذار / أخبروا السائق / اهدؤا / ابقوا بالترام.', en: 'Alarm button / inform driver / stay calm / stay on board.' },
+          { fr: 'Surveillez vos enfants. / Gardez vos effets personnels / vos sacs avec vous. / Ne laissez pas vos affaires sans surveillance.', ar: 'انتبهوا على ولادكم / خلو أغراضكم وشناتكم معكم / لا تتركوها بلا مراقبة.', en: 'Watch children / keep belongings with you / don’t leave unattended.' },
+          { fr: 'Ne bloquez pas les passages. / Veuillez laisser libre l’accès aux portes / les portes libres. / ne pas encombrer les espaces réservés.', ar: 'لا تسكروا الممرات / خلو الأبواب فاضية / لا تحطوا أغراض بالأماكن المخصصة.', en: 'Don’t block aisles / keep doors clear / designated areas.' },
+          { fr: 'Cette place est réservée aux personnes prioritaires. / Veuillez laisser cette place libre. / Merci de céder votre place / laisser votre place aux personnes qui en ont besoin.', ar: 'المقعد للي إلهم أولوية / اتركوه فاضي / أعطوا مقعدكم للي بيحتاجه.', en: 'Priority seat / leave it free / give up your seat.' },
+          { fr: 'Veuillez respecter les autres voyageurs. / Vous avez oublié quelque chose ? / Un objet a été trouvé à bord. / Veuillez vous adresser au conducteur.', ar: 'احترموا الركاب / نسيتوا شي؟ / لقينا غرض بالترام / حاكوا السائق.', en: 'Respect passengers / forgot something? / item found / ask the driver.' }
+        ]
+      },
+      {
+        icon: '👥',
+        title: { ar: '⭐ بين الركاب وأسئلة الطريق', en: 'Between passengers and asking the way', fr: 'Entre passagers et demander le chemin' },
+        phrases: [
+          { fr: 'Pardon, je peux passer ? / Vous pouvez me laisser passer, s’il vous plaît ? / Pardon, je descends au prochain arrêt.', ar: 'عفواً، فيني مرق؟ / تخليني مرق؟ / أنا نازل بالمحطة الجاية.', en: 'Excuse me, through? / let me pass / getting off next stop.' },
+          { fr: 'C’est libre ici ? / Cette place est libre ? / Oui, c’est libre. / Il y a une place ici ?', ar: 'فاضي هون؟ / هالمقعد فاضي؟ / إي / في محل هون؟', en: 'Free? / seat free? / yes / is there a seat?' },
+          { fr: 'Pardon, vous descendez ici ? / Oui, je descends ici. / Attention, je vais descendre.', ar: 'عفواً، إنت نازل هون؟ / إي / انتبه، بدي انزل.', en: 'Getting off here? / yes / I’m getting off.' },
+          { fr: 'Excusez-moi. / Merci. / De rien.', ar: 'عذرًا / شكرًا / عفواً.', en: 'Excuse me / thanks / welcome.' },
+          { fr: 'Excusez-moi, ce tram va à Homme de Fer ? / C’est quelle ligne pour aller à la gare ?', ar: 'عفواً، هالترام بيروح عـHomme de Fer؟ / أي خط عالمحطة؟', en: 'Does this go to Homme de Fer? / which line to the station?' },
+          { fr: 'Je dois descendre où ? / Je dois changer de tram ? / Vous pouvez me prévenir quand on arrive ?', ar: 'وين لازم انزل؟ / لازم بدّل؟ / فيك تخبرني لما نوصل؟', en: 'Where get off? / change trams? / tell me when we arrive?' }
+        ]
+      },
+      {
+        icon: '🔊',
+        title: { ar: '⭐ عبارات الإعلانات والمفردات', en: 'Announcement phrases and vocab', fr: 'Formules d’annonces et vocabulaire' },
+        phrases: [
+          { fr: 'Attention ! / Veuillez patienter. / descendre. / monter. / Ne montez / descendez pas. / Accès interdit / réservé.', ar: 'انتبهوا! / يرجى الانتظار / النزول / الصعود / لا تركبوا / لا تنزلوا / دخول ممنوع / مخصص.', en: 'Attention! / wait / get off / board / don’t board / no entry / restricted.' },
+          { fr: 'Nous vous rappelons / informons que… / Nous vous invitons à… / Merci de bien vouloir… / Merci de votre attention.', ar: 'نذكّركم / نعلمكم / ندعوكم إلى / يرجى التفضل / شكرًا لاهتمامكم.', en: 'We remind / inform / ask you to / please / thanks for your attention.' },
+          { fr: 'En raison de… / Dans le cadre de… / À compter de… / Jusqu’à nouvel ordre. / De manière exceptionnelle / Exceptionnellement / Momentanément / Actuellement.', ar: 'بسبب / في إطار / اعتبارًا من / حتى إشعار آخر / استثنائيًا / مؤقتًا / حاليًا.', en: 'Due to / as part of / from / until further notice / exceptionally / temporarily / currently.' },
+          { fr: 'En direction de… / À destination de… / À l’arrêt suivant. / Dans quelques instants. / Dans quelques minutes.', ar: 'باتجاه / المتجه إلى / بالمحطة التالية / بعد لحظات / بعد دقايق.', en: 'Towards / bound for / next stop / in moments / in minutes.' },
+          { fr: 'arrêt / prochain / terminus / correspondance / ligne / direction / quai / portes / titre de transport / valider / descendre / monter / perturbé', ar: 'محطة / القادم / النهائية / تبديل / خط / اتجاه / رصيف / أبواب / تذكرة / يفعّل / ينزل / يركب / مضطرب', en: 'stop / next / final / connection / line / direction / platform / doors / ticket / validate / off / on / disrupted' },
+          { fr: 'trafic / perturbation / interrompu / reprendre / patienter / à bord / voyageurs / desservi / dévié / travaux / retard / prévu', ar: 'حركة المواصلات / اضطراب / متوقف / يستأنف / ينتظر / على متنه / الركاب / مخدوم / محوّل / أعمال / تأخير / متوقع', en: 'service / disruption / stopped / resume / wait / on board / passengers / served / diverted / works / delay / scheduled' }
+        ]
+      },
+      {
+        icon: '👐',
+        title: { ar: '⭐ التمسّك (tenir / se tenir)', en: 'Holding on (tenir / se tenir)', fr: 'Se tenir (tenir / se tenir à)' },
+        phrases: [
+          { fr: 'Veuillez vous tenir aux barres. / Tenez-vous à la barre. / Tenez-vous bien. / Tenez-vous aux poignées.', ar: 'يرجى التمسك بالبارات / تمسّك بالبار / تمسّك منيح / بالمقابض.', en: 'Hold the bars / the bar / tight / the handles.' },
+          { fr: 'Veuillez vous tenir aux poignées ou aux barres. / Attention, le tram va démarrer. Tenez-vous bien.', ar: 'بالبارات أو المقابض / الترام رح يتحرك، تمسّك منيح.', en: 'Handles or bars / about to move, hold tight.' },
+          { fr: 'tenir = يمسك / se tenir à = يتمسّك بـ. Je tiens la barre. / Je me tiens à la barre.', ar: 'tenir يمسك، se tenir à يتمسّك / أنا ماسك البار / متمسّك بالبار.', en: 'tenir vs se tenir à / I hold / I hold onto the bar.' }
+        ]
+      }
+    ]
   }
 ];
