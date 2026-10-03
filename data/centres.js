@@ -8141,5 +8141,267 @@ window.CENTRES_DATA = [
         ]
       }
     ]
+  },
+  {
+    id: 'bibliotheque',
+    icon: '📚',
+    name: { ar: 'المكتبة (Bibliothèque)', en: 'The library', fr: 'La bibliothèque' },
+    desc: { ar: 'التسجيل والبحث والاستعارة والإرجاع والطباعة والإنترنت بالمكتبة', en: 'Registration, searching, borrowing, returning, printing and internet at the library', fr: 'Inscription, recherche, emprunt, retour, impression et internet' },
+    sections: [
+      {
+        icon: '📚',
+        title: { ar: 'الدخول والتسجيل', en: 'Entering and registration', fr: 'Entrée et inscription' },
+        phrases: [
+          { fr: 'Bonjour, je cherche la bibliothèque.', ar: 'مرحبا، عم دور على المكتبة.', en: 'Hello, I’m looking for the library.' },
+          { fr: 'Bonjour, c’est bien ici la bibliothèque ?', ar: 'مرحبا، هاي هي المكتبة؟', en: 'Hello, is this the library?' },
+          { fr: 'C’est ma première fois ici.', ar: 'هاي أول مرة إلي هون.', en: 'It’s my first time here.' },
+          { fr: 'Je voudrais m’inscrire à la bibliothèque.', ar: 'بدي سجّل بالمكتبة.', en: 'I’d like to register at the library.' },
+          { fr: 'Comment fonctionne l’inscription ?', ar: 'كيف بيصير التسجيل؟', en: 'How does registration work?' }
+        ]
+      },
+      {
+        icon: '🪪',
+        title: { ar: 'بطاقة المكتبة', en: 'The library card', fr: 'La carte de bibliothèque' },
+        phrases: [
+          { fr: 'Je voudrais faire une carte de bibliothèque.', ar: 'بدي أعمل بطاقة مكتبة.', en: 'I’d like to get a library card.' },
+          { fr: 'Quels documents dois-je fournir ?', ar: 'شو الأوراق اللي لازم أقدّمها؟', en: 'What documents do I need to provide?' },
+          { fr: 'J’ai besoin d’une pièce d’identité ?', ar: 'بحتاج إثبات هوية؟', en: 'Do I need an ID?' },
+          { fr: 'Combien coûte la carte ?', ar: 'قديش سعر البطاقة؟', en: 'How much does the card cost?' },
+          { fr: 'La carte est gratuite ?', ar: 'البطاقة مجانية؟', en: 'Is the card free?' },
+          { fr: 'J’ai perdu ma carte.', ar: 'ضيّعت بطاقتي.', en: 'I lost my card.' },
+          { fr: 'Je voudrais renouveler ma carte.', ar: 'بدي جدّد بطاقتي.', en: 'I’d like to renew my card.' },
+          { fr: 'J’ai perdu ma carte de bibliothèque.', ar: 'ضيّعت بطاقة المكتبة.', en: 'I lost my library card.' },
+          { fr: 'Ma carte ne fonctionne plus.', ar: 'بطاقتي ما عادت تشتغل.', en: 'My card doesn’t work anymore.' }
+        ]
+      },
+      {
+        icon: '📖',
+        title: { ar: 'البحث عن كتاب', en: 'Looking for a book', fr: 'Chercher un livre' },
+        phrases: [
+          { fr: 'Je cherche un livre.', ar: 'عم دور على كتاب.', en: 'I’m looking for a book.' },
+          { fr: 'Je cherche ce livre.', ar: 'عم دور على هالكتاب.', en: 'I’m looking for this book.' },
+          { fr: 'Vous pouvez m’aider à le trouver ?', ar: 'فيك تساعدني لاقيه؟', en: 'Can you help me find it?' },
+          { fr: 'Où se trouve ce livre ?', ar: 'وين موجود هالكتاب؟', en: 'Where is this book?' },
+          { fr: 'Dans quelle section se trouve ce livre ?', ar: 'بأي قسم موجود هالكتاب؟', en: 'Which section is this book in?' },
+          { fr: 'Vous avez ce livre ?', ar: 'عندكم هالكتاب؟', en: 'Do you have this book?' },
+          { fr: 'Est-ce qu’il est disponible ?', ar: 'هل هو متوفر؟', en: 'Is it available?' },
+          { fr: 'Il est disponible actuellement ?', ar: 'هو متوفر حاليًا؟', en: 'Is it currently available?' },
+          { fr: 'Il est déjà emprunté.', ar: 'حدا مستعيره من قبل.', en: 'It’s already checked out.' },
+          { fr: 'Quand est-ce qu’il sera disponible ?', ar: 'إمتى بيصير متوفر؟', en: 'When will it be available?' },
+          { fr: 'Vous n’avez pas ce livre ?', ar: 'ما عندكم هالكتاب؟', en: 'You don’t have this book?' },
+          { fr: 'Vous pouvez le commander ?', ar: 'فيكن تطلبوه؟', en: 'Can you order it?' },
+          { fr: 'Vous l’avez dans une autre bibliothèque ?', ar: 'موجود بمكتبة تانية؟', en: 'Do you have it at another library?' },
+          { fr: 'Vous pouvez le faire venir ici ?', ar: 'فيكن تجيبوه لهون؟', en: 'Can you have it sent here?' }
+        ]
+      },
+      {
+        icon: '🔎',
+        title: { ar: 'البحث على الكمبيوتر والكتالوغ', en: 'Computer and catalog search', fr: 'Recherche sur ordinateur' },
+        phrases: [
+          { fr: 'Je peux utiliser l’ordinateur ?', ar: 'فيني استخدم الكمبيوتر؟', en: 'Can I use the computer?' },
+          { fr: 'Comment faire une recherche ?', ar: 'كيف بعمل بحث؟', en: 'How do I search?' },
+          { fr: 'Je cherche un livre dans le catalogue.', ar: 'عم دور على كتاب بالكتالوغ.', en: 'I’m looking for a book in the catalog.' },
+          { fr: 'Vous pouvez me montrer comment faire ?', ar: 'فيك تفرجيني كيف بعملها؟', en: 'Can you show me how to do it?' }
+        ]
+      },
+      {
+        icon: '📕',
+        title: { ar: 'استعارة كتاب', en: 'Borrowing a book', fr: 'Emprunter un livre' },
+        phrases: [
+          { fr: 'Je voudrais emprunter ce livre.', ar: 'بدي استعير هالكتاب.', en: 'I’d like to borrow this book.' },
+          { fr: 'Combien de livres puis-je emprunter ?', ar: 'قديش كتاب فيني استعير؟', en: 'How many books can I borrow?' },
+          { fr: 'Combien de temps puis-je garder le livre ?', ar: 'قديش فيني احتفظ بالكتاب؟', en: 'How long can I keep the book?' },
+          { fr: 'Quelle est la durée du prêt ?', ar: 'قديش مدة الاستعارة؟', en: 'What is the loan period?' },
+          { fr: 'Je peux prolonger le prêt ?', ar: 'فيني مدّد الاستعارة؟', en: 'Can I extend the loan?' },
+          { fr: 'Le prêt est renouvelable ?', ar: 'فيني جدّد الاستعارة؟', en: 'Can the loan be renewed?' },
+          { fr: 'Je peux réserver ce livre ?', ar: 'فيني احجز هالكتاب؟', en: 'Can I reserve this book?' },
+          { fr: 'Je voudrais réserver ce livre.', ar: 'بدي احجز هالكتاب.', en: 'I’d like to reserve this book.' },
+          { fr: 'Je peux être prévenu quand il sera disponible ?', ar: 'فيكن تخبروني لما يصير متوفر؟', en: 'Can you let me know when it’s available?' },
+          { fr: 'J’ai reçu une notification, mon livre est disponible.', ar: 'وصلتني رسالة إنو كتابي صار متوفر.', en: 'I got a notification that my book is available.' }
+        ]
+      },
+      {
+        icon: '🔄',
+        title: { ar: 'إرجاع الكتاب والغرامة', en: 'Returning and fines', fr: 'Retour et amende' },
+        phrases: [
+          { fr: 'Je viens rendre ce livre.', ar: 'جيت رجّع هالكتاب.', en: 'I’m here to return this book.' },
+          { fr: 'Je voudrais rendre mes livres.', ar: 'بدي رجّع كتبي.', en: 'I’d like to return my books.' },
+          { fr: 'Je suis en retard pour le retour.', ar: 'تأخرت بإرجاع الكتاب.', en: 'I’m late returning the book.' },
+          { fr: 'J’ai oublié de rendre le livre.', ar: 'نسيت رجّع الكتاب.', en: 'I forgot to return the book.' },
+          { fr: 'J’ai perdu le livre.', ar: 'ضيّعت الكتاب.', en: 'I lost the book.' },
+          { fr: 'Le livre est abîmé.', ar: 'الكتاب متضرر.', en: 'The book is damaged.' },
+          { fr: 'J’ai reçu une amende ?', ar: 'طلع عليّي غرامة؟', en: 'Did I get a fine?' },
+          { fr: 'J’ai dépassé la date de retour.', ar: 'تأخرت عن موعد الإرجاع.', en: 'I’m past the return date.' },
+          { fr: 'Est-ce que je peux encore prolonger le prêt ?', ar: 'لسا فيني مدّد الاستعارة؟', en: 'Can I still extend the loan?' },
+          { fr: 'Je ne savais pas que le délai était dépassé.', ar: 'ما كنت بعرف إنو المدة انتهت.', en: 'I didn’t know the deadline had passed.' }
+        ]
+      },
+      {
+        icon: '💻',
+        title: { ar: 'الكمبيوتر والإنترنت والطباعة', en: 'Computers, internet and printing', fr: 'Ordinateurs, internet et impression' },
+        phrases: [
+          { fr: 'Est-ce qu’il y a des ordinateurs disponibles ?', ar: 'في كمبيوترات متاحة؟', en: 'Are there computers available?' },
+          { fr: 'Je peux utiliser Internet ?', ar: 'فيني استخدم الإنترنت؟', en: 'Can I use the internet?' },
+          { fr: 'Quel est le mot de passe du Wi-Fi ?', ar: 'شو كلمة سر الواي فاي؟', en: 'What’s the Wi-Fi password?' },
+          { fr: 'Je n’arrive pas à me connecter au Wi-Fi.', ar: 'ما عم اقدر اتصل بالواي فاي.', en: 'I can’t connect to the Wi-Fi.' },
+          { fr: 'Je n’arrive pas à me connecter à mon compte.', ar: 'ما عم اقدر فوت على حسابي.', en: 'I can’t log into my account.' },
+          { fr: 'J’ai oublié mon mot de passe.', ar: 'نسيت كلمة السر.', en: 'I forgot my password.' },
+          { fr: 'Je peux utiliser un ordinateur pendant combien de temps ?', ar: 'قديش فيني استخدم الكمبيوتر؟', en: 'How long can I use a computer?' },
+          { fr: 'Il faut réserver un ordinateur ?', ar: 'لازم احجز كمبيوتر؟', en: 'Do I need to reserve a computer?' },
+          { fr: 'Je peux imprimer un document ?', ar: 'فيني اطبع ورقة؟', en: 'Can I print a document?' },
+          { fr: 'Je voudrais imprimer ce document.', ar: 'بدي اطبع هالوثيقة.', en: 'I’d like to print this document.' },
+          { fr: 'Je peux imprimer depuis mon téléphone ?', ar: 'فيني اطبع من موبايلي؟', en: 'Can I print from my phone?' },
+          { fr: 'Je peux imprimer en couleur ?', ar: 'فيني اطبع ملوّن؟', en: 'Can I print in color?' },
+          { fr: 'Je voudrais imprimer en noir et blanc.', ar: 'بدي اطبع أبيض وأسود.', en: 'I’d like to print in black and white.' },
+          { fr: 'Je peux faire des photocopies ?', ar: 'فيني أعمل نسخ؟', en: 'Can I make photocopies?' },
+          { fr: 'Je peux faire une photocopie de ce document ?', ar: 'فيني صوّر نسخة عن هالوثيقة؟', en: 'Can I photocopy this document?' },
+          { fr: 'Combien coûte une impression ?', ar: 'قديش سعر الطباعة؟', en: 'How much does a printout cost?' },
+          { fr: 'Il faut payer pour imprimer ?', ar: 'لازم ندفع كرمال الطباعة؟', en: 'Do I have to pay to print?' },
+          { fr: 'Je peux scanner ce document ?', ar: 'فيني أعمل سكان لهالوثيقة؟', en: 'Can I scan this document?' },
+          { fr: 'La machine ne fonctionne pas.', ar: 'الماكينة ما عم تشتغل.', en: 'The machine isn’t working.' },
+          { fr: 'Je peux payer par carte ?', ar: 'فيني ادفع بالبطاقة؟', en: 'Can I pay by card?' },
+          { fr: 'Vous acceptez les espèces ?', ar: 'بتقبلوا الكاش؟', en: 'Do you accept cash?' },
+          { fr: 'J’ai besoin de monnaie.', ar: 'بحتاج فكة.', en: 'I need change.' },
+          { fr: 'Je peux envoyer un document par e-mail ?', ar: 'فيني ابعت وثيقة بالإيميل؟', en: 'Can I send a document by email?' },
+          { fr: 'Vous avez une adresse e-mail ?', ar: 'عندكم عنوان إيميل؟', en: 'Do you have an email address?' },
+          { fr: 'Je peux enregistrer mon document sur une clé USB ?', ar: 'فيني خزّن الوثيقة على فلاشة USB؟', en: 'Can I save my document on a USB drive?' },
+          { fr: 'La clé USB fonctionne ici ?', ar: 'الفلاشة بتشتغل هون؟', en: 'Does the USB drive work here?' }
+        ]
+      },
+      {
+        icon: '🪑',
+        title: { ar: 'داخل المكتبة والمقاعد', en: 'Inside the library and seats', fr: 'Dans la bibliothèque' },
+        phrases: [
+          { fr: 'Où puis-je m’asseoir ?', ar: 'وين فيني اقعد؟', en: 'Where can I sit?' },
+          { fr: 'Cette place est libre ?', ar: 'هالمقعد فاضي؟', en: 'Is this seat free?' },
+          { fr: 'Je peux travailler ici ?', ar: 'فيني اشتغل/ادرس هون؟', en: 'Can I work/study here?' },
+          { fr: 'Il faut réserver une place ?', ar: 'لازم احجز مكان؟', en: 'Do I need to reserve a seat?' },
+          { fr: 'C’est calme ici ?', ar: 'هون هادي؟', en: 'Is it quiet here?' },
+          { fr: 'Il y a une salle de travail ?', ar: 'في غرفة للدراسة/العمل؟', en: 'Is there a study room?' },
+          { fr: 'Où sont les toilettes ?', ar: 'وين الحمامات؟', en: 'Where are the toilets?' },
+          { fr: 'Je voudrais réserver une salle de travail.', ar: 'بدي احجز غرفة للدراسة.', en: 'I’d like to reserve a study room.' },
+          { fr: 'La salle est disponible ?', ar: 'الغرفة متاحة؟', en: 'Is the room available?' },
+          { fr: 'Je peux réserver pour deux heures ?', ar: 'فيني احجز لساعتين؟', en: 'Can I book it for two hours?' },
+          { fr: 'Il faut réserver à l’avance ?', ar: 'لازم احجز مسبقًا؟', en: 'Do I need to book in advance?' },
+          { fr: 'Je peux travailler seul dans cette salle ?', ar: 'فيني اشتغل لحالي بهالغرفة؟', en: 'Can I work alone in this room?' },
+          { fr: 'Il y a une prise électrique ici ?', ar: 'في بريزة كهربا هون؟', en: 'Is there a power outlet here?' },
+          { fr: 'Je peux brancher mon ordinateur ?', ar: 'فيني شبك الكمبيوتر؟', en: 'Can I plug in my computer?' },
+          { fr: 'Je peux charger mon téléphone ici ?', ar: 'فيني اشحن موبايلي هون؟', en: 'Can I charge my phone here?' }
+        ]
+      },
+      {
+        icon: '🤫',
+        title: { ar: 'القواعد والهدوء', en: 'Rules and quiet', fr: 'Règles et silence' },
+        phrases: [
+          { fr: 'Il faut parler doucement.', ar: 'لازم نحكي بهدوء.', en: 'You have to speak quietly.' },
+          { fr: 'C’est une zone silencieuse ?', ar: 'هاد قسم هادئ؟', en: 'Is this a quiet area?' },
+          { fr: 'Je peux parler au téléphone ici ?', ar: 'فيني احكي عالتلفون هون؟', en: 'Can I talk on the phone here?' },
+          { fr: 'Les téléphones sont autorisés ?', ar: 'الموبايلات مسموحة؟', en: 'Are phones allowed?' },
+          { fr: 'Il est interdit de manger ici ?', ar: 'ممنوع الأكل هون؟', en: 'Is eating prohibited here?' },
+          { fr: 'C’est un peu bruyant ici.', ar: 'هون في شوي ضجة.', en: 'It’s a little noisy here.' },
+          { fr: 'Il y a une salle plus calme ?', ar: 'في غرفة أهدى؟', en: 'Is there a quieter room?' },
+          { fr: 'Je cherche un endroit calme pour travailler.', ar: 'عم دور على مكان هادي لأشتغل.', en: 'I’m looking for a quiet place to work.' },
+          { fr: 'Vous pouvez parler moins fort, s’il vous plaît ?', ar: 'فيكن تحكوا أوطى شوي، لو سمحتوا؟', en: 'Could you speak more quietly, please?' }
+        ]
+      },
+      {
+        icon: '🕐',
+        title: { ar: 'أوقات الدوام', en: 'Opening hours', fr: 'Horaires d’ouverture' },
+        phrases: [
+          { fr: 'Quels sont les horaires d’ouverture ?', ar: 'شو أوقات الدوام؟', en: 'What are the opening hours?' },
+          { fr: 'Vous êtes ouverts demain ?', ar: 'فاتحين بكرا؟', en: 'Are you open tomorrow?' },
+          { fr: 'À quelle heure vous fermez ?', ar: 'عأي ساعة بتسكّروا؟', en: 'What time do you close?' },
+          { fr: 'À quelle heure vous ouvrez demain ?', ar: 'عأي ساعة بتفتحوا بكرا؟', en: 'What time do you open tomorrow?' },
+          { fr: 'Je peux rester jusqu’à quelle heure ?', ar: 'لحد أي ساعة فيني ضل؟', en: 'Until what time can I stay?' },
+          { fr: 'La bibliothèque est ouverte aujourd’hui ?', ar: 'المكتبة فاتحة اليوم؟', en: 'Is the library open today?' },
+          { fr: 'Il faut sortir à quelle heure ?', ar: 'لازم نطلع عأي ساعة؟', en: 'What time do we have to leave?' }
+        ]
+      },
+      {
+        icon: '📖',
+        title: { ar: 'القراءة بالمكان وأنواع الكتب', en: 'Reading on-site and book types', fr: 'Lecture sur place et types de livres' },
+        phrases: [
+          { fr: 'Je peux lire ce livre sur place ?', ar: 'فيني اقرأ هالكتاب هون بدون ما استعيره؟', en: 'Can I read this book here?' },
+          { fr: 'Je peux consulter ce livre sur place ?', ar: 'فيني طالع هالكتاب هون؟', en: 'Can I consult this book here?' },
+          { fr: 'Je dois remettre le livre à sa place ?', ar: 'لازم رجّع الكتاب على مكانه؟', en: 'Do I have to put the book back?' },
+          { fr: 'Où dois-je déposer ce livre ?', ar: 'وين لازم حط هالكتاب؟', en: 'Where should I put this book?' },
+          { fr: 'Vous avez des romans ?', ar: 'عندكم روايات؟', en: 'Do you have novels?' },
+          { fr: 'Vous avez des dictionnaires ?', ar: 'عندكم قواميس؟', en: 'Do you have dictionaries?' },
+          { fr: 'Vous avez des bandes dessinées ?', ar: 'عندكم قصص مصوّرة؟', en: 'Do you have comics?' },
+          { fr: 'Vous avez des livres pour débutants ?', ar: 'عندكم كتب للمبتدئين؟', en: 'Do you have books for beginners?' },
+          { fr: 'Je cherche un livre facile à lire.', ar: 'عم دور على كتاب سهل للقراءة.', en: 'I’m looking for an easy book to read.' },
+          { fr: 'Je cherche des livres en français simple.', ar: 'عم دور على كتب بفرنسي بسيط.', en: 'I’m looking for books in simple French.' },
+          { fr: 'Vous avez des livres en arabe ?', ar: 'عندكم كتب بالعربي؟', en: 'Do you have books in Arabic?' },
+          { fr: 'Vous avez des livres pour apprendre le français ?', ar: 'عندكم كتب لتعلّم الفرنسي؟', en: 'Do you have books for learning French?' },
+          { fr: 'Je cherche des livres niveau A2.', ar: 'عم دور على كتب مستوى A2.', en: 'I’m looking for A2-level books.' },
+          { fr: 'Vous avez des livres audio ?', ar: 'عندكم كتب صوتية؟', en: 'Do you have audiobooks?' },
+          { fr: 'Je peux emprunter des CD ?', ar: 'فيني استعير CD؟', en: 'Can I borrow CDs?' },
+          { fr: 'Il y a des activités pour les adultes ?', ar: 'في نشاطات للكبار؟', en: 'Are there activities for adults?' },
+          { fr: 'Il y a des cours de français ?', ar: 'في دروس فرنسي؟', en: 'Are there French classes?' }
+        ]
+      },
+      {
+        icon: '🗂️',
+        title: { ar: 'مكان الكتاب والأقسام', en: 'Book location and sections', fr: 'Emplacement et rayons' },
+        phrases: [
+          { fr: 'Où est le rayon français ?', ar: 'وين قسم الكتب الفرنسية؟', en: 'Where is the French section?' },
+          { fr: 'Où se trouve le rayon des langues ?', ar: 'وين قسم اللغات؟', en: 'Where is the language section?' },
+          { fr: 'C’est à quel étage ?', ar: 'بأي طابق؟', en: 'Which floor is it on?' },
+          { fr: 'C’est par ici ?', ar: 'من هون؟', en: 'Is it this way?' },
+          { fr: 'C’est au fond ?', ar: 'بآخر المكان؟', en: 'Is it at the back?' },
+          { fr: 'C’est à droite ou à gauche ?', ar: 'عاليمين ولا عاليسار؟', en: 'Is it on the right or left?' }
+        ]
+      },
+      {
+        icon: '👨‍💼',
+        title: { ar: 'سؤال الموظف وما فهمت', en: 'Asking staff and not understanding', fr: 'Demander au personnel' },
+        phrases: [
+          { fr: 'Excusez-moi, j’ai une petite question.', ar: 'عفواً، عندي سؤال صغير.', en: 'Excuse me, I have a quick question.' },
+          { fr: 'Vous pouvez m’aider, s’il vous plaît ?', ar: 'فيك تساعدني، لو سمحت؟', en: 'Can you help me, please?' },
+          { fr: 'Je ne trouve pas ce que je cherche.', ar: 'ما عم لاقي الشي اللي عم دور عليه.', en: 'I can’t find what I’m looking for.' },
+          { fr: 'Vous pouvez me montrer où c’est ?', ar: 'فيك تفرجيني وين موجود؟', en: 'Can you show me where it is?' },
+          { fr: 'Pardon, je n’ai pas compris.', ar: 'عفواً، ما فهمت.', en: 'Sorry, I didn’t understand.' },
+          { fr: 'Vous pouvez répéter, s’il vous plaît ?', ar: 'فيك تعيد، لو سمحت؟', en: 'Could you repeat, please?' },
+          { fr: 'Vous pouvez parler plus lentement ?', ar: 'فيك تحكي أبطأ؟', en: 'Could you speak more slowly?' },
+          { fr: 'Vous pouvez me montrer ?', ar: 'فيك تفرجيني؟', en: 'Can you show me?' },
+          { fr: 'Je ne parle pas très bien français.', ar: 'أنا ما بحكي فرنسي كتير منيح.', en: 'I don’t speak French very well.' }
+        ]
+      },
+      {
+        icon: '⭐',
+        title: { ar: 'أهم الأفعال والمفردات', en: 'Key verbs and vocabulary', fr: 'Verbes et vocabulaire clés' },
+        phrases: [
+          { fr: 'emprunter', ar: 'يستعير', en: 'to borrow' },
+          { fr: 'rendre', ar: 'يرجّع', en: 'to return' },
+          { fr: 'réserver', ar: 'يحجز', en: 'to reserve' },
+          { fr: 'prolonger', ar: 'يمدّد', en: 'to extend' },
+          { fr: 'chercher', ar: 'يبحث عن', en: 'to look for' },
+          { fr: 'trouver', ar: 'يجد', en: 'to find' },
+          { fr: 's’inscrire', ar: 'يسجّل', en: 'to register' },
+          { fr: 's’abonner', ar: 'يشترك', en: 'to subscribe' },
+          { fr: 'imprimer', ar: 'يطبع', en: 'to print' },
+          { fr: 'photocopier', ar: 'يصوّر/ينسخ', en: 'to photocopy' },
+          { fr: 'scanner', ar: 'يعمل سكان', en: 'to scan' },
+          { fr: 'consulter', ar: 'يطالع/يستخدم', en: 'to consult' },
+          { fr: 'bibliothèque', ar: 'مكتبة', en: 'library' },
+          { fr: 'bibliothécaire', ar: 'موظف المكتبة', en: 'librarian' },
+          { fr: 'livre', ar: 'كتاب', en: 'book' },
+          { fr: 'rayon', ar: 'قسم/رف الكتب', en: 'section/shelf' },
+          { fr: 'catalogue', ar: 'فهرس', en: 'catalog' },
+          { fr: 'emprunt', ar: 'استعارة', en: 'loan' },
+          { fr: 'retour', ar: 'إرجاع', en: 'return' },
+          { fr: 'prolongation', ar: 'تمديد', en: 'extension' },
+          { fr: 'réservation', ar: 'حجز', en: 'reservation' },
+          { fr: 'disponible', ar: 'متوفر', en: 'available' },
+          { fr: 'indisponible', ar: 'غير متوفر', en: 'unavailable' },
+          { fr: 'salle de travail', ar: 'غرفة دراسة/عمل', en: 'study room' },
+          { fr: 'place assise', ar: 'مقعد', en: 'seat' },
+          { fr: 'imprimante', ar: 'طابعة', en: 'printer' },
+          { fr: 'photocopieuse', ar: 'آلة تصوير', en: 'photocopier' },
+          { fr: 'scanner', ar: 'ماسح ضوئي', en: 'scanner' },
+          { fr: 'clé USB', ar: 'فلاشة USB', en: 'USB drive' }
+        ]
+      }
+    ]
   }
 ];
