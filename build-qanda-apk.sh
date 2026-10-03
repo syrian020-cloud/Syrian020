@@ -13,6 +13,10 @@ mkdir -p www/data www/js
 cp data/* www/data/
 cp manifest.json icon-192.png icon-512.png sw.js www/
 cp qanda.html www/index.html
+cp index.html www/videos.html
+cp centres.html www/
+# inside the bundle the video editor lives at videos.html; fix links that target index.html
+sed -i 's|href="index.html"|href="videos.html"|g' www/*.html
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
 GRADLE_INIT=""
@@ -36,6 +40,20 @@ if [ ! -d android ]; then
 fi
 
 npx cap sync android
+
+# Inject the full Android permission set (android-permissions.xml) into the generated manifest
+MANIFEST="$ROOT/android/app/src/main/AndroidManifest.xml"
+if [ -f "$MANIFEST" ] && ! grep -q 'ACCESS_FINE_LOCATION' "$MANIFEST"; then
+  python3 - "$MANIFEST" <<'PYEOF'
+import sys
+p = sys.argv[1]
+s = open(p).read()
+perms = open('android-permissions.xml').read().rstrip() + '\n'
+marker = '    <uses-permission android:name="android.permission.INTERNET" />\n'
+s = s.replace(marker, perms, 1) if marker in s else s.replace('</manifest>', perms + '</manifest>', 1)
+open(p, 'w').write(s)
+PYEOF
+fi
 
 # Sync the PWA icon into the Android mipmap launcher icons
 ICON_SRC="$ROOT/icon-512.png"

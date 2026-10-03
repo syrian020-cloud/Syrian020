@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#0b0f1f">
+<title>Vidmap — عبارات المراكز الإدارية</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+  :root {
+    --bg-primary: #0b0f1f;
+    --bg-secondary: rgba(255,255,255,0.06);
+    --bg-tertiary: rgba(255,255,255,0.1);
+    --text-primary: #f8f7ff;
+    --text-secondary: #a3a3c2;
+    --accent: #8b5cf6;
+    --accent-2: #f43f5e;
+    --accent-hover: #7c3aed;
+    --success: #22d3ee;
+    --border: rgba(255,255,255,0.09);
+    --radius: 24px;
+    --radius-sm: 16px;
+    --shadow: 0 24px 60px rgba(0,0,0,0.45);
+    --shadow-sm: 0 8px 22px rgba(0,0,0,0.22);
+    --glow: 0 0 28px rgba(139,92,246,0.22);
+  }
+  [data-theme="light"] {
+    --bg-primary: #f7f5ff;
+    --bg-secondary: rgba(255,255,255,0.82);
+    --bg-tertiary: rgba(0,0,0,0.04);
+    --text-primary: #18122b;
+    --text-secondary: #6b7280;
+    --border: rgba(76,29,149,0.09);
+    --shadow: 0 16px 45px rgba(0,0,0,0.12);
+    --shadow-sm: 0 4px 16px rgba(0,0,0,0.08);
+    --glow: 0 0 24px rgba(139,92,246,0.14);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans Arabic", "Noto Sans", sans-serif;
+    letter-spacing: -0.01em;
+    font-weight: 450;
+    background-color: var(--bg-primary);
+    background-image: radial-gradient(ellipse 85% 55% at 50% -25%, rgba(139,92,246,0.16), transparent 70%), radial-gradient(ellipse 60% 40% at 100% 0%, rgba(244,63,94,0.06), transparent 60%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    line-height: 1.62;
+    padding-bottom: 3.5rem;
+    -webkit-font-smoothing: antialiased;
+  }
+  header { position: sticky; top: 0; z-index: 1100; background: rgba(11,15,31,0.78); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); }
+  [data-theme="light"] header { background: rgba(255,255,255,0.78); }
+  .header-inner { max-width: 1000px; margin: 0 auto; padding: 0.9rem 1.1rem; display: flex; align-items: center; gap: 0.6rem; }
+  .logo { font-weight: 900; font-size: 1.3rem; white-space: nowrap; display: flex; align-items: center; gap: 0.35rem; letter-spacing: -0.03em; background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .spacer { flex: 1; }
+  .icon-btn { background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 14px; padding: 0.5rem 0.7rem; font-size: 0.95rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 700; transition: transform .12s, border-color .15s, background .15s, box-shadow .15s; box-shadow: var(--shadow-sm); font-family: inherit; }
+  .icon-btn:hover { border-color: var(--accent); background: var(--bg-tertiary); transform: translateY(-1px); }
+  main { max-width: 1000px; margin: 0 auto; padding: 1rem; }
+
+  .hero { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem 1.4rem; margin-bottom: 1rem; position: relative; overflow: hidden; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: var(--shadow-sm); }
+  .hero::before { content: ''; position: absolute; top:0; left:0; right:0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--success)); opacity: .9; }
+  .hero h1 { margin: 0 0 0.45rem; font-size: 1.35rem; position: relative; font-weight: 800; letter-spacing: -0.02em; }
+  .hero p { margin: 0; color: var(--text-secondary); font-size: 0.96rem; position: relative; max-width: 720px; }
+  .hero .stats { margin-top: 0.8rem; display: flex; gap: 0.6rem; flex-wrap: wrap; position: relative; }
+  .stat-pill { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 999px; padding: 0.25rem 0.8rem; font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); }
+  .stat-pill b { color: var(--text-primary); }
+
+  .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
+  .search-wrap { flex: 1; min-width: 200px; position: relative; }
+  .search-wrap input { width: 100%; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 14px; padding: 0.7rem 1rem 0.7rem 2.6rem; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; transition: border-color .15s, box-shadow .15s; }
+  [dir="ltr"] .search-wrap input, html[dir="ltr"] .search-wrap input { padding: 0.7rem 2.6rem 0.7rem 1rem; }
+  .search-wrap input:focus { border-color: var(--accent); box-shadow: var(--glow); }
+  .search-wrap .search-ic { position: absolute; top: 50%; transform: translateY(-50%); inset-inline-start: 0.9rem; opacity: 0.6; pointer-events: none; }
+  .loop-group { display: inline-flex; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .loop-group button { background: transparent; border: none; color: var(--text-secondary); font-weight: 800; font-size: 0.82rem; padding: 0.6rem 0.75rem; cursor: pointer; font-family: inherit; transition: all .12s; }
+  .loop-group button.on { background: linear-gradient(135deg, var(--accent), var(--accent-hover)); color: #fff; }
+  .stop-btn { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 14px; color: var(--text-primary); font-weight: 800; font-size: 0.82rem; padding: 0.6rem 0.8rem; cursor: pointer; font-family: inherit; }
+  .stop-btn:hover { border-color: var(--accent-2); }
+
+  .centre-chips { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.1rem; }
+  .centre-chip { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); cursor: pointer; transition: all .15s; font-family: inherit; }
+  .centre-chip:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .centre-chip.on { background: linear-gradient(135deg, var(--accent), var(--accent-hover)); color: #fff; border-color: transparent; box-shadow: 0 4px 18px rgba(139,92,246,0.35); }
+
+  .centre-head { margin-bottom: 1rem; }
+  .centre-head h2 { margin: 0 0 0.2rem; font-size: 1.15rem; font-weight: 800; display: flex; align-items: center; gap: 0.5rem; }
+  .centre-head p { margin: 0; color: var(--text-secondary); font-size: 0.88rem; }
+
+  .centre-group { display: flex; align-items: center; gap: 0.45rem; font-weight: 800; font-size: 0.9rem; color: var(--accent); margin: 1rem 0 0.6rem; }
+  .centre-group:first-child { margin-top: 0.2rem; }
+
+  .section { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 0.8rem; overflow: hidden; box-shadow: var(--shadow-sm); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+  .section-head { display: flex; align-items: center; gap: 0.55rem; padding: 0.85rem 1rem; cursor: pointer; user-select: none; }
+  .section-head .sec-icon { font-size: 1.15rem; }
+  .section-head .sec-title { font-weight: 800; font-size: 0.98rem; flex: 1; }
+  .section-head .sec-count { color: var(--text-secondary); font-size: 0.75rem; font-weight: 700; }
+  .section-head .chev { transition: transform .2s; color: var(--text-secondary); font-size: 0.8rem; }
+  .section.open .section-head .chev { transform: rotate(180deg); }
+  .section-body { display: none; padding: 0 0.8rem 0.8rem; }
+  .section.open .section-body { display: block; }
+
+  .phrase { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 14px; padding: 0.75rem 0.9rem; margin-bottom: 0.55rem; display: flex; align-items: center; gap: 0.8rem; }
+  .phrase:last-child { margin-bottom: 0; }
+  .phrase-lines { flex: 1; min-width: 0; }
+  .pl .txt .w { cursor: pointer; border-radius: 5px; padding: 0 1px; transition: background .12s; }
+  .pl .txt .w.looping { background: rgba(139,92,246,.28); color: var(--accent); }
+  .pl { display: flex; align-items: baseline; gap: 0.45rem; padding: 0.12rem 0; }
+  .pl .tag { flex: none; font-size: 0.62rem; font-weight: 900; color: var(--text-secondary); width: 1.4rem; text-align: center; opacity: 0.7; }
+  .pl .txt { font-size: 0.9rem; }
+  .pl.fr .txt { font-weight: 800; font-size: 0.96rem; color: var(--text-primary); }
+  .pl.ar .txt { font-weight: 700; }
+  .pl.en .txt { color: var(--text-secondary); font-size: 0.85rem; }
+  .flags { display: flex; flex-direction: column; gap: 0.3rem; flex: none; }
+  .flag-btn { width: 42px; height: 42px; border-radius: 13px; border: 1px solid var(--border); background: var(--bg-secondary); font-size: 1.15rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .13s; line-height: 1; }
+  .flag-btn:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: var(--glow); }
+  .flag-btn.speaking { background: linear-gradient(135deg, var(--accent), var(--accent-hover)); border-color: transparent; animation: pulse 1s infinite; }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(139,92,246,0.55);} 50% { box-shadow: 0 0 0 8px rgba(139,92,246,0);} }
+
+  .empty { text-align: center; color: var(--text-secondary); padding: 3rem 1rem; }
+  footer { text-align: center; color: var(--text-secondary); font-size: 0.8rem; padding: 1.5rem 1rem; }
+  footer a { color: var(--accent); text-decoration: none; font-weight: 700; }
+
+  .toast { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%); background: #18122b; color: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 0.55rem 1.1rem; font-size: 0.85rem; font-weight: 700; box-shadow: var(--shadow); z-index: 2000; opacity: 0; pointer-events: none; transition: opacity .2s; }
+  .toast.show { opacity: 1; }
+
+  @media (max-width: 520px) {
+    .flag-btn { width: 38px; height: 38px; font-size: 1rem; }
+    .hero h1 { font-size: 1.15rem; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <span class="logo">🏛️ <span data-t="appName">Vidmap</span></span>
+    <div class="spacer"></div>
+    <button class="icon-btn" id="themeBtn" title="Theme">🌙</button>
+    <button class="icon-btn lang-btn" data-lang="ar">AR</button>
+    <button class="icon-btn lang-btn" data-lang="en">EN</button>
+    <button class="icon-btn lang-btn" data-lang="fr">FR</button>
+  </div>
+</header>
+<main>
+  <div class="hero">
+    <h1 data-t="heroTitle">عبارات المراكز الإدارية في فرنسا</h1>
+    <p data-t="heroDesc">حوارات وعبارات جاهزة لكل مركز إداري — اضغط على العلم لسماع العبارة بأي لغة.</p>
+    <div class="stats">
+      <span class="stat-pill">🏛️ <b id="statCentres">0</b> <span data-t="centres">مراكز</span></span>
+      <span class="stat-pill">📚 <b id="statSections">0</b> <span data-t="sections">أقسام</span></span>
+      <span class="stat-pill">💬 <b id="statPhrases">0</b> <span data-t="phrases">عبارة</span></span>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <div class="search-wrap">
+      <span class="search-ic">🔍</span>
+      <input id="search" type="search" data-t-ph="searchPh" placeholder="ابحث في العبارات…">
+    </div>
+    <div class="loop-group" id="loopGroup">
+      <button data-loop="1">×1</button>
+      <button data-loop="3" class="on">×3</button>
+      <button data-loop="5">×5</button>
+      <button data-loop="0">∞</button>
+    </div>
+    <button class="stop-btn" id="stopBtn">🔇 <span data-t="stop">إيقاف</span></button>
+  </div>
+
+  <div class="centre-chips" id="centreChips"></div>
+  <div class="centre-head" id="centreHead"></div>
+  <div id="sections"></div>
+  <div class="empty" id="empty" style="display:none" data-t="noResults">لا توجد نتائج</div>
+</main>
+<footer>
+  <a href="french.html" data-t="backToFrench">← العودة إلى دروس الفرنسية</a> · <a href="vocab.html">Vocabulary / مفردات</a> · <span>Vidmap</span>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script src="data/centres.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  var UI = {
+    ar: {
+      appName: 'Vidmap',
+      heroTitle: 'عبارات المراكز الإدارية في فرنسا',
+      heroDesc: 'حوارات وعبارات جاهزة لكل مركز إداري — اضغط على العلم لسماع العبارة بأي لغة.',
+      centres: 'مراكز', sections: 'أقسام', phrases: 'عبارة',
+      wordsFr: 'كلمة فرنسية', searchPh: 'ابحث في العبارات…', noResults: 'لا توجد نتائج', stop: 'إيقاف',
+      backToFrench: '← العودة إلى دروس الفرنسية'
+    },
+    en: {
+      appName: 'Vidmap',
+      heroTitle: 'Phrases for administrative centres in France',
+      heroDesc: 'Ready-made dialogues for every administrative centre — tap a flag to hear the phrase in that language.',
+      centres: 'centres', sections: 'sections', phrases: 'phrases',
+      wordsFr: 'French words', searchPh: 'Search phrases…', noResults: 'No results', stop: 'Stop',
+      backToFrench: '← Back to French lessons'
+    },
+    fr: {
+      appName: 'Vidmap',
+      heroTitle: 'Phrases pour les centres administratifs en France',
+      heroDesc: 'Dialogues prêts pour chaque centre administratif — touchez un drapeau pour entendre la phrase.',
+      centres: 'centres', sections: 'sections', phrases: 'phrases',
+      wordsFr: 'mots français', searchPh: 'Rechercher une phrase…', noResults: 'Aucun résultat', stop: 'Arrêter',
+      backToFrench: '← Retour aux cours de français'
+    }
+  };
+
+  var LANG_LABEL = { fr: 'FR', ar: 'ع', en: 'EN' };
+  var TTS_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
+
+  var state = {
+    lang: localStorage.getItem('centres_lang') || 'ar',
+    theme: localStorage.getItem('centres_theme') || 'dark',
+    loop: parseInt(localStorage.getItem('centres_loop') || '3', 10),
+    centre: (window.CENTRES_DATA[0] || {}).id,
+    query: ''
+  };
+
+  function t(k) { return (UI[state.lang] && UI[state.lang][k]) || UI.ar[k] || k; }
+  function esc(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : s; return d.innerHTML; }
+  function tside(obj) { return obj[state.lang] || obj.ar; }
+
+  function applyLang() {
+    document.querySelectorAll('[data-t]').forEach(function (el) { el.textContent = t(el.getAttribute('data-t')); });
+    document.querySelectorAll('[data-t-ph]').forEach(function (el) { el.placeholder = t(el.getAttribute('data-t-ph')); });
+    document.documentElement.lang = state.lang;
+    document.documentElement.dir = (state.lang === 'ar') ? 'rtl' : 'ltr';
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.style.background = (b.dataset.lang === state.lang) ? 'linear-gradient(135deg,var(--accent),var(--accent-hover))' : '';
+      b.style.color = (b.dataset.lang === state.lang) ? '#fff' : '';
+    });
+  }
+
+  function applyTheme() {
+    document.documentElement.setAttribute('data-theme', state.theme === 'light' ? 'light' : 'dark');
+    document.getElementById('themeBtn').textContent = state.theme === 'light' ? '☀️' : '🌙';
+  }
+
+  /* ---------- TTS: Capacitor native on Android, speechSynthesis on web ---------- */
+  var nativeTTS = (typeof window.Capacitor !== 'undefined' && window.Capacitor.Plugins && window.Capacitor.Plugins.TextToSpeech);
+  var speakSeq = 0;
+
+  function stopSpeaking() {
+    speakSeq++;
+    if (nativeTTS && window.Capacitor.Plugins.TextToSpeech.stop) {
+      try { window.Capacitor.Plugins.TextToSpeech.stop(); } catch (e) {}
+    }
+    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    document.querySelectorAll('.flag-btn.speaking').forEach(function (b) { b.classList.remove('speaking'); });
+    document.querySelectorAll('.looping').forEach(function (b) { b.classList.remove('looping'); });
+  }
+
+  function speakLoop(text, el, lang) {
+    if (el.classList.contains('looping')) { stopSpeaking(); return; }
+    stopSpeaking();
+    el.classList.add('looping');
+    var seq = speakSeq;
+    var done = function () { if (seq === speakSeq) el.classList.remove('looping'); };
+    if (nativeTTS) speakNative(text, lang || 'fr', 0, done);
+    else speakWeb(text, lang || 'fr', 0, done);
+  }
+
+  function searchImages(text) {
+    var url = 'https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(text);
+    window.open(url, '_blank');
+  }
+
+  function speakWeb(text, lang, times, done) {
+    if (!window.speechSynthesis) { done(); return; }
+    var n = 0;
+    var seq = speakSeq;
+    function once() {
+      if ((times > 0 && n >= times) || seq !== speakSeq) { done(); return; }
+      var u = new SpeechSynthesisUtterance(text);
+      u.lang = TTS_LANG[lang] || 'fr-FR';
+      u.rate = lang === 'fr' ? 0.92 : 0.95;
+      var voices = window.speechSynthesis.getVoices() || [];
+      for (var i = 0; i < voices.length; i++) {
+        if (voices[i].lang && voices[i].lang.toLowerCase().indexOf(TTS_LANG[lang].slice(0, 2).toLowerCase()) === 0) { u.voice = voices[i]; break; }
+      }
+      u.onend = function () { n++; once(); };
+      u.onerror = function () { done(); };
+      window.speechSynthesis.speak(u);
+    }
+    once();
+  }
+
+  function speakNative(text, lang, times, done) {
+    var n = 0;
+    var seq = speakSeq;
+    function once() {
+      if ((times > 0 && n >= times) || seq !== speakSeq) { done(); return; }
+      window.Capacitor.Plugins.TextToSpeech.speak({
+        text: text,
+        lang: TTS_LANG[lang] || 'fr-FR',
+        rate: lang === 'fr' ? 0.92 : 0.95,
+        pitch: 1.0,
+        volume: 1.0,
+        category: 'ambient'
+      }).then(function () { n++; once(); })
+        .catch(function () { done(); });
+    }
+    once();
+  }
+
+  function speak(text, lang, btn) {
+    if (btn.classList.contains('speaking')) { stopSpeaking(); return; }
+    stopSpeaking();
+    btn.classList.add('speaking');
+    var seq = speakSeq;
+    var done = function () { if (seq === speakSeq) btn.classList.remove('speaking'); };
+    if (nativeTTS) speakNative(text, lang, state.loop, done);
+    else speakWeb(text, lang, state.loop, done);
+  }
+
+  /* ---------- rendering ---------- */
+  function centreById(id) {
+    return window.CENTRES_DATA.filter(function (c) { return c.id === id; })[0];
+  }
+
+  function renderChips() {
+    var wrap = document.getElementById('centreChips');
+    wrap.innerHTML = window.CENTRES_DATA.map(function (c) {
+      return '<button class="centre-chip' + (c.id === state.centre ? ' on' : '') + '" data-id="' + c.id + '">' + c.icon + ' ' + esc(tside(c.name).split('—')[0].trim()) + '</button>';
+    }).join('');
+    wrap.querySelectorAll('.centre-chip').forEach(function (b) {
+      b.onclick = function () { state.centre = b.dataset.id; stopSpeaking(); renderAll(); };
+    });
+  }
+
+  function wordsHtml(s) {
+    return esc(s).split(' ').map(function (w) { return '<span class="w">' + w + '</span>'; }).join(' ');
+  }
+
+  function phraseHtml(p) {
+    return '<div class="phrase">' +
+      '<div class="phrase-lines">' +
+      '<div class="pl fr"><span class="tag">FR</span><span class="txt">' + wordsHtml(p.fr) + '</span></div>' +
+      '<div class="pl ar"><span class="tag">ع</span><span class="txt">' + wordsHtml(p.ar) + '</span></div>' +
+      '<div class="pl en"><span class="tag">EN</span><span class="txt">' + wordsHtml(p.en) + '</span></div>' +
+      '</div>' +
+      '<div class="flags">' +
+      '<button class="flag-btn" data-lang="fr" title="FR">🇫🇷</button>' +
+      '<button class="flag-btn" data-lang="ar" title="AR">🇸🇾</button>' +
+      '<button class="flag-btn" data-lang="en" title="EN">🇺🇸</button>' +
+      '</div></div>';
+  }
+
+  function renderSections() {
+    var c = centreById(state.centre);
+    var wrap = document.getElementById('sections');
+    var head = document.getElementById('centreHead');
+    if (!c) { wrap.innerHTML = ''; head.innerHTML = ''; return; }
+
+    head.innerHTML = '<h2>' + c.icon + ' ' + esc(tside(c.name)) + '</h2><p>' + esc(tside(c.desc)) + '</p>';
+
+    var q = state.query.trim().toLowerCase();
+    var visible = 0;
+    var list = q ? window.CENTRES_DATA : [c];
+    wrap.innerHTML = list.map(function (cc) {
+      var html = '';
+      cc.sections.forEach(function (sec, si) {
+        var phrases = sec.phrases.filter(function (p) {
+          if (!q) return true;
+          return (p.fr + ' ' + p.ar + ' ' + p.en).toLowerCase().indexOf(q) >= 0;
+        });
+        visible += phrases.length;
+        if (q && !phrases.length) return;
+        var wordsFr = phrases.reduce(function (n, p) { return n + p.fr.trim().split(/\s+/).length; }, 0);
+        html += '<div class="section' + (q ? ' open' : '') + '">' +
+          '<div class="section-head" data-sec="' + si + '"><span class="sec-icon">' + sec.icon + '</span>' +
+          '<span class="sec-title">' + esc(tside(sec.title)) + '</span>' +
+          '<span class="sec-count">' + phrases.length + ' ' + t('phrases') + ' · ' + wordsFr + ' ' + t('wordsFr') + '</span><span class="chev">▼</span></div>' +
+          '<div class="section-body">' + phrases.map(phraseHtml).join('') + '</div></div>';
+      });
+      if (q && !html) return '';
+      return (q ? '<div class="centre-group">' + cc.icon + ' ' + esc(tside(cc.name)) + '</div>' : '') + html;
+    }).join('');
+
+    document.getElementById('empty').style.display = (visible === 0) ? '' : 'none';
+
+    wrap.querySelectorAll('.section-head').forEach(function (h) {
+      h.onclick = function () { h.parentElement.classList.toggle('open'); };
+    });
+    wrap.querySelectorAll('.flag-btn').forEach(function (b) {
+      var p = findPhrase(b);
+      b.onclick = function () { speak(p[b.dataset.lang], b.dataset.lang, b); };
+    });
+    wrap.querySelectorAll('.pl .txt .w').forEach(function (w) {
+      var word = w.textContent;
+      if (!/[\p{L}\p{N}]/u.test(word)) return;
+      var lang = w.closest('.pl').classList.contains('ar') ? 'ar' : (w.closest('.pl').classList.contains('en') ? 'en' : 'fr');
+      var holdT = null, taps = 0, tapT = null, held = false;
+      w.addEventListener('pointerdown', function () {
+        held = false;
+        holdT = setTimeout(function () { held = true; speakLoop(word, w, lang); }, 520);
+      });
+      ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) {
+        w.addEventListener(ev, function () { clearTimeout(holdT); });
+      });
+      w.addEventListener('click', function () {
+        if (held) { held = false; return; }
+        taps++;
+        if (taps === 1) { tapT = setTimeout(function () { taps = 0; }, 380); }
+        else { clearTimeout(tapT); taps = 0; searchImages(word); }
+      });
+    });
+  }
+
+  function findPhrase(btn) {
+    var phraseEl = btn.closest('.phrase');
+    var lines = phraseEl.querySelectorAll('.pl');
+    return {
+      fr: lines[0].querySelector('.txt').textContent,
+      ar: lines[1].querySelector('.txt').textContent,
+      en: lines[2].querySelector('.txt').textContent
+    };
+  }
+
+  function renderStats() {
+    var centres = window.CENTRES_DATA.length;
+    var sections = 0, phrases = 0;
+    window.CENTRES_DATA.forEach(function (c) {
+      sections += c.sections.length;
+      c.sections.forEach(function (s) { phrases += s.phrases.length; });
+    });
+    document.getElementById('statCentres').textContent = centres;
+    document.getElementById('statSections').textContent = sections;
+    document.getElementById('statPhrases').textContent = phrases;
+  }
+
+  function renderAll() {
+    applyLang();
+    renderChips();
+    renderSections();
+    renderStats();
+  }
+
+  /* ---------- wiring ---------- */
+  document.querySelectorAll('.lang-btn').forEach(function (b) {
+    b.onclick = function () { state.lang = b.dataset.lang; localStorage.setItem('centres_lang', state.lang); renderAll(); };
+  });
+  document.getElementById('themeBtn').onclick = function () {
+    state.theme = (state.theme === 'light') ? 'dark' : 'light';
+    localStorage.setItem('centres_theme', state.theme);
+    applyTheme();
+  };
+  document.getElementById('loopGroup').querySelectorAll('button').forEach(function (b) {
+    b.classList.toggle('on', parseInt(b.dataset.loop, 10) === state.loop);
+    b.onclick = function () {
+      state.loop = parseInt(b.dataset.loop, 10);
+      localStorage.setItem('centres_loop', String(state.loop));
+      document.getElementById('loopGroup').querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
+    };
+  });
+  document.getElementById('stopBtn').onclick = stopSpeaking;
+  document.getElementById('search').oninput = function (e) { state.query = e.target.value; renderSections(); };
+
+  function toast(msg) {
+    var el = document.getElementById('toast');
+    el.textContent = msg;
+    el.classList.add('show');
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.classList.remove('show'); }, 2200);
+  }
+
+  applyTheme();
+  renderAll();
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  }
+})();
+</script>
+</body>
+</html>

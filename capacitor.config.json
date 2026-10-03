@@ -1,6 +1,6 @@
 {
-  "appId": "com.syrian020.dross",
-  "appName": "VidCap",
+  "appId": "com.syrian020.vidmap",
+  "appName": "Vidmap",
   "webDir": "www",
   "server": {
     "androidScheme": "https"

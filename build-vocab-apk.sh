@@ -16,6 +16,10 @@ cp manifest.json icon-192.png icon-512.png sw.js www/
 # Use vocab.html as the main entry, keep french.html available for the back link
 cp vocab.html www/index.html
 cp french.html www/french.html
+cp index.html www/videos.html
+cp centres.html www/
+# inside the bundle the video editor lives at videos.html; fix links that target index.html
+sed -i 's|href="index.html"|href="videos.html"|g' www/*.html
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
 if [ "$USE_ALIYUN" = "1" ]; then
@@ -39,11 +43,25 @@ fi
 
 npx cap sync android
 
+# Inject the full Android permission set (android-permissions.xml) into the generated manifest
+MANIFEST="$ROOT/android/app/src/main/AndroidManifest.xml"
+if [ -f "$MANIFEST" ] && ! grep -q 'ACCESS_FINE_LOCATION' "$MANIFEST"; then
+  python3 - "$MANIFEST" <<'PYEOF'
+import sys
+p = sys.argv[1]
+s = open(p).read()
+perms = open('android-permissions.xml').read().rstrip() + '\n'
+marker = '    <uses-permission android:name="android.permission.INTERNET" />\n'
+s = s.replace(marker, perms, 1) if marker in s else s.replace('</manifest>', perms + '</manifest>', 1)
+open(p, 'w').write(s)
+PYEOF
+fi
+
 # Ensure the Android launcher label matches the Capacitor appName
 STRINGS="$ROOT/android/app/src/main/res/values/strings.xml"
 if [ -f "$STRINGS" ]; then
-  sed -i 's|<string name="app_name">.*</string>|<string name="app_name">VidCap</string>|' "$STRINGS"
-  sed -i 's|<string name="title_activity_main">.*</string>|<string name="title_activity_main">VidCap</string>|' "$STRINGS"
+  sed -i 's|<string name="app_name">.*</string>|<string name="app_name">Vidmap</string>|' "$STRINGS"
+  sed -i 's|<string name="title_activity_main">.*</string>|<string name="title_activity_main">Vidmap</string>|' "$STRINGS"
 fi
 
 # Sync the PWA icon into the Android mipmap launcher icons
