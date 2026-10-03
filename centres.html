@@ -308,6 +308,24 @@
     once();
   }
 
+  function speakGroup(texts, lang, btn) {
+    if (btn.classList.contains('speaking')) { stopSpeaking(); return; }
+    stopSpeaking();
+    btn.classList.add('speaking');
+    var seq = speakSeq;
+    var i = 0;
+    function next() {
+      if (seq !== speakSeq || i >= texts.length) {
+        if (seq === speakSeq) btn.classList.remove('speaking');
+        return;
+      }
+      var one = function () { i++; next(); };
+      if (nativeTTS) speakNative(texts[i], lang, state.loop, one);
+      else speakWeb(texts[i], lang, state.loop, one);
+    }
+    next();
+  }
+
   function speak(text, lang, btn) {
     if (btn.classList.contains('speaking')) { stopSpeaking(); return; }
     stopSpeaking();
@@ -375,7 +393,8 @@
         html += '<div class="section' + (q ? ' open' : '') + '">' +
           '<div class="section-head" data-sec="' + si + '"><span class="sec-icon">' + sec.icon + '</span>' +
           '<span class="sec-title">' + esc(tside(sec.title)) + '</span>' +
-          '<span class="sec-count">' + phrases.length + ' ' + t('phrases') + ' · ' + wordsFr + ' ' + t('wordsFr') + '</span><span class="chev">▼</span></div>' +
+          '<span class="sec-count">' + phrases.length + ' ' + t('phrases') + ' · ' + wordsFr + ' ' + t('wordsFr') + '</span>' +
+          '<button class="flag-btn sec-speak" data-sec="' + si + '" title="🔊">🔊</button><span class="chev">▼</span></div>' +
           '<div class="section-body">' + phrases.map(phraseHtml).join('') + '</div></div>';
       });
       if (q && !html) return '';
@@ -387,7 +406,16 @@
     wrap.querySelectorAll('.section-head').forEach(function (h) {
       h.onclick = function () { h.parentElement.classList.toggle('open'); };
     });
+    wrap.querySelectorAll('.sec-speak').forEach(function (b) {
+      b.onclick = function (e) {
+        e.stopPropagation();
+        var secEl = b.closest('.section');
+        var texts = Array.prototype.map.call(secEl.querySelectorAll('.pl.fr .txt'), function (t) { return t.textContent; });
+        speakGroup(texts, 'fr', b);
+      };
+    });
     wrap.querySelectorAll('.flag-btn').forEach(function (b) {
+      if (b.classList.contains('sec-speak')) return;
       var p = findPhrase(b);
       b.onclick = function () { speak(p[b.dataset.lang], b.dataset.lang, b); };
     });
