@@ -158,6 +158,36 @@ window.CENTRES_DATA = [
           { fr: 'domiciliation = titre administratif : une adresse pour recevoir le courrier officiel (CAF, CPAM, Préfecture, MDPH, impôts) quand on n’a pas d’adresse fixe.', ar: 'domiciliation = مصطلح إداري: عنوان لاستلام البريد الرسمي (CAF، CPAM، Préfecture، MDPH، impôts) لمن ما عنده عنوان ثابت — بالعربي: «عنوان للمراسلات».', en: 'domiciliation = admin term: an address for official mail when you have no fixed address.' },
           { fr: 'faire une domiciliation / être domicilié à / une adresse stable / une demande de domiciliation / recevoir le courrier', ar: 'يعمل دوميسيلياسيون / مسجّل عند / عنوان ثابت / طلب دوميسيلياسيون / يستلم البريد', en: 'get domiciliation / be registered / stable address / application / receive mail' }
         ]
+      },
+      {
+        icon: '⭐',
+        title: { ar: 'أفعال الدوميسيلياسيون', en: 'Domiciliation verbs', fr: 'Verbes de la domiciliation' },
+        phrases: [
+          { fr: 'Je voudrais demander une domiciliation.', ar: 'بدي أطلب دوميسيلياسيون.', en: 'I’d like to request a domiciliation.' },
+          { fr: 'Je vais faire une demande de domiciliation.', ar: 'رح قدّم طلب دوميسيلياسيون.', en: 'I’m going to apply for a domiciliation.' },
+          { fr: 'Je voudrais faire une domiciliation.', ar: 'بدي أعمل دوميسيلياسيون.', en: 'I’d like to get a domiciliation.' },
+          { fr: 'Je dois faire une demande.', ar: 'لازم قدّم طلب.', en: 'I have to submit an application.' },
+          { fr: 'Je dois remplir ce formulaire.', ar: 'لازم عبّي هالاستمارة.', en: 'I have to fill out this form.' },
+          { fr: 'Où dois-je remplir le formulaire ?', ar: 'وين لازم عبّي الاستمارة؟', en: 'Where do I fill out the form?' },
+          { fr: 'Où dois-je signer ?', ar: 'وين لازم وقّع؟', en: 'Where do I sign?' },
+          { fr: 'J’ai signé le document.', ar: 'وقّعت على الورقة.', en: 'I signed the document.' },
+          { fr: 'Je voudrais recevoir mon courrier ici.', ar: 'بدي استلم بريدي هون.', en: 'I’d like to receive my mail here.' },
+          { fr: 'Je peux recevoir mes courriers administratifs ici ?', ar: 'فيني استلم مراسلاتي الإدارية هون؟', en: 'Can I receive my administrative mail here?' },
+          { fr: 'Je viens récupérer mon courrier.', ar: 'جيت آخد بريدي.', en: 'I’m here to collect my mail.' },
+          { fr: 'Je peux récupérer mon courrier aujourd’hui ?', ar: 'فيني آخد بريدي اليوم؟', en: 'Can I collect my mail today?' },
+          { fr: 'Je peux déposer mon dossier ici ?', ar: 'فيني سلّم ملفي هون؟', en: 'Can I submit my file here?' },
+          { fr: 'Je dois déposer quels documents ?', ar: 'شو الأوراق اللي لازم سلّمها؟', en: 'Which documents do I submit?' },
+          { fr: 'Quels documents dois-je fournir ?', ar: 'شو الأوراق اللي لازم قدّمها؟', en: 'What documents do I provide?' },
+          { fr: 'Je dois fournir une pièce d’identité.', ar: 'لازم قدّم إثبات شخصية.', en: 'I need to provide an ID.' },
+          { fr: 'Je peux envoyer les documents par e-mail ?', ar: 'فيني ابعت الأوراق بالإيميل؟', en: 'Can I send the documents by email?' },
+          { fr: 'Je vais vous envoyer les documents.', ar: 'رح ابعتلكن الأوراق.', en: 'I’ll send you the documents.' },
+          { fr: 'Je dois déclarer cette adresse à la CAF.', ar: 'لازم صرّح عن هالعنوان للـCAF.', en: 'I must declare this address to CAF.' },
+          { fr: 'Je dois renouveler ma domiciliation.', ar: 'لازم جدّد الدوميسيلياسيون تبعي.', en: 'I need to renew my domiciliation.' },
+          { fr: 'Quand dois-je renouveler ma domiciliation ?', ar: 'إمتى لازم جدّد الدوميسيلياسيون؟', en: 'When do I renew my domiciliation?' },
+          { fr: 'Je voudrais modifier mes coordonnées.', ar: 'بدي عدّل معلومات الاتصال تبعي.', en: 'I’d like to update my contact details.' },
+          { fr: 'Vous pouvez me prévenir quand j’ai du courrier ?', ar: 'فيكن تخبروني لما يوصلني بريد؟', en: 'Can you let me know when I have mail?' },
+          { fr: 'faire → يعمل | demander → يطلب | remplir → يعبّي | signer → يوقّع | fournir → يقدّم | déposer → يسلّم | envoyer → يرسل | recevoir → يستلم | récupérer → يأخذ | déclarer → يصرّح | renouveler → يجدّد | modifier → يعدّل | prévenir → يخبر', ar: 'faire يعمل — demander يطلب — remplir يعبّي — signer يوقّع — fournir يقدّم — déposer يسلّم — envoyer يرسل — recevoir يستلم — récupérer يأخذ — déclarer يصرّح — renouveler يجدّد — modifier يعدّل — prévenir يخبر', en: 'key verbs list' }
+        ]
       }
     ]
   },
