@@ -3438,6 +3438,43 @@ window.CENTRES_DATA = [
           { fr: 'Je peux vous envoyer les documents en ligne.', ar: 'فيني أبعتلكم الأوراق أونلاين.', en: 'I can send you the documents online.' },
           { fr: 'Bonjour, je voudrais signaler un changement de situation professionnelle. Mon contrat de travail est terminé et je ne travaille plus actuellement. Je voudrais mettre à jour mon dossier et savoir si cela va modifier mes droits.', ar: 'مرحبا، بدي بلّغ عن تغيير بوضعي المهني. عقد عملي انتهى وحاليًا ما عاد عم اشتغل. بدي حدّث ملفي وأعرف إذا هالشي رح يغيّر حقوقي.', en: 'Hello, I would like to report a change in my employment situation. My employment contract has ended and I am currently no longer working. I would like to update my file and know whether this will affect my benefits.' }
         ]
+      },
+      {
+        icon: '⏸️',
+        title: { ar: '⭐ تعليق CAF — المفردات والأسباب', en: 'CAF suspension — vocabulary and causes', fr: 'Suspension CAF — vocabulaire' },
+        phrases: [
+          { fr: 'suspension / suspendre / suspendu', ar: 'تعليق / يعلّق / معلّق', en: 'suspension / suspend / suspended' },
+          { fr: 'interrompre / interruption / bloquer / blocage', ar: 'يوقف / توقف / يحجب / حجب', en: 'interrupt / block' },
+          { fr: 'verser / versement / allocation / prestation / droit', ar: 'يدفع / دفعة / إعانة / إعانة CAF / حق', en: 'pay / payment / benefit / entitlement' },
+          { fr: 'maintenir / rétablir / régulariser / justificatif / dossier / situation', ar: 'يبقي / يعيد / يسوّي الوضع / إثبات / ملف / وضعية', en: 'maintain / restore / regularize / document / file / situation' },
+          { fr: 'Mon dossier CAF est suspendu. / Mes prestations sont suspendues. / Mon versement est suspendu.', ar: 'ملفي بالكاف معلّق / إعاناتي معلّقة / الدفعة موقوفة.', en: 'My CAF file / benefits / payment is suspended.' },
+          { fr: 'Pourquoi mon dossier est-il suspendu ? / Pourquoi mes prestations sont-elles suspendues ?', ar: 'ليش ملفي معلّق؟ / ليش إعاناتي معلّقة؟', en: 'Why is my file / are my benefits suspended?' },
+          { fr: 'La CAF a suspendu mes droits. / Mon paiement est bloqué. / Mon dossier est bloqué.', ar: 'الكاف علّقت حقوقي / الدفع محجوب / الملف متوقف.', en: 'CAF suspended my rights / payment blocked / file blocked.' },
+          { fr: 'suspendre ≠ supprimer ≠ bloquer ≠ refuser : suspendu مؤقت، supprimé إلغاء، bloqué موقف لحين الحل، refusée مرفوض.', ar: 'معلّق مؤقت ≠ ملغى ≠ محجوب ≠ مرفوض.', en: 'suspended ≠ cancelled ≠ blocked ≠ refused.' },
+          { fr: 'Il manque un justificatif à mon dossier. / La CAF me demande un justificatif.', ar: 'في وثيقة ناقصة بملفي / الكاف طالبة إثبات.', en: 'A document is missing / CAF asks for proof.' },
+          { fr: 'J’ai envoyé le justificatif demandé. / J’ai déjà envoyé ce document.', ar: 'بعتت الإثبات المطلوب / أصلًا بعته.', en: 'I sent the document / already sent it.' },
+          { fr: 'Pouvez-vous vérifier si vous avez reçu mon document ? / Est-ce que mon dossier est complet maintenant ?', ar: 'فيك تتأكد إذا وصلتك الوثيقة؟ / ملفي صار كامل؟', en: 'Check if you received it? / is my file complete?' },
+          { fr: 'J’ai oublié de faire ma déclaration (trimestrielle). / Ma déclaration n’a pas été prise en compte.', ar: 'نسيت أعمل التصريح الفصلي / تصريحي ما انحسب.', en: 'Forgot my (quarterly) declaration / not taken into account.' },
+          { fr: 'Est-ce que mes droits sont suspendus à cause de ma déclaration ?', ar: 'حقوقي معلّقة بسبب التصريح؟', en: 'Suspended because of my declaration?' },
+          { fr: 'J’ai changé de situation / d’adresse / de situation professionnelle. / J’ai commencé à travailler. / Je ne travaille plus.', ar: 'وضعي / عنواني / وضعي المهني تغيّر / بلّشت اشتغل / ما عاد اشتغل.', en: 'My situation / address / job changed / started / stopped working.' },
+          { fr: 'Est-ce que je dois signaler ce changement à la CAF ?', ar: 'لازم بلّغ الكاف بهالتغيير؟', en: 'Must I report this change to CAF?' }
+        ]
+      },
+      {
+        icon: '🔄',
+        title: { ar: '⭐ تعليق CAF — إعادة الحقوق + الحوار', en: 'Restoring rights + dialogue', fr: 'Rétablissement + dialogue' },
+        phrases: [
+          { fr: 'rétablir les droits / rétablissement des droits', ar: 'إعادة الحقوق', en: 'restore / restoration of entitlement' },
+          { fr: 'Comment rétablir mes droits ? / Que dois-je faire pour rétablir mes prestations ?', ar: 'كيف أرجّع حقوقي؟ / شو لازم أعمل لأرجّع إعاناتي؟', en: 'How to restore my rights / benefits?' },
+          { fr: 'Quels documents dois-je fournir pour débloquer mon dossier ?', ar: 'شو الوثائق اللي لازم قدّمها لحل ملفي؟', en: 'Which documents to unblock my file?' },
+          { fr: 'Quand mes prestations seront-elles rétablies ?', ar: 'إمتى بترجع إعاناتي؟', en: 'When will my benefits be restored?' },
+          { fr: 'Est-ce que je vais recevoir les paiements qui ont été suspendus ? / Y aura-t-il un rappel de paiement ?', ar: 'رح أستلم الدفعات المعلّقة؟ / في دفع بأثر رجعي؟', en: 'Get suspended payments? / back payment?' },
+          { fr: 'Bonjour, je vous appelle parce que mes prestations sont suspendues.', ar: 'مرحبا، عم اتصل لأن إعاناتي معلّقة.', en: 'Calling because my benefits are suspended.' },
+          { fr: 'Pouvez-vous me donner votre numéro allocataire ? — Oui, bien sûr.', ar: 'فيك تعطيني رقم المستفيد؟ — أكيد.', en: 'Your beneficiary number? — sure.' },
+          { fr: 'Pouvez-vous me dire pourquoi mes prestations sont suspendues ? — Il manque un justificatif dans votre dossier.', ar: 'ليش إعاناتي معلّقة؟ — في وثيقة ناقصة بملفك.', en: 'Why suspended? — a document is missing.' },
+          { fr: 'Quel justificatif dois-je fournir ? — Vous devez envoyer ce document depuis votre espace CAF.', ar: 'شو الوثيقة المطلوبة؟ — لازم تبعتها من حسابك بالكاف.', en: 'Which document? — send it via your CAF account.' },
+          { fr: 'Quand mes droits seront-ils rétablis ? — Après réception et traitement du document.', ar: 'إمتى بترجع حقوقي؟ — بعد استلام الوثيقة ومعالجتها.', en: 'When restored? — after receiving/processing the document.' }
+        ]
       }
     ]
   },
