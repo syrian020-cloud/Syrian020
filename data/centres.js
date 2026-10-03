@@ -6949,7 +6949,11 @@ window.CENTRES_DATA = [
           { fr: 'La table est-elle vendue avec les chaises ? / Oui, elle est vendue avec quatre chaises.', ar: 'الطاولة مبيوعة مع الكراسي؟ / إي مع أربع كراسي.', en: 'Sold with the chairs? / yes, four.' },
           { fr: 'Quelles sont les dimensions de la table ? / Elle mesure environ 120 × 75 × 75 cm.', ar: 'شو أبعاد الطاولة؟ / تقريبًا 120 × 75 × 75 سم.', en: 'Table dimensions? / about 120 × 75 × 75 cm.' },
           { fr: 'De quelle couleur sont les chaises ? / Elles sont couleur camel, avec une assise et un dossier effet cuir.', ar: 'شو لون الكراسي؟ / كاميل، والمقعد والظهر مثل الجلد.', en: 'Chair color? / camel, leather-effect seat and back.' },
-          { fr: 'Les pieds sont-ils solides ? / Oui, la structure métallique est solide et stable.', ar: 'الأرجل قوية؟ / إي الهيكل المعدني قوي وثابت.', en: 'Legs sturdy? / strong and stable metal frame.' }
+          { fr: 'Les pieds sont-ils solides ? / Oui, la structure métallique est solide et stable.', ar: 'الأرجل قوية؟ / إي الهيكل المعدني قوي وثابت.', en: 'Legs sturdy? / strong and stable metal frame.' },
+          { fr: 'Tu peux me donner ces dimensions ? / les dimensions, s’il te plaît ? / les mesures ?', ar: 'فيك تعطيني هالمقاسات؟ / المقاسات لو سمحت؟ / القياسات؟', en: 'Can you give me the dimensions / measurements?' },
+          { fr: 'Quelles sont les dimensions ? / Ça fait quelle taille ?', ar: 'شو المقاسات؟ / قديش قياسها؟', en: 'What are the dimensions? / what size?' },
+          { fr: 'Oui, bien sûr. Les dimensions sont : 120 cm de longueur, 75 cm de largeur et 75 cm de hauteur.', ar: 'إي طبعًا: 120 سم طول، 75 عرض، و75 ارتفاع.', en: 'Sure: 120 long, 75 wide, 75 high.' },
+          { fr: 'Vous parlez de quel article ?', ar: 'أي غرض قصدك؟', en: 'Which item do you mean?' }
         ]
       }
     ]
