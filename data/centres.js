@@ -6788,5 +6788,65 @@ window.CENTRES_DATA = [
         ]
       }
     ]
+  },
+  {
+    id: 'whatsapp',
+    icon: '📱',
+    name: { ar: 'WhatsApp — الرسائل والمكالمات', en: 'WhatsApp — messages and calls', fr: 'WhatsApp — messages et appels' },
+    desc: { ar: 'الرسائل والمجموعات والملفات + المكالمات الصوتية والفيديو', en: 'Messages, groups, files + voice and video calls', fr: 'Messages, groupes, fichiers + appels' },
+    sections: [
+      {
+        icon: '💬',
+        title: { ar: '⭐ الرسائل والمجموعات والملفات', en: 'Messages, groups, files', fr: 'Messages, groupes, fichiers' },
+        phrases: [
+          { fr: 'Je t’ai envoyé un message / le lien / une photo / un document.', ar: 'بعتلك رسالة / الرابط / صورة / وثيقة.', en: 'I sent you a message / link / photo / document.' },
+          { fr: 'Tu as reçu mon message ? / Je n’ai pas reçu ton message.', ar: 'وصلك مسجي؟ / ما وصلتني رسالتك.', en: 'Got my message? / didn’t get yours.' },
+          { fr: 'Je viens de te répondre. / Je vais te répondre plus tard / dès que possible.', ar: 'هلأ رديت / رح رد بعدين / بأقرب وقت.', en: 'Just replied / later / ASAP.' },
+          { fr: 'Envoie-moi ton numéro / ta localisation / une photo / le PDF.', ar: 'ابعتلي رقمك / موقعك / صورة / الـPDF.', en: 'Send me your number / location / photo / the PDF.' },
+          { fr: 'Tu as vu mon message ? / Je l’ai vu. / Je n’ai pas encore vu ton message. / Désolé, je n’ai pas vu ton message.', ar: 'شفت رسالتي؟ / شفتها / لسا ما شفتها / آسف ما شفتها.', en: 'Saw my message? / saw it / not yet / sorry.' },
+          { fr: 'Pourquoi tu ne réponds pas ? / Je te réponds dès que possible.', ar: 'ليش ما عم ترد؟ / رح رد بأقرب وقت.', en: 'Why no reply? / replying ASAP.' },
+          { fr: 'Je t’ai ajouté au groupe. / Ajoute-moi au groupe. / Je vais créer un groupe / quitter le groupe.', ar: 'ضفتك عالغروب / ضيفني / رح اعمل مجموعة / أطلع منها.', en: 'Added you / add me / create / leave the group.' },
+          { fr: 'Qui est dans le groupe ? / Envoie-le dans le groupe.', ar: 'مين بالمجموعة؟ / ابعتو عالغروب.', en: 'Who’s in it? / send it to the group.' },
+          { fr: 'Je t’envoie le fichier. / Télécharge le fichier. / Ouvre le lien. / Clique sur le lien. / Partage-moi le lien.', ar: 'رح ابعتلك الملف / نزّله / افتح الرابط / اضغط عليه / شاركني ياه.', en: 'Sending the file / download it / open / click / share the link.' },
+          { fr: 'envoyer / recevoir / répondre / partager / télécharger / ouvrir / cliquer / transférer / lire / écouter / taper / bloquer / débloquer', ar: 'يرسل / يستلم / يرد / يشارك / ينزّل / يفتح / يضغط / يعيد إرسال / يقرأ / يستمع / يكتب / يحظر / يفك حظر', en: 'send / receive / reply / share / download / open / click / forward / read / listen / type / block / unblock' }
+        ]
+      },
+      {
+        icon: '🔐',
+        title: { ar: '⭐ عبارات شاشة المكالمة والإشعارات', en: 'Call screen and notifications', fr: 'Écran d’appel et notifications' },
+        phrases: [
+          { fr: 'Chiffré de bout en bout — رسالة أمان، مو ترجمة كلام: Vos appels et messages sont chiffrés.', ar: 'مشفّر من طرف لطرف — ما حدا بيقدر يقراها أو يسمعها.', en: 'End-to-end encrypted — security notice, not captions.' },
+          { fr: 'Appel en cours / sortant / entrant / manqué — Connexion… / Ça sonne… / En attente… / Pas de réponse / Occupé', ar: 'مكالمة جارية / صادرة / واردة / فائتة — جاري الاتصال / عم يرن / بالانتظار / ما في رد / مشغول', en: 'In progress / outgoing / incoming / missed — connecting / ringing / waiting / no answer / busy' },
+          { fr: 'Muet / Haut-parleur / Raccrocher / Appuyez pour parler / Micro activé / désactivé', ar: 'كتم / سبيكر / إنهاء / اضغط لتحكي / الميكرو شغال / مطفي', en: 'Mute / speaker / hang up / tap to speak / mic on / off' },
+          { fr: 'Activer / Désactiver la caméra — Passer en appel vidéo / Changer de caméra', ar: 'شغّل / طفّي الكاميرا — حوّل لفيديو / بدّل الكاميرا', en: 'Camera on/off — switch to video / switch camera' },
+          { fr: 'Répondre / Refuser / Ignorer / Rappeler / Mettre en attente / Reprendre / Terminer l’appel', ar: 'الرد / رفض / تجاهل / إعادة اتصال / انتظار / متابعة / إنهاء', en: 'Answer / decline / ignore / call back / hold / resume / end' },
+          { fr: 'Ajouter une personne / des participants / Appel de groupe / Rejoindre / Quitter l’appel', ar: 'إضافة شخص / مشاركين / مكالمة جماعية / انضم / غادر', en: 'Add person / participants / group call / join / leave' },
+          { fr: 'Connexion faible / instable / Reconnexion… / Impossible de se connecter / La connexion a été interrompue', ar: 'اتصال ضعيف / غير مستقر / إعادة اتصال / ما في اتصال / انقطع', en: 'Weak / unstable / reconnecting / can’t connect / dropped' },
+          { fr: 'Appel terminé / annulé — Durée de l’appel : 10 min / Vous avez un appel manqué', ar: 'انتهت / انلغت — مدة المكالمة 10 د / عندك مكالمة فائتة', en: 'Ended / canceled — duration / missed call' },
+          { fr: 'Sous-titres en direct / Afficher / Masquer les sous-titres / Transcription — تظهر الكلام كتابة أثناء المكالمة', ar: 'كتابة مباشرة للكلام / إظهار / إخفاء / تفريغ — لما الكلام يصير نص', en: 'Live captions / show / hide / transcription' }
+        ]
+      },
+      {
+        icon: '📞',
+        title: { ar: '⭐ العبارات الطبيعية أثناء الاتصال', en: 'Natural phrases during calls', fr: 'Phrases naturelles pendant l’appel' },
+        phrases: [
+          { fr: 'Je t’appelle sur WhatsApp / tout de suite / dans cinq minutes. / Tu peux m’appeler ?', ar: 'رح اتصل فيك عالواتساب / هلّق / بعد خمس دقايق / فيك تتصل فيني؟', en: 'Calling you on WhatsApp / now / in 5 min / can you call me?' },
+          { fr: 'Je peux te passer un coup de fil ? / On peut se parler cinq minutes ? / Tu es libre maintenant / disponible ?', ar: 'فيني رنّ عليك؟ / فينا نحكي خمس دقايق؟ / فاضي هلّق؟', en: 'Give you a call? / talk 5 min? / free now?' },
+          { fr: 'Je t’ai appelé, mais tu n’as pas répondu / décroché. / Ça sonne, mais tu ne réponds pas.', ar: 'اتصلت فيك بس ما رديت / عم يرن بس ما عم ترد.', en: 'Called, no answer / ringing, not answering.' },
+          { fr: 'Je suis occupé pour le moment. / Je suis déjà en appel. / Je ne peux pas parler maintenant. / Rappelle-moi quand tu peux.', ar: 'مشغول حاليا / بمكالمة / ما فيني احكي / اتصل فيني لما تقدر.', en: 'Busy / on a call / can’t talk / call me back.' },
+          { fr: 'Tu m’entends ? / Je t’entends / mal / très mal / rien. / Je n’entends pas ta voix.', ar: 'عم تسمعني؟ / عم اسمعك / بصعوبة / ولا شي / ما عم اسمع صوتك.', en: 'Hear me? / yes / barely / nothing / can’t hear your voice.' },
+          { fr: 'Ta voix coupe. / Ça coupe. / Le son est mauvais / coupé. / Il y a un écho / un bruit de fond.', ar: 'صوتك عم يقطع / الصوت سيّئ / مقطوع / في صدى / ضجة بالخلفية.', en: 'Voice cutting / bad sound / echo / background noise.' },
+          { fr: 'Parle un peu plus fort / moins vite / plus clairement. / Tu peux répéter ? / Je n’ai pas bien entendu / compris.', ar: 'احكي أعلى / أبطأ / أوضح / فيك تعيد؟ / ما سمعت منيح / ما فهمت.', en: 'Louder / slower / clearer / repeat? / didn’t hear / understand.' },
+          { fr: 'La connexion est mauvaise / vient de couper. / On a été coupés. / Je t’ai perdu. / Essaie de te reconnecter.', ar: 'الاتصال سيّئ / انقطع / انقطع بيناتنا / جرّب تعيد الاتصال.', en: 'Bad connection / dropped / lost you / reconnect.' },
+          { fr: 'Je vais raccrocher et te rappeler. / Ne raccroche pas. / Attends une seconde. / Je reviens tout de suite.', ar: 'رح سكّر واتصل من جديد / لا تسكّر / استنى ثانية / برجع فورا.', en: 'Hang up and call back / don’t hang up / wait / right back.' },
+          { fr: 'Ton micro est désactivé / coupé. / Tu es en silencieux. / Active ton micro. / Mets / Enlève le haut-parleur.', ar: 'ميكروفونك مطفي / كاتم الصوت / شغّله / حطّ السبيكر / شيلها.', en: 'Mic off / muted / turn it on / speaker on / off.' },
+          { fr: 'Je ne te vois pas / ton image / Ton écran est noir / Ton image est figée / L’image se bloque.', ar: 'ما عم شوفك / شاشتك سودا / صورتك معلقة / الصورة بتعلق.', en: 'Can’t see you / black screen / frozen / video freezing.' },
+          { fr: 'Ta caméra ne fonctionne pas. / Allume / Éteins ta caméra. / Tourne ton téléphone / Mets-le à l’horizontale.', ar: 'كاميرتك ما بتشتغل / شغّلها / طفيها / لفّ تلفونك / حطّه بالعرض.', en: 'Camera not working / on / off / rotate / horizontal.' },
+          { fr: 'L’appel ne passe pas. / Je n’arrive pas à te joindre. / Essaie encore une fois. / Redémarre WhatsApp.', ar: 'المكالمة ما بتمرق / ما عم قدر أوصلك / جرّب مرة تانية / أعد تشغيل واتساب.', en: 'Call won’t go through / can’t reach / try again / restart.' },
+          { fr: 'Mon téléphone bugue / est presque déchargé / Je dois le mettre à charger.', ar: 'تلفوني عم يعلق / بطاريتي خلصت / لازم أشحنه.', en: 'Phone glitching / almost dead / must charge.' },
+          { fr: 'Je dois te laisser / y aller. / On se rappelle plus tard / ce soir. / Je te rappelle dans cinq minutes / demain. / À tout à l’heure !', ar: 'لازم سكّر / منحكي بعدين / المسا / بعد خمس دقايق / بكرا / منحكي بعد شوي!', en: 'Got to go / talk later / tonight / call back / see you!' }
+        ]
+      }
+    ]
   }
 ];
