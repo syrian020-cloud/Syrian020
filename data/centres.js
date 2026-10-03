@@ -186,7 +186,19 @@ window.CENTRES_DATA = [
           { fr: 'Quand dois-je renouveler ma domiciliation ?', ar: 'إمتى لازم جدّد الدوميسيلياسيون؟', en: 'When do I renew my domiciliation?' },
           { fr: 'Je voudrais modifier mes coordonnées.', ar: 'بدي عدّل معلومات الاتصال تبعي.', en: 'I’d like to update my contact details.' },
           { fr: 'Vous pouvez me prévenir quand j’ai du courrier ?', ar: 'فيكن تخبروني لما يوصلني بريد؟', en: 'Can you let me know when I have mail?' },
-          { fr: 'faire → يعمل | demander → يطلب | remplir → يعبّي | signer → يوقّع | fournir → يقدّم | déposer → يسلّم | envoyer → يرسل | recevoir → يستلم | récupérer → يأخذ | déclarer → يصرّح | renouveler → يجدّد | modifier → يعدّل | prévenir → يخبر', ar: 'faire يعمل — demander يطلب — remplir يعبّي — signer يوقّع — fournir يقدّم — déposer يسلّم — envoyer يرسل — recevoir يستلم — récupérer يأخذ — déclarer يصرّح — renouveler يجدّد — modifier يعدّل — prévenir يخبر', en: 'key verbs list' }
+          { fr: 'faire', ar: 'يعمل', en: 'to do' },
+          { fr: 'demander', ar: 'يطلب', en: 'to ask' },
+          { fr: 'remplir', ar: 'يعبّي', en: 'to fill in' },
+          { fr: 'signer', ar: 'يوقّع', en: 'to sign' },
+          { fr: 'fournir', ar: 'يقدّم', en: 'to provide' },
+          { fr: 'déposer', ar: 'يسلّم', en: 'to submit' },
+          { fr: 'envoyer', ar: 'يرسل', en: 'to send' },
+          { fr: 'recevoir', ar: 'يستلم', en: 'to receive' },
+          { fr: 'récupérer', ar: 'يأخذ / يستلم', en: 'to collect' },
+          { fr: 'déclarer', ar: 'يصرّح', en: 'to declare' },
+          { fr: 'renouveler', ar: 'يجدّد', en: 'to renew' },
+          { fr: 'modifier', ar: 'يعدّل', en: 'to modify' },
+          { fr: 'prévenir', ar: 'يخبر', en: 'to notify' }
         ]
       },
       {
@@ -194,52 +206,130 @@ window.CENTRES_DATA = [
         title: { ar: 'أفعال إضافية للإجراءات', en: 'More verbs for the process', fr: 'Autres verbes pour les démarches' },
         phrases: [
           { fr: 'Je dois présenter ma pièce d’identité.', ar: 'لازم أبرز هويتي.', en: 'I need to show my ID.' },
-          { fr: 'Je dois justifier ma situation. / Comment je peux justifier ma situation ?', ar: 'لازم أثبت وضعي / كيف فيني أثبت وضعي؟', en: 'Prove my situation / how?' },
-          { fr: 'Je dois constituer mon dossier.', ar: 'لازم جهّز ملفي.', en: 'Prepare my file.' },
-          { fr: 'Vous pouvez vérifier mon dossier ? / vérifier si ma domiciliation est toujours valable.', ar: 'فيكن تتأكدوا من ملفي؟ / إذا الدوميسيلياسيون لسا سارية.', en: 'Check my file / still valid.' },
-          { fr: 'Je dois prendre rendez-vous pour une domiciliation ? / Je dois attendre combien de temps ?', ar: 'لازم آخد موعد؟ / قديش استنى؟', en: 'Need an appointment? / wait how long?' },
-          { fr: 'Je viens retirer mon courrier. / Qui dois-je contacter pour ma domiciliation ?', ar: 'جيت استلم بريدي / مين أتواصل معه؟', en: 'Collect my mail / who to contact?' },
-          { fr: 'Je dois changer mon adresse auprès de la CAF. / signaler mon changement d’adresse. / communiquer cette adresse à la CAF.', ar: 'لازم غيّر عنواني عند الـCAF / بلّغ عن تغيير العنوان / أعطي هالعنوان للـCAF.', en: 'Change address at CAF / report / give address.' },
-          { fr: 'Est-ce que je peux utiliser cette adresse pour mes démarches ? / Cette adresse est-elle reconnue par les administrations ?', ar: 'فيني استخدم هالعنوان لمعاملاتي؟ / معترف فيه عند الإدارات؟', en: 'Use this address? / recognized?' },
-          { fr: 'présenter → يبرز | justifier → يثبت | constituer → يجهّز | vérifier → يتأكد | prendre rendez-vous → يحجز موعد | attendre → ينتظر | retirer → يستلم | contacter → يتواصل | changer → يغيّر | utiliser → يستخدم', ar: 'présenter يبرز — justifier يثبت — constituer يجهّز — vérifier يتأكد — prendre rendez-vous يحجز موعد — attendre ينتظر — retirer يستلم — contacter يتواصل — changer يغيّر — utiliser يستخدم', en: 'key verbs list 2' }
+          { fr: 'Je dois justifier ma situation.', ar: 'لازم أثبت وضعي.', en: 'I need to justify my situation.' },
+          { fr: 'Comment je peux justifier ma situation ?', ar: 'كيف فيني أثبت وضعي؟', en: 'How can I justify my situation?' },
+          { fr: 'Je dois constituer mon dossier.', ar: 'لازم جهّز ملفي.', en: 'I need to prepare my file.' },
+          { fr: 'Vous pouvez vérifier mon dossier ?', ar: 'فيكن تتأكدوا من ملفي؟', en: 'Can you check my file?' },
+          { fr: 'Je voudrais vérifier si ma domiciliation est toujours valable.', ar: 'بدي أتأكد إذا الدوميسيلياسيون لسا سارية.', en: 'I’d like to check if my domiciliation is still valid.' },
+          { fr: 'Je dois prendre rendez-vous pour une domiciliation ?', ar: 'لازم آخد موعد مشان الدوميسيلياسيون؟', en: 'Do I need an appointment for domiciliation?' },
+          { fr: 'Je dois attendre combien de temps ?', ar: 'قديش لازم استنى؟', en: 'How long do I have to wait?' },
+          { fr: 'Je viens retirer mon courrier.', ar: 'جيت استلم بريدي.', en: 'I’m here to collect my mail.' },
+          { fr: 'Qui dois-je contacter pour ma domiciliation ?', ar: 'مين لازم اتواصل معه بخصوص الدوميسيلياسيون؟', en: 'Who should I contact about my domiciliation?' },
+          { fr: 'Je dois changer mon adresse auprès de la CAF.', ar: 'لازم غيّر عنواني عند الـCAF.', en: 'I need to change my address at CAF.' },
+          { fr: 'Je dois signaler mon changement d’adresse.', ar: 'لازم بلّغ عن تغيير عنواني.', en: 'I need to report my change of address.' },
+          { fr: 'Je dois communiquer cette adresse à la CAF.', ar: 'لازم أعطي هالعنوان للـCAF.', en: 'I need to give this address to CAF.' },
+          { fr: 'Est-ce que je peux utiliser cette adresse pour mes démarches ?', ar: 'فيني استخدم هالعنوان لمعاملاتي؟', en: 'Can I use this address for my procedures?' },
+          { fr: 'Cette adresse est-elle reconnue par les administrations ?', ar: 'هالعنوان معترف فيه عند الإدارات؟', en: 'Is this address recognized by administrations?' },
+          { fr: 'présenter', ar: 'يبرز', en: 'to present' },
+          { fr: 'justifier', ar: 'يثبت', en: 'to justify' },
+          { fr: 'constituer', ar: 'يجهّز (ملف)', en: 'to put together (a file)' },
+          { fr: 'vérifier', ar: 'يتأكد', en: 'to check' },
+          { fr: 'prendre rendez-vous', ar: 'يحجز موعد', en: 'to book an appointment' },
+          { fr: 'attendre', ar: 'ينتظر', en: 'to wait' },
+          { fr: 'retirer', ar: 'يستلم (بريد)', en: 'to collect (mail)' },
+          { fr: 'contacter', ar: 'يتواصل', en: 'to contact' },
+          { fr: 'changer', ar: 'يغيّر', en: 'to change' },
+          { fr: 'utiliser', ar: 'يستخدم', en: 'to use' }
         ]
       },
       {
         icon: '📋',
         title: { ar: '⭐ حالة الطلب والملف', en: 'Application status and file', fr: 'Suivi de la demande' },
         phrases: [
-          { fr: 'Je souhaite faire une demande de domiciliation. / Je viens pour ma demande de domiciliation. / Je viens pour ma domiciliation.', ar: 'بدي قدّم طلب / جيت بخصوص طلبي / بخصوص الدوميسيلياسيون.', en: 'Apply / here about my request / my domiciliation.' },
-          { fr: 'J’ai déjà fait une demande. / Je voudrais savoir où en est ma demande.', ar: 'قدّمت طلب من قبل / بدي أعرف لوين وصل طلبي.', en: 'Already applied / status of my application.' },
-          { fr: 'Mon dossier est complet ? / Il manque un document ? / Quel document manque à mon dossier ? / Il manque quelque chose ? / C’est bon pour mon dossier ?', ar: 'ملفي كامل؟ / ناقص ورقة؟ / أي ورقة ناقصة؟ / ناقص شي؟ / هيك تمام؟', en: 'File complete? / missing doc? / which? / anything missing? / all good?' },
-          { fr: 'Votre demande a été acceptée. / est en cours de traitement.', ar: 'طلبك انقبل / قيد المعالجة.', en: 'Accepted / being processed.' },
-          { fr: 'Mon dossier a été refusé ? / Pourquoi ma demande a été refusée ? / Qu’est-ce que je dois faire maintenant ?', ar: 'ملفي انرفض؟ / ليش انرفض طلبي؟ / شو أعمل هلأ؟', en: 'Refused? / why refused? / what now?' },
-          { fr: 'Voici ma pièce d’identité. / mon justificatif de situation. / Je dois mettre quelle adresse ? / indiquer mon ancienne adresse ? / Mes coordonnées ont changé.', ar: 'هاي هويتي / إثبات وضعي / أي عنوان حط؟ / عنواني القديم؟ / معلوماتي تغيّرت.', en: 'My ID / proof / which address? / old address? / details changed.' },
-          { fr: 'J’ai une question concernant ma domiciliation. / Je dois revenir quand ?', ar: 'عندي سؤال عن الدوميسيلياسيون / إمتى أرجع؟', en: 'Question about it / when come back?' }
+          { fr: 'Je souhaite faire une demande de domiciliation.', ar: 'بدي قدّم طلب دوميسيلياسيون.', en: 'I’d like to apply for domiciliation.' },
+          { fr: 'Je viens pour ma demande de domiciliation.', ar: 'جيت بخصوص طلب الدوميسيلياسيون تبعي.', en: 'I’m here about my domiciliation application.' },
+          { fr: 'Je viens pour ma domiciliation.', ar: 'جيت بخصوص الدوميسيلياسيون تبعي.', en: 'I’m here about my domiciliation.' },
+          { fr: 'J’ai déjà fait une demande.', ar: 'أنا قدّمت طلب من قبل.', en: 'I’ve already applied.' },
+          { fr: 'Je voudrais savoir où en est ma demande.', ar: 'بدي أعرف لوين وصل طلبي.', en: 'I’d like to know my application status.' },
+          { fr: 'Mon dossier est complet ?', ar: 'ملفي كامل؟', en: 'Is my file complete?' },
+          { fr: 'Il manque un document ?', ar: 'ناقص ورقة؟', en: 'Is a document missing?' },
+          { fr: 'Quel document manque à mon dossier ?', ar: 'أي ورقة ناقصة من ملفي؟', en: 'Which document is missing?' },
+          { fr: 'Il manque quelque chose ?', ar: 'ناقص شي؟', en: 'Is anything missing?' },
+          { fr: 'C’est bon pour mon dossier ?', ar: 'هيك ملفي تمام؟', en: 'Is my file okay?' },
+          { fr: 'Votre demande a été acceptée.', ar: 'طلبك انقبل.', en: 'Your application was accepted.' },
+          { fr: 'Votre demande est en cours de traitement.', ar: 'طلبك قيد المعالجة.', en: 'Your application is being processed.' },
+          { fr: 'Mon dossier a été refusé ?', ar: 'ملفي انرفض؟', en: 'Was my file refused?' },
+          { fr: 'Pourquoi ma demande a été refusée ?', ar: 'ليش انرفض طلبي؟', en: 'Why was my application refused?' },
+          { fr: 'Qu’est-ce que je dois faire maintenant ?', ar: 'شو لازم أعمل هلأ؟', en: 'What should I do now?' },
+          { fr: 'Voici ma pièce d’identité.', ar: 'هاي هويتي.', en: 'Here is my ID.' },
+          { fr: 'Voici mon justificatif de situation.', ar: 'هاد إثبات وضعي.', en: 'Here is my proof of situation.' },
+          { fr: 'Je dois mettre quelle adresse sur le formulaire ?', ar: 'أي عنوان لازم حط بالاستمارة؟', en: 'Which address should I put on the form?' },
+          { fr: 'Je dois indiquer mon ancienne adresse ?', ar: 'لازم اذكر عنواني القديم؟', en: 'Do I need to give my old address?' },
+          { fr: 'Mes coordonnées ont changé.', ar: 'معلومات الاتصال تبعي تغيّرت.', en: 'My contact details changed.' },
+          { fr: 'J’ai une question concernant ma domiciliation.', ar: 'عندي سؤال بخصوص الدوميسيلياسيون تبعي.', en: 'I have a question about my domiciliation.' },
+          { fr: 'Je dois revenir quand ?', ar: 'إمتى لازم أرجع؟', en: 'When should I come back?' }
         ]
       },
       {
         icon: '📬',
         title: { ar: '⭐ استلام البريد والتجديد', en: 'Mail pickup and renewal', fr: 'Courrier et renouvellement' },
         phrases: [
-          { fr: 'Comment fonctionne la réception du courrier ? / Comment vais-je être informé de l’arrivée de mon courrier ?', ar: 'كيف بيشتغل استلام البريد؟ / كيف بعرف إنو وصلني بريد؟', en: 'How mail works / how informed?' },
-          { fr: 'Je peux venir chercher mon courrier quand je veux ? / Quels sont les horaires pour retirer mon courrier ?', ar: 'فيني آخده بأي وقت؟ / شو أوقات الاستلام؟', en: 'Any time? / pickup hours?' },
-          { fr: 'J’attends un courrier important. / Je n’ai pas reçu mon courrier / aucun courrier / la réponse. / Vous pouvez vérifier si j’ai reçu du courrier ? / Mon courrier a été retourné.', ar: 'ناطر رسالة مهمة / ما وصلني / ولا بريد / الإجابة / تتأكدوا إذا وصلني؟ / بريدي رجع.', en: 'Important letter / no mail / response / check? / returned.' },
-          { fr: 'Votre courrier est arrivé. / Vous avez reçu du courrier.', ar: 'وصلك بريد.', en: 'Your mail arrived.' },
-          { fr: 'Ma domiciliation est-elle toujours valable ? / Quand est-ce qu’elle expire ? / Votre domiciliation est valable un an. / arrive à expiration. / Il faut renouveler votre domiciliation. / Est-ce que le renouvellement est automatique ?', ar: 'لسا سارية؟ / إمتى بتنتهي؟ / صالحة لسنة / قربت تنتهي / لازم تجدّد / التجديد تلقائي؟', en: 'Still valid? / expires when? / one year / about to expire / must renew / automatic?' }
+          { fr: 'Comment fonctionne la réception du courrier ?', ar: 'كيف بيشتغل استلام البريد؟', en: 'How does mail reception work?' },
+          { fr: 'Comment vais-je être informé de l’arrivée de mon courrier ?', ar: 'كيف رح أعرف إنو وصلني بريد؟', en: 'How will I know my mail arrived?' },
+          { fr: 'Je peux venir chercher mon courrier quand je veux ?', ar: 'فيني إجي آخد بريدي بأي وقت؟', en: 'Can I collect my mail anytime?' },
+          { fr: 'Quels sont les horaires pour retirer mon courrier ?', ar: 'شو أوقات استلام البريد؟', en: 'What are the mail pickup hours?' },
+          { fr: 'J’attends un courrier important.', ar: 'أنا ناطر رسالة مهمة.', en: 'I’m waiting for an important letter.' },
+          { fr: 'Je n’ai pas reçu mon courrier.', ar: 'ما وصلني بريدي.', en: 'I haven’t received my mail.' },
+          { fr: 'Je n’ai reçu aucun courrier.', ar: 'ما وصلني ولا بريد.', en: 'I haven’t received any mail.' },
+          { fr: 'Je n’ai pas reçu la réponse.', ar: 'ما وصلتني الإجابة.', en: 'I haven’t received the reply.' },
+          { fr: 'Vous pouvez vérifier si j’ai reçu du courrier ?', ar: 'فيكن تتأكدوا إذا وصلني بريد؟', en: 'Can you check if I received mail?' },
+          { fr: 'Mon courrier a été retourné.', ar: 'بريدي رجع.', en: 'My mail was returned.' },
+          { fr: 'Votre courrier est arrivé.', ar: 'وصلك بريد.', en: 'Your mail has arrived.' },
+          { fr: 'Vous avez reçu du courrier.', ar: 'وصلك بريد.', en: 'You have received mail.' },
+          { fr: 'Ma domiciliation est-elle toujours valable ?', ar: 'الدوميسيلياسيون تبعي لسا سارية؟', en: 'Is my domiciliation still valid?' },
+          { fr: 'Quand est-ce qu’elle expire ?', ar: 'إمتى بتنتهي؟', en: 'When does it expire?' },
+          { fr: 'Votre domiciliation est valable un an.', ar: 'الدوميسيلياسيون تبعك صالحة لسنة.', en: 'Your domiciliation is valid for one year.' },
+          { fr: 'Votre domiciliation arrive à expiration.', ar: 'الدوميسيلياسيون تبعك قربت تنتهي.', en: 'Your domiciliation is about to expire.' },
+          { fr: 'Il faut renouveler votre domiciliation.', ar: 'لازم تجدّد الدوميسيلياسيون تبعك.', en: 'You need to renew your domiciliation.' },
+          { fr: 'Est-ce que le renouvellement est automatique ?', ar: 'التجديد بيصير تلقائي؟', en: 'Is the renewal automatic?' }
         ]
       },
       {
         icon: '🏷️',
         title: { ar: '⭐ الصفات الشائعة', en: 'Common adjectives', fr: 'Adjectifs courants' },
         phrases: [
-          { fr: 'Mon dossier est complet / incomplet / prêt / à jour / en attente.', ar: 'ملفي كامل / ناقص / جاهز / محدّث / قيد الانتظار.', en: 'File: complete/incomplete/ready/up-to-date/pending.' },
-          { fr: 'La demande est acceptée / refusée / en cours / en cours de traitement / valable.', ar: 'الطلب مقبول / مرفوض / قيد المعالجة / ساري.', en: 'Accepted / refused / in progress / valid.' },
-          { fr: 'Le document est obligatoire / nécessaire / valide / expiré / conforme / n’est plus valable. / La pièce d’identité est valide.', ar: 'الورقة إلزامية / ضرورية / سارية / منتهية / مطابقة / ما عادت سارية / الهوية سارية.', en: 'Required / necessary / valid / expired / compliant / no longer valid / ID valid.' },
-          { fr: 'C’est un courrier officiel / urgent / recommandé / confidentiel / personnel. / Le courrier est arrivé / disponible / important.', ar: 'بريد رسمي / مستعجل / مسجّل / سري / شخصي / وصل / متاح / مهم.', en: 'Official / urgent / registered / confidential / personal mail; arrived / available / important.' },
-          { fr: 'J’ai une adresse officielle. / Je n’ai pas d’adresse fixe. / Cette adresse est temporaire / administrative / correcte / incorrecte / complète / stable.', ar: 'عندي عنوان رسمي / ما عندي عنوان ثابت / مؤقت / إداري / صحيح / غلط / كامل / ثابت.', en: 'Official / no fixed / temporary / administrative / correct / incorrect / complete / stable address.' },
-          { fr: 'Ma situation est stable / particulière / compliquée. / Je suis actuellement sans domicile stable / sans adresse fixe.', ar: 'وضعي مستقر / خاص / معقّد / حاليًا بلا سكن ثابت / بلا عنوان ثابت.', en: 'Stable / particular / complicated situation / no stable home / no fixed address.' },
-          { fr: 'Le rendez-vous est confirmé / obligatoire / disponible / annulé.', ar: 'الموعد تأكّد / إجباري / متاح / انلغى.', en: 'Appointment confirmed / mandatory / available / cancelled.' },
-          { fr: 'complet/incomplet | prêt | à jour | conforme | en attente | valable | expiré | obligatoire | nécessaire | officiel | administratif | temporaire | fixe | urgent | important | accepté | refusé | disponible | en cours | correct/incorrect | stable | particulier | compliqué | personnel | confidentiel | confirmé | annulé', ar: 'كامل/ناقص | جاهز | محدّث | مطابق | قيد الانتظار | ساري | منتهي | إلزامي | ضروري | رسمي | إداري | مؤقت | ثابت | مستعجل | مهم | مقبول | مرفوض | متاح | قيد المعالجة | صحيح/غلط | مستقر | خاص | معقّد | شخصي | سري | مؤكّد | ملغى', en: 'key adjectives list' }
+          { fr: 'Mon dossier est complet.', ar: 'ملفي كامل.', en: 'My file is complete.' },
+          { fr: 'Mon dossier est incomplet.', ar: 'ملفي ناقص.', en: 'My file is incomplete.' },
+          { fr: 'Mon dossier est prêt.', ar: 'ملفي جاهز.', en: 'My file is ready.' },
+          { fr: 'Mon dossier est à jour.', ar: 'ملفي محدّث.', en: 'My file is up to date.' },
+          { fr: 'Mon dossier est en attente.', ar: 'ملفي قيد الانتظار.', en: 'My file is pending.' },
+          { fr: 'La demande est acceptée.', ar: 'الطلب مقبول.', en: 'The application is accepted.' },
+          { fr: 'La demande est refusée.', ar: 'الطلب مرفوض.', en: 'The application is refused.' },
+          { fr: 'La demande est en cours.', ar: 'الطلب قيد المعالجة.', en: 'The application is in progress.' },
+          { fr: 'La demande est en cours de traitement.', ar: 'الطلب قيد المعالجة.', en: 'The application is being processed.' },
+          { fr: 'La demande est valable.', ar: 'الطلب ساري المفعول.', en: 'The application is valid.' },
+          { fr: 'Le document est obligatoire.', ar: 'هالورقة إلزامية.', en: 'The document is required.' },
+          { fr: 'Le document est nécessaire.', ar: 'هالورقة ضرورية.', en: 'The document is necessary.' },
+          { fr: 'Le document est valide.', ar: 'هالورقة سارية.', en: 'The document is valid.' },
+          { fr: 'Le document est expiré.', ar: 'هالورقة منتهية الصلاحية.', en: 'The document has expired.' },
+          { fr: 'Le document est conforme.', ar: 'هالورقة مطابقة للمطلوب.', en: 'The document is compliant.' },
+          { fr: 'Le document n’est plus valable.', ar: 'الورقة ما عادت سارية.', en: 'The document is no longer valid.' },
+          { fr: 'La pièce d’identité est valide.', ar: 'الهوية سارية المفعول.', en: 'The ID is valid.' },
+          { fr: 'C’est un courrier officiel.', ar: 'هاد بريد رسمي.', en: 'It’s an official letter.' },
+          { fr: 'C’est un courrier urgent.', ar: 'هاد بريد مستعجل.', en: 'It’s urgent mail.' },
+          { fr: 'C’est un courrier recommandé.', ar: 'هاد بريد مسجّل.', en: 'It’s registered mail.' },
+          { fr: 'C’est un courrier confidentiel.', ar: 'هاد بريد سري.', en: 'It’s confidential mail.' },
+          { fr: 'Le courrier est personnel.', ar: 'البريد شخصي.', en: 'The mail is personal.' },
+          { fr: 'Le courrier est arrivé.', ar: 'البريد وصل.', en: 'The mail has arrived.' },
+          { fr: 'Le courrier est disponible.', ar: 'البريد متاح للاستلام.', en: 'The mail is available for pickup.' },
+          { fr: 'Le courrier est important.', ar: 'البريد مهم.', en: 'The mail is important.' },
+          { fr: 'J’ai une adresse officielle.', ar: 'عندي عنوان رسمي.', en: 'I have an official address.' },
+          { fr: 'Je n’ai pas d’adresse fixe.', ar: 'ما عندي عنوان ثابت.', en: 'I don’t have a fixed address.' },
+          { fr: 'Cette adresse est temporaire.', ar: 'هالعنوان مؤقت.', en: 'This address is temporary.' },
+          { fr: 'Cette adresse est administrative.', ar: 'هاد عنوان إداري.', en: 'This is an administrative address.' },
+          { fr: 'L’adresse est correcte.', ar: 'العنوان صحيح.', en: 'The address is correct.' },
+          { fr: 'L’adresse est incorrecte.', ar: 'العنوان غلط.', en: 'The address is incorrect.' },
+          { fr: 'L’adresse est complète.', ar: 'العنوان كامل.', en: 'The address is complete.' },
+          { fr: 'L’adresse est stable.', ar: 'العنوان ثابت.', en: 'The address is stable.' },
+          { fr: 'Ma situation est stable.', ar: 'وضعي مستقر.', en: 'My situation is stable.' },
+          { fr: 'Ma situation est particulière.', ar: 'وضعي خاص.', en: 'My situation is particular.' },
+          { fr: 'Ma situation est compliquée.', ar: 'وضعي معقّد.', en: 'My situation is complicated.' },
+          { fr: 'Je suis actuellement sans domicile stable.', ar: 'حاليًا ما عندي سكن ثابت.', en: 'I currently have no stable home.' },
+          { fr: 'Je suis actuellement sans adresse fixe.', ar: 'حاليًا ما عندي عنوان ثابت.', en: 'I currently have no fixed address.' },
+          { fr: 'Le rendez-vous est confirmé.', ar: 'الموعد تأكّد.', en: 'The appointment is confirmed.' },
+          { fr: 'Le rendez-vous est obligatoire.', ar: 'الموعد إجباري.', en: 'The appointment is mandatory.' },
+          { fr: 'Le rendez-vous est disponible.', ar: 'في موعد متاح.', en: 'An appointment is available.' },
+          { fr: 'Le rendez-vous est annulé.', ar: 'الموعد انلغى.', en: 'The appointment is cancelled.' }
         ]
       }
     ]
@@ -7789,7 +7879,12 @@ window.CENTRES_DATA = [
         icon: '🛒',
         title: { ar: 'المصطلحات', en: 'The terms', fr: 'Les termes' },
         phrases: [
-          { fr: 'panier alimentaire / aide alimentaire / colis alimentaire / distribution alimentaire / épicerie solidaire / denrées alimentaires', ar: 'سلة غذائية / مساعدة غذائية / طرد غذائي / توزيع مواد / بقالة تضامنية / مواد غذائية', en: 'food basket / food aid / parcel / distribution / solidarity grocery / foodstuffs' }
+          { fr: 'panier alimentaire', ar: 'سلة غذائية', en: 'food basket' },
+          { fr: 'aide alimentaire', ar: 'مساعدة غذائية', en: 'food assistance' },
+          { fr: 'colis alimentaire', ar: 'طرد غذائي', en: 'food parcel' },
+          { fr: 'distribution alimentaire', ar: 'توزيع مواد غذائية', en: 'food distribution' },
+          { fr: 'épicerie solidaire', ar: 'بقالة تضامنية', en: 'solidarity grocery store' },
+          { fr: 'denrées alimentaires', ar: 'مواد غذائية', en: 'foodstuffs' }
         ]
       },
       {
@@ -7797,55 +7892,83 @@ window.CENTRES_DATA = [
         title: { ar: 'طلب المساعدة', en: 'Requesting assistance', fr: 'Demander l’aide' },
         phrases: [
           { fr: 'Bonjour, je voudrais savoir comment bénéficier d’une aide alimentaire.', ar: 'مرحبا، بدي أعرف كيف فيني استفيد من مساعدة غذائية.', en: 'Hello, I’d like to know how to receive food assistance.' },
-          { fr: 'Je voudrais demander un panier alimentaire. / Je peux bénéficier d’une aide alimentaire ?', ar: 'بدي أطلب سلة غذائية / فيني استفيد؟', en: 'Request a basket / can I benefit?' },
-          { fr: 'Comment faire pour avoir un panier alimentaire ? / où je peux récupérer un colis alimentaire ?', ar: 'كيف آخد سلة؟ / وين استلم الطرد؟', en: 'How to get a basket / where to collect a parcel?' },
-          { fr: 'Quels documents faut-il fournir ? / Est-ce qu’il faut prendre rendez-vous ?', ar: 'شو الأوراق المطلوبة؟ / لازم موعد؟', en: 'Which documents? / appointment needed?' },
-          { fr: 'À quelle date a lieu la distribution ? / Où se fait la distribution alimentaire ?', ar: 'بأي تاريخ التوزيع؟ / وين بيصير؟', en: 'When / where is the distribution?' }
+          { fr: 'Je voudrais demander un panier alimentaire.', ar: 'بدي أطلب سلة غذائية.', en: 'I’d like to request a food basket.' },
+          { fr: 'Je peux bénéficier d’une aide alimentaire ?', ar: 'فيني استفيد من مساعدة غذائية؟', en: 'Can I receive food assistance?' },
+          { fr: 'Comment faire pour avoir un panier alimentaire ?', ar: 'كيف فيني آخد سلة غذائية؟', en: 'How can I get a food basket?' },
+          { fr: 'Je voudrais savoir où je peux récupérer un colis alimentaire.', ar: 'بدي أعرف وين فيني استلم طرد غذائي.', en: 'I’d like to know where to collect a food parcel.' },
+          { fr: 'Quels documents faut-il fournir ?', ar: 'شو الأوراق اللي لازم قدّمها؟', en: 'What documents do I need to provide?' },
+          { fr: 'Est-ce qu’il faut prendre rendez-vous ?', ar: 'لازم آخد موعد؟', en: 'Do I need to make an appointment?' },
+          { fr: 'À quelle date a lieu la distribution ?', ar: 'بأي تاريخ بيصير التوزيع؟', en: 'On what date is the distribution?' },
+          { fr: 'Où se fait la distribution alimentaire ?', ar: 'وين بيصير توزيع المواد الغذائية؟', en: 'Where does the food distribution take place?' },
+          { fr: 'Je viens récupérer mon panier alimentaire.', ar: 'جيت استلم سلتي الغذائية.', en: 'I’m here to collect my food basket.' }
         ]
       },
       {
         icon: '🏠',
         title: { ar: 'عند الوصول والتسجيل', en: 'Arriving and registration', fr: 'Arrivée et inscription' },
         phrases: [
-          { fr: 'Je viens pour l’aide alimentaire. / Je viens récupérer mon panier alimentaire.', ar: 'جيت للمساعدة الغذائية / استلم سلتي.', en: 'Here for food aid / collect my basket.' },
-          { fr: 'C’est bien ici pour la distribution alimentaire ? / J’ai rendez-vous pour récupérer un colis alimentaire.', ar: 'هون مكان التوزيع؟ / عندي موعد لاستلام طرد.', en: 'Is this the place? / appointment for a parcel.' },
-          { fr: 'Vous avez votre pièce d’identité ? / Oui, voici ma pièce d’identité. / Vous avez votre justificatif ? / Voici mon document.', ar: 'معك هويتك؟ / هاي هويتي / معك الإثبات؟ / هاي الورقة.', en: 'ID? / here it is / proof? / here.' },
-          { fr: 'Vous êtes inscrit pour aujourd’hui ? / Oui, je suis inscrit. / Je dois signer quelque chose ?', ar: 'مسجّل لليوم؟ / إي مسجّل / لازم وقّع؟', en: 'Registered today? / yes / sign something?' },
-          { fr: 'Vous pouvez vérifier mon nom ? / Il manque quelque chose à mon dossier ?', ar: 'تتأكد من اسمي؟ / ناقص شي بملفي؟', en: 'Check my name / anything missing?' }
+          { fr: 'Je viens pour l’aide alimentaire.', ar: 'جيت بخصوص المساعدة الغذائية.', en: 'I’m here for food assistance.' },
+          { fr: 'Je viens récupérer mon panier alimentaire.', ar: 'جيت استلم السلة الغذائية تبعي.', en: 'I’m here to collect my food basket.' },
+          { fr: 'C’est bien ici pour la distribution alimentaire ?', ar: 'هون مكان توزيع السلال الغذائية؟', en: 'Is this the place for food distribution?' },
+          { fr: 'J’ai rendez-vous pour récupérer un colis alimentaire.', ar: 'عندي موعد لاستلام طرد غذائي.', en: 'I have an appointment to collect a parcel.' },
+          { fr: 'Vous avez votre pièce d’identité ?', ar: 'معك هويتك؟', en: 'Do you have your ID?' },
+          { fr: 'Oui, voici ma pièce d’identité.', ar: 'إي، هاي هويتي.', en: 'Yes, here is my ID.' },
+          { fr: 'Vous avez votre justificatif ?', ar: 'معك الإثبات المطلوب؟', en: 'Do you have your proof document?' },
+          { fr: 'Voici mon document.', ar: 'هاي الورقة.', en: 'Here is my document.' },
+          { fr: 'Vous êtes inscrit pour aujourd’hui ?', ar: 'إنت مسجّل لليوم؟', en: 'Are you registered for today?' },
+          { fr: 'Oui, je suis inscrit.', ar: 'إي، أنا مسجّل.', en: 'Yes, I’m registered.' },
+          { fr: 'Je dois signer quelque chose ?', ar: 'لازم وقّع على شي؟', en: 'Do I need to sign anything?' },
+          { fr: 'Vous pouvez vérifier mon nom ?', ar: 'فيك تتأكد من اسمي؟', en: 'Can you check my name?' },
+          { fr: 'Il manque quelque chose à mon dossier ?', ar: 'ناقص شي بملفي؟', en: 'Is anything missing from my file?' }
         ]
       },
       {
         icon: '🧺',
         title: { ar: 'استلام السلة', en: 'Receiving the basket', fr: 'Recevoir le panier' },
         phrases: [
-          { fr: 'C’est pour combien de personnes ? / C’est pour une personne seule.', ar: 'لكم شخص؟ / لشخص واحد.', en: 'For how many? / one person.' },
-          { fr: 'Je peux prendre ce panier ? / Tout est compris dans le panier ? / Il y a quoi dans le panier aujourd’hui ?', ar: 'فيني آخد هالسلة؟ / كل شي مشمول؟ / شو فيها اليوم؟', en: 'Take this basket? / all included? / what’s inside?' },
-          { fr: 'C’est gratuit ? / Il faut payer quelque chose ?', ar: 'مجاني؟ / لازم أدفع شي؟', en: 'Free? / pay anything?' }
+          { fr: 'C’est pour combien de personnes ?', ar: 'هالسلة لكم شخص؟', en: 'This is for how many people?' },
+          { fr: 'C’est pour une personne seule.', ar: 'لشخص واحد.', en: 'It’s for one person.' },
+          { fr: 'Je peux prendre ce panier ?', ar: 'فيني آخد هالسلة؟', en: 'Can I take this basket?' },
+          { fr: 'Tout est compris dans le panier ?', ar: 'كل شي مشمول بالسلة؟', en: 'Is everything included in the basket?' },
+          { fr: 'Il y a quoi dans le panier aujourd’hui ?', ar: 'شو موجود بالسلة اليوم؟', en: 'What’s in the basket today?' },
+          { fr: 'C’est gratuit ?', ar: 'هاد مجاني؟', en: 'Is it free?' },
+          { fr: 'Il faut payer quelque chose ?', ar: 'لازم أدفع شي؟', en: 'Do I need to pay anything?' }
         ]
       },
       {
         icon: '🥜',
         title: { ar: 'منتجات ما بتناسبك', en: 'Products that don’t suit you', fr: 'Produits qui ne conviennent pas' },
         phrases: [
-          { fr: 'Je peux choisir certains produits ? / Je peux remplacer ce produit ?', ar: 'فيني اختار بعض المواد؟ / بدّل هالمنتج؟', en: 'Choose products? / replace this?' },
-          { fr: 'Je ne peux pas manger ça. / Je suis allergique à ça.', ar: 'ما فيني آكل هاد / عندي حساسية منه.', en: 'Can’t eat this / allergic.' },
-          { fr: 'La date est dépassée ? / La date limite est encore valable ?', ar: 'التاريخ منتهي؟ / لسا ساري؟', en: 'Date expired? / still valid?' }
+          { fr: 'Je peux choisir certains produits ?', ar: 'فيني اختار بعض المواد؟', en: 'Can I choose some products?' },
+          { fr: 'Je peux remplacer ce produit ?', ar: 'فيني بدّل هالمنتج؟', en: 'Can I replace this product?' },
+          { fr: 'Je ne peux pas manger ça.', ar: 'ما فيني آكل هاد.', en: 'I can’t eat this.' },
+          { fr: 'Je suis allergique à ça.', ar: 'عندي حساسية من هاد.', en: 'I’m allergic to this.' },
+          { fr: 'La date est dépassée ?', ar: 'التاريخ منتهي؟', en: 'Has the date expired?' },
+          { fr: 'La date limite est encore valable ?', ar: 'تاريخ الصلاحية لسا ساري؟', en: 'Is the expiration date still valid?' }
         ]
       },
       {
         icon: '📦',
         title: { ar: 'مشاكل بالسلة', en: 'Basket problems', fr: 'Problèmes dans le panier' },
         phrases: [
-          { fr: 'Il manque un produit. / Il manque quelque chose dans mon panier.', ar: 'ناقص منتج / ناقص شي من سلتي.', en: 'A product missing / something missing.' },
-          { fr: 'Ce produit est abîmé. / L’emballage est ouvert. / Ce produit est périmé.', ar: 'المنتج خربان / التغليف مفتوح / منتهي الصلاحية.', en: 'Damaged / open packaging / expired.' }
+          { fr: 'Il manque un produit.', ar: 'ناقص منتج.', en: 'A product is missing.' },
+          { fr: 'Il manque quelque chose dans mon panier.', ar: 'ناقص شي من سلتي.', en: 'Something is missing from my basket.' },
+          { fr: 'Ce produit est abîmé.', ar: 'هالمنتج خربان.', en: 'This product is damaged.' },
+          { fr: 'L’emballage est ouvert.', ar: 'التغليف مفتوح.', en: 'The packaging is open.' },
+          { fr: 'Ce produit est périmé.', ar: 'هالمنتج منتهي الصلاحية.', en: 'This product is expired.' }
         ]
       },
       {
         icon: '📅',
         title: { ar: 'المرة القادمة والمغادرة', en: 'Next time and leaving', fr: 'La prochaine fois et le départ' },
         phrases: [
-          { fr: 'Quand est la prochaine distribution ? / Je dois revenir quand ? / Est-ce que je dois prendre rendez-vous pour la prochaine fois ? / Comment ça se passe la prochaine fois ?', ar: 'إمتى التوزيع الجاي؟ / إمتى أرجع؟ / لازم موعد؟ / كيف بيصير المرة الجاية؟', en: 'Next distribution? / come back when? / appointment? / how next time?' },
-          { fr: 'Merci beaucoup pour votre aide. / Merci, bonne journée. / À la prochaine.', ar: 'شكرًا على مساعدتكم / نهاركم سعيد / منشوفكم المرة الجاية.', en: 'Thank you for your help / have a nice day / see you next time.' }
+          { fr: 'Quand est la prochaine distribution ?', ar: 'إمتى التوزيع الجاي؟', en: 'When is the next distribution?' },
+          { fr: 'Je dois revenir quand ?', ar: 'إمتى لازم أرجع؟', en: 'When should I come back?' },
+          { fr: 'Est-ce que je dois prendre rendez-vous pour la prochaine fois ?', ar: 'لازم آخد موعد للمرة الجاية؟', en: 'Do I need an appointment next time?' },
+          { fr: 'Comment ça se passe la prochaine fois ?', ar: 'كيف بيكون الموضوع المرة الجاية؟', en: 'How does it work next time?' },
+          { fr: 'Merci beaucoup pour votre aide.', ar: 'شكرًا كتير على مساعدتكم.', en: 'Thank you very much for your help.' },
+          { fr: 'Merci, bonne journée.', ar: 'شكرًا، نهاركم سعيد.', en: 'Thank you, have a nice day.' },
+          { fr: 'À la prochaine.', ar: 'منشوفكم المرة الجاية.', en: 'See you next time.' }
         ]
       }
     ]
