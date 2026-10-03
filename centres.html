@@ -104,7 +104,8 @@
 
   .phrase { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 14px; padding: 0.75rem 0.9rem; margin-bottom: 0.55rem; display: flex; align-items: center; gap: 0.8rem; }
   .phrase:last-child { margin-bottom: 0; }
-  .phrase-lines { flex: 1; min-width: 0; }
+  .phrase-lines { flex: 1; min-width: 0; cursor: pointer; }
+  .phrase.looping { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
   .pl { display: flex; align-items: baseline; gap: 0.45rem; padding: 0.12rem 0; }
   .pl .tag { flex: none; font-size: 0.62rem; font-weight: 900; color: var(--text-secondary); width: 1.4rem; text-align: center; opacity: 0.7; }
   .pl .txt { font-size: 0.9rem; }
@@ -250,6 +251,22 @@
     }
     if (window.speechSynthesis) window.speechSynthesis.cancel();
     document.querySelectorAll('.flag-btn.speaking').forEach(function (b) { b.classList.remove('speaking'); });
+    document.querySelectorAll('.phrase.looping').forEach(function (b) { b.classList.remove('looping'); });
+  }
+
+  function speakLoop(text, el) {
+    if (el.classList.contains('looping')) { stopSpeaking(); return; }
+    stopSpeaking();
+    el.classList.add('looping');
+    var seq = speakSeq;
+    var done = function () { if (seq === speakSeq) el.classList.remove('looping'); };
+    if (nativeTTS) speakNative(text, 'fr', 0, done);
+    else speakWeb(text, 'fr', 0, done);
+  }
+
+  function searchImages(text) {
+    var url = 'https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(text);
+    window.open(url, '_blank');
   }
 
   function speakWeb(text, lang, times, done) {
@@ -368,6 +385,24 @@
     wrap.querySelectorAll('.flag-btn').forEach(function (b) {
       var p = findPhrase(b);
       b.onclick = function () { speak(p[b.dataset.lang], b.dataset.lang, b); };
+    });
+    wrap.querySelectorAll('.phrase').forEach(function (el) {
+      var lines = el.querySelector('.phrase-lines');
+      var p = findPhrase(lines);
+      var holdT = null, taps = 0, tapT = null, held = false;
+      lines.addEventListener('pointerdown', function () {
+        held = false;
+        holdT = setTimeout(function () { held = true; speakLoop(p.fr, el); }, 520);
+      });
+      ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) {
+        lines.addEventListener(ev, function () { clearTimeout(holdT); });
+      });
+      lines.addEventListener('click', function () {
+        if (held) { held = false; return; }
+        taps++;
+        if (taps === 1) { tapT = setTimeout(function () { taps = 0; }, 380); }
+        else { clearTimeout(tapT); taps = 0; searchImages(p.fr); }
+      });
     });
   }
 
