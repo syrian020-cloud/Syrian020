@@ -104,8 +104,9 @@
 
   .phrase { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 14px; padding: 0.75rem 0.9rem; margin-bottom: 0.55rem; display: flex; align-items: center; gap: 0.8rem; }
   .phrase:last-child { margin-bottom: 0; }
-  .phrase-lines { flex: 1; min-width: 0; cursor: pointer; }
-  .phrase.looping { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .phrase-lines { flex: 1; min-width: 0; }
+  .pl .txt .w { cursor: pointer; border-radius: 5px; padding: 0 1px; transition: background .12s; }
+  .pl .txt .w.looping { background: rgba(139,92,246,.28); color: var(--accent); }
   .pl { display: flex; align-items: baseline; gap: 0.45rem; padding: 0.12rem 0; }
   .pl .tag { flex: none; font-size: 0.62rem; font-weight: 900; color: var(--text-secondary); width: 1.4rem; text-align: center; opacity: 0.7; }
   .pl .txt { font-size: 0.9rem; }
@@ -251,17 +252,17 @@
     }
     if (window.speechSynthesis) window.speechSynthesis.cancel();
     document.querySelectorAll('.flag-btn.speaking').forEach(function (b) { b.classList.remove('speaking'); });
-    document.querySelectorAll('.phrase.looping').forEach(function (b) { b.classList.remove('looping'); });
+    document.querySelectorAll('.looping').forEach(function (b) { b.classList.remove('looping'); });
   }
 
-  function speakLoop(text, el) {
+  function speakLoop(text, el, lang) {
     if (el.classList.contains('looping')) { stopSpeaking(); return; }
     stopSpeaking();
     el.classList.add('looping');
     var seq = speakSeq;
     var done = function () { if (seq === speakSeq) el.classList.remove('looping'); };
-    if (nativeTTS) speakNative(text, 'fr', 0, done);
-    else speakWeb(text, 'fr', 0, done);
+    if (nativeTTS) speakNative(text, lang || 'fr', 0, done);
+    else speakWeb(text, lang || 'fr', 0, done);
   }
 
   function searchImages(text) {
@@ -332,12 +333,16 @@
     });
   }
 
+  function wordsHtml(s) {
+    return esc(s).split(' ').map(function (w) { return '<span class="w">' + w + '</span>'; }).join(' ');
+  }
+
   function phraseHtml(p) {
     return '<div class="phrase">' +
       '<div class="phrase-lines">' +
-      '<div class="pl fr"><span class="tag">FR</span><span class="txt">' + esc(p.fr) + '</span></div>' +
-      '<div class="pl ar"><span class="tag">ع</span><span class="txt">' + esc(p.ar) + '</span></div>' +
-      '<div class="pl en"><span class="tag">EN</span><span class="txt">' + esc(p.en) + '</span></div>' +
+      '<div class="pl fr"><span class="tag">FR</span><span class="txt">' + wordsHtml(p.fr) + '</span></div>' +
+      '<div class="pl ar"><span class="tag">ع</span><span class="txt">' + wordsHtml(p.ar) + '</span></div>' +
+      '<div class="pl en"><span class="tag">EN</span><span class="txt">' + wordsHtml(p.en) + '</span></div>' +
       '</div>' +
       '<div class="flags">' +
       '<button class="flag-btn" data-lang="fr" title="FR">🇫🇷</button>' +
@@ -386,22 +391,23 @@
       var p = findPhrase(b);
       b.onclick = function () { speak(p[b.dataset.lang], b.dataset.lang, b); };
     });
-    wrap.querySelectorAll('.phrase').forEach(function (el) {
-      var lines = el.querySelector('.phrase-lines');
-      var p = findPhrase(lines);
+    wrap.querySelectorAll('.pl .txt .w').forEach(function (w) {
+      var word = w.textContent;
+      if (!/[\p{L}\p{N}]/u.test(word)) return;
+      var lang = w.closest('.pl').classList.contains('ar') ? 'ar' : (w.closest('.pl').classList.contains('en') ? 'en' : 'fr');
       var holdT = null, taps = 0, tapT = null, held = false;
-      lines.addEventListener('pointerdown', function () {
+      w.addEventListener('pointerdown', function () {
         held = false;
-        holdT = setTimeout(function () { held = true; speakLoop(p.fr, el); }, 520);
+        holdT = setTimeout(function () { held = true; speakLoop(word, w, lang); }, 520);
       });
       ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) {
-        lines.addEventListener(ev, function () { clearTimeout(holdT); });
+        w.addEventListener(ev, function () { clearTimeout(holdT); });
       });
-      lines.addEventListener('click', function () {
+      w.addEventListener('click', function () {
         if (held) { held = false; return; }
         taps++;
         if (taps === 1) { tapT = setTimeout(function () { taps = 0; }, 380); }
-        else { clearTimeout(tapT); taps = 0; searchImages(p.fr); }
+        else { clearTimeout(tapT); taps = 0; searchImages(word); }
       });
     });
   }
