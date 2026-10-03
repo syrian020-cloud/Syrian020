@@ -4646,6 +4646,52 @@ window.CENTRES_DATA = [
           { fr: 'Est-ce qu’il y a des frais de résiliation ?', ar: 'في رسوم على الإلغاء؟', en: 'Is there a cancellation fee?' },
           { fr: 'Pouvez-vous me confirmer la résiliation par e-mail ?', ar: 'فيكم تأكدولي إلغاء العقد بالإيميل؟', en: 'Can you confirm the cancellation by email?' }
         ]
+      },
+      {
+        icon: '🏠',
+        title: { ar: '⭐ الإصلاحات قبل معاينة الخروج', en: 'Repairs before move-out inspection', fr: 'Réparations avant l’état des lieux de sortie' },
+        phrases: [
+          { fr: 'Il faut régler les problèmes avant l’état des lieux de sortie. / Il faut remettre le logement en bon état.', ar: 'لازم نحل المشاكل قبل معاينة الخروج / نرجّع السكن منيح.', en: 'Fix problems before inspection / return it in good condition.' },
+          { fr: 'Le logement doit être propre. / Il faut nettoyer l’appartement avant l’état des lieux.', ar: 'لازم يكون نظيف / ننظف الشقة قبل المعاينة.', en: 'Must be clean / clean before the inspection.' },
+          { fr: 'Il faut réparer les petites dégradations. / reboucher les trous dans les murs. / enlever les traces sur les murs.', ar: 'نصلّح الأضرار البسيطة / نسكّر الثقوب / نشيل الآثار عن الحيطان.', en: 'Repair minor damage / fill wall holes / remove marks.' },
+          { fr: 'Il faut remplacer l’ampoule. / vérifier les prises électriques / les robinets. / déboucher l’évier. / nettoyer les joints.', ar: 'نبدّل اللمبة / نتأكد من المقابس والحنفيات / نفتح المجلى / ننظف الفواصل.', en: 'Replace bulb / check outlets, taps / unclog sink / clean grout.' },
+          { fr: 'La porte / La fenêtre ferme correctement. / La poignée est cassée. / La fenêtre ne ferme pas correctement.', ar: 'الباب / الشباك بيسكّر منيح / المقبض مكسور / الشباك ما بيسكّر منيح.', en: 'Door / window closes properly / handle broken / window doesn’t close.' },
+          { fr: 'J’ai nettoyé toute la cuisine / la salle de bains / le four. / J’ai vidé l’appartement. / Il ne reste plus rien dans le logement.', ar: 'نضفت المطبخ / الحمام / الفرن / فرّغت الشقة / ما عاد ضايل شي.', en: 'Cleaned kitchen / bathroom / oven / emptied it / nothing left.' },
+          { fr: 'Est-ce qu’il y a quelque chose à réparer avant mon départ ? / Pouvez-vous me dire ce qui doit être fait avant l’état des lieux ?', ar: 'في شي لازم أصلّحه قبل الطلوع؟ / فيكن تخبروني شو المطلوب قبل المعاينة؟', en: 'Anything to repair before leaving? / what must be done?' },
+          { fr: 'J’ai remis toutes les clés. / Voici les clés de l’appartement.', ar: 'سلّمت كل المفاتيح / هاي مفاتيح الشقة.', en: 'Returned all keys / here are the keys.' },
+          { fr: 'usure normale ≠ dégradation — الاهتراء الطبيعي مو على حساب المستأجر.', ar: 'الاستهلاك الطبيعي ≠ الضرر — مش كل أثر عليك.', en: 'Normal wear ≠ damage — not everything is on the tenant.' }
+        ]
+      },
+      {
+        icon: '💧',
+        title: { ar: '⭐ تسرّب المي (fuite) والبلاغ عنها', en: 'Water leak (fuite) and reporting it', fr: 'Fuite d’eau et signalement' },
+        phrases: [
+          { fr: 'Il y a une fuite d’eau. / J’ai une fuite d’eau dans l’appartement.', ar: 'في تسرّب مي / عندي تسرّب مي بالشقة.', en: 'There is / I have a water leak.' },
+          { fr: 'Il y a une fuite sous l’évier / le lavabo / au niveau du tuyau. / Le joint fuit.', ar: 'تسرّب تحت المجلى / المغسلة / بمنطقة الأنبوب / الجلدة بتسرّب.', en: 'Leak under sink / at pipe / seal leaking.' },
+          { fr: 'Le robinet fuit. / Le tuyau fuit. / Il y a de l’eau qui coule.', ar: 'الحنفية بتسرّب / الأنبوب بيسرّب / في مي عم تنزل.', en: 'Tap / pipe leaking / water running.' },
+          { fr: 'Il y a une trace d’humidité. / une infiltration d’eau.', ar: 'في أثر رطوبة / تسرّب من الخارج.', en: 'Moisture mark / water infiltration.' },
+          { fr: 'Je souhaite signaler une fuite d’eau dans mon logement. / Pouvez-vous envoyer quelqu’un pour vérifier la fuite ?', ar: 'بدي بلّغ عن تسرّب مي / فيكن تبعتوا حدا يتأكد؟', en: 'Report a leak / send someone to check?' },
+          { fr: 'La fuite doit-elle être réparée avant l’état des lieux de sortie ? / Il faut réparer la fuite avant l’état des lieux de sortie.', ar: 'لازم يتصلّح التسرّب قبل معاينة الخروج؟ / لازم نصلّحه قبلها.', en: 'Must it be fixed before inspection? / fix before.' }
+        ]
+      },
+      {
+        icon: '📋',
+        title: { ar: '⭐ نقاط الفحص + المقارنة والتوقيع', en: 'Inspection points + comparison and signing', fr: 'Points de contrôle + signature' },
+        phrases: [
+          { fr: 'L’état général du logement. / Il y a des dégradations / des traces d’usure / sur les murs / des trous dans le mur.', ar: 'الحالة العامة / في أضرار / آثار استهلاك / عالحيطان / ثقوب.', en: 'General condition / damage / wear marks / holes.' },
+          { fr: 'La peinture est abîmée / écaillée. / Il faut repeindre le mur. / Il y a des taches sur le mur.', ar: 'الدهان متضرر / بيتقشر / لازم نعيد دهانو / في بقع.', en: 'Paint damaged / peeling / repaint / stains.' },
+          { fr: 'Le lavabo est bouché. / La douche fonctionne correctement. / Il y a des traces de calcaire / des moisissures.', ar: 'المغسلة مسكرة / الدوش شغال / في كلس / عفن.', en: 'Clogged sink / shower works / limescale / mold.' },
+          { fr: 'L’évier / Le four est propre. / Les plaques de cuisson / La hotte / Le réfrigérateur fonctionne(nt).', ar: 'المجلى / الفرن نظيف / عيون الطبخ / الشفاط / البراد شغال.', en: 'Sink / oven clean / cooktop / hood / fridge works.' },
+          { fr: 'La serrure fonctionne correctement. / La poignée est abîmée. / Le volet fonctionne.', ar: 'القفل شغال / المقبض متضرر / الشتر شغال.', en: 'Lock works / handle damaged / shutter works.' },
+          { fr: 'Les prises / L’interrupteur fonctionne(nt). / L’ampoule est grillée. / Il faut remplacer l’ampoule.', ar: 'المقابس / المفتاح شغال / اللمبة محروقة / نبدّلها.', en: 'Outlets / switch work / bulb burned / replace.' },
+          { fr: 'Le logement doit être nettoyé. / Il reste des déchets. / Il faut vider les placards / nettoyer les sols.', ar: 'لازم يننظّف / لسا في نفايات / نفرّغ الخزائن / ننظف الأرض.', en: 'Must be cleaned / rubbish left / empty cupboards / clean floors.' },
+          { fr: 'Avez-vous toutes les clés ? / Voici toutes les clés. / Le relevé du compteur / On va relever les compteurs.', ar: 'معك كل المفاتيح؟ / هاي كلها / قراءة العداد / رح ناخد القراءة.', en: 'All keys? / here they are / meter reading / take readings.' },
+          { fr: 'On compare avec l’état des lieux d’entrée. / Cette dégradation n’était pas présente à l’entrée.', ar: 'منقارن مع معاينة الدخول / هالضرر ما كان موجود وقتها.', en: 'Compare with move-in / damage wasn’t there.' },
+          { fr: 'C’était déjà comme ça à mon arrivée. / C’est de l’usure normale. / Je souhaite que ce soit indiqué sur l’état des lieux.', ar: 'كان هيك من وقت ما إجيت / هاد اهتراء طبيعي / بدي ينكتب هالشي بالمحضر.', en: 'Already like that / normal wear / note it on the report.' },
+          { fr: 'Je vais relire l’état des lieux avant de signer. / Je ne suis pas d’accord avec cette remarque. / Pouvez-vous préciser ce point ?', ar: 'رح أراجع قبل التوقيع / مو موافق على هالملاحظة / فيك توضّح هالنقطة؟', en: 'Reread before signing / disagree with this note / clarify?' },
+          { fr: 'Je souhaite ajouter une remarque. / Je signe ici ? / Puis-je avoir une copie de l’état des lieux ?', ar: 'بدي أضيف ملاحظة / وقّع هون؟ / فيني آخد نسخة؟', en: 'Add a comment / sign here? / can I have a copy?' },
+          { fr: 'état des lieux de sortie / dégradation / usure normale / fuite / humidité / moisissure / tache / trou / rayure / casse / propre / sale / réparer / remplacer / nettoyer / relever / signer', ar: 'معاينة خروج / ضرر / اهتراء طبيعي / تسرّب / رطوبة / عفن / بقعة / ثقب / خدش / كسر / نظيف / متسخ / يصلّح / يبدّل / ينظّف / يقرأ العداد / يوقّع', en: 'inspection / damage / wear / leak / moisture / mold / stain / hole / scratch / break / clean / dirty / repair / replace / clean / read / sign' }
+        ]
       }
     ]
   },
