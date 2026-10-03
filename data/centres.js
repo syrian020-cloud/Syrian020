@@ -11464,13 +11464,9 @@ window.CENTRES_DATA = [
     desc: { ar: 'أشهر الأفعال الانعكاسية الفرنسية مع جملة جاهزة لكل فعل', en: 'The most common French reflexive verbs with a ready-made sentence for each', fr: 'Les verbes pronominaux les plus courants avec une phrase pour chacun' },
     sections: [
       { icon: '⭐', title: { ar: 'الضمير بيتغيّر حسب الشخص', en: 'The pronoun changes by person', fr: 'Le pronom change selon la personne' }, phrases: [
-        { fr: 'je → me', ar: 'أنا → me', en: 'I → me' },
-        { fr: 'tu → te', ar: 'أنت → te', en: 'you → te' },
-        { fr: 'il / elle → se', ar: 'هو / هي → se', en: 'he / she → se' },
-        { fr: 'nous → nous', ar: 'نحن → nous', en: 'we → nous' },
-        { fr: 'vous → vous', ar: 'أنتم → vous', en: 'you → vous' },
-        { fr: 'ils / elles → se', ar: 'هم → se', en: 'they → se' },
-        { fr: 'Je me prépare. / Tu te prépares. / Il se prépare.', ar: 'مثال التصريف حسب الشخص', en: 'Conjugation example by person' }
+        { fr: 'Je me prépare.', ar: 'أنا بحضّر حالي.', en: 'I get ready.' },
+        { fr: 'Tu te prépares.', ar: 'أنت بتحضّر حالك.', en: 'You get ready.' },
+        { fr: 'Il se prépare.', ar: 'هو بيحضّر حاله.', en: 'He gets ready.' }
       ] },
       { icon: '🔄', title: { ar: 'se lever — يستيقظ/ينهض', en: 'se lever', fr: 'se lever' }, phrases: [
         { fr: 'se lever', ar: 'يستيقظ/ينهض', en: 'to get up' },
