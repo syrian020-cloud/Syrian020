@@ -6624,6 +6624,64 @@ window.CENTRES_DATA = [
           { fr: 'L’article est toujours disponible. / Le prix est ferme. / C’est négociable.', ar: 'الغرض لسا متوفر / السعر نهائي / قابل للتفاوض.', en: 'Still available / firm / negotiable.' },
           { fr: 'Remise en main propre uniquement. / À venir chercher sur place.', ar: 'التسليم باليد فقط / الاستلام من المكان.', en: 'Hand delivery only / pick-up on site.' }
         ]
+      },
+      {
+        icon: '💬',
+        title: { ar: '⭐ مواقف كاملة مشتري/بائع', en: 'Full buyer/seller scenarios', fr: 'Scénarios acheteur/vendeur' },
+        phrases: [
+          { fr: '— Bonjour, c’est toujours disponible ? — Bonjour, oui, c’est toujours disponible.', ar: '— لسا متوفر؟ — إي، لسا متوفر.', en: '— Still available? — yes, still available.' },
+          { fr: '— Vous pouvez baisser un peu le prix ? — Désolé, le prix est ferme. / Je peux faire 50 €, mais pas moins.', ar: '— فيك تنزل شوي؟ — آسف، السعر نهائي / فيني 50 بس أقل لا.', en: '— Lower the price? — firm / €50 but no less.' },
+          { fr: '— Vous pouvez me le réserver ? — Oui, je peux vous le réserver jusqu’à ce soir.', ar: '— فيك تحجزلي ياه؟ — إي، لليوم بالمسا.', en: '— Reserve it? — yes, until tonight.' },
+          { fr: '— Je peux venir ce soir. — D’accord. Vers quelle heure ? — Vers 19 h. — D’accord, ça marche.', ar: '— بجي المسا — حوالي أي ساعة؟ — الساعة 7 — تمام.', en: '— Come tonight — what time? — 7 p.m. — works.' },
+          { fr: '— Je vous dirai un peu avant à quelle heure exacte. — D’accord, pas de problème.', ar: '— بخبرك بالساعة قبلها بشوي — تمام، ما في مشكلة.', en: '— I’ll tell you the exact time before — okay.' },
+          { fr: '— Vous êtes toujours en route ? — Oui, désolé, j’ai un peu de retard. — Pas de problème, tenez-moi au courant.', ar: '— لساك بالطريق؟ — آسف تأخرت شوي — ما في مشكلة، خبرني.', en: '— Still on way? — a bit late — keep me updated.' },
+          { fr: '— Je suis arrivé. — Vous êtes où ? — Je suis devant l’immeuble. — D’accord, j’arrive.', ar: '— وصلت — وينك؟ — قدام البناء — جايي.', en: '— Arrived — where? — in front — coming.' },
+          { fr: '— Vous deviez venir chercher l’article aujourd’hui. Est-ce que vous comptez toujours venir ?', ar: '— كان المفروض تجي اليوم — لسا ناوي تجي؟', en: '— Supposed to come today — still coming?' },
+          { fr: '— Finalement, je ne vais pas le prendre. Désolé. — D’accord, merci de m’avoir prévenu.', ar: '— بالنهاية ما رح آخده، آسف — شكرا لأنك خبرتني.', en: '— Not taking it, sorry — thanks for telling me.' },
+          { fr: '— Il y a des défauts ? — Non, il fonctionne parfaitement. / Il y a seulement quelques petites traces d’utilisation.', ar: '— فيه عيوب؟ — لا، بيشتغل ممتاز / بس شوية آثار استعمال.', en: '— Defects? — works perfectly / minor signs of use.' },
+          { fr: '— Pourquoi vous le vendez ? — Je déménage, c’est pour cette raison que je le vends.', ar: '— ليش عم تبيعه؟ — عم انتقل من البيت.', en: '— Why selling? — I’m moving.' },
+          { fr: '— Vous avez la facture ? — Oui, j’ai la facture d’origine. — Il est encore sous garantie ? — Oui, il reste quelques mois.', ar: '— معك الفاتورة؟ — الأصلية — لسا عليه ضمان؟ — كم شهر.', en: '— Invoice? — original — under warranty? — few months left.' },
+          { fr: '— Je peux payer en espèces ? — Oui, le paiement se fera sur place.', ar: '— فيني أدفع كاش؟ — الدفع بالمكان.', en: '— Cash? — payment on site.' },
+          { fr: '— Ça rentre dans une voiture ? — Il est assez encombrant. Il vaut mieux venir avec un véhicule adapté.', ar: '— بيفوت بسيارة؟ — حجمه كبير، الأفضل سيارة مناسبة.', en: '— Fits in a car? — bulky, bring a suitable vehicle.' },
+          { fr: '— Bonjour, c’est toujours disponible ? — Bonjour, désolé, il vient d’être vendu.', ar: '— لسا متوفر؟ — آسف، انباع للتو.', en: '— Available? — sorry, just sold.' },
+          { fr: '— Je viendrai demain. — D’accord. Pouvez-vous me confirmer l’heure demain ? Merci de me prévenir un peu avant votre arrivée.', ar: '— رح أجي بكرا — فيك تأكدلي الساعة؟ خبرني قبل ما توصل.', en: '— Tomorrow — confirm the time? tell me before arriving.' }
+        ]
+      },
+      {
+        icon: '🔍',
+        title: { ar: '⭐ تجربة الغرض قبل الشراء', en: 'Testing the item before buying', fr: 'Tester avant l’achat' },
+        phrases: [
+          { fr: 'Je peux le tester ? / l’essayer ? / vérifier qu’il fonctionne ? / le voir fonctionner ?', ar: 'فيني جرّبه؟ / أتأكد إنه بيشتغل؟ / أشوفه وهو عم يشتغل؟', en: 'Can I test it / try it / check it works / see it working?' },
+          { fr: 'Vous pouvez me montrer comment ça fonctionne ? / comment l’utiliser ?', ar: 'فيك تفرجيني كيف بيشتغل / كيف أستعمله؟', en: 'Show me how it works / how to use it?' },
+          { fr: 'Oui, bien sûr, vous pouvez le tester / vérifier / le tester tranquillement.', ar: 'إي طبعًا، فيك تجربه / تتأكد / على راحتك.', en: 'Yes, test it / check it / take your time.' },
+          { fr: 'Je vais vous montrer comment il fonctionne / comment l’utiliser.', ar: 'رح فرجيك كيف بيشتغل / كيف تستعمله.', en: 'I’ll show you how it works / to use it.' },
+          { fr: 'Allumez-le. / Éteignez-le. / Essayez cette fonction / ce bouton. / Appuyez ici. / Tournez le bouton.', ar: 'شغّله / طفيه / جرّب هالوظيفة / هالزر / اكبس هون / لفّ الزر.', en: 'Turn on / off / try this / press here / turn the knob.' },
+          { fr: 'Regardez, ça fonctionne. / Tout fonctionne normalement. / Il faut attendre quelques secondes.', ar: 'شوف، عم يشتغل / كل شي طبيعي / استنى كم ثانية.', en: 'Look, it works / all normal / wait a few seconds.' },
+          { fr: 'Ça ne fonctionne pas / ne marche pas. / Il y a un problème. / Vous avez remarqué quelque chose ?', ar: 'ما عم يشتغل / في مشكلة / لاحظت شي؟', en: 'Doesn’t work / a problem / noticed something?' },
+          { fr: 'Je vais vérifier. / Attendez une seconde. / Je vais vous montrer.', ar: 'رح أتأكد / استنى ثانية / رح فرجيك.', en: 'I’ll check / wait a second / I’ll show you.' },
+          { fr: 'Il est d’occasion, mais il fonctionne très bien. / Il n’est pas neuf, mais il est en très bon état.', ar: 'مستعمل بس بيشتغل منيح / مو جديد بس حالته ممتازة.', en: 'Used but works well / not new but great condition.' },
+          { fr: 'Vous pouvez vérifier son état avant de l’acheter. / vérifier une dernière fois avant de payer.', ar: 'فيك تتأكد من حالته قبل الشراء / مرة أخيرة قبل الدفع.', en: 'Check condition before buying / one last time before paying.' },
+          { fr: 'Alors, ça vous convient ? / Vous êtes satisfait ? / Vous souhaitez toujours le prendre ?', ar: 'طيب، مناسب إلك؟ / راضي عنه؟ / لسا بدك تاخده؟', en: 'Suits you? / satisfied? / still want it?' },
+          { fr: '— Je peux le tester avant de l’acheter ? — Oui, bien sûr. Je vais vous montrer comment il fonctionne. — Tout fonctionne correctement ? — Oui, parfaitement. — D’accord, je vais le prendre.', ar: '— فيني جرّبه؟ — طبعا، رح فرجيك — كل شي بيشتغل؟ — إي ممتاز — تمام، رح آخده.', en: '— Test it? — sure, I’ll show you — all works? — perfectly — I’ll take it.' }
+        ]
+      },
+      {
+        icon: '🏷️',
+        title: { ar: '⭐ صفات المنتج وحالته', en: 'Product attributes and condition', fr: 'Attributs et état du produit' },
+        phrases: [
+          { fr: 'neuf / neuf dans son emballage / comme neuf / d’occasion / usé / abîmé / cassé / hors service', ar: 'جديد / بعلبته / كأنه جديد / مستعمل / مستهلك / متضرر / مكسور / ما بيشتغل', en: 'new / in box / like new / used / worn / damaged / broken / not working' },
+          { fr: 'peu utilisé / très peu utilisé / beaucoup utilisé / état correct', ar: 'مستخدم قليلا / قليل جدا / كثير / حالة مقبولة', en: 'barely used / very lightly / heavily used / fair condition' },
+          { fr: 'propre / très propre / bien entretenu / en bon état général', ar: 'نظيف / نظيف جدا / محافظ عليه / حالته العامة جيدة', en: 'clean / very clean / well maintained / good overall' },
+          { fr: 'sans rayures / avec quelques rayures / sans défaut / avec quelques défauts / légèrement abîmé', ar: 'بدون خدوش / مع خدوش / بدون عيوب / مع عيوب / متضرر شوي', en: 'scratch-free / some scratches / defect-free / some defects / slightly damaged' },
+          { fr: 'fonctionnel / en parfait état de fonctionnement / testé et fonctionnel / prêt à l’emploi / facile à utiliser', ar: 'بيشتغل / يعمل ممتاز / مجرب وبيشتغل / جاهز للاستعمال / سهل الاستخدام', en: 'functional / perfect working order / tested / ready to use / easy to use' },
+          { fr: 'petit défaut / défaut esthétique / petite rayure / petite marque / écran rayé / coin légèrement abîmé', ar: 'عيب بسيط / عيب شكلي / خدش بسيط / علامة / شاشة مخدوشة / زاوية متضررة', en: 'minor defect / cosmetic / small scratch / small mark / scratched screen / damaged corner' },
+          { fr: 'marque / modèle / référence / année / couleur / matière / version / caractéristiques', ar: 'الماركة / الموديل / الرقم / السنة / اللون / الخامة / الإصدار / المواصفات', en: 'brand / model / reference / year / color / material / version / specs' },
+          { fr: 'dimensions / longueur / largeur / hauteur / poids / capacité / puissance / taille', ar: 'الأبعاد / الطول / العرض / الارتفاع / الوزن / السعة / القوة / القياس', en: 'dimensions / length / width / height / weight / capacity / power / size' },
+          { fr: 'accessoires / chargeur / câble / télécommande / notice / boîte d’origine / emballage d’origine / ticket de caisse', ar: 'ملحقات / شاحن / كابل / ريموت / دليل استخدام / العلبة الأصلية / التغليف الأصلي / إيصال', en: 'accessories / charger / cable / remote / manual / original box / packaging / receipt' },
+          { fr: 'Très bon état, fonctionne parfaitement. / Comme neuf, très peu utilisé.', ar: 'حالة ممتازة وبيشتغل ممتاز / كأنه جديد، مستخدم قليلا.', en: 'Very good condition, works perfectly / like new, barely used.' },
+          { fr: 'Bon état général, avec quelques traces d’utilisation. / Produit propre et bien entretenu. / Aucun problème de fonctionnement.', ar: 'حالته جيدة مع آثار استعمال / نظيف ومحافظ عليه / ما فيه مشكلة بالتشغيل.', en: 'Good condition, signs of use / clean and maintained / no functional problems.' },
+          { fr: 'Quelques petites rayures, mais rien de gênant. / Vendu avec sa facture d’origine / tous les accessoires. / Encore sous garantie.', ar: 'خدوش بسيطة ما بتأثر / مع الفاتورة الأصلية / كل الملحقات / لسا عليه ضمان.', en: 'Minor scratches / with original invoice / all accessories / still under warranty.' }
+        ]
       }
     ]
   }
