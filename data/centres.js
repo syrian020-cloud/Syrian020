@@ -9268,5 +9268,1113 @@ window.CENTRES_DATA = [
         ]
       }
     ]
+  },
+  {
+    id: 'verbes-similaires',
+    icon: '🔤',
+    name: { ar: 'أفعال متشابهة (Les verbes similaires)', en: 'Similar verbs (Les verbes similaires)', fr: 'Verbes similaires' },
+    desc: { ar: '100 مجموعة أفعال فرنسية متشابهة باللفظ أو الشكل — كل فعل بسطر مع معناه', en: '100 groups of French verbs that look or sound alike — each verb on its own line', fr: '100 groupes de verbes français similaires — un verbe par ligne' },
+    sections: [
+      { icon: '🔤', title: { ar: 'Étendre / Éteindre / Attendre / Entendre / Atteindre', en: 'Group 1', fr: 'Groupe 1' }, phrases: [
+        { fr: 'étendre', ar: 'ينشر / يمدّد', en: 'to extend / spread' },
+        { fr: 'éteindre', ar: 'يطفئ', en: 'to turn off' },
+        { fr: 'attendre', ar: 'ينتظر', en: 'to wait' },
+        { fr: 'entendre', ar: 'يسمع', en: 'to hear' },
+        { fr: 'atteindre', ar: 'يصل إلى', en: 'to reach' }
+      ] },
+      { icon: '🔤', title: { ar: 'Prendre / Apprendre / Comprendre / Surprendre / Reprendre', en: 'Group 2', fr: 'Groupe 2' }, phrases: [
+        { fr: 'prendre', ar: 'يأخذ', en: 'to take' },
+        { fr: 'apprendre', ar: 'يتعلّم', en: 'to learn' },
+        { fr: 'comprendre', ar: 'يفهم', en: 'to understand' },
+        { fr: 'surprendre', ar: 'يفاجئ', en: 'to surprise' },
+        { fr: 'reprendre', ar: 'يستأنف', en: 'to resume' }
+      ] },
+      { icon: '🔤', title: { ar: 'Rendre / Vendre / Descendre / Défendre / Dépendre', en: 'Group 3', fr: 'Groupe 3' }, phrases: [
+        { fr: 'rendre', ar: 'يعيد', en: 'to return' },
+        { fr: 'vendre', ar: 'يبيع', en: 'to sell' },
+        { fr: 'descendre', ar: 'ينزل', en: 'to go down' },
+        { fr: 'défendre', ar: 'يدافع أو يمنع', en: 'to defend or forbid' },
+        { fr: 'dépendre', ar: 'يعتمد على', en: 'to depend on' }
+      ] },
+      { icon: '🔤', title: { ar: 'Suspendre / Étendre / Entendre', en: 'Group 4', fr: 'Groupe 4' }, phrases: [
+        { fr: 'suspendre', ar: 'يعلّق', en: 'to suspend' },
+        { fr: 'étendre', ar: 'يمدّد أو ينشر', en: 'to extend or spread' },
+        { fr: 'entendre', ar: 'يسمع', en: 'to hear' }
+      ] },
+      { icon: '🔤', title: { ar: 'Mettre / Permettre / Promettre / Admettre / Transmettre', en: 'Group 5', fr: 'Groupe 5' }, phrases: [
+        { fr: 'mettre', ar: 'يضع', en: 'to put' },
+        { fr: 'permettre', ar: 'يسمح', en: 'to allow' },
+        { fr: 'promettre', ar: 'يعد', en: 'to promise' },
+        { fr: 'admettre', ar: 'يعترف أو يقبل', en: 'to admit' },
+        { fr: 'transmettre', ar: 'ينقل', en: 'to transmit' }
+      ] },
+      { icon: '🔤', title: { ar: 'Venir / Devenir / Revenir / Prévenir / Intervenir', en: 'Group 6', fr: 'Groupe 6' }, phrases: [
+        { fr: 'venir', ar: 'يأتي', en: 'to come' },
+        { fr: 'devenir', ar: 'يصبح', en: 'to become' },
+        { fr: 'revenir', ar: 'يعود', en: 'to come back' },
+        { fr: 'prévenir', ar: 'يحذّر', en: 'to warn' },
+        { fr: 'intervenir', ar: 'يتدخّل', en: 'to intervene' }
+      ] },
+      { icon: '🔤', title: { ar: 'Partir / Repartir / Sortir / Ressortir', en: 'Group 7', fr: 'Groupe 7' }, phrases: [
+        { fr: 'partir', ar: 'يغادر', en: 'to leave' },
+        { fr: 'repartir', ar: 'يغادر مجددًا', en: 'to leave again' },
+        { fr: 'sortir', ar: 'يخرج', en: 'to go out' },
+        { fr: 'ressortir', ar: 'يخرج مجددًا أو يظهر من جديد', en: 'to come out again' }
+      ] },
+      { icon: '🔤', title: { ar: 'Lire / Relire / Élire / Relier', en: 'Group 8', fr: 'Groupe 8' }, phrases: [
+        { fr: 'lire', ar: 'يقرأ', en: 'to read' },
+        { fr: 'relire', ar: 'يعيد القراءة', en: 'to reread' },
+        { fr: 'élire', ar: 'ينتخب', en: 'to elect' },
+        { fr: 'relier', ar: 'يربط', en: 'to connect' }
+      ] },
+      { icon: '🔤', title: { ar: 'Dire / Redire / Interdire / Prédire / Contredire', en: 'Group 9', fr: 'Groupe 9' }, phrases: [
+        { fr: 'dire', ar: 'يقول', en: 'to say' },
+        { fr: 'redire', ar: 'يعيد القول', en: 'to say again' },
+        { fr: 'interdire', ar: 'يمنع', en: 'to forbid' },
+        { fr: 'prédire', ar: 'يتنبأ', en: 'to predict' },
+        { fr: 'contredire', ar: 'يناقض', en: 'to contradict' }
+      ] },
+      { icon: '🔤', title: { ar: 'Faire / Défaire / Refaire / Parfaire / Satisfaire', en: 'Group 10', fr: 'Groupe 10' }, phrases: [
+        { fr: 'faire', ar: 'يفعل', en: 'to do / make' },
+        { fr: 'défaire', ar: 'يفكّ أو يفسد', en: 'to undo' },
+        { fr: 'refaire', ar: 'يعيد', en: 'to redo' },
+        { fr: 'parfaire', ar: 'يتقن أو يكمل', en: 'to perfect' },
+        { fr: 'satisfaire', ar: 'يرضي', en: 'to satisfy' }
+      ] },
+      { icon: '🔤', title: { ar: 'Voir / Revoir / Prévoir / Pourvoir', en: 'Group 11', fr: 'Groupe 11' }, phrases: [
+        { fr: 'voir', ar: 'يرى', en: 'to see' },
+        { fr: 'revoir', ar: 'يرى مجددًا', en: 'to see again' },
+        { fr: 'prévoir', ar: 'يتوقّع', en: 'to foresee' },
+        { fr: 'pourvoir', ar: 'يزوّد أو يوفّر', en: 'to provide' }
+      ] },
+      { icon: '🔤', title: { ar: 'Boire / Reboire / Déboire', en: 'Group 12', fr: 'Groupe 12' }, phrases: [
+        { fr: 'boire', ar: 'يشرب', en: 'to drink' },
+        { fr: 'reboire', ar: 'يشرب مجددًا', en: 'to drink again' },
+        { fr: 'déboire', ar: 'خيبة أو انتكاسة', en: 'disappointment / setback' }
+      ] },
+      { icon: '🔤', title: { ar: 'Courir / Parcourir / Secourir / Recourir', en: 'Group 13', fr: 'Groupe 13' }, phrases: [
+        { fr: 'courir', ar: 'يركض', en: 'to run' },
+        { fr: 'parcourir', ar: 'يجتاز أو يتنقّل في', en: 'to travel through' },
+        { fr: 'secourir', ar: 'ينقذ', en: 'to rescue' },
+        { fr: 'recourir', ar: 'يلجأ إلى', en: 'to resort to' }
+      ] },
+      { icon: '🔤', title: { ar: 'Connaître / Reconnaître / Méconnaître', en: 'Group 14', fr: 'Groupe 14' }, phrases: [
+        { fr: 'connaître', ar: 'يعرف', en: 'to know' },
+        { fr: 'reconnaître', ar: 'يتعرّف على', en: 'to recognize' },
+        { fr: 'méconnaître', ar: 'يجهل أو لا يعترف بـ', en: 'to fail to recognize' }
+      ] },
+      { icon: '🔤', title: { ar: 'Croire / Recréer / Accroire', en: 'Group 15', fr: 'Groupe 15' }, phrases: [
+        { fr: 'croire', ar: 'يعتقد', en: 'to believe' },
+        { fr: 'recréer', ar: 'يعيد إنشاء أو يرفّه', en: 'to recreate' },
+        { fr: 'accroire', ar: 'يزيد أو يضخّم', en: 'to increase' }
+      ] },
+      { icon: '🔤', title: { ar: 'Tenir / Retenir / Maintenir / Obtenir / Soutenir', en: 'Group 16', fr: 'Groupe 16' }, phrases: [
+        { fr: 'tenir', ar: 'يمسك / يحافظ', en: 'to hold' },
+        { fr: 'retenir', ar: 'يحتفظ', en: 'to retain' },
+        { fr: 'maintenir', ar: 'يحافظ على', en: 'to maintain' },
+        { fr: 'obtenir', ar: 'يحصل على', en: 'to obtain' },
+        { fr: 'soutenir', ar: 'يدعم', en: 'to support' }
+      ] },
+      { icon: '🔤', title: { ar: 'Écrire / Décrire / Inscrire / Réécrire / Prescrire', en: 'Group 17', fr: 'Groupe 17' }, phrases: [
+        { fr: 'écrire', ar: 'يكتب', en: 'to write' },
+        { fr: 'décrire', ar: 'يصف', en: 'to describe' },
+        { fr: 'inscrire', ar: 'يسجّل', en: 'to register' },
+        { fr: 'réécrire', ar: 'يعيد الكتابة', en: 'to rewrite' },
+        { fr: 'prescrire', ar: 'يصف دواءً', en: 'to prescribe' }
+      ] },
+      { icon: '🔤', title: { ar: 'Mettre / Remettre / Soumettre / Admettre / Permettre', en: 'Group 18', fr: 'Groupe 18' }, phrases: [
+        { fr: 'mettre', ar: 'يضع', en: 'to put' },
+        { fr: 'remettre', ar: 'يعيد أو يسلّم', en: 'to put back' },
+        { fr: 'soumettre', ar: 'يقدّم أو يخضع', en: 'to submit' },
+        { fr: 'admettre', ar: 'يعترف', en: 'to admit' },
+        { fr: 'permettre', ar: 'يسمح', en: 'to allow' }
+      ] },
+      { icon: '🔤', title: { ar: 'Conduire / Reconduire / Introduire / Produire / Traduire', en: 'Group 19', fr: 'Groupe 19' }, phrases: [
+        { fr: 'conduire', ar: 'يقود', en: 'to drive' },
+        { fr: 'reconduire', ar: 'يرافق أو يعيد', en: 'to escort again' },
+        { fr: 'introduire', ar: 'يُدخل', en: 'to introduce' },
+        { fr: 'produire', ar: 'ينتج', en: 'to produce' },
+        { fr: 'traduire', ar: 'يترجم', en: 'to translate' }
+      ] },
+      { icon: '🔤', title: { ar: 'Ouvrir / Couvrir / Découvrir / Recouvrir', en: 'Group 20', fr: 'Groupe 20' }, phrases: [
+        { fr: 'ouvrir', ar: 'يفتح', en: 'to open' },
+        { fr: 'couvrir', ar: 'يغطي', en: 'to cover' },
+        { fr: 'découvrir', ar: 'يكتشف', en: 'to discover' },
+        { fr: 'recouvrir', ar: 'يغطي من جديد', en: 'to cover again' }
+      ] },
+      { icon: '🔤', title: { ar: 'Offrir / Souffrir / Couvrir / Découvrir', en: 'Group 21', fr: 'Groupe 21' }, phrases: [
+        { fr: 'offrir', ar: 'يقدّم', en: 'to offer' },
+        { fr: 'souffrir', ar: 'يعاني', en: 'to suffer' },
+        { fr: 'couvrir', ar: 'يغطي', en: 'to cover' },
+        { fr: 'découvrir', ar: 'يكتشف', en: 'to discover' }
+      ] },
+      { icon: '🔤', title: { ar: 'Recevoir / Concevoir / Décevoir / Percevoir', en: 'Group 22', fr: 'Groupe 22' }, phrases: [
+        { fr: 'recevoir', ar: 'يستلم', en: 'to receive' },
+        { fr: 'concevoir', ar: 'يصمّم أو يتصوّر', en: 'to conceive' },
+        { fr: 'décevoir', ar: 'يخيّب', en: 'to disappoint' },
+        { fr: 'percevoir', ar: 'يدرك أو يتلقّى', en: 'to perceive' }
+      ] },
+      { icon: '🔤', title: { ar: 'Boire / Croire / Voir / Revoir', en: 'Group 23', fr: 'Groupe 23' }, phrases: [
+        { fr: 'boire', ar: 'يشرب', en: 'to drink' },
+        { fr: 'croire', ar: 'يعتقد', en: 'to believe' },
+        { fr: 'voir', ar: 'يرى', en: 'to see' },
+        { fr: 'revoir', ar: 'يرى مجددًا', en: 'to see again' }
+      ] },
+      { icon: '🔤', title: { ar: 'Savoir / Pouvoir / Vouloir / Devoir', en: 'Group 24', fr: 'Groupe 24' }, phrases: [
+        { fr: 'savoir', ar: 'يعرف', en: 'to know' },
+        { fr: 'pouvoir', ar: 'يستطيع', en: 'can' },
+        { fr: 'vouloir', ar: 'يريد', en: 'to want' },
+        { fr: 'devoir', ar: 'يجب عليه', en: 'must' }
+      ] },
+      { icon: '🔤', title: { ar: 'Manger / Changer / Ranger / Échanger', en: 'Group 25', fr: 'Groupe 25' }, phrases: [
+        { fr: 'manger', ar: 'يأكل', en: 'to eat' },
+        { fr: 'changer', ar: 'يغيّر', en: 'to change' },
+        { fr: 'ranger', ar: 'يرتّب', en: 'to tidy' },
+        { fr: 'échanger', ar: 'يبادل', en: 'to exchange' }
+      ] },
+      { icon: '🔤', title: { ar: 'Acheter / Jeter / Arrêter / Compléter', en: 'Group 26', fr: 'Groupe 26' }, phrases: [
+        { fr: 'acheter', ar: 'يشتري', en: 'to buy' },
+        { fr: 'jeter', ar: 'يرمي', en: 'to throw' },
+        { fr: 'arrêter', ar: 'يوقف', en: 'to stop' },
+        { fr: 'compléter', ar: 'يكمل', en: 'to complete' }
+      ] },
+      { icon: '🔤', title: { ar: 'Appeler / Rappeler / S’appeler / Épeler', en: 'Group 27', fr: 'Groupe 27' }, phrases: [
+        { fr: 'appeler', ar: 'يتصل', en: 'to call' },
+        { fr: 'rappeler', ar: 'يتصل مجددًا أو يذكّر', en: 'to call back' },
+        { fr: 's’appeler', ar: 'اسمه يكون', en: 'to be called' },
+        { fr: 'épeler', ar: 'يتهجّى', en: 'to spell' }
+      ] },
+      { icon: '🔤', title: { ar: 'Passer / Repasser / Dépasser / Trépasser', en: 'Group 28', fr: 'Groupe 28' }, phrases: [
+        { fr: 'passer', ar: 'يمرّ', en: 'to pass' },
+        { fr: 'repasser', ar: 'يمرّ مجددًا أو يكوي', en: 'to pass again' },
+        { fr: 'dépasser', ar: 'يتجاوز', en: 'to exceed' },
+        { fr: 'trépasser', ar: 'يموت', en: 'to pass away' }
+      ] },
+      { icon: '🔤', title: { ar: 'Laisser / Délaisser / Relaisser', en: 'Group 29', fr: 'Groupe 29' }, phrases: [
+        { fr: 'laisser', ar: 'يترك', en: 'to leave' },
+        { fr: 'délaisser', ar: 'يهجر أو يتخلّى عن', en: 'to abandon' },
+        { fr: 'relaisser', ar: 'يترك مجددًا', en: 'to leave again' }
+      ] },
+      { icon: '🔤', title: { ar: 'Conduire / Construire / Détruire / Produire', en: 'Group 30', fr: 'Groupe 30' }, phrases: [
+        { fr: 'conduire', ar: 'يقود', en: 'to drive' },
+        { fr: 'construire', ar: 'يبني', en: 'to build' },
+        { fr: 'détruire', ar: 'يدمّر', en: 'to destroy' },
+        { fr: 'produire', ar: 'ينتج', en: 'to produce' }
+      ] },
+      { icon: '🔤', title: { ar: 'Dormir / Sortir / Partir / Servir', en: 'Group 31', fr: 'Groupe 31' }, phrases: [
+        { fr: 'dormir', ar: 'ينام', en: 'to sleep' },
+        { fr: 'sortir', ar: 'يخرج', en: 'to go out' },
+        { fr: 'partir', ar: 'يغادر', en: 'to leave' },
+        { fr: 'servir', ar: 'يخدم', en: 'to serve' }
+      ] },
+      { icon: '🔤', title: { ar: 'Sentir / Mentir / Partir / Sortir', en: 'Group 32', fr: 'Groupe 32' }, phrases: [
+        { fr: 'sentir', ar: 'يشعر / يشم', en: 'to feel / smell' },
+        { fr: 'mentir', ar: 'يكذب', en: 'to lie' },
+        { fr: 'partir', ar: 'يغادر', en: 'to leave' },
+        { fr: 'sortir', ar: 'يخرج', en: 'to go out' }
+      ] },
+      { icon: '🔤', title: { ar: 'Courir / Mourir / Sourire / Secourir', en: 'Group 33', fr: 'Groupe 33' }, phrases: [
+        { fr: 'courir', ar: 'يركض', en: 'to run' },
+        { fr: 'mourir', ar: 'يموت', en: 'to die' },
+        { fr: 'sourire', ar: 'يبتسم', en: 'to smile' },
+        { fr: 'secourir', ar: 'ينقذ', en: 'to rescue' }
+      ] },
+      { icon: '🔤', title: { ar: 'Rire / Sourire / Relire / Dire', en: 'Group 34', fr: 'Groupe 34' }, phrases: [
+        { fr: 'rire', ar: 'يضحك', en: 'to laugh' },
+        { fr: 'sourire', ar: 'يبتسم', en: 'to smile' },
+        { fr: 'relire', ar: 'يعيد القراءة', en: 'to reread' },
+        { fr: 'dire', ar: 'يقول', en: 'to say' }
+      ] },
+      { icon: '🔤', title: { ar: 'Venir / Tenir / Devenir / Revenir', en: 'Group 35', fr: 'Groupe 35' }, phrases: [
+        { fr: 'venir', ar: 'يأتي', en: 'to come' },
+        { fr: 'tenir', ar: 'يمسك أو يحافظ', en: 'to hold' },
+        { fr: 'devenir', ar: 'يصبح', en: 'to become' },
+        { fr: 'revenir', ar: 'يعود', en: 'to come back' }
+      ] },
+      { icon: '🔤', title: { ar: 'Prendre / Comprendre / Apprendre / Entreprendre', en: 'Group 36', fr: 'Groupe 36' }, phrases: [
+        { fr: 'prendre', ar: 'يأخذ', en: 'to take' },
+        { fr: 'comprendre', ar: 'يفهم', en: 'to understand' },
+        { fr: 'apprendre', ar: 'يتعلّم', en: 'to learn' },
+        { fr: 'entreprendre', ar: 'يبدأ / يباشر', en: 'to undertake' }
+      ] },
+      { icon: '🔤', title: { ar: 'Connaître / Paraître / Disparaître / Apparaître', en: 'Group 37', fr: 'Groupe 37' }, phrases: [
+        { fr: 'connaître', ar: 'يعرف', en: 'to know' },
+        { fr: 'paraître', ar: 'يبدو', en: 'to seem' },
+        { fr: 'disparaître', ar: 'يختفي', en: 'to disappear' },
+        { fr: 'apparaître', ar: 'يظهر', en: 'to appear' }
+      ] },
+      { icon: '🔤', title: { ar: 'Naître / Paraître / Connaître / Reconnaître', en: 'Group 38', fr: 'Groupe 38' }, phrases: [
+        { fr: 'naître', ar: 'يولد', en: 'to be born' },
+        { fr: 'paraître', ar: 'يبدو', en: 'to seem' },
+        { fr: 'connaître', ar: 'يعرف', en: 'to know' },
+        { fr: 'reconnaître', ar: 'يتعرّف على', en: 'to recognize' }
+      ] },
+      { icon: '🔤', title: { ar: 'Vivre / Suivre / Poursuivre / Survivre', en: 'Group 39', fr: 'Groupe 39' }, phrases: [
+        { fr: 'vivre', ar: 'يعيش', en: 'to live' },
+        { fr: 'suivre', ar: 'يتبع', en: 'to follow' },
+        { fr: 'poursuivre', ar: 'يلاحق', en: 'to pursue' },
+        { fr: 'survivre', ar: 'ينجو', en: 'to survive' }
+      ] },
+      { icon: '🔤', title: { ar: 'Croire / Boire / Voir / Prévoir', en: 'Group 40', fr: 'Groupe 40' }, phrases: [
+        { fr: 'croire', ar: 'يعتقد', en: 'to believe' },
+        { fr: 'boire', ar: 'يشرب', en: 'to drink' },
+        { fr: 'voir', ar: 'يرى', en: 'to see' },
+        { fr: 'prévoir', ar: 'يتوقّع', en: 'to foresee' }
+      ] },
+      { icon: '🔤', title: { ar: 'Lire / Dire / Rire / Sourire', en: 'Group 41', fr: 'Groupe 41' }, phrases: [
+        { fr: 'lire', ar: 'يقرأ', en: 'to read' },
+        { fr: 'dire', ar: 'يقول', en: 'to say' },
+        { fr: 'rire', ar: 'يضحك', en: 'to laugh' },
+        { fr: 'sourire', ar: 'يبتسم', en: 'to smile' }
+      ] },
+      { icon: '🔤', title: { ar: 'Fuir / Enfuir / S’enfuir', en: 'Group 42', fr: 'Groupe 42' }, phrases: [
+        { fr: 'fuir', ar: 'يهرب / يفرّ', en: 'to flee' },
+        { fr: 'enfuir', ar: 'يهرب إلى', en: 'to escape' },
+        { fr: 's’enfuir', ar: 'يهرب / يفرّ', en: 'to run away' }
+      ] },
+      { icon: '🔤', title: { ar: 'Plaire / Déplaire / Se taire / Faire', en: 'Group 43', fr: 'Groupe 43' }, phrases: [
+        { fr: 'plaire', ar: 'يعجب', en: 'to please' },
+        { fr: 'déplaire', ar: 'لا يعجب', en: 'to displease' },
+        { fr: 'se taire', ar: 'يصمت', en: 'to keep quiet' },
+        { fr: 'faire', ar: 'يفعل', en: 'to do' }
+      ] },
+      { icon: '🔤', title: { ar: 'Prendre / Vendre / Rendre / Descendre', en: 'Group 44', fr: 'Groupe 44' }, phrases: [
+        { fr: 'prendre', ar: 'يأخذ', en: 'to take' },
+        { fr: 'vendre', ar: 'يبيع', en: 'to sell' },
+        { fr: 'rendre', ar: 'يعيد', en: 'to return' },
+        { fr: 'descendre', ar: 'ينزل', en: 'to go down' }
+      ] },
+      { icon: '🔤', title: { ar: 'Attendre / Entendre / Étendre / Éteindre', en: 'Group 45', fr: 'Groupe 45' }, phrases: [
+        { fr: 'attendre', ar: 'ينتظر', en: 'to wait' },
+        { fr: 'entendre', ar: 'يسمع', en: 'to hear' },
+        { fr: 'étendre', ar: 'يمدّد أو ينشر', en: 'to extend / spread' },
+        { fr: 'éteindre', ar: 'يطفئ', en: 'to turn off' }
+      ] },
+      { icon: '🔤', title: { ar: 'Courber / Trouver / Couvrir / Ouvrir', en: 'Group 46', fr: 'Groupe 46' }, phrases: [
+        { fr: 'courber', ar: 'يحني', en: 'to bend' },
+        { fr: 'trouver', ar: 'يجد', en: 'to find' },
+        { fr: 'couvrir', ar: 'يغطي', en: 'to cover' },
+        { fr: 'ouvrir', ar: 'يفتح', en: 'to open' }
+      ] },
+      { icon: '🔤', title: { ar: 'Finir / Réussir / Choisir / Grandir', en: 'Group 47', fr: 'Groupe 47' }, phrases: [
+        { fr: 'finir', ar: 'ينهي', en: 'to finish' },
+        { fr: 'réussir', ar: 'ينجح', en: 'to succeed' },
+        { fr: 'choisir', ar: 'يختار', en: 'to choose' },
+        { fr: 'grandir', ar: 'يكبر', en: 'to grow' }
+      ] },
+      { icon: '🔤', title: { ar: 'Agir / Réagir / Partager / Diriger', en: 'Group 48', fr: 'Groupe 48' }, phrases: [
+        { fr: 'agir', ar: 'يتصرّف', en: 'to act' },
+        { fr: 'réagir', ar: 'يتفاعل', en: 'to react' },
+        { fr: 'partager', ar: 'يشارك', en: 'to share' },
+        { fr: 'diriger', ar: 'يدير', en: 'to manage' }
+      ] },
+      { icon: '🔤', title: { ar: 'Décider / Considérer / Préparer / Espérer', en: 'Group 49', fr: 'Groupe 49' }, phrases: [
+        { fr: 'décider', ar: 'يقرّر', en: 'to decide' },
+        { fr: 'considérer', ar: 'يعتبر', en: 'to consider' },
+        { fr: 'préparer', ar: 'يحضّر', en: 'to prepare' },
+        { fr: 'espérer', ar: 'يأمل', en: 'to hope' }
+      ] },
+      { icon: '🔤', title: { ar: 'Demander / Commander / Recommander / Programmer', en: 'Group 50', fr: 'Groupe 50' }, phrases: [
+        { fr: 'demander', ar: 'يطلب', en: 'to ask' },
+        { fr: 'commander', ar: 'يطلب أو يأمر', en: 'to order' },
+        { fr: 'recommander', ar: 'يوصي', en: 'to recommend' },
+        { fr: 'programmer', ar: 'يبرمج', en: 'to schedule' }
+      ] },
+      { icon: '🔤', title: { ar: 'Recevoir / Apercevoir / Décevoir / Concevoir', en: 'Group 51', fr: 'Groupe 51' }, phrases: [
+        { fr: 'recevoir', ar: 'يستلم', en: 'to receive' },
+        { fr: 'apercevoir', ar: 'يلمح', en: 'to notice' },
+        { fr: 'décevoir', ar: 'يخيّب', en: 'to disappoint' },
+        { fr: 'concevoir', ar: 'يصمّم أو يتصوّر', en: 'to design / conceive' }
+      ] },
+      { icon: '🔤', title: { ar: 'Répondre / Correspondre / Transcendre', en: 'Group 52', fr: 'Groupe 52' }, phrases: [
+        { fr: 'répondre', ar: 'يجيب', en: 'to answer' },
+        { fr: 'correspondre', ar: 'يتوافق أو يتراسل', en: 'to correspond' },
+        { fr: 'transcendre', ar: 'يتجاوز', en: 'to transcend' }
+      ] },
+      { icon: '🔤', title: { ar: 'Conclure / Exclure / Inclure / Occur', en: 'Group 53', fr: 'Groupe 53' }, phrases: [
+        { fr: 'conclure', ar: 'يختتم', en: 'to conclude' },
+        { fr: 'exclure', ar: 'يستبعد', en: 'to exclude' },
+        { fr: 'inclure', ar: 'يشمل', en: 'to include' },
+        { fr: 'occur', ar: 'يحدث', en: 'to occur' }
+      ] },
+      { icon: '🔤', title: { ar: 'Battre / Débattre / Combattre / Abattre', en: 'Group 54', fr: 'Groupe 54' }, phrases: [
+        { fr: 'battre', ar: 'يضرب أو يهزم', en: 'to beat' },
+        { fr: 'débattre', ar: 'يناقش', en: 'to debate' },
+        { fr: 'combattre', ar: 'يحارب', en: 'to fight' },
+        { fr: 'abattre', ar: 'يسقط أو يقتل', en: 'to bring down' }
+      ] },
+      { icon: '🔤', title: { ar: 'Peindre / Plaindre / Craindre / Éteindre', en: 'Group 55', fr: 'Groupe 55' }, phrases: [
+        { fr: 'peindre', ar: 'يرسم', en: 'to paint' },
+        { fr: 'plaindre', ar: 'يشفق أو يشتكي', en: 'to pity / complain' },
+        { fr: 'craindre', ar: 'يخاف', en: 'to fear' },
+        { fr: 'éteindre', ar: 'يطفئ', en: 'to turn off' }
+      ] },
+      { icon: '🔤', title: { ar: 'Boiter / Coûter / Ajouter / Goûter', en: 'Group 56', fr: 'Groupe 56' }, phrases: [
+        { fr: 'boiter', ar: 'يعرج', en: 'to limp' },
+        { fr: 'coûter', ar: 'يكلّف', en: 'to cost' },
+        { fr: 'ajouter', ar: 'يضيف', en: 'to add' },
+        { fr: 'goûter', ar: 'يتذوّق', en: 'to taste' }
+      ] },
+      { icon: '🔤', title: { ar: 'Louer / Jouer / Bouger / Trouer', en: 'Group 57', fr: 'Groupe 57' }, phrases: [
+        { fr: 'louer', ar: 'يستأجر / يؤجّر', en: 'to rent' },
+        { fr: 'jouer', ar: 'يلعب', en: 'to play' },
+        { fr: 'bouger', ar: 'يتحرّك', en: 'to move' },
+        { fr: 'trouer', ar: 'يثقب', en: 'to pierce' }
+      ] },
+      { icon: '🔤', title: { ar: 'Nettoyer / Employer / Envoyer / Essayer', en: 'Group 58', fr: 'Groupe 58' }, phrases: [
+        { fr: 'nettoyer', ar: 'ينظّف', en: 'to clean' },
+        { fr: 'employer', ar: 'يوظّف أو يستعمل', en: 'to employ / use' },
+        { fr: 'envoyer', ar: 'يرسل', en: 'to send' },
+        { fr: 'essayer', ar: 'يجرّب', en: 'to try' }
+      ] },
+      { icon: '🔤', title: { ar: 'Acheminer / Cheminer / Terminer / Déterminer', en: 'Group 59', fr: 'Groupe 59' }, phrases: [
+        { fr: 'acheminer', ar: 'ينقل', en: 'to route / transport' },
+        { fr: 'cheminer', ar: 'يسير أو يتقدّم', en: 'to proceed' },
+        { fr: 'terminer', ar: 'ينهي', en: 'to finish' },
+        { fr: 'déterminer', ar: 'يحدّد', en: 'to determine' }
+      ] },
+      { icon: '🔤', title: { ar: 'Gagner / Gêner / Signer / Soigner', en: 'Group 60', fr: 'Groupe 60' }, phrases: [
+        { fr: 'gagner', ar: 'يربح', en: 'to win / earn' },
+        { fr: 'gêner', ar: 'يزعج', en: 'to bother' },
+        { fr: 'signer', ar: 'يوقّع', en: 'to sign' },
+        { fr: 'soigner', ar: 'يعتني أو يعالج', en: 'to care for / treat' }
+      ] },
+      { icon: '🔤', title: { ar: 'Lever / Enlever / Relever / Élever', en: 'Group 61', fr: 'Groupe 61' }, phrases: [
+        { fr: 'lever', ar: 'يرفع', en: 'to raise' },
+        { fr: 'enlever', ar: 'يزيل', en: 'to remove' },
+        { fr: 'relever', ar: 'يرفع مجددًا أو يسجّل', en: 'to raise again' },
+        { fr: 'élever', ar: 'يربّي أو يرفع', en: 'to raise / bring up' }
+      ] },
+      { icon: '🔤', title: { ar: 'Ramener / Amener / Emmener / Mener', en: 'Group 62', fr: 'Groupe 62' }, phrases: [
+        { fr: 'ramener', ar: 'يعيد / يجلب معه', en: 'to bring back' },
+        { fr: 'amener', ar: 'يجلب إلى هنا', en: 'to bring' },
+        { fr: 'emmener', ar: 'يأخذ معه', en: 'to take along' },
+        { fr: 'mener', ar: 'يقود', en: 'to lead' }
+      ] },
+      { icon: '🔤', title: { ar: 'Achever / Enlever / Prélever / Soulever', en: 'Group 63', fr: 'Groupe 63' }, phrases: [
+        { fr: 'achever', ar: 'يُنهي', en: 'to complete' },
+        { fr: 'enlever', ar: 'يزيل', en: 'to remove' },
+        { fr: 'prélever', ar: 'يقتطع', en: 'to withdraw' },
+        { fr: 'soulever', ar: 'يرفع', en: 'to lift' }
+      ] },
+      { icon: '🔤', title: { ar: 'Régler / Rêver / Réserver / Révéler', en: 'Group 64', fr: 'Groupe 64' }, phrases: [
+        { fr: 'régler', ar: 'يدفع أو يضبط', en: 'to pay / adjust' },
+        { fr: 'rêver', ar: 'يحلم', en: 'to dream' },
+        { fr: 'réserver', ar: 'يحجز', en: 'to book' },
+        { fr: 'révéler', ar: 'يكشف', en: 'to reveal' }
+      ] },
+      { icon: '🔤', title: { ar: 'Marcher / Chercher / Approcher / Rechercher', en: 'Group 65', fr: 'Groupe 65' }, phrases: [
+        { fr: 'marcher', ar: 'يمشي', en: 'to walk' },
+        { fr: 'chercher', ar: 'يبحث عن', en: 'to look for' },
+        { fr: 'approcher', ar: 'يقترب', en: 'to approach' },
+        { fr: 'rechercher', ar: 'يبحث عن', en: 'to search for' }
+      ] },
+      { icon: '🔤', title: { ar: 'Garder / Regarder / Sauvegarder / Héberger', en: 'Group 66', fr: 'Groupe 66' }, phrases: [
+        { fr: 'garder', ar: 'يحافظ على', en: 'to keep' },
+        { fr: 'regarder', ar: 'ينظر إلى', en: 'to watch / look at' },
+        { fr: 'sauvegarder', ar: 'يحفظ نسخة', en: 'to back up' },
+        { fr: 'héberger', ar: 'يستضيف', en: 'to host' }
+      ] },
+      { icon: '🔤', title: { ar: 'Appuyer / Essuyer / Ennuyer / Employer', en: 'Group 67', fr: 'Groupe 67' }, phrases: [
+        { fr: 'appuyer', ar: 'يضغط', en: 'to press' },
+        { fr: 'essuyer', ar: 'يمسح', en: 'to wipe' },
+        { fr: 'ennuyer', ar: 'يزعج', en: 'to annoy' },
+        { fr: 'employer', ar: 'يوظّف أو يستعمل', en: 'to employ / use' }
+      ] },
+      { icon: '🔤', title: { ar: 'Casser / Passer / Ramasser / Embrasser', en: 'Group 68', fr: 'Groupe 68' }, phrases: [
+        { fr: 'casser', ar: 'يكسر', en: 'to break' },
+        { fr: 'passer', ar: 'يمرّ', en: 'to pass' },
+        { fr: 'ramasser', ar: 'يلتقط', en: 'to pick up' },
+        { fr: 'embrasser', ar: 'يعانق أو يقبّل', en: 'to hug or kiss' }
+      ] },
+      { icon: '🔤', title: { ar: 'Raconter / Compter / Monter / Affronter', en: 'Group 69', fr: 'Groupe 69' }, phrases: [
+        { fr: 'raconter', ar: 'يحكي', en: 'to tell' },
+        { fr: 'compter', ar: 'يعدّ أو يحسب', en: 'to count' },
+        { fr: 'monter', ar: 'يصعد', en: 'to go up' },
+        { fr: 'affronter', ar: 'يواجه', en: 'to confront' }
+      ] },
+      { icon: '🔤', title: { ar: 'Acheter / Apporter / Emporter / Transporter', en: 'Group 70', fr: 'Groupe 70' }, phrases: [
+        { fr: 'acheter', ar: 'يشتري', en: 'to buy' },
+        { fr: 'apporter', ar: 'يجلب', en: 'to bring' },
+        { fr: 'emporter', ar: 'يأخذ معه', en: 'to take away' },
+        { fr: 'transporter', ar: 'ينقل', en: 'to transport' }
+      ] },
+      { icon: '🔤', title: { ar: 'Adorer / Aborder / Accorder / Abandonner', en: 'Group 71', fr: 'Groupe 71' }, phrases: [
+        { fr: 'adorer', ar: 'يعشق', en: 'to adore' },
+        { fr: 'aborder', ar: 'يتطرّق إلى', en: 'to approach' },
+        { fr: 'accorder', ar: 'يمنح أو يوافق', en: 'to grant / agree' },
+        { fr: 'abandonner', ar: 'يتخلّى عن', en: 'to abandon' }
+      ] },
+      { icon: '🔤', title: { ar: 'Décrocher / Accrocher / Raccrocher / Approcher', en: 'Group 72', fr: 'Groupe 72' }, phrases: [
+        { fr: 'décrocher', ar: 'يجيب عن الهاتف', en: 'to answer the phone' },
+        { fr: 'accrocher', ar: 'يعلّق', en: 'to hang up / attach' },
+        { fr: 'raccrocher', ar: 'يغلق الهاتف', en: 'to hang up' },
+        { fr: 'approcher', ar: 'يقترب', en: 'to approach' }
+      ] },
+      { icon: '🔤', title: { ar: 'Aller / S’en aller / Dévaler / Avaler', en: 'Group 73', fr: 'Groupe 73' }, phrases: [
+        { fr: 'aller', ar: 'يذهب', en: 'to go' },
+        { fr: 's’en aller', ar: 'يرحل', en: 'to leave' },
+        { fr: 'dévaler', ar: 'ينزل بسرعة', en: 'to rush down' },
+        { fr: 'avaler', ar: 'يبتلع', en: 'to swallow' }
+      ] },
+      { icon: '🔤', title: { ar: 'Arriver / Parvenir / Survenir / Intervenir', en: 'Group 74', fr: 'Groupe 74' }, phrases: [
+        { fr: 'arriver', ar: 'يصل', en: 'to arrive' },
+        { fr: 'parvenir', ar: 'يتمكّن من الوصول', en: 'to manage to reach' },
+        { fr: 'survenir', ar: 'يحدث فجأة', en: 'to occur' },
+        { fr: 'intervenir', ar: 'يتدخّل', en: 'to intervene' }
+      ] },
+      { icon: '🔤', title: { ar: 'Brûler / Bûcher / Dérouler / Enrouler', en: 'Group 75', fr: 'Groupe 75' }, phrases: [
+        { fr: 'brûler', ar: 'يحرق', en: 'to burn' },
+        { fr: 'bûcher', ar: 'يعمل بجد', en: 'to work hard' },
+        { fr: 'dérouler', ar: 'يفرد أو يعرض', en: 'to unroll' },
+        { fr: 'enrouler', ar: 'يلفّ', en: 'to roll up' }
+      ] },
+      { icon: '🔤', title: { ar: 'Céder / Précéder / Accéder / Procéder', en: 'Group 76', fr: 'Groupe 76' }, phrases: [
+        { fr: 'céder', ar: 'يتنازل', en: 'to give in' },
+        { fr: 'précéder', ar: 'يسبق', en: 'to precede' },
+        { fr: 'accéder', ar: 'يدخل أو يصل إلى', en: 'to access' },
+        { fr: 'procéder', ar: 'يباشر أو يتّبع إجراءً', en: 'to proceed' }
+      ] },
+      { icon: '🔤', title: { ar: 'Déplacer / Remplacer / Remplir / Déployer', en: 'Group 77', fr: 'Groupe 77' }, phrases: [
+        { fr: 'déplacer', ar: 'ينقل', en: 'to move' },
+        { fr: 'remplacer', ar: 'يستبدل', en: 'to replace' },
+        { fr: 'remplir', ar: 'يملأ', en: 'to fill' },
+        { fr: 'déployer', ar: 'ينشر', en: 'to deploy / unfold' }
+      ] },
+      { icon: '🔤', title: { ar: 'Échapper / Attraper / Rattraper / Frapper', en: 'Group 78', fr: 'Groupe 78' }, phrases: [
+        { fr: 'échapper', ar: 'يهرب من', en: 'to escape' },
+        { fr: 'attraper', ar: 'يمسك', en: 'to catch' },
+        { fr: 'rattraper', ar: 'يلحق أو يمسك مجددًا', en: 'to catch up' },
+        { fr: 'frapper', ar: 'يضرب', en: 'to hit' }
+      ] },
+      { icon: '🔤', title: { ar: 'Grandir / Réfléchir / Avertir / Investir', en: 'Group 79', fr: 'Groupe 79' }, phrases: [
+        { fr: 'grandir', ar: 'يكبر', en: 'to grow' },
+        { fr: 'réfléchir', ar: 'يفكّر', en: 'to think' },
+        { fr: 'avertir', ar: 'يحذّر', en: 'to warn' },
+        { fr: 'investir', ar: 'يستثمر', en: 'to invest' }
+      ] },
+      { icon: '🔤', title: { ar: 'Ignorer / Explorer / Améliorer / Détériorer', en: 'Group 80', fr: 'Groupe 80' }, phrases: [
+        { fr: 'ignorer', ar: 'يجهل', en: 'to ignore' },
+        { fr: 'explorer', ar: 'يستكشف', en: 'to explore' },
+        { fr: 'améliorer', ar: 'يحسّن', en: 'to improve' },
+        { fr: 'détériorer', ar: 'يدهور', en: 'to deteriorate' }
+      ] },
+      { icon: '🔤', title: { ar: 'Mélanger / Ranger / Déranger / Partager', en: 'Group 81', fr: 'Groupe 81' }, phrases: [
+        { fr: 'mélanger', ar: 'يخلط', en: 'to mix' },
+        { fr: 'ranger', ar: 'يرتّب', en: 'to tidy' },
+        { fr: 'déranger', ar: 'يزعج أو يبعثر', en: 'to disturb' },
+        { fr: 'partager', ar: 'يشارك', en: 'to share' }
+      ] },
+      { icon: '🔤', title: { ar: 'Noter / Monter / Remonter / Démonter', en: 'Group 82', fr: 'Groupe 82' }, phrases: [
+        { fr: 'noter', ar: 'يدوّن', en: 'to note' },
+        { fr: 'monter', ar: 'يصعد', en: 'to go up' },
+        { fr: 'remonter', ar: 'يصعد مجددًا', en: 'to go back up' },
+        { fr: 'démonter', ar: 'يفكّك', en: 'to dismantle' }
+      ] },
+      { icon: '🔤', title: { ar: 'Observer / Conserver / Réserver / Traverser', en: 'Group 83', fr: 'Groupe 83' }, phrases: [
+        { fr: 'observer', ar: 'يراقب', en: 'to observe' },
+        { fr: 'conserver', ar: 'يحافظ على', en: 'to preserve' },
+        { fr: 'réserver', ar: 'يحجز', en: 'to reserve' },
+        { fr: 'traverser', ar: 'يعبر', en: 'to cross' }
+      ] },
+      { icon: '🔤', title: { ar: 'Penser / Dépenser / Compter / Raconter', en: 'Group 84', fr: 'Groupe 84' }, phrases: [
+        { fr: 'penser', ar: 'يفكّر', en: 'to think' },
+        { fr: 'dépenser', ar: 'ينفق', en: 'to spend' },
+        { fr: 'compter', ar: 'يحسب', en: 'to count' },
+        { fr: 'raconter', ar: 'يحكي', en: 'to tell' }
+      ] },
+      { icon: '🔤', title: { ar: 'Quitter / Visiter / Habiter / Mériter', en: 'Group 85', fr: 'Groupe 85' }, phrases: [
+        { fr: 'quitter', ar: 'يغادر', en: 'to leave' },
+        { fr: 'visiter', ar: 'يزور', en: 'to visit' },
+        { fr: 'habiter', ar: 'يسكن', en: 'to live in' },
+        { fr: 'mériter', ar: 'يستحق', en: 'to deserve' }
+      ] },
+      { icon: '🔤', title: { ar: 'Accueillir / Recueillir / Cueillir', en: 'Group 86', fr: 'Groupe 86' }, phrases: [
+        { fr: 'accueillir', ar: 'يستقبل', en: 'to welcome' },
+        { fr: 'recueillir', ar: 'يجمع أو يستقبل', en: 'to collect' },
+        { fr: 'cueillir', ar: 'يقطف', en: 'to pick' }
+      ] },
+      { icon: '🔤', title: { ar: 'Battre / Combattre / Abattre', en: 'Group 87', fr: 'Groupe 87' }, phrases: [
+        { fr: 'battre', ar: 'يضرب أو يهزم', en: 'to beat' },
+        { fr: 'combattre', ar: 'يحارب', en: 'to fight' },
+        { fr: 'abattre', ar: 'يُسقط', en: 'to bring down' }
+      ] },
+      { icon: '🔤', title: { ar: 'Atteindre / Contraindre / Restreindre', en: 'Group 88', fr: 'Groupe 88' }, phrases: [
+        { fr: 'atteindre', ar: 'يصل إلى', en: 'to reach' },
+        { fr: 'contraindre', ar: 'يجبر', en: 'to force' },
+        { fr: 'restreindre', ar: 'يقيّد', en: 'to restrict' }
+      ] },
+      { icon: '🔤', title: { ar: 'Résoudre / Dissoudre / Absoudre', en: 'Group 89', fr: 'Groupe 89' }, phrases: [
+        { fr: 'résoudre', ar: 'يحلّ', en: 'to solve' },
+        { fr: 'dissoudre', ar: 'يذيب أو يحلّ', en: 'to dissolve' },
+        { fr: 'absoudre', ar: 'يبرّئ', en: 'to absolve' }
+      ] },
+      { icon: '🔤', title: { ar: 'Vaincre / Convaincre', en: 'Group 90', fr: 'Groupe 90' }, phrases: [
+        { fr: 'vaincre', ar: 'يهزم', en: 'to defeat' },
+        { fr: 'convaincre', ar: 'يقنع', en: 'to convince' }
+      ] },
+      { icon: '🔤', title: { ar: 'Joindre / Rejoindre / Enjoindre', en: 'Group 91', fr: 'Groupe 91' }, phrases: [
+        { fr: 'joindre', ar: 'يصل أو يرفق', en: 'to join / attach' },
+        { fr: 'rejoindre', ar: 'يلتحق بـ', en: 'to join' },
+        { fr: 'enjoindre', ar: 'يأمر', en: 'to order' }
+      ] },
+      { icon: '🔤', title: { ar: 'Craindre / Plaindre / Contraindre', en: 'Group 92', fr: 'Groupe 92' }, phrases: [
+        { fr: 'craindre', ar: 'يخاف', en: 'to fear' },
+        { fr: 'plaindre', ar: 'يشفق', en: 'to pity' },
+        { fr: 'contraindre', ar: 'يجبر', en: 'to force' }
+      ] },
+      { icon: '🔤', title: { ar: 'Moudre / Coudre / Découdre', en: 'Group 93', fr: 'Groupe 93' }, phrases: [
+        { fr: 'moudre', ar: 'يطحن', en: 'to grind' },
+        { fr: 'coudre', ar: 'يخيط', en: 'to sew' },
+        { fr: 'découdre', ar: 'يفكّ الخياطة', en: 'to unstitch' }
+      ] },
+      { icon: '🔤', title: { ar: 'Résister / Insister / Persister', en: 'Group 94', fr: 'Groupe 94' }, phrases: [
+        { fr: 'résister', ar: 'يقاوم', en: 'to resist' },
+        { fr: 'insister', ar: 'يصرّ', en: 'to insist' },
+        { fr: 'persister', ar: 'يستمرّ', en: 'to persist' }
+      ] },
+      { icon: '🔤', title: { ar: 'Autoriser / Utiliser / Réaliser / Visualiser', en: 'Group 95', fr: 'Groupe 95' }, phrases: [
+        { fr: 'autoriser', ar: 'يسمح', en: 'to authorize' },
+        { fr: 'utiliser', ar: 'يستعمل', en: 'to use' },
+        { fr: 'réaliser', ar: 'يحقّق أو يدرك', en: 'to achieve / realize' },
+        { fr: 'visualiser', ar: 'يتصوّر بصريًا', en: 'to visualize' }
+      ] },
+      { icon: '🔤', title: { ar: 'Accepter / Refuser / Traverser / Ramasser', en: 'Group 96', fr: 'Groupe 96' }, phrases: [
+        { fr: 'accepter', ar: 'يقبل', en: 'to accept' },
+        { fr: 'refuser', ar: 'يرفض', en: 'to refuse' },
+        { fr: 'traverser', ar: 'يعبر', en: 'to cross' },
+        { fr: 'ramasser', ar: 'يلتقط', en: 'to pick up' }
+      ] },
+      { icon: '🔤', title: { ar: 'Ressentir / Consentir / Pressentir', en: 'Group 97', fr: 'Groupe 97' }, phrases: [
+        { fr: 'ressentir', ar: 'يشعر بـ', en: 'to feel' },
+        { fr: 'consentir', ar: 'يوافق', en: 'to consent' },
+        { fr: 'pressentir', ar: 'يستشعر مسبقًا', en: 'to sense beforehand' }
+      ] },
+      { icon: '🔤', title: { ar: 'Réunir / Punir / Réagir / Avertir', en: 'Group 98', fr: 'Groupe 98' }, phrases: [
+        { fr: 'réunir', ar: 'يجمع', en: 'to gather' },
+        { fr: 'punir', ar: 'يعاقب', en: 'to punish' },
+        { fr: 'réagir', ar: 'يتفاعل', en: 'to react' },
+        { fr: 'avertir', ar: 'يحذّر', en: 'to warn' }
+      ] },
+      { icon: '🔤', title: { ar: 'Servir / Desservir / Resservir', en: 'Group 99', fr: 'Groupe 99' }, phrases: [
+        { fr: 'servir', ar: 'يخدم', en: 'to serve' },
+        { fr: 'desservir', ar: 'يضرّ أو يسيء إلى', en: 'to do a disservice' },
+        { fr: 'resservir', ar: 'يقدّم مرة أخرى', en: 'to serve again' }
+      ] },
+      { icon: '🔤', title: { ar: 'Résoudre / Absorber / Dissoudre', en: 'Group 100', fr: 'Groupe 100' }, phrases: [
+        { fr: 'résoudre', ar: 'يحلّ', en: 'to solve' },
+        { fr: 'absorber', ar: 'يمتصّ', en: 'to absorb' },
+        { fr: 'dissoudre', ar: 'يذيب', en: 'to dissolve' }
+      ] },
+      { icon: '🔤', title: { ar: 'Acquérir / Requérir / Conquérir', en: 'Group 101', fr: 'Groupe 101' }, phrases: [
+        { fr: 'acquérir', ar: 'يكتسب', en: 'to acquire' },
+        { fr: 'requérir', ar: 'يطلب رسميًا', en: 'to require' },
+        { fr: 'conquérir', ar: 'يغزو أو يستولي على', en: 'to conquer' }
+      ] },
+      { icon: '🔤', title: { ar: 'Courir / Accourir / Concourir', en: 'Group 102', fr: 'Groupe 102' }, phrases: [
+        { fr: 'courir', ar: 'يركض', en: 'to run' },
+        { fr: 'accourir', ar: 'يهرع', en: 'to hurry over' },
+        { fr: 'concourir', ar: 'يشارك أو يتنافس', en: 'to compete' }
+      ] },
+      { icon: '🔤', title: { ar: 'Plier / Déplier / Replier', en: 'Group 103', fr: 'Groupe 103' }, phrases: [
+        { fr: 'plier', ar: 'يطوي', en: 'to fold' },
+        { fr: 'déplier', ar: 'يفرد', en: 'to unfold' },
+        { fr: 'replier', ar: 'يطوي من جديد', en: 'to fold back' }
+      ] },
+      { icon: '🔤', title: { ar: 'Fonder / Profonder / Confondre', en: 'Group 104', fr: 'Groupe 104' }, phrases: [
+        { fr: 'fonder', ar: 'يؤسّس', en: 'to found' },
+        { fr: 'profonder', ar: 'يعمّق', en: 'to deepen' },
+        { fr: 'confondre', ar: 'يخلط بين', en: 'to confuse' }
+      ] },
+      { icon: '🔤', title: { ar: 'Réfléchir / Fléchir / Infléchir', en: 'Group 105', fr: 'Groupe 105' }, phrases: [
+        { fr: 'réfléchir', ar: 'يفكّر', en: 'to think' },
+        { fr: 'fléchir', ar: 'ينحني أو يستسلم', en: 'to bend' },
+        { fr: 'infléchir', ar: 'يغيّر الاتجاه', en: 'to alter' }
+      ] },
+      { icon: '🔤', title: { ar: 'Suffire / Subvenir / Intervenir', en: 'Group 106', fr: 'Groupe 106' }, phrases: [
+        { fr: 'suffire', ar: 'يكفي', en: 'to suffice' },
+        { fr: 'subvenir', ar: 'يوفّر أو يؤمّن', en: 'to provide for' },
+        { fr: 'intervenir', ar: 'يتدخّل', en: 'to intervene' }
+      ] },
+      { icon: '🔤', title: { ar: 'Nuire / Construire / Détruire', en: 'Group 107', fr: 'Groupe 107' }, phrases: [
+        { fr: 'nuire', ar: 'يضرّ', en: 'to harm' },
+        { fr: 'construire', ar: 'يبني', en: 'to build' },
+        { fr: 'détruire', ar: 'يدمّر', en: 'to destroy' }
+      ] },
+      { icon: '🔤', title: { ar: 'Joindre / Rejoindre / Disjoindre', en: 'Group 108', fr: 'Groupe 108' }, phrases: [
+        { fr: 'joindre', ar: 'يضمّ أو يرفق', en: 'to join / attach' },
+        { fr: 'rejoindre', ar: 'يلتحق بـ', en: 'to join' },
+        { fr: 'disjoindre', ar: 'يفصل', en: 'to separate' }
+      ] },
+      { icon: '🔤', title: { ar: 'Conclure / Inclure / Exclure', en: 'Group 109', fr: 'Groupe 109' }, phrases: [
+        { fr: 'conclure', ar: 'يختتم', en: 'to conclude' },
+        { fr: 'inclure', ar: 'يشمل', en: 'to include' },
+        { fr: 'exclure', ar: 'يستبعد', en: 'to exclude' }
+      ] },
+      { icon: '🔤', title: { ar: 'Fournir / Pourvoir / Dépourvoir', en: 'Group 110', fr: 'Groupe 110' }, phrases: [
+        { fr: 'fournir', ar: 'يوفّر', en: 'to provide' },
+        { fr: 'pourvoir', ar: 'يزوّد', en: 'to supply' },
+        { fr: 'dépourvoir', ar: 'يحرم من أو يسحب', en: 'to deprive' }
+      ] },
+      { icon: '🔤', title: { ar: 'Mourir / Éblouir / Épanouir', en: 'Group 111', fr: 'Groupe 111' }, phrases: [
+        { fr: 'mourir', ar: 'يموت', en: 'to die' },
+        { fr: 'éblouir', ar: 'يُبهر', en: 'to dazzle' },
+        { fr: 'épanouir', ar: 'يزدهر أو يتفتّح', en: 'to flourish' }
+      ] },
+      { icon: '🔤', title: { ar: 'Accomplir / Remplir / Assouplir', en: 'Group 112', fr: 'Groupe 112' }, phrases: [
+        { fr: 'accomplir', ar: 'ينجز', en: 'to accomplish' },
+        { fr: 'remplir', ar: 'يملأ', en: 'to fill' },
+        { fr: 'assouplir', ar: 'يجعل أكثر مرونة', en: 'to make flexible' }
+      ] },
+      { icon: '🔤', title: { ar: 'Séduire / Réduire / Produire', en: 'Group 113', fr: 'Groupe 113' }, phrases: [
+        { fr: 'séduire', ar: 'يغري', en: 'to seduce' },
+        { fr: 'réduire', ar: 'يقلّل', en: 'to reduce' },
+        { fr: 'produire', ar: 'ينتج', en: 'to produce' }
+      ] },
+      { icon: '🔤', title: { ar: 'Battre / Combattre / Débattre', en: 'Group 114', fr: 'Groupe 114' }, phrases: [
+        { fr: 'battre', ar: 'يضرب أو يهزم', en: 'to beat' },
+        { fr: 'combattre', ar: 'يحارب', en: 'to fight' },
+        { fr: 'débattre', ar: 'يناقش', en: 'to debate' }
+      ] },
+      { icon: '🔤', title: { ar: 'Décevoir / Apercevoir / Percevoir', en: 'Group 115', fr: 'Groupe 115' }, phrases: [
+        { fr: 'décevoir', ar: 'يخيّب', en: 'to disappoint' },
+        { fr: 'apercevoir', ar: 'يلمح', en: 'to catch sight of' },
+        { fr: 'percevoir', ar: 'يدرك أو يتلقّى', en: 'to perceive' }
+      ] },
+      { icon: '🔤', title: { ar: 'Choisir / Saisir / Investir', en: 'Group 116', fr: 'Groupe 116' }, phrases: [
+        { fr: 'choisir', ar: 'يختار', en: 'to choose' },
+        { fr: 'saisir', ar: 'يمسك أو يغتنم', en: 'to seize' },
+        { fr: 'investir', ar: 'يستثمر', en: 'to invest' }
+      ] },
+      { icon: '🔤', title: { ar: 'Élargir / Avertir / Convertir', en: 'Group 117', fr: 'Groupe 117' }, phrases: [
+        { fr: 'élargir', ar: 'يوسّع', en: 'to widen' },
+        { fr: 'avertir', ar: 'يحذّر', en: 'to warn' },
+        { fr: 'convertir', ar: 'يحوّل', en: 'to convert' }
+      ] },
+      { icon: '🔤', title: { ar: 'Répartir / Garantir / Divertir', en: 'Group 118', fr: 'Groupe 118' }, phrases: [
+        { fr: 'répartir', ar: 'يوزّع', en: 'to distribute' },
+        { fr: 'garantir', ar: 'يضمن', en: 'to guarantee' },
+        { fr: 'divertir', ar: 'يسلّي', en: 'to entertain' }
+      ] },
+      { icon: '🔤', title: { ar: 'Apercevoir / Décevoir / Concevoir', en: 'Group 119', fr: 'Groupe 119' }, phrases: [
+        { fr: 'apercevoir', ar: 'يلمح', en: 'to notice' },
+        { fr: 'décevoir', ar: 'يخيّب', en: 'to disappoint' },
+        { fr: 'concevoir', ar: 'يصمّم أو يتصوّر', en: 'to conceive / design' }
+      ] },
+      { icon: '🔤', title: { ar: 'Advenir / Devenir / Survenir', en: 'Group 120', fr: 'Groupe 120' }, phrases: [
+        { fr: 'advenir', ar: 'يحدث', en: 'to happen' },
+        { fr: 'devenir', ar: 'يصبح', en: 'to become' },
+        { fr: 'survenir', ar: 'يحدث فجأة', en: 'to occur' }
+      ] },
+      { icon: '🔤', title: { ar: 'Exiger / Diriger / Corriger', en: 'Group 121', fr: 'Groupe 121' }, phrases: [
+        { fr: 'exiger', ar: 'يطالب', en: 'to demand' },
+        { fr: 'diriger', ar: 'يدير', en: 'to manage / direct' },
+        { fr: 'corriger', ar: 'يصحّح', en: 'to correct' }
+      ] },
+      { icon: '🔤', title: { ar: 'Nier / Renier / Dénier', en: 'Group 122', fr: 'Groupe 122' }, phrases: [
+        { fr: 'nier', ar: 'ينكر', en: 'to deny' },
+        { fr: 'renier', ar: 'يتبرأ من', en: 'to disown' },
+        { fr: 'dénier', ar: 'ينكر أو يرفض منح', en: 'to deny / refuse' }
+      ] },
+      { icon: '🔤', title: { ar: 'Éviter / Inviter / Profiter', en: 'Group 123', fr: 'Groupe 123' }, phrases: [
+        { fr: 'éviter', ar: 'يتجنّب', en: 'to avoid' },
+        { fr: 'inviter', ar: 'يدعو', en: 'to invite' },
+        { fr: 'profiter', ar: 'يستفيد أو يستمتع', en: 'to benefit / enjoy' }
+      ] },
+      { icon: '🔤', title: { ar: 'Partager / Hériter / Méditer', en: 'Group 124', fr: 'Groupe 124' }, phrases: [
+        { fr: 'partager', ar: 'يشارك', en: 'to share' },
+        { fr: 'hériter', ar: 'يرث', en: 'to inherit' },
+        { fr: 'méditer', ar: 'يتأمّل', en: 'to meditate' }
+      ] },
+      { icon: '🔤', title: { ar: 'Réparer / Préparer / Comparer', en: 'Group 125', fr: 'Groupe 125' }, phrases: [
+        { fr: 'réparer', ar: 'يصلّح', en: 'to repair' },
+        { fr: 'préparer', ar: 'يحضّر', en: 'to prepare' },
+        { fr: 'comparer', ar: 'يقارن', en: 'to compare' }
+      ] },
+      { icon: '🔤', title: { ar: 'Accompagner / Encourager / Interroger', en: 'Group 126', fr: 'Groupe 126' }, phrases: [
+        { fr: 'accompagner', ar: 'يرافق', en: 'to accompany' },
+        { fr: 'encourager', ar: 'يشجّع', en: 'to encourage' },
+        { fr: 'interroger', ar: 'يستجوب أو يسأل', en: 'to question' }
+      ] },
+      { icon: '🔤', title: { ar: 'Réclamer / Proclamer / Exclamer', en: 'Group 127', fr: 'Groupe 127' }, phrases: [
+        { fr: 'réclamer', ar: 'يطالب', en: 'to demand' },
+        { fr: 'proclamer', ar: 'يعلن', en: 'to proclaim' },
+        { fr: 'exclamer', ar: 'يهتف أو يصيح', en: 'to exclaim' }
+      ] },
+      { icon: '🔤', title: { ar: 'Déplacer / Remplacer / Replacer', en: 'Group 128', fr: 'Groupe 128' }, phrases: [
+        { fr: 'déplacer', ar: 'ينقل', en: 'to move' },
+        { fr: 'remplacer', ar: 'يستبدل', en: 'to replace' },
+        { fr: 'replacer', ar: 'يعيد إلى مكانه', en: 'to put back' }
+      ] },
+      { icon: '🔤', title: { ar: 'Consulter / Résulter / Insulter', en: 'Group 129', fr: 'Groupe 129' }, phrases: [
+        { fr: 'consulter', ar: 'يستشير', en: 'to consult' },
+        { fr: 'résulter', ar: 'ينتج عن', en: 'to result' },
+        { fr: 'insulter', ar: 'يهين', en: 'to insult' }
+      ] },
+      { icon: '🔤', title: { ar: 'Expliquer / Appliquer / Impliquer', en: 'Group 130', fr: 'Groupe 130' }, phrases: [
+        { fr: 'expliquer', ar: 'يشرح', en: 'to explain' },
+        { fr: 'appliquer', ar: 'يطبّق', en: 'to apply' },
+        { fr: 'impliquer', ar: 'يتضمّن أو يشرك', en: 'to involve' }
+      ] },
+      { icon: '🔤', title: { ar: 'Aimer / Animer / Affirmer / Confirmer', en: 'Group 131', fr: 'Groupe 131' }, phrases: [
+        { fr: 'aimer', ar: 'يحب', en: 'to like / love' },
+        { fr: 'animer', ar: 'ينشّط', en: 'to animate' },
+        { fr: 'affirmer', ar: 'يؤكّد', en: 'to affirm' },
+        { fr: 'confirmer', ar: 'يؤكّد أو يثبت', en: 'to confirm' }
+      ] },
+      { icon: '🔤', title: { ar: 'Arranger / Déranger / Encourager / Engager', en: 'Group 132', fr: 'Groupe 132' }, phrases: [
+        { fr: 'arranger', ar: 'يرتّب أو يدبّر', en: 'to arrange' },
+        { fr: 'déranger', ar: 'يزعج', en: 'to disturb' },
+        { fr: 'encourager', ar: 'يشجّع', en: 'to encourage' },
+        { fr: 'engager', ar: 'يوظّف أو يُلزم', en: 'to hire / commit' }
+      ] },
+      { icon: '🔤', title: { ar: 'Déménager / Aménager / Ménager / Partager', en: 'Group 133', fr: 'Groupe 133' }, phrases: [
+        { fr: 'déménager', ar: 'ينتقل من منزل', en: 'to move house' },
+        { fr: 'aménager', ar: 'يجهّز أو يرتّب', en: 'to arrange / furnish' },
+        { fr: 'ménager', ar: 'يراعي أو يوفّر', en: 'to spare' },
+        { fr: 'partager', ar: 'يشارك', en: 'to share' }
+      ] },
+      { icon: '🔤', title: { ar: 'Briser / Friser / Utiliser / Aiguiser', en: 'Group 134', fr: 'Groupe 134' }, phrases: [
+        { fr: 'briser', ar: 'يكسر', en: 'to break' },
+        { fr: 'friser', ar: 'يجعّد الشعر أو يلامس', en: 'to curl' },
+        { fr: 'utiliser', ar: 'يستعمل', en: 'to use' },
+        { fr: 'aiguiser', ar: 'يشحذ', en: 'to sharpen' }
+      ] },
+      { icon: '🔤', title: { ar: 'Laver / Graver / Bavarder / Attraper', en: 'Group 135', fr: 'Groupe 135' }, phrases: [
+        { fr: 'laver', ar: 'يغسل', en: 'to wash' },
+        { fr: 'graver', ar: 'ينقش', en: 'to engrave' },
+        { fr: 'bavarder', ar: 'يدردش', en: 'to chat' },
+        { fr: 'attraper', ar: 'يمسك', en: 'to catch' }
+      ] },
+      { icon: '🔤', title: { ar: 'Danser / Penser / Dépenser / Compenser', en: 'Group 136', fr: 'Groupe 136' }, phrases: [
+        { fr: 'danser', ar: 'يرقص', en: 'to dance' },
+        { fr: 'penser', ar: 'يفكّر', en: 'to think' },
+        { fr: 'dépenser', ar: 'ينفق', en: 'to spend' },
+        { fr: 'compenser', ar: 'يعوّض', en: 'to compensate' }
+      ] },
+      { icon: '🔤', title: { ar: 'Rêver / Achever / Prélever / Enlever', en: 'Group 137', fr: 'Groupe 137' }, phrases: [
+        { fr: 'rêver', ar: 'يحلم', en: 'to dream' },
+        { fr: 'achever', ar: 'يُنهي', en: 'to complete' },
+        { fr: 'prélever', ar: 'يقتطع', en: 'to withdraw' },
+        { fr: 'enlever', ar: 'يزيل', en: 'to remove' }
+      ] },
+      { icon: '🔤', title: { ar: 'Placer / Menacer / Effacer / Tracer', en: 'Group 138', fr: 'Groupe 138' }, phrases: [
+        { fr: 'placer', ar: 'يضع', en: 'to place' },
+        { fr: 'menacer', ar: 'يهدّد', en: 'to threaten' },
+        { fr: 'effacer', ar: 'يمحو', en: 'to erase' },
+        { fr: 'tracer', ar: 'يرسم أو يخطّ', en: 'to draw / trace' }
+      ] },
+      { icon: '🔤', title: { ar: 'Révéler / Renouveler / Annuler / Accumuler', en: 'Group 139', fr: 'Groupe 139' }, phrases: [
+        { fr: 'révéler', ar: 'يكشف', en: 'to reveal' },
+        { fr: 'renouveler', ar: 'يجدّد', en: 'to renew' },
+        { fr: 'annuler', ar: 'يلغي', en: 'to cancel' },
+        { fr: 'accumuler', ar: 'يراكم', en: 'to accumulate' }
+      ] },
+      { icon: '🔤', title: { ar: 'Décorer / Explorer / Ignorer / Améliorer', en: 'Group 140', fr: 'Groupe 140' }, phrases: [
+        { fr: 'décorer', ar: 'يزيّن', en: 'to decorate' },
+        { fr: 'explorer', ar: 'يستكشف', en: 'to explore' },
+        { fr: 'ignorer', ar: 'يجهل', en: 'to ignore' },
+        { fr: 'améliorer', ar: 'يحسّن', en: 'to improve' }
+      ] },
+      { icon: '🔤', title: { ar: 'Distribuer / Contribuer / Attribuer / Substituer', en: 'Group 141', fr: 'Groupe 141' }, phrases: [
+        { fr: 'distribuer', ar: 'يوزّع', en: 'to distribute' },
+        { fr: 'contribuer', ar: 'يساهم', en: 'to contribute' },
+        { fr: 'attribuer', ar: 'ينسب أو يمنح', en: 'to assign' },
+        { fr: 'substituer', ar: 'يستبدل', en: 'to substitute' }
+      ] },
+      { icon: '🔤', title: { ar: 'Informer / Former / Transformer / Performer', en: 'Group 142', fr: 'Groupe 142' }, phrases: [
+        { fr: 'informer', ar: 'يُخبر', en: 'to inform' },
+        { fr: 'former', ar: 'يدرّب', en: 'to train' },
+        { fr: 'transformer', ar: 'يحوّل', en: 'to transform' },
+        { fr: 'performer', ar: 'يؤدّي أو يقدّم أداءً', en: 'to perform' }
+      ] },
+      { icon: '🔤', title: { ar: 'Accepter / Respecter / Inspecter / Suspecter', en: 'Group 143', fr: 'Groupe 143' }, phrases: [
+        { fr: 'accepter', ar: 'يقبل', en: 'to accept' },
+        { fr: 'respecter', ar: 'يحترم', en: 'to respect' },
+        { fr: 'inspecter', ar: 'يفتّش', en: 'to inspect' },
+        { fr: 'suspecter', ar: 'يشتبه بـ', en: 'to suspect' }
+      ] },
+      { icon: '🔤', title: { ar: 'Assurer / Mesurer / Blesser / Traverser', en: 'Group 144', fr: 'Groupe 144' }, phrases: [
+        { fr: 'assurer', ar: 'يضمن', en: 'to insure / ensure' },
+        { fr: 'mesurer', ar: 'يقيس', en: 'to measure' },
+        { fr: 'blesser', ar: 'يجرح', en: 'to injure' },
+        { fr: 'traverser', ar: 'يعبر', en: 'to cross' }
+      ] },
+      { icon: '🔤', title: { ar: 'Déclarer / Préférer / Libérer / Opérer', en: 'Group 145', fr: 'Groupe 145' }, phrases: [
+        { fr: 'déclarer', ar: 'يصرّح', en: 'to declare' },
+        { fr: 'préférer', ar: 'يفضّل', en: 'to prefer' },
+        { fr: 'libérer', ar: 'يحرّر', en: 'to free' },
+        { fr: 'opérer', ar: 'يجري عملية أو يشغّل', en: 'to operate' }
+      ] },
+      { icon: '🔤', title: { ar: 'Établir / Rétablir / Stabiliser / Comptabiliser', en: 'Group 146', fr: 'Groupe 146' }, phrases: [
+        { fr: 'établir', ar: 'يؤسّس أو يحدّد', en: 'to establish' },
+        { fr: 'rétablir', ar: 'يعيد', en: 'to restore' },
+        { fr: 'stabiliser', ar: 'يثبّت', en: 'to stabilize' },
+        { fr: 'comptabiliser', ar: 'يحسب محاسبيًا', en: 'to account for' }
+      ] },
+      { icon: '🔤', title: { ar: 'Découvrir / Recouvrir / Secourir / Accourir', en: 'Group 147', fr: 'Groupe 147' }, phrases: [
+        { fr: 'découvrir', ar: 'يكتشف', en: 'to discover' },
+        { fr: 'recouvrir', ar: 'يغطي', en: 'to cover' },
+        { fr: 'secourir', ar: 'ينقذ', en: 'to rescue' },
+        { fr: 'accourir', ar: 'يهرع', en: 'to hurry over' }
+      ] },
+      { icon: '🔤', title: { ar: 'Achever / Archiver / Arriver / Aviser', en: 'Group 148', fr: 'Groupe 148' }, phrases: [
+        { fr: 'achever', ar: 'يُنهي', en: 'to complete' },
+        { fr: 'archiver', ar: 'يؤرشف', en: 'to archive' },
+        { fr: 'arriver', ar: 'يصل', en: 'to arrive' },
+        { fr: 'aviser', ar: 'يُبلغ أو ينبه', en: 'to notify' }
+      ] },
+      { icon: '🔤', title: { ar: 'Baisser / Casser / Classer / Masser', en: 'Group 149', fr: 'Groupe 149' }, phrases: [
+        { fr: 'baisser', ar: 'يخفض', en: 'to lower' },
+        { fr: 'casser', ar: 'يكسر', en: 'to break' },
+        { fr: 'classer', ar: 'يصنّف', en: 'to classify' },
+        { fr: 'masser', ar: 'يدلّك', en: 'to massage' }
+      ] },
+      { icon: '🔤', title: { ar: 'Calculer / Circuler / Formuler / Réguler', en: 'Group 150', fr: 'Groupe 150' }, phrases: [
+        { fr: 'calculer', ar: 'يحسب', en: 'to calculate' },
+        { fr: 'circuler', ar: 'يتنقّل', en: 'to circulate' },
+        { fr: 'formuler', ar: 'يصوغ', en: 'to formulate' },
+        { fr: 'réguler', ar: 'ينظّم', en: 'to regulate' }
+      ] },
+      { icon: '🔤', title: { ar: 'Déposer / Composer / Proposer / Reposer', en: 'Group 151', fr: 'Groupe 151' }, phrases: [
+        { fr: 'déposer', ar: 'يضع أو يودع', en: 'to deposit / place' },
+        { fr: 'composer', ar: 'يؤلّف أو يشكّل', en: 'to compose' },
+        { fr: 'proposer', ar: 'يقترح', en: 'to propose' },
+        { fr: 'reposer', ar: 'يستريح أو يعتمد', en: 'to rest / rely' }
+      ] },
+      { icon: '🔤', title: { ar: 'Évader / Fonder / Sonder / Abonder', en: 'Group 152', fr: 'Groupe 152' }, phrases: [
+        { fr: 'évader', ar: 'يهرب', en: 'to escape' },
+        { fr: 'fonder', ar: 'يؤسّس', en: 'to found' },
+        { fr: 'sonder', ar: 'يستطلع أو يجسّ', en: 'to survey / probe' },
+        { fr: 'abonder', ar: 'يكثر', en: 'to abound' }
+      ] },
+      { icon: '🔤', title: { ar: 'Fonctionner / Mentionner / Questionner / Stationner', en: 'Group 153', fr: 'Groupe 153' }, phrases: [
+        { fr: 'fonctionner', ar: 'يعمل', en: 'to function' },
+        { fr: 'mentionner', ar: 'يذكر', en: 'to mention' },
+        { fr: 'questionner', ar: 'يسأل', en: 'to question' },
+        { fr: 'stationner', ar: 'يركن', en: 'to park' }
+      ] },
+      { icon: '🔤', title: { ar: 'Hésiter / Mériter / Visiter / Éditer', en: 'Group 154', fr: 'Groupe 154' }, phrases: [
+        { fr: 'hésiter', ar: 'يتردّد', en: 'to hesitate' },
+        { fr: 'mériter', ar: 'يستحق', en: 'to deserve' },
+        { fr: 'visiter', ar: 'يزور', en: 'to visit' },
+        { fr: 'éditer', ar: 'ينشر أو يحرّر', en: 'to edit / publish' }
+      ] },
+      { icon: '🔤', title: { ar: 'Identifier / Modifier / Signifier / Vérifier', en: 'Group 155', fr: 'Groupe 155' }, phrases: [
+        { fr: 'identifier', ar: 'يحدّد الهوية', en: 'to identify' },
+        { fr: 'modifier', ar: 'يعدّل', en: 'to modify' },
+        { fr: 'signifier', ar: 'يعني', en: 'to mean' },
+        { fr: 'vérifier', ar: 'يتحقّق', en: 'to verify' }
+      ] },
+      { icon: '🔤', title: { ar: 'Limiter / Éliminer / Dominer / Déterminer', en: 'Group 156', fr: 'Groupe 156' }, phrases: [
+        { fr: 'limiter', ar: 'يحدّ', en: 'to limit' },
+        { fr: 'éliminer', ar: 'يزيل', en: 'to eliminate' },
+        { fr: 'dominer', ar: 'يسيطر', en: 'to dominate' },
+        { fr: 'déterminer', ar: 'يحدّد', en: 'to determine' }
+      ] },
+      { icon: '🔤', title: { ar: 'Maintenir / Obtenir / Contenir / Appartenir', en: 'Group 157', fr: 'Groupe 157' }, phrases: [
+        { fr: 'maintenir', ar: 'يحافظ على', en: 'to maintain' },
+        { fr: 'obtenir', ar: 'يحصل على', en: 'to obtain' },
+        { fr: 'contenir', ar: 'يحتوي', en: 'to contain' },
+        { fr: 'appartenir', ar: 'ينتمي', en: 'to belong' }
+      ] },
+      { icon: '🔤', title: { ar: 'Nourrir / Pourrir / Guérir / Obéir', en: 'Group 158', fr: 'Groupe 158' }, phrases: [
+        { fr: 'nourrir', ar: 'يطعِم', en: 'to feed' },
+        { fr: 'pourrir', ar: 'يتعفّن', en: 'to rot' },
+        { fr: 'guérir', ar: 'يشفى أو يعالج', en: 'to heal' },
+        { fr: 'obéir', ar: 'يطيع', en: 'to obey' }
+      ] },
+      { icon: '🔤', title: { ar: 'Occuper / Préoccuper / Récupérer / Rapprocher', en: 'Group 159', fr: 'Groupe 159' }, phrases: [
+        { fr: 'occuper', ar: 'يشغل', en: 'to occupy' },
+        { fr: 'préoccuper', ar: 'يقلق أو يشغل البال', en: 'to worry' },
+        { fr: 'récupérer', ar: 'يستعيد', en: 'to recover' },
+        { fr: 'rapprocher', ar: 'يقرّب', en: 'to bring closer' }
+      ] },
+      { icon: '🔤', title: { ar: 'Ramper / Camper / Tromper / Tremper', en: 'Group 160', fr: 'Groupe 160' }, phrases: [
+        { fr: 'ramper', ar: 'يزحف', en: 'to crawl' },
+        { fr: 'camper', ar: 'يخيّم', en: 'to camp' },
+        { fr: 'tromper', ar: 'يخدع', en: 'to deceive' },
+        { fr: 'tremper', ar: 'ينقع أو يغمّس', en: 'to soak / dip' }
+      ] },
+      { icon: '🔤', title: { ar: 'Sauter / Ajouter / Rajouter / Chahuter', en: 'Group 161', fr: 'Groupe 161' }, phrases: [
+        { fr: 'sauter', ar: 'يقفز', en: 'to jump' },
+        { fr: 'ajouter', ar: 'يضيف', en: 'to add' },
+        { fr: 'rajouter', ar: 'يضيف مجددًا', en: 'to add again' },
+        { fr: 'chahuter', ar: 'يشاغب', en: 'to fool around' }
+      ] },
+      { icon: '🔤', title: { ar: 'Tirer / Retirer / Attirer / Étourdir', en: 'Group 162', fr: 'Groupe 162' }, phrases: [
+        { fr: 'tirer', ar: 'يسحب أو يطلق', en: 'to pull / shoot' },
+        { fr: 'retirer', ar: 'يسحب أو يزيل', en: 'to remove' },
+        { fr: 'attirer', ar: 'يجذب', en: 'to attract' },
+        { fr: 'étourdir', ar: 'يدوّخ', en: 'to stun' }
+      ] },
+      { icon: '🔤', title: { ar: 'Apercevoir / Recevoir / Décevoir / Concevoir', en: 'Group 163', fr: 'Groupe 163' }, phrases: [
+        { fr: 'apercevoir', ar: 'يلمح', en: 'to notice' },
+        { fr: 'recevoir', ar: 'يستلم', en: 'to receive' },
+        { fr: 'décevoir', ar: 'يخيّب', en: 'to disappoint' },
+        { fr: 'concevoir', ar: 'يصمّم أو يتصوّر', en: 'to conceive' }
+      ] },
+      { icon: '🔤', title: { ar: 'Décrire / Inscrire / Prescrire / Proscrire', en: 'Group 164', fr: 'Groupe 164' }, phrases: [
+        { fr: 'décrire', ar: 'يصف', en: 'to describe' },
+        { fr: 'inscrire', ar: 'يسجّل', en: 'to register' },
+        { fr: 'prescrire', ar: 'يصف دواءً', en: 'to prescribe' },
+        { fr: 'proscrire', ar: 'يحظر', en: 'to prohibit' }
+      ] },
+      { icon: '🔤', title: { ar: 'Élire / Relire / Prédire / Redire', en: 'Group 165', fr: 'Groupe 165' }, phrases: [
+        { fr: 'élire', ar: 'ينتخب', en: 'to elect' },
+        { fr: 'relire', ar: 'يعيد القراءة', en: 'to reread' },
+        { fr: 'prédire', ar: 'يتنبأ', en: 'to predict' },
+        { fr: 'redire', ar: 'يعيد القول', en: 'to repeat' }
+      ] },
+      { icon: '🔤', title: { ar: 'Extraire / Distraire / Soustraire / Abstraire', en: 'Group 166', fr: 'Groupe 166' }, phrases: [
+        { fr: 'extraire', ar: 'يستخرج', en: 'to extract' },
+        { fr: 'distraire', ar: 'يسلّي', en: 'to entertain' },
+        { fr: 'soustraire', ar: 'يطرح أو يقتطع', en: 'to subtract' },
+        { fr: 'abstraire', ar: 'يجرّد', en: 'to abstract' }
+      ] },
+      { icon: '🔤', title: { ar: 'Satisfaire / Parfaire / Défaire / Contrefaire', en: 'Group 167', fr: 'Groupe 167' }, phrases: [
+        { fr: 'satisfaire', ar: 'يرضي', en: 'to satisfy' },
+        { fr: 'parfaire', ar: 'يتقن أو يكمل', en: 'to perfect' },
+        { fr: 'défaire', ar: 'يفكّ أو يلغي', en: 'to undo' },
+        { fr: 'contrefaire', ar: 'يزوّر', en: 'to counterfeit' }
+      ] },
+      { icon: '🔤', title: { ar: 'Entourer / Retourner / Détourner / Séjourner', en: 'Group 168', fr: 'Groupe 168' }, phrases: [
+        { fr: 'entourer', ar: 'يحيط بـ', en: 'to surround' },
+        { fr: 'retourner', ar: 'يعود أو يقلب', en: 'to return / turn over' },
+        { fr: 'détourner', ar: 'يحوّل أو يشتّت', en: 'to divert' },
+        { fr: 'séjourner', ar: 'يقيم', en: 'to stay' }
+      ] },
+      { icon: '🔤', title: { ar: 'Assembler / Ressembler / Rassembler / Dépenser', en: 'Group 169', fr: 'Groupe 169' }, phrases: [
+        { fr: 'assembler', ar: 'يجمع أو يركّب', en: 'to assemble' },
+        { fr: 'ressembler', ar: 'يشبه', en: 'to resemble' },
+        { fr: 'rassembler', ar: 'يجمع معًا', en: 'to gather' },
+        { fr: 'dépenser', ar: 'ينفق', en: 'to spend' }
+      ] },
+      { icon: '🔤', title: { ar: 'Désirer / Respirer / Inspirer / Expirer', en: 'Group 170', fr: 'Groupe 170' }, phrases: [
+        { fr: 'désirer', ar: 'يرغب', en: 'to desire' },
+        { fr: 'respirer', ar: 'يتنفس', en: 'to breathe' },
+        { fr: 'inspirer', ar: 'يستنشق أو يوحي', en: 'to inspire / inhale' },
+        { fr: 'expirer', ar: 'يزفر أو تنتهي صلاحيته', en: 'to exhale / expire' }
+      ] },
+      { icon: '🔤', title: { ar: 'Nager / Partager / Engager / Encourager', en: 'Group 171', fr: 'Groupe 171' }, phrases: [
+        { fr: 'nager', ar: 'يسبح', en: 'to swim' },
+        { fr: 'partager', ar: 'يشارك', en: 'to share' },
+        { fr: 'engager', ar: 'يوظّف أو يُشرك', en: 'to hire / engage' },
+        { fr: 'encourager', ar: 'يشجّع', en: 'to encourage' }
+      ] },
+      { icon: '🔤', title: { ar: 'Séparer / Préparer / Récupérer / Opérer', en: 'Group 172', fr: 'Groupe 172' }, phrases: [
+        { fr: 'séparer', ar: 'يفصل', en: 'to separate' },
+        { fr: 'préparer', ar: 'يحضّر', en: 'to prepare' },
+        { fr: 'récupérer', ar: 'يستعيد', en: 'to recover' },
+        { fr: 'opérer', ar: 'يجري عملية', en: 'to operate' }
+      ] },
+      { icon: '🔤', title: { ar: 'Remarquer / Marquer / Démarquer', en: 'Group 173', fr: 'Groupe 173' }, phrases: [
+        { fr: 'remarquer', ar: 'يلاحظ', en: 'to notice' },
+        { fr: 'marquer', ar: 'يعلّم أو يسجّل', en: 'to mark' },
+        { fr: 'démarquer', ar: 'يحرّر من الرقابة أو يميّز', en: 'to get free / stand out' }
+      ] },
+      { icon: '🔤', title: { ar: 'Réclamer / Programmer / Diagrammer / Télégrammer', en: 'Group 174', fr: 'Groupe 174' }, phrases: [
+        { fr: 'réclamer', ar: 'يطالب', en: 'to demand' },
+        { fr: 'programmer', ar: 'يبرمج أو يحدّد موعدًا', en: 'to program / schedule' },
+        { fr: 'diagrammer', ar: 'يضع مخططًا', en: 'to diagram' },
+        { fr: 'télégrammer', ar: 'يرسل برقية', en: 'to telegraph' }
+      ] },
+      { icon: '🔤', title: { ar: 'Agrandir / Approfondir / Enrichir / Éclaircir', en: 'Group 175', fr: 'Groupe 175' }, phrases: [
+        { fr: 'agrandir', ar: 'يكبّر', en: 'to enlarge' },
+        { fr: 'approfondir', ar: 'يعمّق', en: 'to deepen' },
+        { fr: 'enrichir', ar: 'يُغني', en: 'to enrich' },
+        { fr: 'éclaircir', ar: 'يوضّح', en: 'to clarify' }
+      ] },
+      { icon: '🔤', title: { ar: 'Ralentir / Garantir / Avertir / Convertir', en: 'Group 176', fr: 'Groupe 176' }, phrases: [
+        { fr: 'ralentir', ar: 'يبطّئ', en: 'to slow down' },
+        { fr: 'garantir', ar: 'يضمن', en: 'to guarantee' },
+        { fr: 'avertir', ar: 'يحذّر', en: 'to warn' },
+        { fr: 'convertir', ar: 'يحوّل', en: 'to convert' }
+      ] },
+      { icon: '🔤', title: { ar: 'Aborder / Adopter / Adapter / Ajouter', en: 'Group 177', fr: 'Groupe 177' }, phrases: [
+        { fr: 'aborder', ar: 'يتطرّق إلى', en: 'to approach / address' },
+        { fr: 'adopter', ar: 'يتبنّى', en: 'to adopt' },
+        { fr: 'adapter', ar: 'يكيّف', en: 'to adapt' },
+        { fr: 'ajouter', ar: 'يضيف', en: 'to add' }
+      ] },
+      { icon: '🔤', title: { ar: 'Allumer / Illuminer / Accumuler / Formuler', en: 'Group 178', fr: 'Groupe 178' }, phrases: [
+        { fr: 'allumer', ar: 'يشغّل أو يضيء', en: 'to turn on' },
+        { fr: 'illuminer', ar: 'ينير', en: 'to illuminate' },
+        { fr: 'accumuler', ar: 'يراكم', en: 'to accumulate' },
+        { fr: 'formuler', ar: 'يصوغ', en: 'to formulate' }
+      ] },
+      { icon: '🔤', title: { ar: 'Bénéficier / Sacrifier / Vérifier / Identifier', en: 'Group 179', fr: 'Groupe 179' }, phrases: [
+        { fr: 'bénéficier', ar: 'يستفيد', en: 'to benefit' },
+        { fr: 'sacrifier', ar: 'يضحّي', en: 'to sacrifice' },
+        { fr: 'vérifier', ar: 'يتحقّق', en: 'to verify' },
+        { fr: 'identifier', ar: 'يحدّد الهوية', en: 'to identify' }
+      ] },
+      { icon: '🔤', title: { ar: 'Déballer / Emballer / Remballer / Installer', en: 'Group 180', fr: 'Groupe 180' }, phrases: [
+        { fr: 'déballer', ar: 'يفتح التغليف', en: 'to unpack' },
+        { fr: 'emballer', ar: 'يغلّف', en: 'to pack' },
+        { fr: 'remballer', ar: 'يعيد التغليف', en: 'to repack' },
+        { fr: 'installer', ar: 'يركّب', en: 'to install' }
+      ] },
+      { icon: '🔤', title: { ar: 'Débrancher / Brancher / Rebrancher / Mélanger', en: 'Group 181', fr: 'Groupe 181' }, phrases: [
+        { fr: 'débrancher', ar: 'يفصل القابس', en: 'to unplug' },
+        { fr: 'brancher', ar: 'يوصل', en: 'to plug in' },
+        { fr: 'rebrancher', ar: 'يعيد التوصيل', en: 'to reconnect' },
+        { fr: 'mélanger', ar: 'يخلط', en: 'to mix' }
+      ] },
+      { icon: '🔤', title: { ar: 'Déplacer / Remuer / Secouer / Bouger', en: 'Group 182', fr: 'Groupe 182' }, phrases: [
+        { fr: 'déplacer', ar: 'ينقل', en: 'to move' },
+        { fr: 'remuer', ar: 'يحرّك', en: 'to stir' },
+        { fr: 'secouer', ar: 'يهزّ', en: 'to shake' },
+        { fr: 'bouger', ar: 'يتحرّك', en: 'to move' }
+      ] },
+      { icon: '🔤', title: { ar: 'Échanger / Changer / Ranger / Déranger', en: 'Group 183', fr: 'Groupe 183' }, phrases: [
+        { fr: 'échanger', ar: 'يبادل', en: 'to exchange' },
+        { fr: 'changer', ar: 'يغيّر', en: 'to change' },
+        { fr: 'ranger', ar: 'يرتّب', en: 'to tidy' },
+        { fr: 'déranger', ar: 'يزعج أو يبعثر', en: 'to disturb' }
+      ] },
+      { icon: '🔤', title: { ar: 'Emprunter / Importer / Exporter / Transporter', en: 'Group 184', fr: 'Groupe 184' }, phrases: [
+        { fr: 'emprunter', ar: 'يستعير', en: 'to borrow' },
+        { fr: 'importer', ar: 'يستورد', en: 'to import' },
+        { fr: 'exporter', ar: 'يصدّر', en: 'to export' },
+        { fr: 'transporter', ar: 'ينقل', en: 'to transport' }
+      ] },
+      { icon: '🔤', title: { ar: 'Entamer / Fermer / Enfermer / Confirmer', en: 'Group 185', fr: 'Groupe 185' }, phrases: [
+        { fr: 'entamer', ar: 'يبدأ أو يفتح', en: 'to begin / open' },
+        { fr: 'fermer', ar: 'يغلق', en: 'to close' },
+        { fr: 'enfermer', ar: 'يحبس أو يغلق داخل', en: 'to lock in' },
+        { fr: 'confirmer', ar: 'يؤكّد', en: 'to confirm' }
+      ] },
+      { icon: '🔤', title: { ar: 'Éviter / Inviter / Limiter / Mériter', en: 'Group 186', fr: 'Groupe 186' }, phrases: [
+        { fr: 'éviter', ar: 'يتجنّب', en: 'to avoid' },
+        { fr: 'inviter', ar: 'يدعو', en: 'to invite' },
+        { fr: 'limiter', ar: 'يحدّ', en: 'to limit' },
+        { fr: 'mériter', ar: 'يستحق', en: 'to deserve' }
+      ] },
+      { icon: '🔤', title: { ar: 'Fixer / Mixer / Taxer / Relaxer', en: 'Group 187', fr: 'Groupe 187' }, phrases: [
+        { fr: 'fixer', ar: 'يثبّت أو يحدّد', en: 'to fix / set' },
+        { fr: 'mixer', ar: 'يخلط', en: 'to mix' },
+        { fr: 'taxer', ar: 'يفرض ضريبة', en: 'to tax' },
+        { fr: 'relaxer', ar: 'يرخّي أو يخفف التوتر', en: 'to relax' }
+      ] },
+      { icon: '🔤', title: { ar: 'Insérer / Préférer / Libérer / Considérer', en: 'Group 188', fr: 'Groupe 188' }, phrases: [
+        { fr: 'insérer', ar: 'يُدخل', en: 'to insert' },
+        { fr: 'préférer', ar: 'يفضّل', en: 'to prefer' },
+        { fr: 'libérer', ar: 'يحرّر', en: 'to free' },
+        { fr: 'considérer', ar: 'يعتبر', en: 'to consider' }
+      ] },
+      { icon: '🔤', title: { ar: 'Murmurer / Assurer / Mesurer / Rassurer', en: 'Group 189', fr: 'Groupe 189' }, phrases: [
+        { fr: 'murmurer', ar: 'يهمس', en: 'to whisper' },
+        { fr: 'assurer', ar: 'يضمن', en: 'to ensure' },
+        { fr: 'mesurer', ar: 'يقيس', en: 'to measure' },
+        { fr: 'rassurer', ar: 'يطمئن', en: 'to reassure' }
+      ] },
+      { icon: '🔤', title: { ar: 'Notifier / Profiter / Éditer / Visiter', en: 'Group 190', fr: 'Groupe 190' }, phrases: [
+        { fr: 'notifier', ar: 'يبلّغ رسميًا', en: 'to notify' },
+        { fr: 'profiter', ar: 'يستفيد أو يستمتع', en: 'to benefit / enjoy' },
+        { fr: 'éditer', ar: 'يحرّر أو ينشر', en: 'to edit / publish' },
+        { fr: 'visiter', ar: 'يزور', en: 'to visit' }
+      ] }
+    ]
   }
 ];
