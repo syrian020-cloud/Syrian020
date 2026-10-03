@@ -976,6 +976,82 @@ window.CENTRES_DATA = [
           { fr: 'Quels services bancaires sont inclus ?', ar: 'شو الخدمات البنكية اللي بتكون متوفرة؟', en: 'What banking services are included?' },
           { fr: 'Je voudrais simplement savoir quelles sont les démarches pour bénéficier du droit au compte.', ar: 'بدي بس أعرف شو الإجراءات حتى استفيد من حق فتح الحساب.', en: 'I would simply like to know what the steps are to benefit from the right to an account.' }
         ]
+      },
+      {
+        icon: '🏦',
+        title: { ar: '⭐ فتح حساب BoursoBank والتسجيل', en: 'Opening a BoursoBank account', fr: 'Ouvrir un compte BoursoBank' },
+        phrases: [
+          { fr: 'Je voudrais ouvrir un compte bancaire. / Je souhaite ouvrir un compte chez BoursoBank.', ar: 'بدي افتح حساب بنكي / حساب بـ BoursoBank.', en: 'I’d like to open a bank account / with BoursoBank.' },
+          { fr: 'Quels documents dois-je fournir ? / J’ai besoin d’une pièce d’identité. / Voici mon titre de séjour.', ar: 'شو الأوراق المطلوبة؟ / بحتاج هوية / هاد تصريح إقامتي.', en: 'Which documents? / I need an ID / here is my residence permit.' },
+          { fr: 'Je dois faire un premier versement.', ar: 'لازم اعمل أول إيداع.', en: 'I need to make an initial deposit.' },
+          { fr: 'Le premier versement peut se faire par carte d’une autre banque française ou par virement.', ar: 'أول إيداع ممكن ببطاقة بنك فرنسي تاني أو بتحويل.', en: 'First deposit via another French bank card or transfer.' }
+        ]
+      },
+      {
+        icon: '💳',
+        title: { ar: '⭐ البطاقة البنكية', en: 'Bank card', fr: 'Carte bancaire' },
+        phrases: [
+          { fr: 'Je voudrais commander une carte bancaire. / Ma carte n’est toujours pas arrivée.', ar: 'بدي اطلب بطاقة / بطاقتي لسا ما وصلت.', en: 'Order a card / my card hasn’t arrived.' },
+          { fr: 'Je viens de recevoir ma carte. / Comment activer ma carte ?', ar: 'استلمتها هلأ / كيف بفعّلها؟', en: 'Just received it / how to activate?' },
+          { fr: 'Ma carte est bloquée. / J’ai fait trois erreurs de code. / Comment débloquer ma carte ?', ar: 'بطاقتي محظورة / غلطت بالرمز 3 مرات / كيف بفك حظرها؟', en: 'Card blocked / 3 wrong codes / unblock it?' },
+          { fr: 'J’ai perdu ma carte. / On m’a volé ma carte. / Je voudrais faire opposition à ma carte / la bloquer.', ar: 'ضيّعت بطاقتي / انسرقت / بدي أوقفها.', en: 'Lost / stolen / block my card.' },
+          { fr: 'Je peux utiliser ma carte à l’étranger ?', ar: 'فيني استخدم بطاقتي بالخارج؟', en: 'Can I use my card abroad?' }
+        ]
+      },
+      {
+        icon: '💰',
+        title: { ar: '⭐ الرصيد والتحويل والـRIB', en: 'Balance, transfers, RIB', fr: 'Solde, virements, RIB' },
+        phrases: [
+          { fr: 'Quel est le solde de mon compte ? / Mon solde est insuffisant.', ar: 'قديش رصيدي؟ / رصيدي ما بكفي.', en: 'My balance? / insufficient.' },
+          { fr: 'Mon compte est à découvert. / Je suis à découvert. / Quel est mon découvert autorisé ?', ar: 'حسابي بالسالب / قديش مسموح السحب على المكشوف؟', en: 'Overdrawn / authorized overdraft?' },
+          { fr: 'Je voudrais faire un virement. / Je vais virer 200 euros à mon frère.', ar: 'بدي اعمل تحويل / رح حوّل 200 يورو لأخي.', en: 'Make a transfer / transfer €200 to my brother.' },
+          { fr: 'Je n’ai pas reçu le virement. / Le virement est en cours. / a été effectué. / Quel est le délai ?', ar: 'ما وصلني التحويل / قيد التنفيذ / تم / قديش بياخد؟', en: 'Not received / processing / done / how long?' },
+          { fr: 'Je voudrais faire un virement instantané / SEPA / hors zone SEPA.', ar: 'بدي تحويل فوري / SEPA / خارج منطقة SEPA.', en: 'Instant / SEPA / non-SEPA transfer.' },
+          { fr: 'Je voudrais ajouter / supprimer un bénéficiaire.', ar: 'بدي أضيف / أحذف مستفيد.', en: 'Add / delete a beneficiary.' },
+          { fr: 'Je voudrais télécharger mon RIB. / Quel est mon IBAN ? / J’ai besoin de mon RIB pour mon employeur / la CAF.', ar: 'بدي نزّل الـRIB / شو الـIBAN؟ / بحتاجه لصاحب العمل / للكاف.', en: 'Download my RIB / my IBAN? / for employer / CAF.' }
+        ]
+      },
+      {
+        icon: '🏠',
+        title: { ar: '⭐ الاقتطاع والصراف والدفع', en: 'Direct debit, ATM, card payments', fr: 'Prélèvement, DAB, paiements' },
+        phrases: [
+          { fr: 'Le prélèvement a été effectué / rejeté. / Je ne reconnais pas ce prélèvement.', ar: 'انخصمت الدفعة / انرفضت / ما بعرف هالاقتطاع.', en: 'Debit taken / rejected / don’t recognize it.' },
+          { fr: 'Je voudrais bloquer ce prélèvement / mettre en place un prélèvement automatique.', ar: 'بدي أوقف هالاقتطاع / أفعل اقتطاع تلقائي.', en: 'Block this debit / set up auto-debit.' },
+          { fr: 'Je voudrais retirer de l’argent. / Où est le distributeur le plus proche ? / Je vais retirer 100 euros.', ar: 'بدي اسحب مصاري / وين أقرب صراف؟ / رح اسحب 100.', en: 'Withdraw money / nearest ATM / withdraw €100.' },
+          { fr: 'Le retrait a été refusé. / Ma carte ne fonctionne pas au distributeur.', ar: 'السحب انرفض / بطاقتي ما عم تشتغل بالصراف.', en: 'Withdrawal declined / card doesn’t work at ATM.' },
+          { fr: 'Le paiement a été refusé. / Pourquoi mon paiement a-t-il été refusé ?', ar: 'الدفع انرفض / ليش انرفض؟', en: 'Payment declined / why?' },
+          { fr: 'Je ne reconnais pas ce paiement / cette opération. / Je pense que ma carte a été utilisée frauduleusement.', ar: 'ما بعرف هالدفع / بعتقد بطاقتي انسرقت لحدا.', en: 'Don’t recognize it / card used fraudulently.' },
+          { fr: 'Je voudrais contester cette opération. / Quand serai-je remboursé ?', ar: 'بدي اعترض على هالعملية / إمتى بيرجعولي المصاري؟', en: 'Dispute this transaction / when refunded?' }
+        ]
+      },
+      {
+        icon: '📱',
+        title: { ar: '⭐ التطبيق + عبارات البنك', en: 'App + what the bank says', fr: 'Application + notifications' },
+        phrases: [
+          { fr: 'Je n’arrive pas à me connecter à l’application. / J’ai oublié mon mot de passe. / Je n’ai pas reçu le code.', ar: 'ما عم اقدر فوت عالتطبيق / نسيت كلمة السر / ما وصلني الرمز.', en: 'Can’t log in / forgot password / no code received.' },
+          { fr: 'Je voudrais consulter mes opérations / mon solde. / télécharger mon relevé bancaire. / modifier mes coordonnées.', ar: 'بدي شوف عملياتي / رصيدي / نزّل كشف الحساب / عدّل معلوماتي.', en: 'Check transactions / balance / download statement / update details.' },
+          { fr: 'Je voudrais contacter le service client. / Je vais appeler la banque / prendre rendez-vous à l’agence.', ar: 'بدي تواصل مع خدمة الزبائن / اتصل بالبنك / احجز موعد بالفرع.', en: 'Contact customer service / call the bank / branch appointment.' },
+          { fr: 'Votre paiement a été accepté / refusé. / Votre virement est en cours de traitement.', ar: 'الدفع انقبل / انرفض / التحويل قيد المعالجة.', en: 'Payment accepted / declined / transfer processing.' },
+          { fr: 'Votre compte a été crédité / débité. / Votre carte a été bloquée. / L’opération a été rejetée.', ar: 'انضاف / انخصم المبلغ / بطاقتك انحظرت / العملية انرفضت.', en: 'Account credited / debited / card blocked / rejected.' },
+          { fr: 'Nous avons détecté une opération inhabituelle.', ar: 'اكتشفنا عملية غير اعتيادية.', en: 'We detected an unusual transaction.' },
+          { fr: 'Je ne comprends pas cette opération. / Je ne sais pas comment faire. / Il faut fournir un justificatif.', ar: 'ما فهمت هالعملية / ما بعرف كيف / لازم تقدم إثبات.', en: 'Don’t understand / don’t know how / must provide proof.' },
+          { fr: 'Je dois présenter une pièce d’identité / justifier mon adresse / signer le document / confirmer ou valider l’opération.', ar: 'لازم أقدم هوية / أثبت عنواني / أوقع الوثيقة / أكد العملية.', en: 'Present ID / prove address / sign / confirm the transaction.' }
+        ]
+      },
+      {
+        icon: '🔥',
+        title: { ar: '⭐ أفعال بنكية أساسية', en: 'Key banking verbs', fr: 'Verbes bancaires' },
+        phrases: [
+          { fr: 'ouvrir / fermer / créer un compte — Je possède déjà un compte bancaire.', ar: 'يفتح / يغلق / ينشئ حساب — عندي أصلًا حساب.', en: 'open / close / create — I already have an account.' },
+          { fr: 'déposer / verser / retirer de l’argent — épargner / économiser.', ar: 'يودع / يحط / يسحب — يدّخر / يوفر.', en: 'deposit / pay in / withdraw — save.' },
+          { fr: 'faire un virement / virer / transférer / recevoir / envoyer le RIB.', ar: 'يعمل تحويل / يحوّل / يستلم / يبعت الـRIB.', en: 'transfer / receive / send bank details.' },
+          { fr: 'commander / activer / utiliser / payer par carte — Le commerçant accepte la carte.', ar: 'يطلب / يفعّل / يستخدم / يدفع بالبطاقة — التاجر بيقبلها.', en: 'order / activate / use / pay by card — merchant accepts.' },
+          { fr: 'refuser / bloquer / débloquer — perdre / voler sa carte.', ar: 'يرفض / يحظر / يفك الحظر — يضيع / تنسرق البطاقة.', en: 'decline / block / unblock — lose / stolen card.' },
+          { fr: 'prélever / annuler / contester / reconnaître / rembourser — créditer / débiter.', ar: 'يقتطع / يلغي / يعترض / يتعرف / يعيد المصاري — يضيف / يخصم.', en: 'debit / cancel / dispute / recognize / refund — credit / debit.' },
+          { fr: 'se connecter / consulter / vérifier / télécharger / modifier / confirmer / valider.', ar: 'يسجل دخول / يطّلع / يتأكد / ينزّل / يعدّل / يؤكد / يعتمد.', en: 'log in / check / verify / download / modify / confirm / validate.' },
+          { fr: 'fournir / demander / présenter / justifier / signer — contacter / appeler / expliquer / comprendre / répondre / attendre.', ar: 'يقدم / يطلب / يبرز / يثبت / يوقع — يتواصل / يتصل / يشرح / يفهم / يرد / ينتظر.', en: 'provide / request / present / prove / sign — contact / call / explain / understand / reply / wait.' },
+          { fr: 'être bloqué / avoir un problème / vouloir / pouvoir / devoir / savoir / il faut / venir / aller / prendre rendez-vous.', ar: 'محظور / عنده مشكلة / يريد / يستطيع / عليه / يعرف / يلزم / يجي / يروح / يحجز موعد.', en: 'be blocked / have a problem / want / can / must / know / need / come / go / book.' }
+        ]
       }
     ]
   },
