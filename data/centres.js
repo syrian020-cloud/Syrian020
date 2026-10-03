@@ -5208,6 +5208,91 @@ window.CENTRES_DATA = [
           { fr: 'Quelles démarches dois-je faire ?', ar: 'شو الإجراءات اللي لازم أعملها؟', en: 'What steps do I need to take?' },
           { fr: 'Je souhaite suivre une formation SAP afin d’améliorer mes compétences et de faciliter mon retour à l’emploi. J’ai trouvé une formation sur Mon Compte Formation et je voudrais savoir si France Travail peut compléter mes droits CPF.', ar: 'بدي أعمل تدريب SAP حتى طوّر مهاراتي وسهّل رجعتي لسوق العمل. لقيت تدريب على Mon Compte Formation وبدي أعرف إذا France Travail فيهم يكملوا رصيد CPF تبعي.', en: 'I would like to take SAP training to improve my skills and facilitate my return to employment. I found a course on Mon Compte Formation and would like to know whether France Travail can supplement my CPF credits.' }
         ]
+      },
+      {
+        icon: '📚',
+        title: { ar: '⭐ طلب تدريب لغة فرنسية — المفردات', en: 'Requesting French training — vocabulary', fr: 'Formation linguistique — vocabulaire' },
+        phrases: [
+          { fr: 'formation linguistique', ar: 'تدريب لغوي', en: 'language training' },
+          { fr: 'cours de français', ar: 'دورة فرنسي', en: 'French course' },
+          { fr: 'FLE (français langue étrangère)', ar: 'فرنسي كلغة أجنبية', en: 'French as a foreign language' },
+          { fr: 'apprendre le français', ar: 'يتعلم الفرنسي', en: 'to learn French' },
+          { fr: 'améliorer mon français', ar: 'يطوّر فرنسيته', en: 'to improve my French' },
+          { fr: 'niveau', ar: 'مستوى', en: 'level' },
+          { fr: 'niveau débutant', ar: 'مستوى مبتدئ', en: 'beginner level' },
+          { fr: 'test de niveau', ar: 'فحص مستوى', en: 'placement test' },
+          { fr: 'évaluation de niveau', ar: 'تقييم المستوى', en: 'level assessment' },
+          { fr: 'A1 / A2 / B1 / B2', ar: 'مستويات اللغة (A1 مبتدئ → C2 متقن)', en: 'language levels (A1 beginner → C2 fluent)' },
+          { fr: 'compréhension orale', ar: 'الفهم السماعي', en: 'listening comprehension' },
+          { fr: 'compréhension écrite', ar: 'الفهم القرائي', en: 'reading comprehension' },
+          { fr: 'expression orale', ar: 'التعبير الشفهي', en: 'speaking' },
+          { fr: 'expression écrite', ar: 'التعبير الكتابي', en: 'writing' },
+          { fr: 'groupe', ar: 'مجموعة / صف', en: 'class / group' },
+          { fr: 'horaires de la formation', ar: 'أوقات التدريب', en: 'training schedule' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: '⭐ طلب تدريب لغة — العبارات', en: 'Requesting French training — phrases', fr: 'Demander une formation de français' },
+        phrases: [
+          { fr: 'Je voudrais suivre une formation de français.', ar: 'بدي أعمل تدريب لغة فرنسية.', en: 'I would like to take a French language course.' },
+          { fr: 'Je voudrais améliorer mon français.', ar: 'بدي طوّر لغتي الفرنسية.', en: 'I would like to improve my French.' },
+          { fr: 'J’ai besoin d’apprendre le français pour trouver un emploi.', ar: 'لازم اتعلم فرنسي حتى لاقي شغل.', en: 'I need to learn French to find a job.' },
+          { fr: 'Est-ce que je peux suivre des cours de français ?', ar: 'فيني أحضر دورات فرنسي؟', en: 'Can I attend French courses?' },
+          { fr: 'Est-ce que France Travail propose des formations de français ?', ar: 'France Travail بيقدموا تدريبات لغة فرنسية؟', en: 'Does France Travail offer French language training?' },
+          { fr: 'Je voudrais connaître les formations de français disponibles.', ar: 'بدي أعرف تدريبات الفرنسي المتوفرة.', en: 'I would like to know the available French courses.' },
+          { fr: 'Comment puis-je m’inscrire à une formation de français ?', ar: 'كيف فيني سجّل بتدريب فرنسي؟', en: 'How can I register for French training?' },
+          { fr: 'Est-ce que la formation est gratuite ?', ar: 'هل التدريب مجاني؟', en: 'Is the training free?' },
+          { fr: 'Est-ce que je peux utiliser mon CPF pour une formation de français ?', ar: 'فيني استخدم الـCPF لتدريب لغة؟', en: 'Can I use my CPF for language training?' },
+          { fr: 'Est-ce que France Travail peut financer cette formation ?', ar: 'هل France Travail فيهم يمولوا هالتدريب؟', en: 'Can France Travail fund this training?' }
+        ]
+      },
+      {
+        icon: '📊',
+        title: { ar: 'المستوى والتفاصيل العملية', en: 'Level and practical details', fr: 'Niveau et détails pratiques' },
+        phrases: [
+          { fr: 'Je suis débutant en français.', ar: 'أنا مبتدئ بالفرنسي.', en: 'I am a beginner in French.' },
+          { fr: 'Mon niveau de français est faible.', ar: 'مستواي بالفرنسي ضعيف.', en: 'My French level is low.' },
+          { fr: 'Je comprends un peu le français.', ar: 'بفهم فرنسي شوي.', en: 'I understand a little French.' },
+          { fr: 'Je peux parler mais j’ai des difficultés à écrire.', ar: 'بقدر أحكي بس عندي صعوبة بالكتابة.', en: 'I can speak but I have difficulty writing.' },
+          { fr: 'Je voudrais passer un test de niveau.', ar: 'بدي أعمل فحص مستوى.', en: 'I would like to take a placement test.' },
+          { fr: 'Quel niveau vais-je atteindre ?', ar: 'لأي مستوى رح أوصل؟', en: 'What level will I reach?' },
+          { fr: 'Je voudrais atteindre le niveau B1.', ar: 'بدي أوصل لمستوى B1.', en: 'I would like to reach level B1.' },
+          { fr: 'Quand commence la formation ?', ar: 'إمتى بيبدأ التدريب؟', en: 'When does the training start?' },
+          { fr: 'Quelle est la durée de la formation ?', ar: 'قديش مدة التدريب؟', en: 'How long is the training?' },
+          { fr: 'Combien d’heures par semaine ?', ar: 'كم ساعة بالأسبوع؟', en: 'How many hours per week?' },
+          { fr: 'Où a lieu la formation ?', ar: 'وين بيصير التدريب؟', en: 'Where does the training take place?' },
+          { fr: 'Est-ce que la formation est à distance ?', ar: 'التدريب أونلاين؟', en: 'Is the training online?' },
+          { fr: 'Est-ce que je serai rémunéré pendant la formation ?', ar: 'هل رح آخد تعويض أثناء التدريب؟', en: 'Will I receive an allowance during the training?' }
+        ]
+      },
+      {
+        icon: '✅',
+        title: { ar: 'بعد طلب تدريب اللغة', en: 'After requesting training', fr: 'Après la demande' },
+        phrases: [
+          { fr: 'Ma demande de formation est en cours.', ar: 'طلب التدريب تبعي قيد المعالجة.', en: 'My training request is being processed.' },
+          { fr: 'J’ai été accepté à la formation.', ar: 'انقبلت بالتدريب.', en: 'I was accepted into the training.' },
+          { fr: 'J’ai reçu une convocation pour la formation.', ar: 'وصلتني دعوة للتدريب.', en: 'I received a training summons.' },
+          { fr: 'J’ai commencé ma formation de français.', ar: 'بلشت تدريب الفرنسي تبعي.', en: 'I started my French training.' },
+          { fr: 'Je suis actuellement en formation de français.', ar: 'حاليًا أنا بتدريب فرنسي.', en: 'I am currently in French training.' },
+          { fr: 'Je dois déclarer ma formation dans mon actualisation ?', ar: 'لازم صرّح عن التدريب بالتحديث الشهري؟', en: 'Do I need to declare the training in my monthly update?' },
+          { fr: 'La formation a été annulée.', ar: 'التدريب انلغى.', en: 'The training was cancelled.' },
+          { fr: 'Je voudrais changer de groupe.', ar: 'بدي غيّر المجموعة/الصف.', en: 'I would like to change groups.' },
+          { fr: 'Les horaires ne me conviennent pas.', ar: 'الأوقات ما بتناسبني.', en: 'The schedule doesn’t suit me.' }
+        ]
+      },
+      {
+        icon: '🧑‍💼',
+        title: { ar: '⭐ الحوار مع المستشار — تدريب لغة', en: 'Advisor dialogue — language training', fr: 'Dialogue — formation linguistique' },
+        phrases: [
+          { fr: 'Bonjour, je voudrais suivre une formation de français.', ar: 'مرحبا، بدي أعمل تدريب لغة فرنسية.', en: 'Hello, I would like to take a French language course.' },
+          { fr: 'Je suis débutant et je veux améliorer mon français pour trouver un emploi.', ar: 'أنا مبتدئ وبدي طوّر فرنسيتي حتى لاقي شغل.', en: 'I am a beginner and want to improve my French to find a job.' },
+          { fr: 'Quelles formations de français sont disponibles pour les demandeurs d’emploi ?', ar: 'شو تدريبات الفرنسي المتوفرة للباحثين عن عمل؟', en: 'What French courses are available for job seekers?' },
+          { fr: 'Est-ce que la formation est financée par France Travail ?', ar: 'هل التدريب ممول من France Travail؟', en: 'Is the training funded by France Travail?' },
+          { fr: 'Est-ce que je peux utiliser mon CPF ?', ar: 'فيني استخدم الـCPF؟', en: 'Can I use my CPF?' },
+          { fr: 'Quelles démarches dois-je faire pour m’inscrire ?', ar: 'شو الإجراءات اللي لازم أعملها لسجّل؟', en: 'What steps do I need to take to register?' },
+          { fr: 'Bonjour, je voudrais suivre une formation de français pour améliorer mon niveau et trouver un emploi. Je suis inscrit à France Travail comme demandeur d’emploi. Est-ce que vous pouvez me proposer une formation financée ?', ar: 'مرحبا، بدي أعمل تدريب لغة فرنسية حتى طوّر مستواي ولاقي شغل. أنا مسجل بـFrance Travail كباحث عن عمل. فيكم تقترحوا عليي تدريب ممول؟', en: 'Hello, I would like to take a French language course to improve my level and find a job. I am registered with France Travail as a job seeker. Can you offer me a funded training?' }
+        ]
       }
     ]
   }
