@@ -5754,6 +5754,190 @@ window.CENTRES_DATA = [
           { fr: 'Je voudrais contacter mon médecin.', ar: 'بدي أتواصل مع دكتوري.', en: 'I would like to contact my doctor.' },
           { fr: 'Je n’arrive pas à me connecter à mon compte.', ar: 'ما عم أقدر فوت ع حسابي.', en: 'I can’t log into my account.' }
         ]
+      },
+      {
+        icon: '👨‍⚕️',
+        title: { ar: '⭐ أسماء الاختصاصات الطبية', en: 'Medical specialties', fr: 'Spécialités médicales' },
+        phrases: [
+          { fr: 'médecin généraliste', ar: 'طبيب عام', en: 'general practitioner' },
+          { fr: 'médecin traitant', ar: 'طبيبك الأساسي / طبيب المتابعة', en: 'primary care doctor' },
+          { fr: 'médecin de famille', ar: 'طبيب العائلة', en: 'family doctor' },
+          { fr: 'pédiatre', ar: 'طبيب أطفال', en: 'pediatrician' },
+          { fr: 'gynécologue', ar: 'طبيبة/طبيب نسائية', en: 'gynecologist' },
+          { fr: 'dermatologue', ar: 'طبيب جلدية', en: 'dermatologist' },
+          { fr: 'cardiologue', ar: 'طبيب قلب', en: 'cardiologist' },
+          { fr: 'gastro-entérologue', ar: 'طبيب الجهاز الهضمي', en: 'gastroenterologist' },
+          { fr: 'pneumologue', ar: 'طبيب أمراض الرئة', en: 'pulmonologist' },
+          { fr: 'ORL', ar: 'طبيب أنف وأذن وحنجرة', en: 'ENT specialist' },
+          { fr: 'ophtalmologue', ar: 'طبيب عيون', en: 'ophthalmologist' },
+          { fr: 'dentiste / chirurgien-dentiste', ar: 'طبيب أسنان', en: 'dentist' },
+          { fr: 'urologue', ar: 'طبيب مسالك بولية', en: 'urologist' },
+          { fr: 'rhumatologue', ar: 'طبيب روماتيزم ومفاصل', en: 'rheumatologist' },
+          { fr: 'neurologue', ar: 'طبيب أعصاب', en: 'neurologist' },
+          { fr: 'psychiatre', ar: 'طبيب نفسي', en: 'psychiatrist' },
+          { fr: 'psychologue', ar: 'أخصائي نفسي', en: 'psychologist' },
+          { fr: 'endocrinologue', ar: 'طبيب غدد وهرمونات', en: 'endocrinologist' },
+          { fr: 'néphrologue', ar: 'طبيب كلى', en: 'nephrologist' },
+          { fr: 'hépatologue', ar: 'طبيب كبد', en: 'hepatologist' },
+          { fr: 'infectiologue', ar: 'طبيب أمراض معدية', en: 'infectious disease specialist' },
+          { fr: 'chirurgien', ar: 'جرّاح', en: 'surgeon' },
+          { fr: 'orthopédiste', ar: 'طبيب عظام وجراحة عظمية', en: 'orthopedic specialist' },
+          { fr: 'médecin du travail', ar: 'طبيب العمل', en: 'occupational physician' },
+          { fr: 'radiologue', ar: 'طبيب أشعة', en: 'radiologist' },
+          { fr: 'anesthésiste', ar: 'طبيب تخدير', en: 'anesthesiologist' },
+          { fr: 'oncologue', ar: 'طبيب أورام', en: 'oncologist' },
+          { fr: 'allergologue', ar: 'طبيب حساسية', en: 'allergist' },
+          { fr: 'angiologue', ar: 'طبيب أوعية دموية', en: 'vascular specialist' },
+          { fr: 'gériatre', ar: 'طبيب طب الشيخوخة', en: 'geriatrician' },
+          { fr: 'médecin du sport', ar: 'طبيب طب رياضي', en: 'sports physician' }
+        ]
+      },
+      {
+        icon: '🩺',
+        title: { ar: 'الحجز عند كل اختصاص — جزء 1', en: 'Booking with each specialty — part 1', fr: 'Par spécialité — 1' },
+        phrases: [
+          { fr: 'Je voudrais prendre rendez-vous avec un médecin généraliste.', ar: 'بدي احجز موعد مع طبيب عام.', en: 'I would like to book an appointment with a general practitioner.' },
+          { fr: 'Je cherche un médecin traitant.', ar: 'عم دوّر على طبيب يكون طبيبي الأساسي.', en: 'I’m looking for a primary care doctor.' },
+          { fr: 'Je voudrais déclarer ce médecin comme médecin traitant.', ar: 'بدي سجّل هالدكتور كطبيبي الأساسي.', en: 'I would like to register this doctor as my primary care doctor.' },
+          { fr: 'Je voudrais consulter un gastro-entérologue.', ar: 'بدي راجع طبيب جهاز هضمي.', en: 'I would like to see a gastroenterologist.' },
+          { fr: 'Je voudrais prendre rendez-vous pour un problème digestif. / C’est pour un suivi digestif.', ar: 'بدي احجز موعد بسبب مشكلة بالهضم / للمتابعة الهضمية.', en: 'I’d like to book for a digestive problem / digestive follow-up.' },
+          { fr: 'Je voudrais consulter un cardiologue. / J’ai besoin d’un rendez-vous chez le cardiologue.', ar: 'بدي راجع طبيب قلب / بحتاج موعد عنده.', en: 'I’d like to see / need an appointment with a cardiologist.' },
+          { fr: 'C’est pour un contrôle cardiaque.', ar: 'الموعد لفحص القلب.', en: 'It’s for a heart check-up.' },
+          { fr: 'Je voudrais prendre rendez-vous chez un ophtalmologue.', ar: 'بدي احجز موعد عند طبيب عيون.', en: 'I’d like to book with an ophthalmologist.' },
+          { fr: 'Je voudrais faire contrôler ma vue. / J’ai un problème de vue.', ar: 'بدي افحص نظري / عندي مشكلة بالنظر.', en: 'I’d like my eyesight checked / I have a vision problem.' },
+          { fr: 'Je voudrais consulter un ORL.', ar: 'بدي راجع طبيب أنف وأذن وحنجرة.', en: 'I’d like to see an ENT specialist.' },
+          { fr: 'J’ai un problème d’oreille. / J’ai mal à la gorge. / J’ai un problème de nez.', ar: 'عندي مشكلة بالأذن / حلقي بيوجعني / مشكلة بالأنف.', en: 'Ear problem / sore throat / nose problem.' },
+          { fr: 'Je voudrais prendre rendez-vous chez le dentiste.', ar: 'بدي احجز موعد عند طبيب الأسنان.', en: 'I’d like to book with the dentist.' },
+          { fr: 'J’ai mal aux dents. / J’ai une douleur dentaire. / C’est pour un contrôle dentaire.', ar: 'سناني عم توجعني / ألم بالأسنان / فحص أسنان.', en: 'Toothache / dental pain / dental check-up.' },
+          { fr: 'Je voudrais consulter un dermatologue.', ar: 'بدي راجع طبيب جلدية.', en: 'I’d like to see a dermatologist.' },
+          { fr: 'J’ai un problème de peau. / J’ai une irritation. / J’ai une éruption cutanée.', ar: 'مشكلة بالجلد / تهيّج / طفح جلدي.', en: 'Skin problem / irritation / rash.' },
+          { fr: 'Je voudrais consulter un neurologue.', ar: 'بدي راجع طبيب أعصاب.', en: 'I’d like to see a neurologist.' },
+          { fr: 'J’ai des maux de tête. / J’ai des vertiges.', ar: 'عندي صداع / دوخة.', en: 'Headaches / dizziness.' },
+          { fr: 'Je voudrais consulter un rhumatologue.', ar: 'بدي راجع طبيب مفاصل وروماتيزم.', en: 'I’d like to see a rheumatologist.' },
+          { fr: 'J’ai mal au dos. / J’ai des douleurs articulaires.', ar: 'ظهري بيوجعني / آلام بالمفاصل.', en: 'Back pain / joint pain.' },
+          { fr: 'Je voudrais consulter un pneumologue.', ar: 'بدي راجع طبيب صدر ورئة.', en: 'I’d like to see a pulmonologist.' },
+          { fr: 'J’ai des problèmes respiratoires. / J’ai du mal à respirer.', ar: 'مشاكل بالتنفس / صعوبة بالتنفس.', en: 'Breathing problems / difficulty breathing.' }
+        ]
+      },
+      {
+        icon: '🩻',
+        title: { ar: 'الحجز عند كل اختصاص — جزء 2', en: 'Booking with each specialty — part 2', fr: 'Par spécialité — 2' },
+        phrases: [
+          { fr: 'Je voudrais consulter un endocrinologue. / Je dois faire un bilan hormonal.', ar: 'بدي راجع طبيب غدد / فحوصات هرمونات.', en: 'See an endocrinologist / hormone tests.' },
+          { fr: 'Je voudrais consulter un néphrologue. / C’est pour un problème rénal.', ar: 'بدي راجع طبيب كلى / مشكلة بالكلى.', en: 'See a nephrologist / kidney problem.' },
+          { fr: 'Je voudrais consulter un hépatologue. / Je cherche un spécialiste du foie.', ar: 'بدي راجع طبيب كبد / اختصاصي كبد.', en: 'See a hepatologist / liver specialist.' },
+          { fr: 'Je voudrais consulter un infectiologue.', ar: 'بدي راجع طبيب أمراض معدية.', en: 'See an infectious disease specialist.' },
+          { fr: 'Je voudrais consulter un psychologue. / un psychiatre.', ar: 'بدي راجع أخصائي نفسي / طبيب نفسي.', en: 'See a psychologist / psychiatrist.' },
+          { fr: 'Je dois prendre rendez-vous pour une échographie.', ar: 'لازم احجز موعد لإيكو.', en: 'I need to book an ultrasound.' },
+          { fr: 'Je dois faire une IRM. / Je dois faire un scanner.', ar: 'لازم أعمل رنين مغناطيسي / سكانير.', en: 'I need an MRI / CT scan.' },
+          { fr: 'Je voudrais prendre rendez-vous avec le médecin du travail.', ar: 'بدي احجز موعد مع طبيب العمل.', en: 'Book with the occupational physician.' },
+          { fr: 'C’est pour une visite médicale du travail.', ar: 'الموعد لفحص طبي متعلق بالعمل.', en: 'It’s for an occupational medical exam.' }
+        ]
+      },
+      {
+        icon: '🔑',
+        title: { ar: 'عبارات عامة تنفع مع أي طبيب', en: 'Phrases that work with any doctor', fr: 'Phrases générales' },
+        phrases: [
+          { fr: 'Je voudrais prendre rendez-vous chez ce médecin.', ar: 'بدي احجز موعد عند هالدكتور.', en: 'I’d like to book an appointment with this doctor.' },
+          { fr: 'Quel spécialiste dois-je consulter ?', ar: 'أي اختصاص لازم راجع؟', en: 'Which specialist should I see?' },
+          { fr: 'Mon médecin généraliste m’a orienté vers un spécialiste.', ar: 'طبيبي العام وجّهني عند اختصاصي.', en: 'My GP referred me to a specialist.' },
+          { fr: 'J’ai une ordonnance pour consulter un spécialiste.', ar: 'معي وصفة/طلب من الطبيب لمراجعة اختصاصي.', en: 'I have a referral to see a specialist.' },
+          { fr: 'Est-ce que vous acceptez les nouveaux patients ?', ar: 'هل بتقبلوا مرضى جدد؟', en: 'Do you accept new patients?' },
+          { fr: 'Est-ce que vous êtes conventionné ? / Vous êtes en secteur 1 ou secteur 2 ?', ar: 'متعاقد مع التأمين؟ / قطاع 1 أو 2؟', en: 'Are you conventionné? / Sector 1 or 2?' },
+          { fr: 'Y a-t-il un dépassement d’honoraires ? / Quel est le tarif ?', ar: 'في مبلغ إضافي فوق التعرفة؟ / قديش التعرفة؟', en: 'Any extra fee? / What’s the fee?' },
+          { fr: 'Quel est le premier rendez-vous disponible ?', ar: 'شو أقرب موعد متاح؟', en: 'What is the earliest appointment?' },
+          { fr: 'Je voudrais un rendez-vous le plus rapidement possible.', ar: 'بدي موعد بأقرب وقت ممكن.', en: 'I’d like an appointment ASAP.' },
+          { fr: 'Je préfère une consultation en présentiel. / une téléconsultation.', ar: 'بفضّل معاينة حضورية / عن بعد.', en: 'I prefer in-person / teleconsultation.' },
+          { fr: 'Je ne parle pas très bien français.', ar: 'أنا ما بحكي فرنسي منيح.', en: 'I don’t speak French very well.' },
+          { fr: 'Est-ce que je peux venir avec un interprète ?', ar: 'فيني أجي مع مترجم؟', en: 'Can I come with an interpreter?' }
+        ]
+      },
+      {
+        icon: '📅',
+        title: { ar: '⭐ أفعال طبية — الموعد والفحص', en: 'Medical verbs — appointment and exam', fr: 'Verbes — rendez-vous et examen' },
+        phrases: [
+          { fr: 'consulter', ar: 'يراجع طبيبًا / يستشير', en: 'to see / consult' },
+          { fr: 'Je dois consulter un spécialiste. / Vous devriez consulter un médecin.', ar: 'لازم راجع اختصاصي / لازم تراجع طبيب.', en: 'I need to see a specialist / you should see a doctor.' },
+          { fr: 'prendre rendez-vous', ar: 'يحجز موعد', en: 'to make an appointment' },
+          { fr: 'J’ai pris rendez-vous sur Doctolib.', ar: 'حجزت موعد على دكتوليب.', en: 'I booked on Doctolib.' },
+          { fr: 'annuler / modifier / déplacer', ar: 'يلغي / يعدّل / ينقل الموعد', en: 'to cancel / modify / move' },
+          { fr: 'Est-ce que je peux changer la date ?', ar: 'فيني غيّر التاريخ؟', en: 'Can I change the date?' },
+          { fr: 'expliquer', ar: 'يشرح', en: 'to explain' },
+          { fr: 'Pouvez-vous m’expliquer les résultats ? / Le médecin m’a expliqué le traitement.', ar: 'فيك تشرحلي النتائج؟ / الدكتور شرحلي العلاج.', en: 'Explain the results? / The doctor explained the treatment.' },
+          { fr: 'écouter / ausculter', ar: 'يفحص بالسماعة', en: 'to listen / auscultate' },
+          { fr: 'Le médecin écoute mon cœur. / va écouter mes poumons.', ar: 'الدكتور عم يفحص قلبي / رئتي بالسماعة.', en: 'Listening to my heart / lungs.' },
+          { fr: 'examiner', ar: 'يفحص', en: 'to examine' },
+          { fr: 'Le médecin va m’examiner. / Il faut vous examiner.', ar: 'الدكتور رح يفحصني / لازم نفحصك.', en: 'The doctor will examine me / you need to be examined.' },
+          { fr: 'palper', ar: 'يجسّ / يفحص باللمس', en: 'to palpate' },
+          { fr: 'mesurer', ar: 'يقيس', en: 'to measure' },
+          { fr: 'Le médecin va mesurer ma tension. / On va mesurer votre température.', ar: 'الدكتور رح يقيس ضغطي / حرارتك.', en: 'Measure my blood pressure / your temperature.' },
+          { fr: 'contrôler / surveiller', ar: 'يفحص ويراقب / يراقب', en: 'to check / to monitor' }
+        ]
+      },
+      {
+        icon: '🧪',
+        title: { ar: '⭐ أفعال طبية — التحاليل والعلاج', en: 'Medical verbs — tests and treatment', fr: 'Verbes — analyses et traitement' },
+        phrases: [
+          { fr: 'faire une prise de sang', ar: 'يعمل تحليل دم', en: 'have a blood test' },
+          { fr: 'Je dois faire une prise de sang demain. / Où dois-je la faire ?', ar: 'لازم أعمل تحليل دم بكرا / وين؟', en: 'Blood test tomorrow / where?' },
+          { fr: 'Je dois faire une échographie / une IRM / un scanner.', ar: 'لازم أعمل إيكو / رنين / سكانير.', en: 'Ultrasound / MRI / CT scan.' },
+          { fr: 'analyser / prélever', ar: 'يحلل / يأخذ عينة', en: 'to analyze / take a sample' },
+          { fr: 'Le laboratoire va analyser le sang. / Les résultats sont en cours d’analyse.', ar: 'المختبر رح يحلل الدم / النتائج قيد التحليل.', en: 'The lab will analyze the blood / results being analyzed.' },
+          { fr: 'prescrire', ar: 'يصف دواء / فحص', en: 'to prescribe' },
+          { fr: 'Le médecin m’a prescrit un médicament / une prise de sang / une IRM.', ar: 'الدكتور وصفلي دواء / تحليل دم / رنين.', en: 'Prescribed a medication / blood test / MRI.' },
+          { fr: 'prendre (un médicament)', ar: 'يتناول دواء', en: 'to take (medication)' },
+          { fr: 'Je prends ce médicament tous les jours. / Avant ou après le repas ?', ar: 'باخد هالدواء كل يوم / قبل أو بعد الأكل؟', en: 'I take it daily / before or after meals?' },
+          { fr: 'traiter / soigner', ar: 'يعالج / يداوي', en: 'to treat' },
+          { fr: 'Comment allez-vous traiter ce problème ? / Le médecin me soigne.', ar: 'كيف رح تعالجوا المشكلة؟ / الدكتور عم يعالجني.', en: 'How will you treat it? / The doctor is treating me.' },
+          { fr: 'suivre (un traitement)', ar: 'يتابع / يتبع علاجًا', en: 'to follow (a treatment)' },
+          { fr: 'Je suis ce traitement depuis trois mois. / Le médecin me suit régulièrement.', ar: 'صارلي 3 أشهر على هالعلاج / الدكتور بيتابعني بانتظام.', en: 'On this treatment for 3 months / the doctor follows me regularly.' },
+          { fr: 'arrêter / renouveler', ar: 'يوقف / يجدّد', en: 'to stop / to renew' },
+          { fr: 'Est-ce que je peux arrêter ce médicament ? / Je voudrais renouveler mon ordonnance.', ar: 'فيني أوقف الدواء؟ / بدي جدّد الوصفة.', en: 'Can I stop this medication? / I’d like to renew my prescription.' },
+          { fr: 'recevoir / envoyer / appeler', ar: 'يستلم / يرسل / يتصل', en: 'to receive / send / call' },
+          { fr: 'J’ai reçu mes résultats / l’ordonnance. — Je vais envoyer mes résultats au médecin. — J’ai appelé le cabinet.', ar: 'وصلتني نتائجي / الوصفة — رح ابعت نتائجي — اتصلت بالعيادة.', en: 'Got my results / prescription — send results — called the practice.' },
+          { fr: 'vérifier', ar: 'يتحقق / يفحص', en: 'to check' },
+          { fr: 'Je voudrais vérifier mes résultats. / Le médecin va vérifier ma tension.', ar: 'بدي أتأكد من نتائجي / الدكتور رح يفحص ضغطي.', en: 'Check my results / my blood pressure.' }
+        ]
+      },
+      {
+        icon: '🤒',
+        title: { ar: '⭐ أفعال الأعراض + أفعال إضافية', en: 'Symptom verbs + extra verbs', fr: 'Symptômes + autres verbes' },
+        phrases: [
+          { fr: 'avoir mal', ar: 'يشعر بوجع', en: 'to have pain' },
+          { fr: 'J’ai mal au ventre / à la tête / au dos / à la gorge.', ar: 'بطني / راسي / ظهري / حلقي بيوجعني.', en: 'Stomach / head / back / throat hurts.' },
+          { fr: 'souffrir de', ar: 'يعاني من', en: 'to suffer from' },
+          { fr: 'Je souffre de reflux. / Il souffre de douleurs abdominales.', ar: 'بعاني من ارتجاع / هو بيعاني من آلام بالبطن.', en: 'I suffer from reflux / abdominal pain.' },
+          { fr: 'ressentir', ar: 'يشعر بـ', en: 'to feel / experience' },
+          { fr: 'Je ressens une douleur / une gêne / des brûlures.', ar: 'عم حس بألم / انزعاج / حرقة.', en: 'I feel pain / discomfort / burning.' },
+          { fr: 'saigner / vomir / dormir', ar: 'ينزف / يتقيأ / ينام', en: 'to bleed / vomit / sleep' },
+          { fr: 'Je saigne. / J’ai vomi. / J’ai du mal à dormir.', ar: 'عم ينزف معي / تقيأت / صعوبة بالنوم.', en: 'Bleeding / vomited / trouble sleeping.' },
+          { fr: 'Je dois aller aux toilettes souvent.', ar: 'لازم روح عالحمام كتير.', en: 'I need to go to the bathroom often.' },
+          { fr: 'guérir / récupérer', ar: 'يشفى / يتعافى', en: 'to heal / recover' },
+          { fr: 'diagnostiquer / détecter / prévenir', ar: 'يشخّص / يكتشف / يقي ويمنع', en: 'to diagnose / detect / prevent' },
+          { fr: 'vacciner / opérer / hospitaliser', ar: 'يلقّح / يجري عملية / يدخل المستشفى', en: 'to vaccinate / operate / hospitalize' },
+          { fr: 'admettre / sortir', ar: 'يقبل بالمستشفى / يخرج', en: 'to admit / to leave' },
+          { fr: 'injecter / anesthésier', ar: 'يحقن / يخدّر', en: 'to inject / anesthetize' },
+          { fr: 'désinfecter / panser', ar: 'يعقّم / يضمّد', en: 'to disinfect / dress a wound' },
+          { fr: 'faire une analyse / faire un examen', ar: 'يعمل تحليلًا / يجري فحصًا', en: 'to have a test / an examination' }
+        ]
+      },
+      {
+        icon: '💬',
+        title: { ar: '⭐ أعراضك عند الطبيب — جمل تحفظها', en: 'Describing symptoms — key sentences', fr: 'Décrire ses symptômes' },
+        phrases: [
+          { fr: 'Je ne me sens pas bien. / depuis quelques jours.', ar: 'ما عم حس حالي منيح / من كم يوم.', en: 'I don’t feel well / for a few days.' },
+          { fr: 'J’ai une douleur. / La douleur est apparue hier.', ar: 'عندي وجع / الوجع بلّش مبارح.', en: 'I have pain / it started yesterday.' },
+          { fr: 'La douleur augmente. / La douleur diminue.', ar: 'الوجع عم يزيد / عم يخف.', en: 'The pain is increasing / decreasing.' },
+          { fr: 'Ça fait mal ici.', ar: 'هون بيوجع.', en: 'It hurts here.' },
+          { fr: 'J’ai des symptômes depuis plusieurs jours.', ar: 'عندي أعراض من عدة أيام.', en: 'I’ve had symptoms for several days.' },
+          { fr: 'Je prends déjà un traitement. / Le traitement ne fonctionne pas.', ar: 'أصلًا عم آخد علاج / العلاج ما عم يفيد.', en: 'Already on treatment / it’s not working.' },
+          { fr: 'Le médicament me donne des effets secondaires.', ar: 'الدواء عم يعطيني آثار جانبية.', en: 'The medication gives me side effects.' },
+          { fr: 'Est-ce que je dois continuer le traitement ?', ar: 'لازم كمّل العلاج؟', en: 'Should I continue the treatment?' },
+          { fr: 'Est-ce que je dois faire des examens ?', ar: 'لازم أعمل فحوصات؟', en: 'Do I need tests?' },
+          { fr: 'Quand dois-je revenir ? / faire le contrôle ?', ar: 'إمتى لازم أرجع؟ / أعمل المتابعة؟', en: 'When should I come back / have the follow-up?' },
+          { fr: 'Pouvez-vous me prescrire une ordonnance ?', ar: 'فيك توصفلي / تعطيني وصفة؟', en: 'Can you prescribe me something?' },
+          { fr: 'N’arrêtez pas le traitement sans avis médical.', ar: 'لا توقف العلاج بدون استشارة طبية.', en: 'Don’t stop treatment without medical advice.' }
+        ]
       }
     ]
   }
