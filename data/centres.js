@@ -7370,5 +7370,148 @@ window.CENTRES_DATA = [
         ]
       }
     ]
+  },
+  {
+    id: 'bricolage',
+    icon: '🔧',
+    name: { ar: 'متجر الأدوات (Leroy Merlin)', en: 'Hardware store (Leroy Merlin)', fr: 'Magasin de bricolage (Leroy Merlin)' },
+    desc: { ar: 'شراء أدوات الترميم والدهان من Leroy Merlin', en: 'Buying repair and paint supplies at Leroy Merlin', fr: 'Acheter du matériel de réparation chez Leroy Merlin' },
+    sections: [
+      {
+        icon: '🏪',
+        title: { ar: 'الدخول والبحث عن القسم', en: 'Entering and finding the aisle', fr: 'Entrer et trouver le rayon' },
+        phrases: [
+          { fr: 'Bonjour, je cherche le rayon peinture. / Où se trouve le rayon peinture ? / Où se trouve le rayon outillage ?', ar: 'مرحبا، عم دور على قسم الدهان / وين قسم الدهان؟ / وين قسم الأدوات؟', en: 'Looking for the paint aisle / where is it / tools aisle?' },
+          { fr: 'Je cherche un produit pour réparer un mur. / Je cherche quelque chose pour réparer ça. / Vous avez une solution pour ça ?', ar: 'بدي شي لإصلاح الحيط / لإصلاح هاد / عندكم حل لهالمشكلة؟', en: 'Something to repair a wall / this / a solution?' },
+          { fr: 'Vous pouvez m’aider, s’il vous plaît ? / Quel produit me conseillez-vous ? / Qu’est-ce qu’il me faut pour faire cette réparation ?', ar: 'فيك تساعدني؟ / أي منتج بتنصحني فيه؟ / شو بحتاج لحتى أعمل هالإصلاح؟', en: 'Can you help me? / which product? / what do I need?' },
+          { fr: 'Est-ce que c’est facile à utiliser ? / Est-ce que j’ai besoin d’un outil spécial ? / Vous pouvez me montrer comment l’utiliser ?', ar: 'سهل استعماله؟ / بحتاج أداة خاصة؟ / فيك تفرجيني كيف بينستعمل؟', en: 'Easy to use? / special tool? / show me how?' },
+          { fr: 'C’est adapté à la salle de bains ? / Est-ce que ça résiste à l’eau ? / Est-ce que c’est étanche ?', ar: 'مناسب للحمام؟ / بيتحمّل المي؟ / مانع لتسرّب المي؟', en: 'Suitable for bathroom? / water-resistant? / watertight?' }
+        ]
+      },
+      {
+        icon: '🧱',
+        title: { ar: 'المعجون والدهان', en: 'Filler and paint', fr: 'Enduit et peinture' },
+        phrases: [
+          { fr: 'Je cherche un enduit de rebouchage. / un petit format / un enduit prêt à l’emploi. / C’est pour reboucher quelques petits trous.', ar: 'بدي معجون لسد الثقوب / عبوة صغيرة / جاهز للاستعمال / لسد كم ثقب صغير.', en: 'Filler / small size / ready-to-use / a few small holes.' },
+          { fr: 'Est-ce que ce produit convient pour un mur intérieur ? / Est-ce qu’il faut le mélanger avec de l’eau ? / Il est déjà prêt à l’emploi ?', ar: 'مناسب لحائط داخلي؟ / لازم نخلطه مع المي؟ / هو جاهز؟', en: 'Interior wall? / mix with water? / already ready?' },
+          { fr: 'Je cherche une peinture blanche. / Vous avez du blanc mat ? / du blanc satiné ? / C’est du blanc pur ou du blanc cassé ?', ar: 'بدي دهان أبيض / أبيض مطفي؟ / ساتان؟ / ناصع ولا أوف وايت؟', en: 'White paint / matte / satin / pure or off-white?' },
+          { fr: 'Quelle est la différence entre mat et satin ? / Quelle finition me conseillez-vous ? / Je veux la même finition que celle-ci.', ar: 'شو الفرق بين المطفي والساتان؟ / أي تشطيب بتنصحني؟ / بدي نفس لمعة هاد.', en: 'Matte vs satin? / which finish? / same finish as this.' }
+        ]
+      },
+      {
+        icon: '🧰',
+        title: { ar: 'الأدوات', en: 'Tools', fr: 'Outillage' },
+        phrases: [
+          { fr: 'un tournevis / un marteau / une pince / une clé à molette / un mètre ruban / un cutter / une perceuse / un niveau à bulle / une boîte à outils', ar: 'مفك / مطرقة / كماشة / مفتاح إنكليزي / متر قياس / قطّاعة / دريل / ميزان ماء / صندوق أدوات', en: 'screwdriver / hammer / pliers / adjustable wrench / tape measure / utility knife / drill / spirit level / toolbox' },
+          { fr: 'Je cherche un couteau à enduire. / Il me faut du papier de verre. / Quel grain dois-je prendre ? / Vous avez du grain 120 ?', ar: 'بدي سكينة معجون / ورق صنفرة / أي درجة خشونة؟ / عندكم 120؟', en: 'Putty knife / sandpaper / which grit? / 120 grit?' },
+          { fr: 'Je cherche un petit pinceau. / Est-ce que le pinceau est inclus ? / Est-ce qu’il faut un rouleau pour ce produit ?', ar: 'بدي فرشاية صغيرة / الفرشاية مرفقة؟ / لازم رول لهاد المنتج؟', en: 'Small brush / brush included? / need a roller?' },
+          { fr: 'un niveau / un crayon de chantier / une équerre / une règle / un serre-joint / un établi', ar: 'ميزان / قلم تعليم / زاوية قياس / مسطرة / ملزمة / طاولة عمل', en: 'level / carpenter pencil / set square / ruler / clamp / workbench' }
+        ]
+      },
+      {
+        icon: '🪛',
+        title: { ar: 'البراغي والتثبيت', en: 'Screws and fixings', fr: 'Visserie et fixation' },
+        phrases: [
+          { fr: 'une vis / un clou / un écrou / une rondelle / un boulon / un crochet / un piton / un serre-câble / un support / un adhésif', ar: 'برغي / مسمار / صامولة / وردة / برغي مع صامولة / خطاف / مسمار حلقي / ربطة كابلات / حامل / لاصق', en: 'screw / nail / nut / washer / bolt / hook / eye screw / cable tie / bracket / adhesive' },
+          { fr: 'une cheville / une cheville à expansion / une cheville universelle / une cheville pour mur', ar: 'فيشر / فيشر تمدد / فيشر متعدد / فيشر للحائط', en: 'wall plug / expansion / universal / for wall' },
+          { fr: 'Je cherche des chevilles pour fixer quelque chose au mur. / Quelle cheville convient pour ce mur ? / C’est pour du béton. / C’est pour du placo.', ar: 'بدي فيشر لتثبيت شي عالحيط / أي فيشر مناسب لهالحائط؟ / للبيتون / للجبس بورد.', en: 'Plugs to fix to a wall / which plug? / concrete / drywall.' }
+        ]
+      },
+      {
+        icon: '🚰',
+        title: { ar: 'السباكة', en: 'Plumbing', fr: 'Plomberie' },
+        phrases: [
+          { fr: 'un joint / un joint en silicone / du silicone / un tuyau / un flexible / un robinet / un siphon / un déboucheur / un bouchon', ar: 'جلدة / جلدة سيليكون / سيليكون / أنبوب / ليّ مرن / حنفية / سيفون / مسلك انسداد / سدادة', en: 'seal / silicone seal / silicone / pipe / hose / tap / trap / drain opener / plug' },
+          { fr: 'Je cherche quelque chose pour réparer une fuite. / un produit pour déboucher l’évier. / C’est pour la salle de bains ?', ar: 'بدي شي لإصلاح تسرّب / لتسليك المجلى / للحمام؟', en: 'Repair a leak / unclog the sink / for the bathroom?' }
+        ]
+      },
+      {
+        icon: '💡',
+        title: { ar: 'الكهرباء والإضاءة', en: 'Electricity and lighting', fr: 'Électricité et éclairage' },
+        phrases: [
+          { fr: 'une ampoule / une prise électrique / un interrupteur / une rallonge / une multiprise / un câble', ar: 'لمبة / بريزة / مفتاح / وصلة / مشترك كهرباء / كابل', en: 'bulb / outlet / switch / extension cord / power strip / cable' },
+          { fr: 'un plafonnier / une suspension / une lampe LED / une douille / un détecteur de mouvement / un détecteur de fumée', ar: 'إضاءة سقف / مصباح معلّق / لمبة LED / قاعدة اللمبة / حساس حركة / كاشف دخان', en: 'ceiling light / pendant / LED / socket / motion sensor / smoke detector' },
+          { fr: 'Je cherche une ampoule pour cette lampe. / Quelle ampoule convient à cette douille ? / C’est une ampoule LED ?', ar: 'بدي لمبة لهالمصباح / أي لمبة بتناسب هالقاعدة؟ / هي LED؟', en: 'Bulb for this lamp / fits this socket? / LED?' }
+        ]
+      },
+      {
+        icon: '🚪',
+        title: { ar: 'الأبواب والشبابيك', en: 'Doors and windows', fr: 'Portes et fenêtres' },
+        phrases: [
+          { fr: 'une poignée de porte / une serrure / une clé / un verrou / un loquet / un arrêt de porte / une butée de porte', ar: 'مقبض باب / قفل / مفتاح / مزلاج / مزلاج / مانع باب / مصدّ الباب', en: 'door handle / lock / key / bolt / latch / door stop' },
+          { fr: 'une charnière / un bouton de meuble / La charnière est cassée. / Je cherche une poignée de remplacement.', ar: 'مفصلة / مقبض خزانة / المفصلة مكسورة / بدي مقبض بديل.', en: 'hinge / cabinet knob / hinge broken / replacement handle.' },
+          { fr: 'une poignée de fenêtre / un joint de fenêtre / un rideau / une tringle à rideau / un store / un store enrouleur / un support de tringle / un joint d’étanchéité / un film isolant', ar: 'مقبض شباك / جلدة الشباك / ستارة / قضيب الستارة / شتر / ستارة رول / حامل القضيب / جلدة عزل / غشاء عازل', en: 'window handle / seal / curtain / rod / blind / roller blind / bracket / gasket / insulating film' },
+          { fr: 'Je cherche un joint pour cette fenêtre. / une solution pour éviter les courants d’air.', ar: 'بدي جلدة لهالشباك / حل لمنع دخول الهوا.', en: 'A seal for this window / stop drafts.' }
+        ]
+      },
+      {
+        icon: '🪚',
+        title: { ar: 'الخشب والقصّ', en: 'Wood and cutting', fr: 'Bois et découpe' },
+        phrases: [
+          { fr: 'une planche / une étagère / une tablette / un tasseau / du contreplaqué / du bois massif / une découpe', ar: 'لوح خشب / رف / رف صغير / قطعة خشب / أبلكاش / خشب صلب / قصّ حسب المقاس', en: 'board / shelf / small shelf / batten / plywood / solid wood / cutting service' },
+          { fr: 'Je voudrais une planche de cette longueur. / Vous pouvez me le couper aux bonnes dimensions ? / Vous pouvez le découper sur mesure ?', ar: 'بدي لوح بهالطول / فيكم تقصّوه بالمقاسات؟ / حسب المقاس؟', en: 'A board this length / cut to dimensions / to size?' },
+          { fr: 'une scie / une scie à métaux / une scie à bois / une lame / une lame de cutter / couper / découper', ar: 'منشار / منشار حديد / منشار خشب / شفرة / شفرة قطّاعة / يقطع / يقصّ', en: 'saw / hacksaw / wood saw / blade / knife blade / to cut / cut out' }
+        ]
+      },
+      {
+        icon: '🧪',
+        title: { ar: 'السيليكون واللصق والعزل', en: 'Sealant, glue and insulation', fr: 'Mastic, colle et isolation' },
+        phrases: [
+          { fr: 'un pistolet à silicone / une cartouche / du mastic / mastic sanitaire / mastic acrylique / de la colle forte / colle multi-usage', ar: 'مسدس سيليكون / خرطوشة / معجون سدّ / للحمام والمطبخ / أكريليك / غراء قوي / متعدد الاستعمالات', en: 'caulking gun / cartridge / sealant / sanitary / acrylic / strong glue / multi-purpose' },
+          { fr: 'de la mousse expansive / un mortier / du ciment / un enduit / un grattoir', ar: 'رغوة تمدد / مونة / إسمنت / معجون تسوية / كاشطة', en: 'expanding foam / mortar / cement / filler / scraper' },
+          { fr: 'l’isolation / un isolant / isolation thermique / isolation phonique / étanche', ar: 'العزل / مادة عازلة / عزل حراري / عزل صوتي / مانع للتسرب', en: 'insulation / insulating / thermal / sound / watertight' }
+        ]
+      },
+      {
+        icon: '🚿',
+        title: { ar: 'لوازم الحمام', en: 'Bathroom supplies', fr: 'Accessoires de salle de bains' },
+        phrases: [
+          { fr: 'un rideau de douche / une tringle de douche / un porte-serviettes / un porte-savon / une bonde / un flexible de douche / un pommeau de douche / un abattant WC', ar: 'ستارة دش / قضيب الستارة / حامل مناشف / حامل صابون / فتحة تصريف / ليّ الدوش / رأس الدوش / غطاء التواليت', en: 'shower curtain / rod / towel rail / soap holder / drain / shower hose / shower head / toilet seat' },
+          { fr: 'Je cherche un abattant WC universel. / Comment je peux mesurer pour choisir le bon modèle ?', ar: 'بدي غطا تواليت يونيفرسال / كيف أقيس لاختار الموديل المناسب؟', en: 'Universal toilet seat / how to measure?' }
+        ]
+      },
+      {
+        icon: '🧹',
+        title: { ar: 'التنظيف والصيانة', en: 'Cleaning and maintenance', fr: 'Nettoyage et entretien' },
+        phrases: [
+          { fr: 'une éponge / une brosse / un balai / une serpillière / un seau / un chiffon / une microfibre / une éponge abrasive / une brosse métallique / un grattoir', ar: 'إسفنجة / فرشاية / مكنسة / ممسحة / سطل / قطعة قماش / مايكروفايبر / إسفنجة خشنة / فرشاية حديد / كاشطة', en: 'sponge / brush / broom / mop / bucket / cloth / microfiber / abrasive sponge / wire brush / scraper' },
+          { fr: 'un produit nettoyant / un dégraissant / un produit anti-calcaire / un détartrant / un nettoyant multi-usages', ar: 'منظف / مزيل دهون / مزيل كلس / مزيل كلس / منظف متعدد الاستعمال', en: 'cleaner / degreaser / limescale remover / descaler / multi-purpose' },
+          { fr: 'Je cherche un produit anti-calcaire pour la salle de bains. / quelque chose pour enlever cette tache. / Est-ce que ça enlève le calcaire ?', ar: 'بدي مزيل كلس للحمام / شي يشيل هالبقعة / بيشيل الكلس؟', en: 'Limescale remover / remove this stain / removes limescale?' }
+        ]
+      },
+      {
+        icon: '📏',
+        title: { ar: 'القياسات', en: 'Measurements', fr: 'Les mesures' },
+        phrases: [
+          { fr: 'la longueur / la largeur / la hauteur / l’épaisseur / le diamètre / les dimensions / mesurer', ar: 'الطول / العرض / الارتفاع / السماكة / القطر / المقاسات / يقيس', en: 'length / width / height / thickness / diameter / dimensions / to measure' },
+          { fr: 'Vous avez quelles dimensions ? / Il me faut 60 centimètres de longueur. / Je dois prendre quelle taille ? / Je dois mesurer avant de l’acheter.', ar: 'شو المقاسات الموجودة؟ / بدي 60 سنتيمتر طول / أي قياس آخد؟ / لازم قيس قبل ما اشتري.', en: 'What dimensions? / 60 cm long / which size? / measure first.' }
+        ]
+      },
+      {
+        icon: '📦',
+        title: { ar: 'المخزون والاستلام', en: 'Stock and pickup', fr: 'Stock et retrait' },
+        phrases: [
+          { fr: 'disponible en magasin / en stock / rupture de stock / le retrait en magasin / la livraison à domicile / le retrait de la commande / une commande', ar: 'متوفر بالمتجر / بالمخزون / غير متوفر / استلام من المتجر / توصيل للبيت / استلام الطلب / طلب', en: 'in store / in stock / out of stock / pickup / home delivery / order pickup / order' },
+          { fr: 'Est-ce que ce produit est en stock ? / Je peux le retirer aujourd’hui ? / Où est-ce que je peux récupérer ma commande ?', ar: 'هالمنتج موجود بالمخزون؟ / فيني استلمه اليوم؟ / وين استلم طلبي؟', en: 'In stock? / pick up today? / where to collect my order?' }
+        ]
+      },
+      {
+        icon: '💳',
+        title: { ar: 'الدفع والإرجاع', en: 'Payment and returns', fr: 'Paiement et retour' },
+        phrases: [
+          { fr: 'Combien ça coûte ? / Il y a une promotion ? / C’est le prix à l’unité ? / Je peux payer par carte ? / sans contact ?', ar: 'قديش سعره؟ / في عرض؟ / سعر القطعة؟ / ادفع بالبطاقة؟ / بدون تلامس؟', en: 'How much / promotion / per unit / by card / contactless?' },
+          { fr: 'Vous avez la carte de fidélité ? / Non, je n’en ai pas. / Je peux avoir un ticket, s’il vous plaît ? / Je voudrais un sac, s’il vous plaît.', ar: 'معك بطاقة الوفاء؟ / لا ما عندي / فيني آخد الإيصال؟ / بدي كيس.', en: 'Loyalty card? / no / receipt please / a bag please.' },
+          { fr: 'Je voudrais retourner ce produit. / Je me suis trompé de produit. / Ce produit ne convient pas à mon besoin. / J’ai gardé le ticket de caisse.', ar: 'بدي رجّع هالمنتج / أخدت الغلط / ما بناسب حاجتي / محتفظ بالإيصال.', en: 'Return this / wrong product / not suitable / kept the receipt.' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: 'جمل الموظف تسمعها', en: 'What staff say', fr: 'Ce que dit le vendeur' },
+        phrases: [
+          { fr: 'Vous avez les dimensions ? / Vous avez la référence du produit ? / C’est pour quel usage ? / Quel matériau voulez-vous réparer ?', ar: 'معك المقاسات؟ / رقم المنتج؟ / لشو بتستخدمه؟ / أي مادة بدك تصلّح؟', en: 'Dimensions? / product reference? / what use? / which material?' },
+          { fr: 'Vous avez besoin de quoi exactement ? / Je vais vous montrer. / C’est juste ici. / C’est dans quel rayon ?', ar: 'شو بالضبط محتاجه؟ / رح فرجيك / هو هون بالضبط / بأي قسم؟', en: 'What exactly? / I’ll show you / right here / which aisle?' }
+        ]
+      }
+    ]
   }
 ];
