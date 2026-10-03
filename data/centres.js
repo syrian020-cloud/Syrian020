@@ -6522,5 +6522,109 @@ window.CENTRES_DATA = [
         ]
       }
     ]
+  },
+  {
+    id: 'leboncoin',
+    icon: '🛒',
+    name: { ar: 'Leboncoin — البيع والشراء', en: 'Leboncoin — buying and selling', fr: 'Leboncoin — achat et vente' },
+    desc: { ar: 'نشر الإعلان، التفاوض، الموعد والاستلام والدفع', en: 'Post a listing, negotiate, arrange pickup and payment', fr: 'Annonce, négociation, rendez-vous et paiement' },
+    sections: [
+      {
+        icon: '🟢',
+        title: { ar: '⭐ نشر الإعلان والحالة', en: 'Posting a listing and condition', fr: 'Annonce et état' },
+        phrases: [
+          { fr: 'annonce / mettre (publier, déposer) une annonce en ligne', ar: 'إعلان / ينشر إعلان', en: 'listing / to post an ad' },
+          { fr: 'modifier / supprimer / mettre à jour l’annonce', ar: 'يعدّل / يحذف / يحدّث الإعلان', en: 'edit / delete / update the listing' },
+          { fr: 'titre de l’annonce / description / photos / prix / état', ar: 'عنوان الإعلان / وصف / صور / سعر / حالة', en: 'title / description / photos / price / condition' },
+          { fr: 'neuf / comme neuf / très bon état / bon état / à réparer', ar: 'جديد / مثل الجديد / ممتاز / جيد / بحاجة إصلاح', en: 'new / like new / very good / good / needs repair' },
+          { fr: 'J’ai mis l’article en vente sur Leboncoin.', ar: 'عرضت الغرض للبيع على Leboncoin.', en: 'I listed the item for sale on Leboncoin.' },
+          { fr: 'acheteur / vendeur / article / objet / produit / vente / achat / offre', ar: 'مشتري / بائع / غرض / منتج / بيع / شراء / عرض', en: 'buyer / seller / item / product / sale / purchase / offer' },
+          { fr: 'réservation / disponibilité / retrait / remise en main propre / livraison / envoi / colis', ar: 'حجز / توفر / استلام / تسليم باليد / توصيل / إرسال / طرد', en: 'reservation / availability / pickup / hand delivery / shipping / parcel' },
+          { fr: 'espèces / preuve d’achat / facture / garantie / emballage', ar: 'كاش / إثبات شراء / فاتورة / ضمان / تغليف', en: 'cash / proof of purchase / invoice / warranty / packaging' }
+        ]
+      },
+      {
+        icon: '❓',
+        title: { ar: '⭐ متوفر؟ + تفاصيل الغرض', en: 'Available? + item details', fr: 'Disponible ? + détails' },
+        phrases: [
+          { fr: 'Bonjour, votre article est-il toujours disponible ? / est-il toujours en vente ?', ar: 'مرحبا، الغرض لسا متوفر؟ / لسا للبيع؟', en: 'Is your item still available / for sale?' },
+          { fr: 'Vous avez encore l’article ? / C’est toujours disponible ?', ar: 'لسا الغرض عندك؟ / لسا موجود؟', en: 'Still have it? / still available?' },
+          { fr: 'Oui, c’est toujours disponible. / Désolé, c’est déjà vendu. / L’article vient d’être vendu.', ar: 'إي، لسا متوفر / آسف، انباع / انباع هلأ.', en: 'Still available / already sold / just sold.' },
+          { fr: 'Pouvez-vous me donner plus de détails ? / Quelle est la marque ? / le modèle ? / l’année ?', ar: 'فيك تعطيني تفاصيل أكتر؟ / الماركة؟ / الموديل؟ / السنة؟', en: 'More details? / brand / model / year?' },
+          { fr: 'Quelle est sa dimension / sa taille ? / Quel est son état ?', ar: 'قياساته / حجمه؟ / حالته؟', en: 'Dimensions / size? / condition?' },
+          { fr: 'Est-ce qu’il fonctionne correctement ? / Est-ce qu’il y a des défauts ?', ar: 'بيشتغل صح؟ / فيه عيوب؟', en: 'Works properly? / any defects?' },
+          { fr: 'Il y a quelques traces d’utilisation. / Il fonctionne parfaitement. / Il est en très bon état.', ar: 'فيه آثار استعمال / بيشتغل ممتاز / حالته ممتازة.', en: 'Signs of use / works perfectly / very good condition.' }
+        ]
+      },
+      {
+        icon: '💶',
+        title: { ar: '⭐ السعر والتفاوض', en: 'Price and negotiation', fr: 'Prix et négociation' },
+        phrases: [
+          { fr: 'Quel est votre prix ? / Vous le faites à combien ?', ar: 'قديش سعرك؟ / على قديش بتعطيه؟', en: 'Your price? / how much for it?' },
+          { fr: 'Le prix est-il négociable ? / Vous pouvez faire un geste sur le prix ?', ar: 'السعر قابل للتفاوض؟ / فيك تنزّل شوي؟', en: 'Negotiable? / lower it a bit?' },
+          { fr: 'Quel est votre dernier prix ? / C’est mon dernier prix.', ar: 'شو آخر سعر عندك؟ / هاد آخر سعر عندي.', en: 'Your lowest price? / my final price.' },
+          { fr: 'Je peux vous proposer / vous en propose 50 €. / Vous accepteriez 40 € ?', ar: 'فيني أعرض عليك 50؟ / بتقبل بـ40؟', en: 'I can offer €50 / would you take €40?' },
+          { fr: 'Je peux vous le laisser à 50 €. / Le prix est ferme. / Je ne peux pas descendre davantage.', ar: 'فيني أعطيك ياه بـ50 / السعر نهائي / ما فيني نزّل أكتر.', en: 'Let it go for €50 / price is firm / can’t go lower.' },
+          { fr: 'Je peux venir le chercher aujourd’hui si vous acceptez 40 €.', ar: 'فيني أجي آخده اليوم إذا بتقبل 40.', en: 'I can pick it up today if you take €40.' },
+          { fr: 'D’accord pour 50 €. / Ça me va. / C’est bon pour moi. / Marché conclu. / On fait affaire ?', ar: 'موافق على 50 / مناسبني / تمام / اتفقنا / منعمل الصفقة؟', en: 'Okay €50 / works for me / deal / shall we?' },
+          { fr: 'Je peux faire 50 €, mais pas moins. / C’est négociable.', ar: 'فيني أعمل 50 بس أقل لا / قابل للتفاوض.', en: '€50 but no less / negotiable.' }
+        ]
+      },
+      {
+        icon: '📅',
+        title: { ar: '⭐ الموعد والاستلام', en: 'Arranging time and pickup', fr: 'Rendez-vous et retrait' },
+        phrases: [
+          { fr: 'Quand pouvez-vous venir ? / Vous pouvez venir quand / aujourd’hui / ce soir ?', ar: 'إمتى فيك تجي؟ / اليوم؟ / المسا؟', en: 'When can you come? / today / evening?' },
+          { fr: 'Je peux venir demain. / passer ce soir / vers 19 h.', ar: 'فيني أجي بكرا / أمرق المسا / حوالي الساعة 7.', en: 'Tomorrow / this evening / around 7 p.m.' },
+          { fr: 'Vers quelle heure ? / À quelle heure exactement ?', ar: 'حوالي أي ساعة؟ / بأي ساعة بالضبط؟', en: 'Around / exactly what time?' },
+          { fr: 'Je vous confirme l’heure un peu avant. / Je vous dirai l’heure exacte un peu avant.', ar: 'بخبرك بالساعة قبلها بشوي / بالساعة بالضبط.', en: 'I’ll confirm the time shortly before.' },
+          { fr: 'Où est-ce que je peux venir le chercher ? / Vous êtes où exactement ? / Quelle est votre adresse ?', ar: 'وين أجي آخده؟ / وين مكانك بالضبط؟ / شو عنوانك؟', en: 'Where to pick it up? / your address?' },
+          { fr: 'Je vous envoie l’adresse. / C’est au rez-de-chaussée ? / Il y a un ascenseur ?', ar: 'رح ابعتلك العنوان / بالطابق الأرضي؟ / في مصعد؟', en: 'Sending address / ground floor? / elevator?' },
+          { fr: 'À venir chercher sur place. / Remise en main propre uniquement.', ar: 'الاستلام من المكان / التسليم باليد فقط.', en: 'Pick-up on site / hand delivery only.' },
+          { fr: 'Il faut venir avec quelqu’un / prévoir deux personnes / un véhicule adapté. / C’est assez lourd / encombrant.', ar: 'لازم تجي مع حدا / شخصين / سيارة مناسبة / تقيل / حجمه كبير.', en: 'Come with someone / two people / suitable vehicle / heavy / bulky.' },
+          { fr: 'Ça ne rentre pas dans une petite voiture. / Pensez à prendre de quoi le transporter.', ar: 'ما بيفوت بسيارة صغيرة / جيب شي ينقله.', en: 'Won’t fit in a small car / bring transport.' }
+        ]
+      },
+      {
+        icon: '🚗',
+        title: { ar: 'الوصول والتأخير وعدم المجيء', en: 'Arriving, delays, no-shows', fr: 'Arrivée, retard, absence' },
+        phrases: [
+          { fr: 'Je suis en route. / J’arrive dans 10 minutes. / Je suis presque arrivé.', ar: 'أنا بالطريق / بوصل بعد 10 دقايق / قربت.', en: 'On my way / arriving in 10 min / almost there.' },
+          { fr: 'Je suis devant l’immeuble / devant chez vous / en bas. / Je suis arrivé.', ar: 'قدام البناء / قدام بيتك / تحت / وصلت.', en: 'In front of the building / your place / downstairs / arrived.' },
+          { fr: 'Vous pouvez descendre ?', ar: 'فيك تنزل؟', en: 'Can you come down?' },
+          { fr: 'Vous êtes toujours en route ? / Vous arrivez bientôt ? / Vous avez du retard ?', ar: 'لساك بالطريق؟ / رح توصل قريب؟ / تأخرت؟', en: 'Still on your way? / soon? / late?' },
+          { fr: 'Vous pouvez me prévenir si vous avez du retard ? / Je vous attends.', ar: 'فيك تخبرني إذا تأخرت؟ / أنا ناطرك.', en: 'Let me know if late? / I’m waiting.' },
+          { fr: 'Vous n’êtes pas venu récupérer l’article. / Vous deviez venir chercher l’article.', ar: 'ما جيت تاخد الغرض / كان المفروض تجي.', en: 'You didn’t come / were supposed to come.' },
+          { fr: 'Est-ce que vous comptez toujours venir ? / Vous pouvez me confirmer si vous venez ?', ar: 'لسا ناوي تجي؟ / فيك تأكدلي؟', en: 'Still coming? / can you confirm?' },
+          { fr: 'Si vous ne venez pas, merci de me prévenir. / Je vous ai attendu, mais vous n’êtes pas venu.', ar: 'إذا مش جاي خبرني / نطرتك وما جيت.', en: 'If not coming, tell me / I waited, you didn’t come.' }
+        ]
+      },
+      {
+        icon: '💳',
+        title: { ar: 'الدفع والحجز والمشترين الكتار', en: 'Payment, reservation, multiple buyers', fr: 'Paiement, réservation, acheteurs' },
+        phrases: [
+          { fr: 'Vous payez en espèces ? / Vous avez prévu de payer comment ?', ar: 'رح تدفع كاش؟ / كيف ناوي تدفع؟', en: 'Paying cash? / how will you pay?' },
+          { fr: 'Vous pouvez payer en espèces. / Je préfère les espèces. / Le paiement se fait sur place.', ar: 'فيك تدفع كاش / بفضّل الكاش / الدفع بالمكان.', en: 'Cash / I prefer cash / payment on site.' },
+          { fr: 'Vous pouvez vérifier l’article avant de payer.', ar: 'فيك تتأكد من الغرض قبل ما تدفع.', en: 'Check the item before paying.' },
+          { fr: 'Je peux vous le réserver / le garder. / Je vous le réserve jusqu’à ce soir.', ar: 'فيني احجزلك ياه / أخليه إلك / للمسا.', en: 'Reserve / keep it for you / until tonight.' },
+          { fr: 'Vous êtes sûr de venir ? / Je préfère ne pas le réserver sans confirmation.', ar: 'متأكد جاي؟ / بفضّل ما احجز بدون تأكيد.', en: 'Sure you’ll come? / won’t reserve unconfirmed.' },
+          { fr: 'J’ai plusieurs personnes intéressées. / Le premier qui vient le prend. / Je ne peux pas garantir la réservation.', ar: 'في عدة مهتمين / أول واحد بيجي بياخده / ما فيني أضمن الحجز.', en: 'Several interested / first come first served / can’t guarantee.' },
+          { fr: 'C’est vendu. / Je viens de le vendre. / Merci pour votre intérêt.', ar: 'انباع / بعته هلأ / شكرا لاهتمامك.', en: 'Sold / just sold it / thanks for interest.' },
+          { fr: 'Finalement, je ne souhaite plus le vendre. / Je vais retirer l’annonce. / L’article n’est plus disponible.', ar: 'بالنهاية ما عاد بدي بيعه / رح أشيل الإعلان / ما عاد متوفر.', en: 'Not selling anymore / removing the ad / no longer available.' }
+        ]
+      },
+      {
+        icon: '⭐',
+        title: { ar: '⭐ الجمل الأكثر تكرارًا', en: 'Most repeated phrases', fr: 'Phrases fréquentes' },
+        phrases: [
+          { fr: 'Vous êtes toujours intéressé ? / C’est toujours disponible ?', ar: 'لساك مهتم؟ / لسا موجود؟', en: 'Still interested? / still available?' },
+          { fr: 'Quand pouvez-vous venir le chercher ? / À quelle heure exactement ?', ar: 'إمتى فيك تجي تاخده؟ / بأي ساعة بالضبط؟', en: 'When can you pick it up? / exact time?' },
+          { fr: 'Je suis en route. / Je suis arrivé. / Je vous attends.', ar: 'بالطريق / وصلت / ناطرك.', en: 'On my way / arrived / waiting.' },
+          { fr: 'Vous n’êtes finalement pas venu ? / Je viens de le vendre.', ar: 'بالنهاية ما جيت؟ / بعته هلأ.', en: 'Didn’t come? / just sold it.' },
+          { fr: 'L’article est toujours disponible. / Le prix est ferme. / C’est négociable.', ar: 'الغرض لسا متوفر / السعر نهائي / قابل للتفاوض.', en: 'Still available / firm / negotiable.' },
+          { fr: 'Remise en main propre uniquement. / À venir chercher sur place.', ar: 'التسليم باليد فقط / الاستلام من المكان.', en: 'Hand delivery only / pick-up on site.' }
+        ]
+      }
+    ]
   }
 ];
