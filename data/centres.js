@@ -7557,5 +7557,133 @@ window.CENTRES_DATA = [
         ]
       }
     ]
+  },
+  {
+    id: 'peinture',
+    icon: '🎨',
+    name: { ar: 'الدهان (La peinture)', en: 'Painting (La peinture)', fr: 'La peinture' },
+    desc: { ar: 'شراء الدهان وأدواته ودهان الحيطان', en: 'Buying paint and painting walls', fr: 'Acheter et appliquer la peinture' },
+    sections: [
+      {
+        icon: '🎨',
+        title: { ar: 'اختيار الدهان والتشطيب', en: 'Choosing paint and finish', fr: 'Choisir la peinture et la finition' },
+        phrases: [
+          { fr: 'Je cherche une peinture pour mur intérieur. / une peinture blanche / un pot de peinture / un petit pot.', ar: 'بدي دهان لحائط داخلي / أبيض / علبة دهان / علبة صغيرة.', en: 'Interior wall paint / white / can / small can.' },
+          { fr: 'Vous avez du blanc mat ? / du blanc satiné ? / C’est du mat ou du satin ? / C’est du blanc pur ou du blanc cassé ?', ar: 'عندكم أبيض مطفي؟ / ساتان؟ / هاد مطفي ولا ساتان؟ / ناصع ولا أوف وايت؟', en: 'Matte? / satin? / matte or satin? / pure or off-white?' },
+          { fr: 'Quelle finition me conseillez-vous ? / Je veux la même finition que celle-ci.', ar: 'أي تشطيب بتنصحني؟ / بدي نفس تشطيب هاد.', en: 'Which finish? / same finish as this.' }
+        ]
+      },
+      {
+        icon: '🧱',
+        title: { ar: 'ملاءمة الحائط وطبقة الأساس', en: 'Suitability and primer', fr: 'Mur et sous-couche' },
+        phrases: [
+          { fr: 'Est-ce que cette peinture convient à mon mur ? / est adaptée à un mur intérieur ? / Cette peinture ne convient pas à mon mur.', ar: 'هالدهان مناسب لحائطي؟ / لحائط داخلي؟ / ما بيناسب حائطي.', en: 'Suitable for my wall? / interior wall? / not suitable.' },
+          { fr: 'Est-ce que je peux peindre directement sur ce mur ? / Est-ce qu’il faut mettre une sous-couche ? / Est-ce que je dois acheter une sous-couche séparément ?', ar: 'فيني أدهن مباشرة؟ / لازم طبقة أساس؟ / اشتريها لحالها؟', en: 'Paint directly? / need primer? / buy separately?' },
+          { fr: 'Est-ce que cette peinture couvre bien ? / est lavable ? / résiste à l’humidité ? / convient à une salle de bains ?', ar: 'الدهان بيغطي منيح؟ / قابل للغسيل؟ / بيتحمل الرطوبة؟ / مناسب للحمام؟', en: 'Covers well? / washable? / moisture-resistant? / bathroom?' }
+        ]
+      },
+      {
+        icon: '🧰',
+        title: { ar: 'تحضير الحائط', en: 'Preparing the wall', fr: 'Préparer le mur' },
+        phrases: [
+          { fr: 'Il faut préparer / nettoyer le mur avant de peindre. / Il faut reboucher les trous. / Il faut poncer avant de peindre.', ar: 'لازم حضّر / نظف الحائط قبل الدهان / نسد الثقوب / نصنفر.', en: 'Prepare / clean the wall / fill holes / sand first.' },
+          { fr: 'Le mur est déjà peint. / La peinture existante est en bon état. / La peinture s’écaille. / Il y a des traces sur le mur.', ar: 'الحائط مدهون / الدهان الموجود منيح / عم يتقشر / في آثار.', en: 'Already painted / existing paint ok / peeling / marks.' },
+          { fr: 'nettoyer → reboucher → laisser sécher → poncer → lisser → protéger → sous-couche → peindre → sécher → deuxième couche', ar: 'ينظف → يسد → ينشف → يصنفر → ينعّم → يحمي → أساس → يدهن → ينشف → طبقة تانية', en: 'the full painting sequence' }
+        ]
+      },
+      {
+        icon: '🪣',
+        title: { ar: 'أثناء الدهان', en: 'While painting', fr: 'En peignant' },
+        phrases: [
+          { fr: 'Il faut bien mélanger la peinture. / Je commence par les angles. / un pinceau pour les angles.', ar: 'نخلط الدهان منيح / ببلش من الزوايا / فرشاية للزوايا.', en: 'Mix well / start at corners / corner brush.' },
+          { fr: 'Il faut appliquer une première / deuxième couche. / Appliquez une couche fine.', ar: 'نحط أول / تانية طبقة / طبقة رقيقة.', en: 'First / second coat / thin coat.' },
+          { fr: 'Combien de couches faut-il appliquer ? / Combien de temps faut-il attendre entre les couches ?', ar: 'قديش طبقة لازم؟ / قديش استنى بين الطبقات؟', en: 'How many coats? / wait between coats?' }
+        ]
+      },
+      {
+        icon: '⏱️',
+        title: { ar: 'التجفيف', en: 'Drying', fr: 'Le séchage' },
+        phrases: [
+          { fr: 'Combien de temps faut-il pour que la peinture sèche ? / La peinture est encore humide. / est sèche. / Il faut laisser sécher.', ar: 'قديش لحتى ينشف؟ / لسا رطب / نشف / نتركه ينشف.', en: 'Drying time? / still wet / dry / let it dry.' }
+        ]
+      },
+      {
+        icon: '🌈',
+        title: { ar: 'اللون', en: 'The color', fr: 'La couleur' },
+        phrases: [
+          { fr: 'La couleur est trop claire / trop foncée / ne correspond pas / est différente.', ar: 'اللون فاتح زيادة / غامق زيادة / مو مطابق / مختلف.', en: 'Too light / too dark / doesn’t match / different.' },
+          { fr: 'Je voudrais exactement la même couleur. / Est-ce que vous pouvez retrouver cette couleur ?', ar: 'بدي نفس اللون تمامًا / فيكم تلاقوا هاللون؟', en: 'Exactly the same color / find this color?' }
+        ]
+      },
+      {
+        icon: '⚠️',
+        title: { ar: 'مشاكل شائعة', en: 'Common problems', fr: 'Problèmes fréquents' },
+        phrases: [
+          { fr: 'La peinture fait des traces / des traces de rouleau / ne couvre pas assez / on voit encore l’ancienne couleur.', ar: 'الدهان بيترك آثار / آثار الرول / ما عم يغطي / اللون القديم مبين.', en: 'Marks / roller marks / poor coverage / old color shows.' },
+          { fr: 'La peinture fait des bulles / se décolle / est trop épaisse / trop liquide / il y a une coulure.', ar: 'فقاعات / عم ينفصل / سميك زيادة / سائل زيادة / في سيلان.', en: 'Bubbles / peeling off / too thick / runny / a drip.' }
+        ]
+      },
+      {
+        icon: '🧽',
+        title: { ar: 'التنظيف بعد الدهان', en: 'Cleaning after painting', fr: 'Nettoyer après la peinture' },
+        phrases: [
+          { fr: 'Comment nettoyer le rouleau ? / le pinceau ? / Est-ce que cette peinture se nettoie à l’eau ? / Il faut nettoyer les outils tout de suite.', ar: 'كيف بنظف الرول؟ / الفرشاية؟ / بينغسل بالمي؟ / ننظف الأدوات فورًا.', en: 'Clean roller? / brush? / water-clean? / clean tools now.' },
+          { fr: 'Il y a de la peinture sur le sol. / J’ai fait une tache de peinture. / Comment enlever cette tache ? / Est-ce que je peux réutiliser ce rouleau ? / je dois le jeter après utilisation ?', ar: 'في دهان عالأرض / عملت بقعة / كيف أشيلها؟ / فيني أعيد استخدام الرول؟ / أرميه؟', en: 'Paint on floor / made a stain / remove it? / reuse roller? / throw it?' }
+        ]
+      },
+      {
+        icon: '🛒',
+        title: { ar: 'عند شراء الدهان', en: 'Buying paint', fr: 'Acheter la peinture' },
+        phrases: [
+          { fr: 'Combien de litres me faut-il pour cette pièce ? / Quelle surface peut couvrir ce pot ? / C’est combien le litre ?', ar: 'قديش لتر لهالغرفة؟ / هالعلبة قديش بتغطي؟ / سعر اللتر؟', en: 'How many liters / coverage per can / per liter?' },
+          { fr: 'Quelle est la différence entre ces deux peintures ? / Est-ce que le rouleau est inclus ?', ar: 'شو الفرق بين هالنوعين؟ / الرول مرفق؟', en: 'Difference between the two? / roller included?' }
+        ]
+      },
+      {
+        icon: '🖌️',
+        title: { ar: 'أدوات الدهان', en: 'Painting tools', fr: 'Outils de peinture' },
+        phrases: [
+          { fr: 'Je cherche un pinceau / un pinceau fin / pour les angles / Quel pinceau dois-je utiliser ? / Ce pinceau convient pour cette peinture ?', ar: 'بدي فرشاية / رفيعة / للزوايا / أي فرشاية أستخدم؟ / مناسبة لهالدهان؟', en: 'Brush / fine / corners / which? / suits this paint?' },
+          { fr: 'Je cherche un rouleau / Quel rouleau me conseillez-vous ? / convient à mon mur ? / pour mur intérieur / à une peinture mate ? / Est-ce que le rouleau laisse des traces ?', ar: 'بدي رول / أي رول بتنصحني؟ / لحائطي؟ / لحائط داخلي / لدهان مطفي؟ / بيترك آثار؟', en: 'Roller / which? / my wall? / interior / matte? / leaves marks?' },
+          { fr: 'Je cherche un bac à peinture / Est-ce que ce rouleau rentre dans ce bac ? / Le bac est vendu avec le rouleau ?', ar: 'بدي صينية دهان / الرول بيناسب هالصينية؟ / مرفقة مع الرول؟', en: 'Tray / roller fits? / comes with roller?' },
+          { fr: 'Je cherche une petite échelle / une perche télescopique pour rouleau / Je dois peindre le plafond / Quelle longueur de perche me faut-il ?', ar: 'بدي سلّم صغير / عصاية تلسكوبية للرول / لازم أدهن السقف / قديش طول العصاية؟', en: 'Small ladder / telescopic pole / paint the ceiling / pole length?' },
+          { fr: 'pinceau / rouleau / bac à peinture / perche télescopique / escabeau / seau / chiffon / éponge', ar: 'فرشاية / رول / صينية / عصاية / سلّم صغير / سطل / قطعة قماش / إسفنجة', en: 'brush / roller / tray / pole / step ladder / bucket / cloth / sponge' }
+        ]
+      },
+      {
+        icon: '🧤',
+        title: { ar: 'حماية المكان', en: 'Protecting the area', fr: 'Protéger les lieux' },
+        phrases: [
+          { fr: 'Je cherche une bâche de protection / C’est pour protéger le sol / du ruban de masquage / protéger les plinthes / éviter de mettre de la peinture sur les plinthes / protéger les meubles.', ar: 'بدي غطاء حماية / لحماية الأرض / شريط لاصق / الوزرات / ما يجي دهان عالوزرات / الأثاث.', en: 'Sheet / protect the floor / tape / baseboards / avoid paint / furniture.' }
+        ]
+      },
+      {
+        icon: '🔁',
+        title: { ar: 'أفعال الدهان', en: 'Painting verbs', fr: 'Verbes de peinture' },
+        phrases: [
+          { fr: 'Je vais peindre / je suis en train de peindre / j’ai peint le mur en blanc. / repeindre : je vais repeindre / il faut repeindre / le mur doit être repeint.', ar: 'رح أدهن / عم أدهن هلأ / دهنت بالأبيض / يعيد الدهان: رح عيد / لازم نعيد / لازم ينعاد.', en: 'paint: will/am doing/painted / repaint forms.' },
+          { fr: 'Je vais reboucher les trous / j’ai rebouché tous les trous. / poncer : je vais poncer / j’ai poncé la surface. / lisser : il faut lisser la surface.', ar: 'رح سدّ الثقوب / سدّيتها كلها / يصنفر: رح صنفر / صنفرت / ينعّم: لازم ننعّم.', en: 'fill holes / sand / smooth.' },
+          { fr: 'appliquer une couche / une couche fine / mélanger bien avant utilisation / diluer : il ne faut pas diluer / sécher / gratter l’ancienne peinture / protéger le sol.', ar: 'يحط طبقة / رقيقة / يخلط قبل الاستعمال / يخفف: ما لازم نخفف / ينشف / يكشط القديم / يحمي الأرض.', en: 'apply / mix / dilute / dry / scrape / protect.' }
+        ]
+      },
+      {
+        icon: '✨',
+        title: { ar: 'صفات الدهان والحائط والنتيجة', en: 'Adjectives: paint, wall, result', fr: 'Adjectifs : peinture, mur, résultat' },
+        phrases: [
+          { fr: 'La peinture est mate / satinée / brillante / couvrante / lavable / résistante / adaptée aux murs intérieurs.', ar: 'الدهان مطفي / ساتان / لامع / بيغطي / قابل للغسيل / مقاوم / للجدران الداخلية.', en: 'matte / satin / glossy / covering / washable / resistant / interior.' },
+          { fr: 'Le mur est propre / sale / lisse / rugueux / sec / humide / abîmé / fissuré / en bon état / en mauvais état.', ar: 'الحائط نظيف / وسخ / ناعم / خشن / ناشف / رطب / متضرر / متشقق / منيح / سيئ.', en: 'clean / dirty / smooth / rough / dry / damp / damaged / cracked / good / bad.' },
+          { fr: 'Le résultat est uniforme / la couleur est uniforme / la peinture est bien répartie / la finition est propre / la surface est bien lisse.', ar: 'النتيجة متجانسة / اللون متجانس / الدهان موزّع منيح / التشطيب نظيف / السطح ناعم.', en: 'uniform result / color / even / neat finish / smooth.' },
+          { fr: 'mat / satiné / brillant / couvrant / lavable / lisse / rugueux / propre / sec / humide / abîmé / fissuré / uniforme / écaillé / épais / liquide', ar: 'مطفي / ساتان / لامع / بيغطي / قابل للغسيل / ناعم / خشن / نظيف / ناشف / رطب / متضرر / متشقق / متجانس / متقشر / سميك / سائل', en: 'key paint adjectives' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: 'أطلب كل شي للدهان', en: 'Ask for everything needed', fr: 'Demander tout le nécessaire' },
+        phrases: [
+          { fr: 'Il me faut tout le nécessaire pour repeindre un mur. / Qu’est-ce qu’il me faut pour repeindre ce mur ? / Vous pouvez me montrer les produits dont j’ai besoin ?', ar: 'بدي كل شي لازم لإعادة دهان حائط / شو بحتاج؟ / فرجيني المنتجات اللي بحتاجها.', en: 'Everything to repaint / what do I need / show me the products.' },
+          { fr: 'Je veux faire une petite retouche de peinture. / Il me faut juste de quoi faire une petite réparation.', ar: 'بدي أعمل رتوش بسيطة / بس شي لإصلاح صغير.', en: 'Small touch-up / just a small repair.' }
+        ]
+      }
+    ]
   }
 ];
