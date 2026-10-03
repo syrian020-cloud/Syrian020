@@ -6448,6 +6448,41 @@ window.CENTRES_DATA = [
           { fr: 'Quand mon ALD prend-elle fin ? / Est-ce qu’elle doit être renouvelée ? / Je voudrais renouveler mon ALD.', ar: 'إمتى بتخلص الـALD؟ / لازم تجديد؟ / بدي جدّدها.', en: 'When does ALD end? / renew? / I want to renew.' },
           { fr: 'Je voudrais connaître le motif du refus. / Est-ce que je peux contester la décision ? / Quels sont les délais pour faire un recours ?', ar: 'بدي أعرف سبب الرفض / فيني أعترض؟ / شو مهلة الاعتراض؟', en: 'Reason for refusal? / contest? / appeal deadline?' }
         ]
+      },
+      {
+        icon: '💶',
+        title: { ar: '⭐ prise en charge — المعنى والتراكيب', en: 'prise en charge — meaning and patterns', fr: 'prise en charge — sens' },
+        phrases: [
+          { fr: 'prise en charge', ar: 'التكفّل / التغطية', en: 'coverage / taking care of' },
+          { fr: 'être pris en charge', ar: 'يكون مغطّى', en: 'to be covered' },
+          { fr: 'C’est pris en charge par l’Assurance Maladie / la Sécurité sociale / ma mutuelle.', ar: 'مغطّى من التأمين الصحي / الضمان الاجتماعي / المتمّمة.', en: 'Covered by Assurance Maladie / Sécurité sociale / mutuelle.' },
+          { fr: 'Ce traitement / Cette consultation / Cette analyse / Cette IRM / Ce médicament est pris en charge.', ar: 'هالعلاج / المعاينة / التحليل / الرنين / الدواء مغطّى.', en: 'Treatment / visit / test / MRI / medication is covered.' },
+          { fr: 'Ce soin n’est pas pris en charge. / Ce médicament n’est pas remboursé.', ar: 'هالعلاج مش مغطّى / هالدواء مش معوّض.', en: 'Not covered / not reimbursed.' },
+          { fr: 'prise en charge à 100 % / partielle / totale', ar: 'تغطية 100% من الأساس / جزئية / كاملة', en: '100% / partial / full coverage' },
+          { fr: 'demande / accord / refus de prise en charge / conditions / montant pris en charge', ar: 'طلب / موافقة / رفض تغطية / الشروط / المبلغ المغطّى', en: 'request / approval / refusal / conditions / covered amount' },
+          { fr: 'reste à charge / à ma charge', ar: 'المتبقي عليّي / على حسابي', en: 'out-of-pocket / at my expense' },
+          { fr: 'Combien reste à ma charge ? / Quel est le montant restant à ma charge ?', ar: 'قديش بيضل عليّي ادفع؟ / شو المبلغ المتبقي؟', en: 'How much left for me to pay?' },
+          { fr: 'Il reste 20 € à ma charge. / Il n’y a rien à ma charge.', ar: 'ضل 20 يورو عليّي / ما في شي عليّي.', en: '€20 left for me / nothing to pay.' },
+          { fr: 'prise en charge ≠ remboursement : Je paie, puis l’Assurance Maladie me rembourse. Avec le tiers payant, je n’avance pas les frais.', ar: 'التكفّل ≠ التعويض: أنا بدفع وبعدين التأمين بيرجعلي. مع tiers payant ما بدفع مقدمًا.', en: 'Coverage ≠ reimbursement: pay then reimbursed; tiers payant = no upfront payment.' }
+        ]
+      },
+      {
+        icon: '🗣️',
+        title: { ar: '⭐ prise en charge — الأسئلة والمواقف', en: 'prise en charge — questions and situations', fr: 'prise en charge — situations' },
+        phrases: [
+          { fr: 'Est-ce que c’est pris en charge ? / à 100 % ? / Par qui ?', ar: 'مغطّى؟ / 100%؟ / من طرف مين؟', en: 'Covered? / 100%? / by whom?' },
+          { fr: 'Qui prend en charge les frais ? / Quelle partie est prise en charge / reste à ma charge ?', ar: 'مين بيتكفّل بالمصاريف؟ / أي جزء مغطّى / بيضل عليّي؟', en: 'Who covers costs? / which part covered / left?' },
+          { fr: 'Est-ce que je dois avancer les frais ? / Vous faites / pratiquez le tiers payant ? / Je bénéficie du tiers payant ?', ar: 'لازم ادفع مقدمًا؟ / بتطبقوا tiers payant؟ / إلي حق فيه؟', en: 'Pay upfront? / do tiers payant? / entitled?' },
+          { fr: 'Est-ce que ce soin / cette analyse / ce médicament est pris en charge au titre de mon ALD ?', ar: 'هالعلاج / التحليل / الدواء مغطّى ضمن الـALD؟', en: 'Is this care / test / med covered under my ALD?' },
+          { fr: 'Est-ce que cette consultation est prise en charge ? / Quel est le tarif ? / la base de remboursement ?', ar: 'المعاينة مغطّاة؟ / قديش سعرها؟ / شو أساس التعويض؟', en: 'Visit covered? / fee? / reimbursement base?' },
+          { fr: 'Ce médicament est-il remboursable ? / Je n’ai rien à payer ? / Il reste quelque chose à payer ?', ar: 'الدواء قابل للتعويض؟ / ما عليّي شي؟ / بقي شي ادفعه؟', en: 'Reimbursable? / nothing to pay? / something left?' },
+          { fr: 'L’hospitalisation est-elle prise en charge ? / la chambre individuelle ? / Quels frais restent à ma charge ?', ar: 'الاستشفاء مغطّى؟ / الغرفة الفردية؟ / شو بيضل عليّي؟', en: 'Hospitalization covered? / private room? / what remains?' },
+          { fr: 'Ma mutuelle prend-elle en charge le reste ? / Je n’ai pas de mutuelle / de complémentaire santé.', ar: 'المتمّمة بتغطي الباقي؟ / ما عندي متمّمة.', en: 'Mutuelle covers rest? / I have no mutuelle.' },
+          { fr: 'C’est partiellement pris en charge. / Le reste est à ma charge. / Il n’y a pas de prise en charge.', ar: 'التغطية جزئية / الباقي عليّي / ما في تغطية.', en: 'Partially covered / rest on me / no coverage.' },
+          { fr: 'Pourquoi ce soin n’est-il pas pris en charge ? / Quelle est la raison du refus de prise en charge ?', ar: 'ليش مش مغطّى؟ / شو سبب رفض التغطية؟', en: 'Why not covered? / reason for refusal?' },
+          { fr: 'Bonjour, j’ai une ordonnance pour une prise de sang. — Est-ce que c’est pris en charge ? — Oui, une partie, et vous bénéficiez du tiers payant.', ar: 'معي وصفة تحليل — مغطّى؟ — جزء، وإلك tiers payant.', en: 'Prescription — covered? — partly, with tiers payant.' },
+          { fr: 'Je suis en ALD. — Est-ce que ce soin est en rapport avec mon ALD ? — Oui. — Pris en charge à 100 % ? — Oui, au titre de votre ALD.', ar: 'عندي ALD — هالعلاج تبعها؟ — إي — مغطّى 100%؟ — إي، ضمن الـALD.', en: 'ALD — related? — yes — 100%? — yes under ALD.' }
+        ]
       }
     ]
   }
