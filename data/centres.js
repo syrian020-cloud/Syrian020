@@ -1052,6 +1052,34 @@ window.CENTRES_DATA = [
           { fr: 'fournir / demander / présenter / justifier / signer — contacter / appeler / expliquer / comprendre / répondre / attendre.', ar: 'يقدم / يطلب / يبرز / يثبت / يوقع — يتواصل / يتصل / يشرح / يفهم / يرد / ينتظر.', en: 'provide / request / present / prove / sign — contact / call / explain / understand / reply / wait.' },
           { fr: 'être bloqué / avoir un problème / vouloir / pouvoir / devoir / savoir / il faut / venir / aller / prendre rendez-vous.', ar: 'محظور / عنده مشكلة / يريد / يستطيع / عليه / يعرف / يلزم / يجي / يروح / يحجز موعد.', en: 'be blocked / have a problem / want / can / must / know / need / come / go / book.' }
         ]
+      },
+      {
+        icon: '🤝',
+        title: { ar: '⭐ Parrainage — الدعوة والمكافأة', en: 'Referral — invite and bonus', fr: 'Parrainage — invitation et prime' },
+        phrases: [
+          { fr: 'parrainage / Parrainer ou inviter un proche / un ami', ar: 'دعوة/إحالة / دعوة قريب أو صديق', en: 'referral / refer or invite a friend' },
+          { fr: 'parrain ≠ filleul : le parrain invite, le filleul est invité.', ar: 'parrain = اللي بيدعي / filleul = اللي اندعا.', en: 'parrain = referrer / filleul = person referred.' },
+          { fr: 'Je voudrais parrainer un ami. / Je t’invite à ouvrir un compte BoursoBank.', ar: 'بدي ادعي رفيقي / بدعوك تفتح حساب.', en: 'Refer a friend / invite you to open an account.' },
+          { fr: 'Profite de mon invitation. / Utilise mon lien de parrainage. / Voici mon lien.', ar: 'استفيد من دعوتي / استخدم رابطي / هاد الرابط.', en: 'Use my invite / my referral link.' },
+          { fr: 'Tu peux ouvrir ton compte avec mon lien. / Tu peux passer par mon lien.', ar: 'فيك تفتح حسابك من رابطي / عن طريق رابطي.', en: 'Open your account via my link.' },
+          { fr: 'prime de parrainage / offre de parrainage / prime de bienvenue / offre promotionnelle', ar: 'مكافأة الدعوة / عرض الدعوة / مكافأة ترحيبية / عرض ترويجي', en: 'referral bonus / offer / welcome bonus / promo' },
+          { fr: 'bénéficier d’une prime / recevoir une prime — sous conditions / voir les conditions de l’offre', ar: 'يستفيد من / يستلم مكافأة — وفق شروط / شوف شروط العرض', en: 'benefit from / receive a bonus — subject to conditions' },
+          { fr: '— Tu as déjà un compte BoursoBank ? — Non, je n’en ai pas encore. — Je peux t’inviter. / Je vais t’envoyer mon lien.', ar: '— عندك حساب؟ — لا لسا — فيني ادعيك / رح ابعتلك الرابط.', en: '— Have an account? — not yet — I can invite you.' },
+          { fr: 'Tu dois suivre les étapes indiquées. — Tu as reçu la prime ? — Je n’ai pas encore reçu la prime. / J’ai reçu la prime.', ar: 'لازم تتبع الخطوات — وصلتك المكافأة؟ — لسا / وصلتني.', en: 'Follow the steps — got the bonus? — not yet / got it.' }
+        ]
+      },
+      {
+        icon: '📲',
+        title: { ar: '⭐ عبارات التطبيق والإشعارات', en: 'App buttons and notifications', fr: 'Application et notifications' },
+        phrases: [
+          { fr: 'Se connecter / Se déconnecter / Mon espace client / Accéder à mon compte / Vérifier mon identité', ar: 'تسجيل الدخول / الخروج / حسابي كعميل / الدخول لحسابي / التحقق من هويتي', en: 'Log in / out / customer area / access account / verify identity' },
+          { fr: 'Valider / Confirmer / Continuer / Modifier / Télécharger / Ajouter / Supprimer', ar: 'تأكيد / يؤكد / متابعة / تعديل / تنزيل / إضافة / حذف', en: 'Validate / confirm / continue / edit / download / add / delete' },
+          { fr: 'Commander une carte / Activer ma carte / Ma carte est disponible / en cours de fabrication / Livraison de la carte', ar: 'طلب بطاقة / تفعيلها / صارت متاحة / قيد التصنيع / توصيلها', en: 'Order / activate / available / being made / delivery' },
+          { fr: 'Code secret / Paiement sans contact', ar: 'الرقم السري / الدفع بدون لمس', en: 'PIN / contactless payment' },
+          { fr: 'Faire un virement / Virement instantané / en cours / effectué / Ajouter un bénéficiaire / Coordonnées bancaires', ar: 'تحويل / فوري / قيد التنفيذ / تم / إضافة مستفيد / معلومات الحساب', en: 'Transfer / instant / in progress / done / add beneficiary / bank details' },
+          { fr: 'Une nouvelle opération / Paiement effectué / refusé / accepté', ar: 'عملية جديدة / تم الدفع / مرفوض / مقبول', en: 'New transaction / paid / declined / accepted' },
+          { fr: 'Montant débité / crédité / Opération à venir / en attente', ar: 'المبلغ المخصوم / المضاف / عملية قادمة / قيد الانتظار', en: 'Debited / credited / upcoming / pending' }
+        ]
       }
     ]
   },
