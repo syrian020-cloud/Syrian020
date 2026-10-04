@@ -10456,7 +10456,12 @@ window.CENTRES_DATA = [
         { fr: 'sang', ar: 'دم', en: 'blood' },
         { fr: 'cent', ar: 'مئة', en: 'hundred' },
         { fr: 'sens', ar: 'معنى أو حاسة', en: 'sense' },
-        { fr: 'sent', ar: 'يشم أو يشعر', en: 'smells or feels' }
+        { fr: 'sent', ar: 'يشم أو يشعر', en: 'smells or feels' },
+        { fr: 'Je bois mon café sans sucre.', ar: 'بشرب قهوتي بدون سكر.', en: 'I drink my coffee without sugar.' },
+        { fr: 'Il y a du sang sur sa main.', ar: 'في دم على إيده.', en: 'There is blood on his hand.' },
+        { fr: 'Ça coûte cent euros.', ar: 'سعره مية يورو.', en: 'It costs one hundred euros.' },
+        { fr: 'Je sens une bonne odeur.', ar: 'شَمّيت ريحة طيبة.', en: 'I smell a nice smell.' },
+        { fr: 'Je ne sens plus rien.', ar: 'ما عاد عم حس بشي.', en: 'I can’t feel anything anymore.' }
       ] },
       { icon: '🔊', title: { ar: 'air / aire / ère', en: 'Homophones 14', fr: 'Homophones 14' }, phrases: [
         { fr: 'air', ar: 'هواء', en: 'air' },
@@ -10554,12 +10559,19 @@ window.CENTRES_DATA = [
         { fr: 'c’est', ar: 'هذا هو', en: 'it is' },
         { fr: 'ses', ar: 'له أو لها', en: 'his or her' },
         { fr: 'ces', ar: 'هؤلاء', en: 'these' },
-        { fr: 'sait', ar: 'يعرف', en: 'knows' }
+        { fr: 'sait', ar: 'يعرف', en: 'knows' },
+        { fr: 'C’est très intéressant.', ar: 'هاد شي ممتع كتير.', en: 'It’s very interesting.' },
+        { fr: 'Il cherche ses clés.', ar: 'عم يدور على مفاتيحه.', en: 'He is looking for his keys.' },
+        { fr: 'Ces chaussures sont neuves.', ar: 'هالأحذية جديدة.', en: 'These shoes are new.' },
+        { fr: 'Il sait parler français.', ar: 'هو بيعرف يحكي فرنسي.', en: 'He knows how to speak French.' }
       ] },
       { icon: '🔊', title: { ar: 's’est / sait / c’est', en: 'Homophones 33', fr: 'Homophones 33' }, phrases: [
         { fr: 's’est', ar: 'فعلَ... بنفسه', en: 'has... itself' },
         { fr: 'sait', ar: 'يعرف', en: 'knows' },
-        { fr: 'c’est', ar: 'هذا هو', en: 'it is' }
+        { fr: 'c’est', ar: 'هذا هو', en: 'it is' },
+        { fr: 'Il s’est levé tôt.', ar: 'هو قام بكير.', en: 'He got up early.' },
+        { fr: 'Elle sait cuisiner.', ar: 'هي بتعرف تطبخ.', en: 'She knows how to cook.' },
+        { fr: 'C’est une bonne idée.', ar: 'هاي فكرة منيحة.', en: 'It’s a good idea.' }
       ] },
       { icon: '🔊', title: { ar: 'quel / quelle / qu’elle', en: 'Homophones 34', fr: 'Homophones 34' }, phrases: [
         { fr: 'quel', ar: 'أيّ (مذكر)', en: 'which / what (masc.)' },
@@ -10569,7 +10581,10 @@ window.CENTRES_DATA = [
       { icon: '🔊', title: { ar: 'mes / mets / mais', en: 'Homophones 35', fr: 'Homophones 35' }, phrases: [
         { fr: 'mes', ar: 'لي / خاصتي', en: 'my' },
         { fr: 'mets', ar: 'أضع أو ضع', en: 'put' },
-        { fr: 'mais', ar: 'لكن', en: 'but' }
+        { fr: 'mais', ar: 'لكن', en: 'but' },
+        { fr: 'Où sont mes clés ?', ar: 'وين مفاتيحي؟', en: 'Where are my keys?' },
+        { fr: 'Je mets mon téléphone dans ma poche.', ar: 'بحط تلفوني بجيبي.', en: 'I put my phone in my pocket.' },
+        { fr: 'Je voudrais venir, mais je travaille.', ar: 'بدي إجي، بس أنا عم اشتغل.', en: 'I would like to come, but I’m working.' }
       ] },
       { icon: '🔊', title: { ar: 'peau / pot / po', en: 'Homophones 36', fr: 'Homophones 36' }, phrases: [
         { fr: 'peau', ar: 'جلد', en: 'skin' },
@@ -10619,12 +10634,19 @@ window.CENTRES_DATA = [
         { fr: 'mer', ar: 'بحر', en: 'sea' },
         { fr: 'mère', ar: 'أم', en: 'mother' },
         { fr: 'maire', ar: 'رئيس بلدية', en: 'mayor' },
-        { fr: 'mets', ar: 'أضع أو ضع', en: 'put' }
+        { fr: 'mets', ar: 'أضع أو ضع', en: 'put' },
+        { fr: 'J’aime regarder la mer.', ar: 'بحب أتطلع عالبحر.', en: 'I like looking at the sea.' },
+        { fr: 'Ma mère habite à Strasbourg.', ar: 'أمي ساكنة بستراسبورغ.', en: 'My mother lives in Strasbourg.' },
+        { fr: 'Le maire parle aux habitants.', ar: 'رئيس البلدية عم يحكي مع السكان.', en: 'The mayor is speaking to the residents.' },
+        { fr: 'Je mets le pain sur la table.', ar: 'بحط الخبز عالطاولة.', en: 'I put the bread on the table.' }
       ] },
       { icon: '🔊', title: { ar: 'cher / chair / chaire', en: 'Homophones 46', fr: 'Homophones 46' }, phrases: [
         { fr: 'cher', ar: 'غالي', en: 'expensive' },
         { fr: 'chair', ar: 'لحم', en: 'flesh / meat' },
-        { fr: 'chaire', ar: 'كرسي أستاذ أو منبر', en: 'professor’s chair / pulpit' }
+        { fr: 'chaire', ar: 'كرسي أستاذ أو منبر', en: 'professor’s chair / pulpit' },
+        { fr: 'Ce restaurant est trop cher.', ar: 'هالمطعم غالي كتير.', en: 'This restaurant is too expensive.' },
+        { fr: 'La chair de ce fruit est très tendre.', ar: 'لب هالفاكهة طري كتير.', en: 'The flesh of this fruit is very soft.' },
+        { fr: 'Le professeur est assis dans la chaire.', ar: 'الأستاذ قاعد على كرسيه الأكاديمي.', en: 'The professor is sitting in the academic chair.' }
       ] },
       { icon: '🔊', title: { ar: 'cygne / signe / signe', en: 'Homophones 47', fr: 'Homophones 47' }, phrases: [
         { fr: 'cygne', ar: 'بجعة', en: 'swan' },
@@ -10661,7 +10683,10 @@ window.CENTRES_DATA = [
       { icon: '🔊', title: { ar: 'seau / sceau / saut', en: 'Homophones 53', fr: 'Homophones 53' }, phrases: [
         { fr: 'seau', ar: 'دلو', en: 'bucket' },
         { fr: 'sceau', ar: 'ختم', en: 'seal' },
-        { fr: 'saut', ar: 'قفزة', en: 'jump' }
+        { fr: 'saut', ar: 'قفزة', en: 'jump' },
+        { fr: 'Prends un seau d’eau.', ar: 'جيب دلو مي.', en: 'Take a bucket of water.' },
+        { fr: 'Le document porte le sceau officiel.', ar: 'الوثيقة عليها الختم الرسمي.', en: 'The document bears the official seal.' },
+        { fr: 'Il fait un grand saut.', ar: 'عمل قفزة كبيرة.', en: 'He makes a big jump.' }
       ] },
       { icon: '🔊', title: { ar: 'date / datte', en: 'Homophones 54', fr: 'Homophones 54' }, phrases: [
         { fr: 'date', ar: 'تاريخ', en: 'date' },
@@ -10670,7 +10695,10 @@ window.CENTRES_DATA = [
       { icon: '🔊', title: { ar: 'reine / renne / rênes', en: 'Homophones 55', fr: 'Homophones 55' }, phrases: [
         { fr: 'reine', ar: 'ملكة', en: 'queen' },
         { fr: 'renne', ar: 'حيوان الرنّة', en: 'reindeer' },
-        { fr: 'rênes', ar: 'لجام', en: 'reins' }
+        { fr: 'rênes', ar: 'لجام', en: 'reins' },
+        { fr: 'La reine arrive au palais.', ar: 'الملكة وصلت للقصر.', en: 'The queen arrives at the palace.' },
+        { fr: 'J’ai vu un renne dans le zoo.', ar: 'شفت حيوان رنّة بحديقة الحيوانات.', en: 'I saw a reindeer at the zoo.' },
+        { fr: 'Il tient les rênes du cheval.', ar: 'هو ماسك لجام الحصان.', en: 'He is holding the horse’s reins.' }
       ] },
       { icon: '🔊', title: { ar: 'bal / balle', en: 'Homophones 56', fr: 'Homophones 56' }, phrases: [
         { fr: 'bal', ar: 'حفلة راقصة', en: 'ball / dance' },
@@ -10678,15 +10706,21 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔊', title: { ar: 'canal / cannelle', en: 'Homophones 57', fr: 'Homophones 57' }, phrases: [
         { fr: 'canal', ar: 'قناة', en: 'canal' },
-        { fr: 'cannelle', ar: 'قرفة', en: 'cinnamon' }
+        { fr: 'cannelle', ar: 'قرفة', en: 'cinnamon' },
+        { fr: 'Le bateau passe par le canal.', ar: 'القارب عم يمر بالقناة.', en: 'The boat passes through the canal.' },
+        { fr: 'J’aime mettre de la cannelle dans le café.', ar: 'بحب حط قرفة بالقهوة.', en: 'I like putting cinnamon in coffee.' }
       ] },
       { icon: '🔊', title: { ar: 'ancre / encre', en: 'Homophones 58', fr: 'Homophones 58' }, phrases: [
         { fr: 'ancre', ar: 'مرساة', en: 'anchor' },
-        { fr: 'encre', ar: 'حبر', en: 'ink' }
+        { fr: 'encre', ar: 'حبر', en: 'ink' },
+        { fr: 'Le bateau jette l’ancre.', ar: 'القارب رمى المرساة.', en: 'The boat drops anchor.' },
+        { fr: 'J’ai renversé mon encre.', ar: 'كبّيت الحبِر تبعي.', en: 'I spilled my ink.' }
       ] },
       { icon: '🔊', title: { ar: 'amande / amende', en: 'Homophones 59', fr: 'Homophones 59' }, phrases: [
         { fr: 'amande', ar: 'لوز', en: 'almond' },
-        { fr: 'amende', ar: 'غرامة', en: 'fine' }
+        { fr: 'amende', ar: 'غرامة', en: 'fine' },
+        { fr: 'Je mange des amandes tous les jours.', ar: 'باكل لوز كل يوم.', en: 'I eat almonds every day.' },
+        { fr: 'Il a reçu une amende.', ar: 'أخد مخالفة / غرامة.', en: 'He received a fine.' }
       ] },
       { icon: '🔊', title: { ar: 'pause / pose', en: 'Homophones 60', fr: 'Homophones 60' }, phrases: [
         { fr: 'pause', ar: 'استراحة', en: 'break' },
@@ -10694,23 +10728,33 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔊', title: { ar: 'tache / tâche', en: 'Homophones 61', fr: 'Homophones 61' }, phrases: [
         { fr: 'tache', ar: 'بقعة', en: 'stain' },
-        { fr: 'tâche', ar: 'مهمّة', en: 'task' }
+        { fr: 'tâche', ar: 'مهمّة', en: 'task' },
+        { fr: 'Il y a une tache sur ma chemise.', ar: 'في بقعة على قميصي.', en: 'There is a stain on my shirt.' },
+        { fr: 'J’ai une tâche importante à faire.', ar: 'عندي مهمة مهمة لازم أعملها.', en: 'I have an important task to do.' }
       ] },
       { icon: '🔊', title: { ar: 'mur / mûr', en: 'Homophones 62', fr: 'Homophones 62' }, phrases: [
         { fr: 'mur', ar: 'جدار', en: 'wall' },
-        { fr: 'mûr', ar: 'ناضج', en: 'ripe' }
+        { fr: 'mûr', ar: 'ناضج', en: 'ripe' },
+        { fr: 'Le mur est blanc.', ar: 'الحيط أبيض.', en: 'The wall is white.' },
+        { fr: 'Cette banane est bien mûre.', ar: 'هالموزة ناضجة منيح.', en: 'This banana is ripe.' }
       ] },
       { icon: '🔊', title: { ar: 'sur / sûr', en: 'Homophones 63', fr: 'Homophones 63' }, phrases: [
         { fr: 'sur', ar: 'على', en: 'on' },
-        { fr: 'sûr', ar: 'متأكد أو آمن', en: 'sure or safe' }
+        { fr: 'sûr', ar: 'متأكد أو آمن', en: 'sure or safe' },
+        { fr: 'Le livre est sur la table.', ar: 'الكتاب عالطاولة.', en: 'The book is on the table.' },
+        { fr: 'Tu es sûr ?', ar: 'إنت متأكد؟', en: 'Are you sure?' }
       ] },
       { icon: '🔊', title: { ar: 'du / dû', en: 'Homophones 64', fr: 'Homophones 64' }, phrases: [
         { fr: 'du', ar: 'من الـ', en: 'of the' },
-        { fr: 'dû', ar: 'مستحق أو واجب', en: 'due' }
+        { fr: 'dû', ar: 'مستحق أو واجب', en: 'due' },
+        { fr: 'Je voudrais du pain.', ar: 'بدي خبز.', en: 'I would like some bread.' },
+        { fr: 'Le retard est dû aux travaux.', ar: 'التأخير سببه الأشغال.', en: 'The delay is due to the construction.' }
       ] },
       { icon: '🔊', title: { ar: 'cru / crû', en: 'Homophones 65', fr: 'Homophones 65' }, phrases: [
         { fr: 'cru', ar: 'نيء', en: 'raw' },
-        { fr: 'crû', ar: 'نما أو ازداد', en: 'grew' }
+        { fr: 'crû', ar: 'نما أو ازداد', en: 'grew' },
+        { fr: 'Je préfère la viande bien cuite, pas crue.', ar: 'بفضّل اللحمة مستوية منيح، مو نيّة.', en: 'I prefer meat well done, not raw.' },
+        { fr: 'Le prix a crû rapidement.', ar: 'السعر ارتفع بسرعة.', en: 'The price increased rapidly.' }
       ] },
       { icon: '🔊', title: { ar: 'censé / sensé', en: 'Homophones 66', fr: 'Homophones 66' }, phrases: [
         { fr: 'censé', ar: 'من المفترض أن', en: 'supposed to' },
@@ -10718,23 +10762,33 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔊', title: { ar: 'plutôt / plus tôt', en: 'Homophones 67', fr: 'Homophones 67' }, phrases: [
         { fr: 'plutôt', ar: 'بالأحرى', en: 'rather' },
-        { fr: 'plus tôt', ar: 'في وقت أبكر', en: 'earlier' }
+        { fr: 'plus tôt', ar: 'في وقت أبكر', en: 'earlier' },
+        { fr: 'Je préfère rester à la maison plutôt que sortir.', ar: 'بفضّل ضل بالبيت بدل ما أطلع.', en: 'I’d rather stay home than go out.' },
+        { fr: 'Je suis arrivé plus tôt que prévu.', ar: 'وصلت أبكر من المتوقع.', en: 'I arrived earlier than expected.' }
       ] },
       { icon: '🔊', title: { ar: 'davantage / d’avantage', en: 'Homophones 68', fr: 'Homophones 68' }, phrases: [
         { fr: 'davantage', ar: 'أكثر', en: 'more' },
-        { fr: 'd’avantage', ar: 'من ميزة أو فائدة', en: 'of advantage' }
+        { fr: 'd’avantage', ar: 'من ميزة أو فائدة', en: 'of advantage' },
+        { fr: 'J’aimerais en savoir davantage.', ar: 'بدي أعرف أكتر.', en: 'I’d like to know more.' },
+        { fr: 'Je ne vois pas d’avantage à faire ça.', ar: 'ما بشوف فائدة من عمل هالشي.', en: 'I don’t see any advantage in doing that.' }
       ] },
       { icon: '🔊', title: { ar: 'quelquefois / quelques fois', en: 'Homophones 69', fr: 'Homophones 69' }, phrases: [
         { fr: 'quelquefois', ar: 'أحيانًا', en: 'sometimes' },
-        { fr: 'quelques fois', ar: 'عدة مرات', en: 'several times' }
+        { fr: 'quelques fois', ar: 'عدة مرات', en: 'several times' },
+        { fr: 'Je vais quelquefois au restaurant.', ar: 'أحيانًا بروح عالمطعم.', en: 'I sometimes go to restaurants.' },
+        { fr: 'Je l’ai appelé quelques fois.', ar: 'اتصلت فيه كم مرة.', en: 'I called him a few times.' }
       ] },
       { icon: '🔊', title: { ar: 'peut-être / peut être', en: 'Homophones 70', fr: 'Homophones 70' }, phrases: [
         { fr: 'peut-être', ar: 'ربما', en: 'maybe' },
-        { fr: 'peut être', ar: 'يمكن أن يكون', en: 'may be' }
+        { fr: 'peut être', ar: 'يمكن أن يكون', en: 'may be' },
+        { fr: 'Peut-être qu’il viendra demain.', ar: 'يمكن يجي بكرا.', en: 'Maybe he’ll come tomorrow.' },
+        { fr: 'Ce produit peut être dangereux.', ar: 'هالمنتج ممكن يكون خطير.', en: 'This product may be dangerous.' }
       ] },
       { icon: '🔊', title: { ar: 'bar / barre', en: 'Homophones 71', fr: 'Homophones 71' }, phrases: [
         { fr: 'bar', ar: 'بار', en: 'bar' },
-        { fr: 'barre', ar: 'قضيب أو عارضة', en: 'bar or rod' }
+        { fr: 'barre', ar: 'قضيب أو عارضة', en: 'bar or rod' },
+        { fr: 'On va boire un café au bar.', ar: 'رح نشرب قهوة بالبار.', en: 'We’re going to have coffee at the bar.' },
+        { fr: 'La barre est cassée.', ar: 'القضيب مكسور.', en: 'The bar is broken.' }
       ] },
       { icon: '🔊', title: { ar: 'boue / bout', en: 'Homophones 72', fr: 'Homophones 72' }, phrases: [
         { fr: 'boue', ar: 'طين', en: 'mud' },
@@ -10743,7 +10797,10 @@ window.CENTRES_DATA = [
       { icon: '🔊', title: { ar: 'bouc / boue / bout', en: 'Homophones 73', fr: 'Homophones 73' }, phrases: [
         { fr: 'bouc', ar: 'تيس', en: 'male goat' },
         { fr: 'boue', ar: 'طين', en: 'mud' },
-        { fr: 'bout', ar: 'طرف أو نهاية', en: 'end' }
+        { fr: 'bout', ar: 'طرف أو نهاية', en: 'end' },
+        { fr: 'Le bouc est dans le jardin.', ar: 'التيس بالحديقة.', en: 'The male goat is in the garden.' },
+        { fr: 'Mes chaussures sont pleines de boue.', ar: 'جزماتي مليانة طين.', en: 'My shoes are covered in mud.' },
+        { fr: 'Je suis arrivé au bout de la rue.', ar: 'وصلت لنهاية الشارع.', en: 'I reached the end of the street.' }
       ] },
       { icon: '🔊', title: { ar: 'cœur / chœur', en: 'Homophones 74', fr: 'Homophones 74' }, phrases: [
         { fr: 'cœur', ar: 'قلب', en: 'heart' },
@@ -10769,11 +10826,16 @@ window.CENTRES_DATA = [
       { icon: '🔊', title: { ar: 'poids / pois / poix', en: 'Homophones 79', fr: 'Homophones 79' }, phrases: [
         { fr: 'poids', ar: 'وزن', en: 'weight' },
         { fr: 'pois', ar: 'بازلاء', en: 'pea' },
-        { fr: 'poix', ar: 'مادة راتنجية', en: 'pitch' }
+        { fr: 'poix', ar: 'مادة راتنجية', en: 'pitch' },
+        { fr: 'Quel est le poids de ce colis ?', ar: 'قديش وزن هالطرد؟', en: 'What is the weight of this package?' },
+        { fr: 'J’aime les petits pois.', ar: 'بحب البازلاء.', en: 'I like peas.' },
+        { fr: 'La poix était utilisée comme matière collante.', ar: 'كان يُستخدم القار كمادة لاصقة.', en: 'Pitch was used as an adhesive material.' }
       ] },
       { icon: '🔊', title: { ar: 'port / porc', en: 'Homophones 80', fr: 'Homophones 80' }, phrases: [
         { fr: 'port', ar: 'ميناء', en: 'port' },
-        { fr: 'porc', ar: 'خنزير', en: 'pig' }
+        { fr: 'porc', ar: 'خنزير', en: 'pig' },
+        { fr: 'Le bateau est arrivé au port.', ar: 'القارب وصل عالميناء.', en: 'The boat arrived at the port.' },
+        { fr: 'Je ne mange pas de porc.', ar: 'أنا ما باكل لحم خنزير.', en: 'I don’t eat pork.' }
       ] },
       { icon: '🔊', title: { ar: 'pou / poux', en: 'Homophones 81', fr: 'Homophones 81' }, phrases: [
         { fr: 'pou', ar: 'قملة', en: 'louse' },
@@ -10785,16 +10847,23 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔊', title: { ar: 'tante / tente', en: 'Homophones 83', fr: 'Homophones 83' }, phrases: [
         { fr: 'tante', ar: 'عمة أو خالة', en: 'aunt' },
-        { fr: 'tente', ar: 'خيمة', en: 'tent' }
+        { fr: 'tente', ar: 'خيمة', en: 'tent' },
+        { fr: 'Ma tante habite à Lyon.', ar: 'عمتي/خالتي ساكنة بليون.', en: 'My aunt lives in Lyon.' },
+        { fr: 'Nous avons acheté une tente.', ar: 'اشترينا خيمة.', en: 'We bought a tent.' }
       ] },
       { icon: '🔊', title: { ar: 'ton / thon', en: 'Homophones 84', fr: 'Homophones 84' }, phrases: [
         { fr: 'ton', ar: 'ـك للمذكر', en: 'your' },
-        { fr: 'thon', ar: 'تونة', en: 'tuna' }
+        { fr: 'thon', ar: 'تونة', en: 'tuna' },
+        { fr: 'J’aime ton nouveau téléphone.', ar: 'عجبني تلفونك الجديد.', en: 'I like your new phone.' },
+        { fr: 'Je voudrais un sandwich au thon.', ar: 'بدي سندويشة تونة.', en: 'I’d like a tuna sandwich.' }
       ] },
       { icon: '🔊', title: { ar: 'teint / thym / tin', en: 'Homophones 85', fr: 'Homophones 85' }, phrases: [
         { fr: 'teint', ar: 'لون البشرة', en: 'complexion' },
         { fr: 'thym', ar: 'زعتر', en: 'thyme' },
-        { fr: 'tin', ar: 'قصدير', en: 'tin' }
+        { fr: 'tin', ar: 'قصدير', en: 'tin' },
+        { fr: 'Elle a un joli teint.', ar: 'بشرتها حلوة.', en: 'She has a nice complexion.' },
+        { fr: 'Ajoutez un peu de thym.', ar: 'ضيف شوي زعتر.', en: 'Add a little thyme.' },
+        { fr: 'Cette boîte est en tin.', ar: 'هالعلبة مصنوعة من القصدير.', en: 'This box is made of tin.' }
       ] },
       { icon: '🔊', title: { ar: 'chant / champ', en: 'Homophones 86', fr: 'Homophones 86' }, phrases: [
         { fr: 'chant', ar: 'أغنية', en: 'song' },
@@ -10807,15 +10876,24 @@ window.CENTRES_DATA = [
       { icon: '🔊', title: { ar: 'mètre / mettre / maître', en: 'Homophones 88', fr: 'Homophones 88' }, phrases: [
         { fr: 'mètre', ar: 'متر', en: 'meter' },
         { fr: 'mettre', ar: 'يضع', en: 'put' },
-        { fr: 'maître', ar: 'معلّم أو سيد', en: 'master' }
+        { fr: 'maître', ar: 'معلّم أو سيد', en: 'master' },
+        { fr: 'La table fait deux mètres.', ar: 'طول الطاولة مترين.', en: 'The table is two meters long.' },
+        { fr: 'Je vais mettre mon manteau.', ar: 'رح ألبس معطفي.', en: 'I’m going to put on my coat.' },
+        { fr: 'Le maître explique la leçon.', ar: 'الأستاذ عم يشرح الدرس.', en: 'The teacher is explaining the lesson.' }
       ] },
       { icon: '🔊', title: { ar: 'compter / conter', en: 'Homophones 89', fr: 'Homophones 89' }, phrases: [
         { fr: 'compter', ar: 'يعدّ', en: 'count' },
-        { fr: 'conter', ar: 'يحكي قصة', en: 'tell a story' }
+        { fr: 'conter', ar: 'يحكي قصة', en: 'tell a story' },
+        { fr: 'Je dois compter l’argent.', ar: 'لازم عدّ المصاري.', en: 'I have to count the money.' },
+        { fr: 'Il aime conter des histoires aux enfants.', ar: 'بيحب يحكي قصص للأطفال.', en: 'He likes telling stories to children.' }
       ] },
       { icon: '🔊', title: { ar: 'dessin / dessein', en: 'Homophones 90', fr: 'Homophones 90' }, phrases: [
         { fr: 'dessin', ar: 'رسم', en: 'drawing' },
-        { fr: 'dessein', ar: 'قصد أو مخطط', en: 'intention or plan' }
+        { fr: 'dessein', ar: 'قصد أو مخطط', en: 'intention or plan' },
+        { fr: 'Mon fils a fait un beau dessin.', ar: 'ابني رسم رسمة حلوة.', en: 'My son made a nice drawing.' },
+        { fr: 'Il a le dessein de créer sa propre entreprise.', ar: 'عنده نية يعمل شركته الخاصة.', en: 'He intends to create his own company.' },
+        { fr: 'Mon enfant a fait un joli dessin.', ar: 'ابني رسم رسمة حلوة.', en: 'My child made a nice drawing.' },
+        { fr: 'Il a un dessein précis.', ar: 'عنده هدف/خطة محددة.', en: 'He has a specific plan.' }
       ] },
       { icon: '🔊', title: { ar: 'cane / canne', en: 'Homophones 91', fr: 'Homophones 91' }, phrases: [
         { fr: 'cane', ar: 'بطة أنثى', en: 'female duck' },
@@ -10823,28 +10901,41 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔊', title: { ar: 'scène / Seine', en: 'Homophones 92', fr: 'Homophones 92' }, phrases: [
         { fr: 'scène', ar: 'مسرح أو مشهد', en: 'scene' },
-        { fr: 'Seine', ar: 'نهر السين', en: 'Seine River' }
+        { fr: 'Seine', ar: 'نهر السين', en: 'Seine River' },
+        { fr: 'Les acteurs sont sur scène.', ar: 'الممثلين عالمسرح.', en: 'The actors are on stage.' },
+        { fr: 'La Seine traverse Paris.', ar: 'نهر السين بيمر عبر باريس.', en: 'The Seine runs through Paris.' }
       ] },
       { icon: '🔊', title: { ar: 'hêtre / être', en: 'Homophones 93', fr: 'Homophones 93' }, phrases: [
         { fr: 'hêtre', ar: 'شجرة الزان', en: 'beech tree' },
-        { fr: 'être', ar: 'يكون', en: 'to be' }
+        { fr: 'être', ar: 'يكون', en: 'to be' },
+        { fr: 'Il y a un grand hêtre dans la forêt.', ar: 'في شجرة زان كبيرة بالغابة.', en: 'There is a large beech tree in the forest.' },
+        { fr: 'Je veux être avec vous.', ar: 'بدي كون معكم.', en: 'I want to be with you.' }
       ] },
       { icon: '🔊', title: { ar: 'cote / côte', en: 'Homophones 94', fr: 'Homophones 94' }, phrases: [
         { fr: 'cote', ar: 'تقييم أو سعر مرجعي', en: 'rating' },
-        { fr: 'côte', ar: 'ساحل أو ضلع', en: 'coast or rib' }
+        { fr: 'côte', ar: 'ساحل أو ضلع', en: 'coast or rib' },
+        { fr: 'La cote de cette voiture est élevée.', ar: 'تقييم/سعر هالسيارة مرتفع.', en: 'The value of this car is high.' },
+        { fr: 'Nous habitons près de la côte.', ar: 'نحنا ساكنين قرب الساحل.', en: 'We live near the coast.' }
       ] },
       { icon: '🔊', title: { ar: 'hôte / ôte', en: 'Homophones 95', fr: 'Homophones 95' }, phrases: [
         { fr: 'hôte', ar: 'مضيف أو ضيف', en: 'host or guest' },
-        { fr: 'ôte', ar: 'يزيل', en: 'removes' }
+        { fr: 'ôte', ar: 'يزيل', en: 'removes' },
+        { fr: 'Notre hôte nous a préparé le dîner.', ar: 'مضيفنا حضّر لنا العشا.', en: 'Our host prepared dinner for us.' },
+        { fr: 'Il ôte ses chaussures avant d’entrer.', ar: 'بيشيل جزماته قبل ما يفوت.', en: 'He takes off his shoes before entering.' }
       ] },
       { icon: '🔊', title: { ar: 'fée / fait / fais', en: 'Homophones 96', fr: 'Homophones 96' }, phrases: [
         { fr: 'fée', ar: 'جنّية', en: 'fairy' },
         { fr: 'fait', ar: 'يفعل أو حدث', en: 'does or fact' },
-        { fr: 'fais', ar: 'أفعل أو تفعل', en: 'do' }
+        { fr: 'fais', ar: 'أفعل أو تفعل', en: 'do' },
+        { fr: 'La fée apparaît dans le conte.', ar: 'الجنية بتظهر بالقصة.', en: 'The fairy appears in the story.' },
+        { fr: 'Qu’est-ce que tu fais ?', ar: 'شو عم تعمل؟', en: 'What are you doing?' },
+        { fr: 'Il fait très froid aujourd’hui.', ar: 'اليوم الجو بارد كتير.', en: 'It’s very cold today.' }
       ] },
       { icon: '🔊', title: { ar: 'mai / mets', en: 'Homophones 97', fr: 'Homophones 97' }, phrases: [
         { fr: 'mai', ar: 'شهر مايو', en: 'May' },
-        { fr: 'mets', ar: 'يضع أو طعام', en: 'puts or dish' }
+        { fr: 'mets', ar: 'يضع أو طعام', en: 'puts or dish' },
+        { fr: 'Je pars en mai.', ar: 'رح سافر بشهر أيار.', en: 'I’m leaving in May.' },
+        { fr: 'Je mets les clés sur la table.', ar: 'بحط المفاتيح عالطاولة.', en: 'I put the keys on the table.' }
       ] },
       { icon: '🔊', title: { ar: 'paon / pan', en: 'Homophones 98', fr: 'Homophones 98' }, phrases: [
         { fr: 'paon', ar: 'طاووس', en: 'peacock' },
@@ -10853,11 +10944,16 @@ window.CENTRES_DATA = [
       { icon: '🔊', title: { ar: 'relais / relaie / relaient', en: 'Homophones 99', fr: 'Homophones 99' }, phrases: [
         { fr: 'relais', ar: 'تناوب أو محطة تبديل', en: 'relay' },
         { fr: 'relaie', ar: 'يحلّ محل', en: 'takes over' },
-        { fr: 'relaient', ar: 'يحلّون محل', en: 'take over' }
+        { fr: 'relaient', ar: 'يحلّون محل', en: 'take over' },
+        { fr: 'Nous avons passé le relais à notre collègue.', ar: 'سلّمنا المهمة لزميلنا.', en: 'We handed over to our colleague.' },
+        { fr: 'Elle relaie l’information à son équipe.', ar: 'هي بتنقل المعلومة لفريقها.', en: 'She passes the information on to her team.' },
+        { fr: 'Les médias relaient rapidement l’information.', ar: 'وسائل الإعلام بتنقل المعلومات بسرعة.', en: 'The media quickly relay the information.' }
       ] },
       { icon: '🔊', title: { ar: 'aiguille / aigüe', en: 'Homophones 100', fr: 'Homophones 100' }, phrases: [
         { fr: 'aiguille', ar: 'إبرة', en: 'needle' },
-        { fr: 'aigüe', ar: 'حادّة', en: 'sharp' }
+        { fr: 'aigüe', ar: 'حادّة', en: 'sharp' },
+        { fr: 'L’aiguille est cassée.', ar: 'الإبرة مكسورة.', en: 'The needle is broken.' },
+        { fr: 'Elle a une douleur aiguë.', ar: 'عندها ألم حاد.', en: 'She has a sharp pain.' }
       ] },
       { icon: '🔊', title: { ar: 'résonne / raisonne', en: 'Homophones 101', fr: 'Homophones 101' }, phrases: [
         { fr: 'résonne', ar: 'يرنّ أو يتردد صوته', en: 'resonates' },
@@ -10865,7 +10961,9 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔊', title: { ar: 'balai / ballet', en: 'Homophones 102', fr: 'Homophones 102' }, phrases: [
         { fr: 'balai', ar: 'مكنسة', en: 'broom' },
-        { fr: 'ballet', ar: 'باليه', en: 'ballet' }
+        { fr: 'ballet', ar: 'باليه', en: 'ballet' },
+        { fr: 'Où est le balai ?', ar: 'وين المكنسة؟', en: 'Where is the broom?' },
+        { fr: 'Ma fille fait du ballet.', ar: 'بنتي بتمارس الباليه.', en: 'My daughter does ballet.' }
       ] },
       { icon: '🔊', title: { ar: 'courant / courent', en: 'Homophones 103', fr: 'Homophones 103' }, phrases: [
         { fr: 'courant', ar: 'تيار أو جارٍ', en: 'current or running' },
@@ -10873,19 +10971,27 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔊', title: { ar: 'appel / appelle', en: 'Homophones 104', fr: 'Homophones 104' }, phrases: [
         { fr: 'appel', ar: 'اتصال أو نداء', en: 'call' },
-        { fr: 'appelle', ar: 'يتصل أو ينادي', en: 'calls' }
+        { fr: 'appelle', ar: 'يتصل أو ينادي', en: 'calls' },
+        { fr: 'J’ai reçu un appel.', ar: 'إجاني اتصال.', en: 'I received a call.' },
+        { fr: 'Je t’appelle ce soir.', ar: 'رح اتصل فيك الليلة.', en: 'I’ll call you tonight.' }
       ] },
       { icon: '🔊', title: { ar: 'rappel / rappelle', en: 'Homophones 105', fr: 'Homophones 105' }, phrases: [
         { fr: 'rappel', ar: 'تذكير أو إعادة اتصال', en: 'reminder or callback' },
-        { fr: 'rappelle', ar: 'يذكّر أو يعاود الاتصال', en: 'reminds or calls back' }
+        { fr: 'rappelle', ar: 'يذكّر أو يعاود الاتصال', en: 'reminds or calls back' },
+        { fr: 'J’ai reçu un rappel de la banque.', ar: 'إجاني تذكير من البنك.', en: 'I received a reminder from the bank.' },
+        { fr: 'Je vous rappelle dans quelques minutes.', ar: 'برجع بتصل فيك بعد كم دقيقة.', en: 'I’ll call you back in a few minutes.' }
       ] },
       { icon: '🔊', title: { ar: 'et / est', en: 'Homophones 106', fr: 'Homophones 106' }, phrases: [
         { fr: 'et', ar: 'و', en: 'and' },
-        { fr: 'est', ar: 'يكون أو هو', en: 'is' }
+        { fr: 'est', ar: 'يكون أو هو', en: 'is' },
+        { fr: 'J’achète du pain et du lait.', ar: 'بشتري خبز وحليب.', en: 'I’m buying bread and milk.' },
+        { fr: 'Il est déjà huit heures.', ar: 'صارت الساعة تمانية.', en: 'It’s already eight o’clock.' }
       ] },
       { icon: '🔊', title: { ar: 'sa / ça', en: 'Homophones 107', fr: 'Homophones 107' }, phrases: [
         { fr: 'sa', ar: 'ـه أو ـها', en: 'his / her' },
-        { fr: 'ça', ar: 'هذا أو ذلك', en: 'that or it' }
+        { fr: 'ça', ar: 'هذا أو ذلك', en: 'that or it' },
+        { fr: 'C’est sa voiture.', ar: 'هاي سيارته/سيارتها.', en: 'It’s his/her car.' },
+        { fr: 'Ça va bien aujourd’hui.', ar: 'الأمور منيحة اليوم.', en: 'Things are going well today.' }
       ] },
       { icon: '🔊', title: { ar: 'geai / j’ai', en: 'Homophones 108', fr: 'Homophones 108' }, phrases: [
         { fr: 'geai', ar: 'طائر القيق', en: 'jay' },
@@ -10893,7 +10999,9 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔊', title: { ar: 'jet / j’ai', en: 'Homophones 109', fr: 'Homophones 109' }, phrases: [
         { fr: 'jet', ar: 'نفاثة أو قذف', en: 'jet' },
-        { fr: 'j’ai', ar: 'لديّ', en: 'I have' }
+        { fr: 'j’ai', ar: 'لديّ', en: 'I have' },
+        { fr: 'Le jet décolle à midi.', ar: 'الطيارة النفاثة بتقلع الظهر.', en: 'The jet takes off at noon.' },
+        { fr: 'J’ai une question.', ar: 'عندي سؤال.', en: 'I have a question.' }
       ] },
       { icon: '🔊', title: { ar: 'gai / guet', en: 'Homophones 110', fr: 'Homophones 110' }, phrases: [
         { fr: 'gai', ar: 'مرح', en: 'cheerful' },
@@ -10901,45 +11009,67 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔊', title: { ar: 'haie / est', en: 'Homophones 111', fr: 'Homophones 111' }, phrases: [
         { fr: 'haie', ar: 'سياج نباتي', en: 'hedge' },
-        { fr: 'est', ar: 'يكون أو هو', en: 'is' }
+        { fr: 'est', ar: 'يكون أو هو', en: 'is' },
+        { fr: 'Il y a une haie devant la maison.', ar: 'في سياج قدام البيت.', en: 'There is a hedge in front of the house.' },
+        { fr: 'Le magasin est fermé.', ar: 'المحل مسكّر.', en: 'The shop is closed.' }
       ] },
       { icon: '🔊', title: { ar: 'poêle / poil', en: 'Homophones 112', fr: 'Homophones 112' }, phrases: [
         { fr: 'poêle', ar: 'مقلاة أو موقد', en: 'frying pan or stove' },
-        { fr: 'poil', ar: 'شعرة', en: 'hair' }
+        { fr: 'poil', ar: 'شعرة', en: 'hair' },
+        { fr: 'Je fais cuire les œufs dans une poêle.', ar: 'بطبخ البيض بالمقلاة.', en: 'I cook the eggs in a frying pan.' },
+        { fr: 'J’ai un poil sur ma veste.', ar: 'في شعرة على جاكيتي.', en: 'There is a hair on my jacket.' }
       ] },
       { icon: '🔊', title: { ar: 'coing / coin', en: 'Homophones 113', fr: 'Homophones 113' }, phrases: [
         { fr: 'coing', ar: 'سفرجل', en: 'quince' },
-        { fr: 'coin', ar: 'زاوية', en: 'corner' }
+        { fr: 'coin', ar: 'زاوية', en: 'corner' },
+        { fr: 'Cette confiture est faite avec du coing.', ar: 'هالمربى معمول بالسفرجل.', en: 'This jam is made with quince.' },
+        { fr: 'Le magasin est au coin de la rue.', ar: 'المحل عزاوية الشارع.', en: 'The shop is on the corner.' }
       ] },
       { icon: '🔊', title: { ar: 'sain / ceint', en: 'Homophones 114', fr: 'Homophones 114' }, phrases: [
         { fr: 'sain', ar: 'سليم أو صحي', en: 'healthy' },
-        { fr: 'ceint', ar: 'يحيط أو يلفّ', en: 'surrounds' }
+        { fr: 'ceint', ar: 'يحيط أو يلفّ', en: 'surrounds' },
+        { fr: 'C’est un aliment sain.', ar: 'هاد أكل صحي.', en: 'It’s a healthy food.' },
+        { fr: 'Il est ceint d’une ceinture noire.', ar: 'هو لابس حزام أسود.', en: 'He is wearing a black belt.' }
       ] },
       { icon: '🔊', title: { ar: 'clou / cloue', en: 'Homophones 115', fr: 'Homophones 115' }, phrases: [
         { fr: 'clou', ar: 'مسمار', en: 'nail' },
-        { fr: 'cloue', ar: 'يثبّت بالمسامير', en: 'nails down' }
+        { fr: 'cloue', ar: 'يثبّت بالمسامير', en: 'nails down' },
+        { fr: 'J’ai besoin d’un clou.', ar: 'بدي مسمار.', en: 'I need a nail.' },
+        { fr: 'Il cloue une planche.', ar: 'عم يدق مسمار بلوح.', en: 'He is nailing a board.' }
       ] },
       { icon: '🔊', title: { ar: 'scelle / selle', en: 'Homophones 116', fr: 'Homophones 116' }, phrases: [
         { fr: 'scelle', ar: 'يختم', en: 'seals' },
-        { fr: 'selle', ar: 'سرج', en: 'saddle' }
+        { fr: 'selle', ar: 'سرج', en: 'saddle' },
+        { fr: 'Il scelle l’enveloppe.', ar: 'عم يسكر الظرف بإحكام.', en: 'He seals the envelope.' },
+        { fr: 'La selle du vélo est trop basse.', ar: 'مقعد الدراجة واطي كتير.', en: 'The bike seat is too low.' }
       ] },
       { icon: '🔊', title: { ar: 'chaîne / chêne', en: 'Homophones 117', fr: 'Homophones 117' }, phrases: [
         { fr: 'chaîne', ar: 'سلسلة', en: 'chain' },
-        { fr: 'chêne', ar: 'شجرة بلوط', en: 'oak tree' }
+        { fr: 'chêne', ar: 'شجرة بلوط', en: 'oak tree' },
+        { fr: 'Ma chaîne est cassée.', ar: 'سلسلتي مكسورة.', en: 'My chain is broken.' },
+        { fr: 'Il y a un grand chêne dans le jardin.', ar: 'في شجرة بلوط كبيرة بالحديقة.', en: 'There is a large oak tree in the garden.' }
       ] },
       { icon: '🔊', title: { ar: 'doux / d’où', en: 'Homophones 118', fr: 'Homophones 118' }, phrases: [
         { fr: 'doux', ar: 'ناعم أو لطيف', en: 'soft or gentle' },
-        { fr: 'd’où', ar: 'من أين', en: 'from where' }
+        { fr: 'd’où', ar: 'من أين', en: 'from where' },
+        { fr: 'Ce tissu est très doux.', ar: 'هالقماش ناعم كتير.', en: 'This fabric is very soft.' },
+        { fr: 'D’où viens-tu ?', ar: 'من وين إنت؟', en: 'Where are you from?' }
       ] },
       { icon: '🔊', title: { ar: 'toux / tout / tous', en: 'Homophones 119', fr: 'Homophones 119' }, phrases: [
         { fr: 'toux', ar: 'سعال', en: 'cough' },
         { fr: 'tout', ar: 'كل أو كل شيء', en: 'all or everything' },
-        { fr: 'tous', ar: 'الجميع أو كلّ', en: 'everyone or all' }
+        { fr: 'tous', ar: 'الجميع أو كلّ', en: 'everyone or all' },
+        { fr: 'J’ai une toux sèche.', ar: 'عندي سعال ناشف.', en: 'I have a dry cough.' },
+        { fr: 'J’ai tout compris.', ar: 'فهمت كل شي.', en: 'I understood everything.' },
+        { fr: 'Tous les magasins sont fermés.', ar: 'كل المحلات مسكّرة.', en: 'All the shops are closed.' }
       ] },
       { icon: '🔊', title: { ar: 'paie / paix / pet', en: 'Homophones 120', fr: 'Homophones 120' }, phrases: [
         { fr: 'paie', ar: 'راتب أو يدفع', en: 'pay or salary' },
         { fr: 'paix', ar: 'سلام', en: 'peace' },
-        { fr: 'pet', ar: 'ضرطة', en: 'fart' }
+        { fr: 'pet', ar: 'ضرطة', en: 'fart' },
+        { fr: 'Je paie par carte.', ar: 'بدفع بالبطاقة.', en: 'I’m paying by card.' },
+        { fr: 'Nous voulons vivre en paix.', ar: 'بدنا نعيش بسلام.', en: 'We want to live in peace.' },
+        { fr: 'Le bébé a fait un petit pet.', ar: 'البيبي طلّع غازات صغيرة.', en: 'The baby passed a little gas.' }
       ] },
       { icon: '🔊', title: { ar: 'cerf / serre / sert', en: 'Homophones 121', fr: 'Homophones 121' }, phrases: [
         { fr: 'cerf', ar: 'أيل', en: 'deer' },
@@ -10956,27 +11086,39 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔊', title: { ar: 'pore / port', en: 'Homophones 124', fr: 'Homophones 124' }, phrases: [
         { fr: 'pore', ar: 'مسام', en: 'pore' },
-        { fr: 'port', ar: 'ميناء', en: 'port' }
+        { fr: 'port', ar: 'ميناء', en: 'port' },
+        { fr: 'Cette crème nettoie les pores.', ar: 'هالكريم بينظف مسام البشرة.', en: 'This cream cleans the pores.' },
+        { fr: 'Le bateau est dans le port.', ar: 'القارب بالميناء.', en: 'The boat is in the port.' }
       ] },
       { icon: '🔊', title: { ar: 'chaud / show', en: 'Homophones 125', fr: 'Homophones 125' }, phrases: [
         { fr: 'chaud', ar: 'ساخن', en: 'hot' },
-        { fr: 'show', ar: 'عرض', en: 'show' }
+        { fr: 'show', ar: 'عرض', en: 'show' },
+        { fr: 'Le café est encore chaud.', ar: 'القهوة لسا سخنة.', en: 'The coffee is still hot.' },
+        { fr: 'Nous allons voir un show ce soir.', ar: 'رح نحضر عرض الليلة.', en: 'We’re going to see a show tonight.' }
       ] },
       { icon: '🔊', title: { ar: 'lot / l’eau', en: 'Homophones 126', fr: 'Homophones 126' }, phrases: [
         { fr: 'lot', ar: 'مجموعة أو حصة', en: 'lot' },
-        { fr: 'l’eau', ar: 'الماء', en: 'water' }
+        { fr: 'l’eau', ar: 'الماء', en: 'water' },
+        { fr: 'J’ai acheté un lot de produits.', ar: 'اشتريت مجموعة منتجات.', en: 'I bought a batch/set of products.' },
+        { fr: 'Je voudrais un verre d’eau.', ar: 'بدي كاسة مي.', en: 'I’d like a glass of water.' }
       ] },
       { icon: '🔊', title: { ar: 'mots / maux', en: 'Homophones 127', fr: 'Homophones 127' }, phrases: [
         { fr: 'mots', ar: 'كلمات', en: 'words' },
-        { fr: 'maux', ar: 'آلام أو أمراض', en: 'ailments' }
+        { fr: 'maux', ar: 'آلام أو أمراض', en: 'ailments' },
+        { fr: 'Je ne trouve pas les mots.', ar: 'ما عم لاقي الكلمات.', en: 'I can’t find the words.' },
+        { fr: 'Il souffre de plusieurs maux.', ar: 'بيعاني من عدة آلام/مشاكل صحية.', en: 'He suffers from several ailments.' }
       ] },
       { icon: '🔊', title: { ar: 'baie / baie', en: 'Homophones 128', fr: 'Homophones 128' }, phrases: [
         { fr: 'baie', ar: 'خليج', en: 'bay' },
-        { fr: 'baie', ar: 'توت', en: 'berry' }
+        { fr: 'baie', ar: 'توت', en: 'berry' },
+        { fr: 'J’habite près de la baie.', ar: 'ساكن قريب من الخليج.', en: 'I live near the bay.' },
+        { fr: 'Cette baie est délicieuse.', ar: 'هالتوتة/الثمرة لذيذة.', en: 'This berry is delicious.' }
       ] },
       { icon: '🔊', title: { ar: 'gland / glande', en: 'Homophones 129', fr: 'Homophones 129' }, phrases: [
         { fr: 'gland', ar: 'بلوطة', en: 'acorn' },
-        { fr: 'glande', ar: 'غدة', en: 'gland' }
+        { fr: 'glande', ar: 'غدة', en: 'gland' },
+        { fr: 'Le gland tombe de l’arbre.', ar: 'ثمرة البلوط وقعت من الشجرة.', en: 'The acorn falls from the tree.' },
+        { fr: 'Cette glande produit des hormones.', ar: 'هالغدة بتنتج هرمونات.', en: 'This gland produces hormones.' }
       ] },
       { icon: '🔊', title: { ar: 'hôtel / autel', en: 'Homophones 130', fr: 'Homophones 130' }, phrases: [
         { fr: 'hôtel', ar: 'فندق', en: 'hotel' },
@@ -10992,7 +11134,10 @@ window.CENTRES_DATA = [
       { icon: '💬', title: { ar: 'أمثلة — mer / mère / maire', en: 'Examples — mer / mère / maire', fr: 'Exemples — mer / mère / maire' }, phrases: [
         { fr: 'J’aime nager dans la mer.', ar: 'بحب إسبح بالبحر.', en: 'I like swimming in the sea.' },
         { fr: 'Ma mère travaille à Strasbourg.', ar: 'أمي بتشتغل بستراسبورغ.', en: 'My mother works in Strasbourg.' },
-        { fr: 'Le maire de la ville a parlé.', ar: 'عمدة المدينة حكى.', en: 'The mayor of the city spoke.' }
+        { fr: 'Le maire de la ville a parlé.', ar: 'عمدة المدينة حكى.', en: 'The mayor of the city spoke.' },
+        { fr: 'Le maire habite dans cette ville.', ar: 'رئيس البلدية ساكن بهالمدينة.', en: 'The mayor lives in this city.' },
+        { fr: 'La mer est magnifique aujourd’hui.', ar: 'البحر كتير حلو اليوم.', en: 'The sea is beautiful today.' },
+        { fr: 'Ma mère m’appelle tous les jours.', ar: 'أمي بتتصل فيني كل يوم.', en: 'My mother calls me every day.' }
       ] },
       { icon: '💬', title: { ar: 'أمثلة — sans / sang / cent / s’en', en: 'Examples — sans / sang / cent / s’en', fr: 'Exemples — sans / sang / cent / s’en' }, phrases: [
         { fr: 'Je bois mon café sans sucre.', ar: 'بشرب قهوتي بلا سكر.', en: 'I drink my coffee without sugar.' },
@@ -11021,7 +11166,10 @@ window.CENTRES_DATA = [
       { icon: '💬', title: { ar: 'أمثلة — fois / foie / foi', en: 'Examples — fois / foie / foi', fr: 'Exemples — fois / foie / foi' }, phrases: [
         { fr: 'Je suis déjà venu deux fois.', ar: 'أنا جيت مرتين من قبل.', en: 'I’ve already come twice.' },
         { fr: 'Le foie est un organe important.', ar: 'الكبد عضو مهم.', en: 'The liver is an important organ.' },
-        { fr: 'Il a perdu la foi.', ar: 'فقد إيمانه.', en: 'He lost his faith.' }
+        { fr: 'Il a perdu la foi.', ar: 'فقد إيمانه.', en: 'He lost his faith.' },
+        { fr: 'Je suis déjà venu plusieurs fois.', ar: 'إجيت لهون كذا مرة من قبل.', en: 'I’ve already come here several times.' },
+        { fr: 'Le foie est un organe important.', ar: 'الكبد عضو مهم.', en: 'The liver is an important organ.' },
+        { fr: 'Il a foi en son équipe.', ar: 'عنده ثقة بفريقه.', en: 'He has faith in his team.' }
       ] },
       { icon: '💬', title: { ar: 'أمثلة — voie / voix / vois / voit', en: 'Examples — voie / voix / vois / voit', fr: 'Exemples — voie / voix / vois / voit' }, phrases: [
         { fr: 'Cette voie est réservée aux bus.', ar: 'هالطريق مخصص للباصات.', en: 'This lane is reserved for buses.' },
@@ -11063,12 +11211,18 @@ window.CENTRES_DATA = [
       { icon: '💬', title: { ar: 'أمثلة — cour / cours / court', en: 'Examples — cour / cours / court', fr: 'Exemples — cour / cours / court' }, phrases: [
         { fr: 'Les enfants jouent dans la cour.', ar: 'الولاد عم يلعبوا بالساحة.', en: 'The children are playing in the yard.' },
         { fr: 'J’ai un cours de français.', ar: 'عندي درس فرنسي.', en: 'I have a French class.' },
-        { fr: 'Le film est très court.', ar: 'الفيلم قصير كتير.', en: 'The movie is very short.' }
+        { fr: 'Le film est très court.', ar: 'الفيلم قصير كتير.', en: 'The movie is very short.' },
+        { fr: 'Les enfants jouent dans la cour.', ar: 'الولاد عم يلعبوا بالساحة.', en: 'The children are playing in the yard.' },
+        { fr: 'J’ai un cours de français.', ar: 'عندي درس فرنسي.', en: 'I have a French class.' },
+        { fr: 'Le film est assez court.', ar: 'الفيلم قصير نوعًا ما.', en: 'The movie is fairly short.' }
       ] },
       { icon: '💬', title: { ar: 'أمثلة — quand / quant / qu’en', en: 'Examples — quand / quant / qu’en', fr: 'Exemples — quand / quant / qu’en' }, phrases: [
         { fr: 'Quand est-ce que tu arrives ?', ar: 'إمتى رح توصل؟', en: 'When are you arriving?' },
         { fr: 'Quant à moi, je préfère rester ici.', ar: 'أما بالنسبة إلي، بفضّل ضل هون.', en: 'As for me, I prefer to stay here.' },
-        { fr: 'Qu’en penses-tu ?', ar: 'شو رأيك؟', en: 'What do you think about it?' }
+        { fr: 'Qu’en penses-tu ?', ar: 'شو رأيك؟', en: 'What do you think about it?' },
+        { fr: 'Quand est-ce que tu arrives ?', ar: 'إمتى رح توصل؟', en: 'When are you arriving?' },
+        { fr: 'Quant à moi, je préfère rester ici.', ar: 'أما أنا، بفضّل ضل هون.', en: 'As for me, I prefer to stay here.' },
+        { fr: 'Qu’en penses-tu ?', ar: 'شو رأيك بهالشي؟', en: 'What do you think about it?' }
       ] },
       { icon: '💬', title: { ar: 'أمثلة — tant / temps / taon', en: 'Examples — tant / temps / taon', fr: 'Exemples — tant / temps / taon' }, phrases: [
         { fr: 'Je t’aime tant.', ar: 'أنا بحبك كتير.', en: 'I love you so much.' },
@@ -11102,6 +11256,9 @@ window.CENTRES_DATA = [
       { icon: '💬', title: { ar: 'أمثلة — peu / peux / peut', en: 'Examples — peu / peux / peut', fr: 'Exemples — peu / peux / peut' }, phrases: [
         { fr: 'Je parle un peu français.', ar: 'بحكي فرنسي شوي.', en: 'I speak a little French.' },
         { fr: 'Tu peux m’aider ?', ar: 'فيك تساعدني؟', en: 'Can you help me?' },
+        { fr: 'Il peut venir demain.', ar: 'فيه يجي بكرا.', en: 'He can come tomorrow.' },
+        { fr: 'Je parle un peu français.', ar: 'بحكي فرنسي شوي.', en: 'I speak a little French.' },
+        { fr: 'Tu peux m’aider ?', ar: 'فيك تساعدني؟', en: 'Can you help me?' },
         { fr: 'Il peut venir demain.', ar: 'فيه يجي بكرا.', en: 'He can come tomorrow.' }
       ] },
       { icon: '💬', title: { ar: 'أمثلة — la / l’a / là', en: 'Examples — la / l’a / là', fr: 'Exemples — la / l’a / là' }, phrases: [
@@ -11128,7 +11285,10 @@ window.CENTRES_DATA = [
       { icon: '💬', title: { ar: 'أمثلة — quel / quelle / qu’elle', en: 'Examples — quel / quelle / qu’elle', fr: 'Exemples — quel / quelle / qu’elle' }, phrases: [
         { fr: 'Quel âge as-tu ?', ar: 'قديش عمرك؟', en: 'How old are you?' },
         { fr: 'Quelle heure est-il ?', ar: 'قديش الساعة؟', en: 'What time is it?' },
-        { fr: 'Je pense qu’elle viendra demain.', ar: 'بعتقد إنها رح تجي بكرا.', en: 'I think she will come tomorrow.' }
+        { fr: 'Je pense qu’elle viendra demain.', ar: 'بعتقد إنها رح تجي بكرا.', en: 'I think she will come tomorrow.' },
+        { fr: 'Quel jour sommes-nous ?', ar: 'أي يوم نحنا؟', en: 'What day is it?' },
+        { fr: 'Quelle heure est-il ?', ar: 'قديش الساعة؟', en: 'What time is it?' },
+        { fr: 'Je pense qu’elle est déjà partie.', ar: 'بعتقد إنها راحت من زمان.', en: 'I think she has already left.' }
       ] },
       { icon: '💬', title: { ar: 'أمثلة — peau / pot', en: 'Examples — peau / pot', fr: 'Exemples — peau / pot' }, phrases: [
         { fr: 'J’ai la peau sèche.', ar: 'بشرتي ناشفة.', en: 'I have dry skin.' },
@@ -11175,7 +11335,9 @@ window.CENTRES_DATA = [
       ] },
       { icon: '💬', title: { ar: 'أمثلة — cygne / signe', en: 'Examples — cygne / signe', fr: 'Exemples — cygne / signe' }, phrases: [
         { fr: 'J’ai vu un cygne au bord du lac.', ar: 'شفت بجعة ع طرف البحيرة.', en: 'I saw a swan by the lake.' },
-        { fr: 'Il me fait un signe de la main.', ar: 'عم يشيرلي بإيده.', en: 'He is waving/signaling to me.' }
+        { fr: 'Il me fait un signe de la main.', ar: 'عم يشيرلي بإيده.', en: 'He is waving/signaling to me.' },
+        { fr: 'J’ai vu un cygne au bord du lac.', ar: 'شفت بجعة ع طرف البحيرة.', en: 'I saw a swan by the lake.' },
+        { fr: 'Il me fait signe de venir.', ar: 'عم يشيرلي إني إجي.', en: 'He signals me to come.' }
       ] },
       { icon: '💬', title: { ar: 'أمثلة — doigt / doit / dois', en: 'Examples — doigt / doit / dois', fr: 'Exemples — doigt / doit / dois' }, phrases: [
         { fr: 'Je me suis coupé le doigt.', ar: 'جرحت إصبعي.', en: 'I cut my finger.' },
@@ -11288,6 +11450,8 @@ window.CENTRES_DATA = [
       ] },
       { icon: '💬', title: { ar: 'أمثلة — date / datte', en: 'Examples — date / datte', fr: 'Exemples — date / datte' }, phrases: [
         { fr: 'Quelle est la date aujourd’hui ?', ar: 'شو تاريخ اليوم؟', en: 'What’s the date today?' },
+        { fr: 'J’aime manger des dattes.', ar: 'بحب آكل تمر.', en: 'I like eating dates.' },
+        { fr: 'Quelle est la date aujourd’hui ?', ar: 'شو تاريخ اليوم؟', en: 'What’s today’s date?' },
         { fr: 'J’aime manger des dattes.', ar: 'بحب آكل تمر.', en: 'I like eating dates.' }
       ] },
       { icon: '💬', title: { ar: 'أمثلة — chant / champ', en: 'Examples — chant / champ', fr: 'Exemples — chant / champ' }, phrases: [
@@ -11454,6 +11618,55 @@ window.CENTRES_DATA = [
       { icon: '💬', title: { ar: 'أمثلة — or / hors', en: 'Examples — or / hors', fr: 'Exemples — or / hors' }, phrases: [
         { fr: 'Cette bague est en or.', ar: 'هالخاتم من ذهب.', en: 'This ring is made of gold.' },
         { fr: 'Il est hors de la maison.', ar: 'هو برا البيت.', en: 'He is outside the house.' }
+      ] },
+      { icon: '🔊', title: { ar: 'أمثلة — ma / m’a / mât', en: 'Examples — ma / m’a / mât', fr: 'Exemples — ma / m’a / mât' }, phrases: [
+        { fr: 'C’est ma voiture.', ar: 'هاي سيارتي.', en: 'This is my car.' },
+        { fr: 'Il m’a appelé hier.', ar: 'هو اتصل فيني مبارح.', en: 'He called me yesterday.' },
+        { fr: 'Le bateau a un grand mât.', ar: 'القارب عنده سارية كبيرة.', en: 'The boat has a large mast.' }
+      ] },
+      { icon: '🔊', title: { ar: 'أمثلة — peau / pot / pou', en: 'Examples — peau / pot / pou', fr: 'Exemples — peau / pot / pou' }, phrases: [
+        { fr: 'J’ai la peau sèche.', ar: 'جلدي ناشف.', en: 'I have dry skin.' },
+        { fr: 'Mets le miel dans le pot.', ar: 'حط العسل بالمرطبان.', en: 'Put the honey in the jar.' },
+        { fr: 'L’enfant a un pou.', ar: 'الولد عنده قملة.', en: 'The child has a louse.' }
+      ] },
+      { icon: '🔊', title: { ar: 'أمثلة — verre / vers / vert / vair', en: 'Examples — verre / vers / vert / vair', fr: 'Exemples — verre / vers / vert / vair' }, phrases: [
+        { fr: 'Je bois un verre d’eau.', ar: 'بشرب كاسة مي.', en: 'I’m drinking a glass of water.' },
+        { fr: 'Je vais vers la gare.', ar: 'رايح باتجاه المحطة.', en: 'I’m going toward the station.' },
+        { fr: 'Le feu est vert.', ar: 'الإشارة خضرا.', en: 'The light is green.' }
+      ] },
+      { icon: '🔊', title: { ar: 'أمثلة — voix / voie / voit', en: 'Examples — voix / voie / voit', fr: 'Exemples — voix / voie / voit' }, phrases: [
+        { fr: 'Je reconnais sa voix.', ar: 'بعرف صوته/صوتها.', en: 'I recognize his/her voice.' },
+        { fr: 'Cette voie est réservée aux bus.', ar: 'هالمسار مخصص للباصات.', en: 'This lane is reserved for buses.' },
+        { fr: 'Il voit bien sans lunettes.', ar: 'هو بيشوف منيح بدون نظارات.', en: 'He sees well without glasses.' }
+      ] },
+      { icon: '🔊', title: { ar: 'أمثلة — près / prêt', en: 'Examples — près / prêt', fr: 'Exemples — près / prêt' }, phrases: [
+        { fr: 'La pharmacie est près d’ici.', ar: 'الصيدلية قريبة من هون.', en: 'The pharmacy is near here.' },
+        { fr: 'Je suis prêt à partir.', ar: 'أنا جاهز للذهاب.', en: 'I’m ready to leave.' }
+      ] },
+      { icon: '🔊', title: { ar: 'أمثلة — pris / prix', en: 'Examples — pris / prix', fr: 'Exemples — pris / prix' }, phrases: [
+        { fr: 'J’ai pris le bus.', ar: 'أخدت الباص.', en: 'I took the bus.' },
+        { fr: 'Quel est le prix ?', ar: 'قديش السعر؟', en: 'What is the price?' }
+      ] },
+      { icon: '🔊', title: { ar: 'أمثلة — foi / fois', en: 'Examples — foi / fois', fr: 'Exemples — foi / fois' }, phrases: [
+        { fr: 'Je te l’ai dit plusieurs fois.', ar: 'قلتلك هالشي كذا مرة.', en: 'I told you several times.' },
+        { fr: 'Il a foi en Dieu.', ar: 'عنده إيمان بالله.', en: 'He has faith in God.' }
+      ] },
+      { icon: '🔊', title: { ar: 'أمثلة — pain / pin', en: 'Examples — pain / pin', fr: 'Exemples — pain / pin' }, phrases: [
+        { fr: 'J’achète du pain frais.', ar: 'عم اشتري خبز طازج.', en: 'I’m buying fresh bread.' },
+        { fr: 'Il y a un grand pin devant la maison.', ar: 'في شجرة صنوبر كبيرة قدام البيت.', en: 'There is a large pine tree in front of the house.' }
+      ] },
+      { icon: '🔊', title: { ar: 'أمثلة — sain / sein / saint', en: 'Examples — sain / sein / saint', fr: 'Exemples — sain / sein / saint' }, phrases: [
+        { fr: 'Je veux manger sainement.', ar: 'بدي آكل بطريقة صحية.', en: 'I want to eat healthily.' },
+        { fr: 'Le bébé est dans le sein de sa mère.', ar: 'الطفل موجود برحم/ثدي أمه.', en: 'The baby is in his mother’s womb/breast.' },
+        { fr: 'C’est une église dédiée à un saint.', ar: 'هاي كنيسة مكرّسة لقديس.', en: 'It’s a church dedicated to a saint.' }
+      ] },
+      { icon: '🔊', title: { ar: 'أمثلة — cour / court', en: 'Examples — cour / court', fr: 'Exemples — cour / court' }, phrases: [
+        { fr: 'Attends-moi dans la cour.', ar: 'ناطرني بالساحة.', en: 'Wait for me in the courtyard.' },
+        { fr: 'Le trajet est court.', ar: 'الطريق قصير.', en: 'The journey is short.' }
+      ] },
+      { icon: '🔊', title: { ar: 'أمثلة — compte / comte', en: 'Examples — compte / comte', fr: 'Exemples — compte / comte' }, phrases: [
+        { fr: 'Je dois vérifier mon compte bancaire.', ar: 'لازم أتأكد من حسابي البنكي.', en: 'I need to check my bank account.' },
+        { fr: 'Le comte vivait dans un grand château.', ar: 'الكونت كان عايش بقصر كبير.', en: 'The count lived in a large castle.' }
       ] }
     ]
   },
