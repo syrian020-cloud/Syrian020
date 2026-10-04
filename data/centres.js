@@ -25634,4 +25634,55 @@ window.CENTRES_DATA = [
       ] }
     ]
   }
+,
+  {
+    id: 'mois',
+    icon: '📅',
+    name: { ar: 'أشهر السنة', en: 'Months of the year', fr: 'Les mois de l’année' },
+    desc: { ar: 'أشهر السنة بالفرنسي: كل شهر مع جملة، ترتيب الشهور، والطقس بكل شهر', en: 'The months in French: a sentence for each month, their order, and the weather by month', fr: 'Les mois en français : une phrase par mois, leur ordre, et la météo de chaque mois' },
+    sections: [
+      { icon: '📅', title: { ar: 'أشهر السنة', en: 'Months of the year', fr: 'Les mois de l’année' }, phrases: [
+        { fr: 'En janvier, il fait froid.', ar: 'بشهر كانون التاني، الجو بارد.', en: 'In January, it’s cold.' },
+        { fr: 'En février, il fait encore froid.', ar: 'بشباط، لسا الجو بارد.', en: 'In February, it’s still cold.' },
+        { fr: 'En mars, le printemps commence.', ar: 'بآذار، بيبلّش الربيع.', en: 'In March, spring begins.' },
+        { fr: 'En avril, il pleut souvent.', ar: 'بنيسان، غالبًا بتمطر.', en: 'In April, it often rains.' },
+        { fr: 'En mai, il fait plus chaud.', ar: 'بأيار، بيصير الجو أدفى.', en: 'In May, it gets warmer.' },
+        { fr: 'En juin, c’est le début de l’été.', ar: 'بحزيران، بيبلّش الصيف.', en: 'In June, it’s the beginning of summer.' },
+        { fr: 'En juillet, je prends mes vacances.', ar: 'بتموز، باخد عطلتي.', en: 'In July, I take my vacation.' },
+        { fr: 'En août, il fait très chaud.', ar: 'بآب، الجو بيكون كتير حار.', en: 'In August, it’s very hot.' },
+        { fr: 'En septembre, je reprends le travail.', ar: 'بأيلول، برجع عالشغل.', en: 'In September, I go back to work.' },
+        { fr: 'En octobre, il commence à faire frais.', ar: 'بتشرين الأول، بيبلّش الجو يبرد.', en: 'In October, it starts getting cooler.' },
+        { fr: 'En novembre, les jours sont plus courts.', ar: 'بتشرين التاني، النهار بيصير أقصر.', en: 'In November, the days are shorter.' },
+        { fr: 'En décembre, je prépare Noël.', ar: 'بكانون الأول، بحضّر لعيد الميلاد.', en: 'In December, I prepare for Christmas.' },
+      ] },
+      { icon: '🔢', title: { ar: 'ترتيب الشهور', en: 'Order of the months', fr: 'L’ordre des mois' }, phrases: [
+        { fr: 'Janvier est le premier mois de l’année.', ar: 'كانون الثاني هو أول شهر بالسنة.', en: 'January is the first month of the year.' },
+        { fr: 'Février est le deuxième mois de l’année.', ar: 'شباط هو تاني شهر بالسنة.', en: 'February is the second month of the year.' },
+        { fr: 'Mars est le troisième mois de l’année.', ar: 'آذار هو تالت شهر بالسنة.', en: 'March is the third month of the year.' },
+        { fr: 'Avril est le quatrième mois de l’année.', ar: 'نيسان هو رابع شهر بالسنة.', en: 'April is the fourth month of the year.' },
+        { fr: 'Mai est le cinquième mois de l’année.', ar: 'أيار هو خامس شهر بالسنة.', en: 'May is the fifth month of the year.' },
+        { fr: 'Juin est le sixième mois de l’année.', ar: 'حزيران هو سادس شهر بالسنة.', en: 'June is the sixth month of the year.' },
+        { fr: 'Juillet est le septième mois de l’année.', ar: 'تموز هو سابع شهر بالسنة.', en: 'July is the seventh month of the year.' },
+        { fr: 'Août est le huitième mois de l’année.', ar: 'آب هو تامن شهر بالسنة.', en: 'August is the eighth month of the year.' },
+        { fr: 'Septembre est le neuvième mois de l’année.', ar: 'أيلول هو تاسع شهر بالسنة.', en: 'September is the ninth month of the year.' },
+        { fr: 'Octobre est le dixième mois de l’année.', ar: 'تشرين الأول هو عاشر شهر بالسنة.', en: 'October is the tenth month of the year.' },
+        { fr: 'Novembre est le onzième mois de l’année.', ar: 'تشرين الثاني هو الشهر الحداش بالسنة.', en: 'November is the eleventh month of the year.' },
+        { fr: 'Décembre est le douzième mois de l’année.', ar: 'كانون الأول هو الشهر التناش بالسنة.', en: 'December is the twelfth month of the year.' },
+      ] },
+      { icon: '🌤️', title: { ar: 'الشهور والطقس', en: 'Months and weather', fr: 'Les mois et la météo' }, phrases: [
+        { fr: 'En janvier, il fait froid et les températures sont basses.', ar: 'بشهر يناير، الجو بارد ودرجات الحرارة واطية.', en: 'In January, it’s cold and temperatures are low.' },
+        { fr: 'En février, il fait encore froid, mais les jours commencent à rallonger.', ar: 'بشباط، لسا الجو بارد، بس النهار بيبلّش يطول.', en: 'In February, it’s still cold, but the days start getting longer.' },
+        { fr: 'En mars, le temps commence à changer et le printemps arrive.', ar: 'بآذار، الطقس بيبلّش يتغيّر والربيع بيجي.', en: 'In March, the weather starts changing and spring arrives.' },
+        { fr: 'En avril, il fait plus doux, mais il peut encore pleuvoir.', ar: 'بنيسان، الجو بيصير ألطف، بس ممكن تضل تمطر.', en: 'In April, it gets milder, but it can still rain.' },
+        { fr: 'En mai, les températures augmentent et il fait plus chaud.', ar: 'بأيار، درجات الحرارة بترتفع والجو بيصير أدفى.', en: 'In May, temperatures rise and it gets warmer.' },
+        { fr: 'En juin, l’été commence et les journées sont longues.', ar: 'بحزيران، بيبلّش الصيف والنهار بيكون طويل.', en: 'In June, summer begins and the days are long.' },
+        { fr: 'En juillet, il fait généralement chaud et ensoleillé.', ar: 'بتموز، عادةً الجو بيكون حار ومشمس.', en: 'In July, it is usually hot and sunny.' },
+        { fr: 'En août, il fait souvent très chaud.', ar: 'بآب، غالبًا الجو بيكون كتير حار.', en: 'In August, it is often very hot.' },
+        { fr: 'En septembre, les températures commencent à baisser.', ar: 'بأيلول، درجات الحرارة بتبلّش تنزل.', en: 'In September, temperatures start to drop.' },
+        { fr: 'En octobre, il fait plus frais et les feuilles commencent à tomber.', ar: 'بتشرين الأول، الجو بيصير أبرد وبتبلّش أوراق الشجر توقع.', en: 'In October, it gets cooler and the leaves start falling.' },
+        { fr: 'En novembre, il fait froid, gris et il pleut souvent.', ar: 'بتشرين الثاني، الجو بيكون بارد وغائم وغالبًا بتمطر.', en: 'In November, it’s cold, gray and often rainy.' },
+        { fr: 'En décembre, l’hiver arrive et les températures baissent.', ar: 'بكانون الأول، بيجي الشتاء ودرجات الحرارة بتنزل.', en: 'In December, winter arrives and temperatures drop.' },
+      ] }
+    ]
+  }
 ];
