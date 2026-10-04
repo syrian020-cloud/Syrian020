@@ -13713,5 +13713,723 @@ window.CENTRES_DATA = [
         { fr: 'Je me suis fouillé les poches pour trouver mes clés.', ar: 'فتشت بجيابي لحتى لاقي مفاتيحي.', en: 'I searched my pockets for my keys.' }
       ] }
     ]
+  },
+  {
+    id: 'verbes-pronominaux-futur',
+    icon: '⏩',
+    name: { ar: 'أفعال انعكاسية — المستقبل البسيط (Futur simple)', en: 'Reflexive verbs — futur simple', fr: 'Les verbes pronominaux — futur simple' },
+    desc: { ar: 'أشهر الأفعال الانعكاسية الفرنسية بصيغة المستقبل البسيط مع جملة جاهزة لكل فعل', en: 'The most common French reflexive verbs in the futur simple with a ready-made sentence for each', fr: 'Les verbes pronominaux les plus courants au futur simple avec une phrase pour chacun' },
+    sections: [
+      { icon: '⭐', title: { ar: 'المستقبل البسيط (Futur simple) — تصريف se lever', en: 'Futur simple — se lever conjugation', fr: 'Futur simple — conjugaison de se lever' }, phrases: [
+        { fr: 'Je me lèverai.', ar: 'رح قوم.', en: 'I will get up.' },
+        { fr: 'Tu te lèveras.', ar: 'رح تقوم.', en: 'You will get up.' },
+        { fr: 'Il se lèvera.', ar: 'رح يقوم.', en: 'He will get up.' },
+        { fr: 'Nous nous lèverons.', ar: 'رح نقوم.', en: 'We will get up.' },
+        { fr: 'Vous vous lèverez.', ar: 'رح تقوموا.', en: 'You will get up.' },
+        { fr: 'Ils se lèveront.', ar: 'رح يقوموا.', en: 'They will get up.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se préparer — يتحضّر', en: 'se préparer', fr: 'se préparer' }, phrases: [
+        { fr: 'se préparer', ar: 'يتحضّر', en: 'to get ready' },
+        { fr: 'Je me préparerai demain matin.', ar: 'رح حضّر حالي بكرا الصبح.', en: 'I’ll get ready tomorrow morning.' },
+        { fr: 'Tu te prépareras avant de sortir.', ar: 'رح تحضّر حالك قبل ما تطلع.', en: 'You’ll get ready before going out.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’habiller — يلبس / يغيّر تيابه', en: 's’habiller', fr: 's’habiller' }, phrases: [
+        { fr: 's’habiller', ar: 'يلبس / يغيّر تيابه', en: 'to get dressed' },
+        { fr: 'Je m’habillerai après ma douche.', ar: 'رح ألبس بعد الدوش.', en: 'I’ll get dressed after my shower.' },
+        { fr: 'Elle s’habillera rapidement.', ar: 'رح تلبس بسرعة.', en: 'She’ll get dressed quickly.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se lever — يقوم / ينهض', en: 'se lever', fr: 'se lever' }, phrases: [
+        { fr: 'se lever', ar: 'يقوم / ينهض', en: 'to get up' },
+        { fr: 'Je me lèverai tôt demain.', ar: 'رح قوم بكير بكرا.', en: 'I’ll get up early tomorrow.' },
+        { fr: 'Nous nous lèverons à sept heures.', ar: 'رح نقوم عالساعة سبعة.', en: 'We’ll get up at seven.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se dépêcher — يستعجل', en: 'se dépêcher', fr: 'se dépêcher' }, phrases: [
+        { fr: 'se dépêcher', ar: 'يستعجل', en: 'to hurry' },
+        { fr: 'Je me dépêcherai pour ne pas être en retard.', ar: 'رح استعجل مشان ما أتأخر.', en: 'I’ll hurry so I won’t be late.' },
+        { fr: 'Tu te dépêcheras, sinon tu rateras le bus.', ar: 'رح تستعجل، وإلا رح تروح عليك الباص.', en: 'You’ll hurry, otherwise you’ll miss the bus.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se coucher — ينام / يروح عالتخت', en: 'se coucher', fr: 'se coucher' }, phrases: [
+        { fr: 'se coucher', ar: 'ينام / يروح عالتخت', en: 'to go to bed' },
+        { fr: 'Je me coucherai tôt ce soir.', ar: 'رح نام بكير الليلة.', en: 'I’ll go to bed early tonight.' },
+        { fr: 'Tu te coucheras après le film.', ar: 'رح تنام بعد الفيلم.', en: 'You’ll go to bed after the movie.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se reposer — يرتاح', en: 'se reposer', fr: 'se reposer' }, phrases: [
+        { fr: 'se reposer', ar: 'يرتاح', en: 'to rest' },
+        { fr: 'Je me reposerai après le travail.', ar: 'رح ارتاح بعد الشغل.', en: 'I’ll rest after work.' },
+        { fr: 'Nous nous reposerons un peu.', ar: 'رح نرتاح شوي.', en: 'We’ll rest a little.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’asseoir — يقعد', en: 's’asseoir', fr: 's’asseoir' }, phrases: [
+        { fr: 's’asseoir', ar: 'يقعد', en: 'to sit down' },
+        { fr: 'Je m’assiérai ici.', ar: 'رح اقعد هون.', en: 'I’ll sit here.' },
+        { fr: 'Vous vous assiérez près de la fenêtre.', ar: 'رح تقعدوا جنب الشباك.', en: 'You’ll sit near the window.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se souvenir de — يتذكّر', en: 'se souvenir de', fr: 'se souvenir de' }, phrases: [
+        { fr: 'se souvenir de', ar: 'يتذكّر', en: 'to remember' },
+        { fr: 'Je me souviendrai de cette journée.', ar: 'رح أتذكر هاليوم.', en: 'I’ll remember this day.' },
+        { fr: 'Tu te souviendras de ce que je t’ai dit.', ar: 'رح تتذكر شو قلتلك.', en: 'You’ll remember what I told you.' },
+        { fr: 'Elle se souviendra toujours de toi.', ar: 'رح تضل تتذكرك دايمًا.', en: 'She’ll always remember you.' },
+        { fr: 'Vous vous souviendrez de ce moment.', ar: 'رح تتذكروا هاللحظة.', en: 'You’ll remember this moment.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se sentir — يشعر / يحسّ', en: 'se sentir', fr: 'se sentir' }, phrases: [
+        { fr: 'se sentir', ar: 'يشعر / يحسّ', en: 'to feel' },
+        { fr: 'Je me sentirai mieux demain.', ar: 'رح حس حالي أحسن بكرا.', en: 'I’ll feel better tomorrow.' },
+        { fr: 'Elle se sentira plus à l’aise ici.', ar: 'رح تحس براحة أكتر هون.', en: 'She’ll feel more comfortable here.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’inquiéter — يقلق', en: 's’inquiéter', fr: 's’inquiéter' }, phrases: [
+        { fr: 's’inquiéter', ar: 'يقلق', en: 'to worry' },
+        { fr: 'Ne t’inquiète pas, tout ira bien.', ar: 'لا تقلق، كل شي رح يكون منيح.', en: 'Don’t worry, everything will be fine.' },
+        { fr: 'Je ne m’inquiéterai plus.', ar: 'ما رح عاد أقلق.', en: 'I won’t worry anymore.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se concentrer — يركّز', en: 'se concentrer', fr: 'se concentrer' }, phrases: [
+        { fr: 'se concentrer', ar: 'يركّز', en: 'to concentrate' },
+        { fr: 'Je me concentrerai davantage demain.', ar: 'رح ركّز أكتر بكرا.', en: 'I’ll concentrate more tomorrow.' },
+        { fr: 'Tu te concentreras sur ton travail.', ar: 'رح تركّز ع شغلك.', en: 'You’ll focus on your work.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se retrouver — يلتقي / يجتمع', en: 'se retrouver', fr: 'se retrouver' }, phrases: [
+        { fr: 'se retrouver', ar: 'يلتقي / يجتمع', en: 'to meet again' },
+        { fr: 'On se retrouvera devant la gare.', ar: 'رح نلتقي قدام المحطة.', en: 'We’ll meet in front of the station.' },
+        { fr: 'Nous nous retrouverons ce soir.', ar: 'رح نلتقي الليلة.', en: 'We’ll meet tonight.' },
+        { fr: 'On se retrouvera bientôt.', ar: 'رح نلتقي قريبًا.', en: 'We’ll meet again soon.' },
+        { fr: 'Vous vous retrouverez devant le restaurant.', ar: 'رح تلتقوا قدام المطعم.', en: 'You’ll meet in front of the restaurant.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se rencontrer — يلتقي', en: 'se rencontrer', fr: 'se rencontrer' }, phrases: [
+        { fr: 'se rencontrer', ar: 'يلتقي', en: 'to meet' },
+        { fr: 'Nous nous rencontrerons demain.', ar: 'رح نلتقي بكرا.', en: 'We’ll meet tomorrow.' },
+        { fr: 'Ils se rencontreront pour la première fois.', ar: 'رح يلتقوا لأول مرة.', en: 'They’ll meet for the first time.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se parler — يحكي مع بعض', en: 'se parler', fr: 'se parler' }, phrases: [
+        { fr: 'se parler', ar: 'يحكي مع بعض', en: 'to talk to each other' },
+        { fr: 'On se parlera demain.', ar: 'رح نحكي مع بعض بكرا.', en: 'We’ll talk tomorrow.' },
+        { fr: 'Nous nous parlerons plus tard.', ar: 'رح نحكي مع بعض بعدين.', en: 'We’ll talk later.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se téléphoner — يتصل ببعض', en: 'se téléphoner', fr: 'se téléphoner' }, phrases: [
+        { fr: 'se téléphoner', ar: 'يتصل ببعض', en: 'to call each other' },
+        { fr: 'Je te téléphonerai demain.', ar: 'رح اتصل فيك بكرا.', en: 'I’ll call you tomorrow.' },
+        { fr: 'On se téléphonera ce soir.', ar: 'رح نتصل ببعض الليلة.', en: 'We’ll call each other tonight.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se garer — يصفّ السيارة', en: 'se garer', fr: 'se garer' }, phrases: [
+        { fr: 'se garer', ar: 'يصفّ السيارة', en: 'to park' },
+        { fr: 'Je me garerai devant l’immeuble.', ar: 'رح صفّ السيارة قدام البناية.', en: 'I’ll park in front of the building.' },
+        { fr: 'Tu te gareras où ?', ar: 'وين رح تصفّ؟', en: 'Where will you park?' }
+      ] },
+      { icon: '⏩', title: { ar: 'se changer — يغيّر تيابه', en: 'se changer', fr: 'se changer' }, phrases: [
+        { fr: 'se changer', ar: 'يغيّر تيابه', en: 'to change clothes' },
+        { fr: 'Je me changerai après le travail.', ar: 'رح غيّر تيابي بعد الشغل.', en: 'I’ll change clothes after work.' },
+        { fr: 'Elle se changera avant la soirée.', ar: 'رح تغيّر تيابها قبل السهرة.', en: 'She’ll change before the evening.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’inscrire — يسجّل حاله', en: 's’inscrire', fr: 's’inscrire' }, phrases: [
+        { fr: 's’inscrire', ar: 'يسجّل حاله', en: 'to register' },
+        { fr: 'Je m’inscrirai demain.', ar: 'رح سجّل حالي بكرا.', en: 'I’ll register tomorrow.' },
+        { fr: 'Vous vous inscrirez en ligne.', ar: 'رح تسجّلوا أونلاين.', en: 'You’ll register online.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se renseigner — يستفسر', en: 'se renseigner', fr: 'se renseigner' }, phrases: [
+        { fr: 'se renseigner', ar: 'يستفسر', en: 'to inquire' },
+        { fr: 'Je me renseignerai demain.', ar: 'رح استفسر بكرا.', en: 'I’ll ask for information tomorrow.' },
+        { fr: 'Nous nous renseignerons auprès de l’accueil.', ar: 'رح نستفسر من الاستقبال.', en: 'We’ll ask at reception.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se calmer — يهدأ', en: 'se calmer', fr: 'se calmer' }, phrases: [
+        { fr: 'se calmer', ar: 'يهدأ', en: 'to calm down' },
+        { fr: 'Je me calmerai après quelques minutes.', ar: 'رح اهدى بعد كم دقيقة.', en: 'I’ll calm down after a few minutes.' },
+        { fr: 'Tu te calmeras, ne t’inquiète pas.', ar: 'رح تهدى، لا تقلق.', en: 'You’ll calm down, don’t worry.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se fâcher — يزعل / يعصب', en: 'se fâcher', fr: 'se fâcher' }, phrases: [
+        { fr: 'se fâcher', ar: 'يزعل / يعصب', en: 'to get angry' },
+        { fr: 'Il se fâchera s’il apprend la nouvelle.', ar: 'رح يعصب إذا عرف الخبر.', en: 'He’ll get angry if he hears the news.' },
+        { fr: 'Elle ne se fâchera pas.', ar: 'هي ما رح تعصب.', en: 'She won’t get angry.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’énerver — يتعصّب', en: 's’énerver', fr: 's’énerver' }, phrases: [
+        { fr: 's’énerver', ar: 'يتعصّب', en: 'to get annoyed' },
+        { fr: 'Ne t’énerve pas, tout ira bien.', ar: 'لا تتعصّب، كل شي رح يكون منيح.', en: 'Don’t get angry, everything will be fine.' },
+        { fr: 'Je ne m’énerverai pas pour ça.', ar: 'ما رح اتعصّب مشان هالشي.', en: 'I won’t get angry about that.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se déplacer — يتنقّل', en: 'se déplacer', fr: 'se déplacer' }, phrases: [
+        { fr: 'se déplacer', ar: 'يتنقّل', en: 'to move around / travel' },
+        { fr: 'Je me déplacerai en voiture demain.', ar: 'رح تنقّل بالسيارة بكرا.', en: 'I’ll travel by car tomorrow.' },
+        { fr: 'Nous nous déplacerons en train.', ar: 'رح نتنقّل بالقطار.', en: 'We’ll travel by train.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’installer — يستقر / يقعد', en: 's’installer', fr: 's’installer' }, phrases: [
+        { fr: 's’installer', ar: 'يستقر / يقعد', en: 'to settle in' },
+        { fr: 'Je m’installerai près de la fenêtre.', ar: 'رح اقعد جنب الشباك.', en: 'I’ll sit near the window.' },
+        { fr: 'Ils s’installeront dans leur nouvel appartement.', ar: 'رح يستقروا بشقتهم الجديدة.', en: 'They’ll settle into their new apartment.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se plaindre — يشتكي', en: 'se plaindre', fr: 'se plaindre' }, phrases: [
+        { fr: 'se plaindre', ar: 'يشتكي', en: 'to complain' },
+        { fr: 'Je me plaindrai si le problème continue.', ar: 'رح اشتكي إذا استمرت المشكلة.', en: 'I’ll complain if the problem continues.' },
+        { fr: 'Il se plaindra au service client.', ar: 'رح يشتكي لخدمة الزبائن.', en: 'He’ll complain to customer service.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se tromper — يغلط', en: 'se tromper', fr: 'se tromper' }, phrases: [
+        { fr: 'se tromper', ar: 'يغلط', en: 'to be mistaken' },
+        { fr: 'Je me tromperai peut-être.', ar: 'يمكن أغلط.', en: 'I might be wrong.' },
+        { fr: 'Tu te tromperas si tu fais ça.', ar: 'رح تغلط إذا عملت هيك.', en: 'You’ll be wrong if you do that.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se rendre compte de — ينتبه / يدرك', en: 'se rendre compte de', fr: 'se rendre compte de' }, phrases: [
+        { fr: 'se rendre compte de', ar: 'ينتبه / يدرك', en: 'to realize' },
+        { fr: 'Je me rendrai compte de mon erreur.', ar: 'رح انتبه لغلطتي.', en: 'I’ll realize my mistake.' },
+        { fr: 'Tu te rendras compte plus tard.', ar: 'رح تنتبه بعدين.', en: 'You’ll realize it later.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se méfier de — يحذر من', en: 'se méfier de', fr: 'se méfier de' }, phrases: [
+        { fr: 'se méfier de', ar: 'يحذر من', en: 'to be wary of' },
+        { fr: 'Je me méfierai de cette personne.', ar: 'رح حذر من هالشخص.', en: 'I’ll be wary of this person.' },
+        { fr: 'Tu te méfieras de cette offre.', ar: 'رح تنتبه من هالعرض.', en: 'You’ll be wary of this offer.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’occuper de — يهتم بـ', en: 's’occuper de', fr: 's’occuper de' }, phrases: [
+        { fr: 's’occuper de', ar: 'يهتم بـ', en: 'to take care of' },
+        { fr: 'Je m’occuperai de ça demain.', ar: 'رح اهتم بهالشي بكرا.', en: 'I’ll take care of that tomorrow.' },
+        { fr: 'Elle s’occupera des enfants.', ar: 'رح تهتم بالأطفال.', en: 'She’ll take care of the children.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se débrouiller — يدبّر حاله', en: 'se débrouiller', fr: 'se débrouiller' }, phrases: [
+        { fr: 'se débrouiller', ar: 'يدبّر حاله', en: 'to manage' },
+        { fr: 'Je me débrouillerai tout seul.', ar: 'رح دبّر حالي لحالي.', en: 'I’ll manage on my own.' },
+        { fr: 'Ne t’inquiète pas, je me débrouillerai.', ar: 'لا تقلق، رح دبّر حالي.', en: 'Don’t worry, I’ll manage.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’excuser — يعتذر', en: 's’excuser', fr: 's’excuser' }, phrases: [
+        { fr: 's’excuser', ar: 'يعتذر', en: 'to apologize' },
+        { fr: 'Je m’excuserai demain.', ar: 'رح اعتذر بكرا.', en: 'I’ll apologize tomorrow.' },
+        { fr: 'Il s’excusera auprès de toi.', ar: 'رح يعتذر منك.', en: 'He’ll apologize to you.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se décider — يقرّر', en: 'se décider', fr: 'se décider' }, phrases: [
+        { fr: 'se décider', ar: 'يقرّر', en: 'to decide' },
+        { fr: 'Je me déciderai demain.', ar: 'رح قرر بكرا.', en: 'I’ll decide tomorrow.' },
+        { fr: 'Elle se décidera bientôt.', ar: 'رح تقرر قريبًا.', en: 'She’ll decide soon.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se servir de — يستخدم', en: 'se servir de', fr: 'se servir de' }, phrases: [
+        { fr: 'se servir de', ar: 'يستخدم', en: 'to use' },
+        { fr: 'Je me servirai de mon téléphone.', ar: 'رح استخدم تلفوني.', en: 'I’ll use my phone.' },
+        { fr: 'Tu te serviras de cette application.', ar: 'رح تستخدم هالتطبيق.', en: 'You’ll use this app.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se connecter — يسجّل الدخول / يتصل', en: 'se connecter', fr: 'se connecter' }, phrases: [
+        { fr: 'se connecter', ar: 'يسجّل الدخول / يتصل', en: 'to log in' },
+        { fr: 'Je me connecterai à mon compte ce soir.', ar: 'رح فوت عحسابي الليلة.', en: 'I’ll log into my account tonight.' },
+        { fr: 'Vous vous connecterez avec votre mot de passe.', ar: 'رح تفوتوا بكلمة السر تبعكم.', en: 'You’ll log in with your password.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se déconnecter — يسجّل الخروج', en: 'se déconnecter', fr: 'se déconnecter' }, phrases: [
+        { fr: 'se déconnecter', ar: 'يسجّل الخروج', en: 'to log out' },
+        { fr: 'Je me déconnecterai après mon travail.', ar: 'رح سجّل خروج بعد شغلي.', en: 'I’ll log out after work.' },
+        { fr: 'N’oublie pas de te déconnecter.', ar: 'لا تنسى تسجّل خروج.', en: 'Don’t forget to log out.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se présenter — يقدّم نفسه / يحضر', en: 'se présenter', fr: 'se présenter' }, phrases: [
+        { fr: 'se présenter', ar: 'يقدّم نفسه / يحضر', en: 'to introduce oneself' },
+        { fr: 'Je me présenterai à l’accueil demain.', ar: 'رح راجع الاستقبال بكرا.', en: 'I’ll report to reception tomorrow.' },
+        { fr: 'Vous vous présenterez à neuf heures.', ar: 'رح تحضروا عالساعة تسعة.', en: 'You’ll show up at nine.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se comporter — يتصرّف', en: 'se comporter', fr: 'se comporter' }, phrases: [
+        { fr: 'se comporter', ar: 'يتصرّف', en: 'to behave' },
+        { fr: 'Je me comporterai correctement.', ar: 'رح اتصرّف بشكل منيح.', en: 'I’ll behave properly.' },
+        { fr: 'Il se comportera mieux à l’avenir.', ar: 'رح يتصرّف أحسن بالمستقبل.', en: 'He’ll behave better in the future.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se fier à — يثق بـ / يعتمد على', en: 'se fier à', fr: 'se fier à' }, phrases: [
+        { fr: 'se fier à', ar: 'يثق بـ / يعتمد على', en: 'to trust' },
+        { fr: 'Je me fierai à ton conseil.', ar: 'رح اعتمد على نصيحتك.', en: 'I’ll rely on your advice.' },
+        { fr: 'Nous nous fierons à son expérience.', ar: 'رح نعتمد على خبرته.', en: 'We’ll rely on his experience.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faire confiance — يثق بنفسه / ببعضهم', en: 'se faire confiance', fr: 'se faire confiance' }, phrases: [
+        { fr: 'se faire confiance', ar: 'يثق بنفسه / ببعضهم', en: 'to trust oneself' },
+        { fr: 'Je me ferai confiance.', ar: 'رح ثق بحالي.', en: 'I’ll trust myself.' },
+        { fr: 'Nous nous ferons confiance.', ar: 'رح نثق ببعض.', en: 'We’ll trust each other.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se mettre d’accord — يتفق', en: 'se mettre d’accord', fr: 'se mettre d’accord' }, phrases: [
+        { fr: 'se mettre d’accord', ar: 'يتفق', en: 'to agree' },
+        { fr: 'On se mettra d’accord demain.', ar: 'رح نتفق بكرا.', en: 'We’ll agree tomorrow.' },
+        { fr: 'Nous nous mettrons d’accord sur le prix.', ar: 'رح نتفق عالسعر.', en: 'We’ll agree on the price.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se mettre en route — ينطلق / يطلع بالطريق', en: 'se mettre en route', fr: 'se mettre en route' }, phrases: [
+        { fr: 'se mettre en route', ar: 'ينطلق / يطلع بالطريق', en: 'to set off' },
+        { fr: 'Je me mettrai en route à huit heures.', ar: 'رح اطلع بالطريق عالساعة تمانية.', en: 'I’ll set off at eight.' },
+        { fr: 'Nous nous mettrons en route après le déjeuner.', ar: 'رح ننطلق بعد الغدا.', en: 'We’ll set off after lunch.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se poser — يجلس / يأخذ مكانًا', en: 'se poser', fr: 'se poser' }, phrases: [
+        { fr: 'se poser', ar: 'يجلس / يأخذ مكانًا', en: 'to sit down / land' },
+        { fr: 'Je me poserai un peu après le travail.', ar: 'رح اقعد شوي بعد الشغل.', en: 'I’ll sit down for a while after work.' },
+        { fr: 'On se posera quelque part pour boire un café.', ar: 'رح نقعد بمحل ونشرب قهوة.', en: 'We’ll find somewhere to sit and have a coffee.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se demander — يتساءل / يسأل نفسه', en: 'se demander', fr: 'se demander' }, phrases: [
+        { fr: 'se demander', ar: 'يتساءل / يسأل نفسه', en: 'to wonder' },
+        { fr: 'Je me demanderai pourquoi il est parti.', ar: 'رح اتساءل ليش راح.', en: 'I’ll wonder why he left.' },
+        { fr: 'Tu te demanderas ce qui s’est passé.', ar: 'رح تتساءل شو اللي صار.', en: 'You’ll wonder what happened.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’imaginer — يتخيّل', en: 's’imaginer', fr: 's’imaginer' }, phrases: [
+        { fr: 's’imaginer', ar: 'يتخيّل', en: 'to imagine' },
+        { fr: 'Je m’imaginerai une autre vie.', ar: 'رح اتخيّل حياة تانية.', en: 'I’ll imagine another life.' },
+        { fr: 'Tu t’imagineras facilement la situation.', ar: 'رح تتخيّل الوضع بسهولة.', en: 'You’ll easily imagine the situation.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se rappeler — يتذكّر', en: 'se rappeler', fr: 'se rappeler' }, phrases: [
+        { fr: 'se rappeler', ar: 'يتذكّر', en: 'to remember' },
+        { fr: 'Je me rappellerai de cette histoire.', ar: 'رح اتذكر هالقصة.', en: 'I’ll remember this story.' },
+        { fr: 'Elle se rappellera de ton nom.', ar: 'رح تتذكر اسمك.', en: 'She’ll remember your name.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se permettre de — يسمح لنفسه بـ', en: 'se permettre de', fr: 'se permettre de' }, phrases: [
+        { fr: 'se permettre de', ar: 'يسمح لنفسه بـ', en: 'to allow oneself' },
+        { fr: 'Je me permettrai de vous poser une question.', ar: 'رح اسمح لحالي اسألك سؤال.', en: 'I’ll allow myself to ask you a question.' },
+        { fr: 'Il se permettra de donner son avis.', ar: 'رح يسمح لحاله يعطي رأيه.', en: 'He’ll allow himself to give his opinion.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’assurer de — يتأكد من', en: 's’assurer de', fr: 's’assurer de' }, phrases: [
+        { fr: 's’assurer de', ar: 'يتأكد من', en: 'to make sure' },
+        { fr: 'Je m’assurerai que tout est prêt.', ar: 'رح أتأكد إنو كل شي جاهز.', en: 'I’ll make sure everything is ready.' },
+        { fr: 'Nous nous assurerons de la réservation.', ar: 'رح نتأكد من الحجز.', en: 'We’ll make sure about the reservation.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se joindre à — ينضم إلى', en: 'se joindre à', fr: 'se joindre à' }, phrases: [
+        { fr: 'se joindre à', ar: 'ينضم إلى', en: 'to join' },
+        { fr: 'Je me joindrai à vous demain.', ar: 'رح انضم إلكن بكرا.', en: 'I’ll join you tomorrow.' },
+        { fr: 'Elle se joindra à nous pour le dîner.', ar: 'رح تنضم إلنا عالعشا.', en: 'She’ll join us for dinner.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se remettre de — يتعافى من / يتجاوز', en: 'se remettre de', fr: 'se remettre de' }, phrases: [
+        { fr: 'se remettre de', ar: 'يتعافى من / يتجاوز', en: 'to recover from' },
+        { fr: 'Je me remettrai de cette fatigue.', ar: 'رح اتعافى من هالتعب.', en: 'I’ll recover from this fatigue.' },
+        { fr: 'Il se remettra rapidement de son problème.', ar: 'رح يتعافى بسرعة من مشكلته.', en: 'He’ll recover quickly from his problem.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se retenir — يمسك نفسه / يمنع نفسه', en: 'se retenir', fr: 'se retenir' }, phrases: [
+        { fr: 'se retenir', ar: 'يمسك نفسه / يمنع نفسه', en: 'to hold oneself back' },
+        { fr: 'Je me retiendrai de répondre.', ar: 'رح امسك حالي وما رد.', en: 'I’ll hold myself back from responding.' },
+        { fr: 'Elle se retiendra de rire.', ar: 'رح تمسك حالها وما تضحك.', en: 'She’ll hold back from laughing.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se maîtriser — يضبط نفسه', en: 'se maîtriser', fr: 'se maîtriser' }, phrases: [
+        { fr: 'se maîtriser', ar: 'يضبط نفسه', en: 'to control oneself' },
+        { fr: 'Je me maîtriserai cette fois.', ar: 'هالمرة رح اضبط حالي.', en: 'I’ll control myself this time.' },
+        { fr: 'Il devra se maîtriser.', ar: 'لازم يضبط حاله.', en: 'He’ll have to control himself.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se ressaisir — يستجمع قواه / يتماسك', en: 'se ressaisir', fr: 'se ressaisir' }, phrases: [
+        { fr: 'se ressaisir', ar: 'يستجمع قواه / يتماسك', en: 'to pull oneself together' },
+        { fr: 'Je me ressaisirai et je continuerai.', ar: 'رح تماسك وكفّي.', en: 'I’ll pull myself together and continue.' },
+        { fr: 'Elle se ressaisira rapidement.', ar: 'رح تتمالك حالها بسرعة.', en: 'She’ll pull herself together quickly.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se retirer — ينسحب / يغادر', en: 'se retirer', fr: 'se retirer' }, phrases: [
+        { fr: 'se retirer', ar: 'ينسحب / يغادر', en: 'to withdraw' },
+        { fr: 'Je me retirerai de cette affaire.', ar: 'رح انسحب من هالموضوع.', en: 'I’ll withdraw from this matter.' },
+        { fr: 'Ils se retireront du projet.', ar: 'رح ينسحبوا من المشروع.', en: 'They’ll withdraw from the project.' },
+        { fr: 'Il se retirera du projet.', ar: 'رح ينسحب من المشروع.', en: 'He’ll withdraw from the project.' },
+        { fr: 'Je me retirerai de la discussion.', ar: 'رح انسحب من النقاش.', en: 'I’ll withdraw from the discussion.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se perfectionner — يطوّر نفسه', en: 'se perfectionner', fr: 'se perfectionner' }, phrases: [
+        { fr: 'se perfectionner', ar: 'يطوّر نفسه', en: 'to improve one’s skills' },
+        { fr: 'Je me perfectionnerai en français.', ar: 'رح طوّر حالي بالفرنسي.', en: 'I’ll improve my French skills.' },
+        { fr: 'Elle se perfectionnera avec la pratique.', ar: 'رح تطوّر حالها مع الممارسة.', en: 'She’ll improve with practice.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’impliquer — ينخرط / يشارك', en: 's’impliquer', fr: 's’impliquer' }, phrases: [
+        { fr: 's’impliquer', ar: 'ينخرط / يشارك', en: 'to get involved' },
+        { fr: 'Je m’impliquerai davantage dans le projet.', ar: 'رح شارك أكتر بالمشروع.', en: 'I’ll get more involved in the project.' },
+        { fr: 'Ils s’impliqueront dans le travail.', ar: 'رح ينخرطوا بالشغل.', en: 'They’ll get involved in the work.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’investir dans — يكرّس نفسه لـ', en: 's’investir dans', fr: 's’investir dans' }, phrases: [
+        { fr: 's’investir dans', ar: 'يكرّس نفسه لـ', en: 'to invest oneself in' },
+        { fr: 'Je m’investirai davantage dans mon travail.', ar: 'رح كرّس حالي أكتر لشغلي.', en: 'I’ll invest myself more in my work.' },
+        { fr: 'Elle s’investira dans sa formation.', ar: 'رح تهتم وتكرّس حالها لتدريبها.', en: 'She’ll invest herself in her training.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’appliquer à — يجتهد في', en: 's’appliquer à', fr: 's’appliquer à' }, phrases: [
+        { fr: 's’appliquer à', ar: 'يجتهد في', en: 'to apply oneself to' },
+        { fr: 'Je m’appliquerai à parler français correctement.', ar: 'رح اجتهد إني احكي فرنسي بشكل صحيح.', en: 'I’ll make an effort to speak French correctly.' },
+        { fr: 'Tu t’appliqueras à bien faire ton travail.', ar: 'رح تجتهد لتعمل شغلك منيح.', en: 'You’ll make an effort to do your work well.' },
+        { fr: 'Je m’appliquerai à faire de mon mieux.', ar: 'رح اجتهد لأعمل أفضل ما عندي.', en: 'I’ll do my best.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se divertir — يتسلّى', en: 'se divertir', fr: 'se divertir' }, phrases: [
+        { fr: 'se divertir', ar: 'يتسلّى', en: 'to have fun' },
+        { fr: 'Je me divertirai ce week-end.', ar: 'رح اتسلّى بعطلة نهاية الأسبوع.', en: 'I’ll have fun this weekend.' },
+        { fr: 'Nous nous divertirons ensemble.', ar: 'رح نتسلّى سوا.', en: 'We’ll have fun together.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se précipiter — يستعجل / يندفع', en: 'se précipiter', fr: 'se précipiter' }, phrases: [
+        { fr: 'se précipiter', ar: 'يستعجل / يندفع', en: 'to rush' },
+        { fr: 'Je me précipiterai pour arriver à l’heure.', ar: 'رح استعجل مشان أوصل بوقتي.', en: 'I’ll hurry to arrive on time.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faufiler — يتسلّل / يشق طريقه', en: 'se faufiler', fr: 'se faufiler' }, phrases: [
+        { fr: 'se faufiler', ar: 'يتسلّل / يشق طريقه', en: 'to slip through' },
+        { fr: 'Je me faufilerai entre les voitures.', ar: 'رح شق طريقي بين السيارات.', en: 'I’ll make my way between the cars.' },
+        { fr: 'Je me faufilerai entre les gens.', ar: 'رح شق طريقي بين العالم.', en: 'I’ll make my way through the crowd.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se glisser — يتسلّل / يدخل بهدوء', en: 'se glisser', fr: 'se glisser' }, phrases: [
+        { fr: 'se glisser', ar: 'يتسلّل / يدخل بهدوء', en: 'to slip in quietly' },
+        { fr: 'Je me glisserai discrètement dans la salle.', ar: 'رح فوت عالقاعة بهدوء ومن دون ما حدا ينتبه.', en: 'I’ll quietly slip into the room.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se redresser — يستقيم / يعتدل', en: 'se redresser', fr: 'se redresser' }, phrases: [
+        { fr: 'se redresser', ar: 'يستقيم / يعتدل', en: 'to straighten up' },
+        { fr: 'Je me redresserai doucement.', ar: 'رح عدّل قعدتي شوي شوي.', en: 'I’ll straighten up slowly.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se reculer — يرجع لورا', en: 'se reculer', fr: 'se reculer' }, phrases: [
+        { fr: 'se reculer', ar: 'يرجع لورا', en: 'to step back' },
+        { fr: 'Je me reculerai pour vous laisser passer.', ar: 'رح ارجع لورا مشان خليكم تمرقوا.', en: 'I’ll step back to let you pass.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’avancer — يتقدّم', en: 's’avancer', fr: 's’avancer' }, phrases: [
+        { fr: 's’avancer', ar: 'يتقدّم', en: 'to move forward' },
+        { fr: 'Je m’avancerai vers la porte.', ar: 'رح اتقدّم باتجاه الباب.', en: 'I’ll move toward the door.' },
+        { fr: 'Je m’avancerai vers le guichet.', ar: 'رح اتقدّم لعند الشباك.', en: 'I’ll move toward the counter.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se déchausser — يخلع حذاءه', en: 'se déchausser', fr: 'se déchausser' }, phrases: [
+        { fr: 'se déchausser', ar: 'يخلع حذاءه', en: 'to take off one’s shoes' },
+        { fr: 'Je me déchausserai avant d’entrer.', ar: 'رح اخلع جزمتي قبل ما فوت.', en: 'I’ll take off my shoes before entering.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se couvrir — يتغطّى / يلبس دافي', en: 'se couvrir', fr: 'se couvrir' }, phrases: [
+        { fr: 'se couvrir', ar: 'يتغطّى / يلبس دافي', en: 'to dress warmly' },
+        { fr: 'Je me couvrirai bien avant de sortir.', ar: 'رح اتدفّى منيح قبل ما اطلع.', en: 'I’ll dress warmly before going out.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se passionner pour — يهتم بشدة / يشتغف بـ', en: 'se passionner pour', fr: 'se passionner pour' }, phrases: [
+        { fr: 'se passionner pour', ar: 'يهتم بشدة / يشتغف بـ', en: 'to become passionate about' },
+        { fr: 'Je me passionnerai pour l’apprentissage du français.', ar: 'رح صير شغوف بتعلّم الفرنسي.', en: 'I’ll become passionate about learning French.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se réjouir de — يفرح بـ', en: 'se réjouir de', fr: 'se réjouir de' }, phrases: [
+        { fr: 'se réjouir de', ar: 'يفرح بـ', en: 'to be delighted' },
+        { fr: 'Je me réjouirai de vous revoir.', ar: 'رح انبسط إني شوفكم من جديد.', en: 'I’ll be happy to see you again.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se porter volontaire — يتطوّع', en: 'se porter volontaire', fr: 'se porter volontaire' }, phrases: [
+        { fr: 'se porter volontaire', ar: 'يتطوّع', en: 'to volunteer' },
+        { fr: 'Je me porterai volontaire pour aider.', ar: 'رح اتطوّع لأساعد.', en: 'I’ll volunteer to help.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se porter candidat — يترشّح / يتقدّم', en: 'se porter candidat', fr: 'se porter candidat' }, phrases: [
+        { fr: 'se porter candidat', ar: 'يترشّح / يتقدّم', en: 'to apply for a position' },
+        { fr: 'Je me porterai candidat à ce poste.', ar: 'رح اتقدّم لهالوظيفة.', en: 'I’ll apply for this position.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se réinscrire — يعيد التسجيل', en: 'se réinscrire', fr: 'se réinscrire' }, phrases: [
+        { fr: 'se réinscrire', ar: 'يعيد التسجيل', en: 'to re-register' },
+        { fr: 'Je me réinscrirai l’année prochaine.', ar: 'رح سجّل حالي من جديد السنة الجاية.', en: 'I’ll re-register next year.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se désister — ينسحب', en: 'se désister', fr: 'se désister' }, phrases: [
+        { fr: 'se désister', ar: 'ينسحب', en: 'to withdraw' },
+        { fr: 'Je me désisterai si nécessaire.', ar: 'رح انسحب إذا كان ضروري.', en: 'I’ll withdraw if necessary.' },
+        { fr: 'Je me désisterai si je ne peux pas venir.', ar: 'رح انسحب إذا ما قدرت أجي.', en: 'I’ll withdraw if I can’t come.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se reconvertir — يغيّر مجاله المهني', en: 'se reconvertir', fr: 'se reconvertir' }, phrases: [
+        { fr: 'se reconvertir', ar: 'يغيّر مجاله المهني', en: 'to retrain for a new career' },
+        { fr: 'Je me reconvertirai dans un autre métier.', ar: 'رح غيّر مجالي لشغلة تانية.', en: 'I’ll retrain for another career.' },
+        { fr: 'Je me reconvertirai dans l’informatique.', ar: 'رح غيّر مجالي وأفوت بمجال المعلوماتية.', en: 'I’ll retrain for a career in IT.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se débloquer — ينفتح / ينحل', en: 'se débloquer', fr: 'se débloquer' }, phrases: [
+        { fr: 'se débloquer', ar: 'ينفتح / ينحل', en: 'to get unblocked' },
+        { fr: 'La situation se débloquera bientôt.', ar: 'الوضع رح ينحل قريب.', en: 'The situation will be unblocked soon.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se fermer — ينغلق', en: 'se fermer', fr: 'se fermer' }, phrases: [
+        { fr: 'se fermer', ar: 'ينغلق', en: 'to close' },
+        { fr: 'La porte se fermera automatiquement.', ar: 'الباب رح يتسكر لحاله.', en: 'The door will close automatically.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’ouvrir — ينفتح', en: 's’ouvrir', fr: 's’ouvrir' }, phrases: [
+        { fr: 's’ouvrir', ar: 'ينفتح', en: 'to open' },
+        { fr: 'La porte s’ouvrira automatiquement.', ar: 'الباب رح ينفتح لحاله.', en: 'The door will open automatically.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se remplir — يمتلئ', en: 'se remplir', fr: 'se remplir' }, phrases: [
+        { fr: 'se remplir', ar: 'يمتلئ', en: 'to fill up' },
+        { fr: 'Le formulaire se remplira automatiquement.', ar: 'الاستمارة رح تنعبّى لحالها.', en: 'The form will fill in automatically.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se vider — يفرغ', en: 'se vider', fr: 'se vider' }, phrases: [
+        { fr: 'se vider', ar: 'يفرغ', en: 'to empty' },
+        { fr: 'Le réservoir se videra rapidement.', ar: 'الخزان رح يفضى بسرعة.', en: 'The tank will empty quickly.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se distraire — يتسلّى / يلهي نفسه', en: 'se distraire', fr: 'se distraire' }, phrases: [
+        { fr: 'se distraire', ar: 'يتسلّى / يلهي نفسه', en: 'to entertain oneself' },
+        { fr: 'Je me distraierai un peu ce soir.', ar: 'رح اتسلّى شوي الليلة.', en: 'I’ll distract myself a little tonight.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se dépenser — يبذل طاقة / يتحرّك', en: 'se dépenser', fr: 'se dépenser' }, phrases: [
+        { fr: 'se dépenser', ar: 'يبذل طاقة / يتحرّك', en: 'to exert oneself' },
+        { fr: 'Je me dépenserai davantage cette semaine.', ar: 'رح حرّك حالي وأصرف طاقة أكتر هالأسبوع.', en: 'I’ll be more active this week.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se remettre à — يعود إلى / يبدأ من جديد', en: 'se remettre à', fr: 'se remettre à' }, phrases: [
+        { fr: 'se remettre à', ar: 'يعود إلى / يبدأ من جديد', en: 'to go back to' },
+        { fr: 'Je me remettrai à étudier demain.', ar: 'رح ارجع ادرس بكرا.', en: 'I’ll start studying again tomorrow.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se différencier de — يختلف عن', en: 'se différencier de', fr: 'se différencier de' }, phrases: [
+        { fr: 'se différencier de', ar: 'يختلف عن', en: 'to differentiate oneself from' },
+        { fr: 'Je me différencierai des autres par mon travail.', ar: 'رح ميّز حالي عن غيري بشغلي.', en: 'I’ll stand out from others through my work.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se comparer à — يقارن نفسه بـ', en: 'se comparer à', fr: 'se comparer à' }, phrases: [
+        { fr: 'se comparer à', ar: 'يقارن نفسه بـ', en: 'to compare oneself to' },
+        { fr: 'Je ne me comparerai pas aux autres.', ar: 'ما رح قارن حالي بالآخرين.', en: 'I won’t compare myself to others.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se mesurer à — يتحدّى / ينافس', en: 'se mesurer à', fr: 'se mesurer à' }, phrases: [
+        { fr: 'se mesurer à', ar: 'يتحدّى / ينافس', en: 'to compete with' },
+        { fr: 'Je me mesurerai aux meilleurs.', ar: 'رح نافس الأفضل.', en: 'I’ll compete with the best.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se spécialiser dans — يتخصّص بـ', en: 'se spécialiser dans', fr: 'se spécialiser dans' }, phrases: [
+        { fr: 'se spécialiser dans', ar: 'يتخصّص بـ', en: 'to specialize in' },
+        { fr: 'Je me spécialiserai dans ce domaine.', ar: 'رح تخصّص بهالمجال.', en: 'I’ll specialize in this field.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se conformer à — يلتزم بـ', en: 'se conformer à', fr: 'se conformer à' }, phrases: [
+        { fr: 'se conformer à', ar: 'يلتزم بـ', en: 'to comply with' },
+        { fr: 'Je me conformerai aux règles.', ar: 'رح التزم بالقوانين.', en: 'I’ll comply with the rules.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’opposer à — يعارض', en: 's’opposer à', fr: 's’opposer à' }, phrases: [
+        { fr: 's’opposer à', ar: 'يعارض', en: 'to oppose' },
+        { fr: 'Je m’opposerai à cette décision.', ar: 'رح عارض هالقرار.', en: 'I’ll oppose this decision.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se rendre à — يذهب إلى / يتوجّه إلى', en: 'se rendre à', fr: 'se rendre à' }, phrases: [
+        { fr: 'se rendre à', ar: 'يذهب إلى / يتوجّه إلى', en: 'to go to' },
+        { fr: 'Je me rendrai à la mairie demain.', ar: 'رح روح عالبلدية بكرا.', en: 'I’ll go to the town hall tomorrow.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se rendre disponible — يكون متاحًا', en: 'se rendre disponible', fr: 'se rendre disponible' }, phrases: [
+        { fr: 'se rendre disponible', ar: 'يكون متاحًا', en: 'to make oneself available' },
+        { fr: 'Je me rendrai disponible demain après-midi.', ar: 'رح كون متاح بكرا بعد الظهر.', en: 'I’ll make myself available tomorrow afternoon.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se rendre utile — يكون مفيدًا', en: 'se rendre utile', fr: 'se rendre utile' }, phrases: [
+        { fr: 'se rendre utile', ar: 'يكون مفيدًا', en: 'to make oneself useful' },
+        { fr: 'Je me rendrai utile si vous avez besoin d’aide.', ar: 'رح كون مفيد إذا احتجتوا مساعدة.', en: 'I’ll be useful if you need help.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se contenter de — يكتفي بـ', en: 'se contenter de', fr: 'se contenter de' }, phrases: [
+        { fr: 'se contenter de', ar: 'يكتفي بـ', en: 'to settle for' },
+        { fr: 'Je me contenterai de cette solution.', ar: 'رح اكتفي بهالحل.', en: 'I’ll settle for this solution.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se consacrer à — يكرّس نفسه لـ', en: 'se consacrer à', fr: 'se consacrer à' }, phrases: [
+        { fr: 'se consacrer à', ar: 'يكرّس نفسه لـ', en: 'to devote oneself to' },
+        { fr: 'Je me consacrerai davantage à mes études.', ar: 'رح كرّس وقت أكتر لدراستي.', en: 'I’ll devote more time to my studies.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se débarrasser de — يتخلّص من', en: 'se débarrasser de', fr: 'se débarrasser de' }, phrases: [
+        { fr: 'se débarrasser de', ar: 'يتخلّص من', en: 'to get rid of' },
+        { fr: 'Je me débarrasserai de ces vieux vêtements.', ar: 'رح تخلّص من هالتياب القديمة.', en: 'I’ll get rid of these old clothes.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se soucier de — يهتم بـ / يكترث لـ', en: 'se soucier de', fr: 'se soucier de' }, phrases: [
+        { fr: 'se soucier de', ar: 'يهتم بـ / يكترث لـ', en: 'to care about' },
+        { fr: 'Je ne me soucierai plus de ce problème.', ar: 'ما رح عاد اهتم بهالمشكلة.', en: 'I won’t worry about this problem anymore.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se préoccuper de — ينشغل بـ / يقلق بشأن', en: 'se préoccuper de', fr: 'se préoccuper de' }, phrases: [
+        { fr: 'se préoccuper de', ar: 'ينشغل بـ / يقلق بشأن', en: 'to be concerned about' },
+        { fr: 'Je me préoccuperai de ce problème demain.', ar: 'رح اهتم بهالمشكلة بكرا.', en: 'I’ll deal with this problem tomorrow.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se priver de — يحرم نفسه من', en: 'se priver de', fr: 'se priver de' }, phrases: [
+        { fr: 'se priver de', ar: 'يحرم نفسه من', en: 'to deprive oneself of' },
+        { fr: 'Je ne me priverai pas de ce plaisir.', ar: 'ما رح حرم حالي من هالمتعة.', en: 'I won’t deprive myself of this pleasure.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’attendre à — يتوقّع', en: 's’attendre à', fr: 's’attendre à' }, phrases: [
+        { fr: 's’attendre à', ar: 'يتوقّع', en: 'to expect' },
+        { fr: 'Je m’attendrai à une réponse demain.', ar: 'رح توقّع جواب بكرا.', en: 'I’ll expect an answer tomorrow.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’adresser à — يتوجّه إلى / يخاطب', en: 's’adresser à', fr: 's’adresser à' }, phrases: [
+        { fr: 's’adresser à', ar: 'يتوجّه إلى / يخاطب', en: 'to contact' },
+        { fr: 'Je m’adresserai directement au responsable.', ar: 'رح احكي مباشرة مع المسؤول.', en: 'I’ll speak directly to the person in charge.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se procurer — يحصل على / يؤمّن', en: 'se procurer', fr: 'se procurer' }, phrases: [
+        { fr: 'se procurer', ar: 'يحصل على / يؤمّن', en: 'to obtain' },
+        { fr: 'Je me procurerai les documents nécessaires.', ar: 'رح أمّن الأوراق المطلوبة.', en: 'I’ll get the necessary documents.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se munir de — يجهّز نفسه بـ', en: 'se munir de', fr: 'se munir de' }, phrases: [
+        { fr: 'se munir de', ar: 'يجهّز نفسه بـ', en: 'to provide oneself with' },
+        { fr: 'Je me munirai de tous les documents.', ar: 'رح جهّز معي كل الأوراق.', en: 'I’ll bring all the documents with me.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’approvisionner en — يزوّد نفسه بـ', en: 's’approvisionner en', fr: 's’approvisionner en' }, phrases: [
+        { fr: 's’approvisionner en', ar: 'يزوّد نفسه بـ', en: 'to stock up on' },
+        { fr: 'Je m’approvisionnerai en nourriture pour la semaine.', ar: 'رح أمّن أكل للأسبوع.', en: 'I’ll stock up on food for the week.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se limiter à — يقتصر على', en: 'se limiter à', fr: 'se limiter à' }, phrases: [
+        { fr: 'se limiter à', ar: 'يقتصر على', en: 'to be limited to' },
+        { fr: 'Je me limiterai à une seule question.', ar: 'رح اكتفي بسؤال واحد.', en: 'I’ll limit myself to one question.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se distinguer par — يتميّز بـ', en: 'se distinguer par', fr: 'se distinguer par' }, phrases: [
+        { fr: 'se distinguer par', ar: 'يتميّز بـ', en: 'to stand out for' },
+        { fr: 'Cette entreprise se distinguera par son service.', ar: 'هالشركة رح تتميّز بخدمتها.', en: 'This company will stand out for its service.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se maintenir — يحافظ على نفسه / يبقى', en: 'se maintenir', fr: 'se maintenir' }, phrases: [
+        { fr: 'se maintenir', ar: 'يحافظ على نفسه / يبقى', en: 'to remain' },
+        { fr: 'Le prix se maintiendra à ce niveau.', ar: 'السعر رح يضل بهالمستوى.', en: 'The price will remain at this level.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se multiplier — يتكاثر / يزداد', en: 'se multiplier', fr: 'se multiplier' }, phrases: [
+        { fr: 'se multiplier', ar: 'يتكاثر / يزداد', en: 'to multiply' },
+        { fr: 'Les demandes se multiplieront bientôt.', ar: 'الطلبات رح تزيد قريب.', en: 'The requests will increase soon.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se réduire — ينخفض / يتقلّص', en: 'se réduire', fr: 'se réduire' }, phrases: [
+        { fr: 'se réduire', ar: 'ينخفض / يتقلّص', en: 'to decrease' },
+        { fr: 'Les dépenses se réduiront l’année prochaine.', ar: 'المصاريف رح تنخفض السنة الجاية.', en: 'Expenses will decrease next year.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se renforcer — يتعزّز / يقوى', en: 'se renforcer', fr: 'se renforcer' }, phrases: [
+        { fr: 'se renforcer', ar: 'يتعزّز / يقوى', en: 'to strengthen' },
+        { fr: 'Notre relation se renforcera avec le temps.', ar: 'علاقتنا رح تقوى مع الوقت.', en: 'Our relationship will grow stronger over time.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’aggraver — يزداد سوءًا', en: 's’aggraver', fr: 's’aggraver' }, phrases: [
+        { fr: 's’aggraver', ar: 'يزداد سوءًا', en: 'to worsen' },
+        { fr: 'La situation s’aggravera sans intervention.', ar: 'الوضع رح يسوء إذا ما صار تدخل.', en: 'The situation will get worse without intervention.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se stabiliser — يستقر', en: 'se stabiliser', fr: 'se stabiliser' }, phrases: [
+        { fr: 'se stabiliser', ar: 'يستقر', en: 'to stabilize' },
+        { fr: 'La situation se stabilisera bientôt.', ar: 'الوضع رح يستقر قريب.', en: 'The situation will stabilize soon.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se développer — يتطوّر', en: 'se développer', fr: 'se développer' }, phrases: [
+        { fr: 'se développer', ar: 'يتطوّر', en: 'to develop' },
+        { fr: 'Le projet se développera rapidement.', ar: 'المشروع رح يتطوّر بسرعة.', en: 'The project will develop quickly.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’adapter à — يتأقلم مع', en: 's’adapter à', fr: 's’adapter à' }, phrases: [
+        { fr: 's’adapter à', ar: 'يتأقلم مع', en: 'to adapt to' },
+        { fr: 'Je m’adapterai facilement à ce travail.', ar: 'رح اتأقلم بسهولة مع هالشغل.', en: 'I’ll adapt easily to this job.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’habituer à — يعتاد على', en: 's’habituer à', fr: 's’habituer à' }, phrases: [
+        { fr: 's’habituer à', ar: 'يعتاد على', en: 'to get used to' },
+        { fr: 'Je m’habituerai à mon nouvel appartement.', ar: 'رح اتعوّد على بيتي الجديد.', en: 'I’ll get used to my new apartment.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se familiariser avec — يتعرّف على / يعتاد على', en: 'se familiariser avec', fr: 'se familiariser avec' }, phrases: [
+        { fr: 'se familiariser avec', ar: 'يتعرّف على / يعتاد على', en: 'to become familiar with' },
+        { fr: 'Je me familiariserai avec le nouveau système.', ar: 'رح اتعوّد عالنظام الجديد.', en: 'I’ll become familiar with the new system.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’impliquer dans — ينخرط في / يشارك في', en: 's’impliquer dans', fr: 's’impliquer dans' }, phrases: [
+        { fr: 's’impliquer dans', ar: 'ينخرط في / يشارك في', en: 'to get involved in' },
+        { fr: 'Je m’impliquerai davantage dans le projet.', ar: 'رح شارك أكتر بالمشروع.', en: 'I’ll get more involved in the project.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se mettre au travail — يبدأ العمل', en: 'se mettre au travail', fr: 'se mettre au travail' }, phrases: [
+        { fr: 'se mettre au travail', ar: 'يبدأ العمل', en: 'to start working' },
+        { fr: 'Je me mettrai au travail après le déjeuner.', ar: 'رح بلّش شغل بعد الغدا.', en: 'I’ll start working after lunch.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se mettre en colère — يغضب', en: 'se mettre en colère', fr: 'se mettre en colère' }, phrases: [
+        { fr: 'se mettre en colère', ar: 'يغضب', en: 'to get angry' },
+        { fr: 'Il se mettra en colère s’il apprend ça.', ar: 'رح يعصب إذا عرف هالشي.', en: 'He’ll get angry if he finds out.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se donner du mal — يبذل جهدًا', en: 'se donner du mal', fr: 'se donner du mal' }, phrases: [
+        { fr: 'se donner du mal', ar: 'يبذل جهدًا', en: 'to work hard' },
+        { fr: 'Je me donnerai du mal pour réussir.', ar: 'رح ابذل جهدي مشان انجح.', en: 'I’ll work hard to succeed.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se donner rendez-vous — يتواعد / يحدد موعدًا', en: 'se donner rendez-vous', fr: 'se donner rendez-vous' }, phrases: [
+        { fr: 'se donner rendez-vous', ar: 'يتواعد / يحدد موعدًا', en: 'to arrange to meet' },
+        { fr: 'On se donnera rendez-vous demain.', ar: 'رح نتواعد بكرا.', en: 'We’ll arrange to meet tomorrow.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se poser une question — يسأل نفسه', en: 'se poser une question', fr: 'se poser une question' }, phrases: [
+        { fr: 'se poser une question', ar: 'يسأل نفسه', en: 'to ask oneself' },
+        { fr: 'Je me poserai cette question plus tard.', ar: 'رح اسأل حالي هالسؤال بعدين.', en: 'I’ll ask myself this question later.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faire plaisir — يفرّح حاله / يدلل نفسه', en: 'se faire plaisir', fr: 'se faire plaisir' }, phrases: [
+        { fr: 'se faire plaisir', ar: 'يفرّح حاله / يدلل نفسه', en: 'to treat oneself' },
+        { fr: 'Je me ferai plaisir ce week-end.', ar: 'رح دلّل حالي بنهاية الأسبوع.', en: 'I’ll treat myself this weekend.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faire peur — يخوّف حاله', en: 'se faire peur', fr: 'se faire peur' }, phrases: [
+        { fr: 'se faire peur', ar: 'يخوّف حاله', en: 'to scare oneself' },
+        { fr: 'Tu te feras peur si tu regardes ce film seul.', ar: 'رح تخوّف حالك إذا حضرت هالفيلم لحالك.', en: 'You’ll scare yourself if you watch this movie alone.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faire du souci — يقلق', en: 'se faire du souci', fr: 'se faire du souci' }, phrases: [
+        { fr: 'se faire du souci', ar: 'يقلق', en: 'to worry' },
+        { fr: 'Ne te fais pas de souci, tout ira bien.', ar: 'لا تقلق، كل شي رح يكون منيح.', en: 'Don’t worry, everything will be fine.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faire des idées — يتوهّم / يفكّر بأشياء من عنده', en: 'se faire des idées', fr: 'se faire des idées' }, phrases: [
+        { fr: 'se faire des idées', ar: 'يتوهّم / يفكّر بأشياء من عنده', en: 'to imagine things' },
+        { fr: 'Tu te feras des idées pour rien.', ar: 'رح تتخيّل أشياء من عندك عالفاضي.', en: 'You’ll get the wrong idea for nothing.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faire une idée — يأخذ فكرة', en: 'se faire une idée', fr: 'se faire une idée' }, phrases: [
+        { fr: 'se faire une idée', ar: 'يأخذ فكرة', en: 'to get an idea' },
+        { fr: 'Tu te feras une idée après l’avoir essayé.', ar: 'رح تاخد فكرة بعد ما تجرّبه.', en: 'You’ll get an idea after trying it.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faire remarquer — يلفت الانتباه', en: 'se faire remarquer', fr: 'se faire remarquer' }, phrases: [
+        { fr: 'se faire remarquer', ar: 'يلفت الانتباه', en: 'to get noticed' },
+        { fr: 'Il se fera remarquer avec ce comportement.', ar: 'رح يلفت الانتباه بهالتصرّف.', en: 'He’ll attract attention with this behavior.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faire respecter — يفرض احترامه', en: 'se faire respecter', fr: 'se faire respecter' }, phrases: [
+        { fr: 'se faire respecter', ar: 'يفرض احترامه', en: 'to earn respect' },
+        { fr: 'Il se fera respecter au travail.', ar: 'رح يفرض احترامه بالشغل.', en: 'He’ll earn respect at work.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faire comprendre — يجعل الآخرين يفهمونه', en: 'se faire comprendre', fr: 'se faire comprendre' }, phrases: [
+        { fr: 'se faire comprendre', ar: 'يجعل الآخرين يفهمونه', en: 'to make oneself understood' },
+        { fr: 'Je me ferai comprendre avec des mots simples.', ar: 'رح خلّيهم يفهموني بكلمات بسيطة.', en: 'I’ll make myself understood with simple words.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faire entendre — يُسمِع صوته / يجعل رأيه مسموعًا', en: 'se faire entendre', fr: 'se faire entendre' }, phrases: [
+        { fr: 'se faire entendre', ar: 'يُسمِع صوته / يجعل رأيه مسموعًا', en: 'to make oneself heard' },
+        { fr: 'Je me ferai entendre si nécessaire.', ar: 'رح خلّي صوتي مسموع إذا لزم الأمر.', en: 'I’ll make myself heard if necessary.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faire remplacer — يطلب أن يُستبدل', en: 'se faire remplacer', fr: 'se faire remplacer' }, phrases: [
+        { fr: 'se faire remplacer', ar: 'يطلب أن يُستبدل', en: 'to have oneself replaced' },
+        { fr: 'Je me ferai remplacer demain.', ar: 'رح خلّي حدا ياخد مكاني بكرا.', en: 'I’ll have someone replace me tomorrow.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faire embaucher — يتم توظيفه', en: 'se faire embaucher', fr: 'se faire embaucher' }, phrases: [
+        { fr: 'se faire embaucher', ar: 'يتم توظيفه', en: 'to get hired' },
+        { fr: 'Je me ferai embaucher après ma formation.', ar: 'رح لاقي شغل وينوظفوني بعد التدريب.', en: 'I’ll get hired after my training.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faire licencier — يُفصل من العمل', en: 'se faire licencier', fr: 'se faire licencier' }, phrases: [
+        { fr: 'se faire licencier', ar: 'يُفصل من العمل', en: 'to get fired' },
+        { fr: 'Il se fera licencier s’il continue comme ça.', ar: 'رح ينفصل من شغله إذا ضل هيك.', en: 'He’ll get fired if he continues like this.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faire virer — ينطرد من الشغل (عامية وشائعة)', en: 'se faire virer', fr: 'se faire virer' }, phrases: [
+        { fr: 'se faire virer', ar: 'ينطرد من الشغل (عامية وشائعة)', en: 'to get fired (slang)' },
+        { fr: 'Il se fera virer s’il arrive encore en retard.', ar: 'رح يطردوه من الشغل إذا تأخر كمان مرة.', en: 'He’ll get fired if he’s late again.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faire pardonner — يجعل الآخر يسامحه', en: 'se faire pardonner', fr: 'se faire pardonner' }, phrases: [
+        { fr: 'se faire pardonner', ar: 'يجعل الآخر يسامحه', en: 'to get oneself forgiven' },
+        { fr: 'Je me ferai pardonner pour mon erreur.', ar: 'رح حاول خلّيه يسامحني على غلطتي.', en: 'I’ll make it up to him for my mistake.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se laisser convaincre — يقتنع', en: 'se laisser convaincre', fr: 'se laisser convaincre' }, phrases: [
+        { fr: 'se laisser convaincre', ar: 'يقتنع', en: 'to let oneself be convinced' },
+        { fr: 'Je me laisserai convaincre si tu m’expliques bien.', ar: 'ممكن اقتنع إذا شرحتلي منيح.', en: 'I’ll let myself be convinced if you explain it well.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se laisser surprendre — يتفاجأ / يُفاجَأ', en: 'se laisser surprendre', fr: 'se laisser surprendre' }, phrases: [
+        { fr: 'se laisser surprendre', ar: 'يتفاجأ / يُفاجَأ', en: 'to let oneself be surprised' },
+        { fr: 'Je ne me laisserai pas surprendre.', ar: 'ما رح خلّي حالي اتفاجأ.', en: 'I won’t let myself be caught off guard.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se laisser faire — يترك نفسه / يسمح للآخر أن يفعل', en: 'se laisser faire', fr: 'se laisser faire' }, phrases: [
+        { fr: 'se laisser faire', ar: 'يترك نفسه / يسمح للآخر أن يفعل', en: 'to let oneself be pushed around' },
+        { fr: 'Je ne me laisserai pas faire.', ar: 'ما رح اسمح لحدا يستغلني أو يعمل فيني اللي بده ياه.', en: 'I won’t let anyone push me around.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se faire avoir — ينضحك عليه / ينغش (عامية وشائعة جدًا)', en: 'se faire avoir', fr: 'se faire avoir' }, phrases: [
+        { fr: 'se faire avoir', ar: 'ينضحك عليه / ينغش (عامية وشائعة جدًا)', en: 'to get tricked' },
+        { fr: 'Je ne me ferai pas avoir cette fois.', ar: 'هالمرة ما رح خلّي حدا يضحك عليّ.', en: 'I won’t get ripped off this time.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se retrouver sans — يجد نفسه بدون', en: 'se retrouver sans', fr: 'se retrouver sans' }, phrases: [
+        { fr: 'se retrouver sans', ar: 'يجد نفسه بدون', en: 'to end up without' },
+        { fr: 'Je me retrouverai sans voiture.', ar: 'رح لاقي حالي بلا سيارة.', en: 'I’ll end up without a car.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se brouiller avec — يزعل / يقطع علاقته مع', en: 'se brouiller avec', fr: 'se brouiller avec' }, phrases: [
+        { fr: 'se brouiller avec', ar: 'يزعل / يقطع علاقته مع', en: 'to fall out with' },
+        { fr: 'Je ne me brouillerai pas avec lui pour ça.', ar: 'ما رح ازعل منه واقطع علاقتي معه كرمال هالشي.', en: 'I won’t fall out with him over that.' },
+        { fr: 'Je me brouillerai avec lui si ça continue.', ar: 'رح ازعل منه إذا ضل الوضع هيك.', en: 'I’ll fall out with him if this continues.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se fiancer — يخطب / ينخطب', en: 'se fiancer', fr: 'se fiancer' }, phrases: [
+        { fr: 'se fiancer', ar: 'يخطب / ينخطب', en: 'to get engaged' },
+        { fr: 'Ils se fianceront l’année prochaine.', ar: 'رح ينخطبوا السنة الجاية.', en: 'They’ll get engaged next year.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se remarier — يتزوّج مرة ثانية', en: 'se remarier', fr: 'se remarier' }, phrases: [
+        { fr: 'se remarier', ar: 'يتزوّج مرة ثانية', en: 'to remarry' },
+        { fr: 'Elle se remariera bientôt.', ar: 'رح تتزوّج مرة تانية قريب.', en: 'She’ll get married again soon.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se réconcilier avec — يتصالح مع', en: 'se réconcilier avec', fr: 'se réconcilier avec' }, phrases: [
+        { fr: 'se réconcilier avec', ar: 'يتصالح مع', en: 'to make up with' },
+        { fr: 'Ils se réconcilieront bientôt.', ar: 'رح يتصالحوا قريب.', en: 'They’ll make up soon.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se vexer — يزعل / ينجرح من الكلام', en: 'se vexer', fr: 'se vexer' }, phrases: [
+        { fr: 'se vexer', ar: 'يزعل / ينجرح من الكلام', en: 'to take offense' },
+        { fr: 'Elle se vexera si tu lui parles comme ça.', ar: 'رح تزعل إذا حكيت معها بهالطريقة.', en: 'She’ll be offended if you talk to her like that.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se rassurer — يطمئن / يطمن حاله', en: 'se rassurer', fr: 'se rassurer' }, phrases: [
+        { fr: 'se rassurer', ar: 'يطمئن / يطمن حاله', en: 'to reassure oneself' },
+        { fr: 'Je me rassurerai après avoir parlé au médecin.', ar: 'رح ارتاح واطمّن بعد ما احكي مع الدكتور.', en: 'I’ll feel reassured after talking to the doctor.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se rétablir — يتعافى', en: 'se rétablir', fr: 'se rétablir' }, phrases: [
+        { fr: 'se rétablir', ar: 'يتعافى', en: 'to recover' },
+        { fr: 'Il se rétablira rapidement.', ar: 'رح يتعافى بسرعة.', en: 'He’ll recover quickly.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se fatiguer — يتعب', en: 'se fatiguer', fr: 'se fatiguer' }, phrases: [
+        { fr: 'se fatiguer', ar: 'يتعب', en: 'to get tired' },
+        { fr: 'Je me fatiguerai moins avec le temps.', ar: 'رح اتعب أقل مع الوقت.', en: 'I’ll get less tired over time.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se nourrir — يتغذّى', en: 'se nourrir', fr: 'se nourrir' }, phrases: [
+        { fr: 'se nourrir', ar: 'يتغذّى', en: 'to nourish oneself' },
+        { fr: 'Je me nourrirai correctement pendant la formation.', ar: 'رح اهتم بأكلي منيح خلال التدريب.', en: 'I’ll eat properly during the training.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se vacciner — يأخذ اللقاح / يلقّح نفسه', en: 'se vacciner', fr: 'se vacciner' }, phrases: [
+        { fr: 'se vacciner', ar: 'يأخذ اللقاح / يلقّح نفسه', en: 'to get vaccinated' },
+        { fr: 'Je me vaccinerai si le médecin me le conseille.', ar: 'رح آخد اللقاح إذا الدكتور نصحني.', en: 'I’ll get vaccinated if the doctor advises me to.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se dépister — يفحص نفسه للكشف المبكر', en: 'se dépister', fr: 'se dépister' }, phrases: [
+        { fr: 'se dépister', ar: 'يفحص نفسه للكشف المبكر', en: 'to get screened' },
+        { fr: 'Je me dépisterai régulièrement.', ar: 'رح اعمل فحوصات بشكل منتظم للكشف المبكر.', en: 'I’ll get screened regularly.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se tester — يعمل فحصًا لنفسه', en: 'se tester', fr: 'se tester' }, phrases: [
+        { fr: 'se tester', ar: 'يعمل فحصًا لنفسه', en: 'to test oneself' },
+        { fr: 'Je me testerai avant de partir.', ar: 'رح اعمل فحص قبل ما اطلع.', en: 'I’ll get tested before leaving.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’identifier — يثبت هويته / يعرّف عن نفسه', en: 's’identifier', fr: 's’identifier' }, phrases: [
+        { fr: 's’identifier', ar: 'يثبت هويته / يعرّف عن نفسه', en: 'to identify oneself' },
+        { fr: 'Je m’identifierai avec ma carte d’identité.', ar: 'رح أثبت هويتي ببطاقتي الشخصية.', en: 'I’ll identify myself with my ID card.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’abstenir de — يمتنع عن', en: 's’abstenir de', fr: 's’abstenir de' }, phrases: [
+        { fr: 's’abstenir de', ar: 'يمتنع عن', en: 'to abstain from' },
+        { fr: 'Je m’abstiendrai de répondre.', ar: 'رح امتنع عن الرد.', en: 'I’ll refrain from answering.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se résoudre à — يضطر إلى / يحسم أمره', en: 'se résoudre à', fr: 'se résoudre à' }, phrases: [
+        { fr: 'se résoudre à', ar: 'يضطر إلى / يحسم أمره', en: 'to bring oneself to' },
+        { fr: 'Je me résoudrai à accepter la décision.', ar: 'بالنهاية رح اضطر اقبل بالقرار.', en: 'I’ll have to accept the decision.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’attarder sur — يطيل الحديث عن / يتوقف طويلًا عند', en: 's’attarder sur', fr: 's’attarder sur' }, phrases: [
+        { fr: 's’attarder sur', ar: 'يطيل الحديث عن / يتوقف طويلًا عند', en: 'to dwell on' },
+        { fr: 'Je ne m’attarderai pas sur ce problème.', ar: 'ما رح طول بالحكي عن هالمشكلة.', en: 'I won’t dwell on this problem.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se confronter à — يواجه', en: 'se confronter à', fr: 'se confronter à' }, phrases: [
+        { fr: 'se confronter à', ar: 'يواجه', en: 'to face' },
+        { fr: 'Je me confronterai à de nouvelles difficultés.', ar: 'رح واجه صعوبات جديدة.', en: 'I’ll face new difficulties.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se heurter à — يصطدم بـ / يواجه عائقًا', en: 'se heurter à', fr: 'se heurter à' }, phrases: [
+        { fr: 'se heurter à', ar: 'يصطدم بـ / يواجه عائقًا', en: 'to run into' },
+        { fr: 'Nous nous heurterons à quelques difficultés.', ar: 'رح نواجه كم صعوبة.', en: 'We’ll run into some difficulties.' }
+      ] },
+      { icon: '⏩', title: { ar: 'se référer à — يرجع إلى / يستند إلى', en: 'se référer à', fr: 'se référer à' }, phrases: [
+        { fr: 'se référer à', ar: 'يرجع إلى / يستند إلى', en: 'to refer to' },
+        { fr: 'Je me référerai aux documents officiels.', ar: 'رح ارجع للوثائق الرسمية.', en: 'I’ll refer to the official documents.' }
+      ] },
+      { icon: '⏩', title: { ar: 's’orienter vers — يتوجّه نحو / يتخصص في', en: 's’orienter vers', fr: 's’orienter vers' }, phrases: [
+        { fr: 's’orienter vers', ar: 'يتوجّه نحو / يتخصص في', en: 'to move into' },
+        { fr: 'Je m’orienterai vers un nouveau métier.', ar: 'رح اتوجّه لمجال مهني جديد.', en: 'I’ll move toward a new career.' }
+      ] }
+    ]
   }
 ];
