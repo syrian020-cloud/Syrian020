@@ -18372,6 +18372,260 @@ window.CENTRES_DATA = [
         { fr: 'Préparez les pilons.', ar: 'حضّر الدبابيس.', en: 'Prepare the drumsticks.' },
         { fr: 'La dinde entière', ar: 'الديك الرومي كامل', en: 'Whole turkey' },
         { fr: 'Découpez la dinde.', ar: 'قطّع الديك الرومي.', en: 'Cut up the turkey.' }
+      ] },
+      { icon: '🐔', title: { ar: 'استقبال وتجهيز الدجاج', en: 'Receiving and preparing chickens', fr: 'Réception et préparation des poulets' }, phrases: [
+        { fr: 'On vient de recevoir les poulets.', ar: 'لسا مستلمين الدجاج.', en: 'We’ve just received the chickens.' },
+        { fr: 'Sortez les poulets de la caisse.', ar: 'طلّع الدجاج من الصندوق.', en: 'Take the chickens out of the crate.' },
+        { fr: 'Vérifiez les poulets.', ar: 'تفقد الدجاج.', en: 'Check the chickens.' },
+        { fr: 'Contrôlez la qualité.', ar: 'افحص الجودة.', en: 'Check the quality.' },
+        { fr: 'Vérifiez la fraîcheur.', ar: 'تأكد من الطزاجة.', en: 'Check the freshness.' },
+        { fr: 'Préparez les poulets pour la vente.', ar: 'حضّر الدجاج للبيع.', en: 'Prepare the chickens for sale.' }
+      ] },
+      { icon: '🔪', title: { ar: 'تقطيع الدجاج', en: 'Cutting up chicken', fr: 'Découpe du poulet' }, phrases: [
+        { fr: 'Découpez le poulet.', ar: 'قطّع الدجاج.', en: 'Cut up the chicken.' },
+        { fr: 'Découpez-le en morceaux.', ar: 'قطّعه قطع.', en: 'Cut it into pieces.' },
+        { fr: 'Coupez les cuisses.', ar: 'قطّع الأفخاذ.', en: 'Cut the thighs.' },
+        { fr: 'Séparez les ailes.', ar: 'فصل الأجنحة.', en: 'Separate the wings.' },
+        { fr: 'Séparez les cuisses du poulet.', ar: 'فصل أفخاذ الدجاج.', en: 'Separate the chicken thighs.' },
+        { fr: 'Retirez la peau.', ar: 'شيل الجلد.', en: 'Remove the skin.' },
+        { fr: 'Désossez les cuisses.', ar: 'شيل عظم الأفخاذ.', en: 'Debone the thighs.' },
+        { fr: 'Enlevez les os.', ar: 'شيل العظام.', en: 'Remove the bones.' },
+        { fr: 'Gardez les blancs séparément.', ar: 'خلي صدور الدجاج لحال.', en: 'Keep the breasts separately.' }
+      ] },
+      { icon: '🥩', title: { ar: 'صدر الدجاج والإسكالوب', en: 'Chicken breasts and cutlets', fr: 'Blancs et escalopes' }, phrases: [
+        { fr: 'Préparez les blancs de poulet.', ar: 'حضّر صدور الدجاج.', en: 'Prepare the chicken breasts.' },
+        { fr: 'Faites des escalopes.', ar: 'اعمل إسكالوب.', en: 'Make cutlets.' },
+        { fr: 'Coupez les blancs en fines tranches.', ar: 'قطّع الصدور شرائح رفيعة.', en: 'Cut the breasts into thin slices.' },
+        { fr: 'Aplatissez les escalopes.', ar: 'رقّق الإسكالوب.', en: 'Flatten the cutlets.' },
+        { fr: 'Égalisez les morceaux.', ar: 'ساوي القطع.', en: 'Even out the pieces.' }
+      ] },
+      { icon: '🍗', title: { ar: 'الدبابيس والأجنحة', en: 'Drumsticks and wings', fr: 'Pilons et ailes' }, phrases: [
+        { fr: 'Préparez les pilons.', ar: 'حضّر دبابيس الدجاج.', en: 'Prepare the drumsticks.' },
+        { fr: 'Comptez les pilons.', ar: 'عدّ الدبابيس.', en: 'Count the drumsticks.' },
+        { fr: 'Mettez les ailes ensemble.', ar: 'حط الأجنحة مع بعض.', en: 'Put the wings together.' },
+        { fr: 'Séparez les pilons des hauts de cuisse.', ar: 'فصل الدبابيس عن أعلى الفخذ.', en: 'Separate the drumsticks from the thighs.' }
+      ] },
+      { icon: '⚖️', title: { ar: 'الوزن والتعبئة', en: 'Weighing and packing', fr: 'Pesée et emballage' }, phrases: [
+        { fr: 'Pesez les poulets.', ar: 'زِن الدجاج.', en: 'Weigh the chickens.' },
+        { fr: 'Pesez chaque barquette.', ar: 'زِن كل علبة.', en: 'Weigh each tray.' },
+        { fr: 'Mettez les morceaux dans les barquettes.', ar: 'حط قطع الدجاج بالعلب.', en: 'Put the chicken pieces in the trays.' },
+        { fr: 'Emballez les poulets.', ar: 'غلّف الدجاج.', en: 'Pack the chickens.' },
+        { fr: 'Fermez bien la barquette.', ar: 'سكّر العلبة منيح.', en: 'Close the tray properly.' },
+        { fr: 'Étiquetez les barquettes.', ar: 'حط الملصقات عالعلب.', en: 'Label the trays.' },
+        { fr: 'Indiquez le poids et le prix.', ar: 'اكتب الوزن والسعر.', en: 'Write the weight and price.' }
+      ] },
+      { icon: '❄️', title: { ar: 'الثلاجة والعرض', en: 'Refrigeration and display', fr: 'Froid et présentation' }, phrases: [
+        { fr: 'Mettez les poulets au frais.', ar: 'حط الدجاج بالبراد.', en: 'Keep the chickens refrigerated.' },
+        { fr: 'Remplissez la vitrine.', ar: 'عبّي واجهة العرض.', en: 'Fill the display case.' },
+        { fr: 'Placez les poulets dans la vitrine.', ar: 'حط الدجاج بالواجهة.', en: 'Put the chickens in the display case.' },
+        { fr: 'Réapprovisionnez la vitrine.', ar: 'عبّي الواجهة من جديد.', en: 'Restock the display case.' },
+        { fr: 'Gardez les produits au frais.', ar: 'خلي المنتجات مبردة.', en: 'Keep the products refrigerated.' },
+        { fr: 'Vérifiez la température de la vitrine.', ar: 'تأكد من حرارة البراد/الواجهة.', en: 'Check the display case temperature.' }
+      ] },
+      { icon: '🧼', title: { ar: 'النظافة', en: 'Hygiene', fr: 'Hygiène' }, phrases: [
+        { fr: 'Nettoyez le poste de travail.', ar: 'نظّف مكان الشغل.', en: 'Clean the workstation.' },
+        { fr: 'Désinfectez le plan de travail.', ar: 'عقّم طاولة الشغل.', en: 'Disinfect the work surface.' },
+        { fr: 'Nettoyez les couteaux après utilisation.', ar: 'نظّف السكاكين بعد الاستعمال.', en: 'Clean the knives after use.' },
+        { fr: 'Changez vos gants.', ar: 'غيّر قفازاتك.', en: 'Change your gloves.' },
+        { fr: 'Lavez-vous les mains avant de commencer.', ar: 'اغسل إيديك قبل ما تبلّش.', en: 'Wash your hands before starting.' },
+        { fr: 'Ne mélangez pas les produits.', ar: 'لا تخلط المنتجات مع بعض.', en: 'Don’t mix the products.' },
+        { fr: 'Respectez la chaîne du froid.', ar: 'حافظ على سلسلة التبريد.', en: 'Maintain the cold chain.' }
+      ] },
+      { icon: '🐔', title: { ar: 'قسم الدجاج — محادثة كاملة', en: 'Full dialogue at the poultry counter', fr: 'Le rayon volaille — dialogue complet' }, phrases: [
+        { fr: 'Bonjour, qu’est-ce qu’il vous faut ?', ar: 'مرحبا، شو بدك؟', en: 'Hello, what do you need?' },
+        { fr: 'Je voudrais un poulet entier, s’il vous plaît.', ar: 'بدي دجاجة كاملة لو سمحت.', en: 'I’d like a whole chicken, please.' },
+        { fr: 'Vous le voulez entier ou découpé ?', ar: 'بدك ياها كاملة ولا مقطّعة؟', en: 'Do you want it whole or cut up?' },
+        { fr: 'Découpé, s’il vous plaît.', ar: 'مقطّعة لو سمحت.', en: 'Cut up, please.' },
+        { fr: 'En combien de morceaux ?', ar: 'لكم قطعة؟', en: 'Into how many pieces?' },
+        { fr: 'En huit morceaux.', ar: 'لثمان قطع.', en: 'Into eight pieces.' },
+        { fr: 'D’accord. Je commence par découper les cuisses.', ar: 'تمام، ببلّش بتقطيع الأفخاذ.', en: 'Okay. I’ll start by cutting the thighs.' },
+        { fr: 'Ensuite, je sépare les ailes.', ar: 'بعدين بفصل الأجنحة.', en: 'Then I separate the wings.' },
+        { fr: 'Je garde les blancs à part ?', ar: 'خلي صدور الدجاج لحال؟', en: 'Shall I keep the breasts separate?' },
+        { fr: 'Oui, gardez-les à part, s’il vous plaît.', ar: 'إي، خليهن لحال لو سمحت.', en: 'Yes, keep them separate, please.' },
+        { fr: 'Vous voulez garder la peau ?', ar: 'بدك نخلي الجلد؟', en: 'Do you want to keep the skin?' },
+        { fr: 'Non, enlevez la peau.', ar: 'لا، شيل الجلد.', en: 'No, remove the skin.' },
+        { fr: 'Et pour les cuisses, vous voulez les os ?', ar: 'وبالنسبة للأفخاذ، بدك ياها مع العظم؟', en: 'And for the thighs, do you want the bones?' },
+        { fr: 'Non, désossez-les.', ar: 'لا، شيل عظامهن.', en: 'No, debone them.' },
+        { fr: 'Très bien. Je vais aussi préparer les pilons.', ar: 'تمام، رح حضّر كمان دبابيس الدجاج.', en: 'Very well. I’ll also prepare the drumsticks.' },
+        { fr: 'Vous voulez les ailes entières ?', ar: 'بدك الأجنحة كاملة؟', en: 'Do you want the wings whole?' },
+        { fr: 'Oui, laissez-les entières.', ar: 'إي، خليهن كاملين.', en: 'Yes, leave them whole.' },
+        { fr: 'Vous voulez les blancs en escalopes ?', ar: 'بدك صدور الدجاج إسكالوب؟', en: 'Do you want the breasts as cutlets?' },
+        { fr: 'Oui, aplatissez-les un peu.', ar: 'إي، رقّقهن شوي.', en: 'Yes, flatten them a little.' },
+        { fr: 'Comme ça ?', ar: 'هيك؟', en: 'Like this?' },
+        { fr: 'Oui, c’est parfait.', ar: 'إي، هيك تمام.', en: 'Yes, that’s perfect.' },
+        { fr: 'Je mets les morceaux dans une barquette ?', ar: 'حط القطع بعلبة؟', en: 'Shall I put the pieces in a tray?' },
+        { fr: 'Oui, et séparez les blancs des cuisses.', ar: 'إي، وفصل الصدور عن الأفخاذ.', en: 'Yes, and separate the breasts from the thighs.' },
+        { fr: 'D’accord. Je pèse le tout.', ar: 'تمام، رح وزّن الكل.', en: 'Okay. I’ll weigh everything.' },
+        { fr: 'Ça fait un kilo huit cents.', ar: 'طلعوا كيلو وثمانمية.', en: 'It comes to 1.8 kilos.' },
+        { fr: 'C’est combien ?', ar: 'قديش الحساب؟', en: 'How much is it?' },
+        { fr: 'Ça fait douze euros cinquante.', ar: 'الحساب 12 يورو ونص.', en: 'It’s €12.50.' },
+        { fr: 'Vous pouvez mettre l’étiquette, s’il vous plaît ?', ar: 'فيك تحط الملصق لو سمحت؟', en: 'Could you put the label on, please?' },
+        { fr: 'Bien sûr. Je note le poids et le prix.', ar: 'أكيد، رح اكتب الوزن والسعر.', en: 'Of course. I’ll write the weight and price.' },
+        { fr: 'Vous pouvez bien fermer la barquette ?', ar: 'فيك تسكّر العلبة منيح؟', en: 'Could you close the tray properly?' },
+        { fr: 'Voilà, c’est bien fermé.', ar: 'هيك، تسكّرت منيح.', en: 'There, it’s properly closed.' },
+        { fr: 'Je vous la mets dans un sac ?', ar: 'حطلك ياها بكيس؟', en: 'Shall I put it in a bag?' },
+        { fr: 'Oui, s’il vous plaît.', ar: 'إي، لو سمحت.', en: 'Yes, please.' },
+        { fr: 'Voilà votre commande.', ar: 'هاي طلبتك.', en: 'Here’s your order.' },
+        { fr: 'Merci beaucoup, bonne journée.', ar: 'شكرًا كتير، نهارك سعيد.', en: 'Thank you very much, have a good day.' },
+        { fr: 'Merci, à vous aussi.', ar: 'شكرًا، وإلك كمان.', en: 'Thank you, you too.' }
+      ] },
+      { icon: '🐔', title: { ar: 'الرأس والرقبة', en: 'Head and neck', fr: 'Tête et cou' }, phrases: [
+        { fr: 'Enlevez la tête du poulet.', ar: 'شيل راس الدجاجة.', en: 'Remove the chicken’s head.' },
+        { fr: 'Gardez les cous à part.', ar: 'خلي الرقاب لحال.', en: 'Keep the necks separate.' },
+        { fr: 'Coupez les cous en morceaux.', ar: 'قطّع الرقاب قطع.', en: 'Cut the necks into pieces.' }
+      ] },
+      { icon: '🪽', title: { ar: 'الأجنحة', en: 'Wings', fr: 'Les ailes' }, phrases: [
+        { fr: 'Séparez les ailes.', ar: 'فصل الأجنحة.', en: 'Separate the wings.' },
+        { fr: 'Coupez les ailes en deux.', ar: 'قطّع الأجنحة لنصين.', en: 'Cut the wings in half.' },
+        { fr: 'Gardez les bouts d’ailes.', ar: 'خلي أطراف الأجنحة.', en: 'Keep the wing tips.' },
+        { fr: 'Mettez les ailes dans une barquette.', ar: 'حط الأجنحة بعلبة.', en: 'Put the wings in a tray.' }
+      ] },
+      { icon: '🍗', title: { ar: 'الصدر', en: 'Breast', fr: 'Le blanc' }, phrases: [
+        { fr: 'Séparez les blancs.', ar: 'فصل صدور الدجاج.', en: 'Separate the breasts.' },
+        { fr: 'Retirez le filet.', ar: 'شيل الفيليه.', en: 'Remove the fillet.' },
+        { fr: 'Coupez les blancs en escalopes.', ar: 'قطّع الصدور إسكالوب.', en: 'Cut the breasts into cutlets.' },
+        { fr: 'Tranchez les blancs finement.', ar: 'قطّع الصدور شرائح رفيعة.', en: 'Slice the breasts thinly.' },
+        { fr: 'Désossez les blancs.', ar: 'شيل عظم الصدر.', en: 'Debone the breasts.' },
+        { fr: 'Enlevez la peau des blancs.', ar: 'شيل جلد الصدور.', en: 'Remove the skin from the breasts.' }
+      ] },
+      { icon: '🍗', title: { ar: 'الفخذ والدبوس', en: 'Thigh and drumstick', fr: 'Cuisse et pilon' }, phrases: [
+        { fr: 'Séparez les cuisses.', ar: 'فصل الأفخاذ.', en: 'Separate the thighs.' },
+        { fr: 'Séparez les hauts de cuisse.', ar: 'فصل أعلى الفخذ.', en: 'Separate the thighs.' },
+        { fr: 'Séparez les pilons.', ar: 'فصل الدبابيس.', en: 'Separate the drumsticks.' },
+        { fr: 'Désossez les cuisses.', ar: 'شيل عظم الأفخاذ.', en: 'Debone the thighs.' },
+        { fr: 'Gardez la peau sur les cuisses.', ar: 'خلي الجلد عالأفخاذ.', en: 'Keep the skin on the thighs.' },
+        { fr: 'Retirez la peau des cuisses.', ar: 'شيل جلد الأفخاذ.', en: 'Remove the skin from the thighs.' }
+      ] },
+      { icon: '🦴', title: { ar: 'الظهر والهيكل', en: 'Back and carcass', fr: 'Dos et carcasse' }, phrases: [
+        { fr: 'Séparez le dos du poulet.', ar: 'فصل ظهر الدجاجة.', en: 'Separate the chicken’s back.' },
+        { fr: 'Gardez la carcasse.', ar: 'خلي الهيكل.', en: 'Keep the carcass.' },
+        { fr: 'Mettez la carcasse de côté.', ar: 'خلي الهيكل عالطرف.', en: 'Put the carcass aside.' },
+        { fr: 'Gardez-la pour le bouillon.', ar: 'خليها للمرق.', en: 'Keep it for the broth.' }
+      ] },
+      { icon: '🫀', title: { ar: 'الأحشاء', en: 'Giblets', fr: 'Les abats' }, phrases: [
+        { fr: 'Retirez les abats.', ar: 'شيل الأحشاء.', en: 'Remove the giblets.' },
+        { fr: 'Mettez les abats à part.', ar: 'خلي الأحشاء لحال.', en: 'Keep the giblets separate.' },
+        { fr: 'Gardez le foie.', ar: 'خلي الكبد.', en: 'Keep the liver.' },
+        { fr: 'Gardez le gésier.', ar: 'خلي القانصة.', en: 'Keep the gizzard.' },
+        { fr: 'Nettoyez le gésier.', ar: 'نظّف القانصة.', en: 'Clean the gizzard.' },
+        { fr: 'Nettoyez le foie.', ar: 'نظّف الكبد.', en: 'Clean the liver.' }
+      ] },
+      { icon: '🐔', title: { ar: 'الأقدام', en: 'Feet', fr: 'Les pattes' }, phrases: [
+        { fr: 'Retirez les pattes.', ar: 'شيل أقدام الدجاج.', en: 'Remove the chicken feet.' },
+        { fr: 'Nettoyez les pattes.', ar: 'نظّف الأقدام.', en: 'Clean the chicken feet.' },
+        { fr: 'Mettez les pattes à part.', ar: 'خلي الأقدام لحال.', en: 'Keep the feet separate.' }
+      ] },
+      { icon: '📦', title: { ar: 'بالنهاية', en: 'At the end', fr: 'À la fin' }, phrases: [
+        { fr: 'Mettez chaque partie dans une barquette.', ar: 'حط كل جزء بعلبة.', en: 'Put each part in a tray.' },
+        { fr: 'Séparez les morceaux par catégorie.', ar: 'فصل القطع حسب النوع.', en: 'Separate the pieces by type.' },
+        { fr: 'Pesez chaque partie.', ar: 'زِن كل جزء.', en: 'Weigh each part.' },
+        { fr: 'Étiquetez chaque barquette.', ar: 'حط ملصق على كل علبة.', en: 'Label each tray.' },
+        { fr: 'Rangez tout au frais.', ar: 'حط كل شي بالبراد.', en: 'Store everything in the refrigerator.' }
+      ] },
+      { icon: '🐔', title: { ar: 'عبارات عامة عن الدواجن', en: 'General poultry phrases', fr: 'Phrases générales sur la volaille' }, phrases: [
+        { fr: 'Les poulets sont prêts à être vendus.', ar: 'الدجاج جاهز للبيع.', en: 'The chickens are ready to be sold.' },
+        { fr: 'Sortez les poulets de la caisse.', ar: 'طلّع الدجاج من الصندوق.', en: 'Take the chickens out of the crate.' },
+        { fr: 'Mettez les poulets au frais.', ar: 'حطّ الدجاج بالبراد.', en: 'Put the chickens in the fridge.' },
+        { fr: 'Vérifiez la date de péremption.', ar: 'تأكد من تاريخ انتهاء الصلاحية.', en: 'Check the expiration date.' },
+        { fr: 'Vérifiez la température.', ar: 'تأكد من درجة الحرارة.', en: 'Check the temperature.' },
+        { fr: 'Il faut respecter la chaîne du froid.', ar: 'لازم نحافظ على سلسلة التبريد.', en: 'The cold chain must be maintained.' },
+        { fr: 'Les poulets doivent rester au frais.', ar: 'لازم يضل الدجاج بارد.', en: 'The chickens must stay refrigerated.' },
+        { fr: 'Préparez les poulets pour la vente.', ar: 'جهّز الدجاج للبيع.', en: 'Prepare the chickens for sale.' },
+        { fr: 'Découpez les poulets en morceaux.', ar: 'قطّع الدجاج لقطع.', en: 'Cut the chickens into pieces.' },
+        { fr: 'Enlevez la peau, s’il vous plaît.', ar: 'شيل الجلد لو سمحت.', en: 'Remove the skin, please.' },
+        { fr: 'Gardez la peau sur les cuisses.', ar: 'خلّي الجلد على الفخاذ.', en: 'Keep the skin on the thighs.' },
+        { fr: 'Désossez les cuisses.', ar: 'شيل العظم من الفخاذ.', en: 'Debone the thighs.' },
+        { fr: 'Séparez les ailes et les cuisses.', ar: 'افصل الأجنحة عن الفخاذ.', en: 'Separate the wings and thighs.' },
+        { fr: 'Mettez les blancs à part.', ar: 'حط صدور الدجاج على جنب.', en: 'Put the chicken breasts aside.' },
+        { fr: 'Préparez les escalopes de poulet.', ar: 'جهّز شرائح/إسكالوب الدجاج.', en: 'Prepare the chicken cutlets.' },
+        { fr: 'Coupez les blancs en fines tranches.', ar: 'قطّع الصدور شرائح رفيعة.', en: 'Cut the breasts into thin slices.' },
+        { fr: 'Préparez les pilons.', ar: 'جهّز دبسات الدجاج.', en: 'Prepare the drumsticks.' },
+        { fr: 'Comptez les morceaux avant de les emballer.', ar: 'عدّ القطع قبل ما تغلّفها.', en: 'Count the pieces before packing them.' },
+        { fr: 'Pesez chaque barquette.', ar: 'زِن كل علبة.', en: 'Weigh each tray.' },
+        { fr: 'Remplissez les barquettes.', ar: 'عبّي العلب.', en: 'Fill the trays.' },
+        { fr: 'Fermez bien les barquettes.', ar: 'سكّر العلب منيح.', en: 'Close the trays properly.' },
+        { fr: 'Étiquetez chaque barquette.', ar: 'حطّ لاصقة على كل علبة.', en: 'Label each tray.' },
+        { fr: 'Indiquez le poids et le prix.', ar: 'اكتب الوزن والسعر.', en: 'Indicate the weight and price.' },
+        { fr: 'Réapprovisionnez la vitrine.', ar: 'عبّي الواجهة من جديد.', en: 'Restock the display case.' },
+        { fr: 'Ne laissez pas les poulets à température ambiante.', ar: 'لا تترك الدجاج بدرجة حرارة الغرفة.', en: 'Don’t leave the chickens at room temperature.' },
+        { fr: 'Nettoyez le poste après avoir fini.', ar: 'نظّف مكان الشغل بعد ما تخلص.', en: 'Clean the workstation after finishing.' },
+        { fr: 'Désinfectez le matériel après utilisation.', ar: 'عقّم الأدوات بعد الاستخدام.', en: 'Disinfect the equipment after use.' },
+        { fr: 'Changez vos gants régulièrement.', ar: 'غيّر كفوفك بشكل منتظم.', en: 'Change your gloves regularly.' },
+        { fr: 'Attention à la contamination croisée.', ar: 'انتبه من التلوث المتبادل.', en: 'Be careful about cross-contamination.' }
+      ] },
+      { icon: '🥩', title: { ar: 'طلب اللحم', en: 'Ordering meat', fr: 'Commander de la viande' }, phrases: [
+        { fr: 'Je voudrais du bœuf, s’il vous plaît.', ar: 'بدي لحم بقري لو سمحت.', en: 'I’d like some beef, please.' },
+        { fr: 'Vous avez du bœuf frais ?', ar: 'عندكم لحم بقري طازج؟', en: 'Do you have fresh beef?' },
+        { fr: 'Je cherche un morceau tendre.', ar: 'عم دور على قطعة طرية.', en: 'I’m looking for a tender cut.' },
+        { fr: 'Quel morceau vous me conseillez ?', ar: 'أي قطعة بتنصحني فيها؟', en: 'Which cut do you recommend?' },
+        { fr: 'Quelle est la meilleure pièce pour le steak ?', ar: 'شو أحسن قطعة للستيك؟', en: 'What’s the best cut for steak?' },
+        { fr: 'C’est du bœuf français ?', ar: 'هاد لحم بقري فرنسي؟', en: 'Is this French beef?' },
+        { fr: 'Il vient d’où, ce bœuf ?', ar: 'من وين جاي هاللحم؟', en: 'Where does this beef come from?' }
+      ] },
+      { icon: '🥩', title: { ar: 'اختيار القطعة', en: 'Choosing the cut', fr: 'Choisir le morceau' }, phrases: [
+        { fr: 'Je vais prendre de l’entrecôte.', ar: 'رح آخد أنتركوت.', en: 'I’ll take some ribeye.' },
+        { fr: 'Je voudrais deux entrecôtes.', ar: 'بدي قطعتين أنتركوت.', en: 'I’d like two ribeyes.' },
+        { fr: 'Je vais prendre du faux-filet.', ar: 'رح آخد من الفو فيليه.', en: 'I’ll take some sirloin.' },
+        { fr: 'Je voudrais de la bavette.', ar: 'بدي بافيت.', en: 'I’d like some flank steak.' },
+        { fr: 'Vous avez du filet de bœuf ?', ar: 'عندكم فيليه بقر؟', en: 'Do you have beef tenderloin?' },
+        { fr: 'Je voudrais du rumsteck.', ar: 'بدي رومستيك.', en: 'I’d like some rump steak.' },
+        { fr: 'Je prends du paleron pour un pot-au-feu.', ar: 'بدي باليرون لطبخة اللحم المسلوق.', en: 'I’ll take chuck for a pot-au-feu.' }
+      ] },
+      { icon: '⚖️', title: { ar: 'الكمية والوزن', en: 'Quantity and weight', fr: 'Quantité et poids' }, phrases: [
+        { fr: 'Je voudrais environ un kilo.', ar: 'بدي تقريبًا كيلو.', en: 'I’d like about a kilo.' },
+        { fr: 'Mettez-moi cinq cents grammes.', ar: 'حطلي نص كيلو.', en: 'Give me 500 grams.' },
+        { fr: 'Un peu moins, s’il vous plaît.', ar: 'أقل شوي لو سمحت.', en: 'A little less, please.' },
+        { fr: 'Un peu plus, s’il vous plaît.', ar: 'زيد شوي لو سمحت.', en: 'A little more, please.' },
+        { fr: 'Vous pouvez me faire 700 grammes ?', ar: 'فيك تعمللي 700 غرام؟', en: 'Can you make it 700 grams?' },
+        { fr: 'Ça fait combien de grammes ?', ar: 'قديش طلع الوزن؟', en: 'How many grams is it?' }
+      ] },
+      { icon: '🔪', title: { ar: 'التقطيع والتحضير', en: 'Cutting and preparation', fr: 'Découpe et préparation' }, phrases: [
+        { fr: 'Vous pouvez me le couper ?', ar: 'فيك تقطّعلي ياه؟', en: 'Can you cut it for me?' },
+        { fr: 'Coupez-le en morceaux, s’il vous plaît.', ar: 'قطّعه قطع لو سمحت.', en: 'Cut it into pieces, please.' },
+        { fr: 'Coupez-le en tranches fines.', ar: 'قطّعه شرائح رفيعة.', en: 'Cut it into thin slices.' },
+        { fr: 'Faites-moi des steaks.', ar: 'اعمللي ستكات.', en: 'Make me some steaks.' },
+        { fr: 'Faites-les assez épais.', ar: 'خليهن سميكات شوي.', en: 'Make them fairly thick.' },
+        { fr: 'Pas trop épais.', ar: 'مو كتير سميك.', en: 'Not too thick.' },
+        { fr: 'Vous pouvez enlever l’os ?', ar: 'فيك تشيل العظم؟', en: 'Can you remove the bone?' },
+        { fr: 'Enlevez un peu de gras, s’il vous plaît.', ar: 'شيل شوي من الدهن لو سمحت.', en: 'Remove some of the fat, please.' },
+        { fr: 'Gardez-moi un peu de gras.', ar: 'خليلي شوي دهن.', en: 'Keep a little fat for me.' },
+        { fr: 'Je voudrais la viande hachée.', ar: 'بدي اللحمة مفرومة.', en: 'I’d like minced beef.' },
+        { fr: 'Vous pouvez la hacher ?', ar: 'فيك تفرمها؟', en: 'Can you mince it?' },
+        { fr: 'Hachez-la deux fois, s’il vous plaît.', ar: 'افرمها مرتين لو سمحت.', en: 'Mince it twice, please.' }
+      ] },
+      { icon: '🍔', title: { ar: 'اللحم المفروم', en: 'Minced meat', fr: 'La viande hachée' }, phrases: [
+        { fr: 'Vous avez de la viande hachée de bœuf ?', ar: 'عندكم لحمة بقر مفرومة؟', en: 'Do you have minced beef?' },
+        { fr: 'Je voudrais 500 grammes de viande hachée.', ar: 'بدي نص كيلو لحمة مفرومة.', en: 'I’d like 500 grams of minced beef.' },
+        { fr: 'Elle est fraîche, la viande hachée ?', ar: 'اللحمة المفرومة طازة؟', en: 'Is the minced meat fresh?' },
+        { fr: 'Vous pouvez la hacher devant moi ?', ar: 'فيك تفرمها قدامي؟', en: 'Can you mince it in front of me?' }
+      ] },
+      { icon: '🥩', title: { ar: 'الشواء والطبخ', en: 'Grilling and cooking', fr: 'Grillade et cuisson' }, phrases: [
+        { fr: 'C’est bon pour le barbecue ?', ar: 'هالقطعة منيحة للشوا؟', en: 'Is this good for a barbecue?' },
+        { fr: 'Quel morceau est bon pour le grill ?', ar: 'أي قطعة منيحة للشوي؟', en: 'Which cut is good for grilling?' },
+        { fr: 'Je cherche une viande pour mijoter.', ar: 'عم دور على لحمة للطبخ على نار هادية.', en: 'I’m looking for meat for slow cooking.' },
+        { fr: 'Je veux faire un rôti.', ar: 'بدي أعمل روستو.', en: 'I want to make a roast.' },
+        { fr: 'Quel morceau convient pour un rôti ?', ar: 'أي قطعة مناسبة للروستو؟', en: 'Which cut is suitable for a roast?' },
+        { fr: 'Je voudrais une viande qui reste tendre après cuisson.', ar: 'بدي لحمة تضل طرية بعد الطبخ.', en: 'I want meat that stays tender after cooking.' }
+      ] },
+      { icon: '💶', title: { ar: 'السعر والدفع', en: 'Price and payment', fr: 'Prix et paiement' }, phrases: [
+        { fr: 'C’est combien le kilo ?', ar: 'قديش الكيلو؟', en: 'How much is a kilo?' },
+        { fr: 'C’est au kilo ou à la pièce ?', ar: 'السعر بالكيلو ولا بالقطعة؟', en: 'Is it priced per kilo or per piece?' },
+        { fr: 'C’est un peu cher.', ar: 'غالي شوي.', en: 'It’s a little expensive.' },
+        { fr: 'Vous avez quelque chose de moins cher ?', ar: 'عندك شي أرخص؟', en: 'Do you have something cheaper?' },
+        { fr: 'Je vais prendre celui-là.', ar: 'رح آخد هاد.', en: 'I’ll take that one.' },
+        { fr: 'C’est tout, merci.', ar: 'هاد كل شي، شكرًا.', en: 'That’s all, thank you.' },
+        { fr: 'Vous pouvez mettre ça dans un sac ?', ar: 'فيك تحط هاد بكيس؟', en: 'Can you put this in a bag?' },
+        { fr: 'Vous pouvez séparer les morceaux ?', ar: 'فيك تفصل القطع عن بعض؟', en: 'Can you separate the pieces?' },
+        { fr: 'Je peux payer par carte ?', ar: 'فيني ادفع بالبطاقة؟', en: 'Can I pay by card?' },
+        { fr: 'Je voudrais 200 grammes de viande hachée, s’il vous plaît.', ar: 'بدي 200 غرام لحمة مفرومة، لو سمحت.', en: 'I’d like 200 grams of minced meat, please.' }
+      ] },
+      { icon: '🔪', title: { ar: 'عبارات تسمعها عند القصّاب', en: 'Phrases you hear at the butcher’s', fr: 'Ce que vous entendez chez le boucher' }, phrases: [
+        { fr: 'Vous voulez quelle pièce ?', ar: 'أي قطعة بدك؟', en: 'Which cut would you like?' },
+        { fr: 'C’est une pièce tendre.', ar: 'هاي قطعة طرية.', en: 'It’s a tender cut.' },
+        { fr: 'Cette pièce est parfaite pour le steak.', ar: 'هالقطعة ممتازة للستيك.', en: 'This cut is perfect for steak.' },
+        { fr: 'Cette pièce est plutôt pour mijoter.', ar: 'هالقطعة أحسن للطبخ على نار هادية.', en: 'This cut is better for slow cooking.' },
+        { fr: 'Je peux vous la couper en steaks.', ar: 'فيني قطّعلك ياها ستكات.', en: 'I can cut it into steaks.' },
+        { fr: 'Vous la voulez avec ou sans os ?', ar: 'بدك ياها مع عظم ولا بدون؟', en: 'Do you want it with or without bone?' }
       ] }
     ]
   }
