@@ -22340,6 +22340,397 @@ window.CENTRES_DATA = [
         { fr: 'Comment puis-je envoyer ce document ?', ar: 'كيف فيني ابعت هالمستند؟', en: 'How can I send this document?' },
         { fr: 'Quand vais-je recevoir le paiement ?', ar: 'إمتى رح استلم الدفعة؟', en: 'When will I receive the payment?' },
         { fr: 'Merci pour votre aide.', ar: 'شكراً لمساعدتك.', en: 'Thank you for your help.' }
+      ] },
+      { icon: '🏢', title: { ar: 'عند الاستقبال', en: 'At the reception desk', fr: 'À l’accueil' }, phrases: [
+        { fr: 'Bonjour, j’ai rendez-vous avec mon conseiller.', ar: 'مرحبا، عندي موعد مع المستشار تبعي.', en: 'Hello, I have an appointment with my advisor.' },
+        { fr: 'Je viens pour mon inscription à France Travail.', ar: 'جاي لحتى سجّل بـFrance Travail.', en: 'I’m here to register with France Travail.' },
+        { fr: 'Je viens pour faire le point sur ma situation.', ar: 'جاي لحتى شوف وضع ملفي.', en: 'I’m here to review my situation.' },
+        { fr: 'Où dois-je attendre ?', ar: 'وين لازم انطر؟', en: 'Where should I wait?' }
+      ] },
+      { icon: '📄', title: { ar: 'التسجيل والملف', en: 'Registration and your file', fr: 'L’inscription et le dossier' }, phrases: [
+        { fr: 'Je voudrais m’inscrire à France Travail.', ar: 'بدي سجّل بـFrance Travail.', en: 'I’d like to register with France Travail.' },
+        { fr: 'Mon inscription est déjà faite.', ar: 'أنا مسجّل من قبل.', en: 'I’m already registered.' },
+        { fr: 'Je voudrais mettre mon dossier à jour.', ar: 'بدي حدّث ملفي.', en: 'I’d like to update my file.' },
+        { fr: 'Est-ce que mon dossier est complet ?', ar: 'ملفي كامل؟', en: 'Is my file complete?' },
+        { fr: 'Il manque un document ?', ar: 'في ورقة ناقصة؟', en: 'Is a document missing?' },
+        { fr: 'J’ai apporté les documents demandés.', ar: 'جبت الأوراق المطلوبة.', en: 'I brought the requested documents.' }
+      ] },
+      { icon: '👔', title: { ar: 'البحث عن عمل', en: 'Looking for work', fr: 'La recherche d’emploi' }, phrases: [
+        { fr: 'Je cherche un emploi.', ar: 'عم دور على شغل.', en: 'I’m looking for a job.' },
+        { fr: 'Je cherche un emploi à temps plein.', ar: 'عم دور على شغل دوام كامل.', en: 'I’m looking for a full-time job.' },
+        { fr: 'Je cherche un emploi à temps partiel.', ar: 'عم دور على شغل دوام جزئي.', en: 'I’m looking for a part-time job.' },
+        { fr: 'Je suis disponible immédiatement.', ar: 'أنا متاح أبدأ فوراً.', en: 'I’m available immediately.' },
+        { fr: 'Je voudrais trouver un emploi dans la logistique.', ar: 'بدي لاقي شغل بمجال اللوجستيك.', en: 'I’d like to find a job in logistics.' },
+        { fr: 'Je suis ouvert à différentes possibilités.', ar: 'أنا منفتح على خيارات مختلفة.', en: 'I’m open to different possibilities.' }
+      ] },
+      { icon: '📄', title: { ar: 'السيرة الذاتية', en: 'The CV', fr: 'Le CV' }, phrases: [
+        { fr: 'J’ai préparé mon CV.', ar: 'حضرت سيرتي الذاتية.', en: 'I’ve prepared my CV.' },
+        { fr: 'Voici mon CV.', ar: 'هاي سيرتي الذاتية.', en: 'Here’s my CV.' },
+        { fr: 'Pouvez-vous regarder mon CV ?', ar: 'فيك تطلع على سيرتي الذاتية؟', en: 'Could you look at my CV?' },
+        { fr: 'Je voudrais améliorer mon CV.', ar: 'بدي حسّن سيرتي الذاتية.', en: 'I’d like to improve my CV.' },
+        { fr: 'Je voudrais apprendre à mieux me présenter en entretien.', ar: 'بدي أتعلم كيف قدّم حالي بشكل أحسن بالمقابلة.', en: 'I’d like to learn how to present myself better in interviews.' }
+      ] },
+      { icon: '🎓', title: { ar: 'التكوين / Formation', en: 'Training / Formation', fr: 'La formation' }, phrases: [
+        { fr: 'Je voudrais faire une formation.', ar: 'بدي أعمل تكوين.', en: 'I’d like to do some training.' },
+        { fr: 'Je cherche une formation dans la logistique.', ar: 'عم دور على تكوين بمجال اللوجستيك.', en: 'I’m looking for training in logistics.' },
+        { fr: 'Je voudrais me former dans un nouveau domaine.', ar: 'بدي اتعلم مجال جديد.', en: 'I’d like to train in a new field.' },
+        { fr: 'Est-ce que cette formation est financée ?', ar: 'هالتكوين ممول؟', en: 'Is this training funded?' },
+        { fr: 'Est-ce que je peux utiliser mon CPF ?', ar: 'فيني استخدم الـCPF تبعي؟', en: 'Can I use my CPF?' },
+        { fr: 'Quelles formations me conseillez-vous ?', ar: 'شو التكوينات اللي بتنصحني فيها؟', en: 'Which training courses do you recommend?' }
+      ] },
+      { icon: '💶', title: { ar: 'التعويض / chômage', en: 'Unemployment benefits / chômage', fr: 'L’indemnisation / le chômage' }, phrases: [
+        { fr: 'Je voudrais savoir si j’ai droit à l’allocation chômage.', ar: 'بدي أعرف إذا إلي حق بتعويض البطالة.', en: 'I’d like to know if I’m entitled to unemployment benefits.' },
+        { fr: 'Quand vais-je recevoir mon allocation ?', ar: 'إمتى رح استلم التعويض؟', en: 'When will I receive my benefit?' },
+        { fr: 'Je dois actualiser ma situation.', ar: 'لازم أعمل التحديث الشهري لوضعي.', en: 'I need to update my situation.' },
+        { fr: 'J’ai travaillé ce mois-ci.', ar: 'اشتغلت هالشهر.', en: 'I worked this month.' },
+        { fr: 'Mon contrat se termine bientôt.', ar: 'عقدي رح يخلص قريب.', en: 'My contract is ending soon.' },
+        { fr: 'Mon contrat vient de se terminer.', ar: 'عقدي خلص هلق.', en: 'My contract just ended.' }
+      ] },
+      { icon: '📅', title: { ar: 'مع المستشار', en: 'With your advisor', fr: 'Avec le conseiller' }, phrases: [
+        { fr: 'Je voudrais faire le point avec vous.', ar: 'بدي راجع معك وضعي.', en: 'I’d like to review my situation with you.' },
+        { fr: 'Quelles sont les prochaines étapes ?', ar: 'شو الخطوات الجاية؟', en: 'What are the next steps?' },
+        { fr: 'Qu’est-ce que vous me conseillez ?', ar: 'شو بتنصحني أعمل؟', en: 'What do you advise me to do?' },
+        { fr: 'Est-ce que vous pouvez m’aider à trouver un emploi ?', ar: 'فيك تساعدني لاقي شغل؟', en: 'Can you help me find a job?' },
+        { fr: 'Je voudrais prendre un rendez-vous.', ar: 'بدي آخد موعد.', en: 'I’d like to make an appointment.' },
+        { fr: 'Je peux avoir un rendez-vous avec mon conseiller ?', ar: 'فيني آخد موعد مع المستشار تبعي؟', en: 'Can I have an appointment with my advisor?' }
+      ] },
+      { icon: '📱', title: { ar: 'إذا عندك مشكلة بالحساب', en: 'If you have a problem with your account', fr: 'Si tu as un problème avec ton compte' }, phrases: [
+        { fr: 'Je n’arrive pas à me connecter à mon espace personnel.', ar: 'ما عم اقدر فوت عحسابي الشخصي.', en: 'I can’t log into my personal account.' },
+        { fr: 'J’ai oublié mon mot de passe.', ar: 'نسيت كلمة السر.', en: 'I forgot my password.' },
+        { fr: 'Je n’arrive pas à faire mon actualisation.', ar: 'ما عم اقدر أعمل التحديث الشهري.', en: 'I can’t complete my monthly update.' },
+        { fr: 'Je n’arrive pas à envoyer mon document.', ar: 'ما عم اقدر ابعت المستند.', en: 'I can’t send my document.' }
+      ] },
+      { icon: '⭐', title: { ar: 'أهم 10 جمل تحفظها', en: 'Top 10 sentences to memorize', fr: 'Les 10 phrases à retenir' }, phrases: [
+        { fr: 'Je cherche un emploi.', ar: 'عم دور على شغل.', en: 'I’m looking for a job.' },
+        { fr: 'Je suis disponible immédiatement.', ar: 'أنا متاح أبدأ فوراً.', en: 'I’m available immediately.' },
+        { fr: 'Mon contrat se termine bientôt.', ar: 'عقدي رح يخلص قريب.', en: 'My contract is ending soon.' },
+        { fr: 'Je voudrais faire une formation.', ar: 'بدي أعمل تكوين.', en: 'I’d like to do some training.' },
+        { fr: 'Est-ce que cette formation est financée ?', ar: 'هالتكوين ممول؟', en: 'Is this training funded?' },
+        { fr: 'Je voudrais savoir si j’ai droit à l’allocation chômage.', ar: 'بدي أعرف إذا إلي حق بتعويض البطالة.', en: 'I’d like to know if I’m entitled to unemployment benefits.' },
+        { fr: 'Je dois actualiser ma situation.', ar: 'لازم أعمل التحديث الشهري لوضعي.', en: 'I need to update my situation.' },
+        { fr: 'Est-ce que mon dossier est complet ?', ar: 'ملفي كامل؟', en: 'Is my file complete?' },
+        { fr: 'Quelles sont les prochaines étapes ?', ar: 'شو الخطوات الجاية؟', en: 'What are the next steps?' },
+        { fr: 'Qu’est-ce que vous me conseillez ?', ar: 'شو بتنصحني أعمل؟', en: 'What do you advise me to do?' }
+      ] },
+      { icon: '🛒', title: { ar: 'عند الدخول', en: 'When entering', fr: 'À l’entrée' }, phrases: [
+        { fr: 'Vous avez besoin d’un chariot ?', ar: 'بدك عربة؟', en: 'Do you need a cart?' },
+        { fr: 'Où sont les paniers ?', ar: 'وين السلال؟', en: 'Where are the baskets?' },
+        { fr: 'Je prends juste quelques trucs.', ar: 'رح آخد بس كم شغلة.', en: 'I’m just getting a few things.' }
+      ] },
+      { icon: '🥫', title: { ar: 'البحث عن منتج', en: 'Looking for a product', fr: 'Chercher un produit' }, phrases: [
+        { fr: 'Excusez-moi, vous savez où sont les pâtes ?', ar: 'عفواً، بتعرف وين المعكرونة؟', en: 'Excuse me, do you know where the pasta is?' },
+        { fr: 'Je cherche ce produit.', ar: 'عم دور على هالمنتج.', en: 'I’m looking for this product.' },
+        { fr: 'C’est dans quel rayon ?', ar: 'بأي قسم موجود؟', en: 'Which aisle is it in?' },
+        { fr: 'Vous savez où je peux trouver ça ?', ar: 'بتعرف وين فيني لاقي هاد؟', en: 'Do you know where I can find this?' },
+        { fr: 'Je ne trouve pas ce que je cherche.', ar: 'ما عم لاقي الشي اللي عم دور عليه.', en: 'I can’t find what I’m looking for.' }
+      ] },
+      { icon: '🏷️', title: { ar: 'السعر والعروض', en: 'Price and deals', fr: 'Le prix et les promos' }, phrases: [
+        { fr: 'Il coûte combien ?', ar: 'قديش سعره؟', en: 'How much does it cost?' },
+        { fr: 'C’est en promotion ?', ar: 'عليه عرض؟', en: 'Is it on sale?' },
+        { fr: 'Il y a une réduction aujourd’hui ?', ar: 'في خصم اليوم؟', en: 'Is there a discount today?' },
+        { fr: 'C’est moins cher avec la carte Auchan ?', ar: 'أرخص مع بطاقة أوشان؟', en: 'Is it cheaper with the Auchan card?' },
+        { fr: 'C’est une offre intéressante.', ar: 'هاد عرض منيح.', en: 'That’s a good deal.' }
+      ] },
+      { icon: '👩‍🦰', title: { ar: 'موقف عفوي مع شخص', en: 'A spontaneous moment with someone', fr: 'Un échange spontané avec quelqu’un' }, phrases: [
+        { fr: 'Excuse-moi, tu connais cette marque ?', ar: 'عذريني، بتعرفي هالماركة؟', en: 'Excuse me, do you know this brand?' },
+        { fr: 'Tu l’as déjà essayé ?', ar: 'جربتيه من قبل؟', en: 'Have you tried it before?' },
+        { fr: 'Tu me conseilles lequel ?', ar: 'أي واحد بتنصحيني فيه؟', en: 'Which one would you recommend?' },
+        { fr: 'Tu hésites entre les deux ?', ar: 'محتارة بين التنين؟', en: 'Are you deciding between the two?' },
+        { fr: 'Moi aussi, je ne sais pas lequel choisir. 😄', ar: 'أنا كمان ما بعرف أي واحد اختار. 😄', en: 'I don’t know which one to choose either. 😄' },
+        { fr: 'Bon, je vais te faire confiance. 😄', ar: 'طيب، رح وثق بذوقك. 😄', en: 'Okay, I’ll trust your choice. 😄' }
+      ] },
+      { icon: '🥖', title: { ar: 'عند قسم الخضار والخبز', en: 'At the produce and bread aisles', fr: 'Au rayon fruits-légumes et pain' }, phrases: [
+        { fr: 'Ils sont frais, tu crois ?', ar: 'برأيك هدول طازجين؟', en: 'Do you think these are fresh?' },
+        { fr: 'Tu prends lequel ?', ar: 'أي واحد بتاخدي؟', en: 'Which one are you getting?' },
+        { fr: 'Celui-ci a l’air bien.', ar: 'هاد شكله منيح.', en: 'This one looks good.' },
+        { fr: 'Tu connais cette boulangerie ?', ar: 'بتعرفي هالمخبز؟', en: 'Do you know this bakery?' }
+      ] },
+      { icon: '🧾', title: { ar: 'عند الكاشير', en: 'At the cashier', fr: 'À la caisse' }, phrases: [
+        { fr: 'C’est à qui ?', ar: 'مين دوره؟', en: 'Whose turn is it?' },
+        { fr: 'C’est votre tour.', ar: 'دورك.', en: 'It’s your turn.' },
+        { fr: 'Vous avez la carte de fidélité ?', ar: 'معك بطاقة الوفاء؟', en: 'Do you have the loyalty card?' },
+        { fr: 'Vous voulez le ticket ?', ar: 'بدك الإيصال؟', en: 'Do you want the receipt?' },
+        { fr: 'Par carte, s’il vous plaît.', ar: 'بالبطاقة لو سمحت.', en: 'By card, please.' },
+        { fr: 'Je vais payer sans contact.', ar: 'رح ادفع بدون تلامس.', en: 'I’ll pay contactless.' }
+      ] },
+      { icon: '🛍️', title: { ar: 'بعد الدفع', en: 'After paying', fr: 'Après le paiement' }, phrases: [
+        { fr: 'Vous voulez un sac ?', ar: 'بدك كيس؟', en: 'Do you want a bag?' },
+        { fr: 'Non merci, j’ai mon sac.', ar: 'لا شكراً، معي كيسي.', en: 'No thanks, I have my bag.' },
+        { fr: 'Bonne journée !', ar: 'نهارك سعيد!', en: 'Have a nice day!' }
+      ] },
+      { icon: '📱', title: { ar: 'عند الاستعلامات', en: 'At the information desk', fr: 'À l’accueil / renseignements' }, phrases: [
+        { fr: 'Bonjour, je voudrais un renseignement.', ar: 'مرحبا، بدي استفسر عن شغلة.', en: 'Hello, I’d like some information.' },
+        { fr: 'Où se trouve l’accueil ?', ar: 'وين الاستعلامات؟', en: 'Where is customer service?' },
+        { fr: 'Je voudrais faire un retour.', ar: 'بدي رجّع هالمنتج.', en: 'I’d like to return this product.' },
+        { fr: 'J’ai gardé le ticket de caisse.', ar: 'خليت إيصال الشراء معي.', en: 'I kept the receipt.' },
+        { fr: 'Le produit ne fonctionne pas.', ar: 'المنتج ما عم يشتغل.', en: 'The product doesn’t work.' }
+      ] },
+      { icon: '⭐', title: { ar: '10 جمل مهمة في Auchan', en: '10 important sentences for Auchan', fr: '10 phrases importantes chez Auchan' }, phrases: [
+        { fr: 'Vous savez où je peux trouver ça ?', ar: 'بتعرف وين فيني لاقي هاد؟', en: 'Do you know where I can find this?' },
+        { fr: 'C’est dans quel rayon ?', ar: 'بأي قسم موجود؟', en: 'Which aisle is it in?' },
+        { fr: 'C’est en promotion ?', ar: 'عليه عرض؟', en: 'Is it on sale?' },
+        { fr: 'Tu connais cette marque ?', ar: 'بتعرفي هالماركة؟', en: 'Do you know this brand?' },
+        { fr: 'Tu l’as déjà essayé ?', ar: 'جربتيه من قبل؟', en: 'Have you tried it before?' },
+        { fr: 'Tu me conseilles lequel ?', ar: 'أي واحد بتنصحيني فيه؟', en: 'Which one would you recommend?' },
+        { fr: 'C’est à qui ?', ar: 'مين دوره؟', en: 'Whose turn is it?' },
+        { fr: 'Vous avez la carte de fidélité ?', ar: 'معك بطاقة الوفاء؟', en: 'Do you have the loyalty card?' },
+        { fr: 'Je voudrais faire un retour.', ar: 'بدي رجّع هالمنتج.', en: 'I’d like to return this product.' },
+        { fr: 'Merci, bonne journée !', ar: 'شكراً، نهارك سعيد!', en: 'Thank you, have a nice day!' }
+      ] },
+      { icon: '🏢', title: { ar: 'عند الوصول', en: 'When you arrive', fr: 'À l’arrivée' }, phrases: [
+        { fr: 'Bonjour, j’ai rendez-vous pour les impôts.', ar: 'مرحبا، عندي موعد بخصوص الضرائب.', en: 'Hello, I have an appointment about my taxes.' },
+        { fr: 'Je viens pour avoir des renseignements.', ar: 'جايي حتى آخد معلومات.', en: 'I’m here to get some information.' },
+        { fr: 'Je voudrais parler à quelqu’un, s’il vous plaît.', ar: 'بدي أحكي مع حدا لو سمحت.', en: 'I’d like to speak to someone, please.' },
+        { fr: 'Où dois-je aller ?', ar: 'لوين لازم روح؟', en: 'Where should I go?' },
+        { fr: 'C’est bien ici pour les impôts ?', ar: 'هون قسم الضرائب؟', en: 'Is this the right place for taxes?' }
+      ] },
+      { icon: '💻', title: { ar: 'التصريح بالضريبة', en: 'Filing your taxes', fr: 'La déclaration d’impôts' }, phrases: [
+        { fr: 'Je voudrais faire ma déclaration de revenus.', ar: 'بدي أعمل التصريح عن دخلي.', en: 'I’d like to file my income tax return.' },
+        { fr: 'Je n’ai jamais fait de déclaration.', ar: 'ما عملت تصريح ضرائب من قبل.', en: 'I’ve never filed a tax return before.' },
+        { fr: 'Je voudrais savoir si je dois faire une déclaration.', ar: 'بدي أعرف إذا لازم أعمل تصريح.', en: 'I’d like to know if I need to file a tax return.' },
+        { fr: 'Je n’arrive pas à faire ma déclaration en ligne.', ar: 'ما عم أقدر أعمل التصريح أونلاين.', en: 'I can’t file my tax return online.' },
+        { fr: 'Je ne comprends pas comment faire.', ar: 'ما عم أفهم كيف لازم أعملها.', en: 'I don’t understand how to do it.' }
+      ] },
+      { icon: '📄', title: { ar: 'الوثائق', en: 'The documents', fr: 'Les documents' }, phrases: [
+        { fr: 'Quels documents dois-je fournir ?', ar: 'شو الأوراق اللي لازم قدمها؟', en: 'What documents do I need to provide?' },
+        { fr: 'Est-ce qu’il manque un document ?', ar: 'ناقص شي ورقة؟', en: 'Is any document missing?' },
+        { fr: 'Voici les documents demandés.', ar: 'هاي الأوراق المطلوبة.', en: 'Here are the requested documents.' },
+        { fr: 'Je dois fournir l’original ou une copie ?', ar: 'لازم قدم الأصل ولا نسخة؟', en: 'Do I need to provide the original or a copy?' },
+        { fr: 'Je peux envoyer le document en ligne ?', ar: 'فيني أبعت الورقة أونلاين؟', en: 'Can I send the document online?' }
+      ] },
+      { icon: '💶', title: { ar: 'إذا عندك مشكلة بالمبلغ', en: 'If you have a problem with the amount', fr: 'Si tu as un problème avec le montant' }, phrases: [
+        { fr: 'Je ne comprends pas le montant à payer.', ar: 'ما فهمت المبلغ اللي لازم أدفعه.', en: 'I don’t understand the amount I have to pay.' },
+        { fr: 'Pourquoi dois-je payer cette somme ?', ar: 'ليش لازم أدفع هالمبلغ؟', en: 'Why do I have to pay this amount?' },
+        { fr: 'Est-ce que vous pouvez m’expliquer, s’il vous plaît ?', ar: 'فيك تشرحلي لو سمحت؟', en: 'Could you explain it to me, please?' },
+        { fr: 'Je pensais que je n’avais rien à payer.', ar: 'كنت مفكر إني ما لازم أدفع شي.', en: 'I thought I didn’t have to pay anything.' },
+        { fr: 'Je voudrais vérifier ma situation fiscale.', ar: 'بدي أتأكد من وضعي الضريبي.', en: 'I’d like to check my tax situation.' }
+      ] },
+      { icon: '💳', title: { ar: 'الدفع', en: 'The payment', fr: 'Le paiement' }, phrases: [
+        { fr: 'Comment est-ce que je peux payer ?', ar: 'كيف فيني أدفع؟', en: 'How can I pay?' },
+        { fr: 'Est-ce que je peux payer en plusieurs fois ?', ar: 'فيني أدفع على دفعات؟', en: 'Can I pay in installments?' },
+        { fr: 'Je ne peux pas payer la totalité maintenant.', ar: 'ما فيني أدفع المبلغ كامل هلق.', en: 'I can’t pay the full amount now.' },
+        { fr: 'Est-ce que je peux demander un délai de paiement ?', ar: 'فيني أطلب مهلة للدفع؟', en: 'Can I request a payment extension?' }
+      ] },
+      { icon: '🏠', title: { ar: 'تغيير العنوان أو الوضع', en: 'Changing your address or status', fr: 'Changer d’adresse ou de situation' }, phrases: [
+        { fr: 'J’ai changé d’adresse.', ar: 'غيرت عنواني.', en: 'I changed my address.' },
+        { fr: 'Je voudrais mettre mon adresse à jour.', ar: 'بدي حدّث عنواني.', en: 'I’d like to update my address.' },
+        { fr: 'J’ai déménagé récemment.', ar: 'نقلت سكني مؤخراً.', en: 'I recently moved.' },
+        { fr: 'Ma situation a changé.', ar: 'وضعي تغيّر.', en: 'My situation has changed.' },
+        { fr: 'Je voudrais signaler un changement de situation.', ar: 'بدي بلّغ عن تغيير بوضعِي.', en: 'I’d like to report a change in my situation.' }
+      ] },
+      { icon: '📱', title: { ar: 'الحساب الإلكتروني', en: 'The online account', fr: 'Le compte en ligne' }, phrases: [
+        { fr: 'Je n’arrive pas à me connecter à mon espace particulier.', ar: 'ما عم أقدر فوت على حسابي الشخصي.', en: 'I can’t log into my personal account.' },
+        { fr: 'J’ai oublié mon mot de passe.', ar: 'نسيت كلمة السر.', en: 'I forgot my password.' },
+        { fr: 'Je ne retrouve pas mon avis d’impôt.', ar: 'ما عم لاقي إشعار الضريبة تبعي.', en: 'I can’t find my tax notice.' },
+        { fr: 'Je voudrais télécharger mon avis d’impôt.', ar: 'بدي نزّل إشعار الضريبة تبعي.', en: 'I’d like to download my tax notice.' }
+      ] },
+      { icon: '👥', title: { ar: 'مواقف مع شخص ينتظر', en: 'Moments with someone waiting', fr: 'Des échanges avec quelqu’un qui attend' }, phrases: [
+        { fr: 'Vous attendez pour les impôts ?', ar: 'ناطر للضرائب؟', en: 'Are you waiting for the tax office?' },
+        { fr: 'Vous avez rendez-vous ?', ar: 'عندك موعد؟', en: 'Do you have an appointment?' },
+        { fr: 'Vous savez où il faut attendre ?', ar: 'بتعرف وين لازم ناطر؟', en: 'Do you know where we have to wait?' },
+        { fr: 'C’est votre tour ?', ar: 'دورك؟', en: 'Is it your turn?' },
+        { fr: 'Ça fait longtemps que vous attendez ?', ar: 'صارلك زمان ناطر؟', en: 'Have you been waiting long?' }
+      ] },
+      { icon: '⭐', title: { ar: 'أهم 10 جمل تحفظها', en: 'Top 10 sentences to memorize', fr: 'Les 10 phrases à retenir' }, phrases: [
+        { fr: 'Je viens pour avoir des renseignements sur mes impôts.', ar: 'جايي حتى آخد معلومات عن ضرائبي.', en: 'I’m here to get information about my taxes.' },
+        { fr: 'Je voudrais vérifier ma situation fiscale.', ar: 'بدي أتأكد من وضعي الضريبي.', en: 'I’d like to check my tax situation.' },
+        { fr: 'Je ne comprends pas cet avis d’impôt.', ar: 'ما عم أفهم إشعار الضريبة هاد.', en: 'I don’t understand this tax notice.' },
+        { fr: 'Pouvez-vous m’expliquer, s’il vous plaît ?', ar: 'فيك تشرحلي لو سمحت؟', en: 'Could you explain it to me, please?' },
+        { fr: 'Quels documents dois-je fournir ?', ar: 'شو الأوراق اللي لازم قدمها؟', en: 'What documents do I need to provide?' },
+        { fr: 'Est-ce que mon dossier est complet ?', ar: 'ملفي كامل؟', en: 'Is my file complete?' },
+        { fr: 'Je n’arrive pas à faire ma déclaration en ligne.', ar: 'ما عم أقدر أعمل التصريح أونلاين.', en: 'I can’t file my tax return online.' },
+        { fr: 'J’ai changé d’adresse.', ar: 'غيرت عنواني.', en: 'I changed my address.' },
+        { fr: 'Je voudrais savoir si je dois payer quelque chose.', ar: 'بدي أعرف إذا لازم أدفع شي.', en: 'I’d like to know if I have to pay anything.' },
+        { fr: 'Qu’est-ce que je dois faire maintenant ?', ar: 'شو لازم أعمل هلق؟', en: 'What do I need to do now?' }
+      ] },
+      { icon: '📝', title: { ar: 'طلب شهادة الميلاد', en: 'Requesting a birth certificate', fr: 'Demander un acte de naissance' }, phrases: [
+        { fr: 'Je voudrais demander un acte de naissance.', ar: 'بدي أطلب شهادة ميلاد.', en: 'I’d like to request a birth certificate.' },
+        { fr: 'J’ai besoin d’un acte de naissance pour mon dossier.', ar: 'بحتاج شهادة ميلاد لملفي.', en: 'I need a birth certificate for my application.' },
+        { fr: 'Où est-ce que je peux demander un acte de naissance ?', ar: 'وين فيني أطلب شهادة ميلاد؟', en: 'Where can I request a birth certificate?' },
+        { fr: 'Est-ce que je peux faire la demande en ligne ?', ar: 'فيني أطلبها أونلاين؟', en: 'Can I request it online?' },
+        { fr: 'Combien de temps faut-il pour la recevoir ?', ar: 'قديش بتاخد وقت لحتى توصلني؟', en: 'How long does it take to receive it?' }
+      ] },
+      { icon: '📄', title: { ar: 'نوع شهادة الميلاد', en: 'Types of birth certificate', fr: 'Les types d’acte de naissance' }, phrases: [
+        { fr: 'Vous avez besoin d’un extrait ou d’une copie intégrale ?', ar: 'بدكم مستخرج ولا نسخة كاملة؟', en: 'Do you need an extract or a full copy?' },
+        { fr: 'Quelle version dois-je demander ?', ar: 'أي نسخة لازم أطلب؟', en: 'Which version should I request?' },
+        { fr: 'J’ai besoin d’un extrait avec filiation.', ar: 'بحتاج مستخرج فيه معلومات النسب.', en: 'I need an extract with parentage information.' },
+        { fr: 'J’ai besoin d’une copie intégrale.', ar: 'بحتاج نسخة كاملة.', en: 'I need a full copy.' },
+        { fr: 'Je ne sais pas quelle version il me faut.', ar: 'ما بعرف أي نسخة بحتاج.', en: 'I don’t know which version I need.' },
+        { fr: 'C’est pour une démarche administrative.', ar: 'لحتى أعمل معاملة إدارية.', en: 'It’s for an administrative procedure.' }
+      ] },
+      { icon: '🏛️', title: { ar: 'إذا كنت بحاجة لشهادة من بلدك', en: 'If you need a certificate from your country', fr: 'Si tu as besoin d’un acte de ton pays' }, phrases: [
+        { fr: 'Je suis né à l’étranger.', ar: 'أنا مولود خارج فرنسا.', en: 'I was born abroad.' },
+        { fr: 'Je suis né en Syrie.', ar: 'أنا مولود بسوريا.', en: 'I was born in Syria.' },
+        { fr: 'Je dois demander mon acte de naissance à l’étranger.', ar: 'لازم أطلب شهادة ميلادي من خارج فرنسا.', en: 'I have to request my birth certificate from abroad.' },
+        { fr: 'Mon acte de naissance est en arabe.', ar: 'شهادة ميلادي بالعربي.', en: 'My birth certificate is in Arabic.' },
+        { fr: 'Est-ce que je dois faire traduire mon acte de naissance ?', ar: 'لازم أترجم شهادة ميلادي؟', en: 'Do I need to have my birth certificate translated?' },
+        { fr: 'Est-ce qu’une traduction officielle est nécessaire ?', ar: 'هل لازم ترجمة رسمية؟', en: 'Is an official translation required?' }
+      ] },
+      { icon: '📑', title: { ar: 'التصديق والترجمة', en: 'Certification and translation', fr: 'L’authentification et la traduction' }, phrases: [
+        { fr: 'Est-ce que le document doit être légalisé ?', ar: 'لازم تصديق على الوثيقة؟', en: 'Does the document need to be legalized?' },
+        { fr: 'Est-ce qu’il faut une apostille ?', ar: 'لازم أبوستيل؟', en: 'Does it need an apostille?' },
+        { fr: 'Je dois fournir l’original ?', ar: 'لازم قدم الأصل؟', en: 'Do I need to provide the original?' },
+        { fr: 'Une copie suffit ?', ar: 'نسخة بتكفي؟', en: 'Is a copy enough?' },
+        { fr: 'Je dois fournir une traduction certifiée ?', ar: 'لازم أقدم ترجمة مصدّقة؟', en: 'Do I need to provide a certified translation?' }
+      ] },
+      { icon: '❌', title: { ar: 'إذا رفضوا الوثيقة أو كانت ناقصة', en: 'If they reject the document or it’s incomplete', fr: 'Si le document est refusé ou incomplet' }, phrases: [
+        { fr: 'Mon acte de naissance n’est pas accepté.', ar: 'شهادة ميلادي ما انقبلت.', en: 'My birth certificate was not accepted.' },
+        { fr: 'On m’a demandé un nouveau document.', ar: 'طلبوا مني وثيقة جديدة.', en: 'They asked me for a new document.' },
+        { fr: 'Il manque une information sur mon acte de naissance.', ar: 'ناقصة معلومة بشهادة ميلادي.', en: 'Some information is missing from my birth certificate.' },
+        { fr: 'Les informations ne correspondent pas à mon passeport.', ar: 'المعلومات ما بتتطابق مع جواز سفري.', en: 'The information doesn’t match my passport.' },
+        { fr: 'Il y a une erreur dans mon acte de naissance.', ar: 'في خطأ بشهادة ميلادي.', en: 'There is an error on my birth certificate.' },
+        { fr: 'Comment puis-je corriger cette erreur ?', ar: 'كيف فيني صحح هالخطأ؟', en: 'How can I correct this error?' }
+      ] },
+      { icon: '📬', title: { ar: 'الاستلام', en: 'Receiving it', fr: 'La réception' }, phrases: [
+        { fr: 'Est-ce que je peux recevoir le document par courrier ?', ar: 'فيني استلم الوثيقة بالبريد؟', en: 'Can I receive the document by mail?' },
+        { fr: 'Je peux venir la récupérer sur place ?', ar: 'فيني أجي آخدها من هون؟', en: 'Can I pick it up here?' },
+        { fr: 'J’ai fait la demande, mais je n’ai toujours rien reçu.', ar: 'قدمت الطلب، بس لسا ما وصلني شي.', en: 'I submitted the request, but I still haven’t received anything.' },
+        { fr: 'Je voudrais savoir où en est ma demande.', ar: 'بدي أعرف وين صار طلبي.', en: 'I’d like to know the status of my request.' }
+      ] },
+      { icon: '⭐', title: { ar: 'كلمات مهمة', en: 'Important words', fr: 'Les mots importants' }, phrases: [
+        { fr: 'un acte de naissance', ar: 'شهادة ميلاد', en: 'birth certificate' },
+        { fr: 'un extrait d’acte de naissance', ar: 'مستخرج من شهادة الميلاد', en: 'birth certificate extract' },
+        { fr: 'une copie intégrale', ar: 'نسخة كاملة', en: 'full copy' },
+        { fr: 'la filiation', ar: 'النسب / معلومات الوالدين', en: 'parentage' },
+        { fr: 'une traduction certifiée', ar: 'ترجمة مصدّقة', en: 'certified translation' },
+        { fr: 'une erreur d’état civil', ar: 'خطأ في بيانات الحالة المدنية', en: 'civil-status error' }
+      ] },
+      { icon: '🛂', title: { ar: 'الاستفسار عن الجنسية', en: 'Asking about nationality', fr: 'Se renseigner sur la nationalité' }, phrases: [
+        { fr: 'Je voudrais me renseigner sur la nationalité française.', ar: 'بدي استفسر عن الجنسية الفرنسية.', en: 'I’d like to get information about French nationality.' },
+        { fr: 'Je voudrais savoir si je peux demander la nationalité française.', ar: 'بدي أعرف إذا فيني أطلب الجنسية الفرنسية.', en: 'I’d like to know if I can apply for French nationality.' },
+        { fr: 'Quelles sont les conditions pour demander la nationalité française ?', ar: 'شو الشروط لطلب الجنسية الفرنسية؟', en: 'What are the requirements to apply for French nationality?' },
+        { fr: 'Quelle procédure dois-je suivre ?', ar: 'أي إجراءات لازم اتبع؟', en: 'What procedure do I need to follow?' }
+      ] },
+      { icon: '💻', title: { ar: 'تقديم الطلب', en: 'Submitting the application', fr: 'Déposer la demande' }, phrases: [
+        { fr: 'Je voudrais déposer une demande de nationalité française.', ar: 'بدي قدّم طلب للحصول على الجنسية الفرنسية.', en: 'I’d like to submit an application for French nationality.' },
+        { fr: 'Est-ce que la demande se fait en ligne ?', ar: 'هل الطلب بينعمل أونلاين؟', en: 'Is the application made online?' },
+        { fr: 'Je voudrais créer mon dossier.', ar: 'بدي أفتح ملفي.', en: 'I’d like to start my application.' },
+        { fr: 'Je viens déposer mon dossier de nationalité.', ar: 'جايي قدّم ملف الجنسية تبعي.', en: 'I’m here to submit my nationality application.' },
+        { fr: 'Est-ce que mon dossier est complet ?', ar: 'هل ملفي كامل؟', en: 'Is my application complete?' }
+      ] },
+      { icon: '📄', title: { ar: 'الوثائق المطلوبة', en: 'The required documents', fr: 'Les pièces demandées' }, phrases: [
+        { fr: 'Quels documents dois-je fournir ?', ar: 'شو الأوراق اللي لازم قدمها؟', en: 'What documents do I need to provide?' },
+        { fr: 'Quels documents sont obligatoires ?', ar: 'شو الوثائق الإلزامية؟', en: 'Which documents are mandatory?' },
+        { fr: 'Il me manque un document.', ar: 'ناقصني مستند.', en: 'I’m missing a document.' },
+        { fr: 'Est-ce que je dois fournir mon acte de naissance original ?', ar: 'لازم أقدم شهادة ميلادي الأصلية؟', en: 'Do I need to provide my original birth certificate?' },
+        { fr: 'Mon acte de naissance est en arabe.', ar: 'شهادة ميلادي بالعربي.', en: 'My birth certificate is in Arabic.' },
+        { fr: 'Est-ce que je dois fournir une traduction certifiée ?', ar: 'لازم أقدم ترجمة مصدّقة؟', en: 'Do I need to provide a certified translation?' },
+        { fr: 'Est-ce que ce document est accepté ?', ar: 'هالوثيقة مقبولة؟', en: 'Is this document accepted?' }
+      ] },
+      { icon: '🏠', title: { ar: 'الإقامة في فرنسا', en: 'Residence in France', fr: 'La résidence en France' }, phrases: [
+        { fr: 'Je vis en France depuis plusieurs années.', ar: 'أنا عايش بفرنسا من عدة سنين.', en: 'I’ve been living in France for several years.' },
+        { fr: 'Je réside actuellement en France.', ar: 'أنا مقيم حالياً بفرنسا.', en: 'I currently live in France.' },
+        { fr: 'Je voudrais savoir si ma durée de résidence est suffisante.', ar: 'بدي أعرف إذا مدة إقامتي كافية.', en: 'I’d like to know if my period of residence is sufficient.' },
+        { fr: 'Voici mes justificatifs de domicile.', ar: 'هاي إثباتات السكن تبعي.', en: 'Here are my proofs of address.' }
+      ] },
+      { icon: '🗣️', title: { ar: 'مقابلة الجنسية', en: 'The nationality interview', fr: 'L’entretien de nationalité' }, phrases: [
+        { fr: 'J’ai reçu une convocation pour un entretien.', ar: 'وصلتني دعوة لمقابلة.', en: 'I received a summons for an interview.' },
+        { fr: 'Je voudrais savoir comment se déroule l’entretien.', ar: 'بدي أعرف كيف بتصير المقابلة.', en: 'I’d like to know how the interview works.' },
+        { fr: 'Quelles questions vont-ils me poser ?', ar: 'شو الأسئلة اللي رح يسألوني ياها؟', en: 'What questions will they ask me?' },
+        { fr: 'Je voudrais me préparer à l’entretien.', ar: 'بدي حضّر حالي للمقابلة.', en: 'I’d like to prepare for the interview.' },
+        { fr: 'Je suis un peu stressé pour l’entretien.', ar: 'أنا شوي متوتر من المقابلة.', en: 'I’m a little nervous about the interview.' },
+        { fr: 'Pouvez-vous m’expliquer comment ça se passe ?', ar: 'فيك تشرحلي كيف بتصير المقابلة؟', en: 'Could you explain how it works?' }
+      ] },
+      { icon: '📬', title: { ar: 'متابعة الملف', en: 'Tracking your file', fr: 'Le suivi du dossier' }, phrases: [
+        { fr: 'Je voudrais savoir où en est mon dossier.', ar: 'بدي أعرف وين صار ملفي.', en: 'I’d like to know the status of my application.' },
+        { fr: 'Mon dossier est toujours en cours de traitement.', ar: 'ملفي لسا قيد المعالجة.', en: 'My application is still being processed.' },
+        { fr: 'Je n’ai pas encore reçu de réponse.', ar: 'لسا ما وصلني جواب.', en: 'I haven’t received an answer yet.' },
+        { fr: 'Est-ce que vous avez besoin d’un document supplémentaire ?', ar: 'بدكم مني وثيقة إضافية؟', en: 'Do you need an additional document from me?' },
+        { fr: 'J’ai reçu une demande de document complémentaire.', ar: 'وصلتني مطالبة بوثيقة إضافية.', en: 'I received a request for an additional document.' },
+        { fr: 'J’ai envoyé le document demandé.', ar: 'أرسلت الوثيقة المطلوبة.', en: 'I sent the requested document.' },
+        { fr: 'Quand est-ce que je peux avoir une réponse ?', ar: 'إمتى ممكن يوصلني جواب؟', en: 'When can I expect an answer?' }
+      ] },
+      { icon: '❌', title: { ar: 'إذا كان هناك مشكلة', en: 'If there’s a problem', fr: 'S’il y a un problème' }, phrases: [
+        { fr: 'Mon dossier a été ajourné.', ar: 'تم تأجيل/إرجاء ملفي.', en: 'My application was deferred.' },
+        { fr: 'Ma demande a été refusée.', ar: 'تم رفض طلبي.', en: 'My application was refused.' },
+        { fr: 'Je voudrais comprendre la raison de la décision.', ar: 'بدي أفهم سبب القرار.', en: 'I’d like to understand the reason for the decision.' },
+        { fr: 'Est-ce que je peux faire un recours ?', ar: 'فيني أقدّم اعتراض؟', en: 'Can I appeal?' }
+      ] },
+      { icon: '⭐', title: { ar: 'أهم 10 جمل للحفظ', en: 'Top 10 sentences to memorize', fr: 'Les 10 phrases à retenir' }, phrases: [
+        { fr: 'Je voudrais me renseigner sur la nationalité française.', ar: 'بدي استفسر عن الجنسية الفرنسية.', en: 'I’d like to get information about French nationality.' },
+        { fr: 'Est-ce que je peux demander la nationalité française ?', ar: 'فيني أطلب الجنسية الفرنسية؟', en: 'Can I apply for French nationality?' },
+        { fr: 'Quelles sont les conditions ?', ar: 'شو الشروط؟', en: 'What are the requirements?' },
+        { fr: 'Quels documents dois-je fournir ?', ar: 'شو الأوراق اللي لازم قدمها؟', en: 'What documents do I need to provide?' },
+        { fr: 'Est-ce que mon dossier est complet ?', ar: 'هل ملفي كامل؟', en: 'Is my application complete?' },
+        { fr: 'Je voudrais déposer ma demande.', ar: 'بدي قدّم طلبي.', en: 'I’d like to submit my application.' },
+        { fr: 'Je voudrais me préparer à l’entretien.', ar: 'بدي حضّر حالي للمقابلة.', en: 'I’d like to prepare for the interview.' },
+        { fr: 'Je voudrais savoir où en est mon dossier.', ar: 'بدي أعرف وين صار ملفي.', en: 'I’d like to know the status of my application.' },
+        { fr: 'Je n’ai pas encore reçu de réponse.', ar: 'لسا ما وصلني جواب.', en: 'I haven’t received an answer yet.' },
+        { fr: 'Qu’est-ce que je dois faire maintenant ?', ar: 'شو لازم أعمل هلق؟', en: 'What do I need to do now?' }
+      ] },
+      { icon: '💊', title: { ar: 'عند الدخول', en: 'When entering', fr: 'À l’entrée' }, phrases: [
+        { fr: 'Bonjour, j’aurais besoin de quelque chose pour…', ar: 'مرحبا، بدي شي لـ…', en: 'Hello, I need something for…' },
+        { fr: 'Je viens chercher mes médicaments.', ar: 'جايي آخد أدويتي.', en: 'I’m here to pick up my medication.' },
+        { fr: 'J’ai une ordonnance.', ar: 'معي وصفة طبية.', en: 'I have a prescription.' },
+        { fr: 'Voici mon ordonnance.', ar: 'هاي وصفتي الطبية.', en: 'Here is my prescription.' },
+        { fr: 'Je voudrais savoir si vous avez ce médicament.', ar: 'بدي أعرف إذا عندكم هالدواء.', en: 'I’d like to know if you have this medicine.' }
+      ] },
+      { icon: '📋', title: { ar: 'مع الوصفة الطبية', en: 'With the prescription', fr: 'Avec l’ordonnance' }, phrases: [
+        { fr: 'Est-ce que tous les médicaments sont disponibles ?', ar: 'كل الأدوية متوفرة؟', en: 'Are all the medicines available?' },
+        { fr: 'Il manque un médicament ?', ar: 'في دواء ناقص؟', en: 'Is any medicine missing?' },
+        { fr: 'Vous pouvez me donner le médicament générique ?', ar: 'فيكم تعطوني الدواء الجنيس؟', en: 'Can you give me the generic version?' },
+        { fr: 'Comment dois-je le prendre ?', ar: 'كيف لازم آخده؟', en: 'How should I take it?' },
+        { fr: 'Combien de fois par jour ?', ar: 'كم مرة باليوم؟', en: 'How many times a day?' },
+        { fr: 'Avant ou après le repas ?', ar: 'قبل الأكل ولا بعده؟', en: 'Before or after the meal?' },
+        { fr: 'Pendant combien de temps ?', ar: 'لمدة قديش؟', en: 'For how long?' }
+      ] },
+      { icon: '💳', title: { ar: 'التغطية والتأمين', en: 'Coverage and insurance', fr: 'La couverture et l’assurance' }, phrases: [
+        { fr: 'Est-ce que c’est remboursé ?', ar: 'هاد بينردّ ثمنه؟', en: 'Is this reimbursed?' },
+        { fr: 'Est-ce que c’est pris en charge par l’Assurance Maladie ?', ar: 'هاد مغطّى من التأمين الصحي؟', en: 'Is this covered by health insurance?' },
+        { fr: 'Je suis en ALD.', ar: 'أنا عندي ALD.', en: 'I have an ALD status.' },
+        { fr: 'Est-ce que ce médicament est pris en charge à 100 % dans le cadre de mon ALD ?', ar: 'هالدواء مغطّى 100٪ ضمن الـALD تبعي؟', en: 'Is this medication covered at 100% under my ALD?' },
+        { fr: 'Je peux utiliser ma carte Vitale ?', ar: 'فيني استخدم بطاقة فيتال؟', en: 'Can I use my Vitale card?' },
+        { fr: 'J’ai aussi ma carte de mutuelle.', ar: 'معي كمان بطاقة التأمين التكميلي.', en: 'I also have my health insurance card.' }
+      ] },
+      { icon: '🤒', title: { ar: 'إذا بدك دواء بدون وصفة', en: 'If you need medicine without a prescription', fr: 'Pour un médicament sans ordonnance' }, phrases: [
+        { fr: 'Je cherche quelque chose contre le mal de gorge.', ar: 'عم دور على شي لوجع الحلق.', en: 'I’m looking for something for a sore throat.' },
+        { fr: 'Vous avez quelque chose contre la toux ?', ar: 'عندكم شي للسعال؟', en: 'Do you have something for a cough?' },
+        { fr: 'Vous avez quelque chose contre le rhume ?', ar: 'عندكم شي للرشح؟', en: 'Do you have something for a cold?' },
+        { fr: 'J’ai mal à la tête.', ar: 'راسي عم يوجعني.', en: 'I have a headache.' },
+        { fr: 'J’ai mal à la gorge.', ar: 'حلقي عم يوجعني.', en: 'I have a sore throat.' },
+        { fr: 'J’ai des brûlures d’estomac.', ar: 'عندي حرقة بالمعدة.', en: 'I have heartburn.' },
+        { fr: 'J’ai des douleurs au ventre.', ar: 'عندي وجع بالبطن.', en: 'I have stomach pain.' },
+        { fr: 'Depuis combien de temps ?', ar: 'من إمتى؟', en: 'Since when?' }
+      ] },
+      { icon: '⚠️', title: { ar: 'شرح الأعراض', en: 'Explaining your symptoms', fr: 'Expliquer les symptômes' }, phrases: [
+        { fr: 'J’ai ces symptômes depuis quelques jours.', ar: 'عندي هالأعراض من كم يوم.', en: 'I’ve had these symptoms for a few days.' },
+        { fr: 'Ça me fait mal ici.', ar: 'هون عم يوجعني.', en: 'It hurts here.' },
+        { fr: 'Ça me démange.', ar: 'عم يحكني.', en: 'It itches.' },
+        { fr: 'J’ai de la fièvre.', ar: 'عندي حرارة.', en: 'I have a fever.' },
+        { fr: 'Je suis allergique à certains médicaments.', ar: 'عندي حساسية من بعض الأدوية.', en: 'I’m allergic to certain medicines.' },
+        { fr: 'Est-ce qu’il y a des effets secondaires ?', ar: 'في آثار جانبية؟', en: 'Are there any side effects?' }
+      ] },
+      { icon: '🧴', title: { ar: 'منتجات الصيدلية', en: 'Pharmacy products', fr: 'Les produits de pharmacie' }, phrases: [
+        { fr: 'Vous avez une crème pour ça ?', ar: 'عندكم كريم لهالشي؟', en: 'Do you have a cream for this?' },
+        { fr: 'Vous avez un produit sans ordonnance ?', ar: 'عندكم منتج بدون وصفة؟', en: 'Do you have an over-the-counter product?' },
+        { fr: 'Je cherche un shampooing doux.', ar: 'عم دور على شامبو لطيف.', en: 'I’m looking for a gentle shampoo.' },
+        { fr: 'Vous avez quelque chose pour les cheveux ?', ar: 'عندكم شي للشعر؟', en: 'Do you have something for hair?' },
+        { fr: 'Je préfère un produit sans parfum.', ar: 'بفضّل منتج بدون عطر.', en: 'I prefer a fragrance-free product.' }
+      ] },
+      { icon: '📦', title: { ar: 'إذا الدواء غير متوفر', en: 'If the medicine isn’t available', fr: 'Si le médicament n’est pas disponible' }, phrases: [
+        { fr: 'Vous n’en avez plus ?', ar: 'ما عاد عندكم منه؟', en: 'You don’t have any left?' },
+        { fr: 'Quand est-ce que vous allez en recevoir ?', ar: 'إمتى رح يوصلكم؟', en: 'When will you receive it?' },
+        { fr: 'Vous pouvez le commander ?', ar: 'فيكم تطلبوه؟', en: 'Can you order it?' },
+        { fr: 'Vous pouvez me prévenir quand il arrive ?', ar: 'فيكم تخبروني لما يوصل؟', en: 'Can you let me know when it arrives?' }
+      ] },
+      { icon: '🗣️', title: { ar: 'مواقف مع الصيدلي', en: 'Moments with the pharmacist', fr: 'Des échanges avec le pharmacien' }, phrases: [
+        { fr: 'Je ne comprends pas bien les instructions.', ar: 'ما فهمت التعليمات منيح.', en: 'I don’t quite understand the instructions.' },
+        { fr: 'Vous pouvez répéter, s’il vous plaît ?', ar: 'فيك تعيد لو سمحت؟', en: 'Could you repeat, please?' },
+        { fr: 'Vous pouvez parler un peu plus lentement ?', ar: 'فيك تحكي أبطأ شوي؟', en: 'Could you speak a little more slowly?' },
+        { fr: 'Est-ce que je peux prendre ce médicament avec mes autres traitements ?', ar: 'فيني آخد هالدواء مع أدويتي التانية؟', en: 'Can I take this medicine with my other medications?' },
+        { fr: 'Je dois demander à mon médecin ?', ar: 'لازم اسأل طبيبي؟', en: 'Do I need to ask my doctor?' }
+      ] },
+      { icon: '⭐', title: { ar: 'أهم 10 عبارات للحفظ', en: 'Top 10 phrases to memorize', fr: 'Les 10 phrases à retenir' }, phrases: [
+        { fr: 'J’ai une ordonnance.', ar: 'معي وصفة طبية.', en: 'I have a prescription.' },
+        { fr: 'Je viens chercher mes médicaments.', ar: 'جايي آخد أدويتي.', en: 'I’m here to pick up my medication.' },
+        { fr: 'Est-ce que c’est remboursé ?', ar: 'هاد بينردّ ثمنه؟', en: 'Is this reimbursed?' },
+        { fr: 'Est-ce que c’est pris en charge ?', ar: 'هاد مغطّى؟', en: 'Is this covered?' },
+        { fr: 'Comment dois-je le prendre ?', ar: 'كيف لازم آخده؟', en: 'How should I take it?' },
+        { fr: 'Combien de fois par jour ?', ar: 'كم مرة باليوم؟', en: 'How many times a day?' },
+        { fr: 'Avant ou après le repas ?', ar: 'قبل الأكل ولا بعده؟', en: 'Before or after the meal?' },
+        { fr: 'Est-ce que vous avez ce médicament ?', ar: 'عندكم هالدواء؟', en: 'Do you have this medicine?' },
+        { fr: 'Vous pouvez le commander ?', ar: 'فيكم تطلبوه؟', en: 'Can you order it?' },
+        { fr: 'Vous pouvez répéter, s’il vous plaît ?', ar: 'فيك تعيد لو سمحت؟', en: 'Could you repeat, please?' }
       ] }
     ]
   }
