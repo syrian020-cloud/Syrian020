@@ -23148,6 +23148,48 @@ window.CENTRES_DATA = [
         { fr: 'J’attendais ce moment depuis longtemps.', ar: 'كنت ناطرة هاللحظة من زمان.', en: 'I’ve been waiting for this moment for a long time.' },
         { fr: 'Alors, on va l’annoncer à nos familles ?', ar: 'طيب، منخبر عيلتنا؟', en: 'So, shall we tell our families?' },
         { fr: 'Je suis prête à construire ma vie avec toi.', ar: 'أنا جاهزة أبني حياتي معك.', en: 'I’m ready to build my life with you.' }
+      ] },
+      { icon: '🥹', title: { ar: 'عندما تشك بالحمل', en: 'When she suspects pregnancy', fr: 'Quand elle soupçonne une grossesse' }, phrases: [
+        { fr: 'J’ai quelques jours de retard.', ar: 'دورتي متأخرة كم يوم.', en: 'My period is a few days late.' },
+        { fr: 'Je pense que je pourrais être enceinte.', ar: 'بعتقد ممكن أكون حامل.', en: 'I think I might be pregnant.' },
+        { fr: 'J’ai acheté un test de grossesse.', ar: 'اشتريت فحص حمل.', en: 'I bought a pregnancy test.' },
+        { fr: 'Je vais faire un test.', ar: 'رح أعمل فحص حمل.', en: 'I’m going to take a pregnancy test.' },
+        { fr: 'J’ai un peu peur du résultat.', ar: 'شوي خايفة من النتيجة.', en: 'I’m a little scared of the result.' }
+      ] },
+      { icon: '❤️', title: { ar: 'تخبر زوجها أن هناك خبرًا', en: 'Telling her husband there’s news', fr: 'Annoncer à son mari qu’il y a une nouvelle' }, phrases: [
+        { fr: 'Chéri, il faut que je te parle.', ar: 'حبيبي، لازم احكي معك.', en: 'Honey, I need to talk to you.' },
+        { fr: 'J’ai une surprise pour toi.', ar: 'عندي مفاجأة إلك.', en: 'I have a surprise for you.' },
+        { fr: 'Tu veux savoir pourquoi je suis comme ça aujourd’hui ?', ar: 'بدك تعرف ليش أنا هيك اليوم؟', en: 'Do you want to know why I’m like this today?' },
+        { fr: 'J’ai quelque chose d’important à te dire.', ar: 'عندي شغلة مهمة بدي قلك ياها.', en: 'I have something important to tell you.' }
+      ] },
+      { icon: '🍼', title: { ar: 'لحظة اكتشاف الحمل', en: 'The pregnancy reveal', fr: 'Le moment de l’annonce de la grossesse' }, phrases: [
+        { fr: 'Chéri… je suis enceinte. ❤️', ar: 'حبيبي... أنا حامل. ❤️', en: 'Honey… I’m pregnant. ❤️' },
+        { fr: 'Tu vas être papa ! 🥹', ar: 'رح تصير بابا! 🥹', en: 'You’re going to be a dad! 🥹' },
+        { fr: 'On va avoir un bébé. ❤️', ar: 'رح يصير عنا بيبي. ❤️', en: 'We’re going to have a baby. ❤️' },
+        { fr: 'Il y a un petit bébé qui grandit dans mon ventre.', ar: 'في بيبي صغير عم يكبر ببطني.', en: 'There’s a little baby growing inside me.' },
+        { fr: 'Notre famille va s’agrandir.', ar: 'عيلتنا رح تكبر.', en: 'Our family is going to grow.' }
+      ] },
+      { icon: '😳', title: { ar: 'ردّة فعل الزوج', en: 'The husband’s reaction', fr: 'La réaction du mari' }, phrases: [
+        { fr: 'Quoi ? Tu es enceinte ?', ar: 'شو؟ إنتِ حامل؟', en: 'What? You’re pregnant?' },
+        { fr: 'C’est vrai ?', ar: 'عنجد؟', en: 'Is it true?' },
+        { fr: 'Tu es sûre ?', ar: 'متأكدة؟', en: 'Are you sure?' },
+        { fr: 'Je vais être papa ?', ar: 'أنا رح صير بابا؟', en: 'I’m going to be a dad?' },
+        { fr: 'Oh mon Dieu… je n’arrive pas à y croire !', ar: 'يا الله... مو مصدق!', en: 'Oh my God… I can’t believe it!' },
+        { fr: 'C’est la meilleure nouvelle de ma vie.', ar: 'هاد أحلى خبر بحياتي.', en: 'This is the best news of my life.' }
+      ] },
+      { icon: '🥹', title: { ar: 'لحظة عاطفية', en: 'An emotional moment', fr: 'Un moment d’émotion' }, phrases: [
+        { fr: 'Viens là, donne-moi un câlin. ❤️', ar: 'تعالي لهون، عطيني حضن. ❤️', en: 'Come here, give me a hug. ❤️' },
+        { fr: 'Je suis tellement heureux.', ar: 'أنا كتير مبسوط.', en: 'I’m so happy.' },
+        { fr: 'Je t’aime encore plus maintenant.', ar: 'بحبك أكتر من هلأ.', en: 'I love you even more now.' },
+        { fr: 'On va être une famille.', ar: 'رح نصير عيلة.', en: 'We’re going to be a family.' },
+        { fr: 'Je serai toujours là pour vous deux.', ar: 'رح ضل دايمًا حدكم إنتِ والبيبي.', en: 'I’ll always be there for both of you.' }
+      ] },
+      { icon: '📸', title: { ar: 'مفاجأة لطيفة للزوج', en: 'A cute surprise for the husband', fr: 'Une jolie surprise pour le mari' }, phrases: [
+        { fr: 'J’ai quelque chose pour toi.', ar: 'عندي شغلة إلك.', en: 'I have something for you.' },
+        { fr: 'Ouvre cette boîte.', ar: 'افتح هالصندوق.', en: 'Open this box.' },
+        { fr: 'Regarde bien.', ar: 'طالع منيح.', en: 'Look carefully.' },
+        { fr: 'Surprise ! Tu vas être papa ! ❤️', ar: 'مفاجأة! رح تصير بابا! ❤️', en: 'Surprise! You’re going to be a dad! ❤️' },
+        { fr: 'J’ai gardé le test pour te l’annoncer moi-même.', ar: 'خليت فحص الحمل معي لحتى أنا خبرك بنفسي.', en: 'I kept the pregnancy test so I could tell you myself.' }
       ] }
     ]
   }
