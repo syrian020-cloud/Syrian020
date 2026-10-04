@@ -310,24 +310,27 @@
     once();
   }
 
-  function speakSequence(texts, btn) {
+  function speakSequence(items, btn) {
     if (btn.classList.contains('speaking')) { stopSpeaking(); return; }
     stopSpeaking();
     btn.classList.add('speaking');
     var seq = speakSeq;
     var done = function () { if (seq === speakSeq) btn.classList.remove('speaking'); };
-    var idx = 0, round = 0;
+    var idx = 0, li = 0, round = 0;
     var strip = function (t) { return t.replace(/^(Client|Vendeur|Customer|Seller|الزبون|البائع)\s*[:：]\s*/i, ''); };
     function play() {
       if (seq !== speakSeq) { done(); return; }
-      if (idx >= texts.length) {
+      if (idx >= items.length) {
         round++;
         var rounds = state.loop === 0 ? Infinity : Math.max(1, state.loop);
         if (round >= rounds) { done(); return; }
-        idx = 0;
+        idx = 0; li = 0;
       }
-      if (nativeTTS) speakNative(strip(texts[idx]), 'fr', 1, function () { idx++; play(); });
-      else speakWeb(strip(texts[idx]), 'fr', 1, function () { idx++; play(); });
+      var langs = ['fr', 'ar', 'en'];
+      var text = strip(items[idx][langs[li]]);
+      var step = function () { li++; if (li >= langs.length) { li = 0; idx++; } play(); };
+      if (nativeTTS) speakNative(text, langs[li], 1, step);
+      else speakWeb(text, langs[li], 1, step);
     }
     play();
   }
@@ -398,7 +401,7 @@
         visible += phrases.length;
         if (q && !phrases.length) return;
         var wordsFr = phrases.reduce(function (n, p) { return n + p.fr.trim().split(/\s+/).length; }, 0);
-        playData.push(phrases.map(function (p) { return p.fr; }));
+        playData.push(phrases.map(function (p) { return { fr: p.fr, ar: p.ar, en: p.en }; }));
         html += '<div class="section' + (q ? ' open' : '') + '">' +
           '<div class="section-head" data-sec="' + si + '"><button class="sec-play" data-play="' + (playData.length - 1) + '" title="Play all">▶️</button><span class="sec-icon">' + sec.icon + '</span>' +
           '<span class="sec-title">' + esc(tside(sec.title)) + '</span>' +
