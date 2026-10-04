@@ -20984,5 +20984,446 @@ window.CENTRES_DATA = [
         { fr: 'Ça marche. À demain !', ar: 'تمام. منشوفك بكرا!', en: 'Sounds good. See you tomorrow!' }
       ] }
     ]
+  },
+  {
+    id: 'taaref',
+    icon: '💬',
+    name: { ar: 'التعارف مع شخص', en: 'Getting to know someone', fr: 'Faire connaissance avec quelqu’un' },
+    desc: { ar: 'عبارات التعارف والدردشة بالفرنسية — من البداية لطلب الرقم وتحديد موعد', en: 'French phrases for meeting and chatting — from the opening to asking for the number and setting a date', fr: 'Phrases françaises pour aborder et discuter — de l’ouverture au numéro et au rendez-vous' },
+    sections: [
+      { icon: '🌳', title: { ar: 'البداية', en: 'The opening', fr: 'Le début' }, phrases: [
+        { fr: 'Excuse-moi, je peux te parler une seconde ?', ar: 'عفواً، فيني احكي معك لحظة؟', en: 'Excuse me, can I talk to you for a second?' },
+        { fr: 'Je t’ai vue tout à l’heure et je t’ai trouvée sympa, alors je me suis dit que j’allais venir te parler.', ar: 'شفتك من شوي وحسّيتك لطيفة، فقلت لحالي خليني أجي أحكي معك.', en: 'I saw you earlier and thought you seemed nice, so I decided to come talk to you.' },
+        { fr: 'Salut, désolé de te déranger. Je voulais simplement faire connaissance avec toi.', ar: 'مرحبا، آسف إذا أزعجتك. بس حبيت اتعرّف عليك.', en: 'Hi, sorry to bother you. I just wanted to get to know you.' }
+      ] },
+      { icon: '😊', title: { ar: 'بعد ما تجاوب', en: 'After she replies', fr: 'Après sa réponse' }, phrases: [
+        { fr: 'Comment tu t’appelles ?', ar: 'شو اسمك؟', en: 'What’s your name?' },
+        { fr: 'Moi, c’est Mohammad. Enchanté.', ar: 'أنا محمد، تشرفت فيكي.', en: 'I’m Mohammad. Nice to meet you.' },
+        { fr: 'Tu viens souvent ici ?', ar: 'بتجي لهون عادةً؟', en: 'Do you come here often?' },
+        { fr: 'Tu habites dans le coin ?', ar: 'ساكنة بهالمنطقة؟', en: 'Do you live around here?' }
+      ] },
+      { icon: '📱', title: { ar: 'إذا كان الحديث لطيفًا', en: 'If the conversation is nice', fr: 'Si la discussion est agréable' }, phrases: [
+        { fr: 'J’ai bien aimé discuter avec toi. Ça te dirait qu’on échange nos numéros ?', ar: 'انبسطت بالحكي معك. شو رأيك نتبادل أرقامنا؟', en: 'I enjoyed talking with you. Would you like to exchange numbers?' },
+        { fr: 'Si ça te dit, on peut échanger nos numéros.', ar: 'إذا بتحبي، فينا نتبادل أرقامنا.', en: 'If you’d like, we can exchange numbers.' }
+      ] },
+      { icon: '🙏', title: { ar: 'إذا ما كانت مهتمة', en: 'If she’s not interested', fr: 'Si elle n’est pas intéressée' }, phrases: [
+        { fr: 'Pas de souci, je comprends. Bonne journée !', ar: 'ولا يهمك، بفهم. نهارك سعيد!', en: 'No problem, I understand. Have a nice day!' }
+      ] },
+      { icon: '⭐', title: { ar: 'جملة واحدة أنصحك تحفظها كبداية:', en: 'One opener to memorize', fr: 'Une phrase d’ouverture à retenir' }, phrases: [
+        { fr: 'Salut, désolé de te déranger. Je t’ai trouvée sympa, alors je voulais venir faire connaissance avec toi.', ar: 'مرحبا، آسف إذا أزعجتك. حسّيتك لطيفة، فحبيت أجي اتعرّف عليك.', en: 'Hi, sorry to bother you. You seemed nice, so I wanted to come and introduce myself.' }
+      ] },
+      { icon: '🌳', title: { ar: '1. الاقتراب منها بأدب', en: '1. Approaching her politely', fr: '1. L’aborder poliment' }, phrases: [
+        { fr: 'Excuse-moi, je peux te poser une petite question ?', ar: 'عفواً، فيني اسألك سؤال صغير؟', en: 'Excuse me, can I ask you a quick question?' },
+        { fr: 'Excuse-moi de venir comme ça, j’espère que ça ne te dérange pas.', ar: 'آسف إني جيت لعندك هيك، بتمنى ما يكون أزعجك.', en: 'Sorry for approaching you like this, I hope I’m not bothering you.' },
+        { fr: 'Je ne veux pas te déranger longtemps.', ar: 'ما بدي أزعجك كتير.', en: 'I don’t want to bother you for long.' },
+        { fr: 'Je peux m’asseoir un instant ?', ar: 'فيني اقعد لحظة؟', en: 'Can I sit down for a moment?' }
+      ] },
+      { icon: '😊', title: { ar: '2. بدء التعارف', en: '2. Starting the introduction', fr: '2. Commencer la présentation' }, phrases: [
+        { fr: 'Je voulais simplement venir te dire bonjour.', ar: 'بس حبيت أجي سلّم عليكي.', en: 'I just wanted to come and say hello.' },
+        { fr: 'Je t’ai vue ici et je me suis dit que j’allais venir te parler.', ar: 'شفتك هون وقلت لحالي أجي أحكي معك.', en: 'I saw you here and thought I’d come talk to you.' },
+        { fr: 'Tu as l’air sympa, alors je me suis permis de venir te parler.', ar: 'شكلك لطيفة، فسمحت لحالي أجي أحكي معك.', en: 'You seem nice, so I thought I’d come talk to you.' },
+        { fr: 'Je me suis dit : pourquoi pas aller lui parler ?', ar: 'قلت لحالي: ليش ما أروح أحكي معها؟', en: 'I thought, why not go talk to her?' }
+      ] },
+      { icon: '🗣️', title: { ar: '3. أسئلة بسيطة لفتح الحديث', en: '3. Simple questions to open the conversation', fr: '3. Questions simples pour ouvrir la discussion' }, phrases: [
+        { fr: 'Tu viens te promener ici ?', ar: 'بتجي تتمشي هون؟', en: 'Do you come here for a walk?' },
+        { fr: 'Tu habites près d’ici ?', ar: 'ساكنة قريب من هون؟', en: 'Do you live near here?' },
+        { fr: 'Tu viens souvent dans ce parc ?', ar: 'بتجي كتير عهالحديقة؟', en: 'Do you come to this park often?' },
+        { fr: 'Tu fais souvent des promenades ici ?', ar: 'عادةً بتتمشي هون؟', en: 'Do you often take walks here?' },
+        { fr: 'Tu es du coin ?', ar: 'إنتِ من هالمنطقة؟', en: 'Are you from around here?' }
+      ] },
+      { icon: '👋', title: { ar: '4. التعارف', en: '4. Getting acquainted', fr: '4. Faire connaissance' }, phrases: [
+        { fr: 'Comment tu t’appelles ?', ar: 'شو اسمك؟', en: 'What’s your name?' },
+        { fr: 'Moi, c’est Mohammad.', ar: 'أنا محمد.', en: 'I’m Mohammad.' },
+        { fr: 'Enchanté de faire ta connaissance.', ar: 'تشرفت بمعرفتك.', en: 'Nice to meet you.' },
+        { fr: 'Tu es de Strasbourg ?', ar: 'إنتِ من ستراسبورغ؟', en: 'Are you from Strasbourg?' },
+        { fr: 'Tu fais quoi dans la vie ?', ar: 'شو بتشتغلي بحياتك؟', en: 'What do you do for a living?' }
+      ] },
+      { icon: '☕', title: { ar: '5. إذا صار في انسجام', en: '5. If there’s chemistry', fr: '5. S’il y a un bon feeling' }, phrases: [
+        { fr: 'J’aime bien discuter avec toi.', ar: 'حبيت الحكي معك.', en: 'I like talking with you.' },
+        { fr: 'Tu es vraiment sympa.', ar: 'إنتِ لطيفة كتير.', en: 'You’re really nice.' },
+        { fr: 'On s’entend bien, je trouve.', ar: 'بحس إنو في بيناتنا انسجام.', en: 'I think we get along well.' },
+        { fr: 'Ça te dirait de prendre un café un de ces jours ?', ar: 'شو رأيك نشرب قهوة شي يوم؟', en: 'Would you like to grab a coffee sometime?' },
+        { fr: 'Ça te dit qu’on se revoie ?', ar: 'شو رأيك نلتقي مرة تانية؟', en: 'Would you like to meet again?' }
+      ] },
+      { icon: '📱', title: { ar: '6. طلب الرقم بطريقة محترمة', en: '6. Asking for her number respectfully', fr: '6. Demander son numéro poliment' }, phrases: [
+        { fr: 'Est-ce que je peux avoir ton numéro ?', ar: 'فيني آخد رقمك؟', en: 'Can I have your number?' },
+        { fr: 'Si tu es d’accord, j’aimerais bien garder contact avec toi.', ar: 'إذا ما عندك مانع، بحب نضل على تواصل.', en: 'If you’re okay with it, I’d like to stay in touch.' },
+        { fr: 'Tu préfères me donner ton Instagram ?', ar: 'بتفضلي تعطيني الإنستغرام تبعك؟', en: 'Would you rather give me your Instagram?' },
+        { fr: 'Je peux te donner mon numéro, si tu veux.', ar: 'فيني أعطيكي رقمي إذا بتحبي.', en: 'I can give you my number if you’d like.' }
+      ] },
+      { icon: '😅', title: { ar: '7. إذا كنت خجول', en: '7. If you’re shy', fr: '7. Si tu es timide' }, phrases: [
+        { fr: 'Je t’avoue que je suis un peu gêné.', ar: 'بصراحة أنا شوي محرج.', en: 'I’ll admit I’m a little nervous.' },
+        { fr: 'Je ne suis pas très doué pour aborder quelqu’un.', ar: 'أنا مو كتير شاطر إني افتح حديث مع حدا.', en: 'I’m not very good at approaching someone.' },
+        { fr: 'Mais je me suis dit que je devais quand même venir te parler.', ar: 'بس قلت لحالي لازم مع هيك أجي أحكي معك.', en: 'But I thought I should come talk to you anyway.' }
+      ] },
+      { icon: '❤️', title: { ar: '8. إذا بدك تكون واضح بدون مبالغة', en: '8. Being direct without overdoing it', fr: '8. Être direct sans en faire trop' }, phrases: [
+        { fr: 'Je t’ai trouvée jolie, et j’avais envie de venir te parler.', ar: 'لقيتك حلوة وحبيت أجي أحكي معك.', en: 'I thought you were pretty and wanted to come talk to you.' },
+        { fr: 'Tu m’as plu, alors je me suis dit que j’allais tenter ma chance.', ar: 'عجبتي، فقلت لحالي جرّب حظي.', en: 'I liked you, so I thought I’d give it a try.' }
+      ] },
+      { icon: '🚶‍♀️', title: { ar: '9. إذا قالت إنها مستعجلة', en: '9. If she says she’s in a hurry', fr: '9. Si elle dit qu’elle est pressée' }, phrases: [
+        { fr: 'Pas de souci, je comprends.', ar: 'ولا يهمك، بفهم.', en: 'No problem, I understand.' },
+        { fr: 'Je ne vais pas te retenir.', ar: 'ما رح عطّلك.', en: 'I won’t keep you.' },
+        { fr: 'Peut-être une autre fois. Bonne journée !', ar: 'يمكن مرة تانية. نهارك سعيد!', en: 'Maybe another time. Have a nice day!' }
+      ] },
+      { icon: '⭐', title: { ar: 'سيناريو كامل وسهل للحفظ', en: 'A complete easy scenario to memorize', fr: 'Un scénario complet et facile à retenir' }, phrases: [
+        { fr: 'Salut, excuse-moi, je peux te poser une petite question ?', ar: 'مرحبا، عفواً، فيني اسألك سؤال صغير؟', en: 'Hi, excuse me, can I ask you a quick question?' },
+        { fr: 'Bien sûr.', ar: 'أكيد.', en: 'Sure.' },
+        { fr: 'Je t’ai vue ici et je t’ai trouvée sympa, alors je voulais venir faire connaissance avec toi.', ar: 'شفتك هون وحسّيتك لطيفة، فحبيت أجي اتعرّف عليكي.', en: 'I saw you here and thought you seemed nice, so I wanted to come and introduce myself.' },
+        { fr: 'Comment tu t’appelles ?', ar: 'شو اسمك؟', en: 'What’s your name?' },
+        { fr: 'Moi, c’est Mohammad. Enchanté.', ar: 'أنا محمد، تشرفت فيكي.', en: 'I’m Mohammad. Nice to meet you.' },
+        { fr: 'Tu viens souvent dans ce parc ?', ar: 'بتجي كتير عهالحديقة؟', en: 'Do you come to this park often?' },
+        { fr: 'J’aime bien discuter avec toi. Ça te dirait qu’on prenne un café un de ces jours ?', ar: 'حبيت الحكي معك. شو رأيك نشرب قهوة شي يوم؟', en: 'I like talking with you. Would you like to grab a coffee sometime?' },
+        { fr: 'Si tu veux, on peut échanger nos numéros.', ar: 'إذا بتحبي، فينا نتبادل أرقامنا.', en: 'If you want, we can exchange numbers.' }
+      ] },
+      { icon: '🌳', title: { ar: 'إذا قالت: نعم، ممكن نحكي', en: 'If she says: yes, we can talk', fr: 'Si elle dit : oui, on peut parler' }, phrases: [
+        { fr: 'Bien sûr, vas-y.', ar: 'أكيد، تفضل احكي.', en: 'Sure, go ahead.' },
+        { fr: 'Oui, bien sûr.', ar: 'إي أكيد.', en: 'Yes, of course.' },
+        { fr: 'Pas de problème.', ar: 'ما في مشكلة.', en: 'No problem.' },
+        { fr: 'Qu’est-ce qu’il y a ?', ar: 'شو في؟ / شو بدك؟', en: 'What is it?' },
+        { fr: 'Je voulais simplement faire connaissance avec toi.', ar: 'بس حبيت اتعرّف عليكي.', en: 'I just wanted to get to know you.' },
+        { fr: 'Je ne voulais pas te déranger.', ar: 'ما كنت بدي أزعجك.', en: 'I didn’t want to bother you.' }
+      ] },
+      { icon: '😊', title: { ar: 'إذا سألتك: «ليش جيت لعندي؟»', en: 'If she asks: why did you come to me?', fr: 'Si elle te demande : pourquoi tu es venu me voir ?' }, phrases: [
+        { fr: 'Parce que tu m’as plu.', ar: 'لأنك عجبتي.', en: 'Because I liked you.' },
+        { fr: 'Je t’ai trouvée intéressante.', ar: 'لقيتك شخص مثير للاهتمام.', en: 'I found you interesting.' },
+        { fr: 'Tu avais l’air sympa.', ar: 'شكلك كنتِ لطيفة.', en: 'You seemed nice.' },
+        { fr: 'J’avais envie de faire connaissance avec toi.', ar: 'كان بدي اتعرّف عليكي.', en: 'I wanted to get to know you.' }
+      ] },
+      { icon: '🗣️', title: { ar: 'إذا قالت: «أنت من وين؟»', en: 'If she asks: where are you from?', fr: 'Si elle te demande : tu es d’où ?' }, phrases: [
+        { fr: 'Je suis syrien. Et toi ?', ar: 'أنا سوري، وإنتِ؟', en: 'I’m Syrian. And you?' },
+        { fr: 'Je viens de Syrie, mais j’habite en France.', ar: 'أنا من سوريا، بس ساكن بفرنسا.', en: 'I’m from Syria, but I live in France.' },
+        { fr: 'J’habite dans le coin.', ar: 'ساكن قريب من هون.', en: 'I live around here.' }
+      ] },
+      { icon: '💬', title: { ar: 'أسئلة خفيفة تكمل فيها الحوار', en: 'Light questions to keep the conversation going', fr: 'Questions légères pour continuer la discussion' }, phrases: [
+        { fr: 'Tu fais quoi aujourd’hui ?', ar: 'شو عاملة اليوم؟', en: 'What are you doing today?' },
+        { fr: 'Tu es venue toute seule ?', ar: 'جيتي لحالك؟', en: 'Did you come alone?' },
+        { fr: 'Tu viens te détendre un peu ?', ar: 'جايي ترتاحي شوي؟', en: 'Did you come to relax a little?' },
+        { fr: 'Tu aimes bien ce parc ?', ar: 'بتحبي هالحديقة؟', en: 'Do you like this park?' },
+        { fr: 'Tu habites loin d’ici ?', ar: 'ساكنة بعيد عن هون؟', en: 'Do you live far from here?' },
+        { fr: 'Tu fais quoi dans la vie ?', ar: 'شو بتشتغلي؟', en: 'What do you do?' }
+      ] },
+      { icon: '☕', title: { ar: 'إذا بدك تدعوها لقهوة', en: 'If you want to invite her for a coffee', fr: 'Si tu veux l’inviter à prendre un café' }, phrases: [
+        { fr: 'Ça te dirait qu’on prenne un café ?', ar: 'شو رأيك نشرب قهوة؟', en: 'Would you like to grab a coffee?' },
+        { fr: 'Tu serais disponible un de ces jours pour prendre un café ?', ar: 'بتكوني فاضية شي يوم لنشرب قهوة؟', en: 'Would you be free one of these days to grab a coffee?' },
+        { fr: 'Si tu veux, on peut prendre un café ensemble.', ar: 'إذا بتحبي، فينا نشرب قهوة سوا.', en: 'If you want, we can grab a coffee together.' }
+      ] },
+      { icon: '📱', title: { ar: 'إذا وافقت', en: 'If she says yes', fr: 'Si elle accepte' }, phrases: [
+        { fr: 'Super ! On échange nos numéros ?', ar: 'حلو! منتبادل أرقامنا؟', en: 'Great! Shall we exchange numbers?' },
+        { fr: 'Tu préfères me donner ton numéro ou ton Instagram ?', ar: 'بتفضلي تعطيني رقمك أو الإنستغرام؟', en: 'Would you rather give me your number or Instagram?' },
+        { fr: 'Je t’envoie un message tout de suite.', ar: 'ببعتلك رسالة هلأ.', en: 'I’ll message you right away.' }
+      ] },
+      { icon: '😄', title: { ar: 'بعد ما تأخذ رقمها', en: 'After getting her number', fr: 'Après avoir pris son numéro' }, phrases: [
+        { fr: 'Je vais enregistrer ton numéro.', ar: 'رح خزّن رقمك.', en: 'I’ll save your number.' },
+        { fr: 'Comme ça, on pourra rester en contact.', ar: 'هيك منضل على تواصل.', en: 'That way we can stay in touch.' },
+        { fr: 'Je t’écris ce soir.', ar: 'بكتبلك الليلة.', en: 'I’ll text you tonight.' },
+        { fr: 'Ça m’a fait plaisir de faire ta connaissance.', ar: 'انبسطت إني تعرّفت عليكي.', en: 'It was nice meeting you.' }
+      ] },
+      { icon: '❌', title: { ar: 'إذا قالت «لا»', en: 'If she says no', fr: 'Si elle dit non' }, phrases: [
+        { fr: 'Pas de souci, je comprends.', ar: 'ولا يهمك، بفهم.', en: 'No problem, I understand.' },
+        { fr: 'Je voulais juste faire connaissance.', ar: 'بس كنت حابب اتعرّف عليكي.', en: 'I just wanted to get to know you.' },
+        { fr: 'Merci quand même. Bonne journée !', ar: 'شكرًا بكل الأحوال، نهارك سعيد!', en: 'Thanks anyway. Have a nice day!' }
+      ] },
+      { icon: '😅', title: { ar: 'إذا قالت «عندي حبيب»', en: 'If she says "I have a boyfriend"', fr: 'Si elle dit « j’ai un copain »' }, phrases: [
+        { fr: 'Ah d’accord, je comprends. Aucun souci.', ar: 'آه أوكي، فهمت. ما في أي مشكلة.', en: 'Oh okay, I understand. No problem.' },
+        { fr: 'Je respecte ça. Bonne journée à toi !', ar: 'بحترم هالشي. نهارك سعيد!', en: 'I respect that. Have a nice day!' }
+      ] },
+      { icon: '⭐', title: { ar: 'أهم 10 جمل «بصم»', en: 'The top 10 must-know sentences', fr: 'Les 10 phrases à graver' }, phrases: [
+        { fr: 'Excuse-moi, je peux te parler une seconde ?', ar: 'عفواً، فيني أحكي معك لحظة؟', en: 'Excuse me, can I talk to you for a second?' },
+        { fr: 'Je voulais faire connaissance avec toi.', ar: 'حبيت اتعرّف عليكي.', en: 'I wanted to get to know you.' },
+        { fr: 'Comment tu t’appelles ?', ar: 'شو اسمك؟', en: 'What’s your name?' },
+        { fr: 'Tu viens souvent ici ?', ar: 'بتجي لهون كتير؟', en: 'Do you come here often?' },
+        { fr: 'Tu habites dans le coin ?', ar: 'ساكنة قريب من هون؟', en: 'Do you live around here?' },
+        { fr: 'Tu fais quoi dans la vie ?', ar: 'شو بتشتغلي؟', en: 'What do you do?' },
+        { fr: 'J’aime bien discuter avec toi.', ar: 'حبيت الحكي معك.', en: 'I like talking with you.' },
+        { fr: 'Ça te dirait qu’on prenne un café un de ces jours ?', ar: 'شو رأيك نشرب قهوة شي يوم؟', en: 'Would you like to grab a coffee sometime?' },
+        { fr: 'On échange nos numéros ?', ar: 'منتبادل أرقامنا؟', en: 'Shall we exchange numbers?' },
+        { fr: 'Pas de souci, je comprends.', ar: 'ولا يهمك، بفهم.', en: 'No problem, I understand.' }
+      ] },
+      { icon: '🌳', title: { ar: 'إذا كانت جالسة لوحدها', en: 'If she’s sitting alone', fr: 'Si elle est assise seule' }, phrases: [
+        { fr: 'Salut, je peux te poser une petite question ?', ar: 'مرحبا، فيني اسألك سؤال صغير؟', en: 'Hi, can I ask you a quick question?' },
+        { fr: 'Tu attends quelqu’un ?', ar: 'ناطرة حدا؟', en: 'Are you waiting for someone?' },
+        { fr: 'Tu profites juste du beau temps ?', ar: 'بس جايي تستمتعي بالجو الحلو؟', en: 'Are you just enjoying the nice weather?' },
+        { fr: 'C’est sympa ici, tu ne trouves pas ?', ar: 'المكان حلو هون، مو هيك؟', en: 'It’s nice here, don’t you think?' },
+        { fr: 'Tu viens souvent te poser ici ?', ar: 'بتجي كتير تقعدي وترتاحي هون؟', en: 'Do you often come here to relax?' }
+      ] },
+      { icon: '☀️', title: { ar: 'إذا كانت تتمشى', en: 'If she’s walking', fr: 'Si elle se promène' }, phrases: [
+        { fr: 'Tu fais une petite balade ?', ar: 'جايي تتمشي شوي؟', en: 'Are you out for a little walk?' },
+        { fr: 'Je peux marcher un peu avec toi ?', ar: 'فيني امشي شوي معك؟', en: 'Can I walk with you for a bit?' },
+        { fr: 'Bien sûr, aucun souci.', ar: 'أكيد، ولا يهمك.', en: 'Of course, no problem.' }
+      ] },
+      { icon: '😄', title: { ar: 'إذا صار الحديث مريح', en: 'If the conversation flows nicely', fr: 'Si la discussion devient agréable' }, phrases: [
+        { fr: 'Tu es toujours aussi souriante ?', ar: 'دايمًا بتكوني هيك مبتسمة؟', en: 'Are you always this smiley?' },
+        { fr: 'Tu as l’air de bonne humeur aujourd’hui.', ar: 'شكلك مبسوطة اليوم.', en: 'You seem to be in a good mood today.' },
+        { fr: 'J’aime bien ton énergie.', ar: 'حبيت طاقتك / جوّك.', en: 'I like your energy.' },
+        { fr: 'Tu as l’air vraiment sympa.', ar: 'شكلك فعلًا لطيفة.', en: 'You seem really nice.' }
+      ] },
+      { icon: '🧑‍🤝‍🧑', title: { ar: 'إذا بدك تعرف إذا هي من المنطقة', en: 'If you want to know if she’s from the area', fr: 'Si tu veux savoir si elle est du coin' }, phrases: [
+        { fr: 'Tu habites ici depuis longtemps ?', ar: 'إلك زمان ساكنة هون؟', en: 'Have you lived here long?' },
+        { fr: 'Tu connais bien le quartier ?', ar: 'بتعرفي المنطقة منيح؟', en: 'Do you know the area well?' },
+        { fr: 'Tu connais un bon café dans le coin ?', ar: 'بتعرفي شي كافيه منيح بهالمنطقة؟', en: 'Do you know a good café around here?' },
+        { fr: 'Tu me conseillerais quel endroit ?', ar: 'أي مكان بتنصحيني فيه؟', en: 'Which place would you recommend?' }
+      ] },
+      { icon: '☕', title: { ar: 'طريقة ذكية للانتقال إلى موعد', en: 'A smart way to move toward a date', fr: 'Une façon intelligente de proposer un rendez-vous' }, phrases: [
+        { fr: 'Justement, ça me donne envie d’essayer.', ar: 'على سيرة هالموضوع، خلاني حابب جرّبه.', en: 'That actually makes me want to try it.' },
+        { fr: 'Ça te dirait qu’on y aille ensemble un de ces jours ?', ar: 'شو رأيك نروح سوا شي يوم؟', en: 'Would you like to go there together sometime?' },
+        { fr: 'On pourrait prendre un café là-bas.', ar: 'فينا نشرب قهوة هنيك.', en: 'We could have a coffee there.' }
+      ] },
+      { icon: '📱', title: { ar: 'إذا بدك تعطيها خيار بدل الضغط عليها', en: 'Giving her a choice instead of pressuring', fr: 'Lui laisser le choix au lieu de la pousser' }, phrases: [
+        { fr: 'Si tu veux, je peux te donner mon numéro.', ar: 'إذا بتحبي، فيني أعطيكي رقمي.', en: 'If you want, I can give you my number.' },
+        { fr: 'Tu pourras m’écrire si ça te dit.', ar: 'فيكي تبعتيلي إذا حبيتي.', en: 'You can message me if you’d like.' }
+      ] },
+      { icon: '💬', title: { ar: 'إذا أعطتك رقمها', en: 'If she gives you her number', fr: 'Si elle te donne son numéro' }, phrases: [
+        { fr: 'Merci, je t’écris ce soir.', ar: 'شكرًا، بكتبلك الليلة.', en: 'Thanks, I’ll text you tonight.' },
+        { fr: 'Je vais t’envoyer un petit message pour que tu aies mon numéro.', ar: 'رح ابعتلك رسالة صغيرة ليكون رقمي عندك.', en: 'I’ll send you a quick message so you have my number.' },
+        { fr: 'Tu peux m’enregistrer sous Mohammad.', ar: 'فيكي تسجليني باسم محمد.', en: 'You can save me as Mohammad.' }
+      ] },
+      { icon: '🧠', title: { ar: 'حوار كامل طبيعي جدًا', en: 'A very natural full dialogue', fr: 'Un dialogue complet très naturel' }, phrases: [
+        { fr: 'Salut, excuse-moi, je peux te poser une petite question ?', ar: 'مرحبا، عفواً، فيني اسألك سؤال صغير؟', en: 'Hi, excuse me, can I ask you a quick question?' },
+        { fr: 'Oui, bien sûr.', ar: 'إي أكيد.', en: 'Yes, of course.' },
+        { fr: 'Tu viens souvent dans ce parc ?', ar: 'بتجي كتير عهالحديقة؟', en: 'Do you come to this park often?' },
+        { fr: 'Oui, assez souvent.', ar: 'إي، نوعًا ما كتير.', en: 'Yes, quite often.' },
+        { fr: 'Moi aussi, j’aime bien venir ici. Au fait, comment tu t’appelles ?', ar: 'أنا كمان بحب أجي لهون. بالمناسبة، شو اسمك؟', en: 'Me too, I like coming here. By the way, what’s your name?' },
+        { fr: 'Moi, c’est Sarah.', ar: 'أنا سارة.', en: 'I’m Sarah.' },
+        { fr: 'Enchanté, moi c’est Mohammad.', ar: 'تشرفت، أنا محمد.', en: 'Nice to meet you, I’m Mohammad.' },
+        { fr: 'J’aime bien discuter avec toi. Ça te dirait qu’on prenne un café un de ces jours ?', ar: 'حبيت الحكي معك. شو رأيك نشرب قهوة شي يوم؟', en: 'I like talking with you. Would you like to grab a coffee sometime?' },
+        { fr: 'Oui, pourquoi pas.', ar: 'إي، ليش لأ.', en: 'Yes, why not?' },
+        { fr: 'Super. On échange nos numéros ?', ar: 'حلو. منتبادل أرقامنا؟', en: 'Great. Shall we exchange numbers?' }
+      ] },
+      { icon: '👋', title: { ar: 'لما تشوفها مرة ثانية', en: 'When you see her again', fr: 'Quand tu la revois' }, phrases: [
+        { fr: 'Salut, on s’est déjà vus ici, non ?', ar: 'مرحبا، نحنا شفنا بعض هون من قبل، مو؟', en: 'Hi, we’ve seen each other here before, right?' },
+        { fr: 'Je crois que je t’ai déjà vue ici.', ar: 'بحس إني شفتك هون من قبل.', en: 'I think I’ve seen you here before.' },
+        { fr: 'Tu te souviens de moi ?', ar: 'بتتذكّريني؟', en: 'Do you remember me?' },
+        { fr: 'Ça me fait plaisir de te revoir.', ar: 'انبسطت إني شفتك مرة تانية.', en: 'I’m happy to see you again.' }
+      ] },
+      { icon: '😊', title: { ar: 'إذا بدك تعرف إذا عندها وقت', en: 'If you want to know if she has time', fr: 'Si tu veux savoir si elle a le temps' }, phrases: [
+        { fr: 'Tu as deux minutes ?', ar: 'عندك دقيقتين؟', en: 'Do you have two minutes?' },
+        { fr: 'Tu n’es pas pressée ?', ar: 'مو مستعجلة؟', en: 'Are you not in a hurry?' },
+        { fr: 'Tu as un peu de temps ?', ar: 'عندك شوي وقت؟', en: 'Do you have a little time?' },
+        { fr: 'Je ne vais pas te prendre beaucoup de temps.', ar: 'ما رح آخد من وقتك كتير.', en: 'I won’t take much of your time.' }
+      ] },
+      { icon: '🗣️', title: { ar: 'أسئلة تخلي الحديث يستمر', en: 'Questions that keep the conversation going', fr: 'Questions pour faire durer la discussion' }, phrases: [
+        { fr: 'Qu’est-ce que tu aimes faire pendant ton temps libre ?', ar: 'شو بتحبي تعملي بوقت فراغك؟', en: 'What do you like doing in your free time?' },
+        { fr: 'Tu aimes sortir ?', ar: 'بتحبي تطلعي؟', en: 'Do you like going out?' },
+        { fr: 'Tu aimes voyager ?', ar: 'بتحبي السفر؟', en: 'Do you like traveling?' },
+        { fr: 'Tu écoutes quel genre de musique ?', ar: 'شو نوع الموسيقى اللي بتسمعيها؟', en: 'What kind of music do you listen to?' },
+        { fr: 'Tu regardes souvent des films ?', ar: 'بتحضري أفلام كتير؟', en: 'Do you watch movies often?' },
+        { fr: 'Tu fais du sport ?', ar: 'بتمارسي رياضة؟', en: 'Do you play sports?' }
+      ] },
+      { icon: '❤️', title: { ar: 'إذا بدك تعرف إذا هي مرتبطة — بطريقة غير مباشرة', en: 'Finding out if she’s taken — indirectly', fr: 'Savoir si elle est en couple — indirectement' }, phrases: [
+        { fr: 'Tu es venue avec des amis ?', ar: 'جيتي مع رفقاتك؟', en: 'Did you come with friends?' },
+        { fr: 'Tu viens souvent seule ici ?', ar: 'عادةً بتجي لحالك لهون؟', en: 'Do you usually come here alone?' },
+        { fr: 'Je peux te poser une question un peu personnelle ?', ar: 'فيني اسألك سؤال شخصي شوي؟', en: 'Can I ask you a slightly personal question?' },
+        { fr: 'Tu es célibataire ?', ar: 'إنتِ عزباء؟', en: 'Are you single?' },
+        { fr: 'D’accord, je vois.', ar: 'أوكي، فهمت.', en: 'Okay, I see.' }
+      ] },
+      { icon: '😄', title: { ar: 'مجاملات طبيعية بدون مبالغة', en: 'Natural compliments without overdoing it', fr: 'Compliments naturels sans en faire trop' }, phrases: [
+        { fr: 'J’aime bien ton sourire.', ar: 'حبيت ابتسامتك.', en: 'I like your smile.' },
+        { fr: 'J’aime bien ton style.', ar: 'حبيت ستايلك.', en: 'I like your style.' },
+        { fr: 'Tu as un très joli sourire.', ar: 'عندك ابتسامة حلوة كتير.', en: 'You have a really nice smile.' },
+        { fr: 'Tu as l’air très sympa.', ar: 'شكلك كتير لطيفة.', en: 'You seem really nice.' },
+        { fr: 'J’aime bien parler avec toi.', ar: 'بحب الحكي معك.', en: 'I like talking to you.' }
+      ] },
+      { icon: '😅', title: { ar: 'إذا ما عرفت شو تقول', en: 'If you don’t know what to say', fr: 'Si tu ne sais pas quoi dire' }, phrases: [
+        { fr: 'Je ne sais pas trop quoi dire.', ar: 'ما بعرف كتير شو قول.', en: 'I don’t really know what to say.' },
+        { fr: 'Je suis un peu timide.', ar: 'أنا شوي خجول.', en: 'I’m a little shy.' },
+        { fr: 'Je ne suis pas très doué pour faire le premier pas.', ar: 'مو كتير شاطر إني آخد الخطوة الأولى.', en: 'I’m not very good at making the first move.' },
+        { fr: 'Mais je suis content d’être venu te parler.', ar: 'بس مبسوط إني إجيت وحكيت معك.', en: 'But I’m glad I came to talk to you.' }
+      ] },
+      { icon: '📅', title: { ar: 'تحديد موعد', en: 'Setting a date', fr: 'Fixer un rendez-vous' }, phrases: [
+        { fr: 'Tu es disponible quand ?', ar: 'إيمت بتكوني فاضية؟', en: 'When are you free?' },
+        { fr: 'Tu es libre demain ?', ar: 'فاضية بكرا؟', en: 'Are you free tomorrow?' },
+        { fr: 'Tu serais libre ce week-end ?', ar: 'بتكوني فاضية هالويكند؟', en: 'Would you be free this weekend?' },
+        { fr: 'On se voit quand ?', ar: 'إيمت منلتقي؟', en: 'When should we meet?' },
+        { fr: 'On se retrouve à quelle heure ?', ar: 'بأي ساعة منلتقي؟', en: 'What time are we meeting?' },
+        { fr: 'Vers quelle heure ?', ar: 'حوالي أي ساعة؟', en: 'Around what time?' }
+      ] },
+      { icon: '📱', title: { ar: 'بعد أخذ الرقم', en: 'After taking the number', fr: 'Après avoir pris le numéro' }, phrases: [
+        { fr: 'Je peux t’écrire sur WhatsApp ?', ar: 'فيني ابعتلك عالواتساب؟', en: 'Can I text you on WhatsApp?' },
+        { fr: 'Je t’envoie un message maintenant.', ar: 'ببعتلك رسالة هلأ.', en: 'I’ll send you a message now.' },
+        { fr: 'Comme ça, tu auras mon numéro aussi.', ar: 'هيك بيكون رقمي عندك كمان.', en: 'That way, you’ll have my number too.' },
+        { fr: 'Je te laisse mon numéro.', ar: 'بخليكي رقمي.', en: 'I’ll give you my number.' }
+      ] },
+      { icon: '👋', title: { ar: 'إنهاء الحديث بطريقة لطيفة', en: 'Ending the conversation nicely', fr: 'Terminer la discussion en douceur' }, phrases: [
+        { fr: 'Je vais te laisser, je ne veux pas te déranger.', ar: 'رح خليكي، ما بدي أزعجك.', en: 'I’ll let you get back to what you were doing; I don’t want to bother you.' },
+        { fr: 'J’ai été content de faire ta connaissance.', ar: 'انبسطت إني تعرّفت عليكي.', en: 'It was nice meeting you.' },
+        { fr: 'On se tient au courant ?', ar: 'منضل على تواصل؟', en: 'Shall we keep in touch?' },
+        { fr: 'À bientôt, alors !', ar: 'منشوفك قريب إذن!', en: 'See you soon, then!' }
+      ] },
+      { icon: '⭐', title: { ar: '5 قوالب لازم «تبصمها»', en: '5 patterns to memorize', fr: '5 modèles à retenir' }, phrases: [
+        { fr: 'Ça te dirait de prendre un café ?', ar: 'شو رأيك نشرب قهوة؟', en: 'Would you like to grab a coffee?' },
+        { fr: 'Tu es libre demain soir ?', ar: 'فاضية بكرا بالليل؟', en: 'Are you free tomorrow evening?' },
+        { fr: 'On se voit ce week-end ?', ar: 'منلتقي هالويكند؟', en: 'Shall we meet this weekend?' },
+        { fr: 'Tu veux prendre un café ?', ar: 'بدك نشرب قهوة؟', en: 'Do you want to grab a coffee?' },
+        { fr: 'Si tu veux, on peut se revoir.', ar: 'إذا بتحبي، فينا نلتقي مرة تانية.', en: 'If you want, we can meet again.' }
+      ] },
+      { icon: '🌳', title: { ar: 'إذا كانت تقرأ كتابًا', en: 'If she’s reading a book', fr: 'Si elle lit un livre' }, phrases: [
+        { fr: 'Tu lis quoi ?', ar: 'شو عم تقري؟', en: 'What are you reading?' },
+        { fr: 'Tu aimes lire ?', ar: 'بتحبي القراءة؟', en: 'Do you like reading?' },
+        { fr: 'C’est intéressant ?', ar: 'حلو الكتاب؟ / مشوّق؟', en: 'Is it interesting?' },
+        { fr: 'Je ne veux pas te déranger, je voulais juste te dire bonjour.', ar: 'ما بدي أزعجك، بس حبيت سلّم عليكي.', en: 'I don’t want to bother you, I just wanted to say hi.' }
+      ] },
+      { icon: '🎧', title: { ar: 'إذا كانت تضع سماعات', en: 'If she’s wearing headphones', fr: 'Si elle porte des écouteurs' }, phrases: [
+        { fr: 'Désolé, tu as une minute ?', ar: 'آسف، عندك دقيقة؟', en: 'Sorry, do you have a minute?' },
+        { fr: 'Je ne veux pas te déranger.', ar: 'ما بدي أزعجك.', en: 'I don’t want to bother you.' },
+        { fr: 'Si tu es occupée, aucun souci.', ar: 'إذا كنتِ مشغولة، ما في مشكلة.', en: 'If you’re busy, no problem.' }
+      ] },
+      { icon: '🐕', title: { ar: 'إذا معها كلب', en: 'If she has a dog', fr: 'Si elle a un chien' }, phrases: [
+        { fr: 'Il est à toi ?', ar: 'هاد كلبك؟', en: 'Is he yours?' },
+        { fr: 'Il s’appelle comment ?', ar: 'شو اسمه؟', en: 'What’s his name?' },
+        { fr: 'Il est adorable !', ar: 'كتير لطيف!', en: 'He’s adorable!' },
+        { fr: 'Tu viens souvent te promener ici avec lui ?', ar: 'بتجي غالبًا تتمشي هون معه؟', en: 'Do you often come here for a walk with him?' }
+      ] },
+      { icon: '😊', title: { ar: 'إذا صار الحديث لطيف', en: 'If the conversation turns nice', fr: 'Si la discussion devient agréable' }, phrases: [
+        { fr: 'Ah bon ?', ar: 'عنجد؟', en: 'Really?' },
+        { fr: 'Sérieux ?', ar: 'جدّي؟ / عنجد؟', en: 'Seriously?' },
+        { fr: 'Je vois.', ar: 'فهمت.', en: 'I see.' },
+        { fr: 'C’est intéressant.', ar: 'هاد شي مثير للاهتمام.', en: 'That’s interesting.' },
+        { fr: 'Moi aussi.', ar: 'أنا كمان.', en: 'Me too.' },
+        { fr: 'Ça me plaît.', ar: 'عجبني هالشي.', en: 'I like that.' }
+      ] },
+      { icon: '💬', title: { ar: 'إذا سألتك: لماذا أتيت لتكلمني؟', en: 'If she asks: why did you come talk to me?', fr: 'Si elle te demande : pourquoi tu es venu me parler ?' }, phrases: [
+        { fr: 'Je t’ai trouvée sympa, alors je suis venu te parler.', ar: 'حسّيتك لطيفة، فقلت أجي أحكي معك.', en: 'I thought you seemed nice, so I came to talk to you.' },
+        { fr: 'Tu m’as plu, tout simplement.', ar: 'عجبِتيني، بكل بساطة.', en: 'I liked you, simply.' },
+        { fr: 'J’avais envie de faire connaissance avec toi.', ar: 'كان بدي اتعرف عليكي.', en: 'I wanted to get to know you.' }
+      ] },
+      { icon: '❤️', title: { ar: 'إذا بدك تقول إنك خجول', en: 'If you want to say you’re shy', fr: 'Si tu veux dire que tu es timide' }, phrases: [
+        { fr: 'Je suis un peu timide, en fait.', ar: 'بصراحة أنا شوي خجول.', en: 'I’m a little shy, actually.' },
+        { fr: 'Je ne suis pas très doué pour faire le premier pas.', ar: 'مو كتير شاطر إني آخد الخطوة الأولى.', en: 'I’m not very good at making the first move.' },
+        { fr: 'Mais je me suis dit : allez, je vais tenter ma chance. 😄', ar: 'بس قلت لحالي: يلا، خليني جرّب حظي. 😄', en: 'But I thought: come on, I’ll give it a try. 😄' }
+      ] },
+      { icon: '☕', title: { ar: 'إذا بدك تعرض قهوة', en: 'If you want to offer a coffee', fr: 'Si tu veux proposer un café' }, phrases: [
+        { fr: 'Ça te dirait qu’on prenne un café un de ces jours ?', ar: 'شو رأيك نشرب قهوة بيوم من الأيام؟', en: 'Would you like to grab a coffee sometime?' },
+        { fr: 'Tu serais libre un de ces jours ?', ar: 'بتكوني فاضية بيوم من الأيام؟', en: 'Would you be free sometime?' },
+        { fr: 'On pourrait prendre un café tranquillement.', ar: 'فينا نشرب قهوة على رواق.', en: 'We could have a coffee together.' }
+      ] },
+      { icon: '📱', title: { ar: 'إذا وافقت على التعارف', en: 'If she agrees to get to know you', fr: 'Si elle accepte de faire connaissance' }, phrases: [
+        { fr: 'Si tu veux, on peut échanger nos numéros.', ar: 'إذا بتحبي، فينا نتبادل أرقامنا.', en: 'If you want, we can exchange numbers.' },
+        { fr: 'Je peux te donner mon numéro, si tu préfères.', ar: 'فيني أعطيكي رقمي إذا بتفضلي.', en: 'I can give you my number if you prefer.' },
+        { fr: 'Tu préfères WhatsApp ou Instagram ?', ar: 'بتفضلي واتساب ولا إنستغرام؟', en: 'Do you prefer WhatsApp or Instagram?' }
+      ] },
+      { icon: '🚶', title: { ar: 'إذا كانت مستعجلة', en: 'If she’s in a hurry', fr: 'Si elle est pressée' }, phrases: [
+        { fr: 'Tu es pressée ?', ar: 'مستعجلة؟', en: 'Are you in a hurry?' },
+        { fr: 'Aucun souci, je ne vais pas te retenir.', ar: 'ولا يهمك، ما رح عطّلك.', en: 'No problem, I won’t keep you.' },
+        { fr: 'Bonne journée, peut-être à une prochaine fois !', ar: 'نهارك سعيد، يمكن منشوف بعض مرة تانية!', en: 'Have a nice day, maybe see you another time!' }
+      ] },
+      { icon: '🛑', title: { ar: 'إذا ما كانت مهتمة', en: 'If she’s not interested', fr: 'Si elle n’est pas intéressée' }, phrases: [
+        { fr: 'Pas de souci, je comprends.', ar: 'ولا يهمك، بفهم.', en: 'No problem, I understand.' },
+        { fr: 'Je respecte ça.', ar: 'أنا بحترم هالشي.', en: 'I respect that.' },
+        { fr: 'Bonne journée à toi !', ar: 'نهارك سعيد!', en: 'Have a nice day!' },
+        { fr: 'Salut, désolé de te déranger. Je t’ai trouvée sympa, alors je me suis dit que j’allais venir te parler.', ar: 'مرحبا، آسف إذا أزعجتك. حسّيتك لطيفة، فقلت لحالي أجي أحكي معك.', en: 'Hi, sorry to bother you. I thought you seemed nice, so I decided to come and talk to you.' }
+      ] },
+      { icon: '🌳', title: { ar: 'إذا كانت جالسة وحدها', en: 'If she’s sitting by herself', fr: 'Si elle est assise toute seule' }, phrases: [
+        { fr: 'Tu attends quelqu’un ?', ar: 'ناطرة حدا؟', en: 'Are you waiting for someone?' },
+        { fr: 'Tu profites un peu du soleil ?', ar: 'عم تستمتعي شوي بالشمس؟', en: 'Are you enjoying the sunshine?' },
+        { fr: 'Tu viens souvent ici ?', ar: 'بتجي لهون كتير؟', en: 'Do you come here often?' },
+        { fr: 'C’est agréable ici, tu ne trouves pas ?', ar: 'المكان هون حلو، مو هيك؟', en: 'It’s nice here, don’t you think?' },
+        { fr: 'Je peux m’asseoir à côté de toi ?', ar: 'فيني اقعد حدك؟', en: 'Can I sit next to you?' }
+      ] },
+      { icon: '🚶', title: { ar: 'إذا كانت عم تتمشى', en: 'If she’s out walking', fr: 'Si elle est en train de se promener' }, phrases: [
+        { fr: 'Tu fais une petite balade ?', ar: 'عم تتمشي شوي؟', en: 'Are you taking a little walk?' },
+        { fr: 'Tu te promènes souvent par ici ?', ar: 'بتتمشي عادةً بهالمنطقة؟', en: 'Do you usually walk around here?' },
+        { fr: 'Je peux marcher avec toi un petit moment ?', ar: 'فيني امشي معك شوي؟', en: 'Can I walk with you for a little while?' }
+      ] },
+      { icon: '👋', title: { ar: 'بداية خفيفة جدًا', en: 'A very light opening', fr: 'Un début très léger' }, phrases: [
+        { fr: 'Salut, excuse-moi.', ar: 'مرحبا، عذريني.', en: 'Hi, excuse me.' },
+        { fr: 'Je peux te poser une petite question ?', ar: 'فيني اسألك سؤال صغير؟', en: 'Can I ask you a quick question?' },
+        { fr: 'Je ne vais pas te prendre beaucoup de temps.', ar: 'ما رح آخد من وقتك كتير.', en: 'I won’t take much of your time.' },
+        { fr: 'Je voulais simplement faire connaissance.', ar: 'بس حبيت اتعرف عليكي.', en: 'I just wanted to get to know you.' }
+      ] },
+      { icon: '😄', title: { ar: 'إذا صار في انسجام', en: 'If there’s chemistry', fr: 'S’il y a un bon feeling' }, phrases: [
+        { fr: 'On s’entend bien, je trouve.', ar: 'بحس إنو في انسجام بيناتنا.', en: 'I think we get along well.' },
+        { fr: 'J’aime bien parler avec toi.', ar: 'بحب الحكي معك.', en: 'I like talking to you.' },
+        { fr: 'Tu es agréable à écouter.', ar: 'حلو الواحد يحكي معك ويسمعك.', en: 'You’re nice to talk to.' },
+        { fr: 'J’aime bien ton énergie.', ar: 'بحب طاقتك / أسلوبك.', en: 'I like your energy.' },
+        { fr: 'Tu as l’air vraiment sympa.', ar: 'مبين عليكي كتير لطيفة.', en: 'You seem really nice.' }
+      ] },
+      { icon: '🗣️', title: { ar: 'أسئلة تساعدك تكمّل الحديث', en: 'Questions to help you continue', fr: 'Questions pour continuer la discussion' }, phrases: [
+        { fr: 'Tu habites dans le coin ?', ar: 'ساكنة بهالمنطقة؟', en: 'Do you live around here?' },
+        { fr: 'Tu fais quoi dans la vie ?', ar: 'شو بتشتغلي / شو بتعملي بحياتك؟', en: 'What do you do for a living?' },
+        { fr: 'Tu travailles dans quoi ?', ar: 'بمجال شو بتشتغلي؟', en: 'What field do you work in?' },
+        { fr: 'Tu fais des études ?', ar: 'عم تدرسي؟', en: 'Are you studying?' },
+        { fr: 'Tu viens d’où ?', ar: 'من وين أصلك؟', en: 'Where are you from?' }
+      ] },
+      { icon: '😂', title: { ar: 'إذا صار في مزح', en: 'If there’s joking', fr: 'Si on plaisante' }, phrases: [
+        { fr: 'Ah, je vois le genre ! 😄', ar: 'آها، فهمت عليكِ من أي نوع! 😄', en: 'Ah, I see what you’re like! 😄' },
+        { fr: 'Tu me fais rire.', ar: 'عم تضحكيني.', en: 'You make me laugh.' },
+        { fr: 'J’aime bien ton humour.', ar: 'عجبني حسّك الفكاهي.', en: 'I like your sense of humor.' },
+        { fr: 'On rigole bien ensemble.', ar: 'عم نضحك منيح سوا.', en: 'We’re having a good laugh together.' }
+      ] },
+      { icon: '📱', title: { ar: 'بعد ما تعطيك رقمها', en: 'After she gives you her number', fr: 'Après qu’elle t’a donné son numéro' }, phrases: [
+        { fr: 'Je t’écris ce soir.', ar: 'رح ابعتلك الليلة.', en: 'I’ll text you tonight.' },
+        { fr: 'Comme ça, tu auras mon numéro aussi.', ar: 'هيك بيكون صار معك رقمي كمان.', en: 'That way, you’ll have my number too.' },
+        { fr: 'Ça m’a fait plaisir de te rencontrer.', ar: 'انبسطت إني تعرفت عليكي.', en: 'It was nice meeting you.' },
+        { fr: 'On se tient au courant.', ar: 'منضل على تواصل.', en: 'We’ll keep in touch.' }
+      ] },
+      { icon: '💬', title: { ar: 'أول رسالة بعد اللقاء', en: 'The first message after meeting', fr: 'Le premier message après la rencontre' }, phrases: [
+        { fr: 'Salut, c’est Mohammad, on s’est rencontrés au parc aujourd’hui. Ça m’a fait plaisir de faire ta connaissance.', ar: 'مرحبا، أنا محمد، التقينا اليوم بالحديقة. انبسطت إني تعرفت عليكي.', en: 'Hi, it’s Mohammad. We met at the park today. It was nice getting to know you.' }
+      ] },
+      { icon: '⭐', title: { ar: 'عبارات قصيرة جدًا تحفظها تلقائيًا', en: 'Very short phrases to memorize automatically', fr: 'Phrases très courtes à retenir par cœur' }, phrases: [
+        { fr: 'Tu me plais.', ar: 'عجبِتيني.', en: 'I like you.' },
+        { fr: 'J’aimerais mieux te connaître.', ar: 'بدي اتعرف عليكي أكتر.', en: 'I’d like to get to know you better.' },
+        { fr: 'Ça te dit ?', ar: 'شو رأيك؟ / موافقة؟', en: 'How about it?' },
+        { fr: 'Pourquoi pas ?', ar: 'ليش لأ؟', en: 'Why not?' },
+        { fr: 'Avec plaisir.', ar: 'بكل سرور.', en: 'With pleasure.' },
+        { fr: 'Comme tu veux.', ar: 'متل ما بدك.', en: 'As you like.' },
+        { fr: 'Prends ton temps.', ar: 'خدي راحتك.', en: 'Take your time.' },
+        { fr: 'Je te laisse tranquille.', ar: 'رح خليكي براحتك.', en: 'I’ll leave you alone.' },
+        { fr: 'Peut-être à bientôt.', ar: 'يمكن منشوف بعض قريب.', en: 'Maybe see you soon.' }
+      ] },
+      { icon: '🌳', title: { ar: '1. في الحديقة — تبدأ الحديث', en: '1. In the park — starting the conversation', fr: '1. Au parc — commencer la discussion' }, phrases: [
+        { fr: 'Salut, excuse-moi, je peux te poser une question ?', ar: 'مرحبا، عذريني، فيني اسألك سؤال؟', en: 'Hi, excuse me, can I ask you a question?' },
+        { fr: 'Je t’ai vue tout à l’heure et je voulais venir te parler.', ar: 'شفتك من شوي وحبيت أجي أحكي معك.', en: 'I saw you earlier and wanted to come talk to you.' },
+        { fr: 'Je ne veux pas te déranger, rassure-toi.', ar: 'ما بدي أزعجك، لا تخافي.', en: 'I don’t want to bother you, don’t worry.' }
+      ] },
+      { icon: '👋', title: { ar: '2. أول تعارف', en: '2. The first introduction', fr: '2. La première présentation' }, phrases: [
+        { fr: 'Comment tu t’appelles ?', ar: 'شو اسمك؟', en: 'What’s your name?' },
+        { fr: 'Moi, c’est Mohammad.', ar: 'أنا محمد.', en: 'I’m Mohammad.' },
+        { fr: 'Enchanté !', ar: 'تشرفت!', en: 'Nice to meet you!' },
+        { fr: 'Tu viens d’où ?', ar: 'من وين إنتِ؟', en: 'Where are you from?' },
+        { fr: 'Tu habites dans le coin ?', ar: 'ساكنة بهالمنطقة؟', en: 'Do you live around here?' }
+      ] },
+      { icon: '☀️', title: { ar: '3. إذا كانت جالسة أو تتمشى', en: '3. If she’s sitting or walking', fr: '3. Si elle est assise ou se promène' }, phrases: [
+        { fr: 'Tu viens souvent ici ?', ar: 'بتجي لهون كتير؟', en: 'Do you come here often?' },
+        { fr: 'Tu te promènes souvent par ici ?', ar: 'بتتمشي عادةً بهالمنطقة؟', en: 'Do you usually walk around here?' },
+        { fr: 'Tu profites du beau temps ?', ar: 'عم تستمتعي بالجو الحلو؟', en: 'Are you enjoying the nice weather?' },
+        { fr: 'C’est agréable ici, tu ne trouves pas ?', ar: 'المكان هون حلو، مو هيك؟', en: 'It’s nice here, don’t you think?' }
+      ] },
+      { icon: '😊', title: { ar: '4. إذا صار الحديث مريح', en: '4. If the conversation flows nicely', fr: '4. Si la discussion devient agréable' }, phrases: [
+        { fr: 'Tu as l’air sympa.', ar: 'مبين عليكي لطيفة.', en: 'You seem nice.' },
+        { fr: 'J’aime bien discuter avec toi.', ar: 'حبيت الحكي معك.', en: 'I like talking with you.' },
+        { fr: 'Je suis content d’être venu te parler.', ar: 'مبسوط إني إجيت وحكيت معك.', en: 'I’m glad I came to talk to you.' },
+        { fr: 'Tu me plais bien.', ar: 'عجبِتيني.', en: 'I like you.' }
+      ] },
+      { icon: '☕', title: { ar: '5. الانتقال من الكلام إلى موعد', en: '5. Moving from talk to a date', fr: '5. Passer de la discussion au rendez-vous' }, phrases: [
+        { fr: 'Ça te dirait qu’on prenne un café un de ces jours ?', ar: 'شو رأيك نشرب قهوة بيوم من الأيام؟', en: 'Would you like to grab a coffee sometime?' },
+        { fr: 'Tu serais libre un de ces jours ?', ar: 'بتكوني فاضية بيوم من الأيام؟', en: 'Would you be free sometime?' },
+        { fr: 'On pourrait prendre un café ensemble.', ar: 'فينا نشرب قهوة سوا.', en: 'We could have a coffee together.' }
+      ] },
+      { icon: '📱', title: { ar: '6. طلب الرقم', en: '6. Asking for the number', fr: '6. Demander le numéro' }, phrases: [
+        { fr: 'Si tu veux, on peut échanger nos numéros.', ar: 'إذا بتحبي، فينا نتبادل أرقامنا.', en: 'If you want, we can exchange numbers.' },
+        { fr: 'Je peux te donner mon numéro, si tu préfères.', ar: 'فيني أعطيكي رقمي إذا بتفضلي.', en: 'I can give you my number if you prefer.' },
+        { fr: 'Tu préfères Instagram ou WhatsApp ?', ar: 'بتفضلي إنستغرام ولا واتساب؟', en: 'Do you prefer Instagram or WhatsApp?' }
+      ] },
+      { icon: '❤️', title: { ar: '7. إذا سألتك: «Pourquoi tu es venu me parler ?»', en: '7. If she asks why you came to talk to her', fr: '7. Si elle demande pourquoi tu es venu lui parler' }, phrases: [
+        { fr: 'Parce que tu m’as plu.', ar: 'لأنك عجبِتيني.', en: 'Because I liked you.' },
+        { fr: 'Je t’ai trouvée intéressante.', ar: 'لقيتكِ شخص مثير للاهتمام.', en: 'I found you interesting.' },
+        { fr: 'Tu avais l’air sympa, alors je me suis lancé.', ar: 'حسّيتك لطيفة، فقلت خليني جرّب.', en: 'You seemed nice, so I decided to give it a try.' }
+      ] },
+      { icon: '😅', title: { ar: '8. إذا قالت: «Tu es timide ?»', en: '8. If she asks if you’re shy', fr: '8. Si elle demande si tu es timide' }, phrases: [
+        { fr: 'Oui, un peu. 😅', ar: 'إي، شوي. 😅', en: 'Yes, a little.' },
+        { fr: 'En fait, je suis plutôt timide au début.', ar: 'بصراحة أنا بخجل شوي بالبداية.', en: 'Actually, I’m rather shy at first.' },
+        { fr: 'Mais après, je me détends.', ar: 'بس بعدين بارتاح.', en: 'But then I relax.' }
+      ] },
+      { icon: '💕', title: { ar: '9. إذا قالت لك إنها مرتبطة', en: '9. If she tells you she’s taken', fr: '9. Si elle te dit qu’elle est en couple' }, phrases: [
+        { fr: 'Ah d’accord, je comprends.', ar: 'آه تمام، فهمت.', en: 'Oh okay, I understand.' },
+        { fr: 'Aucun souci, je respecte ça.', ar: 'ولا يهمك، أنا بحترم هالشي.', en: 'No problem, I respect that.' },
+        { fr: 'En tout cas, bonne journée à toi.', ar: 'بكل الأحوال، نهارك سعيد.', en: 'Anyway, have a nice day.' }
+      ] },
+      { icon: '🚫', title: { ar: '10. إذا قالت «Non» أو ما بدها تحكي', en: '10. If she says "Non" or doesn’t want to talk', fr: '10. Si elle dit « non » ou ne veut pas parler' }, phrases: [
+        { fr: 'Pas de souci, je comprends.', ar: 'ولا يهمك، بفهم.', en: 'No problem, I understand.' },
+        { fr: 'Je ne vais pas te déranger davantage.', ar: 'ما رح زعجك أكتر.', en: 'I won’t bother you any further.' },
+        { fr: 'Bonne journée !', ar: 'نهارك سعيد!', en: 'Have a nice day!' }
+      ] }
+    ]
   }
 ];
