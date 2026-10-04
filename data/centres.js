@@ -15452,5 +15452,145 @@ window.CENTRES_DATA = [
         { fr: 'C’est assez urgent, car je ne peux pas utiliser le logement normalement.', ar: 'الموضوع مستعجل شوي، لأني ما عاد فيني استخدم السكن بشكل طبيعي.', en: 'It’s quite urgent because I can’t use the apartment normally.' }
       ] }
     ]
+  },
+  {
+    id: 'problemes-logement',
+    icon: '🔧',
+    name: { ar: 'مشاكل السكن', en: 'Housing problems', fr: 'Problèmes dans le logement' },
+    desc: { ar: 'مواقف سؤال وجواب للإبلاغ عن أعطال ومشاكل السكن: التدفئة، المي، الكهربا، الأعطال والصيانة', en: 'Question-and-answer situations for reporting faults and problems at home: heating, water, electricity, breakdowns and repairs', fr: 'Situations de questions-réponses pour signaler les pannes et problèmes du logement : chauffage, eau, électricité, pannes et réparations' },
+    sections: [
+      { icon: '🔥', title: { ar: 'الموقف 1: التدفئة لا تعمل', en: 'Situation 1: the heating isn’t working', fr: 'Situation 1 : le chauffage ne fonctionne pas' }, phrases: [
+        { fr: 'Bonjour, le chauffage ne fonctionne pas.', ar: 'مرحبا، التدفئة ما عم تشتغل.', en: 'Hello, the heating isn’t working.' },
+        { fr: 'Depuis quand avez-vous ce problème ?', ar: 'من إمتى عندك هالمشكلة؟', en: 'How long have you had this problem?' },
+        { fr: 'Depuis ce matin.', ar: 'من هالصبح.', en: 'Since this morning.' },
+        { fr: 'Nous allons envoyer quelqu’un pour vérifier.', ar: 'رح نبعت حدا ليتأكد.', en: 'We’ll send someone to check.' }
+      ] },
+      { icon: '💧', title: { ar: 'الموقف 2: لا يوجد ماء ساخن', en: 'Situation 2: no hot water', fr: 'Situation 2 : plus d’eau chaude' }, phrases: [
+        { fr: 'Je n’ai plus d’eau chaude.', ar: 'ما عاد عندي مي سخنة.', en: 'I no longer have hot water.' },
+        { fr: 'Avez-vous vérifié le chauffe-eau ?', ar: 'تأكدت من سخان المي؟', en: 'Have you checked the water heater?' },
+        { fr: 'Oui, mais le problème continue.', ar: 'إي، بس المشكلة لسا موجودة.', en: 'Yes, but the problem continues.' },
+        { fr: 'Nous allons programmer une intervention.', ar: 'رح نحدد موعد للصيانة.', en: 'We’ll schedule a service visit.' }
+      ] },
+      { icon: '🚿', title: { ar: 'الموقف 3: تسرب مياه', en: 'Situation 3: water leak', fr: 'Situation 3 : fuite d’eau' }, phrases: [
+        { fr: 'Il y a une fuite d’eau dans la salle de bains.', ar: 'في تسرّب مي بالحمام.', en: 'There is a water leak in the bathroom.' },
+        { fr: 'La fuite est importante ?', ar: 'التسرّب قوي؟', en: 'Is the leak serious?' },
+        { fr: 'Oui, l’eau coule beaucoup.', ar: 'إي، المي عم تنزل كتير.', en: 'Yes, a lot of water is leaking.' },
+        { fr: 'Fermez l’arrivée d’eau et contactez le service d’urgence.', ar: 'سكّر مصدر المي واتصل بخدمة الطوارئ.', en: 'Turn off the water supply and contact the emergency service.' }
+      ] },
+      { icon: '🚽', title: { ar: 'الموقف 4: المرحاض مسدود', en: 'Situation 4: blocked toilet', fr: 'Situation 4 : les toilettes bouchées' }, phrases: [
+        { fr: 'Les toilettes sont bouchées.', ar: 'المرحاض مسدود.', en: 'The toilet is blocked.' },
+        { fr: 'L’eau monte quand vous tirez la chasse ?', ar: 'المي بتطلع لما تسحب السيفون؟', en: 'Does the water rise when you flush?' },
+        { fr: 'Oui, elle monte et ne descend pas.', ar: 'إي، بتطلع وما بتنزل.', en: 'Yes, it rises and doesn’t go down.' },
+        { fr: 'Nous allons voir avec le service de maintenance.', ar: 'رح نشوف مع قسم الصيانة.', en: 'We’ll check with the maintenance service.' }
+      ] },
+      { icon: '🚰', title: { ar: 'الموقف 5: المغسلة مسدودة', en: 'Situation 5: blocked sink', fr: 'Situation 5 : l’évier bouché' }, phrases: [
+        { fr: 'L’évier est bouché.', ar: 'المجلى مسدود.', en: 'The sink is blocked.' },
+        { fr: 'L’eau s’écoule lentement ?', ar: 'المي عم تنزل ببطء؟', en: 'Is the water draining slowly?' },
+        { fr: 'Oui, elle s’évacue très lentement.', ar: 'إي، عم تنزل ببطء كتير.', en: 'Yes, it drains very slowly.' }
+      ] },
+      { icon: '⚡', title: { ar: 'الموقف 6: انقطاع الكهرباء', en: 'Situation 6: power cut', fr: 'Situation 6 : coupure d’électricité' }, phrases: [
+        { fr: 'Il n’y a plus d’électricité dans le logement.', ar: 'ما عاد في كهربا بالسكن.', en: 'There is no electricity in the apartment.' },
+        { fr: 'Avez-vous vérifié le tableau électrique ?', ar: 'تأكدت من لوحة الكهربا؟', en: 'Have you checked the electrical panel?' },
+        { fr: 'Oui, mais tout semble normal.', ar: 'إي، بس كل شي شكله طبيعي.', en: 'Yes, but everything seems normal.' },
+        { fr: 'Nous allons faire intervenir un électricien.', ar: 'رح نبعت كهربجي.', en: 'We’ll send an electrician.' }
+      ] },
+      { icon: '🔌', title: { ar: 'الموقف 7: القاطع يفصل', en: 'Situation 7: breaker keeps tripping', fr: 'Situation 7 : le disjoncteur saute' }, phrases: [
+        { fr: 'Le disjoncteur saute régulièrement.', ar: 'قاطع الكهربا عم يفصل بشكل متكرر.', en: 'The circuit breaker keeps tripping.' },
+        { fr: 'Est-ce que cela arrive quand vous utilisez plusieurs appareils ?', ar: 'بيصير هالشي لما تشغّل كذا جهاز؟', en: 'Does this happen when you use several appliances?' },
+        { fr: 'Oui, surtout quand j’allume le four.', ar: 'إي، خصوصًا لما شغّل الفرن.', en: 'Yes, especially when I turn on the oven.' }
+      ] },
+      { icon: '🪟', title: { ar: 'الموقف 8: النافذة لا تغلق', en: 'Situation 8: window won’t close', fr: 'Situation 8 : la fenêtre ne ferme pas' }, phrases: [
+        { fr: 'La fenêtre ne ferme pas correctement.', ar: 'الشباك ما عم يتسكر منيح.', en: 'The window doesn’t close properly.' },
+        { fr: 'Est-ce qu’elle est bloquée ?', ar: 'هي عالقة؟', en: 'Is it stuck?' },
+        { fr: 'Oui, je n’arrive pas à la fermer complètement.', ar: 'إي، ما عم بقدر سكّرها للآخر.', en: 'Yes, I can’t close it completely.' }
+      ] },
+      { icon: '🚪', title: { ar: 'الموقف 9: باب الدخول لا يغلق', en: 'Situation 9: entrance door won’t close', fr: 'Situation 9 : la porte d’entrée ne ferme pas' }, phrases: [
+        { fr: 'La porte d’entrée ne se ferme pas correctement.', ar: 'باب الدخول ما عم يتسكر منيح.', en: 'The entrance door doesn’t close properly.' },
+        { fr: 'La serrure fonctionne ?', ar: 'القفل شغال؟', en: 'Does the lock work?' },
+        { fr: 'Oui, mais la porte reste entrouverte.', ar: 'إي، بس الباب بيضل مو مسكّر للآخر.', en: 'Yes, but the door remains slightly open.' }
+      ] },
+      { icon: '🔑', title: { ar: 'الموقف 10: المفتاح لا يعمل', en: 'Situation 10: key no longer works', fr: 'Situation 10 : la clé ne fonctionne plus' }, phrases: [
+        { fr: 'La clé ne fonctionne plus.', ar: 'المفتاح ما عاد يشتغل.', en: 'The key no longer works.' },
+        { fr: 'Vous avez essayé avec la deuxième clé ?', ar: 'جربت المفتاح التاني؟', en: 'Have you tried the second key?' },
+        { fr: 'Oui, le problème est le même.', ar: 'إي، نفس المشكلة.', en: 'Yes, it’s the same problem.' }
+      ] },
+      { icon: '💨', title: { ar: 'الموقف 11: التهوية لا تعمل', en: 'Situation 11: ventilation not working', fr: 'Situation 11 : la ventilation ne fonctionne pas' }, phrases: [
+        { fr: 'La ventilation ne fonctionne pas correctement.', ar: 'التهوية ما عم تشتغل منيح.', en: 'The ventilation isn’t working properly.' },
+        { fr: 'Vous entendez le moteur de la ventilation ?', ar: 'عم تسمع صوت موتور التهوية؟', en: 'Can you hear the ventilation motor?' },
+        { fr: 'Non, elle ne fait aucun bruit.', ar: 'لا، ما عم تعمل أي صوت.', en: 'No, it doesn’t make any sound.' }
+      ] },
+      { icon: '🦠', title: { ar: 'الموقف 12: ظهور العفن', en: 'Situation 12: mold appearing', fr: 'Situation 12 : des traces de moisissure' }, phrases: [
+        { fr: 'J’ai remarqué des traces de moisissure.', ar: 'لاحظت آثار عفن.', en: 'I noticed signs of mold.' },
+        { fr: 'Où se trouvent les traces ?', ar: 'وين موجودة الآثار؟', en: 'Where are the signs?' },
+        { fr: 'Elles sont dans la salle de bains.', ar: 'موجودة بالحمام.', en: 'They are in the bathroom.' },
+        { fr: 'Envoyez-nous des photos, s’il vous plaît.', ar: 'ابعتولنا صور لو سمحت.', en: 'Please send us some photos.' }
+      ] },
+      { icon: '💧', title: { ar: 'الموقف 13: رطوبة على الجدار', en: 'Situation 13: damp on the wall', fr: 'Situation 13 : de l’humidité sur le mur' }, phrases: [
+        { fr: 'Il y a de l’humidité sur le mur.', ar: 'في رطوبة عالحيط.', en: 'There is dampness on the wall.' },
+        { fr: 'Depuis combien de temps ?', ar: 'من إمتى؟', en: 'How long has it been there?' },
+        { fr: 'Je l’ai remarquée hier.', ar: 'لاحظتها مبارح.', en: 'I noticed it yesterday.' }
+      ] },
+      { icon: '🌧️', title: { ar: 'الموقف 14: تسرب من السقف', en: 'Situation 14: water coming through ceiling', fr: 'Situation 14 : infiltration au plafond' }, phrases: [
+        { fr: 'Il y a une infiltration d’eau au plafond.', ar: 'في مي عم تتسرّب من السقف.', en: 'There is water coming through the ceiling.' },
+        { fr: 'Est-ce que l’eau coule actuellement ?', ar: 'هلأ المي عم تنزل؟', en: 'Is water currently leaking?' },
+        { fr: 'Oui, ça coule encore.', ar: 'إي، لسا عم تنزل.', en: 'Yes, it’s still leaking.' }
+      ] },
+      { icon: '🛗', title: { ar: 'الموقف 15: المصعد عطلان', en: 'Situation 15: elevator broken', fr: 'Situation 15 : l’ascenseur en panne' }, phrases: [
+        { fr: 'L’ascenseur est en panne.', ar: 'المصعد عطلان.', en: 'The elevator is out of order.' },
+        { fr: 'Depuis quand ?', ar: 'من إمتى؟', en: 'Since when?' },
+        { fr: 'Depuis hier soir.', ar: 'من مبارح بالليل.', en: 'Since last night.' },
+        { fr: 'Une intervention est prévue demain.', ar: 'في صيانة مقررة لبكرا.', en: 'A service visit is scheduled for tomorrow.' }
+      ] },
+      { icon: '📞', title: { ar: 'الموقف 16: الإنترفون لا يعمل', en: 'Situation 16: intercom not working', fr: 'Situation 16 : l’interphone ne fonctionne plus' }, phrases: [
+        { fr: 'L’interphone ne fonctionne plus.', ar: 'الإنترفون ما عاد يشتغل.', en: 'The intercom no longer works.' },
+        { fr: 'Vous pouvez ouvrir la porte manuellement ?', ar: 'فيك تفتح الباب يدويًا؟', en: 'Can you open the door manually?' },
+        { fr: 'Oui, mais je ne peux pas ouvrir à distance.', ar: 'إي، بس ما بقدر افتحه عن بُعد.', en: 'Yes, but I can’t open it remotely.' }
+      ] },
+      { icon: '🔊', title: { ar: 'الموقف 17: ضجيج الجيران', en: 'Situation 17: noisy neighbors', fr: 'Situation 17 : le bruit des voisins' }, phrases: [
+        { fr: 'Il y a beaucoup de bruit chez les voisins.', ar: 'في ضجة كتير عند الجيران.', en: 'There is a lot of noise from the neighbors.' },
+        { fr: 'À quels moments cela se produit-il ?', ar: 'بأي أوقات بيصير هالشي؟', en: 'When does this happen?' },
+        { fr: 'Surtout tard le soir.', ar: 'خصوصًا بآخر الليل.', en: 'Especially late at night.' }
+      ] },
+      { icon: '🗑️', title: { ar: 'الموقف 18: مشكلة في غرفة النفايات', en: 'Situation 18: trash room problem', fr: 'Situation 18 : problème au local à poubelles' }, phrases: [
+        { fr: 'Le local à poubelles est fermé.', ar: 'غرفة الزبالة مسكّرة.', en: 'The trash room is locked.' },
+        { fr: 'Vous avez la clé ?', ar: 'معك المفتاح؟', en: 'Do you have the key?' },
+        { fr: 'Non, je ne l’ai pas reçue.', ar: 'لا، ما استلمتها.', en: 'No, I didn’t receive it.' }
+      ] },
+      { icon: '📬', title: { ar: 'الموقف 19: صندوق البريد لا يفتح', en: 'Situation 19: mailbox won’t open', fr: 'Situation 19 : la boîte aux lettres ne s’ouvre pas' }, phrases: [
+        { fr: 'Je n’arrive pas à ouvrir ma boîte aux lettres.', ar: 'ما عم بقدر افتح صندوق بريدي.', en: 'I can’t open my mailbox.' },
+        { fr: 'Votre clé fonctionne ?', ar: 'مفتاحك شغال؟', en: 'Does your key work?' },
+        { fr: 'Non, la clé ne tourne pas.', ar: 'لا، المفتاح ما عم يلف.', en: 'No, the key doesn’t turn.' }
+      ] },
+      { icon: '🍳', title: { ar: 'الموقف 20: الفرن لا يسخن', en: 'Situation 20: oven not heating', fr: 'Situation 20 : le four ne chauffe pas' }, phrases: [
+        { fr: 'Le four ne chauffe pas.', ar: 'الفرن ما عم يسخن.', en: 'The oven isn’t heating.' },
+        { fr: 'Est-ce que la plaque de cuisson fonctionne ?', ar: 'وعيون الغاز/الطبخ شغالة؟', en: 'Does the cooktop work?' },
+        { fr: 'Oui, seule la fonction du four ne fonctionne pas.', ar: 'إي، بس الفرن هو اللي ما عم يشتغل.', en: 'Yes, only the oven function isn’t working.' }
+      ] },
+      { icon: '🧊', title: { ar: 'الموقف 21: الثلاجة لا تبرد', en: 'Situation 21: fridge not cooling', fr: 'Situation 21 : le réfrigérateur ne refroidit pas' }, phrases: [
+        { fr: 'Le réfrigérateur ne refroidit pas correctement.', ar: 'البراد ما عم يبرّد منيح.', en: 'The refrigerator isn’t cooling properly.' },
+        { fr: 'Depuis combien de temps ?', ar: 'من إمتى؟', en: 'How long has this been happening?' },
+        { fr: 'Depuis mon arrivée dans le logement.', ar: 'من وقت ما وصلت عالسكن.', en: 'Since I moved into the apartment.' }
+      ] },
+      { icon: '🧺', title: { ar: 'الموقف 22: الغسالة لا تصرف الماء', en: 'Situation 22: washer not draining', fr: 'Situation 22 : la machine à laver ne vidange pas' }, phrases: [
+        { fr: 'La machine à laver ne vidange pas.', ar: 'الغسالة ما عم تصرّف المي.', en: 'The washing machine isn’t draining.' },
+        { fr: 'Est-ce qu’elle affiche un message d’erreur ?', ar: 'عم تطلع رسالة خطأ؟', en: 'Is it displaying an error message?' },
+        { fr: 'Oui, il y a un code d’erreur.', ar: 'إي، في رمز خطأ.', en: 'Yes, there is an error code.' }
+      ] },
+      { icon: '📡', title: { ar: 'الموقف 23: الإنترنت لا يعمل', en: 'Situation 23: internet not working', fr: 'Situation 23 : Internet ne fonctionne pas' }, phrases: [
+        { fr: 'Internet ne fonctionne pas dans le logement.', ar: 'الإنترنت ما عم يشتغل بالسكن.', en: 'The internet isn’t working in the apartment.' },
+        { fr: 'Avez-vous déjà installé votre box ?', ar: 'ركّبت جهاز الإنترنت تبعك؟', en: 'Have you installed your internet box yet?' },
+        { fr: 'Oui, mais je n’ai toujours pas de connexion.', ar: 'إي، بس لسا ما عندي اتصال.', en: 'Yes, but I still don’t have a connection.' }
+      ] },
+      { icon: '📦', title: { ar: 'الموقف 24: شيء ناقص عند الاستلام', en: 'Situation 24: missing item at handover', fr: 'Situation 24 : équipement manquant à la remise' }, phrases: [
+        { fr: 'Il manque un équipement dans le logement.', ar: 'في غرض/تجهيز ناقص بالسكن.', en: 'An item of equipment is missing from the apartment.' },
+        { fr: 'Qu’est-ce qui manque ?', ar: 'شو الناقص؟', en: 'What is missing?' },
+        { fr: 'Il manque le four qui était indiqué dans l’inventaire.', ar: 'الفرن اللي كان مذكور بقائمة الموجودات ناقص.', en: 'The oven listed in the inventory is missing.' }
+      ] },
+      { icon: '📸', title: { ar: 'الموقف 25: إثبات الضرر عند الوصول', en: 'Situation 25: proving damage on arrival', fr: 'Situation 25 : prouver un dégât à l’arrivée' }, phrases: [
+        { fr: 'Je préfère prendre une photo avant de m’installer.', ar: 'بفضّل آخد صورة قبل ما أستقر بالسكن.', en: 'I’d rather take a photo before moving in.' },
+        { fr: 'Vous pouvez l’ajouter à l’état des lieux.', ar: 'فيك تضيفها لمحضر المعاينة.', en: 'You can add it to the inspection report.' },
+        { fr: 'D’accord, je préfère que ce soit indiqué.', ar: 'تمام، بفضّل يكون هالشي مذكور.', en: 'Okay, I’d prefer it to be recorded.' }
+      ] }
+    ]
   }
 ];
