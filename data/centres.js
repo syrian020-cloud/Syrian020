@@ -15143,6 +15143,313 @@ window.CENTRES_DATA = [
         { fr: 'Je voudrais installer Internet dans le logement.', ar: 'بدي ركّب إنترنت بالسكن.', en: 'I’d like to set up Internet in the apartment.' },
         { fr: 'La prise fibre est déjà installée.', ar: 'مأخذ الفايبر مركّب من قبل.', en: 'The fiber socket is already installed.' },
         { fr: 'Je dois prendre rendez-vous avec un technicien ?', ar: 'لازم آخد موعد مع فني؟', en: 'Do I need to make an appointment with a technician?' }
+      ] },
+      { icon: '🏠', title: { ar: 'الموقف 71: أول ليلة في السكن', en: 'Situation 71: first night in the home', fr: 'Situation 71 : la première nuit dans le logement' }, phrases: [
+        { fr: 'Je viens de m’installer dans le logement.', ar: 'أنا هلأ انتقلت واستقريت بالسكن.', en: 'I’ve just moved into the apartment.' },
+        { fr: 'Tout se passe bien pour le moment ?', ar: 'كل شي ماشي منيح لهلأ؟', en: 'Is everything going well so far?' },
+        { fr: 'Oui, pour le moment tout va bien.', ar: 'إي، لهلأ كل شي منيح.', en: 'Yes, everything is fine so far.' }
+      ] },
+      { icon: '🔑', title: { ar: 'الموقف 72: المفتاح ما عم يفتح', en: 'Situation 72: the key won’t turn', fr: 'Situation 72 : la clé ne tourne pas' }, phrases: [
+        { fr: 'La clé ne tourne pas dans la serrure.', ar: 'المفتاح ما عم يلف بالقفل.', en: 'The key doesn’t turn in the lock.' },
+        { fr: 'Avez-vous essayé avec l’autre clé ?', ar: 'جربت المفتاح التاني؟', en: 'Have you tried the other key?' },
+        { fr: 'Oui, mais ça ne fonctionne pas non plus.', ar: 'إي، بس كمان ما اشتغل.', en: 'Yes, but it doesn’t work either.' }
+      ] },
+      { icon: '🚪', title: { ar: 'الموقف 73: الباب ما عم يتسكر منيح', en: 'Situation 73: the door won’t close', fr: 'Situation 73 : la porte ne ferme pas' }, phrases: [
+        { fr: 'La porte ne se ferme pas correctement.', ar: 'الباب ما عم يتسكر منيح.', en: 'The door doesn’t close properly.' },
+        { fr: 'Je vais faire intervenir un technicien.', ar: 'رح خلي فني يجي يشوفه.', en: 'I’ll arrange for a technician to come.' }
+      ] },
+      { icon: '🚿', title: { ar: 'الموقف 74: الماء الساخن ينقطع', en: 'Situation 74: no more hot water', fr: 'Situation 74 : plus d’eau chaude' }, phrases: [
+        { fr: 'Je n’ai plus d’eau chaude.', ar: 'ما عاد عندي مي سخنة.', en: 'I no longer have hot water.' },
+        { fr: 'Depuis quand ?', ar: 'من إمتى؟', en: 'Since when?' },
+        { fr: 'Depuis ce matin.', ar: 'من هالصبح.', en: 'Since this morning.' }
+      ] },
+      { icon: '🚽', title: { ar: 'الموقف 75: المرحاض مسدود', en: 'Situation 75: blocked toilet', fr: 'Situation 75 : les toilettes bouchées' }, phrases: [
+        { fr: 'Les toilettes sont bouchées.', ar: 'المرحاض مسدود.', en: 'The toilet is blocked.' },
+        { fr: 'Avez-vous essayé de le déboucher ?', ar: 'جربت تفتحه؟', en: 'Have you tried unclogging it?' },
+        { fr: 'Oui, mais ça n’a pas fonctionné.', ar: 'إي، بس ما زبط.', en: 'Yes, but it didn’t work.' }
+      ] },
+      { icon: '💧', title: { ar: 'الموقف 76: انسداد المغسلة', en: 'Situation 76: blocked sink', fr: 'Situation 76 : l’évier bouché' }, phrases: [
+        { fr: 'L’évier est bouché.', ar: 'مجلى المطبخ مسدود.', en: 'The kitchen sink is blocked.' },
+        { fr: 'L’eau ne s’écoule plus.', ar: 'المي ما عاد عم تنزل.', en: 'The water is no longer draining.' }
+      ] },
+      { icon: '🌧️', title: { ar: 'الموقف 77: تسرب ماء من السقف', en: 'Situation 77: ceiling water leak', fr: 'Situation 77 : fuite d’eau au plafond' }, phrases: [
+        { fr: 'Il y a une fuite d’eau au plafond.', ar: 'في تسرّب مي من السقف.', en: 'There is a water leak from the ceiling.' },
+        { fr: 'C’est urgent, pouvez-vous intervenir rapidement ?', ar: 'الموضوع مستعجل، فيكم تتدخلوا بسرعة؟', en: 'It’s urgent. Can you come quickly?' }
+      ] },
+      { icon: '🔌', title: { ar: 'الموقف 78: الكهرباء انقطعت', en: 'Situation 78: power cut', fr: 'Situation 78 : coupure d’électricité' }, phrases: [
+        { fr: 'Il n’y a plus d’électricité dans le logement.', ar: 'ما عاد في كهربا بالسكن.', en: 'There is no electricity in the apartment.' },
+        { fr: 'Avez-vous vérifié le tableau électrique ?', ar: 'تأكدت من لوحة الكهربا؟', en: 'Have you checked the electrical panel?' },
+        { fr: 'Oui, les disjoncteurs semblent normaux.', ar: 'إي، القواطع شكلها طبيعية.', en: 'Yes, the breakers seem normal.' }
+      ] },
+      { icon: '📶', title: { ar: 'الموقف 79: موعد فني الإنترنت', en: 'Situation 79: Internet technician appointment', fr: 'Situation 79 : rendez-vous du technicien Internet' }, phrases: [
+        { fr: 'Le technicien doit venir demain.', ar: 'الفني لازم يجي بكرا.', en: 'The technician is coming tomorrow.' },
+        { fr: 'À quelle heure ?', ar: 'بأي ساعة؟', en: 'At what time?' },
+        { fr: 'Entre 10 heures et 12 heures.', ar: 'بين الساعة عشرة والـ12.', en: 'Between 10 and 12.' }
+      ] },
+      { icon: '🧹', title: { ar: 'الموقف 80: السكن مو نظيف عند الوصول', en: 'Situation 80: dirty home on arrival', fr: 'Situation 80 : logement sale à l’arrivée' }, phrases: [
+        { fr: 'Le logement n’est pas très propre.', ar: 'السكن مو نظيف كتير.', en: 'The apartment isn’t very clean.' },
+        { fr: 'Qu’est-ce qui doit être nettoyé ?', ar: 'شو اللي لازم يتنظف؟', en: 'What needs to be cleaned?' },
+        { fr: 'La cuisine et la salle de bains, surtout.', ar: 'المطبخ والحمام، خصوصًا.', en: 'The kitchen and bathroom, especially.' }
+      ] },
+      { icon: '🪟', title: { ar: 'الموقف 81: الستائر أو الشتر', en: 'Situation 81: the shutters', fr: 'Situation 81 : les volets' }, phrases: [
+        { fr: 'Les volets ne descendent pas complètement.', ar: 'الشتر ما بينزل للآخر.', en: 'The shutters don’t come all the way down.' },
+        { fr: 'Je vais le noter dans votre dossier.', ar: 'رح سجّل هالشي بملفك.', en: 'I’ll note it in your file.' }
+      ] },
+      { icon: '🌡️', title: { ar: 'الموقف 82: ضبط حرارة التدفئة', en: 'Situation 82: adjusting the heating', fr: 'Situation 82 : régler le chauffage' }, phrases: [
+        { fr: 'Comment régler la température ?', ar: 'كيف بظبط درجة الحرارة؟', en: 'How do I adjust the temperature?' },
+        { fr: 'Vous pouvez la régler avec ce thermostat.', ar: 'فيك تضبطها من هالترموستات.', en: 'You can adjust it with this thermostat.' }
+      ] },
+      { icon: '🔇', title: { ar: 'الموقف 83: إزعاج من الجيران', en: 'Situation 83: noise from neighbors', fr: 'Situation 83 : bruit des voisins' }, phrases: [
+        { fr: 'J’entends beaucoup de bruit chez les voisins.', ar: 'عم اسمع ضجة كتير من عند الجيران.', en: 'I can hear a lot of noise from the neighbors.' },
+        { fr: 'À quelles heures cela se produit-il ?', ar: 'بأي أوقات بيصير هالشي؟', en: 'At what times does this happen?' },
+        { fr: 'Surtout tard le soir.', ar: 'خصوصًا بآخر الليل.', en: 'Especially late at night.' }
+      ] },
+      { icon: '📜', title: { ar: 'الموقف 84: معرفة أوقات الهدوء', en: 'Situation 84: quiet hours', fr: 'Situation 84 : les horaires de calme' }, phrases: [
+        { fr: 'Y a-t-il des horaires à respecter pour le bruit ?', ar: 'في أوقات معينة لازم نلتزم فيها بالهدوء؟', en: 'Are there specific quiet hours?' },
+        { fr: 'Oui, elles sont indiquées dans le règlement de l’immeuble.', ar: 'إي، موجودة بنظام البناية.', en: 'Yes, they are indicated in the building rules.' }
+      ] },
+      { icon: '📦', title: { ar: 'الموقف 85: طرد وصل بعد الانتقال', en: 'Situation 85: a package after moving', fr: 'Situation 85 : un colis après le déménagement' }, phrases: [
+        { fr: 'J’ai reçu un colis à ma nouvelle adresse.', ar: 'وصلني طرد ععنواني الجديد.', en: 'I received a package at my new address.' },
+        { fr: 'Vous pouvez le récupérer à l’accueil.', ar: 'فيك تستلمه من الاستقبال.', en: 'You can collect it from reception.' }
+      ] },
+      { icon: '📬', title: { ar: 'الموقف 86: البريد ما عم يوصل', en: 'Situation 86: mail not arriving', fr: 'Situation 86 : le courrier n’arrive pas' }, phrases: [
+        { fr: 'Je ne reçois pas encore mon courrier.', ar: 'لسا ما عم يوصلني بريدي.', en: 'I’m not receiving my mail yet.' },
+        { fr: 'Votre nom est-il bien indiqué sur la boîte aux lettres ?', ar: 'اسمك مكتوب منيح عالصندوق؟', en: 'Is your name correctly displayed on the mailbox?' },
+        { fr: 'Non, pas encore.', ar: 'لا، لسا.', en: 'No, not yet.' }
+      ] },
+      { icon: '🏦', title: { ar: 'الموقف 87: تغيير العنوان عند البنك', en: 'Situation 87: updating your address at the bank', fr: 'Situation 87 : changer d’adresse à la banque' }, phrases: [
+        { fr: 'Je voudrais mettre à jour mon adresse.', ar: 'بدي حدّث عنواني.', en: 'I’d like to update my address.' },
+        { fr: 'Pouvez-vous me transmettre votre justificatif de domicile ?', ar: 'فيك تعطيني إثبات السكن؟', en: 'Can you provide your proof of address?' },
+        { fr: 'Oui, voici mon justificatif de domicile.', ar: 'إي، هاد إثبات السكن تبعي.', en: 'Yes, here is my proof of address.' }
+      ] },
+      { icon: '🏠', title: { ar: 'الموقف 88: طلب إثبات السكن', en: 'Situation 88: requesting proof of address', fr: 'Situation 88 : demander un justificatif de domicile' }, phrases: [
+        { fr: 'J’ai besoin d’un justificatif de domicile.', ar: 'بدي إثبات سكن.', en: 'I need proof of address.' },
+        { fr: 'Vous pouvez utiliser votre bail ou votre quittance de loyer.', ar: 'فيك تستخدم عقد الإيجار أو وصل الإيجار.', en: 'You can use your lease or rent receipt.' }
+      ] },
+      { icon: '🧾', title: { ar: 'الموقف 89: طلب quittance de loyer', en: 'Situation 89: requesting the rent receipt', fr: 'Situation 89 : demander la quittance de loyer' }, phrases: [
+        { fr: 'Pouvez-vous m’envoyer ma quittance de loyer ?', ar: 'فيكم تبعتولي وصل الإيجار؟', en: 'Could you send me my rent receipt?' },
+        { fr: 'Oui, elle sera disponible dans votre espace locataire.', ar: 'إي، رح تكون موجودة بحساب المستأجر تبعك.', en: 'Yes, it will be available in your tenant account.' }
+      ] },
+      { icon: '💶', title: { ar: 'الموقف 90: التأكد من مبلغ الإيجار', en: 'Situation 90: checking the rent amount', fr: 'Situation 90 : vérifier le montant du loyer' }, phrases: [
+        { fr: 'Quel sera le montant total à payer chaque mois ?', ar: 'قديش رح يكون المبلغ الكامل اللي لازم ادفعه كل شهر؟', en: 'How much will I have to pay in total each month?' },
+        { fr: 'Le loyer et les charges sont de 450 euros.', ar: 'الإيجار مع المصاريف 450 يورو.', en: 'The rent and charges are €450.' }
+      ] },
+      { icon: '📅', title: { ar: 'الموقف 91: موعد دفع الإيجار', en: 'Situation 91: rent payment date', fr: 'Situation 91 : la date de paiement du loyer' }, phrases: [
+        { fr: 'À quelle date dois-je payer le loyer ?', ar: 'بأي تاريخ لازم ادفع الإيجار؟', en: 'On what date do I have to pay the rent?' },
+        { fr: 'Le loyer doit être payé avant le 5 de chaque mois.', ar: 'لازم يندفع الإيجار قبل يوم 5 من كل شهر.', en: 'The rent must be paid before the 5th of each month.' }
+      ] },
+      { icon: '💳', title: { ar: 'الموقف 92: الدفع عن طريق التحويل', en: 'Situation 92: paying by bank transfer', fr: 'Situation 92 : payer par virement' }, phrases: [
+        { fr: 'Je peux payer le loyer par virement bancaire ?', ar: 'فيني ادفع الإيجار عن طريق التحويل البنكي؟', en: 'Can I pay the rent by bank transfer?' },
+        { fr: 'Oui, voici notre RIB.', ar: 'إي، هاد الـRIB تبعنا.', en: 'Yes, here is our bank information.' }
+      ] },
+      { icon: '🏦', title: { ar: 'الموقف 93: تغيير الحساب البنكي', en: 'Situation 93: changing bank account', fr: 'Situation 93 : changer de compte bancaire' }, phrases: [
+        { fr: 'Je voudrais changer mon compte bancaire.', ar: 'بدي غيّر حسابي البنكي.', en: 'I’d like to change my bank account.' },
+        { fr: 'Merci de nous transmettre votre nouveau RIB.', ar: 'لو سمحت ابعتلنا الـRIB الجديد.', en: 'Please send us your new bank details.' }
+      ] },
+      { icon: '⚠️', title: { ar: 'الموقف 94: صعوبة دفع الإيجار', en: 'Situation 94: difficulty paying rent', fr: 'Situation 94 : difficulté à payer le loyer' }, phrases: [
+        { fr: 'J’ai des difficultés à payer mon loyer ce mois-ci.', ar: 'عندي صعوبة أدفع الإيجار هالشهر.', en: 'I’m having difficulty paying my rent this month.' },
+        { fr: 'Contactez-nous rapidement pour trouver une solution.', ar: 'تواصل معنا بسرعة لنلاقي حل.', en: 'Contact us quickly so we can find a solution.' }
+      ] },
+      { icon: '🧑‍💼', title: { ar: 'الموقف 95: التواصل مع مدير العقار', en: 'Situation 95: contacting the property manager', fr: 'Situation 95 : contacter le gestionnaire' }, phrases: [
+        { fr: 'Qui est mon interlocuteur pour le logement ?', ar: 'مين الشخص المسؤول اللي لازم أتواصل معه بخصوص السكن؟', en: 'Who is my contact person for the property?' },
+        { fr: 'Vous pouvez contacter le service locatif.', ar: 'فيك تتواصل مع قسم الإيجارات.', en: 'You can contact the rental department.' }
+      ] },
+      { icon: '📞', title: { ar: 'الموقف 96: حالة طارئة خارج أوقات العمل', en: 'Situation 96: out-of-hours emergency', fr: 'Situation 96 : urgence en dehors des horaires' }, phrases: [
+        { fr: 'Que dois-je faire en cas d’urgence la nuit ?', ar: 'شو لازم أعمل بحالة طارئة بالليل؟', en: 'What should I do in an emergency at night?' },
+        { fr: 'Appelez le numéro d’urgence indiqué dans vos documents.', ar: 'اتصل برقم الطوارئ الموجود بأوراقك.', en: 'Call the emergency number indicated in your documents.' }
+      ] },
+      { icon: '🔧', title: { ar: 'الموقف 97: موعد إصلاح', en: 'Situation 97: repair appointment', fr: 'Situation 97 : rendez-vous de réparation' }, phrases: [
+        { fr: 'Quand est-ce que le réparateur peut venir ?', ar: 'إمتى فيو يجي عامل التصليح؟', en: 'When can the repair person come?' },
+        { fr: 'Il peut venir jeudi matin.', ar: 'فيه يجي الخميس الصبح.', en: 'He can come Thursday morning.' },
+        { fr: 'Oui, je serai disponible.', ar: 'إي، رح كون متوفر.', en: 'Yes, I’ll be available.' }
+      ] },
+      { icon: '🚪', title: { ar: 'الموقف 98: السماح بدخول الفني', en: 'Situation 98: letting the technician in', fr: 'Situation 98 : laisser entrer le technicien' }, phrases: [
+        { fr: 'Est-ce que je dois être présent pendant l’intervention ?', ar: 'لازم كون موجود وقت التصليح؟', en: 'Do I need to be present during the repair?' },
+        { fr: 'Oui, quelqu’un doit être présent pour ouvrir la porte.', ar: 'إي، لازم حدا يكون موجود ليفتح الباب.', en: 'Yes, someone needs to be there to open the door.' }
+      ] },
+      { icon: '🧰', title: { ar: 'الموقف 99: الفني وصل', en: 'Situation 99: the technician arrived', fr: 'Situation 99 : le technicien est arrivé' }, phrases: [
+        { fr: 'Bonjour, je suis le technicien.', ar: 'مرحبا، أنا الفني.', en: 'Hello, I’m the technician.' },
+        { fr: 'Bonjour, entrez, je vais vous montrer le problème.', ar: 'مرحبا، تفضل، رح فرجيك المشكلة.', en: 'Hello, come in. I’ll show you the problem.' }
+      ] },
+      { icon: '📋', title: { ar: 'الموقف 100: التأكد من انتهاء التصليح', en: 'Situation 100: checking the repair is done', fr: 'Situation 100 : vérifier que la réparation est terminée' }, phrases: [
+        { fr: 'Le problème est-il complètement réglé ?', ar: 'المشكلة انحلت بشكل كامل؟', en: 'Has the problem been completely fixed?' },
+        { fr: 'Oui, tout fonctionne maintenant.', ar: 'إي، هلأ كل شي شغال.', en: 'Yes, everything is working now.' }
+      ] },
+      { icon: '🗝️', title: { ar: 'الموقف 101: عمل نسخة إضافية للمفتاح', en: 'Situation 101: making a spare key', fr: 'Situation 101 : faire un double des clés' }, phrases: [
+        { fr: 'Est-ce que je peux faire un double des clés ?', ar: 'فيني أعمل نسخة إضافية عن المفاتيح؟', en: 'Can I make a copy of the keys?' },
+        { fr: 'Oui, mais vous devez nous prévenir.', ar: 'إي، بس لازم تخبرونا.', en: 'Yes, but you need to inform us.' }
+      ] },
+      { icon: '🏷️', title: { ar: 'الموقف 102: وضع الاسم على جرس الباب', en: 'Situation 102: putting your name on the intercom', fr: 'Situation 102 : mettre son nom sur l’interphone' }, phrases: [
+        { fr: 'Comment puis-je mettre mon nom sur l’interphone ?', ar: 'كيف فيني حط اسمي عالإنترفون؟', en: 'How can I put my name on the intercom?' },
+        { fr: 'Contactez le gardien ou le syndic.', ar: 'تواصل مع الحارس أو إدارة البناية.', en: 'Contact the caretaker or the building management.' }
+      ] },
+      { icon: '📦', title: { ar: 'الموقف 103: استلام طرد كبير', en: 'Situation 103: receiving a large delivery', fr: 'Situation 103 : recevoir un gros colis' }, phrases: [
+        { fr: 'J’attends une livraison de meubles.', ar: 'ناطر توصيل أثاث.', en: 'I’m expecting a furniture delivery.' },
+        { fr: 'Est-ce que le livreur peut utiliser l’ascenseur ?', ar: 'عامل التوصيل فيه يستخدم المصعد؟', en: 'Can the delivery person use the elevator?' },
+        { fr: 'Oui, mais il faut protéger les parties communes.', ar: 'إي، بس لازم تحافظوا على الأماكن المشتركة وما تضرّوها.', en: 'Yes, but the common areas must be protected.' }
+      ] },
+      { icon: '🧹', title: { ar: 'الموقف 104: التخلص من كرتون الانتقال', en: 'Situation 104: disposing of moving boxes', fr: 'Situation 104 : se débarrasser des cartons' }, phrases: [
+        { fr: 'Où puis-je déposer les cartons après mon déménagement ?', ar: 'وين فيني حط كراتين النقل بعد ما أخلص؟', en: 'Where can I dispose of the moving boxes?' },
+        { fr: 'Vous devez les déposer dans le local prévu à cet effet.', ar: 'لازم تحطها بالمكان المخصص إلها.', en: 'You have to put them in the designated area.' }
+      ] },
+      { icon: '🏢', title: { ar: 'الموقف 105: معرفة المسؤول عن الأجزاء المشتركة', en: 'Situation 105: who manages common areas', fr: 'Situation 105 : qui gère les parties communes' }, phrases: [
+        { fr: 'Qui s’occupe de l’entretien des parties communes ?', ar: 'مين المسؤول عن تنظيف وصيانة الأماكن المشتركة؟', en: 'Who takes care of the common areas?' },
+        { fr: 'C’est le gardien ou la société d’entretien.', ar: 'الحارس أو شركة التنظيف والصيانة.', en: 'It’s the caretaker or the maintenance company.' }
+      ] },
+      { icon: '🏠', title: { ar: 'الموقف 106: طلب تعديل بسيط في السكن', en: 'Situation 106: requesting a small alteration', fr: 'Situation 106 : demander une petite modification' }, phrases: [
+        { fr: 'Est-ce que je peux installer une étagère ici ?', ar: 'فيني ركّب رف هون؟', en: 'Can I install a shelf here?' },
+        { fr: 'Oui, mais il faut éviter de percer certains murs.', ar: 'إي، بس لازم تتجنب تثقيب بعض الحيطان.', en: 'Yes, but you need to avoid drilling certain walls.' }
+      ] },
+      { icon: '🎨', title: { ar: 'الموقف 107: طلاء الجدران', en: 'Situation 107: repainting the walls', fr: 'Situation 107 : repeindre les murs' }, phrases: [
+        { fr: 'Est-ce que je peux repeindre les murs ?', ar: 'فيني أدهّن الحيطان من جديد؟', en: 'Can I repaint the walls?' },
+        { fr: 'Il faut demander notre autorisation avant.', ar: 'لازم تاخدوا موافقتنا قبل.', en: 'You need to ask for our permission first.' }
+      ] },
+      { icon: '🧱', title: { ar: 'الموقف 108: تعليق التلفزيون', en: 'Situation 108: mounting the TV', fr: 'Situation 108 : fixer la télévision au mur' }, phrases: [
+        { fr: 'Je voudrais fixer ma télévision au mur.', ar: 'بدي ثبّت التلفزيون عالحيط.', en: 'I’d like to mount my TV on the wall.' },
+        { fr: 'Vérifiez d’abord si cela est autorisé.', ar: 'تأكد بالأول إذا هالشي مسموح.', en: 'Check first whether it is allowed.' }
+      ] },
+      { icon: '🐕', title: { ar: 'الموقف 109: وجود حيوان أليف', en: 'Situation 109: having a pet', fr: 'Situation 109 : avoir un animal' }, phrases: [
+        { fr: 'Est-ce que je peux avoir un animal dans le logement ?', ar: 'فيني أجيب حيوان أليف عالسكن؟', en: 'Can I have a pet in the property?' },
+        { fr: 'Oui, sous certaines conditions.', ar: 'إي، بشروط معينة.', en: 'Yes, under certain conditions.' }
+      ] },
+      { icon: '🚬', title: { ar: 'الموقف 110: التدخين في السكن', en: 'Situation 110: smoking inside', fr: 'Situation 110 : fumer dans le logement' }, phrases: [
+        { fr: 'Est-ce qu’il est interdit de fumer dans le logement ?', ar: 'ممنوع التدخين داخل السكن؟', en: 'Is smoking inside the property prohibited?' },
+        { fr: 'Il faut respecter le règlement de l’immeuble.', ar: 'لازم تلتزم بنظام البناية.', en: 'You must follow the building rules.' }
+      ] },
+      { icon: '🧑‍🤝‍🧑', title: { ar: 'الموقف 111: استقبال ضيف', en: 'Situation 111: hosting a guest', fr: 'Situation 111 : recevoir un invité' }, phrases: [
+        { fr: 'Est-ce que je peux héberger un proche pendant quelques jours ?', ar: 'فيني خلّي حدا من قرايبي ينام عندي كم يوم؟', en: 'Can I have a relative stay with me for a few days?' },
+        { fr: 'Pour quelques jours, cela ne pose généralement pas de problème.', ar: 'لعدة أيام عادةً ما في مشكلة.', en: 'For a few days, it’s generally not a problem.' }
+      ] },
+      { icon: '🛏️', title: { ar: 'الموقف 112: شخص سيقيم معك', en: 'Situation 112: someone will live with you', fr: 'Situation 112 : une personne vivra avec vous' }, phrases: [
+        { fr: 'Je voudrais savoir si une personne peut vivre avec moi.', ar: 'بدي أعرف إذا في شخص فيه يسكن معي.', en: 'I’d like to know if someone can live with me.' },
+        { fr: 'Cela dépend des conditions du bail.', ar: 'هالشي بيعتمد على شروط العقد.', en: 'It depends on the terms of the lease.' }
+      ] },
+      { icon: '📦', title: { ar: 'الموقف 113: تخزين الأغراض في القبو', en: 'Situation 113: storing in the cellar', fr: 'Situation 113 : stocker dans la cave' }, phrases: [
+        { fr: 'Est-ce que je peux entreposer mes affaires dans la cave ?', ar: 'فيني خزّن أغراضي بالقبو؟', en: 'Can I store my belongings in the cellar?' },
+        { fr: 'Oui, à condition de respecter le règlement.', ar: 'إي، بشرط تلتزم بنظام البناية.', en: 'Yes, as long as you follow the building rules.' }
+      ] },
+      { icon: '🔒', title: { ar: 'الموقف 114: مشكلة في باب القبو', en: 'Situation 114: cellar door problem', fr: 'Situation 114 : problème de porte de cave' }, phrases: [
+        { fr: 'La porte de la cave ne s’ouvre plus.', ar: 'باب القبو ما عاد يفتح.', en: 'The cellar door no longer opens.' },
+        { fr: 'Je vais vérifier le système de verrouillage.', ar: 'رح أتأكد من نظام القفل.', en: 'I’ll check the locking system.' }
+      ] },
+      { icon: '🚲', title: { ar: 'الموقف 115: ترك الدراجة في المكان المخصص', en: 'Situation 115: leaving your bicycle', fr: 'Situation 115 : laisser le vélo' }, phrases: [
+        { fr: 'Puis-je laisser mon vélo ici ?', ar: 'فيني اترك دراجتي هون؟', en: 'Can I leave my bicycle here?' },
+        { fr: 'Non, les vélos doivent être rangés dans le local prévu.', ar: 'لا، الدراجات لازم تنحط بالمكان المخصص إلها.', en: 'No, bicycles must be kept in the designated room.' }
+      ] },
+      { icon: '🧺', title: { ar: 'الموقف 116: نشر الغسيل', en: 'Situation 116: hanging laundry', fr: 'Situation 116 : étendre le linge' }, phrases: [
+        { fr: 'Où puis-je étendre mon linge ?', ar: 'وين فيني انشر غسيلي؟', en: 'Where can I hang my laundry?' },
+        { fr: 'Vous pouvez utiliser votre balcon si le règlement l’autorise.', ar: 'فيك تستخدم البلكون إذا نظام البناية بيسمح.', en: 'You can use your balcony if the building rules allow it.' }
+      ] },
+      { icon: '🌡️', title: { ar: 'الموقف 117: التدفئة الجماعية', en: 'Situation 117: communal heating', fr: 'Situation 117 : le chauffage collectif' }, phrases: [
+        { fr: 'À quelle période le chauffage collectif est-il allumé ?', ar: 'بأي فترة بيشغّلوا التدفئة المركزية؟', en: 'When is the communal heating turned on?' },
+        { fr: 'Le chauffage est généralement mis en service pendant la période froide.', ar: 'عادةً بيشغلوها بفترة البرد.', en: 'The heating is generally switched on during the cold season.' }
+      ] },
+      { icon: '🌡️', title: { ar: 'الموقف 118: السكن بارد', en: 'Situation 118: the home is cold', fr: 'Situation 118 : le logement est froid' }, phrases: [
+        { fr: 'Il fait très froid dans l’appartement.', ar: 'الجو كتير بارد جوّا الشقة.', en: 'It’s very cold inside the apartment.' },
+        { fr: 'Avez-vous vérifié le chauffage ?', ar: 'تأكدت من التدفئة؟', en: 'Have you checked the heating?' },
+        { fr: 'Oui, mais les radiateurs restent froids.', ar: 'إي، بس الرادياتورات ضلّوا باردين.', en: 'Yes, but the radiators remain cold.' }
+      ] },
+      { icon: '💨', title: { ar: 'الموقف 119: وجود رطوبة', en: 'Situation 119: dampness', fr: 'Situation 119 : de l’humidité' }, phrases: [
+        { fr: 'Il y a de l’humidité sur le mur.', ar: 'في رطوبة عالحيط.', en: 'There is dampness on the wall.' },
+        { fr: 'Pouvez-vous nous envoyer une photo ?', ar: 'فيك تبعتلنا صورة؟', en: 'Can you send us a photo?' },
+        { fr: 'Oui, je vais vous l’envoyer aujourd’hui.', ar: 'إي، رح ابعتلكم ياها اليوم.', en: 'Yes, I’ll send it today.' }
+      ] },
+      { icon: '🦠', title: { ar: 'الموقف 120: ظهور العفن', en: 'Situation 120: mold', fr: 'Situation 120 : de la moisissure' }, phrases: [
+        { fr: 'J’ai remarqué des traces de moisissure.', ar: 'لاحظت آثار عفن.', en: 'I noticed some signs of mold.' },
+        { fr: 'Où se trouvent les traces ?', ar: 'وين موجودة الآثار؟', en: 'Where are the signs?' },
+        { fr: 'Elles sont dans un coin de la salle de bains.', ar: 'موجودة بزاوية من الحمام.', en: 'They are in a corner of the bathroom.' }
+      ] },
+      { icon: '🏠', title: { ar: 'الموقف 121: مشكلة في جرس الباب', en: 'Situation 121: doorbell not working', fr: 'Situation 121 : la sonnette ne marche pas' }, phrases: [
+        { fr: 'La sonnette de la porte ne fonctionne pas.', ar: 'جرس الباب ما عم يشتغل.', en: 'The doorbell isn’t working.' },
+        { fr: 'Nous allons faire vérifier la sonnette.', ar: 'رح نخلي حدا يتأكد من الجرس.', en: 'We’ll have the doorbell checked.' }
+      ] },
+      { icon: '🔑', title: { ar: 'الموقف 122: مفتاح غرفة النفايات', en: 'Situation 122: trash room key', fr: 'Situation 122 : la clé du local à poubelles' }, phrases: [
+        { fr: 'Quelle clé ouvre le local à poubelles ?', ar: 'أي مفتاح بيفتح غرفة الزبالة؟', en: 'Which key opens the trash room?' },
+        { fr: 'C’est la petite clé avec l’étiquette rouge.', ar: 'هو المفتاح الصغير اللي عليه لاصقة حمرا.', en: 'It’s the small key with the red label.' }
+      ] },
+      { icon: '🗑️', title: { ar: 'الموقف 123: موعد إخراج النفايات', en: 'Situation 123: trash collection day', fr: 'Situation 123 : le jour de sortie des poubelles' }, phrases: [
+        { fr: 'Quel jour dois-je sortir les poubelles ?', ar: 'بأي يوم لازم طلّع الزبالة؟', en: 'Which day should I take the trash out?' },
+        { fr: 'Les jours de collecte sont affichés dans le hall.', ar: 'أيام جمع الزبالة معلّقة بمدخل البناية.', en: 'The collection days are posted in the entrance hall.' }
+      ] },
+      { icon: '♻️', title: { ar: 'الموقف 124: حاوية الزجاج', en: 'Situation 124: the glass container', fr: 'Situation 124 : le conteneur à verre' }, phrases: [
+        { fr: 'Où dois-je jeter les bouteilles en verre ?', ar: 'وين لازم كبّ قناني الزجاج؟', en: 'Where should I throw away glass bottles?' },
+        { fr: 'Il y a un conteneur à verre dans la rue.', ar: 'في حاوية للزجاج بالشارع.', en: 'There is a glass recycling container in the street.' }
+      ] },
+      { icon: '🧯', title: { ar: 'الموقف 125: طفاية الحريق', en: 'Situation 125: the fire extinguisher', fr: 'Situation 125 : l’extincteur' }, phrases: [
+        { fr: 'Où se trouve l’extincteur ?', ar: 'وين طفاية الحريق؟', en: 'Where is the fire extinguisher?' },
+        { fr: 'Elle se trouve dans le couloir.', ar: 'موجودة بالممر.', en: 'It’s in the hallway.' }
+      ] },
+      { icon: '🚨', title: { ar: 'الموقف 126: إنذار الحريق', en: 'Situation 126: the fire alarm', fr: 'Situation 126 : l’alarme incendie' }, phrases: [
+        { fr: 'L’alarme incendie s’est déclenchée.', ar: 'إنذار الحريق اشتغل.', en: 'The fire alarm went off.' },
+        { fr: 'Évacuez l’immeuble et appelez les secours si nécessaire.', ar: 'اطلعوا من البناية واتصلوا بالطوارئ إذا لزم.', en: 'Evacuate the building and call emergency services if necessary.' }
+      ] },
+      { icon: '🪟', title: { ar: 'الموقف 127: تكاثف الماء على الشبابيك', en: 'Situation 127: condensation on windows', fr: 'Situation 127 : condensation sur les fenêtres' }, phrases: [
+        { fr: 'Il y a beaucoup de condensation sur les fenêtres.', ar: 'في مي كتير متجمعة عالشبابيك.', en: 'There is a lot of condensation on the windows.' },
+        { fr: 'Aérez régulièrement le logement.', ar: 'هوّي السكن بشكل منتظم.', en: 'Air out the apartment regularly.' }
+      ] },
+      { icon: '🌬️', title: { ar: 'الموقف 128: فتح النوافذ للتهوية', en: 'Situation 128: airing out the home', fr: 'Situation 128 : aérer le logement' }, phrases: [
+        { fr: 'Combien de temps faut-il aérer le logement ?', ar: 'قديش لازم هوّي السكن؟', en: 'How long should I air out the apartment?' },
+        { fr: 'Quelques minutes chaque jour suffisent généralement.', ar: 'عادةً كم دقيقة كل يوم بتكفي.', en: 'A few minutes each day are usually enough.' }
+      ] },
+      { icon: '🧽', title: { ar: 'الموقف 129: تنظيف الفلتر', en: 'Situation 129: cleaning the hood filter', fr: 'Situation 129 : nettoyer le filtre de la hotte' }, phrases: [
+        { fr: 'Est-ce que je dois nettoyer le filtre de la hotte ?', ar: 'لازم نظّف فلتر الشفاط؟', en: 'Do I need to clean the cooker hood filter?' },
+        { fr: 'Oui, il faut l’entretenir régulièrement.', ar: 'إي، لازم تنظفه بشكل منتظم.', en: 'Yes, it needs regular maintenance.' }
+      ] },
+      { icon: '🍳', title: { ar: 'الموقف 130: مشكلة في شفاط المطبخ', en: 'Situation 130: cooker hood problem', fr: 'Situation 130 : problème de hotte' }, phrases: [
+        { fr: 'La hotte ne fonctionne pas.', ar: 'شفاط المطبخ ما عم يشتغل.', en: 'The cooker hood isn’t working.' },
+        { fr: 'Est-ce qu’elle fait du bruit quand vous l’allumez ?', ar: 'بتعمل صوت لما تشغّلها؟', en: 'Does it make a sound when you turn it on?' },
+        { fr: 'Non, elle ne réagit pas du tout.', ar: 'لا، ما عم تستجيب أبدًا.', en: 'No, it doesn’t respond at all.' }
+      ] },
+      { icon: '🔥', title: { ar: 'الموقف 131: مشكلة في الفرن', en: 'Situation 131: oven problem', fr: 'Situation 131 : problème de four' }, phrases: [
+        { fr: 'Le four ne chauffe pas.', ar: 'الفرن ما عم يسخن.', en: 'The oven isn’t heating.' },
+        { fr: 'Avez-vous vérifié le disjoncteur ?', ar: 'تأكدت من قاطع الكهربا؟', en: 'Have you checked the circuit breaker?' },
+        { fr: 'Oui, tout semble normal.', ar: 'إي، كل شي شكله طبيعي.', en: 'Yes, everything seems normal.' }
+      ] },
+      { icon: '🍽️', title: { ar: 'الموقف 132: مشكلة في غسالة الصحون', en: 'Situation 132: dishwasher problem', fr: 'Situation 132 : problème de lave-vaisselle' }, phrases: [
+        { fr: 'Le lave-vaisselle ne démarre pas.', ar: 'غسالة الصحون ما عم تشتغل.', en: 'The dishwasher won’t start.' },
+        { fr: 'Est-ce qu’il est bien branché ?', ar: 'هو موصول بالكهربا منيح؟', en: 'Is it properly plugged in?' }
+      ] },
+      { icon: '🚿', title: { ar: 'الموقف 133: ضغط الماء ضعيف', en: 'Situation 133: low water pressure', fr: 'Situation 133 : pression d’eau faible' }, phrases: [
+        { fr: 'La pression de l’eau est très faible.', ar: 'ضغط المي ضعيف كتير.', en: 'The water pressure is very low.' },
+        { fr: 'Est-ce que le problème concerne tous les robinets ?', ar: 'المشكلة بكل الحنفيات؟', en: 'Does the problem affect all the faucets?' },
+        { fr: 'Oui, dans tout le logement.', ar: 'إي، بكل السكن.', en: 'Yes, throughout the apartment.' }
+      ] },
+      { icon: '🚿', title: { ar: 'الموقف 134: الماء لا يصرف من الدوش', en: 'Situation 134: slow-draining shower', fr: 'Situation 134 : l’eau s’évacue lentement' }, phrases: [
+        { fr: 'L’eau s’évacue très lentement dans la douche.', ar: 'المي عم تنزل ببطء كتير من الدوش.', en: 'The water drains very slowly from the shower.' },
+        { fr: 'Il faudra peut-être nettoyer la bonde.', ar: 'يمكن لازم تنظيف فتحة التصريف.', en: 'The drain may need to be cleaned.' }
+      ] },
+      { icon: '🔧', title: { ar: 'الموقف 135: طلب رقم شركة الصيانة', en: 'Situation 135: asking for the maintenance number', fr: 'Situation 135 : demander le numéro de la maintenance' }, phrases: [
+        { fr: 'Pouvez-vous me donner le numéro du service de maintenance ?', ar: 'فيكم تعطوني رقم قسم الصيانة؟', en: 'Could you give me the maintenance department’s number?' },
+        { fr: 'Oui, voici leurs coordonnées.', ar: 'إي، هاي معلومات التواصل تبعهم.', en: 'Yes, here are their contact details.' }
+      ] },
+      { icon: '📧', title: { ar: 'الموقف 136: إرسال طلب إصلاح بالإيميل', en: 'Situation 136: reporting a problem by email', fr: 'Situation 136 : signaler un problème par e-mail' }, phrases: [
+        { fr: 'Je voudrais signaler un problème par e-mail.', ar: 'بدي بلّغ عن مشكلة عن طريق الإيميل.', en: 'I’d like to report a problem by email.' },
+        { fr: 'Décrivez le problème et indiquez votre adresse.', ar: 'اشرح المشكلة واكتب عنوانك.', en: 'Describe the problem and provide your address.' }
+      ] },
+      { icon: '📞', title: { ar: 'الموقف 137: متابعة طلب الصيانة', en: 'Situation 137: following up on a request', fr: 'Situation 137 : suivre une demande d’intervention' }, phrases: [
+        { fr: 'Je vous contacte concernant une demande d’intervention.', ar: 'عم اتواصل معكم بخصوص طلب صيانة.', en: 'I’m contacting you about a maintenance request.' },
+        { fr: 'Avez-vous déjà reçu ma demande ?', ar: 'وصلكم طلبي من قبل؟', en: 'Have you already received my request?' },
+        { fr: 'Oui, votre demande est en cours de traitement.', ar: 'إي، طلبك قيد المعالجة.', en: 'Yes, your request is being processed.' }
+      ] },
+      { icon: '🕐', title: { ar: 'الموقف 138: التأخير في الصيانة', en: 'Situation 138: maintenance delay', fr: 'Situation 138 : le retard de l’intervention' }, phrases: [
+        { fr: 'Cela fait plusieurs jours que j’attends une intervention.', ar: 'صارلي كم يوم ناطر حدا يجي يصلّح.', en: 'I’ve been waiting several days for someone to come and repair it.' },
+        { fr: 'Nous sommes désolés pour le délai.', ar: 'منعتذر عن التأخير.', en: 'We’re sorry for the delay.' }
+      ] },
+      { icon: '🧾', title: { ar: 'الموقف 139: طلب فاتورة إصلاح', en: 'Situation 139: requesting a repair invoice', fr: 'Situation 139 : demander une facture de réparation' }, phrases: [
+        { fr: 'Est-ce que je recevrai une facture pour cette intervention ?', ar: 'رح توصلني فاتورة عن هالتصليح؟', en: 'Will I receive an invoice for this repair?' },
+        { fr: 'Cela dépend de la nature de l’intervention.', ar: 'هالشي بيعتمد على نوع التصليح.', en: 'It depends on the type of repair.' }
+      ] },
+      { icon: '📋', title: { ar: 'الموقف 140: طلب معرفة ما تم إصلاحه', en: 'Situation 140: finding out what was repaired', fr: 'Situation 140 : savoir ce qui a été réparé' }, phrases: [
+        { fr: 'Qu’est-ce qui a été réparé exactement ?', ar: 'شو بالضبط اللي تم تصليحه؟', en: 'What exactly was repaired?' },
+        { fr: 'Nous avons remplacé la pièce défectueuse.', ar: 'بدّلنا القطعة المعطلة.', en: 'We replaced the defective part.' }
+      ] },
+      { icon: '📢', title: { ar: 'كيف تبدأ الشكوى؟', en: 'How to start a complaint', fr: 'Comment démarrer une réclamation ?' }, phrases: [
+        { fr: 'Bonjour, je vous contacte parce que j’ai un problème dans mon logement.', ar: 'مرحبا، عم أتواصل معكم لأنه عندي مشكلة بالسكن.', en: 'Hello, I’m contacting you because I have a problem in my apartment.' },
+        { fr: 'Je voudrais signaler un problème.', ar: 'بدي بلّغ عن مشكلة.', en: 'I’d like to report a problem.' },
+        { fr: 'Le problème est apparu aujourd’hui.', ar: 'المشكلة ظهرت اليوم.', en: 'The problem appeared today.' },
+        { fr: 'Pouvez-vous envoyer quelqu’un pour vérifier ?', ar: 'فيكم تبعتوا حدا ليتأكد؟', en: 'Could you send someone to check?' },
+        { fr: 'Quand est-ce que quelqu’un peut intervenir ?', ar: 'إمتى في حدا فيه يجي يصلّح؟', en: 'When can someone come to fix it?' },
+        { fr: 'C’est assez urgent, car je ne peux pas utiliser le logement normalement.', ar: 'الموضوع مستعجل شوي، لأني ما عاد فيني استخدم السكن بشكل طبيعي.', en: 'It’s quite urgent because I can’t use the apartment normally.' }
       ] }
     ]
   }
