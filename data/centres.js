@@ -21878,6 +21878,468 @@ window.CENTRES_DATA = [
         { fr: 'Moi aussi. Au fait, je m’appelle Mohammad.', ar: 'أنا كمان. على فكرة، أنا محمد.', en: 'Me too. By the way, I’m Mohammad.' },
         { fr: 'Enchantée.', ar: 'تشرفت.', en: 'Nice to meet you.' },
         { fr: 'Enchanté. Ça me fait plaisir de faire ta connaissance.', ar: 'وأنا كمان تشرفت، مبسوط إني تعرفت عليكي.', en: 'Nice to meet you too. I’m glad to get to know you.' }
+      ] },
+      { icon: '🛒', title: { ar: 'عند الدخول', en: 'When entering', fr: 'À l’entrée' }, phrases: [
+        { fr: 'Bonjour !', ar: 'مرحبا!', en: 'Hello!' },
+        { fr: 'Vous avez un panier ?', ar: 'معك سلة؟', en: 'Do you have a basket?' },
+        { fr: 'Où sont les chariots ?', ar: 'وين العربات؟', en: 'Where are the carts?' },
+        { fr: 'Il faut une pièce pour le chariot ?', ar: 'بدها قطعة نقدية للعربة؟', en: 'Do you need a coin for the cart?' }
+      ] },
+      { icon: '🥛', title: { ar: 'البحث عن منتج', en: 'Looking for a product', fr: 'Chercher un produit' }, phrases: [
+        { fr: 'Excusez-moi, vous savez où sont les produits laitiers ?', ar: 'عفواً، بتعرف وين منتجات الألبان؟', en: 'Excuse me, do you know where the dairy products are?' },
+        { fr: 'Vous avez du lait sans lactose ?', ar: 'عندكم حليب بدون لاكتوز؟', en: 'Do you have lactose-free milk?' },
+        { fr: 'Où est le rayon pain ?', ar: 'وين قسم الخبز؟', en: 'Where is the bread aisle?' },
+        { fr: 'Je cherche du riz.', ar: 'عم دور على رز.', en: 'I’m looking for rice.' },
+        { fr: 'C’est dans quel rayon ?', ar: 'بأي قسم موجود؟', en: 'Which aisle is it in?' }
+      ] },
+      { icon: '🏷️', title: { ar: 'السعر والعروض', en: 'Price and deals', fr: 'Le prix et les promos' }, phrases: [
+        { fr: 'C’est combien ?', ar: 'قديش سعره؟', en: 'How much is it?' },
+        { fr: 'Il est en promotion ?', ar: 'عليه عرض؟', en: 'Is it on sale?' },
+        { fr: 'C’est moins cher avec la carte ?', ar: 'أرخص مع البطاقة؟', en: 'Is it cheaper with the card?' },
+        { fr: 'C’est une offre spéciale ?', ar: 'هاد عرض خاص؟', en: 'Is this a special offer?' },
+        { fr: 'Il y a une réduction ?', ar: 'في خصم؟', en: 'Is there a discount?' }
+      ] },
+      { icon: '🥦', title: { ar: 'اختيار المنتجات', en: 'Choosing products', fr: 'Choisir les produits' }, phrases: [
+        { fr: 'Ils sont frais ?', ar: 'هدول طازجين؟', en: 'Are these fresh?' },
+        { fr: 'Tu choisirais lequel ?', ar: 'أي واحد بتختاري؟', en: 'Which one would you choose?' },
+        { fr: 'Celui-ci a l’air meilleur.', ar: 'هاد شكله أحسن.', en: 'This one looks better.' },
+        { fr: 'Tu connais cette marque ?', ar: 'بتعرفي هالماركة؟', en: 'Do you know this brand?' }
+      ] },
+      { icon: '🧑‍🤝‍🧑', title: { ar: 'إذا بدك تسأل شخصًا غريبًا', en: 'If you want to ask a stranger', fr: 'Pour demander à un inconnu' }, phrases: [
+        { fr: 'Excusez-moi, vous pouvez m’aider ?', ar: 'عفواً، فيك تساعدني؟', en: 'Excuse me, can you help me?' },
+        { fr: 'Vous savez où je peux trouver ça ?', ar: 'بتعرف وين فيني لاقي هاد؟', en: 'Do you know where I can find this?' },
+        { fr: 'Vous l’avez déjà acheté ?', ar: 'اشتريتيه من قبل؟', en: 'Have you bought it before?' },
+        { fr: 'Vous le conseillez ?', ar: 'بتنصح فيه؟', en: 'Do you recommend it?' },
+        { fr: 'Merci beaucoup !', ar: 'شكراً كتير!', en: 'Thank you very much!' }
+      ] },
+      { icon: '😄', title: { ar: 'إذا صار حديث عفوي مع بنت', en: 'If a spontaneous chat starts with a girl', fr: 'Si une discussion spontanée se lance avec une fille' }, phrases: [
+        { fr: 'Tu connais bien ce magasin ?', ar: 'بتعرفي هالمحل منيح؟', en: 'Do you know this store well?' },
+        { fr: 'Tu fais souvent tes courses ici ?', ar: 'عادةً بتتسوقي من هون؟', en: 'Do you often shop here?' },
+        { fr: 'Tu me conseilles cette marque ?', ar: 'بتنصحيني بهالماركة؟', en: 'Would you recommend this brand?' },
+        { fr: 'Je ne sais jamais quoi choisir. 😄', ar: 'أنا دايمًا ما بعرف شو اختار. 😄', en: 'I never know what to choose. 😄' },
+        { fr: 'Bon, je vais te faire confiance. 😄', ar: 'طيب، رح وثق بذوقك. 😄', en: 'Okay, I’ll trust your choice. 😄' }
+      ] },
+      { icon: '🧾', title: { ar: 'عند صندوق الدفع', en: 'At the checkout', fr: 'À la caisse' }, phrases: [
+        { fr: 'C’est à qui ?', ar: 'مين دوره؟', en: 'Whose turn is it?' },
+        { fr: 'C’est votre tour.', ar: 'دورك.', en: 'It’s your turn.' },
+        { fr: 'Vous avez la carte de fidélité ?', ar: 'معك بطاقة الوفاء؟', en: 'Do you have the loyalty card?' },
+        { fr: 'Vous voulez un ticket ?', ar: 'بدك الإيصال؟', en: 'Do you want a receipt?' },
+        { fr: 'Par carte, s’il vous plaît.', ar: 'بالبطاقة لو سمحت.', en: 'By card, please.' },
+        { fr: 'Sans ticket, merci.', ar: 'بدون إيصال، شكراً.', en: 'No receipt, thanks.' }
+      ] },
+      { icon: '🛍️', title: { ar: 'الأكياس', en: 'The bags', fr: 'Les sacs' }, phrases: [
+        { fr: 'Vous avez besoin d’un sac ?', ar: 'بدك كيس؟', en: 'Do you need a bag?' },
+        { fr: 'Oui, un sac, s’il vous plaît.', ar: 'إي، كيس لو سمحت.', en: 'Yes, a bag, please.' },
+        { fr: 'Je vais prendre un sac réutilisable.', ar: 'رح آخد كيس قابل لإعادة الاستخدام.', en: 'I’ll take a reusable bag.' }
+      ] },
+      { icon: '🚶', title: { ar: 'بعد الدفع', en: 'After paying', fr: 'Après le paiement' }, phrases: [
+        { fr: 'Bonne journée !', ar: 'نهارك سعيد!', en: 'Have a nice day!' },
+        { fr: 'Bon courage !', ar: 'يعطيك العافية!', en: 'Take care!' },
+        { fr: 'À bientôt !', ar: 'منشوفك قريب!', en: 'See you soon!' }
+      ] },
+      { icon: '⭐', title: { ar: 'كلمات السوبرماركت المهمة', en: 'Key supermarket words', fr: 'Les mots-clés du supermarché' }, phrases: [
+        { fr: 'le rayon', ar: 'قسم / ممر المنتجات', en: 'aisle / section' },
+        { fr: 'le chariot', ar: 'عربة التسوق', en: 'shopping cart' },
+        { fr: 'le panier', ar: 'سلة', en: 'basket' },
+        { fr: 'la caisse', ar: 'صندوق الدفع', en: 'checkout / till' },
+        { fr: 'la caissière / le caissier', ar: 'موظفة / موظف الصندوق', en: 'cashier' },
+        { fr: 'le ticket de caisse', ar: 'إيصال الشراء', en: 'receipt' },
+        { fr: 'la carte de fidélité', ar: 'بطاقة الوفاء', en: 'loyalty card' },
+        { fr: 'une promotion', ar: 'عرض / تخفيض', en: 'promotion / sale' },
+        { fr: 'en rupture de stock', ar: 'مخلص من المخزون', en: 'out of stock' },
+        { fr: 'C’est tout ?', ar: 'هاد كل شي؟', en: 'Is that everything?' },
+        { fr: 'C’est bon, merci.', ar: 'تمام، شكراً.', en: 'That’s all, thanks.' }
+      ] },
+      { icon: '🚌', title: { ar: 'عند موقف الباص', en: 'At the bus stop', fr: 'À l’arrêt de bus' }, phrases: [
+        { fr: 'Vous attendez le bus ?', ar: 'ناطر/ناطرة الباص؟', en: 'Are you waiting for the bus?' },
+        { fr: 'C’est bien le bus pour le centre-ville ?', ar: 'هاد الباص تبع السنتر؟', en: 'Is this the bus to downtown?' },
+        { fr: 'Vous savez dans combien de temps il arrive ?', ar: 'بتعرف إمتى رح يوصل؟', en: 'Do you know how soon it will arrive?' },
+        { fr: 'Il est déjà passé ?', ar: 'مرق الباص ولا لسا؟', en: 'Has the bus already passed?' },
+        { fr: 'Il est souvent en retard, ce bus ?', ar: 'هالباص عادةً بيتأخر؟', en: 'Is this bus usually late?' },
+        { fr: 'Vous allez jusqu’à quelle station ?', ar: 'لوين رايح/رايحة؟', en: 'Which stop are you going to?' }
+      ] },
+      { icon: '🎫', title: { ar: 'التذكرة', en: 'The ticket', fr: 'Le ticket' }, phrases: [
+        { fr: 'Où est-ce que je peux acheter un ticket ?', ar: 'وين فيني اشتري تذكرة؟', en: 'Where can I buy a ticket?' },
+        { fr: 'On peut acheter le ticket dans le bus ?', ar: 'فينا نشتري التذكرة من الباص؟', en: 'Can we buy the ticket on the bus?' },
+        { fr: 'Je peux payer par carte ?', ar: 'فيني ادفع بالبطاقة؟', en: 'Can I pay by card?' },
+        { fr: 'Ce ticket est valable combien de temps ?', ar: 'هالتذكرة صالحة لقديش؟', en: 'How long is this ticket valid?' }
+      ] },
+      { icon: '🚪', title: { ar: 'عند صعود الباص', en: 'Getting on the bus', fr: 'En montant dans le bus' }, phrases: [
+        { fr: 'Bonjour.', ar: 'مرحبا.', en: 'Hello.' },
+        { fr: 'Excusez-moi, je peux passer ?', ar: 'عفواً، فيني مرق؟', en: 'Excuse me, can I get through?' },
+        { fr: 'Vous descendez ici ?', ar: 'نازل/نازلة هون؟', en: 'Are you getting off here?' },
+        { fr: 'Je peux m’asseoir ici ?', ar: 'فيني اقعد هون؟', en: 'Can I sit here?' },
+        { fr: 'Cette place est libre ?', ar: 'هالمقعد فاضي؟', en: 'Is this seat free?' }
+      ] },
+      { icon: '🪑', title: { ar: 'داخل الباص', en: 'Inside the bus', fr: 'Dans le bus' }, phrases: [
+        { fr: 'Vous descendez à la prochaine ?', ar: 'نازل/نازلة بالمحطة الجاية؟', en: 'Are you getting off at the next stop?' },
+        { fr: 'Vous savez où je dois descendre ?', ar: 'بتعرف وين لازم انزل؟', en: 'Do you know where I should get off?' },
+        { fr: 'C’est quelle station ?', ar: 'أي محطة هاي؟', en: 'Which stop is this?' },
+        { fr: 'On est bientôt arrivés ?', ar: 'قربنا نوصل؟', en: 'Are we almost there?' },
+        { fr: 'Vous pouvez me prévenir quand on arrive ?', ar: 'فيك تخبرني لما نوصل؟', en: 'Can you let me know when we arrive?' }
+      ] },
+      { icon: '👩‍🦰', title: { ar: 'إذا صار حديث طبيعي مع بنت', en: 'If a natural chat starts with a girl', fr: 'Si une discussion naturelle se lance avec une fille' }, phrases: [
+        { fr: 'Tu prends souvent ce bus ?', ar: 'بتاخدي هالباص كتير؟', en: 'Do you often take this bus?' },
+        { fr: 'Tu vas jusqu’où ?', ar: 'لوين رايحة؟', en: 'Where are you going?' },
+        { fr: 'Tu descends à quelle station ?', ar: 'بأي محطة نازلة؟', en: 'Which stop are you getting off at?' },
+        { fr: 'Moi aussi, je descends là.', ar: 'أنا كمان نازل هنيك.', en: 'I’m getting off there too.' },
+        { fr: 'Tu habites dans le coin ?', ar: 'ساكنة بهالمنطقة؟', en: 'Do you live around here?' },
+        { fr: 'Tu prends ce bus pour aller travailler ?', ar: 'بتاخدي هالباص لتروحي عالشغل؟', en: 'Do you take this bus to go to work?' },
+        { fr: 'Tu travailles dans le coin ?', ar: 'بتشتغلي بهالمنطقة؟', en: 'Do you work around here?' }
+      ] },
+      { icon: '😄', title: { ar: 'موقف عفوي بسبب تأخر الباص', en: 'A spontaneous moment because the bus is late', fr: 'Un moment spontané à cause du retard du bus' }, phrases: [
+        { fr: 'Il se fait attendre, ce bus !', ar: 'هالباص عم يخلينا ننطر!', en: 'This bus is really taking its time!' },
+        { fr: 'On dirait qu’il est encore en retard.', ar: 'شكله كمان مرة متأخر.', en: 'Looks like it’s late again.' },
+        { fr: 'On va finir par arriver en retard. 😄', ar: 'شكلنا رح نوصل متأخرين بالنهاية. 😄', en: 'We’re going to end up being late. 😄' },
+        { fr: 'Heureusement qu’on a le temps.', ar: 'لحسن الحظ معنا وقت.', en: 'Luckily, we have time.' }
+      ] },
+      { icon: '📱', title: { ar: 'إذا بدك تسأل عن الطريق', en: 'If you want to ask the way', fr: 'Pour demander le chemin' }, phrases: [
+        { fr: 'Excuse-moi, tu sais si ce bus va à la gare ?', ar: 'عذريني، بتعرفي إذا هالباص بيروح عالمحطة؟', en: 'Excuse me, do you know if this bus goes to the train station?' },
+        { fr: 'Je dois descendre où pour aller au centre-ville ?', ar: 'وين لازم انزل لروح عالسنتر؟', en: 'Where should I get off to go downtown?' },
+        { fr: 'Je suis un peu perdu.', ar: 'أنا ضايع شوي.', en: 'I’m a little lost.' },
+        { fr: 'Merci, c’est gentil.', ar: 'شكراً، لطف منك.', en: 'Thanks, that’s kind of you.' }
+      ] },
+      { icon: '👋', title: { ar: 'عند النزول', en: 'When getting off', fr: 'En descendant' }, phrases: [
+        { fr: 'Pardon, je descends ici.', ar: 'عفواً، أنا نازل هون.', en: 'Excuse me, I’m getting off here.' },
+        { fr: 'Excusez-moi, je peux passer ?', ar: 'عفواً، فيني مرق؟', en: 'Excuse me, can I get through?' },
+        { fr: 'Bonne journée !', ar: 'نهارك سعيد!', en: 'Have a nice day!' },
+        { fr: 'Bonne continuation !', ar: 'نهارك سعيد / بالتوفيق!', en: 'Have a nice day / Take care!' }
+      ] },
+      { icon: '⭐', title: { ar: 'أهم 10 جمل تحفظها بالباص', en: 'Top 10 sentences to learn for the bus', fr: 'Les 10 phrases à retenir pour le bus' }, phrases: [
+        { fr: 'Tu prends souvent ce bus ?', ar: 'بتاخدي هالباص كتير؟', en: 'Do you often take this bus?' },
+        { fr: 'Tu descends à quelle station ?', ar: 'بأي محطة نازلة؟', en: 'Which stop are you getting off at?' },
+        { fr: 'Tu vas jusqu’où ?', ar: 'لوين رايحة؟', en: 'Where are you going?' },
+        { fr: 'Moi aussi, je descends là.', ar: 'أنا كمان نازل هنيك.', en: 'I’m getting off there too.' },
+        { fr: 'Cette place est libre ?', ar: 'هالمقعد فاضي؟', en: 'Is this seat free?' },
+        { fr: 'Tu habites dans le coin ?', ar: 'ساكنة بهالمنطقة؟', en: 'Do you live around here?' },
+        { fr: 'Tu travailles dans le coin ?', ar: 'بتشتغلي بهالمنطقة؟', en: 'Do you work around here?' },
+        { fr: 'On dirait qu’il est encore en retard.', ar: 'شكله كمان مرة متأخر.', en: 'Looks like it’s late again.' },
+        { fr: 'Je suis un peu perdu.', ar: 'أنا ضايع شوي.', en: 'I’m a little lost.' },
+        { fr: 'Merci, c’est gentil.', ar: 'شكراً، لطف منك.', en: 'Thanks, that’s kind of you.' }
+      ] },
+      { icon: '🚋', title: { ar: 'في محطة الترام', en: 'At the tram stop', fr: 'À l’arrêt de tram' }, phrases: [
+        { fr: 'Tu attends le tram ?', ar: 'ناطرة الترام؟', en: 'Are you waiting for the tram?' },
+        { fr: 'Tu prends quelle ligne ?', ar: 'أي خط ترام بتاخدي؟', en: 'Which tram line are you taking?' },
+        { fr: 'Tu vas dans quelle direction ?', ar: 'بأي اتجاه رايحة؟', en: 'Which direction are you going?' },
+        { fr: 'C’est bien le tram pour le centre-ville ?', ar: 'هاد الترام تبع السنتر؟', en: 'Is this the tram to downtown?' },
+        { fr: 'Ce tram va jusqu’à la gare ?', ar: 'هالترام بيروح عالمحطة؟', en: 'Does this tram go to the train station?' },
+        { fr: 'Tu sais dans combien de temps il arrive ?', ar: 'بتعرفي بعد قديش رح يوصل؟', en: 'Do you know how soon it will arrive?' }
+      ] },
+      { icon: '🚋', title: { ar: 'عند صعود الترام', en: 'Getting on the tram', fr: 'En montant dans le tram' }, phrases: [
+        { fr: 'Tu montes ?', ar: 'طالعة؟', en: 'Are you getting on?' },
+        { fr: 'Vas-y, je te laisse passer.', ar: 'تفضلي، بخليكي تمري.', en: 'Go ahead, I’ll let you pass.' },
+        { fr: 'Attention, les portes vont se fermer.', ar: 'انتبهي، الأبواب رح تسكر.', en: 'Careful, the doors are going to close.' },
+        { fr: 'Tu peux tenir la porte ?', ar: 'فيكي تمسكي الباب؟', en: 'Can you hold the door?' },
+        { fr: 'Merci !', ar: 'شكراً!', en: 'Thanks!' }
+      ] },
+      { icon: '💺', title: { ar: 'داخل الترام', en: 'Inside the tram', fr: 'Dans le tram' }, phrases: [
+        { fr: 'Cette place est libre ?', ar: 'هالمقعد فاضي؟', en: 'Is this seat free?' },
+        { fr: 'Je peux m’asseoir ici ?', ar: 'فيني اقعد هون؟', en: 'Can I sit here?' },
+        { fr: 'Tu descends à la prochaine ?', ar: 'نازلة بالمحطة الجاية؟', en: 'Are you getting off at the next stop?' },
+        { fr: 'Tu descends où ?', ar: 'وين نازلة؟', en: 'Where are you getting off?' },
+        { fr: 'Tu vas jusqu’où ?', ar: 'لوين رايحة؟', en: 'Where are you going?' },
+        { fr: 'C’est quelle station ?', ar: 'أي محطة هاي؟', en: 'Which stop is this?' },
+        { fr: 'On est bientôt arrivés ?', ar: 'قربنا نوصل؟', en: 'Are we almost there?' }
+      ] },
+      { icon: '🗺️', title: { ar: 'إذا كنت ضايع', en: 'If you’re lost', fr: 'Si tu es perdu' }, phrases: [
+        { fr: 'Excuse-moi, c’est bien la bonne direction ?', ar: 'عذريني، هاد الاتجاه الصح؟', en: 'Excuse me, is this the right direction?' },
+        { fr: 'Je dois descendre où pour aller au centre-ville ?', ar: 'وين لازم انزل لروح عالسنتر؟', en: 'Where should I get off to go downtown?' },
+        { fr: 'Je dois changer de tram ?', ar: 'لازم بدّل الترام؟', en: 'Do I need to change trams?' },
+        { fr: 'Je dois prendre quelle ligne après ?', ar: 'أي خط لازم آخد بعدين؟', en: 'Which line do I need to take afterward?' },
+        { fr: 'C’est direct ou il faut changer ?', ar: 'مباشر ولا لازم بدّل؟', en: 'Is it direct or do I need to change?' }
+      ] },
+      { icon: '👩‍🦰', title: { ar: 'تعارف بشكل طبيعي ومحترم', en: 'A natural and respectful introduction', fr: 'Faire connaissance naturellement et poliment' }, phrases: [
+        { fr: 'Tu prends souvent cette ligne ?', ar: 'بتاخدي هالخط كتير؟', en: 'Do you often take this line?' },
+        { fr: 'Tu vas souvent dans ce quartier ?', ar: 'بتروحي لهالمنطقة كتير؟', en: 'Do you often go to this neighborhood?' },
+        { fr: 'Tu habites dans le coin ?', ar: 'ساكنة بهالمنطقة؟', en: 'Do you live around here?' },
+        { fr: 'Tu connais bien cette ligne ?', ar: 'بتعرفي هالخط منيح؟', en: 'Do you know this line well?' },
+        { fr: 'Moi, je prends rarement le tram.', ar: 'أنا نادرًا باخد الترام.', en: 'I rarely take the tram.' },
+        { fr: 'Tu m’as l’air de bien connaître le coin.', ar: 'مبين عليكي بتعرفي المنطقة منيح.', en: 'You seem to know the area well.' },
+        { fr: 'Au fait, moi c’est Mohammad.', ar: 'على فكرة، أنا محمد.', en: 'By the way, I’m Mohammad.' },
+        { fr: 'Et toi, comment tu t’appelles ?', ar: 'وإنتِ شو اسمك؟', en: 'And you, what’s your name?' }
+      ] },
+      { icon: '😄', title: { ar: 'موقف عفوي بسبب التأخير', en: 'A spontaneous moment because of the delay', fr: 'Un moment spontané à cause du retard' }, phrases: [
+        { fr: 'Il se fait attendre, ce tram !', ar: 'هالترام عم يخلينا ننطر!', en: 'This tram is really taking its time!' },
+        { fr: 'Il a encore du retard.', ar: 'كمان مرة متأخر.', en: 'It’s late again.' },
+        { fr: 'On va finir par être en retard.', ar: 'شكلنا رح نتأخر بالنهاية.', en: 'We’re going to end up being late.' },
+        { fr: 'Au moins, on a le temps de discuter. 😄', ar: 'عالأقل معنا وقت نحكي. 😄', en: 'At least we have time to chat. 😄' }
+      ] },
+      { icon: '🚪', title: { ar: 'عند النزول', en: 'When getting off', fr: 'En descendant' }, phrases: [
+        { fr: 'Pardon, je descends ici.', ar: 'عفواً، أنا نازل هون.', en: 'Excuse me, I’m getting off here.' },
+        { fr: 'Excuse-moi, je peux passer ?', ar: 'عذريني، فيني مرق؟', en: 'Excuse me, can I get through?' },
+        { fr: 'Tu descends aussi ici ?', ar: 'إنتِ كمان نازلة هون؟', en: 'Are you getting off here too?' },
+        { fr: 'Bonne journée !', ar: 'نهارك سعيد!', en: 'Have a nice day!' },
+        { fr: 'À bientôt !', ar: 'منشوفك قريب!', en: 'See you soon!' }
+      ] },
+      { icon: '⭐', title: { ar: 'جمل مهمة جدًا للحفظ', en: 'Very important sentences to memorize', fr: 'Phrases très importantes à retenir' }, phrases: [
+        { fr: 'Tu prends quelle ligne ?', ar: 'أي خط بتاخدي؟', en: 'Which line are you taking?' },
+        { fr: 'Tu vas dans quelle direction ?', ar: 'بأي اتجاه رايحة؟', en: 'Which direction are you going?' },
+        { fr: 'Tu descends à quelle station ?', ar: 'بأي محطة نازلة؟', en: 'Which stop are you getting off at?' },
+        { fr: 'C’est direct ou il faut changer ?', ar: 'مباشر ولا لازم بدّل؟', en: 'Is it direct or do I need to change?' },
+        { fr: 'Tu prends souvent cette ligne ?', ar: 'بتاخدي هالخط كتير؟', en: 'Do you often take this line?' },
+        { fr: 'Tu habites dans le coin ?', ar: 'ساكنة بهالمنطقة؟', en: 'Do you live around here?' },
+        { fr: 'Au fait, moi c’est Mohammad. Et toi ?', ar: 'على فكرة، أنا محمد. وإنتِ؟', en: 'By the way, I’m Mohammad. And you?' }
+      ] },
+      { icon: '✈️', title: { ar: 'عند الصعود للطائرة', en: 'Boarding the plane', fr: 'En montant dans l’avion' }, phrases: [
+        { fr: 'C’est bien ici pour l’embarquement ?', ar: 'هاد المكان للصعود عالطيارة؟', en: 'Is this where we board?' },
+        { fr: 'Vous êtes dans quelle rangée ?', ar: 'بأي صف إنت؟', en: 'Which row are you in?' },
+        { fr: 'Vous avez le siège 12A ?', ar: 'مقعدك 12A؟', en: 'Do you have seat 12A?' },
+        { fr: 'Je crois que mon siège est juste à côté.', ar: 'شكلي مقعدي جنب مقعدك.', en: 'I think my seat is right next to yours.' },
+        { fr: 'Excusez-moi, je peux passer ?', ar: 'عفواً، فيني مرق؟', en: 'Excuse me, can I get through?' }
+      ] },
+      { icon: '💺', title: { ar: 'عند المقعد', en: 'At your seat', fr: 'À ton siège' }, phrases: [
+        { fr: 'Excusez-moi, c’est mon siège.', ar: 'عفواً، هاد مقعدي.', en: 'Excuse me, this is my seat.' },
+        { fr: 'Cette place est libre ?', ar: 'هالمقعد فاضي؟', en: 'Is this seat free?' },
+        { fr: 'Vous voulez que je mette votre bagage en haut ?', ar: 'بدك حطلك شنطتك فوق؟', en: 'Would you like me to put your bag up?' },
+        { fr: 'Vous êtes côté fenêtre ?', ar: 'إنت مقعدك عند الشباك؟', en: 'Are you in the window seat?' },
+        { fr: 'Vous préférez être côté fenêtre ou côté couloir ?', ar: 'بتفضل الشباك ولا الممر؟', en: 'Do you prefer the window or the aisle?' }
+      ] },
+      { icon: '🧳', title: { ar: 'الأمتعة', en: 'The luggage', fr: 'Les bagages' }, phrases: [
+        { fr: 'Où est-ce que je peux mettre mon bagage cabine ?', ar: 'وين فيني حط شنطة اليد؟', en: 'Where can I put my carry-on?' },
+        { fr: 'Il n’y a plus de place ici.', ar: 'ما عاد في مكان هون.', en: 'There’s no more room here.' },
+        { fr: 'Je peux mettre ma valise ici ?', ar: 'فيني حط شنطتي هون؟', en: 'Can I put my suitcase here?' },
+        { fr: 'Attention, c’est lourd.', ar: 'انتبه، تقيلة.', en: 'Careful, it’s heavy.' }
+      ] },
+      { icon: '👩‍🦰', title: { ar: 'حديث طبيعي مع شخص بجانبك', en: 'A natural chat with the person next to you', fr: 'Discuter naturellement avec ton voisin' }, phrases: [
+        { fr: 'Vous voyagez seul(e) ?', ar: 'مسافر لحالك؟', en: 'Are you traveling alone?' },
+        { fr: 'Vous allez en France pour les vacances ?', ar: 'رايح عفرنسا بالعطلة؟', en: 'Are you going to France for vacation?' },
+        { fr: 'Vous êtes déjà allé(e) en France ?', ar: 'رحت عفرنسا من قبل؟', en: 'Have you been to France before?' },
+        { fr: 'C’est votre première fois dans cet avion ?', ar: 'أول مرة إلك بهالطيارة؟', en: 'Is this your first time on this plane?' },
+        { fr: 'Vous habitez en France ?', ar: 'ساكن بفرنسا؟', en: 'Do you live in France?' },
+        { fr: 'Vous allez jusqu’où ?', ar: 'لوين رايح؟', en: 'Where are you going?' },
+        { fr: 'Vous avez combien de temps de vol ?', ar: 'قديش مدة الرحلة؟', en: 'How long is the flight?' }
+      ] },
+      { icon: '🥤', title: { ar: 'أثناء الرحلة', en: 'During the flight', fr: 'Pendant le vol' }, phrases: [
+        { fr: 'Vous voulez de l’eau ?', ar: 'بدك مي؟', en: 'Do you want some water?' },
+        { fr: 'Vous voulez que je vous laisse passer ?', ar: 'بدك خلّيك تمرق؟', en: 'Do you want me to let you through?' },
+        { fr: 'Excusez-moi, je peux passer aux toilettes ?', ar: 'عفواً، فيني مرق عالحمام؟', en: 'Excuse me, can I get through to the bathroom?' },
+        { fr: 'Les toilettes sont par où ?', ar: 'وين الحمامات؟', en: 'Where are the bathrooms?' },
+        { fr: 'Vous avez froid ?', ar: 'بردان؟', en: 'Are you cold?' },
+        { fr: 'Vous voulez fermer le hublot ?', ar: 'بدك سكّر الشباك؟', en: 'Do you want to close the window shade?' },
+        { fr: 'Vous pouvez baisser votre siège, s’il vous plaît ?', ar: 'فيك ترجّع مقعدك شوي لو سمحت؟', en: 'Could you recline your seat, please?' }
+      ] },
+      { icon: '🌤️', title: { ar: 'أثناء الإقلاع', en: 'During takeoff', fr: 'Au décollage' }, phrases: [
+        { fr: 'Vous aimez prendre l’avion ?', ar: 'بتحب السفر بالطائرة؟', en: 'Do you like flying?' },
+        { fr: 'Vous avez peur en avion ?', ar: 'بتخاف بالطائرة؟', en: 'Are you afraid of flying?' },
+        { fr: 'Moi, j’aime bien regarder par le hublot.', ar: 'أنا بحب اتطلع من الشباك.', en: 'I like looking out the window.' },
+        { fr: 'La vue est magnifique !', ar: 'المنظر كتير حلو!', en: 'The view is beautiful!' },
+        { fr: 'On vient de décoller.', ar: 'هلأ أقلعنا.', en: 'We just took off.' }
+      ] },
+      { icon: '🛬', title: { ar: 'عند الهبوط', en: 'When landing', fr: 'À l’atterrissage' }, phrases: [
+        { fr: 'On va bientôt atterrir.', ar: 'رح نهبط قريب.', en: 'We’re going to land soon.' },
+        { fr: 'On est bientôt arrivés.', ar: 'قربنا نوصل.', en: 'We’re almost there.' },
+        { fr: 'Vous avez bien voyagé ?', ar: 'كانت رحلتك منيحة؟', en: 'Did you have a good trip?' },
+        { fr: 'Bon voyage pour la suite !', ar: 'رحلة موفقة بالباقي!', en: 'Have a good onward journey!' },
+        { fr: 'Bonne arrivée !', ar: 'توصل بالسلامة!', en: 'Have a safe arrival!' }
+      ] },
+      { icon: '💬', title: { ar: 'إذا صار تعارف مع شخص بجانبك', en: 'If you get acquainted with the person next to you', fr: 'Si tu fais connaissance avec ton voisin' }, phrases: [
+        { fr: 'Au fait, moi c’est Mohammad.', ar: 'على فكرة، أنا محمد.', en: 'By the way, I’m Mohammad.' },
+        { fr: 'Et vous, comment vous vous appelez ?', ar: 'وإنت شو اسمك؟', en: 'And you, what’s your name?' },
+        { fr: 'Vous venez d’où ?', ar: 'من وين جاي؟', en: 'Where are you from?' },
+        { fr: 'Vous voyagez souvent ?', ar: 'بتسافر كتير؟', en: 'Do you travel often?' },
+        { fr: 'Ça fait longtemps que vous vivez en France ?', ar: 'صارلك زمان عايش بفرنسا؟', en: 'Have you lived in France for a long time?' },
+        { fr: 'C’était sympa de discuter avec vous.', ar: 'كان حلو نحكي سوا.', en: 'It was nice talking with you.' }
+      ] },
+      { icon: '⭐', title: { ar: '10 جمل مهمة جدًا بالطائرة', en: '10 very important sentences for the plane', fr: '10 phrases très importantes pour l’avion' }, phrases: [
+        { fr: 'Vous voyagez seul(e) ?', ar: 'مسافر لحالك؟', en: 'Are you traveling alone?' },
+        { fr: 'Vous allez jusqu’où ?', ar: 'لوين رايح؟', en: 'Where are you going?' },
+        { fr: 'Vous avez peur en avion ?', ar: 'بتخاف بالطائرة؟', en: 'Are you afraid of flying?' },
+        { fr: 'Vous aimez prendre l’avion ?', ar: 'بتحب السفر بالطائرة؟', en: 'Do you like flying?' },
+        { fr: 'C’est votre siège ?', ar: 'هاد مقعدك؟', en: 'Is this your seat?' },
+        { fr: 'Cette place est libre ?', ar: 'هالمقعد فاضي؟', en: 'Is this seat free?' },
+        { fr: 'Je peux passer, s’il vous plaît ?', ar: 'فيني مرق لو سمحت؟', en: 'Can I get through, please?' },
+        { fr: 'Vous voulez que je vous aide ?', ar: 'بدك ساعدك؟', en: 'Would you like me to help you?' },
+        { fr: 'On est bientôt arrivés.', ar: 'قربنا نوصل.', en: 'We’re almost there.' },
+        { fr: 'C’était sympa de discuter avec vous.', ar: 'كان حلو نحكي سوا.', en: 'It was nice talking with you.' }
+      ] },
+      { icon: '🧺', title: { ar: 'عند دخول المغسلة', en: 'When entering the laundromat', fr: 'En entrant dans la laverie' }, phrases: [
+        { fr: 'C’est la première fois que je viens ici.', ar: 'أول مرة إلي بجي لهون.', en: 'It’s my first time here.' },
+        { fr: 'Comment ça marche ?', ar: 'كيف بتشتغل؟', en: 'How does it work?' },
+        { fr: 'Il faut acheter une carte ?', ar: 'لازم اشتري بطاقة؟', en: 'Do I need to buy a card?' },
+        { fr: 'On peut payer par carte bancaire ?', ar: 'فينا ندفع بالبطاقة البنكية؟', en: 'Can we pay by bank card?' },
+        { fr: 'Où sont les machines à laver ?', ar: 'وين غسالات الملابس؟', en: 'Where are the washing machines?' }
+      ] },
+      { icon: '🧼', title: { ar: 'اختيار الغسالة', en: 'Choosing a machine', fr: 'Choisir une machine' }, phrases: [
+        { fr: 'Cette machine est libre ?', ar: 'هالغسالة فاضية؟', en: 'Is this machine free?' },
+        { fr: 'Tu utilises cette machine ?', ar: 'عم تستخدمي هالغسالة؟', en: 'Are you using this machine?' },
+        { fr: 'Elle fait combien de kilos ?', ar: 'قديش سعتها بالكيلو؟', en: 'How many kilos can it hold?' },
+        { fr: 'Je peux mettre une grosse machine ?', ar: 'فيني حط غسيل كتير بهالغسالة؟', en: 'Can I put a large load in this machine?' },
+        { fr: 'Quel programme tu me conseilles ?', ar: 'أي برنامج بتنصحيني فيه؟', en: 'Which program do you recommend?' }
+      ] },
+      { icon: '💶', title: { ar: 'السعر والوقت', en: 'Price and time', fr: 'Le prix et la durée' }, phrases: [
+        { fr: 'Ça coûte combien ?', ar: 'قديش بتكلف؟', en: 'How much does it cost?' },
+        { fr: 'Combien de temps ça prend ?', ar: 'قديش بتاخد وقت؟', en: 'How long does it take?' },
+        { fr: 'Il reste combien de temps ?', ar: 'قديش ضايل وقت؟', en: 'How much time is left?' },
+        { fr: 'Ça finit à quelle heure ?', ar: 'بأي ساعة بتخلص؟', en: 'What time does it finish?' }
+      ] },
+      { icon: '🧴', title: { ar: 'مسحوق الغسيل', en: 'The laundry detergent', fr: 'La lessive' }, phrases: [
+        { fr: 'Il faut mettre de la lessive ?', ar: 'لازم حط مسحوق غسيل؟', en: 'Do I need to add detergent?' },
+        { fr: 'La lessive est déjà incluse ?', ar: 'مسحوق الغسيل موجود أصلًا؟', en: 'Is the detergent already included?' },
+        { fr: 'Où est-ce que je mets la lessive ?', ar: 'وين بحط مسحوق الغسيل؟', en: 'Where do I put the detergent?' }
+      ] },
+      { icon: '🔥', title: { ar: 'النشافة', en: 'The dryer', fr: 'Le sèche-linge' }, phrases: [
+        { fr: 'Où sont les sèche-linge ?', ar: 'وين النشافات؟', en: 'Where are the dryers?' },
+        { fr: 'Ce sèche-linge est libre ?', ar: 'هالنشافة فاضية؟', en: 'Is this dryer free?' },
+        { fr: 'Combien de temps pour sécher ?', ar: 'قديش بدها لتنشّف؟', en: 'How long does it take to dry?' },
+        { fr: 'Je peux mettre tout ça dans le sèche-linge ?', ar: 'فيني حط كل هالغسيل بالنشافة؟', en: 'Can I put all this in the dryer?' }
+      ] },
+      { icon: '👩‍🦰', title: { ar: 'موقف طبيعي مع شخص آخر', en: 'A natural moment with another person', fr: 'Un échange naturel avec quelqu’un' }, phrases: [
+        { fr: 'Tu viens souvent dans cette laverie ?', ar: 'بتجي عهالمغسلة كتير؟', en: 'Do you often come to this laundromat?' },
+        { fr: 'Tu connais bien les machines ici ?', ar: 'بتعرفي الغسالات هون منيح؟', en: 'Do you know the machines here well?' },
+        { fr: 'Tu sais quelle machine fonctionne le mieux ?', ar: 'بتعرفي أي غسالة بتشتغل أحسن؟', en: 'Do you know which machine works best?' },
+        { fr: 'Tu attends que ta machine finisse ?', ar: 'ناطرة تخلص غسالتك؟', en: 'Are you waiting for your machine to finish?' },
+        { fr: 'Moi aussi, j’attends la mienne. 😄', ar: 'أنا كمان ناطر غسالتي. 😄', en: 'I’m waiting for mine too. 😄' },
+        { fr: 'Au fait, moi c’est Mohammad.', ar: 'على فكرة، أنا محمد.', en: 'By the way, I’m Mohammad.' },
+        { fr: 'Et toi, comment tu t’appelles ?', ar: 'وإنتِ شو اسمك؟', en: 'And you, what’s your name?' }
+      ] },
+      { icon: '🧺', title: { ar: 'إذا خلصت الغسالة', en: 'When the machine finishes', fr: 'Quand la machine termine' }, phrases: [
+        { fr: 'Ta machine est finie.', ar: 'غسالتك خلصت.', en: 'Your machine is finished.' },
+        { fr: 'Excuse-moi, je crois que c’est ta machine.', ar: 'عذريني، شكلي هادي غسالتك.', en: 'Excuse me, I think this is your machine.' },
+        { fr: 'Je peux récupérer mes affaires ?', ar: 'فيني آخد أغراضي؟', en: 'Can I get my things?' },
+        { fr: 'Je vais laisser la machine libre.', ar: 'رح خلي الغسالة فاضية.', en: 'I’ll leave the machine free.' }
+      ] },
+      { icon: '⭐', title: { ar: 'كلمات أساسية', en: 'Essential words', fr: 'Les mots essentiels' }, phrases: [
+        { fr: 'une laverie', ar: 'مغسلة ملابس ذاتية', en: 'laundromat' },
+        { fr: 'une machine à laver', ar: 'غسالة', en: 'washing machine' },
+        { fr: 'un sèche-linge', ar: 'نشافة', en: 'dryer' },
+        { fr: 'la lessive', ar: 'مسحوق / سائل الغسيل', en: 'laundry detergent' },
+        { fr: 'laver', ar: 'يغسل', en: 'to wash' },
+        { fr: 'sécher', ar: 'ينشّف', en: 'to dry' },
+        { fr: 'le linge', ar: 'الغسيل / الملابس المراد غسلها', en: 'laundry' },
+        { fr: 'un programme', ar: 'برنامج الغسيل', en: 'cycle / program' }
+      ] },
+      { icon: '🏛️', title: { ar: 'عند الدخول', en: 'When entering', fr: 'À l’entrée' }, phrases: [
+        { fr: 'Bonjour, j’ai rendez-vous à la préfecture.', ar: 'مرحبا، عندي موعد بالبريفكتور.', en: 'Hello, I have an appointment at the prefecture.' },
+        { fr: 'Où est-ce que je dois aller ?', ar: 'لوين لازم روح؟', en: 'Where do I need to go?' },
+        { fr: 'C’est par ici pour les titres de séjour ?', ar: 'من هون معاملات الإقامات؟', en: 'Is this the way for residence permits?' },
+        { fr: 'Je dois prendre un ticket ?', ar: 'لازم آخد رقم؟', en: 'Do I need to take a ticket?' }
+      ] },
+      { icon: '📄', title: { ar: 'بخصوص الملف', en: 'About your file', fr: 'À propos du dossier' }, phrases: [
+        { fr: 'Je viens déposer mon dossier.', ar: 'جاي قدّم ملفي.', en: 'I’m here to submit my application.' },
+        { fr: 'Il me manque un document.', ar: 'ناقصني مستند.', en: 'I’m missing a document.' },
+        { fr: 'Quels documents sont nécessaires ?', ar: 'شو المستندات المطلوبة؟', en: 'What documents are required?' },
+        { fr: 'Est-ce que mon dossier est complet ?', ar: 'ملفي كامل؟', en: 'Is my application complete?' },
+        { fr: 'Il faut une photocopie ?', ar: 'لازم صورة عن الوثيقة؟', en: 'Do I need a photocopy?' },
+        { fr: 'Je dois fournir l’original ?', ar: 'لازم قدّم الأصل؟', en: 'Do I need to provide the original?' }
+      ] },
+      { icon: '🪪', title: { ar: 'titre de séjour', en: 'Titre de séjour', fr: 'Le titre de séjour' }, phrases: [
+        { fr: 'Je viens pour renouveler mon titre de séjour.', ar: 'جاي جدّد إقامتي.', en: 'I’m here to renew my residence permit.' },
+        { fr: 'Je viens récupérer mon titre de séjour.', ar: 'جاي استلم بطاقة إقامتي.', en: 'I’m here to collect my residence permit.' },
+        { fr: 'Mon titre de séjour est bientôt expiré.', ar: 'إقامتي رح تنتهي قريب.', en: 'My residence permit is expiring soon.' },
+        { fr: 'Je voudrais savoir où en est mon dossier.', ar: 'بدي أعرف وين وصل ملفي.', en: 'I’d like to know the status of my application.' },
+        { fr: 'Je n’ai pas encore reçu de réponse.', ar: 'لسا ما وصلني جواب.', en: 'I haven’t received a response yet.' }
+      ] },
+      { icon: '📅', title: { ar: 'الموعد', en: 'The appointment', fr: 'Le rendez-vous' }, phrases: [
+        { fr: 'J’ai rendez-vous à dix heures.', ar: 'عندي موعد الساعة عشرة.', en: 'I have an appointment at ten.' },
+        { fr: 'Je suis en avance.', ar: 'إجيت بكير.', en: 'I’m early.' },
+        { fr: 'Je suis en retard, désolé.', ar: 'تأخرت، آسف.', en: 'I’m late, sorry.' },
+        { fr: 'Je n’ai pas reçu la confirmation du rendez-vous.', ar: 'ما وصلني تأكيد الموعد.', en: 'I didn’t receive the appointment confirmation.' },
+        { fr: 'Je peux prendre un autre rendez-vous ?', ar: 'فيني آخد موعد تاني؟', en: 'Can I make another appointment?' }
+      ] },
+      { icon: '⏳', title: { ar: 'الانتظار', en: 'The wait', fr: 'L’attente' }, phrases: [
+        { fr: 'Vous attendez depuis longtemps ?', ar: 'صارلكم ناطرين من زمان؟', en: 'Have you been waiting long?' },
+        { fr: 'Ça fait combien de temps que vous attendez ?', ar: 'صارلك قديش ناطر؟', en: 'How long have you been waiting?' },
+        { fr: 'Vous avez déjà été reçu ?', ar: 'أخدوا طلبك / قابلوك من قبل؟', en: 'Have you already been seen?' },
+        { fr: 'C’est votre tour ?', ar: 'صار دورك؟', en: 'Is it your turn?' },
+        { fr: 'Je crois que c’est mon tour.', ar: 'شكلي صار دوري.', en: 'I think it’s my turn.' }
+      ] },
+      { icon: '👨‍💼', title: { ar: 'عند الموظف', en: 'With the officer', fr: 'Avec l’agent' }, phrases: [
+        { fr: 'Bonjour, je viens pour mon dossier.', ar: 'مرحبا، جاي بخصوص ملفي.', en: 'Hello, I’m here regarding my application.' },
+        { fr: 'Voici mes documents.', ar: 'هاي أوراقي.', en: 'Here are my documents.' },
+        { fr: 'Voici mon passeport.', ar: 'هاد جواز سفري.', en: 'Here is my passport.' },
+        { fr: 'Voici mon titre de séjour.', ar: 'هاي بطاقة إقامتي.', en: 'Here is my residence permit.' },
+        { fr: 'Est-ce que vous pouvez vérifier mon dossier ?', ar: 'فيك تتأكد من ملفي؟', en: 'Could you check my application?' },
+        { fr: 'Est-ce qu’il manque quelque chose ?', ar: 'في شي ناقص؟', en: 'Is anything missing?' },
+        { fr: 'Quand est-ce que j’aurai une réponse ?', ar: 'إمتى رح يوصلني جواب؟', en: 'When will I get a response?' },
+        { fr: 'Comment vais-je être informé ?', ar: 'كيف رح يتم إخباري؟', en: 'How will I be notified?' }
+      ] },
+      { icon: '📱', title: { ar: 'إذا كان عندك مشكلة بالموعد أو الموقع', en: 'If you have a problem with the appointment or the website', fr: 'Si tu as un problème avec le rendez-vous ou le site' }, phrases: [
+        { fr: 'Je n’arrive pas à prendre rendez-vous en ligne.', ar: 'ما عم اقدر آخد موعد أونلاين.', en: 'I can’t make an appointment online.' },
+        { fr: 'Le site ne fonctionne pas.', ar: 'الموقع ما عم يشتغل.', en: 'The website isn’t working.' },
+        { fr: 'Je n’arrive pas à me connecter.', ar: 'ما عم اقدر فوت عالحساب.', en: 'I can’t log in.' },
+        { fr: 'Je n’ai pas reçu le lien.', ar: 'ما وصلني الرابط.', en: 'I didn’t receive the link.' }
+      ] },
+      { icon: '👥', title: { ar: 'مواقف مع أشخاص ينتظرون', en: 'Moments with other people waiting', fr: 'Des échanges avec les gens qui attendent' }, phrases: [
+        { fr: 'Vous êtes là pour un renouvellement ?', ar: 'إنت هون لتجديد الإقامة؟', en: 'Are you here for a renewal?' },
+        { fr: 'Vous avez rendez-vous aujourd’hui ?', ar: 'عندك موعد اليوم؟', en: 'Do you have an appointment today?' },
+        { fr: 'Vous savez comment ça se passe ici ?', ar: 'بتعرف كيف بتمشي الأمور هون؟', en: 'Do you know how things work here?' },
+        { fr: 'C’est la première fois que vous venez ici ?', ar: 'أول مرة إلك تجي لهون؟', en: 'Is this your first time here?' },
+        { fr: 'Vous attendez aussi pour les titres de séjour ?', ar: 'إنت كمان ناطر لمعاملات الإقامة؟', en: 'Are you also waiting for residence permits?' }
+      ] },
+      { icon: '⭐', title: { ar: 'أهم 10 جمل تحفظها', en: 'The top 10 sentences to memorize', fr: 'Les 10 phrases à retenir' }, phrases: [
+        { fr: 'J’ai rendez-vous à la préfecture.', ar: 'عندي موعد بالبريفكتور.', en: 'I have an appointment at the prefecture.' },
+        { fr: 'Je viens déposer mon dossier.', ar: 'جاي قدّم ملفي.', en: 'I’m here to submit my application.' },
+        { fr: 'Je viens renouveler mon titre de séjour.', ar: 'جاي جدّد إقامتي.', en: 'I’m here to renew my residence permit.' },
+        { fr: 'Je viens récupérer mon titre de séjour.', ar: 'جاي استلم إقامتي.', en: 'I’m here to collect my residence permit.' },
+        { fr: 'Est-ce que mon dossier est complet ?', ar: 'ملفي كامل؟', en: 'Is my application complete?' },
+        { fr: 'Est-ce qu’il manque quelque chose ?', ar: 'في شي ناقص؟', en: 'Is anything missing?' },
+        { fr: 'Je voudrais savoir où en est mon dossier.', ar: 'بدي أعرف وين وصل ملفي.', en: 'I’d like to know the status of my application.' },
+        { fr: 'Je n’ai pas encore reçu de réponse.', ar: 'لسا ما وصلني جواب.', en: 'I haven’t received a response yet.' },
+        { fr: 'Quand est-ce que j’aurai une réponse ?', ar: 'إمتى رح يوصلني جواب؟', en: 'When will I get a response?' },
+        { fr: 'Merci pour votre aide.', ar: 'شكراً لمساعدتك.', en: 'Thank you for your help.' }
+      ] },
+      { icon: '🏢', title: { ar: 'عند الاستقبال', en: 'At the reception desk', fr: 'À l’accueil' }, phrases: [
+        { fr: 'Bonjour, j’ai rendez-vous avec la CAF.', ar: 'مرحبا، عندي موعد مع الـCAF.', en: 'Hello, I have an appointment with CAF.' },
+        { fr: 'Je viens pour mon dossier.', ar: 'جاي بخصوص ملفي.', en: 'I’m here about my application.' },
+        { fr: 'Je voudrais avoir des renseignements.', ar: 'بدي استفسر عن شغلة.', en: 'I’d like some information.' },
+        { fr: 'Où dois-je attendre ?', ar: 'وين لازم انطر؟', en: 'Where should I wait?' },
+        { fr: 'Je dois prendre un ticket ?', ar: 'لازم آخد رقم؟', en: 'Do I need to take a ticket?' }
+      ] },
+      { icon: '📄', title: { ar: 'بخصوص الملف', en: 'About your file', fr: 'À propos du dossier' }, phrases: [
+        { fr: 'Je voudrais savoir où en est mon dossier.', ar: 'بدي أعرف وين وصل ملفي.', en: 'I’d like to know the status of my application.' },
+        { fr: 'Est-ce que mon dossier est complet ?', ar: 'ملفي كامل؟', en: 'Is my application complete?' },
+        { fr: 'Est-ce qu’il manque un document ?', ar: 'في ورقة ناقصة؟', en: 'Is a document missing?' },
+        { fr: 'J’ai envoyé les documents demandés.', ar: 'بعت الأوراق المطلوبة.', en: 'I sent the requested documents.' },
+        { fr: 'Je n’ai pas encore reçu de réponse.', ar: 'لسا ما وصلني جواب.', en: 'I haven’t received a response yet.' },
+        { fr: 'Mon dossier est toujours en cours de traitement.', ar: 'ملفي لسا قيد المعالجة.', en: 'My application is still being processed.' }
+      ] },
+      { icon: '💻', title: { ar: 'حساب CAF', en: 'Your CAF account', fr: 'Le compte CAF' }, phrases: [
+        { fr: 'Je n’arrive pas à me connecter à mon compte.', ar: 'ما عم اقدر فوت عحسابي.', en: 'I can’t log into my account.' },
+        { fr: 'J’ai oublié mon mot de passe.', ar: 'نسيت كلمة السر.', en: 'I forgot my password.' },
+        { fr: 'Je n’arrive pas à faire ma déclaration.', ar: 'ما عم اقدر اعمل التصريح.', en: 'I can’t complete my declaration.' },
+        { fr: 'Je voudrais modifier ma situation.', ar: 'بدي عدّل وضعي.', en: 'I’d like to update my situation.' },
+        { fr: 'Comment je peux envoyer un document ?', ar: 'كيف فيني ابعت مستند؟', en: 'How can I send a document?' }
+      ] },
+      { icon: '🏠', title: { ar: 'السكن و APL', en: 'Housing and APL', fr: 'Le logement et l’APL' }, phrases: [
+        { fr: 'Je voudrais savoir si j’ai droit à l’APL.', ar: 'بدي أعرف إذا إلي حق بالـAPL.', en: 'I’d like to know if I’m entitled to housing assistance.' },
+        { fr: 'J’ai changé de logement.', ar: 'غيرت السكن.', en: 'I moved to a new home.' },
+        { fr: 'Je dois déclarer mon changement d’adresse.', ar: 'لازم صرّح عن تغيير عنواني.', en: 'I need to report my change of address.' },
+        { fr: 'Mon loyer a augmenté.', ar: 'أجار بيتي ارتفع.', en: 'My rent has increased.' },
+        { fr: 'Je ne reçois plus d’aide au logement.', ar: 'ما عاد عم يوصلني مساعدة للسكن.', en: 'I’m no longer receiving housing assistance.' }
+      ] },
+      { icon: '💶', title: { ar: 'RSA والمساعدات', en: 'RSA and the benefits', fr: 'Le RSA et les aides' }, phrases: [
+        { fr: 'Je voudrais faire une demande de RSA.', ar: 'بدي قدّم طلب RSA.', en: 'I’d like to apply for RSA.' },
+        { fr: 'Je ne suis plus bénéficiaire du RSA.', ar: 'ما عدت مستفيد من الـRSA.', en: 'I’m no longer receiving RSA.' },
+        { fr: 'Je voudrais savoir pourquoi mon allocation a changé.', ar: 'بدي أعرف ليش تغيرت المساعدة تبعي.', en: 'I’d like to know why my benefit changed.' },
+        { fr: 'Quand vais-je recevoir mon prochain paiement ?', ar: 'إمتى رح استلم الدفعة الجاية؟', en: 'When will I receive my next payment?' },
+        { fr: 'Le montant que je reçois n’est pas le même qu’avant.', ar: 'المبلغ اللي عم استلمه مو نفس قبل.', en: 'The amount I’m receiving isn’t the same as before.' }
+      ] },
+      { icon: '📅', title: { ar: 'الموعد', en: 'The appointment', fr: 'Le rendez-vous' }, phrases: [
+        { fr: 'J’ai pris rendez-vous en ligne.', ar: 'أخدت موعد أونلاين.', en: 'I made an appointment online.' },
+        { fr: 'Je voudrais prendre rendez-vous avec un conseiller.', ar: 'بدي آخد موعد مع موظف/مستشار.', en: 'I’d like to make an appointment with an advisor.' },
+        { fr: 'Je peux avoir un rendez-vous plus tôt ?', ar: 'فيني آخد موعد أبكر؟', en: 'Can I get an earlier appointment?' },
+        { fr: 'Je dois annuler mon rendez-vous.', ar: 'لازم ألغي موعدي.', en: 'I need to cancel my appointment.' },
+        { fr: 'Je voudrais déplacer mon rendez-vous.', ar: 'بدي غيّر موعدي.', en: 'I’d like to reschedule my appointment.' }
+      ] },
+      { icon: '🧑‍💼', title: { ar: 'مع موظف CAF', en: 'With a CAF officer', fr: 'Avec un agent CAF' }, phrases: [
+        { fr: 'Bonjour, je voudrais faire le point sur mon dossier.', ar: 'مرحبا، بدي أعرف وضع ملفي بالتفصيل.', en: 'Hello, I’d like to review the status of my application.' },
+        { fr: 'Pouvez-vous vérifier mon dossier, s’il vous plaît ?', ar: 'فيك تتأكد من ملفي لو سمحت؟', en: 'Could you check my application, please?' },
+        { fr: 'Je ne comprends pas cette décision.', ar: 'ما فهمت هالقرار.', en: 'I don’t understand this decision.' },
+        { fr: 'Pouvez-vous m’expliquer, s’il vous plaît ?', ar: 'فيك تشرحلي لو سمحت؟', en: 'Could you explain it to me, please?' },
+        { fr: 'Qu’est-ce que je dois faire maintenant ?', ar: 'شو لازم أعمل هلق؟', en: 'What do I need to do now?' },
+        { fr: 'Quels documents dois-je fournir ?', ar: 'شو المستندات اللي لازم قدمها؟', en: 'What documents do I need to provide?' }
+      ] },
+      { icon: '⭐', title: { ar: 'جمل مهمة جدًا للحفظ', en: 'Very important sentences to memorize', fr: 'Phrases très importantes à retenir' }, phrases: [
+        { fr: 'Je voudrais savoir où en est mon dossier.', ar: 'بدي أعرف وين وصل ملفي.', en: 'I’d like to know the status of my application.' },
+        { fr: 'Est-ce qu’il manque un document ?', ar: 'في ورقة ناقصة؟', en: 'Is a document missing?' },
+        { fr: 'J’ai envoyé les documents demandés.', ar: 'بعت الأوراق المطلوبة.', en: 'I sent the requested documents.' },
+        { fr: 'Je n’ai pas encore reçu de réponse.', ar: 'لسا ما وصلني جواب.', en: 'I haven’t received a response yet.' },
+        { fr: 'Pouvez-vous vérifier mon dossier ?', ar: 'فيك تتأكد من ملفي؟', en: 'Could you check my application?' },
+        { fr: 'Je ne comprends pas cette décision.', ar: 'ما فهمت هالقرار.', en: 'I don’t understand this decision.' },
+        { fr: 'Qu’est-ce que je dois faire maintenant ?', ar: 'شو لازم أعمل هلق؟', en: 'What do I need to do now?' },
+        { fr: 'Comment puis-je envoyer ce document ?', ar: 'كيف فيني ابعت هالمستند؟', en: 'How can I send this document?' },
+        { fr: 'Quand vais-je recevoir le paiement ?', ar: 'إمتى رح استلم الدفعة؟', en: 'When will I receive the payment?' },
+        { fr: 'Merci pour votre aide.', ar: 'شكراً لمساعدتك.', en: 'Thank you for your help.' }
       ] }
     ]
   }
