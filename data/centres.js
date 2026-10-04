@@ -18626,6 +18626,296 @@ window.CENTRES_DATA = [
         { fr: 'Cette pièce est plutôt pour mijoter.', ar: 'هالقطعة أحسن للطبخ على نار هادية.', en: 'This cut is better for slow cooking.' },
         { fr: 'Je peux vous la couper en steaks.', ar: 'فيني قطّعلك ياها ستكات.', en: 'I can cut it into steaks.' },
         { fr: 'Vous la voulez avec ou sans os ?', ar: 'بدك ياها مع عظم ولا بدون؟', en: 'Do you want it with or without bone?' }
+      ] },
+      { icon: '🥩', title: { ar: 'واجهة عرض اللحمة', en: 'The display case', fr: 'La vitrine' }, phrases: [
+        { fr: 'Remplissez la vitrine.', ar: 'عبّي واجهة عرض اللحمة.', en: 'Fill the display case.' },
+        { fr: 'Réapprovisionnez la vitrine.', ar: 'زيد اللحمة بالواجهة.', en: 'Restock the display case.' },
+        { fr: 'Mettez cette viande dans la vitrine.', ar: 'حط هاللحمة بالواجهة.', en: 'Put this meat in the display case.' },
+        { fr: 'Placez les morceaux correctement.', ar: 'رتّب قطع اللحمة بشكل صحيح.', en: 'Arrange the cuts properly.' },
+        { fr: 'Mettez les belles pièces devant.', ar: 'حط القطع المرتبة لقدّام.', en: 'Put the best-looking cuts in front.' },
+        { fr: 'Étiquetez les produits.', ar: 'حط اللصاقات على المنتجات.', en: 'Label the products.' },
+        { fr: 'Indiquez le prix au kilo.', ar: 'اكتب السعر للكيلو.', en: 'Display the price per kilo.' },
+        { fr: 'Vérifiez les étiquettes.', ar: 'تأكد من اللصاقات.', en: 'Check the labels.' },
+        { fr: 'Nettoyez la vitrine.', ar: 'نظّف واجهة العرض.', en: 'Clean the display case.' },
+        { fr: 'Nettoyez la vitre.', ar: 'نظّف زجاج الواجهة.', en: 'Clean the glass.' },
+        { fr: 'Gardez la vitrine propre.', ar: 'خلي الواجهة نظيفة.', en: 'Keep the display case clean.' },
+        { fr: 'Contrôlez la température de la vitrine.', ar: 'تأكد من حرارة الواجهة.', en: 'Check the display case temperature.' },
+        { fr: 'Ne surchargez pas la vitrine.', ar: 'لا تعبي الواجهة زيادة.', en: 'Don’t overcrowd the display case.' },
+        { fr: 'Retirez les produits qui ne sont plus présentables.', ar: 'شيل المنتجات اللي ما عاد شكلها مناسب للبيع.', en: 'Remove products that are no longer presentable.' },
+        { fr: 'Faites tourner les produits.', ar: 'دوّر المنتجات حسب الأقدم.', en: 'Rotate the products.' },
+        { fr: 'Mettez les produits les plus anciens devant.', ar: 'حط المنتجات الأقدم لقدّام.', en: 'Put the oldest products in front.' },
+        { fr: 'Il faut refaire la vitrine.', ar: 'لازم نعيد ترتيب واجهة العرض.', en: 'We need to redo the display case.' },
+        { fr: 'La vitrine est presque vide.', ar: 'الواجهة تقريبًا فاضية.', en: 'The display case is almost empty.' },
+        { fr: 'Il faut remettre de la viande.', ar: 'لازم نحط لحمة زيادة.', en: 'We need to put more meat out.' },
+        { fr: 'La vitrine est prête pour l’ouverture.', ar: 'الواجهة جاهزة للفتح.', en: 'The display case is ready for opening.' }
+      ] },
+      { icon: '🥩', title: { ar: 'أسئلة وأجوبة مقابلة عمل القصّاب', en: 'Butcher job interview Q&A', fr: 'Questions-réponses de l’entretien de boucher' }, phrases: [
+        { fr: 'Vous avez de l’expérience en boucherie ?', ar: 'عندك خبرة بالقصّابة؟', en: 'Do you have experience in butchery?' },
+        { fr: 'Oui, j’ai de l’expérience dans la préparation et la découpe de la viande.', ar: 'إي، عندي خبرة بتحضير وتقطيع اللحمة.', en: 'Yes, I have experience preparing and cutting meat.' },
+        { fr: 'Quelles tâches savez-vous faire ?', ar: 'شو الشغلات اللي بتعرف تعملها؟', en: 'What tasks can you do?' },
+        { fr: 'Je sais découper, désosser, parer, hacher et préparer la viande.', ar: 'بعرف قطّع، شيل العظم، نظّف واهذّب القطعة، افرم وحضّر اللحمة.', en: 'I can cut, debone, trim, mince, and prepare meat.' },
+        { fr: 'Vous savez utiliser un couteau de boucher ?', ar: 'بتعرف تستخدم سكين القصّاب؟', en: 'Can you use a butcher’s knife?' },
+        { fr: 'Oui, je sais utiliser les couteaux correctement et en toute sécurité.', ar: 'إي، بعرف استخدم السكاكين بشكل صحيح وآمن.', en: 'Yes, I know how to use knives correctly and safely.' },
+        { fr: 'Vous savez désosser une pièce de viande ?', ar: 'بتعرف تشيل العظم من قطعة لحمة؟', en: 'Can you debone a cut of meat?' },
+        { fr: 'Oui, je sais désosser et parer les pièces de viande.', ar: 'إي، بعرف شيل العظم ونظّف واهذّب قطع اللحمة.', en: 'Yes, I can debone and trim meat cuts.' },
+        { fr: 'Vous savez préparer de la viande hachée ?', ar: 'بتعرف تحضّر لحمة مفرومة؟', en: 'Can you prepare minced meat?' },
+        { fr: 'Oui, je sais hacher la viande et préparer les portions.', ar: 'إي، بعرف افرم اللحمة وحضّر الحصص.', en: 'Yes, I can mince meat and prepare portions.' },
+        { fr: 'Vous savez préparer les commandes des clients ?', ar: 'بتعرف تحضّر طلبات الزبائن؟', en: 'Can you prepare customers’ orders?' },
+        { fr: 'Oui, je prépare les commandes selon les demandes des clients.', ar: 'إي، بحضّر الطلبات حسب طلب الزبون.', en: 'Yes, I prepare orders according to customers’ requests.' },
+        { fr: 'Vous savez utiliser une balance ?', ar: 'بتعرف تستخدم الميزان؟', en: 'Can you use a scale?' },
+        { fr: 'Oui, je sais peser les produits et vérifier les quantités.', ar: 'إي، بعرف أوزن المنتجات وأتأكد من الكميات.', en: 'Yes, I can weigh products and check quantities.' },
+        { fr: 'Vous connaissez les règles d’hygiène ?', ar: 'بتعرف قواعد النظافة؟', en: 'Do you know hygiene rules?' },
+        { fr: 'Oui, je respecte l’hygiène, la chaîne du froid et le nettoyage du poste de travail.', ar: 'إي، بلتزم بالنظافة وسلسلة التبريد وتنظيف مكان العمل.', en: 'Yes, I follow hygiene rules, the cold chain, and workstation cleaning.' },
+        { fr: 'Vous savez travailler en équipe ?', ar: 'بتعرف تشتغل ضمن فريق؟', en: 'Can you work in a team?' },
+        { fr: 'Oui, j’aime travailler en équipe et aider mes collègues.', ar: 'إي، بحب اشتغل ضمن فريق وساعد زملائي.', en: 'Yes, I like working in a team and helping my colleagues.' },
+        { fr: 'Vous pouvez travailler pendant les heures de pointe ?', ar: 'فيك تشتغل بأوقات الضغط؟', en: 'Can you work during busy periods?' },
+        { fr: 'Oui, je sais rester concentré et organisé quand il y a beaucoup de clients.', ar: 'إي، بعرف ضل مركز ومرتب لما يكون في زباين كتير.', en: 'Yes, I can stay focused and organized when it is busy.' },
+        { fr: 'Pourquoi voulez-vous travailler comme boucher ?', ar: 'ليش بدك تشتغل قصّاب؟', en: 'Why do you want to work as a butcher?' },
+        { fr: 'J’aime le travail manuel et je souhaite développer mes compétences en boucherie.', ar: 'بحب الشغل اليدوي وبدي طوّر مهاراتي بالقصّابة.', en: 'I like manual work and want to develop my butchery skills.' },
+        { fr: 'Quelles sont vos qualités ?', ar: 'شو صفاتك الجيدة؟', en: 'What are your qualities?' },
+        { fr: 'Je suis sérieux, ponctuel, soigneux et motivé.', ar: 'أنا جدي، ملتزم بالمواعيد، دقيق ومتحمس للشغل.', en: 'I am serious, punctual, careful, and motivated.' },
+        { fr: 'Êtes-vous prêt à apprendre de nouvelles techniques ?', ar: 'مستعد تتعلم تقنيات جديدة؟', en: 'Are you willing to learn new techniques?' },
+        { fr: 'Oui, bien sûr. Je suis motivé et j’apprends rapidement.', ar: 'إي طبعًا، أنا متحمس وباتعلم بسرعة.', en: 'Yes, of course. I’m motivated and learn quickly.' }
+      ] },
+      { icon: '🔪', title: { ar: 'الخبرة والعمل', en: 'Experience and work', fr: 'Expérience et travail' }, phrases: [
+        { fr: 'Depuis combien de temps travaillez-vous dans ce métier ?', ar: 'من إمتى إلك بهالمهنة؟', en: 'How long have you worked in this trade?' },
+        { fr: 'Qu’est-ce que vous faisiez dans votre dernier poste ?', ar: 'شو كنت تعمل بشغلك السابق؟', en: 'What did you do in your previous job?' },
+        { fr: 'Vous avez déjà travaillé en boucherie traditionnelle ?', ar: 'اشتغلت قبل بمحل قصابة تقليدي؟', en: 'Have you worked in a traditional butcher shop before?' },
+        { fr: 'Vous avez déjà travaillé en grande surface ?', ar: 'اشتغلت قبل بسوبرماركت كبير؟', en: 'Have you worked in a supermarket before?' },
+        { fr: 'Vous êtes à l’aise avec la découpe ?', ar: 'مرتاح بشغل التقطيع؟', en: 'Are you comfortable with cutting meat?' },
+        { fr: 'Vous savez travailler avec différents types de viande ?', ar: 'بتعرف تشتغل بأنواع مختلفة من اللحمة؟', en: 'Can you work with different types of meat?' }
+      ] },
+      { icon: '🥩', title: { ar: 'التقطيع والتحضير', en: 'Cutting and preparation', fr: 'Découpe et préparation' }, phrases: [
+        { fr: 'Vous savez parer une pièce de viande ?', ar: 'بتعرف تنظف وتهذّب قطعة اللحمة؟', en: 'Can you trim a cut of meat?' },
+        { fr: 'Vous savez faire des steaks ?', ar: 'بتعرف تعمل شرائح ستيك؟', en: 'Can you cut steaks?' },
+        { fr: 'Vous savez préparer un rôti ?', ar: 'بتعرف تحضّر روستو؟', en: 'Can you prepare a roast?' },
+        { fr: 'Vous savez préparer des brochettes ?', ar: 'بتعرف تحضّر أسياخ اللحمة؟', en: 'Can you prepare kebabs/skewers?' },
+        { fr: 'Vous savez ficeler un rôti ?', ar: 'بتعرف تربط الروستو بالخيط؟', en: 'Can you tie a roast?' },
+        { fr: 'Vous savez faire des préparations bouchères ?', ar: 'بتعرف تعمل تحضيرات القصّاب؟', en: 'Can you make butcher-shop preparations?' }
+      ] },
+      { icon: '🧼', title: { ar: 'النظافة والسلامة', en: 'Hygiene and safety', fr: 'Hygiène et sécurité' }, phrases: [
+        { fr: 'Comment assurez-vous l’hygiène au poste de travail ?', ar: 'كيف بتحافظ على النظافة بمكان الشغل؟', en: 'How do you maintain hygiene at the workstation?' },
+        { fr: 'Vous nettoyez votre poste régulièrement ?', ar: 'بتنظف مكان شغلك بشكل منتظم؟', en: 'Do you clean your workstation regularly?' },
+        { fr: 'Vous respectez la chaîne du froid ?', ar: 'بتلتزم بسلسلة التبريد؟', en: 'Do you follow the cold chain?' },
+        { fr: 'Vous faites attention à la contamination croisée ?', ar: 'بتنتبه من التلوث المتبادل؟', en: 'Do you pay attention to cross-contamination?' },
+        { fr: 'Vous savez utiliser les machines en toute sécurité ?', ar: 'بتعرف تستخدم الماكينات بأمان؟', en: 'Can you use the machines safely?' }
+      ] },
+      { icon: '👥', title: { ar: 'التعامل مع الزبائن', en: 'Customer relations', fr: 'Relation client' }, phrases: [
+        { fr: 'Vous aimez le contact avec les clients ?', ar: 'بتحب التعامل مع الزباين؟', en: 'Do you like dealing with customers?' },
+        { fr: 'Comment conseillez-vous un client ?', ar: 'كيف بتنصح الزبون؟', en: 'How do you advise a customer?' },
+        { fr: 'Que faites-vous si le client n’est pas satisfait ?', ar: 'شو بتعمل إذا الزبون مو راضي؟', en: 'What do you do if the customer is not satisfied?' },
+        { fr: 'Vous savez prendre une commande ?', ar: 'بتعرف تاخد طلب الزبون؟', en: 'Can you take a customer’s order?' },
+        { fr: 'Vous pouvez servir plusieurs clients en même temps ?', ar: 'فيك تخدم أكتر من زبون بنفس الوقت؟', en: 'Can you serve several customers at the same time?' }
+      ] },
+      { icon: '📦', title: { ar: 'المخزون والواجهة', en: 'Stock and display', fr: 'Stock et vitrine' }, phrases: [
+        { fr: 'Vous savez faire la mise en vitrine ?', ar: 'بتعرف ترتب اللحمة بواجهة العرض؟', en: 'Can you arrange the meat in the display case?' },
+        { fr: 'Vous savez contrôler le stock ?', ar: 'بتعرف تراقب المخزون؟', en: 'Can you check the stock?' },
+        { fr: 'Vous savez faire la rotation des produits ?', ar: 'بتعرف تدوّر المنتجات حسب الأقدم؟', en: 'Do you know how to rotate products?' },
+        { fr: 'Vous savez réceptionner une livraison ?', ar: 'بتعرف تستلم شحنة؟', en: 'Can you receive a delivery?' },
+        { fr: 'Vous savez vérifier la marchandise ?', ar: 'بتعرف تفحص البضاعة؟', en: 'Can you check the goods?' }
+      ] },
+      { icon: '💪', title: { ar: 'أسئلة عن شخصيتك', en: 'Personality questions', fr: 'Questions sur votre personnalité' }, phrases: [
+        { fr: 'Vous supportez de rester debout longtemps ?', ar: 'فيك تضل واقف فترة طويلة؟', en: 'Can you stand for long periods?' },
+        { fr: 'Vous êtes ponctuel ?', ar: 'أنت ملتزم بالمواعيد؟', en: 'Are you punctual?' },
+        { fr: 'Vous êtes disponible le week-end ?', ar: 'فيك تشتغل بعطلة نهاية الأسبوع؟', en: 'Are you available on weekends?' },
+        { fr: 'Vous êtes disponible tôt le matin ?', ar: 'فيك تداوم بكير الصبح؟', en: 'Are you available early in the morning?' },
+        { fr: 'Vous êtes disponible immédiatement ?', ar: 'فيك تبلش شغل فورًا؟', en: 'Are you available immediately?' },
+        { fr: 'Quel salaire souhaitez-vous ?', ar: 'قديش الراتب اللي بدك ياه؟', en: 'What salary are you looking for?' },
+        { fr: 'Quand pouvez-vous commencer ?', ar: 'إمتى فيك تبلش؟', en: 'When can you start?' }
+      ] },
+      { icon: '🥩', title: { ar: 'التقطيع واللحوم', en: 'Cutting and meats', fr: 'Découpe et viandes' }, phrases: [
+        { fr: 'Quelle différence entre une entrecôte et un faux-filet ?', ar: 'شو الفرق بين الأنتركوت والفو فيليه؟', en: 'What’s the difference between rib steak and sirloin?' },
+        { fr: 'Quelle viande utilisez-vous pour le steak haché ?', ar: 'أي لحمة بتستخدم للستيك المفروم؟', en: 'What meat do you use for minced steak?' },
+        { fr: 'Comment choisissez-vous une bonne pièce de viande ?', ar: 'كيف بتختار قطعة لحمة منيحة؟', en: 'How do you choose a good cut of meat?' },
+        { fr: 'Comment reconnaissez-vous une viande fraîche ?', ar: 'كيف بتعرف إن اللحمة طازة؟', en: 'How do you recognize fresh meat?' },
+        { fr: 'Vous savez retirer les nerfs et les membranes ?', ar: 'بتعرف تشيل الأعصاب والأغشية؟', en: 'Can you remove sinews and membranes?' },
+        { fr: 'Vous savez enlever l’excès de gras ?', ar: 'بتعرف تشيل الدهن الزايد؟', en: 'Can you remove excess fat?' },
+        { fr: 'Vous savez faire une découpe régulière ?', ar: 'بتعرف تعمل تقطيع متساوي؟', en: 'Can you make even cuts?' }
+      ] },
+      { icon: '🧊', title: { ar: 'الحفظ والتبريد', en: 'Storage and refrigeration', fr: 'Conservation et froid' }, phrases: [
+        { fr: 'Comment conservez-vous la viande ?', ar: 'كيف بتحفظ اللحمة؟', en: 'How do you store the meat?' },
+        { fr: 'Où rangez-vous la viande après la découpe ?', ar: 'وين بتحط اللحمة بعد التقطيع؟', en: 'Where do you store the meat after cutting?' },
+        { fr: 'Que faites-vous si la température n’est pas correcte ?', ar: 'شو بتعمل إذا الحرارة مو مناسبة؟', en: 'What do you do if the temperature is not correct?' },
+        { fr: 'Comment vérifiez-vous la température de la vitrine ?', ar: 'كيف بتفحص حرارة واجهة العرض؟', en: 'How do you check the display case temperature?' },
+        { fr: 'Que faites-vous avec un produit périmé ?', ar: 'شو بتعمل بمنتج منتهي الصلاحية؟', en: 'What do you do with an expired product?' }
+      ] },
+      { icon: '🧾', title: { ar: 'الطلبات والزبائن', en: 'Orders and customers', fr: 'Commandes et clients' }, phrases: [
+        { fr: 'Comment prenez-vous la commande d’un client ?', ar: 'كيف بتاخد طلب الزبون؟', en: 'How do you take a customer’s order?' },
+        { fr: 'Vous pouvez respecter une demande précise du client ?', ar: 'فيك تلتزم بطلب الزبون بالتفصيل؟', en: 'Can you follow a customer’s specific request?' },
+        { fr: 'Que faites-vous si le client change d’avis ?', ar: 'شو بتعمل إذا الزبون غيّر رأيه؟', en: 'What do you do if the customer changes their mind?' },
+        { fr: 'Que faites-vous s’il y a beaucoup de clients ?', ar: 'شو بتعمل إذا كان في زباين كتير؟', en: 'What do you do if there are many customers?' },
+        { fr: 'Comment gérez-vous un client mécontent ?', ar: 'كيف بتتعامل مع زبون مو راضي؟', en: 'How do you deal with an unhappy customer?' }
+      ] },
+      { icon: '⚙️', title: { ar: 'المعدات', en: 'Equipment', fr: 'Le matériel' }, phrases: [
+        { fr: 'Vous savez utiliser un hachoir ?', ar: 'بتعرف تستخدم ماكينة الفرم؟', en: 'Can you use a meat grinder?' },
+        { fr: 'Vous savez utiliser une trancheuse ?', ar: 'بتعرف تستخدم ماكينة التقطيع؟', en: 'Can you use a slicer?' },
+        { fr: 'Vous savez utiliser une scie à viande ?', ar: 'بتعرف تستخدم منشار اللحمة؟', en: 'Can you use a meat saw?' },
+        { fr: 'Comment entretenez-vous votre matériel ?', ar: 'كيف بتحافظ على معدات الشغل؟', en: 'How do you maintain your equipment?' },
+        { fr: 'Que faites-vous si une machine tombe en panne ?', ar: 'شو بتعمل إذا ماكينة تعطلت؟', en: 'What do you do if a machine breaks down?' }
+      ] },
+      { icon: '🧹', title: { ar: 'نهاية العمل', en: 'End of day', fr: 'Fin de journée' }, phrases: [
+        { fr: 'Que faites-vous avant de fermer la boucherie ?', ar: 'شو بتعمل قبل ما تسكّر القصابة؟', en: 'What do you do before closing the butcher shop?' },
+        { fr: 'Vous nettoyez et désinfectez le matériel ?', ar: 'بتنظف وبتعقّم المعدات؟', en: 'Do you clean and disinfect the equipment?' },
+        { fr: 'Vous rangez les couteaux après le travail ?', ar: 'بترتّب السكاكين بعد الشغل؟', en: 'Do you put the knives away after work?' },
+        { fr: 'Vous vérifiez la vitrine avant de partir ?', ar: 'بتفحص الواجهة قبل ما تروح؟', en: 'Do you check the display case before leaving?' },
+        { fr: 'Vous êtes capable de travailler rapidement tout en restant soigneux ?', ar: 'فيك تشتغل بسرعة وبنفس الوقت تضل دقيق؟', en: 'Can you work quickly while remaining careful?' },
+        { fr: 'Êtes-vous prêt à apprendre les méthodes de notre boucherie ?', ar: 'مستعد تتعلم طريقة الشغل عنا بالقصابة؟', en: 'Are you willing to learn our butcher shop’s methods?' }
+      ] },
+      { icon: '🔪', title: { ar: 'أسئلة عملية جدًا', en: 'Very practical questions', fr: 'Questions très pratiques' }, phrases: [
+        { fr: 'Montrez-moi comment vous découpez cette pièce.', ar: 'فرجيني كيف بتقطّع هالقطعة.', en: 'Show me how you cut this piece.' },
+        { fr: 'Comment allez-vous découper cette pièce ?', ar: 'كيف رح تقطّع هالقطعة؟', en: 'How are you going to cut this piece?' },
+        { fr: 'Par où commencez-vous la découpe ?', ar: 'من وين بتبلّش التقطيع؟', en: 'Where do you start the cutting?' },
+        { fr: 'Vous pouvez me montrer comment désosser cette pièce ?', ar: 'فيك تفرجيني كيف بتشيل العظم من هالقطعة؟', en: 'Can you show me how to debone this cut?' },
+        { fr: 'Vous savez suivre l’os avec le couteau ?', ar: 'بتعرف تمشي بالسكين على طول العظم؟', en: 'Can you follow the bone with the knife?' },
+        { fr: 'Faites attention à ne pas perdre trop de viande.', ar: 'انتبه ما تضيّع لحمة كتير.', en: 'Be careful not to waste too much meat.' },
+        { fr: 'Essayez de faire des morceaux réguliers.', ar: 'حاول تعمل قطع متساوية.', en: 'Try to make even pieces.' },
+        { fr: 'Ne coupez pas trop épais.', ar: 'لا تقطّع سميك كتير.', en: 'Don’t cut too thick.' },
+        { fr: 'Ne retirez pas trop de gras.', ar: 'لا تشيل دهن زيادة.', en: 'Don’t remove too much fat.' }
+      ] },
+      { icon: '🥩', title: { ar: 'أثناء تحضير الطلب', en: 'While preparing the order', fr: 'Pendant la préparation de la commande' }, phrases: [
+        { fr: 'Le client veut cette pièce en steaks.', ar: 'الزبون بدو هالقطعة ستكات.', en: 'The customer wants this cut as steaks.' },
+        { fr: 'Le client veut 200 grammes de viande hachée.', ar: 'الزبون بدو 200 غرام لحمة مفرومة.', en: 'The customer wants 200 grams of minced meat.' },
+        { fr: 'Faites attention au poids.', ar: 'انتبه عالوزن.', en: 'Pay attention to the weight.' },
+        { fr: 'Il faut respecter la quantité demandée.', ar: 'لازم تلتزم بالكمية المطلوبة.', en: 'You have to respect the requested quantity.' },
+        { fr: 'Pesez avant d’emballer.', ar: 'زِن قبل التغليف.', en: 'Weigh it before packing.' },
+        { fr: 'Vérifiez le prix avant de donner la commande.', ar: 'تأكد من السعر قبل ما تعطي الطلب.', en: 'Check the price before giving the order.' }
+      ] },
+      { icon: '🥩', title: { ar: 'جودة اللحمة', en: 'Meat quality', fr: 'Qualité de la viande' }, phrases: [
+        { fr: 'Cette viande est-elle assez fraîche ?', ar: 'هاللحمة طازة كفاية؟', en: 'Is this meat fresh enough?' },
+        { fr: 'Il faut vérifier l’aspect de la viande.', ar: 'لازم نتأكد من شكل اللحمة.', en: 'We need to check the appearance of the meat.' },
+        { fr: 'Cette pièce a trop de gras.', ar: 'هالقطعة فيها دهن كتير.', en: 'This cut has too much fat.' },
+        { fr: 'Cette pièce est bien tendre.', ar: 'هالقطعة طرية منيح.', en: 'This cut is very tender.' },
+        { fr: 'Cette viande est plutôt pour mijoter.', ar: 'هاللحمة أحسن للطبخ على نار هادية.', en: 'This meat is more suitable for slow cooking.' },
+        { fr: 'Celle-ci est meilleure pour le grill.', ar: 'هاي أحسن للشوي.', en: 'This one is better for grilling.' }
+      ] },
+      { icon: '🧑‍🍳', title: { ar: 'التحضير', en: 'Preparation', fr: 'La préparation' }, phrases: [
+        { fr: 'Préparez les brochettes pour cet après-midi.', ar: 'حضّر أسياخ اللحمة لهالظهر/العصر.', en: 'Prepare the skewers for this afternoon.' },
+        { fr: 'Préparez les steaks hachés.', ar: 'حضّر الستيكات المفرومة.', en: 'Prepare the minced steaks.' },
+        { fr: 'Faites les portions à l’avance.', ar: 'حضّر الحصص مسبقًا.', en: 'Prepare the portions in advance.' },
+        { fr: 'Mettez chaque préparation dans une barquette.', ar: 'حط كل تحضيرة بعلبة.', en: 'Put each preparation in a tray.' },
+        { fr: 'N’oubliez pas l’étiquette.', ar: 'لا تنسى اللصاقة.', en: 'Don’t forget the label.' }
+      ] },
+      { icon: '👨‍🍳', title: { ar: 'أوامر تسمعها من المسؤول', en: 'Manager’s instructions', fr: 'Consignes du responsable' }, phrases: [
+        { fr: 'Commencez par cette pièce.', ar: 'بلّش بهالقطعة.', en: 'Start with this cut.' },
+        { fr: 'Prenez un couteau plus adapté.', ar: 'خد سكينة أنسب.', en: 'Use a more suitable knife.' },
+        { fr: 'Aiguisez votre couteau.', ar: 'سنّ سكينتك.', en: 'Sharpen your knife.' },
+        { fr: 'Travaillez proprement.', ar: 'اشتغل بنظافة.', en: 'Work cleanly.' },
+        { fr: 'Travaillez avec précision.', ar: 'اشتغل بدقة.', en: 'Work precisely.' },
+        { fr: 'Allez doucement au début.', ar: 'بالبداية اشتغل على مهلك.', en: 'Take it slowly at first.' },
+        { fr: 'Faites attention à vos doigts.', ar: 'انتبه على أصابعك.', en: 'Be careful with your fingers.' },
+        { fr: 'Rangez votre poste quand vous avez terminé.', ar: 'رتّب مكان شغلك لما تخلص.', en: 'Clean up your workstation when you’re finished.' },
+        { fr: 'Il faut garder le poste propre pendant le travail.', ar: 'لازم تضل محافظ على نظافة مكان الشغل أثناء العمل.', en: 'You need to keep the workstation clean while working.' }
+      ] },
+      { icon: '🔪', title: { ar: 'أثناء التقطيع', en: 'While cutting', fr: 'Pendant la découpe' }, phrases: [
+        { fr: 'Prenez cette pièce et commencez à la parer.', ar: 'خد هالقطعة وبلّش نظّفها واهذّبها.', en: 'Take this cut and start trimming it.' },
+        { fr: 'Enlevez seulement le gras en trop.', ar: 'شيل بس الدهن الزايد.', en: 'Remove only the excess fat.' },
+        { fr: 'Gardez la partie maigre.', ar: 'خلي الجزء الخالي من الدهن.', en: 'Keep the lean part.' },
+        { fr: 'Suivez les fibres de la viande.', ar: 'اتبع ألياف اللحمة.', en: 'Follow the grain of the meat.' },
+        { fr: 'Coupez dans le bon sens.', ar: 'قطّع بالاتجاه الصحيح.', en: 'Cut in the right direction.' },
+        { fr: 'Faites des tranches régulières.', ar: 'اعمل شرائح متساوية.', en: 'Make even slices.' },
+        { fr: 'Gardez la même épaisseur.', ar: 'خلي السماكة نفسها.', en: 'Keep the same thickness.' },
+        { fr: 'Ne gaspillez pas la viande.', ar: 'لا تهدر اللحمة.', en: 'Don’t waste the meat.' }
+      ] },
+      { icon: '🥩', title: { ar: 'التحضير والطلبات', en: 'Prep and orders', fr: 'Préparation et commandes' }, phrases: [
+        { fr: 'Préparez cette commande en priorité.', ar: 'حضّر هالطلب أول شي.', en: 'Prepare this order first.' },
+        { fr: 'Cette commande est pour un client qui attend.', ar: 'هالطلب لزبون ناطر.', en: 'This order is for a customer who is waiting.' },
+        { fr: 'Faites-moi quatre steaks de cette pièce.', ar: 'اعمللي أربع شرائح ستيك من هالقطعة.', en: 'Make me four steaks from this cut.' },
+        { fr: 'Mettez-les dans une barquette séparée.', ar: 'حطهن بعلبة منفصلة.', en: 'Put them in a separate tray.' },
+        { fr: 'Séparez les commandes.', ar: 'افصل الطلبات عن بعضها.', en: 'Separate the orders.' },
+        { fr: 'N’oubliez pas de peser la commande.', ar: 'لا تنسى توزن الطلب.', en: 'Don’t forget to weigh the order.' },
+        { fr: 'Vérifiez que le poids correspond à la commande.', ar: 'تأكد إن الوزن مطابق للطلب.', en: 'Check that the weight matches the order.' }
+      ] },
+      { icon: '🧊', title: { ar: 'التخزين والواجهة', en: 'Storage and display', fr: 'Stockage et vitrine' }, phrases: [
+        { fr: 'Mettez les pièces en vitrine.', ar: 'حط قطع اللحمة بالواجهة.', en: 'Put the cuts in the display case.' },
+        { fr: 'Réorganisez la vitrine.', ar: 'أعد ترتيب الواجهة.', en: 'Rearrange the display case.' },
+        { fr: 'Il faut remettre de la viande en vitrine.', ar: 'لازم نعبي اللحمة بالواجهة من جديد.', en: 'We need to restock the display case.' },
+        { fr: 'Vérifiez les dates avant de mettre les produits en vitrine.', ar: 'تأكد من التواريخ قبل ما تحط المنتجات بالواجهة.', en: 'Check the dates before putting the products in the display case.' },
+        { fr: 'Mettez les produits les plus anciens devant.', ar: 'حط المنتجات الأقدم لقدام.', en: 'Put the oldest products in front.' },
+        { fr: 'Gardez la viande bien au frais.', ar: 'خلي اللحمة باردة منيح.', en: 'Keep the meat properly chilled.' }
+      ] },
+      { icon: '🧼', title: { ar: 'النظافة', en: 'Cleaning', fr: 'Nettoyage' }, phrases: [
+        { fr: 'Nettoyez le billot après chaque utilisation.', ar: 'نظّف لوح التقطيع بعد كل استخدام.', en: 'Clean the cutting block after each use.' },
+        { fr: 'Désinfectez le plan de travail.', ar: 'عقّم سطح العمل.', en: 'Disinfect the work surface.' },
+        { fr: 'Lavez les couteaux régulièrement.', ar: 'اغسل السكاكين بشكل منتظم.', en: 'Wash the knives regularly.' },
+        { fr: 'Changez de gants entre deux préparations.', ar: 'غيّر الكفوف بين تحضيرة وتحضيرة.', en: 'Change gloves between preparations.' },
+        { fr: 'Ne laissez rien traîner sur le plan de travail.', ar: 'لا تترك شي مرمي على سطح العمل.', en: 'Don’t leave anything lying around on the work surface.' }
+      ] },
+      { icon: '👔', title: { ar: 'أسئلة ممكن يسألك المسؤول', en: 'Questions the manager may ask', fr: 'Questions possibles du responsable' }, phrases: [
+        { fr: 'Vous êtes à l’aise avec le travail au couteau ?', ar: 'مرتاح بالشغل بالسكين؟', en: 'Are you comfortable working with knives?' },
+        { fr: 'Vous avez l’habitude de travailler debout toute la journée ?', ar: 'متعود تشتغل واقف طول النهار؟', en: 'Are you used to standing all day?' },
+        { fr: 'Vous pouvez travailler à un rythme soutenu ?', ar: 'فيك تشتغل بوتيرة سريعة؟', en: 'Can you work at a fast pace?' },
+        { fr: 'Vous êtes capable de travailler seul ?', ar: 'فيك تشتغل لحالك؟', en: 'Can you work independently?' },
+        { fr: 'Vous préférez travailler seul ou en équipe ?', ar: 'بتفضّل تشتغل لحالك ولا ضمن فريق؟', en: 'Do you prefer working alone or in a team?' },
+        { fr: 'Vous êtes disponible pour les horaires du matin ?', ar: 'متوفر لدوام الصبح؟', en: 'Are you available for morning shifts?' },
+        { fr: 'Vous pouvez commencer par une période d’essai ?', ar: 'فيك تبلش بفترة تجربة؟', en: 'Can you start with a trial period?' }
+      ] },
+      { icon: '📄', title: { ar: 'أسئلة عن الـCV والخبرة', en: 'CV and experience questions', fr: 'Questions sur le CV et l’expérience' }, phrases: [
+        { fr: 'Pouvez-vous me parler de votre parcours professionnel ?', ar: 'فيك تحكيلي عن مسيرتك المهنية؟', en: 'Can you tell me about your professional background?' },
+        { fr: 'Pouvez-vous me présenter votre CV ?', ar: 'فيك تشرحلي الـCV تبعك؟', en: 'Can you tell me about your CV?' },
+        { fr: 'Quelle est votre expérience dans le domaine de la boucherie ?', ar: 'شو خبرتك بمجال القصابة؟', en: 'What experience do you have in butchery?' },
+        { fr: 'Où avez-vous travaillé auparavant ?', ar: 'وين اشتغلت من قبل؟', en: 'Where have you worked before?' },
+        { fr: 'Quelles étaient vos principales missions ?', ar: 'شو كانت أهم مهامك؟', en: 'What were your main duties?' },
+        { fr: 'Quelles tâches faisiez-vous au quotidien ?', ar: 'شو كنت تعمل كل يوم بالشغل؟', en: 'What tasks did you do every day?' },
+        { fr: 'Depuis combien de temps avez-vous cette expérience ?', ar: 'من إمتى عندك هالخبرة؟', en: 'How long have you had this experience?' }
+      ] },
+      { icon: '🥩', title: { ar: 'جواب جاهز قوي وبسيط', en: 'Strong, simple, ready answer', fr: 'Réponse prête simple et forte' }, phrases: [
+        { fr: 'J’ai de l’expérience dans la préparation, la découpe et le conditionnement de la viande. Je sais également préparer les commandes, servir les clients et respecter les règles d’hygiène.', ar: 'عندي خبرة بتحضير وتقطيع وتغليف اللحمة. وكمان بعرف حضّر طلبات الزباين، خدم الزبون والتزم بقواعد النظافة.', en: 'I have experience preparing, cutting, and packaging meat. I can also prepare orders, serve customers, and follow hygiene rules.' }
+      ] },
+      { icon: '🔪', title: { ar: 'عن المهارات الموجودة بالـCV', en: 'About the CV skills', fr: 'Sur les compétences du CV' }, phrases: [
+        { fr: 'Quelles sont vos compétences en boucherie ?', ar: 'شو مهاراتك بالقصابة؟', en: 'What are your butchery skills?' },
+        { fr: 'Je sais découper, désosser, parer, hacher et préparer différentes pièces de viande.', ar: 'بعرف قطّع، شيل العظم، نظّف واهذّب، افرم وحضّر أنواع مختلفة من قطع اللحمة.', en: 'I can cut, debone, trim, mince, and prepare different cuts of meat.' },
+        { fr: 'Vous savez travailler le bœuf ?', ar: 'بتعرف تشتغل لحم البقر؟', en: 'Can you work with beef?' },
+        { fr: 'Oui, je connais les principales pièces de bœuf et leur utilisation.', ar: 'إي، بعرف قطع البقر الأساسية واستخدام كل قطعة.', en: 'Yes, I know the main beef cuts and how they are used.' },
+        { fr: 'Vous avez de l’expérience avec la viande hachée ?', ar: 'عندك خبرة باللحمة المفرومة؟', en: 'Do you have experience with minced meat?' },
+        { fr: 'Oui, je sais préparer et conditionner la viande hachée selon la demande du client.', ar: 'إي، بعرف حضّر وأغلّف اللحمة المفرومة حسب طلب الزبون.', en: 'Yes, I can prepare and package minced meat according to the customer’s request.' }
+      ] },
+      { icon: '🧑‍💼', title: { ar: 'عن سبب التقديم', en: 'About why you applied', fr: 'Sur la motivation' }, phrases: [
+        { fr: 'Pourquoi avez-vous postulé à ce poste ?', ar: 'ليش قدمت على هالوظيفة؟', en: 'Why did you apply for this position?' },
+        { fr: 'Je souhaite travailler dans le domaine de la boucherie et développer mon expérience.', ar: 'بدي اشتغل بمجال القصابة وطوّر خبرتي.', en: 'I want to work in butchery and develop my experience.' },
+        { fr: 'Pourquoi souhaitez-vous changer de poste ?', ar: 'ليش بدك تغيّر شغلك؟', en: 'Why do you want to change jobs?' },
+        { fr: 'Je cherche une nouvelle opportunité professionnelle et je souhaite évoluer dans ce métier.', ar: 'عم دور على فرصة مهنية جديدة وبدي طوّر حالي بهالمهنة.', en: 'I’m looking for a new professional opportunity and want to develop in this trade.' }
+      ] },
+      { icon: '⭐', title: { ar: 'نقاط القوة', en: 'Strengths', fr: 'Points forts' }, phrases: [
+        { fr: 'Quelles sont vos qualités professionnelles ?', ar: 'شو صفاتك المهنية؟', en: 'What are your professional qualities?' },
+        { fr: 'Je suis sérieux, ponctuel, soigneux, organisé et motivé.', ar: 'أنا جدي، ملتزم بالمواعيد، دقيق، مرتب ومتحمس.', en: 'I am serious, punctual, careful, organized, and motivated.' },
+        { fr: 'Quel est votre principal point fort ?', ar: 'شو أهم نقطة قوة عندك؟', en: 'What is your main strength?' },
+        { fr: 'Je suis sérieux dans mon travail et j’apprends rapidement.', ar: 'أنا جدي بشغلي وبتعلم بسرعة.', en: 'I take my work seriously and learn quickly.' }
+      ] },
+      { icon: '🎯', title: { ar: 'سؤال مهم جدًا', en: 'Very important question', fr: 'Question très importante' }, phrases: [
+        { fr: 'Pourquoi devrions-nous vous choisir ?', ar: 'ليش لازم نختارك؟', en: 'Why should we choose you?' },
+        { fr: 'Parce que je suis motivé, sérieux, ponctuel et prêt à apprendre. Je m’adapte facilement et je respecte les consignes.', ar: 'لأنني متحمس وجدي وملتزم بالمواعيد ومستعد أتعلم. بتأقلم بسهولة وبالتزم بالتعليمات.', en: 'Because I’m motivated, serious, punctual, and willing to learn. I adapt easily and follow instructions.' }
+      ] },
+      { icon: '📄', title: { ar: 'عن الخبرة السابقة', en: 'About past experience', fr: 'Sur l’expérience passée' }, phrases: [
+        { fr: 'Pourquoi avez-vous quitté votre dernier emploi ?', ar: 'ليش تركت شغلك السابق؟', en: 'Why did you leave your previous job?' },
+        { fr: 'Mon contrat est arrivé à son terme et je cherche maintenant une nouvelle opportunité.', ar: 'خلص عقدي وهلأ عم دور على فرصة جديدة.', en: 'My contract ended, and I’m now looking for a new opportunity.' },
+        { fr: 'Qu’avez-vous appris dans votre dernier poste ?', ar: 'شو تعلمت بشغلك السابق؟', en: 'What did you learn in your previous job?' },
+        { fr: 'J’ai appris à travailler rapidement, à respecter les consignes et à travailler en équipe.', ar: 'تعلمت اشتغل بسرعة، التزم بالتعليمات واشتغل ضمن فريق.', en: 'I learned to work quickly, follow instructions, and work as part of a team.' },
+        { fr: 'Quelle était votre responsabilité principale ?', ar: 'شو كانت مسؤوليتك الأساسية؟', en: 'What was your main responsibility?' },
+        { fr: 'Ma responsabilité principale était de préparer les produits et de respecter les délais.', ar: 'كانت مسؤوليتي الأساسية تحضير المنتجات والالتزام بالمواعيد.', en: 'My main responsibility was preparing products and meeting deadlines.' }
+      ] },
+      { icon: '🔪', title: { ar: 'عن العمل كـ boucher', en: 'About working as a butcher', fr: 'Sur le métier de boucher' }, phrases: [
+        { fr: 'Quelles techniques de boucherie maîtrisez-vous ?', ar: 'شو تقنيات القصابة اللي بتتقنها؟', en: 'What butchery techniques do you master?' },
+        { fr: 'Je maîtrise les bases de la découpe, du parage, du désossage et du hachage.', ar: 'بتقن أساسيات التقطيع، التهذيب، إزالة العظم والفرم.', en: 'I master the basics of cutting, trimming, deboning, and mincing.' },
+        { fr: 'Savez-vous identifier les différents morceaux de viande ?', ar: 'بتعرف تميّز قطع اللحمة المختلفة؟', en: 'Can you identify different cuts of meat?' },
+        { fr: 'Oui, je connais les principaux morceaux et leur utilisation.', ar: 'إي، بعرف القطع الأساسية واستخدام كل وحدة.', en: 'Yes, I know the main cuts and how each one is used.' },
+        { fr: 'Savez-vous préparer une pièce selon la demande du client ?', ar: 'بتعرف تحضّر قطعة حسب طلب الزبون؟', en: 'Can you prepare a cut according to the customer’s request?' },
+        { fr: 'Oui, je respecte les demandes du client concernant la découpe, le poids et l’emballage.', ar: 'إي، بلتزم بطلب الزبون من ناحية التقطيع والوزن والتغليف.', en: 'Yes, I follow the customer’s requirements for cutting, weight, and packaging.' }
+      ] },
+      { icon: '🧼', title: { ar: 'النظافة والسلامة', en: 'Hygiene and safety', fr: 'Hygiène et sécurité' }, phrases: [
+        { fr: 'Que signifie pour vous une bonne hygiène en boucherie ?', ar: 'شو يعني بالنسبة إلك النظافة الجيدة بالقصابة؟', en: 'What does good hygiene mean to you in a butcher shop?' },
+        { fr: 'C’est nettoyer, désinfecter, se laver les mains et respecter la chaîne du froid.', ar: 'يعني التنظيف والتعقيم وغسل الإيدين والمحافظة على سلسلة التبريد.', en: 'It means cleaning, disinfecting, washing hands, and maintaining the cold chain.' },
+        { fr: 'Que faites-vous si vous faites tomber un couteau ?', ar: 'شو بتعمل إذا وقع منك السكين؟', en: 'What do you do if you drop a knife?' },
+        { fr: 'Je le nettoie et le désinfecte avant de le réutiliser.', ar: 'بنظفه وبعقمه قبل ما استخدمه مرة تانية.', en: 'I clean and disinfect it before using it again.' },
+        { fr: 'Que faites-vous si vous vous blessez au travail ?', ar: 'شو بتعمل إذا جرحت حالك بالشغل؟', en: 'What do you do if you injure yourself at work?' },
+        { fr: 'J’arrête immédiatement le travail, je sécurise la zone et je préviens mon responsable.', ar: 'بوقف الشغل فوراً، بأمّن المكان وبخبر المسؤول.', en: 'I stop working immediately, secure the area, and inform my supervisor.' }
+      ] },
+      { icon: '👥', title: { ar: 'التعامل مع الزبون', en: 'Dealing with the customer', fr: 'Relation avec le client' }, phrases: [
+        { fr: 'Comment accueillez-vous un client ?', ar: 'كيف بتستقبل الزبون؟', en: 'How do you greet a customer?' },
+        { fr: 'Je le salue, je l’écoute et je lui demande ce qu’il souhaite.', ar: 'بسلم عليه، بسمعله وبسأله شو بدو.', en: 'I greet them, listen to them, and ask what they would like.' },
+        { fr: 'Que faites-vous si vous ne connaissez pas la réponse à une question du client ?', ar: 'شو بتعمل إذا ما عرفت جواب سؤال الزبون؟', en: 'What do you do if you don’t know the answer to a customer’s question?' },
+        { fr: 'Je préfère demander à mon responsable plutôt que de donner une mauvaise information.', ar: 'بفضّل اسأل المسؤول بدل ما أعطي معلومة غلط.', en: 'I prefer to ask my supervisor rather than give incorrect information.' },
+        { fr: 'Que faites-vous si un client se plaint ?', ar: 'شو بتعمل إذا زبون اشتكى؟', en: 'What do you do if a customer complains?' },
+        { fr: 'Je reste calme, j’écoute le client et j’essaie de trouver une solution.', ar: 'بحافظ على هدوئي، بسمع للزبون وبحاول لاقي حل.', en: 'I stay calm, listen to the customer, and try to find a solution.' }
       ] }
     ]
   }
