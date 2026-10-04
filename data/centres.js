@@ -19779,6 +19779,38 @@ window.CENTRES_DATA = [
         { fr: 'Vous pouvez la laisser refroidir quelques minutes.', ar: 'فيك تتركها تبرد كم دقيقة.', en: 'You can let it cool for a few minutes.' },
         { fr: 'La prochaine fournée sera prête dans quelques minutes.', ar: 'الدفعة الجاية بتكون جاهزة بعد كم دقيقة.', en: 'The next batch will be ready in a few minutes.' },
         { fr: 'Elle est fraîche, elle vient juste de sortir du four.', ar: 'هي طازة، هلق طالعة من الفرن.', en: 'It’s fresh, it just came out of the oven.' }
+      ] },
+      { icon: '🥐', title: { ar: 'أنواع الكرواسون — سؤال وجواب', en: 'Types of croissants — Q&A', fr: 'Les types de croissants — questions et réponses' }, phrases: [
+        { fr: 'Client : C’est quel type de croissant ?', ar: 'الزبون: شو نوع هالكرواسون؟', en: 'Customer: What kind of croissant is this?' },
+        { fr: 'Vendeur : C’est un croissant nature, au beurre.', ar: 'البائع: كرواسون سادة، معمول بالزبدة.', en: 'Seller: It’s a plain butter croissant.' },
+        { fr: 'Client : Vous avez des croissants au chocolat ?', ar: 'عندكم كرواسون بالشوكولا؟', en: 'Do you have chocolate croissants?' },
+        { fr: 'Vendeur : Oui, ils sont juste ici. Ils sont fourrés au chocolat.', ar: 'إي، هدول هون. محشّيين بالشوكولا.', en: 'Yes, they’re right here. They’re filled with chocolate.' },
+        { fr: 'Client : C’est quoi, celui-là ?', ar: 'شو هاد؟', en: 'What is this one?' },
+        { fr: 'Vendeur : C’est un croissant aux amandes. Il est garni d’une crème d’amande et décoré avec des amandes.', ar: 'هاد كرواسون باللوز. فيه كريمة لوز وفوقه لوز.', en: 'It’s an almond croissant. It has almond cream and is topped with almonds.' },
+        { fr: 'Client : Vous avez des croissants au fromage ?', ar: 'عندكم كرواسون بالجبنة؟', en: 'Do you have cheese croissants?' },
+        { fr: 'Vendeur : Oui, celui-ci est garni de fromage.', ar: 'إي، هاد محشي جبنة.', en: 'Yes, this one is filled with cheese.' },
+        { fr: 'Client : Celui-ci est au beurre ?', ar: 'هاد معمول بالزبدة؟', en: 'Is this one made with butter?' },
+        { fr: 'Vendeur : Oui, c’est un croissant au beurre.', ar: 'إي، كرواسون بالزبدة.', en: 'Yes, it’s a butter croissant.' },
+        { fr: 'Client : C’est au beurre ou à la margarine ?', ar: 'بالزبدة ولا بالمارغرين؟', en: 'Is it made with butter or margarine?' },
+        { fr: 'Vendeur : Celui-ci est à la margarine.', ar: 'هاد معمول بالمارغرين.', en: 'This one is made with margarine.' },
+        { fr: 'Client : Il est fourré à quoi ?', ar: 'محشي بشو؟', en: 'What is it filled with?' },
+        { fr: 'Vendeur : Il est fourré à la crème d’amande.', ar: 'محشي بكريمة اللوز.', en: 'It’s filled with almond cream.' },
+        { fr: 'Client : Vous avez des croissants nature et des croissants fourrés ?', ar: 'عندكم كرواسون سادة ومحشي؟', en: 'Do you have plain and filled croissants?' },
+        { fr: 'Vendeur : Oui, nous avons les deux.', ar: 'إي، عنا النوعين.', en: 'Yes, we have both.' },
+        { fr: 'Client : Ils sont frais ?', ar: 'هدول طازجين؟', en: 'Are they fresh?' },
+        { fr: 'Vendeur : Oui, ils viennent juste de sortir du four.', ar: 'إي، هلق طالعين من الفرن.', en: 'Yes, they just came out of the oven.' },
+        { fr: 'Client : Quelle est la différence entre ces deux croissants ?', ar: 'شو الفرق بين هالنوعين من الكرواسون؟', en: 'What’s the difference between these two croissants?' },
+        { fr: 'Vendeur : Celui-ci est nature et celui-là est aux amandes.', ar: 'هاد سادة، وهاد باللوز.', en: 'This one is plain and that one is almond.' },
+        { fr: 'Client : Il y a quoi à l’intérieur ?', ar: 'شو في جواته؟', en: 'What’s inside?' },
+        { fr: 'Vendeur : Il y a une crème au chocolat.', ar: 'فيه كريمة شوكولا.', en: 'There’s chocolate cream inside.' },
+        { fr: 'Client : Lequel est le moins sucré ?', ar: 'أي واحد أقل حلاوة؟', en: 'Which one is less sweet?' },
+        { fr: 'Vendeur : Je vous conseille le croissant nature.', ar: 'بنصحك بالكرواسون السادة.', en: 'I recommend the plain croissant.' },
+        { fr: 'Client : Il y a du lait ou des œufs dedans ?', ar: 'فيه حليب أو بيض جواته؟', en: 'Does it contain milk or eggs?' },
+        { fr: 'Vendeur : Oui, il contient du lait et des œufs.', ar: 'إي، فيه حليب وبيض.', en: 'Yes, it contains milk and eggs.' },
+        { fr: 'Client : Vous avez un croissant sans fruits à coque ?', ar: 'عندكم كرواسون بدون مكسرات؟', en: 'Do you have a croissant without nuts?' },
+        { fr: 'Vendeur : Oui, le croissant nature n’en contient pas.', ar: 'إي، الكرواسون السادة ما فيه مكسرات.', en: 'Yes, the plain croissant doesn’t contain nuts.' },
+        { fr: 'Client : Quel croissant est le plus demandé ?', ar: 'أي كرواسون عليه طلب أكتر؟', en: 'Which croissant is the most popular?' },
+        { fr: 'Vendeur : Le croissant au beurre est l’un des plus demandés.', ar: 'كرواسون الزبدة من أكتر الأنواع المطلوبة.', en: 'The butter croissant is one of the most popular.' }
       ] }
     ]
   }
