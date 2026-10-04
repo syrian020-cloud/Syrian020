@@ -440,6 +440,7 @@
     wrap.querySelectorAll('.home-card').forEach(function (b) {
       b.onclick = function () {
         state.centre = b.dataset.id;
+        try { history.pushState({ centre: b.dataset.id }, ''); } catch (e) {}
         renderAll();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       };
@@ -457,7 +458,7 @@
       ? '<button class="icon-btn back-btn" id="backBtn">🏠 ' + t('home') + '</button><h2>' + c.icon + ' ' + esc(tside(c.name)) + '</h2><p>' + esc(tside(c.desc)) + '</p>'
       : '';
     var bb = document.getElementById('backBtn');
-    if (bb) bb.onclick = function () { state.centre = null; state.query = ''; document.getElementById('search').value = ''; renderAll(); };
+    if (bb) bb.onclick = function () { state.centre = null; state.query = ''; document.getElementById('search').value = ''; try { history.back(); } catch (e) {} renderAll(); };
 
     var visible = 0;
     var playData = [];
@@ -546,11 +547,19 @@
     var q = state.query.trim();
     var inDetail = !!state.centre || !!q;
     document.getElementById('home').style.display = inDetail ? 'none' : '';
-    document.getElementById('centreChips').style.display = inDetail ? '' : 'none';
-    if (inDetail) renderChips(); else renderHome();
+    document.getElementById('centreChips').style.display = 'none';
+    if (!inDetail) renderHome();
     renderSections();
     renderStats();
   }
+
+  window.addEventListener('popstate', function () {
+    if (state.centre || state.query) {
+      state.centre = null; state.query = '';
+      var s = document.getElementById('search'); if (s) s.value = '';
+      renderAll();
+    }
+  });
 
   /* ---------- wiring ---------- */
   document.querySelectorAll('.lang-btn').forEach(function (b) {
