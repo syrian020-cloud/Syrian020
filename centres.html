@@ -307,7 +307,7 @@
   }
 
   var cleanSpoken = function (t) {
-    return t.replace(/^(Client|Vendeur|Customer|Seller|Missions|Duties|الزبون|البائع|المهام)\s*[:：]\s*/i, '')
+    return t.replace(/^(Client|Vendeur|Customer|Seller|Missions|Duties|Moi|Manager|Responsable|الزبون|البائع|المهام|المسؤول|المدير|أنا)\s*[:：]\s*/i, '')
       .replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{200D}]/gu, '')
       .replace(/\s{2,}/g, ' ').trim();
   };
