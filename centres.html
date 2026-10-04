@@ -167,6 +167,12 @@
       <button data-loop="5">×5</button>
       <button data-loop="0">∞</button>
     </div>
+    <div class="loop-group" id="playLangGroup" title="لغة تشغيل القسم">
+      <button data-playlang="fr">🇫🇷</button>
+      <button data-playlang="ar">🇸🇾</button>
+      <button data-playlang="en">🇺🇸</button>
+      <button data-playlang="all" class="on">🌍</button>
+    </div>
     <button class="stop-btn" id="stopBtn">🔇 <span data-t="stop">إيقاف</span></button>
   </div>
 
@@ -219,6 +225,7 @@
     lang: localStorage.getItem('centres_lang') || 'ar',
     theme: localStorage.getItem('centres_theme') || 'dark',
     loop: parseInt(localStorage.getItem('centres_loop') || '3', 10),
+    playlang: localStorage.getItem('centres_playlang') || 'all',
     centre: (window.CENTRES_DATA[0] || {}).id,
     query: ''
   };
@@ -326,7 +333,7 @@
         if (round >= rounds) { done(); return; }
         idx = 0; li = 0;
       }
-      var langs = ['fr', 'ar', 'en'];
+      var langs = state.playlang === 'all' ? ['fr', 'ar', 'en'] : [state.playlang];
       var text = strip(items[idx][langs[li]]);
       var step = function () { li++; if (li >= langs.length) { li = 0; idx++; } play(); };
       if (nativeTTS) speakNative(text, langs[li], 1, step);
@@ -486,6 +493,15 @@
     localStorage.setItem('centres_theme', state.theme);
     applyTheme();
   };
+  document.getElementById('playLangGroup').querySelectorAll('button').forEach(function (b) {
+    b.classList.toggle('on', b.dataset.playlang === state.playlang);
+    b.onclick = function () {
+      state.playlang = b.dataset.playlang;
+      localStorage.setItem('centres_playlang', state.playlang);
+      document.getElementById('playLangGroup').querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
+    };
+  });
+
   document.getElementById('loopGroup').querySelectorAll('button').forEach(function (b) {
     b.classList.toggle('on', parseInt(b.dataset.loop, 10) === state.loop);
     b.onclick = function () {
