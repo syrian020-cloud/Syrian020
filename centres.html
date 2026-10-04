@@ -114,8 +114,10 @@
   .pl.ar .txt { font-weight: 700; }
   .pl.en .txt { color: var(--text-secondary); font-size: 0.85rem; }
   .flags { display: flex; flex-direction: column; gap: 0.3rem; flex: none; }
-  .flag-btn { width: 42px; height: 42px; border-radius: 13px; border: 1px solid var(--border); background: var(--bg-secondary); font-size: 1.15rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .13s; line-height: 1; }
-  .flag-btn:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: var(--glow); }
+  .flag-btn, .sec-play { width: 42px; height: 42px; border-radius: 13px; border: 1px solid var(--border); background: var(--bg-secondary); font-size: 1.15rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .13s; line-height: 1; }
+  .flag-btn:hover, .sec-play:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: var(--glow); }
+  .sec-play { width: 34px; height: 34px; font-size: 0.95rem; flex-shrink: 0; }
+  .sec-play.speaking { background: linear-gradient(135deg, var(--accent), var(--accent-hover)); border-color: transparent; animation: pulse 1s infinite; }
   .flag-btn.speaking { background: linear-gradient(135deg, var(--accent), var(--accent-hover)); border-color: transparent; animation: pulse 1s infinite; }
   @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(139,92,246,0.55);} 50% { box-shadow: 0 0 0 8px rgba(139,92,246,0);} }
 
@@ -251,7 +253,7 @@
       try { window.Capacitor.Plugins.TextToSpeech.stop(); } catch (e) {}
     }
     if (window.speechSynthesis) window.speechSynthesis.cancel();
-    document.querySelectorAll('.flag-btn.speaking').forEach(function (b) { b.classList.remove('speaking'); });
+    document.querySelectorAll('.speaking').forEach(function (b) { b.classList.remove('speaking'); });
     document.querySelectorAll('.looping').forEach(function (b) { b.classList.remove('looping'); });
   }
 
@@ -308,6 +310,28 @@
     once();
   }
 
+  function speakSequence(texts, btn) {
+    if (btn.classList.contains('speaking')) { stopSpeaking(); return; }
+    stopSpeaking();
+    btn.classList.add('speaking');
+    var seq = speakSeq;
+    var done = function () { if (seq === speakSeq) btn.classList.remove('speaking'); };
+    var idx = 0, round = 0;
+    var strip = function (t) { return t.replace(/^(Client|Vendeur|Customer|Seller|الزبون|البائع)\s*[:：]\s*/i, ''); };
+    function play() {
+      if (seq !== speakSeq) { done(); return; }
+      if (idx >= texts.length) {
+        round++;
+        var rounds = state.loop === 0 ? Infinity : Math.max(1, state.loop);
+        if (round >= rounds) { done(); return; }
+        idx = 0;
+      }
+      if (nativeTTS) speakNative(strip(texts[idx]), 'fr', 1, function () { idx++; play(); });
+      else speakWeb(strip(texts[idx]), 'fr', 1, function () { idx++; play(); });
+    }
+    play();
+  }
+
   function speak(text, lang, btn) {
     if (btn.classList.contains('speaking')) { stopSpeaking(); return; }
     stopSpeaking();
@@ -362,6 +386,7 @@
 
     var q = state.query.trim().toLowerCase();
     var visible = 0;
+    var playData = [];
     var list = q ? window.CENTRES_DATA : [c];
     wrap.innerHTML = list.map(function (cc) {
       var html = '';
@@ -373,8 +398,9 @@
         visible += phrases.length;
         if (q && !phrases.length) return;
         var wordsFr = phrases.reduce(function (n, p) { return n + p.fr.trim().split(/\s+/).length; }, 0);
+        playData.push(phrases.map(function (p) { return p.fr; }));
         html += '<div class="section' + (q ? ' open' : '') + '">' +
-          '<div class="section-head" data-sec="' + si + '"><span class="sec-icon">' + sec.icon + '</span>' +
+          '<div class="section-head" data-sec="' + si + '"><button class="sec-play" data-play="' + (playData.length - 1) + '" title="Play all">▶️</button><span class="sec-icon">' + sec.icon + '</span>' +
           '<span class="sec-title">' + esc(tside(sec.title)) + '</span>' +
           '<span class="sec-count">' + phrases.length + ' ' + t('phrases') + ' · ' + wordsFr + ' ' + t('wordsFr') + '</span><span class="chev">▼</span></div>' +
           '<div class="section-body">' + phrases.map(phraseHtml).join('') + '</div></div>';
@@ -388,7 +414,13 @@
     wrap.querySelectorAll('.section-head').forEach(function (h) {
       h.onclick = function () { h.parentElement.classList.toggle('open'); };
     });
-    wrap.querySelectorAll('.flag-btn').forEach(function (b) {
+    wrap.querySelectorAll('.sec-play').forEach(function (b) {
+      b.onclick = function (ev) {
+        ev.stopPropagation();
+        speakSequence(playData[parseInt(b.dataset.play, 10)], b);
+      };
+    });
+    wrap.querySelectorAll('.flags .flag-btn').forEach(function (b) {
       var p = findPhrase(b);
       b.onclick = function () { speak(p[b.dataset.lang], b.dataset.lang, b); };
     });
