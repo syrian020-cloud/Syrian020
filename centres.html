@@ -306,12 +306,20 @@
     document.querySelectorAll('.looping').forEach(function (b) { b.classList.remove('looping'); });
   }
 
+  var cleanSpoken = function (t) {
+    return t.replace(/^(Client|Vendeur|Customer|Seller|Missions|Duties|الزبون|البائع|المهام)\s*[:：]\s*/i, '')
+      .replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{200D}]/gu, '')
+      .replace(/\s{2,}/g, ' ').trim();
+  };
+
   function speakLoop(text, el, lang) {
     if (el.classList.contains('looping')) { stopSpeaking(); return; }
     stopSpeaking();
     el.classList.add('looping');
     var seq = speakSeq;
     var done = function () { if (seq === speakSeq) el.classList.remove('looping'); };
+    text = cleanSpoken(text);
+    if (!text) { done(); return; }
     if (nativeTTS) speakNative(text, lang || 'fr', 0, done);
     else speakWeb(text, lang || 'fr', 0, done);
   }
@@ -366,7 +374,7 @@
     var seq = speakSeq;
     var done = function () { if (seq === speakSeq) btn.classList.remove('speaking'); };
     var idx = 0, li = 0, round = 0;
-    var strip = function (t) { return t.replace(/^(Client|Vendeur|Customer|Seller|Missions|Duties|الزبون|البائع|المهام)\s*[:：]\s*/i, ''); };
+    var strip = cleanSpoken;
     function play() {
       if (seq !== speakSeq) { done(); return; }
       if (idx >= items.length) {
@@ -388,7 +396,8 @@
     if (btn.classList.contains('speaking')) { stopSpeaking(); return; }
     stopSpeaking();
     btn.classList.add('speaking');
-    text = text.replace(/^(Client|Vendeur|Customer|Seller|Missions|Duties|الزبون|البائع|المهام)\s*[:：]\s*/i, '');
+    text = cleanSpoken(text);
+    if (!text) { btn.classList.remove('speaking'); return; }
     var seq = speakSeq;
     var done = function () { if (seq === speakSeq) btn.classList.remove('speaking'); };
     if (nativeTTS) speakNative(text, lang, state.loop, done);

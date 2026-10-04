@@ -22731,6 +22731,423 @@ window.CENTRES_DATA = [
         { fr: 'Est-ce que vous avez ce médicament ?', ar: 'عندكم هالدواء؟', en: 'Do you have this medicine?' },
         { fr: 'Vous pouvez le commander ?', ar: 'فيكم تطلبوه؟', en: 'Can you order it?' },
         { fr: 'Vous pouvez répéter, s’il vous plaît ?', ar: 'فيك تعيد لو سمحت؟', en: 'Could you repeat, please?' }
+      ] },
+      { icon: '🏥', title: { ar: 'عند الاستقبال', en: 'At the reception desk', fr: 'À l’accueil' }, phrases: [
+        { fr: 'Bonjour, j’ai rendez-vous pour une prise de sang.', ar: 'مرحبا، عندي موعد لسحب الدم.', en: 'Hello, I have an appointment for a blood test.' },
+        { fr: 'Je viens faire des analyses de sang.', ar: 'جايي أعمل تحاليل دم.', en: 'I’m here to have blood tests.' },
+        { fr: 'J’ai une ordonnance de mon médecin.', ar: 'معي وصفة من طبيبي.', en: 'I have a prescription from my doctor.' },
+        { fr: 'Voici mon ordonnance.', ar: 'هاي وصفتي.', en: 'Here is my prescription.' },
+        { fr: 'Je dois faire plusieurs analyses.', ar: 'لازم أعمل عدة تحاليل.', en: 'I need to have several tests done.' }
+      ] },
+      { icon: '📄', title: { ar: 'التأكد من التحاليل', en: 'Checking the tests', fr: 'Vérifier les analyses' }, phrases: [
+        { fr: 'Est-ce que vous pouvez vérifier mon ordonnance ?', ar: 'فيكم تتأكدوا من الوصفة؟', en: 'Could you check my prescription?' },
+        { fr: 'Est-ce que toutes les analyses sont prévues ?', ar: 'كل التحاليل المطلوبة موجودة؟', en: 'Are all the requested tests included?' },
+        { fr: 'Il faut être à jeun ?', ar: 'لازم أكون صايم؟', en: 'Do I need to fast?' },
+        { fr: 'Je dois être à jeun combien de temps ?', ar: 'قديش لازم أكون صايم؟', en: 'How long do I need to fast?' },
+        { fr: 'Je peux boire de l’eau ?', ar: 'فيني أشرب مي؟', en: 'Can I drink water?' },
+        { fr: 'Je peux prendre mes médicaments ce matin ?', ar: 'فيني آخد أدويتي هالصبح؟', en: 'Can I take my medication this morning?' }
+      ] },
+      { icon: '🪪', title: { ar: 'المعلومات الشخصية', en: 'Personal details', fr: 'Les informations personnelles' }, phrases: [
+        { fr: 'Vous pouvez me confirmer votre nom et votre date de naissance ?', ar: 'فيك تأكدلي اسمك وتاريخ ميلادك؟', en: 'Can you confirm your name and date of birth?' },
+        { fr: 'Voici ma carte Vitale.', ar: 'هاي بطاقة فيتال تبعي.', en: 'Here is my Vitale card.' },
+        { fr: 'Voici ma carte de mutuelle.', ar: 'هاي بطاقة التأمين التكميلي.', en: 'Here is my health insurance card.' },
+        { fr: 'Est-ce que je dois payer quelque chose ?', ar: 'لازم أدفع شي؟', en: 'Do I have to pay anything?' }
+      ] },
+      { icon: '💉', title: { ar: 'قبل سحب الدم', en: 'Before the blood draw', fr: 'Avant la prise de sang' }, phrases: [
+        { fr: 'Je vais vous faire une prise de sang.', ar: 'رح أسحب منك عينة دم.', en: 'I’m going to take a blood sample from you.' },
+        { fr: 'À quel bras ?', ar: 'بأي إيد؟', en: 'Which arm?' },
+        { fr: 'Vous pouvez vous asseoir ici.', ar: 'فيك تقعد هون.', en: 'You can sit here.' },
+        { fr: 'Serrez le poing, s’il vous plaît.', ar: 'شد قبضة إيدك لو سمحت.', en: 'Make a fist, please.' },
+        { fr: 'Ne bougez pas.', ar: 'لا تتحرك.', en: 'Don’t move.' },
+        { fr: 'Ça va piquer un peu.', ar: 'رح توجع شوي / رح تحس بإبرة شوي.', en: 'It will sting a little.' },
+        { fr: 'Détendez votre bras.', ar: 'ريّح إيدك.', en: 'Relax your arm.' }
+      ] },
+      { icon: '🩸', title: { ar: 'أثناء سحب الدم', en: 'During the blood draw', fr: 'Pendant la prise de sang' }, phrases: [
+        { fr: 'Vous avez peur des aiguilles ?', ar: 'بتخاف من الإبر؟', en: 'Are you afraid of needles?' },
+        { fr: 'Je suis un peu sensible aux prises de sang.', ar: 'أنا شوي بتعب من سحب الدم.', en: 'I’m a little sensitive to blood tests.' },
+        { fr: 'Je peux m’allonger ?', ar: 'فيني تمدد؟', en: 'Can I lie down?' },
+        { fr: 'J’ai un peu la tête qui tourne.', ar: 'حاسس شوي بدوّخة.', en: 'I’m feeling a little dizzy.' },
+        { fr: 'Je ne me sens pas très bien.', ar: 'مو حاسس حالي منيح.', en: 'I’m not feeling very well.' },
+        { fr: 'C’est terminé ?', ar: 'خلصنا؟', en: 'Is it finished?' }
+      ] },
+      { icon: '🩹', title: { ar: 'بعد سحب الدم', en: 'After the blood draw', fr: 'Après la prise de sang' }, phrases: [
+        { fr: 'Je dois garder le coton combien de temps ?', ar: 'قديش لازم خلي القطن؟', en: 'How long should I keep the cotton on?' },
+        { fr: 'Je peux enlever le pansement ?', ar: 'فيني شيل اللاصقة؟', en: 'Can I remove the bandage?' },
+        { fr: 'Quand est-ce que j’aurai les résultats ?', ar: 'إمتى بتطلع النتائج؟', en: 'When will I get the results?' },
+        { fr: 'Est-ce que je vais recevoir les résultats en ligne ?', ar: 'رح توصلني النتائج أونلاين؟', en: 'Will I receive the results online?' },
+        { fr: 'Vous allez envoyer les résultats à mon médecin ?', ar: 'رح تبعتوا النتائج لطبيبي؟', en: 'Will you send the results to my doctor?' },
+        { fr: 'Je pourrai consulter les résultats sur Internet ?', ar: 'فيني شوف النتائج عالإنترنت؟', en: 'Will I be able to view the results online?' }
+      ] },
+      { icon: '📊', title: { ar: 'إذا بدك تفهم النتيجة', en: 'If you want to understand the results', fr: 'Pour comprendre les résultats' }, phrases: [
+        { fr: 'Je ne comprends pas mes résultats.', ar: 'ما عم أفهم نتائجي.', en: 'I don’t understand my results.' },
+        { fr: 'Est-ce qu’il y a quelque chose d’anormal ?', ar: 'في شي غير طبيعي؟', en: 'Is there anything abnormal?' },
+        { fr: 'Est-ce qu’un résultat est trop élevé ?', ar: 'في نتيجة مرتفعة كتير؟', en: 'Is any result too high?' },
+        { fr: 'Est-ce qu’un résultat est trop bas ?', ar: 'في نتيجة منخفضة كتير؟', en: 'Is any result too low?' },
+        { fr: 'Je dois prendre rendez-vous avec mon médecin ?', ar: 'لازم آخد موعد مع طبيبي؟', en: 'Do I need to make an appointment with my doctor?' }
+      ] },
+      { icon: '⭐', title: { ar: 'أهم 10 جمل تحفظها', en: 'Top 10 sentences to memorize', fr: 'Les 10 phrases à retenir' }, phrases: [
+        { fr: 'Je viens faire des analyses de sang.', ar: 'جايي أعمل تحاليل دم.', en: 'I’m here to have blood tests.' },
+        { fr: 'J’ai une ordonnance de mon médecin.', ar: 'معي وصفة من طبيبي.', en: 'I have a prescription from my doctor.' },
+        { fr: 'Il faut être à jeun ?', ar: 'لازم أكون صايم؟', en: 'Do I need to fast?' },
+        { fr: 'Je peux boire de l’eau ?', ar: 'فيني أشرب مي؟', en: 'Can I drink water?' },
+        { fr: 'Je peux prendre mes médicaments ?', ar: 'فيني آخد أدويتي؟', en: 'Can I take my medication?' },
+        { fr: 'Je peux m’allonger ?', ar: 'فيني تمدد؟', en: 'Can I lie down?' },
+        { fr: 'J’ai un peu la tête qui tourne.', ar: 'حاسس شوي بدوخة.', en: 'I’m feeling a little dizzy.' },
+        { fr: 'Quand est-ce que j’aurai les résultats ?', ar: 'إمتى بتطلع النتائج؟', en: 'When will I get the results?' },
+        { fr: 'Je vais recevoir les résultats en ligne ?', ar: 'رح توصلني النتائج أونلاين؟', en: 'Will I receive the results online?' },
+        { fr: 'Vous pouvez m’expliquer, s’il vous plaît ?', ar: 'فيك تشرحلي لو سمحت؟', en: 'Could you explain it to me, please?' }
+      ] },
+      { icon: '⏰', title: { ar: 'الاستيقاظ', en: 'Waking up', fr: 'Le réveil' }, phrases: [
+        { fr: 'Je viens de me réveiller.', ar: 'لسا صحيت.', en: 'I just woke up.' },
+        { fr: 'J’ai bien dormi.', ar: 'نمت منيح.', en: 'I slept well.' },
+        { fr: 'J’ai mal dormi cette nuit.', ar: 'ما نمت منيح الليلة.', en: 'I didn’t sleep well last night.' },
+        { fr: 'Je suis encore fatigué.', ar: 'لسا تعبان.', en: 'I’m still tired.' },
+        { fr: 'Je n’ai pas envie de me lever. 😄', ar: 'ما إلي خلق قوم. 😄', en: 'I don’t feel like getting up. 😄' },
+        { fr: 'Quelle heure est-il ?', ar: 'قديش الساعة؟', en: 'What time is it?' },
+        { fr: 'Je vais encore dormir cinq minutes.', ar: 'رح نام كمان خمس دقايق.', en: 'I’m going to sleep for another five minutes.' }
+      ] },
+      { icon: '🚿', title: { ar: 'الحمام والنظافة', en: 'The bathroom and hygiene', fr: 'La salle de bain et l’hygiène' }, phrases: [
+        { fr: 'Je vais prendre une douche.', ar: 'رح آخد دوش.', en: 'I’m going to take a shower.' },
+        { fr: 'Il faut que je me dépêche.', ar: 'لازم استعجل.', en: 'I need to hurry.' },
+        { fr: 'Je vais me brosser les dents.', ar: 'رح فرشي سناني.', en: 'I’m going to brush my teeth.' },
+        { fr: 'Je vais me laver le visage.', ar: 'رح اغسل وجهي.', en: 'I’m going to wash my face.' },
+        { fr: 'Tu as fini dans la salle de bains ?', ar: 'خلصتي بالحمام؟', en: 'Are you finished in the bathroom?' },
+        { fr: 'J’arrive dans deux minutes.', ar: 'جايي بعد دقيقتين.', en: 'I’ll be there in two minutes.' }
+      ] },
+      { icon: '☕', title: { ar: 'الفطور', en: 'Breakfast', fr: 'Le petit-déjeuner' }, phrases: [
+        { fr: 'Tu veux prendre un café ?', ar: 'بدك تشرب قهوة؟', en: 'Do you want to have a coffee?' },
+        { fr: 'Je vais préparer le petit-déjeuner.', ar: 'رح حضّر الفطور.', en: 'I’m going to prepare breakfast.' },
+        { fr: 'Qu’est-ce que tu veux manger ?', ar: 'شو بدك تاكل؟', en: 'What do you want to eat?' },
+        { fr: 'Tu veux du café ou du thé ?', ar: 'بدك قهوة ولا شاي؟', en: 'Do you want coffee or tea?' },
+        { fr: 'Je vais juste prendre un café.', ar: 'رح اشرب بس قهوة.', en: 'I’ll just have a coffee.' },
+        { fr: 'Je n’ai pas très faim ce matin.', ar: 'مو كتير جوعان هالصبح.', en: 'I’m not very hungry this morning.' },
+        { fr: 'Tu as déjà mangé ?', ar: 'أكلتي من قبل؟', en: 'Have you eaten already?' }
+      ] },
+      { icon: '👕', title: { ar: 'اللبس والاستعداد', en: 'Getting dressed and ready', fr: 'S’habiller et se préparer' }, phrases: [
+        { fr: 'Je vais m’habiller.', ar: 'رح إلبس.', en: 'I’m going to get dressed.' },
+        { fr: 'Qu’est-ce que je vais mettre aujourd’hui ?', ar: 'شو بدي إلبس اليوم؟', en: 'What am I going to wear today?' },
+        { fr: 'Tu trouves que ça me va ?', ar: 'برأيك هاد لايق علي؟', en: 'Do you think this looks good on me?' },
+        { fr: 'Il fait froid dehors ?', ar: 'الدنيا باردة برا؟', en: 'Is it cold outside?' },
+        { fr: 'Je prends une veste.', ar: 'رح آخد جاكيت.', en: 'I’ll take a jacket.' },
+        { fr: 'Où sont mes clés ?', ar: 'وين مفاتيحي؟', en: 'Where are my keys?' },
+        { fr: 'Tu as vu mon téléphone ?', ar: 'شفتي تلفوني؟', en: 'Have you seen my phone?' }
+      ] },
+      { icon: '🎒', title: { ar: 'قبل الخروج', en: 'Before leaving', fr: 'Avant de sortir' }, phrases: [
+        { fr: 'Tu es prêt ?', ar: 'جاهز؟', en: 'Are you ready?' },
+        { fr: 'Je suis prêt, j’arrive.', ar: 'أنا جاهز، جايي.', en: 'I’m ready, I’m coming.' },
+        { fr: 'Il faut que je parte maintenant.', ar: 'لازم اطلع هلق.', en: 'I need to leave now.' },
+        { fr: 'Je vais être en retard.', ar: 'رح أتأخر.', en: 'I’m going to be late.' },
+        { fr: 'J’ai encore cinq minutes.', ar: 'لسا معي خمس دقايق.', en: 'I still have five minutes.' },
+        { fr: 'N’oublie pas tes clés !', ar: 'لا تنسى مفاتيحك!', en: 'Don’t forget your keys!' },
+        { fr: 'N’oublie pas ton téléphone !', ar: 'لا تنسى تلفونك!', en: 'Don’t forget your phone!' },
+        { fr: 'Bon, j’y vais.', ar: 'طيب، أنا رايح.', en: 'Okay, I’m off.' },
+        { fr: 'À ce soir !', ar: 'بشوفك بالليل!', en: 'See you tonight!' }
+      ] },
+      { icon: '⭐', title: { ar: 'جمل صباحية تحفظها يوميًا', en: 'Morning sentences to use every day', fr: 'Des phrases du matin à utiliser chaque jour' }, phrases: [
+        { fr: 'Je viens de me réveiller.', ar: 'لسا صحيت.', en: 'I just woke up.' },
+        { fr: 'Je suis encore fatigué.', ar: 'لسا تعبان.', en: 'I’m still tired.' },
+        { fr: 'Il faut que je me dépêche.', ar: 'لازم استعجل.', en: 'I need to hurry.' },
+        { fr: 'Je vais prendre une douche.', ar: 'رح آخد دوش.', en: 'I’m going to take a shower.' },
+        { fr: 'Je vais prendre un café.', ar: 'رح اشرب قهوة.', en: 'I’m going to have a coffee.' },
+        { fr: 'Je vais m’habiller.', ar: 'رح إلبس.', en: 'I’m going to get dressed.' },
+        { fr: 'Où sont mes clés ?', ar: 'وين مفاتيحي؟', en: 'Where are my keys?' },
+        { fr: 'Je vais être en retard.', ar: 'رح أتأخر.', en: 'I’m going to be late.' },
+        { fr: 'Je dois partir maintenant.', ar: 'لازم اطلع هلق.', en: 'I have to leave now.' },
+        { fr: 'Bon, j’y vais !', ar: 'طيب، أنا رايح!', en: 'Okay, I’m off!' }
+      ] },
+      { icon: '🚶‍♂️', title: { ar: 'في الشارع أو أثناء المرور', en: 'In the street or passing by', fr: 'Dans la rue ou en passant' }, phrases: [
+        { fr: 'Pardon, vous pouvez faire attention ?', ar: 'عفواً، فيك تنتبه؟', en: 'Excuse me, can you be careful?' },
+        { fr: 'Vous m’avez bousculé.', ar: 'إنت دفشتني / خبطتني.', en: 'You bumped into me.' },
+        { fr: 'Faites attention où vous allez !', ar: 'انتبه لوين رايح!', en: 'Watch where you’re going!' },
+        { fr: 'C’est pas possible !', ar: 'معقول هالشي!', en: 'This is unbelievable!' },
+        { fr: 'Vous pourriez vous excuser.', ar: 'فيك تعتذر.', en: 'You could apologize.' },
+        { fr: 'Je vous ai dit pardon.', ar: 'قلتلك عفواً.', en: 'I said sorry.' }
+      ] },
+      { icon: '🚗', title: { ar: 'بالسيارة / الطريق', en: 'In the car / on the road', fr: 'En voiture / sur la route' }, phrases: [
+        { fr: 'Vous êtes sérieux là ?', ar: 'عنجد عم تحكي؟', en: 'Are you serious?' },
+        { fr: 'Vous ne pouvez pas vous garer ici.', ar: 'ما فيك توقف هون.', en: 'You can’t park here.' },
+        { fr: 'Vous bloquez le passage.', ar: 'إنت مسكّر الطريق.', en: 'You’re blocking the way.' },
+        { fr: 'Laissez-moi passer, s’il vous plaît.', ar: 'خليني مرق لو سمحت.', en: 'Let me pass, please.' },
+        { fr: 'Calmez-vous.', ar: 'اهدى.', en: 'Calm down.' },
+        { fr: 'On peut en parler calmement.', ar: 'فينا نحكي بالموضوع بهدوء.', en: 'We can talk about it calmly.' }
+      ] },
+      { icon: '🚌', title: { ar: 'في الباص أو الترام', en: 'On the bus or tram', fr: 'Dans le bus ou le tram' }, phrases: [
+        { fr: 'Excusez-moi, laissez-moi passer.', ar: 'عفواً، خليني مرق.', en: 'Excuse me, let me pass.' },
+        { fr: 'Vous bloquez la porte.', ar: 'إنت مسكّر الباب.', en: 'You’re blocking the door.' },
+        { fr: 'Poussez-vous, s’il vous plaît.', ar: 'وسّع شوي لو سمحت.', en: 'Move over, please.' },
+        { fr: 'Il y a du monde, faites attention.', ar: 'في عالم كتير، انتبه.', en: 'There are lots of people, be careful.' },
+        { fr: 'Pourquoi vous me parlez comme ça ?', ar: 'ليش عم تحكي معي بهالطريقة؟', en: 'Why are you talking to me like that?' },
+        { fr: 'Je ne vous ai rien fait.', ar: 'أنا ما عملتلك شي.', en: 'I didn’t do anything to you.' }
+      ] },
+      { icon: '🛒', title: { ar: 'في السوبرماركت أو الطابور', en: 'At the supermarket or in the queue', fr: 'Au supermarché ou dans la file' }, phrases: [
+        { fr: 'C’était mon tour.', ar: 'كان دوري.', en: 'It was my turn.' },
+        { fr: 'Vous étiez derrière moi.', ar: 'إنت كنت وراي.', en: 'You were behind me.' },
+        { fr: 'Vous avez dépassé tout le monde.', ar: 'إنت تجاوزت الكل بالطابور.', en: 'You cut in front of everyone.' },
+        { fr: 'Faites la queue comme tout le monde.', ar: 'وقف بالدور متل الكل.', en: 'Queue up like everyone else.' },
+        { fr: 'Je faisais la queue avant vous.', ar: 'أنا كنت بالدور قبلك.', en: 'I was in line before you.' },
+        { fr: 'Ce n’est pas une raison pour s’énerver.', ar: 'مو سبب لنعصب.', en: 'That’s no reason to get angry.' }
+      ] },
+      { icon: '🏠', title: { ar: 'مع الجيران', en: 'With the neighbours', fr: 'Avec les voisins' }, phrases: [
+        { fr: 'Vous faites trop de bruit.', ar: 'عم تعملوا ضجة كتير.', en: 'You’re making too much noise.' },
+        { fr: 'Il est tard, baissez le volume, s’il vous plaît.', ar: 'تأخر الوقت، وطي الصوت لو سمحت.', en: 'It’s late, please turn the volume down.' },
+        { fr: 'Ça fait plusieurs fois que je vous le demande.', ar: 'صارلي كذا مرة عم أطلب منك هالشي.', en: 'I’ve asked you several times.' },
+        { fr: 'Je comprends, mais il faut respecter les voisins.', ar: 'بفهم، بس لازم نحترم الجيران.', en: 'I understand, but we need to respect the neighbors.' }
+      ] },
+      { icon: '😠', title: { ar: 'عندما يرفع الشخص صوته', en: 'When someone raises their voice', fr: 'Quand la personne hausse le ton' }, phrases: [
+        { fr: 'Ne me parlez pas comme ça.', ar: 'لا تحكي معي بهالطريقة.', en: 'Don’t talk to me like that.' },
+        { fr: 'Parlez-moi calmement, s’il vous plaît.', ar: 'احكي معي بهدوء لو سمحت.', en: 'Please speak to me calmly.' },
+        { fr: 'Je n’aime pas votre ton.', ar: 'ما عجبني أسلوبك بالحكي.', en: 'I don’t like your tone.' },
+        { fr: 'Je ne cherche pas les problèmes.', ar: 'أنا ما بدي مشاكل.', en: 'I’m not looking for trouble.' },
+        { fr: 'Je ne veux pas me disputer avec vous.', ar: 'ما بدي اتشاجر معك.', en: 'I don’t want to argue with you.' },
+        { fr: 'On va se calmer.', ar: 'خلينا نهدى.', en: 'Let’s calm down.' },
+        { fr: 'Laissez tomber.', ar: 'خلص، اتركها.', en: 'Forget it.' }
+      ] },
+      { icon: '📱', title: { ar: 'عندما يحصل سوء فهم', en: 'When there’s a misunderstanding', fr: 'Quand il y a un malentendu' }, phrases: [
+        { fr: 'Vous avez mal compris.', ar: 'إنت فهمت غلط.', en: 'You misunderstood.' },
+        { fr: 'Ce n’est pas ce que j’ai dit.', ar: 'مو هاد اللي قلتو.', en: 'That’s not what I said.' },
+        { fr: 'Ce n’est pas ce que je voulais dire.', ar: 'مو هاد قصدي.', en: 'That’s not what I meant.' },
+        { fr: 'Attendez, laissez-moi vous expliquer.', ar: 'استنى، خليني اشرحلك.', en: 'Wait, let me explain.' },
+        { fr: 'On s’est mal compris.', ar: 'نحنا فهمنا بعض غلط.', en: 'We misunderstood each other.' },
+        { fr: 'D’accord, j’ai compris.', ar: 'طيب، فهمت.', en: 'Okay, I understand.' }
+      ] },
+      { icon: '🛑', title: { ar: 'إذا بدأ الموقف يصبح خطيرًا', en: 'If the situation starts to turn dangerous', fr: 'Si la situation devient dangereuse' }, phrases: [
+        { fr: 'Je ne veux pas de problème.', ar: 'ما بدي مشاكل.', en: 'I don’t want any trouble.' },
+        { fr: 'Gardez vos distances, s’il vous plaît.', ar: 'خليك بعيد عني لو سمحت.', en: 'Please keep your distance.' },
+        { fr: 'Ne me touchez pas.', ar: 'لا تلمسني.', en: 'Don’t touch me.' },
+        { fr: 'Arrêtez, s’il vous plaît.', ar: 'وقف لو سمحت.', en: 'Stop, please.' },
+        { fr: 'Je vais appeler la police.', ar: 'رح اتصل بالشرطة.', en: 'I’m going to call the police.' },
+        { fr: 'Éloignez-vous de moi.', ar: 'ابعد عني.', en: 'Stay away from me.' }
+      ] },
+      { icon: '⭐', title: { ar: 'جمل فرنسية تسمعها كثيرًا أثناء المشادات', en: 'French phrases you hear a lot during arguments', fr: 'Des phrases françaises qu’on entend souvent dans les disputes' }, phrases: [
+        { fr: 'Ça va pas, ou quoi ?', ar: 'شو مالك؟ / شو قصتك؟', en: 'What’s wrong with you?' },
+        { fr: 'C’est quoi votre problème ?', ar: 'شو مشكلتك؟', en: 'What’s your problem?' },
+        { fr: 'Laissez-moi tranquille.', ar: 'اتركني بحالي.', en: 'Leave me alone.' },
+        { fr: 'Ça suffit !', ar: 'خلص! بكفي!', en: 'That’s enough!' },
+        { fr: 'Arrêtez de crier.', ar: 'وقف صراخ.', en: 'Stop shouting.' },
+        { fr: 'On se calme.', ar: 'خلينا نهدى.', en: 'Let’s calm down.' },
+        { fr: 'Ce n’est pas la peine de s’énerver.', ar: 'ما في داعي للعصبية.', en: 'There’s no need to get angry.' },
+        { fr: 'On peut régler ça tranquillement.', ar: 'فينا نحلها بهدوء.', en: 'We can sort this out calmly.' }
+      ] },
+      { icon: '❤️', title: { ar: 'كلام يومي وحميم', en: 'Everyday affectionate talk', fr: 'Des mots tendres du quotidien' }, phrases: [
+        { fr: 'Tu m’as manqué.', ar: 'اشتقتلك.', en: 'I missed you.' },
+        { fr: 'Je suis content de te voir.', ar: 'مبسوط إني شفتك.', en: 'I’m happy to see you.' },
+        { fr: 'Tu vas bien, mon cœur ?', ar: 'كيفك يا قلبي؟', en: 'Are you okay, sweetheart?' },
+        { fr: 'Tu fais quoi, ma chérie ?', ar: 'شو عم تعملي حبيبتي؟', en: 'What are you doing, sweetheart?' },
+        { fr: 'Tu me manques déjà.', ar: 'اشتقتلك من هلأ.', en: 'I already miss you.' },
+        { fr: 'J’aime passer du temps avec toi.', ar: 'بحب اقضي وقت معك.', en: 'I like spending time with you.' }
+      ] },
+      { icon: '☕', title: { ar: 'الخروج سوا', en: 'Going out together', fr: 'Sortir ensemble' }, phrases: [
+        { fr: 'Ça te dit qu’on prenne un café ?', ar: 'شو رأيك نروح نشرب قهوة؟', en: 'Do you want to go get a coffee?' },
+        { fr: 'Tu veux sortir ce soir ?', ar: 'بدك نطلع الليلة؟', en: 'Do you want to go out tonight?' },
+        { fr: 'On va manger quelque part ?', ar: 'منروح ناكل بمحل؟', en: 'Shall we go eat somewhere?' },
+        { fr: 'Tu préfères aller au restaurant ou rester à la maison ?', ar: 'بتفضلي نروح عالمطعم ولا نضل بالبيت؟', en: 'Would you rather go to a restaurant or stay home?' },
+        { fr: 'On se fait une petite balade ?', ar: 'منطلع نتمشى شوي؟', en: 'Shall we go for a little walk?' },
+        { fr: 'Où tu veux aller ?', ar: 'لوين بدك نروح؟', en: 'Where do you want to go?' }
+      ] },
+      { icon: '😄', title: { ar: 'المزاح والدلال', en: 'Joking and teasing', fr: 'Plaisanter et câliner' }, phrases: [
+        { fr: 'Tu es adorable.', ar: 'إنتِ كتير لطيفة.', en: 'You’re adorable.' },
+        { fr: 'Tu es vraiment mignonne quand tu fais ça.', ar: 'بتكوني كتير كيوت لما تعملي هيك.', en: 'You’re really cute when you do that.' },
+        { fr: 'Arrête, tu me fais rire. 😂', ar: 'خلص، عم تضحكيني. 😂', en: 'Stop, you’re making me laugh. 😂' },
+        { fr: 'Tu sais que tu es belle ?', ar: 'بتعرفي إنك حلوة؟', en: 'Do you know you’re beautiful?' },
+        { fr: 'Tu me fais sourire.', ar: 'إنتِ بتخليني ابتسم.', en: 'You make me smile.' }
+      ] },
+      { icon: '😒', title: { ar: 'عندما تزعل منك', en: 'When she’s upset with you', fr: 'Quand elle te boud' }, phrases: [
+        { fr: 'Qu’est-ce qu’il y a ?', ar: 'شو في؟', en: 'What’s wrong?' },
+        { fr: 'Tu es fâchée contre moi ?', ar: 'زعلانة مني؟', en: 'Are you mad at me?' },
+        { fr: 'Pourquoi tu es distante ?', ar: 'ليش عم تبعدي عني؟', en: 'Why are you being distant?' },
+        { fr: 'Je sens que quelque chose ne va pas.', ar: 'حاسس إنو في شي مو منيح.', en: 'I feel like something is wrong.' },
+        { fr: 'Dis-moi ce qui ne va pas.', ar: 'قوليلي شو اللي مضايقك.', en: 'Tell me what’s wrong.' },
+        { fr: 'Je ne voulais pas te blesser.', ar: 'ما كان قصدي جرّحك.', en: 'I didn’t mean to hurt you.' },
+        { fr: 'Excuse-moi, j’ai mal réagi.', ar: 'سامحيني، تصرفت بطريقة غلط.', en: 'I’m sorry, I reacted badly.' }
+      ] },
+      { icon: '💬', title: { ar: 'أثناء الخلاف', en: 'During an argument', fr: 'Pendant une dispute' }, phrases: [
+        { fr: 'Je ne veux pas qu’on se dispute.', ar: 'ما بدي نتشاجر.', en: 'I don’t want us to argue.' },
+        { fr: 'On peut en parler calmement ?', ar: 'فينا نحكي بالموضوع بهدوء؟', en: 'Can we talk about it calmly?' },
+        { fr: 'Écoute-moi juste une minute.', ar: 'اسمعيني بس دقيقة.', en: 'Just listen to me for a minute.' },
+        { fr: 'Je comprends ce que tu ressens.', ar: 'بفهم شو حاسة.', en: 'I understand how you feel.' },
+        { fr: 'Je comprends pourquoi tu es énervée.', ar: 'بفهم ليش معصبة.', en: 'I understand why you’re upset.' },
+        { fr: 'Ce n’était pas mon intention.', ar: 'ما كان هاد قصدي.', en: 'That wasn’t my intention.' },
+        { fr: 'Je préfère qu’on en parle plus tard.', ar: 'بفضّل نحكي بالموضوع بعدين.', en: 'I’d rather talk about it later.' }
+      ] },
+      { icon: '🥰', title: { ar: 'المصالحة', en: 'Making up', fr: 'La réconciliation' }, phrases: [
+        { fr: 'Je suis désolé, ma chérie.', ar: 'أنا آسف حبيبتي.', en: 'I’m sorry, sweetheart.' },
+        { fr: 'Je ne veux pas rester fâché avec toi.', ar: 'ما بدي ضل زعلان منك.', en: 'I don’t want to stay mad at you.' },
+        { fr: 'Viens, on se fait un câlin. ❤️', ar: 'تعالي، خلينا نحضن بعض. ❤️', en: 'Come here, let’s hug. ❤️' },
+        { fr: 'On oublie tout ça ?', ar: 'مننسى كل هالقصة؟', en: 'Can we forget all that?' },
+        { fr: 'Je tiens beaucoup à toi.', ar: 'إنتِ بتهميني كتير.', en: 'I care about you a lot.' },
+        { fr: 'Je ne veux pas te perdre.', ar: 'ما بدي خسرك.', en: 'I don’t want to lose you.' }
+      ] },
+      { icon: '📱', title: { ar: 'على الهاتف', en: 'On the phone', fr: 'Au téléphone' }, phrases: [
+        { fr: 'Tu es bien rentrée ?', ar: 'وصلتي عالبيت منيح؟', en: 'Did you get home safely?' },
+        { fr: 'Tu fais quoi ce soir ?', ar: 'شو عم تعملي الليلة؟', en: 'What are you doing tonight?' },
+        { fr: 'Tu me rappelles quand tu peux ?', ar: 'بتتصل فيني لما تقدري؟', en: 'Call me back when you can?' },
+        { fr: 'Pourquoi tu ne réponds pas ?', ar: 'ليش ما عم تردي؟', en: 'Why aren’t you answering?' },
+        { fr: 'Je pensais à toi.', ar: 'كنت عم فكر فيكي.', en: 'I was thinking about you.' },
+        { fr: 'Envoie-moi un message quand tu arrives.', ar: 'ابعتيلي رسالة لما توصلي.', en: 'Text me when you arrive.' }
+      ] },
+      { icon: '🌙', title: { ar: 'قبل النوم', en: 'Before sleeping', fr: 'Avant de dormir' }, phrases: [
+        { fr: 'Tu vas dormir ?', ar: 'رح تنامي؟', en: 'Are you going to sleep?' },
+        { fr: 'Tu es fatiguée ?', ar: 'تعبتي؟', en: 'Are you tired?' },
+        { fr: 'Bonne nuit, ma chérie. ❤️', ar: 'تصبحين على خير حبيبتي. ❤️', en: 'Good night, sweetheart. ❤️' },
+        { fr: 'Dors bien.', ar: 'نامي منيح.', en: 'Sleep well.' },
+        { fr: 'Fais de beaux rêves.', ar: 'أحلام سعيدة.', en: 'Sweet dreams.' },
+        { fr: 'Je t’embrasse.', ar: 'ببوسك / ببعثلك بوسة.', en: 'Kisses.' }
+      ] },
+      { icon: '⭐', title: { ar: 'عبارات مهمة جدًا للحفظ', en: 'Very important phrases to memorize', fr: 'Des phrases très importantes à retenir' }, phrases: [
+        { fr: 'Tu me manques.', ar: 'اشتقتلك.', en: 'I miss you.' },
+        { fr: 'Je tiens à toi.', ar: 'إنتِ بتهميني.', en: 'I care about you.' },
+        { fr: 'Tu me fais sourire.', ar: 'إنتِ بتخليني ابتسم.', en: 'You make me smile.' },
+        { fr: 'Qu’est-ce qu’il y a ?', ar: 'شو في؟', en: 'What’s wrong?' },
+        { fr: 'Tu es fâchée contre moi ?', ar: 'زعلانة مني؟', en: 'Are you mad at me?' },
+        { fr: 'Je ne voulais pas te blesser.', ar: 'ما كان قصدي جرّحك.', en: 'I didn’t mean to hurt you.' },
+        { fr: 'On peut en parler calmement ?', ar: 'فينا نحكي بالموضوع بهدوء؟', en: 'Can we talk about it calmly?' },
+        { fr: 'Excuse-moi, ma chérie.', ar: 'سامحيني حبيبتي.', en: 'I’m sorry, sweetheart.' },
+        { fr: 'Je ne veux pas te perdre.', ar: 'ما بدي خسرك.', en: 'I don’t want to lose you.' },
+        { fr: 'Je t’aime. ❤️', ar: 'بحبك. ❤️', en: 'I love you.' }
+      ] },
+      { icon: '💔', title: { ar: 'الشك', en: 'Doubt and suspicion', fr: 'Le doute' }, phrases: [
+        { fr: 'J’ai l’impression que tu me caches quelque chose.', ar: 'حاسس إنك مخبّاية عني شي.', en: 'I feel like you’re hiding something from me.' },
+        { fr: 'Pourquoi tu me mens ?', ar: 'ليش عم تكذبي عليي؟', en: 'Why are you lying to me?' },
+        { fr: 'Tu parles avec qui ?', ar: 'مع مين عم تحكي؟', en: 'Who are you talking to?' },
+        { fr: 'C’est qui, cette personne ?', ar: 'مين هالشخص؟', en: 'Who is this person?' },
+        { fr: 'Pourquoi tu supprimes tes messages ?', ar: 'ليش عم تمسحي رسائلك؟', en: 'Why are you deleting your messages?' },
+        { fr: 'Je trouve ton comportement bizarre en ce moment.', ar: 'حاسس تصرفاتك غريبة هالفترة.', en: 'I find your behavior strange lately.' }
+      ] },
+      { icon: '😔', title: { ar: 'مواجهة الخيانة', en: 'Confronting betrayal', fr: 'Confronter la trahison' }, phrases: [
+        { fr: 'Est-ce que tu m’as trompé ?', ar: 'إنتِ خنتيني؟', en: 'Did you cheat on me?' },
+        { fr: 'Dis-moi la vérité.', ar: 'قوليلي الحقيقة.', en: 'Tell me the truth.' },
+        { fr: 'Je veux que tu sois honnête avec moi.', ar: 'بدي تكوني صريحة معي.', en: 'I want you to be honest with me.' },
+        { fr: 'Depuis combien de temps ça dure ?', ar: 'من إمتى هالقصة صايرة؟', en: 'How long has this been going on?' },
+        { fr: 'Tu as des sentiments pour lui ?', ar: 'عندك مشاعر تجاهه؟', en: 'Do you have feelings for him?' },
+        { fr: 'Pourquoi tu as fait ça ?', ar: 'ليش عملتي هيك؟', en: 'Why did you do that?' },
+        { fr: 'Je pensais pouvoir te faire confiance.', ar: 'كنت مفكر إني فيني وثق فيكي.', en: 'I thought I could trust you.' }
+      ] },
+      { icon: '💔', title: { ar: 'عندما تعترف', en: 'When she confesses', fr: 'Quand elle avoue' }, phrases: [
+        { fr: 'Je suis désolée, je t’ai trompé.', ar: 'أنا آسفة، خنتك.', en: 'I’m sorry, I cheated on you.' },
+        { fr: 'Je regrette vraiment ce que j’ai fait.', ar: 'عنجد ندمانة على اللي عملتو.', en: 'I really regret what I did.' },
+        { fr: 'Je ne voulais pas te faire du mal.', ar: 'ما كان قصدي أأذيك.', en: 'I didn’t want to hurt you.' },
+        { fr: 'Je comprends si tu ne peux plus me faire confiance.', ar: 'بفهم إذا ما عاد فيكي تثقي فيني.', en: 'I understand if you can’t trust me anymore.' }
+      ] },
+      { icon: '😡', title: { ar: 'الغضب والصدمة', en: 'Anger and shock', fr: 'La colère et le choc' }, phrases: [
+        { fr: 'Je n’arrive pas à y croire.', ar: 'مو قادر صدّق.', en: 'I can’t believe it.' },
+        { fr: 'Tu m’as vraiment déçu.', ar: 'خيّبتِ أملي فيكي كتير.', en: 'You really disappointed me.' },
+        { fr: 'Après tout ce qu’on a vécu ensemble…', ar: 'بعد كل اللي عشناه سوا...', en: 'After everything we’ve been through together...' },
+        { fr: 'Comment tu as pu me faire ça ?', ar: 'كيف قدرتي تعملي فيني هيك؟', en: 'How could you do this to me?' },
+        { fr: 'Je ne mérite pas ça.', ar: 'أنا ما بستاهل هالشي.', en: 'I don’t deserve this.' },
+        { fr: 'J’ai besoin d’être seul.', ar: 'بدي ضل لحالي.', en: 'I need to be alone.' }
+      ] },
+      { icon: '🧊', title: { ar: 'فقدان الثقة', en: 'Losing trust', fr: 'La perte de confiance' }, phrases: [
+        { fr: 'Je ne te fais plus confiance.', ar: 'ما عاد بثق فيكي.', en: 'I don’t trust you anymore.' },
+        { fr: 'La confiance est brisée.', ar: 'الثقة انكسرت.', en: 'The trust is broken.' },
+        { fr: 'Même si je te pardonne, ça prendra du temps.', ar: 'حتى لو سامحتك، بدها وقت.', en: 'Even if I forgive you, it’ll take time.' },
+        { fr: 'Je ne sais plus quoi penser.', ar: 'ما عاد بعرف شو فكر.', en: 'I don’t know what to think anymore.' },
+        { fr: 'J’ai besoin de prendre du recul.', ar: 'بدي آخد مسافة وأفكر.', en: 'I need some space to think.' }
+      ] },
+      { icon: '💔', title: { ar: 'الانفصال', en: 'The breakup', fr: 'La rupture' }, phrases: [
+        { fr: 'Je pense qu’il vaut mieux qu’on se sépare.', ar: 'بعتقد أحسن إلنا ننفصل.', en: 'I think it’s better if we break up.' },
+        { fr: 'Je ne peux pas continuer comme ça.', ar: 'ما عاد فيني كمّل هيك.', en: 'I can’t continue like this.' },
+        { fr: 'Je préfère qu’on en reste là.', ar: 'بفضّل نوقف لهون.', en: 'I’d rather leave it here.' },
+        { fr: 'Je te souhaite quand même le bonheur.', ar: 'مع هيك بتمنالك السعادة.', en: 'I still wish you happiness.' },
+        { fr: 'Je ne veux pas qu’on se fasse du mal davantage.', ar: 'ما بدي نضل نأذي بعض أكتر.', en: 'I don’t want us to hurt each other anymore.' }
+      ] },
+      { icon: '🤔', title: { ar: 'الشك بالكذب', en: 'Suspecting a lie', fr: 'Soupsonner un mensonge' }, phrases: [
+        { fr: 'Tu me caches quelque chose ?', ar: 'مخبّاية عني شي؟', en: 'Are you hiding something from me?' },
+        { fr: 'J’ai l’impression que tu ne me dis pas toute la vérité.', ar: 'حاسس إنك ما عم تقوليلي كل الحقيقة.', en: 'I feel like you’re not telling me the whole truth.' },
+        { fr: 'Tu es sûre que tu me dis la vérité ?', ar: 'متأكدة إنك عم تقوليلي الحقيقة؟', en: 'Are you sure you’re telling me the truth?' },
+        { fr: 'Pourquoi tu changes de version ?', ar: 'ليش عم تغيّري كلامك؟', en: 'Why are you changing your story?' },
+        { fr: 'Ça ne correspond pas à ce que tu m’avais dit.', ar: 'هاد ما بيتطابق مع اللي قلتيلي ياه قبل.', en: 'That doesn’t match what you told me before.' }
+      ] },
+      { icon: '😠', title: { ar: 'اكتشاف الكذبة', en: 'Discovering the lie', fr: 'Découvrir le mensonge' }, phrases: [
+        { fr: 'Je sais que tu m’as menti.', ar: 'بعرف إنك كذبتي عليي.', en: 'I know you lied to me.' },
+        { fr: 'Pourquoi tu m’as menti ?', ar: 'ليش كذبتي عليي؟', en: 'Why did you lie to me?' },
+        { fr: 'Je t’ai posé une question simple.', ar: 'سألتك سؤال بسيط.', en: 'I asked you a simple question.' },
+        { fr: 'Tu aurais pu simplement me dire la vérité.', ar: 'كان فيكي ببساطة تقوليلي الحقيقة.', en: 'You could have simply told me the truth.' },
+        { fr: 'Je préfère une vérité qui fait mal à un mensonge.', ar: 'بفضّل حقيقة بتوجع على كذبة.', en: 'I prefer a painful truth to a lie.' }
+      ] },
+      { icon: '💔', title: { ar: 'عندما تتأذى من الكذب', en: 'When the lies hurt you', fr: 'Quand le mensonge blesse' }, phrases: [
+        { fr: 'Ce n’est pas seulement le mensonge qui me fait mal.', ar: 'مو بس الكذبة هي اللي وجعتني.', en: 'It’s not just the lie that hurts me.' },
+        { fr: 'C’est le fait que tu m’aies caché la vérité.', ar: 'اللي وجعني إنك خبّيتي عني الحقيقة.', en: 'What hurts is that you hid the truth from me.' },
+        { fr: 'Ça me fait perdre confiance en toi.', ar: 'هالشي عم يخليني فقد الثقة فيكي.', en: 'It makes me lose trust in you.' },
+        { fr: 'Je pensais pouvoir te faire confiance.', ar: 'كنت مفكر إني فيني وثق فيكي.', en: 'I thought I could trust you.' },
+        { fr: 'Maintenant, j’ai du mal à te croire.', ar: 'هلق صار صعب عليي صدّقك.', en: 'Now I’m having a hard time believing you.' }
+      ] },
+      { icon: '🗣️', title: { ar: 'طلب الحقيقة', en: 'Asking for the truth', fr: 'Demander la vérité' }, phrases: [
+        { fr: 'Dis-moi franchement ce qui s’est passé.', ar: 'قوليلي بصراحة شو صار.', en: 'Tell me honestly what happened.' },
+        { fr: 'Je veux juste que tu sois honnête avec moi.', ar: 'بدي منك بس تكوني صريحة معي.', en: 'I just want you to be honest with me.' },
+        { fr: 'Tu peux me dire la vérité, je préfère savoir.', ar: 'فيكي تقوليلي الحقيقة، أنا بفضّل أعرف.', en: 'You can tell me the truth; I’d rather know.' },
+        { fr: 'Ne me raconte pas d’histoires.', ar: 'لا تحكيلي قصص / لا تلفّي وتدوري عليي.', en: 'Don’t make up stories for me.' },
+        { fr: 'Arrête de me mentir.', ar: 'بطّلي تكذبي عليي.', en: 'Stop lying to me.' }
+      ] },
+      { icon: '😔', title: { ar: 'عندما تعترف هي', en: 'When she confesses', fr: 'Quand elle avoue' }, phrases: [
+        { fr: 'D’accord, je vais te dire la vérité.', ar: 'طيب، رح قلك الحقيقة.', en: 'Okay, I’ll tell you the truth.' },
+        { fr: 'Je t’ai menti parce que j’avais peur de ta réaction.', ar: 'كذبت عليك لأني كنت خايفة من ردة فعلك.', en: 'I lied to you because I was afraid of your reaction.' },
+        { fr: 'Je reconnais que je t’ai menti.', ar: 'بعترف إني كذبت عليك.', en: 'I admit that I lied to you.' },
+        { fr: 'Je suis désolée de t’avoir menti.', ar: 'أنا آسفة إني كذبت عليك.', en: 'I’m sorry I lied to you.' },
+        { fr: 'Je n’aurais pas dû te mentir.', ar: 'ما كان لازم كذب عليك.', en: 'I shouldn’t have lied to you.' }
+      ] },
+      { icon: '🤝', title: { ar: 'المصالحة', en: 'Making up', fr: 'La réconciliation' }, phrases: [
+        { fr: 'Je peux te pardonner, mais j’ai besoin de temps.', ar: 'فيني سامحك، بس بدي وقت.', en: 'I can forgive you, but I need time.' },
+        { fr: 'Si on continue ensemble, il faut être honnêtes l’un envers l’autre.', ar: 'إذا بدنا نكمل سوا، لازم نكون صريحين مع بعض.', en: 'If we’re going to stay together, we need to be honest with each other.' },
+        { fr: 'Je ne veux plus de mensonges entre nous.', ar: 'ما بدي عاد يكون في كذب بيناتنا.', en: 'I don’t want any more lies between us.' },
+        { fr: 'On peut repartir sur de bonnes bases.', ar: 'فينا نبلّش من جديد على أساس منيح.', en: 'We can start over on a better foundation.' },
+        { fr: 'Mais cette fois, sois honnête avec moi.', ar: 'بس هالمرة كوني صريحة معي.', en: 'But this time, be honest with me.' }
+      ] },
+      { icon: '❤️', title: { ar: 'الاعتراف بالحب', en: 'Confessing your love', fr: 'Déclarer son amour' }, phrases: [
+        { fr: 'Il faut que je te dise quelque chose.', ar: 'لازم قلك شغلة.', en: 'I need to tell you something.' },
+        { fr: 'Ça fait un moment que je ressens quelque chose pour toi.', ar: 'من فترة وأنا حاسس بشي تجاهك.', en: 'I’ve had feelings for you for a while.' },
+        { fr: 'Je crois que je suis tombé amoureux de toi.', ar: 'بعتقد إني حبيتك.', en: 'I think I’ve fallen in love with you.' },
+        { fr: 'Je voulais te dire que je t’aime.', ar: 'كنت بدي قلك إني بحبك.', en: 'I wanted to tell you that I love you.' },
+        { fr: 'Je ne sais pas comment te le dire, mais je tiens énormément à toi.', ar: 'ما بعرف كيف قلك، بس إنتِ بتهميني كتير كتير.', en: 'I don’t know how to say it, but I care about you so much.' },
+        { fr: 'Depuis que je te connais, tu as pris une place importante dans ma vie.', ar: 'من وقت ما عرفتك، صار إلك مكان مهم بحياتي.', en: 'Since I met you, you’ve become an important part of my life.' }
+      ] },
+      { icon: '🥰', title: { ar: 'معرفة إذا هي بتبادلك نفس الشعور', en: 'Finding out if she feels the same', fr: 'Savoir si elle ressent la même chose' }, phrases: [
+        { fr: 'Et toi, qu’est-ce que tu ressens pour moi ?', ar: 'وإنتِ شو حاسة تجاهي؟', en: 'And how do you feel about me?' },
+        { fr: 'Est-ce que tu as des sentiments pour moi ?', ar: 'عندك مشاعر تجاهي؟', en: 'Do you have feelings for me?' },
+        { fr: 'Est-ce que tu me vois comme plus qu’un ami ?', ar: 'بتشوفيني أكتر من مجرد صديق؟', en: 'Do you see me as more than a friend?' },
+        { fr: 'J’aimerais savoir si tu ressens la même chose.', ar: 'بدي أعرف إذا إنتِ كمان بتحسي بنفس الشي.', en: 'I’d like to know if you feel the same way.' },
+        { fr: 'Je ne veux pas te mettre la pression, prends ton temps.', ar: 'ما بدي أضغط عليكي، خدي وقتك.', en: 'I don’t want to pressure you, take your time.' }
+      ] },
+      { icon: '💕', title: { ar: 'إذا قالت إنها بتحبك', en: 'If she says she loves you', fr: 'Si elle dit qu’elle t’aime' }, phrases: [
+        { fr: 'Moi aussi, je t’aime.', ar: 'أنا كمان بحبك.', en: 'I love you too.' },
+        { fr: 'Je ressens la même chose pour toi.', ar: 'أنا كمان بحس نفس الشي تجاهك.', en: 'I feel the same way about you.' },
+        { fr: 'J’attendais que tu me le dises. ❤️', ar: 'كنت ناطرة منك تقليها. ❤️', en: 'I was waiting for you to say it. ❤️' },
+        { fr: 'Ça me fait vraiment plaisir de l’entendre.', ar: 'كتير فرحت لما سمعت هالشي.', en: 'I’m really happy to hear that.' }
+      ] },
+      { icon: '💍', title: { ar: 'الحديث عن المستقبل', en: 'Talking about the future', fr: 'Parler de l’avenir' }, phrases: [
+        { fr: 'J’aimerais construire quelque chose de sérieux avec toi.', ar: 'بدي أبني شي جدي معك.', en: 'I want to build something serious with you.' },
+        { fr: 'Je ne cherche pas une relation sans lendemain.', ar: 'أنا ما عم دور على علاقة مؤقتة.', en: 'I’m not looking for a short-term relationship.' },
+        { fr: 'Je me projette avec toi dans l’avenir.', ar: 'بشوف حالي معك بالمستقبل.', en: 'I see myself with you in the future.' },
+        { fr: 'J’aimerais qu’on construise notre vie ensemble.', ar: 'بتمنى نبني حياتنا سوا.', en: 'I’d like us to build our life together.' },
+        { fr: 'Est-ce que tu te vois faire ta vie avec moi ?', ar: 'بتشوفي حالك تكملي حياتك معي؟', en: 'Can you see yourself spending your life with me?' }
+      ] },
+      { icon: '💍', title: { ar: 'فتح موضوع الزواج', en: 'Bringing up marriage', fr: 'Aborder le mariage' }, phrases: [
+        { fr: 'Est-ce que tu veux te marier un jour ?', ar: 'بدك تتزوجي بيوم من الأيام؟', en: 'Do you want to get married someday?' },
+        { fr: 'Qu’est-ce que tu penses du mariage ?', ar: 'شو رأيك بالزواج؟', en: 'What do you think about marriage?' },
+        { fr: 'J’aimerais parler sérieusement de notre avenir.', ar: 'بدي نحكي بجدية عن مستقبلنا.', en: 'I’d like to seriously talk about our future.' },
+        { fr: 'Je pense qu’on est prêts à passer à une nouvelle étape.', ar: 'بعتقد نحنا جاهزين ننتقل لمرحلة جديدة.', en: 'I think we’re ready to take the next step.' },
+        { fr: 'J’aimerais demander ta main.', ar: 'بدي أطلب إيدك للزواج.', en: 'I would like to ask for your hand in marriage.' }
+      ] },
+      { icon: '👨‍👩‍👧‍👦', title: { ar: 'التقدم رسميًا للعائلة', en: 'Asking the family formally', fr: 'Demander officiellement à la famille' }, phrases: [
+        { fr: 'J’aimerais rencontrer ta famille.', ar: 'بدي اتعرف على عيلتك.', en: 'I’d like to meet your family.' },
+        { fr: 'J’aimerais parler avec tes parents.', ar: 'بدي احكي مع أهلك.', en: 'I’d like to talk to your parents.' },
+        { fr: 'Je voudrais venir chez vous pour demander ta main.', ar: 'بدي أجي لعندكم وأطلب إيدك رسمي.', en: 'I’d like to come to your family and formally ask for your hand in marriage.' },
+        { fr: 'Je veux faire les choses correctement.', ar: 'بدي اعمل الأمور بالطريقة الصح.', en: 'I want to do things properly.' },
+        { fr: 'Je veux venir avec de bonnes intentions.', ar: 'بدي أجي بنيّة جدية ومحترمة.', en: 'I want to come with serious and honorable intentions.' },
+        { fr: 'J’aimerais demander officiellement ta main à tes parents.', ar: 'بدي أطلب إيدك رسميًا من أهلك.', en: 'I’d like to formally ask your parents for your hand in marriage.' }
+      ] },
+      { icon: '🥹', title: { ar: 'لحظة طلب الزواج', en: 'The proposal moment', fr: 'Le moment de la demande en mariage' }, phrases: [
+        { fr: 'Je veux passer le reste de ma vie avec toi.', ar: 'بدي كمّل باقي حياتي معك.', en: 'I want to spend the rest of my life with you.' },
+        { fr: 'Veux-tu m’épouser ? ❤️', ar: 'بتتزوجيني؟ ❤️', en: 'Will you marry me? ❤️' },
+        { fr: 'Est-ce que tu veux devenir ma femme ?', ar: 'بدك تصيري مرتي؟', en: 'Will you be my wife?' },
+        { fr: 'Je te promets de toujours te respecter et de prendre soin de toi.', ar: 'بوعدك إني دايمًا احترمك واهتم فيكي.', en: 'I promise to always respect you and take care of you.' },
+        { fr: 'J’aimerais qu’on construise notre avenir ensemble.', ar: 'بدي نبني مستقبلنا سوا.', en: 'I’d like us to build our future together.' }
+      ] },
+      { icon: '💕', title: { ar: 'إذا وافقت', en: 'If she says yes', fr: 'Si elle accepte' }, phrases: [
+        { fr: 'Oui, je veux t’épouser. ❤️', ar: 'إي، بدي أتزوجك. ❤️', en: 'Yes, I want to marry you. ❤️' },
+        { fr: 'Je suis tellement heureuse.', ar: 'أنا كتير مبسوطة.', en: 'I’m so happy.' },
+        { fr: 'J’attendais ce moment depuis longtemps.', ar: 'كنت ناطرة هاللحظة من زمان.', en: 'I’ve been waiting for this moment for a long time.' },
+        { fr: 'Alors, on va l’annoncer à nos familles ?', ar: 'طيب، منخبر عيلتنا؟', en: 'So, shall we tell our families?' },
+        { fr: 'Je suis prête à construire ma vie avec toi.', ar: 'أنا جاهزة أبني حياتي معك.', en: 'I’m ready to build my life with you.' }
       ] }
     ]
   }
