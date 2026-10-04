@@ -14431,5 +14431,429 @@ window.CENTRES_DATA = [
         { fr: 'Je m’orienterai vers un nouveau métier.', ar: 'رح اتوجّه لمجال مهني جديد.', en: 'I’ll move toward a new career.' }
       ] }
     ]
+  },
+  {
+    id: 'changer-logement',
+    icon: '🏠',
+    name: { ar: 'تغيير السكن (Déménagement)', en: 'Changing homes (Déménagement)', fr: 'Changer de logement (Déménagement)' },
+    desc: { ar: 'كل العبارات لترك سكنك واستئجار سكن جديد في فرنسا: المعاينة، الملف، العقد، المفاتيح، والمواقف مع المالك والوكالة', en: 'Every phrase for leaving your home and renting a new one in France: inspection, application, lease, keys, and dealings with the owner or agency', fr: 'Toutes les phrases pour quitter votre logement et en louer un nouveau en France : état des lieux, dossier, bail, clés et échanges avec le propriétaire ou l’agence' },
+    sections: [
+      { icon: '🏠', title: { ar: 'إخبار المالك أنك تريد الانتقال', en: 'Telling the owner you’re moving', fr: 'Informer le propriétaire de votre départ' }, phrases: [
+        { fr: 'Je souhaite déménager.', ar: 'بدي انقل من البيت.', en: 'I want to move.' },
+        { fr: 'Je souhaite quitter mon logement.', ar: 'بدي اترك السكن الحالي.', en: 'I want to leave my current accommodation.' },
+        { fr: 'Je vais déménager dans un autre logement.', ar: 'رح انقل على سكن تاني.', en: 'I’m going to move to another place.' },
+        { fr: 'J’ai trouvé un nouveau logement.', ar: 'لقيت سكن جديد.', en: 'I found a new place.' },
+        { fr: 'Je vais changer de logement.', ar: 'رح غيّر السكن.', en: 'I’m going to change accommodation.' }
+      ] },
+      { icon: '📄', title: { ar: 'إعطاء إشعار المغادرة', en: 'Giving notice', fr: 'Donner son préavis' }, phrases: [
+        { fr: 'Je souhaite donner mon préavis.', ar: 'بدي قدّم إشعار المغادرة.', en: 'I want to give notice.' },
+        { fr: 'Je vous informe de mon départ.', ar: 'عم خبركم إني رح غادر السكن.', en: 'I’m informing you that I’m leaving the accommodation.' },
+        { fr: 'Je vous adresse mon préavis de départ.', ar: 'عم ابعتلكم إشعار مغادرتي.', en: 'I’m sending you my notice of departure.' },
+        { fr: 'À quelle date dois-je quitter le logement ?', ar: 'بأي تاريخ لازم اترك السكن؟', en: 'What date do I have to leave the accommodation?' }
+      ] },
+      { icon: '🔑', title: { ar: 'موعد تسليم السكن والمفاتيح', en: 'Inspection & key handover', fr: 'État des lieux et remise des clés' }, phrases: [
+        { fr: 'Quand aura lieu l’état des lieux de sortie ?', ar: 'إمتى رح يكون فحص/معاينة السكن عند المغادرة؟', en: 'When will the move-out inspection take place?' },
+        { fr: 'Quand dois-je rendre les clés ?', ar: 'إمتى لازم سلّم المفاتيح؟', en: 'When do I have to return the keys?' },
+        { fr: 'Je voudrais prendre rendez-vous pour l’état des lieux.', ar: 'بدي احجز موعد لمعاينة السكن عند الخروج.', en: 'I’d like to make an appointment for the move-out inspection.' },
+        { fr: 'Est-ce que je dois être présent pour l’état des lieux ?', ar: 'لازم كون موجود وقت المعاينة؟', en: 'Do I need to be present for the inspection?' }
+      ] },
+      { icon: '🧹', title: { ar: 'تنظيف وتجهيز السكن', en: 'Cleaning & preparing', fr: 'Nettoyer et préparer le logement' }, phrases: [
+        { fr: 'Le logement doit-il être nettoyé avant mon départ ?', ar: 'لازم نظّف السكن قبل ما اطلع؟', en: 'Does the accommodation need to be cleaned before I leave?' },
+        { fr: 'Qu’est-ce que je dois faire avant de rendre les clés ?', ar: 'شو لازم اعمل قبل ما سلّم المفاتيح؟', en: 'What do I need to do before returning the keys?' },
+        { fr: 'Dois-je reboucher les trous ?', ar: 'لازم سكّر الثقوب؟', en: 'Do I need to fill the holes?' },
+        { fr: 'Dois-je vider complètement le logement ?', ar: 'لازم فضّي السكن بالكامل؟', en: 'Do I have to completely empty the accommodation?' }
+      ] },
+      { icon: '💰', title: { ar: 'التأمين والدفعة الأخيرة', en: 'Insurance & last payment', fr: 'Assurance et dernier paiement' }, phrases: [
+        { fr: 'Quand vais-je récupérer mon dépôt de garantie ?', ar: 'إمتى رح استرجع مبلغ التأمين؟', en: 'When will I get my security deposit back?' },
+        { fr: 'Est-ce que le dépôt de garantie sera remboursé intégralement ?', ar: 'هل رح يرجعلي مبلغ التأمين كامل؟', en: 'Will the security deposit be fully refunded?' },
+        { fr: 'Est-ce qu’il reste quelque chose à payer ?', ar: 'ضايل عليي شي لازم ادفعه؟', en: 'Is there anything left to pay?' }
+      ] },
+      { icon: '🏡', title: { ar: 'البحث عن سكن جديد', en: 'Looking for a new home', fr: 'Chercher un nouveau logement' }, phrases: [
+        { fr: 'Je recherche un logement moins cher.', ar: 'عم دور على سكن أرخص.', en: 'I’m looking for cheaper accommodation.' },
+        { fr: 'Je cherche un studio.', ar: 'عم دور على ستوديو.', en: 'I’m looking for a studio.' },
+        { fr: 'Je cherche un logement social.', ar: 'عم دور على سكن اجتماعي.', en: 'I’m looking for social housing.' },
+        { fr: 'Mon budget est limité.', ar: 'ميزانيتي محدودة.', en: 'My budget is limited.' },
+        { fr: 'Je cherche un logement avec un loyer abordable.', ar: 'عم دور على سكن إيجاره مناسب.', en: 'I’m looking for accommodation with an affordable rent.' }
+      ] },
+      { icon: '📑', title: { ar: 'أثناء زيارة السكن الجديد', en: 'During the viewing', fr: 'Pendant la visite du logement' }, phrases: [
+        { fr: 'Quel est le montant du loyer ?', ar: 'قديش الإيجار؟', en: 'How much is the rent?' },
+        { fr: 'Combien coûtent les charges ?', ar: 'قديش المصاريف الإضافية؟', en: 'How much are the charges?' },
+        { fr: 'Le chauffage est-il compris dans les charges ?', ar: 'التدفئة داخلة بالمصاريف؟', en: 'Is heating included in the charges?' },
+        { fr: 'L’eau est-elle comprise ?', ar: 'المي داخلة؟', en: 'Is water included?' },
+        { fr: 'Est-ce qu’il y a des frais supplémentaires ?', ar: 'في مصاريف إضافية؟', en: 'Are there any additional fees?' },
+        { fr: 'Quels documents faut-il fournir ?', ar: 'شو الأوراق المطلوبة؟', en: 'What documents are required?' },
+        { fr: 'Est-ce que je peux déposer mon dossier ?', ar: 'فيني قدّم ملفي؟', en: 'Can I submit my application?' }
+      ] },
+      { icon: '📦', title: { ar: 'يوم الانتقال (المغادرة)', en: 'Moving day (move-out)', fr: 'Le jour du déménagement (départ)' }, phrases: [
+        { fr: 'Je vais déménager la semaine prochaine.', ar: 'رح انقل الأسبوع الجاي.', en: 'I’m moving next week.' },
+        { fr: 'Je vais transporter mes affaires dans mon nouveau logement.', ar: 'رح انقل أغراضي على السكن الجديد.', en: 'I’m going to move my belongings to my new place.' },
+        { fr: 'Je dois organiser mon déménagement.', ar: 'لازم رتّب عملية النقل.', en: 'I need to organize my move.' },
+        { fr: 'À partir de quelle date puis-je emménager ?', ar: 'من أي تاريخ فيني فوت وأسكن بالسكن الجديد؟', en: 'From what date can I move in?' }
+      ] },
+      { icon: '🏠', title: { ar: 'أول اتصال والسؤال عن السكن', en: 'First contact & availability', fr: 'Premier contact et disponibilité' }, phrases: [
+        { fr: 'Bonjour, je vous appelle pour l’appartement à louer.', ar: 'مرحبا، عم اتصل بخصوص الشقة المعروضة للإيجار.', en: 'Hello, I’m calling about the apartment for rent.' },
+        { fr: 'Est-ce que le logement est toujours disponible ?', ar: 'لسا السكن متوفر؟', en: 'Is the property still available?' },
+        { fr: 'Oui, il est toujours disponible.', ar: 'إي، لسا متوفر.', en: 'Yes, it’s still available.' },
+        { fr: 'Quel est le montant du loyer ?', ar: 'قديش الإيجار؟', en: 'How much is the rent?' },
+        { fr: 'Le loyer est de 500 euros par mois, charges comprises.', ar: 'الإيجار 500 يورو بالشهر، مع المصاريف.', en: 'The rent is €500 per month, including charges.' },
+        { fr: 'Combien y a-t-il de charges ?', ar: 'قديش المصاريف الإضافية؟', en: 'How much are the charges?' },
+        { fr: 'Les charges sont de 50 euros par mois.', ar: 'المصاريف 50 يورو بالشهر.', en: 'The charges are €50 per month.' }
+      ] },
+      { icon: '📅', title: { ar: 'تحديد موعد للزيارة', en: 'Booking a viewing', fr: 'Prendre rendez-vous pour la visite' }, phrases: [
+        { fr: 'Est-ce que je peux visiter le logement ?', ar: 'فيني شوف السكن؟', en: 'Can I view the property?' },
+        { fr: 'Oui, bien sûr. Quand êtes-vous disponible ?', ar: 'إي طبعًا، إمتى بتكون متوفر؟', en: 'Yes, of course. When are you available?' },
+        { fr: 'Je suis disponible demain après-midi.', ar: 'أنا متوفر بكرا بعد الظهر.', en: 'I’m available tomorrow afternoon.' },
+        { fr: 'À quelle heure ?', ar: 'بأي ساعة؟', en: 'What time?' },
+        { fr: 'Vers 15 heures, ça vous convient ?', ar: 'حوالي الساعة 3، بناسبك؟', en: 'Around 3 p.m., does that work for you?' },
+        { fr: 'Oui, ça me convient.', ar: 'إي، بناسبني.', en: 'Yes, that works for me.' }
+      ] },
+      { icon: '🔑', title: { ar: 'أثناء زيارة السكن', en: 'During the viewing', fr: 'Pendant la visite' }, phrases: [
+        { fr: 'C’est un studio ou un appartement ?', ar: 'هاد ستوديو ولا شقة؟', en: 'Is it a studio or an apartment?' },
+        { fr: 'C’est un studio.', ar: 'ستوديو.', en: 'It’s a studio.' },
+        { fr: 'Quelle est la superficie du logement ?', ar: 'قديش مساحة السكن؟', en: 'What is the surface area?' },
+        { fr: 'Il fait 30 mètres carrés.', ar: 'مساحته 30 متر مربع.', en: 'It’s 30 square meters.' },
+        { fr: 'Le logement est-il meublé ?', ar: 'السكن مفروش؟', en: 'Is the property furnished?' },
+        { fr: 'Oui, il est meublé.', ar: 'إي، مفروش.', en: 'Yes, it’s furnished.' },
+        { fr: 'Est-ce qu’il y a une cuisine équipée ?', ar: 'في مطبخ مجهّز؟', en: 'Is there a fitted kitchen?' },
+        { fr: 'Oui, la cuisine est équipée.', ar: 'إي، المطبخ مجهّز.', en: 'Yes, the kitchen is equipped.' }
+      ] },
+      { icon: '💶', title: { ar: 'الإيجار والمصاريف', en: 'Rent & charges', fr: 'Loyer et charges' }, phrases: [
+        { fr: 'Le loyer est-il hors charges ou charges comprises ?', ar: 'الإيجار بدون المصاريف ولا شامل المصاريف؟', en: 'Is the rent excluding or including charges?' },
+        { fr: 'Il est de 450 euros hors charges.', ar: '450 يورو بدون المصاريف.', en: 'It’s €450 excluding charges.' },
+        { fr: 'Et combien coûtent les charges ?', ar: 'وقديش المصاريف؟', en: 'And how much are the charges?' },
+        { fr: 'Les charges sont de 70 euros par mois.', ar: 'المصاريف 70 يورو بالشهر.', en: 'The charges are €70 per month.' },
+        { fr: 'Donc, je paierai combien au total chaque mois ?', ar: 'يعني قديش رح ادفع بالمجموع كل شهر؟', en: 'So, how much will I pay in total each month?' },
+        { fr: 'Vous paierez 520 euros par mois.', ar: 'رح تدفع 520 يورو بالشهر.', en: 'You’ll pay €520 per month.' }
+      ] },
+      { icon: '🔥', title: { ar: 'التدفئة والماء والكهرباء', en: 'Heating, water & electricity', fr: 'Chauffage, eau et électricité' }, phrases: [
+        { fr: 'Le chauffage est-il compris dans les charges ?', ar: 'التدفئة داخلة بالمصاريف؟', en: 'Is heating included in the charges?' },
+        { fr: 'Oui, le chauffage est compris.', ar: 'إي، التدفئة داخلة.', en: 'Yes, heating is included.' },
+        { fr: 'Et l’eau ?', ar: 'والمي؟', en: 'And water?' },
+        { fr: 'L’eau froide est comprise dans les charges.', ar: 'المي الباردة داخلة بالمصاريف.', en: 'Cold water is included in the charges.' },
+        { fr: 'Est-ce que l’électricité est comprise ?', ar: 'الكهربا داخلة؟', en: 'Is electricity included?' },
+        { fr: 'Non, l’électricité est à votre charge.', ar: 'لا، الكهربا عليك.', en: 'No, electricity is your responsibility.' }
+      ] },
+      { icon: '📄', title: { ar: 'سؤال عن الملف', en: 'About the application file', fr: 'Questions sur le dossier' }, phrases: [
+        { fr: 'Quels documents faut-il fournir ?', ar: 'شو الأوراق المطلوبة؟', en: 'What documents are required?' },
+        { fr: 'Il me faut une pièce d’identité, vos justificatifs de revenus et votre contrat de travail.', ar: 'بدي بطاقة هويتك، إثباتات الدخل وعقد العمل.', en: 'I need your ID, proof of income, and employment contract.' },
+        { fr: 'Est-ce qu’il faut un garant ?', ar: 'لازم كفيل؟', en: 'Do I need a guarantor?' },
+        { fr: 'Oui, il faut un garant.', ar: 'إي، لازم كفيل.', en: 'Yes, you need a guarantor.' },
+        { fr: 'Est-ce que je peux déposer mon dossier aujourd’hui ?', ar: 'فيني قدّم ملفي اليوم؟', en: 'Can I submit my application today?' },
+        { fr: 'Oui, vous pouvez déposer votre dossier en ligne.', ar: 'إي، فيك تقدّم ملفك أونلاين.', en: 'Yes, you can submit your application online.' }
+      ] },
+      { icon: '💰', title: { ar: 'مبلغ التأمين والرسوم', en: 'Deposit & fees', fr: 'Dépôt de garantie et frais' }, phrases: [
+        { fr: 'Quel est le montant du dépôt de garantie ?', ar: 'قديش مبلغ التأمين؟', en: 'How much is the security deposit?' },
+        { fr: 'Le dépôt de garantie est de 500 euros.', ar: 'مبلغ التأمين 500 يورو.', en: 'The security deposit is €500.' },
+        { fr: 'Y a-t-il des frais d’agence ?', ar: 'في رسوم مكتب عقاري؟', en: 'Are there agency fees?' },
+        { fr: 'Oui, il y a des frais d’agence.', ar: 'إي، في رسوم مكتب.', en: 'Yes, there are agency fees.' }
+      ] },
+      { icon: '✍️', title: { ar: 'قبول الطلب والعقد', en: 'Acceptance & lease', fr: 'Acceptation et bail' }, phrases: [
+        { fr: 'Votre dossier a été accepté.', ar: 'ملفك انقبل.', en: 'Your application has been accepted.' },
+        { fr: 'Quand est-ce que je peux signer le bail ?', ar: 'إمتى فيني وقّع عقد الإيجار؟', en: 'When can I sign the lease?' },
+        { fr: 'Vous pouvez signer le bail vendredi.', ar: 'فيك توقّع العقد يوم الجمعة.', en: 'You can sign the lease on Friday.' },
+        { fr: 'Quelle est la date de début du bail ?', ar: 'شو تاريخ بداية العقد؟', en: 'What is the lease start date?' },
+        { fr: 'Le bail commencera le 1er novembre.', ar: 'العقد رح يبدأ بـ1 تشرين الثاني.', en: 'The lease will start on November 1st.' }
+      ] },
+      { icon: '🔑', title: { ar: 'استلام المفاتيح والدخول', en: 'Keys & moving in', fr: 'Remise des clés et entrée' }, phrases: [
+        { fr: 'Quand est-ce que je pourrai récupérer les clés ?', ar: 'إمتى فيني استلم المفاتيح؟', en: 'When can I collect the keys?' },
+        { fr: 'Vous pourrez récupérer les clés lors de l’état des lieux d’entrée.', ar: 'فيك تستلم المفاتيح وقت معاينة الدخول.', en: 'You can collect the keys during the move-in inspection.' },
+        { fr: 'Quand aura lieu l’état des lieux d’entrée ?', ar: 'إمتى رح تكون معاينة الدخول؟', en: 'When will the move-in inspection take place?' },
+        { fr: 'L’état des lieux est prévu lundi à 10 heures.', ar: 'المعاينة مقررة يوم الاثنين الساعة 10.', en: 'The inspection is scheduled for Monday at 10.' }
+      ] },
+      { icon: '📦', title: { ar: 'يوم الانتقال (الدخول)', en: 'Move-in day', fr: 'Le jour de l’emménagement' }, phrases: [
+        { fr: 'Je vais emménager lundi.', ar: 'رح فوت وأسكن يوم الاثنين.', en: 'I’m moving in on Monday.' },
+        { fr: 'Est-ce que je peux emménager dès le premier jour du bail ?', ar: 'فيني فوت وأسكن من أول يوم بالعقد؟', en: 'Can I move in from the first day of the lease?' },
+        { fr: 'Oui, à partir de cette date.', ar: 'إي، من هالتاريخ.', en: 'Yes, from that date.' }
+      ] },
+      { icon: '🏠', title: { ar: 'الموقف 1: صاحب السكن يطلب ملفك', en: 'Situation 1: owner asks for your file', fr: 'Situation 1 : le propriétaire demande votre dossier' }, phrases: [
+        { fr: 'Pouvez-vous m’envoyer votre dossier ?', ar: 'فيك تبعتلي ملفك؟', en: 'Can you send me your application file?' },
+        { fr: 'Oui, je vais vous l’envoyer aujourd’hui.', ar: 'إي، رح ابعتلك ياه اليوم.', en: 'Yes, I’ll send it today.' },
+        { fr: 'Il me manque encore un document.', ar: 'لسا ناقصني ورقة.', en: 'I’m still missing one document.' },
+        { fr: 'Je peux vous envoyer le document demain.', ar: 'فيني ابعتلك الورقة بكرا.', en: 'I can send you the document tomorrow.' }
+      ] },
+      { icon: '📱', title: { ar: 'الموقف 2: الاتصال بعد تقديم الملف', en: 'Situation 2: follow-up call', fr: 'Situation 2 : relance après le dossier' }, phrases: [
+        { fr: 'Bonjour, je vous appelle concernant mon dossier de location.', ar: 'مرحبا، عم اتصل بخصوص ملف استئجار السكن.', en: 'Hello, I’m calling about my rental application.' },
+        { fr: 'Avez-vous eu le temps d’étudier mon dossier ?', ar: 'لحقتوا تطّلعوا على ملفي؟', en: 'Have you had time to review my application?' },
+        { fr: 'Nous sommes encore en train d’étudier les dossiers.', ar: 'لسا عم ندرس الملفات.', en: 'We’re still reviewing the applications.' },
+        { fr: 'Quand est-ce que j’aurai une réponse ?', ar: 'إمتى رح يوصلني جواب؟', en: 'When will I get an answer?' }
+      ] },
+      { icon: '❌', title: { ar: 'الموقف 3: رفض الملف', en: 'Situation 3: rejected application', fr: 'Situation 3 : dossier refusé' }, phrases: [
+        { fr: 'Malheureusement, votre dossier n’a pas été retenu.', ar: 'للأسف، ملفك ما انقبل.', en: 'Unfortunately, your application wasn’t selected.' },
+        { fr: 'Pouvez-vous me dire pourquoi ?', ar: 'فيك تخبرني ليش؟', en: 'Can you tell me why?' },
+        { fr: 'Est-ce que je peux déposer un autre dossier ?', ar: 'فيني قدّم ملف تاني؟', en: 'Can I submit another application?' }
+      ] },
+      { icon: '✅', title: { ar: 'الموقف 4: قبول الملف', en: 'Situation 4: accepted application', fr: 'Situation 4 : dossier accepté' }, phrases: [
+        { fr: 'Bonne nouvelle, votre dossier est accepté.', ar: 'خبر منيح، ملفك انقبل.', en: 'Good news, your application has been accepted.' },
+        { fr: 'Merci beaucoup. Quelles sont les prochaines étapes ?', ar: 'شكرًا كتير، شو الخطوات الجاية؟', en: 'Thank you. What are the next steps?' },
+        { fr: 'Vous devez maintenant signer le bail.', ar: 'هلق لازم توقّع عقد الإيجار.', en: 'You now need to sign the lease.' }
+      ] },
+      { icon: '📝', title: { ar: 'الموقف 5: قراءة عقد الإيجار', en: 'Situation 5: reading the lease', fr: 'Situation 5 : lire le bail' }, phrases: [
+        { fr: 'Je voudrais lire le bail avant de le signer.', ar: 'بدي اقرأ عقد الإيجار قبل ما وقّعه.', en: 'I’d like to read the lease before signing it.' },
+        { fr: 'Bien sûr, prenez votre temps.', ar: 'أكيد، خد وقتك.', en: 'Of course, take your time.' },
+        { fr: 'Je ne comprends pas cette clause.', ar: 'ما فهمت هالفقرة بالعقد.', en: 'I don’t understand this clause.' },
+        { fr: 'Pouvez-vous me l’expliquer ?', ar: 'فيك تشرحلي ياها؟', en: 'Can you explain it to me?' }
+      ] },
+      { icon: '💳', title: { ar: 'الموقف 6: دفع أول مبلغ', en: 'Situation 6: first payment', fr: 'Situation 6 : premier paiement' }, phrases: [
+        { fr: 'Quand dois-je payer le premier loyer ?', ar: 'إمتى لازم ادفع أول إيجار؟', en: 'When do I have to pay the first rent?' },
+        { fr: 'Le premier loyer doit être payé à la signature du bail.', ar: 'أول إيجار لازم يندفع وقت توقيع العقد.', en: 'The first rent must be paid when signing the lease.' },
+        { fr: 'Comment puis-je payer ?', ar: 'كيف فيني ادفع؟', en: 'How can I pay?' },
+        { fr: 'Par virement bancaire.', ar: 'عن طريق تحويل بنكي.', en: 'By bank transfer.' }
+      ] },
+      { icon: '🏦', title: { ar: 'الموقف 7: طلب RIB', en: 'Situation 7: RIB request', fr: 'Situation 7 : demande de RIB' }, phrases: [
+        { fr: 'Pouvez-vous me donner votre RIB ?', ar: 'فيك تعطيني الـRIB تبعك؟', en: 'Can you give me your bank details?' },
+        { fr: 'Oui, voici mon RIB.', ar: 'إي، تفضل الـRIB تبعي.', en: 'Yes, here is my bank information.' },
+        { fr: 'Le prélèvement sera automatique chaque mois ?', ar: 'الخصم رح يكون تلقائي كل شهر؟', en: 'Will the payment be automatically debited every month?' }
+      ] },
+      { icon: '🛡️', title: { ar: 'الموقف 8: تأمين السكن', en: 'Situation 8: home insurance', fr: 'Situation 8 : assurance habitation' }, phrases: [
+        { fr: 'Avez-vous une assurance habitation ?', ar: 'عندك تأمين على السكن؟', en: 'Do you have home insurance?' },
+        { fr: 'Oui, je vais souscrire une assurance habitation.', ar: 'إي، رح اعمل تأمين على السكن.', en: 'Yes, I’m going to get home insurance.' },
+        { fr: 'Je vous enverrai l’attestation d’assurance.', ar: 'رح ابعتلكم شهادة التأمين.', en: 'I’ll send you the insurance certificate.' }
+      ] },
+      { icon: '🔍', title: { ar: 'الموقف 9: معاينة السكن قبل الدخول', en: 'Situation 9: move-in inspection', fr: 'Situation 9 : état des lieux d’entrée' }, phrases: [
+        { fr: 'Nous allons faire l’état des lieux d’entrée.', ar: 'رح نعمل معاينة السكن وقت الدخول.', en: 'We’re going to do the move-in inspection.' },
+        { fr: 'Il y a déjà une petite trace sur le mur.', ar: 'في أثر صغير موجود أصلًا عالحيط.', en: 'There is already a small mark on the wall.' },
+        { fr: 'Pouvez-vous le noter sur l’état des lieux ?', ar: 'فيك تسجّلها بمحضر المعاينة؟', en: 'Can you note it on the inspection report?' },
+        { fr: 'Je préfère signaler ce problème maintenant.', ar: 'بفضّل بلّغ عن هالمشكلة من هلق.', en: 'I’d rather report this problem now.' }
+      ] },
+      { icon: '🔧', title: { ar: 'الموقف 10: اكتشاف عطل بعد الدخول', en: 'Situation 10: defect after moving in', fr: 'Situation 10 : panne après l’emménagement' }, phrases: [
+        { fr: 'Il y a un problème dans le logement.', ar: 'في مشكلة بالسكن.', en: 'There is a problem in the property.' },
+        { fr: 'Le chauffage ne fonctionne pas.', ar: 'التدفئة ما عم تشتغل.', en: 'The heating isn’t working.' },
+        { fr: 'Il y a une fuite d’eau.', ar: 'في تسرّب مي.', en: 'There is a water leak.' },
+        { fr: 'La serrure ne fonctionne pas correctement.', ar: 'القفل ما عم يشتغل بشكل صحيح.', en: 'The lock isn’t working properly.' },
+        { fr: 'Pouvez-vous envoyer quelqu’un pour réparer ça ?', ar: 'فيكم تبعتوا حدا يصلّحها؟', en: 'Can you send someone to repair it?' }
+      ] },
+      { icon: '📦', title: { ar: 'الموقف 11: استلام المفاتيح', en: 'Situation 11: receiving keys', fr: 'Situation 11 : remise des clés' }, phrases: [
+        { fr: 'Voici les clés du logement.', ar: 'تفضل مفاتيح السكن.', en: 'Here are the keys to the property.' },
+        { fr: 'Combien de clés avez-vous ?', ar: 'قديش في مفتاح؟', en: 'How many keys are there?' },
+        { fr: 'Est-ce que j’ai aussi une clé de la boîte aux lettres ?', ar: 'في كمان مفتاح لصندوق البريد؟', en: 'Is there also a key for the mailbox?' },
+        { fr: 'Oui, voici la clé de la boîte aux lettres.', ar: 'إي، هاد مفتاح صندوق البريد.', en: 'Yes, here is the mailbox key.' }
+      ] },
+      { icon: '📬', title: { ar: 'الموقف 12: تغيير العنوان', en: 'Situation 12: change of address', fr: 'Situation 12 : changement d’adresse' }, phrases: [
+        { fr: 'Je viens de déménager.', ar: 'أنا هلأ انتقلت لسكن جديد.', en: 'I’ve just moved.' },
+        { fr: 'Je dois signaler mon changement d’adresse.', ar: 'لازم بلّغ عن تغيير عنواني.', en: 'I need to report my change of address.' },
+        { fr: 'À qui dois-je communiquer ma nouvelle adresse ?', ar: 'لمين لازم أعطي عنواني الجديد؟', en: 'Who do I need to give my new address to?' },
+        { fr: 'Je voudrais faire suivre mon courrier.', ar: 'بدي حوّل بريدي على العنوان الجديد.', en: 'I’d like to have my mail forwarded.' }
+      ] },
+      { icon: '⭐', title: { ar: 'عبارات مهمة جدًا تحفظها', en: 'Key phrases to remember', fr: 'Phrases clés à retenir' }, phrases: [
+        { fr: 'Je suis intéressé par ce logement.', ar: 'أنا مهتم بهالسكن.', en: 'I’m interested in this property.' },
+        { fr: 'Je voudrais déposer mon dossier.', ar: 'بدي قدّم ملفي.', en: 'I’d like to submit my application.' },
+        { fr: 'Mon dossier est complet.', ar: 'ملفي كامل.', en: 'My application is complete.' },
+        { fr: 'Il me manque seulement ce document.', ar: 'ما ناقصني غير هالورقة.', en: 'I’m only missing this document.' },
+        { fr: 'Je suis prêt à signer le bail.', ar: 'أنا جاهز وقّع العقد.', en: 'I’m ready to sign the lease.' },
+        { fr: 'Je voudrais emménager le plus rapidement possible.', ar: 'بدي فوت وأسكن بأسرع وقت ممكن.', en: 'I’d like to move in as soon as possible.' }
+      ] },
+      { icon: '🏢', title: { ar: 'السؤال عن مدة العقد', en: 'Lease duration', fr: 'Durée du bail' }, phrases: [
+        { fr: 'Quelle est la durée du bail ?', ar: 'قديش مدة عقد الإيجار؟', en: 'How long is the lease?' },
+        { fr: 'Le bail est signé pour combien de temps ?', ar: 'العقد بينعمل لمدة قديش؟', en: 'How long is the lease signed for?' },
+        { fr: 'Le bail est renouvelable ?', ar: 'العقد بيتجدد؟', en: 'Is the lease renewable?' },
+        { fr: 'Oui, il est renouvelable sous certaines conditions.', ar: 'إي، بيتجدد بشروط معيّنة.', en: 'Yes, it can be renewed under certain conditions.' }
+      ] },
+      { icon: '🚪', title: { ar: 'السؤال عن المغادرة مستقبلًا', en: 'Future departure', fr: 'Préavis de départ' }, phrases: [
+        { fr: 'Si je veux partir, quel est le préavis ?', ar: 'إذا بدي اترك السكن، قديش مدة الإنذار؟', en: 'If I want to leave, how much notice do I have to give?' },
+        { fr: 'Vous devez respecter le délai de préavis prévu.', ar: 'لازم تلتزم بمدة الإشعار المطلوبة.', en: 'You have to respect the required notice period.' },
+        { fr: 'Comment dois-je donner mon préavis ?', ar: 'كيف لازم قدّم إشعار المغادرة؟', en: 'How do I give notice?' }
+      ] },
+      { icon: '🏠', title: { ar: 'هل يسمح بتغيير شيء في السكن؟', en: 'Alterations allowed?', fr: 'Peut-on modifier le logement ?' }, phrases: [
+        { fr: 'Est-ce que je peux repeindre les murs ?', ar: 'فيني ادهن الحيطان؟', en: 'Can I repaint the walls?' },
+        { fr: 'Est-ce que je peux faire des trous dans les murs ?', ar: 'فيني اعمل ثقوب بالحيطان؟', en: 'Can I make holes in the walls?' },
+        { fr: 'Est-ce que je peux installer une étagère ?', ar: 'فيني ركّب رف؟', en: 'Can I install a shelf?' },
+        { fr: 'Il faut demander l’autorisation avant de faire des travaux.', ar: 'لازم تطلب إذن قبل ما تعمل أي تعديلات.', en: 'You need permission before making any alterations.' }
+      ] },
+      { icon: '🐕', title: { ar: 'الحيوانات الأليفة', en: 'Pets', fr: 'Animaux' }, phrases: [
+        { fr: 'Est-ce que les animaux sont autorisés ?', ar: 'مسموح الحيوانات الأليفة؟', en: 'Are pets allowed?' },
+        { fr: 'J’ai un petit chien. Est-ce que c’est possible ?', ar: 'عندي كلب صغير، مسموح؟', en: 'I have a small dog. Is that allowed?' },
+        { fr: 'Les animaux sont acceptés.', ar: 'الحيوانات مسموحة.', en: 'Pets are allowed.' }
+      ] },
+      { icon: '🚗', title: { ar: 'موقف السيارة', en: 'Parking', fr: 'Parking' }, phrases: [
+        { fr: 'Est-ce qu’il y a une place de parking ?', ar: 'في موقف سيارة؟', en: 'Is there a parking space?' },
+        { fr: 'Le parking est-il compris dans le loyer ?', ar: 'الموقف داخل بالإيجار؟', en: 'Is parking included in the rent?' },
+        { fr: 'Est-ce qu’il y a un garage ?', ar: 'في كراج؟', en: 'Is there a garage?' }
+      ] },
+      { icon: '🚲', title: { ar: 'مكان الدراجة', en: 'Bike storage', fr: 'Local vélo' }, phrases: [
+        { fr: 'Y a-t-il un local à vélos ?', ar: 'في مكان مخصص للدراجات؟', en: 'Is there a bicycle storage room?' },
+        { fr: 'Où puis-je laisser mon vélo ?', ar: 'وين فيني حط دراجتي؟', en: 'Where can I leave my bike?' }
+      ] },
+      { icon: '📡', title: { ar: 'الإنترنت والهاتف', en: 'Internet & phone', fr: 'Internet et téléphone' }, phrases: [
+        { fr: 'La fibre est-elle disponible dans l’immeuble ?', ar: 'الفايبر موجود بالبناية؟', en: 'Is fiber internet available in the building?' },
+        { fr: 'Est-ce que je peux installer ma propre box Internet ?', ar: 'فيني ركّب اشتراك الإنترنت تبعي؟', en: 'Can I install my own internet box?' },
+        { fr: 'La prise fibre est déjà installée ?', ar: 'مأخذ الفايبر مركّب من قبل؟', en: 'Is the fiber socket already installed?' }
+      ] },
+      { icon: '🗑️', title: { ar: 'القمامة والنفايات', en: 'Bins & waste', fr: 'Poubelles et déchets' }, phrases: [
+        { fr: 'Où sont les poubelles ?', ar: 'وين الزبالة / حاويات القمامة؟', en: 'Where are the trash bins?' },
+        { fr: 'Où dois-je déposer mes déchets ?', ar: 'وين لازم حط الزبالة؟', en: 'Where should I dispose of my waste?' },
+        { fr: 'Le tri des déchets est obligatoire ?', ar: 'فرز النفايات إجباري؟', en: 'Is waste sorting mandatory?' }
+      ] },
+      { icon: '🛗', title: { ar: 'المصعد والأماكن المشتركة', en: 'Lift & common areas', fr: 'Ascenseur et parties communes' }, phrases: [
+        { fr: 'Il y a un ascenseur dans l’immeuble ?', ar: 'في مصعد بالبناية؟', en: 'Is there an elevator in the building?' },
+        { fr: 'L’ascenseur fonctionne correctement ?', ar: 'المصعد شغال منيح؟', en: 'Does the elevator work properly?' },
+        { fr: 'Les parties communes sont-elles entretenues ?', ar: 'الأماكن المشتركة بالبناية بتننظف وبتتعتنى فيها؟', en: 'Are the common areas maintained?' }
+      ] },
+      { icon: '🔇', title: { ar: 'الضجيج والجيران', en: 'Noise & neighbors', fr: 'Bruit et voisins' }, phrases: [
+        { fr: 'L’immeuble est-il calme ?', ar: 'البناية هادية؟', en: 'Is the building quiet?' },
+        { fr: 'Est-ce qu’il y a beaucoup de bruit ?', ar: 'في ضجة كتير؟', en: 'Is there a lot of noise?' },
+        { fr: 'Les voisins sont-ils calmes ?', ar: 'الجيران هاديين؟', en: 'Are the neighbors quiet?' }
+      ] },
+      { icon: '🌡️', title: { ar: 'التدفئة واستهلاك الطاقة', en: 'Heating & energy use', fr: 'Chauffage et consommation' }, phrases: [
+        { fr: 'Quel type de chauffage y a-t-il ?', ar: 'شو نوع التدفئة؟', en: 'What type of heating is there?' },
+        { fr: 'Le chauffage est individuel ou collectif ?', ar: 'التدفئة فردية ولا مركزية للبناية؟', en: 'Is the heating individual or collective?' },
+        { fr: 'Le logement est-il bien isolé ?', ar: 'السكن عزله منيح؟', en: 'Is the property well insulated?' },
+        { fr: 'La consommation d’énergie est-elle élevée ?', ar: 'استهلاك الطاقة عالي؟', en: 'Is the energy consumption high?' }
+      ] },
+      { icon: '🧾', title: { ar: 'الأوراق بعد استئجار السكن', en: 'Documents after renting', fr: 'Documents après la location' }, phrases: [
+        { fr: 'Pouvez-vous me donner une quittance de loyer ?', ar: 'فيكم تعطوني إيصال دفع الإيجار؟', en: 'Can you give me a rent receipt?' },
+        { fr: 'J’ai besoin d’une quittance de loyer pour mon dossier.', ar: 'بدي إيصال إيجار لملفي.', en: 'I need a rent receipt for my application.' },
+        { fr: 'Pouvez-vous me fournir une attestation de loyer ?', ar: 'فيكم تعطوني شهادة إيجار؟', en: 'Can you provide me with a rent certificate?' }
+      ] },
+      { icon: '🧑‍💼', title: { ar: 'التواصل مع الوكالة أو المالك بعد السكن', en: 'Contacting the agency after renting', fr: 'Contacter l’agence après la location' }, phrases: [
+        { fr: 'J’ai une question concernant mon logement.', ar: 'عندي سؤال بخصوص السكن.', en: 'I have a question about my accommodation.' },
+        { fr: 'Je voudrais signaler un problème.', ar: 'بدي بلّغ عن مشكلة.', en: 'I’d like to report a problem.' },
+        { fr: 'Pouvez-vous intervenir rapidement ?', ar: 'فيكم تتصرفوا بسرعة؟', en: 'Can you take action quickly?' },
+        { fr: 'Quand est-ce que quelqu’un pourra intervenir ?', ar: 'إمتى في حدا رح يجي يتصرف/يصلّح المشكلة؟', en: 'When can someone come and deal with the problem?' }
+      ] },
+      { icon: '🔑', title: { ar: 'عبارات ستسمعها كثيرًا من الوكالة', en: 'Common agency phrases', fr: 'Phrases souvent entendues de l’agence' }, phrases: [
+        { fr: 'Votre dossier est complet.', ar: 'ملفك كامل.', en: 'Your application is complete.' },
+        { fr: 'Il manque une pièce à votre dossier.', ar: 'ناقصة ورقة من ملفك.', en: 'A document is missing from your application.' },
+        { fr: 'Votre dossier est en cours d’étude.', ar: 'ملفك قيد الدراسة.', en: 'Your application is being reviewed.' },
+        { fr: 'Votre dossier a été retenu.', ar: 'تم اختيار ملفك / انقبل مبدئيًا.', en: 'Your application has been selected.' },
+        { fr: 'Le logement sera disponible à partir du 1er novembre.', ar: 'السكن رح يكون متوفر من أول تشرين الثاني.', en: 'The property will be available from November 1st.' },
+        { fr: 'Nous vous contacterons dès que nous aurons une réponse.', ar: 'رح نتواصل معك أول ما يصير عنا جواب.', en: 'We’ll contact you as soon as we have an answer.' }
+      ] },
+      { icon: '🏦', title: { ar: 'سؤال عن الضامن والضمان المالي', en: 'Guarantor & financial guarantee', fr: 'Garant et garantie financière' }, phrases: [
+        { fr: 'Acceptez-vous Visale comme garant ?', ar: 'بتقبلوا Visale كضامن؟', en: 'Do you accept Visale as a guarantor?' },
+        { fr: 'Est-ce que la garantie Visale est acceptée ?', ar: 'ضمان Visale مقبول؟', en: 'Is the Visale guarantee accepted?' },
+        { fr: 'Je bénéficie de la garantie Visale.', ar: 'أنا عندي ضمان Visale.', en: 'I have a Visale guarantee.' },
+        { fr: 'Mon garant peut-il se porter caution ?', ar: 'في الكفيل تبعيه يكون ضامن؟', en: 'Can my guarantor act as a guarantor?' }
+      ] },
+      { icon: '💼', title: { ar: 'سؤال عن الدخل والعمل', en: 'Income & employment', fr: 'Revenus et emploi' }, phrases: [
+        { fr: 'Quel est votre revenu mensuel ?', ar: 'قديش دخلك الشهري؟', en: 'What is your monthly income?' },
+        { fr: 'Je travaille actuellement en CDI.', ar: 'أنا حاليًا بشتغل بعقد CDI.', en: 'I’m currently working on a permanent contract.' },
+        { fr: 'Je suis en CDD.', ar: 'أنا بعقد CDD.', en: 'I’m on a fixed-term contract.' },
+        { fr: 'Mon contrat de travail arrive bientôt à son terme.', ar: 'عقد شغلي قرب يخلص.', en: 'My employment contract is coming to an end soon.' }
+      ] },
+      { icon: '👨‍👩‍👧', title: { ar: 'عدد الأشخاص الذين سيسكنون', en: 'Number of occupants', fr: 'Nombre d’occupants' }, phrases: [
+        { fr: 'Vous serez combien à vivre dans le logement ?', ar: 'قديش شخص رح يسكن بالسكن؟', en: 'How many people will live in the property?' },
+        { fr: 'Je serai seul dans le logement.', ar: 'رح كون لحالي بالسكن.', en: 'I’ll live alone.' },
+        { fr: 'Nous serons deux.', ar: 'رح نكون شخصين.', en: 'There will be two of us.' },
+        { fr: 'Le logement est-il adapté pour deux personnes ?', ar: 'السكن مناسب لشخصين؟', en: 'Is the property suitable for two people?' }
+      ] },
+      { icon: '🪑', title: { ar: 'مفروش أو غير مفروش', en: 'Furnished or unfurnished', fr: 'Meublé ou non meublé' }, phrases: [
+        { fr: 'Est-ce une location meublée ou non meublée ?', ar: 'الإيجار مفروش ولا فاضي؟', en: 'Is it furnished or unfurnished?' },
+        { fr: 'Quels meubles sont inclus ?', ar: 'شو الأثاث الموجود؟', en: 'What furniture is included?' },
+        { fr: 'Est-ce que le lit est fourni ?', ar: 'التخت موجود؟', en: 'Is the bed provided?' },
+        { fr: 'Les appareils électroménagers sont-ils inclus ?', ar: 'الأجهزة الكهربائية موجودة ضمن السكن؟', en: 'Are the appliances included?' }
+      ] },
+      { icon: '📏', title: { ar: 'قياس ومساحة الغرف', en: 'Room size & measurements', fr: 'Surface et mesures' }, phrases: [
+        { fr: 'Quelle est la taille de la chambre ?', ar: 'قديش مساحة غرفة النوم؟', en: 'How big is the bedroom?' },
+        { fr: 'La pièce est-elle assez grande pour un lit double ?', ar: 'الغرفة واسعة كفاية لتخت لشخصين؟', en: 'Is the room large enough for a double bed?' },
+        { fr: 'Il y a beaucoup de rangements ?', ar: 'في أماكن تخزين كتيرة؟', en: 'Is there plenty of storage?' }
+      ] },
+      { icon: '🚿', title: { ar: 'الحمام والمطبخ', en: 'Bathroom & kitchen', fr: 'Salle de bain et cuisine' }, phrases: [
+        { fr: 'La salle de bains est-elle équipée d’une douche ?', ar: 'الحمام فيه دوش؟', en: 'Does the bathroom have a shower?' },
+        { fr: 'Y a-t-il une baignoire ?', ar: 'في بانيو؟', en: 'Is there a bathtub?' },
+        { fr: 'La machine à laver est-elle incluse ?', ar: 'الغسالة موجودة؟', en: 'Is the washing machine included?' },
+        { fr: 'Y a-t-il suffisamment de prises électriques ?', ar: 'في مقابس كهربا كفاية؟', en: 'Are there enough electrical outlets?' }
+      ] },
+      { icon: '🌞', title: { ar: 'الضوء والتهوية', en: 'Light & ventilation', fr: 'Lumière et aération' }, phrases: [
+        { fr: 'Le logement est-il lumineux ?', ar: 'السكن فيه ضو منيح؟', en: 'Is the property bright?' },
+        { fr: 'Il est exposé de quel côté ?', ar: 'على أي جهة مطلّ؟', en: 'Which direction does it face?' },
+        { fr: 'Est-ce qu’il y a une bonne ventilation ?', ar: 'التهوية منيحة؟', en: 'Is there good ventilation?' }
+      ] },
+      { icon: '📬', title: { ar: 'صندوق البريد والاسم', en: 'Mailbox & name', fr: 'Boîte aux lettres et nom' }, phrases: [
+        { fr: 'Est-ce que je peux mettre mon nom sur la boîte aux lettres ?', ar: 'فيني حط اسمي على صندوق البريد؟', en: 'Can I put my name on the mailbox?' },
+        { fr: 'Où se trouve la boîte aux lettres ?', ar: 'وين صندوق البريد؟', en: 'Where is the mailbox?' },
+        { fr: 'Je dois changer l’étiquette avec mon nom.', ar: 'لازم غيّر الورقة وأحط اسمي.', en: 'I need to change the name label.' }
+      ] },
+      { icon: '🧯', title: { ar: 'الأمان', en: 'Safety', fr: 'Sécurité' }, phrases: [
+        { fr: 'La porte d’entrée est-elle sécurisée ?', ar: 'باب الدخول آمن؟', en: 'Is the entrance door secure?' },
+        { fr: 'Y a-t-il un interphone ?', ar: 'في إنترفون؟', en: 'Is there an intercom?' },
+        { fr: 'Est-ce qu’il y a un détecteur de fumée ?', ar: 'في كاشف دخان؟', en: 'Is there a smoke detector?' }
+      ] },
+      { icon: '🧾', title: { ar: 'إذا طلبوا أوراق إضافية', en: 'If extra documents are requested', fr: 'S’ils demandent des documents' }, phrases: [
+        { fr: 'Pouvez-vous me transmettre ce document ?', ar: 'فيك تبعتلي هالوثيقة؟', en: 'Can you send me this document?' },
+        { fr: 'Je vais vous l’envoyer par e-mail.', ar: 'رح ابعتلك ياها بالإيميل.', en: 'I’ll send it by email.' },
+        { fr: 'Je n’ai pas encore reçu ce document.', ar: 'لسا ما استلمت هالوثيقة.', en: 'I haven’t received this document yet.' },
+        { fr: 'Est-ce qu’un autre justificatif est possible ?', ar: 'فيني أقدّم إثبات تاني بدل هاد؟', en: 'Is another supporting document acceptable?' }
+      ] },
+      { icon: '⏳', title: { ar: 'إذا كنت مستعجلًا للانتقال', en: 'If you’re in a hurry', fr: 'Si vous êtes pressé' }, phrases: [
+        { fr: 'J’aurais besoin d’emménager rapidement.', ar: 'بحتاج فوت عالسكن بسرعة.', en: 'I need to move in quickly.' },
+        { fr: 'Serait-il possible d’emménager plus tôt ?', ar: 'ممكن فوت وأسكن أبكر؟', en: 'Would it be possible to move in earlier?' },
+        { fr: 'J’ai besoin du logement dès que possible.', ar: 'بحتاج السكن بأقرب وقت ممكن.', en: 'I need the accommodation as soon as possible.' }
+      ] },
+      { icon: '📞', title: { ar: 'إذا لم يردوا عليك', en: 'If they don’t reply', fr: 'Sans réponse' }, phrases: [
+        { fr: 'Je me permets de vous relancer concernant mon dossier.', ar: 'عم ارجع اتواصل معكم بخصوص ملفي.', en: 'I’m following up regarding my application.' },
+        { fr: 'Je voulais savoir où en était mon dossier.', ar: 'بدي أعرف لوين وصل ملفي.', en: 'I wanted to know the status of my application.' },
+        { fr: 'Avez-vous des nouvelles concernant ma demande ?', ar: 'في عندكم أي خبر بخصوص طلبي؟', en: 'Do you have any news about my application?' }
+      ] },
+      { icon: '📦', title: { ar: 'يوم استلام السكن', en: 'Handover day', fr: 'Jour de la remise du logement' }, phrases: [
+        { fr: 'Est-ce que tout est prêt pour mon arrivée ?', ar: 'كل شي جاهز لوقت وصولي؟', en: 'Is everything ready for my arrival?' },
+        { fr: 'Les compteurs ont-ils été relevés ?', ar: 'تم تسجيل قراءات العدادات؟', en: 'Have the meter readings been recorded?' },
+        { fr: 'Pouvez-vous me donner les relevés des compteurs ?', ar: 'فيكم تعطوني قراءات العدادات؟', en: 'Can you give me the meter readings?' },
+        { fr: 'Je vais vérifier le logement avant de signer l’état des lieux.', ar: 'رح أتأكد من السكن قبل ما وقّع محضر المعاينة.', en: 'I’ll check the property before signing the inspection report.' }
+      ] },
+      { icon: '🔑', title: { ar: 'تغيير موعد الزيارة', en: 'Rescheduling the viewing', fr: 'Reprogrammer la visite' }, phrases: [
+        { fr: 'Je ne pourrai finalement pas venir à l’heure prévue.', ar: 'للأسف ما رح اقدر أجي بالوقت المحدد.', en: 'I won’t be able to come at the scheduled time.' },
+        { fr: 'Est-ce qu’on peut décaler le rendez-vous ?', ar: 'فينا نأجل الموعد؟', en: 'Can we postpone the appointment?' },
+        { fr: 'Est-ce que vous avez un autre créneau disponible ?', ar: 'عندكم وقت تاني متاح؟', en: 'Do you have another available time slot?' },
+        { fr: 'Je peux être disponible en fin de journée.', ar: 'فيني كون متاح بآخر النهار.', en: 'I can be available at the end of the day.' }
+      ] },
+      { icon: '🏠', title: { ar: 'بعد مشاهدة السكن', en: 'After the viewing', fr: 'Après la visite' }, phrases: [
+        { fr: 'La visite m’a beaucoup plu.', ar: 'عجبتني الزيارة كتير.', en: 'I really liked the viewing.' },
+        { fr: 'Le logement correspond à ce que je recherche.', ar: 'السكن مناسب للشي اللي عم دور عليه.', en: 'The property matches what I’m looking for.' },
+        { fr: 'Je souhaiterais donner suite à la visite.', ar: 'بدي كمّل بالإجراءات بعد الزيارة.', en: 'I’d like to proceed after the viewing.' },
+        { fr: 'Je suis prêt à déposer ma candidature.', ar: 'أنا جاهز قدّم طلبي.', en: 'I’m ready to submit my application.' }
+      ] },
+      { icon: '💶', title: { ar: 'تكاليف غير واضحة', en: 'Unclear costs', fr: 'Frais peu clairs' }, phrases: [
+        { fr: 'Y a-t-il d’autres dépenses à prévoir ?', ar: 'في مصاريف تانية لازم أحسب حسابها؟', en: 'Are there any other expenses to expect?' },
+        { fr: 'Ces charges sont-elles fixes ou variables ?', ar: 'هالمصاريف ثابتة ولا بتتغير؟', en: 'Are these charges fixed or variable?' },
+        { fr: 'Les charges sont-elles régularisées chaque année ?', ar: 'المصاريف بينعمل إلها تسوية كل سنة؟', en: 'Are the charges adjusted annually?' },
+        { fr: 'Est-ce qu’il peut y avoir une régularisation en fin d’année ?', ar: 'ممكن يطلع فرق بالمصاريف بنهاية السنة؟', en: 'Could there be an adjustment at the end of the year?' }
+      ] },
+      { icon: '🧾', title: { ar: 'الإيصالات والدفع', en: 'Receipts & payment', fr: 'Reçus et paiement' }, phrases: [
+        { fr: 'Comment vais-je recevoir mes avis de paiement ?', ar: 'كيف رح توصلني إشعارات الدفع؟', en: 'How will I receive my payment notices?' },
+        { fr: 'Je souhaite payer par virement.', ar: 'بدي ادفع عن طريق التحويل البنكي.', en: 'I’d like to pay by bank transfer.' },
+        { fr: 'À quelle date le loyer est-il prélevé ?', ar: 'بأي تاريخ بينسحب الإيجار؟', en: 'On what date is the rent debited?' },
+        { fr: 'Que dois-je faire si je rencontre une difficulté pour payer ?', ar: 'شو لازم أعمل إذا واجهت صعوبة بالدفع؟', en: 'What should I do if I have difficulty paying?' }
+      ] },
+      { icon: '📝', title: { ar: 'تعديل العقد أو المعلومات', en: 'Amending the lease', fr: 'Modifier le bail' }, phrases: [
+        { fr: 'Je voudrais signaler un changement dans ma situation.', ar: 'بدي خبركم عن تغيير بوضعِي.', en: 'I’d like to report a change in my situation.' },
+        { fr: 'Comment puis-je modifier mes informations personnelles ?', ar: 'كيف فيني عدّل معلوماتي الشخصية؟', en: 'How can I update my personal information?' },
+        { fr: 'Je voudrais ajouter mon nom au contrat.', ar: 'بدي أضيف اسمي للعقد.', en: 'I’d like to add my name to the lease.' },
+        { fr: 'Est-il possible de modifier le titulaire du bail ?', ar: 'ممكن نغيّر اسم صاحب العقد؟', en: 'Is it possible to change the leaseholder?' }
+      ] },
+      { icon: '🔧', title: { ar: 'مشكلة تحتاج إصلاح', en: 'A repair needed', fr: 'Problème à réparer' }, phrases: [
+        { fr: 'Je viens de constater un problème dans le logement.', ar: 'اكتشفت مشكلة بالسكن.', en: 'I’ve just noticed a problem in the property.' },
+        { fr: 'Le problème est apparu récemment.', ar: 'المشكلة ظهرت من فترة قريبة.', en: 'The problem appeared recently.' },
+        { fr: 'Pouvez-vous ouvrir une demande d’intervention ?', ar: 'فيكم تفتحوا طلب صيانة؟', en: 'Can you open a maintenance request?' },
+        { fr: 'Est-ce que l’intervention est à ma charge ?', ar: 'التصليح على حسابي؟', en: 'Is the repair my responsibility?' }
+      ] },
+      { icon: '🛠️', title: { ar: 'موعد عامل الصيانة', en: 'Technician appointment', fr: 'Rendez-vous du technicien' }, phrases: [
+        { fr: 'Quand le technicien pourra-t-il intervenir ?', ar: 'إمتى الفني بيقدر يجي؟', en: 'When can the technician come?' },
+        { fr: 'Le technicien doit-il prendre rendez-vous avec moi ?', ar: 'الفني لازم ياخد موعد معي؟', en: 'Does the technician need to make an appointment with me?' },
+        { fr: 'Je serai présent lors de l’intervention.', ar: 'رح كون موجود وقت التصليح.', en: 'I’ll be present during the repair.' },
+        { fr: 'Je ne serai pas disponible à cette date.', ar: 'ما رح كون متاح بهداك التاريخ.', en: 'I won’t be available on that date.' }
+      ] },
+      { icon: '🚪', title: { ar: 'فقدان المفتاح', en: 'Lost key', fr: 'Clé perdue' }, phrases: [
+        { fr: 'J’ai perdu une des clés du logement.', ar: 'ضيّعت واحد من مفاتيح السكن.', en: 'I lost one of the keys.' },
+        { fr: 'Combien coûte le remplacement de la clé ?', ar: 'قديش تكلفة تبديل المفتاح؟', en: 'How much does it cost to replace the key?' },
+        { fr: 'La clé ne fonctionne plus correctement.', ar: 'المفتاح ما عاد يشتغل منيح.', en: 'The key no longer works properly.' }
+      ] },
+      { icon: '🏢', title: { ar: 'مشكلة مع الجيران', en: 'Neighbor problem', fr: 'Problème avec les voisins' }, phrases: [
+        { fr: 'J’ai un problème avec le voisinage.', ar: 'عندي مشكلة مع الجيران.', en: 'I have a problem with the neighbors.' },
+        { fr: 'Il y a du bruit régulièrement.', ar: 'في ضجة بشكل متكرر.', en: 'There is regular noise.' },
+        { fr: 'Je souhaite signaler ces nuisances.', ar: 'بدي بلّغ عن هالإزعاجات.', en: 'I’d like to report these disturbances.' },
+        { fr: 'À qui dois-je m’adresser pour ce problème ?', ar: 'لمين لازم أتوجه بخصوص هالمشكلة؟', en: 'Who should I contact about this problem?' }
+      ] },
+      { icon: '📑', title: { ar: 'طلب نسخة من العقد', en: 'Requesting a copy of the lease', fr: 'Demander une copie du bail' }, phrases: [
+        { fr: 'Pourriez-vous me transmettre une copie du bail ?', ar: 'فيكم تبعتولي نسخة عن العقد؟', en: 'Could you send me a copy of the lease?' },
+        { fr: 'Je n’ai plus ma copie du contrat.', ar: 'ما عاد معي نسخة العقد.', en: 'I no longer have my copy of the contract.' },
+        { fr: 'J’aurais besoin d’un document attestant que je suis locataire.', ar: 'بحتاج ورقة تثبت إني مستأجر.', en: 'I need a document proving that I am a tenant.' }
+      ] },
+      { icon: '📦', title: { ar: 'إذا تأخر تسليم السكن', en: 'Delayed handover', fr: 'Retard de remise du logement' }, phrases: [
+        { fr: 'La remise des clés est-elle toujours prévue aujourd’hui ?', ar: 'استلام المفاتيح لسا مقرر اليوم؟', en: 'Is the key handover still scheduled for today?' },
+        { fr: 'Je n’ai pas encore reçu les clés.', ar: 'لسا ما استلمت المفاتيح.', en: 'I haven’t received the keys yet.' },
+        { fr: 'Y a-t-il un retard concernant la remise du logement ?', ar: 'في تأخير بتسليم السكن؟', en: 'Is there a delay in handing over the property?' },
+        { fr: 'Pouvez-vous me tenir informé de la situation ?', ar: 'فيكم تخلوني على اطلاع بالوضع؟', en: 'Can you keep me informed about the situation?' }
+      ] }
+    ]
   }
 ];
