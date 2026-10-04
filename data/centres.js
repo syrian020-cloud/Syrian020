@@ -18072,6 +18072,306 @@ window.CENTRES_DATA = [
         { fr: 'Le pulvérisateur', ar: 'بخاخ التنظيف', en: 'spray bottle' },
         { fr: 'Vaporisez le produit sur la surface.', ar: 'رشّ مادة التنظيف عالسطح.', en: 'Spray the cleaner on the surface.' },
         { fr: 'Essuyez avec un chiffon propre.', ar: 'امسح بقطعة قماش نظيفة.', en: 'Wipe with a clean cloth.' }
+      ] },
+      { icon: '🥩', title: { ar: 'تقطيع وتجهيز اللحمة', en: 'Cutting and preparing meat', fr: 'Découpe et préparation de la viande' }, phrases: [
+        { fr: 'Coupez la viande, s’il vous plaît.', ar: 'قطّع اللحمة لو سمحت.', en: 'Cut the meat, please.' },
+        { fr: 'Découpez-moi ce morceau.', ar: 'قطّعلي هالقطعة.', en: 'Cut this piece for me.' },
+        { fr: 'Tranchez-la finement.', ar: 'قطّعها شرائح رفيعة.', en: 'Slice it thinly.' },
+        { fr: 'Coupez-la en morceaux.', ar: 'قطّعها قطع.', en: 'Cut it into pieces.' },
+        { fr: 'Désossez cette pièce.', ar: 'شيل عظم هالقطعة.', en: 'Debone this piece.' },
+        { fr: 'Retirez l’os.', ar: 'شيل العظمة.', en: 'Remove the bone.' },
+        { fr: 'Enlevez le gras.', ar: 'شيل الدهن.', en: 'Remove the fat.' },
+        { fr: 'Gardez un peu de gras.', ar: 'خلي شوي دهن.', en: 'Keep some fat.' }
+      ] },
+      { icon: '⚙️', title: { ar: 'فرم اللحمة', en: 'Grinding meat', fr: 'Hachage de la viande' }, phrases: [
+        { fr: 'Hachez la viande, s’il vous plaît.', ar: 'افرم اللحمة لو سمحت.', en: 'Mince the meat, please.' },
+        { fr: 'Hachez-la finement.', ar: 'افرمها ناعم.', en: 'Mince it finely.' },
+        { fr: 'Hachez-la grossièrement.', ar: 'افرمها خشن.', en: 'Mince it coarsely.' },
+        { fr: 'Hachez-la deux fois.', ar: 'افرمها مرتين.', en: 'Grind it twice.' },
+        { fr: 'Mélangez les deux viandes.', ar: 'اخلط نوعين اللحمة.', en: 'Mix the two meats.' }
+      ] },
+      { icon: '⚖️', title: { ar: 'الوزن والبيع', en: 'Weighing and selling', fr: 'Pesée et vente' }, phrases: [
+        { fr: 'Pesez-moi un kilo, s’il vous plaît.', ar: 'وزّنلي كيلو لو سمحت.', en: 'Weigh me a kilo, please.' },
+        { fr: 'Mettez-moi cinq cents grammes.', ar: 'حطلي نص كيلو.', en: 'Give me 500 grams.' },
+        { fr: 'Ajoutez encore deux cents grammes.', ar: 'زيد كمان ميتين غرام.', en: 'Add another 200 grams.' },
+        { fr: 'Ça fait combien ?', ar: 'قديش الحساب؟', en: 'How much is it?' },
+        { fr: 'Ça fait combien au total ?', ar: 'قديش المجموع؟', en: 'How much is it in total?' }
+      ] },
+      { icon: '🧂', title: { ar: 'التتبيل والتحضير', en: 'Seasoning and prep', fr: 'Assaisonnement et préparation' }, phrases: [
+        { fr: 'Assaisonnez la viande.', ar: 'تبّل اللحمة.', en: 'Season the meat.' },
+        { fr: 'Ajoutez un peu de sel.', ar: 'ضيف شوي ملح.', en: 'Add a little salt.' },
+        { fr: 'Ajoutez les épices.', ar: 'ضيف البهارات.', en: 'Add the spices.' },
+        { fr: 'Faites mariner la viande.', ar: 'نقّع اللحمة بالتتبيلة.', en: 'Marinate the meat.' },
+        { fr: 'Mélangez bien.', ar: 'اخلطها منيح.', en: 'Mix it well.' }
+      ] },
+      { icon: '🥩', title: { ar: 'الشوي والتحضير', en: 'Grilling and prep', fr: 'Grillade et préparation' }, phrases: [
+        { fr: 'Préparez les steaks.', ar: 'حضّر قطع الستيك.', en: 'Prepare the steaks.' },
+        { fr: 'Préparez les brochettes.', ar: 'حضّر أسياخ الكباب.', en: 'Prepare the skewers.' },
+        { fr: 'Enfilez la viande sur les brochettes.', ar: 'ركّب اللحمة عالسيخ.', en: 'Put the meat onto the skewers.' },
+        { fr: 'Faites griller la viande.', ar: 'اشوي اللحمة.', en: 'Grill the meat.' },
+        { fr: 'Faites dorer la viande.', ar: 'حمّر اللحمة.', en: 'Brown the meat.' }
+      ] },
+      { icon: '📦', title: { ar: 'التغليف', en: 'Wrapping', fr: 'Emballage' }, phrases: [
+        { fr: 'Emballez-moi la viande, s’il vous plaît.', ar: 'لفلي اللحمة لو سمحت.', en: 'Wrap the meat for me, please.' },
+        { fr: 'Mettez-la dans un sac.', ar: 'حطها بكيس.', en: 'Put it in a bag.' },
+        { fr: 'Séparez les morceaux, s’il vous plaît.', ar: 'فصللي القطع لو سمحت.', en: 'Separate the pieces, please.' },
+        { fr: 'Mettez-les dans deux sacs.', ar: 'حطهن بكيسين.', en: 'Put them in two bags.' }
+      ] },
+      { icon: '🧊', title: { ar: 'التخزين والتبريد', en: 'Storage and refrigeration', fr: 'Stockage et froid' }, phrases: [
+        { fr: 'Mettez la viande au frais.', ar: 'حط اللحمة بالبراد.', en: 'Keep the meat refrigerated.' },
+        { fr: 'Mettez-la au congélateur.', ar: 'حطها بالفريزر.', en: 'Put it in the freezer.' },
+        { fr: 'Sortez la viande du frigo.', ar: 'طلّع اللحمة من البراد.', en: 'Take the meat out of the fridge.' },
+        { fr: 'Rangez les morceaux dans la vitrine.', ar: 'رتّب قطع اللحمة بالواجهة.', en: 'Arrange the meat in the display case.' }
+      ] },
+      { icon: '🧼', title: { ar: 'التنظيف بعد العمل', en: 'Cleaning after work', fr: 'Nettoyage après le travail' }, phrases: [
+        { fr: 'Nettoyez le plan de travail.', ar: 'نظّف طاولة الشغل.', en: 'Clean the work surface.' },
+        { fr: 'Lavez les couteaux.', ar: 'اغسل السكاكين.', en: 'Wash the knives.' },
+        { fr: 'Désinfectez le matériel.', ar: 'عقّم الأدوات.', en: 'Disinfect the equipment.' },
+        { fr: 'Jetez les déchets.', ar: 'كبّ الزبالة/الفضلات.', en: 'Throw away the waste.' },
+        { fr: 'Nettoyez tout avant de fermer.', ar: 'نظّف كل شي قبل ما تسكّر.', en: 'Clean everything before closing.' }
+      ] },
+      { icon: '🥩', title: { ar: 'التعامل مع قطع اللحمة', en: 'Handling meat pieces', fr: 'Manipulation des morceaux' }, phrases: [
+        { fr: 'Choisissez un morceau.', ar: 'اختار قطعة.', en: 'Choose a piece.' },
+        { fr: 'Prenez cette pièce.', ar: 'خد هالقطعة.', en: 'Take this piece.' },
+        { fr: 'Retournez le morceau.', ar: 'اقلب القطعة.', en: 'Turn the piece over.' },
+        { fr: 'Tournez la viande.', ar: 'قلّب اللحمة.', en: 'Turn the meat.' },
+        { fr: 'Maintenez bien la viande.', ar: 'ثبّت اللحمة منيح.', en: 'Hold the meat firmly.' },
+        { fr: 'Tenez bien le morceau.', ar: 'مسك القطعة منيح.', en: 'Hold the piece firmly.' },
+        { fr: 'Posez la viande ici.', ar: 'حط اللحمة هون.', en: 'Put the meat here.' },
+        { fr: 'Déplacez ce morceau.', ar: 'انقل هالقطعة.', en: 'Move this piece.' }
+      ] },
+      { icon: '🔪', title: { ar: 'التقطيع والتشذيب', en: 'Cutting and trimming', fr: 'Découpe et parage' }, phrases: [
+        { fr: 'Parez la viande.', ar: 'شذّب اللحمة وشيل الزوائد.', en: 'Trim the meat.' },
+        { fr: 'Égalisez les morceaux.', ar: 'ساوي القطع ببعض.', en: 'Even out the pieces.' },
+        { fr: 'Retirez les parties abîmées.', ar: 'شيل الأجزاء الخربانة.', en: 'Remove the damaged parts.' },
+        { fr: 'Coupez les extrémités.', ar: 'قطّع الأطراف.', en: 'Cut off the ends.' },
+        { fr: 'Séparez les morceaux.', ar: 'فصل القطع عن بعضها.', en: 'Separate the pieces.' },
+        { fr: 'Taillez la viande.', ar: 'شكّل وقطّع اللحمة حسب المطلوب.', en: 'Trim and shape the meat.' },
+        { fr: 'Faites des morceaux réguliers.', ar: 'اعمل قطع متساوية.', en: 'Make even-sized pieces.' }
+      ] },
+      { icon: '🥩', title: { ar: 'تحضير الطلب', en: 'Preparing the order', fr: 'Préparation de la commande' }, phrases: [
+        { fr: 'Prélevez la quantité demandée.', ar: 'خُد الكمية المطلوبة.', en: 'Take the requested quantity.' },
+        { fr: 'Préparez la commande.', ar: 'حضّر الطلبية.', en: 'Prepare the order.' },
+        { fr: 'Respectez la quantité demandée.', ar: 'التزم بالكمية المطلوبة.', en: 'Stick to the requested quantity.' },
+        { fr: 'Vérifiez la commande.', ar: 'تأكد من الطلبية.', en: 'Check the order.' },
+        { fr: 'Ajoutez ce morceau à la commande.', ar: 'ضيف هالقطعة عالطلبية.', en: 'Add this piece to the order.' },
+        { fr: 'Retirez ce morceau de la commande.', ar: 'شيل هالقطعة من الطلبية.', en: 'Remove this piece from the order.' }
+      ] },
+      { icon: '🧑‍🍳', title: { ar: 'تجهيز منتجات القصابة', en: 'Preparing butcher products', fr: 'Préparation des produits de boucherie' }, phrases: [
+        { fr: 'Préparez les boulettes.', ar: 'حضّر كرات اللحمة.', en: 'Prepare the meatballs.' },
+        { fr: 'Formez les boulettes.', ar: 'شكّل كرات اللحمة.', en: 'Shape the meatballs.' },
+        { fr: 'Aplatissez les steaks hachés.', ar: 'رقّق أقراص اللحمة المفرومة.', en: 'Flatten the burger patties.' },
+        { fr: 'Farcissez la viande.', ar: 'احشي اللحمة.', en: 'Stuff the meat.' },
+        { fr: 'Roulez la viande.', ar: 'لفّ اللحمة.', en: 'Roll the meat.' },
+        { fr: 'Attachez le rôti.', ar: 'اربط قطعة الروستو.', en: 'Tie the roast.' }
+      ] },
+      { icon: '🛒', title: { ar: 'ترتيب المحل', en: 'Tidying the shop', fr: 'Rangement du magasin' }, phrases: [
+        { fr: 'Remplissez les bacs.', ar: 'عبّي الأحواض.', en: 'Fill the trays.' },
+        { fr: 'Videz les bacs.', ar: 'فضّي الأحواض.', en: 'Empty the trays.' },
+        { fr: 'Réapprovisionnez la vitrine.', ar: 'عبّي واجهة العرض من جديد.', en: 'Restock the display case.' },
+        { fr: 'Présentez bien les morceaux.', ar: 'رتّب القطع بشكل حلو للعرض.', en: 'Display the pieces nicely.' },
+        { fr: 'Rangez les produits.', ar: 'رتّب المنتجات.', en: 'Put the products away.' },
+        { fr: 'Contrôlez les dates.', ar: 'تفقد تواريخ الصلاحية.', en: 'Check the dates.' },
+        { fr: 'Retirez les produits périmés.', ar: 'شيل المنتجات المنتهية الصلاحية.', en: 'Remove expired products.' }
+      ] },
+      { icon: '👨‍🍳', title: { ar: 'أفعال مهمة جدًا بالشغل', en: 'Essential work actions', fr: 'Gestes essentiels au travail' }, phrases: [
+        { fr: 'Allumez la machine.', ar: 'شغّل الماكينة.', en: 'Turn on the machine.' },
+        { fr: 'Éteignez la machine.', ar: 'طفي الماكينة.', en: 'Turn off the machine.' },
+        { fr: 'Branchez la machine.', ar: 'شبّك الماكينة بالكهربا.', en: 'Plug in the machine.' },
+        { fr: 'Débranchez la machine.', ar: 'افصل الماكينة عن الكهربا.', en: 'Unplug the machine.' },
+        { fr: 'Réglez la machine.', ar: 'اضبط الماكينة.', en: 'Adjust the machine.' },
+        { fr: 'Vérifiez le réglage.', ar: 'تأكد من الإعداد.', en: 'Check the setting.' },
+        { fr: 'Faites attention aux doigts.', ar: 'دير بالك عأصابعك.', en: 'Watch your fingers.' },
+        { fr: 'Travaillez proprement.', ar: 'اشتغل بنظافة.', en: 'Work cleanly.' },
+        { fr: 'Respectez les règles d’hygiène.', ar: 'التزم بقواعد النظافة.', en: 'Follow the hygiene rules.' }
+      ] },
+      { icon: '📦', title: { ar: 'استلام البضاعة', en: 'Receiving goods', fr: 'Réception de la marchandise' }, phrases: [
+        { fr: 'Recevez la livraison.', ar: 'استلم الطلبية.', en: 'Receive the delivery.' },
+        { fr: 'Déchargez les cartons.', ar: 'نزّل الكراتين.', en: 'Unload the boxes.' },
+        { fr: 'Contrôlez la marchandise.', ar: 'افحص البضاعة.', en: 'Check the goods.' },
+        { fr: 'Vérifiez la quantité reçue.', ar: 'تأكد من الكمية المستلمة.', en: 'Check the quantity received.' },
+        { fr: 'Comptez les colis.', ar: 'عدّ الطرود.', en: 'Count the packages.' },
+        { fr: 'Ouvrez le carton.', ar: 'افتح الكرتونة.', en: 'Open the box.' },
+        { fr: 'Vérifiez l’état de la viande.', ar: 'تأكد من حالة اللحمة.', en: 'Check the condition of the meat.' }
+      ] },
+      { icon: '❄️', title: { ar: 'التبريد والتخزين', en: 'Refrigeration and storage', fr: 'Froid et stockage' }, phrases: [
+        { fr: 'Stockez la viande rapidement.', ar: 'خزّن اللحمة بسرعة.', en: 'Store the meat quickly.' },
+        { fr: 'Respectez la chaîne du froid.', ar: 'حافظ على سلسلة التبريد.', en: 'Maintain the cold chain.' },
+        { fr: 'Contrôlez la température.', ar: 'افحص درجة الحرارة.', en: 'Check the temperature.' },
+        { fr: 'Relevez la température.', ar: 'سجّل درجة الحرارة.', en: 'Record the temperature.' },
+        { fr: 'Décongelez la viande.', ar: 'فكّ تجميد اللحمة.', en: 'Defrost the meat.' },
+        { fr: 'Laissez décongeler la viande.', ar: 'خلي اللحمة تفك تجميد.', en: 'Let the meat thaw.' },
+        { fr: 'Ne recongelez pas la viande.', ar: 'لا تعيد تجميد اللحمة.', en: 'Do not refreeze the meat.' }
+      ] },
+      { icon: '🏷️', title: { ar: 'الوزن والملصقات', en: 'Weighing and labels', fr: 'Pesée et étiquettes' }, phrases: [
+        { fr: 'Étiquetez les barquettes.', ar: 'حطّ الملصقات عالعلب.', en: 'Label the trays.' },
+        { fr: 'Datez les produits.', ar: 'حطّ تاريخ على المنتجات.', en: 'Date the products.' },
+        { fr: 'Indiquez le poids.', ar: 'اكتب الوزن.', en: 'Indicate the weight.' },
+        { fr: 'Indiquez le prix.', ar: 'اكتب السعر.', en: 'Indicate the price.' },
+        { fr: 'Imprimez l’étiquette.', ar: 'اطبع الملصق.', en: 'Print the label.' },
+        { fr: 'Collez l’étiquette.', ar: 'لصّق الملصق.', en: 'Stick the label on.' },
+        { fr: 'Vérifiez l’étiquette.', ar: 'تأكد من الملصق.', en: 'Check the label.' }
+      ] },
+      { icon: '🛍️', title: { ar: 'التعامل مع الزبون', en: 'Serving the customer', fr: 'Service client' }, phrases: [
+        { fr: 'Prenez la commande du client.', ar: 'خُد طلب الزبون.', en: 'Take the customer’s order.' },
+        { fr: 'Notez la commande.', ar: 'سجّل الطلب.', en: 'Write down the order.' },
+        { fr: 'Conseillez le client.', ar: 'انصح الزبون.', en: 'Advise the customer.' },
+        { fr: 'Montrez-lui les morceaux.', ar: 'فرجيه القطع.', en: 'Show him the pieces.' },
+        { fr: 'Mettez cette pièce de côté.', ar: 'خلي هالقطعة عالطرف.', en: 'Put this piece aside.' },
+        { fr: 'Réservez cette pièce pour le client.', ar: 'احجز هالقطعة للزبون.', en: 'Reserve this piece for the customer.' },
+        { fr: 'Servez le client suivant.', ar: 'خدم الزبون اللي بعده.', en: 'Serve the next customer.' }
+      ] },
+      { icon: '💶', title: { ar: 'الدفع والصندوق', en: 'Payment and till', fr: 'Caisse et paiement' }, phrases: [
+        { fr: 'Encaissez le client.', ar: 'قبض من الزبون.', en: 'Take the customer’s payment.' },
+        { fr: 'Rendez la monnaie.', ar: 'رجّع الباقي.', en: 'Give the change.' },
+        { fr: 'Ouvrez la caisse.', ar: 'افتح الكاشير.', en: 'Open the cash register.' },
+        { fr: 'Fermez la caisse.', ar: 'سكّر الكاشير.', en: 'Close the cash register.' },
+        { fr: 'Comptez la caisse.', ar: 'عدّ مصاري الكاشير.', en: 'Count the cash register.' }
+      ] },
+      { icon: '🧼', title: { ar: 'التنظيف في نهاية العمل', en: 'End-of-day cleaning', fr: 'Nettoyage de fin de journée' }, phrases: [
+        { fr: 'Balayez le sol.', ar: 'اكنس الأرض.', en: 'Sweep the floor.' },
+        { fr: 'Passez la serpillière.', ar: 'امسح الأرض بالممسحة.', en: 'Mop the floor.' },
+        { fr: 'Rincez le matériel.', ar: 'اشطف الأدوات.', en: 'Rinse the equipment.' },
+        { fr: 'Séchez le matériel.', ar: 'نشّف الأدوات.', en: 'Dry the equipment.' },
+        { fr: 'Rangez les couteaux.', ar: 'رتّب السكاكين.', en: 'Put the knives away.' },
+        { fr: 'Changez le sac-poubelle.', ar: 'بدّل كيس الزبالة.', en: 'Change the garbage bag.' },
+        { fr: 'Sortez les déchets.', ar: 'طلّع الزبالة.', en: 'Take out the waste.' }
+      ] },
+      { icon: '🔪', title: { ar: 'تجهيز اللحمة', en: 'Preparing the meat', fr: 'Préparation de la viande' }, phrases: [
+        { fr: 'Retirez la peau.', ar: 'شيل الجلد.', en: 'Remove the skin.' },
+        { fr: 'Enlevez les nerfs.', ar: 'شيل الأوتار/العروق القاسية.', en: 'Remove the sinews.' },
+        { fr: 'Dégraissez cette pièce.', ar: 'شيل الدهن الزايد من هالقطعة.', en: 'Remove the excess fat.' },
+        { fr: 'Attendrissez la viande.', ar: 'طرّي اللحمة.', en: 'Tenderize the meat.' },
+        { fr: 'Aplatissez la viande.', ar: 'رقّق اللحمة.', en: 'Flatten the meat.' },
+        { fr: 'Battez la viande.', ar: 'دقّ اللحمة لتطرى.', en: 'Pound the meat.' },
+        { fr: 'Portionnez la viande.', ar: 'قسّم اللحمة لحصص.', en: 'Divide the meat into portions.' },
+        { fr: 'Pesez chaque portion.', ar: 'زِن كل حصة.', en: 'Weigh each portion.' }
+      ] },
+      { icon: '🥩', title: { ar: 'تجهيز المنتجات', en: 'Preparing the products', fr: 'Préparation des produits' }, phrases: [
+        { fr: 'Ficellez le rôti.', ar: 'اربط الروستو بالخيط.', en: 'Tie the roast with string.' },
+        { fr: 'Formez les steaks hachés.', ar: 'شكّل أقراص اللحمة المفرومة.', en: 'Shape the ground-beef patties.' },
+        { fr: 'Farcissez les poivrons avec la viande.', ar: 'احشي الفليفلة باللحمة.', en: 'Stuff the peppers with meat.' },
+        { fr: 'Préparez les brochettes à l’avance.', ar: 'حضّر الأسياخ مسبقًا.', en: 'Prepare the skewers in advance.' },
+        { fr: 'Enfilez les morceaux sur les brochettes.', ar: 'ركّب قطع اللحمة عالأسياخ.', en: 'Put the meat pieces onto the skewers.' },
+        { fr: 'Aplatissez les steaks hachés.', ar: 'رقّق أقراص اللحمة المفرومة.', en: 'Flatten the burger patties.' }
+      ] },
+      { icon: '📦', title: { ar: 'التغليف', en: 'Wrapping', fr: 'Emballage' }, phrases: [
+        { fr: 'Emballez sous vide.', ar: 'غلّفها بالتفريغ الهوائي.', en: 'Vacuum-pack it.' },
+        { fr: 'Fermez le paquet.', ar: 'سكّر الطرد/العلبة.', en: 'Close the package.' },
+        { fr: 'Scellez le sachet.', ar: 'سكّر الكيس بإحكام.', en: 'Seal the bag.' },
+        { fr: 'Séparez les portions.', ar: 'فصل الحصص عن بعض.', en: 'Separate the portions.' },
+        { fr: 'Préparez les barquettes.', ar: 'حضّر علب اللحمة.', en: 'Prepare the trays.' },
+        { fr: 'Remplissez les barquettes.', ar: 'عبّي العلب.', en: 'Fill the trays.' }
+      ] },
+      { icon: '🧊', title: { ar: 'التخزين', en: 'Storage', fr: 'Stockage' }, phrases: [
+        { fr: 'Mettez les produits en réserve.', ar: 'حط المنتجات بالمخزن.', en: 'Put the products in storage.' },
+        { fr: 'Sortez les produits de la réserve.', ar: 'طلّع المنتجات من المخزن.', en: 'Take the products out of storage.' },
+        { fr: 'Faites tourner le stock.', ar: 'دوّر المخزون حسب الأقدم.', en: 'Rotate the stock.' },
+        { fr: 'Utilisez d’abord les produits les plus anciens.', ar: 'استعمل المنتجات الأقدم أول شي.', en: 'Use the oldest products first.' },
+        { fr: 'Signalez une rupture de stock.', ar: 'بلّغ إذا شي خلص من المخزون.', en: 'Report an out-of-stock item.' },
+        { fr: 'Vérifiez le stock.', ar: 'تفقد المخزون.', en: 'Check the stock.' }
+      ] },
+      { icon: '🧽', title: { ar: 'النظافة والسلامة', en: 'Hygiene and safety', fr: 'Hygiène et sécurité' }, phrases: [
+        { fr: 'Lavez-vous les mains.', ar: 'اغسل إيديك.', en: 'Wash your hands.' },
+        { fr: 'Changez de gants.', ar: 'غيّر القفازات.', en: 'Change your gloves.' },
+        { fr: 'Portez une tenue propre.', ar: 'البس لباس نظيف.', en: 'Wear clean work clothes.' },
+        { fr: 'Nettoyez immédiatement.', ar: 'نظّف فورًا.', en: 'Clean immediately.' },
+        { fr: 'Évitez la contamination croisée.', ar: 'تجنّب انتقال التلوث بين الأطعمة.', en: 'Avoid cross-contamination.' },
+        { fr: 'Signalez tout problème.', ar: 'بلّغ عن أي مشكلة.', en: 'Report any problem.' },
+        { fr: 'Faites attention avec le couteau.', ar: 'دير بالك بالسكين.', en: 'Be careful with the knife.' }
+      ] },
+      { icon: '🐄', title: { ar: 'لحم البقر', en: 'Beef', fr: 'Bœuf' }, phrases: [
+        { fr: 'Le filet', ar: 'الفيليه', en: 'Tenderloin' },
+        { fr: 'Coupez-moi le filet, s’il vous plaît.', ar: 'قطّعلي الفيليه لو سمحت.', en: 'Cut me the tenderloin, please.' },
+        { fr: 'L’entrecôte', ar: 'الإنتركوت', en: 'Rib steak' },
+        { fr: 'Je voudrais deux entrecôtes.', ar: 'بدي قطعتين إنتركوت.', en: 'I’d like two rib steaks.' },
+        { fr: 'Le faux-filet', ar: 'الفو فيليه', en: 'Striploin' },
+        { fr: 'Tranchez le faux-filet.', ar: 'قطّع الفو فيليه شرائح.', en: 'Slice the striploin.' },
+        { fr: 'La côte de bœuf', ar: 'ضلع البقر', en: 'Prime rib' },
+        { fr: 'Préparez une côte de bœuf.', ar: 'حضّرلي ضلع بقر.', en: 'Prepare a beef rib.' },
+        { fr: 'Le rumsteck', ar: 'الرومستيك', en: 'Rump steak' },
+        { fr: 'Coupez le rumsteck en steaks.', ar: 'قطّع الرومستيك لستيكات.', en: 'Cut the rump steak into steaks.' },
+        { fr: 'Le paleron', ar: 'البالورون', en: 'Chuck' },
+        { fr: 'Je prends du paleron pour le mijoté.', ar: 'باخد بالورون للطبخ البطيء.', en: 'I’ll take chuck for slow cooking.' },
+        { fr: 'La bavette', ar: 'البافيت', en: 'Flank steak' },
+        { fr: 'Je voudrais de la bavette.', ar: 'بدي بافيت.', en: 'I’d like some flank steak.' }
+      ] },
+      { icon: '🐑', title: { ar: 'لحم الغنم', en: 'Lamb / Mutton', fr: 'Agneau / Mouton' }, phrases: [
+        { fr: 'La côtelette d’agneau', ar: 'ريش غنم', en: 'Lamb chops' },
+        { fr: 'Faites-moi six côtelettes.', ar: 'اعمللي ست قطع ريش.', en: 'Give me six lamb chops.' },
+        { fr: 'Le gigot', ar: 'فخذ الغنم', en: 'Leg of lamb' },
+        { fr: 'Je voudrais un gigot d’agneau.', ar: 'بدي فخذ غنم.', en: 'I’d like a leg of lamb.' },
+        { fr: 'L’épaule d’agneau', ar: 'كتف الغنم', en: 'Lamb shoulder' },
+        { fr: 'Prenez une épaule d’agneau.', ar: 'خد كتف غنم.', en: 'Take a lamb shoulder.' },
+        { fr: 'Le collier d’agneau', ar: 'رقبة الغنم', en: 'Lamb neck' },
+        { fr: 'Coupez le collier en morceaux.', ar: 'قطّع الرقبة قطع.', en: 'Cut the neck into pieces.' },
+        { fr: 'La selle d’agneau', ar: 'ظهر/سرج الغنم', en: 'Saddle of lamb' },
+        { fr: 'Désossez la selle.', ar: 'شيل عظم قطعة الظهر.', en: 'Debone the saddle.' },
+        { fr: 'La poitrine d’agneau', ar: 'صدر الغنم', en: 'Lamb breast' },
+        { fr: 'Je prends de la poitrine.', ar: 'باخد صدر غنم.', en: 'I’ll take some lamb breast.' }
+      ] },
+      { icon: '🐐', title: { ar: 'لحم الماعز', en: 'Goat', fr: 'Chèvre' }, phrases: [
+        { fr: 'La côte de chèvre', ar: 'ريش الماعز', en: 'Goat ribs' },
+        { fr: 'Coupez les côtes en morceaux.', ar: 'قطّع الريش قطع.', en: 'Cut the ribs into pieces.' },
+        { fr: 'L’épaule de chèvre', ar: 'كتف الماعز', en: 'Goat shoulder' },
+        { fr: 'Préparez l’épaule.', ar: 'حضّر الكتف.', en: 'Prepare the shoulder.' },
+        { fr: 'Le gigot de chèvre', ar: 'فخذ الماعز', en: 'Goat leg' },
+        { fr: 'Je voudrais un gigot.', ar: 'بدي فخذ ماعز.', en: 'I’d like a goat leg.' },
+        { fr: 'Le collier de chèvre', ar: 'رقبة الماعز', en: 'Goat neck' },
+        { fr: 'Hachez le collier.', ar: 'افرم الرقبة.', en: 'Mince the neck.' },
+        { fr: 'La poitrine de chèvre', ar: 'صدر الماعز', en: 'Goat breast' },
+        { fr: 'Découpez la poitrine.', ar: 'قطّع الصدر.', en: 'Cut the breast.' }
+      ] },
+      { icon: '🐖', title: { ar: 'لحم الخنزير', en: 'Pork', fr: 'Porc' }, phrases: [
+        { fr: 'Le filet de porc', ar: 'فيليه الخنزير', en: 'Pork tenderloin' },
+        { fr: 'Coupez le filet en médaillons.', ar: 'قطّع الفيليه لقطع دائرية.', en: 'Cut the tenderloin into medallions.' },
+        { fr: 'La côte de porc', ar: 'ريش/ضلوع الخنزير', en: 'Pork chops' },
+        { fr: 'Je voudrais quatre côtes de porc.', ar: 'بدي أربع قطع.', en: 'I’d like four pork chops.' },
+        { fr: 'L’échine de porc', ar: 'رقبة/ظهر الخنزير', en: 'Pork neck/shoulder' },
+        { fr: 'Coupez l’échine en morceaux.', ar: 'قطّعها قطع.', en: 'Cut it into pieces.' },
+        { fr: 'La poitrine de porc', ar: 'صدر الخنزير', en: 'Pork belly' },
+        { fr: 'Tranchez la poitrine finement.', ar: 'قطّع الصدر شرائح رفيعة.', en: 'Slice the pork belly thinly.' },
+        { fr: 'Le jambon', ar: 'لحم الفخذ/الهام', en: 'Ham' },
+        { fr: 'Découpez le jambon en tranches.', ar: 'قطّع الهام شرائح.', en: 'Slice the ham.' }
+      ] },
+      { icon: '🐇', title: { ar: 'لحم الأرنب', en: 'Rabbit', fr: 'Lapin' }, phrases: [
+        { fr: 'Les cuisses de lapin', ar: 'أفخاذ الأرنب', en: 'Rabbit legs' },
+        { fr: 'Séparez les cuisses.', ar: 'فصل الأفخاذ.', en: 'Separate the legs.' },
+        { fr: 'Le râble de lapin', ar: 'ظهر الأرنب', en: 'Rabbit saddle' },
+        { fr: 'Découpez le râble.', ar: 'قطّع ظهر الأرنب.', en: 'Cut the saddle.' },
+        { fr: 'L’épaule de lapin', ar: 'أكتاف الأرنب', en: 'Rabbit shoulders' },
+        { fr: 'Préparez les épaules.', ar: 'حضّر الأكتاف.', en: 'Prepare the shoulders.' },
+        { fr: 'Le lapin entier', ar: 'الأرنب كامل', en: 'Whole rabbit' },
+        { fr: 'Découpez le lapin en morceaux.', ar: 'قطّع الأرنب قطع.', en: 'Cut the rabbit into pieces.' },
+        { fr: 'Désossez le lapin.', ar: 'شيل عظم الأرنب.', en: 'Debone the rabbit.' }
+      ] },
+      { icon: '🐔', title: { ar: 'الدجاج', en: 'Chicken', fr: 'Poulet' }, phrases: [
+        { fr: 'Le blanc de poulet', ar: 'صدر الدجاج', en: 'Chicken breast' },
+        { fr: 'Coupez le blanc en morceaux.', ar: 'قطّع الصدر قطع.', en: 'Cut the breast into pieces.' },
+        { fr: 'La cuisse de poulet', ar: 'فخذ الدجاج', en: 'Chicken thigh' },
+        { fr: 'Désossez les cuisses.', ar: 'شيل عظم الأفخاذ.', en: 'Debone the thighs.' },
+        { fr: 'Le pilon', ar: 'دبوس الدجاج', en: 'Drumsticks' },
+        { fr: 'Je voudrais six pilons.', ar: 'بدي ستة دبابيس.', en: 'I’d like six drumsticks.' },
+        { fr: 'L’aile de poulet', ar: 'جناح الدجاج', en: 'Chicken wings' },
+        { fr: 'Coupez les ailes.', ar: 'قطّع الأجنحة.', en: 'Cut the wings.' },
+        { fr: 'Le haut de cuisse', ar: 'أعلى الفخذ', en: 'Chicken thigh' },
+        { fr: 'Enlevez la peau.', ar: 'شيل الجلد.', en: 'Remove the skin.' },
+        { fr: 'Le poulet entier', ar: 'دجاجة كاملة', en: 'Whole chicken' },
+        { fr: 'Découpez le poulet en huit morceaux.', ar: 'قطّع الدجاجة لثمان قطع.', en: 'Cut the chicken into eight pieces.' }
+      ] },
+      { icon: '🦃', title: { ar: 'الديك الرومي', en: 'Turkey', fr: 'Dinde' }, phrases: [
+        { fr: 'Le blanc de dinde', ar: 'صدر الديك الرومي', en: 'Turkey breast' },
+        { fr: 'Tranchez le blanc finement.', ar: 'قطّع الصدر شرائح رفيعة.', en: 'Slice the breast thinly.' },
+        { fr: 'La cuisse de dinde', ar: 'فخذ الديك الرومي', en: 'Turkey thigh' },
+        { fr: 'Désossez la cuisse.', ar: 'شيل عظم الفخذ.', en: 'Debone the thigh.' },
+        { fr: 'L’escalope de dinde', ar: 'إسكالوب الديك الرومي', en: 'Turkey cutlets' },
+        { fr: 'Aplatissez les escalopes.', ar: 'رقّق قطع الإسكالوب.', en: 'Flatten the cutlets.' },
+        { fr: 'L’aile de dinde', ar: 'جناح الديك الرومي', en: 'Turkey wings' },
+        { fr: 'Découpez les ailes.', ar: 'قطّع الأجنحة.', en: 'Cut the wings.' },
+        { fr: 'Le pilon de dinde', ar: 'دبوس الديك الرومي', en: 'Turkey drumsticks' },
+        { fr: 'Préparez les pilons.', ar: 'حضّر الدبابيس.', en: 'Prepare the drumsticks.' },
+        { fr: 'La dinde entière', ar: 'الديك الرومي كامل', en: 'Whole turkey' },
+        { fr: 'Découpez la dinde.', ar: 'قطّع الديك الرومي.', en: 'Cut up the turkey.' }
       ] }
     ]
   }
