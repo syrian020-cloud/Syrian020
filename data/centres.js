@@ -21425,5 +21425,460 @@ window.CENTRES_DATA = [
         { fr: 'Bonne journée !', ar: 'نهارك سعيد!', en: 'Have a nice day!' }
       ] }
     ]
+  },
+  {
+    id: 'mawaqef',
+    icon: '🌍',
+    name: { ar: 'مواقف الحياة اليومية', en: 'Everyday-life situations', fr: 'Situations de la vie quotidienne' },
+    desc: { ar: 'عبارات جاهزة لكل موقف يومي بالفرنسية — سوبرماركت، مخبز، مقهى، مواصلات، بريد، طبيب، تعارف', en: 'Ready-made French phrases for every daily situation — supermarket, bakery, café, transport, post office, doctor, meeting people', fr: 'Phrases toutes faites pour chaque situation quotidienne — supermarché, boulangerie, café, transports, poste, médecin, rencontres' },
+    sections: [
+      { icon: '🛒', title: { ar: '1. في السوبرماركت', en: '1. At the supermarket', fr: '1. Au supermarché' }, phrases: [
+        { fr: 'Vous avez une carte de fidélité ?', ar: 'معك بطاقة وفاء؟', en: 'Do you have a loyalty card?' },
+        { fr: 'Vous avez besoin d’un sac ?', ar: 'بدك كيس؟', en: 'Do you need a bag?' },
+        { fr: 'C’est combien ?', ar: 'قديش السعر؟', en: 'How much is it?' },
+        { fr: 'Je peux payer par carte ?', ar: 'فيني ادفع بالبطاقة؟', en: 'Can I pay by card?' },
+        { fr: 'Vous avez l’appoint ?', ar: 'معك المبلغ بالضبط؟', en: 'Do you have the exact change?' }
+      ] },
+      { icon: '🥖', title: { ar: '2. في المخبز — Boulangerie', en: '2. At the bakery', fr: '2. À la boulangerie' }, phrases: [
+        { fr: 'Bonjour, je voudrais une baguette, s’il vous plaît.', ar: 'مرحبا، بدي خبزة باغيت لو سمحت.', en: 'Hello, I’d like a baguette, please.' },
+        { fr: 'Elle est bien cuite ?', ar: 'مستوية منيح؟', en: 'Is it well baked?' },
+        { fr: 'Pas trop cuite, s’il vous plaît.', ar: 'مو محمّرة كتير لو سمحت.', en: 'Not too well done, please.' },
+        { fr: 'Vous avez du pain complet ?', ar: 'عندكم خبز كامل الحبة؟', en: 'Do you have whole-grain bread?' }
+      ] },
+      { icon: '☕', title: { ar: '3. في المقهى', en: '3. At the café', fr: '3. Au café' }, phrases: [
+        { fr: 'Bonjour, je vais prendre un café, s’il vous plaît.', ar: 'مرحبا، بدي قهوة لو سمحت.', en: 'Hello, I’ll have a coffee, please.' },
+        { fr: 'Sur place ou à emporter ?', ar: 'هون ولا سفري؟', en: 'For here or takeaway?' },
+        { fr: 'Sur place, s’il vous plaît.', ar: 'هون لو سمحت.', en: 'For here, please.' },
+        { fr: 'L’addition, s’il vous plaît.', ar: 'الحساب لو سمحت.', en: 'The bill, please.' }
+      ] },
+      { icon: '🚌', title: { ar: '4. في المواصلات', en: '4. On public transport', fr: '4. Dans les transports' }, phrases: [
+        { fr: 'Ce bus va à la gare ?', ar: 'هالباص بيروح عالمحطة؟', en: 'Does this bus go to the station?' },
+        { fr: 'Je dois descendre où ?', ar: 'وين لازم انزل؟', en: 'Where do I need to get off?' },
+        { fr: 'C’est loin d’ici ?', ar: 'بعيدة من هون؟', en: 'Is it far from here?' },
+        { fr: 'Je peux acheter un ticket ici ?', ar: 'فيني اشتري تذكرة من هون؟', en: 'Can I buy a ticket here?' }
+      ] },
+      { icon: '📦', title: { ar: '5. البريد / إرسال طرد', en: '5. The post office / sending a parcel', fr: '5. La poste / envoyer un colis' }, phrases: [
+        { fr: 'Je voudrais envoyer ce colis.', ar: 'بدي ابعت هالطرد.', en: 'I’d like to send this parcel.' },
+        { fr: 'C’est pour cette adresse.', ar: 'العنوان هو هاد.', en: 'It’s for this address.' },
+        { fr: 'Vous avez un reçu ?', ar: 'في إيصال؟', en: 'Do you have a receipt?' },
+        { fr: 'Je peux avoir une preuve de dépôt ?', ar: 'فيني آخد إثبات إني سلّمت الطرد؟', en: 'Can I get proof of drop-off?' }
+      ] },
+      { icon: '🏠', title: { ar: '6. مع صاحب المنزل / السكن', en: '6. With your landlord / housing', fr: '6. Avec le propriétaire / le logement' }, phrases: [
+        { fr: 'J’ai un problème dans mon appartement.', ar: 'عندي مشكلة بالبيت.', en: 'I have a problem in my apartment.' },
+        { fr: 'Il y a une fuite d’eau.', ar: 'في تسرّب مي.', en: 'There’s a water leak.' },
+        { fr: 'Le chauffage ne fonctionne pas.', ar: 'التدفئة ما عم تشتغل.', en: 'The heating isn’t working.' },
+        { fr: 'Je voudrais prendre rendez-vous.', ar: 'بدي آخد موعد.', en: 'I’d like to make an appointment.' }
+      ] },
+      { icon: '📱', title: { ar: '7. الهاتف / الإنترنت', en: '7. Phone / internet', fr: '7. Téléphone / internet' }, phrases: [
+        { fr: 'Ma connexion ne fonctionne pas.', ar: 'الإنترنت عندي ما عم يشتغل.', en: 'My internet connection isn’t working.' },
+        { fr: 'Je n’ai plus de réseau.', ar: 'ما عاد عندي شبكة.', en: 'I don’t have any signal anymore.' },
+        { fr: 'Combien ça coûte par mois ?', ar: 'قديش التكلفة بالشهر؟', en: 'How much does it cost per month?' },
+        { fr: 'Je voudrais résilier mon abonnement.', ar: 'بدي ألغي اشتراكي.', en: 'I’d like to cancel my subscription.' }
+      ] },
+      { icon: '👨‍⚕️', title: { ar: '8. عند الطبيب', en: '8. At the doctor’s', fr: '8. Chez le médecin' }, phrases: [
+        { fr: 'J’ai rendez-vous à dix heures.', ar: 'عندي موعد الساعة عشرة.', en: 'I have an appointment at ten.' },
+        { fr: 'Je ne me sens pas bien.', ar: 'مو حاسس حالي منيح.', en: 'I don’t feel well.' },
+        { fr: 'Depuis combien de temps ?', ar: 'من إمتى؟', en: 'For how long?' },
+        { fr: 'Ça fait plusieurs jours.', ar: 'صارلي كم يوم.', en: 'It’s been several days.' },
+        { fr: 'Je dois faire une prise de sang ?', ar: 'لازم اعمل تحليل دم؟', en: 'Do I need to have a blood test?' }
+      ] },
+      { icon: '💊', title: { ar: '9. في الصيدلية', en: '9. At the pharmacy', fr: '9. À la pharmacie' }, phrases: [
+        { fr: 'Bonjour, j’ai une ordonnance.', ar: 'مرحبا، معي وصفة طبية.', en: 'Hello, I have a prescription.' },
+        { fr: 'Ce médicament est remboursé ?', ar: 'هالدواء بيندفع حقه من التأمين؟', en: 'Is this medication reimbursed?' },
+        { fr: 'C’est pris en charge à 100 % ?', ar: 'مغطّى بنسبة 100٪؟', en: 'Is it fully covered?' },
+        { fr: 'Je peux avoir le médicament générique ?', ar: 'فيني آخد الدواء الجنيس؟', en: 'Can I have the generic medication?' }
+      ] },
+      { icon: '👥', title: { ar: '10. عندما لا تفهم شخصًا', en: '10. When you don’t understand someone', fr: '10. Quand tu ne comprends pas quelqu’un' }, phrases: [
+        { fr: 'Pardon, je n’ai pas compris.', ar: 'عفواً، ما فهمت.', en: 'Sorry, I didn’t understand.' },
+        { fr: 'Vous pouvez répéter, s’il vous plaît ?', ar: 'فيك تعيد لو سمحت؟', en: 'Could you repeat, please?' },
+        { fr: 'Vous pouvez parler un peu plus lentement ?', ar: 'فيك تحكي أبطأ شوي؟', en: 'Could you speak a little more slowly?' },
+        { fr: 'Qu’est-ce que ça veut dire ?', ar: 'شو يعني هاد؟', en: 'What does that mean?' },
+        { fr: 'Comment ça se dit en français ?', ar: 'كيف بتنقال بالفرنسي؟', en: 'How do you say that in French?' }
+      ] },
+      { icon: '⭐', title: { ar: '10 جمل فرنسية لازم تكون تلقائية عندك', en: '10 French sentences that must be automatic for you', fr: '10 phrases françaises à savoir par cœur' }, phrases: [
+        { fr: 'Bonjour, excusez-moi.', ar: 'مرحبا، عفواً.', en: 'Hello, excuse me.' },
+        { fr: 'S’il vous plaît.', ar: 'لو سمحت.', en: 'Please.' },
+        { fr: 'Merci beaucoup.', ar: 'شكراً كتير.', en: 'Thank you very much.' },
+        { fr: 'Pas de souci.', ar: 'ولا يهمك.', en: 'No problem.' },
+        { fr: 'Ça marche.', ar: 'تمام / ماشي.', en: 'Sounds good.' },
+        { fr: 'D’accord.', ar: 'أوكي / تمام.', en: 'Okay.' },
+        { fr: 'Je vois.', ar: 'فهمت.', en: 'I see.' },
+        { fr: 'Exactement.', ar: 'بالضبط.', en: 'Exactly.' },
+        { fr: 'Ça dépend.', ar: 'حسب / بيعتمد.', en: 'It depends.' },
+        { fr: 'On verra.', ar: 'منشوف.', en: 'We’ll see.' }
+      ] },
+      { icon: '☕', title: { ar: '1. في المقهى', en: '1. At the café', fr: '1. Au café' }, phrases: [
+        { fr: 'Tu viens souvent ici ?', ar: 'بتجي لهون كتير؟', en: 'Do you come here often?' },
+        { fr: 'C’est bon ici ?', ar: 'الأكل/القهوة هون طيبة؟', en: 'Is it good here?' },
+        { fr: 'Tu me conseilles quoi ?', ar: 'شو بتنصحيني؟', en: 'What do you recommend?' },
+        { fr: 'Je peux m’asseoir ici ?', ar: 'فيني اقعد هون؟', en: 'Can I sit here?' }
+      ] },
+      { icon: '🛒', title: { ar: '2. في السوبرماركت', en: '2. At the supermarket', fr: '2. Au supermarché' }, phrases: [
+        { fr: 'Excuse-moi, tu sais où sont les pâtes ?', ar: 'عذريني، بتعرفي وين المعكرونة؟', en: 'Excuse me, do you know where the pasta is?' },
+        { fr: 'Tu connais ce produit ?', ar: 'بتعرفي هالمنتج؟', en: 'Do you know this product?' },
+        { fr: 'Tu l’as déjà essayé ?', ar: 'جربتيه من قبل؟', en: 'Have you tried it before?' },
+        { fr: 'Merci, tu m’as bien aidé.', ar: 'شكراً، ساعدتيني كتير.', en: 'Thanks, you really helped me.' }
+      ] },
+      { icon: '🚇', title: { ar: '3. في المترو أو الترام', en: '3. On the metro or tram', fr: '3. Dans le métro ou le tram' }, phrases: [
+        { fr: 'Excuse-moi, c’est bien cette direction pour aller au centre-ville ?', ar: 'عذريني، هاد الاتجاه صح لحتى روح عالسنتر؟', en: 'Excuse me, is this the right direction to go downtown?' },
+        { fr: 'Tu descends à quelle station ?', ar: 'بأي محطة نازلة؟', en: 'Which station are you getting off at?' },
+        { fr: 'Moi aussi, je descends là.', ar: 'أنا كمان نازل هنيك.', en: 'I’m getting off there too.' }
+      ] },
+      { icon: '🚌', title: { ar: '4. عند موقف الباص', en: '4. At the bus stop', fr: '4. À l’arrêt de bus' }, phrases: [
+        { fr: 'Tu attends le bus ?', ar: 'ناطرة الباص؟', en: 'Are you waiting for the bus?' },
+        { fr: 'Il est déjà passé ?', ar: 'مرق الباص ولا لسا؟', en: 'Has the bus already come?' },
+        { fr: 'Il a du retard aujourd’hui.', ar: 'اليوم الباص متأخر.', en: 'The bus is late today.' },
+        { fr: 'On dirait qu’on va attendre un moment. 😄', ar: 'شكله رح ننطر شوي. 😄', en: 'Looks like we’re going to wait for a while. 😄' }
+      ] },
+      { icon: '🏋️', title: { ar: '5. في الجيم', en: '5. At the gym', fr: '5. À la salle de sport' }, phrases: [
+        { fr: 'Tu utilises cette machine ?', ar: 'عم تستخدمي هالجهاز؟', en: 'Are you using this machine?' },
+        { fr: 'Il te reste combien de séries ?', ar: 'قديش ضايلك جولات؟', en: 'How many sets do you have left?' },
+        { fr: 'Tu viens souvent t’entraîner ici ?', ar: 'بتجي تتمرني هون كتير؟', en: 'Do you often work out here?' },
+        { fr: 'Tu t’entraînes depuis longtemps ?', ar: 'من زمان عم تتمرني؟', en: 'Have you been training for a long time?' }
+      ] },
+      { icon: '🐕', title: { ar: '6. أثناء المشي مع الكلاب', en: '6. While walking the dogs', fr: '6. En promenant les chiens' }, phrases: [
+        { fr: 'Il est adorable !', ar: 'كتير لطيف!', en: 'He’s adorable!' },
+        { fr: 'Il s’appelle comment ?', ar: 'شو اسمه؟', en: 'What’s his name?' },
+        { fr: 'Il est encore jeune ?', ar: 'لسا صغير بالعمر؟', en: 'Is he still young?' },
+        { fr: 'Vous venez souvent vous promener ici ?', ar: 'بتجوا تتمشوا هون كتير؟', en: 'Do you often come here for walks?' }
+      ] },
+      { icon: '📚', title: { ar: '7. في المكتبة', en: '7. At the library', fr: '7. À la bibliothèque' }, phrases: [
+        { fr: 'Tu connais ce livre ?', ar: 'بتعرفي هالكتاب؟', en: 'Do you know this book?' },
+        { fr: 'Tu lis souvent ?', ar: 'بتقري كتير؟', en: 'Do you read often?' },
+        { fr: 'Tu me conseilles ce livre ?', ar: 'بتنصحيني بهالكتاب؟', en: 'Would you recommend this book?' }
+      ] },
+      { icon: '🌧️', title: { ar: '8. موقف عفوي بسبب المطر', en: '8. A spontaneous moment because of the rain', fr: '8. Un moment spontané à cause de la pluie' }, phrases: [
+        { fr: 'Il pleut vraiment beaucoup aujourd’hui !', ar: 'اليوم عم تشتي كتير!', en: 'It’s really raining a lot today!' },
+        { fr: 'Tu as un parapluie ?', ar: 'معك شمسية؟', en: 'Do you have an umbrella?' },
+        { fr: 'On n’a vraiment pas choisi le bon jour. 😄', ar: 'شكلنا ما اخترنا اليوم المناسب. 😄', en: 'We really didn’t pick the right day. 😄' }
+      ] },
+      { icon: '🧥', title: { ar: '9. في محل الملابس', en: '9. In a clothing shop', fr: '9. Dans un magasin de vêtements' }, phrases: [
+        { fr: 'Tu penses que ça me va ?', ar: 'برأيك هاد لابقلي؟', en: 'Do you think this suits me?' },
+        { fr: 'Tu préfères lequel ?', ar: 'أي واحد بتفضلي؟', en: 'Which one do you prefer?' },
+        { fr: 'J’hésite entre les deux.', ar: 'محتار بين التنين.', en: 'I’m hesitating between the two.' }
+      ] },
+      { icon: '📱', title: { ar: '10. إذا صار بينكم حديث قصير', en: '10. If you end up chatting briefly', fr: '10. Si vous discutez un peu' }, phrases: [
+        { fr: 'Au fait, comment tu t’appelles ?', ar: 'على فكرة، شو اسمك؟', en: 'By the way, what’s your name?' },
+        { fr: 'Tu habites dans le coin ?', ar: 'ساكنة قريب من هون؟', en: 'Do you live around here?' },
+        { fr: 'Tu fais quoi dans la vie ?', ar: 'شو بتعملي بحياتك؟', en: 'What do you do?' },
+        { fr: 'Ça te dirait qu’on garde contact ?', ar: 'شو رأيك نضل على تواصل؟', en: 'Would you like to keep in touch?' }
+      ] },
+      { icon: '👋', title: { ar: '11. عند إنهاء الحديث', en: '11. Ending the conversation', fr: '11. Pour terminer la discussion' }, phrases: [
+        { fr: 'Bon, je vais te laisser.', ar: 'طيب، رح خليكي.', en: 'Well, I’ll let you go.' },
+        { fr: 'J’ai été ravi de faire ta connaissance.', ar: 'انبسطت كتير إني تعرفت عليكي.', en: 'It was a pleasure meeting you.' },
+        { fr: 'Peut-être qu’on se recroisera.', ar: 'يمكن نلتقي مرة تانية بالصدفة.', en: 'Maybe we’ll run into each other again.' },
+        { fr: 'À bientôt, peut-être !', ar: 'يمكن منشوف بعض قريب!', en: 'See you soon, maybe!' }
+      ] },
+      { icon: '⭐', title: { ar: 'جملة فرنسية مهمة جدًا للتعارف الطبيعي', en: 'A very important French sentence for natural introductions', fr: 'Une phrase française très importante pour aborder naturellement' }, phrases: [
+        { fr: 'Au fait, comment tu t’appelles ?', ar: 'على فكرة، شو اسمك؟', en: 'By the way, what’s your name?' }
+      ] },
+      { icon: '🚉', title: { ar: '1. في محطة القطار', en: '1. At the train station', fr: '1. À la gare' }, phrases: [
+        { fr: 'Tu attends aussi le prochain train ?', ar: 'إنتِ كمان ناطرة القطار الجاي؟', en: 'Are you also waiting for the next train?' },
+        { fr: 'Tu vas jusqu’à quelle gare ?', ar: 'لوين رايحة بالقطار؟', en: 'Which station are you going to?' },
+        { fr: 'Il est souvent en retard, ce train ?', ar: 'هالقطار عادةً بيتأخر؟', en: 'Is this train often late?' },
+        { fr: 'Bon, au moins, on a quelqu’un avec qui discuter. 😄', ar: 'منيح، عالأقل صار عنا حدا نحكي معه. 😄', en: 'Well, at least now we have someone to talk to. 😄' }
+      ] },
+      { icon: '🥐', title: { ar: '2. في الطابور', en: '2. In the queue', fr: '2. Dans la file d’attente' }, phrases: [
+        { fr: 'C’est à toi ?', ar: 'الدور إلك؟', en: 'Is it your turn?' },
+        { fr: 'Vous faites la queue ?', ar: 'إنتِ بالدور؟', en: 'Are you in the queue?' },
+        { fr: 'Ça avance pas très vite aujourd’hui.', ar: 'اليوم الدور ما عم يتحرك بسرعة.', en: 'The line isn’t moving very fast today.' },
+        { fr: 'On va devoir être patients. 😄', ar: 'شكلنا بدنا نصبر شوي. 😄', en: 'Looks like we’ll have to be patient. 😄' }
+      ] },
+      { icon: '🍕', title: { ar: '3. في مطعم', en: '3. In a restaurant', fr: '3. Au restaurant' }, phrases: [
+        { fr: 'Tu as déjà mangé ici ?', ar: 'أكلتي هون من قبل؟', en: 'Have you eaten here before?' },
+        { fr: 'Tu me conseilles quoi ?', ar: 'شو بتنصحيني؟', en: 'What do you recommend?' },
+        { fr: 'Ça a l’air bon, ça.', ar: 'هاد شكله طيب.', en: 'That looks good.' },
+        { fr: 'Tu viens souvent dans ce restaurant ?', ar: 'بتجي عهالمطعم كتير؟', en: 'Do you often come to this restaurant?' }
+      ] },
+      { icon: '🛍️', title: { ar: '4. في مركز التسوق', en: '4. In a shopping centre', fr: '4. Dans un centre commercial' }, phrases: [
+        { fr: 'Tu connais bien ce magasin ?', ar: 'بتعرفي هالمحل منيح؟', en: 'Do you know this store well?' },
+        { fr: 'Tu sais où je peux trouver ça ?', ar: 'بتعرفي وين فيني لاقي هاد؟', en: 'Do you know where I can find this?' },
+        { fr: 'Merci, je cherchais partout.', ar: 'شكراً، كنت عم دور بكل مكان.', en: 'Thanks, I was looking everywhere.' }
+      ] },
+      { icon: '🏞️', title: { ar: '5. في مكان سياحي', en: '5. At a tourist spot', fr: '5. Dans un lieu touristique' }, phrases: [
+        { fr: 'Tu prends une photo ?', ar: 'عم تاخدي صورة؟', en: 'Are you taking a photo?' },
+        { fr: 'Tu veux que je prenne la photo pour toi ?', ar: 'بدك آخدلك الصورة؟', en: 'Do you want me to take the photo for you?' },
+        { fr: 'C’est joli ici, tu ne trouves pas ?', ar: 'المكان حلو هون، مو هيك؟', en: 'It’s beautiful here, don’t you think?' },
+        { fr: 'C’est la première fois que tu viens ici ?', ar: 'أول مرة بتجي لهون؟', en: 'Is this your first time here?' }
+      ] },
+      { icon: '🎵', title: { ar: '6. في حفلة أو فعالية', en: '6. At a party or event', fr: '6. À une fête ou un événement' }, phrases: [
+        { fr: 'Tu connais ce groupe ?', ar: 'بتعرفي هالفرقة؟', en: 'Do you know this band?' },
+        { fr: 'Tu es venue avec des amis ?', ar: 'إجيتِ مع أصحابك؟', en: 'Did you come with friends?' },
+        { fr: 'Tu aimes ce genre de musique ?', ar: 'بتحبي هالنوع من الموسيقى؟', en: 'Do you like this kind of music?' },
+        { fr: 'Tu passes une bonne soirée ?', ar: 'عم تقضي سهرة حلوة؟', en: 'Are you having a good evening?' }
+      ] },
+      { icon: '🏫', title: { ar: '7. في دورة أو صف', en: '7. In a course or class', fr: '7. Dans un cours ou une formation' }, phrases: [
+        { fr: 'C’est ta première fois ici ?', ar: 'أول مرة إلك هون؟', en: 'Is this your first time here?' },
+        { fr: 'Tu suis aussi ce cours ?', ar: 'إنتِ كمان بهالدورة؟', en: 'Are you taking this course too?' },
+        { fr: 'Tu as compris ce qu’il a expliqué ?', ar: 'فهمتي شو شرح؟', en: 'Did you understand what he explained?' },
+        { fr: 'Tu veux qu’on révise ensemble ?', ar: 'بدك نراجع سوا؟', en: 'Do you want to study together?' }
+      ] },
+      { icon: '💼', title: { ar: '8. في العمل', en: '8. At work', fr: '8. Au travail' }, phrases: [
+        { fr: 'Tu travailles ici depuis longtemps ?', ar: 'من زمان عم تشتغلي هون؟', en: 'Have you been working here long?' },
+        { fr: 'Tu travailles dans quel service ?', ar: 'بأي قسم بتشتغلي؟', en: 'Which department do you work in?' },
+        { fr: 'Tu fais toujours les mêmes horaires ?', ar: 'دايمًا دوامك نفس الشي؟', en: 'Do you always work the same hours?' },
+        { fr: 'Tu prends ta pause à quelle heure ?', ar: 'بأي ساعة بتاخدي استراحتك؟', en: 'What time do you take your break?' }
+      ] },
+      { icon: '🌳', title: { ar: '9. إذا شفت نفس الشخص أكثر من مرة', en: '9. If you’ve seen the same person more than once', fr: '9. Si tu as déjà croisé la même personne' }, phrases: [
+        { fr: 'On se croise souvent ici, non ?', ar: 'نحنا دايمًا منلتقي هون، مو؟', en: 'We often run into each other here, don’t we?' },
+        { fr: 'Je crois que je t’ai déjà vue ici.', ar: 'بحس إني شفتك هون من قبل.', en: 'I think I’ve seen you here before.' },
+        { fr: 'C’est marrant, on se retrouve encore ici. 😄', ar: 'غريب، رجعنا التقينا هون كمان مرة. 😄', en: 'Funny, we’re meeting here again. 😄' }
+      ] },
+      { icon: '🗣️', title: { ar: '10. إذا صار التعارف بشكل طبيعي', en: '10. If the introduction happens naturally', fr: '10. Si la conversation démarre naturellement' }, phrases: [
+        { fr: 'On ne s’est même pas présentés.', ar: 'نحنا حتى ما تعارفنا.', en: 'We haven’t even introduced ourselves.' },
+        { fr: 'Moi, c’est Mohammad. Et toi ?', ar: 'أنا محمد، وإنتِ؟', en: 'I’m Mohammad. And you?' },
+        { fr: 'Ça me fait plaisir de faire ta connaissance.', ar: 'مبسوط إني تعرفت عليكي.', en: 'I’m happy to meet you.' },
+        { fr: 'J’espère qu’on se reverra.', ar: 'بتمنى نلتقي مرة تانية.', en: 'I hope we’ll see each other again.' }
+      ] },
+      { icon: '📱', title: { ar: '11. إذا كان الحوار ممتاز', en: '11. If the conversation went really well', fr: '11. Si la discussion s’est très bien passée' }, phrases: [
+        { fr: 'J’ai bien aimé discuter avec toi.', ar: 'حبيت كتير الحكي معك.', en: 'I really enjoyed talking with you.' },
+        { fr: 'Ça te dirait qu’on continue cette conversation autour d’un café ?', ar: 'شو رأيك نكمل هالحكي على فنجان قهوة؟', en: 'Would you like to continue this conversation over coffee?' },
+        { fr: 'Si ça te dit, on peut échanger nos numéros.', ar: 'إذا بتحبي، فينا نتبادل أرقامنا.', en: 'If you’d like, we can exchange numbers.' }
+      ] },
+      { icon: '⭐', title: { ar: 'عبارات فرنسية ستسمعها كثيرًا أثناء التعارف', en: 'French phrases you’ll hear a lot while meeting people', fr: 'Phrases françaises qu’on entend souvent quand on fait connaissance' }, phrases: [
+        { fr: 'Ah oui ?', ar: 'إي؟ / عنجد؟', en: 'Oh yeah?' },
+        { fr: 'Ah bon ?', ar: 'عنجد؟', en: 'Really?' },
+        { fr: 'Je vois.', ar: 'فهمت.', en: 'I see.' },
+        { fr: 'Carrément !', ar: 'أكيد! / فعلًا!', en: 'Absolutely!' },
+        { fr: 'Pourquoi pas !', ar: 'ليش لأ!', en: 'Why not!' },
+        { fr: 'Ça marche.', ar: 'تمام.', en: 'Sounds good.' },
+        { fr: 'Avec plaisir.', ar: 'بكل سرور.', en: 'With pleasure.' },
+        { fr: 'On verra.', ar: 'منشوف.', en: 'We’ll see.' },
+        { fr: 'T’inquiète.', ar: 'لا تهتمي / لا تقلقي.', en: 'Don’t worry.' },
+        { fr: 'À bientôt !', ar: 'منشوفك قريب!', en: 'See you soon!' }
+      ] },
+      { icon: '🚲', title: { ar: '1. عند الدراجة أو السكوتر', en: '1. By the bikes or scooters', fr: '1. Près des vélos ou trottinettes' }, phrases: [
+        { fr: 'Tu sais si on peut garer les vélos ici ?', ar: 'بتعرفي إذا فينا نركن الدراجات هون؟', en: 'Do you know if we can park bikes here?' },
+        { fr: 'Tu fais souvent du vélo ?', ar: 'بتروحي بالدراجة كتير؟', en: 'Do you often ride a bike?' },
+        { fr: 'Tu habites loin d’ici ?', ar: 'ساكنة بعيد من هون؟', en: 'Do you live far from here?' }
+      ] },
+      { icon: '🥤', title: { ar: '2. في محل قهوة أو مشروب', en: '2. In a coffee or drinks shop', fr: '2. Dans un café ou un bar' }, phrases: [
+        { fr: 'Tu prends quoi ?', ar: 'شو عم تاخدي؟', en: 'What are you getting?' },
+        { fr: 'C’est bon ?', ar: 'طيب؟', en: 'Is it good?' },
+        { fr: 'Je ne sais jamais quoi choisir ici. 😄', ar: 'أنا دايمًا ما بعرف شو اختار هون. 😄', en: 'I never know what to choose here. 😄' },
+        { fr: 'Tu me conseilles quoi ?', ar: 'شو بتنصحيني آخد؟', en: 'What do you recommend?' }
+      ] },
+      { icon: '🧑‍🤝‍🧑', title: { ar: '3. إذا كانت مع صديقتها', en: '3. If she’s with her friend', fr: '3. Si elle est avec une amie' }, phrases: [
+        { fr: 'Excusez-moi de vous déranger.', ar: 'عذروني إذا أزعجتكم.', en: 'Sorry to bother you.' },
+        { fr: 'Je peux vous poser une petite question ?', ar: 'فيني اسألكم سؤال صغير؟', en: 'Can I ask you a quick question?' },
+        { fr: 'Je ne veux pas vous interrompre.', ar: 'ما بدي قاطع حديثكم.', en: 'I don’t want to interrupt you.' }
+      ] },
+      { icon: '🎧', title: { ar: '4. إذا كانت تسمع موسيقى', en: '4. If she’s listening to music', fr: '4. Si elle écoute de la musique' }, phrases: [
+        { fr: 'Tu écoutes quoi ?', ar: 'شو عم تسمعي؟', en: 'What are you listening to?' },
+        { fr: 'Tu aimes ce chanteur ?', ar: 'بتحبي هالمغني؟', en: 'Do you like this singer?' },
+        { fr: 'J’aime bien cette chanson aussi.', ar: 'أنا كمان بحب هالأغنية.', en: 'I like this song too.' }
+      ] },
+      { icon: '📸', title: { ar: '5. إذا كانت عم تصور', en: '5. If she’s taking photos', fr: '5. Si elle prend des photos' }, phrases: [
+        { fr: 'Tu veux que je prenne une photo ?', ar: 'بدك آخدلك صورة؟', en: 'Do you want me to take a photo?' },
+        { fr: 'Vous voulez que je vous prenne en photo ?', ar: 'بدكم آخدلكم صورة؟', en: 'Would you like me to take a photo of you?' },
+        { fr: 'Vous avez réussi à avoir une bonne photo ?', ar: 'زبطت معكم الصورة؟', en: 'Did you manage to get a good photo?' }
+      ] },
+      { icon: '🌞', title: { ar: '6. بسبب الجو', en: '6. Because of the weather', fr: '6. À cause de la météo' }, phrases: [
+        { fr: 'Il fait super beau aujourd’hui.', ar: 'الجو كتير حلو اليوم.', en: 'The weather is really nice today.' },
+        { fr: 'Ça change de la pluie !', ar: 'فرق عن أيام الشتي!', en: 'It’s a nice change from the rain!' },
+        { fr: 'Tu préfères l’été ou l’hiver ?', ar: 'بتفضلي الصيف ولا الشتا؟', en: 'Do you prefer summer or winter?' }
+      ] },
+      { icon: '🐕', title: { ar: '7. إذا الحيوان هو سبب بداية الحديث', en: '7. If the animal starts the conversation', fr: '7. Si l’animal lance la discussion' }, phrases: [
+        { fr: 'Il est vraiment mignon.', ar: 'كتير كيوت / لطيف.', en: 'He’s really cute.' },
+        { fr: 'C’est un mâle ou une femelle ?', ar: 'ذكر ولا أنثى؟', en: 'Is it a male or a female?' },
+        { fr: 'Tu l’as depuis longtemps ?', ar: 'صارلك زمان عندك ياه؟', en: 'Have you had him for a long time?' }
+      ] },
+      { icon: '🏃', title: { ar: '8. في مكان للرياضة', en: '8. At a sports spot', fr: '8. Dans un lieu de sport' }, phrases: [
+        { fr: 'Tu cours souvent ici ?', ar: 'بتركضي هون كتير؟', en: 'Do you often run here?' },
+        { fr: 'Tu fais du sport régulièrement ?', ar: 'بتمارسي رياضة بشكل منتظم؟', en: 'Do you exercise regularly?' },
+        { fr: 'Moi aussi, j’essaie de faire un peu de sport.', ar: 'أنا كمان بحاول مارس رياضة شوي.', en: 'I also try to exercise a bit.' }
+      ] },
+      { icon: '🏙️', title: { ar: '9. إذا كانت من نفس المنطقة', en: '9. If she’s from the same area', fr: '9. Si elle est du même quartier' }, phrases: [
+        { fr: 'Tu connais bien le quartier ?', ar: 'بتعرفي المنطقة منيح؟', en: 'Do you know the neighborhood well?' },
+        { fr: 'Tu connais un bon endroit pour prendre un café ?', ar: 'بتعرفي محل منيح نشرب فيه قهوة؟', en: 'Do you know a good place to get coffee?' },
+        { fr: 'Je viens d’arriver dans le quartier.', ar: 'أنا جديد بهالمنطقة.', en: 'I just moved to the neighborhood.' },
+        { fr: 'Tu me conseilles quoi à voir dans le coin ?', ar: 'شو بتنصحيني شوف بهالمنطقة؟', en: 'What would you recommend seeing around here?' }
+      ] },
+      { icon: '🗓️', title: { ar: '10. بعد ما صار في تعارف', en: '10. After you’ve got acquainted', fr: '10. Après avoir fait connaissance' }, phrases: [
+        { fr: 'Tu fais quoi ce week-end ?', ar: 'شو عاملة بعطلة نهاية الأسبوع؟', en: 'What are you doing this weekend?' },
+        { fr: 'Tu as prévu quelque chose ?', ar: 'مخططة لشي؟', en: 'Do you have any plans?' },
+        { fr: 'Tu es libre samedi ?', ar: 'فاضية السبت؟', en: 'Are you free Saturday?' },
+        { fr: 'Ça te dirait de prendre un café samedi ?', ar: 'شو رأيك نشرب قهوة السبت؟', en: 'Would you like to have coffee on Saturday?' }
+      ] },
+      { icon: '📲', title: { ar: '11. إذا أعطتك Instagram بدل الرقم', en: '11. If she gives you her Instagram instead of her number', fr: '11. Si elle te donne son Instagram au lieu de son numéro' }, phrases: [
+        { fr: 'Pas de problème, comme tu préfères.', ar: 'ولا يهمك، متل ما بتفضلي.', en: 'No problem, as you prefer.' },
+        { fr: 'Je vais te suivre.', ar: 'رح تابعك.', en: 'I’ll follow you.' },
+        { fr: 'Je t’enverrai un message.', ar: 'رح ابعتلك رسالة.', en: 'I’ll send you a message.' }
+      ] },
+      { icon: '😄', title: { ar: '12. إذا قالت لك: «Tu abordes souvent les filles comme ça ?»', en: '12. If she asks: "Do you often approach girls like this?"', fr: '12. Si elle te demande si tu abordes souvent les filles comme ça' }, phrases: [
+        { fr: 'Non, pas vraiment. 😄', ar: 'لا، مو كتير. 😄', en: 'No, not really. 😄' },
+        { fr: 'En fait, c’est plutôt rare pour moi.', ar: 'بصراحة هالشي نادر بالنسبة إلي.', en: 'Actually, it’s pretty rare for me.' },
+        { fr: 'Mais je t’ai trouvée sympa, alors j’ai tenté ma chance.', ar: 'بس لقيتك لطيفة، فقلت جرّب حظي.', en: 'But I thought you seemed nice, so I decided to give it a try.' }
+      ] },
+      { icon: '⭐', title: { ar: 'موقف كامل واقعي', en: 'A complete realistic scenario', fr: 'Une situation complète et réaliste' }, phrases: [
+        { fr: 'Excuse-moi, tu sais si ce café est bon ?', ar: 'عذريني، بتعرفي إذا هالقهوة/المحل منيح؟', en: 'Excuse me, do you know if this café is good?' },
+        { fr: 'Oui, il est pas mal.', ar: 'إي، منيح نوعًا ما.', en: 'Yeah, it’s pretty good.' },
+        { fr: 'Ah, parfait. C’est la première fois que je viens ici.', ar: 'آه ممتاز، أول مرة إلي هون.', en: 'Ah, perfect. It’s my first time here.' },
+        { fr: 'Tu viens souvent ici ?', ar: 'إنتِ بتجي لهون كتير؟', en: 'Do you come here often?' },
+        { fr: 'Oui, de temps en temps.', ar: 'إي، من وقت للتاني.', en: 'Yeah, from time to time.' },
+        { fr: 'Au fait, moi c’est Mohammad. Et toi ?', ar: 'على فكرة، أنا محمد. وإنتِ؟', en: 'By the way, I’m Mohammad. And you?' },
+        { fr: 'Enchanté.', ar: 'تشرفت.', en: 'Nice to meet you.' },
+        { fr: 'Enchanté aussi. Ça te dirait qu’on prenne un café un de ces jours ?', ar: 'وأنا كمان تشرفت. شو رأيك نشرب قهوة بيوم من الأيام؟', en: 'Nice to meet you too. Would you like to grab a coffee sometime?' }
+      ] },
+      { icon: '🥖', title: { ar: '1. في المخبز', en: '1. At the bakery', fr: '1. À la boulangerie' }, phrases: [
+        { fr: 'Tu prends toujours celle-là ?', ar: 'دايمًا بتاخدي هالنوع؟', en: 'Do you always get this one?' },
+        { fr: 'Tu me conseilles cette pâtisserie ?', ar: 'بتنصحيني بهالحلو؟', en: 'Would you recommend this pastry?' },
+        { fr: 'Elle est vraiment bonne ?', ar: 'عنجد طيبة؟', en: 'Is it really good?' },
+        { fr: 'Bon, je vais te faire confiance. 😄', ar: 'طيب، رح وثق بذوقك. 😄', en: 'Okay, I’ll trust your taste. 😄' }
+      ] },
+      { icon: '🛗', title: { ar: '2. في المصعد', en: '2. In the lift', fr: '2. Dans l’ascenseur' }, phrases: [
+        { fr: 'Vous allez à quel étage ?', ar: 'لأي طابق رايحة؟', en: 'Which floor are you going to?' },
+        { fr: 'Je vais au troisième aussi.', ar: 'أنا كمان رايح عالتالت.', en: 'I’m going to the third floor too.' },
+        { fr: 'On est arrivés ! 😄', ar: 'وصلنا! 😄', en: 'We’ve arrived! 😄' }
+      ] },
+      { icon: '🏪', title: { ar: '3. عند محل صغير', en: '3. At a small shop', fr: '3. Dans une petite boutique' }, phrases: [
+        { fr: 'Excuse-moi, tu sais à quelle heure ça ferme ?', ar: 'عذريني، بتعرفي بأي ساعة بيسكّر؟', en: 'Excuse me, do you know what time it closes?' },
+        { fr: 'Merci ! J’étais pas sûr.', ar: 'شكراً! ما كنت متأكد.', en: 'Thanks! I wasn’t sure.' },
+        { fr: 'Tu habites dans le coin ?', ar: 'ساكنة قريب من هون؟', en: 'Do you live around here?' }
+      ] },
+      { icon: '🚶', title: { ar: '4. في الشارع', en: '4. In the street', fr: '4. Dans la rue' }, phrases: [
+        { fr: 'Excuse-moi, tu sais où se trouve cette rue ?', ar: 'عذريني، بتعرفي وين هالشارع؟', en: 'Excuse me, do you know where this street is?' },
+        { fr: 'Je suis un peu perdu. 😄', ar: 'ضايع شوي. 😄', en: 'I’m a little lost. 😄' },
+        { fr: 'Merci, tu m’as sauvé !', ar: 'شكراً، أنقذتيني! 😄', en: 'Thanks, you saved me! 😄' }
+      ] },
+      { icon: '🪑', title: { ar: '5. إذا ما في مكان للجلوس', en: '5. If there’s nowhere to sit', fr: '5. S’il n’y a pas de place pour s’asseoir' }, phrases: [
+        { fr: 'Cette place est libre ?', ar: 'هالمقعد فاضي؟', en: 'Is this seat free?' },
+        { fr: 'Je peux m’asseoir ici ?', ar: 'فيني اقعد هون؟', en: 'Can I sit here?' },
+        { fr: 'Merci.', ar: 'شكراً.', en: 'Thanks.' },
+        { fr: 'Tu viens souvent ici ?', ar: 'بتجي لهون كتير؟', en: 'Do you come here often?' }
+      ] },
+      { icon: '🧥', title: { ar: '6. إذا لاحظت شيئًا لطيفًا عندها', en: '6. If you notice something nice on her', fr: '6. Si tu remarques quelque chose de joli chez elle' }, phrases: [
+        { fr: 'J’aime bien ton style.', ar: 'عجبني ستايلك.', en: 'I like your style.' },
+        { fr: 'J’aime bien ta veste.', ar: 'عجبني جاكيتك.', en: 'I like your jacket.' },
+        { fr: 'Elle est sympa, ta veste.', ar: 'جاكيتك حلو.', en: 'Your jacket is nice.' }
+      ] },
+      { icon: '☕', title: { ar: '7. إذا كانت تشرب نفس الشيء', en: '7. If she’s drinking the same thing', fr: '7. Si elle boit la même chose' }, phrases: [
+        { fr: 'C’est quoi comme boisson ?', ar: 'شو هالمشروب؟', en: 'What drink is that?' },
+        { fr: 'C’est bon ?', ar: 'طيب؟', en: 'Is it good?' },
+        { fr: 'Je vais peut-être essayer la prochaine fois.', ar: 'يمكن جرّبه المرة الجاية.', en: 'Maybe I’ll try it next time.' }
+      ] },
+      { icon: '📖', title: { ar: '8. إذا كانت معها كتاب أو مجلة', en: '8. If she has a book or magazine', fr: '8. Si elle a un livre ou un magazine' }, phrases: [
+        { fr: 'Tu lis quoi en ce moment ?', ar: 'شو عم تقري هالفترة؟', en: 'What are you reading at the moment?' },
+        { fr: 'Tu aimes ce genre de livres ?', ar: 'بتحبي هالنوع من الكتب؟', en: 'Do you like this kind of books?' },
+        { fr: 'Tu me le recommandes ?', ar: 'بتنصحيني فيه؟', en: 'Would you recommend it?' }
+      ] },
+      { icon: '🎶', title: { ar: '9. إذا كانت تسمع موسيقى', en: '9. If she’s listening to music', fr: '9. Si elle écoute de la musique' }, phrases: [
+        { fr: 'C’est quel artiste ?', ar: 'مين هالفنان؟', en: 'Who’s the artist?' },
+        { fr: 'J’aime bien cette musique.', ar: 'بحب هالموسيقى.', en: 'I like this music.' },
+        { fr: 'Tu écoutes souvent ce genre de musique ?', ar: 'بتسمعي هالنوع من الموسيقى كتير؟', en: 'Do you often listen to this kind of music?' }
+      ] },
+      { icon: '😄', title: { ar: '10. إذا صار موقف مضحك', en: '10. If something funny happens', fr: '10. S’il arrive quelque chose de drôle' }, phrases: [
+        { fr: 'On a eu de la chance !', ar: 'طلع معنا حظ!', en: 'We got lucky!' },
+        { fr: 'Quelle galère ! 😄', ar: 'يا لطيف شو هالمعاناة! 😄', en: 'What a hassle! 😄' },
+        { fr: 'C’est pas notre jour aujourd’hui. 😄', ar: 'شكلو مو يومنا اليوم. 😄', en: 'It’s not our day today. 😄' }
+      ] },
+      { icon: '🔄', title: { ar: '11. إذا التقيت بها مرة ثانية', en: '11. If you run into her again', fr: '11. Si tu la recroises' }, phrases: [
+        { fr: 'Tiens, on se retrouve !', ar: 'شوف! رجعنا التقينا!', en: 'Oh, we’re seeing each other again!' },
+        { fr: 'Ça va depuis la dernière fois ?', ar: 'كيفك من آخر مرة؟', en: 'How have you been since last time?' },
+        { fr: 'Je ne pensais pas te revoir aussi vite. 😄', ar: 'ما توقعت شوفك بهالسرعة. 😄', en: 'I didn’t expect to see you again so soon. 😄' },
+        { fr: 'Ça me fait plaisir de te revoir.', ar: 'مبسوط إني شفتك مرة تانية.', en: 'I’m happy to see you again.' }
+      ] },
+      { icon: '📱', title: { ar: '12. إذا بدك تنتقل من التعارف إلى التواصل', en: '12. If you want to move from chat to keeping in touch', fr: '12. Si tu veux passer de la discussion au contact' }, phrases: [
+        { fr: 'J’aime bien parler avec toi.', ar: 'بحب الحكي معك.', en: 'I like talking with you.' },
+        { fr: 'On pourrait continuer à discuter une autre fois.', ar: 'فينا نكمل الحكي مرة تانية.', en: 'We could continue talking another time.' },
+        { fr: 'Ça te dit qu’on échange nos numéros ?', ar: 'شو رأيك نتبادل أرقامنا؟', en: 'How about exchanging numbers?' },
+        { fr: 'Si tu préfères, je peux te donner le mien.', ar: 'إذا بتفضلي، فيني أعطيكي رقمي.', en: 'If you prefer, I can give you mine.' }
+      ] },
+      { icon: '🗣️', title: { ar: '13. أسئلة طبيعية تكمل فيها الحوار', en: '13. Natural questions to keep the chat going', fr: '13. Questions naturelles pour continuer la discussion' }, phrases: [
+        { fr: 'Tu fais quoi quand tu as du temps libre ?', ar: 'شو بتعملي بوقت فراغك؟', en: 'What do you do in your free time?' },
+        { fr: 'Tu aimes voyager ?', ar: 'بتحبي السفر؟', en: 'Do you like traveling?' },
+        { fr: 'Tu préfères sortir ou rester tranquille chez toi ?', ar: 'بتفضلي تطلعي ولا تضلّي بالبيت وترتاحي؟', en: 'Do you prefer going out or staying home and relaxing?' },
+        { fr: 'Tu fais quoi ce soir ?', ar: 'شو عاملة الليلة؟', en: 'What are you doing tonight?' },
+        { fr: 'Tu as prévu quelque chose ce week-end ?', ar: 'مخططة لشي بعطلة نهاية الأسبوع؟', en: 'Do you have any plans this weekend?' }
+      ] },
+      { icon: '⭐', title: { ar: 'جملة مهمة جدًا للتعارف العفوي', en: 'A key sentence for spontaneous introductions', fr: 'Une phrase clé pour aborder spontanément' }, phrases: [
+        { fr: 'Au fait, on ne s’est même pas présentés. Moi, c’est Mohammad.', ar: 'على فكرة، نحنا حتى ما تعارفنا. أنا محمد.', en: 'By the way, we haven’t even introduced ourselves. I’m Mohammad.' }
+      ] },
+      { icon: '🚪', title: { ar: '1. عند الباب', en: '1. At the door', fr: '1. À la porte' }, phrases: [
+        { fr: 'Je peux te tenir la porte ?', ar: 'فيني مسكلك الباب؟', en: 'Can I hold the door for you?' },
+        { fr: 'Après toi.', ar: 'تفضلي إنتِ أول.', en: 'After you.' },
+        { fr: 'Merci, c’est gentil.', ar: 'شكراً، لطيف منك.', en: 'Thanks, that’s kind of you.' }
+      ] },
+      { icon: '🛗', title: { ar: '2. إذا ضغطت هي على زر المصعد', en: '2. If she pressed the lift button', fr: '2. Si elle a appuyé sur le bouton de l’ascenseur' }, phrases: [
+        { fr: 'Merci !', ar: 'شكراً!', en: 'Thanks!' },
+        { fr: 'Tu vas à quel étage ?', ar: 'لأي طابق رايحة؟', en: 'Which floor are you going to?' },
+        { fr: 'Moi aussi, je vais au quatrième.', ar: 'أنا كمان رايح عالرابع.', en: 'I’m going to the fourth floor too.' }
+      ] },
+      { icon: '🪑', title: { ar: '3. إذا كان المقعد بجانبها فارغًا', en: '3. If the seat next to her is free', fr: '3. Si la place à côté d’elle est libre' }, phrases: [
+        { fr: 'Excuse-moi, cette place est libre ?', ar: 'عذريني، هالمقعد فاضي؟', en: 'Excuse me, is this seat free?' },
+        { fr: 'Je peux m’asseoir là ?', ar: 'فيني اقعد هون؟', en: 'Can I sit here?' },
+        { fr: 'Merci.', ar: 'شكراً.', en: 'Thanks.' }
+      ] },
+      { icon: '☕', title: { ar: '4. إذا طلبت نفس الشيء', en: '4. If she ordered the same thing', fr: '4. Si elle a commandé la même chose' }, phrases: [
+        { fr: 'Tu prends quoi ?', ar: 'شو طلبتي؟', en: 'What did you order?' },
+        { fr: 'Ça a l’air bon.', ar: 'شكله طيب.', en: 'It looks good.' },
+        { fr: 'Je vais prendre la même chose. 😄', ar: 'رح آخد نفس الشي. 😄', en: 'I’ll have the same. 😄' },
+        { fr: 'Tu me conseilles quoi d’autre ?', ar: 'شو كمان بتنصحيني؟', en: 'What else would you recommend?' }
+      ] },
+      { icon: '🍽️', title: { ar: '5. إذا كنتما تنتظران طاولة', en: '5. If you’re both waiting for a table', fr: '5. Si vous attendez tous les deux une table' }, phrases: [
+        { fr: 'Tu attends une table aussi ?', ar: 'إنتِ كمان ناطرة طاولة؟', en: 'Are you waiting for a table too?' },
+        { fr: 'Ils ont beaucoup de monde aujourd’hui.', ar: 'اليوم عندهم عالم كتير.', en: 'They have a lot of people today.' },
+        { fr: 'Tu viens souvent ici ?', ar: 'بتجي لهون كتير؟', en: 'Do you come here often?' }
+      ] },
+      { icon: '🛍️', title: { ar: '6. إذا كانت محتارة بين شيئين', en: '6. If she’s hesitating between two things', fr: '6. Si elle hésite entre deux choses' }, phrases: [
+        { fr: 'Tu hésites entre les deux ?', ar: 'محتارة بين التنين؟', en: 'Are you deciding between the two?' },
+        { fr: 'Moi, je préfère celui-là.', ar: 'أنا بفضّل هاد.', en: 'I prefer this one.' },
+        { fr: 'Mais bon, c’est juste mon avis. 😄', ar: 'بس بالنهاية هاد رأيي. 😄', en: 'But that’s just my opinion. 😄' }
+      ] },
+      { icon: '🧭', title: { ar: '7. إذا سألتك عن الطريق', en: '7. If she asks you for directions', fr: '7. Si elle te demande le chemin' }, phrases: [
+        { fr: 'Tu cherches quelque chose ?', ar: 'عم تدوري على شي؟', en: 'Are you looking for something?' },
+        { fr: 'Je peux t’aider ?', ar: 'فيني ساعدك؟', en: 'Can I help you?' },
+        { fr: 'C’est juste là-bas.', ar: 'هنيك بالضبط.', en: 'It’s just over there.' },
+        { fr: 'Tu vas dans cette direction ?', ar: 'رايحة بهالاتجاه؟', en: 'Are you going in this direction?' }
+      ] },
+      { icon: '🌧️', title: { ar: '8. إذا هطلت المطر فجأة', en: '8. If it suddenly starts raining', fr: '8. S’il se met à pleuvoir d’un coup' }, phrases: [
+        { fr: 'Tu as un parapluie ?', ar: 'معك شمسية؟', en: 'Do you have an umbrella?' },
+        { fr: 'Je crois qu’on va être trempés. 😄', ar: 'شكلي رح نبلّش مي. 😄', en: 'I think we’re going to get soaked. 😄' },
+        { fr: 'Quelle météo !', ar: 'شو هالطقس!', en: 'What weather!' }
+      ] },
+      { icon: '🐶', title: { ar: '9. إذا كلبها اقترب منك', en: '9. If her dog comes up to you', fr: '9. Si son chien s’approche de toi' }, phrases: [
+        { fr: 'Il est gentil ?', ar: 'هو لطيف؟', en: 'Is he friendly?' },
+        { fr: 'Je peux le caresser ?', ar: 'فيني دلّلو؟', en: 'Can I pet him?' },
+        { fr: 'Il est trop mignon.', ar: 'كتير كيوت.', en: 'He’s so cute.' },
+        { fr: 'Il aime bien les gens ?', ar: 'بيحب الناس؟', en: 'Does he like people?' }
+      ] },
+      { icon: '🏃', title: { ar: '10. إذا كانت تركض أو تتمرن', en: '10. If she’s running or working out', fr: '10. Si elle court ou fait du sport' }, phrases: [
+        { fr: 'Tu cours souvent ici ?', ar: 'بتركضي هون كتير؟', en: 'Do you often run here?' },
+        { fr: 'Tu fais combien de kilomètres ?', ar: 'قديش بتركضي، كم كيلومتر؟', en: 'How many kilometers do you run?' },
+        { fr: 'Bon courage !', ar: 'يعطيكي العافية!', en: 'Keep it up!' }
+      ] },
+      { icon: '🎉', title: { ar: '11. في مناسبة أو تجمع', en: '11. At an event or gathering', fr: '11. Lors d’un événement ou d’un rassemblement' }, phrases: [
+        { fr: 'Tu connais beaucoup de monde ici ?', ar: 'بتعرفي ناس كتير هون؟', en: 'Do you know many people here?' },
+        { fr: 'Tu es venue avec qui ?', ar: 'مع مين إجيتِ؟', en: 'Who did you come with?' },
+        { fr: 'C’est la première fois que tu viens ?', ar: 'أول مرة بتجي؟', en: 'Is this your first time here?' },
+        { fr: 'Comment tu connais cet endroit ?', ar: 'كيف بتعرفي هالمكان؟', en: 'How do you know this place?' }
+      ] },
+      { icon: '💬', title: { ar: '12. لما بدك تحول الحديث إلى تعارف', en: '12. Turning a chat into an introduction', fr: '12. Transformer la discussion en connaissance' }, phrases: [
+        { fr: 'Au fait, je m’appelle Mohammad.', ar: 'على فكرة، أنا اسمي محمد.', en: 'By the way, my name is Mohammad.' },
+        { fr: 'Et toi, comment tu t’appelles ?', ar: 'وإنتِ شو اسمك؟', en: 'And what’s your name?' },
+        { fr: 'Tu habites dans le coin ?', ar: 'ساكنة قريب من هون؟', en: 'Do you live around here?' },
+        { fr: 'Tu fais quoi dans la vie ?', ar: 'شو بتعملي بحياتك؟', en: 'What do you do?' }
+      ] },
+      { icon: '❤️', title: { ar: '13. إذا حسيت أن الحديث صار مريح', en: '13. If you feel the conversation is flowing well', fr: '13. Si tu sens que la discussion devient agréable' }, phrases: [
+        { fr: 'J’aime bien discuter avec toi.', ar: 'حبيت الحكي معك.', en: 'I like talking with you.' },
+        { fr: 'Tu es vraiment sympa.', ar: 'إنتِ عنجد لطيفة.', en: 'You’re really nice.' },
+        { fr: 'Je suis content d’être venu te parler.', ar: 'مبسوط إني إجيت وحكيت معك.', en: 'I’m glad I came to talk to you.' },
+        { fr: 'J’aimerais bien te revoir.', ar: 'بحب شوفك مرة تانية.', en: 'I’d like to see you again.' }
+      ] },
+      { icon: '📱', title: { ar: '14. طلب التواصل بطريقة خفيفة', en: '14. Asking to keep in touch the light way', fr: '14. Demander le contact en douceur' }, phrases: [
+        { fr: 'Ça te dit qu’on échange nos numéros ?', ar: 'شو رأيك نتبادل أرقامنا؟', en: 'How about exchanging numbers?' },
+        { fr: 'Je peux te laisser mon numéro, si tu veux.', ar: 'فيني أعطيكي رقمي إذا بتحبي.', en: 'I can give you my number if you want.' },
+        { fr: 'Comme ça, on pourra discuter tranquillement.', ar: 'هيك فينا نحكي على رواق.', en: 'That way, we can chat comfortably.' }
+      ] },
+      { icon: '⭐', title: { ar: 'موقف كامل شائع جدًا', en: 'A very common full scenario', fr: 'Une situation complète très fréquente' }, phrases: [
+        { fr: 'Excuse-moi, tu sais si cette place est libre ?', ar: 'عذريني، بتعرفي إذا هالمقعد فاضي؟', en: 'Excuse me, do you know if this seat is free?' },
+        { fr: 'Oui, vas-y.', ar: 'إي، تفضل.', en: 'Yes, go ahead.' },
+        { fr: 'Merci. Tu viens souvent ici ?', ar: 'شكراً. بتجي لهون كتير؟', en: 'Thanks. Do you come here often?' },
+        { fr: 'Oui, de temps en temps.', ar: 'إي، من وقت للتاني.', en: 'Yeah, from time to time.' },
+        { fr: 'Moi aussi. Au fait, je m’appelle Mohammad.', ar: 'أنا كمان. على فكرة، أنا محمد.', en: 'Me too. By the way, I’m Mohammad.' },
+        { fr: 'Enchantée.', ar: 'تشرفت.', en: 'Nice to meet you.' },
+        { fr: 'Enchanté. Ça me fait plaisir de faire ta connaissance.', ar: 'وأنا كمان تشرفت، مبسوط إني تعرفت عليكي.', en: 'Nice to meet you too. I’m glad to get to know you.' }
+      ] }
+    ]
   }
 ];
