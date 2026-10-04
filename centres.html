@@ -312,6 +312,7 @@
     if (btn.classList.contains('speaking')) { stopSpeaking(); return; }
     stopSpeaking();
     btn.classList.add('speaking');
+    text = text.replace(/^(Client|Vendeur|Customer|Seller|الزبون|البائع)\s*[:：]\s*/i, '');
     var seq = speakSeq;
     var done = function () { if (seq === speakSeq) btn.classList.remove('speaking'); };
     if (nativeTTS) speakNative(text, lang, state.loop, done);
