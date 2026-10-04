@@ -11470,15 +11470,19 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se lever — يستيقظ/ينهض', en: 'se lever', fr: 'se lever' }, phrases: [
         { fr: 'se lever', ar: 'يستيقظ/ينهض', en: 'to get up' },
-        { fr: 'Je me lève à sept heures.', ar: 'بقوم الساعة سبعة.', en: 'I get up at seven.' }
+        { fr: 'Je me lève à sept heures.', ar: 'بقوم الساعة سبعة.', en: 'I get up at seven.' },
+        { fr: 'Je me suis levé à sept heures.', ar: 'نهضت الساعة سبعة.', en: 'I got up at seven.' }
       ] },
       { icon: '🔄', title: { ar: 'se réveiller — يستيقظ', en: 'se réveiller', fr: 'se réveiller' }, phrases: [
         { fr: 'se réveiller', ar: 'يستيقظ', en: 'to wake up' },
-        { fr: 'Je me réveille tôt.', ar: 'بفيق بكير.', en: 'I wake up early.' }
+        { fr: 'Je me réveille tôt.', ar: 'بفيق بكير.', en: 'I wake up early.' },
+        { fr: 'Je me suis réveillé tôt ce matin.', ar: 'فقت بكير اليوم الصبح.', en: 'I woke up early this morning.' }
       ] },
       { icon: '🔄', title: { ar: 'se coucher — يذهب للنوم', en: 'se coucher', fr: 'se coucher' }, phrases: [
         { fr: 'se coucher', ar: 'يذهب للنوم', en: 'to go to bed' },
-        { fr: 'Je me couche tôt ce soir.', ar: 'رح نام بكير الليلة.', en: 'I’m going to bed early tonight.' }
+        { fr: 'Je me couche tôt ce soir.', ar: 'رح نام بكير الليلة.', en: 'I’m going to bed early tonight.' },
+        { fr: 'Je me couche à minuit.', ar: 'بنام بنص الليل.', en: 'I go to bed at midnight.' },
+        { fr: 'Je me suis couché tard hier soir.', ar: 'نمت مبارح بالليل متأخر.', en: 'I went to bed late last night.' }
       ] },
       { icon: '🔄', title: { ar: 'se laver — يغتسل/يغسل نفسه', en: 'se laver', fr: 'se laver' }, phrases: [
         { fr: 'se laver', ar: 'يغتسل/يغسل نفسه', en: 'to wash oneself' },
@@ -11490,7 +11494,8 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 's’habiller — يرتدي ملابسه', en: 's’habiller', fr: 's’habiller' }, phrases: [
         { fr: 's’habiller', ar: 'يرتدي ملابسه', en: 'to get dressed' },
-        { fr: 'Je m’habille rapidement.', ar: 'بلبس تيابي بسرعة.', en: 'I get dressed quickly.' }
+        { fr: 'Je m’habille rapidement.', ar: 'بلبس تيابي بسرعة.', en: 'I get dressed quickly.' },
+        { fr: 'Je me suis habillé rapidement.', ar: 'لبست بسرعة.', en: 'I got dressed quickly.' }
       ] },
       { icon: '🔄', title: { ar: 'se déshabiller — يخلع ملابسه', en: 'se déshabiller', fr: 'se déshabiller' }, phrases: [
         { fr: 'se déshabiller', ar: 'يخلع ملابسه', en: 'to get undressed' },
@@ -11498,47 +11503,63 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se préparer — يتحضّر', en: 'se préparer', fr: 'se préparer' }, phrases: [
         { fr: 'se préparer', ar: 'يتحضّر', en: 'to get ready' },
-        { fr: 'Je me prépare pour le travail.', ar: 'عم حضّر حالي للشغل.', en: 'I’m getting ready for work.' }
+        { fr: 'Je me prépare pour le travail.', ar: 'عم حضّر حالي للشغل.', en: 'I’m getting ready for work.' },
+        { fr: 'Je me suis préparé pour le travail.', ar: 'حضّرت حالي للشغل.', en: 'I got ready for work.' }
       ] },
       { icon: '🔄', title: { ar: 'se dépêcher — يستعجل', en: 'se dépêcher', fr: 'se dépêcher' }, phrases: [
         { fr: 'se dépêcher', ar: 'يستعجل', en: 'to hurry' },
-        { fr: 'Dépêche-toi, on va être en retard !', ar: 'استعجل، رح نتأخر!', en: 'Hurry up, we’re going to be late!' }
+        { fr: 'Dépêche-toi, on va être en retard !', ar: 'استعجل، رح نتأخر!', en: 'Hurry up, we’re going to be late!' },
+        { fr: 'Dépêche-toi !', ar: 'استعجل!', en: 'Hurry up!' },
+        { fr: 'Je me suis dépêché pour ne pas être en retard.', ar: 'استعجلت مشان ما أتأخر.', en: 'I hurried so I wouldn’t be late.' }
       ] },
       { icon: '🔄', title: { ar: 's’asseoir — يجلس', en: 's’asseoir', fr: 's’asseoir' }, phrases: [
         { fr: 's’asseoir', ar: 'يجلس', en: 'to sit down' },
-        { fr: 'Je vais m’asseoir ici.', ar: 'رح اقعد هون.', en: 'I’m going to sit here.' }
+        { fr: 'Je vais m’asseoir ici.', ar: 'رح اقعد هون.', en: 'I’m going to sit here.' },
+        { fr: 'Je m’assois ici.', ar: 'بقعد هون.', en: 'I sit here.' },
+        { fr: 'Je me suis assis dans la salle d’attente.', ar: 'قعدت بغرفة الانتظار.', en: 'I sat down in the waiting room.' }
       ] },
       { icon: '🔄', title: { ar: 'se reposer — يرتاح', en: 'se reposer', fr: 'se reposer' }, phrases: [
         { fr: 'se reposer', ar: 'يرتاح', en: 'to rest' },
-        { fr: 'Je dois me reposer un peu.', ar: 'لازم ارتاح شوي.', en: 'I need to rest a little.' }
+        { fr: 'Je dois me reposer un peu.', ar: 'لازم ارتاح شوي.', en: 'I need to rest a little.' },
+        { fr: 'Je vais me reposer.', ar: 'رح ارتاح.', en: 'I’m going to rest.' },
+        { fr: 'Je me suis reposé après le travail.', ar: 'ارتحت بعد الشغل.', en: 'I rested after work.' }
       ] },
       { icon: '🔄', title: { ar: 'se sentir — يشعر', en: 'se sentir', fr: 'se sentir' }, phrases: [
         { fr: 'se sentir', ar: 'يشعر', en: 'to feel' },
-        { fr: 'Je me sens mieux aujourd’hui.', ar: 'حاسس حالي أحسن اليوم.', en: 'I feel better today.' }
+        { fr: 'Je me sens mieux aujourd’hui.', ar: 'حاسس حالي أحسن اليوم.', en: 'I feel better today.' },
+        { fr: 'Je me sens bien.', ar: 'حاسس حالي منيح.', en: 'I feel good.' },
+        { fr: 'Je me suis senti mieux après le repos.', ar: 'حسّيت حالي أحسن بعد الراحة.', en: 'I felt better after resting.' }
       ] },
       { icon: '🔄', title: { ar: 'se souvenir de — يتذكّر', en: 'se souvenir de', fr: 'se souvenir de' }, phrases: [
         { fr: 'se souvenir de', ar: 'يتذكّر', en: 'to remember' },
-        { fr: 'Je me souviens de cette personne.', ar: 'بتذكّر هالشخص.', en: 'I remember this person.' }
+        { fr: 'Je me souviens de cette personne.', ar: 'بتذكّر هالشخص.', en: 'I remember this person.' },
+        { fr: 'Je me suis souvenu de son nom.', ar: 'تذكرت اسمه.', en: 'I remembered his name.' }
       ] },
       { icon: '🔄', title: { ar: 'se tromper — يخطئ / يغلط', en: 'se tromper', fr: 'se tromper' }, phrases: [
         { fr: 'se tromper', ar: 'يخطئ / يغلط', en: 'to be mistaken' },
-        { fr: 'Je me suis trompé d’adresse.', ar: 'غلطت بالعنوان.', en: 'I got the address wrong.' }
+        { fr: 'Je me suis trompé d’adresse.', ar: 'غلطت بالعنوان.', en: 'I got the address wrong.' },
+        { fr: 'Je me suis trompé.', ar: 'أنا غلطت.', en: 'I made a mistake.' }
       ] },
       { icon: '🔄', title: { ar: 's’inquiéter — يقلق', en: 's’inquiéter', fr: 's’inquiéter' }, phrases: [
         { fr: 's’inquiéter', ar: 'يقلق', en: 'to worry' },
-        { fr: 'Ne t’inquiète pas, tout va bien.', ar: 'لا تقلق، كل شي تمام.', en: 'Don’t worry, everything is fine.' }
+        { fr: 'Ne t’inquiète pas, tout va bien.', ar: 'لا تقلق، كل شي تمام.', en: 'Don’t worry, everything is fine.' },
+        { fr: 'Ne t’inquiète pas.', ar: 'لا تقلق.', en: 'Don’t worry.' },
+        { fr: 'Je me suis inquiété pour lui.', ar: 'قلقت عليه.', en: 'I worried about him.' }
       ] },
       { icon: '🔄', title: { ar: 's’intéresser à — يهتم بـ', en: 's’intéresser à', fr: 's’intéresser à' }, phrases: [
         { fr: 's’intéresser à', ar: 'يهتم بـ', en: 'to be interested in' },
-        { fr: 'Je m’intéresse beaucoup à la langue française.', ar: 'أنا مهتم كتير باللغة الفرنسية.', en: 'I’m very interested in French.' }
+        { fr: 'Je m’intéresse beaucoup à la langue française.', ar: 'أنا مهتم كتير باللغة الفرنسية.', en: 'I’m very interested in French.' },
+        { fr: 'Je m’intéresse à la langue française.', ar: 'أنا مهتم باللغة الفرنسية.', en: 'I’m interested in French.' }
       ] },
       { icon: '🔄', title: { ar: 's’occuper de — يهتم بـ / يتولى', en: 's’occuper de', fr: 's’occuper de' }, phrases: [
         { fr: 's’occuper de', ar: 'يهتم بـ / يتولى', en: 'to take care of' },
-        { fr: 'Je m’occupe de ce dossier.', ar: 'أنا بتولى هالملف.', en: 'I’m taking care of this file.' }
+        { fr: 'Je m’occupe de ce dossier.', ar: 'أنا بتولى هالملف.', en: 'I’m taking care of this file.' },
+        { fr: 'Je m’occupe du dossier.', ar: 'أنا بهتم بالملف.', en: 'I’m taking care of the file.' }
       ] },
       { icon: '🔄', title: { ar: 'se rendre compte de — يدرك / ينتبه', en: 'se rendre compte de', fr: 'se rendre compte de' }, phrases: [
         { fr: 'se rendre compte de', ar: 'يدرك / ينتبه', en: 'to realize' },
-        { fr: 'Je me rends compte de mon erreur.', ar: 'انتبهت على غلطي.', en: 'I realize my mistake.' }
+        { fr: 'Je me rends compte de mon erreur.', ar: 'انتبهت على غلطي.', en: 'I realize my mistake.' },
+        { fr: 'Je me suis rendu compte de mon erreur.', ar: 'انتبهت على غلطي.', en: 'I realized my mistake.' }
       ] },
       { icon: '🔄', title: { ar: 's’excuser — يعتذر', en: 's’excuser', fr: 's’excuser' }, phrases: [
         { fr: 's’excuser', ar: 'يعتذر', en: 'to apologize' },
@@ -11554,7 +11575,8 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se débrouiller — يتدبّر أموره', en: 'se débrouiller', fr: 'se débrouiller' }, phrases: [
         { fr: 'se débrouiller', ar: 'يتدبّر أموره', en: 'to manage' },
-        { fr: 'Ne t’inquiète pas, je vais me débrouiller.', ar: 'لا تقلق، رح دبّر حالي.', en: 'Don’t worry, I’ll manage.' }
+        { fr: 'Ne t’inquiète pas, je vais me débrouiller.', ar: 'لا تقلق، رح دبّر حالي.', en: 'Don’t worry, I’ll manage.' },
+        { fr: 'Je vais me débrouiller.', ar: 'رح دبّر حالي.', en: 'I’ll manage.' }
       ] },
       { icon: '🔄', title: { ar: 'se servir de — يستخدم', en: 'se servir de', fr: 'se servir de' }, phrases: [
         { fr: 'se servir de', ar: 'يستخدم', en: 'to use' },
@@ -11574,11 +11596,13 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se retrouver — يلتقي مجددًا / يجد نفسه', en: 'se retrouver', fr: 'se retrouver' }, phrases: [
         { fr: 'se retrouver', ar: 'يلتقي مجددًا / يجد نفسه', en: 'to meet again' },
-        { fr: 'On se retrouve devant la gare.', ar: 'منلتقي قدام المحطة.', en: 'We’ll meet in front of the station.' }
+        { fr: 'On se retrouve devant la gare.', ar: 'منلتقي قدام المحطة.', en: 'We’ll meet in front of the station.' },
+        { fr: 'On s’est retrouvés devant la gare.', ar: 'التقينا قدام المحطة.', en: 'We met up in front of the station.' }
       ] },
       { icon: '🔄', title: { ar: 'se parler — يتحدث مع بعضه', en: 'se parler', fr: 'se parler' }, phrases: [
         { fr: 'se parler', ar: 'يتحدث مع بعضه', en: 'to talk to each other' },
-        { fr: 'On doit se parler ce soir.', ar: 'لازم نحكي مع بعض الليلة.', en: 'We need to talk tonight.' }
+        { fr: 'On doit se parler ce soir.', ar: 'لازم نحكي مع بعض الليلة.', en: 'We need to talk tonight.' },
+        { fr: 'On s’est parlé hier.', ar: 'حكينا مع بعض مبارح.', en: 'We talked yesterday.' }
       ] },
       { icon: '🔄', title: { ar: 's’appeler — يتصل / يُدعى', en: 's’appeler', fr: 's’appeler' }, phrases: [
         { fr: 's’appeler', ar: 'يتصل / يُدعى', en: 'to call each other / be called' },
@@ -11602,11 +11626,13 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se disputer — يتشاجر', en: 'se disputer', fr: 'se disputer' }, phrases: [
         { fr: 'se disputer', ar: 'يتشاجر', en: 'to argue' },
-        { fr: 'Ils se disputent souvent.', ar: 'هني بيتخانقوا كتير.', en: 'They often argue.' }
+        { fr: 'Ils se disputent souvent.', ar: 'هني بيتخانقوا كتير.', en: 'They often argue.' },
+        { fr: 'Ils se sont disputés hier soir.', ar: 'تخانقوا مبارح بالليل.', en: 'They argued last night.' }
       ] },
       { icon: '🔄', title: { ar: 'se calmer — يهدأ', en: 'se calmer', fr: 'se calmer' }, phrases: [
         { fr: 'se calmer', ar: 'يهدأ', en: 'to calm down' },
-        { fr: 'Calme-toi, tout va bien.', ar: 'اهدى، كل شي تمام.', en: 'Calm down, everything is fine.' }
+        { fr: 'Calme-toi, tout va bien.', ar: 'اهدى، كل شي تمام.', en: 'Calm down, everything is fine.' },
+        { fr: 'Je me suis calmé après quelques minutes.', ar: 'هديت بعد كم دقيقة.', en: 'I calmed down after a few minutes.' }
       ] },
       { icon: '🔄', title: { ar: 'se rappeler — يتذكّر', en: 'se rappeler', fr: 'se rappeler' }, phrases: [
         { fr: 'se rappeler', ar: 'يتذكّر', en: 'to remember' },
@@ -11614,7 +11640,8 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se concentrer — يركّز', en: 'se concentrer', fr: 'se concentrer' }, phrases: [
         { fr: 'se concentrer', ar: 'يركّز', en: 'to concentrate' },
-        { fr: 'J’ai besoin de me concentrer.', ar: 'بحتاج ركّز.', en: 'I need to concentrate.' }
+        { fr: 'J’ai besoin de me concentrer.', ar: 'بحتاج ركّز.', en: 'I need to concentrate.' },
+        { fr: 'Je me suis concentré sur mon travail.', ar: 'ركّزت على شغلي.', en: 'I concentrated on my work.' }
       ] },
       { icon: '🔄', title: { ar: 'se méfier de — يحذر من', en: 'se méfier de', fr: 'se méfier de' }, phrases: [
         { fr: 'se méfier de', ar: 'يحذر من', en: 'to be wary of' },
@@ -11654,23 +11681,28 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se déplacer — يتنقّل', en: 'se déplacer', fr: 'se déplacer' }, phrases: [
         { fr: 'se déplacer', ar: 'يتنقّل', en: 'to move around / travel' },
-        { fr: 'Je dois me déplacer demain.', ar: 'لازم روح لمكان تاني بكرا.', en: 'I have to travel somewhere tomorrow.' }
+        { fr: 'Je dois me déplacer demain.', ar: 'لازم روح لمكان تاني بكرا.', en: 'I have to travel somewhere tomorrow.' },
+        { fr: 'Je me suis déplacé jusqu’à Strasbourg.', ar: 'رحت لحد ستراسبورغ.', en: 'I traveled to Strasbourg.' }
       ] },
       { icon: '🔄', title: { ar: 'se garer — يركن السيارة', en: 'se garer', fr: 'se garer' }, phrases: [
         { fr: 'se garer', ar: 'يركن السيارة', en: 'to park' },
-        { fr: 'Je peux me garer ici ?', ar: 'فيني صفّ السيارة هون؟', en: 'Can I park here?' }
+        { fr: 'Je peux me garer ici ?', ar: 'فيني صفّ السيارة هون؟', en: 'Can I park here?' },
+        { fr: 'Je me suis garé devant le magasin.', ar: 'ركنت قدام المحل.', en: 'I parked in front of the store.' }
       ] },
       { icon: '🔄', title: { ar: 's’installer — يستقر / يجلس', en: 's’installer', fr: 's’installer' }, phrases: [
         { fr: 's’installer', ar: 'يستقر / يجلس', en: 'to settle in' },
-        { fr: 'Installe-toi, je vais arriver dans une minute.', ar: 'اقعد وارتاح، جايي بعد دقيقة.', en: 'Make yourself comfortable, I’ll be there in a minute.' }
+        { fr: 'Installe-toi, je vais arriver dans une minute.', ar: 'اقعد وارتاح، جايي بعد دقيقة.', en: 'Make yourself comfortable, I’ll be there in a minute.' },
+        { fr: 'Je me suis installé dans la salle d’attente.', ar: 'قعدت واستقريت بغرفة الانتظار.', en: 'I settled in the waiting room.' }
       ] },
       { icon: '🔄', title: { ar: 'se changer — يغيّر ملابسه', en: 'se changer', fr: 'se changer' }, phrases: [
         { fr: 'se changer', ar: 'يغيّر ملابسه', en: 'to change clothes' },
-        { fr: 'Je vais me changer avant de sortir.', ar: 'رح غيّر تيابي قبل ما اطلع.', en: 'I’m going to change clothes before going out.' }
+        { fr: 'Je vais me changer avant de sortir.', ar: 'رح غيّر تيابي قبل ما اطلع.', en: 'I’m going to change clothes before going out.' },
+        { fr: 'Je me suis changé après le travail.', ar: 'غيّرت تيابي بعد الشغل.', en: 'I changed my clothes after work.' }
       ] },
       { icon: '🔄', title: { ar: 's’endormir — يغفو / ينام', en: 's’endormir', fr: 's’endormir' }, phrases: [
         { fr: 's’endormir', ar: 'يغفو / ينام', en: 'to fall asleep' },
-        { fr: 'Je me suis endormi devant la télé.', ar: 'غفيت قدام التلفزيون.', en: 'I fell asleep in front of the TV.' }
+        { fr: 'Je me suis endormi devant la télé.', ar: 'غفيت قدام التلفزيون.', en: 'I fell asleep in front of the TV.' },
+        { fr: 'Je me suis endormi rapidement.', ar: 'نمت بسرعة.', en: 'I fell asleep quickly.' }
       ] },
       { icon: '🔄', title: { ar: 'se couper — يجرح نفسه', en: 'se couper', fr: 'se couper' }, phrases: [
         { fr: 'se couper', ar: 'يجرح نفسه', en: 'to cut oneself' },
@@ -11678,11 +11710,13 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se blesser — يُصاب / يجرح نفسه', en: 'se blesser', fr: 'se blesser' }, phrases: [
         { fr: 'se blesser', ar: 'يُصاب / يجرح نفسه', en: 'to injure oneself' },
-        { fr: 'Il s’est blessé au travail.', ar: 'انجرح بالشغل.', en: 'He injured himself at work.' }
+        { fr: 'Il s’est blessé au travail.', ar: 'انجرح بالشغل.', en: 'He injured himself at work.' },
+        { fr: 'Je me suis blessé au travail.', ar: 'انجرحت بالشغل.', en: 'I hurt myself at work.' }
       ] },
       { icon: '🔄', title: { ar: 'se brûler — يحرق نفسه', en: 'se brûler', fr: 'se brûler' }, phrases: [
         { fr: 'se brûler', ar: 'يحرق نفسه', en: 'to burn oneself' },
-        { fr: 'Attention, tu vas te brûler !', ar: 'دير بالك، رح تحرق حالك!', en: 'Careful, you’re going to burn yourself!' }
+        { fr: 'Attention, tu vas te brûler !', ar: 'دير بالك، رح تحرق حالك!', en: 'Careful, you’re going to burn yourself!' },
+        { fr: 'Je me suis brûlé la main.', ar: 'حرقت إيدي.', en: 'I burned my hand.' }
       ] },
       { icon: '🔄', title: { ar: 'se casser — ينكسر / يكسر شيئًا لنفسه', en: 'se casser', fr: 'se casser' }, phrases: [
         { fr: 'se casser', ar: 'ينكسر / يكسر شيئًا لنفسه', en: 'to break' },
@@ -11694,7 +11728,8 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se sécher — يجفف نفسه', en: 'se sécher', fr: 'se sécher' }, phrases: [
         { fr: 'se sécher', ar: 'يجفف نفسه', en: 'to dry oneself' },
-        { fr: 'Je vais me sécher les cheveux.', ar: 'رح نشّف شعري.', en: 'I’m going to dry my hair.' }
+        { fr: 'Je vais me sécher les cheveux.', ar: 'رح نشّف شعري.', en: 'I’m going to dry my hair.' },
+        { fr: 'Je me suis séché après la douche.', ar: 'نشّفت حالي بعد الدوش.', en: 'I dried myself after the shower.' }
       ] },
       { icon: '🔄', title: { ar: 'se maquiller — يضع المكياج', en: 'se maquiller', fr: 'se maquiller' }, phrases: [
         { fr: 'se maquiller', ar: 'يضع المكياج', en: 'to put on makeup' },
@@ -11702,27 +11737,33 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se raser — يحلق', en: 'se raser', fr: 'se raser' }, phrases: [
         { fr: 'se raser', ar: 'يحلق', en: 'to shave' },
-        { fr: 'Je me rase tous les matins.', ar: 'بحلق كل صباح.', en: 'I shave every morning.' }
+        { fr: 'Je me rase tous les matins.', ar: 'بحلق كل صباح.', en: 'I shave every morning.' },
+        { fr: 'Je me suis rasé ce matin.', ar: 'حلقت دقني هالصبح.', en: 'I shaved this morning.' }
       ] },
       { icon: '🔄', title: { ar: 'se brosser — يفرّش', en: 'se brosser', fr: 'se brosser' }, phrases: [
         { fr: 'se brosser', ar: 'يفرّش', en: 'to brush' },
-        { fr: 'Je me brosse les dents après le petit-déjeuner.', ar: 'بفرّش سناني بعد الفطور.', en: 'I brush my teeth after breakfast.' }
+        { fr: 'Je me brosse les dents après le petit-déjeuner.', ar: 'بفرّش سناني بعد الفطور.', en: 'I brush my teeth after breakfast.' },
+        { fr: 'Je me suis brossé les dents avant de dormir.', ar: 'فرّشت سناني قبل ما نام.', en: 'I brushed my teeth before sleeping.' }
       ] },
       { icon: '🔄', title: { ar: 'se peigner — يمشّط شعره', en: 'se peigner', fr: 'se peigner' }, phrases: [
         { fr: 'se peigner', ar: 'يمشّط شعره', en: 'to comb one’s hair' },
-        { fr: 'Elle se peigne les cheveux.', ar: 'هي عم تمشّط شعرها.', en: 'She is combing her hair.' }
+        { fr: 'Elle se peigne les cheveux.', ar: 'هي عم تمشّط شعرها.', en: 'She is combing her hair.' },
+        { fr: 'Il s’est peigné avant de sortir.', ar: 'مشّط شعره قبل ما يطلع.', en: 'He combed his hair before going out.' }
       ] },
       { icon: '🔄', title: { ar: 'se parfumer — يضع العطر', en: 'se parfumer', fr: 'se parfumer' }, phrases: [
         { fr: 'se parfumer', ar: 'يضع العطر', en: 'to put on perfume' },
-        { fr: 'Il se parfume avant de sortir.', ar: 'بيحط عطر قبل ما يطلع.', en: 'He puts on perfume before going out.' }
+        { fr: 'Il se parfume avant de sortir.', ar: 'بيحط عطر قبل ما يطلع.', en: 'He puts on perfume before going out.' },
+        { fr: 'Elle s’est parfumée avant la soirée.', ar: 'حطّت عطر قبل السهرة.', en: 'She put on perfume before the party.' }
       ] },
       { icon: '🔄', title: { ar: 'se gratter — يحكّ نفسه', en: 'se gratter', fr: 'se gratter' }, phrases: [
         { fr: 'se gratter', ar: 'يحكّ نفسه', en: 'to scratch oneself' },
-        { fr: 'Je me gratte le bras.', ar: 'عم بحكّ إيدي.', en: 'I’m scratching my arm.' }
+        { fr: 'Je me gratte le bras.', ar: 'عم بحكّ إيدي.', en: 'I’m scratching my arm.' },
+        { fr: 'Je me suis gratté le bras.', ar: 'حكّيت إيدي.', en: 'I scratched my arm.' }
       ] },
       { icon: '🔄', title: { ar: 'se toucher — يلمس نفسه', en: 'se toucher', fr: 'se toucher' }, phrases: [
         { fr: 'se toucher', ar: 'يلمس نفسه', en: 'to touch oneself' },
-        { fr: 'Ne te touche pas les yeux.', ar: 'لا تلمس عيونك.', en: 'Don’t touch your eyes.' }
+        { fr: 'Ne te touche pas les yeux.', ar: 'لا تلمس عيونك.', en: 'Don’t touch your eyes.' },
+        { fr: 'Je me suis touché le front pour vérifier ma température.', ar: 'لمست جبيني لأتأكد من حرارتي.', en: 'I touched my forehead to check my temperature.' }
       ] },
       { icon: '🔄', title: { ar: 'se laver les mains — يغسل يديه', en: 'se laver les mains', fr: 'se laver les mains' }, phrases: [
         { fr: 'se laver les mains', ar: 'يغسل يديه', en: 'to wash one’s hands' },
@@ -11730,15 +11771,18 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se regarder — ينظر إلى نفسه', en: 'se regarder', fr: 'se regarder' }, phrases: [
         { fr: 'se regarder', ar: 'ينظر إلى نفسه', en: 'to look at oneself' },
-        { fr: 'Je me regarde dans le miroir.', ar: 'عم اطلع على حالي بالمراية.', en: 'I’m looking at myself in the mirror.' }
+        { fr: 'Je me regarde dans le miroir.', ar: 'عم اطلع على حالي بالمراية.', en: 'I’m looking at myself in the mirror.' },
+        { fr: 'Je me suis regardé dans le miroir.', ar: 'تطلعت بحالي بالمراية.', en: 'I looked at myself in the mirror.' }
       ] },
       { icon: '🔄', title: { ar: 'se cacher — يختبئ', en: 'se cacher', fr: 'se cacher' }, phrases: [
         { fr: 'se cacher', ar: 'يختبئ', en: 'to hide' },
-        { fr: 'L’enfant se cache derrière la porte.', ar: 'الولد مستخبي ورا الباب.', en: 'The child is hiding behind the door.' }
+        { fr: 'L’enfant se cache derrière la porte.', ar: 'الولد مستخبي ورا الباب.', en: 'The child is hiding behind the door.' },
+        { fr: 'L’enfant s’est caché derrière la porte.', ar: 'الولد اختبى ورا الباب.', en: 'The child hid behind the door.' }
       ] },
       { icon: '🔄', title: { ar: 'se perdre — يضيع', en: 'se perdre', fr: 'se perdre' }, phrases: [
         { fr: 'se perdre', ar: 'يضيع', en: 'to get lost' },
-        { fr: 'Je me suis perdu dans la ville.', ar: 'ضعت بالمدينة.', en: 'I got lost in the city.' }
+        { fr: 'Je me suis perdu dans la ville.', ar: 'ضعت بالمدينة.', en: 'I got lost in the city.' },
+        { fr: 'Je me suis perdu dans le centre-ville.', ar: 'ضعت بوسط المدينة.', en: 'I got lost downtown.' }
       ] },
       { icon: '🔄', title: { ar: 'se rapprocher — يقترب', en: 'se rapprocher', fr: 'se rapprocher' }, phrases: [
         { fr: 'se rapprocher', ar: 'يقترب', en: 'to get closer' },
@@ -11750,7 +11794,8 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se retourner — يلتفت', en: 'se retourner', fr: 'se retourner' }, phrases: [
         { fr: 'se retourner', ar: 'يلتفت', en: 'to turn around' },
-        { fr: 'Il se retourne quand je l’appelle.', ar: 'بيلتفت لما ناديه.', en: 'He turns around when I call him.' }
+        { fr: 'Il se retourne quand je l’appelle.', ar: 'بيلتفت لما ناديه.', en: 'He turns around when I call him.' },
+        { fr: 'Je me suis retourné quand j’ai entendu mon nom.', ar: 'لفيت لما سمعت اسمي.', en: 'I turned around when I heard my name.' }
       ] },
       { icon: '🔄', title: { ar: 'se tourner — يلتفت / يتجه', en: 'se tourner', fr: 'se tourner' }, phrases: [
         { fr: 'se tourner', ar: 'يلتفت / يتجه', en: 'to turn' },
@@ -11758,23 +11803,28 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se pencher — ينحني / يميل', en: 'se pencher', fr: 'se pencher' }, phrases: [
         { fr: 'se pencher', ar: 'ينحني / يميل', en: 'to lean' },
-        { fr: 'Ne te penche pas par la fenêtre.', ar: 'لا تميل من الشباك.', en: 'Don’t lean out of the window.' }
+        { fr: 'Ne te penche pas par la fenêtre.', ar: 'لا تميل من الشباك.', en: 'Don’t lean out of the window.' },
+        { fr: 'Je me suis penché pour ramasser le téléphone.', ar: 'انحنيت لحتى لاقط التلفون.', en: 'I bent down to pick up the phone.' }
       ] },
       { icon: '🔄', title: { ar: 'se relever — ينهض من جديد', en: 'se relever', fr: 'se relever' }, phrases: [
         { fr: 'se relever', ar: 'ينهض من جديد', en: 'to get back up' },
-        { fr: 'Il tombe, puis il se relève.', ar: 'بيوقع وبعدين بيقوم.', en: 'He falls, then gets back up.' }
+        { fr: 'Il tombe, puis il se relève.', ar: 'بيوقع وبعدين بيقوم.', en: 'He falls, then gets back up.' },
+        { fr: 'Je suis tombé, puis je me suis relevé.', ar: 'وقعت، وبعدين قمت.', en: 'I fell, then I got back up.' }
       ] },
       { icon: '🔄', title: { ar: 'se baisser — ينحني للأسفل', en: 'se baisser', fr: 'se baisser' }, phrases: [
         { fr: 'se baisser', ar: 'ينحني للأسفل', en: 'to bend down' },
-        { fr: 'Baisse-toi, s’il te plaît.', ar: 'انزل لتحت لو سمحت.', en: 'Bend down, please.' }
+        { fr: 'Baisse-toi, s’il te plaît.', ar: 'انزل لتحت لو سمحت.', en: 'Bend down, please.' },
+        { fr: 'Je me suis baissé pour prendre la boîte.', ar: 'نزلت لتحت لحتى آخد العلبة.', en: 'I bent down to pick up the box.' }
       ] },
       { icon: '🔄', title: { ar: 'se tenir — يقف / يمسك نفسه', en: 'se tenir', fr: 'se tenir' }, phrases: [
         { fr: 'se tenir', ar: 'يقف / يمسك نفسه', en: 'to hold on' },
-        { fr: 'Tiens-toi bien dans le bus.', ar: 'تمسّك منيح بالباص.', en: 'Hold on tight on the bus.' }
+        { fr: 'Tiens-toi bien dans le bus.', ar: 'تمسّك منيح بالباص.', en: 'Hold on tight on the bus.' },
+        { fr: 'Je me suis tenu près de la porte.', ar: 'وقفت جنب الباب.', en: 'I stood near the door.' }
       ] },
       { icon: '🔄', title: { ar: 'se taire — يصمت', en: 'se taire', fr: 'se taire' }, phrases: [
         { fr: 'se taire', ar: 'يصمت', en: 'to be quiet' },
-        { fr: 'Il faut se taire pendant le film.', ar: 'لازم نسكت أثناء الفيلم.', en: 'We have to be quiet during the movie.' }
+        { fr: 'Il faut se taire pendant le film.', ar: 'لازم نسكت أثناء الفيلم.', en: 'We have to be quiet during the movie.' },
+        { fr: 'Il s’est tu immédiatement.', ar: 'سكت فورًا.', en: 'He became silent immediately.' }
       ] },
       { icon: '🔄', title: { ar: 'se mettre — يضع نفسه / يبدأ', en: 'se mettre', fr: 'se mettre' }, phrases: [
         { fr: 'se mettre', ar: 'يضع نفسه / يبدأ', en: 'to put oneself / start' },
@@ -11782,7 +11832,8 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se mettre à — يبدأ بـ', en: 'se mettre à', fr: 'se mettre à' }, phrases: [
         { fr: 'se mettre à', ar: 'يبدأ بـ', en: 'to start doing' },
-        { fr: 'Il se met à pleuvoir.', ar: 'بلّش المطر.', en: 'It starts raining.' }
+        { fr: 'Il se met à pleuvoir.', ar: 'بلّش المطر.', en: 'It starts raining.' },
+        { fr: 'Je me suis mis à travailler dès le matin.', ar: 'بلشت اشتغل من الصبح.', en: 'I started working in the morning.' }
       ] },
       { icon: '🔄', title: { ar: 'se décider à — يقرر أن', en: 'se décider à', fr: 'se décider à' }, phrases: [
         { fr: 'se décider à', ar: 'يقرر أن', en: 'to decide to' },
@@ -11790,23 +11841,28 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 's’adapter à — يتأقلم مع', en: 's’adapter à', fr: 's’adapter à' }, phrases: [
         { fr: 's’adapter à', ar: 'يتأقلم مع', en: 'to adapt to' },
-        { fr: 'Je m’adapte facilement à un nouvel environnement.', ar: 'بتأقلم بسهولة مع بيئة جديدة.', en: 'I adapt easily to a new environment.' }
+        { fr: 'Je m’adapte facilement à un nouvel environnement.', ar: 'بتأقلم بسهولة مع بيئة جديدة.', en: 'I adapt easily to a new environment.' },
+        { fr: 'Je me suis adapté à mon nouvel emploi.', ar: 'تأقلمت مع شغلي الجديد.', en: 'I adapted to my new job.' }
       ] },
       { icon: '🔄', title: { ar: 's’habituer à — يعتاد على', en: 's’habituer à', fr: 's’habituer à' }, phrases: [
         { fr: 's’habituer à', ar: 'يعتاد على', en: 'to get used to' },
-        { fr: 'Je m’habitue à mon nouveau travail.', ar: 'عم اتعوّد على شغلي الجديد.', en: 'I’m getting used to my new job.' }
+        { fr: 'Je m’habitue à mon nouveau travail.', ar: 'عم اتعوّد على شغلي الجديد.', en: 'I’m getting used to my new job.' },
+        { fr: 'Je me suis habitué au froid.', ar: 'تعودت عالبرد.', en: 'I got used to the cold.' }
       ] },
       { icon: '🔄', title: { ar: 'se familiariser avec — يتعرّف جيدًا على / يألف', en: 'se familiariser avec', fr: 'se familiariser avec' }, phrases: [
         { fr: 'se familiariser avec', ar: 'يتعرّف جيدًا على / يألف', en: 'to become familiar with' },
-        { fr: 'Je me familiarise avec le logiciel.', ar: 'عم اتعوّد على البرنامج وعم اتعرف عليه منيح.', en: 'I’m becoming familiar with the software.' }
+        { fr: 'Je me familiarise avec le logiciel.', ar: 'عم اتعوّد على البرنامج وعم اتعرف عليه منيح.', en: 'I’m becoming familiar with the software.' },
+        { fr: 'Je me suis familiarisé avec le logiciel.', ar: 'صرت متعود وعارف البرنامج.', en: 'I became familiar with the software.' }
       ] },
       { icon: '🔄', title: { ar: 's’améliorer — يتحسّن', en: 's’améliorer', fr: 's’améliorer' }, phrases: [
         { fr: 's’améliorer', ar: 'يتحسّن', en: 'to improve' },
-        { fr: 'Mon français s’améliore petit à petit.', ar: 'لغتي الفرنسية عم تتحسن شوي شوي.', en: 'My French is improving little by little.' }
+        { fr: 'Mon français s’améliore petit à petit.', ar: 'لغتي الفرنسية عم تتحسن شوي شوي.', en: 'My French is improving little by little.' },
+        { fr: 'Mon français s’est amélioré cette année.', ar: 'لغتي الفرنسية تحسنت هالسنة.', en: 'My French improved this year.' }
       ] },
       { icon: '🔄', title: { ar: 'se développer — يتطوّر / ينمو', en: 'se développer', fr: 'se développer' }, phrases: [
         { fr: 'se développer', ar: 'يتطوّر / ينمو', en: 'to develop' },
-        { fr: 'La situation se développe rapidement.', ar: 'الوضع عم يتطور بسرعة.', en: 'The situation is developing quickly.' }
+        { fr: 'La situation se développe rapidement.', ar: 'الوضع عم يتطور بسرعة.', en: 'The situation is developing quickly.' },
+        { fr: 'Le projet s’est développé rapidement.', ar: 'المشروع تطوّر بسرعة.', en: 'The project developed quickly.' }
       ] },
       { icon: '🔄', title: { ar: 'se manifester — يظهر / يعبّر عن نفسه', en: 'se manifester', fr: 'se manifester' }, phrases: [
         { fr: 'se manifester', ar: 'يظهر / يعبّر عن نفسه', en: 'to appear' },
@@ -11826,7 +11882,8 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se plaindre de — يشتكي من', en: 'se plaindre de', fr: 'se plaindre de' }, phrases: [
         { fr: 'se plaindre de', ar: 'يشتكي من', en: 'to complain about' },
-        { fr: 'Il se plaint souvent de son travail.', ar: 'هو دايمًا بيشتكي من شغله.', en: 'He often complains about his job.' }
+        { fr: 'Il se plaint souvent de son travail.', ar: 'هو دايمًا بيشتكي من شغله.', en: 'He often complains about his job.' },
+        { fr: 'Je me suis plaint de la douleur.', ar: 'اشتكيت من الوجع.', en: 'I complained about the pain.' }
       ] },
       { icon: '🔄', title: { ar: 'se réjouir de — يفرح بـ / يسعد بـ', en: 'se réjouir de', fr: 'se réjouir de' }, phrases: [
         { fr: 'se réjouir de', ar: 'يفرح بـ / يسعد بـ', en: 'to be delighted' },
@@ -11846,23 +11903,29 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se fier à — يثق بـ / يعتمد على', en: 'se fier à', fr: 'se fier à' }, phrases: [
         { fr: 'se fier à', ar: 'يثق بـ / يعتمد على', en: 'to trust' },
-        { fr: 'Je me fie à votre expérience.', ar: 'أنا بوثق بخبرتكم.', en: 'I trust your experience.' }
+        { fr: 'Je me fie à votre expérience.', ar: 'أنا بوثق بخبرتكم.', en: 'I trust your experience.' },
+        { fr: 'Je me suis fié aux informations officielles.', ar: 'اعتمدت على المعلومات الرسمية.', en: 'I relied on the official information.' }
       ] },
       { icon: '🔄', title: { ar: 'se baser sur — يعتمد على', en: 'se baser sur', fr: 'se baser sur' }, phrases: [
         { fr: 'se baser sur', ar: 'يعتمد على', en: 'to be based on' },
-        { fr: 'La décision se base sur les résultats.', ar: 'القرار بيعتمد على النتائج.', en: 'The decision is based on the results.' }
+        { fr: 'La décision se base sur les résultats.', ar: 'القرار بيعتمد على النتائج.', en: 'The decision is based on the results.' },
+        { fr: 'Je me suis basé sur les documents officiels.', ar: 'اعتمدت على الوثائق الرسمية.', en: 'I based my decision on the official documents.' }
       ] },
       { icon: '🔄', title: { ar: 'se consacrer à — يكرّس نفسه لـ', en: 'se consacrer à', fr: 'se consacrer à' }, phrases: [
         { fr: 'se consacrer à', ar: 'يكرّس نفسه لـ', en: 'to devote oneself to' },
-        { fr: 'Il se consacre entièrement à son travail.', ar: 'هو مكرّس حاله بالكامل لشغله.', en: 'He devotes himself entirely to his work.' }
+        { fr: 'Il se consacre entièrement à son travail.', ar: 'هو مكرّس حاله بالكامل لشغله.', en: 'He devotes himself entirely to his work.' },
+        { fr: 'Il s’est consacré à son travail.', ar: 'كرّس حاله لشغله.', en: 'He devoted himself to his work.' }
       ] },
       { icon: '🔄', title: { ar: 'se contenter de — يكتفي بـ', en: 'se contenter de', fr: 'se contenter de' }, phrases: [
         { fr: 'se contenter de', ar: 'يكتفي بـ', en: 'to settle for' },
-        { fr: 'Je me contente d’un café.', ar: 'بكتفي بقهوة.', en: 'I’ll settle for a coffee.' }
+        { fr: 'Je me contente d’un café.', ar: 'بكتفي بقهوة.', en: 'I’ll settle for a coffee.' },
+        { fr: 'Je me suis contenté d’un café.', ar: 'اكتفيت بفنجان قهوة.', en: 'I settled for a coffee.' }
       ] },
       { icon: '🔄', title: { ar: 'se débarrasser de — يتخلّص من', en: 'se débarrasser de', fr: 'se débarrasser de' }, phrases: [
         { fr: 'se débarrasser de', ar: 'يتخلّص من', en: 'to get rid of' },
-        { fr: 'Je veux me débarrasser de ces vieux meubles.', ar: 'بدي تخلّص من هالأثاث القديم.', en: 'I want to get rid of these old pieces of furniture.' }
+        { fr: 'Je veux me débarrasser de ces vieux meubles.', ar: 'بدي تخلّص من هالأثاث القديم.', en: 'I want to get rid of these old pieces of furniture.' },
+        { fr: 'Je me suis débarrassé de mes vieux vêtements.', ar: 'تخلّصت من تيابي القديمة.', en: 'I got rid of my old clothes.' },
+        { fr: 'Elle s’est débarrassée de ses anciennes affaires.', ar: 'تخلّصت من أغراضها القديمة.', en: 'She got rid of her old things.' }
       ] },
       { icon: '🔄', title: { ar: 'se distinguer — يتميّز', en: 'se distinguer', fr: 'se distinguer' }, phrases: [
         { fr: 'se distinguer', ar: 'يتميّز', en: 'to stand out' },
@@ -11886,15 +11949,18 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se joindre à — ينضم إلى', en: 'se joindre à', fr: 'se joindre à' }, phrases: [
         { fr: 'se joindre à', ar: 'ينضم إلى', en: 'to join' },
-        { fr: 'Je peux me joindre à vous ?', ar: 'فيني انضم إلكن؟', en: 'Can I join you?' }
+        { fr: 'Je peux me joindre à vous ?', ar: 'فيني انضم إلكن؟', en: 'Can I join you?' },
+        { fr: 'Je me suis joint au groupe.', ar: 'انضمّيت للمجموعة.', en: 'I joined the group.' }
       ] },
       { icon: '🔄', title: { ar: 's’opposer à — يعارض', en: 's’opposer à', fr: 's’opposer à' }, phrases: [
         { fr: 's’opposer à', ar: 'يعارض', en: 'to oppose' },
-        { fr: 'Ils s’opposent à cette décision.', ar: 'هني معارضين هالقرار.', en: 'They oppose this decision.' }
+        { fr: 'Ils s’opposent à cette décision.', ar: 'هني معارضين هالقرار.', en: 'They oppose this decision.' },
+        { fr: 'Je me suis opposé à cette décision.', ar: 'عارضت هالقرار.', en: 'I opposed this decision.' }
       ] },
       { icon: '🔄', title: { ar: 'se soucier de — يهتم بـ / يكترث بـ', en: 'se soucier de', fr: 'se soucier de' }, phrases: [
         { fr: 'se soucier de', ar: 'يهتم بـ / يكترث بـ', en: 'to care about' },
-        { fr: 'Ne te soucie pas de ça.', ar: 'لا تهتم لهالشي.', en: 'Don’t worry about that.' }
+        { fr: 'Ne te soucie pas de ça.', ar: 'لا تهتم لهالشي.', en: 'Don’t worry about that.' },
+        { fr: 'Je me suis soucié de sa situation.', ar: 'اهتمّيت بوضعه.', en: 'I cared about his situation.' }
       ] },
       { icon: '🔄', title: { ar: 'se remettre de — يتعافى من / يتجاوز', en: 'se remettre de', fr: 'se remettre de' }, phrases: [
         { fr: 'se remettre de', ar: 'يتعافى من / يتجاوز', en: 'to recover from' },
@@ -11926,7 +11992,8 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se résoudre à — يضطر / يقرر بعد تردد', en: 'se résoudre à', fr: 'se résoudre à' }, phrases: [
         { fr: 'se résoudre à', ar: 'يضطر / يقرر بعد تردد', en: 'to bring oneself to' },
-        { fr: 'Il s’est résolu à partir.', ar: 'بالنهاية قرر يطلع.', en: 'He finally decided to leave.' }
+        { fr: 'Il s’est résolu à partir.', ar: 'بالنهاية قرر يطلع.', en: 'He finally decided to leave.' },
+        { fr: 'Je me suis résolu à accepter la décision.', ar: 'بالنهاية قررت أقبل بالقرار.', en: 'I finally decided to accept the decision.' }
       ] },
       { icon: '🔄', title: { ar: 'se passer de — يستغني عن', en: 'se passer de', fr: 'se passer de' }, phrases: [
         { fr: 'se passer de', ar: 'يستغني عن', en: 'to do without' },
@@ -11934,15 +12001,18 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se spécialiser dans — يتخصص في', en: 'se spécialiser dans', fr: 'se spécialiser dans' }, phrases: [
         { fr: 'se spécialiser dans', ar: 'يتخصص في', en: 'to specialize in' },
-        { fr: 'Elle se spécialise dans la comptabilité.', ar: 'هي متخصصة بالمحاسبة.', en: 'She specializes in accounting.' }
+        { fr: 'Elle se spécialise dans la comptabilité.', ar: 'هي متخصصة بالمحاسبة.', en: 'She specializes in accounting.' },
+        { fr: 'Je me suis spécialisé dans la logistique.', ar: 'تخصصت بمجال اللوجستيك.', en: 'I specialized in logistics.' }
       ] },
       { icon: '🔄', title: { ar: 'se limiter à — يقتصر على', en: 'se limiter à', fr: 'se limiter à' }, phrases: [
         { fr: 'se limiter à', ar: 'يقتصر على', en: 'to be limited to' },
-        { fr: 'Le problème se limite à cette partie.', ar: 'المشكلة مقتصرة على هالجزء.', en: 'The problem is limited to this part.' }
+        { fr: 'Le problème se limite à cette partie.', ar: 'المشكلة مقتصرة على هالجزء.', en: 'The problem is limited to this part.' },
+        { fr: 'Je me suis limité à deux heures de travail.', ar: 'اقتصرت على ساعتين شغل.', en: 'I limited myself to two hours of work.' }
       ] },
       { icon: '🔄', title: { ar: 'se distinguer par — يتميّز بـ', en: 'se distinguer par', fr: 'se distinguer par' }, phrases: [
         { fr: 'se distinguer par', ar: 'يتميّز بـ', en: 'to stand out for' },
-        { fr: 'Ce produit se distingue par sa qualité.', ar: 'هالمنتج بيتميّز بجودته.', en: 'This product stands out for its quality.' }
+        { fr: 'Ce produit se distingue par sa qualité.', ar: 'هالمنتج بيتميّز بجودته.', en: 'This product stands out for its quality.' },
+        { fr: 'Ce produit s’est distingué par sa qualité.', ar: 'هالمنتج تميّز بجودته.', en: 'This product stood out for its quality.' }
       ] },
       { icon: '🔄', title: { ar: 'se dépêcher de — يستعجل في', en: 'se dépêcher de', fr: 'se dépêcher de' }, phrases: [
         { fr: 'se dépêcher de', ar: 'يستعجل في', en: 'to hurry to' },
@@ -11966,7 +12036,8 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se faire mal — يؤذي نفسه', en: 'se faire mal', fr: 'se faire mal' }, phrases: [
         { fr: 'se faire mal', ar: 'يؤذي نفسه', en: 'to hurt oneself' },
-        { fr: 'Attention, tu vas te faire mal !', ar: 'دير بالك، رح تأذي حالك!', en: 'Be careful, you’re going to hurt yourself!' }
+        { fr: 'Attention, tu vas te faire mal !', ar: 'دير بالك، رح تأذي حالك!', en: 'Be careful, you’re going to hurt yourself!' },
+        { fr: 'Je me suis fait mal au dos.', ar: 'وجعت حالي بظهري.', en: 'I hurt my back.' }
       ] },
       { icon: '🔄', title: { ar: 'se faire plaisir — يدلل نفسه / يفرّح حاله', en: 'se faire plaisir', fr: 'se faire plaisir' }, phrases: [
         { fr: 'se faire plaisir', ar: 'يدلل نفسه / يفرّح حاله', en: 'to treat oneself' },
@@ -11990,31 +12061,39 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 's’efforcer de — يبذل جهدًا لكي', en: 's’efforcer de', fr: 's’efforcer de' }, phrases: [
         { fr: 's’efforcer de', ar: 'يبذل جهدًا لكي', en: 'to strive to' },
-        { fr: 'Je m’efforce de parler français tous les jours.', ar: 'عم حاول وبذل جهدي احكي فرنسي كل يوم.', en: 'I make an effort to speak French every day.' }
+        { fr: 'Je m’efforce de parler français tous les jours.', ar: 'عم حاول وبذل جهدي احكي فرنسي كل يوم.', en: 'I make an effort to speak French every day.' },
+        { fr: 'Je me suis efforcé de rester calme.', ar: 'حاولت بكل جهدي ضل هادي.', en: 'I tried hard to stay calm.' }
       ] },
       { icon: '🔄', title: { ar: 's’abstenir de — يمتنع عن (رسمي نسبيًا)', en: 's’abstenir de', fr: 's’abstenir de' }, phrases: [
         { fr: 's’abstenir de', ar: 'يمتنع عن (رسمي نسبيًا)', en: 'to abstain from' },
-        { fr: 'Veuillez vous abstenir de fumer.', ar: 'يرجى الامتناع عن التدخين.', en: 'Please refrain from smoking.' }
+        { fr: 'Veuillez vous abstenir de fumer.', ar: 'يرجى الامتناع عن التدخين.', en: 'Please refrain from smoking.' },
+        { fr: 'Je me suis abstenu de répondre.', ar: 'امتنعت عن الرد.', en: 'I refrained from answering.' }
       ] },
       { icon: '🔄', title: { ar: 'se conformer à — يلتزم بـ (رسمي)', en: 'se conformer à', fr: 'se conformer à' }, phrases: [
         { fr: 'se conformer à', ar: 'يلتزم بـ (رسمي)', en: 'to comply with' },
-        { fr: 'Vous devez vous conformer aux règles.', ar: 'لازم تلتزم بالقوانين.', en: 'You must comply with the rules.' }
+        { fr: 'Vous devez vous conformer aux règles.', ar: 'لازم تلتزم بالقوانين.', en: 'You must comply with the rules.' },
+        { fr: 'Je me suis conformé aux instructions.', ar: 'التزمت بالتعليمات.', en: 'I complied with the instructions.' }
       ] },
       { icon: '🔄', title: { ar: 'se soumettre à — يخضع لـ', en: 'se soumettre à', fr: 'se soumettre à' }, phrases: [
         { fr: 'se soumettre à', ar: 'يخضع لـ', en: 'to submit to' },
-        { fr: 'Je dois me soumettre à un examen médical.', ar: 'لازم أخضع لفحص طبي.', en: 'I have to undergo a medical examination.' }
+        { fr: 'Je dois me soumettre à un examen médical.', ar: 'لازم أخضع لفحص طبي.', en: 'I have to undergo a medical examination.' },
+        { fr: 'Il s’est soumis au contrôle médical.', ar: 'خضع للفحص الطبي.', en: 'He underwent the medical examination.' }
       ] },
       { icon: '🔄', title: { ar: 's’acquitter de — يدفع / يسدّد (رسمي)', en: 's’acquitter de', fr: 's’acquitter de' }, phrases: [
         { fr: 's’acquitter de', ar: 'يدفع / يسدّد (رسمي)', en: 'to pay' },
-        { fr: 'Vous devez vous acquitter des frais.', ar: 'لازم تدفع الرسوم.', en: 'You have to pay the fees.' }
+        { fr: 'Vous devez vous acquitter des frais.', ar: 'لازم تدفع الرسوم.', en: 'You have to pay the fees.' },
+        { fr: 'Je me suis acquitté de la facture.', ar: 'سدّدت الفاتورة.', en: 'I paid the bill.' }
       ] },
       { icon: '🔄', title: { ar: 'se procurer — يحصل على / يؤمّن', en: 'se procurer', fr: 'se procurer' }, phrases: [
         { fr: 'se procurer', ar: 'يحصل على / يؤمّن', en: 'to obtain' },
-        { fr: 'Je dois me procurer ce document.', ar: 'لازم أمّن هالوثيقة.', en: 'I need to obtain this document.' }
+        { fr: 'Je dois me procurer ce document.', ar: 'لازم أمّن هالوثيقة.', en: 'I need to obtain this document.' },
+        { fr: 'Je me suis procuré les documents nécessaires.', ar: 'أمّنت الأوراق المطلوبة.', en: 'I obtained the necessary documents.' }
       ] },
       { icon: '🔄', title: { ar: 'se munir de — يتزوّد بـ / يحضر معه (رسمي)', en: 'se munir de', fr: 'se munir de' }, phrases: [
         { fr: 'se munir de', ar: 'يتزوّد بـ / يحضر معه (رسمي)', en: 'to provide oneself with' },
-        { fr: 'Veuillez vous munir de votre pièce d’identité.', ar: 'يرجى إحضار بطاقة هويتك معك.', en: 'Please bring your ID with you.' }
+        { fr: 'Veuillez vous munir de votre pièce d’identité.', ar: 'يرجى إحضار بطاقة هويتك معك.', en: 'Please bring your ID with you.' },
+        { fr: 'Je me suis muni de tous les documents.', ar: 'أخدت معي كل الأوراق المطلوبة.', en: 'I brought all the required documents.' },
+        { fr: 'Il s’est muni d’une copie du document.', ar: 'أخد معه نسخة عن الوثيقة.', en: 'He brought a copy of the document.' }
       ] },
       { icon: '🔄', title: { ar: 's’en aller — يذهب / يغادر', en: 's’en aller', fr: 's’en aller' }, phrases: [
         { fr: 's’en aller', ar: 'يذهب / يغادر', en: 'to leave' },
@@ -12034,7 +12113,8 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se faire rembourser — يسترد ماله', en: 'se faire rembourser', fr: 'se faire rembourser' }, phrases: [
         { fr: 'se faire rembourser', ar: 'يسترد ماله', en: 'to get a refund' },
-        { fr: 'Je voudrais me faire rembourser.', ar: 'بدي استرجع مصرياتي.', en: 'I’d like to get a refund.' }
+        { fr: 'Je voudrais me faire rembourser.', ar: 'بدي استرجع مصرياتي.', en: 'I’d like to get a refund.' },
+        { fr: 'Je veux me faire rembourser.', ar: 'بدي استرجع مصرياتي.', en: 'I want to get a refund.' }
       ] },
       { icon: '🔄', title: { ar: 'se faire soigner — يتلقى العلاج', en: 'se faire soigner', fr: 'se faire soigner' }, phrases: [
         { fr: 'se faire soigner', ar: 'يتلقى العلاج', en: 'to get treated' },
@@ -12054,11 +12134,13 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se méprendre sur — يخطئ في فهم / يسيء فهم', en: 'se méprendre sur', fr: 'se méprendre sur' }, phrases: [
         { fr: 'se méprendre sur', ar: 'يخطئ في فهم / يسيء فهم', en: 'to misunderstand' },
-        { fr: 'Ne te méprends pas sur mes intentions.', ar: 'لا تفهم قصدي غلط.', en: 'Don’t misunderstand my intentions.' }
+        { fr: 'Ne te méprends pas sur mes intentions.', ar: 'لا تفهم قصدي غلط.', en: 'Don’t misunderstand my intentions.' },
+        { fr: 'Je me suis mépris sur ses intentions.', ar: 'فهمت قصده غلط.', en: 'I misunderstood his intentions.' }
       ] },
       { icon: '🔄', title: { ar: 'se préoccuper de — يهتمّ بـ / يقلق بشأن', en: 'se préoccuper de', fr: 'se préoccuper de' }, phrases: [
         { fr: 'se préoccuper de', ar: 'يهتمّ بـ / يقلق بشأن', en: 'to be concerned about' },
-        { fr: 'Il se préoccupe beaucoup de sa santé.', ar: 'هو مهتم كتير بصحته.', en: 'He’s very concerned about his health.' }
+        { fr: 'Il se préoccupe beaucoup de sa santé.', ar: 'هو مهتم كتير بصحته.', en: 'He’s very concerned about his health.' },
+        { fr: 'Elle s’est préoccupée de sa santé.', ar: 'كانت قلقة على صحتها.', en: 'She was concerned about her health.' }
       ] },
       { icon: '🔄', title: { ar: 'se hâter de — يسرع في (رسمي/أدبي أكثر)', en: 'se hâter de', fr: 'se hâter de' }, phrases: [
         { fr: 'se hâter de', ar: 'يسرع في (رسمي/أدبي أكثر)', en: 'to hurry' },
@@ -12066,7 +12148,8 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se priver de — يحرم نفسه من', en: 'se priver de', fr: 'se priver de' }, phrases: [
         { fr: 'se priver de', ar: 'يحرم نفسه من', en: 'to deprive oneself of' },
-        { fr: 'Je ne veux pas me priver de ce plaisir.', ar: 'ما بدي احرم حالي من هالمتعة.', en: 'I don’t want to deprive myself of this pleasure.' }
+        { fr: 'Je ne veux pas me priver de ce plaisir.', ar: 'ما بدي احرم حالي من هالمتعة.', en: 'I don’t want to deprive myself of this pleasure.' },
+        { fr: 'Je me suis privé de dessert.', ar: 'حرمت حالي من الحلو.', en: 'I deprived myself of dessert.' }
       ] },
       { icon: '🔄', title: { ar: 'se débarrasser de quelqu’un — يتخلّص من شخص', en: 'se débarrasser de quelqu’un', fr: 'se débarrasser de quelqu’un' }, phrases: [
         { fr: 'se débarrasser de quelqu’un', ar: 'يتخلّص من شخص', en: 'to get rid of someone' },
@@ -12074,15 +12157,18 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 's’approvisionner en — يزوّد نفسه بـ / يؤمّن', en: 's’approvisionner en', fr: 's’approvisionner en' }, phrases: [
         { fr: 's’approvisionner en', ar: 'يزوّد نفسه بـ / يؤمّن', en: 'to stock up on' },
-        { fr: 'Le magasin s’approvisionne en produits frais.', ar: 'المحل بيأمّن منتجات طازجة.', en: 'The store stocks fresh products.' }
+        { fr: 'Le magasin s’approvisionne en produits frais.', ar: 'المحل بيأمّن منتجات طازجة.', en: 'The store stocks fresh products.' },
+        { fr: 'Je me suis approvisionné en nourriture.', ar: 'زوّدت حالي بالأكل.', en: 'I stocked up on food.' }
       ] },
       { icon: '🔄', title: { ar: 's’orienter vers — يتجه نحو / يتخصص في', en: 's’orienter vers', fr: 's’orienter vers' }, phrases: [
         { fr: 's’orienter vers', ar: 'يتجه نحو / يتخصص في', en: 'to move into' },
-        { fr: 'Je voudrais m’orienter vers la logistique.', ar: 'بدي اتجه لمجال اللوجستيك.', en: 'I’d like to move into logistics.' }
+        { fr: 'Je voudrais m’orienter vers la logistique.', ar: 'بدي اتجه لمجال اللوجستيك.', en: 'I’d like to move into logistics.' },
+        { fr: 'Je me suis orienté vers la sortie.', ar: 'اتجهت نحو المخرج.', en: 'I headed toward the exit.' }
       ] },
       { icon: '🔄', title: { ar: 's’adresser à — يتوجّه إلى', en: 's’adresser à', fr: 's’adresser à' }, phrases: [
         { fr: 's’adresser à', ar: 'يتوجّه إلى', en: 'to contact' },
-        { fr: 'À qui dois-je m’adresser ?', ar: 'لمين لازم أتوجّه؟', en: 'Who should I contact?' }
+        { fr: 'À qui dois-je m’adresser ?', ar: 'لمين لازم أتوجّه؟', en: 'Who should I contact?' },
+        { fr: 'Je me suis adressé à l’accueil.', ar: 'توجهت للاستقبال.', en: 'I went to the reception desk.' }
       ] },
       { icon: '🔄', title: { ar: 's’adresser à quelqu’un — يتحدث/يراجع شخصًا', en: 's’adresser à quelqu’un', fr: 's’adresser à quelqu’un' }, phrases: [
         { fr: 's’adresser à quelqu’un', ar: 'يتحدث/يراجع شخصًا', en: 'to speak to someone' },
@@ -12098,11 +12184,13 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 's’attendre à — يتوقّع / يتوقع حدوث', en: 's’attendre à', fr: 's’attendre à' }, phrases: [
         { fr: 's’attendre à', ar: 'يتوقّع / يتوقع حدوث', en: 'to expect' },
-        { fr: 'Je ne m’attendais pas à ça.', ar: 'ما كنت متوقّع يصير هيك.', en: 'I wasn’t expecting that.' }
+        { fr: 'Je ne m’attendais pas à ça.', ar: 'ما كنت متوقّع يصير هيك.', en: 'I wasn’t expecting that.' },
+        { fr: 'Je me suis attendu à cette réponse.', ar: 'كنت متوقع هالجواب.', en: 'I expected that answer.' }
       ] },
       { icon: '🔄', title: { ar: 's’attarder sur — يطيل الوقوف عند / يركّز طويلًا على', en: 's’attarder sur', fr: 's’attarder sur' }, phrases: [
         { fr: 's’attarder sur', ar: 'يطيل الوقوف عند / يركّز طويلًا على', en: 'to dwell on' },
-        { fr: 'Ne t’attarde pas sur les détails.', ar: 'لا تطوّل كتير بالتفاصيل.', en: 'Don’t dwell on the details.' }
+        { fr: 'Ne t’attarde pas sur les détails.', ar: 'لا تطوّل كتير بالتفاصيل.', en: 'Don’t dwell on the details.' },
+        { fr: 'Je ne me suis pas attardé sur les détails.', ar: 'ما طولت بالحكي عن التفاصيل.', en: 'I didn’t dwell on the details.' }
       ] },
       { icon: '🔄', title: { ar: 'se soustraire à — يتفادى / يتهرّب من (رسمي)', en: 'se soustraire à', fr: 'se soustraire à' }, phrases: [
         { fr: 'se soustraire à', ar: 'يتفادى / يتهرّب من (رسمي)', en: 'to avoid' },
@@ -12110,15 +12198,18 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se confronter à — يواجه', en: 'se confronter à', fr: 'se confronter à' }, phrases: [
         { fr: 'se confronter à', ar: 'يواجه', en: 'to face' },
-        { fr: 'Il faut se confronter à la réalité.', ar: 'لازم نواجه الواقع.', en: 'We have to face reality.' }
+        { fr: 'Il faut se confronter à la réalité.', ar: 'لازم نواجه الواقع.', en: 'We have to face reality.' },
+        { fr: 'Je me suis confronté à une situation difficile.', ar: 'واجهت موقف صعب.', en: 'I faced a difficult situation.' }
       ] },
       { icon: '🔄', title: { ar: 'se heurter à — يصطدم بـ / يواجه صعوبة مع', en: 'se heurter à', fr: 'se heurter à' }, phrases: [
         { fr: 'se heurter à', ar: 'يصطدم بـ / يواجه صعوبة مع', en: 'to run into' },
-        { fr: 'Je me suis heurté à un problème.', ar: 'واجهت مشكلة.', en: 'I ran into a problem.' }
+        { fr: 'Je me suis heurté à un problème.', ar: 'واجهت مشكلة.', en: 'I ran into a problem.' },
+        { fr: 'Nous nous sommes heurtés à plusieurs problèmes.', ar: 'واجهتنا كذا مشكلة.', en: 'We encountered several problems.' }
       ] },
       { icon: '🔄', title: { ar: 'se référer à — يرجع إلى / يستند إلى', en: 'se référer à', fr: 'se référer à' }, phrases: [
         { fr: 'se référer à', ar: 'يرجع إلى / يستند إلى', en: 'to refer to' },
-        { fr: 'Veuillez vous référer au document.', ar: 'يرجى الرجوع للوثيقة.', en: 'Please refer to the document.' }
+        { fr: 'Veuillez vous référer au document.', ar: 'يرجى الرجوع للوثيقة.', en: 'Please refer to the document.' },
+        { fr: 'Je me suis référé aux instructions.', ar: 'رجعت للتعليمات.', en: 'I referred to the instructions.' }
       ] },
       { icon: '🔄', title: { ar: 's’adonner à — يكرّس نفسه لـ / يمارس بإفراط (رسمي)', en: 's’adonner à', fr: 's’adonner à' }, phrases: [
         { fr: 's’adonner à', ar: 'يكرّس نفسه لـ / يمارس بإفراط (رسمي)', en: 'to devote oneself to' },
@@ -12126,11 +12217,13 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se plier à — يمتثل لـ / يرضخ لـ', en: 'se plier à', fr: 'se plier à' }, phrases: [
         { fr: 'se plier à', ar: 'يمتثل لـ / يرضخ لـ', en: 'to comply with' },
-        { fr: 'Il faut se plier aux règles.', ar: 'لازم تلتزم بالقواعد.', en: 'You have to comply with the rules.' }
+        { fr: 'Il faut se plier aux règles.', ar: 'لازم تلتزم بالقواعد.', en: 'You have to comply with the rules.' },
+        { fr: 'Je me suis plié aux règles.', ar: 'التزمت بالقوانين.', en: 'I complied with the rules.' }
       ] },
       { icon: '🔄', title: { ar: 's’accommoder de — يتأقلم مع / يقبل بـ', en: 's’accommoder de', fr: 's’accommoder de' }, phrases: [
         { fr: 's’accommoder de', ar: 'يتأقلم مع / يقبل بـ', en: 'to adapt to' },
-        { fr: 'Il faut s’accommoder de cette situation.', ar: 'لازم نتأقلم مع هالوضع.', en: 'We have to adapt to this situation.' }
+        { fr: 'Il faut s’accommoder de cette situation.', ar: 'لازم نتأقلم مع هالوضع.', en: 'We have to adapt to this situation.' },
+        { fr: 'Je me suis accommodé de cette situation.', ar: 'تأقلمت مع هالوضع.', en: 'I adapted to this situation.' }
       ] },
       { icon: '🔄', title: { ar: 's’entraider — يساعد بعضهم بعضًا', en: 's’entraider', fr: 's’entraider' }, phrases: [
         { fr: 's’entraider', ar: 'يساعد بعضهم بعضًا', en: 'to help each other' },
@@ -12142,15 +12235,18 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se multiplier — يتكاثر / يزداد', en: 'se multiplier', fr: 'se multiplier' }, phrases: [
         { fr: 'se multiplier', ar: 'يتكاثر / يزداد', en: 'to multiply' },
-        { fr: 'Les problèmes se multiplient.', ar: 'المشاكل عم تزيد.', en: 'The problems are multiplying.' }
+        { fr: 'Les problèmes se multiplient.', ar: 'المشاكل عم تزيد.', en: 'The problems are multiplying.' },
+        { fr: 'Les problèmes se sont multipliés.', ar: 'المشاكل زادت وتكاثرت.', en: 'The problems multiplied.' }
       ] },
       { icon: '🔄', title: { ar: 'se raréfier — يصبح نادرًا / يقلّ', en: 'se raréfier', fr: 'se raréfier' }, phrases: [
         { fr: 'se raréfier', ar: 'يصبح نادرًا / يقلّ', en: 'to become scarce' },
-        { fr: 'Les logements abordables se raréfient.', ar: 'السكنات ذات الأسعار المقبولة عم تقل.', en: 'Affordable housing is becoming scarce.' }
+        { fr: 'Les logements abordables se raréfient.', ar: 'السكنات ذات الأسعار المقبولة عم تقل.', en: 'Affordable housing is becoming scarce.' },
+        { fr: 'Les offres d’emploi se sont raréfiées.', ar: 'عروض الشغل صارت أقل.', en: 'Job offers became scarce.' }
       ] },
       { icon: '🔄', title: { ar: 'se maintenir — يحافظ على حالته / يبقى', en: 'se maintenir', fr: 'se maintenir' }, phrases: [
         { fr: 'se maintenir', ar: 'يحافظ على حالته / يبقى', en: 'to remain' },
-        { fr: 'Le prix se maintient à 500 euros.', ar: 'السعر ضل ثابت على 500 يورو.', en: 'The price remains at €500.' }
+        { fr: 'Le prix se maintient à 500 euros.', ar: 'السعر ضل ثابت على 500 يورو.', en: 'The price remains at €500.' },
+        { fr: 'La situation s’est maintenue pendant plusieurs mois.', ar: 'الوضع ضل مستقر لعدة أشهر.', en: 'The situation remained stable for several months.' }
       ] },
       { icon: '🔄', title: { ar: 'se renouveler — يتجدّد / يتجدد', en: 'se renouveler', fr: 'se renouveler' }, phrases: [
         { fr: 'se renouveler', ar: 'يتجدّد / يتجدد', en: 'to renew itself' },
@@ -12158,71 +12254,88 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se réduire — ينخفض / يتقلّص', en: 'se réduire', fr: 'se réduire' }, phrases: [
         { fr: 'se réduire', ar: 'ينخفض / يتقلّص', en: 'to decrease' },
-        { fr: 'Les dépenses doivent se réduire.', ar: 'لازم المصاريف تنخفض.', en: 'Expenses need to decrease.' }
+        { fr: 'Les dépenses doivent se réduire.', ar: 'لازم المصاريف تنخفض.', en: 'Expenses need to decrease.' },
+        { fr: 'Les dépenses se sont réduites cette année.', ar: 'المصاريف انخفضت هالسنة.', en: 'Expenses decreased this year.' }
       ] },
       { icon: '🔄', title: { ar: 'se renforcer — يتعزّز / يقوى', en: 'se renforcer', fr: 'se renforcer' }, phrases: [
         { fr: 'se renforcer', ar: 'يتعزّز / يقوى', en: 'to strengthen' },
-        { fr: 'La sécurité s’est renforcée.', ar: 'الأمن صار أقوى.', en: 'Security has been strengthened.' }
+        { fr: 'La sécurité s’est renforcée.', ar: 'الأمن صار أقوى.', en: 'Security has been strengthened.' },
+        { fr: 'La sécurité s’est renforcée après l’incident.', ar: 'الأمن تعزّز بعد الحادثة.', en: 'Security was strengthened after the incident.' }
       ] },
       { icon: '🔄', title: { ar: 's’accroître — يزداد / يتزايد (رسمي)', en: 's’accroître', fr: 's’accroître' }, phrases: [
         { fr: 's’accroître', ar: 'يزداد / يتزايد (رسمي)', en: 'to grow' },
-        { fr: 'Les difficultés s’accroissent.', ar: 'الصعوبات عم تزيد.', en: 'The difficulties are increasing.' }
+        { fr: 'Les difficultés s’accroissent.', ar: 'الصعوبات عم تزيد.', en: 'The difficulties are increasing.' },
+        { fr: 'Les dépenses se sont accrues cette année.', ar: 'المصاريف زادت هالسنة.', en: 'Expenses increased this year.أكيد، نكمل 121–150 بأفعال جديدة قدر الإمكان، وكلها بصيغة Passé composé:' }
       ] },
       { icon: '🔄', title: { ar: 'se stabiliser — يستقر', en: 'se stabiliser', fr: 'se stabiliser' }, phrases: [
         { fr: 'se stabiliser', ar: 'يستقر', en: 'to stabilize' },
-        { fr: 'La situation commence à se stabiliser.', ar: 'الوضع بلّش يستقر.', en: 'The situation is starting to stabilize.' }
+        { fr: 'La situation commence à se stabiliser.', ar: 'الوضع بلّش يستقر.', en: 'The situation is starting to stabilize.' },
+        { fr: 'Les prix se sont stabilisés.', ar: 'الأسعار استقرت.', en: 'Prices stabilized.' }
       ] },
       { icon: '🔄', title: { ar: 'se dégrader — يتدهور / يسوء', en: 'se dégrader', fr: 'se dégrader' }, phrases: [
         { fr: 'se dégrader', ar: 'يتدهور / يسوء', en: 'to deteriorate' },
-        { fr: 'Son état de santé s’est dégradé.', ar: 'حالته الصحية ساءت.', en: 'His health has deteriorated.' }
+        { fr: 'Son état de santé s’est dégradé.', ar: 'حالته الصحية ساءت.', en: 'His health has deteriorated.' },
+        { fr: 'La situation s’est dégradée rapidement.', ar: 'الوضع تدهور بسرعة.', en: 'The situation deteriorated quickly.' }
       ] },
       { icon: '🔄', title: { ar: 's’aggraver — يتفاقم / يسوء', en: 's’aggraver', fr: 's’aggraver' }, phrases: [
         { fr: 's’aggraver', ar: 'يتفاقم / يسوء', en: 'to worsen' },
-        { fr: 'La douleur s’est aggravée.', ar: 'الوجع ساء أكتر.', en: 'The pain got worse.' }
+        { fr: 'La douleur s’est aggravée.', ar: 'الوجع ساء أكتر.', en: 'The pain got worse.' },
+        { fr: 'La situation s’est aggravée pendant la nuit.', ar: 'الوضع ساء خلال الليل.', en: 'The situation worsened overnight.' }
       ] },
       { icon: '🔄', title: { ar: 'se résumer à — يقتصر على / يلخّص في', en: 'se résumer à', fr: 'se résumer à' }, phrases: [
         { fr: 'se résumer à', ar: 'يقتصر على / يلخّص في', en: 'to come down to' },
-        { fr: 'Le problème se résume à un manque d’argent.', ar: 'المشكلة باختصار هي نقص بالمصاري.', en: 'The problem comes down to a lack of money.' }
+        { fr: 'Le problème se résume à un manque d’argent.', ar: 'المشكلة باختصار هي نقص بالمصاري.', en: 'The problem comes down to a lack of money.' },
+        { fr: 'Le problème s’est résumé à un manque de temps.', ar: 'المشكلة بالنهاية كانت بس نقص بالوقت.', en: 'The problem came down to a lack of time.' }
       ] },
       { icon: '🔄', title: { ar: 'se traduire par — ينتج عنه / يتجسّد بـ', en: 'se traduire par', fr: 'se traduire par' }, phrases: [
         { fr: 'se traduire par', ar: 'ينتج عنه / يتجسّد بـ', en: 'to result in' },
-        { fr: 'Cette décision se traduit par une augmentation des prix.', ar: 'هالقرار نتج عنه ارتفاع بالأسعار.', en: 'This decision results in higher prices.' }
+        { fr: 'Cette décision se traduit par une augmentation des prix.', ar: 'هالقرار نتج عنه ارتفاع بالأسعار.', en: 'This decision results in higher prices.' },
+        { fr: 'Cette décision s’est traduite par une augmentation des coûts.', ar: 'هالقرار أدى لزيادة التكاليف.', en: 'This decision resulted in higher costs.' }
       ] },
       { icon: '🔄', title: { ar: 'se caractériser par — يتميّز بـ', en: 'se caractériser par', fr: 'se caractériser par' }, phrases: [
         { fr: 'se caractériser par', ar: 'يتميّز بـ', en: 'to be characterized by' },
-        { fr: 'Cette maladie se caractérise par une grande fatigue.', ar: 'هالمرض بيتميّز بتعب شديد.', en: 'This disease is characterized by severe fatigue.' }
+        { fr: 'Cette maladie se caractérise par une grande fatigue.', ar: 'هالمرض بيتميّز بتعب شديد.', en: 'This disease is characterized by severe fatigue.' },
+        { fr: 'Cette période s’est caractérisée par de nombreux changements.', ar: 'هالفترة تميّزت بتغييرات كتيرة.', en: 'This period was characterized by many changes.' }
       ] },
       { icon: '🔄', title: { ar: 'se composer de — يتكوّن من', en: 'se composer de', fr: 'se composer de' }, phrases: [
         { fr: 'se composer de', ar: 'يتكوّن من', en: 'to consist of' },
-        { fr: 'Le dossier se compose de trois documents.', ar: 'الملف بيتكوّن من تلات وثائق.', en: 'The file consists of three documents.' }
+        { fr: 'Le dossier se compose de trois documents.', ar: 'الملف بيتكوّن من تلات وثائق.', en: 'The file consists of three documents.' },
+        { fr: 'Le dossier s’est composé de plusieurs documents.', ar: 'الملف تألف من عدة وثائق.', en: 'The file consisted of several documents.' }
       ] },
       { icon: '🔄', title: { ar: 'se diviser en — ينقسم إلى', en: 'se diviser en', fr: 'se diviser en' }, phrases: [
         { fr: 'se diviser en', ar: 'ينقسم إلى', en: 'to be divided into' },
-        { fr: 'Le formulaire se divise en trois parties.', ar: 'الاستمارة بتنقسم لتلات أقسام.', en: 'The form is divided into three sections.' }
+        { fr: 'Le formulaire se divise en trois parties.', ar: 'الاستمارة بتنقسم لتلات أقسام.', en: 'The form is divided into three sections.' },
+        { fr: 'Le groupe s’est divisé en deux équipes.', ar: 'المجموعة انقسمت لفريقين.', en: 'The group was divided into two teams.' }
       ] },
       { icon: '🔄', title: { ar: 'se répartir entre — يتوزّع بين', en: 'se répartir entre', fr: 'se répartir entre' }, phrases: [
         { fr: 'se répartir entre', ar: 'يتوزّع بين', en: 'to be divided among' },
-        { fr: 'Les tâches se répartissent entre les employés.', ar: 'المهام بتتوزع بين الموظفين.', en: 'The tasks are divided among the employees.' }
+        { fr: 'Les tâches se répartissent entre les employés.', ar: 'المهام بتتوزع بين الموظفين.', en: 'The tasks are divided among the employees.' },
+        { fr: 'Les tâches se sont réparties entre les employés.', ar: 'المهام توزعت بين الموظفين.', en: 'The tasks were distributed among the employees.' }
       ] },
       { icon: '🔄', title: { ar: 'se transmettre — ينتقل / يُنقل', en: 'se transmettre', fr: 'se transmettre' }, phrases: [
         { fr: 'se transmettre', ar: 'ينتقل / يُنقل', en: 'to be transmitted' },
-        { fr: 'Certaines maladies peuvent se transmettre.', ar: 'بعض الأمراض ممكن تنتقل.', en: 'Some diseases can be transmitted.' }
+        { fr: 'Certaines maladies peuvent se transmettre.', ar: 'بعض الأمراض ممكن تنتقل.', en: 'Some diseases can be transmitted.' },
+        { fr: 'L’information s’est transmise rapidement.', ar: 'المعلومة انتقلت بسرعة.', en: 'The information spread quickly.' }
       ] },
       { icon: '🔄', title: { ar: 'se propager — ينتشر', en: 'se propager', fr: 'se propager' }, phrases: [
         { fr: 'se propager', ar: 'ينتشر', en: 'to spread' },
-        { fr: 'Le virus peut se propager rapidement.', ar: 'الفيروس ممكن ينتشر بسرعة.', en: 'The virus can spread quickly.' }
+        { fr: 'Le virus peut se propager rapidement.', ar: 'الفيروس ممكن ينتشر بسرعة.', en: 'The virus can spread quickly.' },
+        { fr: 'Le feu s’est propagé rapidement.', ar: 'الحريق انتشر بسرعة.', en: 'The fire spread quickly.' }
       ] },
       { icon: '🔄', title: { ar: 's’accomplir — يتحقق / يكتمل', en: 's’accomplir', fr: 's’accomplir' }, phrases: [
         { fr: 's’accomplir', ar: 'يتحقق / يكتمل', en: 'to be fulfilled' },
-        { fr: 'Son rêve s’est enfin accompli.', ar: 'حلمه تحقق أخيرًا.', en: 'His dream finally came true.' }
+        { fr: 'Son rêve s’est enfin accompli.', ar: 'حلمه تحقق أخيرًا.', en: 'His dream finally came true.' },
+        { fr: 'Le projet s’est accompli avec succès.', ar: 'المشروع اكتمل بنجاح.', en: 'The project was successfully completed.' }
       ] },
       { icon: '🔄', title: { ar: 's’effondrer — ينهار', en: 's’effondrer', fr: 's’effondrer' }, phrases: [
         { fr: 's’effondrer', ar: 'ينهار', en: 'to collapse' },
-        { fr: 'Le bâtiment risque de s’effondrer.', ar: 'البناية ممكن تنهار.', en: 'The building could collapse.' }
+        { fr: 'Le bâtiment risque de s’effondrer.', ar: 'البناية ممكن تنهار.', en: 'The building could collapse.' },
+        { fr: 'Le bâtiment s’est effondré après l’incendie.', ar: 'البناية انهارت بعد الحريق.', en: 'The building collapsed after the fire.' }
       ] },
       { icon: '🔄', title: { ar: 's’écrouler — ينهار / يسقط', en: 's’écrouler', fr: 's’écrouler' }, phrases: [
         { fr: 's’écrouler', ar: 'ينهار / يسقط', en: 'to collapse' },
-        { fr: 'Le mur s’est écroulé hier.', ar: 'الحيط انهار مبارح.', en: 'The wall collapsed yesterday.' }
+        { fr: 'Le mur s’est écroulé hier.', ar: 'الحيط انهار مبارح.', en: 'The wall collapsed yesterday.' },
+        { fr: 'Le mur s’est écroulé pendant la nuit.', ar: 'الحيط انهار خلال الليل.', en: 'The wall collapsed during the night.' }
       ] },
       { icon: '🔄', title: { ar: 's’évanouir — يُغمى عليه', en: 's’évanouir', fr: 's’évanouir' }, phrases: [
         { fr: 's’évanouir', ar: 'يُغمى عليه', en: 'to faint' },
@@ -12234,19 +12347,23 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 's’enfuir — يهرب', en: 's’enfuir', fr: 's’enfuir' }, phrases: [
         { fr: 's’enfuir', ar: 'يهرب', en: 'to flee' },
-        { fr: 'Le voleur s’est enfui.', ar: 'الحرامي هرب.', en: 'The thief ran away.' }
+        { fr: 'Le voleur s’est enfui.', ar: 'الحرامي هرب.', en: 'The thief ran away.' },
+        { fr: 'Le voleur s’est enfui rapidement.', ar: 'الحرامي هرب بسرعة.', en: 'The thief ran away quickly.' }
       ] },
       { icon: '🔄', title: { ar: 's’échapper — يهرب / يفلت', en: 's’échapper', fr: 's’échapper' }, phrases: [
         { fr: 's’échapper', ar: 'يهرب / يفلت', en: 'to escape' },
-        { fr: 'Le chien s’est échappé.', ar: 'الكلب هرب.', en: 'The dog escaped.' }
+        { fr: 'Le chien s’est échappé.', ar: 'الكلب هرب.', en: 'The dog escaped.' },
+        { fr: 'Le prisonnier s’est échappé.', ar: 'السجين هرب.', en: 'The prisoner escaped.' }
       ] },
       { icon: '🔄', title: { ar: 's’éteindre — ينطفئ', en: 's’éteindre', fr: 's’éteindre' }, phrases: [
         { fr: 's’éteindre', ar: 'ينطفئ', en: 'to go out' },
-        { fr: 'La lumière s’est éteinte.', ar: 'الضو طفى.', en: 'The light went out.' }
+        { fr: 'La lumière s’est éteinte.', ar: 'الضو طفى.', en: 'The light went out.' },
+        { fr: 'La lumière s’est éteinte soudainement.', ar: 'الضو انطفى فجأة.', en: 'The light suddenly went out.' }
       ] },
       { icon: '🔄', title: { ar: 's’allumer — يشتغل / يضيء', en: 's’allumer', fr: 's’allumer' }, phrases: [
         { fr: 's’allumer', ar: 'يشتغل / يضيء', en: 'to turn on' },
-        { fr: 'La lumière s’allume automatiquement.', ar: 'الضو بيشتغل لحاله.', en: 'The light turns on automatically.' }
+        { fr: 'La lumière s’allume automatiquement.', ar: 'الضو بيشتغل لحاله.', en: 'The light turns on automatically.' },
+        { fr: 'L’écran s’est allumé automatiquement.', ar: 'الشاشة اشتغلت لحالها.', en: 'The screen turned on automatically.' }
       ] },
       { icon: '🔄', title: { ar: 's’éteindre progressivement — ينطفئ تدريجيًا', en: 's’éteindre progressivement', fr: 's’éteindre progressivement' }, phrases: [
         { fr: 's’éteindre progressivement', ar: 'ينطفئ تدريجيًا', en: 'to gradually go out' },
@@ -12254,11 +12371,13 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 's’écarter de — يبتعد عن / يحيد عن', en: 's’écarter de', fr: 's’écarter de' }, phrases: [
         { fr: 's’écarter de', ar: 'يبتعد عن / يحيد عن', en: 'to stray from' },
-        { fr: 'Ne vous écartez pas du chemin.', ar: 'لا تبتعدوا عن الطريق.', en: 'Don’t stray from the path.' }
+        { fr: 'Ne vous écartez pas du chemin.', ar: 'لا تبتعدوا عن الطريق.', en: 'Don’t stray from the path.' },
+        { fr: 'Je me suis écarté de la route.', ar: 'بعدت عن الطريق.', en: 'I moved away from the road.' }
       ] },
       { icon: '🔄', title: { ar: 's’écouler — يجري / يمرّ', en: 's’écouler', fr: 's’écouler' }, phrases: [
         { fr: 's’écouler', ar: 'يجري / يمرّ', en: 'to flow / pass' },
-        { fr: 'Le temps s’écoule rapidement.', ar: 'الوقت عم يمر بسرعة.', en: 'Time passes quickly.' }
+        { fr: 'Le temps s’écoule rapidement.', ar: 'الوقت عم يمر بسرعة.', en: 'Time passes quickly.' },
+        { fr: 'Plusieurs heures se sont écoulées.', ar: 'مرّت عدة ساعات.', en: 'Several hours passed.' }
       ] },
       { icon: '🔄', title: { ar: 's’écouler de — يتسرّب / يسيل من', en: 's’écouler de', fr: 's’écouler de' }, phrases: [
         { fr: 's’écouler de', ar: 'يتسرّب / يسيل من', en: 'to flow out of' },
@@ -12270,7 +12389,8 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 's’évaporer — يتبخّر', en: 's’évaporer', fr: 's’évaporer' }, phrases: [
         { fr: 's’évaporer', ar: 'يتبخّر', en: 'to evaporate' },
-        { fr: 'L’eau s’évapore avec la chaleur.', ar: 'المي بتتبخر مع الحرارة.', en: 'Water evaporates with heat.' }
+        { fr: 'L’eau s’évapore avec la chaleur.', ar: 'المي بتتبخر مع الحرارة.', en: 'Water evaporates with heat.' },
+        { fr: 'L’eau s’est évaporée rapidement.', ar: 'المي تبخرت بسرعة.', en: 'The water evaporated quickly.' }
       ] },
       { icon: '🔄', title: { ar: 's’accrocher à — يتمسّك بـ', en: 's’accrocher à', fr: 's’accrocher à' }, phrases: [
         { fr: 's’accrocher à', ar: 'يتمسّك بـ', en: 'to cling to' },
@@ -12278,27 +12398,33 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 's’agripper à — يتشبّث بـ', en: 's’agripper à', fr: 's’agripper à' }, phrases: [
         { fr: 's’agripper à', ar: 'يتشبّث بـ', en: 'to grip onto' },
-        { fr: 'Il s’agrippe à la rambarde.', ar: 'عم يتشبّث بدرابزين الدرج.', en: 'He’s clinging to the railing.' }
+        { fr: 'Il s’agrippe à la rambarde.', ar: 'عم يتشبّث بدرابزين الدرج.', en: 'He’s clinging to the railing.' },
+        { fr: 'Il s’est agrippé à la barre.', ar: 'تشبّث بالقضيب.', en: 'He clung to the bar.' }
       ] },
       { icon: '🔄', title: { ar: 's’affirmer — يثبت نفسه / يعبّر عن نفسه بثقة', en: 's’affirmer', fr: 's’affirmer' }, phrases: [
         { fr: 's’affirmer', ar: 'يثبت نفسه / يعبّر عن نفسه بثقة', en: 'to assert oneself' },
-        { fr: 'Il commence à s’affirmer au travail.', ar: 'بلّش يثبت حاله بالشغل.', en: 'He’s starting to assert himself at work.' }
+        { fr: 'Il commence à s’affirmer au travail.', ar: 'بلّش يثبت حاله بالشغل.', en: 'He’s starting to assert himself at work.' },
+        { fr: 'Il s’est affirmé dans son nouveau poste.', ar: 'أثبت حاله بشغله الجديد.', en: 'He established himself in his new position.' }
       ] },
       { icon: '🔄', title: { ar: 's’effacer — يتراجع / يختفي', en: 's’effacer', fr: 's’effacer' }, phrases: [
         { fr: 's’effacer', ar: 'يتراجع / يختفي', en: 'to step back' },
-        { fr: 'Il préfère s’effacer et laisser parler les autres.', ar: 'بيفضّل يتراجع ويترك غيره يحكي.', en: 'He prefers to step back and let others speak.' }
+        { fr: 'Il préfère s’effacer et laisser parler les autres.', ar: 'بيفضّل يتراجع ويترك غيره يحكي.', en: 'He prefers to step back and let others speak.' },
+        { fr: 'La tache s’est effacée après le lavage.', ar: 'البقعة راحت بعد الغسيل.', en: 'The stain disappeared after washing.' }
       ] },
       { icon: '🔄', title: { ar: 's’épanouir — يزدهر / يتطوّر بشكل جيد', en: 's’épanouir', fr: 's’épanouir' }, phrases: [
         { fr: 's’épanouir', ar: 'يزدهر / يتطوّر بشكل جيد', en: 'to thrive' },
-        { fr: 'Elle s’épanouit dans son nouveau travail.', ar: 'عم تتطور وتنجح بشغلها الجديد.', en: 'She’s thriving in her new job.' }
+        { fr: 'Elle s’épanouit dans son nouveau travail.', ar: 'عم تتطور وتنجح بشغلها الجديد.', en: 'She’s thriving in her new job.' },
+        { fr: 'Elle s’est épanouie dans son nouveau travail.', ar: 'تطورت وارتاحت بشغلها الجديد.', en: 'She flourished in her new job.' }
       ] },
       { icon: '🔄', title: { ar: 's’ennuyer — يشعر بالملل', en: 's’ennuyer', fr: 's’ennuyer' }, phrases: [
         { fr: 's’ennuyer', ar: 'يشعر بالملل', en: 'to be bored' },
-        { fr: 'Je m’ennuie à la maison.', ar: 'عم ملّ بالبيت.', en: 'I’m bored at home.' }
+        { fr: 'Je m’ennuie à la maison.', ar: 'عم ملّ بالبيت.', en: 'I’m bored at home.' },
+        { fr: 'Je me suis ennuyé pendant le film.', ar: 'مليت خلال الفيلم.', en: 'I got bored during the movie.' }
       ] },
       { icon: '🔄', title: { ar: 's’amuser — يستمتع / يتسلّى', en: 's’amuser', fr: 's’amuser' }, phrases: [
         { fr: 's’amuser', ar: 'يستمتع / يتسلّى', en: 'to have fun' },
-        { fr: 'Amuse-toi bien !', ar: 'انبسط!', en: 'Have fun!' }
+        { fr: 'Amuse-toi bien !', ar: 'انبسط!', en: 'Have fun!' },
+        { fr: 'Nous nous sommes bien amusés hier.', ar: 'انبسطنا كتير مبارح.', en: 'We had a lot of fun yesterday.' }
       ] },
       { icon: '🔄', title: { ar: 'se réjouir à l’avance — يفرح مسبقًا / يتطلّع بسعادة', en: 'se réjouir à l’avance', fr: 'se réjouir à l’avance' }, phrases: [
         { fr: 'se réjouir à l’avance', ar: 'يفرح مسبقًا / يتطلّع بسعادة', en: 'to look forward to' },
@@ -12310,7 +12436,8 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se défouler — يفرّغ طاقته / غضبه', en: 'se défouler', fr: 'se défouler' }, phrases: [
         { fr: 'se défouler', ar: 'يفرّغ طاقته / غضبه', en: 'to let off steam' },
-        { fr: 'Je vais faire du sport pour me défouler.', ar: 'رح أعمل رياضة لفرّغ طاقتي.', en: 'I’m going to exercise to blow off some steam.' }
+        { fr: 'Je vais faire du sport pour me défouler.', ar: 'رح أعمل رياضة لفرّغ طاقتي.', en: 'I’m going to exercise to blow off some steam.' },
+        { fr: 'Je me suis défoulé après le travail.', ar: 'فرّغت طاقتي بعد الشغل.', en: 'I let off steam after work.' }
       ] },
       { icon: '🔄', title: { ar: 'se réconcilier avec — يتصالح مع', en: 'se réconcilier avec', fr: 'se réconcilier avec' }, phrases: [
         { fr: 'se réconcilier avec', ar: 'يتصالح مع', en: 'to make up with' },
@@ -12318,7 +12445,8 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se mélanger — يختلط', en: 'se mélanger', fr: 'se mélanger' }, phrases: [
         { fr: 'se mélanger', ar: 'يختلط', en: 'to mix' },
-        { fr: 'Les couleurs se mélangent.', ar: 'الألوان عم تختلط ببعض.', en: 'The colors are mixing together.' }
+        { fr: 'Les couleurs se mélangent.', ar: 'الألوان عم تختلط ببعض.', en: 'The colors are mixing together.' },
+        { fr: 'Les deux produits se sont mélangés.', ar: 'المنتجين اختلطوا ببعض.', en: 'The two products mixed together.' }
       ] },
       { icon: '🔄', title: { ar: 'se mélanger à — يختلط بـ', en: 'se mélanger à', fr: 'se mélanger à' }, phrases: [
         { fr: 'se mélanger à', ar: 'يختلط بـ', en: 'to mix with' },
@@ -12326,7 +12454,344 @@ window.CENTRES_DATA = [
       ] },
       { icon: '🔄', title: { ar: 'se détacher de — ينفصل عن / يتخلّى عن', en: 'se détacher de', fr: 'se détacher de' }, phrases: [
         { fr: 'se détacher de', ar: 'ينفصل عن / يتخلّى عن', en: 'to detach from' },
-        { fr: 'Il a du mal à se détacher de son téléphone.', ar: 'صعب عليه يبعد عن تلفونه.', en: 'He has trouble putting his phone aside.' }
+        { fr: 'Il a du mal à se détacher de son téléphone.', ar: 'صعب عليه يبعد عن تلفونه.', en: 'He has trouble putting his phone aside.' },
+        { fr: 'Il s’est détaché du groupe.', ar: 'ابتعد عن المجموعة.', en: 'He detached himself from the group.' }
+      ] },
+      { icon: '🔄', title: { ar: 'Se réconcilier — يتصالح', en: 'Se réconcilier', fr: 'Se réconcilier' }, phrases: [
+        { fr: 'Se réconcilier', ar: 'يتصالح', en: 'to make up' },
+        { fr: 'Ils se sont réconciliés après la dispute.', ar: 'تصالحوا بعد الخناقة.', en: 'They made up after the argument.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se cogner — يخبط حاله / يرتطم', en: 'se cogner', fr: 'se cogner' }, phrases: [
+        { fr: 'se cogner', ar: 'يخبط حاله / يرتطم', en: 'to bump oneself' },
+        { fr: 'Je me suis cogné contre la porte.', ar: 'خبطت حالي بالباب.', en: 'I bumped into the door.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se coincer — ينحشر / يعلق', en: 'se coincer', fr: 'se coincer' }, phrases: [
+        { fr: 'se coincer', ar: 'ينحشر / يعلق', en: 'to get stuck' },
+        { fr: 'Je me suis coincé le doigt dans la porte.', ar: 'علّقت إصبعي بالباب.', en: 'I got my finger stuck in the door.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se fouler — يلوي / يلتوي', en: 'se fouler', fr: 'se fouler' }, phrases: [
+        { fr: 'se fouler', ar: 'يلوي / يلتوي', en: 'to sprain' },
+        { fr: 'Je me suis foulé la cheville.', ar: 'لويت كاحلي.', en: 'I sprained my ankle.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se baigner — يسبح / يستحم', en: 'se baigner', fr: 'se baigner' }, phrases: [
+        { fr: 'se baigner', ar: 'يسبح / يستحم', en: 'to swim / bathe' },
+        { fr: 'Nous nous sommes baignés dans la mer.', ar: 'سبحنا بالبحر.', en: 'We swam in the sea.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se déguiser — يتنكّر / يلبس زيًا', en: 'se déguiser', fr: 'se déguiser' }, phrases: [
+        { fr: 'se déguiser', ar: 'يتنكّر / يلبس زيًا', en: 'to dress up' },
+        { fr: 'Ils se sont déguisés pour la fête.', ar: 'تنكّروا كرمال الحفلة.', en: 'They dressed up for the party.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se coiffer — يسرّح شعره', en: 'se coiffer', fr: 'se coiffer' }, phrases: [
+        { fr: 'se coiffer', ar: 'يسرّح شعره', en: 'to do one’s hair' },
+        { fr: 'Elle s’est coiffée avant de sortir.', ar: 'سرّحت شعرها قبل ما تطلع.', en: 'She did her hair before going out.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se recoiffer — يعيد تسريح شعره', en: 'se recoiffer', fr: 'se recoiffer' }, phrases: [
+        { fr: 'se recoiffer', ar: 'يعيد تسريح شعره', en: 'to fix one’s hair' },
+        { fr: 'Je me suis recoiffé avant le rendez-vous.', ar: 'رجعت سرّحت شعري قبل الموعد.', en: 'I fixed my hair again before the appointment.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se reconnecter — يعيد الاتصال', en: 'se reconnecter', fr: 'se reconnecter' }, phrases: [
+        { fr: 'se reconnecter', ar: 'يعيد الاتصال', en: 'to reconnect' },
+        { fr: 'Je me suis reconnecté à mon compte.', ar: 'رجعت فتتت عحسابي.', en: 'I reconnected to my account.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se revoir — يلتقي مجددًا / يرى بعضهما', en: 'se revoir', fr: 'se revoir' }, phrases: [
+        { fr: 'se revoir', ar: 'يلتقي مجددًا / يرى بعضهما', en: 'to see each other again' },
+        { fr: 'Nous nous sommes revus après plusieurs années.', ar: 'التقينا من جديد بعد كم سنة.', en: 'We saw each other again after several years.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se téléphoner — يتصل أحدهما بالآخر', en: 'se téléphoner', fr: 'se téléphoner' }, phrases: [
+        { fr: 'se téléphoner', ar: 'يتصل أحدهما بالآخر', en: 'to call each other' },
+        { fr: 'Nous nous sommes téléphoné hier soir.', ar: 'اتصلنا ببعض مبارح بالليل.', en: 'We called each other last night.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’écrire — يكتب أحدهما للآخر', en: 's’écrire', fr: 's’écrire' }, phrases: [
+        { fr: 's’écrire', ar: 'يكتب أحدهما للآخر', en: 'to write to each other' },
+        { fr: 'Nous nous sommes écrit après notre rencontre.', ar: 'كتبنا لبعض بعد ما التقينا.', en: 'We wrote to each other after we met.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se répondre — يردّ أحدهما على الآخر', en: 'se répondre', fr: 'se répondre' }, phrases: [
+        { fr: 'se répondre', ar: 'يردّ أحدهما على الآخر', en: 'to reply to each other' },
+        { fr: 'Nous nous sommes répondu rapidement.', ar: 'ردّينا على بعض بسرعة.', en: 'We replied to each other quickly.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se remercier — يشكر أحدهما الآخر', en: 'se remercier', fr: 'se remercier' }, phrases: [
+        { fr: 'se remercier', ar: 'يشكر أحدهما الآخر', en: 'to thank each other' },
+        { fr: 'Nous nous sommes remerciés pour notre aide.', ar: 'شكرنا بعض على مساعدتنا.', en: 'We thanked each other for our help.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se féliciter — يهنّئ أحدهما الآخر', en: 'se féliciter', fr: 'se féliciter' }, phrases: [
+        { fr: 'se féliciter', ar: 'يهنّئ أحدهما الآخر', en: 'to congratulate each other' },
+        { fr: 'Ils se sont félicités après le succès.', ar: 'هنّوا بعض بعد النجاح.', en: 'They congratulated each other after the success.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se soutenir — يدعم أحدهما الآخر', en: 'se soutenir', fr: 'se soutenir' }, phrases: [
+        { fr: 'se soutenir', ar: 'يدعم أحدهما الآخر', en: 'to support each other' },
+        { fr: 'Nous nous sommes soutenus pendant cette période.', ar: 'دعمنا بعض بهالفترة.', en: 'We supported each other during this period.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se respecter — يحترم أحدهما الآخر', en: 'se respecter', fr: 'se respecter' }, phrases: [
+        { fr: 'se respecter', ar: 'يحترم أحدهما الآخر', en: 'to respect each other' },
+        { fr: 'Ils se sont toujours respectés.', ar: 'هنن دايمًا احترموا بعض.', en: 'They always respected each other.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se comprendre — يفهم أحدهما الآخر', en: 'se comprendre', fr: 'se comprendre' }, phrases: [
+        { fr: 'se comprendre', ar: 'يفهم أحدهما الآخر', en: 'to understand each other' },
+        { fr: 'Nous nous sommes bien compris.', ar: 'فهمنا بعض منيح.', en: 'We understood each other well.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se pardonner — يسامح أحدهما الآخر', en: 'se pardonner', fr: 'se pardonner' }, phrases: [
+        { fr: 'se pardonner', ar: 'يسامح أحدهما الآخر', en: 'to forgive each other' },
+        { fr: 'Ils se sont pardonnés après la dispute.', ar: 'سامحوا بعض بعد الخلاف.', en: 'They forgave each other after the argument.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se confier — يفضي بما في قلبه', en: 'se confier', fr: 'se confier' }, phrases: [
+        { fr: 'se confier', ar: 'يفضي بما في قلبه', en: 'to confide' },
+        { fr: 'Elle s’est confiée à son amie.', ar: 'فتحت قلبها لصاحبتها.', en: 'She confided in her friend.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se douter de — يشك / يتوقّع', en: 'se douter de', fr: 'se douter de' }, phrases: [
+        { fr: 'se douter de', ar: 'يشك / يتوقّع', en: 'to suspect' },
+        { fr: 'Je me suis douté qu’il avait oublié.', ar: 'شكّيت إنو نسي.', en: 'I suspected that he had forgotten.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se rendre utile — يجعل نفسه مفيدًا', en: 'se rendre utile', fr: 'se rendre utile' }, phrases: [
+        { fr: 'se rendre utile', ar: 'يجعل نفسه مفيدًا', en: 'to make oneself useful' },
+        { fr: 'Je me suis rendu utile pendant le déménagement.', ar: 'حاولت كون مفيد وقت نقل الأغراض.', en: 'I made myself useful during the move.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se rendre disponible — يجعل نفسه متاحًا', en: 'se rendre disponible', fr: 'se rendre disponible' }, phrases: [
+        { fr: 'se rendre disponible', ar: 'يجعل نفسه متاحًا', en: 'to make oneself available' },
+        { fr: 'Je me suis rendu disponible toute la journée.', ar: 'خليت حالي متاح طول النهار.', en: 'I made myself available all day.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se vanter de — يتباهى بـ', en: 'se vanter de', fr: 'se vanter de' }, phrases: [
+        { fr: 'se vanter de', ar: 'يتباهى بـ', en: 'to boast about' },
+        { fr: 'Il s’est vanté de son nouveau travail.', ar: 'ظل يتباهى بشغله الجديد.', en: 'He boasted about his new job.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se moquer de — يسخر من / لا يهتم بـ', en: 'se moquer de', fr: 'se moquer de' }, phrases: [
+        { fr: 'se moquer de', ar: 'يسخر من / لا يهتم بـ', en: 'to make fun of / not care' },
+        { fr: 'Ils se sont moqués de lui.', ar: 'سخروا منه.', en: 'They made fun of him.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se taquiner — يمازح / يغيظ بعضهما', en: 'se taquiner', fr: 'se taquiner' }, phrases: [
+        { fr: 'se taquiner', ar: 'يمازح / يغيظ بعضهما', en: 'to tease each other' },
+        { fr: 'Nous nous sommes taquinés toute la soirée.', ar: 'ضلّينا نمزح ونغيظ بعض طول السهرة.', en: 'We teased each other all evening.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se fâcher — يزعل / يغضب', en: 'se fâcher', fr: 'se fâcher' }, phrases: [
+        { fr: 'se fâcher', ar: 'يزعل / يغضب', en: 'to get angry' },
+        { fr: 'Je me suis fâché avec mon collègue.', ar: 'زعلت من زميلي بالشغل.', en: 'I got angry with my colleague.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’énerver — يتعصّب / ينزعج', en: 's’énerver', fr: 's’énerver' }, phrases: [
+        { fr: 's’énerver', ar: 'يتعصّب / ينزعج', en: 'to get annoyed' },
+        { fr: 'Je me suis énervé à cause du retard.', ar: 'تعصّبت بسبب التأخير.', en: 'I got annoyed because of the delay.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se vexer — ينزعج / يأخذ الكلام على خاطره', en: 'se vexer', fr: 'se vexer' }, phrases: [
+        { fr: 'se vexer', ar: 'ينزعج / يأخذ الكلام على خاطره', en: 'to take offense' },
+        { fr: 'Elle s’est vexée à cause de ma remarque.', ar: 'زعلت من ملاحظتي.', en: 'She took offense at my remark.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se rassurer — يطمئن', en: 'se rassurer', fr: 'se rassurer' }, phrases: [
+        { fr: 'se rassurer', ar: 'يطمئن', en: 'to reassure oneself' },
+        { fr: 'Je me suis rassuré après avoir reçu son message.', ar: 'اطمنت بعد ما وصلتني رسالته.', en: 'I reassured myself after receiving his message.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se rétablir — يتعافى', en: 'se rétablir', fr: 'se rétablir' }, phrases: [
+        { fr: 'se rétablir', ar: 'يتعافى', en: 'to recover' },
+        { fr: 'Il s’est bien rétabli après son opération.', ar: 'تعافى منيح بعد عمليته.', en: 'He recovered well after his operation.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’informer — يستعلم / يحصل على معلومات', en: 's’informer', fr: 's’informer' }, phrases: [
+        { fr: 's’informer', ar: 'يستعلم / يحصل على معلومات', en: 'to get informed' },
+        { fr: 'Je me suis informé sur les horaires.', ar: 'استعلمت عن أوقات الدوام.', en: 'I got information about the opening hours.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se fâcher contre — يغضب من', en: 'se fâcher contre', fr: 'se fâcher contre' }, phrases: [
+        { fr: 'se fâcher contre', ar: 'يغضب من', en: 'to get angry with' },
+        { fr: 'Elle s’est fâchée contre son frère.', ar: 'زعلت من أخوها.', en: 'She got angry with her brother.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se séparer — ينفصل', en: 'se séparer', fr: 'se séparer' }, phrases: [
+        { fr: 'se séparer', ar: 'ينفصل', en: 'to separate' },
+        { fr: 'Ils se sont séparés l’année dernière.', ar: 'انفصلوا السنة الماضية.', en: 'They separated last year.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se réunir — يجتمع', en: 'se réunir', fr: 'se réunir' }, phrases: [
+        { fr: 'se réunir', ar: 'يجتمع', en: 'to meet / gather' },
+        { fr: 'Nous nous sommes réunis pour discuter du problème.', ar: 'اجتمعنا لحتى نحكي بالمشكلة.', en: 'We met to discuss the problem.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se rassembler — يتجمع', en: 'se rassembler', fr: 'se rassembler' }, phrases: [
+        { fr: 'se rassembler', ar: 'يتجمع', en: 'to gather' },
+        { fr: 'Les gens se sont rassemblés devant le bâtiment.', ar: 'الناس تجمعوا قدام البناية.', en: 'People gathered in front of the building.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se partager — يتقاسم', en: 'se partager', fr: 'se partager' }, phrases: [
+        { fr: 'se partager', ar: 'يتقاسم', en: 'to share' },
+        { fr: 'Nous nous sommes partagé le travail.', ar: 'تقاسمنا الشغل بيناتنا.', en: 'We shared the work.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se contacter — يتواصل مع بعضه', en: 'se contacter', fr: 'se contacter' }, phrases: [
+        { fr: 'se contacter', ar: 'يتواصل مع بعضه', en: 'to contact each other' },
+        { fr: 'Nous nous sommes contactés par téléphone.', ar: 'تواصلنا مع بعض بالتلفون.', en: 'We contacted each other by phone.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se prévenir — يخبر / يحذّر بعضهما', en: 'se prévenir', fr: 'se prévenir' }, phrases: [
+        { fr: 'se prévenir', ar: 'يخبر / يحذّر بعضهما', en: 'to warn/inform each other' },
+        { fr: 'Nous nous sommes prévenus à temps.', ar: 'خبرنا بعض بالوقت المناسب.', en: 'We informed each other in time.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se reconnaître — يتعرّف على بعضه', en: 'se reconnaître', fr: 'se reconnaître' }, phrases: [
+        { fr: 'se reconnaître', ar: 'يتعرّف على بعضه', en: 'to recognize each other' },
+        { fr: 'Nous nous sommes reconnus immédiatement.', ar: 'عرفنا بعض فورًا.', en: 'We recognized each other immediately.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se confondre — يختلط / يتشابه', en: 'se confondre', fr: 'se confondre' }, phrases: [
+        { fr: 'se confondre', ar: 'يختلط / يتشابه', en: 'to be confused' },
+        { fr: 'Les deux documents se sont confondus.', ar: 'اختلطت الوثيقتين ببعض.', en: 'The two documents got mixed up.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se poursuivre — يستمر', en: 'se poursuivre', fr: 'se poursuivre' }, phrases: [
+        { fr: 'se poursuivre', ar: 'يستمر', en: 'to continue' },
+        { fr: 'Les travaux se sont poursuivis toute la journée.', ar: 'الأشغال استمرت طول النهار.', en: 'The work continued all day.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se prolonger — يمتد / يستمر لفترة أطول', en: 'se prolonger', fr: 'se prolonger' }, phrases: [
+        { fr: 'se prolonger', ar: 'يمتد / يستمر لفترة أطول', en: 'to last longer' },
+        { fr: 'La réunion s’est prolongée jusqu’à midi.', ar: 'الاجتماع امتد لحد الظهر.', en: 'The meeting lasted until noon.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se transformer — يتحوّل', en: 'se transformer', fr: 'se transformer' }, phrases: [
+        { fr: 'se transformer', ar: 'يتحوّل', en: 'to transform' },
+        { fr: 'La situation s’est transformée rapidement.', ar: 'الوضع تغيّر بسرعة.', en: 'The situation changed quickly.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se modifier — يتغيّر / يتعدّل', en: 'se modifier', fr: 'se modifier' }, phrases: [
+        { fr: 'se modifier', ar: 'يتغيّر / يتعدّل', en: 'to change' },
+        { fr: 'Le programme s’est modifié au dernier moment.', ar: 'البرنامج تغيّر بآخر لحظة.', en: 'The schedule changed at the last minute.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se corriger — يصحّح نفسه', en: 'se corriger', fr: 'se corriger' }, phrases: [
+        { fr: 'se corriger', ar: 'يصحّح نفسه', en: 'to correct oneself' },
+        { fr: 'Il s’est corrigé immédiatement.', ar: 'صحّح حاله فورًا.', en: 'He corrected himself immediately.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se répéter — يتكرر', en: 'se répéter', fr: 'se répéter' }, phrases: [
+        { fr: 'se répéter', ar: 'يتكرر', en: 'to repeat itself' },
+        { fr: 'La même erreur s’est répétée plusieurs fois.', ar: 'نفس الغلطة تكررت كذا مرة.', en: 'The same mistake happened several times.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se préciser — يصبح أوضح / يتحدد', en: 'se préciser', fr: 'se préciser' }, phrases: [
+        { fr: 'se préciser', ar: 'يصبح أوضح / يتحدد', en: 'to become clearer' },
+        { fr: 'Les informations se sont précisées hier.', ar: 'المعلومات صارت أوضح مبارح.', en: 'The information became clearer yesterday.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se remarquer — يُلاحظ / يلفت الانتباه', en: 'se remarquer', fr: 'se remarquer' }, phrases: [
+        { fr: 'se remarquer', ar: 'يُلاحظ / يلفت الانتباه', en: 'to be noticed' },
+        { fr: 'Son absence s’est remarquée rapidement.', ar: 'غيابه انلاحظ بسرعة.', en: 'His absence was quickly noticed.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se situer — يقع / يكون موجودًا', en: 'se situer', fr: 'se situer' }, phrases: [
+        { fr: 'se situer', ar: 'يقع / يكون موجودًا', en: 'to be located' },
+        { fr: 'L’hôtel s’est situé près de la gare.', ar: 'الفندق كان موجود قريب من المحطة.', en: 'The hotel was located near the station.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se trouver — يوجد / يجد نفسه', en: 'se trouver', fr: 'se trouver' }, phrases: [
+        { fr: 'se trouver', ar: 'يوجد / يجد نفسه', en: 'to be / find oneself' },
+        { fr: 'Je me suis trouvé dans une situation difficile.', ar: 'لقيت حالي بوضع صعب.', en: 'I found myself in a difficult situation.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se former — يتشكّل / يتدرّب', en: 'se former', fr: 'se former' }, phrases: [
+        { fr: 'se former', ar: 'يتشكّل / يتدرّب', en: 'to form / train' },
+        { fr: 'Je me suis formé dans ce domaine.', ar: 'تدربت بهالمجال.', en: 'I trained in this field.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se créer — يتكوّن / ينشأ', en: 'se créer', fr: 'se créer' }, phrases: [
+        { fr: 'se créer', ar: 'يتكوّن / ينشأ', en: 'to be created' },
+        { fr: 'Une bonne relation s’est créée entre nous.', ar: 'تكونت علاقة منيحة بيناتنا.', en: 'A good relationship developed between us.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se fatiguer — يتعب', en: 'se fatiguer', fr: 'se fatiguer' }, phrases: [
+        { fr: 'se fatiguer', ar: 'يتعب', en: 'to get tired' },
+        { fr: 'Je me suis beaucoup fatigué aujourd’hui.', ar: 'تعبت كتير اليوم.', en: 'I got very tired today.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se nourrir — يتغذى', en: 'se nourrir', fr: 'se nourrir' }, phrases: [
+        { fr: 'se nourrir', ar: 'يتغذى', en: 'to nourish oneself' },
+        { fr: 'Je me suis bien nourri pendant les vacances.', ar: 'اهتميت بأكلي منيح بالعطلة.', en: 'I ate well during the holidays.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se vacciner — يتلقّى اللقاح', en: 'se vacciner', fr: 'se vacciner' }, phrases: [
+        { fr: 'se vacciner', ar: 'يتلقّى اللقاح', en: 'to get vaccinated' },
+        { fr: 'Je me suis vacciné avant mon voyage.', ar: 'أخدت اللقاح قبل سفري.', en: 'I got vaccinated before my trip.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se dépister — يخضع لفحص للكشف المبكر', en: 'se dépister', fr: 'se dépister' }, phrases: [
+        { fr: 'se dépister', ar: 'يخضع لفحص للكشف المبكر', en: 'to get screened' },
+        { fr: 'Je me suis dépisté pour cette maladie.', ar: 'عملت فحص للكشف عن هالمرض.', en: 'I got screened for this disease.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se tester — يفحص نفسه / يخضع لاختبار', en: 'se tester', fr: 'se tester' }, phrases: [
+        { fr: 'se tester', ar: 'يفحص نفسه / يخضع لاختبار', en: 'to test oneself' },
+        { fr: 'Je me suis testé avant de reprendre le travail.', ar: 'عملت فحص لنفسي قبل ما أرجع عالشغل.', en: 'I tested myself before returning to work.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’identifier — يثبت هويته / يسجّل الدخول', en: 's’identifier', fr: 's’identifier' }, phrases: [
+        { fr: 's’identifier', ar: 'يثبت هويته / يسجّل الدخول', en: 'to identify oneself' },
+        { fr: 'Je me suis identifié avec mon passeport.', ar: 'أثبت هويتي بجواز سفري.', en: 'I identified myself with my passport.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se connecter à — يتصل بـ / يدخل إلى', en: 'se connecter à', fr: 'se connecter à' }, phrases: [
+        { fr: 'se connecter à', ar: 'يتصل بـ / يدخل إلى', en: 'to connect to' },
+        { fr: 'Je me suis connecté à mon espace personnel.', ar: 'دخلت على حسابي الشخصي.', en: 'I logged into my personal account.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’identifier auprès de — يثبت هويته لدى', en: 's’identifier auprès de', fr: 's’identifier auprès de' }, phrases: [
+        { fr: 's’identifier auprès de', ar: 'يثبت هويته لدى', en: 'to identify oneself with' },
+        { fr: 'Je me suis identifié auprès de l’agent.', ar: 'أثبت هويتي عند الموظف.', en: 'I identified myself to the agent.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se réunir autour de — يجتمع حول', en: 'se réunir autour de', fr: 'se réunir autour de' }, phrases: [
+        { fr: 'se réunir autour de', ar: 'يجتمع حول', en: 'to gather around' },
+        { fr: 'La famille s’est réunie autour de la table.', ar: 'العيلة اجتمعت حول الطاولة.', en: 'The family gathered around the table.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se noyer — يغرق', en: 'se noyer', fr: 'se noyer' }, phrases: [
+        { fr: 'se noyer', ar: 'يغرق', en: 'to drown' },
+        { fr: 'Il s’est presque noyé dans la piscine.', ar: 'كاد يغرق بالمسبح.', en: 'He almost drowned in the pool.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se rapprocher de — يقترب من', en: 'se rapprocher de', fr: 'se rapprocher de' }, phrases: [
+        { fr: 'se rapprocher de', ar: 'يقترب من', en: 'to get closer to' },
+        { fr: 'Je me suis rapproché de la fenêtre.', ar: 'قربت من الشباك.', en: 'I moved closer to the window.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se saluer — يسلّم على بعضه', en: 'se saluer', fr: 'se saluer' }, phrases: [
+        { fr: 'se saluer', ar: 'يسلّم على بعضه', en: 'to greet each other' },
+        { fr: 'Nous nous sommes salués en arrivant.', ar: 'سلّمنا على بعض لما وصلنا.', en: 'We greeted each other when we arrived.' }
+      ] },
+      { icon: '🔄', title: { ar: 's’embrasser — يتعانق / يقبّل بعضه', en: 's’embrasser', fr: 's’embrasser' }, phrases: [
+        { fr: 's’embrasser', ar: 'يتعانق / يقبّل بعضه', en: 'to kiss each other' },
+        { fr: 'Ils se sont embrassés avant de partir.', ar: 'تعانقوا قبل ما يروحوا.', en: 'They kissed each other before leaving.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se serrer la main — يصافح بعضه', en: 'se serrer la main', fr: 'se serrer la main' }, phrases: [
+        { fr: 'se serrer la main', ar: 'يصافح بعضه', en: 'to shake hands' },
+        { fr: 'Nous nous sommes serré la main.', ar: 'صافحنا بعض.', en: 'We shook hands.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se sourire — يبتسم لبعضه', en: 'se sourire', fr: 'se sourire' }, phrases: [
+        { fr: 'se sourire', ar: 'يبتسم لبعضه', en: 'to smile at each other' },
+        { fr: 'Ils se sont souri en se voyant.', ar: 'ابتسموا لبعض لما شافوا بعض.', en: 'They smiled at each other when they saw each other.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se saluer de loin — يحيّي من بعيد', en: 'se saluer de loin', fr: 'se saluer de loin' }, phrases: [
+        { fr: 'se saluer de loin', ar: 'يحيّي من بعيد', en: 'to greet from a distance' },
+        { fr: 'Nous nous sommes salués de loin.', ar: 'سلّمنا على بعض من بعيد.', en: 'We greeted each other from a distance.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se retrouver face à face — يجد نفسه وجهًا لوجه', en: 'se retrouver face à face', fr: 'se retrouver face à face' }, phrases: [
+        { fr: 'se retrouver face à face', ar: 'يجد نفسه وجهًا لوجه', en: 'to find oneself face to face' },
+        { fr: 'Ils se sont retrouvés face à face.', ar: 'لقوا حالهم وجه لوجه.', en: 'They found themselves face to face.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se croiser — يلتقي صدفة / يمرّ بجانب', en: 'se croiser', fr: 'se croiser' }, phrases: [
+        { fr: 'se croiser', ar: 'يلتقي صدفة / يمرّ بجانب', en: 'to cross paths' },
+        { fr: 'Nous nous sommes croisés dans la rue.', ar: 'تقاطعنا بالشارع بالصدفة.', en: 'We crossed paths in the street.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se nouer — يتكوّن / يُعقد', en: 'se nouer', fr: 'se nouer' }, phrases: [
+        { fr: 'se nouer', ar: 'يتكوّن / يُعقد', en: 'to form / become established' },
+        { fr: 'Une amitié s’est nouée entre eux.', ar: 'تكونت صداقة بيناتهم.', en: 'A friendship developed between them.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se fissurer — يتشقق', en: 'se fissurer', fr: 'se fissurer' }, phrases: [
+        { fr: 'se fissurer', ar: 'يتشقق', en: 'to crack' },
+        { fr: 'Le mur s’est fissuré après les travaux.', ar: 'الحيط تشقّق بعد الأشغال.', en: 'The wall cracked after the work.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se dénouer — ينحلّ / ينفرج', en: 'se dénouer', fr: 'se dénouer' }, phrases: [
+        { fr: 'se dénouer', ar: 'ينحلّ / ينفرج', en: 'to be resolved' },
+        { fr: 'La situation s’est finalement dénouée.', ar: 'بالنهاية المشكلة انحلّت.', en: 'The situation was finally resolved.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se volatiliser — يتبخّر / يختفي فجأة', en: 'se volatiliser', fr: 'se volatiliser' }, phrases: [
+        { fr: 'se volatiliser', ar: 'يتبخّر / يختفي فجأة', en: 'to vanish' },
+        { fr: 'L’argent s’est volatilisé en quelques jours.', ar: 'المصاري اختفت خلال كم يوم.', en: 'The money vanished within a few days.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se cristalliser — يتبلور / يتفاقم بشكل واضح', en: 'se cristalliser', fr: 'se cristalliser' }, phrases: [
+        { fr: 'se cristalliser', ar: 'يتبلور / يتفاقم بشكل واضح', en: 'to crystallize' },
+        { fr: 'Les tensions se sont cristallisées après cette décision.', ar: 'التوترات صارت واضحة أكتر بعد هالقرار.', en: 'The tensions crystallized after this decision.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se détériorer — يتدهور', en: 'se détériorer', fr: 'se détériorer' }, phrases: [
+        { fr: 'se détériorer', ar: 'يتدهور', en: 'to deteriorate' },
+        { fr: 'Son état s’est détérioré rapidement.', ar: 'وضعه تدهور بسرعة.', en: 'His condition deteriorated quickly.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se décomposer — يتحلل / يتفكك', en: 'se décomposer', fr: 'se décomposer' }, phrases: [
+        { fr: 'se décomposer', ar: 'يتحلل / يتفكك', en: 'to decompose' },
+        { fr: 'Les déchets se sont décomposés naturellement.', ar: 'النفايات تحللت بشكل طبيعي.', en: 'The waste decomposed naturally.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se solidifier — يتصلّب', en: 'se solidifier', fr: 'se solidifier' }, phrases: [
+        { fr: 'se solidifier', ar: 'يتصلّب', en: 'to solidify' },
+        { fr: 'Le béton s’est solidifié pendant la nuit.', ar: 'الإسمنت تصلّب خلال الليل.', en: 'The concrete solidified overnight.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se liquéfier — يصبح سائلًا', en: 'se liquéfier', fr: 'se liquéfier' }, phrases: [
+        { fr: 'se liquéfier', ar: 'يصبح سائلًا', en: 'to liquefy' },
+        { fr: 'La glace s’est liquéfiée avec la chaleur.', ar: 'التلج صار سائل بسبب الحرارة.', en: 'The ice liquefied because of the heat.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se refroidir — يبرد', en: 'se refroidir', fr: 'se refroidir' }, phrases: [
+        { fr: 'se refroidir', ar: 'يبرد', en: 'to cool down' },
+        { fr: 'La soupe s’est refroidie rapidement.', ar: 'الشوربة بردت بسرعة.', en: 'The soup cooled down quickly.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se réchauffer — يدفى', en: 'se réchauffer', fr: 'se réchauffer' }, phrases: [
+        { fr: 'se réchauffer', ar: 'يدفى', en: 'to warm up' },
+        { fr: 'Je me suis réchauffé près du chauffage.', ar: 'دفيت حالي جنب المدفأة.', en: 'I warmed myself up near the heater.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se brûler les doigts — يحرق أصابعه', en: 'se brûler les doigts', fr: 'se brûler les doigts' }, phrases: [
+        { fr: 'se brûler les doigts', ar: 'يحرق أصابعه', en: 'to burn one’s fingers' },
+        { fr: 'Je me suis brûlé les doigts avec la casserole.', ar: 'حرقت أصابعي بالطنجرة.', en: 'I burned my fingers on the pot.' }
+      ] },
+      { icon: '🔄', title: { ar: 'se fouiller les poches — يفتّش جيوبه', en: 'se fouiller les poches', fr: 'se fouiller les poches' }, phrases: [
+        { fr: 'se fouiller les poches', ar: 'يفتّش جيوبه', en: 'to search one’s pockets' },
+        { fr: 'Je me suis fouillé les poches pour trouver mes clés.', ar: 'فتشت بجيابي لحتى لاقي مفاتيحي.', en: 'I searched my pockets for my keys.' }
       ] }
     ]
   }
