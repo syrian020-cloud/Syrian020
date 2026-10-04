@@ -19022,5 +19022,264 @@ window.CENTRES_DATA = [
         { fr: 'Pour respecter l’hygiène et permettre au collègue suivant de travailler dans de bonnes conditions.', ar: 'حتى نلتزم بالنظافة ويقدر الزميل اللي بعدي يشتغل بظروف جيدة.', en: 'To maintain hygiene and allow the next colleague to work in good conditions.' }
       ] }
     ]
+  },
+  {
+    id: 'boulangerie',
+    icon: '🥖',
+    name: { ar: 'المخبزة', en: 'The bakery', fr: 'La boulangerie' },
+    desc: { ar: 'أسئلة وأجوبة مقابلة عمل الخبّاز والعبارات الشائعة بالمخبز', en: 'Baker job-interview Q&A and the most common bakery phrases', fr: 'Questions-réponses de l’entretien de boulanger et les phrases courantes de la boulangerie' },
+    sections: [
+      { icon: '🥖', title: { ar: 'أسئلة عامة عن الـCV', en: 'General CV questions', fr: 'Questions générales sur le CV' }, phrases: [
+        { fr: 'Pouvez-vous me parler de votre expérience en boulangerie ?', ar: 'فيك تحكيلي عن خبرتك بالمخبزة؟', en: 'Can you tell me about your bakery experience?' },
+        { fr: 'Quelles tâches avez-vous déjà effectuées en boulangerie ?', ar: 'شو المهام اللي سبق وعملتها بالمخبزة؟', en: 'What tasks have you done in a bakery?' },
+        { fr: 'Avez-vous déjà préparé du pain ?', ar: 'سبق وحضّرت خبز؟', en: 'Have you ever made bread?' },
+        { fr: 'Oui, j’ai appris les différentes étapes de préparation du pain.', ar: 'إي، تعلمت مراحل تحضير الخبز المختلفة.', en: 'Yes, I learned the different stages of bread preparation.' },
+        { fr: 'Avez-vous déjà travaillé avec de la pâte ?', ar: 'سبق واشتغلت بالعجين؟', en: 'Have you ever worked with dough?' },
+        { fr: 'Oui, je sais préparer, façonner et travailler la pâte.', ar: 'إي، بعرف حضّر وأشكّل وأشتغل العجين.', en: 'Yes, I can prepare, shape, and work with dough.' }
+      ] },
+      { icon: '🍞', title: { ar: 'التحضير', en: 'Preparation', fr: 'La préparation' }, phrases: [
+        { fr: 'Quelles sont les étapes pour préparer le pain ?', ar: 'شو مراحل تحضير الخبز؟', en: 'What are the steps for making bread?' },
+        { fr: 'On prépare les ingrédients, on pétrit la pâte, on la laisse fermenter, puis on façonne et on cuit le pain.', ar: 'منجهز المكونات، منعجن العجين، منتركه يختمر، بعدين منشكل الخبز ومنخبزه.', en: 'We prepare the ingredients, knead the dough, let it ferment, then shape and bake the bread.' },
+        { fr: 'Savez-vous peser les ingrédients ?', ar: 'بتعرف توزن المكونات؟', en: 'Can you weigh the ingredients?' },
+        { fr: 'Oui, je respecte les quantités indiquées dans la recette.', ar: 'إي، بلتزم بالكميات المحددة بالوصفة.', en: 'Yes, I follow the quantities specified in the recipe.' },
+        { fr: 'Savez-vous pétrir la pâte ?', ar: 'بتعرف تعجن العجين؟', en: 'Can you knead dough?' },
+        { fr: 'Oui, je sais pétrir la pâte à la main ou avec un pétrin.', ar: 'إي، بعرف أعجن العجين بإيدي أو بالعجانة.', en: 'Yes, I can knead dough by hand or with a mixer.' }
+      ] },
+      { icon: '🥐', title: { ar: 'المعجنات والمنتجات', en: 'Pastries and products', fr: 'Viennoiseries et produits' }, phrases: [
+        { fr: 'Quels produits connaissez-vous en boulangerie ?', ar: 'شو المنتجات اللي بتعرفها بالمخبزة؟', en: 'What bakery products do you know?' },
+        { fr: 'Je connais le pain, la baguette, les croissants, les pains au chocolat, les brioches et différentes viennoiseries.', ar: 'بعرف الخبز، الباغيت، الكرواسون، بان أو شوكولا، البريوش وأنواع مختلفة من المعجنات.', en: 'I know bread, baguettes, croissants, pain au chocolat, brioches, and different pastries.' },
+        { fr: 'Savez-vous façonner une baguette ?', ar: 'بتعرف تشكّل باغيت؟', en: 'Can you shape a baguette?' },
+        { fr: 'Oui, je connais les principales étapes du façonnage.', ar: 'إي، بعرف المراحل الأساسية لتشكيلها.', en: 'Yes, I know the main shaping steps.' },
+        { fr: 'Savez-vous préparer des viennoiseries ?', ar: 'بتعرف تحضّر الـviennoiseries؟', en: 'Can you prepare viennoiseries?' },
+        { fr: 'Oui, je connais les bases et je suis prêt à apprendre les méthodes de votre boulangerie.', ar: 'إي، بعرف الأساسيات ومستعد أتعلم طريقة المخبزة تبعكم.', en: 'Yes, I know the basics and I’m ready to learn your bakery’s methods.' }
+      ] },
+      { icon: '🔥', title: { ar: 'الفرن', en: 'The oven', fr: 'Le four' }, phrases: [
+        { fr: 'Avez-vous déjà utilisé un four professionnel ?', ar: 'سبق واستخدمت فرن مهني؟', en: 'Have you ever used a professional oven?' },
+        { fr: 'Oui, je sais respecter la température et le temps de cuisson indiqués.', ar: 'إي، بعرف التزم بدرجة الحرارة ووقت الخَبز المحددين.', en: 'Yes, I can follow the specified temperature and baking time.' },
+        { fr: 'Comment vérifiez-vous la cuisson du pain ?', ar: 'كيف بتتأكد إن الخبز استوى؟', en: 'How do you check whether the bread is baked?' },
+        { fr: 'Je vérifie la couleur, la croûte et la cuisson du produit.', ar: 'بفحص اللون والقشرة ودرجة استواء المنتج.', en: 'I check the color, crust, and doneness of the product.' }
+      ] },
+      { icon: '🧼', title: { ar: 'النظافة', en: 'Hygiene', fr: 'Hygiène' }, phrases: [
+        { fr: 'Quelles règles d’hygiène respectez-vous en boulangerie ?', ar: 'شو قواعد النظافة اللي بتلتزم فيها بالمخبزة؟', en: 'What hygiene rules do you follow in a bakery?' },
+        { fr: 'Je me lave les mains, je porte une tenue propre et je nettoie régulièrement mon poste de travail.', ar: 'بغسل إيدي، بلبس تياب نظيفة وبنظف مكان شغلي باستمرار.', en: 'I wash my hands, wear clean work clothes, and regularly clean my workstation.' },
+        { fr: 'Pourquoi l’hygiène est-elle importante en boulangerie ?', ar: 'ليش النظافة مهمة بالمخبزة؟', en: 'Why is hygiene important in a bakery?' },
+        { fr: 'Pour garantir la sécurité alimentaire et la qualité des produits.', ar: 'حتى نضمن سلامة الأكل وجودة المنتجات.', en: 'To ensure food safety and product quality.' }
+      ] },
+      { icon: '🥖', title: { ar: 'العجين والتخمير', en: 'Dough and fermentation', fr: 'Pâte et fermentation' }, phrases: [
+        { fr: 'Comment savez-vous si une pâte est prête ?', ar: 'كيف بتعرف إن العجينة صارت جاهزة؟', en: 'How do you know when dough is ready?' },
+        { fr: 'Je vérifie sa texture, son volume et son élasticité.', ar: 'بفحص قوامها وحجمها ومرونتها.', en: 'I check its texture, volume, and elasticity.' },
+        { fr: 'Qu’est-ce que la fermentation ?', ar: 'شو يعني التخمير؟', en: 'What is fermentation?' },
+        { fr: 'C’est une étape qui permet à la pâte de lever et de développer ses arômes.', ar: 'هي مرحلة بتخلي العجينة تختمر وتكبر وبتعطيها نكهة.', en: 'It is a stage that allows the dough to rise and develop its flavors.' },
+        { fr: 'Que faites-vous si la pâte ne lève pas ?', ar: 'شو بتعمل إذا العجينة ما انتفخت؟', en: 'What do you do if the dough does not rise?' },
+        { fr: 'Je vérifie la température, le temps de fermentation et les ingrédients utilisés.', ar: 'بتأكد من الحرارة ووقت التخمير والمكونات المستخدمة.', en: 'I check the temperature, fermentation time, and ingredients used.' },
+        { fr: 'Comment évitez-vous que la pâte colle ?', ar: 'كيف بتمنع العجينة إنها تلزق؟', en: 'How do you prevent dough from sticking?' },
+        { fr: 'Je respecte les quantités et j’utilise la farine ou la méthode adaptée.', ar: 'بلتزم بالكميات وبستخدم الطحين أو الطريقة المناسبة.', en: 'I follow the quantities and use the appropriate flour or method.' }
+      ] },
+      { icon: '⚖️', title: { ar: 'الوزن والقياسات', en: 'Weighing and measurements', fr: 'Pesée et mesures' }, phrases: [
+        { fr: 'Pourquoi faut-il respecter les pesées ?', ar: 'ليش لازم نلتزم بالوزن؟', en: 'Why is it important to follow the measurements?' },
+        { fr: 'Pour avoir des produits réguliers et respecter la recette.', ar: 'حتى تطلع المنتجات متساوية ونلتزم بالوصفة.', en: 'To have consistent products and follow the recipe.' },
+        { fr: 'Savez-vous diviser une pâte en portions ?', ar: 'بتعرف تقسّم العجين لحصص؟', en: 'Can you divide dough into portions?' },
+        { fr: 'Oui, je pèse chaque portion pour obtenir un poids régulier.', ar: 'إي، بوزن كل حصة حتى يكون الوزن متساوي.', en: 'Yes, I weigh each portion to keep the weight consistent.' },
+        { fr: 'Que faites-vous si le poids n’est pas correct ?', ar: 'شو بتعمل إذا الوزن مو صحيح؟', en: 'What do you do if the weight is incorrect?' },
+        { fr: 'Je vérifie la balance et je corrige la portion avant la cuisson.', ar: 'بتأكد من الميزان وبصحح الحصة قبل الخَبز.', en: 'I check the scale and correct the portion before baking.' }
+      ] },
+      { icon: '🔥', title: { ar: 'الفرن والخبز', en: 'Oven and baking', fr: 'Four et cuisson' }, phrases: [
+        { fr: 'Comment préparez-vous le four avant la cuisson ?', ar: 'كيف بتحضّر الفرن قبل الخَبز؟', en: 'How do you prepare the oven before baking?' },
+        { fr: 'Je vérifie la température et je préchauffe le four si nécessaire.', ar: 'بتأكد من الحرارة وبسخّن الفرن مسبقًا إذا لزم.', en: 'I check the temperature and preheat the oven if necessary.' },
+        { fr: 'Que faites-vous si le pain cuit trop vite ?', ar: 'شو بتعمل إذا الخبز عم يستوي بسرعة كتير؟', en: 'What do you do if the bread bakes too quickly?' },
+        { fr: 'Je vérifie la température et j’en informe le responsable si nécessaire.', ar: 'بتأكد من درجة الحرارة وبخبر المسؤول إذا لزم.', en: 'I check the temperature and inform the supervisor if necessary.' },
+        { fr: 'Comment obtenez-vous une belle croûte ?', ar: 'كيف بتحصل على قشرة منيحة؟', en: 'How do you get a good crust?' },
+        { fr: 'Je respecte la température, le temps de cuisson et les conditions de cuisson.', ar: 'بلتزم بدرجة الحرارة ووقت الخَبز وظروف الخَبز.', en: 'I follow the temperature, baking time, and baking conditions.' }
+      ] },
+      { icon: '🥐', title: { ar: 'تجهيز المنتجات', en: 'Preparing the products', fr: 'Préparation des produits' }, phrases: [
+        { fr: 'Comment préparez-vous les produits avant de les mettre au four ?', ar: 'كيف بتحضّر المنتجات قبل ما تحطها بالفرن؟', en: 'How do you prepare products before putting them in the oven?' },
+        { fr: 'Je les façonne, les laisse reposer ou fermenter selon le produit, puis je les enfourne.', ar: 'بشكّلها، وبتركها ترتاح أو تختمر حسب المنتج، وبعدين بدخلها عالفرن.', en: 'I shape them, let them rest or ferment depending on the product, then bake them.' },
+        { fr: 'Savez-vous préparer les plaques de cuisson ?', ar: 'بتعرف تجهز صواني الخَبز؟', en: 'Can you prepare baking trays?' },
+        { fr: 'Oui, je prépare les plaques correctement et je respecte l’espacement entre les produits.', ar: 'إي، بجهز الصواني بشكل صحيح وبترك مسافة مناسبة بين المنتجات.', en: 'Yes, I prepare the trays correctly and leave appropriate space between products.' }
+      ] },
+      { icon: '🧹', title: { ar: 'نهاية العمل', en: 'End of day', fr: 'Fin de journée' }, phrases: [
+        { fr: 'Que faites-vous après la production ?', ar: 'شو بتعمل بعد ما تخلص الإنتاج؟', en: 'What do you do after production?' },
+        { fr: 'Je nettoie le matériel, le plan de travail et je range les produits et les ingrédients.', ar: 'بنظف المعدات ومكان الشغل وبرتب المنتجات والمكونات.', en: 'I clean the equipment and workstation and organize the products and ingredients.' },
+        { fr: 'Savez-vous nettoyer un pétrin ?', ar: 'بتعرف تنظف العجّانة؟', en: 'Can you clean a dough mixer?' },
+        { fr: 'Oui, je respecte les consignes de nettoyage et de sécurité.', ar: 'إي، بلتزم بتعليمات التنظيف والسلامة.', en: 'Yes, I follow the cleaning and safety instructions.' }
+      ] },
+      { icon: '🥖', title: { ar: 'الإنتاج والتنظيم', en: 'Production and organization', fr: 'Production et organisation' }, phrases: [
+        { fr: 'Comment organisez-vous la production du matin ?', ar: 'كيف بتنظم إنتاج الصبح؟', en: 'How do you organize the morning production?' },
+        { fr: 'Je prépare d’abord les produits prioritaires et je respecte le planning de production.', ar: 'بجهز أول شي المنتجات المهمة وبلتزم بخطة الإنتاج.', en: 'I prepare priority products first and follow the production schedule.' },
+        { fr: 'Comment savez-vous combien de produits préparer ?', ar: 'كيف بتعرف قديش لازم تحضّر من كل منتج؟', en: 'How do you know how many products to prepare?' },
+        { fr: 'Je me base sur les commandes, les ventes habituelles et les consignes du responsable.', ar: 'بعتمد على الطلبات والمبيعات المعتادة وتعليمات المسؤول.', en: 'I base it on orders, usual sales, and the supervisor’s instructions.' },
+        { fr: 'Que faites-vous s’il manque un produit pendant le service ?', ar: 'شو بتعمل إذا خلص منتج أثناء الخدمة؟', en: 'What do you do if a product runs out during service?' },
+        { fr: 'Je préviens le responsable et je relance la production si c’est possible.', ar: 'بخبر المسؤول وبعيد الإنتاج إذا كان ممكن.', en: 'I inform the supervisor and restart production if possible.' },
+        { fr: 'Comment évitez-vous les retards de production ?', ar: 'كيف بتتجنب تأخير الإنتاج؟', en: 'How do you avoid production delays?' },
+        { fr: 'Je prépare mon poste à l’avance et je respecte les différentes étapes.', ar: 'بجهز مكان شغلي مسبقًا وبمشي حسب مراحل العمل.', en: 'I prepare my workstation in advance and follow each step.' }
+      ] },
+      { icon: '🧈', title: { ar: 'المكونات', en: 'Ingredients', fr: 'Les ingrédients' }, phrases: [
+        { fr: 'Quels ingrédients utilisez-vous pour faire du pain ?', ar: 'شو المكونات اللي بتستخدمها لعمل الخبز؟', en: 'What ingredients do you use to make bread?' },
+        { fr: 'Principalement de la farine, de l’eau, de la levure et du sel.', ar: 'بشكل أساسي طحين ومي وخميرة وملح.', en: 'Mainly flour, water, yeast, and salt.' },
+        { fr: 'Comment vérifiez-vous les ingrédients avant de commencer ?', ar: 'كيف بتفحص المكونات قبل ما تبلش؟', en: 'How do you check the ingredients before starting?' },
+        { fr: 'Je vérifie les quantités, les dates et l’état des produits.', ar: 'بتأكد من الكميات والتواريخ وحالة المنتجات.', en: 'I check the quantities, dates, and condition of the products.' },
+        { fr: 'Que faites-vous si un ingrédient est périmé ?', ar: 'شو بتعمل إذا مكوّن منتهي الصلاحية؟', en: 'What do you do if an ingredient has expired?' },
+        { fr: 'Je ne l’utilise pas et je préviens immédiatement mon responsable.', ar: 'ما بستخدمه وبخبر المسؤول فورًا.', en: 'I don’t use it and immediately inform my supervisor.' }
+      ] },
+      { icon: '📦', title: { ar: 'التخزين والمخزون', en: 'Storage and stock', fr: 'Stockage et stock' }, phrases: [
+        { fr: 'Comment rangez-vous les matières premières ?', ar: 'كيف بترتب المواد الأولية؟', en: 'How do you store raw materials?' },
+        { fr: 'Je les range dans les endroits prévus et je respecte les conditions de conservation.', ar: 'برتبها بالأماكن المخصصة وبحافظ على شروط التخزين.', en: 'I store them in the designated areas and follow storage requirements.' },
+        { fr: 'Pourquoi faut-il vérifier les dates des produits ?', ar: 'ليش لازم نفحص تواريخ المنتجات؟', en: 'Why do we need to check product dates?' },
+        { fr: 'Pour garantir la qualité et la sécurité alimentaire.', ar: 'حتى نضمن الجودة وسلامة الغذاء.', en: 'To ensure quality and food safety.' },
+        { fr: 'Comment gérez-vous les stocks de farine ?', ar: 'كيف بتدير مخزون الطحين؟', en: 'How do you manage flour stock?' },
+        { fr: 'Je contrôle les quantités disponibles et je signale les besoins de réapprovisionnement.', ar: 'براقب الكميات الموجودة وبخبر إذا بدنا نطلب كمية جديدة.', en: 'I check available quantities and report when replenishment is needed.' }
+      ] },
+      { icon: '👥', title: { ar: 'خدمة الزبائن', en: 'Customer service', fr: 'Service client' }, phrases: [
+        { fr: 'Comment conseillez-vous un client qui hésite ?', ar: 'كيف بتنصح زبون محتار؟', en: 'How do you advise a customer who is unsure?' },
+        { fr: 'Je lui présente les produits et je lui explique leurs différences.', ar: 'بعرض عليه المنتجات وبشرحله الفرق بينها.', en: 'I show the customer the products and explain their differences.' },
+        { fr: 'Que faites-vous si un client demande un produit qui n’est plus disponible ?', ar: 'شو بتعمل إذا الزبون طلب منتج ما عاد موجود؟', en: 'What do you do if a customer asks for an unavailable product?' },
+        { fr: 'Je lui propose un produit similaire si j’en ai un.', ar: 'بعرض عليه منتج مشابه إذا كان موجود.', en: 'I offer a similar product if one is available.' },
+        { fr: 'Comment servez-vous plusieurs clients en même temps ?', ar: 'كيف بتخدم أكتر من زبون بنفس الوقت؟', en: 'How do you serve several customers at the same time?' },
+        { fr: 'Je reste organisé, je respecte l’ordre d’arrivée et je reste attentif à chaque client.', ar: 'بحافظ على التنظيم، وبمشي حسب ترتيب وصول الزباين وبنتبه لكل زبون.', en: 'I stay organized, follow the order of arrival, and pay attention to each customer.' }
+      ] },
+      { icon: '💪', title: { ar: 'ضغط العمل', en: 'Work pressure', fr: 'Pression de travail' }, phrases: [
+        { fr: 'Êtes-vous capable de travailler pendant les périodes de forte activité ?', ar: 'فيك تشتغل وقت يكون ضغط الشغل عالي؟', en: 'Can you work during busy periods?' },
+        { fr: 'Oui, je reste concentré et je garde un rythme régulier.', ar: 'إي، بحافظ على تركيزي وبشتغل بوتيرة منتظمة.', en: 'Yes, I stay focused and maintain a steady pace.' },
+        { fr: 'Comment réagissez-vous quand vous devez faire plusieurs tâches rapidement ?', ar: 'كيف بتتصرف لما يكون عندك عدة مهام ولازم تخلصها بسرعة؟', en: 'How do you react when you have several tasks to do quickly?' },
+        { fr: 'Je définis les priorités et je travaille de manière organisée.', ar: 'بحدد الأولويات وبشتغل بطريقة منظمة.', en: 'I set priorities and work in an organized way.' }
+      ] },
+      { icon: '⭐', title: { ar: 'سؤال قوي بالمقابلة', en: 'Strong interview question', fr: 'Question forte à l’entretien' }, phrases: [
+        { fr: 'Qu’est-ce qui est le plus important pour vous dans une boulangerie ?', ar: 'شو أهم شي بالنسبة إلك بالمخبزة؟', en: 'What is most important to you in a bakery?' },
+        { fr: 'La qualité des produits, l’hygiène, le respect des consignes et la satisfaction des clients.', ar: 'جودة المنتجات، النظافة، الالتزام بالتعليمات ورضا الزباين.', en: 'Product quality, hygiene, following instructions, and customer satisfaction.' }
+      ] },
+      { icon: '🥐', title: { ar: 'أسئلة عن العمل اليومي', en: 'Daily work questions', fr: 'Questions sur le travail quotidien' }, phrases: [
+        { fr: 'À quelle heure commence généralement votre journée ?', ar: 'عادةً بأي ساعة بيبلّش يوم شغلك؟', en: 'What time does your workday usually start?' },
+        { fr: 'Êtes-vous habitué à travailler tôt le matin ?', ar: 'متعود تشتغل بكير الصبح؟', en: 'Are you used to working early in the morning?' },
+        { fr: 'Pouvez-vous travailler dans un environnement chaud ?', ar: 'فيك تشتغل ببيئة فيها حرارة عالية؟', en: 'Can you work in a hot environment?' },
+        { fr: 'Oui, je peux travailler dans un environnement professionnel chaud tout en respectant les règles de sécurité.', ar: 'إي، فيني اشتغل ببيئة عمل فيها حرارة مع الالتزام بقواعد السلامة.', en: 'Yes, I can work in a hot professional environment while following safety rules.' },
+        { fr: 'Êtes-vous à l’aise avec le travail physique ?', ar: 'مرتاح بالشغل اللي فيه مجهود جسدي؟', en: 'Are you comfortable with physical work?' },
+        { fr: 'Oui, je suis habitué au travail manuel et physique.', ar: 'إي، متعود على الشغل اليدوي والجسدي.', en: 'Yes, I’m used to manual and physical work.' }
+      ] },
+      { icon: '🥖', title: { ar: 'أخطاء في الإنتاج', en: 'Production mistakes', fr: 'Erreurs de production' }, phrases: [
+        { fr: 'Que faites-vous si la pâte est trop liquide ?', ar: 'شو بتعمل إذا العجينة طلعت سائلة كتير؟', en: 'What do you do if the dough is too liquid?' },
+        { fr: 'Je vérifie les quantités et je demande conseil au responsable avant de la corriger.', ar: 'بتأكد من الكميات وبسأل المسؤول قبل ما عدّلها.', en: 'I check the quantities and ask the supervisor before correcting it.' },
+        { fr: 'Que faites-vous si la pâte est trop sèche ?', ar: 'شو بتعمل إذا العجينة ناشفة كتير؟', en: 'What do you do if the dough is too dry?' },
+        { fr: 'Je vérifie la recette et je respecte les consignes avant d’ajouter quoi que ce soit.', ar: 'بتأكد من الوصفة وبمشي حسب التعليمات قبل ما أضيف أي شي.', en: 'I check the recipe and follow the instructions before adding anything.' },
+        { fr: 'Que faites-vous si un produit est mal cuit ?', ar: 'شو بتعمل إذا المنتج ما انخبز منيح؟', en: 'What do you do if a product is underbaked?' },
+        { fr: 'Je le mets de côté et j’en informe le responsable.', ar: 'بحطه على جنب وبخبر المسؤول.', en: 'I set it aside and inform the supervisor.' },
+        { fr: 'Que faites-vous si un produit est brûlé ?', ar: 'شو بتعمل إذا المنتج احترق؟', en: 'What do you do if a product is burnt?' },
+        { fr: 'Je le retire de la vente et je signale le problème.', ar: 'بشيله من البيع وبخبر عن المشكلة.', en: 'I remove it from sale and report the problem.' }
+      ] },
+      { icon: '⚙️', title: { ar: 'المعدات', en: 'Equipment', fr: 'Le matériel' }, phrases: [
+        { fr: 'Quels équipements savez-vous utiliser ?', ar: 'شو المعدات اللي بتعرف تستخدمها؟', en: 'What equipment can you use?' },
+        { fr: 'Je sais utiliser les équipements de base et je respecte toujours les consignes de sécurité.', ar: 'بعرف استخدم المعدات الأساسية ودايمًا بلتزم بتعليمات السلامة.', en: 'I can use basic equipment and always follow safety instructions.' },
+        { fr: 'Que faites-vous si une machine tombe en panne ?', ar: 'شو بتعمل إذا تعطلت آلة؟', en: 'What do you do if a machine breaks down?' },
+        { fr: 'J’arrête de l’utiliser, je sécurise la machine et je préviens le responsable.', ar: 'بوقف استخدامها، بأمّن الآلة وبخبر المسؤول.', en: 'I stop using it, secure the machine, and inform the supervisor.' },
+        { fr: 'Savez-vous utiliser un pétrin professionnel ?', ar: 'بتعرف تستخدم العجّانة المهنية؟', en: 'Can you use a professional dough mixer?' },
+        { fr: 'Oui, si je connais le modèle. Sinon, je demande une explication avant de l’utiliser.', ar: 'إي إذا بعرف الموديل، وإذا لا بسأل عن طريقة استخدامها قبل ما شغّلها.', en: 'Yes, if I know the model. Otherwise, I ask for instructions before using it.' }
+      ] },
+      { icon: '🧑‍🍳', title: { ar: 'العمل ضمن الفريق', en: 'Teamwork', fr: 'Travail en équipe' }, phrases: [
+        { fr: 'Comment communiquez-vous avec le boulanger ?', ar: 'كيف بتتواصل مع الخبّاز؟', en: 'How do you communicate with the baker?' },
+        { fr: 'Je communique clairement et je demande des précisions si nécessaire.', ar: 'بتواصل بوضوح وبسأل إذا في شي مو واضح.', en: 'I communicate clearly and ask for clarification when necessary.' },
+        { fr: 'Que faites-vous si votre collègue a besoin d’aide ?', ar: 'شو بتعمل إذا زميلك بحاجة لمساعدة؟', en: 'What do you do if your colleague needs help?' },
+        { fr: 'Je l’aide si j’ai terminé ma tâche ou si la situation le permet.', ar: 'بساعده إذا كنت مخلص مهمتي أو إذا الوضع بيسمح.', en: 'I help if I have finished my task or if the situation allows.' },
+        { fr: 'Que faites-vous si vous n’êtes pas d’accord avec un collègue ?', ar: 'شو بتعمل إذا اختلفت مع زميل؟', en: 'What do you do if you disagree with a colleague?' },
+        { fr: 'Je reste calme et j’essaie de trouver une solution professionnelle.', ar: 'بحافظ على هدوئي وبحاول لاقي حل بطريقة مهنية.', en: 'I stay calm and try to find a professional solution.' }
+      ] },
+      { icon: '⭐', title: { ar: 'سؤال مهم جدًا', en: 'Very important question', fr: 'Question très importante' }, phrases: [
+        { fr: 'Pourquoi voulez-vous travailler dans notre boulangerie ?', ar: 'ليش بدك تشتغل بمخبزتنا؟', en: 'Why do you want to work in our bakery?' },
+        { fr: 'Votre boulangerie m’intéresse parce que je souhaite développer mes compétences et apprendre dans une équipe professionnelle.', ar: 'مخبزتكم بتهمني لأني بدي طوّر مهاراتي واتعلم ضمن فريق مهني.', en: 'I’m interested in your bakery because I want to develop my skills and learn within a professional team.' }
+      ] },
+      { icon: '🥖', title: { ar: 'معرفة المنتجات', en: 'Product knowledge', fr: 'Connaissance des produits' }, phrases: [
+        { fr: 'Quelle est la différence entre une baguette et une tradition ?', ar: 'شو الفرق بين الـbaguette والـtradition؟', en: 'What is the difference between a baguette and a tradition?' },
+        { fr: 'Quels types de pains connaissez-vous ?', ar: 'شو أنواع الخبز اللي بتعرفها؟', en: 'What types of bread do you know?' },
+        { fr: 'Quels types de viennoiseries connaissez-vous ?', ar: 'شو أنواع الـviennoiseries اللي بتعرفها؟', en: 'What types of viennoiseries do you know?' },
+        { fr: 'Connaissez-vous le pain complet ?', ar: 'بتعرف الخبز الكامل؟', en: 'Do you know wholemeal bread?' },
+        { fr: 'Connaissez-vous le pain aux céréales ?', ar: 'بتعرف خبز الحبوب؟', en: 'Do you know multigrain bread?' },
+        { fr: 'Savez-vous reconnaître un pain bien cuit ?', ar: 'بتعرف تميّز الخبز المخبوز بشكل منيح؟', en: 'Can you recognize well-baked bread?' },
+        { fr: 'Comment reconnaissez-vous un bon pain ?', ar: 'كيف بتعرف إن الخبز نوعيته منيحة؟', en: 'How do you recognize good bread?' },
+        { fr: 'Un bon pain doit avoir une belle croûte et une mie bien développée.', ar: 'الخبز الجيد لازم يكون عنده قشرة منيحة ولبّ متطور بشكل جيد.', en: 'Good bread should have a good crust and well-developed crumb.' }
+      ] },
+      { icon: '🥐', title: { ar: 'الفينيوازري', en: 'Viennoiseries', fr: 'Les viennoiseries' }, phrases: [
+        { fr: 'Quelle est la différence entre un croissant et un pain au chocolat ?', ar: 'شو الفرق بين الكرواسون والـpain au chocolat؟', en: 'What is the difference between a croissant and pain au chocolat?' },
+        { fr: 'Savez-vous travailler une pâte feuilletée ?', ar: 'بتعرف تشتغل عجينة مورّقة؟', en: 'Can you work with puff pastry?' },
+        { fr: 'Savez-vous faire le feuilletage ?', ar: 'بتعرف تعمل التوريق؟', en: 'Can you make laminated dough?' },
+        { fr: 'Pourquoi faut-il respecter la température pendant le feuilletage ?', ar: 'ليش لازم ننتبه للحرارة أثناء التوريق؟', en: 'Why must temperature be controlled during lamination?' },
+        { fr: 'Pour garder le beurre à la bonne texture et obtenir un bon feuilletage.', ar: 'حتى تضل الزبدة بالقوام المناسب ونحصل على توريق منيح.', en: 'To keep the butter at the right consistency and achieve good lamination.' }
+      ] },
+      { icon: '🧈', title: { ar: 'التعامل مع المكونات', en: 'Handling ingredients', fr: 'Gestion des ingrédients' }, phrases: [
+        { fr: 'Comment stockez-vous le beurre ?', ar: 'كيف بتخزن الزبدة؟', en: 'How do you store butter?' },
+        { fr: 'Je respecte la température et les conditions de conservation indiquées.', ar: 'بلتزم بدرجة الحرارة وشروط الحفظ المحددة.', en: 'I follow the specified temperature and storage conditions.' },
+        { fr: 'Que faites-vous si la farine est humide ?', ar: 'شو بتعمل إذا الطحين رطب؟', en: 'What do you do if the flour is damp?' },
+        { fr: 'Je le signale et je ne l’utilise pas sans vérifier avec le responsable.', ar: 'بخبر المسؤول وما بستخدمه قبل ما أتأكد معه.', en: 'I report it and don’t use it without checking with the supervisor.' },
+        { fr: 'Comment évitez-vous le gaspillage des matières premières ?', ar: 'كيف بتخفف هدر المواد الأولية؟', en: 'How do you reduce waste of raw materials?' },
+        { fr: 'Je respecte les quantités, je contrôle les stocks et j’utilise les produits correctement.', ar: 'بلتزم بالكميات، وبراقب المخزون وبستخدم المنتجات بالطريقة الصحيحة.', en: 'I follow quantities, monitor stock, and use products correctly.' }
+      ] },
+      { icon: '🧼', title: { ar: 'النظافة والسلامة', en: 'Hygiene and safety', fr: 'Hygiène et sécurité' }, phrases: [
+        { fr: 'À quelle fréquence nettoyez-vous votre poste ?', ar: 'كل قديش بتنظف مكان شغلك؟', en: 'How often do you clean your workstation?' },
+        { fr: 'Je le nettoie régulièrement et immédiatement lorsqu’il y a des salissures.', ar: 'بنظفه باستمرار وفورًا إذا اتوسخ.', en: 'I clean it regularly and immediately when it gets dirty.' },
+        { fr: 'Comment évitez-vous les contaminations ?', ar: 'كيف بتتجنب التلوث؟', en: 'How do you prevent contamination?' },
+        { fr: 'Je respecte l’hygiène des mains, du matériel, des surfaces et des produits.', ar: 'بلتزم بنظافة الإيدين والمعدات والأسطح والمنتجات.', en: 'I maintain proper hygiene of hands, equipment, surfaces, and products.' },
+        { fr: 'Pourquoi faut-il porter une tenue professionnelle propre ?', ar: 'ليش لازم نلبس لباس عمل نظيف؟', en: 'Why must we wear clean professional clothing?' },
+        { fr: 'Pour respecter l’hygiène et éviter de contaminer les produits.', ar: 'حتى نلتزم بالنظافة ونتجنب تلويث المنتجات.', en: 'To maintain hygiene and prevent contaminating the products.' }
+      ] },
+      { icon: '🎯', title: { ar: 'سؤال عن شخصيتك', en: 'Personality question', fr: 'Question sur votre personnalité' }, phrases: [
+        { fr: 'Quel est votre principal défaut ?', ar: 'شو أكبر نقطة ضعف عندك؟', en: 'What is your main weakness?' },
+        { fr: 'Je peux parfois être très attentif aux détails, mais cela m’aide à éviter les erreurs.', ar: 'أحيانًا بكون دقيق كتير بالتفاصيل، بس هالشي بيساعدني أتجنب الأخطاء.', en: 'I can sometimes pay a lot of attention to details, but it helps me avoid mistakes.' },
+        { fr: 'Comment gérez-vous le stress ?', ar: 'كيف بتتعامل مع الضغط؟', en: 'How do you handle stress?' },
+        { fr: 'Je garde mon calme, je m’organise et je me concentre sur les priorités.', ar: 'بحافظ على هدوئي، بنظم حالي وبركز على الأشياء المهمة.', en: 'I stay calm, organize myself, and focus on priorities.' }
+      ] },
+      { icon: '🥖', title: { ar: 'مقابلة عمل الخبّاز — سؤال وجواب', en: 'Baker interview — Q&A', fr: 'Entretien de boulanger — question-réponse' }, phrases: [
+        { fr: 'Pourquoi voulez-vous travailler dans une boulangerie ?', ar: 'ليش بدك تشتغل بمخبز؟', en: 'Why do you want to work in a bakery?' },
+        { fr: 'Je veux travailler dans ce domaine parce que j’aime le travail manuel et je suis motivé pour apprendre.', ar: 'بدي اشتغل بهالمجال لأني بحب الشغل اليدوي وعندي حماس أتعلّم.', en: 'I want to work in this field because I like manual work and I’m motivated to learn.' },
+        { fr: 'Avez-vous déjà travaillé en boulangerie ?', ar: 'سبق واشتغلت بمخبز؟', en: 'Have you worked in a bakery before?' },
+        { fr: 'J’ai déjà une expérience dans le travail manuel et je suis prêt à apprendre les techniques de boulangerie.', ar: 'عندي خبرة بالشغل اليدوي وأنا مستعد أتعلّم تقنيات الخَبز.', en: 'I already have experience in manual work and I’m ready to learn bakery techniques.' },
+        { fr: 'Quelles tâches pouvez-vous faire ?', ar: 'شو المهام اللي فيك تعملها؟', en: 'What tasks can you do?' },
+        { fr: 'Je peux préparer mon poste, peser les ingrédients, aider à préparer la pâte, nettoyer et ranger le matériel.', ar: 'فيني جهّز مكان الشغل، أوزن المكونات، ساعد بتحضير العجين، ونظف ورتّب المعدات.', en: 'I can set up my workstation, weigh ingredients, help prepare the dough, and clean and tidy the equipment.' },
+        { fr: 'Savez-vous préparer une pâte ?', ar: 'بتعرف تحضّر العجين؟', en: 'Can you prepare dough?' },
+        { fr: 'J’ai les bases, mais je suis prêt à apprendre la méthode de votre boulangerie.', ar: 'بعرف الأساسيات، بس مستعد أتعلّم طريقة المخبز تبعكم.', en: 'I know the basics, but I’m ready to learn your bakery’s method.' },
+        { fr: 'Savez-vous utiliser un pétrin ?', ar: 'بتعرف تستخدم العجّانة؟', en: 'Can you use a dough mixer?' },
+        { fr: 'J’ai déjà utilisé du matériel professionnel, et je peux apprendre rapidement à utiliser le pétrin.', ar: 'سبق واستخدمت معدات مهنية، وفيني أتعلّم بسرعة استخدام العجّانة.', en: 'I’ve used professional equipment before, and I can quickly learn to use the mixer.' },
+        { fr: 'Savez-vous utiliser un four professionnel ?', ar: 'بتعرف تستخدم فرن مهني؟', en: 'Can you use a professional oven?' },
+        { fr: 'Je connais les bases, mais je préfère suivre les consignes du boulanger pour la température et la cuisson.', ar: 'بعرف الأساسيات، بس بفضّل أتبع تعليمات الخبّاز بالنسبة للحرارة والخبز.', en: 'I know the basics, but I prefer to follow the baker’s instructions for temperature and baking.' },
+        { fr: 'Êtes-vous capable de travailler tôt le matin ?', ar: 'فيك تشتغل بكير الصبح؟', en: 'Can you work early in the morning?' },
+        { fr: 'Oui, je peux travailler tôt le matin et je suis ponctuel.', ar: 'إي، فيني اشتغل بكير وأنا ملتزم بالمواعيد.', en: 'Yes, I can work early in the morning and I’m punctual.' },
+        { fr: 'Êtes-vous à l’aise avec le travail physique ?', ar: 'مرتاح بالشغل الجسدي؟', en: 'Are you comfortable with physical work?' },
+        { fr: 'Oui, j’ai l’habitude du travail manuel et je suis sérieux dans mon travail.', ar: 'إي، متعود على الشغل اليدوي وبكون جدي بشغلي.', en: 'Yes, I’m used to manual work and I take my job seriously.' },
+        { fr: 'Savez-vous travailler en équipe ?', ar: 'بتعرف تشتغل ضمن فريق؟', en: 'Can you work in a team?' },
+        { fr: 'Oui, j’aime travailler en équipe et je respecte les consignes de mes collègues et de mon responsable.', ar: 'إي، بحب الشغل ضمن فريق وبحترم تعليمات زملائي والمسؤول عني.', en: 'Yes, I like teamwork and I respect the instructions of my colleagues and supervisor.' },
+        { fr: 'Que faites-vous si vous faites une erreur ?', ar: 'شو بتعمل إذا غلطت؟', en: 'What do you do if you make a mistake?' },
+        { fr: 'Je préviens mon responsable et j’essaie de corriger l’erreur rapidement.', ar: 'بخبر المسؤول عني وبحاول أصلّح الغلط بسرعة.', en: 'I inform my supervisor and try to correct the mistake quickly.' },
+        { fr: 'Comment assurez-vous l’hygiène au travail ?', ar: 'كيف بتحافظ على النظافة بالشغل؟', en: 'How do you ensure hygiene at work?' },
+        { fr: 'Je me lave les mains, je garde mon poste propre et je nettoie le matériel après utilisation.', ar: 'بغسل إيدي، وبحافظ على مكان الشغل نظيف، وبنظف المعدات بعد الاستخدام.', en: 'I wash my hands, keep my workstation clean, and clean the equipment after use.' },
+        { fr: 'Pourquoi devrions-nous vous embaucher ?', ar: 'ليش لازم نوظفك؟', en: 'Why should we hire you?' },
+        { fr: 'Je suis sérieux, ponctuel, motivé et j’apprends rapidement. Je suis prêt à m’investir dans le travail.', ar: 'أنا جدي، ملتزم بالمواعيد، عندي حماس وبِتعلّم بسرعة. ومستعد أعطي جهدي بالشغل.', en: 'I’m serious, punctual, motivated, and a fast learner. I’m ready to commit to the job.' }
+      ] },
+      { icon: '🥖', title: { ar: 'مقابلة الخبّاز — المزيد', en: 'Baker interview — continued', fr: 'Entretien de boulanger — suite' }, phrases: [
+        { fr: 'Que connaissez-vous sur le métier de boulanger ?', ar: 'شو بتعرف عن مهنة الخبّاز؟', en: 'What do you know about the baker’s job?' },
+        { fr: 'Le boulanger prépare les pâtes, façonne les produits, surveille la fermentation et la cuisson.', ar: 'الخبّاز بيحضّر العجين، بيشكّل المنتجات، وبيراقب التخمير والخبز.', en: 'The baker prepares the doughs, shapes the products, and monitors fermentation and baking.' },
+        { fr: 'Quels produits connaissez-vous ?', ar: 'شو المنتجات اللي بتعرفها؟', en: 'Which products do you know?' },
+        { fr: 'Je connais la baguette, le pain complet, le pain aux céréales, les croissants et les pains au chocolat.', ar: 'بعرف الباغيت، الخبز الكامل، خبز الحبوب، الكرواسون والبان أو شوكولا.', en: 'I know the baguette, wholemeal bread, multigrain bread, croissants, and chocolate pastries.' },
+        { fr: 'Quelles sont les étapes pour faire du pain ?', ar: 'شو مراحل تحضير الخبز؟', en: 'What are the steps for making bread?' },
+        { fr: 'On pèse les ingrédients, on pétrit la pâte, on la laisse fermenter, puis on la façonne et on la cuit.', ar: 'منوزن المكونات، منعجن العجين، منتركه يتخمّر، بعدين منشكلّه ومنخبزه.', en: 'We weigh the ingredients, knead the dough, let it ferment, then shape and bake it.' },
+        { fr: 'Que faites-vous avant de commencer votre travail ?', ar: 'شو بتعمل قبل ما تبلّش شغلك؟', en: 'What do you do before starting work?' },
+        { fr: 'Je prépare mon poste, je vérifie le matériel et je respecte les règles d’hygiène.', ar: 'بجهّز مكان الشغل، بتأكد من المعدات، وبحترم قواعد النظافة.', en: 'I set up my workstation, check the equipment, and follow hygiene rules.' },
+        { fr: 'Comment vérifiez-vous les ingrédients ?', ar: 'كيف بتتأكد من المكونات؟', en: 'How do you check the ingredients?' },
+        { fr: 'Je vérifie les produits, les quantités, les dates et leur état avant de commencer.', ar: 'بتأكد من المنتجات والكميات والتواريخ وحالتها قبل ما بلّش.', en: 'I check the products, quantities, dates, and their condition before starting.' },
+        { fr: 'Que faites-vous si la pâte ne lève pas ?', ar: 'شو بتعمل إذا العجين ما تخمّر؟', en: 'What do you do if the dough doesn’t rise?' },
+        { fr: 'Je vérifie la température et le temps de fermentation, puis je préviens le boulanger.', ar: 'بتأكد من الحرارة ووقت التخمير، وبخبر الخبّاز.', en: 'I check the temperature and fermentation time, then inform the baker.' },
+        { fr: 'Que faites-vous si la pâte est trop collante ?', ar: 'شو بتعمل إذا العجين لزق كتير؟', en: 'What do you do if the dough is too sticky?' },
+        { fr: 'Je vérifie la quantité d’eau et je demande conseil avant d’ajouter de la farine.', ar: 'بتأكد من كمية المي وبسأل قبل ما زيد طحين.', en: 'I check the amount of water and ask for advice before adding flour.' },
+        { fr: 'Comment savez-vous si le pain est bien cuit ?', ar: 'كيف بتعرف إذا الخبز انخبز منيح؟', en: 'How do you know if the bread is properly baked?' },
+        { fr: 'Je vérifie sa couleur, sa croûte et sa cuisson selon les consignes du boulanger.', ar: 'بتأكد من لونه وقشرته ودرجة خبزه حسب تعليمات الخبّاز.', en: 'I check its color, crust, and baking according to the baker’s instructions.' },
+        { fr: 'Que faites-vous si le pain est trop cuit ?', ar: 'شو بتعمل إذا الخبز انخبز زيادة؟', en: 'What do you do if the bread is overbaked?' },
+        { fr: 'Je le signale au boulanger et je vérifie la température et le temps de cuisson.', ar: 'بخبر الخبّاز وبراجع حرارة ووقت الخَبز.', en: 'I report it to the baker and check the temperature and baking time.' },
+        { fr: 'Comment évitez-vous le gaspillage ?', ar: 'كيف بتتجنب هدر المواد؟', en: 'How do you avoid waste?' },
+        { fr: 'Je respecte les quantités, je fais attention aux matières premières et je respecte les consignes de production.', ar: 'بحترم الكميات، وبنتبه للمواد الأولية، وبمشي حسب تعليمات الإنتاج.', en: 'I respect the quantities, take care with raw materials, and follow production guidelines.' },
+        { fr: 'Comment gardez-vous votre poste propre ?', ar: 'كيف بتحافظ على مكان شغلك نظيف؟', en: 'How do you keep your workstation clean?' },
+        { fr: 'Je nettoie régulièrement mon poste et je range le matériel après chaque utilisation.', ar: 'بنظف مكان الشغل باستمرار وبرتّب المعدات بعد كل استخدام.', en: 'I clean my workstation regularly and tidy the equipment after each use.' },
+        { fr: 'Que faites-vous quand il y a beaucoup de travail ?', ar: 'شو بتعمل لما يكون الشغل كتير؟', en: 'What do you do when there’s a lot of work?' },
+        { fr: 'Je reste calme, je m’organise et je respecte les priorités.', ar: 'بضل هادي، بنظّم شغلي وبمشي حسب الأولويات.', en: 'I stay calm, organize myself, and respect priorities.' },
+        { fr: 'Êtes-vous prêt à apprendre de nouvelles techniques ?', ar: 'مستعد تتعلم تقنيات جديدة؟', en: 'Are you willing to learn new techniques?' },
+        { fr: 'Oui, bien sûr. J’aime apprendre et je suis prêt à suivre les méthodes de l’entreprise.', ar: 'إي طبعاً، بحب أتعلّم ومستعد أتبع طريقة الشركة.', en: 'Yes, of course. I like learning and I’m ready to follow the company’s methods.' },
+        { fr: 'Que faites-vous si vous ne connaissez pas une tâche ?', ar: 'شو بتعمل إذا ما بتعرف مهمة معينة؟', en: 'What do you do if you don’t know a task?' },
+        { fr: 'Je demande à mon responsable de m’expliquer et je regarde attentivement pour apprendre.', ar: 'بسأل المسؤول يشرحلي وبنتبه منيح حتى أتعلّم.', en: 'I ask my supervisor to explain and I watch carefully to learn.' }
+      ] }
+    ]
   }
 ];
