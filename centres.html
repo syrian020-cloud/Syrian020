@@ -366,7 +366,7 @@
     var seq = speakSeq;
     var done = function () { if (seq === speakSeq) btn.classList.remove('speaking'); };
     var idx = 0, li = 0, round = 0;
-    var strip = function (t) { return t.replace(/^(Client|Vendeur|Customer|Seller|الزبون|البائع)\s*[:：]\s*/i, ''); };
+    var strip = function (t) { return t.replace(/^(Client|Vendeur|Customer|Seller|Missions|Duties|الزبون|البائع|المهام)\s*[:：]\s*/i, ''); };
     function play() {
       if (seq !== speakSeq) { done(); return; }
       if (idx >= items.length) {
@@ -388,7 +388,7 @@
     if (btn.classList.contains('speaking')) { stopSpeaking(); return; }
     stopSpeaking();
     btn.classList.add('speaking');
-    text = text.replace(/^(Client|Vendeur|Customer|Seller|الزبون|البائع)\s*[:：]\s*/i, '');
+    text = text.replace(/^(Client|Vendeur|Customer|Seller|Missions|Duties|الزبون|البائع|المهام)\s*[:：]\s*/i, '');
     var seq = speakSeq;
     var done = function () { if (seq === speakSeq) btn.classList.remove('speaking'); };
     if (nativeTTS) speakNative(text, lang, state.loop, done);
