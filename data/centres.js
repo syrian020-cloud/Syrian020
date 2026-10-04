@@ -18916,6 +18916,110 @@ window.CENTRES_DATA = [
         { fr: 'Je préfère demander à mon responsable plutôt que de donner une mauvaise information.', ar: 'بفضّل اسأل المسؤول بدل ما أعطي معلومة غلط.', en: 'I prefer to ask my supervisor rather than give incorrect information.' },
         { fr: 'Que faites-vous si un client se plaint ?', ar: 'شو بتعمل إذا زبون اشتكى؟', en: 'What do you do if a customer complains?' },
         { fr: 'Je reste calme, j’écoute le client et j’essaie de trouver une solution.', ar: 'بحافظ على هدوئي، بسمع للزبون وبحاول لاقي حل.', en: 'I stay calm, listen to the customer, and try to find a solution.' }
+      ] },
+      { icon: '📋', title: { ar: 'عن المسؤوليات والعمل', en: 'Responsibilities and work', fr: 'Responsabilités et travail' }, phrases: [
+        { fr: 'Quelles tâches préférez-vous faire ?', ar: 'أي مهام بتحب تعمل أكتر شي؟', en: 'Which tasks do you prefer doing?' },
+        { fr: 'Je préfère la préparation, la découpe et la mise en vitrine.', ar: 'بفضّل التحضير والتقطيع وترتيب اللحمة بالواجهة.', en: 'I prefer preparation, cutting, and arranging products in the display.' },
+        { fr: 'Êtes-vous capable de respecter une fiche de travail ?', ar: 'فيك تلتزم بورقة أو تعليمات العمل؟', en: 'Can you follow a work sheet?' },
+        { fr: 'Oui, je respecte les instructions et les quantités indiquées.', ar: 'إي، بلتزم بالتعليمات والكميات المحددة.', en: 'Yes, I follow the instructions and specified quantities.' },
+        { fr: 'Comment organisez-vous votre journée de travail ?', ar: 'كيف بتنظم يومك بالشغل؟', en: 'How do you organize your workday?' },
+        { fr: 'Je commence par les tâches prioritaires, puis j’organise mon travail selon les commandes et les besoins du magasin.', ar: 'ببلش بالمهام المهمة، وبعدها بنظم شغلي حسب الطلبات وحاجة المحل.', en: 'I start with priority tasks, then organize my work according to orders and the shop’s needs.' },
+        { fr: 'Comment évitez-vous les erreurs dans les commandes ?', ar: 'كيف بتتجنب الأخطاء بالطلبات؟', en: 'How do you avoid mistakes in orders?' },
+        { fr: 'Je vérifie le produit, le poids, la quantité et l’étiquette avant de remettre la commande.', ar: 'بتأكد من المنتج والوزن والكمية واللصاقة قبل ما سلّم الطلب.', en: 'I check the product, weight, quantity, and label before handing over the order.' }
+      ] },
+      { icon: '⏱️', title: { ar: 'السرعة وضغط العمل', en: 'Speed and work pressure', fr: 'Vitesse et pression' }, phrases: [
+        { fr: 'Comment réagissez-vous lorsqu’il y a beaucoup de travail ?', ar: 'كيف بتتصرف لما يكون في شغل كتير؟', en: 'How do you react when there is a lot of work?' },
+        { fr: 'Je reste calme, je m’organise et je respecte les priorités.', ar: 'بحافظ على هدوئي، بنظم حالي وبلتزم بالأولويات.', en: 'I stay calm, organize myself, and respect priorities.' },
+        { fr: 'Pouvez-vous travailler rapidement sans négliger la qualité ?', ar: 'فيك تشتغل بسرعة بدون ما تهمل الجودة؟', en: 'Can you work quickly without compromising quality?' },
+        { fr: 'Oui, je travaille rapidement mais je prends toujours le temps de vérifier mon travail.', ar: 'إي، بشتغل بسرعة بس دايمًا بتأكد من شغلي.', en: 'Yes, I work quickly, but I always take time to check my work.' },
+        { fr: 'Comment gérez-vous plusieurs commandes en même temps ?', ar: 'كيف بتتعامل مع عدة طلبات بنفس الوقت؟', en: 'How do you handle several orders at the same time?' },
+        { fr: 'Je les organise par priorité et je vérifie chaque commande avant de la terminer.', ar: 'برتبها حسب الأولوية وبتأكد من كل طلب قبل ما خلصه.', en: 'I organize them by priority and check each order before completing it.' }
+      ] },
+      { icon: '📦', title: { ar: 'المخزون والاستلام', en: 'Stock and receiving', fr: 'Stock et réception' }, phrases: [
+        { fr: 'Avez-vous déjà contrôlé une livraison ?', ar: 'سبق واستلمت أو فحصت بضاعة واصلة؟', en: 'Have you ever checked a delivery?' },
+        { fr: 'Oui, je vérifie les quantités, l’état des produits et les documents.', ar: 'إي، بتأكد من الكميات وحالة المنتجات والأوراق.', en: 'Yes, I check the quantities, condition of the products, and documents.' },
+        { fr: 'Que vérifiez-vous à la réception de la marchandise ?', ar: 'شو بتفحص وقت استلام البضاعة؟', en: 'What do you check when receiving goods?' },
+        { fr: 'Je vérifie la quantité, la température, l’état des emballages et les dates.', ar: 'بفحص الكمية والحرارة وحالة التغليف والتواريخ.', en: 'I check the quantity, temperature, packaging condition, and dates.' },
+        { fr: 'Savez-vous gérer un stock ?', ar: 'بتعرف تدير المخزون؟', en: 'Do you know how to manage stock?' },
+        { fr: 'Oui, je sais contrôler le stock et signaler les produits manquants.', ar: 'إي، بعرف راقب المخزون وبلغ عن المنتجات الناقصة.', en: 'Yes, I can check stock and report missing products.' }
+      ] },
+      { icon: '🧑‍💼', title: { ar: 'أسئلة شخصية بالمقابلة', en: 'Personal interview questions', fr: 'Questions personnelles à l’entretien' }, phrases: [
+        { fr: 'Quel type de travail recherchez-vous ?', ar: 'شو نوع الشغل اللي عم تدور عليه؟', en: 'What type of job are you looking for?' },
+        { fr: 'Je recherche un poste stable dans lequel je peux apprendre et évoluer.', ar: 'عم دور على شغل مستقر فيني اتعلم فيه وتطور.', en: 'I’m looking for a stable position where I can learn and grow.' },
+        { fr: 'Qu’attendez-vous de votre futur employeur ?', ar: 'شو بتتوقع من صاحب العمل الجديد؟', en: 'What do you expect from your future employer?' },
+        { fr: 'Je recherche un environnement de travail sérieux, avec de bonnes conditions et une bonne équipe.', ar: 'بدي بيئة عمل جدية، بظروف جيدة وفريق منيح.', en: 'I’m looking for a serious work environment with good conditions and a good team.' },
+        { fr: 'Où vous voyez-vous dans quelques années ?', ar: 'وين بتشوف حالك بعد كم سنة؟', en: 'Where do you see yourself in a few years?' },
+        { fr: 'Je souhaite progresser dans le métier et devenir de plus en plus autonome.', ar: 'بدي أتطور بالمهنة وصير أعتمد على حالي أكتر وأكتر.', en: 'I want to progress in the trade and become increasingly independent.' }
+      ] },
+      { icon: '🕐', title: { ar: 'التوفر والمواعيد', en: 'Availability and schedules', fr: 'Disponibilités et horaires' }, phrases: [
+        { fr: 'Quelles sont vos disponibilités ?', ar: 'شو أوقاتك المتاحة للشغل؟', en: 'What is your availability?' },
+        { fr: 'Je suis disponible selon les horaires du poste.', ar: 'أنا متاح حسب أوقات الدوام المطلوبة.', en: 'I’m available according to the job schedule.' },
+        { fr: 'Êtes-vous disponible tôt le matin ?', ar: 'فيك تشتغل بكير الصبح؟', en: 'Are you available early in the morning?' },
+        { fr: 'Oui, je peux commencer tôt le matin.', ar: 'إي، فيني بلّش بكير الصبح.', en: 'Yes, I can start early in the morning.' },
+        { fr: 'Êtes-vous disponible le samedi ?', ar: 'فيك تشتغل يوم السبت؟', en: 'Are you available on Saturdays?' },
+        { fr: 'Oui, je suis disponible le samedi selon les besoins du magasin.', ar: 'إي، فيني اشتغل السبت حسب حاجة المحل.', en: 'Yes, I’m available on Saturdays depending on the shop’s needs.' },
+        { fr: 'Acceptez-vous les horaires décalés ?', ar: 'بتقبل أوقات دوام متغيرة؟', en: 'Are you willing to work different shifts?' },
+        { fr: 'Oui, je peux m’adapter aux horaires de travail.', ar: 'إي، فيني أتأقلم مع أوقات الدوام.', en: 'Yes, I can adapt to the work schedule.' }
+      ] },
+      { icon: '💼', title: { ar: 'العقد والعمل', en: 'Contract and work', fr: 'Contrat et travail' }, phrases: [
+        { fr: 'Quel type de contrat recherchez-vous ?', ar: 'أي نوع عقد عم تدور عليه؟', en: 'What type of contract are you looking for?' },
+        { fr: 'Je suis ouvert à différents types de contrats.', ar: 'أنا منفتح على أنواع مختلفة من العقود.', en: 'I’m open to different types of contracts.' },
+        { fr: 'Quand pouvez-vous commencer ?', ar: 'إمتى فيك تبلّش؟', en: 'When can you start?' },
+        { fr: 'Je peux commencer rapidement.', ar: 'فيني بلّش بسرعة.', en: 'I can start quickly.' },
+        { fr: 'Avez-vous un préavis à respecter ?', ar: 'عندك مدة إنذار لازم تلتزم فيها قبل ما تبلّش؟', en: 'Do you have a notice period to respect?' },
+        { fr: 'Non, je suis disponible immédiatement.', ar: 'لا، أنا متاح فورًا.', en: 'No, I’m available immediately.' }
+      ] },
+      { icon: '🧠', title: { ar: 'الأخطاء والتعلم', en: 'Mistakes and learning', fr: 'Erreurs et apprentissage' }, phrases: [
+        { fr: 'Que faites-vous si vous faites une erreur ?', ar: 'شو بتعمل إذا غلطت؟', en: 'What do you do if you make a mistake?' },
+        { fr: 'Je signale l’erreur, je la corrige si possible et je fais attention à ne pas la répéter.', ar: 'بخبر عن الغلط، وبصححه إذا ممكن، وبنتبه ما كرره.', en: 'I report the mistake, correct it if possible, and make sure not to repeat it.' },
+        { fr: 'Comment réagissez-vous aux remarques de votre responsable ?', ar: 'كيف بتتقبل ملاحظات المسؤول؟', en: 'How do you react to feedback from your supervisor?' },
+        { fr: 'Je les écoute et j’essaie de m’améliorer.', ar: 'بسمع الملاحظات وبحاول حسّن شغلي.', en: 'I listen to them and try to improve.' },
+        { fr: 'Êtes-vous prêt à apprendre de nouvelles méthodes ?', ar: 'مستعد تتعلم طرق جديدة بالشغل؟', en: 'Are you willing to learn new methods?' },
+        { fr: 'Oui, bien sûr. Je suis toujours prêt à apprendre.', ar: 'إي طبعًا، أنا دايمًا مستعد أتعلم.', en: 'Yes, of course. I’m always willing to learn.' }
+      ] },
+      { icon: '👨‍🔧', title: { ar: 'الاستقلالية والفريق', en: 'Independence and teamwork', fr: 'Autonomie et équipe' }, phrases: [
+        { fr: 'Pouvez-vous travailler seul ?', ar: 'فيك تشتغل لحالك؟', en: 'Can you work independently?' },
+        { fr: 'Oui, je peux travailler seul, mais je sais aussi travailler en équipe.', ar: 'إي، فيني اشتغل لحالي، وكمان بعرف اشتغل ضمن فريق.', en: 'Yes, I can work independently, but I also know how to work in a team.' },
+        { fr: 'Comment travaillez-vous avec vos collègues ?', ar: 'كيف بتشتغل مع زملائك؟', en: 'How do you work with your colleagues?' },
+        { fr: 'Je communique avec mes collègues et je les aide quand c’est nécessaire.', ar: 'بتواصل مع زملائي وبساعدهم وقت يكون في حاجة.', en: 'I communicate with my colleagues and help them when necessary.' },
+        { fr: 'Que faites-vous si vous avez terminé votre travail avant les autres ?', ar: 'شو بتعمل إذا خلصت شغلك قبل الباقيين؟', en: 'What do you do if you finish your work before the others?' },
+        { fr: 'Je demande s’il y a autre chose à faire et j’aide mes collègues si nécessaire.', ar: 'بسأل إذا في شغلة تانية لازم تنعمل وبساعد زملائي إذا لزم.', en: 'I ask if there is anything else to do and help my colleagues if necessary.' }
+      ] },
+      { icon: '💰', title: { ar: 'سؤال الراتب', en: 'The salary question', fr: 'La question du salaire' }, phrases: [
+        { fr: 'Quelles sont vos prétentions salariales ?', ar: 'قديش الراتب اللي بتتوقعه؟', en: 'What are your salary expectations?' },
+        { fr: 'Je suis ouvert à la discussion selon le poste, les responsabilités et les conditions de travail.', ar: 'أنا منفتح للنقاش حسب الوظيفة والمسؤوليات وظروف العمل.', en: 'I’m open to discussion depending on the position, responsibilities, and working conditions.' }
+      ] },
+      { icon: '🔪', title: { ar: 'أثناء التقطيع', en: 'While cutting', fr: 'Pendant la découpe' }, phrases: [
+        { fr: 'Comment choisissez-vous le bon couteau pour une pièce ?', ar: 'كيف بتختار السكين المناسب للقطعة؟', en: 'How do you choose the right knife for a cut?' },
+        { fr: 'Je choisis le couteau adapté au type de découpe et à la pièce.', ar: 'بختار السكين المناسب لنوع التقطيع وللقطعة.', en: 'I choose the knife suited to the type of cut and the piece.' },
+        { fr: 'Comment faites-vous pour avoir des morceaux réguliers ?', ar: 'كيف بتخلي القطع متساوية؟', en: 'How do you make the pieces even?' },
+        { fr: 'Je travaille avec précision et je garde la même épaisseur.', ar: 'بشتغل بدقة وبحافظ على نفس السماكة.', en: 'I work precisely and keep the same thickness.' },
+        { fr: 'Que faites-vous avec les chutes de viande ?', ar: 'شو بتعمل ببقايا اللحمة الناتجة عن التقطيع؟', en: 'What do you do with meat trimmings?' },
+        { fr: 'Je les trie et je les utilise selon les préparations prévues.', ar: 'بفرزها وبستخدمها حسب التحضيرات المطلوبة.', en: 'I sort them and use them according to the planned preparations.' },
+        { fr: 'Comment limitez-vous les pertes ?', ar: 'كيف بتخفف هدر اللحمة؟', en: 'How do you minimize waste?' },
+        { fr: 'Je travaille avec précision et j’essaie de limiter les pertes au maximum.', ar: 'بشتغل بدقة وبحاول خفف الهدر لأقصى درجة.', en: 'I work precisely and try to minimize waste as much as possible.' }
+      ] },
+      { icon: '🥩', title: { ar: 'جودة اللحمة', en: 'Meat quality', fr: 'Qualité de la viande' }, phrases: [
+        { fr: 'Comment vérifiez-vous la qualité d’une viande ?', ar: 'كيف بتتأكد من جودة اللحمة؟', en: 'How do you check the quality of meat?' },
+        { fr: 'Je vérifie son aspect, son odeur, son emballage et les conditions de conservation.', ar: 'بفحص شكلها وريحتها وتغليفها وظروف حفظها.', en: 'I check its appearance, smell, packaging, and storage conditions.' },
+        { fr: 'Que faites-vous si vous avez un doute sur un produit ?', ar: 'شو بتعمل إذا شكيت بمنتج؟', en: 'What do you do if you have doubts about a product?' },
+        { fr: 'Je ne le mets pas en vente et j’en informe immédiatement mon responsable.', ar: 'ما بعرضه للبيع وبخبر المسؤول فورًا.', en: 'I don’t put it up for sale and immediately inform my supervisor.' },
+        { fr: 'Comment respectez-vous la chaîne du froid ?', ar: 'كيف بتحافظ على سلسلة التبريد؟', en: 'How do you maintain the cold chain?' },
+        { fr: 'Je contrôle les températures et je limite le temps pendant lequel la viande reste hors du froid.', ar: 'براقب درجات الحرارة وبخفف وقت بقاء اللحمة برا التبريد.', en: 'I monitor temperatures and limit the time meat stays out of refrigeration.' }
+      ] },
+      { icon: '🏷️', title: { ar: 'التتبع والملصقات', en: 'Traceability and labels', fr: 'Traçabilité et étiquettes' }, phrases: [
+        { fr: 'Que vérifiez-vous sur une étiquette ?', ar: 'شو بتفحص على الملصقة؟', en: 'What do you check on a label?' },
+        { fr: 'Je vérifie le produit, le poids, le prix, les dates et les informations nécessaires.', ar: 'بتأكد من المنتج والوزن والسعر والتواريخ والمعلومات المطلوبة.', en: 'I check the product, weight, price, dates, and required information.' },
+        { fr: 'Pourquoi la traçabilité est-elle importante ?', ar: 'ليش التتبع مهم؟', en: 'Why is traceability important?' },
+        { fr: 'Elle permet de connaître l’origine du produit et de suivre son parcours.', ar: 'بتسمح نعرف مصدر المنتج ونتابع مساره.', en: 'It allows us to know the product’s origin and track its journey.' },
+        { fr: 'Que faites-vous si une étiquette est incorrecte ?', ar: 'شو بتعمل إذا الملصقة عليها معلومات غلط؟', en: 'What do you do if a label is incorrect?' },
+        { fr: 'Je la vérifie et je la remplace avant de mettre le produit en vente.', ar: 'بتأكد منها وببدلها قبل ما حط المنتج للبيع.', en: 'I check it and replace it before putting the product on sale.' }
+      ] },
+      { icon: '🧽', title: { ar: 'نهاية يوم العمل', en: 'End of the workday', fr: 'Fin de journée de travail' }, phrases: [
+        { fr: 'Que faites-vous avant de quitter votre poste ?', ar: 'شو بتعمل قبل ما تترك مكان شغلك؟', en: 'What do you do before leaving your workstation?' },
+        { fr: 'Je nettoie et désinfecte le matériel, je range mon poste et je vérifie les produits.', ar: 'بنظف وبعقم المعدات، وبرتب مكاني وبفحص المنتجات.', en: 'I clean and disinfect the equipment, organize my workstation, and check the products.' },
+        { fr: 'Pourquoi est-il important de laisser un poste propre ?', ar: 'ليش مهم تترك مكان الشغل نظيف؟', en: 'Why is it important to leave a clean workstation?' },
+        { fr: 'Pour respecter l’hygiène et permettre au collègue suivant de travailler dans de bonnes conditions.', ar: 'حتى نلتزم بالنظافة ويقدر الزميل اللي بعدي يشتغل بظروف جيدة.', en: 'To maintain hygiene and allow the next colleague to work in good conditions.' }
       ] }
     ]
   }
