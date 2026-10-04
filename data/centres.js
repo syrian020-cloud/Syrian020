@@ -8896,9 +8896,9 @@ window.CENTRES_DATA = [
   },
   {
     id: 'travail',
-    icon: '🏢',
-    name: { ar: 'الشغل — تسجيل الدوام (La badgeuse / le pointage)', en: 'Work — clocking in (La badgeuse)', fr: 'Le travail — la badgeuse' },
-    desc: { ar: 'جهاز تسجيل الدوام (badgeuse/pointage): الدخول والخروج، البطاقة، الأعطال، التصحيح، الاستراحة، التأخير، الساعات الإضافية', en: 'Time clock (badgeuse/pointage): clocking in and out, badge problems, corrections, breaks, lateness, overtime', fr: 'La badgeuse et le pointage : arrivée, départ, badge, pannes, corrections, pauses, retards, heures supplémentaires' },
+    icon: '📦',
+    name: { ar: 'التغليف والامبلاج — Conditionnement', en: 'Packaging — Conditionnement', fr: 'Conditionnement et emballage' },
+    desc: { ar: 'الشغل بالتغليف والتعبئة: تسجيل الدوام، العلب والكراتين، السير، الكنترول، الستيكر، الباليت، الأفعال والصفات، مقابلة العمل، الكلام العامي مع الزملاء', en: 'Packaging work: clocking in, boxes and cartons, conveyor belt, quality control, labels, pallets, verbs and adjectives, job interview, shop-floor talk', fr: 'Conditionnement et emballage : pointage, boîtes et cartons, tapis, contrôle, étiquettes, palette, verbes et adjectifs, entretien d’embauche, langage d’atelier' },
     sections: [
       {
         icon: '🕐',
