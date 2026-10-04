@@ -11463,10 +11463,16 @@ window.CENTRES_DATA = [
     name: { ar: 'أفعال انعكاسية — الحاضر', en: 'Reflexive verbs — present', fr: 'Les verbes pronominaux — présent' },
     desc: { ar: 'أشهر الأفعال الانعكاسية الفرنسية بصيغة الحاضر مع جملة جاهزة لكل فعل', en: 'The most common French reflexive verbs in the present tense with a ready-made sentence for each', fr: 'Les verbes pronominaux les plus courants au présent avec une phrase pour chacun' },
     sections: [
-      { icon: '⭐', title: { ar: 'الضمير بيتغيّر حسب الشخص', en: 'The pronoun changes by person', fr: 'Le pronom change selon la personne' }, phrases: [
-        { fr: 'Je me prépare.', ar: 'أنا بحضّر حالي.', en: 'I get ready.' },
-        { fr: 'Tu te prépares.', ar: 'أنت بتحضّر حالك.', en: 'You get ready.' },
-        { fr: 'Il se prépare.', ar: 'هو بيحضّر حاله.', en: 'He gets ready.' }
+      { icon: '⭐', title: { ar: 'الأفعال الانعكاسية بالحاضر — se lever', en: 'Les verbes pronominaux au présent — se lever', fr: 'Les verbes pronominaux au présent — se lever' }, phrases: [
+        { fr: 'Je me lève à 7 heures.', ar: 'أنا بقوم الساعة 7.', en: 'I get up at 7 o’clock.' },
+        { fr: 'Tu te lèves tôt.', ar: 'إنت بتقوم بكير.', en: 'You get up early.' },
+        { fr: 'Il se lève tôt.', ar: 'هو بيقوم بكير.', en: 'He gets up early.' },
+        { fr: 'Elle se lève tôt.', ar: 'هي بتقوم بكير.', en: 'She gets up early.' },
+        { fr: 'On se lève à 8 heures.', ar: 'منقوم الساعة 8.', en: 'We get up at 8.' },
+        { fr: 'Nous nous levons à 7 heures.', ar: 'نحنا منقوم الساعة 7.', en: 'We get up at 7.' },
+        { fr: 'Vous vous levez tôt.', ar: 'إنتو بتقوموا بكير.', en: 'You get up early.' },
+        { fr: 'Ils se lèvent tôt.', ar: 'هنن بيقوموا بكير.', en: 'They get up early.' },
+        { fr: 'Elles se lèvent tôt.', ar: 'هنن بيقوموا بكير.', en: 'They get up early.' }
       ] },
       { icon: '🔄', title: { ar: 'se lever — يستيقظ/ينهض', en: 'se lever', fr: 'se lever' }, phrases: [
         { fr: 'se lever', ar: 'يستيقظ/ينهض', en: 'to get up' },
