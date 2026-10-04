@@ -10863,6 +10863,604 @@ window.CENTRES_DATA = [
         { fr: 'Ça suffit.', ar: 'بكفي / هاد كافي.', en: 'That’s enough.' },
         { fr: 'C’est prêt.', ar: 'جاهز.', en: 'It’s ready.' },
         { fr: 'Tout est prêt.', ar: 'كل شي جاهز.', en: 'Everything is ready.' },
+      ] },
+      { icon: '📦', title: { ar: 'Préparer — يحضّر', en: 'Préparer — to prepare', fr: 'Préparer' }, phrases: [
+        { fr: 'Je prépare les cartons.', ar: 'بحضّر الكراتين.', en: 'I prepare the cartons.' },
+        { fr: 'Je prépare les boîtes.', ar: 'بحضّر العلب.', en: 'I prepare the boxes.' },
+        { fr: 'On prépare le matériel.', ar: 'منحضّر المواد.', en: 'We prepare the materials.' },
+      ] },
+      { icon: '🏭', title: { ar: 'Mettre — يضع', en: 'Mettre — to put', fr: 'Mettre' }, phrases: [
+        { fr: 'Je mets les produits dans la boîte.', ar: 'بحط المنتجات بالعلبة.', en: 'I put the products in the box.' },
+        { fr: 'Je mets les boîtes dans le carton.', ar: 'بحط العلب بالكرتونة.', en: 'I put the boxes in the carton.' },
+        { fr: 'Mets-le ici.', ar: 'حطّه هون.', en: 'Put it here.' },
+      ] },
+      { icon: '🔍', title: { ar: 'Vérifier — يتأكد / يفحص', en: 'Vérifier — to check', fr: 'Vérifier' }, phrases: [
+        { fr: 'Je vérifie le contenu.', ar: 'بتأكد من المحتويات.', en: 'I check the contents.' },
+        { fr: 'Je vérifie qu’il ne manque rien.', ar: 'بتأكد إنو ما ناقص شي.', en: 'I check that nothing is missing.' },
+        { fr: 'Vérifie bien avant de fermer.', ar: 'تأكد منيح قبل ما تسكّر.', en: 'Check carefully before closing.' },
+      ] },
+      { icon: '👀', title: { ar: 'Contrôler — يراقب / يفحص', en: 'Contrôler — to inspect', fr: 'Contrôler' }, phrases: [
+        { fr: 'Je contrôle les boîtes.', ar: 'بعمل كنترول على العلب.', en: 'I inspect the boxes.' },
+        { fr: 'Je contrôle chaque boîte.', ar: 'بفحص كل علبة.', en: 'I inspect every box.' },
+        { fr: 'Il faut contrôler avant l’emballage.', ar: 'لازم نفحص قبل التغليف.', en: 'We have to inspect before packaging.' },
+      ] },
+      { icon: '🏷️', title: { ar: 'Coller — يلصق', en: 'Coller — to stick', fr: 'Coller' }, phrases: [
+        { fr: 'Je colle l’étiquette.', ar: 'بلزّق الستيكر.', en: 'I stick the label on.' },
+        { fr: 'Je colle la vignette sur la boîte.', ar: 'بلزّق الفينيت على العلبة.', en: 'I stick the sticker on the box.' },
+        { fr: 'Colle-la bien droite.', ar: 'لزّقها بشكل مستقيم.', en: 'Stick it on straight.' },
+      ] },
+      { icon: '📦', title: { ar: 'Fermer — يغلق', en: 'Fermer — to close', fr: 'Fermer' }, phrases: [
+        { fr: 'Je ferme les boîtes.', ar: 'بسكّر العلب.', en: 'I close the boxes.' },
+        { fr: 'Je ferme le carton.', ar: 'بسكّر الكرتونة.', en: 'I close the carton.' },
+        { fr: 'Ferme bien le carton.', ar: 'سكّر الكرتونة منيح.', en: 'Close the carton properly.' },
+      ] },
+      { icon: '🧻', title: { ar: 'Scotcher — يلصق بالـ scotch', en: 'Scotcher — to tape', fr: 'Scotcher' }, phrases: [
+        { fr: 'Je scotche les cartons.', ar: 'بسكّر الكراتين بالسكوتش.', en: 'I tape the cartons.' },
+        { fr: 'Je scotche le carton en bas.', ar: 'بسكّر الكرتونة بالسكوتش من تحت.', en: 'I tape the bottom of the carton.' },
+        { fr: 'Scotche bien le carton.', ar: 'سكّر الكرتونة بالسكوتش منيح.', en: 'Tape the carton properly.' },
+      ] },
+      { icon: '🧮', title: { ar: 'Compter — يعدّ', en: 'Compter — to count', fr: 'Compter' }, phrases: [
+        { fr: 'Je compte les produits.', ar: 'بعدّ المنتجات.', en: 'I count the products.' },
+        { fr: 'Je compte cinq sacs.', ar: 'بعدّ خمس أكياس.', en: 'I count five bags.' },
+        { fr: 'Compte bien avant de fermer.', ar: 'عدّ منيح قبل ما تسكّر.', en: 'Count carefully before closing.' },
+      ] },
+      { icon: '➕', title: { ar: 'Ajouter — يضيف', en: 'Ajouter — to add', fr: 'Ajouter' }, phrases: [
+        { fr: 'J’ajoute les ciseaux.', ar: 'بضيف المقصات.', en: 'I add the scissors.' },
+        { fr: 'Il faut ajouter une notice.', ar: 'لازم نضيف نشرة.', en: 'We need to add an instruction leaflet.' },
+      ] },
+      { icon: '❌', title: { ar: 'Manquer — ينقص / يكون مفقودًا', en: 'Manquer — to be missing', fr: 'Manquer' }, phrases: [
+        { fr: 'Il manque une notice.', ar: 'في نشرة ناقصة.', en: 'An instruction leaflet is missing.' },
+        { fr: 'Il manque deux ciseaux.', ar: 'في مقصّين ناقصين.', en: 'Two scissors are missing.' },
+        { fr: 'Il ne manque rien.', ar: 'ما ناقص شي.', en: 'Nothing is missing.' },
+      ] },
+      { icon: '🔄', title: { ar: 'Refaire — يعيد', en: 'Refaire — to redo', fr: 'Refaire' }, phrases: [
+        { fr: 'Je dois refaire la boîte.', ar: 'لازم أعيد العلبة.', en: 'I have to redo the box.' },
+        { fr: 'Il faut refaire l’étiquette.', ar: 'لازم نعيد الستيكر.', en: 'We need to redo the label.' },
+        { fr: 'On recommence.', ar: 'منعيد من الأول.', en: 'We start again.' },
+      ] },
+      { icon: '📐', title: { ar: 'Positionner — يضع في الموضع الصحيح', en: 'Positionner — to position', fr: 'Positionner' }, phrases: [
+        { fr: 'Je positionne l’étiquette.', ar: 'بحط الستيكر بمكانه.', en: 'I position the label.' },
+        { fr: 'Positionne-la bien au centre.', ar: 'حطها بالنص تمام.', en: 'Position it right in the center.' },
+        { fr: 'L’étiquette est mal positionnée.', ar: 'الستيكر مو محطوط بمكانه الصحيح.', en: 'The label is incorrectly positioned.' },
+      ] },
+      { icon: '📏', title: { ar: 'Aligner — يحاذي / يجعل الأشياء على خط واحد', en: 'Aligner — to align', fr: 'Aligner' }, phrases: [
+        { fr: 'J’aligne les boîtes.', ar: 'برصّ العلب على خط واحد.', en: 'I align the boxes.' },
+        { fr: 'Il faut bien aligner les cartons.', ar: 'لازم نرصّ الكراتين بشكل مستقيم.', en: 'We need to align the cartons properly.' },
+      ] },
+      { icon: '🏗️', title: { ar: 'Empiler — يرصّ فوق بعض', en: 'Empiler — to stack', fr: 'Empiler' }, phrases: [
+        { fr: 'J’empile les cartons.', ar: 'برصّ الكراتين فوق بعض.', en: 'I stack the cartons.' },
+        { fr: 'Empile-les correctement.', ar: 'رصّهن بشكل صحيح.', en: 'Stack them properly.' },
+      ] },
+      { icon: '🚚', title: { ar: 'Porter — يحمل', en: 'Porter — to carry', fr: 'Porter' }, phrases: [
+        { fr: 'Je porte les cartons.', ar: 'بحمل الكراتين.', en: 'I carry the cartons.' },
+        { fr: 'Je vais porter cette palette.', ar: 'رح أحمل/أنقل هالباليت.', en: 'I’m going to move this pallet.' },
+      ] },
+      { icon: '📍', title: { ar: 'Poser — يضع', en: 'Poser — to place', fr: 'Poser' }, phrases: [
+        { fr: 'Je pose les cartons sur la palette.', ar: 'بحط الكراتين على الباليت.', en: 'I place the cartons on the pallet.' },
+        { fr: 'Pose-le ici.', ar: 'حطّه هون.', en: 'Put it here.' },
+      ] },
+      { icon: '📤', title: { ar: 'Envoyer — يرسل', en: 'Envoyer — to send', fr: 'Envoyer' }, phrases: [
+        { fr: 'J’envoie les boîtes sur le tapis.', ar: 'ببعت العلب عالسير.', en: 'I send the boxes onto the conveyor belt.' },
+        { fr: 'Envoie-les sur le tapis.', ar: 'ابعتهن عالسير.', en: 'Send them onto the conveyor belt.' },
+      ] },
+      { icon: '🧹', title: { ar: 'Nettoyer — ينظّف', en: 'Nettoyer — to clean', fr: 'Nettoyer' }, phrases: [
+        { fr: 'Je nettoie mon poste de travail.', ar: 'بنضّف مكان شغلي.', en: 'I clean my workstation.' },
+        { fr: 'Il faut nettoyer le poste.', ar: 'لازم ننظف مكان العمل.', en: 'We need to clean the workstation.' },
+      ] },
+      { icon: '📝', title: { ar: 'Respecter — يلتزم', en: 'Respecter — to follow', fr: 'Respecter' }, phrases: [
+        { fr: 'Je respecte les consignes.', ar: 'بلتزم بالتعليمات.', en: 'I follow the instructions.' },
+        { fr: 'Il faut respecter la procédure.', ar: 'لازم نلتزم بالإجراء المتّبع.', en: 'We have to follow the procedure.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Préparer — يجهّز', en: 'Préparer — to prepare', fr: 'Préparer' }, phrases: [
+        { fr: 'Je prépare le matériel avant de commencer.', ar: 'بجهّز المعدات قبل ما بلّش.', en: 'I prepare the equipment before starting.' },
+        { fr: 'Tout est prêt, on peut commencer.', ar: 'كل شي جاهز، فينا نبلّش.', en: 'Everything is ready, we can start.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Prendre — يأخذ', en: 'Prendre — to take', fr: 'Prendre' }, phrases: [
+        { fr: 'Je prends une boîte.', ar: 'باخد علبة.', en: 'I take a box.' },
+        { fr: 'Prends-en deux.', ar: 'خد تنين منهم.', en: 'Take two of them.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Remplir — يملأ', en: 'Remplir — to fill', fr: 'Remplir' }, phrases: [
+        { fr: 'Je remplis les boîtes.', ar: 'عم عبّي العلب.', en: 'I fill the boxes.' },
+        { fr: 'Il faut bien remplir le carton.', ar: 'لازم نعبي الكرتونة منيح.', en: 'The carton needs to be filled properly.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Retirer — يزيل / ينزع', en: 'Retirer — to remove', fr: 'Retirer' }, phrases: [
+        { fr: 'Je retire l’étiquette.', ar: 'بشيل الستيكر.', en: 'I remove the label.' },
+        { fr: 'Retire celle-ci, elle est mal placée.', ar: 'شيل هاي، محطوطة غلط.', en: 'Remove this one, it’s badly positioned.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Remplacer — يستبدل', en: 'Remplacer — to replace', fr: 'Remplacer' }, phrases: [
+        { fr: 'Je remplace la boîte.', ar: 'ببدّل العلبة.', en: 'I replace the box.' },
+        { fr: 'Il faut remplacer cette étiquette.', ar: 'لازم نبدّل هالستيكر.', en: 'We need to replace this label.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Déplacer — ينقل / يحرّك', en: 'Déplacer — to move', fr: 'Déplacer' }, phrases: [
+        { fr: 'Je déplace les cartons.', ar: 'عم انقل الكراتين.', en: 'I move the cartons.' },
+        { fr: 'Déplace-le un peu.', ar: 'حرّكو شوي.', en: 'Move it a little.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Trier — يفرز', en: 'Trier — to sort', fr: 'Trier' }, phrases: [
+        { fr: 'Je trie les boîtes.', ar: 'عم فرز العلب.', en: 'I sort the boxes.' },
+        { fr: 'Il faut trier les produits.', ar: 'لازم نفرز المنتجات.', en: 'We need to sort the products.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Séparer — يفصل', en: 'Séparer — to separate', fr: 'Séparer' }, phrases: [
+        { fr: 'Je sépare les produits.', ar: 'بفصل المنتجات عن بعض.', en: 'I separate the products.' },
+        { fr: 'Sépare-les par référence.', ar: 'افصلن حسب المرجع.', en: 'Separate them by reference.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Disposer — يرتّب / يضع بطريقة معينة', en: 'Disposer — to arrange', fr: 'Disposer' }, phrases: [
+        { fr: 'Je dispose les produits dans la boîte.', ar: 'برتّب المنتجات جوّا العلبة.', en: 'I arrange the products in the box.' },
+        { fr: 'Il faut bien les disposer.', ar: 'لازم نرتبن منيح.', en: 'They need to be arranged properly.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Ranger — يرتّب / يضع بمكانه', en: 'Ranger — to put away', fr: 'Ranger' }, phrases: [
+        { fr: 'Je range les boîtes.', ar: 'عم رتّب العلب.', en: 'I put the boxes away.' },
+        { fr: 'Range ça ici.', ar: 'حط هاد هون ورتّبو.', en: 'Put that here.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Approvisionner — يزوّد / يعبّي مكان العمل', en: 'Approvisionner — to restock', fr: 'Approvisionner' }, phrases: [
+        { fr: 'Je vais approvisionner le poste.', ar: 'رح عبّي محطة العمل بالمواد.', en: 'I’m going to restock the workstation.' },
+        { fr: 'Il faut approvisionner le poste.', ar: 'لازم نزوّد محطة العمل بالمواد.', en: 'The workstation needs to be restocked.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Alimenter — يزوّد / يمرّر المواد للآلة أو الخط', en: 'Alimenter — to supply / feed', fr: 'Alimenter' }, phrases: [
+        { fr: 'J’alimente la ligne en boîtes.', ar: 'عم زوّد خط الإنتاج بالعلب.', en: 'I supply the production line with boxes.' },
+        { fr: 'Il faut alimenter le tapis.', ar: 'لازم نزوّد السير بالعلب.', en: 'We need to feed the conveyor.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Passer — يمرّر', en: 'Passer — to pass', fr: 'Passer' }, phrases: [
+        { fr: 'Je fais passer les boîtes sur le tapis.', ar: 'عم مرّر العلب عالسير.', en: 'I pass the boxes onto the conveyor.' },
+        { fr: 'Fais passer les cartons.', ar: 'مرّر الكراتين.', en: 'Pass the cartons through.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Tirer — يسحب', en: 'Tirer — to pull', fr: 'Tirer' }, phrases: [
+        { fr: 'Je tire le carton.', ar: 'عم اسحب الكرتونة.', en: 'I pull the carton.' },
+        { fr: 'Tire doucement.', ar: 'اسحب بشويش.', en: 'Pull gently.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Pousser — يدفع', en: 'Pousser — to push', fr: 'Pousser' }, phrases: [
+        { fr: 'Je pousse le carton.', ar: 'عم ادفع الكرتونة.', en: 'I push the carton.' },
+        { fr: 'Pousse-le jusqu’au bout.', ar: 'ادفعها للآخر.', en: 'Push it all the way.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Ouvrir — يفتح', en: 'Ouvrir — to open', fr: 'Ouvrir' }, phrases: [
+        { fr: 'J’ouvre le carton.', ar: 'عم افتح الكرتونة.', en: 'I open the carton.' },
+        { fr: 'Ouvre celui-ci.', ar: 'افتح هاد.', en: 'Open this one.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Décoller — ينزع / يفك الالتصاق', en: 'Décoller — to unstick / come off', fr: 'Décoller' }, phrases: [
+        { fr: 'L’étiquette se décolle.', ar: 'الستيكر عم ينفك.', en: 'The label is coming off.' },
+        { fr: 'Ça se décolle facilement.', ar: 'عم ينفك بسهولة.', en: 'It comes off easily.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Repositionner — يعيد وضعه في المكان الصحيح', en: 'Repositionner — to reposition', fr: 'Repositionner' }, phrases: [
+        { fr: 'Je repositionne la vignette.', ar: 'عم رجّع الفينيت بمحلها الصح.', en: 'I reposition the sticker.' },
+        { fr: 'Il faut la repositionner.', ar: 'لازم نرجّعها بمحلها.', en: 'It needs to be repositioned.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Dépasser — يبرز / يطلع برا', en: 'Dépasser — to stick out', fr: 'Dépasser' }, phrases: [
+        { fr: 'La vignette dépasse de la boîte.', ar: 'الفينيت طالعة برا العلبة.', en: 'The sticker is sticking out of the box.' },
+        { fr: 'Elle dépasse en haut.', ar: 'طالعة من فوق.', en: 'It sticks out at the top.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Serrer — يشد / يضغط', en: 'Serrer — to tighten', fr: 'Serrer' }, phrases: [
+        { fr: 'Il faut bien serrer le scotch.', ar: 'لازم نشدّ الشريط منيح.', en: 'You need to secure the tape tightly.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Maintenir — يثبت', en: 'Maintenir — to hold steady', fr: 'Maintenir' }, phrases: [
+        { fr: 'Je maintiens la boîte pendant que je scotche.', ar: 'بثبّت العلبة وأنا عم حط الشريط.', en: 'I hold the box steady while I tape it.' },
+        { fr: 'Maintiens la boîte comme ça.', ar: 'ثبّت العلبة هيك.', en: 'Hold the box like this.' },
+        { fr: 'Je maintiens le carton pendant que tu scotches.', ar: 'أنا بثبّت الكرتونة وإنت حط الشريط.', en: 'I’ll hold the carton while you tape it.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Jeter — يرمي', en: 'Jeter — to throw', fr: 'Jeter' }, phrases: [
+        { fr: 'Je jette la boîte abîmée.', ar: 'برمي العلبة الخربانة.', en: 'I throw away the damaged box.' },
+        { fr: 'Ne la jette pas.', ar: 'لا ترميها.', en: 'Don’t throw it away.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Signaler — يبلّغ عن مشكلة', en: 'Signaler — to report', fr: 'Signaler' }, phrases: [
+        { fr: 'Je signale un problème.', ar: 'عم بلّغ عن مشكلة.', en: 'I’m reporting a problem.' },
+        { fr: 'Il faut signaler le défaut.', ar: 'لازم نبلّغ عن العيب.', en: 'The defect needs to be reported.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Corriger — يصحّح', en: 'Corriger — to correct', fr: 'Corriger' }, phrases: [
+        { fr: 'Je corrige l’erreur.', ar: 'عم صحّح الغلط.', en: 'I’m correcting the mistake.' },
+        { fr: 'Il faut corriger ça.', ar: 'لازم نصلّح هاد.', en: 'We need to correct this.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Refaire — يعيد العمل', en: 'Refaire — to redo', fr: 'Refaire' }, phrases: [
+        { fr: 'Je dois refaire cette boîte.', ar: 'لازم عيد هالعلبة.', en: 'I have to redo this box.' },
+        { fr: 'Il faut le refaire.', ar: 'لازم نعيده.', en: 'We need to redo it.' },
+      ] },
+      { icon: '🗣️', title: { ar: 'ومن أكثر العبارات العامية اللي ممكن تسمعها من الزملاء', en: 'Colloquial phrases you\'ll hear from coworkers', fr: 'Phrases familières des collègues' }, phrases: [
+        { fr: 'Ça va ?', ar: 'تمام؟', en: 'Is it okay?' },
+        { fr: 'C’est bon comme ça ?', ar: 'هيك تمام؟', en: 'Is it good like this?' },
+        { fr: 'Oui, c’est bon.', ar: 'إي، تمام.', en: 'Yes, it’s good.' },
+        { fr: 'Attends, je vérifie.', ar: 'استنى، خليني أتأكد.', en: 'Wait, let me check.' },
+        { fr: 'Fais attention, ça dépasse.', ar: 'دير بالك، هاد طالع برا.', en: 'Be careful, it’s sticking out.' },
+        { fr: 'Là, c’est mieux.', ar: 'هيك أحسن.', en: 'That’s better.' },
+        { fr: 'Laisse-le là.', ar: 'خليه هون.', en: 'Leave it there.' },
+        { fr: 'Mets-le de côté.', ar: 'حطّه عالطرف / جنب.', en: 'Put it aside.' },
+        { fr: 'On en a plus.', ar: 'ما عاد عنا منه.', en: 'We’re out of it.' },
+        { fr: 'Il en reste encore.', ar: 'لسا في منه.', en: 'There’s still some left.' },
+        { fr: 'Il n’y en a plus.', ar: 'خلص، ما عاد في منه.', en: 'There’s none left.' },
+        { fr: 'On change de référence.', ar: 'منغيّر الريفرنس.', en: 'We’re changing the reference.' },
+        { fr: 'On passe à la suite.', ar: 'مننتقل للمرحلة اللي بعدها.', en: 'We move on to the next step.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Déballer — يفتح التغليف / يفرّغ من التغليف', en: 'Déballer — to unpack', fr: 'Déballer' }, phrases: [
+        { fr: 'Je déballe les produits.', ar: 'عم فكّ تغليف المنتجات.', en: 'I unpack the products.' },
+        { fr: 'Déballe les cartons.', ar: 'فكّ تغليف الكراتين.', en: 'Unpack the cartons.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Emballer — يغلّف', en: 'Emballer — to package', fr: 'Emballer' }, phrases: [
+        { fr: 'J’emballe les produits.', ar: 'عم غلّف المنتجات.', en: 'I package the products.' },
+        { fr: 'Il faut bien emballer le produit.', ar: 'لازم نغلّف المنتج منيح.', en: 'The product needs to be packaged properly.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Conditionner — يعبّئ / يجهّز للتغليف', en: 'Conditionner — to package', fr: 'Conditionner' }, phrases: [
+        { fr: 'Je conditionne les produits.', ar: 'عم جهّز المنتجات للتعبئة والتغليف.', en: 'I package the products.' },
+        { fr: 'On conditionne les produits selon la procédure.', ar: 'منجهّز المنتجات حسب طريقة العمل.', en: 'We package the products according to the procedure.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Insérer — يُدخل / يضع داخل', en: 'Insérer — to insert', fr: 'Insérer' }, phrases: [
+        { fr: 'J’insère la notice dans la boîte.', ar: 'بحطّ النشرة جوّا العلبة.', en: 'I insert the leaflet into the box.' },
+        { fr: 'Insère-la bien au fond.', ar: 'حطّها منيح لجوا.', en: 'Insert it properly at the bottom.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Retirer — يزيل', en: 'Retirer — to remove', fr: 'Retirer' }, phrases: [
+        { fr: 'Retire la boîte abîmée.', ar: 'شيل العلبة الخربانة.', en: 'Remove the damaged box.' },
+        { fr: 'Je retire le produit défectueux.', ar: 'بشيل المنتج اللي فيه عيب.', en: 'I remove the defective product.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Examiner — يفحص', en: 'Examiner — to examine', fr: 'Examiner' }, phrases: [
+        { fr: 'J’examine la boîte avant de la fermer.', ar: 'بفحص العلبة قبل ما سكّرها.', en: 'I examine the box before closing it.' },
+        { fr: 'Examine bien le produit.', ar: 'افحص المنتج منيح.', en: 'Examine the product carefully.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Inspecter — يفتّش / يفحص بدقة', en: 'Inspecter — to inspect', fr: 'Inspecter' }, phrases: [
+        { fr: 'J’inspecte les boîtes.', ar: 'عم فتّش على العلب.', en: 'I inspect the boxes.' },
+        { fr: 'Il faut inspecter chaque boîte.', ar: 'لازم نفحص كل علبة.', en: 'Every box must be inspected.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Mesurer — يقيس', en: 'Mesurer — to measure', fr: 'Mesurer' }, phrases: [
+        { fr: 'Je mesure la boîte.', ar: 'عم قيس العلبة.', en: 'I measure the box.' },
+        { fr: 'Il faut mesurer avant de commencer.', ar: 'لازم نقيس قبل ما نبلّش.', en: 'We need to measure before starting.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Peser — يزن', en: 'Peser — to weigh', fr: 'Peser' }, phrases: [
+        { fr: 'Je pèse le carton.', ar: 'عم زِن الكرتونة.', en: 'I weigh the carton.' },
+        { fr: 'Le carton est trop lourd.', ar: 'الكرتونة تقيلة كتير.', en: 'The carton is too heavy.' },
+        { fr: 'Je pèse le carton.', ar: 'عم وزّن الكرتونة.', en: 'I weigh the carton.' },
+        { fr: 'Il faut peser chaque carton.', ar: 'لازم نوزن كل كرتونة.', en: 'Each carton needs to be weighed.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Scanner — يعمل سكان', en: 'Scanner — to scan', fr: 'Scanner' }, phrases: [
+        { fr: 'Je scanne le produit.', ar: 'عم اعمل سكان للمنتج.', en: 'I scan the product.' },
+        { fr: 'Scanne la référence.', ar: 'اعمل سكان للريفرنس.', en: 'Scan the reference.' },
+        { fr: 'Je scanne le code-barres.', ar: 'عم اعمل سكان للباركود.', en: 'I scan the barcode.' },
+        { fr: 'Le code-barres ne se scanne pas.', ar: 'الباركود ما عم ينقرأ بالسكان.', en: 'The barcode won\'t scan.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Enregistrer — يسجّل', en: 'Enregistrer — to record', fr: 'Enregistrer' }, phrases: [
+        { fr: 'J’enregistre la référence.', ar: 'عم سجّل الريفرنس.', en: 'I record the reference.' },
+        { fr: 'Il faut enregistrer le contrôle.', ar: 'لازم نسجّل الفحص.', en: 'The check needs to be recorded.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Identifier — يحدّد / يتعرّف على', en: 'Identifier — to identify', fr: 'Identifier' }, phrases: [
+        { fr: 'J’identifie le produit.', ar: 'عم حدّد المنتج.', en: 'I identify the product.' },
+        { fr: 'Vérifie bien la référence pour identifier le bon produit.', ar: 'تأكد منيح من الريفرنس لحتى تتأكد إنه المنتج الصح.', en: 'Check the reference carefully to identify the correct product.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Comparer — يقارن', en: 'Comparer — to compare', fr: 'Comparer' }, phrases: [
+        { fr: 'Je compare les références.', ar: 'عم قارن الريفرنسات.', en: 'I compare the references.' },
+        { fr: 'Compare avec le modèle.', ar: 'قارنها مع النموذج.', en: 'Compare it with the model.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Respecter — يلتزم', en: 'Respecter — to follow', fr: 'Respecter' }, phrases: [
+        { fr: 'Je respecte les consignes.', ar: 'بلتزم بالتعليمات.', en: 'I follow the instructions.' },
+        { fr: 'Il faut respecter la procédure.', ar: 'لازم نلتزم بطريقة العمل.', en: 'We must follow the procedure.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Suivre — يتبع', en: 'Suivre — to follow', fr: 'Suivre' }, phrases: [
+        { fr: 'Je suis les instructions.', ar: 'بتبع التعليمات.', en: 'I follow the instructions.' },
+        { fr: 'Suis bien la procédure.', ar: 'اتبع طريقة العمل منيح.', en: 'Follow the procedure carefully.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Manipuler — يتعامل / يمسك', en: 'Manipuler — to handle', fr: 'Manipuler' }, phrases: [
+        { fr: 'Il faut manipuler les produits avec précaution.', ar: 'لازم نتعامل مع المنتجات بحذر.', en: 'The products must be handled carefully.' },
+        { fr: 'Manipule ça doucement.', ar: 'امسك/تعامل مع هاد بشويش.', en: 'Handle this gently.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Éviter — يتجنب', en: 'Éviter — to avoid', fr: 'Éviter' }, phrases: [
+        { fr: 'Il faut éviter de toucher le produit.', ar: 'لازم نتجنب لمس المنتج.', en: 'We need to avoid touching the product.' },
+        { fr: 'Évite de mettre l’étiquette de travers.', ar: 'تجنب تحط الستيكر مائل.', en: 'Avoid putting the label crooked.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Vérifier — يتأكد', en: 'Vérifier — to check', fr: 'Vérifier' }, phrases: [
+        { fr: 'Vérifie bien avant de fermer.', ar: 'تأكد منيح قبل ما تسكّر.', en: 'Check carefully before closing.' },
+        { fr: 'Je vérifie une dernière fois.', ar: 'عم أتأكد مرة أخيرة.', en: 'I’m checking one last time.' },
+        { fr: 'Je vérifie le code.', ar: 'عم أتأكد من الكود.', en: 'I check the code.' },
+        { fr: 'Vérifie bien avant de continuer.', ar: 'تأكد منيح قبل ما تكمل.', en: 'Check carefully before continuing.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Détecter — يكتشف', en: 'Détecter — to detect', fr: 'Détecter' }, phrases: [
+        { fr: 'J’ai détecté un problème.', ar: 'اكتشفت مشكلة.', en: 'I detected a problem.' },
+        { fr: 'Il faut détecter les défauts.', ar: 'لازم نكتشف العيوب.', en: 'We need to detect defects.' },
+        { fr: 'La machine détecte un défaut.', ar: 'الماكينة عم تكتشف عيب.', en: 'The machine detects a defect.' },
+        { fr: 'J’ai détecté une erreur.', ar: 'اكتشفت غلطة.', en: 'I detected an error.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Écarter — يعزل / يبعد', en: 'Écarter — to set aside', fr: 'Écarter' }, phrases: [
+        { fr: 'J’écarte les produits défectueux.', ar: 'بعزل المنتجات اللي فيها عيب.', en: 'I set aside the defective products.' },
+        { fr: 'Mets celui-ci de côté.', ar: 'حط هاد عالطرف.', en: 'Set this one aside.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Bloquer — يوقف / يعلّق', en: 'Bloquer — to block', fr: 'Bloquer' }, phrases: [
+        { fr: 'Le tapis est bloqué.', ar: 'السير عالق.', en: 'The conveyor is blocked.' },
+        { fr: 'Ça bloque ici.', ar: 'هون عم يعلق.', en: 'It’s getting stuck here.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Débloquer — يفكّ الانسداد / يعيد التشغيل', en: 'Débloquer — to unblock', fr: 'Débloquer' }, phrases: [
+        { fr: 'Le tapis est débloqué.', ar: 'السير انفتح / ما عاد عالق.', en: 'The conveyor is unblocked.' },
+        { fr: 'Ça y est, c’est débloqué.', ar: 'خلص، انحلّت.', en: 'There we go, it’s unblocked.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Arrêter — يوقف', en: 'Arrêter — to stop', fr: 'Arrêter' }, phrases: [
+        { fr: 'J’arrête la machine.', ar: 'بوقف الماكينة.', en: 'I stop the machine.' },
+        { fr: 'Arrête le tapis.', ar: 'وقف السير.', en: 'Stop the conveyor.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Redémarrer — يعيد التشغيل', en: 'Redémarrer — to restart', fr: 'Redémarrer' }, phrases: [
+        { fr: 'Je redémarre la machine.', ar: 'برجع شغّل الماكينة.', en: 'I restart the machine.' },
+        { fr: 'On peut redémarrer.', ar: 'فينا نرجع نشغّلها.', en: 'We can restart.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Continuer — يتابع', en: 'Continuer — to continue', fr: 'Continuer' }, phrases: [
+        { fr: 'Je continue le conditionnement.', ar: 'بكمل التعبئة والتغليف.', en: 'I continue the packaging.' },
+        { fr: 'Tu peux continuer.', ar: 'فيك تكمل.', en: 'You can continue.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Terminer — ينهي', en: 'Terminer — to finish', fr: 'Terminer' }, phrases: [
+        { fr: 'Je termine cette série.', ar: 'عم خلّص هالدفعة.', en: 'I’m finishing this batch.' },
+        { fr: 'J’ai terminé.', ar: 'خلصت.', en: 'I’m finished.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Stocker — يخزّن', en: 'Stocker — to store', fr: 'Stocker' }, phrases: [
+        { fr: 'Je stocke les cartons.', ar: 'بخزّن الكراتين.', en: 'I store the cartons.' },
+        { fr: 'On stocke les produits ici.', ar: 'منخزّن المنتجات هون.', en: 'We store the products here.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Déplacer — ينقل', en: 'Déplacer — to move', fr: 'Déplacer' }, phrases: [
+        { fr: 'Je vais déplacer les cartons.', ar: 'رح انقل الكراتين.', en: 'I’m going to move the cartons.' },
+        { fr: 'Déplace cette palette.', ar: 'انقل هالباليت.', en: 'Move this pallet.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Ajuster — يضبط / يعدّل', en: 'Ajuster — to adjust', fr: 'Ajuster' }, phrases: [
+        { fr: 'J’ajuste la position de la boîte.', ar: 'عم عدّل وضعية العلبة.', en: 'I adjust the position of the box.' },
+        { fr: 'Ajuste-la un peu.', ar: 'عدّلها شوي.', en: 'Adjust it a little.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Caler — يثبّت / يمنع الحركة', en: 'Caler — to secure', fr: 'Caler' }, phrases: [
+        { fr: 'Il faut bien caler les produits.', ar: 'لازم نثبّت المنتجات منيح حتى ما تتحرك.', en: 'The products need to be secured properly.' },
+        { fr: 'Cale-le bien.', ar: 'ثبّتو منيح.', en: 'Secure it properly.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Placer — يضع', en: 'Placer — to place', fr: 'Placer' }, phrases: [
+        { fr: 'Je place les produits dans la boîte.', ar: 'بحط المنتجات جوّا العلبة.', en: 'I place the products in the box.' },
+        { fr: 'Place-le au centre.', ar: 'حطّه بالنص.', en: 'Place it in the center.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Disposer — يرتّب', en: 'Disposer — to arrange', fr: 'Disposer' }, phrases: [
+        { fr: 'Je dispose les produits correctement.', ar: 'برتّب المنتجات بالشكل الصحيح.', en: 'I arrange the products correctly.' },
+        { fr: 'Dispose-les comme ça.', ar: 'رتّبن هيك.', en: 'Arrange them like this.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Empêcher — يمنع', en: 'Empêcher — to prevent', fr: 'Empêcher' }, phrases: [
+        { fr: 'Ça empêche le carton de fermer correctement.', ar: 'هاد عم يمنع الكرتونة إنها تسكّر منيح.', en: 'This prevents the carton from closing properly.' },
+        { fr: 'Il faut empêcher les produits de bouger.', ar: 'لازم نمنع المنتجات إنها تتحرك.', en: 'We need to prevent the products from moving.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Plier — يطوي', en: 'Plier — to fold', fr: 'Plier' }, phrases: [
+        { fr: 'Je plie les rabats du carton.', ar: 'عم اطوي أطراف الكرتونة.', en: 'I fold the carton flaps.' },
+        { fr: 'Plie les rabats.', ar: 'اطوي أطراف الكرتونة.', en: 'Fold the flaps.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Déplier — يفرد / يفتح المطوي', en: 'Déplier — to unfold', fr: 'Déplier' }, phrases: [
+        { fr: 'Je déplie le carton.', ar: 'عم افتح الكرتونة وأفردها.', en: 'I unfold the carton.' },
+        { fr: 'Déplie-le complètement.', ar: 'افتحها بالكامل.', en: 'Unfold it completely.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Rabattre — يطوي للداخل', en: 'Rabattre — to fold down', fr: 'Rabattre' }, phrases: [
+        { fr: 'Je rabats les rabats du carton.', ar: 'عم سكّر أطراف الكرتونة للداخل.', en: 'I fold the carton flaps down.' },
+        { fr: 'Rabats bien les côtés.', ar: 'اطوي الجوانب منيح.', en: 'Fold the sides down properly.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Agrafer — يدبّس / يثبت بالدباسة', en: 'Agrafer — to staple', fr: 'Agrafer' }, phrases: [
+        { fr: 'J’agrafe le carton.', ar: 'عم دبّس الكرتونة.', en: 'I staple the carton.' },
+        { fr: 'Agrafe-le correctement.', ar: 'دبّسو بشكل صحيح.', en: 'Staple it properly.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Étiqueter — يضع ملصقاً', en: 'Étiqueter — to label', fr: 'Étiqueter' }, phrases: [
+        { fr: 'J’étiquette les cartons.', ar: 'عم حطّ الستيكرات على الكراتين.', en: 'I label the cartons.' },
+        { fr: 'Il faut bien étiqueter chaque carton.', ar: 'لازم نحط الستيكر على كل كرتونة بشكل صحيح.', en: 'Each carton must be labeled correctly.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Marquer — يعلّم / يضع علامة', en: 'Marquer — to mark', fr: 'Marquer' }, phrases: [
+        { fr: 'Je marque le carton.', ar: 'عم حط علامة على الكرتونة.', en: 'I mark the carton.' },
+        { fr: 'Marque les cartons contrôlés.', ar: 'علّم على الكراتين اللي تفحّصت.', en: 'Mark the cartons that have been checked.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Tamponner — يختم', en: 'Tamponner — to stamp', fr: 'Tamponner' }, phrases: [
+        { fr: 'Je tamponne le document.', ar: 'عم بختم الورقة.', en: 'I stamp the document.' },
+        { fr: 'Il faut tamponner le carton.', ar: 'لازم نختم الكرتونة.', en: 'The carton needs to be stamped.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Contrôler — يفحص', en: 'Contrôler — to inspect', fr: 'Contrôler' }, phrases: [
+        { fr: 'Je contrôle la quantité.', ar: 'عم أتأكد من الكمية.', en: 'I check the quantity.' },
+        { fr: 'Contrôle bien le nombre de produits.', ar: 'تأكد منيح من عدد المنتجات.', en: 'Check the number of products carefully.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Dénombrer — يعدّ بدقة', en: 'Dénombrer — to count', fr: 'Dénombrer' }, phrases: [
+        { fr: 'Je dénombre les produits.', ar: 'عم عدّ المنتجات بدقة.', en: 'I count the products.' },
+        { fr: 'Il faut dénombrer les pièces.', ar: 'لازم نعدّ القطع.', en: 'The pieces must be counted.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Recompter — يعيد العد', en: 'Recompter — to recount', fr: 'Recompter' }, phrases: [
+        { fr: 'Je recompte les produits.', ar: 'عم عيد عدّ المنتجات.', en: 'I’m recounting the products.' },
+        { fr: 'Recompte pour être sûr.', ar: 'عيد العد لحتى نتأكد.', en: 'Count again to make sure.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Lire — يقرأ', en: 'Lire — to read', fr: 'Lire' }, phrases: [
+        { fr: 'Je lis la référence.', ar: 'عم اقرأ الريفرنس.', en: 'I read the reference.' },
+        { fr: 'Lis bien l’étiquette.', ar: 'اقرأ الستيكر منيح.', en: 'Read the label carefully.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Reconnaître — يتعرّف على', en: 'Reconnaître — to recognize', fr: 'Reconnaître' }, phrases: [
+        { fr: 'Je ne reconnais pas cette référence.', ar: 'ما عم أعرف هالريفرنس.', en: 'I don\'t recognize this reference.' },
+        { fr: 'Tu reconnais ce produit ?', ar: 'بتعرف هالمنتج؟', en: 'Do you recognize this product?' },
+      ] },
+      { icon: '🔹', title: { ar: 'Confirmer — يؤكد', en: 'Confirmer — to confirm', fr: 'Confirmer' }, phrases: [
+        { fr: 'Je confirme la quantité.', ar: 'عم أكد الكمية.', en: 'I confirm the quantity.' },
+        { fr: 'Tu peux me confirmer la référence ?', ar: 'فيك تأكدلي الريفرنس؟', en: 'Can you confirm the reference for me?' },
+      ] },
+      { icon: '🔹', title: { ar: 'Corriger — يصحح', en: 'Corriger — to correct', fr: 'Corriger' }, phrases: [
+        { fr: 'Je corrige l’étiquette.', ar: 'عم صحّح الستيكر.', en: 'I correct the label.' },
+        { fr: 'Il faut corriger ça avant de continuer.', ar: 'لازم نصلّح هاد قبل ما نكمل.', en: 'We need to correct this before continuing.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Remplacer — يبدّل', en: 'Remplacer — to replace', fr: 'Remplacer' }, phrases: [
+        { fr: 'Je remplace la boîte abîmée.', ar: 'عم بدّل العلبة الخربانة.', en: 'I replace the damaged box.' },
+        { fr: 'Remplace celle-ci.', ar: 'بدّل هاي.', en: 'Replace this one.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Éliminer — يتخلّص من / يستبعد', en: 'Éliminer — to remove / discard', fr: 'Éliminer' }, phrases: [
+        { fr: 'J’élimine les produits défectueux.', ar: 'بشيل المنتجات اللي فيها عيب.', en: 'I remove the defective products.' },
+        { fr: 'Il faut éliminer les boîtes abîmées.', ar: 'لازم نستبعد الكراتين الخربانة.', en: 'We need to remove the damaged cartons.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Isoler — يعزل', en: 'Isoler — to isolate', fr: 'Isoler' }, phrases: [
+        { fr: 'J’isole le produit défectueux.', ar: 'بعزل المنتج اللي فيه مشكلة.', en: 'I isolate the defective product.' },
+        { fr: 'Mets-le à part, on va l’isoler.', ar: 'حطّه لحالو، رح نعزله.', en: 'Put it separately; we’ll isolate it.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Remonter — يعيد رفع/تركيب', en: 'Remonter — to put back / reassemble', fr: 'Remonter' }, phrases: [
+        { fr: 'Je remonte la pièce.', ar: 'عم رجّع ركّب القطعة.', en: 'I put the part back.' },
+        { fr: 'Il faut remonter cette pièce.', ar: 'لازم نرجّع نركّب هالقطعة.', en: 'This part needs to be put back.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Descendre — ينزل', en: 'Descendre — to bring down', fr: 'Descendre' }, phrases: [
+        { fr: 'Je descends les cartons.', ar: 'عم نزّل الكراتين.', en: 'I take the cartons down.' },
+        { fr: 'Descends cette palette.', ar: 'نزّل هالباليت.', en: 'Bring this pallet down.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Charger — يحمّل', en: 'Charger — to load', fr: 'Charger' }, phrases: [
+        { fr: 'Je charge les cartons sur la palette.', ar: 'عم حمّل الكراتين على الباليت.', en: 'I load the cartons onto the pallet.' },
+        { fr: 'On charge la palette.', ar: 'عم نحمّل الباليت.', en: 'We’re loading the pallet.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Décharger — يفرّغ / ينزّل الحمولة', en: 'Décharger — to unload', fr: 'Décharger' }, phrases: [
+        { fr: 'Je décharge les cartons.', ar: 'عم فرّغ الكراتين.', en: 'I unload the cartons.' },
+        { fr: 'Il faut décharger la palette.', ar: 'لازم نفرّغ الباليت.', en: 'We need to unload the pallet.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Filmer — يغلّف بالبلاستيك', en: 'Filmer — to wrap in film', fr: 'Filmer' }, phrases: [
+        { fr: 'Je filme la palette.', ar: 'عم لفّ الباليت بالبلاستيك.', en: 'I wrap the pallet in plastic film.' },
+        { fr: 'Il faut bien filmer la palette.', ar: 'لازم نلفّ الباليت منيح بالبلاستيك.', en: 'The pallet needs to be wrapped properly.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Sécuriser — يؤمّن / يثبّت', en: 'Sécuriser — to secure', fr: 'Sécuriser' }, phrases: [
+        { fr: 'Je sécurise la palette.', ar: 'عم ثبّت الباليت وأأمّنها.', en: 'I secure the pallet.' },
+        { fr: 'Il faut sécuriser les cartons.', ar: 'لازم نثبّت الكراتين منيح.', en: 'The cartons need to be secured.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Signaler — يبلّغ', en: 'Signaler — to report', fr: 'Signaler' }, phrases: [
+        { fr: 'Je signale le problème au responsable.', ar: 'ببلّغ المسؤول عن المشكلة.', en: 'I report the problem to the supervisor.' },
+        { fr: 'Il faut le signaler tout de suite.', ar: 'لازم نبلّغ عنها فوراً.', en: 'It needs to be reported immediately.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Remonter un problème — يرفع مشكلة للمسؤول', en: 'Remonter un problème — to report a problem up', fr: 'Remonter un problème' }, phrases: [
+        { fr: 'Je vais remonter le problème au responsable.', ar: 'رح خبر المسؤول عن المشكلة.', en: 'I’m going to report the problem to the supervisor.' },
+        { fr: 'Il y a un problème avec les étiquettes, je vais le signaler.', ar: 'في مشكلة بالستيكرات، رح بلّغ عنها.', en: 'There’s a problem with the labels; I’ll report it.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Installer — يركّب / يجهّز', en: 'Installer — to set up / install', fr: 'Installer' }, phrases: [
+        { fr: 'J’installe le matériel.', ar: 'عم ركّب وبجهّز المعدات.', en: 'I set up the equipment.' },
+        { fr: 'Installe ça ici.', ar: 'ركّب/حط هاد هون.', en: 'Set this up here.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Brancher — يوصل بالكهرباء', en: 'Brancher — to plug in', fr: 'Brancher' }, phrases: [
+        { fr: 'Je branche la machine.', ar: 'عم وصّل الماكينة بالكهربا.', en: 'I plug in the machine.' },
+        { fr: 'Branche-la.', ar: 'وصّلها.', en: 'Plug it in.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Débrancher — يفصل الكهرباء', en: 'Débrancher — to unplug', fr: 'Débrancher' }, phrases: [
+        { fr: 'Je débranche la machine.', ar: 'عم افصل الماكينة عن الكهربا.', en: 'I unplug the machine.' },
+        { fr: 'Débranche-la avant de nettoyer.', ar: 'افصلها قبل التنظيف.', en: 'Unplug it before cleaning.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Allumer — يشغّل', en: 'Allumer — to turn on', fr: 'Allumer' }, phrases: [
+        { fr: 'J’allume la machine.', ar: 'بشغّل الماكينة.', en: 'I turn on the machine.' },
+        { fr: 'Tu peux l’allumer.', ar: 'فيك تشغّلها.', en: 'You can turn it on.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Éteindre — يطفئ', en: 'Éteindre — to turn off', fr: 'Éteindre' }, phrases: [
+        { fr: 'J’éteins la machine.', ar: 'بطفي الماكينة.', en: 'I turn off the machine.' },
+        { fr: 'Éteins-la, s’il te plaît.', ar: 'طفيها لو سمحت.', en: 'Turn it off, please.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Régler — يضبط', en: 'Régler — to adjust', fr: 'Régler' }, phrases: [
+        { fr: 'Je règle la machine.', ar: 'عم ظبّط الماكينة.', en: 'I adjust the machine.' },
+        { fr: 'Il faut régler la vitesse.', ar: 'لازم نضبط السرعة.', en: 'We need to adjust the speed.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Paramétrer — يضبط الإعدادات', en: 'Paramétrer — to configure', fr: 'Paramétrer' }, phrases: [
+        { fr: 'Je paramètre la machine.', ar: 'عم ظبّط إعدادات الماكينة.', en: 'I configure the machine.' },
+        { fr: 'Les paramètres ne sont pas bons.', ar: 'الإعدادات مو صحيحة.', en: 'The settings aren\'t correct.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Tester — يجرّب / يختبر', en: 'Tester — to test', fr: 'Tester' }, phrases: [
+        { fr: 'Je teste la machine.', ar: 'عم جرّب الماكينة.', en: 'I test the machine.' },
+        { fr: 'On va tester une boîte.', ar: 'رح نجرّب علبة.', en: 'We’re going to test a box.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Essayer — يجرّب', en: 'Essayer — to try', fr: 'Essayer' }, phrases: [
+        { fr: 'Je vais essayer avec cette boîte.', ar: 'رح جرّب بهالعلبة.', en: 'I’m going to try with this box.' },
+        { fr: 'Essaie comme ça.', ar: 'جرّب هيك.', en: 'Try it like this.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Fonctionner — يعمل / يشتغل', en: 'Fonctionner — to work', fr: 'Fonctionner' }, phrases: [
+        { fr: 'La machine fonctionne bien.', ar: 'الماكينة عم تشتغل منيح.', en: 'The machine is working well.' },
+        { fr: 'Ça ne fonctionne pas.', ar: 'ما عم يشتغل.', en: 'It doesn\'t work.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Se bloquer — يعلق', en: 'Se bloquer — to get stuck', fr: 'Se bloquer' }, phrases: [
+        { fr: 'La machine se bloque.', ar: 'الماكينة عم تعلق.', en: 'The machine is getting stuck.' },
+        { fr: 'Ça se bloque encore.', ar: 'لسا عم يعلق.', en: 'It\'s getting stuck again.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Se coincer — ينحشر / يعلق', en: 'Se coincer — to get jammed', fr: 'Se coincer' }, phrases: [
+        { fr: 'La boîte s’est coincée.', ar: 'العلبة انحشرت.', en: 'The box got stuck.' },
+        { fr: 'Ça se coince ici.', ar: 'هون عم ينحشر.', en: 'It gets stuck here.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Valider — يعتمد / يوافق على', en: 'Valider — to validate', fr: 'Valider' }, phrases: [
+        { fr: 'Je valide le contrôle.', ar: 'عم اعتمد الفحص.', en: 'I validate the check.' },
+        { fr: 'Le contrôle est validé.', ar: 'الفحص تم اعتماده.', en: 'The check has been approved.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Refuser — يرفض', en: 'Refuser — to refuse', fr: 'Refuser' }, phrases: [
+        { fr: 'Le contrôle refuse le produit.', ar: 'الفحص بيرفض المنتج.', en: 'The inspection rejects the product.' },
+        { fr: 'Ce produit est refusé.', ar: 'هالمنتج مرفوض.', en: 'This product is rejected.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Accepter — يقبل', en: 'Accepter — to accept', fr: 'Accepter' }, phrases: [
+        { fr: 'Le produit est accepté.', ar: 'المنتج مقبول.', en: 'The product is accepted.' },
+        { fr: 'Le contrôle a accepté le produit.', ar: 'الفحص قبل المنتج.', en: 'The inspection accepted the product.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Rejeter — يستبعد / يرفض', en: 'Rejeter — to reject', fr: 'Rejeter' }, phrases: [
+        { fr: 'Je rejette la boîte défectueuse.', ar: 'بستبعد العلبة اللي فيها عيب.', en: 'I reject the defective box.' },
+        { fr: 'Cette boîte doit être rejetée.', ar: 'لازم نستبعد هالعلبة.', en: 'This box must be rejected.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Corriger — يصلح الخطأ', en: 'Corriger — to correct', fr: 'Corriger' }, phrases: [
+        { fr: 'Je corrige l’erreur.', ar: 'عم صلّح الغلطة.', en: 'I correct the error.' },
+        { fr: 'Il y a une erreur sur l’étiquette.', ar: 'في غلطة عالستيكر.', en: 'There’s an error on the label.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Remettre — يعيد وضعه', en: 'Remettre — to put back', fr: 'Remettre' }, phrases: [
+        { fr: 'Je remets la notice dans la boîte.', ar: 'عم رجّع النشرة جوّا العلبة.', en: 'I put the leaflet back in the box.' },
+        { fr: 'Remets-le à sa place.', ar: 'رجّعو على محلّه.', en: 'Put it back in its place.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Replacer — يعيد وضعه في مكانه', en: 'Replacer — to put back in place', fr: 'Replacer' }, phrases: [
+        { fr: 'Je replace la vignette.', ar: 'عم رجّع الفينيت بمحلها.', en: 'I reposition the sticker.' },
+        { fr: 'Replace-la correctement.', ar: 'رجّعها بشكل صحيح.', en: 'Reposition it correctly.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Réorganiser — يعيد الترتيب', en: 'Réorganiser — to reorganize', fr: 'Réorganiser' }, phrases: [
+        { fr: 'Je réorganise les cartons.', ar: 'عم عيد رتّب الكراتين.', en: 'I reorganize the cartons.' },
+        { fr: 'Il faut réorganiser la palette.', ar: 'لازم نعيد ترتيب الباليت.', en: 'We need to reorganize the pallet.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Regrouper — يجمع معاً', en: 'Regrouper — to group', fr: 'Regrouper' }, phrases: [
+        { fr: 'Je regroupe les boîtes par référence.', ar: 'عم جمّع العلب حسب الريفرنس.', en: 'I group the boxes by reference.' },
+        { fr: 'Regroupe-les ici.', ar: 'جمّعن هون.', en: 'Group them here.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Distribuer — يوزّع', en: 'Distribuer — to distribute', fr: 'Distribuer' }, phrases: [
+        { fr: 'Je distribue les produits.', ar: 'عم وزّع المنتجات.', en: 'I distribute the products.' },
+        { fr: 'Distribue-les entre les postes.', ar: 'وزّعن بين محطات العمل.', en: 'Distribute them between the workstations.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Approcher — يقرّب', en: 'Approcher — to bring closer', fr: 'Approcher' }, phrases: [
+        { fr: 'Approche le carton.', ar: 'قرّب الكرتونة.', en: 'Bring the carton closer.' },
+        { fr: 'Approche-le un peu.', ar: 'قرّبو شوي.', en: 'Move it a little closer.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Éloigner — يبعّد', en: 'Éloigner — to move away', fr: 'Éloigner' }, phrases: [
+        { fr: 'Éloigne le carton.', ar: 'بعّد الكرتونة.', en: 'Move the carton away.' },
+        { fr: 'Éloigne-le un peu.', ar: 'بعّدو شوي.', en: 'Move it a little farther away.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Retourner — يقلب', en: 'Retourner — to turn over', fr: 'Retourner' }, phrases: [
+        { fr: 'Retourne la boîte.', ar: 'اقلب العلبة.', en: 'Turn the box over.' },
+        { fr: 'Il faut retourner le carton.', ar: 'لازم نقلب الكرتونة.', en: 'We need to turn the carton over.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Tourner — يدور / يلف', en: 'Tourner — to turn', fr: 'Tourner' }, phrases: [
+        { fr: 'Tourne la boîte.', ar: 'لفّ العلبة.', en: 'Turn the box.' },
+        { fr: 'Tourne-la dans l’autre sens.', ar: 'لفّها بالجهة التانية.', en: 'Turn it the other way.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Tenir — يمسك / يثبت', en: 'Tenir — to hold', fr: 'Tenir' }, phrases: [
+        { fr: 'Tiens la boîte.', ar: 'مسك العلبة.', en: 'Hold the box.' },
+        { fr: 'Ça ne tient pas.', ar: 'ما عم يثبت.', en: 'It doesn\'t stay in place.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Coller — يلصق', en: 'Coller — to stick', fr: 'Coller' }, phrases: [
+        { fr: 'Colle l’étiquette bien droite.', ar: 'لصّق الستيكر بشكل مستقيم.', en: 'Stick the label on straight.' },
+        { fr: 'Elle est mal collée.', ar: 'ملزوقة غلط.', en: 'It’s badly stuck on.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Décoller — ينفك / ينزع', en: 'Décoller — to unstick / come off', fr: 'Décoller' }, phrases: [
+        { fr: 'L’étiquette se décolle.', ar: 'الستيكر عم ينفك.', en: 'The label is coming off.' },
+        { fr: 'Ça commence à se décoller.', ar: 'بلّش يفك.', en: 'It’s starting to come off.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Ajuster — يعدّل قليلاً', en: 'Ajuster — to adjust', fr: 'Ajuster' }, phrases: [
+        { fr: 'Ajuste l’étiquette.', ar: 'عدّل الستيكر شوي.', en: 'Adjust the label.' },
+        { fr: 'Elle est un peu décalée.', ar: 'هي مزاحة شوي عن محلها.', en: 'It’s slightly off-center.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Dépasser — يبرز خارج الشيء', en: 'Dépasser — to stick out', fr: 'Dépasser' }, phrases: [
+        { fr: 'La vignette dépasse de la boîte.', ar: 'الفينيت طالعة برا العلبة.', en: 'The sticker is sticking out of the box.' },
+        { fr: 'Ça dépasse encore.', ar: 'لسا طالعة برا.', en: 'It’s still sticking out.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Recommencer — يعيد من البداية', en: 'Recommencer — to restart', fr: 'Recommencer' }, phrases: [
+        { fr: 'Je recommence la boîte.', ar: 'رح عيد العلبة من الأول.', en: 'I’ll redo the box from the beginning.' },
+        { fr: 'On recommence.', ar: 'منعيد.', en: 'We start again.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Finir — يخلّص', en: 'Finir — to finish', fr: 'Finir' }, phrases: [
+        { fr: 'J’ai fini cette série.', ar: 'خلصت هالدفعة.', en: 'I’ve finished this batch.' },
+        { fr: 'Je finis ce carton et j’arrive.', ar: 'بخلّص هالكرتونة وبجي.', en: 'I’ll finish this carton and come over.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Manquer — ينقص', en: 'Manquer — to be missing', fr: 'Manquer' }, phrases: [
+        { fr: 'Il manque une notice.', ar: 'ناقصة نشرة.', en: 'A leaflet is missing.' },
+        { fr: 'Il manque deux paires de ciseaux.', ar: 'ناقص زوجين مقص.', en: 'Two pairs of scissors are missing.' },
+        { fr: 'Il ne manque rien.', ar: 'ما ناقص شي.', en: 'Nothing is missing.' },
+      ] },
+      { icon: '⚡', title: { ar: 'عبارات قصيرة جداً رح تسمعها كثير', en: 'Very short phrases you\'ll hear a lot', fr: 'Phrases très courtes à connaître' }, phrases: [
+        { fr: 'Mets ça là.', ar: 'حط هاد هون.', en: 'Put this here.' },
+        { fr: 'Mets ça de côté.', ar: 'حط هاد عالطرف.', en: 'Put this aside.' },
+        { fr: 'Prends celui-là.', ar: 'خد هاد.', en: 'Take that one.' },
+        { fr: 'Laisse celui-là.', ar: 'اترك هاد.', en: 'Leave that one.' },
+        { fr: 'Fais attention.', ar: 'دير بالك.', en: 'Be careful.' },
+        { fr: 'Fais doucement.', ar: 'اعملها بشويش.', en: 'Take it slowly / Be gentle.' },
+        { fr: 'Plus vite.', ar: 'أسرع شوي.', en: 'A little faster.' },
+        { fr: 'Doucement.', ar: 'شوي شوي.', en: 'Slowly / Easy.' },
+        { fr: 'Attends un peu.', ar: 'استنى شوي.', en: 'Wait a little.' },
+        { fr: 'C’est bon, continue.', ar: 'تمام، كمّل.', en: 'Okay, continue.' },
+        { fr: 'C’est pas bon, refais-le.', ar: 'مو تمام، عيدها.', en: 'It’s not right, redo it.' },
+        { fr: 'Ça ne va pas comme ça.', ar: 'هيك ما بتمشي.', en: 'It doesn’t work like this.' },
+        { fr: 'Là, c’est bon.', ar: 'هيك تمام.', en: 'That’s good now.' },
+      ] },
+      { icon: '🔹', title: { ar: 'Remplir / vider — يعبّي / يفرّغ', en: 'Remplir / vider — to fill / to empty', fr: 'Remplir / vider' }, phrases: [
+        { fr: 'Je remplis le carton.', ar: 'عم عبّي الكرتونة.', en: 'I fill the carton.' },
+        { fr: 'Je vide le carton.', ar: 'عم فرّغ الكرتونة.', en: 'I empty the carton.' },
       ] }
     ]
   },
