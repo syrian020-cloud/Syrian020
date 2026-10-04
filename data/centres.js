@@ -20026,5 +20026,764 @@ window.CENTRES_DATA = [
         { fr: 'Vendeur : Le croissant au beurre est l’un des plus demandés.', ar: 'كرواسون الزبدة من أكتر الأنواع المطلوبة.', en: 'The butter croissant is one of the most popular.' }
       ] }
     ]
+  },
+  {
+    id: 'metiers',
+    icon: '👔',
+    name: { ar: 'المهن — les métiers', en: 'Jobs — les métiers', fr: 'Les métiers' },
+    desc: { ar: 'اسم ووصف ومهام كل مهنة شائعة في فرنسا', en: 'Name, description and duties of common jobs in France', fr: 'Nom, description et tâches des métiers courants en France' },
+    sections: [
+      { icon: '👨‍🍳', title: { ar: 'طباخ', en: 'Cook', fr: 'Cuisinier' }, phrases: [
+        { fr: 'Cuisinier', ar: 'طباخ', en: 'Cook' },
+        { fr: 'Je prépare les plats et je m’occupe de la cuisine.', ar: 'بحضّر الأكلات وبكون مسؤول عن المطبخ.', en: 'I prepare the dishes and take care of the kitchen.' },
+        { fr: 'Missions : Préparer les plats, couper les ingrédients, cuisiner, nettoyer la cuisine, respecter les règles d’hygiène.', ar: 'المهام: تحضير الطعام، تقطيع المكونات، الطبخ، تنظيف المطبخ، احترام قواعد النظافة.', en: 'Duties: Prepare food, cut ingredients, cook, clean the kitchen, follow hygiene rules.' }
+      ] },
+      { icon: '👩‍🍳', title: { ar: 'نادل / نادلة', en: 'Waiter / Waitress', fr: 'Serveur / Serveuse' }, phrases: [
+        { fr: 'Serveur / Serveuse', ar: 'نادل / نادلة', en: 'Waiter / Waitress' },
+        { fr: 'Je prends les commandes et je sers les clients.', ar: 'باخد الطلبات وبخدم الزباين.', en: 'I take orders and serve customers.' },
+        { fr: 'Missions : Accueillir les clients, prendre les commandes, servir les plats et les boissons, dresser les tables, encaisser l’addition.', ar: 'المهام: استقبال الزبائن، أخذ الطلبات، تقديم الطعام والشراب، ترتيب الطاولات، تحصيل الحساب.', en: 'Duties: Welcome customers, take orders, serve food and drinks, set tables, collect the bill.' }
+      ] },
+      { icon: '📦', title: { ar: 'محضّر طلبات', en: 'Order Picker', fr: 'Préparateur / Préparatrice de commandes' }, phrases: [
+        { fr: 'Préparateur / Préparatrice de commandes', ar: 'محضّر طلبات', en: 'Order Picker' },
+        { fr: 'Je prépare les commandes avant leur expédition.', ar: 'بجهّز الطلبات قبل ما تنشحن.', en: 'I prepare orders before they are shipped.' },
+        { fr: 'Missions : Lire la commande, chercher les produits, les préparer, les emballer, coller les étiquettes, les expédier.', ar: 'المهام: قراءة الطلب، البحث عن المنتجات، تجهيزها، تغليفها، وضع الملصقات، إرسالها.', en: 'Duties: Read the order, find products, prepare them, package them, apply labels, ship them.' }
+      ] },
+      { icon: '🏭', title: { ar: 'عامل إنتاج', en: 'Production Operator', fr: 'Opérateur / Opératrice de production' }, phrases: [
+        { fr: 'Opérateur / Opératrice de production', ar: 'عامل إنتاج', en: 'Production Operator' },
+        { fr: 'Je travaille sur la chaîne de production et je contrôle les produits.', ar: 'بشتغل على خط الإنتاج وبفحص المنتجات.', en: 'I work on the production line and inspect the products.' },
+        { fr: 'Missions : Faire fonctionner les machines, fabriquer ou assembler les produits, contrôler la qualité, emballer, respecter les consignes de sécurité.', ar: 'المهام: تشغيل الآلات، تصنيع أو تجميع المنتجات، مراقبة الجودة، التغليف، احترام تعليمات السلامة.', en: 'Duties: Operate machines, manufacture or assemble products, monitor quality, package, follow safety instructions.' }
+      ] },
+      { icon: '📦', title: { ar: 'عامل تغليف', en: 'Packaging Worker', fr: 'Agent / Agente de conditionnement' }, phrases: [
+        { fr: 'Agent / Agente de conditionnement', ar: 'عامل تغليف', en: 'Packaging Worker' },
+        { fr: 'Je conditionne les produits et je vérifie leur qualité.', ar: 'بغلّف المنتجات وبفحص جودتها.', en: 'I package the products and check their quality.' },
+        { fr: 'Missions : Emballer, coller les étiquettes, remplir les produits, contrôler la qualité, préparer les produits pour l’expédition.', ar: 'المهام: التغليف، وضع الملصقات، تعبئة المنتجات، مراقبة الجودة، تجهيز المنتجات للشحن.', en: 'Duties: Package, apply labels, fill products, monitor quality, prepare products for shipping.' }
+      ] },
+      { icon: '🚚', title: { ar: 'سائق توصيل', en: 'Delivery Driver', fr: 'Chauffeur-livreur / Chauffeuse-livreuse' }, phrases: [
+        { fr: 'Chauffeur-livreur / Chauffeuse-livreuse', ar: 'سائق توصيل', en: 'Delivery Driver' },
+        { fr: 'Je livre les colis aux clients et je respecte les horaires de livraison.', ar: 'بوصّل الطرود للزبائن وبالتزم بمواعيد التوصيل.', en: 'I deliver packages to customers and stick to delivery schedules.' },
+        { fr: 'Missions : Charger les colis, conduire, livrer les commandes, faire signer la réception, organiser la tournée de livraison.', ar: 'المهام: تحميل الطرود، القيادة، تسليم الطلبات، توقيع الاستلام، تنظيم مسار التوصيل.', en: 'Duties: Load parcels, drive, deliver orders, obtain delivery signature, plan the delivery route.' }
+      ] },
+      { icon: '🧹', title: { ar: 'عامل نظافة', en: 'Cleaner', fr: 'Agent / Agente d’entretien' }, phrases: [
+        { fr: 'Agent / Agente d’entretien', ar: 'عامل نظافة', en: 'Cleaner' },
+        { fr: 'Je nettoie les locaux et je veille à ce qu’ils restent propres.', ar: 'بنضّف المكان وبنتبه يضل نظيف.', en: 'I clean the premises and make sure they stay clean.' },
+        { fr: 'Missions : Nettoyer les sols, les sanitaires, les bureaux, utiliser les produits d’entretien, vider les poubelles.', ar: 'المهام: تنظيف الأرضيات، الحمامات، المكاتب، استعمال مواد التنظيف، تفريغ النفايات.', en: 'Duties: Clean floors, toilets, offices, use cleaning products, empty the bins.' }
+      ] },
+      { icon: '🛒', title: { ar: 'موظف متجر', en: 'Shop Assistant', fr: 'Employé / Employée de magasin' }, phrases: [
+        { fr: 'Employé / Employée de magasin', ar: 'موظف متجر', en: 'Shop Assistant' },
+        { fr: 'Je mets les produits en rayon et j’aide les clients.', ar: 'برتّب المنتجات عالرفوف وبساعد الزباين.', en: 'I put products on the shelves and help customers.' },
+        { fr: 'Missions : Ranger les rayons, accueillir les clients, remplir les produits, surveiller les prix et le stock.', ar: 'المهام: ترتيب الرفوف، استقبال الزبائن، تعبئة المنتجات، مراقبة الأسعار والمخزون.', en: 'Duties: Arrange shelves, welcome customers, restock products, monitor prices and stock.' }
+      ] },
+      { icon: '🧑‍💼', title: { ar: 'بائع', en: 'Sales Assistant', fr: 'Vendeur / Vendeuse' }, phrases: [
+        { fr: 'Vendeur / Vendeuse', ar: 'بائع', en: 'Sales Assistant' },
+        { fr: 'Je conseille les clients et je les aide à choisir un produit.', ar: 'بنصح الزبون وبساعده يختار المنتج.', en: 'I advise customers and help them choose a product.' },
+        { fr: 'Missions : Accueillir les clients, présenter les produits, vendre, ranger le magasin, gérer les paiements.', ar: 'المهام: استقبال الزبائن، شرح المنتجات، البيع، ترتيب المتجر، التعامل مع المدفوعات.', en: 'Duties: Welcome customers, present products, sell, tidy the shop, handle payments.' }
+      ] },
+      { icon: '💳', title: { ar: 'أمين صندوق', en: 'Cashier', fr: 'Caissier / Caissière' }, phrases: [
+        { fr: 'Caissier / Caissière', ar: 'أمين صندوق', en: 'Cashier' },
+        { fr: 'Je passe les articles en caisse et j’encaisse les clients.', ar: 'بمرّر الأغراض عالكاش وبقبض من الزباين.', en: 'I scan the items at the checkout and take customers’ payments.' },
+        { fr: 'Missions : Enregistrer les achats, encaisser les paiements, donner le ticket de caisse, traiter avec les clients.', ar: 'المهام: تسجيل المشتريات، تحصيل الدفع، إعطاء الإيصال، التعامل مع الزبائن.', en: 'Duties: Register purchases, collect payments, give receipts, deal with customers.' }
+      ] },
+      { icon: '🏗️', title: { ar: 'بنّاء', en: 'Bricklayer', fr: 'Maçon / Maçonne' }, phrases: [
+        { fr: 'Maçon / Maçonne', ar: 'بنّاء', en: 'Bricklayer' },
+        { fr: 'Je construis des murs et je réalise des travaux de maçonnerie.', ar: 'ببني الجدران وبعمل أعمال البناء.', en: 'I build walls and carry out masonry work.' },
+        { fr: 'Missions : Construire des murs, travailler le ciment, poser la brique, réparer des bâtiments, lire des plans simples.', ar: 'المهام: بناء الجدران، الإسمنت، الطوب، إصلاح المباني، قراءة المخططات البسيطة.', en: 'Duties: Build walls, work with cement, lay bricks, repair buildings, read simple plans.' }
+      ] },
+      { icon: '🔧', title: { ar: 'سبّاك', en: 'Plumber', fr: 'Plombier / Plombière' }, phrases: [
+        { fr: 'Plombier / Plombière', ar: 'سبّاك', en: 'Plumber' },
+        { fr: 'J’installe et je répare les canalisations.', ar: 'بركّب وبصلّح تمديدات المي.', en: 'I install and repair pipes.' },
+        { fr: 'Missions : Réparer les fuites, installer les tuyaux, réparer les robinets, poser les équipements sanitaires.', ar: 'المهام: إصلاح التسربات، تركيب الأنابيب، إصلاح الحنفيات، تركيب الأدوات الصحية.', en: 'Duties: Repair leaks, install pipes, repair taps, install plumbing fixtures.' }
+      ] },
+      { icon: '⚡', title: { ar: 'كهربائي', en: 'Electrician', fr: 'Électricien / Électricienne' }, phrases: [
+        { fr: 'Électricien / Électricienne', ar: 'كهربائي', en: 'Electrician' },
+        { fr: 'J’installe et je répare les installations électriques.', ar: 'بركّب وبصلّح التمديدات الكهربائية.', en: 'I install and repair electrical systems.' },
+        { fr: 'Missions : Installer les prises, l’éclairage, les câbles, diagnostiquer les pannes, réparer les installations électriques.', ar: 'المهام: تركيب المقابس، الإنارة، الأسلاك، تشخيص الأعطال، إصلاح التركيبات الكهربائية.', en: 'Duties: Install sockets, lighting, cables, diagnose faults, repair electrical installations.' }
+      ] },
+      { icon: '🚗', title: { ar: 'ميكانيكي سيارات', en: 'Mechanic', fr: 'Mécanicien / Mécanicienne' }, phrases: [
+        { fr: 'Mécanicien / Mécanicienne', ar: 'ميكانيكي سيارات', en: 'Mechanic' },
+        { fr: 'Je diagnostique les pannes et je répare les véhicules.', ar: 'بشخّص أعطال السيارات وبصلّحها.', en: 'I diagnose breakdowns and repair vehicles.' },
+        { fr: 'Missions : Contrôler la voiture, changer l’huile et les freins, réparer les pannes, faire l’entretien régulier.', ar: 'المهام: فحص السيارة، تغيير الزيت والفرامل، إصلاح الأعطال، الصيانة الدورية.', en: 'Duties: Inspect the car, change oil and brakes, repair faults, perform regular maintenance.' }
+      ] },
+      { icon: '🏥', title: { ar: 'مساعد تمريض', en: 'Nursing Assistant', fr: 'Aide-soignant / Aide-soignante' }, phrases: [
+        { fr: 'Aide-soignant / Aide-soignante', ar: 'مساعد تمريض', en: 'Nursing Assistant' },
+        { fr: 'J’aide les patients dans les gestes de la vie quotidienne.', ar: 'بساعد المرضى بالأمور اليومية.', en: 'I help patients with daily activities.' },
+        { fr: 'Missions : Aider les patients, l’hygiène personnelle, les repas, la mobilité, surveiller l’état et informer l’infirmier.', ar: 'المهام: مساعدة المرضى، النظافة الشخصية، الطعام، الحركة، مراقبة الحالة وإبلاغ الممرض.', en: 'Duties: Help patients, personal hygiene, meals, mobility, monitor condition and inform the nurse.' }
+      ] },
+      { icon: '👨‍⚕️', title: { ar: 'ممرض / ممرضة', en: 'Nurse', fr: 'Infirmier / Infirmière' }, phrases: [
+        { fr: 'Infirmier / Infirmière', ar: 'ممرض / ممرضة', en: 'Nurse' },
+        { fr: 'Je soigne les patients et je leur donne les traitements prescrits.', ar: 'بعالج المرضى وبعطيهم العلاجات الموصوفة.', en: 'I care for patients and give them their prescribed treatments.' },
+        { fr: 'Missions : Soigner les patients, donner les médicaments prescrits, faire les injections, mesurer les signes vitaux, suivre l’état.', ar: 'المهام: رعاية المرضى، إعطاء الأدوية الموصوفة، الحقن، قياس العلامات الحيوية، متابعة الحالة.', en: 'Duties: Care for patients, administer prescribed medication, give injections, measure vital signs, monitor condition.' }
+      ] },
+      { icon: '👨‍⚕️', title: { ar: 'طبيب', en: 'Doctor', fr: 'Médecin' }, phrases: [
+        { fr: 'Médecin', ar: 'طبيب', en: 'Doctor' },
+        { fr: 'J’examine les patients et je pose un diagnostic.', ar: 'بفحص المرضى وبشخّص حالتهم.', en: 'I examine patients and make a diagnosis.' },
+        { fr: 'Missions : Examiner les patients, diagnostiquer, prescrire des analyses, prescrire le traitement, suivre l’état.', ar: 'المهام: فحص المرضى، التشخيص، طلب التحاليل، وصف العلاج، متابعة الحالة.', en: 'Duties: Examine patients, diagnose, order tests, prescribe treatment, monitor condition.' }
+      ] },
+      { icon: '💻', title: { ar: 'مختص معلوماتية', en: 'IT Specialist', fr: 'Informaticien / Informaticienne' }, phrases: [
+        { fr: 'Informaticien / Informaticienne', ar: 'مختص معلوماتية', en: 'IT Specialist' },
+        { fr: 'Je dépanne les ordinateurs et je gère les problèmes informatiques.', ar: 'بصلّح مشاكل الكمبيوتر وبعالج المشاكل التقنية.', en: 'I troubleshoot computers and deal with IT problems.' },
+        { fr: 'Missions : Entretenir les ordinateurs, résoudre les problèmes techniques, installer les logiciels, gérer les réseaux, assurer le support technique.', ar: 'المهام: صيانة الحواسيب، حل المشاكل التقنية، تثبيت البرامج، الشبكات، الدعم التقني.', en: 'Duties: Maintain computers, solve technical problems, install software, manage networks, provide tech support.' }
+      ] },
+      { icon: '👨‍🏫', title: { ar: 'معلّم / مدرس', en: 'Teacher', fr: 'Enseignant / Enseignante' }, phrases: [
+        { fr: 'Enseignant / Enseignante', ar: 'معلّم / مدرس', en: 'Teacher' },
+        { fr: 'J’enseigne ma matière et j’aide les élèves à progresser.', ar: 'بعلّم مادتي وبساعد الطلاب يتقدّموا.', en: 'I teach my subject and help students improve.' },
+        { fr: 'Missions : Préparer les cours, expliquer la matière, corriger les devoirs, évaluer les élèves, suivre leur progression.', ar: 'المهام: تحضير الدروس، شرح المادة، تصحيح الواجبات، تقييم الطلاب، متابعة تقدمهم.', en: 'Duties: Prepare lessons, explain the subject, correct homework, assess students, track their progress.' }
+      ] },
+      { icon: '🏨', title: { ar: 'موظف استقبال', en: 'Receptionist', fr: 'Réceptionniste' }, phrases: [
+        { fr: 'Réceptionniste', ar: 'موظف استقبال', en: 'Receptionist' },
+        { fr: 'J’accueille les clients et je réponds à leurs demandes.', ar: 'بستقبل الزباين وبجاوب على طلباتهم.', en: 'I welcome customers and respond to their requests.' },
+        { fr: 'Missions : Accueillir les visiteurs, répondre au téléphone, enregistrer les réservations, donner des informations, gérer les clients.', ar: 'المهام: استقبال الزوار، الرد على الهاتف، تسجيل الحجوزات، إعطاء المعلومات، التعامل مع العملاء.', en: 'Duties: Welcome visitors, answer the phone, record bookings, give information, deal with customers.' }
+      ] },
+      { icon: '🏢', title: { ar: 'مساعد إداري', en: 'Administrative Assistant', fr: 'Assistant administratif / Assistante administrative' }, phrases: [
+        { fr: 'Assistant administratif / Assistante administrative', ar: 'مساعد إداري', en: 'Administrative Assistant' },
+        { fr: 'Je m’occupe des dossiers et des tâches administratives.', ar: 'بهتم بالملفات وبالأعمال الإدارية.', en: 'I handle files and administrative tasks.' },
+        { fr: 'Missions : Organiser les dossiers, saisir les données, envoyer le courrier, répondre aux appels, préparer les documents.', ar: 'المهام: تنظيم الملفات، إدخال البيانات، إرسال البريد، استقبال المكالمات، تحضير الوثائق.', en: 'Duties: Organize files, enter data, send mail, answer calls, prepare documents.' }
+      ] },
+      { icon: '📞', title: { ar: 'موظف خدمة العملاء', en: 'Customer Service Agent (Phone)', fr: 'Téléconseiller / Téléconseillère' }, phrases: [
+        { fr: 'Téléconseiller / Téléconseillère', ar: 'موظف خدمة العملاء', en: 'Customer Service Agent (Phone)' },
+        { fr: 'Je réponds aux appels et j’aide les clients à résoudre leurs problèmes.', ar: 'بردّ على الاتصالات وبساعد الزباين يحلّوا مشاكلهم.', en: 'I answer calls and help customers solve their problems.' },
+        { fr: 'Missions : Répondre au téléphone, donner des informations, traiter les réclamations, enregistrer les demandes.', ar: 'المهام: الرد على الهاتف، تقديم المعلومات، معالجة الشكاوى، تسجيل الطلبات.', en: 'Duties: Answer the phone, give information, handle complaints, record requests.' }
+      ] },
+      { icon: '💻', title: { ar: 'مطوّر برمجيات', en: 'Software Developer', fr: 'Développeur / Développeuse' }, phrases: [
+        { fr: 'Développeur / Développeuse', ar: 'مطوّر برمجيات', en: 'Software Developer' },
+        { fr: 'Je développe des applications et je corrige les bugs.', ar: 'بطوّر تطبيقات وبصلّح أخطاء البرامج.', en: 'I develop applications and fix bugs.' },
+        { fr: 'Missions : Écrire du code, développer des applications et des sites, tester les programmes, corriger les bugs.', ar: 'المهام: كتابة الكود، تطوير التطبيقات والمواقع، اختبار البرامج، إصلاح الأخطاء.', en: 'Duties: Write code, develop applications and websites, test programs, fix bugs.' }
+      ] },
+      { icon: '🏗️', title: { ar: 'مسؤول موقع البناء', en: 'Site Manager', fr: 'Conducteur / Conductrice de travaux' }, phrases: [
+        { fr: 'Conducteur / Conductrice de travaux', ar: 'مسؤول موقع البناء', en: 'Site Manager' },
+        { fr: 'Je coordonne les travaux et je veille au respect des délais.', ar: 'بنسّق أعمال البناء وبنتبه على الالتزام بالمواعيد.', en: 'I coordinate the work and make sure deadlines are met.' },
+        { fr: 'Missions : Organiser le chantier, suivre les ouvriers, coordonner les entreprises, contrôler les coûts et les délais.', ar: 'المهام: تنظيم الورشة، متابعة العمال، تنسيق الشركات، مراقبة التكاليف والمواعيد.', en: 'Duties: Organize the site, supervise workers, coordinate companies, monitor costs and deadlines.' }
+      ] },
+      { icon: '🏗️', title: { ar: 'عامل مساعد في البناء', en: 'Construction Labourer', fr: 'Manœuvre' }, phrases: [
+        { fr: 'Manœuvre', ar: 'عامل مساعد في البناء', en: 'Construction Labourer' },
+        { fr: 'J’aide les ouvriers sur le chantier et je prépare le matériel.', ar: 'بساعد العمال بالورشة وبجهّز المعدات.', en: 'I help the workers on the construction site and prepare the equipment.' },
+        { fr: 'Missions : Transporter les matériaux, préparer les outils, nettoyer le chantier, aider les ouvriers.', ar: 'المهام: نقل المواد، تجهيز الأدوات، تنظيف الورشة، مساعدة العمال.', en: 'Duties: Move materials, prepare tools, clean the site, help workers.' }
+      ] },
+      { icon: '🎨', title: { ar: 'دهّان', en: 'Painter (Buildings)', fr: 'Peintre en bâtiment' }, phrases: [
+        { fr: 'Peintre en bâtiment', ar: 'دهّان', en: 'Painter (Buildings)' },
+        { fr: 'Je prépare les surfaces et je peins les murs.', ar: 'بحضّر الأسطح وبدهّن الجدران.', en: 'I prepare surfaces and paint walls.' },
+        { fr: 'Missions : Préparer les murs, appliquer l’enduit, poncer, peindre, faire les finitions.', ar: 'المهام: تحضير الجدران، المعجون، الصنفرة، الدهان، التشطيبات.', en: 'Duties: Prepare walls, apply filler, sand, paint, do finishing work.' }
+      ] },
+      { icon: '🪚', title: { ar: 'نجّار', en: 'Carpenter / Joiner', fr: 'Menuisier / Menuisière' }, phrases: [
+        { fr: 'Menuisier / Menuisière', ar: 'نجّار', en: 'Carpenter / Joiner' },
+        { fr: 'Je fabrique et je pose des éléments en bois.', ar: 'بصنّع وبركّب الأشياء الخشبية.', en: 'I make and install wooden items.' },
+        { fr: 'Missions : Couper le bois, fabriquer portes, fenêtres et meubles, poser et réparer.', ar: 'المهام: قص الخشب، تصنيع الأبواب والنوافذ والأثاث، التركيب والإصلاح.', en: 'Duties: Cut wood, make doors, windows and furniture, install and repair.' }
+      ] },
+      { icon: '🔩', title: { ar: 'لحّام', en: 'Welder', fr: 'Soudeur / Soudeuse' }, phrases: [
+        { fr: 'Soudeur / Soudeuse', ar: 'لحّام', en: 'Welder' },
+        { fr: 'Je soude les pièces métalliques en respectant les consignes de sécurité.', ar: 'بلحّم القطع المعدنية وبالتزم بتعليمات السلامة.', en: 'I weld metal parts while following safety instructions.' },
+        { fr: 'Missions : Souder les métaux, préparer les pièces, contrôler les soudures, utiliser les équipements de protection.', ar: 'المهام: لحام المعادن، تجهيز القطع، فحص اللحام، استعمال معدات الحماية.', en: 'Duties: Weld metals, prepare parts, check welds, use protective equipment.' }
+      ] },
+      { icon: '🏭', title: { ar: 'سائق رافعة شوكية', en: 'Forklift Driver', fr: 'Cariste' }, phrases: [
+        { fr: 'Cariste', ar: 'سائق رافعة شوكية', en: 'Forklift Driver' },
+        { fr: 'Je déplace les marchandises avec un chariot élévateur.', ar: 'بنقل البضائع بالرافعة الشوكية.', en: 'I move goods using a forklift.' },
+        { fr: 'Missions : Charger et décharger les marchandises, déplacer les palettes, ranger le stock, respecter les règles de sécurité.', ar: 'المهام: تحميل وتفريغ البضائع، نقل الباليتات، ترتيب المخزون، احترام قواعد السلامة.', en: 'Duties: Load and unload goods, move pallets, organize stock, follow safety rules.' }
+      ] },
+      { icon: '📦', title: { ar: 'أمين مستودع', en: 'Warehouse Keeper', fr: 'Magasinier / Magasinière' }, phrases: [
+        { fr: 'Magasinier / Magasinière', ar: 'أمين مستودع', en: 'Warehouse Keeper' },
+        { fr: 'Je réceptionne les marchandises et je gère le stock.', ar: 'بستلم البضائع وبنظّم المخزون.', en: 'I receive goods and manage the stock.' },
+        { fr: 'Missions : Réceptionner les marchandises, les stocker, préparer les commandes, faire l’inventaire, suivre le stock.', ar: 'المهام: استلام البضائع، تخزينها، تجهيز الطلبات، الجرد، متابعة المخزون.', en: 'Duties: Receive goods, store them, prepare orders, take inventory, monitor stock.' }
+      ] },
+      { icon: '🚛', title: { ar: 'سائق شاحنة', en: 'Truck Driver', fr: 'Chauffeur poids lourd' }, phrases: [
+        { fr: 'Chauffeur poids lourd', ar: 'سائق شاحنة', en: 'Truck Driver' },
+        { fr: 'Je transporte les marchandises d’un endroit à un autre.', ar: 'بنقل البضائع من مكان لمكان.', en: 'I transport goods from one place to another.' },
+        { fr: 'Missions : Conduire le camion, charger et décharger les marchandises, livrer les expéditions, respecter le code de la route.', ar: 'المهام: قيادة الشاحنة، تحميل وتفريغ البضائع، تسليم الشحنات، احترام قوانين القيادة.', en: 'Duties: Drive the truck, load and unload goods, deliver shipments, follow road regulations.' }
+      ] },
+      { icon: '🚕', title: { ar: 'سائق تاكسي', en: 'Taxi Driver', fr: 'Chauffeur de taxi' }, phrases: [
+        { fr: 'Chauffeur de taxi', ar: 'سائق تاكسي', en: 'Taxi Driver' },
+        { fr: 'Je transporte les clients jusqu’à leur destination.', ar: 'بوصّل الزباين للمكان اللي بدهن ياه.', en: 'I take customers to their destination.' },
+        { fr: 'Missions : Transporter les passagers, connaître les itinéraires, accueillir les clients, encaisser la course.', ar: 'المهام: نقل الركاب، معرفة الطرق، التعامل مع الزبائن، تحصيل الأجرة.', en: 'Duties: Transport passengers, know the routes, deal with customers, collect the fare.' }
+      ] },
+      { icon: '🚆', title: { ar: 'سائق قطار', en: 'Train Driver', fr: 'Conducteur / Conductrice de train' }, phrases: [
+        { fr: 'Conducteur / Conductrice de train', ar: 'سائق قطار', en: 'Train Driver' },
+        { fr: 'Je conduis le train et je veille à la sécurité des voyageurs.', ar: 'بسوق القطار وبنتبه على سلامة الركاب.', en: 'I drive the train and ensure passengers’ safety.' },
+        { fr: 'Missions : Conduire le train, respecter la signalisation, veiller à la sécurité, respecter les horaires.', ar: 'المهام: قيادة القطار، احترام الإشارات، متابعة السلامة، الالتزام بالجدول.', en: 'Duties: Drive the train, follow signals, monitor safety, keep to the schedule.' }
+      ] },
+      { icon: '✈️', title: { ar: 'موظف خدمات المطار', en: 'Airport Ground Staff', fr: 'Agent / Agente d’escale' }, phrases: [
+        { fr: 'Agent / Agente d’escale', ar: 'موظف خدمات المطار', en: 'Airport Ground Staff' },
+        { fr: 'J’accueille les passagers et je les aide avant leur embarquement.', ar: 'بستقبل المسافرين وبساعدهم قبل ما يطلعوا عالطائرة.', en: 'I welcome passengers and help them before boarding.' },
+        { fr: 'Missions : Enregistrer les passagers, vérifier les documents, organiser l’embarquement, aider les voyageurs.', ar: 'المهام: تسجيل المسافرين، فحص الوثائق، تنظيم الصعود، مساعدة الركاب.', en: 'Duties: Check in passengers, check documents, organize boarding, help travellers.' }
+      ] },
+      { icon: '✈️', title: { ar: 'عامل تنظيف', en: 'Cleaning Worker', fr: 'Agent / Agente de nettoyage' }, phrases: [
+        { fr: 'Agent / Agente de nettoyage', ar: 'عامل تنظيف', en: 'Cleaning Worker' },
+        { fr: 'Je nettoie les locaux et je respecte les règles d’hygiène.', ar: 'بنظّف الأماكن وبالتزم بقواعد النظافة.', en: 'I clean the premises and follow hygiene rules.' },
+        { fr: 'Missions : Nettoyer les bureaux, les hôtels, les hôpitaux, les transports ou les lieux publics.', ar: 'المهام: تنظيف المكاتب، الفنادق، المستشفيات، وسائل النقل أو الأماكن العامة.', en: 'Duties: Clean offices, hotels, hospitals, transport or public places.' }
+      ] },
+      { icon: '🏨', title: { ar: 'عامل غرف فندق', en: 'Chambermaid / Room Attendant', fr: 'Femme / Valet de chambre' }, phrases: [
+        { fr: 'Femme / Valet de chambre', ar: 'عامل غرف فندق', en: 'Chambermaid / Room Attendant' },
+        { fr: 'Je nettoie les chambres et je change le linge.', ar: 'بنظّف الغرف وبغيّر أغطية وفرش السرير.', en: 'I clean rooms and change the linen.' },
+        { fr: 'Missions : Nettoyer les chambres, faire les lits, changer les serviettes, réapprovisionner les produits.', ar: 'المهام: تنظيف الغرف، ترتيب الأسرة، تغيير المناشف، إعادة تعبئة المستلزمات.', en: 'Duties: Clean rooms, make beds, change towels, restock supplies.' }
+      ] },
+      { icon: '💇', title: { ar: 'حلاق / مصفف شعر', en: 'Hairdresser', fr: 'Coiffeur / Coiffeuse' }, phrases: [
+        { fr: 'Coiffeur / Coiffeuse', ar: 'حلاق / مصفف شعر', en: 'Hairdresser' },
+        { fr: 'Je coupe les cheveux et je conseille les clients.', ar: 'بقص الشعر وبنصح الزباين.', en: 'I cut hair and advise customers.' },
+        { fr: 'Missions : Couper les cheveux, coiffer, faire des colorations, raser, conseiller les clients.', ar: 'المهام: قص الشعر، التسريح، الصبغة، الحلاقة، تقديم النصائح.', en: 'Duties: Cut hair, style, do colouring, shave, advise customers.' }
+      ] },
+      { icon: '💆', title: { ar: 'خبيرة تجميل', en: 'Beautician', fr: 'Esthéticien / Esthéticienne' }, phrases: [
+        { fr: 'Esthéticien / Esthéticienne', ar: 'خبيرة تجميل', en: 'Beautician' },
+        { fr: 'Je conseille les clients et je réalise des soins esthétiques.', ar: 'بنصح الزباين وبعمل جلسات عناية وتجميل.', en: 'I advise customers and provide beauty treatments.' },
+        { fr: 'Missions : Soigner la peau, épiler, s’occuper des ongles, réaliser certains soins esthétiques.', ar: 'المهام: العناية بالبشرة، إزالة الشعر، العناية بالأظافر، بعض علاجات التجميل.', en: 'Duties: Skincare, hair removal, nail care, some beauty treatments.' }
+      ] },
+      { icon: '👶', title: { ar: 'مربي أطفال', en: 'Early Childhood Educator', fr: 'Éducateur / Éducatrice de jeunes enfants' }, phrases: [
+        { fr: 'Éducateur / Éducatrice de jeunes enfants', ar: 'مربي أطفال', en: 'Early Childhood Educator' },
+        { fr: 'J’accompagne les enfants dans leur développement et leurs activités.', ar: 'بساعد الأطفال بتطورهم وبنشاطاتهم.', en: 'I support children in their development and activities.' },
+        { fr: 'Missions : S’occuper des enfants, jeux éducatifs, activités, suivre le développement.', ar: 'المهام: رعاية الأطفال، الألعاب التعليمية، الأنشطة، متابعة التطور.', en: 'Duties: Care for children, educational games, activities, monitor development.' }
+      ] },
+      { icon: '👵', title: { ar: 'مساعد شخصي لكبار السن', en: 'Home Care Assistant', fr: 'Auxiliaire de vie' }, phrases: [
+        { fr: 'Auxiliaire de vie', ar: 'مساعد شخصي لكبار السن', en: 'Home Care Assistant' },
+        { fr: 'J’aide les personnes dans les tâches de la vie quotidienne.', ar: 'بساعد الأشخاص بأمور حياتهم اليومية.', en: 'I help people with their daily activities.' },
+        { fr: 'Missions : Aider à l’habillage et aux repas, faire les courses, un peu de ménage, accompagner et déplacer.', ar: 'المهام: المساعدة في اللباس والطعام، التسوق، التنظيف البسيط، المرافقة والتنقل.', en: 'Duties: Help with dressing and meals, shopping, light cleaning, accompanying and transport.' }
+      ] },
+      { icon: '🐕', title: { ar: 'مزيّن الحيوانات', en: 'Pet Groomer', fr: 'Toiletteur / Toiletteuse' }, phrases: [
+        { fr: 'Toiletteur / Toiletteuse', ar: 'مزيّن الحيوانات', en: 'Pet Groomer' },
+        { fr: 'Je lave, je brosse et je coupe les poils des animaux.', ar: 'بغسّل الحيوانات وبمشّط وبقص شعرها.', en: 'I wash, brush and trim animals’ fur.' },
+        { fr: 'Missions : Laver les animaux, couper les poils, nettoyer les griffes, soigner l’apparence.', ar: 'المهام: غسل الحيوانات، قص الشعر، تنظيف الأظافر، العناية بالمظهر.', en: 'Duties: Wash animals, trim fur, clean nails, care for appearance.' }
+      ] },
+      { icon: '🌳', title: { ar: 'بستاني', en: 'Gardener', fr: 'Jardinier / Jardinière' }, phrases: [
+        { fr: 'Jardinier / Jardinière', ar: 'بستاني', en: 'Gardener' },
+        { fr: 'J’entretiens les jardins et je m’occupe des plantes.', ar: 'بهتم بالحدائق وبعتني بالنباتات.', en: 'I maintain gardens and take care of plants.' },
+        { fr: 'Missions : Tondre la pelouse, tailler les arbres, planter, arroser, nettoyer les jardins.', ar: 'المهام: قص العشب، تقليم الأشجار، زراعة النباتات، الري، تنظيف الحدائق.', en: 'Duties: Mow lawns, prune trees, plant, water, clean gardens.' }
+      ] },
+      { icon: '🚪', title: { ar: 'حارس مبنى', en: 'Building Concierge', fr: 'Gardien / Gardienne' }, phrases: [
+        { fr: 'Gardien / Gardienne', ar: 'حارس مبنى', en: 'Building Concierge' },
+        { fr: 'Je surveille les locaux et je veille à la sécurité des lieux.', ar: 'بحرس المكان وبنتبه على سلامته.', en: 'I monitor the premises and ensure the safety of the place.' },
+        { fr: 'Missions : Surveiller le bâtiment, accueillir les visiteurs, signaler les problèmes, parfois petit entretien et ménage.', ar: 'المهام: مراقبة المبنى، استقبال الزوار، الإبلاغ عن المشاكل، أحيانًا أعمال صيانة وتنظيف بسيطة.', en: 'Duties: Monitor the building, welcome visitors, report problems, sometimes light maintenance and cleaning.' }
+      ] },
+      { icon: '🛡️', title: { ar: 'حارس أمن', en: 'Security Guard', fr: 'Agent de sécurité' }, phrases: [
+        { fr: 'Agent de sécurité', ar: 'حارس أمن', en: 'Security Guard' },
+        { fr: 'Je surveille les lieux et je contrôle les accès.', ar: 'براقب المكان وبفتّش على الدخول والخروج.', en: 'I monitor the premises and control access.' },
+        { fr: 'Missions : Surveiller les entrées, contrôler, faire des rondes, empêcher l’accès non autorisé, signaler les incidents.', ar: 'المهام: مراقبة المداخل، التفتيش، دوريات الحراسة، منع الدخول غير المصرح به، الإبلاغ عن الحوادث.', en: 'Duties: Monitor entrances, inspect, patrol, prevent unauthorized access, report incidents.' }
+      ] },
+      { icon: '📮', title: { ar: 'ساعي بريد', en: 'Postman / Mail Carrier', fr: 'Facteur / Factrice' }, phrases: [
+        { fr: 'Facteur / Factrice', ar: 'ساعي بريد', en: 'Postman / Mail Carrier' },
+        { fr: 'Je distribue le courrier et les colis aux clients.', ar: 'بوزّع البريد والطرود للناس.', en: 'I deliver mail and packages to customers.' },
+        { fr: 'Missions : Trier le courrier, distribuer les lettres, livrer les colis, parfois petites démarches administratives.', ar: 'المهام: فرز البريد، توزيع الرسائل، تسليم الطرود، أحيانًا الخدمات الإدارية البسيطة.', en: 'Duties: Sort mail, deliver letters, deliver parcels, sometimes simple administrative services.' }
+      ] },
+      { icon: '📰', title: { ar: 'صحفي', en: 'Journalist', fr: 'Journaliste' }, phrases: [
+        { fr: 'Journaliste', ar: 'صحفي', en: 'Journalist' },
+        { fr: 'Je recueille des informations et je rédige des articles.', ar: 'بجمع المعلومات وبكتب مقالات.', en: 'I gather information and write articles.' },
+        { fr: 'Missions : Rechercher les informations, mener des interviews, vérifier les informations, rédiger des articles et des reportages.', ar: 'المهام: البحث، إجراء المقابلات، التحقق من المعلومات، كتابة الأخبار والتقارير.', en: 'Duties: Research, conduct interviews, verify information, write news and reports.' }
+      ] },
+      { icon: '⚖️', title: { ar: 'محامي', en: 'Lawyer', fr: 'Avocat / Avocate' }, phrases: [
+        { fr: 'Avocat / Avocate', ar: 'محامي', en: 'Lawyer' },
+        { fr: 'Je conseille mes clients et je défends leurs intérêts.', ar: 'بنصح موكّليني وبدافع عن مصالحهم.', en: 'I advise my clients and defend their interests.' },
+        { fr: 'Missions : Donner des conseils juridiques, préparer les dossiers, représenter les clients, plaider.', ar: 'المهام: تقديم الاستشارات القانونية، إعداد الملفات، تمثيل العملاء، المرافعة.', en: 'Duties: Give legal advice, prepare files, represent clients, plead cases.' }
+      ] },
+      { icon: '🧾', title: { ar: 'محاسب', en: 'Accountant', fr: 'Comptable' }, phrases: [
+        { fr: 'Comptable', ar: 'محاسب', en: 'Accountant' },
+        { fr: 'Je m’occupe de la comptabilité et je prépare les documents financiers.', ar: 'بهتم بالمحاسبة وبحضّر الوثائق المالية.', en: 'I handle accounting and prepare financial documents.' },
+        { fr: 'Missions : Enregistrer les opérations financières, les factures, les comptes, les déclarations, préparer les rapports.', ar: 'المهام: تسجيل العمليات المالية، الفواتير، الحسابات، التصريحات، إعداد التقارير.', en: 'Duties: Record financial transactions, invoices, accounts, declarations, prepare reports.' }
+      ] },
+      { icon: '🏠', title: { ar: 'وكيل عقارات', en: 'Real Estate Agent', fr: 'Agent immobilier / Agente immobilière' }, phrases: [
+        { fr: 'Agent immobilier / Agente immobilière', ar: 'وكيل عقارات', en: 'Real Estate Agent' },
+        { fr: 'Je présente les logements aux clients et je les accompagne dans leur projet.', ar: 'بفرجي الزباين البيوت وبساعدهم بمشروع السكن.', en: 'I show properties to clients and help them with their housing project.' },
+        { fr: 'Missions : Présenter des biens, organiser les visites, chercher des acheteurs ou des locataires, monter les dossiers.', ar: 'المهام: عرض العقارات، تنظيم الزيارات، البحث عن مشترين أو مستأجرين، إعداد الملفات.', en: 'Duties: Show properties, organize visits, find buyers or tenants, prepare files.' }
+      ] },
+      { icon: '🛍️', title: { ar: 'مساعد صيدلي', en: 'Pharmacy Assistant', fr: 'Préparateur / Préparatrice en pharmacie' }, phrases: [
+        { fr: 'Préparateur / Préparatrice en pharmacie', ar: 'مساعد صيدلي', en: 'Pharmacy Assistant' },
+        { fr: 'Je prépare les médicaments et j’accueille les patients à la pharmacie.', ar: 'بجهّز الأدوية وبستقبل المرضى بالصيدلية.', en: 'I prepare medications and welcome patients at the pharmacy.' },
+        { fr: 'Missions : Préparer les médicaments sur ordonnance, accueillir les clients, ranger les produits, gérer le stock, dans le respect des limites de la profession.', ar: 'المهام: تجهيز الأدوية حسب الوصفة، استقبال الزبائن، ترتيب المنتجات، إدارة المخزون، مع الالتزام بحدود الصلاحيات المهنية.', en: 'Duties: Prepare prescriptions, welcome customers, arrange products, manage stock, within professional limits.' }
+      ] },
+      { icon: '🏪', title: { ar: 'خباز', en: 'Baker', fr: 'Boulanger / Boulangère' }, phrases: [
+        { fr: 'Boulanger / Boulangère', ar: 'خباز', en: 'Baker' },
+        { fr: 'Je prépare le pain et les viennoiseries.', ar: 'بحضّر الخبز والمعجنات.', en: 'I make bread and pastries.' },
+        { fr: 'Missions : Préparer la pâte, cuire, préparer croissants et viennoiseries, nettoyer le poste de travail.', ar: 'المهام: تحضير العجين، الخَبز، تجهيز الكرواسون والمعجنات، تنظيف مكان العمل.', en: 'Duties: Prepare dough, bake, prepare croissants and pastries, clean the workspace.' }
+      ] },
+      { icon: '🍰', title: { ar: 'حلواني', en: 'Pastry Chef', fr: 'Pâtissier / Pâtissière' }, phrases: [
+        { fr: 'Pâtissier / Pâtissière', ar: 'حلواني', en: 'Pastry Chef' },
+        { fr: 'Je prépare des gâteaux et des desserts.', ar: 'بحضّر الكيك والحلويات.', en: 'I make cakes and desserts.' },
+        { fr: 'Missions : Préparer les gâteaux, les tartes, les desserts, les crèmes, décorer les produits.', ar: 'المهام: تحضير الكيك، التارت، الحلويات، الكريمات، تزيين المنتجات.', en: 'Duties: Prepare cakes, tarts, desserts, creams, decorate products.' }
+      ] },
+      { icon: '🥩', title: { ar: 'جزّار', en: 'Butcher', fr: 'Boucher / Bouchère' }, phrases: [
+        { fr: 'Boucher / Bouchère', ar: 'جزّار', en: 'Butcher' },
+        { fr: 'Je prépare la viande et je conseille les clients.', ar: 'بحضّر اللحمة وبنصح الزباين.', en: 'I prepare meat and advise customers.' },
+        { fr: 'Missions : Découper les viandes, préparer les commandes, présenter les produits, nettoyer le poste de travail.', ar: 'المهام: تقطيع اللحوم، تجهيز الطلبات، عرض المنتجات، تنظيف مكان العمل.', en: 'Duties: Cut meat, prepare orders, display products, clean the workspace.' }
+      ] },
+      { icon: '🐟', title: { ar: 'بائع سمك', en: 'Fishmonger', fr: 'Poissonnier / Poissonnière' }, phrases: [
+        { fr: 'Poissonnier / Poissonnière', ar: 'بائع سمك', en: 'Fishmonger' },
+        { fr: 'Je prépare le poisson et je conseille les clients.', ar: 'بجهّز السمك وبنصح الزباين.', en: 'I prepare fish and advise customers.' },
+        { fr: 'Missions : Nettoyer et découper le poisson, préparer les commandes, présenter les produits, respecter la chaîne du froid.', ar: 'المهام: تنظيف وتقطيع السمك، تجهيز الطلبات، عرض المنتجات، احترام سلسلة التبريد.', en: 'Duties: Clean and cut fish, prepare orders, display products, respect the cold chain.' }
+      ] },
+      { icon: '🧀', title: { ar: 'بائع أجبان', en: 'Cheesemonger', fr: 'Fromager / Fromagère' }, phrases: [
+        { fr: 'Fromager / Fromagère', ar: 'بائع أجبان', en: 'Cheesemonger' },
+        { fr: 'Je conseille les clients et je prépare les fromages.', ar: 'بنصح الزباين وبجهّز الأجبان.', en: 'I advise customers and prepare the cheeses.' },
+        { fr: 'Missions : Découper les fromages, préparer les commandes, présenter les produits, les conserver correctement.', ar: 'المهام: تقطيع الأجبان، تجهيز الطلبات، عرض المنتجات، حفظها بشكل مناسب.', en: 'Duties: Cut cheeses, prepare orders, display products, store them properly.' }
+      ] },
+      { icon: '🍽️', title: { ar: 'عامل جلي', en: 'Dishwasher', fr: 'Plongeur / Plongeuse' }, phrases: [
+        { fr: 'Plongeur / Plongeuse', ar: 'عامل جلي', en: 'Dishwasher' },
+        { fr: 'Je fais la plonge et je garde la cuisine propre.', ar: 'بغسل الصحون وبحافظ على نظافة المطبخ.', en: 'I wash the dishes and keep the kitchen clean.' },
+        { fr: 'Missions : Laver la vaisselle, nettoyer le matériel, ranger les ustensiles, aider l’équipe de cuisine.', ar: 'المهام: غسل الصحون، تنظيف المعدات، ترتيب أدوات المطبخ، مساعدة فريق المطبخ.', en: 'Duties: Wash dishes, clean equipment, put away utensils, help the kitchen team.' }
+      ] },
+      { icon: '👨‍🍳', title: { ar: 'مساعد طباخ', en: 'Kitchen Assistant', fr: 'Commis de cuisine' }, phrases: [
+        { fr: 'Commis de cuisine', ar: 'مساعد طباخ', en: 'Kitchen Assistant' },
+        { fr: 'J’aide le cuisinier à préparer les plats.', ar: 'بساعد الطباخ بتحضير الأكلات.', en: 'I help the chef prepare the dishes.' },
+        { fr: 'Missions : Éplucher et couper les ingrédients, préparer les produits, aider le cuisinier, nettoyer la cuisine.', ar: 'المهام: تقشير وتقطيع المكونات، تحضير المواد، مساعدة الطباخ، تنظيف المطبخ.', en: 'Duties: Peel and cut ingredients, prepare supplies, help the cook, clean the kitchen.' }
+      ] },
+      { icon: '🏨', title: { ar: 'موظف استقبال فندق', en: 'Hotel Receptionist', fr: 'Réceptionniste d’hôtel' }, phrases: [
+        { fr: 'Réceptionniste d’hôtel', ar: 'موظف استقبال فندق', en: 'Hotel Receptionist' },
+        { fr: 'J’accueille les clients et je gère les réservations.', ar: 'بستقبل الزباين وبنظّم الحجوزات.', en: 'I welcome guests and manage reservations.' },
+        { fr: 'Missions : Enregistrer les arrivées et les départs, gérer les réservations, répondre au téléphone, donner des informations.', ar: 'المهام: تسجيل الدخول والخروج، الحجوزات، الرد على الهاتف، إعطاء المعلومات.', en: 'Duties: Register check-ins and check-outs, manage reservations, answer the phone, give information.' }
+      ] },
+      { icon: '🏨', title: { ar: 'موظف فندق', en: 'Hotel Staff', fr: 'Employé / Employée d’hôtel' }, phrases: [
+        { fr: 'Employé / Employée d’hôtel', ar: 'موظف فندق', en: 'Hotel Staff' },
+        { fr: 'Je m’occupe des clients et je veille au bon fonctionnement de l’hôtel.', ar: 'بهتم بالزباين وبنتبه إنو الفندق ماشي بشكل منيح.', en: 'I take care of guests and make sure the hotel runs properly.' },
+        { fr: 'Missions : Servir les clients, ranger les espaces, aider en chambre ou à l’accueil selon le poste.', ar: 'المهام: خدمة الزبائن، ترتيب الأماكن، المساعدة في الغرف أو الاستقبال حسب الوظيفة.', en: 'Duties: Serve guests, tidy areas, help in rooms or at reception depending on the role.' }
+      ] },
+      { icon: '🚘', title: { ar: 'مجهّز سيارات', en: 'Vehicle Preparer', fr: 'Préparateur / Préparatrice automobile' }, phrases: [
+        { fr: 'Préparateur / Préparatrice automobile', ar: 'مجهّز سيارات', en: 'Vehicle Preparer' },
+        { fr: 'Je prépare les véhicules avant leur livraison aux clients.', ar: 'بجهّز السيارات قبل تسليمها للزبائن.', en: 'I prepare vehicles before delivering them to customers.' },
+        { fr: 'Missions : Nettoyer la voiture, faire un contrôle simple, la préparer à la livraison, installer des équipements.', ar: 'المهام: تنظيف السيارة، فحص بسيط، تجهيزها للتسليم، تركيب بعض التجهيزات.', en: 'Duties: Clean the vehicle, do a basic check, prepare it for delivery, install some equipment.' }
+      ] },
+      { icon: '🚙', title: { ar: 'سمكري سيارات', en: 'Panel Beater', fr: 'Carrossier / Carrossière' }, phrases: [
+        { fr: 'Carrossier / Carrossière', ar: 'سمكري سيارات', en: 'Panel Beater' },
+        { fr: 'Je répare la carrosserie des véhicules.', ar: 'بصلّح هيكل السيارة الخارجي.', en: 'I repair vehicle bodywork.' },
+        { fr: 'Missions : Réparer les rayures et les chocs, remplacer des pièces, redresser la carrosserie, préparer la peinture.', ar: 'المهام: إصلاح الخدوش والصدمات، تبديل القطع، تعديل الهيكل، التحضير للدهان.', en: 'Duties: Repair scratches and dents, replace parts, straighten the body, prepare for painting.' }
+      ] },
+      { icon: '🚗', title: { ar: 'دهّان سيارات', en: 'Car Painter', fr: 'Peintre automobile' }, phrases: [
+        { fr: 'Peintre automobile', ar: 'دهّان سيارات', en: 'Car Painter' },
+        { fr: 'Je prépare et je peins les carrosseries.', ar: 'بحضّر هيكل السيارة وبدهانه.', en: 'I prepare and paint vehicle bodywork.' },
+        { fr: 'Missions : Préparer la surface, poncer, mélanger la peinture, peindre, finir.', ar: 'المهام: تحضير السطح، الصنفرة، خلط الطلاء، الدهان، التشطيب.', en: 'Duties: Prepare the surface, sand, mix paint, paint, finish.' }
+      ] },
+      { icon: '🏥', title: { ar: 'سكرتير طبي', en: 'Medical Secretary', fr: 'Secrétaire médical / Secrétaire médicale' }, phrases: [
+        { fr: 'Secrétaire médical / Secrétaire médicale', ar: 'سكرتير طبي', en: 'Medical Secretary' },
+        { fr: 'Je prends les rendez-vous et je gère les dossiers des patients.', ar: 'بحجز المواعيد وبنظّم ملفات المرضى.', en: 'I schedule appointments and manage patients’ files.' },
+        { fr: 'Missions : Accueillir les patients, répondre au téléphone, gérer les rendez-vous, les dossiers, l’administratif.', ar: 'المهام: استقبال المرضى، الهاتف، المواعيد، الملفات، الأعمال الإدارية.', en: 'Duties: Welcome patients, answer the phone, manage appointments, files, administrative work.' }
+      ] },
+      { icon: '🧪', title: { ar: 'فني مختبر', en: 'Lab Technician', fr: 'Laborantin / Laborantine' }, phrases: [
+        { fr: 'Laborantin / Laborantine', ar: 'فني مختبر', en: 'Lab Technician' },
+        { fr: 'Je réalise des analyses et je prépare les échantillons.', ar: 'بعمل تحاليل وبحضّر العينات.', en: 'I perform analyses and prepare samples.' },
+        { fr: 'Missions : Préparer les échantillons, réaliser les analyses, utiliser les appareils, enregistrer les résultats.', ar: 'المهام: تجهيز العينات، إجراء التحاليل، استعمال الأجهزة، تسجيل النتائج.', en: 'Duties: Prepare samples, run analyses, use equipment, record results.' }
+      ] },
+      { icon: '🚑', title: { ar: 'مسعف / سائق إسعاف', en: 'Ambulance Driver / Paramedic', fr: 'Ambulancier / Ambulancière' }, phrases: [
+        { fr: 'Ambulancier / Ambulancière', ar: 'مسعف / سائق إسعاف', en: 'Ambulance Driver / Paramedic' },
+        { fr: 'Je transporte les patients et je veille à leur sécurité.', ar: 'بنقل المرضى وبنتبه على سلامتهم.', en: 'I transport patients and ensure their safety.' },
+        { fr: 'Missions : Transporter les patients, les assister, préparer l’ambulance, appliquer les procédures de sécurité.', ar: 'المهام: نقل المرضى، مساعدتهم، تجهيز سيارة الإسعاف، تطبيق إجراءات السلامة.', en: 'Duties: Transport patients, assist them, prepare the ambulance, apply safety procedures.' }
+      ] },
+      { icon: '💊', title: { ar: 'صيدلي', en: 'Pharmacist', fr: 'Pharmacien / Pharmacienne' }, phrases: [
+        { fr: 'Pharmacien / Pharmacienne', ar: 'صيدلي', en: 'Pharmacist' },
+        { fr: 'Je délivre les médicaments et je conseille les patients.', ar: 'بصرف الأدوية وبعطي المرضى نصائح.', en: 'I dispense medications and advise patients.' },
+        { fr: 'Missions : Délivrer les médicaments, expliquer leur utilisation, conseiller, suivre le stock.', ar: 'المهام: صرف الأدوية، شرح طريقة الاستخدام، تقديم المشورة، متابعة المخزون.', en: 'Duties: Dispense medicines, explain how to use them, advise, monitor stock.' }
+      ] },
+      { icon: '🧑‍⚕️', title: { ar: 'أخصائي علاج طبيعي', en: 'Physiotherapist', fr: 'Kinésithérapeute' }, phrases: [
+        { fr: 'Kinésithérapeute', ar: 'أخصائي علاج طبيعي', en: 'Physiotherapist' },
+        { fr: 'J’aide les patients à retrouver leur mobilité.', ar: 'بساعد المرضى يستعيدوا حركتهم.', en: 'I help patients regain their mobility.' },
+        { fr: 'Missions : Faire les exercices de mobilité, la rééducation, la kinésithérapie, suivre les progrès du patient.', ar: 'المهام: تمارين الحركة، إعادة التأهيل، العلاج الفيزيائي، متابعة تطور المريض.', en: 'Duties: Run mobility exercises, rehabilitation, physical therapy, monitor patient progress.' }
+      ] },
+      { icon: '🧠', title: { ar: 'أخصائي نفسي', en: 'Psychologist', fr: 'Psychologue' }, phrases: [
+        { fr: 'Psychologue', ar: 'أخصائي نفسي', en: 'Psychologist' },
+        { fr: 'J’écoute les patients et je les accompagne dans leurs difficultés.', ar: 'بسمع للمرضى وبساعدهم يتعاملوا مع صعوباتهم.', en: 'I listen to patients and support them through their difficulties.' },
+        { fr: 'Missions : Mener les entretiens, écouter, évaluer psychologiquement, suivre et soutenir.', ar: 'المهام: المقابلات، الاستماع، التقييم النفسي، المتابعة والدعم.', en: 'Duties: Conduct interviews, listen, psychological assessment, follow-up and support.' }
+      ] },
+      { icon: '🦷', title: { ar: 'طبيب أسنان', en: 'Dentist', fr: 'Dentiste' }, phrases: [
+        { fr: 'Dentiste', ar: 'طبيب أسنان', en: 'Dentist' },
+        { fr: 'J’examine les dents et je soigne les problèmes dentaires.', ar: 'بفحص الأسنان وبعالج مشاكل الأسنان.', en: 'I examine teeth and treat dental problems.' },
+        { fr: 'Missions : Examiner les dents, soigner les caries, nettoyer les dents, faire les obturations et les soins.', ar: 'المهام: فحص الأسنان، علاج التسوس، تنظيف الأسنان، الحشوات والعلاجات السنية.', en: 'Duties: Examine teeth, treat decay, clean teeth, do fillings and dental treatments.' }
+      ] },
+      { icon: '🦷', title: { ar: 'مساعد طبيب أسنان', en: 'Dental Assistant', fr: 'Assistant / Assistante dentaire' }, phrases: [
+        { fr: 'Assistant / Assistante dentaire', ar: 'مساعد طبيب أسنان', en: 'Dental Assistant' },
+        { fr: 'J’assiste le dentiste et je prépare le matériel.', ar: 'بساعد طبيب الأسنان وبجهّز المعدات.', en: 'I assist the dentist and prepare the equipment.' },
+        { fr: 'Missions : Préparer les instruments, accueillir les patients, assister le dentiste, stériliser le matériel, gérer les rendez-vous.', ar: 'المهام: تجهيز الأدوات، استقبال المرضى، مساعدة الطبيب، تعقيم المعدات، المواعيد.', en: 'Duties: Prepare instruments, welcome patients, assist the dentist, sterilize equipment, manage appointments.' }
+      ] },
+      { icon: '🧑‍🏫', title: { ar: 'مدرّب', en: 'Trainer', fr: 'Formateur / Formatrice' }, phrases: [
+        { fr: 'Formateur / Formatrice', ar: 'مدرّب', en: 'Trainer' },
+        { fr: 'Je forme les salariés et je les accompagne dans leur apprentissage.', ar: 'بدرّب الموظفين وبساعدهم خلال التعلّم.', en: 'I train employees and support them during their learning.' },
+        { fr: 'Missions : Préparer la formation, expliquer, faire les exercices, évaluer les stagiaires.', ar: 'المهام: تحضير التدريب، الشرح، التمارين، تقييم المتدربين.', en: 'Duties: Prepare training, explain, run exercises, assess trainees.' }
+      ] },
+      { icon: '🧑‍🏫', title: { ar: 'أستاذ', en: 'Professor', fr: 'Professeur / Professeure' }, phrases: [
+        { fr: 'Professeur / Professeure', ar: 'أستاذ', en: 'Professor' },
+        { fr: 'Je prépare mes cours et j’enseigne aux élèves.', ar: 'بحضّر دروسي وبدرّس الطلاب.', en: 'I prepare my lessons and teach students.' },
+        { fr: 'Missions : Préparer les cours, enseigner, corriger, organiser les examens, suivre les élèves.', ar: 'المهام: تحضير الدروس، التدريس، التصحيح، الامتحانات، متابعة الطلاب.', en: 'Duties: Prepare lessons, teach, mark work, run exams, monitor students.' }
+      ] },
+      { icon: '📚', title: { ar: 'أمين مكتبة', en: 'Librarian', fr: 'Bibliothécaire' }, phrases: [
+        { fr: 'Bibliothécaire', ar: 'أمين مكتبة', en: 'Librarian' },
+        { fr: 'J’accueille les lecteurs et je m’occupe des livres.', ar: 'بستقبل القرّاء وباهتم بالكتب.', en: 'I welcome readers and take care of the books.' },
+        { fr: 'Missions : Ranger les livres, enregistrer les prêts, aider les visiteurs, gérer la collection.', ar: 'المهام: ترتيب الكتب، تسجيل الإعارات، مساعدة الزوار، إدارة المجموعة.', en: 'Duties: Arrange books, record loans, help visitors, manage the collection.' }
+      ] },
+      { icon: '🏫', title: { ar: 'مشرف مدرسي', en: 'School Supervisor', fr: 'Surveillant / Surveillante' }, phrases: [
+        { fr: 'Surveillant / Surveillante', ar: 'مشرف مدرسي', en: 'School Supervisor' },
+        { fr: 'Je surveille les élèves et je veille au respect des règles.', ar: 'براقب الطلاب وبنتبه إنهم يلتزموا بالقوانين.', en: 'I supervise students and make sure the rules are followed.' },
+        { fr: 'Missions : Surveiller les élèves, organiser les entrées et sorties, la récréation, appliquer le règlement.', ar: 'المهام: مراقبة الطلاب، تنظيم الدخول والخروج، الاستراحة، تطبيق النظام.', en: 'Duties: Supervise students, organize entries and exits, break times, enforce the rules.' }
+      ] },
+      { icon: '🧑‍🔧', title: { ar: 'فني صيانة', en: 'Maintenance Technician', fr: 'Technicien / Technicienne de maintenance' }, phrases: [
+        { fr: 'Technicien / Technicienne de maintenance', ar: 'فني صيانة', en: 'Maintenance Technician' },
+        { fr: 'Je dépanne les machines et je réalise la maintenance.', ar: 'بصلّح أعطال الآلات وبعمل الصيانة.', en: 'I troubleshoot machines and carry out maintenance.' },
+        { fr: 'Missions : Diagnostiquer les pannes, faire la maintenance préventive, réparer les machines, remplacer les pièces.', ar: 'المهام: تشخيص الأعطال، الصيانة الوقائية، إصلاح الآلات، تغيير القطع.', en: 'Duties: Diagnose faults, do preventive maintenance, repair machines, replace parts.' }
+      ] },
+      { icon: '⚙️', title: { ar: 'فني صيانة صناعية', en: 'Industrial Maintenance Technician', fr: 'Technicien / Technicienne de maintenance industrielle' }, phrases: [
+        { fr: 'Technicien / Technicienne de maintenance industrielle', ar: 'فني صيانة صناعية', en: 'Industrial Maintenance Technician' },
+        { fr: 'Je veille au bon fonctionnement des équipements industriels.', ar: 'بنتبه إن المعدات الصناعية تشتغل بشكل منيح.', en: 'I make sure industrial equipment works properly.' },
+        { fr: 'Missions : Entretenir les lignes de production, diagnostiquer les pannes, réparer les équipements, éviter les arrêts de production.', ar: 'المهام: صيانة خطوط الإنتاج، تشخيص الأعطال، إصلاح المعدات، منع توقف الإنتاج.', en: 'Duties: Maintain production lines, diagnose faults, repair equipment, prevent production stoppages.' }
+      ] },
+      { icon: '🔧', title: { ar: 'ميكانيكي صناعي', en: 'Industrial Mechanic', fr: 'Mécanicien industriel / Mécanicienne industrielle' }, phrases: [
+        { fr: 'Mécanicien industriel / Mécanicienne industrielle', ar: 'ميكانيكي صناعي', en: 'Industrial Mechanic' },
+        { fr: 'Je répare et j’entretiens les machines industrielles.', ar: 'بصلّح وبصين الآلات الصناعية.', en: 'I repair and maintain industrial machines.' },
+        { fr: 'Missions : Réparer les machines, changer les pièces, faire la maintenance, détecter les pannes mécaniques.', ar: 'المهام: إصلاح الآلات، تغيير القطع، الصيانة، اكتشاف الأعطال الميكانيكية.', en: 'Duties: Repair machines, replace parts, maintain, detect mechanical faults.' }
+      ] },
+      { icon: '🏭', title: { ar: 'عامل تصنيع', en: 'Manufacturing Worker', fr: 'Agent de fabrication' }, phrases: [
+        { fr: 'Agent de fabrication', ar: 'عامل تصنيع', en: 'Manufacturing Worker' },
+        { fr: 'Je fabrique les produits en respectant les consignes de production.', ar: 'بصنّع المنتجات وبالتزم بتعليمات الإنتاج.', en: 'I manufacture products while following production instructions.' },
+        { fr: 'Missions : Faire fonctionner la ligne de production, assembler les pièces, fabriquer, contrôler, emballer.', ar: 'المهام: تشغيل خط الإنتاج، تركيب القطع، التصنيع، الفحص، التغليف.', en: 'Duties: Operate the production line, assemble parts, manufacture, inspect, package.' }
+      ] },
+      { icon: '🔍', title: { ar: 'مراقب جودة', en: 'Quality Controller', fr: 'Contrôleur / Contrôleuse qualité' }, phrases: [
+        { fr: 'Contrôleur / Contrôleuse qualité', ar: 'مراقب جودة', en: 'Quality Controller' },
+        { fr: 'Je contrôle les produits pour vérifier leur conformité.', ar: 'بفحص المنتجات لأتأكد إنها مطابقة للمواصفات.', en: 'I inspect products to make sure they meet the required standards.' },
+        { fr: 'Missions : Contrôler les produits, détecter les défauts, enregistrer les résultats, rejeter les produits non conformes.', ar: 'المهام: فحص المنتجات، اكتشاف العيوب، تسجيل النتائج، رفض المنتجات غير المطابقة.', en: 'Duties: Inspect products, detect defects, record results, reject non-compliant products.' }
+      ] },
+      { icon: '📊', title: { ar: 'مسؤول لوجستيات', en: 'Logistics Manager', fr: 'Responsable logistique' }, phrases: [
+        { fr: 'Responsable logistique', ar: 'مسؤول لوجستيات', en: 'Logistics Manager' },
+        { fr: 'Je gère les stocks et j’organise les livraisons.', ar: 'بدير المخزون وبنظّم عمليات التوصيل.', en: 'I manage stock and organize deliveries.' },
+        { fr: 'Missions : Organiser le stock, l’expédition, la réception, le transport, suivre les commandes et les délais.', ar: 'المهام: تنظيم المخزون، الشحن، الاستلام، النقل، متابعة الطلبات والمواعيد.', en: 'Duties: Organize stock, shipping, receiving, transport, track orders and deadlines.' }
+      ] },
+      { icon: '🏭', title: { ar: 'عامل فرز', en: 'Sorting Worker', fr: 'Agent de tri' }, phrases: [
+        { fr: 'Agent de tri', ar: 'عامل فرز', en: 'Sorting Worker' },
+        { fr: 'Je trie les produits et je les répartis selon leur destination.', ar: 'بفرز المنتجات وبوزّعها حسب وجهتها.', en: 'I sort the products and distribute them according to their destination.' },
+        { fr: 'Missions : Trier les colis ou les produits, lire les étiquettes, mettre chaque produit au bon endroit.', ar: 'المهام: فرز الطرود أو المنتجات، قراءة الملصقات، وضع كل منتج في المكان المناسب.', en: 'Duties: Sort parcels or products, read labels, put each product in the right place.' }
+      ] },
+      { icon: '📦', title: { ar: 'عامل لوجستيات', en: 'Logistics Worker', fr: 'Agent logistique' }, phrases: [
+        { fr: 'Agent logistique', ar: 'عامل لوجستيات', en: 'Logistics Worker' },
+        { fr: 'Je réceptionne, je stocke et je prépare les marchandises.', ar: 'بستلم وبخزّن وبجهّز البضائع.', en: 'I receive, store and prepare goods.' },
+        { fr: 'Missions : Réceptionner, stocker, préparer les commandes, charger et décharger.', ar: 'المهام: الاستلام، التخزين، تجهيز الطلبات، التحميل والتفريغ.', en: 'Duties: Receive, store, prepare orders, load and unload.' }
+      ] },
+      { icon: '🚛', title: { ar: 'عامل رصيف تحميل', en: 'Dock Worker', fr: 'Agent de quai' }, phrases: [
+        { fr: 'Agent de quai', ar: 'عامل رصيف تحميل', en: 'Dock Worker' },
+        { fr: 'Je charge et je décharge les marchandises des camions.', ar: 'بحمّل وبفرّغ البضائع من الشاحنات.', en: 'I load and unload goods from trucks.' },
+        { fr: 'Missions : Charger les camions, les décharger, trier les colis, utiliser les engins de manutention.', ar: 'المهام: تحميل الشاحنات، تفريغها، فرز الطرود، استخدام معدات المناولة.', en: 'Duties: Load trucks, unload them, sort parcels, use handling equipment.' }
+      ] },
+      { icon: '📦', title: { ar: 'عامل تغليف', en: 'Packer', fr: 'Emballeur / Emballeuse' }, phrases: [
+        { fr: 'Emballeur / Emballeuse', ar: 'عامل تغليف', en: 'Packer' },
+        { fr: 'J’emballe les produits avant leur expédition.', ar: 'بغلّف المنتجات قبل شحنها.', en: 'I package the products before shipping them.' },
+        { fr: 'Missions : Emballer, protéger les produits, coller les étiquettes, préparer les colis.', ar: 'المهام: التغليف، حماية المنتجات، وضع الملصقات، تجهيز الطرود.', en: 'Duties: Package, protect products, apply labels, prepare parcels.' }
+      ] },
+      { icon: '🏷️', title: { ar: 'عامل وضع الملصقات', en: 'Labeller', fr: 'Étiqueteur / Étiqueteuse' }, phrases: [
+        { fr: 'Étiqueteur / Étiqueteuse', ar: 'عامل وضع الملصقات', en: 'Labeller' },
+        { fr: 'Je vérifie et je colle les étiquettes sur les produits.', ar: 'بفحص وبحط الملصقات على المنتجات.', en: 'I check and put labels on the products.' },
+        { fr: 'Missions : Poser les codes-barres, les étiquettes, les prix, les dates d’expiration selon le produit.', ar: 'المهام: وضع الباركود، الملصقات، الأسعار، تواريخ الصلاحية حسب المنتج.', en: 'Duties: Apply barcodes, labels, prices, expiry dates depending on the product.' }
+      ] },
+      { icon: '🛒', title: { ar: 'موظف رفوف', en: 'Shelf Stacker', fr: 'Employé libre-service' }, phrases: [
+        { fr: 'Employé libre-service', ar: 'موظف رفوف', en: 'Shelf Stacker' },
+        { fr: 'Je remplis les rayons et je vérifie les produits.', ar: 'بعبي الرفوف وبفحص المنتجات.', en: 'I stock the shelves and check the products.' },
+        { fr: 'Missions : Remplir les rayons, ranger les produits, vérifier les dates et les prix.', ar: 'المهام: تعبئة الرفوف، ترتيب المنتجات، مراقبة التواريخ والأسعار.', en: 'Duties: Stock shelves, arrange products, check dates and prices.' }
+      ] },
+      { icon: '🛍️', title: { ar: 'مسؤول قسم', en: 'Department Manager', fr: 'Responsable de rayon' }, phrases: [
+        { fr: 'Responsable de rayon', ar: 'مسؤول قسم', en: 'Department Manager' },
+        { fr: 'Je gère mon rayon et je veille à ce qu’il soit bien approvisionné.', ar: 'بدير قسمي وبنتبه يكون مليان بالبضاعة.', en: 'I manage my section and make sure it is well stocked.' },
+        { fr: 'Missions : Organiser le rayon, gérer le stock, les prix, les commandes, suivre l’équipe.', ar: 'المهام: تنظيم القسم، المخزون، الأسعار، الطلبات، متابعة الموظفين.', en: 'Duties: Organize the department, manage stock, prices, orders, supervise staff.' }
+      ] },
+      { icon: '🏬', title: { ar: 'مدير متجر', en: 'Store Manager', fr: 'Responsable de magasin' }, phrases: [
+        { fr: 'Responsable de magasin', ar: 'مدير متجر', en: 'Store Manager' },
+        { fr: 'Je gère le magasin et j’encadre l’équipe.', ar: 'بدير المحل وبشرف على الفريق.', en: 'I manage the store and supervise the team.' },
+        { fr: 'Missions : Gérer le personnel, les ventes, le stock, les commandes, le service client.', ar: 'المهام: إدارة الموظفين، المبيعات، المخزون، الطلبات، خدمة العملاء.', en: 'Duties: Manage staff, sales, stock, orders, customer service.' }
+      ] },
+      { icon: '💰', title: { ar: 'مندوب مبيعات', en: 'Sales Representative', fr: 'Commercial / Commerciale' }, phrases: [
+        { fr: 'Commercial / Commerciale', ar: 'مندوب مبيعات', en: 'Sales Representative' },
+        { fr: 'Je contacte les clients et je leur présente nos produits.', ar: 'بتواصل مع الزباين وبعرّفهم على منتجاتنا.', en: 'I contact customers and present our products to them.' },
+        { fr: 'Missions : Prospecter des clients, vendre, négocier, suivre les clients.', ar: 'المهام: البحث عن العملاء، البيع، التفاوض، متابعة العملاء.', en: 'Duties: Find customers, sell, negotiate, follow up with customers.' }
+      ] },
+      { icon: '📞', title: { ar: 'موظف مبيعات هاتفية', en: 'Telesales Agent', fr: 'Télévendeur / Télévendeuse' }, phrases: [
+        { fr: 'Télévendeur / Télévendeuse', ar: 'موظف مبيعات هاتفية', en: 'Telesales Agent' },
+        { fr: 'Je contacte les clients par téléphone pour leur proposer nos services.', ar: 'بتصل بالزبائن عالتلفون وبعرض عليهم خدماتنا.', en: 'I contact customers by phone to offer them our services.' },
+        { fr: 'Missions : Faire les appels, présenter les offres, vendre, enregistrer les informations.', ar: 'المهام: الاتصالات، تقديم العروض، البيع، تسجيل المعلومات.', en: 'Duties: Make calls, present offers, sell, record information.' }
+      ] },
+      { icon: '🧑‍💼', title: { ar: 'موظف موارد بشرية', en: 'Human Resources Officer', fr: 'Ressources humaines' }, phrases: [
+        { fr: 'Ressources humaines', ar: 'موظف موارد بشرية', en: 'Human Resources Officer' },
+        { fr: 'Je m’occupe du recrutement et du suivi des salariés.', ar: 'بهتم بالتوظيف ومتابعة الموظفين.', en: 'I handle recruitment and employee follow-up.' },
+        { fr: 'Missions : Recruter, gérer les contrats, les dossiers du personnel, les congés, la formation.', ar: 'المهام: التوظيف، العقود، ملفات الموظفين، الإجازات، التدريب.', en: 'Duties: Recruit, manage contracts, employee files, leave, training.' }
+      ] },
+      { icon: '📑', title: { ar: 'سكرتير', en: 'Secretary', fr: 'Secrétaire' }, phrases: [
+        { fr: 'Secrétaire', ar: 'سكرتير', en: 'Secretary' },
+        { fr: 'Je gère les appels, les rendez-vous et les documents.', ar: 'بهتم بالاتصالات والمواعيد والوثائق.', en: 'I handle calls, appointments and documents.' },
+        { fr: 'Missions : Répondre au téléphone, gérer le courrier, les rendez-vous, les dossiers, l’administratif.', ar: 'المهام: الهاتف، البريد، المواعيد، الملفات، الأعمال الإدارية.', en: 'Duties: Answer the phone, handle mail, appointments, files, administrative work.' }
+      ] },
+      { icon: '💻', title: { ar: 'مساعد تجاري', en: 'Sales Assistant', fr: 'Assistant / Assistante commercial(e)' }, phrases: [
+        { fr: 'Assistant / Assistante commercial(e)', ar: 'مساعد تجاري', en: 'Sales Assistant' },
+        { fr: 'Je prépare les devis et je suis les commandes des clients.', ar: 'بحضّر عروض الأسعار وبابع طلبات الزباين.', en: 'I prepare quotations and follow up on customer orders.' },
+        { fr: 'Missions : Préparer les devis, les factures, suivre les commandes, contacter les clients.', ar: 'المهام: عروض الأسعار، الفواتير، الطلبات، التواصل مع العملاء.', en: 'Duties: Prepare quotes, invoices, follow up orders, contact customers.' }
+      ] },
+      { icon: '📊', title: { ar: 'محلل بيانات', en: 'Data Analyst', fr: 'Data analyst' }, phrases: [
+        { fr: 'Data analyst', ar: 'محلل بيانات', en: 'Data Analyst' },
+        { fr: 'J’analyse les données pour aider l’entreprise à prendre des décisions.', ar: 'بحلّل البيانات لساعد الشركة تاخد قرارات.', en: 'I analyze data to help the company make decisions.' },
+        { fr: 'Missions : Analyser les données, préparer les rapports, les tableaux, les statistiques.', ar: 'المهام: تحليل البيانات، إعداد التقارير، الجداول، الإحصاءات.', en: 'Duties: Analyze data, prepare reports, tables, statistics.' }
+      ] },
+      { icon: '💰', title: { ar: 'مراقب تسيير', en: 'Management Controller', fr: 'Contrôleur / Contrôleuse de gestion' }, phrases: [
+        { fr: 'Contrôleur / Contrôleuse de gestion', ar: 'مراقب تسيير', en: 'Management Controller' },
+        { fr: 'Je suis les résultats et les dépenses de l’entreprise.', ar: 'بتابع نتائج ومصاريف الشركة.', en: 'I monitor the company’s results and expenses.' },
+        { fr: 'Missions : Gérer le budget, les coûts, les rapports, analyser les résultats.', ar: 'المهام: الميزانية، التكاليف، التقارير، تحليل النتائج.', en: 'Duties: Manage budget, costs, reports, analyze results.' }
+      ] },
+      { icon: '🏦', title: { ar: 'مستشار بنكي', en: 'Bank Advisor', fr: 'Conseiller / Conseillère bancaire' }, phrases: [
+        { fr: 'Conseiller / Conseillère bancaire', ar: 'مستشار بنكي', en: 'Bank Advisor' },
+        { fr: 'J’accompagne les clients dans leurs démarches bancaires.', ar: 'بساعد الزباين بإجراءاتهم البنكية.', en: 'I help customers with their banking needs.' },
+        { fr: 'Missions : Gérer les comptes, les cartes, les crédits, les virements, les conseils.', ar: 'المهام: الحسابات، البطاقات، القروض، التحويلات، الاستشارات.', en: 'Duties: Handle accounts, cards, loans, transfers, advice.' }
+      ] },
+      { icon: '🏦', title: { ar: 'مسؤول عملاء', en: 'Customer Account Manager', fr: 'Chargé / Chargée de clientèle' }, phrases: [
+        { fr: 'Chargé / Chargée de clientèle', ar: 'مسؤول عملاء', en: 'Customer Account Manager' },
+        { fr: 'Je réponds aux demandes des clients et je cherche des solutions.', ar: 'بردّ على طلبات الزباين وبحاول لاقي حلول.', en: 'I respond to customers’ requests and find solutions.' },
+        { fr: 'Missions : Assurer le service client, traiter les demandes, résoudre les problèmes, suivre les dossiers.', ar: 'المهام: خدمة العملاء، معالجة الطلبات، حل المشاكل، متابعة الملفات.', en: 'Duties: Provide customer service, process requests, solve problems, follow up files.' }
+      ] },
+      { icon: '🏠', title: { ar: 'موظف استقبال', en: 'Reception Agent', fr: 'Agent / Agente d’accueil' }, phrases: [
+        { fr: 'Agent / Agente d’accueil', ar: 'موظف استقبال', en: 'Reception Agent' },
+        { fr: 'J’accueille les visiteurs et je les oriente.', ar: 'بستقبل الزوار وبوجّههم.', en: 'I welcome visitors and direct them.' },
+        { fr: 'Missions : Accueillir, donner des informations, orienter les visiteurs, répondre au téléphone.', ar: 'المهام: الاستقبال، إعطاء المعلومات، توجيه الزوار، الهاتف.', en: 'Duties: Welcome, give information, direct visitors, answer the phone.' }
+      ] },
+      { icon: '📞', title: { ar: 'موظف بدالة هاتفية', en: 'Switchboard Operator', fr: 'Standardiste' }, phrases: [
+        { fr: 'Standardiste', ar: 'موظف بدالة هاتفية', en: 'Switchboard Operator' },
+        { fr: 'Je réponds au téléphone et je transfère les appels.', ar: 'بردّ عالتلفون وبحوّل الاتصالات.', en: 'I answer the phone and transfer calls.' },
+        { fr: 'Missions : Recevoir les appels, les transférer aux services, enregistrer les messages.', ar: 'المهام: استقبال المكالمات، تحويلها للأقسام، تسجيل الرسائل.', en: 'Duties: Receive calls, transfer them to departments, record messages.' }
+      ] },
+      { icon: '🏢', title: { ar: 'مسؤول إداري', en: 'Administrative Officer', fr: 'Gestionnaire administratif / administrative' }, phrases: [
+        { fr: 'Gestionnaire administratif / administrative', ar: 'مسؤول إداري', en: 'Administrative Officer' },
+        { fr: 'Je traite les dossiers et je vérifie les documents.', ar: 'بعالج الملفات وبفحص الوثائق.', en: 'I process files and check documents.' },
+        { fr: 'Missions : Traiter les dossiers, saisir les informations, vérifier les documents, assurer le suivi.', ar: 'المهام: معالجة الملفات، إدخال المعلومات، التحقق من الوثائق، المتابعة.', en: 'Duties: Process files, enter information, check documents, follow up.' }
+      ] },
+      { icon: '🔧', title: { ar: 'فني كمبيوتر', en: 'IT Technician', fr: 'Technicien / Technicienne informatique' }, phrases: [
+        { fr: 'Technicien / Technicienne informatique', ar: 'فني كمبيوتر', en: 'IT Technician' },
+        { fr: 'J’installe les logiciels et je dépanne les ordinateurs.', ar: 'بثبّت البرامج وبصلّح مشاكل الكمبيوتر.', en: 'I install software and troubleshoot computers.' },
+        { fr: 'Missions : Entretenir les ordinateurs, installer les logiciels, résoudre les pannes, aider les utilisateurs.', ar: 'المهام: صيانة الحواسيب، تثبيت البرامج، حل الأعطال، مساعدة المستخدمين.', en: 'Duties: Maintain computers, install software, resolve faults, help users.' }
+      ] },
+      { icon: '🌐', title: { ar: 'مسؤول أنظمة وشبكات', en: 'Systems & Network Administrator', fr: 'Administrateur / Administratrice systèmes et réseaux' }, phrases: [
+        { fr: 'Administrateur / Administratrice systèmes et réseaux', ar: 'مسؤول أنظمة وشبكات', en: 'Systems & Network Administrator' },
+        { fr: 'Je gère les serveurs et le réseau de l’entreprise.', ar: 'بدير السيرفرات وشبكة الشركة.', en: 'I manage the company’s servers and network.' },
+        { fr: 'Missions : Gérer les réseaux, les serveurs, les comptes, la sécurité, les sauvegardes.', ar: 'المهام: الشبكات، الخوادم، الحسابات، الحماية، النسخ الاحتياطي.', en: 'Duties: Manage networks, servers, accounts, security, backups.' }
+      ] },
+      { icon: '🖥️', title: { ar: 'فني دعم تقني', en: 'Technical Support Technician', fr: 'Technicien / Technicienne support' }, phrases: [
+        { fr: 'Technicien / Technicienne support', ar: 'فني دعم تقني', en: 'Technical Support Technician' },
+        { fr: 'J’aide les utilisateurs lorsqu’ils rencontrent un problème informatique.', ar: 'بساعد المستخدمين لما يواجهوا مشكلة بالكمبيوتر.', en: 'I help users when they have an IT problem.' },
+        { fr: 'Missions : Recevoir les problèmes, diagnostiquer, résoudre à distance ou sur place, suivre les demandes.', ar: 'المهام: استقبال المشاكل، التشخيص، الحل عن بعد أو حضوريًا، متابعة الطلبات.', en: 'Duties: Receive problems, diagnose, resolve remotely or on site, track requests.' }
+      ] },
+      { icon: '📐', title: { ar: 'رسام صناعي', en: 'Industrial Draughtsman', fr: 'Dessinateur / Dessinatrice industriel(le)' }, phrases: [
+        { fr: 'Dessinateur / Dessinatrice industriel(le)', ar: 'رسام صناعي', en: 'Industrial Draughtsman' },
+        { fr: 'Je réalise des plans techniques à partir des indications de l’ingénieur.', ar: 'برسم مخططات تقنية بناءً على تعليمات المهندس.', en: 'I create technical drawings based on the engineer’s instructions.' },
+        { fr: 'Missions : Faire les plans, les schémas techniques, utiliser les logiciels de conception.', ar: 'المهام: المخططات، الرسومات التقنية، استعمال برامج التصميم.', en: 'Duties: Create plans, technical drawings, use design software.' }
+      ] },
+      { icon: '👷', title: { ar: 'رئيس ورشة', en: 'Site Foreman', fr: 'Chef / Cheffe de chantier' }, phrases: [
+        { fr: 'Chef / Cheffe de chantier', ar: 'رئيس ورشة', en: 'Site Foreman' },
+        { fr: 'Je supervise les travaux et je coordonne les équipes sur le chantier.', ar: 'بشرف على الشغل وبنسّق الفرق بالورشة.', en: 'I supervise the work and coordinate the teams on the construction site.' },
+        { fr: 'Missions : Organiser les ouvriers, suivre le travail, la sécurité, les matériaux et les délais.', ar: 'المهام: تنظيم العمال، متابعة العمل، السلامة، المواد والمواعيد.', en: 'Duties: Organize workers, monitor the work, safety, materials and deadlines.' }
+      ] },
+      { icon: '🏗️', title: { ar: 'كهربائي مباني', en: 'Building Electrician', fr: 'Électricien bâtiment' }, phrases: [
+        { fr: 'Électricien bâtiment', ar: 'كهربائي مباني', en: 'Building Electrician' },
+        { fr: 'J’installe les prises, les interrupteurs et les luminaires.', ar: 'بركّب المقابس والمفاتيح والإنارة.', en: 'I install sockets, switches and lights.' },
+        { fr: 'Missions : Faire les installations électriques, les prises, l’éclairage, les tableaux électriques, réparer les pannes.', ar: 'المهام: تمديدات كهربائية، مقابس، إنارة، لوحات كهربائية، إصلاح الأعطال.', en: 'Duties: Do electrical installations, sockets, lighting, electrical panels, repair faults.' }
+      ] },
+      { icon: '🚿', title: { ar: 'فني تجهيزات صحية', en: 'Plumbing Installer', fr: 'Installateur sanitaire' }, phrases: [
+        { fr: 'Installateur sanitaire', ar: 'فني تجهيزات صحية', en: 'Plumbing Installer' },
+        { fr: 'J’installe les équipements sanitaires et les canalisations.', ar: 'بركّب التجهيزات الصحية وتمديدات المياه.', en: 'I install plumbing fixtures and pipes.' },
+        { fr: 'Missions : Installer lavabos, toilettes, douches, tuyaux d’eau, réparer les fuites.', ar: 'المهام: مغاسل، مراحيض، دوش، أنابيب المياه، إصلاح التسربات.', en: 'Duties: Install sinks, toilets, showers, water pipes, repair leaks.' }
+      ] },
+      { icon: '❄️', title: { ar: 'فني تبريد وتكييف', en: 'Refrigeration Technician', fr: 'Frigoriste' }, phrases: [
+        { fr: 'Frigoriste', ar: 'فني تبريد وتكييف', en: 'Refrigeration Technician' },
+        { fr: 'J’installe et je dépanne les systèmes de réfrigération.', ar: 'بركّب وبصلّح أنظمة التبريد.', en: 'I install and repair refrigeration systems.' },
+        { fr: 'Missions : Installer et entretenir les appareils de froid, la climatisation, diagnostiquer les pannes.', ar: 'المهام: تركيب وصيانة أجهزة التبريد، التكييف، تشخيص الأعطال.', en: 'Duties: Install and maintain refrigeration units, air conditioning, diagnose faults.' }
+      ] },
+      { icon: '🔥', title: { ar: 'فني تدفئة', en: 'Heating Engineer', fr: 'Chauffagiste' }, phrases: [
+        { fr: 'Chauffagiste', ar: 'فني تدفئة', en: 'Heating Engineer' },
+        { fr: 'J’installe et j’entretiens les systèmes de chauffage.', ar: 'بركّب وبصين أنظمة التدفئة.', en: 'I install and maintain heating systems.' },
+        { fr: 'Missions : Installer les chaudières et les systèmes de chauffage, entretenir, réparer les pannes.', ar: 'المهام: تركيب الغلايات وأنظمة التدفئة، الصيانة، إصلاح الأعطال.', en: 'Duties: Install boilers and heating systems, maintain, repair faults.' }
+      ] },
+      { icon: '🧱', title: { ar: 'عامل تركيب البلاط', en: 'Tiler', fr: 'Carreleur / Carreleuse' }, phrases: [
+        { fr: 'Carreleur / Carreleuse', ar: 'عامل تركيب البلاط', en: 'Tiler' },
+        { fr: 'Je pose du carrelage sur les sols et les murs.', ar: 'بركّب البلاط عالأرضيات والحيطان.', en: 'I lay tiles on floors and walls.' },
+        { fr: 'Missions : Préparer la surface, découper le carrelage, poser, coller, finir.', ar: 'المهام: تجهيز السطح، قص البلاط، التركيب، التلصيق، التشطيب.', en: 'Duties: Prepare the surface, cut tiles, lay, glue, finish.' }
+      ] },
+      { icon: '🏭', title: { ar: 'مشغّل آلة', en: 'Machine Operator', fr: 'Opérateur de machine' }, phrases: [
+        { fr: 'Opérateur de machine', ar: 'مشغّل آلة', en: 'Machine Operator' },
+        { fr: 'Je conduis la machine et je vérifie la production.', ar: 'بشغّل الآلة وبفحص الإنتاج.', en: 'I operate the machine and check the production.' },
+        { fr: 'Missions : Faire fonctionner la machine, la régler, surveiller la production, détecter les pannes, la nettoyer.', ar: 'المهام: تشغيل الآلة، ضبطها، مراقبة الإنتاج، اكتشاف الأعطال، تنظيفها.', en: 'Duties: Operate the machine, adjust it, monitor production, detect faults, clean it.' }
+      ] },
+      { icon: '🏭', title: { ar: 'مشغّل خط إنتاج', en: 'Production Line Operator', fr: 'Conducteur de ligne' }, phrases: [
+        { fr: 'Conducteur de ligne', ar: 'مشغّل خط إنتاج', en: 'Production Line Operator' },
+        { fr: 'Je conduis la ligne de production et je contrôle les produits.', ar: 'بشغّل خط الإنتاج وبفحص المنتجات.', en: 'I operate the production line and check the products.' },
+        { fr: 'Missions : Faire fonctionner la ligne de production, surveiller les machines, la qualité, la vitesse et la production.', ar: 'المهام: تشغيل خط الإنتاج، مراقبة الآلات، الجودة، السرعة والإنتاج.', en: 'Duties: Operate the production line, monitor machines, quality, speed and output.' }
+      ] },
+      { icon: '🔍', title: { ar: 'موظف مراقبة', en: 'Quality Inspector', fr: 'Agent de contrôle' }, phrases: [
+        { fr: 'Agent de contrôle', ar: 'موظف مراقبة', en: 'Quality Inspector' },
+        { fr: 'Je contrôle les produits avant leur expédition.', ar: 'بفحص المنتجات قبل شحنها.', en: 'I inspect the products before they are shipped.' },
+        { fr: 'Missions : Contrôler, détecter les défauts, vérifier la conformité, enregistrer les résultats.', ar: 'المهام: الفحص، اكتشاف العيوب، مطابقة المواصفات، تسجيل النتائج.', en: 'Duties: Inspect, detect defects, check conformity, record results.' }
+      ] },
+      { icon: '🧪', title: { ar: 'عامل تصنيع', en: 'Manufacturing Operator', fr: 'Opérateur de fabrication' }, phrases: [
+        { fr: 'Opérateur de fabrication', ar: 'عامل تصنيع', en: 'Manufacturing Operator' },
+        { fr: 'Je fabrique les produits en suivant les instructions.', ar: 'بصنّع المنتجات حسب التعليمات.', en: 'I manufacture products according to the instructions.' },
+        { fr: 'Missions : Fabriquer, utiliser les équipements, mesurer, contrôler, respecter les consignes de production.', ar: 'المهام: التصنيع، تشغيل المعدات، القياس، الفحص، احترام تعليمات الإنتاج.', en: 'Duties: Manufacture, operate equipment, measure, inspect, follow production instructions.' }
+      ] },
+      { icon: '🧴', title: { ar: 'عامل تغليف صناعي', en: 'Industrial Packaging Operator', fr: 'Opérateur de conditionnement' }, phrases: [
+        { fr: 'Opérateur de conditionnement', ar: 'عامل تغليف صناعي', en: 'Industrial Packaging Operator' },
+        { fr: 'Je conditionne les produits et je contrôle leur emballage.', ar: 'بغلّف المنتجات وبفحص التغليف.', en: 'I package the products and check their packaging.' },
+        { fr: 'Missions : Remplir, emballer, coller les étiquettes, contrôler la qualité, préparer les produits pour l’expédition.', ar: 'المهام: تعبئة، تغليف، وضع الملصقات، مراقبة الجودة، تجهيز المنتجات للشحن.', en: 'Duties: Fill, package, apply labels, monitor quality, prepare products for shipping.' }
+      ] },
+      { icon: '🧰', title: { ar: 'عامل تركيب وتجميع', en: 'Assembly Fitter', fr: 'Monteur / Monteuse' }, phrases: [
+        { fr: 'Monteur / Monteuse', ar: 'عامل تركيب وتجميع', en: 'Assembly Fitter' },
+        { fr: 'Je monte les pièces en suivant le plan de montage.', ar: 'بركّب القطع حسب مخطط التركيب.', en: 'I assemble the parts according to the assembly plan.' },
+        { fr: 'Missions : Assembler les pièces, utiliser les outils, lire les plans, contrôler le produit final.', ar: 'المهام: تركيب القطع، استعمال الأدوات، قراءة المخططات، فحص المنتج النهائي.', en: 'Duties: Assemble parts, use tools, read plans, inspect the final product.' }
+      ] },
+      { icon: '🔩', title: { ar: 'عامل تجميع', en: 'Assembler', fr: 'Assembleur / Assembleuse' }, phrases: [
+        { fr: 'Assembleur / Assembleuse', ar: 'عامل تجميع', en: 'Assembler' },
+        { fr: 'J’assemble les différentes pièces pour fabriquer le produit.', ar: 'بجمع القطع المختلفة لأصنع المنتج.', en: 'I assemble the different parts to make the product.' },
+        { fr: 'Missions : Assembler les pièces, visser, contrôler, respecter les étapes de fabrication.', ar: 'المهام: تجميع القطع، البراغي، الفحص، احترام خطوات التصنيع.', en: 'Duties: Assemble parts, fasten screws, inspect, follow manufacturing steps.' }
+      ] },
+      { icon: '🛠️', title: { ar: 'فني تركيب وضبط', en: 'Fitter-Assembler', fr: 'Ajusteur-monteur / Ajusteuse-monteuse' }, phrases: [
+        { fr: 'Ajusteur-monteur / Ajusteuse-monteuse', ar: 'فني تركيب وضبط', en: 'Fitter-Assembler' },
+        { fr: 'J’assemble les pièces et je vérifie leur ajustement.', ar: 'بركّب القطع وبفحص إذا تركيبها مضبوط.', en: 'I assemble the parts and check their fit.' },
+        { fr: 'Missions : Assembler les pièces, ajuster, mesurer, finir, contrôler le montage.', ar: 'المهام: تركيب القطع، الضبط، القياس، التشطيب، فحص التجميع.', en: 'Duties: Assemble parts, adjust, measure, finish, check the assembly.' }
+      ] },
+      { icon: '⚙️', title: { ar: 'عامل تشغيل آلات صناعية', en: 'Machinist', fr: 'Usineur / Usineuse' }, phrases: [
+        { fr: 'Usineur / Usineuse', ar: 'عامل تشغيل آلات صناعية', en: 'Machinist' },
+        { fr: 'Je fabrique des pièces à l’aide de machines-outils.', ar: 'بصنّع قطع باستخدام آلات صناعية.', en: 'I manufacture parts using machine tools.' },
+        { fr: 'Missions : Faire fonctionner les tours et les fraiseuses, mesurer, usiner, contrôler la qualité.', ar: 'المهام: تشغيل آلات الخراطة والتفريز، القياس، التصنيع، مراقبة الجودة.', en: 'Duties: Operate lathes and milling machines, measure, machine, monitor quality.' }
+      ] },
+      { icon: '💻', title: { ar: 'مشغّل آلة CNC', en: 'CNC Operator', fr: 'Opérateur CN' }, phrases: [
+        { fr: 'Opérateur CN', ar: 'مشغّل آلة CNC', en: 'CNC Operator' },
+        { fr: 'Je règle la machine et je contrôle les pièces fabriquées.', ar: 'بظبط الآلة وبفحص القطع المصنّعة.', en: 'I set up the machine and inspect the manufactured parts.' },
+        { fr: 'Missions : Faire fonctionner les machines CNC, régler les paramètres, lire les plans, mesurer les pièces.', ar: 'المهام: تشغيل آلات CNC، ضبط الإعدادات، قراءة المخططات، قياس القطع.', en: 'Duties: Operate CNC machines, set parameters, read plans, measure parts.' }
+      ] },
+      { icon: '📐', title: { ar: 'فني قياسات', en: 'Metrologist', fr: 'Métrologue' }, phrases: [
+        { fr: 'Métrologue', ar: 'فني قياسات', en: 'Metrologist' },
+        { fr: 'Je mesure les pièces pour vérifier leur conformité.', ar: 'بقيس القطع لأتأكد إنها مطابقة للمواصفات.', en: 'I measure parts to make sure they meet specifications.' },
+        { fr: 'Missions : Faire les mesures précises, utiliser les instruments de mesure, enregistrer les résultats, contrôler la qualité.', ar: 'المهام: القياسات الدقيقة، استعمال أجهزة القياس، تسجيل النتائج، مراقبة الجودة.', en: 'Duties: Take precise measurements, use measuring instruments, record results, monitor quality.' }
+      ] },
+      { icon: '🧯', title: { ar: 'موظف سلامة من الحرائق', en: 'Fire Safety Officer', fr: 'Agent de sécurité incendie' }, phrases: [
+        { fr: 'Agent de sécurité incendie', ar: 'موظف سلامة من الحرائق', en: 'Fire Safety Officer' },
+        { fr: 'Je surveille les installations et je préviens les risques d’incendie.', ar: 'براقب المكان وبنتبه لمخاطر الحريق.', en: 'I monitor the premises and prevent fire risks.' },
+        { fr: 'Missions : Surveiller, faire les rondes de sécurité, gérer les alarmes, appliquer les procédures d’urgence.', ar: 'المهام: المراقبة، جولات السلامة، التعامل مع الإنذارات، تطبيق إجراءات الطوارئ.', en: 'Duties: Monitor, do safety rounds, handle alarms, apply emergency procedures.' }
+      ] },
+      { icon: '🚛', title: { ar: 'سائق آليات بناء', en: 'Plant Operator', fr: 'Conducteur d’engins' }, phrases: [
+        { fr: 'Conducteur d’engins', ar: 'سائق آليات بناء', en: 'Plant Operator' },
+        { fr: 'Je conduis les engins de chantier en respectant les consignes de sécurité.', ar: 'بسوق آليات البناء وبالتزم بتعليمات السلامة.', en: 'I operate construction machinery while following safety instructions.' },
+        { fr: 'Missions : Faire fonctionner les engins et pelles, transporter les matériaux, préparer le terrain, petit entretien.', ar: 'المهام: تشغيل الحفارات والآليات، نقل المواد، تجهيز الأرض، الصيانة البسيطة.', en: 'Duties: Operate excavators and machinery, move materials, prepare the ground, basic maintenance.' }
+      ] },
+      { icon: '🚜', title: { ar: 'سائق حفّارة', en: 'Excavator Driver', fr: 'Conducteur de pelle' }, phrases: [
+        { fr: 'Conducteur de pelle', ar: 'سائق حفّارة', en: 'Excavator Driver' },
+        { fr: 'Je conduis la pelle et je réalise les travaux de terrassement.', ar: 'بسوق الحفّارة وبعمل أعمال الحفر وتجهيز الأرض.', en: 'I operate the excavator and carry out earthmoving work.' },
+        { fr: 'Missions : Creuser, déplacer la terre, préparer le terrain, charger les matériaux.', ar: 'المهام: الحفر، نقل التراب، تجهيز الأرض، تحميل المواد.', en: 'Duties: Dig, move earth, prepare the ground, load materials.' }
+      ] },
+      { icon: '🏗️', title: { ar: 'مشغّل رافعة', en: 'Crane Operator', fr: 'Grutier / Grutière' }, phrases: [
+        { fr: 'Grutier / Grutière', ar: 'مشغّل رافعة', en: 'Crane Operator' },
+        { fr: 'Je conduis la grue et je déplace les charges sur le chantier.', ar: 'بشغّل الرافعة وبنقل الحمولة بالورشة.', en: 'I operate the crane and move loads on the construction site.' },
+        { fr: 'Missions : Faire fonctionner la grue, lever les matériaux, déplacer les charges, respecter les signaux de sécurité.', ar: 'المهام: تشغيل الرافعة، رفع المواد، تحريك الأحمال، احترام إشارات السلامة.', en: 'Duties: Operate the crane, lift materials, move loads, follow safety signals.' }
+      ] },
+      { icon: '🧱', title: { ar: 'عامل قوالب خرسانة', en: 'Formwork Carpenter', fr: 'Coffreur-bancheur / Coffreuse-bancheuse' }, phrases: [
+        { fr: 'Coffreur-bancheur / Coffreuse-bancheuse', ar: 'عامل قوالب خرسانة', en: 'Formwork Carpenter' },
+        { fr: 'Je prépare les coffrages pour couler le béton.', ar: 'بحضّر القوالب لصبّ البيتون.', en: 'I prepare formwork for pouring concrete.' },
+        { fr: 'Missions : Poser les coffrages, préparer l’armature selon les besoins, couler le béton, décoffrer.', ar: 'المهام: تركيب القوالب، تجهيز الحديد حسب العمل، صب الخرسانة، فك القوالب.', en: 'Duties: Install formwork, prepare reinforcement as needed, pour concrete, remove formwork.' }
+      ] },
+      { icon: '🧱', title: { ar: 'عامل ألواح جبس', en: 'Plasterboard Installer', fr: 'Plaquiste' }, phrases: [
+        { fr: 'Plaquiste', ar: 'عامل ألواح جبس', en: 'Plasterboard Installer' },
+        { fr: 'Je pose des plaques de plâtre et je réalise les finitions.', ar: 'بركّب ألواح الجبصين وبعمل التشطيبات.', en: 'I install plasterboard and carry out finishing work.' },
+        { fr: 'Missions : Poser les cloisons et les plafonds en plâtre, l’isolation, l’enduit, les finitions.', ar: 'المهام: تركيب الجدران والأسقف الجبسية، العزل، المعجون، التشطيب.', en: 'Duties: Install plasterboard walls and ceilings, insulation, filler, finishing.' }
+      ] },
+      { icon: '🏠', title: { ar: 'عامل واجهات', en: 'Facade Worker', fr: 'Façadier / Façadière' }, phrases: [
+        { fr: 'Façadier / Façadière', ar: 'عامل واجهات', en: 'Facade Worker' },
+        { fr: 'Je rénove et je réalise les finitions des façades.', ar: 'برمّم وبعمل تشطيبات واجهات الأبنية.', en: 'I renovate and finish building facades.' },
+        { fr: 'Missions : Nettoyer les façades, isoler, rénover, peindre l’extérieur.', ar: 'المهام: تنظيف الواجهات، العزل، الترميم، الطلاء الخارجي.', en: 'Duties: Clean facades, insulate, renovate, paint exteriors.' }
+      ] },
+      { icon: '🪟', title: { ar: 'عامل زجاج', en: 'Glazier', fr: 'Vitrier / Vitrière' }, phrases: [
+        { fr: 'Vitrier / Vitrière', ar: 'عامل زجاج', en: 'Glazier' },
+        { fr: 'Je pose et je remplace les vitres.', ar: 'بركّب وببدّل الزجاج.', en: 'I install and replace glass.' },
+        { fr: 'Missions : Mesurer le verre, le poser, le remplacer, réparer certaines casses.', ar: 'المهام: قياس الزجاج، تركيبه، استبداله، إصلاح بعض الأضرار.', en: 'Duties: Measure glass, install it, replace it, repair some damage.' }
+      ] },
+      { icon: '🚪', title: { ar: 'حدّاد أقفال', en: 'Locksmith', fr: 'Serrurier / Serrurière' }, phrases: [
+        { fr: 'Serrurier / Serrurière', ar: 'حدّاد أقفال', en: 'Locksmith' },
+        { fr: 'Je pose et je répare les serrures et les portes.', ar: 'بركّب وبصلّح الأقفال والأبواب.', en: 'I install and repair locks and doors.' },
+        { fr: 'Missions : Poser les serrures, ouvrir les portes, les réparer, installer les systèmes de sécurité.', ar: 'المهام: تركيب الأقفال، فتح الأبواب، إصلاحها، تركيب أنظمة الأمان.', en: 'Duties: Install locks, open doors, repair them, install security systems.' }
+      ] },
+      { icon: '🧼', title: { ar: 'عامل نظافة', en: 'Cleaning Agent', fr: 'Agent de propreté' }, phrases: [
+        { fr: 'Agent de propreté', ar: 'عامل نظافة', en: 'Cleaning Agent' },
+        { fr: 'Je nettoie les locaux en respectant les règles d’hygiène.', ar: 'بنظّف المكان وبالتزم بقواعد النظافة.', en: 'I clean the premises while following hygiene rules.' },
+        { fr: 'Missions : Nettoyer les sols, les sanitaires, les bureaux, les déchets, utiliser les produits d’entretien.', ar: 'المهام: الأرضيات، الحمامات، المكاتب، النفايات، استعمال مواد التنظيف.', en: 'Duties: Clean floors, toilets, offices, waste, use cleaning products.' }
+      ] },
+      { icon: '🧺', title: { ar: 'عامل مغسلة', en: 'Laundry Worker', fr: 'Employé / Employée de blanchisserie' }, phrases: [
+        { fr: 'Employé / Employée de blanchisserie', ar: 'عامل مغسلة', en: 'Laundry Worker' },
+        { fr: 'Je trie, je lave et je prépare le linge.', ar: 'بفرز وبغسل وبجهّز الغسيل.', en: 'I sort, wash and prepare the laundry.' },
+        { fr: 'Missions : Trier les vêtements, laver, sécher, repasser, plier.', ar: 'المهام: فرز الملابس، الغسيل، التجفيف، الكي، الطي.', en: 'Duties: Sort laundry, wash, dry, iron, fold.' }
+      ] },
+      { icon: '👕', title: { ar: 'موظف تنظيف وكي الملابس', en: 'Dry-Cleaning & Ironing Worker', fr: 'Pressing' }, phrases: [
+        { fr: 'Pressing', ar: 'موظف تنظيف وكي الملابس', en: 'Dry-Cleaning & Ironing Worker' },
+        { fr: 'Je nettoie et je repasse les vêtements des clients.', ar: 'بنظّف وبكوي تياب الزباين.', en: 'I clean and iron customers’ clothes.' },
+        { fr: 'Missions : Réceptionner les vêtements, nettoyer, repasser, emballer, rendre les commandes.', ar: 'المهام: استلام الملابس، التنظيف، الكي، التغليف، تسليم الطلبات.', en: 'Duties: Receive garments, clean, iron, package, return orders.' }
+      ] },
+      { icon: '🚚', title: { ar: 'عامل نقل أثاث', en: 'Mover / Removal Worker', fr: 'Déménageur / Déménageuse' }, phrases: [
+        { fr: 'Déménageur / Déménageuse', ar: 'عامل نقل أثاث', en: 'Mover / Removal Worker' },
+        { fr: 'Je charge, je transporte et je décharge les meubles.', ar: 'بحمّل وبنقل وبفرّغ الأثاث.', en: 'I load, transport and unload furniture.' },
+        { fr: 'Missions : Emballer les meubles, charger, transporter, décharger, monter certaines pièces.', ar: 'المهام: تغليف الأثاث، التحميل، النقل، التفريغ، تركيب بعض القطع.', en: 'Duties: Pack furniture, load, transport, unload, assemble some pieces.' }
+      ] },
+      { icon: '📬', title: { ar: 'موظف بريد', en: 'Postal Worker', fr: 'Agent de courrier' }, phrases: [
+        { fr: 'Agent de courrier', ar: 'موظف بريد', en: 'Postal Worker' },
+        { fr: 'Je trie et je distribue le courrier.', ar: 'بفرز وبوزّع البريد.', en: 'I sort and distribute mail.' },
+        { fr: 'Missions : Trier les lettres, distribuer le courrier, enregistrer les colis, préparer les expéditions.', ar: 'المهام: فرز الرسائل، توزيع البريد، تسجيل الطرود، تجهيز الشحنات.', en: 'Duties: Sort letters, deliver mail, register parcels, prepare shipments.' }
+      ] },
+      { icon: '🚲', title: { ar: 'عامل توصيل بالدراجة', en: 'Bicycle Courier', fr: 'Livreur / Livreuse à vélo' }, phrases: [
+        { fr: 'Livreur / Livreuse à vélo', ar: 'عامل توصيل بالدراجة', en: 'Bicycle Courier' },
+        { fr: 'Je récupère les commandes et je les livre aux clients.', ar: 'باخد الطلبات وبوصّلها للزبائن.', en: 'I pick up orders and deliver them to customers.' },
+        { fr: 'Missions : Récupérer la commande, la vérifier, livrer, communiquer avec le client.', ar: 'المهام: استلام الطلب، التحقق منه، التوصيل، التواصل مع العميل.', en: 'Duties: Pick up the order, check it, deliver, communicate with the customer.' }
+      ] },
+      { icon: '🍕', title: { ar: 'موصل طلبات طعام', en: 'Food Delivery Driver', fr: 'Livreur / Livreuse de repas' }, phrases: [
+        { fr: 'Livreur / Livreuse de repas', ar: 'موصل طلبات طعام', en: 'Food Delivery Driver' },
+        { fr: 'Je récupère les commandes au restaurant et je les livre aux clients.', ar: 'باخد الطلب من المطعم وبوصّله للزبون.', en: 'I pick up orders from the restaurant and deliver them to customers.' },
+        { fr: 'Missions : Récupérer la commande, vérifier l’adresse, livrer, remettre la commande.', ar: 'المهام: استلام الطلب، التأكد من العنوان، التوصيل، تسليم الطلب.', en: 'Duties: Pick up the order, confirm the address, deliver, hand over the order.' }
+      ] },
+      { icon: '🍴', title: { ar: 'مسؤول قاعة المطعم', en: 'Restaurant Floor Manager', fr: 'Maître d’hôtel' }, phrases: [
+        { fr: 'Maître d’hôtel', ar: 'مسؤول قاعة المطعم', en: 'Restaurant Floor Manager' },
+        { fr: 'J’accueille les clients et je coordonne le service en salle.', ar: 'بستقبل الزباين وبنسّق خدمة الصالة.', en: 'I welcome customers and coordinate the dining-room service.' },
+        { fr: 'Missions : Accueillir les clients, placer aux tables, coordonner l’équipe de service, suivre la qualité du service.', ar: 'المهام: استقبال الزبائن، توزيع الطاولات، تنسيق فريق الخدمة، متابعة جودة الخدمة.', en: 'Duties: Welcome customers, seat them, coordinate the service team, monitor service quality.' }
+      ] },
+      { icon: '🍷', title: { ar: 'موظف بار', en: 'Bartender', fr: 'Barman / Barmaid' }, phrases: [
+        { fr: 'Barman / Barmaid', ar: 'موظف بار', en: 'Bartender' },
+        { fr: 'Je prépare les boissons et je sers les clients.', ar: 'بحضّر المشروبات وبخدم الزباين.', en: 'I prepare drinks and serve customers.' },
+        { fr: 'Missions : Préparer les boissons, servir les clients, nettoyer et ranger le bar, gérer le stock.', ar: 'المهام: تحضير المشروبات، خدمة الزبائن، تنظيف وترتيب البار، إدارة المخزون.', en: 'Duties: Prepare drinks, serve customers, clean and tidy the bar, manage stock.' }
+      ] },
+      { icon: '🍽️', title: { ar: 'مسؤول مجموعة طاولات', en: 'Head Waiter', fr: 'Chef de rang' }, phrases: [
+        { fr: 'Chef de rang', ar: 'مسؤول مجموعة طاولات', en: 'Head Waiter' },
+        { fr: 'Je m’occupe des tables dont j’ai la responsabilité.', ar: 'بهتم بالطاولات اللي أنا مسؤول عنها.', en: 'I take care of the tables I am responsible for.' },
+        { fr: 'Missions : Accueillir les clients, prendre les commandes, servir les plats, suivre les tables, encaisser l’addition.', ar: 'المهام: استقبال الزبائن، أخذ الطلبات، تقديم الأطباق، متابعة الطاولات، تحصيل الحساب.', en: 'Duties: Welcome customers, take orders, serve dishes, monitor tables, collect the bill.' }
+      ] },
+      { icon: '🔑', title: { ar: 'عبارات أساسية تتكرر مع معظم المهن', en: 'Basic phrases repeated in most jobs', fr: 'Phrases de base utilisées dans la plupart des métiers' }, phrases: [
+        { fr: 'Quelles sont vos missions ?', ar: 'شو هي مهامك؟', en: 'What are your duties?' },
+        { fr: 'En quoi consiste ce métier ?', ar: 'شو طبيعة هالشغل؟', en: 'What does this job involve?' },
+        { fr: 'Je suis chargé de préparer les commandes.', ar: 'أنا مسؤول عن تجهيز الطلبات.', en: 'I’m responsible for preparing orders.' },
+        { fr: 'Je m’occupe de l’accueil des clients.', ar: 'أنا مسؤول عن استقبال الزباين.', en: 'I take care of welcoming customers.' },
+        { fr: 'Je travaille en équipe.', ar: 'بشتغل ضمن فريق.', en: 'I work as part of a team.' },
+        { fr: 'Je respecte les consignes de sécurité.', ar: 'بلتزم بتعليمات السلامة.', en: 'I follow safety instructions.' },
+        { fr: 'Je contrôle la qualité des produits.', ar: 'بفحص جودة المنتجات.', en: 'I check the quality of the products.' },
+        { fr: 'Je dois respecter les horaires.', ar: 'لازم التزم بمواعيد الدوام.', en: 'I have to respect the working hours.' }
+      ] },
+      { icon: '⭐', title: { ar: 'عبارات مهمة جدًا في أغلب الوظائف', en: 'Very important phrases in most jobs', fr: 'Phrases très importantes dans la plupart des métiers' }, phrases: [
+        { fr: 'Je commence à quelle heure ?', ar: 'عأي ساعة ببلّش؟', en: 'What time do I start?' },
+        { fr: 'À quelle heure je termine ?', ar: 'عأي ساعة بخلّص؟', en: 'What time do I finish?' },
+        { fr: 'Qu’est-ce que je dois faire ?', ar: 'شو لازم أعمل؟', en: 'What do I have to do?' },
+        { fr: 'Vous pouvez me montrer comment faire ?', ar: 'فيك تورجيني كيف بعملها؟', en: 'Can you show me how to do it?' },
+        { fr: 'Je dois suivre quelle procédure ?', ar: 'أي إجراء لازم اتّبع؟', en: 'Which procedure do I need to follow?' },
+        { fr: 'J’ai terminé ma tâche.', ar: 'خلّصت مهمتي.', en: 'I’ve finished my task.' },
+        { fr: 'Il reste encore du travail.', ar: 'لسا في شغل باقي.', en: 'There is still some work left.' },
+        { fr: 'J’ai besoin d’aide.', ar: 'بحتاج مساعدة.', en: 'I need help.' },
+        { fr: 'Il y a un problème avec la machine.', ar: 'في مشكلة بالآلة.', en: 'There’s a problem with the machine.' },
+        { fr: 'Je vais prévenir mon responsable.', ar: 'رح أخبر مسؤولي.', en: 'I’m going to inform my supervisor.' }
+      ] },
+      { icon: '🗣', title: { ar: 'عبارات عملية مهمة جدًا في بيئة العمل', en: 'Very useful phrases at work', fr: 'Phrases pratiques très utiles au travail' }, phrases: [
+        { fr: 'Vous avez besoin de moi ?', ar: 'بدكم شي مني؟', en: 'Do you need me?' },
+        { fr: 'Je peux commencer ?', ar: 'فيني بلّش؟', en: 'Can I start?' },
+        { fr: 'Je peux prendre ma pause ?', ar: 'فيني آخد استراحتي؟', en: 'Can I take my break?' },
+        { fr: 'Où est-ce que je dois mettre ça ?', ar: 'وين لازم حط هاد؟', en: 'Where should I put this?' },
+        { fr: 'Où est-ce que je peux trouver ça ?', ar: 'وين فيني لاقي هاد؟', en: 'Where can I find this?' },
+        { fr: 'C’est terminé.', ar: 'خلص.', en: 'It’s finished.' },
+        { fr: 'Il faut encore en faire combien ?', ar: 'لسا قديش لازم نعمل؟', en: 'How many more do we need to do?' },
+        { fr: 'J’ai fini cette partie.', ar: 'خلصت هالجزء.', en: 'I’ve finished this part.' },
+        { fr: 'Je n’ai pas compris la consigne.', ar: 'ما فهمت التعليمات.', en: 'I didn’t understand the instructions.' },
+        { fr: 'Vous pouvez répéter, s’il vous plaît ?', ar: 'فيك تعيد، لو سمحت؟', en: 'Could you repeat that, please?' }
+      ] },
+      { icon: '⭐', title: { ar: 'عبارات مهمة جدًا تسمعها في أي عمل تقريبًا', en: 'Very important phrases heard in almost any job', fr: 'Phrases très importantes entendues dans presque tous les métiers' }, phrases: [
+        { fr: 'Tu peux t’en occuper ?', ar: 'فيك تهتم بهالموضوع؟', en: 'Can you take care of it?' },
+        { fr: 'Je m’en occupe.', ar: 'أنا بهتم فيه.', en: 'I’ll take care of it.' },
+        { fr: 'C’est à faire pour aujourd’hui.', ar: 'لازم ينعمل اليوم.', en: 'It needs to be done today.' },
+        { fr: 'C’est urgent.', ar: 'هاد مستعجل.', en: 'It’s urgent.' },
+        { fr: 'Ce n’est pas encore prêt.', ar: 'لسا مو جاهز.', en: 'It’s not ready yet.' },
+        { fr: 'Il manque une pièce.', ar: 'ناقط قطعة.', en: 'A part is missing.' },
+        { fr: 'Il manque du matériel.', ar: 'ناقصنا معدات.', en: 'We’re missing some equipment.' },
+        { fr: 'Fais attention.', ar: 'دير بالك.', en: 'Be careful.' },
+        { fr: 'Fais attention à la machine.', ar: 'دير بالك عالآلة.', en: 'Be careful with the machine.' },
+        { fr: 'On fait une pause ?', ar: 'مناخد استراحة؟', en: 'Shall we take a break?' },
+        { fr: 'Tu as terminé ?', ar: 'خلصت؟', en: 'Are you finished?' },
+        { fr: 'Oui, j’ai terminé.', ar: 'إي، خلصت.', en: 'Yes, I’m finished.' },
+        { fr: 'Je vais le faire tout de suite.', ar: 'رح أعمله هلأ.', en: 'I’ll do it right away.' },
+        { fr: 'Je reviens dans cinq minutes.', ar: 'برجع بعد خمس دقايق.', en: 'I’ll be back in five minutes.' },
+        { fr: 'On a beaucoup de travail aujourd’hui.', ar: 'عنا شغل كتير اليوم.', en: 'We have a lot of work today.' }
+      ] }
+    ]
   }
 ];
