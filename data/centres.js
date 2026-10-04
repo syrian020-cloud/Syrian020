@@ -25685,4 +25685,61 @@ window.CENTRES_DATA = [
       ] }
     ]
   }
+,
+  {
+    id: 'saisons',
+    icon: '🍂',
+    name: { ar: 'الفصول الأربعة', en: 'The four seasons', fr: 'Les quatre saisons' },
+    desc: { ar: 'الفصول بالفرنسي: الربيع والصيف والخريف والشتا، وصف كل فصل وشهر بدايته', en: 'The seasons in French: spring, summer, autumn and winter — what each is like and when it starts', fr: 'Les saisons en français : printemps, été, automne et hiver — leur description et leur mois de début' },
+    sections: [
+      { icon: '🌱', title: { ar: 'Le printemps — الربيع', en: 'Spring', fr: 'Le printemps' }, phrases: [
+        { fr: 'Au printemps, il commence à faire plus chaud.', ar: 'بالربيع، بيبلّش الجو يصير أدفى.', en: 'In spring, it starts getting warmer.' },
+        { fr: 'Au printemps, les fleurs commencent à pousser.', ar: 'بالربيع، الورد بيبلّش يطلع.', en: 'In spring, flowers start to grow.' },
+        { fr: 'J’aime bien le printemps, il fait doux.', ar: 'بحب الربيع، الجو بيكون معتدل وحلو.', en: 'I like spring, the weather is mild.' },
+      ] },
+      { icon: '☀️', title: { ar: 'L’été — الصيف', en: 'Summer', fr: 'L’été' }, phrases: [
+        { fr: 'En été, il fait chaud.', ar: 'بالصيف، الجو بيكون حار.', en: 'In summer, it’s hot.' },
+        { fr: 'En été, les journées sont longues.', ar: 'بالصيف، النهار بيكون طويل.', en: 'In summer, the days are long.' },
+        { fr: 'En été, je profite du soleil.', ar: 'بالصيف، بستمتع بالشمس.', en: 'In summer, I enjoy the sunshine.' },
+        { fr: 'J’aime l’été parce qu’il fait beau.', ar: 'بحب الصيف لأن الجو بيكون حلو.', en: 'I like summer because the weather is nice.' },
+      ] },
+      { icon: '🍂', title: { ar: 'L’automne — الخريف', en: 'Autumn', fr: 'L’automne' }, phrases: [
+        { fr: 'En automne, il commence à faire frais.', ar: 'بالخريف، بيبلّش الجو يبرد.', en: 'In autumn, it starts getting cooler.' },
+        { fr: 'En automne, les feuilles tombent.', ar: 'بالخريف، أوراق الشجر بتوقع.', en: 'In autumn, the leaves fall.' },
+        { fr: 'En automne, il pleut souvent.', ar: 'بالخريف، غالبًا بتمطر.', en: 'In autumn, it often rains.' },
+      ] },
+      { icon: '❄️', title: { ar: 'L’hiver — الشتاء', en: 'Winter', fr: 'L’hiver' }, phrases: [
+        { fr: 'En hiver, il fait froid.', ar: 'بالشتا، الجو بيكون بارد.', en: 'In winter, it’s cold.' },
+        { fr: 'En hiver, les journées sont courtes.', ar: 'بالشتا، النهار بيكون قصير.', en: 'In winter, the days are short.' },
+        { fr: 'En hiver, je mets un manteau.', ar: 'بالشتا، بلبس معطف.', en: 'In winter, I wear a coat.' },
+        { fr: 'Quand il fait très froid, je préfère rester à la maison.', ar: 'لما يكون الجو كتير بارد، بفضّل ضل بالبيت.', en: 'When it’s very cold, I prefer to stay home.' },
+      ] },
+      { icon: '🧠', title: { ar: 'أسهل طريقة للحفظ', en: 'Easiest way to remember', fr: 'Résumé à retenir' }, phrases: [
+        { fr: 'Printemps → ça se réchauffe.', ar: 'الربيع → الجو بيدفى.', en: 'Spring → it warms up.' },
+        { fr: 'Été → il fait chaud.', ar: 'الصيف → الجو حار.', en: 'Summer → it’s hot.' },
+        { fr: 'Automne → ça se refroidit.', ar: 'الخريف → الجو بيبرد.', en: 'Autumn → it cools down.' },
+        { fr: 'Hiver → il fait froid.', ar: 'الشتاء → الجو بارد.', en: 'Winter → it’s cold.' },
+        { fr: 'Mars → printemps.', ar: 'آذار → ربيع.', en: 'March → spring.' },
+        { fr: 'Juin → été.', ar: 'حزيران → صيف.', en: 'June → summer.' },
+        { fr: 'Septembre → automne.', ar: 'أيلول → خريف.', en: 'September → autumn.' },
+        { fr: 'Décembre → hiver.', ar: 'كانون الأول → شتا.', en: 'December → winter.' },
+      ] },
+      { icon: '🌱', title: { ar: 'الربيع — printemps', en: 'Spring — printemps', fr: 'Le printemps' }, phrases: [
+        { fr: 'Le printemps commence en mars.', ar: 'الربيع بيبلّش بشهر آذار.', en: 'Spring begins in March.' },
+        { fr: 'Mars est le premier mois du printemps.', ar: 'آذار هو أول شهر بالربيع.', en: 'March is the first month of spring.' },
+      ] },
+      { icon: '☀️', title: { ar: 'الصيف — été', en: 'Summer — été', fr: 'L’été' }, phrases: [
+        { fr: 'L’été commence en juin.', ar: 'الصيف بيبلّش بشهر حزيران.', en: 'Summer begins in June.' },
+        { fr: 'Juin est le premier mois de l’été.', ar: 'حزيران هو أول شهر بالصيف.', en: 'June is the first month of summer.' },
+      ] },
+      { icon: '🍂', title: { ar: 'الخريف — automne', en: 'Autumn — automne', fr: 'L’automne' }, phrases: [
+        { fr: 'L’automne commence en septembre.', ar: 'الخريف بيبلّش بشهر أيلول.', en: 'Autumn begins in September.' },
+        { fr: 'Septembre est le premier mois de l’automne.', ar: 'أيلول هو أول شهر بالخريف.', en: 'September is the first month of autumn.' },
+      ] },
+      { icon: '❄️', title: { ar: 'الشتاء — hiver', en: 'Winter — hiver', fr: 'L’hiver' }, phrases: [
+        { fr: 'L’hiver commence en décembre.', ar: 'الشتاء بيبلّش بشهر كانون الأول.', en: 'Winter begins in December.' },
+        { fr: 'Décembre est le premier mois de l’hiver.', ar: 'كانون الأول هو أول شهر بالشتا.', en: 'December is the first month of winter.' },
+      ] }
+    ]
+  }
 ];
