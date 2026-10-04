@@ -9266,7 +9266,430 @@ window.CENTRES_DATA = [
           { fr: 'manquant', ar: 'ناقص / مفقود', en: 'missing' },
           { fr: 'Il y a un pointage manquant.', ar: 'في تسجيل دوام ناقص.', en: 'There’s a missing time entry.' }
         ]
-      }
+      },
+      { icon: '🕐', title: { ar: 'الوصول إلى العمل', en: 'Arriving at work', fr: 'L’arrivée au travail' }, phrases: [
+        { fr: 'Bonjour, je viens d’arriver.', ar: 'مرحبا، هلّق وصلت عالشغل.', en: 'Hi, I just arrived at work.' },
+        { fr: 'Je commence à quelle heure aujourd’hui ?', ar: 'اليوم عأي ساعة ببلّش؟', en: 'What time do I start today?' },
+        { fr: 'Je dois mettre ma tenue de travail ?', ar: 'لازم ألبس لباس الشغل؟', en: 'Do I have to put on my work clothes?' },
+        { fr: 'Je vais me changer.', ar: 'رح روح غيّر تيابي.', en: 'I’m going to change.' },
+        { fr: 'Je pointe avant de commencer ?', ar: 'لازم بصم قبل ما بلّش؟', en: 'Do I clock in before I start?' }
+      ] },
+      { icon: '📦', title: { ar: 'بداية العمل – préparation de commandes', en: 'Starting work — order prep', fr: 'Début du travail — préparation de commandes' }, phrases: [
+        { fr: 'Je commence par quoi ?', ar: 'بشو بلّش؟', en: 'What should I start with?' },
+        { fr: 'Je dois préparer ces commandes ?', ar: 'لازم حضّر هالطلبات؟', en: 'Do I need to prepare these orders?' },
+        { fr: 'Où est-ce que je dois mettre ça ?', ar: 'وين لازم حط هاد؟', en: 'Where should I put this?' },
+        { fr: 'Je mets combien dans chaque carton ?', ar: 'قديش بحط بكل كرتونة؟', en: 'How many do I put in each box?' },
+        { fr: 'Il faut vérifier la quantité ?', ar: 'لازم أتأكد من الكمية؟', en: 'Do I need to check the quantity?' },
+        { fr: 'Je vérifie avant de fermer le carton.', ar: 'بتأكد قبل ما سكّر الكرتونة.', en: 'I check before closing the box.' }
+      ] },
+      { icon: '📋', title: { ar: 'إذا لم تفهم التعليمات', en: 'If you don’t understand the instructions', fr: 'Si tu ne comprends pas les consignes' }, phrases: [
+        { fr: 'Excusez-moi, vous pouvez répéter ?', ar: 'عفواً، فيك تعيد؟', en: 'Excuse me, can you repeat?' },
+        { fr: 'Vous pouvez parler un peu plus lentement, s’il vous plaît ?', ar: 'فيك تحكي شوي أبطأ لو سمحت؟', en: 'Could you speak a little more slowly, please?' },
+        { fr: 'Je n’ai pas bien compris.', ar: 'ما فهمت منيح.', en: 'I didn’t understand well.' },
+        { fr: 'Vous pouvez me montrer une fois ?', ar: 'فيك تفرجيني مرة؟', en: 'Can you show me once?' },
+        { fr: 'Comme ça ?', ar: 'هيك؟', en: 'Like this?' },
+        { fr: 'C’est bon comme ça ?', ar: 'هيك تمام؟', en: 'Is it okay like this?' }
+      ] },
+      { icon: '📦', title: { ar: 'عند وجود مشكلة', en: 'When there’s a problem', fr: 'En cas de problème' }, phrases: [
+        { fr: 'Il manque un produit.', ar: 'ناقص منتج.', en: 'A product is missing.' },
+        { fr: 'Il manque une pièce.', ar: 'ناقعة قطعة.', en: 'A piece is missing.' },
+        { fr: 'Ce produit est abîmé.', ar: 'هالمنتج خربان/متضرر.', en: 'This product is damaged.' },
+        { fr: 'Le carton est abîmé.', ar: 'الكرتونة متضررة.', en: 'The box is damaged.' },
+        { fr: 'Il y a une erreur dans la commande.', ar: 'في غلطة بالطلب.', en: 'There’s an error in the order.' },
+        { fr: 'Qu’est-ce que je fais dans ce cas ?', ar: 'شو بعمل بهالحالة؟', en: 'What do I do in this case?' }
+      ] },
+      { icon: '👷‍♂️', title: { ar: 'مع المسؤول / chef', en: 'With the supervisor', fr: 'Avec le responsable' }, phrases: [
+        { fr: 'J’ai terminé cette commande.', ar: 'خلصت هالطلبية.', en: 'I’ve finished this order.' },
+        { fr: 'J’ai terminé cette tâche.', ar: 'خلصت هالمهمة.', en: 'I’ve finished this task.' },
+        { fr: 'Je fais quoi maintenant ?', ar: 'شو بعمل هلّق؟', en: 'What do I do now?' },
+        { fr: 'Vous avez besoin de moi ?', ar: 'بدكن شي مني؟', en: 'Do you need me?' },
+        { fr: 'Je peux aider quelqu’un ?', ar: 'فيني ساعد حدا؟', en: 'Can I help someone?' },
+        { fr: 'Je peux passer à la prochaine commande ?', ar: 'فيني انتقل للطلبية اللي بعدها؟', en: 'Can I move on to the next order?' }
+      ] },
+      { icon: '☕', title: { ar: 'الاستراحة', en: 'The break', fr: 'La pause' }, phrases: [
+        { fr: 'C’est l’heure de la pause ?', ar: 'صار وقت الاستراحة؟', en: 'Is it break time?' },
+        { fr: 'Je peux prendre ma pause ?', ar: 'فيني آخد استراحتي؟', en: 'Can I take my break?' },
+        { fr: 'Tu prends ta pause maintenant ?', ar: 'إنت رح تاخد استراحتك هلّق؟', en: 'Are you taking your break now?' },
+        { fr: 'On reprend à quelle heure ?', ar: 'عأي ساعة منرجع؟', en: 'What time do we start again?' },
+        { fr: 'Je reviens dans dix minutes.', ar: 'برجع بعد عشر دقايق.', en: 'I’ll be back in ten minutes.' }
+      ] },
+      { icon: '🕔', title: { ar: 'نهاية الدوام', en: 'End of the shift', fr: 'La fin du poste' }, phrases: [
+        { fr: 'J’ai fini pour aujourd’hui.', ar: 'خلصت لليوم.', en: 'I’m finished for today.' },
+        { fr: 'Il reste quelque chose à faire ?', ar: 'ضايل شي لازم نعمله؟', en: 'Is there anything left to do?' },
+        { fr: 'Je peux ranger mon poste ?', ar: 'فيني رتّب مكان شغلي؟', en: 'Can I tidy up my workstation?' },
+        { fr: 'Je dois nettoyer mon poste avant de partir ?', ar: 'لازم نظّف مكان شغلي قبل ما فل؟', en: 'Do I have to clean my workstation before leaving?' },
+        { fr: 'Je pointe avant de partir ?', ar: 'لازم بصم قبل ما فل؟', en: 'Do I clock out before leaving?' },
+        { fr: 'À demain ! Bonne soirée !', ar: 'لبكرا! مسا الخير!', en: 'See you tomorrow! Have a good evening!' }
+      ] },
+      { icon: '🗣️', title: { ar: 'عبارات تسمعها كثيرًا من المسؤول', en: 'Phrases you hear a lot from the supervisor', fr: 'Des phrases que le responsable dit souvent' }, phrases: [
+        { fr: 'Tu peux venir, s’il te plaît ?', ar: 'فيك تجي لو سمحت؟', en: 'Can you come, please?' },
+        { fr: 'Viens voir ça.', ar: 'تعا شوف هاد.', en: 'Come and look at this.' },
+        { fr: 'Fais attention.', ar: 'دير بالك.', en: 'Be careful.' },
+        { fr: 'Fais comme ça.', ar: 'اعمل هيك.', en: 'Do it like this.' },
+        { fr: 'Continue comme ça.', ar: 'كمّل هيك.', en: 'Keep going like that.' },
+        { fr: 'C’est bon, tu peux arrêter.', ar: 'تمام، فيك توقف.', en: 'Okay, you can stop.' },
+        { fr: 'Mets ça là-bas.', ar: 'حط هاد هنيك.', en: 'Put this over there.' },
+        { fr: 'Ramène-moi ça, s’il te plaît.', ar: 'جيبلي هاد لو سمحت.', en: 'Bring me this, please.' },
+        { fr: 'Attends un moment.', ar: 'استنى شوي.', en: 'Wait a moment.' },
+        { fr: 'C’est urgent.', ar: 'هاد مستعجل.', en: 'It’s urgent.' }
+      ] },
+      { icon: '📦', title: { ar: 'استلام العمل والمهام', en: 'Taking on work and tasks', fr: 'Prendre le travail et les tâches' }, phrases: [
+        { fr: 'Tu es sur quelle commande ?', ar: 'إنت عأي طلبية عم تشتغل؟', en: 'Which order are you working on?' },
+        { fr: 'Tu as déjà commencé ?', ar: 'بلّشت من قبل؟', en: 'Have you already started?' },
+        { fr: 'Je m’occupe de cette commande.', ar: 'أنا رح اهتم بهالطلبية.', en: 'I’ll take care of this order.' },
+        { fr: 'Je prends laquelle ?', ar: 'أي وحدة آخد؟', en: 'Which one should I take?' },
+        { fr: 'Il faut commencer par celle-ci.', ar: 'لازم نبلّش بهي.', en: 'We have to start with this one.' },
+        { fr: 'On fait ça en priorité.', ar: 'منعمل هاد بالأولوية.', en: 'We’ll do this first.' },
+        { fr: 'Tu peux t’occuper de ça ?', ar: 'فيك تهتم بهالشي؟', en: 'Can you take care of this?' }
+      ] },
+      { icon: '🔢', title: { ar: 'الكمية والعدّ', en: 'Quantity and counting', fr: 'La quantité et le comptage' }, phrases: [
+        { fr: 'Compte bien les pièces.', ar: 'عدّ القطع منيح.', en: 'Count the pieces carefully.' },
+        { fr: 'Il en faut dix.', ar: 'بدنا عشرة.', en: 'We need ten.' },
+        { fr: 'Il en manque deux.', ar: 'ناقص قطعتين.', en: 'Two are missing.' },
+        { fr: 'Il y en a trop.', ar: 'في زيادة.', en: 'There are too many.' },
+        { fr: 'Il y en a combien ?', ar: 'قديش عددهم؟', en: 'How many are there?' },
+        { fr: 'J’en ai compté vingt.', ar: 'عدّيت عشرين.', en: 'I counted twenty.' },
+        { fr: 'Vérifie encore une fois.', ar: 'تأكد مرة تانية.', en: 'Check again.' }
+      ] },
+      { icon: '🏷️', title: { ar: 'الباركود والملصقات', en: 'Barcode and labels', fr: 'Le code-barres et les étiquettes' }, phrases: [
+        { fr: 'Il faut scanner le code-barres.', ar: 'لازم نعمل سكان للباركود.', en: 'We need to scan the barcode.' },
+        { fr: 'Le code-barres ne fonctionne pas.', ar: 'الباركود ما عم يشتغل.', en: 'The barcode isn’t working.' },
+        { fr: 'Je n’arrive pas à scanner.', ar: 'ما عم اقدر اعمل سكان.', en: 'I can’t scan it.' },
+        { fr: 'L’étiquette est mal placée.', ar: 'اللصيقة محطوطة غلط.', en: 'The label is placed incorrectly.' },
+        { fr: 'Il faut changer l’étiquette.', ar: 'لازم نغيّر اللصيقة.', en: 'We need to change the label.' },
+        { fr: 'C’est la bonne référence ?', ar: 'هاي هي المرجعية/الرقم الصحيح؟', en: 'Is this the correct reference?' }
+      ] },
+      { icon: '📦', title: { ar: 'الكراتين والتغليف', en: 'Boxes and packing', fr: 'Les cartons et l’emballage' }, phrases: [
+        { fr: 'Ce carton est trop grand.', ar: 'هالكرتونة كبيرة كتير.', en: 'This box is too big.' },
+        { fr: 'Ce carton est trop petit.', ar: 'هالكرتونة صغيرة كتير.', en: 'This box is too small.' },
+        { fr: 'Il faut fermer le carton.', ar: 'لازم نسكّر الكرتونة.', en: 'We need to close the box.' },
+        { fr: 'Ferme bien le carton.', ar: 'سكّر الكرتونة منيح.', en: 'Close the box properly.' },
+        { fr: 'Il faut mettre du scotch.', ar: 'لازم نحط تيب/شريط لاصق.', en: 'We need to put tape on it.' },
+        { fr: 'Le carton est prêt.', ar: 'الكرتونة جاهزة.', en: 'The box is ready.' },
+        { fr: 'Où je mets les cartons finis ?', ar: 'وين بحط الكراتين الجاهزة؟', en: 'Where do I put the finished boxes?' }
+      ] },
+      { icon: '🚚', title: { ar: 'نقل الأشياء داخل المستودع', en: 'Moving things inside the warehouse', fr: 'Déplacer les choses dans l’entrepôt' }, phrases: [
+        { fr: 'Où est-ce que je dois déposer ça ?', ar: 'وين لازم حط هاد؟', en: 'Where should I put this?' },
+        { fr: 'Je le mets ici ?', ar: 'حطّو هون؟', en: 'Should I put it here?' },
+        { fr: 'Ou là-bas ?', ar: 'ولا هنيك؟', en: 'Or over there?' },
+        { fr: 'Il faut l’amener au stock.', ar: 'لازم نوديه عالمخزن.', en: 'It needs to be taken to storage.' },
+        { fr: 'Je peux passer ?', ar: 'فيني مرق؟', en: 'Can I get through?' },
+        { fr: 'Attention, je passe !', ar: 'دير بالك، عم مرق!', en: 'Careful, I’m coming through!' },
+        { fr: 'Laisse-moi passer, s’il te plaît.', ar: 'خليني مرق لو سمحت.', en: 'Let me pass, please.' }
+      ] },
+      { icon: '⚠️', title: { ar: 'إذا أخطأت', en: 'If you make a mistake', fr: 'Si tu te trompes' }, phrases: [
+        { fr: 'Désolé, j’ai fait une erreur.', ar: 'آسف، عملت غلطة.', en: 'Sorry, I made a mistake.' },
+        { fr: 'Je me suis trompé de référence.', ar: 'غلطت بالمرجع/الرقم.', en: 'I used the wrong reference.' },
+        { fr: 'Je me suis trompé de carton.', ar: 'أخدت الكرتونة الغلط.', en: 'I took the wrong box.' },
+        { fr: 'Je vais corriger ça.', ar: 'رح صلّح هالشي.', en: 'I’ll fix that.' },
+        { fr: 'Ce n’est pas grave.', ar: 'مو مشكلة.', en: 'It’s not a big deal.' },
+        { fr: 'Ça arrive.', ar: 'بتصير.', en: 'It happens.' }
+      ] },
+      { icon: '👥', title: { ar: 'مع زميل العمل', en: 'With a workmate', fr: 'Avec un collègue' }, phrases: [
+        { fr: 'Tu peux m’aider, s’il te plaît ?', ar: 'فيك تساعدني لو سمحت؟', en: 'Can you help me, please?' },
+        { fr: 'Tu as besoin d’aide ?', ar: 'بدك مساعدة؟', en: 'Do you need help?' },
+        { fr: 'Oui, donne-moi un coup de main.', ar: 'إي، ساعدني شوي.', en: 'Yes, give me a hand.' },
+        { fr: 'On fait ça ensemble ?', ar: 'منعملها سوا؟', en: 'Shall we do this together?' },
+        { fr: 'Attends-moi deux secondes.', ar: 'استناني ثانيتين.', en: 'Wait for me two seconds.' },
+        { fr: 'J’arrive.', ar: 'جايي.', en: 'I’m coming.' },
+        { fr: 'Vas-y, je m’en occupe.', ar: 'روح، أنا بتكفّل فيها.', en: 'Go ahead, I’ll take care of it.' }
+      ] },
+      { icon: '🧹', title: { ar: 'تنظيف وترتيب مكان العمل', en: 'Cleaning and tidying your workstation', fr: 'Nettoyer et ranger le poste' }, phrases: [
+        { fr: 'Il faut ranger le poste.', ar: 'لازم نرتّب مكان الشغل.', en: 'We need to tidy the workstation.' },
+        { fr: 'Range ça, s’il te plaît.', ar: 'رتّب هاد لو سمحت.', en: 'Put that away, please.' },
+        { fr: 'J’ai fini, je vais ranger.', ar: 'خلصت، رح رتّب.', en: 'I’m finished, I’m going to tidy up.' },
+        { fr: 'Il faut nettoyer ici.', ar: 'لازم ننظف هون.', en: 'We need to clean here.' },
+        { fr: 'Tout est propre.', ar: 'كل شي نظيف.', en: 'Everything is clean.' }
+      ] },
+      { icon: '🕐', title: { ar: 'التأخير والغياب', en: 'Lateness and absence', fr: 'Le retard et l’absence' }, phrases: [
+        { fr: 'Je suis désolé, je suis en retard.', ar: 'آسف، تأخرت.', en: 'Sorry, I’m late.' },
+        { fr: 'J’ai eu un problème de transport.', ar: 'صار معي مشكلة بالمواصلات.', en: 'I had a transportation problem.' },
+        { fr: 'Le tram avait du retard.', ar: 'الترام تأخر.', en: 'The tram was delayed.' },
+        { fr: 'Je dois partir un peu plus tôt aujourd’hui.', ar: 'لازم فل أبكر شوي اليوم.', en: 'I have to leave a little earlier today.' },
+        { fr: 'J’ai besoin de prendre une journée de congé demain.', ar: 'بدي آخد يوم كونجي بكرا.', en: 'I need to take a day off tomorrow.' },
+        { fr: 'Je dois remplir cette feuille ?', ar: 'لازم عبّي هالورقة؟', en: 'Do I need to fill out this form?' }
+      ] },
+      { icon: '⭐', title: { ar: 'عبارات قصيرة مهمة جدًا تحفظها', en: 'Very important short phrases to memorize', fr: 'Phrases courtes très importantes à retenir' }, phrases: [
+        { fr: 'C’est bon ?', ar: 'تمام؟', en: 'Is it okay?' },
+        { fr: 'C’est terminé.', ar: 'خلص.', en: 'It’s finished.' },
+        { fr: 'Pas encore.', ar: 'لسا.', en: 'Not yet.' },
+        { fr: 'Tout est prêt.', ar: 'كل شي جاهز.', en: 'Everything is ready.' },
+        { fr: 'Je m’en occupe.', ar: 'أنا بتكفّل فيه.', en: 'I’ll take care of it.' },
+        { fr: 'J’arrive tout de suite.', ar: 'جايي هلّق فورًا.', en: 'I’ll be right there.' },
+        { fr: 'Attends un peu.', ar: 'استنى شوي.', en: 'Wait a bit.' },
+        { fr: 'Pas de problème.', ar: 'ما في مشكلة.', en: 'No problem.' },
+        { fr: 'D’accord, compris.', ar: 'تمام، فهمت.', en: 'Okay, understood.' },
+        { fr: 'Je vais le faire.', ar: 'رح أعمله.', en: 'I’ll do it.' }
+      ] },
+      { icon: '🏭', title: { ar: 'عند بداية المهمة', en: 'At the start of a task', fr: 'Au début de la tâche' }, phrases: [
+        { fr: 'Tu prends ton poste habituel aujourd’hui ?', ar: 'اليوم بتاخد مكان شغلك المعتاد؟', en: 'Are you working at your usual station today?' },
+        { fr: 'Aujourd’hui, tu vas travailler ici.', ar: 'اليوم رح تشتغل هون.', en: 'Today, you’re going to work here.' },
+        { fr: 'Mets-toi ici, s’il te plaît.', ar: 'وقف/اشتغل هون لو سمحت.', en: 'Work here, please.' },
+        { fr: 'Commence par cette palette.', ar: 'بلّش بهالباليت.', en: 'Start with this pallet.' },
+        { fr: 'Après, tu passes à celle-là.', ar: 'بعدين بتنتقل لهادي.', en: 'Then move on to this one.' },
+        { fr: 'Tu continues jusqu’à ce que ce soit fini.', ar: 'كمّل لحتى تخلص.', en: 'Keep going until it’s finished.' }
+      ] },
+      { icon: '📋', title: { ar: 'تعليمات العمل', en: 'Work instructions', fr: 'Les consignes de travail' }, phrases: [
+        { fr: 'Suis bien les instructions.', ar: 'اتبع التعليمات منيح.', en: 'Follow the instructions carefully.' },
+        { fr: 'Fais attention à la référence.', ar: 'دير بالك عالمرجع/رقم المنتج.', en: 'Pay attention to the reference.' },
+        { fr: 'Vérifie avant de mettre dans le carton.', ar: 'تأكد قبل ما تحطّه بالكرتونة.', en: 'Check before putting it in the box.' },
+        { fr: 'Ne mélange pas les références.', ar: 'لا تخلط بين المراجع.', en: 'Don’t mix up the references.' },
+        { fr: 'Mets les mêmes références ensemble.', ar: 'حط نفس المراجع مع بعض.', en: 'Put the same references together.' },
+        { fr: 'Fais attention à l’ordre.', ar: 'دير بالك على الترتيب.', en: 'Pay attention to the order.' },
+        { fr: 'Respecte la procédure.', ar: 'التزم بطريقة العمل.', en: 'Follow the procedure.' }
+      ] },
+      { icon: '⏱️', title: { ar: 'السرعة والإنتاج', en: 'Speed and output', fr: 'La cadence et la production' }, phrases: [
+        { fr: 'Il faut aller un peu plus vite.', ar: 'لازم تسرّع شوي.', en: 'You need to go a little faster.' },
+        { fr: 'Prends ton temps, mais fais attention.', ar: 'خُد وقتك، بس دير بالك.', en: 'Take your time, but be careful.' },
+        { fr: 'Essaie de garder le rythme.', ar: 'حاول تحافظ على نفس الوتيرة.', en: 'Try to keep the pace.' },
+        { fr: 'Tu avances bien.', ar: 'عم تتقدم منيح.', en: 'You’re doing well.' },
+        { fr: 'Tu as presque fini.', ar: 'تقريبًا خلصت.', en: 'You’re almost finished.' },
+        { fr: 'Il reste encore beaucoup ?', ar: 'لسا ضايل كتير؟', en: 'Is there still a lot left?' },
+        { fr: 'Il reste seulement quelques cartons.', ar: 'ما ضايل غير كم كرتونة.', en: 'There are only a few boxes left.' }
+      ] },
+      { icon: '🔍', title: { ar: 'مراقبة الجودة', en: 'Quality control', fr: 'Le contrôle qualité' }, phrases: [
+        { fr: 'Il faut contrôler la qualité.', ar: 'لازم نفحص الجودة.', en: 'We need to check the quality.' },
+        { fr: 'Vérifie que tout est conforme.', ar: 'تأكد إنو كل شي مطابق.', en: 'Make sure everything is compliant.' },
+        { fr: 'Cette pièce n’est pas conforme.', ar: 'هالقطعة مو مطابقة.', en: 'This piece doesn’t meet the requirements.' },
+        { fr: 'Il y a un défaut.', ar: 'في عيب.', en: 'There’s a defect.' },
+        { fr: 'Il y a un problème avec ce produit.', ar: 'في مشكلة بهالمنتج.', en: 'There’s a problem with this product.' },
+        { fr: 'Mets-le de côté.', ar: 'حطّه عالطرف.', en: 'Put it aside.' },
+        { fr: 'Ne mets pas celui-là dans la commande.', ar: 'لا تحط هاد بالطلبية.', en: 'Don’t put this one in the order.' }
+      ] },
+      { icon: '📦', title: { ar: 'عندما تنتهي من كرتونة', en: 'When you finish a box', fr: 'Quand tu finis un carton' }, phrases: [
+        { fr: 'Le carton est complet.', ar: 'الكرتونة كاملة.', en: 'The box is complete.' },
+        { fr: 'J’ai fini ce carton.', ar: 'خلصت هالكرتونة.', en: 'I’ve finished this box.' },
+        { fr: 'Je peux fermer le carton ?', ar: 'فيني سكّر الكرتونة؟', en: 'Can I close the box?' },
+        { fr: 'Il faut mettre le bon de préparation dedans ?', ar: 'لازم حط ورقة التحضير جوّا؟', en: 'Do I need to put the picking slip inside?' },
+        { fr: 'Où je pose le carton terminé ?', ar: 'وين بحط الكرتونة المخلصة؟', en: 'Where do I put the finished box?' },
+        { fr: 'Celui-ci est prêt à partir.', ar: 'هاد جاهز يطلع.', en: 'This one is ready to go.' }
+      ] },
+      { icon: '🚨', title: { ar: 'عندما يحدث خطأ في الطلبية', en: 'When there’s an error in the order', fr: 'En cas d’erreur dans la commande' }, phrases: [
+        { fr: 'Attends, il y a un problème.', ar: 'استنى، في مشكلة.', en: 'Wait, there’s a problem.' },
+        { fr: 'Ce n’est pas la bonne référence.', ar: 'هاد مو المرجع الصحيح.', en: 'This isn’t the correct reference.' },
+        { fr: 'Ce n’est pas le bon produit.', ar: 'هاد مو المنتج الصحيح.', en: 'This isn’t the right product.' },
+        { fr: 'J’ai pris le mauvais produit.', ar: 'أخدت المنتج الغلط.', en: 'I took the wrong product.' },
+        { fr: 'Je vais vérifier avec le responsable.', ar: 'رح أتأكد مع المسؤول.', en: 'I’ll check with the supervisor.' },
+        { fr: 'Je préfère vérifier avant de continuer.', ar: 'بفضّل أتأكد قبل ما كمّل.', en: 'I’d rather check before continuing.' }
+      ] },
+      { icon: '🧤', title: { ar: 'السلامة في العمل', en: 'Safety at work', fr: 'La sécurité au travail' }, phrases: [
+        { fr: 'Il faut mettre les gants.', ar: 'لازم تلبس الكفوف.', en: 'You need to wear gloves.' },
+        { fr: 'Mets tes chaussures de sécurité.', ar: 'البس أحذية السلامة.', en: 'Put on your safety shoes.' },
+        { fr: 'Attention, c’est lourd.', ar: 'دير بالك، هاد تقيل.', en: 'Careful, it’s heavy.' },
+        { fr: 'Je peux avoir de l’aide pour porter ça ?', ar: 'فيني آخد مساعدة لحمل هاد؟', en: 'Can I get some help carrying this?' },
+        { fr: 'Je ne peux pas porter ça tout seul.', ar: 'ما فيني احمل هاد لحالي.', en: 'I can’t carry this alone.' },
+        { fr: 'Attention derrière toi !', ar: 'دير بالك وراك!', en: 'Watch out behind you!' },
+        { fr: 'Attention, ça arrive !', ar: 'دير بالك، جايي شي!', en: 'Watch out, something’s coming!' }
+      ] },
+      { icon: '🗣️', title: { ar: 'عندما لا تسمع جيدًا', en: 'When you can’t hear well', fr: 'Quand tu n’entends pas bien' }, phrases: [
+        { fr: 'Pardon, je n’ai pas entendu.', ar: 'عفواً، ما سمعت.', en: 'Sorry, I didn’t hear you.' },
+        { fr: 'Vous pouvez répéter, s’il vous plaît ?', ar: 'فيك تعيد لو سمحت؟', en: 'Can you repeat, please?' },
+        { fr: 'Vous avez dit quoi ?', ar: 'شو قلت؟', en: 'What did you say?' },
+        { fr: 'Vous parlez de cette commande ?', ar: 'عم تحكي عن هالطلبية؟', en: 'Are you talking about this order?' },
+        { fr: 'Vous voulez que je fasse quoi exactement ?', ar: 'شو بالضبط بدك ياني أعمل؟', en: 'What exactly do you want me to do?' }
+      ] },
+      { icon: '🧑‍💼', title: { ar: 'مع المسؤول في نهاية المهمة', en: 'With the supervisor at the end of the task', fr: 'Avec le responsable à la fin de la tâche' }, phrases: [
+        { fr: 'J’ai terminé ce que vous m’avez demandé.', ar: 'خلصت الشي اللي طلبتو مني.', en: 'I’ve finished what you asked me to do.' },
+        { fr: 'Est-ce qu’il y a autre chose à faire ?', ar: 'في شي تاني لازم أعمله؟', en: 'Is there anything else to do?' },
+        { fr: 'Je peux commencer autre chose ?', ar: 'فيني بلّش بشي تاني؟', en: 'Can I start something else?' },
+        { fr: 'Vous voulez que je continue ici ?', ar: 'بدك ياني كمّل هون؟', en: 'Do you want me to continue here?' },
+        { fr: 'Je reste ici ou je change de poste ?', ar: 'بضل هون ولا بغيّر مكان الشغل؟', en: 'Do I stay here or change stations?' }
+      ] },
+      { icon: '🕒', title: { ar: 'قبل نهاية الدوام', en: 'Before the end of the shift', fr: 'Avant la fin du poste' }, phrases: [
+        { fr: 'Il reste combien de temps ?', ar: 'قديش ضايل وقت؟', en: 'How much time is left?' },
+        { fr: 'On termine à quelle heure ?', ar: 'عأي ساعة منخلص؟', en: 'What time do we finish?' },
+        { fr: 'Je termine ça avant de partir.', ar: 'بخلص هاد قبل ما فل.', en: 'I’ll finish this before leaving.' },
+        { fr: 'Je range tout avant de partir.', ar: 'برتّب كل شي قبل ما فل.', en: 'I’ll tidy everything before leaving.' },
+        { fr: 'Il reste quelque chose pour demain ?', ar: 'ضايل شي لبكرا؟', en: 'Is there anything left for tomorrow?' },
+        { fr: 'À demain, bonne soirée !', ar: 'لبكرا، مسا الخير!', en: 'See you tomorrow, have a good evening!' }
+      ] },
+      { icon: '🔄', title: { ar: 'تبديل المهمة أو مكان العمل', en: 'Switching tasks or workstations', fr: 'Changer de tâche ou de poste' }, phrases: [
+        { fr: 'Tu peux changer de poste, s’il te plaît ?', ar: 'فيك تغيّر مكان الشغل لو سمحت؟', en: 'Can you change workstations, please?' },
+        { fr: 'Aujourd’hui, je suis affecté à quel poste ?', ar: 'اليوم أنا مخصص لأي مكان شغل؟', en: 'Which workstation am I assigned to today?' },
+        { fr: 'Je reste ici ou je vais ailleurs ?', ar: 'بضل هون ولا بروح ع محل تاني؟', en: 'Do I stay here or go somewhere else?' },
+        { fr: 'Je vais travailler avec toi aujourd’hui.', ar: 'اليوم رح اشتغل معك.', en: 'I’m going to work with you today.' },
+        { fr: 'On m’a demandé de venir ici.', ar: 'طلبوا مني إجي لهون.', en: 'I was asked to come here.' },
+        { fr: 'Le responsable m’a envoyé ici.', ar: 'المسؤول بعتني لهون.', en: 'The supervisor sent me here.' }
+      ] },
+      { icon: '📦', title: { ar: 'عندما تعطيك زميلة/زميل مهمة', en: 'When a workmate gives you a task', fr: 'Quand un collègue te donne une tâche' }, phrases: [
+        { fr: 'Tu peux t’occuper de ça ?', ar: 'فيك تهتم بهالشي؟', en: 'Can you take care of this?' },
+        { fr: 'Oui, je m’en occupe.', ar: 'إي، أنا بتكفّل فيه.', en: 'Yes, I’ll take care of it.' },
+        { fr: 'Je le fais tout de suite.', ar: 'رح أعمله هلّق.', en: 'I’ll do it right away.' },
+        { fr: 'Je termine ça et j’arrive.', ar: 'بخلص هاد وبجي.', en: 'I’ll finish this and come.' },
+        { fr: 'Attends, je suis presque fini.', ar: 'استنى، تقريبًا خلصت.', en: 'Wait, I’m almost finished.' },
+        { fr: 'Je finis d’abord cette commande.', ar: 'خليني خلّص هالطلبية بالأول.', en: 'Let me finish this order first.' }
+      ] },
+      { icon: '🤝', title: { ar: 'طلب المساعدة', en: 'Asking for help', fr: 'Demander de l’aide' }, phrases: [
+        { fr: 'Tu peux me donner un coup de main ?', ar: 'فيك تساعدني شوي؟', en: 'Can you give me a hand?' },
+        { fr: 'Tu peux m’aider à porter ça ?', ar: 'فيك تساعدني بحمل هاد؟', en: 'Can you help me carry this?' },
+        { fr: 'J’ai besoin d’un coup de main.', ar: 'بدي مساعدة شوي.', en: 'I need a hand.' },
+        { fr: 'Tu peux tenir ça une seconde ?', ar: 'فيك تمسك هاد ثانية؟', en: 'Can you hold this for a second?' },
+        { fr: 'Merci pour ton aide.', ar: 'شكراً على مساعدتك.', en: 'Thanks for your help.' },
+        { fr: 'Pas de souci, je t’aide.', ar: 'ولا يهمك، بساعدك.', en: 'No problem, I’ll help you.' }
+      ] },
+      { icon: '🗣️', title: { ar: 'كلام سريع بين الزملاء', en: 'Quick chat between workmates', fr: 'Petites phrases entre collègues' }, phrases: [
+        { fr: 'Ça va ?', ar: 'كيفك؟ / كل شي تمام؟', en: 'How are you? / Everything okay?' },
+        { fr: 'Ça va, et toi ?', ar: 'تمام، وإنت؟', en: 'I’m good, and you?' },
+        { fr: 'Tu travailles ici aujourd’hui ?', ar: 'إنت اليوم بتشتغل هون؟', en: 'Are you working here today?' },
+        { fr: 'Tu finis à quelle heure ?', ar: 'عأي ساعة بتخلص؟', en: 'What time do you finish?' },
+        { fr: 'Tu prends ta pause quand ?', ar: 'إيمت رح تاخد استراحتك؟', en: 'When are you taking your break?' },
+        { fr: 'On mange ensemble ?', ar: 'مناكل سوا؟', en: 'Shall we eat together?' },
+        { fr: 'À tout à l’heure.', ar: 'بشوفك بعد شوي.', en: 'See you later.' }
+      ] },
+      { icon: '😓', title: { ar: 'إذا كنت متعبًا أثناء العمل', en: 'If you’re tired at work', fr: 'Si tu es fatigué au travail' }, phrases: [
+        { fr: 'Je suis un peu fatigué aujourd’hui.', ar: 'أنا تعبان شوي اليوم.', en: 'I’m a little tired today.' },
+        { fr: 'J’ai besoin de souffler un peu.', ar: 'بدي آخد نفسي شوي.', en: 'I need to catch my breath for a bit.' },
+        { fr: 'Je peux m’asseoir une minute ?', ar: 'فيني اقعد دقيقة؟', en: 'Can I sit down for a minute?' },
+        { fr: 'J’ai mal au dos.', ar: 'ظهري عم يوجعني.', en: 'My back hurts.' },
+        { fr: 'Je dois faire une petite pause.', ar: 'لازم آخد استراحة صغيرة.', en: 'I need to take a short break.' },
+        { fr: 'Je vais mieux maintenant.', ar: 'هلّق صرت أحسن.', en: 'I feel better now.' }
+      ] },
+      { icon: '⚠️', title: { ar: 'عندما يكون العمل مستعجلًا', en: 'When the work is urgent', fr: 'Quand le travail est urgent' }, phrases: [
+        { fr: 'Il faut faire ça rapidement.', ar: 'لازم نعمل هاد بسرعة.', en: 'We need to do this quickly.' },
+        { fr: 'C’est urgent.', ar: 'هاد مستعجل.', en: 'It’s urgent.' },
+        { fr: 'On est en retard.', ar: 'نحنا متأخرين.', en: 'We’re behind schedule.' },
+        { fr: 'Il faut rattraper le retard.', ar: 'لازم نعوّض التأخير.', en: 'We need to catch up.' },
+        { fr: 'Je fais au plus vite.', ar: 'رح أعمل بأسرع ما فيني.', en: 'I’ll do it as quickly as I can.' },
+        { fr: 'Je vais essayer d’aller plus vite.', ar: 'رح حاول أسرّع أكتر.', en: 'I’ll try to go faster.' }
+      ] },
+      { icon: '📱', title: { ar: 'إذا احتجت أن تسأل عن جهاز أو أداة', en: 'If you need to ask about a device or tool', fr: 'Pour demander un appareil ou un outil' }, phrases: [
+        { fr: 'Où est le scanner ?', ar: 'وين جهاز السكان؟', en: 'Where is the scanner?' },
+        { fr: 'Où sont les étiquettes ?', ar: 'وين اللصاقات؟', en: 'Where are the labels?' },
+        { fr: 'Il n’y a plus de cartons.', ar: 'ما عاد في كراتين.', en: 'There are no more boxes.' },
+        { fr: 'Il n’y a plus de scotch.', ar: 'ما عاد في تيب.', en: 'There’s no more tape.' },
+        { fr: 'Il faut en chercher d’autres.', ar: 'لازم نجيب غيرهم.', en: 'We need to get some more.' },
+        { fr: 'Tu sais où je peux en trouver ?', ar: 'بتعرف وين فيني لاقيهم؟', en: 'Do you know where I can find some?' }
+      ] },
+      { icon: '🧑‍💼', title: { ar: 'مع المسؤول إذا أردت التأكد', en: 'With the supervisor to double-check', fr: 'Avec le responsable pour vérifier' }, phrases: [
+        { fr: 'Je veux être sûr de bien faire.', ar: 'بدي أتأكد إني عم أعملها صح.', en: 'I want to make sure I’m doing it correctly.' },
+        { fr: 'C’est bien comme ça ?', ar: 'هيك صح؟', en: 'Is it right like this?' },
+        { fr: 'Je fais comme ça d’habitude ?', ar: 'بعملها هيك عادةً؟', en: 'Do I usually do it like this?' },
+        { fr: 'Vous préférez que je fasse comment ?', ar: 'كيف بتفضّل إني أعملها؟', en: 'How would you prefer me to do it?' },
+        { fr: 'D’accord, je vais faire comme ça.', ar: 'تمام، رح أعملها هيك.', en: 'Okay, I’ll do it this way.' },
+        { fr: 'Merci pour l’explication.', ar: 'شكراً عالشرح.', en: 'Thanks for the explanation.' }
+      ] },
+      { icon: '🕐', title: { ar: 'إذا احتجت الخروج أو المغادرة', en: 'If you need to leave', fr: 'Si tu dois partir' }, phrases: [
+        { fr: 'Je dois partir à quelle heure exactement ?', ar: 'عأي ساعة بالضبط لازم فل؟', en: 'What time exactly do I have to leave?' },
+        { fr: 'Je peux partir maintenant ?', ar: 'فيني فل هلّق؟', en: 'Can I leave now?' },
+        { fr: 'J’ai terminé mon travail.', ar: 'خلصت شغلي.', en: 'I’ve finished my work.' },
+        { fr: 'Tout est rangé.', ar: 'كل شي مترتّب.', en: 'Everything is tidied up.' },
+        { fr: 'J’ai vérifié avant de partir.', ar: 'تأكدت قبل ما فل.', en: 'I checked before leaving.' },
+        { fr: 'Bonne fin de journée !', ar: 'نهارك سعيد / يعطيك العافية لباقي النهار!', en: 'Have a good rest of your day!' }
+      ] },
+      { icon: '⭐', title: { ar: 'عبارات مهمة جدًا في Sistra', en: 'Very important phrases at Sistra', fr: 'Phrases très importantes chez Sistra' }, phrases: [
+        { fr: 'Je suis prêt.', ar: 'أنا جاهز.', en: 'I’m ready.' },
+        { fr: 'Je suis en train de le faire.', ar: 'أنا عم أعمله هلّق.', en: 'I’m doing it right now.' },
+        { fr: 'Je viens de finir.', ar: 'هلّق خلصت.', en: 'I’ve just finished.' },
+        { fr: 'Je n’ai pas encore fini.', ar: 'لسا ما خلصت.', en: 'I haven’t finished yet.' },
+        { fr: 'Il me reste ça à faire.', ar: 'ضايل عليّي هاد أعمله.', en: 'I still have this to do.' },
+        { fr: 'Je vais vérifier.', ar: 'رح أتأكد.', en: 'I’ll check.' },
+        { fr: 'Je vais demander au responsable.', ar: 'رح اسأل المسؤول.', en: 'I’ll ask the supervisor.' },
+        { fr: 'J’ai compris.', ar: 'فهمت.', en: 'I understood.' },
+        { fr: 'Je n’ai pas compris.', ar: 'ما فهمت.', en: 'I didn’t understand.' },
+        { fr: 'D’accord, je m’en occupe.', ar: 'تمام، أنا بتكفّل فيه.', en: 'Okay, I’ll take care of it.' }
+      ] },
+      { icon: '📋', title: { ar: 'عندما يعطيك المسؤول تعليمات', en: 'When the supervisor gives you instructions', fr: 'Quand le responsable te donne des consignes' }, phrases: [
+        { fr: 'Tu vas commencer par ça.', ar: 'رح تبلّش بهالشي.', en: 'You’re going to start with this.' },
+        { fr: 'Ensuite, tu fais ça.', ar: 'بعدين بتعمل هاد.', en: 'Then you do this.' },
+        { fr: 'Quand tu as fini, tu viens me voir.', ar: 'لما تخلص، تعا لعندي.', en: 'When you finish, come and see me.' },
+        { fr: 'Ne commence pas encore.', ar: 'لا تبلّش لسا.', en: 'Don’t start yet.' },
+        { fr: 'Attends que je te dise.', ar: 'استنى لحتى قلك.', en: 'Wait until I tell you.' },
+        { fr: 'Fais attention à cette partie.', ar: 'دير بالك على هالجزء.', en: 'Be careful with this part.' },
+        { fr: 'Fais exactement comme je t’ai montré.', ar: 'اعمل بالضبط متل ما فرجيتك.', en: 'Do exactly as I showed you.' }
+      ] },
+      { icon: '🔢', title: { ar: 'عدّ المنتجات', en: 'Counting the products', fr: 'Compter les produits' }, phrases: [
+        { fr: 'Tu dois en mettre cinq par carton.', ar: 'لازم تحط خمسة بكل كرتونة.', en: 'You have to put five in each box.' },
+        { fr: 'Compte avant de fermer.', ar: 'عدّ قبل ما تسكّر.', en: 'Count before closing it.' },
+        { fr: 'Tu as bien compté ?', ar: 'عدّيت منيح؟', en: 'Did you count correctly?' },
+        { fr: 'Je vais recompter.', ar: 'رح أعدّ من جديد.', en: 'I’ll count again.' },
+        { fr: 'Le compte n’est pas bon.', ar: 'العدّ مو صحيح.', en: 'The count is not correct.' },
+        { fr: 'Il en manque encore un.', ar: 'لسا ناقص واحد.', en: 'One is still missing.' },
+        { fr: 'Il y en a un de trop.', ar: 'في واحد زيادة.', en: 'There’s one too many.' }
+      ] },
+      { icon: '🏷️', title: { ar: 'المرجع والمنتج الصحيح', en: 'The right reference and product', fr: 'La bonne référence et le bon produit' }, phrases: [
+        { fr: 'Vérifie le numéro de référence.', ar: 'تأكد من رقم المرجع.', en: 'Check the reference number.' },
+        { fr: 'La référence est différente.', ar: 'المرجع مختلف.', en: 'The reference is different.' },
+        { fr: 'C’est la même référence ?', ar: 'هاد نفس المرجع؟', en: 'Is this the same reference?' },
+        { fr: 'Non, ce n’est pas la même.', ar: 'لا، مو نفس الشي.', en: 'No, it’s not the same.' },
+        { fr: 'J’ai trouvé la bonne référence.', ar: 'لقيت المرجع الصحيح.', en: 'I found the correct reference.' },
+        { fr: 'Je me suis trompé de référence.', ar: 'غلطت بالمرجع.', en: 'I got the reference wrong.' }
+      ] },
+      { icon: '📦', title: { ar: 'إذا نفدت المواد', en: 'If supplies run out', fr: 'Si les matériaux manquent' }, phrases: [
+        { fr: 'Il n’y a plus de cartons ici.', ar: 'ما عاد في كراتين هون.', en: 'There are no more boxes here.' },
+        { fr: 'Il n’y a plus d’étiquettes.', ar: 'ما عاد في لصاقات.', en: 'There are no more labels.' },
+        { fr: 'Il n’y a plus de film.', ar: 'ما عاد في تغليف بلاستيك.', en: 'There’s no more wrapping film.' },
+        { fr: 'Il faut en apporter.', ar: 'لازم نجيب منه.', en: 'We need to bring some.' },
+        { fr: 'Où est-ce que je peux en trouver ?', ar: 'وين فيني لاقي منه؟', en: 'Where can I find some?' },
+        { fr: 'Je vais en chercher.', ar: 'رح روح جيب.', en: 'I’ll go get some.' }
+      ] },
+      { icon: '🚛', title: { ar: 'عند نقل الكراتين', en: 'When moving boxes', fr: 'En déplaçant les cartons' }, phrases: [
+        { fr: 'Tu peux prendre ce carton ?', ar: 'فيك تاخد هالكرتونة؟', en: 'Can you take this box?' },
+        { fr: 'Pose-le ici.', ar: 'حطّه هون.', en: 'Put it here.' },
+        { fr: 'Pose-les là-bas.', ar: 'حطّهن هنيك.', en: 'Put them over there.' },
+        { fr: 'Ne mets pas ça par terre.', ar: 'لا تحط هاد عالأرض.', en: 'Don’t put this on the floor.' },
+        { fr: 'Mets-le sur la palette.', ar: 'حطّه عالباليت.', en: 'Put it on the pallet.' },
+        { fr: 'La palette est pleine.', ar: 'الباليت مليانة.', en: 'The pallet is full.' },
+        { fr: 'Il faut changer de palette.', ar: 'لازم نغيّر الباليت.', en: 'We need to change pallets.' }
+      ] },
+      { icon: '🧍‍♂️', title: { ar: 'عندما تحتاج أن تمر', en: 'When you need to get through', fr: 'Quand tu dois passer' }, phrases: [
+        { fr: 'Pardon, je peux passer ?', ar: 'عفواً، فيني مرق؟', en: 'Excuse me, can I get through?' },
+        { fr: 'Laisse-moi passer, s’il te plaît.', ar: 'خليني مرق لو سمحت.', en: 'Let me pass, please.' },
+        { fr: 'Attention, je passe avec un carton.', ar: 'دير بالك، عم مرق ومعي كرتونة.', en: 'Careful, I’m coming through with a box.' },
+        { fr: 'Attention derrière !', ar: 'دير بالك وراك!', en: 'Watch out behind you!' },
+        { fr: 'Pousse-toi un peu, s’il te plaît.', ar: 'ابعد شوي لو سمحت.', en: 'Move over a little, please.' }
+      ] },
+      { icon: '❌', title: { ar: 'منتج تالف أو مشكوك فيه', en: 'A damaged or suspect product', fr: 'Un produit abîmé ou douteux' }, phrases: [
+        { fr: 'Celui-là est abîmé.', ar: 'هاد متضرر.', en: 'This one is damaged.' },
+        { fr: 'Celui-là est cassé.', ar: 'هاد مكسور.', en: 'This one is broken.' },
+        { fr: 'L’emballage est ouvert.', ar: 'التغليف مفتوح.', en: 'The packaging is open.' },
+        { fr: 'L’emballage est déchiré.', ar: 'التغليف ممزق.', en: 'The packaging is torn.' },
+        { fr: 'Je le mets de côté ?', ar: 'حطّه عالطرف؟', en: 'Should I put it aside?' },
+        { fr: 'Oui, mets-le de côté.', ar: 'إي، حطّه عالطرف.', en: 'Yes, put it aside.' }
+      ] },
+      { icon: '🛠️', title: { ar: 'إذا الجهاز لا يعمل', en: 'If the device doesn’t work', fr: 'Si l’appareil ne marche pas' }, phrases: [
+        { fr: 'Le scanner ne marche pas.', ar: 'جهاز السكان ما عم يشتغل.', en: 'The scanner isn’t working.' },
+        { fr: 'Il ne s’allume pas.', ar: 'ما عم يشتغل/ما عم يضوي.', en: 'It doesn’t turn on.' },
+        { fr: 'Ça ne fonctionne plus.', ar: 'ما عاد يشتغل.', en: 'It doesn’t work anymore.' },
+        { fr: 'Tu peux regarder ?', ar: 'فيك تشوفه؟', en: 'Can you take a look?' },
+        { fr: 'Je vais prévenir le responsable.', ar: 'رح خبر المسؤول.', en: 'I’ll tell the supervisor.' },
+        { fr: 'On peut utiliser un autre scanner ?', ar: 'فينا نستخدم جهاز سكان تاني؟', en: 'Can we use another scanner?' }
+      ] },
+      { icon: '😅', title: { ar: 'عندما لا تعرف ماذا تفعل', en: 'When you don’t know what to do', fr: 'Quand tu ne sais pas quoi faire' }, phrases: [
+        { fr: 'Je ne sais pas quoi faire.', ar: 'ما بعرف شو أعمل.', en: 'I don’t know what to do.' },
+        { fr: 'Je dois faire quoi maintenant ?', ar: 'شو لازم أعمل هلّق؟', en: 'What should I do now?' },
+        { fr: 'Je peux attendre ici ?', ar: 'فيني استنى هون؟', en: 'Can I wait here?' },
+        { fr: 'J’attends les instructions.', ar: 'ناطر التعليمات.', en: 'I’m waiting for instructions.' },
+        { fr: 'Je préfère demander avant de faire une erreur.', ar: 'بفضّل اسأل قبل ما أعمل غلطة.', en: 'I’d rather ask before making a mistake.' }
+      ] },
+      { icon: '👨‍💼', title: { ar: 'المسؤول يسألك عن العمل', en: 'The supervisor asks about your work', fr: 'Le responsable te demande où tu en es' }, phrases: [
+        { fr: 'Ça avance ?', ar: 'عم تمشي الشغلة؟', en: 'Is it going well?' },
+        { fr: 'Oui, ça avance bien.', ar: 'إي، عم تمشي منيح.', en: 'Yes, it’s going well.' },
+        { fr: 'Tu as fini ?', ar: 'خلصت؟', en: 'Are you finished?' },
+        { fr: 'Presque.', ar: 'تقريبًا.', en: 'Almost.' },
+        { fr: 'Il te reste combien ?', ar: 'قديش ضايل عليك؟', en: 'How much do you have left?' },
+        { fr: 'Il me reste trois cartons.', ar: 'ضايل عليّي 3 كراتين.', en: 'I have three boxes left.' },
+        { fr: 'Tu peux finir avant la pause ?', ar: 'فيك تخلص قبل الاستراحة؟', en: 'Can you finish before the break?' },
+        { fr: 'Oui, je pense que oui.', ar: 'إي، بعتقد إيه.', en: 'Yes, I think so.' }
+      ] },
+      { icon: '🗣️', title: { ar: 'إذا قال لك المسؤول شيئًا ولم تفهمه', en: 'If the supervisor says something you didn’t understand', fr: 'Si le responsable dit quelque chose que tu n’as pas compris' }, phrases: [
+        { fr: 'Pardon, vous pouvez m’expliquer ?', ar: 'عفواً، فيك تشرحلي؟', en: 'Sorry, can you explain it to me?' },
+        { fr: 'Je n’ai pas bien compris la consigne.', ar: 'ما فهمت التعليمات منيح.', en: 'I didn’t quite understand the instruction.' },
+        { fr: 'Vous pouvez me montrer ?', ar: 'فيك تفرجيني؟', en: 'Can you show me?' },
+        { fr: 'Ah d’accord, maintenant j’ai compris.', ar: 'آه تمام، هلّق فهمت.', en: 'Ah okay, now I understand.' },
+        { fr: 'D’accord, je vais faire comme ça.', ar: 'تمام، رح أعملها هيك.', en: 'Okay, I’ll do it like that.' }
+      ] },
+      { icon: '⭐', title: { ar: 'عبارات فرنسية قصيرة تسمعها كثيرًا', en: 'Short French phrases you hear a lot', fr: 'Petites phrases françaises qu’on entend souvent' }, phrases: [
+        { fr: 'Vas-y.', ar: 'يلا / تفضل.', en: 'Go ahead.' },
+        { fr: 'Allez, c’est parti !', ar: 'يلا، بلّشنا!', en: 'Come on, let’s go!' },
+        { fr: 'Encore un peu.', ar: 'شوي كمان.', en: 'A little more.' },
+        { fr: 'C’est bon.', ar: 'تمام / خلص.', en: 'It’s okay / That’s good.' },
+        { fr: 'Ça suffit.', ar: 'بكفي.', en: 'That’s enough.' },
+        { fr: 'Laisse tomber.', ar: 'خلص، اتركها.', en: 'Forget it.' },
+        { fr: 'Pas grave.', ar: 'مو مشكلة.', en: 'No big deal.' },
+        { fr: 'T’inquiète.', ar: 'لا تهتم / لا تشيل هم.', en: 'Don’t worry.' },
+        { fr: 'Tout de suite.', ar: 'هلّق فورًا.', en: 'Right away.' },
+        { fr: 'Attends deux secondes.', ar: 'استنى ثانيتين.', en: 'Wait two seconds.' }
+      ] }
     ]
   },
   {
