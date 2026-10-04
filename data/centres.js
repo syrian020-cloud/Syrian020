@@ -20785,5 +20785,204 @@ window.CENTRES_DATA = [
         { fr: 'On a beaucoup de travail aujourd’hui.', ar: 'عنا شغل كتير اليوم.', en: 'We have a lot of work today.' }
       ] }
     ]
+  },
+  {
+    id: 'heure-temps',
+    icon: '🕐',
+    name: { ar: 'الساعة والوقت', en: 'Time and the clock', fr: 'L’heure et le temps' },
+    desc: { ar: 'السؤال عن الساعة، قراءة الوقت، قبل/بعد، depuis/pendant، مواعيد وعبارات يومية', en: 'Asking and telling the time, before/after, depuis/pendant, appointments and daily phrases', fr: 'Demander et dire l’heure, avant/après, depuis/pendant, rendez-vous et phrases quotidiennes' },
+    sections: [
+      { icon: '🕐', title: { ar: 'السؤال عن الساعة', en: 'Asking the time', fr: 'Demander l’heure' }, phrases: [
+        { fr: 'Quelle heure est-il ?', ar: 'قديش الساعة؟', en: 'What time is it?' },
+        { fr: 'Vous avez l’heure, s’il vous plaît ?', ar: 'معك الساعة لو سمحت؟', en: 'Do you have the time, please?' },
+        { fr: 'Tu as l’heure ?', ar: 'معك الساعة؟', en: 'Do you have the time?' },
+        { fr: 'Il est quelle heure ?', ar: 'قديش الساعة؟', en: 'What time is it?' }
+      ] },
+      { icon: '🕑', title: { ar: 'كيف نقول الساعة', en: 'Telling the time', fr: 'Dire l’heure' }, phrases: [
+        { fr: 'Il est une heure.', ar: 'الساعة وحدة.', en: 'It’s one o’clock.' },
+        { fr: 'Il est deux heures.', ar: 'الساعة تنين.', en: 'It’s two o’clock.' },
+        { fr: 'Il est trois heures.', ar: 'الساعة تلاتة.', en: 'It’s three o’clock.' },
+        { fr: 'Il est quatre heures.', ar: 'الساعة أربعة.', en: 'It’s four o’clock.' },
+        { fr: 'Il est cinq heures.', ar: 'الساعة خمسة.', en: 'It’s five o’clock.' },
+        { fr: 'Il est six heures.', ar: 'الساعة ستة.', en: 'It’s six o’clock.' },
+        { fr: 'Il est sept heures.', ar: 'الساعة سبعة.', en: 'It’s seven o’clock.' },
+        { fr: 'Il est huit heures.', ar: 'الساعة تمانية.', en: 'It’s eight o’clock.' },
+        { fr: 'Il est neuf heures.', ar: 'الساعة تسعة.', en: 'It’s nine o’clock.' },
+        { fr: 'Il est dix heures.', ar: 'الساعة عشرة.', en: 'It’s ten o’clock.' },
+        { fr: 'Il est onze heures.', ar: 'الساعة حداش.', en: 'It’s eleven o’clock.' },
+        { fr: 'Il est midi.', ar: 'الساعة تنين الظهر / الظهر.', en: 'It’s noon.' },
+        { fr: 'Il est minuit.', ar: 'الساعة نص الليل.', en: 'It’s midnight.' }
+      ] },
+      { icon: '🕒', title: { ar: 'الدقائق', en: 'Minutes', fr: 'Les minutes' }, phrases: [
+        { fr: 'Il est trois heures cinq.', ar: 'الساعة تلاتة وخمس دقايق.', en: 'It’s 3:05.' },
+        { fr: 'Il est trois heures dix.', ar: 'الساعة تلاتة وعشرة.', en: 'It’s 3:10.' },
+        { fr: 'Il est trois heures et quart.', ar: 'الساعة تلاتة وربع.', en: 'It’s 3:15.' },
+        { fr: 'Il est trois heures vingt.', ar: 'الساعة تلاتة وعشرين.', en: 'It’s 3:20.' },
+        { fr: 'Il est trois heures vingt-cinq.', ar: 'الساعة تلاتة وخمسة وعشرين.', en: 'It’s 3:25.' },
+        { fr: 'Il est trois heures et demie.', ar: 'الساعة تلاتة ونص.', en: 'It’s 3:30.' },
+        { fr: 'Il est quatre heures moins vingt-cinq.', ar: 'الساعة أربعة إلا خمسة وعشرين.', en: 'It’s 3:35.' },
+        { fr: 'Il est quatre heures moins vingt.', ar: 'الساعة أربعة إلا عشرين.', en: 'It’s 3:40.' },
+        { fr: 'Il est quatre heures moins le quart.', ar: 'الساعة أربعة إلا ربع.', en: 'It’s 3:45.' },
+        { fr: 'Il est quatre heures moins dix.', ar: 'الساعة أربعة إلا عشرة.', en: 'It’s 3:50.' },
+        { fr: 'Il est quatre heures moins cinq.', ar: 'الساعة أربعة إلا خمسة.', en: 'It’s 3:55.' }
+      ] },
+      { icon: '⏰', title: { ar: 'أهم 6 جمل لازم تحفظها', en: 'The 6 key sentences to memorize', fr: 'Les 6 phrases à retenir' }, phrases: [
+        { fr: 'Il est trois heures.', ar: 'الساعة تلاتة.', en: 'It’s three o’clock.' },
+        { fr: 'Il est trois heures et quart.', ar: 'الساعة تلاتة وربع.', en: 'It’s 3:15.' },
+        { fr: 'Il est trois heures et demie.', ar: 'الساعة تلاتة ونص.', en: 'It’s 3:30.' },
+        { fr: 'Il est quatre heures moins le quart.', ar: 'الساعة أربعة إلا ربع.', en: 'It’s 3:45.' },
+        { fr: 'Il est trois heures vingt.', ar: 'الساعة تلاتة وعشرين.', en: 'It’s 3:20.' },
+        { fr: 'Il est quatre heures moins dix.', ar: 'الساعة أربعة إلا عشرة.', en: 'It’s 3:50.' }
+      ] },
+      { icon: '🌅', title: { ar: 'الصبح — الظهر — المساء — الليل', en: 'Morning — Afternoon — Evening — Night', fr: 'Le matin — l’après-midi — le soir — la nuit' }, phrases: [
+        { fr: 'Le matin', ar: 'الصبح', en: 'Morning' },
+        { fr: 'L’après-midi', ar: 'بعد الظهر', en: 'Afternoon' },
+        { fr: 'Le soir', ar: 'المسا', en: 'Evening' },
+        { fr: 'La nuit', ar: 'الليل', en: 'Night' },
+        { fr: 'Je travaille le matin.', ar: 'بشتغل الصبح.', en: 'I work in the morning.' },
+        { fr: 'Je travaille l’après-midi.', ar: 'بشتغل بعد الظهر.', en: 'I work in the afternoon.' },
+        { fr: 'Je travaille le soir.', ar: 'بشتغل بالليل / المسا.', en: 'I work in the evening.' },
+        { fr: 'Je travaille de nuit.', ar: 'بشتغل بالليل.', en: 'I work at night.' }
+      ] },
+      { icon: '📅', title: { ar: 'اليوم — غدًا — أمس', en: 'Today — tomorrow — yesterday', fr: 'Aujourd’hui — demain — hier' }, phrases: [
+        { fr: 'aujourd’hui', ar: 'اليوم', en: 'today' },
+        { fr: 'demain', ar: 'بكرا', en: 'tomorrow' },
+        { fr: 'après-demain', ar: 'بعد بكرا', en: 'the day after tomorrow' },
+        { fr: 'hier', ar: 'مبارح', en: 'yesterday' },
+        { fr: 'avant-hier', ar: 'أول مبارح', en: 'the day before yesterday' },
+        { fr: 'Je travaille aujourd’hui.', ar: 'اليوم بشتغل.', en: 'I’m working today.' },
+        { fr: 'Je travaille demain.', ar: 'بكرا بشتغل.', en: 'I’m working tomorrow.' },
+        { fr: 'Je ne travaille pas demain.', ar: 'ما بشتغل بكرا.', en: 'I’m not working tomorrow.' },
+        { fr: 'J’ai travaillé hier.', ar: 'اشتغلت مبارح.', en: 'I worked yesterday.' }
+      ] },
+      { icon: '⏱️', title: { ar: 'متى؟', en: 'When?', fr: 'Quand ?' }, phrases: [
+        { fr: 'Quand ?', ar: 'إمتى؟', en: 'When?' },
+        { fr: 'À quelle heure ?', ar: 'بأي ساعة؟', en: 'At what time?' },
+        { fr: 'À quelle heure tu commences ?', ar: 'بأي ساعة بتبلّش؟', en: 'What time do you start?' },
+        { fr: 'À quelle heure tu finis ?', ar: 'بأي ساعة بتخلص؟', en: 'What time do you finish?' },
+        { fr: 'Je commence à huit heures.', ar: 'ببلّش الساعة تمانية.', en: 'I start at eight.' },
+        { fr: 'Je finis à dix-sept heures.', ar: 'بخلص الساعة خمسة.', en: 'I finish at five.' }
+      ] },
+      { icon: '🏃', title: { ar: 'قبل / بعد', en: 'Before / After', fr: 'Avant / Après' }, phrases: [
+        { fr: 'avant', ar: 'قبل', en: 'before' },
+        { fr: 'après', ar: 'بعد', en: 'after' },
+        { fr: 'Avant huit heures.', ar: 'قبل الساعة تمانية.', en: 'Before eight o’clock.' },
+        { fr: 'Après huit heures.', ar: 'بعد الساعة تمانية.', en: 'After eight o’clock.' },
+        { fr: 'Je viens avant midi.', ar: 'بجي قبل الظهر.', en: 'I’ll come before noon.' },
+        { fr: 'Je viens après midi.', ar: 'بجي بعد الظهر.', en: 'I’ll come after noon.' }
+      ] },
+      { icon: '⌛', title: { ar: 'منذ / لمدة / خلال', en: 'Since / For / During', fr: 'Depuis / Pendant' }, phrases: [
+        { fr: 'depuis', ar: 'منذ', en: 'since / for' },
+        { fr: 'J’attends depuis une heure.', ar: 'ناطر من ساعة.', en: 'I’ve been waiting for an hour.' },
+        { fr: 'Je travaille ici depuis deux ans.', ar: 'إلي سنتين عم اشتغل هون.', en: 'I’ve been working here for two years.' },
+        { fr: 'pendant', ar: 'لمدة / خلال', en: 'for / during' },
+        { fr: 'Je travaille pendant huit heures.', ar: 'بشتغل لمدة تمان ساعات.', en: 'I work for eight hours.' },
+        { fr: 'J’ai attendu pendant trente minutes.', ar: 'نطرت لمدة نص ساعة.', en: 'I waited for thirty minutes.' }
+      ] },
+      { icon: '🚨', title: { ar: 'تأخير وموعد', en: 'Being late and appointments', fr: 'Retard et rendez-vous' }, phrases: [
+        { fr: 'Je suis en retard.', ar: 'أنا متأخر.', en: 'I’m late.' },
+        { fr: 'Je vais être en retard.', ar: 'رح أتأخر.', en: 'I’m going to be late.' },
+        { fr: 'Je suis un peu en retard.', ar: 'أنا متأخر شوي.', en: 'I’m a little late.' },
+        { fr: 'Je suis à l’heure.', ar: 'وصلت بالوقت / أنا بوقتي.', en: 'I’m on time.' },
+        { fr: 'Je suis en avance.', ar: 'وصلت بكير.', en: 'I’m early.' },
+        { fr: 'Le rendez-vous est à dix heures.', ar: 'الموعد الساعة عشرة.', en: 'The appointment is at ten.' },
+        { fr: 'J’ai rendez-vous à dix heures.', ar: 'عندي موعد الساعة عشرة.', en: 'I have an appointment at ten.' }
+      ] },
+      { icon: '🔥', title: { ar: 'عبارات يومية لازم تصير تلقائية', en: 'Everyday phrases to know by heart', fr: 'Phrases quotidiennes à connaître' }, phrases: [
+        { fr: 'Attends une minute.', ar: 'انطر دقيقة.', en: 'Wait a minute.' },
+        { fr: 'Attends deux minutes.', ar: 'انطر دقيقتين.', en: 'Wait two minutes.' },
+        { fr: 'J’arrive dans cinq minutes.', ar: 'جايي بعد خمس دقايق.', en: 'I’ll be there in five minutes.' },
+        { fr: 'Je reviens dans dix minutes.', ar: 'برجع بعد عشر دقايق.', en: 'I’ll be back in ten minutes.' },
+        { fr: 'Je suis là dans cinq minutes.', ar: 'بكون هنيك بعد خمس دقايق.', en: 'I’ll be there in five minutes.' },
+        { fr: 'Ça prend combien de temps ?', ar: 'قديش بياخد وقت؟', en: 'How long does it take?' },
+        { fr: 'Ça prend dix minutes.', ar: 'بياخد عشر دقايق.', en: 'It takes ten minutes.' },
+        { fr: 'J’en ai pour dix minutes.', ar: 'بدي حوالي عشر دقايق.', en: 'I’ll need about ten minutes.' },
+        { fr: 'Je n’ai pas le temps.', ar: 'ما عندي وقت.', en: 'I don’t have time.' },
+        { fr: 'J’ai le temps.', ar: 'عندي وقت.', en: 'I have time.' },
+        { fr: 'J’ai encore le temps.', ar: 'لسا معي وقت.', en: 'I still have time.' },
+        { fr: 'Je n’ai plus le temps.', ar: 'ما عاد معي وقت.', en: 'I don’t have time anymore.' }
+      ] },
+      { icon: '🧠', title: { ar: 'القالب الأول — Il est + الساعة', en: 'Pattern 1 — Il est + hour', fr: 'Modèle 1 — Il est + heure' }, phrases: [
+        { fr: 'Il est huit heures.', ar: 'الساعة تمانية.', en: 'It’s eight o’clock.' },
+        { fr: 'Il est neuf heures.', ar: 'الساعة تسعة.', en: 'It’s nine o’clock.' },
+        { fr: 'Il est dix heures.', ar: 'الساعة عشرة.', en: 'It’s ten o’clock.' },
+        { fr: 'Il est onze heures.', ar: 'الساعة حداش.', en: 'It’s eleven o’clock.' }
+      ] },
+      { icon: '🧠', title: { ar: 'القالب الثاني — À + الساعة', en: 'Pattern 2 — À + hour', fr: 'Modèle 2 — À + heure' }, phrases: [
+        { fr: 'À huit heures.', ar: 'الساعة تمانية / عند الساعة تمانية.', en: 'At eight o’clock.' },
+        { fr: 'Je viens à huit heures.', ar: 'بجي الساعة تمانية.', en: 'I’m coming at eight.' }
+      ] },
+      { icon: '🧠', title: { ar: 'القالب الثالث — dans + مدة', en: 'Pattern 3 — dans + duration', fr: 'Modèle 3 — dans + durée' }, phrases: [
+        { fr: 'Dans cinq minutes.', ar: 'بعد خمس دقايق.', en: 'In five minutes.' },
+        { fr: 'Dans une heure.', ar: 'بعد ساعة.', en: 'In an hour.' }
+      ] },
+      { icon: '🧠', title: { ar: 'القالب الرابع — depuis + مدة', en: 'Pattern 4 — depuis + duration', fr: 'Modèle 4 — depuis + durée' }, phrases: [
+        { fr: 'Depuis deux heures.', ar: 'من ساعتين.', en: 'For two hours.' },
+        { fr: 'J’attends depuis deux heures.', ar: 'ناطر من ساعتين.', en: 'I’ve been waiting for two hours.' }
+      ] },
+      { icon: '🧠', title: { ar: 'مثال سريع — à / dans / depuis', en: 'Quick example — à / dans / depuis', fr: 'Exemple rapide — à / dans / depuis' }, phrases: [
+        { fr: 'Je viens à huit heures.', ar: 'بجي الساعة تمانية.', en: 'I’m coming at eight.' },
+        { fr: 'Je viens dans huit heures.', ar: 'بجي بعد تمان ساعات.', en: 'I’m coming in eight hours.' },
+        { fr: 'J’attends depuis huit heures.', ar: 'ناطر من الساعة تمانية / ناطر من تمان ساعات، حسب السياق.', en: 'I’ve been waiting since eight / for eight hours.' }
+      ] },
+      { icon: '🕐', title: { ar: 'أي ساعة رح تجي؟', en: 'What time are you coming?', fr: 'Tu viens à quelle heure ?' }, phrases: [
+        { fr: 'Tu viens à quelle heure ?', ar: 'أي ساعة رح تجي؟', en: 'What time are you coming?' },
+        { fr: 'Tu arrives à quelle heure ?', ar: 'أي ساعة رح توصل؟', en: 'What time will you arrive?' },
+        { fr: 'Tu pars à quelle heure ?', ar: 'أي ساعة رح تروح؟', en: 'What time are you leaving?' },
+        { fr: 'Tu rentres à quelle heure ?', ar: 'أي ساعة رح ترجع عالبيت؟', en: 'What time are you coming home?' },
+        { fr: 'Tu finis à quelle heure ?', ar: 'أي ساعة رح تخلص؟', en: 'What time do you finish?' },
+        { fr: 'Tu commences à quelle heure ?', ar: 'أي ساعة رح تبلّش؟', en: 'What time do you start?' },
+        { fr: 'Tu peux me dire à quelle heure tu viens ?', ar: 'فيك تقلي أي ساعة رح تجي؟', en: 'Can you tell me what time you’re coming?' }
+      ] },
+      { icon: '🕐', title: { ar: 'إيمت رح نلتقي؟ — On se voit quand ?', en: 'When are we meeting?', fr: 'On se voit quand ?' }, phrases: [
+        { fr: 'On se retrouve quand ?', ar: 'إيمت رح نلتقي؟', en: 'When are we meeting?' },
+        { fr: 'On se voit quand ?', ar: 'إيمت رح نشوف بعض؟', en: 'When are we going to see each other?' },
+        { fr: 'On se retrouve à quelle heure ?', ar: 'بأي ساعة رح نلتقي؟', en: 'What time are we meeting?' },
+        { fr: 'On se voit demain ?', ar: 'منلتقي بكرا؟', en: 'Shall we meet tomorrow?' },
+        { fr: 'On se retrouve où ?', ar: 'وين رح نلتقي؟', en: 'Where are we meeting?' },
+        { fr: 'À quelle heure on se retrouve ?', ar: 'بأي ساعة منلتقي؟', en: 'What time are we meeting?' }
+      ] },
+      { icon: '🕐', title: { ar: 'On se voit quand ? — الأجوبة', en: 'When are we meeting? — answers', fr: 'On se voit quand ? — réponses' }, phrases: [
+        { fr: 'Demain.', ar: 'بكرا.', en: 'Tomorrow.' },
+        { fr: 'Ce soir.', ar: 'اليوم بالليل.', en: 'Tonight.' },
+        { fr: 'Cet après-midi.', ar: 'اليوم بعد الظهر.', en: 'This afternoon.' },
+        { fr: 'Ce week-end.', ar: 'هالويكند.', en: 'This weekend.' },
+        { fr: 'Demain matin.', ar: 'بكرا الصبح.', en: 'Tomorrow morning.' },
+        { fr: 'Demain soir.', ar: 'بكرا بالليل.', en: 'Tomorrow evening.' }
+      ] },
+      { icon: '⏰', title: { ar: 'إذا سألوك: بأي ساعة؟', en: 'If they ask you: at what time?', fr: 'Si on te demande : à quelle heure ?' }, phrases: [
+        { fr: 'Vers huit heures.', ar: 'حوالي الساعة تمانية.', en: 'Around eight.' },
+        { fr: 'À huit heures.', ar: 'الساعة تمانية.', en: 'At eight.' },
+        { fr: 'À huit heures et demie.', ar: 'الساعة تمانية ونص.', en: 'At 8:30.' },
+        { fr: 'Vers huit heures et demie.', ar: 'حوالي تمانية ونص.', en: 'Around 8:30.' },
+        { fr: 'À neuf heures précises.', ar: 'الساعة تسعة بالضبط.', en: 'At exactly nine.' },
+        { fr: 'N’importe quand.', ar: 'بأي وقت، ما بيفرق.', en: 'Anytime.' }
+      ] },
+      { icon: '📅', title: { ar: 'إذا ما بتعرف الوقت لسا', en: 'If you don’t know the time yet', fr: 'Si tu ne sais pas encore' }, phrases: [
+        { fr: 'Je ne sais pas encore.', ar: 'لسا ما بعرف.', en: 'I don’t know yet.' },
+        { fr: 'Je te dirai plus tard.', ar: 'بقلّك بعدين.', en: 'I’ll tell you later.' },
+        { fr: 'Je te confirme plus tard.', ar: 'بأكدلك بعدين.', en: 'I’ll confirm later.' },
+        { fr: 'Je te tiens au courant.', ar: 'بخبرك شو بيصير.', en: 'I’ll keep you posted.' }
+      ] },
+      { icon: '🚗', title: { ar: 'إذا كنت بالطريق', en: 'If you’re on the way', fr: 'Si tu es en route' }, phrases: [
+        { fr: 'J’arrive dans dix minutes.', ar: 'بوصل بعد عشر دقايق.', en: 'I’ll be there in ten minutes.' },
+        { fr: 'J’arrive bientôt.', ar: 'بوصل قريب.', en: 'I’ll be there soon.' },
+        { fr: 'Je suis en route.', ar: 'أنا بالطريق.', en: 'I’m on my way.' },
+        { fr: 'Je pars maintenant.', ar: 'هلأ طالع.', en: 'I’m leaving now.' },
+        { fr: 'Je suis presque arrivé.', ar: 'قربت أوصل.', en: 'I’m almost there.' }
+      ] },
+      { icon: '⏰', title: { ar: 'إذا تأخرت', en: 'If you’re late', fr: 'Si tu es en retard' }, phrases: [
+        { fr: 'Je vais être un peu en retard.', ar: 'رح أتأخر شوي.', en: 'I’m going to be a little late.' },
+        { fr: 'Désolé, je suis en retard.', ar: 'آسف، تأخرت.', en: 'Sorry, I’m late.' },
+        { fr: 'J’arrive dans cinq minutes.', ar: 'بوصل بعد خمس دقايق.', en: 'I’ll be there in five minutes.' }
+      ] },
+      { icon: '⭐', title: { ar: 'حوار كامل — On se voit quand ?', en: 'Complete dialogue — On se voit quand ?', fr: 'Dialogue complet — On se voit quand ?' }, phrases: [
+        { fr: 'On se voit quand ?', ar: 'إيمت منلتقي؟', en: 'When are we meeting?' },
+        { fr: 'Demain soir.', ar: 'بكرا بالليل.', en: 'Tomorrow evening.' },
+        { fr: 'À quelle heure ?', ar: 'بأي ساعة؟', en: 'What time?' },
+        { fr: 'Vers huit heures.', ar: 'حوالي الساعة تمانية.', en: 'Around eight.' },
+        { fr: 'Ça marche. À demain !', ar: 'تمام. منشوفك بكرا!', en: 'Sounds good. See you tomorrow!' }
+      ] }
+    ]
   }
 ];
