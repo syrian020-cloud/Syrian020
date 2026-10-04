@@ -125,6 +125,7 @@
   .phrase:hover { transform: translateX(-3px); border-color: rgba(139,92,246,0.4); background: var(--bg-tertiary); }
   [dir="ltr"] .phrase:hover { transform: translateX(3px); }
   .phrase:last-child { margin-bottom: 0; }
+  .phrase.playing { border-color: var(--accent-solid); background: rgba(139,92,246,0.16); box-shadow: 0 0 0 2px rgba(139,92,246,0.4); }
   .phrase-lines { flex: 1; min-width: 0; }
   .pl .txt .w { cursor: pointer; border-radius: 5px; padding: 0 1px; transition: background .12s; }
   .pl .txt .w.looping { background: rgba(139,92,246,.32); color: var(--accent); }
@@ -304,6 +305,7 @@
     if (window.speechSynthesis) window.speechSynthesis.cancel();
     document.querySelectorAll('.speaking').forEach(function (b) { b.classList.remove('speaking'); });
     document.querySelectorAll('.looping').forEach(function (b) { b.classList.remove('looping'); });
+    document.querySelectorAll('.phrase.playing').forEach(function (b) { b.classList.remove('playing'); });
   }
 
   var cleanSpoken = function (t) {
@@ -375,6 +377,9 @@
     var done = function () { if (seq === speakSeq) btn.classList.remove('speaking'); };
     var idx = 0, li = 0, round = 0;
     var strip = cleanSpoken;
+    var secEl = btn.closest('.section');
+    if (secEl) secEl.classList.add('open');
+    var phraseEls = secEl ? secEl.querySelectorAll('.section-body > .phrase') : [];
     function play() {
       if (seq !== speakSeq) { done(); return; }
       if (idx >= items.length) {
@@ -385,6 +390,10 @@
       }
       var langs = state.playlang === 'all' ? ['fr', 'ar', 'en'] : [state.playlang];
       var text = strip(items[idx][langs[li]]);
+      if (li === 0 && phraseEls.length) {
+        for (var pi = 0; pi < phraseEls.length; pi++) phraseEls[pi].classList.toggle('playing', pi === idx);
+        if (phraseEls[idx]) phraseEls[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
       var step = function () { li++; if (li >= langs.length) { li = 0; idx++; } play(); };
       if (nativeTTS) speakNative(text, langs[li], 1, step);
       else speakWeb(text, langs[li], 1, step);
