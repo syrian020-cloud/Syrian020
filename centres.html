@@ -483,10 +483,12 @@
     var list = q ? window.CENTRES_DATA : [c];
     wrap.innerHTML = list.map(function (cc) {
       var html = '';
+      var centreHit = q && (cc.name.ar + ' ' + cc.name.en + ' ' + cc.name.fr + ' ' + cc.desc.ar + ' ' + cc.desc.en + ' ' + cc.desc.fr).toLowerCase().indexOf(q) >= 0;
       cc.sections.forEach(function (sec, si) {
+        var secHit = q && (sec.title.ar + ' ' + sec.title.en + ' ' + sec.title.fr).toLowerCase().indexOf(q) >= 0;
         var phrases = sec.phrases.filter(function (p) {
           if (!q) return true;
-          return (p.fr + ' ' + p.ar + ' ' + p.en).toLowerCase().indexOf(q) >= 0;
+          return centreHit || secHit || (p.fr + ' ' + p.ar + ' ' + p.en).toLowerCase().indexOf(q) >= 0;
         });
         visible += phrases.length;
         if (q && !phrases.length) return;
