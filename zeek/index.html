@@ -2402,7 +2402,7 @@
       if (!key) continue;
       const p = findPhraseByKey(key);
       if (!p || !p.captionText) continue;
-      const video = el.querySelector('video');
+      const video = el.querySelector('video,audio');
       if (video) await attachCaptionSync(video, p.captionText);
     }
   }
