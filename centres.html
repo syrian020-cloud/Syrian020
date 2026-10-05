@@ -479,6 +479,7 @@
     if (bb) bb.onclick = function () { state.centre = null; state.query = ''; document.getElementById('search').value = ''; try { history.back(); } catch (e) {} renderAll(); };
 
     var visible = 0;
+    var rendered = 0, capped = false;
     var playData = [];
     var list = q ? window.CENTRES_DATA : [c];
     wrap.innerHTML = list.map(function (cc) {
@@ -492,6 +493,9 @@
         });
         visible += phrases.length;
         if (q && !phrases.length) return;
+        if (q && rendered >= 250) { capped = true; return; }
+        if (q && rendered + phrases.length > 250) { phrases = phrases.slice(0, 250 - rendered); capped = true; }
+        rendered += phrases.length;
         var wordsFr = phrases.reduce(function (n, p) { return n + p.fr.trim().split(/\s+/).length; }, 0);
         playData.push(phrases.map(function (p) { return { fr: p.fr, ar: p.ar, en: p.en }; }));
         html += '<div class="section' + (q ? ' open' : '') + '">' +
@@ -505,6 +509,7 @@
     }).join('');
 
     document.getElementById('empty').style.display = (visible === 0) ? '' : 'none';
+    if (q && capped) wrap.innerHTML += '<div class="centre-group">… ' + (visible - rendered) + ' ' + t('phrases') + '</div>';
 
     wrap.querySelectorAll('.section-head').forEach(function (h) {
       h.onclick = function () { h.parentElement.classList.toggle('open'); };
@@ -519,26 +524,32 @@
       var p = findPhrase(b);
       b.onclick = function () { speak(p[b.dataset.lang], b.dataset.lang, b); };
     });
-    wrap.querySelectorAll('.pl .txt .w').forEach(function (w) {
-      var word = w.textContent;
-      if (!/[\p{L}\p{N}]/u.test(word)) return;
-      var lang = w.closest('.pl').classList.contains('ar') ? 'ar' : (w.closest('.pl').classList.contains('en') ? 'en' : 'fr');
-      var holdT = null, taps = 0, tapT = null, held = false;
-      w.addEventListener('pointerdown', function () {
-        held = false;
-        holdT = setTimeout(function () { held = true; speakLoop(word, w, lang); }, 520);
-      });
-      ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) {
-        w.addEventListener(ev, function () { clearTimeout(holdT); });
-      });
-      w.addEventListener('click', function () {
-        if (held) { held = false; return; }
-        taps++;
-        if (taps === 1) { tapT = setTimeout(function () { taps = 0; }, 380); }
-        else { clearTimeout(tapT); taps = 0; searchImages(word); }
-      });
-    });
   }
+
+  var wHoldT = null, wTaps = 0, wTapT = null, wHeld = false;
+  function wordAt(e) {
+    var w = e.target && e.target.closest ? e.target.closest('.w') : null;
+    if (!w || !/[\p{L}\p{N}]/u.test(w.textContent)) return null;
+    return w;
+  }
+  document.getElementById('sections').addEventListener('pointerdown', function (e) {
+    var w = wordAt(e); if (!w) return;
+    var pl = w.closest('.pl');
+    var lang = pl.classList.contains('ar') ? 'ar' : (pl.classList.contains('en') ? 'en' : 'fr');
+    wHeld = false;
+    clearTimeout(wHoldT);
+    wHoldT = setTimeout(function () { wHeld = true; speakLoop(w.textContent, w, lang); }, 520);
+  });
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) {
+    document.getElementById('sections').addEventListener(ev, function () { clearTimeout(wHoldT); });
+  });
+  document.getElementById('sections').addEventListener('click', function (e) {
+    var w = wordAt(e); if (!w) return;
+    if (wHeld) { wHeld = false; return; }
+    wTaps++;
+    if (wTaps === 1) { wTapT = setTimeout(function () { wTaps = 0; }, 380); }
+    else { clearTimeout(wTapT); wTaps = 0; searchImages(w.textContent); }
+  });
 
   function findPhrase(btn) {
     var phraseEl = btn.closest('.phrase');
@@ -608,7 +619,12 @@
     };
   });
   document.getElementById('stopBtn').onclick = stopSpeaking;
-  document.getElementById('search').oninput = function (e) { state.query = e.target.value; renderAll(); };
+  var searchT = null;
+  document.getElementById('search').oninput = function (e) {
+    state.query = e.target.value;
+    clearTimeout(searchT);
+    searchT = setTimeout(renderAll, 300);
+  };
 
   function toast(msg) {
     var el = document.getElementById('toast');
