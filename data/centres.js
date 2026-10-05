@@ -22713,6 +22713,298 @@ window.CENTRES_DATA = [
         { fr: 'Je vais laisser la place.', ar: 'رح خلّي المكان لغيري.', en: 'I’ll leave the spot for someone else.' },
         { fr: 'Bonne journée !', ar: 'نهارك سعيد!', en: 'Have a nice day!' },
       ] },
+      { icon: '🧺', title: { ar: 'Laver — يغسل', en: 'Laver — يغسل', fr: 'Laver — يغسل' }, phrases: [
+        { fr: 'Je vais laver mes vêtements.', ar: 'رح اغسل تيابي.', en: 'I’m going to wash my clothes.' },
+      ] },
+      { icon: '🧺', title: { ar: 'Mettre — يضع', en: 'Mettre — يضع', fr: 'Mettre — يضع' }, phrases: [
+        { fr: 'Je vais mettre le linge dans la machine.', ar: 'رح حط الغسيل بالغسالة.', en: 'I’m going to put the laundry in the machine.' },
+      ] },
+      { icon: '🧺', title: { ar: 'Mettre en marche — يشغّل', en: 'Mettre en marche — يشغّل', fr: 'Mettre en marche — يشغّل' }, phrases: [
+        { fr: 'J’appuie ici pour mettre la machine en marche.', ar: 'بكبس هون مشان شغّل الغسالة.', en: 'I press here to start the machine.' },
+      ] },
+      { icon: '🧺', title: { ar: 'Choisir — يختار', en: 'Choisir — يختار', fr: 'Choisir — يختار' }, phrases: [
+        { fr: 'Je dois choisir quel programme ?', ar: 'أي برنامج لازم اختار؟', en: 'Which program should I choose?' },
+      ] },
+      { icon: '🧺', title: { ar: 'Sélectionner — يحدد / يختار', en: 'Sélectionner — يحدد / يختار', fr: 'Sélectionner — يحدد / يختار' }, phrases: [
+        { fr: 'Je sélectionne le programme à 40 degrés.', ar: 'بختار برنامج الأربعين درجة.', en: 'I select the 40-degree program.' },
+      ] },
+      { icon: '🧺', title: { ar: 'Payer — يدفع', en: 'Payer — يدفع', fr: 'Payer — يدفع' }, phrases: [
+        { fr: 'Je dois payer avant de lancer la machine.', ar: 'لازم ادفع قبل ما شغّل الغسالة.', en: 'I have to pay before starting the machine.' },
+      ] },
+      { icon: '🧺', title: { ar: 'Insérer — يُدخل', en: 'Insérer — يُدخل', fr: 'Insérer — يُدخل' }, phrases: [
+        { fr: 'J’insère les pièces ici.', ar: 'بحط القطع النقدية هون.', en: 'I insert the coins here.' },
+      ] },
+      { icon: '🧺', title: { ar: 'Introduire — يُدخل', en: 'Introduire — يُدخل', fr: 'Introduire — يُدخل' }, phrases: [
+        { fr: 'Il faut introduire les pièces dans la machine.', ar: 'لازم تدخل القطع النقدية بالماكينة.', en: 'You have to insert the coins into the machine.' },
+      ] },
+      { icon: '🧺', title: { ar: 'Rendre — يُرجع', en: 'Rendre — يُرجع', fr: 'Rendre — يُرجع' }, phrases: [
+        { fr: 'La machine m’a rendu la pièce.', ar: 'الماكينة رجعتلي القطعة.', en: 'The machine returned my coin.' },
+      ] },
+      { icon: '🧺', title: { ar: 'Changer — يصرّف / يبدّل', en: 'Changer — يصرّف / يبدّل', fr: 'Changer — يصرّف / يبدّل' }, phrases: [
+        { fr: 'Je vais changer un billet en pièces.', ar: 'رح صرّف ورقة نقدية لقطع.', en: 'I’m going to change a banknote into coins.' },
+      ] },
+      { icon: '🧺', title: { ar: 'Récupérer — يسترجع / يأخذ', en: 'Récupérer — يسترجع / يأخذ', fr: 'Récupérer — يسترجع / يأخذ' }, phrases: [
+        { fr: 'Je vais récupérer mon linge.', ar: 'رح آخد غسيلي.', en: 'I’m going to collect my laundry.' },
+      ] },
+      { icon: '🧺', title: { ar: 'Attendre — ينتظر', en: 'Attendre — ينتظر', fr: 'Attendre — ينتظر' }, phrases: [
+        { fr: 'Je vais attendre que la machine termine.', ar: 'رح استنى لحتى تخلص الغسالة.', en: 'I’ll wait until the machine finishes.' },
+      ] },
+      { icon: '🧺', title: { ar: 'Commencer — يبدأ', en: 'Commencer — يبدأ', fr: 'Commencer — يبدأ' }, phrases: [
+        { fr: 'Le lavage va commencer.', ar: 'الغسيل رح يبلّش.', en: 'The wash is going to start.' },
+      ] },
+      { icon: '🧺', title: { ar: 'Finir — ينتهي', en: 'Finir — ينتهي', fr: 'Finir — ينتهي' }, phrases: [
+        { fr: 'La machine vient de finir.', ar: 'الغسالة خلصت هلأ.', en: 'The machine just finished.' },
+      ] },
+      { icon: '🧺', title: { ar: 'Terminer — يُنهي / ينتهي', en: 'Terminer — يُنهي / ينتهي', fr: 'Terminer — يُنهي / ينتهي' }, phrases: [
+        { fr: 'J’ai terminé avec la machine.', ar: 'خلصت من الغسالة.', en: 'I’m finished with the machine.' },
+      ] },
+      { icon: '🧺', title: { ar: 'Ouvrir — يفتح', en: 'Ouvrir — يفتح', fr: 'Ouvrir — يفتح' }, phrases: [
+        { fr: 'Je n’arrive pas à ouvrir la porte.', ar: 'ما عم اقدر افتح الباب.', en: 'I can’t open the door.' },
+      ] },
+      { icon: '🧺', title: { ar: 'Fermer — يغلق', en: 'Fermer — يغلق', fr: 'Fermer — يغلق' }, phrases: [
+        { fr: 'Il faut bien fermer la porte.', ar: 'لازم تسكّر الباب منيح.', en: 'You have to close the door properly.' },
+      ] },
+      { icon: '🧺', title: { ar: 'Fermer à clé — يقفل بالمفتاح', en: 'Fermer à clé — يقفل بالمفتاح', fr: 'Fermer à clé — يقفل بالمفتاح' }, phrases: [
+        { fr: 'La porte ne se ferme pas à clé.', ar: 'الباب ما عم يتسكّر بالمفتاح.', en: 'The door won’t lock.' },
+      ] },
+      { icon: '🧼', title: { ar: 'Trier — يفرز', en: 'Trier — يفرز', fr: 'Trier — يفرز' }, phrases: [
+        { fr: 'Je dois trier le linge avant de le laver.', ar: 'لازم فرز الغسيل قبل ما اغسله.', en: 'I need to sort the laundry before washing it.' },
+      ] },
+      { icon: '🧼', title: { ar: 'Séparer — يفصل', en: 'Séparer — يفصل', fr: 'Séparer — يفصل' }, phrases: [
+        { fr: 'Je sépare le blanc et les couleurs.', ar: 'بفصل الأبيض عن الألوان.', en: 'I separate the whites from the colors.' },
+      ] },
+      { icon: '🧼', title: { ar: 'Vérifier — يتأكد / يفحص', en: 'Vérifier — يتأكد / يفحص', fr: 'Vérifier — يتأكد / يفحص' }, phrases: [
+        { fr: 'Je vais vérifier les poches.', ar: 'رح فتّش الجيوب.', en: 'I’m going to check the pockets.' },
+      ] },
+      { icon: '🧼', title: { ar: 'Vider — يفرّغ', en: 'Vider — يفرّغ', fr: 'Vider — يفرّغ' }, phrases: [
+        { fr: 'Il faut vider les poches.', ar: 'لازم تفضّي الجيوب.', en: 'You have to empty the pockets.' },
+      ] },
+      { icon: '🧼', title: { ar: 'Retourner — يقلب', en: 'Retourner — يقلب', fr: 'Retourner — يقلب' }, phrases: [
+        { fr: 'Je retourne les vêtements avant de les laver.', ar: 'بقلب التياب قبل الغسيل.', en: 'I turn the clothes inside out before washing them.' },
+      ] },
+      { icon: '🧼', title: { ar: 'Fermer — يغلق', en: 'Fermer — يغلق', fr: 'Fermer — يغلق' }, phrases: [
+        { fr: 'Fermez les fermetures éclair.', ar: 'سكّروا السحّابات.', en: 'Close the zippers.' },
+      ] },
+      { icon: '🧼', title: { ar: 'Remplir — يملأ', en: 'Remplir — يملأ', fr: 'Remplir — يملأ' }, phrases: [
+        { fr: 'Je ne veux pas trop remplir la machine.', ar: 'ما بدي عبّي الغسالة زيادة.', en: 'I don’t want to overload the machine.' },
+      ] },
+      { icon: '🧼', title: { ar: 'Peser — يزن', en: 'Peser — يزن', fr: 'Peser — يزن' }, phrases: [
+        { fr: 'Il faut peser le linge ?', ar: 'لازم نوزن الغسيل؟', en: 'Do we need to weigh the laundry?' },
+      ] },
+      { icon: '🫧', title: { ar: 'Ajouter — يضيف', en: 'Ajouter — يضيف', fr: 'Ajouter — يضيف' }, phrases: [
+        { fr: 'Je vais ajouter de la lessive.', ar: 'رح زيد مسحوق غسيل.', en: 'I’m going to add detergent.' },
+      ] },
+      { icon: '🫧', title: { ar: 'Verser — يسكب', en: 'Verser — يسكب', fr: 'Verser — يسكب' }, phrases: [
+        { fr: 'Je verse la lessive dans le bac.', ar: 'بحط مسحوق الغسيل بالمكان المخصص.', en: 'I pour the detergent into the compartment.' },
+      ] },
+      { icon: '🫧', title: { ar: 'Doser — يحدد الكمية', en: 'Doser — يحدد الكمية', fr: 'Doser — يحدد الكمية' }, phrases: [
+        { fr: 'Il faut bien doser la lessive.', ar: 'لازم نحط كمية مسحوق الغسيل المناسبة.', en: 'You need to use the right amount of detergent.' },
+      ] },
+      { icon: '🫧', title: { ar: 'Nettoyer — ينظف', en: 'Nettoyer — ينظف', fr: 'Nettoyer — ينظف' }, phrases: [
+        { fr: 'Je vais nettoyer le bac à lessive.', ar: 'رح نظف مكان مسحوق الغسيل.', en: 'I’m going to clean the detergent compartment.' },
+      ] },
+      { icon: '🔄', title: { ar: 'Tourner — يدور', en: 'Tourner — يدور', fr: 'Tourner — يدور' }, phrases: [
+        { fr: 'Le tambour tourne normalement.', ar: 'حوض الغسالة عم يدور طبيعي.', en: 'The drum is spinning normally.' },
+      ] },
+      { icon: '🔄', title: { ar: 'Essorer — يعصر', en: 'Essorer — يعصر', fr: 'Essorer — يعصر' }, phrases: [
+        { fr: 'La machine est en train d’essorer.', ar: 'الغسالة عم تعصر.', en: 'The machine is spinning the clothes.' },
+      ] },
+      { icon: '🔄', title: { ar: 'Rincer — يشطف', en: 'Rincer — يشطف', fr: 'Rincer — يشطف' }, phrases: [
+        { fr: 'La machine est en train de rincer le linge.', ar: 'الغسالة عم تشطف الغسيل.', en: 'The machine is rinsing the laundry.' },
+      ] },
+      { icon: '🔄', title: { ar: 'Sécher — يجفف', en: 'Sécher — يجفف', fr: 'Sécher — يجفف' }, phrases: [
+        { fr: 'Je vais sécher mes vêtements.', ar: 'رح نشّف تيابي.', en: 'I’m going to dry my clothes.' },
+      ] },
+      { icon: '🔄', title: { ar: 'Sécher au sèche-linge — يجفف بالنشافة', en: 'Sécher au sèche-linge — يجفف بالنشافة', fr: 'Sécher au sèche-linge — يجفف بالنشافة' }, phrases: [
+        { fr: 'Je vais les sécher au sèche-linge.', ar: 'رح نشّفهم بالنشافة.', en: 'I’m going to dry them in the dryer.' },
+      ] },
+      { icon: '🔄', title: { ar: 'Rajouter — يضيف المزيد', en: 'Rajouter — يضيف المزيد', fr: 'Rajouter — يضيف المزيد' }, phrases: [
+        { fr: 'Je vais rajouter dix minutes de séchage.', ar: 'رح زيد عشر دقايق تجفيف.', en: 'I’m going to add ten more minutes of drying.' },
+      ] },
+      { icon: '⚠️', title: { ar: 'Bloquer — يعلق / يمنع الحركة', en: 'Bloquer — يعلق / يمنع الحركة', fr: 'Bloquer — يعلق / يمنع الحركة' }, phrases: [
+        { fr: 'La porte est bloquée.', ar: 'الباب عالق.', en: 'The door is stuck.' },
+      ] },
+      { icon: '⚠️', title: { ar: 'Coincer — يعلق', en: 'Coincer — يعلق', fr: 'Coincer — يعلق' }, phrases: [
+        { fr: 'Une pièce est coincée.', ar: 'قطعة نقدية علقت.', en: 'A coin is stuck.' },
+      ] },
+      { icon: '⚠️', title: { ar: 'Fonctionner — يعمل', en: 'Fonctionner — يعمل', fr: 'Fonctionner — يعمل' }, phrases: [
+        { fr: 'La machine ne fonctionne pas.', ar: 'الغسالة ما عم تشتغل.', en: 'The machine isn’t working.' },
+      ] },
+      { icon: '⚠️', title: { ar: 'Démarrer — يبدأ التشغيل', en: 'Démarrer — يبدأ التشغيل', fr: 'Démarrer — يبدأ التشغيل' }, phrases: [
+        { fr: 'La machine ne démarre pas.', ar: 'الغسالة ما عم تشتغل.', en: 'The machine won’t start.' },
+      ] },
+      { icon: '⚠️', title: { ar: 'S’arrêter — يتوقف', en: 'S’arrêter — يتوقف', fr: 'S’arrêter — يتوقف' }, phrases: [
+        { fr: 'La machine s’est arrêtée.', ar: 'الغسالة وقفت.', en: 'The machine stopped.' },
+      ] },
+      { icon: '⚠️', title: { ar: 'Tomber en panne — يتعطل', en: 'Tomber en panne — يتعطل', fr: 'Tomber en panne — يتعطل' }, phrases: [
+        { fr: 'La machine est tombée en panne.', ar: 'الغسالة تعطّلت.', en: 'The machine broke down.' },
+      ] },
+      { icon: '⚠️', title: { ar: 'Vibrer — يهتز', en: 'Vibrer — يهتز', fr: 'Vibrer — يهتز' }, phrases: [
+        { fr: 'La machine vibre beaucoup.', ar: 'الغسالة عم تهتز كتير.', en: 'The machine is vibrating a lot.' },
+      ] },
+      { icon: '⚠️', title: { ar: 'Bouger — يتحرك', en: 'Bouger — يتحرك', fr: 'Bouger — يتحرك' }, phrases: [
+        { fr: 'La machine bouge pendant l’essorage.', ar: 'الغسالة عم تتحرك وقت العصر.', en: 'The machine moves during the spin cycle.' },
+      ] },
+      { icon: '⚠️', title: { ar: 'Faire — يصدر / يفعل', en: 'Faire — يصدر / يفعل', fr: 'Faire — يصدر / يفعل' }, phrases: [
+        { fr: 'La machine fait un bruit bizarre.', ar: 'الغسالة عم تعمل صوت غريب.', en: 'The machine is making a strange noise.' },
+      ] },
+      { icon: '⚠️', title: { ar: 'Signaler — يُبلّغ', en: 'Signaler — يُبلّغ', fr: 'Signaler — يُبلّغ' }, phrases: [
+        { fr: 'Je vais signaler le problème.', ar: 'رح بلّغ عن المشكلة.', en: 'I’m going to report the problem.' },
+      ] },
+      { icon: '👥', title: { ar: 'Demander — يسأل / يطلب', en: 'Demander — يسأل / يطلب', fr: 'Demander — يسأل / يطلب' }, phrases: [
+        { fr: 'Je peux vous demander quelque chose ?', ar: 'فيني اسألك شغلة؟', en: 'Can I ask you something?' },
+      ] },
+      { icon: '👥', title: { ar: 'Attendre — ينتظر', en: 'Attendre — ينتظر', fr: 'Attendre — ينتظر' }, phrases: [
+        { fr: 'Vous pouvez attendre votre tour ?', ar: 'فيك تستنى دورك؟', en: 'Can you wait for your turn?' },
+      ] },
+      { icon: '👥', title: { ar: 'Laisser — يترك', en: 'Laisser — يترك', fr: 'Laisser — يترك' }, phrases: [
+        { fr: 'Vous pouvez me laisser cette machine ?', ar: 'فيك تتركلي هالغسالة؟', en: 'Can you leave this machine for me?' },
+      ] },
+      { icon: '👥', title: { ar: 'Prendre — يأخذ', en: 'Prendre — يأخذ', fr: 'Prendre — يأخذ' }, phrases: [
+        { fr: 'Je peux prendre cette machine ?', ar: 'فيني آخد هالغسالة؟', en: 'Can I take this machine?' },
+      ] },
+      { icon: '👥', title: { ar: 'Libérer — يفرغ / يخلي المكان', en: 'Libérer — يفرغ / يخلي المكان', fr: 'Libérer — يفرغ / يخلي المكان' }, phrases: [
+        { fr: 'Vous pouvez libérer la machine quand vous avez fini ?', ar: 'فيك تفضّي الغسالة لما تخلص؟', en: 'Can you free up the machine when you’re finished?' },
+      ] },
+      { icon: '👥', title: { ar: 'Déplacer — ينقل / يحرك', en: 'Déplacer — ينقل / يحرك', fr: 'Déplacer — ينقل / يحرك' }, phrases: [
+        { fr: 'Je peux déplacer votre linge ?', ar: 'فيني انقل غسيلك؟', en: 'Can I move your laundry?' },
+      ] },
+      { icon: '👥', title: { ar: 'Donner — يعطي', en: 'Donner — يعطي', fr: 'Donner — يعطي' }, phrases: [
+        { fr: 'Je vous donne la machine dès que j’ai fini.', ar: 'بعطيك الغسالة أول ما خلص.', en: 'I’ll give you the machine as soon as I’m finished.' },
+      ] },
+      { icon: '🧺', title: { ar: '1. Charger — يحمّل / يعبّي الغسالة', en: '1. Charger — يحمّل / يعبّي الغسالة', fr: '1. Charger — يحمّل / يعبّي الغسالة' }, phrases: [
+        { fr: 'Je vais charger la machine.', ar: 'رح عبّي الغسالة.', en: 'I’m going to load the machine.' },
+      ] },
+      { icon: '🧺', title: { ar: '2. Décharger — يفرّغ', en: '2. Décharger — يفرّغ', fr: '2. Décharger — يفرّغ' }, phrases: [
+        { fr: 'Je vais décharger la machine.', ar: 'رح فرّغ الغسالة.', en: 'I’m going to unload the machine.' },
+      ] },
+      { icon: '🧺', title: { ar: '3. Retirer — يزيل / يخرج', en: '3. Retirer — يزيل / يخرج', fr: '3. Retirer — يزيل / يخرج' }, phrases: [
+        { fr: 'Je vais retirer le linge de la machine.', ar: 'رح طلّع الغسيل من الغسالة.', en: 'I’m going to remove the laundry from the machine.' },
+      ] },
+      { icon: '🧺', title: { ar: '4. Enlever — ينزع / يزيل', en: '4. Enlever — ينزع / يزيل', fr: '4. Enlever — ينزع / يزيل' }, phrases: [
+        { fr: 'J’enlève mes vêtements du sèche-linge.', ar: 'رح طلّع تيابي من النشافة.', en: 'I’m taking my clothes out of the dryer.' },
+      ] },
+      { icon: '🧺', title: { ar: '5. Déposer — يضع', en: '5. Déposer — يضع', fr: '5. Déposer — يضع' }, phrases: [
+        { fr: 'Je dépose le linge dans le tambour.', ar: 'بحط الغسيل جوّا الحوض.', en: 'I put the laundry in the drum.' },
+      ] },
+      { icon: '🧺', title: { ar: '6. Ramasser — يجمع / يلمّ', en: '6. Ramasser — يجمع / يلمّ', fr: '6. Ramasser — يجمع / يلمّ' }, phrases: [
+        { fr: 'Je vais ramasser mes vêtements.', ar: 'رح لمّ تيابي.', en: 'I’m going to collect my clothes.' },
+      ] },
+      { icon: '🧺', title: { ar: '7. Plier — يطوي', en: '7. Plier — يطوي', fr: '7. Plier — يطوي' }, phrases: [
+        { fr: 'Je vais plier le linge ici.', ar: 'رح اطوي الغسيل هون.', en: 'I’m going to fold the laundry here.' },
+      ] },
+      { icon: '🧺', title: { ar: '8. Ranger — يرتّب / يضع في مكانه', en: '8. Ranger — يرتّب / يضع في مكانه', fr: '8. Ranger — يرتّب / يضع في مكانه' }, phrases: [
+        { fr: 'Je vais ranger mes vêtements dans mon sac.', ar: 'رح حط تيابي مرتبة بالشنطة.', en: 'I’m going to put my clothes away in my bag.' },
+      ] },
+      { icon: '🧺', title: { ar: '9. Secouer — ينفض / يهز', en: '9. Secouer — ينفض / يهز', fr: '9. Secouer — ينفض / يهز' }, phrases: [
+        { fr: 'Je vais secouer les vêtements avant de les mettre dans le sèche-linge.', ar: 'رح هزّ التياب قبل ما حطها بالنشافة.', en: 'I’ll shake the clothes before putting them in the dryer.' },
+      ] },
+      { icon: '🧺', title: { ar: '10. Étendre — ينشر', en: '10. Étendre — ينشر', fr: '10. Étendre — ينشر' }, phrases: [
+        { fr: 'Je préfère étendre certains vêtements.', ar: 'بفضّل انشر بعض التياب.', en: 'I prefer to hang some clothes to dry.' },
+      ] },
+      { icon: '🧺', title: { ar: '11. Suspendre — يعلّق', en: '11. Suspendre — يعلّق', fr: '11. Suspendre — يعلّق' }, phrases: [
+        { fr: 'Je vais suspendre cette chemise.', ar: 'رح علّق هالقميص.', en: 'I’m going to hang this shirt.' },
+      ] },
+      { icon: '🧺', title: { ar: '12. Placer — يضع في مكان', en: '12. Placer — يضع في مكان', fr: '12. Placer — يضع في مكان' }, phrases: [
+        { fr: 'Où est-ce que je dois placer la lessive ?', ar: 'وين لازم حط مسحوق الغسيل؟', en: 'Where should I put the detergent?' },
+      ] },
+      { icon: '🧺', title: { ar: '13. Appuyer — يضغط', en: '13. Appuyer — يضغط', fr: '13. Appuyer — يضغط' }, phrases: [
+        { fr: 'Il faut appuyer sur ce bouton.', ar: 'لازم تكبس على هالزر.', en: 'You have to press this button.' },
+      ] },
+      { icon: '🧺', title: { ar: '14. Maintenir — يضغط باستمرار', en: '14. Maintenir — يضغط باستمرار', fr: '14. Maintenir — يضغط باستمرار' }, phrases: [
+        { fr: 'Il faut maintenir le bouton appuyé.', ar: 'لازم تضل ضاغط عالزر.', en: 'You have to hold the button down.' },
+      ] },
+      { icon: '🧺', title: { ar: '15. Tourner — يدير / يلف', en: '15. Tourner — يدير / يلف', fr: '15. Tourner — يدير / يلف' }, phrases: [
+        { fr: 'Je tourne le bouton pour choisir le programme.', ar: 'بلف الزر لاختار البرنامج.', en: 'I turn the knob to choose the program.' },
+      ] },
+      { icon: '🧺', title: { ar: '16. Régler — يضبط', en: '16. Régler — يضبط', fr: '16. Régler — يضبط' }, phrases: [
+        { fr: 'Je règle la température à 40 degrés.', ar: 'بظبط الحرارة على 40 درجة.', en: 'I set the temperature to 40 degrees.' },
+      ] },
+      { icon: '🧺', title: { ar: '17. Programmer — يبرمج / يحدد البرنامج', en: '17. Programmer — يبرمج / يحدد البرنامج', fr: '17. Programmer — يبرمج / يحدد البرنامج' }, phrases: [
+        { fr: 'Je programme la machine à 40 degrés.', ar: 'ببرمج الغسالة على 40 درجة.', en: 'I set the machine to 40 degrees.' },
+      ] },
+      { icon: '🧺', title: { ar: '18. Lancer — يشغّل / يبدأ', en: '18. Lancer — يشغّل / يبدأ', fr: '18. Lancer — يشغّل / يبدأ' }, phrases: [
+        { fr: 'J’appuie ici pour lancer le lavage.', ar: 'بكبس هون مشان بلّش الغسيل.', en: 'I press here to start the wash.' },
+      ] },
+      { icon: '🧺', title: { ar: '19. Annuler — يلغي', en: '19. Annuler — يلغي', fr: '19. Annuler — يلغي' }, phrases: [
+        { fr: 'Je veux annuler le programme.', ar: 'بدي ألغي البرنامج.', en: 'I want to cancel the program.' },
+      ] },
+      { icon: '🧺', title: { ar: '20. Interrompre — يوقف مؤقتًا / يقطع', en: '20. Interrompre — يوقف مؤقتًا / يقطع', fr: '20. Interrompre — يوقف مؤقتًا / يقطع' }, phrases: [
+        { fr: 'Est-ce que je peux interrompre le programme ?', ar: 'فيني أوقف البرنامج؟', en: 'Can I interrupt the program?' },
+      ] },
+      { icon: '💶', title: { ar: '21. Insérer — يُدخل', en: '21. Insérer — يُدخل', fr: '21. Insérer — يُدخل' }, phrases: [
+        { fr: 'J’insère le billet dans le changeur.', ar: 'بدخل الورقة بماكينة تصريف النقود.', en: 'I insert the banknote into the change machine.' },
+      ] },
+      { icon: '💶', title: { ar: '22. Récupérer — يستلم', en: '22. Récupérer — يستلم', fr: '22. Récupérer — يستلم' }, phrases: [
+        { fr: 'Je récupère les pièces ici.', ar: 'باخد القطع من هون.', en: 'I collect the coins here.' },
+      ] },
+      { icon: '💶', title: { ar: '23. Compter — يعدّ', en: '23. Compter — يعدّ', fr: '23. Compter — يعدّ' }, phrases: [
+        { fr: 'Je vais compter mes pièces.', ar: 'رح عدّ القطع تبعي.', en: 'I’m going to count my coins.' },
+      ] },
+      { icon: '💶', title: { ar: '24. Manquer — ينقص', en: '24. Manquer — ينقص', fr: '24. Manquer — ينقص' }, phrases: [
+        { fr: 'Il me manque une pièce.', ar: 'ناقصني قطعة.', en: 'I’m missing one coin.' },
+      ] },
+      { icon: '💶', title: { ar: '25. Coûter — يكلّف', en: '25. Coûter — يكلّف', fr: '25. Coûter — يكلّف' }, phrases: [
+        { fr: 'Ça coûte combien pour une machine ?', ar: 'قديش بتكلّف الغسالة؟', en: 'How much does one wash cost?' },
+      ] },
+      { icon: '💶', title: { ar: '26. Économiser — يوفّر', en: '26. Économiser — يوفّر', fr: '26. Économiser — يوفّر' }, phrases: [
+        { fr: 'Je veux économiser quelques pièces.', ar: 'بدي وفّر كم قطعة.', en: 'I want to save some coins.' },
+      ] },
+      { icon: '🔧', title: { ar: '27. Réparer — يصلّح', en: '27. Réparer — يصلّح', fr: '27. Réparer — يصلّح' }, phrases: [
+        { fr: 'Est-ce que quelqu’un peut réparer la machine ?', ar: 'في حدا بيقدر يصلّح الغسالة؟', en: 'Can someone repair the machine?' },
+      ] },
+      { icon: '🔧', title: { ar: '28. Dépanner — يصلّح عطلًا', en: '28. Dépanner — يصلّح عطلًا', fr: '28. Dépanner — يصلّح عطلًا' }, phrases: [
+        { fr: 'La machine doit être dépannée.', ar: 'الغسالة بدها تصليح.', en: 'The machine needs to be fixed.' },
+      ] },
+      { icon: '🔧', title: { ar: '29. Vérifier — يفحص', en: '29. Vérifier — يفحص', fr: '29. Vérifier — يفحص' }, phrases: [
+        { fr: 'Je vais vérifier si la porte est bien fermée.', ar: 'رح أتأكد إذا الباب مسكّر منيح.', en: 'I’ll check whether the door is properly closed.' },
+      ] },
+      { icon: '🔧', title: { ar: '30. Redémarrer — يعيد التشغيل', en: '30. Redémarrer — يعيد التشغيل', fr: '30. Redémarrer — يعيد التشغيل' }, phrases: [
+        { fr: 'Je peux redémarrer la machine ?', ar: 'فيني أعيد تشغيل الغسالة؟', en: 'Can I restart the machine?' },
+      ] },
+      { icon: '🔧', title: { ar: '31. Débrancher — يفصل الكهرباء', en: '31. Débrancher — يفصل الكهرباء', fr: '31. Débrancher — يفصل الكهرباء' }, phrases: [
+        { fr: 'Il ne faut pas débrancher la machine.', ar: 'ما لازم تفصل الغسالة عن الكهرباء.', en: 'You shouldn’t unplug the machine.' },
+      ] },
+      { icon: '🔧', title: { ar: '32. Brancher — يوصل بالكهرباء', en: '32. Brancher — يوصل بالكهرباء', fr: '32. Brancher — يوصل بالكهرباء' }, phrases: [
+        { fr: 'La machine est bien branchée.', ar: 'الغسالة موصولة بالكهربا منيح.', en: 'The machine is properly plugged in.' },
+      ] },
+      { icon: '🔧', title: { ar: '33. Détecter — يكتشف', en: '33. Détecter — يكتشف', fr: '33. Détecter — يكتشف' }, phrases: [
+        { fr: 'La machine détecte un problème.', ar: 'الغسالة عم تكتشف مشكلة.', en: 'The machine is detecting a problem.' },
+      ] },
+      { icon: '🔧', title: { ar: '34. Afficher — يعرض', en: '34. Afficher — يعرض', fr: '34. Afficher — يعرض' }, phrases: [
+        { fr: 'L’écran affiche une erreur.', ar: 'الشاشة عم تعرض خطأ.', en: 'The screen is showing an error.' },
+      ] },
+      { icon: '🔧', title: { ar: '35. Indiquer — يشير / يبيّن', en: '35. Indiquer — يشير / يبيّن', fr: '35. Indiquer — يشير / يبيّن' }, phrases: [
+        { fr: 'L’écran indique qu’il reste cinq minutes.', ar: 'الشاشة مبيّنة إنه ضايل خمس دقايق.', en: 'The screen indicates that five minutes remain.' },
+      ] },
+      { icon: '🧴', title: { ar: '36. Tacher — يوسّخ / يلطّخ', en: '36. Tacher — يوسّخ / يلطّخ', fr: '36. Tacher — يوسّخ / يلطّخ' }, phrases: [
+        { fr: 'J’ai taché mon pantalon.', ar: 'وسّخت بنطلوني.', en: 'I stained my trousers.' },
+      ] },
+      { icon: '🧴', title: { ar: '37. Détacher — يزيل البقعة', en: '37. Détacher — يزيل البقعة', fr: '37. Détacher — يزيل البقعة' }, phrases: [
+        { fr: 'Je dois détacher cette tache avant le lavage.', ar: 'لازم شيل هالبقعة قبل الغسيل.', en: 'I need to remove this stain before washing.' },
+      ] },
+      { icon: '🧴', title: { ar: '38. Sentir — يشم / تفوح رائحته', en: '38. Sentir — يشم / تفوح رائحته', fr: '38. Sentir — يشم / تفوح رائحته' }, phrases: [
+        { fr: 'Ça sent encore mauvais.', ar: 'لسا ريحته مو حلوة.', en: 'It still smells bad.' },
+      ] },
+      { icon: '🧴', title: { ar: '39. Parfumer — يعطّر', en: '39. Parfumer — يعطّر', fr: '39. Parfumer — يعطّر' }, phrases: [
+        { fr: 'Je ne veux pas trop parfumer le linge.', ar: 'ما بدي عطّر الغسيل زيادة.', en: 'I don’t want to make the laundry too strongly scented.' },
+      ] },
+      { icon: '🧴', title: { ar: '40. Désinfecter — يعقّم', en: '40. Désinfecter — يعقّم', fr: '40. Désinfecter — يعقّم' }, phrases: [
+        { fr: 'Je veux désinfecter certains vêtements.', ar: 'بدي عقّم بعض التياب.', en: 'I want to disinfect some clothes.' },
+      ] },
+      { icon: '⭐', title: { ar: 'أفعال تسمعها كثيرًا في المغسلة', en: 'أفعال تسمعها كثيرًا في المغسلة', fr: 'أفعال تسمعها كثيرًا في المغسلة' }, phrases: [
+        { fr: 'Ça tourne.', ar: 'الغسالة عم تدور.', en: 'It’s spinning.' },
+        { fr: 'Ça démarre.', ar: 'بلّشت تشتغل.', en: 'It’s starting.' },
+        { fr: 'Ça s’arrête.', ar: 'عم توقف.', en: 'It’s stopping.' },
+        { fr: 'Ça fonctionne.', ar: 'عم تشتغل.', en: 'It works.' },
+        { fr: 'Ça ne marche pas.', ar: 'ما عم تشتغل.', en: 'It doesn’t work.' },
+        { fr: 'Ça bloque.', ar: 'عم تعلق.', en: 'It’s getting stuck.' },
+        { fr: 'Ça fuit.', ar: 'عم تسرّب مي.', en: 'It’s leaking.' },
+        { fr: 'Ça déborde.', ar: 'المي عم تفيض.', en: 'It’s overflowing.' },
+        { fr: 'Ça chauffe.', ar: 'عم تسخن.', en: 'It’s heating up.' },
+        { fr: 'Ça sèche.', ar: 'عم تنشّف.', en: 'It’s drying.' },
+        { fr: 'Ça prend combien de temps ?', ar: 'قديش بتاخد وقت؟', en: 'How long does it take?' },
+      ] },
     ]
   },
 ];
