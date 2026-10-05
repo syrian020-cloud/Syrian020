@@ -22512,6 +22512,207 @@ window.CENTRES_DATA = [
         { fr: 'Bonne continuation !', ar: 'بالتوفيق / نهارك سعيد!', en: 'Have a good day!' },
         { fr: 'Bonne journée et merci !', ar: 'نهارك سعيد وشكراً!', en: 'Have a nice day and thank you!' },
       ] },
+      { icon: '🧺', title: { ar: '1. الغسالة التي تريدها مشغولة', en: 'The machine you want is busy', fr: 'La machine que vous voulez est occupée' }, phrases: [
+        { fr: 'Excusez-moi, vous avez bientôt fini ?', ar: 'عفواً، قربت تخلص؟', en: 'Excuse me, are you almost finished?' },
+        { fr: 'Oui, il reste cinq minutes.', ar: 'إي، ضايل خمس دقايق.', en: 'Yes, five minutes left.' },
+        { fr: 'D’accord, j’attends.', ar: 'تمام، بنطر.', en: 'Okay, I\'ll wait.' },
+      ] },
+      { icon: '🧺', title: { ar: '2. شخص ينتظر غسالة', en: 'Someone is waiting for a machine', fr: 'Quelqu\'un attend une machine' }, phrases: [
+        { fr: 'Vous attendez cette machine ?', ar: 'إنت ناطر هالغسالة؟', en: 'Are you waiting for this machine?' },
+        { fr: 'Oui, juste après vous.', ar: 'إي، بعدك مباشرة.', en: 'Yes, right after you.' },
+        { fr: 'D’accord, je vous laisse la place dès que j’ai fini.', ar: 'تمام، بخليلك المكان أول ما خلص.', en: 'Okay, I\'ll leave the machine for you as soon as I\'m finished.' },
+      ] },
+      { icon: '🧺', title: { ar: '3. لا توجد عملات', en: 'No coins', fr: 'Pas de pièces' }, phrases: [
+        { fr: 'Mince, je n’ai pas assez de pièces.', ar: 'أوف، ما معي عملات كفاية.', en: 'Damn, I don\'t have enough coins.' },
+        { fr: 'Il y a un changeur ici ?', ar: 'في ماكينة تصريف هون؟', en: 'Is there a change machine here?' },
+        { fr: 'Oui, juste là-bas.', ar: 'إي، هنيك.', en: 'Yes, right over there.' },
+      ] },
+      { icon: '🧺', title: { ar: '4. تحويل ورقة نقدية إلى عملات', en: 'Changing a banknote into coins', fr: 'Changer un billet en pièces' }, phrases: [
+        { fr: 'Je mets le billet ici ?', ar: 'بحط الورقة هون؟', en: 'Do I put the banknote here?' },
+        { fr: 'Oui, et la machine vous rend des pièces.', ar: 'إي، والماكينة بتعطيك عملات.', en: 'Yes, and the machine gives you coins.' },
+        { fr: 'Ah d’accord, j’ai compris.', ar: 'آه تمام، فهمت.', en: 'Oh okay, I understand.' },
+      ] },
+      { icon: '🧺', title: { ar: '5. الماكينة أخذت المال ولم تبدأ', en: 'The machine took the money but didn\'t start', fr: 'La machine a pris l\'argent mais n\'a pas démarré' }, phrases: [
+        { fr: 'Excusez-moi, j’ai un problème.', ar: 'عفواً، عندي مشكلة.', en: 'Excuse me, I have a problem.' },
+        { fr: 'J’ai mis les pièces, mais la machine ne démarre pas.', ar: 'حطيت العملات، بس الغسالة ما اشتغلت.', en: 'I put the coins in, but the machine didn\'t start.' },
+        { fr: 'Vous avez appuyé sur le bouton ?', ar: 'ضغطت عالزر؟', en: 'Did you press the button?' },
+        { fr: 'Oui, mais rien ne se passe.', ar: 'إي، بس ما عم يصير شي.', en: 'Yes, but nothing happens.' },
+      ] },
+      { icon: '🧺', title: { ar: '6. لا تعرف أي برنامج تختار', en: 'You don\'t know which programme to choose', fr: 'Vous ne savez pas quel programme choisir' }, phrases: [
+        { fr: 'Vous pouvez m’aider à choisir le programme ?', ar: 'فيك تساعدني اختار البرنامج؟', en: 'Can you help me choose the program?' },
+        { fr: 'Bien sûr. Vous voulez laver quoi ?', ar: 'أكيد. شو بدك تغسل؟', en: 'Of course. What do you want to wash?' },
+        { fr: 'Des vêtements normaux.', ar: 'تياب عادية.', en: 'Normal clothes.' },
+        { fr: 'Prenez celui-ci.', ar: 'خُد هاد.', en: 'Choose this one.' },
+      ] },
+      { icon: '🧺', title: { ar: '7. سؤال عن مسحوق الغسيل', en: 'Asking about detergent', fr: 'Question sur la lessive' }, phrases: [
+        { fr: 'Il faut mettre de la lessive ?', ar: 'لازم حط مسحوق غسيل؟', en: 'Do I need to add detergent?' },
+        { fr: 'Non, elle est automatique.', ar: 'لا، بتحط لحالها.', en: 'No, it\'s automatic.' },
+        { fr: 'Ah, très bien.', ar: 'آه، ممتاز.', en: 'Oh, great.' },
+      ] },
+      { icon: '🧺', title: { ar: '8. شخص نسي ملابسه', en: 'Someone forgot their clothes', fr: 'Quelqu\'un a oublié son linge' }, phrases: [
+        { fr: 'Excusez-moi, ces vêtements sont à vous ?', ar: 'عفواً، هالتياب إلك؟', en: 'Excuse me, are these clothes yours?' },
+        { fr: 'Non, pas du tout.', ar: 'لا، أبداً.', en: 'No, not at all.' },
+        { fr: 'Quelqu’un a dû les oublier.', ar: 'شكله حدا نسيهن.', en: 'Someone must have forgotten them.' },
+      ] },
+      { icon: '🧺', title: { ar: '9. الغسالة توقفت', en: 'The machine stopped', fr: 'La machine s\'est arrêtée' }, phrases: [
+        { fr: 'Ma machine s’est arrêtée.', ar: 'غسالتي وقفت.', en: 'My machine stopped.' },
+        { fr: 'En plein programme ?', ar: 'بنص البرنامج؟', en: 'In the middle of the cycle?' },
+        { fr: 'Oui, elle ne bouge plus.', ar: 'إي، ما عاد عم تتحرك.', en: 'Yes, it\'s not moving anymore.' },
+        { fr: 'Il faut appeler le numéro indiqué sur la machine.', ar: 'لازم تتصل بالرقم المكتوب عالغسالة.', en: 'You need to call the number shown on the machine.' },
+      ] },
+      { icon: '🧺', title: { ar: '10. الباب لا يفتح', en: 'The door won\'t open', fr: 'La porte ne s\'ouvre pas' }, phrases: [
+        { fr: 'Je n’arrive pas à ouvrir la porte.', ar: 'ما عم اقدر افتح الباب.', en: 'I can\'t open the door.' },
+        { fr: 'Attendez quelques secondes.', ar: 'نطر كم ثانية.', en: 'Wait a few seconds.' },
+        { fr: 'Elle doit se déverrouiller automatiquement.', ar: 'المفروض تفتح القفل لحالها.', en: 'It should unlock automatically.' },
+      ] },
+      { icon: '🧺', title: { ar: '11. الملابس ما نشفت', en: 'Clothes didn\'t dry', fr: 'Le linge n\'a pas séché' }, phrases: [
+        { fr: 'Mes vêtements sont encore humides.', ar: 'تيابي لسا رطبة.', en: 'My clothes are still damp.' },
+        { fr: 'Vous pouvez remettre quelques minutes de séchage.', ar: 'فيك تزيد كم دقيقة تجفيف.', en: 'You can add a few more minutes of drying.' },
+        { fr: 'D’accord, je vais remettre dix minutes.', ar: 'تمام، رح زيد عشر دقايق.', en: 'Okay, I\'ll add ten minutes.' },
+      ] },
+      { icon: '🧺', title: { ar: '12. شخص يأخذ الغسالة بعدك', en: 'Someone takes the machine after you', fr: 'Quelqu\'un prend la machine après vous' }, phrases: [
+        { fr: 'C’est bon, j’ai terminé.', ar: 'تمام، خلصت.', en: 'Okay, I\'m finished.' },
+        { fr: 'Vous pouvez y aller.', ar: 'تفضل، فيك تستعملها.', en: 'Go ahead, you can use it.' },
+        { fr: 'Merci beaucoup.', ar: 'شكراً كتير.', en: 'Thank you very much.' },
+        { fr: 'Pas de souci.', ar: 'ولا يهمك.', en: 'No worries.' },
+      ] },
+      { icon: '🧺', title: { ar: '13. شخص يسأل: هل هذه الغسالة لك؟', en: 'Someone asks if this machine is yours', fr: 'On vous demande si c\'est votre machine' }, phrases: [
+        { fr: 'C’est votre machine ?', ar: 'هاي غسالتك؟', en: 'Is this your machine?' },
+        { fr: 'Oui, j’attends qu’elle finisse.', ar: 'إي، ناطرها تخلص.', en: 'Yes, I\'m waiting for it to finish.' },
+        { fr: 'Il reste combien de temps ?', ar: 'قديش ضايل؟', en: 'How much time is left?' },
+        { fr: 'Environ dix minutes.', ar: 'تقريباً عشر دقايق.', en: 'About ten minutes.' },
+      ] },
+      { icon: '🧺', title: { ar: '14. تريد غسل بطانية كبيرة', en: 'You want to wash a big duvet', fr: 'Vous voulez laver une couette' }, phrases: [
+        { fr: 'Je voudrais laver une couette.', ar: 'بدي اغسل لحاف.', en: 'I\'d like to wash a duvet.' },
+        { fr: 'Il faut prendre la grande machine.', ar: 'لازم تاخد الغسالة الكبيرة.', en: 'You need to use the large machine.' },
+        { fr: 'Celle-ci ?', ar: 'هاي؟', en: 'This one?' },
+        { fr: 'Oui, celle de 18 kilos.', ar: 'إي، تبع الـ18 كيلو.', en: 'Yes, the 18-kilo one.' },
+      ] },
+      { icon: '🧺', title: { ar: '15. تريد معرفة كم ستكلفك العملية كلها', en: 'You want to know the total cost', fr: 'Vous voulez connaître le coût total' }, phrases: [
+        { fr: 'Ça va me coûter combien au total ?', ar: 'قديش رح تكلفني كلها بالمجموع؟', en: 'How much will it cost me in total?' },
+        { fr: 'Le lavage coûte trois euros et le séchage deux euros.', ar: 'الغسيل 3 يورو والتجفيف 2 يورو.', en: 'Washing costs three euros and drying two euros.' },
+        { fr: 'Donc cinq euros au total ?', ar: 'يعني 5 يورو بالمجموع؟', en: 'So five euros in total?' },
+        { fr: 'Oui, exactement.', ar: 'إي، بالضبط.', en: 'Yes, exactly.' },
+      ] },
+      { icon: '🧺', title: { ar: '16. شخص يطلب منك الانتظار', en: 'Someone asks you to wait', fr: 'On vous demande d\'attendre' }, phrases: [
+        { fr: 'Vous pouvez attendre une minute ?', ar: 'فيك تنطر دقيقة؟', en: 'Can you wait a minute?' },
+        { fr: 'Je vais bientôt finir.', ar: 'رح خلص قريب.', en: 'I\'ll be finished soon.' },
+        { fr: 'Oui, pas de problème.', ar: 'إي، ما في مشكلة.', en: 'Sure, no problem.' },
+      ] },
+      { icon: '🧺', title: { ar: '17. شخص أخذ مكانك بالغلط', en: 'Someone took your spot by mistake', fr: 'Quelqu\'un a pris votre place par erreur' }, phrases: [
+        { fr: 'Pardon, j’attendais cette machine.', ar: 'عفواً، أنا كنت ناطر هالغسالة.', en: 'Sorry, I was waiting for this machine.' },
+        { fr: 'Ah pardon, je ne savais pas.', ar: 'آه آسف، ما كنت بعرف.', en: 'Oh sorry, I didn\'t know.' },
+        { fr: 'Ce n’est pas grave.', ar: 'مو مشكلة.', en: 'It\'s okay.' },
+        { fr: 'Je vais attendre la prochaine.', ar: 'رح نطر اللي بعدها.', en: 'I\'ll wait for the next one.' },
+      ] },
+      { icon: '🧺', title: { ar: '18. آخر شيء قبل الخروج', en: 'Last thing before leaving', fr: 'Dernière chose avant de partir' }, phrases: [
+        { fr: 'Attendez, je vérifie le tambour.', ar: 'لحظة، رح أتأكد من جوّا الغسالة.', en: 'Wait, I\'ll check the drum.' },
+        { fr: 'Je ne veux rien oublier.', ar: 'ما بدي انسى شي.', en: 'I don\'t want to forget anything.' },
+        { fr: 'C’est bon, j’ai tout.', ar: 'تمام، معي كل شي.', en: 'Okay, I have everything.' },
+        { fr: 'On peut y aller.', ar: 'فينا نروح.', en: 'We can go.' },
+        { fr: 'À la prochaine !', ar: 'بشوفك المرة الجاية!', en: 'See you next time!' },
+      ] },
+      { icon: '🧺', title: { ar: '19. الغسالة تهتز بقوة أثناء العصر', en: 'The machine shakes hard while spinning', fr: 'La machine vibre fort pendant l\'essorage' }, phrases: [
+        { fr: 'La machine bouge beaucoup pendant l’essorage.', ar: 'الغسالة عم تهتز كتير وقت العصر.', en: 'The machine is shaking a lot during the spin cycle.' },
+        { fr: 'C’est normal ou pas ?', ar: 'هاد طبيعي ولا لأ؟', en: 'Is that normal or not?' },
+      ] },
+      { icon: '🧺', title: { ar: '20. الغسالة تعمل صوتًا غريبًا', en: 'The machine makes a strange noise', fr: 'La machine fait un bruit étrange' }, phrases: [
+        { fr: 'Cette machine fait un drôle de bruit.', ar: 'هالغسالة عم تعمل صوت غريب.', en: 'This machine is making a strange noise.' },
+        { fr: 'Je préfère l’arrêter.', ar: 'بفضّل وقّفها.', en: 'I’d rather stop it.' },
+      ] },
+      { icon: '🧺', title: { ar: '21. الغسالة ممتلئة أكثر من اللازم', en: 'The machine is overloaded', fr: 'La machine est trop remplie' }, phrases: [
+        { fr: 'Je crois que j’ai trop rempli la machine.', ar: 'أعتقد إني عبيت الغسالة زيادة.', en: 'I think I overloaded the machine.' },
+        { fr: 'Il ne faut pas trop la remplir.', ar: 'ما لازم نعبيها زيادة.', en: 'You shouldn\'t overload it.' },
+      ] },
+      { icon: '🧺', title: { ar: '22. الغسيل لا يدور جيدًا', en: 'The laundry doesn\'t spin properly', fr: 'Le linge ne tourne pas correctement' }, phrases: [
+        { fr: 'Le linge ne tourne pas correctement.', ar: 'الغسيل ما عم يدور منيح.', en: 'The laundry isn’t spinning properly.' },
+        { fr: 'Peut-être que la machine est déséquilibrée.', ar: 'يمكن الغسالة مو متوازنة.', en: 'Maybe the machine is unbalanced.' },
+      ] },
+      { icon: '🧺', title: { ar: '23. الغسالة توقفت لتعيد توزيع الملابس', en: 'The machine stops to redistribute clothes', fr: 'La machine s\'arrête pour répartir le linge' }, phrases: [
+        { fr: 'Elle s’est arrêtée quelques secondes.', ar: 'وقفت كم ثانية.', en: 'It stopped for a few seconds.' },
+        { fr: 'Elle essaie sûrement de répartir le linge.', ar: 'غالبًا عم تحاول توزّع الغسيل.', en: 'It’s probably trying to redistribute the laundry.' },
+      ] },
+      { icon: '🧺', title: { ar: '24. العملة علقت في الجهاز', en: 'A coin got stuck in the machine', fr: 'Une pièce est restée coincée' }, phrases: [
+        { fr: 'Une pièce est restée coincée.', ar: 'قطعة نقدية علقت.', en: 'A coin got stuck.' },
+        { fr: 'Je n’arrive pas à récupérer ma pièce.', ar: 'ما عم اقدر طلع القطعة.', en: 'I can’t get my coin back.' },
+      ] },
+      { icon: '🧺', title: { ar: '25. الجهاز أعاد لك العملة', en: 'The machine returned your coin', fr: 'La machine vous a rendu la pièce' }, phrases: [
+        { fr: 'La machine m’a rendu la pièce.', ar: 'الماكينة رجعتلي القطعة.', en: 'The machine gave my coin back.' },
+        { fr: 'Elle n’accepte pas cette pièce.', ar: 'ما عم تقبل هالقطعة.', en: 'It doesn’t accept this coin.' },
+      ] },
+      { icon: '🧺', title: { ar: '26. الغسالة خارج الخدمة', en: 'The machine is out of order', fr: 'La machine est hors service' }, phrases: [
+        { fr: 'Cette machine est hors service.', ar: 'هالغسالة خارج الخدمة.', en: 'This machine is out of order.' },
+        { fr: 'Il y a un problème avec la machine.', ar: 'في مشكلة بالغسالة.', en: 'There’s a problem with the machine.' },
+      ] },
+      { icon: '🧺', title: { ar: '27. تريد معرفة ساعات العمل', en: 'You want to know the opening hours', fr: 'Vous voulez connaître les horaires' }, phrases: [
+        { fr: 'Vous fermez à quelle heure ?', ar: 'عأي ساعة بتسكروا؟', en: 'What time do you close?' },
+        { fr: 'Vous êtes ouverts jusqu’à quelle heure ?', ar: 'لحد أي ساعة بتكونوا فاتحين؟', en: 'How late are you open?' },
+      ] },
+      { icon: '🧺', title: { ar: '28. آخر غسلة قبل الإغلاق', en: 'Last wash before closing', fr: 'Dernière machine avant la fermeture' }, phrases: [
+        { fr: 'C’est jusqu’à quelle heure pour faire une machine ?', ar: 'لحد أي ساعة فيني حط غسالة؟', en: 'What time is the latest I can start a wash?' },
+        { fr: 'Il faut commencer avant quelle heure ?', ar: 'لازم بلّش قبل أي ساعة؟', en: 'What time do I need to start by?' },
+      ] },
+      { icon: '🧺', title: { ar: '29. تسأل عن سعر التجفيف', en: 'You ask about the dryer price', fr: 'Vous demandez le prix du sèche-linge' }, phrases: [
+        { fr: 'Combien coûte le sèche-linge ?', ar: 'قديش سعر النشافة؟', en: 'How much does the dryer cost?' },
+        { fr: 'C’est combien pour dix minutes ?', ar: 'قديش حق عشر دقايق؟', en: 'How much is it for ten minutes?' },
+      ] },
+      { icon: '🧺', title: { ar: '30. تريد إضافة وقت للنشافة', en: 'You want to add dryer time', fr: 'Vous voulez ajouter du temps de séchage' }, phrases: [
+        { fr: 'Je peux rajouter du temps ?', ar: 'فيني زيد وقت؟', en: 'Can I add more time?' },
+        { fr: 'Je vais mettre encore dix minutes.', ar: 'رح حط كمان عشر دقايق.', en: 'I’ll add another ten minutes.' },
+      ] },
+      { icon: '🧺', title: { ar: '31. الملابس ما نشفت تمامًا', en: 'Clothes are not fully dry', fr: 'Le linge n\'est pas complètement sec' }, phrases: [
+        { fr: 'Le linge est encore humide.', ar: 'الغسيل لسا رطب.', en: 'The laundry is still damp.' },
+        { fr: 'Je vais remettre quelques minutes.', ar: 'رح رجّعها كم دقيقة.', en: 'I’ll put it back for a few more minutes.' },
+      ] },
+      { icon: '🧺', title: { ar: '32. فلتر النشافة مليان وبر', en: 'The dryer filter is full of lint', fr: 'Le filtre est plein de peluches' }, phrases: [
+        { fr: 'Le filtre est plein de peluches.', ar: 'الفلتر مليان وبر.', en: 'The filter is full of lint.' },
+        { fr: 'Il faut nettoyer le filtre ?', ar: 'لازم ننظف الفلتر؟', en: 'Does the filter need to be cleaned?' },
+      ] },
+      { icon: '🧺', title: { ar: '33. نسيت قطعة ملابس', en: 'You forgot a piece of clothing', fr: 'Vous avez oublié un vêtement' }, phrases: [
+        { fr: 'J’ai oublié un vêtement dans la machine.', ar: 'نسيت قطعة تياب بالغسالة.', en: 'I forgot a piece of clothing in the machine.' },
+        { fr: 'Attendez, je vais vérifier.', ar: 'استنى، خليني أتأكد.', en: 'Wait, let me check.' },
+      ] },
+      { icon: '🧺', title: { ar: '34. وجدت شيئًا ليس لك', en: 'You found something that isn\'t yours', fr: 'Vous avez trouvé un vêtement qui n\'est pas à vous' }, phrases: [
+        { fr: 'Il y a un vêtement qui n’est pas à moi.', ar: 'في قطعة تياب مو إلي.', en: 'There’s a piece of clothing that isn’t mine.' },
+        { fr: 'Quelqu’un l’a peut-être oublié.', ar: 'يمكن حدا نسيها.', en: 'Someone may have forgotten it.' },
+      ] },
+      { icon: '🧺', title: { ar: '35. تسأل قبل لمس ملابس شخص آخر', en: 'You ask before touching someone\'s laundry', fr: 'Vous demandez avant de toucher le linge d\'un autre' }, phrases: [
+        { fr: 'Vous avez fini avec cette machine ?', ar: 'خلصتوا من هالغسالة؟', en: 'Are you finished with this machine?' },
+        { fr: 'Je peux enlever votre linge ?', ar: 'فيني شيل غسيلكم؟', en: 'Can I take your laundry out?' },
+      ] },
+      { icon: '🧺', title: { ar: '36. شخص يسأل إن كانت الغسالة لك', en: 'Someone asks if the machine is yours', fr: 'On vous demande si c\'est votre linge' }, phrases: [
+        { fr: 'C’est votre linge ?', ar: 'هاد غسيلك؟', en: 'Is this your laundry?' },
+        { fr: 'Non, ce n’est pas le mien.', ar: 'لا، مو إلي.', en: 'No, it’s not mine.' },
+      ] },
+      { icon: '🧺', title: { ar: '37. تريد الانتظار حتى تفرغ الغسالة', en: 'You want to wait for a free machine', fr: 'Vous voulez attendre une machine libre' }, phrases: [
+        { fr: 'Je vais attendre que cette machine se libère.', ar: 'رح استنى لحتى تفضى هالغسالة.', en: 'I’ll wait until this machine is free.' },
+        { fr: 'Je prends celle-ci quand elle est libre.', ar: 'باخد هاي لما تفضى.', en: 'I’ll take this one when it’s free.' },
+      ] },
+      { icon: '🧺', title: { ar: '38. تريد معرفة المدة المتبقية', en: 'You want to know the remaining time', fr: 'Vous voulez connaître le temps restant' }, phrases: [
+        { fr: 'Il reste combien de temps ?', ar: 'قديش ضايل وقت؟', en: 'How much time is left?' },
+        { fr: 'Ça finit dans combien de temps ?', ar: 'بعد قديش بتخلص؟', en: 'How long until it finishes?' },
+      ] },
+      { icon: '🧺', title: { ar: '39. شخص يسأل إن كان يمكنه استخدام الغسالة', en: 'Someone asks if they can use the machine', fr: 'On vous demande de prendre la machine après vous' }, phrases: [
+        { fr: 'Je peux prendre cette machine après vous ?', ar: 'فيني آخد هالغسالة بعدك؟', en: 'Can I use this machine after you?' },
+        { fr: 'Oui, bien sûr.', ar: 'إي طبعًا.', en: 'Yes, of course.' },
+      ] },
+      { icon: '🧺', title: { ar: '40. تسأل عن مسحوق الغسيل', en: 'You ask about detergent', fr: 'Vous demandez quelle lessive' }, phrases: [
+        { fr: 'Vous utilisez quelle lessive ?', ar: 'أي مسحوق غسيل بتستعملوا؟', en: 'Which detergent do you use?' },
+        { fr: 'La lessive est déjà incluse ?', ar: 'مسحوق الغسيل مشمول أصلًا؟', en: 'Is the detergent already included?' },
+      ] },
+      { icon: '🧺', title: { ar: '41. نسيت مسحوق الغسيل', en: 'You forgot your detergent', fr: 'Vous avez oublié votre lessive' }, phrases: [
+        { fr: 'J’ai oublié ma lessive.', ar: 'نسيت مسحوق الغسيل تبعي.', en: 'I forgot my detergent.' },
+        { fr: 'Est-ce qu’il y en a sur place ?', ar: 'في هون مسحوق غسيل؟', en: 'Is there any detergent here?' },
+      ] },
+      { icon: '🧺', title: { ar: '42. تسأل شخصًا عن الفكة', en: 'You ask someone for change', fr: 'Vous demandez de la monnaie' }, phrases: [
+        { fr: 'Vous avez de la monnaie ?', ar: 'معك فكة؟', en: 'Do you have change?' },
+        { fr: 'Vous pouvez me faire de la monnaie ?', ar: 'فيك تصرفلي؟', en: 'Can you give me change?' },
+      ] },
+      { icon: '🧺', title: { ar: '43. انتهيت وتريد ترك المكان', en: 'You\'re done and want to leave', fr: 'Vous avez fini et voulez partir' }, phrases: [
+        { fr: 'Voilà, j’ai terminé.', ar: 'هيك خلصت.', en: 'There, I’m finished.' },
+        { fr: 'Je vais laisser la place.', ar: 'رح خلّي المكان لغيري.', en: 'I’ll leave the spot for someone else.' },
+        { fr: 'Bonne journée !', ar: 'نهارك سعيد!', en: 'Have a nice day!' },
+      ] },
     ]
   },
 ];
