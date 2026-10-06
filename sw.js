@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dross-v220';
+const CACHE_NAME = 'dross-v221';
 const FILES_TO_CACHE = [
   './',
   './index.html',
@@ -8,7 +8,11 @@ const FILES_TO_CACHE = [
   './icon-192.png',
   './icon-512.png',
   './data/manifest.js',
-  './data/centres.js'
+  './data/centres.js',
+  './vocab.html',
+  './js/edge-tts.js',
+  './data/vocab.js',
+  './data/vocab-batch-02.js'
 ];
 
 for (let i = 1; i <= 39; i++) {
