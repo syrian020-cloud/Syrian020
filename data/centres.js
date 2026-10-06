@@ -23770,5 +23770,330 @@ window.CENTRES_DATA = [
         { fr: 'Le volume est de 30 cm³.', ar: 'الحجم هو 30 سم مكعب.', en: 'The volume is 30 cubic centimeters.' },
         { fr: '5 × 3 × 2 = 30 cm³.', ar: '5 × 3 × 2 = 30 سم مكعب.', en: '5 × 3 × 2 = 30 cm³.' },
     ] },
+    { icon: '➕', title: { ar: 'الجمع', en: 'Addition', fr: 'Addition' }, phrases: [
+        { fr: 'Additionne 25 et 17.', ar: 'اجمع 25 و17.', en: 'Add 25 and 17.' },
+        { fr: 'J’additionne les deux nombres.', ar: 'بجمع العددين.', en: 'I add the two numbers.' },
+    ]},
+    { icon: '➖', title: { ar: 'الطرح', en: 'Subtraction', fr: 'Soustraction' }, phrases: [
+        { fr: 'Soustrais 18 de 50.', ar: 'اطرح 18 من 50.', en: 'Subtract 18 from 50.' },
+        { fr: 'Je soustrais le deuxième nombre du premier.', ar: 'بطرح العدد التاني من الأول.', en: 'I subtract the second number from the first.' },
+    ]},
+    { icon: '✖️', title: { ar: 'الضرب', en: 'Multiplication', fr: 'Multiplication' }, phrases: [
+        { fr: 'Multiplie 12 par 5.', ar: 'اضرب 12 بـ5.', en: 'Multiply 12 by 5.' },
+        { fr: 'Je multiplie le prix par 3.', ar: 'بضرب السعر بـ3.', en: 'I multiply the price by 3.' },
+    ]},
+    { icon: '➗', title: { ar: 'القسمة', en: 'Division', fr: 'Division' }, phrases: [
+        { fr: 'Divise 100 par 4.', ar: 'اقسم 100 على 4.', en: 'Divide 100 by 4.' },
+        { fr: 'Je divise la quantité par 5.', ar: 'بقسم الكمية على 5.', en: 'I divide the quantity by 5.' },
+    ]},
+    { icon: '🧮', title: { ar: 'الحساب', en: 'Calculation', fr: 'Le calcul' }, phrases: [
+        { fr: 'Calcule le résultat.', ar: 'احسب النتيجة.', en: 'Calculate the result.' },
+        { fr: 'Calcule la somme.', ar: 'احسب المجموع.', en: 'Calculate the sum.' },
+        { fr: 'Calcule la différence.', ar: 'احسب الفرق.', en: 'Calculate the difference.' },
+        { fr: 'Calcule le produit.', ar: 'احسب حاصل الضرب.', en: 'Calculate the product.' },
+    ]},
+    { icon: '✍️', title: { ar: 'كتابة العملية', en: 'Setting up the operation', fr: 'Poser l’opération' }, phrases: [
+        { fr: 'Pose l’opération.', ar: 'اكتب العملية بشكل صحيح.', en: 'Set up the operation.' },
+        { fr: 'Pose et effectue la multiplication.', ar: 'اكتب عملية الضرب واحسبها.', en: 'Set up and perform the multiplication.' },
+        { fr: 'Effectue le calcul.', ar: 'أجرِ العملية الحسابية.', en: 'Perform the calculation.' },
+    ]},
+    { icon: '🔢', title: { ar: 'الأعداد', en: 'Numbers', fr: 'Les nombres' }, phrases: [
+        { fr: 'Écris le nombre en chiffres.', ar: 'اكتب العدد بالأرقام.', en: 'Write the number in digits.' },
+        { fr: 'Écris le nombre en lettres.', ar: 'اكتب العدد بالحروف.', en: 'Write the number in words.' },
+        { fr: 'Décompose le nombre.', ar: 'فكّك العدد.', en: 'Decompose the number.' },
+        { fr: 'Compare les deux nombres.', ar: 'قارن بين العددين.', en: 'Compare the two numbers.' },
+        { fr: 'Classe les nombres du plus petit au plus grand.', ar: 'رتّب الأعداد من الأصغر للأكبر.', en: 'Order the numbers from smallest to largest.' },
+    ]},
+    { icon: '📏', title: { ar: 'القياس', en: 'Measuring', fr: 'Mesurer' }, phrases: [
+        { fr: 'Mesure la longueur.', ar: 'قيس الطول.', en: 'Measure the length.' },
+        { fr: 'Mesure le côté du carré.', ar: 'قيس ضلع المربع.', en: 'Measure the side of the square.' },
+        { fr: 'Mesure la distance entre les deux points.', ar: 'قيس المسافة بين النقطتين.', en: 'Measure the distance between the two points.' },
+    ]},
+    { icon: '📐', title: { ar: 'الهندسة', en: 'Geometry', fr: 'La géométrie' }, phrases: [
+        { fr: 'Trace une droite.', ar: 'ارسم مستقيم.', en: 'Draw a line.' },
+        { fr: 'Trace un angle droit.', ar: 'ارسم زاوية قائمة.', en: 'Draw a right angle.' },
+        { fr: 'Construis un triangle.', ar: 'أنشئ مثلث.', en: 'Construct a triangle.' },
+        { fr: 'Dessine un rectangle.', ar: 'ارسم مستطيل.', en: 'Draw a rectangle.' },
+    ]},
+    { icon: '📦', title: { ar: 'المحيط والمساحة', en: 'Perimeter & area', fr: 'Périmètre et aire' }, phrases: [
+        { fr: 'Calcule le périmètre du carré.', ar: 'احسب محيط المربع.', en: 'Calculate the perimeter of the square.' },
+        { fr: 'Calcule l’aire du rectangle.', ar: 'احسب مساحة المستطيل.', en: 'Calculate the area of the rectangle.' },
+        { fr: 'Détermine la longueur du côté.', ar: 'أوجد طول الضلع.', en: 'Determine the length of the side.' },
+    ]},
+    { icon: '🔄', title: { ar: 'التحويل', en: 'Conversion', fr: 'La conversion' }, phrases: [
+        { fr: 'Convertis les mètres en centimètres.', ar: 'حوّل الأمتار إلى سنتيمترات.', en: 'Convert meters into centimeters.' },
+        { fr: 'Convertis les kilogrammes en grammes.', ar: 'حوّل الكيلوغرامات إلى غرامات.', en: 'Convert kilograms into grams.' },
+        { fr: 'Convertis les heures en minutes.', ar: 'حوّل الساعات إلى دقائق.', en: 'Convert hours into minutes.' },
+    ]},
+    { icon: '✅', title: { ar: 'التحقق والحل', en: 'Checking & solving', fr: 'Vérifier et résoudre' }, phrases: [
+        { fr: 'Vérifie ton résultat.', ar: 'تأكد من نتيجتك.', en: 'Check your result.' },
+        { fr: 'Vérifie ton calcul.', ar: 'تأكد من عمليتك الحسابية.', en: 'Check your calculation.' },
+        { fr: 'Résous le problème.', ar: 'حل المسألة.', en: 'Solve the problem.' },
+        { fr: 'Justifie ta réponse.', ar: 'برّر جوابك.', en: 'Justify your answer.' },
+        { fr: 'Explique ton calcul.', ar: 'اشرح طريقة حسابك.', en: 'Explain your calculation.' },
+    ]},
   ] },
+  { id: 'formes', icon: '🔷', name: { ar: 'الأشكال الهندسية', en: 'Geometric shapes', fr: 'Formes géométriques' }, desc: { ar: 'الأشكال وأفعال الرياضيات', en: 'Shapes & maths verbs', fr: 'Formes & verbes de maths' }, sections: [
+    { icon: '🔷', title: { ar: 'الأشكال الأساسية', en: 'Basic shapes', fr: 'Les formes de base' }, phrases: [
+        { fr: 'Un cercle', ar: 'دائرة', en: 'Circle' },
+        { fr: 'Un carré', ar: 'مربع', en: 'Square' },
+        { fr: 'Un rectangle', ar: 'مستطيل', en: 'Rectangle' },
+        { fr: 'Un triangle', ar: 'مثلث', en: 'Triangle' },
+        { fr: 'Un losange', ar: 'مُعيّن', en: 'Rhombus / Diamond' },
+        { fr: 'Un parallélogramme', ar: 'متوازي الأضلاع', en: 'Parallelogram' },
+        { fr: 'Un trapèze', ar: 'شبه منحرف', en: 'Trapezoid' },
+        { fr: 'Un ovale', ar: 'شكل بيضاوي', en: 'Oval' },
+        { fr: 'Un pentagone', ar: 'خماسي الأضلاع', en: 'Pentagon' },
+        { fr: 'Un hexagone', ar: 'سداسي الأضلاع', en: 'Hexagon' },
+        { fr: 'Un heptagone', ar: 'سباعي الأضلاع', en: 'Heptagon' },
+        { fr: 'Un octogone', ar: 'ثماني الأضلاع', en: 'Octagon' },
+        { fr: 'Un polygone', ar: 'مضلّع', en: 'Polygon' },
+        { fr: 'Un cube', ar: 'مكعّب', en: 'Cube' },
+        { fr: 'Une sphère', ar: 'كرة', en: 'Sphere' },
+        { fr: 'Un cylindre', ar: 'أسطوانة', en: 'Cylinder' },
+        { fr: 'Un cône', ar: 'مخروط', en: 'Cone' },
+        { fr: 'Une pyramide', ar: 'هرم', en: 'Pyramid' },
+    ]},
+    { icon: '🔵', title: { ar: 'دائرة', en: 'Circle', fr: 'Cercle' }, phrases: [
+        { fr: 'C’est un cercle.', ar: 'هاد دائرة.', en: 'This is a circle.' },
+        { fr: 'Trace un cercle.', ar: 'ارسم دائرة.', en: 'Draw a circle.' },
+        { fr: 'Le cercle a un diamètre de 10 cm.', ar: 'قطر الدائرة 10 سم.', en: 'The circle has a diameter of 10 cm.' },
+    ]},
+    { icon: '🟦', title: { ar: 'مربع', en: 'Square', fr: 'Carré' }, phrases: [
+        { fr: 'C’est un carré.', ar: 'هاد مربع.', en: 'This is a square.' },
+        { fr: 'Trace un carré.', ar: 'ارسم مربع.', en: 'Draw a square.' },
+        { fr: 'Les quatre côtés sont égaux.', ar: 'الأضلاع الأربعة متساوية.', en: 'The four sides are equal.' },
+    ]},
+    { icon: '▭', title: { ar: 'مستطيل', en: 'Rectangle', fr: 'Rectangle' }, phrases: [
+        { fr: 'C’est un rectangle.', ar: 'هاد مستطيل.', en: 'This is a rectangle.' },
+        { fr: 'Quelle est la longueur du rectangle ?', ar: 'شو طول المستطيل؟', en: 'What is the length of the rectangle?' },
+        { fr: 'Quelle est sa largeur ?', ar: 'شو عرضه؟', en: 'What is its width?' },
+    ]},
+    { icon: '🔺', title: { ar: 'مثلث', en: 'Triangle', fr: 'Triangle' }, phrases: [
+        { fr: 'C’est un triangle.', ar: 'هاد مثلث.', en: 'This is a triangle.' },
+        { fr: 'Trace un triangle.', ar: 'ارسم مثلث.', en: 'Draw a triangle.' },
+        { fr: 'Le triangle a trois côtés.', ar: 'المثلث إلو تلات أضلاع.', en: 'A triangle has three sides.' },
+    ]},
+    { icon: '♦️', title: { ar: 'مُعيّن', en: 'Rhombus', fr: 'Losange' }, phrases: [
+        { fr: 'C’est un losange.', ar: 'هاد مُعيّن.', en: 'This is a rhombus.' },
+        { fr: 'Les quatre côtés sont égaux.', ar: 'الأضلاع الأربعة متساوية.', en: 'The four sides are equal.' },
+    ]},
+    { icon: '▱', title: { ar: 'متوازي الأضلاع', en: 'Parallelogram', fr: 'Parallélogramme' }, phrases: [
+        { fr: 'C’est un parallélogramme.', ar: 'هاد متوازي أضلاع.', en: 'This is a parallelogram.' },
+        { fr: 'Les côtés opposés sont parallèles.', ar: 'الأضلاع المتقابلة متوازية.', en: 'The opposite sides are parallel.' },
+    ]},
+    { icon: '🔻', title: { ar: 'شبه منحرف', en: 'Trapezoid', fr: 'Trapèze' }, phrases: [
+        { fr: 'C’est un trapèze.', ar: 'هاد شبه منحرف.', en: 'This is a trapezoid.' },
+        { fr: 'Le trapèze a deux côtés parallèles.', ar: 'شبه المنحرف عنده ضلعين متوازيين.', en: 'A trapezoid has two parallel sides.' },
+    ]},
+    { icon: '⬡', title: { ar: 'سداسي الأضلاع', en: 'Hexagon', fr: 'Hexagone' }, phrases: [
+        { fr: 'C’est un hexagone.', ar: 'هاد شكل سداسي.', en: 'This is a hexagon.' },
+        { fr: 'L’hexagone a six côtés.', ar: 'الشكل السداسي إلو ستة أضلاع.', en: 'A hexagon has six sides.' },
+    ]},
+    { icon: '⬟', title: { ar: 'خماسي الأضلاع', en: 'Pentagon', fr: 'Pentagone' }, phrases: [
+        { fr: 'C’est un pentagone.', ar: 'هاد شكل خماسي.', en: 'This is a pentagon.' },
+        { fr: 'Le pentagone a cinq côtés.', ar: 'الشكل الخماسي إلو خمسة أضلاع.', en: 'A pentagon has five sides.' },
+    ]},
+    { icon: '📐', title: { ar: 'عبارات مهمة جدًا بالاختبار', en: 'Key exam phrases', fr: 'Phrases clés de l’examen' }, phrases: [
+        { fr: 'Combien de côtés a cette figure ?', ar: 'قديش في أضلاع بهالشكل؟', en: 'How many sides does this shape have?' },
+        { fr: 'Mesure la longueur.', ar: 'قيس الطول.', en: 'Measure the length.' },
+        { fr: 'Mesure la largeur.', ar: 'قيس العرض.', en: 'Measure the width.' },
+        { fr: 'Calcule le périmètre.', ar: 'احسب المحيط.', en: 'Calculate the perimeter.' },
+        { fr: 'Calcule l’aire.', ar: 'احسب المساحة.', en: 'Calculate the area.' },
+        { fr: 'Quelle est la mesure de ce côté ?', ar: 'قديش قياس هالضلع؟', en: 'What is the measurement of this side?' },
+        { fr: 'Les côtés sont égaux.', ar: 'الأضلاع متساوية.', en: 'The sides are equal.' },
+        { fr: 'Les côtés sont parallèles.', ar: 'الأضلاع متوازية.', en: 'The sides are parallel.' },
+        { fr: 'L’angle est droit.', ar: 'الزاوية قائمة.', en: 'The angle is right.' },
+        { fr: 'Trace une droite de 5 cm.', ar: 'ارسم خط طوله 5 سم.', en: 'Draw a 5-cm line.' },
+        { fr: 'Arrondis le résultat.', ar: 'قرّب النتيجة.', en: 'Round the result.' },
+    ]},
+    { icon: '📏', title: { ar: 'القياس', en: 'Measure', fr: 'Mesurer' }, phrases: [
+        { fr: 'Je mesure la longueur.', ar: 'أنا بقيس الطول.', en: 'I measure the length.' },
+        { fr: 'Mesure la largeur.', ar: 'قيس العرض.', en: 'Measure the width.' },
+        { fr: 'Il faut mesurer le côté.', ar: 'لازم نقيس الضلع.', en: 'We need to measure the side.' },
+    ]},
+    { icon: '🧮', title: { ar: 'الحساب', en: 'Calculate', fr: 'Calculer' }, phrases: [
+        { fr: 'Je calcule le résultat.', ar: 'أنا بحسب النتيجة.', en: 'I calculate the result.' },
+        { fr: 'Calcule le périmètre.', ar: 'احسب المحيط.', en: 'Calculate the perimeter.' },
+        { fr: 'Il faut calculer l’aire.', ar: 'لازم نحسب المساحة.', en: 'We need to calculate the area.' },
+    ]},
+    { icon: '✏️', title: { ar: 'الرسم الهندسي', en: 'Trace', fr: 'Tracer' }, phrases: [
+        { fr: 'Je trace une ligne.', ar: 'أنا برسم خط.', en: 'I draw a line.' },
+        { fr: 'Trace un cercle.', ar: 'ارسم دائرة.', en: 'Draw a circle.' },
+        { fr: 'Trace un triangle de 5 cm.', ar: 'ارسم مثلث طوله 5 سم.', en: 'Draw a 5-cm triangle.' },
+    ]},
+    { icon: '➕', title: { ar: 'الجمع', en: 'Add', fr: 'Additionner' }, phrases: [
+        { fr: 'J’additionne les deux nombres.', ar: 'بجمع العددين.', en: 'I add the two numbers.' },
+        { fr: 'Additionne 25 et 15.', ar: 'اجمع 25 و15.', en: 'Add 25 and 15.' },
+    ]},
+    { icon: '➖', title: { ar: 'الطرح', en: 'Subtract', fr: 'Soustraire' }, phrases: [
+        { fr: 'Je soustrais 10 de 50.', ar: 'بطرح 10 من 50.', en: 'I subtract 10 from 50.' },
+        { fr: 'Soustrais les deux nombres.', ar: 'اطرح العددين.', en: 'Subtract the two numbers.' },
+    ]},
+    { icon: '✖️', title: { ar: 'الضرب', en: 'Multiply', fr: 'Multiplier' }, phrases: [
+        { fr: 'Je multiplie 5 par 4.', ar: 'بضرب 5 بـ4.', en: 'I multiply 5 by 4.' },
+        { fr: 'Multiplie 25 par 3.', ar: 'اضرب 25 بـ3.', en: 'Multiply 25 by 3.' },
+    ]},
+    { icon: '➗', title: { ar: 'القسمة', en: 'Divide', fr: 'Diviser' }, phrases: [
+        { fr: 'Je divise 20 par 5.', ar: 'بقسم 20 على 5.', en: 'I divide 20 by 5.' },
+        { fr: 'Divise 100 par 4.', ar: 'اقسم 100 على 4.', en: 'Divide 100 by 4.' },
+    ]},
+    { icon: '🔎', title: { ar: 'المقارنة', en: 'Compare', fr: 'Comparer' }, phrases: [
+        { fr: 'Je compare les deux nombres.', ar: 'بقارن بين العددين.', en: 'I compare the two numbers.' },
+        { fr: 'Compare les deux résultats.', ar: 'قارن بين النتيجتين.', en: 'Compare the two results.' },
+    ]},
+    { icon: '✅', title: { ar: 'التحقق', en: 'Check', fr: 'Vérifier' }, phrases: [
+        { fr: 'Je vérifie mon résultat.', ar: 'بتأكد من نتيجتي.', en: 'I check my result.' },
+        { fr: 'Vérifie ta réponse.', ar: 'تأكد من جوابك.', en: 'Check your answer.' },
+    ]},
+    { icon: '🔵', title: { ar: 'وضع دائرة حول', en: 'Circle', fr: 'Entourer' }, phrases: [
+        { fr: 'J’entoure la bonne réponse.', ar: 'بحوط على الجواب الصحيح.', en: 'I circle the correct answer.' },
+        { fr: 'Entoure le bon résultat.', ar: 'حوط على النتيجة الصحيحة.', en: 'Circle the correct result.' },
+    ]},
+    { icon: '🔄', title: { ar: 'التحويل', en: 'Convert', fr: 'Convertir' }, phrases: [
+        { fr: 'Je convertis les mètres en centimètres.', ar: 'بحوّل المتر لسنتمتر.', en: 'I convert meters into centimeters.' },
+        { fr: 'Convertis 2 mètres en centimètres.', ar: 'حوّل مترين إلى سنتيمتر.', en: 'Convert 2 meters into centimeters.' },
+    ]},
+    { icon: '🔢', title: { ar: 'التقريب', en: 'Round', fr: 'Arrondir' }, phrases: [
+        { fr: 'J’arrondis le nombre.', ar: 'بقرّب العدد.', en: 'I round the number.' },
+        { fr: 'Arrondis le résultat à l’unité.', ar: 'قرّب النتيجة لأقرب عدد صحيح.', en: 'Round the result to the nearest whole number.' },
+    ]},
+    { icon: '📐', title: { ar: 'الإنشاء الهندسي', en: 'Construct', fr: 'Construire' }, phrases: [
+        { fr: 'Construis un triangle.', ar: 'ارسم/أنشئ مثلث.', en: 'Construct a triangle.' },
+        { fr: 'Construisez la figure suivante.', ar: 'أنشئوا الشكل التالي.', en: 'Construct the following figure.' },
+        { fr: 'Construis un carré de 4 cm de côté.', ar: 'ارسم مربع طول ضلعه 4 سم.', en: 'Construct a square with 4-cm sides.' },
+    ]},
+    { icon: '✏️', title: { ar: 'الرسم', en: 'Draw', fr: 'Dessiner' }, phrases: [
+        { fr: 'Dessine la figure.', ar: 'ارسم الشكل.', en: 'Draw the figure.' },
+        { fr: 'Dessine un rectangle.', ar: 'ارسم مستطيل.', en: 'Draw a rectangle.' },
+        { fr: 'Dessine le schéma.', ar: 'ارسم المخطط.', en: 'Draw the diagram.' },
+    ]},
+    { icon: '📍', title: { ar: 'تحديد المكان/النقطة', en: 'Locate', fr: 'Repérer' }, phrases: [
+        { fr: 'Repère le point A.', ar: 'حدّد النقطة A.', en: 'Locate point A.' },
+        { fr: 'Repère les points sur la droite.', ar: 'حدّد النقاط على المستقيم.', en: 'Locate the points on the line.' },
+        { fr: 'Repère la position du point B.', ar: 'حدّد موقع النقطة B.', en: 'Locate the position of point B.' },
+    ]},
+    { icon: '🔍', title: { ar: 'تحديد/التعرّف', en: 'Identify', fr: 'Identifier' }, phrases: [
+        { fr: 'Identifie la figure géométrique.', ar: 'حدّد الشكل الهندسي.', en: 'Identify the geometric shape.' },
+        { fr: 'Identifie l’angle droit.', ar: 'حدّد الزاوية القائمة.', en: 'Identify the right angle.' },
+        { fr: 'Identifie le côté le plus long.', ar: 'حدّد أطول ضلع.', en: 'Identify the longest side.' },
+    ]},
+    { icon: '📝', title: { ar: 'إكمال', en: 'Complete', fr: 'Compléter' }, phrases: [
+        { fr: 'Complète le tableau.', ar: 'كمّل الجدول.', en: 'Complete the table.' },
+        { fr: 'Complète la phrase.', ar: 'كمّل الجملة.', en: 'Complete the sentence.' },
+        { fr: 'Complète les calculs.', ar: 'كمّل العمليات الحسابية.', en: 'Complete the calculations.' },
+    ]},
+    { icon: '📖', title: { ar: 'القراءة', en: 'Read', fr: 'Lire' }, phrases: [
+        { fr: 'Lis l’énoncé.', ar: 'اقرأ نص المسألة.', en: 'Read the problem statement.' },
+        { fr: 'Lis le graphique.', ar: 'اقرأ الرسم البياني.', en: 'Read the graph.' },
+        { fr: 'Lis les informations données.', ar: 'اقرأ المعلومات المعطاة.', en: 'Read the given information.' },
+    ]},
+    { icon: '✍️', title: { ar: 'الكتابة', en: 'Write', fr: 'Écrire' }, phrases: [
+        { fr: 'Écris le résultat.', ar: 'اكتب النتيجة.', en: 'Write the result.' },
+        { fr: 'Écris ta réponse.', ar: 'اكتب جوابك.', en: 'Write your answer.' },
+        { fr: 'Écris le nombre en lettres.', ar: 'اكتب العدد بالحروف.', en: 'Write the number in words.' },
+    ]},
+    { icon: '📊', title: { ar: 'تمثيل', en: 'Represent', fr: 'Représenter' }, phrases: [
+        { fr: 'Représente les données dans un graphique.', ar: 'مثّل المعطيات بمخطط بياني.', en: 'Represent the data in a graph.' },
+        { fr: 'Représente cette situation par un schéma.', ar: 'مثّل هذه الحالة بمخطط.', en: 'Represent this situation with a diagram.' },
+    ]},
+    { icon: '📏', title: { ar: 'حساب الطول', en: 'Calculate the length', fr: 'Calculer la longueur' }, phrases: [
+        { fr: 'Calcule la longueur du segment AB.', ar: 'احسب طول القطعة AB.', en: 'Calculate the length of segment AB.' },
+        { fr: 'Quelle est la longueur du côté ?', ar: 'شو طول الضلع؟', en: 'What is the length of the side?' },
+    ]},
+    { icon: '🔵', title: { ar: 'حساب المساحة', en: 'Calculate the area', fr: 'Calculer l’aire' }, phrases: [
+        { fr: 'Calcule l’aire du rectangle.', ar: 'احسب مساحة المستطيل.', en: 'Calculate the area of the rectangle.' },
+        { fr: 'Quelle est l’aire de cette figure ?', ar: 'شو مساحة هالشكل؟', en: 'What is the area of this shape?' },
+    ]},
+    { icon: '⭕', title: { ar: 'حساب المحيط', en: 'Calculate the perimeter', fr: 'Calculer le périmètre' }, phrases: [
+        { fr: 'Calcule le périmètre du carré.', ar: 'احسب محيط المربع.', en: 'Calculate the perimeter of the square.' },
+        { fr: 'Détermine le périmètre de la figure.', ar: 'حدّد/احسب محيط الشكل.', en: 'Determine the perimeter of the figure.' },
+    ]},
+    { icon: '📐', title: { ar: 'تحديد/إيجاد', en: 'Determine', fr: 'Déterminer' }, phrases: [
+        { fr: 'Détermine la valeur de x.', ar: 'أوجد قيمة x.', en: 'Determine the value of x.' },
+        { fr: 'Détermine la longueur du côté.', ar: 'أوجد طول الضلع.', en: 'Determine the length of the side.' },
+        { fr: 'Détermine le résultat.', ar: 'أوجد النتيجة.', en: 'Determine the result.' },
+    ]},
+    { icon: '💡', title: { ar: 'التقدير', en: 'Estimate', fr: 'Estimer' }, phrases: [
+        { fr: 'Estime le résultat avant de calculer.', ar: 'قدّر النتيجة قبل ما تحسب.', en: 'Estimate the result before calculating.' },
+        { fr: 'Estime la longueur.', ar: 'قدّر الطول.', en: 'Estimate the length.' },
+    ]},
+    { icon: '🧠', title: { ar: 'تبرير الإجابة', en: 'Justify', fr: 'Justifier' }, phrases: [
+        { fr: 'Justifie ta réponse.', ar: 'برّر جوابك.', en: 'Justify your answer.' },
+        { fr: 'Justifie ton calcul.', ar: 'برّر عمليتك الحسابية.', en: 'Justify your calculation.' },
+        { fr: 'Explique comment tu as trouvé le résultat.', ar: 'اشرح كيف وصلت للنتيجة.', en: 'Explain how you found the result.' },
+    ]},
+    { icon: '🔢', title: { ar: 'تفكيك العدد', en: 'Decompose', fr: 'Décomposer' }, phrases: [
+        { fr: 'Décompose le nombre 1 250.', ar: 'فكّك العدد 1250.', en: 'Decompose the number 1,250.' },
+        { fr: 'Décompose ce nombre en centaines, dizaines et unités.', ar: 'فكّك هالعدد لمئات وعشرات وآحاد.', en: 'Decompose this number into hundreds, tens and units.' },
+    ]},
+    { icon: '🔢', title: { ar: 'ترتيب', en: 'Sort', fr: 'Classer' }, phrases: [
+        { fr: 'Classe les nombres dans l’ordre croissant.', ar: 'رتّب الأعداد من الأصغر للأكبر.', en: 'Put the numbers in ascending order.' },
+        { fr: 'Classe les nombres dans l’ordre décroissant.', ar: 'رتّب الأعداد من الأكبر للأصغر.', en: 'Put the numbers in descending order.' },
+    ]},
+    { icon: '🔢', title: { ar: 'ترتيب', en: 'Order', fr: 'Ordonner' }, phrases: [
+        { fr: 'Ordonne les nombres du plus petit au plus grand.', ar: 'رتّب الأعداد من الأصغر للأكبر.', en: 'Order the numbers from smallest to largest.' },
+        { fr: 'Ordonne les résultats.', ar: 'رتّب النتائج.', en: 'Order the results.' },
+    ]},
+    { icon: '➕', title: { ar: 'وضع العملية', en: 'Set up the operation', fr: 'Poser' }, phrases: [
+        { fr: 'Pose l’addition et effectue le calcul.', ar: 'اكتب عملية الجمع واحسبها.', en: 'Set up the addition and calculate it.' },
+        { fr: 'Pose la multiplication.', ar: 'اكتب عملية الضرب بشكل عمودي.', en: 'Set up the multiplication.' },
+        { fr: 'Pose la division.', ar: 'اكتب عملية القسمة.', en: 'Set up the division.' },
+    ]},
+    { icon: '🧮', title: { ar: 'إجراء العملية', en: 'Perform', fr: 'Effectuer' }, phrases: [
+        { fr: 'Effectue l’addition.', ar: 'اعمل عملية الجمع.', en: 'Perform the addition.' },
+        { fr: 'Effectue la soustraction.', ar: 'اعمل عملية الطرح.', en: 'Perform the subtraction.' },
+        { fr: 'Effectue la multiplication.', ar: 'اعمل عملية الضرب.', en: 'Perform the multiplication.' },
+        { fr: 'Effectue la division.', ar: 'اعمل عملية القسمة.', en: 'Perform the division.' },
+    ]},
+    { icon: '🧩', title: { ar: 'حل', en: 'Solve', fr: 'Résoudre' }, phrases: [
+        { fr: 'Résous le problème.', ar: 'حل المسألة.', en: 'Solve the problem.' },
+        { fr: 'Résous l’équation.', ar: 'حل المعادلة.', en: 'Solve the equation.' },
+        { fr: 'Il faut résoudre ce problème.', ar: 'لازم نحل هالمسألة.', en: 'We need to solve this problem.' },
+    ]},
+    { icon: '🔎', title: { ar: 'إيجاد', en: 'Determine', fr: 'Déterminer' }, phrases: [
+        { fr: 'Détermine la valeur de x.', ar: 'أوجد قيمة x.', en: 'Determine the value of x.' },
+        { fr: 'Détermine la distance parcourue.', ar: 'أوجد المسافة المقطوعة.', en: 'Determine the distance traveled.' },
+        { fr: 'Détermine le prix total.', ar: 'أوجد السعر الإجمالي.', en: 'Determine the total price.' },
+    ]},
+    { icon: '📈', title: { ar: 'حساب النسبة', en: 'Calculate a percentage', fr: 'Calculer un pourcentage' }, phrases: [
+        { fr: 'Calcule 20 % de 150.', ar: 'احسب 20% من 150.', en: 'Calculate 20% of 150.' },
+        { fr: 'Calcule la réduction de 15 %.', ar: 'احسب التخفيض بنسبة 15%.', en: 'Calculate the 15% discount.' },
+        { fr: 'Détermine le pourcentage.', ar: 'أوجد النسبة المئوية.', en: 'Determine the percentage.' },
+    ]},
+    { icon: '💶', title: { ar: 'إنفاق المال', en: 'Spend', fr: 'Dépenser' }, phrases: [
+        { fr: 'Combien a-t-il dépensé ?', ar: 'قديش صرف؟', en: 'How much did he spend?' },
+        { fr: 'J’ai dépensé 25 euros.', ar: 'صرفت 25 يورو.', en: 'I spent 25 euros.' },
+    ]},
+    { icon: '💰', title: { ar: 'توفير', en: 'Save', fr: 'Économiser' }, phrases: [
+        { fr: 'Combien peut-on économiser ?', ar: 'قديش فينا نوفر؟', en: 'How much can we save?' },
+        { fr: 'J’économise 10 euros.', ar: 'وفّرت 10 يورو.', en: 'I save 10 euros.' },
+    ]},
+    { icon: '🛒', title: { ar: 'شراء', en: 'Buy', fr: 'Acheter' }, phrases: [
+        { fr: 'Combien coûte cet article ?', ar: 'قديش سعر هالشي؟', en: 'How much does this item cost?' },
+        { fr: 'J’achète trois produits.', ar: 'بشتري 3 منتجات.', en: 'I buy three products.' },
+    ]},
+    { icon: '⚖️', title: { ar: 'وزن', en: 'Weigh', fr: 'Peser' }, phrases: [
+        { fr: 'Pèse le produit.', ar: 'زِن المنتج.', en: 'Weigh the product.' },
+        { fr: 'Le produit pèse 2 kg.', ar: 'وزن المنتج 2 كيلو.', en: 'The product weighs 2 kg.' },
+    ]},
+    { icon: '📏', title: { ar: 'تحويل الوحدات', en: 'Convert', fr: 'Convertir' }, phrases: [
+        { fr: 'Convertis 3 mètres en centimètres.', ar: 'حوّل 3 أمتار إلى سنتيمتر.', en: 'Convert 3 meters into centimeters.' },
+        { fr: 'Convertis 2 kg en grammes.', ar: 'حوّل 2 كيلو إلى غرام.', en: 'Convert 2 kg into grams.' },
+        { fr: 'Convertis 1 heure en minutes.', ar: 'حوّل ساعة إلى دقائق.', en: 'Convert 1 hour into minutes.' },
+    ]},
+    { icon: '⏱️', title: { ar: 'قياس الوقت', en: 'Measure time', fr: 'Mesurer le temps' }, phrases: [
+        { fr: 'Calcule la durée.', ar: 'احسب المدة.', en: 'Calculate the duration.' },
+        { fr: 'Détermine l’heure de départ.', ar: 'حدّد وقت الانطلاق.', en: 'Determine the departure time.' },
+        { fr: 'Combien de temps dure l’activité ?', ar: 'قديش بتستمر هالنشاط؟', en: 'How long does the activity last?' },
+    ]},
+    { icon: '📊', title: { ar: 'قراءة الرسم البياني', en: 'Read a graph', fr: 'Lire un graphique' }, phrases: [
+        { fr: 'Observe le graphique.', ar: 'انظر إلى الرسم البياني.', en: 'Look at the graph.' },
+        { fr: 'Lis les valeurs sur le graphique.', ar: 'اقرأ القيم الموجودة على الرسم البياني.', en: 'Read the values on the graph.' },
+        { fr: 'Compare les deux valeurs.', ar: 'قارن بين القيمتين.', en: 'Compare the two values.' },
+        { fr: 'Quelle est la valeur maximale ?', ar: 'شو أكبر قيمة؟', en: 'What is the maximum value?' },
+        { fr: 'Quelle est la valeur minimale ?', ar: 'شو أصغر قيمة؟', en: 'What is the minimum value?' },
+    ]},
+  ] },
+
 ];
