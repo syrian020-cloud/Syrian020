@@ -320,6 +320,7 @@
   .cap-word:hover { background: rgba(139,92,246,0.14); box-shadow: 0 2px 5px rgba(139,92,246,0.15); }
   .cap-word.active { background: #7c3aed; color: #fff; box-shadow: 0 3px 10px rgba(124,58,237,0.45); }
   .cap-word.cur { background: #f59e0b; color: #1a0b1e; box-shadow: 0 2px 8px rgba(245,158,11,0.5); }
+  .word.cur { background: #f59e0b; color: #1a0b1e; box-shadow: 0 2px 8px rgba(245,158,11,0.5); }
   .cap-line.active { background: rgba(124,58,237,0.22); border-color: rgba(139,92,246,0.6); }
   .video-loop-btn { position: absolute; top: 0.5rem; right: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
   .video-loop-btn.active { background: var(--success); color: #081c15; }
@@ -2357,7 +2358,7 @@
       const c = captions.find((c, i) => { if (t >= c.start && t < c.end) { activeIdx = i; return true; } return false; });
       if (!c) {
         overlay.style.display = 'none';
-        textDiv.querySelectorAll('.cap-word.cur').forEach(w => w.classList.remove('cur'));
+        document.querySelectorAll('.word.cur').forEach(w => w.classList.remove('cur'));
         if (lessonId != null) highlightVideoPhrase(lessonId, -1);
         if (lastIdx !== -1 && state.loop && state.loop.word) stopSpeech();
         lastIdx = -1;
@@ -2384,11 +2385,15 @@
       }
       overlay.style.display = 'flex';
       const prog = Math.max(0, Math.min(1, (t - c.start) / Math.max(0.001, c.end - c.start)));
-      textDiv.querySelectorAll('.cap-line').forEach(line => {
-        const words = line.querySelectorAll('.cap-word');
-        const cur = words.length ? Math.min(words.length - 1, Math.floor(prog * words.length)) : -1;
-        words.forEach((w, i) => w.classList.toggle('cur', i === cur));
-      });
+      const syncPhraseEl = lessonId != null ? document.querySelector(`.phrase[data-key="${lessonId}.${activeIdx}"]`) : video.closest('.phrase');
+      document.querySelectorAll('.word.cur').forEach(w => w.classList.remove('cur'));
+      if (syncPhraseEl) {
+        syncPhraseEl.querySelectorAll('.line').forEach(line => {
+          const words = line.querySelectorAll('.word');
+          const cur = words.length ? Math.min(words.length - 1, Math.floor(prog * words.length)) : -1;
+          words.forEach((w, i) => w.classList.toggle('cur', i === cur));
+        });
+      }
       if (lessonId != null) highlightVideoPhrase(lessonId, activeIdx);
       let phraseKey = '';
       if (lessonId != null) phraseKey = lessonId + '.' + activeIdx;
