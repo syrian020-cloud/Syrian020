@@ -4091,6 +4091,17 @@ Output in French, Arabic and English.`;
         window.open('https://www.google.com/search?q=' + encodeURIComponent(q) + '&udm=2&hl=' + state.uiLang, '_blank');
       }
     });
+
+    document.addEventListener('dblclick', e => {
+      const w = e.target.closest('.word, .cap-word');
+      if (!w) return;
+      const word = (w.dataset.word || w.textContent || '').trim();
+      if (!word) return;
+      e.preventDefault();
+      e.stopPropagation();
+      try { stopSpeech(); } catch (_) {}
+      window.open('https://www.google.com/search?q=' + encodeURIComponent(word) + '&udm=2&hl=' + state.uiLang, '_blank');
+    });
   }
 
   function bindActionSheet() {
