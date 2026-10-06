@@ -23323,7 +23323,7 @@ window.CENTRES_DATA = [
     ] },
   ] },
   { id: 'maths', icon: '🔢', name: { ar: 'الرياضيات', en: 'Maths', fr: 'Mathématiques' }, desc: { ar: 'جدول الضرب والعمليات', en: 'Times tables & operations', fr: 'Tables de multiplication & opérations' }, sections: [
-    { icon: '✖️', title: { ar: 'جدول الضرب', en: 'Multiplication table', fr: 'Table de multiplication' }, phrases: [
+    { icon: '✖️', title: { ar: 'جدول ضرب 1', en: 'Times table 1', fr: 'Table de 1' }, phrases: [
         { fr: 'Table de multiplication de 1', ar: 'قاعدة جدول ضرب 1', en: 'The 1 times table' },
         { fr: 'Un multiplié par 1 égale 1.', ar: '1 × 1 = 1', en: 'One times one equals one.' },
         { fr: 'Un multiplié par 2 égale 2.', ar: '1 × 2 = 2', en: 'One times two equals two.' },
