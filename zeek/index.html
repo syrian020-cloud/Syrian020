@@ -341,6 +341,12 @@
   .audio-player { padding: 1rem 0.8rem; background: linear-gradient(135deg, #312e81, #1e1b4b); border-radius: var(--radius); min-height: 170px; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.5rem; }
   .audio-player .audio-badge { font-size: 2rem; text-align: center; }
   .audio-holder { position: relative; }
+  .phrase-media.audio-holder.ar-9-16 .audio-player { aspect-ratio: 9/16; min-height: 0; }
+  .phrase-media.audio-holder.ar-16-9 .audio-player { aspect-ratio: 16/9; min-height: 0; }
+  .phrase-media.audio-holder.ar-4-3 .audio-player { aspect-ratio: 4/3; min-height: 0; }
+  .phrase-media.audio-holder.ar-3-2 .audio-player { aspect-ratio: 3/2; min-height: 0; }
+  .phrase-media.audio-holder.ar-1-1 .audio-player { aspect-ratio: 1/1; min-height: 0; }
+  .phrase-media.audio-holder.ar-4-5 .audio-player { aspect-ratio: 4/5; min-height: 0; }
   .audio-holder .caption-overlay { position: static; margin-top: 0.45rem; }
   .lesson-actions .btn.icon.active { background: var(--accent); border-color: var(--accent); color: #fff; }
   .cap-loop-btn { pointer-events: auto; position: absolute; top: 0.45rem; inset-inline-end: 0.55rem; width: 1.85rem; height: 1.85rem; border: 1px solid var(--cap-card-border, var(--border)); border-radius: 9px; background: var(--cap-card-bg, var(--bg-secondary)); color: var(--cap-text, var(--text-primary)); font-size: 0.85rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
@@ -2088,6 +2094,13 @@
     if (video._recorder) { stopCaptionRecording(video); return; }
     if (typeof MediaRecorder === 'undefined' || !canvasCaptureOK()) { showToast('Recording not supported'); return; }
     let W = video.videoWidth || 1280, H = video.videoHeight || 720;
+    if (video.tagName === 'AUDIO') {
+      const cont = video.closest('.phrase-media, .lesson-media');
+      const ratio = cont && getVideoAspect(cont.dataset.mediaRef || cont.dataset.mediaSrc || '');
+      const dimMap = { '9/16': [720, 1280], '16/9': [1280, 720], '4/3': [960, 720], '3/2': [1080, 720], '1/1': [1080, 1080], '4/5': [720, 900] };
+      const dim = dimMap[ratio] || [720, 1280];
+      W = dim[0]; H = dim[1];
+    }
     const maxSide = 1920;
     if (Math.max(W, H) > maxSide) { const k = maxSide / Math.max(W, H); W = Math.round(W * k / 2) * 2; H = Math.round(H * k / 2) * 2; }
     const canvas = document.createElement('canvas');
@@ -2125,7 +2138,17 @@
     const draw = () => {
       if (!video._recorder) return;
       ctx.direction = 'ltr'; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
-      ctx.drawImage(video, 0, 0, W, H);
+      if (video.tagName === 'AUDIO') {
+        const g = ctx.createLinearGradient(0, 0, W, H);
+        g.addColorStop(0, '#312e81'); g.addColorStop(1, '#1e1b4b');
+        ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+        ctx.font = Math.round(H * 0.22) + 'px sans-serif';
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText('🐓', W / 2, H * 0.4);
+        ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+      } else {
+        ctx.drawImage(video, 0, 0, W, H);
+      }
       const ov = video.closest('.phrase-media, .lesson-media') && video.closest('.phrase-media, .lesson-media').querySelector('.lesson-image-overlay.show img');
       if (ov && ov.complete && ov.naturalWidth) {
         ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
@@ -2271,7 +2294,6 @@
     controls.innerHTML = `<button class="video-prev" type="button" title="${t('previousPhrase')}">⏮</button><button class="video-next" type="button" title="${t('nextPhrase')}">⏭</button><button class="video-rec" type="button" title="${t('recordVideoTitle')}">⬇</button>`;
     overlay.appendChild(controls);
     const recBtn = controls.querySelector('.video-rec');
-    if (video.tagName !== 'VIDEO') recBtn.style.display = 'none';
     recBtn.onclick = (e) => { e.stopPropagation(); toggleCaptionRecording(video, captions, recBtn); };
 
     const handle = document.createElement('div');
@@ -2490,7 +2512,9 @@
           if (v) { try { v.playbackRate = state.rate || 1; } catch (e) {} }
           if (el.dataset.imageRef) await addLessonImageOverlay(el);
         } else if (isAudio) {
-          el.innerHTML = audioHTML(resolved.url);
+          const mediaKey = el.dataset.mediaRef || el.dataset.mediaSrc || resolved.url;
+          el.innerHTML = audioHTML(resolved.url, mediaKey);
+          applyVideoAspect(el, mediaKey);
         } else {
           el.innerHTML = imageMediaHTML(resolved.url, el.dataset.phraseKey || '', el.dataset.mediaRef || el.dataset.mediaSrc || '');
         }
@@ -3192,8 +3216,8 @@
     return /^data:audio|\.(mp3|wav|ogg|oga|m4a|aac|flac|opus|weba|wma)(\?|$)/i.test(url);
   }
 
-  function audioHTML(src) {
-    return `<div class="audio-player"><span class="audio-badge">🐓</span><audio src="${esc(src)}" controls loop style="width:100%"></audio></div>`;
+  function audioHTML(src, mediaKey) {
+    return `<div class="audio-player">${aspectSelectHTML(getVideoAspect(mediaKey || src))}<span class="audio-badge">🐓</span><audio src="${esc(src)}" controls loop style="width:100%"></audio></div>`;
   }
 
   function videoLoopButtonHTML() {
@@ -3246,7 +3270,7 @@
     const yt = youtubeId(src);
     if (yt) return `<div class="phrase-media" data-media-src="${esc(src)}" data-phrase-key="${esc(key || '')}"><iframe width="100%" height="240" src="https://www.youtube.com/embed/${yt}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:var(--radius);border:none;background:#000"></iframe></div>`;
     if (isVideoUrl(src)) return `<div class="phrase-media video-player ${aspectClassFor(getVideoAspect(src))}" data-media-src="${esc(src)}" data-phrase-key="${esc(key || '')}">${videoHTML(src, key, src)}</div>`;
-    if (isAudioUrl(src)) return `<div class="phrase-media audio-holder" data-media-src="${esc(src)}" data-phrase-key="${esc(key || '')}">${audioHTML(src)}</div>`;
+    if (isAudioUrl(src)) return `<div class="phrase-media audio-holder ${aspectClassFor(getVideoAspect(src))}" data-media-src="${esc(src)}" data-phrase-key="${esc(key || '')}">${audioHTML(src, src)}</div>`;
     return `<div class="phrase-media" data-phrase-key="${esc(key || '')}">${imageMediaHTML(src, key)}</div>`;
   }
 
@@ -3266,7 +3290,7 @@
     return `<div class="phrase" data-key="${key}" data-start="${p.start != null ? p.start : ''}" data-end="${p.end != null ? p.end : ''}">
       ${legacyImage ? '' : mediaHTML(p.media, key)}
       ${hasImage ? (isIDBMedia(imgRef) ? `<div class="phrase-media media-placeholder" data-media-ref="${esc(imgRef)}" data-media-src="${esc(imgSrc)}" data-phrase-key="${esc(key)}"></div>` : `<div class="phrase-media" data-phrase-key="${esc(key)}">${imageMediaHTML(imgSrc, key, imgRef)}</div>`) : ''}
-      ${p.audio ? (isIDBMedia(p.audio) ? `<div class="phrase-media audio-holder media-placeholder" data-media-ref="${esc(p.audio)}" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}"></div>` : `<div class="phrase-media audio-holder" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}" data-media-ref="${esc(p.audio)}">${audioHTML(toWebUrl(p.audio))}</div>`) : ''}
+      ${p.audio ? (isIDBMedia(p.audio) ? `<div class="phrase-media audio-holder media-placeholder" data-media-ref="${esc(p.audio)}" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}"></div>` : `<div class="phrase-media audio-holder ${aspectClassFor(getVideoAspect(p.audio))}" data-media-src="${esc(toWebUrl(p.audio))}" data-phrase-key="${esc(key)}" data-media-ref="${esc(p.audio)}">${audioHTML(toWebUrl(p.audio), p.audio)}</div>`) : ''}
       <div class="phrase-top">
         <div class="lines">
           <div class="line fr" data-lang="fr" dir="ltr">${wordSpans(p.fr, 'fr')}<button class="loop-lang" data-lang="fr" title="🔁 FR">🔁</button></div>
