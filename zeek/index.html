@@ -3430,7 +3430,7 @@
     const capWordLang = document.getElementById('cap-word-lang');
     if (capWordLang) {
       const LANG_ORDER = ['all', 'fr', 'ar', 'en', 'none'];
-      const LANG_ICON = { all: '🔤', fr: '🇫🇷', ar: '🇸🇾', en: '🇺🇸', none: '🚫' };
+      const LANG_ICON = { all: '🖍️', fr: '🇫🇷', ar: '🇸🇾', en: '🇺🇸', none: '🚫' };
       const syncWordLangBtn = () => { capWordLang.textContent = LANG_ICON[state.captionWordLang] || '🔤'; };
       syncWordLangBtn();
       capWordLang.onclick = () => {
