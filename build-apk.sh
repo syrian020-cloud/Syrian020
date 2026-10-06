@@ -17,9 +17,10 @@ cp french.html vocab.html centres.html www/
 sed -i 's|href="index.html"|href="videos.html"|g' www/*.html
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
+GRADLE_ARGS=()
 if [ "$USE_ALIYUN" = "1" ]; then
   echo "Using Aliyun Maven mirrors..."
-  sed -i "s|repositories {\s*\n\s*google()|repositories {\n        maven { url 'https://maven.aliyun.com/repository/google' }\n        maven { url 'https://maven.aliyun.com/repository/public' }\n        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }\n        google|g" android/build.gradle 2>/dev/null || true
+  GRADLE_ARGS=(-I ../gradle/aliyun-init.gradle)
 fi
 
 if [ ! -d android ]; then
@@ -73,6 +74,6 @@ PYEOF
 fi
 
 cd android
-./gradlew assembleDebug
+./gradlew "${GRADLE_ARGS[@]}" assembleDebug
 
 echo "APK ready at: android/app/build/outputs/apk/debug/app-debug.apk"
