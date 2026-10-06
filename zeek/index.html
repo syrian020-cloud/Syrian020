@@ -340,6 +340,7 @@
   .audio-player .audio-badge { font-size: 2rem; text-align: center; }
   .audio-holder { position: relative; }
   .audio-holder .caption-overlay { position: static; margin-top: 0.45rem; }
+  .lesson-actions .btn.icon.active { background: var(--accent); border-color: var(--accent); color: #fff; }
   .cap-loop-btn { pointer-events: auto; position: absolute; top: 0.45rem; inset-inline-end: 0.55rem; width: 1.85rem; height: 1.85rem; border: 1px solid var(--cap-card-border, var(--border)); border-radius: 9px; background: var(--cap-card-bg, var(--bg-secondary)); color: var(--cap-text, var(--text-primary)); font-size: 0.85rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
   .cap-loop-btn.active { background: var(--success); color: #081c1e; border-color: var(--success); }
   .cap-fr { color: var(--cap-text, var(--text-primary)); font-family: var(--cap-fr-font, 'Poppins', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, sans-serif); font-size: 1.05em; text-align: left; }
@@ -1340,6 +1341,7 @@
     captionTheme: { ar: 'تغيير خلفية/خط الترجمة', en: 'Change caption theme', fr: 'Changer le thème des sous-titres' },
     captionFont: { ar: 'تغيير خطوط الترجمة', en: 'Change caption fonts', fr: 'Changer les polices' },
     captionZoomIn: { ar: 'تكبير الترجمة', en: 'Zoom in caption', fr: 'Agrandir les sous-titres' },
+    captionFollow: { ar: 'متابعة الترجمة تلقائيًا', en: 'Follow captions automatically', fr: 'Suivre les sous-titres' },
     captionZoomOut: { ar: 'تصغير الترجمة', en: 'Zoom out caption', fr: 'Réduire les sous-titres' },
     moveToFolder: { ar: 'نقل إلى مجلد…', en: 'Move to folder…', fr: 'Déplacer vers un dossier…' },
     moveToRoot: { ar: '🏠 الرئيسية (خارج المجلدات)', en: '🏠 Home (no folder)', fr: '🏠 Accueil (sans dossier)' },
@@ -1431,6 +1433,7 @@
     rate: 1,
     videoAspects: JSON.parse(localStorage.getItem('zeek_video_aspects') || '{}'),
     captionZoom: Math.max(0.5, Math.min(2, +(localStorage.getItem('zeek_caption_zoom') || '1'))),
+    captionFollow: localStorage.getItem('zeek_caption_follow') !== '0',
     captionTheme: Math.max(0, +(localStorage.getItem('zeek_caption_theme') || '0')),
     captionFont: Math.max(0, +(localStorage.getItem('zeek_caption_font') || '0')),
     langs: ['fr', 'ar', 'en'],
@@ -2364,7 +2367,7 @@
         lastIdx = activeIdx;
         if (lessonId != null) {
           const activePhraseEl = document.querySelector(`.phrase[data-key="${lessonId}.${activeIdx}"]`);
-          if (activePhraseEl) activePhraseEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
+          if (state.captionFollow && activePhraseEl) activePhraseEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
         }
         if (state.loop && state.loop.word) {
           let phraseKey = '';
@@ -3372,6 +3375,7 @@
         <button class="btn ghost icon" id="cap-font" title="${t('captionFont')}">🔤</button>
         <button class="btn ghost icon" id="cap-zoom-out" title="${t('captionZoomOut')}">A−</button>
         <button class="btn ghost icon" id="cap-zoom-in" title="${t('captionZoomIn')}">A+</button>
+        <button class="btn ghost icon" id="cap-follow" title="${t('captionFollow')}">📍</button>
         ${lesson.protected ? '' : `<button class="btn ghost icon menu-btn" data-menu="${lesson.id}" data-type="lesson" title="${t('actions')}">⋮</button>`}
         <span class="pill">${lesson.phrases.length} ${t('phrases')}</span>
         <input type="file" id="lesson-image-input" accept="image/*" style="display:none">
@@ -3396,6 +3400,15 @@
     if (capFont) capFont.onclick = cycleCaptionFont;
     if (capZoomIn) capZoomIn.onclick = () => adjustCaptionZoom(0.15);
     if (capZoomOut) capZoomOut.onclick = () => adjustCaptionZoom(-0.15);
+    const capFollow = document.getElementById('cap-follow');
+    if (capFollow) {
+      capFollow.classList.toggle('active', !!state.captionFollow);
+      capFollow.onclick = () => {
+        state.captionFollow = !state.captionFollow;
+        localStorage.setItem('zeek_caption_follow', state.captionFollow ? '1' : '0');
+        capFollow.classList.toggle('active', state.captionFollow);
+      };
+    }
   }
 
   async function playLesson(lesson) {
