@@ -2810,7 +2810,7 @@
 
   async function playPhraseCue(phrase, key) {
     const video = getVideoForPhrase(key);
-    if (!video) { speakOnce(phrase, state.langs, key, null); return; }
+    if (!video) return;
     let start = phrase.start;
     if (typeof start !== 'number' && key) {
       const [lessonId, idx] = key.split('.').map(Number);
