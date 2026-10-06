@@ -2163,10 +2163,6 @@
           const g = ctx.createLinearGradient(0, 0, W, H);
           g.addColorStop(0, '#312e81'); g.addColorStop(1, '#1e1b4b');
           ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-          ctx.font = Math.round(H * 0.22) + 'px sans-serif';
-          ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-          ctx.fillText('🐓', W / 2, H * 0.4);
-          ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
         }
       } else {
         ctx.drawImage(video, 0, 0, W, H);
@@ -3280,7 +3276,7 @@
   }
 
   function audioHTML(src, mediaKey) {
-    return `<div class="audio-player">${aspectSelectHTML(getVideoAspect(mediaKey || src))}<button type="button" class="audio-img-btn" title="${t('chooseImage')}">🖼️</button><button type="button" class="audio-img-del" title="${t('removeMedia')}" style="display:none">×</button><button type="button" class="video-loop-btn audio-loop-btn active" title="${t('videoLoopTitle')}">🔂</button><input type="file" class="audio-img-input" accept="image/*" hidden><span class="audio-badge">🐓</span><audio src="${esc(src)}" controls loop style="width:100%"></audio></div>`;
+    return `<div class="audio-player">${aspectSelectHTML(getVideoAspect(mediaKey || src))}<button type="button" class="audio-img-btn" title="${t('chooseImage')}">🖼️</button><button type="button" class="audio-img-del" title="${t('removeMedia')}" style="display:none">×</button><button type="button" class="video-loop-btn audio-loop-btn active" title="${t('videoLoopTitle')}">🔂</button><input type="file" class="audio-img-input" accept="image/*" hidden><audio src="${esc(src)}" controls loop style="width:100%"></audio></div>`;
   }
 
   function videoLoopButtonHTML() {
