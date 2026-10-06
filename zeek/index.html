@@ -2787,8 +2787,8 @@
 
   function getVideoForPhrase(key) {
     const el = document.querySelector(`.phrase[data-key="${key}"]`);
-    if (el) { const v = el.querySelector('video'); if (v) return v; }
-    return document.querySelector('.lesson-media video') || document.querySelector('video');
+    if (el) { const v = el.querySelector('video, audio'); if (v) return v; }
+    return document.querySelector('.lesson-media video, .lesson-media audio') || document.querySelector('video, audio');
   }
 
   async function toggleTTSLoop(phrase, key) {
@@ -2810,7 +2810,7 @@
 
   async function playPhraseCue(phrase, key) {
     const video = getVideoForPhrase(key);
-    if (!video) return;
+    if (!video) { speakOnce(phrase, state.langs, key, null); return; }
     let start = phrase.start;
     if (typeof start !== 'number' && key) {
       const [lessonId, idx] = key.split('.').map(Number);
@@ -4154,9 +4154,8 @@ EN: Maria, I’m out of cigarettes.`
 
       if (e.target.closest('.loop-btn')) {
         const lb = e.target.closest('.loop-btn');
-        const held = lb && lb.dataset.pd ? Date.now() - Number(lb.dataset.pd) : 0;
-        if (held >= 550) toggleLoop(p, key);
-        else playPhraseCue(p, key);
+        if (lb.dataset.suppress === '1') { lb.dataset.suppress = ''; return; }
+        playPhraseCue(p, key);
       } else if (e.target.closest('.tts-loop-btn')) {
         toggleTTSLoop(p, key);
       } else if (e.target.closest('.ai-btn')) {
@@ -4183,7 +4182,28 @@ Output in French, Arabic and English.`;
 
     document.addEventListener('pointerdown', e => {
       const lb = e.target.closest('.loop-btn');
-      if (lb) lb.dataset.pd = String(Date.now());
+      if (!lb) return;
+      lb.dataset.suppress = '';
+      lb._longTimer = setTimeout(() => {
+        lb.dataset.suppress = '1';
+        const phrase = lb.closest('.phrase');
+        const key = phrase && phrase.dataset.key;
+        if (!key) return;
+        const [lessonId, idx] = key.split('.').map(Number);
+        const found = findLesson(lessonId);
+        const p = found && found.lesson.phrases[idx];
+        if (p) toggleLoop(p, key);
+      }, 550);
+    });
+
+    document.addEventListener('pointerup', e => {
+      const lb = e.target.closest('.loop-btn');
+      if (lb && lb._longTimer) { clearTimeout(lb._longTimer); lb._longTimer = null; }
+    });
+
+    document.addEventListener('pointercancel', e => {
+      const lb = e.target.closest('.loop-btn');
+      if (lb && lb._longTimer) { clearTimeout(lb._longTimer); lb._longTimer = null; }
     });
 
     document.addEventListener('contextmenu', e => {
