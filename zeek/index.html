@@ -2808,6 +2808,33 @@
     })();
   }
 
+  async function playPhraseCue(phrase, key) {
+    const video = getVideoForPhrase(key);
+    if (!video) return;
+    let start = phrase.start;
+    if (typeof start !== 'number' && key) {
+      const [lessonId, idx] = key.split('.').map(Number);
+      const found = findLesson(lessonId);
+      if (found && found.lesson.captionText) {
+        const caps = parseCaptions(found.lesson.captionText);
+        const c = caps[idx];
+        if (c) start = c.start;
+      }
+    }
+    if (typeof start !== 'number') return;
+    stopSpeech();
+    const seekAndPlay = () => {
+      try { video.currentTime = start; } catch (e) {}
+      updateVideoRate();
+      try { video.play(); } catch (e) {}
+    };
+    if (video.readyState >= 1) seekAndPlay();
+    else {
+      video.addEventListener('loadedmetadata', seekAndPlay, { once: true });
+      try { video.play(); } catch (e) {}
+    }
+  }
+
   async function toggleLoop(phrase, key) {
     if (state.loop && state.loop.key === key) { stopSpeech(); return; }
     const video = getVideoForPhrase(key);
@@ -4126,7 +4153,10 @@ EN: Maria, I’m out of cigarettes.`
       }
 
       if (e.target.closest('.loop-btn')) {
-        toggleLoop(p, key);
+        const lb = e.target.closest('.loop-btn');
+        const held = lb && lb.dataset.pd ? Date.now() - Number(lb.dataset.pd) : 0;
+        if (held >= 550) toggleLoop(p, key);
+        else playPhraseCue(p, key);
       } else if (e.target.closest('.tts-loop-btn')) {
         toggleTTSLoop(p, key);
       } else if (e.target.closest('.ai-btn')) {
@@ -4149,6 +4179,15 @@ Output in French, Arabic and English.`;
         const q = stripSpeechFlags(p.fr) + ' clipart';
         window.open('https://www.google.com/search?q=' + encodeURIComponent(q) + '&udm=2&hl=' + state.uiLang, '_blank');
       }
+    });
+
+    document.addEventListener('pointerdown', e => {
+      const lb = e.target.closest('.loop-btn');
+      if (lb) lb.dataset.pd = String(Date.now());
+    });
+
+    document.addEventListener('contextmenu', e => {
+      if (e.target.closest('.loop-btn')) e.preventDefault();
     });
 
     document.addEventListener('click', e => {
