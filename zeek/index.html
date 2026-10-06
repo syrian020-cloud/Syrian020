@@ -343,6 +343,7 @@
   .audio-player.has-image { background-size: cover; background-position: center; }
   .audio-img-btn, .audio-img-del { position: absolute; top: 0.5rem; right: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 0.9rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
   .audio-img-del { top: 2.7rem; font-size: 1.15rem; }
+  .audio-loop-btn { right: auto; inset-inline-start: 4.3rem; }
   html[dir="rtl"] .audio-img-btn, html[dir="rtl"] .audio-img-del { right: auto; left: 4.6rem; }
   .audio-holder { position: relative; }
   .phrase-media.audio-holder.ar-9-16 .audio-player { aspect-ratio: 9/16; min-height: 0; }
@@ -3279,7 +3280,7 @@
   }
 
   function audioHTML(src, mediaKey) {
-    return `<div class="audio-player">${aspectSelectHTML(getVideoAspect(mediaKey || src))}<button type="button" class="audio-img-btn" title="${t('chooseImage')}">🖼️</button><button type="button" class="audio-img-del" title="${t('removeMedia')}" style="display:none">×</button><input type="file" class="audio-img-input" accept="image/*" hidden><span class="audio-badge">🐓</span><audio src="${esc(src)}" controls loop style="width:100%"></audio></div>`;
+    return `<div class="audio-player">${aspectSelectHTML(getVideoAspect(mediaKey || src))}<button type="button" class="audio-img-btn" title="${t('chooseImage')}">🖼️</button><button type="button" class="audio-img-del" title="${t('removeMedia')}" style="display:none">×</button><button type="button" class="video-loop-btn audio-loop-btn active" title="${t('videoLoopTitle')}">🔂</button><input type="file" class="audio-img-input" accept="image/*" hidden><span class="audio-badge">🐓</span><audio src="${esc(src)}" controls loop style="width:100%"></audio></div>`;
   }
 
   function videoLoopButtonHTML() {
@@ -4208,6 +4209,16 @@ Output in French, Arabic and English.`;
 
     document.addEventListener('contextmenu', e => {
       if (e.target.closest('.loop-btn')) e.preventDefault();
+    });
+
+    document.addEventListener('click', e => {
+      const btn = e.target.closest('.audio-loop-btn');
+      if (!btn) return;
+      const player = btn.closest('.audio-player');
+      const a = player && player.querySelector('audio');
+      if (!a) return;
+      a.loop = !a.loop;
+      btn.classList.toggle('active', a.loop);
     });
 
     document.addEventListener('click', e => {
