@@ -2388,16 +2388,16 @@
       overlay.style.display = 'flex';
       const prog = Math.max(0, Math.min(1, (t - c.start) / Math.max(0.001, c.end - c.start)));
       const syncPhraseEl = lessonId != null ? document.querySelector(`.phrase[data-key="${lessonId}.${activeIdx}"]`) : video.closest('.phrase');
-      document.querySelectorAll('.word.cur').forEach(w => w.classList.remove('cur'));
-      if (syncPhraseEl) {
-        const hlLang = state.captionWordLang || 'all';
-        syncPhraseEl.querySelectorAll('.line').forEach(line => {
-          if (hlLang !== 'all' && line.dataset.lang !== hlLang) { line.querySelectorAll('.word.cur').forEach(w => w.classList.remove('cur')); return; }
-          const words = line.querySelectorAll('.word');
-          const cur = words.length ? Math.min(words.length - 1, Math.floor(prog * words.length)) : -1;
-          words.forEach((w, i) => w.classList.toggle('cur', i === cur));
-        });
-      }
+      const hlLang = state.captionWordLang || 'all';
+      document.querySelectorAll('.word.cur, .cap-word.cur').forEach(w => w.classList.remove('cur'));
+      const hlLine = (line, lang) => {
+        if (hlLang === 'none' || (hlLang !== 'all' && lang !== hlLang)) return;
+        const words = line.querySelectorAll('.word, .cap-word');
+        const cur = words.length ? Math.min(words.length - 1, Math.floor(prog * words.length)) : -1;
+        words.forEach((w, i) => w.classList.toggle('cur', i === cur));
+      };
+      if (syncPhraseEl) syncPhraseEl.querySelectorAll('.line').forEach(line => hlLine(line, line.dataset.lang));
+      textDiv.querySelectorAll('.cap-line').forEach(line => hlLine(line, (line.className.match(/cap-(fr|ar|en)/) || [])[1] || ''));
       if (lessonId != null) highlightVideoPhrase(lessonId, activeIdx);
       let phraseKey = '';
       if (lessonId != null) phraseKey = lessonId + '.' + activeIdx;
@@ -3429,8 +3429,8 @@
     }
     const capWordLang = document.getElementById('cap-word-lang');
     if (capWordLang) {
-      const LANG_ORDER = ['all', 'fr', 'ar', 'en'];
-      const LANG_ICON = { all: '🔤', fr: '🇫🇷', ar: '🇸🇾', en: '🇺🇸' };
+      const LANG_ORDER = ['all', 'fr', 'ar', 'en', 'none'];
+      const LANG_ICON = { all: '🔤', fr: '🇫🇷', ar: '🇸🇾', en: '🇺🇸', none: '🚫' };
       const syncWordLangBtn = () => { capWordLang.textContent = LANG_ICON[state.captionWordLang] || '🔤'; };
       syncWordLangBtn();
       capWordLang.onclick = () => {
