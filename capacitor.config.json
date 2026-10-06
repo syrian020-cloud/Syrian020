@@ -1,6 +1,6 @@
 {
-  "appId": "com.syrian020.vidmap",
-  "appName": "Vidmap",
+  "appId": "com.syrian020.frank",
+  "appName": "frank",
   "webDir": "www",
   "server": {
     "androidScheme": "https"
