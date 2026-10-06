@@ -140,6 +140,7 @@
   .pl .txt { font-size: 0.9rem; }
   .pl.fr .txt { font-weight: 800; font-size: 0.97rem; color: var(--text-primary); }
   .pl.ar .txt { font-weight: 700; }
+  .pl.ar.ltr { direction: ltr; text-align: left; }
   .pl.en .txt { color: var(--text-secondary); font-size: 0.85rem; }
   .flags { display: flex; flex-direction: column; gap: 0.32rem; flex: none; }
   .flag-btn, .sec-play { width: 42px; height: 42px; border-radius: 14px; border: 1px solid var(--border); background: var(--bg-secondary); font-size: 1.15rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .15s; line-height: 1; }
@@ -432,11 +433,11 @@
     return esc(s).split(' ').map(function (w) { return '<span class="w">' + w + '</span>'; }).join(' ');
   }
 
-  function phraseHtml(p) {
+  function phraseHtml(p, ltrAr) {
     return '<div class="phrase">' +
       '<div class="phrase-lines">' +
       '<div class="pl fr"><span class="tag">FR</span><span class="txt">' + wordsHtml(p.fr) + '</span></div>' +
-      '<div class="pl ar"><span class="tag">ع</span><span class="txt">' + wordsHtml(p.ar) + '</span></div>' +
+      '<div class="pl ar' + (ltrAr ? ' ltr' : '') + '"><span class="tag">ع</span><span class="txt">' + wordsHtml(p.ar) + '</span></div>' +
       '<div class="pl en"><span class="tag">EN</span><span class="txt">' + wordsHtml(p.en) + '</span></div>' +
       '</div>' +
       '<div class="flags">' +
@@ -502,7 +503,7 @@
           '<div class="section-head" data-sec="' + si + '"><button class="sec-play" data-play="' + (playData.length - 1) + '" title="Play all">▶️</button><span class="sec-icon">' + sec.icon + '</span>' +
           '<span class="sec-title">' + esc(tside(sec.title)) + '</span>' +
           '<span class="sec-count">' + phrases.length + ' ' + t('phrases') + ' · ' + wordsFr + ' ' + t('wordsFr') + '</span><span class="chev">▼</span></div>' +
-          '<div class="section-body">' + phrases.map(phraseHtml).join('') + '</div></div>';
+          '<div class="section-body">' + phrases.map(function (p) { return phraseHtml(p, cc.id === 'maths'); }).join('') + '</div></div>';
       });
       if (q && !html) return '';
       return (q ? '<div class="centre-group">' + cc.icon + ' ' + esc(tside(cc.name)) + '</div>' : '') + html;
