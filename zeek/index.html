@@ -1437,7 +1437,7 @@
     videoAspects: JSON.parse(localStorage.getItem('zeek_video_aspects') || '{}'),
     captionZoom: Math.max(0.5, Math.min(2, +(localStorage.getItem('zeek_caption_zoom') || '1'))),
     captionFollow: localStorage.getItem('zeek_caption_follow') !== '0',
-    captionWordLang: localStorage.getItem('zeek_caption_word_lang') || 'all',
+    captionWordLang: localStorage.getItem('zeek_caption_word_lang') || 'none',
     captionTheme: Math.max(0, +(localStorage.getItem('zeek_caption_theme') || '0')),
     captionFont: Math.max(0, +(localStorage.getItem('zeek_caption_font') || '0')),
     langs: ['fr', 'ar', 'en'],
@@ -3429,7 +3429,7 @@
     }
     const capWordLang = document.getElementById('cap-word-lang');
     if (capWordLang) {
-      const LANG_ORDER = ['all', 'fr', 'ar', 'en', 'none'];
+      const LANG_ORDER = ['none', 'all', 'fr', 'ar', 'en'];
       const LANG_ICON = { all: '🖍️', fr: '🇫🇷', ar: '🇸🇾', en: '🇺🇸', none: '🚫' };
       const syncWordLangBtn = () => { capWordLang.textContent = LANG_ICON[state.captionWordLang] || '🔤'; };
       syncWordLangBtn();
