@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#1a1a1a">
-  <title id="app-title">Vidmap</title>
+  <meta name="theme-color" content="#0b0f1f">
+  <title id="app-title">frank</title>
   <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
   <style>
     :root {
       --bg-primary: #1a1a1a;
@@ -385,6 +387,11 @@
       transition: opacity 0.2s;
     }
     .subtitle-display.hidden { opacity: 0; pointer-events: none; }
+    .video-image-overlay {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+      background: #000; z-index: 4; display: none; pointer-events: none;
+    }
+    .video-image-overlay.visible { display: block; }
     .subtitle-display .subtitle-current {
       width: 100%;
       display: flex;
@@ -740,6 +747,26 @@
     .subtitle-display.card-style-playful .subtitle-line.ar { background: #b71c1c; }
     .subtitle-display.card-style-playful .subtitle-line.en { background: #555555; }
 
+    /* Caption background presets */
+    .subtitle-display.caption-bg-black .subtitle-line { background: #111111 !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-black .subtitle-line .lang-label { background: rgba(255,255,255,0.2) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-white .subtitle-line { background: #ffffff !important; color: #1a1a1a !important; }
+    .subtitle-display.caption-bg-white .subtitle-line .lang-label { background: rgba(0,0,0,0.08) !important; color: #1a1a1a !important; }
+    .subtitle-display.caption-bg-yellow .subtitle-line { background: #f1c40f !important; color: #1a1a1a !important; }
+    .subtitle-display.caption-bg-yellow .subtitle-line .lang-label { background: rgba(0,0,0,0.1) !important; color: #1a1a1a !important; }
+    .subtitle-display.caption-bg-red .subtitle-line { background: linear-gradient(135deg, #e74c3c, #c0392b) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-red .subtitle-line .lang-label { background: rgba(0,0,0,0.2) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-blue .subtitle-line { background: linear-gradient(135deg, #3498db, #2980b9) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-blue .subtitle-line .lang-label { background: rgba(0,0,0,0.2) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-green .subtitle-line { background: linear-gradient(135deg, #2ecc71, #27ae60) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-green .subtitle-line .lang-label { background: rgba(0,0,0,0.2) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-purple .subtitle-line { background: linear-gradient(135deg, #9b59b6, #8e44ad) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-purple .subtitle-line .lang-label { background: rgba(0,0,0,0.2) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-orange .subtitle-line { background: linear-gradient(135deg, #e67e22, #d35400) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-orange .subtitle-line .lang-label { background: rgba(0,0,0,0.2) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-pink .subtitle-line { background: linear-gradient(135deg, #ff6b9d, #e91e63) !important; color: #ffffff !important; }
+    .subtitle-display.caption-bg-pink .subtitle-line .lang-label { background: rgba(0,0,0,0.2) !important; color: #ffffff !important; }
+
     .sentence-words-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-top: 0.6rem; }
     .btn-words-toggle {
       background: var(--bg-tertiary);
@@ -902,6 +929,73 @@
     .action-sheet-item.action-delete { color: var(--danger); }
     .action-sheet-item.action-cancel { justify-content: center; color: var(--text-secondary); margin-top: 0.3rem; }
 
+    .notebook-overlay {
+      position: fixed; inset: 0; z-index: 4000;
+      background: #fff; color: #111;
+      display: flex; flex-direction: column;
+      padding: 1rem;
+      transition: opacity 0.15s;
+    }
+    .notebook-overlay.hidden { display: none; }
+    .notebook-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.5rem 0.8rem; margin: 0.3rem 0.6rem;
+      background: rgba(255,255,255,0.95); border: 1px solid #eee; border-radius: 18px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      font-weight: 700; color: #555; font-size: 1.1rem;
+    }
+    .notebook-header > button:first-child { background: #fff; border: 1px solid #eee; border-radius: 12px; width: 40px; height: 40px; font-size: 1.4rem; color: #666; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+    .notebook-header-tools { display: flex; align-items: center; gap: 0.4rem; }
+    .notebook-header .nb-tool { width: 44px; height: 44px; background: #fff; border: 1px solid #eee; border-radius: 12px; font-size: 1.5rem; color: #666; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: transform 0.1s, background 0.1s, border-color 0.1s; }
+    .notebook-header .nb-tool.active { background: #e3f2fd; border-color: #90caf9; color: #1565c0; transform: scale(1.08); }
+    .notebook-palette {
+      display: flex; flex-direction: column; gap: 0.8rem;
+      padding: 0.7rem 1rem; align-items: center;
+      background: rgba(248,249,250,0.95); border: 1px solid #eee; border-radius: 20px;
+      margin: 0 0.8rem; box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    }
+    .notebook-palette.hidden { display: none; }
+    .notebook-colors, .notebook-size-preview { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; align-items: flex-end; }
+    .notebook-colors button {
+      width: 32px; height: 32px; border-radius: 50%; border: 2px solid transparent; cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .notebook-colors button.active { border-color: #333; transform: scale(1.12); }
+    .notebook-size-preview button {
+      width: 44px; height: 36px; border: 2px solid transparent; background: transparent; border-radius: 8px; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; padding: 0.3rem;
+    }
+    .notebook-size-preview button span { display: block; width: 28px; background: #333; border-radius: 2px; transition: height 0.1s; }
+    .notebook-size-preview button[data-size="0.85"] span { height: 2px; }
+    .notebook-size-preview button[data-size="1"] span { height: 3px; }
+    .notebook-size-preview button[data-size="1.25"] span { height: 5px; }
+    .notebook-size-preview button[data-size="1.5"] span { height: 7px; }
+    .notebook-size-preview button[data-size="2"] span { height: 11px; }
+    .notebook-size-preview button.active { border-color: #333; background: #f5f5f5; }
+    .notebook-canvas {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      padding: 1rem; position: relative; overflow: hidden;
+    }
+    .notebook-lines {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background: repeating-linear-gradient(to bottom, transparent 0 31px, #e0f0ff 31px 32px);
+      opacity: 1;
+    }
+    .notebook-lines.hidden { opacity: 0; }
+    .notebook-phrase-bg {
+      position: relative; z-index: 1;
+      font-size: calc((var(--font-size) + 18px) * var(--notebook-scale, 1.25));
+      font-weight: 700; text-align: center; line-height: 1.55;
+      color: #e0e0e0; max-width: 100%; word-wrap: break-word;
+      user-select: none; pointer-events: none;
+    }
+    .notebook-draw-canvas {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      touch-action: none; cursor: crosshair; z-index: 2;
+    }
+    .btn-notebook-card { background: transparent; border: none; font-size: 1.3rem; cursor: pointer; padding: 0.2rem; line-height: 1; }
+    .btn-ai-search-card { background: transparent; border: none; font-size: 1.3rem; cursor: pointer; padding: 0.2rem; line-height: 1; }
+
     .toast {
       position: fixed;
       bottom: 1rem;
@@ -933,7 +1027,7 @@
 <body>
   <header>
     <div class="header-inner">
-      <div class="logo" id="app-name">Vidmap</div>
+      <div class="logo" id="app-name">frank</div>
       <nav>
         <button id="nav-lessons" data-page="lessons" class="active" data-i18n="lessons">Lessons</button>
         <button id="nav-editor" data-page="editor" data-i18n="editor">New lesson</button>
@@ -1014,6 +1108,7 @@
 
         <div class="video-wrap hidden" id="preview-wrap">
           <video id="lesson-video" controls crossorigin="anonymous"></video>
+          <img id="video-image-overlay" class="video-image-overlay" alt="">
           <div class="subtitle-display hidden" id="subtitle-display">
             <div class="subtitle-current" id="subtitle-current"></div>
           </div>
@@ -1026,6 +1121,8 @@
           <button class="cue-loop" id="video-loop" title="تكرار الفيديو" onclick="toggleVideoLoop()">🔄</button>
           <button class="cue-loop" id="btn-caption-minus" title="تصغير الخط" onclick="changeCaptionSize(-0.1)">A-</button>
           <button class="cue-loop" id="btn-caption-plus" title="تكبير الخط" onclick="changeCaptionSize(0.1)">A+</button>
+          <button class="cue-loop" id="btn-select-video-image" data-i18n-title="chooseImage" title="اختر صورة للدرس" onclick="selectVideoImage()">🖼️</button>
+          <button class="cue-loop" id="btn-toggle-video-image" title="إخفاء الصورة" onclick="toggleVideoImageVisibility()">👁️</button>
         </div>
         <div class="playback-controls hidden" id="playback-controls">
           <div class="speed-buttons">
@@ -1117,6 +1214,22 @@
         </div>
 
         <div class="settings-row">
+          <label data-i18n="captionBg">خلفية نص الفيديو</label>
+          <select id="settings-caption-bg">
+            <option value="default" data-i18n="captionBgDefault">افتراضي</option>
+            <option value="black" data-i18n="captionBgBlack">أسود</option>
+            <option value="white" data-i18n="captionBgWhite">أبيض</option>
+            <option value="yellow" data-i18n="captionBgYellow">أصفر</option>
+            <option value="red" data-i18n="captionBgRed">أحمر</option>
+            <option value="blue" data-i18n="captionBgBlue">أزرق</option>
+            <option value="green" data-i18n="captionBgGreen">أخضر</option>
+            <option value="purple" data-i18n="captionBgPurple">بنفسجي</option>
+            <option value="orange" data-i18n="captionBgOrange">برتقالي</option>
+            <option value="pink" data-i18n="captionBgPink">وردي</option>
+          </select>
+        </div>
+
+        <div class="settings-row">
           <label data-i18n="langOrder">ترتيب اللغات في الجمل</label>
           <select id="settings-lang-order">
             <option value="fr,ar,en">Français - العربية - English</option>
@@ -1153,7 +1266,10 @@
     </section>
   </main>
 
+
+
   <input type="file" id="lesson-image-file" accept="image/*" class="hidden">
+  <input type="file" id="video-overlay-image-file" accept="image/*" class="hidden">
 
   <div id="lesson-actions" class="action-sheet hidden">
     <div class="action-sheet-backdrop" onclick="closeLessonActions()"></div>
@@ -1167,6 +1283,44 @@
   </div>
 
   <div id="toast" class="toast"></div>
+
+  <div id="notebook-overlay" class="notebook-overlay hidden">
+    <div class="notebook-header">
+      <button onclick="closeNotebook()" aria-label="Close">✕</button>
+      <div class="notebook-header-tools" id="notebook-header-tools">
+        <button class="nb-tool active" data-tool="pencil" onclick="setNotebookTool('pencil')" aria-label="Pencil">🖊️</button>
+        <button class="nb-tool" data-tool="brush" onclick="setNotebookTool('brush')" aria-label="Brush">🖌️</button>
+        <button class="nb-tool" data-tool="eraser" onclick="setNotebookTool('eraser')" aria-label="Eraser">🧽</button>
+        <button class="nb-tool" onclick="undoNotebookCanvas()" aria-label="Undo">↩️</button>
+        <button class="nb-tool" onclick="toggleNotebookGrid()" aria-label="Grid">📐</button>
+        <button class="nb-tool" onclick="clearNotebookCanvas()" aria-label="Clear">🗑️</button>
+      </div>
+    </div>
+    <div id="notebook-palette" class="notebook-palette">
+      <div class="notebook-colors" id="notebook-colors">
+        <button class="active" data-color="#111111" style="background:#111111" onclick="setNotebookColor('#111111')"></button>
+        <button data-color="#e74c3c" style="background:#e74c3c" onclick="setNotebookColor('#e74c3c')"></button>
+        <button data-color="#3498db" style="background:#3498db" onclick="setNotebookColor('#3498db')"></button>
+        <button data-color="#2ecc71" style="background:#2ecc71" onclick="setNotebookColor('#2ecc71')"></button>
+        <button data-color="#f1c40f" style="background:#f1c40f" onclick="setNotebookColor('#f1c40f')"></button>
+        <button data-color="#9b59b6" style="background:#9b59b6" onclick="setNotebookColor('#9b59b6')"></button>
+        <button data-color="#e67e22" style="background:#e67e22" onclick="setNotebookColor('#e67e22')"></button>
+        <button data-color="#95a5a6" style="background:#95a5a6" onclick="setNotebookColor('#95a5a6')"></button>
+      </div>
+      <div class="notebook-size-preview" id="notebook-sizes">
+        <button data-size="0.85" onclick="setNotebookSize(0.85)"><span></span></button>
+        <button data-size="1" onclick="setNotebookSize(1)"><span></span></button>
+        <button data-size="1.25" class="active" onclick="setNotebookSize(1.25)"><span></span></button>
+        <button data-size="1.5" onclick="setNotebookSize(1.5)"><span></span></button>
+        <button data-size="2" onclick="setNotebookSize(2)"><span></span></button>
+      </div>
+    </div>
+    <div class="notebook-canvas" id="notebook-canvas-wrap">
+      <div class="notebook-lines" id="notebook-lines"></div>
+      <div class="notebook-phrase-bg" id="notebook-phrase-bg"></div>
+      <canvas id="notebook-canvas" class="notebook-draw-canvas"></canvas>
+    </div>
+  </div>
 
   <script>
     // --- Translations ---
@@ -1186,6 +1340,7 @@
         preview: "معاينة", saveLesson: "حفظ الدرس", cancel: "إلغاء",
         language: "اللغة", theme: "الوضع", fontSize: "حجم الخط", langOrder: "ترتيب اللغات في الجمل",
         cardStyle: "ستايل البطاقات", cardClassic: "كلاسيكي", cardModern: "عصري داكن", cardPastel: "باستيل", cardElegant: "أنيق", cardPlayful: "نشرة أخبار",
+        captionBg: "خلفية نص الفيديو", captionBgDefault: "افتراضي", captionBgBlack: "أسود", captionBgWhite: "أبيض", captionBgYellow: "أصفر", captionBgRed: "أحمر", captionBgBlue: "أزرق", captionBgGreen: "أخضر", captionBgPurple: "بنفسجي", captionBgOrange: "برتقالي", captionBgPink: "وردي",
         dark: "داكن (مريح للعين)", light: "فاتح", themeOcean: "محيط", themeForest: "غابة", themeBerry: "توت", themeSunset: "غروب", themeMidnight: "منتصف الليل",
         storage: "مساحة التخزين", clearData: "مسح جميع الدروس",
         noLessons: "لا توجد دروس بعد. اضغط على تبويب \"درس جديد\" للبدء.",
@@ -1196,7 +1351,8 @@
         invalidTime: "تنسيق الوقت غير صحيح",
         confirmDelete: "هل تريد حذف هذا الدرس؟",
         play: "تشغيل", pause: "إيقاف", edit: "تعديل", delete: "حذف", repeat: "تكرار العبارة",
-        words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "العبارات", saveCue: "حفظ",
+        words: "كلمات", word: "الكلمة", lessonWords: "كلمات الدرس", sentencesSection: "العبارات", notebook: "دفتر", saveCue: "حفظ",
+        aiSearch: "Google AI Mode", phraseAnalysis: "تحليل العبارة", searchGoogleAI: "فتح Google AI Mode", wordByWord: "كلمة بكلمة",
         close: "إغلاق", listen: "استماع", repeatWord: "تكرار",
         frenchWords: "كلمات فرنسية", englishWords: "كلمات إنجليزية", arabicWords: "كلمات عربية",
         downloadVideo: "تحميل الفيديو", downloadAudio: "تحميل الصوت",
@@ -1205,7 +1361,7 @@
         back: "رجوع",
         confirmClearAll: "هل تريد مسح جميع الدروس؟ لا يمكن التراجع عن هذا الإجراء.",
         exportBackup: "تصدير نسخة احتياطية ☁️", importBackup: "استيراد نسخة احتياطية 📥",
-        setImage: "وضع صورة للدرس", exportSuccess: "تم تصدير النسخة الاحتياطية", importSuccess: "تم استيراد النسخة الاحتياطية",
+        setImage: "وضع صورة للدرس", chooseImage: "اختر صورة للدرس", hideImage: "إخفاء الصورة", showImage: "إظهار الصورة", exportSuccess: "تم تصدير النسخة الاحتياطية", importSuccess: "تم استيراد النسخة الاحتياطية",
         exporting: "جاري تصدير النسخة الاحتياطية...", exportingLesson: "جاري تصدير الدرس {0} من {1}",
         exportError: "فشل تصدير النسخة الاحتياطية. حاول تقليل عدد الدروس أو حجم الفيديوهات.",
         invalidBackup: "ملف النسخة الاحتياطية غير صالح",
@@ -1226,6 +1382,7 @@
         preview: "Aperçu", saveLesson: "Enregistrer", cancel: "Annuler",
         language: "Langue", theme: "Thème", fontSize: "Taille de police", langOrder: "Ordre des langues dans les phrases",
         cardStyle: "Style des cartes", cardClassic: "Classique", cardModern: "Moderne foncé", cardPastel: "Pastel", cardElegant: "Élégant", cardPlayful: "Journal",
+        captionBg: "Fond du texte vidéo", captionBgDefault: "Par défaut", captionBgBlack: "Noir", captionBgWhite: "Blanc", captionBgYellow: "Jaune", captionBgRed: "Rouge", captionBgBlue: "Bleu", captionBgGreen: "Vert", captionBgPurple: "Violet", captionBgOrange: "Orange", captionBgPink: "Rose",
         dark: "Sombre (repos pour les yeux)", light: "Clair", themeOcean: "Océan", themeForest: "Forêt", themeBerry: "Baie", themeSunset: "Coucher de soleil", themeMidnight: "Minuit",
         storage: "Stockage", clearData: "Supprimer toutes les leçons",
         noLessons: "Aucune leçon pour l'instant. Appuyez sur l'onglet \"Nouvelle leçon\" pour commencer.",
@@ -1236,7 +1393,8 @@
         invalidTime: "Format de temps invalide",
         confirmDelete: "Supprimer cette leçon ?",
         play: "Lire", pause: "Pause", edit: "Modifier", delete: "Supprimer", repeat: "Répéter la phrase",
-        words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Les phrases", saveCue: "Enregistrer",
+        words: "Mots", word: "Mot", lessonWords: "Mots de la leçon", sentencesSection: "Les phrases", notebook: "Cahier", saveCue: "Enregistrer",
+        aiSearch: "Google AI Mode", phraseAnalysis: "Analyse de la phrase", searchGoogleAI: "Ouvrir Google AI Mode", wordByWord: "mot à mot",
         close: "Fermer", listen: "Écouter", repeatWord: "Répéter",
         frenchWords: "Mots français", englishWords: "Mots anglais", arabicWords: "Mots arabes",
         downloadVideo: "Télécharger la vidéo", downloadAudio: "Télécharger l'audio",
@@ -1245,7 +1403,7 @@
         back: "Retour",
         confirmClearAll: "Supprimer toutes les leçons ? Cette action est irréversible.",
         exportBackup: "Exporter une sauvegarde ☁️", importBackup: "Importer une sauvegarde 📥",
-        setImage: "Définir l'image de la leçon", exportSuccess: "Sauvegarde exportée", importSuccess: "Sauvegarde importée",
+        setImage: "Définir l'image de la leçon", chooseImage: "Choisir une image", hideImage: "Masquer l'image", showImage: "Afficher l'image", exportSuccess: "Sauvegarde exportée", importSuccess: "Sauvegarde importée",
         exporting: "Export de la sauvegarde en cours...", exportingLesson: "Export de la leçon {0} sur {1}",
         exportError: "Échec de l'export. Essayez de réduire le nombre de leçons ou la taille des vidéos.",
         invalidBackup: "Fichier de sauvegarde invalide",
@@ -1266,6 +1424,7 @@
         preview: "Preview", saveLesson: "Save lesson", cancel: "Cancel",
         language: "Language", theme: "Theme", fontSize: "Font size", langOrder: "Language order in sentences",
         cardStyle: "Card style", cardClassic: "Classic", cardModern: "Modern dark", cardPastel: "Pastel", cardElegant: "Elegant", cardPlayful: "Newspaper",
+        captionBg: "Caption background", captionBgDefault: "Default", captionBgBlack: "Black", captionBgWhite: "White", captionBgYellow: "Yellow", captionBgRed: "Red", captionBgBlue: "Blue", captionBgGreen: "Green", captionBgPurple: "Purple", captionBgOrange: "Orange", captionBgPink: "Pink",
         dark: "Dark (eye-friendly)", light: "Light", themeOcean: "Ocean", themeForest: "Forest", themeBerry: "Berry", themeSunset: "Sunset", themeMidnight: "Midnight",
         storage: "Storage", clearData: "Delete all lessons",
         noLessons: "No lessons yet. Tap \"New lesson\" to start.",
@@ -1276,7 +1435,8 @@
         invalidTime: "Invalid time format",
         confirmDelete: "Delete this lesson?",
         play: "Play", pause: "Pause", edit: "Edit", delete: "Delete", repeat: "Repeat phrase",
-        words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "The Phrases", saveCue: "Save",
+        words: "Words", word: "Word", lessonWords: "Lesson words", sentencesSection: "The Phrases", notebook: "Notebook", saveCue: "Save",
+        aiSearch: "Google AI Mode", phraseAnalysis: "Phrase analysis", searchGoogleAI: "Open Google AI Mode", wordByWord: "word by word",
         close: "Close", listen: "Listen", repeatWord: "Repeat",
         frenchWords: "French words", englishWords: "English words", arabicWords: "Arabic words",
         downloadVideo: "Download video", downloadAudio: "Download audio",
@@ -1285,7 +1445,7 @@
         back: "Back",
         confirmClearAll: "Delete all lessons? This cannot be undone.",
         exportBackup: "Export backup ☁️", importBackup: "Import backup 📥",
-        setImage: "Set lesson image", exportSuccess: "Backup exported", importSuccess: "Backup imported",
+        setImage: "Set lesson image", chooseImage: "Choose image", hideImage: "Hide image", showImage: "Show image", exportSuccess: "Backup exported", importSuccess: "Backup imported",
         exporting: "Exporting backup...", exportingLesson: "Exporting lesson {0} of {1}",
         exportError: "Export failed. Try reducing the number of lessons or video sizes.",
         invalidBackup: "Invalid backup file",
@@ -1298,6 +1458,7 @@
       theme: localStorage.getItem('vs_theme') || 'dark',
       fontSize: parseInt(localStorage.getItem('vs_font_size') || '16', 10),
       cardStyle: localStorage.getItem('vs_card_style') || 'classic',
+      captionBg: localStorage.getItem('vs_caption_bg') || 'default',
       langOrder: (() => {
         const saved = localStorage.getItem('vs_lang_order');
         if (saved) {
@@ -1320,10 +1481,21 @@
       sentenceLineLoop: null,
       videoLoop: false,
       captionsVisible: true,
+      videoImage: null,
+      videoImageVisible: true,
+      videoImageUrl: null,
       captionScale: parseFloat(localStorage.getItem('vs_caption_scale') || '1'),
       imageLessonId: null,
       actionLessonId: null,
-      playerMode: false
+      playerMode: false,
+      notebookIndex: null,
+      notebookTool: 'pencil',
+      notebookColor: '#111111',
+      notebookSelectedColor: '#111111',
+      notebookScale: 1.25,
+      notebookPalette: true,
+      notebookHistory: [],
+      notebookGrid: true
     };
 
     const DB_NAME = 'videoSubtitleDB';
@@ -1433,6 +1605,9 @@
         playerMode: state.playerMode,
         editingId: state.editingId || null,
         currentLesson: state.currentLesson || null,
+        videoImage: state.videoImage || null,
+        videoImageName: state.videoImage ? state.videoImage.name || '' : '',
+        videoImageVisible: state.videoImageVisible,
         updatedAt: Date.now()
       };
       try { await saveLessonToDB(draft); } catch (e) { console.error('saveDraft failed', e); }
@@ -1459,6 +1634,10 @@
         } else {
           document.getElementById('timed-text').value = draft.subtitleText || '';
         }
+        state.videoImage = draft.videoImage || (state.currentLesson && state.currentLesson.videoImage) || null;
+        state.videoImageVisible = draft.videoImageVisible !== false;
+        updateVideoImageOverlay();
+        updateVideoImageUI();
       } catch (e) { console.error('loadDraft failed', e); }
     }
     async function deleteDraft() {
@@ -1485,14 +1664,15 @@
         if (i18n[lang][key]) el.title = i18n[lang][key];
       });
       document.getElementById('btn-lang').textContent = lang.toUpperCase();
-      document.getElementById('app-name').textContent = 'Vidmap';
-      document.title = 'Vidmap';
+      document.getElementById('app-name').textContent = 'frank';
+      document.title = 'frank';
       document.getElementById('settings-language').value = lang;
       updateDownloadLinks();
       if (state.currentCues.length) {
         renderSentences();
         updateSubtitleOverlay();
       }
+      updateVideoImageUI();
     }
 
     function t(key) { return i18n[state.lang][key] || key; }
@@ -1544,6 +1724,20 @@
         display.classList.remove(...classes);
         display.classList.add('card-style-' + style);
       }
+    }
+
+    function setCaptionBg(bg) {
+      state.captionBg = bg;
+      localStorage.setItem('vs_caption_bg', bg);
+      const select = document.getElementById('settings-caption-bg');
+      if (select) select.value = bg;
+      const display = document.getElementById('subtitle-display');
+      const classes = ['caption-bg-default','caption-bg-black','caption-bg-white','caption-bg-yellow','caption-bg-red','caption-bg-blue','caption-bg-green','caption-bg-purple','caption-bg-orange','caption-bg-pink'];
+      if (display) {
+        display.classList.remove(...classes);
+        if (bg && bg !== 'default') display.classList.add('caption-bg-' + bg);
+      }
+      if (state.currentCues.length) updateSubtitleOverlay();
     }
 
     // --- Utilities ---
@@ -1820,6 +2014,51 @@
       }
     }
 
+    function selectVideoImage() {
+      document.getElementById('video-overlay-image-file').click();
+    }
+
+    function toggleVideoImageVisibility() {
+      if (!state.videoImage) {
+        selectVideoImage();
+        return;
+      }
+      state.videoImageVisible = !state.videoImageVisible;
+      updateVideoImageOverlay();
+      updateVideoImageUI();
+    }
+
+    function updateVideoImageOverlay() {
+      const img = document.getElementById('video-image-overlay');
+      if (state.videoImageUrl) { URL.revokeObjectURL(state.videoImageUrl); state.videoImageUrl = null; }
+      if (img) img.classList.remove('visible');
+      if (state.videoImage && state.videoImageVisible) {
+        const url = URL.createObjectURL(state.videoImage);
+        state.videoImageUrl = url;
+        if (img) { img.src = url; img.classList.add('visible'); }
+      } else if (img) {
+        img.removeAttribute('src');
+      }
+    }
+
+    function updateVideoImageUI() {
+      const toggle = document.getElementById('btn-toggle-video-image');
+      if (!toggle) return;
+      if (!state.videoImage) {
+        toggle.textContent = '👁️';
+        toggle.title = t('chooseImage');
+        toggle.disabled = false;
+        return;
+      }
+      if (state.videoImageVisible) {
+        toggle.textContent = '👁️';
+        toggle.title = t('hideImage');
+      } else {
+        toggle.textContent = '🙈';
+        toggle.title = t('showImage');
+      }
+    }
+
     function openLessonActions(id) {
       state.actionLessonId = id;
       document.getElementById('lesson-actions').classList.remove('hidden');
@@ -1839,6 +2078,7 @@
           if (l.videoFile && l.videoFile instanceof Blob) obj.videoFile = await blobToDataURL(l.videoFile);
           if (l.vttBlob && l.vttBlob instanceof Blob) obj.vttBlob = await blobToDataURL(l.vttBlob);
           if (l.coverImage && l.coverImage instanceof Blob) obj.coverImage = await blobToDataURL(l.coverImage);
+          if (l.videoImage && l.videoImage instanceof Blob) obj.videoImage = await blobToDataURL(l.videoImage);
           exported.push(obj);
         }
         const json = JSON.stringify(exported);
@@ -1873,6 +2113,9 @@
           if (l.coverImage && typeof l.coverImage === 'string' && l.coverImage.startsWith('data:')) {
             lesson.coverImage = dataURLtoBlob(l.coverImage);
           }
+          if (l.videoImage && typeof l.videoImage === 'string' && l.videoImage.startsWith('data:')) {
+            lesson.videoImage = dataURLtoBlob(l.videoImage);
+          }
           if (!lesson.id) lesson.id = Date.now() + Math.random();
           await saveLessonToDB(lesson);
         }
@@ -1896,6 +2139,11 @@
       state.currentCues = [];
       state.loopCue = null;
       state.playerMode = false;
+      state.videoImage = null;
+      state.videoImageVisible = true;
+      if (state.videoImageUrl) { URL.revokeObjectURL(state.videoImageUrl); state.videoImageUrl = null; }
+      updateVideoImageOverlay();
+      updateVideoImageUI();
       setPlayerMode(false);
       document.getElementById('lesson-title').value = '';
       document.getElementById('video-file').value = '';
@@ -1965,6 +2213,8 @@
       video.appendChild(track);
       track.mode = 'hidden';
       document.getElementById('preview-wrap').classList.remove('hidden');
+      updateVideoImageOverlay();
+      updateVideoImageUI();
 
       document.getElementById('subtitle-display').classList.remove('hidden');
       syncCaptionControls();
@@ -2309,6 +2559,8 @@
             <button class="loop-btn" data-start="${cue.start}" data-end="${cue.end}" onclick="event.stopPropagation(); toggleLoopCue(${cue.start}, ${cue.end})">${t('repeat')}</button>
             <button class="btn-edit-sentence" onclick="event.stopPropagation(); toggleSentenceEdit(${i})" title="تعديل">✏️</button>
             <button onclick="event.stopPropagation(); jumpToCue(${i})">${formatDuration(cue.start)}</button>
+            <button class="btn-notebook-card" onclick="event.stopPropagation(); openNotebook(${i})" title="${t('notebook')}">📝</button>
+            <button class="btn-ai-search-card" onclick="event.stopPropagation(); openGoogleAiMode(${i})" title="${t('aiSearch')}">🤖</button>
           </div>
         </div>
       `;}).join('');
@@ -2432,6 +2684,16 @@
       return typeof window !== 'undefined' && window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform();
     }
 
+    function stripEmojis(text) {
+      if (typeof text !== 'string') return text;
+      // ES5-safe removal of emoji/flag/icon code points (surrogate pairs + common symbol blocks + ZWJ/variation selectors)
+      return text
+        .replace(/[\uD83C-\uD83F][\uDC00-\uDFFF]/g, '')
+        .replace(/[\u2600-\u26FF\u2700-\u27BF\uFE00-\uFE0F]|[\u200D]/g, '')
+        .replace(/\uD83C[\uDDE6-\uDDFF]\uD83C[\uDDE6-\uDDFF]/g, '')
+        .trim();
+    }
+
     function ttsStop() {
       if (isCapacitor()) {
         const plugin = window.Capacitor.Plugins.TextToSpeech;
@@ -2443,15 +2705,20 @@
 
     function ttsSpeak({ text, lang, onend }) {
       const ttsLang = lang || getTTSLang(text);
+      const cleanText = stripEmojis(text);
+      if (!cleanText) {
+        if (onend) onend();
+        return;
+      }
       if (isCapacitor()) {
         const plugin = window.Capacitor.Plugins.TextToSpeech;
         if (!plugin) return;
         plugin.stop().catch(() => {})
-          .then(() => plugin.speak({ text, lang: ttsLang, rate: 1.0, pitch: 1.0, volume: 1.0, category: 'playback' }))
+          .then(() => plugin.speak({ text: cleanText, lang: ttsLang, rate: 1.0, pitch: 1.0, volume: 1.0, category: 'playback' }))
           .then(() => { if (onend) onend(); })
           .catch(() => { if (onend) onend(); });
       } else if ('speechSynthesis' in window) {
-        const u = new SpeechSynthesisUtterance(text);
+        const u = new SpeechSynthesisUtterance(cleanText);
         u.lang = ttsLang;
         if (onend) u.onend = onend;
         window.speechSynthesis.cancel();
@@ -2731,6 +2998,181 @@
       if (btn) btn.classList.toggle('active', state.captionsVisible);
     }
 
+    function renderNotebookOverlay() {
+      const overlay = document.getElementById('notebook-overlay');
+      const phraseEl = document.getElementById('notebook-phrase-bg');
+      const linesEl = document.getElementById('notebook-lines');
+      if (!overlay || !phraseEl) return;
+      const cue = state.currentCues[state.notebookIndex];
+      if (!cue) { closeNotebook(); return; }
+      const text = getCueLineByLang(cue, 'fr') || cue.text.split('\n')[0] || '';
+      phraseEl.textContent = text;
+      phraseEl.style.setProperty('--notebook-scale', state.notebookScale);
+      if (linesEl) linesEl.classList.toggle('hidden', !state.notebookGrid);
+      document.querySelectorAll('#notebook-header-tools .nb-tool[data-tool]').forEach(b => b.classList.toggle('active', b.dataset.tool === state.notebookTool));
+      document.querySelectorAll('#notebook-colors button').forEach(b => b.classList.toggle('active', b.dataset.color === state.notebookSelectedColor));
+      document.querySelectorAll('#notebook-sizes button').forEach(b => b.classList.toggle('active', parseFloat(b.dataset.size) === state.notebookScale));
+    }
+
+    function saveNotebookHistory() {
+      const canvas = document.getElementById('notebook-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      state.notebookHistory.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+      if (state.notebookHistory.length > 12) state.notebookHistory.shift();
+    }
+
+    window.openNotebook = function(i) {
+      state.notebookIndex = i;
+      state.notebookHistory = [];
+      renderNotebookOverlay();
+      const overlay = document.getElementById('notebook-overlay');
+      overlay.classList.remove('hidden');
+      initNotebookCanvas();
+      clearNotebookCanvas();
+      requestAnimationFrame(saveNotebookHistory);
+      const video = document.getElementById('lesson-video');
+      if (video && !video.paused) video.pause();
+    };
+
+    window.closeNotebook = function() {
+      document.getElementById('notebook-overlay').classList.add('hidden');
+      state.notebookIndex = null;
+    };
+
+    window.toggleNotebookPalette = function() {
+      state.notebookPalette = !state.notebookPalette;
+      document.getElementById('notebook-palette').classList.toggle('hidden', !state.notebookPalette);
+    };
+
+    window.setNotebookColor = function(color) {
+      state.notebookSelectedColor = color;
+      if (state.notebookTool !== 'eraser') state.notebookColor = color;
+      document.querySelectorAll('#notebook-colors button').forEach(b => b.classList.toggle('active', b.dataset.color === color));
+    };
+
+    window.setNotebookTool = function(tool) {
+      state.notebookTool = tool;
+      state.notebookColor = tool === 'eraser' ? '#ffffff' : state.notebookSelectedColor;
+      document.querySelectorAll('#notebook-header-tools .nb-tool[data-tool]').forEach(b => b.classList.toggle('active', b.dataset.tool === tool));
+    };
+
+    window.setNotebookSize = function(size) {
+      state.notebookScale = size;
+      const phraseEl = document.getElementById('notebook-phrase-bg');
+      if (phraseEl) phraseEl.style.setProperty('--notebook-scale', size);
+      document.querySelectorAll('#notebook-sizes button').forEach(b => b.classList.toggle('active', parseFloat(b.dataset.size) === size));
+      state.notebookHistory = [];
+      initNotebookCanvas();
+      requestAnimationFrame(saveNotebookHistory);
+    };
+
+    function getCanvasPoint(e) {
+      const canvas = document.getElementById('notebook-canvas');
+      const rect = canvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      return { x: clientX - rect.left, y: clientY - rect.top };
+    }
+
+    function startNotebookDraw(e) {
+      state.notebookDrawing = true;
+      const p = getCanvasPoint(e);
+      state.notebookLastX = p.x;
+      state.notebookLastY = p.y;
+      const canvas = document.getElementById('notebook-canvas');
+      const ctx = canvas.getContext('2d');
+      ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      ctx.strokeStyle = state.notebookColor;
+      const toolFactor = { pencil: 1, brush: 2.5, eraser: 5 }[state.notebookTool] || 1;
+      ctx.lineWidth = Math.max(2, 3 * state.notebookScale * toolFactor);
+      ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x, p.y); ctx.stroke();
+      e.preventDefault();
+    }
+
+    function moveNotebookDraw(e) {
+      if (!state.notebookDrawing) return;
+      const p = getCanvasPoint(e);
+      const canvas = document.getElementById('notebook-canvas');
+      const ctx = canvas.getContext('2d');
+      ctx.beginPath();
+      ctx.moveTo(state.notebookLastX, state.notebookLastY);
+      ctx.lineTo(p.x, p.y);
+      ctx.stroke();
+      state.notebookLastX = p.x;
+      state.notebookLastY = p.y;
+      e.preventDefault();
+    }
+
+    function stopNotebookDraw(e) {
+      state.notebookDrawing = false;
+      saveNotebookHistory();
+      if (e && e.cancelable) e.preventDefault();
+    }
+
+    window.clearNotebookCanvas = function() {
+      const canvas = document.getElementById('notebook-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      saveNotebookHistory();
+    };
+
+    window.undoNotebookCanvas = function() {
+      const canvas = document.getElementById('notebook-canvas');
+      if (!canvas || state.notebookHistory.length < 2) return;
+      state.notebookHistory.pop();
+      const data = state.notebookHistory[state.notebookHistory.length - 1];
+      const ctx = canvas.getContext('2d');
+      ctx.putImageData(data, 0, 0);
+    };
+
+    window.toggleNotebookGrid = function() {
+      state.notebookGrid = !state.notebookGrid;
+      const linesEl = document.getElementById('notebook-lines');
+      if (linesEl) linesEl.classList.toggle('hidden', !state.notebookGrid);
+    };
+
+    function initNotebookCanvas() {
+      const canvas = document.getElementById('notebook-canvas');
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+    }
+
+    window.notebookSpeakCurrent = function() {
+      const cue = state.currentCues[state.notebookIndex];
+      if (!cue) return;
+      const text = getCueLineByLang(cue, 'fr') || cue.text.split('\n')[0];
+      if (!text) return;
+      const lang = /[\u0600-\u06FF]/.test(text) ? 'ar-SA' : (/[\u00C0-\u024F]/.test(text) ? 'fr-FR' : 'en-US');
+      ttsSpeak({ text, lang });
+    };
+
+    window.openGoogleAiMode = function(i) {
+      const cue = state.currentCues[i];
+      if (!cue) return;
+      const fr = getCueLineByLang(cue, 'fr') || cue.text.split('\n')[0] || '';
+      const ar = getCueLineByLang(cue, 'ar') || '';
+      const en = getCueLineByLang(cue, 'en') || '';
+      let prompt;
+      if (state.lang === 'ar') {
+        prompt = `صحّح وأعطِ تحليلاً للعبارة الفرنسية "${fr}" كلمة كلمة مع الترجمة إلى العربية والفرنسية والإنجليزية.\nالترجمة العربية: "${ar}"\nالترجمة الإنجليزية: "${en}"\nقدّم معنى كاملاً وأمثلة شائعة تُستخدم في الحياة اليومية في فرنسا ونصائح نطق وقواعد.`;
+      } else if (state.lang === 'fr') {
+        prompt = `Corrige et analyse la phrase française "${fr}" mot à mot avec la traduction en arabe, en français et en anglais.\nArabe: "${ar}"\nAnglais: "${en}"\nDonne le sens complet, des exemples courants de la vie quotidienne en France, des conseils de prononciation et des notes de grammaire.`;
+      } else {
+        prompt = `Correct and analyze the French phrase "${fr}" word by word with translations into Arabic, French, and English.\nArabic: "${ar}"\nEnglish: "${en}"\nProvide full meaning, common examples used in daily life in France, pronunciation tips, and grammar notes.`;
+      }
+      const hl = state.lang === 'ar' ? 'ar' : (state.lang === 'fr' ? 'fr' : 'en');
+      const url = 'https://www.google.com/search?udm=50&hl=' + hl + '&q=' + encodeURIComponent(prompt);
+      if (window.Capacitor && Capacitor.Plugins && Capacitor.Plugins.Browser) {
+        Capacitor.Plugins.Browser.open({ url });
+      } else {
+        window.open(url, '_blank');
+      }
+    };
+
     async function saveLesson() {
       const title = document.getElementById('lesson-title').value.trim();
       if (!title) { showToast(t('enterTitle')); return; }
@@ -2760,6 +3202,7 @@
         vttBlob: new Blob([vtt], { type: 'text/vtt' }),
         duration,
         coverImage: existing && existing.coverImage ? existing.coverImage : null,
+        videoImage: state.videoImage || (existing && existing.videoImage) || null,
         createdAt: existing && existing.createdAt ? existing.createdAt : Date.now()
       };
 
@@ -2775,6 +3218,8 @@
       if (!lesson) return;
       resetEditor();
       state.currentLesson = lesson;
+      state.videoImage = lesson.videoImage || null;
+      state.videoImageVisible = true;
       document.getElementById('lesson-title').value = lesson.title;
       state.videoFile = lesson.videoFile;
       document.getElementById('video-name').textContent = lesson.videoName;
@@ -2804,6 +3249,8 @@
       video.appendChild(track);
       track.mode = 'hidden';
       document.getElementById('preview-wrap').classList.remove('hidden');
+      updateVideoImageOverlay();
+      updateVideoImageUI();
 
       document.getElementById('subtitle-display').classList.remove('hidden');
       syncCaptionControls();
@@ -2841,11 +3288,28 @@
       setTheme(state.theme);
       setFontSize(state.fontSize);
       setCardStyle(state.cardStyle);
+      setCaptionBg(state.captionBg);
       setLangOrder(state.langOrder);
+
+      // Notebook canvas drawing
+      const nbCanvas = document.getElementById('notebook-canvas');
+      if (nbCanvas) {
+        nbCanvas.addEventListener('mousedown', startNotebookDraw);
+        nbCanvas.addEventListener('mousemove', moveNotebookDraw);
+        nbCanvas.addEventListener('mouseup', stopNotebookDraw);
+        nbCanvas.addEventListener('mouseleave', stopNotebookDraw);
+        nbCanvas.addEventListener('touchstart', startNotebookDraw, { passive: false });
+        nbCanvas.addEventListener('touchmove', moveNotebookDraw, { passive: false });
+        nbCanvas.addEventListener('touchend', stopNotebookDraw);
+        nbCanvas.addEventListener('touchcancel', stopNotebookDraw);
+      }
+      window.addEventListener('resize', () => { if (state.notebookIndex !== null) initNotebookCanvas(); });
 
       // Android hardware back: confirm before exit
       if (isCapacitor() && window.Capacitor.Plugins.App) {
         window.Capacitor.Plugins.App.addListener('backButton', ({ canGoBack }) => {
+          const overlay = document.getElementById('notebook-overlay');
+          if (overlay && !overlay.classList.contains('hidden')) { closeNotebook(); return; }
           if (canGoBack) {
             window.history.back();
           } else if (confirm(t('exitConfirm'))) {
@@ -2945,6 +3409,7 @@
       document.getElementById('settings-theme').addEventListener('change', (e) => setTheme(e.target.value));
       document.getElementById('settings-font-size').addEventListener('input', (e) => setFontSize(parseInt(e.target.value, 10)));
       document.getElementById('settings-card-style').addEventListener('change', (e) => setCardStyle(e.target.value));
+      document.getElementById('settings-caption-bg').addEventListener('change', (e) => setCaptionBg(e.target.value));
       document.getElementById('settings-lang-order').addEventListener('change', (e) => setLangOrder(e.target.value.split(',')));
 
       document.getElementById('btn-clear-data').addEventListener('click', async () => {
@@ -2973,6 +3438,16 @@
         await saveLessonToDB(lesson);
         showToast(t('saved'));
         renderLessons();
+      });
+
+      document.getElementById('video-overlay-image-file').addEventListener('change', (e) => {
+        const f = e.target.files[0];
+        if (!f) return;
+        state.videoImage = f;
+        state.videoImageVisible = true;
+        updateVideoImageOverlay();
+        updateVideoImageUI();
+        scheduleSaveDraft();
       });
 
       document.getElementById('btn-lang').addEventListener('click', () => {
