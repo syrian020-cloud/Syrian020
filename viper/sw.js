@@ -1,4 +1,4 @@
-const CACHE_NAME = 'zeek-v104';
+const CACHE_NAME = 'viper-v105';
 const FILES_TO_CACHE = [
   './index.html',
   './manifest.json',
@@ -6,6 +6,7 @@ const FILES_TO_CACHE = [
   './icon-512.png',
   './bienvenue-lesson.jpg',
   './whatsapp-icon.png',
+  './js/edge-tts.js',
   './fonts/simplified-arabic.ttf',
   './fonts/geeza-pro.ttf'
 ];

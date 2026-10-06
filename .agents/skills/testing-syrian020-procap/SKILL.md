@@ -1,6 +1,6 @@
 ---
-name: Test Syrian020 Zeek PWA
-description: How to end-to-end test the standalone Zeek PWA at zeek/index.html in Chrome for Testing.
+name: Test Syrian020 viper PWA
+description: How to end-to-end test the standalone viper PWA at viper/index.html in Chrome for Testing.
 ---
 
 ## Devin Secrets Needed
@@ -17,7 +17,7 @@ python3 -m http.server 8080
 
 The relevant page is:
 
-- `http://localhost:8080/zeek/index.html`
+- `http://localhost:8080/viper/index.html`
 
 **Note for media tests:** `python3 -m http.server` does not respond with `Accept-Ranges: bytes`, so Chrome may be slow to start loading a direct MP4/WebM. The video still loads once the full response is received. For faster local video tests, run a range-supporting server for the media asset or use small files.
 
@@ -30,18 +30,18 @@ The relevant page is:
 ```bash
 /opt/.devin/chrome/chrome/linux-137.0.7118.2/chrome-linux64/chrome \
   --no-sandbox --disable-gpu --no-first-run --no-default-browser-check \
-  --user-data-dir=/tmp/chrome-zeek-test --incognito --start-maximized \
+  --user-data-dir=/tmp/chrome-viper-test --incognito --start-maximized \
   --remote-debugging-port=29229 --remote-allow-origins='*' \
-  http://localhost:8080/zeek/index.html
+  http://localhost:8080/viper/index.html
 ```
 
-Use a fresh `--user-data-dir` and `--incognito` when testing service-worker or storage isolation, otherwise cached `zeek-v*` data and old lessons may affect the page.
+Use a fresh `--user-data-dir` and `--incognito` when testing service-worker or storage isolation, otherwise cached `viper-v*` data and old lessons may affect the page.
 
-## Build Zeek APK
+## Build viper APK
 
 ```bash
 export ANDROID_HOME=/home/ubuntu/android-sdk
-USE_ALIYUN=1 ./build-zeek-apk.sh
+USE_ALIYUN=1 ./build-viper-apk.sh
 # APK: android/app/build/outputs/apk/debug/app-debug.apk
 ```
 
@@ -52,7 +52,7 @@ If Maven Central returns 429, the `USE_ALIYUN=1` flag uses Aliyun mirrors via `i
 - The VNC display is 1600x1200; Chrome maximizes to that size. Client coordinates from `getBoundingClientRect()` must be offset by the browser chrome height (`window.outerHeight - window.innerHeight`), typically ~192 px.
 - The `computer` mouse-click actions may not register in this environment. Use `xdotool mousemove <x> <y> click 1` from `exec`, passing actual screen coordinates (`rect.left + rect.width/2 + window.screenX`, `rect.top + rect.height/2 + window.screenY + chromeOffset`).
 - The app is RTL Arabic by default (`<html lang="ar" dir="rtl">`). Language buttons are `.lang-btn[data-lang="ar|en|fr"]`.
-- `localStorage` keys use the `zeek_` prefix (`zeek_lessons`, `zeek_ui_lang`, `zeek_theme`, `zeek_favs`, `zeek_notes`); the service-worker cache is `zeek-v6` for the current captions/media build.
+- `localStorage` keys use the `viper_` prefix (`viper_lessons`, `viper_ui_lang`, `viper_theme`, `viper_favs`, `viper_notes`); the service-worker cache is `viper-v6` for the current captions/media build.
 - Chrome for Testing may crash when opening Google AI Mode (`udm=50`) links. To verify the Google AI button, either override `window.open` to capture the generated URL, or let it open and accept the crash risk.
 - The test VM typically has no `speechSynthesis` voices, so TTS buttons silently do nothing by default. To verify the TTS/loop UI feedback path, inject a fake voice (`window.speechSynthesis.getVoices = () => [{ name: 'Fake', lang: 'fr-FR', default: false, localService: true, voiceURI: '' }]`) and optionally make `speechSynthesis.speak` a no-op so the highlight state persists long enough to observe.
 - Testing the file picker for import requires the hidden `<input id="import-file" type="file">` to be visible before `xdotool` can click it. Use a single `browser_console` script to set `display:block; position:fixed; ...` on the input, then click it with `xdotool`.
@@ -64,7 +64,7 @@ If Maven Central returns 429, the `USE_ALIYUN=1` flag uses Aliyun mirrors via `i
 
 ## Quick end-to-end check
 
-1. Open `http://localhost:8080/zeek/index.html` in a fresh incognito Chrome profile.
+1. Open `http://localhost:8080/viper/index.html` in a fresh incognito Chrome profile.
 2. Assert `html.dir === 'rtl'`, `html.lang === 'ar'`, library title is `المكتبة`, and the Bienvenue lesson card appears.
 3. Toggle `#btn-theme` and assert `data-theme` switches between dark and light and the icon changes.
 4. Switch languages AR → EN → FR and assert `dir`, `lang`, titles, placeholders, and action-bar labels update.
@@ -73,6 +73,6 @@ If Maven Central returns 429, the `USE_ALIYUN=1` flag uses Aliyun mirrors via `i
 7. Click a speak/loop button and verify the phrase card gets `.playing` and the active line gets `.active`.
 8. Click `.ai-btn` and verify a new tab is opened to a Google search URL containing `udm=50` and the phrase text.
 9. Click a phrase's media button (📷), upload an image or paste a video/YouTube URL, and verify a `.phrase-media` element appears clearly below the phrase.
-10. Click `#btn-export`, confirm the `zeek-lessons.json` download, and inspect the JSON for the built-in Bienvenue lesson plus the custom folder/lesson with `p.media`.
+10. Click `#btn-export`, confirm the `viper-lessons.json` download, and inspect the JSON for the built-in Bienvenue lesson plus the custom folder/lesson with `p.media`.
 11. Import a JSON file via the `label[for="import-file"]` picker and verify the new library state.
-12. Confirm `Object.keys(localStorage)` contains only `zeek_*` keys.
+12. Confirm `Object.keys(localStorage)` contains only `viper_*` keys.

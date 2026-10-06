@@ -1,6 +1,6 @@
 {
-  "appId": "com.syrian020.zeek",
-  "appName": "Zeek",
+  "appId": "com.syrian020.viper",
+  "appName": "viper",
   "webDir": "www",
   "server": {
     "androidScheme": "https"

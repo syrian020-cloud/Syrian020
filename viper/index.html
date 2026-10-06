@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#2a0a2e">
 <meta name="description" content="تعلم الفرنسية مع ترجمة عربية وإنجليزية">
-<title>Zeek — Français / العربية / English</title>
+<title>viper — Français / العربية / English</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
 <style>
@@ -450,7 +450,7 @@
 <body>
 <header>
   <div class="header-inner">
-    <span class="logo"><img src="icon-192.png" alt="" class="logo-icon"> <span data-t="appName">Zeek</span></span>
+    <span class="logo"><img src="icon-192.png" alt="" class="logo-icon"> <span data-t="appName">viper</span></span>
     <span class="spacer"></span>
     <div class="lang-switch">
       <button class="lang-btn" data-lang="ar">AR</button>
@@ -626,6 +626,7 @@
   </div>
 </div>
 
+<script src="js/edge-tts.js"></script>
 <script>
 (function () {
   'use strict';
@@ -646,7 +647,7 @@
 
   function loadLessons() {
     try {
-      const raw = JSON.parse(localStorage.getItem('zeek_lessons') || '[]');
+      const raw = JSON.parse(localStorage.getItem('viper_lessons') || '[]');
       if (Array.isArray(raw)) {
         if (raw.length && raw[0].phrases && !raw[0].type) {
           return sanitizeLessons(raw.map((l, i) => ({ id: l.id || i + 1, type: 'lesson', custom: true, title: l.title, phrases: l.phrases })));
@@ -657,7 +658,7 @@
     } catch (e) { return []; }
   }
 
-  function saveLessons() { localStorage.setItem('zeek_lessons', JSON.stringify(LESSONS)); }
+  function saveLessons() { localStorage.setItem('viper_lessons', JSON.stringify(LESSONS)); }
 
   function chooseExport() {
     const modal = document.getElementById('export-modal');
@@ -769,7 +770,7 @@
         await queue;
         if (failed) throw failed;
         const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
-        if (Share && Share.share) await Share.share({ title: 'Zeek lessons', files: [uri], dialogTitle: 'Zeek export' });
+        if (Share && Share.share) await Share.share({ title: 'viper lessons', files: [uri], dialogTitle: 'viper export' });
       }
     };
   }
@@ -784,11 +785,11 @@
 
   async function exportLessonsFull(kinds, list) {
     list = list || LESSONS;
-    const filename = 'zeek-full-' + new Date().toISOString().slice(0,10) + '.json';
+    const filename = 'viper-full-' + new Date().toISOString().slice(0,10) + '.json';
     showToast(t('exportPreparing'), 60000);
     try {
       const sink = createTextSink(filename, 'application/json');
-      sink.write('{"zeekExport":1,"lessons":' + JSON.stringify(list) + ',"media":{');
+      sink.write('{"viperExport":1,"lessons":' + JSON.stringify(list) + ',"media":{');
       const ids = collectMediaRefs(list);
       let first = true;
       for (const id of ids) {
@@ -882,7 +883,7 @@
       }
     };
 
-    // Header: {"zeekExport":1,"lessons":[...],"media":{
+    // Header: {"viperExport":1,"lessons":[...],"media":{
     let lessons = null, searchFrom = 0;
     for (;;) {
       const idx = await needIndex(',"media":{', searchFrom);
@@ -932,7 +933,7 @@
 
   async function exportLessons(list) {
     const data = JSON.stringify(list || LESSONS, null, 2);
-    const filename = 'zeek-lessons-' + new Date().toISOString().slice(0,10) + '.json';
+    const filename = 'viper-lessons-' + new Date().toISOString().slice(0,10) + '.json';
     if (typeof Capacitor !== 'undefined' && Capacitor.Plugins && Capacitor.Plugins.Filesystem) {
       try {
         const { Filesystem, Share } = Capacitor.Plugins;
@@ -942,7 +943,7 @@
         await Filesystem.writeFile({ path: filename, data: data, directory: dir, encoding: encoding });
         const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
         if (Share && Share.share) {
-          await Share.share({ title: 'Zeek lessons', files: [uri], dialogTitle: 'Zeek JSON' });
+          await Share.share({ title: 'viper lessons', files: [uri], dialogTitle: 'viper JSON' });
         }
         showToast(t('exportSuccess'));
         return;
@@ -988,7 +989,7 @@
     };
     try {
       const headText = new TextDecoder('utf-8').decode(await readFileArrayBuffer(file.slice(0, 64)));
-      const isFull = /^\s*\{\s*"zeekExport"/.test(headText);
+      const isFull = /^\s*\{\s*"(?:viper|zeek)Export"/.test(headText);
       if (isFull) {
         if (!confirm(t('importConfirm'))) return;
         showToast(t('exportPreparing'), 600000);
@@ -1008,7 +1009,7 @@
         reader.readAsText(file);
       });
       const parsed = JSON.parse(text);
-      const full = parsed && !Array.isArray(parsed) && parsed.zeekExport && Array.isArray(parsed.lessons);
+      const full = parsed && !Array.isArray(parsed) && (parsed.viperExport || parsed.zeekExport) && Array.isArray(parsed.lessons);
       const data = full ? parsed.lessons : parsed;
       if (!Array.isArray(data)) throw new Error('invalid');
       if (!confirm(t('importConfirm'))) return;
@@ -1269,8 +1270,8 @@
   }
 
   const UI = {
-    appName: { ar: 'Zeek', en: 'Zeek', fr: 'Zeek' },
-    appTitle: { ar: 'Zeek — فرنسي / عربي / إنجليزي', en: 'Zeek — French / Arabic / English', fr: 'Zeek — Français / Arabe / Anglais' },
+    appName: { ar: 'viper', en: 'viper', fr: 'viper' },
+    appTitle: { ar: 'viper — فرنسي / عربي / إنجليزي', en: 'viper — French / Arabic / English', fr: 'viper — Français / Arabe / Anglais' },
     searchPlaceholder: { ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', en: 'Search in Arabic, French, or English…', fr: 'Rechercher en arabe, français ou anglais…' },
     rateTitle: { ar: 'سرعة الصوت والفيديو', en: 'Audio & video speed', fr: 'Vitesse audio et vidéo' },
     aspectRatioTitle: { ar: 'نسبة عرض الفيديو', en: 'Video aspect ratio', fr: 'Ratio d’aspect vidéo' },
@@ -1421,7 +1422,7 @@
     lessonLabel: { ar: 'الدرس', en: 'Lesson', fr: 'Leçon' },
     folderLabel: { ar: 'المجلد', en: 'Folder', fr: 'Dossier' },
     emptyFolder: { ar: 'لا توجد دروس في هذا المجلد. أضف درساً جديداً.', en: 'No lessons in this folder. Add a new lesson.', fr: 'Aucune leçon dans ce dossier. Ajoutez-en une nouvelle.' },
-    footerText: { ar: 'Zeek · ', en: 'Zeek · ', fr: 'Zeek · ' },
+    footerText: { ar: 'viper · ', en: 'viper · ', fr: 'viper · ' },
     footerLink: { ar: 'تطبيقاتي الأخرى', en: 'My other apps', fr: 'Mes autres applications' },
     heroTitle: { ar: 'تعلم الفرنسية', en: 'Learn French', fr: 'Apprenez le français' },
     heroSub: { ar: 'عبارات مترجمة إلى العربية والإنجليزية', en: 'Phrases translated into Arabic and English', fr: 'Phrases traduites en arabe et en anglais' },
@@ -1442,19 +1443,19 @@
   const state = {
     route: { name: 'home' },
     loop: null,
-    favs: JSON.parse(localStorage.getItem('zeek_favs') || '[]'),
-    notes: JSON.parse(localStorage.getItem('zeek_notes') || '{}'),
+    favs: JSON.parse(localStorage.getItem('viper_favs') || '[]'),
+    notes: JSON.parse(localStorage.getItem('viper_notes') || '{}'),
     rate: 1,
-    videoAspects: JSON.parse(localStorage.getItem('zeek_video_aspects') || '{}'),
-    audioImages: JSON.parse(localStorage.getItem('zeek_audio_images') || '{}'),
-    captionZoom: Math.max(0.5, Math.min(2, +(localStorage.getItem('zeek_caption_zoom') || '1'))),
-    captionFollow: localStorage.getItem('zeek_caption_follow') !== '0',
-    captionWordLang: localStorage.getItem('zeek_caption_word_lang') || 'none',
-    captionTheme: Math.max(0, +(localStorage.getItem('zeek_caption_theme') || '0')),
-    captionFont: Math.max(0, +(localStorage.getItem('zeek_caption_font') || '0')),
+    videoAspects: JSON.parse(localStorage.getItem('viper_video_aspects') || '{}'),
+    audioImages: JSON.parse(localStorage.getItem('viper_audio_images') || '{}'),
+    captionZoom: Math.max(0.5, Math.min(2, +(localStorage.getItem('viper_caption_zoom') || '1'))),
+    captionFollow: localStorage.getItem('viper_caption_follow') !== '0',
+    captionWordLang: localStorage.getItem('viper_caption_word_lang') || 'none',
+    captionTheme: Math.max(0, +(localStorage.getItem('viper_caption_theme') || '0')),
+    captionFont: Math.max(0, +(localStorage.getItem('viper_caption_font') || '0')),
     langs: ['fr', 'ar', 'en'],
-    uiLang: localStorage.getItem('zeek_ui_lang') || 'ar',
-    theme: localStorage.getItem('zeek_theme') || 'dark',
+    uiLang: localStorage.getItem('viper_ui_lang') || 'ar',
+    theme: localStorage.getItem('viper_theme') || 'dark',
     voiceLang: { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' },
     ttsAvailable: false
   };
@@ -1562,7 +1563,7 @@
 
   function cycleCaptionTheme() {
     state.captionTheme = (state.captionTheme + 1) % CAPTION_THEMES.length;
-    localStorage.setItem('zeek_caption_theme', state.captionTheme);
+    localStorage.setItem('viper_caption_theme', state.captionTheme);
     applyCaptionSettings();
     const theme = CAPTION_THEMES[state.captionTheme];
     if (theme) showToast(theme.name);
@@ -1570,7 +1571,7 @@
 
   function cycleCaptionFont() {
     state.captionFont = (state.captionFont + 1) % CAPTION_FONT_SETS.length;
-    localStorage.setItem('zeek_caption_font', state.captionFont);
+    localStorage.setItem('viper_caption_font', state.captionFont);
     applyCaptionSettings();
     const fset = CAPTION_FONT_SETS[state.captionFont];
     if (fset) showToast(fset.name);
@@ -1578,7 +1579,7 @@
 
   function adjustCaptionZoom(delta) {
     state.captionZoom = Math.max(0.5, Math.min(2, state.captionZoom + delta));
-    localStorage.setItem('zeek_caption_zoom', state.captionZoom);
+    localStorage.setItem('viper_caption_zoom', state.captionZoom);
     applyCaptionSettings();
   }
 
@@ -1597,7 +1598,7 @@
 
   function setUILang(lang) {
     state.uiLang = lang;
-    localStorage.setItem('zeek_ui_lang', lang);
+    localStorage.setItem('viper_ui_lang', lang);
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
@@ -1607,7 +1608,7 @@
 
   function setTheme(theme) {
     state.theme = theme;
-    localStorage.setItem('zeek_theme', theme);
+    localStorage.setItem('viper_theme', theme);
     const light = THEME_LIGHT.includes(theme);
     document.documentElement.setAttribute('data-theme', theme === 'dark' ? '' : theme);
     document.documentElement.setAttribute('data-mode', light ? 'light' : 'dark');
@@ -1642,7 +1643,7 @@
     return url;
   }
 
-  const MEDIA_DB_NAME = 'zeek-media';
+  const MEDIA_DB_NAME = 'viper-media';
   const MEDIA_DB_VERSION = 1;
   const MEDIA_STORE_NAME = 'media';
   let mediaDb = null;
@@ -2213,7 +2214,7 @@
   }
 
   function createRecordingSink(ext, mimeType) {
-    const filename = 'zeek-video-' + new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-') + '.' + ext;
+    const filename = 'viper-video-' + new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-') + '.' + ext;
     const native = typeof Capacitor !== 'undefined' && Capacitor.Plugins && Capacitor.Plugins.Filesystem;
     const toB64 = part => new Promise((res, rej) => {
       const fr = new FileReader();
@@ -2266,7 +2267,7 @@
         try {
           const { uri } = await Filesystem.getUri({ path: filename, directory: dir });
           showToast(t('videoSaved'));
-          if (Share && Share.share) await Share.share({ title: 'Zeek video', files: [uri], dialogTitle: 'Zeek video' });
+          if (Share && Share.share) await Share.share({ title: 'viper video', files: [uri], dialogTitle: 'viper video' });
         } catch (e) { console.error('share video failed', e); showToast(e.message || 'Save failed'); }
       }
     };
@@ -2478,7 +2479,7 @@
     if (!ref) return;
     if (aspect) state.videoAspects[ref] = aspect;
     else delete state.videoAspects[ref];
-    localStorage.setItem('zeek_video_aspects', JSON.stringify(state.videoAspects));
+    localStorage.setItem('viper_video_aspects', JSON.stringify(state.videoAspects));
   }
   function aspectClassFor(ratio) { return ratio ? 'ar-' + ratio.replace('/', '-') : ''; }
   async function applyAudioImage(container, ref) {
@@ -2597,7 +2598,7 @@
     const tts = nativeTTS();
     if (!tts) {
       state.ttsAvailable = false;
-      if (!('speechSynthesis' in window)) showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
+      if (!('speechSynthesis' in window) && !edgeSupported()) showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
       return;
     }
     try {
@@ -2615,7 +2616,7 @@
       }
       if (!frTag) {
         state.ttsAvailable = false;
-        if (!webTTS()) showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
+        if (!webTTS() && !edgeSupported()) showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
         return;
       }
       state.voiceLang = {
@@ -2630,7 +2631,7 @@
         setTimeout(() => checkNativeTTS(retry + 1), 600);
       } else {
         state.ttsAvailable = false;
-        showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
+        if (!edgeSupported()) showTTSBanner(t('ttsNotAvailable'), t('installTTS'));
       }
     }
   }
@@ -2686,14 +2687,27 @@
     });
   }
 
+  function edgeSupported() { return !!(window.EdgeTTS && EdgeTTS.supported()); }
+
+  function edgeSpeak(text, lang) {
+    const base = { fr: -8, ar: 0, en: 0 }[lang] || 0;
+    const pct = base + Math.round(((state.rate || 1) - 1) * 100);
+    EdgeTTS.rates[lang] = (pct >= 0 ? '+' : '') + pct + '%';
+    return EdgeTTS.play(text, lang);
+  }
+
   function anySpeak(text, lang) {
     const t = stripSpeechFlags(text);
     if (!t) return Promise.reject('empty tts');
     pauseAllMedia();
+    const fallback = () => {
+      if (speakSupported()) return nativeSpeak(t, lang);
+      if (webTTS()) return webSpeak(t, lang);
+      return Promise.reject('no tts');
+    };
     let p;
-    if (speakSupported()) p = nativeSpeak(t, lang);
-    else if (webTTS()) p = webSpeak(t, lang);
-    else return Promise.reject('no tts');
+    if (edgeSupported()) p = edgeSpeak(t, lang).catch(() => fallback());
+    else p = fallback();
     ttsActive++;
     const done = () => { ttsActive = Math.max(0, ttsActive - 1); };
     p.then(done, done);
@@ -2706,13 +2720,14 @@
   }
 
   function anyStop() {
+    if (window.EdgeTTS) EdgeTTS.stop();
     nativeStop();
     const synth = webTTS();
     if (synth) synth.cancel();
   }
 
   function anyTTSAvailable() {
-    return speakSupported() || !!webTTS();
+    return edgeSupported() || speakSupported() || !!webTTS();
   }
 
   async function prepareTTS() {
@@ -2764,7 +2779,7 @@
     const ready = await prepareTTS();
     if (run !== speechRun) return;
     if (!ready) { highlight(null); return; }
-    const seq = langs.filter(l => phrase[l] && state.voiceLang[l]);
+    const seq = langs.filter(l => phrase[l] && (edgeSupported() || state.voiceLang[l]));
     let i = 0;
     (function next() {
       if (run !== speechRun) return;
@@ -2977,12 +2992,12 @@
 
   function isFav(key) { return state.favs.includes(key); }
   function hasNote(key) { return !!state.notes[key]; }
-  function saveNotes() { localStorage.setItem('zeek_notes', JSON.stringify(state.notes)); }
+  function saveNotes() { localStorage.setItem('viper_notes', JSON.stringify(state.notes)); }
 
   function toggleFav(key) {
     const i = state.favs.indexOf(key);
     if (i === -1) state.favs.push(key); else state.favs.splice(i, 1);
-    localStorage.setItem('zeek_favs', JSON.stringify(state.favs));
+    localStorage.setItem('viper_favs', JSON.stringify(state.favs));
   }
 
   function esc(s) {
@@ -3506,7 +3521,7 @@
       capFollow.classList.toggle('active', !!state.captionFollow);
       capFollow.onclick = () => {
         state.captionFollow = !state.captionFollow;
-        localStorage.setItem('zeek_caption_follow', state.captionFollow ? '1' : '0');
+        localStorage.setItem('viper_caption_follow', state.captionFollow ? '1' : '0');
         capFollow.classList.toggle('active', state.captionFollow);
       };
     }
@@ -3519,7 +3534,7 @@
       capWordLang.onclick = () => {
         const i = LANG_ORDER.indexOf(state.captionWordLang);
         state.captionWordLang = LANG_ORDER[(i + 1) % LANG_ORDER.length];
-        localStorage.setItem('zeek_caption_word_lang', state.captionWordLang);
+        localStorage.setItem('viper_caption_word_lang', state.captionWordLang);
         syncWordLangBtn();
       };
     }
@@ -3994,7 +4009,7 @@ EN: Maria, I’m out of cigarettes.`
 
   function applyNotePaper() {
     const wrap = document.getElementById('note-canvas-wrap');
-    const lined = localStorage.getItem('zeek_note_paper') === 'lined';
+    const lined = localStorage.getItem('viper_note_paper') === 'lined';
     wrap.classList.toggle('lined', lined);
     wrap.classList.toggle('plain', !lined);
     document.getElementById('note-paper').textContent = lined ? '📄' : '📓';
@@ -4236,7 +4251,7 @@ Output in French, Arabic and English.`;
       if (!imgRef) return;
       if (!confirm(t('confirmRemoveImage'))) return;
       delete state.audioImages[ref];
-      localStorage.setItem('zeek_audio_images', JSON.stringify(state.audioImages));
+      localStorage.setItem('viper_audio_images', JSON.stringify(state.audioImages));
       if (isIDBMedia(imgRef)) { try { await deleteMediaRef(imgRef); } catch (_) {} }
       await applyAudioImage(holder, ref);
       showToast(t('deleted'));
@@ -4254,7 +4269,7 @@ Output in French, Arabic and English.`;
       const prev = state.audioImages[ref];
       if (prev && isIDBMedia(prev) && prev !== uri) { try { await deleteMediaRef(prev); } catch (_) {} }
       state.audioImages[ref] = uri;
-      localStorage.setItem('zeek_audio_images', JSON.stringify(state.audioImages));
+      localStorage.setItem('viper_audio_images', JSON.stringify(state.audioImages));
       await applyAudioImage(holder, ref);
       inp.value = '';
     });
@@ -4725,8 +4740,8 @@ Output in French, Arabic and English.`;
     document.getElementById('note-pen').onclick = () => { setNoteTool('pen'); document.getElementById('note-palette').classList.toggle('show'); };
     document.getElementById('note-swatch').onclick = () => document.getElementById('note-palette').classList.toggle('show');
     document.getElementById('note-paper').onclick = () => {
-      const lined = localStorage.getItem('zeek_note_paper') === 'lined';
-      localStorage.setItem('zeek_note_paper', lined ? 'plain' : 'lined');
+      const lined = localStorage.getItem('viper_note_paper') === 'lined';
+      localStorage.setItem('viper_note_paper', lined ? 'plain' : 'lined');
       applyNotePaper();
     };
     document.getElementById('note-size').oninput = e => { noteSize = +e.target.value; };

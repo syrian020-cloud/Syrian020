@@ -6,18 +6,19 @@ export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform
 
 ROOT=$(pwd)
 
-# Build the Capacitor web assets for Zeek
+# Build the Capacitor web assets for viper
 rm -rf www
 mkdir -p www/data www/js
 
-cp zeek/index.html www/index.html
-cp zeek/manifest.json www/
-cp zeek/sw.js www/
-cp zeek/icon-192.png www/
-cp zeek/icon-512.png www/
-cp zeek/bienvenue-lesson.jpg www/
-cp zeek/whatsapp-icon.png www/
-mkdir -p www/fonts && cp zeek/fonts/*.ttf www/fonts/
+cp viper/index.html www/index.html
+cp viper/manifest.json www/
+cp viper/sw.js www/
+cp viper/icon-192.png www/
+cp viper/icon-512.png www/
+cp viper/bienvenue-lesson.jpg www/
+cp viper/whatsapp-icon.png www/
+cp viper/js/* www/js/
+mkdir -p www/fonts && cp viper/fonts/*.ttf www/fonts/
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
 GRADLE_INIT=""
@@ -26,9 +27,9 @@ if [ "$USE_ALIYUN" = "1" ] && [ -f "$ROOT/init.gradle" ]; then
   GRADLE_INIT="--init-script ../init.gradle"
 fi
 
-# Swap Capacitor config for the Zeek package and restore after build
+# Swap Capacitor config for the viper package and restore after build
 cp "$ROOT/capacitor.config.json" "$ROOT/capacitor.config.json.bak"
-cp "$ROOT/capacitor-zeek.config.json" "$ROOT/capacitor.config.json"
+cp "$ROOT/capacitor-viper.config.json" "$ROOT/capacitor.config.json"
 restore_config() {
   cd "$ROOT"
   cp capacitor.config.json.bak capacitor.config.json 2>/dev/null || true
@@ -48,8 +49,38 @@ if [ -f "$MANIFEST" ] && ! grep -q 'android:largeHeap' "$MANIFEST"; then
   sed -i 's/<application\s/<application android:largeHeap="true" /' "$MANIFEST"
 fi
 
+# Inject the EdgeTTS native plugin (free Microsoft neural voices over WebSocket)
+PLUGIN_DIR="android/app/src/main/java/com/syrian020/tts"
+mkdir -p "$PLUGIN_DIR"
+cp native-plugins/EdgeTtsPlugin.java "$PLUGIN_DIR/"
+MAIN_ACTIVITY=$(find android/app/src/main/java -name MainActivity.java | head -1)
+if [ -f "$MAIN_ACTIVITY" ] && ! grep -q 'EdgeTtsPlugin' "$MAIN_ACTIVITY"; then
+  python3 - "$MAIN_ACTIVITY" <<'PYEOF'
+import sys, re
+p = sys.argv[1]
+s = open(p).read()
+s = s.replace('import com.getcapacitor.BridgeActivity;',
+              'import com.getcapacitor.BridgeActivity;\nimport com.syrian020.tts.EdgeTtsPlugin;')
+s = re.sub(r'(public class MainActivity extends BridgeActivity \{)',
+           r'\1\n    @Override\n    public void onCreate(android.os.Bundle savedInstanceState) {\n        registerPlugin(EdgeTtsPlugin.class);\n        super.onCreate(savedInstanceState);\n    }', s)
+open(p, 'w').write(s)
+PYEOF
+fi
+if ! grep -q 'squareup.okhttp3' android/app/build.gradle; then
+  python3 - <<'PYEOF'
+p = 'android/app/build.gradle'
+s = open(p).read()
+lines = s.split('\n')
+for i in range(len(lines) - 1, -1, -1):
+    if 'implementation' in lines[i]:
+        lines.insert(i + 1, '    implementation "com.squareup.okhttp3:okhttp:4.12.0"')
+        break
+open(p, 'w').write('\n'.join(lines))
+PYEOF
+fi
+
 # Sync the PWA icon into the Android mipmap launcher icons
-ICON_SRC="$ROOT/zeek/icon-512.png"
+ICON_SRC="$ROOT/viper/icon-512.png"
 MIPMAP="$ROOT/android/app/src/main/res"
 if [ -f "$ICON_SRC" ] && command -v convert >/dev/null 2>&1; then
   mkdir -p "$MIPMAP/mipmap-mdpi" "$MIPMAP/mipmap-hdpi" "$MIPMAP/mipmap-xhdpi" "$MIPMAP/mipmap-xxhdpi" "$MIPMAP/mipmap-xxxhdpi"
@@ -73,4 +104,4 @@ fi
 cd android
 ./gradlew $GRADLE_INIT assembleDebug
 
-echo "Zeek APK ready at: android/app/build/outputs/apk/debug/app-debug.apk"
+echo "viper APK ready at: android/app/build/outputs/apk/debug/app-debug.apk"
