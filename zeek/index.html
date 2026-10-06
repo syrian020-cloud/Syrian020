@@ -2362,6 +2362,10 @@
         const parts = [makeCap(c.fr, 'fr'), makeCap(c.ar, 'ar'), makeCap(c.en, 'en')].filter(Boolean);
         textDiv.innerHTML = parts.join('');
         lastIdx = activeIdx;
+        if (lessonId != null) {
+          const activePhraseEl = document.querySelector(`.phrase[data-key="${lessonId}.${activeIdx}"]`);
+          if (activePhraseEl) activePhraseEl.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        }
         if (state.loop && state.loop.word) {
           let phraseKey = '';
           if (lessonId != null) phraseKey = lessonId + '.' + activeIdx;
