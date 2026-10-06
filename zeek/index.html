@@ -700,7 +700,7 @@
     const ids = new Set();
     const add = r => { if (isIDBMedia(r)) ids.add(idbMediaId(r)); };
     const walk = l => {
-      add(l.media); add(l.image);
+      add(l.media); add(l.image); add(l.audio);
       (l.phrases || []).forEach(p => { add(p.media); add(p.audio); add(p.image); });
       (l.lessons || []).forEach(walk);
     };
@@ -1855,6 +1855,7 @@
     if (!it) return;
     if (it.image) await deleteMediaRef(it.image);
     if (it.media) { await deleteMediaRef(it.media); it.media = ''; }
+    if (it.audio) { await deleteMediaRef(it.audio); it.audio = ''; }
     if (it.captionText) delete it.captionText;
     if (it.lessons) { for (const l of it.lessons) await deleteItemMedia(l); }
     if (it.phrases) { for (const p of it.phrases) { if (p.media) await deleteMediaRef(p.media); if (p.audio) await deleteMediaRef(p.audio); if (p.image) await deleteMediaRef(p.image); if (p.captionText) delete p.captionText; } }
@@ -3112,16 +3113,17 @@
       if (!valid) { alert(t('mediaInvalid')); return; }
       media = videoUrl;
     }
-    if (!media) {
+    let audio = '';
+    {
       const audioFile = document.getElementById('lesson-audio-file').files[0];
       const audioUrl = form.elements.audioUrl.value.trim();
       if (audioFile) {
-        media = await storeMedia(audioFile);
-        if (!media) { alert(t('mediaSaveError')); return; }
+        audio = await storeMedia(audioFile);
+        if (!audio) { alert(t('mediaSaveError')); return; }
       } else if (audioUrl) {
         const valid = /^https?:\/\//.test(audioUrl) || /^data:/.test(audioUrl) || /^file:\/\//.test(audioUrl) || /^idb:\/\//.test(audioUrl) || isAudioUrl(audioUrl);
         if (!valid) { alert(t('mediaInvalid')); return; }
-        media = audioUrl;
+        audio = audioUrl;
       }
     }
 
@@ -3144,6 +3146,7 @@
 
     const lesson = { id: nextId(), type: 'lesson', title: ttl, phrases };
     if (media) lesson.media = media;
+    if (audio) lesson.audio = audio;
     if (captionText) lesson.captionText = captionText;
     if (folder) folder.lessons.push(lesson); else LESSONS.push(lesson);
     saveLessons();
@@ -3223,8 +3226,10 @@
   }
 
   function lessonMediaHTML(lesson) {
-    if (!lesson.media) return '';
-    return `<div class="lesson-media phrase-media media-placeholder" data-media-ref="${esc(lesson.media)}" data-media-src="${esc(toWebUrl(lesson.media))}" data-caption-text="${esc(lesson.captionText || '')}" data-lesson-id="${lesson.id}" data-image-ref="${esc(lesson.image || '')}" data-image-src="${esc(lesson.image ? toWebUrl(lesson.image) : '')}"></div>`;
+    let html = '';
+    if (lesson.media) html += `<div class="lesson-media phrase-media media-placeholder" data-media-ref="${esc(lesson.media)}" data-media-src="${esc(toWebUrl(lesson.media))}" data-caption-text="${esc(lesson.captionText || '')}" data-lesson-id="${lesson.id}" data-image-ref="${esc(lesson.image || '')}" data-image-src="${esc(lesson.image ? toWebUrl(lesson.image) : '')}"></div>`;
+    if (lesson.audio) html += `<div class="lesson-media phrase-media audio-holder media-placeholder" data-media-ref="${esc(lesson.audio)}" data-media-src="${esc(toWebUrl(lesson.audio))}" data-caption-text="${esc(lesson.captionText || '')}" data-lesson-id="${lesson.id}"></div>`;
+    return html;
   }
 
   function phraseHTML(p, key) {
@@ -3510,6 +3515,8 @@
     const hasMedia = !!lesson.media;
     const mediaIsUrl = hasMedia && /^https?:\/\//.test(lesson.media);
     const mediaLabel = hasMedia ? (mediaIsUrl ? lesson.media : t('currentMediaFile')) : t('noMedia');
+    const hasAudio = !!lesson.audio;
+    const audioIsUrl = hasAudio && /^https?:\/\//.test(lesson.audio);
     const html = `<div class="breadcrumb">${breadcrumb}</div>
       <div class="lesson-head"><h2>${t('editLessonTitle')}</h2></div>
       <form id="edit-lesson-form" class="form-card" data-id="${lesson.id}" data-parent="${parent ? parent.id : ''}">
@@ -3523,8 +3530,8 @@
         </div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonVideo">${t('lessonVideo')}</label><button type="button" class="btn" id="btn-choose-lesson-video" data-t="chooseVideoFile">${t('chooseVideoFile')}</button><input type="file" id="lesson-video-file" accept="video/*" style="display:none"><span id="edit-video-name" class="hint"></span></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonVideoUrl">${t('lessonVideoUrl')}</label><input type="text" name="videoUrl" placeholder="https://..." style="width:100%" value="${mediaIsUrl && !isAudioUrl(lesson.media) ? esc(lesson.media) : ''}"></div>
-        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudio">${t('lessonAudio')}</label><button type="button" class="btn" id="btn-choose-lesson-audio" data-t="chooseAudioFile">${t('chooseAudioFile')}</button><input type="file" id="lesson-audio-file" accept="audio/*,.mp3,.m4a,.aac,.ogg,.wav,.opus,.amr" style="display:none"><span id="edit-audio-name" class="hint"></span></div>
-        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudioUrl">${t('lessonAudioUrl')}</label><input type="text" name="audioUrl" placeholder="https://..." style="width:100%" value="${mediaIsUrl && isAudioUrl(lesson.media) ? esc(lesson.media) : ''}"></div>
+        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudio">${t('lessonAudio')}</label>${hasAudio ? `<div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.35rem"><span class="pill" style="max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">🎧 ${audioIsUrl ? esc(lesson.audio) : esc(t('currentMediaFile'))}</span><button type="button" class="btn ghost icon" id="btn-edit-remove-audio" title="${t('delete')}">🗑️</button></div>` : ''}<button type="button" class="btn" id="btn-choose-lesson-audio" data-t="chooseAudioFile">${t('chooseAudioFile')}</button><input type="file" id="lesson-audio-file" accept="audio/*,.mp3,.m4a,.aac,.ogg,.wav,.opus,.amr" style="display:none"><span id="edit-audio-name" class="hint"></span></div>
+        <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonAudioUrl">${t('lessonAudioUrl')}</label><input type="text" name="audioUrl" placeholder="https://..." style="width:100%" value="${audioIsUrl ? esc(lesson.audio) : (mediaIsUrl && isAudioUrl(lesson.media) ? esc(lesson.media) : '')}"></div>
         <div class="form-group" style="margin-top:0.75rem"><label data-t="lessonCaptions">${t('lessonCaptions')}</label><button type="button" class="btn ghost" id="btn-choose-lesson-captions" data-t="chooseCaptionFile">${t('chooseCaptionFile')}</button><input type="file" id="lesson-captions-file" accept=".srt,.txt" style="display:none"></div>
         <div class="form-group" style="margin-top:0.35rem">
           <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.25rem">
@@ -3558,6 +3565,12 @@
       form.elements.videoUrl.value = '';
       form.elements.audioUrl.value = '';
     };
+    const ra = document.getElementById('btn-edit-remove-audio');
+    if (ra) ra.onclick = () => {
+      if (!confirm(t('confirmRemoveAudio'))) return;
+      document.getElementById('edit-lesson-form').dataset.removeAudio = '1';
+      ra.parentElement.innerHTML = `<span class="pill">${esc(t('noMedia'))}</span>`;
+    };
     applyTranslations();
     loadMedia();
   }
@@ -3576,21 +3589,32 @@
     const audioFile = document.getElementById('lesson-audio-file').files[0];
     const videoUrl = form.elements.videoUrl.value.trim();
     const audioUrl = form.elements.audioUrl.value.trim();
-    if (videoFile || audioFile) {
-      newMedia = await storeMedia(videoFile || audioFile);
+    if (videoFile) {
+      newMedia = await storeMedia(videoFile);
       if (!newMedia) { alert(t('mediaSaveError')); return; }
     } else if (videoUrl && videoUrl !== lesson.media) {
       const valid = /^https?:\/\//.test(videoUrl) || /^data:/.test(videoUrl) || /^file:\/\//.test(videoUrl) || /^idb:\/\//.test(videoUrl) || isVideoUrl(videoUrl);
       if (!valid) { alert(t('mediaInvalid')); return; }
       newMedia = videoUrl;
-    } else if (audioUrl && audioUrl !== lesson.media) {
-      const valid = /^https?:\/\//.test(audioUrl) || /^data:/.test(audioUrl) || /^file:\/\//.test(audioUrl) || /^idb:\/\//.test(audioUrl) || isAudioUrl(audioUrl);
-      if (!valid) { alert(t('mediaInvalid')); return; }
-      newMedia = audioUrl;
     }
     const removeOld = form.dataset.removeMedia === '1' || (newMedia && newMedia !== lesson.media);
     if (removeOld && lesson.media) { await deleteMediaRef(lesson.media); delete lesson.media; }
     if (newMedia) lesson.media = newMedia;
+
+    let newAudio = null;
+    if (audioFile) {
+      newAudio = await storeMedia(audioFile);
+      if (!newAudio) { alert(t('mediaSaveError')); return; }
+    } else if (audioUrl && audioUrl !== lesson.audio && audioUrl !== lesson.media) {
+      const valid = /^https?:\/\//.test(audioUrl) || /^data:/.test(audioUrl) || /^file:\/\//.test(audioUrl) || /^idb:\/\//.test(audioUrl) || isAudioUrl(audioUrl);
+      if (!valid) { alert(t('mediaInvalid')); return; }
+      newAudio = audioUrl;
+    }
+    if (form.dataset.removeAudio === '1' && lesson.audio) { await deleteMediaRef(lesson.audio); delete lesson.audio; }
+    if (newAudio) {
+      if (lesson.audio && lesson.audio !== newAudio) await deleteMediaRef(lesson.audio);
+      lesson.audio = newAudio;
+    }
 
     let captionText = form.elements.captions.value.trim();
     const captionFile = document.getElementById('lesson-captions-file').files[0];
