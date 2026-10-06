@@ -341,8 +341,9 @@
   .audio-player { padding: 1rem 0.8rem; background: linear-gradient(135deg, #312e81, #1e1b4b); border-radius: var(--radius); min-height: 170px; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.5rem; }
   .audio-player .audio-badge { font-size: 2rem; text-align: center; }
   .audio-player.has-image { background-size: cover; background-position: center; }
-  .audio-img-btn { position: absolute; top: 0.5rem; right: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 0.9rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-  html[dir="rtl"] .audio-img-btn { right: auto; left: 4.6rem; }
+  .audio-img-btn, .audio-img-del { position: absolute; top: 0.5rem; right: 0.5rem; z-index: 3; width: 2rem; height: 2rem; border: none; border-radius: 50%; background: rgba(0,0,0,0.55); color: #fff; font-size: 0.9rem; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .audio-img-del { top: 2.7rem; font-size: 1.15rem; }
+  html[dir="rtl"] .audio-img-btn, html[dir="rtl"] .audio-img-del { right: auto; left: 4.6rem; }
   .audio-holder { position: relative; }
   .phrase-media.audio-holder.ar-9-16 .audio-player { aspect-ratio: 9/16; min-height: 0; }
   .phrase-media.audio-holder.ar-16-9 .audio-player { aspect-ratio: 16/9; min-height: 0; }
@@ -2486,10 +2487,11 @@
   async function applyAudioImage(container, ref) {
     const player = container && container.querySelector('.audio-player');
     if (!player) return;
+    const delBtn = container.querySelector('.audio-img-del');
     const imgRef = ref ? (state.audioImages[ref] || '') : '';
-    if (!imgRef) { player.style.backgroundImage = ''; player.classList.remove('has-image'); return; }
+    if (!imgRef) { player.style.backgroundImage = ''; player.classList.remove('has-image'); if (delBtn) delBtn.style.display = 'none'; return; }
     const r = await resolveMediaRef(imgRef);
-    if (r.url) { player.style.backgroundImage = `url(${r.url})`; player.classList.add('has-image'); }
+    if (r.url) { player.style.backgroundImage = `url(${r.url})`; player.classList.add('has-image'); if (delBtn) delBtn.style.display = 'inline-flex'; }
   }
 
   function applyVideoAspect(container, ref) {
@@ -3250,7 +3252,7 @@
   }
 
   function audioHTML(src, mediaKey) {
-    return `<div class="audio-player">${aspectSelectHTML(getVideoAspect(mediaKey || src))}<button type="button" class="audio-img-btn" title="${t('chooseImage')}">🖼️</button><input type="file" class="audio-img-input" accept="image/*" hidden><span class="audio-badge">🐓</span><audio src="${esc(src)}" controls loop style="width:100%"></audio></div>`;
+    return `<div class="audio-player">${aspectSelectHTML(getVideoAspect(mediaKey || src))}<button type="button" class="audio-img-btn" title="${t('chooseImage')}">🖼️</button><button type="button" class="audio-img-del" title="${t('removeMedia')}" style="display:none">×</button><input type="file" class="audio-img-input" accept="image/*" hidden><span class="audio-badge">🐓</span><audio src="${esc(src)}" controls loop style="width:100%"></audio></div>`;
   }
 
   function videoLoopButtonHTML() {
@@ -4155,6 +4157,23 @@ Output in French, Arabic and English.`;
       const holder = btn.closest('.audio-holder');
       const inp = holder && holder.querySelector('.audio-img-input');
       if (inp) inp.click();
+    });
+
+    document.addEventListener('click', async e => {
+      const btn = e.target.closest('.audio-img-del');
+      if (!btn) return;
+      e.preventDefault();
+      const holder = btn.closest('.audio-holder');
+      if (!holder) return;
+      const ref = holder.dataset.mediaRef || holder.dataset.mediaSrc || '';
+      const imgRef = state.audioImages[ref];
+      if (!imgRef) return;
+      if (!confirm(t('confirmRemoveImage'))) return;
+      delete state.audioImages[ref];
+      localStorage.setItem('zeek_audio_images', JSON.stringify(state.audioImages));
+      if (isIDBMedia(imgRef)) { try { await deleteMediaRef(imgRef); } catch (_) {} }
+      await applyAudioImage(holder, ref);
+      showToast(t('deleted'));
     });
 
     document.addEventListener('change', async e => {
