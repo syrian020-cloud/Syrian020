@@ -183,6 +183,7 @@
     <span class="logo">🏛️ <span data-t="appName">Vidmap</span></span>
     <div class="spacer"></div>
     <button class="icon-btn" id="themeBtn" title="Theme">🌙</button>
+    <button class="icon-btn" id="edgeBtn" title="صوت طبيعي (إنترنت)">🔊</button>
     <button class="icon-btn lang-btn" data-lang="ar">AR</button>
     <button class="icon-btn lang-btn" data-lang="en">EN</button>
     <button class="icon-btn lang-btn" data-lang="fr">FR</button>
@@ -230,6 +231,7 @@
 </footer>
 <div class="toast" id="toast"></div>
 
+<script src="js/edge-tts.js"></script>
 <script src="data/centres.js"></script>
 <script>
 (function () {
@@ -242,7 +244,8 @@
       heroDesc: 'حوارات وعبارات جاهزة لكل مركز إداري — اضغط على العلم لسماع العبارة بأي لغة.',
       centres: 'مراكز', sections: 'أقسام', phrases: 'عبارة',
       wordsFr: 'كلمة فرنسية', searchPh: 'ابحث في العبارات…', noResults: 'لا توجد نتائج', stop: 'إيقاف', home: 'الرئيسية',
-      backToFrench: '← العودة إلى دروس الفرنسية'
+      backToFrench: '← العودة إلى دروس الفرنسية',
+      edgeOn: 'الصوت الطبيعي مفعّل (إنترنت)', edgeOff: 'صوت الجهاز'
     },
     en: {
       appName: 'Vidmap',
@@ -250,7 +253,8 @@
       heroDesc: 'Ready-made dialogues for every administrative centre — tap a flag to hear the phrase in that language.',
       centres: 'centres', sections: 'sections', phrases: 'phrases',
       wordsFr: 'French words', searchPh: 'Search phrases…', noResults: 'No results', stop: 'Stop', home: 'Home',
-      backToFrench: '← Back to French lessons'
+      backToFrench: '← Back to French lessons',
+      edgeOn: 'Neural voice on (internet)', edgeOff: 'Device voice'
     },
     fr: {
       appName: 'Vidmap',
@@ -258,7 +262,8 @@
       heroDesc: 'Dialogues prêts pour chaque centre administratif — touchez un drapeau pour entendre la phrase.',
       centres: 'centres', sections: 'sections', phrases: 'phrases',
       wordsFr: 'mots français', searchPh: 'Rechercher une phrase…', noResults: 'Aucun résultat', stop: 'Arrêter', home: 'Accueil',
-      backToFrench: '← Retour aux cours de français'
+      backToFrench: '← Retour aux cours de français',
+      edgeOn: 'Voix neurale activée (internet)', edgeOff: 'Voix de l\'appareil'
     }
   };
 
@@ -300,6 +305,7 @@
 
   function stopSpeaking() {
     speakSeq++;
+    if (window.EdgeTTS) EdgeTTS.stop();
     if (nativeTTS && window.Capacitor.Plugins.TextToSpeech.stop) {
       try { window.Capacitor.Plugins.TextToSpeech.stop(); } catch (e) {}
     }
@@ -323,8 +329,7 @@
     var done = function () { if (seq === speakSeq) el.classList.remove('looping'); };
     text = cleanSpoken(text);
     if (!text) { done(); return; }
-    if (nativeTTS) speakNative(text, lang || 'fr', 0, done);
-    else speakWeb(text, lang || 'fr', 0, done);
+    speakAuto(text, lang || 'fr', 0, done);
   }
 
   function searchImages(text) {
@@ -396,8 +401,7 @@
         if (phraseEls[idx]) phraseEls[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
       var step = function () { li++; if (li >= langs.length) { li = 0; idx++; } play(); };
-      if (nativeTTS) speakNative(text, langs[li], 1, step);
-      else speakWeb(text, langs[li], 1, step);
+      speakAuto(text, langs[li], 1, step);
     }
     play();
   }
@@ -410,8 +414,41 @@
     if (!text) { btn.classList.remove('speaking'); return; }
     var seq = speakSeq;
     var done = function () { if (seq === speakSeq) btn.classList.remove('speaking'); };
-    if (nativeTTS) speakNative(text, lang, state.loop, done);
-    else speakWeb(text, lang, state.loop, done);
+    speakAuto(text, lang, state.loop, done);
+  }
+
+  /* ---------- Edge/neural voice (internet) with native/web fallback ---------- */
+  function speakEdge(text, lang, times, done, fail) {
+    var seq = speakSeq;
+    EdgeTTS.audio(text, lang).then(function (a) {
+      if (seq !== speakSeq) { done(); return; }
+      var n = 0;
+      (function once() {
+        if ((times > 0 && n >= times) || seq !== speakSeq) { done(); return; }
+        EdgeTTS.playUrl(a.url).then(function () { n++; once(); }).catch(function () {
+          if (seq !== speakSeq) { done(); return; }
+          EdgeTTS.down = true;
+          fail();
+        });
+      })();
+    }).catch(function () { fail(); });
+  }
+
+  function speakFallback(text, lang, times, done) {
+    if (nativeTTS) speakNative(text, lang, times, done);
+    else speakWeb(text, lang, times, done);
+  }
+
+  function speakAuto(text, lang, times, done) {
+    if (window.EdgeTTS && EdgeTTS.supported()) {
+      var seq0 = speakSeq;
+      speakEdge(text, lang, times, done, function () {
+        if (seq0 !== speakSeq) return;
+        speakFallback(text, lang, times, done);
+      });
+    } else {
+      speakFallback(text, lang, times, done);
+    }
   }
 
   /* ---------- rendering ---------- */
@@ -620,6 +657,18 @@
     };
   });
   document.getElementById('stopBtn').onclick = stopSpeaking;
+  var edgeBtn = document.getElementById('edgeBtn');
+  function paintEdgeBtn() {
+    edgeBtn.classList.toggle('on', !!(window.EdgeTTS && EdgeTTS.enabled()));
+  }
+  edgeBtn.onclick = function () {
+    var v = !(window.EdgeTTS && EdgeTTS.enabled());
+    if (window.EdgeTTS) EdgeTTS.setEnabled(v);
+    if (!v) stopSpeaking();
+    paintEdgeBtn();
+    toast(v ? '🔊 ' + t('edgeOn') : t('edgeOff'));
+  };
+  paintEdgeBtn();
   var searchT = null;
   document.getElementById('search').oninput = function (e) {
     state.query = e.target.value;
