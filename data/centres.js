@@ -23322,4 +23322,19 @@ window.CENTRES_DATA = [
       { fr: 'Ce soir, je vais juste me reposer.', ar: 'اليوم بالليل رح ارتاح بس.', en: 'Tonight, I’m just going to rest.' },
     ] },
   ] },
+  { id: 'maths', icon: '🔢', name: { ar: 'الرياضيات', en: 'Maths', fr: 'Mathématiques' }, desc: { ar: 'جدول الضرب والعمليات', en: 'Times tables & operations', fr: 'Tables de multiplication & opérations' }, sections: [
+    { icon: '✖️', title: { ar: 'جدول الضرب', en: 'Multiplication table', fr: 'Table de multiplication' }, phrases: [
+        { fr: 'Table de multiplication de 1', ar: 'قاعدة جدول ضرب 1', en: 'The 1 times table' },
+        { fr: 'Un multiplié par 1 égale 1.', ar: '1 × 1 = 1', en: 'One times one equals one.' },
+        { fr: 'Un multiplié par 2 égale 2.', ar: '1 × 2 = 2', en: 'One times two equals two.' },
+        { fr: 'Un multiplié par 3 égale 3.', ar: '1 × 3 = 3', en: 'One times three equals three.' },
+        { fr: 'Un multiplié par 4 égale 4.', ar: '1 × 4 = 4', en: 'One times four equals four.' },
+        { fr: 'Un multiplié par 5 égale 5.', ar: '1 × 5 = 5', en: 'One times five equals five.' },
+        { fr: 'Un multiplié par 6 égale 6.', ar: '1 × 6 = 6', en: 'One times six equals six.' },
+        { fr: 'Un multiplié par 7 égale 7.', ar: '1 × 7 = 7', en: 'One times seven equals seven.' },
+        { fr: 'Un multiplié par 8 égale 8.', ar: '1 × 8 = 8', en: 'One times eight equals eight.' },
+        { fr: 'Un multiplié par 9 égale 9.', ar: '1 × 9 = 9', en: 'One times nine equals nine.' },
+        { fr: 'Un multiplié par 10 égale 10.', ar: '1 × 10 = 10', en: 'One times ten equals ten.' },
+    ] },
+  ] },
 ];
