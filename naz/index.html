@@ -460,6 +460,14 @@
     background: rgba(255,107,122,0.1); border: 1px solid var(--danger); color: var(--danger);
     border-radius: var(--radius); padding: 0.7rem 1rem; margin-bottom: 0.9rem; font-size: 0.95rem;
   }
+  .update-banner {
+    display: none; align-items: center; gap: 0.6rem;
+    background: linear-gradient(135deg, rgba(52,211,153,.16), rgba(124,58,237,.16));
+    border: 1px solid var(--accent); color: var(--text-primary); font-weight: 600;
+    border-radius: var(--radius); padding: 0.7rem 1rem; margin-bottom: 0.9rem; font-size: 0.95rem;
+  }
+  .update-banner .btn { margin-inline-start: auto; }
+  .update-dismiss { background: none; border: none; color: var(--text-secondary); font-size: 1.25rem; cursor: pointer; padding: 0 0.2rem; }
   [data-mode="light"] .line.active { background: #f0f9f4; }
   [data-mode="light"] .line.synced { background: #e8f5e9; }
   [data-mode="light"] .btns .ai-btn.on { color: #7c3aed; border-color: #7c3aed; background: #ede9fe; }
@@ -534,6 +542,11 @@
   <div id="tts-banner" class="tts-banner">
     <span id="tts-msg"></span>
     <button id="tts-install" class="btn" style="font-size:0.85rem; padding:0.35rem 0.8rem; margin-inline-start:auto;"></button>
+  </div>
+  <div id="update-banner" class="update-banner">
+    <span>⬆️ <span data-t="updateAvailable">تحديث جديد متاح</span></span>
+    <button id="update-btn" class="btn" data-t="updateDownload" style="font-size:0.85rem; padding:0.35rem 0.8rem;">تحميل التحديث</button>
+    <button id="update-dismiss" class="update-dismiss" title="×">×</button>
   </div>
   <div id="view"></div>
 </main>
@@ -707,6 +720,11 @@
   const LESSONS_URL_BASE = 'https://syrian020-cloud.github.io/Syrian020/' + LESSONS_PATH;
   const MEDIA_PATH_PREFIX = 'naz/media/';
   const MEDIA_URL_BASE = 'https://syrian020-cloud.github.io/Syrian020/' + MEDIA_PATH_PREFIX;
+  // App self-update: bump APP_BUILD each shipped build; the server file
+  // naz/data/app-<variant>.json ({build, apk}) tells installs a newer APK exists.
+  const APP_BUILD = 1;
+  const APP_VARIANT = localStorage.getItem(ADMIN_WANT_STORE) === '1' ? 'admin' : 'user';
+  const APP_VERSION_URL = 'https://syrian020-cloud.github.io/Syrian020/naz/data/app-' + APP_VARIANT + '.json';
   const ADMIN_KEY_STORE = 'naz_admin_key';
   const ADMIN_WANT_STORE = 'naz_admin_want';
   const VERSION_STORE = 'naz_lessons_version';
@@ -915,6 +933,22 @@
   }
 
   // Users get fresh lessons automatically: on resume/focus and every minute.
+  let lastUpdateCheck = 0;
+  let updateApkUrl = '';
+  async function checkAppUpdate() {
+    if (Date.now() - lastUpdateCheck < 10 * 60 * 1000) return;
+    lastUpdateCheck = Date.now();
+    try {
+      const r = await fetch(APP_VERSION_URL + '?ts=' + Date.now());
+      if (!r.ok) return;
+      const d = await r.json();
+      if ((d.build || 0) > APP_BUILD && d.apk) {
+        updateApkUrl = d.apk;
+        document.getElementById('update-banner').style.display = 'flex';
+      }
+    } catch (e) { }
+  }
+
   let lastAutoPull = 0;
   async function autoPullLessons() {
     if (canEdit() && isDirty()) return; // never clobber unpublished admin edits
@@ -1737,6 +1771,8 @@
     engineNative: { ar: 'صوت الجهاز', en: 'Device voices', fr: "Voix de l'appareil" },
     voiceTest: { ar: 'تجربة الصوت', en: 'Test voice', fr: 'Tester la voix' },
     pullOverwriteWarn: { ar: 'لديك تغييرات غير منشورة وستُستبدل بنسخة الخادم. متابعة؟', en: 'You have unpublished changes that will be replaced by the server copy. Continue?', fr: 'Vous avez des modifications non publiées qui seront remplacées par la copie du serveur. Continuer ?' },
+    updateAvailable: { ar: 'تحديث جديد متاح', en: 'New update available', fr: 'Nouvelle mise à jour disponible' },
+    updateDownload: { ar: 'تحميل التحديث', en: 'Download update', fr: 'Télécharger la mise à jour' },
     unsyncedChanges: { ar: 'تغييرات غير منشورة', en: 'Unpublished changes', fr: 'Modifications non publiées' },
     serverNewer: { ar: 'نسخة أحدث على الخادم — اسحب للتحديث', en: 'Newer version on server — pull to update', fr: 'Version plus récente sur le serveur — tirez pour mettre à jour' },
     news: { ar: 'أخبار', en: 'News', fr: 'Actualités' },
@@ -5472,9 +5508,12 @@ Output in French, Arabic and English.`;
     if (nativeTTS()) checkNativeTTS();
     const LN = localNotifPlugin();
     if (LN) { try { LN.addListener('localNotificationActionPerformed', () => go({ name: 'news' })); } catch (e) {} }
-    document.addEventListener('visibilitychange', () => { if (!document.hidden) autoPullLessons(); });
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) { autoPullLessons(); checkAppUpdate(); } });
     window.addEventListener('focus', autoPullLessons);
     setInterval(autoPullLessons, 60000);
+    checkAppUpdate();
+    document.getElementById('update-btn').onclick = () => { if (updateApkUrl) window.open(updateApkUrl, '_blank'); };
+    document.getElementById('update-dismiss').onclick = () => { document.getElementById('update-banner').style.display = 'none'; };
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
