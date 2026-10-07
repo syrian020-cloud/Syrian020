@@ -526,6 +526,7 @@
       <option value="ar" data-t="loopArabicOnly">🔁 AR only</option>
       <option value="en" data-t="loopEnglishOnly">🔁 EN only</option>
     </select>
+    <button class="contact-btn refresh-btn" id="btn-voice" data-t-title="voiceSettings" title="Voice settings">🗣️</button>
     <a class="contact-btn whatsapp" href="https://wa.me/33775813643" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp"><img src="whatsapp-icon.png" alt="WhatsApp" style="width:28px;height:28px;border-radius:6px;display:block"></a>
     <a class="contact-btn gmail" href="mailto:Syrian020@gmail.com" title="Gmail" aria-label="Gmail"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2l-8 5.5L4 6h16zM4 18V8.5l7.5 5.1L20 8.5V18H4z"/></svg></a>
     <button class="contact-btn news-btn" id="btn-news-admin" title="أخبار" style="display:none">📢</button>
@@ -667,6 +668,26 @@
     <div id="caption-examples-list" class="caption-examples"></div>
     <div class="form-actions" style="margin-top:0.75rem">
       <button type="button" class="btn ghost" id="btn-close-caption-examples" data-t="cancel">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<div id="voice-modal" class="modal" style="z-index:98">
+  <div class="modal-content" style="max-width:420px">
+    <h3 data-t="voiceSettings">إعدادات الصوت</h3>
+    <div class="form-group">
+      <label data-t="ttsEngine">محرك النطق</label>
+      <select id="vs-engine" class="ctl" style="width:100%">
+        <option value="edge" data-t="engineEdge">Edge — صوت طبيعي</option>
+        <option value="auto" data-t="engineNative">صوت الجهاز</option>
+      </select>
+    </div>
+    <div class="form-group"><label>🇫🇷 FR</label><select id="vs-fr" class="ctl" style="width:100%"></select></div>
+    <div class="form-group"><label>🇸🇾 AR</label><select id="vs-ar" class="ctl" style="width:100%"></select></div>
+    <div class="form-group"><label>🇺🇸 EN</label><select id="vs-en" class="ctl" style="width:100%"></select></div>
+    <div class="form-actions" style="margin-top:0.75rem">
+      <button type="button" class="btn" id="btn-voice-test" data-t="voiceTest">تجربة الصوت</button>
+      <button type="button" class="btn ghost" id="btn-close-voice" data-t="cancel">إلغاء</button>
     </div>
   </div>
 </div>
@@ -1710,6 +1731,11 @@
     syncDone: { ar: 'تمت المزامنة', en: 'Synced', fr: 'Synchronisé' },
     syncFailed: { ar: 'فشلت المزامنة', en: 'Sync failed', fr: 'Échec de la synchronisation' },
     refresh: { ar: 'تحديث', en: 'Refresh', fr: 'Actualiser' },
+    voiceSettings: { ar: 'إعدادات الصوت', en: 'Voice settings', fr: 'Paramètres vocaux' },
+    ttsEngine: { ar: 'محرك النطق', en: 'Speech engine', fr: 'Moteur vocal' },
+    engineEdge: { ar: 'Edge — صوت طبيعي', en: 'Edge — natural voices', fr: 'Edge — voix naturelles' },
+    engineNative: { ar: 'صوت الجهاز', en: 'Device voices', fr: "Voix de l'appareil" },
+    voiceTest: { ar: 'تجربة الصوت', en: 'Test voice', fr: 'Tester la voix' },
     pullOverwriteWarn: { ar: 'لديك تغييرات غير منشورة وستُستبدل بنسخة الخادم. متابعة؟', en: 'You have unpublished changes that will be replaced by the server copy. Continue?', fr: 'Vous avez des modifications non publiées qui seront remplacées par la copie du serveur. Continuer ?' },
     unsyncedChanges: { ar: 'تغييرات غير منشورة', en: 'Unpublished changes', fr: 'Modifications non publiées' },
     serverNewer: { ar: 'نسخة أحدث على الخادم — اسحب للتحديث', en: 'Newer version on server — pull to update', fr: 'Version plus récente sur le serveur — tirez pour mettre à jour' },
@@ -1866,7 +1892,9 @@
     uiLang: localStorage.getItem('naz_ui_lang') || 'ar',
     theme: localStorage.getItem('naz_theme') || 'dark',
     voiceLang: { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' },
-    ttsAvailable: false
+    ttsAvailable: false,
+    ttsEngine: localStorage.getItem('naz_tts_engine') || 'edge',
+    edgeVoices: JSON.parse(localStorage.getItem('naz_edge_voices') || '{}')
   };
 
   let speechRun = 0;
@@ -3138,14 +3166,129 @@
     });
   }
 
+  // --- Edge TTS (Microsoft neural voices via the readaloud websocket) ---
+  const EDGE_TTS_TOKEN = '6A5AA1D4EAFF4E9FB37E23D68491D6F4';
+  const EDGE_TTS_VER = '1-134.0.3124.72';
+  const EDGE_VOICE_LIST = {
+    fr: ['fr-FR-DeniseNeural', 'fr-FR-HenriNeural', 'fr-FR-EloiseNeural', 'fr-FR-VivienneMultilingualNeural', 'fr-FR-RemyMultilingualNeural', 'fr-CA-SylvieNeural', 'fr-CA-ThierryNeural'],
+    ar: ['ar-SY-AmanyNeural', 'ar-SY-LaithNeural', 'ar-SA-ZariyahNeural', 'ar-SA-HamedNeural', 'ar-EG-SalmaNeural', 'ar-EG-ShakirNeural', 'ar-JO-SanaNeural', 'ar-MA-MounaNeural'],
+    en: ['en-US-EmmaNeural', 'en-US-AndrewNeural', 'en-US-AriaNeural', 'en-US-GuyNeural', 'en-US-AnaNeural', 'en-GB-SoniaNeural', 'en-GB-RyanNeural', 'en-AU-NatashaNeural']
+  };
+
+  function edgeEnabled() { return state.ttsEngine === 'edge'; }
+  function edgeVoiceFor(lang) { return state.edgeVoices[lang] || (EDGE_VOICE_LIST[lang] && EDGE_VOICE_LIST[lang][0]) || 'en-US-EmmaNeural'; }
+
+  async function edgeGEC() {
+    const ticks = (BigInt(Math.floor(Date.now() / 1000)) + 11644473600n) * 10000000n;
+    const rounded = ticks - (ticks % 3000000000n);
+    const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(rounded.toString() + EDGE_TTS_TOKEN));
+    return [...new Uint8Array(digest)].map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase();
+  }
+
+  function ssmlEscape(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/'/g, '&apos;').replace(/"/g, '&quot;');
+  }
+
+  let edgeVoiceListCache = null;
+  async function loadEdgeVoiceList() {
+    if (edgeVoiceListCache) return edgeVoiceListCache;
+    try {
+      const gec = await edgeGEC();
+      const r = await fetch('https://speech.platform.bing.com/consumer/speech/synthesize/readaloud/voices/list?trustedclienttoken=' + EDGE_TTS_TOKEN + '&Sec-MS-GEC=' + gec + '&Sec-MS-GEC-Version=' + EDGE_TTS_VER);
+      if (!r.ok) throw new Error('voices ' + r.status);
+      const arr = await r.json();
+      const byLang = { fr: [], ar: [], en: [] };
+      (arr || []).forEach(v => {
+        const n = v.ShortName || '';
+        const pre = n.slice(0, 2);
+        if (byLang[pre] && /Neural$/.test(n)) byLang[pre].push(n);
+      });
+      if (byLang.fr.length && byLang.ar.length && byLang.en.length) edgeVoiceListCache = byLang;
+    } catch (e) {}
+    return edgeVoiceListCache || EDGE_VOICE_LIST;
+  }
+
+  let edgeQueue = Promise.resolve();
+  function edgeSynthesize(text, lang) {
+    const voice = edgeVoiceFor(lang);
+    edgeQueue = edgeQueue.catch(() => {}).then(() => edgeFetchAudio(text, voice));
+    return edgeQueue;
+  }
+
+  async function edgeFetchAudio(text, voice) {
+    const gec = await edgeGEC();
+    const connId = crypto.randomUUID().replace(/-/g, '');
+    const url = 'wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=' + EDGE_TTS_TOKEN + '&Sec-MS-GEC=' + gec + '&Sec-MS-GEC-Version=' + EDGE_TTS_VER + '&ConnectionId=' + connId;
+    const ws = new WebSocket(url);
+    ws.binaryType = 'arraybuffer';
+    const ratePct = Math.max(-50, Math.min(100, Math.round(((state.rate || 1) - 1) * 100)));
+    const ssml = "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='" + voice + "'><prosody pitch='+0Hz' rate='" + (ratePct >= 0 ? '+' + ratePct : ratePct) + "%' volume='+0%'>" + ssmlEscape(text) + "</prosody></voice></speak>";
+    return new Promise((resolve, reject) => {
+      const chunks = [];
+      let settled = false;
+      const done = (fn, v) => { if (!settled) { settled = true; try { ws.close(); } catch (e) {} fn(v); } };
+      const timer = setTimeout(() => done(reject, 'edge timeout'), 15000);
+      ws.onopen = () => {
+        ws.send('X-Timestamp:' + new Date().toISOString() + '\r\nContent-Type:application/json; charset=utf-8\r\nPath:speech.config\r\n\r\n{"context":{"synthesis":{"audio":{"metadataoptions":{"sentenceBoundaryEnabled":"false","wordBoundaryEnabled":"false"},"outputFormat":"audio-24khz-48kbitrate-mono-mp3"}}}}');
+        ws.send('X-RequestId:' + crypto.randomUUID().replace(/-/g, '') + '\r\nContent-Type:application/ssml+xml\r\nX-Timestamp:' + new Date().toISOString() + '\r\nPath:ssml\r\n\r\n' + ssml);
+      };
+      ws.onmessage = e => {
+        const data = e.data;
+        if (typeof data === 'string') {
+          if (data.indexOf('Path:turn.end') >= 0) {
+            clearTimeout(timer);
+            done(chunks.length ? resolve : reject, chunks.length ? new Blob(chunks, { type: 'audio/mpeg' }) : 'no audio');
+          }
+          return;
+        }
+        const dv = new DataView(data);
+        const hl = dv.getUint16(0);
+        const header = new TextDecoder().decode(data.slice(2, 2 + hl));
+        if (header.indexOf('Path:audio') >= 0) chunks.push(data.slice(2 + hl));
+      };
+      ws.onerror = () => { clearTimeout(timer); done(reject, 'edge ws error'); };
+      ws.onclose = e => { if (!settled) { clearTimeout(timer); done(chunks.length ? resolve : reject, chunks.length ? new Blob(chunks, { type: 'audio/mpeg' }) : 'edge closed ' + e.code); } };
+    });
+  }
+
+  let edgePending = null;
+  function edgeSpeak(text, lang) {
+    return edgeSynthesize(text, lang).then(blob => new Promise((resolve, reject) => {
+      if (!blob || !blob.size) { reject('no audio'); return; }
+      edgeStop();
+      const url = URL.createObjectURL(blob);
+      const a = new Audio(url);
+      edgePending = {
+        a: a, url: url,
+        finish: ok => {
+          if (edgePending && edgePending.a === a) edgePending = null;
+          try { URL.revokeObjectURL(url); } catch (e) {}
+          ok ? resolve() : reject('stopped');
+        }
+      };
+      a.onended = () => { if (edgePending && edgePending.a === a) edgePending.finish(true); };
+      a.onerror = () => { if (edgePending && edgePending.a === a) edgePending.finish(false); };
+      a.play().catch(() => { if (edgePending && edgePending.a === a) edgePending.finish(false); });
+    }));
+  }
+  function edgeStop() {
+    if (!edgePending) return;
+    const p = edgePending;
+    try { p.a.pause(); } catch (e) {}
+    p.finish(false);
+  }
+
+  function fallbackSpeak(t, lang) {
+    if (speakSupported()) return nativeSpeak(t, lang);
+    if (webTTS()) return webSpeak(t, lang);
+    return Promise.reject('no tts');
+  }
+
   function anySpeak(text, lang) {
     const t = stripSpeechFlags(text);
     if (!t) return Promise.reject('empty tts');
     pauseAllMedia();
-    let p;
-    if (speakSupported()) p = nativeSpeak(t, lang);
-    else if (webTTS()) p = webSpeak(t, lang);
-    else return Promise.reject('no tts');
+    const p = edgeEnabled() ? edgeSpeak(t, lang).catch(() => fallbackSpeak(t, lang)) : fallbackSpeak(t, lang);
     ttsActive++;
     const done = () => { ttsActive = Math.max(0, ttsActive - 1); };
     p.then(done, done);
@@ -3158,16 +3301,18 @@
   }
 
   function anyStop() {
+    edgeStop();
     nativeStop();
     const synth = webTTS();
     if (synth) synth.cancel();
   }
 
   function anyTTSAvailable() {
-    return speakSupported() || !!webTTS();
+    return edgeEnabled() || speakSupported() || !!webTTS();
   }
 
   async function prepareTTS() {
+    if (edgeEnabled()) { hideTTSBanner(); return true; }
     if (anyTTSAvailable()) { hideTTSBanner(); return true; }
     if (!nativeTTS() && !('speechSynthesis' in window)) return false;
     if (nativeTTS()) checkNativeTTS();
@@ -4466,6 +4611,24 @@ EN: Maria, I’m out of cigarettes.`
     document.getElementById('caption-examples-modal').classList.add('show');
   }
   function closeCaptionExamples() { document.getElementById('caption-examples-modal').classList.remove('show'); }
+
+  async function openVoiceSettings() {
+    const m = document.getElementById('voice-modal');
+    document.getElementById('vs-engine').value = state.ttsEngine;
+    const fill = list => {
+      ['fr', 'ar', 'en'].forEach(lang => {
+        const sel = document.getElementById('vs-' + lang);
+        const cur = edgeVoiceFor(lang);
+        sel.innerHTML = (list[lang] || []).map(v =>
+          `<option value="${v}"${v === cur ? ' selected' : ''}>${esc(v.replace(/Multilingual/, ' Multi').replace(/Neural$/, '').split('-').pop())} · ${v.slice(0, 5)}</option>`
+        ).join('');
+      });
+    };
+    fill(edgeVoiceListCache || EDGE_VOICE_LIST);
+    m.classList.add('show');
+    const list = await loadEdgeVoiceList();
+    if (m.classList.contains('show')) fill(list);
+  }
   function copyCaptionExample(i) { copyText(CAPTION_EXAMPLES[i] || ''); showToast(t('copied')); }
 
   let noteKey = null;
@@ -5201,6 +5364,23 @@ Output in French, Arabic and English.`;
         if (copyBtn) { copyCaptionExample(+copyBtn.dataset.i); }
       });
     }
+    document.getElementById('btn-voice').onclick = openVoiceSettings;
+    const voiceModalEl = document.getElementById('voice-modal');
+    voiceModalEl.addEventListener('click', e => { if (e.target === voiceModalEl) voiceModalEl.classList.remove('show'); });
+    document.getElementById('btn-close-voice').onclick = () => voiceModalEl.classList.remove('show');
+    document.getElementById('vs-engine').onchange = e => { state.ttsEngine = e.target.value; localStorage.setItem('naz_tts_engine', state.ttsEngine); stopSpeech(); };
+    ['fr', 'ar', 'en'].forEach(lang => {
+      document.getElementById('vs-' + lang).onchange = e => {
+        state.edgeVoices[lang] = e.target.value;
+        localStorage.setItem('naz_edge_voices', JSON.stringify(state.edgeVoices));
+        stopSpeech();
+      };
+    });
+    document.getElementById('btn-voice-test').onclick = () => {
+      const sample = { ar: 'مرحباً، أهلاً وسهلاً بك', fr: 'Bonjour, bienvenue', en: 'Hello, welcome' };
+      const lang = sample[state.uiLang] ? state.uiLang : 'fr';
+      anySpeak(sample[lang], lang).catch(() => {});
+    };
     document.getElementById('btn-theme').onclick = toggleTheme;
     document.getElementById('btn-stop').onclick = stopAll;
     document.querySelectorAll('.lang-btn').forEach(b => b.onclick = () => setUILang(b.dataset.lang));

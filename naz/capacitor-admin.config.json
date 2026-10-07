@@ -7,11 +7,13 @@
   },
   "android": {
     "allowMixedContent": true,
-    "captureInput": false
+    "captureInput": false,
+    "appendUserAgent": " Edg/134.0.0.0"
   },
   "plugins": {
     "CapacitorHttp": {
       "enabled": true
     }
-  }
+  },
+  "appendUserAgent": " Edg/134.0.0.0"
 }
