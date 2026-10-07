@@ -2862,14 +2862,8 @@
       }
       if (!key) return;
       if (lb) { try { video.pause(); } catch (err) {} if (state.loop && state.loop.type === 'video') state.loop = null; toggleLangLoop(lang, key); }
+      else if (wordDoubleTap(word, lang)) { stopSpeech(); googleImageForWord(word); }
       else toggleWordLoop(word, lang, key);
-    });
-
-    textDiv.addEventListener('dblclick', e => {
-      const w = e.target.closest('.cap-word');
-      if (!w || !w.dataset.word) return;
-      e.stopPropagation();
-      googleImageForWord(w.dataset.word);
     });
 
     const makeCap = (text, lang) => {
@@ -3572,6 +3566,14 @@
       const clean = w.replace(/^[\p{P}\p{S}]+|[\p{P}\p{S}]+$/gu, '');
       return `<span class="word" data-lang="${esc(lang)}" data-word="${esc(clean || w)}">${esc(w)}</span>`;
     }).join(' ');
+  }
+
+  let lastWordTap = { word: '', lang: '', time: 0 };
+  function wordDoubleTap(word, lang) {
+    const now = Date.now();
+    const dbl = lastWordTap.word === word && lastWordTap.lang === lang && now - lastWordTap.time < 400;
+    lastWordTap = { word, lang, time: now };
+    return dbl;
   }
 
   function googleImageForWord(word) {
@@ -4914,6 +4916,7 @@ EN: Maria, I’m out of cigarettes.`
       const word = e.target.closest('.word');
       if (word) {
         e.stopPropagation();
+        if (wordDoubleTap(word.dataset.word, word.dataset.lang)) { googleImageForWord(word.dataset.word); return; }
         toggleWordLoop(word.dataset.word, word.dataset.lang, key);
         return;
       }
@@ -4954,13 +4957,6 @@ Output in French, Arabic and English.`;
         const q = stripSpeechFlags(p.fr) + ' clipart';
         window.open('https://www.google.com/search?q=' + encodeURIComponent(q) + '&udm=2&hl=' + state.uiLang, '_blank');
       }
-    });
-
-    view.addEventListener('dblclick', e => {
-      const w = e.target.closest('.word');
-      if (!w || !w.dataset.word) return;
-      e.stopPropagation();
-      googleImageForWord(w.dataset.word);
     });
   }
 
