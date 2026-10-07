@@ -41,6 +41,70 @@ public class EdgeTtsPlugin extends Plugin {
 
     private final OkHttpClient client = new OkHttpClient();
 
+    private android.media.MediaPlayer mediaPlayer;
+    private PluginCall pendingPlayCall;
+
+    /**
+     * Plays a synthesized MP3 natively with MediaPlayer. We do NOT request
+     * audio focus, so the WebView <video> keeps playing alongside TTS
+     * (a second HTMLAudioElement would suspend it inside the WebView).
+     */
+    @PluginMethod
+    public void play(PluginCall call) {
+        String path = call.getString("path");
+        if (path == null || path.isEmpty()) {
+            call.reject("missing path");
+            return;
+        }
+        stopPlayer(true);
+        try {
+            android.media.MediaPlayer mp = new android.media.MediaPlayer();
+            mediaPlayer = mp;
+            pendingPlayCall = call;
+            mp.setDataSource(path);
+            mp.setOnCompletionListener(m -> {
+                PluginCall pc = pendingPlayCall;
+                pendingPlayCall = null;
+                cleanupPlayer();
+                if (pc != null) pc.resolve();
+            });
+            mp.setOnErrorListener((m, what, extra) -> {
+                PluginCall pc = pendingPlayCall;
+                pendingPlayCall = null;
+                cleanupPlayer();
+                if (pc != null) pc.reject("playback error " + what);
+                return true;
+            });
+            mp.prepare();
+            mp.start();
+        } catch (Exception e) {
+            pendingPlayCall = null;
+            cleanupPlayer();
+            call.reject("play failed: " + e.getMessage(), e);
+        }
+    }
+
+    @PluginMethod
+    public void stop(PluginCall call) {
+        stopPlayer(true);
+        call.resolve();
+    }
+
+    private void cleanupPlayer() {
+        if (mediaPlayer != null) {
+            try { mediaPlayer.stop(); } catch (Exception ignored) {}
+            try { mediaPlayer.release(); } catch (Exception ignored) {}
+            mediaPlayer = null;
+        }
+    }
+
+    private void stopPlayer(boolean resolvePending) {
+        PluginCall pc = pendingPlayCall;
+        pendingPlayCall = null;
+        cleanupPlayer();
+        if (resolvePending && pc != null) pc.resolve();
+    }
+
     @PluginMethod
     public void speak(PluginCall call) {
         String text = call.getString("text");
