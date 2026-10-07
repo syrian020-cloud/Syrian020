@@ -68,6 +68,7 @@
   var cacheOrder = [];
   var pending = {};
   var curAudio = null;
+  var curNative = false;
 
   function ls(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
@@ -119,7 +120,7 @@
     var p = plugin();
     if (p) {
       return p.speak({ text: text, voice: voiceOf(lang), rate: rateOf(lang) })
-        .then(function (r) { return { url: fileUrl(r.path) }; });
+        .then(function (r) { return { url: fileUrl(r.path), nativePath: r.path }; });
     }
     return Promise.resolve({ url: rvUrl(text, lang) });
   }
@@ -173,13 +174,34 @@
     });
   }
 
+  function playEntry(a) {
+    var p = plugin();
+    // Native MediaPlayer playback keeps the <video> playing alongside TTS —
+    // an HTMLAudioElement would suspend it inside the Android WebView.
+    if (p && a.nativePath && typeof p.play === 'function') {
+      curNative = true;
+      return p.play({ path: a.nativePath }).then(function () {
+        curNative = false;
+      }, function (e) {
+        curNative = false;
+        throw e;
+      });
+    }
+    return playUrl(a.url);
+  }
+
   function play(text, lang) {
     return audio(text, lang).then(function (a) {
-      return playUrl(a.url).catch(function (e) { api.down = true; throw e; });
+      return playEntry(a).catch(function (e) { api.down = true; throw e; });
     });
   }
 
   function stop() {
+    var p = plugin();
+    if (curNative && p && typeof p.stop === 'function') {
+      try { p.stop({}); } catch (e) {}
+      curNative = false;
+    }
     if (curAudio) {
       try { curAudio.pause(); } catch (e) {}
       curAudio = null;
