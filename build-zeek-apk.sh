@@ -6,19 +6,19 @@ export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform
 
 ROOT=$(pwd)
 
-# Build the Capacitor web assets for viper
+# Build the Capacitor web assets for zeek
 rm -rf www
 mkdir -p www/data www/js
 
-cp viper/index.html www/index.html
-cp viper/manifest.json www/
-cp viper/sw.js www/
-cp viper/icon-192.png www/
-cp viper/icon-512.png www/
-cp viper/bienvenue-lesson.jpg www/
-cp viper/whatsapp-icon.png www/
-cp viper/js/* www/js/
-mkdir -p www/fonts && cp viper/fonts/*.ttf www/fonts/
+cp zeek/index.html www/index.html
+cp zeek/manifest.json www/
+cp zeek/sw.js www/
+cp zeek/icon-192.png www/
+cp zeek/icon-512.png www/
+cp zeek/bienvenue-lesson.jpg www/
+cp zeek/whatsapp-icon.png www/
+cp zeek/js/* www/js/
+mkdir -p www/fonts && cp zeek/fonts/*.ttf www/fonts/
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
 GRADLE_INIT=""
@@ -27,9 +27,9 @@ if [ "$USE_ALIYUN" = "1" ] && [ -f "$ROOT/init.gradle" ]; then
   GRADLE_INIT="--init-script ../init.gradle"
 fi
 
-# Swap Capacitor config for the viper package and restore after build
+# Swap Capacitor config for the zeek package and restore after build
 cp "$ROOT/capacitor.config.json" "$ROOT/capacitor.config.json.bak"
-cp "$ROOT/capacitor-viper.config.json" "$ROOT/capacitor.config.json"
+cp "$ROOT/capacitor-zeek.config.json" "$ROOT/capacitor.config.json"
 restore_config() {
   cd "$ROOT"
   cp capacitor.config.json.bak capacitor.config.json 2>/dev/null || true
@@ -80,7 +80,7 @@ PYEOF
 fi
 
 # Sync the PWA icon into the Android mipmap launcher icons
-ICON_SRC="$ROOT/viper/icon-512.png"
+ICON_SRC="$ROOT/zeek/icon-512.png"
 MIPMAP="$ROOT/android/app/src/main/res"
 if [ -f "$ICON_SRC" ] && command -v convert >/dev/null 2>&1; then
   mkdir -p "$MIPMAP/mipmap-mdpi" "$MIPMAP/mipmap-hdpi" "$MIPMAP/mipmap-xhdpi" "$MIPMAP/mipmap-xxhdpi" "$MIPMAP/mipmap-xxxhdpi"
@@ -104,4 +104,4 @@ fi
 cd android
 ./gradlew $GRADLE_INIT assembleDebug
 
-echo "viper APK ready at: android/app/build/outputs/apk/debug/app-debug.apk"
+echo "zeek APK ready at: android/app/build/outputs/apk/debug/app-debug.apk"

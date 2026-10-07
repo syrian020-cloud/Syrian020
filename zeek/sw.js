@@ -1,4 +1,4 @@
-const CACHE_NAME = 'viper-v105';
+const CACHE_NAME = 'zeek-v106';
 const FILES_TO_CACHE = [
   './index.html',
   './manifest.json',
