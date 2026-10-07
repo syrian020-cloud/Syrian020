@@ -23,36 +23,78 @@
   var DEFAULT_VOICES = { fr: 'fr-FR-DeniseNeural', ar: 'ar-SY-AmanyNeural', en: 'en-US-JennyNeural' };
   var DEFAULT_RATES = { fr: -8, ar: 0, en: 0 };
 
-  /* Curated neural voices per UI language — Edge names also used by the web
+  /* Neural voices per UI language — Edge names also used by the web
    * preview; on web (ResponsiveVoice fallback) the choice is ignored. */
   var VOICE_OPTIONS = {
     fr: [
-      'fr-FR-DeniseNeural', 'fr-FR-EloiseNeural', 'fr-FR-VivienneMultilingualNeural',
-      'fr-FR-HenriNeural', 'fr-FR-RemyMultilingualNeural',
-      'fr-CA-SylvieNeural', 'fr-CA-JeanNeural'
+      'fr-FR-DeniseNeural', 'fr-FR-EloiseNeural', 'fr-FR-HenriNeural',
+      'fr-FR-VivienneMultilingualNeural', 'fr-FR-RemyMultilingualNeural',
+      'fr-FR-LucienMultilingualNeural',
+      'fr-CA-SylvieNeural', 'fr-CA-JeanNeural', 'fr-CA-AntoineNeural', 'fr-CA-ThierryNeural',
+      'fr-BE-CharlineNeural', 'fr-BE-GerardNeural',
+      'fr-CH-ArianeNeural', 'fr-CH-FabriceNeural'
     ],
     ar: [
       'ar-SY-AmanyNeural', 'ar-SY-LaithNeural',
       'ar-EG-SalmaNeural', 'ar-EG-ShakirNeural',
-      'ar-SA-ZariyahNeural', 'ar-SA-HamedNeural'
+      'ar-SA-ZariyahNeural', 'ar-SA-HamedNeural',
+      'ar-AE-FatimaNeural', 'ar-AE-HamdanNeural',
+      'ar-DZ-AminaNeural', 'ar-DZ-IsmaelNeural',
+      'ar-BH-LailaNeural', 'ar-BH-AliNeural',
+      'ar-IQ-RanaNeural', 'ar-IQ-BasselNeural',
+      'ar-JO-SanaNeural', 'ar-JO-TaimNeural',
+      'ar-KW-NouraNeural', 'ar-KW-FahedNeural',
+      'ar-LB-LaylaNeural', 'ar-LB-RamiNeural',
+      'ar-LY-ImanNeural', 'ar-LY-OmarNeural',
+      'ar-MA-MounaNeural', 'ar-MA-JamalNeural',
+      'ar-OM-AyshaNeural', 'ar-OM-AbdullahNeural',
+      'ar-QA-AmalNeural', 'ar-QA-MoazNeural',
+      'ar-TN-ReemNeural', 'ar-TN-HediNeural',
+      'ar-YE-MaryamNeural', 'ar-YE-SalehNeural'
     ],
     en: [
-      'en-US-JennyNeural', 'en-US-AriaNeural', 'en-US-GuyNeural',
-      'en-GB-SoniaNeural', 'en-GB-RyanNeural', 'en-AU-NatashaNeural'
+      'en-US-JennyNeural', 'en-US-AriaNeural', 'en-US-GuyNeural', 'en-US-AnaNeural',
+      'en-US-MichelleNeural', 'en-US-ChristopherNeural', 'en-US-EricNeural',
+      'en-US-RogerNeural', 'en-US-SteffanNeural',
+      'en-US-AndrewNeural', 'en-US-AvaNeural', 'en-US-BrianNeural', 'en-US-EmmaNeural',
+      'en-US-AndrewMultilingualNeural', 'en-US-AvaMultilingualNeural',
+      'en-US-BrianMultilingualNeural', 'en-US-EmmaMultilingualNeural',
+      'en-GB-SoniaNeural', 'en-GB-RyanNeural', 'en-GB-LibbyNeural',
+      'en-GB-MaisieNeural', 'en-GB-ThomasNeural',
+      'en-AU-NatashaNeural', 'en-AU-WilliamNeural',
+      'en-CA-ClaraNeural', 'en-CA-LiamNeural',
+      'en-IN-NeerjaNeural', 'en-IN-PrabhatNeural',
+      'en-IE-EmilyNeural', 'en-IE-ConnorNeural',
+      'en-NZ-MollyNeural', 'en-NZ-MitchellNeural',
+      'en-ZA-LeahNeural', 'en-ZA-LukeNeural',
+      'en-KE-AsiliaNeural', 'en-KE-ChilembaNeural',
+      'en-NG-EzinneNeural', 'en-NG-AbeoNeural',
+      'en-TZ-ImaniNeural', 'en-TZ-ElimuNeural',
+      'en-PH-RosaNeural', 'en-PH-JamesNeural',
+      'en-HK-YanNeural', 'en-HK-SamNeural',
+      'en-SG-LunaNeural', 'en-SG-WayneNeural'
     ]
   };
-  var VOICE_LABEL = {
-    'fr-FR-DeniseNeural': 'Denise 🇫🇷', 'fr-FR-EloiseNeural': 'Eloise 🇫🇷',
-    'fr-FR-VivienneMultilingualNeural': 'Vivienne 🇫🇷', 'fr-FR-HenriNeural': 'Henri 🇫🇷',
-    'fr-FR-RemyMultilingualNeural': 'Rémy 🇫🇷', 'fr-CA-SylvieNeural': 'Sylvie 🇨🇦',
-    'fr-CA-JeanNeural': 'Jean 🇨🇦',
-    'ar-SY-AmanyNeural': 'أماني 🇸🇾', 'ar-SY-LaithNeural': 'ليث 🇸🇾',
-    'ar-EG-SalmaNeural': 'سلمى 🇪🇬', 'ar-EG-ShakirNeural': 'شاكر 🇪🇬',
-    'ar-SA-ZariyahNeural': 'زارية 🇸🇦', 'ar-SA-HamedNeural': 'حامد 🇸🇦',
-    'en-US-JennyNeural': 'Jenny 🇺🇸', 'en-US-AriaNeural': 'Aria 🇺🇸',
-    'en-US-GuyNeural': 'Guy 🇺🇸', 'en-GB-SoniaNeural': 'Sonia 🇬🇧',
-    'en-GB-RyanNeural': 'Ryan 🇬🇧', 'en-AU-NatashaNeural': 'Natasha 🇦🇺'
+  var AR_NAME = {
+    Amany: 'أماني', Laith: 'ليث', Salma: 'سلمى', Shakir: 'شاكر',
+    Zariyah: 'زارية', Hamed: 'حامد', Fatima: 'فاطمة', Hamdan: 'حمدان',
+    Amina: 'أمينة', Ismael: 'إسماعيل', Laila: 'ليلى', Ali: 'علي',
+    Rana: 'رنا', Bassel: 'باسل', Sana: 'سناء', Taim: 'تيم',
+    Noura: 'نورة', Fahed: 'فهد', Layla: 'ليلى', Rami: 'رامي',
+    Iman: 'إيمان', Omar: 'عمر', Mouna: 'منى', Jamal: 'جمال',
+    Aysha: 'عائشة', Abdullah: 'عبد الله', Amal: 'أمل', Moaz: 'معاذ',
+    Reem: 'ريم', Hedi: 'هادي', Maryam: 'مريم', Saleh: 'صالح'
   };
+  function flagOf(v) {
+    var m = /^[a-z]{2}-([A-Z]{2})-/.exec(v);
+    if (!m) return '';
+    return String.fromCodePoint(0x1F1E6 + m[1].charCodeAt(0) - 65) +
+           String.fromCodePoint(0x1F1E6 + m[1].charCodeAt(1) - 65);
+  }
+  function voiceLabel(v) {
+    var base = v.replace(/MultilingualNeural$/, '').replace(/Neural$/, '').split('-').pop();
+    return (AR_NAME[base] || base) + ' ' + flagOf(v);
+  }
   var SAMPLE = {
     fr: 'Bonjour, comment allez-vous ?',
     ar: 'مرحبا، كيف حالك؟',
@@ -88,6 +130,9 @@
   api.voiceOf = voiceOf;
   api.rateOf = rateOf;
 
+  function engine() {
+    return ls('tts_engine') === 'device' ? 'device' : 'edge';
+  }
   function enabled() {
     try { return localStorage.getItem('edge_tts') !== '0'; } catch (e) { return true; }
   }
@@ -119,7 +164,14 @@
   function fetchAudio(text, lang) {
     var p = plugin();
     if (p) {
-      return p.speak({ text: text, voice: voiceOf(lang), rate: rateOf(lang) })
+      var v = voiceOf(lang);
+      // Retry with the default voice — an unknown voice name fails the request
+      // and shouldn't mark Edge TTS as down for the whole session.
+      return p.speak({ text: text, voice: v, rate: rateOf(lang) })
+        .catch(function (e) {
+          if (v === DEFAULT_VOICES[lang]) throw e;
+          return p.speak({ text: text, voice: DEFAULT_VOICES[lang], rate: rateOf(lang) });
+        })
         .then(function (r) { return { url: fileUrl(r.path), nativePath: r.path }; });
     }
     return Promise.resolve({ url: rvUrl(text, lang) });
@@ -217,6 +269,8 @@
       voice: 'الصوت', speed: 'السرعة', preview: 'تجربة',
       reset: 'استعادة الافتراضي', close: 'إغلاق',
       langs: { fr: '🇫🇷 الفرنسية', ar: '🇸🇾 العربية', en: '🇺🇸 الإنكليزية' },
+      engine: 'المحرك', engineEdge: 'Edge TTS 🌐', engineDevice: 'صوت الجهاز',
+      engine: 'المحرك', engineEdge: 'Edge TTS 🌐', engineDevice: 'صوت الجهاز',
       note: 'الصوت الطبيعي يحتاج إنترنت — بدون إنترنت يُستخدم صوت الجهاز.'
     },
     en: {
@@ -224,6 +278,7 @@
       voice: 'Voice', speed: 'Speed', preview: 'Preview',
       reset: 'Reset to defaults', close: 'Close',
       langs: { fr: '🇫🇷 French', ar: '🇸🇾 Arabic', en: '🇺🇸 English' },
+      engine: 'Engine', engineEdge: 'Edge TTS 🌐', engineDevice: 'Device voice',
       note: 'The neural voice needs internet — offline, the device voice is used.'
     },
     fr: {
@@ -231,6 +286,7 @@
       voice: 'Voix', speed: 'Vitesse', preview: 'Écouter',
       reset: 'Valeurs par défaut', close: 'Fermer',
       langs: { fr: '🇫🇷 Français', ar: '🇸🇾 Arabe', en: '🇺🇸 Anglais' },
+      engine: 'Moteur', engineEdge: 'Edge TTS 🌐', engineDevice: 'Voix de l\'appareil',
       note: 'La voix neurale nécessite internet — hors ligne, la voix de l\'appareil est utilisée.'
     }
   };
@@ -285,17 +341,35 @@
       h('b', { text: T.title }), closeBtn
     ]));
 
+    var engRow = h('div', { 'class': 'etts-row' });
+    engRow.appendChild(h('div', {}, [h('span', { 'class': 'etts-lab', text: T.engine })]));
+    var engSel = h('select', { 'class': 'etts-sel' });
+    [['edge', T.engineEdge], ['device', T.engineDevice]].forEach(function (o) {
+      var opt = h('option', { value: o[0], text: o[1] });
+      if (o[0] === engine()) opt.selected = true;
+      engSel.appendChild(opt);
+    });
+    engSel.onchange = function () {
+      lsSet('tts_engine', engSel.value);
+      ov.remove();
+      openSettings();
+    };
+    engRow.appendChild(h('div', {}, [engSel]));
+    card.appendChild(engRow);
+
+    var devMode = engine() === 'device';
     ['fr', 'ar', 'en'].forEach(function (lang) {
       var row = h('div', { 'class': 'etts-row' });
       row.appendChild(h('div', {}, [h('span', { 'class': 'etts-lab', text: T.langs[lang] })]));
 
       var sel = h('select', { 'class': 'etts-sel' });
       VOICE_OPTIONS[lang].forEach(function (v) {
-        var o = h('option', { value: v, text: VOICE_LABEL[v] || v });
+        var o = h('option', { value: v, text: voiceLabel(v) });
         if (v === voiceOf(lang)) o.selected = true;
         sel.appendChild(o);
       });
       sel.onchange = function () { lsSet('edge_voice_' + lang, sel.value); };
+      if (devMode) sel.disabled = true;
       row.appendChild(h('div', {}, [h('span', { 'class': 'etts-mini', text: T.voice }), sel]));
 
       var val = h('span', { 'class': 'etts-val' });
@@ -307,6 +381,7 @@
         val.textContent = rateOf(lang);
       };
       var pv = h('button', { 'class': 'etts-pv', text: '▶ ' + T.preview });
+      if (devMode) { rng.disabled = true; pv.disabled = true; }
       pv.onclick = function () {
         pv.disabled = true;
         play(SAMPLE[lang], lang).catch(function () {}).then(function () { pv.disabled = false; });
@@ -340,6 +415,7 @@
     document.body.appendChild(sheetEl);
   }
 
+  api.engine = engine;
   api.enabled = enabled;
   api.setEnabled = setEnabled;
   api.openSettings = openSettings;
