@@ -114,6 +114,9 @@
   .remove-image-btn:hover { background: rgba(220,20,60,0.85); }
 
   .bubble-wrap { position: absolute; bottom: 0.5rem; left: 0.5rem; right: 0.5rem; z-index: 10; display: flex; justify-content: center; pointer-events: none; }
+  .video-wrap.audio-only { display: flex; flex-direction: column; }
+  .video-wrap.audio-only video { min-height: 4.5rem; height: 4.5rem; }
+  .video-wrap.audio-only .bubble-wrap { position: static; margin: 0.35rem 0.4rem 0.45rem; }
   .subtitle-bubble {
     background: rgba(10,10,20,0.78);
     border: 1px solid var(--border);
@@ -1667,6 +1670,7 @@
 
   function attachPlayerEvents() {
     player.onloadedmetadata = () => {
+      videoWrap.classList.toggle('audio-only', !player.videoHeight);
       state.duration = player.duration || 0;
       player.playbackRate = state.playbackRate;
       applyFilter(state.filter);
