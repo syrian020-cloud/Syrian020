@@ -184,6 +184,7 @@
     <div class="spacer"></div>
     <button class="icon-btn" id="themeBtn" title="Theme">🌙</button>
     <button class="icon-btn" id="edgeBtn" title="صوت طبيعي (إنترنت)">🔊</button>
+    <button class="icon-btn" id="edgeSetBtn" title="إعدادات النطق">⚙️</button>
     <button class="icon-btn lang-btn" data-lang="ar">AR</button>
     <button class="icon-btn lang-btn" data-lang="en">EN</button>
     <button class="icon-btn lang-btn" data-lang="fr">FR</button>
@@ -667,6 +668,9 @@
     if (!v) stopSpeaking();
     paintEdgeBtn();
     toast(v ? '🔊 ' + t('edgeOn') : t('edgeOff'));
+  };
+  document.getElementById('edgeSetBtn').onclick = function () {
+    if (window.EdgeTTS) EdgeTTS.openSettings();
   };
   paintEdgeBtn();
   var searchT = null;

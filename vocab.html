@@ -197,6 +197,7 @@
       <button class="icon-btn" id="btn-lang" title="Language / اللغة">AR</button>
       <button class="icon-btn" id="btn-theme" title="Dark / light mode">🌙</button>
       <button class="icon-btn" id="btn-edge" title="صوت طبيعي / Neural voice (internet)">🔊</button>
+      <button class="icon-btn" id="btn-edge-set" title="إعدادات النطق / Speech settings">⚙️</button>
       <button class="icon-btn" id="btn-stop" title="Stop audio / إيقاف الصوت">🔇</button>
     </div>
   </div>
@@ -923,6 +924,10 @@
       });
       paintEdge();
     }
+    var btnEdgeSet = document.getElementById('btn-edge-set');
+    if(btnEdgeSet) btnEdgeSet.addEventListener('click', function(){
+      if(window.EdgeTTS) EdgeTTS.openSettings();
+    });
     document.getElementById('btn-theme').addEventListener('click', function(){
       state.theme = state.theme === 'dark' ? 'light' : 'dark';
       document.documentElement.dataset.theme = state.theme;
