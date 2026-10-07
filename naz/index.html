@@ -2865,6 +2865,13 @@
       else toggleWordLoop(word, lang, key);
     });
 
+    textDiv.addEventListener('dblclick', e => {
+      const w = e.target.closest('.cap-word');
+      if (!w || !w.dataset.word) return;
+      e.stopPropagation();
+      googleImageForWord(w.dataset.word);
+    });
+
     const makeCap = (text, lang) => {
       if (!text) return '';
       let raw = text.trim();
@@ -3565,6 +3572,13 @@
       const clean = w.replace(/^[\p{P}\p{S}]+|[\p{P}\p{S}]+$/gu, '');
       return `<span class="word" data-lang="${esc(lang)}" data-word="${esc(clean || w)}">${esc(w)}</span>`;
     }).join(' ');
+  }
+
+  function googleImageForWord(word) {
+    const q = String(word || '').trim();
+    if (!q) return;
+    stopSpeech();
+    window.open('https://www.google.com/search?q=' + encodeURIComponent(q) + '&udm=2&hl=' + state.uiLang, '_blank');
   }
 
   function phraseKey(lessonId, idx) { return lessonId + '.' + idx; }
@@ -4940,6 +4954,13 @@ Output in French, Arabic and English.`;
         const q = stripSpeechFlags(p.fr) + ' clipart';
         window.open('https://www.google.com/search?q=' + encodeURIComponent(q) + '&udm=2&hl=' + state.uiLang, '_blank');
       }
+    });
+
+    view.addEventListener('dblclick', e => {
+      const w = e.target.closest('.word');
+      if (!w || !w.dataset.word) return;
+      e.stopPropagation();
+      googleImageForWord(w.dataset.word);
     });
   }
 
