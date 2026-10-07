@@ -1378,7 +1378,9 @@
     if (!text) { if (onend) setTimeout(onend, 50); return; }
     // TTS and video are mutually exclusive: speaking pauses the video.
     if (player && !player.paused) player.pause();
-    if (window.EdgeTTS && window.EdgeTTS.supported()) {
+    const useEdge = window.EdgeTTS && window.EdgeTTS.supported() &&
+      (!window.EdgeTTS.engine || window.EdgeTTS.engine() === 'edge');
+    if (useEdge) {
       const run = ++ttsRun;
       window.EdgeTTS.play(text, lang)
         .then(() => { if (run === ttsRun && onend) onend(); })
