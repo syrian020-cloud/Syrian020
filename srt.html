@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#0b0f1f">
-<title>vid player</title>
+<title>caplayer</title>
 <link rel="manifest" href="manifest-srt.json">
 <style>
   :root {
@@ -288,6 +288,7 @@
     <button class="icon-btn" id="btn-lang" title="Language / Langue / اللغة">AR</button>
     <button class="icon-btn" id="btn-lessons" title="الدروس" data-t-title="lessonsTitle">📚</button>
     <button class="icon-btn" id="btn-setup" title="إعداد درس جديد" data-t-title="newLessonTitle">➕</button>
+    <button class="icon-btn" id="btn-edge-set" title="إعدادات النطق" data-t-title="speechSettings">🗣️</button>
     <button class="icon-btn" id="btn-stop" title="إيقاف الصوت" data-t-title="stopAudio">🔇</button>
   </div>
 </header>
@@ -447,6 +448,7 @@
 <div class="toast" id="toast"></div>
 <input type="file" id="edit-image" accept="image/*" style="display:none">
 
+<script src="js/edge-tts.js"></script>
 <script>
 (function(){
   'use strict';
@@ -460,7 +462,7 @@
   const controls = $('controls'), progress = $('progress'), currentTimeEl = $('current-time'), durationEl = $('duration');
   const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next'), btnFullLoop = $('btn-full-loop'), btnVideoLoop = $('btn-video-loop'), btnLoopAll = $('btn-loop-all');
   const filterSelect = $('filter-select'), btnAiSearch = $('btn-ai-search'), btnRemoveImage = $('btn-remove-image');
-  const btnLessons = $('btn-lessons'), btnSetup = $('btn-setup'), btnNewLesson = $('btn-new-lesson'), btnSaveLesson = $('btn-save-lesson'), btnBackLessons = $('btn-back-lessons'), btnLang = $('btn-lang'), btnImport = $('btn-import'), btnExportAll = $('btn-export-all'), importFile = $('import-file');
+  const btnLessons = $('btn-lessons'), btnSetup = $('btn-setup'), btnNewLesson = $('btn-new-lesson'), btnSaveLesson = $('btn-save-lesson'), btnBackLessons = $('btn-back-lessons'), btnLang = $('btn-lang'), btnEdgeSet = $('btn-edge-set'), btnImport = $('btn-import'), btnExportAll = $('btn-export-all'), importFile = $('import-file');
   const lessonsView = $('lessons-view'), setupView = $('setup-view'), playerView = $('player-view'), lessonsList = $('lessons-list'), lessonTitle = $('lesson-title');
   const statusEl = $('status'), toast = $('toast'), rateSelect = $('rate');
 
@@ -501,9 +503,9 @@
   const UI_LANGS = ['ar','fr','en'];
   const UI = {
     ar: {
-      appName: 'vid player',
-      title: 'vid player',
-      logo: 'vid player',
+      appName: 'caplayer',
+      title: 'caplayer',
+      logo: 'caplayer',
       lessonsTitle: 'دروسي',
       emptyHint: 'لا توجد دروس محفوظة. اضغط على “➕” لإعداد درس جديد.',
       newLesson: '+ درس جديد',
@@ -535,7 +537,7 @@
       videoLoopTitle: 'تكرار عبارة الفيديو',
       loopAllTitle: 'تكرار النطق بالثلاث لغات',
       speakTitle: 'نطق $lang',
-      footer: 'vid player مصاحب للفيديو — يدعم الفرنسية والعربية والإنجليزية',
+      footer: 'caplayer مصاحب للفيديو — يدعم الفرنسية والعربية والإنجليزية',
       chooseVideoFirst: 'اختر ملف فيديو/صوت أولاً',
       noCurrentCue: 'لا توجد عبارة حالية',
       lessonNamePrompt: 'اسم الدرس:',
@@ -564,6 +566,7 @@
       delete: 'حذف',
       status: 'العبارة $current من $total · $start - $end',
       stopAudio: 'إيقاف الصوت',
+      speechSettings: 'إعدادات النطق (Edge TTS)',
       readVideoError: 'تعذّر قراءة ملف الفيديو',
       readImageError: 'تعذّر قراءة صورة الدرس',
       unmuteAudio: 'تشغيل الصوت',
@@ -602,9 +605,9 @@
       shareNotSupported: 'المشاركة غير مدعومة على هذا الجهاز، تم تحميل الملف'
     },
     fr: {
-      appName: 'vid player',
-      title: 'vid player',
-      logo: 'vid player',
+      appName: 'caplayer',
+      title: 'caplayer',
+      logo: 'caplayer',
       lessonsTitle: 'Mes leçons',
       emptyHint: 'Aucune leçon enregistrée. Appuyez sur “➕” pour créer une leçon.',
       newLesson: '+ Nouvelle leçon',
@@ -636,7 +639,7 @@
       videoLoopTitle: 'Répéter la phrase vidéo',
       loopAllTitle: 'Répéter la prononciation FR→AR→EN',
       speakTitle: 'Prononcer $lang',
-      footer: 'vid player — lecteur vidéo accompagnateur — supporte FR, AR et EN.',
+      footer: 'caplayer — lecteur vidéo accompagnateur — supporte FR, AR et EN.',
       chooseVideoFirst: 'Choisissez d\'abord un fichier vidéo/audio.',
       noCurrentCue: 'Aucune phrase active',
       lessonNamePrompt: 'Nom de la leçon :',
@@ -665,6 +668,7 @@
       delete: 'Supprimer',
       status: 'Phrase $current sur $total · $start - $end',
       stopAudio: 'Arrêter l\'audio',
+      speechSettings: 'Réglages de la voix (Edge TTS)',
       readVideoError: 'Échec de la lecture de la vidéo',
       readImageError: 'Échec de la lecture de l\'image',
       unmuteAudio: 'Réactiver l\'audio',
@@ -703,9 +707,9 @@
       shareNotSupported: 'Partage non supporté, fichier téléchargé'
     },
     en: {
-      appName: 'vid player',
-      title: 'vid player',
-      logo: 'vid player',
+      appName: 'caplayer',
+      title: 'caplayer',
+      logo: 'caplayer',
       lessonsTitle: 'My lessons',
       emptyHint: 'No saved lessons. Press “➕” to set up a new lesson.',
       newLesson: '+ New lesson',
@@ -737,7 +741,7 @@
       videoLoopTitle: 'Repeat video phrase',
       loopAllTitle: 'Repeat pronunciation FR→AR→EN',
       speakTitle: 'Speak $lang',
-      footer: 'vid player — video companion player — supports FR, AR and EN.',
+      footer: 'caplayer — video companion player — supports FR, AR and EN.',
       chooseVideoFirst: 'Choose a video/audio file first.',
       noCurrentCue: 'No active phrase',
       lessonNamePrompt: 'Lesson name:',
@@ -766,6 +770,7 @@
       delete: 'Delete',
       status: 'Phrase $current of $total · $start - $end',
       stopAudio: 'Stop audio',
+      speechSettings: 'Speech settings (Edge TTS)',
       readVideoError: 'Failed to read video file',
       readImageError: 'Failed to read image',
       unmuteAudio: 'Unmute audio',
@@ -1267,8 +1272,11 @@
   function isCapacitor() {
     return typeof window !== 'undefined' && window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform();
   }
+  let ttsRun = 0;
   function ttsStop() {
+    ttsRun++;
     if (state.ttsChain) { clearTimeout(state.ttsChain); state.ttsChain = null; }
+    if (window.EdgeTTS) window.EdgeTTS.stop();
     if (isCapacitor()) {
       const plugin = window.Capacitor.Plugins.TextToSpeech;
       if (plugin) plugin.stop().catch(()=>{});
@@ -1277,6 +1285,20 @@
     }
   }
   function ttsSpeak({ text, lang, onend }) {
+    if (window.EdgeTTS && window.EdgeTTS.supported()) {
+      const run = ++ttsRun;
+      window.EdgeTTS.play(text, lang)
+        .then(() => { if (run === ttsRun && onend) onend(); })
+        .catch(() => {
+          if (run !== ttsRun) return;
+          window.EdgeTTS.down = true;
+          deviceSpeak({ text, lang, onend });
+        });
+      return;
+    }
+    deviceSpeak({ text, lang, onend });
+  }
+  function deviceSpeak({ text, lang, onend }) {
     const ttsLang = lang === 'ar' ? 'ar-SA' : (lang === 'fr' ? 'fr-FR' : 'en-US');
     if (isCapacitor()) {
       const plugin = window.Capacitor.Plugins.TextToSpeech;
@@ -2055,6 +2077,7 @@
   btnCaptionPlus.addEventListener('click', () => updateCaptionScale(0.1));
   bgImageInput.addEventListener('change', () => { applyBackgroundImage(bgImageInput.files[0]); bgImageInput.value = ''; });
   if (btnAiSearch) btnAiSearch.addEventListener('click', openGoogleAiSearch);
+  if (btnEdgeSet) btnEdgeSet.addEventListener('click', () => { if (window.EdgeTTS) window.EdgeTTS.openSettings(); });
   if (btnRemoveImage) btnRemoveImage.addEventListener('click', removeImage);
 
   btnLessons.addEventListener('click', () => showView('lessons'));
