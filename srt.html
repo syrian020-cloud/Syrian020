@@ -1368,6 +1368,8 @@
   function ttsSpeak({ text, lang, onend }) {
     text = cleanForSpeech(text);
     if (!text) { if (onend) setTimeout(onend, 50); return; }
+    // TTS and video are mutually exclusive: speaking pauses the video.
+    if (player && !player.paused) player.pause();
     if (window.EdgeTTS && window.EdgeTTS.supported()) {
       const run = ++ttsRun;
       window.EdgeTTS.play(text, lang)
@@ -1683,7 +1685,7 @@
         player.currentTime = state.loopStart;
       }
     };
-    player.onplay = () => { state.isPlaying = true; btnPlay.textContent = '⏸'; };
+    player.onplay = () => { state.isPlaying = true; btnPlay.textContent = '⏸'; stopTTSLoops(); };
     player.onpause = () => { state.isPlaying = false; btnPlay.textContent = '▶'; };
     player.onended = () => { state.isPlaying = false; btnPlay.textContent = '▶'; };
     progress.oninput = () => {
