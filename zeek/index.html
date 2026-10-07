@@ -458,6 +458,7 @@
       <button class="lang-btn" data-lang="fr">FR</button>
     </div>
     <button class="icon-btn" id="btn-theme" data-t-title="themeMode" title="Dark / light mode">🌙</button>
+    <button class="icon-btn" id="btn-voice" data-t-title="voiceSettings" title="Voice settings">🎙</button>
     <button class="icon-btn" id="btn-stop" data-t-title="stopAudio" title="Stop audio">⏹</button>
   </div>
 </header>
@@ -612,6 +613,40 @@
       <button type="button" class="btn" id="btn-export-full"></button>
       <button type="button" class="btn ghost" id="btn-export-lessons"></button>
       <button type="button" class="btn ghost" id="btn-export-cancel"></button>
+    </div>
+  </div>
+</div>
+
+<div id="voices-modal" class="modal" style="z-index:98">
+  <div class="modal-content" style="max-width:420px">
+    <h3 data-t="voiceSettings">Voice settings</h3>
+    <div class="form-group" style="display:flex;align-items:center;gap:0.5rem">
+      <input type="checkbox" id="edge-enabled" style="width:auto">
+      <label for="edge-enabled" data-t="edgeTtsEnable" style="margin:0">Edge voice (needs internet)</label>
+    </div>
+    <div class="form-group">
+      <label for="edge-voice-fr" data-t="voiceFr">French voice</label>
+      <div style="display:flex;gap:0.4rem">
+        <select class="ctl" id="edge-voice-fr" style="flex:1;min-width:0"></select>
+        <button type="button" class="btn" data-voice-preview="fr" data-t-title="voicePreview" title="Listen">▶</button>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="edge-voice-ar" data-t="voiceAr">Arabic voice</label>
+      <div style="display:flex;gap:0.4rem">
+        <select class="ctl" id="edge-voice-ar" style="flex:1;min-width:0"></select>
+        <button type="button" class="btn" data-voice-preview="ar" data-t-title="voicePreview" title="Listen">▶</button>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="edge-voice-en" data-t="voiceEn">English voice</label>
+      <div style="display:flex;gap:0.4rem">
+        <select class="ctl" id="edge-voice-en" style="flex:1;min-width:0"></select>
+        <button type="button" class="btn" data-voice-preview="en" data-t-title="voicePreview" title="Listen">▶</button>
+      </div>
+    </div>
+    <div class="form-actions" style="margin-top:0.75rem">
+      <button type="button" class="btn ghost" id="btn-close-voices" data-t="cancel">إلغاء</button>
     </div>
   </div>
 </div>
@@ -1274,6 +1309,12 @@
     appTitle: { ar: 'Zeek — فرنسي / عربي / إنجليزي', en: 'Zeek — French / Arabic / English', fr: 'Zeek — Français / Arabe / Anglais' },
     searchPlaceholder: { ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', en: 'Search in Arabic, French, or English…', fr: 'Rechercher en arabe, français ou anglais…' },
     rateTitle: { ar: 'سرعة الصوت والفيديو', en: 'Audio & video speed', fr: 'Vitesse audio et vidéo' },
+    voiceSettings: { ar: 'إعدادات الصوت', en: 'Voice settings', fr: 'Réglages de la voix' },
+    edgeTtsEnable: { ar: 'صوت Edge (يحتاج إنترنت)', en: 'Edge voice (needs internet)', fr: 'Voix Edge (internet requis)' },
+    voiceFr: { ar: 'صوت الفرنسية', en: 'French voice', fr: 'Voix française' },
+    voiceAr: { ar: 'صوت العربية', en: 'Arabic voice', fr: 'Voix arabe' },
+    voiceEn: { ar: 'صوت الإنجليزية', en: 'English voice', fr: 'Voix anglaise' },
+    voicePreview: { ar: 'استمع', en: 'Listen', fr: 'Écouter' },
     aspectRatioTitle: { ar: 'نسبة عرض الفيديو', en: 'Video aspect ratio', fr: 'Ratio d’aspect vidéo' },
     imageAspectTitle: { ar: 'مقياس الصورة', en: 'Image aspect ratio', fr: 'Format de l’image' },
     imageAspectOriginal: { ar: 'أصلي', en: 'Original', fr: 'Original' },
@@ -2687,7 +2728,102 @@
     });
   }
 
+  const EDGE_VOICE_OPTIONS = {
+    fr: [
+      ['fr-FR-DeniseNeural', 'Denise · FR · F'],
+      ['fr-FR-HenriNeural', 'Henri · FR · M'],
+      ['fr-FR-EloiseNeural', 'Eloise · FR · F'],
+      ['fr-CA-SylvieNeural', 'Sylvie · CA · F'],
+      ['fr-CA-JeanNeural', 'Jean · CA · M'],
+      ['fr-CA-ThierryNeural', 'Thierry · CA · M'],
+      ['fr-BE-CharlineNeural', 'Charline · BE · F'],
+      ['fr-BE-GerardNeural', 'Gerard · BE · M'],
+      ['fr-CH-ArianeNeural', 'Ariane · CH · F'],
+      ['fr-CH-FabriceNeural', 'Fabrice · CH · M']
+    ],
+    ar: [
+      ['ar-SY-AmanyNeural', 'Amany · SY · F'],
+      ['ar-SY-LaithNeural', 'Laith · SY · M'],
+      ['ar-EG-HodaNeural', 'Hoda · EG · F'],
+      ['ar-EG-ShakirNeural', 'Shakir · EG · M'],
+      ['ar-SA-ZariyahNeural', 'Zariyah · SA · F'],
+      ['ar-SA-HamedNeural', 'Hamed · SA · M'],
+      ['ar-LB-LaylaNeural', 'Layla · LB · F'],
+      ['ar-LB-RamiNeural', 'Rami · LB · M'],
+      ['ar-JO-SanaNeural', 'Sana · JO · F'],
+      ['ar-JO-TaimNeural', 'Taim · JO · M'],
+      ['ar-AE-FatimaNeural', 'Fatima · AE · F'],
+      ['ar-AE-HamdanNeural', 'Hamdan · AE · M'],
+      ['ar-MA-MounaNeural', 'Mouna · MA · F'],
+      ['ar-MA-JamalNeural', 'Jamal · MA · M'],
+      ['ar-DZ-AminaNeural', 'Amina · DZ · F'],
+      ['ar-DZ-IsmaelNeural', 'Ismael · DZ · M'],
+      ['ar-TN-ReemNeural', 'Reem · TN · F'],
+      ['ar-TN-HediNeural', 'Hedi · TN · M']
+    ],
+    en: [
+      ['en-US-JennyNeural', 'Jenny · US · F'],
+      ['en-US-GuyNeural', 'Guy · US · M'],
+      ['en-US-AriaNeural', 'Aria · US · F'],
+      ['en-US-DavisNeural', 'Davis · US · M'],
+      ['en-GB-SoniaNeural', 'Sonia · GB · F'],
+      ['en-GB-RyanNeural', 'Ryan · GB · M'],
+      ['en-GB-LibbyNeural', 'Libby · GB · F'],
+      ['en-AU-NatashaNeural', 'Natasha · AU · F'],
+      ['en-AU-WilliamNeural', 'William · AU · M'],
+      ['en-CA-ClaraNeural', 'Clara · CA · F'],
+      ['en-CA-LiamNeural', 'Liam · CA · M'],
+      ['en-IN-NeerjaNeural', 'Neerja · IN · F'],
+      ['en-IN-PrabhatNeural', 'Prabhat · IN · M']
+    ]
+  };
+  const EDGE_VOICE_SAMPLE = { fr: 'Bonjour, comment allez-vous ?', ar: 'مرحباً، كيف حالك؟', en: 'Hello, how are you?' };
+
   function edgeSupported() { return !!(window.EdgeTTS && EdgeTTS.supported()); }
+
+  function loadEdgeVoicePrefs() {
+    if (!window.EdgeTTS) return;
+    try {
+      const saved = JSON.parse(localStorage.getItem('zeek_edge_voices') || '{}');
+      ['fr', 'ar', 'en'].forEach(l => { if (saved[l]) EdgeTTS.voices[l] = saved[l]; });
+    } catch (e) {}
+  }
+
+  function saveEdgeVoicePrefs() {
+    try { localStorage.setItem('zeek_edge_voices', JSON.stringify(EdgeTTS.voices)); } catch (e) {}
+  }
+
+  function fillVoiceSelects() {
+    ['fr', 'ar', 'en'].forEach(l => {
+      const sel = document.getElementById('edge-voice-' + l);
+      if (!sel) return;
+      sel.innerHTML = (EDGE_VOICE_OPTIONS[l] || []).map(v => `<option value="${v[0]}">${esc(v[1])}</option>`).join('');
+      if (window.EdgeTTS && EdgeTTS.voices[l]) sel.value = EdgeTTS.voices[l];
+      sel.onchange = () => {
+        if (window.EdgeTTS) EdgeTTS.voices[l] = sel.value;
+        saveEdgeVoicePrefs();
+        stopSpeech();
+      };
+    });
+    const en = document.getElementById('edge-enabled');
+    if (en) {
+      en.checked = !window.EdgeTTS || EdgeTTS.enabled();
+      en.onchange = () => {
+        if (!window.EdgeTTS) return;
+        EdgeTTS.setEnabled(en.checked);
+        if (!en.checked) stopSpeech();
+      };
+    }
+  }
+
+  function showVoiceSettings() {
+    fillVoiceSelects();
+    document.getElementById('voices-modal').classList.add('show');
+  }
+
+  function closeVoiceSettings() {
+    document.getElementById('voices-modal').classList.remove('show');
+  }
 
   function edgeSpeak(text, lang) {
     const base = { fr: -8, ar: 0, en: 0 }[lang] || 0;
@@ -4695,6 +4831,20 @@ Output in French, Arabic and English.`;
     }
     document.getElementById('btn-theme').onclick = toggleTheme;
     document.getElementById('btn-stop').onclick = stopAll;
+    document.getElementById('btn-voice').onclick = showVoiceSettings;
+    document.getElementById('btn-close-voices').onclick = closeVoiceSettings;
+    const voicesModal = document.getElementById('voices-modal');
+    if (voicesModal) {
+      voicesModal.addEventListener('click', e => {
+        if (e.target === voicesModal) { closeVoiceSettings(); return; }
+        const pv = e.target.closest('[data-voice-preview]');
+        if (pv) {
+          const l = pv.dataset.voicePreview;
+          const t2 = EDGE_VOICE_SAMPLE[l];
+          if (t2) { stopSpeech(); anySpeak(t2, l).catch(() => {}); }
+        }
+      });
+    }
     document.querySelectorAll('.lang-btn').forEach(b => b.onclick = () => setUILang(b.dataset.lang));
     document.getElementById('rate').onchange = e => { state.rate = +e.target.value; stopSpeech(); updateVideoRate(); };
     document.getElementById('loopmode').onchange = e => { state.langs = e.target.value.split(','); stopSpeech(); };
@@ -4761,6 +4911,7 @@ Output in French, Arabic and English.`;
     applyCaptionSettings();
     ensureBuiltInLesson();
     go(parseHash(), false);
+    loadEdgeVoicePrefs();
     if (nativeTTS()) checkNativeTTS();
   }
 

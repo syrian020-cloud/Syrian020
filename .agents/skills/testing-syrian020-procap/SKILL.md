@@ -9,23 +9,19 @@ None.
 
 ## Local server
 
-The app is static files only. Serve the repo root with:
+The app is static files only. Serve the repo ROOT (not the viper/ dir — the page is at a subpath):
 
 ```bash
-python3 -m http.server 8080
+cd /home/ubuntu/repos/Syrian020 && python3 -m http.server 8080
 ```
 
-The relevant page is:
+Page: `http://localhost:8080/viper/index.html`
 
-- `http://localhost:8080/viper/index.html`
-
-**Note for media tests:** `python3 -m http.server` does not respond with `Accept-Ranges: bytes`, so Chrome may be slow to start loading a direct MP4/WebM. The video still loads once the full response is received. For faster local video tests, run a range-supporting server for the media asset or use small files.
-
-**Note for caption/video tests:** For `<video>` seeking to work reliably in Chrome, the media server must support `Range` requests. If you serve the fixture from `python3 -m http.server`, `video.currentTime` may not update and captions will not progress. Serve test MP4s from a simple range-aware server such as `/tmp/range_server.py` on a second port (e.g. `http://localhost:8090/test-video.mp4`).
+**Note for media tests:** `python3 -m http.server` does not send `Accept-Ranges`, so `<video>` seeking may not work; serve test MP4s from a range-aware server on a second port.
 
 ## Browser launch
 
-`~/.local/bin/google-chrome` is a CDP wrapper, not the real binary. The actual Chrome for Testing binary is under `/opt/.devin/chrome/`, e.g.:
+`~/.local/bin/google-chrome` is a CDP wrapper, not the real binary. Use Chrome for Testing directly:
 
 ```bash
 /opt/.devin/chrome/chrome/linux-137.0.7118.2/chrome-linux64/chrome \
@@ -35,44 +31,42 @@ The relevant page is:
   http://localhost:8080/viper/index.html
 ```
 
-Use a fresh `--user-data-dir` and `--incognito` when testing service-worker or storage isolation, otherwise cached `viper-v*` data and old lessons may affect the page.
+Use a fresh `--user-data-dir` + `--incognito` for storage isolation. If the URL arg is ignored (lands on chrome://newtab), navigate via CDP `Page.navigate`.
 
-## Build viper APK
+## Driving the page (verified reliable)
 
-```bash
-export ANDROID_HOME=/home/ubuntu/android-sdk
-USE_ALIYUN=1 ./build-viper-apk.sh
-# APK: android/app/build/outputs/apk/debug/app-debug.apk
-```
+`browser_console` may fail to attach. The reliable path is CDP over websocket:
 
-If Maven Central returns 429, the `USE_ALIYUN=1` flag uses Aliyun mirrors via `init.gradle`.
+- `pip3 install websocket-client`, connect to the page's `webSocketDebuggerUrl` from `http://localhost:29229/json` **with `suppress_origin=True`** — websocket-client sends an Origin header that Chrome rejects with "Handshake status 403" even when `--remote-allow-origins='*'` is passed.
+- **Clicks:** prefer CDP `Input.dispatchMouseEvent` (`mousePressed`+`mouseReleased`, button left, clickCount 1) at the element's `getBoundingClientRect()` center — viewport CSS px, no chrome-offset math, and it fires real pointer+click events that the app's delegated handlers accept. xdotool works too but needs `screenX/screenY + outerHeight-innerHeight` offset (~192 px).
+- **Hidden file input** (`#import-file`, `display:none`): `DOM.enable` → `DOM.getDocument` → `DOM.querySelector` → `DOM.setFileInputFiles`, then `el.dispatchEvent(new Event('change',{bubbles:true}))` — the app's `change` listener is delegated on `#view`, so `bubbles:true` is required. No need to unhide it.
+- `confirm()` blocks `importLessons` — `window.confirm = () => true` before importing.
+- **Screenshots:** `import -window root` and plain X captures may return stale/identical frames in this environment. Use CDP `Page.captureScreenshot` for evidence stills — it renders the live page regardless of compositor state.
 
-## Known environment quirks
+## Edge TTS specifics (viper)
 
-- The VNC display is 1600x1200; Chrome maximizes to that size. Client coordinates from `getBoundingClientRect()` must be offset by the browser chrome height (`window.outerHeight - window.innerHeight`), typically ~192 px.
-- The `computer` mouse-click actions may not register in this environment. Use `xdotool mousemove <x> <y> click 1` from `exec`, passing actual screen coordinates (`rect.left + rect.width/2 + window.screenX`, `rect.top + rect.height/2 + window.screenY + chromeOffset`).
-- The app is RTL Arabic by default (`<html lang="ar" dir="rtl">`). Language buttons are `.lang-btn[data-lang="ar|en|fr"]`.
-- `localStorage` keys use the `viper_` prefix (`viper_lessons`, `viper_ui_lang`, `viper_theme`, `viper_favs`, `viper_notes`); the service-worker cache is `viper-v6` for the current captions/media build.
-- Chrome for Testing may crash when opening Google AI Mode (`udm=50`) links. To verify the Google AI button, either override `window.open` to capture the generated URL, or let it open and accept the crash risk.
-- The test VM typically has no `speechSynthesis` voices, so TTS buttons silently do nothing by default. To verify the TTS/loop UI feedback path, inject a fake voice (`window.speechSynthesis.getVoices = () => [{ name: 'Fake', lang: 'fr-FR', default: false, localService: true, voiceURI: '' }]`) and optionally make `speechSynthesis.speak` a no-op so the highlight state persists long enough to observe.
-- Testing the file picker for import requires the hidden `<input id="import-file" type="file">` to be visible before `xdotool` can click it. Use a single `browser_console` script to set `display:block; position:fixed; ...` on the input, then click it with `xdotool`.
-- Export downloads are saved through Chrome's save dialog and may appear as a temporary `.org.chromium.Chromium.XXXX` file in `~/Downloads` before the user confirms. For test evidence, capture that temp file immediately after triggering the export.
-- `importLessons()` replaces the entire `LESSONS` array, then `ensureBuiltInLesson()` re-adds the protected Bienvenue lesson. Any media or other edits made to the built-in Bienvenue *before* an import will be lost unless the imported JSON itself includes the updated Bienvenue lesson.
-- For transient UI elements (browser `confirm()` dialogs, `showToast()` toasts), the `computer` screenshot capture may wait too long and miss them. Use `import -window root /tmp/ss.png` directly after the action for reliable capture.
-- The in-app `browser_console` tool may fail to connect to Chrome CDP in some sessions. A reliable fallback is to install `websocket-client` and drive `Runtime.evaluate` over `webSocketDebuggerUrl` from a Python script.
-- The media-modal remove button (`#btn-remove-media`) and note-clear button both use `data-t="delete"`. There is no `delete` key in `TRANSLATIONS`, so `t()` falls back to the raw key and the button label renders as lowercase `delete` in every language. The click handler still works correctly.
+- `window.EdgeTTS` from `js/edge-tts.js`. `supported()` = `enabled && !down && online && (plugin||Audio)`. `down` is a **session-only** flag (resets on reload); it flips true only on a real audio()/play() failure — so `down===true` after a speak is proof the Edge path was attempted and failed.
+- Browser path uses `https://responsivevoice.org/responsivevoice/getvoice.php` (301 → code.responsivevoice.org). **curl gets 403 API_KEY_REQUIRED, but Chrome media requests may succeed** (UA/fingerprint gating) — real MP3s play with `down` staying false. Do not assume Edge is down from a curl check.
+- To force and verify the webSpeech fallback: `Network.enable` + `Network.setBlockedURLs` for `*responsivevoice.org*` and `*code.responsivevoice.org*`. Then a speak click flips `down=true` and the highlight must still advance. Inject fake voices first so `webTTS()` is non-null.
+- Fake voices: `speechSynthesis.getVoices = () => [{name:'FakeFR',lang:'fr-FR',default:false,localService:true,voiceURI:'f'}, ...ar-SA, en-US]` and `speechSynthesis.speak = u => setTimeout(() => u.onend && u.onend(), 800)` — firing `onend` exercises the real `webSpeak` resolve path (~1 s/lang vs ~5 s real audio, so fallback is distinguishable by pacing).
+- Speak targets: `.tts-loop-btn` (🔂) per phrase = TTS loop over `state.langs` (default fr,ar,en); `.loop-lang[data-lang]` per line = single-lang loop; `#play-all` = whole lesson; `#btn-stop` (⏹) stops everything. Playing state = `.phrase.playing` + `.line[data-lang].active`.
+- Banner: `#tts-banner` stays `display:none` while `EdgeTTS.supported()` is true even with zero `speechSynthesis` voices.
+
+## Storage / naming to assert
+
+- localStorage: `viper_*` keys only (`viper_lessons`, `viper_ui_lang`, `viper_theme`, ...). Note `edge_tts` exists in `edge-tts.js` but is only *written* by `EdgeTTS.setEnabled()` — nothing in the UI calls it.
+- IndexedDB: `viper-media` (created lazily on first media use; `indexedDB.databases()` is empty until then). Media refs use `idb://<id>`.
+- SW cache `viper-v*`; `caches.keys()` after load shows it.
+- Export: home action bar `#btn-export` → modal → `#btn-export-lessons` (`viper-lessons-YYYY-MM-DD.json`, plain array) / `#btn-export-full` (`viper-full-*.json`, `{"viperExport":1,...,"media":{}}`). Downloads land directly in `~/Downloads` with Chrome for Testing defaults.
+- Legacy import accepts `{"zeekExport":1,...}` marker (regex `"(?:viper|zeek)Export"`) — full files with media take the streaming importer only if JSON is compact (`,"media":{` marker is matched literally; spaced JSON falls back to the FileReader path, which also works).
+- `document.title` is localized by UI lang — AR UI shows `viper — فرنسي / عربي / إنجليزي`; the static `<title>` tag is `viper — Français / العربية / English`.
 
 ## Quick end-to-end check
 
-1. Open `http://localhost:8080/viper/index.html` in a fresh incognito Chrome profile.
-2. Assert `html.dir === 'rtl'`, `html.lang === 'ar'`, library title is `المكتبة`, and the Bienvenue lesson card appears.
-3. Toggle `#btn-theme` and assert `data-theme` switches between dark and light and the icon changes.
-4. Switch languages AR → EN → FR and assert `dir`, `lang`, titles, placeholders, and action-bar labels update.
-5. Add a folder with a trilingual title, then inside it add a lesson with pipe-delimited phrases such as `Bonjour | مرحبا | Hello`.
-6. Open the lesson and assert `.line.fr` has `dir="ltr"`, `.line.ar` has `dir="rtl"`, `.line.en` has `dir="ltr"`, with matching text.
-7. Click a speak/loop button and verify the phrase card gets `.playing` and the active line gets `.active`.
-8. Click `.ai-btn` and verify a new tab is opened to a Google search URL containing `udm=50` and the phrase text.
-9. Click a phrase's media button (📷), upload an image or paste a video/YouTube URL, and verify a `.phrase-media` element appears clearly below the phrase.
-10. Click `#btn-export`, confirm the `viper-lessons.json` download, and inspect the JSON for the built-in Bienvenue lesson plus the custom folder/lesson with `p.media`.
-11. Import a JSON file via the `label[for="import-file"]` picker and verify the new library state.
-12. Confirm `Object.keys(localStorage)` contains only `viper_*` keys.
+1. Fresh incognito profile → `/viper/index.html`: `dir==='rtl'`, `lang==='ar'`, title `viper — …`, `.logo` shows `viper` + `.logo-icon` `naturalWidth>0`, Bienvenue card, zero console errors, `caches.keys()` includes `viper-v*`.
+2. `typeof EdgeTTS==='object'`, `EdgeTTS.supported()===true`, `#tts-banner` hidden.
+3. Click `.tts-loop-btn` on a phrase → `.playing`/`.active` appear; real Edge audio plays (`down` stays false, ~5 s/lang).
+4. Block responsivevoice → click again → `down===true`, highlight still advances ~1 s/lang (fallback).
+5. `#btn-export` → lessons + full → `viper-*.json` in `~/Downloads`.
+6. Import a `{"zeekExport":1,...}` fixture via `DOM.setFileInputFiles` → new card appears, `viper_lessons` updated.
+7. `Object.keys(localStorage)` all `viper_*`.

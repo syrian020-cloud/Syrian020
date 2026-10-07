@@ -77,7 +77,7 @@
 
   function audio(text, lang) {
     lang = lang || 'fr';
-    var key = lang + '|' + text;
+    var key = lang + '|' + (api.voices[lang] || '') + '|' + (api.rates[lang] || '') + '|' + text;
     var hit = cache[key];
     if (hit) { touch(key); return Promise.resolve(hit); }
     if (pending[key]) return pending[key];
