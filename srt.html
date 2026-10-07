@@ -1328,6 +1328,21 @@
     return cue ? (cue.lines.find(l => l.lang === lang) || cue.lines[0]) : null;
   }
 
+  function openExternalUrl(url) {
+    if (isCapacitor() && window.Capacitor.Plugins.Browser) {
+      window.Capacitor.Plugins.Browser.open({url: url}).catch(() => { window.open(url, '_blank'); });
+    } else {
+      window.open(url, '_blank');
+    }
+  }
+
+  function openGoogleImages(word) {
+    const q = (word || '').replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '');
+    if (!q) return;
+    const hl = state.uiLang === 'ar' ? 'ar' : state.uiLang === 'fr' ? 'fr' : 'en';
+    openExternalUrl('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(q) + '&hl=' + hl);
+  }
+
   function openGoogleAiSearch() {
     const cue = getCurrentCue();
     const frLine = cue && cue.lines.find(l => l.lang === 'fr');
@@ -1490,7 +1505,19 @@
       btn.addEventListener('click', e => { e.stopPropagation(); toggleLoopLang(btn.dataset.lang); });
     });
     bubble.querySelectorAll('.word').forEach(w => {
-      w.addEventListener('click', e => { e.stopPropagation(); startWordLoop(w.textContent.trim(), w.dataset.lang, w); });
+      let tapTimer = null;
+      w.addEventListener('click', e => {
+        e.stopPropagation();
+        if (tapTimer) {
+          clearTimeout(tapTimer); tapTimer = null;
+          openGoogleImages(w.textContent);
+          return;
+        }
+        tapTimer = setTimeout(() => {
+          tapTimer = null;
+          startWordLoop(w.textContent.trim(), w.dataset.lang, w);
+        }, 300);
+      });
     });
   }
 
