@@ -1,6 +1,6 @@
 {
-  "appId": "com.syrian020.srtplayer",
-  "appName": "vid player",
+  "appId": "com.syrian020.caplayer",
+  "appName": "caplayer",
   "webDir": "www",
   "server": {
     "androidScheme": "https"

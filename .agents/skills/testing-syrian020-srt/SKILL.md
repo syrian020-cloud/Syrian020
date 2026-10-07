@@ -96,4 +96,4 @@ unzip -l android/app/build/outputs/apk/debug/app-debug.apk | grep 'assets/public
 /home/ubuntu/android-sdk/build-tools/34.0.0/aapt2 dump permissions android/app/build/outputs/apk/debug/app-debug.apk
 ```
 
-Expected package: `com.syrian020.srtplayer`, `INTERNET` permission, and `assets/public/index.html` matching `srt.html`.
+Expected package: `com.syrian020.caplayer`, `INTERNET` permission, and `assets/public/index.html` matching `srt.html`.
