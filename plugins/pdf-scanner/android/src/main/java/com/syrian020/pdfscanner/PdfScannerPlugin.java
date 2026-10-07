@@ -13,6 +13,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.pdf.PdfRenderer;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -68,6 +69,20 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
+import java.util.UUID;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.WebSocket;
+import okhttp3.WebSocketListener;
+import okio.ByteString;
 
 @CapacitorPlugin(
     name = "PdfScanner",
@@ -721,6 +736,263 @@ public class PdfScannerPlugin extends Plugin {
             while ((n = in.read(buf)) != -1) out.write(buf, 0, n);
         }
         return dst;
+    }
+
+    /* ================= Edge TTS =================
+     * Microsoft Edge online neural voices. The WebSocket handshake requires
+     * browser-extension headers (Origin, Edge User-Agent, muid cookie) that a
+     * WebView cannot set, so the whole exchange runs here natively.
+     */
+    private static final String EDGE_TOKEN = "6A5AA1D4EAFF4E9FB37E23D68491D6F4";
+    private static final String EDGE_VERSION = "143.0.3650.75";
+    private static final String EDGE_UA =
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
+        "(KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0";
+    private final OkHttpClient edgeClient = new OkHttpClient();
+    private WebSocket edgeWs;
+    private MediaPlayer edgePlayer;
+    private PluginCall edgeCall;
+    private ByteArrayOutputStream edgeAudio;
+    private File edgeFile;
+    private volatile boolean edgeDone = true;
+
+    private static String edgeGec() {
+        long ticks = System.currentTimeMillis() / 1000 + 11644473600L;
+        ticks -= ticks % 300;
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] h = md.digest((ticks * 10000000L + EDGE_TOKEN).getBytes("US-ASCII"));
+            StringBuilder sb = new StringBuilder(64);
+            for (byte b : h) sb.append(Character.forDigit((b >> 4) & 0xF, 16))
+                              .append(Character.forDigit(b & 0xF, 16));
+            return sb.toString().toUpperCase(Locale.US);
+        } catch (Exception e) {
+            return "";
+        }
+    }
+
+    private static String edgeTimestamp() {
+        SimpleDateFormat f = new SimpleDateFormat(
+            "EEE MMM dd yyyy HH:mm:ss 'GMT'Z", Locale.US);
+        f.setTimeZone(TimeZone.getTimeZone("UTC"));
+        return f.format(new Date()) + " (Coordinated Universal Time)";
+    }
+
+    private static String edgeId() {
+        return UUID.randomUUID().toString().replace("-", "");
+    }
+
+    private static String xmlEscape(String s) {
+        return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+                .replace("'", "&apos;").replace("\"", "&quot;");
+    }
+
+    /** Lists the Edge voices the service offers; result is raw JSON in { voices }. */
+    @PluginMethod
+    public void edgeVoices(PluginCall call) {
+        new Thread(() -> {
+            try {
+                Request req = new Request.Builder()
+                    .url("https://speech.platform.bing.com/consumer/speech/synthesize/readaloud/voices/list"
+                        + "?trustedclienttoken=" + EDGE_TOKEN
+                        + "&Sec-MS-GEC=" + edgeGec()
+                        + "&Sec-MS-GEC-Version=1-" + EDGE_VERSION)
+                    .header("User-Agent", EDGE_UA)
+                    .header("Accept", "*/*")
+                    .header("Accept-Language", "en-US,en;q=0.9")
+                    .header("Sec-CH-UA", "\" Not;A Brand\";v=\"99\", \"Microsoft Edge\";v=\"143\", \"Chromium\";v=\"143\"")
+                    .header("Sec-CH-UA-Mobile", "?0")
+                    .header("Sec-Fetch-Site", "none")
+                    .header("Sec-Fetch-Mode", "cors")
+                    .header("Sec-Fetch-Dest", "empty")
+                    .build();
+                try (Response r = edgeClient.newCall(req).execute()) {
+                    if (r.isSuccessful() && r.body() != null) {
+                        JSObject ret = new JSObject();
+                        ret.put("voices", r.body().string());
+                        call.resolve(ret);
+                    } else {
+                        call.reject("HTTP " + r.code());
+                    }
+                }
+            } catch (Exception e) {
+                call.reject("voices failed: " + e.getMessage(), e);
+            }
+        }).start();
+    }
+
+    /**
+     * Synthesizes { text } with an Edge neural { voice } and plays it.
+     * Resolves when playback finishes (or is stopped); rejects on network
+     * failure so the web layer can fall back to the device engine.
+     */
+    @PluginMethod
+    public void edgeSpeak(PluginCall call) {
+        String text = call.getString("text", "");
+        String voice = call.getString("voice", "ar-SY-AmanyNeural");
+        String rate = call.getString("rate", "+0%");
+        String pitch = call.getString("pitch", "+0Hz");
+        String volume = call.getString("volume", "+0%");
+        if (text == null || text.trim().isEmpty()) { call.resolve(); return; }
+        edgeStopInternal();
+        edgeCall = call;
+        edgeAudio = new ByteArrayOutputStream();
+        edgeDone = false;
+        final String connId = edgeId();
+        final String ssml =
+            "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'>"
+            + "<voice name='" + voice + "'><prosody pitch='" + pitch + "' rate='" + rate
+            + "' volume='" + volume + "'>" + xmlEscape(text.trim())
+            + "</prosody></voice></speak>";
+        Request req = new Request.Builder()
+            .url("wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1"
+                + "?TrustedClientToken=" + EDGE_TOKEN
+                + "&Sec-MS-GEC=" + edgeGec()
+                + "&Sec-MS-GEC-Version=1-" + EDGE_VERSION
+                + "&ConnectionId=" + connId)
+            .header("User-Agent", EDGE_UA)
+            .header("Accept-Encoding", "gzip, deflate, br")
+            .header("Accept-Language", "en-US,en;q=0.9")
+            .header("Pragma", "no-cache")
+            .header("Cache-Control", "no-cache")
+            .header("Origin", "chrome-extension://jdiccldimpdaibmpdkjnbmckianbfold")
+            .header("Cookie", "muid=" + edgeId().toUpperCase(Locale.US) + ";")
+            .build();
+        edgeWs = edgeClient.newWebSocket(req, new WebSocketListener() {
+            @Override
+            public void onOpen(WebSocket ws, Response response) {
+                ws.send("X-Timestamp:" + edgeTimestamp() + "\r\n"
+                    + "Content-Type:application/json; charset=utf-8\r\n"
+                    + "Path:speech.config\r\n\r\n"
+                    + "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{"
+                    + "\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"false\"},"
+                    + "\"outputFormat\":\"audio-24khz-48kbitrate-mono-mp3\"}}}}");
+                ws.send("X-RequestId:" + connId + "\r\n"
+                    + "Content-Type:application/ssml+xml\r\n"
+                    + "Path:ssml\r\n"
+                    + "X-Timestamp:" + edgeTimestamp() + "\r\n\r\n" + ssml);
+            }
+
+            @Override
+            public void onMessage(WebSocket ws, String text) {
+                if (text.contains("Path:turn.end")) {
+                    try { ws.close(1000, null); } catch (Exception ignored) {}
+                    finishEdgeAudio();
+                }
+            }
+
+            @Override
+            public void onMessage(WebSocket ws, ByteString bytes) {
+                byte[] b = bytes.toByteArray();
+                if (b.length < 3) return;
+                int hlen = ((b[0] & 0xff) << 8) | (b[1] & 0xff);
+                if (hlen < 0 || 2 + hlen >= b.length) return;
+                String hdr = new String(b, 2, hlen, StandardCharsets.UTF_8);
+                if (hdr.contains("Path:audio")) {
+                    edgeAudio.write(b, 2 + hlen, b.length - 2 - hlen);
+                }
+            }
+
+            @Override
+            public void onFailure(WebSocket ws, Throwable t, Response r) {
+                failEdge("edge failed: " + t.getMessage());
+            }
+        });
+    }
+
+    /** Stops any in-flight Edge synthesis or playback. */
+    @PluginMethod
+    public void edgeStop(PluginCall call) {
+        edgeStopInternal();
+        JSObject ret = new JSObject();
+        ret.put("ok", true);
+        call.resolve(ret);
+    }
+
+    private void finishEdgeAudio() {
+        byte[] mp3 = edgeAudio != null ? edgeAudio.toByteArray() : new byte[0];
+        if (mp3.length == 0 || edgeDone) { if (!edgeDone) failEdge("no audio"); return; }
+        try {
+            edgeFile = File.createTempFile("edge_", ".mp3", getContext().getCacheDir());
+            try (FileOutputStream out = new FileOutputStream(edgeFile)) { out.write(mp3); }
+        } catch (IOException e) {
+            failEdge("write: " + e.getMessage());
+            return;
+        }
+        getActivity().runOnUiThread(() -> {
+            if (edgeDone || edgeCall == null) return;
+            try {
+                edgePlayer = new MediaPlayer();
+                edgePlayer.setDataSource(edgeFile.getAbsolutePath());
+                edgePlayer.setOnCompletionListener(mp -> resolveEdge(true));
+                edgePlayer.setOnErrorListener((mp, what, extra) -> {
+                    failEdge("player error " + what);
+                    return true;
+                });
+                edgePlayer.prepare();
+                edgePlayer.start();
+            } catch (Exception e) {
+                failEdge("play: " + e.getMessage());
+            }
+        });
+    }
+
+    private void resolveEdge(boolean ok) {
+        edgeDone = true;
+        PluginCall c = edgeCall;
+        edgeCall = null;
+        cleanupEdgeMedia();
+        if (c != null) {
+            JSObject r = new JSObject();
+            r.put("ok", ok);
+            c.resolve(r);
+        }
+    }
+
+    private void failEdge(String msg) {
+        edgeDone = true;
+        PluginCall c = edgeCall;
+        edgeCall = null;
+        cleanupEdgeMedia();
+        if (edgeWs != null) {
+            try { edgeWs.close(1000, null); } catch (Exception ignored) {}
+            edgeWs = null;
+        }
+        if (c != null) c.reject(msg);
+    }
+
+    private void cleanupEdgeMedia() {
+        if (edgePlayer != null) {
+            try { edgePlayer.stop(); } catch (Exception ignored) {}
+            edgePlayer.release();
+            edgePlayer = null;
+        }
+        if (edgeFile != null) { edgeFile.delete(); edgeFile = null; }
+    }
+
+    private void edgeStopInternal() {
+        edgeDone = true;
+        if (edgeWs != null) {
+            try { edgeWs.close(1000, null); } catch (Exception ignored) {}
+            edgeWs = null;
+        }
+        PluginCall c = edgeCall;
+        edgeCall = null;
+        if (edgePlayer != null) {
+            getActivity().runOnUiThread(() -> {
+                if (edgePlayer != null) {
+                    try { edgePlayer.stop(); } catch (Exception ignored) {}
+                    edgePlayer.release();
+                    edgePlayer = null;
+                }
+            });
+        }
+        if (c != null) {
+            JSObject r = new JSObject();
+            r.put("stopped", true);
+            c.resolve(r);
+        }
+        if (edgeFile != null) { edgeFile.delete(); edgeFile = null; }
     }
 
     /** Streams every page of the PDF into the system's print pipeline. */
