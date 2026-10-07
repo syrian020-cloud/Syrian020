@@ -2356,20 +2356,12 @@ EN: Maria, I’m out of cigarettes.` }
         <div class="format-name">${escapeHtml(f.name)}</div>
         <pre>${escapeHtml(f.sample)}</pre>
         <div class="format-actions">
-          <button type="button" data-fmt-use="${i}">⤵ ${escapeHtml(t('useFmtBtn'))}</button>
           <button type="button" data-fmt-copy="${i}">📋 ${escapeHtml(t('copyBtn'))}</button>
         </div>
       </div>`).join('');
     formatsList.querySelectorAll('[data-fmt-copy]').forEach(b => {
       b.addEventListener('click', () => {
         copyTextToClipboard(FORMAT_SAMPLES[+b.dataset.fmtCopy].sample).then(() => showToast(t('copied')));
-      });
-    });
-    formatsList.querySelectorAll('[data-fmt-use]').forEach(b => {
-      b.addEventListener('click', () => {
-        srtPaste.value = FORMAT_SAMPLES[+b.dataset.fmtUse].sample;
-        closeFormats();
-        switchTab('paste');
       });
     });
   }
