@@ -14,16 +14,52 @@
  *   EdgeTTS.playUrl(url)     -> same for a cached URL
  *   EdgeTTS.stop()           -> pause current audio
  *   EdgeTTS.down             -> true after a failure (session only)
- *   EdgeTTS.voices/rates     -> {fr,ar,en}
+ *   EdgeTTS.voices/rates     -> {fr,ar,en} (user-overridable via openSettings())
+ *   EdgeTTS.openSettings()   -> speech settings sheet (voice + speed per lang)
  */
 (function () {
   'use strict';
 
-  var api = {
-    down: false,
-    voices: { fr: 'fr-FR-DeniseNeural', ar: 'ar-SY-AmanyNeural', en: 'en-US-JennyNeural' },
-    rates: { fr: '-8%', ar: '0%', en: '0%' }
+  var DEFAULT_VOICES = { fr: 'fr-FR-DeniseNeural', ar: 'ar-SY-AmanyNeural', en: 'en-US-JennyNeural' };
+  var DEFAULT_RATES = { fr: -8, ar: 0, en: 0 };
+
+  /* Curated neural voices per UI language — Edge names also used by the web
+   * preview; on web (ResponsiveVoice fallback) the choice is ignored. */
+  var VOICE_OPTIONS = {
+    fr: [
+      'fr-FR-DeniseNeural', 'fr-FR-EloiseNeural', 'fr-FR-VivienneMultilingualNeural',
+      'fr-FR-HenriNeural', 'fr-FR-RemyMultilingualNeural',
+      'fr-CA-SylvieNeural', 'fr-CA-JeanNeural'
+    ],
+    ar: [
+      'ar-SY-AmanyNeural', 'ar-SY-LaithNeural',
+      'ar-EG-SalmaNeural', 'ar-EG-ShakirNeural',
+      'ar-SA-ZariyahNeural', 'ar-SA-HamedNeural'
+    ],
+    en: [
+      'en-US-JennyNeural', 'en-US-AriaNeural', 'en-US-GuyNeural',
+      'en-GB-SoniaNeural', 'en-GB-RyanNeural', 'en-AU-NatashaNeural'
+    ]
   };
+  var VOICE_LABEL = {
+    'fr-FR-DeniseNeural': 'Denise 🇫🇷', 'fr-FR-EloiseNeural': 'Eloise 🇫🇷',
+    'fr-FR-VivienneMultilingualNeural': 'Vivienne 🇫🇷', 'fr-FR-HenriNeural': 'Henri 🇫🇷',
+    'fr-FR-RemyMultilingualNeural': 'Rémy 🇫🇷', 'fr-CA-SylvieNeural': 'Sylvie 🇨🇦',
+    'fr-CA-JeanNeural': 'Jean 🇨🇦',
+    'ar-SY-AmanyNeural': 'أماني 🇸🇾', 'ar-SY-LaithNeural': 'ليث 🇸🇾',
+    'ar-EG-SalmaNeural': 'سلمى 🇪🇬', 'ar-EG-ShakirNeural': 'شاكر 🇪🇬',
+    'ar-SA-ZariyahNeural': 'زارية 🇸🇦', 'ar-SA-HamedNeural': 'حامد 🇸🇦',
+    'en-US-JennyNeural': 'Jenny 🇺🇸', 'en-US-AriaNeural': 'Aria 🇺🇸',
+    'en-US-GuyNeural': 'Guy 🇺🇸', 'en-GB-SoniaNeural': 'Sonia 🇬🇧',
+    'en-GB-RyanNeural': 'Ryan 🇬🇧', 'en-AU-NatashaNeural': 'Natasha 🇦🇺'
+  };
+  var SAMPLE = {
+    fr: 'Bonjour, comment allez-vous ?',
+    ar: 'مرحبا، كيف حالك؟',
+    en: 'Hello, how are you?'
+  };
+
+  var api = { down: false };
   var RV_TL = { fr: 'fr', ar: 'ar', en: 'en-US' };
   var RV_RATE = '0.47';
   var CACHE_MAX = 60;
@@ -32,6 +68,24 @@
   var cacheOrder = [];
   var pending = {};
   var curAudio = null;
+
+  function ls(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+  function voiceOf(lang) {
+    return ls('edge_voice_' + lang) || DEFAULT_VOICES[lang] || DEFAULT_VOICES.fr;
+  }
+  function rateOf(lang) {
+    var v = parseInt(ls('edge_rate_' + lang) || '', 10);
+    if (isNaN(v)) v = DEFAULT_RATES[lang] || 0;
+    return (v >= 0 ? '+' : '') + v + '%';
+  }
+  function rateNum(lang) {
+    var v = parseInt(ls('edge_rate_' + lang) || '', 10);
+    return isNaN(v) ? (DEFAULT_RATES[lang] || 0) : v;
+  }
+  api.voiceOf = voiceOf;
+  api.rateOf = rateOf;
 
   function enabled() {
     try { return localStorage.getItem('edge_tts') !== '0'; } catch (e) { return true; }
@@ -64,7 +118,7 @@
   function fetchAudio(text, lang) {
     var p = plugin();
     if (p) {
-      return p.speak({ text: text, voice: api.voices[lang] || api.voices.fr, rate: api.rates[lang] || '+0%' })
+      return p.speak({ text: text, voice: voiceOf(lang), rate: rateOf(lang) })
         .then(function (r) { return { url: fileUrl(r.path) }; });
     }
     return Promise.resolve({ url: rvUrl(text, lang) });
@@ -77,7 +131,7 @@
 
   function audio(text, lang) {
     lang = lang || 'fr';
-    var key = lang + '|' + text;
+    var key = lang + '|' + voiceOf(lang) + '|' + rateOf(lang) + '|' + text;
     var hit = cache[key];
     if (hit) { touch(key); return Promise.resolve(hit); }
     if (pending[key]) return pending[key];
@@ -132,8 +186,122 @@
     }
   }
 
+  /* ---------- Settings sheet ---------- */
+  var sheetEl = null;
+
+  var SET_T = {
+    title: 'إعدادات النطق · Speech settings',
+    voice: 'الصوت',
+    speed: 'السرعة',
+    preview: 'تجربة',
+    reset: 'استعادة الافتراضي',
+    close: 'إغلاق',
+    langs: { fr: '🇫🇷 الفرنسية', ar: '🇸🇾 العربية', en: '🇺🇸 الإنكليزية' },
+    note: 'الصوت الطبيعي يحتاج إنترنت — بدون إنترنت يُستخدم صوت الجهاز.'
+  };
+
+  function h(tag, attrs, kids) {
+    var el = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (k === 'style') el.style.cssText = attrs[k];
+      else if (k === 'text') el.textContent = attrs[k];
+      else el.setAttribute(k, attrs[k]);
+    });
+    (kids || []).forEach(function (c) { el.appendChild(c); });
+    return el;
+  }
+
+  function buildSheet() {
+    var css = [
+      '.etts-ov{position:fixed;inset:0;background:rgba(3,6,18,.66);backdrop-filter:blur(4px);z-index:4000;display:flex;align-items:flex-end;justify-content:center}',
+      '.etts-card{width:100%;max-width:480px;background:#101427;border:1px solid rgba(139,92,246,.25);border-bottom:none;border-radius:20px 20px 0 0;padding:1rem 1.1rem 1.4rem;color:#e8eaf6;font-family:inherit;box-shadow:0 -12px 40px rgba(0,0,0,.5);max-height:82vh;overflow-y:auto}',
+      '.etts-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:.7rem}',
+      '.etts-h b{font-size:1rem}',
+      '.etts-x{background:none;border:none;color:#9aa3c7;font-size:1.3rem;cursor:pointer;padding:.2rem .5rem}',
+      '.etts-row{background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.15);border-radius:14px;padding:.7rem .8rem;margin-bottom:.7rem}',
+      '.etts-row>div{display:flex;align-items:center;gap:.6rem;margin-top:.5rem}',
+      '.etts-row>div:first-child{margin-top:0}',
+      '.etts-lab{font-weight:800;font-size:.92rem;flex:1}',
+      '.etts-mini{font-size:.72rem;color:#9aa3c7;width:4.2rem;flex:none}',
+      '.etts-sel{flex:1;background:#0b0f22;color:#e8eaf6;border:1px solid rgba(139,92,246,.3);border-radius:10px;padding:.45rem .55rem;font-size:.85rem;font-family:inherit}',
+      '.etts-range{flex:1;accent-color:#8b5cf6}',
+      '.etts-val{width:3rem;text-align:center;font-size:.8rem;color:#c4b5fd;font-weight:700;flex:none}',
+      '.etts-pv{background:linear-gradient(135deg,#8b5cf6,#6366f1);border:none;color:#fff;border-radius:10px;padding:.42rem .7rem;font-size:.85rem;cursor:pointer;flex:none}',
+      '.etts-pv:disabled{opacity:.5}',
+      '.etts-note{font-size:.72rem;color:#9aa3c7;text-align:center;margin:.3rem 0 .8rem}',
+      '.etts-foot{display:flex;gap:.6rem}',
+      '.etts-btn{flex:1;border:1px solid rgba(139,92,246,.3);background:rgba(139,92,246,.12);color:#e8eaf6;border-radius:12px;padding:.6rem;font-size:.88rem;font-weight:700;cursor:pointer;font-family:inherit}'
+    ].join('\n');
+
+    var ov = h('div', { 'class': 'etts-ov' });
+    var card = h('div', { 'class': 'etts-card' });
+    ov.appendChild(card);
+    card.appendChild(h('style', { text: css }));
+
+    var closeBtn = h('button', { 'class': 'etts-x', text: '✕' });
+    closeBtn.onclick = function () { ov.remove(); };
+    card.appendChild(h('div', { 'class': 'etts-h' }, [
+      h('b', { text: SET_T.title }), closeBtn
+    ]));
+
+    ['fr', 'ar', 'en'].forEach(function (lang) {
+      var row = h('div', { 'class': 'etts-row' });
+      row.appendChild(h('div', {}, [h('span', { 'class': 'etts-lab', text: SET_T.langs[lang] })]));
+
+      var sel = h('select', { 'class': 'etts-sel' });
+      VOICE_OPTIONS[lang].forEach(function (v) {
+        var o = h('option', { value: v, text: VOICE_LABEL[v] || v });
+        if (v === voiceOf(lang)) o.selected = true;
+        sel.appendChild(o);
+      });
+      sel.onchange = function () { lsSet('edge_voice_' + lang, sel.value); };
+      row.appendChild(h('div', {}, [h('span', { 'class': 'etts-mini', text: SET_T.voice }), sel]));
+
+      var val = h('span', { 'class': 'etts-val' });
+      var rng = h('input', { 'class': 'etts-range', type: 'range', min: '-50', max: '50', step: '5' });
+      rng.value = String(rateNum(lang));
+      val.textContent = rateOf(lang);
+      rng.oninput = function () {
+        lsSet('edge_rate_' + lang, rng.value);
+        val.textContent = rateOf(lang);
+      };
+      var pv = h('button', { 'class': 'etts-pv', text: '▶ ' + SET_T.preview });
+      pv.onclick = function () {
+        pv.disabled = true;
+        play(SAMPLE[lang], lang).catch(function () {}).then(function () { pv.disabled = false; });
+      };
+      row.appendChild(h('div', {}, [h('span', { 'class': 'etts-mini', text: SET_T.speed }), rng, val, pv]));
+
+      card.appendChild(row);
+    });
+
+    card.appendChild(h('div', { 'class': 'etts-note', text: SET_T.note }));
+
+    var reset = h('button', { 'class': 'etts-btn', text: '↺ ' + SET_T.reset });
+    reset.onclick = function () {
+      ['fr', 'ar', 'en'].forEach(function (l) {
+        try { localStorage.removeItem('edge_voice_' + l); localStorage.removeItem('edge_rate_' + l); } catch (e) {}
+      });
+      ov.remove();
+      openSettings();
+    };
+    var done = h('button', { 'class': 'etts-btn', text: SET_T.close });
+    done.onclick = function () { ov.remove(); };
+    card.appendChild(h('div', { 'class': 'etts-foot' }, [reset, done]));
+
+    ov.onclick = function (e) { if (e.target === ov) ov.remove(); };
+    return ov;
+  }
+
+  function openSettings() {
+    if (sheetEl && sheetEl.parentNode) { sheetEl.remove(); }
+    sheetEl = buildSheet();
+    document.body.appendChild(sheetEl);
+  }
+
   api.enabled = enabled;
   api.setEnabled = setEnabled;
+  api.openSettings = openSettings;
   api.supported = supported;
   api.audio = audio;
   api.play = play;
