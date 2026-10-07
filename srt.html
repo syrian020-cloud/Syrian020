@@ -230,6 +230,17 @@
   .status { text-align: center; color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; }
 
   footer { text-align: center; padding: 1.5rem 1rem; color: var(--text-secondary); font-size: 0.8rem; }
+  .formats-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 90; display: flex; align-items: flex-end; justify-content: center; }
+  .formats-sheet { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius) var(--radius) 0 0; width: 100%; max-width: 720px; max-height: 82vh; overflow-y: auto; padding: 0.9rem 0.9rem 1.4rem; box-shadow: var(--shadow); }
+  .formats-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; position: sticky; top: -0.9rem; background: var(--bg-secondary); padding: 0.5rem 0; z-index: 1; }
+  .formats-head h3 { margin: 0; font-size: 1rem; color: var(--text-primary); }
+  .format-card { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.6rem; margin-bottom: 0.55rem; }
+  .format-card .format-name { font-weight: 700; font-size: 0.88rem; margin-bottom: 0.35rem; color: var(--text-primary); }
+  .format-card pre { background: var(--bg-primary); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 0.6rem; font-size: 0.78rem; white-space: pre-wrap; margin: 0 0 0.45rem; font-family: inherit; direction: ltr; text-align: left; unicode-bidi: plaintext; color: var(--text-primary); line-height: 1.45; }
+  .format-actions { display: flex; gap: 0.4rem; justify-content: flex-end; }
+  .format-actions button { background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 8px; padding: 0.35rem 0.7rem; font-size: 0.82rem; font-family: inherit; cursor: pointer; }
+  .format-actions button:hover { border-color: var(--accent); }
+
   .toast { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 999px; padding: 0.6rem 1.1rem; z-index: 100; opacity: 0; transition: opacity 0.2s; pointer-events: none; font-weight: 600; direction: rtl; }
   .toast.show { opacity: 1; }
 
@@ -334,6 +345,8 @@
         <button class="source-tab active" data-tab="single" type="button" data-t="tabSingle">ملف ترجمة واحد</button>
         <button class="source-tab" data-tab="separate" type="button" data-t="tabSeparate">ملفات منفصلة</button>
         <button class="source-tab" data-tab="paste" type="button" data-t="tabPaste">لصق نص</button>
+        <span class="spacer"></span>
+        <button class="icon-btn" id="btn-formats" type="button" title="نماذج الترجمة" data-t-title="formatsTitle">📋</button>
       </div>
 
       <div class="tab-panel active" data-tab="single">
@@ -445,6 +458,15 @@
 </main>
 
 <footer data-t="footer">مشغّل SRT مصاحب للفيديو — يدعم الفرنسية والعربية والإنجليزية</footer>
+<div class="formats-backdrop" id="formats-backdrop" style="display:none">
+  <div class="formats-sheet" role="dialog" aria-modal="true">
+    <div class="formats-head">
+      <h3 data-t="formatsTitle">نماذج الترجمة المدعومة</h3>
+      <button class="icon-btn" id="btn-formats-close" type="button" aria-label="Close">✕</button>
+    </div>
+    <div id="formats-list"></div>
+  </div>
+</div>
 <div class="toast" id="toast"></div>
 <input type="file" id="edit-image" accept="image/*" style="display:none">
 
@@ -465,6 +487,7 @@
   const btnLessons = $('btn-lessons'), btnSetup = $('btn-setup'), btnNewLesson = $('btn-new-lesson'), btnSaveLesson = $('btn-save-lesson'), btnBackLessons = $('btn-back-lessons'), btnLang = $('btn-lang'), btnEdgeSet = $('btn-edge-set'), btnImport = $('btn-import'), btnExportAll = $('btn-export-all'), importFile = $('import-file');
   const lessonsView = $('lessons-view'), setupView = $('setup-view'), playerView = $('player-view'), lessonsList = $('lessons-list'), lessonTitle = $('lesson-title');
   const statusEl = $('status'), toast = $('toast'), rateSelect = $('rate');
+  const btnFormats = $('btn-formats'), formatsBackdrop = $('formats-backdrop'), formatsList = $('formats-list'), btnFormatsClose = $('btn-formats-close');
 
   // --- State ---
   const state = {
@@ -498,6 +521,7 @@
 
   const LANG_ORDER = ['fr','ar','en'];
   const LANG_LABELS = { fr: 'FR', ar: 'AR', en: 'EN' };
+  const LANG_FLAGS = { fr: '🇫🇷', ar: '🇸🇾', en: '🇺🇸' };
   const LANG_NAMES = { fr: 'Français', ar: 'العربية', en: 'English' };
 
   const UI_LANGS = ['ar','fr','en'];
@@ -602,7 +626,11 @@
       exportSuccess: 'تم تصدير $name',
       exportError: 'تعذّر تصدير الدرس',
       noLessonsToExport: 'لا توجد دروس للتصدير',
-      shareNotSupported: 'المشاركة غير مدعومة على هذا الجهاز، تم تحميل الملف'
+      shareNotSupported: 'المشاركة غير مدعومة على هذا الجهاز، تم تحميل الملف',
+      formatsTitle: 'نماذج الترجمة المدعومة',
+      copyBtn: 'نسخ',
+      useFmtBtn: 'استخدام',
+      copied: 'تم النسخ'
     },
     fr: {
       appName: 'caplayer',
@@ -704,7 +732,11 @@
       exportSuccess: '$name exporté',
       exportError: 'Échec de l\'export',
       noLessonsToExport: 'Aucune leçon à exporter',
-      shareNotSupported: 'Partage non supporté, fichier téléchargé'
+      shareNotSupported: 'Partage non supporté, fichier téléchargé',
+      formatsTitle: 'Formats de sous-titres pris en charge',
+      copyBtn: 'Copier',
+      useFmtBtn: 'Utiliser',
+      copied: 'Copié'
     },
     en: {
       appName: 'caplayer',
@@ -806,7 +838,11 @@
       exportSuccess: '$name exported',
       exportError: 'Failed to export lesson',
       noLessonsToExport: 'No lessons to export',
-      shareNotSupported: 'Sharing not supported, file downloaded'
+      shareNotSupported: 'Sharing not supported, file downloaded',
+      formatsTitle: 'Supported caption formats',
+      copyBtn: 'Copy',
+      useFmtBtn: 'Use',
+      copied: 'Copied'
     }
   };
 
@@ -1230,9 +1266,39 @@
   }
 
   function getCueTexts(cue) {
-    const lines = cue.text.split('\n').map(l => l.trim()).filter(Boolean);
+    // Segments can come split by '|' on one line, prefixed by FR:/AR:/EN:,
+    // or led by a flag emoji — normalize all of that into plain lang lines.
+    const rawLines = cue.text.split('\n').map(l => l.trim()).filter(Boolean);
+    const lines = [];
+    const declared = [];
+    for (const raw of rawLines) {
+      for (const seg of raw.split('|').map(s => s.trim()).filter(Boolean)) {
+        const pm = seg.match(/^(fr|ar|en)\s*[:：\-–]\s*(.+)$/i);
+        if (pm) { declared.push({ lang: pm[1].toLowerCase(), text: pm[2].trim() }); continue; }
+        const fm = seg.match(/^(\p{Regional_Indicator}{2})\s*(.+)$/u);
+        if (fm) { declared.push({ lang: FLAG_LANG_MAP[fm[1]] || detectLangFromText(fm[2]), text: fm[2].trim() }); continue; }
+        lines.push(seg);
+      }
+    }
+    if (declared.length) {
+      const result = declared.slice();
+      const missing = LANG_ORDER.filter(l => !result.some(r => r.lang === l));
+      const arExtra = lines.filter(l => /[\u0600-\u06FF]/.test(l));
+      const nonArExtra = lines.filter(l => !/[\u0600-\u06FF]/.test(l));
+      let ni = 0;
+      for (const lang of missing) {
+        const text = lang === 'ar' ? arExtra.shift() : nonArExtra[ni++];
+        if (text) result.push({ lang, text });
+      }
+      [...arExtra, ...nonArExtra.slice(ni)].forEach((text, i) => {
+        const remaining = missing.filter(l => !result.some(r => r.lang === l));
+        result.push({ lang: remaining[i] || 'fr', text });
+      });
+      return result;
+    }
     const arLines = lines.filter(l => /[\u0600-\u06FF]/.test(l));
     const nonArLines = lines.filter(l => !/[\u0600-\u06FF]/.test(l));
+    // unchanged detection path below
     const result = [];
     let nonArIdx = 0;
     for (const lang of LANG_ORDER) {
@@ -1289,7 +1355,19 @@
       window.speechSynthesis.cancel();
     }
   }
+  function cleanForSpeech(text) {
+    // Speak words only: drop flag emojis, pictographs/symbols and lang tags.
+    return (text || '')
+      .replace(/\p{Regional_Indicator}{1,2}/gu, ' ')
+      .replace(/\b(fr|ar|en)\s*[:：]/giu, ' ')
+      .replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{200D}\u{2190}-\u{21FF}\u{2B00}-\u{2BFF}\u{1F1E6}-\u{1F1FF}]/gu, ' ')
+      .replace(/\s{2,}/g, ' ')
+      .trim();
+  }
+
   function ttsSpeak({ text, lang, onend }) {
+    text = cleanForSpeech(text);
+    if (!text) { if (onend) setTimeout(onend, 50); return; }
     if (window.EdgeTTS && window.EdgeTTS.supported()) {
       const run = ++ttsRun;
       window.EdgeTTS.play(text, lang)
@@ -1500,7 +1578,7 @@
     bubble.innerHTML = cue.lines.map(line => `
       <div class="lang-line ${line.lang}" dir="${line.lang === 'ar' ? 'rtl' : 'ltr'}">
         <div class="lang-line-header">
-          <span class="badge">${LANG_LABELS[line.lang]}</span>
+          <span class="badge">${LANG_FLAGS[line.lang] || ''} ${LANG_LABELS[line.lang]}</span>
           <button class="loop" data-lang="${line.lang}" title="${escapeHtml(t('speakTitle', {lang: LANG_NAMES[line.lang]}))}" aria-label="${escapeHtml(t('speakTitle', {lang: LANG_NAMES[line.lang]}))}">🔊</button>
         </div>
         <div class="lang-text">${wrapWords(line.text, line.lang)}</div>
@@ -1709,33 +1787,23 @@
     return true;
   }
 
-  async function start() {
-    state.currentLessonId = null;
-    const ok = await loadCues();
-    if (!ok) return;
-    showToast(t('loadedCues', {count: state.cues.length}));
-    showView('player');
-  }
-
-  async function saveLesson() {
-    const ok = await loadCues();
-    if (!ok) return;
+  async function collectLesson(silent) {
     const editVideoBlob = state.editingLesson ? state.editingLesson.videoBlob : null;
     const editImageBlob = state.editingLesson ? state.editingLesson.imageBlob : null;
     if (!state.cues.length && !videoFile.files[0] && !editVideoBlob) {
-      showToast(t('noContent'));
-      return;
+      if (!silent) showToast(t('noContent'));
+      return null;
     }
     const dateLocale = state.uiLang === 'ar' ? 'ar-EG' : state.uiLang === 'fr' ? 'fr-FR' : 'en-US';
     const defaultName = new Date().toLocaleDateString(dateLocale);
     let name = lessonName.value.trim();
-    if (!name) name = prompt(t('lessonNamePrompt'), t('lessonDefaultName', {date: defaultName})) || t('lessonDefaultName', {date: defaultName});
+    if (!name) name = silent ? t('lessonDefaultName', {date: defaultName}) : (prompt(t('lessonNamePrompt'), t('lessonDefaultName', {date: defaultName})) || t('lessonDefaultName', {date: defaultName}));
     let videoBlob = null, imageBlob = null;
     if (videoFile.files[0]) {
       try {
         const ab = await readFileAsArrayBuffer(videoFile.files[0]);
         videoBlob = new Blob([ab], { type: videoFile.files[0].type || 'video/mp4' });
-      } catch (e) { showToast(t('readVideoError')); return; }
+      } catch (e) { if (!silent) showToast(t('readVideoError')); return null; }
     } else if (editVideoBlob) {
       videoBlob = editVideoBlob;
     }
@@ -1743,19 +1811,43 @@
       try {
         const ab = await readFileAsArrayBuffer(lessonImage.files[0]);
         imageBlob = new Blob([ab], { type: lessonImage.files[0].type || 'image/jpeg' });
-      } catch (e) { showToast(t('readImageError')); }
+      } catch (e) { if (!silent) showToast(t('readImageError')); }
     } else if (editImageBlob) {
       imageBlob = editImageBlob;
     }
-    let lesson;
     if (state.editingLessonId && state.editingLesson) {
-      lesson = { ...state.editingLesson, name, cues: state.cues, videoBlob, imageBlob };
-    } else {
-      lesson = { id: Date.now().toString(36), name, createdAt: Date.now(), cues: state.cues, videoBlob, imageBlob };
+      return { ...state.editingLesson, name, cues: state.cues, videoBlob, imageBlob };
     }
+    return { id: Date.now().toString(36), name, createdAt: Date.now(), cues: state.cues, videoBlob, imageBlob };
+  }
+
+  async function start() {
+    const ok = await loadCues();
+    if (!ok) return;
+    // Auto-save the lesson so it stays in the lessons list after going back.
+    const lesson = await collectLesson(true);
+    if (lesson) {
+      try {
+        await saveLessonToDB(lesson);
+        state.editingLessonId = lesson.id;
+        state.editingLesson = lesson;
+        state.currentLessonId = lesson.id;
+        lessonTitle.textContent = lesson.name;
+        renderLessons();
+      } catch (e) {}
+    }
+    showToast(t('loadedCues', {count: state.cues.length}));
+    showView('player');
+  }
+
+  async function saveLesson() {
+    const ok = await loadCues();
+    if (!ok) return;
+    const lesson = await collectLesson(false);
+    if (!lesson) return;
     state.currentLessonId = lesson.id;
-    state.editingLessonId = null;
-    state.editingLesson = null;
+    state.editingLessonId = lesson.id;
+    state.editingLesson = lesson;
     try {
       await saveLessonToDB(lesson);
       showToast(t('saveSuccess'));
@@ -2202,6 +2294,88 @@
   document.querySelectorAll('.source-tab').forEach(tab => {
     tab.addEventListener('click', () => switchTab(tab.dataset.tab));
   });
+
+  // --- Supported formats sheet ---
+  const FORMAT_SAMPLES = [
+    { name: 'SRT قياسي / Standard SRT', sample: `1
+00:00:00,000 --> 00:00:03,000
+Maria, j’ai plus de cigarettes.
+ماريا، ما عاد معي دخان.
+Maria, I’m out of cigarettes.` },
+    { name: 'SRT بفاصل | / SRT with |', sample: `1
+00:00:00,000 --> 00:00:03,000
+Maria, j’ai plus de cigarettes. | ماريا، ما عاد معي دخان. | Maria, I’m out of cigarettes.` },
+    { name: 'نص مؤقت بفاصل | / Timed text with |', sample: `00:00 Maria, j’ai plus de cigarettes. | ماريا، ما عاد معي دخان. | Maria, I’m out of cigarettes.
+00:02 Donne-moi de l’argent. | أعطيني مصاري. | Give me some money.` },
+    { name: 'نص مؤقت متعدد الأسطر / Timed multiline', sample: `00:00 Maria, j’ai plus de cigarettes.
+ماريا، ما عاد معي دخان.
+Maria, I’m out of cigarettes.
+
+00:02 Donne-moi de l’argent.
+أعطيني مصاري.
+Give me some money.` },
+    { name: 'مجال زمني / Time range', sample: `00:00 --> 00:03 Maria, j’ai plus de cigarettes.
+ماريا، ما عاد معي دخان.
+Maria, I’m out of cigarettes.` },
+    { name: 'أعلام مع الوقت بنفس السطر / Flags inline', sample: `00:00 🇫🇷 Maria, j’ai plus de cigarettes.
+🇸🇾 ماريا، ما عاد معي دخان.
+🇺🇸 Maria, I’m out of cigarettes.` },
+    { name: 'أعلام مع وقت بسطر منفصل / Flags block', sample: `00:00
+🇫🇷 Maria, j’ai plus de cigarettes.
+🇸🇾 ماريا، ما عاد معي دخان.
+🇺🇸 Maria, I’m out of cigarettes.` },
+    { name: 'بادئات اللغة / FR AR EN prefixes', sample: `00:00 FR: Maria, j’ai plus de cigarettes.
+AR: ماريا، ما عاد معي دخان.
+EN: Maria, I’m out of cigarettes.` }
+  ];
+
+  function copyTextToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).then(() => true).catch(() => fallbackCopy(text));
+    }
+    return Promise.resolve(fallbackCopy(text));
+  }
+  function fallbackCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    let ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  function renderFormatsList() {
+    if (!formatsList) return;
+    formatsList.innerHTML = FORMAT_SAMPLES.map((f, i) => `
+      <div class="format-card">
+        <div class="format-name">${escapeHtml(f.name)}</div>
+        <pre>${escapeHtml(f.sample)}</pre>
+        <div class="format-actions">
+          <button type="button" data-fmt-use="${i}">⤵ ${escapeHtml(t('useFmtBtn'))}</button>
+          <button type="button" data-fmt-copy="${i}">📋 ${escapeHtml(t('copyBtn'))}</button>
+        </div>
+      </div>`).join('');
+    formatsList.querySelectorAll('[data-fmt-copy]').forEach(b => {
+      b.addEventListener('click', () => {
+        copyTextToClipboard(FORMAT_SAMPLES[+b.dataset.fmtCopy].sample).then(() => showToast(t('copied')));
+      });
+    });
+    formatsList.querySelectorAll('[data-fmt-use]').forEach(b => {
+      b.addEventListener('click', () => {
+        srtPaste.value = FORMAT_SAMPLES[+b.dataset.fmtUse].sample;
+        closeFormats();
+        switchTab('paste');
+      });
+    });
+  }
+  function openFormats() { renderFormatsList(); if (formatsBackdrop) formatsBackdrop.style.display = 'flex'; }
+  function closeFormats() { if (formatsBackdrop) formatsBackdrop.style.display = 'none'; }
+  if (btnFormats) btnFormats.addEventListener('click', openFormats);
+  if (btnFormatsClose) btnFormatsClose.addEventListener('click', closeFormats);
+  if (formatsBackdrop) formatsBackdrop.addEventListener('click', e => { if (e.target === formatsBackdrop) closeFormats(); });
 
   function initBackButton() {
     try {
