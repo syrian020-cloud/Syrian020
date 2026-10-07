@@ -190,15 +190,33 @@
   var sheetEl = null;
 
   var SET_T = {
-    title: 'إعدادات النطق · Speech settings',
-    voice: 'الصوت',
-    speed: 'السرعة',
-    preview: 'تجربة',
-    reset: 'استعادة الافتراضي',
-    close: 'إغلاق',
-    langs: { fr: '🇫🇷 الفرنسية', ar: '🇸🇾 العربية', en: '🇺🇸 الإنكليزية' },
-    note: 'الصوت الطبيعي يحتاج إنترنت — بدون إنترنت يُستخدم صوت الجهاز.'
+    ar: {
+      title: 'إعدادات النطق',
+      voice: 'الصوت', speed: 'السرعة', preview: 'تجربة',
+      reset: 'استعادة الافتراضي', close: 'إغلاق',
+      langs: { fr: '🇫🇷 الفرنسية', ar: '🇸🇾 العربية', en: '🇺🇸 الإنكليزية' },
+      note: 'الصوت الطبيعي يحتاج إنترنت — بدون إنترنت يُستخدم صوت الجهاز.'
+    },
+    en: {
+      title: 'Speech settings',
+      voice: 'Voice', speed: 'Speed', preview: 'Preview',
+      reset: 'Reset to defaults', close: 'Close',
+      langs: { fr: '🇫🇷 French', ar: '🇸🇾 Arabic', en: '🇺🇸 English' },
+      note: 'The neural voice needs internet — offline, the device voice is used.'
+    },
+    fr: {
+      title: 'Réglages de la voix',
+      voice: 'Voix', speed: 'Vitesse', preview: 'Écouter',
+      reset: 'Valeurs par défaut', close: 'Fermer',
+      langs: { fr: '🇫🇷 Français', ar: '🇸🇾 Arabe', en: '🇺🇸 Anglais' },
+      note: 'La voix neurale nécessite internet — hors ligne, la voix de l\'appareil est utilisée.'
+    }
   };
+
+  function setLang() {
+    var l = (document.documentElement.lang || 'ar').slice(0, 2).toLowerCase();
+    return SET_T[l] || SET_T.ar;
+  }
 
   function h(tag, attrs, kids) {
     var el = document.createElement(tag);
@@ -212,6 +230,7 @@
   }
 
   function buildSheet() {
+    var T = setLang();
     var css = [
       '.etts-ov{position:fixed;inset:0;background:rgba(3,6,18,.66);backdrop-filter:blur(4px);z-index:4000;display:flex;align-items:flex-end;justify-content:center}',
       '.etts-card{width:100%;max-width:480px;background:#101427;border:1px solid rgba(139,92,246,.25);border-bottom:none;border-radius:20px 20px 0 0;padding:1rem 1.1rem 1.4rem;color:#e8eaf6;font-family:inherit;box-shadow:0 -12px 40px rgba(0,0,0,.5);max-height:82vh;overflow-y:auto}',
@@ -241,12 +260,12 @@
     var closeBtn = h('button', { 'class': 'etts-x', text: '✕' });
     closeBtn.onclick = function () { ov.remove(); };
     card.appendChild(h('div', { 'class': 'etts-h' }, [
-      h('b', { text: SET_T.title }), closeBtn
+      h('b', { text: T.title }), closeBtn
     ]));
 
     ['fr', 'ar', 'en'].forEach(function (lang) {
       var row = h('div', { 'class': 'etts-row' });
-      row.appendChild(h('div', {}, [h('span', { 'class': 'etts-lab', text: SET_T.langs[lang] })]));
+      row.appendChild(h('div', {}, [h('span', { 'class': 'etts-lab', text: T.langs[lang] })]));
 
       var sel = h('select', { 'class': 'etts-sel' });
       VOICE_OPTIONS[lang].forEach(function (v) {
@@ -255,7 +274,7 @@
         sel.appendChild(o);
       });
       sel.onchange = function () { lsSet('edge_voice_' + lang, sel.value); };
-      row.appendChild(h('div', {}, [h('span', { 'class': 'etts-mini', text: SET_T.voice }), sel]));
+      row.appendChild(h('div', {}, [h('span', { 'class': 'etts-mini', text: T.voice }), sel]));
 
       var val = h('span', { 'class': 'etts-val' });
       var rng = h('input', { 'class': 'etts-range', type: 'range', min: '-50', max: '50', step: '5' });
@@ -265,19 +284,19 @@
         lsSet('edge_rate_' + lang, rng.value);
         val.textContent = rateOf(lang);
       };
-      var pv = h('button', { 'class': 'etts-pv', text: '▶ ' + SET_T.preview });
+      var pv = h('button', { 'class': 'etts-pv', text: '▶ ' + T.preview });
       pv.onclick = function () {
         pv.disabled = true;
         play(SAMPLE[lang], lang).catch(function () {}).then(function () { pv.disabled = false; });
       };
-      row.appendChild(h('div', {}, [h('span', { 'class': 'etts-mini', text: SET_T.speed }), rng, val, pv]));
+      row.appendChild(h('div', {}, [h('span', { 'class': 'etts-mini', text: T.speed }), rng, val, pv]));
 
       card.appendChild(row);
     });
 
-    card.appendChild(h('div', { 'class': 'etts-note', text: SET_T.note }));
+    card.appendChild(h('div', { 'class': 'etts-note', text: T.note }));
 
-    var reset = h('button', { 'class': 'etts-btn', text: '↺ ' + SET_T.reset });
+    var reset = h('button', { 'class': 'etts-btn', text: '↺ ' + T.reset });
     reset.onclick = function () {
       ['fr', 'ar', 'en'].forEach(function (l) {
         try { localStorage.removeItem('edge_voice_' + l); localStorage.removeItem('edge_rate_' + l); } catch (e) {}
@@ -285,7 +304,7 @@
       ov.remove();
       openSettings();
     };
-    var done = h('button', { 'class': 'etts-btn', text: SET_T.close });
+    var done = h('button', { 'class': 'etts-btn', text: T.close });
     done.onclick = function () { ov.remove(); };
     card.appendChild(h('div', { 'class': 'etts-foot' }, [reset, done]));
 
