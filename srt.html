@@ -990,8 +990,16 @@
       showToast(t('readImageError'));
     }
   }
+  function fitWrapToBubble() {
+    const need = bubbleWrap.offsetHeight + 16;
+    player.style.minHeight = Math.max(220, need) + 'px';
+    const maxBottom = Math.max(0, videoWrap.clientHeight - bubbleWrap.offsetHeight);
+    const cur = parseFloat(bubbleWrap.style.bottom);
+    if (!isNaN(cur) && cur > maxBottom) bubbleWrap.style.bottom = maxBottom + 'px';
+  }
   function makeBubbleDraggable() {
     if (!bubbleWrap) return;
+    if (window.ResizeObserver) new ResizeObserver(fitWrapToBubble).observe(bubbleWrap);
     let startY = 0, startBottom = 0, hasDragged = false;
     const getBottom = () => { const s = getComputedStyle(bubbleWrap).bottom; return s === 'auto' ? 8 : parseFloat(s); };
     const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
