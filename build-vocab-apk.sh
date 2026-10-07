@@ -11,11 +11,16 @@ rm -rf www
 mkdir -p www/data www/js
 
 cp data/* www/data/
+cp js/* www/js/
 cp manifest.json icon-192.png icon-512.png sw.js www/
 
 # Use vocab.html as the main entry, keep french.html available for the back link
 cp vocab.html www/index.html
 cp french.html www/french.html
+cp index.html www/videos.html
+cp centres.html www/
+# inside the bundle the video editor lives at videos.html; fix links that target index.html
+sed -i 's|href="index.html"|href="videos.html"|g' www/*.html
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
 if [ "$USE_ALIYUN" = "1" ]; then
@@ -39,11 +44,55 @@ fi
 
 npx cap sync android
 
+# Inject the EdgeTTS native plugin (free Microsoft neural voices over WebSocket)
+PLUGIN_DIR="$ROOT/android/app/src/main/java/com/syrian020/tts"
+mkdir -p "$PLUGIN_DIR"
+cp "$ROOT/native-plugins/EdgeTtsPlugin.java" "$PLUGIN_DIR/"
+MAIN_ACTIVITY=$(find "$ROOT/android/app/src/main/java" -name MainActivity.java | head -1)
+if [ -f "$MAIN_ACTIVITY" ] && ! grep -q 'EdgeTtsPlugin' "$MAIN_ACTIVITY"; then
+  python3 - "$MAIN_ACTIVITY" <<'PYEOF'
+import sys, re
+p = sys.argv[1]
+s = open(p).read()
+s = s.replace('import com.getcapacitor.BridgeActivity;',
+              'import com.getcapacitor.BridgeActivity;\nimport com.syrian020.tts.EdgeTtsPlugin;')
+s = re.sub(r'(public class MainActivity extends BridgeActivity \{)',
+           r'\1\n    @Override\n    public void onCreate(android.os.Bundle savedInstanceState) {\n        registerPlugin(EdgeTtsPlugin.class);\n        super.onCreate(savedInstanceState);\n    }', s)
+open(p, 'w').write(s)
+PYEOF
+fi
+if ! grep -q 'squareup.okhttp3' "$ROOT/android/app/build.gradle"; then
+  python3 - <<'PYEOF'
+p = 'android/app/build.gradle'
+s = open(p).read()
+lines = s.split('\n')
+for i in range(len(lines) - 1, -1, -1):
+    if 'implementation' in lines[i]:
+        lines.insert(i + 1, '    implementation "com.squareup.okhttp3:okhttp:4.12.0"')
+        break
+open(p, 'w').write('\n'.join(lines))
+PYEOF
+fi
+
+# Inject the full Android permission set (android-permissions.xml) into the generated manifest
+MANIFEST="$ROOT/android/app/src/main/AndroidManifest.xml"
+if [ -f "$MANIFEST" ] && ! grep -q 'ACCESS_FINE_LOCATION' "$MANIFEST"; then
+  python3 - "$MANIFEST" <<'PYEOF'
+import sys
+p = sys.argv[1]
+s = open(p).read()
+perms = open('android-permissions.xml').read().rstrip() + '\n'
+marker = '    <uses-permission android:name="android.permission.INTERNET" />\n'
+s = s.replace(marker, perms, 1) if marker in s else s.replace('</manifest>', perms + '</manifest>', 1)
+open(p, 'w').write(s)
+PYEOF
+fi
+
 # Ensure the Android launcher label matches the Capacitor appName
 STRINGS="$ROOT/android/app/src/main/res/values/strings.xml"
 if [ -f "$STRINGS" ]; then
-  sed -i 's|<string name="app_name">.*</string>|<string name="app_name">VidCap</string>|' "$STRINGS"
-  sed -i 's|<string name="title_activity_main">.*</string>|<string name="title_activity_main">VidCap</string>|' "$STRINGS"
+  sed -i 's|<string name="app_name">.*</string>|<string name="app_name">frank</string>|' "$STRINGS"
+  sed -i 's|<string name="title_activity_main">.*</string>|<string name="title_activity_main">frank</string>|' "$STRINGS"
 fi
 
 # Sync the PWA icon into the Android mipmap launcher icons

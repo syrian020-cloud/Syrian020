@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0b0f1f">
-<title>VidCap — French / Arabic / English</title>
+<title>frank — French / Arabic / English</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -160,7 +160,7 @@
 <body>
 <header>
   <div class="header-inner">
-    <span class="logo"><span data-t="appName">VidCap</span></span>
+    <span class="logo"><span data-t="appName">frank</span></span>
     <span class="spacer"></span>
     <div class="lang-switch">
       <button class="lang-btn" data-lang="en">EN</button>
@@ -169,6 +169,8 @@
     </div>
     <button class="icon-btn" id="btn-fav" data-t-title="favourites" title="Favourites">⭐</button>
     <button class="icon-btn" id="btn-theme" data-t-title="themeMode" title="Dark / light mode">🌙</button>
+    <button class="icon-btn" id="btn-edge" title="صوت طبيعي / Neural voice (internet)">🔊</button>
+    <button class="icon-btn" id="btn-edge-set" title="إعدادات النطق / Speech settings">⚙️</button>
     <button class="icon-btn" id="btn-stop" data-t-title="stopAudio" title="Stop audio">⏹</button>
   </div>
 </header>
@@ -192,9 +194,10 @@
 </main>
 
 <footer>
-  <span data-t="footerText">VidCap · </span><a href="index.html" data-t="footerLink">My video lessons</a> · <a href="vocab.html">Vocabulary / مفردات</a>
+  <span data-t="footerText">frank · </span><a href="index.html" data-t="footerLink">My video lessons</a> · <a href="vocab.html">Vocabulary / مفردات</a> · <a href="centres.html">🏛️ المراكز الإدارية</a>
 </footer>
 
+<script src="js/edge-tts.js"></script>
 <script src="data/manifest.js"></script>
 <script>
 (function () {
@@ -217,8 +220,8 @@
   /* ---------------- UI translations ---------------- */
 
   var UI = {
-    appName: { en: 'VidCap', ar: 'VidCap', fr: 'VidCap' },
-    appTitle: { en: 'VidCap — French / Arabic / English', ar: 'VidCap — فرنسي / عربي / إنجليزي', fr: 'VidCap — Français / Arabe / Anglais' },
+    appName: { en: 'frank', ar: 'frank', fr: 'frank' },
+    appTitle: { en: 'frank — French / Arabic / English', ar: 'frank — فرنسي / عربي / إنجليزي', fr: 'frank — Français / Arabe / Anglais' },
     searchPlaceholder: { en: 'Search in Arabic, French, or English…', ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', fr: 'Rechercher en arabe, français ou anglais…' },
     rateTitle: { en: 'Speech rate', ar: 'سرعة النطق', fr: 'Vitesse de la voix' },
     loopModeTitle: { en: 'Loop content', ar: 'محتوى التكرار', fr: 'Contenu de la répétition' },
@@ -246,7 +249,7 @@
     noResults: { en: 'No results', ar: 'لا نتائج', fr: 'Aucun résultat' },
     stageLabel: { en: 'Stage', ar: 'المرحلة', fr: 'Stage' },
     lessonLabel: { en: 'Lesson', ar: 'الدرس', fr: 'Leçon' },
-    footerText: { en: 'VidCap · ', ar: 'VidCap · ', fr: 'VidCap · ' },
+    footerText: { en: 'frank · ', ar: 'frank · ', fr: 'frank · ' },
     footerLink: { en: 'My video lessons', ar: 'دروسي المرئية', fr: 'Mes cours vidéo' },
     uiLangLabel: { en: 'Language', ar: 'اللغة', fr: 'Langue' },
     exitConfirm: { en: 'Do you want to exit the app?', ar: 'هل تريد الخروج من التطبيق؟', fr: 'Voulez-vous quitter l\'application ?' }
@@ -370,10 +373,40 @@
   function stopSpeech() {
     state.loop = null;
     speechRun++;
+    if (window.EdgeTTS) EdgeTTS.stop();
     if (nativeTTS()) nativeStop();
     else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     highlight(null, null);
     refreshButtons();
+  }
+
+  function fallbackSay(text, lang, onDone) {
+    if (nativeTTS()) {
+      nativeSpeak(text, lang).then(onDone).catch(onDone);
+      return;
+    }
+    if ('speechSynthesis' in window) {
+      var u = utter(text, lang);
+      u.onend = onDone;
+      u.onerror = onDone;
+      window.speechSynthesis.speak(u);
+      return;
+    }
+    setTimeout(onDone, 300);
+  }
+
+  // Edge/neural voice first (needs internet); native/web TTS as fallback.
+  function sayText(text, lang, onDone) {
+    if (window.EdgeTTS && EdgeTTS.supported()) {
+      var run0 = speechRun;
+      EdgeTTS.play(text, lang).then(onDone).catch(function () {
+        if (run0 !== speechRun) { onDone(); return; }
+        EdgeTTS.down = true;
+        fallbackSay(text, lang, onDone);
+      });
+      return;
+    }
+    fallbackSay(text, lang, onDone);
   }
 
   // Speaks one pass: French, then Arabic, then English (per selected mode).
@@ -382,40 +415,18 @@
     var seq = langs.filter(function (l) { return phrase[l]; });
     var i = 0;
     var run = ++speechRun;
-    if (nativeTTS()) {
-      nativeStop();
-      (function next() {
-        if (run !== speechRun) return;
-        if (i >= seq.length) { highlight(null, null); if (onDone) onDone(); return; }
-        var lang = seq[i++];
-        highlight(key, lang);
-        nativeSpeak(phrase[lang], lang).then(function () {
-          if (run !== speechRun) return;
-          setTimeout(next, 250);
-        }).catch(function () {
-          if (run !== speechRun) return;
-          setTimeout(next, 250);
-        });
-      })();
-      return;
-    }
-    if (!('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
+    if (nativeTTS()) nativeStop();
+    else if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    if (window.EdgeTTS) EdgeTTS.stop();
     (function next() {
       if (run !== speechRun) return;
       if (i >= seq.length) { highlight(null, null); if (onDone) onDone(); return; }
       var lang = seq[i++];
-      var u = utter(phrase[lang], lang);
       highlight(key, lang);
-      u.onend = function () {
+      sayText(phrase[lang], lang, function () {
         if (run !== speechRun) return;
         setTimeout(next, 250);
-      };
-      u.onerror = function () {
-        if (run !== speechRun) return;
-        setTimeout(next, 250);
-      };
-      window.speechSynthesis.speak(u);
+      });
     })();
   }
 
@@ -729,6 +740,25 @@
     localStorage.setItem('fr_langs', e.target.value);
   });
   document.getElementById('btn-stop').addEventListener('click', stopSpeech);
+  var btnEdge = document.getElementById('btn-edge');
+  if (btnEdge) {
+    var paintEdge = function () {
+      var v = window.EdgeTTS && EdgeTTS.enabled();
+      btnEdge.textContent = v ? '🔊' : '🔈';
+      btnEdge.style.opacity = v ? '1' : '0.55';
+    };
+    btnEdge.addEventListener('click', function () {
+      var v = !(window.EdgeTTS && EdgeTTS.enabled());
+      if (window.EdgeTTS) EdgeTTS.setEnabled(v);
+      if (!v) stopSpeech();
+      paintEdge();
+    });
+    paintEdge();
+  }
+  var btnEdgeSet = document.getElementById('btn-edge-set');
+  if (btnEdgeSet) btnEdgeSet.addEventListener('click', function () {
+    if (window.EdgeTTS) EdgeTTS.openSettings();
+  });
   document.getElementById('btn-fav').addEventListener('click', function () { go({ name: 'favs' }); });
   document.getElementById('btn-theme').addEventListener('click', function () {
     var next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
