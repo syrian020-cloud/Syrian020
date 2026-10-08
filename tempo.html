@@ -1534,11 +1534,19 @@ function renderPlan(){
     const g=+b.dataset.gd;const i=plan.workDays.indexOf(g);
     if(i>=0)plan.workDays.splice(i,1);else plan.workDays.push(g);
     planSave();renderPlan();});
+  const syncShiftLabels=()=>{
+    for(const ty of['matin','soir']){
+      const sm=el.querySelector(`[data-sh="${ty}"] small`);if(sm)sm.textContent=shHours(ty);
+    }
+    const bd=el.querySelector('.dcard .sbadge.'+shCls(curTy));
+    if(bd&&curTy&&SHIFTS[curTy])bd.textContent=shName(curTy)+' '+shHours(curTy);
+  };
   [['m','matin'],['s','soir']].forEach(([p,ty])=>{
     const upd=()=>{
       const a=hm2min($('#tm-'+p+'1').value),b=hm2min($('#tm-'+p+'2').value);
-      if(a==null||b==null||a>=b){toast('⚠️ '+t('shBadTime'));renderPlan();return;}
-      plan.times[ty]=[a,b];planSave();renderPlan();
+      if(a==null||b==null)return; // still editing
+      if(a>=b){toast('⚠️ '+t('shBadTime'));renderPlan();return;}
+      plan.times[ty]=[a,b];planSave();syncShiftLabels();
     };
     $('#tm-'+p+'1').onchange=upd;$('#tm-'+p+'2').onchange=upd;
   });
