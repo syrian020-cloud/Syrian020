@@ -264,10 +264,17 @@
   }
   .lesson-card:active { background: rgba(255,255,255,0.04); }
   .lesson-card.selected { border-color: var(--accent); background: rgba(139,92,246,0.10); }
-  .lesson-check { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--text-secondary); flex: none; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; color: transparent; }
-  .lesson-card.selected .lesson-check { background: var(--accent); border-color: var(--accent); color: #fff; }
-  #select-bar { display: flex; gap: 0.45rem; margin-bottom: 0.7rem; }
-  .select-bar-btn { flex: 1; background: var(--bg-tertiary); border: 1px solid var(--border); color: var(--text-primary); border-radius: 10px; padding: 0.5rem 0.3rem; font-size: 0.82rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+  .export-list { border: 1px solid var(--border); border-radius: 12px; max-height: 38vh; overflow-y: auto; }
+  .export-row { display: flex; align-items: center; gap: 0.55rem; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--border); cursor: pointer; color: var(--text-primary); }
+  .export-row:last-child { border-bottom: none; }
+  .export-row input[type=checkbox], .export-media input[type=checkbox] { width: 20px; height: 20px; accent-color: var(--accent); flex: none; }
+  .export-media { display: flex; gap: 1rem; justify-content: center; margin: 0.9rem 0 0.4rem; flex-wrap: wrap; }
+  .export-media label { display: flex; align-items: center; gap: 0.35rem; font-weight: 700; color: var(--text-primary); font-size: 0.9rem; cursor: pointer; }
+  .export-head-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; }
+  .export-head-row h4 { margin: 0; font-size: 0.9rem; color: var(--text-primary); }
+  .toggle-all-btn { background: var(--bg-tertiary); border: 1px solid var(--border); color: var(--text-primary); border-radius: 10px; padding: 0.3rem 0.7rem; font-size: 0.78rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+  .export-btns { display: flex; flex-direction: column; gap: 0.55rem; margin-top: 0.7rem; }
+  .select-bar-btn { flex: 1; background: var(--bg-tertiary); border: 1px solid var(--border); color: var(--text-primary); border-radius: 10px; padding: 0.75rem 0.3rem; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: inherit; }
   .select-bar-btn.primary { background: var(--accent); color: #fff; border-color: transparent; }
   .lesson-card .title { font-weight: 700; font-size: 1rem; word-break: normal; overflow-wrap: break-word; }
   .lesson-card .date { color: var(--text-secondary); font-size: 0.75rem; word-break: normal; overflow-wrap: break-word; }
@@ -321,11 +328,7 @@
         </div>
       </div>
       <input type="file" id="import-file" accept="application/json" style="display:none">
-      <div id="select-bar" style="display:none">
-        <button id="btn-sel-all" class="select-bar-btn" type="button" data-t="selectAll">تحديد الكل</button>
-        <button id="btn-sel-export" class="select-bar-btn primary" type="button" data-t="exportSel">تصدير المحدد</button>
-        <button id="btn-sel-cancel" class="select-bar-btn" type="button" data-t="cancelSel">إلغاء</button>
-      </div>
+
       <div id="lessons-list">
         <p class="empty-hint" data-t="emptyHint">لا توجد دروس محفوظة. اضغط على “➕” لإعداد درس جديد.</p>
       </div>
@@ -478,6 +481,29 @@
     <div id="formats-list"></div>
   </div>
 </div>
+<div class="formats-backdrop" id="export-backdrop" style="display:none">
+  <div class="formats-sheet" role="dialog" aria-modal="true">
+    <div class="formats-head">
+      <h3 data-t="exportLessonsTitle">تصدير الدروس</h3>
+      <button class="icon-btn" id="btn-export-close" type="button" aria-label="Close">✕</button>
+    </div>
+    <div class="export-head-row">
+      <h4 data-t="lessonsToExport">الدروس للتصدير</h4>
+      <button class="toggle-all-btn" id="btn-toggle-all" type="button" data-t="deselectAll">إلغاء تحديد الكل</button>
+    </div>
+    <div class="export-list" id="export-list"></div>
+    <div class="export-media">
+      <label><input type="checkbox" id="exp-media-image" checked> 🖼️ <span data-t="mediaImages">صور</span></label>
+      <label><input type="checkbox" id="exp-media-video" checked> 🎬 <span data-t="mediaVideos">فيديوهات</span></label>
+      <label><input type="checkbox" id="exp-media-audio" checked> 🎧 <span data-t="mediaAudio">أصوات</span></label>
+    </div>
+    <div class="export-btns">
+      <button class="select-bar-btn primary" id="btn-exp-with" type="button" data-t="exportWithMedia">📦 تصدير مع الوسائط</button>
+      <button class="select-bar-btn" id="btn-exp-without" type="button" data-t="exportWithoutMedia">📄 تصدير بدون وسائط</button>
+      <button class="select-bar-btn" id="btn-exp-cancel" type="button" data-t="cancelSel">إلغاء</button>
+    </div>
+  </div>
+</div>
 <div class="toast" id="toast"></div>
 <input type="file" id="edit-image" accept="image/*" style="display:none">
 
@@ -496,7 +522,7 @@
   const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next'), btnFullLoop = $('btn-full-loop'), btnVideoLoop = $('btn-video-loop'), btnLoopAll = $('btn-loop-all');
   const filterSelect = $('filter-select'), btnAiSearch = $('btn-ai-search'), btnRemoveImage = $('btn-remove-image');
   const btnLessons = $('btn-lessons'), btnSetup = $('btn-setup'), btnNewLesson = $('btn-new-lesson'), btnSaveLesson = $('btn-save-lesson'), btnBackLessons = $('btn-back-lessons'), btnLang = $('btn-lang'), btnEdgeSet = $('btn-edge-set'), btnImport = $('btn-import'), btnExportAll = $('btn-export-all'), importFile = $('import-file');
-  const selectBar = $('select-bar'), btnSelAll = $('btn-sel-all'), btnSelExport = $('btn-sel-export'), btnSelCancel = $('btn-sel-cancel');
+  const exportBackdrop = $('export-backdrop'), exportList = $('export-list'), btnToggleAll = $('btn-toggle-all'), btnExportClose = $('btn-export-close'), btnExpWith = $('btn-exp-with'), btnExpWithout = $('btn-exp-without'), btnExpCancel = $('btn-exp-cancel'), expMediaImage = $('exp-media-image'), expMediaVideo = $('exp-media-video'), expMediaAudio = $('exp-media-audio');
   const lessonsView = $('lessons-view'), setupView = $('setup-view'), playerView = $('player-view'), lessonsList = $('lessons-list'), lessonTitle = $('lesson-title');
   const statusEl = $('status'), toast = $('toast'), rateSelect = $('rate');
   const btnFormats = $('btn-formats'), formatsBackdrop = $('formats-backdrop'), formatsList = $('formats-list'), btnFormatsClose = $('btn-formats-close');
@@ -528,8 +554,7 @@
     uiLang: localStorage.getItem('srt_ui_lang') || 'ar',
     wordLoopEl: null,
     muted: false,
-    selectMode: false,
-    selectedIds: new Set(),
+
     captionScale: 1
   };
 
@@ -631,9 +656,17 @@
       importTitle: 'استيراد دروس JSON',
       exportAll: 'تصدير كل الدروس',
       selectAll: 'تحديد الكل',
+      deselectAll: 'إلغاء تحديد الكل',
       exportSel: 'تصدير المحدد',
       cancelSel: 'إلغاء',
       selectSome: 'حدّد درساً واحداً على الأقل',
+      exportLessonsTitle: 'تصدير الدروس',
+      lessonsToExport: 'الدروس للتصدير',
+      mediaImages: 'صور',
+      mediaVideos: 'فيديوهات',
+      mediaAudio: 'أصوات',
+      exportWithMedia: '📦 تصدير مع الوسائط',
+      exportWithoutMedia: '📄 تصدير بدون وسائط',
       actions: 'خيارات',
       exportJson: 'مشاركة / تصدير JSON',
       exportSrt: 'تصدير ملف SRT',
@@ -741,9 +774,17 @@
       importTitle: 'Importer des leçons JSON',
       exportAll: 'Exporter toutes les leçons',
       selectAll: 'Tout sélectionner',
+      deselectAll: 'Tout désélectionner',
       exportSel: 'Exporter la sélection',
       cancelSel: 'Annuler',
       selectSome: 'Sélectionnez au moins une leçon',
+      exportLessonsTitle: 'Exporter les leçons',
+      lessonsToExport: 'Leçons à exporter',
+      mediaImages: 'Images',
+      mediaVideos: 'Vidéos',
+      mediaAudio: 'Audio',
+      exportWithMedia: '📦 Exporter avec médias',
+      exportWithoutMedia: '📄 Exporter sans médias',
       actions: 'Options',
       exportJson: 'Partager / exporter JSON',
       exportSrt: 'Exporter SRT',
@@ -851,9 +892,17 @@
       importTitle: 'Import lessons JSON',
       exportAll: 'Export all lessons',
       selectAll: 'Select all',
+      deselectAll: 'Deselect all',
       exportSel: 'Export selected',
       cancelSel: 'Cancel',
       selectSome: 'Select at least one lesson',
+      exportLessonsTitle: 'Export lessons',
+      lessonsToExport: 'Lessons to export',
+      mediaImages: 'Images',
+      mediaVideos: 'Videos',
+      mediaAudio: 'Audio',
+      exportWithMedia: '📦 Export with media',
+      exportWithoutMedia: '📄 Export without media',
       actions: 'Options',
       exportJson: 'Share / export JSON',
       exportSrt: 'Export SRT',
@@ -1945,10 +1994,8 @@
         state.thumbUrls.push(url);
         thumb = `<img src="${url}" class="lesson-thumb" alt="">`;
       }
-      const sel = state.selectMode && state.selectedIds.has(String(l.id));
       return `
-      <div class="lesson-card${sel ? ' selected' : ''}" data-id="${l.id}">
-        ${state.selectMode ? `<span class="lesson-check">${sel ? '✓' : ''}</span>` : ''}
+      <div class="lesson-card" data-id="${l.id}">
         ${thumb}
         <div class="lesson-info">
           <div class="title">${escapeHtml(l.name)}</div>
@@ -2029,13 +2076,17 @@
   function sanitizeFilename(name) {
     return String(name).replace(/[^\p{L}\p{N}\s_-]/gu, '_').replace(/\s+/g, '_') || 'lesson';
   }
-  async function serializeLesson(lesson) {
+  async function serializeLesson(lesson, media) {
+    media = media || { images: true, videos: true, audio: true };
     const obj = { name: lesson.name, createdAt: lesson.createdAt, cues: lesson.cues };
     if (lesson.videoBlob) {
-      obj.videoBase64 = await blobToBase64(lesson.videoBlob);
-      obj.videoType = lesson.videoBlob.type || 'video/mp4';
+      const isAudio = (lesson.videoBlob.type || '').startsWith('audio/');
+      if (isAudio ? media.audio : media.videos) {
+        obj.videoBase64 = await blobToBase64(lesson.videoBlob);
+        obj.videoType = lesson.videoBlob.type || (isAudio ? 'audio/mpeg' : 'video/mp4');
+      }
     }
-    if (lesson.imageBlob) {
+    if (lesson.imageBlob && media.images) {
       obj.imageBase64 = await blobToBase64(lesson.imageBlob);
       obj.imageType = lesson.imageBlob.type || 'image/jpeg';
     }
@@ -2130,55 +2181,37 @@
       showToast(r.indexOf('share') === 0 ? t('exportSuccess', {name: filename}) : t('exportError') + ' — ' + r);
     } catch (e) { showToast(t('exportError') + ' — ' + (e.message || e)); }
   }
-  function updateSelCount() {
-    if (btnSelExport) btnSelExport.textContent = '📤 ' + t('exportSel') + ' (' + state.selectedIds.size + ')';
+  function updateToggleAllBtn() {
+    const boxes = [...exportList.querySelectorAll('.exp-check')];
+    const all = boxes.length > 0 && boxes.every(b => b.checked);
+    btnToggleAll.textContent = t(all ? 'deselectAll' : 'selectAll');
   }
-  function setSelectMode(on) {
-    state.selectMode = on;
-    state.selectedIds.clear();
-    if (selectBar) selectBar.style.display = on ? 'flex' : 'none';
-    updateSelCount();
-    renderLessons();
+  async function openExportSheet() {
+    let lessons = [];
+    try { lessons = await getLessonsFromDB(); } catch (e) {}
+    if (!lessons || !lessons.length) { showToast(t('noLessonsToExport')); return; }
+    exportList.innerHTML = lessons.sort((a, b) => b.createdAt - a.createdAt).map(l =>
+      `<label class="export-row"><input type="checkbox" class="exp-check" data-id="${l.id}" checked> 📝 <span>${escapeHtml(l.name)}</span></label>`
+    ).join('');
+    updateToggleAllBtn();
+    exportBackdrop.style.display = 'flex';
   }
-  function toggleLessonSelected(card) {
-    const id = String(card.dataset.id);
-    const check = card.querySelector('.lesson-check');
-    if (state.selectedIds.has(id)) {
-      state.selectedIds.delete(id);
-      card.classList.remove('selected');
-      if (check) check.textContent = '';
-    } else {
-      state.selectedIds.add(id);
-      card.classList.add('selected');
-      if (check) check.textContent = '✓';
-    }
-    updateSelCount();
-  }
-  async function exportSelectedLessons() {
-    const ids = [...state.selectedIds];
+  function closeExportSheet() { exportBackdrop.style.display = 'none'; }
+  async function exportFromSheet(withMedia) {
+    const ids = [...exportList.querySelectorAll('.exp-check:checked')].map(b => b.dataset.id);
     if (!ids.length) { showToast(t('selectSome')); return; }
+    const media = { images: withMedia && expMediaImage.checked, videos: withMedia && expMediaVideo.checked, audio: withMedia && expMediaAudio.checked };
     try {
       const lessons = [];
       for (const id of ids) { const l = await getLessonById(id); if (l) lessons.push(l); }
       if (!lessons.length) { showToast(t('noLessonsToExport')); return; }
-      const data = await Promise.all(lessons.map(l => serializeLesson(l)));
+      const data = [];
+      for (const l of lessons) data.push(await serializeLesson(l, media));
       const filename = lessons.length === 1 ? `${sanitizeFilename(lessons[0].name)}.json` : `srt-lessons-${lessons.length}.json`;
       const json = JSON.stringify(lessons.length === 1 ? data[0] : data, null, 2);
       const r = await shareFile(json, filename, 'SRT Lessons', 'application/json');
       showToast(r.indexOf('share') === 0 ? t('exportSuccess', {name: filename}) : t('exportError') + ' — ' + r);
-      if (r.indexOf('share') === 0) setSelectMode(false);
-    } catch (e) { showToast(t('exportError') + ' — ' + (e.message || e)); }
-  }
-  async function exportAllLessons() {
-    let lessons = [];
-    try { lessons = await getLessonsFromDB(); } catch (e) {}
-    if (!lessons || !lessons.length) { showToast(t('noLessonsToExport')); return; }
-    try {
-      const data = await Promise.all(lessons.map(serializeLesson));
-      const json = JSON.stringify(data, null, 2);
-      const filename = `srt-lessons.json`;
-      const r = await shareFile(json, filename, 'SRT Lessons', 'application/json');
-      showToast(r.indexOf('share') === 0 ? t('exportSuccess', {name: filename}) : t('exportError') + ' — ' + r);
+      if (r.indexOf('share') === 0) closeExportSheet();
     } catch (e) { showToast(t('exportError') + ' — ' + (e.message || e)); }
   }
   async function importLessonsFromFile(file) {
@@ -2311,15 +2344,19 @@
     setUILang(next);
   });
   btnImport.addEventListener('click', () => importFile.click());
-  btnExportAll.addEventListener('click', () => setSelectMode(true));
-  if (btnSelCancel) btnSelCancel.addEventListener('click', () => setSelectMode(false));
-  if (btnSelExport) btnSelExport.addEventListener('click', exportSelectedLessons);
-  if (btnSelAll) btnSelAll.addEventListener('click', async () => {
-    const lessons = await getLessonsFromDB().catch(() => []);
-    lessons.forEach(l => state.selectedIds.add(String(l.id)));
-    renderLessons();
-    updateSelCount();
+  btnExportAll.addEventListener('click', openExportSheet);
+  btnExpCancel.addEventListener('click', closeExportSheet);
+  btnExportClose.addEventListener('click', closeExportSheet);
+  exportBackdrop.addEventListener('click', e => { if (e.target === exportBackdrop) closeExportSheet(); });
+  btnExpWith.addEventListener('click', () => exportFromSheet(true));
+  btnExpWithout.addEventListener('click', () => exportFromSheet(false));
+  btnToggleAll.addEventListener('click', () => {
+    const boxes = [...exportList.querySelectorAll('.exp-check')];
+    const all = boxes.every(b => b.checked);
+    boxes.forEach(b => { b.checked = !all; });
+    updateToggleAllBtn();
   });
+  exportList.addEventListener('change', updateToggleAllBtn);
   importFile.addEventListener('change', () => { if (importFile.files[0]) { importLessonsFromFile(importFile.files[0]); importFile.value = ''; } });
 
   lessonsList.addEventListener('click', async e => {
@@ -2360,10 +2397,7 @@
       }
     }
     const card = e.target.closest('.lesson-card');
-    if (card) {
-      if (state.selectMode) { toggleLessonSelected(card); return; }
-      loadLesson(card.dataset.id);
-    }
+    if (card) loadLesson(card.dataset.id);
   });
 
   document.addEventListener('click', e => {
