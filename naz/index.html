@@ -4655,7 +4655,7 @@
     </button>`;
     const html = newsCard + `<div class="top-bar"><span class="section-title">${t('library')}</span>
       ${canEdit() ? '' : `<span class="home-sync"><span class="sync-ver">${localVersion() ? 'v' + localVersion() : ''}</span><button class="contact-btn refresh-btn" data-pull title="${esc(t('refresh'))}">↻</button></span>`}</div>
-      ${actionBar}${planningHomeHTML()}${empty}` +
+      ${actionBar}${canEdit() ? '' : planningHomeHTML()}${empty}` +
       LESSONS.map(it => {
         if (it.type === 'lesson') lessonIdx++;
         const num = it.type === 'lesson' ? lessonIdx : null;
