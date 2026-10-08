@@ -762,6 +762,9 @@ function openGmapsSearch(a){
   openAppOr(u,u);
 }
 function openMapPick(a){
+  const MC=window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.MapChooser;
+  const q=encodeURIComponent([a.place,a.address].filter(Boolean).join(', '));
+  if(MC){MC.open({url:'geo:0,0?q='+q,title:t('mapChoose')}).catch(()=>openGmapsSearch(a));return;}
   $('#map-sheet').innerHTML=`<div style="font-weight:800;font-size:15.5px;margin-bottom:11px">🗺️ ${t('mapPick')}</div>
     <button class="mapopt" data-mm="g"><span class="mi">🗺️</span><div>Google Maps<small>${t('mmG')}</small></div></button>
     <button class="mapopt" data-mm="c"><span class="mi">🧭</span><div>Citymapper<small>${t('mmC')}</small></div></button>

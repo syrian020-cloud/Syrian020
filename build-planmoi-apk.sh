@@ -73,6 +73,29 @@ s = re.sub(r'(public class MainActivity extends BridgeActivity \{)',
 open(p, 'w').write(s)
 PYEOF
 fi
+# Inject the MapChooser native plugin (Android "Open with" chooser for map URIs)
+MAP_PLUGIN_DIR="android/app/src/main/java/com/syrian020/maps"
+mkdir -p "$MAP_PLUGIN_DIR"
+cp native-plugins/MapChooserPlugin.java "$MAP_PLUGIN_DIR/"
+if [ -f "$MAIN_ACTIVITY" ] && ! grep -q 'MapChooserPlugin' "$MAIN_ACTIVITY"; then
+  python3 - "$MAIN_ACTIVITY" <<'PYEOF'
+import sys, re
+p = sys.argv[1]
+s = open(p).read()
+if 'import com.syrian020.maps.MapChooserPlugin;' not in s:
+    s = s.replace('import com.getcapacitor.BridgeActivity;',
+                  'import com.getcapacitor.BridgeActivity;\nimport com.syrian020.maps.MapChooserPlugin;')
+if 'registerPlugin(MapChooserPlugin.class);' not in s:
+    if 'registerPlugin(EdgeTtsPlugin.class);' in s:
+        s = s.replace('registerPlugin(EdgeTtsPlugin.class);',
+                      'registerPlugin(EdgeTtsPlugin.class);\n        registerPlugin(MapChooserPlugin.class);')
+    else:
+        s = re.sub(r'(public class MainActivity extends BridgeActivity \{)',
+                   r'\1\n    @Override\n    public void onCreate(android.os.Bundle savedInstanceState) {\n        registerPlugin(MapChooserPlugin.class);\n        super.onCreate(savedInstanceState);\n    }', s)
+open(p, 'w').write(s)
+PYEOF
+fi
+
 if ! grep -q 'squareup.okhttp3' android/app/build.gradle; then
   python3 - <<'PYEOF'
 p = 'android/app/build.gradle'
