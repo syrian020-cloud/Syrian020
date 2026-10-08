@@ -13,6 +13,7 @@ mkdir -p www/js
 cp planmoi.html www/index.html
 cp manifest-planmoi.json www/manifest.json
 cp icon-planmoi-192.png icon-planmoi-512.png sw.js www/
+cp planmoi-hero-*.jpg www/ 2>/dev/null || true
 cp js/edge-tts.js www/js/
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions

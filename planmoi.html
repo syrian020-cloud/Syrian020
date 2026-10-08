@@ -94,6 +94,8 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 .menu button:active{background:var(--acc)}
 .menu button.danger{color:var(--bad)}
 .empty{text-align:center;color:var(--mut);padding:60px 20px;font-size:15px}
+.heroimg{display:block;width:min(64%,230px);margin:0 auto 16px;border-radius:20px;
+  border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .empty .big{font-size:46px;margin-bottom:12px}
 
 /* ---------- FAB ---------- */
@@ -252,7 +254,7 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 const I18N = {
   ar: {
     tagline:'مواعيدك، منظّمة بأناقة', search:'ابحث عن موعد…',
-    tabAll:'الكل', tabUp:'قادم', tabOver:'فائت', tabDone:'تم', tabOff:'مُلغى',
+    tabAll:'الكل', tabUp:'قادم', tabOver:'فائت', tabDone:'تم', tabOff:'مُلغى', heroImg:'planmoi-hero-ar.jpg',
     empty:'لا مواعيد بعد', emptyHint:'اضغط + لإضافة أول موعد',
     next:'الموعد القادم',
     newAppt:'موعد جديد', editAppt:'تعديل الموعد',
@@ -299,7 +301,7 @@ const I18N = {
   },
   fr: {
     tagline:'Vos rendez-vous, en toute élégance', search:'Rechercher un rendez-vous…',
-    tabAll:'Tous', tabUp:'À venir', tabOver:'Passés', tabDone:'Fait', tabOff:'Annulé',
+    tabAll:'Tous', tabUp:'À venir', tabOver:'Passés', tabDone:'Fait', tabOff:'Annulé', heroImg:'',
     empty:'Aucun rendez-vous', emptyHint:'Touchez + pour en ajouter un',
     next:'Prochain rendez-vous',
     newAppt:'Nouveau rendez-vous', editAppt:'Modifier le rendez-vous',
@@ -346,7 +348,7 @@ const I18N = {
   },
   en: {
     tagline:'Your appointments, elegantly organized', search:'Search appointments…',
-    tabAll:'All', tabUp:'Upcoming', tabOver:'Overdue', tabDone:'Done', tabOff:'Cancelled',
+    tabAll:'All', tabUp:'Upcoming', tabOver:'Overdue', tabDone:'Done', tabOff:'Cancelled', heroImg:'',
     empty:'No appointments yet', emptyHint:'Tap + to add your first one',
     next:'Next appointment',
     newAppt:'New appointment', editAppt:'Edit appointment',
@@ -885,7 +887,7 @@ function renderNext(){
 function renderList(){
   const el=$('#list');const list=filtered();
   if(!list.length){
-    el.innerHTML=`<div class="empty"><div class="big">📅</div>${t('empty')}<div class="hint">${t('emptyHint')}</div></div>`;
+    el.innerHTML=`<div class="empty">${t('heroImg')?`<img class="heroimg" src="${t('heroImg')}" alt="">`:'<div class="big">📅</div>'}${t('empty')}<div class="hint">${t('emptyHint')}</div></div>`;
     return;
   }
   el.innerHTML=list.map(a=>{
