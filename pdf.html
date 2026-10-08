@@ -1520,7 +1520,7 @@ async function renderPage(n) {
   if (!div) { rendering.delete(n); return; }
   try {
     const page = await pdfDoc.getPage(n);
-    if (epoch !== renderEpoch) { rendering.delete(n); return; }
+    if (epoch !== renderEpoch) { rendering.delete(n); renderPage(n); return; }
     if (!basePageW) {
       const v1 = page.getViewport({ scale: 1 });
       basePageW = v1.width;
@@ -1550,7 +1550,8 @@ async function renderPage(n) {
       viewport,
       transform: dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : null
     }).promise;
-    if (destroyed || epoch !== renderEpoch) { rendering.delete(n); return; }
+    if (destroyed) return;
+    if (epoch !== renderEpoch) { rendering.delete(n); renderPage(n); return; }
 
     // text layer with per-word tap targets
     const tlDiv = document.createElement('div');
@@ -1564,7 +1565,7 @@ async function renderPage(n) {
         viewport
       });
       await tl.render();
-      if (epoch !== renderEpoch) { rendering.delete(n); return; }
+      if (epoch !== renderEpoch) { rendering.delete(n); renderPage(n); return; }
       const items = pageItems[n] || (await page.getTextContent()).items;
       pageItems[n] = items;
       splitWords(tlDiv, items, n);
