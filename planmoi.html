@@ -115,6 +115,19 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
   background:linear-gradient(135deg,#6d5cff,#00d4a6);color:#fff;font-size:30px;cursor:pointer;z-index:40;
   box-shadow:0 10px 28px rgba(109,92,255,.55);display:flex;align-items:center;justify-content:center}
 .fab:active{transform:scale(.92)}
+.selmark{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);flex:none;
+  display:flex;align-items:center;justify-content:center;font-size:14px;color:transparent;margin-top:16px}
+.selmark.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.card.sel{border-color:var(--acc);background:rgba(109,92,255,.14)}
+.selbar{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:45;
+  display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--line);
+  border-radius:16px;padding:8px 10px;box-shadow:0 10px 30px rgba(0,0,0,.5);white-space:nowrap}
+.selbar .cnt{font-size:12.5px;font-weight:800;color:var(--mut);padding:0 4px}
+.selbar button{border:0;border-radius:11px;padding:9px 14px;font-size:13px;font-weight:800;
+  cursor:pointer;font-family:inherit}
+.selbar .sall{background:var(--card);color:var(--mut);border:1px solid var(--line)}
+.selbar .sexp{background:linear-gradient(135deg,#6d5cff,#4c3fd6);color:#fff}
+.selbar .scx{background:var(--card);color:var(--mut);border:1px solid var(--line)}
 
 /* ---------- modal ---------- */
 .ov{position:fixed;inset:0;background:rgba(5,6,18,.72);z-index:60;display:flex;align-items:flex-end;justify-content:center}
@@ -300,7 +313,8 @@ const I18N = {
     at:'الساعة', notes:'ملاحظات', audioTitle:'الصوت والنص المؤقّت',
     noCues:'لا يوجد نص مؤقّت', noAudio:'لا يوجد مقطع صوتي', tapCue:'اضغط أي سطر للانتقال إليه في الصوت',
     tapWord:'كبسة على الكلمة: نطق متكرر · كبستين: بحث صور',
-    menuExport:'⬇️ تصدير كل شي (مواعيد+صوت+نص)', menuImport:'⬆️ استيراد نسخة', menuVoice:'🔊 إعدادات الصوت',
+    menuExport:'⬇️ تصدير كل شي (مواعيد+صوت+نص)', menuExpSel:'☑️ تصدير محدد…', menuImport:'⬆️ استيراد نسخة', menuVoice:'🔊 إعدادات الصوت',
+    selCount:n=>`المحدد: ${n}`, selAll:'الكل', selExp:'⬇️ تصدير', selNone:'حدّد موعداً واحداً على الأقل',
     menuNotifOn:'🔔 الإشعارات مفعّلة', menuNotifOff:'🔕 تفعيل الإشعارات',
     imported:'تم الاستيراد', importBad:'ملف غير صالح', saved:'تم الحفظ', deleted:'تم الحذف',
     needFields:'أدخل العنوان والتاريخ والوقت',
@@ -347,7 +361,8 @@ const I18N = {
     at:'à', notes:'Notes', audioTitle:'Audio et texte minuté',
     noCues:'Pas de texte minuté', noAudio:'Pas de clip audio', tapCue:'Touchez une ligne pour y aller dans l\'audio',
     tapWord:'1× mot : prononciation en boucle · 2× : images',
-    menuExport:'⬇️ Tout exporter (RDV+audio+texte)', menuImport:'⬆️ Importer', menuVoice:'🔊 Réglages voix',
+    menuExport:'⬇️ Tout exporter (RDV+audio+texte)', menuExpSel:'☑️ Exporter la sélection…', menuImport:'⬆️ Importer', menuVoice:'🔊 Réglages voix',
+    selCount:n=>`Sélection : ${n}`, selAll:'Tout', selExp:'⬇️ Exporter', selNone:'Sélectionnez au moins un RDV',
     menuNotifOn:'🔔 Notifications activées', menuNotifOff:'🔕 Activer les notifications',
     imported:'Importé', importBad:'Fichier invalide', saved:'Enregistré', deleted:'Supprimé',
     needFields:'Titre, date et heure requis',
@@ -394,7 +409,8 @@ const I18N = {
     at:'at', notes:'Notes', audioTitle:'Audio & timed text',
     noCues:'No timed text', noAudio:'No audio clip', tapCue:'Tap a line to seek in the audio',
     tapWord:'Tap a word: speak loop · double-tap: images',
-    menuExport:'⬇️ Export everything (appts+audio+text)', menuImport:'⬆️ Import backup', menuVoice:'🔊 Voice settings',
+    menuExport:'⬇️ Export everything (appts+audio+text)', menuExpSel:'☑️ Export selection…', menuImport:'⬆️ Import backup', menuVoice:'🔊 Voice settings',
+    selCount:n=>`Selected: ${n}`, selAll:'All', selExp:'⬇️ Export', selNone:'Select at least one appointment',
     menuNotifOn:'🔔 Notifications on', menuNotifOff:'🔕 Enable notifications',
     imported:'Imported', importBad:'Invalid file', saved:'Saved', deleted:'Deleted',
     needFields:'Title, date and time are required',
@@ -419,6 +435,7 @@ const CAT_KEYS=['health','admin','work','personal','study','other'];
 const LS_KEY='planmoi_appts', LS_LANG='planmoi_lang', LS_FIRED='planmoi_fired';
 let appts=[], lang='ar', tab='upcoming', query='', view='list', detailId=null;
 let editingId=null, pendingAudio=null; // {name,dataUrl}
+let selectMode=false;const selSet=new Set();
 let cuesCache={};
 let ttsRun=0, loopBtn=null, curAudioUrl=null, cueLoopIdx=-1;
 
@@ -913,8 +930,9 @@ function renderList(){
     const d=new Date(a.date+'T12:00');const valid=!isNaN(d);
     const cd=countdown(a);
     const cdCls=a.status!=='upcoming'?'':(cd===t('past')?'past':(cd===t('today')||cd===t('tomorrow')||cd===t('now')||/^/.test(cd)&&apptTime(a)-Date.now()<72*3600e3?'soon':''));
-    return `<div class="card ${a.status!=='upcoming'?'dim':''}" data-id="${a.id}">
+    return `<div class="card ${a.status!=='upcoming'?'dim':''} ${selectMode&&selSet.has(a.id)?'sel':''}" data-id="${a.id}">
       <div class="crow">
+        ${selectMode?`<span class="selmark ${selSet.has(a.id)?'on':''}">✓</span>`:''}
         <div class="datebox"><div class="d">${valid?d.getDate():'–'}</div>
           <div class="m">${valid?new Intl.DateTimeFormat(lang==='ar'?'ar':lang==='fr'?'fr':'en',{month:'short'}).format(d):''}</div></div>
         <div class="cbody">
@@ -925,8 +943,8 @@ function renderList(){
             ${a.status==='upcoming'&&cd&&!isOverdue(a)?`<span class="badge b-cd ${cdCls}">${cd}</span>`:''}
           </div>
         </div>
-        <div class="menuwrap"><button class="icon-btn mbtn" data-m="${esc(a.id)}">⋮</button>
-          <div class="menu hidden" id="m-${esc(a.id)}"></div></div>
+        ${selectMode?'':`<div class="menuwrap"><button class="icon-btn mbtn" data-m="${esc(a.id)}">⋮</button>
+          <div class="menu hidden" id="m-${esc(a.id)}"></div></div>`}
       </div></div>`;
   }).join('');
 }
@@ -1139,9 +1157,10 @@ function collectSettings(){
     if(k&&(k===LS_LANG||k==='edge_tts'||/^(edge_voice|edge_rate)_/.test(k)))s[k]=localStorage.getItem(k);}
   return s;
 }
-async function exportData(){
+async function exportData(src){
+  const items=src||appts;
   const out={app:'PlanMoi',version:1,exportedAt:new Date().toISOString(),settings:collectSettings(),appts:[]};
-  for(const a of appts){
+  for(const a of items){
     const c={...a};const au=await audioGet(a.id).catch(()=>null);
     if(au)c.audioDataUrl=await blobToDataUrl(au.blob);
     out.appts.push(c);
@@ -1200,6 +1219,7 @@ async function renderMenu(){
   else if('Notification' in window)notifOn=Notification.permission==='granted';
   m.innerHTML=`
     <button data-tm="export">${t('menuExport')}</button>
+    <button data-tm="expsel">${t('menuExpSel')}</button>
     <button data-tm="import">${t('menuImport')}</button>
     <button data-tm="voice">${t('menuVoice')}</button>
     <button data-tm="notif">${notifOn?t('menuNotifOn'):t('menuNotifOff')}</button>`;
@@ -1207,6 +1227,7 @@ async function renderMenu(){
     m.classList.add('hidden');
     const k=b.dataset.tm;
     if(k==='export')exportData();
+    else if(k==='expsel')enterSelectMode();
     else if(k==='import')importData();
     else if(k==='voice'&&window.EdgeTTS)window.EdgeTTS.openSettings();
     else if(k==='notif'){
@@ -1214,6 +1235,29 @@ async function renderMenu(){
       else if('Notification' in window){try{await Notification.requestPermission();}catch(e){}}
     }
   });
+}
+
+/* ==================== selection export ==================== */
+function enterSelectMode(){
+  if(!appts.length){toast(t('selNone'));return;}
+  selectMode=true;selSet.clear();renderList();renderSelBar();
+}
+function exitSelectMode(){selectMode=false;selSet.clear();
+  const b=$('#selbar');if(b)b.remove();renderList();}
+function renderSelBar(){
+  let b=$('#selbar');
+  if(!b){b=document.createElement('div');b.id='selbar';b.className='selbar';document.body.appendChild(b);}
+  b.innerHTML=`<span class="cnt">${t('selCount')(selSet.size)}</span>
+    <button class="sall">${t('selAll')}</button>
+    <button class="sexp">${t('selExp')}</button>
+    <button class="scx">✕</button>`;
+  b.querySelector('.sall').onclick=()=>{filtered().forEach(a=>selSet.add(a.id));renderList();renderSelBar();};
+  b.querySelector('.scx').onclick=exitSelectMode;
+  b.querySelector('.sexp').onclick=async()=>{
+    if(!selSet.size){toast(t('selNone'));return;}
+    const items=appts.filter(a=>selSet.has(a.id));
+    exitSelectMode();await exportData(items);
+  };
 }
 
 /* ==================== render all ==================== */
@@ -1259,7 +1303,11 @@ $('#list').addEventListener('click',e=>{
     return;
   }
   const card=e.target.closest('.card');
-  if(card)openDetail(card.dataset.id);
+  if(!card)return;
+  if(selectMode){const id=card.dataset.id;
+    selSet.has(id)?selSet.delete(id):selSet.add(id);
+    renderList();renderSelBar();return;}
+  openDetail(card.dataset.id);
 });
 $('#btn-menu').onclick=async e=>{e.stopPropagation();await renderMenu();$('#top-menu').classList.toggle('hidden');};
 document.addEventListener('click',e=>{
@@ -1278,6 +1326,7 @@ if(window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.App){
     if(!$('#ov-map').classList.contains('hidden')){$('#ov-map').classList.add('hidden');return;}
     if(!$('#ov-samples').classList.contains('hidden')){$('#ov-samples').classList.add('hidden');return;}
     if(view==='detail'){closeDetail();return;}
+    if(selectMode){exitSelectMode();return;}
     confirmBox(t('exitTitle'),t('exitYes'),t('exitNo'),()=>{
       try{window.Capacitor.Plugins.App.exitApp();}catch(e){}
     });
