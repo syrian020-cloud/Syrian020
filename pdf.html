@@ -728,7 +728,7 @@ function capPlugin(name) {
   }
   return null;
 }
-const BUILD_STAMP = 'v23 · ٢٠٢٦-١٠-٠٧';
+const BUILD_STAMP = 'v24 · ٢٠٢٦-١٠-٠٧';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -737,7 +737,7 @@ const AppP = capPlugin('App');
 const settings = Object.assign({
   theme: 'dark', rate: 1.0, pitch: 1.0, latinLang: 'fr-FR', loop: false,
   night: false, tapSpeak: true, fitWidth: true, selMode: false, lang: 'ar',
-  ttsEngine: 'android', edgeVoiceAr: 'ar-SY-AmanyNeural', edgeVoiceLat: ''
+  ttsEngine: 'android', edgeVoiceAr: 'ar-SY-AmanyNeural', edgeVoiceFr: '', edgeVoiceEn: ''
 }, JSON.parse(localStorage.getItem('qari:settings') || '{}'));
 
 /* Edge TTS voice catalog (Microsoft neural voices — needs internet) */
@@ -750,17 +750,41 @@ const EDGE_AR_VOICES = [
   ['ar-DZ-AminaNeural', 'أمينة — جزائرية'], ['ar-IQ-RanaNeural', 'رنا — عراقية'],
   ['ar-IQ-BasselNeural', 'باسل — عراقي']
 ];
-const EDGE_LAT = {
-  'fr-FR': [['fr-FR-DeniseNeural', 'Denise'], ['fr-FR-HenriNeural', 'Henri'],
-            ['fr-FR-VivienneMultilingualNeural', 'Vivienne'], ['fr-CA-SylvieNeural', 'Sylvie (CA)']],
-  'en-US': [['en-US-AriaNeural', 'Aria'], ['en-US-ChristopherNeural', 'Christopher'],
-            ['en-US-JennyNeural', 'Jenny'], ['en-GB-SoniaNeural', 'Sonia (UK)']]
-};
+const EDGE_FR_VOICES = [
+  ['fr-FR-DeniseNeural', 'Denise'], ['fr-FR-HenriNeural', 'Henri'],
+  ['fr-FR-EloiseNeural', 'Eloise'], ['fr-FR-VivienneMultilingualNeural', 'Vivienne'],
+  ['fr-FR-RemyMultilingualNeural', 'Rémy'], ['fr-FR-AlainNeural', 'Alain'],
+  ['fr-FR-BrigitteNeural', 'Brigitte'], ['fr-FR-CelesteNeural', 'Céleste'],
+  ['fr-FR-ClaudeNeural', 'Claude'], ['fr-FR-CoralieNeural', 'Coralie'],
+  ['fr-FR-JacquelineNeural', 'Jacqueline'], ['fr-FR-JeromeNeural', 'Jérôme'],
+  ['fr-FR-MauriceNeural', 'Maurice'], ['fr-FR-YvesNeural', 'Yves'],
+  ['fr-FR-YvetteNeural', 'Yvette'],
+  ['fr-CA-SylvieNeural', 'Sylvie (CA)'], ['fr-CA-JeanNeural', 'Jean (CA)'],
+  ['fr-CA-AntoineNeural', 'Antoine (CA)'],
+  ['fr-BE-CharlineNeural', 'Charline (BE)'], ['fr-BE-GerardNeural', 'Gérard (BE)'],
+  ['fr-CH-ArianeNeural', 'Ariane (CH)'], ['fr-CH-FabriceNeural', 'Fabrice (CH)']
+];
+const EDGE_EN_VOICES = [
+  ['en-US-AriaNeural', 'Aria (US)'], ['en-US-ChristopherNeural', 'Christopher (US)'],
+  ['en-US-JennyNeural', 'Jenny (US)'], ['en-US-GuyNeural', 'Guy (US)'],
+  ['en-US-AnaNeural', 'Ana (US)'], ['en-US-MichelleNeural', 'Michelle (US)'],
+  ['en-US-SteffanNeural', 'Steffan (US)'], ['en-US-AvaMultilingualNeural', 'Ava (US)'],
+  ['en-US-AndrewMultilingualNeural', 'Andrew (US)'], ['en-US-EmmaMultilingualNeural', 'Emma (US)'],
+  ['en-US-BrianMultilingualNeural', 'Brian (US)'],
+  ['en-GB-SoniaNeural', 'Sonia (UK)'], ['en-GB-RyanNeural', 'Ryan (UK)'],
+  ['en-GB-LibbyNeural', 'Libby (UK)'], ['en-GB-MaisieNeural', 'Maisie (UK)'],
+  ['en-AU-NatashaNeural', 'Natasha (AU)'], ['en-AU-WilliamNeural', 'William (AU)'],
+  ['en-CA-ClaraNeural', 'Clara (CA)'], ['en-CA-LiamNeural', 'Liam (CA)'],
+  ['en-IN-NeerjaNeural', 'Neerja (IN)'], ['en-IE-EmilyNeural', 'Emily (IE)']
+];
 function edgeVoiceFor(lang) {
   if (lang === 'ar-SA') return settings.edgeVoiceAr || 'ar-SY-AmanyNeural';
-  const list = EDGE_LAT[settings.latinLang] || EDGE_LAT['fr-FR'];
-  const ids = list.map(v => v[0]);
-  return ids.includes(settings.edgeVoiceLat) ? settings.edgeVoiceLat : ids[0];
+  if (settings.latinLang === 'en-US') {
+    const ids = EDGE_EN_VOICES.map(v => v[0]);
+    return ids.includes(settings.edgeVoiceEn) ? settings.edgeVoiceEn : ids[0];
+  }
+  const ids = EDGE_FR_VOICES.map(v => v[0]);
+  return ids.includes(settings.edgeVoiceFr) ? settings.edgeVoiceFr : ids[0];
 }
 const edgePct = v => { const p = Math.round((v - 1) * 100); return (p >= 0 ? '+' : '') + p + '%'; };
 const edgeHz = v => { const p = Math.round((v - 1) * 50); return (p >= 0 ? '+' : '') + p + 'Hz'; };
@@ -799,7 +823,8 @@ const STR = {
     m_fit: 'ملاءمة العرض', m_fit_s: 'الصفحة بعرض الشاشة دائماً',
     m_rate: 'سرعة النطق', m_lang: 'لغة النص الأجنبي', m_lang_s: 'للكلمات غير العربية',
     m_engine: 'محرك النطق', m_engine_s: 'أندرويد بلا إنترنت — Edge أصوات طبيعية تحتاج إنترنت',
-    m_ev_ar: 'الصوت العربي (Edge)', m_ev_lat: 'صوت اللغة الأجنبية (Edge)',
+    m_ev_ar: 'الصوت العربي (Edge)', m_ev_fr: 'الصوت الفرنسي (Edge)', m_ev_en: 'الصوت الإنجليزي (Edge)',
+    m_applang: 'لغة التطبيق',
     lang_fr: 'فرنسي', lang_en: 'إنجليزي', lang_de: 'ألماني', lang_tr: 'تركي',
     m_copyall: 'نسخ كل نص المستند', m_copyall_s: 'استخراج النص كاملاً إلى الحافظة',
     m_tts: 'اختبار النطق', m_tts_s: 'يتكلم جملة تجريبية للتحقق من محرك الصوت',
@@ -883,7 +908,8 @@ const STR = {
     m_fit: 'Ajuster à la largeur', m_fit_s: "La page tient toujours à l'écran",
     m_rate: 'Vitesse de lecture', m_lang: 'Langue étrangère', m_lang_s: 'pour les mots non arabes',
     m_engine: 'Moteur vocal', m_engine_s: 'Android hors-ligne — Edge voix naturelles (internet)',
-    m_ev_ar: 'Voix arabe (Edge)', m_ev_lat: 'Voix étrangère (Edge)',
+    m_ev_ar: 'Voix arabe (Edge)', m_ev_fr: 'Voix française (Edge)', m_ev_en: 'Voix anglaise (Edge)',
+    m_applang: "Langue de l'app",
     lang_fr: 'Français', lang_en: 'Anglais', lang_de: 'Allemand', lang_tr: 'Turc',
     m_copyall: 'Copier tout le texte', m_copyall_s: 'Extrait tout le texte vers le presse-papiers',
     m_tts: 'Tester la voix', m_tts_s: 'Lit une phrase test du moteur vocal',
@@ -967,7 +993,8 @@ const STR = {
     m_fit: 'Fit width', m_fit_s: 'Page always fits the screen',
     m_rate: 'Speech rate', m_lang: 'Foreign text language', m_lang_s: 'for non-Arabic words',
     m_engine: 'Speech engine', m_engine_s: 'Android offline — Edge natural voices need internet',
-    m_ev_ar: 'Arabic voice (Edge)', m_ev_lat: 'Foreign voice (Edge)',
+    m_ev_ar: 'Arabic voice (Edge)', m_ev_fr: 'French voice (Edge)', m_ev_en: 'English voice (Edge)',
+    m_applang: 'App language',
     lang_fr: 'French', lang_en: 'English', lang_de: 'German', lang_tr: 'Turkish',
     m_copyall: 'Copy all text', m_copyall_s: 'Extract the whole text to clipboard',
     m_tts: 'Test speech', m_tts_s: 'Speaks a test sentence to verify the engine',
@@ -2082,10 +2109,12 @@ async function pdfToImages() {
 $('menuBtn').onclick = () => {
   const bms = getBookmarks();
   openSheet(t('menu_title'), `
-    <div class="set-row"><div class="lbl">${t('m_sel')}<small>${t('m_sel_s')}</small></div>
-      <label class="switch"><input type="checkbox" id="sSel" ${settings.selMode ? 'checked' : ''}><span class="trk"></span></label></div>
-    <div class="set-row"><div class="lbl">${t('m_tap')}<small>${t('m_tap_s')}</small></div>
-      <label class="switch"><input type="checkbox" id="sTap" ${settings.tapSpeak ? 'checked' : ''}><span class="trk"></span></label></div>
+    <div class="set-row"><div class="lbl">${t('m_applang')}</div>
+      <select class="lang-sel" id="sAppLang">
+        <option value="ar" ${settings.lang === 'ar' ? 'selected' : ''}>العربية</option>
+        <option value="fr" ${settings.lang === 'fr' ? 'selected' : ''}>Français</option>
+        <option value="en" ${settings.lang === 'en' ? 'selected' : ''}>English</option>
+      </select></div>
     <div class="set-row"><div class="lbl">${t('m_loop')}<small>${t('m_loop_s')}</small></div>
       <label class="switch"><input type="checkbox" id="sLoop" ${settings.loop ? 'checked' : ''}><span class="trk"></span></label></div>
     <div class="set-row"><div class="lbl">${t('m_night')}<small>${t('m_night_s')}</small></div>
@@ -2108,9 +2137,12 @@ $('menuBtn').onclick = () => {
     <div class="set-row edge-row"><div class="lbl">${t('m_ev_ar')}</div>
       <select class="lang-sel" id="sEdgeAr">${EDGE_AR_VOICES.map(v =>
         `<option value="${v[0]}" ${settings.edgeVoiceAr === v[0] ? 'selected' : ''}>${v[1]}</option>`).join('')}</select></div>
-    <div class="set-row edge-row"><div class="lbl">${t('m_ev_lat')}</div>
-      <select class="lang-sel" id="sEdgeLat">${(EDGE_LAT[settings.latinLang] || EDGE_LAT['fr-FR']).map(v =>
-        `<option value="${v[0]}" ${edgeVoiceFor(settings.latinLang) === v[0] ? 'selected' : ''}>${v[1]}</option>`).join('')}</select></div>
+    <div class="set-row edge-row"><div class="lbl">${t('m_ev_fr')}</div>
+      <select class="lang-sel" id="sEdgeFr">${EDGE_FR_VOICES.map(v =>
+        `<option value="${v[0]}" ${settings.edgeVoiceFr === v[0] ? 'selected' : ''}>${v[1]}</option>`).join('')}</select></div>
+    <div class="set-row edge-row"><div class="lbl">${t('m_ev_en')}</div>
+      <select class="lang-sel" id="sEdgeEn">${EDGE_EN_VOICES.map(v =>
+        `<option value="${v[0]}" ${settings.edgeVoiceEn === v[0] ? 'selected' : ''}>${v[1]}</option>`).join('')}</select></div>
     <div class="set-row" style="cursor:pointer" id="sCopyAll"><div class="lbl">${t('m_copyall')}<small>${t('m_copyall_s')}</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sTtsTest"><div class="lbl">${t('m_tts')}<small>${t('m_tts_s')}</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sOcr"><div class="lbl">${t('m_ocr')}<small>${t('m_ocr_s')}</small></div><span>‹</span></div>
@@ -2126,12 +2158,7 @@ $('menuBtn').onclick = () => {
     <div class="set-row" style="cursor:pointer" id="sUnlock"><div class="lbl">${t('m_unlock')}<small>${t('m_unlock_s')}</small></div><span>‹</span></div>
     <div style="text-align:center;color:var(--muted);font-size:11px;padding-top:10px">${t('version')} ${BUILD_STAMP}</div>
   `);
-  $('sTap').onchange = e => { settings.tapSpeak = e.target.checked; saveSettings(); };
-  $('sSel').onchange = e => {
-    settings.selMode = e.target.checked; saveSettings(); applySelMode();
-    if (settings.selMode) { stopSpeech(); toast(t('sel_on')); }
-    $('selBtn').classList.toggle('on', settings.selMode);
-  };
+  $('sAppLang').onchange = e => { setLang(e.target.value); };
   $('sLoop').onchange = e => { settings.loop = e.target.checked; saveSettings(); $('loopBtn').classList.toggle('on', settings.loop); };
   $('sNight').onchange = e => { settings.night = e.target.checked; saveSettings(); document.body.classList.toggle('night', settings.night); };
   $('sFit').onchange = e => { settings.fitWidth = e.target.checked; saveSettings(); rerenderAll(); };
@@ -2142,7 +2169,8 @@ $('menuBtn').onclick = () => {
     if (settings.ttsEngine === 'edge') toast(t('m_engine_s'), 3600);
   };
   $('sEdgeAr').onchange = e => { settings.edgeVoiceAr = e.target.value; saveSettings(); };
-  $('sEdgeLat').onchange = e => { settings.edgeVoiceLat = e.target.value; saveSettings(); };
+  $('sEdgeFr').onchange = e => { settings.edgeVoiceFr = e.target.value; saveSettings(); };
+  $('sEdgeEn').onchange = e => { settings.edgeVoiceEn = e.target.value; saveSettings(); };
   $('sOutline').onclick = showOutline;
   $('sBms').onclick = showBookmarks;
   $('sBookmark').onclick = () => { toggleBookmark(currentPage); showBookmarks(); };
