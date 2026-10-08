@@ -284,7 +284,7 @@ const I18N = {
     imported:'تم الاستيراد', importBad:'ملف غير صالح', saved:'تم الحفظ', deleted:'تم الحذف',
     needFields:'أدخل العنوان والتاريخ والوقت',
     cats:{health:'🩺 صحة',admin:'📋 إدارة',work:'💼 عمل',personal:'👤 شخصي',study:'📚 دراسة',other:'📌 أخرى'},
-    notifBody24:m=>`غداً: ${m}`, notifBody12:m=>`بعد ١٢ ساعة: ${m}`, notifBody2:m=>`قريباً بعد ساعتين: ${m}`,
+    notifBody24:m=>`غداً: ${m}`, notifBody12:m=>`بعد ١٢ ساعة: ${m}`, notifBody2:m=>`قريباً بعد ساعتين: ${m}`, notifBody0:m=>`حان الموعد الآن: ${m}`,
     notifTitle:'⏰ تذكير بموعد',
     cuesCount:n=>`${n} سطر`,
     samples:'نماذج النص المؤقّت', copy:'نسخ', copied:'تم النسخ',
@@ -331,7 +331,7 @@ const I18N = {
     imported:'Importé', importBad:'Fichier invalide', saved:'Enregistré', deleted:'Supprimé',
     needFields:'Titre, date et heure requis',
     cats:{health:'🩺 Santé',admin:'📋 Admin',work:'💼 Travail',personal:'👤 Perso',study:'📚 Études',other:'📌 Autre'},
-    notifBody24:m=>`Demain : ${m}`, notifBody12:m=>`Dans 12 h : ${m}`, notifBody2:m=>`Dans 2 h : ${m}`,
+    notifBody24:m=>`Demain : ${m}`, notifBody12:m=>`Dans 12 h : ${m}`, notifBody2:m=>`Dans 2 h : ${m}`, notifBody0:m=>`C'est l'heure : ${m}`,
     notifTitle:'⏰ Rappel de rendez-vous',
     cuesCount:n=>`${n} lignes`,
     samples:'Exemples de texte minuté', copy:'Copier', copied:'Copié',
@@ -378,7 +378,7 @@ const I18N = {
     imported:'Imported', importBad:'Invalid file', saved:'Saved', deleted:'Deleted',
     needFields:'Title, date and time are required',
     cats:{health:'🩺 Health',admin:'📋 Admin',work:'💼 Work',personal:'👤 Personal',study:'📚 Study',other:'📌 Other'},
-    notifBody24:m=>`Tomorrow: ${m}`, notifBody12:m=>`In 12 h: ${m}`, notifBody2:m=>`In 2 h: ${m}`,
+    notifBody24:m=>`Tomorrow: ${m}`, notifBody12:m=>`In 12 h: ${m}`, notifBody2:m=>`In 2 h: ${m}`, notifBody0:m=>`It's time: ${m}`,
     notifTitle:'⏰ Appointment reminder',
     cuesCount:n=>`${n} lines`,
     samples:'Timed text samples', copy:'Copy', copied:'Copied',
@@ -653,7 +653,12 @@ function LN(){return window.Capacitor&&window.Capacitor.Plugins&&window.Capacito
 function nidBase(id){let h=0;for(const c of id)h=(h*31+c.charCodeAt(0))%1000000;return h*10;}
 async function cancelReminders(a){
   const p=LN();if(!p)return;
-  try{const b=nidBase(a.id);await p.cancel({notifications:[{id:b},{id:b+1},{id:b+2}]});}catch(e){}
+  try{const b=nidBase(a.id);await p.cancel({notifications:[{id:b},{id:b+1},{id:b+2},{id:b+3}]});}catch(e){}
+}
+async function ensureChannel(){
+  const p=LN();if(!p||!p.createChannel)return;
+  try{await p.createChannel({id:'planmoi-alerts',name:'PlanMoi reminders',description:'Appointment reminders',
+    importance:5,visibility:1,lights:true,vibration:true,sound:'planmoi_alert'});}catch(e){}
 }
 async function scheduleReminders(a){
   const p=LN();if(!p)return;
@@ -663,12 +668,13 @@ async function scheduleReminders(a){
   try{
     const perm=await p.requestPermissions();
     if(!perm||perm.display!=='granted')return;
-    const offs=[24*3600e3,12*3600e3,2*3600e3];
-    const bodies=[t('notifBody24'),t('notifBody12'),t('notifBody2')];
+    await ensureChannel();
+    const offs=[0,2*3600e3,12*3600e3,24*3600e3];
+    const bodies=[t('notifBody0'),t('notifBody2'),t('notifBody12'),t('notifBody24')];
     const b=nidBase(a.id);const list=[];
     offs.forEach((o,i)=>{
       const at=when-o;
-      if(at>Date.now()+30e3)list.push({id:b+i,title:t('notifTitle'),body:bodies[i](a.title),schedule:{at:new Date(at)}});
+      if(at>Date.now()+15e3)list.push({id:b+i,title:t('notifTitle'),body:bodies[i](a.title),channelId:'planmoi-alerts',schedule:{at:new Date(at)}});
     });
     if(list.length)await p.schedule({notifications:list});
   }catch(e){console.error('schedule',e);}
@@ -681,10 +687,10 @@ setInterval(()=>{
   appts.forEach(a=>{
     if(a.status!=='upcoming')return;
     const when=apptTime(a);if(!when)return;
-    [[24*3600e3,'notifBody24'],[12*3600e3,'notifBody12'],[2*3600e3,'notifBody2']].forEach(([o,k],i)=>{
+    [[0,'notifBody0'],[2*3600e3,'notifBody2'],[12*3600e3,'notifBody12'],[24*3600e3,'notifBody24']].forEach(([o,k],i)=>{
       const key=a.id+':'+i;
       if(!s.has(key)&&Date.now()>=when-o&&when>Date.now()-30e3){
-        markFired(key);
+        markFired(key);notifBeep();
         const msg=t(k)(a.title);
         if('Notification' in window&&Notification.permission==='granted'){
           try{new Notification(t('notifTitle'),{body:msg,icon:'icon-planmoi-192.png'});}catch(e){toast(msg);}
@@ -693,6 +699,15 @@ setInterval(()=>{
     });
   });
 },30000);
+function notifBeep(){
+  try{const ctx=new (window.AudioContext||window.webkitAudioContext)();
+    [0,0.35,0.7].forEach(d=>{const o=ctx.createOscillator(),g=ctx.createGain();
+      o.frequency.value=988;o.connect(g);g.connect(ctx.destination);
+      const t0=ctx.currentTime+d;g.gain.setValueAtTime(0.001,t0);
+      g.gain.exponentialRampToValueAtTime(0.25,t0+0.02);g.gain.exponentialRampToValueAtTime(0.001,t0+0.3);
+      o.start(t0);o.stop(t0+0.32);});
+  }catch(e){}
+}
 
 /* ==================== helpers ==================== */
 function apptTime(a){if(!a.date)return null;return new Date(a.date+'T'+(a.time||'00:00')).getTime();}
