@@ -2020,35 +2020,44 @@
     setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 1000);
   }
   async function shareFile(content, filename, title, type = 'text/plain') {
-    try {
-      if (isCapacitor() && window.Capacitor.Plugins.Filesystem && window.Capacitor.Plugins.Share) {
+    const errs = [];
+    const push = (e) => { const m = (e && e.message) ? e.message : String(e); if (m) errs.push(m); };
+    if (isCapacitor() && window.Capacitor.Plugins.Share) {
+      const share = window.Capacitor.Plugins.Share;
+      // 1) share the file itself (WhatsApp / Drive / Telegram get a real file)
+      try {
         const fs = window.Capacitor.Plugins.Filesystem;
+        if (!fs) throw new Error('Filesystem plugin missing');
         const result = await fs.writeFile({ path: filename, data: content, directory: 'CACHE', encoding: 'utf8' });
         let uri = result && result.uri;
         if (!uri) {
           const uriRes = await fs.getUri({ path: filename, directory: 'CACHE' });
           uri = uriRes && uriRes.uri;
         }
-        if (uri) {
-          await window.Capacitor.Plugins.Share.share({ url: uri, title: title || filename, dialogTitle: title || filename });
-          return 'share';
-        }
-      }
-    } catch (e) { console.error('Capacitor share error', e); }
+        if (!uri) throw new Error('no file uri');
+        await share.share({ url: uri, title: title || filename, dialogTitle: title || filename });
+        return 'share';
+      } catch (e) { push(e); }
+      // 2) still open the native sheet with the content as text
+      try {
+        await share.share({ title: title || filename, text: content, dialogTitle: title || filename });
+        return 'share-text';
+      } catch (e) { push(e); }
+    }
     if (navigator.share) {
       const blob = new Blob([content], { type });
       const file = new File([blob], filename, { type });
       try {
         await navigator.share({ files: [file], title: title || filename });
         return 'share';
-      } catch (e) {}
+      } catch (e) { push(e); }
       try {
         await navigator.share({ title: title || filename, text: content });
         return 'share-text';
-      } catch (e) {}
+      } catch (e) { push(e); }
     }
-    try { downloadFile(new Blob([content], { type }), filename); } catch (e) {}
-    return 'download';
+    try { downloadFile(new Blob([content], { type }), filename); } catch (e) { push(e); }
+    return 'download:' + errs.join(' | ');
   }
   function formatSRTTime(seconds) {
     const h = Math.floor(seconds / 3600).toString().padStart(2, '0');
@@ -2070,9 +2079,9 @@
       const data = await serializeLesson(lesson);
       const json = JSON.stringify(data);
       const filename = `${sanitizeFilename(lesson.name)}.json`;
-      await shareFile(json, filename, lesson.name, 'application/json');
-      showToast(t('exportSuccess', {name: lesson.name}));
-    } catch (e) { showToast(t('exportError')); }
+      const r = await shareFile(json, filename, lesson.name, 'application/json');
+      showToast(r.indexOf('share') === 0 ? t('exportSuccess', {name: lesson.name}) : t('exportError') + ' — ' + r);
+    } catch (e) { showToast(t('exportError') + ' — ' + (e.message || e)); }
   }
   async function exportLessonSRT(id) {
     const lesson = await getLessonById(id);
@@ -2080,9 +2089,9 @@
     try {
       const srt = cuesToSRT(lesson.cues || []);
       const filename = `${sanitizeFilename(lesson.name)}.srt`;
-      await shareFile(srt, filename, lesson.name, 'application/x-subrip');
-      showToast(t('exportSuccess', {name: filename}));
-    } catch (e) { showToast(t('exportError')); }
+      const r = await shareFile(srt, filename, lesson.name, 'application/x-subrip');
+      showToast(r.indexOf('share') === 0 ? t('exportSuccess', {name: filename}) : t('exportError') + ' — ' + r);
+    } catch (e) { showToast(t('exportError') + ' — ' + (e.message || e)); }
   }
   async function exportAllLessons() {
     let lessons = [];
@@ -2092,9 +2101,9 @@
       const data = await Promise.all(lessons.map(serializeLesson));
       const json = JSON.stringify(data, null, 2);
       const filename = `srt-lessons.json`;
-      await shareFile(json, filename, 'SRT Lessons', 'application/json');
-      showToast(t('exportSuccess', {name: filename}));
-    } catch (e) { showToast(t('exportError')); }
+      const r = await shareFile(json, filename, 'SRT Lessons', 'application/json');
+      showToast(r.indexOf('share') === 0 ? t('exportSuccess', {name: filename}) : t('exportError') + ' — ' + r);
+    } catch (e) { showToast(t('exportError') + ' — ' + (e.message || e)); }
   }
   async function importLessonsFromFile(file) {
     let text;
