@@ -4357,6 +4357,7 @@
       ${nextApptHTML()}
       <div class="plan-search"><span>🔍</span><input id="plan-search" type="search" placeholder="${esc(t('searchAppts'))}" value="${esc(apptFilter.q)}"></div>
       <div id="plan-list-wrap">${apptListHTML()}</div>
+      <button class="plan-fab" data-plan-fab-home title="${esc(t('apptNew'))}">+</button>
     </div>`;
   }
 
@@ -4460,6 +4461,7 @@
     document.getElementById('plan-import-btn').onclick = () => document.getElementById('plan-import-file').click();
     document.getElementById('plan-import-file').onchange = e => { if (e.target.files[0]) importAppts(e.target.files[0]); };
     document.getElementById('plan-sel-toggle').onclick = () => { planSelMode = !planSelMode; planSelected.clear(); refreshApptList(); };
+    if (planFormOpen || planEditId) requestAnimationFrame(() => { const w = document.getElementById('plan-form-wrap'); if (w) w.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
     document.getElementById('plan-tb').onchange = e => { planning.travelBefore = Math.max(0, +e.target.value || 0); savePlanning(); };
     document.getElementById('plan-ta').onchange = e => { planning.travelAfter = Math.max(0, +e.target.value || 0); savePlanning(); };
   }
@@ -5546,6 +5548,8 @@ EN: Maria, I’m out of cigarettes.`
       }
     });
     view.addEventListener('click', e => {
+      if (e.target.closest('[data-plan-fab-home]')) { e.stopPropagation(); planFormOpen = true; go({ name: 'planning' }); return; }
+
       const planChip = e.target.closest('[data-plan-chip]');
       if (planChip) { e.stopPropagation(); apptFilter.status = planChip.dataset.planChip; saveApptFilter(); refreshApptList(); return; }
 
