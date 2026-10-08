@@ -4404,6 +4404,33 @@
     const weekTxt = kind === 'repos' ? t('weekRepos') : t('week_' + kind);
     return `<div class="plan-section">
       <img class="plan-banner" src="planning-banner.jpg" alt="" onerror="this.style.display='none'">
+      <button class="plan-card" data-route='${JSON.stringify({ name: 'planning' })}'>
+        <span class="plan-ico">📅</span>
+        <span><span class="plan-card-title">${t('planTitle')}</span><br><span class="plan-card-sub">${t('planSub')} · ${weekTxt}${s ? ' ' + fmtMin(s.start) + '–' + fmtMin(s.end) : ''}</span></span>
+        <span class="chev">${chevron()}</span>
+      </button>
+      ${nextApptHTML()}
+      <div class="plan-search"><span>🔍</span><input id="plan-search" type="search" placeholder="${esc(t('searchAppts'))}" value="${esc(apptFilter.q)}"></div>
+      <div id="plan-list-wrap">${apptListHTML()}</div>
+      <button class="plan-fab" data-plan-fab-home title="${esc(t('apptNew'))}">+</button>
+    </div>`;
+  }
+
+  // ── planning page ──
+  function planFormHTML() {
+    const a = planEditId ? appts.find(x => x.id === planEditId) : null;
+    const dur = a ? a.dur : 60;
+    const curCat = a ? (a.cat || 'autre') : 'autre';
+    return `<div class="card plan-form">
+      <div class="section-title" style="margin-bottom:.6rem">${a ? '✏️ ' : '➕ '}${t(a ? 'apptEdit' : 'apptNew')}</div>
+      <label class="chk-lbl">${t('afWhatLbl')} *</label>
+      <input id="af-what" class="ctl plan-in" placeholder="${esc(t('afWhatPh'))}" value="${esc(a ? a.what : '')}">
+      <div class="chk-grid" style="margin-top:.1rem">
+        <div><label class="chk-lbl">${t('chkDate')} *</label><input id="af-date" type="date" class="ctl plan-in" value="${esc(a ? a.date : todayStr())}"></div>
+        <div><label class="chk-lbl">${t('chkTime')} *</label><input id="af-time" type="time" class="ctl plan-in" value="${esc(a ? a.time : '10:00')}"></div>
+        <div><label class="chk-lbl">${t('chkDur')} (${t('min')})</label><input id="af-dur" type="number" min="5" step="5" class="ctl plan-in" value="${dur}"></div>
+        <div><label class="chk-lbl">${t('afOrg')}</label><input id="af-org" class="ctl plan-in" placeholder="France Travail…" value="${esc(a ? a.org || '' : '')}"></div>
+      </div>
       <label class="chk-lbl">${t('afPlace')}</label>
       <input id="af-place" class="ctl plan-in" placeholder="${esc(t('afPlacePh'))}" value="${esc(a ? a.place || '' : '')}">
       <label class="chk-lbl">${t('afAddr')}</label>
