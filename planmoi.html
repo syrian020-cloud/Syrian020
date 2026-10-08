@@ -81,6 +81,7 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 .b-up{background:rgba(109,92,255,.2);color:#a99bff;border:1px solid #4c3fd6}
 .b-ok{background:rgba(45,212,167,.15);color:var(--ok);border:1px solid #17614e}
 .b-off{background:rgba(255,107,129,.13);color:var(--bad);border:1px solid #5c2531}
+.b-past{background:rgba(251,191,36,.14);color:#fbbf24;border:1px solid #6b5116}
 .b-cat{background:rgba(255,180,84,.13);color:var(--warn);border:1px solid #5c4526}
 .b-cd{background:rgba(0,212,166,.15);color:var(--acc2);border:1px solid #0e4b3d}
 .b-cd.soon{background:rgba(255,180,84,.16);color:var(--warn);border-color:#5c4526}
@@ -251,7 +252,7 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 const I18N = {
   ar: {
     tagline:'مواعيدك، منظّمة بأناقة', search:'ابحث عن موعد…',
-    tabAll:'الكل', tabUp:'قادم', tabDone:'تم', tabOff:'مُلغى',
+    tabAll:'الكل', tabUp:'قادم', tabOver:'فائت', tabDone:'تم', tabOff:'مُلغى',
     empty:'لا مواعيد بعد', emptyHint:'اضغط + لإضافة أول موعد',
     next:'الموعد القادم',
     newAppt:'موعد جديد', editAppt:'تعديل الموعد',
@@ -268,7 +269,7 @@ const I18N = {
     markDone:'تم ✓', markOff:'إلغاء الموعد', markUp:'إعادة كقادم',
     delConfirm:'حذف هذا الموعد نهائياً؟', yes:'نعم، احذف', no:'تراجع',
     exitTitle:'الخروج من PlanMoi؟', exitYes:'خروج', exitNo:'بقاء',
-    stUp:'قادم', stDone:'تم', stOff:'مُلغى',
+    stUp:'قادم', stOver:'فائت', stDone:'تم', stOff:'مُلغى',
     today:'اليوم', tomorrow:'غداً', now:'الآن',
     daysLeft:d=> d===1?'باقي يوم واحد': d===2?'باقي يومان': d<=10?`باقي ${d} أيام`:`باقي ${d} يوماً`,
     hoursLeft:h=> h<=1?'باقي أقل من ساعة': h===2?'باقي ساعتان':`باقي ${h} ساعة`,
@@ -298,7 +299,7 @@ const I18N = {
   },
   fr: {
     tagline:'Vos rendez-vous, en toute élégance', search:'Rechercher un rendez-vous…',
-    tabAll:'Tous', tabUp:'À venir', tabDone:'Fait', tabOff:'Annulé',
+    tabAll:'Tous', tabUp:'À venir', tabOver:'Passés', tabDone:'Fait', tabOff:'Annulé',
     empty:'Aucun rendez-vous', emptyHint:'Touchez + pour en ajouter un',
     next:'Prochain rendez-vous',
     newAppt:'Nouveau rendez-vous', editAppt:'Modifier le rendez-vous',
@@ -315,7 +316,7 @@ const I18N = {
     markDone:'Marquer fait ✓', markOff:'Annuler le RDV', markUp:'Remettre à venir',
     delConfirm:'Supprimer ce rendez-vous ?', yes:'Oui, supprimer', no:'Retour',
     exitTitle:'Quitter PlanMoi ?', exitYes:'Quitter', exitNo:'Rester',
-    stUp:'À venir', stDone:'Fait', stOff:'Annulé',
+    stUp:'À venir', stOver:'Passé', stDone:'Fait', stOff:'Annulé',
     today:'Aujourd\'hui', tomorrow:'Demain', now:'Maintenant',
     daysLeft:d=> d<=1?'dans 1 jour':`dans ${d} jours`,
     hoursLeft:h=> h<=1?'dans moins d\'1 h':`dans ${h} h`,
@@ -345,7 +346,7 @@ const I18N = {
   },
   en: {
     tagline:'Your appointments, elegantly organized', search:'Search appointments…',
-    tabAll:'All', tabUp:'Upcoming', tabDone:'Done', tabOff:'Cancelled',
+    tabAll:'All', tabUp:'Upcoming', tabOver:'Overdue', tabDone:'Done', tabOff:'Cancelled',
     empty:'No appointments yet', emptyHint:'Tap + to add your first one',
     next:'Next appointment',
     newAppt:'New appointment', editAppt:'Edit appointment',
@@ -362,7 +363,7 @@ const I18N = {
     markDone:'Mark done ✓', markOff:'Cancel appointment', markUp:'Back to upcoming',
     delConfirm:'Delete this appointment?', yes:'Yes, delete', no:'Back',
     exitTitle:'Exit PlanMoi?', exitYes:'Exit', exitNo:'Stay',
-    stUp:'Upcoming', stDone:'Done', stOff:'Cancelled',
+    stUp:'Upcoming', stOver:'Overdue', stDone:'Done', stOff:'Cancelled',
     today:'Today', tomorrow:'Tomorrow', now:'Now',
     daysLeft:d=> d<=1?'in 1 day':`in ${d} days`,
     hoursLeft:h=> h<=1?'in < 1 h':`in ${h} h`,
@@ -811,9 +812,11 @@ function wordTap(el){
   if(wordTap._t){clearTimeout(wordTap._t);wordTap._t=null;openGoogleImages(el.textContent);return;}
   wordTap._t=setTimeout(()=>{wordTap._t=null;toggleCueLoop(el,el.textContent,el.dataset.lang);},300);
 }
+function isOverdue(a){const w=apptTime(a);return a.status==='upcoming'&&w!=null&&w<Date.now();}
 function statusBadge(a){
   if(a.status==='done')return `<span class="badge b-ok">${t('stDone')}</span>`;
   if(a.status==='cancelled')return `<span class="badge b-off">${t('stOff')}</span>`;
+  if(isOverdue(a))return `<span class="badge b-past">${t('stOver')}</span>`;
   return `<span class="badge b-up">${t('stUp')}</span>`;
 }
 
@@ -821,7 +824,8 @@ function statusBadge(a){
 function filtered(){
   const q=query.trim().toLowerCase();
   let list=appts.filter(a=>{
-    if(tab==='upcoming'&&a.status!=='upcoming')return false;
+    if(tab==='upcoming'&&(a.status!=='upcoming'||isOverdue(a)))return false;
+    if(tab==='overdue'&&!isOverdue(a))return false;
     if(tab==='done'&&a.status!=='done')return false;
     if(tab==='cancelled'&&a.status!=='cancelled')return false;
     if(q&&![a.title,a.place,a.address,a.notes].join(' ').toLowerCase().includes(q))return false;
@@ -831,9 +835,9 @@ function filtered(){
   return list;
 }
 function renderTabs(){
-  const counts={all:appts.length,upcoming:0,done:0,cancelled:0};
-  appts.forEach(a=>counts[a.status==='upcoming'?'upcoming':a.status]++);
-  $('#tabs').innerHTML=[['all','tabAll'],['upcoming','tabUp'],['done','tabDone'],['cancelled','tabOff']]
+  const counts={all:appts.length,upcoming:0,overdue:0,done:0,cancelled:0};
+  appts.forEach(a=>counts[isOverdue(a)?'overdue':(a.status==='upcoming'?'upcoming':a.status)]++);
+  $('#tabs').innerHTML=[['all','tabAll'],['upcoming','tabUp'],['overdue','tabOver'],['done','tabDone'],['cancelled','tabOff']]
     .map(([k,lab])=>`<button class="${tab===k?'on':''}" data-tab="${k}">${t(lab)} <em>${counts[k]}</em></button>`).join('');
 }
 function renderNext(){
@@ -867,7 +871,7 @@ function renderList(){
           <div class="cmeta"><i>🕐 ${esc(a.time||'')}</i>${a.place?`<i>📍 ${esc(a.place)}</i>`:''}${a.audioName?'<i>🎙️</i>':''}</div>
           <div class="badges">${statusBadge(a)}
             ${a.category?`<span class="badge b-cat">${esc(t('cats')[a.category]||a.category)}</span>`:''}
-            ${a.status==='upcoming'&&cd?`<span class="badge b-cd ${cdCls}">${cd}</span>`:''}
+            ${a.status==='upcoming'&&cd&&!isOverdue(a)?`<span class="badge b-cd ${cdCls}">${cd}</span>`:''}
           </div>
         </div>
         <div class="menuwrap"><button class="icon-btn mbtn" data-m="${esc(a.id)}">⋮</button>
@@ -912,7 +916,7 @@ async function renderDetail(){
     </div></header>
     <div class="dcard">
       <div class="badges">${statusBadge(a)}${a.category?`<span class="badge b-cat">${t('cats')[a.category]||''}</span>`:''}
-        ${a.status==='upcoming'?`<span class="badge b-cd">${countdown(a)}</span>`:''}</div>
+        ${a.status==='upcoming'&&!isOverdue(a)?`<span class="badge b-cd">${countdown(a)}</span>`:''}</div>
       <div class="statusrow">
         <button data-st="upcoming" class="${a.status==='upcoming'?'cur-up':''}">${t('stUp')}</button>
         <button data-st="done" class="${a.status==='done'?'cur-ok':''}">${t('stDone')}</button>
