@@ -550,6 +550,19 @@
   .chk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 0.6rem; }
   .chk-lbl { font-size: 0.68rem; font-weight: 700; color: var(--text-secondary); letter-spacing: 0.05em; margin-bottom: 0.3rem; display: block; text-transform: uppercase; }
   .chk-btn { width: 100%; margin-top: 0.7rem; padding: 0.8rem; font-size: 1rem; font-weight: 700; border-radius: 14px; border: none; background: linear-gradient(135deg,#6d5cff,#00d4a6); color: #fff; cursor: pointer; }
+  .cat-chip { padding: 0.5rem 0.9rem; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-primary); font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+  .cat-chip.on { background: linear-gradient(135deg,#6d5cff,#00d4a6); border-color: transparent; color: #fff; }
+  .ad-cats { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 0.55rem; }
+  .ad-badges { display: flex; gap: 0.4rem; margin-bottom: 0.65rem; }
+  .ad-status { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.4rem; margin-bottom: 0.7rem; }
+  .ad-st { padding: 0.6rem 0.3rem; border-radius: 12px; border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-secondary); font-weight: 700; font-size: 0.82rem; cursor: pointer; }
+  .ad-st.on { background: rgba(109,92,255,.35); border-color: var(--accent); color: var(--text-primary); }
+  .ad-row { display: flex; gap: 0.6rem; margin-bottom: 0.6rem; font-size: 0.95rem; align-items: flex-start; }
+  .ad-row .chk-lbl { margin-bottom: 0.1rem; }
+  .ad-maps { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.5rem; }
+  .ad-check { width: 100%; margin-top: 0.6rem; }
+  .ad-foot { display: flex; gap: 0.5rem; margin-top: 0.6rem; justify-content: flex-end; }
+  #sheet-actions { max-height: 65vh; overflow-y: auto; }
   .plan-wds { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.55rem; font-size: 0.8rem; }
   .plan-wd { display: flex; align-items: center; gap: 0.25rem; cursor: pointer; }
 
@@ -1879,6 +1892,18 @@
     chkTime: { ar: 'الوقت', en: 'Time', fr: 'Heure' },
     chkDur: { ar: 'المدة', en: 'Duration', fr: 'Durée' },
     check: { ar: 'فحص', en: 'Check', fr: 'Vérifier' },
+    cat_sante: { ar: 'صحة', en: 'Health', fr: 'Santé' },
+    cat_admin: { ar: 'إدارة', en: 'Admin', fr: 'Admin' },
+    cat_travail: { ar: 'عمل', en: 'Work', fr: 'Travail' },
+    cat_perso: { ar: 'شخصي', en: 'Personal', fr: 'Perso' },
+    cat_etude: { ar: 'دراسة', en: 'Study', fr: 'Étude' },
+    cat_autre: { ar: 'أخرى', en: 'Other', fr: 'Autre' },
+    category: { ar: 'الفئة', en: 'Category', fr: 'Catégorie' },
+    afWhatLbl: { ar: 'ما موضوع الموعد؟', en: 'What is it about?', fr: 'De quoi s\'agit-il ?' },
+    afWhatPh: { ar: 'مثال: موعد طبيب الأسنان', en: 'e.g. Dentist appointment', fr: 'ex. Rendez-vous dentiste' },
+    afPlacePh: { ar: 'مثال: مستشفى لاريبوازيير', en: 'e.g. Lariboisière Hospital', fr: 'ex. Hôpital Lariboisière' },
+    afAddrPh: { ar: 'الشارع، الرقم، المدينة…', en: 'Street, number, city…', fr: 'Rue, numéro, ville…' },
+    afNotesPh: { ar: 'تفاصيل إضافية…', en: 'Extra details…', fr: 'Détails supplémentaires…' },
     appts: { ar: 'المواعيد', en: 'Appointments', fr: 'Rendez-vous' },
     appt: { ar: 'موعد', en: 'Appointment', fr: 'Rendez-vous' },
     apptNew: { ar: 'موعد جديد', en: 'New appointment', fr: 'Nouveau rendez-vous' },
@@ -4399,21 +4424,25 @@
   function planFormHTML() {
     const a = planEditId ? appts.find(x => x.id === planEditId) : null;
     const dur = a ? a.dur : 60;
+    const curCat = a ? (a.cat || 'autre') : 'autre';
     return `<div class="card plan-form">
       <div class="section-title" style="margin-bottom:.6rem">${a ? '✏️ ' : '➕ '}${t(a ? 'apptEdit' : 'apptNew')}</div>
-      <input id="af-what" class="ctl plan-in" placeholder="${esc(t('afWhat'))} *" value="${esc(a ? a.what : '')}">
-      <div class="plan-row">
-        <input id="af-date" type="date" class="ctl plan-in" value="${esc(a ? a.date : todayStr())}">
-        <input id="af-time" type="time" class="ctl plan-in" value="${esc(a ? a.time : '10:00')}">
+      <label class="chk-lbl">${t('afWhatLbl')} *</label>
+      <input id="af-what" class="ctl plan-in" placeholder="${esc(t('afWhatPh'))}" value="${esc(a ? a.what : '')}">
+      <div class="chk-grid" style="margin-top:.1rem">
+        <div><label class="chk-lbl">${t('chkDate')} *</label><input id="af-date" type="date" class="ctl plan-in" value="${esc(a ? a.date : todayStr())}"></div>
+        <div><label class="chk-lbl">${t('chkTime')} *</label><input id="af-time" type="time" class="ctl plan-in" value="${esc(a ? a.time : '10:00')}"></div>
+        <div><label class="chk-lbl">${t('chkDur')} (${t('min')})</label><input id="af-dur" type="number" min="5" step="5" class="ctl plan-in" value="${dur}"></div>
+        <div><label class="chk-lbl">${t('afOrg')}</label><input id="af-org" class="ctl plan-in" placeholder="France Travail…" value="${esc(a ? a.org || '' : '')}"></div>
       </div>
-      <div class="plan-row">
-        <input id="af-dur" type="number" min="5" step="5" class="ctl plan-in" placeholder="${esc(t('afDur'))}" value="${dur}">
-        <input id="af-org" class="ctl plan-in" placeholder="${esc(t('afOrg'))}" value="${esc(a ? a.org || '' : '')}">
-      </div>
-      <input id="af-place" class="ctl plan-in" placeholder="${esc(t('afPlace'))}" value="${esc(a ? a.place || '' : '')}">
-      <input id="af-addr" class="ctl plan-in" placeholder="${esc(t('afAddr'))}" value="${esc(a ? a.addr || '' : '')}">
-      <select id="af-cat" class="ctl plan-in">${APPT_CATS.map(c => `<option value="${c}"${a && a.cat === c ? ' selected' : ''}>${CAT_ICONS[c]} ${t('cat_' + c)}</option>`).join('')}</select>
-      <textarea id="af-notes" class="ctl plan-in" rows="2" placeholder="${esc(t('afNotes'))}">${esc(a ? a.notes || '' : '')}</textarea>
+      <label class="chk-lbl">${t('afPlace')}</label>
+      <input id="af-place" class="ctl plan-in" placeholder="${esc(t('afPlacePh'))}" value="${esc(a ? a.place || '' : '')}">
+      <label class="chk-lbl">${t('afAddr')}</label>
+      <input id="af-addr" class="ctl plan-in" placeholder="${esc(t('afAddrPh'))}" value="${esc(a ? a.addr || '' : '')}">
+      <label class="chk-lbl">${t('category')}</label>
+      <div class="ad-cats">${APPT_CATS.map(c => `<button class="cat-chip${curCat === c ? ' on' : ''}" data-cat="${c}">${CAT_ICONS[c]} ${t('cat_' + c)}</button>`).join('')}</div>
+      <label class="chk-lbl">${t('afNotes')}</label>
+      <textarea id="af-notes" class="ctl plan-in" rows="2" placeholder="${esc(t('afNotesPh'))}">${esc(a ? a.notes || '' : '')}</textarea>
       <div class="plan-row" style="margin-top:.3rem">
         <button class="btn" id="af-check">🔎 ${t('apptCheck')}</button>
         <button class="btn plan-save" id="af-save">💾 ${t('save')}</button>
@@ -4572,7 +4601,7 @@
       org: document.getElementById('af-org').value.trim(),
       place: document.getElementById('af-place').value.trim(),
       addr: document.getElementById('af-addr').value.trim(),
-      cat: document.getElementById('af-cat').value,
+      cat: ((document.querySelector('.cat-chip.on') || {}).dataset || {}).cat || 'autre',
       notes: document.getElementById('af-notes').value.trim(),
       status: base.status || 'upcoming',
       ts: base.ts || Date.now()
@@ -4665,12 +4694,25 @@
     const sheet = document.getElementById('action-sheet');
     document.getElementById('sheet-title').textContent = a.what || '';
     const addr = a.addr || a.place || '';
+    const st = apptStatus(a);
+    const cd = st === 'upcoming' ? apptCountdown(a) : '';
+    const dateLong = new Intl.DateTimeFormat(VOICE_LANG[state.uiLang] || 'fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(a.date + 'T12:00'));
     document.getElementById('sheet-actions').innerHTML =
-      `<button class="btn" data-appt-act="edit" data-id="${id}">✏️ ${t('edit')}</button>` +
-      (a.status !== 'done' ? `<button class="btn ghost" data-appt-act="done" data-id="${id}">✅ ${t('markDone')}</button>` : '') +
-      (a.status !== 'cancelled' ? `<button class="btn ghost" data-appt-act="cancel" data-id="${id}">🚫 ${t('markCancel')}</button>` : '') +
-      (addr ? `<button class="btn ghost" data-appt-act="maps" data-id="${id}">🗺️ Google Maps</button><button class="btn ghost" data-appt-act="chooser" data-id="${id}">📍 ${t('chooseMap')}</button>` : '') +
-      `<button class="btn ghost" style="color:var(--danger); border-color:var(--danger)" data-appt-act="del" data-id="${id}">🗑️ ${t('delete')}</button>`;
+      `<div class="ad-badges">${statusBadge(a)}<span class="appt-cat">${CAT_ICONS[a.cat] || '📌'} ${t('cat_' + (a.cat || 'autre'))}</span>${cd ? `<span class="appt-cd">⏳ ${cd}</span>` : ''}</div>` +
+      `<div class="ad-status">` +
+        `<button class="ad-st${st === 'upcoming' || st === 'overdue' ? ' on' : ''}" data-appt-act="upcoming" data-id="${id}">${t('st_upcoming')}</button>` +
+        `<button class="ad-st${st === 'done' ? ' on' : ''}" data-appt-act="done" data-id="${id}">${t('st_done')}</button>` +
+        `<button class="ad-st${st === 'cancelled' ? ' on' : ''}" data-appt-act="cancel" data-id="${id}">${t('st_cancelled')}</button>` +
+      `</div>` +
+      `<div class="ad-row">📅<span><span class="chk-lbl">${t('chkDate')}</span><br>${dateLong}</span></div>` +
+      `<div class="ad-row">🕐<span><span class="chk-lbl">${t('chkTime')}</span><br>${esc(a.time || '')}${a.dur ? ' · ' + a.dur + ' ' + t('min') : ''}</span></div>` +
+      (a.org ? `<div class="ad-row">🏛️<span><span class="chk-lbl">${t('afOrg')}</span><br>${esc(a.org)}</span></div>` : '') +
+      (addr ? `<div class="ad-row">🏠<span><span class="chk-lbl">${t('afAddr')}</span><br>${esc(addr)}</span></div>` : '') +
+      (a.notes ? `<div class="ad-row">📝<span><span class="chk-lbl">${t('afNotes')}</span><br>${esc(a.notes)}</span></div>` : '') +
+      (addr ? `<div class="ad-maps"><button class="btn" data-appt-act="chooser" data-id="${id}">🗺️ ${t('chooseMap')}</button><button class="btn" style="background:#0d9d6b;border:none" data-appt-act="maps" data-id="${id}">🔍 Google Maps</button></div>` : '') +
+      `<button class="btn ghost ad-check" data-appt-act="check" data-id="${id}">✅ ${t('checkTitle')}</button>` +
+      `<div id="ad-verdict" class="af-verdict"></div>` +
+      `<div class="ad-foot"><button class="btn ghost" data-appt-act="edit" data-id="${id}">✏️ ${t('edit')}</button><button class="btn ghost" style="color:var(--danger); border-color:var(--danger)" data-appt-act="del" data-id="${id}">🗑️</button></div>`;
     sheet.classList.add('show');
   }
 
@@ -4678,13 +4720,20 @@
     const a = appts.find(x => x.id === id);
     if (!a) return;
     if (act === 'edit') { planEditId = id; planApptAudio = null; go({ name: 'appts' }); return; }
-    if (act === 'done' || act === 'cancel') {
-      a.status = act === 'done' ? 'done' : 'cancelled';
+    if (act === 'upcoming' || act === 'done' || act === 'cancel') {
+      a.status = act === 'upcoming' ? 'upcoming' : act;
       saveAppts();
       await cancelApptNotifs(id);
-      if (state.route.name === 'planning') { renderPlanning(); loadMedia(); }
-      else if (state.route.name === 'appts') { renderAppts(); loadMedia(); }
-      else refreshApptList();
+      openApptSheet(id);
+      refreshApptList();
+      return;
+    }
+    if (act === 'check') {
+      const s = shiftForDay(a.date);
+      const v = apptVerdict(a);
+      const shiftTxt = s ? fmtMin(s.start) + '–' + fmtMin(s.end) : t('noWorkThatDay');
+      const el = document.getElementById('ad-verdict');
+      if (el) el.innerHTML = `<span class="appt-verdict vd-${v === 'ok' ? 'ok' : v === 'check' ? 'check' : 'conflict'}">${t('vd_' + v)}</span> <span class="card-sub">${t('workOnThatDay')}: ${shiftTxt}</span>`;
       return;
     }
     if (act === 'del') {
@@ -5626,8 +5675,14 @@ EN: Maria, I’m out of cigarettes.`
       const planChip = e.target.closest('[data-plan-chip]');
       if (planChip) { e.stopPropagation(); apptFilter.status = planChip.dataset.planChip; saveApptFilter(); refreshApptList(); return; }
 
+      const catBtn = e.target.closest('[data-cat]');
+      if (catBtn) { e.stopPropagation(); document.querySelectorAll('.cat-chip').forEach(b => b.classList.toggle('on', b === catBtn)); return; }
+
       const apptMenuBtn = e.target.closest('[data-appt-menu]');
       if (apptMenuBtn) { e.stopPropagation(); openApptSheet(+apptMenuBtn.dataset.apptMenu); return; }
+
+      const apptCardEl = e.target.closest('.appt-card[data-appt-id]');
+      if (apptCardEl && !e.target.closest('.appt-sel') && !e.target.closest('.phrase-media')) { openApptSheet(+apptCardEl.dataset.apptId); return; }
 
       const weekBtn = e.target.closest('[data-plan-week]');
       if (weekBtn) {
@@ -5768,7 +5823,7 @@ Output in French, Arabic and English.`;
     sheet.addEventListener('click', e => {
       if (e.target === sheet) { closeActionSheet(); return; }
       const apptAct = e.target.closest('[data-appt-act]');
-      if (apptAct) { closeActionSheet(); apptAction(apptAct.dataset.apptAct, +apptAct.dataset.id); return; }
+      if (apptAct) { const act = apptAct.dataset.apptAct; if (act === 'check' || act === 'upcoming' || act === 'done' || act === 'cancel') apptAction(act, +apptAct.dataset.id); else { closeActionSheet(); apptAction(act, +apptAct.dataset.id); } return; }
       const edit = e.target.closest('[data-edit]');
       if (edit) { closeActionSheet(); editItem(+edit.dataset.edit, edit.dataset.type); return; }
       const mv = e.target.closest('[data-move]');
