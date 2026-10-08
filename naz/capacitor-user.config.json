@@ -1,0 +1,19 @@
+{
+  "appId": "com.syrian020.naz",
+  "appName": "ShiftPlan",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": false,
+    "appendUserAgent": " Edg/134.0.0.0"
+  },
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    }
+  },
+  "appendUserAgent": " Edg/134.0.0.0"
+}
