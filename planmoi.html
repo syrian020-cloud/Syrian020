@@ -684,7 +684,17 @@ async function scheduleReminders(a){
     if(list.length)await p.schedule({notifications:list});
   }catch(e){console.error('schedule',e);}
 }
-async function rescheduleAll(){for(const a of appts)await scheduleReminders(a);}
+async function rescheduleAll(){
+  const p=LN();
+  if(p&&p.getPending){try{
+    const pend=await p.getPending();
+    const alive=[];
+    appts.forEach(a=>{const b=nidBase(a.id);alive.push(b,b+1,b+2,b+3);});
+    const stale=(pend.notifications||[]).filter(n=>!alive.includes(n.id));
+    if(stale.length)await p.cancel({notifications:stale.map(n=>({id:n.id}))});
+  }catch(e){}}
+  for(const a of appts)await scheduleReminders(a);
+}
 /* browser fallback: check due reminders every 30s while app is open */
 setInterval(()=>{
   if(LN())return;
