@@ -300,7 +300,7 @@ const I18N = {
     at:'الساعة', notes:'ملاحظات', audioTitle:'الصوت والنص المؤقّت',
     noCues:'لا يوجد نص مؤقّت', noAudio:'لا يوجد مقطع صوتي', tapCue:'اضغط أي سطر للانتقال إليه في الصوت',
     tapWord:'كبسة على الكلمة: نطق متكرر · كبستين: بحث صور',
-    menuExport:'⬇️ تصدير نسخة احتياطية', menuImport:'⬆️ استيراد نسخة', menuVoice:'🔊 إعدادات الصوت',
+    menuExport:'⬇️ تصدير كل شي (مواعيد+صوت+نص)', menuImport:'⬆️ استيراد نسخة', menuVoice:'🔊 إعدادات الصوت',
     menuNotifOn:'🔔 الإشعارات مفعّلة', menuNotifOff:'🔕 تفعيل الإشعارات',
     imported:'تم الاستيراد', importBad:'ملف غير صالح', saved:'تم الحفظ', deleted:'تم الحذف',
     needFields:'أدخل العنوان والتاريخ والوقت',
@@ -347,7 +347,7 @@ const I18N = {
     at:'à', notes:'Notes', audioTitle:'Audio et texte minuté',
     noCues:'Pas de texte minuté', noAudio:'Pas de clip audio', tapCue:'Touchez une ligne pour y aller dans l\'audio',
     tapWord:'1× mot : prononciation en boucle · 2× : images',
-    menuExport:'⬇️ Exporter une sauvegarde', menuImport:'⬆️ Importer', menuVoice:'🔊 Réglages voix',
+    menuExport:'⬇️ Tout exporter (RDV+audio+texte)', menuImport:'⬆️ Importer', menuVoice:'🔊 Réglages voix',
     menuNotifOn:'🔔 Notifications activées', menuNotifOff:'🔕 Activer les notifications',
     imported:'Importé', importBad:'Fichier invalide', saved:'Enregistré', deleted:'Supprimé',
     needFields:'Titre, date et heure requis',
@@ -394,7 +394,7 @@ const I18N = {
     at:'at', notes:'Notes', audioTitle:'Audio & timed text',
     noCues:'No timed text', noAudio:'No audio clip', tapCue:'Tap a line to seek in the audio',
     tapWord:'Tap a word: speak loop · double-tap: images',
-    menuExport:'⬇️ Export backup', menuImport:'⬆️ Import backup', menuVoice:'🔊 Voice settings',
+    menuExport:'⬇️ Export everything (appts+audio+text)', menuImport:'⬆️ Import backup', menuVoice:'🔊 Voice settings',
     menuNotifOn:'🔔 Notifications on', menuNotifOff:'🔕 Enable notifications',
     imported:'Imported', importBad:'Invalid file', saved:'Saved', deleted:'Deleted',
     needFields:'Title, date and time are required',
@@ -1133,8 +1133,14 @@ async function deleteAppt(id){
 }
 
 /* ==================== export / import ==================== */
+function collectSettings(){
+  const s={};
+  for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);
+    if(k&&(k===LS_LANG||k==='edge_tts'||/^(edge_voice|edge_rate)_/.test(k)))s[k]=localStorage.getItem(k);}
+  return s;
+}
 async function exportData(){
-  const out={app:'PlanMoi',version:1,exportedAt:new Date().toISOString(),appts:[]};
+  const out={app:'PlanMoi',version:1,exportedAt:new Date().toISOString(),settings:collectSettings(),appts:[]};
   for(const a of appts){
     const c={...a};const au=await audioGet(a.id).catch(()=>null);
     if(au)c.audioDataUrl=await blobToDataUrl(au.blob);
@@ -1161,6 +1167,10 @@ function importData(){
     try{
       const d=JSON.parse(await f.text());
       const arr=d.appts||d;if(!Array.isArray(arr))throw 0;
+      if(d.settings&&typeof d.settings==='object'){
+        for(const[k,v]of Object.entries(d.settings)){try{localStorage.setItem(k,String(v));}catch(e){}}
+        lang=localStorage.getItem(LS_LANG)||lang;
+      }
       const have=new Set(appts.map(x=>x.id));
       for(const a of arr){
         if(!a||typeof a!=='object'){continue;}
