@@ -255,6 +255,8 @@ const I18N = {
     today:'اليوم', tomorrow:'غداً', now:'الآن',
     daysLeft:d=> d===1?'باقي يوم واحد': d===2?'باقي يومان': d<=10?`باقي ${d} أيام`:`باقي ${d} يوماً`,
     hoursLeft:h=> h<=1?'باقي أقل من ساعة': h===2?'باقي ساعتان':`باقي ${h} ساعة`,
+    minsLeft:m=> m<=1?'باقي أقل من دقيقة': m===2?'باقي دقيقتان':`باقي ${m} دقيقة`,
+    hmLeft:(h,m)=> m?`باقي ${h} س ${m} د`:(h===1?'باقي ساعة':h===2?'باقي ساعتان':`باقي ${h} ساعات`),
     past:'انتهى',
     at:'الساعة', notes:'ملاحظات', audioTitle:'الصوت والنص المؤقّت',
     noCues:'لا يوجد نص مؤقّت', noAudio:'لا يوجد مقطع صوتي', tapCue:'اضغط أي سطر للانتقال إليه في الصوت',
@@ -298,6 +300,8 @@ const I18N = {
     today:'Aujourd\'hui', tomorrow:'Demain', now:'Maintenant',
     daysLeft:d=> d<=1?'dans 1 jour':`dans ${d} jours`,
     hoursLeft:h=> h<=1?'dans moins d\'1 h':`dans ${h} h`,
+    minsLeft:m=> m<=1?'dans moins d\'1 min':`dans ${m} min`,
+    hmLeft:(h,m)=> m?`dans ${h} h ${m} min`:`dans ${h} h`,
     past:'Passé',
     at:'à', notes:'Notes', audioTitle:'Audio et texte minuté',
     noCues:'Pas de texte minuté', noAudio:'Pas de clip audio', tapCue:'Touchez une ligne pour y aller dans l\'audio',
@@ -341,6 +345,8 @@ const I18N = {
     today:'Today', tomorrow:'Tomorrow', now:'Now',
     daysLeft:d=> d<=1?'in 1 day':`in ${d} days`,
     hoursLeft:h=> h<=1?'in < 1 h':`in ${h} h`,
+    minsLeft:m=> m<=1?'in < 1 min':`in ${m} min`,
+    hmLeft:(h,m)=> m?`in ${h} h ${m} min`:`in ${h} h`,
     past:'Past',
     at:'at', notes:'Notes', audioTitle:'Audio & timed text',
     noCues:'No timed text', noAudio:'No audio clip', tapCue:'Tap a line to seek in the audio',
@@ -662,7 +668,11 @@ function countdown(a){
   const day=new Date();day.setHours(0,0,0,0);
   const aday=new Date(a.date+'T00:00');const diffD=Math.round((aday-day)/864e5);
   if(when<=now)return t('past');
-  if(diffD<=0){const h=Math.ceil((when-now)/3600e3);return t('hoursLeft')(h);}
+  if(diffD<=0){
+    const mins=Math.max(1,Math.ceil((when-now)/60000));
+    if(mins<60)return t('minsLeft')(mins);
+    return t('hmLeft')(Math.floor(mins/60),mins%60);
+  }
   if(diffD===1)return t('tomorrow');
   return t('daysLeft')(diffD);
 }
