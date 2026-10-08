@@ -527,6 +527,29 @@
   .plan-quick-btn { border-radius: 10px; padding: 0.45rem 0.7rem; font-size: 0.82rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-primary); }
   .plan-quick-btn.matin { border-color: #3b82f6; }
   .plan-quick-btn.soir { border-color: #f59e0b; }
+  .wk-badge { padding: 0.25rem 0.7rem; border-radius: 10px; font-size: 0.82rem; font-weight: 700; }
+  .wk-matin { background: rgba(59,130,246,.25); color: #93c5fd; }
+  .wk-soir { background: rgba(245,158,11,.2); color: #fbbf24; }
+  .wk-repos { background: rgba(148,163,184,.2); color: #cbd5e1; }
+  .plan-big { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; margin-top: 0.65rem; }
+  .plan-big button { border-radius: 14px; padding: 0.75rem 0.3rem; font-weight: 700; font-size: 0.82rem; background: var(--bg-tertiary); border: 1px solid var(--border); color: var(--text-primary); cursor: pointer; }
+  .plan-big button small { display: block; font-weight: 600; font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.25rem; }
+  .plan-big button.on-matin { background: rgba(59,130,246,.28); border-color: #3b82f6; }
+  .plan-big button.on-soir { background: rgba(245,158,11,.25); border-color: #f59e0b; }
+  .plan-big button.on-repos { background: rgba(148,163,184,.18); border-color: #94a3b8; }
+  .st-row { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.55rem; }
+  .st-lbl { font-size: 0.7rem; font-weight: 700; padding: 0.32rem 0.6rem; border-radius: 8px; white-space: nowrap; }
+  .st-lbl.m { background: rgba(59,130,246,.2); color: #93c5fd; }
+  .st-lbl.s { background: rgba(245,158,11,.18); color: #fbbf24; }
+  .st-row input { flex: 1; min-width: 0; text-align: center; }
+  .plan-reset { background: none; border: none; color: var(--text-secondary); text-decoration: underline; font-size: 0.8rem; cursor: pointer; padding: 0; margin-top: 0.65rem; }
+  .plan-hint { font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.55; }
+  .plan-wds-btns { display: flex; gap: 0.35rem; margin-top: 0.55rem; }
+  .plan-wd-btn { flex: 1; min-width: 0; padding: 0.55rem 0.15rem; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-secondary); font-size: 0.75rem; font-weight: 600; cursor: pointer; }
+  .plan-wd-btn.on { background: rgba(109,92,255,.32); border-color: var(--accent); color: var(--text-primary); }
+  .chk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 0.6rem; }
+  .chk-lbl { font-size: 0.68rem; font-weight: 700; color: var(--text-secondary); letter-spacing: 0.05em; margin-bottom: 0.3rem; display: block; text-transform: uppercase; }
+  .chk-btn { width: 100%; margin-top: 0.7rem; padding: 0.8rem; font-size: 1rem; font-weight: 700; border-radius: 14px; border: none; background: linear-gradient(135deg,#6d5cff,#00d4a6); color: #fff; cursor: pointer; }
   .plan-wds { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.55rem; font-size: 0.8rem; }
   .plan-wd { display: flex; align-items: center; gap: 0.25rem; cursor: pointer; }
 
@@ -1845,6 +1868,17 @@
     auto: { ar: 'تلقائي', en: 'Auto', fr: 'Auto' },
     travelBefore: { ar: 'ذهاب', en: 'Go', fr: 'Aller' },
     travelAfter: { ar: 'عودة', en: 'Return', fr: 'Retour' },
+    travelEach: { ar: 'زمن التنقل (كل اتجاه)', en: 'Travel time (each way)', fr: 'Trajet (aller/retour)' },
+    resetDefaults: { ar: 'استعادة الافتراضي', en: 'Reset to defaults', fr: 'Réinitialiser' },
+    adjustHint: { ar: 'عدّل ساعات الصباحي والمسائي — كل فحص وشارة يتبعها', en: 'Adjust your morning/evening hours — every check and badge follows them', fr: 'Ajustez vos horaires matin/soir — chaque vérification les suit' },
+    setWeekHint: { ar: 'حدّد هذا الأسبوع — الأسابيع القادمة تتناوب تلقائياً', en: 'Set this week — future weeks alternate automatically', fr: 'Définissez cette semaine — les suivantes alternent automatiquement' },
+    workingDays: { ar: 'أيام العمل', en: 'Working days', fr: 'Jours travaillés' },
+    tapDay: { ar: 'اضغط يوماً لتبديل عمل/راحة', en: 'Tap a day to toggle work/rest', fr: 'Touchez un jour pour basculer' },
+    checkTitle: { ar: 'فحص موعد', en: 'Check an appointment', fr: 'Vérifier un rendez-vous' },
+    chkDate: { ar: 'التاريخ', en: 'Date', fr: 'Date' },
+    chkTime: { ar: 'الوقت', en: 'Time', fr: 'Heure' },
+    chkDur: { ar: 'المدة', en: 'Duration', fr: 'Durée' },
+    check: { ar: 'فحص', en: 'Check', fr: 'Vérifier' },
     appts: { ar: 'المواعيد', en: 'Appointments', fr: 'Rendez-vous' },
     appt: { ar: 'موعد', en: 'Appointment', fr: 'Rendez-vous' },
     apptNew: { ar: 'موعد جديد', en: 'New appointment', fr: 'Nouveau rendez-vous' },
@@ -4380,11 +4414,6 @@
       <input id="af-addr" class="ctl plan-in" placeholder="${esc(t('afAddr'))}" value="${esc(a ? a.addr || '' : '')}">
       <select id="af-cat" class="ctl plan-in">${APPT_CATS.map(c => `<option value="${c}"${a && a.cat === c ? ' selected' : ''}>${CAT_ICONS[c]} ${t('cat_' + c)}</option>`).join('')}</select>
       <textarea id="af-notes" class="ctl plan-in" rows="2" placeholder="${esc(t('afNotes'))}">${esc(a ? a.notes || '' : '')}</textarea>
-      <div class="plan-row">
-        <label class="btn ghost plan-file">🔊 ${t('afAudio')}<input type="file" id="af-audio" accept="audio/*" style="display:none"></label>
-        <span id="af-audio-name" class="plan-fname">${esc(a && a.audio ? t('audioAttached') : (planApptAudio ? planApptAudio.name : ''))}</span>
-      </div>
-      <textarea id="af-captions" class="ctl plan-in" rows="3" placeholder="${esc(t('afCaptions'))}">${esc(a ? a.captionText || '' : '')}</textarea>
       <div class="plan-row" style="margin-top:.3rem">
         <button class="btn" id="af-check">🔎 ${t('apptCheck')}</button>
         <button class="btn plan-save" id="af-save">💾 ${t('save')}</button>
@@ -4427,53 +4456,71 @@
       const d = new Date(thisMon + 'T12:00:00'); d.setDate(d.getDate() + i * 7);
       weeks.push(weekRowHTML(dstr(d), false));
     }
-    const dayChk = [1, 2, 3, 4, 5, 6, 0].map(d =>
-      `<label class="plan-wd"><input type="checkbox" data-wd="${d}"${planning.workDays.includes(d) ? ' checked' : ''}> ${new Intl.DateTimeFormat(VOICE_LANG[state.uiLang] || 'fr-FR', { weekday: 'short' }).format(new Date(2024, 0, d === 0 ? 7 : d))}</label>`).join('');
+    const dayBtns = [1, 2, 3, 4, 5, 6, 0].map(d =>
+      `<button class="plan-wd-btn${planning.workDays.includes(d) ? ' on' : ''}" data-wd-btn="${d}">${new Intl.DateTimeFormat(VOICE_LANG[state.uiLang] || 'fr-FR', { weekday: 'short' }).format(new Date(2024, 0, d === 0 ? 7 : d))}</button>`).join('');
     const st_ = planning.shiftTimes || SHIFTS;
+    const durOpts = [15, 30, 45, 60, 90, 120, 180].map(v => `<option value="${v}"${v === 60 ? ' selected' : ''}>${v < 60 ? v + ' ' + t('min') : (v / 60) + ' h'}</option>`).join('');
+    const travOpts = [0, 15, 30, 45, 60, 90].map(v => `<option value="${v}"${v === (planning.travelBefore || 30) ? ' selected' : ''}>${v + ' ' + t('min')}</option>`).join('');
     view.innerHTML = `<div class="top-bar"><button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button><span class="chev">${chevron()}</span><span class="section-title">${t('planTitle')}</span>
       <span class="home-sync"><button class="contact-btn refresh-btn" id="plan-export-btn" title="${esc(t('export'))}">📤</button><button class="contact-btn refresh-btn" id="plan-import-btn" title="${esc(t('import'))}">📥</button><button class="contact-btn refresh-btn" id="plan-sel-toggle" title="${esc(t('select'))}">☑</button></span></div>
       <input type="file" id="plan-import-file" accept=".json" style="display:none">
-      <div class="card plan-week cur"><div class="plan-week-label">${t('thisWeek')}: <b>${kind === 'repos' ? t('weekRepos') : t('week_' + kind) + ' ' + fmtMin(st_[kind][0]) + '–' + fmtMin(st_[kind][1])}</b></div>
-        <div class="plan-quick">
-          <button class="plan-quick-btn matin" data-plan-week="matin">🟦 ${t('week_matin')} ${fmtMin(st_.matin[0])}–${fmtMin(st_.matin[1])}</button>
-          <button class="plan-quick-btn soir" data-plan-week="soir">🟧 ${t('week_soir')} ${fmtMin(st_.soir[0])}–${fmtMin(st_.soir[1])}</button>
-          <button class="plan-quick-btn repos" data-plan-week="repos">⚪ ${t('weekRepos')}</button>
+      <div class="card plan-week cur"><div class="plan-week-label" style="font-size:1rem">${t('thisWeek')}: <span class="wk-badge wk-${kind}">${kind === 'repos' ? t('weekRepos') : t('week_' + kind) + ' ' + fmtMin(st_[kind][0]) + '–' + fmtMin(st_[kind][1])}</span></div>
+        <div class="plan-big">
+          <button data-plan-week="matin"${kind === 'matin' ? ' class="on-matin"' : ''}>🟦 ${t('week_matin')}<small>${fmtMin(st_.matin[0])}–${fmtMin(st_.matin[1])}</small></button>
+          <button data-plan-week="soir"${kind === 'soir' ? ' class="on-soir"' : ''}>🟧 ${t('week_soir')}<small>${fmtMin(st_.soir[0])}–${fmtMin(st_.soir[1])}</small></button>
+          <button data-plan-week="repos"${kind === 'repos' ? ' class="on-repos"' : ''}>⚪ ${t('weekRepos')}</button>
         </div>
-        <div class="plan-row" style="margin-top:.55rem"><label>🟦</label><input type="time" class="ctl plan-in" data-st="matin.0" value="${fmtMin(st_.matin[0])}" style="width:90px">–<input type="time" class="ctl plan-in" data-st="matin.1" value="${fmtMin(st_.matin[1])}" style="width:90px"><label>🟧</label><input type="time" class="ctl plan-in" data-st="soir.0" value="${fmtMin(st_.soir[0])}" style="width:90px">–<input type="time" class="ctl plan-in" data-st="soir.1" value="${fmtMin(st_.soir[1])}" style="width:90px"></div>
-        <div class="plan-wds">${dayChk}</div>
-        <div class="plan-row"><label>${t('travelBefore')}</label><input id="plan-tb" type="number" min="0" step="5" class="ctl plan-in" style="width:80px" value="${planning.travelBefore}"><label>${t('travelAfter')}</label><input id="plan-ta" type="number" min="0" step="5" class="ctl plan-in" style="width:80px" value="${planning.travelAfter}"><span>${t('min')}</span></div>
+        <div class="st-row"><span class="st-lbl m">${t('week_matin')}</span><input type="time" class="ctl plan-in" data-st="matin.0" value="${fmtMin(st_.matin[0])}"><span>–</span><input type="time" class="ctl plan-in" data-st="matin.1" value="${fmtMin(st_.matin[1])}"></div>
+        <div class="st-row"><span class="st-lbl s">${t('week_soir')}</span><input type="time" class="ctl plan-in" data-st="soir.0" value="${fmtMin(st_.soir[0])}"><span>–</span><input type="time" class="ctl plan-in" data-st="soir.1" value="${fmtMin(st_.soir[1])}"></div>
+        <button class="plan-reset" id="plan-reset">${t('resetDefaults')}</button>
+        <div class="plan-hint">${t('adjustHint')}<br>${t('setWeekHint')}</div>
+      </div>
+      <div class="card plan-week">
+        <div class="plan-week-label">📅 ${t('workingDays')}</div>
+        <div class="plan-wds-btns">${dayBtns}</div>
+        <div class="plan-hint">${t('tapDay')}</div>
+      </div>
+      <div class="card plan-week">
+        <div class="plan-week-label">✅ ${t('checkTitle')}</div>
+        <div class="chk-grid">
+          <div><label class="chk-lbl">${t('chkDate')}</label><input type="date" id="chk-date" class="ctl plan-in" value="${todayStr()}"></div>
+          <div><label class="chk-lbl">${t('chkTime')}</label><input type="time" id="chk-time" class="ctl plan-in" value="10:00"></div>
+          <div><label class="chk-lbl">${t('chkDur')}</label><select id="chk-dur" class="ctl plan-in">${durOpts}</select></div>
+          <div><label class="chk-lbl">${t('travelEach')}</label><select id="chk-travel" class="ctl plan-in">${travOpts}</select></div>
+        </div>
+        <label class="chk-lbl" style="margin-top:.6rem">${t('afOrg')}</label>
+        <input id="chk-org" class="ctl plan-in" placeholder="France Travail / Hôpital / Médecin…">
+        <button class="chk-btn" id="chk-btn">✅ ${t('check')}</button>
+        <div id="chk-verdict" class="af-verdict"></div>
       </div>
       <div class="section-title" style="margin:.8rem 0 .4rem">${t('nextWeeks')}</div>
       ${weeks.join('')}
-      <div class="section-title" style="margin:1rem 0 .4rem">📋 ${t('appts')}</div>
-      <div class="plan-form-wrap${(planEditId || planFormOpen) ? ' show' : ''}" id="plan-form-wrap">${planFormHTML()}</div>
-      <button class="plan-fab" id="plan-fab" title="${esc(t('apptNew'))}">+</button>
-      <div class="plan-search" style="margin-top:.8rem"><span>🔍</span><input id="plan-search" type="search" placeholder="${esc(t('searchAppts'))}" value="${esc(apptFilter.q)}"></div>
-      <div id="plan-list-wrap">${apptListHTML()}</div>`;
-    bindPlanForm();
-    document.getElementById('plan-fab').onclick = () => {
-      planFormOpen = !planFormOpen;
-      const w = document.getElementById('plan-form-wrap');
-      w.classList.toggle('show', planFormOpen || !!planEditId);
-      if (w.classList.contains('show')) { w.scrollIntoView({ behavior: 'smooth', block: 'start' }); const f = document.getElementById('af-what'); if (f) f.focus(); }
+      <button class="plan-card" data-route='${JSON.stringify({ name: 'appts' })}' style="margin-top:.8rem">
+        <span>📋</span><span><span class="plan-card-title">${t('appts')}</span><br><span class="plan-card-sub">${appts.length} ${t('appt')}</span></span>
+        <span class="chev">${chevron()}</span>
+      </button>`;
+    const rst = document.getElementById('plan-reset');
+    if (rst) rst.onclick = () => { planning.shiftTimes = { matin: SHIFTS.matin.slice(), soir: SHIFTS.soir.slice() }; savePlanning(); renderPlanning(); loadMedia(); };
+    document.getElementById('chk-btn').onclick = () => {
+      const d = document.getElementById('chk-date').value, tm = document.getElementById('chk-time').value;
+      if (!d || !tm) { showToast(t('afRequired')); return; }
+      const dur = +document.getElementById('chk-dur').value || 60;
+      const tv = +document.getElementById('chk-travel').value || 0;
+      planning.travelBefore = tv; planning.travelAfter = tv; savePlanning();
+      const s = shiftForDay(d);
+      const t0 = parseHM(tm);
+      let v = 'ok';
+      if (s) {
+        const win = [t0 - tv, t0 + dur + tv];
+        if (win[0] < s.end && win[1] > s.start) v = 'conflict';
+        else { const gap = Math.min(Math.abs(win[1] - s.start), Math.abs(s.end - win[0])); if (gap < 30 || s.kind === 'custom') v = 'check'; }
+      }
+      const shiftTxt = s ? fmtMin(s.start) + '–' + fmtMin(s.end) : t('noWorkThatDay');
+      document.getElementById('chk-verdict').innerHTML = `<span class="appt-verdict vd-${v === 'ok' ? 'ok' : v === 'check' ? 'check' : 'conflict'}">${t('vd_' + v)}</span> <span class="card-sub">${t('workOnThatDay')}: ${shiftTxt}</span>`;
     };
-    document.getElementById('plan-export-btn').onclick = () => exportAppts(null);
-    document.getElementById('plan-import-btn').onclick = () => document.getElementById('plan-import-file').click();
-    document.getElementById('plan-import-file').onchange = e => { if (e.target.files[0]) importAppts(e.target.files[0]); };
-    document.getElementById('plan-sel-toggle').onclick = () => { planSelMode = !planSelMode; planSelected.clear(); refreshApptList(); };
-    if (planFormOpen || planEditId) requestAnimationFrame(() => { const w = document.getElementById('plan-form-wrap'); if (w) w.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
-    document.getElementById('plan-tb').onchange = e => { planning.travelBefore = Math.max(0, +e.target.value || 0); savePlanning(); };
-    document.getElementById('plan-ta').onchange = e => { planning.travelAfter = Math.max(0, +e.target.value || 0); savePlanning(); };
   }
 
   function bindPlanForm() {
-    const f = document.getElementById('af-audio');
-    if (f) f.onchange = async () => {
-      const file = f.files && f.files[0];
-      if (!file) return;
-      const ref = await storeMedia(file);
-      if (ref) { planApptAudio = { ref, name: file.name }; document.getElementById('af-audio-name').textContent = file.name; }
-    };
     document.getElementById('af-check').onclick = () => {
       const a = collectApptForm(null);
       if (!a) return;
@@ -4486,7 +4533,30 @@
     const sv = document.getElementById('af-save');
     if (sv) sv.onclick = saveApptFromForm;
     const c = document.getElementById('af-cancel');
-    if (c) c.onclick = () => { planEditId = null; planApptAudio = null; renderPlanning(); loadMedia(); };
+    if (c) c.onclick = () => { planEditId = null; planApptAudio = null; renderAppts(); loadMedia(); };
+  }
+
+  function renderAppts() {
+    view.innerHTML = `<div class="top-bar"><button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button><span class="chev">${chevron()}</span><span class="section-title">📋 ${t('appts')}</span>
+      <span class="home-sync"><button class="contact-btn refresh-btn" id="plan-export-btn" title="${esc(t('export'))}">📤</button><button class="contact-btn refresh-btn" id="plan-import-btn" title="${esc(t('import'))}">📥</button><button class="contact-btn refresh-btn" id="plan-sel-toggle" title="${esc(t('select'))}">☑</button></span></div>
+      <input type="file" id="plan-import-file" accept=".json" style="display:none">
+      <div class="plan-form-wrap${(planEditId || planFormOpen) ? ' show' : ''}" id="plan-form-wrap">${planFormHTML()}</div>
+      ${nextApptHTML()}
+      <div class="plan-search" style="margin-top:.8rem"><span>🔍</span><input id="plan-search" type="search" placeholder="${esc(t('searchAppts'))}" value="${esc(apptFilter.q)}"></div>
+      <div id="plan-list-wrap">${apptListHTML()}</div>
+      <button class="plan-fab" id="plan-fab" title="${esc(t('apptNew'))}">+</button>`;
+    bindPlanForm();
+    document.getElementById('plan-fab').onclick = () => {
+      planFormOpen = !planFormOpen;
+      const w = document.getElementById('plan-form-wrap');
+      w.classList.toggle('show', planFormOpen || !!planEditId);
+      if (w.classList.contains('show')) { w.scrollIntoView({ behavior: 'smooth', block: 'start' }); const f = document.getElementById('af-what'); if (f) f.focus(); }
+    };
+    document.getElementById('plan-export-btn').onclick = () => exportAppts(null);
+    document.getElementById('plan-import-btn').onclick = () => document.getElementById('plan-import-file').click();
+    document.getElementById('plan-import-file').onchange = e => { if (e.target.files[0]) importAppts(e.target.files[0]); };
+    document.getElementById('plan-sel-toggle').onclick = () => { planSelMode = !planSelMode; planSelected.clear(); refreshApptList(); };
+    if (planFormOpen || planEditId) requestAnimationFrame(() => { const w = document.getElementById('plan-form-wrap'); if (w) w.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
   }
 
   function collectApptForm(existing) {
@@ -4504,8 +4574,6 @@
       addr: document.getElementById('af-addr').value.trim(),
       cat: document.getElementById('af-cat').value,
       notes: document.getElementById('af-notes').value.trim(),
-      audio: planApptAudio ? planApptAudio.ref : (base.audio || null),
-      captionText: document.getElementById('af-captions').value.trim(),
       status: base.status || 'upcoming',
       ts: base.ts || Date.now()
     });
@@ -4521,7 +4589,7 @@
     await scheduleApptNotifs(a);
     planEditId = null; planFormOpen = false; planApptAudio = null;
     showToast(t('saved'));
-    renderPlanning(); loadMedia();
+    renderAppts(); loadMedia();
   }
 
   function refreshApptList() {
@@ -4586,6 +4654,7 @@
       await rescheduleAllApptNotifs();
       showToast(t('imported') + ' · ' + added);
       if (state.route.name === 'planning') { renderPlanning(); loadMedia(); }
+      else if (state.route.name === 'appts') { renderAppts(); loadMedia(); }
       else refreshApptList();
     } catch (e) { showToast(t('importFailed')); }
   }
@@ -4608,12 +4677,14 @@
   async function apptAction(act, id) {
     const a = appts.find(x => x.id === id);
     if (!a) return;
-    if (act === 'edit') { planEditId = id; planApptAudio = null; go({ name: 'planning' }); return; }
+    if (act === 'edit') { planEditId = id; planApptAudio = null; go({ name: 'appts' }); return; }
     if (act === 'done' || act === 'cancel') {
       a.status = act === 'done' ? 'done' : 'cancelled';
       saveAppts();
       await cancelApptNotifs(id);
-      if (state.route.name === 'planning') { renderPlanning(); loadMedia(); } else refreshApptList();
+      if (state.route.name === 'planning') { renderPlanning(); loadMedia(); }
+      else if (state.route.name === 'appts') { renderAppts(); loadMedia(); }
+      else refreshApptList();
       return;
     }
     if (act === 'del') {
@@ -4621,7 +4692,9 @@
       await cancelApptNotifs(id);
       appts = appts.filter(x => x.id !== id);
       saveAppts();
-      if (state.route.name === 'planning') { renderPlanning(); loadMedia(); } else refreshApptList();
+      if (state.route.name === 'planning') { renderPlanning(); loadMedia(); }
+      else if (state.route.name === 'appts') { renderAppts(); loadMedia(); }
+      else refreshApptList();
       return;
     }
     const addr = a.addr || a.place || '';
@@ -5548,7 +5621,7 @@ EN: Maria, I’m out of cigarettes.`
       }
     });
     view.addEventListener('click', e => {
-      if (e.target.closest('[data-plan-fab-home]')) { e.stopPropagation(); planFormOpen = true; go({ name: 'planning' }); return; }
+      if (e.target.closest('[data-plan-fab-home]')) { e.stopPropagation(); planFormOpen = true; go({ name: 'appts' }); return; }
 
       const planChip = e.target.closest('[data-plan-chip]');
       if (planChip) { e.stopPropagation(); apptFilter.status = planChip.dataset.planChip; saveApptFilter(); refreshApptList(); return; }
@@ -5563,6 +5636,16 @@ EN: Maria, I’m out of cigarettes.`
         const thisMon = mondayOf(todayStr());
         if (k === 'repos') planning.weekOverrides[thisMon] = { kind: 'repos' };
         else { delete planning.weekOverrides[thisMon]; planning.anchor = thisMon; planning.pattern = k === 'soir' ? ['soir', 'matin'] : ['matin', 'soir']; }
+        savePlanning(); renderPlanning(); loadMedia();
+        return;
+      }
+
+      const wdBtn = e.target.closest('[data-wd-btn]');
+      if (wdBtn) {
+        e.stopPropagation();
+        const d = +wdBtn.dataset.wdBtn;
+        if (planning.workDays.includes(d)) planning.workDays = planning.workDays.filter(x => x !== d);
+        else { planning.workDays.push(d); planning.workDays.sort(); }
         savePlanning(); renderPlanning(); loadMedia();
         return;
       }
@@ -6032,6 +6115,7 @@ Output in French, Arabic and English.`;
       else if (route.name === 'news') hash = '#/news';
       else if (route.name === 'news-admin') hash = '#/news-admin';
       else if (route.name === 'planning') hash = '#/planning';
+      else if (route.name === 'appts') hash = '#/appts';
       else if (route.name === 'search') hash = '#/search/' + encodeURIComponent(route.q);
       if (location.hash !== hash) location.hash = hash;
     }
@@ -6045,6 +6129,7 @@ Output in French, Arabic and English.`;
     else if (route.name === 'news') renderNews();
     else if (route.name === 'news-admin') renderNewsAdmin();
     else if (route.name === 'planning') renderPlanning();
+    else if (route.name === 'appts') renderAppts();
     loadMedia();
     if (restoreY) requestAnimationFrame(() => window.scrollTo({ top: restoreY, behavior: 'auto' }));
     else window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -6057,6 +6142,7 @@ Output in French, Arabic and English.`;
     if (h === '#/news') return { name: 'news' };
     if (h === '#/news-admin') return { name: 'news-admin' };
     if (h === '#/planning') return { name: 'planning' };
+    if (h === '#/appts') return { name: 'appts' };
     let m = h.match(/^#\/folder\/(\d+)$/);
     if (m) return { name: 'folder', folder: +m[1] };
     m = h.match(/^#\/lesson\/(\d+)$/);
