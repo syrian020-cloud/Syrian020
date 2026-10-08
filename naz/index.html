@@ -782,7 +782,7 @@
   // App self-update: bump APP_BUILD each shipped build; the server file
   // naz/data/app-<variant>.json ({build, apk}) tells installs a newer APK exists.
   const APP_BUILD = 1;
-  const APP_VARIANT = localStorage.getItem(ADMIN_WANT_STORE) === '1' ? 'admin' : 'user';
+  const APP_VARIANT = localStorage.getItem('naz_app_variant') || (localStorage.getItem(ADMIN_WANT_STORE) === '1' ? 'admin' : 'user');
   const APP_VERSION_URL = 'https://syrian020-cloud.github.io/Syrian020/naz/data/app-' + APP_VARIANT + '.json';
   const ADMIN_KEY_STORE = 'naz_admin_key';
   const ADMIN_WANT_STORE = 'naz_admin_want';
@@ -6039,6 +6039,7 @@ Output in French, Arabic and English.`;
     if (m) return { name: 'edit-lesson', lesson: +m[1] };
     m = h.match(/^#\/search\/(.+)$/);
     if (m) return { name: 'search', q: decodeURIComponent(m[1]) };
+    if (h === '#/' && localStorage.getItem('naz_shiftplan') === '1') return { name: 'planning' };
     return { name: 'home' };
   }
 
