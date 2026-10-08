@@ -712,7 +712,6 @@
 <div class="toast" id="toast"></div>
 <input type="file" id="fileInput" accept=".pdf,application/pdf">
 
-<script src="ocr/tesseract.min.js"></script>
 <script type="module">
 const $ = id => document.getElementById(id);
 const isNative = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
@@ -727,7 +726,7 @@ function capPlugin(name) {
   }
   return null;
 }
-const BUILD_STAMP = 'v26 · ٢٠٢٦-١٠-٠٨';
+const BUILD_STAMP = 'v27 · ٢٠٢٦-١٠-٠٨';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -1850,11 +1849,21 @@ $('selBtn').onclick = () => {
 $('selBtn').classList.toggle('on', settings.selMode);
 
 /* OCR: read the page image itself — works on scanned PDFs with no text layer */
-let ocrWorker = null;
+let ocrWorker = null, ocrLoading = null;
+function loadOcr() {
+  if (!ocrLoading) ocrLoading = new Promise((res, rej) => {
+    const s = document.createElement('script');
+    s.src = 'ocr/tesseract.min.js';
+    s.onload = res; s.onerror = rej;
+    document.head.appendChild(s);
+  });
+  return ocrLoading;
+}
 async function ocrReadPage() {
   if (!pdfDoc) return;
-  if (!window.Tesseract || !Tesseract.createWorker) { toast(t('ocr_fail'), 4000); return; }
   toast(t('ocr_working'), 4500);
+  try { await loadOcr(); } catch (e) { toast(t('ocr_fail'), 4000); return; }
+  if (!window.Tesseract || !Tesseract.createWorker) { toast(t('ocr_fail'), 4000); return; }
   try {
     if (!ocrWorker) {
       ocrWorker = await Tesseract.createWorker(['ara', 'eng', 'fra'], 1, {

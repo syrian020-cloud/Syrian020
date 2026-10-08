@@ -55,6 +55,38 @@ open(p, 'w').write(s)
 EOF
 fi
 
+# Enable minified release build (strips unused code/resources, faster runtime)
+if [ -f "$APP_GRADLE" ] && ! grep -q "minifyEnabled true" "$APP_GRADLE"; then
+  python3 - <<'EOF'
+p = 'android/app/build.gradle'
+s = open(p).read()
+s = s.replace('''        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }''', '''        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }''', 1)
+open(p, 'w').write(s)
+EOF
+fi
+
+# ProGuard keep rules: Capacitor plugins are invoked by name via reflection
+cat > "$ROOT/android/app/proguard-rules.pro" <<'EOF'
+-keep @com.getcapacitor.Plugin class * { *; }
+-keep @com.getcapacitor.annotation.CapacitorPlugin class * { *; }
+-keepclassmembers class * { @com.getcapacitor.PluginMethod *; }
+-keep class com.getcapacitor.** { *; }
+-keep class com.syrian020.** { *; }
+-keep class org.apache.cordova.** { *; }
+-keepattributes *Annotation*,Signature,InnerClasses,EnclosingMethod
+-dontwarn org.bouncycastle.**
+-dontwarn com.squareup.okhttp3.**
+-dontwarn com.gemalto.jp2.**
+EOF
+
 # Ensure the Android launcher label matches the Capacitor appName
 STRINGS="$ROOT/android/app/src/main/res/values/strings.xml"
 if [ -f "$STRINGS" ]; then
@@ -85,6 +117,7 @@ if [ -f "$ICON_SRC" ] && command -v convert >/dev/null 2>&1; then
 fi
 
 cd android
-./gradlew $GRADLE_INIT assembleDebug
+./gradlew $GRADLE_INIT assembleDebug assembleRelease
 
 echo "PDFly APK ready at: android/app/build/outputs/apk/debug/app-debug.apk"
+echo "PDFly release APK at: android/app/build/outputs/apk/release/app-release.apk"
