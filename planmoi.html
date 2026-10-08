@@ -160,6 +160,9 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 .cline .tx{flex:1;font-size:14.5px;line-height:1.55;min-width:0}
 .cue .spk{flex:none;background:none;border:0;font-size:15px;cursor:pointer;opacity:.75;padding:2px}
 .cue .spk.on{opacity:1;filter:drop-shadow(0 0 6px var(--acc2))}
+.cline .w{cursor:pointer;border-radius:4px;padding:0 1px;transition:background .12s}
+.cline .w:hover{background:rgba(99,102,241,.25)}
+.cline .w.on{background:var(--acc);color:#fff}
 .smp{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px;margin-bottom:10px}
 .smp-h{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:7px}
 .smp-h b{font-size:13.5px}
@@ -254,6 +257,7 @@ const I18N = {
     past:'انتهى',
     at:'الساعة', notes:'ملاحظات', audioTitle:'الصوت والنص المؤقّت',
     noCues:'لا يوجد نص مؤقّت', noAudio:'لا يوجد مقطع صوتي', tapCue:'اضغط أي سطر للانتقال إليه في الصوت',
+    tapWord:'كبسة على الكلمة: نطق متكرر · كبستين: بحث صور',
     menuExport:'⬇️ تصدير نسخة احتياطية', menuImport:'⬆️ استيراد نسخة', menuVoice:'🔊 إعدادات الصوت',
     menuNotifOn:'🔔 الإشعارات مفعّلة', menuNotifOff:'🔕 تفعيل الإشعارات',
     imported:'تم الاستيراد', importBad:'ملف غير صالح', saved:'تم الحفظ', deleted:'تم الحذف',
@@ -292,6 +296,7 @@ const I18N = {
     past:'Passé',
     at:'à', notes:'Notes', audioTitle:'Audio et texte minuté',
     noCues:'Pas de texte minuté', noAudio:'Pas de clip audio', tapCue:'Touchez une ligne pour y aller dans l\'audio',
+    tapWord:'1× mot : prononciation en boucle · 2× : images',
     menuExport:'⬇️ Exporter une sauvegarde', menuImport:'⬆️ Importer', menuVoice:'🔊 Réglages voix',
     menuNotifOn:'🔔 Notifications activées', menuNotifOff:'🔕 Activer les notifications',
     imported:'Importé', importBad:'Fichier invalide', saved:'Enregistré', deleted:'Supprimé',
@@ -330,6 +335,7 @@ const I18N = {
     past:'Past',
     at:'at', notes:'Notes', audioTitle:'Audio & timed text',
     noCues:'No timed text', noAudio:'No audio clip', tapCue:'Tap a line to seek in the audio',
+    tapWord:'Tap a word: speak loop · double-tap: images',
     menuExport:'⬇️ Export backup', menuImport:'⬆️ Import backup', menuVoice:'🔊 Voice settings',
     menuNotifOn:'🔔 Notifications on', menuNotifOff:'🔕 Enable notifications',
     imported:'Imported', importBad:'Invalid file', saved:'Saved', deleted:'Deleted',
@@ -588,6 +594,7 @@ function toggleCueLoop(btn,text,lg){
   again();
 }
 
+
 /* ==================== notifications ==================== */
 function LN(){return window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.LocalNotifications;}
 function nidBase(id){let h=0;for(const c of id)h=(h*31+c.charCodeAt(0))%1000000;return h*10;}
@@ -667,6 +674,31 @@ function mapsUrl(a){
 function cityUrl(a){
   const q=encodeURIComponent([a.address||a.place].filter(Boolean).join(', '));
   return 'https://citymapper.com/directions?endaddress='+q;
+}
+async function openAppOr(web,deep){
+  const AL=window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.AppLauncher;
+  if(AL&&deep){try{await AL.openUrl({url:deep});return;}catch(e){}}
+  openUrl(web);
+}
+function openMapsApp(a){
+  const q=encodeURIComponent([a.place,a.address].filter(Boolean).join(', '));
+  openAppOr(mapsUrl(a),'geo:0,0?q='+q);
+}
+function openCityApp(a){
+  const q=encodeURIComponent([a.address||a.place].filter(Boolean).join(', '));
+  openAppOr(cityUrl(a),'citymapper://directions?endaddress='+q);
+}
+function openGoogleImages(word){
+  const q=(word||'').replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu,'');
+  if(!q)return;
+  openUrl('https://www.google.com/search?tbm=isch&q='+encodeURIComponent(q)+'&hl='+lang);
+}
+function wrapWords(text,lg){
+  return String(text).split(/(\s+)/).map(p=>p.trim()?`<span class="w" data-lang="${lg}">${esc(p)}</span>`:esc(p)).join('');
+}
+function wordTap(el){
+  if(wordTap._t){clearTimeout(wordTap._t);wordTap._t=null;openGoogleImages(el.textContent);return;}
+  wordTap._t=setTimeout(()=>{wordTap._t=null;toggleCueLoop(el,el.textContent,el.dataset.lang);},300);
 }
 function statusBadge(a){
   if(a.status==='done')return `<span class="badge b-ok">${t('stDone')}</span>`;
@@ -787,11 +819,11 @@ async function renderDetail(){
     <div class="dcard">
       <div style="font-weight:800;margin-bottom:10px">🎙️ ${t('audioTitle')}</div>
       <div id="audio-zone">${hasAudio?'':`<div class="hint">${t('noAudio')}</div>`}</div>
-      ${cues.length?`<div class="hint" style="margin-bottom:6px">${t('tapCue')} · ${t('cuesCount')(cues.length)}</div>
+      ${cues.length?`<div class="hint" style="margin-bottom:6px">${t('tapCue')} · ${t('tapWord')} · ${t('cuesCount')(cues.length)}</div>
         <div id="cues">${cues.map((c,i)=>`<div class="cue" data-i="${i}">
           <span class="tm">${fmtT(c.start)}</span>
           <div class="clines">${c.lines.map((ln,j)=>`<div class="cline">
-            <span class="fl">${LANG_FLAGS[ln.lang]||''}</span><span class="tx">${esc(ln.text)}</span>
+            <span class="fl">${LANG_FLAGS[ln.lang]||''}</span><span class="tx">${wrapWords(ln.text,ln.lang)}</span>
             <button class="spk" data-spk="${i}:${j}" title="🔁">🔊</button></div>`).join('')}</div>
         </div>`).join('')}</div>`:''}
     </div>`;
@@ -819,13 +851,15 @@ async function renderDetail(){
   $('#d-edit').onclick=()=>openForm(a.id);
   el.querySelectorAll('[data-st]').forEach(b=>b.onclick=()=>setStatus(a.id,b.dataset.st));
   el.querySelectorAll('[data-map]').forEach(b=>b.onclick=e=>{
-    e.preventDefault();openUrl(b.dataset.map==='g'?mapsUrl(a):cityUrl(a));});
+    e.preventDefault();if(b.dataset.map==='g')openMapsApp(a);else openCityApp(a);});
   el.querySelectorAll('#cues .cue').forEach(cEl=>{
     cEl.addEventListener('click',e=>{
       const i=+cEl.dataset.i;const c=cues[i];
       const spk=e.target.closest('.spk');
       if(spk){const j=+spk.dataset.spk.split(':')[1];const ln=c.lines[j]||c.lines[0];
         toggleCueLoop(spk,ln.text,ln.lang);return;}
+      const w=e.target.closest('.w');
+      if(w){wordTap(w);return;}
       const audio=$('#appt-audio');if(audio){audio.currentTime=c.start;audio.play().catch(()=>{});}
     });
   });
