@@ -816,6 +816,7 @@
   const GH_API = 'https://api.github.com';
   const LESSONS_PATH = 'naz/data/lessons.json';
   const LESSONS_URL_BASE = 'https://syrian020-cloud.github.io/Syrian020/' + LESSONS_PATH;
+  const BUILD_STAMP = '__BUILD_STAMP__';
   const MEDIA_PATH_PREFIX = 'naz/media/';
   const MEDIA_URL_BASE = 'https://syrian020-cloud.github.io/Syrian020/' + MEDIA_PATH_PREFIX;
   // App self-update: bump APP_BUILD each shipped build; the server file
@@ -1159,7 +1160,7 @@
     if (!ADMIN_REQUESTED) { bar.style.display = 'none'; return; }
     bar.style.display = 'flex';
     if (ADMIN) {
-      bar.innerHTML = `<span class="admin-badge">${esc(t('adminMode'))}</span>
+      bar.innerHTML = `<span class="admin-badge">${esc(t('adminMode'))} <small style="opacity:.6">${BUILD_STAMP}</small></span>
         <button id="btn-publish" class="admin-btn">${esc(t('publish'))}</button>
         <button id="btn-sync-pull" class="admin-btn ghost">${esc(t('syncPull'))}</button>
         <span id="sync-status" class="sync-status"></span>
@@ -1181,7 +1182,7 @@
       document.getElementById('btn-admin-logout').onclick = () => adminLogout();
       updateSyncStatus();
     } else {
-      bar.innerHTML = `<span class="admin-badge" style="opacity:.7">${esc(t('adminMode'))}</span>
+      bar.innerHTML = `<span class="admin-badge" style="opacity:.7">${esc(t('adminMode'))} <small>${BUILD_STAMP}</small></span>
         <button id="btn-admin-login" class="admin-btn">${esc(t('adminLogin'))}</button>`;
       document.getElementById('btn-admin-login').onclick = adminLogin;
       const nb = document.getElementById('btn-news-admin');
@@ -1800,7 +1801,7 @@
 
   const UI = {
     appName: { ar: 'ShiftPlan', en: 'ShiftPlan', fr: 'ShiftPlan' },
-    appTitle: { ar: 'naz — فرنسي / عربي / إنجليزي', en: 'naz — French / Arabic / English', fr: 'naz — Français / Arabe / Anglais' },
+    appTitle: { ar: 'ShiftPlan — فرنسي / عربي / إنجليزي', en: 'ShiftPlan — French / Arabic / English', fr: 'ShiftPlan — Français / Arabe / Anglais' },
     searchPlaceholder: { ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', en: 'Search in Arabic, French, or English…', fr: 'Rechercher en arabe, français ou anglais…' },
     rateTitle: { ar: 'سرعة الصوت والفيديو', en: 'Audio & video speed', fr: 'Vitesse audio et vidéo' },
     aspectRatioTitle: { ar: 'نسبة عرض الفيديو', en: 'Video aspect ratio', fr: 'Ratio d’aspect vidéo' },
@@ -2075,7 +2076,7 @@
     lessonLabel: { ar: 'الدرس', en: 'Lesson', fr: 'Leçon' },
     folderLabel: { ar: 'المجلد', en: 'Folder', fr: 'Dossier' },
     emptyFolder: { ar: 'لا توجد دروس في هذا المجلد. أضف درساً جديداً.', en: 'No lessons in this folder. Add a new lesson.', fr: 'Aucune leçon dans ce dossier. Ajoutez-en une nouvelle.' },
-    footerText: { ar: 'naz · ', en: 'naz · ', fr: 'naz · ' },
+    footerText: { ar: 'ShiftPlan · ', en: 'ShiftPlan · ', fr: 'ShiftPlan · ' },
     footerLink: { ar: 'تطبيقاتي الأخرى', en: 'My other apps', fr: 'Mes autres applications' },
     heroTitle: { ar: 'تعلم الفرنسية', en: 'Learn French', fr: 'Apprenez le français' },
     heroSub: { ar: 'عبارات مترجمة إلى العربية والإنجليزية', en: 'Phrases translated into Arabic and English', fr: 'Phrases traduites en arabe et en anglais' },

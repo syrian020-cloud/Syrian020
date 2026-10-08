@@ -15,12 +15,15 @@ cd "$ROOT"
 
 # Stage web assets into Capacitor's webDir
 rm -rf www && mkdir -p www
+STAMP="${VARIANT}-$(date +%m%d-%H%M)"
 cp index.html admin.html manifest.json sw.js \
    icon-${VARIANT}-192.png icon-${VARIANT}-512.png whatsapp-icon.png bienvenue-lesson.jpg planning-banner.jpg www/
 ( cd www && mv icon-${VARIANT}-192.png icon-192.png && mv icon-${VARIANT}-512.png icon-512.png )
 cp -r fonts www/ 2>/dev/null || true
 
 # Variant injections baked into the packaged page
+sed -i "s/__BUILD_STAMP__/${STAMP}/" www/index.html
+
 if [ "$VARIANT" = "admin" ]; then
   sed -i '0,/<head>/s||<head><script>localStorage.setItem("naz_admin_want","1");</script>|' www/index.html
 elif [ "$VARIANT" = "shiftplan" ]; then
