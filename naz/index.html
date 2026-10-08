@@ -505,6 +505,9 @@
   .appt-sel { width: 20px; height: 20px; accent-color: var(--accent); margin-top: 0.4rem; flex-shrink: 0; }
   .plan-selbar { display: flex; gap: 0.5rem; align-items: center; padding: 0.5rem; background: var(--bg-secondary); border-radius: 10px; margin-bottom: 0.6rem; font-size: 0.85rem; }
   .plan-form { padding: 0.9rem; }
+  .plan-form-wrap { display: none; }
+  .plan-form-wrap.show { display: block; }
+  .plan-fab { position: fixed; bottom: 24px; inset-inline-end: 20px; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg,#6d5cff,#00d4a6); color: #fff; font-size: 1.9rem; line-height: 1; border: none; box-shadow: 0 6px 18px rgba(0,0,0,.45); z-index: 60; cursor: pointer; display: flex; align-items: center; justify-content: center; }
   .plan-in { width: 100%; margin-bottom: 0.5rem; }
   .plan-row { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.4rem; }
   .plan-row .plan-in { flex: 1; margin-bottom: 0; min-width: 0; }
@@ -4177,6 +4180,7 @@
   let apptFilter = { q: '', status: 'all' };
   try { apptFilter = Object.assign(apptFilter, JSON.parse(localStorage.getItem(APPT_FILTER_STORE) || '{}')); } catch (e) { }
   let planEditId = null;
+  let planFormOpen = false;
   let planApptAudio = null;   // { ref, name } staged while editing
   let planSelMode = false, planSelected = new Set();
 
@@ -4441,10 +4445,17 @@
       <div class="section-title" style="margin:.8rem 0 .4rem">${t('nextWeeks')}</div>
       ${weeks.join('')}
       <div class="section-title" style="margin:1rem 0 .4rem">📋 ${t('appts')}</div>
-      ${planFormHTML()}
+      <div class="plan-form-wrap${(planEditId || planFormOpen) ? ' show' : ''}" id="plan-form-wrap">${planFormHTML()}</div>
+      <button class="plan-fab" id="plan-fab" title="${esc(t('apptNew'))}">+</button>
       <div class="plan-search" style="margin-top:.8rem"><span>🔍</span><input id="plan-search" type="search" placeholder="${esc(t('searchAppts'))}" value="${esc(apptFilter.q)}"></div>
       <div id="plan-list-wrap">${apptListHTML()}</div>`;
     bindPlanForm();
+    document.getElementById('plan-fab').onclick = () => {
+      planFormOpen = !planFormOpen;
+      const w = document.getElementById('plan-form-wrap');
+      w.classList.toggle('show', planFormOpen || !!planEditId);
+      if (w.classList.contains('show')) { w.scrollIntoView({ behavior: 'smooth', block: 'start' }); const f = document.getElementById('af-what'); if (f) f.focus(); }
+    };
     document.getElementById('plan-export-btn').onclick = () => exportAppts(null);
     document.getElementById('plan-import-btn').onclick = () => document.getElementById('plan-import-file').click();
     document.getElementById('plan-import-file').onchange = e => { if (e.target.files[0]) importAppts(e.target.files[0]); };
@@ -4506,7 +4517,7 @@
     else appts.push(a);
     saveAppts();
     await scheduleApptNotifs(a);
-    planEditId = null; planApptAudio = null;
+    planEditId = null; planFormOpen = false; planApptAudio = null;
     showToast(t('saved'));
     renderPlanning(); loadMedia();
   }
