@@ -78,7 +78,7 @@ fi
 # Notification channel sound + alarm/vibration permissions
 RAW="$ROOT/android/app/src/main/res/raw"
 mkdir -p "$RAW"
-ffmpeg -y -loglevel error -f lavfi -i "sine=frequency=880:duration=0.25" -f lavfi -i "sine=frequency=1174:duration=0.25" -f lavfi -i "anullsrc=r=44100:cl=mono" -filter_complex "[2:a]atrim=0:0.35[sil];[0:a][1:a][sil][0:a][1:a]concat=n=5:v=0:a=1,volume=1.6" "$RAW/appt_chime.mp3" || true
+ffmpeg -y -loglevel error -f lavfi -i "sine=frequency=880:duration=0.3" -f lavfi -i "sine=frequency=1174:duration=0.3" -f lavfi -i "anullsrc=r=44100:cl=mono" -filter_complex "[2:a]atrim=0:0.25[sil];[0:a][1:a][sil][0:a][1:a][sil][0:a][1:a]concat=n=8:v=0:a=1,volume=2.4,alimiter=limit=0.95" "$RAW/appt_chime.mp3" || true
 MANIFEST="$ROOT/android/app/src/main/AndroidManifest.xml"
 if [ -f "$MANIFEST" ] && ! grep -q SCHEDULE_EXACT_ALARM "$MANIFEST"; then
   sed -i 's|</manifest>|    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />\n    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />\n    <uses-permission android:name="android.permission.VIBRATE" />\n</manifest>|' "$MANIFEST"
