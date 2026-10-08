@@ -153,17 +153,28 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 .player audio{flex:1;min-width:0;height:38px}
 .cue{display:flex;gap:9px;align-items:center;padding:9px 10px;border-radius:11px;cursor:pointer;border:1px solid transparent}
 .cue.act{background:rgba(109,92,255,.16);border-color:#4c3fd6}
-.cue .tm{font-size:11.5px;color:var(--acc2);font-weight:800;flex:none;min-width:44px;direction:ltr;text-align:left;padding-top:2px}
-.clines{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
-.cline{display:flex;align-items:center;gap:7px}
-.cline .fl{font-size:12px;flex:none}
+.cue .tm{font-size:11px;color:var(--acc2);font-weight:800;flex:none;min-width:44px;direction:ltr;text-align:center;
+  background:rgba(109,92,255,.14);border:1px solid rgba(109,92,255,.35);border-radius:7px;padding:2px 4px;margin-top:1px}
+.clines{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px}
+.cline{display:flex;align-items:flex-start;gap:7px}
+.cline .lgb{flex:none;display:inline-flex;align-items:center;gap:4px;background:var(--card2);border:1px solid var(--line);
+  border-radius:7px;padding:2px 6px;font-size:10px;font-weight:800;color:var(--mut);letter-spacing:.4px;line-height:1.5;margin-top:1px}
 .cline .tx{flex:1;font-size:14.5px;line-height:1.55;min-width:0}
-.cue .spk,.cue .ai{flex:none;background:none;border:0;font-size:15px;cursor:pointer;opacity:.75;padding:2px}
-.cue .spk.on{opacity:1;filter:drop-shadow(0 0 6px var(--acc2))}
-.cue .ai{font-size:13px}
+.cline .lacts{flex:none;display:flex;gap:4px;margin-top:-2px}
+.cue .ib{flex:none;width:28px;height:28px;border-radius:9px;background:var(--card2);border:1px solid var(--line);
+  font-size:13px;cursor:pointer;color:var(--txt);opacity:.8;display:inline-flex;align-items:center;justify-content:center;
+  padding:0;transition:transform .12s,background .12s,opacity .12s;font-family:inherit}
+.cue .ib:active{transform:scale(.9)}
+.cue .ib.on{background:var(--acc);border-color:var(--acc);color:#fff;opacity:1}
 .cline .w{cursor:pointer;border-radius:4px;padding:0 1px;transition:background .12s}
 .cline .w:hover{background:rgba(99,102,241,.25)}
 .cline .w.on{background:var(--acc);color:#fff}
+.mapopt{display:flex;align-items:center;gap:11px;width:100%;background:var(--card2);border:1px solid var(--line);
+  color:var(--txt);border-radius:13px;padding:12px 13px;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:8px;
+  font-family:inherit;text-align:start;transition:.15s}
+.mapopt:active{transform:scale(.98);border-color:var(--acc)}
+.mapopt small{display:block;font-weight:500;color:var(--mut);font-size:11.5px;margin-top:2px}
+.mapopt .mi{font-size:19px;flex:none}
 .smp{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px;margin-bottom:10px}
 .smp-h{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:7px}
 .smp-h b{font-size:13.5px}
@@ -222,6 +233,9 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 <!-- ============ SAMPLES SHEET ============ -->
 <div class="ov mid hidden" id="ov-samples"><div class="sheet" id="samples-sheet" style="max-width:520px"></div></div>
 
+<!-- ============ MAP PICKER ============ -->
+<div class="ov mid hidden" id="ov-map"><div class="sheet" id="map-sheet" style="max-width:340px"></div></div>
+
 <!-- ============ CONFIRM MODAL ============ -->
 <div class="ov mid hidden" id="ov-confirm"><div class="sheet" id="confirm-sheet" style="max-width:340px"></div></div>
 
@@ -273,6 +287,8 @@ const I18N = {
     lFr:'الفرنسية', lAr:'العربية', lEn:'الإنجليزية',
     aiTitle:'🔍 بحث Google AI: ترجمة وتحليل',
     searching:'جاري البحث عن المكان…',
+    mapChoose:'اختر خريطة', mapPick:'اختر تطبيق الخريطة',
+    mmG:'بحث مباشر بالخرائط', mmC:'اتجاهات إلى المكان', mmW:'بحث بالـ Waze',
     aiPrompt:o=>`العبارة بال${o.sl}: "${o.text}"\n1) ترجم كل كلمة على حدة إلى ${o.l1} و${o.l2}.\n2) اشرح قاعدة اللغة (تصريف الفعل، التركيب، أو التعبير) المستخدمة في العبارة.\n3) قدّم محادثة قصيرة عملية بالفرنسية والعربية والإنجليزية تستخدم هذه العبارة لتسهيل حفظها.\nالإخراج بالفرنسية والعربية والإنجليزية.`,
     back:'‹ رجوع',
     daysShort:'يوم',
@@ -318,6 +334,8 @@ const I18N = {
     lFr:'français', lAr:'arabe', lEn:'anglais',
     aiTitle:'🔍 Recherche IA : traduction + analyse',
     searching:'Recherche du lieu…',
+    mapChoose:'Choisir une carte', mapPick:'Choisir l\'application',
+    mmG:'Recherche directe', mmC:'Itinéraire vers le lieu', mmW:'Recherche Waze',
     aiPrompt:o=>`Phrase en ${o.sl} : "${o.text}"\n1) Traduisez chaque mot individuellement en ${o.l1} et en ${o.l2}.\n2) Expliquez la règle de grammaire (conjugaison, structure ou expression) utilisée dans cette phrase.\n3) Proposez une courte conversation pratique en français, arabe et anglais utilisant cette phrase.\nRéponse en français, arabe et anglais.`,
     back:'‹ Retour',
     daysShort:'j',
@@ -363,6 +381,8 @@ const I18N = {
     lFr:'French', lAr:'Arabic', lEn:'English',
     aiTitle:'🔍 AI search: translate + analyze',
     searching:'Searching for the place…',
+    mapChoose:'Choose a map', mapPick:'Choose a map app',
+    mmG:'Direct map search', mmC:'Directions to the place', mmW:'Search in Waze',
     aiPrompt:o=>`${o.sl} phrase: "${o.text}"\n1) Translate each word individually into ${o.l1} and ${o.l2}.\n2) Explain the grammar rule (verb conjugation, structure, or expression) used in this phrase.\n3) Provide a short practical conversation in French, Arabic and English using this phrase.\nOutput in French, Arabic and English.`,
     back:'‹ Back',
     daysShort:'d',
@@ -733,6 +753,27 @@ async function openCityApp(a){
   // search box) or fall back to a Google Maps web search of the address.
   openAppOr(mapsUrl(a),'citymapper://');
 }
+function openWaze(a){
+  const q=encodeURIComponent([a.place,a.address].filter(Boolean).join(', '));
+  openAppOr('https://waze.com/ul?q='+q+'&navigate=yes','waze://?q='+q+'&navigate=yes');
+}
+function openGmapsSearch(a){
+  const u='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent([a.place,a.address].filter(Boolean).join(', '));
+  openAppOr(u,u);
+}
+function openMapPick(a){
+  $('#map-sheet').innerHTML=`<div style="font-weight:800;font-size:15.5px;margin-bottom:11px">🗺️ ${t('mapPick')}</div>
+    <button class="mapopt" data-mm="g"><span class="mi">🗺️</span><div>Google Maps<small>${t('mmG')}</small></div></button>
+    <button class="mapopt" data-mm="c"><span class="mi">🧭</span><div>Citymapper<small>${t('mmC')}</small></div></button>
+    <button class="mapopt" data-mm="w"><span class="mi">🚗</span><div>Waze<small>${t('mmW')}</small></div></button>`;
+  $('#map-sheet').querySelectorAll('[data-mm]').forEach(b=>b.onclick=()=>{
+    $('#ov-map').classList.add('hidden');
+    if(b.dataset.mm==='g')openMapsApp(a);
+    else if(b.dataset.mm==='c')openCityApp(a);
+    else openWaze(a);
+  });
+  $('#ov-map').classList.remove('hidden');
+}
 function aiPromptFor(ln){
   const lg=ln.lang||guessLang(ln.text);
   const others={fr:['ar','en'],ar:['fr','en'],en:['fr','ar']}[lg]||['fr','ar'];
@@ -867,8 +908,8 @@ async function renderDetail(){
       ${a.address?`<div class="dline"><span class="ic">🏠</span><div><b>${t('fAddr')}</b>${esc(a.address)}</div></div>`:''}
       ${a.notes?`<div class="dline"><span class="ic">📝</span><div><b>${t('notes')}</b>${esc(a.notes)}</div></div>`:''}
       ${(a.place||a.address)?`<div class="maprow" style="margin-top:14px">
-        <a class="gm" href="#" data-map="g">🗺️ Google Maps</a>
-        <a class="cm" href="#" data-map="c">🧭 Citymapper</a></div>`:''}
+        <a class="gm" href="#" data-map="pick">🗺️ ${t('mapChoose')}</a>
+        <a class="cm" href="#" data-map="g">🔍 Google Maps</a></div>`:''}
     </div>
     <div class="dcard">
       <div style="font-weight:800;margin-bottom:10px">🎙️ ${t('audioTitle')}</div>
@@ -877,8 +918,8 @@ async function renderDetail(){
         <div id="cues">${cues.map((c,i)=>`<div class="cue" data-i="${i}">
           <span class="tm">${fmtT(c.start)}</span>
           <div class="clines">${c.lines.map((ln,j)=>`<div class="cline">
-            <span class="fl">${LANG_FLAGS[ln.lang]||''}</span><span class="tx">${wrapWords(ln.text,ln.lang)}</span>
-            <button class="spk" data-spk="${i}:${j}" title="🔁">🔊</button><button class="ai" data-ai="${i}:${j}" title="${esc(t('aiTitle'))}">🔍</button></div>`).join('')}</div>
+            <span class="lgb">${LANG_FLAGS[ln.lang]||''} ${(ln.lang||'').toUpperCase()}</span><span class="tx">${wrapWords(ln.text,ln.lang)}</span>
+            <span class="lacts"><button class="ib spk" data-spk="${i}:${j}" title="🔁">🔊</button><button class="ib ai" data-ai="${i}:${j}" title="${esc(t('aiTitle'))}">✦</button></span></div>`).join('')}</div>
         </div>`).join('')}</div>`:''}
     </div>`;
   if(hasAudio){
@@ -905,7 +946,8 @@ async function renderDetail(){
   $('#d-edit').onclick=()=>openForm(a.id);
   el.querySelectorAll('[data-st]').forEach(b=>b.onclick=()=>setStatus(a.id,b.dataset.st));
   el.querySelectorAll('[data-map]').forEach(b=>b.onclick=e=>{
-    e.preventDefault();if(b.dataset.map==='g')openMapsApp(a);else openCityApp(a);});
+    e.preventDefault();
+    if(b.dataset.map==='pick')openMapPick(a);else openGmapsSearch(a);});
   el.querySelectorAll('#cues .cue').forEach(cEl=>{
     cEl.addEventListener('click',e=>{
       const i=+cEl.dataset.i;const c=cues[i];
@@ -1137,12 +1179,15 @@ document.addEventListener('click',e=>{
 });
 $('#ov-form').addEventListener('click',e=>{if(e.target.id==='ov-form')$('#ov-form').classList.add('hidden');});
 $('#ov-samples').addEventListener('click',e=>{if(e.target.id==='ov-samples')$('#ov-samples').classList.add('hidden');});
+$('#ov-map').addEventListener('click',e=>{if(e.target.id==='ov-map')$('#ov-map').classList.add('hidden');});
 $('#fab').onclick=()=>openForm(null);
 
 /* ---------- Android back → exit confirm ---------- */
 if(window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.App){
   window.Capacitor.Plugins.App.addListener('backButton',()=>{
     if(!$('#ov-form').classList.contains('hidden')){$('#ov-form').classList.add('hidden');return;}
+    if(!$('#ov-map').classList.contains('hidden')){$('#ov-map').classList.add('hidden');return;}
+    if(!$('#ov-samples').classList.contains('hidden')){$('#ov-samples').classList.add('hidden');return;}
     if(view==='detail'){closeDetail();return;}
     confirmBox(t('exitTitle'),t('exitYes'),t('exitNo'),()=>{
       try{window.Capacitor.Plugins.App.exitApp();}catch(e){}
