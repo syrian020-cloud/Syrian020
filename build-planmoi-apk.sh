@@ -96,6 +96,12 @@ open(p, 'w').write(s)
 PYEOF
 fi
 
+# Exact-alarm permission needed on Android 12+ for timed reminders to fire while closed
+MANIFEST="android/app/src/main/AndroidManifest.xml"
+if [ -f "$MANIFEST" ] && ! grep -q 'SCHEDULE_EXACT_ALARM' "$MANIFEST"; then
+  sed -i 's|<uses-permission|<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />\n    <uses-permission|' "$MANIFEST"
+fi
+
 # Notification alert sound for the reminders channel (swap planmoi-alert.mp3 to change it)
 RAW_DIR="android/app/src/main/res/raw"
 mkdir -p "$RAW_DIR"

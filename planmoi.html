@@ -285,7 +285,7 @@ const I18N = {
     needFields:'أدخل العنوان والتاريخ والوقت',
     cats:{health:'🩺 صحة',admin:'📋 إدارة',work:'💼 عمل',personal:'👤 شخصي',study:'📚 دراسة',other:'📌 أخرى'},
     notifBody24:m=>`غداً: ${m}`, notifBody12:m=>`بعد ١٢ ساعة: ${m}`, notifBody2:m=>`قريباً بعد ساعتين: ${m}`, notifBody0:m=>`حان الموعد الآن: ${m}`,
-    notifTitle:'⏰ تذكير بموعد',
+    notifTitle:'⏰ تذكير بموعد', alarmPerm:'فعّل «المنبهات والتذكيرات» لـ PlanMoi حتى ترن الإشعارات بوقتها',
     cuesCount:n=>`${n} سطر`,
     samples:'نماذج النص المؤقّت', copy:'نسخ', copied:'تم النسخ',
     lFr:'الفرنسية', lAr:'العربية', lEn:'الإنجليزية',
@@ -332,7 +332,7 @@ const I18N = {
     needFields:'Titre, date et heure requis',
     cats:{health:'🩺 Santé',admin:'📋 Admin',work:'💼 Travail',personal:'👤 Perso',study:'📚 Études',other:'📌 Autre'},
     notifBody24:m=>`Demain : ${m}`, notifBody12:m=>`Dans 12 h : ${m}`, notifBody2:m=>`Dans 2 h : ${m}`, notifBody0:m=>`C'est l'heure : ${m}`,
-    notifTitle:'⏰ Rappel de rendez-vous',
+    notifTitle:'⏰ Rappel de rendez-vous', alarmPerm:'Autorisez «Alarmes et rappels» pour PlanMoi pour recevoir les notifications à l\'heure',
     cuesCount:n=>`${n} lignes`,
     samples:'Exemples de texte minuté', copy:'Copier', copied:'Copié',
     lFr:'français', lAr:'arabe', lEn:'anglais',
@@ -379,7 +379,7 @@ const I18N = {
     needFields:'Title, date and time are required',
     cats:{health:'🩺 Health',admin:'📋 Admin',work:'💼 Work',personal:'👤 Personal',study:'📚 Study',other:'📌 Other'},
     notifBody24:m=>`Tomorrow: ${m}`, notifBody12:m=>`In 12 h: ${m}`, notifBody2:m=>`In 2 h: ${m}`, notifBody0:m=>`It's time: ${m}`,
-    notifTitle:'⏰ Appointment reminder',
+    notifTitle:'⏰ Appointment reminder', alarmPerm:'Allow «Alarms & reminders» for PlanMoi so notifications ring on time',
     cuesCount:n=>`${n} lines`,
     samples:'Timed text samples', copy:'Copy', copied:'Copied',
     lFr:'French', lAr:'Arabic', lEn:'English',
@@ -668,6 +668,10 @@ async function scheduleReminders(a){
   try{
     const perm=await p.requestPermissions();
     if(!perm||perm.display!=='granted')return;
+    if(p.checkExactNotificationSetting&&p.changeExactNotificationSetting){
+      const ex=await p.checkExactNotificationSetting();
+      if(ex&&ex.exact_alarm!=='granted'){toast(t('alarmPerm'),4500);await p.changeExactNotificationSetting();}
+    }
     await ensureChannel();
     const offs=[0,2*3600e3,12*3600e3,24*3600e3];
     const bodies=[t('notifBody0'),t('notifBody2'),t('notifBody12'),t('notifBody24')];
