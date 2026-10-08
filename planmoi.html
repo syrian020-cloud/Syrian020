@@ -657,7 +657,8 @@ async function cancelReminders(a){
 }
 async function ensureChannel(){
   const p=LN();if(!p||!p.createChannel)return;
-  try{await p.createChannel({id:'planmoi-alerts',name:'PlanMoi reminders',description:'Appointment reminders',
+  try{if(p.deleteChannel)await p.deleteChannel({id:'planmoi-alerts'});}catch(e){}
+  try{await p.createChannel({id:'planmoi-alerts-v2',name:'PlanMoi reminders',description:'Appointment reminders',
     importance:5,visibility:1,lights:true,vibration:true,sound:'planmoi_alert'});}catch(e){}
 }
 async function scheduleReminders(a){
@@ -678,7 +679,7 @@ async function scheduleReminders(a){
     const b=nidBase(a.id);const list=[];
     offs.forEach((o,i)=>{
       const at=when-o;
-      if(at>Date.now()+15e3)list.push({id:b+i,title:t('notifTitle'),body:bodies[i](a.title),channelId:'planmoi-alerts',schedule:{at:new Date(at)}});
+      if(at>Date.now()+15e3)list.push({id:b+i,title:t('notifTitle'),body:bodies[i](a.title),channelId:'planmoi-alerts-v2',sound:'planmoi_alert',schedule:{at:new Date(at)}});
     });
     if(list.length)await p.schedule({notifications:list});
   }catch(e){console.error('schedule',e);}
