@@ -468,6 +468,65 @@
   }
   .update-banner .btn { margin-inline-start: auto; }
   .update-dismiss { background: none; border: none; color: var(--text-secondary); font-size: 1.25rem; cursor: pointer; padding: 0 0.2rem; }
+  .plan-section { margin-bottom: 1.1rem; }
+  .plan-banner { width: 100%; border-radius: 18px; border: 1px solid var(--border); display: block; margin-bottom: 0.7rem; }
+  .plan-contacts { display: flex; gap: 0.6rem; margin-bottom: 0.7rem; }
+  .plan-contact { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem; border-radius: 14px; font-weight: 700; text-decoration: none; font-size: 0.92rem; }
+  .plan-contact.wa { background: rgba(37,211,102,.14); border: 1px solid rgba(37,211,102,.4); color: #4ade80; }
+  .plan-contact.mail { background: rgba(124,58,237,.14); border: 1px solid rgba(124,58,237,.4); color: #a78bfa; }
+  .plan-card { width: 100%; display: flex; align-items: center; gap: 0.7rem; text-align: start; padding: 0.85rem 1rem; border-radius: 14px; cursor: pointer; background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-primary); margin-bottom: 0.6rem; }
+  .plan-card .plan-ico { font-size: 1.6rem; }
+  .plan-card .plan-card-title { font-weight: 700; font-size: 1rem; }
+  .plan-card .plan-card-sub { font-size: 0.78rem; color: var(--text-secondary); }
+  .plan-card .chev { margin-inline-start: auto; font-size: 1.3rem; color: var(--text-secondary); }
+  .next-appt { display: flex; align-items: center; gap: 0.7rem; padding: 0.75rem 1rem; border-radius: 14px; margin-bottom: 0.6rem; background: linear-gradient(135deg, rgba(109,92,255,.25), rgba(0,212,166,.2)); border: 1px solid var(--accent); }
+  .next-appt .next-ico { font-size: 1.5rem; }
+  .next-appt .next-sub { font-size: 0.8rem; color: var(--text-secondary); }
+  .plan-search { display: flex; align-items: center; gap: 0.5rem; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 0.55rem 1rem; margin-bottom: 0.6rem; }
+  .plan-search input { flex: 1; background: none; border: none; color: var(--text-primary); font-size: 0.95rem; outline: none; }
+  .plan-chips { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 0.7rem; }
+  .plan-chip { background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-secondary); border-radius: 999px; padding: 0.35rem 0.8rem; font-size: 0.82rem; cursor: pointer; }
+  .plan-chip.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .appt-card { display: flex; align-items: flex-start; gap: 0.6rem; }
+  .appt-date { display: flex; flex-direction: column; align-items: center; background: var(--bg-tertiary); border-radius: 10px; padding: 0.4rem 0.6rem; flex-shrink: 0; }
+  .appt-dd { font-weight: 800; font-size: 1.15rem; }
+  .appt-mm { font-size: 0.68rem; color: var(--text-secondary); }
+  .appt-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.3rem; }
+  .appt-status, .appt-verdict, .appt-cat, .appt-cd { font-size: 0.72rem; border-radius: 999px; padding: 0.15rem 0.55rem; font-weight: 600; }
+  .st-up { background: rgba(59,130,246,.18); color: #60a5fa; }
+  .st-od { background: rgba(245,158,11,.18); color: #fbbf24; }
+  .st-done { background: rgba(52,211,153,.18); color: #34d399; }
+  .st-cancel { background: rgba(148,163,184,.18); color: var(--text-secondary); }
+  .vd-ok { background: rgba(52,211,153,.18); color: #34d399; }
+  .vd-check { background: rgba(245,158,11,.18); color: #fbbf24; }
+  .vd-conflict { background: rgba(255,107,122,.18); color: #ff6b7a; }
+  .appt-cat { background: var(--bg-tertiary); color: var(--text-secondary); }
+  .appt-cd { background: rgba(0,212,166,.15); color: #2dd4bf; }
+  .appt-sel { width: 20px; height: 20px; accent-color: var(--accent); margin-top: 0.4rem; flex-shrink: 0; }
+  .plan-selbar { display: flex; gap: 0.5rem; align-items: center; padding: 0.5rem; background: var(--bg-secondary); border-radius: 10px; margin-bottom: 0.6rem; font-size: 0.85rem; }
+  .plan-form { padding: 0.9rem; }
+  .plan-in { width: 100%; margin-bottom: 0.5rem; }
+  .plan-row { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.4rem; }
+  .plan-row .plan-in { flex: 1; margin-bottom: 0; min-width: 0; }
+  .plan-file { cursor: pointer; font-size: 0.85rem; }
+  .plan-fname { font-size: 0.75rem; color: var(--text-secondary); }
+  .plan-save { background: linear-gradient(135deg,#6d5cff,#00d4a6); }
+  .af-verdict { margin-top: 0.5rem; font-size: 0.9rem; }
+  .plan-week { padding: 0.7rem 0.9rem; margin-bottom: 0.5rem; }
+  .plan-week.cur { border-color: var(--accent); }
+  .plan-week-top { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.45rem; }
+  .plan-week-label { font-size: 0.88rem; font-weight: 600; }
+  .plan-ovr { font-size: 0.78rem; padding: 0.25rem 0.4rem; }
+  .plan-days { display: flex; gap: 0.3rem; }
+  .plan-day { flex: 1; aspect-ratio: 1; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-secondary); font-size: 0.75rem; cursor: pointer; }
+  .plan-day.work { background: rgba(109,92,255,.25); color: var(--text-primary); border-color: var(--accent); }
+  .plan-quick { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-top: 0.55rem; }
+  .plan-quick-btn { border-radius: 10px; padding: 0.45rem 0.7rem; font-size: 0.82rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-primary); }
+  .plan-quick-btn.matin { border-color: #3b82f6; }
+  .plan-quick-btn.soir { border-color: #f59e0b; }
+  .plan-wds { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.55rem; font-size: 0.8rem; }
+  .plan-wd { display: flex; align-items: center; gap: 0.25rem; cursor: pointer; }
+
   [data-mode="light"] .line.active { background: #f0f9f4; }
   [data-mode="light"] .line.synced { background: #e8f5e9; }
   [data-mode="light"] .btns .ai-btn.on { color: #7c3aed; border-color: #7c3aed; background: #ede9fe; }
@@ -1773,6 +1832,64 @@
     pullOverwriteWarn: { ar: 'لديك تغييرات غير منشورة وستُستبدل بنسخة الخادم. متابعة؟', en: 'You have unpublished changes that will be replaced by the server copy. Continue?', fr: 'Vous avez des modifications non publiées qui seront remplacées par la copie du serveur. Continuer ?' },
     updateAvailable: { ar: 'تحديث جديد متاح', en: 'New update available', fr: 'Nouvelle mise à jour disponible' },
     updateDownload: { ar: 'تحميل التحديث', en: 'Download update', fr: 'Télécharger la mise à jour' },
+    planTitle: { ar: 'جدول عملي', en: 'My work schedule', fr: 'Mon planning de travail' },
+    planSub: { ar: 'الأسبوع الحالي', en: 'This week', fr: 'Cette semaine' },
+    week_matin: { ar: 'صباحي 06:00–14:00', en: 'MORNING 06:00–14:00', fr: 'MATIN 06h00–14h00' },
+    week_soir: { ar: 'مسائي 14:00–23:00', en: 'EVENING 14:00–23:00', fr: 'SOIR 14h00–23h00' },
+    weekRepos: { ar: 'راحة', en: 'REST', fr: 'REPOS' },
+    thisWeek: { ar: 'هذا الأسبوع', en: 'This week', fr: 'Cette semaine' },
+    nextWeeks: { ar: 'الأسابيع القادمة', en: 'Coming weeks', fr: 'Semaines à venir' },
+    auto: { ar: 'تلقائي', en: 'Auto', fr: 'Auto' },
+    travelBefore: { ar: 'ذهاب', en: 'Go', fr: 'Aller' },
+    travelAfter: { ar: 'عودة', en: 'Return', fr: 'Retour' },
+    appts: { ar: 'المواعيد', en: 'Appointments', fr: 'Rendez-vous' },
+    appt: { ar: 'موعد', en: 'Appointment', fr: 'Rendez-vous' },
+    apptNew: { ar: 'موعد جديد', en: 'New appointment', fr: 'Nouveau rendez-vous' },
+    apptEdit: { ar: 'تعديل موعد', en: 'Edit appointment', fr: 'Modifier le rendez-vous' },
+    apptCheck: { ar: 'فحص التوافق', en: 'Check fit', fr: 'Vérifier' },
+    afWhat: { ar: 'الموضوع', en: 'Subject', fr: 'Objet' },
+    afDur: { ar: 'المدة (دقائق)', en: 'Duration (min)', fr: 'Durée (min)' },
+    afOrg: { ar: 'الجهة (طبيب/إدارة…)', en: 'Organisation', fr: 'Organisme' },
+    afPlace: { ar: 'المكان', en: 'Place', fr: 'Lieu' },
+    afAddr: { ar: 'العنوان الكامل', en: 'Full address', fr: 'Adresse complète' },
+    afNotes: { ar: 'ملاحظات', en: 'Notes', fr: 'Notes' },
+    afAudio: { ar: 'مرفق صوتي', en: 'Audio attachment', fr: 'Pièce audio' },
+    afCaptions: { ar: 'نص مزامنة (00:05 نص)', en: 'Synced text (00:05 text)', fr: 'Texte synchronisé' },
+    afRequired: { ar: 'الموضوع والتاريخ والوقت مطلوبة', en: 'Subject, date and time required', fr: 'Objet, date et heure requis' },
+    audioAttached: { ar: 'صوت مرفق', en: 'Audio attached', fr: 'Audio joint' },
+    searchAppts: { ar: 'بحث في المواعيد…', en: 'Search appointments…', fr: 'Rechercher un rendez-vous…' },
+    noAppts: { ar: 'لا مواعيد', en: 'No appointments', fr: 'Aucun rendez-vous' },
+    chip_all: { ar: 'الكل', en: 'All', fr: 'Tous' },
+    chip_upcoming: { ar: 'قادم', en: 'Upcoming', fr: 'À venir' },
+    chip_overdue: { ar: 'فائت', en: 'Overdue', fr: 'Passé' },
+    chip_done: { ar: 'تم', en: 'Done', fr: 'Fait' },
+    chip_cancelled: { ar: 'مُلغى', en: 'Cancelled', fr: 'Annulé' },
+    st_upcoming: { ar: 'قادم', en: 'Upcoming', fr: 'À venir' },
+    st_overdue: { ar: 'فائت', en: 'Overdue', fr: 'Passé' },
+    st_done: { ar: 'تم', en: 'Done', fr: 'Fait' },
+    st_cancelled: { ar: 'مُلغى', en: 'Cancelled', fr: 'Annulé' },
+    vd_ok: { ar: '🟢 متوافق مع العمل', en: '🟢 Compatible with work', fr: '🟢 COMPATIBLE' },
+    vd_check: { ar: '🟠 يحتاج تحقق', en: '🟠 To verify', fr: '🟠 À vérifier' },
+    vd_conflict: { ar: '🔴 تعارض مع العمل', en: '🔴 Conflicts with work', fr: '🔴 CONFLIT AVEC LE TRAVAIL' },
+    workOnThatDay: { ar: 'العمل في ذلك اليوم', en: 'Work that day', fr: 'Travail ce jour' },
+    noWorkThatDay: { ar: 'لا عمل في ذلك اليوم', en: 'No work that day', fr: 'Pas de travail ce jour' },
+    min: { ar: 'د', en: 'min', fr: 'min' },
+    markDone: { ar: 'وضع كمُنجز', en: 'Mark done', fr: 'Marquer fait' },
+    markCancel: { ar: 'إلغاء الموعد', en: 'Cancel appointment', fr: 'Annuler le rendez-vous' },
+    chooseMap: { ar: 'اختيار تطبيق الخرائط', en: 'Choose maps app', fr: 'Choisir l\'app cartes' },
+    select: { ar: 'تحديد', en: 'Select', fr: 'Sélection' },
+    selectAll: { ar: 'تحديد الكل', en: 'Select all', fr: 'Tout sélectionner' },
+    selected: { ar: 'محدد', en: 'selected', fr: 'sélectionné(s)' },
+    export: { ar: 'تصدير', en: 'Export', fr: 'Exporter' },
+    import: { ar: 'استيراد', en: 'Import', fr: 'Importer' },
+    imported: { ar: 'تم الاستيراد', en: 'Imported', fr: 'Importé' },
+    importFailed: { ar: 'فشل الاستيراد', en: 'Import failed', fr: 'Échec de l\'import' },
+    deleteConfirm: { ar: 'حذف هذا الموعد؟', en: 'Delete this appointment?', fr: 'Supprimer ce rendez-vous ?' },
+    apptNow: { ar: '⏰ حان وقت الموعد!', en: '⏰ Appointment time!', fr: '⏰ C\'est l\'heure du rendez-vous !' },
+    apptNotifBody: { ar: '{what} · {time} (بعد {when})', en: '{what} · {time} (in {when})', fr: '{what} · {time} (dans {when})' },
+    apptInMin: { ar: 'باقي {n} د', en: 'in {n} min', fr: 'dans {n} min' },
+    apptInHrs: { ar: 'باقي {h}س {m}د', en: 'in {h}h {m}m', fr: 'dans {h}h{m}m' },
+    apptInDays: { ar: 'باقي {n} يوم', en: 'in {n} days', fr: 'dans {n} j' },
     unsyncedChanges: { ar: 'تغييرات غير منشورة', en: 'Unpublished changes', fr: 'Modifications non publiées' },
     serverNewer: { ar: 'نسخة أحدث على الخادم — اسحب للتحديث', en: 'Newer version on server — pull to update', fr: 'Version plus récente sur le serveur — tirez pour mettre à jour' },
     news: { ar: 'أخبار', en: 'News', fr: 'Actualités' },
@@ -1936,9 +2053,11 @@
   let speechRun = 0;
   let loopTimer = null;
 
-  function t(key) {
+  function t(key, params) {
     const v = UI[key];
-    return (v && v[state.uiLang]) || (v && v.en) || (v && v.ar) || key;
+    let s = (v && v[state.uiLang]) || (v && v.en) || (v && v.ar) || key;
+    if (params) Object.keys(params).forEach(k => { s = s.split('{' + k + '}').join(String(params[k])); });
+    return s;
   }
 
   function title(obj) {
@@ -4021,6 +4140,491 @@
     </div>`;
   }
 
+  // ═══════════ PlanMoi: work schedule + appointments (self-contained) ═══════════
+  const PLAN_STORE = 'naz_planning';
+  const APPT_STORE = 'naz_appts';
+  const APPT_FILTER_STORE = 'naz_appt_filter';
+  const SHIFTS = { matin: [360, 840], soir: [840, 1380] }; // minutes from 00:00
+  const APPT_CATS = ['sante', 'admin', 'travail', 'perso', 'etude', 'autre'];
+  const CAT_ICONS = { sante: '🏥', admin: '🏛️', travail: '💼', perso: '👤', etude: '📚', autre: '📌' };
+  const APPT_OFFSETS = [24 * 60, 12 * 60, 120, 0]; // minutes before
+
+  function pad2(n) { return String(n).padStart(2, '0'); }
+  function dstr(d) { return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()); }
+  function todayStr() { return dstr(new Date()); }
+  function mondayOf(ds) {
+    const d = new Date(ds + 'T12:00:00');
+    const dow = (d.getDay() + 6) % 7; // Mon=0
+    d.setDate(d.getDate() - dow);
+    return dstr(d);
+  }
+  function fmtMin(m) { return pad2(Math.floor(m / 60)) + ':' + pad2(Math.round(m % 60)); }
+  function parseHM(hm) { const p = String(hm || '0:0').split(':'); return (+p[0]) * 60 + (+p[1] || 0); }
+
+  function loadPlanning() {
+    let p = {};
+    try { p = JSON.parse(localStorage.getItem(PLAN_STORE) || '{}'); } catch (e) { }
+    return Object.assign({
+      anchor: mondayOf(todayStr()), kind: 'matin', pattern: ['matin', 'soir'],
+      workDays: [1, 2, 3, 4, 5], travelBefore: 30, travelAfter: 30,
+      weekOverrides: {}, dayOverrides: {}
+    }, p);
+  }
+  let planning = loadPlanning();
+  let appts = [];
+  try { appts = JSON.parse(localStorage.getItem(APPT_STORE) || '[]'); } catch (e) { }
+  let apptFilter = { q: '', status: 'all' };
+  try { apptFilter = Object.assign(apptFilter, JSON.parse(localStorage.getItem(APPT_FILTER_STORE) || '{}')); } catch (e) { }
+  let planEditId = null;
+  let planApptAudio = null;   // { ref, name } staged while editing
+  let planSelMode = false, planSelected = new Set();
+
+  function savePlanning() { localStorage.setItem(PLAN_STORE, JSON.stringify(planning)); }
+  function saveAppts() { localStorage.setItem(APPT_STORE, JSON.stringify(appts)); }
+  function saveApptFilter() { localStorage.setItem(APPT_FILTER_STORE, JSON.stringify(apptFilter)); }
+
+  function weekIdxOf(monday) {
+    return Math.round((new Date(monday + 'T12:00:00') - new Date(planning.anchor + 'T12:00:00')) / (7 * 86400000));
+  }
+  function weekKindAt(monday) {
+    const o = planning.weekOverrides[monday];
+    if (o && o.kind) return o.kind;
+    const pat = planning.pattern.length ? planning.pattern : ['matin'];
+    const i = weekIdxOf(monday);
+    return pat[((i % pat.length) + pat.length) % pat.length];
+  }
+  function shiftForDay(dateStr) {
+    const dov = planning.dayOverrides[dateStr];
+    if (dov) return dov.kind === 'rest' ? null : { start: dov.start, end: dov.end, kind: 'custom' };
+    const kind = weekKindAt(mondayOf(dateStr));
+    if (kind === 'repos') return null;
+    const dow = new Date(dateStr + 'T12:00:00').getDay();
+    if (!planning.workDays.includes(dow)) return null;
+    const s = SHIFTS[kind] || SHIFTS.matin;
+    return { start: s[0], end: s[1], kind };
+  }
+
+  function apptDateTime(a) { return new Date(a.date + 'T' + (a.time || '00:00') + ':00'); }
+  function apptStatus(a) {
+    if (a.status === 'done') return 'done';
+    if (a.status === 'cancelled') return 'cancelled';
+    return apptDateTime(a).getTime() + (a.dur || 0) * 60000 < Date.now() ? 'overdue' : 'upcoming';
+  }
+  function apptVerdict(a) {
+    const s = shiftForDay(a.date);
+    if (!s) return 'ok';
+    const t0 = parseHM(a.time);
+    const win = [t0 - (planning.travelBefore || 0), t0 + (a.dur || 0) + (planning.travelAfter || 0)];
+    if (win[0] < s.end && win[1] > s.start) return 'conflict';
+    const gap = Math.min(Math.abs(win[1] - s.start), Math.abs(s.end - win[0]));
+    if (gap < 30 || s.kind === 'custom') return 'check';
+    return 'ok';
+  }
+  function apptCountdown(a) {
+    const ms = apptDateTime(a).getTime() - Date.now();
+    if (ms <= 0) return '';
+    const mins = Math.floor(ms / 60000);
+    if (mins < 60) return t('apptInMin', { n: mins });
+    const h = Math.floor(mins / 60), m = mins % 60;
+    if (h < 24) return t('apptInHrs', { h, m });
+    return t('apptInDays', { n: Math.floor(h / 24) });
+  }
+
+  // ── notifications ──
+  function apptNotifIds(a) { return APPT_OFFSETS.map((_, i) => (a.id % 90000 + 10000) * 10 + i); }
+  async function scheduleApptNotifs(a) {
+    const LN = localNotifPlugin();
+    if (!LN || a.status === 'cancelled' || a.status === 'done') return;
+    try {
+      const perm = await LN.requestPermissions();
+      if (!perm || perm.display !== 'granted') return;
+      const at = apptDateTime(a).getTime();
+      const now = Date.now();
+      const notes = [];
+      APPT_OFFSETS.forEach((off, i) => {
+        const when = at - off * 60000;
+        if (when <= now + 5000) return;
+        notes.push({
+          id: (a.id % 90000 + 10000) * 10 + i,
+          title: off === 0 ? t('apptNow') : (a.what || t('appt')),
+          body: off === 0 ? (a.what || '') : t('apptNotifBody', { what: a.what || '', time: a.time || '', when: off >= 60 ? (off / 60) + 'h' : off + 'min' }),
+          schedule: { at: new Date(when), allowWhileIdle: true },
+          channelId: 'naz-appt-v2',
+          sound: 'appt_chime', smallIcon: 'ic_launcher', largeIcon: 'ic_launcher'
+        });
+      });
+      if (notes.length) await LN.schedule({ notifications: notes });
+    } catch (e) { console.error('apptNotifs', e); }
+  }
+  async function cancelApptNotifs(id) {
+    const LN = localNotifPlugin();
+    if (!LN) return;
+    try { await LN.cancel({ notifications: apptNotifIds({ id }).map(n => ({ id: n })) }); } catch (e) { }
+  }
+  async function rescheduleAllApptNotifs() {
+    const LN = localNotifPlugin();
+    if (!LN) return;
+    try {
+      const pend = await LN.getPending();
+      const live = new Set();
+      appts.forEach(a => apptNotifIds(a).forEach(n => live.add(n)));
+      const stale = (pend.notifications || []).filter(n => n.id >= 100000 && !live.has(n.id));
+      if (stale.length) await LN.cancel({ notifications: stale.map(n => ({ id: n.id })) });
+      for (const a of appts) {
+        if (apptStatus(a) === 'upcoming') await scheduleApptNotifs(a);
+      }
+    } catch (e) { }
+  }
+
+  // ── rendering ──
+  function statusBadge(a) {
+    const st = apptStatus(a);
+    const cls = { upcoming: 'st-up', overdue: 'st-od', done: 'st-done', cancelled: 'st-cancel' }[st];
+    return `<span class="appt-status ${cls}">${t('st_' + st)}</span>`;
+  }
+  function verdictBadge(a) {
+    if (a.status === 'cancelled' || a.status === 'done') return '';
+    const v = apptVerdict(a);
+    const cls = { ok: 'vd-ok', check: 'vd-check', conflict: 'vd-conflict' }[v];
+    return `<span class="appt-verdict ${cls}">${t('vd_' + v)}</span>`;
+  }
+  function apptCardHTML(a) {
+    const st = apptStatus(a);
+    const cd = st === 'upcoming' ? apptCountdown(a) : '';
+    const sel = planSelMode ? `<input type="checkbox" class="appt-sel" data-sel-id="${a.id}" ${planSelected.has(a.id) ? 'checked' : ''}>` : '';
+    const addr = a.addr || a.place || '';
+    return `<div class="card appt-card" data-appt-id="${a.id}">
+      ${sel}<div class="appt-date"><span class="appt-dd">${a.date.slice(8, 10)}</span><span class="appt-mm">${a.date.slice(5, 7)}/${a.date.slice(0, 4)}</span></div>
+      <div class="card-body">
+        <div class="card-title">${esc(a.what || '')} ${verdictBadge(a)}</div>
+        <div class="card-sub">🕐 ${esc(a.time || '')}${a.dur ? ' · ' + a.dur + ' ' + t('min') : ''}${a.place ? ' · 📍 ' + esc(a.place) : ''}</div>
+        ${a.org ? `<div class="card-sub">${esc(a.org)}</div>` : ''}
+        <div class="appt-badges">${statusBadge(a)}<span class="appt-cat">${CAT_ICONS[a.cat] || '📌'} ${t('cat_' + (a.cat || 'autre'))}</span>${cd ? `<span class="appt-cd">⏳ ${cd}</span>` : ''}</div>
+        ${a.audio ? `<div class="phrase-media media-placeholder" data-media-ref="${esc(a.audio)}" data-media-type="audio" data-caption-text="${esc(a.captionText || '')}"></div>` : ''}
+      </div>
+      <button class="menu-btn" data-appt-menu="${a.id}" title="${t('actions')}">⋮</button>
+    </div>`;
+  }
+  function filteredAppts() {
+    const q = (apptFilter.q || '').trim().toLowerCase();
+    return appts.filter(a => {
+      const st = apptStatus(a);
+      if (apptFilter.status !== 'all' && st !== apptFilter.status) return false;
+      if (q && !((a.what || '') + ' ' + (a.place || '') + ' ' + (a.addr || '') + ' ' + (a.notes || '') + ' ' + (a.org || '')).toLowerCase().includes(q)) return false;
+      return true;
+    }).sort((x, y) => apptDateTime(x) - apptDateTime(y));
+  }
+  function apptListHTML() {
+    const list = filteredAppts();
+    const counts = { all: appts.length, upcoming: 0, overdue: 0, done: 0, cancelled: 0 };
+    appts.forEach(a => counts[apptStatus(a)]++);
+    const chips = ['all', 'upcoming', 'overdue', 'done', 'cancelled'].map(s =>
+      `<button class="plan-chip${apptFilter.status === s ? ' on' : ''}" data-plan-chip="${s}">${t('chip_' + s)} ${counts[s] || ''}</button>`).join('');
+    const selBar = planSelMode ? `<div class="plan-selbar"><span>${planSelected.size} ${t('selected')}</span>
+      <button class="btn ghost" id="plan-sel-all">${t('selectAll')}</button>
+      <button class="btn" id="plan-export-sel">${t('export')}</button>
+      <button class="btn ghost" id="plan-sel-cancel">✕</button></div>` : '';
+    const items = list.length ? list.map(apptCardHTML).join('') : `<div class="no-lessons"><div class="icon">📅</div><div class="card-title">${t('noAppts')}</div></div>`;
+    return `<div class="plan-chips">${chips}</div>${selBar}${items}`;
+  }
+  function nextApptHTML() {
+    const nxt = appts.filter(a => apptStatus(a) === 'upcoming').sort((x, y) => apptDateTime(x) - apptDateTime(y))[0];
+    if (!nxt) return '';
+    const cd = apptCountdown(nxt);
+    return `<div class="next-appt"><span class="next-ico">⏰</span>
+      <span><b>${esc(nxt.what || '')}</b><br><span class="next-sub">${esc(nxt.date)} ${esc(nxt.time || '')}${cd ? ' · ⏳ ' + cd : ''}</span></span></div>`;
+  }
+  function planningHomeHTML() {
+    const kind = weekKindAt(mondayOf(todayStr()));
+    const s = shiftForDay(todayStr());
+    const weekTxt = kind === 'repos' ? t('weekRepos') : t('week_' + kind);
+    return `<div class="plan-section">
+      <img class="plan-banner" src="planning-banner.jpg" alt="" onerror="this.style.display='none'">
+      <div class="plan-contacts">
+        <a class="plan-contact wa" href="https://wa.me/33775813643" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07a8.2 8.2 0 0 1-2.4-1.48 9 9 0 0 1-1.66-2.07c-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.11 3.22 5.1 4.51.71.31 1.27.5 1.7.64.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2-1.42.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.58-.32M12.05 21.8h-.01a9.8 9.8 0 0 1-5-1.37l-.36-.21-3.72.97 1-3.62-.24-.37a9.77 9.77 0 0 1-1.5-5.22c0-5.4 4.4-9.8 9.82-9.8a9.76 9.76 0 0 1 9.8 9.8c0 5.4-4.4 9.82-9.8 9.82m8.34-18.14A11.77 11.77 0 0 0 12.05.2C5.5.2.18 5.5.18 12.05c0 2.08.55 4.12 1.58 5.92L.08 24l6.18-1.62a11.8 11.8 0 0 0 5.79 1.47h.01c6.55 0 11.87-5.3 11.87-11.85 0-3.17-1.24-6.15-3.48-8.39"/></svg> +33 7 75 81 36 43</a>
+        <a class="plan-contact mail" href="mailto:Syrian020@gmail.com"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2l-8 5.5L4 6h16zM4 18V8.5l7.5 5.1L20 8.5V18H4z"/></svg> Syrian020@gmail.com</a>
+      </div>
+      <button class="plan-card" data-route='${JSON.stringify({ name: 'planning' })}'>
+        <span class="plan-ico">📅</span>
+        <span><span class="plan-card-title">${t('planTitle')}</span><br><span class="plan-card-sub">${t('planSub')} · ${weekTxt}${s ? ' ' + fmtMin(s.start) + '–' + fmtMin(s.end) : ''}</span></span>
+        <span class="chev">${chevron()}</span>
+      </button>
+      ${nextApptHTML()}
+      <div class="plan-search"><span>🔍</span><input id="plan-search" type="search" placeholder="${esc(t('searchAppts'))}" value="${esc(apptFilter.q)}"></div>
+      <div id="plan-list-wrap">${apptListHTML()}</div>
+    </div>`;
+  }
+
+  // ── planning page ──
+  function planFormHTML() {
+    const a = planEditId ? appts.find(x => x.id === planEditId) : null;
+    const dur = a ? a.dur : 60;
+    return `<div class="card plan-form">
+      <div class="section-title" style="margin-bottom:.6rem">${a ? '✏️ ' : '➕ '}${t(a ? 'apptEdit' : 'apptNew')}</div>
+      <input id="af-what" class="ctl plan-in" placeholder="${esc(t('afWhat'))} *" value="${esc(a ? a.what : '')}">
+      <div class="plan-row">
+        <input id="af-date" type="date" class="ctl plan-in" value="${esc(a ? a.date : todayStr())}">
+        <input id="af-time" type="time" class="ctl plan-in" value="${esc(a ? a.time : '10:00')}">
+      </div>
+      <div class="plan-row">
+        <input id="af-dur" type="number" min="5" step="5" class="ctl plan-in" placeholder="${esc(t('afDur'))}" value="${dur}">
+        <input id="af-org" class="ctl plan-in" placeholder="${esc(t('afOrg'))}" value="${esc(a ? a.org || '' : '')}">
+      </div>
+      <input id="af-place" class="ctl plan-in" placeholder="${esc(t('afPlace'))}" value="${esc(a ? a.place || '' : '')}">
+      <input id="af-addr" class="ctl plan-in" placeholder="${esc(t('afAddr'))}" value="${esc(a ? a.addr || '' : '')}">
+      <select id="af-cat" class="ctl plan-in">${APPT_CATS.map(c => `<option value="${c}"${a && a.cat === c ? ' selected' : ''}>${CAT_ICONS[c]} ${t('cat_' + c)}</option>`).join('')}</select>
+      <textarea id="af-notes" class="ctl plan-in" rows="2" placeholder="${esc(t('afNotes'))}">${esc(a ? a.notes || '' : '')}</textarea>
+      <div class="plan-row">
+        <label class="btn ghost plan-file">🔊 ${t('afAudio')}<input type="file" id="af-audio" accept="audio/*" style="display:none"></label>
+        <span id="af-audio-name" class="plan-fname">${esc(a && a.audio ? t('audioAttached') : (planApptAudio ? planApptAudio.name : ''))}</span>
+      </div>
+      <textarea id="af-captions" class="ctl plan-in" rows="3" placeholder="${esc(t('afCaptions'))}">${esc(a ? a.captionText || '' : '')}</textarea>
+      <div class="plan-row" style="margin-top:.3rem">
+        <button class="btn" id="af-check">🔎 ${t('apptCheck')}</button>
+        <button class="btn plan-save" id="af-save">💾 ${t('save')}</button>
+        ${a ? `<button class="btn ghost" id="af-cancel">✕</button>` : ''}
+      </div>
+      <div id="af-verdict" class="af-verdict"></div>
+    </div>`;
+  }
+
+  function weekRowHTML(monday, isThis) {
+    const kind = weekKindAt(monday);
+    const start = new Date(monday + 'T12:00:00');
+    const end = new Date(start); end.setDate(end.getDate() + 6);
+    const dayCells = [1, 2, 3, 4, 5, 6, 0].map(dow => {
+      const d = new Date(start); d.setDate(start.getDate() + (dow + 6) % 7);
+      const ds = dstr(d);
+      const works = !!shiftForDay(ds);
+      return `<button class="plan-day${works ? ' work' : ''}" data-day-tgl="${ds}" title="${ds}">${d.getDate()}</button>`;
+    }).join('');
+    return `<div class="plan-week${isThis ? ' cur' : ''}">
+      <div class="plan-week-top">
+        <span class="plan-week-label">${start.getDate()}/${start.getMonth() + 1} – ${end.getDate()}/${end.getMonth() + 1}${isThis ? ' · ' + t('thisWeek') : ''}</span>
+        <select class="ctl plan-ovr" data-week-ovr="${monday}">
+          <option value=""${planning.weekOverrides[monday] ? '' : ' selected'}>${t('auto')}</option>
+          <option value="matin"${planning.weekOverrides[monday] && planning.weekOverrides[monday].kind === 'matin' ? ' selected' : ''}>🟦 ${t('week_matin')}</option>
+          <option value="soir"${planning.weekOverrides[monday] && planning.weekOverrides[monday].kind === 'soir' ? ' selected' : ''}>🟧 ${t('week_soir')}</option>
+          <option value="repos"${planning.weekOverrides[monday] && planning.weekOverrides[monday].kind === 'repos' ? ' selected' : ''}>⚪ ${t('weekRepos')}</option>
+        </select>
+      </div>
+      <div class="plan-days">${dayCells}</div>
+    </div>`;
+  }
+
+  function renderPlanning() {
+    const kind = weekKindAt(mondayOf(todayStr()));
+    const weeks = [];
+    const thisMon = mondayOf(todayStr());
+    weeks.push(weekRowHTML(thisMon, true));
+    for (let i = 1; i <= 8; i++) {
+      const d = new Date(thisMon + 'T12:00:00'); d.setDate(d.getDate() + i * 7);
+      weeks.push(weekRowHTML(dstr(d), false));
+    }
+    const dayChk = [1, 2, 3, 4, 5, 6, 0].map(d =>
+      `<label class="plan-wd"><input type="checkbox" data-wd="${d}"${planning.workDays.includes(d) ? ' checked' : ''}> ${new Intl.DateTimeFormat(VOICE_LANG[state.uiLang] || 'fr-FR', { weekday: 'short' }).format(new Date(2024, 0, d === 0 ? 7 : d))}</label>`).join('');
+    view.innerHTML = `<div class="top-bar"><button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button><span class="chev">${chevron()}</span><span class="section-title">${t('planTitle')}</span>
+      <span class="home-sync"><button class="contact-btn refresh-btn" id="plan-export-btn" title="${esc(t('export'))}">📤</button><button class="contact-btn refresh-btn" id="plan-import-btn" title="${esc(t('import'))}">📥</button><button class="contact-btn refresh-btn" id="plan-sel-toggle" title="${esc(t('select'))}">☑</button></span></div>
+      <input type="file" id="plan-import-file" accept=".json" style="display:none">
+      <div class="card plan-week cur"><div class="plan-week-label">${t('thisWeek')}: <b>${kind === 'repos' ? t('weekRepos') : t('week_' + kind)}</b></div>
+        <div class="plan-quick">
+          <button class="plan-quick-btn matin" data-plan-week="matin">🟦 ${t('week_matin')}</button>
+          <button class="plan-quick-btn soir" data-plan-week="soir">🟧 ${t('week_soir')}</button>
+          <button class="plan-quick-btn repos" data-plan-week="repos">⚪ ${t('weekRepos')}</button>
+        </div>
+        <div class="plan-wds">${dayChk}</div>
+        <div class="plan-row"><label>${t('travelBefore')}</label><input id="plan-tb" type="number" min="0" step="5" class="ctl plan-in" style="width:80px" value="${planning.travelBefore}"><label>${t('travelAfter')}</label><input id="plan-ta" type="number" min="0" step="5" class="ctl plan-in" style="width:80px" value="${planning.travelAfter}"><span>${t('min')}</span></div>
+      </div>
+      <div class="section-title" style="margin:.8rem 0 .4rem">${t('nextWeeks')}</div>
+      ${weeks.join('')}
+      <div class="section-title" style="margin:1rem 0 .4rem">📋 ${t('appts')}</div>
+      ${planFormHTML()}
+      <div class="plan-search" style="margin-top:.8rem"><span>🔍</span><input id="plan-search" type="search" placeholder="${esc(t('searchAppts'))}" value="${esc(apptFilter.q)}"></div>
+      <div id="plan-list-wrap">${apptListHTML()}</div>`;
+    bindPlanForm();
+    document.getElementById('plan-export-btn').onclick = () => exportAppts(null);
+    document.getElementById('plan-import-btn').onclick = () => document.getElementById('plan-import-file').click();
+    document.getElementById('plan-import-file').onchange = e => { if (e.target.files[0]) importAppts(e.target.files[0]); };
+    document.getElementById('plan-sel-toggle').onclick = () => { planSelMode = !planSelMode; planSelected.clear(); refreshApptList(); };
+    document.getElementById('plan-tb').onchange = e => { planning.travelBefore = Math.max(0, +e.target.value || 0); savePlanning(); };
+    document.getElementById('plan-ta').onchange = e => { planning.travelAfter = Math.max(0, +e.target.value || 0); savePlanning(); };
+  }
+
+  function bindPlanForm() {
+    const f = document.getElementById('af-audio');
+    if (f) f.onchange = async () => {
+      const file = f.files && f.files[0];
+      if (!file) return;
+      const ref = await storeMedia(file);
+      if (ref) { planApptAudio = { ref, name: file.name }; document.getElementById('af-audio-name').textContent = file.name; }
+    };
+    document.getElementById('af-check').onclick = () => {
+      const a = collectApptForm(null);
+      if (!a) return;
+      const s = shiftForDay(a.date);
+      const v = apptVerdict(a);
+      const el = document.getElementById('af-verdict');
+      const shiftTxt = s ? fmtMin(s.start) + '–' + fmtMin(s.end) : t('noWorkThatDay');
+      el.innerHTML = `<span class="appt-verdict vd-${v === 'ok' ? 'ok' : v === 'check' ? 'check' : 'conflict'}">${t('vd_' + v)}</span> <span class="card-sub">${t('workOnThatDay')}: ${shiftTxt}</span>`;
+    };
+    const sv = document.getElementById('af-save');
+    if (sv) sv.onclick = saveApptFromForm;
+    const c = document.getElementById('af-cancel');
+    if (c) c.onclick = () => { planEditId = null; planApptAudio = null; renderPlanning(); loadMedia(); };
+  }
+
+  function collectApptForm(existing) {
+    const what = document.getElementById('af-what').value.trim();
+    const date = document.getElementById('af-date').value;
+    const time = document.getElementById('af-time').value;
+    if (!what || !date || !time) { showToast(t('afRequired')); return null; }
+    const base = existing || {};
+    return Object.assign(base, {
+      id: base.id || (Date.now() % 1000000000),
+      what, date, time,
+      dur: Math.max(5, +document.getElementById('af-dur').value || 60),
+      org: document.getElementById('af-org').value.trim(),
+      place: document.getElementById('af-place').value.trim(),
+      addr: document.getElementById('af-addr').value.trim(),
+      cat: document.getElementById('af-cat').value,
+      notes: document.getElementById('af-notes').value.trim(),
+      audio: planApptAudio ? planApptAudio.ref : (base.audio || null),
+      captionText: document.getElementById('af-captions').value.trim(),
+      status: base.status || 'upcoming',
+      ts: base.ts || Date.now()
+    });
+  }
+
+  async function saveApptFromForm() {
+    const existing = planEditId ? appts.find(x => x.id === planEditId) : null;
+    const a = collectApptForm(existing);
+    if (!a) return;
+    if (existing) { appts = appts.map(x => x.id === a.id ? a : x); await cancelApptNotifs(a.id); }
+    else appts.push(a);
+    saveAppts();
+    await scheduleApptNotifs(a);
+    planEditId = null; planApptAudio = null;
+    showToast(t('saved'));
+    renderPlanning(); loadMedia();
+  }
+
+  function refreshApptList() {
+    const w = document.getElementById('plan-list-wrap');
+    if (w) { w.innerHTML = apptListHTML(); loadMedia(); }
+  }
+
+  async function exportAppts(onlyIds) {
+    const list = onlyIds ? appts.filter(a => onlyIds.has(a.id)) : appts;
+    const out = { app: 'naz-plan', v: 1, exported: Date.now(), appts: [] };
+    for (const a of list) {
+      const c = Object.assign({}, a);
+      if (a.audio && isIDBMedia(a.audio)) {
+        const blob = await getMediaBlob(a.audio.slice(6));
+        if (blob) {
+          const buf = await blob.arrayBuffer();
+          let bin = ''; const b = new Uint8Array(buf);
+          for (let i = 0; i < b.length; i += 8192) bin += String.fromCharCode.apply(null, b.subarray(i, i + 8192));
+          c.audioData = 'data:' + (blob.type || 'application/octet-stream') + ';base64,' + btoa(bin);
+        }
+      }
+      out.appts.push(c);
+    }
+    const blob = new Blob([JSON.stringify(out, null, 1)], { type: 'application/json' });
+    const fileName = 'naz-plan-' + todayStr() + '.json';
+    const FS = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Filesystem;
+    const SH = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Share;
+    if (FS && SH) {
+      try {
+        const txt = await blob.text();
+        const w = await FS.writeFile({ path: fileName, data: txt, directory: 'CACHE' });
+        await SH.share({ title: fileName, url: w.uri });
+        return;
+      } catch (e) { /* fall back to download */ }
+    }
+    const a2 = document.createElement('a');
+    a2.href = URL.createObjectURL(blob); a2.download = fileName; a2.click();
+    setTimeout(() => URL.revokeObjectURL(a2.href), 5000);
+  }
+
+  async function importAppts(file) {
+    try {
+      const data = JSON.parse(await file.text());
+      const list = data.appts || (Array.isArray(data) ? data : []);
+      const have = new Set(appts.map(a => a.id));
+      let added = 0;
+      for (const a of list) {
+        if (!a.id || have.has(a.id)) continue;
+        if (a.audioData && a.audioData.startsWith('data:')) {
+          const m = a.audioData.match(/^data:([^;]+);base64,(.*)$/);
+          if (m) {
+            const bin = atob(m[2]); const b = new Uint8Array(bin.length);
+            for (let i = 0; i < bin.length; i++) b[i] = bin.charCodeAt(i);
+            const ref = await storeMedia(new Blob([b], { type: m[1] }));
+            if (ref) a.audio = ref;
+          }
+          delete a.audioData;
+        }
+        appts.push(a); added++;
+      }
+      saveAppts();
+      await rescheduleAllApptNotifs();
+      showToast(t('imported') + ' · ' + added);
+      if (state.route.name === 'planning') { renderPlanning(); loadMedia(); }
+      else refreshApptList();
+    } catch (e) { showToast(t('importFailed')); }
+  }
+
+  function openApptSheet(id) {
+    const a = appts.find(x => x.id === id);
+    if (!a) return;
+    const sheet = document.getElementById('action-sheet');
+    document.getElementById('sheet-title').textContent = a.what || '';
+    const addr = a.addr || a.place || '';
+    document.getElementById('sheet-actions').innerHTML =
+      `<button class="btn" data-appt-act="edit" data-id="${id}">✏️ ${t('edit')}</button>` +
+      (a.status !== 'done' ? `<button class="btn ghost" data-appt-act="done" data-id="${id}">✅ ${t('markDone')}</button>` : '') +
+      (a.status !== 'cancelled' ? `<button class="btn ghost" data-appt-act="cancel" data-id="${id}">🚫 ${t('markCancel')}</button>` : '') +
+      (addr ? `<button class="btn ghost" data-appt-act="maps" data-id="${id}">🗺️ Google Maps</button><button class="btn ghost" data-appt-act="chooser" data-id="${id}">📍 ${t('chooseMap')}</button>` : '') +
+      `<button class="btn ghost" style="color:var(--danger); border-color:var(--danger)" data-appt-act="del" data-id="${id}">🗑️ ${t('delete')}</button>`;
+    sheet.classList.add('show');
+  }
+
+  async function apptAction(act, id) {
+    const a = appts.find(x => x.id === id);
+    if (!a) return;
+    if (act === 'edit') { planEditId = id; planApptAudio = null; go({ name: 'planning' }); return; }
+    if (act === 'done' || act === 'cancel') {
+      a.status = act === 'done' ? 'done' : 'cancelled';
+      saveAppts();
+      await cancelApptNotifs(id);
+      if (state.route.name === 'planning') { renderPlanning(); loadMedia(); } else refreshApptList();
+      return;
+    }
+    if (act === 'del') {
+      if (!confirm(t('deleteConfirm'))) return;
+      await cancelApptNotifs(id);
+      appts = appts.filter(x => x.id !== id);
+      saveAppts();
+      if (state.route.name === 'planning') { renderPlanning(); loadMedia(); } else refreshApptList();
+      return;
+    }
+    const addr = a.addr || a.place || '';
+    if (!addr) return;
+    if (act === 'maps') window.open('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(addr), '_blank');
+    if (act === 'chooser') window.open('geo:0,0?q=' + encodeURIComponent(addr), '_blank');
+  }
+
+  function togglePlanDay(ds) {
+    if (planning.dayOverrides[ds]) { delete planning.dayOverrides[ds]; savePlanning(); return; }
+    const works = !!shiftForDay(ds);
+    if (works) { planning.dayOverrides[ds] = { kind: 'rest' }; }
+    else {
+      const s = SHIFTS[weekKindAt(mondayOf(ds)) === 'soir' ? 'soir' : 'matin'];
+      planning.dayOverrides[ds] = { kind: 'work', start: s[0], end: s[1] };
+    }
+    savePlanning();
+  }
+
   function renderHome() {
     const empty = !LESSONS.length ? `<div class="no-lessons"><div class="icon">📝</div><div class="card-title">${t('noItemsYetTitle')}</div><div class="sub">${t('noItemsYetSub')}</div></div>` : '';
     const actionBar = !canEdit() ? '' : `<div class="action-bar">
@@ -4047,7 +4651,7 @@
     </button>`;
     const html = newsCard + `<div class="top-bar"><span class="section-title">${t('library')}</span>
       ${canEdit() ? '' : `<span class="home-sync"><span class="sync-ver">${localVersion() ? 'v' + localVersion() : ''}</span><button class="contact-btn refresh-btn" data-pull title="${esc(t('refresh'))}">↻</button></span>`}</div>
-      ${actionBar}${empty}` +
+      ${actionBar}${planningHomeHTML()}${empty}` +
       LESSONS.map(it => {
         if (it.type === 'lesson') lessonIdx++;
         const num = it.type === 'lesson' ? lessonIdx : null;
@@ -4890,7 +5494,58 @@ EN: Maria, I’m out of cigarettes.`
   }
 
   function bindViewEvents() {
+    view.addEventListener('input', e => {
+      if (e.target.id === 'plan-search') { apptFilter.q = e.target.value; saveApptFilter(); refreshApptList(); }
+    });
+    view.addEventListener('change', e => {
+      const wov = e.target.closest('[data-week-ovr]');
+      if (wov) {
+        const k = wov.value;
+        if (k) planning.weekOverrides[wov.dataset.weekOvr] = { kind: k };
+        else delete planning.weekOverrides[wov.dataset.weekOvr];
+        savePlanning(); renderPlanning(); loadMedia();
+        return;
+      }
+      const wd = e.target.closest('[data-wd]');
+      if (wd) {
+        const d = +wd.dataset.wd;
+        if (wd.checked) { if (!planning.workDays.includes(d)) planning.workDays.push(d); }
+        else planning.workDays = planning.workDays.filter(x => x !== d);
+        savePlanning(); renderPlanning(); loadMedia();
+        return;
+      }
+      const sel = e.target.closest('.appt-sel');
+      if (sel) {
+        const id = +sel.dataset.selId;
+        if (sel.checked) planSelected.add(id); else planSelected.delete(id);
+        refreshApptList();
+      }
+    });
     view.addEventListener('click', e => {
+      const planChip = e.target.closest('[data-plan-chip]');
+      if (planChip) { e.stopPropagation(); apptFilter.status = planChip.dataset.planChip; saveApptFilter(); refreshApptList(); return; }
+
+      const apptMenuBtn = e.target.closest('[data-appt-menu]');
+      if (apptMenuBtn) { e.stopPropagation(); openApptSheet(+apptMenuBtn.dataset.apptMenu); return; }
+
+      const weekBtn = e.target.closest('[data-plan-week]');
+      if (weekBtn) {
+        e.stopPropagation();
+        const k = weekBtn.dataset.planWeek;
+        const thisMon = mondayOf(todayStr());
+        if (k === 'repos') planning.weekOverrides[thisMon] = { kind: 'repos' };
+        else { delete planning.weekOverrides[thisMon]; planning.anchor = thisMon; planning.pattern = k === 'soir' ? ['soir', 'matin'] : ['matin', 'soir']; }
+        savePlanning(); renderPlanning(); loadMedia();
+        return;
+      }
+
+      const dayTgl = e.target.closest('[data-day-tgl]');
+      if (dayTgl) { e.stopPropagation(); togglePlanDay(dayTgl.dataset.dayTgl); renderPlanning(); loadMedia(); return; }
+
+      if (e.target.closest('#plan-sel-all')) { e.stopPropagation(); filteredAppts().forEach(a => planSelected.add(a.id)); refreshApptList(); return; }
+      if (e.target.closest('#plan-export-sel')) { e.stopPropagation(); exportAppts(planSelected); return; }
+      if (e.target.closest('#plan-sel-cancel')) { e.stopPropagation(); planSelMode = false; planSelected.clear(); refreshApptList(); return; }
+
       const delImgBtn = e.target.closest('.media-del');
       if (delImgBtn && canEdit()) { e.stopPropagation(); deletePhraseImage(delImgBtn.dataset.phraseKey); return; }
 
@@ -5001,6 +5656,8 @@ Output in French, Arabic and English.`;
     document.getElementById('sheet-cancel').onclick = closeActionSheet;
     sheet.addEventListener('click', e => {
       if (e.target === sheet) { closeActionSheet(); return; }
+      const apptAct = e.target.closest('[data-appt-act]');
+      if (apptAct) { closeActionSheet(); apptAction(apptAct.dataset.apptAct, +apptAct.dataset.id); return; }
       const edit = e.target.closest('[data-edit]');
       if (edit) { closeActionSheet(); editItem(+edit.dataset.edit, edit.dataset.type); return; }
       const mv = e.target.closest('[data-move]');
@@ -5346,6 +6003,7 @@ Output in French, Arabic and English.`;
       else if (route.name === 'edit-lesson') hash = '#/edit-lesson/' + route.lesson;
       else if (route.name === 'news') hash = '#/news';
       else if (route.name === 'news-admin') hash = '#/news-admin';
+      else if (route.name === 'planning') hash = '#/planning';
       else if (route.name === 'search') hash = '#/search/' + encodeURIComponent(route.q);
       if (location.hash !== hash) location.hash = hash;
     }
@@ -5358,6 +6016,7 @@ Output in French, Arabic and English.`;
     else if (route.name === 'edit-lesson') renderEditLesson(route.lesson);
     else if (route.name === 'news') renderNews();
     else if (route.name === 'news-admin') renderNewsAdmin();
+    else if (route.name === 'planning') renderPlanning();
     loadMedia();
     if (restoreY) requestAnimationFrame(() => window.scrollTo({ top: restoreY, behavior: 'auto' }));
     else window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -5369,6 +6028,7 @@ Output in French, Arabic and English.`;
     if (h === '#/add-lesson') return { name: 'add-lesson' };
     if (h === '#/news') return { name: 'news' };
     if (h === '#/news-admin') return { name: 'news-admin' };
+    if (h === '#/planning') return { name: 'planning' };
     let m = h.match(/^#\/folder\/(\d+)$/);
     if (m) return { name: 'folder', folder: +m[1] };
     m = h.match(/^#\/lesson\/(\d+)$/);
@@ -5507,7 +6167,11 @@ Output in French, Arabic and English.`;
     verifyStoredAdmin();
     if (nativeTTS()) checkNativeTTS();
     const LN = localNotifPlugin();
-    if (LN) { try { LN.addListener('localNotificationActionPerformed', () => go({ name: 'news' })); } catch (e) {} }
+    if (LN) {
+      try { LN.addListener('localNotificationActionPerformed', () => go({ name: 'news' })); } catch (e) {}
+      try { LN.createChannel({ id: 'naz-appt-v2', name: 'Appointments', description: 'Appointment reminders', importance: 5, sound: 'appt_chime', vibration: true, lights: true }); } catch (e) {}
+    }
+    rescheduleAllApptNotifs();
     document.addEventListener('visibilitychange', () => { if (!document.hidden) { autoPullLessons(); checkAppUpdate(); } });
     window.addEventListener('focus', autoPullLessons);
     setInterval(autoPullLessons, 60000);

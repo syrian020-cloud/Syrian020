@@ -14,7 +14,7 @@ cd "$ROOT"
 # Stage web assets into Capacitor's webDir
 rm -rf www && mkdir -p www
 cp index.html admin.html manifest.json sw.js \
-   icon-${VARIANT}-192.png icon-${VARIANT}-512.png whatsapp-icon.png bienvenue-lesson.jpg www/
+   icon-${VARIANT}-192.png icon-${VARIANT}-512.png whatsapp-icon.png bienvenue-lesson.jpg planning-banner.jpg www/
 ( cd www && mv icon-${VARIANT}-192.png icon-192.png && mv icon-${VARIANT}-512.png icon-512.png )
 cp -r fonts www/ 2>/dev/null || true
 
@@ -69,6 +69,15 @@ if [ -f "$ICON_SRC" ] && command -v convert >/dev/null 2>&1; then
   convert "$ICON_SRC" -resize 192x192 "$MIPMAP/mipmap-xxxhdpi/ic_launcher.png"
   convert "$ICON_SRC" -resize 432x432 "$MIPMAP/mipmap-xxxhdpi/ic_launcher_foreground.png"
   convert "$ICON_SRC" -resize 192x192 "$MIPMAP/mipmap-xxxhdpi/ic_launcher_round.png"
+fi
+
+# Notification channel sound + alarm/vibration permissions
+RAW="$ROOT/android/app/src/main/res/raw"
+mkdir -p "$RAW"
+ffmpeg -y -loglevel error -f lavfi -i "sine=frequency=880:duration=0.25" -f lavfi -i "sine=frequency=1174:duration=0.25" -filter_complex "[0:a][1:a]concat=n=2:v=0:a=1,volume=1.6" "$RAW/appt_chime.mp3" || true
+MANIFEST="$ROOT/android/app/src/main/AndroidManifest.xml"
+if [ -f "$MANIFEST" ] && ! grep -q SCHEDULE_EXACT_ALARM "$MANIFEST"; then
+  sed -i 's|</manifest>|    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />\n    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />\n    <uses-permission android:name="android.permission.VIBRATE" />\n</manifest>|' "$MANIFEST"
 fi
 
 cd android
