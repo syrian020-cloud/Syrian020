@@ -728,7 +728,7 @@ function capPlugin(name) {
   }
   return null;
 }
-const BUILD_STAMP = 'v24 · ٢٠٢٦-١٠-٠٧';
+const BUILD_STAMP = 'v25 · ٢٠٢٦-١٠-٠٧';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -2158,7 +2158,7 @@ $('menuBtn').onclick = () => {
     <div class="set-row" style="cursor:pointer" id="sUnlock"><div class="lbl">${t('m_unlock')}<small>${t('m_unlock_s')}</small></div><span>‹</span></div>
     <div style="text-align:center;color:var(--muted);font-size:11px;padding-top:10px">${t('version')} ${BUILD_STAMP}</div>
   `);
-  $('sAppLang').onchange = e => { setLang(e.target.value); };
+  $('sAppLang').onchange = e => { setLang(e.target.value); closeSheet(); };
   $('sLoop').onchange = e => { settings.loop = e.target.checked; saveSettings(); $('loopBtn').classList.toggle('on', settings.loop); };
   $('sNight').onchange = e => { settings.night = e.target.checked; saveSettings(); document.body.classList.toggle('night', settings.night); };
   $('sFit').onchange = e => { settings.fitWidth = e.target.checked; saveSettings(); rerenderAll(); };
