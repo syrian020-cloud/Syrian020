@@ -1,0 +1,11 @@
+{
+  "appId": "com.syrian020.caplayer",
+  "appName": "caplayer",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "captureInput": false
+  }
+}
