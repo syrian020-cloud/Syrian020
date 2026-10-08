@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#6d5cff">
-<title>PlanMoi</title>
-<link rel="manifest" href="manifest-planmoi.json">
-<link rel="icon" type="image/png" href="icon-planmoi-192.png">
+<title>Tempo</title>
+<link rel="manifest" href="manifest-tempo.json">
+<link rel="icon" type="image/png" href="icon-tempo-192.png">
 <style>
 :root{
   --bg:#0b0d1f; --bg2:#12142b; --card:#181b36; --card2:#1f2347;
@@ -215,6 +215,46 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
   padding:5px 10px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
 .notif-state{font-size:12px;color:var(--mut);margin-top:6px}
 
+/* ---------- work planning ---------- */
+.planbtn{width:100%;display:flex;align-items:center;gap:11px;border:1px solid var(--line);
+  background:linear-gradient(135deg,#232860,#181b36);color:var(--txt);border-radius:15px;
+  padding:12px 14px;font-size:14.5px;font-weight:800;cursor:pointer;margin-bottom:11px;font-family:inherit;text-align:start}
+.planbtn:active{transform:scale(.985)}
+.planbtn .pi{font-size:20px}
+.planbtn small{display:block;font-weight:500;color:var(--mut);font-size:11.5px;margin-top:2px}
+.shiftrow{display:flex;gap:8px}
+.shiftbtn{flex:1;border-radius:13px;padding:11px 4px;font-size:12.5px;font-weight:800;cursor:pointer;
+  border:1px solid var(--line);background:var(--card);color:var(--mut);font-family:inherit;text-align:center}
+.shiftbtn small{font-weight:600;font-size:10.5px;opacity:.8}
+.shiftbtn.on-m{color:#fff;border-color:#3d7bd6;background:linear-gradient(135deg,#2f5fb8,#4c8dff)}
+.shiftbtn.on-s{color:#fff;border-color:#c9700f;background:linear-gradient(135deg,#b3620e,#ff9f43)}
+.shiftbtn.on-r{color:#fff;border-color:#5a5f8a;background:linear-gradient(135deg,#454a75,#6b719e)}
+.dayrow{display:flex;gap:5px;flex-wrap:wrap}
+.dchip{flex:1;min-width:38px;border-radius:10px;padding:8px 2px;font-size:11px;font-weight:800;cursor:pointer;
+  border:1px solid var(--line);background:var(--card);color:var(--mut);font-family:inherit;text-align:center}
+.dchip.work{color:#8fb8ff;border-color:#2c4d86}
+.dchip.off{opacity:.55}
+.dchip.dm{color:#8fb8ff;border-color:#2c4d86}
+.dchip.ds{color:var(--warn);border-color:#6b4516}
+.dchip.dr{opacity:.55}
+.dchip .dt{display:block;font-size:9.5px;margin-top:3px;font-weight:600}
+.wkrow{display:flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:10px 12px;margin-bottom:8px;cursor:pointer}
+.wkrow:active{transform:scale(.985)}
+.wkrow .wl{flex:1;min-width:0}
+.wkrow .wt2{font-size:13px;font-weight:800}
+.wkrow .wr{font-size:11px;color:var(--mut);margin-top:2px}
+.sbadge{flex:none;font-size:11px;font-weight:800;border-radius:12px;padding:4px 10px;border:1px solid var(--line);color:var(--mut)}
+.sbadge.m{background:rgba(76,141,255,.16);color:#8fb8ff;border-color:#2c4d86}
+.sbadge.s{background:rgba(255,159,67,.15);color:var(--warn);border-color:#6b4516}
+.sbadge.u{color:#8f7bff;border-color:#4c3fd6;background:rgba(109,92,255,.14)}
+.verd{border-radius:15px;padding:14px;margin-top:12px;font-weight:800;font-size:15px;line-height:1.5}
+.verd.ok{background:rgba(45,212,167,.12);border:1px solid #17614e;color:var(--ok)}
+.verd.warn{background:rgba(255,180,84,.1);border:1px solid #5c4526;color:var(--warn)}
+.verd.bad{background:rgba(255,107,129,.12);border:1px solid #5c2531;color:var(--bad)}
+.vlines{font-size:12.5px;font-weight:600;color:var(--txt);margin-top:8px;line-height:1.7}
+.wkdayrow{display:flex;gap:5px;margin-top:10px}
+
 /* ---------- toast / misc ---------- */
 .toast{position:fixed;bottom:96px;left:50%;transform:translateX(-50%);background:#2a2e55;color:var(--txt);
   border:1px solid var(--line);border-radius:14px;padding:11px 20px;font-size:14px;z-index:90;
@@ -232,8 +272,8 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
     <header>
       <div class="hrow">
         <div class="logo">
-          <img src="icon-planmoi-192.png" alt="" onerror="this.style.display='none'">
-          <div><b>PlanMoi</b><small id="tagline"></small></div>
+          <img src="icon-tempo-192.png" alt="" onerror="this.style.display='none'">
+          <div><b>Tempo</b><small id="tagline"></small></div>
         </div>
         <div class="langs">
           <button data-lang="ar">عربي</button>
@@ -252,6 +292,8 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
       <a class="cpill mail" href="mailto:syrian020@gmail.com"><svg viewBox="0 0 24 24"><path d="M3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13A1.5 1.5 0 0 1 3.5 4m.7 1.9v12.1h15.6V5.9l-7.8 6.24Zm1.6-.9h12.4L12 10.7Z"/></svg><span dir="ltr">syrian020@gmail.com</span></a>
     </div>
 
+    <button class="planbtn" id="btn-plan"><span class="pi">🗓️</span><span><b id="plan-bt"></b><small id="plan-bs"></small></span></button>
+
     <div class="next hidden" id="next-card"></div>
 
     <div class="search"><span>🔍</span><input id="q" type="search"></div>
@@ -261,6 +303,9 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 
   <!-- ============ DETAIL VIEW ============ -->
   <div id="view-detail" class="dview hidden"></div>
+
+  <!-- ============ PLANNING VIEW ============ -->
+  <div id="view-plan" class="dview hidden"></div>
 
   <button class="fab" id="fab" title="+">+</button>
 </div>
@@ -274,6 +319,9 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 <!-- ============ MAP PICKER ============ -->
 <div class="ov mid hidden" id="ov-map"><div class="sheet" id="map-sheet" style="max-width:340px"></div></div>
 
+<!-- ============ WEEK EDITOR ============ -->
+<div class="ov mid hidden" id="ov-week"><div class="sheet" id="week-sheet" style="max-width:420px"></div></div>
+
 <!-- ============ CONFIRM MODAL ============ -->
 <div class="ov mid hidden" id="ov-confirm"><div class="sheet" id="confirm-sheet" style="max-width:340px"></div></div>
 
@@ -286,7 +334,7 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 const I18N = {
   ar: {
     tagline:'مواعيدك، منظّمة بأناقة', search:'ابحث عن موعد…',
-    tabAll:'الكل', tabUp:'قادم', tabOver:'فائت', tabDone:'تم', tabOff:'مُلغى', heroImg:'planmoi-hero-ar.jpg',
+    tabAll:'الكل', tabUp:'قادم', tabOver:'فائت', tabDone:'تم', tabOff:'مُلغى', heroImg:'tempo-hero-ar.jpg',
     empty:'لا مواعيد بعد', emptyHint:'اضغط + لإضافة أول موعد',
     next:'الموعد القادم',
     newAppt:'موعد جديد', editAppt:'تعديل الموعد',
@@ -302,7 +350,7 @@ const I18N = {
     save:'حفظ', cancel:'إلغاء', del:'حذف', edit:'تعديل',
     markDone:'تم ✓', markOff:'إلغاء الموعد', markUp:'إعادة كقادم',
     delConfirm:'حذف هذا الموعد نهائياً؟', yes:'نعم، احذف', no:'تراجع',
-    exitTitle:'الخروج من PlanMoi؟', exitYes:'خروج', exitNo:'بقاء',
+    exitTitle:'الخروج من Tempo؟', exitYes:'خروج', exitNo:'بقاء',
     stUp:'قادم', stOver:'فائت', stDone:'تم', stOff:'مُلغى',
     today:'اليوم', tomorrow:'غداً', now:'الآن',
     daysLeft:d=> d===1?'باقي يوم واحد': d===2?'باقي يومان': d<=10?`باقي ${d} أيام`:`باقي ${d} يوماً`,
@@ -320,7 +368,7 @@ const I18N = {
     needFields:'أدخل العنوان والتاريخ والوقت',
     cats:{health:'🩺 صحة',admin:'📋 إدارة',work:'💼 عمل',personal:'👤 شخصي',study:'📚 دراسة',other:'📌 أخرى'},
     notifBody24:m=>`غداً: ${m}`, notifBody12:m=>`بعد ١٢ ساعة: ${m}`, notifBody2:m=>`قريباً بعد ساعتين: ${m}`, notifBody0:m=>`حان الموعد الآن: ${m}`,
-    notifTitle:'⏰ تذكير بموعد', alarmPerm:'فعّل «المنبهات والتذكيرات» لـ PlanMoi حتى ترن الإشعارات بوقتها',
+    notifTitle:'⏰ تذكير بموعد', alarmPerm:'فعّل «المنبهات والتذكيرات» لـ Tempo حتى ترن الإشعارات بوقتها',
     cuesCount:n=>`${n} سطر`,
     samples:'نماذج النص المؤقّت', copy:'نسخ', copied:'تم النسخ',
     lFr:'الفرنسية', lAr:'العربية', lEn:'الإنجليزية',
@@ -331,10 +379,25 @@ const I18N = {
     aiPrompt:o=>`العبارة بال${o.sl}: "${o.text}"\n1) ترجم كل كلمة على حدة إلى ${o.l1} و${o.l2}.\n2) اشرح قاعدة اللغة (تصريف الفعل، التركيب، أو التعبير) المستخدمة في العبارة.\n3) قدّم محادثة قصيرة عملية بالفرنسية والعربية والإنجليزية تستخدم هذه العبارة لتسهيل حفظها.\nالإخراج بالفرنسية والعربية والإنجليزية.`,
     back:'‹ رجوع',
     daysShort:'يوم',
+    planBtn:'جدول عملي', planBtnSub:'التناوب الأسبوعي + تحقق من توافق المواعيد',
+    planTitle:'جدول العمل', planSub:'حدّد دوام هالأسبوع — الأسابيع الجاية بتنحسب بالتناوب تلقائياً',
+    wkThis:'دوام هالأسبوع:', wkNow:'الحالي',
+    shMatin:'صباحي', shSoir:'مسائي', shRepos:'راحة',
+    workDays:'أيام الدوام', workDaysHint:'كبس اليوم للتبديل بين دوام وراحة',
+    weeksNext:'الأسابيع الجاية', weeksHint:'كبس أسبوع لتعديله — وبالداخل كبس يوم لتغييره',
+    wkAuto:'↺ تلقائي', wkCustom:'معدّل',
+    dayHint:'كبس يوم لتغييره: صباحي ← مسائي ← راحة ← تلقائي',
+    chkTitle:'تحقق من موعد', cDate:'التاريخ', cTime:'الوقت', cDur:'المدة', cOrg:'الجهة',
+    cOrgPh:'France Travail / مستشفى / طبيب…', cTravel:'وقت الطريق لكل اتجاه',
+    chkGo:'تحقق', chkNeed:'أدخل تاريخ ووقت الموعد', trvNone:'بدون',
+    vOk:'متوافق مع دوامك', vWarn:'للتحقق — يلامس حدود الدوام', vConflict:'تعارض مع دوام العمل',
+    vRest:'راحة', vNoPlan:'الدوام غير محدد لهالأسبوع',
+    vAppt:s=>`الموعد ${s}`, vTrav:s=>`مع الطريق ${s}`, vAtShift:s=>`دوام ${s}`,
+    menuPlan:'🗓️ جدول عملي',
   },
   fr: {
     tagline:'Vos rendez-vous, en toute élégance', search:'Rechercher un rendez-vous…',
-    tabAll:'Tous', tabUp:'À venir', tabOver:'Passés', tabDone:'Fait', tabOff:'Annulé', heroImg:'planmoi-hero-fr.jpg',
+    tabAll:'Tous', tabUp:'À venir', tabOver:'Passés', tabDone:'Fait', tabOff:'Annulé', heroImg:'tempo-hero-fr.jpg',
     empty:'Aucun rendez-vous', emptyHint:'Touchez + pour en ajouter un',
     next:'Prochain rendez-vous',
     newAppt:'Nouveau rendez-vous', editAppt:'Modifier le rendez-vous',
@@ -350,7 +413,7 @@ const I18N = {
     save:'Enregistrer', cancel:'Annuler', del:'Supprimer', edit:'Modifier',
     markDone:'Marquer fait ✓', markOff:'Annuler le RDV', markUp:'Remettre à venir',
     delConfirm:'Supprimer ce rendez-vous ?', yes:'Oui, supprimer', no:'Retour',
-    exitTitle:'Quitter PlanMoi ?', exitYes:'Quitter', exitNo:'Rester',
+    exitTitle:'Quitter Tempo ?', exitYes:'Quitter', exitNo:'Rester',
     stUp:'À venir', stOver:'Passé', stDone:'Fait', stOff:'Annulé',
     today:'Aujourd\'hui', tomorrow:'Demain', now:'Maintenant',
     daysLeft:d=> d<=1?'dans 1 jour':`dans ${d} jours`,
@@ -368,7 +431,7 @@ const I18N = {
     needFields:'Titre, date et heure requis',
     cats:{health:'🩺 Santé',admin:'📋 Admin',work:'💼 Travail',personal:'👤 Perso',study:'📚 Études',other:'📌 Autre'},
     notifBody24:m=>`Demain : ${m}`, notifBody12:m=>`Dans 12 h : ${m}`, notifBody2:m=>`Dans 2 h : ${m}`, notifBody0:m=>`C'est l'heure : ${m}`,
-    notifTitle:'⏰ Rappel de rendez-vous', alarmPerm:'Autorisez «Alarmes et rappels» pour PlanMoi pour recevoir les notifications à l\'heure',
+    notifTitle:'⏰ Rappel de rendez-vous', alarmPerm:'Autorisez «Alarmes et rappels» pour Tempo pour recevoir les notifications à l\'heure',
     cuesCount:n=>`${n} lignes`,
     samples:'Exemples de texte minuté', copy:'Copier', copied:'Copié',
     lFr:'français', lAr:'arabe', lEn:'anglais',
@@ -379,10 +442,25 @@ const I18N = {
     aiPrompt:o=>`Phrase en ${o.sl} : "${o.text}"\n1) Traduisez chaque mot individuellement en ${o.l1} et en ${o.l2}.\n2) Expliquez la règle de grammaire (conjugaison, structure ou expression) utilisée dans cette phrase.\n3) Proposez une courte conversation pratique en français, arabe et anglais utilisant cette phrase.\nRéponse en français, arabe et anglais.`,
     back:'‹ Retour',
     daysShort:'j',
+    planBtn:'Mon planning de travail', planBtnSub:'Alternance hebdo + vérification des RDV',
+    planTitle:'Mon planning', planSub:'Réglez cette semaine — les suivantes alternent automatiquement',
+    wkThis:'Cette semaine :', wkNow:'en cours',
+    shMatin:'MATIN', shSoir:'SOIR', shRepos:'REPOS',
+    workDays:'Jours travaillés', workDaysHint:'Touchez un jour pour basculer travail/repos',
+    weeksNext:'Semaines suivantes', weeksHint:'Touchez une semaine pour la modifier, puis un jour',
+    wkAuto:'↺ Auto', wkCustom:'Modifiée',
+    dayHint:'Touchez un jour : matin → soir → repos → auto',
+    chkTitle:'Vérifier un rendez-vous', cDate:'Date', cTime:'Heure', cDur:'Durée', cOrg:'Organisme',
+    cOrgPh:'France Travail / Hôpital / Médecin…', cTravel:'Trajet (par sens)',
+    chkGo:'Vérifier', chkNeed:'Date et heure requises', trvNone:'Aucun',
+    vOk:'RENDEZ-VOUS COMPATIBLE', vWarn:'À VÉRIFIER — touche les horaires de travail', vConflict:'CONFLIT AVEC LE TRAVAIL',
+    vRest:'Repos', vNoPlan:'Horaire non défini cette semaine',
+    vAppt:s=>`RDV ${s}`, vTrav:s=>`avec trajet ${s}`, vAtShift:s=>`Travail ${s}`,
+    menuPlan:'🗓️ Mon planning',
   },
   en: {
     tagline:'Your appointments, elegantly organized', search:'Search appointments…',
-    tabAll:'All', tabUp:'Upcoming', tabOver:'Overdue', tabDone:'Done', tabOff:'Cancelled', heroImg:'planmoi-hero-en.jpg',
+    tabAll:'All', tabUp:'Upcoming', tabOver:'Overdue', tabDone:'Done', tabOff:'Cancelled', heroImg:'tempo-hero-en.jpg',
     empty:'No appointments yet', emptyHint:'Tap + to add your first one',
     next:'Next appointment',
     newAppt:'New appointment', editAppt:'Edit appointment',
@@ -398,7 +476,7 @@ const I18N = {
     save:'Save', cancel:'Cancel', del:'Delete', edit:'Edit',
     markDone:'Mark done ✓', markOff:'Cancel appointment', markUp:'Back to upcoming',
     delConfirm:'Delete this appointment?', yes:'Yes, delete', no:'Back',
-    exitTitle:'Exit PlanMoi?', exitYes:'Exit', exitNo:'Stay',
+    exitTitle:'Exit Tempo?', exitYes:'Exit', exitNo:'Stay',
     stUp:'Upcoming', stOver:'Overdue', stDone:'Done', stOff:'Cancelled',
     today:'Today', tomorrow:'Tomorrow', now:'Now',
     daysLeft:d=> d<=1?'in 1 day':`in ${d} days`,
@@ -416,7 +494,7 @@ const I18N = {
     needFields:'Title, date and time are required',
     cats:{health:'🩺 Health',admin:'📋 Admin',work:'💼 Work',personal:'👤 Personal',study:'📚 Study',other:'📌 Other'},
     notifBody24:m=>`Tomorrow: ${m}`, notifBody12:m=>`In 12 h: ${m}`, notifBody2:m=>`In 2 h: ${m}`, notifBody0:m=>`It's time: ${m}`,
-    notifTitle:'⏰ Appointment reminder', alarmPerm:'Allow «Alarms & reminders» for PlanMoi so notifications ring on time',
+    notifTitle:'⏰ Appointment reminder', alarmPerm:'Allow «Alarms & reminders» for Tempo so notifications ring on time',
     cuesCount:n=>`${n} lines`,
     samples:'Timed text samples', copy:'Copy', copied:'Copied',
     lFr:'French', lAr:'Arabic', lEn:'English',
@@ -427,12 +505,27 @@ const I18N = {
     aiPrompt:o=>`${o.sl} phrase: "${o.text}"\n1) Translate each word individually into ${o.l1} and ${o.l2}.\n2) Explain the grammar rule (verb conjugation, structure, or expression) used in this phrase.\n3) Provide a short practical conversation in French, Arabic and English using this phrase.\nOutput in French, Arabic and English.`,
     back:'‹ Back',
     daysShort:'d',
+    planBtn:'My work schedule', planBtnSub:'Weekly alternation + appointment check',
+    planTitle:'Work schedule', planSub:'Set this week — future weeks alternate automatically',
+    wkThis:'This week:', wkNow:'current',
+    shMatin:'MORNING', shSoir:'EVENING', shRepos:'OFF',
+    workDays:'Working days', workDaysHint:'Tap a day to toggle work/rest',
+    weeksNext:'Coming weeks', weeksHint:'Tap a week to edit it, then tap a day',
+    wkAuto:'↺ Auto', wkCustom:'Edited',
+    dayHint:'Tap a day: morning → evening → off → auto',
+    chkTitle:'Check an appointment', cDate:'Date', cTime:'Time', cDur:'Duration', cOrg:'Organisation',
+    cOrgPh:'France Travail / Hospital / Doctor…', cTravel:'Travel time (each way)',
+    chkGo:'Check', chkNeed:'Date and time required', trvNone:'None',
+    vOk:'APPOINTMENT COMPATIBLE', vWarn:'CHECK — touches work hours', vConflict:'CONFLICT WITH WORK',
+    vRest:'Off', vNoPlan:'No schedule set for that week',
+    vAppt:s=>`Appt ${s}`, vTrav:s=>`with travel ${s}`, vAtShift:s=>`Work ${s}`,
+    menuPlan:'🗓️ Work schedule',
   }
 };
 const CAT_KEYS=['health','admin','work','personal','study','other'];
 
 /* ==================== state ==================== */
-const LS_KEY='planmoi_appts', LS_LANG='planmoi_lang', LS_FIRED='planmoi_fired';
+const LS_KEY='tempo_appts', LS_LANG='tempo_lang', LS_FIRED='tempo_fired';
 let appts=[], lang='ar', tab='upcoming', query='', view='list', detailId=null;
 let editingId=null, pendingAudio=null; // {name,dataUrl}
 let selectMode=false;const selSet=new Set();
@@ -446,6 +539,7 @@ const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 function load(){
   try{appts=JSON.parse(localStorage.getItem(LS_KEY)||'[]')}catch(e){appts=[]}
   lang=localStorage.getItem(LS_LANG)||'ar';
+  planLoad();
 }
 function save(){try{localStorage.setItem(LS_KEY,JSON.stringify(appts))}catch(e){toast('⚠️ '+e.message)}}
 function firedSet(){try{return new Set(JSON.parse(localStorage.getItem(LS_FIRED)||'[]'))}catch(e){return new Set()}}
@@ -455,7 +549,7 @@ function markFired(k){const s=firedSet();s.add(k);try{localStorage.setItem(LS_FI
 let idb=null;
 function db(){return new Promise((res,rej)=>{
   if(idb)return res(idb);
-  const r=indexedDB.open('planmoi',1);
+  const r=indexedDB.open('tempo',1);
   r.onupgradeneeded=()=>r.result.createObjectStore('audio');
   r.onsuccess=()=>{idb=r.result;res(idb)};
   r.onerror=()=>rej(r.error);
@@ -695,9 +789,9 @@ async function cancelReminders(a){
 }
 async function ensureChannel(){
   const p=LN();if(!p||!p.createChannel)return;
-  try{if(p.deleteChannel)await p.deleteChannel({id:'planmoi-alerts'});}catch(e){}
-  try{await p.createChannel({id:'planmoi-alerts-v2',name:'PlanMoi reminders',description:'Appointment reminders',
-    importance:5,visibility:1,lights:true,vibration:true,sound:'planmoi_alert'});}catch(e){}
+  try{if(p.deleteChannel)await p.deleteChannel({id:'tempo-alerts'});}catch(e){}
+  try{await p.createChannel({id:'tempo-alerts-v2',name:'Tempo reminders',description:'Appointment reminders',
+    importance:5,visibility:1,lights:true,vibration:true,sound:'tempo_alert'});}catch(e){}
 }
 async function scheduleReminders(a){
   const p=LN();if(!p)return;
@@ -717,7 +811,7 @@ async function scheduleReminders(a){
     const b=nidBase(a.id);const list=[];
     offs.forEach((o,i)=>{
       const at=when-o;
-      if(at>Date.now()+15e3)list.push({id:b+i,title:t('notifTitle'),body:bodies[i](a.title),channelId:'planmoi-alerts-v2',sound:'planmoi_alert',schedule:{at:new Date(at)}});
+      if(at>Date.now()+15e3)list.push({id:b+i,title:t('notifTitle'),body:bodies[i](a.title),channelId:'tempo-alerts-v2',sound:'tempo_alert',schedule:{at:new Date(at)}});
     });
     if(list.length)await p.schedule({notifications:list});
   }catch(e){console.error('schedule',e);}
@@ -746,7 +840,7 @@ setInterval(()=>{
         markFired(key);notifBeep();
         const msg=t(k)(a.title);
         if('Notification' in window&&Notification.permission==='granted'){
-          try{new Notification(t('notifTitle'),{body:msg,icon:'icon-planmoi-192.png'});}catch(e){toast(msg);}
+          try{new Notification(t('notifTitle'),{body:msg,icon:'icon-tempo-192.png'});}catch(e){toast(msg);}
         }else toast('⏰ '+msg);
       }
     });
@@ -999,6 +1093,7 @@ async function renderDetail(){
       ${(a.place||a.address)?`<div class="maprow" style="margin-top:14px">
         <a class="gm" href="#" data-map="pick">🗺️ ${t('mapChoose')}</a>
         <a class="cm" href="#" data-map="g">🔍 Google Maps</a></div>`:''}
+      <div class="maprow" style="margin-top:9px"><a href="#" data-chk="1">✅ ${t('chkTitle')}</a></div>
     </div>
     <div class="dcard">
       <div style="font-weight:800;margin-bottom:10px">🎙️ ${t('audioTitle')}</div>
@@ -1040,6 +1135,8 @@ async function renderDetail(){
   el.querySelectorAll('[data-map]').forEach(b=>b.onclick=e=>{
     e.preventDefault();
     if(b.dataset.map==='pick')openMapPick(a);else openGmapsSearch(a);});
+  const chkB=el.querySelector('[data-chk]');
+  if(chkB)chkB.onclick=e=>{e.preventDefault();openPlan({date:a.date,time:a.time,org:a.place||a.title});};
   el.querySelectorAll('#cues .cue').forEach(cEl=>{
     cEl.addEventListener('click',e=>{
       const i=+cEl.dataset.i;const c=cues[i];
@@ -1159,14 +1256,14 @@ function collectSettings(){
 }
 async function exportData(src){
   const items=src||appts;
-  const out={app:'PlanMoi',version:1,exportedAt:new Date().toISOString(),settings:collectSettings(),appts:[]};
+  const out={app:'Tempo',version:1,exportedAt:new Date().toISOString(),settings:collectSettings(),appts:[]};
   for(const a of items){
     const c={...a};const au=await audioGet(a.id).catch(()=>null);
     if(au)c.audioDataUrl=await blobToDataUrl(au.blob);
     out.appts.push(c);
   }
   const blob=new Blob([JSON.stringify(out,null,1)],{type:'application/json'});
-  const name='planmoi-backup-'+new Date().toISOString().slice(0,10)+'.json';
+  const name='tempo-backup-'+new Date().toISOString().slice(0,10)+'.json';
   const FS=window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.Filesystem;
   const SH=window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.Share;
   if(FS&&SH){
@@ -1222,6 +1319,7 @@ async function renderMenu(){
     <button data-tm="expsel">${t('menuExpSel')}</button>
     <button data-tm="import">${t('menuImport')}</button>
     <button data-tm="voice">${t('menuVoice')}</button>
+    <button data-tm="plan">${t('menuPlan')}</button>
     <button data-tm="notif">${notifOn?t('menuNotifOn'):t('menuNotifOff')}</button>`;
   m.querySelectorAll('[data-tm]').forEach(b=>b.onclick=async()=>{
     m.classList.add('hidden');
@@ -1229,6 +1327,7 @@ async function renderMenu(){
     if(k==='export')exportData();
     else if(k==='expsel')enterSelectMode();
     else if(k==='import')importData();
+    else if(k==='plan')openPlan();
     else if(k==='voice'&&window.EdgeTTS)window.EdgeTTS.openSettings();
     else if(k==='notif'){
       if(p){try{await p.requestPermissions();await rescheduleAll();renderMenu();}catch(e){}}
@@ -1260,12 +1359,220 @@ function renderSelBar(){
   };
 }
 
+/* ==================== work planning ==================== */
+const LS_PLAN='tempo_plan';
+let plan={}, planFrom='list', chkPrefill=null;
+const SHIFTS={matin:[360,840],soir:[840,1380]}; // minutes: 06:00–14:00 / 14:00–23:00
+const DAY_ORDER=[1,2,3,4,5,6,0];
+function planLoad(){
+  try{plan=JSON.parse(localStorage.getItem(LS_PLAN)||'{}')}catch(e){plan={}}
+  if(!plan||typeof plan!=='object')plan={};
+  if(!Array.isArray(plan.workDays))plan.workDays=[1,2,3,4,5];
+  if(!plan.weekOv||typeof plan.weekOv!=='object')plan.weekOv={};
+  if(!plan.dayOv||typeof plan.dayOv!=='object')plan.dayOv={};
+  if(typeof plan.travel!=='number')plan.travel=30;
+  if(typeof plan.dur!=='number')plan.dur=60;
+}
+function planSave(){try{localStorage.setItem(LS_PLAN,JSON.stringify(plan))}catch(e){}}
+const pad2=n=>String(n).padStart(2,'0');
+const isoD=d=>d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());
+const addDays=(d,n)=>new Date(d.getFullYear(),d.getMonth(),d.getDate()+n);
+function mondayOf(d){const x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()-((x.getDay()+6)%7));return x;}
+function mondayISO(dateISO){return isoD(mondayOf(new Date(dateISO+'T12:00')));}
+function weeksDiff(a,b){return Math.round((new Date(b+'T12:00')-new Date(a+'T12:00'))/6048e5);}
+const fmtMin=m=>pad2(Math.floor(m/60))+':'+pad2(m%60);
+const dtLoc=()=>lang==='ar'?'ar':lang==='fr'?'fr-FR':'en-GB';
+const dFmt=o=>new Intl.DateTimeFormat(dtLoc(),o);
+const fmtDay=iso=>dFmt({weekday:'short',day:'numeric',month:'short'}).format(new Date(iso+'T12:00'));
+const fmtWeekDay=iso=>dFmt({weekday:'short'}).format(new Date(iso+'T12:00'));
+function dayName(gd){return dFmt({weekday:'short'}).format(new Date(2024,0,1+((gd+6)%7)));} // 2024-01-01 = Monday
+function weekType(monISO){
+  if(plan.weekOv[monISO])return plan.weekOv[monISO];
+  if(!plan.anchor)return null;
+  const p=((weeksDiff(plan.anchor.week,monISO)%2)+2)%2;
+  return p===0?plan.anchor.type:(plan.anchor.type==='matin'?'soir':'matin');
+}
+function dayType(dateISO){
+  if(plan.dayOv[dateISO])return plan.dayOv[dateISO];
+  const wt=weekType(mondayISO(dateISO));
+  if(wt!=='matin'&&wt!=='soir')return wt; // 'repos' or null (unset)
+  return plan.workDays.includes(new Date(dateISO+'T12:00').getDay())?wt:'repos';
+}
+const shName=ty=>ty==='matin'?t('shMatin'):ty==='soir'?t('shSoir'):t('shRepos');
+const shHours=ty=>SHIFTS[ty]?fmtMin(SHIFTS[ty][0])+'–'+fmtMin(SHIFTS[ty][1]):'';
+const shCls=ty=>ty==='matin'?'m':ty==='soir'?'s':ty==='repos'?'r':'u';
+function durLab(m){
+  if(m<60)return lang==='ar'?`${m} د`:`${m} min`;
+  const h=m/60;
+  if(lang==='ar')return h===1?'ساعة':h===1.5?'ساعة ونص':h===2?'ساعتان':`${h} ساعات`;
+  const hh=Math.floor(h),mm=m%60;
+  return mm?`${hh} h ${mm}`:`${hh} h`;
+}
+function setThisWeek(ty){
+  const mon=isoD(mondayOf(new Date()));
+  if(ty==='repos'){plan.weekOv[mon]='repos';}
+  else{
+    plan.anchor={week:mon,type:ty};delete plan.weekOv[mon];
+    // future overrides belong to the old rhythm — drop them
+    for(const k of Object.keys(plan.weekOv))if(k>=mon)delete plan.weekOv[k];
+    for(const k of Object.keys(plan.dayOv))if(k>=mon)delete plan.dayOv[k];
+  }
+  planSave();renderPlan();
+}
+function apptCheck(dateISO,timeHM,durMin,travMin){
+  if(!dateISO||!timeHM)return null;
+  const start=new Date(dateISO+'T'+timeHM+':00').getTime();
+  if(isNaN(start))return null;
+  const end=start+durMin*60000, ws=start-travMin*60000, we=end+travMin*60000;
+  const days=[];const d0=new Date(ws);d0.setHours(0,0,0,0);
+  for(let d=new Date(d0);d.getTime()<=we;d.setDate(d.getDate()+1))days.push(isoD(d));
+  let unknown=false,coreHit=false,marginHit=false;
+  const infos=days.map(di=>{
+    const ty=dayType(di);const inf={date:di,type:ty};
+    if(ty==null){unknown=true;return inf;}
+    if(ty==='repos')return inf;
+    const sh=SHIFTS[ty];const base=new Date(di+'T00:00').getTime();
+    inf.range=[base+sh[0]*60000,base+sh[1]*60000];
+    if(inf.range[0]<end&&inf.range[1]>start)coreHit=true;
+    else if(inf.range[0]<we&&inf.range[1]>ws)marginHit=true;
+    return inf;
+  });
+  return {verdict:coreHit?'conflict':(marginHit||unknown)?'warn':'ok',infos,start,end,ws,we};
+}
+function openPlan(pre){
+  planFrom=view;view='plan';if(pre)chkPrefill=pre;
+  $('#view-list').classList.add('hidden');$('#view-detail').classList.add('hidden');$('#fab').classList.add('hidden');
+  renderPlan();$('#view-plan').classList.remove('hidden');window.scrollTo(0,0);
+}
+function closePlan(){
+  $('#view-plan').classList.add('hidden');chkPrefill=null;
+  if(planFrom==='detail'&&detailId){view='detail';$('#view-detail').classList.remove('hidden');}
+  else{view='list';$('#view-list').classList.remove('hidden');$('#fab').classList.remove('hidden');renderAll();}
+}
+function renderPlan(){
+  const el=$('#view-plan');
+  const curMon=isoD(mondayOf(new Date()));
+  const curTy=weekType(curMon);
+  const wks=[];
+  for(let i=0;i<12;i++){
+    const mi=isoD(addDays(mondayOf(new Date()),i*7));
+    const sun=isoD(addDays(new Date(mi+'T12:00'),6));
+    const custom=!!(plan.weekOv[mi]||Object.keys(plan.dayOv).some(d=>mondayISO(d)===mi));
+    wks.push({mi,sun,ty:weekType(mi),custom,now:i===0});
+  }
+  el.innerHTML=`
+    <header><div class="hrow">
+      <button class="icon-btn" id="p-back">‹</button>
+      <h1 style="flex:1;font-size:18px">🗓️ ${t('planTitle')}</h1>
+    </div></header>
+    <div class="dcard">
+      <div style="font-weight:800;margin-bottom:9px">${t('wkThis')}
+        <span class="sbadge ${shCls(curTy)}">${curTy?shName(curTy)+(SHIFTS[curTy]?' '+shHours(curTy):''):'…'}</span></div>
+      <div class="shiftrow">
+        <button class="shiftbtn ${curTy==='matin'?'on-m':''}" data-sh="matin">🟦 ${t('shMatin')}<br><small>06:00–14:00</small></button>
+        <button class="shiftbtn ${curTy==='soir'?'on-s':''}" data-sh="soir">🟧 ${t('shSoir')}<br><small>14:00–23:00</small></button>
+        <button class="shiftbtn ${curTy==='repos'?'on-r':''}" data-sh="repos">⚪ ${t('shRepos')}</button>
+      </div>
+      <div class="hint">${t('planSub')}</div>
+    </div>
+    <div class="dcard">
+      <div style="font-weight:800;margin-bottom:8px">📆 ${t('workDays')}</div>
+      <div class="dayrow">${DAY_ORDER.map(g=>`<button class="dchip ${plan.workDays.includes(g)?'work':'off'}" data-gd="${g}">${dayName(g)}</button>`).join('')}</div>
+      <div class="hint">${t('workDaysHint')}</div>
+    </div>
+    <div class="dcard">
+      <div style="font-weight:800;margin-bottom:8px">✅ ${t('chkTitle')}</div>
+      <div class="f-row">
+        <div><div class="f-lab">${t('cDate')}</div><input class="f-in" id="p-date" type="date" value="${chkPrefill?chkPrefill.date:''}"></div>
+        <div><div class="f-lab">${t('cTime')}</div><input class="f-in" id="p-time" type="time" value="${chkPrefill?chkPrefill.time:''}"></div>
+      </div>
+      <div class="f-row">
+        <div><div class="f-lab">${t('cDur')}</div><select id="p-dur">${[30,45,60,90,120,180].map(m=>`<option value="${m}" ${m===plan.dur?'selected':''}>${durLab(m)}</option>`).join('')}</select></div>
+        <div><div class="f-lab">${t('cTravel')}</div><select id="p-trav">${[0,15,30,45,60].map(m=>`<option value="${m}" ${m===plan.travel?'selected':''}>${m?durLab(m):t('trvNone')}</option>`).join('')}</select></div>
+      </div>
+      <div class="f-lab">${t('cOrg')}</div>
+      <input class="f-in" id="p-org" value="${esc(chkPrefill?(chkPrefill.org||''):'')}" placeholder="${esc(t('cOrgPh'))}">
+      <div class="btnrow"><button class="btn btn-pri" id="p-go">✅ ${t('chkGo')}</button></div>
+      <div id="p-res"></div>
+    </div>
+    <div class="dcard">
+      <div style="font-weight:800;margin-bottom:8px">🗓️ ${t('weeksNext')}</div>
+      ${wks.map(w=>`<div class="wkrow" data-wk="${w.mi}">
+        <div class="wl"><div class="wt2">${fmtDay(w.mi)} – ${fmtDay(w.sun)}${w.now?' · '+t('wkNow'):''}</div>
+        <div class="wr">${w.custom?('✎ '+t('wkCustom')):t('wkAuto')}</div></div>
+        <span class="sbadge ${shCls(w.ty)}">${w.ty?shName(w.ty):'…'}</span>
+      </div>`).join('')}
+      <div class="hint">${t('weeksHint')}</div>
+    </div>`;
+  $('#p-back').onclick=closePlan;
+  el.querySelectorAll('[data-sh]').forEach(b=>b.onclick=()=>setThisWeek(b.dataset.sh));
+  el.querySelectorAll('[data-gd]').forEach(b=>b.onclick=()=>{
+    const g=+b.dataset.gd;const i=plan.workDays.indexOf(g);
+    if(i>=0)plan.workDays.splice(i,1);else plan.workDays.push(g);
+    planSave();renderPlan();});
+  $('#p-go').onclick=runCheck;
+  el.querySelectorAll('[data-wk]').forEach(r=>r.onclick=()=>openWeekSheet(r.dataset.wk));
+  if(chkPrefill){chkPrefill=null;runCheck();}
+}
+function runCheck(){
+  const d=$('#p-date').value,tm=$('#p-time').value;
+  if(!d||!tm){toast('⚠️ '+t('chkNeed'));return;}
+  plan.dur=+$('#p-dur').value;plan.travel=+$('#p-trav').value;planSave();
+  const r=apptCheck(d,tm,plan.dur,plan.travel);
+  if(!r)return;
+  const icons={ok:'🟢',warn:'🟠',conflict:'🔴'};
+  const cls={ok:'ok',warn:'warn',conflict:'bad'};
+  const lbl={ok:'vOk',warn:'vWarn',conflict:'vConflict'}[r.verdict];
+  const hhmm=ms=>{const x=new Date(ms);return pad2(x.getHours())+':'+pad2(x.getMinutes());};
+  const lines=r.infos.map(inf=>{
+    const s=inf.type==null?t('vNoPlan'):inf.type==='repos'?t('vRest'):t('vAtShift')(shHours(inf.type));
+    return `📅 ${fmtDay(inf.date)} — ${s}`;
+  });
+  lines.push('🕐 '+t('vAppt')(hhmm(r.start)+'–'+hhmm(r.end))+' · '+t('vTrav')(hhmm(r.ws)+'–'+hhmm(r.we)));
+  $('#p-res').innerHTML=`<div class="verd ${cls[r.verdict]}">${icons[r.verdict]} ${t(lbl)}<div class="vlines">${lines.join('<br>')}</div></div>`;
+}
+function cycleDay(di){
+  const ov=plan.dayOv[di];
+  if(!ov){const eff=dayType(di)||'repos';plan.dayOv[di]={matin:'soir',soir:'repos',repos:'matin'}[eff];}
+  else{const nx={matin:'soir',soir:'repos',repos:null}[ov];if(nx)plan.dayOv[di]=nx;else delete plan.dayOv[di];}
+}
+function openWeekSheet(monISO){
+  const days=Array.from({length:7},(_,i)=>isoD(addDays(new Date(monISO+'T12:00'),i)));
+  const ty=weekType(monISO);
+  const s=$('#week-sheet');
+  s.innerHTML=`<h2>🗓️ ${fmtDay(monISO)} – ${fmtDay(days[6])}</h2>
+    <div class="shiftrow">
+      <button class="shiftbtn ${ty==='matin'?'on-m':''}" data-sh="matin">${t('shMatin')}<br><small>06–14</small></button>
+      <button class="shiftbtn ${ty==='soir'?'on-s':''}" data-sh="soir">${t('shSoir')}<br><small>14–23</small></button>
+      <button class="shiftbtn ${ty==='repos'?'on-r':''}" data-sh="repos">${t('shRepos')}</button>
+      <button class="shiftbtn" data-sh="auto">${t('wkAuto')}</button>
+    </div>
+    <div class="wkdayrow wdaysheet">${days.map(di=>{
+      const dt=dayType(di);const ov=!!plan.dayOv[di];
+      const cl=dt==='matin'?'dm':dt==='soir'?'ds':'dr';
+      return `<button class="dchip ${cl}" data-day="${di}">${fmtWeekDay(di)} ${+di.slice(8)}<span class="dt">${dt?shName(dt):'…'}${ov?' ✎':''}</span></button>`;
+    }).join('')}</div>
+    <div class="hint" style="margin-top:9px">${t('dayHint')}</div>
+    <div class="btnrow"><button class="btn btn-ghost" id="wk-close">${t('cancel')}</button></div>`;
+  s.querySelectorAll('[data-sh]').forEach(b=>b.onclick=()=>{
+    const v=b.dataset.sh;
+    if(v==='auto'){delete plan.weekOv[monISO];days.forEach(di=>delete plan.dayOv[di]);}
+    else plan.weekOv[monISO]=v;
+    planSave();openWeekSheet(monISO);renderPlan();});
+  s.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>{
+    cycleDay(b.dataset.day);planSave();openWeekSheet(monISO);renderPlan();});
+  $('#wk-close').onclick=()=>{$('#ov-week').classList.add('hidden');renderPlan();};
+  $('#ov-week').classList.remove('hidden');
+}
+
 /* ==================== render all ==================== */
 function applyLang(){
   document.documentElement.lang=lang;
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
   $('#tagline').textContent=t('tagline');
   $('#q').placeholder=t('search');
+  $('#plan-bt').textContent=t('planBtn');
+  $('#plan-bs').textContent=t('planBtnSub');
   document.querySelectorAll('.langs button').forEach(b=>b.classList.toggle('on',b.dataset.lang===lang));
 }
 function renderAll(){applyLang();
@@ -1276,8 +1583,9 @@ function renderAll(){applyLang();
 /* ==================== events ==================== */
 document.querySelectorAll('.langs button').forEach(b=>b.onclick=()=>{
   lang=b.dataset.lang;try{localStorage.setItem(LS_LANG,lang);}catch(e){}
-  view==='detail'?renderDetail():renderAll();renderMenu();
+  if(view==='detail')renderDetail();else if(view==='plan')renderPlan();else renderAll();renderMenu();
 });
+$('#btn-plan').onclick=()=>openPlan();
 $('#q').addEventListener('input',e=>{query=e.target.value;renderList();});
 $('#tabs').addEventListener('click',e=>{
   const b=e.target.closest('[data-tab]');if(b){tab=b.dataset.tab;renderTabs();renderList();}
@@ -1317,6 +1625,7 @@ document.addEventListener('click',e=>{
 $('#ov-form').addEventListener('click',e=>{if(e.target.id==='ov-form')$('#ov-form').classList.add('hidden');});
 $('#ov-samples').addEventListener('click',e=>{if(e.target.id==='ov-samples')$('#ov-samples').classList.add('hidden');});
 $('#ov-map').addEventListener('click',e=>{if(e.target.id==='ov-map')$('#ov-map').classList.add('hidden');});
+$('#ov-week').addEventListener('click',e=>{if(e.target.id==='ov-week'){$('#ov-week').classList.add('hidden');renderPlan();}});
 $('#fab').onclick=()=>openForm(null);
 
 /* ---------- Android back → exit confirm ---------- */
@@ -1325,6 +1634,8 @@ if(window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.App){
     if(!$('#ov-form').classList.contains('hidden')){$('#ov-form').classList.add('hidden');return;}
     if(!$('#ov-map').classList.contains('hidden')){$('#ov-map').classList.add('hidden');return;}
     if(!$('#ov-samples').classList.contains('hidden')){$('#ov-samples').classList.add('hidden');return;}
+    if(!$('#ov-week').classList.contains('hidden')){$('#ov-week').classList.add('hidden');renderPlan();return;}
+    if(view==='plan'){closePlan();return;}
     if(view==='detail'){closeDetail();return;}
     if(selectMode){exitSelectMode();return;}
     confirmBox(t('exitTitle'),t('exitYes'),t('exitNo'),()=>{
@@ -1338,7 +1649,7 @@ setInterval(()=>{if(view==='list'){renderNext();renderList();}},60000);
 
 /* ==================== init ==================== */
 load();renderAll();renderMenu();
-if('serviceWorker' in navigator&&!isCap()){try{navigator.serviceWorker.register('sw-planmoi.js');}catch(e){}}
+if('serviceWorker' in navigator&&!isCap()){try{navigator.serviceWorker.register('sw-tempo.js');}catch(e){}}
 rescheduleAll();
 </script>
 </body>

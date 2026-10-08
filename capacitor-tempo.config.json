@@ -1,6 +1,6 @@
 {
-  "appId": "com.syrian020.planmoi",
-  "appName": "PlanMoi",
+  "appId": "com.syrian020.tempo",
+  "appName": "Tempo",
   "webDir": "www",
   "server": {
     "androidScheme": "https"

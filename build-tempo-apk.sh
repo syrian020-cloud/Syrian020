@@ -6,14 +6,14 @@ export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform
 
 ROOT=$(pwd)
 
-# Build the Capacitor web assets for PlanMoi
+# Build the Capacitor web assets for Tempo
 rm -rf www
 mkdir -p www/js
 
-cp planmoi.html www/index.html
-cp manifest-planmoi.json www/manifest.json
-cp icon-planmoi-192.png icon-planmoi-512.png sw.js www/
-cp planmoi-hero-*.jpg www/ 2>/dev/null || true
+cp tempo.html www/index.html
+cp manifest-tempo.json www/manifest.json
+cp icon-tempo-192.png icon-tempo-512.png sw.js www/
+cp tempo-hero-*.jpg www/ 2>/dev/null || true
 cp js/edge-tts.js www/js/
 
 # Optional: use Aliyun mirrors to avoid Maven Central rate-limiting in some regions
@@ -23,9 +23,9 @@ if [ "$USE_ALIYUN" = "1" ] && [ -f "$ROOT/init.gradle" ]; then
   GRADLE_INIT="--init-script ../init.gradle"
 fi
 
-# Swap Capacitor config for the PlanMoi package and restore after build
+# Swap Capacitor config for the Tempo package and restore after build
 cp "$ROOT/capacitor.config.json" "$ROOT/capacitor.config.json.bak"
-cp "$ROOT/capacitor-planmoi.config.json" "$ROOT/capacitor.config.json"
+cp "$ROOT/capacitor-tempo.config.json" "$ROOT/capacitor.config.json"
 restore_config() {
   cd "$ROOT"
   cp capacitor.config.json.bak capacitor.config.json
@@ -53,8 +53,8 @@ npx cap sync android
 # Ensure the Android launcher label matches the Capacitor appName
 STRINGS="$ROOT/android/app/src/main/res/values/strings.xml"
 if [ -f "$STRINGS" ]; then
-  sed -i 's|<string name="app_name">.*</string>|<string name="app_name">PlanMoi</string>|' "$STRINGS"
-  sed -i 's|<string name="title_activity_main">.*</string>|<string name="title_activity_main">PlanMoi</string>|' "$STRINGS"
+  sed -i 's|<string name="app_name">.*</string>|<string name="app_name">Tempo</string>|' "$STRINGS"
+  sed -i 's|<string name="title_activity_main">.*</string>|<string name="title_activity_main">Tempo</string>|' "$STRINGS"
 fi
 
 # Inject the EdgeTTS native plugin (free Microsoft neural voices over WebSocket)
@@ -106,10 +106,10 @@ if [ -f "$MANIFEST" ]; then
     sed -i 's|<uses-permission|<uses-permission android:name="android.permission.VIBRATE" />\n    <uses-permission|' "$MANIFEST"
 fi
 
-# Notification alert sound for the reminders channel (swap planmoi-alert.mp3 to change it)
+# Notification alert sound for the reminders channel (swap tempo-alert.mp3 to change it)
 RAW_DIR="android/app/src/main/res/raw"
 mkdir -p "$RAW_DIR"
-cp planmoi-alert.mp3 "$RAW_DIR/planmoi_alert.mp3"
+cp tempo-alert.mp3 "$RAW_DIR/tempo_alert.mp3"
 
 if ! grep -q 'squareup.okhttp3' android/app/build.gradle; then
   python3 - <<'PYEOF'
@@ -125,7 +125,7 @@ PYEOF
 fi
 
 # Sync the PWA icon into the Android mipmap launcher icons
-ICON_SRC="$ROOT/icon-planmoi-512.png"
+ICON_SRC="$ROOT/icon-tempo-512.png"
 MIPMAP="$ROOT/android/app/src/main/res"
 if [ -f "$ICON_SRC" ] && command -v convert >/dev/null 2>&1; then
   mkdir -p "$MIPMAP/mipmap-mdpi" "$MIPMAP/mipmap-hdpi" "$MIPMAP/mipmap-xhdpi" "$MIPMAP/mipmap-xxhdpi" "$MIPMAP/mipmap-xxxhdpi"
@@ -149,4 +149,4 @@ fi
 cd android
 ./gradlew $GRADLE_INIT assembleDebug
 
-echo "PlanMoi APK ready at: android/app/build/outputs/apk/debug/app-debug.apk"
+echo "Tempo APK ready at: android/app/build/outputs/apk/debug/app-debug.apk"
