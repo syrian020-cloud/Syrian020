@@ -153,10 +153,20 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 .player audio{flex:1;min-width:0;height:38px}
 .cue{display:flex;gap:9px;align-items:center;padding:9px 10px;border-radius:11px;cursor:pointer;border:1px solid transparent}
 .cue.act{background:rgba(109,92,255,.16);border-color:#4c3fd6}
-.cue .tm{font-size:11.5px;color:var(--acc2);font-weight:800;flex:none;min-width:44px;direction:ltr;text-align:left}
-.cue .tx{flex:1;font-size:14.5px;line-height:1.55}
-.cue .spk{flex:none;background:none;border:0;font-size:16px;cursor:pointer;opacity:.75;padding:2px}
+.cue .tm{font-size:11.5px;color:var(--acc2);font-weight:800;flex:none;min-width:44px;direction:ltr;text-align:left;padding-top:2px}
+.clines{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
+.cline{display:flex;align-items:center;gap:7px}
+.cline .fl{font-size:12px;flex:none}
+.cline .tx{flex:1;font-size:14.5px;line-height:1.55;min-width:0}
+.cue .spk{flex:none;background:none;border:0;font-size:15px;cursor:pointer;opacity:.75;padding:2px}
 .cue .spk.on{opacity:1;filter:drop-shadow(0 0 6px var(--acc2))}
+.smp{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px;margin-bottom:10px}
+.smp-h{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:7px}
+.smp-h b{font-size:13.5px}
+.smp-t{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;color:var(--mut);
+  white-space:pre-wrap;direction:ltr;text-align:left;background:var(--bg);border-radius:9px;padding:9px;line-height:1.7}
+.copybtn{background:var(--card2);border:1px solid var(--line);color:var(--txt);border-radius:9px;
+  padding:5px 10px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
 .notif-state{font-size:12px;color:var(--mut);margin-top:6px}
 
 /* ---------- toast / misc ---------- */
@@ -205,6 +215,9 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 <!-- ============ FORM MODAL ============ -->
 <div class="ov hidden" id="ov-form"><div class="sheet" id="form-sheet"></div></div>
 
+<!-- ============ SAMPLES SHEET ============ -->
+<div class="ov mid hidden" id="ov-samples"><div class="sheet" id="samples-sheet" style="max-width:520px"></div></div>
+
 <!-- ============ CONFIRM MODAL ============ -->
 <div class="ov mid hidden" id="ov-confirm"><div class="sheet" id="confirm-sheet" style="max-width:340px"></div></div>
 
@@ -249,6 +262,7 @@ const I18N = {
     notifBody24:m=>`غداً: ${m}`, notifBody12:m=>`بعد ١٢ ساعة: ${m}`, notifBody2:m=>`قريباً بعد ساعتين: ${m}`,
     notifTitle:'⏰ تذكير بموعد',
     cuesCount:n=>`${n} سطر`,
+    samples:'نماذج النص المؤقّت', copy:'نسخ', copied:'تم النسخ',
     back:'‹ رجوع',
     daysShort:'يوم',
   },
@@ -286,6 +300,7 @@ const I18N = {
     notifBody24:m=>`Demain : ${m}`, notifBody12:m=>`Dans 12 h : ${m}`, notifBody2:m=>`Dans 2 h : ${m}`,
     notifTitle:'⏰ Rappel de rendez-vous',
     cuesCount:n=>`${n} lignes`,
+    samples:'Exemples de texte minuté', copy:'Copier', copied:'Copié',
     back:'‹ Retour',
     daysShort:'j',
   },
@@ -323,6 +338,7 @@ const I18N = {
     notifBody24:m=>`Tomorrow: ${m}`, notifBody12:m=>`In 12 h: ${m}`, notifBody2:m=>`In 2 h: ${m}`,
     notifTitle:'⏰ Appointment reminder',
     cuesCount:n=>`${n} lines`,
+    samples:'Timed text samples', copy:'Copy', copied:'Copied',
     back:'‹ Back',
     daysShort:'d',
   }
@@ -378,17 +394,136 @@ function dataUrlToBlob(u){const[a,b]=u.split(',');const mime=(a.match(/:(.*?);/)
 function blobToDataUrl(b){return new Promise(res=>{const r=new FileReader();r.onload=()=>res(r.result);r.readAsDataURL(b);});}
 
 /* ==================== timed text ==================== */
+/* Supports: MM:SS text | pipe-separated langs | multi-line blocks |
+   MM:SS --> MM:SS | flag lines | FR:/AR:/EN: prefixes | SRT (+pipe) */
+const LANG_FLAGS={fr:'🇫🇷',ar:'🇸🇾',en:'🇺🇸'};
+const SAMPLES=[
+  {ar:'فاصل | بين اللغات',fr:'Séparateur |',en:'Pipe | separator',txt:
+`00:00 Maria, j'ai plus de cigarettes. | ماريا، ما عاد معي دخان. | Maria, I'm out of cigarettes.
+00:02 Donne-moi de l'argent. | أعطيني مصاري. | Give me some money.`},
+  {ar:'متعدد الأسطر',fr:'Multi-lignes',en:'Multi-line',txt:
+`00:00 Maria, j'ai plus de cigarettes.
+ماريا، ما عاد معي دخان.
+Maria, I'm out of cigarettes.
+
+00:02 Donne-moi de l'argent.
+أعطيني مصاري.
+Give me some money.`},
+  {ar:'مجال زمني',fr:'Plage horaire',en:'Time range',txt:
+`00:00 --> 00:03 Maria, j'ai plus de cigarettes.
+ماريا، ما عاد معي دخان.
+Maria, I'm out of cigarettes.`},
+  {ar:'أعلام مع الوقت بنفس السطر',fr:'Drapeaux en ligne',en:'Inline flags',txt:
+`00:00 🇫🇷 Maria, j'ai plus de cigarettes.
+🇸🇾 ماريا، ما عاد معي دخان.
+🇺🇸 Maria, I'm out of cigarettes.`},
+  {ar:'أعلام بسطر منفصل',fr:'Drapeaux en bloc',en:'Flag block',txt:
+`00:00
+🇫🇷 Maria, j'ai plus de cigarettes.
+🇸🇾 ماريا، ما عاد معي دخان.
+🇺🇸 Maria, I'm out of cigarettes.`},
+  {ar:'بادئات اللغة',fr:'Préfixes de langue',en:'Lang prefixes',txt:
+`00:00 FR: Maria, j'ai plus de cigarettes.
+AR: ماريا، ما عاد معي دخان.
+EN: Maria, I'm out of cigarettes.`},
+  {ar:'SRT قياسي',fr:'SRT standard',en:'Standard SRT',txt:
+`1
+00:00:00,000 --> 00:00:03,000
+Maria, j'ai plus de cigarettes.
+ماريا، ما عاد معي دخان.
+Maria, I'm out of cigarettes.`},
+  {ar:'SRT بفاصل |',fr:'SRT avec |',en:'SRT with |',txt:
+`1
+00:00:00,000 --> 00:00:03,000
+Maria, j'ai plus de cigarettes. | ماريا، ما عاد معي دخان. | Maria, I'm out of cigarettes.`}
+];
+function copyText(txt){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(()=>toast('📋 '+t('copied'))).catch(()=>copyFallback(txt));
+  }else copyFallback(txt);
+}
+function copyFallback(txt){
+  const ta=document.createElement('textarea');ta.value=txt;
+  ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);
+  ta.select();try{document.execCommand('copy');toast('📋 '+t('copied'));}catch(e){}
+  ta.remove();
+}
+function openSamples(){
+  $('#samples-sheet').innerHTML=`<h2>📋 ${t('samples')}</h2>
+    ${SAMPLES.map((s,i)=>`<div class="smp">
+      <div class="smp-h"><b>${i+1}) ${esc(s[lang]||s.en)}</b>
+        <button class="copybtn" data-smp="${i}">📋 ${t('copy')}</button></div>
+      <pre class="smp-t">${esc(s.txt)}</pre></div>`).join('')}
+    <div class="btnrow"><button class="btn btn-ghost" id="smp-close">${t('cancel')}</button></div>`;
+  $('#samples-sheet').querySelectorAll('[data-smp]').forEach(b=>b.onclick=()=>copyText(SAMPLES[+b.dataset.smp].txt));
+  $('#smp-close').onclick=()=>$('#ov-samples').classList.add('hidden');
+  $('#ov-samples').classList.remove('hidden');
+}
+function flagLang(txt){
+  const m=(txt||'').match(/\p{Regional_Indicator}{1,2}/u);
+  if(!m)return null;
+  const cc=[...m[0]].map(c=>String.fromCharCode(c.codePointAt(0)-0x1F1E6+97)).join('');
+  if(cc==='fr')return 'fr';
+  if(['us','gb','uk','au','ca','ie','nz'].includes(cc))return 'en';
+  return 'ar';
+}
+function cueLine(txt){
+  txt=(txt||'').trim();if(!txt)return null;
+  const pm=txt.match(/^(fr|ar|en|sy)\s*[:：]\s*(.*)$/i);
+  if(pm){const l=pm[1].toLowerCase()==='sy'?'ar':pm[1].toLowerCase();return{lang:l,text:pm[2].trim()};}
+  const fm=txt.match(/^(\p{Regional_Indicator}{1,2})\s*(.*)$/u);
+  if(fm)return{lang:flagLang(fm[1])||guessLang(fm[2]),text:fm[2].trim()};
+  return{lang:guessLang(txt),text:txt,guessed:true};
+}
 function parseCues(raw){
   const cues=[];
-  (raw||'').split(/\r?\n/).forEach(line=>{
-    line=line.trim(); if(!line)return;
-    const m=line.match(/^(?:(\d+):)?(\d{1,2}):(\d{2})(?:[.,]\d+)?\s*(?:--?>\s*(?:(\d+):)?(\d{1,2}):(\d{2})(?:[.,]\d+)?)?\s*(.*)$/);
-    if(!m)return;
-    const start=(+m[1]||0)*3600+(+m[2])*60+(+m[3]);
-    let end=m[5]!==undefined?(+m[4]||0)*3600+(+m[5])*60+(+m[6]):null;
-    const text=m[7]||'';
-    cues.push({start,end,text});
-  });
+  const lines=(raw||'').split(/\r?\n/);
+  const TRX=/^(?:(\d+):)?(\d{1,2}):(\d{2})(?:[.,]\d{1,3})?\s*(?:--?>\s*(?:(\d+):)?(\d{1,2}):(\d{2})(?:[.,]\d{1,3})?)?\s*(.*)$/;
+  const secs=(a,b,c)=>(+a||0)*3600+(+b)*60+(+c);
+  let cur=null;
+  const push=()=>{if(cur){if(cur.lines.length)cues.push(cur);cur=null;}};
+  const addText=(cue,txt)=>{
+    const parts=txt.split('|').map(s=>s.trim()).filter(Boolean);
+    parts.forEach((p,idx)=>{
+      const cl=cueLine(p);if(!cl)return;
+      if(cl.guessed&&parts.length>1){
+        delete cl.guessed;
+        if(/[\u0600-\u06FF]/.test(p))cl.lang='ar';
+        else if(parts.length>=3)cl.lang=idx===0?'fr':(idx===parts.length-1?'en':guessLang(p));
+        else cl.lang=idx===0?'fr':'ar';
+      }
+      cue.lines.push(cl);
+    });
+  };
+  const fixLangs=(c)=>{
+    const hasAr=c.lines.some(l=>/[\u0600-\u06FF]/.test(l.text));
+    if(!hasAr)return;
+    const arIdx=c.lines.findIndex(l=>/[\u0600-\u06FF]/.test(l.text));
+    const latAfter=c.lines.slice(arIdx+1).some(l=>!/[\u0600-\u06FF]/.test(l.text));
+    c.lines.forEach((l,i)=>{
+      if(!l.guessed)return;
+      if(/[\u0600-\u06FF]/.test(l.text)){l.lang='ar';return;}
+      l.lang=(i<arIdx||(c.lines.length===2&&!latAfter))?'fr':'en';
+    });
+  };
+  for(let i=0;i<lines.length;i++){
+    const line=lines[i].trim();
+    if(!line){push();continue;}
+    if(/^\d+$/.test(line)){
+      let j=i+1;while(j<lines.length&&!lines[j].trim())j++;
+      if(j<lines.length&&TRX.test(lines[j].trim()))continue; // SRT index
+    }
+    const m=line.match(TRX);
+    if(m){
+      push();
+      cur={start:secs(m[1],m[2],m[3]),end:m[5]!==undefined?secs(m[4],m[5],m[6]):null,lines:[]};
+      if((m[7]||'').trim())addText(cur,m[7]);
+      continue;
+    }
+    if(cur)addText(cur,line);
+  }
+  push();
+  cues.forEach(fixLangs);
   cues.sort((a,b)=>a.start-b.start);
   cues.forEach((c,i)=>{if(c.end==null||c.end<=c.start)c.end=(cues[i+1]?cues[i+1].start:c.start+5);});
   return cues;
@@ -443,11 +578,11 @@ function deviceSpeak(text,lg,onend){
     window.speechSynthesis.cancel();window.speechSynthesis.speak(u);
   }else if(onend)onend();
 }
-function toggleCueLoop(btn,text){
+function toggleCueLoop(btn,text,lg){
   if(loopBtn===btn){ttsStop();return;}
   ttsStop();
   loopBtn=btn;btn.classList.add('on');
-  const lg=guessLang(text);
+  lg=lg||guessLang(text);
   const run=ttsRun;
   const again=()=>{if(run!==ttsRun||loopBtn!==btn)return;ttsSpeak(text,lg,again);};
   again();
@@ -654,8 +789,11 @@ async function renderDetail(){
       <div id="audio-zone">${hasAudio?'':`<div class="hint">${t('noAudio')}</div>`}</div>
       ${cues.length?`<div class="hint" style="margin-bottom:6px">${t('tapCue')} · ${t('cuesCount')(cues.length)}</div>
         <div id="cues">${cues.map((c,i)=>`<div class="cue" data-i="${i}">
-          <span class="tm">${fmtT(c.start)}</span><span class="tx">${esc(c.text)}</span>
-          <button class="spk" data-spk="${i}" title="🔁">🔊</button></div>`).join('')}</div>`:''}
+          <span class="tm">${fmtT(c.start)}</span>
+          <div class="clines">${c.lines.map((ln,j)=>`<div class="cline">
+            <span class="fl">${LANG_FLAGS[ln.lang]||''}</span><span class="tx">${esc(ln.text)}</span>
+            <button class="spk" data-spk="${i}:${j}" title="🔁">🔊</button></div>`).join('')}</div>
+        </div>`).join('')}</div>`:''}
     </div>`;
   if(hasAudio){
     if(curAudioUrl){try{URL.revokeObjectURL(curAudioUrl);}catch(e){}curAudioUrl=null;}
@@ -685,7 +823,9 @@ async function renderDetail(){
   el.querySelectorAll('#cues .cue').forEach(cEl=>{
     cEl.addEventListener('click',e=>{
       const i=+cEl.dataset.i;const c=cues[i];
-      if(e.target.closest('.spk')){toggleCueLoop(e.target.closest('.spk'),c.text);return;}
+      const spk=e.target.closest('.spk');
+      if(spk){const j=+spk.dataset.spk.split(':')[1];const ln=c.lines[j]||c.lines[0];
+        toggleCueLoop(spk,ln.text,ln.lang);return;}
       const audio=$('#appt-audio');if(audio){audio.currentTime=c.start;audio.play().catch(()=>{});}
     });
   });
@@ -722,7 +862,8 @@ function openForm(id){
     <div class="audio-pick ${a.audioName?'has':''}" id="f-audio">
       <span>${a.audioName?t('fAudioSet')+esc(a.audioName):t('fAudioPick')}</span></div>
     <input type="file" id="f-audio-file" accept="audio/*" style="display:none">
-    <div class="f-lab">${t('fCues')}</div>
+    <div class="f-lab" style="display:flex;justify-content:space-between;align-items:center">
+      <span>${t('fCues')}</span><button type="button" class="icon-btn" id="f-samples" style="width:30px;height:30px;font-size:14px">📋</button></div>
     <textarea id="f-cues" placeholder="${esc('00:00 …')}">${esc(a.cuesText||'')}</textarea>
     <div class="hint" style="white-space:pre-line">${esc(t('fCuesHint'))}</div>
     <div class="btnrow">
@@ -742,6 +883,7 @@ function openForm(id){
       p.querySelector('span').textContent=t('fAudioSet')+f.name;};
     r.readAsDataURL(f);
   };
+  $('#f-samples').onclick=openSamples;
   $('#f-cancel').onclick=()=>$('#ov-form').classList.add('hidden');
   $('#f-save').onclick=saveForm;
   $('#ov-form').classList.remove('hidden');
@@ -903,6 +1045,7 @@ document.addEventListener('click',e=>{
     document.querySelectorAll('.menu').forEach(m=>m.classList.add('hidden'));
 });
 $('#ov-form').addEventListener('click',e=>{if(e.target.id==='ov-form')$('#ov-form').classList.add('hidden');});
+$('#ov-samples').addEventListener('click',e=>{if(e.target.id==='ov-samples')$('#ov-samples').classList.add('hidden');});
 $('#fab').onclick=()=>openForm(null);
 
 /* ---------- Android back → exit confirm ---------- */
