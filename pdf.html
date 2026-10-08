@@ -1568,6 +1568,7 @@ async function renderPage(n) {
       await tl.render();
       if (epoch !== renderEpoch) { rendering.delete(n); renderPage(n); return; }
       const items = pageItems[n] || (await page.getTextContent()).items;
+      if (epoch !== renderEpoch) { rendering.delete(n); renderPage(n); return; }
       pageItems[n] = items;
       splitWords(tlDiv, items, n);
       applyHits(n);
@@ -1738,7 +1739,9 @@ function rerenderAll() {
   rendered.clear();
   for (const d of pagesEl.children) {
     d.innerHTML = '<div class="ph">' + d.dataset.page + '</div>';
+    d.style.width = '100%';
     d.style.height = '70vh';
+    d.style.aspectRatio = '';
   }
   const top = wrapEl.scrollTop;
   // re-render pages near current scroll position
