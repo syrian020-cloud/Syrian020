@@ -167,6 +167,7 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 .cue .ib:active{transform:scale(.9)}
 .cue .ib.on{background:var(--acc);border-color:var(--acc);color:#fff;opacity:1}
 .cue .ib.dis{opacity:.35}
+.player .icon-btn.on{background:var(--acc);border-color:var(--acc);color:#fff}
 .cside{flex:none;display:flex;flex-direction:column;align-items:center;gap:6px;align-self:center}
 .cline .w{cursor:pointer;border-radius:4px;padding:0 1px;transition:background .12s}
 .cline .w:hover{background:rgba(99,102,241,.25)}
@@ -289,7 +290,7 @@ const I18N = {
     lFr:'الفرنسية', lAr:'العربية', lEn:'الإنجليزية',
     aiTitle:'🔍 بحث Google AI: ترجمة وتحليل',
     searching:'جاري البحث عن المكان…',
-    mapChoose:'اختر خريطة', mapPick:'اختر تطبيق الخريطة', loopSeg:'تكرار صوت العبارة',
+    mapChoose:'اختر خريطة', mapPick:'اختر تطبيق الخريطة', loopSeg:'تكرار صوت العبارة', loopAll:'تكرار المقطع كاملاً',
     mmG:'بحث مباشر بالخرائط', mmC:'اتجاهات إلى المكان', mmW:'بحث بالـ Waze',
     aiPrompt:o=>`العبارة بال${o.sl}: "${o.text}"\n1) ترجم كل كلمة على حدة إلى ${o.l1} و${o.l2}.\n2) اشرح قاعدة اللغة (تصريف الفعل، التركيب، أو التعبير) المستخدمة في العبارة.\n3) قدّم محادثة قصيرة عملية بالفرنسية والعربية والإنجليزية تستخدم هذه العبارة لتسهيل حفظها.\nالإخراج بالفرنسية والعربية والإنجليزية.`,
     back:'‹ رجوع',
@@ -336,7 +337,7 @@ const I18N = {
     lFr:'français', lAr:'arabe', lEn:'anglais',
     aiTitle:'🔍 Recherche IA : traduction + analyse',
     searching:'Recherche du lieu…',
-    mapChoose:'Choisir une carte', mapPick:'Choisir l\'application', loopSeg:'Répéter l\'audio de la phrase',
+    mapChoose:'Choisir une carte', mapPick:'Choisir l\'application', loopSeg:'Répéter l\'audio de la phrase', loopAll:'Répéter tout l\'audio',
     mmG:'Recherche directe', mmC:'Itinéraire vers le lieu', mmW:'Recherche Waze',
     aiPrompt:o=>`Phrase en ${o.sl} : "${o.text}"\n1) Traduisez chaque mot individuellement en ${o.l1} et en ${o.l2}.\n2) Expliquez la règle de grammaire (conjugaison, structure ou expression) utilisée dans cette phrase.\n3) Proposez une courte conversation pratique en français, arabe et anglais utilisant cette phrase.\nRéponse en français, arabe et anglais.`,
     back:'‹ Retour',
@@ -383,7 +384,7 @@ const I18N = {
     lFr:'French', lAr:'Arabic', lEn:'English',
     aiTitle:'🔍 AI search: translate + analyze',
     searching:'Searching for the place…',
-    mapChoose:'Choose a map', mapPick:'Choose a map app', loopSeg:'Loop this phrase\'s audio',
+    mapChoose:'Choose a map', mapPick:'Choose a map app', loopSeg:'Loop this phrase\'s audio', loopAll:'Loop the whole clip',
     mmG:'Direct map search', mmC:'Directions to the place', mmW:'Search in Waze',
     aiPrompt:o=>`${o.sl} phrase: "${o.text}"\n1) Translate each word individually into ${o.l1} and ${o.l2}.\n2) Explain the grammar rule (verb conjugation, structure, or expression) used in this phrase.\n3) Provide a short practical conversation in French, Arabic and English using this phrase.\nOutput in French, Arabic and English.`,
     back:'‹ Back',
@@ -942,7 +943,7 @@ async function renderDetail(){
     if(curAudioUrl){try{URL.revokeObjectURL(curAudioUrl);}catch(e){}curAudioUrl=null;}
     const url=URL.createObjectURL(au.blob);curAudioUrl=url;
     $('#audio-zone').innerHTML=`<div class="player"><audio id="appt-audio" controls src="${url}"></audio>
-      <button class="icon-btn" id="d-tts-stop" title="⏹">⏹</button></div>
+      <button class="icon-btn" id="d-loop-all" title="${esc(t('loopAll'))}">🔁</button></div>
       <div class="hint">${esc(au.name||'')}</div>`;
     const audio=$('#appt-audio');
     audio.addEventListener('play',()=>ttsStop());
@@ -957,7 +958,7 @@ async function renderDetail(){
       if(act>=0){const cEl=document.querySelector(`#cues .cue[data-i="${act}"]`);
         if(cEl)cEl.scrollIntoView({block:'nearest',behavior:'smooth'});}
     });
-    $('#d-tts-stop').onclick=()=>ttsStop();
+    $('#d-loop-all').onclick=(e)=>{ttsStop();audio.loop=!audio.loop;e.currentTarget.classList.toggle('on',audio.loop);};
   }
   $('#d-back').onclick=closeDetail;
   cueLoopIdx=-1;
