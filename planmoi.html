@@ -166,6 +166,8 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
   padding:0;transition:transform .12s,background .12s,opacity .12s;font-family:inherit}
 .cue .ib:active{transform:scale(.9)}
 .cue .ib.on{background:var(--acc);border-color:var(--acc);color:#fff;opacity:1}
+.cue .ib.dis{opacity:.35}
+.cside{flex:none;display:flex;flex-direction:column;align-items:center;gap:6px;align-self:center}
 .cline .w{cursor:pointer;border-radius:4px;padding:0 1px;transition:background .12s}
 .cline .w:hover{background:rgba(99,102,241,.25)}
 .cline .w.on{background:var(--acc);color:#fff}
@@ -287,7 +289,7 @@ const I18N = {
     lFr:'الفرنسية', lAr:'العربية', lEn:'الإنجليزية',
     aiTitle:'🔍 بحث Google AI: ترجمة وتحليل',
     searching:'جاري البحث عن المكان…',
-    mapChoose:'اختر خريطة', mapPick:'اختر تطبيق الخريطة',
+    mapChoose:'اختر خريطة', mapPick:'اختر تطبيق الخريطة', loopSeg:'تكرار صوت العبارة',
     mmG:'بحث مباشر بالخرائط', mmC:'اتجاهات إلى المكان', mmW:'بحث بالـ Waze',
     aiPrompt:o=>`العبارة بال${o.sl}: "${o.text}"\n1) ترجم كل كلمة على حدة إلى ${o.l1} و${o.l2}.\n2) اشرح قاعدة اللغة (تصريف الفعل، التركيب، أو التعبير) المستخدمة في العبارة.\n3) قدّم محادثة قصيرة عملية بالفرنسية والعربية والإنجليزية تستخدم هذه العبارة لتسهيل حفظها.\nالإخراج بالفرنسية والعربية والإنجليزية.`,
     back:'‹ رجوع',
@@ -334,7 +336,7 @@ const I18N = {
     lFr:'français', lAr:'arabe', lEn:'anglais',
     aiTitle:'🔍 Recherche IA : traduction + analyse',
     searching:'Recherche du lieu…',
-    mapChoose:'Choisir une carte', mapPick:'Choisir l\'application',
+    mapChoose:'Choisir une carte', mapPick:'Choisir l\'application', loopSeg:'Répéter l\'audio de la phrase',
     mmG:'Recherche directe', mmC:'Itinéraire vers le lieu', mmW:'Recherche Waze',
     aiPrompt:o=>`Phrase en ${o.sl} : "${o.text}"\n1) Traduisez chaque mot individuellement en ${o.l1} et en ${o.l2}.\n2) Expliquez la règle de grammaire (conjugaison, structure ou expression) utilisée dans cette phrase.\n3) Proposez une courte conversation pratique en français, arabe et anglais utilisant cette phrase.\nRéponse en français, arabe et anglais.`,
     back:'‹ Retour',
@@ -381,7 +383,7 @@ const I18N = {
     lFr:'French', lAr:'Arabic', lEn:'English',
     aiTitle:'🔍 AI search: translate + analyze',
     searching:'Searching for the place…',
-    mapChoose:'Choose a map', mapPick:'Choose a map app',
+    mapChoose:'Choose a map', mapPick:'Choose a map app', loopSeg:'Loop this phrase\'s audio',
     mmG:'Direct map search', mmC:'Directions to the place', mmW:'Search in Waze',
     aiPrompt:o=>`${o.sl} phrase: "${o.text}"\n1) Translate each word individually into ${o.l1} and ${o.l2}.\n2) Explain the grammar rule (verb conjugation, structure, or expression) used in this phrase.\n3) Provide a short practical conversation in French, Arabic and English using this phrase.\nOutput in French, Arabic and English.`,
     back:'‹ Back',
@@ -395,7 +397,7 @@ const LS_KEY='planmoi_appts', LS_LANG='planmoi_lang', LS_FIRED='planmoi_fired';
 let appts=[], lang='ar', tab='upcoming', query='', view='list', detailId=null;
 let editingId=null, pendingAudio=null; // {name,dataUrl}
 let cuesCache={};
-let ttsRun=0, loopBtn=null, curAudioUrl=null;
+let ttsRun=0, loopBtn=null, curAudioUrl=null, cueLoopIdx=-1;
 
 const $=s=>document.querySelector(s);
 const t=k=>(I18N[lang]&&I18N[lang][k])??I18N.en[k]??k;
@@ -631,6 +633,16 @@ function toggleCueLoop(btn,text,lg){
   const run=ttsRun;
   const again=()=>{if(run!==ttsRun||loopBtn!==btn)return;ttsSpeak(text,lg,again);};
   again();
+}
+function toggleAudioLoop(btn,i){
+  const audio=detailAudio();
+  if(!audio){toast(t('noAudio'));return;}
+  const cues=cuesCache[detailId]||[];
+  if(cueLoopIdx===i){cueLoopIdx=-1;btn.classList.remove('on');audio.pause();return;}
+  ttsStop();
+  document.querySelectorAll('#cues .aloop').forEach(b=>b.classList.remove('on'));
+  cueLoopIdx=i;btn.classList.add('on');
+  audio.currentTime=cues[i].start;audio.play().catch(()=>{});
 }
 
 
@@ -878,7 +890,7 @@ function openDetail(id){
   window.scrollTo(0,0);
 }
 function closeDetail(){
-  view='list';detailId=null;ttsStop();
+  view='list';detailId=null;ttsStop();cueLoopIdx=-1;
   if(curAudioUrl){try{URL.revokeObjectURL(curAudioUrl);}catch(e){}curAudioUrl=null;}
   $('#view-detail').classList.add('hidden');
   $('#view-list').classList.remove('hidden');$('#fab').classList.remove('hidden');
@@ -919,7 +931,8 @@ async function renderDetail(){
       <div id="audio-zone">${hasAudio?'':`<div class="hint">${t('noAudio')}</div>`}</div>
       ${cues.length?`<div class="hint" style="margin-bottom:6px">${t('tapCue')} · ${t('tapWord')} · ${t('cuesCount')(cues.length)}</div>
         <div id="cues">${cues.map((c,i)=>`<div class="cue" data-i="${i}">
-          <span class="tm">${fmtT(c.start)}</span>
+          <div class="cside"><span class="tm">${fmtT(c.start)}</span>
+          <button class="ib aloop${hasAudio?'':' dis'}" data-aloop="${i}" title="${esc(t('loopSeg'))}">🔁</button></div>
           <div class="clines">${c.lines.map((ln,j)=>`<div class="cline">
             <span class="lgb">${LANG_FLAGS[ln.lang]||''} ${(ln.lang||'').toUpperCase()}</span><span class="tx">${wrapWords(ln.text,ln.lang)}</span>
             <span class="lacts"><button class="ib spk" data-spk="${i}:${j}" title="🔁">🔊</button><button class="ib ai" data-ai="${i}:${j}" title="${esc(t('aiTitle'))}">✦</button></span></div>`).join('')}</div>
@@ -935,6 +948,7 @@ async function renderDetail(){
     audio.addEventListener('play',()=>ttsStop());
     audio.addEventListener('timeupdate',()=>{
       const cur=audio.currentTime;
+      if(cueLoopIdx>=0&&cues[cueLoopIdx]&&cur>=cues[cueLoopIdx].end){audio.currentTime=cues[cueLoopIdx].start;return;}
       let act=-1;
       cues.forEach((c,i)=>{if(cur>=c.start&&cur<c.end)act=i;});
       document.querySelectorAll('#cues .cue').forEach((cEl,i)=>{
@@ -946,6 +960,7 @@ async function renderDetail(){
     $('#d-tts-stop').onclick=()=>ttsStop();
   }
   $('#d-back').onclick=closeDetail;
+  cueLoopIdx=-1;
   $('#d-edit').onclick=()=>openForm(a.id);
   el.querySelectorAll('[data-st]').forEach(b=>b.onclick=()=>setStatus(a.id,b.dataset.st));
   el.querySelectorAll('[data-map]').forEach(b=>b.onclick=e=>{
@@ -960,6 +975,8 @@ async function renderDetail(){
       const ai=e.target.closest('.ai');
       if(ai){const j=+ai.dataset.ai.split(':')[1];const ln=c.lines[j]||c.lines[0];
         openGoogleAi(ln);return;}
+      const al=e.target.closest('.aloop');
+      if(al){toggleAudioLoop(al,+al.dataset.aloop);return;}
       const w=e.target.closest('.w');
       if(w){wordTap(w);return;}
       const audio=$('#appt-audio');if(audio){audio.currentTime=c.start;audio.play().catch(()=>{});}
