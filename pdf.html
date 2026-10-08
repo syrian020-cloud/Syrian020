@@ -220,6 +220,34 @@
   .text-layer .word.hit { background: rgba(251,191,36,0.4); }
   .text-layer .word.hit-current { background: rgba(244,63,94,0.55); outline: 2px solid var(--accent-2); border-radius: 3px; }
 
+  .edit-bar {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 12;
+    display: none; align-items: center; gap: 8px; flex-wrap: wrap;
+    padding: 10px 14px calc(env(safe-area-inset-bottom, 0px) + 10px);
+    background: rgba(11,15,31,0.92); backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border);
+  }
+  .edit-bar.show { display: flex; }
+  .edit-bar .ebtn {
+    border: 1px solid var(--border); background: var(--card); color: var(--text);
+    border-radius: 12px; padding: 8px 12px; font-size: 13px; font-weight: 600;
+  }
+  .edit-bar .ebtn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .edit-bar .ebtn.save { background: var(--accent-2); border-color: var(--accent-2); color: #fff; }
+  .page .eov { position: absolute; inset: 0; z-index: 5; pointer-events: auto; touch-action: pan-x pan-y pinch-zoom; }
+  .eobj { position: absolute; box-sizing: border-box; touch-action: none; }
+  .eobj.rect { background: #fff; }
+  .eobj.txt { color: #111; font-weight: 700; white-space: pre; line-height: 1; font-family: sans-serif; direction: ltr; }
+  .eobj img { width: 100%; height: 100%; display: block; pointer-events: none; }
+  .eobj .x, .eobj .rs {
+    position: absolute; width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; color: #fff; z-index: 2;
+  }
+  .eobj .x { top: 0; inset-inline-end: 0; background: #f43f5e; }
+  .eobj .rs { bottom: 0; inset-inline-end: 0; background: var(--accent); border-radius: 6px; }
+  .eobj.sel { outline: 2px dashed var(--accent); outline-offset: 1px; }
+
   .bottombar {
     position: absolute; bottom: 0; right: 0; left: 0; z-index: 10;
     padding: 10px 18px calc(env(safe-area-inset-bottom, 0px) + 12px);
@@ -591,6 +619,16 @@
 
   <div class="pages-wrap" id="pagesWrap"><div class="pages" id="pages"></div></div>
 
+  <div class="edit-bar" id="editBar">
+    <button class="ebtn" id="edTSign" data-i18n="ed_sign">توقيع</button>
+    <button class="ebtn" id="edTText" data-i18n="ed_text">نص</button>
+    <button class="ebtn" id="edTImg" data-i18n="ed_img">صورة</button>
+    <button class="ebtn" id="edTCover" data-i18n="ed_cover">تغطية</button>
+    <span style="flex:1"></span>
+    <button class="ebtn save" id="edTSave" data-i18n="ed_save">حفظ نسخة</button>
+    <button class="ebtn" id="edTExit" data-i18n="ed_exit">إنهاء</button>
+  </div>
+  <input type="file" id="edImgInput" accept="image/*" hidden>
   <div class="bottombar" id="bottombar">
     <button class="icon-btn" id="zoomOutBtn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg>
@@ -822,6 +860,10 @@ const STR = {
     m_applang: 'لغة التطبيق',
     lang_fr: 'فرنسي', lang_en: 'إنجليزي', lang_de: 'ألماني', lang_tr: 'تركي',
     m_copyall: 'نسخ كل نص المستند', m_copyall_s: 'استخراج النص كاملاً إلى الحافظة',
+    m_edit: 'تعديل الملف', m_edit_s: 'توقيع، نص، صورة أو تغطية على الصفحات',
+    ed_sign: 'توقيع', ed_text: 'نص', ed_img: 'صورة', ed_cover: 'تغطية', ed_save: 'حفظ نسخة', ed_exit: 'إنهاء',
+    ed_hint: 'اختر أداة: «تغطية» اسحب فوق ما تريد إخفاءه، والباقي اضغط على الصفحة لوضعه',
+    ed_txt_q: 'اكتب النص الذي تريد وضعه', ed_saved: 'حُفظت النسخة المعدّلة في التنزيلات', ed_none: 'لا تعديلات بعد',
     m_tts: 'اختبار النطق', m_tts_s: 'يتكلم جملة تجريبية للتحقق من محرك الصوت',
     m_ocr: 'نطق الصفحة بالتعرّف الضوئي', m_ocr_s: 'يقرأ النص من صورة الصفحة — للملفات الممسوحة',
     ocr_working: 'جارٍ التعرّف على نص الصفحة… (قد يستغرق لحظات)',
@@ -908,6 +950,10 @@ const STR = {
     m_applang: "Langue de l'app",
     lang_fr: 'Français', lang_en: 'Anglais', lang_de: 'Allemand', lang_tr: 'Turc',
     m_copyall: 'Copier tout le texte', m_copyall_s: 'Extrait tout le texte vers le presse-papiers',
+    m_edit: 'Modifier le document', m_edit_s: 'Signature, texte, image ou cache sur les pages',
+    ed_sign: 'Signature', ed_text: 'Texte', ed_img: 'Image', ed_cover: 'Cacher', ed_save: 'Enregistrer', ed_exit: 'Quitter',
+    ed_hint: 'Choisissez un outil : « Cacher » glissez sur la zone, sinon touchez la page',
+    ed_txt_q: 'Texte à insérer', ed_saved: 'Copie modifiée enregistrée dans Téléchargements', ed_none: 'Aucune modification',
     m_tts: 'Tester la voix', m_tts_s: 'Lit une phrase test du moteur vocal',
     m_ocr: 'Lire la page (OCR)', m_ocr_s: 'Lit le texte de l\u2019image — pour les scans',
     ocr_working: 'Reconnaissance du texte en cours…',
@@ -994,6 +1040,10 @@ const STR = {
     m_applang: 'App language',
     lang_fr: 'French', lang_en: 'English', lang_de: 'German', lang_tr: 'Turkish',
     m_copyall: 'Copy all text', m_copyall_s: 'Extract the whole text to clipboard',
+    m_edit: 'Edit document', m_edit_s: 'Signature, text, image or cover on pages',
+    ed_sign: 'Signature', ed_text: 'Text', ed_img: 'Image', ed_cover: 'Cover', ed_save: 'Save copy', ed_exit: 'Done',
+    ed_hint: 'Pick a tool: « Cover » drag over an area, others tap the page to place',
+    ed_txt_q: 'Text to insert', ed_saved: 'Edited copy saved to Downloads', ed_none: 'No edits yet',
     m_tts: 'Test speech', m_tts_s: 'Speaks a test sentence to verify the engine',
     m_ocr: 'Read page via OCR', m_ocr_s: 'Reads text from the page image — for scans',
     ocr_working: 'Recognizing page text… (may take a moment)',
@@ -1580,6 +1630,7 @@ async function renderPage(n) {
 
     div.querySelector('.ph')?.remove();
     rendered.add(n);
+    if (editMode) inflateOverlay(div);
   } catch (e) {
     // restore the placeholder and retry a few times — a failed render
     // must never leave a permanently blank box
@@ -2167,6 +2218,7 @@ $('menuBtn').onclick = () => {
         `<option value="${v[0]}" ${settings.edgeVoiceEn === v[0] ? 'selected' : ''}>${v[1]}</option>`).join('')}</select>
       <button class="mini-btn" id="sTestEn" aria-label="test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button></div>
     <div class="set-row" style="cursor:pointer" id="sCopyAll"><div class="lbl">${t('m_copyall')}<small>${t('m_copyall_s')}</small></div><span>‹</span></div>
+    <div class="set-row" style="cursor:pointer" id="sEdit"><div class="lbl">${t('m_edit')}<small>${t('m_edit_s')}</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sTtsTest"><div class="lbl">${t('m_tts')}<small>${t('m_tts_s')}</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sOcr"><div class="lbl">${t('m_ocr')}<small>${t('m_ocr_s')}</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sOutline"><div class="lbl">${t('m_outline')}<small>${t('m_outline_s')}</small></div><span>‹</span></div>
@@ -2227,6 +2279,7 @@ $('menuBtn').onclick = () => {
   $('sBms').onclick = showBookmarks;
   $('sBookmark').onclick = () => { toggleBookmark(currentPage); showBookmarks(); };
   $('sCopyAll').onclick = () => { closeSheet(); copyAllText(); };
+  $('sEdit').onclick = () => { closeSheet(); toggleEditMode(true); };
   $('sTtsTest').onclick = () => {
     toast(t('tts_testing'));
     speakOnce(t('tts_sample'), settings.lang === 'ar' ? 'ar-SA' : settings.lang === 'en' ? 'en-US' : 'fr-FR').then(ok =>
@@ -2298,6 +2351,8 @@ async function showOutline() {
 /* ---------- back / cleanup ---------- */
 function closeReader(silent) {
   stopSpeech();
+  if (editMode) toggleEditMode(false);
+  for (const k in edits) delete edits[k];
   scheduleSave.flush && scheduleSave.flush();
   if (pdfDoc && docKey) {
     localStorage.setItem('qari:prog:' + docKey, JSON.stringify({ page: currentPage, total: pageCount }));
@@ -2422,7 +2477,7 @@ $('edInlineInput').onchange = e => {
   });
 };
 
-let sgCtx = null, sgDrawing = false;
+let sgCtx = null, sgDrawing = false, sgForEdit = false;
 $('edSignBtn').onclick = () => {
   $('sgVeil').classList.add('show');
   requestAnimationFrame(() => {
@@ -2461,8 +2516,17 @@ $('sgClear').onclick = () => {
 };
 $('sgCancel').onclick = () => $('sgVeil').classList.remove('show');
 $('sgSave').onclick = () => {
-  const url = $('sgCanvas').toDataURL('image/png');
+  const c = $('sgCanvas');
+  const url = c.toDataURL('image/png');
   $('sgVeil').classList.remove('show');
+  if (sgForEdit) {
+    sgForEdit = false;
+    const sw = Math.max(1, c.width), sh = Math.max(1, c.height);
+    pendingImg = { src: url, ratio: sh / sw };
+    pendingTxt = null;
+    toast(t('ed_hint'), 3000);
+    return;
+  }
   $('edBody').focus();
   try { document.execCommand('insertImage', false, url); } catch (e) {}
   edSaveDraft();
@@ -2568,6 +2632,233 @@ async function openIncoming() {
     veil(false);
   } catch (e) {}
 }
+/* ---------- PDF edit mode ----------
+   Overlay objects are stored per page as fractions of page size so they
+   survive zoom/re-render; on save they map to PDF user-space points. */
+let editMode = false, editTool = null;
+const edits = {};                 // pageNo -> [{kind,x,y,w,h,text,src,color}]
+let pendingImg = null, pendingTxt = null;  // payloads armed for tap-to-place
+
+function toggleEditMode(on) {
+  editMode = on;
+  $('editBar').classList.toggle('show', on);
+  armTool(null);
+  if (on) {
+    for (const d of pagesEl.children) inflateOverlay(d);
+    toast(t('ed_hint'), 4200);
+  } else {
+    for (const d of pagesEl.children) { const o = d.querySelector('.eov'); if (o) o.remove(); }
+  }
+}
+
+function armTool(tool) {
+  editTool = tool;
+  $('edTCover').classList.toggle('on', tool === 'cover');
+}
+
+function inflateOverlay(div) {
+  if (!editMode) return;
+  const n = +div.dataset.page;
+  let ov = div.querySelector('.eov');
+  if (!ov) {
+    ov = document.createElement('div');
+    ov.className = 'eov';
+    div.appendChild(ov);
+    wireOverlay(ov, div);
+  }
+  ov.innerHTML = '';
+  (edits[n] || []).forEach((o, i) => ov.appendChild(objEl(div, o, i)));
+}
+
+function objEl(div, o, i) {
+  const el = document.createElement('div');
+  el.className = 'eobj ' + (o.kind === 'rect' ? 'rect' : o.kind === 'txt' ? 'txt' : 'img');
+  el.dataset.i = i;
+  el.style.left = (o.x * 100) + '%';
+  el.style.top = (o.y * 100) + '%';
+  el.style.width = (o.w * 100) + '%';
+  el.style.height = (o.h * 100) + '%';
+  if (o.kind === 'txt') {
+    el.textContent = o.text;
+    el.style.fontSize = Math.max(8, o.h * div.clientHeight * 0.85) + 'px';
+  } else if (o.kind === 'img') {
+    const im = document.createElement('img');
+    im.src = o.src; im.draggable = false;
+    el.appendChild(im);
+  }
+  const x = document.createElement('span');
+  x.className = 'x'; x.textContent = '✕';
+  el.appendChild(x);
+  const rs = document.createElement('span');
+  rs.className = 'rs'; rs.textContent = '⤡';
+  el.appendChild(rs);
+  return el;
+}
+
+function wireOverlay(ov, div) {
+  const n = +div.dataset.page;
+  let state = null;
+  const frac = e => {
+    const r = ov.getBoundingClientRect();
+    return { x: (e.clientX - r.left) / r.width, y: (e.clientY - r.top) / r.height };
+  };
+  ov.addEventListener('pointerdown', e => {
+    const obj = e.target.closest('.eobj');
+    const i = obj ? +obj.dataset.i : -1;
+    if (obj && e.target.classList.contains('x')) {
+      edits[n].splice(i, 1); inflateOverlay(div); return;
+    }
+    if (obj && e.target.classList.contains('rs')) {
+      state = { kind: 'rs', i, x0: e.clientX, y0: e.clientY, w: edits[n][i].w, h: edits[n][i].h };
+      ov.setPointerCapture(e.pointerId); e.preventDefault(); return;
+    }
+    if (obj) {
+      const p = frac(e);
+      state = { kind: 'mv', i, dx: p.x - edits[n][i].x, dy: p.y - edits[n][i].y };
+      ov.setPointerCapture(e.pointerId); e.preventDefault(); return;
+    }
+    // empty area
+    if (editTool === 'cover') {
+      const p = frac(e);
+      const o = { kind: 'rect', x: p.x, y: p.y, w: 0.001, h: 0.001, color: '#ffffff' };
+      (edits[n] = edits[n] || []).push(o);
+      state = { kind: 'draw', i: edits[n].length - 1, x0: p.x, y0: p.y };
+      inflateOverlay(div);
+      ov.setPointerCapture(e.pointerId); e.preventDefault(); return;
+    }
+    if (pendingImg || pendingTxt !== null) {
+      const p = frac(e);
+      const o = pendingImg
+        ? { kind: 'img', x: p.x - 0.15, y: p.y - 0.04, w: 0.3, h: 0.08 * (pendingImg.ratio || 0.5) / 0.5 * (div.clientWidth / div.clientHeight), src: pendingImg.src }
+        : { kind: 'txt', x: p.x, y: p.y, w: 0.3, h: 0.035, text: pendingTxt };
+      if (o.kind === 'img') { o.h = o.w * pendingImg.ratio * (div.clientWidth / div.clientHeight); o.x = Math.max(0, p.x - o.w / 2); o.y = Math.max(0, p.y - o.h / 2); }
+      (edits[n] = edits[n] || []).push(o);
+      pendingImg = null; pendingTxt = null;
+      inflateOverlay(div);
+      e.preventDefault();
+    }
+  });
+  ov.addEventListener('pointermove', e => {
+    if (!state) return;
+    const p = frac(e);
+    const o = edits[n][state.i];
+    if (!o) return;
+    if (state.kind === 'mv') {
+      o.x = Math.min(Math.max(0, p.x - state.dx), 1 - o.w);
+      o.y = Math.min(Math.max(0, p.y - state.dy), 1 - o.h);
+    } else if (state.kind === 'rs') {
+      const r = ov.getBoundingClientRect();
+      o.w = Math.max(0.02, state.w + (e.clientX - state.x0) / r.width);
+      o.h = Math.max(0.01, state.h + (e.clientY - state.y0) / r.height);
+    } else if (state.kind === 'draw') {
+      o.x = Math.min(state.x0, p.x); o.y = Math.min(state.y0, p.y);
+      o.w = Math.abs(p.x - state.x0); o.h = Math.abs(p.y - state.y0);
+    }
+    const el = ov.querySelector('.eobj[data-i="' + state.i + '"]');
+    if (el) {
+      el.style.left = (o.x * 100) + '%'; el.style.top = (o.y * 100) + '%';
+      el.style.width = (o.w * 100) + '%'; el.style.height = (o.h * 100) + '%';
+      if (o.kind === 'txt') el.style.fontSize = Math.max(8, o.h * div.clientHeight * 0.85) + 'px';
+    }
+  });
+  const end = e => {
+    if (state && state.kind === 'draw') {
+      const o = edits[n][state.i];
+      if (o && (o.w < 0.01 || o.h < 0.005)) { edits[n].splice(state.i, 1); inflateOverlay(div); }
+    }
+    state = null;
+  };
+  ov.addEventListener('pointerup', end);
+  ov.addEventListener('pointercancel', end);
+}
+
+$('edTCover').onclick = () => armTool(editTool === 'cover' ? null : 'cover');
+$('edTText').onclick = async () => {
+  const txt = await askText(t('ed_text'), '', { placeholder: t('ed_txt_q') });
+  if (txt) { pendingTxt = txt; pendingImg = null; toast(t('ed_hint'), 3000); }
+};
+$('edTImg').onclick = () => $('edImgInput').click();
+$('edImgInput').onchange = e => {
+  const f = e.target.files[0];
+  if (!f) return;
+  const rd = new FileReader();
+  rd.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      pendingImg = { src: rd.result, ratio: img.height / img.width };
+      pendingTxt = null;
+      toast(t('ed_hint'), 3000);
+    };
+    img.src = rd.result;
+  };
+  rd.readAsDataURL(f);
+  e.target.value = '';
+};
+$('edTSign').onclick = () => {
+  sgForEdit = true;
+  $('sgVeil').classList.add('show');
+  $('edSignBtn').click();   // reuse the signature pad
+};
+$('edTExit').onclick = () => toggleEditMode(false);
+
+function textPng(o, v) {
+  const h = Math.max(16, Math.round(o.h * v.height * 3));
+  const c = document.createElement('canvas');
+  const ctx = c.getContext('2d');
+  const fs = Math.round(h * 0.85);
+  ctx.font = '700 ' + fs + 'px sans-serif';
+  const tw = Math.ceil(ctx.measureText(o.text).width) + 8;
+  c.width = tw; c.height = h;
+  const ctx2 = c.getContext('2d');
+  ctx2.font = '700 ' + fs + 'px sans-serif';
+  ctx2.fillStyle = '#111';
+  ctx2.textBaseline = 'middle';
+  ctx2.fillText(o.text, 4, h / 2);
+  return c.toDataURL('image/png');
+}
+
+function bytesToB64(bytes) {
+  let s = '';
+  const step = 0x8000;
+  for (let i = 0; i < bytes.length; i += step)
+    s += String.fromCharCode.apply(null, bytes.subarray(i, i + step));
+  return btoa(s);
+}
+
+$('edTSave').onclick = async () => {
+  const keys = Object.keys(edits).filter(k => edits[k].length);
+  if (!keys.length) { toast(t('ed_none')); return; }
+  veil(true, t('m_edit') + '…');
+  try {
+    const ops = {};
+    for (const k of keys) {
+      const n = +k;
+      const pg = await pdfDoc.getPage(n);
+      const v = pg.getViewport({ scale: 1 });
+      ops[n] = [];
+      for (const o of edits[n]) {
+        const x = o.x * v.width, y = (1 - o.y - o.h) * v.height;
+        const w = o.w * v.width, h = o.h * v.height;
+        if (o.kind === 'rect') ops[n].push({ type: 'rect', x, y, w, h, color: o.color || '#ffffff' });
+        else ops[n].push({ type: 'image', x, y, w, h, data: o.kind === 'txt' ? textPng(o, v) : o.src });
+      }
+    }
+    const params = { name: docName, password: docPassword || '', ops: JSON.stringify(ops) };
+    if (docUri) params.uri = docUri; else params.data = bytesToB64(docBytes);
+    const res = await Scanner.applyEdits(params);
+    toast(t('ed_saved'), 4000);
+    toggleEditMode(false);
+    const r = await Scanner.readPdf({ uri: res.path });
+    const bin = atob(r.data);
+    const bytes = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    await loadDoc(bytes, res.name, 'file:' + res.path, res.path);
+  } catch (e) {
+    toast(t('open_fail'));
+  }
+  veil(false);
+};
+
 openIncoming();
 if (isNative && Scanner && Scanner.addListener) Scanner.addListener('openPdf', () => openIncoming());
 scanLibrary();

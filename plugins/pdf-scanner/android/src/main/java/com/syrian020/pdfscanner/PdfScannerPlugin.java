@@ -52,6 +52,8 @@ import com.tom_roush.pdfbox.io.MemoryUsageSetting;
 import com.tom_roush.pdfbox.multipdf.PDFMergerUtility;
 import com.tom_roush.pdfbox.pdmodel.PDDocument;
 import com.tom_roush.pdfbox.pdmodel.PDPage;
+import com.tom_roush.pdfbox.pdmodel.PDPageContentStream;
+import com.tom_roush.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import com.tom_roush.pdfbox.pdmodel.encryption.AccessPermission;
 import com.tom_roush.pdfbox.pdmodel.encryption.InvalidPasswordException;
 import com.tom_roush.pdfbox.pdmodel.encryption.StandardProtectionPolicy;
@@ -690,6 +692,80 @@ public class PdfScannerPlugin extends Plugin {
             doc.save(out);
             doc.close();
             if (src != null) src.close();
+            JSObject ret = new JSObject();
+            ret.put("path", out.getAbsolutePath());
+            ret.put("name", out.getName());
+            ret.put("public", isPublicDir());
+            call.resolve(ret);
+        } catch (InvalidPasswordException e) {
+            call.reject("wrong-password");
+        } catch (Exception e) {
+            call.reject("Edit failed: " + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Stamps overlays onto pages and saves an edited copy.
+     * { uri|data, name, password, ops } — ops is a JSON string:
+     *   {"1":[{"type":"rect","x":10,"y":700,"w":100,"h":20,"color":"#ffffff"},
+     *        {"type":"image","x":10,"y":600,"w":120,"h":60,"data":"<base64 png>"}]}
+     * Coordinates are PDF user-space points (origin = bottom-left).
+     */
+    @PluginMethod
+    public void applyEdits(PluginCall call) {
+        String name = call.getString("name", "document.pdf");
+        String password = call.getString("password", "");
+        String opsJson = call.getString("ops", "{}");
+        try {
+            PDDocument doc = loadDoc(call, password);
+            if (doc == null) {
+                call.reject("Missing uri or data");
+                return;
+            }
+            org.json.JSONObject root = new org.json.JSONObject(opsJson);
+            java.util.Iterator<String> keys = root.keys();
+            while (keys.hasNext()) {
+                String pageKey = keys.next();
+                int pageNo;
+                try { pageNo = Integer.parseInt(pageKey); } catch (Exception e) { continue; }
+                if (pageNo < 1 || pageNo > doc.getNumberOfPages()) continue;
+                PDPage page = doc.getPage(pageNo - 1);
+                org.json.JSONArray ops = root.getJSONArray(pageKey);
+                PDPageContentStream cs = new PDPageContentStream(doc, page,
+                    PDPageContentStream.AppendMode.APPEND, true, true);
+                for (int i = 0; i < ops.length(); i++) {
+                    org.json.JSONObject op = ops.getJSONObject(i);
+                    String type = op.optString("type");
+                    float x = (float) op.optDouble("x"), y = (float) op.optDouble("y");
+                    float w = (float) op.optDouble("w"), h = (float) op.optDouble("h");
+                    if (w <= 0 || h <= 0) continue;
+                    if ("rect".equals(type)) {
+                        String col = op.optString("color", "#ffffff");
+                        int rgb;
+                        try { rgb = android.graphics.Color.parseColor(col); }
+                        catch (Exception e) { rgb = 0xFFFFFFFF; }
+                        cs.setNonStrokingColor(
+                            android.graphics.Color.red(rgb) / 255f,
+                            android.graphics.Color.green(rgb) / 255f,
+                            android.graphics.Color.blue(rgb) / 255f);
+                        cs.addRect(x, y, w, h);
+                        cs.fill();
+                    } else if ("image".equals(type)) {
+                        String data = op.optString("data", "");
+                        int comma = data.indexOf(',');
+                        if (comma >= 0) data = data.substring(comma + 1);
+                        if (data.isEmpty()) continue;
+                        byte[] png = Base64.decode(data, Base64.DEFAULT);
+                        PDImageXObject img =
+                            PDImageXObject.createFromByteArray(doc, png, "edit");
+                        cs.drawImage(img, x, y, w, h);
+                    }
+                }
+                cs.close();
+            }
+            File out = outFile(name, "-edited");
+            doc.save(out);
+            doc.close();
             JSObject ret = new JSObject();
             ret.put("path", out.getAbsolutePath());
             ret.put("name", out.getName());
