@@ -270,6 +270,7 @@ const I18N = {
     samples:'نماذج النص المؤقّت', copy:'نسخ', copied:'تم النسخ',
     lFr:'الفرنسية', lAr:'العربية', lEn:'الإنجليزية',
     aiTitle:'🔍 بحث Google AI: ترجمة وتحليل',
+    searching:'جاري البحث عن المكان…',
     aiPrompt:o=>`العبارة بال${o.sl}: "${o.text}"\n1) ترجم كل كلمة على حدة إلى ${o.l1} و${o.l2}.\n2) اشرح قاعدة اللغة (تصريف الفعل، التركيب، أو التعبير) المستخدمة في العبارة.\n3) قدّم محادثة قصيرة عملية بالفرنسية والعربية والإنجليزية تستخدم هذه العبارة لتسهيل حفظها.\nالإخراج بالفرنسية والعربية والإنجليزية.`,
     back:'‹ رجوع',
     daysShort:'يوم',
@@ -312,6 +313,7 @@ const I18N = {
     samples:'Exemples de texte minuté', copy:'Copier', copied:'Copié',
     lFr:'français', lAr:'arabe', lEn:'anglais',
     aiTitle:'🔍 Recherche IA : traduction + analyse',
+    searching:'Recherche du lieu…',
     aiPrompt:o=>`Phrase en ${o.sl} : "${o.text}"\n1) Traduisez chaque mot individuellement en ${o.l1} et en ${o.l2}.\n2) Expliquez la règle de grammaire (conjugaison, structure ou expression) utilisée dans cette phrase.\n3) Proposez une courte conversation pratique en français, arabe et anglais utilisant cette phrase.\nRéponse en français, arabe et anglais.`,
     back:'‹ Retour',
     daysShort:'j',
@@ -354,6 +356,7 @@ const I18N = {
     samples:'Timed text samples', copy:'Copy', copied:'Copied',
     lFr:'French', lAr:'Arabic', lEn:'English',
     aiTitle:'🔍 AI search: translate + analyze',
+    searching:'Searching for the place…',
     aiPrompt:o=>`${o.sl} phrase: "${o.text}"\n1) Translate each word individually into ${o.l1} and ${o.l2}.\n2) Explain the grammar rule (verb conjugation, structure, or expression) used in this phrase.\n3) Provide a short practical conversation in French, Arabic and English using this phrase.\nOutput in French, Arabic and English.`,
     back:'‹ Back',
     daysShort:'d',
@@ -708,10 +711,17 @@ async function geocode(q){
 async function openCityApp(a){
   const addr=[a.address||a.place].filter(Boolean).join(', ');
   const name=encodeURIComponent(a.place||a.title||'');
-  let qs='endaddress='+encodeURIComponent(addr)+'&endname='+name;
+  const enc=encodeURIComponent(addr);
+  toast(t('searching'));
   const c=await geocode(addr);
-  if(c)qs='endcoord='+c.lat+'%2C'+c.lon+'&endname='+name+'&endaddress='+encodeURIComponent(addr);
-  openAppOr('https://citymapper.com/directions?'+qs,'citymapper://directions?'+qs);
+  if(c){
+    const qs='endcoord='+c.lat+'%2C'+c.lon+'&endname='+name+'&endaddress='+enc;
+    openAppOr('https://citymapper.com/directions?'+qs,'citymapper://directions?'+qs);
+    return;
+  }
+  // Citymapper can't geocode address text itself: open the app (its own
+  // search box) or fall back to a Google Maps web search of the address.
+  openAppOr(mapsUrl(a),'citymapper://');
 }
 function aiPromptFor(ln){
   const lg=ln.lang||guessLang(ln.text);
