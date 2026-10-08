@@ -263,6 +263,12 @@
     transition: background 0.12s, border-color 0.12s;
   }
   .lesson-card:active { background: rgba(255,255,255,0.04); }
+  .lesson-card.selected { border-color: var(--accent); background: rgba(139,92,246,0.10); }
+  .lesson-check { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--text-secondary); flex: none; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; color: transparent; }
+  .lesson-card.selected .lesson-check { background: var(--accent); border-color: var(--accent); color: #fff; }
+  #select-bar { display: flex; gap: 0.45rem; margin-bottom: 0.7rem; }
+  .select-bar-btn { flex: 1; background: var(--bg-tertiary); border: 1px solid var(--border); color: var(--text-primary); border-radius: 10px; padding: 0.5rem 0.3rem; font-size: 0.82rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+  .select-bar-btn.primary { background: var(--accent); color: #fff; border-color: transparent; }
   .lesson-card .title { font-weight: 700; font-size: 1rem; word-break: normal; overflow-wrap: break-word; }
   .lesson-card .date { color: var(--text-secondary); font-size: 0.75rem; word-break: normal; overflow-wrap: break-word; }
   .empty-hint { color: var(--text-secondary); font-size: 0.9rem; text-align: center; padding: 1rem 0; }
@@ -315,6 +321,11 @@
         </div>
       </div>
       <input type="file" id="import-file" accept="application/json" style="display:none">
+      <div id="select-bar" style="display:none">
+        <button id="btn-sel-all" class="select-bar-btn" type="button" data-t="selectAll">تحديد الكل</button>
+        <button id="btn-sel-export" class="select-bar-btn primary" type="button" data-t="exportSel">تصدير المحدد</button>
+        <button id="btn-sel-cancel" class="select-bar-btn" type="button" data-t="cancelSel">إلغاء</button>
+      </div>
       <div id="lessons-list">
         <p class="empty-hint" data-t="emptyHint">لا توجد دروس محفوظة. اضغط على “➕” لإعداد درس جديد.</p>
       </div>
@@ -485,6 +496,7 @@
   const btnPrev = $('btn-prev'), btnPlay = $('btn-play'), btnNext = $('btn-next'), btnFullLoop = $('btn-full-loop'), btnVideoLoop = $('btn-video-loop'), btnLoopAll = $('btn-loop-all');
   const filterSelect = $('filter-select'), btnAiSearch = $('btn-ai-search'), btnRemoveImage = $('btn-remove-image');
   const btnLessons = $('btn-lessons'), btnSetup = $('btn-setup'), btnNewLesson = $('btn-new-lesson'), btnSaveLesson = $('btn-save-lesson'), btnBackLessons = $('btn-back-lessons'), btnLang = $('btn-lang'), btnEdgeSet = $('btn-edge-set'), btnImport = $('btn-import'), btnExportAll = $('btn-export-all'), importFile = $('import-file');
+  const selectBar = $('select-bar'), btnSelAll = $('btn-sel-all'), btnSelExport = $('btn-sel-export'), btnSelCancel = $('btn-sel-cancel');
   const lessonsView = $('lessons-view'), setupView = $('setup-view'), playerView = $('player-view'), lessonsList = $('lessons-list'), lessonTitle = $('lesson-title');
   const statusEl = $('status'), toast = $('toast'), rateSelect = $('rate');
   const btnFormats = $('btn-formats'), formatsBackdrop = $('formats-backdrop'), formatsList = $('formats-list'), btnFormatsClose = $('btn-formats-close');
@@ -516,6 +528,8 @@
     uiLang: localStorage.getItem('srt_ui_lang') || 'ar',
     wordLoopEl: null,
     muted: false,
+    selectMode: false,
+    selectedIds: new Set(),
     captionScale: 1
   };
 
@@ -616,6 +630,10 @@
       imageDeleted: 'تم حذف الصورة',
       importTitle: 'استيراد دروس JSON',
       exportAll: 'تصدير كل الدروس',
+      selectAll: 'تحديد الكل',
+      exportSel: 'تصدير المحدد',
+      cancelSel: 'إلغاء',
+      selectSome: 'حدّد درساً واحداً على الأقل',
       actions: 'خيارات',
       exportJson: 'مشاركة / تصدير JSON',
       exportSrt: 'تصدير ملف SRT',
@@ -722,6 +740,10 @@
       imageDeleted: 'Image supprimée',
       importTitle: 'Importer des leçons JSON',
       exportAll: 'Exporter toutes les leçons',
+      selectAll: 'Tout sélectionner',
+      exportSel: 'Exporter la sélection',
+      cancelSel: 'Annuler',
+      selectSome: 'Sélectionnez au moins une leçon',
       actions: 'Options',
       exportJson: 'Partager / exporter JSON',
       exportSrt: 'Exporter SRT',
@@ -828,6 +850,10 @@
       imageDeleted: 'Image deleted',
       importTitle: 'Import lessons JSON',
       exportAll: 'Export all lessons',
+      selectAll: 'Select all',
+      exportSel: 'Export selected',
+      cancelSel: 'Cancel',
+      selectSome: 'Select at least one lesson',
       actions: 'Options',
       exportJson: 'Share / export JSON',
       exportSrt: 'Export SRT',
@@ -1919,8 +1945,10 @@
         state.thumbUrls.push(url);
         thumb = `<img src="${url}" class="lesson-thumb" alt="">`;
       }
+      const sel = state.selectMode && state.selectedIds.has(String(l.id));
       return `
-      <div class="lesson-card" data-id="${l.id}">
+      <div class="lesson-card${sel ? ' selected' : ''}" data-id="${l.id}">
+        ${state.selectMode ? `<span class="lesson-check">${sel ? '✓' : ''}</span>` : ''}
         ${thumb}
         <div class="lesson-info">
           <div class="title">${escapeHtml(l.name)}</div>
@@ -2002,7 +2030,16 @@
     return String(name).replace(/[^\p{L}\p{N}\s_-]/gu, '_').replace(/\s+/g, '_') || 'lesson';
   }
   async function serializeLesson(lesson) {
-    return { name: lesson.name, createdAt: lesson.createdAt, cues: lesson.cues };
+    const obj = { name: lesson.name, createdAt: lesson.createdAt, cues: lesson.cues };
+    if (lesson.videoBlob) {
+      obj.videoBase64 = await blobToBase64(lesson.videoBlob);
+      obj.videoType = lesson.videoBlob.type || 'video/mp4';
+    }
+    if (lesson.imageBlob) {
+      obj.imageBase64 = await blobToBase64(lesson.imageBlob);
+      obj.imageType = lesson.imageBlob.type || 'image/jpeg';
+    }
+    return obj;
   }
   function deserializeLesson(obj) {
     const lesson = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), name: obj.name || 'Lesson', createdAt: obj.createdAt || Date.now(), cues: Array.isArray(obj.cues) ? obj.cues : [] };
@@ -2091,6 +2128,45 @@
       const filename = `${sanitizeFilename(lesson.name)}.srt`;
       const r = await shareFile(srt, filename, lesson.name, 'application/x-subrip');
       showToast(r.indexOf('share') === 0 ? t('exportSuccess', {name: filename}) : t('exportError') + ' — ' + r);
+    } catch (e) { showToast(t('exportError') + ' — ' + (e.message || e)); }
+  }
+  function updateSelCount() {
+    if (btnSelExport) btnSelExport.textContent = '📤 ' + t('exportSel') + ' (' + state.selectedIds.size + ')';
+  }
+  function setSelectMode(on) {
+    state.selectMode = on;
+    state.selectedIds.clear();
+    if (selectBar) selectBar.style.display = on ? 'flex' : 'none';
+    updateSelCount();
+    renderLessons();
+  }
+  function toggleLessonSelected(card) {
+    const id = String(card.dataset.id);
+    const check = card.querySelector('.lesson-check');
+    if (state.selectedIds.has(id)) {
+      state.selectedIds.delete(id);
+      card.classList.remove('selected');
+      if (check) check.textContent = '';
+    } else {
+      state.selectedIds.add(id);
+      card.classList.add('selected');
+      if (check) check.textContent = '✓';
+    }
+    updateSelCount();
+  }
+  async function exportSelectedLessons() {
+    const ids = [...state.selectedIds];
+    if (!ids.length) { showToast(t('selectSome')); return; }
+    try {
+      const lessons = [];
+      for (const id of ids) { const l = await getLessonById(id); if (l) lessons.push(l); }
+      if (!lessons.length) { showToast(t('noLessonsToExport')); return; }
+      const data = await Promise.all(lessons.map(l => serializeLesson(l)));
+      const filename = lessons.length === 1 ? `${sanitizeFilename(lessons[0].name)}.json` : `srt-lessons-${lessons.length}.json`;
+      const json = JSON.stringify(lessons.length === 1 ? data[0] : data, null, 2);
+      const r = await shareFile(json, filename, 'SRT Lessons', 'application/json');
+      showToast(r.indexOf('share') === 0 ? t('exportSuccess', {name: filename}) : t('exportError') + ' — ' + r);
+      if (r.indexOf('share') === 0) setSelectMode(false);
     } catch (e) { showToast(t('exportError') + ' — ' + (e.message || e)); }
   }
   async function exportAllLessons() {
@@ -2235,7 +2311,15 @@
     setUILang(next);
   });
   btnImport.addEventListener('click', () => importFile.click());
-  btnExportAll.addEventListener('click', exportAllLessons);
+  btnExportAll.addEventListener('click', () => setSelectMode(true));
+  if (btnSelCancel) btnSelCancel.addEventListener('click', () => setSelectMode(false));
+  if (btnSelExport) btnSelExport.addEventListener('click', exportSelectedLessons);
+  if (btnSelAll) btnSelAll.addEventListener('click', async () => {
+    const lessons = await getLessonsFromDB().catch(() => []);
+    lessons.forEach(l => state.selectedIds.add(String(l.id)));
+    renderLessons();
+    updateSelCount();
+  });
   importFile.addEventListener('change', () => { if (importFile.files[0]) { importLessonsFromFile(importFile.files[0]); importFile.value = ''; } });
 
   lessonsList.addEventListener('click', async e => {
@@ -2276,7 +2360,10 @@
       }
     }
     const card = e.target.closest('.lesson-card');
-    if (card) loadLesson(card.dataset.id);
+    if (card) {
+      if (state.selectMode) { toggleLessonSelected(card); return; }
+      loadLesson(card.dataset.id);
+    }
   });
 
   document.addEventListener('click', e => {
