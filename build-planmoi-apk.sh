@@ -96,6 +96,11 @@ open(p, 'w').write(s)
 PYEOF
 fi
 
+# Notification alert sound for the reminders channel (swap planmoi-alert.mp3 to change it)
+RAW_DIR="android/app/src/main/res/raw"
+mkdir -p "$RAW_DIR"
+cp planmoi-alert.mp3 "$RAW_DIR/planmoi_alert.mp3"
+
 if ! grep -q 'squareup.okhttp3' android/app/build.gradle; then
   python3 - <<'PYEOF'
 p = 'android/app/build.gradle'
