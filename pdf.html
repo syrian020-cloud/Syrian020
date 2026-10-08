@@ -726,7 +726,7 @@ function capPlugin(name) {
   }
   return null;
 }
-const BUILD_STAMP = 'v27 · ٢٠٢٦-١٠-٠٨';
+const BUILD_STAMP = 'v28 · ٢٠٢٦-١٠-٠٨';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -1718,6 +1718,7 @@ function setZoom(z, reRender = true) {
   setZoom._t = setTimeout(rerenderAll, 160);
 }
 function rerenderAll() {
+  wrapEl.style.transform = '';
   rendered.clear();
   for (const d of pagesEl.children) {
     d.innerHTML = '<div class="ph">' + d.dataset.page + '</div>';
@@ -1749,14 +1750,15 @@ wrapEl.addEventListener('touchmove', e => {
     wrapEl.style.transform = `scale(${z / pinch.z})`;
   }
 }, { passive: true });
-wrapEl.addEventListener('touchend', e => {
-  if (pinch && e.touches.length < 2) {
-    wrapEl.style.transform = '';
-    const z = zoom;
-    pinch = null;
-    setZoom(z);
-  }
-}, { passive: true });
+const endPinch = () => {
+  if (!pinch) return;
+  wrapEl.style.transform = '';
+  const z = zoom;
+  pinch = null;
+  setZoom(z);
+};
+wrapEl.addEventListener('touchend', e => { if (e.touches.length < 2) endPinch(); }, { passive: true });
+wrapEl.addEventListener('touchcancel', endPinch, { passive: true });
 
 /* ---------- document search ---------- */
 let hits = [], hitIdx = -1, searchQ = '';
