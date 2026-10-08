@@ -1263,7 +1263,7 @@ async function deleteAppt(id){
 function collectSettings(){
   const s={};
   for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);
-    if(k&&(k===LS_LANG||k==='edge_tts'||/^(edge_voice|edge_rate)_/.test(k)))s[k]=localStorage.getItem(k);}
+    if(k&&(k===LS_LANG||k===LS_PLAN||k==='edge_tts'||/^(edge_voice|edge_rate)_/.test(k)))s[k]=localStorage.getItem(k);}
   return s;
 }
 async function exportData(src){
@@ -1298,6 +1298,7 @@ function importData(){
       if(d.settings&&typeof d.settings==='object'){
         for(const[k,v]of Object.entries(d.settings)){try{localStorage.setItem(k,String(v));}catch(e){}}
         lang=localStorage.getItem(LS_LANG)||lang;
+        planLoad();
       }
       const have=new Set(appts.map(x=>x.id));
       for(const a of arr){
