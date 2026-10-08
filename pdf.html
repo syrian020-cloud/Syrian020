@@ -564,9 +564,6 @@
     <button class="icon-btn" id="readPageBtn" title="نطق الصفحة" data-i18n-title="read_page">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
     </button>
-    <button class="icon-btn" id="selBtn" title="تحديد النص" data-i18n-title="sel_t">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 4h14M5 20h14M12 4v16"/></svg>
-    </button>
     <button class="icon-btn" id="docSearchBtn" title="بحث في المستند" data-i18n-title="doc_search_t">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
     </button>
@@ -726,7 +723,7 @@ function capPlugin(name) {
   }
   return null;
 }
-const BUILD_STAMP = 'v28 · ٢٠٢٦-١٠-٠٨';
+const BUILD_STAMP = 'v29 · ٢٠٢٦-١٠-٠٨';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -1461,6 +1458,7 @@ async function loadDoc(bytes, name, key, uri, file) {
 
   $('docTitle').textContent = name.replace(/\.pdf$/i, '');
   $('pageSlider').max = pageCount; $('pageSlider').value = 1;
+  $('pageChip').textContent = '1 / ' + pageCount;
   $('libraryView').classList.remove('active');
   $('readerView').classList.add('active');
   uiHidden = false; setUiHidden(false);
@@ -1685,11 +1683,12 @@ function updateCurrentPage() {
     const k = kids[i];
     if (k.offsetTop <= mid) n = i + 1; else break;
   }
+  n = Math.max(1, Math.min(pageCount, n));
   if (n !== currentPage) {
     currentPage = n;
-    $('pageChip').textContent = currentPage + ' / ' + pageCount;
     $('pageSlider').value = currentPage;
   }
+  $('pageChip').textContent = currentPage + ' / ' + pageCount;
 }
 function goToPage(n) {
   n = Math.max(1, Math.min(pageCount, n));
@@ -1841,14 +1840,7 @@ $('readPageBtn').onclick = async () => {
   speak(text, null);
   toast(settings.loop ? t('read_page_loop') : t('read_page'));
 };
-$('selBtn').onclick = () => {
-  settings.selMode = !settings.selMode;
-  saveSettings(); applySelMode();
-  $('selBtn').classList.toggle('on', settings.selMode);
-  if (settings.selMode) { stopSpeech(); toast(t('sel_on')); }
-  else toast(t('sel_off'));
-};
-$('selBtn').classList.toggle('on', settings.selMode);
+// selection-mode toggle removed; selMode stays off so taps always speak
 
 /* OCR: read the page image itself — works on scanned PDFs with no text layer */
 let ocrWorker = null, ocrLoading = null;
@@ -2178,9 +2170,24 @@ $('menuBtn').onclick = () => {
     settings.ttsEngine = e.target.value; saveSettings();
     if (settings.ttsEngine === 'edge') toast(t('m_engine_s'), 3600);
   };
-  $('sEdgeAr').onchange = e => { settings.edgeVoiceAr = e.target.value; saveSettings(); };
-  $('sEdgeFr').onchange = e => { settings.edgeVoiceFr = e.target.value; saveSettings(); };
-  $('sEdgeEn').onchange = e => { settings.edgeVoiceEn = e.target.value; saveSettings(); };
+  // picking an Edge voice enables the engine and plays a short preview
+  const edgePick = (selId, key, sample) => {
+    $(selId).onchange = e => {
+      settings[key] = e.target.value;
+      settings.ttsEngine = 'edge';
+      saveSettings();
+      const se = $('sEngine'); if (se) se.value = 'edge';
+      stopSpeech();
+      if (isNative && Scanner && Scanner.edgeSpeak) {
+        Scanner.edgeSpeak({ text: sample, voice: e.target.value,
+          rate: edgePct(settings.rate), pitch: edgeHz(settings.pitch), volume: '+0%' })
+          .catch(() => toast(t('tts_fail')));
+      }
+    };
+  };
+  edgePick('sEdgeAr', 'edgeVoiceAr', 'مرحباً بك في PDFly');
+  edgePick('sEdgeFr', 'edgeVoiceFr', 'Bienvenue dans PDFly');
+  edgePick('sEdgeEn', 'edgeVoiceEn', 'Welcome to PDFly');
   $('sOutline').onclick = showOutline;
   $('sBms').onclick = showBookmarks;
   $('sBookmark').onclick = () => { toggleBookmark(currentPage); showBookmarks(); };
@@ -2505,8 +2512,29 @@ pagesEl.addEventListener('dblclick', e => {
 });
 
 /* ================= Boot ================= */
+settings.selMode = false;
 applyLang();
 applySelMode();
+
+/* open-with: a PDF handed to the app from another app or the browser */
+async function openIncoming() {
+  if (!isNative || !Scanner || !Scanner.consumeOpenIntent) return;
+  try {
+    const r = await Scanner.consumeOpenIntent();
+    if (!r || !r.uri) return;
+    veil(true, t('opening') + ' ' + (r.name || 'PDF'));
+    try {
+      const res = await Scanner.readPdf({ uri: r.uri });
+      const bin = atob(res.data);
+      const bytes = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      await loadDoc(bytes, r.name || 'document.pdf', 'ext:' + r.uri, r.uri);
+    } catch (e) { toast(t('open_fail')); }
+    veil(false);
+  } catch (e) {}
+}
+openIncoming();
+if (isNative && Scanner && Scanner.addListener) Scanner.addListener('openPdf', () => openIncoming());
 scanLibrary();
 if (!isNative) {
   // browser demo hint

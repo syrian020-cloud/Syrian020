@@ -39,6 +39,49 @@ fi
 
 npx cap sync android
 
+# Register PDFly as an open-with handler for PDFs (files, content URIs, links)
+MANIFEST="$ROOT/android/app/src/main/AndroidManifest.xml"
+if [ -f "$MANIFEST" ] && ! grep -q "application/pdf" "$MANIFEST"; then
+  python3 - <<'EOF'
+p = 'android/app/src/main/AndroidManifest.xml'
+s = open(p).read()
+filters = '''
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:mimeType="application/pdf" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:mimeType="application/pdf" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:host="*" />
+                <data android:pathPattern=".*\\\\.pdf" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/pdf" />
+            </intent-filter>
+'''
+i = s.index('</activity>')
+s = s[:i] + filters + s[i:]
+open(p, 'w').write(s)
+EOF
+fi
+
 # Trim unused BouncyCastle post-quantum resources (~8MB) — PDFBox only needs classic crypto
 APP_GRADLE="$ROOT/android/app/build.gradle"
 if [ -f "$APP_GRADLE" ] && ! grep -q "bouncycastle/pqc" "$APP_GRADLE"; then

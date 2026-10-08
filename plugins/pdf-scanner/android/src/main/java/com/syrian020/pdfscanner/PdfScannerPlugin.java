@@ -28,6 +28,7 @@ import android.print.PrintManager;
 import android.print.pdf.PrintedPdfDocument;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.provider.OpenableColumns;
 import android.provider.Settings;
 import android.util.Base64;
 import android.webkit.WebView;
@@ -270,8 +271,91 @@ public class PdfScannerPlugin extends Plugin {
         if (uri.startsWith("content://")) {
             return getContext().getContentResolver().openInputStream(Uri.parse(uri));
         }
+        if (uri.startsWith("http://") || uri.startsWith("https://")) {
+            Response r = edgeClient.newCall(new Request.Builder().url(uri).build()).execute();
+            if (!r.isSuccessful() || r.body() == null) throw new IOException("HTTP " + r.code());
+            return r.body().byteStream();
+        }
         String path = uri.startsWith("file://") ? uri.substring(7) : uri;
         return new FileInputStream(path);
+    }
+
+    /* ================= Open-with intents =================
+     * PDFly registers as a VIEW/SEND handler for PDFs; intents arriving while
+     * the app runs are pushed to JS as an "openPdf" event, and either way the
+     * web layer picks the URI up with consumeOpenIntent().
+     */
+    private String pendingOpenUri;
+    private String pendingOpenName;
+
+    private void capturePdfIntent(Intent intent) {
+        if (intent == null || intent.getAction() == null) return;
+        String u = null;
+        if (Intent.ACTION_VIEW.equals(intent.getAction()) && intent.getData() != null) {
+            u = intent.getData().toString();
+        } else if (Intent.ACTION_SEND.equals(intent.getAction())) {
+            Uri s = intent.getParcelableExtra(Intent.EXTRA_STREAM);
+            if (s != null) u = s.toString();
+        }
+        if (u == null) return;
+        pendingOpenUri = u;
+        pendingOpenName = displayName(u);
+        JSObject d = new JSObject();
+        d.put("uri", u);
+        if (pendingOpenName != null) d.put("name", pendingOpenName);
+        notifyListeners("openPdf", d);
+    }
+
+    @Override
+    protected void handleOnNewIntent(Intent intent) {
+        super.handleOnNewIntent(intent);
+        capturePdfIntent(intent);
+    }
+
+    /** Returns { uri, name } of a PDF handed to the app via VIEW/SEND, once. */
+    @PluginMethod
+    public void consumeOpenIntent(PluginCall call) {
+        if (pendingOpenUri == null && getActivity() != null) {
+            Intent i = getActivity().getIntent();
+            if (i != null && i.getAction() != null
+                && (Intent.ACTION_VIEW.equals(i.getAction()) || Intent.ACTION_SEND.equals(i.getAction()))) {
+                if (Intent.ACTION_VIEW.equals(i.getAction()) && i.getData() != null) {
+                    pendingOpenUri = i.getData().toString();
+                } else if (Intent.ACTION_SEND.equals(i.getAction())) {
+                    Uri s = i.getParcelableExtra(Intent.EXTRA_STREAM);
+                    if (s != null) pendingOpenUri = s.toString();
+                }
+                if (pendingOpenUri != null) pendingOpenName = displayName(pendingOpenUri);
+                i.setAction(Intent.ACTION_MAIN);   // don't re-offer it
+            }
+        }
+        JSObject ret = new JSObject();
+        ret.put("uri", pendingOpenUri);
+        if (pendingOpenName != null) ret.put("name", pendingOpenName);
+        pendingOpenUri = null;
+        pendingOpenName = null;
+        call.resolve(ret);
+    }
+
+    private String displayName(String uriStr) {
+        try {
+            if (uriStr.startsWith("content://")) {
+                try (Cursor c = getContext().getContentResolver().query(
+                        Uri.parse(uriStr), null, null, null, null)) {
+                    if (c != null && c.moveToFirst()) {
+                        int i = c.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+                        if (i >= 0 && c.getString(i) != null) return c.getString(i);
+                    }
+                }
+            }
+            String tail = uriStr.substring(uriStr.lastIndexOf('/') + 1);
+            int q = tail.indexOf('?');
+            if (q >= 0) tail = tail.substring(0, q);
+            tail = Uri.decode(tail);
+            return tail.isEmpty() ? "document.pdf" : tail;
+        } catch (Exception e) {
+            return "document.pdf";
+        }
     }
 
     /**
@@ -755,6 +839,8 @@ public class PdfScannerPlugin extends Plugin {
     private ByteArrayOutputStream edgeAudio;
     private File edgeFile;
     private volatile boolean edgeDone = true;
+    private volatile boolean edgeWsOpen = false;
+    private volatile boolean edgeServed = false;
 
     private static String edgeGec() {
         long ticks = System.currentTimeMillis() / 1000 + 11644473600L;
@@ -780,6 +866,12 @@ public class PdfScannerPlugin extends Plugin {
 
     private static String edgeId() {
         return UUID.randomUUID().toString().replace("-", "");
+    }
+
+    /** ar-SY-LaithNeural -> "ar-SY, LaithNeural" (the name form the service expects). */
+    private static String edgeVoiceName(String voice) {
+        int i = voice.lastIndexOf('-');
+        return i > 0 ? voice.substring(0, i) + ", " + voice.substring(i + 1) : voice;
     }
 
     private static String xmlEscape(String s) {
@@ -838,12 +930,26 @@ public class PdfScannerPlugin extends Plugin {
         edgeCall = call;
         edgeAudio = new ByteArrayOutputStream();
         edgeDone = false;
+        edgeServed = false;
         final String connId = edgeId();
         final String ssml =
             "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'>"
-            + "<voice name='" + voice + "'><prosody pitch='" + pitch + "' rate='" + rate
+            + "<voice name='Microsoft Server Speech Text to Speech Voice (" + edgeVoiceName(voice) + ")'>"
+            + "<prosody pitch='" + pitch + "' rate='" + rate
             + "' volume='" + volume + "'>" + xmlEscape(text.trim())
             + "</prosody></voice></speak>";
+        final String cfgMsg =
+            "X-Timestamp:" + edgeTimestamp() + "\r\n"
+            + "Content-Type:application/json; charset=utf-8\r\n"
+            + "Path:speech.config\r\n\r\n"
+            + "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{"
+            + "\"sentenceBoundaryEnabled\":\"true\",\"wordBoundaryEnabled\":\"false\"},"
+            + "\"outputFormat\":\"audio-24khz-48kbitrate-mono-mp3\"}}}}\r\n";
+        final String ssmlMsg =
+            "X-RequestId:" + edgeId() + "\r\n"
+            + "Content-Type:application/ssml+xml\r\n"
+            + "X-Timestamp:" + edgeTimestamp() + "Z\r\n"
+            + "Path:ssml\r\n\r\n" + ssml;
         Request req = new Request.Builder()
             .url("wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1"
                 + "?TrustedClientToken=" + EDGE_TOKEN
@@ -861,21 +967,15 @@ public class PdfScannerPlugin extends Plugin {
         edgeWs = edgeClient.newWebSocket(req, new WebSocketListener() {
             @Override
             public void onOpen(WebSocket ws, Response response) {
-                ws.send("X-Timestamp:" + edgeTimestamp() + "\r\n"
-                    + "Content-Type:application/json; charset=utf-8\r\n"
-                    + "Path:speech.config\r\n\r\n"
-                    + "{\"context\":{\"synthesis\":{\"audio\":{\"metadataoptions\":{"
-                    + "\"sentenceBoundaryEnabled\":\"false\",\"wordBoundaryEnabled\":\"false\"},"
-                    + "\"outputFormat\":\"audio-24khz-48kbitrate-mono-mp3\"}}}}");
-                ws.send("X-RequestId:" + connId + "\r\n"
-                    + "Content-Type:application/ssml+xml\r\n"
-                    + "Path:ssml\r\n"
-                    + "X-Timestamp:" + edgeTimestamp() + "\r\n\r\n" + ssml);
+                edgeWsOpen = true;
+                ws.send(cfgMsg);
+                ws.send(ssmlMsg);
             }
 
             @Override
             public void onMessage(WebSocket ws, String text) {
                 if (text.contains("Path:turn.end")) {
+                    edgeWsOpen = false;
                     try { ws.close(1000, null); } catch (Exception ignored) {}
                     finishEdgeAudio();
                 }
@@ -894,7 +994,30 @@ public class PdfScannerPlugin extends Plugin {
             }
 
             @Override
+            public void onClosing(WebSocket ws, int code, String reason) {
+                edgeWsOpen = false;
+                try { ws.close(code, reason); } catch (Exception ignored) {}
+            }
+
+            @Override
+            public void onClosed(WebSocket ws, int code, String reason) {
+                edgeWsOpen = false;
+                if (edgeWs == ws) edgeWs = null;
+                if (!edgeDone) {
+                    // server closes right after the audio stream; a clean close
+                    // with buffered audio is a finished turn, not an error
+                    if (code == 1000 && edgeAudio != null && edgeAudio.size() > 0) {
+                        finishEdgeAudio();
+                    } else {
+                        failEdge("closed " + code);
+                    }
+                }
+            }
+
+            @Override
             public void onFailure(WebSocket ws, Throwable t, Response r) {
+                edgeWsOpen = false;
+                if (edgeWs == ws) edgeWs = null;
                 failEdge("edge failed: " + t.getMessage());
             }
         });
@@ -912,6 +1035,8 @@ public class PdfScannerPlugin extends Plugin {
     private void finishEdgeAudio() {
         byte[] mp3 = edgeAudio != null ? edgeAudio.toByteArray() : new byte[0];
         if (mp3.length == 0 || edgeDone) { if (!edgeDone) failEdge("no audio"); return; }
+        if (edgeServed) return;
+        edgeServed = true;
         try {
             edgeFile = File.createTempFile("edge_", ".mp3", getContext().getCacheDir());
             try (FileOutputStream out = new FileOutputStream(edgeFile)) { out.write(mp3); }
@@ -975,6 +1100,7 @@ public class PdfScannerPlugin extends Plugin {
         if (edgeWs != null) {
             try { edgeWs.close(1000, null); } catch (Exception ignored) {}
             edgeWs = null;
+            edgeWsOpen = false;
         }
         PluginCall c = edgeCall;
         edgeCall = null;
