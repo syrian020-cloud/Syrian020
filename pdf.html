@@ -774,7 +774,7 @@ const EDGE_EN_VOICES = [
 ];
 function edgeVoiceFor(lang) {
   if (lang === 'ar-SA') return settings.edgeVoiceAr || 'ar-SY-AmanyNeural';
-  if (settings.latinLang === 'en-US') {
+  if ((lang || '').startsWith('en') || settings.latinLang === 'en-US') {
     const ids = EDGE_EN_VOICES.map(v => v[0]);
     return ids.includes(settings.edgeVoiceEn) ? settings.edgeVoiceEn : ids[0];
   }
@@ -867,6 +867,7 @@ const STR = {
     imgs_fail: 'تعذّر التحويل', scan_fail: 'تعذر فحص الملفات',
     sel_on: 'وضع التحديد — اسحب فوق النص ثم «نسخ»',
     tts_testing: 'اختبار النطق…', tts_ok: 'النطق يعمل بشكل صحيح',
+    tts_sample: 'هذا اختبار للنطق',
     tts_fail: 'محرك النطق لا يستجيب — ثبّت أو فعّل «التحويل من نص إلى كلام» من إعدادات الهاتف',
     mk_fail: 'تعذّر إنشاء الملف', popup: 'اسمح بالنوافذ المنبثقة',
     read_here: 'قراءة من هنا…', shared_done: 'تم — افتحه من المشاركة', saved_app: 'حُفظ في مجلد التطبيق',
@@ -952,6 +953,7 @@ const STR = {
     imgs_fail: 'Échec de conversion', scan_fail: 'Échec du scan',
     sel_on: 'Mode sélection — glissez puis « Copier »',
     tts_testing: 'Test de la voix…', tts_ok: 'La voix fonctionne',
+    tts_sample: 'Ceci est un test de la voix',
     tts_fail: "Moteur vocal absent — installez/activez la synthèse vocale dans les paramètres",
     mk_fail: 'Échec de création', popup: 'Autorisez les fenêtres pop-up',
     read_here: 'Lecture…', shared_done: 'Fait — via le partage', saved_app: "Enregistré dans le dossier de l'app",
@@ -1037,6 +1039,7 @@ const STR = {
     imgs_fail: 'Conversion failed', scan_fail: 'Scan failed',
     sel_on: 'Selection mode — drag over text, then Copy',
     tts_testing: 'Testing speech…', tts_ok: 'Speech works correctly',
+    tts_sample: 'This is a speech test',
     tts_fail: 'Speech engine missing — install or enable text-to-speech in phone settings',
     mk_fail: 'Could not create the file', popup: 'Allow popups',
     read_here: 'Reading from here…', shared_done: 'Done — open it from the share sheet', saved_app: 'Saved to app folder',
@@ -1091,10 +1094,10 @@ function speakable(text) {
     .trim();
 }
 
-function speakOnce(text) {
+function speakOnce(text, forceLang) {
   text = speakable(text);
   if (!text) return Promise.resolve(true);
-  const lang = detectLang(text);
+  const lang = forceLang || detectLang(text);
   const web = () => new Promise(res => {
     if (!('speechSynthesis' in window)) return res(false);
     speechSynthesis.cancel();
@@ -2226,7 +2229,7 @@ $('menuBtn').onclick = () => {
   $('sCopyAll').onclick = () => { closeSheet(); copyAllText(); };
   $('sTtsTest').onclick = () => {
     toast(t('tts_testing'));
-    speakOnce('هذا اختبار للنطق').then(ok =>
+    speakOnce(t('tts_sample'), settings.lang === 'ar' ? 'ar-SA' : settings.lang === 'en' ? 'en-US' : 'fr-FR').then(ok =>
       toast(ok ? t('tts_ok') : t('tts_fail'), 4500));
   };
   $('sOcr').onclick = () => { closeSheet(); ocrReadPage(); };
