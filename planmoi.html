@@ -333,7 +333,7 @@ const LS_KEY='planmoi_appts', LS_LANG='planmoi_lang', LS_FIRED='planmoi_fired';
 let appts=[], lang='ar', tab='upcoming', query='', view='list', detailId=null;
 let editingId=null, pendingAudio=null; // {name,dataUrl}
 let cuesCache={};
-let ttsRun=0, loopBtn=null;
+let ttsRun=0, loopBtn=null, curAudioUrl=null;
 
 const $=s=>document.querySelector(s);
 const t=k=>(I18N[lang]&&I18N[lang][k])??I18N.en[k]??k;
@@ -587,12 +587,12 @@ function renderList(){
           <div class="ctitle">${esc(a.title)}</div>
           <div class="cmeta"><i>🕐 ${esc(a.time||'')}</i>${a.place?`<i>📍 ${esc(a.place)}</i>`:''}${a.audioName?'<i>🎙️</i>':''}</div>
           <div class="badges">${statusBadge(a)}
-            ${a.category?`<span class="badge b-cat">${t('cats')[a.category]||a.category}</span>`:''}
+            ${a.category?`<span class="badge b-cat">${esc(t('cats')[a.category]||a.category)}</span>`:''}
             ${a.status==='upcoming'&&cd?`<span class="badge b-cd ${cdCls}">${cd}</span>`:''}
           </div>
         </div>
-        <div class="menuwrap"><button class="icon-btn mbtn" data-m="${a.id}">⋮</button>
-          <div class="menu hidden" id="m-${a.id}"></div></div>
+        <div class="menuwrap"><button class="icon-btn mbtn" data-m="${esc(a.id)}">⋮</button>
+          <div class="menu hidden" id="m-${esc(a.id)}"></div></div>
       </div></div>`;
   }).join('');
 }
@@ -613,6 +613,7 @@ function openDetail(id){
 }
 function closeDetail(){
   view='list';detailId=null;ttsStop();
+  if(curAudioUrl){try{URL.revokeObjectURL(curAudioUrl);}catch(e){}curAudioUrl=null;}
   $('#view-detail').classList.add('hidden');
   $('#view-list').classList.remove('hidden');$('#fab').classList.remove('hidden');
   renderAll();
@@ -656,7 +657,8 @@ async function renderDetail(){
           <button class="spk" data-spk="${i}" title="🔁">🔊</button></div>`).join('')}</div>`:''}
     </div>`;
   if(hasAudio){
-    const url=URL.createObjectURL(au.blob);
+    if(curAudioUrl){try{URL.revokeObjectURL(curAudioUrl);}catch(e){}curAudioUrl=null;}
+    const url=URL.createObjectURL(au.blob);curAudioUrl=url;
     $('#audio-zone').innerHTML=`<div class="player"><audio id="appt-audio" controls src="${url}"></audio>
       <button class="icon-btn" id="d-tts-stop" title="⏹">⏹</button></div>
       <div class="hint">${esc(au.name||'')}</div>`;
@@ -772,6 +774,7 @@ function confirmBox(title,yes,no,onYes){
 async function deleteAppt(id){
   appts=appts.filter(a=>a.id!==id);
   try{await audioDel(id);}catch(e){}
+  if(curAudioUrl){try{URL.revokeObjectURL(curAudioUrl);}catch(e){}curAudioUrl=null;}
   const a={id};await cancelReminders(a);
   save();toast(t('deleted'));
   if(view==='detail')closeDetail();else renderAll();
@@ -806,13 +809,20 @@ function importData(){
     try{
       const d=JSON.parse(await f.text());
       const arr=d.appts||d;if(!Array.isArray(arr))throw 0;
+      const have=new Set(appts.map(x=>x.id));
       for(const a of arr){
+        if(!a||typeof a!=='object'){continue;}
         if(!a.id)a.id='a'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+        a.id=String(a.id).replace(/[^\w-]/g,'');
+        if(have.has(a.id)){a.__skip=true;continue;}
+        have.add(a.id);
+        if(a.category&&!CAT_KEYS.includes(a.category))a.category='other';
+        if(a.status&&!['upcoming','done','cancelled'].includes(a.status))a.status='upcoming';
         if(a.audioDataUrl){try{await audioPut(a.id,dataUrlToBlob(a.audioDataUrl),a.audioName||'audio');}catch(e){}}
         delete a.audioDataUrl;
       }
       const ids=new Set(appts.map(x=>x.id));
-      appts=appts.concat(arr.filter(a=>!ids.has(a.id)));
+      appts=appts.concat(arr.filter(a=>!a.__skip&&!ids.has(a.id)).map(a=>{delete a.__skip;return a;}));
       save();await rescheduleAll();renderAll();toast('✓ '+t('imported'));
     }catch(e){toast('⚠️ '+t('importBad'));}
   };
@@ -910,7 +920,7 @@ setInterval(()=>{if(view==='list'){renderNext();renderList();}},60000);
 
 /* ==================== init ==================== */
 load();renderAll();renderMenu();
-if('serviceWorker' in navigator&&!isCap()){try{navigator.serviceWorker.register('sw.js');}catch(e){}}
+if('serviceWorker' in navigator&&!isCap()){try{navigator.serviceWorker.register('sw-planmoi.js');}catch(e){}}
 rescheduleAll();
 </script>
 </body>
