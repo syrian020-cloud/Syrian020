@@ -1,0 +1,12 @@
+{
+  "appId": "com.syrian020.planmoi",
+  "appName": "PlanMoi",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "captureInput": false
+  },
+  "appendUserAgent": " Edg/134.0.0.0"
+}

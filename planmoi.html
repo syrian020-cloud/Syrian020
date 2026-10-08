@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#6d5cff">
+<title>PlanMoi</title>
+<link rel="manifest" href="manifest-planmoi.json">
+<link rel="icon" type="image/png" href="icon-planmoi-192.png">
+<style>
+:root{
+  --bg:#0b0d1f; --bg2:#12142b; --card:#181b36; --card2:#1f2347;
+  --acc:#6d5cff; --acc2:#00d4a6; --txt:#eef0ff; --mut:#9aa0c3;
+  --ok:#2dd4a7; --warn:#ffb454; --bad:#ff6b81; --line:#2a2e55;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,Roboto,'Noto Sans Arabic',sans-serif;
+  background:radial-gradient(1200px 600px at 50% -10%,#20235c 0%,var(--bg) 55%) fixed,var(--bg);
+  color:var(--txt);min-height:100vh;overflow-x:hidden;
+}
+.app{max-width:560px;margin:0 auto;padding:0 14px 110px}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
+  background:linear-gradient(180deg,rgba(11,13,31,.98) 70%,rgba(11,13,31,0));backdrop-filter:blur(8px)}
+.hrow{display:flex;align-items:center;gap:8px}
+.logo{display:flex;align-items:center;gap:10px;flex:1;min-width:0}
+.logo img{width:38px;height:38px;border-radius:11px;box-shadow:0 4px 14px rgba(109,92,255,.45)}
+.logo b{font-size:20px;letter-spacing:.4px;background:linear-gradient(90deg,#8f7bff,#00d4a6);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.logo small{display:block;font-size:10px;color:var(--mut);font-weight:400}
+.langs{display:flex;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:2px}
+.langs button{border:0;background:none;color:var(--mut);font-size:11px;font-weight:700;
+  padding:5px 9px;border-radius:16px;cursor:pointer}
+.langs button.on{background:var(--acc);color:#fff}
+.icon-btn{background:var(--card);border:1px solid var(--line);color:var(--txt);width:36px;height:36px;
+  border-radius:11px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none}
+.icon-btn:active{transform:scale(.93)}
+
+/* ---------- search & tabs ---------- */
+.search{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);
+  border-radius:13px;padding:0 12px;margin:6px 0 10px}
+.search input{flex:1;background:none;border:0;outline:0;color:var(--txt);font-size:15px;padding:12px 0;font-family:inherit}
+.search span{color:var(--mut)}
+.tabs{display:flex;gap:7px;margin-bottom:12px}
+.tabs button{flex:1;border:1px solid var(--line);background:var(--card);color:var(--mut);
+  border-radius:12px;padding:9px 4px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:inherit}
+.tabs button.on{color:#fff;border-color:var(--acc);background:linear-gradient(135deg,#4c3fd6,#6d5cff)}
+.tabs button em{font-style:normal;opacity:.65;font-weight:400}
+
+/* ---------- next banner ---------- */
+.next{background:linear-gradient(135deg,#3b2fae,#6d5cff 55%,#00b38a);border-radius:18px;
+  padding:16px;margin-bottom:14px;box-shadow:0 8px 26px rgba(80,60,220,.35);position:relative;overflow:hidden;cursor:pointer}
+.next::after{content:'';position:absolute;inset-inline-end:-30px;top:-30px;width:130px;height:130px;
+  border-radius:50%;background:rgba(255,255,255,.08)}
+.next .nl{font-size:11px;opacity:.85;font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+.next .nt{font-size:18px;font-weight:800;margin:3px 0}
+.next .nd{font-size:13px;opacity:.92;display:flex;gap:10px;flex-wrap:wrap}
+.next .nc{display:inline-block;margin-top:8px;background:rgba(0,0,0,.28);border-radius:20px;
+  padding:4px 12px;font-size:12px;font-weight:700}
+
+/* ---------- cards ---------- */
+.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:14px;
+  margin-bottom:11px;cursor:pointer;transition:transform .12s}
+.card:active{transform:scale(.985)}
+.card.dim{opacity:.62}
+.crow{display:flex;gap:12px;align-items:flex-start}
+.datebox{flex:none;width:56px;text-align:center;background:var(--card2);border:1px solid var(--line);
+  border-radius:13px;padding:7px 4px}
+.datebox .d{font-size:20px;font-weight:800;line-height:1}
+.datebox .m{font-size:10px;color:var(--mut);font-weight:700;text-transform:uppercase;margin-top:2px}
+.cbody{flex:1;min-width:0}
+.ctitle{font-size:16px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cmeta{font-size:12.5px;color:var(--mut);margin-top:3px;display:flex;gap:10px;flex-wrap:wrap}
+.cmeta i{font-style:normal}
+.badges{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.badge{font-size:11px;font-weight:800;border-radius:14px;padding:3px 10px}
+.b-up{background:rgba(109,92,255,.2);color:#a99bff;border:1px solid #4c3fd6}
+.b-ok{background:rgba(45,212,167,.15);color:var(--ok);border:1px solid #17614e}
+.b-off{background:rgba(255,107,129,.13);color:var(--bad);border:1px solid #5c2531}
+.b-cat{background:rgba(255,180,84,.13);color:var(--warn);border:1px solid #5c4526}
+.b-cd{background:rgba(0,212,166,.15);color:var(--acc2);border:1px solid #0e4b3d}
+.b-cd.soon{background:rgba(255,180,84,.16);color:var(--warn);border-color:#5c4526}
+.b-cd.past{background:rgba(255,107,129,.13);color:var(--bad);border-color:#5c2531}
+.menuwrap{position:relative;flex:none}
+.menu{position:absolute;inset-inline-end:0;top:38px;background:var(--card2);border:1px solid var(--line);
+  border-radius:13px;min-width:170px;z-index:50;box-shadow:0 12px 30px rgba(0,0,0,.5);overflow:hidden}
+.menu button{display:flex;gap:9px;align-items:center;width:100%;background:none;border:0;color:var(--txt);
+  padding:11px 14px;font-size:14px;cursor:pointer;font-family:inherit;text-align:start}
+.menu button:active{background:var(--acc)}
+.menu button.danger{color:var(--bad)}
+.empty{text-align:center;color:var(--mut);padding:60px 20px;font-size:15px}
+.empty .big{font-size:46px;margin-bottom:12px}
+
+/* ---------- FAB ---------- */
+.fab{position:fixed;bottom:22px;inset-inline-end:20px;width:60px;height:60px;border-radius:19px;border:0;
+  background:linear-gradient(135deg,#6d5cff,#00d4a6);color:#fff;font-size:30px;cursor:pointer;z-index:40;
+  box-shadow:0 10px 28px rgba(109,92,255,.55);display:flex;align-items:center;justify-content:center}
+.fab:active{transform:scale(.92)}
+
+/* ---------- modal ---------- */
+.ov{position:fixed;inset:0;background:rgba(5,6,18,.72);z-index:60;display:flex;align-items:flex-end;justify-content:center}
+.ov.mid{align-items:center;padding:18px}
+.sheet{background:var(--bg2);border:1px solid var(--line);border-radius:22px 22px 0 0;width:100%;max-width:560px;
+  max-height:92vh;overflow-y:auto;padding:20px 18px 28px;animation:up .22s ease}
+.ov.mid .sheet{border-radius:22px;padding:20px}
+@keyframes up{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+.sheet h2{font-size:18px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.f-lab{font-size:12px;font-weight:800;color:var(--mut);margin:12px 0 5px;text-transform:uppercase;letter-spacing:.4px}
+.f-in,.sheet select,.sheet textarea{width:100%;background:var(--card);border:1px solid var(--line);color:var(--txt);
+  border-radius:12px;padding:11px 12px;font-size:15px;font-family:inherit;outline:none}
+.f-in:focus,.sheet textarea:focus,.sheet select:focus{border-color:var(--acc)}
+.sheet textarea{min-height:110px;resize:vertical;line-height:1.7}
+.f-row{display:flex;gap:10px}
+.f-row>div{flex:1}
+.catrow{display:flex;gap:7px;flex-wrap:wrap}
+.catrow button{border:1px solid var(--line);background:var(--card);color:var(--mut);border-radius:20px;
+  padding:7px 13px;font-size:13px;cursor:pointer;font-family:inherit}
+.catrow button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.btnrow{display:flex;gap:10px;margin-top:20px}
+.btn{flex:1;border:0;border-radius:14px;padding:13px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit}
+.btn-pri{background:linear-gradient(135deg,#6d5cff,#4c3fd6);color:#fff}
+.btn-ghost{background:var(--card);color:var(--mut);border:1px solid var(--line)}
+.btn-danger{background:rgba(255,107,129,.15);color:var(--bad);border:1px solid #5c2531}
+.audio-pick{display:flex;align-items:center;gap:10px;background:var(--card);border:1px dashed #4c3fd6;
+  border-radius:12px;padding:11px 12px;cursor:pointer;color:var(--mut);font-size:14px}
+.audio-pick.has{color:var(--acc2);border-style:solid;border-color:#0e4b3d}
+.hint{font-size:11.5px;color:var(--mut);margin-top:5px;line-height:1.6}
+
+/* ---------- detail ---------- */
+.dview{padding-top:6px}
+.dhead{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.dhead h1{flex:1;font-size:19px;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.dcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:12px}
+.dline{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;margin-top:10px}
+.dline .ic{width:22px;text-align:center;flex:none}
+.dline b{color:var(--mut);font-weight:700;font-size:12px;display:block;margin-bottom:1px}
+.statusrow{display:flex;gap:8px;margin:12px 0}
+.statusrow button{flex:1;border-radius:12px;padding:10px 4px;font-size:12.5px;font-weight:800;cursor:pointer;
+  border:1px solid var(--line);background:var(--card);color:var(--mut);font-family:inherit}
+.statusrow button.cur-up{background:var(--acc);color:#fff;border-color:var(--acc)}
+.statusrow button.cur-ok{background:var(--ok);color:#06281f;border-color:var(--ok)}
+.statusrow button.cur-off{background:var(--bad);color:#fff;border-color:var(--bad)}
+.maprow{display:flex;gap:9px}
+.maprow a{flex:1;text-decoration:none;text-align:center;border-radius:13px;padding:12px;font-size:13.5px;
+  font-weight:800;border:1px solid var(--line);background:var(--card2);color:var(--txt)}
+.maprow a.gm{background:linear-gradient(135deg,#1a73e8,#0b57d0);border:0;color:#fff}
+.maprow a.cm{background:linear-gradient(135deg,#00b38a,#00916f);border:0;color:#fff}
+.player{display:flex;align-items:center;gap:10px;background:var(--card2);border-radius:14px;padding:10px 12px;margin-bottom:10px}
+.player audio{flex:1;min-width:0;height:38px}
+.cue{display:flex;gap:9px;align-items:center;padding:9px 10px;border-radius:11px;cursor:pointer;border:1px solid transparent}
+.cue.act{background:rgba(109,92,255,.16);border-color:#4c3fd6}
+.cue .tm{font-size:11.5px;color:var(--acc2);font-weight:800;flex:none;min-width:44px;direction:ltr;text-align:left}
+.cue .tx{flex:1;font-size:14.5px;line-height:1.55}
+.cue .spk{flex:none;background:none;border:0;font-size:16px;cursor:pointer;opacity:.75;padding:2px}
+.cue .spk.on{opacity:1;filter:drop-shadow(0 0 6px var(--acc2))}
+.notif-state{font-size:12px;color:var(--mut);margin-top:6px}
+
+/* ---------- toast / misc ---------- */
+.toast{position:fixed;bottom:96px;left:50%;transform:translateX(-50%);background:#2a2e55;color:var(--txt);
+  border:1px solid var(--line);border-radius:14px;padding:11px 20px;font-size:14px;z-index:90;
+  box-shadow:0 10px 30px rgba(0,0,0,.5);animation:up .2s ease;max-width:88vw;text-align:center}
+.hidden{display:none!important}
+.del-ic{color:var(--bad)}
+@media (min-width:560px){.fab{inset-inline-end:calc(50vw - 262px)}}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ============ LIST VIEW ============ -->
+  <div id="view-list">
+    <header>
+      <div class="hrow">
+        <div class="logo">
+          <img src="icon-planmoi-192.png" alt="" onerror="this.style.display='none'">
+          <div><b>PlanMoi</b><small id="tagline"></small></div>
+        </div>
+        <div class="langs">
+          <button data-lang="ar">عربي</button>
+          <button data-lang="fr">FR</button>
+          <button data-lang="en">EN</button>
+        </div>
+        <button class="icon-btn" id="btn-menu" title="⋮">⋮</button>
+      </div>
+      <div class="menuwrap"><div class="menu hidden" id="top-menu"></div></div>
+    </header>
+
+    <div class="next hidden" id="next-card"></div>
+
+    <div class="search"><span>🔍</span><input id="q" type="search"></div>
+    <div class="tabs" id="tabs"></div>
+    <div id="list"></div>
+  </div>
+
+  <!-- ============ DETAIL VIEW ============ -->
+  <div id="view-detail" class="dview hidden"></div>
+
+  <button class="fab" id="fab" title="+">+</button>
+</div>
+
+<!-- ============ FORM MODAL ============ -->
+<div class="ov hidden" id="ov-form"><div class="sheet" id="form-sheet"></div></div>
+
+<!-- ============ CONFIRM MODAL ============ -->
+<div class="ov mid hidden" id="ov-confirm"><div class="sheet" id="confirm-sheet" style="max-width:340px"></div></div>
+
+<div class="toast hidden" id="toast"></div>
+
+<script src="js/edge-tts.js"></script>
+<script>
+'use strict';
+/* ==================== i18n ==================== */
+const I18N = {
+  ar: {
+    tagline:'مواعيدك، منظّمة بأناقة', search:'ابحث عن موعد…',
+    tabAll:'الكل', tabUp:'قادم', tabDone:'تم', tabOff:'مُلغى',
+    empty:'لا مواعيد بعد', emptyHint:'اضغط + لإضافة أول موعد',
+    next:'الموعد القادم',
+    newAppt:'موعد جديد', editAppt:'تعديل الموعد',
+    fTitle:'بخصوص ماذا؟ *', fTitlePh:'مثال: موعد طبيب أسنان',
+    fDate:'التاريخ *', fTime:'الوقت *',
+    fPlace:'المكان', fPlacePh:'مثال: مستشفى لاريبوازيير',
+    fAddr:'العنوان الكامل', fAddrPh:'الشارع، الرقم، المدينة…',
+    fCat:'التصنيف', fNotes:'ملاحظات', fNotesPh:'تفاصيل إضافية…',
+    fAudio:'مقطع صوتي (تحضير أو توثيق الموعد)',
+    fAudioPick:'🎙️ اختر ملفاً صوتياً…', fAudioSet:'✓ ',
+    fCues:'النص المؤقّت (متزامن مع الصوت)',
+    fCuesHint:'سطر لكل لحظة: «الدقائق:الثواني النص» مثال:\n00:05 التحية وتقديم نفسي\n00:20 طرح السؤال الأول',
+    save:'حفظ', cancel:'إلغاء', del:'حذف', edit:'تعديل',
+    markDone:'تم ✓', markOff:'إلغاء الموعد', markUp:'إعادة كقادم',
+    delConfirm:'حذف هذا الموعد نهائياً؟', yes:'نعم، احذف', no:'تراجع',
+    exitTitle:'الخروج من PlanMoi؟', exitYes:'خروج', exitNo:'بقاء',
+    stUp:'قادم', stDone:'تم', stOff:'مُلغى',
+    today:'اليوم', tomorrow:'غداً', now:'الآن',
+    daysLeft:d=> d===1?'باقي يوم واحد': d===2?'باقي يومان': d<=10?`باقي ${d} أيام`:`باقي ${d} يوماً`,
+    hoursLeft:h=> h<=1?'باقي أقل من ساعة': h===2?'باقي ساعتان':`باقي ${h} ساعة`,
+    past:'انتهى',
+    at:'الساعة', notes:'ملاحظات', audioTitle:'الصوت والنص المؤقّت',
+    noCues:'لا يوجد نص مؤقّت', noAudio:'لا يوجد مقطع صوتي', tapCue:'اضغط أي سطر للانتقال إليه في الصوت',
+    menuExport:'⬇️ تصدير نسخة احتياطية', menuImport:'⬆️ استيراد نسخة', menuVoice:'🔊 إعدادات الصوت',
+    menuNotifOn:'🔔 الإشعارات مفعّلة', menuNotifOff:'🔕 تفعيل الإشعارات',
+    imported:'تم الاستيراد', importBad:'ملف غير صالح', saved:'تم الحفظ', deleted:'تم الحذف',
+    needFields:'أدخل العنوان والتاريخ والوقت',
+    cats:{health:'🩺 صحة',admin:'📋 إدارة',work:'💼 عمل',personal:'👤 شخصي',study:'📚 دراسة',other:'📌 أخرى'},
+    notifBody24:m=>`غداً: ${m}`, notifBody12:m=>`بعد ١٢ ساعة: ${m}`, notifBody2:m=>`قريباً بعد ساعتين: ${m}`,
+    notifTitle:'⏰ تذكير بموعد',
+    cuesCount:n=>`${n} سطر`,
+    back:'‹ رجوع',
+    daysShort:'يوم',
+  },
+  fr: {
+    tagline:'Vos rendez-vous, en toute élégance', search:'Rechercher un rendez-vous…',
+    tabAll:'Tous', tabUp:'À venir', tabDone:'Fait', tabOff:'Annulé',
+    empty:'Aucun rendez-vous', emptyHint:'Touchez + pour en ajouter un',
+    next:'Prochain rendez-vous',
+    newAppt:'Nouveau rendez-vous', editAppt:'Modifier le rendez-vous',
+    fTitle:'À quel sujet ? *', fTitlePh:'Ex : dentiste',
+    fDate:'Date *', fTime:'Heure *',
+    fPlace:'Lieu', fPlacePh:'Ex : Hôpital Lariboisière',
+    fAddr:'Adresse complète', fAddrPh:'Rue, numéro, ville…',
+    fCat:'Catégorie', fNotes:'Notes', fNotesPh:'Détails supplémentaires…',
+    fAudio:'Clip audio (préparation ou compte-rendu)',
+    fAudioPick:'🎙️ Choisir un fichier audio…', fAudioSet:'✓ ',
+    fCues:'Texte minuté (synchronisé à l\'audio)',
+    fCuesHint:'Une ligne par moment : «MM:SS texte», ex :\n00:05 Salutations\n00:20 Première question',
+    save:'Enregistrer', cancel:'Annuler', del:'Supprimer', edit:'Modifier',
+    markDone:'Marquer fait ✓', markOff:'Annuler le RDV', markUp:'Remettre à venir',
+    delConfirm:'Supprimer ce rendez-vous ?', yes:'Oui, supprimer', no:'Retour',
+    exitTitle:'Quitter PlanMoi ?', exitYes:'Quitter', exitNo:'Rester',
+    stUp:'À venir', stDone:'Fait', stOff:'Annulé',
+    today:'Aujourd\'hui', tomorrow:'Demain', now:'Maintenant',
+    daysLeft:d=> d<=1?'dans 1 jour':`dans ${d} jours`,
+    hoursLeft:h=> h<=1?'dans moins d\'1 h':`dans ${h} h`,
+    past:'Passé',
+    at:'à', notes:'Notes', audioTitle:'Audio et texte minuté',
+    noCues:'Pas de texte minuté', noAudio:'Pas de clip audio', tapCue:'Touchez une ligne pour y aller dans l\'audio',
+    menuExport:'⬇️ Exporter une sauvegarde', menuImport:'⬆️ Importer', menuVoice:'🔊 Réglages voix',
+    menuNotifOn:'🔔 Notifications activées', menuNotifOff:'🔕 Activer les notifications',
+    imported:'Importé', importBad:'Fichier invalide', saved:'Enregistré', deleted:'Supprimé',
+    needFields:'Titre, date et heure requis',
+    cats:{health:'🩺 Santé',admin:'📋 Admin',work:'💼 Travail',personal:'👤 Perso',study:'📚 Études',other:'📌 Autre'},
+    notifBody24:m=>`Demain : ${m}`, notifBody12:m=>`Dans 12 h : ${m}`, notifBody2:m=>`Dans 2 h : ${m}`,
+    notifTitle:'⏰ Rappel de rendez-vous',
+    cuesCount:n=>`${n} lignes`,
+    back:'‹ Retour',
+    daysShort:'j',
+  },
+  en: {
+    tagline:'Your appointments, elegantly organized', search:'Search appointments…',
+    tabAll:'All', tabUp:'Upcoming', tabDone:'Done', tabOff:'Cancelled',
+    empty:'No appointments yet', emptyHint:'Tap + to add your first one',
+    next:'Next appointment',
+    newAppt:'New appointment', editAppt:'Edit appointment',
+    fTitle:'What is it about? *', fTitlePh:'e.g. Dentist appointment',
+    fDate:'Date *', fTime:'Time *',
+    fPlace:'Place', fPlacePh:'e.g. Lariboisière Hospital',
+    fAddr:'Full address', fAddrPh:'Street, number, city…',
+    fCat:'Category', fNotes:'Notes', fNotesPh:'Extra details…',
+    fAudio:'Audio clip (preparation or recap)',
+    fAudioPick:'🎙️ Choose an audio file…', fAudioSet:'✓ ',
+    fCues:'Timed text (synced to audio)',
+    fCuesHint:'One line per moment: «MM:SS text», e.g.:\n00:05 Greeting\n00:20 First question',
+    save:'Save', cancel:'Cancel', del:'Delete', edit:'Edit',
+    markDone:'Mark done ✓', markOff:'Cancel appointment', markUp:'Back to upcoming',
+    delConfirm:'Delete this appointment?', yes:'Yes, delete', no:'Back',
+    exitTitle:'Exit PlanMoi?', exitYes:'Exit', exitNo:'Stay',
+    stUp:'Upcoming', stDone:'Done', stOff:'Cancelled',
+    today:'Today', tomorrow:'Tomorrow', now:'Now',
+    daysLeft:d=> d<=1?'in 1 day':`in ${d} days`,
+    hoursLeft:h=> h<=1?'in < 1 h':`in ${h} h`,
+    past:'Past',
+    at:'at', notes:'Notes', audioTitle:'Audio & timed text',
+    noCues:'No timed text', noAudio:'No audio clip', tapCue:'Tap a line to seek in the audio',
+    menuExport:'⬇️ Export backup', menuImport:'⬆️ Import backup', menuVoice:'🔊 Voice settings',
+    menuNotifOn:'🔔 Notifications on', menuNotifOff:'🔕 Enable notifications',
+    imported:'Imported', importBad:'Invalid file', saved:'Saved', deleted:'Deleted',
+    needFields:'Title, date and time are required',
+    cats:{health:'🩺 Health',admin:'📋 Admin',work:'💼 Work',personal:'👤 Personal',study:'📚 Study',other:'📌 Other'},
+    notifBody24:m=>`Tomorrow: ${m}`, notifBody12:m=>`In 12 h: ${m}`, notifBody2:m=>`In 2 h: ${m}`,
+    notifTitle:'⏰ Appointment reminder',
+    cuesCount:n=>`${n} lines`,
+    back:'‹ Back',
+    daysShort:'d',
+  }
+};
+const CAT_KEYS=['health','admin','work','personal','study','other'];
+
+/* ==================== state ==================== */
+const LS_KEY='planmoi_appts', LS_LANG='planmoi_lang', LS_FIRED='planmoi_fired';
+let appts=[], lang='ar', tab='upcoming', query='', view='list', detailId=null;
+let editingId=null, pendingAudio=null; // {name,dataUrl}
+let cuesCache={};
+let ttsRun=0, loopBtn=null;
+
+const $=s=>document.querySelector(s);
+const t=k=>(I18N[lang]&&I18N[lang][k])??I18N.en[k]??k;
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function load(){
+  try{appts=JSON.parse(localStorage.getItem(LS_KEY)||'[]')}catch(e){appts=[]}
+  lang=localStorage.getItem(LS_LANG)||'ar';
+}
+function save(){try{localStorage.setItem(LS_KEY,JSON.stringify(appts))}catch(e){toast('⚠️ '+e.message)}}
+function firedSet(){try{return new Set(JSON.parse(localStorage.getItem(LS_FIRED)||'[]'))}catch(e){return new Set()}}
+function markFired(k){const s=firedSet();s.add(k);try{localStorage.setItem(LS_FIRED,JSON.stringify([...s]))}catch(e){}}
+
+/* ---------- IndexedDB for audio blobs ---------- */
+let idb=null;
+function db(){return new Promise((res,rej)=>{
+  if(idb)return res(idb);
+  const r=indexedDB.open('planmoi',1);
+  r.onupgradeneeded=()=>r.result.createObjectStore('audio');
+  r.onsuccess=()=>{idb=r.result;res(idb)};
+  r.onerror=()=>rej(r.error);
+});}
+async function audioPut(id,blob,name){
+  const d=await db();
+  return new Promise((res,rej)=>{const tx=d.transaction('audio','readwrite');
+    tx.objectStore('audio').put({blob,name},id);tx.oncomplete=res;tx.onerror=()=>rej(tx.error);});
+}
+async function audioGet(id){
+  const d=await db();
+  return new Promise((res,rej)=>{const r=d.transaction('audio').objectStore('audio').get(id);
+    r.onsuccess=()=>res(r.result||null);r.onerror=()=>rej(r.error);});
+}
+async function audioDel(id){
+  const d=await db();
+  return new Promise(res=>{const tx=d.transaction('audio','readwrite');
+    tx.objectStore('audio').delete(id);tx.oncomplete=res;});
+}
+function dataUrlToBlob(u){const[a,b]=u.split(',');const mime=(a.match(/:(.*?);/)||[])[1]||'audio/mpeg';
+  const bin=atob(b);const arr=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)arr[i]=bin.charCodeAt(i);
+  return new Blob([arr],{type:mime});}
+function blobToDataUrl(b){return new Promise(res=>{const r=new FileReader();r.onload=()=>res(r.result);r.readAsDataURL(b);});}
+
+/* ==================== timed text ==================== */
+function parseCues(raw){
+  const cues=[];
+  (raw||'').split(/\r?\n/).forEach(line=>{
+    line=line.trim(); if(!line)return;
+    const m=line.match(/^(?:(\d+):)?(\d{1,2}):(\d{2})(?:[.,]\d+)?\s*(?:--?>\s*(?:(\d+):)?(\d{1,2}):(\d{2})(?:[.,]\d+)?)?\s*(.*)$/);
+    if(!m)return;
+    const start=(+m[1]||0)*3600+(+m[2])*60+(+m[3]);
+    let end=m[5]!==undefined?(+m[4]||0)*3600+(+m[5])*60+(+m[6]):null;
+    const text=m[7]||'';
+    cues.push({start,end,text});
+  });
+  cues.sort((a,b)=>a.start-b.start);
+  cues.forEach((c,i)=>{if(c.end==null||c.end<=c.start)c.end=(cues[i+1]?cues[i+1].start:c.start+5);});
+  return cues;
+}
+function fmtT(s){s=Math.max(0,Math.floor(s));const m=Math.floor(s/60),ss=s%60;
+  return `${String(m).padStart(2,'0')}:${String(ss).padStart(2,'0')}`;}
+function guessLang(txt){
+  if(/[\u0600-\u06FF]/.test(txt))return 'ar';
+  if(/[àâäçéèêëîïôöùûüœ]/i.test(txt)||/\b(le|la|les|des|une|est|je|tu|vous|nous|pour|avec|dans|sur|pas|plus|bonjour|merci|rendez)\b/i.test(txt))return 'fr';
+  return 'en';
+}
+function cleanForSpeech(x){return (x||'')
+  .replace(/\p{Regional_Indicator}{1,2}/gu,' ')
+  .replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{200D}\u{2190}-\u{21FF}\u{2B00}-\u{2BFF}]/gu,' ')
+  .replace(/\s{2,}/g,' ').trim();}
+
+/* ==================== TTS (Edge + device) ==================== */
+function isCap(){return !!(window.Capacitor&&window.Capacitor.isNativePlatform&&window.Capacitor.isNativePlatform());}
+function detailAudio(){return document.getElementById('appt-audio');}
+function ttsStop(){
+  ttsRun++;
+  if(loopBtn){loopBtn.classList.remove('on');loopBtn=null;}
+  if(window.EdgeTTS)window.EdgeTTS.stop();
+  if(isCap()){const p=window.Capacitor.Plugins.TextToSpeech;if(p)p.stop().catch(()=>{});}
+  else if('speechSynthesis' in window)window.speechSynthesis.cancel();
+}
+function ttsSpeak(text,lg,onend){
+  text=cleanForSpeech(text);
+  if(!text){if(onend)setTimeout(onend,50);return;}
+  const a=detailAudio(); // TTS and media are mutually exclusive
+  if(a&&!a.paused)a.pause();
+  const useEdge=window.EdgeTTS&&window.EdgeTTS.supported()&&(!window.EdgeTTS.engine||window.EdgeTTS.engine()==='edge');
+  if(useEdge){
+    const run=ttsRun;
+    window.EdgeTTS.play(text,lg)
+      .then(()=>{if(run===ttsRun&&onend)onend();})
+      .catch(()=>{if(run!==ttsRun)return;window.EdgeTTS.down=true;deviceSpeak(text,lg,onend);});
+    return;
+  }
+  deviceSpeak(text,lg,onend);
+}
+function deviceSpeak(text,lg,onend){
+  const code=lg==='ar'?'ar-SA':lg==='fr'?'fr-FR':'en-US';
+  if(isCap()){
+    const p=window.Capacitor.Plugins.TextToSpeech;
+    if(!p){if(onend)onend();return;}
+    p.stop().catch(()=>{}).then(()=>p.speak({text,lang:code,rate:1,pitch:1,volume:1,category:'playback'}))
+      .then(()=>{if(onend)onend();}).catch(()=>{if(onend)onend();});
+  }else if('speechSynthesis' in window){
+    const u=new SpeechSynthesisUtterance(text);u.lang=code;
+    u.onend=onend;u.onerror=()=>{if(onend)onend();};
+    window.speechSynthesis.cancel();window.speechSynthesis.speak(u);
+  }else if(onend)onend();
+}
+function toggleCueLoop(btn,text){
+  if(loopBtn===btn){ttsStop();return;}
+  ttsStop();
+  loopBtn=btn;btn.classList.add('on');
+  const lg=guessLang(text);
+  const run=ttsRun;
+  const again=()=>{if(run!==ttsRun||loopBtn!==btn)return;ttsSpeak(text,lg,again);};
+  again();
+}
+
+/* ==================== notifications ==================== */
+function LN(){return window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.LocalNotifications;}
+function nidBase(id){let h=0;for(const c of id)h=(h*31+c.charCodeAt(0))%1000000;return h*10;}
+async function cancelReminders(a){
+  const p=LN();if(!p)return;
+  try{const b=nidBase(a.id);await p.cancel({notifications:[{id:b},{id:b+1},{id:b+2}]});}catch(e){}
+}
+async function scheduleReminders(a){
+  const p=LN();if(!p)return;
+  await cancelReminders(a);
+  if(a.status!=='upcoming')return;
+  const when=apptTime(a);if(!when||when<=Date.now())return;
+  try{
+    const perm=await p.requestPermissions();
+    if(!perm||perm.display!=='granted')return;
+    const offs=[24*3600e3,12*3600e3,2*3600e3];
+    const bodies=[t('notifBody24'),t('notifBody12'),t('notifBody2')];
+    const b=nidBase(a.id);const list=[];
+    offs.forEach((o,i)=>{
+      const at=when-o;
+      if(at>Date.now()+30e3)list.push({id:b+i,title:t('notifTitle'),body:bodies[i](a.title),schedule:{at:new Date(at)}});
+    });
+    if(list.length)await p.schedule({notifications:list});
+  }catch(e){console.error('schedule',e);}
+}
+async function rescheduleAll(){for(const a of appts)await scheduleReminders(a);}
+/* browser fallback: check due reminders every 30s while app is open */
+setInterval(()=>{
+  if(LN())return;
+  const s=firedSet();
+  appts.forEach(a=>{
+    if(a.status!=='upcoming')return;
+    const when=apptTime(a);if(!when)return;
+    [[24*3600e3,'notifBody24'],[12*3600e3,'notifBody12'],[2*3600e3,'notifBody2']].forEach(([o,k],i)=>{
+      const key=a.id+':'+i;
+      if(!s.has(key)&&Date.now()>=when-o&&when>Date.now()-30e3){
+        markFired(key);
+        const msg=t(k)(a.title);
+        if('Notification' in window&&Notification.permission==='granted'){
+          try{new Notification(t('notifTitle'),{body:msg,icon:'icon-planmoi-192.png'});}catch(e){toast(msg);}
+        }else toast('⏰ '+msg);
+      }
+    });
+  });
+},30000);
+
+/* ==================== helpers ==================== */
+function apptTime(a){if(!a.date)return null;return new Date(a.date+'T'+(a.time||'00:00')).getTime();}
+function countdown(a){
+  const when=apptTime(a);if(when==null)return'';
+  const now=Date.now();
+  const day=new Date();day.setHours(0,0,0,0);
+  const aday=new Date(a.date+'T00:00');const diffD=Math.round((aday-day)/864e5);
+  if(when<=now)return t('past');
+  if(diffD<=0){const h=Math.ceil((when-now)/3600e3);return t('hoursLeft')(h);}
+  if(diffD===1)return t('tomorrow');
+  return t('daysLeft')(diffD);
+}
+function fmtDate(a){
+  try{const d=new Date(a.date+'T12:00');
+    return new Intl.DateTimeFormat(lang==='ar'?'ar':lang==='fr'?'fr-FR':'en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(d);
+  }catch(e){return a.date||'';}
+}
+function byId(id){return appts.find(a=>a.id===id);}
+function toast(msg,ms=2200){
+  const el=$('#toast');el.textContent=msg;el.classList.remove('hidden');
+  clearTimeout(toast._t);toast._t=setTimeout(()=>el.classList.add('hidden'),ms);
+}
+function openUrl(u){
+  const B=window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.Browser;
+  if(B&&B.open)B.open({url:u});else window.open(u,'_blank');
+}
+function mapsUrl(a){
+  const q=encodeURIComponent([a.place,a.address].filter(Boolean).join(', '));
+  return 'https://www.google.com/maps/search/?api=1&query='+q;
+}
+function cityUrl(a){
+  const q=encodeURIComponent([a.address||a.place].filter(Boolean).join(', '));
+  return 'https://citymapper.com/directions?endaddress='+q;
+}
+function statusBadge(a){
+  if(a.status==='done')return `<span class="badge b-ok">${t('stDone')}</span>`;
+  if(a.status==='cancelled')return `<span class="badge b-off">${t('stOff')}</span>`;
+  return `<span class="badge b-up">${t('stUp')}</span>`;
+}
+
+/* ==================== list view ==================== */
+function filtered(){
+  const q=query.trim().toLowerCase();
+  let list=appts.filter(a=>{
+    if(tab==='upcoming'&&a.status!=='upcoming')return false;
+    if(tab==='done'&&a.status!=='done')return false;
+    if(tab==='cancelled'&&a.status!=='cancelled')return false;
+    if(q&&![a.title,a.place,a.address,a.notes].join(' ').toLowerCase().includes(q))return false;
+    return true;
+  });
+  list.sort((x,y)=>tab==='upcoming'?(apptTime(x)-apptTime(y)):(apptTime(y)-apptTime(x)));
+  return list;
+}
+function renderTabs(){
+  const counts={all:appts.length,upcoming:0,done:0,cancelled:0};
+  appts.forEach(a=>counts[a.status==='upcoming'?'upcoming':a.status]++);
+  $('#tabs').innerHTML=[['all','tabAll'],['upcoming','tabUp'],['done','tabDone'],['cancelled','tabOff']]
+    .map(([k,lab])=>`<button class="${tab===k?'on':''}" data-tab="${k}">${t(lab)} <em>${counts[k]}</em></button>`).join('');
+}
+function renderNext(){
+  const el=$('#next-card');
+  const next=appts.filter(a=>a.status==='upcoming'&&apptTime(a)>Date.now())
+    .sort((x,y)=>apptTime(x)-apptTime(y))[0];
+  if(!next){el.classList.add('hidden');return;}
+  el.classList.remove('hidden');
+  el.innerHTML=`<div class="nl">⭐ ${t('next')}</div><div class="nt">${esc(next.title)}</div>
+    <div class="nd"><span>📅 ${fmtDate(next)}</span><span>🕐 ${esc(next.time||'')}</span>
+    ${next.place?`<span>📍 ${esc(next.place)}</span>`:''}</div>
+    <span class="nc">${countdown(next)}</span>`;
+  el.onclick=()=>openDetail(next.id);
+}
+function renderList(){
+  const el=$('#list');const list=filtered();
+  if(!list.length){
+    el.innerHTML=`<div class="empty"><div class="big">📅</div>${t('empty')}<div class="hint">${t('emptyHint')}</div></div>`;
+    return;
+  }
+  el.innerHTML=list.map(a=>{
+    const d=new Date(a.date+'T12:00');const valid=!isNaN(d);
+    const cd=countdown(a);
+    const cdCls=a.status!=='upcoming'?'':(cd===t('past')?'past':(cd===t('today')||cd===t('tomorrow')||cd===t('now')||/^/.test(cd)&&apptTime(a)-Date.now()<72*3600e3?'soon':''));
+    return `<div class="card ${a.status!=='upcoming'?'dim':''}" data-id="${a.id}">
+      <div class="crow">
+        <div class="datebox"><div class="d">${valid?d.getDate():'–'}</div>
+          <div class="m">${valid?new Intl.DateTimeFormat(lang==='ar'?'ar':lang==='fr'?'fr':'en',{month:'short'}).format(d):''}</div></div>
+        <div class="cbody">
+          <div class="ctitle">${esc(a.title)}</div>
+          <div class="cmeta"><i>🕐 ${esc(a.time||'')}</i>${a.place?`<i>📍 ${esc(a.place)}</i>`:''}${a.audioName?'<i>🎙️</i>':''}</div>
+          <div class="badges">${statusBadge(a)}
+            ${a.category?`<span class="badge b-cat">${t('cats')[a.category]||a.category}</span>`:''}
+            ${a.status==='upcoming'&&cd?`<span class="badge b-cd ${cdCls}">${cd}</span>`:''}
+          </div>
+        </div>
+        <div class="menuwrap"><button class="icon-btn mbtn" data-m="${a.id}">⋮</button>
+          <div class="menu hidden" id="m-${a.id}"></div></div>
+      </div></div>`;
+  }).join('');
+}
+function cardMenu(a){
+  const items=[[ '✏️',t('edit'),'edit'],
+    a.status!=='done'?['✅',t('markDone'),'done']:['↩️',t('markUp'),'up'],
+    a.status!=='cancelled'?['🚫',t('markOff'),'off']:null,
+    ['🗑️',t('del'),'del','danger']].filter(Boolean);
+  return items.map(([ic,lab,act,cl])=>`<button class="${cl||''}" data-act="${act}" data-id="${a.id}">${ic} ${lab}</button>`).join('');
+}
+
+/* ==================== detail view ==================== */
+function openDetail(id){
+  detailId=id;view='detail';
+  $('#view-list').classList.add('hidden');$('#fab').classList.add('hidden');
+  renderDetail();$('#view-detail').classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+function closeDetail(){
+  view='list';detailId=null;ttsStop();
+  $('#view-detail').classList.add('hidden');
+  $('#view-list').classList.remove('hidden');$('#fab').classList.remove('hidden');
+  renderAll();
+}
+async function renderDetail(){
+  const a=byId(detailId);if(!a){closeDetail();return;}
+  const cues=parseCues(a.cuesText||'');
+  cuesCache[a.id]=cues;
+  const au=await audioGet(a.id);
+  const hasAudio=!!au;
+  const el=$('#view-detail');
+  el.innerHTML=`
+    <header><div class="hrow">
+      <button class="icon-btn" id="d-back">‹</button>
+      <h1 style="flex:1;font-size:18px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(a.title)}</h1>
+      <button class="icon-btn" id="d-edit">✏️</button>
+    </div></header>
+    <div class="dcard">
+      <div class="badges">${statusBadge(a)}${a.category?`<span class="badge b-cat">${t('cats')[a.category]||''}</span>`:''}
+        ${a.status==='upcoming'?`<span class="badge b-cd">${countdown(a)}</span>`:''}</div>
+      <div class="statusrow">
+        <button data-st="upcoming" class="${a.status==='upcoming'?'cur-up':''}">${t('stUp')}</button>
+        <button data-st="done" class="${a.status==='done'?'cur-ok':''}">${t('stDone')}</button>
+        <button data-st="cancelled" class="${a.status==='cancelled'?'cur-off':''}">${t('stOff')}</button>
+      </div>
+      <div class="dline"><span class="ic">📅</span><div><b>${t('fDate')}</b>${fmtDate(a)}</div></div>
+      <div class="dline"><span class="ic">🕐</span><div><b>${t('fTime')}</b>${esc(a.time||'—')}</div></div>
+      ${a.place?`<div class="dline"><span class="ic">📍</span><div><b>${t('fPlace')}</b>${esc(a.place)}</div></div>`:''}
+      ${a.address?`<div class="dline"><span class="ic">🏠</span><div><b>${t('fAddr')}</b>${esc(a.address)}</div></div>`:''}
+      ${a.notes?`<div class="dline"><span class="ic">📝</span><div><b>${t('notes')}</b>${esc(a.notes)}</div></div>`:''}
+      ${(a.place||a.address)?`<div class="maprow" style="margin-top:14px">
+        <a class="gm" href="#" data-map="g">🗺️ Google Maps</a>
+        <a class="cm" href="#" data-map="c">🧭 Citymapper</a></div>`:''}
+    </div>
+    <div class="dcard">
+      <div style="font-weight:800;margin-bottom:10px">🎙️ ${t('audioTitle')}</div>
+      <div id="audio-zone">${hasAudio?'':`<div class="hint">${t('noAudio')}</div>`}</div>
+      ${cues.length?`<div class="hint" style="margin-bottom:6px">${t('tapCue')} · ${t('cuesCount')(cues.length)}</div>
+        <div id="cues">${cues.map((c,i)=>`<div class="cue" data-i="${i}">
+          <span class="tm">${fmtT(c.start)}</span><span class="tx">${esc(c.text)}</span>
+          <button class="spk" data-spk="${i}" title="🔁">🔊</button></div>`).join('')}</div>`:''}
+    </div>`;
+  if(hasAudio){
+    const url=URL.createObjectURL(au.blob);
+    $('#audio-zone').innerHTML=`<div class="player"><audio id="appt-audio" controls src="${url}"></audio>
+      <button class="icon-btn" id="d-tts-stop" title="⏹">⏹</button></div>
+      <div class="hint">${esc(au.name||'')}</div>`;
+    const audio=$('#appt-audio');
+    audio.addEventListener('play',()=>ttsStop());
+    audio.addEventListener('timeupdate',()=>{
+      const cur=audio.currentTime;
+      let act=-1;
+      cues.forEach((c,i)=>{if(cur>=c.start&&cur<c.end)act=i;});
+      document.querySelectorAll('#cues .cue').forEach((cEl,i)=>{
+        cEl.classList.toggle('act',i===act);
+      });
+      if(act>=0){const cEl=document.querySelector(`#cues .cue[data-i="${act}"]`);
+        if(cEl)cEl.scrollIntoView({block:'nearest',behavior:'smooth'});}
+    });
+    $('#d-tts-stop').onclick=()=>ttsStop();
+  }
+  $('#d-back').onclick=closeDetail;
+  $('#d-edit').onclick=()=>openForm(a.id);
+  el.querySelectorAll('[data-st]').forEach(b=>b.onclick=()=>setStatus(a.id,b.dataset.st));
+  el.querySelectorAll('[data-map]').forEach(b=>b.onclick=e=>{
+    e.preventDefault();openUrl(b.dataset.map==='g'?mapsUrl(a):cityUrl(a));});
+  el.querySelectorAll('#cues .cue').forEach(cEl=>{
+    cEl.addEventListener('click',e=>{
+      const i=+cEl.dataset.i;const c=cues[i];
+      if(e.target.closest('.spk')){toggleCueLoop(e.target.closest('.spk'),c.text);return;}
+      const audio=$('#appt-audio');if(audio){audio.currentTime=c.start;audio.play().catch(()=>{});}
+    });
+  });
+}
+async function setStatus(id,st){
+  const a=byId(id);if(!a)return;
+  a.status=st==='up'?'upcoming':st==='off'?'cancelled':st;
+  save();await scheduleReminders(a);
+  if(view==='detail')renderDetail();else renderAll();
+}
+
+/* ==================== form ==================== */
+function openForm(id){
+  editingId=id||null;pendingAudio=null;
+  const a=id?byId(id):{category:'other'};
+  let selCat=a.category||'other';
+  $('#form-sheet').innerHTML=`
+    <h2>${id?'✏️ '+t('editAppt'):'+ '+t('newAppt')}</h2>
+    <div class="f-lab">${t('fTitle')}</div>
+    <input class="f-in" id="f-title" value="${esc(a.title||'')}" placeholder="${esc(t('fTitlePh'))}">
+    <div class="f-row">
+      <div><div class="f-lab">${t('fDate')}</div><input class="f-in" id="f-date" type="date" value="${a.date||''}"></div>
+      <div><div class="f-lab">${t('fTime')}</div><input class="f-in" id="f-time" type="time" value="${a.time||''}"></div>
+    </div>
+    <div class="f-lab">${t('fPlace')}</div>
+    <input class="f-in" id="f-place" value="${esc(a.place||'')}" placeholder="${esc(t('fPlacePh'))}">
+    <div class="f-lab">${t('fAddr')}</div>
+    <input class="f-in" id="f-addr" value="${esc(a.address||'')}" placeholder="${esc(t('fAddrPh'))}">
+    <div class="f-lab">${t('fCat')}</div>
+    <div class="catrow" id="f-cat">${CAT_KEYS.map(k=>`<button data-cat="${k}" class="${k===selCat?'on':''}">${t('cats')[k]}</button>`).join('')}</div>
+    <div class="f-lab">${t('fNotes')}</div>
+    <input class="f-in" id="f-notes" value="${esc(a.notes||'')}" placeholder="${esc(t('fNotesPh'))}">
+    <div class="f-lab">${t('fAudio')}</div>
+    <div class="audio-pick ${a.audioName?'has':''}" id="f-audio">
+      <span>${a.audioName?t('fAudioSet')+esc(a.audioName):t('fAudioPick')}</span></div>
+    <input type="file" id="f-audio-file" accept="audio/*" style="display:none">
+    <div class="f-lab">${t('fCues')}</div>
+    <textarea id="f-cues" placeholder="${esc('00:00 …')}">${esc(a.cuesText||'')}</textarea>
+    <div class="hint" style="white-space:pre-line">${esc(t('fCuesHint'))}</div>
+    <div class="btnrow">
+      <button class="btn btn-ghost" id="f-cancel">${t('cancel')}</button>
+      <button class="btn btn-pri" id="f-save">${t('save')}</button>
+    </div>`;
+  $('#f-cat').querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    selCat=b.dataset.cat;
+    $('#f-cat').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+  });
+  $('#f-audio').onclick=()=>$('#f-audio-file').click();
+  $('#f-audio-file').onchange=e=>{
+    const f=e.target.files[0];if(!f)return;
+    const r=new FileReader();
+    r.onload=()=>{pendingAudio={name:f.name,dataUrl:r.result};
+      const p=$('#f-audio');p.classList.add('has');
+      p.querySelector('span').textContent=t('fAudioSet')+f.name;};
+    r.readAsDataURL(f);
+  };
+  $('#f-cancel').onclick=()=>$('#ov-form').classList.add('hidden');
+  $('#f-save').onclick=saveForm;
+  $('#ov-form').classList.remove('hidden');
+}
+async function saveForm(){
+  const title=$('#f-title').value.trim(),date=$('#f-date').value,time=$('#f-time').value;
+  if(!title||!date||!time){toast('⚠️ '+t('needFields'));return;}
+  let a=editingId?byId(editingId):null;
+  const isNew=!a;
+  if(isNew){a={id:'a'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),status:'upcoming',createdAt:Date.now()};appts.push(a);}
+  Object.assign(a,{title,date,time,
+    place:$('#f-place').value.trim(),address:$('#f-addr').value.trim(),
+    notes:$('#f-notes').value.trim(),cuesText:$('#f-cues').value,
+    category:$('#f-cat .on')?.dataset.cat||'other',updatedAt:Date.now()});
+  if(pendingAudio){
+    try{await audioPut(a.id,dataUrlToBlob(pendingAudio.dataUrl),pendingAudio.name);a.audioName=pendingAudio.name;}
+    catch(e){console.error(e);}
+  }
+  save();await scheduleReminders(a);
+  $('#ov-form').classList.add('hidden');toast('✓ '+t('saved'));
+  if(view==='detail')renderDetail();else renderAll();
+}
+function confirmBox(title,yes,no,onYes){
+  $('#confirm-sheet').innerHTML=`<h2>${esc(title)}</h2>
+    <div class="btnrow"><button class="btn btn-ghost" id="c-no">${esc(no)}</button>
+    <button class="btn btn-danger" id="c-yes">${esc(yes)}</button></div>`;
+  $('#c-no').onclick=()=>$('#ov-confirm').classList.add('hidden');
+  $('#c-yes').onclick=()=>{$('#ov-confirm').classList.add('hidden');onYes();};
+  $('#ov-confirm').classList.remove('hidden');
+}
+async function deleteAppt(id){
+  appts=appts.filter(a=>a.id!==id);
+  try{await audioDel(id);}catch(e){}
+  const a={id};await cancelReminders(a);
+  save();toast(t('deleted'));
+  if(view==='detail')closeDetail();else renderAll();
+}
+
+/* ==================== export / import ==================== */
+async function exportData(){
+  const out={app:'PlanMoi',version:1,exportedAt:new Date().toISOString(),appts:[]};
+  for(const a of appts){
+    const c={...a};const au=await audioGet(a.id).catch(()=>null);
+    if(au)c.audioDataUrl=await blobToDataUrl(au.blob);
+    out.appts.push(c);
+  }
+  const blob=new Blob([JSON.stringify(out,null,1)],{type:'application/json'});
+  const name='planmoi-backup-'+new Date().toISOString().slice(0,10)+'.json';
+  const FS=window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.Filesystem;
+  const SH=window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.Share;
+  if(FS&&SH){
+    try{
+      const text=await blobToDataUrl(blob);const b64=text.split(',')[1];
+      const w=await FS.writeFile({path:name,data:b64,directory:'CACHE',recursive:true});
+      await SH.share({title:name,url:w.uri});return;
+    }catch(e){console.error(e);}
+  }
+  const u=URL.createObjectURL(blob);const l=document.createElement('a');
+  l.href=u;l.download=name;l.click();setTimeout(()=>URL.revokeObjectURL(u),4000);
+}
+function importData(){
+  const inp=document.createElement('input');inp.type='file';inp.accept='.json,application/json';
+  inp.onchange=async e=>{
+    const f=e.target.files[0];if(!f)return;
+    try{
+      const d=JSON.parse(await f.text());
+      const arr=d.appts||d;if(!Array.isArray(arr))throw 0;
+      for(const a of arr){
+        if(!a.id)a.id='a'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+        if(a.audioDataUrl){try{await audioPut(a.id,dataUrlToBlob(a.audioDataUrl),a.audioName||'audio');}catch(e){}}
+        delete a.audioDataUrl;
+      }
+      const ids=new Set(appts.map(x=>x.id));
+      appts=appts.concat(arr.filter(a=>!ids.has(a.id)));
+      save();await rescheduleAll();renderAll();toast('✓ '+t('imported'));
+    }catch(e){toast('⚠️ '+t('importBad'));}
+  };
+  inp.click();
+}
+
+/* ==================== top menu ==================== */
+async function renderMenu(){
+  const m=$('#top-menu');
+  let notifOn=false;
+  const p=LN();
+  if(p){try{const r=await p.checkPermissions();notifOn=r&&r.display==='granted';}catch(e){}}
+  else if('Notification' in window)notifOn=Notification.permission==='granted';
+  m.innerHTML=`
+    <button data-tm="export">${t('menuExport')}</button>
+    <button data-tm="import">${t('menuImport')}</button>
+    <button data-tm="voice">${t('menuVoice')}</button>
+    <button data-tm="notif">${notifOn?t('menuNotifOn'):t('menuNotifOff')}</button>`;
+  m.querySelectorAll('[data-tm]').forEach(b=>b.onclick=async()=>{
+    m.classList.add('hidden');
+    const k=b.dataset.tm;
+    if(k==='export')exportData();
+    else if(k==='import')importData();
+    else if(k==='voice'&&window.EdgeTTS)window.EdgeTTS.openSettings();
+    else if(k==='notif'){
+      if(p){try{await p.requestPermissions();await rescheduleAll();renderMenu();}catch(e){}}
+      else if('Notification' in window){try{await Notification.requestPermission();}catch(e){}}
+    }
+  });
+}
+
+/* ==================== render all ==================== */
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+  $('#tagline').textContent=t('tagline');
+  $('#q').placeholder=t('search');
+  document.querySelectorAll('.langs button').forEach(b=>b.classList.toggle('on',b.dataset.lang===lang));
+}
+function renderAll(){applyLang();renderTabs();renderNext();renderList();}
+
+/* ==================== events ==================== */
+document.querySelectorAll('.langs button').forEach(b=>b.onclick=()=>{
+  lang=b.dataset.lang;try{localStorage.setItem(LS_LANG,lang);}catch(e){}
+  view==='detail'?renderDetail():renderAll();renderMenu();
+});
+$('#q').addEventListener('input',e=>{query=e.target.value;renderList();});
+$('#tabs').addEventListener('click',e=>{
+  const b=e.target.closest('[data-tab]');if(b){tab=b.dataset.tab;renderTabs();renderList();}
+});
+$('#list').addEventListener('click',e=>{
+  const mbtn=e.target.closest('.mbtn');
+  if(mbtn){
+    e.stopPropagation();
+    const id=mbtn.dataset.m;const menu=$('#m-'+CSS.escape(id));
+    const wasOpen=!menu.classList.contains('hidden');
+    document.querySelectorAll('.menu').forEach(m=>m.classList.add('hidden'));
+    if(!wasOpen){menu.innerHTML=cardMenu(byId(id));menu.classList.remove('hidden');}
+    return;
+  }
+  const act=e.target.closest('[data-act]');
+  if(act){
+    e.stopPropagation();
+    const id=act.dataset.id,k=act.dataset.act;
+    document.querySelectorAll('.menu').forEach(m=>m.classList.add('hidden'));
+    if(k==='edit')openForm(id);
+    else if(k==='del'){const a=byId(id);confirmBox(t('delConfirm'),t('yes'),t('no'),()=>deleteAppt(id));}
+    else setStatus(id,k);
+    return;
+  }
+  const card=e.target.closest('.card');
+  if(card)openDetail(card.dataset.id);
+});
+$('#btn-menu').onclick=async e=>{e.stopPropagation();await renderMenu();$('#top-menu').classList.toggle('hidden');};
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.menuwrap')&&!e.target.closest('#top-menu')&&!e.target.closest('#btn-menu'))
+    document.querySelectorAll('.menu').forEach(m=>m.classList.add('hidden'));
+});
+$('#ov-form').addEventListener('click',e=>{if(e.target.id==='ov-form')$('#ov-form').classList.add('hidden');});
+$('#fab').onclick=()=>openForm(null);
+
+/* ---------- Android back → exit confirm ---------- */
+if(window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.App){
+  window.Capacitor.Plugins.App.addListener('backButton',()=>{
+    if(!$('#ov-form').classList.contains('hidden')){$('#ov-form').classList.add('hidden');return;}
+    if(view==='detail'){closeDetail();return;}
+    confirmBox(t('exitTitle'),t('exitYes'),t('exitNo'),()=>{
+      try{window.Capacitor.Plugins.App.exitApp();}catch(e){}
+    });
+  });
+}
+
+/* ---------- countdown refresh ---------- */
+setInterval(()=>{if(view==='list'){renderNext();renderList();}},60000);
+
+/* ==================== init ==================== */
+load();renderAll();renderMenu();
+if('serviceWorker' in navigator&&!isCap()){try{navigator.serviceWorker.register('sw.js');}catch(e){}}
+rescheduleAll();
+</script>
+</body>
+</html>
