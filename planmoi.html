@@ -684,9 +684,24 @@ function openMapsApp(a){
   const q=encodeURIComponent([a.place,a.address].filter(Boolean).join(', '));
   openAppOr(mapsUrl(a),'geo:0,0?q='+q);
 }
-function openCityApp(a){
-  const q=encodeURIComponent([a.address||a.place].filter(Boolean).join(', '));
-  openAppOr(cityUrl(a),'citymapper://directions?endaddress='+q);
+const geoCache={};
+async function geocode(q){
+  if(geoCache[q]!==undefined)return geoCache[q];
+  let res=null;
+  try{
+    const r=await fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&q='+encodeURIComponent(q));
+    const j=await r.json();
+    if(j&&j[0])res={lat:j[0].lat,lon:j[0].lon,label:j[0].display_name};
+  }catch(e){}
+  geoCache[q]=res;return res;
+}
+async function openCityApp(a){
+  const addr=[a.address||a.place].filter(Boolean).join(', ');
+  const name=encodeURIComponent(a.place||a.title||'');
+  let qs='endaddress='+encodeURIComponent(addr)+'&endname='+name;
+  const c=await geocode(addr);
+  if(c)qs='endcoord='+c.lat+'%2C'+c.lon+'&endname='+name+'&endaddress='+encodeURIComponent(addr);
+  openAppOr('https://citymapper.com/directions?'+qs,'citymapper://directions?'+qs);
 }
 function openGoogleImages(word){
   const q=(word||'').replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu,'');
