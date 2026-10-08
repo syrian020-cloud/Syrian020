@@ -4313,7 +4313,7 @@
           title: off === 0 ? t('apptNow') : (a.what || t('appt')),
           body: off === 0 ? (a.what || '') : t('apptNotifBody', { what: a.what || '', time: a.time || '', when: off >= 60 ? (off / 60) + 'h' : off + 'min' }),
           schedule: { at: new Date(when), allowWhileIdle: true },
-          channelId: 'naz-appt-v2',
+          channelId: 'naz-appt-v3',
           sound: 'appt_chime', smallIcon: 'ic_launcher', largeIcon: 'ic_launcher'
         });
       });
@@ -6334,7 +6334,7 @@ Output in French, Arabic and English.`;
     const LN = localNotifPlugin();
     if (LN) {
       try { LN.addListener('localNotificationActionPerformed', () => go({ name: 'news' })); } catch (e) {}
-      try { LN.createChannel({ id: 'naz-appt-v2', name: 'Appointments', description: 'Appointment reminders', importance: 5, sound: 'appt_chime', vibration: true, lights: true }); } catch (e) {}
+      try { LN.createChannel({ id: 'naz-appt-v3', name: 'Appointments', description: 'Appointment reminders', importance: 5, sound: 'appt_chime', vibration: true, lights: true }); } catch (e) {}
     }
     rescheduleAllApptNotifs();
     document.addEventListener('visibilitychange', () => { if (!document.hidden) { autoPullLessons(); checkAppUpdate(); } });
