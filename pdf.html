@@ -1371,6 +1371,7 @@ let zoom = 1.0, basePageW = 0;
 const rendered = new Set();      // pages fully rendered at current zoom
 const rendering = new Set();
 let renderEpoch = 0;             // bumped on rerenderAll to cancel stale renders
+const renderTries = new Map();   // failed-render retry counter per epoch+page
 let pageItems = {};              // pageNo -> textContent.items cache
 let docPassword = null;          // password that opened the current doc, if any
 let pageHits = {};               // pageNo -> [{itemIndex}]
@@ -1576,7 +1577,17 @@ async function renderPage(n) {
     div.querySelector('.ph')?.remove();
     rendered.add(n);
   } catch (e) {
-    // keep placeholder
+    // restore the placeholder and retry a few times — a failed render
+    // must never leave a permanently blank box
+    if (div && !div.querySelector('canvas')) {
+      div.innerHTML = '<div class="ph">' + n + '</div>';
+      div.style.width = '100%'; div.style.height = '70vh'; div.style.aspectRatio = '';
+      const key = epoch + ':' + n;
+      const tries = (renderTries.get(key) || 0) + 1;
+      renderTries.set(key, tries);
+      if (tries <= 3 && epoch === renderEpoch)
+        setTimeout(() => renderPage(n), 700);
+    }
   }
   rendering.delete(n);
 }
