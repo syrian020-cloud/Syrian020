@@ -191,12 +191,12 @@
   .page-chip {
     font-size: 12px; color: var(--muted); white-space: nowrap;
     background: var(--card); border: 1px solid var(--border);
-    border-radius: 999px; padding: 5px 12px;
+    border-radius: 999px; padding: 5px 12px; direction: ltr;
   }
   .pages-wrap {
-    position: absolute; inset: 0; overflow-y: auto; overflow-x: hidden;
+    position: absolute; inset: 0; overflow-y: auto; overflow-x: auto;
     padding: 14px 0 90px; overscroll-behavior: contain;
-    transform-origin: 50% 0;
+    transform-origin: 50% 0; direction: ltr;
   }
   .pages { width: 100%; max-width: 860px; margin: 0 auto; padding: 0 12px; }
   .page {
@@ -1370,6 +1370,7 @@ let pageCount = 0, currentPage = 1;
 let zoom = 1.0, basePageW = 0;
 const rendered = new Set();      // pages fully rendered at current zoom
 const rendering = new Set();
+let renderEpoch = 0;             // bumped on rerenderAll to cancel stale renders
 let pageItems = {};              // pageNo -> textContent.items cache
 let docPassword = null;          // password that opened the current doc, if any
 let pageHits = {};               // pageNo -> [{itemIndex}]
@@ -1513,11 +1514,13 @@ function targetScale() {
 
 async function renderPage(n) {
   if (destroyed || !pdfDoc || rendered.has(n) || rendering.has(n)) return;
+  const epoch = renderEpoch;
   rendering.add(n);
   const div = pagesEl.children[n - 1];
   if (!div) { rendering.delete(n); return; }
   try {
     const page = await pdfDoc.getPage(n);
+    if (epoch !== renderEpoch) { rendering.delete(n); return; }
     if (!basePageW) {
       const v1 = page.getViewport({ scale: 1 });
       basePageW = v1.width;
@@ -1547,7 +1550,7 @@ async function renderPage(n) {
       viewport,
       transform: dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : null
     }).promise;
-    if (destroyed) return;
+    if (destroyed || epoch !== renderEpoch) { rendering.delete(n); return; }
 
     // text layer with per-word tap targets
     const tlDiv = document.createElement('div');
@@ -1561,6 +1564,7 @@ async function renderPage(n) {
         viewport
       });
       await tl.render();
+      if (epoch !== renderEpoch) { rendering.delete(n); return; }
       const items = pageItems[n] || (await page.getTextContent()).items;
       pageItems[n] = items;
       splitWords(tlDiv, items, n);
@@ -1718,6 +1722,7 @@ function setZoom(z, reRender = true) {
 }
 function rerenderAll() {
   wrapEl.style.transform = '';
+  renderEpoch++;
   rendered.clear();
   for (const d of pagesEl.children) {
     d.innerHTML = '<div class="ph">' + d.dataset.page + '</div>';
