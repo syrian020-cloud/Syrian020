@@ -158,8 +158,9 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 .cline{display:flex;align-items:center;gap:7px}
 .cline .fl{font-size:12px;flex:none}
 .cline .tx{flex:1;font-size:14.5px;line-height:1.55;min-width:0}
-.cue .spk{flex:none;background:none;border:0;font-size:15px;cursor:pointer;opacity:.75;padding:2px}
+.cue .spk,.cue .ai{flex:none;background:none;border:0;font-size:15px;cursor:pointer;opacity:.75;padding:2px}
 .cue .spk.on{opacity:1;filter:drop-shadow(0 0 6px var(--acc2))}
+.cue .ai{font-size:13px}
 .cline .w{cursor:pointer;border-radius:4px;padding:0 1px;transition:background .12s}
 .cline .w:hover{background:rgba(99,102,241,.25)}
 .cline .w.on{background:var(--acc);color:#fff}
@@ -267,6 +268,9 @@ const I18N = {
     notifTitle:'⏰ تذكير بموعد',
     cuesCount:n=>`${n} سطر`,
     samples:'نماذج النص المؤقّت', copy:'نسخ', copied:'تم النسخ',
+    lFr:'الفرنسية', lAr:'العربية', lEn:'الإنجليزية',
+    aiTitle:'🔍 بحث Google AI: ترجمة وتحليل',
+    aiPrompt:o=>`العبارة بال${o.sl}: "${o.text}"\n1) ترجم كل كلمة على حدة إلى ${o.l1} و${o.l2}.\n2) اشرح قاعدة اللغة (تصريف الفعل، التركيب، أو التعبير) المستخدمة في العبارة.\n3) قدّم محادثة قصيرة عملية بالفرنسية والعربية والإنجليزية تستخدم هذه العبارة لتسهيل حفظها.\nالإخراج بالفرنسية والعربية والإنجليزية.`,
     back:'‹ رجوع',
     daysShort:'يوم',
   },
@@ -306,6 +310,9 @@ const I18N = {
     notifTitle:'⏰ Rappel de rendez-vous',
     cuesCount:n=>`${n} lignes`,
     samples:'Exemples de texte minuté', copy:'Copier', copied:'Copié',
+    lFr:'français', lAr:'arabe', lEn:'anglais',
+    aiTitle:'🔍 Recherche IA : traduction + analyse',
+    aiPrompt:o=>`Phrase en ${o.sl} : "${o.text}"\n1) Traduisez chaque mot individuellement en ${o.l1} et en ${o.l2}.\n2) Expliquez la règle de grammaire (conjugaison, structure ou expression) utilisée dans cette phrase.\n3) Proposez une courte conversation pratique en français, arabe et anglais utilisant cette phrase.\nRéponse en français, arabe et anglais.`,
     back:'‹ Retour',
     daysShort:'j',
   },
@@ -345,6 +352,9 @@ const I18N = {
     notifTitle:'⏰ Appointment reminder',
     cuesCount:n=>`${n} lines`,
     samples:'Timed text samples', copy:'Copy', copied:'Copied',
+    lFr:'French', lAr:'Arabic', lEn:'English',
+    aiTitle:'🔍 AI search: translate + analyze',
+    aiPrompt:o=>`${o.sl} phrase: "${o.text}"\n1) Translate each word individually into ${o.l1} and ${o.l2}.\n2) Explain the grammar rule (verb conjugation, structure, or expression) used in this phrase.\n3) Provide a short practical conversation in French, Arabic and English using this phrase.\nOutput in French, Arabic and English.`,
     back:'‹ Back',
     daysShort:'d',
   }
@@ -703,6 +713,15 @@ async function openCityApp(a){
   if(c)qs='endcoord='+c.lat+'%2C'+c.lon+'&endname='+name+'&endaddress='+encodeURIComponent(addr);
   openAppOr('https://citymapper.com/directions?'+qs,'citymapper://directions?'+qs);
 }
+function aiPromptFor(ln){
+  const lg=ln.lang||guessLang(ln.text);
+  const others={fr:['ar','en'],ar:['fr','en'],en:['fr','ar']}[lg]||['fr','ar'];
+  const ln2=l=>t('l'+l[0].toUpperCase()+l.slice(1));
+  return t('aiPrompt')({sl:ln2(lg),l1:ln2(others[0]),l2:ln2(others[1]),text:ln.text.trim()});
+}
+function openGoogleAi(ln){
+  openUrl('https://www.google.com/search?q='+encodeURIComponent(aiPromptFor(ln))+'&udm=50&hl='+lang);
+}
 function openGoogleImages(word){
   const q=(word||'').replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu,'');
   if(!q)return;
@@ -839,7 +858,7 @@ async function renderDetail(){
           <span class="tm">${fmtT(c.start)}</span>
           <div class="clines">${c.lines.map((ln,j)=>`<div class="cline">
             <span class="fl">${LANG_FLAGS[ln.lang]||''}</span><span class="tx">${wrapWords(ln.text,ln.lang)}</span>
-            <button class="spk" data-spk="${i}:${j}" title="🔁">🔊</button></div>`).join('')}</div>
+            <button class="spk" data-spk="${i}:${j}" title="🔁">🔊</button><button class="ai" data-ai="${i}:${j}" title="${esc(t('aiTitle'))}">🔍</button></div>`).join('')}</div>
         </div>`).join('')}</div>`:''}
     </div>`;
   if(hasAudio){
@@ -873,6 +892,9 @@ async function renderDetail(){
       const spk=e.target.closest('.spk');
       if(spk){const j=+spk.dataset.spk.split(':')[1];const ln=c.lines[j]||c.lines[0];
         toggleCueLoop(spk,ln.text,ln.lang);return;}
+      const ai=e.target.closest('.ai');
+      if(ai){const j=+ai.dataset.ai.split(':')[1];const ln=c.lines[j]||c.lines[0];
+        openGoogleAi(ln);return;}
       const w=e.target.closest('.w');
       if(w){wordTap(w);return;}
       const audio=$('#appt-audio');if(audio){audio.currentTime=c.start;audio.play().catch(()=>{});}
