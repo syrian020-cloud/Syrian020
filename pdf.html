@@ -2142,11 +2142,6 @@ $('menuBtn').onclick = () => {
       <label class="switch"><input type="checkbox" id="sFit" ${settings.fitWidth ? 'checked' : ''}><span class="trk"></span></label></div>
     <div class="set-row"><div class="lbl">${t('m_rate')}</div>
       <input type="range" class="rng" id="sRate" min="0.5" max="2" step="0.1" value="${settings.rate}"><span class="rng-val" id="sRateV">${settings.rate}×</span></div>
-    <div class="set-row"><div class="lbl">${t('m_lang')}<small>${t('m_lang_s')}</small></div>
-      <select class="lang-sel" id="sLang">
-        <option value="fr-FR" ${settings.latinLang === 'fr-FR' ? 'selected' : ''}>${t('lang_fr')}</option>
-        <option value="en-US" ${settings.latinLang === 'en-US' ? 'selected' : ''}>${t('lang_en')}</option>
-      </select></div>
     <div class="set-row"><div class="lbl">${t('m_engine')}<small>${t('m_engine_s')}</small></div>
       <select class="lang-sel" id="sEngine">
         <option value="android" ${settings.ttsEngine !== 'edge' ? 'selected' : ''}>Android TTS</option>
@@ -2155,13 +2150,16 @@ $('menuBtn').onclick = () => {
     <div class="set-row" style="pointer-events:none"><div class="lbl" style="color:var(--accent);font-weight:700">Edge TTS</div></div>
     <div class="set-row edge-row"><div class="lbl">${t('m_ev_ar')}</div>
       <select class="lang-sel" id="sEdgeAr">${EDGE_AR_VOICES.map(v =>
-        `<option value="${v[0]}" ${settings.edgeVoiceAr === v[0] ? 'selected' : ''}>${v[1]}</option>`).join('')}</select></div>
+        `<option value="${v[0]}" ${settings.edgeVoiceAr === v[0] ? 'selected' : ''}>${v[1]}</option>`).join('')}</select>
+      <button class="mini-btn" id="sTestAr" aria-label="test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button></div>
     <div class="set-row edge-row"><div class="lbl">${t('m_ev_fr')}</div>
       <select class="lang-sel" id="sEdgeFr">${EDGE_FR_VOICES.map(v =>
-        `<option value="${v[0]}" ${settings.edgeVoiceFr === v[0] ? 'selected' : ''}>${v[1]}</option>`).join('')}</select></div>
+        `<option value="${v[0]}" ${settings.edgeVoiceFr === v[0] ? 'selected' : ''}>${v[1]}</option>`).join('')}</select>
+      <button class="mini-btn" id="sTestFr" aria-label="test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button></div>
     <div class="set-row edge-row"><div class="lbl">${t('m_ev_en')}</div>
       <select class="lang-sel" id="sEdgeEn">${EDGE_EN_VOICES.map(v =>
-        `<option value="${v[0]}" ${settings.edgeVoiceEn === v[0] ? 'selected' : ''}>${v[1]}</option>`).join('')}</select></div>
+        `<option value="${v[0]}" ${settings.edgeVoiceEn === v[0] ? 'selected' : ''}>${v[1]}</option>`).join('')}</select>
+      <button class="mini-btn" id="sTestEn" aria-label="test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></button></div>
     <div class="set-row" style="cursor:pointer" id="sCopyAll"><div class="lbl">${t('m_copyall')}<small>${t('m_copyall_s')}</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sTtsTest"><div class="lbl">${t('m_tts')}<small>${t('m_tts_s')}</small></div><span>‹</span></div>
     <div class="set-row" style="cursor:pointer" id="sOcr"><div class="lbl">${t('m_ocr')}<small>${t('m_ocr_s')}</small></div><span>‹</span></div>
@@ -2182,7 +2180,6 @@ $('menuBtn').onclick = () => {
   $('sNight').onchange = e => { settings.night = e.target.checked; saveSettings(); document.body.classList.toggle('night', settings.night); };
   $('sFit').onchange = e => { settings.fitWidth = e.target.checked; saveSettings(); rerenderAll(); };
   $('sRate').oninput = e => { settings.rate = +e.target.value; $('sRateV').textContent = settings.rate + '×'; saveSettings(); };
-  $('sLang').onchange = e => { settings.latinLang = e.target.value; saveSettings(); };
   $('sEngine').onchange = e => {
     settings.ttsEngine = e.target.value; saveSettings();
     if (settings.ttsEngine === 'edge') toast(t('m_engine_s'), 3600);
@@ -2205,6 +2202,21 @@ $('menuBtn').onclick = () => {
   edgePick('sEdgeAr', 'edgeVoiceAr', 'مرحباً بك في PDFly');
   edgePick('sEdgeFr', 'edgeVoiceFr', 'Bienvenue dans PDFly');
   edgePick('sEdgeEn', 'edgeVoiceEn', 'Welcome to PDFly');
+  // per-language speech test: speaks the sample with the picked voice
+  const edgeTest = (btnId, key, sample) => {
+    $(btnId).onclick = e => {
+      e.stopPropagation();
+      stopSpeech();
+      if (isNative && Scanner && Scanner.edgeSpeak) {
+        Scanner.edgeSpeak({ text: sample, voice: settings[key],
+          rate: edgePct(settings.rate), pitch: edgeHz(settings.pitch), volume: '+0%' })
+          .catch(() => speakOnce(sample));
+      } else speakOnce(sample);
+    };
+  };
+  edgeTest('sTestAr', 'edgeVoiceAr', 'مرحباً بك في PDFly');
+  edgeTest('sTestFr', 'edgeVoiceFr', 'Bienvenue dans PDFly');
+  edgeTest('sTestEn', 'edgeVoiceEn', 'Welcome to PDFly');
   $('sOutline').onclick = showOutline;
   $('sBms').onclick = showBookmarks;
   $('sBookmark').onclick = () => { toggleBookmark(currentPage); showBookmarks(); };
