@@ -1,6 +1,6 @@
 {
-  "name": "naz",
-  "short_name": "naz",
+  "name": "ShiftPlan",
+  "short_name": "ShiftPlan",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#1a0b1e",

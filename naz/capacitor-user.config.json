@@ -1,6 +1,6 @@
 {
   "appId": "com.syrian020.naz",
-  "appName": "naz",
+  "appName": "ShiftPlan",
   "webDir": "www",
   "server": {
     "androidScheme": "https"

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#2a0a2e">
 <meta name="description" content="تعلم الفرنسية مع ترجمة عربية وإنجليزية">
-<title>naz — Français / العربية / English</title>
+<title>ShiftPlan — Français / العربية / English</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
 <style>
@@ -469,7 +469,7 @@
   .update-banner .btn { margin-inline-start: auto; }
   .update-dismiss { background: none; border: none; color: var(--text-secondary); font-size: 1.25rem; cursor: pointer; padding: 0 0.2rem; }
   .plan-section { margin-bottom: 1.1rem; }
-  .plan-banner { width: 100%; max-height: 210px; object-fit: cover; object-position: center 20%; border-radius: 18px; border: 1px solid var(--border); display: block; margin-bottom: 0.7rem; }
+  .plan-banner { width: 100%; max-height: 340px; object-fit: contain; border-radius: 18px; border: 1px solid var(--border); display: block; margin-bottom: 0.7rem; background: linear-gradient(160deg, #241b52 0%, #17123a 55%, #0f2b26 100%); box-shadow: 0 8px 24px rgba(0,0,0,.35); }
   .plan-contacts { display: flex; gap: 0.6rem; margin-bottom: 0.7rem; }
   .plan-contact { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem; border-radius: 14px; font-weight: 700; text-decoration: none; font-size: 0.92rem; }
   .plan-contact.wa { background: rgba(37,211,102,.14); border: 1px solid rgba(37,211,102,.4); color: #4ade80; font-size: 0.8rem; padding: 0.75rem 0.4rem; }
@@ -1760,7 +1760,7 @@
   }
 
   const UI = {
-    appName: { ar: 'naz', en: 'naz', fr: 'naz' },
+    appName: { ar: 'ShiftPlan', en: 'ShiftPlan', fr: 'ShiftPlan' },
     appTitle: { ar: 'naz — فرنسي / عربي / إنجليزي', en: 'naz — French / Arabic / English', fr: 'naz — Français / Arabe / Anglais' },
     searchPlaceholder: { ar: 'ابحث بالعربية أو الفرنسية أو الإنجليزية…', en: 'Search in Arabic, French, or English…', fr: 'Rechercher en arabe, français ou anglais…' },
     rateTitle: { ar: 'سرعة الصوت والفيديو', en: 'Audio & video speed', fr: 'Vitesse audio et vidéo' },
@@ -1834,8 +1834,8 @@
     updateDownload: { ar: 'تحميل التحديث', en: 'Download update', fr: 'Télécharger la mise à jour' },
     planTitle: { ar: 'جدول عملي', en: 'My work schedule', fr: 'Mon planning de travail' },
     planSub: { ar: 'الأسبوع الحالي', en: 'This week', fr: 'Cette semaine' },
-    week_matin: { ar: 'صباحي 06:00–14:00', en: 'MORNING 06:00–14:00', fr: 'MATIN 06h00–14h00' },
-    week_soir: { ar: 'مسائي 14:00–23:00', en: 'EVENING 14:00–23:00', fr: 'SOIR 14h00–23h00' },
+    week_matin: { ar: 'صباحي', en: 'MORNING', fr: 'MATIN' },
+    week_soir: { ar: 'مسائي', en: 'EVENING', fr: 'SOIR' },
     weekRepos: { ar: 'راحة', en: 'REST', fr: 'REPOS' },
     thisWeek: { ar: 'هذا الأسبوع', en: 'This week', fr: 'Cette semaine' },
     nextWeeks: { ar: 'الأسابيع القادمة', en: 'Coming weeks', fr: 'Semaines à venir' },
@@ -4144,7 +4144,7 @@
   const PLAN_STORE = 'naz_planning';
   const APPT_STORE = 'naz_appts';
   const APPT_FILTER_STORE = 'naz_appt_filter';
-  const SHIFTS = { matin: [360, 840], soir: [840, 1380] }; // minutes from 00:00
+  const SHIFTS = { matin: [360, 840], soir: [840, 1320] }; // defaults, minutes from 00:00
   const APPT_CATS = ['sante', 'admin', 'travail', 'perso', 'etude', 'autre'];
   const CAT_ICONS = { sante: '🏥', admin: '🏛️', travail: '💼', perso: '👤', etude: '📚', autre: '📌' };
   const APPT_OFFSETS = [24 * 60, 12 * 60, 120, 0]; // minutes before
@@ -4167,6 +4167,7 @@
     return Object.assign({
       anchor: mondayOf(todayStr()), kind: 'matin', pattern: ['matin', 'soir'],
       workDays: [1, 2, 3, 4, 5], travelBefore: 30, travelAfter: 30,
+      shiftTimes: { matin: [360, 840], soir: [840, 1320] },
       weekOverrides: {}, dayOverrides: {}
     }, p);
   }
@@ -4200,7 +4201,7 @@
     if (kind === 'repos') return null;
     const dow = new Date(dateStr + 'T12:00:00').getDay();
     if (!planning.workDays.includes(dow)) return null;
-    const s = SHIFTS[kind] || SHIFTS.matin;
+    const s = (planning.shiftTimes && planning.shiftTimes[kind]) || SHIFTS[kind] || SHIFTS.matin;
     return { start: s[0], end: s[1], kind };
   }
 
@@ -4423,15 +4424,17 @@
     }
     const dayChk = [1, 2, 3, 4, 5, 6, 0].map(d =>
       `<label class="plan-wd"><input type="checkbox" data-wd="${d}"${planning.workDays.includes(d) ? ' checked' : ''}> ${new Intl.DateTimeFormat(VOICE_LANG[state.uiLang] || 'fr-FR', { weekday: 'short' }).format(new Date(2024, 0, d === 0 ? 7 : d))}</label>`).join('');
+    const st_ = planning.shiftTimes || SHIFTS;
     view.innerHTML = `<div class="top-bar"><button data-route='${JSON.stringify({ name: 'home' })}'>${t('library')}</button><span class="chev">${chevron()}</span><span class="section-title">${t('planTitle')}</span>
       <span class="home-sync"><button class="contact-btn refresh-btn" id="plan-export-btn" title="${esc(t('export'))}">📤</button><button class="contact-btn refresh-btn" id="plan-import-btn" title="${esc(t('import'))}">📥</button><button class="contact-btn refresh-btn" id="plan-sel-toggle" title="${esc(t('select'))}">☑</button></span></div>
       <input type="file" id="plan-import-file" accept=".json" style="display:none">
-      <div class="card plan-week cur"><div class="plan-week-label">${t('thisWeek')}: <b>${kind === 'repos' ? t('weekRepos') : t('week_' + kind)}</b></div>
+      <div class="card plan-week cur"><div class="plan-week-label">${t('thisWeek')}: <b>${kind === 'repos' ? t('weekRepos') : t('week_' + kind) + ' ' + fmtMin(st_[kind][0]) + '–' + fmtMin(st_[kind][1])}</b></div>
         <div class="plan-quick">
-          <button class="plan-quick-btn matin" data-plan-week="matin">🟦 ${t('week_matin')}</button>
-          <button class="plan-quick-btn soir" data-plan-week="soir">🟧 ${t('week_soir')}</button>
+          <button class="plan-quick-btn matin" data-plan-week="matin">🟦 ${t('week_matin')} ${fmtMin(st_.matin[0])}–${fmtMin(st_.matin[1])}</button>
+          <button class="plan-quick-btn soir" data-plan-week="soir">🟧 ${t('week_soir')} ${fmtMin(st_.soir[0])}–${fmtMin(st_.soir[1])}</button>
           <button class="plan-quick-btn repos" data-plan-week="repos">⚪ ${t('weekRepos')}</button>
         </div>
+        <div class="plan-row" style="margin-top:.55rem"><label>🟦</label><input type="time" class="ctl plan-in" data-st="matin.0" value="${fmtMin(st_.matin[0])}" style="width:90px">–<input type="time" class="ctl plan-in" data-st="matin.1" value="${fmtMin(st_.matin[1])}" style="width:90px"><label>🟧</label><input type="time" class="ctl plan-in" data-st="soir.0" value="${fmtMin(st_.soir[0])}" style="width:90px">–<input type="time" class="ctl plan-in" data-st="soir.1" value="${fmtMin(st_.soir[1])}" style="width:90px"></div>
         <div class="plan-wds">${dayChk}</div>
         <div class="plan-row"><label>${t('travelBefore')}</label><input id="plan-tb" type="number" min="0" step="5" class="ctl plan-in" style="width:80px" value="${planning.travelBefore}"><label>${t('travelAfter')}</label><input id="plan-ta" type="number" min="0" step="5" class="ctl plan-in" style="width:80px" value="${planning.travelAfter}"><span>${t('min')}</span></div>
       </div>
@@ -4619,7 +4622,8 @@
     const works = !!shiftForDay(ds);
     if (works) { planning.dayOverrides[ds] = { kind: 'rest' }; }
     else {
-      const s = SHIFTS[weekKindAt(mondayOf(ds)) === 'soir' ? 'soir' : 'matin'];
+      const k = weekKindAt(mondayOf(ds)) === 'soir' ? 'soir' : 'matin';
+      const s = (planning.shiftTimes && planning.shiftTimes[k]) || SHIFTS[k];
       planning.dayOverrides[ds] = { kind: 'work', start: s[0], end: s[1] };
     }
     savePlanning();
@@ -5503,6 +5507,15 @@ EN: Maria, I’m out of cigarettes.`
         const k = wov.value;
         if (k) planning.weekOverrides[wov.dataset.weekOvr] = { kind: k };
         else delete planning.weekOverrides[wov.dataset.weekOvr];
+        savePlanning(); renderPlanning(); loadMedia();
+        return;
+      }
+      const stIn = e.target.closest('[data-st]');
+      if (stIn) {
+        const parts = stIn.dataset.st.split('.');
+        const mins = parseHM(stIn.value || '0:0');
+        if (!planning.shiftTimes) planning.shiftTimes = { matin: [360, 840], soir: [840, 1320] };
+        planning.shiftTimes[parts[0]][+parts[1]] = mins;
         savePlanning(); renderPlanning(); loadMedia();
         return;
       }
