@@ -728,7 +728,7 @@ function capPlugin(name) {
   }
   return null;
 }
-const BUILD_STAMP = 'v22 · ٢٠٢٦-١٠-٠٢';
+const BUILD_STAMP = 'v23 · ٢٠٢٦-١٠-٠٧';
 const Scanner = capPlugin('PdfScanner');
 const TTS = capPlugin('TextToSpeech');
 const AppP = capPlugin('App');
@@ -754,10 +754,7 @@ const EDGE_LAT = {
   'fr-FR': [['fr-FR-DeniseNeural', 'Denise'], ['fr-FR-HenriNeural', 'Henri'],
             ['fr-FR-VivienneMultilingualNeural', 'Vivienne'], ['fr-CA-SylvieNeural', 'Sylvie (CA)']],
   'en-US': [['en-US-AriaNeural', 'Aria'], ['en-US-ChristopherNeural', 'Christopher'],
-            ['en-US-JennyNeural', 'Jenny'], ['en-GB-SoniaNeural', 'Sonia (UK)']],
-  'de-DE': [['de-DE-KatjaNeural', 'Katja'], ['de-DE-ConradNeural', 'Conrad'],
-            ['de-DE-AmalaNeural', 'Amala']],
-  'tr-TR': [['tr-TR-EmelNeural', 'Emel'], ['tr-TR-AhmetNeural', 'Ahmet']]
+            ['en-US-JennyNeural', 'Jenny'], ['en-GB-SoniaNeural', 'Sonia (UK)']]
 };
 function edgeVoiceFor(lang) {
   if (lang === 'ar-SA') return settings.edgeVoiceAr || 'ar-SY-AmanyNeural';
@@ -2101,14 +2098,13 @@ $('menuBtn').onclick = () => {
       <select class="lang-sel" id="sLang">
         <option value="fr-FR" ${settings.latinLang === 'fr-FR' ? 'selected' : ''}>${t('lang_fr')}</option>
         <option value="en-US" ${settings.latinLang === 'en-US' ? 'selected' : ''}>${t('lang_en')}</option>
-        <option value="de-DE" ${settings.latinLang === 'de-DE' ? 'selected' : ''}>${t('lang_de')}</option>
-        <option value="tr-TR" ${settings.latinLang === 'tr-TR' ? 'selected' : ''}>${t('lang_tr')}</option>
       </select></div>
     <div class="set-row"><div class="lbl">${t('m_engine')}<small>${t('m_engine_s')}</small></div>
       <select class="lang-sel" id="sEngine">
         <option value="android" ${settings.ttsEngine !== 'edge' ? 'selected' : ''}>Android TTS</option>
         <option value="edge" ${settings.ttsEngine === 'edge' ? 'selected' : ''}>Edge TTS</option>
       </select></div>
+    <div class="set-row" style="pointer-events:none"><div class="lbl" style="color:var(--accent);font-weight:700">Edge TTS</div></div>
     <div class="set-row edge-row"><div class="lbl">${t('m_ev_ar')}</div>
       <select class="lang-sel" id="sEdgeAr">${EDGE_AR_VOICES.map(v =>
         `<option value="${v[0]}" ${settings.edgeVoiceAr === v[0] ? 'selected' : ''}>${v[1]}</option>`).join('')}</select></div>
@@ -2141,15 +2137,12 @@ $('menuBtn').onclick = () => {
   $('sFit').onchange = e => { settings.fitWidth = e.target.checked; saveSettings(); rerenderAll(); };
   $('sRate').oninput = e => { settings.rate = +e.target.value; $('sRateV').textContent = settings.rate + '×'; saveSettings(); };
   $('sLang').onchange = e => { settings.latinLang = e.target.value; saveSettings(); };
-  const edgeVis = () => $('sheetBody').querySelectorAll('.edge-row').forEach(r =>
-    r.style.display = settings.ttsEngine === 'edge' ? '' : 'none');
   $('sEngine').onchange = e => {
-    settings.ttsEngine = e.target.value; saveSettings(); edgeVis();
+    settings.ttsEngine = e.target.value; saveSettings();
     if (settings.ttsEngine === 'edge') toast(t('m_engine_s'), 3600);
   };
   $('sEdgeAr').onchange = e => { settings.edgeVoiceAr = e.target.value; saveSettings(); };
   $('sEdgeLat').onchange = e => { settings.edgeVoiceLat = e.target.value; saveSettings(); };
-  edgeVis();
   $('sOutline').onclick = showOutline;
   $('sBms').onclick = showBookmarks;
   $('sBookmark').onclick = () => { toggleBookmark(currentPage); showBookmarks(); };
