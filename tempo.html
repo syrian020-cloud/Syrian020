@@ -254,6 +254,12 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 .verd.bad{background:rgba(255,107,129,.12);border:1px solid #5c2531;color:var(--bad)}
 .vlines{font-size:12.5px;font-weight:600;color:var(--txt);margin-top:8px;line-height:1.7}
 .wkdayrow{display:flex;gap:5px;margin-top:10px}
+.tmrow{display:flex;align-items:center;gap:8px;margin:8px 0;flex-wrap:wrap}
+.tmrow .sbadge{min-width:56px;text-align:center}
+.tin{background:var(--bg);border:1px solid var(--line);color:var(--txt);border-radius:10px;
+  padding:8px 9px;font-size:14px;font-family:inherit;color-scheme:dark;min-width:92px}
+.tdash{color:var(--mut);font-weight:800}
+.tmreset{font-size:11.5px;color:var(--mut);text-decoration:underline;cursor:pointer}
 
 /* ---------- toast / misc ---------- */
 .toast{position:fixed;bottom:96px;left:50%;transform:translateX(-50%);background:#2a2e55;color:var(--txt);
@@ -383,6 +389,8 @@ const I18N = {
     planTitle:'جدول العمل', planSub:'حدّد دوام هالأسبوع — الأسابيع الجاية بتنحسب بالتناوب تلقائياً',
     wkThis:'دوام هالأسبوع:', wkNow:'الحالي',
     shMatin:'صباحي', shSoir:'مسائي', shRepos:'راحة',
+    shTimes:'أوقات الدوام', shTimesHint:'عدّل أوقات الصباحي والمسائي حسب عقدك — كل الحسابات بتتبعها',
+    shBadTime:'وقت غير صالح — البداية لازم تكون قبل النهاية', shReset:'رجوع للافتراضي',
     workDays:'أيام الدوام', workDaysHint:'كبس اليوم للتبديل بين دوام وراحة',
     weeksNext:'الأسابيع الجاية', weeksHint:'كبس أسبوع لتعديله — وبالداخل كبس يوم لتغييره',
     wkAuto:'↺ تلقائي', wkCustom:'معدّل',
@@ -446,6 +454,8 @@ const I18N = {
     planTitle:'Mon planning', planSub:'Réglez cette semaine — les suivantes alternent automatiquement',
     wkThis:'Cette semaine :', wkNow:'en cours',
     shMatin:'MATIN', shSoir:'SOIR', shRepos:'REPOS',
+    shTimes:'Horaires de travail', shTimesHint:'Ajustez vos horaires matin/soir selon votre contrat — tous les calculs les suivent',
+    shBadTime:'Horaire invalide — le début doit précéder la fin', shReset:'Rétablir les valeurs par défaut',
     workDays:'Jours travaillés', workDaysHint:'Touchez un jour pour basculer travail/repos',
     weeksNext:'Semaines suivantes', weeksHint:'Touchez une semaine pour la modifier, puis un jour',
     wkAuto:'↺ Auto', wkCustom:'Modifiée',
@@ -509,6 +519,8 @@ const I18N = {
     planTitle:'Work schedule', planSub:'Set this week — future weeks alternate automatically',
     wkThis:'This week:', wkNow:'current',
     shMatin:'MORNING', shSoir:'EVENING', shRepos:'OFF',
+    shTimes:'Shift times', shTimesHint:'Adjust your morning/evening hours — every check and badge follows them',
+    shBadTime:'Invalid time — start must be before end', shReset:'Reset to defaults',
     workDays:'Working days', workDaysHint:'Tap a day to toggle work/rest',
     weeksNext:'Coming weeks', weeksHint:'Tap a week to edit it, then tap a day',
     wkAuto:'↺ Auto', wkCustom:'Edited',
@@ -1362,7 +1374,7 @@ function renderSelBar(){
 /* ==================== work planning ==================== */
 const LS_PLAN='tempo_plan';
 let plan={}, planFrom='list', chkPrefill=null;
-const SHIFTS={matin:[360,840],soir:[840,1380]}; // minutes: 06:00–14:00 / 14:00–23:00
+const SHIFTS={matin:[360,840],soir:[840,1320]}; // minutes: 06:00–14:00 / 14:00–22:00
 const DAY_ORDER=[1,2,3,4,5,6,0];
 function planLoad(){
   try{plan=JSON.parse(localStorage.getItem(LS_PLAN)||'{}')}catch(e){plan={}}
@@ -1372,6 +1384,7 @@ function planLoad(){
   if(!plan.dayOv||typeof plan.dayOv!=='object')plan.dayOv={};
   if(typeof plan.travel!=='number')plan.travel=30;
   if(typeof plan.dur!=='number')plan.dur=60;
+  if(!plan.times||typeof plan.times!=='object')plan.times={};
 }
 function planSave(){try{localStorage.setItem(LS_PLAN,JSON.stringify(plan))}catch(e){}}
 const pad2=n=>String(n).padStart(2,'0');
@@ -1399,7 +1412,9 @@ function dayType(dateISO){
   return plan.workDays.includes(new Date(dateISO+'T12:00').getDay())?wt:'repos';
 }
 const shName=ty=>ty==='matin'?t('shMatin'):ty==='soir'?t('shSoir'):t('shRepos');
-const shHours=ty=>SHIFTS[ty]?fmtMin(SHIFTS[ty][0])+'–'+fmtMin(SHIFTS[ty][1]):'';
+const shRange=ty=>(Array.isArray(plan.times[ty])&&plan.times[ty].length===2)?plan.times[ty]:SHIFTS[ty];
+const hm2min=s=>{const m=/^(\d{1,2}):(\d{2})$/.exec(s||'');return m?Math.min(+m[1],23)*60+(+m[2]):null};
+const shHours=ty=>SHIFTS[ty]?fmtMin(shRange(ty)[0])+'–'+fmtMin(shRange(ty)[1]):'';
 const shCls=ty=>ty==='matin'?'m':ty==='soir'?'s':ty==='repos'?'r':'u';
 function durLab(m){
   if(m<60)return lang==='ar'?`${m} د`:`${m} min`;
@@ -1431,7 +1446,7 @@ function apptCheck(dateISO,timeHM,durMin,travMin){
     const ty=dayType(di);const inf={date:di,type:ty};
     if(ty==null){unknown=true;return inf;}
     if(ty==='repos')return inf;
-    const sh=SHIFTS[ty];const base=new Date(di+'T00:00').getTime();
+    const sh=shRange(ty);const base=new Date(di+'T00:00').getTime();
     inf.range=[base+sh[0]*60000,base+sh[1]*60000];
     if(inf.range[0]<end&&inf.range[1]>start)coreHit=true;
     else if(inf.range[0]<we&&inf.range[1]>ws)marginHit=true;
@@ -1469,10 +1484,18 @@ function renderPlan(){
       <div style="font-weight:800;margin-bottom:9px">${t('wkThis')}
         <span class="sbadge ${shCls(curTy)}">${curTy?shName(curTy)+(SHIFTS[curTy]?' '+shHours(curTy):''):'…'}</span></div>
       <div class="shiftrow">
-        <button class="shiftbtn ${curTy==='matin'?'on-m':''}" data-sh="matin">🟦 ${t('shMatin')}<br><small>06:00–14:00</small></button>
-        <button class="shiftbtn ${curTy==='soir'?'on-s':''}" data-sh="soir">🟧 ${t('shSoir')}<br><small>14:00–23:00</small></button>
+        <button class="shiftbtn ${curTy==='matin'?'on-m':''}" data-sh="matin">🟦 ${t('shMatin')}<br><small>${shHours('matin')}</small></button>
+        <button class="shiftbtn ${curTy==='soir'?'on-s':''}" data-sh="soir">🟧 ${t('shSoir')}<br><small>${shHours('soir')}</small></button>
         <button class="shiftbtn ${curTy==='repos'?'on-r':''}" data-sh="repos">⚪ ${t('shRepos')}</button>
       </div>
+      <div class="tmrow"><span class="sbadge m">${t('shMatin')}</span>
+        <input class="tin" id="tm-m1" type="time" value="${fmtMin(shRange('matin')[0])}"><span class="tdash">–</span>
+        <input class="tin" id="tm-m2" type="time" value="${fmtMin(shRange('matin')[1])}"></div>
+      <div class="tmrow"><span class="sbadge s">${t('shSoir')}</span>
+        <input class="tin" id="tm-s1" type="time" value="${fmtMin(shRange('soir')[0])}"><span class="tdash">–</span>
+        <input class="tin" id="tm-s2" type="time" value="${fmtMin(shRange('soir')[1])}">
+        <a class="tmreset" id="tm-reset">${t('shReset')}</a></div>
+      <div class="hint">${t('shTimesHint')}</div>
       <div class="hint">${t('planSub')}</div>
     </div>
     <div class="dcard">
@@ -1510,6 +1533,15 @@ function renderPlan(){
     const g=+b.dataset.gd;const i=plan.workDays.indexOf(g);
     if(i>=0)plan.workDays.splice(i,1);else plan.workDays.push(g);
     planSave();renderPlan();});
+  [['m','matin'],['s','soir']].forEach(([p,ty])=>{
+    const upd=()=>{
+      const a=hm2min($('#tm-'+p+'1').value),b=hm2min($('#tm-'+p+'2').value);
+      if(a==null||b==null||a>=b){toast('⚠️ '+t('shBadTime'));renderPlan();return;}
+      plan.times[ty]=[a,b];planSave();renderPlan();
+    };
+    $('#tm-'+p+'1').onchange=upd;$('#tm-'+p+'2').onchange=upd;
+  });
+  $('#tm-reset').onclick=e=>{e.preventDefault();delete plan.times.matin;delete plan.times.soir;planSave();renderPlan();};
   $('#p-go').onclick=runCheck;
   el.querySelectorAll('[data-wk]').forEach(r=>r.onclick=()=>openWeekSheet(r.dataset.wk));
   if(chkPrefill){chkPrefill=null;runCheck();}
@@ -1542,8 +1574,8 @@ function openWeekSheet(monISO){
   const s=$('#week-sheet');
   s.innerHTML=`<h2>🗓️ ${fmtDay(monISO)} – ${fmtDay(days[6])}</h2>
     <div class="shiftrow">
-      <button class="shiftbtn ${ty==='matin'?'on-m':''}" data-sh="matin">${t('shMatin')}<br><small>06–14</small></button>
-      <button class="shiftbtn ${ty==='soir'?'on-s':''}" data-sh="soir">${t('shSoir')}<br><small>14–23</small></button>
+      <button class="shiftbtn ${ty==='matin'?'on-m':''}" data-sh="matin">${t('shMatin')}<br><small>${shHours('matin')}</small></button>
+      <button class="shiftbtn ${ty==='soir'?'on-s':''}" data-sh="soir">${t('shSoir')}<br><small>${shHours('soir')}</small></button>
       <button class="shiftbtn ${ty==='repos'?'on-r':''}" data-sh="repos">${t('shRepos')}</button>
       <button class="shiftbtn" data-sh="auto">${t('wkAuto')}</button>
     </div>
