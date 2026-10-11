@@ -2582,7 +2582,6 @@ $('sgSave').onclick = () => {
     const sw = Math.max(1, c.width), sh = Math.max(1, c.height);
     pendingImg = { src: url, ratio: sh / sw };
     pendingTxt = null;
-    toast(t('ed_hint'), 3000);
     return;
   }
   $('edBody').focus();
@@ -2707,7 +2706,7 @@ function toggleEditMode(on) {
   armTool(null);
   if (on) {
     for (const d of pagesEl.children) inflateOverlay(d);
-    toast(t('ed_hint'), 4200);
+    toast(t('ed_hint'), 2800);
   } else {
     for (const d of pagesEl.children) { const o = d.querySelector('.eov'); if (o) o.remove(); }
   }
@@ -2912,7 +2911,6 @@ $('edTText').onclick = async () => {
   if (txt) {
     pendingTxt = txt; pendingImg = null;
     $('edTText').classList.add('on');
-    toast(t('ed_hint'), 3000);
   }
 };
 
@@ -2934,7 +2932,6 @@ $('edImgInput').onchange = e => {
     img.onload = () => {
       pendingImg = { src: rd.result, ratio: img.height / img.width };
       pendingTxt = null;
-      toast(t('ed_hint'), 3000);
     };
     img.src = rd.result;
   };
