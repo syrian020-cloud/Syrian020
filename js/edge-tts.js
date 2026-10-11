@@ -102,6 +102,7 @@
   };
 
   var api = { down: false };
+  var pluginDown = false;   // native EdgeTTS plugin failed -> skip it for the session
   var RV_TL = { fr: 'fr', ar: 'ar', en: 'en-US' };
   var RV_RATE = '0.47';
   var CACHE_MAX = 60;
@@ -138,7 +139,7 @@
   }
   function setEnabled(v) {
     try { localStorage.setItem('edge_tts', v ? '1' : '0'); } catch (e) {}
-    if (v) api.down = false;
+    if (v) { api.down = false; pluginDown = false; }
   }
   function plugin() {
     return (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.EdgeTTS) || null;
@@ -163,7 +164,7 @@
 
   function fetchAudio(text, lang) {
     var p = plugin();
-    if (p) {
+    if (p && !pluginDown) {
       var v = voiceOf(lang);
       // Retry with the default voice — an unknown voice name fails the request
       // and shouldn't mark Edge TTS as down for the whole session.
@@ -178,6 +179,9 @@
       // plain MP3 URL any WebView audio element can play — instead of dying.
       return native.catch(function (e) {
         var msg = (e && (e.message || String(e))) || 'Edge TTS failed';
+        // Remember the failure for this session so the next phrase does not
+        // wait for another plugin timeout before using ResponsiveVoice.
+        pluginDown = true;
         return { url: rvUrl(text, lang), via: 'rv', err: msg };
       });
     }
