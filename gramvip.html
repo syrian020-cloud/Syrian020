@@ -787,6 +787,17 @@
       .replace(/\s{2,}/g, ' ').trim();
   }
 
+  function speakOnce(text, el, lang) {
+    if (el.classList.contains('looping')) { stopSpeaking(); return; }
+    stopSpeaking();
+    el.classList.add('looping');
+    var seq = speakSeq;
+    var done = function () { if (seq === speakSeq) el.classList.remove('looping'); };
+    text = cleanSpoken(text);
+    if (!text) { done(); return; }
+    speakAuto(text, lang || 'fr', 1, done);
+  }
+
   function speakLoop(text, el, lang) {
     if (el.classList.contains('looping')) { stopSpeaking(); return; }
     stopSpeaking();
@@ -1506,7 +1517,12 @@
     var w = wordAt(e); if (!w) return;
     if (wHeld) { wHeld = false; return; }
     wTaps++;
-    if (wTaps === 1) { wTapT = setTimeout(function () { wTaps = 0; }, 380); }
+    if (wTaps === 1) {
+      var pl = w.closest('.pl');
+      var lang = pl.classList.contains('ar') ? 'ar' : (pl.classList.contains('en') ? 'en' : 'fr');
+      var word = w.textContent;
+      wTapT = setTimeout(function () { wTaps = 0; speakOnce(word, w, lang); }, 380);
+    }
     else { clearTimeout(wTapT); wTaps = 0; searchImages(w.textContent); }
   });
 
