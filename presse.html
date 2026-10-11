@@ -286,7 +286,7 @@ var I18N = {
     }
   }
 };
-function T() { return I18N[uiLang] || I18N.ar; }
+function T() { return I18N[uiLang()] || I18N.ar; }
 function uiLang() { return localStorage.getItem('presse_lang') || 'ar'; }
 function setUiLang(l) {
   try { localStorage.setItem('presse_lang', l); } catch (e) {}
