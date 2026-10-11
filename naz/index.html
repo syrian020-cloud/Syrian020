@@ -609,6 +609,7 @@
   .appt-line-btn.active { background: var(--success); color: #081c15; border-color: var(--success); }
   .appt-loop-btn { flex: none; width: 1.9rem; height: 1.9rem; border-radius: 50%; border: 1px solid var(--border); background: rgba(0,0,0,.4); color: #fff; font-size: .9rem; cursor: pointer; }
   .appt-loop-btn.active { background: var(--success); color: #081c15; border-color: var(--success); }
+  .appt-note { font-size: 1rem; font-weight: 500; line-height: 1.5; padding: .3rem .2rem; }
   .admin-spacer { flex: 1; }
 </style>
 </head>
@@ -4702,20 +4703,18 @@
   function parseApptPhrases(txt) {
     const lines = (txt || '').split('\n').map(l => l.trim()).filter(Boolean);
     const groups = [];
-    let cur = {};
+    let cur = null;
     const strip = l => l.replace(/^[\u{1F1E6}-\u{1F1FF}]{2}\s*/u, '').trim();
     const langOf = l => /^\u{1F1EB}\u{1F1F7}/u.test(l) ? 'fr' : /^\u{1F1F8}\u{1F1FE}/u.test(l) ? 'ar' : /^\u{1F1FA}\u{1F1F8}|^\u{1F1EC}\u{1F1E7}/u.test(l) ? 'en' : null;
     for (const l of lines) {
       const lang = langOf(l);
-      if (lang === 'fr' && (cur.fr || Object.keys(cur).length)) { groups.push(cur); cur = {}; }
-      if (lang) { cur[lang] = strip(l); }
-      else if (!cur.fr) cur.fr = l;
-      else if (!cur.ar) cur.ar = l;
-      else if (!cur.en) cur.en = l;
-      else { groups.push(cur); cur = { fr: l }; }
-      if (cur.fr && cur.ar && cur.en) { groups.push(cur); cur = {}; }
+      if (lang === 'fr' && cur) { groups.push(cur); cur = null; }
+      if (!cur) cur = { items: [] };
+      if (lang) { cur[lang] = strip(l); cur.items.push({ lang, text: cur[lang] }); }
+      else cur.items.push({ note: true, text: l });
+      if (cur.fr && cur.ar && cur.en) { groups.push(cur); cur = null; }
     }
-    if (Object.keys(cur).length) groups.push(cur);
+    if (cur) groups.push(cur);
     return groups;
   }
 
@@ -4770,9 +4769,12 @@
       (a.notes ? `<div class="ad-row">📝<span><span class="chk-lbl">${t('afNotes')}</span><br>${esc(a.notes)}</span></div>` : '') +
       (a.captionText ? `<div class="ad-row">💬<span style="flex:1"><span class="chk-lbl">${t('afCaptions')}</span>` +
           parseApptPhrases(a.captionText).map((p, i) =>
-            `<div class="appt-phrase"><div class="appt-phrase-side"><button class="appt-loop-btn" data-appt-loop="${i}" type="button" title="Loop">🔁</button></div><div class="appt-phrase-lines">` +
-              [['fr', '🇫🇷 FR'], ['ar', '🇸🇾 AR'], ['en', '🇺🇸 EN']].filter(([ln]) => p[ln]).map(([ln, lbl]) =>
-                `<div class="appt-line"><span class="appt-lang">${lbl}</span><span class="appt-txt">${esc(p[ln])}</span><button class="appt-line-btn" data-appt-lloop="${i}" data-lang="${ln}" type="button">🔁</button></div>`).join('') +
+            `<div class="appt-phrase">` +
+              ((p.fr || p.ar || p.en) ? `<div class="appt-phrase-side"><button class="appt-loop-btn" data-appt-loop="${i}" type="button" title="Loop">🔁</button></div>` : '') +
+              `<div class="appt-phrase-lines">` +
+              p.items.map(it => it.note
+                ? `<div class="appt-note">${esc(it.text)}</div>`
+                : `<div class="appt-line"><span class="appt-lang">${{ fr: '🇫🇷 FR', ar: '🇸🇾 AR', en: '🇺🇸 EN' }[it.lang]}</span><span class="appt-txt">${esc(it.text)}</span><button class="appt-line-btn" data-appt-lloop="${i}" data-lang="${it.lang}" type="button">🔁</button></div>`).join('') +
             `</div></div>`).join('') +
           `</span></div>` : '') +
       (addr ? `<div class="ad-maps"><button class="btn" data-appt-act="chooser" data-id="${id}">🗺️ ${t('chooseMap')}</button><button class="btn" style="background:#0d9d6b;border:none" data-appt-act="maps" data-id="${id}">🔍 Google Maps</button></div>` : '') +
