@@ -593,6 +593,12 @@
   }
   .admin-btn.ghost { background: transparent; color: var(--text-secondary); border: 1px solid var(--border); }
   .sync-status { color: var(--gold, #fbbf24); font-size: 0.8rem; }
+  .af-help-btn { background: rgba(232,121,200,.12); color: var(--text); border: 1px dashed var(--accent); border-radius: 8px; padding: .4rem .7rem; font-size: .8rem; cursor: pointer; width: 100%; text-align: start; margin: .5rem 0 .2rem; }
+  .af-help-body { background: rgba(255,255,255,.04); border: 1px solid var(--border); border-radius: 10px; padding: .6rem .8rem; margin-bottom: .5rem; }
+  .af-step { font-size: .82rem; color: var(--text-secondary); margin: .35rem 0; line-height: 1.5; }
+  .af-ex { opacity: .75; font-style: italic; }
+  .af-tpl { background: rgba(0,0,0,.25); border-radius: 8px; padding: .5rem .7rem; font-size: .85rem; line-height: 1.7; direction: ltr; text-align: left; position: relative; }
+  .af-copy { position: absolute; top: .3rem; inset-inline-end: .4rem; font-size: .75rem !important; padding: .15rem .5rem !important; }
   .admin-spacer { flex: 1; }
 </style>
 </head>
@@ -1918,6 +1924,13 @@
     afNotes: { ar: 'ملاحظات', en: 'Notes', fr: 'Notes' },
     afAudio: { ar: 'مرفق صوتي', en: 'Audio attachment', fr: 'Pièce audio' },
     afCaptions: { ar: 'نص مزامنة (00:05 نص)', en: 'Synced text (00:05 text)', fr: 'Texte synchronisé' },
+    afHelpTitle: { ar: 'طريقة طلب العبارات وإضافتها إلى التطبيق', en: 'How to request phrases and add them to the app', fr: 'Comment demander des phrases et les ajouter à l\'app' },
+    afHelpS1: { ar: 'الخطوة الأولى: انسخ النموذج التالي:', en: 'Step 1: copy this template:', fr: 'Étape 1 : copiez ce modèle :' },
+    afHelpS2: { ar: 'الخطوة الثانية: أرسل النموذج إلى ChatGPT، واطلب منه عبارات عن الموضوع الذي تريده.', en: 'Step 2: send the template to ChatGPT and ask for phrases about the topic you want.', fr: 'Étape 2 : envoyez le modèle à ChatGPT et demandez des phrases sur le sujet voulu.' },
+    afHelpEx: { ar: 'مثال: أريد عبارات شائعة عند طبيب الأسنان، بنفس هذا النموذج، وتشمل جميع المواقف.', en: 'Example: I want common phrases at the dentist, in this format, covering all situations.', fr: 'Exemple : je veux des phrases courantes chez le dentiste, dans ce format, couvrant toutes les situations.' },
+    afHelpS3: { ar: 'الخطوة الثالثة: بعد أن ينتهي ChatGPT من كتابة العبارات، انسخ العبارات التي أعطاك إياها.', en: 'Step 3: once ChatGPT finishes, copy the phrases it gave you.', fr: 'Étape 3 : quand ChatGPT a fini, copiez les phrases données.' },
+    afHelpS4: { ar: 'الخطوة الرابعة: افتح تطبيقك، والصق العبارات التي نسختها في المكان المخصص لإضافة المحتوى.', en: 'Step 4: open your app and paste the phrases where content is added.', fr: 'Étape 4 : ouvrez l\'app et collez les phrases à l\'endroit prévu.' },
+    afHelpS5: { ar: 'الخطوة الخامسة: احفظ العبارات في التطبيق لتتمكن من الرجوع إليها وتعلّمها في أي وقت.', en: 'Step 5: save the phrases so you can review and learn them anytime.', fr: 'Étape 5 : enregistrez les phrases pour les réviser à tout moment.' },
     afRequired: { ar: 'الموضوع والتاريخ والوقت مطلوبة', en: 'Subject, date and time required', fr: 'Objet, date et heure requis' },
     audioAttached: { ar: 'صوت مرفق', en: 'Audio attached', fr: 'Audio joint' },
     searchAppts: { ar: 'بحث في المواعيد…', en: 'Search appointments…', fr: 'Rechercher un rendez-vous…' },
@@ -4440,6 +4453,18 @@
       <div class="ad-cats">${APPT_CATS.map(c => `<button class="cat-chip${curCat === c ? ' on' : ''}" data-cat="${c}">${CAT_ICONS[c]} ${t('cat_' + c)}</button>`).join('')}</div>
       <label class="chk-lbl">${t('afNotes')}</label>
       <textarea id="af-notes" class="ctl plan-in" rows="2" placeholder="${esc(t('afNotesPh'))}">${esc(a ? a.notes || '' : '')}</textarea>
+      <button class="af-help-btn" id="af-help-btn" type="button">📱 ℹ️ ${t('afHelpTitle')}</button>
+      <div class="af-help-body" id="af-help-body" style="display:none">
+        <div class="af-step">${t('afHelpS1')}</div>
+        <div class="af-tpl">🇫🇷 Maria, j'ai plus de cigarettes.<br>🇸🇾 ماريا، ما عاد معي دخان.<br>🇺🇸 Maria, I'm out of cigarettes.
+          <button class="btn ghost af-copy" id="af-copy-tpl" type="button">📋 ${t('copy')}</button>
+        </div>
+        <div class="af-step">${t('afHelpS2')}</div>
+        <div class="af-step af-ex">${t('afHelpEx')}</div>
+        <div class="af-step">${t('afHelpS3')}</div>
+        <div class="af-step">${t('afHelpS4')}</div>
+        <div class="af-step">${t('afHelpS5')}</div>
+      </div>
       <label class="chk-lbl">${t('afCaptions')}</label>
       <textarea id="af-captions" class="ctl plan-in" rows="3" placeholder="${esc(t('afCaptions'))}">${esc(a ? a.captionText || '' : '')}</textarea>
       <div class="plan-row" style="margin-top:.3rem">
@@ -4530,6 +4555,14 @@
     if (sv) sv.onclick = saveApptFromForm;
     const c = document.getElementById('af-cancel');
     if (c) c.onclick = () => { planEditId = null; planApptAudio = null; renderAppts(); loadMedia(); };
+    const hb = document.getElementById('af-help-btn');
+    if (hb) hb.onclick = () => { const b = document.getElementById('af-help-body'); b.style.display = b.style.display === 'none' ? 'block' : 'none'; };
+    const cp = document.getElementById('af-copy-tpl');
+    if (cp) cp.onclick = async () => {
+      const txt = "🇫🇷 Maria, j'ai plus de cigarettes.\n🇸🇾 ماريا، ما عاد معي دخان.\n🇺🇸 Maria, I'm out of cigarettes.";
+      try { await navigator.clipboard.writeText(txt); showToast('📋 ' + t('copy')); }
+      catch (e) { const ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); showToast('📋 ' + t('copy')); }
+    };
   }
 
   function renderAppts() {
