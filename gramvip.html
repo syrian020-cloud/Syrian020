@@ -89,7 +89,7 @@
   [data-theme="light"] .stat-pill { background: rgba(255,255,255,0.55); }
   .stat-pill b { color: var(--text-primary); font-weight: 900; }
 
-  .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem; padding: 0.45rem 0; }
+  .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 1rem; padding: 0.45rem 0; }
   .search-wrap { flex: 1; min-width: 200px; position: relative; }
   .search-wrap input { width: 100%; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 0.75rem 1rem 0.75rem 2.7rem; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; transition: border-color .15s, box-shadow .15s, transform .15s; }
   [dir="ltr"] .search-wrap input, html[dir="ltr"] .search-wrap input { padding: 0.75rem 2.7rem 0.75rem 1rem; }
@@ -260,7 +260,17 @@
     </span>
   </div>
 </header>
-<div class="topbar">
+<main>
+  <div class="hero">
+    <h1 data-t="heroTitle">قواعد اللغة الفرنسية بطريقة مبسّطة</h1>
+    <p data-t="heroDesc">مجلداتك ودروسك — أضف دروساً بالنموذج الجاهز واسمع أي عبارة بأي لغة.</p>
+    <div class="stats">
+      <span class="stat-pill">📁 <b id="statFolders">0</b> <span data-t="folders">مجلدات</span></span>
+      <span class="stat-pill">📚 <b id="statLessons">0</b> <span data-t="lessons">دروس</span></span>
+      <span class="stat-pill">💬 <b id="statPhrases">0</b> <span data-t="phrases">عبارة</span></span>
+    </div>
+  </div>
+
   <div class="toolbar">
     <div class="search-wrap">
       <span class="search-ic">🔍</span>
@@ -280,19 +290,8 @@
     </div>
     <button class="stop-btn" id="stopBtn">🔇 <span data-t="stop">إيقاف</span></button>
   </div>
-  <div class="view-head" id="viewHead"></div>
-</div>
-<main>
-  <div class="hero">
-    <h1 data-t="heroTitle">قواعد اللغة الفرنسية بطريقة مبسّطة</h1>
-    <p data-t="heroDesc">مجلداتك ودروسك — أضف دروساً بالنموذج الجاهز واسمع أي عبارة بأي لغة.</p>
-    <div class="stats">
-      <span class="stat-pill">📁 <b id="statFolders">0</b> <span data-t="folders">مجلدات</span></span>
-      <span class="stat-pill">📚 <b id="statLessons">0</b> <span data-t="lessons">دروس</span></span>
-      <span class="stat-pill">💬 <b id="statPhrases">0</b> <span data-t="phrases">عبارة</span></span>
-    </div>
-  </div>
 
+  <div class="view-head" id="viewHead"></div>
   <div id="home" class="home-grid"></div>
   <div id="content"></div>
   <div class="empty" id="empty" style="display:none"><div class="big">📭</div><span data-t="noResults">لا توجد نتائج</span></div>
