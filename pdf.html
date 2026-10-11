@@ -2748,7 +2748,10 @@ function matchBase(div, fx, fy) {
   const cs = getComputedStyle(best);
   const fs = parseFloat(cs.fontSize);
   if (!fs) return null;
-  const color = /\(0\)|transparent/.test(cs.color) ? '#111111' : cs.color;
+  /* text-layer glyphs are painted on canvas; the spans are transparent
+     (rgba(...,0)) so alpha-0 colors must fall back to ink black */
+  const color = (cs.color === 'transparent' || /rgba\(.+,\s*0(?:\.0+)?\s*\)\s*$/.test(cs.color))
+    ? '#111111' : cs.color;
   /* pdf.js spans use embedded subset font ids (e.g. g_d0_f1) that render
      new glyphs blank — only generic families are safe to reuse */
   const fam = cs.fontFamily.toLowerCase();
