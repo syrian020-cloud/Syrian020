@@ -193,7 +193,9 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 .cline{display:flex;align-items:center;gap:10px;background:var(--card2);border:1px solid var(--line);
   border-radius:15px;padding:11px 12px;box-shadow:0 2px 8px var(--sh)}
 .cline .lgb{flex:none;font-size:21px;line-height:1;align-self:center}
-.cline .tx{flex:1;font-size:18px;line-height:1.6;font-weight:700;min-width:0}
+.cline .tx{flex:1;font-size:18px;line-height:1.6;font-weight:700;min-width:0;
+  white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+.cline .tx::-webkit-scrollbar{display:none}
 .cline .lacts{flex:none;display:flex;gap:5px}
 .cline.note{background:none;border:0;box-shadow:none;padding:8px 4px}
 .cline.note .tx{font-size:20.5px;font-weight:800;text-align:center;color:var(--acc2)}
