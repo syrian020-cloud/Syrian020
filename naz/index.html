@@ -4772,7 +4772,7 @@
           parseApptPhrases(a.captionText).map((p, i) =>
             `<div class="appt-phrase"><div class="appt-phrase-side"><button class="appt-loop-btn" data-appt-loop="${i}" type="button" title="Loop">🔁</button></div><div class="appt-phrase-lines">` +
               [['fr', '🇫🇷 FR'], ['ar', '🇸🇾 AR'], ['en', '🇺🇸 EN']].filter(([ln]) => p[ln]).map(([ln, lbl]) =>
-                `<div class="appt-line"><span class="appt-lang">${lbl}</span><span class="appt-txt">${esc(p[ln])}</span><button class="appt-line-btn" data-appt-speak="${i}" data-lang="${ln}" type="button">🔊</button><button class="appt-line-btn" data-appt-lloop="${i}" data-lang="${ln}" type="button">🔁</button></div>`).join('') +
+                `<div class="appt-line"><span class="appt-lang">${lbl}</span><span class="appt-txt">${esc(p[ln])}</span><button class="appt-line-btn" data-appt-lloop="${i}" data-lang="${ln}" type="button">🔁</button></div>`).join('') +
             `</div></div>`).join('') +
           `</span></div>` : '') +
       (addr ? `<div class="ad-maps"><button class="btn" data-appt-act="chooser" data-id="${id}">🗺️ ${t('chooseMap')}</button><button class="btn" style="background:#0d9d6b;border:none" data-appt-act="maps" data-id="${id}">🔍 Google Maps</button></div>` : '') +
