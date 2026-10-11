@@ -705,6 +705,7 @@ function parseCues(raw){
       l.lang=(i<arIdx||(c.lines.length===2&&!latAfter))?'fr':'en';
     });
   };
+  const pendingHeader=[];
   for(let i=0;i<lines.length;i++){
     const line=lines[i].trim();
     if(!line){push();continue;}
@@ -712,16 +713,23 @@ function parseCues(raw){
       let j=i+1;while(j<lines.length&&!lines[j].trim())j++;
       if(j<lines.length&&TRX.test(lines[j].trim()))continue; // SRT index
     }
+    if(/^[-–—=_*•.\s]{2,}$/.test(line))continue; // --- separators
     const m=line.match(TRX);
     if(m){
       push();
       cur={start:secs(m[1],m[2],m[3]),end:m[5]!==undefined?secs(m[4],m[5],m[6]):null,lines:[]};
+      if(pendingHeader.length){pendingHeader.forEach(t=>addText(cur,t));pendingHeader.length=0;}
       if((m[7]||'').trim())addText(cur,m[7]);
       continue;
     }
     if(cur)addText(cur,line);
+    else pendingHeader.push(line); // section title between/before cues -> note lines
   }
   push();
+  if(pendingHeader.length&&cues.length){
+    const last=cues[cues.length-1];
+    pendingHeader.forEach(t=>addText(last,t));
+  }
   cues.forEach(fixLangs);
   cues.sort((a,b)=>a.start-b.start);
   cues.forEach((c,i)=>{if(c.end==null||c.end<=c.start)c.end=(cues[i+1]?cues[i+1].start:c.start+5);});
