@@ -12,6 +12,8 @@ mkdir -p www/js
 
 cp gramvip.html www/index.html
 cp manifest-gramvip.json www/manifest.json
+# also keep the original file names so sw-gramvip.js FILES_TO_CACHE resolves
+cp gramvip.html manifest-gramvip.json www/ 2>/dev/null || true
 cp icon-gramvip-192.png icon-gramvip-512.png sw-gramvip.js www/
 cp js/edge-tts.js www/js/
 

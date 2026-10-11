@@ -137,6 +137,8 @@
   .section.open .section-body { display: block; animation: fadeUp .28s ease; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
   .sec-note { color: var(--text-secondary); font-size: 0.82rem; font-weight: 600; margin: 0.2rem 0 0.6rem; padding-inline-start: 0.3rem; }
+  .group-title { display: flex; align-items: center; gap: 0.45rem; color: var(--accent); font-size: 0.82rem; font-weight: 850; margin: 0.75rem 0 0.5rem; padding-inline-start: 0.3rem; }
+  .group-title::before { content: ''; width: 14px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--accent-solid), var(--accent-2)); }
 
   .phrase { background: var(--card-2); border: 1px solid var(--border); border-inline-start: 3px solid rgba(139,92,246,0.5); border-radius: 15px; padding: 0.75rem 0.9rem; margin-bottom: 0.55rem; display: flex; align-items: center; gap: 0.8rem; transition: transform .14s, border-color .14s, background .14s; }
   .phrase:hover { transform: translateX(-3px); border-color: rgba(139,92,246,0.4); background: var(--bg-tertiary); }
@@ -522,19 +524,30 @@
     var lines = raw.split(/\r?\n/).map(function (l) { return l.trim(); })
       .filter(function (l) { return l && !/^[-–—*_=]{3,}$/.test(l); });
     var lesson = { title: { fr: '', ar: '', en: '' }, sections: [] };
-    var cur = null, curPhrase = null, i = 0;
+    var cur = null, curGrp = null, curPhrase = null, i = 0;
 
+    function ensureGrp() {
+      if (!cur) { cur = { title: { fr: '', ar: '', en: '' }, groups: [] }; lesson.sections.push(cur); }
+      if (!curGrp) { curGrp = { title: null, phrases: [], notes: [] }; cur.groups.push(curGrp); }
+      return curGrp;
+    }
     function flushPhrase() {
       if (curPhrase && (curPhrase.fr || curPhrase.ar || curPhrase.en)) {
-        if (!cur) { cur = { title: { fr: '', ar: '', en: '' }, phrases: [], notes: [] }; lesson.sections.push(cur); }
-        cur.phrases.push(curPhrase);
+        ensureGrp().phrases.push(curPhrase);
       }
       curPhrase = null;
     }
     function newSec(tri) {
       flushPhrase();
-      cur = { title: tri, phrases: [], notes: [] };
+      cur = { title: tri, groups: [] };
+      curGrp = null;
       lesson.sections.push(cur);
+    }
+    function newGrp(tri) {
+      flushPhrase();
+      if (!cur) newSec({ fr: '', ar: '', en: '' });
+      curGrp = { title: tri, phrases: [], notes: [] };
+      cur.groups.push(curGrp);
     }
 
     // first non-empty line = title (unless it is a numbered header or a phrase line)
@@ -565,18 +578,33 @@
       }
       // non-flag line
       if (isHeaderLine(line)) {
+        var numbered = HDR_NUM.test(line);
         var hparts = splitParts(line.replace(HDR_NUM, ''));
-        newSec(partsToTri(hparts.length ? hparts : [line]));
+        var hTri = partsToTri(hparts.length ? hparts : [line]);
+        // numbered headers open a section; unnumbered ones group inside it
+        if (numbered || !cur) newSec(hTri);
+        else newGrp(hTri);
       } else {
         flushPhrase();
-        if (!cur) newSec({ fr: '', ar: '', en: '' });
-        cur.notes.push(line);
+        ensureGrp().notes.push(line);
       }
     }
     flushPhrase();
-    // drop empty sections
-    lesson.sections = lesson.sections.filter(function (s) { return s.phrases.length || s.notes.length; });
+    // drop empty groups and sections
+    lesson.sections.forEach(function (s) {
+      s.groups = (s.groups || []).filter(function (g) { return g.phrases.length || g.notes.length; });
+    });
+    lesson.sections = lesson.sections.filter(function (s) { return s.groups.length; });
     return lesson;
+  }
+
+  function secGroups(s) {
+    if (s.groups) return s.groups;
+    // legacy shape {phrases, notes} from older saved lessons
+    return [{ title: null, phrases: s.phrases || [], notes: s.notes || [] }];
+  }
+  function secPhrases(s) {
+    return secGroups(s).reduce(function (a, g) { return a.concat(g.phrases); }, []);
   }
 
   /* ==================== TTS ==================== */
@@ -657,6 +685,7 @@
   }
 
   function speakSequence(items, btn, phraseEls) {
+    if (!items || !items.length) return;
     if (btn.classList.contains('speaking')) { stopSpeaking(); return; }
     stopSpeaking();
     btn.classList.add('speaking');
@@ -732,7 +761,7 @@
   function folderById(id) { return folders.filter(function (f) { return f.id === id; })[0]; }
   function lessonById(id) { return lessons.filter(function (l) { return l.id === id; })[0]; }
   function lessonsIn(folderId) { return lessons.filter(function (l) { return l.folderId === folderId; }); }
-  function lessonPhraseCount(l) { return l.sections.reduce(function (n, s) { return n + s.phrases.length; }, 0); }
+  function lessonPhraseCount(l) { return l.sections.reduce(function (n, s) { return n + secPhrases(s).length; }, 0); }
   function allPhrases() {
     var n = 0;
     lessons.forEach(function (l) { n += lessonPhraseCount(l); });
@@ -804,7 +833,7 @@
     wrap.querySelectorAll('.home-card[data-id]').forEach(function (card) {
       card.onclick = function () {
         state.view = 'folder'; state.folderId = card.dataset.id;
-        try { history.pushState({ v: 'folder' }, ''); } catch (e) {}
+        pushNav();
         renderAll(); window.scrollTo({ top: 0 });
       };
     });
@@ -830,7 +859,7 @@
       '<h2>' + esc(f.icon || '📁') + ' ' + esc(f.name) + '</h2>' +
       '<button class="icon-btn" id="folderEditBtn">✏️</button>' +
       '<p>' + ls.length + ' ' + t('lessons') + '</p>';
-    document.getElementById('backBtn').onclick = goHome;
+    document.getElementById('backBtn').onclick = navBack;
     document.getElementById('folderEditBtn').onclick = function () { openFolderSheet(f); };
 
     var html = ls.map(function (l) {
@@ -849,14 +878,14 @@
       row.onclick = function (e) {
         if (e.target.closest('.card-menu-btn')) return;
         state.view = 'lesson'; state.lessonId = row.dataset.id;
-        try { history.pushState({ v: 'lesson' }, ''); } catch (e2) {}
+        pushNav();
         renderAll(); window.scrollTo({ top: 0 });
       };
     });
     wrap.querySelectorAll('[data-menu]').forEach(function (b) {
       var l = lessonById(b.dataset.menu);
       attachMenu(b, [
-        { icon: '📖', label: t('open'), fn: function () { state.view = 'lesson'; state.lessonId = l.id; renderAll(); } },
+        { icon: '📖', label: t('open'), fn: function () { state.view = 'lesson'; state.lessonId = l.id; pushNav(); renderAll(); } },
         { icon: '✏️', label: t('edit'), fn: function () { openLessonSheet(f, l); } },
         { icon: '📂', label: t('moveTo'), fn: function () { openMoveSheet(l); } },
         { icon: '🗑️', label: t('del'), danger: true, fn: function () { confirmDeleteLesson(l); } }
@@ -876,25 +905,27 @@
       '<h2>📚 ' + esc(lessonTitle(l)) + '</h2>' +
       '<button class="icon-btn" id="lessonEditBtn">✏️</button>' +
       '<p>' + esc(l.title.ar || '') + (l.title.en ? ' · ' + esc(l.title.en) : '') + '</p>';
-    document.getElementById('backBtn').onclick = function () {
-      state.view = 'folder'; state.lessonId = null;
-      try { history.back(); } catch (e) {}
-      renderAll();
-    };
+    document.getElementById('backBtn').onclick = navBack;
     document.getElementById('lessonEditBtn').onclick = function () { openLessonSheet(f, l); };
 
     var playData = [];
     wrap.innerHTML = l.sections.map(function (sec, si) {
-      var wordsFr = sec.phrases.reduce(function (n, p) { return n + (p.fr || '').trim().split(/\s+/).filter(Boolean).length; }, 0);
-      playData.push(sec.phrases);
+      var phrases = secPhrases(sec);
+      var wordsFr = phrases.reduce(function (n, p) { return n + (p.fr || '').trim().split(/\s+/).filter(Boolean).length; }, 0);
+      playData.push(phrases);
       return '<div class="section" data-sec="' + si + '">' +
         '<div class="section-head"><button class="sec-play" data-play="' + (playData.length - 1) + '" title="Play all">▶️</button>' +
         '<span class="sec-icon">📖</span>' +
         '<span class="sec-title">' + esc(tri(sec.title) || t('sections')) + '</span>' +
-        '<span class="sec-count">' + sec.phrases.length + ' ' + t('phrasesCount') + ' · ' + wordsFr + ' FR</span><span class="chev">▼</span></div>' +
+        '<span class="sec-count">' + phrases.length + ' ' + t('phrasesCount') + ' · ' + wordsFr + ' FR</span><span class="chev">▼</span></div>' +
         '<div class="section-body">' +
-        (sec.notes || []).map(function (n) { return '<div class="sec-note">' + esc(n) + '</div>'; }).join('') +
-        sec.phrases.map(phraseHtml).join('') + '</div></div>';
+        secGroups(sec).map(function (g) {
+          var gh = '';
+          if (g.title && tri(g.title)) gh += '<div class="group-title">' + esc(tri(g.title)) + '</div>';
+          gh += (g.notes || []).map(function (n) { return '<div class="sec-note">' + esc(n) + '</div>'; }).join('');
+          gh += g.phrases.map(phraseHtml).join('');
+          return gh;
+        }).join('') + '</div></div>';
     }).join('');
 
     wrap.querySelectorAll('.section-head').forEach(function (h) {
@@ -943,11 +974,11 @@
     var html = '';
     lessons.forEach(function (l) {
       var f = folderById(l.folderId);
-      var lessonHit = (lessonTitle(l) + ' ' + (l.title.ar || '') + ' ' + (l.title.en || '')).toLowerCase().indexOf(q) >= 0;
+      var lessonHit = ((l.title.fr || '') + ' ' + (l.title.ar || '') + ' ' + (l.title.en || '')).toLowerCase().indexOf(q) >= 0;
       var lessonHtml = '';
       l.sections.forEach(function (sec) {
-        var secHit = (tri(sec.title) + ' ' + (sec.title.ar || '') + ' ' + (sec.title.en || '')).toLowerCase().indexOf(q) >= 0;
-        var phrases = sec.phrases.filter(function (p) {
+        var secHit = ((sec.title.fr || '') + ' ' + (sec.title.ar || '') + ' ' + (sec.title.en || '')).toLowerCase().indexOf(q) >= 0;
+        var phrases = secPhrases(sec).filter(function (p) {
           return lessonHit || secHit || ((p.fr + ' ' + p.ar + ' ' + p.en).toLowerCase().indexOf(q) >= 0);
         });
         visible += phrases.length;
@@ -958,7 +989,7 @@
         lessonHtml += '<div class="section open"><div class="section-head"><span class="sec-icon">📖</span>' +
           '<span class="sec-title">' + esc(tri(sec.title) || t('sections')) + '</span>' +
           '<span class="sec-count">' + phrases.length + ' ' + t('phrasesCount') + '</span></div>' +
-          '<div class="section-body" style="display:block">' + phrases.map(phraseHtml).join('') + '</div></div>';
+          '<div class="section-body">' + phrases.map(phraseHtml).join('') + '</div></div>';
       });
       if (lessonHtml) {
         html += '<div class="centre-group">' + esc((f ? f.icon + ' ' + f.name : '') + ' › ') +
@@ -977,6 +1008,7 @@
         if (!l) return;
         state.view = 'lesson'; state.lessonId = l.id; state.folderId = l.folderId;
         state.query = ''; document.getElementById('search').value = '';
+        pushNav();
         renderAll();
       };
     });
@@ -1013,10 +1045,16 @@
     renderStats();
   }
 
-  function goHome() {
-    state.view = 'home'; state.folderId = null; state.lessonId = null;
-    try { history.back(); } catch (e) {}
-    renderAll();
+  var navDepth = 0;
+  function pushNav() {
+    navDepth++;
+    try { history.pushState({ d: navDepth }, ''); } catch (e) {}
+  }
+  function navBack() {
+    if (navDepth > 0) { try { history.back(); } catch (e) {} return; }
+    if (state.view === 'lesson') { state.view = 'folder'; state.lessonId = null; renderAll(); }
+    else if (state.view === 'folder') { state.view = 'home'; state.folderId = null; renderAll(); }
+    else { state.view = 'home'; state.folderId = null; state.lessonId = null; renderAll(); }
   }
 
   /* ==================== sheets ==================== */
@@ -1072,7 +1110,7 @@
     var el = document.getElementById('parseStats');
     if (!raw.trim()) { el.innerHTML = '<span class="stat-pill">' + esc(t('tplHint')) + '</span>'; return; }
     var p = parseLesson(raw);
-    var nPh = p.sections.reduce(function (n, s) { return n + s.phrases.length; }, 0);
+    var nPh = p.sections.reduce(function (n, s) { return n + secPhrases(s).length; }, 0);
     el.innerHTML = '<span class="stat-pill">📌 <b>' + esc(tri(p.title) || '—') + '</b></span>' +
       '<span class="stat-pill">📚 <b>' + p.sections.length + '</b> ' + t('sectionsCount') + '</span>' +
       '<span class="stat-pill">💬 <b>' + nPh + '</b> ' + t('phrasesCount') + '</span>';
@@ -1347,6 +1385,7 @@
   }
 
   window.addEventListener('popstate', function () {
+    if (navDepth > 0) navDepth--;
     if (state.view === 'lesson') { state.view = 'folder'; state.lessonId = null; renderAll(); }
     else if (state.view === 'folder') { state.view = 'home'; state.folderId = null; renderAll(); }
     else if (state.query) { state.query = ''; document.getElementById('search').value = ''; renderAll(); }
@@ -1379,7 +1418,9 @@
     renderAll();
   }).catch(function () { renderAll(); });
 
-  if ('serviceWorker' in navigator) {
+  // SW only on the web (PWA): the APK bundles its assets locally, and a
+  // root-scope worker here would shadow the other apps' caches offline.
+  if ('serviceWorker' in navigator && !(window.Capacitor && window.Capacitor.Plugins)) {
     try { navigator.serviceWorker.register('sw-gramvip.js'); } catch (e) {}
   }
 })();
