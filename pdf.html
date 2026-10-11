@@ -234,6 +234,17 @@
   }
   .edit-bar .ebtn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
   .edit-bar .ebtn.save { background: var(--accent-2); border-color: var(--accent-2); color: #fff; }
+  .edit-sub {
+    position: absolute; left: 0; right: 0; bottom: 58px; z-index: 12;
+    display: none; align-items: center; gap: 8px; flex-wrap: wrap;
+    padding: 6px 14px; background: rgba(11,15,31,0.85); backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border);
+  }
+  .edit-sub.show { display: flex; }
+  .edit-sub .ebtn { border: 1px solid var(--border); background: var(--card); color: var(--text); border-radius: 10px; padding: 6px 10px; font-size: 13px; font-weight: 700; }
+  .edit-sub .ebtn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .edit-sub select { border: 1px solid var(--border); background: var(--card); color: var(--text); border-radius: 10px; padding: 6px 8px; font-size: 13px; max-width: 130px; }
+  .edit-sub input[type=color] { width: 34px; height: 30px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); padding: 2px; }
   .page .eov { position: absolute; inset: 0; z-index: 5; pointer-events: auto; touch-action: pan-x pan-y pinch-zoom; }
   .eobj { position: absolute; box-sizing: border-box; touch-action: none; }
   .eobj.rect { background: #fff; }
@@ -628,6 +639,17 @@
     <button class="ebtn save" id="edTSave" data-i18n="ed_save">حفظ نسخة</button>
     <button class="ebtn" id="edTExit" data-i18n="ed_exit">إنهاء</button>
   </div>
+  <div class="edit-sub" id="editSub">
+    <select id="edTxtFont" data-i18n-title="ed_font">
+      <option value="sans-serif" data-i18n="f_sans">عادي</option>
+      <option value="serif" data-i18n="f_serif">كلاسيكي</option>
+      <option value="monospace" data-i18n="f_mono">أحادي</option>
+    </select>
+    <button class="ebtn" id="edTxtMinus" data-i18n-title="ed_smaller">A−</button>
+    <button class="ebtn" id="edTxtPlus" data-i18n-title="ed_bigger">A+</button>
+    <input type="color" id="edTxtColor" value="#111111" data-i18n-title="ed_color">
+    <button class="ebtn on" id="edTxtAuto" data-i18n="ed_fit">مطابق للنص</button>
+  </div>
   <input type="file" id="edImgInput" accept="image/*" hidden>
   <div class="bottombar" id="bottombar">
     <button class="icon-btn" id="zoomOutBtn">
@@ -864,6 +886,9 @@ const STR = {
     ed_sign: 'توقيع', ed_text: 'نص', ed_img: 'صورة', ed_cover: 'تغطية', ed_save: 'حفظ نسخة', ed_exit: 'إنهاء',
     ed_hint: 'اختر أداة: «تغطية» اسحب فوق ما تريد إخفاءه، والباقي اضغط على الصفحة لوضعه',
     ed_txt_q: 'اكتب النص الذي تريد وضعه', ed_saved: 'حُفظت النسخة المعدّلة في التنزيلات', ed_none: 'لا تعديلات بعد',
+    ed_font: 'شكل الخط', f_sans: 'عادي', f_serif: 'كلاسيكي', f_mono: 'أحادي',
+    ed_smaller: 'تصغير الخط', ed_bigger: 'تكبير الخط', ed_color: 'لون النص', ed_fit: 'مطابق للنص',
+    edge_fail: 'تعذّر صوت الإنترنت — تحويل للبديل',
     m_tts: 'اختبار النطق', m_tts_s: 'يتكلم جملة تجريبية للتحقق من محرك الصوت',
     m_ocr: 'نطق الصفحة بالتعرّف الضوئي', m_ocr_s: 'يقرأ النص من صورة الصفحة — للملفات الممسوحة',
     ocr_working: 'جارٍ التعرّف على نص الصفحة… (قد يستغرق لحظات)',
@@ -954,6 +979,9 @@ const STR = {
     ed_sign: 'Signature', ed_text: 'Texte', ed_img: 'Image', ed_cover: 'Cacher', ed_save: 'Enregistrer', ed_exit: 'Quitter',
     ed_hint: 'Choisissez un outil : « Cacher » glissez sur la zone, sinon touchez la page',
     ed_txt_q: 'Texte à insérer', ed_saved: 'Copie modifiée enregistrée dans Téléchargements', ed_none: 'Aucune modification',
+    ed_font: 'Police', f_sans: 'Normal', f_serif: 'Classique', f_mono: 'Mono',
+    ed_smaller: 'Réduire', ed_bigger: 'Agrandir', ed_color: 'Couleur', ed_fit: 'Identique',
+    edge_fail: 'Voix en ligne indisponible — bascule',
     m_tts: 'Tester la voix', m_tts_s: 'Lit une phrase test du moteur vocal',
     m_ocr: 'Lire la page (OCR)', m_ocr_s: 'Lit le texte de l\u2019image — pour les scans',
     ocr_working: 'Reconnaissance du texte en cours…',
@@ -1044,6 +1072,9 @@ const STR = {
     ed_sign: 'Signature', ed_text: 'Text', ed_img: 'Image', ed_cover: 'Cover', ed_save: 'Save copy', ed_exit: 'Done',
     ed_hint: 'Pick a tool: « Cover » drag over an area, others tap the page to place',
     ed_txt_q: 'Text to insert', ed_saved: 'Edited copy saved to Downloads', ed_none: 'No edits yet',
+    ed_font: 'Font', f_sans: 'Normal', f_serif: 'Classic', f_mono: 'Mono',
+    ed_smaller: 'Smaller', ed_bigger: 'Bigger', ed_color: 'Text color', ed_fit: 'Match text',
+    edge_fail: 'Online voice unavailable — switching',
     m_tts: 'Test speech', m_tts_s: 'Speaks a test sentence to verify the engine',
     m_ocr: 'Read page via OCR', m_ocr_s: 'Reads text from the page image — for scans',
     ocr_working: 'Recognizing page text… (may take a moment)',
@@ -1178,9 +1209,36 @@ function speakOnce(text, forceLang) {
       text, voice: edgeVoiceFor(lang),
       rate: edgePct(settings.rate), pitch: edgeHz(settings.pitch), volume: '+0%'
     }).then(r => done(true))
-      .catch(() => device());
+      .catch(e => {
+        if (!edgeWarned) {
+          edgeWarned = true;
+          toast(t('edge_fail') + ': ' + (e && e.message ? e.message : e), 5000);
+        }
+        return rvSpeak(text, lang).then(ok => ok ? done(true) : device());
+      });
   }
   return device();
+}
+
+let rvAudio = null, edgeWarned = false;
+function rvSpeak(text, lang) {
+  return new Promise(res => {
+    try {
+      if (rvAudio) { rvAudio.pause(); rvAudio = null; }
+      const tl = lang === 'ar-SA' ? 'ar' : (lang || 'fr-FR');
+      const rate = Math.min(1, Math.max(0.1, settings.rate / 2));
+      const a = new Audio('https://responsivevoice.org/responsivevoice/getvoice.php?t=' +
+        encodeURIComponent(text.slice(0, 900)) +
+        '&tl=' + encodeURIComponent(tl) + '&sv=g1&vn=&pitch=0.5&rate=' + rate + '&vol=1');
+      rvAudio = a;
+      let settled = false;
+      const fin = ok => { if (!settled) { settled = true; res(ok); } };
+      a.onended = () => { rvAudio = null; fin(true); };
+      a.onerror = () => { rvAudio = null; fin(false); };
+      a.play().catch(() => { rvAudio = null; fin(false); });
+      setTimeout(() => { if (!settled) { if (rvAudio === a) { a.pause(); rvAudio = null; } fin(true); } }, 90000);
+    } catch (e) { res(false); }
+  });
 }
 async function speak(text, span) {
   stopSpeech();
@@ -1248,6 +1306,7 @@ async function startReadFrom(span) {
 
 function stopSpeech() {
   loopGen++;
+  if (rvAudio) { rvAudio.pause(); rvAudio = null; }
   if (isNative && Scanner && Scanner.edgeStop) Scanner.edgeStop().catch(() => {});
   if (isNative && TTS && TTS.stop) TTS.stop().catch(() => {});
   else if ('speechSynthesis' in window) speechSynthesis.cancel();
@@ -2638,10 +2697,14 @@ async function openIncoming() {
 let editMode = false, editTool = null;
 const edits = {};                 // pageNo -> [{kind,x,y,w,h,text,src,color}]
 let pendingImg = null, pendingTxt = null;  // payloads armed for tap-to-place
+const txtStyle = { font: 'sans-serif', size: 0.035, color: '#111111', auto: true };
+let sel = null;  // {n, i} selected overlay object
 
 function toggleEditMode(on) {
   editMode = on;
   $('editBar').classList.toggle('show', on);
+  $('editSub').classList.toggle('show', on);
+  sel = null;
   armTool(null);
   if (on) {
     for (const d of pagesEl.children) inflateOverlay(d);
@@ -2649,6 +2712,53 @@ function toggleEditMode(on) {
   } else {
     for (const d of pagesEl.children) { const o = d.querySelector('.eov'); if (o) o.remove(); }
   }
+}
+
+function pageDiv(n) { return pagesEl.querySelector('.page[data-page="' + n + '"]'); }
+
+function selTxt() {
+  return sel && edits[sel.n] && edits[sel.n][sel.i] && edits[sel.n][sel.i].kind === 'txt'
+    ? edits[sel.n][sel.i] : null;
+}
+
+function applyTxtStyle(patch) {
+  const o = selTxt();
+  if (o) { Object.assign(o, patch); const d = pageDiv(sel.n); if (d) inflateOverlay(d); }
+  else Object.assign(txtStyle, patch);
+}
+
+function bumpTxtSize(f) {
+  const o = selTxt();
+  if (o) { o.h = Math.min(0.2, Math.max(0.008, o.h * f)); const d = pageDiv(sel.n); if (d) inflateOverlay(d); }
+  else txtStyle.size = Math.min(0.2, Math.max(0.008, txtStyle.size * f));
+}
+
+/* nearest word span -> {h, font, color} so inserted text matches the base text */
+function matchBase(div, fx, fy) {
+  const r = div.getBoundingClientRect();
+  const px = r.left + fx * r.width, py = r.top + fy * r.height;
+  let best = null, bd = Infinity;
+  div.querySelectorAll('.word').forEach(w => {
+    const wr = w.getBoundingClientRect();
+    if (!wr.width) return;
+    const dx = wr.left + wr.width / 2 - px, dy = wr.top + wr.height / 2 - py;
+    const d = dx * dx + dy * dy;
+    if (d < bd) { bd = d; best = w; }
+  });
+  if (!best || bd > Math.pow(r.width * 0.45, 2)) return null;
+  const cs = getComputedStyle(best);
+  const fs = parseFloat(cs.fontSize);
+  if (!fs) return null;
+  const color = /\(0\)|transparent/.test(cs.color) ? '#111111' : cs.color;
+  return { h: (fs / 0.85) / div.clientHeight, font: cs.fontFamily, color };
+}
+
+/* width fraction that fits the text at the given height on this page */
+function txtWidthFrac(text, font, hFrac, div) {
+  const fs = Math.max(8, hFrac * div.clientHeight * 0.85);
+  const ctx = document.createElement('canvas').getContext('2d');
+  ctx.font = '700 ' + fs + 'px ' + font;
+  return Math.min(0.95, (ctx.measureText(text).width + fs * 0.4) / div.clientWidth);
 }
 
 function armTool(tool) {
@@ -2681,6 +2791,8 @@ function objEl(div, o, i) {
   if (o.kind === 'txt') {
     el.textContent = o.text;
     el.style.fontSize = Math.max(8, o.h * div.clientHeight * 0.85) + 'px';
+    el.style.fontFamily = o.font || 'sans-serif';
+    el.style.color = o.color || '#111';
   } else if (o.kind === 'img') {
     const im = document.createElement('img');
     im.src = o.src; im.draggable = false;
@@ -2692,6 +2804,8 @@ function objEl(div, o, i) {
   const rs = document.createElement('span');
   rs.className = 'rs'; rs.textContent = '⤡';
   el.appendChild(rs);
+  const n = +div.dataset.page;
+  if (sel && sel.n === n && sel.i === i) el.classList.add('sel');
   return el;
 }
 
@@ -2714,10 +2828,14 @@ function wireOverlay(ov, div) {
     }
     if (obj) {
       const p = frac(e);
+      sel = { n, i };
+      ov.querySelectorAll('.eobj').forEach(el2 => el2.classList.toggle('sel', +el2.dataset.i === i));
       state = { kind: 'mv', i, dx: p.x - edits[n][i].x, dy: p.y - edits[n][i].y };
       ov.setPointerCapture(e.pointerId); e.preventDefault(); return;
     }
     // empty area
+    sel = null;
+    ov.querySelectorAll('.eobj').forEach(el2 => el2.classList.remove('sel'));
     if (editTool === 'cover') {
       const p = frac(e);
       const o = { kind: 'rect', x: p.x, y: p.y, w: 0.001, h: 0.001, color: '#ffffff' };
@@ -2730,10 +2848,19 @@ function wireOverlay(ov, div) {
       const p = frac(e);
       const o = pendingImg
         ? { kind: 'img', x: p.x - 0.15, y: p.y - 0.04, w: 0.3, h: 0.08 * (pendingImg.ratio || 0.5) / 0.5 * (div.clientWidth / div.clientHeight), src: pendingImg.src }
-        : { kind: 'txt', x: p.x, y: p.y, w: 0.3, h: 0.035, text: pendingTxt };
+        : { kind: 'txt', x: p.x, y: p.y, w: 0.3, h: txtStyle.size, text: pendingTxt, font: txtStyle.font, color: txtStyle.color };
       if (o.kind === 'img') { o.h = o.w * pendingImg.ratio * (div.clientWidth / div.clientHeight); o.x = Math.max(0, p.x - o.w / 2); o.y = Math.max(0, p.y - o.h / 2); }
+      if (o.kind === 'txt') {
+        if (txtStyle.auto) {
+          const m = matchBase(div, p.x, p.y);
+          if (m) { o.h = m.h; o.font = m.font; o.color = m.color; }
+        }
+        o.w = txtWidthFrac(o.text, o.font, o.h, div);
+        o.x = Math.max(0, Math.min(1 - o.w, o.x));
+      }
       (edits[n] = edits[n] || []).push(o);
       pendingImg = null; pendingTxt = null;
+      $('edTText').classList.remove('on');
       inflateOverlay(div);
       e.preventDefault();
     }
@@ -2775,7 +2902,20 @@ function wireOverlay(ov, div) {
 $('edTCover').onclick = () => armTool(editTool === 'cover' ? null : 'cover');
 $('edTText').onclick = async () => {
   const txt = await askText(t('ed_text'), '', { placeholder: t('ed_txt_q') });
-  if (txt) { pendingTxt = txt; pendingImg = null; toast(t('ed_hint'), 3000); }
+  if (txt) {
+    pendingTxt = txt; pendingImg = null;
+    $('edTText').classList.add('on');
+    toast(t('ed_hint'), 3000);
+  }
+};
+
+$('edTxtFont').onchange = e => applyTxtStyle({ font: e.target.value });
+$('edTxtColor').oninput = e => applyTxtStyle({ color: e.target.value });
+$('edTxtPlus').onclick = () => bumpTxtSize(1.25);
+$('edTxtMinus').onclick = () => bumpTxtSize(1 / 1.25);
+$('edTxtAuto').onclick = () => {
+  txtStyle.auto = !txtStyle.auto;
+  $('edTxtAuto').classList.toggle('on', txtStyle.auto);
 };
 $('edTImg').onclick = () => $('edImgInput').click();
 $('edImgInput').onchange = e => {
@@ -2806,12 +2946,12 @@ function textPng(o, v) {
   const c = document.createElement('canvas');
   const ctx = c.getContext('2d');
   const fs = Math.round(h * 0.85);
-  ctx.font = '700 ' + fs + 'px sans-serif';
+  ctx.font = '700 ' + fs + 'px ' + (o.font || 'sans-serif');
   const tw = Math.ceil(ctx.measureText(o.text).width) + 8;
   c.width = tw; c.height = h;
   const ctx2 = c.getContext('2d');
-  ctx2.font = '700 ' + fs + 'px sans-serif';
-  ctx2.fillStyle = '#111';
+  ctx2.font = '700 ' + fs + 'px ' + (o.font || 'sans-serif');
+  ctx2.fillStyle = o.color || '#111';
   ctx2.textBaseline = 'middle';
   ctx2.fillText(o.text, 4, h / 2);
   return c.toDataURL('image/png');
