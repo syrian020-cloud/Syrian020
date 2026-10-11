@@ -905,7 +905,12 @@
   }
 
   var edgeErrShown = false;
+  function sayText(s) {
+    // '=' and '/' are grammar annotations — speak them as a short pause
+    return (s || '').replace(/\s*[=＝]+\s*/g, ', ').replace(/\s*\/+\s*/g, ', ');
+  }
   function speakAuto(text, lang, times, done) {
+    text = sayText(text);
     if (window.EdgeTTS && EdgeTTS.supported()) {
       var seq0 = speakSeq;
       speakEdge(text, lang, times, done, function (err) {
