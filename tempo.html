@@ -726,13 +726,15 @@ function parseCues(raw){
     else pendingHeader.push(line); // section title between/before cues -> note lines
   }
   push();
-  if(pendingHeader.length&&cues.length){
-    const last=cues[cues.length-1];
-    pendingHeader.forEach(t=>addText(last,t));
+  if(pendingHeader.length){
+    // No timestamp to attach to -> keep the text as one untimed cue
+    const target=cues.length?cues[cues.length-1]:{start:null,end:null,untimed:true,lines:[]};
+    pendingHeader.forEach(t=>addText(target,t));
+    if(!cues.length)cues.push(target);
   }
   cues.forEach(fixLangs);
-  cues.sort((a,b)=>a.start-b.start);
-  cues.forEach((c,i)=>{if(c.end==null||c.end<=c.start)c.end=(cues[i+1]?cues[i+1].start:c.start+5);});
+  cues.sort((a,b)=>(a.start||0)-(b.start||0));
+  cues.forEach((c,i)=>{if(c.start!=null&&(c.end==null||c.end<=c.start))c.end=(cues[i+1]&&cues[i+1].start!=null?cues[i+1].start:c.start+5);});
   return cues;
 }
 function fmtT(s){s=Math.max(0,Math.floor(s));const m=Math.floor(s/60),ss=s%60;
@@ -803,7 +805,7 @@ function toggleAudioLoop(btn,i){
   ttsStop();
   document.querySelectorAll('#cues .aloop').forEach(b=>b.classList.remove('on'));
   cueLoopIdx=i;btn.classList.add('on');
-  audio.currentTime=cues[i].start;audio.play().catch(()=>{});
+  if(cues[i].start!=null)audio.currentTime=cues[i].start;audio.play().catch(()=>{});
 }
 
 
@@ -1127,8 +1129,8 @@ async function renderDetail(){
       <div id="audio-zone">${hasAudio?'':`<div class="hint">${t('noAudio')}</div>`}</div>
       ${cues.length?`<div class="hint" style="margin-bottom:6px">${t('tapCue')} · ${t('tapWord')} · ${t('cuesCount')(cues.length)}</div>
         <div id="cues">${cues.map((c,i)=>`<div class="cue" data-i="${i}">
-          <div class="cside"><span class="tm">${fmtT(c.start)}</span>
-          <button class="ib aloop${hasAudio?'':' dis'}" data-aloop="${i}" title="${esc(t('loopSeg'))}">🔁</button></div>
+          <div class="cside">${c.start!=null?`<span class="tm">${fmtT(c.start)}</span>`:''}
+          <button class="ib aloop${hasAudio&&c.start!=null?'':' dis'}" data-aloop="${i}" title="${esc(t('loopSeg'))}">🔁</button></div>
           <div class="clines">${c.lines.map((ln,j)=>ln.guessed?`<div class="cline note">
             <span class="tx">${wrapWords(ln.text,ln.lang)}</span>
             <span class="lacts"><button class="ib spk" data-spk="${i}:${j}" title="🔁">🔊</button><button class="ib ai" data-ai="${i}:${j}" title="${esc(t('aiTitle'))}">✦</button></span></div>`:`<div class="cline">
@@ -1146,7 +1148,7 @@ async function renderDetail(){
     audio.addEventListener('play',()=>ttsStop());
     audio.addEventListener('timeupdate',()=>{
       const cur=audio.currentTime;
-      if(cueLoopIdx>=0&&cues[cueLoopIdx]&&cur>=cues[cueLoopIdx].end){audio.currentTime=cues[cueLoopIdx].start;return;}
+      if(cueLoopIdx>=0&&cues[cueLoopIdx]&&cues[cueLoopIdx].end!=null&&cur>=cues[cueLoopIdx].end){audio.currentTime=cues[cueLoopIdx].start;return;}
       let act=-1;
       cues.forEach((c,i)=>{if(cur>=c.start&&cur<c.end)act=i;});
       document.querySelectorAll('#cues .cue').forEach((cEl,i)=>{
