@@ -93,6 +93,7 @@
   function setEnabled(v) {
     try { localStorage.setItem('edge_tts', v ? '1' : '0'); } catch (e) {}
     if (v) api.down = false;
+    try { document.dispatchEvent(new CustomEvent('etts-change')); } catch (e) {}
   }
   function plugin() {
     return (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.EdgeTTS) || null;
@@ -194,6 +195,7 @@
     ar: {
       title: 'إعدادات النطق',
       voice: 'الصوت', speed: 'السرعة', preview: 'تجربة',
+      srcEdge: '🌐 صوت الإنترنت (Edge TTS)', srcDevice: '📱 صوت الجهاز',
       reset: 'استعادة الافتراضي', close: 'إغلاق',
       langs: { fr: '🇫🇷 الفرنسية', ar: '🇸🇾 العربية', en: '🇺🇸 الإنكليزية' },
       note: 'الصوت الطبيعي يحتاج إنترنت — بدون إنترنت يُستخدم صوت الجهاز.'
@@ -201,6 +203,7 @@
     en: {
       title: 'Speech settings',
       voice: 'Voice', speed: 'Speed', preview: 'Preview',
+      srcEdge: '🌐 Internet voice (Edge TTS)', srcDevice: '📱 Device voice',
       reset: 'Reset to defaults', close: 'Close',
       langs: { fr: '🇫🇷 French', ar: '🇸🇾 Arabic', en: '🇺🇸 English' },
       note: 'The neural voice needs internet — offline, the device voice is used.'
@@ -208,6 +211,7 @@
     fr: {
       title: 'Réglages de la voix',
       voice: 'Voix', speed: 'Vitesse', preview: 'Écouter',
+      srcEdge: '🌐 Voix internet (Edge TTS)', srcDevice: '📱 Voix de l\'appareil',
       reset: 'Valeurs par défaut', close: 'Fermer',
       langs: { fr: '🇫🇷 Français', ar: '🇸🇾 Arabe', en: '🇺🇸 Anglais' },
       note: 'La voix neurale nécessite internet — hors ligne, la voix de l\'appareil est utilisée.'
@@ -250,7 +254,11 @@
       '.etts-pv:disabled{opacity:.5}',
       '.etts-note{font-size:.72rem;color:#9aa3c7;text-align:center;margin:.3rem 0 .8rem}',
       '.etts-foot{display:flex;gap:.6rem}',
-      '.etts-btn{flex:1;border:1px solid rgba(139,92,246,.3);background:rgba(139,92,246,.12);color:#e8eaf6;border-radius:12px;padding:.6rem;font-size:.88rem;font-weight:700;cursor:pointer;font-family:inherit}'
+      '.etts-btn{flex:1;border:1px solid rgba(139,92,246,.3);background:rgba(139,92,246,.12);color:#e8eaf6;border-radius:12px;padding:.6rem;font-size:.88rem;font-weight:700;cursor:pointer;font-family:inherit}',
+      '.etts-src{display:flex;gap:.55rem;margin-bottom:.8rem}',
+      '.etts-src button{flex:1;border-radius:12px;padding:.55rem .4rem;border:1px solid rgba(139,92,246,.3);background:rgba(139,92,246,.08);color:#c4b5fd;font-weight:800;font-size:.82rem;cursor:pointer;font-family:inherit}',
+      '.etts-src button.on{background:linear-gradient(135deg,#8b5cf6,#6366f1);color:#fff;border-color:transparent;box-shadow:0 4px 16px rgba(139,92,246,.4)}',
+      '.etts-dim{opacity:.45;pointer-events:none}'
     ].join('\n');
 
     var ov = h('div', { 'class': 'etts-ov' });
@@ -263,6 +271,21 @@
     card.appendChild(h('div', { 'class': 'etts-h' }, [
       h('b', { text: T.title }), closeBtn
     ]));
+
+    var langRows = h('div', {});
+    var edgeB = h('button', { text: T.srcEdge });
+    var devB = h('button', { text: T.srcDevice });
+    function paintSrc() {
+      var on = enabled();
+      try { document.dispatchEvent(new CustomEvent('etts-change')); } catch (e) {}
+      edgeB.className = on ? 'on' : '';
+      devB.className = on ? '' : 'on';
+      langRows.className = on ? '' : 'etts-dim';
+    }
+    edgeB.onclick = function () { api.setEnabled(true); paintSrc(); };
+    devB.onclick = function () { api.setEnabled(false); paintSrc(); };
+    card.appendChild(h('div', { 'class': 'etts-src' }, [edgeB, devB]));
+    card.appendChild(langRows);
 
     ['fr', 'ar', 'en'].forEach(function (lang) {
       var row = h('div', { 'class': 'etts-row' });
@@ -292,8 +315,9 @@
       };
       row.appendChild(h('div', {}, [h('span', { 'class': 'etts-mini', text: T.speed }), rng, val, pv]));
 
-      card.appendChild(row);
+      langRows.appendChild(row);
     });
+    paintSrc();
 
     card.appendChild(h('div', { 'class': 'etts-note', text: T.note }));
 

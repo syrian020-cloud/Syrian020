@@ -1519,7 +1519,12 @@
   });
   document.getElementById('stopBtn').onclick = stopSpeaking;
   var edgeBtn = document.getElementById('edgeBtn');
-  function paintEdgeBtn() { edgeBtn.classList.toggle('on', !!(window.EdgeTTS && EdgeTTS.enabled())); }
+  function paintEdgeBtn() {
+    var on = !!(window.EdgeTTS && EdgeTTS.enabled());
+    edgeBtn.classList.toggle('on', on);
+    edgeBtn.textContent = on ? '🔊' : '📱';
+  }
+  document.addEventListener('etts-change', paintEdgeBtn);
   edgeBtn.onclick = function () {
     var v = !(window.EdgeTTS && EdgeTTS.enabled());
     if (window.EdgeTTS) EdgeTTS.setEnabled(v);
