@@ -193,6 +193,7 @@
   .menu button:hover { background: var(--bg-tertiary); }
   .menu button.danger { color: #fda4af; }
   .card-menu { position: absolute; top: calc(100% + 4px); inset-inline-end: 0; z-index: 2300; }
+  .menu-open { position: relative; z-index: 2350; }
 
   /* bottom sheet */
   .overlay { position: fixed; inset: 0; background: rgba(4,6,16,0.66); backdrop-filter: blur(4px); z-index: 2200; display: flex; align-items: flex-end; justify-content: center; }
@@ -887,13 +888,17 @@
         return '<button data-i="' + i + '"' + (it.danger ? ' class="danger"' : '') + '>' + it.icon + ' ' + esc(it.label) + '</button>';
       }).join('');
       btn.parentElement.style.position = 'relative';
+      btn.parentElement.classList.add('menu-open');
       btn.parentElement.appendChild(m);
       m.querySelectorAll('button').forEach(function (b) {
         b.onclick = function (ev) { ev.stopPropagation(); closeMenus(); items[parseInt(b.dataset.i, 10)].fn(); };
       });
     };
   }
-  function closeMenus() { document.querySelectorAll('.card-menu').forEach(function (m) { m.remove(); }); }
+  function closeMenus() {
+    document.querySelectorAll('.card-menu').forEach(function (m) { m.remove(); });
+    document.querySelectorAll('.menu-open').forEach(function (el) { el.classList.remove('menu-open'); });
+  }
 
   function renderHome() {
     var wrap = document.getElementById('home');
