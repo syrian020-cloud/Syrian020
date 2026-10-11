@@ -562,7 +562,8 @@
   .ad-maps { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.5rem; }
   .ad-check { width: 100%; margin-top: 0.6rem; }
   .ad-foot { display: flex; gap: 0.5rem; margin-top: 0.6rem; justify-content: flex-end; }
-  #sheet-actions { max-height: 65vh; overflow-y: auto; }
+  #sheet-actions { max-height: 82vh; overflow-y: auto; }
+  .sheet-grabber { width: 44px; height: 5px; border-radius: 3px; background: var(--border); margin: 0 auto .6rem; touch-action: none; }
   .plan-wds { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.55rem; font-size: 0.8rem; }
   .plan-wd { display: flex; align-items: center; gap: 0.25rem; cursor: pointer; }
 
@@ -599,17 +600,17 @@
   .af-ex { opacity: .75; font-style: italic; }
   .af-tpl { background: rgba(0,0,0,.25); border-radius: 8px; padding: .5rem .7rem; font-size: .85rem; line-height: 1.7; direction: ltr; text-align: left; position: relative; }
   .af-copy { position: absolute; top: .3rem; inset-inline-end: .4rem; font-size: .75rem !important; padding: .15rem .5rem !important; }
-  .appt-phrase { display: flex; align-items: flex-start; gap: .5rem; background: rgba(0,0,0,.18); border-radius: 8px; padding: .45rem .5rem; margin: .35rem 0; }
+  .appt-phrase { display: flex; align-items: flex-start; gap: .3rem; background: rgba(0,0,0,.18); border-radius: 8px; padding: .45rem .35rem; margin: .35rem 0; }
   .appt-phrase-side { display: flex; align-items: center; padding-top: .6rem; }
   .appt-phrase-lines { flex: 1; min-width: 0; }
-  .appt-line { display: flex; align-items: flex-start; gap: .4rem; margin: .25rem 0; }
+  .appt-line { display: flex; align-items: flex-start; gap: .3rem; margin: .25rem 0; }
   .appt-lang { flex: none; font-size: .68rem; font-weight: 700; background: rgba(124,58,237,.25); border: 1px solid rgba(124,58,237,.5); border-radius: 6px; padding: .15rem .45rem; margin-top: .05rem; }
-  .appt-txt { flex: 1; font-size: .85rem; line-height: 1.5; }
+  .appt-txt { flex: 1; font-size: .95rem; line-height: 1.55; }
   .appt-line-btn { flex: none; width: 1.7rem; height: 1.7rem; border-radius: 50%; border: 1px solid var(--border); background: rgba(0,0,0,.4); color: #fff; font-size: .8rem; cursor: pointer; }
   .appt-line-btn.active { background: var(--success); color: #081c15; border-color: var(--success); }
   .appt-loop-btn { flex: none; width: 1.9rem; height: 1.9rem; border-radius: 50%; border: 1px solid var(--border); background: rgba(0,0,0,.4); color: #fff; font-size: .9rem; cursor: pointer; }
   .appt-loop-btn.active { background: var(--success); color: #081c15; border-color: var(--success); }
-  .appt-note { font-size: 1rem; font-weight: 500; line-height: 1.5; padding: .3rem .2rem; }
+  .appt-note { font-size: 1.05rem; font-weight: 500; line-height: 1.5; padding: .3rem .2rem; }
   .admin-spacer { flex: 1; }
 </style>
 </head>
@@ -670,6 +671,7 @@
 
 <div id="action-sheet" class="action-sheet">
   <div class="sheet-content">
+    <div class="sheet-grabber" id="sheet-grabber"></div>
     <div class="sheet-title" id="sheet-title">--</div>
     <div class="sheet-actions" id="sheet-actions"></div>
     <button type="button" class="btn ghost" id="sheet-cancel" style="width:100%" data-t="cancel">إلغاء</button>
@@ -3923,6 +3925,7 @@
 
   function closeActionSheet() {
     document.getElementById('action-sheet').classList.remove('show');
+    document.getElementById('sheet-actions').style.maxHeight = '';
   }
 
   async function setItemImage(id, type, file) {
@@ -5888,6 +5891,22 @@ Output in French, Arabic and English.`;
   function bindActionSheet() {
     const sheet = document.getElementById('action-sheet');
     document.getElementById('sheet-cancel').onclick = closeActionSheet;
+    const grabber = document.getElementById('sheet-grabber');
+    let sheetDrag = null;
+    const dragStart = y => { sheetDrag = { y, h: document.getElementById('sheet-actions').getBoundingClientRect().height }; };
+    const dragMove = y => {
+      if (!sheetDrag) return;
+      const a = document.getElementById('sheet-actions');
+      const min = window.innerHeight * 0.35, max = window.innerHeight * 0.94;
+      a.style.maxHeight = Math.min(max, Math.max(min, sheetDrag.h + sheetDrag.y - y)) + 'px';
+    };
+    grabber.addEventListener('touchstart', e => dragStart(e.touches[0].clientY), { passive: true });
+    grabber.addEventListener('touchmove', e => { dragMove(e.touches[0].clientY); e.preventDefault(); }, { passive: false });
+    grabber.addEventListener('touchend', () => { sheetDrag = null; });
+    grabber.addEventListener('touchcancel', () => { sheetDrag = null; });
+    grabber.addEventListener('mousedown', e => { dragStart(e.clientY); e.preventDefault(); });
+    window.addEventListener('mousemove', e => dragMove(e.clientY));
+    window.addEventListener('mouseup', () => { sheetDrag = null; });
     sheet.addEventListener('click', e => {
       if (e.target === sheet) { closeActionSheet(); return; }
       const apptSpeak = e.target.closest('[data-appt-speak]');
