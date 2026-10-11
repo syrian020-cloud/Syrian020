@@ -167,12 +167,19 @@
       var v = voiceOf(lang);
       // Retry with the default voice — an unknown voice name fails the request
       // and shouldn't mark Edge TTS as down for the whole session.
-      return p.speak({ text: text, voice: v, rate: rateOf(lang) })
+      var native = p.speak({ text: text, voice: v, rate: rateOf(lang) })
         .catch(function (e) {
           if (v === DEFAULT_VOICES[lang]) throw e;
           return p.speak({ text: text, voice: DEFAULT_VOICES[lang], rate: rateOf(lang) });
         })
         .then(function (r) { return { url: fileUrl(r.path), nativePath: r.path }; });
+      // Fallback chain: when the native plugin fails (network to Microsoft
+      // servers blocked, server error, etc.) degrade to ResponsiveVoice — a
+      // plain MP3 URL any WebView audio element can play — instead of dying.
+      return native.catch(function (e) {
+        var msg = (e && (e.message || String(e))) || 'Edge TTS failed';
+        return { url: rvUrl(text, lang), via: 'rv', err: msg };
+      });
     }
     return Promise.resolve({ url: rvUrl(text, lang) });
   }
@@ -234,12 +241,21 @@
       curNative = true;
       return p.play({ path: a.nativePath }).then(function () {
         curNative = false;
-      }, function (e) {
+      }, function () {
         curNative = false;
-        throw e;
+        // If native playback dies, retry the same file in a WebView element.
+        return playUrl(a.url);
       });
     }
-    return playUrl(a.url);
+    return playUrl(a.url).catch(function (e) {
+      if (a.via === 'rv') {
+        // Both engines failed — surface the real plugin error for the toast.
+        var err = new Error((a.err || 'Edge TTS failed') + ' · ' + (e && e.message || 'MP3 playback failed'));
+        err.real = true;
+        throw err;
+      }
+      throw e;
+    });
   }
 
   function play(text, lang) {

@@ -368,6 +368,7 @@ const I18N = {
     noCues:'لا يوجد نص مؤقّت', noAudio:'لا يوجد مقطع صوتي', tapCue:'اضغط أي سطر للانتقال إليه في الصوت',
     tapWord:'كبسة على الكلمة: نطق متكرر · كبستين: بحث صور',
     menuExport:'⬇️ تصدير كل شي (مواعيد+صوت+نص)', menuExpSel:'☑️ تصدير محدد…', menuImport:'⬆️ استيراد نسخة', menuVoice:'🔊 إعدادات الصوت',
+    ttsFallback:'صوت الإنترنت تعذّر — رجعنا لصوت الجهاز',
     selCount:n=>`المحدد: ${n}`, selAll:'الكل', selExp:'⬇️ تصدير', selNone:'حدّد موعداً واحداً على الأقل',
     menuNotifOn:'🔔 الإشعارات مفعّلة', menuNotifOff:'🔕 تفعيل الإشعارات',
     imported:'تم الاستيراد', importBad:'ملف غير صالح', saved:'تم الحفظ', deleted:'تم الحذف',
@@ -433,6 +434,7 @@ const I18N = {
     noCues:'Pas de texte minuté', noAudio:'Pas de clip audio', tapCue:'Touchez une ligne pour y aller dans l\'audio',
     tapWord:'1× mot : prononciation en boucle · 2× : images',
     menuExport:'⬇️ Tout exporter (RDV+audio+texte)', menuExpSel:'☑️ Exporter la sélection…', menuImport:'⬆️ Importer', menuVoice:'🔊 Réglages voix',
+    ttsFallback:'Voix en ligne indisponible — voix de l\'appareil',
     selCount:n=>`Sélection : ${n}`, selAll:'Tout', selExp:'⬇️ Exporter', selNone:'Sélectionnez au moins un RDV',
     menuNotifOn:'🔔 Notifications activées', menuNotifOff:'🔕 Activer les notifications',
     imported:'Importé', importBad:'Fichier invalide', saved:'Enregistré', deleted:'Supprimé',
@@ -498,6 +500,7 @@ const I18N = {
     noCues:'No timed text', noAudio:'No audio clip', tapCue:'Tap a line to seek in the audio',
     tapWord:'Tap a word: speak loop · double-tap: images',
     menuExport:'⬇️ Export everything (appts+audio+text)', menuExpSel:'☑️ Export selection…', menuImport:'⬆️ Import backup', menuVoice:'🔊 Voice settings',
+    ttsFallback:'Online voice unavailable — using device voice',
     selCount:n=>`Selected: ${n}`, selAll:'All', selExp:'⬇️ Export', selNone:'Select at least one appointment',
     menuNotifOn:'🔔 Notifications on', menuNotifOff:'🔕 Enable notifications',
     imported:'Imported', importBad:'Invalid file', saved:'Saved', deleted:'Deleted',
@@ -542,7 +545,7 @@ let appts=[], lang='ar', tab='upcoming', query='', view='list', detailId=null;
 let editingId=null, pendingAudio=null; // {name,dataUrl}
 let selectMode=false;const selSet=new Set();
 let cuesCache={};
-let ttsRun=0, loopBtn=null, curAudioUrl=null, cueLoopIdx=-1;
+let ttsRun=0, loopBtn=null, curAudioUrl=null, cueLoopIdx=-1, ttsErrToast=false;
 
 const $=s=>document.querySelector(s);
 const t=k=>(I18N[lang]&&I18N[lang][k])??I18N.en[k]??k;
@@ -753,7 +756,8 @@ function ttsSpeak(text,lg,onend){
     const run=ttsRun;
     window.EdgeTTS.play(text,lg)
       .then(()=>{if(run===ttsRun&&onend)onend();})
-      .catch(()=>{if(run!==ttsRun)return;window.EdgeTTS.down=true;deviceSpeak(text,lg,onend);});
+      .catch(e=>{if(run!==ttsRun)return;window.EdgeTTS.down=true;deviceSpeak(text,lg,onend);
+        if(!ttsErrToast){ttsErrToast=true;toast('⚠️ '+t('ttsFallback')+'\n'+((e&&e.message)||''));}});
     return;
   }
   deviceSpeak(text,lg,onend);
