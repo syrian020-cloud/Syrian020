@@ -2761,18 +2761,28 @@ function selTxt() {
     ? edits[sel.n][sel.i] : null;
 }
 
-function applyTxtStyle(patch) {
+/* selected text, else the most recent text on the visible page (auto-reselects it) */
+function curTxt() {
   const o = selTxt();
+  if (o) return o;
+  const list = edits[currentPage] || [];
+  for (let i = list.length - 1; i >= 0; i--)
+    if (list[i].kind === 'txt') { sel = { n: currentPage, i }; const d = pageDiv(currentPage); if (d) inflateOverlay(d); return list[i]; }
+  return null;
+}
+
+function applyTxtStyle(patch) {
+  const o = curTxt();
   if (o) { Object.assign(o, patch); const d = pageDiv(sel.n); if (d) inflateOverlay(d); }
   else Object.assign(txtStyle, patch);
 }
 
 function bumpTxtSize(f) {
-  const o = selTxt();
+  const o = curTxt();
   const d = sel ? pageDiv(sel.n) : null;
   if (o && d) {
     o.h = Math.min(0.2, Math.max(0.008, o.h * f));
-    o.w = txtWidthFrac(o.text, o.font, o.h, d);
+    o.w = txtWidthFrac(o.text, o.font, o.h, d, o.weight);
     o.x = Math.max(0, Math.min(1 - o.w, o.x));
     inflateOverlay(d);
   } else txtStyle.size = Math.min(0.2, Math.max(0.008, txtStyle.size * f));
