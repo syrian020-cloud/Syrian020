@@ -62,9 +62,12 @@
     -webkit-font-smoothing: antialiased;
   }
   header { position: relative; z-index: 1100; flex: none; background: rgba(7,11,24,0.72); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--border); }
+  header::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: linear-gradient(90deg, transparent, rgba(139,92,246,0.55) 30%, rgba(244,114,182,0.55) 70%, transparent); }
   [data-theme="light"] header { background: rgba(255,255,255,0.72); }
   .header-inner { max-width: 1040px; margin: 0 auto; padding: 0.8rem 1.2rem; display: flex; align-items: center; gap: 0.55rem; }
-  .logo { font-weight: 900; font-size: 1.34rem; white-space: nowrap; display: flex; align-items: center; gap: 0.45rem; letter-spacing: -0.03em; background: linear-gradient(135deg, #ddd6fe, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .logo { font-weight: 900; font-size: 1.34rem; white-space: nowrap; display: flex; align-items: center; gap: 0.55rem; letter-spacing: -0.03em; }
+  .logo .lg-mark { width: 34px; height: 34px; border-radius: 11px; background: linear-gradient(135deg, var(--accent-solid), var(--accent-2)); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.05rem; color: #fff; box-shadow: 0 6px 18px rgba(139,92,246,0.45), inset 0 1px 0 rgba(255,255,255,0.3); transform: rotate(-6deg); }
+  .logo .lg-name { background: linear-gradient(135deg, #e9e3ff, var(--accent) 55%, var(--accent-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
   .spacer { flex: 1; }
   .icon-btn { background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 15px; padding: 0 0.7rem; min-width: 42px; height: 42px; justify-content: center; font-size: 1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem; font-weight: 800; transition: transform .14s, border-color .15s, background .15s, box-shadow .15s; font-family: inherit; }
   .icon-btn:hover { border-color: var(--accent); background: var(--bg-tertiary); transform: translateY(-1px); box-shadow: var(--glow); }
@@ -87,20 +90,22 @@
   [data-theme="light"] .hero { background: linear-gradient(145deg, rgba(139,92,246,0.15), rgba(255,255,255,0.75) 50%, rgba(244,114,182,0.08)); border-color: var(--border); }
   .hero::before { content: ''; position: absolute; top:0; left:0; right:0; height: 3px; background: linear-gradient(90deg, var(--accent-solid), var(--accent-2), var(--success)); }
   .hero::after { content: ''; position: absolute; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(139,92,246,0.32), transparent 70%); top: -120px; inset-inline-end: -70px; filter: blur(12px); pointer-events: none; }
-  .hero h1 { margin: 0 0 0.5rem; font-size: 1.5rem; position: relative; font-weight: 850; letter-spacing: -0.025em; }
+  .hero h1 { margin: 0 0 0.5rem; font-size: 1.62rem; position: relative; font-weight: 900; letter-spacing: -0.03em; background: linear-gradient(120deg, var(--text-primary) 30%, var(--accent) 75%, var(--accent-2)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
   .hero p { margin: 0; color: var(--text-secondary); font-size: 0.97rem; position: relative; max-width: 720px; }
   .hero .stats { margin-top: 1rem; display: flex; gap: 0.55rem; flex-wrap: wrap; position: relative; }
-  .stat-pill { background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; padding: 0.36rem 0.95rem; font-size: 0.79rem; font-weight: 700; color: var(--text-secondary); backdrop-filter: blur(8px); }
+  .stat-pill { background: rgba(255,255,255,0.07); border: 1px solid rgba(167,139,250,0.28); border-radius: 999px; padding: 0.4rem 0.95rem; font-size: 0.79rem; font-weight: 700; color: var(--text-secondary); backdrop-filter: blur(8px); box-shadow: 0 4px 16px rgba(139,92,246,0.14), inset 0 1px 0 rgba(255,255,255,0.08); }
   [data-theme="light"] .stat-pill { background: rgba(255,255,255,0.55); }
   .stat-pill b { color: var(--text-primary); font-weight: 900; }
 
   .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; margin-bottom: 1.1rem; padding: 0.45rem 0; }
   .search-wrap { flex: 1; min-width: 200px; position: relative; }
-  .search-wrap input { width: 100%; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 999px; padding: 0.72rem 1rem 0.72rem 2.7rem; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; transition: border-color .15s, box-shadow .15s; }
+  .search-wrap input { width: 100%; background: rgba(0,0,0,0.28); border: 1px solid var(--border); border-radius: 999px; padding: 0.78rem 1rem 0.78rem 2.7rem; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; transition: border-color .15s, box-shadow .15s; box-shadow: inset 0 2px 8px rgba(0,0,0,0.25); }
+  [data-theme="light"] .search-wrap input { background: rgba(255,255,255,0.7); box-shadow: inset 0 2px 6px rgba(139,92,246,0.08); }
   [dir="ltr"] .search-wrap input, html[dir="ltr"] .search-wrap input { padding: 0.72rem 2.7rem 0.72rem 1rem; }
   .search-wrap input:focus { border-color: var(--accent); box-shadow: var(--glow); }
   .search-wrap .search-ic { position: absolute; top: 50%; transform: translateY(-50%); inset-inline-start: 0.95rem; opacity: 0.55; pointer-events: none; }
-  .loop-group { display: inline-flex; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 999px; overflow: hidden; padding: 3px; gap: 2px; }
+  .loop-group { display: inline-flex; background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 999px; overflow: hidden; padding: 4px; gap: 3px; box-shadow: inset 0 2px 8px rgba(0,0,0,0.25); }
+  [data-theme="light"] .loop-group { background: rgba(139,92,246,0.08); box-shadow: inset 0 1px 4px rgba(139,92,246,0.1); }
   .loop-group button { background: transparent; border: none; color: var(--text-secondary); font-weight: 800; font-size: 0.85rem; padding: 0.5rem 0.78rem; cursor: pointer; font-family: inherit; transition: all .15s; border-radius: 999px; }
   .loop-group button:hover { color: var(--text-primary); }
   .loop-group button.on { background: linear-gradient(135deg, var(--accent-solid), var(--accent-hover)); color: #fff; box-shadow: 0 4px 14px rgba(139,92,246,0.4); }
@@ -108,12 +113,14 @@
   .stop-btn:hover { border-color: var(--accent-2); color: var(--accent-2); transform: translateY(-1px); }
 
   .home-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.85rem; }
-  .home-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.35rem 0.9rem 1.05rem; display: flex; flex-direction: column; align-items: center; gap: 0.55rem; cursor: pointer; text-align: center; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.07); transition: transform .18s, border-color .18s, box-shadow .18s; font-family: inherit; color: inherit; position: relative; }
+  .home-card { background: linear-gradient(160deg, rgba(255,255,255,0.075), rgba(255,255,255,0.03)); border: 1px solid var(--border); border-radius: 26px; padding: 1.4rem 0.9rem 1.05rem; display: flex; flex-direction: column; align-items: center; gap: 0.6rem; cursor: pointer; text-align: center; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.08); transition: transform .18s, border-color .18s, box-shadow .18s; font-family: inherit; color: inherit; position: relative; }
+  [data-theme="light"] .home-card { background: var(--card); }
   .home-card:hover { transform: translateY(-4px); border-color: rgba(167,139,250,0.5); box-shadow: var(--glow); }
   .home-card:active { transform: translateY(-1px) scale(0.98); }
-  .home-card .hc-icon { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 1.95rem; border-radius: 20px; background: linear-gradient(135deg, rgba(139,92,246,0.28), rgba(244,114,182,0.14)); border: 1px solid rgba(255,255,255,0.12); box-shadow: inset 0 1px 0 rgba(255,255,255,0.12); overflow: hidden; }
-  .home-card .hc-name { font-weight: 800; font-size: 0.93rem; line-height: 1.35; }
-  .home-card .hc-meta { color: var(--text-secondary); font-size: 0.72rem; font-weight: 700; }
+  .home-card .hc-icon { width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; font-size: 2rem; border-radius: 22px; background: linear-gradient(135deg, rgba(139,92,246,0.4), rgba(244,114,182,0.22)); border: 1px solid rgba(167,139,250,0.35); box-shadow: 0 8px 22px rgba(139,92,246,0.25), inset 0 1px 0 rgba(255,255,255,0.18); overflow: hidden; }
+  .home-card .hc-name { font-weight: 850; font-size: 0.96rem; line-height: 1.35; }
+  .home-card .hc-meta { color: var(--text-secondary); font-size: 0.72rem; font-weight: 700; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 999px; padding: 0.18rem 0.7rem; }
+  [data-theme="light"] .home-card .hc-meta { background: rgba(139,92,246,0.07); }
   .home-card.add-card { border-style: dashed; border-color: rgba(139,92,246,0.45); background: transparent; }
   .home-card.add-card .hc-icon { background: rgba(139,92,246,0.14); color: var(--accent); font-size: 1.6rem; }
   .card-menu-btn { position: absolute; top: 0.5rem; inset-inline-end: 0.5rem; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--border); background: var(--bg-secondary); color: var(--text-secondary); font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: inherit; backdrop-filter: blur(6px); }
@@ -261,7 +268,7 @@
 <body>
 <header>
   <div class="header-inner">
-    <span class="logo">📐 <span data-t="appName">gramvip</span></span>
+    <span class="logo"><span class="lg-mark">g</span><span class="lg-name" data-t="appName">gramvip</span></span>
     <div class="spacer"></div>
     <button class="icon-btn" id="themeBtn" title="Theme">🌙</button>
     <button class="icon-btn" id="edgeBtn" title="صوت طبيعي (إنترنت)">🔊</button>
