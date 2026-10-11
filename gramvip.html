@@ -43,7 +43,7 @@
     --glow: 0 0 24px rgba(139,92,246,0.16);
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-  html, body { margin: 0; padding: 0; }
+  html, body { margin: 0; padding: 0; height: 100%; }
   body {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans Arabic", "Noto Sans", sans-serif;
     letter-spacing: -0.01em;
@@ -56,10 +56,12 @@
     background-attachment: fixed;
     color: var(--text-primary);
     line-height: 1.62;
-    padding-bottom: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     -webkit-font-smoothing: antialiased;
   }
-  header { position: sticky; top: 0; z-index: 1100; background: rgba(7,11,24,0.72); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--border); }
+  header { position: relative; z-index: 1100; flex: none; background: rgba(7,11,24,0.72); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); border-bottom: 1px solid var(--border); }
   [data-theme="light"] header { background: rgba(255,255,255,0.72); }
   .header-inner { max-width: 1040px; margin: 0 auto; padding: 0.85rem 1.2rem; display: flex; align-items: center; gap: 0.6rem; }
   .logo { font-weight: 900; font-size: 1.32rem; white-space: nowrap; display: flex; align-items: center; gap: 0.4rem; letter-spacing: -0.03em; background: linear-gradient(135deg, #c4b5fd, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -67,7 +69,12 @@
   .icon-btn { background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border); border-radius: 14px; padding: 0.5rem 0.72rem; font-size: 0.95rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.25rem; font-weight: 700; transition: transform .14s, border-color .15s, background .15s, box-shadow .15s; box-shadow: var(--shadow-sm); font-family: inherit; }
   .icon-btn:hover { border-color: var(--accent); background: var(--bg-tertiary); transform: translateY(-1px); box-shadow: var(--glow); }
   .icon-btn.on { background: linear-gradient(135deg, var(--accent-solid), var(--accent-hover)); color: #fff; border-color: transparent; }
-  main { max-width: 1040px; margin: 0 auto; padding: 1.1rem; }
+  .topbar { flex: none; max-width: 1040px; margin: 0 auto; width: 100%; padding: 0 1.1rem; background: var(--bg-primary); }
+  main { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; max-width: 1040px; margin: 0 auto; width: 100%; padding: 1.1rem 1.1rem 3rem; }
+  footer { flex: none; }
+  .fab { position: fixed; inset-inline-end: 20px; bottom: 22px; width: 58px; height: 58px; border-radius: 50%; border: none; font-size: 1.7rem; cursor: pointer; background: linear-gradient(135deg, var(--accent-solid), var(--accent-hover)); color: #fff; box-shadow: 0 10px 28px rgba(139,92,246,0.45); z-index: 1050; display: flex; align-items: center; justify-content: center; transition: transform .15s, box-shadow .15s; font-family: inherit; }
+  .fab:hover { transform: scale(1.08); box-shadow: 0 14px 34px rgba(139,92,246,0.55); }
+  .hint { font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.4rem; }
 
   .hero { background: linear-gradient(140deg, rgba(139,92,246,0.18), rgba(19,24,46,0.6) 45%, rgba(244,63,94,0.10)); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.9rem 1.5rem; margin-bottom: 1.1rem; position: relative; overflow: hidden; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: var(--shadow-sm); }
   [data-theme="light"] .hero { background: linear-gradient(140deg, rgba(139,92,246,0.14), rgba(255,255,255,0.7) 45%, rgba(34,211,238,0.08)); }
@@ -80,7 +87,7 @@
   [data-theme="light"] .stat-pill { background: rgba(255,255,255,0.55); }
   .stat-pill b { color: var(--text-primary); font-weight: 900; }
 
-  .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 1.1rem; position: sticky; top: 60px; z-index: 900; background: var(--bg-primary); padding: 0.45rem 0; }
+  .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem; padding: 0.45rem 0; }
   .search-wrap { flex: 1; min-width: 200px; position: relative; }
   .search-wrap input { width: 100%; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 16px; padding: 0.75rem 1rem 0.75rem 2.7rem; color: var(--text-primary); font-size: 0.95rem; font-family: inherit; outline: none; transition: border-color .15s, box-shadow .15s, transform .15s; }
   [dir="ltr"] .search-wrap input, html[dir="ltr"] .search-wrap input { padding: 0.75rem 2.7rem 0.75rem 1rem; }
@@ -251,17 +258,7 @@
     </span>
   </div>
 </header>
-<main>
-  <div class="hero">
-    <h1 data-t="heroTitle">قواعد اللغة الفرنسية بطريقة مبسّطة</h1>
-    <p data-t="heroDesc">مجلداتك ودروسك — أضف دروساً بالنموذج الجاهز واسمع أي عبارة بأي لغة.</p>
-    <div class="stats">
-      <span class="stat-pill">📁 <b id="statFolders">0</b> <span data-t="folders">مجلدات</span></span>
-      <span class="stat-pill">📚 <b id="statLessons">0</b> <span data-t="lessons">دروس</span></span>
-      <span class="stat-pill">💬 <b id="statPhrases">0</b> <span data-t="phrases">عبارة</span></span>
-    </div>
-  </div>
-
+<div class="topbar">
   <div class="toolbar">
     <div class="search-wrap">
       <span class="search-ic">🔍</span>
@@ -281,14 +278,26 @@
     </div>
     <button class="stop-btn" id="stopBtn">🔇 <span data-t="stop">إيقاف</span></button>
   </div>
-
   <div class="view-head" id="viewHead"></div>
+</div>
+<main>
+  <div class="hero">
+    <h1 data-t="heroTitle">قواعد اللغة الفرنسية بطريقة مبسّطة</h1>
+    <p data-t="heroDesc">مجلداتك ودروسك — أضف دروساً بالنموذج الجاهز واسمع أي عبارة بأي لغة.</p>
+    <div class="stats">
+      <span class="stat-pill">📁 <b id="statFolders">0</b> <span data-t="folders">مجلدات</span></span>
+      <span class="stat-pill">📚 <b id="statLessons">0</b> <span data-t="lessons">دروس</span></span>
+      <span class="stat-pill">💬 <b id="statPhrases">0</b> <span data-t="phrases">عبارة</span></span>
+    </div>
+  </div>
+
   <div id="home" class="home-grid"></div>
   <div id="content"></div>
   <div class="empty" id="empty" style="display:none"><div class="big">📭</div><span data-t="noResults">لا توجد نتائج</span></div>
 </main>
 <footer><span data-t="footerTag">دروسك محفوظة على جهازك — صدّر نسخة احتياطية من القائمة ⋮</span> · <span>gramvip</span></footer>
 <div class="toast" id="toast"></div>
+<button class="fab hidden" id="fabBtn">➕</button>
 
 <!-- sheets -->
 <div class="overlay hidden" id="ovFolder">
@@ -320,6 +329,7 @@
 🇸🇾 عندي كتاب.
 🇺🇸 I have a book."></textarea>
       <div class="parse-stats" id="parseStats"></div>
+      <div class="hint" data-t="multiHint">💡 افصل الدروس بسطر === لإضافة عدة دروس معاً</div>
     </div>
     <div class="btnrow">
       <button class="btn btn-ghost" id="lessonCancel" data-t="cancel">إلغاء</button>
@@ -367,7 +377,7 @@
       delFolderT: 'حذف المجلد؟', delFolderD: 'سيتم حذف المجلد وكل دروسه — لا يمكن التراجع.',
       delLessonT: 'حذف الدرس؟', delLessonD: 'سيتم حذف هذا الدرس نهائياً.',
       exitTitle: 'الخروج من التطبيق؟', exitYes: 'خروج', exitNo: 'بقاء',
-      saved: 'تم الحفظ', deleted: 'تم الحذف', imported: 'تم الاستيراد', importBad: 'ملف غير صالح', copied: 'تم نسخ النموذج', pasted: 'تم اللصق',
+      saved: 'تم الحفظ', savedN: 'تمت إضافة {n} دروس', multiHint: '💡 افصل الدروس بسطر === لإضافة عدة دروس معاً', deleted: 'تم الحذف', imported: 'تم الاستيراد', importBad: 'ملف غير صالح', copied: 'تم نسخ النموذج', pasted: 'تم اللصق',
       emptyFolders: 'لا مجلدات بعد — أضف أول مجلد', emptyLessons: 'لا دروس بعد — أضف أول درس',
       sectionsCount: 'أقسام', phrasesCount: 'عبارة', unnamed: 'درس بدون اسم',
       edgeOn: 'الصوت الطبيعي مفعّل (إنترنت)', edgeOff: 'صوت الجهاز',
@@ -388,7 +398,7 @@
       delFolderT: 'Delete folder?', delFolderD: 'The folder and all its lessons will be deleted — this cannot be undone.',
       delLessonT: 'Delete lesson?', delLessonD: 'This lesson will be permanently deleted.',
       exitTitle: 'Exit the app?', exitYes: 'Exit', exitNo: 'Stay',
-      saved: 'Saved', deleted: 'Deleted', imported: 'Imported', importBad: 'Invalid file', copied: 'Template copied', pasted: 'Pasted',
+      saved: 'Saved', savedN: '{n} lessons added', multiHint: '💡 Separate lessons with a === line to add several at once', deleted: 'Deleted', imported: 'Imported', importBad: 'Invalid file', copied: 'Template copied', pasted: 'Pasted',
       emptyFolders: 'No folders yet — add your first folder', emptyLessons: 'No lessons yet — add your first lesson',
       sectionsCount: 'sections', phrasesCount: 'phrases', unnamed: 'Untitled lesson',
       edgeOn: 'Neural voice on (internet)', edgeOff: 'Device voice',
@@ -409,7 +419,7 @@
       delFolderT: 'Supprimer le dossier ?', delFolderD: 'Le dossier et toutes ses leçons seront supprimés — action irréversible.',
       delLessonT: 'Supprimer la leçon ?', delLessonD: 'Cette leçon sera définitivement supprimée.',
       exitTitle: 'Quitter l\'application ?', exitYes: 'Quitter', exitNo: 'Rester',
-      saved: 'Enregistré', deleted: 'Supprimé', imported: 'Importé', importBad: 'Fichier invalide', copied: 'Modèle copié', pasted: 'Collé',
+      saved: 'Enregistré', savedN: '{n} leçons ajoutées', multiHint: '💡 Séparez les leçons par une ligne === pour en ajouter plusieurs', deleted: 'Supprimé', imported: 'Importé', importBad: 'Fichier invalide', copied: 'Modèle copié', pasted: 'Collé',
       emptyFolders: 'Aucun dossier — ajoutez votre premier dossier', emptyLessons: 'Aucune leçon — ajoutez votre première leçon',
       sectionsCount: 'sections', phrasesCount: 'phrases', unnamed: 'Leçon sans titre',
       edgeOn: 'Voix neurale activée (internet)', edgeOff: 'Voix de l\'appareil',
@@ -421,7 +431,7 @@
   var TTS_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
   var FOLDER_ICONS = ['📁','📚','📝','✏️','🔤','🗣️','💬','📖','🎓','⚖️','🏛️','🏥','🏦','✉️','💼','🏠','🚇','🛒','🍽️','⚽','🎵','🧮','📐','🔬','🌍','⏰','💡','❤️','⭐','🧠','📌'];
 
-  var TEMPLATE = "🇫🇷 Verbe : VERBE — المعنى بالعربي — Meaning in English\n\n1. Présent — المضارع — Present\n\n🇫🇷 Phrase française ici.\n🇸🇾 العبارة باللهجة السورية هون.\n🇺🇸 English sentence here.\n\n🇫🇷 Phrase française ici.\n🇸🇾 العبارة باللهجة السورية هون.\n🇺🇸 English sentence here.\n\n---\n\n2. Passé composé — الماضي المركّب — Past tense\n\n🇫🇷 Phrase française ici.\n🇸🇾 العبارة باللهجة السورية هون.\n🇺🇸 English sentence here.\n\n---\n\n3. الحياة اليومية — Daily life\n\nAu travail — بالشغل — At work\n\n🇫🇷 Phrase française ici.\n🇸🇾 العبارة باللهجة السورية هون.\n🇺🇸 English sentence here.";
+  var TEMPLATE = "🇫🇷 Verbe : VERBE — المعنى بالعربي — Meaning in English\n\n1. Présent — المضارع — Present\n\n🇫🇷 Phrase française ici.\n🇸🇾 العبارة باللهجة السورية هون.\n🇺🇸 English sentence here.\n\n🇫🇷 Phrase française ici.\n🇸🇾 العبارة باللهجة السورية هون.\n🇺🇸 English sentence here.\n\n---\n\n2. Passé composé — الماضي المركّب — Past tense\n\n🇫🇷 Phrase française ici.\n🇸🇾 العبارة باللهجة السورية هون.\n🇺🇸 English sentence here.\n\n---\n\n3. الحياة اليومية — Daily life\n\nAu travail — بالشغل — At work\n\n🇫🇷 Phrase française ici.\n🇸🇾 العبارة باللهجة السورية هون.\n🇺🇸 English sentence here.\n\n===\n\n🇫🇷 Verbe : ÊTRE — يكون — To be\n\n1. Présent — المضارع — Present\n\n🇫🇷 Phrase française ici.\n🇸🇾 العبارة باللهجة السورية هون.\n🇺🇸 English sentence here.";
 
   var state = {
     lang: localStorage.getItem('gramvip_lang') || 'ar',
@@ -828,13 +838,12 @@
         '<span class="hc-name">' + esc(f.name) + '</span>' +
         '<span class="hc-meta">' + ls.length + ' ' + t('lessons') + ' · ' + nPh + ' ' + t('phrases') + '</span></div>';
     }).join('');
-    html += '<div class="home-card add-card" id="addFolderCard"><span class="hc-icon">➕</span><span class="hc-name">' + esc(t('addFolder')) + '</span></div>';
     wrap.innerHTML = html;
     wrap.querySelectorAll('.home-card[data-id]').forEach(function (card) {
       card.onclick = function () {
         state.view = 'folder'; state.folderId = card.dataset.id;
         pushNav();
-        renderAll(); window.scrollTo({ top: 0 });
+        renderAll(); document.querySelector('main').scrollTop = 0;
       };
     });
     wrap.querySelectorAll('[data-menu]').forEach(function (b) {
@@ -845,8 +854,6 @@
         { icon: '🗑️', label: t('del'), danger: true, fn: function () { confirmDeleteFolder(f); } }
       ]);
     });
-    var ac = document.getElementById('addFolderCard');
-    if (ac) ac.onclick = function () { openFolderSheet(null); };
   }
 
   function renderFolder() {
@@ -871,15 +878,14 @@
         '<span class="lr-meta">' + l.sections.length + ' ' + t('sectionsCount') + ' · ' + nPh + ' ' + t('phrasesCount') + '</span>' +
         '<button class="card-menu-btn" data-menu="' + l.id + '">⋮</button></div>';
     }).join('');
-    html += '<div class="lesson-row add-row" id="addLessonRow">➕ ' + esc(t('addLesson')) + '</div>';
-    wrap.innerHTML = html || '<div class="empty"><div class="big">📭</div>' + esc(t('emptyLessons')) + '</div>' + html;
+    wrap.innerHTML = html || '<div class="empty"><div class="big">📭</div>' + esc(t('emptyLessons')) + '</div>';
 
     wrap.querySelectorAll('.lesson-row[data-id]').forEach(function (row) {
       row.onclick = function (e) {
         if (e.target.closest('.card-menu-btn')) return;
         state.view = 'lesson'; state.lessonId = row.dataset.id;
         pushNav();
-        renderAll(); window.scrollTo({ top: 0 });
+        renderAll(); document.querySelector('main').scrollTop = 0;
       };
     });
     wrap.querySelectorAll('[data-menu]').forEach(function (b) {
@@ -891,8 +897,6 @@
         { icon: '🗑️', label: t('del'), danger: true, fn: function () { confirmDeleteLesson(l); } }
       ]);
     });
-    var ar = document.getElementById('addLessonRow');
-    if (ar) ar.onclick = function () { openLessonSheet(f, null); };
   }
 
   function renderLesson() {
@@ -1042,6 +1046,10 @@
     } else if (state.view === 'lesson') {
       renderLesson();
     }
+    var fab = document.getElementById('fabBtn');
+    var fabShow = !searching && (state.view === 'home' || state.view === 'folder');
+    fab.classList.toggle('hidden', !fabShow);
+    fab.title = state.view === 'home' ? t('addFolder') : t('addLesson');
     renderStats();
   }
 
@@ -1109,26 +1117,44 @@
     var raw = document.getElementById('lessonText').value;
     var el = document.getElementById('parseStats');
     if (!raw.trim()) { el.innerHTML = '<span class="stat-pill">' + esc(t('tplHint')) + '</span>'; return; }
-    var p = parseLesson(raw);
-    var nPh = p.sections.reduce(function (n, s) { return n + secPhrases(s).length; }, 0);
-    el.innerHTML = '<span class="stat-pill">📌 <b>' + esc(tri(p.title) || '—') + '</b></span>' +
-      '<span class="stat-pill">📚 <b>' + p.sections.length + '</b> ' + t('sectionsCount') + '</span>' +
+    var parts = splitLessons(raw);
+    var nPh = 0, nSec = 0, firstTitle = '';
+    parts.forEach(function (pt, i) {
+      var p = parseLesson(pt);
+      if (i === 0) firstTitle = tri(p.title);
+      p.sections.forEach(function (s) { nSec++; nPh += secPhrases(s).length; });
+    });
+    el.innerHTML = (parts.length > 1
+      ? '<span class="stat-pill">📚 <b>' + parts.length + '</b> ' + t('lessons') + '</span>'
+      : '<span class="stat-pill">📌 <b>' + esc(firstTitle || '—') + '</b></span>') +
+      '<span class="stat-pill">🗂️ <b>' + nSec + '</b> ' + t('sectionsCount') + '</span>' +
       '<span class="stat-pill">💬 <b>' + nPh + '</b> ' + t('phrasesCount') + '</span>';
+  }
+  function splitLessons(raw) {
+    return raw.split(/^\s*={3,}\s*$/m).map(function (s) { return s.trim(); }).filter(Boolean);
   }
   async function saveLesson() {
     var raw = document.getElementById('lessonText').value;
     if (!raw.trim()) { document.getElementById('lessonText').focus(); return; }
-    var p = parseLesson(raw);
+    var parts = splitLessons(raw);
+    var target = editingLesson ? folderById(editingLesson.folderId) : lessonFolderTarget;
+    var first = parseLesson(parts[0]);
     if (editingLesson) {
-      editingLesson.title = p.title; editingLesson.sections = p.sections; editingLesson.raw = raw;
+      editingLesson.title = first.title; editingLesson.sections = first.sections; editingLesson.raw = parts[0];
       await idbPut('lessons', editingLesson);
     } else {
-      var l = { id: uid(), folderId: lessonFolderTarget.id, title: p.title, sections: p.sections, raw: raw, createdAt: Date.now() };
+      var l = { id: uid(), folderId: target.id, title: first.title, sections: first.sections, raw: parts[0], createdAt: Date.now() };
       lessons.push(l);
       await idbPut('lessons', l);
     }
+    for (var i = 1; i < parts.length; i++) {
+      var pi = parseLesson(parts[i]);
+      var li = { id: uid(), folderId: target.id, title: pi.title, sections: pi.sections, raw: parts[i], createdAt: Date.now() };
+      lessons.push(li);
+      await idbPut('lessons', li);
+    }
     document.getElementById('ovLesson').classList.add('hidden');
-    toast('✓ ' + t('saved'));
+    toast('✓ ' + (parts.length > 1 ? t('savedN').replace('{n}', parts.length) : t('saved')));
     renderAll();
   }
 
@@ -1337,6 +1363,10 @@
   document.getElementById('folderSave').onclick = saveFolder;
   document.getElementById('lessonCancel').onclick = function () { document.getElementById('ovLesson').classList.add('hidden'); };
   document.getElementById('lessonSave').onclick = saveLesson;
+  document.getElementById('fabBtn').onclick = function () {
+    if (state.view === 'home') { openFolderSheet(null); return; }
+    if (state.view === 'folder') { var ff = folderById(state.folderId); if (ff) openLessonSheet(ff, null); }
+  };
   document.getElementById('moveCancel').onclick = function () { document.getElementById('ovMove').classList.add('hidden'); };
   document.getElementById('lessonText').addEventListener('input', updateParseStats);
   document.getElementById('copyTplBtn').onclick = function () {

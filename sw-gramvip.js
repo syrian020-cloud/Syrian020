@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gramvip-v1';
+const CACHE_NAME = 'gramvip-v2';
 const FILES_TO_CACHE = [
   './gramvip.html',
   './manifest-gramvip.json',
