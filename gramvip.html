@@ -1006,6 +1006,10 @@
       btn.parentElement.style.position = 'relative';
       btn.parentElement.classList.add('menu-open');
       btn.parentElement.appendChild(m);
+      // keep the menu inside the viewport on narrow screens
+      var r = m.getBoundingClientRect();
+      if (r.left < 8) m.style.marginLeft = (8 - r.left) + 'px';
+      else if (r.right > window.innerWidth - 8) m.style.marginLeft = (window.innerWidth - 8 - r.right) + 'px';
       m.querySelectorAll('button').forEach(function (b) {
         b.onclick = function (ev) { ev.stopPropagation(); closeMenus(); items[parseInt(b.dataset.i, 10)].fn(); };
       });
