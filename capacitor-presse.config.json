@@ -1,0 +1,13 @@
+{
+  "appId": "com.syrian020.presse",
+  "appName": "Presse",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": false
+  },
+  "appendUserAgent": " Edg/134.0.0.0"
+}
