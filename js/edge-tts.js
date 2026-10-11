@@ -101,7 +101,7 @@
     en: 'Hello, how are you?'
   };
 
-  var api = { down: false };
+  var api = { down: false, lastError: null };
   var RV_TL = { fr: 'fr', ar: 'ar', en: 'en-US' };
   var RV_RATE = '0.47';
   var CACHE_MAX = 60;
@@ -138,7 +138,7 @@
   }
   function setEnabled(v) {
     try { localStorage.setItem('edge_tts', v ? '1' : '0'); } catch (e) {}
-    if (v) api.down = false;
+    if (v) { api.down = false; api.lastError = null; }
   }
   function plugin() {
     return (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.EdgeTTS) || null;
@@ -161,6 +161,14 @@
     return 'file://' + path;
   }
 
+  function errMsg(e) {
+    return (e && e.message) ? e.message : String(e || 'unknown');
+  }
+
+  /* Internet fallback chain inside the APK:
+   *  1. Native EdgeTtsPlugin -> local MP3 file (played by MediaPlayer).
+   *  2. ResponsiveVoice getvoice.php -> MP3 URL played by <audio>.
+   * Whatever fails first records the real reason in api.lastError. */
   function fetchAudio(text, lang) {
     var p = plugin();
     if (p) {
@@ -172,7 +180,11 @@
           if (v === DEFAULT_VOICES[lang]) throw e;
           return p.speak({ text: text, voice: DEFAULT_VOICES[lang], rate: rateOf(lang) });
         })
-        .then(function (r) { return { url: fileUrl(r.path), nativePath: r.path }; });
+        .then(function (r) { return { url: fileUrl(r.path), nativePath: r.path, rv: rvUrl(text, lang) }; })
+        .catch(function (e) {
+          api.lastError = 'EdgeTTS: ' + errMsg(e);
+          return { url: rvUrl(text, lang) };
+        });
     }
     return Promise.resolve({ url: rvUrl(text, lang) });
   }
@@ -236,7 +248,11 @@
         curNative = false;
       }, function (e) {
         curNative = false;
-        throw e;
+        if (!api.lastError) api.lastError = 'MediaPlayer: ' + errMsg(e);
+        // Native playback failed — fall back to the internet MP3 in <audio>.
+        return playUrl(a.rv || a.url).catch(function (e2) {
+          throw new Error(api.lastError + ' | audio: ' + errMsg(e2));
+        });
       });
     }
     return playUrl(a.url);
@@ -244,7 +260,11 @@
 
   function play(text, lang) {
     return audio(text, lang).then(function (a) {
-      return playEntry(a).catch(function (e) { api.down = true; throw e; });
+      return playEntry(a).catch(function (e) {
+        api.down = true;
+        if (!api.lastError) api.lastError = errMsg(e);
+        throw e;
+      });
     });
   }
 

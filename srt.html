@@ -667,6 +667,8 @@
       mediaAudio: 'أصوات',
       exportWithMedia: '📦 تصدير مع الوسائط',
       exportWithoutMedia: '📄 تصدير بدون وسائط',
+      ttsError: 'تعذّر النطق بالإنترنت',
+      ttsDeviceError: 'تعذّر صوت الجهاز',
       actions: 'خيارات',
       exportJson: 'مشاركة / تصدير JSON',
       exportSrt: 'تصدير ملف SRT',
@@ -785,6 +787,8 @@
       mediaAudio: 'Audio',
       exportWithMedia: '📦 Exporter avec médias',
       exportWithoutMedia: '📄 Exporter sans médias',
+      ttsError: 'Voix internet indisponible',
+      ttsDeviceError: 'Voix de l\'appareil indisponible',
       actions: 'Options',
       exportJson: 'Partager / exporter JSON',
       exportSrt: 'Exporter SRT',
@@ -903,6 +907,8 @@
       mediaAudio: 'Audio',
       exportWithMedia: '📦 Export with media',
       exportWithoutMedia: '📄 Export without media',
+      ttsError: 'Internet voice failed',
+      ttsDeviceError: 'Device voice failed',
       actions: 'Options',
       exportJson: 'Share / export JSON',
       exportSrt: 'Export SRT',
@@ -1459,9 +1465,14 @@
       const run = ++ttsRun;
       window.EdgeTTS.play(text, lang)
         .then(() => { if (run === ttsRun && onend) onend(); })
-        .catch(() => {
+        .catch((e) => {
           if (run !== ttsRun) return;
           window.EdgeTTS.down = true;
+          if (!state.ttsErrShown) {
+            state.ttsErrShown = true;
+            const reason = window.EdgeTTS.lastError || (e && e.message) || 'offline';
+            showToast(t('ttsError') + ' — ' + reason);
+          }
           deviceSpeak({ text, lang, onend });
         });
       return;
@@ -1476,7 +1487,13 @@
       plugin.stop().catch(()=>{})
         .then(() => plugin.speak({ text, lang: ttsLang, rate: 1.0, pitch: 1.0, volume: 1.0, category: 'playback' }))
         .then(() => { if (onend) onend(); })
-        .catch(() => { if (onend) onend(); });
+        .catch((e) => {
+          if (!state.ttsDevErrShown) {
+            state.ttsDevErrShown = true;
+            showToast(t('ttsDeviceError') + ' — ' + ((e && e.message) || e || '?'));
+          }
+          if (onend) onend();
+        });
     } else if ('speechSynthesis' in window) {
       const u = new SpeechSynthesisUtterance(text);
       u.lang = ttsLang;
