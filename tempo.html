@@ -198,7 +198,7 @@ header{position:sticky;top:0;z-index:30;padding:14px 0 10px;
 .cline .tx::-webkit-scrollbar{display:none}
 .cline .lacts{flex:none;display:flex;gap:5px}
 .cline.note{background:none;border:0;box-shadow:none;padding:8px 4px}
-.cline.note .tx{font-size:20.5px;font-weight:800;text-align:center;color:var(--acc2)}
+.cline.note .tx{font-size:20.5px;font-weight:800;text-align:center;color:var(--acc2);white-space:normal;overflow:visible}
 .cue .ib{flex:none;width:34px;height:34px;border-radius:10px;background:var(--card);border:1px solid var(--line);
   font-size:15px;cursor:pointer;color:var(--txt);opacity:.9;display:inline-flex;align-items:center;justify-content:center;
   padding:0;transition:transform .12s,background .12s,opacity .12s;font-family:inherit}
@@ -1185,9 +1185,9 @@ async function renderDetail(){
           <div class="cside">${c.start!=null?`<span class="tm">${fmtT(c.start)}</span>`:''}
           <button class="ib aloop${hasAudio&&c.start!=null?'':' dis'}" data-aloop="${i}" title="${esc(t('loopSeg'))}">🔁</button></div>
           <div class="clines">${c.lines.map((ln,j)=>ln.guessed?`<div class="cline note">
-            <span class="tx">${wrapWords(ln.text,ln.lang)}</span>
+            <span class="tx" dir="auto">${wrapWords(ln.text,ln.lang)}</span>
             <span class="lacts"><button class="ib spk" data-spk="${i}:${j}" title="🔁">🔊</button><button class="ib ai" data-ai="${i}:${j}" title="${esc(t('aiTitle'))}">✦</button></span></div>`:`<div class="cline">
-            <span class="lgb">${LANG_FLAGS[ln.lang]||''}</span><span class="tx">${wrapWords(ln.text,ln.lang)}</span>
+            <span class="lgb">${LANG_FLAGS[ln.lang]||''}</span><span class="tx" dir="auto">${wrapWords(ln.text,ln.lang)}</span>
             <span class="lacts"><button class="ib spk" data-spk="${i}:${j}" title="🔁">🔊</button><button class="ib ai" data-ai="${i}:${j}" title="${esc(t('aiTitle'))}">✦</button></span></div>`).join('')}</div>
         </div>`).join('')}</div>`:''}
     </div>`;
