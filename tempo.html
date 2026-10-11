@@ -1473,13 +1473,6 @@ function renderPlan(){
   const el=$('#view-plan');
   const curMon=isoD(mondayOf(new Date()));
   const curTy=weekType(curMon);
-  const wks=[];
-  for(let i=0;i<12;i++){
-    const mi=isoD(addDays(mondayOf(new Date()),i*7));
-    const sun=isoD(addDays(new Date(mi+'T12:00'),6));
-    const custom=!!(plan.weekOv[mi]||Object.keys(plan.dayOv).some(d=>mondayISO(d)===mi));
-    wks.push({mi,sun,ty:weekType(mi),custom,now:i===0});
-  }
   el.innerHTML=`
     <header><div class="hrow">
       <button class="icon-btn" id="p-back">‹</button>
@@ -1523,14 +1516,6 @@ function renderPlan(){
       <div class="btnrow"><button class="btn btn-pri" id="p-go">✅ ${t('chkGo')}</button></div>
       <div id="p-res"></div>
     </div>
-    <div class="dcard">
-      <div style="font-weight:800;margin-bottom:8px">🗓️ ${t('weeksNext')}</div>
-      ${wks.map(w=>`<div class="wkrow" data-wk="${w.mi}">
-        <div class="wl"><div class="wt2">${fmtDay(w.mi)} – ${fmtDay(w.sun)}${w.now?' · '+t('wkNow'):''}</div>
-        <div class="wr">${w.custom?('✎ '+t('wkCustom')):t('wkAuto')}</div></div>
-        <span class="sbadge ${shCls(w.ty)}">${w.ty?shName(w.ty):'…'}</span>
-      </div>`).join('')}
-      <div class="hint">${t('weeksHint')}</div>
     </div>`;
   $('#p-back').onclick=closePlan;
   el.querySelectorAll('[data-sh]').forEach(b=>b.onclick=()=>setThisWeek(b.dataset.sh));
@@ -1556,7 +1541,6 @@ function renderPlan(){
   });
   $('#tm-reset').onclick=e=>{e.preventDefault();delete plan.times.matin;delete plan.times.soir;planSave();renderPlan();};
   $('#p-go').onclick=runCheck;
-  el.querySelectorAll('[data-wk]').forEach(r=>r.onclick=()=>openWeekSheet(r.dataset.wk));
   if(chkPrefill){chkPrefill=null;runCheck();}
 }
 function runCheck(){
