@@ -75,6 +75,8 @@
   .fab { position: fixed; inset-inline-end: 20px; bottom: 22px; width: 58px; height: 58px; border-radius: 50%; border: none; font-size: 1.7rem; cursor: pointer; background: linear-gradient(135deg, var(--accent-solid), var(--accent-hover)); color: #fff; box-shadow: 0 10px 28px rgba(139,92,246,0.45); z-index: 1050; display: flex; align-items: center; justify-content: center; transition: transform .15s, box-shadow .15s; font-family: inherit; }
   .fab:hover { transform: scale(1.08); box-shadow: 0 14px 34px rgba(139,92,246,0.55); }
   .hint { font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.4rem; }
+  .hflags { display: inline-flex; gap: 0.2rem; margin-inline-start: 0.5rem; vertical-align: middle; }
+  .hflags .flag-btn { width: 30px; height: 30px; border-radius: 10px; font-size: 0.85rem; }
 
   .hero { background: linear-gradient(140deg, rgba(139,92,246,0.18), rgba(19,24,46,0.6) 45%, rgba(244,63,94,0.10)); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.9rem 1.5rem; margin-bottom: 1.1rem; position: relative; overflow: hidden; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: var(--shadow-sm); }
   [data-theme="light"] .hero { background: linear-gradient(140deg, rgba(139,92,246,0.14), rgba(255,255,255,0.7) 45%, rgba(34,211,238,0.08)); }
@@ -143,7 +145,7 @@
   .section-body { display: none; padding: 0 0.85rem 0.9rem; }
   .section.open .section-body { display: block; animation: fadeUp .28s ease; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-  .sec-note { color: var(--text-secondary); font-size: 0.82rem; font-weight: 600; margin: 0.2rem 0 0.6rem; padding-inline-start: 0.3rem; }
+  .sec-note { color: var(--text-secondary); font-size: 0.76rem; font-weight: 500; margin: 0.2rem 0 0.6rem; padding-inline-start: 0.3rem; line-height: 1.55; opacity: 0.85; }
   .group-title { display: flex; align-items: center; gap: 0.45rem; color: var(--accent); font-size: 0.82rem; font-weight: 850; margin: 0.75rem 0 0.5rem; padding-inline-start: 0.3rem; }
   .group-title::before { content: ''; width: 14px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--accent-solid), var(--accent-2)); }
 
@@ -320,6 +322,10 @@
       <button class="btn btn-ghost" id="pasteBtn">📥 <span data-t="paste">لصق</span></button>
     </div>
     <div class="field">
+      <label data-t="lessonTitle">عنوان الدرس</label>
+      <input type="text" id="lessonTitle" data-t-ph="lessonTitlePh" placeholder="مثال: Verbe : ÊTRE — الفعل: يكون — TO BE">
+    </div>
+    <div class="field">
       <label data-t="lessonText">نص الدرس (بالنموذج)</label>
       <textarea id="lessonText" spellcheck="false" data-t-ph="lessonTextPh" placeholder="🇫🇷 Verbe : AVOIR — يملك / عنده — To have
 
@@ -370,7 +376,7 @@
       folders: 'مجلدات', lessons: 'دروس', phrases: 'عبارة', sections: 'أقسام',
       searchPh: 'ابحث في العبارات…', noResults: 'لا توجد نتائج', stop: 'إيقاف', home: 'الرئيسية',
       newFolder: 'مجلد جديد', editFolder: 'تعديل المجلد', folderName: 'اسم المجلد', folderNamePh: 'مثال: الأفعال', folderIcon: 'أيقونة المجلد',
-      newLesson: 'درس جديد', editLesson: 'تعديل الدرس', lessonText: 'نص الدرس (بالنموذج)', lessonTextPh: 'الصق نص الدرس هنا…',
+      newLesson: 'درس جديد', editLesson: 'تعديل الدرس', lessonTitle: 'عنوان الدرس', lessonTitlePh: 'مثال: Verbe : ÊTRE — الفعل: يكون — TO BE', lessonText: 'نص الدرس (بالنموذج)', lessonTextPh: 'الصق نص الدرس هنا…',
       copyTemplate: 'نسخ النموذج', paste: 'لصق', save: 'حفظ', cancel: 'إلغاء', yes: 'نعم', no: 'لا',
       rename: 'تغيير الاسم', changeIcon: 'تغيير الأيقونة', del: 'حذف', open: 'فتح', edit: 'تعديل', moveTo: 'نقل إلى مجلد',
       addLesson: 'إضافة درس', addFolder: 'إضافة مجلد', export: 'تصدير نسخة احتياطية', import: 'استيراد نسخة',
@@ -391,7 +397,7 @@
       folders: 'folders', lessons: 'lessons', phrases: 'phrases', sections: 'sections',
       searchPh: 'Search phrases…', noResults: 'No results', stop: 'Stop', home: 'Home',
       newFolder: 'New folder', editFolder: 'Edit folder', folderName: 'Folder name', folderNamePh: 'e.g. Verbs', folderIcon: 'Folder icon',
-      newLesson: 'New lesson', editLesson: 'Edit lesson', lessonText: 'Lesson text (template)', lessonTextPh: 'Paste lesson text here…',
+      newLesson: 'New lesson', editLesson: 'Edit lesson', lessonTitle: 'Lesson title', lessonTitlePh: 'e.g. Verbe : ÊTRE — الفعل — TO BE', lessonText: 'Lesson text (template)', lessonTextPh: 'Paste lesson text here…',
       copyTemplate: 'Copy template', paste: 'Paste', save: 'Save', cancel: 'Cancel', yes: 'Yes', no: 'No',
       rename: 'Rename', changeIcon: 'Change icon', del: 'Delete', open: 'Open', edit: 'Edit', moveTo: 'Move to folder',
       addLesson: 'Add lesson', addFolder: 'Add folder', export: 'Export backup', import: 'Import backup',
@@ -412,7 +418,7 @@
       folders: 'dossiers', lessons: 'leçons', phrases: 'phrases', sections: 'sections',
       searchPh: 'Rechercher une phrase…', noResults: 'Aucun résultat', stop: 'Arrêter', home: 'Accueil',
       newFolder: 'Nouveau dossier', editFolder: 'Modifier le dossier', folderName: 'Nom du dossier', folderNamePh: 'ex. Verbes', folderIcon: 'Icône du dossier',
-      newLesson: 'Nouvelle leçon', editLesson: 'Modifier la leçon', lessonText: 'Texte de la leçon (modèle)', lessonTextPh: 'Collez le texte de la leçon ici…',
+      newLesson: 'Nouvelle leçon', editLesson: 'Modifier la leçon', lessonTitle: 'Titre de la leçon', lessonTitlePh: 'ex. Verbe : ÊTRE — الفعل — TO BE', lessonText: 'Texte de la leçon (modèle)', lessonTextPh: 'Collez le texte de la leçon ici…',
       copyTemplate: 'Copier le modèle', paste: 'Coller', save: 'Enregistrer', cancel: 'Annuler', yes: 'Oui', no: 'Non',
       rename: 'Renommer', changeIcon: 'Changer l\'icône', del: 'Supprimer', open: 'Ouvrir', edit: 'Modifier', moveTo: 'Déplacer vers',
       addLesson: 'Ajouter une leçon', addFolder: 'Ajouter un dossier', export: 'Exporter une sauvegarde', import: 'Importer une sauvegarde',
@@ -431,7 +437,7 @@
   var TTS_LANG = { fr: 'fr-FR', ar: 'ar-SA', en: 'en-US' };
   var FOLDER_ICONS = ['📁','📚','📝','✏️','🔤','🗣️','💬','📖','🎓','⚖️','🏛️','🏥','🏦','✉️','💼','🏠','🚇','🛒','🍽️','⚽','🎵','🧮','📐','🔬','🌍','⏰','💡','❤️','⭐','🧠','📌'];
 
-  var TEMPLATE = "🇫🇷 Verbe : VERBE — المعنى بالعربي — Meaning in English\n\n1. Présent — المضارع — Present\n\n🇫🇷 Phrase française ici.\n🇸🇾 العبارة باللهجة السورية هون.\n🇺🇸 English sentence here.\n\n🇫🇷 Phrase française ici.\n🇸🇾 العبارة باللهجة السورية هون.\n🇺🇸 English sentence here.\n\n---\n\n2. Passé composé — الماضي المركّب — Past tense\n\n🇫🇷 Phrase française ici.\n🇸🇾 العبارة باللهجة السورية هون.\n🇺🇸 English sentence here.\n\n---\n\n3. الحياة اليومية — Daily life\n\nAu travail — بالشغل — At work\n\n🇫🇷 Phrase française ici.\n🇸🇾 العبارة باللهجة السورية هون.\n🇺🇸 English sentence here.\n\n===\n\n🇫🇷 Verbe : ÊTRE — يكون — To be\n\n1. Présent — المضارع — Present\n\n🇫🇷 Phrase française ici.\n🇸🇾 العبارة باللهجة السورية هون.\n🇺🇸 English sentence here.";
+  var TEMPLATE = "🇫🇷 Verbe : [INFINITIF] — 🇸🇾 الفعل: [المعنى بالعربي] — 🇺🇸 Verb: [English meaning]\n\n🇫🇷 1. Présent — 🇸🇾 المضارع — 🇺🇸 Present\n\n🇫🇷 Je [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Tu [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Il [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Elle [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Nous [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Vous [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 Ils / Elles [verbe conjugué]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 2. Passé composé — 🇸🇾 الماضي المركّب — 🇺🇸 Compound past\n\n🇫🇷 [Phrase au passé composé]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 3. Futur proche — 🇸🇾 المستقبل القريب — 🇺🇸 Near future\n\n🇫🇷 [Phrase au futur proche]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 4. Vie quotidienne — 🇸🇾 الحياة اليومية — 🇺🇸 Daily life\n\n🇫🇷 [Phrase de la vie quotidienne]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 5. Au travail — 🇸🇾 بالشغل — 🇺🇸 At work\n\n🇫🇷 [Phrase au travail]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 6. À la pharmacie — 🇸🇾 بالصيدلية — 🇺🇸 At the pharmacy\n\n🇫🇷 [Phrase à la pharmacie]. | 🇸🇾 [الترجمة السورية]. | 🇺🇸 [English translation].\n\n🇫🇷 7. Chez le médecin — 🇸🇾 عند الدكتور — 🇺🇸 At the doctor's";
 
   var state = {
     lang: localStorage.getItem('gramvip_lang') || 'ar',
@@ -503,6 +509,30 @@
   function stripFlag(line) {
     return line.replace(/^((?:[\u{1F1E6}-\u{1F1FF}]{2}|[🇫🇷🇸🇾🇺🇸])\uFE0F?\s*)+/u, '').replace(/^(FR|AR|EN)\s*[:：.\-]\s*/i, '').trim();
   }
+  // extract flag-prefixed segments from a line like '🇫🇷 text — 🇸🇾 text — 🇺🇸 text'
+  // or '🇫🇷 text | 🇸🇾 text | 🇺🇸 text' (new template style)
+  var FLAG_RE = /(🇫🇷|🇸🇾|🇹🇳|🇩🇿|🇲🇦|🇪🇬|🇸🇦|🇺🇸|🇬🇧)/g;
+  function flaggedSegs(line) {
+    var matches = [], m;
+    FLAG_RE.lastIndex = 0;
+    while ((m = FLAG_RE.exec(line))) matches.push({ flag: m[0], start: m.index });
+    if (matches.length < 2) return null;
+    var segs = [];
+    for (var i = 0; i < matches.length; i++) {
+      var end = (i + 1 < matches.length) ? matches[i + 1].start : line.length;
+      var text = line.slice(matches[i].start + matches[i].flag.length, end)
+        .replace(/^[\s|—–\-]+|[\s|—–\-]+$/g, '').trim();
+      segs.push({ lang: flagOf(matches[i].flag), text: text });
+    }
+    return segs;
+  }
+  function segsToTri(segs) {
+    var tri = { fr: '', ar: '', en: '' };
+    segs.forEach(function (sg) {
+      if (sg.lang && sg.text) tri[sg.lang] = tri[sg.lang] ? tri[sg.lang] + ' / ' + sg.text : sg.text;
+    });
+    return tri;
+  }
   function isAr(s) { return /[\u0600-\u06FF]/.test(s); }
   function splitParts(line) {
     var parts = line.split(/\s*[—–]\s*/);
@@ -564,8 +594,17 @@
     while (i < lines.length) {
       var first = lines[i];
       if (HDR_NUM.test(first)) break;
+      var fsegs = flaggedSegs(first);
+      if (fsegs) {
+        if (first.indexOf('|') >= 0 || HDR_NUM.test(fsegs[0].text)) break;
+        lesson.title = segsToTri(fsegs); // e.g. 🇫🇷 Verbe : ÊTRE — 🇸🇾 الفعل: يكون — 🇺🇸 Verb: TO BE
+        i++;
+        break;
+      }
       if (flagOf(first) && splitParts(stripFlag(first)).length < 2) break;
       var tparts = splitParts(stripFlag(first));
+      // a long single-language line is preamble prose, not a title — leave it as a note
+      if (tparts.length < 2 && first.length > 60) break;
       lesson.title = partsToTri(tparts.length ? tparts : [first]);
       i++;
       break;
@@ -576,6 +615,24 @@
       var line = lines[i];
       var fl = flagOf(line);
       if (fl) {
+        var fsegs = flaggedSegs(line);
+        if (fsegs) {
+          // multi-flag line: '|' = phrase, numbered = section, otherwise group header
+          flushPhrase();
+          var ftri = segsToTri(fsegs);
+          if (line.indexOf('|') >= 0) {
+            ensureGrp().phrases.push(ftri);
+          } else if (HDR_NUM.test(fsegs[0].text)) {
+            ftri.fr = (ftri.fr || '').replace(HDR_NUM, '');
+            newSec(ftri);
+          } else if (!lesson.sections.length && !lesson.title.fr) {
+            // a flagged trilingual line before any section beats a guessed prose title
+            lesson.title = ftri;
+          } else {
+            newGrp(ftri);
+          }
+          continue;
+        }
         var txt = stripFlag(line);
         if (fl === 'fr') {
           flushPhrase();
@@ -809,6 +866,20 @@
     return '<div class="phrase"><div class="phrase-lines">' + rows + '</div><div class="flags">' + btns + '</div></div>';
   }
 
+  // small per-language TTS buttons for titles (lesson, section, group)
+  function speakFlags(tr) {
+    var h = '<span class="hflags">';
+    if (tr && tr.fr) h += '<button class="flag-btn" data-sp="' + esc(tr.fr) + '" data-lang="fr" title="FR">🇫🇷</button>';
+    if (tr && tr.ar) h += '<button class="flag-btn" data-sp="' + esc(tr.ar) + '" data-lang="ar" title="AR">🇸🇾</button>';
+    if (tr && tr.en) h += '<button class="flag-btn" data-sp="' + esc(tr.en) + '" data-lang="en" title="EN">🇺🇸</button>';
+    return h + '</span>';
+  }
+  function wireSpeakButtons(scope) {
+    scope.querySelectorAll('[data-sp]').forEach(function (b) {
+      b.onclick = function (ev) { ev.stopPropagation(); speak(b.dataset.sp, b.dataset.lang, b); };
+    });
+  }
+
   function attachMenu(btn, items) {
     btn.onclick = function (e) {
       e.stopPropagation();
@@ -906,7 +977,7 @@
     var wrap = document.getElementById('content');
     if (!l) { state.view = state.folderId ? 'folder' : 'home'; renderAll(); return; }
     head.innerHTML = '<button class="icon-btn back-btn" id="backBtn">' + esc(f ? (f.icon + ' ' + f.name) : t('home')) + '</button>' +
-      '<h2>📚 ' + esc(lessonTitle(l)) + '</h2>' +
+      '<h2>📚 ' + esc(lessonTitle(l)) + speakFlags(l.title) + '</h2>' +
       '<button class="icon-btn" id="lessonEditBtn">✏️</button>' +
       '<p>' + esc(l.title.ar || '') + (l.title.en ? ' · ' + esc(l.title.en) : '') + '</p>';
     document.getElementById('backBtn').onclick = navBack;
@@ -920,12 +991,12 @@
       return '<div class="section" data-sec="' + si + '">' +
         '<div class="section-head"><button class="sec-play" data-play="' + (playData.length - 1) + '" title="Play all">▶️</button>' +
         '<span class="sec-icon">📖</span>' +
-        '<span class="sec-title">' + esc(tri(sec.title) || t('sections')) + '</span>' +
+        '<span class="sec-title">' + esc(tri(sec.title) || t('sections')) + speakFlags(sec.title) + '</span>' +
         '<span class="sec-count">' + phrases.length + ' ' + t('phrasesCount') + ' · ' + wordsFr + ' FR</span><span class="chev">▼</span></div>' +
         '<div class="section-body">' +
         secGroups(sec).map(function (g) {
           var gh = '';
-          if (g.title && tri(g.title)) gh += '<div class="group-title">' + esc(tri(g.title)) + '</div>';
+          if (g.title && tri(g.title)) gh += '<div class="group-title">' + esc(tri(g.title)) + speakFlags(g.title) + '</div>';
           gh += (g.notes || []).map(function (n) { return '<div class="sec-note">' + esc(n) + '</div>'; }).join('');
           gh += g.phrases.map(phraseHtml).join('');
           return gh;
@@ -935,9 +1006,8 @@
     wrap.querySelectorAll('.section-head').forEach(function (h) {
       h.onclick = function () { h.parentElement.classList.toggle('open'); };
     });
-    // open the first section by default
-    var first = wrap.querySelector('.section');
-    if (first) first.classList.add('open');
+    // all sections open by default — every phrase is visible immediately
+    wrap.querySelectorAll('.section').forEach(function (s) { s.classList.add('open'); });
     wrap.querySelectorAll('.sec-play').forEach(function (b) {
       b.onclick = function (ev) {
         ev.stopPropagation();
@@ -947,6 +1017,8 @@
       };
     });
     wireFlagButtons(wrap);
+    wireSpeakButtons(head);
+    wireSpeakButtons(wrap);
   }
 
   function findPhrase(btn) {
@@ -991,7 +1063,7 @@
         if (rendered + phrases.length > 250) { phrases = phrases.slice(0, 250 - rendered); capped = true; }
         rendered += phrases.length;
         lessonHtml += '<div class="section open"><div class="section-head"><span class="sec-icon">📖</span>' +
-          '<span class="sec-title">' + esc(tri(sec.title) || t('sections')) + '</span>' +
+          '<span class="sec-title">' + esc(tri(sec.title) || t('sections')) + speakFlags(sec.title) + '</span>' +
           '<span class="sec-count">' + phrases.length + ' ' + t('phrasesCount') + '</span></div>' +
           '<div class="section-body">' + phrases.map(phraseHtml).join('') + '</div></div>';
       });
@@ -1017,6 +1089,7 @@
       };
     });
     wireFlagButtons(wrap);
+    wireSpeakButtons(wrap);
   }
 
   function renderStats() {
@@ -1110,6 +1183,7 @@
     lessonFolderTarget = f;
     document.querySelector('#lessonSheetTitle span').textContent = l ? t('editLesson') : t('newLesson');
     document.getElementById('lessonText').value = l ? (l.raw || '') : '';
+    document.getElementById('lessonTitle').value = l ? [l.title.fr, l.title.ar, l.title.en].filter(Boolean).join(' — ') : '';
     updateParseStats();
     document.getElementById('ovLesson').classList.remove('hidden');
   }
@@ -1130,31 +1204,58 @@
       '<span class="stat-pill">🗂️ <b>' + nSec + '</b> ' + t('sectionsCount') + '</span>' +
       '<span class="stat-pill">💬 <b>' + nPh + '</b> ' + t('phrasesCount') + '</span>';
   }
+  // multi-lesson paste: lessons separated by '===' lines or 'النموذج N:' headings
+  var LESSON_SEP = /^\s*(?:={3,}|(?:ال)?نمو[زذ]ج\s*(?:جديد|\d|$|[:：]))/i;
   function splitLessons(raw) {
-    return raw.split(/^\s*={3,}\s*$/m).map(function (s) { return s.trim(); }).filter(Boolean);
+    var chunks = [], cur = [];
+    raw.split(/\r?\n/).forEach(function (l) {
+      if (LESSON_SEP.test(l)) {
+        if (cur.join('\n').trim()) chunks.push(cur.join('\n').trim());
+        cur = [];
+      } else cur.push(l);
+    });
+    if (cur.join('\n').trim()) chunks.push(cur.join('\n').trim());
+    return chunks;
+  }
+  function titleFromInput(input, fallback) {
+    input = (input || '').trim();
+    if (!input) return fallback;
+    var segs = flaggedSegs(input);
+    if (segs) return segsToTri(segs);
+    var parts = splitParts(input);
+    if (parts.length >= 2) return partsToTri(parts);
+    return { fr: input, ar: input, en: input };
   }
   async function saveLesson() {
     var raw = document.getElementById('lessonText').value;
     if (!raw.trim()) { document.getElementById('lessonText').focus(); return; }
     var parts = splitLessons(raw);
+    var items = parts.map(function (pt) {
+      var p = parseLesson(pt);
+      var nPh = p.sections.reduce(function (n, s) { return n + secPhrases(s).length; }, 0);
+      return { raw: pt, p: p, nPh: nPh, hasTitle: !!(p.title.fr || p.title.ar || p.title.en) };
+    }).filter(function (it) {
+      // drop preamble chunks that produced no title and no phrases (e.g. pasted intro text)
+      return it.nPh > 0 || it.hasTitle || parts.length === 1;
+    });
+    if (!items.length) { document.getElementById('lessonText').focus(); return; }
     var target = editingLesson ? folderById(editingLesson.folderId) : lessonFolderTarget;
-    var first = parseLesson(parts[0]);
+    var titleIn = document.getElementById('lessonTitle').value;
     if (editingLesson) {
-      editingLesson.title = first.title; editingLesson.sections = first.sections; editingLesson.raw = parts[0];
+      editingLesson.title = titleFromInput(titleIn, items[0].p.title); editingLesson.sections = items[0].p.sections; editingLesson.raw = items[0].raw;
       await idbPut('lessons', editingLesson);
     } else {
-      var l = { id: uid(), folderId: target.id, title: first.title, sections: first.sections, raw: parts[0], createdAt: Date.now() };
+      var l = { id: uid(), folderId: target.id, title: titleFromInput(titleIn, items[0].p.title), sections: items[0].p.sections, raw: items[0].raw, createdAt: Date.now() };
       lessons.push(l);
       await idbPut('lessons', l);
     }
-    for (var i = 1; i < parts.length; i++) {
-      var pi = parseLesson(parts[i]);
-      var li = { id: uid(), folderId: target.id, title: pi.title, sections: pi.sections, raw: parts[i], createdAt: Date.now() };
+    for (var i = 1; i < items.length; i++) {
+      var li = { id: uid(), folderId: target.id, title: items[i].p.title, sections: items[i].p.sections, raw: items[i].raw, createdAt: Date.now() };
       lessons.push(li);
       await idbPut('lessons', li);
     }
     document.getElementById('ovLesson').classList.add('hidden');
-    toast('✓ ' + (parts.length > 1 ? t('savedN').replace('{n}', parts.length) : t('saved')));
+    toast('✓ ' + (items.length > 1 ? t('savedN').replace('{n}', items.length) : t('saved')));
     renderAll();
   }
 
